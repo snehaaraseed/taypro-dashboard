@@ -45,6 +45,7 @@ export default function YadgirSolarProject() {
                  and 19 semi-automatic robots at the Yadgir Solar Project in
                   Karnataka. The objective was to achieve optimal solar panel
                  efficiency and a consistent performance ratio."
+        keywords="yadgir solar, taypro solar projects, maximum energy generation, net zero goals, cutting-edge technology"
         url="http://localhost:3000/projects/yadgir-solar-project"
         breadcrumbs={breadcrumbs}
       />

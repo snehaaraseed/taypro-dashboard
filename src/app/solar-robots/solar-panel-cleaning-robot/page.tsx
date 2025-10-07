@@ -29,7 +29,7 @@ export default function SolarPanelCleaningRobot() {
       <SEO
         title="Solar Panel Cleaning Robot | Taypro"
         description="Solar Module Cleaning System by Taypro has highest Uptime and Return on Investment by using Solar Panel Cleaning Robots for efficiency. Enquire Today!"
-        keywords="solar panel cleaning robot, automatic solar robot, taypro"
+        keywords="solar panel cleaning robot, automatic solar robot, taypro, predictive solar cleaning, battery efficiency, semi automatic, capex"
         url="http://localhost:3000/solar-robots/solar-panel-cleaning-robot"
         breadcrumbs={breadcrumbs}
         faqs={[faqs, moreFaqs]}
@@ -292,7 +292,7 @@ export default function SolarPanelCleaningRobot() {
                   className={`flex items-center w-full py-2 text-xl font-medium transition-colors duration-200 text-[#052638] hover:text-[#A8C117] cursor-pointer`}
                   onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                 >
-                  <span className="flex items-center justify-center w-6 h-6 bg-[#052638] text-white font-bold  rounded-sm mr-4 text-xl select-none">
+                  <span className="flex items-center justify-center w-6 h-6 bg-[#052638] text-white font-semibold  rounded-sm mr-4 text-xl select-none">
                     {openIndex === idx ? "-" : "+"}
                   </span>
                   {faq.question}
@@ -315,7 +315,7 @@ export default function SolarPanelCleaningRobot() {
                   className={`flex items-center w-full py-2 text-xl font-medium transition-colors duration-200 text-[#052638] hover:text-[#A8C117] cursor-pointer`}
                   onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                 >
-                  <span className="flex items-center justify-center w-6 h-6 bg-[#052638] text-white font-bold  rounded-sm mr-4 text-xl select-none">
+                  <span className="flex items-center justify-center w-6 h-6 bg-[#052638] text-white font-semibold  rounded-sm mr-4 text-xl select-none">
                     {openIndex === idx ? "-" : "+"}
                   </span>
                   {faq.question}

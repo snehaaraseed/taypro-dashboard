@@ -29,6 +29,7 @@ export default function AutomaticSolarPanelCleaningSystem() {
       <SEO
         title="Model-T for Single Axis Tracker | Taypro"
         description="Single Axis Tracker Solar Cleaning Robot by Taypro. Call us Today!"
+        keywords="automatic solar panel, cleaning system, model t, taypro single axis tracker, taypro"
         url="http://localhost:3000/solar-robots/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
         breadcrumbs={breadcrumbs}
       />

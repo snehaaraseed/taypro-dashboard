@@ -37,6 +37,7 @@ export default function AboutUsPage() {
         title="About Us | Taypro"
         description="Taypro is at the forefront of revolutionizing solar energy efficiency through innovative technological solutions designed to address persistent challenges within the industry. As solar panels become increasingly integral to renewable energy systems, the efficiency of these installations can be significantly compromised by environmental factors, the most notable being dust accumulation on the panel surfaces. This buildup not only obstructs sunlight but can lead to diminished energy output, translating directly into reduced efficiency and financial losses for residential and commercial users alike."
         url="http://localhost:3000/company"
+        keywords="solar panel cleaning robots, about-us, about taypro, sustainable future, automatic solar robot, taypro"
         breadcrumbs={breadcrumbs}
       />
       <Breadcrumbs items={breadcrumbs} />
@@ -52,7 +53,7 @@ export default function AboutUsPage() {
             <div className="text-[#A8C117] text-center text-[16px] mb-4">
               Who we are
             </div>
-            <h1 className="font-bold text-[#052638] text-4xl md:text-5xl mb-7 text-center">
+            <h1 className="font-semibold text-[#052638] text-4xl md:text-5xl mb-7 text-center">
               Engineers of a
               <br />
               sustainable future
@@ -126,11 +127,11 @@ export default function AboutUsPage() {
                 </Link>
               </div>
               <div className="mt-4 mb-6">
-                <div className="text-6xl font-bold mb-2">1.4 Bn</div>
+                <div className="text-6xl font-semibold mb-2">1.4 Bn</div>
                 <div className="text-lg">Liters Water Saved Annually</div>
               </div>
               <div>
-                <div className="text-5xl font-bold mb-2">67.5k</div>
+                <div className="text-5xl font-semibold mb-2">67.5k</div>
                 <div className="text-lg">
                   Metric Tons Of CO2 Emission Reduced Annually
                 </div>
@@ -251,7 +252,7 @@ export default function AboutUsPage() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-center">
             {metrics.map((stat, idx) => (
               <div key={stat.label} className="flex flex-col items-center">
-                <span className="text-[#b2cb19] font-bold text-6xl mb-2">
+                <span className="text-[#b2cb19] font-semibold text-6xl mb-2">
                   {stat.value}
                 </span>
                 <span className="text-[#b2cb19] text-lg">{stat.label}</span>

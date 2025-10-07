@@ -42,6 +42,7 @@ export default function AgarSolarProject() {
       <SEO
         title="Agar Solar Project"
         description="The Agar 250 MW Solar Project is a breakthrough in generating more power. By deploying solar cleaning robots, the project addresses the critical challenges of maintaining large-scale solar power plants."
+        keywords="agar solar, taypro solar projects, solar panel, advanced robotics, performance drive"
         url="http://localhost:3000/projects/agar-solar-project"
         breadcrumbs={breadcrumbs}
       />

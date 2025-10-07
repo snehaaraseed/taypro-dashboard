@@ -42,6 +42,7 @@ export default function SoyegaonSolarProject() {
       <SEO
         title="Soyegaon Maharashtra"
         description="The Soygaon Solar Project required a solution to maximise the power generation and performance ratio. TAYPRO’s automatic and semi-automatic robots were meticulously deployed to deliver high-speed cleaning for autonomous cleaning for large-scale panel areas. Also, the semi-automatic robots focused on intricate cleaning requirements."
+        keywords="soyegaon solar, soyegaon maharashtra, taypro solar projects, solar panel efficiency, power generation, cutting-edge technology"
         url="http://localhost:3000/projects/soyegaon-solar-project"
         breadcrumbs={breadcrumbs}
       />

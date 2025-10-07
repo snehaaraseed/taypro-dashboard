@@ -20,6 +20,7 @@ export default function ProjectPage() {
       <SEO
         title="Solar Project"
         description="Sustainable Projects Disrupting the energy-industry."
+        keywords="solar projects, sustainable energy, solar panels, taypro solar plants, maximum power generation"
         url="http://localhost:3000/projects"
         breadcrumbs={breadcrumbs}
       />

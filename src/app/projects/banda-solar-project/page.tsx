@@ -46,6 +46,7 @@ export default function BandaSolarProject() {
                   Uttar Pradesh. The core objective is to ensure regular and
                   efficient cleaning of solar panels and enhance the performance
                   ratio."
+        keywords="banda solar, taypro solar projects, solar panel, power generation, key metrics, maximum energy generation, performance drive"
         url="http://localhost:3000/projects/banda-solar-project"
         breadcrumbs={breadcrumbs}
       />

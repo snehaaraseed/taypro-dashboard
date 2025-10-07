@@ -22,6 +22,7 @@ export default function ContactUsPage() {
       <SEO
         title="Contact Us | Taypro"
         description="Reach out to Taypro for Solar Power Plant Cleaning Services. We deliver high ROI and 99% cleaning efficiency."
+        keywords="solar panel cleaning robots, contact taypro, email, automatic solar robot, semi-automatic solar robot, taypro"
         url="http://localhost:3000/contact"
         breadcrumbs={breadcrumbs}
       />
