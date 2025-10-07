@@ -36,6 +36,7 @@ export default function ProjectTypePage() {
       <SEO
         title={formattedType}
         description="Our intelligent solar cleaning robots enhance plant efficiency by enabling immaculate solar panel cleaning using intelligent AI and ML systems."
+        keywords="taypro projects, solar projects, automatic, semi-automatic, capex, energy industry"
         url={`http://localhost:3000/${formattedType}`}
         breadcrumbs={breadcrumbs}
       />

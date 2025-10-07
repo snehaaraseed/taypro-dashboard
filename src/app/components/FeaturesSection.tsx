@@ -26,7 +26,7 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({
       <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between px-6 py-20 gap-10">
         {/* Left side: Headline + Description */}
         <div className="md:w-1/2">
-          <div className="text-[#052638] font-bold text-4xl md:text-5xl mb-7 leading-tight">
+          <div className="text-[#052638] font-semibold text-4xl md:text-5xl mb-7 leading-tight">
             {headline}
           </div>
           <p className="text-[#052638] text-lg md:text-xl leading-relaxed">

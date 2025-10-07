@@ -13,7 +13,7 @@ export default function HomePage() {
       <SEO
         title="Taypro is a Solar Panel Cleaning Company. We provide end to end ROI Solar Cleaning Service to improve Solar Plant Efficiency."
         description="Taypro is a Solar Panel Cleaning Company. We provide end to end ROI Solar Cleaning Service to improve Solar Plant Efficiency."
-        keywords="solar panel cleaning service, automatic solar robot, taypro"
+        keywords="solar panel cleaning robots, automatic solar robot, semi-automatic solar robots, capex, opex, cleaning robots, taypro"
         url="http://localhost:3000/solar-robots/solar-panel-cleaning-service"
         breadcrumbs={breadcrumbs}
       />
@@ -160,7 +160,7 @@ export default function HomePage() {
         {/* fifth section */}
         <section className="py-16 bg-white">
           <div className="text-center ">
-            <h1 className="text-3xl lg:text-5xl lg:text-3xl font-bold ">
+            <h1 className="text-3xl lg:text-5xl lg:text-3xl font-semibold ">
               Calculate How Much Can Solar Cleaning <br /> Robots Save?
             </h1>
             <h3 className="text-gray-700 my-6 text-lg">

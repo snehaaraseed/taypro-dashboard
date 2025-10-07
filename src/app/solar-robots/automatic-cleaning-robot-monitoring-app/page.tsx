@@ -29,6 +29,7 @@ export default function AutomaticCleaningRobotMonitoringApp() {
       <SEO
         title="Automatic Cleaning Robot Monitoring App | Taypro"
         description="Precision in Operation The TAYPRO CONSOLE goes beyond conventional cleaning methods. It allows for the application of individual and group commands, tailoring the cleaning approach based on seasonal data and the specific position of each table in the field. This level of precision ensures the most efficient working method."
+        keywords="automatic cleaning robot, monitoring app, taypro solar robots, energy resource, sustainable energy, maximum power generation"
         url="http://localhost:3000/solar-robots/automatic-cleaning-robot-monitoring-app"
         breadcrumbs={breadcrumbs}
       />

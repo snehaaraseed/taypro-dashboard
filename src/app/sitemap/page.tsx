@@ -17,6 +17,7 @@ export default function Blog() {
       <SEO
         title="Sitemap | Taypro"
         description="Taypro Website Links"
+        keywords="sitemap-xml, sitemap taypro, taypro"
         url="http://localhost:3000/sitemap"
         breadcrumbs={breadcrumbs}
       />
@@ -55,7 +56,9 @@ export default function Blog() {
         <div className="max-w-7xl mx-60 px-6">
           {/* Pages Section */}
           <div className="text-start">
-            <h3 className="text-[#052638] text-4xl font-bold mb-8">Pages</h3>
+            <h3 className="text-[#052638] text-4xl font-semibold mb-8">
+              Pages
+            </h3>
 
             {/* Nested Bulleted List */}
             <ul className="space-y-1 list-disc list-inside text-lg">

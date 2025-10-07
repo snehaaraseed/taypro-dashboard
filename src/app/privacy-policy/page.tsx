@@ -11,6 +11,7 @@ export default function PrivacyPolicySection() {
       <SEO
         title="Privacy Policy at Taypro Private Limited"
         description="Taypro (“we,” “our,” “us”) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website, products, and services (collectively, the “Services”). Please read this Privacy Policy carefully. If you do not agree with the terms of this Privacy Policy, please do not use our Services."
+        keywords="taypro privacy policy, privacy, policy terms, privacy rights, secured information, data practices, taypro"
         url="http://localhost:3000/privacy-policy"
         breadcrumbs={breadcrumbs}
       />

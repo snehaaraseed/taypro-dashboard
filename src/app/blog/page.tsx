@@ -18,6 +18,7 @@ export default function Blog() {
       <SEO
         title="Blogs | Taypro"
         description="Reach out to Taypro for solar automation solutions and support."
+        keywords="solar panel cleaning robots, blogs, articles, energy resources, solar robot, taypro"
         url="http://localhost:3000/blog"
         breadcrumbs={breadcrumbs}
       />

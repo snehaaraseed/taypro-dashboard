@@ -37,6 +37,7 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
       <SEO
         title="Model-B | Taypro"
         description="Key Features Setting Taypro ApartThe Taypro Model-B is not just another cleaning device; it’s a result of meticulous study and analysis aimed at addressing prevalent issues in solar power plants. The innovative cleaning assembly and driving mechanism elevate its compatibility, making it suitable for fixed tilt, seasonal tilt, and horizontal single-axis trackers."
+        keywords="semi-automatic solar robots, solar panel cleaning system, taypro model b, waterless cleaning technology, operation efficiency"
         url="http://localhost:3000/solar-robots/semi-automatic-solar-panel-cleaning-system"
         breadcrumbs={breadcrumbs}
       />
@@ -75,7 +76,7 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
           <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
             {/* Left side: Heading + Robot Image */}
             <div className="lg:w-1/2 flex flex-col items-center lg:items-start">
-              <h1 className="text-[#052638] font-bold text-4xl lg:text-5xl mb-12 text-center lg:text-left leading-tight">
+              <h1 className="text-[#052638] font-semibold text-4xl lg:text-5xl mb-12 text-center lg:text-left leading-tight">
                 Elevating ROI through Efficient Cleaning
               </h1>
               <div className="relative w-80 h-64 lg:w-96 lg:h-80">
@@ -131,7 +132,7 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
           <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-16 w-full">
             {/* Left side: Heading */}
             <div className="lg:w-1/2 flex justify-center">
-              <h2 className="text-white font-bold text-5xl lg:text-6xl leading-tight">
+              <h2 className="text-white font-semibold text-5xl lg:text-6xl leading-tight">
                 Transforming Solar Panel Cleaning Practices
               </h2>
             </div>

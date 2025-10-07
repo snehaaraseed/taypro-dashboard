@@ -40,7 +40,7 @@ export default function SolarPanelCleaningService() {
       <SEO
         title="Solar Panel Cleaning Service: TAYPRO OPEX | Taypro"
         description="Solar Panel Cleaning Service by Taypro, a solar cleaning company. We depoly range of robots for automatic, waterless and efficent ROI Power Cleaning Service. Call us today."
-        keywords="solar panel cleaning service, automatic solar robot, taypro"
+        keywords="solar panel cleaning service, environmental sustainability, solar panel safety, efficient cleaning, cost effective, taypro"
         url="http://localhost:3000/solar-robots/solar-panel-cleaning-service"
         breadcrumbs={breadcrumbs}
         faqs={cleaningServiceFaqs}
@@ -164,7 +164,7 @@ export default function SolarPanelCleaningService() {
                   className={`flex items-center w-full py-2 text-xl font-medium transition-colors duration-200 text-[#052638] hover:text-[#A8C117] cursor-pointer`}
                   onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                 >
-                  <span className="flex items-center justify-center w-6 h-6 bg-[#052638] text-white font-bold  rounded-sm mr-4 text-xl select-none">
+                  <span className="flex items-center justify-center w-6 h-6 bg-[#052638] text-white font-semibold  rounded-sm mr-4 text-xl select-none">
                     {openIndex === idx ? "-" : "+"}
                   </span>
                   {faq.question}
@@ -192,7 +192,7 @@ export default function SolarPanelCleaningService() {
               <h3 className="text-[#052638] font-semibold text-4xl mb-8">
                 Our Projects
               </h3>
-              <div className="text-[#052638] font-bold text-5xl md:text-6xl text-center mb-6">
+              <div className="text-[#052638] font-semibold text-5xl md:text-6xl text-center mb-6">
                 Advantages of Using Solar Panel Cleaning Service
               </div>
               <p className="text-[#435063] text-lg max-w-4xl mx-auto text-center">

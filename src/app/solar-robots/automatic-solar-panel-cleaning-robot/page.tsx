@@ -40,7 +40,7 @@ export default function AutomaticSolarPanelCleaningRobot() {
         title=" Automatic Solar Panel Cleaning Robot | Taypro"
         description=" Autonomous Waterless Solar Panel Cleaning Robot for Utility Scale
               Solar Power Plants"
-        keywords="solar panel cleaning robot, automatic solar robot, taypro"
+        keywords="solar panel cleaning robot, automatic solar robot, taypro, cleaning efficiency, automatic solar panel cleaning robot"
         url="http://localhost:3000/solar-robots/automatic-solar-panel-cleaning-robot"
         breadcrumbs={breadcrumbs}
         faqs={faqs}
@@ -634,7 +634,7 @@ export default function AutomaticSolarPanelCleaningRobot() {
                   className={`flex items-center w-full py-2 text-xl font-medium transition-colors duration-200 text-[#052638] hover:text-[#A8C117] cursor-pointer`}
                   onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                 >
-                  <span className="flex items-center justify-center w-6 h-6 bg-[#052638] text-white font-bold  rounded-sm mr-4 text-xl select-none">
+                  <span className="flex items-center justify-center w-6 h-6 bg-[#052638] text-white font-semibold  rounded-sm mr-4 text-xl select-none">
                     {openIndex === idx ? "-" : "+"}
                   </span>
                   {faq.question}
