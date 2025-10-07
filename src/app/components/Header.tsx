@@ -1,0 +1,229 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation"; // Changed from useRouter
+
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const pathname = usePathname();
+
+  const navItems = [
+    { name: "Home", href: "/" },
+    { name: "Projects", href: "/projects" },
+    {
+      name: "ROI Calculator",
+      href: "/solar-panel-cleaning-robot-price-calculator",
+    },
+    { name: "About Us", href: "/company" },
+    { name: "Blogs", href: "/blog" },
+  ];
+
+  const solarMenu = [
+    {
+      label: "Automatic Solar Panel Cleaning Robot",
+      href: "/solar-robots/automatic-solar-panel-cleaning-robot",
+    },
+    {
+      label: "Model-B",
+      href: "/solar-robots/semi-automatic-solar-panel-cleaning-system",
+    },
+    {
+      label: "Model-T",
+      href: "/solar-robots/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
+    },
+    {
+      label: "Taypro Console",
+      href: "/solar-robots/automatic-cleaning-robot-monitoring-app",
+    },
+    {
+      label: "Solar Panel Cleaning Service",
+      href: "/solar-robots/solar-panel-cleaning-service",
+    },
+  ];
+
+  // Function to check if current path matches the nav item
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname.startsWith(href);
+  };
+
+  // Check if any solar robot page is active
+  const isSolarActive = () => {
+    return pathname.startsWith("/solar-robots");
+  };
+
+  return (
+    <header className="sticky top-0 z-4 bg-[#052638]">
+      <div className="p-4">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Image
+              width={160}
+              height={50}
+              src="/taypro-logo.png"
+              alt="taypro-logo"
+              priority
+            />
+          </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-8 relative">
+            {/* Home Link */}
+            {navItems
+              .filter((item) => item.name === "Home")
+              .map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`text-white px-3 py-2 text-md font-medium transition duration-800 hover:underline underline-offset-8 ${
+                    isActive(item.href) ? "underline" : ""
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+
+            <div
+              className="relative"
+              onMouseEnter={() => setDropdownOpen(true)}
+              onMouseLeave={() => setDropdownOpen(false)}
+            >
+              <Link
+                href="/solar-robots/solar-panel-cleaning-robot"
+                className={`text-white px-3 py-2 text-md font-medium cursor-pointer flex items-center transition duration-800 hover:underline underline-offset-8 ${
+                  isSolarActive() ? "underline" : ""
+                }`}
+              >
+                Solar Panel Cleaning Robots
+                <svg
+                  className="ml-2 w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </Link>
+              {dropdownOpen && (
+                <div className="absolute left-0 w-[400px] h-[350px] bg-white rounded-md shadow-lg z-10 py-1">
+                  {solarMenu.map((item) => (
+                    <Link
+                      href={item.href}
+                      key={item.label}
+                      className="block px-5 py-5 text-[#052638] text-xl transition-colors duration-200 hover:bg-[#A8C117] hover:text-[#052638] rounded-md"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {navItems
+              .filter((item) => item.name !== "Home")
+              .map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`text-white px-3 py-2 text-md font-medium transition duration-800 hover:underline underline-offset-8 ${
+                    isActive(item.href) ? "underline" : ""
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+          </nav>
+
+          {/* CTA Button */}
+          <div className="hidden md:block">
+            <Link
+              href="/contact"
+              className="bg-[#A8C117] text-black px-7 py-3 rounded-md font-medium hover:bg-lime-500 transition"
+            >
+              Get in touch
+            </Link>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-white hover:text-gray-300 focus:outline-none"
+            >
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {isMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-[#052638] border-t border-gray-700">
+          <div className="px-4 pt-4 pb-3 space-y-2">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`text-white hover:text-gray-300 block px-3 py-2 text-base font-medium ${
+                  isActive(item.href) ? "underline underline-offset-8" : ""
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+            {/* Solar robots link for mobile */}
+            <Link
+              href="/solar-robots/solar-panel-cleaning-robot"
+              className={`text-white hover:text-gray-300 block px-3 py-2 text-base font-medium ${
+                isSolarActive() ? "underline underline-offset-8" : ""
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Solar Panel Cleaning Robots
+            </Link>
+            <Link
+              href="/contact"
+              className="block bg-[#A8C117] text-black px-5 py-2 rounded-md font-medium text-center hover:bg-lime-500 transition"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Get in touch
+            </Link>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}

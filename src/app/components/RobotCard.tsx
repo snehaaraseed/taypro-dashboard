@@ -1,0 +1,34 @@
+import Image from "next/image";
+import Link from "next/link";
+
+type Robot = {
+  model: string;
+  description: string;
+  imgPath: string;
+  href: string;
+};
+
+export function RobotCard({ robot }: { robot: Robot }) {
+  return (
+    <div className="bg-gray-50 h-110 w-80 rounded-lg shadow hover:shadow-lg transition overflow-hidden m-4">
+      <Image
+        src={robot.imgPath}
+        alt={robot.model}
+        width={600}
+        height={192}
+        className="w-full h-48 object-cover"
+      />
+      <div className="p-6 bg-[#052638] h-72 ">
+        <div className="text-2xl font-semibold mb-2 text-white">
+          {robot.model}
+        </div>
+        <p className="text-white/90">{robot.description}</p>
+        <Link href={robot.href}>
+          <button className="mt-9 px-4 py-1 bg-white rounded-4xl hover:bg-[#32b500] transition cursor-pointer">
+            <span className="text-dark">Learn More</span>
+          </button>
+        </Link>
+      </div>
+    </div>
+  );
+}

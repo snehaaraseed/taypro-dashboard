@@ -1,0 +1,12 @@
+# Allow all search engines
+User-agent: *
+
+# Disallow admin and API routes
+Disallow: /admin/
+Disallow: /api/
+
+# Allow everything else
+Allow: /
+
+# Sitemap index (Google will follow all child sitemaps)
+Sitemap: http://localhost:3000/sitemap.xml
