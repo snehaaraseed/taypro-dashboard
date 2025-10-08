@@ -25,9 +25,9 @@ const breadcrumbs = [
 ];
 
 const categories = [
-  { label: "Automatic", href: "/automatic" },
-  { label: "Capex", href: "/capex" },
-  { label: "Semi-Automatic", href: "/semi-automatic" },
+  { label: "Automatic", href: "/projects/automatic" },
+  { label: "Capex", href: "/projects/capex" },
+  { label: "Semi-Automatic", href: "/projects/semi-automatic" },
 ];
 
 export default function BandaSolarProject() {
@@ -52,7 +52,7 @@ export default function BandaSolarProject() {
       />
       <Breadcrumbs items={breadcrumbs} />
 
-      <div className="min-h-screen">
+      <div className="min-h-screen overflow-x-hidden px-4 sm:px-6 lg:px-0">
         <ProjectHeroSection
           title="Banda Solar Project – 70 MW"
           categories={categories}

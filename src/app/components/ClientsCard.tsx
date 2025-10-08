@@ -9,11 +9,13 @@ export default function ClientsCard() {
         Our Esteemed Clients
       </div>
       <div className="w-full flex justify-center">
-        <div className="grid grid-cols-4 grid-rows-2 w-[70vw]">
+        {/* <div className="grid grid-cols-4 grid-rows-2 w-[70vw]"> */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 grid-rows-2 w-full max-w-7xl mx-auto gap-4">
           {clientLogos.map((logoSrc, idx) => (
             <div
               key={idx}
-              className="flex items-center justify-center border border-[#1c201f] bg-white h-[210px]"
+              // className="flex items-center justify-center border border-[#1c201f] bg-white h-[210px]"
+              className="flex items-center justify-center border border-[#1c201f] bg-white h-[140px] sm:h-[210px]"
             >
               <Image
                 src={logoSrc}

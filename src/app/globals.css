@@ -15,6 +15,12 @@
   --important: #101936;
 }
 
+@media (max-width: 639px) {
+  body {
+    overflow-x: hidden;
+  }
+}
+
 body {
   background: #052638;
   overflow-x: hidden;

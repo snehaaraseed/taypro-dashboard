@@ -41,7 +41,7 @@ export default function AboutUsPage() {
         breadcrumbs={breadcrumbs}
       />
       <Breadcrumbs items={breadcrumbs} />
-      <div className="min-h-screen">
+      <div className="min-h-screen overflow-x-hidden">
         <section
           className="bg-white min-h-[50vh] flex flex-col items-center justify-start relative"
           style={{
@@ -162,12 +162,12 @@ export default function AboutUsPage() {
           </div>
         </section>
 
-        <section className="w-full py-30 bg-white">
-          <div className="max-w-6xl mx-auto">
+        <section className="w-full py-30 bg-white px-4 sm:px-6 lg:px-0 overflow-x-hidden">
+          <div className="max-w-6xl mx-auto px-4 sm:px-0">
             {items.map((item, idx) => (
               <div
                 key={item.label}
-                className={`grid grid-cols-5 gap-2 items-start mb-10 ${
+                className={`grid grid-cols-5 gap-2 sm:gap-4 items-start mb-10 ${
                   idx !== items.length - 1
                     ? "border-b border-gray-200 pb-10"
                     : ""
@@ -186,7 +186,7 @@ export default function AboutUsPage() {
           </div>
         </section>
 
-        <section className="w-full py-16 bg-white">
+        <section className="w-full py-30 bg-white px-4 sm:px-6 lg:px-0 overflow-x-hidden">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Left: Image */}
             <div className="flex justify-center items-center">
@@ -216,7 +216,7 @@ export default function AboutUsPage() {
           </div>
         </section>
 
-        <section className="w-full pb-30 bg-white">
+        <section className="w-full py-30 bg-white px-4 sm:px-6 lg:px-0 overflow-x-hidden">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Left: Image */}
 
@@ -248,7 +248,7 @@ export default function AboutUsPage() {
           </div>
         </section>
 
-        <section className="w-full py-20 pb-40 bg-white">
+        <section className="w-full py-30 bg-white px-4 sm:px-6 lg:px-0 overflow-x-hidden">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-center">
             {metrics.map((stat, idx) => (
               <div key={stat.label} className="flex flex-col items-center">
@@ -261,7 +261,7 @@ export default function AboutUsPage() {
           </div>
         </section>
 
-        <section className="w-full py-10">
+        <section className="w-full py-30 px-4 sm:px-6 lg:px-0 overflow-x-hidden">
           <div className="max-w-5xl mx-auto">
             <h3 className="text-white font-semibold text-4xl mb-8">Founders</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -300,60 +300,67 @@ export default function AboutUsPage() {
           </div>
         </section>
 
-        <section className="w-full py-30 bg-white">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-stretch gap-10">
+        <section className="w-full py-16 bg-white overflow-x-hidden">
+          <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row justify-between items-start gap-10">
             {/* Left: Title, description, button */}
-            <div className="flex flex-col w-full md:w-[40%] justify-between">
-              <div>
-                <div className="text-[#052638] font-semibold text-5xl mb-5">
-                  Resources
-                </div>
-                <div className="text-[#22405a] text-xl mt-6 ">
-                  In a world where sustainability is paramount, <br />
-                  Taypro Private Limited emerges as a pioneer, <br /> reshaping
-                  the solar energy landscape. The Taypro <br /> Model A is not
-                  just a cleaning system; it’s a <br /> statement – a testament
-                  to Taypro’s unwavering <br /> commitment to a greener, more
-                  sustainable <br /> planet.
-                </div>
+            <div className="flex flex-col w-full lg:w-2/5">
+              <div className="text-[#052638] font-semibold text-5xl mb-5">
+                Resources
               </div>
-              <Link
-                href="/blog"
-                className="inline-block w-[250px] rounded-lg bg-[#b2cb19] text-[#22405a] text-xl text-center py-3 transition hover:bg-lime-500 cursor-pointer"
-              >
-                View all resources
+              <div className="text-[#22405a] text-xl mt-6 leading-relaxed">
+                In a world where sustainability is paramount,
+                <br />
+                Taypro Private Limited emerges as a pioneer,
+                <br />
+                reshaping the solar energy landscape. The Taypro
+                <br />
+                Model A is not just a cleaning system; it’s a<br />
+                statement – a testament to Taypro’s unwavering
+                <br />
+                commitment to a greener, more sustainable
+                <br />
+                planet.
+              </div>
+              <Link href="/blog">
+                <button className="mt-6 inline-block w-full sm:w-auto bg-[#b2cb19] text-[#22405a] text-xl text-center py-2 px-4 rounded-lg hover:bg-lime-500 transition cursor-pointer">
+                  View all resources
+                </button>
               </Link>
             </div>
 
-            {/* Right: Card resources */}
-            <div className="flex flex-row gap-8 w-full md:w-[60%]">
-              {resources.map((r, idx) => (
-                <div
-                  key={r.title}
-                  className="flex-1 border-2 border-gray-300 bg-white rounded-sm overflow-hidden shadow-sm min-w-[320px] max-w-[400px] transition hover:shadow-xl"
-                >
-                  <Link
-                    href={r.href}
-                    className="block border border-gray-300 w-full h-full p-4 overflow-hidden group"
+            {/* Right: Card resources (stack on mobile, row on desktop) */}
+            <div className="w-full lg:w-3/5">
+              <div className="flex flex-col md:flex-row gap-8">
+                {resources.map((r) => (
+                  <div
+                    key={r.title}
+                    className="flex-1 border-2 border-gray-300 bg-white rounded-sm overflow-hidden shadow-sm min-w-[320px] max-w-[400px] transition hover:shadow-xl"
                   >
-                    <div className="relative w-full h-[360px]">
-                      <Image
-                        src={r.imgSrc}
-                        alt={r.title}
-                        fill
-                        className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-105"
-                        priority
-                      />
-                      <div className="absolute bottom-4 left-4 text-white text-sm font-semibold bg-opacity-10 px-3 py-1 transition-transform duration-300 transform translate-y-4 group-hover:translate-y-0">
-                        {r.title}
+                    <Link
+                      href={r.href}
+                      className="block w-full h-full p-0 overflow-hidden group relative"
+                    >
+                      {/* Image with overlay title */}
+                      <div className="relative w-full h-[360px]">
+                        <Image
+                          src={r.imgSrc}
+                          alt={r.title}
+                          fill
+                          className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-105"
+                          priority
+                        />
+                        <div className="absolute bottom-4 left-4 text-white text-sm font-semibold bg-opacity-30 px-3 py-1 transition-transform duration-300 transform translate-y-4 group-hover:translate-y-0">
+                          {r.title}
+                        </div>
                       </div>
-                    </div>
-                    <div className="absolute bottom-4 right-4 text-white text-xs bg-opacity-60 px-2 py-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {r.date}
-                    </div>
-                  </Link>
-                </div>
-              ))}
+                      {/* Date overlay */}
+                      <div className="absolute bottom-4 right-4 text-white text-xs bg-black bg-opacity-30 px-2 py-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        {r.date}
+                      </div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>

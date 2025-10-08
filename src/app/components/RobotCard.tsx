@@ -10,7 +10,7 @@ type Robot = {
 
 export function RobotCard({ robot }: { robot: Robot }) {
   return (
-    <div className="bg-gray-50 h-110 w-80 rounded-lg shadow hover:shadow-lg transition overflow-hidden m-4">
+    <div className="bg-gray-50 h-110 w-80 shadow hover:shadow-lg transition overflow-hidden m-4">
       <Image
         src={robot.imgPath}
         alt={robot.model}

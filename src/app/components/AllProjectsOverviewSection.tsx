@@ -13,14 +13,14 @@ export default function ProjectOverviewSection({
 }: ProjectOverviewSectionProps) {
   return (
     <section
-      className="w-full pb-30 bg-white"
+      className="w-full pb-16 sm:pb-20 lg:pb-30 bg-white overflow-x-hidden"
       style={{
         background: "url('/taypro-semi.png') repeat",
         backgroundSize: "auto",
       }}
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="relative w-full h-[700px] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[700px] overflow-hidden">
           <Image
             src={image}
             alt="Project Overview"
@@ -29,14 +29,17 @@ export default function ProjectOverviewSection({
             priority
           />
 
-          <div className="absolute right-10 top-1/2 transform -translate-y-1/2 bg-[#75AA00] p-6 w-90 h-[350px] flex flex-col justify-center items-center text-center">
-            <div className="text-white text-start text-2xl mb-4">Overview</div>
-            <p className="text-white text-start text-md leading-relaxed">
+          {/* Mobile: Bottom overlay, Desktop: Right overlay */}
+          <div className="absolute bottom-4 left-4 right-4 lg:right-10 lg:top-1/2 lg:bottom-auto lg:left-auto lg:transform lg:-translate-y-1/2 bg-[#75AA00] p-4 sm:p-6 lg:w-90 lg:h-[350px] flex flex-col justify-center items-start lg:items-center text-left lg:text-center">
+            <div className="text-white text-xl sm:text-2xl mb-3 sm:mb-4">
+              Overview
+            </div>
+            <p className="text-white text-sm sm:text-base lg:text-md leading-relaxed">
               {overviewText}
             </p>
             <Link
               href="/contact"
-              className="text-white text-xl mt-8 border-b-2 border-[#e6ee9d] hover:text-[#e6ee9d] transition-colors duration-300"
+              className="text-white text-lg sm:text-xl mt-4 sm:mt-6 lg:mt-8 border-b-2 border-[#e6ee9d] hover:text-[#e6ee9d] transition-colors duration-300"
             >
               Let&apos;s work together
             </Link>

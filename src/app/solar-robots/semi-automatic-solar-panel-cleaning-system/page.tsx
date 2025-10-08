@@ -42,7 +42,7 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
         breadcrumbs={breadcrumbs}
       />
       <Breadcrumbs items={breadcrumbs} />
-      <div className="min-h-screen">
+      <div className="min-h-screen overflow-x-hidden px-4 sm:px-6 lg:px-0">
         <HeroSection
           title="Model-B"
           subtitle="A pick-and-place type solar panel cleaning robot."
@@ -73,13 +73,15 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
             backgroundSize: "auto",
           }}
         >
-          <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
+          {/* <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16"> */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
             {/* Left side: Heading + Robot Image */}
             <div className="lg:w-1/2 flex flex-col items-center lg:items-start">
               <h1 className="text-[#052638] font-semibold text-4xl lg:text-5xl mb-12 text-center lg:text-left leading-tight">
                 Elevating ROI through Efficient Cleaning
               </h1>
-              <div className="relative w-80 h-64 lg:w-96 lg:h-80">
+              {/* <div className="relative w-80 h-64 lg:w-96 lg:h-80"> */}
+              <div className="relative w-full max-w-xs sm:max-w-sm lg:w-96 h-64 lg:h-80 mx-auto lg:mx-0">
                 <Image
                   src="/taypro-robotImage.png" // Replace with your actual robot image path
                   alt="Taypro cleaning robot"

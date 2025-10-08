@@ -18,16 +18,16 @@ export default function RelatedProjectsSection({
   projects,
 }: RelatedProjectsSectionProps) {
   return (
-    <section className="w-full bg-white pb-30">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-[#0c2f42] font-medium text-3xl mb-5">
+    <section className="w-full bg-white pb-16 sm:pb-20 lg:pb-30 overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-[#0c2f42] font-medium text-2xl sm:text-3xl mb-4 sm:mb-5">
           Related Projects
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project) => (
             <Link key={project.id} href={project.href} className="group block">
-              <div className="relative w-full h-[280px] mb-6 overflow-hidden">
+              <div className="relative w-full h-[200px] sm:h-[240px] lg:h-[280px] mb-4 sm:mb-6 overflow-hidden">
                 <Image
                   src={project.img}
                   alt={project.title}
@@ -42,10 +42,12 @@ export default function RelatedProjectsSection({
                   }}
                 />
               </div>
-              <div className="text-[#9cb01f] font-medium text-2xl leading-tight">
+              <div className="text-[#9cb01f] font-medium text-lg sm:text-xl lg:text-2xl leading-tight">
                 {project.title}
               </div>
-              <div className="text-gray-500 text-sm">{project.date}</div>
+              <div className="text-gray-500 text-xs sm:text-sm">
+                {project.date}
+              </div>
             </Link>
           ))}
         </div>

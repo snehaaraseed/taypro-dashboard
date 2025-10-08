@@ -57,20 +57,18 @@ export default function ProjectPage() {
           </div>
         </section>
 
-        <section className="mx-auto px-30 py-10">
+        <section className="px-4 sm:px-6 lg:px-30 py-10 overflow-x-hidden">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {additionalProjects.map((project) => (
               <div
                 key={project.title}
-                className="relative z-0 w-full group overflow-hidden cursor-pointer"
-                style={{ minHeight: "600px" }}
+                className="relative z-0 w-full group overflow-hidden cursor-pointer min-h-[300px] sm:min-h-[400px] md:min-h-[600px]"
               >
                 <Image
                   src={project.img}
                   alt={project.title}
-                  width={400}
-                  height={600}
-                  className="w-full h-full transform group-hover:scale-105 transition duration-300"
+                  fill
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition duration-300"
                 />
 
                 {/* Overlay */}
@@ -79,21 +77,56 @@ export default function ProjectPage() {
                 {/* Dark overlay */}
                 <div className="absolute inset-0 bg-black/35 group-hover:bg-black/50 transition duration-300" />
 
-                <div className="absolute inset-5 border border-white transition duration-300 ease-out scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 group-hover:border-white" />
+                <div className="absolute inset-0 border border-white transition duration-300 ease-out scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100" />
 
-                <div className="absolute inset-0 flex flex-col items-center justify-center z-10 text-center px-4">
+                {/* <div className="absolute inset-0 flex flex-col items-center justify-center z-10 text-center px-4">
                   <Link
                     href={project.href}
-                    className="text-white text-3xl md:text-3xl mb-3 drop-shadow-md font-semibold hover:text-[#A8C117] transition-colors duration-300"
+                    className="text-white text-2xl sm:text-3xl mb-3 drop-shadow-md font-semibold hover:text-[#A8C117] transition-colors duration-300"
                   >
                     {project.title}
                   </Link>
 
                   <div
-                    className="flex flex-wrap justify-center gap-3 text-[#A8C117] text-lg md:text-xl font-medium opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300"
+                    className="flex flex-wrap justify-center gap-3 text-[#A8C117] text-sm sm:text-lg md:text-xl font-medium opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300"
                     style={{
                       transitionTimingFunction:
                         "cubic-bezier(0.4, 0.4, 0.2, 0.5)",
+                    }}
+                  >
+                    {project.details.split(", ").map((item) => (
+                      <Link
+                        key={item}
+                        href={`/projects/${item
+                          .toLowerCase()
+                          .replace(/\s+/g, "-")}`}
+                        className="hover:underline hover:text-[#c3d958] transition-colors duration-300"
+                      >
+                        {item}
+                      </Link>
+                    ))}
+                  </div>
+                </div> */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center z-10 text-center px-4">
+                  <Link
+                    href={project.href}
+                    className="text-white text-2xl sm:text-3xl mb-3 drop-shadow-md font-semibold hover:text-[#A8C117] transition-colors duration-300"
+                  >
+                    {project.title}
+                  </Link>
+
+                  {/* Details always visible on mobile; only hide on desktop until hover */}
+                  <div
+                    className="
+      flex flex-wrap justify-center gap-3 text-[#A8C117]
+      text-sm sm:text-lg md:text-xl font-medium
+      opacity-100 translate-y-0
+      md:opacity-0 md:translate-y-4
+      md:group-hover:opacity-100 md:group-hover:translate-y-0
+      transition duration-300
+    "
+                    style={{
+                      transitionTimingFunction: "cubic-bezier(0.4,0.4,0.2,0.5)",
                     }}
                   >
                     {project.details.split(", ").map((item) => (

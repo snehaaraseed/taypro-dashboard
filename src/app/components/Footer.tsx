@@ -1,6 +1,9 @@
+"use client";
 import { Facebook, Instagram, Linkedin, Youtube, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
 
   const footerSections = {
@@ -115,17 +118,30 @@ export default function Footer() {
                   name: "Model-T",
                   href: "/solar-robots/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
                 },
-              ].map((item) => (
-                <div className="group cursor-pointer" key={item.name}>
-                  <hr className="border-white mb-4 group-hover:border-[#A8C117] transition-colors duration-300" />
-                  <a
-                    href={item.href}
-                    className="text-4xl font-semibold text-white mb-2 group-hover:text-[#A8C117] transition-colors duration-300"
-                  >
-                    {item.name}
-                  </a>
-                </div>
-              ))}
+              ].map((item) => {
+                const active = pathname === item.href;
+                return (
+                  <div className="group cursor-pointer" key={item.name}>
+                    <hr
+                      className={`border-white mb-4 transition-colors duration-300 ${
+                        active
+                          ? "border-[#A8C117]"
+                          : "group-hover:border-[#A8C117]"
+                      }`}
+                    />
+                    <a
+                      href={item.href}
+                      className={`text-4xl font-semibold mb-2 transition-colors duration-300 ${
+                        active
+                          ? "text-[#A8C117]"
+                          : "text-white group-hover:text-[#A8C117]"
+                      }`}
+                    >
+                      {item.name}
+                    </a>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -135,17 +151,28 @@ export default function Footer() {
             <div>
               <div className="text-lg text-white mb-4">Important Links</div>
               <ul className="space-y-2">
-                {footerSections["Important Links Left"].map((link) => (
-                  <li key={link.name} className="relative">
-                    <a
-                      href={link.href}
-                      className="text-gray-300 hover:text-[#A8C117] transition duration-200 relative inline-block group"
-                    >
-                      {link.name}
-                      <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#A8C117] group-hover:w-full transition-all duration-300 ease-out transform origin-left"></span>
-                    </a>
-                  </li>
-                ))}
+                {footerSections["Important Links Left"].map((link) => {
+                  const active = pathname === link.href;
+                  return (
+                    <li key={link.name} className="relative">
+                      <a
+                        href={link.href}
+                        className={`transition duration-200 relative inline-block group ${
+                          active
+                            ? "text-[#A8C117]"
+                            : "text-gray-300 hover:text-[#A8C117]"
+                        }`}
+                      >
+                        {link.name}
+                        <span
+                          className={`absolute left-0 bottom-0 h-0.5 bg-[#A8C117] transition-all duration-300 ease-out origin-left ${
+                            active ? "w-full" : "w-0 group-hover:w-full"
+                          }`}
+                        ></span>
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 
@@ -155,17 +182,28 @@ export default function Footer() {
                 Important Links
               </div>
               <ul className="space-y-2">
-                {footerSections["Important Links Right"].map((link) => (
-                  <li key={link.name} className="relative">
-                    <a
-                      href={link.href}
-                      className="text-gray-300 hover:text-[#A8C117] transition duration-200 relative inline-block group"
-                    >
-                      {link.name}
-                      <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#A8C117] group-hover:w-full transition-all duration-300 ease-out transform origin-left"></span>
-                    </a>
-                  </li>
-                ))}
+                {footerSections["Important Links Right"].map((link) => {
+                  const active = pathname === link.href;
+                  return (
+                    <li key={link.name} className="relative">
+                      <a
+                        href={link.href}
+                        className={`transition duration-200 relative inline-block group ${
+                          active
+                            ? "text-[#A8C117]"
+                            : "text-gray-300 hover:text-[#A8C117]"
+                        }`}
+                      >
+                        {link.name}
+                        <span
+                          className={`absolute left-0 bottom-0 h-0.5 bg-[#A8C117] transition-all duration-300 ease-out origin-left ${
+                            active ? "w-full" : "w-0 group-hover:w-full"
+                          }`}
+                        ></span>
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>

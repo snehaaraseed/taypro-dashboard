@@ -12,7 +12,7 @@ export default function ProjectsCard({
   headerText,
 }: ProjectsCardProps) {
   return (
-    <section className="mx-auto px-30 py-10 bg-white">
+    <section className="py-10 bg-white px-4 sm:px-6 lg:px-30 max-w-full overflow-x-hidden mx-auto">
       {showHeader && (
         <div className="text-3xl text-center bg-white lg:text-6xl lg:text-3xl py-15 font-semibold">
           {headerText || (
@@ -23,12 +23,11 @@ export default function ProjectsCard({
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-full">
         {projects.map((project) => (
           <div
             key={project.title}
-            className="relative z-0 w-full group overflow-hidden cursor-pointer"
-            style={{ minHeight: "600px" }}
+            className="relative z-0 w-full group overflow-hidden cursor-pointer min-h-[300px] sm:min-h-[400px] md:min-h-[600px]"
           >
             <Image
               src={project.img}
@@ -56,7 +55,7 @@ export default function ProjectsCard({
               </Link>
 
               <div
-                className="flex flex-wrap justify-center gap-3 text-[#A8C117] text-lg md:text-xl font-medium opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300"
+                className="flex flex-wrap justify-center gap-3 text-[#A8C117] text-lg md:text-xl font-medium opacity-100 translate-y-0 md:opacity-0 md:translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300"
                 style={{
                   transitionTimingFunction: "cubic-bezier(0.4, 0.4, 0.2, 0.5)",
                 }}

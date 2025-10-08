@@ -427,7 +427,7 @@ export default function CleaningTechnology() {
           </div>
         </section>
 
-        <section className="pt-2 bg-white">
+        {/* <section className="pt-2 bg-white">
           <div className="text-center my-12">
             <div className="text-5xl font-semibold">Our Solutions</div>
           </div>
@@ -435,6 +435,19 @@ export default function CleaningTechnology() {
             {ourSolutions.slice(0, 3).map((robot) => (
               <RobotCard key={robot.model} robot={robot} />
             ))}
+          </div>
+        </section> */}
+        <section className="pt-2 bg-white">
+          <div className="text-center my-12">
+            <div className="text-5xl font-semibold">Our Solutions</div>
+          </div>
+          {/* Use grid for responsive wrapping */}
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 justify-items-center">
+              {ourSolutions.slice(0, 3).map((robot) => (
+                <RobotCard key={robot.model} robot={robot} />
+              ))}
+            </div>
           </div>
         </section>
 

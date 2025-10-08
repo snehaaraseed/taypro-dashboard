@@ -23,7 +23,7 @@ export default function Blog() {
       />
       <Breadcrumbs items={breadcrumbs} />
       <section className="w-full pt-20 pb-5 bg-white">
-        <div className="max-w-7xl mx-60 px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
           {/* Centered Sitemap Title */}
           <h1 className="text-[#052638] text-6xl font-semibold text-center mb-16">
             Sitemap
@@ -52,8 +52,8 @@ export default function Blog() {
         </div>
       </section>
 
-      <section className="w-full pt-10 pb-5 bg-white">
-        <div className="max-w-7xl mx-60 px-6">
+      <section className="w-full pt-10 pb-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
           {/* Pages Section */}
           <div className="text-start">
             <h3 className="text-[#052638] text-4xl font-semibold mb-8">
@@ -200,10 +200,8 @@ export default function Blog() {
       </section>
 
       <section className="w-full pt-10 pb-20 bg-white">
-        <div className="max-w-7xl mx-60 px-6">
-          {/* Centered Sitemap Title */}
-
-          {/* Posts Section */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
+          {/* Portfolio Section */}
           <div className="text-start">
             <h4 className="text-[#052638] text-4xl font-semibold mb-8">
               Portfolio
