@@ -682,6 +682,7 @@ import ProjectsCard from "@/app/components/ProjectsCard";
 import ModelCards from "@/app/components/ModelCards";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import SEO from "@/app/components/SEO";
+import ROITayproCalculator from "@/app/components/ROICalculator";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -864,6 +865,7 @@ export default function AutomaticSolarPanelCleaningRobot() {
               Can Be And How Much It Can Save.
             </div>
           </div>
+          <ROITayproCalculator />
         </section>
 
         <section className="pt-10 pb-1 bg-white px-4 sm:px-0">

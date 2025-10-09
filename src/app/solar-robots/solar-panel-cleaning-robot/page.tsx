@@ -16,6 +16,7 @@ import { useState } from "react";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import SEO from "@/app/components/SEO";
+import ROITayproCalculator from "@/app/components/ROICalculator";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -37,7 +38,6 @@ export default function SolarPanelCleaningRobot() {
       />
       <Breadcrumbs items={breadcrumbs} />
       <div className="min-h-screen">
-        {" "}
         {/* Added bg-white for consistent bg on mobile */}
         <section className="pt-2 pb-20 bg-white px-4 sm:px-6 lg:px-0">
           <div className="text-center my-12 px-2 sm:px-0">
@@ -64,13 +64,22 @@ export default function SolarPanelCleaningRobot() {
             ))}
           </div>
         </section>
-        <CallbackCard
-          headerText={
-            <>
-              Calculate How Much Can Solar Cleaning <br /> Robots Save?
-            </>
-          }
-        />
+
+        <section className="py-12 lg:py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold leading-tight mb-4">
+                Calculate How Much Can Solar Cleaning Robots Save?
+                <br className="hidden sm:block" />
+                <span className="sm:hidden"> </span>Robots Save?
+              </h1>
+            </div>
+          </div>
+
+          <ROITayproCalculator />
+        </section>
+
+        <CallbackCard headerText={""} />
         <ClientsCard />
         <section className="p-5 mx-4 sm:mx-10">
           {/* Section Title */}
