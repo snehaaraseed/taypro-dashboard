@@ -11,6 +11,7 @@ import CallbackCard from "@/app/components/CallbackCard";
 import ResourcesCard from "@/app/components/ResourcesCard";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import SEO from "@/app/components/SEO";
+import ROITayproCalculator from "@/app/components/ROICalculator";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -147,51 +148,22 @@ export default function SolarPanelCleaningService() {
           headerText={<>Schedule a solar panel cleaning service</>}
         />
 
-        <section className="w-full items-center pt-20 pb-2 bg-white bg-center">
-          {/* <div className="w-500 max-w-6xl mx-auto px-6"> */}
+        <section className="w-full items-center pt-30 pb-2 bg-white bg-center">
           <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-0">
             <h2 className="font-semibold text-5xl md:text-5xl text-start mb-6">
               Calculate the ROI & Savings on a Solar Panel Cleaning Service
             </h2>
-            <p className="mb-20 text-start text-lg">
+            <p className="mb-10 text-start text-lg">
               Along with increasing efficiency, a solar cleaning service also
               helps save a significant amount of money. Here’s how you can
               easily calculate your savings.
             </p>
           </div>
+          <ROITayproCalculator />
         </section>
 
-        {/* <section className="w-full mr-50 items-center px-50 pb-30 bg-white bg-center ">
-          <div className="font-semibold text-[#052638] text-5xl sm:text-3xl md:text-4xl mb-8">
-            FAQs
-          </div>
-          <div>
-            {cleaningServiceFaqs.map((faq, idx) => (
-              <div key={idx} className="border-b border-gray-300">
-                <button
-                  className={`flex items-center w-full py-2 text-xl font-medium transition-colors duration-200 text-[#052638] hover:text-[#A8C117] cursor-pointer`}
-                  onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                >
-                  <span className="flex items-center justify-center w-6 h-6 bg-[#052638] text-white font-semibold  rounded-sm mr-4 text-xl select-none">
-                    {openIndex === idx ? "-" : "+"}
-                  </span>
-                  {faq.question}
-                </button>
-                <div
-                  className={`pl-16 pr-4 pb-6 text-base text-[#052638] transition-all duration-200 ${
-                    openIndex === idx
-                      ? "max-h-40 opacity-100"
-                      : "max-h-0 opacity-0 overflow-hidden"
-                  }`}
-                >
-                  {faq.answer}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section> */}
-        <section className="w-full items-center px-4 sm:px-6 lg:px-0 pb-30 bg-white bg-center">
-          <div className="font-semibold text-[#052638] text-5xl mb-8 max-w-7xl mx-auto">
+        <section className="w-full items-center px-4 sm:px-6 lg:px-0 pb-30 pt-30 bg-white bg-center">
+          <div className="font-semibold text-[#052638] text-center text-5xl mb-8 max-w-7xl mx-auto">
             FAQs
           </div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -427,7 +399,6 @@ export default function SolarPanelCleaningService() {
                   strokeWidth="2"
                   fill="none"
                 />
-                {/* Add more wave paths or use your actual SVG asset */}
               </svg>
             </div>
           </div>

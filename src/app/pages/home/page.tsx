@@ -5,6 +5,7 @@ import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { RobotCard } from "@/app/components/RobotCard";
 import ClientsCard from "@/app/components/ClientsCard";
 import SEO from "@/app/components/SEO";
+import ROITayproCalculator from "@/app/components/ROICalculator";
 
 export default function HomePage() {
   const breadcrumbs = [{ name: "Home", href: "/" }];
@@ -163,30 +164,15 @@ export default function HomePage() {
               </h6>
             </div>
 
-            {/* Row 1 */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 place-items-center mb-4 lg:mb-6">
+            <div className="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-6 px-4 sm:px-0">
               {robots.slice(0, 3).map((robot) => (
-                <div key={robot.model} className="w-full flex justify-center">
-                  <RobotCard robot={robot} />
-                </div>
+                <RobotCard key={robot.model} robot={robot} />
               ))}
             </div>
 
-            {/* Row 2 - ensure centered on desktop */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 place-items-center">
-              {robots.slice(3).map((robot, idx, arr) => (
-                <div
-                  key={robot.model}
-                  className={
-                    arr.length === 1
-                      ? "w-full flex justify-center lg:col-start-2"
-                      : arr.length === 2 && idx === 0
-                      ? "w-full flex justify-center lg:col-start-1"
-                      : "w-full flex justify-center"
-                  }
-                >
-                  <RobotCard robot={robot} />
-                </div>
+            <div className="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-6 px-4 sm:px-0 mt-8">
+              {robots.slice(3).map((robot) => (
+                <RobotCard key={robot.model} robot={robot} />
               ))}
             </div>
           </div>
@@ -209,6 +195,8 @@ export default function HomePage() {
               </h3>
             </div>
           </div>
+
+          <ROITayproCalculator />
         </section>
 
         {/* Sixth Section - Clients */}
