@@ -26,11 +26,17 @@ export default function RelatedProjectsSection({
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project) => (
-            <Link key={project.id} href={project.href} className="group block">
+            <Link
+              key={project.id}
+              href={project.href}
+              title="Solar Project"
+              className="group block"
+            >
               <div className="relative w-full h-[200px] sm:h-[240px] lg:h-[280px] mb-4 sm:mb-6 overflow-hidden">
                 <Image
                   src={project.img}
                   alt={project.title}
+                  title="Solar Project"
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />

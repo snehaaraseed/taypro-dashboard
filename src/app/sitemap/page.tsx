@@ -1,7 +1,21 @@
 import Link from "next/link";
 import { additionalProjects, energyResourceCards } from "../data";
 import { Breadcrumbs } from "../components/Breadcrumbs";
-import SEO from "../components/SEO";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sitemap | Taypro – Complete Website Navigation",
+  description:
+    "Browse Taypro’s sitemap to quickly access all website sections, including projects, services, and company information.",
+  keywords: "sitemap-xml, sitemap taypro, taypro",
+  openGraph: {
+    title: "Sitemap | Taypro – Complete Website Navigation",
+    description:
+      "Browse Taypro’s sitemap to quickly access all website sections, including projects, services, and company information.",
+    url: "http://localhost:3000/sitemap",
+    type: "website",
+  },
+};
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -14,13 +28,6 @@ const breadcrumbs = [
 export default function Blog() {
   return (
     <>
-      <SEO
-        title="Sitemap | Taypro"
-        description="Taypro Website Links"
-        keywords="sitemap-xml, sitemap taypro, taypro"
-        url="http://localhost:3000/sitemap"
-        breadcrumbs={breadcrumbs}
-      />
       <Breadcrumbs items={breadcrumbs} />
       <section className="w-full pt-20 pb-5 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
@@ -41,6 +48,7 @@ export default function Blog() {
                 <li key={idx} className="text-lg">
                   <Link
                     href={card.href}
+                    title="Energy Resources"
                     className="text-[#7CB342] hover:text-[#689F38] transition-colors duration-200 font-medium"
                   >
                     {card.title}
@@ -65,6 +73,7 @@ export default function Blog() {
               <li>
                 <Link
                   href="/company"
+                  title="About Us"
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
                   About Us
@@ -73,6 +82,7 @@ export default function Blog() {
               <li>
                 <Link
                   href="/blog"
+                  title="Blog"
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
                   Blogs
@@ -81,6 +91,7 @@ export default function Blog() {
               <li>
                 <Link
                   href="/contact"
+                  title="Contact"
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
                   Contact
@@ -89,6 +100,7 @@ export default function Blog() {
                   <li>
                     <Link
                       href="/contact/thank-you"
+                      title="Thank You Page"
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
                       Thank You
@@ -99,6 +111,7 @@ export default function Blog() {
               <li>
                 <Link
                   href="/"
+                  title="Home"
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
                   Home
@@ -107,6 +120,7 @@ export default function Blog() {
               <li>
                 <Link
                   href="/privacy-policy"
+                  title="Privacy Policy"
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
                   Privacy Policy
@@ -115,6 +129,7 @@ export default function Blog() {
               <li>
                 <Link
                   href="/projects"
+                  title="Projects"
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
                   Projects
@@ -123,6 +138,7 @@ export default function Blog() {
               <li>
                 <Link
                   href="/solar-panel-cleaning-robot-price-calculator"
+                  title="ROI Calculator"
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
                   ROI Calculator
@@ -131,6 +147,7 @@ export default function Blog() {
               <li>
                 <Link
                   href="/sitemap"
+                  title="Sitemap"
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
                   Sitemap
@@ -139,6 +156,7 @@ export default function Blog() {
               <li>
                 <Link
                   href="/solar-robots/solar-panel-cleaning-robot"
+                  title="Solar Robots Solar Panel Cleaning Robot"
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
                   Solar Panel Cleaning Robots
@@ -147,6 +165,7 @@ export default function Blog() {
                   <li>
                     <Link
                       href="/solar-robots/automatic-solar-panel-cleaning-robot"
+                      title="Automatic Solar Panel CLeaning Robot"
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
                       Automatic Solar Panel Cleaning Robot
@@ -155,6 +174,7 @@ export default function Blog() {
                   <li>
                     <Link
                       href="/solar-robots/semi-automatic-solar-panel-cleaning-system"
+                      title="Semi-automatic Solar Panel Cleaning System"
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
                       Model-B
@@ -163,6 +183,7 @@ export default function Blog() {
                   <li>
                     <Link
                       href="/solar-robots/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
+                      title="Model-T"
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
                       Model-T
@@ -171,6 +192,7 @@ export default function Blog() {
                   <li>
                     <Link
                       href="/solar-robots/solar-panel-cleaning-service"
+                      title="Solar Panel Cleanign Service"
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
                       Solar Panel Cleaning Service
@@ -179,6 +201,7 @@ export default function Blog() {
                   <li>
                     <Link
                       href="/solar-robots/automatic-cleaning-robot-monitoring-app"
+                      title="Automatic Cleaning Robot App"
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
                       Taypro Console
@@ -189,6 +212,7 @@ export default function Blog() {
               <li>
                 <Link
                   href="/cleaning-technology"
+                  title="Cleaning Technology"
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
                   The Technology Behind Taypro
@@ -213,6 +237,7 @@ export default function Blog() {
                 <li key={idx} className="text-lg">
                   <Link
                     href={card.href}
+                    title="Solar Project"
                     className="text-[#7CB342] hover:text-[#689F38] transition-colors duration-200 font-medium"
                   >
                     {card.title}

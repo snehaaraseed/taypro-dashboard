@@ -15,7 +15,6 @@ import { Check } from "lucide-react";
 import { useState } from "react";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
-import SEO from "@/app/components/SEO";
 import ROITayproCalculator from "@/app/components/ROICalculator";
 
 const breadcrumbs = [
@@ -28,14 +27,6 @@ export default function SolarPanelCleaningRobot() {
 
   return (
     <>
-      <SEO
-        title="Solar Panel Cleaning Robot | Taypro"
-        description="Solar Module Cleaning System by Taypro has highest Uptime and Return on Investment by using Solar Panel Cleaning Robots for efficiency. Enquire Today!"
-        keywords="solar panel cleaning robot, automatic solar robot, taypro, predictive solar cleaning, battery efficiency, semi automatic, capex"
-        url="http://localhost:3000/solar-robots/solar-panel-cleaning-robot"
-        breadcrumbs={breadcrumbs}
-        faqs={[faqs, moreFaqs]}
-      />
       <Breadcrumbs items={breadcrumbs} />
       <div className="min-h-screen">
         {/* Added bg-white for consistent bg on mobile */}
@@ -112,9 +103,10 @@ export default function SolarPanelCleaningRobot() {
             {/* left content  */}
             <div className="px-0 sm:px-0">
               <Image
-                src="/taypro-robotFeature.jpg"
+                src="/tayproasset/taypro-robotFeature.jpg"
                 alt="Taypro Robot Feature"
-                width={400} // Reduced width for mobile, CSS controls full size on larger
+                title="Taypro Robot Feature"
+                width={400}
                 height={600}
                 priority
                 className="w-full h-auto"
@@ -136,6 +128,7 @@ export default function SolarPanelCleaningRobot() {
               <Image
                 src="/taypro-solar-panel.jpg"
                 alt="Taypro Solar Panel Robot"
+                title="Taypro Solar Panel Robot"
                 width={400}
                 height={400}
                 priority

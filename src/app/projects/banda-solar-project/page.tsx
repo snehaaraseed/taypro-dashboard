@@ -10,7 +10,6 @@ import ProjectDescriptionSection from "@/app/components/AllProjectsDescriptionSe
 import ProjectQuoteSection from "@/app/components/AllProjectsQuoteSection";
 import ProjectKeyMetricsSection from "@/app/components/AllProjectsKeyMetricsSection";
 import RelatedProjectsSection from "@/app/components/AllRelatedProjectsSection";
-import SEO from "@/app/components/SEO";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -39,17 +38,6 @@ export default function BandaSolarProject() {
   );
   return (
     <>
-      <SEO
-        title="Banda Solar Project"
-        description="TAYPRO deployed 106 fully automatic waterless cleaning robots
-                  and 54 semi-automatic robots at the Banda Solar Project in
-                  Uttar Pradesh. The core objective is to ensure regular and
-                  efficient cleaning of solar panels and enhance the performance
-                  ratio."
-        keywords="banda solar, taypro solar projects, solar panel, power generation, key metrics, maximum energy generation, performance drive"
-        url="http://localhost:3000/projects/banda-solar-project"
-        breadcrumbs={breadcrumbs}
-      />
       <Breadcrumbs items={breadcrumbs} />
 
       <div className="min-h-screen overflow-x-hidden px-4 sm:px-6 lg:px-0">
@@ -59,7 +47,7 @@ export default function BandaSolarProject() {
         />
 
         <ProjectOverviewSection
-          image="/banda-solar.jpg"
+          image="/tayprosolarfirm/banda-solar.jpg"
           overviewText="TAYPRO deployed 106 fully automatic waterless cleaning robots
                   and 54 semi-automatic robots at the Banda Solar Project in
                   Uttar Pradesh. The core objective is to ensure regular and
@@ -69,7 +57,7 @@ export default function BandaSolarProject() {
 
         <ProjectDescriptionSection
           title="Maximized The Energy Generation"
-          image="/banda-project.jpg"
+          image="/tayprosolarfirm/banda-project.jpg"
           paragraphs={[
             `At the Banda Solar Power plant TAYPRO integrated high-tech
             robotics to enhance the operational efficiency of the plant.
@@ -86,7 +74,7 @@ export default function BandaSolarProject() {
 
         <ProjectKeyMetricsSection
           title="Key Metrics"
-          image="/banda-key-matrix.jpg"
+          image="/tayprokeymetrics/banda-key-matrix.jpg"
           metrics={bandaMetrics}
         />
 

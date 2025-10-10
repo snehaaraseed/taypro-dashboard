@@ -11,6 +11,7 @@ export default function ResourcesCard() {
           </div>
           <Link
             href="/blog"
+            title="Blog"
             className="bg-[#A8C117] text-[#052638] px-8 py-3 rounded-lg text-lg transition-all duration-200 hover:bg-lime-500 transition cursor-pointer"
           >
             View all resources
@@ -23,6 +24,7 @@ export default function ResourcesCard() {
             <div key={index} className="border-b border-gray-300 pb-6">
               <Link
                 href={resource.href}
+                title="Energy Resources"
                 className="text-[#052638] text-md font-medium transition-colors duration-200 hover:text-[#A8C117] cursor-pointer block"
               >
                 {resource.title}

@@ -24,6 +24,7 @@ export default function ProjectOverviewSection({
           <Image
             src={image}
             alt="Project Overview"
+            title="Project Overview"
             fill
             className="object-cover"
             priority
@@ -38,6 +39,7 @@ export default function ProjectOverviewSection({
               {overviewText}
             </p>
             <Link
+              title="Contact"
               href="/contact"
               className="text-white text-lg sm:text-xl mt-4 sm:mt-6 lg:mt-8 border-b-2 border-[#e6ee9d] hover:text-[#e6ee9d] transition-colors duration-300"
             >

@@ -1,10 +1,8 @@
-"use client";
-
 import { ourSolutions } from "@/app/data";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { RobotCard } from "../components/RobotCard";
 import CallbackCard from "../components/CallbackCard";
-import SEO from "../components/SEO";
+import type { Metadata } from "next";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -14,16 +12,24 @@ const breadcrumbs = [
   },
 ];
 
+export const metadata: Metadata = {
+  title: "Taypro Cleaning Technology using latest Technology",
+  description:
+    "Taypro specializes in enhancing solar panel efficiency through innovative robotic cleaning solutions that combat dust accumulation.",
+  keywords:
+    "solar panel cleaning robots, cleaning technology, cleaning, automatic solar robot, taypro",
+  openGraph: {
+    title: "Taypro Cleaning Technology using latest Technology",
+    description:
+      "Taypro specializes in enhancing solar panel efficiency through innovative robotic cleaning solutions that combat dust accumulation.",
+    url: "http://localhost:3000/cleaning-technology",
+    type: "website",
+  },
+};
+
 export default function CleaningTechnology() {
   return (
     <>
-      <SEO
-        title="Taypro Cleaning Technology"
-        description="Taypro specializes in enhancing solar panel efficiency through innovative robotic cleaning solutions that combat dust accumulation. By integrating advanced technologies such as AI and dual pass cleaning techniques, Taypro addresses key challenges in maintaining optimal solar performance. This comprehensive approach reduces operational costs, improves energy output, and promotes sustainability in solar energy systems across diverse environments. Join Taypro in revolutionizing the solar energy landscape with cutting-edge solutions designed to maximize energy efficiency for both residential and commercial users."
-        keywords="solar panel cleaning robots, cleaning technology, cleaning, automatic solar robot, taypro"
-        url="http://localhost:3000/cleaning-technology"
-        breadcrumbs={breadcrumbs}
-      />
       <Breadcrumbs items={breadcrumbs} />
       <div className="min-h-screen">
         <section

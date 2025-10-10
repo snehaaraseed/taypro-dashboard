@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Blinker } from "next/font/google";
@@ -8,11 +8,11 @@ const blinker = Blinker({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "600", "700", "800", "900"],
 });
-export const metadata: Metadata = {
-  title: "TAYPRO - Solar Panel Cleaning Solutions",
-  description:
-    "Automatic Solar Panel Cleaning Robots for efficient maintenance",
-};
+// export const metadata: Metadata = {
+//   title: "TAYPRO - Solar Panel Cleaning Solutions",
+//   description:
+//     "Automatic Solar Panel Cleaning Robots for efficient maintenance",
+// };
 
 export default function RootLayout({
   children,
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/tayproasset/taypro-favicon.png" sizes="any" />
       </head>
       <body className={blinker.className}>
         <div className="min-h-screen flex flex-col">

@@ -3,21 +3,21 @@ export const robots = [
     model: "Model-A",
     description:
       "Autonomous Waterless Cleaning Robot with Dual pass cleaning method with AI and ML Capabilities.",
-    imgPath: "/taypro-modelAcopy.png",
+    imgPath: "/tayprorobots/taypro-modelAcopy.png",
     href: "/solar-robots/automatic-solar-panel-cleaning-robot",
   },
   {
     model: "Model-B",
     description:
       "A pick-and-place type portable dry solar panel cleaning robot for scattered utility scale solar power plants.",
-    imgPath: "/taypro-modelBcopy.png",
+    imgPath: "/tayprorobots/taypro-modelBcopy.png",
     href: "/solar-robots/semi-automatic-solar-panel-cleaning-system",
   },
   {
     model: "Model-T",
     description:
       "Autonomous patented cleaning robot with flexible body and 360° flexible rotational bridge for single-axis trackers.",
-    imgPath: "/taypro-modelTcopy.png",
+    imgPath: "/tayprorobots/taypro-modelTcopy.png",
     href: "/solar-robots/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
   },
   {
@@ -41,34 +41,34 @@ export const ourSolutions = [
     model: "Model-A",
     description:
       "Autonomous Waterless Cleaning Robot with Dual pass cleaning method with AI and ML Capabilities.",
-    imgPath: "/taypro-modelAcopy.png",
+    imgPath: "/tayprorobots/taypro-modelAcopy.png",
     href: "/solar-robots/automatic-solar-panel-cleaning-robot",
   },
   {
     model: "Model-B",
     description:
       "A pick-and-place type portable dry solar panel cleaning robot for scattered utility scale solar power plants.",
-    imgPath: "/taypro-modelBcopy.png",
+    imgPath: "/tayprorobots/taypro-modelBcopy.png",
     href: "/solar-robots/semi-automatic-solar-panel-cleaning-system",
   },
   {
     model: "Model-T",
     description:
       "Autonomous patented cleaning robot with flexible body and 360° flexible rotational bridge for single-axis trackers.",
-    imgPath: "/taypro-modelTcopy.png",
+    imgPath: "/tayprorobots/taypro-modelTcopy.png",
     href: "/solar-robots/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
   },
 ];
 
 export const clientLogos = [
-  "/taypro-client1.png",
-  "/taypro-client2.png",
-  "/taypro-client3.png",
-  "/taypro-client4.png",
-  "/taypro-client5.png",
-  "/taypro-client6.png",
-  "/taypro-client7.png",
-  "/taypro-client8.png",
+  "/tayproclients/taypro-client1.png",
+  "/tayproclients/taypro-client2.png",
+  "/tayproclients/taypro-client3.png",
+  "/tayproclients/taypro-client4.png",
+  "/tayproclients/taypro-client5.png",
+  "/tayproclients/taypro-client6.png",
+  "/tayproclients/taypro-client7.png",
+  "/tayproclients/taypro-client8.png",
 ];
 
 export const features = [
@@ -202,14 +202,14 @@ export const robotsAdvantages = [
 
 export const projects = [
   {
-    img: "/banda-solar.jpg",
+    img: "/tayprosolarfirm/banda-solar.jpg",
     title: "Banda Solar Project – 70 MW",
     details: "Automatic, Capex, Semi-Automatic",
     href: "/projects/banda-solar-project",
     date: "January 28, 2025",
   },
   {
-    img: "/yadgir-solar.jpg",
+    img: "/tayprosolarfirm/yadgir-solar.jpg",
     title: "Yadgir Solar Project – 50 MW",
     details: "Automatic, Capex, Semi-Automatic",
     href: "/projects/yadgir-solar-project",
@@ -220,7 +220,7 @@ export const projects = [
 export const additionalProjects = [
   {
     id: 1,
-    img: "/banda-solar.jpg",
+    img: "/tayprosolarfirm/banda-solar.jpg",
     title: "Banda Solar Project – 70 MW",
     details: "Automatic, Capex, Semi-Automatic",
     href: "/projects/banda-solar-project",
@@ -228,7 +228,7 @@ export const additionalProjects = [
   },
   {
     id: 2,
-    img: "/yadgir-solar.jpg",
+    img: "/tayprosolarfirm/yadgir-solar.jpg",
     title: "Yadgir Solar Project – 50 MW",
     details: "Automatic, Capex, Semi-Automatic",
     href: "/projects/yadgir-solar-project",
@@ -236,7 +236,7 @@ export const additionalProjects = [
   },
   {
     id: 3,
-    img: "/soyegaon-solar.jpg",
+    img: "/tayprosolarfirm/soyegaon-solar.jpg",
     title: "Soygaon Maharastra – 100 MW",
     details: "Automatic, Capex, Semi-Automatic",
     href: "/projects/soyegaon-solar-project",
@@ -244,7 +244,7 @@ export const additionalProjects = [
   },
   {
     id: 4,
-    img: "/agar-solar.jpg",
+    img: "/tayprosolarfirm/agar-solar.jpg",
     title: "Agar, Madhya Pradesh – 250 MW",
     details: "Automatic, Capex, Semi-Automatic",
     href: "/projects/agar-solar-project",
@@ -374,12 +374,12 @@ export const cleaningServiceFaqs = [
 export const modelCards = [
   {
     label: "MODEL-B",
-    image: "/taypro-modelBcopy.png",
+    image: "/tayprorobots/taypro-modelBcopy.png",
     href: "/solar-robots/semi-automatic-solar-panel-cleaning-system",
   },
   {
     label: "MODEL-T",
-    image: "/taypro-modelTcopy.png",
+    image: "/tayprorobots/taypro-modelTcopy.png",
     href: "/solar-robots/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
   },
 ];
@@ -387,12 +387,12 @@ export const modelCards = [
 export const modelBCards = [
   {
     label: "MODEL-A",
-    image: "/taypro-modelAcopy.png",
+    image: "/tayprorobots/taypro-modelAcopy.png",
     href: "/solar-robots/automatic-solar-panel-cleaning-robot",
   },
   {
     label: "MODEL-T",
-    image: "/taypro-modelTcopy.png",
+    image: "/tayprorobots/taypro-modelTcopy.png",
     href: "/solar-robots/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
   },
 ];
@@ -400,12 +400,12 @@ export const modelBCards = [
 export const modelTCards = [
   {
     label: "MODEL-A",
-    image: "/taypro-modelAcopy.png",
+    image: "/tayprorobots/taypro-modelAcopy.png",
     href: "/solar-robots/automatic-solar-panel-cleaning-robot",
   },
   {
     label: "MODEL-B",
-    image: "/taypro-modelBcopy.png",
+    image: "/tayprorobots/taypro-modelBcopy.png",
     href: "/solar-robots/semi-automatic-solar-panel-cleaning-system",
   },
 ];
@@ -466,25 +466,25 @@ export const founders = [
   {
     name: "Yogesh Kudale",
     role: "CEO",
-    img: "/taypro-yogesh.png",
+    img: "/tayprofounders/taypro-yogesh.png",
     linkedin: "https://www.linkedin.com/in/yogesh-kudale/",
   },
   {
     name: "Tejas Memane",
     role: "COO",
-    img: "/taypro-tejas.png",
+    img: "/tayprofounders/taypro-tejas.png",
     linkedin: "https://www.linkedin.com/in/tejas-memane-600523151/",
   },
   {
     name: "Akshay Auti",
     role: "CTO",
-    img: "/taypro-akshay.png",
+    img: "/tayprofounders/taypro-akshay.png",
     linkedin: "https://www.linkedin.com/in/akshay-auti/",
   },
   {
     name: "Abhishek Masurkar",
     role: "CFO",
-    img: "/taypro-abhishek.png",
+    img: "/tayprofounders/taypro-abhishek.png",
     linkedin: "https://www.linkedin.com/in/abhi-masurkar/",
   },
 ];

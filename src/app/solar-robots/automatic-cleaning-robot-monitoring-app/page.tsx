@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { modelBCards } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
@@ -9,7 +7,21 @@ import ClientsCard from "@/app/components/ClientsCard";
 import EnergyResourceCard from "@/app/components/EnergyResourceCard";
 import HeroSection from "@/app/components/Herosection";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
-import SEO from "@/app/components/SEO";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Automatic Cleaning Robot Monitoring App | Taypro",
+  description:
+    "Precision in Operation The TAYPRO CONSOLE goes beyond conventional cleaning methods. It allows for the application of individual and group commands, tailoring the cleaning approach based on seasonal data and the specific position of each table in the field.",
+  keywords: "sitemap-xml, sitemap taypro, taypro",
+  openGraph: {
+    title: "Automatic Cleaning Robot Monitoring App | Taypro",
+    description:
+      "Precision in Operation The TAYPRO CONSOLE goes beyond conventional cleaning methods. It allows for the application of individual and group commands, tailoring the cleaning approach based on seasonal data and the specific position of each table in the field.",
+    url: "http://localhost:3000/solar-robots/automatic-cleaning-robot-monitoring-app",
+    type: "website",
+  },
+};
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -26,13 +38,6 @@ const breadcrumbs = [
 export default function AutomaticCleaningRobotMonitoringApp() {
   return (
     <>
-      <SEO
-        title="Automatic Cleaning Robot Monitoring App | Taypro"
-        description="Precision in Operation The TAYPRO CONSOLE goes beyond conventional cleaning methods. It allows for the application of individual and group commands, tailoring the cleaning approach based on seasonal data and the specific position of each table in the field. This level of precision ensures the most efficient working method."
-        keywords="automatic cleaning robot, monitoring app, taypro solar robots, energy resource, sustainable energy, maximum power generation"
-        url="http://localhost:3000/solar-robots/automatic-cleaning-robot-monitoring-app"
-        breadcrumbs={breadcrumbs}
-      />
       <Breadcrumbs items={breadcrumbs} />
       <div className="min-h-screen">
         <HeroSection
@@ -64,6 +69,7 @@ export default function AutomaticCleaningRobotMonitoringApp() {
               <Image
                 src="/taypro-console.png"
                 alt="TAYPRO MODEL-T cleaning solar panels"
+                title="TAYPRO MODEL-T Solar Panels"
                 fill
                 className="object-cover"
                 priority

@@ -32,6 +32,7 @@ export default function ProjectDescriptionSection({
             <Image
               src={image}
               alt={title}
+              title="Solar Project"
               width={500}
               height={400}
               className="w-full h-auto"

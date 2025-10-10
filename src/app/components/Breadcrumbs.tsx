@@ -10,7 +10,11 @@ export function Breadcrumbs({
       <ol className="flex items-center justify-start gap-2 text-[#f3f6ee] text-sm">
         {items.map((item, i) => (
           <li key={item.href} className="flex items-center">
-            <Link href={item.href} className="hover:underline">
+            <Link
+              href={item.href}
+              title="Breadcrumb"
+              className="hover:underline"
+            >
               {item.name}
             </Link>
             {i < items.length - 1 && <span className="mx-2">&raquo;</span>}

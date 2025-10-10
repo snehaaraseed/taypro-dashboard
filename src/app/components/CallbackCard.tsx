@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 interface DemoSectionProps {
@@ -8,11 +8,16 @@ interface DemoSectionProps {
 }
 
 export default function CallbackCard({ headerText }: DemoSectionProps) {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     firstName: "",
     email: "",
     phone: "",
   });
+
+  const [loading, setLoading] = useState(false);
+  const [successMsg, setSuccessMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -24,20 +29,47 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+    setErrorMsg("");
+    setSuccessMsg("");
 
-    // For now just log it, later you can call your API here
-    console.log("Form Data:", formData);
+    try {
+      const response = await fetch("http://localhost:5000/api/v1/saleslead", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.firstName,
+          email: formData.email,
+          phone: formData.phone,
+        }),
+      });
 
-    // Example future API call
-    // await fetch("/api/contact", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(formData),
-    // });
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Please fill the required fields");
+      }
 
-    // Redirect or reset
+      const data = await response.json();
+      setSuccessMsg(data.message || "Request submitted successfully.");
+      router.push("/contact/thank-you");
+      // setFormData({
+      //   firstName: "",
+      //   email: "",
+      //   phone: "",
+      // });
+    } catch (error) {
+      if (error instanceof Error) {
+        setErrorMsg(error.message);
+      } else {
+        setErrorMsg(String(error));
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -69,7 +101,7 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
           </div>
           <form onSubmit={handleSubmit} className="space-y-7">
             <div>
-              <label className="text-white text-base">Full Name</label>
+              <label className="text-white text-base">Full Name*</label>
               <input
                 type="text"
                 name="firstName"
@@ -81,7 +113,7 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
             </div>
             <div className="flex flex-row gap-6">
               <div className="w-1/2">
-                <label className="text-white text-base">Email Address</label>
+                <label className="text-white text-base">Email Address*</label>
                 <input
                   type="email"
                   name="email"
@@ -92,7 +124,7 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
                 />
               </div>
               <div className="w-1/2">
-                <label className="text-white text-base">Phone Number</label>
+                <label className="text-white text-base">Phone Number*</label>
                 <input
                   type="tel"
                   name="phone"
@@ -103,24 +135,20 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
                 />
               </div>
             </div>
-            {/* <div className="flex items-center gap-2 mt-2">
-                <input
-                  type="checkbox"
-                  id="agree"
-                  className="accent-[#A8C117] w-5 h-5"
-                />
-                <label htmlFor="agree" className="text-white text-base">
-                  I agree to use my personal data.
-                </label>
-              </div> */}
-            {/* <Link href="/contact/thank-you"> */}
+
+            {errorMsg && (
+              <div className="mb-4 text-red-500 text-sm">{errorMsg}</div>
+            )}
+            {successMsg && (
+              <div className="mb-4 text-green-600 text-sm">{successMsg}</div>
+            )}
             <button
               type="submit"
-              className="bg-[#A8C117] w-full mt-3 py-3 rounded text-white text-lg transition hover:bg-[#b4ca3a] cursor-pointer"
+              disabled={loading}
+              className="w-full mt-4 sm:mt-5 bg-[#A8C117] hover:bg-[#B8CC31] text-[#052638] font-semibold text-base sm:text-lg rounded-[4px] py-3 transition-colors cursor-pointer disabled:opacity-50"
             >
-              Get a Callback
+              {loading ? "Sending..." : "Get a Callback"}
             </button>
-            {/* </Link> */}
           </form>
         </div>
 
@@ -131,6 +159,7 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
           <Image
             src="/taypro-panel.jpg"
             alt="solar panel demo"
+            title="Solar Panel Demo"
             fill
             className="object-cover"
             priority

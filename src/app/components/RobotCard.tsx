@@ -14,6 +14,7 @@ export function RobotCard({ robot }: { robot: Robot }) {
       <Image
         src={robot.imgPath}
         alt={robot.model}
+        title="Robot"
         width={600}
         height={192}
         className="w-full h-48 object-cover"
@@ -23,7 +24,7 @@ export function RobotCard({ robot }: { robot: Robot }) {
           {robot.model}
         </div>
         <p className="text-white/90">{robot.description}</p>
-        <Link href={robot.href}>
+        <Link href={robot.href} title="Taypro Robot">
           <button className="mt-9 px-4 py-1 bg-white rounded-4xl hover:bg-[#32b500] transition cursor-pointer">
             <span className="text-dark">Learn More</span>
           </button>

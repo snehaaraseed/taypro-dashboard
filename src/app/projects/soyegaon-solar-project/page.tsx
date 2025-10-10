@@ -10,7 +10,6 @@ import ProjectDescriptionSection from "@/app/components/AllProjectsDescriptionSe
 import ProjectQuoteSection from "@/app/components/AllProjectsQuoteSection";
 import ProjectKeyMetricsSection from "@/app/components/AllProjectsKeyMetricsSection";
 import RelatedProjectsSection from "@/app/components/AllRelatedProjectsSection";
-import SEO from "@/app/components/SEO";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -39,13 +38,6 @@ export default function SoyegaonSolarProject() {
   );
   return (
     <>
-      <SEO
-        title="Soyegaon Maharashtra"
-        description="The Soygaon Solar Project required a solution to maximise the power generation and performance ratio. TAYPRO’s automatic and semi-automatic robots were meticulously deployed to deliver high-speed cleaning for autonomous cleaning for large-scale panel areas. Also, the semi-automatic robots focused on intricate cleaning requirements."
-        keywords="soyegaon solar, soyegaon maharashtra, taypro solar projects, solar panel efficiency, power generation, cutting-edge technology"
-        url="http://localhost:3000/projects/soyegaon-solar-project"
-        breadcrumbs={breadcrumbs}
-      />
       <Breadcrumbs items={breadcrumbs} />
 
       <div className="min-h-screen overflow-x-hidden px-4 sm:px-6 lg:px-0">
@@ -55,7 +47,7 @@ export default function SoyegaonSolarProject() {
         />
 
         <ProjectOverviewSection
-          image="/soyegaon-solar.jpg"
+          image="/tayprosolarfirm/soyegaon-solar.jpg"
           overviewText="TAYPRO deployed a total of 90 solar cleaning robots at the Soygaon Solar Project In Maharashtra. This included 54 Automatic Robots for high-speed autonomous cleaning and 36 Semi-Automated Robots for precision-based cleaning."
         />
 
@@ -75,7 +67,7 @@ export default function SoyegaonSolarProject() {
 
         <ProjectKeyMetricsSection
           title="Key Metrics"
-          image="/soyegaon-key-matrix.jpg"
+          image="/tayprokeymetrics/soyegaon-key-matrix.jpg"
           metrics={soyegaonMetrics}
         />
 

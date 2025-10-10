@@ -40,6 +40,7 @@ export default function EnergyResourceCard() {
             <Link
               href={card.href}
               key={idx}
+              title="Energy Resources"
               className="block border border-gray-300 p-4 overflow-hidden group"
             >
               <div className="relative w-full h-90 overflow-hidden">
@@ -47,6 +48,7 @@ export default function EnergyResourceCard() {
                 <Image
                   src={card.imgSrc}
                   alt={card.title}
+                  title="Resource"
                   fill
                   className="object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105 group-hover:translate-x-3"
                   priority
@@ -71,6 +73,7 @@ export default function EnergyResourceCard() {
 
         <Link
           href="/blog"
+          title="Blog"
           className="inline-block bg-[#A8C117] text-[#052638] text-lg px-6 py-2 rounded-lg transition-colors duration-200 hover:bg-[#91bc00] cursor-pointer"
         >
           View all resources

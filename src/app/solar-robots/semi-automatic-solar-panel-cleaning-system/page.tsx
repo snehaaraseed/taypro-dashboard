@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { modelBCards } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
@@ -9,7 +7,22 @@ import HeroSection from "@/app/components/Herosection";
 import FeaturesSection from "@/app/components/FeaturesSection";
 import ResourcesCard from "@/app/components/ResourcesCard";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
-import SEO from "@/app/components/SEO";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Model-B | A pick-and-place type solar panel cleaning robot.",
+  description:
+    "Key Features Setting Taypro ApartThe Taypro Model-B is not just another cleaning device; it’s a result of meticulous study and analysis aimed at addressing prevalent issues in solar power plants. The innovative cleaning assembly and driving mechanism elevate its compatibility, making it suitable for fixed tilt, seasonal tilt, and horizontal single-axis trackers.",
+  keywords:
+    "semi-automatic solar robots, solar panel cleaning system, taypro model b, waterless cleaning technology, operation efficiency",
+  openGraph: {
+    title: "Model-B | A pick-and-place type solar panel cleaning robot",
+    description:
+      "Key Features Setting Taypro ApartThe Taypro Model-B is not just another cleaning device; it’s a result of meticulous study and analysis aimed at addressing prevalent issues in solar power plants. The innovative cleaning assembly and driving mechanism elevate its compatibility, making it suitable for fixed tilt, seasonal tilt, and horizontal single-axis trackers.",
+    url: "http://localhost:3000/solar-robots/semi-automatic-solar-panel-cleaning-system",
+    type: "website",
+  },
+};
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -34,13 +47,6 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
   ];
   return (
     <>
-      <SEO
-        title="Model-B | Taypro"
-        description="Key Features Setting Taypro ApartThe Taypro Model-B is not just another cleaning device; it’s a result of meticulous study and analysis aimed at addressing prevalent issues in solar power plants. The innovative cleaning assembly and driving mechanism elevate its compatibility, making it suitable for fixed tilt, seasonal tilt, and horizontal single-axis trackers."
-        keywords="semi-automatic solar robots, solar panel cleaning system, taypro model b, waterless cleaning technology, operation efficiency"
-        url="http://localhost:3000/solar-robots/semi-automatic-solar-panel-cleaning-system"
-        breadcrumbs={breadcrumbs}
-      />
       <Breadcrumbs items={breadcrumbs} />
       <div className="min-h-screen overflow-x-hidden px-4 sm:px-6 lg:px-0">
         <HeroSection
@@ -73,18 +79,17 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
             backgroundSize: "auto",
           }}
         >
-          {/* <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16"> */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
             {/* Left side: Heading + Robot Image */}
             <div className="lg:w-1/2 flex flex-col items-center lg:items-start">
               <h1 className="text-[#052638] font-semibold text-4xl lg:text-5xl mb-12 text-center lg:text-left leading-tight">
                 Elevating ROI through Efficient Cleaning
               </h1>
-              {/* <div className="relative w-80 h-64 lg:w-96 lg:h-80"> */}
               <div className="relative w-full max-w-xs sm:max-w-sm lg:w-96 h-64 lg:h-80 mx-auto lg:mx-0">
                 <Image
-                  src="/taypro-robotImage.png" // Replace with your actual robot image path
+                  src="/tayproasset/taypro-robotImage.png"
                   alt="Taypro cleaning robot"
+                  title="Taypro Cleaning Robot"
                   fill
                   className="object-contain"
                   priority

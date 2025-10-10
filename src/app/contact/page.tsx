@@ -2,8 +2,6 @@
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { Factory, Users } from "lucide-react";
-import SEO from "../components/SEO";
-// import Map from "../components/Map";
 import dynamic from "next/dynamic";
 
 const breadcrumbs = [
@@ -19,13 +17,6 @@ const Map = dynamic(() => import("@/app/components/Map"), { ssr: false });
 export default function ContactUsPage() {
   return (
     <>
-      <SEO
-        title="Contact Us | Taypro"
-        description="Reach out to Taypro for Solar Power Plant Cleaning Services. We deliver high ROI and 99% cleaning efficiency."
-        keywords="solar panel cleaning robots, contact taypro, email, automatic solar robot, semi-automatic solar robot, taypro"
-        url="http://localhost:3000/contact"
-        breadcrumbs={breadcrumbs}
-      />
       <Breadcrumbs items={breadcrumbs} />
       <div className="min-h-screen">
         <section className="w-full bg-white py-10">

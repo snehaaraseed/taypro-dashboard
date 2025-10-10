@@ -4,7 +4,6 @@ import Image from "next/image";
 import { additionalProjects } from "@/app/data";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import Link from "next/link";
-import SEO from "../components/SEO";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -17,13 +16,6 @@ const breadcrumbs = [
 export default function ProjectPage() {
   return (
     <>
-      <SEO
-        title="Solar Project"
-        description="Sustainable Projects Disrupting the energy-industry."
-        keywords="solar projects, sustainable energy, solar panels, taypro solar plants, maximum power generation"
-        url="http://localhost:3000/projects"
-        breadcrumbs={breadcrumbs}
-      />
       <Breadcrumbs items={breadcrumbs} />
       <div className="min-h-screen">
         <section
@@ -67,6 +59,7 @@ export default function ProjectPage() {
                 <Image
                   src={project.img}
                   alt={project.title}
+                  title="Solar Projects"
                   fill
                   className="w-full h-full object-cover transform group-hover:scale-105 transition duration-300"
                 />
@@ -79,37 +72,10 @@ export default function ProjectPage() {
 
                 <div className="absolute inset-0 border border-white transition duration-300 ease-out scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100" />
 
-                {/* <div className="absolute inset-0 flex flex-col items-center justify-center z-10 text-center px-4">
-                  <Link
-                    href={project.href}
-                    className="text-white text-2xl sm:text-3xl mb-3 drop-shadow-md font-semibold hover:text-[#A8C117] transition-colors duration-300"
-                  >
-                    {project.title}
-                  </Link>
-
-                  <div
-                    className="flex flex-wrap justify-center gap-3 text-[#A8C117] text-sm sm:text-lg md:text-xl font-medium opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300"
-                    style={{
-                      transitionTimingFunction:
-                        "cubic-bezier(0.4, 0.4, 0.2, 0.5)",
-                    }}
-                  >
-                    {project.details.split(", ").map((item) => (
-                      <Link
-                        key={item}
-                        href={`/projects/${item
-                          .toLowerCase()
-                          .replace(/\s+/g, "-")}`}
-                        className="hover:underline hover:text-[#c3d958] transition-colors duration-300"
-                      >
-                        {item}
-                      </Link>
-                    ))}
-                  </div>
-                </div> */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center z-10 text-center px-4">
                   <Link
                     href={project.href}
+                    title="Solar Project"
                     className="text-white text-2xl sm:text-3xl mb-3 drop-shadow-md font-semibold hover:text-[#A8C117] transition-colors duration-300"
                   >
                     {project.title}
@@ -135,6 +101,7 @@ export default function ProjectPage() {
                         href={`/projects/${item
                           .toLowerCase()
                           .replace(/\s+/g, "-")}`}
+                        title="Solar Project"
                         className="hover:underline hover:text-[#c3d958] transition-colors duration-300"
                       >
                         {item}

@@ -66,8 +66,9 @@ export default function Header() {
             <Image
               width={160}
               height={50}
-              src="/taypro-logo.png"
+              src="/tayproasset/taypro-logo.png"
               alt="taypro-logo"
+              title="Taypro Logo"
               priority
             />
           </div>
@@ -81,6 +82,7 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
+                  title="Nav Item"
                   className={`text-white px-3 py-2 text-md font-medium transition duration-800 hover:underline underline-offset-8 ${
                     isActive(item.href) ? "underline" : ""
                   }`}
@@ -96,6 +98,7 @@ export default function Header() {
             >
               <Link
                 href="/solar-robots/solar-panel-cleaning-robot"
+                title="Solar Panel Cleaning Robot"
                 className={`text-white px-3 py-2 text-md font-medium cursor-pointer flex items-center transition duration-800 hover:underline underline-offset-8 ${
                   isSolarActive() ? "underline" : ""
                 }`}
@@ -121,6 +124,7 @@ export default function Header() {
                     <Link
                       href={item.href}
                       key={item.label}
+                      title="Robot Type"
                       className="block px-5 py-5 text-[#052638] text-xl transition-colors duration-200 hover:bg-[#A8C117] hover:text-[#052638] rounded-md"
                     >
                       {item.label}
@@ -136,6 +140,7 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
+                  title="Nav Item"
                   className={`text-white px-3 py-2 text-md font-medium transition duration-800 hover:underline underline-offset-8 ${
                     isActive(item.href) ? "underline" : ""
                   }`}
@@ -149,6 +154,7 @@ export default function Header() {
           <div className="hidden md:block">
             <Link
               href="/contact"
+              title="Contact"
               className="bg-[#A8C117] text-black px-7 py-3 rounded-md font-medium hover:bg-lime-500 transition"
             >
               Get in touch
@@ -196,6 +202,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
+                title="Nav Item"
                 className={`text-white hover:text-gray-300 block px-3 py-2 text-base font-medium ${
                   isActive(item.href) ? "underline underline-offset-8" : ""
                 }`}
@@ -207,6 +214,7 @@ export default function Header() {
             {/* Solar robots link for mobile */}
             <Link
               href="/solar-robots/solar-panel-cleaning-robot"
+              title="Solar Panel Cleaning Robot"
               className={`text-white hover:text-gray-300 block px-3 py-2 text-base font-medium ${
                 isSolarActive() ? "underline underline-offset-8" : ""
               }`}
@@ -216,6 +224,7 @@ export default function Header() {
             </Link>
             <Link
               href="/contact"
+              title="Contact"
               className="block bg-[#A8C117] text-black px-5 py-2 rounded-md font-medium text-center hover:bg-lime-500 transition"
               onClick={() => setIsMenuOpen(false)}
             >

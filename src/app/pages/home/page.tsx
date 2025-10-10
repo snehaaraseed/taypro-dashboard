@@ -4,20 +4,30 @@ import { robots, features, otherFeatures } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { RobotCard } from "@/app/components/RobotCard";
 import ClientsCard from "@/app/components/ClientsCard";
-import SEO from "@/app/components/SEO";
 import ROITayproCalculator from "@/app/components/ROICalculator";
+import { Breadcrumbs } from "@/app/components/Breadcrumbs";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Taypro is a Solar Panel Cleaning Company.",
+  description:
+    "Taypro is a Solar Panel Cleaning Company. We provide end to end ROI Solar Cleaning Service to improve Solar Plant Efficiency.",
+  keywords:
+    "solar panel cleaning robots, automatic solar robot, semi-automatic solar robots, capex, opex, cleaning robots, taypro",
+  openGraph: {
+    title: "Taypro is a Solar Panel Cleaning Company",
+    description:
+      "Taypro is a Solar Panel Cleaning Company. We provide end to end ROI Solar Cleaning Service to improve Solar Plant Efficiency.",
+    url: "http://localhost:3000",
+    type: "website",
+  },
+};
 
 export default function HomePage() {
   const breadcrumbs = [{ name: "Home", href: "/" }];
   return (
     <>
-      <SEO
-        title="Taypro is a Solar Panel Cleaning Company. We provide end to end ROI Solar Cleaning Service to improve Solar Plant Efficiency."
-        description="Taypro is a Solar Panel Cleaning Company. We provide end to end ROI Solar Cleaning Service to improve Solar Plant Efficiency."
-        keywords="solar panel cleaning robots, automatic solar robot, semi-automatic solar robots, capex, opex, cleaning robots, taypro"
-        url="http://localhost:3000/solar-robots/solar-panel-cleaning-service"
-        breadcrumbs={breadcrumbs}
-      />
+      <Breadcrumbs items={breadcrumbs} />
       <div className="min-h-screen overflow-x-hidden">
         {/* Hero Section */}
         <section className="relative overflow-hidden px-4 sm:px-8 lg:px-15 py-8">
@@ -46,6 +56,7 @@ export default function HomePage() {
               <Image
                 src="/robot-hero.png"
                 alt="Solar Panel Cleaning Robot"
+                title="Solar Panel Cleaning Robot"
                 width={600}
                 height={900}
                 priority
@@ -142,8 +153,9 @@ export default function HomePage() {
               <div className="order-1 lg:order-2 flex justify-center">
                 <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-full">
                   <Image
-                    src="/robots.png"
+                    src="/tayproasset/robots.png"
                     alt="Solar Panel Cleaning Robot"
+                    title="Solar Panel Cleaning Robot"
                     width={600}
                     height={900}
                     priority

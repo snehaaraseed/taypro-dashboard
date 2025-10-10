@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function RequestEstimateForm() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     firstName: "",
     companyName: "",
@@ -11,6 +12,10 @@ export default function RequestEstimateForm() {
     phone: "",
     message: "",
   });
+
+  const [loading, setLoading] = useState(false);
+  const [successMsg, setSuccessMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -22,9 +27,51 @@ export default function RequestEstimateForm() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
+    setLoading(true);
+    setErrorMsg("");
+    setSuccessMsg("");
+
+    try {
+      const response = await fetch("http://localhost:5000/api/v1/saleslead", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.firstName,
+          email: formData.email,
+          phone: formData.phone,
+          company_name: formData.companyName,
+          comments: formData.message,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Please fill the required fields");
+      }
+
+      const data = await response.json();
+      setSuccessMsg(data.message || "Request submitted successfully.");
+      router.push("/contact/thank-you");
+      // setFormData({
+      //   firstName: "",
+      //   companyName: "",
+      //   email: "",
+      //   phone: "",
+      //   message: "",
+      // });
+    } catch (error) {
+      if (error instanceof Error) {
+        setErrorMsg(error.message);
+      } else {
+        setErrorMsg(String(error));
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -52,7 +99,7 @@ export default function RequestEstimateForm() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-6 md:gap-x-10 mb-6 md:mb-8">
               <div>
                 <label className="block text-[#052638] mb-1 text-sm sm:text-base">
-                  First Name
+                  First Name*
                 </label>
                 <input
                   type="text"
@@ -78,7 +125,7 @@ export default function RequestEstimateForm() {
               </div>
               <div>
                 <label className="block text-[#052638] mb-1 text-sm sm:text-base">
-                  Email Address
+                  Email Address*
                 </label>
                 <input
                   type="email"
@@ -91,7 +138,7 @@ export default function RequestEstimateForm() {
               </div>
               <div>
                 <label className="block text-[#052638] mb-1 text-sm sm:text-base">
-                  Phone Number
+                  Phone Number*
                 </label>
                 <input
                   type="tel"
@@ -117,11 +164,19 @@ export default function RequestEstimateForm() {
               />
             </div>
 
+            {errorMsg && (
+              <div className="mb-4 text-red-500 text-sm">{errorMsg}</div>
+            )}
+            {successMsg && (
+              <div className="mb-4 text-green-600 text-sm">{successMsg}</div>
+            )}
+
             <button
               type="submit"
-              className="w-full mt-4 sm:mt-5 bg-[#A8C117] hover:bg-[#B8CC31] text-[#052638] font-semibold text-base sm:text-lg rounded-[4px] py-3 transition-colors cursor-pointer"
+              disabled={loading}
+              className="w-full mt-4 sm:mt-5 bg-[#A8C117] hover:bg-[#B8CC31] text-[#052638] font-semibold text-base sm:text-lg rounded-[4px] py-3 transition-colors cursor-pointer disabled:opacity-50"
             >
-              Send Request
+              {loading ? "Sending..." : "Send Request"}
             </button>
           </form>
         </div>

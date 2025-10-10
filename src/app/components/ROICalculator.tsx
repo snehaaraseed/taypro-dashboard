@@ -173,7 +173,14 @@ export default function ROITayproCalculator() {
     const doc = new jsPDF({ unit: "pt", format: "a4" });
 
     //  heaader
-    doc.addImage("/taypro-logoforwhitebg.png", "PNG", 40, 30, 80, 40);
+    doc.addImage(
+      "/tayproasset/taypro-logoforwhitebg.png",
+      "PNG",
+      40,
+      30,
+      80,
+      40
+    );
     doc.setFontSize(18);
     doc.setTextColor("#052638");
     doc.text("ROI Calculator Report", 140, 55);
@@ -278,9 +285,9 @@ export default function ROITayproCalculator() {
   return (
     <div className="w-full max-w-4xl mx-auto px-4 py-8 pb-20">
       <div className="bg-[#052638] rounded-lg p-6 mb-8">
-        <h2 className="text-white text-2xl font-semibold mb-4">
+        <div className="text-white text-2xl font-semibold mb-4">
           ROI Calculator
-        </h2>
+        </div>
         <div className="grid gap-6 sm:grid-cols-2">
           {/* A: Plant Type */}
           <div>
@@ -433,9 +440,9 @@ export default function ROITayproCalculator() {
       {showResults && (
         <div className="bg-[#052638] rounded-lg p-6">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-white text-2xl font-semibold">
+            <h3 className="text-white text-2xl font-semibold">
               Return On Investment
-            </h2>
+            </h3>
             <button
               className="text-white text-2xl hover:text-[#A8C117]"
               onClick={() => setShowResults(false)}

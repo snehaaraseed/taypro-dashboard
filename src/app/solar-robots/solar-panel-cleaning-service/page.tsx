@@ -10,7 +10,6 @@ import FeaturesSection from "@/app/components/FeaturesSection";
 import CallbackCard from "@/app/components/CallbackCard";
 import ResourcesCard from "@/app/components/ResourcesCard";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
-import SEO from "@/app/components/SEO";
 import ROITayproCalculator from "@/app/components/ROICalculator";
 
 const breadcrumbs = [
@@ -38,14 +37,6 @@ export default function SolarPanelCleaningService() {
 
   return (
     <>
-      <SEO
-        title="Solar Panel Cleaning Service: TAYPRO OPEX | Taypro"
-        description="Solar Panel Cleaning Service by Taypro, a solar cleaning company. We depoly range of robots for automatic, waterless and efficent ROI Power Cleaning Service. Call us today."
-        keywords="solar panel cleaning service, environmental sustainability, solar panel safety, efficient cleaning, cost effective, taypro"
-        url="http://localhost:3000/solar-robots/solar-panel-cleaning-service"
-        breadcrumbs={breadcrumbs}
-        faqs={cleaningServiceFaqs}
-      />
       <Breadcrumbs items={breadcrumbs} />
       <div className="min-h-screen overflow-x-hidden px-4 sm:px-6 lg:px-0">
         <HeroSection

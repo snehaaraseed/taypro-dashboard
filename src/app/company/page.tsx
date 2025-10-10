@@ -1,12 +1,10 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { founders, items, metrics } from "../data";
 import { Linkedin } from "lucide-react";
 import CallbackCard from "../components/CallbackCard";
 import { Breadcrumbs } from "../components/Breadcrumbs";
-import SEO from "../components/SEO";
+import type { Metadata } from "next";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -15,6 +13,21 @@ const breadcrumbs = [
     href: "",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "Taypro - Know More About Taypro Unit.",
+  description:
+    "Taypro is at the forefront of revolutionizing solar energy efficiency through innovative technological solutions designed to address persistent challenges within the industry. As solar panels become increasingly integral to renewable energy systems, the efficiency of these installations can be significantly compromised by environmental factors.",
+  keywords:
+    "solar panel cleaning robots, cleaning technology, cleaning, automatic solar robot, taypro",
+  openGraph: {
+    title: "Taypro - Know More About Taypro Unit.",
+    description:
+      "Taypro is at the forefront of revolutionizing solar energy efficiency through innovative technological solutions designed to address persistent challenges within the industry. As solar panels become increasingly integral to renewable energy systems, the efficiency of these installations can be significantly compromised by environmental factors.",
+    url: "http://localhost:3000/company",
+    type: "website",
+  },
+};
 
 export default function AboutUsPage() {
   const resources = [
@@ -33,13 +46,6 @@ export default function AboutUsPage() {
   ];
   return (
     <>
-      <SEO
-        title="About Us | Taypro"
-        description="Taypro is at the forefront of revolutionizing solar energy efficiency through innovative technological solutions designed to address persistent challenges within the industry. As solar panels become increasingly integral to renewable energy systems, the efficiency of these installations can be significantly compromised by environmental factors, the most notable being dust accumulation on the panel surfaces. This buildup not only obstructs sunlight but can lead to diminished energy output, translating directly into reduced efficiency and financial losses for residential and commercial users alike."
-        url="http://localhost:3000/company"
-        keywords="solar panel cleaning robots, about-us, about taypro, sustainable future, automatic solar robot, taypro"
-        breadcrumbs={breadcrumbs}
-      />
       <Breadcrumbs items={breadcrumbs} />
       <div className="min-h-screen overflow-x-hidden">
         <section
@@ -106,7 +112,10 @@ export default function AboutUsPage() {
                   ))}
                 </ul>
               </div>
-              <Link href="/solar-robots/solar-panel-cleaning-robot">
+              <Link
+                href="/solar-robots/solar-panel-cleaning-robot"
+                title="Solar Panel Cleaning Robot"
+              >
                 <button className="bg-[#96DB00] text-[#073448] text-lg font-medium p-4 rounded-md hover:bg-[#91bc00] hover:text-white transition mt-4 cursor-pointer">
                   Explore Our Solutions
                 </button>
@@ -120,7 +129,7 @@ export default function AboutUsPage() {
                   <br /> diversity &amp; sustainability
                   <br /> are not just words.
                 </div>
-                <Link href="/projects">
+                <Link href="/projects" title="Solar Project">
                   <div className="hover:text-[#caed7f] text-lg underline underline-offset-4 mb-2 cursor-pointer">
                     Explore Projects
                   </div>
@@ -141,8 +150,9 @@ export default function AboutUsPage() {
             <div className="bg-white flex flex-col shadow-lg min-h-[600px] overflow-hidden">
               <div className="w-full h-[360px] relative">
                 <Image
-                  src="/taypro-modelT-img.png"
+                  src="/tayprorobots/taypro-modelT-img.png"
                   alt="Solar Panels"
+                  title="Solar Panels"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -194,6 +204,7 @@ export default function AboutUsPage() {
                 <Image
                   src="/taypro-about1.jpg"
                   alt="Taypro Marvel"
+                  title="Taypro Marvel"
                   fill
                   className="object-cover"
                   priority
@@ -239,6 +250,7 @@ export default function AboutUsPage() {
                 <Image
                   src="/taypro-about2.webp"
                   alt="Taypro Marvel"
+                  title="Taypro Marvel"
                   fill
                   className="object-cover"
                   priority
@@ -250,7 +262,7 @@ export default function AboutUsPage() {
 
         <section className="w-full py-30 bg-white px-4 sm:px-6 lg:px-0 overflow-x-hidden">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-center">
-            {metrics.map((stat, idx) => (
+            {metrics.map((stat) => (
               <div key={stat.label} className="flex flex-col items-center">
                 <span className="text-[#b2cb19] font-semibold text-6xl mb-2">
                   {stat.value}
@@ -265,7 +277,7 @@ export default function AboutUsPage() {
           <div className="max-w-5xl mx-auto">
             <h3 className="text-white font-semibold text-4xl mb-8">Founders</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              {founders.map((f, i) => (
+              {founders.map((f) => (
                 <div
                   key={f.name}
                   className="relative group overflow-hidden shadow-lg min-h-[400px] flex flex-col bg-white items-center"
@@ -274,6 +286,7 @@ export default function AboutUsPage() {
                     <Image
                       src={f.img}
                       alt={f.name}
+                      title="Founder"
                       height={500}
                       width={400}
                       className="object-cover object-center"
@@ -321,7 +334,7 @@ export default function AboutUsPage() {
                 <br />
                 planet.
               </div>
-              <Link href="/blog">
+              <Link href="/blog" title="blog">
                 <button className="mt-6 inline-block w-full sm:w-auto bg-[#b2cb19] text-[#22405a] text-xl text-center py-2 px-4 rounded-lg hover:bg-lime-500 transition cursor-pointer">
                   View all resources
                 </button>
@@ -337,6 +350,7 @@ export default function AboutUsPage() {
                     className="flex-1 border-2 border-gray-300 bg-white rounded-sm overflow-hidden shadow-sm min-w-[320px] max-w-[400px] transition hover:shadow-xl"
                   >
                     <Link
+                      title="Energy Resources"
                       href={r.href}
                       className="block w-full h-full p-0 overflow-hidden group relative"
                     >
@@ -345,6 +359,7 @@ export default function AboutUsPage() {
                         <Image
                           src={r.imgSrc}
                           alt={r.title}
+                          title="Energy Resource"
                           fill
                           className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-105"
                           priority

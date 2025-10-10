@@ -49,6 +49,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <Image
           alt={imgAlt}
           src={imgSrc}
+          title="Hero Section"
           fill
           className="object-contain"
           quality={90}

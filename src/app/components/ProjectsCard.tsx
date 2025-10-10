@@ -32,6 +32,7 @@ export default function ProjectsCard({
             <Image
               src={project.img}
               alt={project.title}
+              title="Solar Project"
               width={400}
               height={600}
               className="w-full h-full transform group-hover:scale-105 transition duration-300"
@@ -48,7 +49,7 @@ export default function ProjectsCard({
 
             {/* Title + Details */}
             <div className="absolute inset-0 flex flex-col items-center justify-center z-10 text-center px-4">
-              <Link href={project.href}>
+              <Link title="Solar Project" href={project.href}>
                 <div className="text-white text-3xl md:text-3xl mb-3 drop-shadow-md font-semibold">
                   {project.title}
                 </div>
@@ -63,6 +64,7 @@ export default function ProjectsCard({
                 {project.details.split(", ").map((item) => (
                   <Link
                     key={item}
+                    title="Solar Project"
                     href={`/projects/${item
                       .toLowerCase()
                       .replace(/\s+/g, "-")}`}

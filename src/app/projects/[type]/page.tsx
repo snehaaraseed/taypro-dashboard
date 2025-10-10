@@ -50,6 +50,7 @@ export default function ProjectTypePage() {
               <Link
                 href={card.href}
                 key={idx}
+                title="Solar Project"
                 className="block border border-gray-300 p-4 overflow-hidden group"
               >
                 <div className="relative w-full h-90 overflow-hidden">
@@ -57,6 +58,7 @@ export default function ProjectTypePage() {
                   <Image
                     src={card.img}
                     alt={card.title}
+                    title="Solar Project"
                     fill
                     className="object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105 group-hover:translate-x-3"
                     priority

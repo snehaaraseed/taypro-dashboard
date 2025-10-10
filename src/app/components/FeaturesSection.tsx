@@ -1,12 +1,10 @@
-// components/FeaturesSection.tsx
-
 import React from "react";
 
 interface FeaturesSectionProps {
-  headline: React.ReactNode; // allow <br/> etc
+  headline: React.ReactNode;
   description: React.ReactNode;
   benefits: string[];
-  backgroundImage?: string; // optional prop, defaults to the one used
+  backgroundImage?: string;
 }
 
 const FeaturesSection: React.FC<FeaturesSectionProps> = ({

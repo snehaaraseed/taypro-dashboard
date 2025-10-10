@@ -2,7 +2,22 @@ import Link from "next/link";
 import Image from "next/image";
 import { energyResourceCards } from "../data";
 import { Breadcrumbs } from "../components/Breadcrumbs";
-import SEO from "../components/SEO";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Taypro Blogs – Expert Articles on Solar Cleaning Robots.",
+  description:
+    "Discover the Future of Solar Automation, Sustainability, and Smart Cleaning Solutions & reach out to Taypro for solar automation solutions and support.",
+  keywords:
+    "solar panel cleaning robots, blogs, articles, energy resources, solar robot, taypro",
+  openGraph: {
+    title: "Taypro Blogs – Expert Articles on Solar Cleaning Robots.",
+    description:
+      "Discover the Future of Solar Automation, Sustainability, and Smart Cleaning Solutions & reach out to Taypro for solar automation solutions and support.",
+    url: "http://localhost:3000/blog",
+    type: "website",
+  },
+};
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -15,13 +30,6 @@ const breadcrumbs = [
 export default function Blog() {
   return (
     <>
-      <SEO
-        title="Blogs | Taypro"
-        description="Reach out to Taypro for solar automation solutions and support."
-        keywords="solar panel cleaning robots, blogs, articles, energy resources, solar robot, taypro"
-        url="http://localhost:3000/blog"
-        breadcrumbs={breadcrumbs}
-      />
       <Breadcrumbs items={breadcrumbs} />
       <section className="w-full pt-20 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 text-start">
@@ -32,6 +40,7 @@ export default function Blog() {
               <Link
                 href={card.href}
                 key={idx}
+                title="Energy Resource"
                 className="block border border-gray-300 p-4 overflow-hidden group"
               >
                 <div className="relative w-full h-90 overflow-hidden">
@@ -39,6 +48,7 @@ export default function Blog() {
                   <Image
                     src={card.imgSrc}
                     alt={card.title}
+                    title="Blogs"
                     fill
                     className="object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105 group-hover:translate-x-3"
                     priority

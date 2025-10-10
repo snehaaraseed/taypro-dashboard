@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { modelTCards } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
@@ -9,7 +7,22 @@ import ClientsCard from "@/app/components/ClientsCard";
 import HeroSection from "@/app/components/Herosection";
 import EnergyResourceCard from "@/app/components/EnergyResourceCard";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
-import SEO from "@/app/components/SEO";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Model-T for Single Axis Tracker | Taypro",
+  description:
+    "Precision in Operation The TAYPRO CONSOLE goes beyond conventional cleaning methods. It allows for the application of individual and group commands, tailoring the cleaning approach based on seasonal data and the specific position of each table in the field.",
+  keywords:
+    "automatic solar panel, cleaning system, model t, taypro single axis tracker, taypro",
+  openGraph: {
+    title: "Model-T for Single Axis Tracker | Taypro",
+    description:
+      "Precision in Operation The TAYPRO CONSOLE goes beyond conventional cleaning methods. It allows for the application of individual and group commands, tailoring the cleaning approach based on seasonal data and the specific position of each table in the field.",
+    url: "http://localhost:3000/solar-robots/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
+    type: "website",
+  },
+};
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -26,19 +39,12 @@ const breadcrumbs = [
 export default function AutomaticSolarPanelCleaningSystem() {
   return (
     <>
-      <SEO
-        title="Model-T for Single Axis Tracker | Taypro"
-        description="Single Axis Tracker Solar Cleaning Robot by Taypro. Call us Today!"
-        keywords="automatic solar panel, cleaning system, model t, taypro single axis tracker, taypro"
-        url="http://localhost:3000/solar-robots/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
-        breadcrumbs={breadcrumbs}
-      />
       <Breadcrumbs items={breadcrumbs} />
       <div className="min-h-screen overflow-x-hidden px-4 sm:px-6 lg:px-0">
         <HeroSection
           title="Model-T"
           subtitle="Autonomous solar panel cleaning robot for single-axis trackers"
-          imgSrc="/taypro-modelT-img.png"
+          imgSrc="/tayprorobots/taypro-modelT-img.png"
           imgAlt="Taypro Model-T"
           ctaHref="/contact"
           ctaText="Request a quote"
@@ -66,8 +72,9 @@ export default function AutomaticSolarPanelCleaningSystem() {
             {/* Image with overlay text box */}
             <div className="relative w-full h-[300px] sm:h-[500px] lg:h-[700px] overflow-hidden">
               <Image
-                src="/taypro-modelT-img.png"
+                src="/tayprorobots/taypro-modelT-img.png"
                 alt="TAYPRO MODEL-T cleaning solar panels"
+                title="TAYPRO MODEL-T"
                 fill
                 className="object-cover"
                 priority

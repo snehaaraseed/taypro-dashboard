@@ -10,7 +10,6 @@ import ProjectDescriptionSection from "@/app/components/AllProjectsDescriptionSe
 import ProjectQuoteSection from "@/app/components/AllProjectsQuoteSection";
 import ProjectKeyMetricsSection from "@/app/components/AllProjectsKeyMetricsSection";
 import RelatedProjectsSection from "@/app/components/AllRelatedProjectsSection";
-import SEO from "@/app/components/SEO";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -39,16 +38,6 @@ export default function YadgirSolarProject() {
   );
   return (
     <>
-      <SEO
-        title="Yadgir Solar Project"
-        description="TAYPRO deployed 96 fully automatic waterless cleaning robots
-                 and 19 semi-automatic robots at the Yadgir Solar Project in
-                  Karnataka. The objective was to achieve optimal solar panel
-                 efficiency and a consistent performance ratio."
-        keywords="yadgir solar, taypro solar projects, maximum energy generation, net zero goals, cutting-edge technology"
-        url="http://localhost:3000/projects/yadgir-solar-project"
-        breadcrumbs={breadcrumbs}
-      />
       <Breadcrumbs items={breadcrumbs} />
 
       <div className="min-h-screen overflow-x-hidden px-4 sm:px-6 lg:px-0">
@@ -58,7 +47,7 @@ export default function YadgirSolarProject() {
         />
 
         <ProjectOverviewSection
-          image="/yadgir-solar.jpg"
+          image="/tayprosolarfirm/yadgir-solar.jpg"
           overviewText="TAYPRO deployed 96 fully automatic waterless cleaning robots
                  and 19 semi-automatic robots at the Yadgir Solar Project in
                   Karnataka. The objective was to achieve optimal solar panel
@@ -88,7 +77,7 @@ export default function YadgirSolarProject() {
 
         <ProjectKeyMetricsSection
           title="Key Metrics"
-          image="/yadgir-key-matrix.jpg"
+          image="/tayprokeymetrics/yadgir-key-matrix.jpg"
           metrics={yadgirMetrics}
         />
 
