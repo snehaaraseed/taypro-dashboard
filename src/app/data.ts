@@ -1,3 +1,5 @@
+import { EnergyResourceCard } from "./utils/extractSlug";
+
 export const robots = [
   {
     model: "Model-A",
@@ -565,7 +567,7 @@ export const agarMetrics = [
   },
 ];
 
-export const energyResourceCards = [
+export const energyResourceCards: EnergyResourceCard[] = [
   {
     title: "The Complete Guide to Solar Panel Maintenance",
     imgSrc: "/tayproenergyresource/taypro-energy-resource1.webp",
