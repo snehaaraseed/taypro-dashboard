@@ -180,7 +180,7 @@ export default function AutomaticSolarPanelCleaningRobot() {
           </div>
         </section>
 
-        <section className="pt-16 pb-5 bg-white px-4 sm:px-0">
+        <section className="pt-30 pb-5 bg-white px-4 sm:px-0">
           <div className="text-center ">
             <h3 className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
               Automatic Solar Panel Cleaning Robot Cost <br /> & ROI Calculation
@@ -222,7 +222,7 @@ export default function AutomaticSolarPanelCleaningRobot() {
           }
         />
 
-        <section className="pt-20 pb-5 bg-white px-4 sm:px-0">
+        <section className="pt-30 pb-5 bg-white px-4 sm:px-0">
           <div className="text-start ml-0 sm:ml-30 ">
             <div className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
               Features of Taypro’s Automatic Solar Panel <br /> Cleaning Robots:
@@ -283,7 +283,7 @@ export default function AutomaticSolarPanelCleaningRobot() {
           </div>
         </section>
 
-        <section className="w-full bg-white flex flex-col items-center pt-12 pb-10 px-4 sm:px-0">
+        <section className="w-full bg-white flex flex-col items-center pt-30 pb-10 px-4 sm:px-0">
           <div className="font-semibold text-[#052638] text-center text-3xl sm:text-5xl md:text-6xl mb-12 sm:mb-15">
             Automatic Solar Panel Cleaning Robot <br /> Model-A Specifications
           </div>
@@ -311,13 +311,148 @@ export default function AutomaticSolarPanelCleaningRobot() {
                     750 mm × 8800 mm (Max)
                   </td>
                 </tr>
-                {/* ... all your rows here unchanged */}
+                <tr>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Cleaning Method
+                  </td>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Waterless
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Cleaning Type
+                  </td>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Dual-Pass Cleaning
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Cleaning Material
+                  </td>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Microfiber Cloth
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Cleaning Speed
+                  </td>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    14 Meters/Minute
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Max. Running Length
+                  </td>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Up to 2.2 km
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Recommended Running Length
+                  </td>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    1.6 km
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Wind Speed Resistance at Docking
+                  </td>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    180 km/hr
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Wind Speed Resistance in Operation
+                  </td>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    55 km/hr
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Max. Module Tilt
+                  </td>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    45°
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Max. Operating Temperature
+                  </td>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    90°C
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Max. East-West Slope
+                  </td>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    15°
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Max. Module Undulation
+                  </td>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    +-25 mm
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    IP Rating
+                  </td>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    IP65
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Corrosion Class
+                  </td>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    C5
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Battery Type
+                  </td>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Lithium
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Design Life
+                  </td>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    20 Years
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    Weight
+                  </td>
+                  <td className="py-3 px-6 border-t text-base md:text-lg">
+                    45 Kg
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
         </section>
 
-        <section className="pt-20 pb-5 bg-white px-4 sm:px-0">
+        <section className="pt-30 pb-5 bg-white px-4 sm:px-0">
           <div className="text-start ml-0 sm:ml-30 ">
             <div className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
               Advantages of Using Automatic Solar Panel <br /> Cleaning Robots
@@ -414,7 +549,7 @@ export default function AutomaticSolarPanelCleaningRobot() {
           </div>
         </section>
 
-        <section className="w-full items-center pt-20 pb-2 bg-white bg-center px-4 sm:px-6 lg:px-0">
+        <section className="w-full items-center pt-30 pb-2 bg-white bg-center px-4 sm:px-6 lg:px-0">
           <div className="max-w-5xl mx-auto px-6">
             <div className="font-semibold text-3xl sm:text-5xl md:text-5xl text-start mb-16">
               What Is the ROI for Installing the Automatic Solar Panel Cleaning
@@ -482,8 +617,8 @@ export default function AutomaticSolarPanelCleaningRobot() {
           </div>
         </section>
 
-        <section className="w-full mr-0 sm:mr-50 items-center p-4 sm:p-50 pt-5 pb-2 bg-white bg-center">
-          <div className="font-semibold text-[#052638] text-3xl sm:text-5xl md:text-5xl mb-8">
+        <section className="w-full mr-0 sm:mr-50 items-center p-4 sm:p-50 pt-2 pb-2 bg-white bg-center">
+          <div className="font-semibold text-center text-[#052638] text-3xl sm:text-5xl md:text-5xl mb-8">
             FAQs
           </div>
           <div className="max-w-5xl mx-auto px-4 sm:px-0">
