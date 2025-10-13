@@ -33,13 +33,13 @@ export default function AboutUsPage() {
   const resources = [
     {
       title: "The Complete Guide to Solar Panel Maintenance",
-      imgSrc: "/taypro-energy-resource1.webp",
+      imgSrc: "/tayproenergyresource/taypro-energy-resource1.webp",
       date: "July 27, 2025",
       href: "/blog/the-complete-guide-to-solar-panel-maintenance",
     },
     {
       title: "New Solar Panel Technologies 2025",
-      imgSrc: "/taypro-energy-resource2.webp",
+      imgSrc: "/tayproenergyresource/taypro-energy-resource2.webp",
       date: "July 23, 2025",
       href: "/blog/new-solar-panel-technologies-2025",
     },
