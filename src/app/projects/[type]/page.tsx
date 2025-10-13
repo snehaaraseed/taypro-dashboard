@@ -64,14 +64,11 @@ export default function ProjectTypePage() {
                     priority
                   />
 
-                  {/* Title + Date container */}
                   <div className="absolute bottom-4 left-4 text-white flex flex-col transition-all duration-300">
-                    {/* Title */}
                     <div className="text-sm font-semibold bg-opacity-10 px-3 transition-transform duration-300 group-hover:-translate-y-3">
                       {card.title}
                     </div>
 
-                    {/* Date (hidden until hover) */}
                     <div className="text-xs bg-opacity-60 px-3 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300">
                       {card.date}
                     </div>

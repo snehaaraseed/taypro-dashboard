@@ -35,7 +35,7 @@ export default function CleaningTechnology() {
         <section
           className="bg-white min-h-[50vh] flex flex-col items-center justify-start relative"
           style={{
-            background: "url('/taypro-project.png') no-repeat",
+            background: "url('/tayprobglayout/taypro-project.png') no-repeat",
             backgroundSize: "cover",
           }}
         >
@@ -433,16 +433,6 @@ export default function CleaningTechnology() {
           </div>
         </section>
 
-        {/* <section className="pt-2 bg-white">
-          <div className="text-center my-12">
-            <div className="text-5xl font-semibold">Our Solutions</div>
-          </div>
-          <div className="flex justify-center align-center px-4">
-            {ourSolutions.slice(0, 3).map((robot) => (
-              <RobotCard key={robot.model} robot={robot} />
-            ))}
-          </div>
-        </section> */}
         <section className="pt-2 bg-white">
           <div className="text-center my-12">
             <div className="text-5xl font-semibold">Our Solutions</div>

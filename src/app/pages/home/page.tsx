@@ -52,9 +52,8 @@ export default function HomePage() {
 
             {/* Right Content - Robot Image - Takes 1/3 of the width */}
             <div className="lg:col-span-1 flex justify-center lg:justify-end">
-              {/* <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-full"> */}
               <Image
-                src="/robot-hero.png"
+                src="/tayprorobots/robot-hero.png"
                 alt="Solar Panel Cleaning Robot"
                 title="Solar Panel Cleaning Robot"
                 width={600}
@@ -62,7 +61,6 @@ export default function HomePage() {
                 priority
                 className="w-full h-auto"
               />
-              {/* </div> */}
             </div>
           </div>
         </section>

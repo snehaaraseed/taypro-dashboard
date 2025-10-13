@@ -52,7 +52,7 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
         <HeroSection
           title="Model-B"
           subtitle="A pick-and-place type solar panel cleaning robot."
-          imgSrc="/taypro-opex.jpg"
+          imgSrc="/tayprorobots/taypro-opex.jpg"
           imgAlt="Taypro Opex"
           ctaHref="/contact"
           ctaText="Request a quote"
@@ -75,12 +75,11 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
         <section
           className="w-full py-5 pb-20 bg-white"
           style={{
-            background: "url('/taypro-curves.png') repeat",
+            background: "url('/tayprobglayout/taypro-curves.png') repeat",
             backgroundSize: "auto",
           }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
-            {/* Left side: Heading + Robot Image */}
             <div className="lg:w-1/2 flex flex-col items-center lg:items-start">
               <h1 className="text-[#052638] font-semibold text-4xl lg:text-5xl mb-12 text-center lg:text-left leading-tight">
                 Elevating ROI through Efficient Cleaning
@@ -97,7 +96,6 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
               </div>
             </div>
 
-            {/* Right side: Description paragraphs */}
             <div className="lg:w-1/2 space-y-6">
               <p className="text-[#6B7280] text-lg leading-relaxed">
                 The impact of clean solar panels on the overall performance and
@@ -137,14 +135,12 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
 
         <section className="w-full min-h-[640px] bg-[#052C42] flex items-center">
           <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-16 w-full">
-            {/* Left side: Heading */}
             <div className="lg:w-1/2 flex justify-center">
               <h2 className="text-white font-semibold text-5xl lg:text-6xl leading-tight">
                 Transforming Solar Panel Cleaning Practices
               </h2>
             </div>
 
-            {/* Right side: Description */}
             <div className="lg:w-1/2">
               <p className="text-white text-lg lg:text-xl leading-relaxed">
                 The solar panel cleaning landscape has evolved into a critical

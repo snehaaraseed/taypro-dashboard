@@ -24,14 +24,14 @@ export const robots = [
     model: "Taypro Opex",
     description:
       "Next-gen autonomous solar panel cleaner with self-charging & AI-optimized route planning.",
-    imgPath: "/taypro-opex.jpg",
+    imgPath: "/tayprorobots/taypro-opex.jpg",
     href: "/solar-robots/solar-panel-cleaning-service",
   },
   {
     model: "Taypro Console",
     description:
       "Compact portable cleaner for rooftop installations with real-time monitoring & weather resilience.",
-    imgPath: "/taypro-console.png",
+    imgPath: "/tayproasset/taypro-console.png",
     href: "/solar-robots/automatic-cleaning-robot-monitoring-app",
   },
 ];
@@ -568,19 +568,19 @@ export const agarMetrics = [
 export const energyResourceCards = [
   {
     title: "The Complete Guide to Solar Panel Maintenance",
-    imgSrc: "/taypro-energy-resource1.webp",
+    imgSrc: "/tayproenergyresource/taypro-energy-resource1.webp",
     date: "July 27, 2025",
     href: "/blog/the-complete-guide-to-solar-panel-maintenance",
   },
   {
     title: "New Solar Panel Technologies 2025",
-    imgSrc: "/taypro-energy-resource2.webp",
+    imgSrc: "/tayproenergyresource/taypro-energy-resource2.webp",
     date: "July 23, 2025",
     href: "/blog/new-solar-panel-technologies-2025",
   },
   {
     title: "What Are The Different Types Of Solar Panels",
-    imgSrc: "/taypro-energy-resource3.webp",
+    imgSrc: "/tayproenergyresource/taypro-energy-resource3.webp",
     date: "July 21, 2025",
     href: "/blog/what-are-the-different-types-of-solar-panels-2",
   },

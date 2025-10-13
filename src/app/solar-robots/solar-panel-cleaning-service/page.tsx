@@ -42,7 +42,7 @@ export default function SolarPanelCleaningService() {
         <HeroSection
           title="Solar Panel Cleaning Service: TAYPRO OPEX"
           subtitle="A solar panel cleaning service for utility scale solar power plants."
-          imgSrc="/taypro-cleaning-service.png"
+          imgSrc="/tayprosolarpanel/taypro-cleaning-service.png"
           imgAlt="Taypro Cleaning Service"
           ctaHref="/contact"
           ctaText="Request a quote"
@@ -73,7 +73,6 @@ export default function SolarPanelCleaningService() {
         />
 
         <section className="w-full items-center pt-10 pb-25 bg-white bg-center">
-          {/* <div className="w-500 max-w-6xl mx-auto px-6"> */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
             <h1 className="font-semibold text-5xl md:text-5xl text-start mb-6">
               Features of TAYPRO’s Solar Panel Cleaning Service
@@ -82,7 +81,6 @@ export default function SolarPanelCleaningService() {
               Here are the key features of TAYPRO’s solar panel cleaning
               service.
             </p>
-            {/* <div className="ml-20 mb-16"> */}
             <div className="mb-16 px-2 sm:px-6">
               <p className="text-2xl mb-5" style={{ color: "#A8C117" }}>
                 Dedicated Skilled Manpower for Robot Operation
@@ -93,7 +91,6 @@ export default function SolarPanelCleaningService() {
                 effective cleaning of all the solar panels.
               </p>
             </div>
-            {/* <div className="ml-20 mb-16"> */}
             <div className="mb-16 px-2 sm:px-6">
               <p className="text-2xl mb-5" style={{ color: "#A8C117" }}>
                 Smart & Efficient Cleaning
@@ -107,7 +104,6 @@ export default function SolarPanelCleaningService() {
                 most favourable time.
               </p>
             </div>
-            {/* <div className="ml-20 mb-16"> */}
             <div className="mb-16 px-2 sm:px-6">
               <p className="text-2xl mb-5" style={{ color: "#A8C117" }}>
                 Same-Day Breakdown Resolution
@@ -120,7 +116,6 @@ export default function SolarPanelCleaningService() {
                 real-time.
               </p>
             </div>
-            {/* <div className="ml-20 mb-16"> */}
             <div className="mb-16 px-2 sm:px-6">
               <p className="text-2xl mb-5" style={{ color: "#A8C117" }}>
                 Dual Pass Cleaning Technology
@@ -187,7 +182,6 @@ export default function SolarPanelCleaningService() {
 
         <section className="w-full py-12 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-            {/* Header Titles */}
             <div className="mb-8">
               <h3 className="text-[#052638] font-semibold text-4xl mb-8">
                 Our Projects
@@ -277,7 +271,6 @@ export default function SolarPanelCleaningService() {
 
         <section className="w-full py-12 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-            {/* Header Titles */}
             <div className="mb-8">
               <div className="text-[#052638] font-semibold text-4xl md:text-4xl text-center mb-6">
                 How Long Does It Take to Clean Solar Panels with Taypro Opex: A
@@ -316,7 +309,6 @@ export default function SolarPanelCleaningService() {
 
         <section className="w-full py-12 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-            {/* Header Titles */}
             <div className="mb-8">
               <div className="text-[#052638] font-semibold text-4xl md:text-4xl text-center mb-6">
                 What is the ROI of using TAYPRO’s Solar Panel Cleaning Service?
@@ -353,10 +345,8 @@ export default function SolarPanelCleaningService() {
         <ResourcesCard />
 
         <section className="w-full bg-[#f4f1e9] py-20 flex items-center relative overflow-hidden min-h-[480px]">
-          {/* Large rounded container shape */}
           <div className="absolute top-7 left-0 right-0 mx-auto w-[98%] h-[85%] bg-[#f4f1e9] rounded-t-[36px] rounded-bl-[36px] rounded-br-[40px] z-0"></div>
 
-          {/* Content: grid for two columns */}
           <div className="relative z-0 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 items-center px-10 md:px-4 min-h-[380px]">
             <div className="flex flex-col justify-center h-full">
               <h4 className="text-[#052638] font-semibold text-4xl md:text-5xl lg:text-6xl mb-2">

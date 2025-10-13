@@ -34,19 +34,22 @@ export default function RequestEstimateForm() {
     setSuccessMsg("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/v1/saleslead", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.firstName,
-          email: formData.email,
-          phone: formData.phone,
-          company_name: formData.companyName,
-          comments: formData.message,
-        }),
-      });
+      const response = await fetch(
+        "https://console.taypro.in/api/v1/saleslead",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.firstName,
+            email: formData.email,
+            phone: formData.phone,
+            company_name: formData.companyName,
+            comments: formData.message,
+          }),
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -78,7 +81,8 @@ export default function RequestEstimateForm() {
     <section
       className="bg-white min-h-[100vh] flex flex-col items-center justify-start relative overflow-x-hidden"
       style={{
-        background: "url('/taypro-bg.png') no-repeat center center",
+        background:
+          "url('/tayprobglayout/taypro-bg.png') no-repeat center center",
         backgroundSize: "cover",
       }}
     >

@@ -60,7 +60,7 @@ export default function AutomaticSolarPanelCleaningRobot() {
           <div className="relative w-full sm:w-300 lg:w-1/2 min-h-[240px] sm:min-h-[360px] mr-0 sm:mr-20 mt-10 lg:mt-0">
             <Image
               alt="Solar robot field"
-              src="/solar-panel.jpg"
+              src="/tayprosolarpanel/solar-panel.jpg"
               title="Solar Panel"
               fill
               className="object-contain"
@@ -301,8 +301,6 @@ export default function AutomaticSolarPanelCleaningRobot() {
                 </tr>
               </thead>
               <tbody>
-                {/* Keep tbody rows as is */}
-                {/* Adjust font size above takes care of smaller screens */}
                 <tr>
                   <td className="py-3 px-6 border-t text-base md:text-lg">
                     Dimensions

@@ -53,7 +53,7 @@ export default function SoyegaonSolarProject() {
 
         <ProjectDescriptionSection
           title="Enhanced solar panel efficiency and reduced operational costs."
-          image="/taypro-soyegaon-mh.jpg"
+          image="/tayprosolarfirm/taypro-soyegaon-mh.jpg"
           paragraphs={[
             `The Soygaon Solar Project required a solution to maximise the power generation and performance ratio. TAYPRO’s automatic and semi-automatic robots were meticulously deployed to deliver high-speed cleaning for autonomous cleaning for large-scale panel areas. Also, the semi-automatic robots focused on intricate cleaning requirements.`,
             `This strategic robotic cleaning system improved the overall energy conversion efficiency of the panels and decreased water usage. Moreover, each robot’s performance was monitored in real time for seamless operational adjustment and maintenance. `,

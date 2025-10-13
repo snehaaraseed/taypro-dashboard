@@ -41,7 +41,6 @@ export default function AgarSolarProject() {
     <>
       <Breadcrumbs items={breadcrumbs} />
 
-      {/* Container with responsive side padding and hidden horizontal overflow */}
       <div className="min-h-screen overflow-x-hidden px-4 sm:px-6 lg:px-0">
         <ProjectHeroSection
           title="Agar, Madhya Pradesh – 250 MW"

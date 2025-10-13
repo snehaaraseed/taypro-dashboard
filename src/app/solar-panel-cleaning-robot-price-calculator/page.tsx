@@ -15,7 +15,7 @@ export default function ROICalculator() {
         <section
           className="bg-white min-h-[80vh] flex flex-col items-center justify-start relative"
           style={{
-            background: "url('/taypro-roi-bg.png') no-repeat",
+            background: "url('/tayprobglayout/taypro-roi-bg.png') no-repeat",
             backgroundSize: "cover",
           }}
         >

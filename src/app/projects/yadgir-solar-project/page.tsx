@@ -56,7 +56,7 @@ export default function YadgirSolarProject() {
 
         <ProjectDescriptionSection
           title="Maximized The Energy Generation"
-          image="/solar-panel.jpg"
+          image="/tayprosolarpanel/solar-panel.jpg"
           paragraphs={[
             ` TAYPRO strategised and deployed advanced waterless cleaning
                     systems to deliver high power generation efficiency. The key

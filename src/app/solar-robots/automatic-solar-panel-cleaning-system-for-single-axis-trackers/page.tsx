@@ -53,12 +53,11 @@ export default function AutomaticSolarPanelCleaningSystem() {
         <section
           className="w-full py-30 bg-white px-4 sm:px-6 lg:px-0"
           style={{
-            background: "url('/taypro-semi.png') repeat",
+            background: "url('/tayprobglayout/taypro-semi.png') repeat",
             backgroundSize: "auto",
           }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
-            {/* Top badge and heading */}
             <div className="text-center mb-12">
               <h1 className="text-[#A8C117] text-md font-medium mb-6">
                 TAYPRO MODEL-T
@@ -69,7 +68,6 @@ export default function AutomaticSolarPanelCleaningSystem() {
               </h2>
             </div>
 
-            {/* Image with overlay text box */}
             <div className="relative w-full h-[300px] sm:h-[500px] lg:h-[700px] overflow-hidden">
               <Image
                 src="/tayprorobots/taypro-modelT-img.png"
@@ -80,7 +78,6 @@ export default function AutomaticSolarPanelCleaningSystem() {
                 priority
               />
 
-              {/* Overlay card inside image */}
               <div className="absolute right-4 sm:right-10 top-1/2 transform -translate-y-1/2 bg-[#7da300] p-4 sm:p-6 w-full max-w-sm sm:max-w-90 h-auto sm:h-[450px]">
                 <h3 className="text-white text-start text-2xl mb-4">
                   The Innovation Behind the MODEL-T

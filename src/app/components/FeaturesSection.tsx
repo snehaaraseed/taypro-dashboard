@@ -11,7 +11,7 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({
   headline,
   description,
   benefits,
-  backgroundImage = "/taypro-semi.png",
+  backgroundImage = "/tayprobglayout/taypro-semi.png",
 }) => {
   return (
     <section

@@ -51,7 +51,7 @@ export default function AboutUsPage() {
         <section
           className="bg-white min-h-[50vh] flex flex-col items-center justify-start relative"
           style={{
-            background: "url('/taypro-project.png') no-repeat",
+            background: "url('/tayprobglayout/taypro-project.png') no-repeat",
             backgroundSize: "cover",
           }}
         >
@@ -202,7 +202,7 @@ export default function AboutUsPage() {
             <div className="flex justify-center items-center">
               <div className="w-[520px] h-[460px] relative overflow-hidden shadow-md">
                 <Image
-                  src="/taypro-about1.jpg"
+                  src="/tayprosolarpanel/taypro-about1.jpg"
                   alt="Taypro Marvel"
                   title="Taypro Marvel"
                   fill
@@ -248,7 +248,7 @@ export default function AboutUsPage() {
             <div className="flex justify-center items-center">
               <div className="w-[520px] h-[460px] relative overflow-hidden shadow-md">
                 <Image
-                  src="/taypro-about2.webp"
+                  src="/tayprosolarpanel/taypro-about2.webp"
                   alt="Taypro Marvel"
                   title="Taypro Marvel"
                   fill

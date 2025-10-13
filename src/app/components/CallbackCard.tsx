@@ -36,17 +36,20 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
     setSuccessMsg("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/v1/saleslead", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.firstName,
-          email: formData.email,
-          phone: formData.phone,
-        }),
-      });
+      const response = await fetch(
+        "https://console.taypro.in/api/v1/saleslead",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.firstName,
+            email: formData.email,
+            phone: formData.phone,
+          }),
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -76,7 +79,7 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
     <section
       className="bg-white relative p-12 z-2 flex flex-col items-center"
       style={{
-        backgroundImage: "url('/taypro-bg.png')",
+        backgroundImage: "url('/tayprobglayout/taypro-bg.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         minHeight: "700px",
@@ -157,7 +160,7 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
           style={{ marginTop: "40px" }}
         >
           <Image
-            src="/taypro-panel.jpg"
+            src="/tayprosolarpanel/taypro-panel.jpg"
             alt="solar panel demo"
             title="Solar Panel Demo"
             fill

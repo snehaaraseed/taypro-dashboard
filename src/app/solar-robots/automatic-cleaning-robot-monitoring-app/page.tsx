@@ -43,7 +43,7 @@ export default function AutomaticCleaningRobotMonitoringApp() {
         <HeroSection
           title="Taypro Console"
           subtitle="A remote monitoring portal to monitor and control autonomous waterless solar panel cleaning robots."
-          imgSrc="/taypro-dashboard.png"
+          imgSrc="/tayproasset/taypro-dashboard.png"
           imgAlt="Solar robot field"
           ctaHref="/contact"
           ctaText="Request a quote"
@@ -52,22 +52,20 @@ export default function AutomaticCleaningRobotMonitoringApp() {
         <section
           className="w-full py-30 bg-white"
           style={{
-            background: "url('/taypro-semi.png') repeat",
+            background: "url('/tayprobglayout/taypro-semi.png') repeat",
             backgroundSize: "auto",
           }}
         >
           <div className="max-w-7xl mx-auto px-6">
-            {/* Top badge and heading */}
             <div className="text-center mb-12">
               <h1 className="text-[#052638] font-semibold text-3xl md:text-4xl lg:text-5xl leading-tight max-w-4xl mx-auto">
                 SEAMLESS CONNECTIVITY AND WEATHER INTEGRATION
               </h1>
             </div>
 
-            {/* Image with overlay text box */}
             <div className="relative w-full h-[700px] overflow-hidden">
               <Image
-                src="/taypro-console.png"
+                src="/tayproasset/taypro-console.png"
                 alt="TAYPRO MODEL-T cleaning solar panels"
                 title="TAYPRO MODEL-T Solar Panels"
                 fill

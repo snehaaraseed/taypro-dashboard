@@ -31,18 +31,15 @@ export default function Blog() {
       <Breadcrumbs items={breadcrumbs} />
       <section className="w-full pt-20 pb-5 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
-          {/* Centered Sitemap Title */}
           <h1 className="text-[#052638] text-6xl font-semibold text-center mb-16">
             Sitemap
           </h1>
 
-          {/* Posts Section */}
           <div className="text-start">
             <h2 className="text-[#052638] text-4xl font-semibold mb-8">
               Posts
             </h2>
 
-            {/* Bulleted List */}
             <ul className="space-y-1 list-disc list-inside">
               {energyResourceCards.map((card, idx) => (
                 <li key={idx} className="text-lg">
@@ -62,13 +59,11 @@ export default function Blog() {
 
       <section className="w-full pt-10 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
-          {/* Pages Section */}
           <div className="text-start">
             <h3 className="text-[#052638] text-4xl font-semibold mb-8">
               Pages
             </h3>
 
-            {/* Nested Bulleted List */}
             <ul className="space-y-1 list-disc list-inside text-lg">
               <li>
                 <Link
@@ -225,13 +220,11 @@ export default function Blog() {
 
       <section className="w-full pt-10 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
-          {/* Portfolio Section */}
           <div className="text-start">
             <h4 className="text-[#052638] text-4xl font-semibold mb-8">
               Portfolio
             </h4>
 
-            {/* Bulleted List */}
             <ul className="space-y-1 list-disc list-inside">
               {additionalProjects.map((card, idx) => (
                 <li key={idx} className="text-lg">

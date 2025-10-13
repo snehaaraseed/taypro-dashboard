@@ -15,7 +15,7 @@ export default function ProjectOverviewSection({
     <section
       className="w-full pb-16 sm:pb-20 lg:pb-30 bg-white overflow-x-hidden"
       style={{
-        background: "url('/taypro-semi.png') repeat",
+        background: "url('/tayprobglayout/taypro-semi.png') repeat",
         backgroundSize: "auto",
       }}
     >

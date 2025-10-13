@@ -29,7 +29,6 @@ export default function SolarPanelCleaningRobot() {
     <>
       <Breadcrumbs items={breadcrumbs} />
       <div className="min-h-screen">
-        {/* Added bg-white for consistent bg on mobile */}
         <section className="pt-2 pb-20 bg-white px-4 sm:px-6 lg:px-0">
           <div className="text-center my-12 px-2 sm:px-0">
             <h2 className="text-4xl sm:text-6xl font-semibold">
@@ -73,8 +72,6 @@ export default function SolarPanelCleaningRobot() {
         <CallbackCard headerText={""} />
         <ClientsCard />
         <section className="p-5 mx-4 sm:mx-10">
-          {/* Section Title */}
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 m-0 sm:m-30 items-center">
             {/* Right Content - Features List */}
             <div className="space-y-6 sm:space-y-8">
@@ -115,7 +112,6 @@ export default function SolarPanelCleaningRobot() {
           </div>
         </section>
         <section className="p-8 sm:p-16 lg:py-24 bg-white">
-          {/* Section Title */}
           <div className="text-center mb-10 sm:mb-16 px-4 sm:px-0">
             <div className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#052638] mb-3 sm:mb-4">
               Driving Unstoppable Power Generation.
@@ -126,7 +122,7 @@ export default function SolarPanelCleaningRobot() {
             {/* Left Content - Image */}
             <div className="">
               <Image
-                src="/taypro-solar-panel.jpg"
+                src="/tayprosolarpanel/taypro-solar-panel.jpg"
                 alt="Taypro Solar Panel Robot"
                 title="Taypro Solar Panel Robot"
                 width={400}
@@ -260,7 +256,6 @@ export default function SolarPanelCleaningRobot() {
           </div>
         </section>
         <section className="w-full items-center py-24 bg-[#052638] bg-center px-4 sm:px-6 lg:px-0">
-          {/* Content Block */}
           <div className="max-w-5xl mx-auto px-2 sm:px-6">
             <div className="text-white font-semibold text-3xl sm:text-5xl text-start mb-8 sm:mb-12">
               What Are The Things To Keep In Mind While Cleaning Solar Panels?

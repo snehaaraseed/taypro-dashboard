@@ -21,7 +21,7 @@ export default function ProjectPage() {
         <section
           className="bg-white min-h-[50vh] flex flex-col items-center justify-start relative"
           style={{
-            background: "url('/taypro-project.png') no-repeat",
+            background: "url('/tayprobglayout/taypro-project.png') no-repeat",
             backgroundSize: "cover",
           }}
         >
