@@ -81,7 +81,6 @@ export default function ProjectPage() {
                     {project.title}
                   </Link>
 
-                  {/* Details always visible on mobile; only hide on desktop until hover */}
                   <div
                     className="
       flex flex-wrap justify-center gap-3 text-[#A8C117]

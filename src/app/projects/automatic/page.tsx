@@ -3,25 +3,22 @@ import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { additionalProjects } from "@/app/data";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 
 export default function ProjectTypePage() {
-  const { type } = useParams();
-
   const breadcrumbs = [
     { name: "Home", href: "/" },
     {
-      name: type,
+      name: "Automatic",
       href: "",
     },
   ];
 
   return (
     <>
-      {/* <Breadcrumbs items={breadcrumbs} /> */}
+      <Breadcrumbs items={breadcrumbs} />
       <section className="w-full pt-20 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 text-start">
-          <h2 className="text-[#052638] text-4xl  mb-4">{type}</h2>
+          <h2 className="text-[#052638] text-4xl  mb-4">Automatic</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
             {additionalProjects.map((card, idx) => (
@@ -32,7 +29,6 @@ export default function ProjectTypePage() {
                 className="block border border-gray-300 p-4 overflow-hidden group"
               >
                 <div className="relative w-full h-90 overflow-hidden">
-                  {/* Image with slide animation */}
                   <Image
                     src={card.img}
                     alt={card.title}
