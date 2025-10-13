@@ -95,18 +95,18 @@ export default function ProjectPage() {
                       transitionTimingFunction: "cubic-bezier(0.4,0.4,0.2,0.5)",
                     }}
                   >
-                    {project.details.split(", ").map((item) => (
-                      <Link
-                        key={item}
-                        href={`/projects/${item
-                          .toLowerCase()
-                          .replace(/\s+/g, "-")}`}
-                        title="Solar Project"
-                        className="hover:underline hover:text-[#c3d958] transition-colors duration-300"
-                      >
-                        {item}
-                      </Link>
-                    ))}
+                    {project.details.map((item, index) => {
+                      return (
+                        <Link
+                          key={index}
+                          href={`/projects/${item.toLowerCase().toString()}`}
+                          title="Solar Project"
+                          className="hover:underline hover:text-[#c3d958] transition-colors duration-300"
+                        >
+                          {item}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
