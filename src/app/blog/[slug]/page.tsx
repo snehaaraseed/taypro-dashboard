@@ -15,14 +15,13 @@ import { scrapeBlogContent, ScrapedBlogContent } from "@/app/lib/blogScraper";
 interface PageParams {
   slug: string;
 }
-
 interface BlogPostProps {
-  params: PageParams;
+  params: Promise<PageParams>;
 }
 
 // Generate static params for all blog posts
 export async function generateStaticParams(): Promise<PageParams[]> {
-  return energyResourceCards.map((blog: EnergyResourceCard) => ({
+  return energyResourceCards.map((blog) => ({
     slug: extractSlugFromHref(blog.href),
   }));
 }
