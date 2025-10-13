@@ -222,6 +222,14 @@ export default function AutomaticSolarPanelCleaningRobot() {
           }
         />
 
+        <section
+          className="w-full pl-100 items-center py-100 bg-white bg-center px-4 sm:px-6 lg:px-0"
+          style={{
+            backgroundImage: "url('/tayprorobots/taypro-modelA.png')",
+            backgroundRepeat: "no-repeat",
+          }}
+        ></section>
+
         <section className="pt-30 pb-5 bg-white px-4 sm:px-0">
           <div className="text-start ml-0 sm:ml-30 ">
             <div className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
