@@ -25,3 +25,26 @@ body {
   background: #052638;
   overflow-x: hidden;
 }
+
+@keyframes dotFlashing {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0.3;
+  }
+}
+
+.dot {
+  animation: dotFlashing 1s infinite linear both;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
