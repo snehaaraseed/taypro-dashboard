@@ -21,7 +21,7 @@ interface BlogPostProps {
 
 // Generate static params for all blog posts
 export async function generateStaticParams(): Promise<PageParams[]> {
-  return energyResourceCards.map((blog) => ({
+  return energyResourceCards.map((blog: EnergyResourceCard) => ({
     slug: extractSlugFromHref(blog.href),
   }));
 }
