@@ -18,7 +18,7 @@ export default function ProjectKeyMetricsSection({
   metrics,
 }: ProjectKeyMetricsSectionProps) {
   return (
-    <section className="w-full py-12 sm:py-16 lg:py-20 bg-white overflow-x-hidden">
+    <section className="w-full py-12 sm:py-16 lg:py-30 bg-white overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 lg:mb-16">
           <div className="text-[#0c2f42] font-semibold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">

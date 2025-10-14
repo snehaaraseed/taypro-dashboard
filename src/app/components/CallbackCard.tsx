@@ -59,11 +59,6 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
       const data = await response.json();
       setSuccessMsg(data.message || "Request submitted successfully.");
       router.push("/contact/thank-you");
-      // setFormData({
-      //   firstName: "",
-      //   email: "",
-      //   phone: "",
-      // });
     } catch (error) {
       if (error instanceof Error) {
         setErrorMsg(error.message);
@@ -77,7 +72,7 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
 
   return (
     <section
-      className="bg-white relative p-12 z-2 flex flex-col items-center"
+      className="bg-white relative pt-30 p-12 z-2 flex flex-col items-center"
       style={{
         backgroundImage: "url('/tayprobglayout/taypro-bg.png')",
         backgroundSize: "cover",
@@ -164,6 +159,7 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
             alt="solar panel demo"
             title="Solar Panel Demo"
             fill
+            sizes="sm"
             className="object-cover"
             priority
           />

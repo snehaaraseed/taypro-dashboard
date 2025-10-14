@@ -52,7 +52,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           title="Hero Section"
           fill
           className="object-contain"
-          quality={90}
           priority
         />
         <svg

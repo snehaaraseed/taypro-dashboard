@@ -64,7 +64,6 @@ export default function AutomaticSolarPanelCleaningRobot() {
               title="Solar Panel"
               fill
               className="object-contain"
-              quality={90}
               priority
             />
             <svg
@@ -101,7 +100,7 @@ export default function AutomaticSolarPanelCleaningRobot() {
           </div>
         </section>
 
-        <section className="max-w-[1650px] bg-white mx-auto px-4 sm:px-6 py-16 pt-30">
+        <section className="max-w-[1650px] bg-white mx-auto px-4 sm:px-6 py-20 pt-40">
           <div className="text-center text-[#A8C117] text-2xl font-medium mb-2">
             MODEL A – Automatic Solar Panel Cleaning Robot
           </div>
@@ -223,7 +222,7 @@ export default function AutomaticSolarPanelCleaningRobot() {
         />
 
         <section
-          className="w-full pl-100 items-center py-100 bg-white bg-center px-4 sm:px-6 lg:px-0"
+          className="w-full flex items-center justify-center py-100 bg-white bg-center px-4 sm:px-6 bg-no-repeat bg-contain"
           style={{
             backgroundImage: "url('/tayprorobots/taypro-modelA.png')",
             backgroundRepeat: "no-repeat",
@@ -577,7 +576,7 @@ export default function AutomaticSolarPanelCleaningRobot() {
           </div>
         </section>
 
-        <section className="w-full items-center py-24 bg-white bg-center px-4 sm:px-6 lg:px-0">
+        <section className="w-full items-center pt-24 pb-5 bg-white bg-center px-4 sm:px-6 lg:px-0">
           <div className="max-w-5xl mx-auto px-6">
             <div className="font-semibold text-3xl sm:text-5xl md:text-5xl text-start mb-16">
               How Does Automatic Solar Panel Cleaning Robot Work?

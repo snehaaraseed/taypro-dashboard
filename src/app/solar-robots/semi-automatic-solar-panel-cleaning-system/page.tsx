@@ -90,6 +90,7 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
                   alt="Taypro cleaning robot"
                   title="Taypro Cleaning Robot"
                   fill
+                  sizes="sm"
                   className="object-contain"
                   priority
                 />

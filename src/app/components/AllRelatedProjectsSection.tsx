@@ -38,6 +38,7 @@ export default function RelatedProjectsSection({
                   alt={project.title}
                   title="Solar Project"
                   fill
+                  sizes="sm"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div

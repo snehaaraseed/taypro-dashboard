@@ -13,7 +13,7 @@ type ModelCardsProps = {
 
 export default function ModelCards({ title, cards }: ModelCardsProps) {
   return (
-    <section className="w-full py-30 flex flex-col items-center bg-white">
+    <section className="w-full pt-5 py-30 flex flex-col items-center bg-white">
       {title && (
         <div className="font-semibold text-[#052638] text-5xl text-center mb-15">
           {title}

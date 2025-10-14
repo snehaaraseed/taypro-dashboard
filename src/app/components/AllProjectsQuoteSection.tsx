@@ -41,7 +41,7 @@ export default function ProjectQuoteSection({
   author,
 }: ProjectQuoteSectionProps) {
   return (
-    <section className="w-full py-12 sm:py-16 lg:py-20 bg-white overflow-x-hidden">
+    <section className="w-full py-30 sm:py-16 lg:py-20 bg-white overflow-x-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="relative pl-4 sm:pl-6 lg:pl-8">
           <div className="absolute left-0 top-0 bottom-0 w-1 bg-gray-300"></div>

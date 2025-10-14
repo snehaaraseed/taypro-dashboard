@@ -206,6 +206,7 @@ export default function AboutUsPage() {
                   alt="Taypro Marvel"
                   title="Taypro Marvel"
                   fill
+                  sizes="sm"
                   className="object-cover"
                   priority
                 />
@@ -252,6 +253,7 @@ export default function AboutUsPage() {
                   alt="Taypro Marvel"
                   title="Taypro Marvel"
                   fill
+                  sizes="sm"
                   className="object-cover"
                   priority
                 />
@@ -301,7 +303,11 @@ export default function AboutUsPage() {
                       href={f.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2 text-[#7be117] hover:text-[#a8ef17]"
+                      className="
+                opacity-100 pointer-events-auto translate-y-0
+                md:opacity-0 md:pointer-events-none md:translate-y-4 
+                md:group-hover:opacity-100 md:group-hover:pointer-events-auto md:group-hover:translate-y-0 
+                transition-all duration-300 flex items-center gap-2 text-[#7be117] hover:text-[#a8ef17]"
                       aria-label={`LinkedIn of ${f.name}`}
                     >
                       <Linkedin size={16} />
@@ -361,6 +367,7 @@ export default function AboutUsPage() {
                           alt={r.title}
                           title="Energy Resource"
                           fill
+                          sizes="sm"
                           className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-105"
                           priority
                         />

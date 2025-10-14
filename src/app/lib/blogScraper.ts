@@ -29,12 +29,24 @@ export async function scrapeBlogContent(
       $(".entry-title").text().trim() ||
       $("title").text().trim();
 
-    const content =
+    let cleanContent =
       $("article").html() ||
       $(".entry-content").html() ||
       $(".post-content").html() ||
       $("main").html() ||
       "";
+    const $content = cheerio.load(cleanContent);
+    $content("h1").remove(); // Remove all H1 tags
+
+    // Convert H2 to H3, H3 to H4, etc. to maintain hierarchy
+    $content("h2").each((i, el) => {
+      $content(el).replaceWith(`<h3>${$content(el).html()}</h3>`);
+    });
+    $content("h3").each((i, el) => {
+      $content(el).replaceWith(`<h4>${$content(el).html()}</h4>`);
+    });
+
+    cleanContent = $content.html() || "";
 
     const publishDate =
       $(".entry-date").text().trim() ||
@@ -60,7 +72,7 @@ export async function scrapeBlogContent(
 
     return {
       title,
-      content,
+      content: cleanContent,
       publishDate,
       author,
       description,

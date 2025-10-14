@@ -12,7 +12,7 @@ export default function ProjectsCard({
   headerText,
 }: ProjectsCardProps) {
   return (
-    <section className="py-10 bg-white px-4 sm:px-6 lg:px-30 max-w-full overflow-x-hidden mx-auto">
+    <section className="py-10 pb-40 bg-white px-4 sm:px-6 lg:px-30 max-w-full overflow-x-hidden mx-auto">
       {showHeader && (
         <div className="text-3xl text-center bg-white lg:text-6xl lg:text-3xl py-15 font-semibold">
           {headerText || (
@@ -29,14 +29,17 @@ export default function ProjectsCard({
             key={project.title}
             className="relative z-0 w-full group overflow-hidden cursor-pointer min-h-[300px] sm:min-h-[400px] md:min-h-[600px]"
           >
-            <Image
-              src={project.img}
-              alt={project.title}
-              title="Solar Project"
-              width={400}
-              height={600}
-              className="w-full h-full transform group-hover:scale-105 transition duration-300"
-            />
+            <div className="absolute inset-0">
+              <Image
+                src={project.img}
+                alt={project.title}
+                title="Solar Project"
+                fill
+                className="object-cover transform group-hover:scale-105 transition duration-300"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
+            </div>
 
             {/* Overlay */}
             <div className="absolute inset-0 bg-transparent group-hover:bg-blue-900/30 transition duration-300 pointer-events-none" />

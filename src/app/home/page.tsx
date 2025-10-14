@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const breadcrumbs = [{ name: "Home", href: "/" }];
+  const breadcrumbs = [{ name: "", href: "/" }];
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
@@ -32,7 +32,6 @@ export default function HomePage() {
         {/* Hero Section */}
         <section className="relative overflow-hidden px-4 sm:px-8 lg:px-15 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-center">
-            {/* Left Content - Now takes 2/3 of the width */}
             <div className="text-white space-y-6 lg:space-y-12 lg:col-span-2">
               <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-semibold">
                 Delivering{" "}
@@ -50,7 +49,6 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Right Content - Robot Image - Takes 1/3 of the width */}
             <div className="lg:col-span-1 flex justify-center lg:justify-end">
               <Image
                 src="/tayprorobots/robot-hero.png"
@@ -65,8 +63,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Features Section with Video */}
-        <section className="px-4 sm:px-8 lg:px-16 py-12 lg:py-24 bg-white relative">
+        <section className="px-4 sm:px-8 lg:px-16 py-20 lg:py-40 bg-white relative">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12 lg:mb-16">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold text-[#052638] mb-4 px-4">
@@ -75,7 +72,6 @@ export default function HomePage() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Left Content - Video */}
               <div className="order-2 lg:order-1">
                 <div className="aspect-video w-full max-w-lg lg:max-w-none mx-auto overflow-hidden shadow-2xl rounded-lg">
                   <iframe
@@ -89,7 +85,6 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Right Content - Features List */}
               <div className="space-y-6 lg:space-y-8 order-1 lg:order-2">
                 {features.map((feature, idx) => (
                   <div key={idx} className="flex items-start space-x-4">
@@ -113,16 +108,13 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Background Decorative Elements */}
           <div className="absolute top-0 left-0 w-32 h-32 lg:w-64 lg:h-64 bg-[#39D600]/5 rounded-full blur-3xl -translate-x-16 lg:-translate-x-32 -translate-y-16 lg:-translate-y-32"></div>
           <div className="absolute bottom-0 right-0 w-48 h-48 lg:w-96 lg:h-96 bg-[#052638]/5 rounded-full blur-3xl translate-x-16 lg:translate-x-32 translate-y-16 lg:translate-y-32"></div>
         </section>
 
-        {/* Third Section - Robotics Technology */}
         <section className="px-4 sm:px-8 lg:px-10 py-12 lg:py-16">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Left Content - Features List */}
               <div className="space-y-6 lg:space-y-8 order-2 lg:order-1">
                 <h5 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white text-center lg:text-left lg:ml-25">
                   Our Robotics technology
@@ -147,7 +139,6 @@ export default function HomePage() {
                 ))}
               </div>
 
-              {/* Right Content - Image */}
               <div className="order-1 lg:order-2 flex justify-center">
                 <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-full">
                   <Image
@@ -165,8 +156,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Fourth Section - Robot Cards */}
-        <section className="pt-12 lg:pt-16 bg-white">
+        <section className="pt-12 lg:pt-40 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-8 lg:mb-12">
               <h6 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
@@ -188,8 +178,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Fifth Section - Calculate Savings */}
-        <section className="py-12 lg:py-16 bg-white">
+        <section className="py-12 lg:pt-40 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center">
               <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold leading-tight mb-4">
@@ -209,10 +198,8 @@ export default function HomePage() {
           <ROITayproCalculator />
         </section>
 
-        {/* Sixth Section - Clients */}
         <ClientsCard />
 
-        {/* Seventh Section - Request Estimate */}
         <RequestEstimateForm />
       </div>
     </>

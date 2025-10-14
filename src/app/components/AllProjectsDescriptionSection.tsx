@@ -15,7 +15,7 @@ export default function ProjectDescriptionSection({
   return (
     <section
       className="
-    px-4 sm:px-8 lg:px-50 pt-10 pb-20 bg-white overflow-x-hidden
+    px-4 sm:px-8 lg:px-50 pt-30 pb-20 bg-white overflow-x-hidden
     max-h-screen
     sm:overflow-y-visible sm:max-h-full
   "

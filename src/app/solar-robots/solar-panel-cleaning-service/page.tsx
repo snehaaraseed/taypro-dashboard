@@ -11,6 +11,7 @@ import CallbackCard from "@/app/components/CallbackCard";
 import ResourcesCard from "@/app/components/ResourcesCard";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROITayproCalculator from "@/app/components/ROICalculator";
+import ProjectsCard from "@/app/components/ProjectsCard";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -180,12 +181,11 @@ export default function SolarPanelCleaningService() {
 
         <ClientsCard />
 
-        <section className="w-full py-12 bg-white">
+        <ProjectsCard showHeader={true} headerText="Our Projects" />
+
+        <section className="w-full pt-30 py-12 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <div className="mb-8">
-              <h3 className="text-[#052638] font-semibold text-4xl mb-8">
-                Our Projects
-              </h3>
               <div className="text-[#052638] font-semibold text-5xl md:text-6xl text-center mb-6">
                 Advantages of Using Solar Panel Cleaning Service
               </div>

@@ -50,6 +50,7 @@ export default function EnergyResourceCard() {
                   alt={card.title}
                   title="Resource"
                   fill
+                  sizes="sm"
                   className="object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105 group-hover:translate-x-3"
                   priority
                 />

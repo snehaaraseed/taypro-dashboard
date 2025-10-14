@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation"; // Changed from useRouter
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,7 +44,7 @@ export default function Header() {
     },
   ];
 
-  // Function to check if current path matches the nav item
+  // fnc to check if current path matches the nav item
   const isActive = (href: string) => {
     if (href === "/") {
       return pathname === "/";
@@ -52,7 +52,6 @@ export default function Header() {
     return pathname.startsWith(href);
   };
 
-  // Check if any solar robot page is active
   const isSolarActive = () => {
     return pathname.startsWith("/solar-robots");
   };
@@ -64,11 +63,12 @@ export default function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Image
-              width={160}
-              height={50}
               src="/tayproasset/taypro-logo.png"
               alt="taypro-logo"
               title="Taypro Logo"
+              width={160}
+              height={50}
+              style={{ width: "auto", height: "auto" }}
               priority
             />
           </div>

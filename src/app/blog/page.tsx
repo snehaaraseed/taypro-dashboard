@@ -2,7 +2,6 @@
 
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-// import Link from "next/link";
 import Image from "next/image";
 import { energyResourceCards } from "../data";
 import { Breadcrumbs } from "../components/Breadcrumbs";
@@ -68,6 +67,7 @@ export default function Blog() {
                         alt={card.title}
                         title="Blogs"
                         fill
+                        sizes="sm"
                         className="object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105 group-hover:translate-x-3"
                         priority
                       />

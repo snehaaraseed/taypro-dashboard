@@ -56,13 +56,17 @@ export default function ProjectPage() {
                 key={project.title}
                 className="relative z-0 w-full group overflow-hidden cursor-pointer min-h-[300px] sm:min-h-[400px] md:min-h-[600px]"
               >
-                <Image
-                  src={project.img}
-                  alt={project.title}
-                  title="Solar Projects"
-                  fill
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition duration-300"
-                />
+                <div className="absolute inset-0">
+                  <Image
+                    src={project.img}
+                    alt={project.title}
+                    title="Solar Project"
+                    fill
+                    className="object-cover transform group-hover:scale-105 transition duration-300"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
+                </div>
 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-transparent group-hover:bg-blue-900/30 transition duration-300 pointer-events-none" />
