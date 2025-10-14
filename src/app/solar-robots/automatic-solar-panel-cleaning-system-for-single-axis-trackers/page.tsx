@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Model-T for Single Axis Tracker | Taypro",
     description:
       "Precision in Operation The TAYPRO CONSOLE goes beyond conventional cleaning methods. It allows for the application of individual and group commands, tailoring the cleaning approach based on seasonal data and the specific position of each table in the field.",
-    url: "http://localhost:3000/solar-robots/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
+    url: "https://taypro-dashboard.vercel.app/solar-robots/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
     type: "website",
   },
 };

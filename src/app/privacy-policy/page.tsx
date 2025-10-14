@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Privacy Policy at Taypro Private Limited",
     description:
       "Taypro (“we,” “our,” “us”) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website, products, and services (collectively, the “Services”).",
-    url: "http://localhost:3000/privacy-policy",
+    url: "https://taypro-dashboard.vercel.app/privacy-policy",
     type: "website",
   },
 };

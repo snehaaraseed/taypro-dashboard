@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "Taypro - Know More About Taypro Unit.",
     description:
       "Taypro is at the forefront of revolutionizing solar energy efficiency through innovative technological solutions designed to address persistent challenges within the industry. As solar panels become increasingly integral to renewable energy systems, the efficiency of these installations can be significantly compromised by environmental factors.",
-    url: "http://localhost:3000/company",
+    url: "https://taypro-dashboard.vercel.app/company",
     type: "website",
   },
 };

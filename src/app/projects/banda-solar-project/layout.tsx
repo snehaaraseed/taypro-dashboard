@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: `Taypro - Banda Solar Project. Banda Solar Project – 70 MW`,
     description:
       "At the Banda Solar Power plant TAYPRO integrated high-tech robotics to enhance the operational efficiency of the plant. A total of 160 solar cleaning robots helped to achieve exceptional energy generation.",
-    url: `http://localhost:3000/projects/agar-solar-project`,
+    url: `https://taypro-dashboard.vercel.app/projects/agar-solar-project`,
     type: "website",
   },
 };

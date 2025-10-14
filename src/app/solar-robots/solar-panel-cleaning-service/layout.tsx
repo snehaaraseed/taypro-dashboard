@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Solar Panel Cleaning Service: TAYPRO OPEX | Taypro",
     description:
       "Solar Panel Cleaning Service by Taypro, a solar cleaning company. We depoly range of robots for automatic, waterless and efficent ROI Power Cleaning Service. Call us today.",
-    url: "http://localhost:3000/solar-robots/solar-panel-cleaning-service",
+    url: "https://taypro-dashboard.vercel.app/solar-robots/solar-panel-cleaning-service",
     type: "website",
   },
 };

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Taypro is a Solar Panel Cleaning Company",
     description:
       "Taypro is a Solar Panel Cleaning Company. We provide end to end ROI Solar Cleaning Service to improve Solar Plant Efficiency.",
-    url: "http://localhost:3000",
+    url: "https://taypro-dashboard.vercel.app/",
     type: "website",
   },
 };

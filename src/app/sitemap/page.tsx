@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: "Sitemap | Taypro – Complete Website Navigation",
     description:
       "Browse Taypro’s sitemap to quickly access all website sections, including projects, services, and company information.",
-    url: "http://localhost:3000/sitemap",
+    url: "https://taypro-dashboard.vercel.app/sitemap",
     type: "website",
   },
 };

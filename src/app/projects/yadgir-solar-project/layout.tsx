@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: `Taypro - Yadgir Solar Project`,
     description:
       "TAYPRO deployed 96 fully automatic waterless cleaning robot and 19 semi-automatic robots at the Yadgir Solar Project Karnataka. The objective was to achieve optimal solar panel efficiency and a consistent performance ratio.",
-    url: `http://localhost:3000/projects/yadgir-solar-project`,
+    url: `https://taypro-dashboard.vercel.app/projects/yadgir-solar-project`,
     type: "website",
   },
 };

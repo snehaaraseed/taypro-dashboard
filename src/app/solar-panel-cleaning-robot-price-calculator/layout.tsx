@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title:
       "ROI Calculator | Taypro – Estimate Your Solar Cleaning Robot Savings",
     description: "Calculate how much Solar power saves significant costs.",
-    url: "http://localhost:3000/solar-panel-cleaning-robot-price-calculator",
+    url: "https://taypro-dashboard.vercel.app/solar-panel-cleaning-robot-price-calculator",
     type: "website",
   },
 };

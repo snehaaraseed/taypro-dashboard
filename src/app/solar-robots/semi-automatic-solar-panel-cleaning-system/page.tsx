@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Model-B | A pick-and-place type solar panel cleaning robot",
     description:
       "Key Features Setting Taypro ApartThe Taypro Model-B is not just another cleaning device; it’s a result of meticulous study and analysis aimed at addressing prevalent issues in solar power plants. The innovative cleaning assembly and driving mechanism elevate its compatibility, making it suitable for fixed tilt, seasonal tilt, and horizontal single-axis trackers.",
-    url: "http://localhost:3000/solar-robots/semi-automatic-solar-panel-cleaning-system",
+    url: "https://taypro-dashboard.vercel.app/solar-robots/semi-automatic-solar-panel-cleaning-system",
     type: "website",
   },
 };

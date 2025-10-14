@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "Taypro Cleaning Technology using latest Technology",
     description:
       "Taypro specializes in enhancing solar panel efficiency through innovative robotic cleaning solutions that combat dust accumulation.",
-    url: "http://localhost:3000/cleaning-technology",
+    url: "https://taypro-dashboard.vercel.app/cleaning-technology",
     type: "website",
   },
 };

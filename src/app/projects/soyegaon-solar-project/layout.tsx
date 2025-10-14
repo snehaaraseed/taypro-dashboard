@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: `Taypro - Soyegaon Solar Project.`,
     description:
       "The Soygaon Solar Project required a solution to maximise the power generation and performance ratio. TAYPRO’s automatic and semi-automatic robots were meticulously deployed to deliver high-speed cleaning for autonomous cleaning for large-scale panel areas.",
-    url: `http://localhost:3000/projects/soyegaon-solar-project`,
+    url: `https://taypro-dashboard.vercel.app/projects/soyegaon-solar-project`,
     type: "website",
   },
 };
