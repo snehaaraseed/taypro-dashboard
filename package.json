@@ -11,6 +11,12 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.13",
+    "@tiptap/extension-image": "^3.7.0",
+    "@tiptap/extension-link": "^3.7.0",
+    "@tiptap/extension-text-align": "^3.7.0",
+    "@tiptap/pm": "^3.7.0",
+    "@tiptap/react": "^3.7.0",
+    "@tiptap/starter-kit": "^3.7.0",
     "cheerio": "^1.1.2",
     "html2canvas": "^1.4.1",
     "jspdf": "^3.0.3",
