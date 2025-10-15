@@ -72,22 +72,22 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
 
   return (
     <section
-      className="bg-white relative pt-30 p-12 z-2 flex flex-col items-center"
+      className="bg-white relative pt-30 flex flex-col items-center px-4 md:px-0"
       style={{
         backgroundImage: "url('/tayprobglayout/taypro-bg.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         minHeight: "700px",
-        padding: "0",
+        padding: "0 1rem 0 1rem",
+        paddingTop: "7.5rem",
       }}
     >
       <div className="font-semibold text-[#052638] text-center text-5xl md:text-6xl mb-10">
         {headerText}
       </div>
 
-      <div className="max-w-5xl mx-auto w-full h-full flex flex-col md:flex-row shadow-lg bg-transparent relative z-10">
+      <div className="max-w-5xl mx-auto w-full h-full flex flex-col md:flex-row shadow-lg bg-transparent relative">
         {/* Left: Form */}
-
         <div
           className="bg-[#052638] p-10 flex flex-col justify-center flex-1 min-w-[200px] mt-10 md:mb-40"
           style={{

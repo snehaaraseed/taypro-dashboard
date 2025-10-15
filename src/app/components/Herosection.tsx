@@ -1,5 +1,3 @@
-// components/HeroSection.tsx
-
 import Image from "next/image";
 import React from "react";
 
@@ -13,9 +11,6 @@ interface HeroSectionProps {
   className?: string;
 }
 
-/**
- * A hero / hero-style section with left content and right image + decorative SVG.
- */
 const HeroSection: React.FC<HeroSectionProps> = ({
   title,
   subtitle,
@@ -27,25 +22,26 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   return (
     <section
-      className={`min-h-[600px] mx-20 flex flex-col lg:flex-row relative overflow-hidden ${className}`}
+      className={`min-h-[600px] mx-4 sm:mx-20 flex flex-col lg:flex-row relative overflow-hidden ${className}`}
     >
       {/* LEFT - Content */}
-      <div className="bg-[#052638] w-full lg:w-1/2 flex flex-col justify-center px-8 xl:px-24 py-16">
-        <div className="text-5xl md:text-6xl font-semibold text-white mb-6 leading-tight">
+      <div className="bg-[#052638] w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-8 xl:px-24 py-12 sm:py-16">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-semibold text-white mb-6 leading-tight">
           {title}
-        </div>
-        <div className="text-xl text-white leading-relaxed max-w-xl mb-9">
+        </h1>
+        <div className="text-base sm:text-xl text-white leading-relaxed max-w-full sm:max-w-xl mb-8 sm:mb-9">
           {subtitle}
         </div>
         <a
           href={ctaHref}
-          className="bg-[#A8C117] rounded-none w-full max-w-xl py-6 text-[#052638] font-medium text-xl text-center transition hover:bg-[#b3cf3d]"
+          className="bg-[#A8C117] rounded-none w-full max-w-xl py-4 sm:py-6 text-[#052638] font-medium text-base sm:text-xl text-center transition hover:bg-[#b3cf3d]"
         >
           {ctaText}
         </a>
       </div>
+
       {/* RIGHT - IMAGE */}
-      <div className="relative w-full lg:w-3/4 h-[600px] mr-20">
+      <div className="relative w-full sm:w-300 lg:w-1/2 min-h-[240px] sm:min-h-[360px] lg:h-[600px] mr-0 sm:mr-20 mt-10 lg:mt-0">
         <Image
           alt={imgAlt}
           src={imgSrc}

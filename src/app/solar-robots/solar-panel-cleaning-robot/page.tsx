@@ -16,6 +16,7 @@ import { useState } from "react";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROITayproCalculator from "@/app/components/ROICalculator";
+import Link from "next/link";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -192,10 +193,13 @@ export default function SolarPanelCleaningRobot() {
               results in greater returns on investment.
               <br />
               <br />
-              You can check the ROI by using our Solar Panel Cleaning{" "}
-              <span style={{ color: "#A8C117" }}>
-                Robots ROI Calculator.
-              </span>{" "}
+              You can check the ROI by using our Solar Panel Cleaning
+              <Link
+                href="/solar-panel-cleaning-robot-price-calculator"
+                passHref
+              >
+                <span style={{ color: "#A8C117" }}>Robots ROI Calculator.</span>
+              </Link>
             </div>
 
             <div className="mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
