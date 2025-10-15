@@ -80,7 +80,7 @@ export default function AboutUsPage() {
         </section>
 
         <section className="w-full py-16 bg-[#073448] flex justify-center">
-          <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="max-w-6xl w-full mx-4 md:mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Left Card: Brand Values */}
             <div className="bg-white px-10 py-10 flex flex-col justify-between shadow-lg min-h-[600px]">
               <div>
