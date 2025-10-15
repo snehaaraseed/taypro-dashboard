@@ -19,6 +19,7 @@ import ProjectsCard from "@/app/components/ProjectsCard";
 import ModelCards from "@/app/components/ModelCards";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROITayproCalculator from "@/app/components/ROICalculator";
+import Link from "next/link";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -570,8 +571,15 @@ export default function AutomaticSolarPanelCleaningRobot() {
               long-term financial benefits. The initial investment is quickly
               recovered within one year, making it an effective and sustainable
               investment. You can calculate the ROI on Solar Panel Cleaning
-              Robots by using the{" "}
-              <span style={{ color: "#A8C117" }}>ROI Calculator</span>{" "}
+              Robots by using the
+              <Link
+                href="/solar-panel-cleaning-robot-price-calculator"
+                passHref
+              >
+                <span style={{ color: "#A8C117", cursor: "pointer" }}>
+                  ROI Calculator
+                </span>
+              </Link>
             </p>
           </div>
         </section>

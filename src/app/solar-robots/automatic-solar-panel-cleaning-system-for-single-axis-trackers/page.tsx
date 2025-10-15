@@ -68,7 +68,38 @@ export default function AutomaticSolarPanelCleaningSystem() {
               </h2>
             </div>
 
-            <div className="relative w-full h-[300px] sm:h-[500px] lg:h-[700px] overflow-hidden">
+            {/* Mobile Layout */}
+            <div className="block lg:hidden">
+              <div className="relative w-full h-[300px] sm:h-[400px] overflow-hidden">
+                <Image
+                  src="/tayprorobots/taypro-modelT-img.png"
+                  alt="TAYPRO MODEL-T cleaning solar panels"
+                  title="TAYPRO MODEL-T"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+
+              <div className="bg-[#7da300] p-6 mx-4">
+                <h3 className="text-white text-start text-xl sm:text-2xl mb-4">
+                  The Innovation Behind the MODEL-T
+                </h3>
+                <p className="text-white text-start text-sm sm:text-base leading-relaxed">
+                  The TAYPRO MODEL-T represents a synergy of cutting-edge
+                  technologies meticulously engineered to address the challenges
+                  of solar panel maintenance for Single Axis Tracker
+                  installations. Powered by advanced sensors and machine
+                  learning capabilities, the MODEL-T boasts truly autonomous
+                  operation, devoid of any human intervention. Its cloud-based
+                  management system enables remote monitoring and control,
+                  ensuring optimal performance from anywhere, anytime.
+                </p>
+              </div>
+            </div>
+
+            {/* Desktop Layout */}
+            <div className="hidden lg:block relative w-full h-[700px] overflow-hidden">
               <Image
                 src="/tayprorobots/taypro-modelT-img.png"
                 alt="TAYPRO MODEL-T cleaning solar panels"
@@ -78,7 +109,7 @@ export default function AutomaticSolarPanelCleaningSystem() {
                 priority
               />
 
-              <div className="absolute right-4 sm:right-10 top-1/2 transform -translate-y-1/2 bg-[#7da300] p-4 sm:p-6 w-full max-w-sm sm:max-w-90 h-auto sm:h-[450px]">
+              <div className="absolute right-10 top-1/2 transform -translate-y-1/2 bg-[#7da300] p-6 max-w-90 h-[450px]">
                 <h3 className="text-white text-start text-2xl mb-4">
                   The Innovation Behind the MODEL-T
                 </h3>

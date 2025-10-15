@@ -15,10 +15,10 @@ export default function ProjectDescriptionSection({
   return (
     <section
       className="
-    px-4 sm:px-8 lg:px-50 pt-30 pb-20 bg-white overflow-x-hidden
-    max-h-screen
-    sm:overflow-y-visible sm:max-h-full
-  "
+        relative px-4 sm:px-8 lg:px-50 pt-30 pb-20 bg-white
+        
+        sm:overflow-y-visible sm:max-h-full
+      "
     >
       <div className="text-center mb-12 lg:mb-16">
         <div className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold text-[#052638] mb-4">
@@ -53,7 +53,7 @@ export default function ProjectDescriptionSection({
         </div>
       </div>
 
-      {/* Background decorations - smaller on mobile */}
+      {/* Background decorations */}
       <div className="absolute top-0 left-0 w-32 h-32 lg:w-64 lg:h-64 bg-[#39D600]/5 rounded-full blur-3xl -translate-x-16 lg:-translate-x-32 -translate-y-16 lg:-translate-y-32"></div>
       <div className="absolute bottom-0 right-0 w-48 h-48 lg:w-96 lg:h-96 bg-[#052638]/5 rounded-full blur-3xl translate-x-16 lg:translate-x-32 translate-y-16 lg:translate-y-32"></div>
     </section>

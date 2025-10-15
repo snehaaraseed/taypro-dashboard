@@ -12,6 +12,7 @@ import ResourcesCard from "@/app/components/ResourcesCard";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROITayproCalculator from "@/app/components/ROICalculator";
 import ProjectsCard from "@/app/components/ProjectsCard";
+import Link from "next/link";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -331,10 +332,12 @@ export default function SolarPanelCleaningService() {
                 By maintaining clean solar panels, the plants can achieve higher
                 performance ratios, leading to higher revenue generation. <br />
                 <br />
-                TAYPRO’s{" "}
-                <span className="cursor-pointer" style={{ color: "#A8C117" }}>
-                  ROI calculator
-                </span>
+                TAYPRO’s
+                <Link href="/solar-panel-cleaning-robot-price-calculator">
+                  <span className="cursor-pointer" style={{ color: "#A8C117" }}>
+                    ROI calculator
+                  </span>
+                </Link>
                 helps in understanding the estimated potential savings and
                 efficiency increase by using their solar panel cleaning service.
               </p>

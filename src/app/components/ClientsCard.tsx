@@ -4,7 +4,7 @@ import { clientLogos } from "../data";
 
 export default function ClientsCard() {
   return (
-    <section className="bg-white flex flex-col items-center py-20">
+    <section className="bg-white flex flex-col items-center py-20 px-4 md:px-0">
       <div className="text-5xl font-semibold text-[#052638] mb-12 text-center">
         Our Esteemed Clients
       </div>

@@ -4,10 +4,13 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isSolarMenuOpen, setIsSolarMenuOpen] = useState(true);
   const pathname = usePathname();
 
   const navItems = [
@@ -194,7 +197,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile navigation */}
       {isMenuOpen && (
         <div className="md:hidden bg-[#052638] border-t border-gray-700">
           <div className="px-4 pt-4 pb-3 space-y-2">
@@ -211,17 +214,48 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
-            {/* Solar robots link for mobile */}
-            <Link
-              href="/solar-robots/solar-panel-cleaning-robot"
-              title="Solar Panel Cleaning Robot"
-              className={`text-white hover:text-gray-300 block px-3 py-2 text-base font-medium ${
+
+            {/* Solar Panel Cleaning Robots Parent */}
+            <button
+              className={`w-full text-left text-white hover:text-gray-300 block px-3 py-2 text-base font-medium flex justify-between items-center ${
                 isSolarActive() ? "underline underline-offset-8" : ""
               }`}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => {
+                setIsMenuOpen(false);
+                router.push("/solar-robots/solar-panel-cleaning-robot");
+              }}
             >
               Solar Panel Cleaning Robots
-            </Link>
+              <svg
+                className={`h-4 w-4 transform transition-transform ${
+                  isSolarMenuOpen ? "rotate-180" : "rotate-0"
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+
+            {/* Nested Solar Menu Links */}
+            {isSolarMenuOpen &&
+              solarMenu.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="ml-6 text-white hover:text-gray-300 block px-3 py-2 text-base font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  • {item.label}
+                </Link>
+              ))}
+
             <Link
               href="/contact"
               title="Contact"

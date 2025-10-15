@@ -63,22 +63,50 @@ export default function AutomaticCleaningRobotMonitoringApp() {
               </h1>
             </div>
 
-            <div className="relative w-full h-[700px] overflow-hidden">
+            {/* Mobile Layout */}
+            <div className="block lg:hidden">
+              <div className="relative w-full h-[300px] sm:h-[400px] overflow-hidden">
+                <Image
+                  src="/tayproasset/taypro-console.png"
+                  alt="Console Interface"
+                  title="TAYPRO Console"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <div className="bg-[#7da300] p-6 mx-4 -mt-20 relative">
+                <h2 className="text-white text-start text-xl sm:text-2xl mb-4">
+                  Precision in Operation
+                </h2>
+                <p className="text-white text-start text-sm sm:text-base leading-relaxed">
+                  The TAYPRO CONSOLE goes beyond conventional cleaning methods.
+                  It allows for the application of individual and group
+                  commands, tailoring the cleaning approach based on seasonal
+                  data and the specific position of each table in the field.
+                  This level of precision ensures the most efficient working
+                  method for each robot, enhancing overall cleaning performance.
+                </p>
+              </div>
+            </div>
+
+            {/* Desktop Layout */}
+            <div className="hidden lg:block relative w-full h-[700px] overflow-hidden">
               <Image
                 src="/tayproasset/taypro-console.png"
-                alt="TAYPRO MODEL-T cleaning solar panels"
-                title="TAYPRO MODEL-T Solar Panels"
+                alt="Console Interface"
+                title="TAYPRO Console"
                 fill
                 className="object-cover"
                 priority
               />
 
-              {/* Overlay card inside image */}
+              {/* Overlay card */}
               <div className="absolute right-10 top-1/2 transform -translate-y-1/2 bg-[#7da300] p-6 w-90 h-[350px] flex flex-col justify-center items-center text-center">
-                <h2 className="text-white text-start text-2xl mb-4">
+                <h2 className="text-white text-2xl mb-4">
                   Precision in Operation
                 </h2>
-                <p className="text-white text-start text-md leading-relaxed">
+                <p className="text-white text-md leading-relaxed">
                   The TAYPRO CONSOLE goes beyond conventional cleaning methods.
                   It allows for the application of individual and group
                   commands, tailoring the cleaning approach based on seasonal
