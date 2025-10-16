@@ -18,7 +18,7 @@ const breadcrumbs = [
   { name: "Home", href: "/" },
   {
     name: "Solar Panel Cleaning Robots",
-    href: "/solar-robots/solar-panel-cleaning-robot",
+    href: "/solar-panel-cleaning-system",
   },
   {
     name: "Solar Panel Cleaning Service",
@@ -76,9 +76,9 @@ export default function SolarPanelCleaningService() {
 
         <section className="w-full items-center pt-10 pb-25 bg-white bg-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
-            <h1 className="font-semibold text-5xl md:text-5xl text-start mb-6">
+            <div className="font-semibold text-5xl md:text-5xl text-start mb-6">
               Features of TAYPRO’s Solar Panel Cleaning Service
-            </h1>
+            </div>
             <p className="mb-20 text-start text-lg">
               Here are the key features of TAYPRO’s solar panel cleaning
               service.

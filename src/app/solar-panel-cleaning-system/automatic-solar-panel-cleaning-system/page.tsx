@@ -25,7 +25,7 @@ const breadcrumbs = [
   { name: "Home", href: "/" },
   {
     name: "Solar Panel Cleaning Robots",
-    href: "/solar-robots/solar-panel-cleaning-robot",
+    href: "/solar-panel-cleaning-system",
   },
   {
     name: "Automatic Solar Panel Cleaning Robot",

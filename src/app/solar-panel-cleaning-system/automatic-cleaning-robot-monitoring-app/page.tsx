@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Automatic Cleaning Robot Monitoring App | Taypro",
     description:
       "Precision in Operation The TAYPRO CONSOLE goes beyond conventional cleaning methods. It allows for the application of individual and group commands, tailoring the cleaning approach based on seasonal data and the specific position of each table in the field.",
-    url: "https://taypro-dashboard.vercel.app/solar-robots/automatic-cleaning-robot-monitoring-app",
+    url: "https://taypro-dashboard.vercel.app/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
     type: "website",
   },
 };
@@ -27,7 +27,7 @@ const breadcrumbs = [
   { name: "Home", href: "/" },
   {
     name: "Solar Panel Cleaning Robots",
-    href: "/solar-robots/solar-panel-cleaning-robot",
+    href: "/solar-panel-cleaning-system",
   },
   {
     name: "Taypro Console",
@@ -58,9 +58,9 @@ export default function AutomaticCleaningRobotMonitoringApp() {
         >
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
-              <h1 className="text-[#052638] font-semibold text-3xl md:text-4xl lg:text-5xl leading-tight max-w-4xl mx-auto">
+              <div className="text-[#052638] font-semibold text-3xl md:text-4xl lg:text-5xl leading-tight max-w-4xl mx-auto">
                 SEAMLESS CONNECTIVITY AND WEATHER INTEGRATION
-              </h1>
+              </div>
             </div>
 
             {/* Mobile Layout */}
@@ -76,9 +76,9 @@ export default function AutomaticCleaningRobotMonitoringApp() {
                 />
               </div>
               <div className="bg-[#7da300] p-6 mx-4 -mt-20 relative">
-                <h2 className="text-white text-start text-xl sm:text-2xl mb-4">
+                <div className="text-white text-start text-xl sm:text-2xl mb-4">
                   Precision in Operation
-                </h2>
+                </div>
                 <p className="text-white text-start text-sm sm:text-base leading-relaxed">
                   The TAYPRO CONSOLE goes beyond conventional cleaning methods.
                   It allows for the application of individual and group

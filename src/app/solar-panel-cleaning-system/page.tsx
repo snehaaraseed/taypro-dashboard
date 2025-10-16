@@ -59,11 +59,11 @@ export default function SolarPanelCleaningRobot() {
         <section className="py-12 lg:py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center">
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold leading-tight mb-4">
+              <div className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold leading-tight mb-4">
                 Calculate How Much Can Solar Cleaning Robots Save?
                 <br className="hidden sm:block" />
                 <span className="sm:hidden"> </span>Robots Save?
-              </h1>
+              </div>
             </div>
           </div>
 

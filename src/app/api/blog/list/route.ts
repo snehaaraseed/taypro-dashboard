@@ -39,7 +39,6 @@ export async function GET() {
           href: `/blog/${dir.name}`,
         });
       } catch (error) {
-        // If metadata.json doesn't exist, skip this directory
         console.warn(`No metadata found for blog: ${dir.name}`);
       }
     }

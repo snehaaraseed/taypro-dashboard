@@ -19,7 +19,7 @@ export default function Footer() {
       { name: "Privacy Policy", href: "/privacy-policy" },
       {
         name: "Our Solutions",
-        href: "/solar-robots/solar-panel-cleaning-robot",
+        href: "/solar-panel-cleaning-system",
       },
     ],
   };
@@ -108,15 +108,15 @@ export default function Footer() {
               {[
                 {
                   name: "Model-B",
-                  href: "/solar-robots/semi-automatic-solar-panel-cleaning-system",
+                  href: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
                 },
                 {
                   name: "Automatic Solar Panel Cleaning Robot",
-                  href: "/solar-robots/automatic-solar-panel-cleaning-robot",
+                  href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
                 },
                 {
                   name: "Model-T",
-                  href: "/solar-robots/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
+                  href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
                 },
               ].map((item) => {
                 const active = pathname === item.href;

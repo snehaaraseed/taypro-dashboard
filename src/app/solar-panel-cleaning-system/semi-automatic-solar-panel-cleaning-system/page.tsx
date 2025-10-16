@@ -12,14 +12,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Model-B | A pick-and-place type solar panel cleaning robot.",
   description:
-    "Key Features Setting Taypro ApartThe Taypro Model-B is not just another cleaning device; it’s a result of meticulous study and analysis aimed at addressing prevalent issues in solar power plants. The innovative cleaning assembly and driving mechanism elevate its compatibility, making it suitable for fixed tilt, seasonal tilt, and horizontal single-axis trackers.",
+    "Key Features Setting Taypro ApartThe Taypro Model-B is not just another cleaning device; it’s a result of meticulous study and analysis aimed at addressing prevalent issues in solar power plants.",
   keywords:
     "semi-automatic solar robots, solar panel cleaning system, taypro model b, waterless cleaning technology, operation efficiency",
   openGraph: {
     title: "Model-B | A pick-and-place type solar panel cleaning robot",
     description:
       "Key Features Setting Taypro ApartThe Taypro Model-B is not just another cleaning device; it’s a result of meticulous study and analysis aimed at addressing prevalent issues in solar power plants. The innovative cleaning assembly and driving mechanism elevate its compatibility, making it suitable for fixed tilt, seasonal tilt, and horizontal single-axis trackers.",
-    url: "https://taypro-dashboard.vercel.app/solar-robots/semi-automatic-solar-panel-cleaning-system",
+    url: "https://taypro-dashboard.vercel.app/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
     type: "website",
   },
 };
@@ -28,7 +28,7 @@ const breadcrumbs = [
   { name: "Home", href: "/" },
   {
     name: "Solar Panel Cleaning Robots",
-    href: "/solar-robots/solar-panel-cleaning-robot",
+    href: "/solar-panel-cleaning-system",
   },
   {
     name: "Model-B",
@@ -81,9 +81,9 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
             <div className="lg:w-1/2 flex flex-col items-center lg:items-start">
-              <h1 className="text-[#052638] font-semibold text-4xl lg:text-5xl mb-12 text-center lg:text-left leading-tight">
+              <div className="text-[#052638] font-semibold text-4xl lg:text-5xl mb-12 text-center lg:text-left leading-tight">
                 Elevating ROI through Efficient Cleaning
-              </h1>
+              </div>
               <div className="relative w-full max-w-xs sm:max-w-sm lg:w-96 h-64 lg:h-80 mx-auto lg:mx-0">
                 <Image
                   src="/tayproasset/taypro-robotImage.png"

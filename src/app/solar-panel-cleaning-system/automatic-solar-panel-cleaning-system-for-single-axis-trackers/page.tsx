@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Model-T for Single Axis Tracker | Taypro",
     description:
       "Precision in Operation The TAYPRO CONSOLE goes beyond conventional cleaning methods. It allows for the application of individual and group commands, tailoring the cleaning approach based on seasonal data and the specific position of each table in the field.",
-    url: "https://taypro-dashboard.vercel.app/solar-robots/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
+    url: "https://taypro-dashboard.vercel.app/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
     type: "website",
   },
 };
@@ -28,7 +28,7 @@ const breadcrumbs = [
   { name: "Home", href: "/" },
   {
     name: "Solar Panel Cleaning Robots",
-    href: "/solar-robots/solar-panel-cleaning-robot",
+    href: "/solar-panel-cleaning-system",
   },
   {
     name: "Model-T",
@@ -59,9 +59,9 @@ export default function AutomaticSolarPanelCleaningSystem() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
             <div className="text-center mb-12">
-              <h1 className="text-[#A8C117] text-md font-medium mb-6">
+              <div className="text-[#A8C117] text-md font-medium mb-6">
                 TAYPRO MODEL-T
-              </h1>
+              </div>
               <h2 className="text-[#052638] font-semibold text-3xl md:text-4xl lg:text-5xl leading-tight max-w-4xl mx-auto">
                 AUTONOMOUS WATERLESS SOLAR PANEL CLEANING ROBOT FOR SINGLE AXIS
                 TRACKER INSTALLATIONS
@@ -82,9 +82,9 @@ export default function AutomaticSolarPanelCleaningSystem() {
               </div>
 
               <div className="bg-[#7da300] p-6 mx-4">
-                <h3 className="text-white text-start text-xl sm:text-2xl mb-4">
+                <div className="text-white text-start text-xl sm:text-2xl mb-4">
                   The Innovation Behind the MODEL-T
-                </h3>
+                </div>
                 <p className="text-white text-start text-sm sm:text-base leading-relaxed">
                   The TAYPRO MODEL-T represents a synergy of cutting-edge
                   technologies meticulously engineered to address the challenges

@@ -133,9 +133,9 @@ export default function BlogPost() {
               </span>
             </div>
 
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <h2 className="text-lg text-gray-700 leading-relaxed">
               ${description}
-            </p>
+            </h2>
           </header>
         </div>
       </section>

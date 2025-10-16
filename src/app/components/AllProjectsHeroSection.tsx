@@ -41,9 +41,9 @@ export default function ProjectHeroSection({
         </div>
 
         <div className="pt-10 sm:pt-20">
-          <div className="text-white text-start text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-tight">
+          <h1 className="text-white text-start text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-tight">
             {title}
-          </div>
+          </h1>
         </div>
       </div>
     </section>

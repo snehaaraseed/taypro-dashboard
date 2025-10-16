@@ -27,23 +27,23 @@ export default function Header() {
   const solarMenu = [
     {
       label: "Automatic Solar Panel Cleaning Robot",
-      href: "/solar-robots/automatic-solar-panel-cleaning-robot",
+      href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
     },
     {
       label: "Model-B",
-      href: "/solar-robots/semi-automatic-solar-panel-cleaning-system",
+      href: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
     },
     {
       label: "Model-T",
-      href: "/solar-robots/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
+      href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
     },
     {
       label: "Taypro Console",
-      href: "/solar-robots/automatic-cleaning-robot-monitoring-app",
+      href: "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
     },
     {
       label: "Solar Panel Cleaning Service",
-      href: "/solar-robots/solar-panel-cleaning-service",
+      href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
     },
   ];
 
@@ -56,7 +56,7 @@ export default function Header() {
   };
 
   const isSolarActive = () => {
-    return pathname.startsWith("/solar-robots");
+    return pathname.startsWith("/solar-panel-cleaning-system");
   };
 
   return (
@@ -65,15 +65,17 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Image
-              src="/tayproasset/taypro-logo.png"
-              alt="taypro-logo"
-              title="Taypro Logo"
-              width={160}
-              height={50}
-              style={{ width: "auto", height: "auto" }}
-              priority
-            />
+            <Link href={"/"}>
+              <Image
+                src="/tayproasset/taypro-logo.png"
+                alt="taypro-logo"
+                title="Taypro Logo"
+                width={160}
+                height={50}
+                style={{ width: "auto", height: "auto" }}
+                priority
+              />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -100,7 +102,7 @@ export default function Header() {
               onMouseLeave={() => setDropdownOpen(false)}
             >
               <Link
-                href="/solar-robots/solar-panel-cleaning-robot"
+                href="/solar-panel-cleaning-system"
                 title="Solar Panel Cleaning Robot"
                 className={`text-white px-3 py-2 text-md font-medium cursor-pointer flex items-center transition duration-800 hover:underline underline-offset-8 ${
                   isSolarActive() ? "underline" : ""
@@ -222,7 +224,7 @@ export default function Header() {
               }`}
               onClick={() => {
                 setIsMenuOpen(false);
-                router.push("/solar-robots/solar-panel-cleaning-robot");
+                router.push("/solar-panel-cleaning-system");
               }}
             >
               Solar Panel Cleaning Robots

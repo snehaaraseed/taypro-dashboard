@@ -5,29 +5,10 @@ import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { RobotCard } from "@/app/components/RobotCard";
 import ClientsCard from "@/app/components/ClientsCard";
 import ROITayproCalculator from "@/app/components/ROICalculator";
-import { Breadcrumbs } from "@/app/components/Breadcrumbs";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Taypro is a Solar Panel Cleaning Company.",
-  description:
-    "Taypro is a Solar Panel Cleaning Company. We provide end to end ROI Solar Cleaning Service to improve Solar Plant Efficiency.",
-  keywords:
-    "solar panel cleaning robots, automatic solar robot, semi-automatic solar robots, capex, opex, cleaning robots, taypro",
-  openGraph: {
-    title: "Taypro is a Solar Panel Cleaning Company",
-    description:
-      "Taypro is a Solar Panel Cleaning Company. We provide end to end ROI Solar Cleaning Service to improve Solar Plant Efficiency.",
-    url: "https://taypro-dashboard.vercel.app/",
-    type: "website",
-  },
-};
 
 export default function HomePage() {
-  const breadcrumbs = [{ name: "", href: "/" }];
   return (
     <>
-      <Breadcrumbs items={breadcrumbs} />
       <div className="min-h-screen overflow-x-hidden">
         {/* Hero Section */}
         <section className="relative overflow-hidden px-4 sm:px-8 lg:px-15 py-8">

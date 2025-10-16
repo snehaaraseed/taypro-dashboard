@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Solar Panel Cleaning Robot | Taypro",
     description:
       "Solar Module Cleaning System by Taypro has highest Uptime and Return on Investment by using Solar Panel Cleaning Robots for efficiency. Enquire Today!",
-    url: "https://taypro-dashboard.vercel.app/solar-robots/solar-panel-cleaning-robot",
+    url: "https://taypro-dashboard.vercel.app/solar-panel-cleaning-system",
     type: "website",
   },
 };

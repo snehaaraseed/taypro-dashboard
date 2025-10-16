@@ -48,20 +48,20 @@ export default function SoyegaonSolarProject() {
 
         <ProjectOverviewSection
           image="/tayprosolarfirm/soyegaon-solar.jpg"
-          overviewText="TAYPRO deployed a total of 90 solar cleaning robots at the Soygaon Solar Project In Maharashtra. This included 54 Automatic Robots for high-speed autonomous cleaning and 36 Semi-Automated Robots for precision-based cleaning."
+          overviewText="TAYPRO deployed a total of 90 solar cleaning robots at the Soyegaon Solar Project In Maharashtra. This included 54 Automatic Robots for high-speed autonomous cleaning and 36 Semi-Automated Robots for precision-based cleaning."
         />
 
         <ProjectDescriptionSection
           title="Enhanced solar panel efficiency and reduced operational costs."
           image="/tayprosolarfirm/taypro-soyegaon-mh.jpg"
           paragraphs={[
-            `The Soygaon Solar Project required a solution to maximise the power generation and performance ratio. TAYPRO’s automatic and semi-automatic robots were meticulously deployed to deliver high-speed cleaning for autonomous cleaning for large-scale panel areas. Also, the semi-automatic robots focused on intricate cleaning requirements.`,
+            `The Soyegaon Solar Project required a solution to maximise the power generation and performance ratio. TAYPRO’s automatic and semi-automatic robots were meticulously deployed to deliver high-speed cleaning for autonomous cleaning for large-scale panel areas. Also, the semi-automatic robots focused on intricate cleaning requirements.`,
             `This strategic robotic cleaning system improved the overall energy conversion efficiency of the panels and decreased water usage. Moreover, each robot’s performance was monitored in real time for seamless operational adjustment and maintenance. `,
           ]}
         />
 
         <ProjectQuoteSection
-          quote="At Soygaon Solar Project we leveraged the cutting-edge technology to meet the high power generation demand."
+          quote="At Soyegaon Solar Project we leveraged the cutting-edge technology to meet the high power generation demand."
           author="Tejas Memane, COO, TAYPRO PRIVATE LIMITED"
         />
 

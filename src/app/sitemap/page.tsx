@@ -150,7 +150,7 @@ export default function Blog() {
               </li>
               <li>
                 <Link
-                  href="/solar-robots/solar-panel-cleaning-robot"
+                  href="/solar-panel-cleaning-system"
                   title="Solar Robots Solar Panel Cleaning Robot"
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
@@ -159,7 +159,7 @@ export default function Blog() {
                 <ul className="mt-2 ml-6 space-y-2 list-circle list-inside text-base">
                   <li>
                     <Link
-                      href="/solar-robots/automatic-solar-panel-cleaning-robot"
+                      href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
                       title="Automatic Solar Panel CLeaning Robot"
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
@@ -168,7 +168,7 @@ export default function Blog() {
                   </li>
                   <li>
                     <Link
-                      href="/solar-robots/semi-automatic-solar-panel-cleaning-system"
+                      href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
                       title="Semi-automatic Solar Panel Cleaning System"
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
@@ -177,7 +177,7 @@ export default function Blog() {
                   </li>
                   <li>
                     <Link
-                      href="/solar-robots/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
+                      href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
                       title="Model-T"
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
@@ -186,7 +186,7 @@ export default function Blog() {
                   </li>
                   <li>
                     <Link
-                      href="/solar-robots/solar-panel-cleaning-service"
+                      href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
                       title="Solar Panel Cleanign Service"
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
@@ -195,7 +195,7 @@ export default function Blog() {
                   </li>
                   <li>
                     <Link
-                      href="/solar-robots/automatic-cleaning-robot-monitoring-app"
+                      href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                       title="Automatic Cleaning Robot App"
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
