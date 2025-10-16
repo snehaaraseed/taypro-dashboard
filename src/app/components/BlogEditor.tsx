@@ -20,7 +20,10 @@ export default function BlogEditor({
 
   const editor = useEditor({
     extensions: [
-      StarterKit,
+      StarterKit.configure({
+        // Disable all default heading levels
+        heading: false,
+      }),
       Image.configure({
         HTMLAttributes: {
           class: "blog-image",
@@ -30,11 +33,11 @@ export default function BlogEditor({
         openOnClick: false,
       }),
       TextAlign.configure({
-        types: ["heading", "paragraph"],
+        types: ["paragraph"],
       }),
     ],
     content: initialContent,
-    immediatelyRender: false, // This is the key fix
+    immediatelyRender: false,
     onUpdate: ({ editor }) => {
       onContentChange(editor.getHTML());
     },
@@ -47,7 +50,6 @@ export default function BlogEditor({
     }
   };
 
-  // Don't render anything until client-side
   if (!editor) {
     return (
       <div className="border border-gray-300 rounded-lg overflow-hidden bg-white">
@@ -61,7 +63,7 @@ export default function BlogEditor({
 
   return (
     <div className="border border-gray-300 rounded-lg overflow-hidden">
-      {/* Toolbar */}
+      {/* Toolbar - Removed all heading buttons */}
       <div className="flex flex-wrap gap-2 p-3 bg-gray-50 border-b">
         <button
           type="button"
@@ -85,32 +87,20 @@ export default function BlogEditor({
         >
           Italic
         </button>
+
+        {/* Strong emphasis button (alternative to headings for important text) */}
         <button
           type="button"
-          onClick={() =>
-            editor.chain().focus().toggleHeading({ level: 2 }).run()
-          }
+          onClick={() => editor.chain().focus().toggleStrike().run()}
           className={`px-3 py-1 rounded transition-colors ${
-            editor.isActive("heading", { level: 2 })
+            editor.isActive("strike")
               ? "bg-blue-500 text-white"
               : "bg-white text-gray-700 hover:bg-gray-100"
           }`}
         >
-          H2
+          Strikethrough
         </button>
-        <button
-          type="button"
-          onClick={() =>
-            editor.chain().focus().toggleHeading({ level: 3 }).run()
-          }
-          className={`px-3 py-1 rounded transition-colors ${
-            editor.isActive("heading", { level: 3 })
-              ? "bg-blue-500 text-white"
-              : "bg-white text-gray-700 hover:bg-gray-100"
-          }`}
-        >
-          H3
-        </button>
+
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBulletList().run()}
@@ -134,8 +124,20 @@ export default function BlogEditor({
           Numbered List
         </button>
 
+        <button
+          type="button"
+          onClick={() => editor.chain().focus().toggleBlockquote().run()}
+          className={`px-3 py-1 rounded transition-colors ${
+            editor.isActive("blockquote")
+              ? "bg-blue-500 text-white"
+              : "bg-white text-gray-700 hover:bg-gray-100"
+          }`}
+        >
+          Quote
+        </button>
+
         {/* Image insertion */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 ml-auto">
           <input
             type="text"
             placeholder="Image URL"
@@ -154,25 +156,28 @@ export default function BlogEditor({
       </div>
 
       {/* Editor Content */}
-      {/* <div className="p-4 min-h-96">
-        <EditorContent
-          editor={editor}
-          className="prose max-w-none focus:outline-none min-h-80"
-        />
-      </div> */}
       <div className="p-4 min-h-96">
         <EditorContent
           editor={editor}
           className="
-        prose
-        max-w-none
-        focus:outline-none
-        min-h-80
-        prose-ul:list-disc
-        prose-ul:pl-6
-        prose-ol:list-decimal
-        prose-ol:pl-6
-      "
+            prose
+            max-w-none
+            focus:outline-none
+            min-h-80
+            prose-p:text-gray-700
+            prose-p:leading-relaxed
+            prose-strong:text-[#052638]
+            prose-strong:font-semibold
+            prose-ul:list-disc
+            prose-ul:pl-6
+            prose-ol:list-decimal
+            prose-ol:pl-6
+            prose-li:text-gray-700
+            prose-blockquote:border-l-4
+            prose-blockquote:border-blue-500
+            prose-blockquote:pl-4
+            prose-blockquote:italic
+          "
         />
       </div>
     </div>

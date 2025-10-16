@@ -35,9 +35,9 @@ export default function ProjectOverviewSection({
             <div className="text-white text-xl sm:text-2xl mb-3 sm:mb-4">
               Overview
             </div>
-            <p className="text-white text-sm sm:text-base lg:text-md leading-relaxed">
+            <h2 className="text-white text-sm sm:text-base lg:text-md leading-relaxed">
               {overviewText}
-            </p>
+            </h2>
             <Link
               title="Contact"
               href="/contact"

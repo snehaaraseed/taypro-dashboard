@@ -25,10 +25,10 @@ export default function ROICalculator() {
               <br />
               Cleaning Robots Save?
             </h1>
-            <h3 className="text-green-700 my-10 text-xl text-center">
+            <h2 className="text-green-700 my-10 text-xl text-center">
               Solar Cleaning robots not only increase the overall efficiency of
               the solar power plant but also save significant costs.
-            </h3>
+            </h2>
 
             <h4 className="text-gray-700 my-6 text-2xl text-center max-w-6xl px-4">
               Note: ROI is calculated based on certain assumptions and general

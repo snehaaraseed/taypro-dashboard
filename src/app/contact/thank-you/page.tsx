@@ -20,12 +20,12 @@ export default function ThankYouPage() {
       <div className="">
         <section className="w-full bg-white py-10 pb-20">
           <div className="max-w-5xl mx-auto flex flex-col items-center">
-            <h2 className="text-[#052638] font-semibold text-5xl text-center mb-4 leading-tight">
+            <h1 className="text-[#052638] font-semibold text-5xl text-center mb-4 leading-tight">
               Thank You
-            </h2>
-            <div className="text-[#3c8152] text-lg mb-10">
+            </h1>
+            <h2 className="text-[#3c8152] text-lg mb-10">
               Our team will get in touch with you Shortly.
-            </div>
+            </h2>
           </div>
         </section>
       </div>

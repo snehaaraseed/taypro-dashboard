@@ -18,9 +18,9 @@ export default function ProjectTypePage() {
       <Breadcrumbs items={breadcrumbs} />
       <section className="w-full pt-20 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 text-start">
-          <h2 className="text-[#052638] text-4xl  mb-4">Semi-Automatic</h2>
+          <h1 className="text-[#052638] text-4xl  mb-4">Semi-Automatic</h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+          <h2 className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
             {additionalProjects.map((card, idx) => (
               <Link
                 href={card.href}
@@ -51,7 +51,7 @@ export default function ProjectTypePage() {
                 </div>
               </Link>
             ))}
-          </div>
+          </h2>
         </div>
       </section>
     </>

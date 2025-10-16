@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Taypro - Yadgir Solar Project",
+  title: "Taypro - Yadgir Solar Project – 50 MW",
   description:
     "TAYPRO deployed 96 fully automatic waterless cleaning robot and 19 semi-automatic robots at the Yadgir Solar Project Karnataka. The objective was to achieve optimal solar panel efficiency and a consistent performance ratio.",
   keywords:

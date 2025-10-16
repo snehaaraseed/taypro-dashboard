@@ -17,13 +17,13 @@ const breadcrumbs = [
 export const metadata: Metadata = {
   title: "Taypro - Know More About Taypro Unit.",
   description:
-    "Taypro is at the forefront of revolutionizing solar energy efficiency through innovative technological solutions designed to address persistent challenges within the industry. As solar panels become increasingly integral to renewable energy systems, the efficiency of these installations can be significantly compromised by environmental factors.",
+    "Taypro is at the forefront of revolutionizing solar energy efficiency through innovative technological solutions designed to address persistent challenges within the industry.",
   keywords:
     "solar panel cleaning robots, cleaning technology, cleaning, automatic solar robot, taypro",
   openGraph: {
     title: "Taypro - Know More About Taypro Unit.",
     description:
-      "Taypro is at the forefront of revolutionizing solar energy efficiency through innovative technological solutions designed to address persistent challenges within the industry. As solar panels become increasingly integral to renewable energy systems, the efficiency of these installations can be significantly compromised by environmental factors.",
+      "Taypro is at the forefront of revolutionizing solar energy efficiency through innovative technological solutions designed to address persistent challenges within the industry.",
     url: "https://taypro-dashboard.vercel.app/company",
     type: "website",
   },
@@ -113,7 +113,7 @@ export default function AboutUsPage() {
                 </ul>
               </div>
               <Link
-                href="/solar-robots/solar-panel-cleaning-robot"
+                href="/solar-panel-cleaning-system"
                 title="Solar Panel Cleaning Robot"
               >
                 <button className="bg-[#96DB00] text-[#073448] text-lg font-medium p-4 rounded-md hover:bg-[#91bc00] hover:text-white transition mt-4 cursor-pointer">
