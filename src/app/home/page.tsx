@@ -171,7 +171,7 @@ export default function HomePage() {
                 Solar Cleaning robots not only increase the overall efficiency
                 of the solar power plant but also save significant{" "}
                 <br className="hidden lg:block" />
-                <h5 className="lg:hidden"> </h5>costs.
+                <div className="lg:hidden"> </div>costs.
               </h5>
             </div>
           </div>
