@@ -20,7 +20,7 @@ export default function ProjectTypePage() {
         <div className="max-w-7xl mx-auto px-6 text-start">
           <h1 className="text-[#052638] text-4xl  mb-4">Automatic</h1>
 
-          <h2 className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
             {additionalProjects.map((card, idx) => (
               <Link
                 href={card.href}
@@ -40,18 +40,18 @@ export default function ProjectTypePage() {
                   />
 
                   <div className="absolute bottom-4 left-4 text-white flex flex-col transition-all duration-300">
-                    <div className="text-sm font-semibold bg-opacity-10 px-3 transition-transform duration-300 group-hover:-translate-y-3">
+                    <h4 className="text-sm font-semibold bg-opacity-10 px-3 transition-transform duration-300 group-hover:-translate-y-3">
                       {card.title}
-                    </div>
+                    </h4>
 
-                    <div className="text-xs bg-opacity-60 px-3 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300">
+                    <h2 className="text-xs bg-opacity-60 px-3 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300">
                       {card.date}
-                    </div>
+                    </h2>
                   </div>
                 </div>
               </Link>
             ))}
-          </h2>
+          </div>
         </div>
       </section>
     </>

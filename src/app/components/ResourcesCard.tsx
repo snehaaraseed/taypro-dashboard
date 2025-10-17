@@ -6,9 +6,9 @@ export default function ResourcesCard() {
     <section className="w-full py-20 pb-30 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16">
-          <div className="text-[#052638] font-semibold text-4xl md:text-5xl mb-6 md:mb-0">
+          <h3 className="text-[#052638] font-semibold text-4xl md:text-5xl mb-6 md:mb-0">
             Resources
-          </div>
+          </h3>
           <Link
             href="/blog"
             title="Blog"
@@ -27,7 +27,7 @@ export default function ResourcesCard() {
                 title="Energy Resources"
                 className="text-[#052638] text-md font-medium transition-colors duration-200 hover:text-[#A8C117] cursor-pointer block"
               >
-                {resource.title}
+                <h4>{resource.title}</h4>
               </Link>
             </div>
           ))}

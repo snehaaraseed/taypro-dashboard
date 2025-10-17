@@ -54,18 +54,18 @@ export default function PrivacyPolicySection() {
 
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="text-[#0c2f42] font-semibold text-5xl mb-7">
+            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">
               1. Information We Collect
-            </div>
+            </h3>
             <div className="text-[#0c2f42] text-lg mb-10">
               We may collect information about you in various ways. The types of
               information we collect include:
             </div>
 
             <div className="mb-10">
-              <h3 className="text-[#0c2f42] font-semibold text-2xl mb-4">
+              <h4 className="text-[#0c2f42] font-semibold text-2xl mb-4">
                 a. Personal Information
-              </h3>
+              </h4>
               <div className="text-[#0c2f42] text-lg mb-4">
                 When you interact with our Services, we may collect personal
                 information such as:
@@ -83,9 +83,9 @@ export default function PrivacyPolicySection() {
             </div>
 
             <div className="mb-10">
-              <div className="text-[#0c2f42] font-semibold text-2xl mb-4">
+              <h4 className="text-[#0c2f42] font-semibold text-2xl mb-4">
                 b. Non-Personal Information
-              </div>
+              </h4>
               <div className="text-[#0c2f42] text-lg mb-4">
                 We may also collect non-personal information, such as:
               </div>
@@ -103,9 +103,9 @@ export default function PrivacyPolicySection() {
             </div>
 
             <div className="mb-10">
-              <div className="text-[#0c2f42] font-semibold text-2xl mb-4">
+              <h4 className="text-[#0c2f42] font-semibold text-2xl mb-4">
                 c. Information from Third Parties
-              </div>
+              </h4>
               <div className="text-[#0c2f42] text-lg mb-4">
                 We may receive information about you from third-party sources,
                 such as business partners, public databases, and social media
@@ -119,9 +119,9 @@ export default function PrivacyPolicySection() {
 
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="text-[#0c2f42] font-semibold text-5xl mb-10">
+            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-10">
               2. How We Use Your Information
-            </div>
+            </h3>
             <div className="text-[#0c2f42] text-lg mb-5">
               We use the information we collect for various purposes, including:
             </div>
@@ -147,18 +147,18 @@ export default function PrivacyPolicySection() {
 
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="text-[#0c2f42] font-semibold text-5xl mb-7">
+            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">
               3. How We Share Your Information
-            </div>
+            </h3>
             <div className="text-[#0c2f42] text-lg mb-10">
               We do not sell your personal information. However, we may share
               your information in the following circumstances:
             </div>
 
             <div className="mb-10">
-              <div className="text-[#0c2f42] font-semibold text-2xl mb-4">
+              <h4 className="text-[#0c2f42] font-semibold text-2xl mb-4">
                 a. With Service Providers
-              </div>
+              </h4>
               <div className="text-[#0c2f42] text-lg mb-4">
                 We may share your information with third-party vendors who
                 perform services on our behalf, such as payment processing, data
@@ -167,9 +167,9 @@ export default function PrivacyPolicySection() {
             </div>
 
             <div className="mb-10">
-              <div className="text-[#0c2f42] font-semibold text-2xl mb-4">
+              <h4 className="text-[#0c2f42] font-semibold text-2xl mb-4">
                 b. For Legal Compliance
-              </div>
+              </h4>
               <div className="text-[#0c2f42] text-lg mb-4">
                 We may disclose your information to comply with legal
                 obligations, respond to lawful requests, or protect our legal
@@ -193,9 +193,9 @@ export default function PrivacyPolicySection() {
 
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="text-[#0c2f42] font-semibold text-5xl mb-10">
+            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-10">
               4. Data Retention
-            </div>
+            </h3>
             <div className="text-[#0c2f42] text-lg mb-5">
               We retain your personal information only as long as necessary to
               fulfill the purposes outlined in this Privacy Policy or as
@@ -209,9 +209,9 @@ export default function PrivacyPolicySection() {
 
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="text-[#0c2f42] font-semibold text-5xl mb-10">
+            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-10">
               5. Security of Your Information
-            </div>
+            </h3>
             <div className="text-[#0c2f42] text-lg mb-5">
               We implement reasonable security measures to protect your
               information from unauthorized access, disclosure, alteration, or
@@ -225,9 +225,9 @@ export default function PrivacyPolicySection() {
 
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="text-[#0c2f42] font-semibold text-5xl mb-7">
+            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">
               6. Your Privacy Rights
-            </div>
+            </h3>
             <div className="text-[#0c2f42] text-lg mb-10">
               Depending on your location, you may have certain rights regarding
               your personal information, including:
@@ -256,9 +256,9 @@ export default function PrivacyPolicySection() {
 
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="text-[#0c2f42] font-semibold text-5xl mb-10">
+            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-10">
               7. Cookies and Tracking Technologies
-            </div>
+            </h3>
             <div className="text-[#0c2f42] text-lg mb-5">
               We use cookies and similar technologies to enhance your experience
               on our website. You can control or disable cookies through your
@@ -272,9 +272,9 @@ export default function PrivacyPolicySection() {
 
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="text-[#0c2f42] font-semibold text-5xl mb-10">
+            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-10">
               8. Third-Party Links
-            </div>
+            </h3>
             <div className="text-[#0c2f42] text-lg mb-5">
               Our website may contain links to third-party websites. We are not
               responsible for the privacy practices or content of these external
@@ -288,9 +288,9 @@ export default function PrivacyPolicySection() {
 
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="text-[#0c2f42] font-semibold text-5xl mb-10">
+            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-10">
               9. Children’s Privacy
-            </div>
+            </h3>
             <div className="text-[#0c2f42] text-lg mb-5">
               Our Services are not directed to individuals under the age of 18.
               We do not knowingly collect personal information from children. If
@@ -304,9 +304,9 @@ export default function PrivacyPolicySection() {
 
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="text-[#0c2f42] font-semibold text-5xl mb-10">
+            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-10">
               10. Changes to This Privacy Policy
-            </div>
+            </h3>
             <div className="text-[#0c2f42] text-lg mb-5">
               We may update this Privacy Policy from time to time. Any changes
               will be posted on this page with an updated “Effective Date.” We
@@ -320,9 +320,9 @@ export default function PrivacyPolicySection() {
 
         <section className="w-full bg-white py-5 pb-10">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="text-[#0c2f42] font-semibold text-5xl mb-10">
+            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-10">
               11. Contact Us
-            </div>
+            </h3>
             <div className="text-[#0c2f42] text-lg mb-5">
               If you have any questions or concerns about this Privacy Policy or
               our data practices, please contact us:

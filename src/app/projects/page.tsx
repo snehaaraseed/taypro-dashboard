@@ -82,7 +82,7 @@ export default function ProjectPage() {
                     title="Solar Project"
                     className="text-white text-2xl sm:text-3xl mb-3 drop-shadow-md font-semibold hover:text-[#A8C117] transition-colors duration-300"
                   >
-                    {project.title}
+                    <h4>{project.title}</h4>
                   </Link>
 
                   <div

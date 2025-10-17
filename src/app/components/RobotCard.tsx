@@ -24,9 +24,9 @@ export function RobotCard({ robot }: { robot: Robot }) {
       </div>
 
       <div className="p-6 bg-[#052638] h-72">
-        <div className="text-2xl font-semibold mb-2 text-white">
+        <h4 className="text-2xl font-semibold mb-2 text-white">
           {robot.model}
-        </div>
+        </h4>
         <p className="text-white/90">{robot.description}</p>
         <Link href={robot.href} title="Taypro Robot">
           <button className="mt-9 px-4 py-1 bg-white rounded-4xl hover:bg-[#32b500] transition cursor-pointer">

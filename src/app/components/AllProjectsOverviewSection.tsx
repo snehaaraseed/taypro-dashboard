@@ -32,9 +32,9 @@ export default function ProjectOverviewSection({
 
           {/* Mobile: Bottom overlay, Desktop: Right overlay */}
           <div className="absolute bottom-4 left-4 right-4 lg:right-10 lg:top-1/2 lg:bottom-auto lg:left-auto lg:transform lg:-translate-y-1/2 bg-[#75AA00] p-4 sm:p-6 lg:w-90 lg:h-[350px] flex flex-col justify-center items-start lg:items-center text-left lg:text-center">
-            <div className="text-white text-xl sm:text-2xl mb-3 sm:mb-4">
+            <h3 className="text-white text-xl sm:text-2xl mb-3 sm:mb-4">
               Overview
-            </div>
+            </h3>
             <h2 className="text-white text-sm sm:text-base lg:text-md leading-relaxed">
               {overviewText}
             </h2>

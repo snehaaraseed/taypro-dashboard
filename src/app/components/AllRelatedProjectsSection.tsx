@@ -20,9 +20,9 @@ export default function RelatedProjectsSection({
   return (
     <section className="w-full bg-white pb-16 sm:pb-20 lg:pb-30 overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-[#0c2f42] font-medium text-2xl sm:text-3xl mb-4 sm:mb-5">
+        <h3 className="text-[#0c2f42] font-medium text-2xl sm:text-3xl mb-4 sm:mb-5">
           Related Projects
-        </div>
+        </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project) => (
@@ -49,9 +49,9 @@ export default function RelatedProjectsSection({
                   }}
                 />
               </div>
-              <div className="text-[#9cb01f] font-medium text-lg sm:text-xl lg:text-2xl leading-tight">
+              <h4 className="text-[#9cb01f] font-medium text-lg sm:text-xl lg:text-2xl leading-tight">
                 {project.title}
-              </div>
+              </h4>
               <div className="text-gray-500 text-xs sm:text-sm">
                 {project.date}
               </div>

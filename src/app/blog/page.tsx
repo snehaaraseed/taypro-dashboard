@@ -124,9 +124,9 @@ export default function Blog() {
                     />
 
                     <div className="absolute bottom-4 left-4 text-white flex flex-col transition-all duration-300">
-                      <div className="text-sm font-semibold px-3 transition-transform duration-300 group-hover:-translate-y-3">
+                      <h4 className="text-sm font-semibold px-3 transition-transform duration-300 group-hover:-translate-y-3">
                         {blog.title}
-                      </div>
+                      </h4>
                       <div className="text-xs bg-opacity-60 px-3 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300">
                         {blog.date}
                       </div>

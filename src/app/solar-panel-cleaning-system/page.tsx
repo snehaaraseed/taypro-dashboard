@@ -32,16 +32,16 @@ export default function SolarPanelCleaningRobot() {
       <div className="min-h-screen">
         <section className="pt-2 pb-20 bg-white px-4 sm:px-6 lg:px-0">
           <div className="text-center my-12 px-2 sm:px-0">
-            <h2 className="text-4xl sm:text-6xl font-semibold">
+            <h1 className="text-4xl sm:text-6xl font-semibold">
               Solar Panel Cleaning System <br /> With Highest Uptime
-            </h2>
-            <h1 className="text-green-700 my-6 text-base sm:text-lg px-4 sm:px-0 leading-relaxed">
+            </h1>
+            <div className="text-green-700 my-6 text-base sm:text-lg px-4 sm:px-0 leading-relaxed">
               We design and deliver efficient Solar Panel Cleaning Robots with
               the highest up-time guarantee. We offer tech- <br /> driven and
               AI-oriented cleaning solutions for unstoppable power generation.
               Discover more about our waterless <br />
               solar panel cleaning robots.
-            </h1>
+            </div>
           </div>
           <div className="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-6 px-4 sm:px-0">
             {robots.slice(0, 3).map((robot) => (
@@ -59,11 +59,11 @@ export default function SolarPanelCleaningRobot() {
         <section className="py-12 lg:py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold leading-tight mb-4">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold leading-tight mb-4">
                 Calculate How Much Can Solar Cleaning Robots Save?
                 <br className="hidden sm:block" />
                 <span className="sm:hidden"> </span>Robots Save?
-              </div>
+              </h2>
             </div>
           </div>
 
@@ -71,14 +71,16 @@ export default function SolarPanelCleaningRobot() {
         </section>
 
         <CallbackCard headerText={""} />
+
         <ClientsCard />
+
         <section className="p-5 mx-4 sm:mx-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 m-0 sm:m-30 items-center">
             {/* Right Content - Features List */}
             <div className="space-y-6 sm:space-y-8">
-              <div className="text-2xl sm:text-4xl font-semibold text-white ml-0 sm:ml-10">
+              <h2 className="text-2xl sm:text-4xl font-semibold text-white ml-0 sm:ml-10">
                 Features of Taypro’s Solar Panel Cleaning Robots
-              </div>
+              </h2>
               {robotFeatures.map((feature, idx) => (
                 <div
                   key={idx}
@@ -114,9 +116,9 @@ export default function SolarPanelCleaningRobot() {
         </section>
         <section className="p-8 sm:p-16 lg:py-24 bg-white">
           <div className="text-center mb-10 sm:mb-16 px-4 sm:px-0">
-            <div className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#052638] mb-3 sm:mb-4">
-              Driving Unstoppable Power Generation.
-            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#052638] mb-3 sm:mb-4">
+              Advantages Of Using Solar Panel Cleaning Robots
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center px-4 sm:px-0">
@@ -162,9 +164,9 @@ export default function SolarPanelCleaningRobot() {
         </section>
         <section className="py-10 bg-white px-4 sm:px-0">
           <div className="text-start m-0 sm:m-30">
-            <div className="mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
+            <h2 className="mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
               How Long Does It Take To Install The Solar Panel Cleaning Robots?
-            </div>
+            </h2>
 
             <div className="text-gray-600 my-6 text-sm sm:text-xl leading-relaxed">
               It takes around a few hours to a day to install solar panel
@@ -177,9 +179,9 @@ export default function SolarPanelCleaningRobot() {
               role in determining the overall installation time.
             </div>
 
-            <div className="mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
+            <h2 className="mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
               What Is The ROI For Installing Solar Panel Cleaning Robots?
-            </div>
+            </h2>
 
             <div className="text-gray-600 my-6 text-sm sm:text-xl leading-relaxed">
               Solar Panel Cleaning Robots help save human resources and labour
@@ -202,9 +204,9 @@ export default function SolarPanelCleaningRobot() {
               </Link>
             </div>
 
-            <div className="mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
+            <h2 className="mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
               What Are Solar Panel Cleaning Robots?
-            </div>
+            </h2>
 
             <div className="text-gray-600 my-6 text-sm sm:text-xl leading-relaxed">
               Solar Panel Cleaning Robots are tech-based automated machines to
@@ -218,9 +220,9 @@ export default function SolarPanelCleaningRobot() {
               automated cleaning solutions without the usage of water.
             </div>
 
-            <div className="mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
+            <h2 className="mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
               How Does Solar Panel Cleaning Robot Work?
-            </div>
+            </h2>
 
             <div className="text-gray-600 my-6 text-sm sm:text-xl leading-relaxed">
               Solar panel cleaning robots work utilising ML systems. It
@@ -239,9 +241,9 @@ export default function SolarPanelCleaningRobot() {
               smooth movements from one panel to another panel.
             </div>
 
-            <div className="mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
+            <h2 className="mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
               How Often Does The Solar Panel Needs To Be Cleaned?
-            </div>
+            </h2>
 
             <div className="text-gray-600 my-6 text-sm sm:text-xl leading-relaxed">
               The solar panels should be cleaned frequently to ensure their
@@ -261,9 +263,9 @@ export default function SolarPanelCleaningRobot() {
         </section>
         <section className="w-full items-center py-24 bg-[#052638] bg-center px-4 sm:px-6 lg:px-0">
           <div className="max-w-5xl mx-auto px-2 sm:px-6">
-            <div className="text-white font-semibold text-3xl sm:text-5xl text-start mb-8 sm:mb-12">
+            <h2 className="text-white font-semibold text-3xl sm:text-5xl text-start mb-8 sm:mb-12">
               What Are The Things To Keep In Mind While Cleaning Solar Panels?
-            </div>
+            </h2>
             <div className="text-white/90 text-base sm:text-lg text-start mb-10 sm:mb-12">
               There are many vital aspects to consider while cleaning solar
               panels. These are mentioned below:
@@ -287,9 +289,9 @@ export default function SolarPanelCleaningRobot() {
           </div>
         </section>
         <section className="w-full px-4 sm:px-0 py-10 bg-white">
-          <div className="font-semibold text-[#052638] text-2xl sm:text-5xl mb-6 sm:mb-8 text-center px-2 sm:px-0">
+          <h2 className="font-semibold text-[#052638] text-2xl sm:text-5xl mb-6 sm:mb-8 text-center px-2 sm:px-0">
             FAQs
-          </div>
+          </h2>
           <div className="max-w-5xl mx-auto px-2 sm:px-0">
             {faqs.map((faq, idx) => (
               <div key={idx} className="border-b border-gray-300">
@@ -300,7 +302,7 @@ export default function SolarPanelCleaningRobot() {
                   <span className="flex items-center justify-center w-6 h-6 bg-[#052638] text-white font-semibold rounded-sm mr-4 text-lg select-none">
                     {openIndex === idx ? "-" : "+"}
                   </span>
-                  {faq.question}
+                  <h4>{faq.question}</h4>
                 </button>
                 <div
                   className={`pl-12 pr-4 pb-6 text-sm sm:text-base text-[#052638] transition-all duration-200 ${
@@ -338,6 +340,7 @@ export default function SolarPanelCleaningRobot() {
             ))}
           </div>
         </section>
+
         <RequestEstimateForm />
       </div>
     </>

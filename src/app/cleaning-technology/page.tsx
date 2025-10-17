@@ -63,7 +63,7 @@ export default function CleaningTechnology() {
         <section className="pt-2 pb-1 bg-white px-6 sm:px-8 lg:px-0">
           <div className="max-w-6xl mx-auto">
             <div className="text-start mb-6">
-              <h2 className="text-gray-600 my-6 text-xl">
+              <div className="text-gray-600 my-6 text-xl">
                 Taypro is at the forefront of revolutionizing solar energy
                 efficiency through innovative technological solutions designed
                 to address persistent challenges within the industry. As solar
@@ -97,11 +97,11 @@ export default function CleaningTechnology() {
                 eliminate obstacles that hinder solar efficiency, positioning
                 their solutions as essential to maximizing energy output in an
                 increasingly competitive market.
-              </h2>
+              </div>
 
-              <h3 className="mt-10 text-3xl lg:text-5xl lg:text-3xl font-semibold ">
+              <h2 className="mt-10 text-3xl lg:text-5xl lg:text-3xl font-semibold ">
                 The Innovation of Dual Pass Cleaning Technique
-              </h3>
+              </h2>
 
               <div className="text-gray-600 my-6 text-xl">
                 Taypro has revolutionized the solar panel cleaning industry with
@@ -142,11 +142,11 @@ export default function CleaningTechnology() {
                 solar energy solutions.
               </div>
 
-              <div className="mt-10 text-3xl lg:text-5xl lg:text-3xl font-semibold ">
+              <h2 className="mt-10 text-3xl lg:text-5xl lg:text-3xl font-semibold ">
                 Intelligent Automation: The Role of AI in Cleaning Operations
-              </div>
+              </h2>
 
-              <h4 className="text-gray-600 my-6 text-xl">
+              <div className="text-gray-600 my-6 text-xl">
                 Artificial Intelligence (AI) has become a cornerstone in
                 enhancing the efficiency of solar panel cleaning systems,
                 leading to significant advancements in solar energy management.
@@ -181,13 +181,13 @@ export default function CleaningTechnology() {
                 automation provided by AI not only streamlines the cleaning
                 process but also significantly contributes to the overall
                 efficiency of solar energy production.
-              </h4>
-
-              <div className="mt-10 text-3xl lg:text-5xl lg:text-3xl font-semibold ">
-                Real-Time Communication: The Power of RF Technology
               </div>
 
-              <h5 className="text-gray-600 my-6 text-xl">
+              <h2 className="mt-10 text-3xl lg:text-5xl lg:text-3xl font-semibold ">
+                Real-Time Communication: The Power of RF Technology
+              </h2>
+
+              <div className="text-gray-600 my-6 text-xl">
                 The advancement of solar energy technology has necessitated
                 innovative approaches for enhancing operational efficiency. A
                 key innovation in this regard is the custom RF communication
@@ -219,13 +219,13 @@ export default function CleaningTechnology() {
                 performance. In essence, Taypro’s RF communication system stands
                 as a testament to how technology can enhance efficiency and
                 reliability in the solar energy sector.
-              </h5>
-
-              <div className="mt-10 text-3xl lg:text-5xl lg:text-3xl font-semibold ">
-                Robust Design for Diverse Environments
               </div>
 
-              <h6 className="text-gray-600 my-6 text-xl">
+              <h2 className="mt-10 text-3xl lg:text-5xl lg:text-3xl font-semibold ">
+                Robust Design for Diverse Environments
+              </h2>
+
+              <div className="text-gray-600 my-6 text-xl">
                 The Taypro solar panel cleaning robot is engineered with a focus
                 on durability and scalability, ensuring it can effectively
                 operate in a variety of challenging environments. One of the
@@ -260,11 +260,11 @@ export default function CleaningTechnology() {
                 logistics but also ensures that the cleaning robots are equipped
                 to maintain optimal performance, regardless of environmental
                 challenges.
-              </h6>
-
-              <div className="mt-10 text-3xl lg:text-5xl lg:text-3xl font-semibold ">
-                Impact and Reach: Taypro’s Contributions to Solar Capacity
               </div>
+
+              <h2 className="mt-10 text-3xl lg:text-5xl lg:text-3xl font-semibold ">
+                Impact and Reach: Taypro’s Contributions to Solar Capacity
+              </h2>
 
               <div className="text-gray-600 my-6 text-xl">
                 Taypro has emerged as a pivotal player in the solar energy
@@ -306,9 +306,9 @@ export default function CleaningTechnology() {
                 making a tangible impact on the future of energy production.
               </div>
 
-              <div className="mt-10 text-3xl lg:text-5xl lg:text-3xl font-semibold ">
+              <h2 className="mt-10 text-3xl lg:text-5xl lg:text-3xl font-semibold ">
                 The Future of Solar: IoT and Satellite Integration
-              </div>
+              </h2>
 
               <div className="text-gray-600 my-6 text-xl">
                 The intersection of Internet of Things (IoT) technology and
@@ -353,9 +353,9 @@ export default function CleaningTechnology() {
                 more resilient and sustainable energy landscape overall.
               </div>
 
-              <div className="mt-10 text-3xl lg:text-5xl lg:text-3xl font-semibold ">
+              <h2 className="mt-10 text-3xl lg:text-5xl lg:text-3xl font-semibold ">
                 Vision for the Future of Solar Energy
-              </div>
+              </h2>
 
               <div className="text-gray-600 my-6 text-xl">
                 As we reflect on the advancements that Taypro has championed in
@@ -398,9 +398,9 @@ export default function CleaningTechnology() {
                 innovative maintenance solutions.
               </div>
 
-              <div className="mt-10 text-3xl lg:text-5xl lg:text-3xl font-semibold ">
+              <h2 className="mt-10 text-3xl lg:text-5xl lg:text-3xl font-semibold ">
                 Join Us in the Revolution
-              </div>
+              </h2>
 
               <div className="text-gray-600 my-6 text-xl">
                 The shift towards renewable energy sources, particularly solar
@@ -447,7 +447,7 @@ export default function CleaningTechnology() {
 
         <section className="pt-2 bg-white">
           <div className="text-center my-12">
-            <div className="text-5xl font-semibold">Our Solutions</div>
+            <h2 className="text-5xl font-semibold">Our Solutions</h2>
           </div>
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 justify-items-center">

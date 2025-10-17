@@ -76,17 +76,17 @@ export default function SolarPanelCleaningService() {
 
         <section className="w-full items-center pt-10 pb-25 bg-white bg-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
-            <div className="font-semibold text-5xl md:text-5xl text-start mb-6">
+            <h2 className="font-semibold text-5xl md:text-5xl text-start mb-6">
               Features of TAYPRO’s Solar Panel Cleaning Service
-            </div>
+            </h2>
             <p className="mb-20 text-start text-lg">
               Here are the key features of TAYPRO’s solar panel cleaning
               service.
             </p>
             <div className="mb-16 px-2 sm:px-6">
-              <p className="text-2xl mb-5" style={{ color: "#A8C117" }}>
+              <h3 className="text-2xl mb-5" style={{ color: "#A8C117" }}>
                 Dedicated Skilled Manpower for Robot Operation
-              </p>
+              </h3>
               <p className="mb-7 text-start text-lg">
                 A dedicated skilled manpower is available at site to operate the
                 robots ensuring no damage to the solar modules and thorough
@@ -94,9 +94,9 @@ export default function SolarPanelCleaningService() {
               </p>
             </div>
             <div className="mb-16 px-2 sm:px-6">
-              <p className="text-2xl mb-5" style={{ color: "#A8C117" }}>
+              <h3 className="text-2xl mb-5" style={{ color: "#A8C117" }}>
                 Smart & Efficient Cleaning
-              </p>
+              </h3>
               <p className="mb-7 text-start text-lg">
                 The solar panel cleaning process is fully automated or
                 semi-automated, making self-cleaning decisions to optimise
@@ -107,9 +107,9 @@ export default function SolarPanelCleaningService() {
               </p>
             </div>
             <div className="mb-16 px-2 sm:px-6">
-              <p className="text-2xl mb-5" style={{ color: "#A8C117" }}>
+              <h3 className="text-2xl mb-5" style={{ color: "#A8C117" }}>
                 Same-Day Breakdown Resolution
-              </p>
+              </h3>
               <p className="mb-7 text-start text-lg">
                 Our strong team of technical experts all over India ensures that
                 we provide resolutions for any robot-related issue. If the robot
@@ -119,9 +119,9 @@ export default function SolarPanelCleaningService() {
               </p>
             </div>
             <div className="mb-16 px-2 sm:px-6">
-              <p className="text-2xl mb-5" style={{ color: "#A8C117" }}>
+              <h3 className="text-2xl mb-5" style={{ color: "#A8C117" }}>
                 Dual Pass Cleaning Technology
-              </p>
+              </h3>
               <p className="mb-7 text-start text-lg">
                 The robots use a patented dual-pass technology, which allows the
                 cleaning to be done efficiently in just two stages
@@ -138,9 +138,9 @@ export default function SolarPanelCleaningService() {
 
         <section className="w-full items-center pt-30 pb-2 bg-white bg-center">
           <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-0">
-            <h2 className="font-semibold text-5xl md:text-5xl text-start mb-6">
+            <h3 className="font-semibold text-5xl md:text-5xl text-start mb-6">
               Calculate the ROI & Savings on a Solar Panel Cleaning Service
-            </h2>
+            </h3>
             <p className="mb-10 text-start text-lg">
               Along with increasing efficiency, a solar cleaning service also
               helps save a significant amount of money. Here’s how you can
@@ -151,9 +151,9 @@ export default function SolarPanelCleaningService() {
         </section>
 
         <section className="w-full items-center px-4 sm:px-6 lg:px-0 pb-30 pt-30 bg-white bg-center">
-          <div className="font-semibold text-[#052638] text-center text-5xl mb-8 max-w-7xl mx-auto">
+          <h3 className="font-semibold text-[#052638] text-center text-5xl mb-8 max-w-7xl mx-auto">
             FAQs
-          </div>
+          </h3>
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             {cleaningServiceFaqs.map((faq, idx) => (
               <div key={idx} className="border-b border-gray-300">
@@ -164,7 +164,7 @@ export default function SolarPanelCleaningService() {
                   <span className="flex items-center justify-center w-6 h-6 bg-[#052638] text-white font-semibold rounded-sm mr-4 text-xl select-none">
                     {openIndex === idx ? "-" : "+"}
                   </span>
-                  {faq.question}
+                  <h4>{faq.question}</h4>
                 </button>
                 <div
                   className={`pl-16 pr-4 pb-6 text-base text-[#052638] transition-all duration-200 ${
@@ -187,9 +187,9 @@ export default function SolarPanelCleaningService() {
         <section className="w-full pt-30 py-12 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <div className="mb-8">
-              <div className="text-[#052638] font-semibold text-5xl md:text-6xl text-center mb-6">
+              <h2 className="text-[#052638] font-semibold text-5xl md:text-6xl text-center mb-6">
                 Advantages of Using Solar Panel Cleaning Service
-              </div>
+              </h2>
               <p className="text-[#435063] text-lg max-w-4xl mx-auto text-center">
                 The solar panel cleaning service is beneficial in various ways,
                 from cost-effectiveness to high efficiency. Here are the
@@ -201,9 +201,9 @@ export default function SolarPanelCleaningService() {
             <div className="mt-10 space-y-12">
               {/* 1 */}
               <div>
-                <div className="text-[#b2cb19] text-xl mb-2 font-medium">
+                <h3 className="text-[#b2cb19] text-xl mb-2 font-medium">
                   Expert handling for best results
-                </div>
+                </h3>
                 <div className="text-[#435063] text-base">
                   Trained technicians monitor the solar cleaning service, adding
                   a human essence to the result-driven cleaning process of the
@@ -213,9 +213,9 @@ export default function SolarPanelCleaningService() {
               <hr className="my-6 border-[#f4f6f4]" />
               {/* 2 */}
               <div>
-                <div className="text-[#b2cb19] text-xl mb-2 font-medium">
+                <h3 className="text-[#b2cb19] text-xl mb-2 font-medium">
                   Maintaining Panel Safety
-                </div>
+                </h3>
                 <div className="text-[#435063] text-base">
                   We prioritise the panel’s safety by using microfiber cloths to
                   focus on gentle yet impactful solar panel maintenance
@@ -225,18 +225,18 @@ export default function SolarPanelCleaningService() {
               <hr className="my-6 border-[#f4f6f4]" />
               {/* 3 */}
               <div>
-                <div className="text-[#b2cb19] text-xl mb-2 font-medium">
+                <h3 className="text-[#b2cb19] text-xl mb-2 font-medium">
                   Enhanced Efficiency
-                </div>
+                </h3>
                 <div className="text-[#435063] text-base">
                   The solar panel cleaning service enhances the plant’s
                   effectiveness by ensuring better results in energy generation.
                 </div>
               </div>
               <div>
-                <div className="text-[#b2cb19] text-xl mb-2 font-medium">
+                <h3 className="text-[#b2cb19] text-xl mb-2 font-medium">
                   Eco-Friendly Solution
-                </div>
+                </h3>
                 <div className="text-[#435063] text-base">
                   The eco-friendly robots use a waterless cleaning method that
                   contributes towards a sustainable & environmentally friendly
@@ -246,9 +246,9 @@ export default function SolarPanelCleaningService() {
               <hr className="my-6 border-[#f4f6f4]" />
             </div>
             <div>
-              <div className="text-[#b2cb19] text-xl mb-2 font-medium">
+              <h3 className="text-[#b2cb19] text-xl mb-2 font-medium">
                 Hassle-free service
-              </div>
+              </h3>
               <div className="text-[#435063] text-base">
                 The solar cleaning service is a smooth & stress-free process
                 which ensures zero interruptions to your plant’s daily
@@ -257,9 +257,9 @@ export default function SolarPanelCleaningService() {
             </div>
             <hr className="my-6 border-[#f4f6f4]" />
             <div>
-              <div className="text-[#b2cb19] text-xl mb-2 font-medium">
+              <h3 className="text-[#b2cb19] text-xl mb-2 font-medium">
                 Value for Money
-              </div>
+              </h3>
               <div className="text-[#435063] text-base">
                 The solar panel cleaning service is a cost-effective solution,
                 increasing the lifespan of your panels and making them a smart
@@ -273,10 +273,10 @@ export default function SolarPanelCleaningService() {
         <section className="w-full py-12 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <div className="mb-8">
-              <div className="text-[#052638] font-semibold text-4xl md:text-4xl text-center mb-6">
+              <h2 className="text-[#052638] font-semibold text-4xl md:text-4xl text-center mb-6">
                 How Long Does It Take to Clean Solar Panels with Taypro Opex: A
                 Solar Panel Cleaning Service?
-              </div>
+              </h2>
               <p className="text-[#435063] text-lg max-w-4xl mx-auto text-center">
                 The solar panel cleaning service is a fully automated process
                 functioning with the help of cleaning robots. <br /> <br />
@@ -311,9 +311,9 @@ export default function SolarPanelCleaningService() {
         <section className="w-full py-12 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <div className="mb-8">
-              <div className="text-[#052638] font-semibold text-4xl md:text-4xl text-center mb-6">
+              <h2 className="text-[#052638] font-semibold text-4xl md:text-4xl text-center mb-6">
                 What is the ROI of using TAYPRO’s Solar Panel Cleaning Service?
-              </div>
+              </h2>
               <p className="text-[#435063] text-lg max-w-4xl mx-auto text-center">
                 TAYPRO’s solar panel cleaning service primarily focuses on
                 increasing the efficiency & effectiveness of your plant,
@@ -352,9 +352,9 @@ export default function SolarPanelCleaningService() {
 
           <div className="relative z-0 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 items-center px-10 md:px-4 min-h-[380px]">
             <div className="flex flex-col justify-center h-full">
-              <h4 className="text-[#052638] font-semibold text-4xl md:text-5xl lg:text-6xl mb-2">
+              <h2 className="text-[#052638] font-semibold text-4xl md:text-5xl lg:text-6xl mb-2">
                 Skillful Operation <br /> for Optimal Results
-              </h4>
+              </h2>
             </div>
             <div className="flex flex-col justify-center h-full relative">
               <p className="text-[#052638] text-lg md:text-xl leading-relaxed max-w-xl ml-auto">

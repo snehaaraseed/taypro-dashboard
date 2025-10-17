@@ -13,15 +13,16 @@ export default function ProjectsCard({
 }: ProjectsCardProps) {
   return (
     <section className="py-10 pb-40 bg-white px-4 sm:px-6 lg:px-30 max-w-full overflow-x-hidden mx-auto">
-      {showHeader && (
-        <div className="text-3xl text-center bg-white lg:text-6xl lg:text-3xl py-15 font-semibold">
-          {headerText || (
-            <>
-              Our Most Recent <br /> Projects
-            </>
-          )}
-        </div>
-      )}
+      {showHeader &&
+        (headerText ? (
+          <h3 className="text-2xl text-center bg-white lg:text-4xl py-15 font-semibold">
+            {headerText}
+          </h3>
+        ) : (
+          <h2 className="text-3xl text-center bg-white lg:text-6xl py-15 font-semibold">
+            Our Most Recent <br /> Projects
+          </h2>
+        ))}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-full">
         {projects.map((project) => (
@@ -53,9 +54,9 @@ export default function ProjectsCard({
             {/* Title + Details */}
             <div className="absolute inset-0 flex flex-col items-center justify-center z-10 text-center px-4">
               <Link title="Solar Project" href={project.href}>
-                <div className="text-white text-3xl md:text-3xl mb-3 drop-shadow-md font-semibold">
+                <h4 className="text-white text-3xl md:text-3xl mb-3 drop-shadow-md font-semibold">
                   {project.title}
-                </div>
+                </h4>
               </Link>
 
               <div

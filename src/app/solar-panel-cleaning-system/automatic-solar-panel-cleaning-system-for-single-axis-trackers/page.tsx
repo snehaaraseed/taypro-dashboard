@@ -62,10 +62,10 @@ export default function AutomaticSolarPanelCleaningSystem() {
               <div className="text-[#A8C117] text-md font-medium mb-6">
                 TAYPRO MODEL-T
               </div>
-              <h2 className="text-[#052638] font-semibold text-3xl md:text-4xl lg:text-5xl leading-tight max-w-4xl mx-auto">
+              <h3 className="text-[#052638] font-semibold text-3xl md:text-4xl lg:text-5xl leading-tight max-w-4xl mx-auto">
                 AUTONOMOUS WATERLESS SOLAR PANEL CLEANING ROBOT FOR SINGLE AXIS
                 TRACKER INSTALLATIONS
-              </h2>
+              </h3>
             </div>
 
             {/* Mobile Layout */}
@@ -82,9 +82,9 @@ export default function AutomaticSolarPanelCleaningSystem() {
               </div>
 
               <div className="bg-[#7da300] p-6 mx-4">
-                <div className="text-white text-start text-xl sm:text-2xl mb-4">
+                <h4 className="text-white text-start text-xl sm:text-2xl mb-4">
                   The Innovation Behind the MODEL-T
-                </div>
+                </h4>
                 <p className="text-white text-start text-sm sm:text-base leading-relaxed">
                   The TAYPRO MODEL-T represents a synergy of cutting-edge
                   technologies meticulously engineered to address the challenges
@@ -130,7 +130,7 @@ export default function AutomaticSolarPanelCleaningSystem() {
 
         <EnergyResourceCard />
 
-        <ProjectsCard showHeader={true} headerText="Our Most Recent Projects" />
+        <ProjectsCard showHeader={true} headerText="" />
 
         <ClientsCard />
 

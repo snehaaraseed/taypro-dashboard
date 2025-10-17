@@ -26,9 +26,9 @@ export default function EnergyResourceCard() {
   return (
     <section className="w-full pt-40 pb-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <div className="text-[#052638] font-semibold text-4xl  mb-4">
+        <h3 className="text-[#052638] font-semibold text-4xl  mb-4">
           Energy Resources
-        </div>
+        </h3>
         <p className="text-[#475569] text-lg mb-12">
           Nam magna ex, accumsan id auctor sed, finibus a urna. Proin <br />{" "}
           interdum feugiat viverra. Praesent sapien tortor, pulvinar <br />{" "}
@@ -58,9 +58,9 @@ export default function EnergyResourceCard() {
                 {/* Title + Date container */}
                 <div className="absolute bottom-4 left-4 text-white flex flex-col transition-all duration-300">
                   {/* Title */}
-                  <div className="text-sm font-semibold bg-opacity-10 px-3 transition-transform duration-300 group-hover:-translate-y-3">
+                  <h4 className="text-sm font-semibold bg-opacity-10 px-3 transition-transform duration-300 group-hover:-translate-y-3">
                     {card.title}
-                  </div>
+                  </h4>
 
                   {/* Date (hidden until hover) */}
                   <div className="text-xs bg-opacity-60 px-3 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300">

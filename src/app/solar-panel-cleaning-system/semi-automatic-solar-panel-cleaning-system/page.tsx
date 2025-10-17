@@ -81,9 +81,9 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
             <div className="lg:w-1/2 flex flex-col items-center lg:items-start">
-              <div className="text-[#052638] font-semibold text-4xl lg:text-5xl mb-12 text-center lg:text-left leading-tight">
+              <h3 className="text-[#052638] font-semibold text-4xl lg:text-5xl mb-12 text-center lg:text-left leading-tight">
                 Elevating ROI through Efficient Cleaning
-              </div>
+              </h3>
               <div className="relative w-full max-w-xs sm:max-w-sm lg:w-96 h-64 lg:h-80 mx-auto lg:mx-0">
                 <Image
                   src="/tayproasset/taypro-robotImage.png"
@@ -130,7 +130,7 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
           </div>
         </section>
 
-        <ProjectsCard showHeader={true} headerText="Our Most Recent Projects" />
+        <ProjectsCard showHeader={true} headerText="" />
 
         <ResourcesCard />
 

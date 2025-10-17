@@ -31,9 +31,9 @@ export default function ContactUsPage() {
               {/* Manufacturing Unit */}
               <div className="flex flex-col items-center text-center">
                 <Factory size={60} color="#B5CF22" className="mb-3" />
-                <div className="text-[#b2cb19] text-lg mb-3">
+                <h5 className="text-[#b2cb19] text-lg mb-3">
                   Manufacturing Unit
-                </div>
+                </h5>
                 <div className="text-[#22405a] font-semibold text-lg mb-2">
                   TAYPRO MANUFACTURING HUB
                 </div>

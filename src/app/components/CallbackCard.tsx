@@ -82,9 +82,9 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
         paddingTop: "7.5rem",
       }}
     >
-      <div className="font-semibold text-[#052638] text-center text-5xl md:text-6xl mb-10">
+      <h3 className="font-semibold text-[#052638] text-center text-5xl md:text-6xl mb-10">
         {headerText}
-      </div>
+      </h3>
 
       <div className="max-w-5xl mx-auto w-full h-full flex flex-col md:flex-row shadow-lg bg-transparent relative">
         {/* Left: Form */}
@@ -94,9 +94,9 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
             boxShadow: "0px 8px 32px rgba(0,0,0,0.1)",
           }}
         >
-          <div className="text-white font-semibold text-3xl mt-3 mb-6">
+          <h2 className="text-white font-semibold text-3xl mt-3 mb-6">
             Let us help you
-          </div>
+          </h2>
           <form onSubmit={handleSubmit} className="space-y-7">
             <div>
               <label className="text-white text-base">Full Name*</label>

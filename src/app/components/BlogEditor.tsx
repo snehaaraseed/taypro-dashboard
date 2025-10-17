@@ -20,10 +20,7 @@ export default function BlogEditor({
 
   const editor = useEditor({
     extensions: [
-      StarterKit.configure({
-        // Disable all default heading levels
-        heading: false,
-      }),
+      StarterKit,
       Image.configure({
         HTMLAttributes: {
           class: "blog-image",
@@ -33,7 +30,7 @@ export default function BlogEditor({
         openOnClick: false,
       }),
       TextAlign.configure({
-        types: ["paragraph"],
+        types: ["heading", "paragraph"],
       }),
     ],
     content: initialContent,
@@ -88,17 +85,31 @@ export default function BlogEditor({
           Italic
         </button>
 
-        {/* Strong emphasis button (alternative to headings for important text) */}
         <button
           type="button"
-          onClick={() => editor.chain().focus().toggleStrike().run()}
+          onClick={() =>
+            editor.chain().focus().toggleHeading({ level: 2 }).run()
+          }
           className={`px-3 py-1 rounded transition-colors ${
-            editor.isActive("strike")
+            editor.isActive("heading", { level: 2 })
               ? "bg-blue-500 text-white"
               : "bg-white text-gray-700 hover:bg-gray-100"
           }`}
         >
-          Strikethrough
+          H2
+        </button>
+        <button
+          type="button"
+          onClick={() =>
+            editor.chain().focus().toggleHeading({ level: 3 }).run()
+          }
+          className={`px-3 py-1 rounded transition-colors ${
+            editor.isActive("heading", { level: 3 })
+              ? "bg-blue-500 text-white"
+              : "bg-white text-gray-700 hover:bg-gray-100"
+          }`}
+        >
+          H3
         </button>
 
         <button

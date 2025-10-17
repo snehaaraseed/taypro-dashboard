@@ -105,9 +105,9 @@ export default function AutomaticSolarPanelCleaningRobot() {
           <div className="text-center text-[#A8C117] text-2xl font-medium mb-2">
             MODEL A – Automatic Solar Panel Cleaning Robot
           </div>
-          <h2 className="text-center text-[#052638] font-semibold text-6xl mb-14">
+          <h3 className="text-center text-[#052638] font-semibold text-6xl mb-14">
             USPs
-          </h2>
+          </h3>
           <div className="grid grid-cols-1 gap-y-6 gap-x-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center px-4 sm:px-0">
             {/* Row 1 */}
             <div className="flex items-center gap-4 w-full max-w-xs md:w-[400px]">
@@ -182,9 +182,9 @@ export default function AutomaticSolarPanelCleaningRobot() {
 
         <section className="pt-30 pb-5 bg-white px-4 sm:px-0">
           <div className="text-center ">
-            <h3 className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
+            <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
               Automatic Solar Panel Cleaning Robot Cost <br /> & ROI Calculation
-            </h3>
+            </h2>
             <div className="text-gray-600 my-6 text-base sm:text-xl">
               Calculate How Effective A{" "}
               <span style={{ color: "#A8C117" }}>
@@ -198,12 +198,12 @@ export default function AutomaticSolarPanelCleaningRobot() {
 
         <section className="pt-10 pb-1 bg-white px-4 sm:px-0">
           <div className="text-center">
-            <div className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
+            <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
               Projects with MODEL A – Automatic <br /> Solar Panel Cleaning
               Robot
               <br />
               Installations
-            </div>
+            </h2>
             <div className="text-gray-600 my-6 text-base sm:text-xl italic px-2 sm:px-0">
               We have ensured quick installation and dedicated technical support
               with a promise of same-day breakdown resolution.
@@ -232,23 +232,23 @@ export default function AutomaticSolarPanelCleaningRobot() {
 
         <section className="pt-30 pb-5 bg-white px-4 sm:px-0">
           <div className="text-start ml-0 sm:ml-30 ">
-            <div className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
+            <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
               Features of Taypro’s Automatic Solar Panel <br /> Cleaning Robots:
               Model-A
-            </div>
+            </h2>
 
-            <div className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
+            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
               AI-Enabled Waterless Cleaning Model-A
-            </div>
+            </h3>
 
             <div className="text-gray-600 my-6 text-base sm:text-xl">
               Model-A uses AI-enabled technology to perform highly efficient
               cleaning cycles. It removes up to 100% dust and debris.
             </div>
 
-            <div className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
+            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
               Extended Cleaning Range
-            </div>
+            </h3>
 
             <div className="text-gray-600 my-6 text-base sm:text-xl">
               Model A can clean up to 2.2km of solar panels on a single charge.
@@ -257,9 +257,9 @@ export default function AutomaticSolarPanelCleaningRobot() {
               effective in its cleaning cycles.
             </div>
 
-            <div className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
+            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
               Smart Weather Optimization
-            </div>
+            </h3>
 
             <div className="text-gray-600 my-6 text-base sm:text-xl">
               Model-A comes with advanced AI-driven weather analysis that
@@ -268,9 +268,9 @@ export default function AutomaticSolarPanelCleaningRobot() {
               storms and schedules its cleaning cycles accordingly.
             </div>
 
-            <div className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
+            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
               Advanced Remote Monitoring
-            </div>
+            </h3>
 
             <div className="text-gray-600 my-6 text-base sm:text-xl">
               Model-A comes with a fully automated operation that allows
@@ -279,9 +279,9 @@ export default function AutomaticSolarPanelCleaningRobot() {
               operations.
             </div>
 
-            <div className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
+            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
               Edge & Obstacle Detection Technology
-            </div>
+            </h3>
 
             <div className="text-gray-600 my-6 text-base sm:text-xl">
               Model-A built-in advanced high-precision edge detection sensors
@@ -292,9 +292,9 @@ export default function AutomaticSolarPanelCleaningRobot() {
         </section>
 
         <section className="w-full bg-white flex flex-col items-center pt-30 pb-10 px-4 sm:px-0">
-          <div className="font-semibold text-[#052638] text-center text-3xl sm:text-5xl md:text-6xl mb-12 sm:mb-15">
+          <h2 className="font-semibold text-[#052638] text-center text-3xl sm:text-5xl md:text-6xl mb-12 sm:mb-15">
             Automatic Solar Panel Cleaning Robot <br /> Model-A Specifications
-          </div>
+          </h2>
           {/* Specifications Table Container */}
           <div className="w-full max-w-6xl bg-white shadow-md overflow-x-auto">
             <table className="w-full text-left border border-gray-300 text-sm sm:text-base">
@@ -460,13 +460,13 @@ export default function AutomaticSolarPanelCleaningRobot() {
 
         <section className="pt-30 pb-5 bg-white px-4 sm:px-0">
           <div className="text-start ml-0 sm:ml-30 ">
-            <div className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
+            <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
               Advantages of Using Automatic Solar Panel <br /> Cleaning Robots
-            </div>
+            </h2>
 
-            <div className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
+            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
               Increased Energy Efficiency
-            </div>
+            </h3>
 
             <div className="text-gray-600 my-6 text-base sm:text-xl">
               Automatic solar panel cleaning robots can significantly increase
@@ -474,9 +474,9 @@ export default function AutomaticSolarPanelCleaningRobot() {
               debris consistently, the overall power generation is improved.
             </div>
 
-            <div className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
+            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
               Waterless Cleaning
-            </div>
+            </h3>
 
             <div className="text-gray-600 my-6 text-base sm:text-xl">
               Model-A removes up to 99.5% dust and debris without water
@@ -484,9 +484,9 @@ export default function AutomaticSolarPanelCleaningRobot() {
               there is greater water scarcity.
             </div>
 
-            <div className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
+            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
               Fully Autonomous & Smart Operation
-            </div>
+            </h3>
 
             <div className="text-gray-600 my-6 text-base sm:text-xl">
               Model-A is a fully autonomous robot with integrated AI-ML
@@ -494,9 +494,9 @@ export default function AutomaticSolarPanelCleaningRobot() {
               intervention required to operate the robots.
             </div>
 
-            <div className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
+            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
               Cost-Effective Solution
-            </div>
+            </h3>
 
             <div className="text-gray-600 my-6 text-base sm:text-xl">
               Model-A eliminates the recurring labour and operation costs and
@@ -504,9 +504,9 @@ export default function AutomaticSolarPanelCleaningRobot() {
               technology ensures long-term savings.
             </div>
 
-            <div className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
+            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
               Safe and Reliable Operation
-            </div>
+            </h3>
 
             <div className="text-gray-600 my-6 text-base sm:text-xl">
               Model-A built-in advanced high-precision edge detection sensors
@@ -524,10 +524,10 @@ export default function AutomaticSolarPanelCleaningRobot() {
           }}
         >
           <div className="w-full max-w-5xl mx-auto px-4 sm:px-6">
-            <h4 className="text-white font-semibold text-3xl sm:text-5xl text-start mb-16">
+            <h2 className="text-white font-semibold text-3xl sm:text-5xl text-start mb-16">
               How Long Does It Take to Install the Automated Solar Panel
               Cleaning Robots?
-            </h4>
+            </h2>
             <p className="text-white/90 mb-7 text-start text-base sm:text-lg">
               The installation of the Solar Panel Cleaning Robot requires no
               modifications to the existing solar plant layout. The Model-A
@@ -557,10 +557,10 @@ export default function AutomaticSolarPanelCleaningRobot() {
 
         <section className="w-full items-center pt-30 pb-2 bg-white bg-center px-4 sm:px-6 lg:px-0">
           <div className="max-w-5xl mx-auto px-6">
-            <div className="font-semibold text-3xl sm:text-5xl md:text-5xl text-start mb-16">
+            <h2 className="font-semibold text-3xl sm:text-5xl md:text-5xl text-start mb-16">
               What Is the ROI for Installing the Automatic Solar Panel Cleaning
               Robot Model-A?
-            </div>
+            </h2>
             <p className="mb-7 text-start text-base sm:text-lg">
               TAYPRO’s Model A Automatic Solar Panel Cleaning Robot delivers a
               high return on investment ROI by significantly increasing power
@@ -586,9 +586,9 @@ export default function AutomaticSolarPanelCleaningRobot() {
 
         <section className="w-full items-center pt-24 pb-5 bg-white bg-center px-4 sm:px-6 lg:px-0">
           <div className="max-w-5xl mx-auto px-6">
-            <div className="font-semibold text-3xl sm:text-5xl md:text-5xl text-start mb-16">
+            <h2 className="font-semibold text-3xl sm:text-5xl md:text-5xl text-start mb-16">
               How Does Automatic Solar Panel Cleaning Robot Work?
-            </div>
+            </h2>
             <p className="mb-7 text-start text-base sm:text-lg">
               ⦿ The robot initialises its sensors on the activation and performs
               the system checks connectivity with the central monitoring system
@@ -631,9 +631,9 @@ export default function AutomaticSolarPanelCleaningRobot() {
         </section>
 
         <section className="w-full mr-0 sm:mr-50 items-center p-4 sm:p-50 pt-2 pb-2 bg-white bg-center">
-          <div className="font-semibold text-center text-[#052638] text-3xl sm:text-5xl md:text-5xl mb-8">
+          <h3 className="font-semibold text-center text-[#052638] text-3xl sm:text-5xl md:text-5xl mb-8">
             FAQs
-          </div>
+          </h3>
           <div className="max-w-5xl mx-auto px-4 sm:px-0">
             {faqs.map((faq, idx) => (
               <div key={idx} className="border-b border-gray-300">
@@ -644,7 +644,7 @@ export default function AutomaticSolarPanelCleaningRobot() {
                   <span className="flex items-center justify-center w-6 h-6 bg-[#052638] text-white font-semibold rounded-sm mr-4 text-xl select-none">
                     {openIndex === idx ? "-" : "+"}
                   </span>
-                  {faq.question}
+                  <h4>{faq.question}</h4>
                 </button>
                 <div
                   className={`pl-16 pr-4 pb-6 text-sm sm:text-base text-[#052638] transition-all duration-200 ${

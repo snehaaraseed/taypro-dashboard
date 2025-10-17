@@ -91,9 +91,9 @@ export default function RequestEstimateForm() {
         <div className="text-[#A8C117] text-[14px] sm:text-[16px] mb-3 sm:mb-4">
           Let&apos;s Get Started
         </div>
-        <span className="block font-semibold text-[#052638] text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-8 sm:mb-7">
+        <h2 className="block font-semibold text-[#052638] text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-8 sm:mb-7">
           Request a detailed estimate
-        </span>
+        </h2>
       </div>
 
       {/* Form Wrapper */}

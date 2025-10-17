@@ -440,9 +440,9 @@ export default function ROITayproCalculator() {
       {showResults && (
         <div className="bg-[#052638] rounded-lg p-6">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-white text-2xl font-semibold">
+            <div className="text-white text-2xl font-semibold">
               Return On Investment
-            </h3>
+            </div>
             <button
               className="text-white text-2xl hover:text-[#A8C117]"
               onClick={() => setShowResults(false)}

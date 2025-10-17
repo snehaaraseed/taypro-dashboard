@@ -36,9 +36,9 @@ export default function Blog() {
           </h1>
 
           <div className="text-start">
-            <h2 className="text-[#052638] text-4xl font-semibold mb-8">
+            <h3 className="text-[#052638] text-4xl font-semibold mb-8">
               Posts
-            </h2>
+            </h3>
 
             <ul className="space-y-1 list-disc list-inside">
               {energyResourceCards.map((card, idx) => (
@@ -221,9 +221,9 @@ export default function Blog() {
       <section className="w-full pt-10 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
           <div className="text-start">
-            <h4 className="text-[#052638] text-4xl font-semibold mb-8">
+            <h3 className="text-[#052638] text-4xl font-semibold mb-8">
               Portfolio
-            </h4>
+            </h3>
 
             <ul className="space-y-1 list-disc list-inside">
               {additionalProjects.map((card, idx) => (

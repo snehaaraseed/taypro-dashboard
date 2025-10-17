@@ -24,9 +24,9 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({
       <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between px-6 py-20 gap-10">
         {/* Left side: Headline + Description */}
         <div className="md:w-1/2">
-          <div className="text-[#052638] font-semibold text-4xl md:text-5xl mb-7 leading-tight">
+          <h2 className="text-[#052638] font-semibold text-4xl md:text-5xl mb-7 leading-tight">
             {headline}
-          </div>
+          </h2>
           <p className="text-[#052638] text-lg md:text-xl leading-relaxed">
             {description}
           </p>
@@ -34,9 +34,9 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({
         {/* Right side: Benefit box */}
         <div className="md:w-1/2 flex justify-center">
           <div className="bg-[#75AA00] px-12 py-10 w-full max-w-md">
-            <div className="text-white text-2xl font-medium mb-8">
+            <h4 className="text-white text-2xl font-medium mb-8">
               The Benefits
-            </div>
+            </h4>
             <ul className="space-y-7">
               {benefits.map((benefit, i) => (
                 <li key={i} className="flex items-center text-white text-lg">

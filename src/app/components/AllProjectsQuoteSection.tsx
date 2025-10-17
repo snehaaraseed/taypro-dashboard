@@ -47,9 +47,9 @@ export default function ProjectQuoteSection({
           <div className="absolute left-0 top-0 bottom-0 w-1 bg-gray-300"></div>
 
           <div className="mb-8 sm:mb-10 lg:mb-12">
-            <div className="text-[#0c2f42] font-semibold text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight mb-6 sm:mb-8">
+            <h2 className="text-[#0c2f42] font-semibold text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight mb-6 sm:mb-8">
               “{quote}”
-            </div>
+            </h2>
           </div>
 
           <div className="text-[#0c2f42] text-sm sm:text-base lg:text-md font-medium">

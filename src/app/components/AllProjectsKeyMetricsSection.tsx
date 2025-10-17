@@ -21,9 +21,9 @@ export default function ProjectKeyMetricsSection({
     <section className="w-full py-12 sm:py-16 lg:py-30 bg-white overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 lg:mb-16">
-          <div className="text-[#0c2f42] font-semibold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">
+          <h2 className="text-[#0c2f42] font-semibold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">
             {title}
-          </div>
+          </h2>
         </div>
 
         <div className="flex flex-col lg:flex-row lg:ml-40 items-center gap-8 lg:gap-30">

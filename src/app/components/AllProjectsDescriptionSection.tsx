@@ -21,9 +21,9 @@ export default function ProjectDescriptionSection({
       "
     >
       <div className="text-center mb-12 lg:mb-16">
-        <div className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold text-[#052638] mb-4">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold text-[#052638] mb-4">
           {title}
-        </div>
+        </h2>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">

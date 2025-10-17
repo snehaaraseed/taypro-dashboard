@@ -58,9 +58,9 @@ export default function AutomaticCleaningRobotMonitoringApp() {
         >
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
-              <div className="text-[#052638] font-semibold text-3xl md:text-4xl lg:text-5xl leading-tight max-w-4xl mx-auto">
+              <h3 className="text-[#052638] font-semibold text-3xl md:text-4xl lg:text-5xl leading-tight max-w-4xl mx-auto">
                 SEAMLESS CONNECTIVITY AND WEATHER INTEGRATION
-              </div>
+              </h3>
             </div>
 
             {/* Mobile Layout */}
@@ -76,9 +76,9 @@ export default function AutomaticCleaningRobotMonitoringApp() {
                 />
               </div>
               <div className="bg-[#7da300] p-6 mx-4 -mt-20 relative">
-                <div className="text-white text-start text-xl sm:text-2xl mb-4">
+                <h4 className="text-white text-start text-xl sm:text-2xl mb-4">
                   Precision in Operation
-                </div>
+                </h4>
                 <p className="text-white text-start text-sm sm:text-base leading-relaxed">
                   The TAYPRO CONSOLE goes beyond conventional cleaning methods.
                   It allows for the application of individual and group
@@ -103,9 +103,9 @@ export default function AutomaticCleaningRobotMonitoringApp() {
 
               {/* Overlay card */}
               <div className="absolute right-10 top-1/2 transform -translate-y-1/2 bg-[#7da300] p-6 w-90 h-[350px] flex flex-col justify-center items-center text-center">
-                <h2 className="text-white text-2xl mb-4">
+                <div className="text-white text-2xl mb-4">
                   Precision in Operation
-                </h2>
+                </div>
                 <p className="text-white text-md leading-relaxed">
                   The TAYPRO CONSOLE goes beyond conventional cleaning methods.
                   It allows for the application of individual and group

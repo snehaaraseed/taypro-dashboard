@@ -30,11 +30,11 @@ export default function ROICalculator() {
               the solar power plant but also save significant costs.
             </h2>
 
-            <h4 className="text-gray-700 my-6 text-2xl text-center max-w-6xl px-4">
+            <h3 className="text-gray-700 my-6 text-2xl text-center max-w-6xl px-4">
               Note: ROI is calculated based on certain assumptions and general
               real-life scenarios. The actual ROI may vary slightly after a
               detailed analysis of the plant and specific conditions.
-            </h4>
+            </h3>
           </div>
 
           <ROITayproCalculator />

@@ -56,9 +56,9 @@ export default function AboutUsPage() {
           }}
         >
           <div className="pt-10">
-            <div className="text-[#A8C117] text-center text-[16px] mb-4">
+            <h1 className="text-[#A8C117] text-center text-[16px] mb-4">
               Who we are
-            </div>
+            </h1>
             <h1 className="font-semibold text-[#052638] text-4xl md:text-5xl mb-7 text-center">
               Engineers of a
               <br />
@@ -84,9 +84,9 @@ export default function AboutUsPage() {
             {/* Left Card: Brand Values */}
             <div className="bg-white px-10 py-10 flex flex-col justify-between shadow-lg min-h-[600px]">
               <div>
-                <h2 className="text-[#073448] font-semibold text-2xl mb-8">
+                <h3 className="text-[#073448] font-semibold text-2xl mb-8">
                   Our Brand Values
-                </h2>
+                </h3>
                 <ul className="space-y-5 text-lg text-[#245165] mb-10">
                   {[
                     "Innovative",
@@ -124,11 +124,11 @@ export default function AboutUsPage() {
             {/* Middle Card: Sustainability Block */}
             <div className="bg-[#75AA00] px-8 py-10 flex flex-col justify-center text-white min-h-[600px]">
               <div className="mb-12">
-                <div className="mb-2 text-2xl flex leading-relaxed">
+                <h3 className="mb-2 text-2xl flex leading-relaxed">
                   For our company,
                   <br /> diversity &amp; sustainability
                   <br /> are not just words.
-                </div>
+                </h3>
                 <Link href="/projects" title="Solar Project">
                   <div className="hover:text-[#caed7f] text-lg underline underline-offset-4 mb-2 cursor-pointer">
                     Explore Projects
@@ -162,11 +162,11 @@ export default function AboutUsPage() {
                 <div className="text-[#75AA00] font-semibold text-lg mb-2">
                   Community
                 </div>
-                <div className="text-[#073448] text-xl font-medium leading-relaxed">
+                <h3 className="text-[#073448] text-xl font-medium leading-relaxed">
                   Sustainable energy is
                   <br />
                   our corporate responsibility and obligation to society.
-                </div>
+                </h3>
               </div>
             </div>
           </div>
@@ -188,9 +188,9 @@ export default function AboutUsPage() {
                   {item.label}
                 </div>
                 {/* Right headline */}
-                <div className="col-span-4 text-[#052638] font-semibold text-4xl md:text-5xl leading-tight">
+                <h2 className="col-span-4 text-[#052638] font-semibold text-4xl md:text-5xl leading-tight">
                   {item.heading}
-                </div>
+                </h2>
               </div>
             ))}
           </div>
@@ -214,9 +214,9 @@ export default function AboutUsPage() {
             </div>
             {/* Right: Content */}
             <div className="flex flex-col justify-center items-center text-center">
-              <div className="text-[#b2cb19] text-2xl font-medium mb-6">
+              <h3 className="text-[#b2cb19] text-2xl font-medium mb-6">
                 A Technological Marvel
-              </div>
+              </h3>
               <p className="text-[#27415c] text-lg max-w-xl">
                 Years of intensive development, collaboration with top-tier
                 engineers, and integration of the latest technology culminated
@@ -233,9 +233,9 @@ export default function AboutUsPage() {
             {/* Left: Image */}
 
             <div className="flex flex-col justify-center items-center text-center">
-              <div className="text-[#b2cb19] text-2xl font-medium mb-6">
+              <h3 className="text-[#b2cb19] text-2xl font-medium mb-6">
                 Taypro’s Collaborative Approach
-              </div>
+              </h3>
               <p className="text-[#27415c] text-lg max-w-xl">
                 At Taypro Private Limited, collaboration is at the heart of our
                 success. We work seamlessly with the best minds in engineering,
@@ -323,9 +323,9 @@ export default function AboutUsPage() {
           <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row justify-between items-start gap-10">
             {/* Left: Title, description, button */}
             <div className="flex flex-col w-full lg:w-2/5">
-              <div className="text-[#052638] font-semibold text-5xl mb-5">
+              <h3 className="text-[#052638] font-semibold text-5xl mb-5">
                 Resources
-              </div>
+              </h3>
               <div className="text-[#22405a] text-xl mt-6 leading-relaxed">
                 In a world where sustainability is paramount,
                 <br />
@@ -371,9 +371,9 @@ export default function AboutUsPage() {
                           className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-105"
                           priority
                         />
-                        <div className="absolute bottom-4 left-4 text-white text-sm font-semibold bg-opacity-30 px-3 py-1 transition-transform duration-300 transform translate-y-4 group-hover:translate-y-0">
+                        <h4 className="absolute bottom-4 left-4 text-white text-sm font-semibold bg-opacity-30 px-3 py-1 transition-transform duration-300 transform translate-y-4 group-hover:translate-y-0">
                           {r.title}
-                        </div>
+                        </h4>
                       </div>
                       {/* Date overlay */}
                       <div className="absolute bottom-4 right-4 text-white text-xs bg-black bg-opacity-30 px-2 py-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
