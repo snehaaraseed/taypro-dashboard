@@ -10,7 +10,8 @@ export default function Header() {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [isSolarMenuOpen, setIsSolarMenuOpen] = useState(true);
+  // const [isSolarMenuOpen, setIsSolarMenuOpen] = useState(true);
+  const isSolarMenuOpen = true;
   const pathname = usePathname();
 
   const navItems = [

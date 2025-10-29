@@ -60,7 +60,7 @@ async function getBlogData(slug: string): Promise<BlogData | null> {
     try {
       await fs.access(metadataPath);
     } catch (error) {
-      console.log("❌ Blog not found in file system either:", slug);
+      console.log("❌ Blog not found in file system either:", error);
       return null;
     }
 
