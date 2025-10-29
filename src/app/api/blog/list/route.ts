@@ -38,6 +38,7 @@ async function getFileBlogs(): Promise<DynamicBlog[]> {
           href: `/blog/${dir.name}`,
           source: "file",
         });
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {
         console.warn(`No metadata found for blog: ${dir.name}`);
       }

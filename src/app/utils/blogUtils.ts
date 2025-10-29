@@ -31,7 +31,7 @@ export async function getAllDynamicBlogs(): Promise<BlogMetadata[]> {
         const metadata = JSON.parse(metadataContent);
         blogs.push(metadata);
       } catch (error) {
-        console.warn(`No metadata found for blog: ${dir.name}`);
+        console.warn(`No metadata found for blog: ${dir.name}`, error);
       }
     }
 
