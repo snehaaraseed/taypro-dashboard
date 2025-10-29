@@ -1,4 +1,10 @@
-import { EnergyResourceCard } from "./utils/extractSlug";
+// import { EnergyResourceCard } from "./utils/extractSlug";
+interface EnergyResourceCard {
+  title: string;
+  imgSrc: string;
+  date: string;
+  href: string;
+}
 
 export const robots = [
   {
