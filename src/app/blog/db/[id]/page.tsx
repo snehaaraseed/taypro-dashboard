@@ -1,13 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Breadcrumbs } from "../../components/Breadcrumbs";
+import { Breadcrumbs } from "../../../components/Breadcrumbs";
 import type { Metadata } from "next";
-import { promises as fs } from "fs";
-import path from "path";
 
 interface PageParams {
-  slug: string;
+  id: string;
 }
 
 interface BlogPostProps {
@@ -15,7 +13,7 @@ interface BlogPostProps {
 }
 
 interface BlogData {
-  _id?: string;
+  _id: string;
   title: string;
   description: string;
   content: string;
@@ -23,71 +21,26 @@ interface BlogData {
   featuredImage: string;
   slug: string;
   publishDate: string;
-  source?: "file" | "database";
+  createdAt: string;
 }
 
-// ✅ Try to fetch from database first, then fall back to file system
-async function getBlogData(slug: string): Promise<BlogData | null> {
-  // Try database first
+// Fetch blog data
+async function getBlogData(id: string): Promise<BlogData | null> {
   try {
     const backendUrl =
       process.env.NEXT_PUBLIC_BACKEND_URL || "https://console.taypro.in";
-    const response = await fetch(
-      `${backendUrl}/api/v1/blogposts/slug/${slug}`,
-      {
-        cache: "no-store",
-        headers: {
-          Accept: "application/json",
-        },
-      }
-    );
+    const response = await fetch(`${backendUrl}/api/v1/blogposts/id/${id}`, {
+      cache: "no-store",
+    });
 
-    if (response.ok) {
-      const data = await response.json();
-      console.log("✅ Found blog in database:", slug);
-      return { ...data.data, source: "database" };
-    }
-  } catch (error) {
-    console.log("📁 Database fetch failed, trying file system...", error);
-  }
-
-  // Fall back to file system
-  try {
-    const blogDir = path.join(process.cwd(), "src", "app", "blog", slug);
-    const metadataPath = path.join(blogDir, "metadata.json");
-    const contentPath = path.join(blogDir, "page.tsx");
-
-    // ✅ Check if metadata file exists before trying to read
-    try {
-      await fs.access(metadataPath);
-    } catch (error) {
-      console.log("❌ Blog not found in file system either:", slug);
+    if (!response.ok) {
       return null;
     }
 
-    const [metadataContent, pageContent] = await Promise.all([
-      fs.readFile(metadataPath, "utf-8"),
-      fs.readFile(contentPath, "utf-8"),
-    ]);
-
-    const metadata = JSON.parse(metadataContent);
-
-    // Extract content from page.tsx
-    const contentMatch = pageContent.match(
-      /<article[^>]*>([\s\S]*?)<\/article>/
-    );
-    const content = contentMatch ? contentMatch[1] : "";
-
-    console.log("✅ Found blog in file system:", slug);
-
-    return {
-      ...metadata,
-      content,
-      slug,
-      source: "file",
-    };
+    const data = await response.json();
+    return data.data;
   } catch (error) {
-    console.error("❌ Error fetching blog from file system:", error);
+    console.error("Error fetching blog:", error);
     return null;
   }
 }
@@ -96,8 +49,8 @@ async function getBlogData(slug: string): Promise<BlogData | null> {
 export async function generateMetadata({
   params,
 }: BlogPostProps): Promise<Metadata> {
-  const { slug } = await params;
-  const blog = await getBlogData(slug);
+  const { id } = await params;
+  const blog = await getBlogData(id);
 
   if (!blog) {
     return {
@@ -114,7 +67,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${blog.title} - Taypro Blog`,
       description: blog.description,
-      url: `https://yourdomain.com/blog/${slug}`,
+      url: `https://yourdomain.com/blog/db/${id}`,
       type: "article",
       images: blog.featuredImage ? [blog.featuredImage] : [],
     },
@@ -122,8 +75,8 @@ export async function generateMetadata({
 }
 
 export default async function BlogPost({ params }: BlogPostProps) {
-  const { slug } = await params;
-  const blog = await getBlogData(slug);
+  const { id } = await params;
+  const blog = await getBlogData(id);
 
   if (!blog) {
     notFound();
@@ -149,14 +102,13 @@ export default async function BlogPost({ params }: BlogPostProps) {
       <section className="w-full pt-20 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           {blog.featuredImage && (
-            <div className="relative w-full h-96 mb-8 overflow-hidden rounded-lg">
+            <div className="relative w-full h-96 mb-8 overflow-hidden">
               <Image
                 src={blog.featuredImage}
                 alt={blog.title}
                 fill
                 className="object-cover"
                 priority
-                sizes="(max-width: 768px) 100vw, 896px"
               />
             </div>
           )}
@@ -196,10 +148,6 @@ export default async function BlogPost({ params }: BlogPostProps) {
                   />
                 </svg>
                 {blog.author}
-              </span>
-
-              <span className="px-2 py-1 text-xs bg-gray-200 rounded">
-                {blog.source === "database" ? "📊 Database" : "📁 File"}
               </span>
             </div>
 
