@@ -25,8 +25,6 @@ export async function POST(request: NextRequest) {
       process.env.NEXT_PUBLIC_BACKEND_URL || "https://console.taypro.in";
     const fullUrl = `${backendUrl}/api/v1/blogposts`;
 
-    console.log("🔍 Attempting to POST to:", fullUrl);
-
     const response = await fetch(fullUrl, {
       method: "POST",
       headers: {
@@ -42,8 +40,6 @@ export async function POST(request: NextRequest) {
       }),
     });
 
-    console.log("📡 Response status:", response.status);
-
     const contentType = response.headers.get("content-type");
 
     if (!contentType || !contentType.includes("application/json")) {
@@ -58,7 +54,6 @@ export async function POST(request: NextRequest) {
     }
 
     const data = await response.json();
-    console.log("✅ Response data:", data);
 
     if (!response.ok) {
       return NextResponse.json(

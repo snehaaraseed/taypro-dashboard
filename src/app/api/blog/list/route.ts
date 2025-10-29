@@ -56,8 +56,6 @@ async function getDatabaseBlogs(): Promise<DynamicBlog[]> {
       process.env.NEXT_PUBLIC_BACKEND_URL || "https://console.taypro.in";
     const fullUrl = `${backendUrl}/api/v1/blogposts`;
 
-    console.log("🔍 Fetching database blogs from:", fullUrl);
-
     const response = await fetch(fullUrl, {
       cache: "no-store",
       headers: {
@@ -82,9 +80,6 @@ async function getDatabaseBlogs(): Promise<DynamicBlog[]> {
       console.error("Invalid response format from backend");
       return [];
     }
-
-    console.log(`✅ Fetched ${data.data.length} database blogs`);
-
     interface DatabaseBlog {
       _id: string;
       title: string;
@@ -118,10 +113,6 @@ export async function GET() {
       getFileBlogs(),
       getDatabaseBlogs(),
     ]);
-
-    console.log(
-      `📊 Total: ${fileBlogs.length} file blogs + ${dbBlogs.length} database blogs`
-    );
 
     const allBlogs = [...fileBlogs, ...dbBlogs].sort(
       (a, b) =>

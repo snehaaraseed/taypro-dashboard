@@ -44,7 +44,6 @@ async function getBlogData(slug: string): Promise<BlogData | null> {
 
     if (response.ok) {
       const data = await response.json();
-      console.log("✅ Found blog in database:", slug);
       return { ...data.data, source: "database" };
     }
   } catch (error) {
@@ -77,8 +76,6 @@ async function getBlogData(slug: string): Promise<BlogData | null> {
       /<article[^>]*>([\s\S]*?)<\/article>/
     );
     const content = contentMatch ? contentMatch[1] : "";
-
-    console.log("✅ Found blog in file system:", slug);
 
     return {
       ...metadata,

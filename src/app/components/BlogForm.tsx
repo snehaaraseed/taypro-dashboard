@@ -99,14 +99,12 @@ export default function BlogForm() {
 
         // ✅ FIXED: Ensure redirect URL is valid before navigating
         if (data.url) {
-          console.log("🔄 Redirecting to:", data.url);
           setTimeout(() => {
             router.push(data.url);
           }, 500);
         } else if (data.id) {
           // ✅ Fallback: Build URL from ID if data.url is missing
           const redirectUrl = `/blog/db/${data.id}`;
-          console.log("🔄 Redirecting to (fallback):", redirectUrl);
           setTimeout(() => {
             router.push(redirectUrl);
           }, 500);

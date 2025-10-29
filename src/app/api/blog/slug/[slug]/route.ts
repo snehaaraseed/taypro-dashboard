@@ -13,8 +13,6 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
       process.env.NEXT_PUBLIC_BACKEND_URL || "https://console.taypro.in";
     const fullUrl = `${backendUrl}/api/v1/blogposts/slug/${slug}`;
 
-    console.log("🔍 Fetching blog by slug:", fullUrl);
-
     const response = await fetch(fullUrl, {
       cache: "no-store",
       headers: {
