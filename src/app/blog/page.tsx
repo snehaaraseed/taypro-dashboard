@@ -109,7 +109,7 @@ export default function Blog() {
                     </div>
                   )}
 
-                  <div className="relative w-full h-90 overflow-hidden">
+                  <div className="relative w-full h-64 sm:h-72 md:h-80 overflow-hidden">
                     <Image
                       src={blog.imgSrc}
                       alt={blog.title}

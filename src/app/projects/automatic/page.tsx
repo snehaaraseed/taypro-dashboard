@@ -28,7 +28,7 @@ export default function ProjectTypePage() {
                 title="Solar Project"
                 className="block border border-gray-300 p-4 overflow-hidden group"
               >
-                <div className="relative w-full h-90 overflow-hidden">
+                <div className="relative w-full h-64 sm:h-72 md:h-80 overflow-hidden">
                   <Image
                     src={card.img}
                     alt={card.title}
