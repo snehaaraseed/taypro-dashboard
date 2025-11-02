@@ -68,6 +68,17 @@ const nextConfig = {
       // Add more domains as needed
     ],
   },
+  webpack: (config, { isServer }) => {
+    // Only bundle fs and path on server side
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        path: false,
+      };
+    }
+    return config;
+  },
 };
 
 module.exports = nextConfig;
