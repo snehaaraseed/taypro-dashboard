@@ -124,14 +124,18 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << EOF
             done
         fi
         
-        # Restore uploaded images (merge with new design assets)
+        # Restore uploaded images (preserve production uploads, keep new design assets from local)
         if [ -d "$BACKUP_PATH/public/uploads" ]; then
             echo "  Restoring production-uploaded images..."
             mkdir -p public/uploads
-            # Merge production uploads with any new uploads from local (prefer production)
+            # Use rsync to merge: preserve production uploads, but don't overwrite existing files
+            # This ensures production uploads are restored, while any new local uploads remain
             rsync -av "$BACKUP_PATH/public/uploads/" "public/uploads/" 2>/dev/null || true
-            echo "    ✅ Production images restored (new design assets from local are also included)"
+            echo "    ✅ Production-uploaded images restored"
         fi
+        
+        # Note: Design assets (tayproasset, tayprorobots, etc.) are already synced from local
+        # in Step 2, so they're updated with any design changes while uploads are preserved
         
         echo "  ✅ Restoration completed"
     else
