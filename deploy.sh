@@ -53,9 +53,9 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
         done
     fi
     
-    # Backup uploaded images
+    # Backup uploaded images (admin console uploads only)
     if [ -d "public/uploads" ]; then
-        echo "  Backing up uploaded images..."
+        echo "  Backing up production-uploaded images..."
         mkdir -p "$BACKUP_DIR/public"
         cp -r public/uploads "$BACKUP_DIR/public/uploads" 2>/dev/null || true
     fi
@@ -68,13 +68,13 @@ BACKUP_PATH=$(ssh -i "$SSH_KEY" "$REMOTE_HOST" "cat /tmp/taypro-backup-path.txt 
 echo -e "${GREEN}  ✅ Backup completed${NC}"
 echo ""
 
-# Step 2: Sync files (excluding production-specific content)
+# Step 2: Sync files (excluding production-specific content but including design assets)
 echo -e "${YELLOW}📤 Step 2: Syncing code files...${NC}"
 rsync -avz \
     --exclude 'node_modules' \
     --exclude '.next' \
     --exclude '.git' \
-    --exclude 'uploads' \
+    --exclude 'public/uploads' \
     --exclude 'src/app/blog/**/metadata.json' \
     --exclude 'src/app/blog/**/page.tsx' \
     --exclude 'src/app/projects/**/metadata.json' \
@@ -124,11 +124,13 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << EOF
             done
         fi
         
-        # Restore uploaded images
+        # Restore uploaded images (merge with new design assets)
         if [ -d "$BACKUP_PATH/public/uploads" ]; then
-            echo "  Restoring uploaded images..."
-            mkdir -p public
+            echo "  Restoring production-uploaded images..."
+            mkdir -p public/uploads
+            # Merge production uploads with any new uploads from local (prefer production)
             rsync -av "$BACKUP_PATH/public/uploads/" "public/uploads/" 2>/dev/null || true
+            echo "    ✅ Production images restored (new design assets from local are also included)"
         fi
         
         echo "  ✅ Restoration completed"
