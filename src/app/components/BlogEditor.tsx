@@ -65,6 +65,17 @@ export default function BlogEditor({
     },
   });
 
+  // Update editor content when initialContent prop changes
+  useEffect(() => {
+    if (editor && initialContent !== undefined && initialContent !== null) {
+      const currentContent = editor.getHTML();
+      // Only update if content has actually changed to avoid unnecessary updates
+      if (currentContent !== initialContent) {
+        editor.commands.setContent(initialContent);
+      }
+    }
+  }, [editor, initialContent]);
+
   const addImage = () => {
     if (imageUrl && editor) {
       editor.chain().focus().setImage({ src: imageUrl }).run();

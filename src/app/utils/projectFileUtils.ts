@@ -234,7 +234,87 @@ export async function readProjectContent(slug: string): Promise<string> {
     const pagePath = path.join(getProjectsDir(), slug, "page.tsx");
     const fileContent = await fs.readFile(pagePath, "utf-8");
 
-    // Extract content from the overviewText prop
+    // First, try to extract content from BlogContent component
+    // The content is stored as content={"..."} where the string is a JSON-encoded string
+    // Look for BlogContent component and extract its content prop value
+    const blogContentStart = fileContent.indexOf('<BlogContent');
+    if (blogContentStart !== -1) {
+      // Find the content prop after BlogContent
+      const contentPropStart = fileContent.indexOf('content={', blogContentStart);
+      if (contentPropStart !== -1) {
+        // Extract from the opening brace after content={
+        let braceStart = contentPropStart + 9; // length of 'content={'
+        let currentPos = braceStart;
+        
+        // Skip whitespace
+        while (currentPos < fileContent.length && /\s/.test(fileContent[currentPos])) {
+          currentPos++;
+        }
+        
+        // Check if it starts with a quote (JSON string)
+        if (fileContent[currentPos] === '"') {
+          // Find the matching closing quote (accounting for escaped quotes)
+          // The JSON string ends with a quote followed by whitespace and then }
+          let endQuoteIndex = -1;
+          let escaped = false;
+          let i = currentPos + 1;
+          
+          while (i < fileContent.length) {
+            const char = fileContent[i];
+            
+            if (escaped) {
+              // After an escape, reset the flag and continue
+              escaped = false;
+              i++;
+              continue;
+            }
+            
+            if (char === '\\') {
+              // Next character is escaped
+              escaped = true;
+              i++;
+              continue;
+            }
+            
+            if (char === '"') {
+              // Found a quote - check if it's the closing quote
+              // Look ahead to see if it's followed by whitespace and then } or className
+              let j = i + 1;
+              // Skip whitespace (including newlines)
+              while (j < fileContent.length && /[\s\n\r]/.test(fileContent[j])) {
+                j++;
+              }
+              // If we find a } or className after whitespace, this is the closing quote
+              if (j < fileContent.length) {
+                if (fileContent[j] === '}' || fileContent.substring(j, j + 9) === 'className') {
+                  endQuoteIndex = i;
+                  break;
+                }
+              }
+              // Otherwise, this might be an escaped quote in the content, continue
+            }
+            
+            i++;
+          }
+          
+          if (endQuoteIndex > 0) {
+            // Extract the JSON string (including the quotes)
+            const jsonStr = fileContent.substring(currentPos, endQuoteIndex + 1);
+            try {
+              // Parse the JSON string to get the actual HTML content
+              const parsed = JSON.parse(jsonStr);
+              return parsed;
+            } catch (parseError) {
+              console.warn(`Error parsing BlogContent JSON for ${slug}:`, parseError);
+              // Try to extract as raw string if JSON parsing fails
+              return jsonStr.slice(1, -1); // Remove surrounding quotes
+            }
+          }
+        }
+      }
+    }
+
+    // Fallback: try to extract from overviewText prop (for older projects without BlogContent)
     const match = fileContent.match(/overviewText="([^"]*)"/);
     if (match && match[1]) {
       // Unescape the content
@@ -244,7 +324,7 @@ export async function readProjectContent(slug: string): Promise<string> {
         .replace(/\\\\/g, "\\");
     }
 
-    // Fallback: try to extract from description
+    // Last fallback: try to extract from description
     const descMatch = fileContent.match(/description="([^"]*)"/);
     if (descMatch && descMatch[1]) {
       return descMatch[1]
