@@ -470,7 +470,7 @@ export async function readBlogContent(
 
     // Fallback: try to extract from article tag (for old format)
     const articleMatch = pageContent.match(
-      /<article[^>]*>([\s\S]*?)<\/article>/s
+      /<article[^>]*>([\s\S]*?)<\/article>/
     );
     
     if (articleMatch && articleMatch[1]) {
