@@ -1,9 +1,19 @@
 "use client";
 import { Facebook, Instagram, Linkedin, Youtube, X } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 
 export default function Footer() {
-  const pathname = usePathname();
+  const pathnameHook = usePathname();
+  const [pathname, setPathname] = useState<string>("");
+  const [mounted, setMounted] = useState(false);
+  
+  // Only set pathname after component mounts to avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+    setPathname(pathnameHook);
+  }, [pathnameHook]);
+
   const currentYear = new Date().getFullYear();
 
   const footerSections = {
@@ -125,7 +135,8 @@ export default function Footer() {
                   href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
                 },
               ].map((item) => {
-                const active = pathname === item.href;
+                // Only check active state after mount to avoid hydration mismatch
+                const active = mounted && pathname === item.href;
                 return (
                   <div className="group cursor-pointer" key={item.name}>
                     <hr
@@ -158,7 +169,7 @@ export default function Footer() {
               <div className="text-lg text-white mb-4">Important Links</div>
               <ul className="space-y-2">
                 {footerSections["Important Links Left"].map((link) => {
-                  const active = pathname === link.href;
+                  const active = mounted && pathname === link.href;
                   return (
                     <li key={link.name} className="relative">
                       <a
@@ -189,7 +200,7 @@ export default function Footer() {
               </div>
               <ul className="space-y-2">
                 {footerSections["Important Links Right"].map((link) => {
-                  const active = pathname === link.href;
+                  const active = mounted && pathname === link.href;
                   return (
                     <li key={link.name} className="relative">
                       <a
