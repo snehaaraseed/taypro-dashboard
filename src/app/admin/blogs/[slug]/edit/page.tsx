@@ -72,6 +72,7 @@ export default function EditBlogPage() {
           publishDate: data.publishDate
             ? new Date(data.publishDate).toISOString().split("T")[0]
             : new Date().toISOString().split("T")[0],
+          published: data.published !== undefined ? data.published : true,
         });
       } else {
         if (response.status === 401) {

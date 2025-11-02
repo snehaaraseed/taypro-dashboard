@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const { title, description, featuredImage, author, content, publishDate } =
+    const { title, description, featuredImage, author, content, publishDate, published } =
       await request.json();
 
     // Validation
@@ -29,6 +29,7 @@ export async function POST(request: NextRequest) {
       author: author || "Taypro Team",
       content,
       publishDate,
+      published: published !== undefined ? published : true,
     });
 
     if (!result.success) {

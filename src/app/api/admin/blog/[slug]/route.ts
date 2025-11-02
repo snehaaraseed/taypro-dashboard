@@ -70,6 +70,7 @@ export async function PUT(
       author,
       content,
       publishDate,
+      published,
       newSlug,
     } = await request.json();
 
@@ -94,6 +95,7 @@ export async function PUT(
         author: author || "Taypro Team",
         content,
         publishDate,
+        published: published !== undefined ? published : true,
       },
       finalSlug !== slug ? finalSlug : undefined
     );
