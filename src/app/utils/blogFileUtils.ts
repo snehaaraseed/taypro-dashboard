@@ -83,6 +83,8 @@ import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { BlogContent } from "../../components/BlogContent";
 import type { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
   title: ${JSON.stringify(metadata.title + " - Taypro Blog")},
   description: ${JSON.stringify(metadata.description)},
@@ -91,7 +93,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: ${JSON.stringify(metadata.title + " - Taypro Blog")},
     description: ${JSON.stringify(metadata.description)},
-    url: \`https://yourdomain.com/blog/${slugEscaped}\`,
+    url: \`\${siteUrl}/blog/${slugEscaped}\`,
     type: "article",
     images: ${metadata.featuredImage ? JSON.stringify([metadata.featuredImage]) : "[]"},
   },
