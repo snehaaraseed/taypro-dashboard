@@ -116,18 +116,18 @@ export default function NewBlogPage() {
     setMessage("");
 
     try {
-      const formData = new FormData();
-      formData.append("file", file);
+      const uploadFormData = new FormData();
+      uploadFormData.append("file", file);
 
       const response = await fetch("/api/admin/upload", {
         method: "POST",
-        body: formData,
+        body: uploadFormData,
       });
 
       const data = await response.json();
 
       if (response.ok && data.url) {
-        setFormData({ ...formData, featuredImage: data.url });
+        setFormData((prev) => ({ ...prev, featuredImage: data.url }));
         setImageError(false);
         setMessage("✅ Image uploaded successfully!");
       } else {
