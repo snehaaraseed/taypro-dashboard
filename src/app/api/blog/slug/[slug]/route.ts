@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { readBlogMetadata, readBlogContent } from "../../../../utils/blogFileUtils";
 
 interface RouteParams {
   params: Promise<{
@@ -9,28 +10,27 @@ interface RouteParams {
 export async function GET(request: NextRequest, { params }: RouteParams) {
   try {
     const { slug } = await params;
-    const backendUrl =
-      process.env.NEXT_PUBLIC_BACKEND_URL || "https://console.taypro.in";
-    const fullUrl = `${backendUrl}/api/v1/blogposts/slug/${slug}`;
 
-    const response = await fetch(fullUrl, {
-      cache: "no-store",
-      headers: {
-        Accept: "application/json",
-      },
-    });
+    // Fetch from file system only (database blogs have been migrated)
+    const metadataResult = await readBlogMetadata(slug);
+    const contentResult = await readBlogContent(slug);
 
-    if (!response.ok) {
-      console.error(`Blog not found: ${response.status}`);
+    if (!metadataResult.success || !metadataResult.metadata) {
       return NextResponse.json({ error: "Blog not found" }, { status: 404 });
     }
 
-    const data = await response.json();
+    // Check if blog is published
+    if (metadataResult.metadata.published === false) {
+      return NextResponse.json({ error: "Blog not found" }, { status: 404 });
+    }
 
     return NextResponse.json({
       success: true,
-      blog: data.data,
-      source: "database",
+      blog: {
+        ...metadataResult.metadata,
+        content: contentResult.content || "",
+      },
+      source: "file",
     });
   } catch (error) {
     console.error("Error fetching blog by slug:", error);

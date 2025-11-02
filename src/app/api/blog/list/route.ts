@@ -10,8 +10,7 @@ export interface DynamicBlog {
   slug: string;
   publishDate: string;
   href: string;
-  source: "file" | "database";
-  id?: string;
+  source: "file";
 }
 
 async function getFileBlogs(): Promise<DynamicBlog[]> {
@@ -56,71 +55,12 @@ async function getFileBlogs(): Promise<DynamicBlog[]> {
   }
 }
 
-async function getDatabaseBlogs(): Promise<DynamicBlog[]> {
-  try {
-    const backendUrl =
-      process.env.NEXT_PUBLIC_BACKEND_URL || "https://console.taypro.in";
-    const fullUrl = `${backendUrl}/api/v1/blogposts`;
-
-    const response = await fetch(fullUrl, {
-      cache: "no-store",
-      headers: {
-        Accept: "application/json",
-      },
-    });
-
-    const contentType = response.headers.get("content-type");
-    if (!contentType || !contentType.includes("application/json")) {
-      console.error("❌ Backend returned non-JSON response for blog list");
-      return [];
-    }
-
-    if (!response.ok) {
-      console.error(`Failed to fetch database blogs: ${response.status}`);
-      return [];
-    }
-
-    const data = await response.json();
-
-    if (!data.data || !Array.isArray(data.data)) {
-      console.error("Invalid response format from backend");
-      return [];
-    }
-    interface DatabaseBlog {
-      _id: string;
-      title: string;
-      description: string;
-      featuredImage: string;
-      author: string;
-      slug: string;
-      publishDate: string;
-    }
-
-    return (data.data as DatabaseBlog[]).map((blog) => ({
-      title: blog.title,
-      description: blog.description,
-      featuredImage: blog.featuredImage,
-      author: blog.author,
-      slug: blog.slug,
-      publishDate: blog.publishDate,
-      href: `/blog/${blog.slug}`, // ✅ Use slug-based URL
-      source: "database",
-      id: blog._id,
-    }));
-  } catch (error) {
-    console.error("Error fetching database blogs:", error);
-    return [];
-  }
-}
-
 export async function GET() {
   try {
-    const [fileBlogs, dbBlogs] = await Promise.all([
-      getFileBlogs(),
-      getDatabaseBlogs(),
-    ]);
+    // Only use file-based blogs now - database blogs have been migrated
+    const fileBlogs = await getFileBlogs();
 
-    const allBlogs = [...fileBlogs, ...dbBlogs].sort(
+    const allBlogs = fileBlogs.sort(
       (a, b) =>
         new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
     );

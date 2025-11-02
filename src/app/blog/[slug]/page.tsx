@@ -29,19 +29,16 @@ interface BlogData {
   featuredImage: string;
   slug: string;
   publishDate: string;
-  source?: "file" | "database";
+  source?: "file";
 }
 
 // Fetch all blogs for similar blogs section
 async function getAllBlogs(): Promise<DynamicBlog[]> {
   try {
-    // Fetch from file system and database directly
-    const [fileBlogs, dbBlogs] = await Promise.all([
-      getFileBlogs(),
-      getDatabaseBlogs(),
-    ]);
+    // Only fetch from file system now
+    const fileBlogs = await getFileBlogs();
 
-    const allBlogs = [...fileBlogs, ...dbBlogs].sort(
+    const allBlogs = fileBlogs.sort(
       (a, b) =>
         new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
     );
@@ -93,81 +90,9 @@ async function getFileBlogs(): Promise<DynamicBlog[]> {
   }
 }
 
-async function getDatabaseBlogs(): Promise<DynamicBlog[]> {
-  try {
-    const backendUrl =
-      process.env.NEXT_PUBLIC_BACKEND_URL || "https://console.taypro.in";
-    const fullUrl = `${backendUrl}/api/v1/blogposts`;
-
-    const response = await fetch(fullUrl, {
-      cache: "no-store",
-      headers: {
-        Accept: "application/json",
-      },
-    });
-
-    if (!response.ok) {
-      return [];
-    }
-
-    const data = await response.json();
-
-    if (!data.data || !Array.isArray(data.data)) {
-      return [];
-    }
-
-    interface DatabaseBlog {
-      _id: string;
-      title: string;
-      description: string;
-      featuredImage: string;
-      author: string;
-      slug: string;
-      publishDate: string;
-    }
-
-    return (data.data as DatabaseBlog[]).map((blog) => ({
-      title: blog.title,
-      description: blog.description,
-      featuredImage: blog.featuredImage,
-      author: blog.author,
-      slug: blog.slug,
-      publishDate: blog.publishDate,
-      href: `/blog/${blog.slug}`,
-      source: "database",
-      id: blog._id,
-    }));
-  } catch (error) {
-    console.error("Error fetching database blogs:", error);
-    return [];
-  }
-}
-
-// ✅ Try to fetch from database first, then fall back to file system
+// Fetch blog data from file system only (database blogs have been migrated)
 async function getBlogData(slug: string): Promise<BlogData | null> {
-  // Try database first
-  try {
-    const backendUrl =
-      process.env.NEXT_PUBLIC_BACKEND_URL || "https://console.taypro.in";
-    const response = await fetch(
-      `${backendUrl}/api/v1/blogposts/slug/${slug}`,
-      {
-        cache: "no-store",
-        headers: {
-          Accept: "application/json",
-        },
-      }
-    );
-
-    if (response.ok) {
-      const data = await response.json();
-      return { ...data.data, source: "database" };
-    }
-  } catch (error) {
-    console.log("📁 Database fetch failed, trying file system...", error);
-  }
-
-  // Fall back to file system
+  // Fetch from file system
   try {
     const blogDir = path.join(process.cwd(), "src", "app", "blog", slug);
     const metadataPath = path.join(blogDir, "metadata.json");
@@ -383,7 +308,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
                     </span>
 
                     <span className="px-2 py-1 text-xs bg-gray-200 rounded">
-                      {blog.source === "database" ? "📊 Database" : "📁 File"}
+                      📁 File
                     </span>
                   </div>
 

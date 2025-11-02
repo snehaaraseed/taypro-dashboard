@@ -4,59 +4,6 @@ import { promises as fs } from "fs";
 import path from "path";
 import { BlogMetadata } from "../../../../utils/blogFileUtils";
 
-// Fetch database blogs (including drafts) for admin
-async function getDatabaseBlogs(): Promise<BlogMetadata[]> {
-  try {
-    const backendUrl =
-      process.env.NEXT_PUBLIC_BACKEND_URL || "https://console.taypro.in";
-    const fullUrl = `${backendUrl}/api/v1/blogposts`;
-
-    const response = await fetch(fullUrl, {
-      cache: "no-store",
-      headers: {
-        Accept: "application/json",
-      },
-    });
-
-    if (!response.ok) {
-      console.warn(`Failed to fetch database blogs: ${response.status}`);
-      return [];
-    }
-
-    const data = await response.json();
-
-    if (!data.data || !Array.isArray(data.data)) {
-      return [];
-    }
-
-    interface DatabaseBlog {
-      _id: string;
-      title: string;
-      description: string;
-      featuredImage: string;
-      author: string;
-      slug: string;
-      publishDate: string;
-      published?: boolean;
-      createdAt?: string;
-    }
-
-    return (data.data as DatabaseBlog[]).map((blog) => ({
-      title: blog.title,
-      description: blog.description,
-      featuredImage: blog.featuredImage,
-      author: blog.author,
-      slug: blog.slug,
-      publishDate: blog.publishDate,
-      createdAt: blog.createdAt || blog.publishDate,
-      published: blog.published !== undefined ? blog.published : true,
-    }));
-  } catch (error) {
-    console.error("Error fetching database blogs:", error);
-    return [];
-  }
-}
-
 export async function GET(request: NextRequest) {
   // Check authentication
   const authResponse = await requireAuth(request);
@@ -96,11 +43,8 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    // Fetch database blogs (INCLUDING drafts)
-    const dbBlogs = await getDatabaseBlogs();
-
-    // Combine all blogs - both published and drafts
-    const allBlogs = [...fileBlogs, ...dbBlogs];
+    // All blogs are now file-based (database blogs have been migrated)
+    const allBlogs = fileBlogs;
 
     // Sort by publishDate descending (most recent first)
     const sortedBlogs = allBlogs.sort(
