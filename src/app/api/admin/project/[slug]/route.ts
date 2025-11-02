@@ -9,15 +9,9 @@ import {
   ProjectData,
 } from "../../../../utils/projectFileUtils";
 
-interface RouteParams {
-  params: {
-    slug: string;
-  };
-}
-
 export async function GET(
   request: NextRequest,
-  { params }: RouteParams
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   // Check authentication
   const authResponse = await requireAuth(request);
@@ -55,7 +49,7 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: RouteParams
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   // Check authentication
   const authResponse = await requireAuth(request);
@@ -101,7 +95,7 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: RouteParams
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   // Check authentication
   const authResponse = await requireAuth(request);

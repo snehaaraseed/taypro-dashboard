@@ -36,10 +36,18 @@ export default async function ProjectsCard({
     }));
   } else if (!providedProjects && !useFileProjects) {
     // Fallback to data.ts projects
-    displayProjects = projects.map((p) => ({
-      ...p,
-      details: typeof p.details === "string" ? p.details : p.details.join(", "),
-    }));
+    displayProjects = projects.map((p) => {
+      const detailsValue = p.details;
+      const detailsStr = typeof detailsValue === "string" 
+        ? detailsValue 
+        : Array.isArray(detailsValue) 
+          ? (detailsValue as string[]).join(", ") 
+          : String(detailsValue);
+      return {
+        ...p,
+        details: detailsStr,
+      };
+    });
   }
 
   // Normalize details to array

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 export default async function ProjectPage() {
   const allProjects = await getAllFileProjects();
   const relatedProjects = allProjects
-    .filter((p) => p.slug !== "agar-solar-project")
+    .filter((p) => p.id !== "agar-solar-project" && p.href !== "/projects/agar-solar-project")
     .slice(0, 3);
 
   return (

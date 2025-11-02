@@ -243,7 +243,7 @@ export async function readProjectContent(slug: string): Promise<string> {
       const contentPropStart = fileContent.indexOf('content={', blogContentStart);
       if (contentPropStart !== -1) {
         // Extract from the opening brace after content={
-        let braceStart = contentPropStart + 9; // length of 'content={'
+        const braceStart = contentPropStart + 9; // length of 'content={'
         let currentPos = braceStart;
         
         // Skip whitespace
