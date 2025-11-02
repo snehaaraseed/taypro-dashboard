@@ -479,7 +479,7 @@ export async function readBlogContent(
 
     // Last resort: try to find dangerouslySetInnerHTML (old format)
     const innerHTMLMatch = pageContent.match(
-      /dangerouslySetInnerHTML=\{\{\s*__html:\s*['"`]([\s\S]*?)['"`]\s*\}\}/s
+      /dangerouslySetInnerHTML=\{\{\s*__html:\s*['"`]([\s\S]*?)['"`]\s*\}\}/
     );
     
     if (innerHTMLMatch && innerHTMLMatch[1]) {
