@@ -27,36 +27,40 @@ export default function Footer() {
   return (
     <footer className="bg-[#052638]">
       {/* Top Bar - Mail, Phone, Social Icons */}
-      <div className="flex flex-col sm:flex-row items-center justify-between max-w-7xl mx-auto px-6 py-4 border-[#17405c]">
-        <div className="flex flex-col sm:flex-row items-center gap-4 text-white text-base">
-          <span>
-            Mail:{" "}
-            <a
-              href="mailto:sales@taypro.in"
-              className="hover:text-[#A8C117] transition-colors"
-            >
-              sales@taypro.in
-            </a>
-          </span>
-          <span className="hidden sm:block mx-2"></span>
-          <span>
-            Phone:{" "}
-            <a
-              href="tel:+918956114050"
-              className="hover:text-[#A8C117] transition-colors"
-            >
-              +918956114050
-            </a>
-          </span>
-        </div>
-        <div className="flex items-center gap-2 mt-4 sm:mt-0">
+      <div className="max-w-7xl mx-auto px-12 sm:px-12 lg:px-20 py-4 border-[#17405c]">
+        <div className="flex flex-col md:flex-row justify-between w-full gap-20">
+          <div className="md:w-1/2">
+            <div className="flex flex-col sm:flex-row items-start gap-4 text-white text-2xl">
+              <span>
+                Mail:{" "}
+                <a
+                  href="mailto:sales@taypro.in"
+                  className="hover:text-[#A8C117] transition-colors"
+                >
+                  sales@taypro.in
+                </a>
+              </span>
+              <span className="hidden sm:block mx-2"></span>
+              <span>
+                Phone:{" "}
+                <a
+                  href="tel:+918956114050"
+                  className="hover:text-[#A8C117] transition-colors"
+                >
+                  +918956114050
+                </a>
+              </span>
+            </div>
+          </div>
+          <div className="flex justify-between md:w-1/3">
+            <div className="flex items-center gap-2">
           <a
             href="https://www.facebook.com/taypro.official?_gl=1*1i9ka0l*_ga*MTU1NzYyODIyMi4xNzQyMzU5NjM5*_ga_7G1M6KFY3K*czE3NTg2OTkxNTUkbzMkZzAkdDE3NTg2OTkxNTUkajYwJGwwJGgw"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="bg-[#F1EFE6] p-1 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
-              <Facebook className="text-[#052638] w-4 h-4" />
+            <div className="bg-[#F1EFE6] p-2 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
+              <Facebook className="text-[#052638] w-6 h-6" />
             </div>
           </a>
           <a
@@ -64,8 +68,8 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="bg-[#F1EFE6] p-1 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
-              <X className="text-[#052638] w-4 h-4" />
+            <div className="bg-[#F1EFE6] p-2 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
+              <X className="text-[#052638] w-6 h-6" />
             </div>
           </a>
           <a
@@ -73,8 +77,8 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="bg-[#F1EFE6] p-1 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
-              <Instagram className="text-[#052638] w-4 h-4" />
+            <div className="bg-[#F1EFE6] p-2 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
+              <Instagram className="text-[#052638] w-6 h-6" />
             </div>
           </a>
           <a
@@ -82,8 +86,8 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="bg-[#F1EFE6] p-1 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
-              <Linkedin className="text-[#052638] w-4 h-4" />
+            <div className="bg-[#F1EFE6] p-2 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
+              <Linkedin className="text-[#052638] w-6 h-6" />
             </div>
           </a>
           <a
@@ -91,10 +95,12 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="bg-[#F1EFE6] p-1 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
-              <Youtube className="text-[#052638] w-4 h-4" />
+            <div className="bg-[#F1EFE6] p-2 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
+              <Youtube className="text-[#052638] w-6 h-6" />
             </div>
           </a>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -107,7 +113,7 @@ export default function Footer() {
             <div className="space-y-5">
               {[
                 {
-                  name: "Model-B",
+                  name: "Semi-Automatic Solar Panel Cleaning Robot",
                   href: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
                 },
                 {
@@ -115,7 +121,7 @@ export default function Footer() {
                   href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
                 },
                 {
-                  name: "Model-T",
+                  name: "Single-Axis Tracker Solar Panel Cleaning Robot",
                   href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
                 },
               ].map((item) => {
