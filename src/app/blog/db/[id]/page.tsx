@@ -1,7 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "../../../components/Breadcrumbs";
+import { BlogImage } from "../../../components/BlogImage";
+import { BlogContent } from "../../../components/BlogContent";
 import type { Metadata } from "next";
 
 interface PageParams {
@@ -102,13 +103,14 @@ export default async function BlogPost({ params }: BlogPostProps) {
       <section className="w-full pt-20 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           {blog.featuredImage && (
-            <div className="relative w-full h-96 mb-8 overflow-hidden">
-              <Image
+            <div className="relative w-full h-96 mb-8 overflow-hidden rounded-lg bg-gray-100">
+              <BlogImage
                 src={blog.featuredImage}
                 alt={blog.title}
                 fill
                 className="object-cover"
                 priority
+                sizes="(max-width: 768px) 100vw, 896px"
               />
             </div>
           )}
@@ -161,7 +163,8 @@ export default async function BlogPost({ params }: BlogPostProps) {
       {/* Main Content */}
       <article className="w-full pb-20 bg-white">
         <div className="max-w-4xl mx-auto px-6">
-          <div
+          <BlogContent
+            content={blog.content}
             className="prose prose-lg max-w-none space-y-5
              prose-headings:text-[#052638]
              prose-headings:font-semibold
@@ -181,7 +184,6 @@ export default async function BlogPost({ params }: BlogPostProps) {
              prose-code:px-2
              prose-code:py-1
              prose-code:rounded"
-            dangerouslySetInnerHTML={{ __html: blog.content }}
           />
 
           {/* Back to Blog Button */}

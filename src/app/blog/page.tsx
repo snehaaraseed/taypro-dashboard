@@ -71,14 +71,8 @@ export default function Blog() {
 
       <section className="w-full min-h-100 pt-20 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 text-start">
-          <div className="flex justify-between items-center mb-8">
+          <div className="mb-8">
             <h1 className="text-[#052638] text-4xl">Blogs</h1>
-            <button
-              onClick={() => router.push("/blog/add")}
-              className="bg-lime-500 text-dark hover:text-white px-6 py-2 rounded-lg hover:bg-[#0a3a52] transition-colors cursor-pointer"
-            >
-              <h2>Add Blog</h2>
-            </button>
           </div>
 
           {isLoading ? (
