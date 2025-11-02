@@ -1,9 +1,13 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /blog/add
+Disallow: /blog/db/
 
 # Host
-Host: http://localhost:3000
+Host: https://taypro.in
 
 # Sitemaps
-Sitemap: http://localhost:3000/sitemap.xml
+Sitemap: https://taypro.in/sitemap.xml

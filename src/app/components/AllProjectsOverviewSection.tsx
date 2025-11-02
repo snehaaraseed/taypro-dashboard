@@ -7,7 +7,7 @@ interface ProjectOverviewSectionProps {
   overviewText: string;
 }
 
-export default function ProjectOverviewSection({
+function ProjectOverviewSection({
   image,
   overviewText,
 }: ProjectOverviewSectionProps) {
@@ -51,3 +51,6 @@ export default function ProjectOverviewSection({
     </section>
   );
 }
+
+export default ProjectOverviewSection;
+export { ProjectOverviewSection as AllProjectsOverviewSection };

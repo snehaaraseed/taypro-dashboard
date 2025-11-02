@@ -26,7 +26,7 @@ export default function AdminLogin() {
       const data = await response.json();
 
       if (response.ok) {
-        router.push("/admin/blogs");
+        router.push("/admin");
         router.refresh();
       } else {
         setError(data.error || "Invalid password");

@@ -1,0 +1,231 @@
+# LLMs.txt
+# This file helps AI understand and interact with the Taypro website
+
+# Website Information
+# Site Name: Taypro
+# Description: Taypro is an innovative company specializing in autonomous solar panel cleaning robots and systems for solar farms in India.
+# Technology Stack: Next.js 15.5.4, React 19, TypeScript, Tailwind CSS
+# Base URL: https://taypro.in (or your deployment domain)
+
+# About Taypro
+Taypro develops and manufactures autonomous solar panel cleaning robots that help solar farms maintain optimal efficiency. 
+The company offers waterless cleaning solutions, dual-pass cleaning technology, and AI-powered scheduling systems.
+Taypro has won patents for their revolutionary solar panel cleaning system.
+
+# Main Pages and Routes
+
+## Homepage
+/ - Landing page with company overview, services, and call-to-action sections
+
+## Company Information
+/company - About Taypro, team members, mission, and vision
+
+## Products & Services
+/solar-panel-cleaning-system - Overview of cleaning systems
+/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system - Automatic cleaning robots
+/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system - Semi-automatic solutions
+/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers - Single-axis tracker solutions
+/solar-panel-cleaning-system/solar-panel-cleaning-service - Service offerings
+/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app - Monitoring application
+
+## Technology
+/cleaning-technology - Technical details about cleaning technology
+
+## Projects
+/projects - Showcase of solar farm projects
+/projects/automatic - Automatic installation projects
+/projects/semi-automatic - Semi-automatic installation projects
+/projects/capex - CAPEX model projects
+
+## Tools & Calculators
+/solar-panel-cleaning-robot-price-calculator - Price calculator for cleaning robots
+
+## Blog
+/blog - Blog listing page with all articles
+/blog/[slug] - Individual blog post pages (dynamic routing)
+/blog/add - Blog creation interface (authenticated)
+/blog/db/[id] - Database-stored blog posts (dynamic routing)
+
+Blog topics include:
+- Solar panel cleaning methods and best practices
+- Solar energy efficiency and maintenance
+- Robotic cleaning systems
+- Solar panel installation and ROI calculations
+- Industry news and innovations
+- Technical comparisons and guides
+
+# API Endpoints
+
+## Public APIs
+
+### Blog APIs
+GET /api/blog/list
+- Returns: List of all blog posts (from both file system and database)
+- Response: { blogs: Array<{title, description, featuredImage, author, slug, publishDate, href, source}> }
+- Content-Type: application/json
+
+GET /api/blog/slug/[slug]
+- Returns: Single blog post by slug
+- Response: Blog post data with content
+
+POST /api/blog/create
+- Creates a new blog post in the database
+- Body: { title, description, featuredImage, author, content }
+- Requires: All fields except author (defaults to "Taypro Team")
+- Response: { success: boolean, id, slug, url }
+
+### Other APIs
+GET /api/blog/scrape
+- Scrapes blog content from external URLs (WordPress sites)
+- Query params: url (required)
+
+## Admin APIs (Require Authentication)
+
+POST /api/admin/auth/login
+- Authenticates admin user
+- Body: { password }
+- Response: { success: boolean }
+
+GET /api/admin/blog/list
+- Returns: List of all blog posts from file system
+- Requires: Authentication cookie
+
+POST /api/admin/blog/create
+- Creates a new blog post as file
+- Body: { title, description, featuredImage, author, content, publishDate }
+- Requires: Authentication
+
+GET /api/admin/blog/[slug]
+- Gets blog post metadata by slug
+- Requires: Authentication
+
+PUT /api/admin/blog/[slug]
+- Updates blog post by slug
+- Requires: Authentication
+
+DELETE /api/admin/blog/[slug]
+- Deletes blog post by slug
+- Requires: Authentication
+
+GET /api/admin/upload/list
+- Lists uploaded images from public/uploads directory
+- Requires: Authentication
+
+POST /api/admin/upload
+- Uploads images to public/uploads directory
+- Body: FormData with image file
+- Requires: Authentication
+
+# Content Structure
+
+## Blog Posts
+Blog posts are stored in two ways:
+1. File-based: Located in src/app/blog/[slug]/ with metadata.json and page.tsx
+2. Database: Stored in backend database, accessible via API
+
+Each blog post contains:
+- title: Blog post title
+- description: Meta description
+- featuredImage: URL to featured image
+- author: Author name (default: "Taypro Team")
+- slug: URL-friendly identifier
+- publishDate: ISO date string
+- content: HTML content of the blog post
+
+## Images
+Public images are stored in:
+- /public/blogs/ - Blog post images
+- /public/tayproasset/ - Company assets and logos
+- /public/tayprorobots/ - Robot product images
+- /public/tayprosolarfirm/ - Solar farm project images
+- /public/tayprokeymetrics/ - Project metrics images
+- /public/uploads/ - User uploaded images (requires auth)
+
+## External Image Sources
+The site also uses images from:
+- https://taypro.in/wp-content/uploads/ - WordPress site images
+- https://res.cloudinary.com - Cloudinary CDN
+- https://images.unsplash.com - Unsplash images
+
+# Data Sources
+
+## Backend API
+- Base URL: https://console.taypro.in (configurable via NEXT_PUBLIC_BACKEND_URL)
+- Blog Posts: GET /api/v1/blogposts
+- Blog by Slug: GET /api/v1/blogposts/slug/[slug]
+- Blog by ID: GET /api/v1/blogposts/id/[id]
+- Create Blog: POST /api/v1/blogposts
+
+## Content Format
+- Blog content is stored as HTML
+- Images in blog content use standard <img> tags
+- Featured images use Next.js Image component with optimization
+
+# Key Features
+
+## Solar Panel Cleaning Robots
+- Model A, Model B, Model T variants
+- Waterless cleaning technology
+- Dual-pass cleaning system (air blast + microfiber)
+- AI-powered scheduling
+- Real-time monitoring via mobile app
+- Suitable for fixed-tilt and single-axis tracker systems
+
+## Services
+- Robotic cleaning system installation
+- Maintenance and support
+- ROI and performance analysis
+- Custom solutions for different solar farm configurations
+
+# SEO and Metadata
+- All pages include proper metadata (title, description, Open Graph tags)
+- Blog posts have structured metadata for SEO
+- Sitemap available at /sitemap.xml
+- Robots.txt at /robots.txt
+
+# Technical Details
+
+## Development
+- Framework: Next.js 15.5.4 with App Router
+- Language: TypeScript
+- Styling: Tailwind CSS 4.1
+- Image Optimization: Next.js Image component
+- Content Editor: TipTap (Rich text editor)
+
+## Build & Deployment
+- Development: `npm run dev` (uses Turbopack)
+- Build: `npm run build`
+- Start: `npm start`
+- Sitemap: Auto-generated with next-sitemap
+
+# How to Interact with This Site
+
+## For Content Discovery
+1. Start at /blog for all blog posts
+2. Use /api/blog/list for programmatic access to blog listings
+3. Individual blog posts available at /blog/[slug]
+4. Projects showcase at /projects
+
+## For Content Creation
+1. Authenticate via /api/admin/auth/login
+2. Use /api/admin/blog/create for file-based blogs
+3. Use /api/blog/create for database-stored blogs
+4. Upload images via /api/admin/upload
+
+## For Data Analysis
+1. Blog metadata available via /api/blog/list
+2. Each blog includes: title, description, publishDate, author, slug
+3. Content is HTML-formatted and includes images
+4. Blog posts cover solar energy, cleaning technology, and industry trends
+
+# Important Notes
+
+- The site uses Next.js Image optimization for better performance
+- External images from taypro.in may require proper CORS headers
+- Blog content may contain embedded images from external sources
+- Authentication is required for admin operations
+- The site integrates with a backend API at console.taypro.in
+
+# Contact Information
+For questions about Taypro products and services, visit the website or use the contact forms available on various pages.
+

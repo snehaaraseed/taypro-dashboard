@@ -7,8 +7,9 @@ const COOKIE_NAME = "admin-auth";
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Allow access to login page and API auth endpoints
+  // Allow access to main admin page (shows login if not authenticated), login page, and API auth endpoints
   if (
+    pathname === "/admin" ||
     pathname === "/admin/login" ||
     pathname.startsWith("/api/admin/auth/")
   ) {
@@ -23,9 +24,9 @@ export function middleware(request: NextRequest) {
     const authCookie = request.cookies.get(COOKIE_NAME);
 
     if (!authCookie || authCookie.value !== ADMIN_PASSWORD) {
-      // Redirect to login if not authenticated
-      const loginUrl = new URL("/admin/login", request.url);
-      return NextResponse.redirect(loginUrl);
+      // Redirect to admin page (which will show login) if not authenticated
+      const adminUrl = new URL("/admin", request.url);
+      return NextResponse.redirect(adminUrl);
     }
 
     // Set pathname header for layout to use

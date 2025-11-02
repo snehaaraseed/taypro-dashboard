@@ -14,7 +14,7 @@ interface RelatedProjectsSectionProps {
   projects: Project[];
 }
 
-export default function RelatedProjectsSection({
+function RelatedProjectsSection({
   projects,
 }: RelatedProjectsSectionProps) {
   return (
@@ -62,3 +62,6 @@ export default function RelatedProjectsSection({
     </section>
   );
 }
+
+export default RelatedProjectsSection;
+export { RelatedProjectsSection as AllRelatedProjectsSection };

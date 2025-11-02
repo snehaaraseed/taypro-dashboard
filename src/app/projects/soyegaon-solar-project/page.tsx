@@ -1,79 +1,102 @@
-"use client";
-
+import { Metadata } from "next";
+import Image from "next/image";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
-import CallbackCard from "@/app/components/CallbackCard";
-import { additionalProjects, soyegaonMetrics } from "@/app/data";
-import { usePathname } from "next/navigation";
-import ProjectHeroSection from "@/app/components/AllProjectsHeroSection";
-import ProjectOverviewSection from "@/app/components/AllProjectsOverviewSection";
-import ProjectDescriptionSection from "@/app/components/AllProjectsDescriptionSection";
-import ProjectQuoteSection from "@/app/components/AllProjectsQuoteSection";
-import ProjectKeyMetricsSection from "@/app/components/AllProjectsKeyMetricsSection";
-import RelatedProjectsSection from "@/app/components/AllRelatedProjectsSection";
+import { AllProjectsOverviewSection } from "@/app/components/AllProjectsOverviewSection";
+import { AllRelatedProjectsSection } from "@/app/components/AllRelatedProjectsSection";
+import { BlogContent } from "@/app/components/BlogContent";
+import { getAllFileProjects } from "@/app/utils/projectFileUtils";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
-  {
-    name: "Projects",
-    href: "/projects",
-  },
-  {
-    name: "Soyegaon Solar Project – 100 MW",
-    href: "",
-  },
+  { name: "Projects", href: "/projects" },
+  { name: "Soyegaon Maharastra – 100 MW", href: "" },
 ];
 
-const categories = [
-  { label: "Automatic", href: "/projects/automatic" },
-  { label: "Capex", href: "/projects/capex" },
-  { label: "Semi-Automatic", href: "/projects/semi-automatic" },
-];
+export const metadata: Metadata = {
+  title: "Soyegaon Maharastra – 100 MW | Taypro",
+  description: "A major 100 MW solar power project in Maharashtra, one of our largest installations.",
+  openGraph: {
+    title: "Soyegaon Maharastra – 100 MW",
+    description: "A major 100 MW solar power project in Maharashtra, one of our largest installations.",
+    images: ["/tayprosolarfirm/soyegaon-solar.jpg"],
+  },
+};
 
-export default function SoyegaonSolarProject() {
-  const pathname = usePathname(); // e.g. "/projects/banda"
-  const currentSlug = pathname.split("/").pop();
+export default async function ProjectPage() {
+  const allProjects = await getAllFileProjects();
+  const relatedProjects = allProjects
+    .filter((p) => p.slug !== "soyegaon-solar-project")
+    .slice(0, 3);
 
-  const otherProjects = additionalProjects.filter(
-    (p) => p.href.split("/").pop() !== currentSlug
-  );
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
+      <div className="min-h-screen">
+        <section
+          className="bg-white min-h-[50vh] flex flex-col items-center justify-start relative"
+          style={{
+            background: "url('/tayprobglayout/taypro-project.png') no-repeat",
+            backgroundSize: "cover",
+          }}
+        >
+          <div className="pt-10">
+            <h1 className="text-[#A8C117] text-center text-[16px] mb-4">
+              Sustainable Projects
+            </h1>
+            <h2 className="font-semibold text-[#052638] text-4xl md:text-5xl mb-7 text-center">
+              Soyegaon Maharastra – 100 MW
+            </h2>
+          </div>
 
-      <div className="min-h-screen overflow-x-hidden px-4 sm:px-6 lg:px-0">
-        <ProjectHeroSection
-          title="Soyegaon Solar Project – 100 MW"
-          categories={categories}
-        />
+          <div className="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
+            <svg
+              className="w-full h-24 md:h-40"
+              viewBox="0 0 1440 320"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+            >
+              <path fill="#052638" d="M0,224L1440,96L1440,320L0,320Z" />
+            </svg>
+          </div>
+        </section>
 
-        <ProjectOverviewSection
+        <AllProjectsOverviewSection
           image="/tayprosolarfirm/soyegaon-solar.jpg"
-          overviewText="TAYPRO deployed a total of 90 solar cleaning robots at the Soyegaon Solar Project In Maharashtra. This included 54 Automatic Robots for high-speed autonomous cleaning and 36 Semi-Automated Robots for precision-based cleaning."
+          overviewText="A major 100 MW solar power project in Maharashtra, one of our largest installations."
         />
 
-        <ProjectDescriptionSection
-          title="Enhanced solar panel efficiency and reduced operational costs."
-          image="/tayprosolarfirm/taypro-soyegaon-mh.jpg"
-          paragraphs={[
-            `The Soyegaon Solar Project required a solution to maximise the power generation and performance ratio. TAYPRO’s automatic and semi-automatic robots were meticulously deployed to deliver high-speed cleaning for autonomous cleaning for large-scale panel areas. Also, the semi-automatic robots focused on intricate cleaning requirements.`,
-            `This strategic robotic cleaning system improved the overall energy conversion efficiency of the panels and decreased water usage. Moreover, each robot’s performance was monitored in real time for seamless operational adjustment and maintenance. `,
-          ]}
-        />
+        
+        {/* Detailed Content Section */}
+        <article className="w-full pb-20 bg-white">
+          <div className="max-w-4xl mx-auto px-6">
+            <BlogContent
+              content={"<h2>Project Overview</h2>\n<p>The Soyegaon Maharashtra Solar Project is a major 100 MW installation that significantly contributes to the region's renewable energy infrastructure. This large-scale project demonstrates our capability in managing complex solar power installations in Maharashtra's diverse landscape.</p>\n\n<h2>Regional Significance</h2>\n<p>Located in Maharashtra, this 100 MW facility plays a crucial role in the state's renewable energy portfolio. The project showcases how strategic location selection and advanced technology can maximize solar energy generation in various geographical conditions.</p>\n\n<h2>Technical Specifications</h2>\n<ul>\n<li><strong>Generation Capacity:</strong> 100 MW of clean solar power</li>\n<li><strong>Panel Technology:</strong> High-efficiency solar panels with advanced coatings</li>\n<li><strong>Cleaning Systems:</strong> Multi-mode cleaning including automatic and semi-automatic solutions</li>\n<li><strong>Grid Integration:</strong> Seamless integration with Maharashtra's power distribution network</li>\n</ul>\n\n<h2>Innovation & Technology</h2>\n<p>The Soyegaon project incorporates innovative solutions tailored to the regional climate and terrain. Our specialized cleaning robots navigate the site efficiently, ensuring that environmental factors like dust and seasonal variations don't compromise performance.</p>\n\n<p>Key technological features include:</p>\n<ul>\n<li>Weather-resistant panel mounting systems</li>\n<li>Adaptive cleaning schedules based on weather patterns</li>\n<li>Remote monitoring and control systems</li>\n<li>Efficient water management for cleaning operations</li>\n</ul>\n\n<h2>Operational Excellence</h2>\n<p>Our comprehensive maintenance approach ensures consistent performance throughout the year. The operations team implements:</p>\n<ul>\n<li>Regular performance assessments</li>\n<li>Scheduled cleaning and maintenance cycles</li>\n<li>Continuous system optimization</li>\n<li>Proactive issue resolution</li>\n</ul>\n\n<h2>Community & Environmental Benefits</h2>\n<p>Beyond power generation, the Soyegaon project delivers substantial environmental and community benefits. The clean energy produced reduces the region's carbon footprint while creating sustainable employment opportunities and supporting local economic development.</p>"}
+              className="prose prose-lg max-w-none space-y-5
+               prose-headings:text-[#052638]
+               prose-headings:font-semibold
+               prose-p:text-gray-700
+               prose-p:leading-relaxed
+               prose-a:text-blue-600
+               prose-a:hover:text-blue-800
+               prose-strong:text-[#052638]
+               prose-ul:text-gray-700
+               prose-ol:text-gray-700
+               prose-li:text-gray-700
+               prose-blockquote:border-l-4
+               prose-blockquote:border-blue-500
+               prose-blockquote:pl-4
+               prose-blockquote:italic
+               prose-code:bg-gray-100
+               prose-code:px-2
+               prose-code:py-1
+               prose-code:rounded"
+            />
+          </div>
+        </article>
 
-        <ProjectQuoteSection
-          quote="At Soyegaon Solar Project we leveraged the cutting-edge technology to meet the high power generation demand."
-          author="Tejas Memane, COO, TAYPRO PRIVATE LIMITED"
-        />
-
-        <ProjectKeyMetricsSection
-          title="Key Metrics"
-          image="/tayprokeymetrics/soyegaon-key-matrix.jpg"
-          metrics={soyegaonMetrics}
-        />
-
-        <RelatedProjectsSection projects={otherProjects} />
-
-        <CallbackCard headerText={""} />
+        {relatedProjects.length > 0 && (
+          <AllRelatedProjectsSection projects={relatedProjects} />
+        )}
       </div>
     </>
   );

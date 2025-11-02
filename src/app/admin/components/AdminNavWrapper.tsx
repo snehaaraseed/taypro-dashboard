@@ -10,9 +10,10 @@ export default function AdminNavWrapper({
 }) {
   const pathname = usePathname();
   const isLoginPage = pathname === "/admin/login";
+  const isMainAdminPage = pathname === "/admin";
 
-  // Don't show nav on login page
-  if (isLoginPage) {
+  // Don't show nav on login page or main admin page (they handle their own layout)
+  if (isLoginPage || isMainAdminPage) {
     return <>{children}</>;
   }
 
