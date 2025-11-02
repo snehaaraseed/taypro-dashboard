@@ -19,7 +19,10 @@ import ProjectsCard from "@/app/components/ProjectsCard";
 import ModelCards from "@/app/components/ModelCards";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROITayproCalculator from "@/app/components/ROICalculator";
+import { ProductSchema } from "@/app/components/StructuredData";
 import Link from "next/link";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -38,13 +41,24 @@ export default function AutomaticSolarPanelCleaningRobot() {
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
+      <ProductSchema
+        name="Automatic Solar Panel Cleaning Robot - Model A"
+        description="Model-A: Fully automatic Solar Panel Cleaning Robot with AI-enabled technology. Removes up to 100% dust and debris. Autonomous waterless cleaning for utility-scale solar power plants."
+        image={`${siteUrl}/tayproasset/taypro-robotImage.png`}
+        brand="Taypro"
+        sku="MODEL-A"
+        offers={{
+          price: "Contact for pricing",
+          priceCurrency: "INR",
+          availability: "https://schema.org/InStock",
+        }}
+      />
       <div className="min-h-screen">
         <section className="min-h-[600px] mx-4 sm:mx-20 flex flex-col lg:flex-row relative overflow-hidden">
           {/* LEFT - Content */}
           <div className="bg-[#052638] w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-8 xl:px-24 py-12 sm:py-16">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-semibold text-white mb-6 leading-tight">
-              Automatic Solar <br /> Panel Cleaning <br />
-              Robot: MODEL-<span className="">A</span>
+              Automatic Solar Panel Cleaning Robot: <br /> MODEL-<span className="">A</span>
             </h1>
             <div className="text-base sm:text-xl text-white leading-relaxed max-w-full sm:max-w-xl mb-8 sm:mb-9">
               Autonomous Waterless Solar Panel Cleaning Robot for Utility Scale
@@ -60,9 +74,9 @@ export default function AutomaticSolarPanelCleaningRobot() {
           {/* RIGHT - IMAGE */}
           <div className="relative w-full sm:w-300 lg:w-1/2 min-h-[240px] sm:min-h-[360px] mr-0 sm:mr-20 mt-10 lg:mt-0">
             <Image
-              alt="Solar robot field"
+              alt="Taypro Automatic Solar Panel Cleaning Robot Model-A cleaning solar panels at utility-scale solar farm"
               src="/tayprosolarpanel/solar-panel.jpg"
-              title="Solar Panel"
+              title="Automatic Solar Panel Cleaning Robot Model-A by Taypro"
               fill
               className="object-contain"
               priority
@@ -72,6 +86,7 @@ export default function AutomaticSolarPanelCleaningRobot() {
               viewBox="0 0 900 700"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
             >
               <path
                 d="M700,90 Q990,160 990,400 Q990,680 510,700"

@@ -106,8 +106,8 @@ export default function Blog() {
                   <div className="relative w-full h-64 sm:h-72 md:h-80 overflow-hidden">
                     <Image
                       src={blog.imgSrc}
-                      alt={blog.title}
-                      title="Blogs"
+                      alt={`${blog.title} - Solar Panel Cleaning Robot blog article by Taypro`}
+                      title={`${blog.title} - Solar Panel Cleaning Robot Blog`}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105 group-hover:translate-x-3"

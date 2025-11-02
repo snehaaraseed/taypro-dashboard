@@ -7,7 +7,14 @@ export const metadata: Metadata = {
   title: "Sitemap | Taypro – Complete Website Navigation",
   description:
     "Browse Taypro’s sitemap to quickly access all website sections, including projects, services, and company information.",
-  keywords: "sitemap-xml, sitemap taypro, taypro",
+  keywords: [
+    "Taypro sitemap",
+    "Solar Panel Cleaning Robot website navigation",
+    "sitemap",
+    "website map",
+    "Taypro navigation",
+    "solar panel cleaning robot pages",
+  ],
   openGraph: {
     title: "Sitemap | Taypro – Complete Website Navigation",
     description:

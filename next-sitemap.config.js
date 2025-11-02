@@ -15,6 +15,57 @@ module.exports = {
   
   // Transform function to set priorities and changefreq dynamically
   transform: async (config, path) => {
+    const fs = require('fs').promises;
+    const pathModule = require('path');
+    
+    // Check if this is a blog or project route that might be a draft
+    if (path.startsWith('/blog/') && !path.includes('/add') && !path.includes('/db/')) {
+      try {
+        const blogSlug = path.split('/blog/')[1];
+        const blogDir = pathModule.join(process.cwd(), 'src', 'app', 'blog', blogSlug);
+        const metadataPath = pathModule.join(blogDir, 'metadata.json');
+        
+        try {
+          const metadataContent = await fs.readFile(metadataPath, 'utf-8');
+          const metadata = JSON.parse(metadataContent);
+          
+          // Exclude drafts from sitemap
+          if (metadata.published === false) {
+            return null;
+          }
+        } catch (error) {
+          // If metadata doesn't exist or can't be read, skip this route
+          return null;
+        }
+      } catch (error) {
+        // If path parsing fails, include it (might be database blog)
+      }
+    }
+    
+    // Check if this is a project route that might be a draft
+    if (path.startsWith('/projects/')) {
+      try {
+        const projectSlug = path.split('/projects/')[1];
+        const projectDir = pathModule.join(process.cwd(), 'src', 'app', 'projects', projectSlug);
+        const metadataPath = pathModule.join(projectDir, 'metadata.json');
+        
+        try {
+          const metadataContent = await fs.readFile(metadataPath, 'utf-8');
+          const metadata = JSON.parse(metadataContent);
+          
+          // Exclude drafts from sitemap
+          if (metadata.published === false) {
+            return null;
+          }
+        } catch (error) {
+          // If metadata doesn't exist or can't be read, skip this route
+          return null;
+        }
+      } catch (error) {
+        // If path parsing fails, include it
+      }
+    }
+    
     // Default values
     let priority = 0.7;
     let changefreq = 'daily';

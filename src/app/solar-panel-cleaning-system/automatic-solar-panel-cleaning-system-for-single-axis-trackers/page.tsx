@@ -9,18 +9,47 @@ import EnergyResourceCard from "@/app/components/EnergyResourceCard";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import type { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
-  title: "Model-T for Single Axis Tracker | Taypro",
+  title: "Single-Axis Tracker Solar Panel Cleaning Robot | Model-T | Taypro",
   description:
-    "Precision in Operation The TAYPRO CONSOLE goes beyond conventional cleaning methods. It allows for the application of individual and group commands, tailoring the cleaning approach based on seasonal data and the specific position of each table in the field.",
-  keywords:
-    "automatic solar panel, cleaning system, model t, taypro single axis tracker, taypro",
+    "Model-T: Autonomous Solar Panel Cleaning Robot designed specifically for single-axis tracker systems. Precision operation with individual and group commands, tailored cleaning based on seasonal data and tracker position. Optimized for maximum efficiency.",
+  keywords: [
+    "Single-Axis Tracker Solar Panel Cleaning Robot",
+    "Model-T solar panel cleaning robot",
+    "solar panel cleaning robot for trackers",
+    "single-axis tracker cleaning robot",
+    "automatic solar panel cleaning robot",
+    "tracker solar panel cleaning",
+    "taypro model T",
+    "taypro single axis tracker",
+    "solar tracker cleaning robot",
+  ],
   openGraph: {
-    title: "Model-T for Single Axis Tracker | Taypro",
+    title: "Single-Axis Tracker Solar Panel Cleaning Robot | Model-T | Taypro",
     description:
-      "Precision in Operation The TAYPRO CONSOLE goes beyond conventional cleaning methods. It allows for the application of individual and group commands, tailoring the cleaning approach based on seasonal data and the specific position of each table in the field.",
-    url: "https://taypro-dashboard.vercel.app/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
+      "Model-T: Autonomous Solar Panel Cleaning Robot for single-axis trackers. Precision operation with tailored cleaning commands based on seasonal data.",
+    url: `${siteUrl}/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers`,
     type: "website",
+    images: [
+      {
+        url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
+        width: 1200,
+        height: 630,
+        alt: "Taypro Single-Axis Tracker Solar Panel Cleaning Robot Model-T",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Single-Axis Tracker Solar Panel Cleaning Robot | Model-T | Taypro",
+    description:
+      "Autonomous Solar Panel Cleaning Robot for single-axis trackers. Precision cleaning with tailored commands.",
+    images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
+  },
+  alternates: {
+    canonical: `${siteUrl}/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers`,
   },
 };
 
@@ -45,7 +74,7 @@ export default function AutomaticSolarPanelCleaningSystem() {
           title="Model-T"
           subtitle="Autonomous solar panel cleaning robot for single-axis trackers"
           imgSrc="/tayprorobots/taypro-modelT-img.png"
-          imgAlt="Taypro Model-T"
+          imgAlt="Taypro Single-Axis Tracker Solar Panel Cleaning Robot Model-T - Autonomous robotic cleaning system for tracking solar panel installations"
           ctaHref="/contact"
           ctaText="Request a quote"
         />
@@ -102,8 +131,8 @@ export default function AutomaticSolarPanelCleaningSystem() {
             <div className="hidden lg:block relative w-full h-[700px] overflow-hidden">
               <Image
                 src="/tayprorobots/taypro-modelT-img.png"
-                alt="TAYPRO MODEL-T cleaning solar panels"
-                title="TAYPRO MODEL-T"
+                alt="Taypro Single-Axis Tracker Solar Panel Cleaning Robot Model-T actively cleaning solar panels at utility-scale solar farm installation"
+                title="Taypro Single-Axis Tracker Solar Panel Cleaning Robot Model-T"
                 fill
                 className="object-cover"
                 priority

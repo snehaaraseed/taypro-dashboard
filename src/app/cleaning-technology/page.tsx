@@ -12,18 +12,48 @@ const breadcrumbs = [
   },
 ];
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
-  title: "Taypro Cleaning Technology using latest Technology",
+  title: "Taypro Cleaning Technology - Advanced Solar Panel Cleaning Robot Systems",
   description:
-    "Taypro specializes in enhancing solar panel efficiency through innovative robotic cleaning solutions that combat dust accumulation.",
-  keywords:
-    "solar panel cleaning robots, cleaning technology, cleaning, automatic solar robot, taypro",
+    "Discover Taypro's advanced Solar Panel Cleaning Robot technology. Our innovative robotic cleaning solutions use dual-pass cleaning, AI-powered scheduling, and waterless technology to combat dust accumulation and enhance solar panel efficiency up to 30%.",
+  keywords: [
+    "Solar Panel Cleaning Robot technology",
+    "solar panel cleaning robot systems",
+    "advanced cleaning technology",
+    "robotic solar cleaning solutions",
+    "automatic solar panel cleaning robot",
+    "AI-powered solar cleaning",
+    "waterless solar panel cleaning",
+    "dual-pass cleaning technology",
+    "solar panel efficiency technology",
+    "taypro cleaning technology",
+  ],
   openGraph: {
-    title: "Taypro Cleaning Technology using latest Technology",
+    title: "Taypro Cleaning Technology - Advanced Solar Panel Cleaning Robot Systems",
     description:
-      "Taypro specializes in enhancing solar panel efficiency through innovative robotic cleaning solutions that combat dust accumulation.",
-    url: "https://taypro-dashboard.vercel.app/cleaning-technology",
+      "Advanced Solar Panel Cleaning Robot technology with dual-pass cleaning, AI scheduling, and waterless solutions. Increase efficiency up to 30%.",
+    url: `${siteUrl}/cleaning-technology`,
     type: "website",
+    images: [
+      {
+        url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
+        width: 1200,
+        height: 630,
+        alt: "Taypro Solar Panel Cleaning Robot Technology",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Taypro Cleaning Technology - Advanced Solar Panel Cleaning Robot Systems",
+    description:
+      "Advanced Solar Panel Cleaning Robot technology with AI-powered scheduling and waterless cleaning.",
+    images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
+  },
+  alternates: {
+    canonical: `${siteUrl}/cleaning-technology`,
   },
 };
 
@@ -54,6 +84,7 @@ export default function CleaningTechnology() {
               viewBox="0 0 1440 320"
               xmlns="http://www.w3.org/2000/svg"
               preserveAspectRatio="none"
+              aria-hidden="true"
             >
               <path fill="#052638" d="M0,224L1440,96L1440,320L0,320Z" />
             </svg>

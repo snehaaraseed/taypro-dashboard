@@ -23,8 +23,8 @@ function ProjectOverviewSection({
         <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[700px] overflow-hidden">
           <Image
             src={image}
-            alt="Project Overview"
-            title="Project Overview"
+            alt={`Solar Panel Cleaning Robot Project Overview - ${overviewText.substring(0, 50)}...`}
+            title="Solar Panel Cleaning Robot Project Overview by Taypro"
             fill
             className="object-cover"
             priority

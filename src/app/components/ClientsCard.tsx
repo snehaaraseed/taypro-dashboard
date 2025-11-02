@@ -17,8 +17,8 @@ export default function ClientsCard() {
             >
               <Image
                 src={logoSrc}
-                alt={`Client Logo ${idx + 1}`}
-                title="Client Logo"
+                alt={`Taypro Solar Panel Cleaning Robot Client ${idx + 1} - Partner using Taypro robotic cleaning solutions`}
+                title={`Taypro Solar Panel Cleaning Robot Client ${idx + 1}`}
                 width={200}
                 height={85}
                 className="max-h-[120px] max-w-[80%] object-contain"

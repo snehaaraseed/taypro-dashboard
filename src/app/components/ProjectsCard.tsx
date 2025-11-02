@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { projects } from "../data";
-import { getAllFileProjects } from "../utils/projectFileUtils";
 import Link from "next/link";
 
 interface ProjectItem {
@@ -17,38 +16,31 @@ interface ProjectsCardProps {
   useFileProjects?: boolean;
 }
 
-export default async function ProjectsCard({
+function normalizeProjectsData(projectsData: typeof projects): ProjectItem[] {
+  return projectsData.map((p) => {
+    const detailsValue = p.details;
+    const detailsStr = typeof detailsValue === "string" 
+      ? detailsValue 
+      : Array.isArray(detailsValue) 
+        ? (detailsValue as string[]).join(", ") 
+        : String(detailsValue);
+    return {
+      ...p,
+      details: detailsStr,
+    };
+  });
+}
+
+// Client-safe component that just displays projects
+function ProjectsCardDisplay({
   showHeader = false,
   headerText,
-  projects: providedProjects,
-  useFileProjects = false,
-}: ProjectsCardProps) {
-  // Use file-based projects if requested, otherwise use provided projects or fallback to data.ts
-  let displayProjects: ProjectItem[] = providedProjects || [];
-
-  if (useFileProjects && !providedProjects) {
-    const fileProjects = await getAllFileProjects();
-    displayProjects = fileProjects.map((p) => ({
-      img: p.img,
-      title: p.title,
-      details: p.details,
-      href: p.href,
-    }));
-  } else if (!providedProjects && !useFileProjects) {
-    // Fallback to data.ts projects
-    displayProjects = projects.map((p) => {
-      const detailsValue = p.details;
-      const detailsStr = typeof detailsValue === "string" 
-        ? detailsValue 
-        : Array.isArray(detailsValue) 
-          ? (detailsValue as string[]).join(", ") 
-          : String(detailsValue);
-      return {
-        ...p,
-        details: detailsStr,
-      };
-    });
-  }
+  displayProjects,
+}: {
+  showHeader?: boolean;
+  headerText?: React.ReactNode;
+  displayProjects: ProjectItem[];
+}) {
 
   // Normalize details to array
   const normalizeDetails = (details: string | string[]): string[] => {
@@ -87,8 +79,8 @@ export default async function ProjectsCard({
                 <div className="absolute inset-0">
                   <Image
                     src={project.img}
-                    alt={project.title}
-                    title="Solar Project"
+                    alt={`${project.title} - Solar Panel Cleaning Robot Installation Project by Taypro`}
+                    title={`${project.title} Solar Project with Solar Panel Cleaning Robot`}
                     fill
                     className="object-cover transform group-hover:scale-105 transition duration-300"
                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -145,4 +137,18 @@ export default async function ProjectsCard({
       <div className="border border-[#cbd2d0] mt-5"></div>
     </section>
   );
+}
+
+// Default export - client-safe version that uses static data
+// Use ProjectsCardServer for file-based projects in server components
+export default function ProjectsCard({
+  showHeader = false,
+  headerText,
+  projects: providedProjects,
+  useFileProjects = false,
+}: ProjectsCardProps) {
+  // This version only works with static data - safe for client components
+  const displayProjects: ProjectItem[] = providedProjects || normalizeProjectsData(projects);
+  
+  return <ProjectsCardDisplay showHeader={showHeader} headerText={headerText} displayProjects={displayProjects} />;
 }

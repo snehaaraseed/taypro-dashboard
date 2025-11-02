@@ -1,17 +1,45 @@
 import type { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
-  title: "Taypro - Reach out to us and let's contribute together.",
+  title: "Contact Taypro - Get Your Solar Panel Cleaning Robot Quote",
   description:
-    "Reach out to Taypro for advanced Solar Power Plant Cleaning Services. Our innovative robotic solutions deliver up to 99% cleaning efficiency, maximize energy generation, and ensure a high return on investment for your solar assets",
-  keywords:
-    "solar panel cleaning robots, contact taypro, email, automatic solar robot, semi-automatic solar robot, taypro",
+    "Contact Taypro for advanced Solar Panel Cleaning Robot solutions. Our innovative robotic cleaning systems deliver up to 99% cleaning efficiency, maximize energy generation, and ensure high ROI for your solar assets. Get a quote today!",
+  keywords: [
+    "Solar Panel Cleaning Robot",
+    "contact Taypro",
+    "solar panel cleaning robot quote",
+    "automatic solar panel cleaning robot",
+    "semi-automatic solar panel cleaning robot",
+    "solar cleaning robot contact",
+    "taypro contact",
+    "solar panel cleaning service",
+  ],
   openGraph: {
-    title: "Taypro - Reach out to us and let's contribute together.",
+    title: "Contact Taypro - Get Your Solar Panel Cleaning Robot Quote",
     description:
-      "Reach out to Taypro for advanced Solar Power Plant Cleaning Services. Our innovative robotic solutions deliver up to 99% cleaning efficiency, maximize energy generation, and ensure a high return on investment for your solar assets",
-    url: "https://taypro.com/contact",
+      "Contact Taypro for advanced Solar Panel Cleaning Robot solutions. Our robotic systems deliver 99% cleaning efficiency and maximize energy generation.",
+    url: `${siteUrl}/contact`,
     type: "website",
+    images: [
+      {
+        url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
+        width: 1200,
+        height: 630,
+        alt: "Contact Taypro for Solar Panel Cleaning Robot Solutions",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Taypro - Get Your Solar Panel Cleaning Robot Quote",
+    description:
+      "Get a quote for our advanced Solar Panel Cleaning Robot solutions. 99% cleaning efficiency guaranteed.",
+    images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
+  },
+  alternates: {
+    canonical: `${siteUrl}/contact`,
   },
 };
 

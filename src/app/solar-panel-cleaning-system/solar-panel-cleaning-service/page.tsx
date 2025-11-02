@@ -45,7 +45,7 @@ export default function SolarPanelCleaningService() {
           title="Solar Panel Cleaning Service: TAYPRO OPEX"
           subtitle="A solar panel cleaning service for utility scale solar power plants."
           imgSrc="/tayprosolarpanel/taypro-cleaning-service.png"
-          imgAlt="Taypro Cleaning Service"
+          imgAlt="Taypro Solar Panel Cleaning Service - Professional OPEX robotic cleaning services using Solar Panel Cleaning Robot systems"
           ctaHref="/contact"
           ctaText="Request a quote"
         />

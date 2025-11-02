@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 type ModelCardItem = {
   label: string;
@@ -12,6 +13,17 @@ type ModelCardsProps = {
 };
 
 export default function ModelCards({ title, cards }: ModelCardsProps) {
+  const getAltText = (label: string) => {
+    if (label.toLowerCase().includes("model-a") || label.toLowerCase().includes("automatic")) {
+      return `${label} - Taypro Automatic Solar Panel Cleaning Robot product card`;
+    } else if (label.toLowerCase().includes("model-b") || label.toLowerCase().includes("semi")) {
+      return `${label} - Taypro Semi-Automatic Solar Panel Cleaning Robot product card`;
+    } else if (label.toLowerCase().includes("model-t") || label.toLowerCase().includes("tracker")) {
+      return `${label} - Taypro Single-Axis Tracker Solar Panel Cleaning Robot product card`;
+    }
+    return `${label} - Taypro Solar Panel Cleaning Robot product card`;
+  };
+
   return (
     <section className="w-full pt-5 py-30 flex flex-col items-center bg-white">
       {title && (
@@ -25,7 +37,7 @@ export default function ModelCards({ title, cards }: ModelCardsProps) {
           <Link
             key={idx}
             href={item.href}
-            title="Robot Type"
+            title={`${item.label} Solar Panel Cleaning Robot`}
             className="flex w-full max-w-xl sm:max-w-3xl h-[130px] overflow-hidden transition-transform duration-300 transform hover:-translate-y-3 cursor-pointer"
           >
             <h3 className="flex items-center justify-center bg-[#91bc00] w-3/5 sm:w-3/5 h-full text-white text-2xl sm:text-4xl font-extrabold tracking-wider">
@@ -33,15 +45,16 @@ export default function ModelCards({ title, cards }: ModelCardsProps) {
             </h3>
 
             {/* Image side */}
-            <div
-              className="w-[40%] h-full transition-transform duration-300 transform hover:-translate-y-3"
-              style={{
-                backgroundImage: `url('${item.image}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                position: "relative",
-              }}
-            />
+            <div className="relative w-[40%] h-full transition-transform duration-300 transform hover:-translate-y-3 overflow-hidden">
+              <Image
+                src={item.image}
+                alt={getAltText(item.label)}
+                title={`${item.label} - Taypro Solar Panel Cleaning Robot`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 400px"
+              />
+            </div>
           </Link>
         ))}
       </div>

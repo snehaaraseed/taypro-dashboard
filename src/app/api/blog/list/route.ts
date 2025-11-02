@@ -33,6 +33,11 @@ async function getFileBlogs(): Promise<DynamicBlog[]> {
         const metadataContent = await fs.readFile(metadataPath, "utf-8");
         const metadata = JSON.parse(metadataContent);
 
+        // Filter out drafts (only show published blogs, defaulting to true)
+        if (metadata.published === false) {
+          continue;
+        }
+
         blogs.push({
           ...metadata,
           href: `/blog/${dir.name}`,

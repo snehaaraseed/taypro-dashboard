@@ -35,8 +35,8 @@ function RelatedProjectsSection({
               <div className="relative w-full h-[200px] sm:h-[240px] lg:h-[280px] mb-4 sm:mb-6 overflow-hidden">
                 <Image
                   src={project.img}
-                  alt={project.title}
-                  title="Solar Project"
+                  alt={`${project.title} - Related Solar Panel Cleaning Robot Installation Project by Taypro`}
+                  title={`${project.title} Solar Project with Solar Panel Cleaning Robot`}
                   fill
                   sizes="sm"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"

@@ -33,7 +33,7 @@ export default function SolarPanelCleaningRobot() {
         <section className="pt-2 pb-20 bg-white px-4 sm:px-6 lg:px-0">
           <div className="text-center my-12 px-2 sm:px-0">
             <h1 className="text-4xl sm:text-6xl font-semibold">
-              Solar Panel Cleaning System <br /> With Highest Uptime
+              Solar Panel Cleaning Robot <br /> With Highest Uptime
             </h1>
             <div className="text-green-700 my-6 text-base sm:text-lg px-4 sm:px-0 leading-relaxed">
               We design and deliver efficient Solar Panel Cleaning Robots with
@@ -104,8 +104,8 @@ export default function SolarPanelCleaningRobot() {
             <div className="px-0 sm:px-0">
               <Image
                 src="/tayproasset/taypro-robotFeature.jpg"
-                alt="Taypro Robot Feature"
-                title="Taypro Robot Feature"
+                alt="Taypro Solar Panel Cleaning Robot Features - Autonomous waterless cleaning with AI-powered scheduling"
+                title="Solar Panel Cleaning Robot Features by Taypro"
                 width={400}
                 height={600}
                 priority
@@ -126,8 +126,8 @@ export default function SolarPanelCleaningRobot() {
             <div className="">
               <Image
                 src="/tayprosolarpanel/taypro-solar-panel.jpg"
-                alt="Taypro Solar Panel Robot"
-                title="Taypro Solar Panel Robot"
+                alt="Taypro Solar Panel Cleaning Robot cleaning solar panels at solar farm - Increase efficiency up to 30%"
+                title="Solar Panel Cleaning Robot by Taypro"
                 width={400}
                 height={400}
                 priority

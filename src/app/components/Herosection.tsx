@@ -15,11 +15,34 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   title,
   subtitle,
   imgSrc,
-  imgAlt = "",
+  imgAlt,
   ctaHref = "/contact",
   ctaText = "Request a quote",
   className = "",
 }) => {
+  // Generate SEO-friendly alt text if not provided
+  const getAltText = () => {
+    if (imgAlt) return imgAlt;
+    // Generate alt text based on title
+    if (title.toLowerCase().includes("model-t") || title.toLowerCase().includes("tracker")) {
+      return "Taypro Single-Axis Tracker Solar Panel Cleaning Robot - Autonomous robotic cleaning system for tracking solar panel installations";
+    }
+    if (title.toLowerCase().includes("model-b") || title.toLowerCase().includes("semi")) {
+      return "Taypro Semi-Automatic Solar Panel Cleaning Robot - Cost-effective pick-and-place robotic cleaning solution for solar farms";
+    }
+    if (title.toLowerCase().includes("model-a") || title.toLowerCase().includes("automatic")) {
+      return "Taypro Automatic Solar Panel Cleaning Robot - AI-enabled autonomous cleaning system for utility-scale solar power plants";
+    }
+    if (title.toLowerCase().includes("console") || title.toLowerCase().includes("monitoring")) {
+      return "Taypro Console - Solar Panel Cleaning Robot Monitoring and Control Dashboard for fleet management";
+    }
+    if (title.toLowerCase().includes("service") || title.toLowerCase().includes("opex")) {
+      return "Taypro Solar Panel Cleaning Service - Professional robotic cleaning services using Solar Panel Cleaning Robot systems";
+    }
+    // Default fallback
+    return `Taypro ${title} - Solar Panel Cleaning Robot system for efficient solar farm maintenance`;
+  };
+
   return (
     <section
       className={`min-h-[600px] mx-4 sm:mx-20 flex flex-col lg:flex-row relative overflow-hidden ${className}`}
@@ -43,9 +66,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       {/* RIGHT - IMAGE */}
       <div className="relative w-full sm:w-300 lg:w-1/2 min-h-[240px] sm:min-h-[360px] lg:h-[600px] mr-0 sm:mr-20 mt-10 lg:mt-0">
         <Image
-          alt={imgAlt}
+          alt={getAltText()}
           src={imgSrc}
-          title="Hero Section"
+          title={`${title} - Solar Panel Cleaning Robot by Taypro`}
           fill
           className="object-contain"
           priority
@@ -55,6 +78,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           viewBox="0 0 900 700"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
         >
           <path
             d="M700,90 Q990,160 990,400 Q990,680 510,700"

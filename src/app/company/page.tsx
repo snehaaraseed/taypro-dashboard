@@ -14,18 +14,47 @@ const breadcrumbs = [
   },
 ];
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
-  title: "Taypro - Know More About Taypro Unit.",
+  title: "About Taypro - Leading Solar Panel Cleaning Robot Manufacturer",
   description:
-    "Taypro is at the forefront of revolutionizing solar energy efficiency through innovative technological solutions designed to address persistent challenges within the industry.",
-  keywords:
-    "solar panel cleaning robots, cleaning technology, cleaning, automatic solar robot, taypro",
+    "Taypro is at the forefront of revolutionizing solar energy efficiency through innovative Solar Panel Cleaning Robot technology. Learn about our autonomous, waterless robotic cleaning solutions for solar farms.",
+  keywords: [
+    "Solar Panel Cleaning Robot",
+    "solar panel cleaning robot manufacturer",
+    "automatic solar panel cleaning robot",
+    "Taypro Solar Panel Cleaning Robot",
+    "solar cleaning technology",
+    "robotic solar cleaning",
+    "solar panel maintenance robots",
+    "autonomous solar cleaning",
+    "taypro",
+  ],
   openGraph: {
-    title: "Taypro - Know More About Taypro Unit.",
+    title: "About Taypro - Leading Solar Panel Cleaning Robot Manufacturer",
     description:
-      "Taypro is at the forefront of revolutionizing solar energy efficiency through innovative technological solutions designed to address persistent challenges within the industry.",
-    url: "https://taypro-dashboard.vercel.app/company",
+      "Taypro revolutionizes solar energy efficiency with innovative Solar Panel Cleaning Robot technology. Autonomous, waterless robotic cleaning solutions for solar farms.",
+    url: `${siteUrl}/company`,
     type: "website",
+    images: [
+      {
+        url: `${siteUrl}/tayproasset/taypro-logo.png`,
+        width: 1200,
+        height: 630,
+        alt: "Taypro - Solar Panel Cleaning Robot Manufacturer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Taypro - Leading Solar Panel Cleaning Robot Manufacturer",
+    description:
+      "Innovative Solar Panel Cleaning Robot technology for solar farms. Autonomous, waterless cleaning solutions.",
+    images: [`${siteUrl}/tayproasset/taypro-logo.png`],
+  },
+  alternates: {
+    canonical: `${siteUrl}/company`,
   },
 };
 
@@ -73,6 +102,7 @@ export default function AboutUsPage() {
               viewBox="0 0 1440 320"
               xmlns="http://www.w3.org/2000/svg"
               preserveAspectRatio="none"
+              aria-hidden="true"
             >
               <path fill="#052638" d="M0,224L1440,96L1440,320L0,320Z" />
             </svg>
@@ -98,7 +128,7 @@ export default function AboutUsPage() {
                     "Excellence",
                   ].map((val) => (
                     <li className="flex items-center gap-2" key={val}>
-                      <svg width="24" height="24" fill="none">
+                      <svg width="24" height="24" fill="none" aria-hidden="true">
                         <path
                           d="M20 6L9 17l-5-5"
                           stroke="#7be117"
@@ -151,8 +181,8 @@ export default function AboutUsPage() {
               <div className="w-full h-[360px] relative">
                 <Image
                   src="/tayprorobots/taypro-modelT-img.png"
-                  alt="Solar Panels"
-                  title="Solar Panels"
+                  alt="Taypro Single-Axis Tracker Solar Panel Cleaning Robot Model-T operating on solar panel array"
+                  title="Taypro Single-Axis Tracker Solar Panel Cleaning Robot Model-T"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -203,8 +233,8 @@ export default function AboutUsPage() {
               <div className="w-[520px] h-[460px] relative overflow-hidden shadow-md">
                 <Image
                   src="/tayprosolarpanel/taypro-about1.jpg"
-                  alt="Taypro Marvel"
-                  title="Taypro Marvel"
+                  alt="Taypro Solar Panel Cleaning Robot - Technological marvel revolutionizing solar panel maintenance with autonomous robotic cleaning systems"
+                  title="Taypro Solar Panel Cleaning Robot Technology"
                   fill
                   sizes="sm"
                   className="object-cover"
@@ -250,8 +280,8 @@ export default function AboutUsPage() {
               <div className="w-[520px] h-[460px] relative overflow-hidden shadow-md">
                 <Image
                   src="/tayprosolarpanel/taypro-about2.webp"
-                  alt="Taypro Marvel"
-                  title="Taypro Marvel"
+                  alt="Taypro Collaborative Engineering - Solar Panel Cleaning Robot development through collaboration with top-tier engineers and manufacturers"
+                  title="Taypro Solar Panel Cleaning Robot Collaborative Development"
                   fill
                   sizes="sm"
                   className="object-cover"
@@ -287,8 +317,8 @@ export default function AboutUsPage() {
                   <div className="relative h-[500px] w-[400px] flex justify-center items-center mx-auto">
                     <Image
                       src={f.img}
-                      alt={f.name}
-                      title="Founder"
+                      alt={`${f.name} - ${f.role} at Taypro, leading Solar Panel Cleaning Robot manufacturer`}
+                      title={`${f.name} - ${f.role} at Taypro`}
                       height={500}
                       width={400}
                       className="object-cover object-center"
@@ -364,8 +394,8 @@ export default function AboutUsPage() {
                       <div className="relative w-full h-[360px]">
                         <Image
                           src={r.imgSrc}
-                          alt={r.title}
-                          title="Energy Resource"
+                          alt={`${r.title} - Solar Panel Cleaning Robot technology and solar energy resource article by Taypro`}
+                          title={`${r.title} - Solar Panel Cleaning Robot Energy Resource`}
                           fill
                           sizes="sm"
                           className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-105"

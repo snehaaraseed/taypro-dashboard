@@ -29,6 +29,7 @@ export default function NewBlogPage() {
     author: "Taypro Team",
     content: "",
     publishDate: new Date().toISOString().split("T")[0],
+    published: true,
   });
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -371,6 +372,29 @@ export default function NewBlogPage() {
                 </button>
               </div>
             )}
+        </div>
+
+        <div>
+          <label className="flex items-center gap-3 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={formData.published}
+              onChange={(e) =>
+                setFormData({ ...formData, published: e.target.checked })
+              }
+              className="w-5 h-5 text-[#A8C117] border-gray-300 rounded focus:ring-[#A8C117]"
+            />
+            <div>
+              <span className="block text-sm font-medium text-gray-700">
+                Publish Blog
+              </span>
+              <span className="text-xs text-gray-500">
+                {formData.published
+                  ? "This blog will be visible on the website"
+                  : "Save as draft - won't appear on the website"}
+              </span>
+            </div>
+          </label>
         </div>
 
         <div>

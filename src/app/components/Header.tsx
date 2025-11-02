@@ -69,8 +69,8 @@ export default function Header() {
             <Link href={"/"}>
               <Image
                 src="/tayproasset/taypro-logo.png"
-                alt="taypro-logo"
-                title="Taypro Logo"
+                alt="Taypro Logo - Solar Panel Cleaning Robot Manufacturer"
+                title="Taypro - Solar Panel Cleaning Robot Manufacturer Logo"
                 width={160}
                 height={50}
                 style={{ width: "auto", height: "auto" }}
@@ -173,12 +173,13 @@ export default function Header() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-white hover:text-gray-300 focus:outline-none"
             >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
                 {isMenuOpen ? (
                   <path
                     strokeLinecap="round"

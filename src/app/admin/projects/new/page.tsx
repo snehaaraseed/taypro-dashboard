@@ -29,6 +29,7 @@ export default function NewProjectPage() {
     details: [] as string[],
     date: new Date().toISOString().split("T")[0],
     content: "",
+    published: true,
   });
   const [detailInput, setDetailInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -456,6 +457,29 @@ export default function NewProjectPage() {
               }
               className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
+          </div>
+
+          <div>
+            <label className="flex items-center gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={formData.published}
+                onChange={(e) =>
+                  setFormData((prev) => ({ ...prev, published: e.target.checked }))
+                }
+                className="w-5 h-5 text-[#A8C117] border-gray-300 rounded focus:ring-[#A8C117]"
+              />
+              <div>
+                <span className="block text-sm font-medium text-gray-700">
+                  Publish Project
+                </span>
+                <span className="text-xs text-gray-500">
+                  {formData.published
+                    ? "This project will be visible on the website"
+                    : "Save as draft - won't appear on the website"}
+                </span>
+              </div>
+            </label>
           </div>
 
           <div>

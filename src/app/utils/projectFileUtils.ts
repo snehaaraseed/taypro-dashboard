@@ -1,3 +1,5 @@
+import "server-only";
+
 import { promises as fs } from "fs";
 import path from "path";
 
@@ -9,6 +11,7 @@ export interface ProjectMetadata {
   slug: string;
   date: string;
   createdAt: string;
+  published?: boolean; // Defaults to true for backward compatibility
 }
 
 export interface ProjectData {
@@ -18,6 +21,7 @@ export interface ProjectData {
   details: string[];
   date?: string;
   content?: string; // Optional detailed content for project pages
+  published?: boolean; // Defaults to true for backward compatibility
 }
 
 export function createSlug(title: string): string {
@@ -66,6 +70,8 @@ import { AllRelatedProjectsSection } from "@/app/components/AllRelatedProjectsSe
 import { BlogContent } from "@/app/components/BlogContent";
 import { getAllFileProjects } from "@/app/utils/projectFileUtils";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 const breadcrumbs = [
   { name: "Home", href: "/" },
   { name: "Projects", href: "/projects" },
@@ -73,16 +79,45 @@ const breadcrumbs = [
 ];
 
 export const metadata: Metadata = {
-  title: "${escapedTitle} | Taypro",
-  description: "${escapedDescription}",
+  title: "${escapedTitle} - Solar Panel Cleaning Robot Installation Project | Taypro",
+  description: "${escapedDescription} Learn about our Solar Panel Cleaning Robot installation at this solar power plant. Discover how Taypro's robotic cleaning systems enhance efficiency and ROI.",
+  keywords: [
+    "Solar Panel Cleaning Robot installation",
+    "${escapedTitle}",
+    "solar panel cleaning robot project",
+    "Taypro solar project",
+    "robotic solar panel cleaning",
+    "automatic solar panel cleaning",
+  ],
   openGraph: {
-    title: "${escapedTitle}",
+    title: "${escapedTitle} - Solar Panel Cleaning Robot Installation | Taypro",
+    description: "${escapedDescription} Taypro Solar Panel Cleaning Robot installation project.",
+    images: ["${escapedImage}"],
+    url: \`\${siteUrl}/projects/${metadata.slug}\`,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "${escapedTitle} - Solar Panel Cleaning Robot Project",
     description: "${escapedDescription}",
     images: ["${escapedImage}"],
+  },
+  alternates: {
+    canonical: \`\${siteUrl}/projects/${metadata.slug}\`,
   },
 };
 
 export default async function ProjectPage() {
+  // Check if project is published
+  const { readProjectMetadata } = await import("@/app/utils/projectFileUtils");
+  const metadata_check = await readProjectMetadata("${metadata.slug}");
+  
+  // Return 404 for drafts
+  if (metadata_check && metadata_check.published === false) {
+    const { notFound } = await import("next/navigation");
+    notFound();
+  }
+
   const allProjects = await getAllFileProjects();
   const relatedProjects = allProjects
     .filter((p) => p.slug !== "${metadata.slug}")
@@ -100,12 +135,12 @@ export default async function ProjectPage() {
           }}
         >
           <div className="pt-10">
-            <h1 className="text-[#A8C117] text-center text-[16px] mb-4">
-              Sustainable Projects
-            </h1>
-            <h2 className="font-semibold text-[#052638] text-4xl md:text-5xl mb-7 text-center">
+            <h1 className="font-semibold text-[#052638] text-4xl md:text-5xl mb-7 text-center">
               ${escapedTitle}
-            </h2>
+            </h1>
+            <p className="text-[#A8C117] text-center text-[18px] mb-4">
+              Solar Panel Cleaning Robot Installation Project
+            </p>
           </div>
 
           <div className="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
@@ -114,6 +149,7 @@ export default async function ProjectPage() {
               viewBox="0 0 1440 320"
               xmlns="http://www.w3.org/2000/svg"
               preserveAspectRatio="none"
+              aria-hidden="true"
             >
               <path fill="#052638" d="M0,224L1440,96L1440,320L0,320Z" />
             </svg>
@@ -128,7 +164,7 @@ export default async function ProjectPage() {
         ${escapedContent ? `
         {/* Detailed Content Section */}
         <article className="w-full pb-20 bg-white">
-          <div className="max-w-4xl mx-auto px-6">
+          <div className="max-w-7xl mx-auto px-6">
             <BlogContent
               content={${escapedContent}}
               className="prose prose-lg max-w-none space-y-5
@@ -192,6 +228,7 @@ export async function createProjectFiles(
     slug: slug,
     date: projectData.date || new Date().toISOString().split("T")[0],
     createdAt: new Date().toISOString(),
+    published: projectData.published !== undefined ? projectData.published : true,
   };
 
   // Write metadata.json
@@ -364,6 +401,7 @@ export async function updateProjectFiles(
     slug: finalSlug,
     date: projectData.date || existingMetadata?.date || new Date().toISOString().split("T")[0],
     createdAt: createdAt,
+    published: projectData.published !== undefined ? projectData.published : (existingMetadata?.published !== undefined ? existingMetadata.published : true),
   };
 
   // If slug changed, move the directory
@@ -434,6 +472,11 @@ export async function getAllFileProjects(): Promise<
           try {
             const metadata = await readProjectMetadata(entry.name);
             if (!metadata) return null;
+
+            // Filter out drafts (only show published projects, defaulting to true)
+            if (metadata.published === false) {
+              return null;
+            }
 
             return {
               id: metadata.slug,

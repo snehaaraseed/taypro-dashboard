@@ -9,6 +9,7 @@ export interface BlogMetadata {
   slug: string;
   publishDate: string;
   createdAt: string;
+  published?: boolean; // Defaults to true for backward compatibility
 }
 
 export interface BlogData {
@@ -18,6 +19,7 @@ export interface BlogData {
   author: string;
   content: string;
   publishDate?: string;
+  published?: boolean; // Defaults to true for backward compatibility
 }
 
 export function createSlug(title: string): string {
@@ -253,6 +255,7 @@ export async function createBlogFiles(
       slug: finalSlug,
       publishDate: blogData.publishDate || now,
       createdAt: now,
+      published: blogData.published !== undefined ? blogData.published : true,
     };
 
     // Write metadata.json
@@ -339,6 +342,7 @@ export async function updateBlogFiles(
       slug: finalSlug,
       publishDate: blogData.publishDate || existingMetadata?.publishDate || now,
       createdAt: existingMetadata?.createdAt || now,
+      published: blogData.published !== undefined ? blogData.published : (existingMetadata?.published !== undefined ? existingMetadata.published : true),
     };
 
     // If slug changed, rename directory first

@@ -17,7 +17,7 @@ export default function HomePage() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-semibold">
                 Delivering{" "}
                 <span className="text-[#39D600]">
-                  Solar Cleaning Robots With
+                  Solar Panel Cleaning Robots With
                 </span>
                 <br className="hidden sm:block" />
                 <span className="sm:hidden"> </span>
@@ -25,16 +25,15 @@ export default function HomePage() {
               </h1>
 
               <p className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-full lg:max-w-3xl">
-                For Greater Plant Performance Ratio, Unstoppable Power
-                Generation and Intelligent AI & ML Driven Robotics.
+                Our autonomous Solar Panel Cleaning Robot delivers greater plant performance ratio, unstoppable power generation and intelligent AI & ML driven robotic cleaning for solar farms.
               </p>
             </div>
 
             <div className="lg:col-span-1 flex justify-center lg:justify-end">
               <Image
                 src="/tayprorobots/robot-hero.png"
-                alt="Solar Panel Cleaning Robot"
-                title="Solar Panel Cleaning Robot"
+                alt="Taypro Autonomous Solar Panel Cleaning Robot - Waterless robotic cleaning system for solar farms"
+                title="Solar Panel Cleaning Robot by Taypro"
                 width={600}
                 height={900}
                 priority
@@ -48,7 +47,7 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12 lg:mb-16">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold text-[#052638] mb-4 px-4">
-                Driving Unstoppable Power Generation.
+                How Our Solar Panel Cleaning Robot Drives Unstoppable Power Generation
               </h2>
             </div>
 
@@ -98,7 +97,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div className="space-y-6 lg:space-y-8 order-2 lg:order-1">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white text-center lg:text-left lg:ml-25">
-                  Our Robotics technology
+                  Advanced Solar Panel Cleaning Robot Technology
                 </h2>
                 {otherFeatures.map((feature, idx) => (
                   <div key={idx} className="flex items-start space-x-4">
@@ -124,8 +123,8 @@ export default function HomePage() {
                 <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-full">
                   <Image
                     src="/tayproasset/robots.png"
-                    alt="Solar Panel Cleaning Robot"
-                    title="Solar Panel Cleaning Robot"
+                    alt="Taypro Solar Panel Cleaning Robot Models - Automatic and Semi-Automatic robotic cleaning systems"
+                    title="Solar Panel Cleaning Robot Models by Taypro"
                     width={600}
                     height={900}
                     priority
@@ -141,7 +140,7 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-8 lg:mb-12">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
-                High-Tech Solar Cleaning Robots
+                High-Tech Solar Panel Cleaning Robots
               </h3>
             </div>
 
@@ -163,15 +162,15 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold leading-tight mb-4">
-                Calculate How Much Can Solar Cleaning{" "}
+                Calculate How Much Can Our Solar Panel Cleaning Robot{" "}
                 <br className="hidden sm:block" />
-                <span className="sm:hidden"> </span>Robots Save?
+                <span className="sm:hidden"> </span>Save You?
               </h2>
               <h5 className="text-gray-700 my-4 lg:my-6 text-base sm:text-lg px-4">
-                Solar Cleaning robots not only increase the overall efficiency
-                of the solar power plant but also save significant{" "}
+                Our Solar Panel Cleaning Robot not only increases the overall efficiency
+                of the solar power plant but also saves significant{" "}
                 <br className="hidden lg:block" />
-                <div className="lg:hidden"> </div>costs.
+                <div className="lg:hidden"> </div>operational costs through automated cleaning.
               </h5>
             </div>
           </div>

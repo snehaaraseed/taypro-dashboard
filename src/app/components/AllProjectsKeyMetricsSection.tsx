@@ -31,8 +31,8 @@ export default function ProjectKeyMetricsSection({
             <div className="relative w-full h-[250px] sm:h-[300px] lg:h-[400px] xl:h-[500px] overflow-hidden">
               <Image
                 src={image}
-                alt={title}
-                title="Project Key Metric"
+                alt={`${title} - Solar Panel Cleaning Robot installation project key metrics by Taypro`}
+                title={`${title} Solar Project Metrics with Solar Panel Cleaning Robot`}
                 fill
                 className="object-cover"
               />

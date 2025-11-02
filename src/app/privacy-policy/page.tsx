@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function PrivacyPolicySection() {
   const breadcrumbs = [
     { name: "Home", href: "/" },
-    { name: "Privacy Policry", href: "" },
+    { name: "Privacy Policy", href: "" },
   ];
   return (
     <>

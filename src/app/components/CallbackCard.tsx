@@ -156,8 +156,8 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
         >
           <Image
             src="/tayprosolarpanel/taypro-panel.jpg"
-            alt="solar panel demo"
-            title="Solar Panel Demo"
+            alt="Taypro Solar Panel Cleaning Robot demonstration - Cleaning solar panels at solar farm with autonomous robotic system"
+            title="Solar Panel Cleaning Robot Demo by Taypro"
             fill
             sizes="sm"
             className="object-cover"

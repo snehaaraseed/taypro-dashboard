@@ -12,6 +12,7 @@ interface Project {
   details: string[];
   date: string;
   href: string;
+  published?: boolean;
 }
 
 export default function AdminProjectsPage() {
@@ -113,9 +114,20 @@ export default function AdminProjectsPage() {
                   />
                 </div>
                 <div className="p-4">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {project.title}
-                  </h3>
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      {project.title}
+                    </h3>
+                    {project.published === false ? (
+                      <span className="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full">
+                        Draft
+                      </span>
+                    ) : (
+                      <span className="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
+                        Published
+                      </span>
+                    )}
+                  </div>
                   <div className="flex flex-wrap gap-2 mb-3">
                     {project.details?.map((detail, idx) => (
                       <span

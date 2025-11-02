@@ -9,17 +9,47 @@ import HeroSection from "@/app/components/Herosection";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import type { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
-  title: "Automatic Cleaning Robot Monitoring App | Taypro",
+  title: "Taypro Console - Solar Panel Cleaning Robot Monitoring App | Taypro",
   description:
-    "Precision in Operation The TAYPRO CONSOLE goes beyond conventional cleaning methods. It allows for the application of individual and group commands, tailoring the cleaning approach based on seasonal data and the specific position of each table in the field.",
-  keywords: "sitemap-xml, sitemap taypro, taypro",
+    "Taypro Console: Remote monitoring and control portal for autonomous Solar Panel Cleaning Robot fleet. Monitor, control, and manage your solar panel cleaning robots with precision. Individual and group commands, tailored cleaning based on seasonal data and tracker positions.",
+  keywords: [
+    "Solar Panel Cleaning Robot monitoring",
+    "solar panel cleaning robot control app",
+    "Taypro Console",
+    "solar cleaning robot monitoring app",
+    "robotic solar cleaning monitoring",
+    "solar panel cleaning robot management",
+    "autonomous cleaning robot monitoring",
+    "solar farm cleaning robot control",
+    "taypro monitoring app",
+  ],
   openGraph: {
-    title: "Automatic Cleaning Robot Monitoring App | Taypro",
+    title: "Taypro Console - Solar Panel Cleaning Robot Monitoring App | Taypro",
     description:
-      "Precision in Operation The TAYPRO CONSOLE goes beyond conventional cleaning methods. It allows for the application of individual and group commands, tailoring the cleaning approach based on seasonal data and the specific position of each table in the field.",
-    url: "https://taypro-dashboard.vercel.app/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
+      "Remote monitoring and control portal for Solar Panel Cleaning Robot fleet. Monitor, control, and manage with precision commands based on seasonal data.",
+    url: `${siteUrl}/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app`,
     type: "website",
+    images: [
+      {
+        url: `${siteUrl}/tayproasset/taypro-dashboard.png`,
+        width: 1200,
+        height: 630,
+        alt: "Taypro Console - Solar Panel Cleaning Robot Monitoring App",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Taypro Console - Solar Panel Cleaning Robot Monitoring App",
+    description:
+      "Remote monitoring and control portal for Solar Panel Cleaning Robot fleet management.",
+    images: [`${siteUrl}/tayproasset/taypro-dashboard.png`],
+  },
+  alternates: {
+    canonical: `${siteUrl}/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app`,
   },
 };
 
@@ -44,7 +74,7 @@ export default function AutomaticCleaningRobotMonitoringApp() {
           title="Taypro Console"
           subtitle="A remote monitoring portal to monitor and control autonomous waterless solar panel cleaning robots."
           imgSrc="/tayproasset/taypro-dashboard.png"
-          imgAlt="Solar robot field"
+          imgAlt="Taypro Console - Solar Panel Cleaning Robot Monitoring Dashboard for fleet management and remote control"
           ctaHref="/contact"
           ctaText="Request a quote"
         />
@@ -68,8 +98,8 @@ export default function AutomaticCleaningRobotMonitoringApp() {
               <div className="relative w-full h-[300px] sm:h-[400px] overflow-hidden">
                 <Image
                   src="/tayproasset/taypro-console.png"
-                  alt="Console Interface"
-                  title="TAYPRO Console"
+                  alt="Taypro Console - Solar Panel Cleaning Robot Monitoring Dashboard Interface showing fleet management and control panel"
+                  title="Taypro Console - Solar Panel Cleaning Robot Monitoring Dashboard"
                   fill
                   className="object-cover"
                   priority
@@ -94,8 +124,8 @@ export default function AutomaticCleaningRobotMonitoringApp() {
             <div className="hidden lg:block relative w-full h-[700px] overflow-hidden">
               <Image
                 src="/tayproasset/taypro-console.png"
-                alt="Console Interface"
-                title="TAYPRO Console"
+                alt="Taypro Console - Solar Panel Cleaning Robot Monitoring Dashboard Interface showing fleet management and control panel"
+                title="Taypro Console - Solar Panel Cleaning Robot Monitoring Dashboard"
                 fill
                 className="object-cover"
                 priority

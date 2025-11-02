@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getAllFileProjects } from "@/app/utils/projectFileUtils";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import Link from "next/link";
+import ProjectsCardServer from "../components/ProjectsCardServer";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -26,14 +27,13 @@ export default async function ProjectPage() {
           }}
         >
           <div className="pt-10">
-            <h1 className="text-[#A8C117] text-center text-[16px] mb-4">
-              Sustainable Projects
-            </h1>
-            <h2 className="font-semibold text-[#052638] text-4xl md:text-5xl mb-7 text-center">
-              Disrupting the energy-
+            <h1 className="font-semibold text-[#052638] text-4xl md:text-5xl mb-7 text-center">
+              Solar Panel Cleaning Robot Installation Projects
               <br />
-              industry.
-            </h2>
+              <span className="text-[#A8C117] text-[20px] font-normal">
+                Sustainable Energy Solutions
+              </span>
+            </h1>
           </div>
 
           {/* Add curve SVG or image beneath the form */}
@@ -43,6 +43,7 @@ export default async function ProjectPage() {
               viewBox="0 0 1440 320"
               xmlns="http://www.w3.org/2000/svg"
               preserveAspectRatio="none"
+              aria-hidden="true"
             >
               <path fill="#052638" d="M0,224L1440,96L1440,320L0,320Z" />
             </svg>
@@ -64,8 +65,8 @@ export default async function ProjectPage() {
                   <div className="absolute inset-0">
                     <Image
                       src={project.img}
-                      alt={project.title}
-                      title="Solar Project"
+                      alt={`${project.title} - Solar Panel Cleaning Robot Installation Project by Taypro`}
+                      title={`${project.title} Solar Project with Solar Panel Cleaning Robot`}
                       fill
                       className="object-cover transform group-hover:scale-105 transition duration-300"
                       sizes="(max-width: 768px) 100vw, 50vw"

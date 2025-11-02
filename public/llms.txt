@@ -3,14 +3,26 @@
 
 # Website Information
 # Site Name: Taypro
-# Description: Taypro is an innovative company specializing in autonomous solar panel cleaning robots and systems for solar farms in India.
+# Primary Keyword: Solar Panel Cleaning Robot
+# Description: Taypro is an innovative company specializing in autonomous Solar Panel Cleaning Robots and systems for solar farms in India. We manufacture the best automatic and semi-automatic solar panel cleaning robots with highest uptime guarantee.
 # Technology Stack: Next.js 15.5.4, React 19, TypeScript, Tailwind CSS
 # Base URL: https://taypro.in (or your deployment domain)
 
-# About Taypro
-Taypro develops and manufactures autonomous solar panel cleaning robots that help solar farms maintain optimal efficiency. 
-The company offers waterless cleaning solutions, dual-pass cleaning technology, and AI-powered scheduling systems.
-Taypro has won patents for their revolutionary solar panel cleaning system.
+# About Taypro - Solar Panel Cleaning Robot Manufacturer
+Taypro develops and manufactures autonomous Solar Panel Cleaning Robots that help solar farms maintain optimal efficiency. 
+Our Solar Panel Cleaning Robot systems offer waterless cleaning solutions, dual-pass cleaning technology, and AI-powered scheduling systems.
+Taypro has won patents for our revolutionary Solar Panel Cleaning Robot system.
+
+# Primary Product: Solar Panel Cleaning Robot
+The Solar Panel Cleaning Robot is Taypro's flagship product designed to autonomously clean solar panels at utility-scale solar farms.
+Key benefits of our Solar Panel Cleaning Robot:
+- Increases solar panel efficiency up to 30%
+- Waterless cleaning technology (saves millions of liters of water)
+- AI-powered scheduling for optimal cleaning cycles
+- Highest uptime guarantee in the industry
+- Autonomous operation with minimal human intervention
+- Dual-pass cleaning system (air blast + microfiber)
+- Suitable for fixed-tilt and single-axis tracker solar panel systems
 
 # Main Pages and Routes
 
@@ -20,13 +32,13 @@ Taypro has won patents for their revolutionary solar panel cleaning system.
 ## Company Information
 /company - About Taypro, team members, mission, and vision
 
-## Products & Services
-/solar-panel-cleaning-system - Overview of cleaning systems
-/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system - Automatic cleaning robots
-/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system - Semi-automatic solutions
-/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers - Single-axis tracker solutions
-/solar-panel-cleaning-system/solar-panel-cleaning-service - Service offerings
-/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app - Monitoring application
+## Products & Services - Solar Panel Cleaning Robot Models
+/solar-panel-cleaning-system - Overview of Solar Panel Cleaning Robot systems and models
+/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system - Automatic Solar Panel Cleaning Robot (Model-A): Fully autonomous AI-enabled robot
+/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system - Semi-Automatic Solar Panel Cleaning Robot (Model-B): Cost-effective solution
+/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers - Single-Axis Tracker Solar Panel Cleaning Robot (Model-T): For tracking systems
+/solar-panel-cleaning-system/solar-panel-cleaning-service - Solar Panel Cleaning Robot service and maintenance offerings
+/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app - Taypro Console: Monitoring app for Solar Panel Cleaning Robot fleet
 
 ## Technology
 /cleaning-technology - Technical details about cleaning technology
@@ -38,7 +50,7 @@ Taypro has won patents for their revolutionary solar panel cleaning system.
 /projects/capex - CAPEX model projects
 
 ## Tools & Calculators
-/solar-panel-cleaning-robot-price-calculator - Price calculator for cleaning robots
+/solar-panel-cleaning-robot-price-calculator - ROI calculator for Solar Panel Cleaning Robot investment and cost savings
 
 ## Blog
 /blog - Blog listing page with all articles
@@ -47,12 +59,16 @@ Taypro has won patents for their revolutionary solar panel cleaning system.
 /blog/db/[id] - Database-stored blog posts (dynamic routing)
 
 Blog topics include:
+- Solar Panel Cleaning Robot technology and innovations
 - Solar panel cleaning methods and best practices
+- Solar Panel Cleaning Robot installation and ROI calculations
 - Solar energy efficiency and maintenance
-- Robotic cleaning systems
-- Solar panel installation and ROI calculations
-- Industry news and innovations
-- Technical comparisons and guides
+- Robotic cleaning systems for solar farms
+- Automatic vs manual solar panel cleaning
+- Solar Panel Cleaning Robot benefits and features
+- Industry news and innovations in solar cleaning robotics
+- Technical comparisons of Solar Panel Cleaning Robot models
+- Solar Panel Cleaning Robot cost-benefit analysis
 
 # API Endpoints
 
@@ -161,27 +177,39 @@ The site also uses images from:
 - Images in blog content use standard <img> tags
 - Featured images use Next.js Image component with optimization
 
-# Key Features
+# Key Features - Solar Panel Cleaning Robot
 
-## Solar Panel Cleaning Robots
-- Model A, Model B, Model T variants
-- Waterless cleaning technology
-- Dual-pass cleaning system (air blast + microfiber)
-- AI-powered scheduling
-- Real-time monitoring via mobile app
-- Suitable for fixed-tilt and single-axis tracker systems
+## Solar Panel Cleaning Robot Models
+- Model A (Automatic Solar Panel Cleaning Robot): Fully autonomous with AI-enabled scheduling
+- Model B (Semi-Automatic Solar Panel Cleaning Robot): Cost-effective semi-autonomous solution
+- Model T (Single-Axis Tracker Solar Panel Cleaning Robot): Designed for tracking solar panel systems
 
-## Services
-- Robotic cleaning system installation
-- Maintenance and support
-- ROI and performance analysis
-- Custom solutions for different solar farm configurations
+## Solar Panel Cleaning Robot Technology
+- Waterless cleaning technology: Our Solar Panel Cleaning Robot uses zero water, saving millions of liters
+- Dual-pass cleaning system: Air blast + microfiber for 100% dust removal
+- AI-powered scheduling: Intelligent cleaning cycles based on weather and dust prediction
+- Real-time monitoring: Taypro Console mobile app for Solar Panel Cleaning Robot fleet management
+- Highest uptime guarantee: Industry-leading reliability for Solar Panel Cleaning Robot systems
+- Suitable for fixed-tilt and single-axis tracker solar panel systems
+- Increases solar panel efficiency by up to 30%
+- Autonomous operation with minimal maintenance
 
-# SEO and Metadata
-- All pages include proper metadata (title, description, Open Graph tags)
-- Blog posts have structured metadata for SEO
-- Sitemap available at /sitemap.xml
-- Robots.txt at /robots.txt
+## Services - Solar Panel Cleaning Robot Support
+- Solar Panel Cleaning Robot installation and deployment
+- Solar Panel Cleaning Robot maintenance and support services
+- ROI and performance analysis for Solar Panel Cleaning Robot investments
+- Custom Solar Panel Cleaning Robot solutions for different solar farm configurations
+- Solar Panel Cleaning Robot training and operational support
+- 24/7 monitoring and support for Solar Panel Cleaning Robot fleet
+
+# SEO and Metadata - Optimized for "Solar Panel Cleaning Robot"
+- All pages include proper metadata with "Solar Panel Cleaning Robot" keyword focus
+- Blog posts have structured metadata optimized for Solar Panel Cleaning Robot searches
+- Schema.org structured data for Organization, Product (Solar Panel Cleaning Robot), and Article markup
+- Sitemap available at /sitemap.xml with all Solar Panel Cleaning Robot pages
+- Robots.txt at /robots.txt properly configured
+- Open Graph and Twitter card metadata for social sharing
+- Canonical URLs for all pages
 
 # Technical Details
 

@@ -47,8 +47,8 @@ export default function EnergyResourceCard() {
                 {/* Image with slide animation */}
                 <Image
                   src={card.imgSrc}
-                  alt={card.title}
-                  title="Resource"
+                  alt={`${card.title} - Solar Panel Cleaning Robot technology and solar energy resource by Taypro`}
+                  title={`${card.title} - Solar Panel Cleaning Robot Resource`}
                   fill
                   sizes="sm"
                   className="object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105 group-hover:translate-x-3"

@@ -3,6 +3,7 @@ import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { Factory, Users } from "lucide-react";
 import dynamic from "next/dynamic";
+import { LocalBusinessSchema } from "@/app/components/StructuredData";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -15,9 +16,28 @@ const breadcrumbs = [
 const Map = dynamic(() => import("@/app/components/Map"), { ssr: false });
 
 export default function ContactUsPage() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+  
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
+      <LocalBusinessSchema
+        name="Taypro Private Limited"
+        description="Leading manufacturer of Solar Panel Cleaning Robots and robotic cleaning systems for solar farms in India"
+        address={{
+          streetAddress: "Plot No 87, Survey No 286/2, near Saint Gobain",
+          addressLocality: "Chakan",
+          addressRegion: "Pune, Maharashtra",
+          postalCode: "410501",
+          addressCountry: "IN",
+        }}
+        telephone="+91"
+        url={siteUrl}
+        openingHours="Mo-Fr 09:00-18:00"
+        priceRange="$$"
+        image={`${siteUrl}/tayproasset/taypro-logo.png`}
+        siteUrl={siteUrl}
+      />
       <div className="min-h-screen">
         <section className="w-full bg-white py-10">
           <div className="max-w-5xl mx-auto flex flex-col items-center">

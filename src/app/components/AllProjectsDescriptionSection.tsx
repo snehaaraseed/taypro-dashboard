@@ -31,8 +31,8 @@ export default function ProjectDescriptionSection({
           <div className="w-full max-w-md lg:max-w-none">
             <Image
               src={image}
-              alt={title}
-              title="Solar Project"
+              alt={`${title} - Solar Panel Cleaning Robot installation project by Taypro`}
+              title={`${title} Solar Project with Solar Panel Cleaning Robot`}
               width={500}
               height={400}
               className="w-full h-auto"

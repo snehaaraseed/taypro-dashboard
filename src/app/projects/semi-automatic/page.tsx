@@ -18,7 +18,12 @@ export default function ProjectTypePage() {
       <Breadcrumbs items={breadcrumbs} />
       <section className="w-full pt-20 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 text-start">
-          <h1 className="text-[#052638] text-4xl  mb-4">Semi-Automatic</h1>
+          <h1 className="text-[#052638] text-4xl md:text-5xl mb-4 font-semibold">
+            Semi-Automatic Solar Panel Cleaning Robot Projects
+          </h1>
+          <p className="text-[#6B7280] text-lg mb-8">
+            Explore our semi-automatic Solar Panel Cleaning Robot installation projects. Cost-effective pick-and-place robotic cleaning systems with fastest ROI.
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
             {additionalProjects.map((card, idx) => (
@@ -31,8 +36,8 @@ export default function ProjectTypePage() {
                 <div className="relative w-full h-64 sm:h-72 md:h-80 overflow-hidden">
                   <Image
                     src={card.img}
-                    alt={card.title}
-                    title="Solar Project"
+                    alt={`${card.title} - Semi-Automatic Solar Panel Cleaning Robot Installation Project by Taypro`}
+                    title={`${card.title} - Semi-Automatic Solar Panel Cleaning Robot Project`}
                     fill
                     sizes="sm"
                     className="object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105 group-hover:translate-x-3"

@@ -28,6 +28,7 @@ interface BlogData {
   slug: string;
   publishDate: string;
   content: string;
+  published?: boolean;
 }
 
 export default function EditBlogPage() {
@@ -43,6 +44,7 @@ export default function EditBlogPage() {
     slug: "",
     publishDate: new Date().toISOString().split("T")[0],
     content: "",
+    published: true,
   });
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
@@ -433,6 +435,29 @@ export default function EditBlogPage() {
                 </button>
               </div>
             )}
+        </div>
+
+        <div>
+          <label className="flex items-center gap-3 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={formData.published !== false}
+              onChange={(e) =>
+                setFormData({ ...formData, published: e.target.checked })
+              }
+              className="w-5 h-5 text-[#A8C117] border-gray-300 rounded focus:ring-[#A8C117]"
+            />
+            <div>
+              <span className="block text-sm font-medium text-gray-700">
+                Publish Blog
+              </span>
+              <span className="text-xs text-gray-500">
+                {formData.published !== false
+                  ? "This blog will be visible on the website"
+                  : "Save as draft - won't appear on the website"}
+              </span>
+            </div>
+          </label>
         </div>
 
         <div>
