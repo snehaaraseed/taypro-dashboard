@@ -1,11 +1,12 @@
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AllProjectsOverviewSection } from "@/app/components/AllProjectsOverviewSection";
 import { AllRelatedProjectsSection } from "@/app/components/AllRelatedProjectsSection";
 import { BlogContent } from "@/app/components/BlogContent";
-import { getAllFileProjects, readProjectMetadata } from "@/app/utils/projectFileUtils";
+import { getAllFileProjects } from "@/app/utils/projectFileUtils";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -13,47 +14,49 @@ const breadcrumbs = [
   { name: "Yadgir Solar Project – 50 MW", href: "" },
 ];
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
-
 export const metadata: Metadata = {
-  title: "Yadgir Solar Project – 50 MW - Solar Panel Cleaning Robot Installation | Taypro",
-  description: "A 50 MW solar power project in Yadgir with Solar Panel Cleaning Robot installation. Contributing to India's renewable energy goals with Taypro's advanced robotic cleaning systems for optimal solar panel efficiency.",
+  title: "Yadgir Solar Project – 50 MW - Solar Panel Cleaning Robot Installation Project | Taypro",
+  description: "A 50 MW solar power project in Yadgir contributing to India's renewable energy goals. Learn about our Solar Panel Cleaning Robot installation at this solar power plant. Discover how Taypro's robotic cleaning systems enhance efficiency and ROI.",
   keywords: [
-    "Yadgir Solar Project",
-    "50 MW solar project",
     "Solar Panel Cleaning Robot installation",
-    "Yadgir solar power plant",
-    "Taypro solar project",
+    "Yadgir Solar Project – 50 MW",
     "solar panel cleaning robot project",
+    "Taypro solar project",
     "robotic solar panel cleaning",
+    "automatic solar panel cleaning",
   ],
   openGraph: {
     title: "Yadgir Solar Project – 50 MW - Solar Panel Cleaning Robot Installation | Taypro",
-    description: "50 MW solar power project in Yadgir with Solar Panel Cleaning Robot installation contributing to India's renewable energy goals.",
-    images: [`${siteUrl}/tayprosolarfirm/yadgir-solar.jpg`],
-    url: `${siteUrl}/projects/yadgir-solar-project`,
+    description: "A 50 MW solar power project in Yadgir contributing to India's renewable energy goals. Taypro Solar Panel Cleaning Robot installation project.",
+    images: ["/tayprosolarfirm/yadgir-solar.jpg"],
+    url: `${siteUrl}/projects/yadgir-solar-project-50-mw`,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yadgir Solar Project – 50 MW with Solar Panel Cleaning Robots",
-    description: "50 MW solar project in Yadgir with Solar Panel Cleaning Robot installation.",
-    images: [`${siteUrl}/tayprosolarfirm/yadgir-solar.jpg`],
+    title: "Yadgir Solar Project – 50 MW - Solar Panel Cleaning Robot Project",
+    description: "A 50 MW solar power project in Yadgir contributing to India's renewable energy goals.",
+    images: ["/tayprosolarfirm/yadgir-solar.jpg"],
   },
   alternates: {
-    canonical: `${siteUrl}/projects/yadgir-solar-project`,
+    canonical: `${siteUrl}/projects/yadgir-solar-project-50-mw`,
   },
 };
 
 export default async function ProjectPage() {
   // Check if project is published
-  const metadata = await readProjectMetadata("yadgir-solar-project");
-  if (!metadata || metadata.published === false) {
+  const { readProjectMetadata } = await import("@/app/utils/projectFileUtils");
+  const metadata_check = await readProjectMetadata("yadgir-solar-project-50-mw");
+  
+  // Return 404 for drafts
+  if (metadata_check && metadata_check.published === false) {
+    const { notFound } = await import("next/navigation");
     notFound();
   }
+
   const allProjects = await getAllFileProjects();
   const relatedProjects = allProjects
-    .filter((p) => p.id !== "yadgir-solar-project" && p.href !== "/projects/yadgir-solar-project")
+    .filter((p) => p.slug !== "yadgir-solar-project-50-mw")
     .slice(0, 3);
 
   return (
@@ -122,6 +125,7 @@ export default async function ProjectPage() {
             />
           </div>
         </article>
+        
 
         {relatedProjects.length > 0 && (
           <AllRelatedProjectsSection projects={relatedProjects} />
