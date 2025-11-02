@@ -2,7 +2,7 @@
 module.exports = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
   generateRobotsTxt: true,
-  generateIndexSitemap: true,
+  generateIndexSitemap: false, // Generate single sitemap file instead of index
   sitemapSize: 5000,
   
   // Exclude admin routes and API routes
