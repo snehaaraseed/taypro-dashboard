@@ -5,10 +5,19 @@ import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { RobotCard } from "@/app/components/RobotCard";
 import ClientsCard from "@/app/components/ClientsCard";
 import ROITayproCalculator from "@/app/components/ROICalculator";
+import { VideoObjectSchema } from "@/app/components/StructuredData";
 
 export default function HomePage() {
   return (
     <>
+      <VideoObjectSchema
+        name="TAYPRO - Robotic Solar Panel Cleaning - Solar Panel Cleaning Robot"
+        description="Watch how Taypro's Solar Panel Cleaning Robot autonomously cleans solar panels at utility-scale solar farms. Our waterless robotic cleaning system increases efficiency up to 30% with AI-powered scheduling."
+        thumbnailUrl="https://img.youtube.com/vi/PiXJhQ_MYgk/maxresdefault.jpg"
+        uploadDate="2024-01-01"
+        embedUrl="https://www.youtube.com/embed/PiXJhQ_MYgk"
+        contentUrl="https://www.youtube.com/watch?v=PiXJhQ_MYgk"
+      />
       <div className="min-h-screen overflow-x-hidden">
         {/* Hero Section */}
         <section className="relative overflow-hidden px-4 sm:px-8 lg:px-15 py-8">
