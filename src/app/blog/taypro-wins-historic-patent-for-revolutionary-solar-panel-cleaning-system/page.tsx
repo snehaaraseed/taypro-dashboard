@@ -3,17 +3,42 @@ import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { BlogContent } from "../../components/BlogContent";
 import type { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
   title: "TAYPRO Wins Historic Patent for Revolutionary Solar Panel Cleaning System - Taypro Blog",
-  description: "In a first for India’s renewable energy sector, TAYPRO, the solar technology pioneer, has been awarded a patent for its groundbreaking “System for Cleaning Solar Panels.”",
-  keywords:
-    "solar panel cleaning, maintenance, taypro, solar energy, cleaning robots",
+  description: "In a first for India’s renewable energy sector, TAYPRO, the solar technology pioneer, has been awarded a patent for its groundbreaking “System for Cleaning Solar Panels.” Learn more about Solar Panel Cleaning Robot solutions and best practices.",
+  keywords: [
+      "Solar Panel Cleaning Robot",
+      "solar panel cleaning best practices",
+      "solar cleaning solutions",
+      "solar panel cleaning",
+      "solar panel maintenance",
+      "solar energy",
+      "Taypro"
+    ],
   openGraph: {
     title: "TAYPRO Wins Historic Patent for Revolutionary Solar Panel Cleaning System - Taypro Blog",
     description: "In a first for India’s renewable energy sector, TAYPRO, the solar technology pioneer, has been awarded a patent for its groundbreaking “System for Cleaning Solar Panels.”",
-    url: `https://yourdomain.com/blog/taypro-wins-historic-patent-for-revolutionary-solar-panel-cleaning-system`,
+    url: `${siteUrl}/blog/taypro-wins-historic-patent-for-revolutionary-solar-panel-cleaning-system`,
     type: "article",
-    images: ["/uploads/2022/07/certificate-1.png"],
+    images: [
+      {
+        url: `${siteUrl}/uploads/2022/07/certificate-1.png`,
+        width: 1200,
+        height: 630,
+        alt: "TAYPRO Wins Historic Patent for Revolutionary Solar Panel Cleaning System - Taypro Blog",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TAYPRO Wins Historic Patent for Revolutionary Solar Panel Cleaning System - Taypro Blog",
+    description: "In a first for India’s renewable energy sector, TAYPRO, the solar technology pioneer, has been awarded a patent for its groundbreaking “System for Cleaning Solar Panels.”",
+    images: [`${siteUrl}/uploads/2022/07/certificate-1.png`],
+  },
+  alternates: {
+    canonical: `${siteUrl}/blog/taypro-wins-historic-patent-for-revolutionary-solar-panel-cleaning-system`,
   },
 };
 

@@ -5,21 +5,46 @@ import { SimilarBlogs } from "../../components/SimilarBlogs";
 import { getAllBlogsForSimilar } from "../../utils/blogUtils";
 import type { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
   title: "What is a Solar Panel Cleaning Robot? - Taypro Blog",
   description:
-    "A solar panel cleaning robot is an essential device used to clean solar panels using AI & ML-oriented technology. This article will explore: what is a solar cleaning robot, its features, benefits and other important aspects.",
-  keywords:
-    "solar panel cleaning, maintenance, taypro, solar energy, cleaning robots",
+    "A Solar Panel Cleaning Robot is an essential device used to clean solar panels using AI & ML-oriented technology. This article explores what a solar cleaning robot is, its features, benefits, and important aspects of automatic and semi-automatic Solar Panel Cleaning Robots.",
+  keywords: [
+    "Solar Panel Cleaning Robot",
+    "what is a solar panel cleaning robot",
+    "solar panel cleaning robot definition",
+    "automatic solar panel cleaning robot",
+    "semi-automatic solar panel cleaning robot",
+    "solar cleaning robot technology",
+    "AI-powered solar panel cleaning",
+    "robotic solar panel cleaner",
+    "Taypro solar cleaning robot",
+  ],
   openGraph: {
     title: "What is a Solar Panel Cleaning Robot? - Taypro Blog",
     description:
-      "A solar panel cleaning robot is an essential device used to clean solar panels using AI & ML-oriented technology. This article will explore: what is a solar cleaning robot, its features, benefits and other important aspects.",
-    url: `https://yourdomain.com/blog/what-is-a-solar-panel-cleaning-robot`,
+      "Learn about Solar Panel Cleaning Robots: AI & ML-powered devices that clean solar panels automatically. Discover features, benefits, and types of robotic cleaning systems.",
+    url: `${siteUrl}/blog/what-is-a-solar-panel-cleaning-robot`,
     type: "article",
     images: [
-      "/uploads/2024/03/image-1.png",
+      {
+        url: `${siteUrl}/uploads/2024/03/image-1.png`,
+        width: 1200,
+        height: 630,
+        alt: "What is a Solar Panel Cleaning Robot?",
+      },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "What is a Solar Panel Cleaning Robot? - Taypro Blog",
+    description: "Learn about Solar Panel Cleaning Robots: AI & ML-powered devices for automatic solar panel cleaning.",
+    images: [`${siteUrl}/uploads/2024/03/image-1.png`],
+  },
+  alternates: {
+    canonical: `${siteUrl}/blog/what-is-a-solar-panel-cleaning-robot`,
   },
 };
 

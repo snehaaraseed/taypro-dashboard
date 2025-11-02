@@ -160,6 +160,8 @@ async function getBlogData(id: string): Promise<BlogData | null> {
   }
 }
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 // Generate metadata for SEO
 export async function generateMetadata({
   params,
@@ -174,17 +176,53 @@ export async function generateMetadata({
     };
   }
 
+  const blogKeywords = blog.title.toLowerCase().includes("robot") || 
+    blog.description.toLowerCase().includes("robot") 
+    ? [
+        "Solar Panel Cleaning Robot",
+        "solar panel cleaning robot",
+        "automatic solar panel cleaning robot",
+        "solar panel cleaning",
+        "solar panel maintenance",
+        "solar energy",
+        "cleaning robots",
+        "Taypro",
+      ]
+    : [
+        "solar panel cleaning",
+        "Solar Panel Cleaning Robot",
+        "solar panel maintenance",
+        "solar energy",
+        "cleaning robots",
+        "Taypro",
+      ];
+
   return {
     title: `${blog.title} - Taypro Blog`,
     description: blog.description,
-    keywords:
-      "solar panel cleaning, maintenance, taypro, solar energy, cleaning robots",
+    keywords: blogKeywords,
     openGraph: {
       title: `${blog.title} - Taypro Blog`,
       description: blog.description,
-      url: `https://yourdomain.com/blog/db/${id}`,
+      url: `${siteUrl}/blog/db/${id}`,
       type: "article",
-      images: blog.featuredImage ? [blog.featuredImage] : [],
+      images: blog.featuredImage ? [
+        {
+          url: blog.featuredImage.startsWith('http') ? blog.featuredImage : `${siteUrl}${blog.featuredImage.startsWith('/') ? '' : '/'}${blog.featuredImage}`,
+          width: 1200,
+          height: 630,
+          alt: blog.title,
+        }
+      ] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${blog.title} - Taypro Blog`,
+      description: blog.description.substring(0, 200),
+      images: blog.featuredImage ? [blog.featuredImage.startsWith('http') ? blog.featuredImage : `${siteUrl}${blog.featuredImage.startsWith('/') ? '' : '/'}${blog.featuredImage}`] : [],
+    },
+    alternates: {
+      canonical: `${siteUrl}/blog/db/${id}`,
     },
   };
 }

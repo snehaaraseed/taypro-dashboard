@@ -5,21 +5,40 @@ import { SimilarBlogs } from "../../components/SimilarBlogs";
 import { getAllBlogsForSimilar } from "../../utils/blogUtils";
 import type { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
   title: "New Solar Panel Technologies 2025 - Taypro Blog",
-  description:
-    "This blog helps us understand new solar technology, its benefits, and how it contributes to shaping the future of solar energy.",
-  keywords:
-    "solar panel cleaning, maintenance, taypro, solar energy, cleaning robots",
+  description: "This blog helps us understand new solar technology, its benefits, and how it contributes to shaping the future of solar energy. Learn more about Solar Panel Cleaning Robot solutions and best practices.",
+  keywords: [
+      "Solar Panel Cleaning Robot",
+      "solar panel cleaning",
+      "solar panel maintenance",
+      "solar energy",
+      "Taypro"
+    ],
   openGraph: {
     title: "New Solar Panel Technologies 2025 - Taypro Blog",
-    description:
-      "This blog helps us understand new solar technology, its benefits, and how it contributes to shaping the future of solar energy.",
-    url: `https://yourdomain.com/blog/new-solar-panel-technologies-2025`,
+    description: "This blog helps us understand new solar technology, its benefits, and how it contributes to shaping the future of solar energy.",
+    url: `${siteUrl}/blog/new-solar-panel-technologies-2025`,
     type: "article",
     images: [
-      "/uploads/2024/03/image-6.png",
+      {
+        url: `${siteUrl}/uploads/2024/03/image-6.png`,
+        width: 1200,
+        height: 630,
+        alt: "New Solar Panel Technologies 2025 - Taypro Blog",
+      },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "New Solar Panel Technologies 2025 - Taypro Blog",
+    description: "This blog helps us understand new solar technology, its benefits, and how it contributes to shaping the future of solar energy.",
+    images: [`${siteUrl}/uploads/2024/03/image-6.png`],
+  },
+  alternates: {
+    canonical: `${siteUrl}/blog/new-solar-panel-technologies-2025`,
   },
 };
 

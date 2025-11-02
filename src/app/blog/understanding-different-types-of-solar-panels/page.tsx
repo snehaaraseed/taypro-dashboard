@@ -5,21 +5,40 @@ import { SimilarBlogs } from "../../components/SimilarBlogs";
 import { getAllBlogsForSimilar } from "../../utils/blogUtils";
 import type { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
   title: "Understanding different types of Solar Panels - Taypro Blog",
-  description:
-    "The increasing energy demands have led to the rise of solar energy adoption as an efficient energy source. In this blog, we will discuss the types of solar panels and have a detailed analysis of them.",
-  keywords:
-    "solar panel cleaning, maintenance, taypro, solar energy, cleaning robots",
+  description: "The increasing energy demands have led to the rise of solar energy adoption as an efficient energy source. In this blog, we will discuss the types of solar panels and have a detailed analysis of them. Learn more about Solar Panel Cleaning Robot solutions and best practices.",
+  keywords: [
+      "Solar Panel Cleaning Robot",
+      "solar panel cleaning",
+      "solar panel maintenance",
+      "solar energy",
+      "Taypro"
+    ],
   openGraph: {
     title: "Understanding different types of Solar Panels - Taypro Blog",
-    description:
-      "The increasing energy demands have led to the rise of solar energy adoption as an efficient energy source. In this blog, we will discuss the types of solar panels and have a detailed analysis of them.",
-    url: `https://yourdomain.com/blog/understanding-different-types-of-solar-panels`,
+    description: "The increasing energy demands have led to the rise of solar energy adoption as an efficient energy source. In this blog, we will discuss the types of solar panels and have a detailed analysis of them.",
+    url: `${siteUrl}/blog/understanding-different-types-of-solar-panels`,
     type: "article",
     images: [
-      "/uploads/2024/03/image.png",
+      {
+        url: `${siteUrl}/uploads/2024/03/image.png`,
+        width: 1200,
+        height: 630,
+        alt: "Understanding different types of Solar Panels - Taypro Blog",
+      },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Understanding different types of Solar Panels - Taypro Blog",
+    description: "The increasing energy demands have led to the rise of solar energy adoption as an efficient energy source. In this blog, we will discuss the types of solar panels and have a detailed analysis of them.",
+    images: [`${siteUrl}/uploads/2024/03/image.png`],
+  },
+  alternates: {
+    canonical: `${siteUrl}/blog/understanding-different-types-of-solar-panels`,
   },
 };
 

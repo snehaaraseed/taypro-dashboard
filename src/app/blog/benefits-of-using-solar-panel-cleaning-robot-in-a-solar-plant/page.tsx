@@ -5,23 +5,47 @@ import { SimilarBlogs } from "../../components/SimilarBlogs";
 import { getAllBlogsForSimilar } from "../../utils/blogUtils";
 import type { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
   title:
     "Benefits Of Using Solar Panel Cleaning Robot In A Solar Plant - Taypro Blog",
   description:
-    "Conventional methods of solar cleaning are becoming increasingly inefficient and costly due labour dependency and water wastage. Solar panel cleaning robot has come up as a solution with its Next-Gen cleaning mechanism, ensuring high uptime and optimised power generation. ",
-  keywords:
-    "solar panel cleaning, maintenance, taypro, solar energy, cleaning robots",
+    "Conventional methods of solar cleaning are becoming increasingly inefficient and costly due to labour dependency and water wastage. Solar Panel Cleaning Robot has come up as a solution with its Next-Gen cleaning mechanism, ensuring high uptime and optimised power generation. Learn the key benefits of using Solar Panel Cleaning Robots in solar plants.",
+  keywords: [
+    "Solar Panel Cleaning Robot benefits",
+    "benefits of solar panel cleaning robot",
+    "solar panel cleaning robot advantages",
+    "automatic solar panel cleaning robot benefits",
+    "solar plant cleaning robot",
+    "robotic solar panel cleaning benefits",
+    "solar cleaning robot ROI",
+    "Taypro solar cleaning robot",
+  ],
   openGraph: {
     title:
       "Benefits Of Using Solar Panel Cleaning Robot In A Solar Plant - Taypro Blog",
     description:
-      "Conventional methods of solar cleaning are becoming increasingly inefficient and costly due labour dependency and water wastage. Solar panel cleaning robot has come up as a solution with its Next-Gen cleaning mechanism, ensuring high uptime and optimised power generation. ",
-    url: `https://yourdomain.com/blog/benefits-of-using-solar-panel-cleaning-robot-in-a-solar-plant`,
+      "Discover the key benefits of using Solar Panel Cleaning Robots in solar plants: high uptime, optimized power generation, waterless cleaning, and cost-effectiveness.",
+    url: `${siteUrl}/blog/benefits-of-using-solar-panel-cleaning-robot-in-a-solar-plant`,
     type: "article",
     images: [
-      "/uploads/2024/03/Automatic-Solar-Panel-Cleaning-Robots-Installation.jpg",
+      {
+        url: `${siteUrl}/uploads/2024/03/Automatic-Solar-Panel-Cleaning-Robots-Installation.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Benefits of Using Solar Panel Cleaning Robot in a Solar Plant",
+      },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Benefits Of Using Solar Panel Cleaning Robot In A Solar Plant",
+    description: "Discover key benefits of Solar Panel Cleaning Robots: high uptime, optimized power generation, and waterless cleaning.",
+    images: [`${siteUrl}/uploads/2024/03/Automatic-Solar-Panel-Cleaning-Robots-Installation.jpg`],
+  },
+  alternates: {
+    canonical: `${siteUrl}/blog/benefits-of-using-solar-panel-cleaning-robot-in-a-solar-plant`,
   },
 };
 

@@ -5,19 +5,40 @@ import { SimilarBlogs } from "../../components/SimilarBlogs";
 import { getAllBlogsForSimilar } from "../../utils/blogUtils";
 import type { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
   title: "How to Make Solar Panels More Efficient? - Taypro Blog",
-  description:
-    "Solar power is widely used around the world as a better energy source alternative. This blog features tips about how to increase solar panel efficiency.",
-  keywords:
-    "solar panel cleaning, maintenance, taypro, solar energy, cleaning robots",
+  description: "Solar power is widely used around the world as a better energy source alternative. This blog features tips about how to increase solar panel efficiency. Learn more about Solar Panel Cleaning Robot solutions and best practices.",
+  keywords: [
+      "Solar Panel Cleaning Robot",
+      "solar panel cleaning",
+      "solar panel maintenance",
+      "solar energy",
+      "Taypro"
+    ],
   openGraph: {
     title: "How to Make Solar Panels More Efficient? - Taypro Blog",
-    description:
-      "Solar power is widely used around the world as a better energy source alternative. This blog features tips about how to increase solar panel efficiency.",
-    url: `https://yourdomain.com/blog/how-to-make-solar-panels-more-efficient`,
+    description: "Solar power is widely used around the world as a better energy source alternative. This blog features tips about how to increase solar panel efficiency.",
+    url: `${siteUrl}/blog/how-to-make-solar-panels-more-efficient`,
     type: "article",
-    images: ["/uploads/2024/03/image.png"],
+    images: [
+      {
+        url: `${siteUrl}/uploads/2024/03/image.png`,
+        width: 1200,
+        height: 630,
+        alt: "How to Make Solar Panels More Efficient? - Taypro Blog",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How to Make Solar Panels More Efficient? - Taypro Blog",
+    description: "Solar power is widely used around the world as a better energy source alternative. This blog features tips about how to increase solar panel efficiency.",
+    images: [`${siteUrl}/uploads/2024/03/image.png`],
+  },
+  alternates: {
+    canonical: `${siteUrl}/blog/how-to-make-solar-panels-more-efficient`,
   },
 };
 

@@ -5,21 +5,40 @@ import { SimilarBlogs } from "../../components/SimilarBlogs";
 import { getAllBlogsForSimilar } from "../../utils/blogUtils";
 import type { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
-  title:
-    "India’s Solar Energy Boom in 2024: What It Means for You and the Planet - Taypro Blog",
-  description:
-    " 2024 was not all about numbers. It was all about human beings. Farmers, families, and even children in rural villages felt the impact of a record 24.5 gigawatts (GW) of new solar power.",
-  keywords:
-    "solar panel cleaning, maintenance, taypro, solar energy, cleaning robots",
+  title: "India’s Solar Energy Boom in 2024: What It Means for You and the Planet - Taypro Blog",
+  description: "2024 was not all about numbers. It was all about human beings. Farmers, families, and even children in rural villages felt the impact of a record 24.5 gigawatts (GW) of new solar power. Learn more about Solar Panel Cleaning Robot solutions and best practices.",
+  keywords: [
+      "Solar Panel Cleaning Robot",
+      "solar panel cleaning",
+      "solar panel maintenance",
+      "solar energy",
+      "Taypro"
+    ],
   openGraph: {
-    title:
-      "India’s Solar Energy Boom in 2024: What It Means for You and the Planet - Taypro Blog",
-    description:
-      " 2024 was not all about numbers. It was all about human beings. Farmers, families, and even children in rural villages felt the impact of a record 24.5 gigawatts (GW) of new solar power.",
-    url: `https://yourdomain.com/blog/indias-solar-energy-boom-in-2024-what-it-means-for-you-and-the-planet`,
+    title: "India’s Solar Energy Boom in 2024: What It Means for You and the Planet - Taypro Blog",
+    description: "2024 was not all about numbers. It was all about human beings. Farmers, families, and even children in rural villages felt the impact of a record 24.5 gigawatts (GW) of new solar power.",
+    url: `${siteUrl}/blog/indias-solar-energy-boom-in-2024-what-it-means-for-you-and-the-planet`,
     type: "article",
-    images: ["/uploads/2024/08/1-600x600.jpeg"],
+    images: [
+      {
+        url: `${siteUrl}/uploads/2024/08/1-600x600.jpeg`,
+        width: 1200,
+        height: 630,
+        alt: "India’s Solar Energy Boom in 2024: What It Means for You and the Planet - Taypro Blog",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "India’s Solar Energy Boom in 2024: What It Means for You and the Planet - Taypro Blog",
+    description: "2024 was not all about numbers. It was all about human beings. Farmers, families, and even children in rural villages felt the impact of a record 24.5 gigawatts (GW) of new solar power.",
+    images: [`${siteUrl}/uploads/2024/08/1-600x600.jpeg`],
+  },
+  alternates: {
+    canonical: `${siteUrl}/blog/indias-solar-energy-boom-in-2024-what-it-means-for-you-and-the-planet`,
   },
 };
 

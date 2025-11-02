@@ -5,21 +5,40 @@ import { SimilarBlogs } from "../../components/SimilarBlogs";
 import { getAllBlogsForSimilar } from "../../utils/blogUtils";
 import type { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
   title: "What Are The Different Types Of Solar Panels - Taypro Blog",
-  description:
-    "Solar energy has played a pivotal role in meeting the power requirement in both residential and commercial fields. India positioned itself at 5th rank worldwide in solar cell deployment across the country, irrespective of urban and rural areas. ",
-  keywords:
-    "solar panel cleaning, maintenance, taypro, solar energy, cleaning robots",
+  description: "Solar energy has played a pivotal role in meeting the power requirement in both residential and commercial fields. India positioned itself at 5th rank worldwide in solar cell deployment across the country, irrespective of urban and rural areas. Learn more about Solar Panel Cleaning Robot solutions and best practices.",
+  keywords: [
+      "Solar Panel Cleaning Robot",
+      "solar panel cleaning",
+      "solar panel maintenance",
+      "solar energy",
+      "Taypro"
+    ],
   openGraph: {
     title: "What Are The Different Types Of Solar Panels - Taypro Blog",
-    description:
-      "Solar energy has played a pivotal role in meeting the power requirement in both residential and commercial fields. India positioned itself at 5th rank worldwide in solar cell deployment across the country, irrespective of urban and rural areas. ",
-    url: `https://yourdomain.com/blog/what-are-the-different-types-of-solar-panels`,
+    description: "Solar energy has played a pivotal role in meeting the power requirement in both residential and commercial fields. India positioned itself at 5th rank worldwide in solar cell deployment across the country, irrespective of urban and rural areas.",
+    url: `${siteUrl}/blog/what-are-the-different-types-of-solar-panels`,
     type: "article",
     images: [
-      "/uploads/2024/03/man-worker-cleaning-solar-panels.jpg",
+      {
+        url: `${siteUrl}/uploads/2024/03/man-worker-cleaning-solar-panels.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "What Are The Different Types Of Solar Panels - Taypro Blog",
+      },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "What Are The Different Types Of Solar Panels - Taypro Blog",
+    description: "Solar energy has played a pivotal role in meeting the power requirement in both residential and commercial fields. India positioned itself at 5th rank worldwide in solar cell deployment across the cou",
+    images: [`${siteUrl}/uploads/2024/03/man-worker-cleaning-solar-panels.jpg`],
+  },
+  alternates: {
+    canonical: `${siteUrl}/blog/what-are-the-different-types-of-solar-panels`,
   },
 };
 

@@ -5,23 +5,42 @@ import { SimilarBlogs } from "../../components/SimilarBlogs";
 import { getAllBlogsForSimilar } from "../../utils/blogUtils";
 import type { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
-  title:
-    "The Science Behind Effective Solar Module Cleaning Systems: A Technical Comparison of Traditional and Modern Approaches - Taypro Blog",
-  description:
-    "Solar module cleaning is a crucial aspect of maintaining the efficiency and longevity of solar energy systems. ",
-  keywords:
-    "solar panel cleaning, maintenance, taypro, solar energy, cleaning robots",
+  title: "The Science Behind Effective Solar Module Cleaning Systems: A Technical Comparison of Traditional and Modern Approaches - Taypro Blog",
+  description: "Solar module cleaning is a crucial aspect of maintaining the efficiency and longevity of solar energy systems. Learn more about Solar Panel Cleaning Robot solutions and best practices.",
+  keywords: [
+      "Solar Panel Cleaning Robot",
+      "solar panel cleaning best practices",
+      "solar cleaning solutions",
+      "solar panel cleaning",
+      "solar panel maintenance",
+      "solar energy",
+      "Taypro"
+    ],
   openGraph: {
-    title:
-      "The Science Behind Effective Solar Module Cleaning Systems: A Technical Comparison of Traditional and Modern Approaches - Taypro Blog",
-    description:
-      "Solar module cleaning is a crucial aspect of maintaining the efficiency and longevity of solar energy systems. ",
-    url: `https://yourdomain.com/blog/the-science-behind-effective-solar-module-cleaning-systems-a-technical-comparison-of-traditional-and-modern-approaches`,
+    title: "The Science Behind Effective Solar Module Cleaning Systems: A Technical Comparison of Traditional and Modern Approaches - Taypro Blog",
+    description: "Solar module cleaning is a crucial aspect of maintaining the efficiency and longevity of solar energy systems.",
+    url: `${siteUrl}/blog/the-science-behind-effective-solar-module-cleaning-systems-a-technical-comparison-of-traditional-and-modern-approaches`,
     type: "article",
     images: [
-      "/uploads/2024/08/Screenshot-2024-08-22-at-2.35.07 PM-2048x942.png",
+      {
+        url: `${siteUrl}/uploads/2024/08/Screenshot-2024-08-22-at-2.35.07 PM-2048x942.png`,
+        width: 1200,
+        height: 630,
+        alt: "The Science Behind Effective Solar Module Cleaning Systems: A Technical Comparison of Traditional and Modern Approaches - Taypro Blog",
+      },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Science Behind Effective Solar Module Cleaning Systems: A Technical Comparison of Traditional and Modern Approaches - Taypro Blog",
+    description: "Solar module cleaning is a crucial aspect of maintaining the efficiency and longevity of solar energy systems.",
+    images: [`${siteUrl}/uploads/2024/08/Screenshot-2024-08-22-at-2.35.07 PM-2048x942.png`],
+  },
+  alternates: {
+    canonical: `${siteUrl}/blog/the-science-behind-effective-solar-module-cleaning-systems-a-technical-comparison-of-traditional-and-modern-approaches`,
   },
 };
 
