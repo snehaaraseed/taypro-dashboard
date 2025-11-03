@@ -70,7 +70,7 @@ echo ""
 
 # Step 2: Sync files (excluding production-specific content but including design assets)
 echo -e "${YELLOW}📤 Step 2: Syncing code files...${NC}"
-rsync -avz \
+rsync -avz --checksum \
     --exclude 'node_modules' \
     --exclude '.next' \
     --exclude '.git' \
