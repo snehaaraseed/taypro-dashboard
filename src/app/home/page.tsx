@@ -1,11 +1,27 @@
+"use client";
+
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { Check } from "lucide-react";
 import { robots, features, otherFeatures } from "@/app/data";
-import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { RobotCard } from "@/app/components/RobotCard";
-import ClientsCard from "@/app/components/ClientsCard";
-import ROITayproCalculator from "@/app/components/ROICalculator";
-import { VideoObjectSchema } from "@/app/components/StructuredData";
+import { VideoObjectSchema, ProductSchema } from "@/app/components/StructuredData";
+
+// Lazy load heavy components
+const ROITayproCalculator = dynamic(() => import("@/app/components/ROICalculator"), {
+  loading: () => <div className="min-h-[400px] flex items-center justify-center"><div className="animate-pulse text-gray-400">Loading calculator...</div></div>,
+  ssr: false, // ROI Calculator uses client-side libraries
+});
+
+const RequestEstimateForm = dynamic(() => import("@/app/components/RequestEstimateForm"), {
+  loading: () => <div className="min-h-[300px] flex items-center justify-center"><div className="animate-pulse text-gray-400">Loading form...</div></div>,
+});
+
+const ClientsCard = dynamic(() => import("@/app/components/ClientsCard"), {
+  loading: () => <div className="min-h-[200px] flex items-center justify-center"><div className="animate-pulse text-gray-400">Loading clients...</div></div>,
+});
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
 export default function HomePage() {
   return (
@@ -17,6 +33,19 @@ export default function HomePage() {
         uploadDate="2024-01-01"
         embedUrl="https://www.youtube.com/embed/PiXJhQ_MYgk"
         contentUrl="https://www.youtube.com/watch?v=PiXJhQ_MYgk"
+      />
+      <ProductSchema
+        name="Solar Panel Cleaning Robot - Model A"
+        description="Autonomous waterless Solar Panel Cleaning Robot with AI-powered scheduling. Increases solar plant efficiency up to 30% with highest uptime guarantee."
+        image={`${siteUrl}/tayproasset/taypro-robotImage.png`}
+        brand="Taypro"
+        sku="MODEL-A"
+        offers={{
+          price: "Contact for pricing",
+          priceCurrency: "INR",
+          availability: "https://schema.org/InStock",
+        }}
+        siteUrl={siteUrl}
       />
       <div className="min-h-screen overflow-x-hidden">
         {/* Hero Section */}
@@ -46,6 +75,7 @@ export default function HomePage() {
                 width={600}
                 height={900}
                 priority
+                quality={85}
                 className="w-full h-auto"
               />
             </div>
@@ -64,12 +94,13 @@ export default function HomePage() {
               <div className="order-2 lg:order-1">
                 <div className="aspect-video w-full max-w-lg lg:max-w-none mx-auto overflow-hidden shadow-2xl rounded-lg">
                   <iframe
-                    src="https://www.youtube.com/embed/PiXJhQ_MYgk?si=69CgiggHsM73CRl_"
+                    src="https://www.youtube.com/embed/PiXJhQ_MYgk?si=69CgiggHsM73CRl_&loading=lazy"
                     title="TAYPRO - Robotic Solar Panel Cleaning"
                     className="w-full h-full"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    loading="lazy"
                   ></iframe>
                 </div>
               </div>
@@ -136,7 +167,7 @@ export default function HomePage() {
                     title="Solar Panel Cleaning Robot Models by Taypro"
                     width={600}
                     height={900}
-                    priority
+                    loading="lazy"
                     className="w-full h-auto"
                   />
                 </div>

@@ -1,14 +1,23 @@
 import type { Metadata } from "next";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import dynamic from "next/dynamic";
 import { Blinker } from "next/font/google";
 import { OrganizationSchema, WebSiteSchema } from "./components/StructuredData";
 
 import "./globals.css";
 
+// Lazy load Footer - it's not critical for initial render
+const Footer = dynamic(() => import("./components/Footer"), {
+  ssr: true, // Keep SSR for SEO but load asynchronously
+});
+
+// Header needs to be loaded immediately for navigation
+import Header from "./components/Header";
+
 const blinker = Blinker({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "600", "700", "800", "900"],
+  weight: ["300", "400", "600", "700"], // Only load weights actually used
+  display: "swap", // Optimize font loading
+  preload: true,
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
@@ -21,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | Taypro",
   },
   description:
-      "Taypro manufactures the best Solar Panel Cleaning Robots for solar farms in India. Autonomous, waterless cleaning with AI-powered scheduling. Increase solar plant efficiency up to 30% with our robotic cleaning systems.",
+      "Best Solar Panel Cleaning Robots for solar farms in India. Autonomous waterless cleaning increases efficiency up to 30% with AI-powered scheduling. Highest uptime guarantee.",
   keywords: [
     "Solar Panel Cleaning Robot",
     "solar panel cleaning robot",
@@ -57,7 +66,7 @@ export const metadata: Metadata = {
     siteName: "Taypro",
     title: "Solar Panel Cleaning Robot | Taypro - Autonomous Waterless Solar Cleaning",
     description:
-      "Taypro manufactures the best Solar Panel Cleaning Robots for solar farms in India. Autonomous, waterless cleaning with AI-powered scheduling. Increase solar plant efficiency up to 30%.",
+      "Best Solar Panel Cleaning Robots for solar farms in India. Autonomous waterless cleaning increases efficiency up to 30% with AI-powered scheduling.",
     images: [
       {
         url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
@@ -95,6 +104,12 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/tayproasset/taypro-favicon.png" sizes="any" />
         <link rel="canonical" href={siteUrl} />
+        {/* DNS Prefetch for external resources */}
+        <link rel="dns-prefetch" href="https://www.youtube.com" />
+        <link rel="dns-prefetch" href="https://img.youtube.com" />
+        <link rel="preconnect" href="https://www.youtube.com" crossOrigin="anonymous" />
+        {/* Prefetch critical resources */}
+        <link rel="prefetch" href="/tayproasset/taypro-robotImage.png" as="image" />
       </head>
       <body className={blinker.className}>
         <OrganizationSchema siteUrl={siteUrl} />

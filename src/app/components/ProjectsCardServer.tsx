@@ -55,3 +55,4 @@ export default async function ProjectsCardServer({
   return <ProjectsCard showHeader={showHeader} headerText={headerText} projects={displayProjects} />;
 }
 
+

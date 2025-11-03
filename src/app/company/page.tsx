@@ -306,27 +306,27 @@ export default function AboutUsPage() {
         </section>
 
         <section className="w-full py-30 px-4 sm:px-6 lg:px-0 overflow-x-hidden">
-          <div className="max-w-5xl mx-auto">
-            <h3 className="text-white font-semibold text-4xl mb-8">Founders</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="max-w-7xl mx-auto">
+            <h3 className="text-white font-semibold text-4xl mb-8">Our Team</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
               {founders.map((f) => (
                 <div
                   key={f.name}
-                  className="relative group overflow-hidden shadow-lg min-h-[400px] flex flex-col bg-white items-center"
+                  className="relative group overflow-hidden shadow-lg flex flex-col bg-white items-center"
                 >
-                  <div className="relative h-[500px] w-[400px] flex justify-center items-center mx-auto">
+                  <div className="relative h-[280px] w-full flex justify-center items-center">
                     <Image
                       src={f.img}
                       alt={`${f.name} - ${f.role} at Taypro, leading Solar Panel Cleaning Robot manufacturer`}
                       title={`${f.name} - ${f.role} at Taypro`}
-                      height={500}
-                      width={400}
+                      height={280}
+                      width={220}
                       className="object-cover object-center"
                     />
                   </div>
-                  <div className="relative z-0 w-full flex flex-col items-center px-6 pb-6 pt-8 transition-transform duration-300 group-hover:-translate-y-6">
-                    <div className="font-semibold text-3xl mb-1">{f.name}</div>
-                    <div className="text-[#7be117] text-[#76AA00] text-xl mb-4">
+                  <div className="relative z-0 w-full flex flex-col items-center px-4 pb-4 pt-4 transition-transform duration-300 group-hover:-translate-y-2">
+                    <div className="font-semibold text-xl mb-1 text-center">{f.name}</div>
+                    <div className="text-[#7be117] text-[#76AA00] text-base mb-3 text-center">
                       {f.role}
                     </div>
                     <a

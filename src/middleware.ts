@@ -6,6 +6,18 @@ const COOKIE_NAME = "admin-auth";
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const url = request.nextUrl.clone();
+
+  // Handle www/non-www redirect - prefer non-www (taypro.in)
+  const hostname = request.headers.get("host") || "";
+  if (hostname.startsWith("www.")) {
+    // Remove www. prefix while preserving port if present
+    const newHost = hostname.replace(/^www\./, "");
+    url.host = newHost;
+    // Preserve pathname and search params
+    url.pathname = pathname;
+    return NextResponse.redirect(url, 301);
+  }
 
   // Allow access to main admin page (shows login if not authenticated), login page, and API auth endpoints
   if (
@@ -40,6 +52,14 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     */
+    "/((?!api|_next/static|_next/image|favicon.ico).*)",
     "/admin/:path*",
     "/api/admin/:path*",
   ],

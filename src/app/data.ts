@@ -491,7 +491,7 @@ export const founders = [
   },
   {
     name: "Abhishek Masurkar",
-    role: "CFO",
+    role: "CMO",
     img: "/tayprofounders/taypro-abhishek.png",
     linkedin: "https://www.linkedin.com/in/abhi-masurkar/",
   },
