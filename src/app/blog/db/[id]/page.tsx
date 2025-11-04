@@ -130,7 +130,7 @@ async function getDatabaseBlogs(): Promise<DynamicBlog[]> {
       slug: blog.slug,
       publishDate: blog.publishDate,
       href: `/blog/${blog.slug}`,
-      source: "database",
+      source: "file" as const,
       id: blog._id,
     }));
   } catch (error) {

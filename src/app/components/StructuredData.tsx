@@ -433,3 +433,36 @@ export function LocalBusinessSchema({
   );
 }
 
+export function CollectionPageSchema({
+  name,
+  description,
+  url,
+  siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
+}: {
+  name: string;
+  description: string;
+  url: string;
+  siteUrl?: string;
+}) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: name,
+    description: description,
+    url: url,
+    publisher: {
+      "@type": "Organization",
+      name: "Taypro",
+      logo: `${siteUrl}/tayproasset/taypro-logo.png`,
+    },
+  };
+
+  return (
+    <Script
+      id="collection-page-schema"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+

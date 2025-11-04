@@ -9,6 +9,7 @@ import type { Metadata } from "next";
 import { promises as fs } from "fs";
 import path from "path";
 import { DynamicBlog } from "../../api/blog/list/route";
+import { addInternalLinks } from "../../utils/internalLinking";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
@@ -96,6 +97,7 @@ async function getBlogData(slug: string): Promise<BlogData | null> {
   try {
     const blogDir = path.join(process.cwd(), "src", "app", "blog", slug);
     const metadataPath = path.join(blogDir, "metadata.json");
+    const contentHtmlPath = path.join(blogDir, "content.html");
     const contentPath = path.join(blogDir, "page.tsx");
 
     // ✅ Check if metadata file exists before trying to read
@@ -106,11 +108,7 @@ async function getBlogData(slug: string): Promise<BlogData | null> {
       return null;
     }
 
-    const [metadataContent, pageContent] = await Promise.all([
-      fs.readFile(metadataPath, "utf-8"),
-      fs.readFile(contentPath, "utf-8"),
-    ]);
-
+    const metadataContent = await fs.readFile(metadataPath, "utf-8");
     const metadata = JSON.parse(metadataContent);
 
     // Check if blog is published (default to true for backward compatibility)
@@ -119,11 +117,51 @@ async function getBlogData(slug: string): Promise<BlogData | null> {
       return null;
     }
 
-    // Extract content from page.tsx
-    const contentMatch = pageContent.match(
-      /<article[^>]*>([\s\S]*?)<\/article>/
-    );
-    const content = contentMatch ? contentMatch[1] : "";
+    // Try to read from content.html first (clean extracted content)
+    let content = "";
+    try {
+      content = await fs.readFile(contentHtmlPath, "utf-8");
+    } catch (error) {
+      // Fallback: extract from page.tsx if it exists
+      try {
+        const pageContent = await fs.readFile(contentPath, "utf-8");
+        
+        // Extract HTML from __html: `...content...\`, }} />
+        const patterns = [
+          /__html:\s*`([\s\S]*?)\\\\?`\s*,\s*\}\s*\}\s*\/>/,  // With comma
+          /__html:\s*`([\s\S]*?)\\\\?`\s*\}\s*\}\s*\/>/,     // Without comma
+        ];
+        
+        let found = false;
+        for (const pattern of patterns) {
+          const match = pageContent.match(pattern);
+          if (match && match[1]) {
+            content = match[1];
+            content = content.replace(/\\`/g, '`').replace(/\\\$/g, '$').replace(/\\\\/g, '\\');
+            found = true;
+            break;
+          }
+        }
+        
+        // If no match, try finding between __html: ` and \`, before }} />
+        if (!found) {
+          const startPattern = /__html:\s*`/;
+          const endPattern = /\\\`,\s*\}\s*\}\s*\/>/;
+          const startMatch = pageContent.match(startPattern);
+          const endMatch = pageContent.match(endPattern);
+          
+          if (startMatch && endMatch && startMatch.index !== undefined && endMatch.index !== undefined) {
+            const startPos = startMatch.index + startMatch[0].length;
+            const endPos = endMatch.index;
+            content = pageContent.substring(startPos, endPos);
+            content = content.replace(/\\`/g, '`').replace(/\\\$/g, '$').replace(/\\\\/g, '\\');
+          }
+        }
+      } catch (pageError) {
+        // No page.tsx or content.html, content will be empty
+        content = "";
+      }
+    }
 
     return {
       ...metadata,
@@ -319,9 +357,9 @@ export default async function BlogPost({ params }: BlogPostProps) {
               </section>
 
               {/* Main Content */}
-              <article>
+              <article suppressHydrationWarning>
                 <BlogContent
-                  content={blog.content}
+                  content={addInternalLinks(blog.content, allBlogs, slug, 8)}
                   className="prose prose-lg max-w-none space-y-5
                    prose-headings:text-[#052638]
                    prose-headings:font-semibold

@@ -3,6 +3,9 @@ import { getAllFileProjects } from "@/app/utils/projectFileUtils";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import Link from "next/link";
 import ProjectsCardServer from "../components/ProjectsCardServer";
+import { CollectionPageSchema } from "@/app/components/StructuredData";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -18,6 +21,12 @@ export default async function ProjectPage() {
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
+      <CollectionPageSchema
+        name="Solar Panel Cleaning Robot Installation Projects"
+        description="View our portfolio of solar panel cleaning robot installation projects across India. Explore successful deployments of automatic, semi-automatic, and CAPEX model solar panel cleaning robots."
+        siteUrl={siteUrl}
+        url={`${siteUrl}/projects`}
+      />
       <div className="min-h-screen">
         <section
           className="bg-white min-h-[50vh] flex flex-col items-center justify-start relative"

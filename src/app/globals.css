@@ -141,6 +141,49 @@ body {
   padding-left: 1rem;
 }
 
+/* All link styling - ensure they're always visible with underline and color */
+.prose a,
+article a {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 3px !important;
+  text-decoration-color: #2563eb !important;
+  color: #2563eb !important;
+  font-weight: 500 !important;
+}
+
+.prose a:hover,
+article a:hover {
+  color: #1e40af !important;
+  text-decoration-color: #1e40af !important;
+}
+
+/* Image styling in blog content */
+.prose img,
+article img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 1.5rem auto !important;
+}
+
+/* Internal link styling - ensure they're always visible with underline */
+.prose a.internal-link,
+a.internal-link {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 3px !important;
+  text-decoration-color: #2563eb !important;
+  color: #2563eb !important;
+  font-weight: 500 !important;
+}
+
+.prose a.internal-link:hover,
+a.internal-link:hover {
+  color: #1e40af !important;
+  text-decoration-color: #1e40af !important;
+}
+
 /* Animation for loading dots */
 @keyframes bounce {
   0%,

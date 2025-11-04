@@ -56,7 +56,7 @@ export default async function ProjectPage() {
 
   const allProjects = await getAllFileProjects();
   const relatedProjects = allProjects
-    .filter((p) => p.slug !== "yadgir-solar-project-50-mw")
+    .filter((p) => p.href !== "/projects/yadgir-solar-project-50-mw")
     .slice(0, 3);
 
   return (
