@@ -394,6 +394,7 @@ function isInsideTagAtPosition(html: string, position: number): boolean {
 
 /**
  * Add internal links to blog content, evenly distributed throughout
+ * Distribution: 5 links to pages, 3 links to blogs (total 8)
  */
 export function addInternalLinks(
   content: string,
@@ -406,18 +407,14 @@ export function addInternalLinks(
     return content;
   }
 
-  // Get relevant blogs (more blogs for better distribution)
+  // Bifurcate link counts: 5 pages, 3 blogs
+  const pageLinkCount = 5;
+  const blogLinkCount = 3;
+
+  // Get relevant blogs
   const blogLinks = findRelevantBlogs(content, allBlogs, currentSlug, 5);
 
-  // Combine static page links and blog links, sort by priority
-  const allLinks: InternalLink[] = [
-    ...staticPageLinks,
-    ...blogLinks,
-  ].sort((a, b) => b.priority - a.priority);
-
-  const usedUrls = new Set<string>();
-  let processedContent = content;
-  let linkCount = 0;
+  const processedContent = content;
 
   // Collect all valid match positions first (grouped by URL to avoid duplicates)
   type MatchWithLink = {
@@ -425,15 +422,15 @@ export function addInternalLinks(
     link: InternalLink;
     position: number; // Position in content for sorting
   };
-  const allMatches: MatchWithLink[] = [];
-  const urlMatchMap = new Map<string, MatchWithLink[]>(); // Group matches by URL
 
-  // Collect all matches for all links, grouped by URL
-  for (const link of allLinks) {
+  // Process PAGE links separately
+  const pageMatches: MatchWithLink[] = [];
+  const pageUrlMatchMap = new Map<string, MatchWithLink[]>();
+
+  for (const link of staticPageLinks) {
     const matches = findKeywordMatches(processedContent, link.keyword);
 
     for (const match of matches) {
-      // Check if we're not inside a tag
       if (!isInsideTagAtPosition(processedContent, match.start)) {
         const matchWithLink: MatchWithLink = {
           match,
@@ -441,18 +438,16 @@ export function addInternalLinks(
           position: match.start,
         };
         
-        // Group by URL
-        if (!urlMatchMap.has(link.url)) {
-          urlMatchMap.set(link.url, []);
+        if (!pageUrlMatchMap.has(link.url)) {
+          pageUrlMatchMap.set(link.url, []);
         }
-        urlMatchMap.get(link.url)!.push(matchWithLink);
+        pageUrlMatchMap.get(link.url)!.push(matchWithLink);
       }
     }
   }
 
-  // For each URL, keep only the best match (highest priority, or first occurrence if same priority)
-  for (const [url, matches] of urlMatchMap.entries()) {
-    // Sort matches by priority (descending), then by position (ascending)
+  // For each page URL, keep only the best match
+  for (const [url, matches] of pageUrlMatchMap.entries()) {
     matches.sort((a, b) => {
       if (b.link.priority !== a.link.priority) {
         return b.link.priority - a.link.priority;
@@ -460,41 +455,88 @@ export function addInternalLinks(
       return a.position - b.position;
     });
     
-    // Only add the first (best) match for each URL to allMatches
     if (matches.length > 0) {
-      allMatches.push(matches[0]);
+      pageMatches.push(matches[0]);
     }
   }
 
-  // Sort matches by position (to ensure even distribution)
-  allMatches.sort((a, b) => a.position - b.position);
+  // Process BLOG links separately
+  const blogMatches: MatchWithLink[] = [];
+  const blogUrlMatchMap = new Map<string, MatchWithLink[]>();
 
-  // Calculate content length for even distribution
+  for (const link of blogLinks) {
+    const matches = findKeywordMatches(processedContent, link.keyword);
+
+    for (const match of matches) {
+      if (!isInsideTagAtPosition(processedContent, match.start)) {
+        const matchWithLink: MatchWithLink = {
+          match,
+          link,
+          position: match.start,
+        };
+        
+        if (!blogUrlMatchMap.has(link.url)) {
+          blogUrlMatchMap.set(link.url, []);
+        }
+        blogUrlMatchMap.get(link.url)!.push(matchWithLink);
+      }
+    }
+  }
+
+  // For each blog URL, keep only the best match
+  for (const [url, matches] of blogUrlMatchMap.entries()) {
+    matches.sort((a, b) => {
+      if (b.link.priority !== a.link.priority) {
+        return b.link.priority - a.link.priority;
+      }
+      return a.position - b.position;
+    });
+    
+    if (matches.length > 0) {
+      blogMatches.push(matches[0]);
+    }
+  }
+
+  // Sort both by position
+  pageMatches.sort((a, b) => a.position - b.position);
+  blogMatches.sort((a, b) => a.position - b.position);
+
+  // Select page links (up to 5)
+  const selectedPageMatches = pageMatches.slice(0, pageLinkCount);
+
+  // Select blog links (up to 3)
+  const selectedBlogMatches = blogMatches.slice(0, blogLinkCount);
+
+  // Combine all selected matches
+  const allSelectedMatches = [...selectedPageMatches, ...selectedBlogMatches];
+
+  // Sort by position for even distribution
+  allSelectedMatches.sort((a, b) => a.position - b.position);
+
+  // Distribute evenly across content
   const contentLength = processedContent.length;
-  const targetSections = Math.min(targetLinkCount, allMatches.length);
-  const sectionSize = contentLength / (targetSections + 1);
-
-  // Select matches to distribute evenly
-  const selectedMatches: MatchWithLink[] = [];
+  const finalSelectedMatches: MatchWithLink[] = [];
+  const usedUrls = new Set<string>();
   const selectedPositions = new Set<number>();
 
-  // If we have enough matches, distribute evenly
-  if (allMatches.length >= targetLinkCount) {
+  if (allSelectedMatches.length > 0) {
+    const targetSections = Math.min(allSelectedMatches.length, targetLinkCount);
+    const sectionSize = contentLength / (targetSections + 1);
+
     // Create target positions for even distribution
     const targetPositions: number[] = [];
     for (let i = 1; i <= targetSections; i++) {
       targetPositions.push(Math.floor(sectionSize * i));
     }
 
-    // For each target position, find the closest match
+    // For each target position, find the closest available match
     for (const targetPos of targetPositions) {
       let closestMatch: MatchWithLink | null = null;
       let closestDistance = Infinity;
 
-      for (const matchWithLink of allMatches) {
-        // Skip if URL already used (shouldn't happen now, but keep as safety check)
+      for (const matchWithLink of allSelectedMatches) {
+        // Skip if URL already used or position already selected
         if (usedUrls.has(matchWithLink.link.url)) continue;
-        // Skip if this exact position was already selected
         if (selectedPositions.has(matchWithLink.position)) continue;
 
         const distance = Math.abs(matchWithLink.position - targetPos);
@@ -504,42 +546,30 @@ export function addInternalLinks(
         }
       }
 
-      if (closestMatch && linkCount < targetLinkCount) {
-        selectedMatches.push(closestMatch);
+      if (closestMatch) {
+        finalSelectedMatches.push(closestMatch);
         selectedPositions.add(closestMatch.position);
         usedUrls.add(closestMatch.link.url);
-        linkCount++;
       }
-    }
-  } else {
-    // If we don't have enough matches, use all available matches
-    // Since allMatches already has only one match per URL, we can use them all
-    for (const matchWithLink of allMatches) {
-      if (linkCount >= targetLinkCount) break;
-      // Safety check (shouldn't be needed since we already filtered)
-      if (usedUrls.has(matchWithLink.link.url)) continue;
-
-      selectedMatches.push(matchWithLink);
-      usedUrls.add(matchWithLink.link.url);
-      linkCount++;
     }
   }
 
   // Sort selected matches by position (descending) to apply from end to start
   // This prevents position shifts when inserting links
-  selectedMatches.sort((a, b) => b.position - a.position);
+  finalSelectedMatches.sort((a, b) => b.position - a.position);
 
   // Apply links from end to start to maintain correct positions
-  for (const { match, link } of selectedMatches) {
-    const before = processedContent.substring(0, match.start);
-    const after = processedContent.substring(match.end);
+  let resultContent = processedContent;
+  for (const { match, link } of finalSelectedMatches) {
+    const before = resultContent.substring(0, match.start);
+    const after = resultContent.substring(match.end);
 
     // Create the link with internal-link class for CSS styling
     const linkHtml = `<a href="${link.url}" class="internal-link" title="${link.keyword}">${match.text}</a>`;
 
-    processedContent = before + linkHtml + after;
+    resultContent = before + linkHtml + after;
   }
 
-  return processedContent;
+  return resultContent;
 }
 
