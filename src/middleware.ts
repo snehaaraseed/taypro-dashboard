@@ -11,11 +11,15 @@ export function middleware(request: NextRequest) {
   // Handle www/non-www redirect - prefer non-www (taypro.in)
   const hostname = request.headers.get("host") || "";
   if (hostname.startsWith("www.")) {
-    // Remove www. prefix while preserving port if present
-    const newHost = hostname.replace(/^www\./, "");
+    // Remove www. prefix and port (force standard HTTPS port 443 or HTTP port 80)
+    const newHost = hostname.replace(/^www\./, "").split(":")[0];
     url.host = newHost;
+    // Use HTTPS if the original request was HTTPS, otherwise HTTP
+    url.protocol = request.nextUrl.protocol;
     // Preserve pathname and search params
     url.pathname = pathname;
+    // Remove port to use default (443 for HTTPS, 80 for HTTP)
+    url.port = "";
     return NextResponse.redirect(url, 301);
   }
 
