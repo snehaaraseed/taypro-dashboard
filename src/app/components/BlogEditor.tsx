@@ -5,6 +5,10 @@ import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
 import Link from "@tiptap/extension-link";
 import TextAlign from "@tiptap/extension-text-align";
+import { Table } from "@tiptap/extension-table";
+import { TableRow } from "@tiptap/extension-table-row";
+import { TableCell } from "@tiptap/extension-table-cell";
+import { TableHeader } from "@tiptap/extension-table-header";
 import { useState, useEffect } from "react";
 
 interface BlogEditorProps {
@@ -51,6 +55,30 @@ export default function BlogEditor({
       }),
       TextAlign.configure({
         types: ["heading", "paragraph"],
+      }),
+      Table.configure({
+        resizable: true,
+        HTMLAttributes: {
+          class: "border-collapse border border-gray-300 my-4 max-w-full",
+          style: "table-layout: auto;",
+        },
+      }),
+      TableRow.configure({
+        HTMLAttributes: {
+          class: "border-b border-gray-300",
+        },
+      }),
+      TableHeader.configure({
+        HTMLAttributes: {
+          class: "border border-gray-300 bg-gray-100 px-4 py-2 font-semibold text-left",
+          style: "width: auto; min-width: 100px;",
+        },
+      }),
+      TableCell.configure({
+        HTMLAttributes: {
+          class: "border border-gray-300 px-4 py-2",
+          style: "width: auto; min-width: 100px;",
+        },
       }),
     ],
     content: initialContent,
@@ -572,6 +600,188 @@ export default function BlogEditor({
             </svg>
           </button>
 
+          {/* Table Controls */}
+          <div className="flex items-center gap-1 pr-2 border-r border-gray-300">
+            <button
+              type="button"
+              onClick={() => editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()}
+              className={`p-2 rounded hover:bg-gray-200 transition-colors ${
+                editor.isActive("tableCell") || editor.isActive("tableHeader")
+                  ? "bg-blue-100 text-blue-700"
+                  : "text-gray-700"
+              }`}
+              title="Insert Table"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                />
+              </svg>
+            </button>
+            {(editor.isActive("tableCell") || editor.isActive("tableHeader")) && (
+              <>
+                <div className="h-6 w-px bg-gray-300 mx-1" />
+                <button
+                  type="button"
+                  onClick={() => editor.chain().focus().addRowBefore().run()}
+                  className="p-2 rounded hover:bg-gray-200 transition-colors text-gray-700"
+                  title="Add Row Before"
+                  disabled={!editor.can().addRowBefore()}
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 12h18M3 6h18M3 18h18"
+                    />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => editor.chain().focus().addRowAfter().run()}
+                  className="p-2 rounded hover:bg-gray-200 transition-colors text-gray-700"
+                  title="Add Row After"
+                  disabled={!editor.can().addRowAfter()}
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 4v16m8-8H4"
+                    />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => editor.chain().focus().deleteRow().run()}
+                  className="p-2 rounded hover:bg-gray-200 transition-colors text-gray-700"
+                  title="Delete Row"
+                  disabled={!editor.can().deleteRow()}
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+                <div className="h-6 w-px bg-gray-300 mx-1" />
+                <button
+                  type="button"
+                  onClick={() => editor.chain().focus().addColumnBefore().run()}
+                  className="p-2 rounded hover:bg-gray-200 transition-colors text-gray-700"
+                  title="Add Column Before"
+                  disabled={!editor.can().addColumnBefore()}
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 3v18M6 12h18M6 6h18M6 18h18"
+                    />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => editor.chain().focus().addColumnAfter().run()}
+                  className="p-2 rounded hover:bg-gray-200 transition-colors text-gray-700"
+                  title="Add Column After"
+                  disabled={!editor.can().addColumnAfter()}
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 12h16m-8-8v16"
+                    />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => editor.chain().focus().deleteColumn().run()}
+                  className="p-2 rounded hover:bg-gray-200 transition-colors text-gray-700"
+                  title="Delete Column"
+                  disabled={!editor.can().deleteColumn()}
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+                <div className="h-6 w-px bg-gray-300 mx-1" />
+                <button
+                  type="button"
+                  onClick={() => editor.chain().focus().deleteTable().run()}
+                  className="p-2 rounded hover:bg-gray-200 transition-colors text-red-600"
+                  title="Delete Table"
+                  disabled={!editor.can().deleteTable()}
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                    />
+                  </svg>
+                </button>
+              </>
+            )}
+          </div>
+
           {/* View Toggle - WordPress Style */}
           <div className="ml-auto flex items-center gap-1 border-l border-gray-300 pl-2">
             <button
@@ -609,7 +819,32 @@ export default function BlogEditor({
              prose-code:px-2
              prose-code:py-1
              prose-code:rounded
-             focus:outline-none"
+             focus:outline-none
+             [&_table]:border-collapse
+             [&_table]:border
+             [&_table]:border-gray-300
+             [&_table]:my-4
+             [&_table]:max-w-full
+             [&_table]:table-auto
+             [&_th]:border
+             [&_th]:border-gray-300
+             [&_th]:bg-gray-100
+             [&_th]:px-4
+             [&_th]:py-2
+             [&_th]:font-semibold
+             [&_th]:text-left
+             [&_th]:w-auto
+             [&_td]:border
+             [&_td]:border-gray-300
+             [&_td]:px-4
+             [&_td]:py-2
+             [&_td]:w-auto
+             [&_table_th]:relative
+             [&_table_td]:relative
+             [&_table_th:hover]:cursor-pointer
+             [&_table_td:hover]:cursor-pointer
+             [&_table_.resize-cursor]:cursor-col-resize
+             [&_table_.resize-cursor-row]:cursor-row-resize"
           />
         </div>
       ) : (
