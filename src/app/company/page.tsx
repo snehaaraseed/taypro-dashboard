@@ -305,28 +305,81 @@ export default function AboutUsPage() {
           </div>
         </section>
 
-        <section className="w-full py-30 px-4 sm:px-6 lg:px-0 overflow-x-hidden">
+        <section className="w-full py-30 px-4 sm:px-6 lg:px-0 overflow-x-hidden bg-[#073448]">
           <div className="max-w-7xl mx-auto">
             <h3 className="text-white font-semibold text-4xl mb-8">Our Team</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 team-cards-container">
               {founders.map((f) => (
                 <div
                   key={f.name}
-                  className="relative group overflow-hidden shadow-lg flex flex-col bg-white items-center"
+                  className="team-card relative group overflow-hidden shadow-2xl flex flex-col bg-white items-center rounded-lg hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)]"
+                  style={{ willChange: 'transform, opacity' }}
                 >
-                  <div className="relative h-[280px] w-full flex justify-center items-center">
+                  {/* Vignette overlay for entire card - radial gradient effect */}
+                  <div 
+                    className="absolute inset-0 z-10 pointer-events-none rounded-lg transition-opacity group-hover:opacity-90"
+                    style={{
+                      background: 'radial-gradient(circle at center, transparent 0%, transparent 50%, rgba(0,0,0,0.12) 100%)',
+                      transitionDuration: '600ms',
+                      transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                    }}
+                  ></div>
+                  {/* Subtle border frame effect for entire card */}
+                  <div 
+                    className="absolute inset-0 z-10 border-4 border-white/40 rounded-lg pointer-events-none transition-all group-hover:border-white/60"
+                    style={{
+                      transitionDuration: '600ms',
+                      transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                    }}
+                  ></div>
+                  
+                  <div className="relative h-[280px] w-full flex justify-center items-center overflow-hidden bg-gradient-to-b from-gray-50 to-white">
                     <Image
                       src={f.img}
                       alt={`${f.name} - ${f.role} at Taypro, leading Solar Panel Cleaning Robot manufacturer`}
                       title={`${f.name} - ${f.role} at Taypro`}
                       height={280}
                       width={220}
-                      className="object-cover object-center"
+                      className="object-cover object-center transition-transform group-hover:scale-110 relative z-0"
+                      style={{ 
+                        willChange: 'transform',
+                        transitionDuration: '600ms',
+                        transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
+                      }}
                     />
+                    {/* Additional bottom vignette for depth on image */}
+                    <div 
+                      className="absolute inset-0 z-10 bg-gradient-to-t from-black/15 via-transparent to-transparent pointer-events-none opacity-70 group-hover:opacity-50 transition-opacity"
+                      style={{
+                        transitionDuration: '600ms',
+                        transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                      }}
+                    ></div>
+                    {/* Corner vignette effects on image */}
+                    <div className="absolute inset-0 z-10 bg-gradient-to-br from-black/10 via-transparent to-transparent pointer-events-none opacity-50"></div>
+                    <div className="absolute inset-0 z-10 bg-gradient-to-tl from-black/10 via-transparent to-transparent pointer-events-none opacity-50"></div>
                   </div>
-                  <div className="relative z-0 w-full flex flex-col items-center px-4 pb-4 pt-4 transition-transform duration-300 group-hover:-translate-y-2">
-                    <div className="font-semibold text-xl mb-1 text-center">{f.name}</div>
-                    <div className="text-[#7be117] text-[#76AA00] text-base mb-3 text-center">
+                  <div 
+                    className="relative z-20 w-full flex flex-col items-center px-4 pb-4 pt-4 transition-transform group-hover:-translate-y-2"
+                    style={{
+                      transitionDuration: '600ms',
+                      transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
+                    }}
+                  >
+                    <div 
+                      className="font-semibold text-xl mb-1 text-center text-[#052638] transition-all group-hover:text-2xl group-hover:mb-2"
+                      style={{
+                        transitionDuration: '600ms',
+                        transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
+                      }}
+                    >{f.name}</div>
+                    <div 
+                      className="text-[#7be117] text-base mb-3 text-center transition-all group-hover:text-lg group-hover:mb-4"
+                      style={{
+                        transitionDuration: '600ms',
+                        transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
+                      }}
+                    >
                       {f.role}
                     </div>
                     <a
@@ -337,12 +390,38 @@ export default function AboutUsPage() {
                 opacity-100 pointer-events-auto translate-y-0
                 md:opacity-0 md:pointer-events-none md:translate-y-4 
                 md:group-hover:opacity-100 md:group-hover:pointer-events-auto md:group-hover:translate-y-0 
-                transition-all duration-300 flex items-center gap-2 text-[#7be117] hover:text-[#a8ef17]"
+                transition-all flex items-center gap-2 text-[#7be117] hover:text-[#a8ef17]"
+                      style={{
+                        transitionDuration: '600ms',
+                        transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
+                      }}
                       aria-label={`LinkedIn of ${f.name}`}
                     >
-                      <Linkedin size={16} />
+                      <Linkedin 
+                        size={20} 
+                        className="transition-transform group-hover:scale-[1.8] md:group-hover:scale-[1.8]"
+                        style={{
+                          transitionDuration: '600ms',
+                          transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
+                        }}
+                      />
                     </a>
                   </div>
+                  {/* Corner vignette effects for entire card */}
+                  <div 
+                    className="absolute inset-0 z-10 bg-gradient-to-br from-black/8 via-transparent to-transparent pointer-events-none opacity-60 rounded-lg transition-opacity group-hover:opacity-40"
+                    style={{
+                      transitionDuration: '600ms',
+                      transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                    }}
+                  ></div>
+                  <div 
+                    className="absolute inset-0 z-10 bg-gradient-to-tl from-black/8 via-transparent to-transparent pointer-events-none opacity-60 rounded-lg transition-opacity group-hover:opacity-40"
+                    style={{
+                      transitionDuration: '600ms',
+                      transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                    }}
+                  ></div>
                 </div>
               ))}
             </div>

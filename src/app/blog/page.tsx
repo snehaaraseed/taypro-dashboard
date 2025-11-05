@@ -114,6 +114,9 @@ export default function Blog() {
                       priority
                     />
 
+                    {/* Dark overlay gradient for better title visibility */}
+                    <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/60 via-black/40 to-transparent pointer-events-none"></div>
+
                     <div className="absolute bottom-4 left-4 text-white flex flex-col transition-all duration-300">
                       <h4 className="text-sm font-semibold px-3 transition-transform duration-300 group-hover:-translate-y-3">
                         {blog.title}
