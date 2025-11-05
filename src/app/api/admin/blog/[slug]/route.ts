@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { requireAuth } from "../../../../utils/auth";
 import {
   updateBlogFiles,
@@ -107,6 +108,14 @@ export async function PUT(
       );
     }
 
+    // Revalidate the updated blog page and blog list page immediately
+    // If slug changed, revalidate both old and new paths
+    if (finalSlug !== slug) {
+      revalidatePath(`/blog/${slug}`);
+    }
+    revalidatePath(`/blog/${result.slug}`);
+    revalidatePath("/blog");
+
     return NextResponse.json({
       success: true,
       message: "Blog updated successfully",
@@ -146,6 +155,10 @@ export async function DELETE(
         { status: 400 }
       );
     }
+
+    // Revalidate the deleted blog page and blog list page immediately
+    revalidatePath(`/blog/${slug}`);
+    revalidatePath("/blog");
 
     return NextResponse.json({
       success: true,

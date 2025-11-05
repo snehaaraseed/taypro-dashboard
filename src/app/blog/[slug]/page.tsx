@@ -175,6 +175,22 @@ async function getBlogData(slug: string): Promise<BlogData | null> {
   }
 }
 
+// Generate static params for all blog pages at build time
+export async function generateStaticParams(): Promise<PageParams[]> {
+  const blogs = await getFileBlogs();
+  
+  // Only generate static params for published blogs
+  // Note: getFileBlogs already filters out unpublished blogs, but we check again for safety
+  return blogs
+    .filter((blog) => (blog as DynamicBlog & { published?: boolean }).published !== false)
+    .map((blog) => ({
+      slug: blog.slug,
+    }));
+}
+
+// Enable ISR: regenerate pages every hour, but allow stale-while-revalidate
+export const revalidate = 3600; // 1 hour in seconds
+
 // Generate metadata for SEO
 export async function generateMetadata({
   params,

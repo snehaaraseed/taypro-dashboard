@@ -51,10 +51,10 @@ async function getFileBlogs(): Promise<DynamicBlog[]> {
       (a, b) =>
         new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
     );
-  } catch (error) {
+    } catch (error) {
     console.error("Error fetching file blogs:", error);
     return [];
-  }
+    }
 }
 
 export default async function Blog() {

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { requireAuth } from "../../../../utils/auth";
 import {
   readProjectMetadata,
@@ -76,6 +77,14 @@ export async function PUT(
       newSlug
     );
 
+    // Revalidate the updated project page and projects list page immediately
+    // If slug changed, revalidate both old and new paths
+    if (newSlug && newSlug !== slug) {
+      revalidatePath(`/projects/${slug}`);
+    }
+    revalidatePath(`/projects/${updatedSlug}`);
+    revalidatePath("/projects");
+
     return NextResponse.json({
       success: true,
       slug: updatedSlug,
@@ -106,6 +115,10 @@ export async function DELETE(
   try {
     const { slug } = await params;
     await deleteProjectFiles(slug);
+
+    // Revalidate the deleted project page and projects list page immediately
+    revalidatePath(`/projects/${slug}`);
+    revalidatePath("/projects");
 
     return NextResponse.json({
       success: true,

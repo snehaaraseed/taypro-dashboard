@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { requireAuth } from "../../../../utils/auth";
 import { createBlogFiles } from "../../../../utils/blogFileUtils";
 
@@ -38,6 +39,10 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+
+    // Revalidate the new blog page and blog list page immediately
+    revalidatePath(`/blog/${result.slug}`);
+    revalidatePath("/blog");
 
     return NextResponse.json({
       success: true,

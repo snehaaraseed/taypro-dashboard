@@ -8,3 +8,6 @@ Disallow: /blog/db/
 
 # Host
 Host: https://taypro.in
+
+# Sitemaps
+Sitemap: https://taypro.in/sitemap.xml

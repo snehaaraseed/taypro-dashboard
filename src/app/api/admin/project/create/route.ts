@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { requireAuth } from "../../../../utils/auth";
 import {
   createProjectFiles,
@@ -24,6 +25,10 @@ export async function POST(request: NextRequest) {
     }
 
     const { slug } = await createProjectFiles(body);
+
+    // Revalidate the new project page and projects list page immediately
+    revalidatePath(`/projects/${slug}`);
+    revalidatePath("/projects");
 
     return NextResponse.json({
       success: true,
