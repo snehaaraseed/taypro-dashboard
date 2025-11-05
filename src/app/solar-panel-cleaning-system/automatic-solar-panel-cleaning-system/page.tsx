@@ -22,6 +22,7 @@ import ROITayproCalculator from "@/app/components/ROICalculator";
 import { ProductSchema } from "@/app/components/StructuredData";
 import Link from "next/link";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
+import Product360Viewer from "@/app/components/Product360Viewer";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
@@ -114,6 +115,35 @@ export default function AutomaticSolarPanelCleaningRobot() {
                 fill="none"
               />
             </svg>
+          </AnimateOnScroll>
+        </section>
+
+        {/* 360-Degree Product Viewer Section */}
+        <section className="max-w-[1650px] bg-gradient-to-b from-white to-gray-50 mx-auto px-4 sm:px-6 py-20">
+          <AnimateOnScroll animation="fadeInUp" className="text-center mb-8">
+            <div className="text-[#A8C117] text-xl sm:text-2xl font-medium mb-2">
+              Interactive Product Tour
+            </div>
+            <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-4">
+              360° View of Model-A
+            </h2>
+            <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
+              Drag left or right to rotate and explore our Automatic Solar Panel Cleaning Robot from every angle
+            </p>
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fadeInUp" delay={100} className="flex justify-center">
+            <div className="w-full max-w-4xl">
+              <Product360Viewer
+                imagePath="/360-degree-images/Model-A/MODEL-A-"
+                imageCount={61}
+                imagePrefix=""
+                imageSuffix=".png"
+                startIndex={100}
+                width={800}
+                height={600}
+                className="mx-auto"
+              />
+            </div>
           </AnimateOnScroll>
         </section>
 

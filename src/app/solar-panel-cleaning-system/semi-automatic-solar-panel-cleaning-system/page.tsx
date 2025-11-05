@@ -10,6 +10,7 @@ import FeaturesSection from "@/app/components/FeaturesSection";
 import ResourcesCard from "@/app/components/ResourcesCard";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
+import Product360Viewer from "@/app/components/Product360Viewer";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
@@ -56,10 +57,39 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
             </>
           }
           description={
-            "The Taypro Model-B is not just another cleaning device; it’s a result of meticulous study and analysis aimed at addressing prevalent issues in solar power plants. The innovative cleaning assembly and driving mechanism elevate its compatibility, making it suitable for fixed tilt, seasonal tilt, and horizontal single-axis trackers. This adaptability extends to solar panel rows of any size, showcasing a device that thrives amidst irregularities and undulations."
+            "The Taypro Model-B is not just another cleaning device; it's a result of meticulous study and analysis aimed at addressing prevalent issues in solar power plants. The innovative cleaning assembly and driving mechanism elevate its compatibility, making it suitable for fixed tilt, seasonal tilt, and horizontal single-axis trackers. This adaptability extends to solar panel rows of any size, showcasing a device that thrives amidst irregularities and undulations."
           }
           benefits={benefits}
         />
+
+        {/* 360-Degree Product Viewer Section */}
+        <section className="max-w-[1650px] bg-gradient-to-b from-white to-gray-50 mx-auto px-4 sm:px-6 py-20">
+          <AnimateOnScroll animation="fadeInUp" className="text-center mb-8">
+            <div className="text-[#A8C117] text-xl sm:text-2xl font-medium mb-2">
+              Interactive Product Tour
+            </div>
+            <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-4">
+              360° View of Model-B
+            </h2>
+            <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
+              Drag left or right to rotate and explore our Semi-Automatic Solar Panel Cleaning Robot from every angle
+            </p>
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fadeInUp" delay={100} className="flex justify-center">
+            <div className="w-full max-w-4xl">
+              <Product360Viewer
+                imagePath="/360-degree-images/Model-B/0001-MB-2000-1224-"
+                imageCount={51}
+                imagePrefix=""
+                imageSuffix=".png"
+                startIndex={100}
+                width={800}
+                height={600}
+                className="mx-auto"
+              />
+            </div>
+          </AnimateOnScroll>
+        </section>
 
         <section
           className="w-full py-5 pb-20 bg-white"
