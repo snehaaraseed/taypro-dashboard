@@ -12,6 +12,8 @@ const Footer = dynamic(() => import("./components/Footer"), {
 
 // Header needs to be loaded immediately for navigation
 import Header from "./components/Header";
+// Cookie consent banner - client-side only (imported as client component)
+import CookieConsentWrapper from "./components/CookieConsentWrapper";
 
 const blinker = Blinker({
   subsets: ["latin"],
@@ -104,12 +106,36 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/tayproasset/taypro-favicon.png" sizes="any" />
         <link rel="canonical" href={siteUrl} />
-        {/* DNS Prefetch for external resources */}
+        
+        {/* DNS Prefetch for external resources - improves first-time connection speed */}
         <link rel="dns-prefetch" href="https://www.youtube.com" />
         <link rel="dns-prefetch" href="https://img.youtube.com" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+        
+        {/* Preconnect to establish early connections - critical for first-time visitors */}
         <link rel="preconnect" href="https://www.youtube.com" crossOrigin="anonymous" />
-        {/* Prefetch critical resources */}
-        <link rel="prefetch" href="/tayproasset/taypro-robotImage.png" as="image" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* Preload critical resources - improves LCP for first-time visitors */}
+        <link
+          rel="preload"
+          href="/tayproasset/taypro-logo.png"
+          as="image"
+          type="image/png"
+        />
+        <link
+          rel="preload"
+          href="/tayproasset/taypro-robotImage.png"
+          as="image"
+          type="image/png"
+        />
+        
+        {/* Prefetch likely next resources - improves navigation speed */}
+        <link rel="prefetch" href="/blog" as="document" />
+        <link rel="prefetch" href="/projects" as="document" />
       </head>
       <body className={blinker.className}>
         <OrganizationSchema siteUrl={siteUrl} />
@@ -124,6 +150,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />
+          <CookieConsentWrapper />
         </div>
       </body>
     </html>

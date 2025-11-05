@@ -1,11 +1,9 @@
-"use client";
-
-import { useState, useTransition, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
 import { DynamicBlog } from "../api/blog/list/route";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { AnimateOnScroll } from "../components/AnimateOnScroll";
+import BlogList from "./BlogList";
+import { promises as fs } from "fs";
+import path from "path";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -15,37 +13,53 @@ const breadcrumbs = [
   },
 ];
 
-export default function Blog() {
-  const router = useRouter();
-  const [isPending, startTransition] = useTransition();
-  const [loadingSlug, setLoadingSlug] = useState<string | null>(null);
-  const [dynamicBlogs, setDynamicBlogs] = useState<DynamicBlog[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+async function getFileBlogs(): Promise<DynamicBlog[]> {
+  try {
+    const blogDir = path.join(process.cwd(), "src", "app", "blog");
+    const entries = await fs.readdir(blogDir, { withFileTypes: true });
 
-  useEffect(() => {
-    fetchDynamicBlogs();
-  }, []);
+    const blogDirs = entries.filter(
+      (entry) =>
+        entry.isDirectory() &&
+        !["components", "api", "[slug]", "add", "db"].includes(entry.name)
+    );
 
-  const fetchDynamicBlogs = async () => {
-    try {
-      const response = await fetch("/api/blog/list");
-      if (response.ok) {
-        const data = await response.json();
-        setDynamicBlogs(data.blogs);
+    const blogs: DynamicBlog[] = [];
+
+    for (const dir of blogDirs) {
+      try {
+        const metadataPath = path.join(blogDir, dir.name, "metadata.json");
+        const metadataContent = await fs.readFile(metadataPath, "utf-8");
+        const metadata = JSON.parse(metadataContent);
+
+        // Filter out drafts (only show published blogs, defaulting to true)
+        if (metadata.published === false) {
+          continue;
+        }
+
+        blogs.push({
+          ...metadata,
+          href: `/blog/${dir.name}`,
+          source: "file",
+        });
+      } catch (error) {
+        console.warn(`No metadata found for blog: ${dir.name}`);
       }
-    } catch (error) {
-      console.error("Error fetching dynamic blogs:", error);
-    } finally {
-      setIsLoading(false);
     }
-  };
 
-  function handleClick(href: string, slug: string) {
-    setLoadingSlug(slug);
-    startTransition(() => {
-      router.push(href);
-    });
+    return blogs.sort(
+      (a, b) =>
+        new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
+    );
+  } catch (error) {
+    console.error("Error fetching file blogs:", error);
+    return [];
   }
+}
+
+export default async function Blog() {
+  // Fetch blogs on the server side (no loader needed!)
+  const dynamicBlogs = await getFileBlogs();
 
   const allBlogs = dynamicBlogs.map((blog) => ({
     title: blog.title,
@@ -53,22 +67,11 @@ export default function Blog() {
     date: new Date(blog.publishDate).toLocaleDateString(),
     href: blog.href,
     slug: blog.slug,
-    // source: blog.source,
   }));
 
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
-
-      {isPending && loadingSlug && (
-        <div className="fixed inset-0 bg-white bg-opacity-75 flex items-center justify-center z-50">
-          <div className="flex space-x-2">
-            <span className="dot w-3 h-3 bg-gray-500 rounded-full animate-bounce"></span>
-            <span className="dot w-3 h-3 bg-gray-500 rounded-full animate-bounce delay-100"></span>
-            <span className="dot w-3 h-3 bg-gray-500 rounded-full animate-bounce delay-200"></span>
-          </div>
-        </div>
-      )}
 
       <section className="w-full min-h-100 pt-20 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 text-start">
@@ -76,61 +79,14 @@ export default function Blog() {
             <h1 className="text-[#052638] text-4xl">Blogs</h1>
           </AnimateOnScroll>
 
-          {isLoading ? (
-            <div className="fixed inset-0 bg-white bg-opacity-75 flex items-center justify-center z-50">
-              <div className="flex space-x-2">
-                <span className="dot w-3 h-3 bg-gray-500 rounded-full"></span>
-                <span className="dot w-3 h-3 bg-gray-500 rounded-full"></span>
-                <span className="dot w-3 h-3 bg-gray-500 rounded-full"></span>
-              </div>
-            </div>
-          ) : allBlogs.length === 0 ? (
+          {allBlogs.length === 0 ? (
             <div className="text-center flex justify-center align-center text-xl">
               <span className="bg-red-400 text-white px-4 py-2 rounded-full">
                 No Blogs Found
               </span>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              {allBlogs.map((blog, idx: number) => (
-                <AnimateOnScroll key={idx} animation="scaleIn" delay={idx * 150}>
-                <div
-                  onClick={() => handleClick(blog.href, blog.slug)}
-                  className="cursor-pointer block border border-gray-300 p-4 overflow-hidden group relative"
-                >
-                  {isPending && loadingSlug === blog.slug && (
-                    <div className="absolute inset-0 bg-white bg-opacity-60 flex items-center justify-center">
-                      <div className="animate-spin rounded-full h-8 w-8 border-4 border-blue-600 border-t-transparent"></div>
-                    </div>
-                  )}
-
-                  <div className="relative w-full h-64 sm:h-72 md:h-80 overflow-hidden">
-                    <Image
-                      src={blog.imgSrc}
-                      alt={`${blog.title} - Solar Panel Cleaning Robot blog article by Taypro`}
-                      title={`${blog.title} - Solar Panel Cleaning Robot Blog`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105 group-hover:translate-x-3"
-                      priority
-                    />
-
-                    {/* Dark overlay gradient for better title visibility */}
-                    <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/60 via-black/40 to-transparent pointer-events-none"></div>
-
-                    <div className="absolute bottom-4 left-4 text-white flex flex-col transition-all duration-300">
-                      <h4 className="text-sm font-semibold px-3 transition-transform duration-300 group-hover:-translate-y-3">
-                        {blog.title}
-                      </h4>
-                      <div className="text-xs bg-opacity-60 px-3 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300">
-                        {blog.date}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                </AnimateOnScroll>
-              ))}
-            </div>
+            <BlogList blogs={allBlogs} />
           )}
         </div>
       </section>

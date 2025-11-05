@@ -106,6 +106,7 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
                 placeholder="Praveen"
                 value={formData.firstName}
                 onChange={handleChange}
+                suppressHydrationWarning
                 className="bg-transparent text-white border-b border-[#A8C117] outline-none w-full py-3 mt-2 placeholder:text-[#bdc6ce] text-lg"
               />
             </div>
@@ -118,6 +119,7 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
                   placeholder="info@company.com"
                   value={formData.email}
                   onChange={handleChange}
+                  suppressHydrationWarning
                   className="bg-transparent text-white border-b border-[#A8C117] outline-none w-full py-3 mt-2 placeholder:text-[#bdc6ce] text-lg"
                 />
               </div>
@@ -129,6 +131,7 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
                   placeholder="+123-456-7890"
                   value={formData.phone}
                   onChange={handleChange}
+                  suppressHydrationWarning
                   className="bg-transparent text-white border-b border-[#A8C117] outline-none w-full py-3 mt-2 placeholder:text-[#bdc6ce] text-lg"
                 />
               </div>

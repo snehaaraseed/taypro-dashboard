@@ -27,6 +27,8 @@ export default function Footer() {
       { name: "Sitemap", href: "/sitemap" },
       { name: "Our Technology", href: "/cleaning-technology" },
       { name: "Privacy Policy", href: "/privacy-policy" },
+      { name: "Cookie Policy", href: "/cookie-policy" },
+      { name: "Terms of Service", href: "/terms-of-service" },
       {
         name: "Our Solutions",
         href: "/solar-panel-cleaning-system",

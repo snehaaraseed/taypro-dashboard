@@ -111,6 +111,7 @@ export default function RequestEstimateForm() {
                   placeholder="Praveen"
                   value={formData.firstName}
                   onChange={handleChange}
+                  suppressHydrationWarning
                   className="w-full border-b border-[#D4DADA] focus:border-[#A8C117] outline-none py-2 text-[#052638] placeholder:text-[#C4CFD3] font-normal bg-transparent"
                 />
               </div>
@@ -124,6 +125,7 @@ export default function RequestEstimateForm() {
                   placeholder="My Company Private Limited"
                   value={formData.companyName}
                   onChange={handleChange}
+                  suppressHydrationWarning
                   className="w-full border-b border-[#D4DADA] focus:border-[#A8C117] outline-none py-2 text-[#052638] placeholder:text-[#C4CFD3] font-normal bg-transparent"
                 />
               </div>
@@ -137,6 +139,7 @@ export default function RequestEstimateForm() {
                   placeholder="info@company.com"
                   value={formData.email}
                   onChange={handleChange}
+                  suppressHydrationWarning
                   className="w-full border-b border-[#D4DADA] focus:border-[#A8C117] outline-none py-2 text-[#052638] placeholder:text-[#C4CFD3] font-normal bg-transparent"
                 />
               </div>
@@ -150,6 +153,7 @@ export default function RequestEstimateForm() {
                   placeholder="+123-456-7890"
                   value={formData.phone}
                   onChange={handleChange}
+                  suppressHydrationWarning
                   className="w-full border-b border-[#D4DADA] focus:border-[#A8C117] outline-none py-2 text-[#052638] placeholder:text-[#C4CFD3] font-normal bg-transparent"
                 />
               </div>
@@ -164,6 +168,7 @@ export default function RequestEstimateForm() {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
+                suppressHydrationWarning
                 className="w-full border-b border-[#D4DADA] focus:border-[#A8C117] outline-none py-2 text-[#052638] bg-transparent"
               />
             </div>

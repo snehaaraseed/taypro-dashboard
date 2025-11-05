@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { AnimateOnScroll } from "./AnimateOnScroll";
 
 interface FeaturesSectionProps {
   headline: React.ReactNode;
@@ -23,30 +26,32 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({
     >
       <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between px-6 py-20 gap-10">
         {/* Left side: Headline + Description */}
-        <div className="md:w-1/2">
+        <AnimateOnScroll animation="fadeInLeft" className="md:w-1/2">
           <h2 className="text-[#052638] font-semibold text-4xl md:text-5xl mb-7 leading-tight">
             {headline}
           </h2>
           <p className="text-[#052638] text-lg md:text-xl leading-relaxed">
             {description}
           </p>
-        </div>
+        </AnimateOnScroll>
         {/* Right side: Benefit box */}
-        <div className="md:w-1/2 flex justify-center">
+        <AnimateOnScroll animation="fadeInRight" delay={100} className="md:w-1/2 flex justify-center">
           <div className="bg-[#75AA00] px-12 py-10 w-full max-w-md">
             <h4 className="text-white text-2xl font-medium mb-8">
               The Benefits
             </h4>
             <ul className="space-y-7">
               {benefits.map((benefit, i) => (
-                <li key={i} className="flex items-center text-white text-lg">
-                  <span className="w-7 h-7 rounded-full bg-[#39D600] mr-5 inline-flex items-center justify-center"></span>
-                  {benefit}
-                </li>
+                <AnimateOnScroll key={i} animation="fadeInRight" delay={i * 100}>
+                  <li className="flex items-center text-white text-lg">
+                    <span className="w-7 h-7 rounded-full bg-[#39D600] mr-5 inline-flex items-center justify-center"></span>
+                    {benefit}
+                  </li>
+                </AnimateOnScroll>
               ))}
             </ul>
           </div>
-        </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

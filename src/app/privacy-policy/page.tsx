@@ -246,8 +246,14 @@ export default function PrivacyPolicySection() {
             </ul>
 
             <div className="text-[#0c2f42] text-lg mb-10">
-              To exercise your rights, please contact us at [Insert Contact
-              Email].
+              To exercise your rights, please contact us at{" "}
+              <a
+                href="mailto:sales@taypro.in"
+                className="text-[#A8C117] hover:underline"
+              >
+                sales@taypro.in
+              </a>
+              .
             </div>
 
             <hr className="border border-gray-300 mt-8" />

@@ -21,24 +21,71 @@ export function AnimateOnScroll({
 }: AnimateOnScrollProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const hasBeenVisible = useRef(false);
 
   useEffect(() => {
+    // Check if element is already in viewport on mount (handles fast scroll)
+    const checkInitialVisibility = () => {
+      if (ref.current && !hasBeenVisible.current) {
+        const rect = ref.current.getBoundingClientRect();
+        const isInViewport =
+          rect.top < window.innerHeight &&
+          rect.bottom > 0 &&
+          rect.left < window.innerWidth &&
+          rect.right > 0;
+        
+        if (isInViewport) {
+          setIsVisible(true);
+          hasBeenVisible.current = true;
+          return true;
+        }
+      }
+      return false;
+    };
+
+    // Check immediately
+    if (checkInitialVisibility()) {
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !hasBeenVisible.current) {
           setIsVisible(true);
-          // Disconnect after animation triggers to improve performance
-          observer.disconnect();
+          hasBeenVisible.current = true;
+          // Keep observer active for re-entry scenarios
         }
       },
-      { threshold }
+      { 
+        threshold,
+        // Use rootMargin to trigger earlier (200px before element enters viewport)
+        rootMargin: "200px 0px 200px 0px"
+      }
     );
 
     if (ref.current) {
       observer.observe(ref.current);
     }
 
+    // Also check on scroll events as a fallback for very fast scrolling
+    let scrollTimeout: NodeJS.Timeout;
+    const handleScroll = () => {
+      if (hasBeenVisible.current) return;
+      
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        checkInitialVisibility();
+      }, 100);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    // Also check on resize
+    window.addEventListener("resize", handleScroll, { passive: true });
+
     return () => {
+      clearTimeout(scrollTimeout);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
       if (ref.current) {
         observer.unobserve(ref.current);
       }

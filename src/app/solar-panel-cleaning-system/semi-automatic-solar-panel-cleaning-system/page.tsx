@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { modelBCards } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
@@ -7,51 +9,9 @@ import HeroSection from "@/app/components/Herosection";
 import FeaturesSection from "@/app/components/FeaturesSection";
 import ResourcesCard from "@/app/components/ResourcesCard";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
-import type { Metadata } from "next";
+import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
-
-export const metadata: Metadata = {
-  title: "Semi-Automatic Solar Panel Cleaning Robot | Model-B | Taypro",
-  description:
-    "Model-B: Semi-Automatic Solar Panel Cleaning Robot by Taypro. A pick-and-place type robotic cleaning system with waterless cleaning technology, long-lasting battery, and fastest ROI. Suitable for fixed tilt, seasonal tilt, and horizontal single-axis trackers.",
-  keywords: [
-    "Semi-Automatic Solar Panel Cleaning Robot",
-    "Model-B solar panel cleaning robot",
-    "semi-automatic solar robots",
-    "solar panel cleaning system",
-    "pick-and-place solar cleaning robot",
-    "waterless cleaning technology",
-    "taypro model b",
-    "operation efficiency",
-    "solar panel maintenance robot",
-  ],
-  openGraph: {
-    title: "Semi-Automatic Solar Panel Cleaning Robot | Model-B | Taypro",
-    description:
-      "Model-B: Semi-Automatic Solar Panel Cleaning Robot with waterless cleaning, long-lasting battery, and fastest ROI. Suitable for fixed tilt and single-axis trackers.",
-    url: `${siteUrl}/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system`,
-    type: "website",
-    images: [
-      {
-        url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
-        width: 1200,
-        height: 630,
-        alt: "Taypro Semi-Automatic Solar Panel Cleaning Robot Model-B",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Semi-Automatic Solar Panel Cleaning Robot | Model-B | Taypro",
-    description:
-      "Semi-Automatic Solar Panel Cleaning Robot with waterless cleaning and fastest ROI. Suitable for fixed tilt systems.",
-    images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
-  },
-  alternates: {
-    canonical: `${siteUrl}/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system`,
-  },
-};
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -109,7 +69,7 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
           }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
-            <div className="lg:w-1/2 flex flex-col items-center lg:items-start">
+            <AnimateOnScroll animation="fadeInLeft" className="lg:w-1/2 flex flex-col items-center lg:items-start">
               <h3 className="text-[#052638] font-semibold text-4xl lg:text-5xl mb-12 text-center lg:text-left leading-tight">
                 Elevating ROI through Efficient Cleaning
               </h3>
@@ -124,9 +84,9 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
                   priority
                 />
               </div>
-            </div>
+            </AnimateOnScroll>
 
-            <div className="lg:w-1/2 space-y-6">
+            <AnimateOnScroll animation="fadeInRight" delay={100} className="lg:w-1/2 space-y-6">
               <p className="text-[#6B7280] text-lg leading-relaxed">
                 The impact of clean solar panels on the overall performance and
                 efficiency of solar power plants cannot be overstated.
@@ -153,9 +113,9 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
               <p className="text-[#6B7280] text-lg leading-relaxed">
                 If you don&apos;t want to own and invest in the Capex of the
                 robots, we can provide you cleaning service which can help you
-                to improve the energy generation of the plant.
+                  to improve the energy generation of the plant.
               </p>
-            </div>
+            </AnimateOnScroll>
           </div>
         </section>
 
@@ -165,13 +125,13 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
 
         <section className="w-full min-h-[640px] bg-[#052C42] flex items-center">
           <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-16 w-full">
-            <div className="lg:w-1/2 flex justify-center">
+            <AnimateOnScroll animation="fadeInLeft" className="lg:w-1/2 flex justify-center">
               <h2 className="text-white font-semibold text-5xl lg:text-6xl leading-tight">
                 Transforming Solar Panel Cleaning Practices
               </h2>
-            </div>
+            </AnimateOnScroll>
 
-            <div className="lg:w-1/2">
+            <AnimateOnScroll animation="fadeInRight" delay={100} className="lg:w-1/2">
               <p className="text-white text-lg lg:text-xl leading-relaxed">
                 The solar panel cleaning landscape has evolved into a critical
                 industry best practice. Taypro&apos;s commitment to providing
@@ -180,7 +140,7 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
                 as well as ground-mounted solar power plants, whether on-grid,
                 off-grid, or hybrid PV systems.
               </p>
-            </div>
+            </AnimateOnScroll>
           </div>
         </section>
 

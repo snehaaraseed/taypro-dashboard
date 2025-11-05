@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
+import { AnimateOnScroll } from "./AnimateOnScroll";
 
 interface HeroSectionProps {
   title: string;
@@ -48,7 +51,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       className={`min-h-[600px] mx-4 sm:mx-20 flex flex-col lg:flex-row relative overflow-hidden ${className}`}
     >
       {/* LEFT - Content */}
-      <div className="bg-[#052638] w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-8 xl:px-24 py-12 sm:py-16">
+      <AnimateOnScroll animation="fadeInLeft" className="bg-[#052638] w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-8 xl:px-24 py-12 sm:py-16">
         <h1 className="text-3xl sm:text-5xl md:text-6xl font-semibold text-white mb-6 leading-tight">
           {title}
         </h1>
@@ -61,10 +64,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         >
           {ctaText}
         </a>
-      </div>
+      </AnimateOnScroll>
 
       {/* RIGHT - IMAGE */}
-      <div className="relative w-full sm:w-300 lg:w-1/2 min-h-[240px] sm:min-h-[360px] lg:h-[600px] mr-0 sm:mr-20 mt-10 lg:mt-0">
+      <AnimateOnScroll animation="fadeInRight" delay={100} className="relative w-full sm:w-300 lg:w-1/2 min-h-[240px] sm:min-h-[360px] lg:h-[600px] mr-0 sm:mr-20 mt-10 lg:mt-0">
         <Image
           alt={getAltText()}
           src={imgSrc}
@@ -105,7 +108,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             fill="none"
           />
         </svg>
-      </div>
+      </AnimateOnScroll>
     </section>
   );
 };

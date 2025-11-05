@@ -65,7 +65,15 @@ export async function GET() {
         new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
     );
 
-    return NextResponse.json({ blogs: allBlogs });
+    // Add caching headers for better performance
+    return NextResponse.json(
+      { blogs: allBlogs },
+      {
+        headers: {
+          "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+        },
+      }
+    );
   } catch (error) {
     console.error("Error in GET /api/blog/list:", error);
     return NextResponse.json(
