@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { DynamicBlog } from "../api/blog/list/route";
 import { Breadcrumbs } from "../components/Breadcrumbs";
+import { AnimateOnScroll } from "../components/AnimateOnScroll";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -71,9 +72,9 @@ export default function Blog() {
 
       <section className="w-full min-h-100 pt-20 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 text-start">
-          <div className="mb-8">
+          <AnimateOnScroll animation="fadeInUp" className="mb-8">
             <h1 className="text-[#052638] text-4xl">Blogs</h1>
-          </div>
+          </AnimateOnScroll>
 
           {isLoading ? (
             <div className="fixed inset-0 bg-white bg-opacity-75 flex items-center justify-center z-50">
@@ -92,8 +93,8 @@ export default function Blog() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               {allBlogs.map((blog, idx: number) => (
+                <AnimateOnScroll key={idx} animation="scaleIn" delay={idx * 150}>
                 <div
-                  key={idx}
                   onClick={() => handleClick(blog.href, blog.slug)}
                   className="cursor-pointer block border border-gray-300 p-4 overflow-hidden group relative"
                 >
@@ -127,6 +128,7 @@ export default function Blog() {
                     </div>
                   </div>
                 </div>
+                </AnimateOnScroll>
               ))}
             </div>
           )}

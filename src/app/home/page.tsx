@@ -6,6 +6,7 @@ import { Check } from "lucide-react";
 import { robots, features, otherFeatures } from "@/app/data";
 import { RobotCard } from "@/app/components/RobotCard";
 import { VideoObjectSchema, ProductSchema } from "@/app/components/StructuredData";
+import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 
 // Lazy load heavy components
 const ROITayproCalculator = dynamic(() => import("@/app/components/ROICalculator"), {
@@ -51,7 +52,7 @@ export default function HomePage() {
         {/* Hero Section */}
         <section className="relative overflow-hidden px-4 sm:px-8 lg:px-15 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-center">
-            <div className="text-white space-y-6 lg:space-y-12 lg:col-span-2">
+            <AnimateOnScroll animation="fadeInRight" delay={0} className="text-white space-y-6 lg:space-y-12 lg:col-span-2">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-semibold">
                 Delivering{" "}
                 <span className="text-[#39D600]">
@@ -65,9 +66,9 @@ export default function HomePage() {
               <p className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-full lg:max-w-3xl">
                 Our autonomous Solar Panel Cleaning Robot delivers greater plant performance ratio, unstoppable power generation and intelligent AI & ML driven robotic cleaning for solar farms.
               </p>
-            </div>
+            </AnimateOnScroll>
 
-            <div className="lg:col-span-1 flex justify-center lg:justify-end">
+            <AnimateOnScroll animation="fadeInLeft" delay={100} className="lg:col-span-1 flex justify-center lg:justify-end">
               <Image
                 src="/tayprorobots/robot-hero.png"
                 alt="Taypro Autonomous Solar Panel Cleaning Robot - Waterless robotic cleaning system for solar farms"
@@ -78,20 +79,20 @@ export default function HomePage() {
                 quality={85}
                 className="w-full h-auto"
               />
-            </div>
+            </AnimateOnScroll>
           </div>
         </section>
 
         <section className="px-4 sm:px-8 lg:px-16 py-20 lg:py-40 bg-white relative">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12 lg:mb-16">
+            <AnimateOnScroll animation="fadeInUp" className="text-center mb-12 lg:mb-16">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold text-[#052638] mb-4 px-4">
                 How Our Solar Panel Cleaning Robot Drives Unstoppable Power Generation
               </h2>
-            </div>
+            </AnimateOnScroll>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div className="order-2 lg:order-1">
+              <AnimateOnScroll animation="fadeInLeft" delay={100} className="order-2 lg:order-1">
                 <div className="aspect-video w-full max-w-lg lg:max-w-none mx-auto overflow-hidden shadow-2xl rounded-lg">
                   <iframe
                     src="https://www.youtube.com/embed/PiXJhQ_MYgk?si=69CgiggHsM73CRl_&loading=lazy"
@@ -103,11 +104,11 @@ export default function HomePage() {
                     loading="lazy"
                   ></iframe>
                 </div>
-              </div>
+              </AnimateOnScroll>
 
               <div className="space-y-6 lg:space-y-8 order-1 lg:order-2">
                 {features.map((feature, idx) => (
-                  <div key={idx} className="flex items-start space-x-4">
+                  <AnimateOnScroll key={idx} animation="fadeInRight" delay={idx * 100} className="flex items-start space-x-4">
                     <div className="flex-shrink-0 mt-1">
                       <Check
                         className="text-[#39D600] w-5 h-5 lg:w-6 lg:h-6"
@@ -122,7 +123,7 @@ export default function HomePage() {
                         {feature.description}
                       </span>
                     </div>
-                  </div>
+                  </AnimateOnScroll>
                 ))}
               </div>
             </div>
@@ -136,11 +137,13 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div className="space-y-6 lg:space-y-8 order-2 lg:order-1">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white text-center lg:text-left lg:ml-25">
-                  Advanced Solar Panel Cleaning Robot Technology
-                </h2>
+                <AnimateOnScroll animation="fadeInUp">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white text-center lg:text-left lg:ml-25">
+                    Advanced Solar Panel Cleaning Robot Technology
+                  </h2>
+                </AnimateOnScroll>
                 {otherFeatures.map((feature, idx) => (
-                  <div key={idx} className="flex items-start space-x-4">
+                  <AnimateOnScroll key={idx} animation="fadeInLeft" delay={idx * 100} className="flex items-start space-x-4">
                     <div className="flex-shrink-0 mt-1">
                       <Check
                         className="text-[#39D600] w-5 h-5 lg:w-6 lg:h-6"
@@ -155,11 +158,11 @@ export default function HomePage() {
                         {feature.description}
                       </span>
                     </div>
-                  </div>
+                  </AnimateOnScroll>
                 ))}
               </div>
 
-              <div className="order-1 lg:order-2 flex justify-center">
+              <AnimateOnScroll animation="fadeInRight" delay={100} className="order-1 lg:order-2 flex justify-center">
                 <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-full">
                   <Image
                     src="/tayproasset/robots.png"
@@ -171,28 +174,32 @@ export default function HomePage() {
                     className="w-full h-auto"
                   />
                 </div>
-              </div>
+              </AnimateOnScroll>
             </div>
           </div>
         </section>
 
         <section className="pt-12 lg:pt-40 bg-white">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center mb-8 lg:mb-12">
+            <AnimateOnScroll animation="fadeInUp" className="text-center mb-8 lg:mb-12">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
                 High-Tech Solar Panel Cleaning Robots
               </h3>
-            </div>
+            </AnimateOnScroll>
 
             <div className="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-6 px-4 sm:px-0">
-              {robots.slice(0, 3).map((robot) => (
-                <RobotCard key={robot.model} robot={robot} />
+              {robots.slice(0, 3).map((robot, idx) => (
+                <AnimateOnScroll key={robot.model} animation="scaleIn" delay={idx * 150}>
+                  <RobotCard robot={robot} />
+                </AnimateOnScroll>
               ))}
             </div>
 
             <div className="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-6 px-4 sm:px-0 mt-8">
-              {robots.slice(3).map((robot) => (
-                <RobotCard key={robot.model} robot={robot} />
+              {robots.slice(3).map((robot, idx) => (
+                <AnimateOnScroll key={robot.model} animation="scaleIn" delay={(idx + 3) * 150}>
+                  <RobotCard robot={robot} />
+                </AnimateOnScroll>
               ))}
             </div>
           </div>
@@ -200,7 +207,7 @@ export default function HomePage() {
 
         <section className="py-12 lg:pt-40 bg-white">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center">
+            <AnimateOnScroll animation="fadeInUp" className="text-center">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold leading-tight mb-4">
                 Calculate How Much Can Our Solar Panel Cleaning Robot{" "}
                 <br className="hidden sm:block" />
@@ -212,7 +219,7 @@ export default function HomePage() {
                 <br className="hidden lg:block" />
                 <div className="lg:hidden"> </div>operational costs through automated cleaning.
               </h5>
-            </div>
+            </AnimateOnScroll>
           </div>
 
           <ROITayproCalculator />

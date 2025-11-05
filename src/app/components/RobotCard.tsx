@@ -21,14 +21,14 @@ export function RobotCard({ robot }: { robot: Robot }) {
   };
 
   return (
-    <div className="bg-gray-50 w-80 shadow hover:shadow-lg transition overflow-hidden m-4">
-      <div className="relative w-full h-48">
+    <div className="bg-gray-50 w-80 shadow hover:shadow-xl transition-all duration-300 overflow-hidden m-4 transform hover:-translate-y-2">
+      <div className="relative w-full h-48 overflow-hidden">
         <Image
           src={robot.imgPath}
           alt={getAltText(robot.model)}
           title={`${robot.model} - Solar Panel Cleaning Robot by Taypro`}
           fill
-          className="object-cover"
+          className="object-cover transition-transform duration-300 hover:scale-110"
           sizes="(max-width: 768px) 100vw, 320px"
           priority
         />
@@ -40,7 +40,7 @@ export function RobotCard({ robot }: { robot: Robot }) {
         </h4>
         <p className="text-white/90">{robot.description}</p>
         <Link href={robot.href} title={`Learn more about ${robot.model} Solar Panel Cleaning Robot`}>
-          <button className="mt-9 px-4 py-1 bg-white rounded-4xl hover:bg-[#32b500] transition cursor-pointer">
+          <button className="mt-9 px-4 py-1 bg-white rounded-4xl hover:bg-[#39D600] transition-all duration-300 cursor-pointer transform hover:scale-105">
             <span className="text-dark">Learn More</span>
           </button>
         </Link>

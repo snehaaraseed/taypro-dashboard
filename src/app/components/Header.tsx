@@ -90,7 +90,7 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   title="Nav Item"
-                  className={`text-white px-3 py-2 text-md font-medium transition duration-800 hover:underline underline-offset-8 ${
+                  className={`text-white px-3 py-2 text-md font-medium transition-all duration-300 hover:underline underline-offset-8 hover:text-[#39D600] ${
                     isActive(item.href) ? "underline" : ""
                   }`}
                 >
@@ -106,7 +106,7 @@ export default function Header() {
               <Link
                 href="/solar-panel-cleaning-system"
                 title="Solar Panel Cleaning Robot"
-                className={`text-white px-3 py-2 text-md font-medium cursor-pointer flex items-center transition duration-800 hover:underline underline-offset-8 ${
+                className={`text-white px-3 py-2 text-md font-medium cursor-pointer flex items-center transition-all duration-300 hover:underline underline-offset-8 hover:text-[#39D600] ${
                   isSolarActive() ? "underline" : ""
                 }`}
               >
@@ -132,7 +132,7 @@ export default function Header() {
                       href={item.href}
                       key={item.label}
                       title="Robot Type"
-                      className="block px-5 py-5 text-[#052638] text-xl transition-colors duration-200 hover:bg-[#A8C117] hover:text-[#052638] rounded-md"
+                      className="block px-5 py-5 text-[#052638] text-xl transition-all duration-300 hover:bg-[#39D600] hover:text-[#052638] rounded-md transform hover:translate-x-1"
                     >
                       {item.label}
                     </Link>
@@ -148,7 +148,7 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   title="Nav Item"
-                  className={`text-white px-3 py-2 text-md font-medium transition duration-800 hover:underline underline-offset-8 ${
+                  className={`text-white px-3 py-2 text-md font-medium transition-all duration-300 hover:underline underline-offset-8 hover:text-[#39D600] ${
                     isActive(item.href) ? "underline" : ""
                   }`}
                 >
@@ -162,7 +162,7 @@ export default function Header() {
             <Link
               href="/contact"
               title="Contact"
-              className="bg-[#A8C117] text-black px-7 py-3 rounded-md font-medium hover:bg-lime-500 transition"
+              className="bg-[#A8C117] text-black px-7 py-3 rounded-md font-medium hover:bg-[#39D600] transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
             >
               Get in touch
             </Link>
@@ -264,7 +264,7 @@ export default function Header() {
             <Link
               href="/contact"
               title="Contact"
-              className="block bg-[#A8C117] text-black px-5 py-2 rounded-md font-medium text-center hover:bg-lime-500 transition"
+              className="block bg-[#A8C117] text-black px-5 py-2 rounded-md font-medium text-center hover:bg-[#39D600] transition-all duration-300 transform hover:scale-105"
               onClick={() => setIsMenuOpen(false)}
             >
               Get in touch
