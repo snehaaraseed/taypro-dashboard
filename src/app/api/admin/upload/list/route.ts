@@ -69,14 +69,76 @@ export async function GET(request: NextRequest) {
 
     await scanDirectory(uploadsDir);
 
+    // Function to extract base name from filename (removing size suffixes)
+    // Examples: "image-150x150.jpg" -> "image", "photo-scaled.jpg" -> "photo"
+    // Only removes clear size-related patterns, not generic trailing numbers
+    function getBaseName(filename: string): string {
+      const ext = path.extname(filename);
+      const nameWithoutExt = filename.slice(0, -ext.length);
+      
+      // Remove common size patterns: -150x150, -300x200, -1024x768, -scaled, etc.
+      // Pattern matches: -digitsxdigits (size dimensions), -scaled variants
+      let baseName = nameWithoutExt
+        .replace(/-\d+x\d+(-scaled)?$/i, '') // Remove -WIDTHxHEIGHT or -WIDTHxHEIGHT-scaled
+        .replace(/-scaled\d*$/i, ''); // Remove -scaled or -scaled0, -scaled1, etc.
+      
+      // Only remove trailing numbers if they appear after a size pattern was removed
+      // This handles cases like "image-150x150-1.jpg" -> "image"
+      // But preserves "image-1.jpg" and "image-2.jpg" as different images
+      if (baseName !== nameWithoutExt) {
+        // A size pattern was removed, so trailing numbers are likely part of variant naming
+        baseName = baseName.replace(/-\d+$/i, '');
+      }
+      
+      return baseName.toLowerCase();
+    }
+
+    // Group images by base name and keep only the best version of each
+    // Include directory path in grouping key to avoid grouping same-named files from different directories
+    const imageMap = new Map<string, ImageFile>();
+    
+    for (const image of images) {
+      // Extract directory path from URL (everything except filename)
+      const urlDir = path.dirname(image.url);
+      const baseName = getBaseName(image.name);
+      // Use directory + base name as the grouping key
+      const groupKey = `${urlDir}/${baseName}`;
+      const existing = imageMap.get(groupKey);
+      
+      if (!existing) {
+        // First occurrence of this base name in this directory
+        imageMap.set(groupKey, image);
+      } else {
+        // Check if this is a better version
+        const isOriginal = !image.name.match(/-\d+x\d+|-scaled/i); // No size suffix = original
+        const existingIsOriginal = !existing.name.match(/-\d+x\d+|-scaled/i);
+        
+        if (isOriginal && !existingIsOriginal) {
+          // This is original, existing is not - prefer this
+          imageMap.set(groupKey, image);
+        } else if (!isOriginal && existingIsOriginal) {
+          // Existing is original, this is not - keep existing
+          // Do nothing
+        } else {
+          // Both are variants or both are originals - prefer larger file size
+          if (image.size > existing.size) {
+            imageMap.set(groupKey, image);
+          }
+        }
+      }
+    }
+
+    // Convert map back to array
+    const uniqueImages = Array.from(imageMap.values());
+
     // Sort by modified date (newest first)
-    images.sort((a, b) => 
+    uniqueImages.sort((a, b) => 
       new Date(b.modified).getTime() - new Date(a.modified).getTime()
     );
 
     return NextResponse.json({
       success: true,
-      images: images.slice(0, 1000), // Limit to 1000 most recent images (includes OldWebsiteImages)
+      images: uniqueImages.slice(0, 1000), // Limit to 1000 most recent images (includes OldWebsiteImages)
     });
   } catch (error) {
     console.error("Error listing images:", error);
