@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAuth } from "../../../../utils/auth";
-import { readdir, stat } from "fs/promises";
+import { readdir, stat, readlink } from "fs/promises";
 import path from "path";
 
 interface ImageFile {
@@ -37,14 +37,22 @@ export async function GET(request: NextRequest) {
             relativePath = `${basePath}/${entry.name}`;
           }
 
-          // Check if it's a symlink - if so, resolve it and check what it points to
+          // Check if it's a symlink - if so, resolve it and use the target path
+          let actualPath = fullPath;
           let isDirectory = entry.isDirectory();
           let isFile = entry.isFile();
           
           if (entry.isSymbolicLink()) {
             try {
-              // Resolve the symlink and check what it points to
-              const linkStats = await stat(fullPath);
+              // Read the symlink target
+              const linkTarget = await readlink(fullPath);
+              // Resolve to absolute path (handle relative symlinks)
+              actualPath = path.isAbsolute(linkTarget) 
+                ? linkTarget 
+                : path.resolve(path.dirname(fullPath), linkTarget);
+              
+              // Check what the symlink points to
+              const linkStats = await stat(actualPath);
               isDirectory = linkStats.isDirectory();
               isFile = linkStats.isFile();
             } catch (error) {
@@ -56,13 +64,15 @@ export async function GET(request: NextRequest) {
 
           if (isDirectory) {
             // Recursively scan subdirectories (including symlinked directories)
-            await scanDirectory(fullPath, relativePath);
+            // Use actualPath to follow symlinks to their target
+            await scanDirectory(actualPath, relativePath);
           } else if (isFile) {
             // Check if it's an image file
             const ext = path.extname(entry.name).toLowerCase();
             if ([".jpg", ".jpeg", ".png", ".gif", ".webp"].includes(ext)) {
               try {
-                const stats = await stat(fullPath);
+                // Use actualPath to handle symlinked files
+                const stats = await stat(actualPath);
                 // Ensure the URL always starts with /uploads and uses forward slashes
                 const url = relativePath.replace(/\\/g, "/").replace(/\/+/g, "/");
                 images.push({
@@ -153,9 +163,12 @@ export async function GET(request: NextRequest) {
       new Date(b.modified).getTime() - new Date(a.modified).getTime()
     );
 
+    // Log summary for debugging
+    console.log(`Gallery API: Found ${images.length} total images, ${uniqueImages.length} unique images after deduplication`);
+    
     return NextResponse.json({
       success: true,
-      images: uniqueImages.slice(0, 2000), // Limit to 2000 most recent images (includes OldWebsiteImages)
+      images: uniqueImages.slice(0, 3000), // Limit to 3000 most recent images (includes OldWebsiteImages)
     });
   } catch (error) {
     console.error("Error listing images:", error);
