@@ -21,6 +21,8 @@ export async function GET(request: NextRequest) {
     const uploadsDir = path.join(process.cwd(), "public", "uploads");
     const images: ImageFile[] = [];
 
+    // This function recursively scans directories including OldWebsiteImages
+    // OldWebsiteImages is accessible via symlink at public/uploads/OldWebsiteImages
     async function scanDirectory(dirPath: string, basePath: string = "/uploads") {
       try {
         const entries = await readdir(dirPath, { withFileTypes: true });
@@ -74,7 +76,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      images: images.slice(0, 100), // Limit to 100 most recent images
+      images: images.slice(0, 1000), // Limit to 1000 most recent images (includes OldWebsiteImages)
     });
   } catch (error) {
     console.error("Error listing images:", error);
