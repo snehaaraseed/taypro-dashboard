@@ -37,10 +37,27 @@ export async function GET(request: NextRequest) {
             relativePath = `${basePath}/${entry.name}`;
           }
 
-          if (entry.isDirectory()) {
-            // Recursively scan subdirectories
+          // Check if it's a symlink - if so, resolve it and check what it points to
+          let isDirectory = entry.isDirectory();
+          let isFile = entry.isFile();
+          
+          if (entry.isSymbolicLink()) {
+            try {
+              // Resolve the symlink and check what it points to
+              const linkStats = await stat(fullPath);
+              isDirectory = linkStats.isDirectory();
+              isFile = linkStats.isFile();
+            } catch (error) {
+              // Symlink is broken, skip it
+              console.warn(`Broken symlink: ${fullPath}`, error);
+              continue;
+            }
+          }
+
+          if (isDirectory) {
+            // Recursively scan subdirectories (including symlinked directories)
             await scanDirectory(fullPath, relativePath);
-          } else if (entry.isFile()) {
+          } else if (isFile) {
             // Check if it's an image file
             const ext = path.extname(entry.name).toLowerCase();
             if ([".jpg", ".jpeg", ".png", ".gif", ".webp"].includes(ext)) {
@@ -138,7 +155,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      images: uniqueImages.slice(0, 1000), // Limit to 1000 most recent images (includes OldWebsiteImages)
+      images: uniqueImages.slice(0, 2000), // Limit to 2000 most recent images (includes OldWebsiteImages)
     });
   } catch (error) {
     console.error("Error listing images:", error);
