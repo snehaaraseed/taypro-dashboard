@@ -32,7 +32,10 @@ export function middleware(request: NextRequest) {
     const response = NextResponse.next();
     response.headers.set("x-pathname", pathname);
     // Don't cache admin pages
-    response.headers.set("Cache-Control", "no-store, no-cache, must-revalidate");
+    response.headers.set(
+      "Cache-Control",
+      "no-store, no-cache, must-revalidate"
+    );
     return response;
   }
 
@@ -49,19 +52,22 @@ export function middleware(request: NextRequest) {
     const response = NextResponse.next();
     response.headers.set("x-pathname", pathname);
     // Don't cache admin pages
-    response.headers.set("Cache-Control", "no-store, no-cache, must-revalidate");
+    response.headers.set(
+      "Cache-Control",
+      "no-store, no-cache, must-revalidate"
+    );
     return response;
   }
 
   // Set cache headers for static assets to improve first-time visitor experience
   const response = NextResponse.next();
-  
+
   // Add security headers for all routes
   response.headers.set("X-Content-Type-Options", "nosniff");
   response.headers.set("X-Frame-Options", "DENY");
   response.headers.set("X-XSS-Protection", "1; mode=block");
   response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
-  
+
   // Cache static assets aggressively (1 year for immutable assets)
   if (
     pathname.startsWith("/_next/static/") ||
@@ -85,7 +91,7 @@ export function middleware(request: NextRequest) {
       "public, max-age=31536000, immutable"
     );
   }
-  
+
   // Cache CSS and JS files (except in _next/static which is already handled above)
   else if (pathname.endsWith(".css") || pathname.endsWith(".js")) {
     response.headers.set(
@@ -108,7 +114,10 @@ export function middleware(request: NextRequest) {
 
   // Cache HTML pages with shorter TTL (1 hour) for better balance
   // Allow browsers/CDNs to cache but revalidate
-  else if (pathname.endsWith(".html") || (!pathname.includes(".") && !pathname.startsWith("/api"))) {
+  else if (
+    pathname.endsWith(".html") ||
+    (!pathname.includes(".") && !pathname.startsWith("/api"))
+  ) {
     response.headers.set(
       "Cache-Control",
       "public, s-maxage=3600, stale-while-revalidate=86400"
@@ -137,4 +146,3 @@ export const config = {
     "/api/admin/:path*",
   ],
 };
-

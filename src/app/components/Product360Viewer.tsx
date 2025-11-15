@@ -39,12 +39,12 @@ export default function Product360Viewer({
   useEffect(() => {
     const loadImages = async () => {
       const imagePromises: Promise<void>[] = [];
-      
+
       for (let i = 0; i < imageCount; i++) {
         const frameNumber = startIndex + i;
         const paddedNumber = frameNumber.toString().padStart(4, "0");
         const imageUrl = `${imagePath}${imagePrefix}${paddedNumber}${imageSuffix}`;
-        
+
         const img = new window.Image();
         const promise = new Promise<void>((resolve) => {
           img.onload = () => {
@@ -56,7 +56,7 @@ export default function Product360Viewer({
         img.src = imageUrl;
         imagePromises.push(promise);
       }
-      
+
       await Promise.all(imagePromises);
       setIsLoading(false);
     };
@@ -79,7 +79,7 @@ export default function Product360Viewer({
       cancelAnimationFrame(autoRotateAnimationRef.current);
       autoRotateAnimationRef.current = null;
     }
-    
+
     setIsDragging(true);
     setStartX(e.clientX);
     // Ensure framePositionRef is synced with currentFrame
@@ -94,9 +94,12 @@ export default function Product360Viewer({
     while (framePositionRef.current >= imageCount) {
       framePositionRef.current -= imageCount;
     }
-    
+
     // Update displayed frame (rounded to nearest integer, clamped to valid range)
-    const roundedFrame = Math.max(0, Math.min(imageCount - 1, Math.round(framePositionRef.current)));
+    const roundedFrame = Math.max(
+      0,
+      Math.min(imageCount - 1, Math.round(framePositionRef.current))
+    );
     setCurrentFrame((prev) => {
       // Only update if frame actually changed to avoid unnecessary re-renders
       if (prev !== roundedFrame) {
@@ -117,7 +120,7 @@ export default function Product360Viewer({
         }
       };
       animationFrameRef.current = requestAnimationFrame(updateLoop);
-      
+
       return () => {
         isDraggingRef.current = false;
         if (animationFrameRef.current !== null) {
@@ -136,13 +139,13 @@ export default function Product360Viewer({
 
       const deltaX = e.clientX - startX;
       const sensitivity = 0.1; // Reduced sensitivity for smoother rotation
-      
+
       // Update decimal position for smooth transitions
       framePositionRef.current += deltaX * sensitivity;
-      
+
       // Immediately update frame for responsive feedback
       updateFrame();
-      
+
       setStartX(e.clientX);
     },
     [startX, updateFrame]
@@ -159,7 +162,7 @@ export default function Product360Viewer({
       cancelAnimationFrame(autoRotateAnimationRef.current);
       autoRotateAnimationRef.current = null;
     }
-    
+
     setIsDragging(true);
     setStartX(e.touches[0].clientX);
     // Ensure framePositionRef is synced with currentFrame
@@ -172,13 +175,13 @@ export default function Product360Viewer({
 
       const deltaX = e.touches[0].clientX - startX;
       const sensitivity = 0.1; // Reduced sensitivity for smoother rotation
-      
+
       // Update decimal position for smooth transitions
       framePositionRef.current += deltaX * sensitivity;
-      
+
       // Immediately update frame for responsive feedback
       updateFrame();
-      
+
       setStartX(e.touches[0].clientX);
     },
     [startX, updateFrame]
@@ -200,7 +203,7 @@ export default function Product360Viewer({
         window.removeEventListener("mouseup", handleMouseUp);
         window.removeEventListener("touchmove", handleTouchMove);
         window.removeEventListener("touchend", handleTouchEnd);
-        
+
         // Cancel any pending animation frame
         if (animationFrameRef.current !== null) {
           cancelAnimationFrame(animationFrameRef.current);
@@ -217,9 +220,13 @@ export default function Product360Viewer({
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAutoRotatedRef.current && !isDraggingRef.current) {
+          if (
+            entry.isIntersecting &&
+            !hasAutoRotatedRef.current &&
+            !isDraggingRef.current
+          ) {
             hasAutoRotatedRef.current = true;
-            
+
             // Start auto-rotation: 1 full rotation = imageCount frames
             const startPosition = framePositionRef.current;
             const targetPosition = startPosition + imageCount;
@@ -235,14 +242,16 @@ export default function Product360Viewer({
 
               const elapsed = Date.now() - startTime;
               const progress = Math.min(elapsed / duration, 1);
-              
-              // Easing function for smooth acceleration/deceleration
-              const easeInOut = progress < 0.5
-                ? 2 * progress * progress
-                : 1 - Math.pow(-2 * progress + 2, 2) / 2;
 
-              framePositionRef.current = startPosition + (targetPosition - startPosition) * easeInOut;
-              
+              // Easing function for smooth acceleration/deceleration
+              const easeInOut =
+                progress < 0.5
+                  ? 2 * progress * progress
+                  : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+              framePositionRef.current =
+                startPosition + (targetPosition - startPosition) * easeInOut;
+
               // Normalize and update frame
               updateFrame();
 
@@ -257,7 +266,10 @@ export default function Product360Viewer({
                   framePositionRef.current -= imageCount;
                 }
                 // Clamp final frame to valid range
-                framePositionRef.current = Math.max(0, Math.min(imageCount - 1, framePositionRef.current));
+                framePositionRef.current = Math.max(
+                  0,
+                  Math.min(imageCount - 1, framePositionRef.current)
+                );
                 updateFrame();
                 autoRotateAnimationRef.current = null;
               }
@@ -274,7 +286,7 @@ export default function Product360Viewer({
       },
       {
         threshold: 0.3, // Trigger when 30% of the element is visible
-        rootMargin: '0px',
+        rootMargin: "0px",
       }
     );
 
@@ -310,15 +322,18 @@ export default function Product360Viewer({
   }
 
   return (
-    <div className={`relative ${className}`} style={{ width: "100%", maxWidth: width }}>
+    <div
+      className={`relative ${className}`}
+      style={{ width: "100%", maxWidth: width }}
+    >
       <div
         ref={containerRef}
         className="relative w-full bg-transparent rounded-lg overflow-hidden cursor-grab active:cursor-grabbing select-none"
-        style={{ 
-          width: "100%", 
+        style={{
+          width: "100%",
           height: "auto",
           aspectRatio: `${width} / ${height}`,
-          maxWidth: "100%"
+          maxWidth: "100%",
         }}
         onMouseDown={handleMouseDown}
         onTouchStart={handleTouchStart}
@@ -335,4 +350,3 @@ export default function Product360Viewer({
     </div>
   );
 }
-

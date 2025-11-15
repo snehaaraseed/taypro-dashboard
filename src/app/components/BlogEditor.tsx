@@ -21,15 +21,20 @@ export default function BlogEditor({
   initialContent = "",
 }: BlogEditorProps) {
   const [imageUrl, setImageUrl] = useState("");
+  const [imageUrlError, setImageUrlError] = useState<string | null>(null);
   const [linkUrl, setLinkUrl] = useState("");
   const [linkText, setLinkText] = useState("");
   const [showLinkModal, setShowLinkModal] = useState(false);
   const [showImageModal, setShowImageModal] = useState(false);
   const [viewMode, setViewMode] = useState<"visual" | "html">("visual");
   const [htmlContent, setHtmlContent] = useState("");
-  const [imageModalTab, setImageModalTab] = useState<"upload" | "url" | "gallery">("url");
+  const [imageModalTab, setImageModalTab] = useState<
+    "upload" | "url" | "gallery"
+  >("url");
   const [uploadingImage, setUploadingImage] = useState(false);
-  const [galleryImages, setGalleryImages] = useState<Array<{ url: string; name: string }>>([]);
+  const [galleryImages, setGalleryImages] = useState<
+    Array<{ url: string; name: string }>
+  >([]);
   const [loadingGallery, setLoadingGallery] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string>("");
@@ -70,7 +75,8 @@ export default function BlogEditor({
       }),
       TableHeader.configure({
         HTMLAttributes: {
-          class: "border border-gray-300 bg-gray-100 px-4 py-2 font-semibold text-left",
+          class:
+            "border border-gray-300 bg-gray-100 px-4 py-2 font-semibold text-left",
           style: "width: auto; min-width: 100px;",
         },
       }),
@@ -105,21 +111,87 @@ export default function BlogEditor({
   }, [editor, initialContent]);
 
   const addImage = () => {
-    if (imageUrl && editor) {
-      editor.chain().focus().setImage({ src: imageUrl }).run();
-      setImageUrl("");
-      setShowImageModal(false);
+    if (!editor) return;
+
+    // Validate image URL before inserting
+    const valid = validateImageUrl(imageUrl);
+    if (!valid.valid) {
+      setImageUrlError(valid.message || "Invalid image URL");
+      return;
     }
+
+    editor.chain().focus().setImage({ src: imageUrl }).run();
+    setImageUrl("");
+    setImageUrlError(null);
+    setShowImageModal(false);
   };
+
+  // Simple client-side validation for image URLs.
+  // Accepts relative paths (starting with '/') or https hosts in the allowlist.
+  function validateImageUrl(urlStr: string): {
+    valid: boolean;
+    message?: string;
+  } {
+    if (!urlStr || urlStr.trim() === "") {
+      return {
+        valid: false,
+        message: "Please enter an image URL or upload a file.",
+      };
+    }
+
+    // Allow relative paths (e.g., /uploads/2022/...)
+    if (urlStr.startsWith("/")) {
+      return { valid: true };
+    }
+
+    // Try to parse absolute URLs
+    try {
+      const parsed = new URL(urlStr);
+
+      // Disallow non-https (http) external links to avoid mixed-content and unconfigured host issues
+      if (parsed.protocol !== "https:") {
+        return { valid: false, message: "Only HTTPS image URLs are allowed." };
+      }
+
+      // Allowlist of hostnames that match `next.config` remotePatterns
+      const allowedHosts = new Set([
+        "res.cloudinary.com",
+        "taypro.in",
+        "images.unsplash.com",
+        "cdn.pixabay.com",
+        "source.unsplash.com",
+        "picsum.photos",
+      ]);
+
+      if (allowedHosts.has(parsed.hostname)) {
+        return { valid: true };
+      }
+
+      return {
+        valid: false,
+        message: `Host '${parsed.hostname}' is not allowed; use an approved image host or upload the image.`,
+      };
+    } catch (e) {
+      return { valid: false, message: "Invalid URL format." };
+    }
+  }
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
     // Validate file type
-    const allowedTypes = ["image/jpeg", "image/jpg", "image/png", "image/webp", "image/gif"];
+    const allowedTypes = [
+      "image/jpeg",
+      "image/jpg",
+      "image/png",
+      "image/webp",
+      "image/gif",
+    ];
     if (!allowedTypes.includes(file.type)) {
-      alert("Invalid file type. Please upload an image (JPEG, PNG, WebP, or GIF).");
+      alert(
+        "Invalid file type. Please upload an image (JPEG, PNG, WebP, or GIF)."
+      );
       return;
     }
 
@@ -184,7 +256,10 @@ export default function BlogEditor({
       const data = await response.json();
       if (response.ok && data.images) {
         console.log("Gallery images received:", data.images.length);
-        console.log("Sample image URLs:", data.images.slice(0, 3).map((img: { url: string }) => img.url));
+        console.log(
+          "Sample image URLs:",
+          data.images.slice(0, 3).map((img: { url: string }) => img.url)
+        );
         setGalleryImages(data.images);
       } else {
         console.error("Failed to fetch gallery images:", data);
@@ -214,11 +289,7 @@ export default function BlogEditor({
           .run();
       } else {
         // Wrap selected text in link
-        editor
-          .chain()
-          .focus()
-          .setLink({ href: linkUrl })
-          .run();
+        editor.chain().focus().setLink({ href: linkUrl }).run();
       }
       setLinkUrl("");
       setLinkText("");
@@ -274,52 +345,44 @@ export default function BlogEditor({
         <div className="flex flex-wrap items-center gap-1 p-2 border-b border-gray-200">
           {/* Text Formatting */}
           <div className="flex items-center gap-1 pr-2 border-r border-gray-300">
-        <button
-          type="button"
-          onClick={() => editor.chain().focus().toggleBold().run()}
+            <button
+              type="button"
+              onClick={() => editor.chain().focus().toggleBold().run()}
               className={`p-2 rounded hover:bg-gray-200 transition-colors ${
-            editor.isActive("bold")
+                editor.isActive("bold")
                   ? "bg-blue-100 text-blue-700"
                   : "text-gray-700"
               }`}
               title="Bold"
             >
-              <svg
-                className="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fillRule="evenodd"
                   d="M4 4a1 1 0 011 1v10a1 1 0 01-1 1H2a1 1 0 110-2h2V5H2a1 1 0 010-2h2zm4 0a1 1 0 011 1v2a1 1 0 01-2 0V5a1 1 0 011-1zm2 0a4 4 0 014 4v2a4 4 0 01-4 4H9a1 1 0 01-1-1V4a1 1 0 011-1h1zm2 5a2 2 0 100 4h1a1 1 0 001-1v-2a1 1 0 00-1-1h-1z"
                   clipRule="evenodd"
                 />
               </svg>
-        </button>
-        <button
-          type="button"
-          onClick={() => editor.chain().focus().toggleItalic().run()}
+            </button>
+            <button
+              type="button"
+              onClick={() => editor.chain().focus().toggleItalic().run()}
               className={`p-2 rounded hover:bg-gray-200 transition-colors ${
-            editor.isActive("italic")
+                editor.isActive("italic")
                   ? "bg-blue-100 text-blue-700"
                   : "text-gray-700"
               }`}
               title="Italic"
             >
-              <svg
-                className="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fillRule="evenodd"
                   d="M8 4a1 1 0 011-1h6a1 1 0 110 2h-3l-2 8h3a1 1 0 110 2H9a1 1 0 01-1-1V4z"
                   clipRule="evenodd"
                 />
               </svg>
-        </button>
-        <button
-          type="button"
+            </button>
+            <button
+              type="button"
               onClick={() => editor.chain().focus().toggleStrike().run()}
               className={`p-2 rounded hover:bg-gray-200 transition-colors ${
                 editor.isActive("strike")
@@ -328,18 +391,14 @@ export default function BlogEditor({
               }`}
               title="Strikethrough"
             >
-              <svg
-                className="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fillRule="evenodd"
                   d="M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm2 4a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
                   clipRule="evenodd"
                 />
               </svg>
-        </button>
+            </button>
           </div>
 
           {/* Headings */}
@@ -350,7 +409,11 @@ export default function BlogEditor({
                 if (level === 0) {
                   editor.chain().focus().setParagraph().run();
                 } else {
-                  editor.chain().focus().toggleHeading({ level: level as 2 | 3 | 4 }).run();
+                  editor
+                    .chain()
+                    .focus()
+                    .toggleHeading({ level: level as 2 | 3 | 4 })
+                    .run();
                 }
               }}
               className="px-2 py-1 text-sm border border-gray-300 rounded bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -373,43 +436,35 @@ export default function BlogEditor({
 
           {/* Lists */}
           <div className="flex items-center gap-1 pr-2 border-r border-gray-300">
-        <button
-          type="button"
-          onClick={() => editor.chain().focus().toggleBulletList().run()}
+            <button
+              type="button"
+              onClick={() => editor.chain().focus().toggleBulletList().run()}
               className={`p-2 rounded hover:bg-gray-200 transition-colors ${
-            editor.isActive("bulletList")
+                editor.isActive("bulletList")
                   ? "bg-blue-100 text-blue-700"
                   : "text-gray-700"
               }`}
               title="Bullet List"
             >
-              <svg
-                className="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fillRule="evenodd"
                   d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
                   clipRule="evenodd"
                 />
               </svg>
-        </button>
-        <button
-          type="button"
-          onClick={() => editor.chain().focus().toggleOrderedList().run()}
+            </button>
+            <button
+              type="button"
+              onClick={() => editor.chain().focus().toggleOrderedList().run()}
               className={`p-2 rounded hover:bg-gray-200 transition-colors ${
-            editor.isActive("orderedList")
+                editor.isActive("orderedList")
                   ? "bg-blue-100 text-blue-700"
                   : "text-gray-700"
               }`}
               title="Numbered List"
             >
-              <svg
-                className="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fillRule="evenodd"
                   d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
@@ -431,11 +486,7 @@ export default function BlogEditor({
               }`}
               title="Align Left"
             >
-              <svg
-                className="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fillRule="evenodd"
                   d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1z"
@@ -445,7 +496,9 @@ export default function BlogEditor({
             </button>
             <button
               type="button"
-              onClick={() => editor.chain().focus().setTextAlign("center").run()}
+              onClick={() =>
+                editor.chain().focus().setTextAlign("center").run()
+              }
               className={`p-2 rounded hover:bg-gray-200 transition-colors ${
                 editor.isActive({ textAlign: "center" })
                   ? "bg-blue-100 text-blue-700"
@@ -453,11 +506,7 @@ export default function BlogEditor({
               }`}
               title="Align Center"
             >
-              <svg
-                className="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fillRule="evenodd"
                   d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM4 10a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM7 15a1 1 0 011-1h4a1 1 0 110 2H8a1 1 0 01-1-1z"
@@ -475,11 +524,7 @@ export default function BlogEditor({
               }`}
               title="Align Right"
             >
-              <svg
-                className="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fillRule="evenodd"
                   d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM7 10a1 1 0 011-1h10a1 1 0 110 2H8a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
@@ -528,34 +573,30 @@ export default function BlogEditor({
                     clipRule="evenodd"
                   />
                 </svg>
-        </button>
+              </button>
             )}
           </div>
 
           {/* Quote & Code */}
           <div className="flex items-center gap-1 pr-2 border-r border-gray-300">
-        <button
-          type="button"
-          onClick={() => editor.chain().focus().toggleBlockquote().run()}
+            <button
+              type="button"
+              onClick={() => editor.chain().focus().toggleBlockquote().run()}
               className={`p-2 rounded hover:bg-gray-200 transition-colors ${
-            editor.isActive("blockquote")
+                editor.isActive("blockquote")
                   ? "bg-blue-100 text-blue-700"
                   : "text-gray-700"
               }`}
               title="Quote"
             >
-              <svg
-                className="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fillRule="evenodd"
                   d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
                   clipRule="evenodd"
                 />
               </svg>
-        </button>
+            </button>
             <button
               type="button"
               onClick={() => editor.chain().focus().toggleCode().run()}
@@ -566,11 +607,7 @@ export default function BlogEditor({
               }`}
               title="Code"
             >
-              <svg
-                className="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fillRule="evenodd"
                   d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
@@ -587,11 +624,7 @@ export default function BlogEditor({
             className="p-2 rounded hover:bg-gray-200 transition-colors text-gray-700"
             title="Insert Image"
           >
-            <svg
-              className="w-5 h-5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path
                 fillRule="evenodd"
                 d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
@@ -604,7 +637,13 @@ export default function BlogEditor({
           <div className="flex items-center gap-1 pr-2 border-r border-gray-300">
             <button
               type="button"
-              onClick={() => editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()}
+              onClick={() =>
+                editor
+                  .chain()
+                  .focus()
+                  .insertTable({ rows: 3, cols: 3, withHeaderRow: true })
+                  .run()
+              }
               className={`p-2 rounded hover:bg-gray-200 transition-colors ${
                 editor.isActive("tableCell") || editor.isActive("tableHeader")
                   ? "bg-blue-100 text-blue-700"
@@ -626,7 +665,8 @@ export default function BlogEditor({
                 />
               </svg>
             </button>
-            {(editor.isActive("tableCell") || editor.isActive("tableHeader")) && (
+            {(editor.isActive("tableCell") ||
+              editor.isActive("tableHeader")) && (
               <>
                 <div className="h-6 w-px bg-gray-300 mx-1" />
                 <button
@@ -798,8 +838,8 @@ export default function BlogEditor({
       {/* Editor Content */}
       {viewMode === "visual" ? (
         <div className="bg-white">
-        <EditorContent
-          editor={editor}
+          <EditorContent
+            editor={editor}
             className="prose prose-lg max-w-none min-h-96 p-4
              prose-headings:text-[#052638]
              prose-headings:font-semibold
@@ -918,7 +958,7 @@ export default function BlogEditor({
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <h3 className="text-lg font-semibold mb-4">Insert Image</h3>
-            
+
             {/* Tabs */}
             <div className="flex gap-2 mb-4 border-b">
               <button
@@ -996,8 +1036,13 @@ export default function BlogEditor({
                       />
                     </div>
                     <div className="text-sm text-gray-600">
-                      <p><strong>File:</strong> {selectedFile.name}</p>
-                      <p><strong>Size:</strong> {(selectedFile.size / 1024 / 1024).toFixed(2)} MB</p>
+                      <p>
+                        <strong>File:</strong> {selectedFile.name}
+                      </p>
+                      <p>
+                        <strong>Size:</strong>{" "}
+                        {(selectedFile.size / 1024 / 1024).toFixed(2)} MB
+                      </p>
                     </div>
                   </div>
                 )}
@@ -1005,7 +1050,9 @@ export default function BlogEditor({
                 {uploadingImage && (
                   <div className="flex items-center justify-center py-8">
                     <div className="animate-spin rounded-full h-8 w-8 border-4 border-blue-600 border-t-transparent"></div>
-                    <span className="ml-3 text-gray-600">Uploading image...</span>
+                    <span className="ml-3 text-gray-600">
+                      Uploading image...
+                    </span>
                   </div>
                 )}
 
@@ -1046,22 +1093,45 @@ export default function BlogEditor({
                   <input
                     type="text"
                     value={imageUrl}
-                    onChange={(e) => setImageUrl(e.target.value)}
+                    onChange={(e) => {
+                      const v = e.target.value;
+                      setImageUrl(v);
+                      // Re-validate as the user types
+                      if (v && v.trim() !== "") {
+                        const valid = validateImageUrl(v);
+                        setImageUrlError(
+                          valid.valid
+                            ? null
+                            : valid.message || "Invalid image URL"
+                        );
+                      } else {
+                        setImageUrlError(null);
+                      }
+                    }}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="https://example.com/image.jpg or /uploads/..."
                   />
                 </div>
                 {imageUrl && (
                   <div className="relative w-full h-48 border border-gray-300 rounded overflow-hidden bg-gray-100">
-                    <img
-                      src={imageUrl}
-                      alt="Preview"
-                      className="w-full h-full object-contain"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).style.display = "none";
-                      }}
-        />
-      </div>
+                    {imageUrlError ? (
+                      <div className="w-full h-full flex items-center justify-center text-sm text-red-600 p-4">
+                        {imageUrlError}
+                      </div>
+                    ) : (
+                      <img
+                        src={imageUrl}
+                        alt="Preview"
+                        className="w-full h-full object-contain"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = "none";
+                          setImageUrlError(
+                            "Failed to load image preview. The URL may be invalid or blocked."
+                          );
+                        }}
+                      />
+                    )}
+                  </div>
                 )}
                 <div className="flex gap-2 justify-end">
                   <button
@@ -1077,7 +1147,7 @@ export default function BlogEditor({
                   <button
                     type="button"
                     onClick={addImage}
-                    disabled={!imageUrl}
+                    disabled={!imageUrl || !!imageUrlError}
                     className="px-4 py-2 bg-[#A8C117] text-white rounded hover:bg-lime-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Insert Image
@@ -1092,12 +1162,16 @@ export default function BlogEditor({
                 {loadingGallery ? (
                   <div className="flex items-center justify-center py-12">
                     <div className="animate-spin rounded-full h-8 w-8 border-4 border-blue-600 border-t-transparent"></div>
-                    <span className="ml-3 text-gray-600">Loading gallery...</span>
+                    <span className="ml-3 text-gray-600">
+                      Loading gallery...
+                    </span>
                   </div>
                 ) : galleryImages.length === 0 ? (
                   <div className="text-center py-12 text-gray-500">
                     <p>No images found in gallery.</p>
-                    <p className="text-sm mt-2">Upload images using the Upload tab.</p>
+                    <p className="text-sm mt-2">
+                      Upload images using the Upload tab.
+                    </p>
                   </div>
                 ) : (
                   <div className="max-h-96 overflow-y-auto p-2">
@@ -1107,14 +1181,21 @@ export default function BlogEditor({
                           key={idx}
                           onClick={() => {
                             if (editor) {
-                              editor.chain().focus().setImage({ src: img.url }).run();
+                              editor
+                                .chain()
+                                .focus()
+                                .setImage({ src: img.url })
+                                .run();
                               setShowImageModal(false);
                               setImageUrl("");
                             }
                           }}
                           className="relative cursor-pointer group bg-gray-100 border-2 border-gray-200 rounded hover:border-blue-500 transition-colors"
                         >
-                          <div className="relative w-full" style={{ paddingBottom: "100%" }}>
+                          <div
+                            className="relative w-full"
+                            style={{ paddingBottom: "100%" }}
+                          >
                             <img
                               src={img.url}
                               alt={img.name}

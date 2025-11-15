@@ -68,15 +68,28 @@ body {
 }
 
 .ProseMirror h1 {
-  font-size: 1.4rem;
+  /* Editor heading sizes: larger for better readability while editing */
+  font-size: 2rem; /* approx Tailwind text-3xl */
 }
 
 .ProseMirror h2 {
-  font-size: 1.2rem;
+  /* Editor h2 should be clearly larger than body text */
+  font-size: 1.5rem; /* approx Tailwind text-2xl */
 }
 
 .ProseMirror h3 {
-  font-size: 1.1rem;
+  font-size: 1.25rem; /* approx Tailwind text-xl */
+}
+
+/* Ensure published blog content (.prose) uses larger, readable heading sizes */
+.prose h1 {
+  font-size: 2.25rem; /* larger page heading */
+}
+.prose h2 {
+  font-size: 1.75rem; /* prominent section heading */
+}
+.prose h3 {
+  font-size: 1.25rem;
 }
 
 .ProseMirror code {
@@ -112,7 +125,8 @@ body {
   border-radius: 0.5rem;
   margin: 1.5rem auto;
   display: block;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .prose img[src*="taypro.in"],
@@ -257,7 +271,7 @@ a.internal-link:hover {
 /* Column resize zones - right border of cells */
 .ProseMirror table th:not(:last-child)::after,
 .ProseMirror table td:not(:last-child)::after {
-  content: '';
+  content: "";
   position: absolute;
   right: -3px;
   top: 0;
@@ -278,7 +292,7 @@ a.internal-link:hover {
 /* Row resize zones - bottom border of cells */
 .ProseMirror table tr:not(:last-child) th::before,
 .ProseMirror table tr:not(:last-child) td::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -3px;
   left: 0;
@@ -315,9 +329,9 @@ a.internal-link:hover {
 
 .team-card {
   will-change: transform, opacity, box-shadow;
-  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), 
-              opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-              box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateZ(0);
   backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;

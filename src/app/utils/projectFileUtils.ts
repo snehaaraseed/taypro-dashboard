@@ -161,7 +161,9 @@ export default async function ProjectPage() {
           overviewText="${escapedDescription}"
         />
 
-        ${escapedContent ? `
+        ${
+          escapedContent
+            ? `
         {/* Detailed Content Section */}
         <article className="w-full pb-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
@@ -189,7 +191,9 @@ export default async function ProjectPage() {
             />
           </div>
         </article>
-        ` : ""}
+        `
+            : ""
+        }
 
         {relatedProjects.length > 0 && (
           <AllRelatedProjectsSection projects={relatedProjects} />
@@ -228,16 +232,13 @@ export async function createProjectFiles(
     slug: slug,
     date: projectData.date || new Date().toISOString().split("T")[0],
     createdAt: new Date().toISOString(),
-    published: projectData.published !== undefined ? projectData.published : true,
+    published:
+      projectData.published !== undefined ? projectData.published : true,
   };
 
   // Write metadata.json
   const metadataPath = path.join(projectDir, "metadata.json");
-  await fs.writeFile(
-    metadataPath,
-    JSON.stringify(metadata, null, 2),
-    "utf-8"
-  );
+  await fs.writeFile(metadataPath, JSON.stringify(metadata, null, 2), "utf-8");
 
   // Write page.tsx
   const pagePath = path.join(projectDir, "page.tsx");
@@ -253,12 +254,31 @@ export async function createProjectFiles(
 export async function readProjectMetadata(
   slug: string
 ): Promise<ProjectMetadata | null> {
+  const metadataPath = path.join(getProjectsDir(), slug, "metadata.json");
+
+  // Check if file exists first to avoid noisy stack traces for missing files
   try {
-    const metadataPath = path.join(getProjectsDir(), slug, "metadata.json");
+    await fs.access(metadataPath);
+  } catch (err: any) {
+    if (err && err.code === "ENOENT") {
+      // Expected: some project folders may be placeholders without metadata
+      console.warn(`Project metadata not found for '${slug}', skipping.`);
+      return null;
+    }
+    // Unexpected error while accessing file
+    console.error(
+      `Error accessing metadata for ${slug}: ${err?.message || err}`
+    );
+    return null;
+  }
+
+  try {
     const fileContent = await fs.readFile(metadataPath, "utf-8");
     return JSON.parse(fileContent) as ProjectMetadata;
-  } catch (error) {
-    console.error(`Error reading project metadata for ${slug}:`, error);
+  } catch (error: any) {
+    console.error(
+      `Error parsing project metadata for ${slug}: ${error?.message || error}`
+    );
     return null;
   }
 }
@@ -274,20 +294,26 @@ export async function readProjectContent(slug: string): Promise<string> {
     // First, try to extract content from BlogContent component
     // The content is stored as content={"..."} where the string is a JSON-encoded string
     // Look for BlogContent component and extract its content prop value
-    const blogContentStart = fileContent.indexOf('<BlogContent');
+    const blogContentStart = fileContent.indexOf("<BlogContent");
     if (blogContentStart !== -1) {
       // Find the content prop after BlogContent
-      const contentPropStart = fileContent.indexOf('content={', blogContentStart);
+      const contentPropStart = fileContent.indexOf(
+        "content={",
+        blogContentStart
+      );
       if (contentPropStart !== -1) {
         // Extract from the opening brace after content={
         const braceStart = contentPropStart + 9; // length of 'content={'
         let currentPos = braceStart;
-        
+
         // Skip whitespace
-        while (currentPos < fileContent.length && /\s/.test(fileContent[currentPos])) {
+        while (
+          currentPos < fileContent.length &&
+          /\s/.test(fileContent[currentPos])
+        ) {
           currentPos++;
         }
-        
+
         // Check if it starts with a quote (JSON string)
         if (fileContent[currentPos] === '"') {
           // Find the matching closing quote (accounting for escaped quotes)
@@ -295,54 +321,66 @@ export async function readProjectContent(slug: string): Promise<string> {
           let endQuoteIndex = -1;
           let escaped = false;
           let i = currentPos + 1;
-          
+
           while (i < fileContent.length) {
             const char = fileContent[i];
-            
+
             if (escaped) {
               // After an escape, reset the flag and continue
               escaped = false;
               i++;
               continue;
             }
-            
-            if (char === '\\') {
+
+            if (char === "\\") {
               // Next character is escaped
               escaped = true;
               i++;
               continue;
             }
-            
+
             if (char === '"') {
               // Found a quote - check if it's the closing quote
               // Look ahead to see if it's followed by whitespace and then } or className
               let j = i + 1;
               // Skip whitespace (including newlines)
-              while (j < fileContent.length && /[\s\n\r]/.test(fileContent[j])) {
+              while (
+                j < fileContent.length &&
+                /[\s\n\r]/.test(fileContent[j])
+              ) {
                 j++;
               }
               // If we find a } or className after whitespace, this is the closing quote
               if (j < fileContent.length) {
-                if (fileContent[j] === '}' || fileContent.substring(j, j + 9) === 'className') {
+                if (
+                  fileContent[j] === "}" ||
+                  fileContent.substring(j, j + 9) === "className"
+                ) {
                   endQuoteIndex = i;
                   break;
                 }
               }
               // Otherwise, this might be an escaped quote in the content, continue
             }
-            
+
             i++;
           }
-          
+
           if (endQuoteIndex > 0) {
             // Extract the JSON string (including the quotes)
-            const jsonStr = fileContent.substring(currentPos, endQuoteIndex + 1);
+            const jsonStr = fileContent.substring(
+              currentPos,
+              endQuoteIndex + 1
+            );
             try {
               // Parse the JSON string to get the actual HTML content
               const parsed = JSON.parse(jsonStr);
               return parsed;
             } catch (parseError) {
-              console.warn(`Error parsing BlogContent JSON for ${slug}:`, parseError);
+              console.warn(
+                `Error parsing BlogContent JSON for ${slug}:`,
+                parseError
+              );
               // Try to extract as raw string if JSON parsing fails
               return jsonStr.slice(1, -1); // Remove surrounding quotes
             }
@@ -399,9 +437,17 @@ export async function updateProjectFiles(
     image: projectData.image,
     details: projectData.details || [],
     slug: finalSlug,
-    date: projectData.date || existingMetadata?.date || new Date().toISOString().split("T")[0],
+    date:
+      projectData.date ||
+      existingMetadata?.date ||
+      new Date().toISOString().split("T")[0],
     createdAt: createdAt,
-    published: projectData.published !== undefined ? projectData.published : (existingMetadata?.published !== undefined ? existingMetadata.published : true),
+    published:
+      projectData.published !== undefined
+        ? projectData.published
+        : existingMetadata?.published !== undefined
+        ? existingMetadata.published
+        : true,
   };
 
   // If slug changed, move the directory
@@ -506,4 +552,3 @@ export async function getAllFileProjects(): Promise<
     return [];
   }
 }
-

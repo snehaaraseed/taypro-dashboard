@@ -36,9 +36,25 @@ export default function BlogForm() {
 
   const isValidUrl = (url: string): boolean => {
     if (!url) return false;
+
+    // Allow relative paths (served from this site)
+    if (url.startsWith("/")) return true;
+
     try {
       const urlObj = new URL(url);
-      return urlObj.protocol === "http:" || urlObj.protocol === "https:";
+      // Only allow HTTPS remote images and hosts that are whitelisted
+      if (urlObj.protocol !== "https:") return false;
+
+      const allowedHosts = new Set([
+        "res.cloudinary.com",
+        "taypro.in",
+        "images.unsplash.com",
+        "cdn.pixabay.com",
+        "source.unsplash.com",
+        "picsum.photos",
+      ]);
+
+      return allowedHosts.has(urlObj.hostname);
     } catch {
       return false;
     }
@@ -221,7 +237,8 @@ export default function BlogForm() {
 
             {formData.featuredImage && !isValidUrl(formData.featuredImage) && (
               <p className="mt-1 text-sm text-red-500">
-                ⚠️ Invalid URL format. Must start with http:// or https://
+                ⚠️ Unsupported image URL. Use a relative `/uploads/...` path, an
+                HTTPS image from an approved host, or upload the image.
               </p>
             )}
 

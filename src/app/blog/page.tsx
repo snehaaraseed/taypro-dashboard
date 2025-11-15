@@ -51,10 +51,10 @@ async function getFileBlogs(): Promise<DynamicBlog[]> {
       (a, b) =>
         new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
     );
-    } catch (error) {
+  } catch (error) {
     console.error("Error fetching file blogs:", error);
     return [];
-    }
+  }
 }
 
 export default async function Blog() {
@@ -63,7 +63,11 @@ export default async function Blog() {
 
   const allBlogs = dynamicBlogs.map((blog) => ({
     title: blog.title,
-    imgSrc: blog.featuredImage,
+    // Ensure imgSrc is null if missing to avoid passing empty string to <Image />
+    imgSrc:
+      blog.featuredImage && blog.featuredImage.trim() !== ""
+        ? blog.featuredImage
+        : null,
     date: new Date(blog.publishDate).toLocaleDateString(),
     href: blog.href,
     slug: blog.slug,

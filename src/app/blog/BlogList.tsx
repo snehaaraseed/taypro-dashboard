@@ -7,7 +7,7 @@ import { AnimateOnScroll } from "../components/AnimateOnScroll";
 
 interface BlogItem {
   title: string;
-  imgSrc: string;
+  imgSrc?: string | null;
   date: string;
   href: string;
   slug: string;
@@ -43,7 +43,11 @@ export default function BlogList({ blogs }: BlogListProps) {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         {blogs.map((blog, idx: number) => (
-          <AnimateOnScroll key={blog.slug} animation="scaleIn" delay={Math.min(idx * 50, 300)}>
+          <AnimateOnScroll
+            key={blog.slug}
+            animation="scaleIn"
+            delay={Math.min(idx * 50, 300)}
+          >
             <div
               onClick={() => handleClick(blog.href, blog.slug)}
               className="cursor-pointer block border border-gray-300 p-4 overflow-hidden group relative"
@@ -55,15 +59,22 @@ export default function BlogList({ blogs }: BlogListProps) {
               )}
 
               <div className="relative w-full h-64 sm:h-72 md:h-80 overflow-hidden">
-                <Image
-                  src={blog.imgSrc}
-                  alt={`${blog.title} - Solar Panel Cleaning Robot blog article by Taypro`}
-                  title={`${blog.title} - Solar Panel Cleaning Robot Blog`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105 group-hover:translate-x-3"
-                  priority={idx < 3}
-                />
+                {blog.imgSrc ? (
+                  <Image
+                    src={blog.imgSrc}
+                    alt={`${blog.title} - Solar Panel Cleaning Robot blog article by Taypro`}
+                    title={`${blog.title} - Solar Panel Cleaning Robot Blog`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105 group-hover:translate-x-3"
+                    priority={idx < 3}
+                  />
+                ) : (
+                  // Fallback placeholder when no image is provided
+                  <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+                    <span className="text-gray-400">No image</span>
+                  </div>
+                )}
 
                 {/* Dark overlay gradient for better title visibility */}
                 <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/60 via-black/40 to-transparent pointer-events-none"></div>
@@ -84,4 +95,3 @@ export default function BlogList({ blogs }: BlogListProps) {
     </>
   );
 }
-
