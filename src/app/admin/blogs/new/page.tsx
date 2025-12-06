@@ -117,15 +117,39 @@ export default function NewBlogPage() {
     setMessage("");
 
     try {
+      // Ensure file has a valid name
+      let fileToUpload = file;
+      if (!file.name || file.name.trim() === "") {
+        // Create a new File object with a valid name
+        const extension = file.type.split("/")[1] || "png";
+        const timestamp = Date.now();
+        fileToUpload = new File([file], `image-${timestamp}.${extension}`, {
+          type: file.type,
+        });
+      }
+
       const uploadFormData = new FormData();
-      uploadFormData.append("file", file);
+      uploadFormData.append("file", fileToUpload);
 
       const response = await fetch("/api/admin/upload", {
         method: "POST",
         body: uploadFormData,
       });
 
-      const data = await response.json();
+      // Handle 413 error specifically
+      if (response.status === 413) {
+        setMessage("❌ File is too large. Maximum size is 10MB. Please compress or resize your image before uploading.");
+        return;
+      }
+
+      // Try to parse JSON response
+      let data;
+      try {
+        data = await response.json();
+      } catch (jsonError) {
+        // If JSON parsing fails, it might be a server error
+        throw new Error(`Server error (${response.status}). Please try again or use a smaller image.`);
+      }
 
       if (response.ok && data.url) {
         setFormData((prev) => ({ ...prev, featuredImage: data.url }));
@@ -136,11 +160,16 @@ export default function NewBlogPage() {
       }
     } catch (error) {
       console.error("Error uploading image:", error);
-      setMessage(
-        `Error uploading image: ${
-          error instanceof Error ? error.message : "Please try again."
-        }`
-      );
+      const errorMessage = error instanceof Error ? error.message : "Please try again.";
+      
+      // Provide more specific error messages
+      if (errorMessage.includes("413") || errorMessage.includes("too large")) {
+        setMessage("❌ File is too large. Maximum size is 10MB. Please compress or resize your image.");
+      } else if (errorMessage.includes("pattern")) {
+        setMessage("❌ Invalid file format. Please ensure the file is a valid image file.");
+      } else {
+        setMessage(`Error uploading image: ${errorMessage}`);
+      }
     } finally {
       setUploadingImage(false);
     }
@@ -358,6 +387,7 @@ export default function NewBlogPage() {
                     onLoadingComplete={handleImageLoadSuccess}
                     onError={handleImageLoadError}
                     sizes="(max-width: 768px) 100vw, 400px"
+                    unoptimized={formData.featuredImage.startsWith("/uploads/")}
                   />
                 </div>
                 <button

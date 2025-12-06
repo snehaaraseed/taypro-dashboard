@@ -172,6 +172,16 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
         echo "  ❌ Build failed!"
         exit 1
     fi
+    
+    # Copy public folder to standalone directory (required for Next.js standalone mode)
+    # This ensures static assets and images are accessible to the Next.js server
+    if [ -d ".next/standalone" ] && [ -d "public" ]; then
+        echo "  Copying public folder to standalone directory..."
+        cp -r public .next/standalone/ 2>/dev/null || true
+        echo "  ✅ Public folder copied to standalone directory"
+    else
+        echo "  ⚠️  Warning: Could not copy public folder (standalone or public directory missing)"
+    fi
 EOF
 
 if [ $? -eq 0 ]; then
@@ -187,6 +197,12 @@ echo ""
 echo -e "${YELLOW}🔄 Step 5: Restarting application...${NC}"
 ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     cd /var/www/taypro-dashboard
+    
+    # Ensure public folder is in standalone directory (in case build didn't include it)
+    if [ -d ".next/standalone" ] && [ -d "public" ] && [ ! -d ".next/standalone/public" ]; then
+        echo "  Copying public folder to standalone directory..."
+        cp -r public .next/standalone/ 2>/dev/null || true
+    fi
     
     # Restart PM2
     pm2 restart taypro-dashboard || pm2 start ecosystem.config.js

@@ -213,15 +213,39 @@ export default function BlogEditor({
     setUploadingImage(true);
 
     try {
+      // Ensure file has a valid name
+      let fileToUpload = selectedFile;
+      if (!selectedFile.name || selectedFile.name.trim() === "") {
+        // Create a new File object with a valid name
+        const extension = selectedFile.type.split("/")[1] || "png";
+        const timestamp = Date.now();
+        fileToUpload = new File([selectedFile], `image-${timestamp}.${extension}`, {
+          type: selectedFile.type,
+        });
+      }
+
       const formData = new FormData();
-      formData.append("file", selectedFile);
+      formData.append("file", fileToUpload);
 
       const response = await fetch("/api/admin/upload", {
         method: "POST",
         body: formData,
       });
 
-      const data = await response.json();
+      // Handle 413 error specifically
+      if (response.status === 413) {
+        alert("❌ File is too large. Maximum size is 10MB. Please compress or resize your image before uploading.");
+        return;
+      }
+
+      // Try to parse JSON response
+      let data;
+      try {
+        data = await response.json();
+      } catch (jsonError) {
+        // If JSON parsing fails, it might be a server error
+        throw new Error(`Server error (${response.status}). Please try again or use a smaller image.`);
+      }
 
       if (response.ok && data.url) {
         editor.chain().focus().setImage({ src: data.url }).run();
@@ -239,11 +263,16 @@ export default function BlogEditor({
       }
     } catch (error) {
       console.error("Error uploading image:", error);
-      alert(
-        `Error uploading image: ${
-          error instanceof Error ? error.message : "Please try again."
-        }`
-      );
+      const errorMessage = error instanceof Error ? error.message : "Please try again.";
+      
+      // Provide more specific error messages
+      if (errorMessage.includes("413") || errorMessage.includes("too large")) {
+        alert("❌ File is too large. Maximum size is 10MB. Please compress or resize your image.");
+      } else if (errorMessage.includes("pattern")) {
+        alert("❌ Invalid file format. Please ensure the file is a valid image file.");
+      } else {
+        alert(`Error uploading image: ${errorMessage}`);
+      }
     } finally {
       setUploadingImage(false);
     }

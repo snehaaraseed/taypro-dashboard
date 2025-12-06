@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { verifyToken } from "./app/utils/jwt";
 
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin123";
 const COOKIE_NAME = "admin-auth";
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const url = request.nextUrl.clone();
 
@@ -43,8 +43,16 @@ export function middleware(request: NextRequest) {
   if (pathname.startsWith("/admin")) {
     const authCookie = request.cookies.get(COOKIE_NAME);
 
-    if (!authCookie || authCookie.value !== ADMIN_PASSWORD) {
+    if (!authCookie || !authCookie.value) {
       // Redirect to admin page (which will show login) if not authenticated
+      const adminUrl = new URL("/admin", request.url);
+      return NextResponse.redirect(adminUrl);
+    }
+
+    // Verify JWT token instead of plain password
+    const isValid = await verifyToken(authCookie.value);
+    if (!isValid) {
+      // Token is invalid or expired - redirect to login
       const adminUrl = new URL("/admin", request.url);
       return NextResponse.redirect(adminUrl);
     }
@@ -140,8 +148,9 @@ export const config = {
      * - _next/static (static files)
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
+     * - uploads (user-uploaded files in public directory)
      */
-    "/((?!api|_next/static|_next/image|favicon.ico).*)",
+    "/((?!api|_next/static|_next/image|favicon.ico|uploads).*)",
     "/admin/:path*",
     "/api/admin/:path*",
   ],
