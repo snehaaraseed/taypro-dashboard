@@ -130,7 +130,10 @@ export default function EditBlogPage() {
       const response = await fetch("/api/admin/upload/list");
       const data = await response.json();
       if (response.ok && data.images) {
+        console.log(`Gallery: Loaded ${data.images.length} images`);
         setGalleryImages(data.images);
+      } else {
+        console.error("Gallery API error:", data);
       }
     } catch (error) {
       console.error("Error fetching gallery images:", error);
@@ -602,6 +605,19 @@ export default function EditBlogPage() {
                         className="absolute top-0 left-0 w-full h-full object-cover rounded group-hover:opacity-80 transition-opacity"
                         loading="lazy"
                         style={{ backgroundColor: "#f3f4f6" }}
+                        onError={(e) => {
+                          console.error("Gallery image failed to load:", img.url);
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = "none";
+                          const parent = target.parentElement;
+                          if (parent) {
+                            parent.innerHTML = `
+                              <div class="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-500 text-xs rounded">
+                                Failed to load
+                              </div>
+                            `;
+                          }
+                        }}
                       />
                       <div className="absolute inset-0 bg-transparent group-hover:bg-black/30 transition-opacity flex items-center justify-center pointer-events-none rounded z-10">
                         <span className="text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity px-2 text-center truncate w-full">

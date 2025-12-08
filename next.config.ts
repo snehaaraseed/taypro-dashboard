@@ -11,6 +11,8 @@ const nextConfig = {
     optimizeCss: true,
     optimizePackageImports: ["lucide-react", "@tiptap/react"],
   },
+  // Turbopack configuration (Next.js 16+)
+  turbopack: {},
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -120,10 +122,6 @@ const nextConfig = {
     }
 
     return config;
-  },
-  eslint: {
-    // Don't fail build on ESLint errors during production builds
-    ignoreDuringBuilds: true,
   },
   typescript: {
     // Don't fail build on TypeScript errors (optional, for now we keep it strict)

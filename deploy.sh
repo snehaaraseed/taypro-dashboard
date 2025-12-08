@@ -13,7 +13,7 @@ NC='\033[0m' # No Color
 
 # Configuration
 SSH_KEY="/Users/yogesh/TayproWebsite/taypro-dashboard/AWS_Key/CloudServer.pem"
-REMOTE_HOST="ubuntu@ec2-13-126-13-3.ap-south-1.compute.amazonaws.com"
+REMOTE_HOST="ubuntu@13.204.129.120"
 REMOTE_PATH="/var/www/taypro-dashboard"
 LOCAL_PATH="/Users/yogesh/TayproWebsite/taypro-dashboard"
 
@@ -181,6 +181,17 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
         echo "  ✅ Public folder copied to standalone directory"
     else
         echo "  ⚠️  Warning: Could not copy public folder (standalone or public directory missing)"
+    fi
+    
+    # Copy .next/static to standalone/.next/static (CRITICAL for JavaScript chunks and CSS)
+    # Next.js standalone mode doesn't automatically copy static files
+    if [ -d ".next/static" ] && [ -d ".next/standalone" ]; then
+        echo "  Copying .next/static to standalone directory..."
+        mkdir -p .next/standalone/.next
+        cp -r .next/static .next/standalone/.next/ 2>/dev/null || true
+        echo "  ✅ Static files (JS/CSS chunks) copied to standalone directory"
+    else
+        echo "  ⚠️  Warning: Could not copy .next/static (standalone or static directory missing)"
     fi
 EOF
 
