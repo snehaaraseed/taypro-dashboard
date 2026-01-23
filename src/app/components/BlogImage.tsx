@@ -32,6 +32,7 @@ export function BlogImage({
   }
 
   const isExternal = imgSrc?.startsWith("http") || imgSrc?.startsWith("//");
+  const isUpload = imgSrc?.startsWith("/uploads/");
 
   return (
     <Image
@@ -42,7 +43,7 @@ export function BlogImage({
       sizes={sizes}
       priority={priority}
       onError={() => setError(true)}
-      {...(isExternal ? { unoptimized: true } : {})}
+      {...((isExternal || isUpload) ? { unoptimized: true } : {})}
     />
   );
 }

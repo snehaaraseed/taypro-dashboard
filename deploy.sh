@@ -193,6 +193,14 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     else
         echo "  ⚠️  Warning: Could not copy .next/static (standalone or static directory missing)"
     fi
+    
+    # Copy .env.production to standalone directory (CRITICAL for environment variables)
+    # Next.js standalone mode needs .env files in the standalone directory
+    if [ -f ".env.production" ] && [ -d ".next/standalone" ]; then
+        echo "  Copying .env.production to standalone directory..."
+        cp .env.production .next/standalone/.env.production 2>/dev/null || true
+        echo "  ✅ Environment variables file copied to standalone directory"
+    fi
 EOF
 
 if [ $? -eq 0 ]; then
@@ -210,9 +218,17 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     cd /var/www/taypro-dashboard
     
     # Ensure public folder is in standalone directory (in case build didn't include it)
-    if [ -d ".next/standalone" ] && [ -d "public" ] && [ ! -d ".next/standalone/public" ]; then
-        echo "  Copying public folder to standalone directory..."
-        cp -r public .next/standalone/ 2>/dev/null || true
+    if [ -d ".next/standalone" ] && [ -d "public" ]; then
+        if [ ! -d ".next/standalone/public" ]; then
+            echo "  Copying public folder to standalone directory..."
+            cp -r public .next/standalone/ 2>/dev/null || true
+        else
+            # Sync uploads from root to standalone (preserve new uploads)
+            if [ -d "public/uploads" ]; then
+                echo "  Syncing uploads to standalone directory..."
+                rsync -av public/uploads/ .next/standalone/public/uploads/ 2>/dev/null || true
+            fi
+        fi
     fi
     
     # Restart PM2

@@ -150,7 +150,7 @@ export const config = {
      * - favicon.ico (favicon file)
      * - uploads (user-uploaded files in public directory)
      */
-    "/((?!api|_next/static|_next/image|favicon.ico|uploads).*)",
+    "/((?!api|_next/static|_next/image|favicon.ico|uploads/).*)",
     "/admin/:path*",
     "/api/admin/:path*",
   ],

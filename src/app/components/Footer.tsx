@@ -150,7 +150,7 @@ export default function Footer() {
                     />
                     <a
                       href={item.href}
-                      className={`text-4xl font-semibold mb-2 transition-colors duration-300 ${
+                      className={`text-xl font-semibold mb-2 transition-colors duration-300 ${
                         active
                           ? "text-[#A8C117]"
                           : "text-white group-hover:text-[#A8C117]"

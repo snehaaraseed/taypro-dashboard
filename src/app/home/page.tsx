@@ -39,10 +39,10 @@ export default function HomePage() {
       />
       <div className="min-h-screen overflow-x-hidden">
         {/* Hero Section - Server Rendered */}
-        <section className="relative overflow-hidden px-4 sm:px-8 lg:px-15 py-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-center">
-            <AnimateOnScroll animation="fadeInRight" delay={0} className="text-white space-y-6 lg:space-y-12 lg:col-span-2">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-semibold">
+        <section className="relative overflow-hidden px-4 sm:px-8 lg:px-8 py-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6 items-center">
+            <AnimateOnScroll animation="fadeInRight" delay={0} className="text-white space-y-6 lg:space-y-8">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-semibold">
                 Delivering{" "}
                 <span className="text-[#39D600]">
                   Solar Panel Cleaning Robots With
@@ -52,22 +52,21 @@ export default function HomePage() {
                 Highest Up-Time Guarantee.
               </h1>
 
-              <p className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-full lg:max-w-3xl">
+              <p className="text-base sm:text-lg lg:text-lg text-gray-300 leading-relaxed max-w-full lg:max-w-full">
                 Our autonomous Solar Panel Cleaning Robot delivers greater plant performance ratio, unstoppable power generation and intelligent AI & ML driven robotic cleaning for solar farms.
               </p>
             </AnimateOnScroll>
 
-            <AnimateOnScroll animation="fadeInLeft" delay={100} className="lg:col-span-1 flex justify-center lg:justify-end">
-              <Image
-                src="/tayprorobots/robot-hero.png"
-                alt="Taypro Autonomous Solar Panel Cleaning Robot - Waterless robotic cleaning system for solar farms"
-                title="Solar Panel Cleaning Robot by Taypro"
-                width={600}
-                height={900}
-                priority
-                quality={85}
-                className="w-full h-auto"
-              />
+            <AnimateOnScroll animation="fadeInLeft" delay={100} className="flex justify-center lg:justify-start">
+              <div className="w-full max-w-[800px] lg:max-w-full aspect-video">
+                <iframe
+                  src="https://www.youtube.com/embed/y9iRhH2bLwY?autoplay=1&mute=1&loop=1&playlist=y9iRhH2bLwY&controls=0&modestbranding=1&rel=0"
+                  title="Taypro Autonomous Solar Panel Cleaning Robot - Waterless robotic cleaning system for solar farms"
+                  className="w-full h-full rounded-lg"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                />
+              </div>
             </AnimateOnScroll>
           </div>
         </section>

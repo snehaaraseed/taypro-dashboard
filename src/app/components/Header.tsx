@@ -22,6 +22,7 @@ export default function Header() {
       href: "/solar-panel-cleaning-robot-price-calculator",
     },
     { name: "About Us", href: "/company" },
+    { name: "Contact Us", href: "/contact" },
     { name: "Blogs", href: "/blog" },
   ];
 
@@ -45,6 +46,11 @@ export default function Header() {
     {
       label: "Solar Panel Cleaning Service",
       href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
+    },
+    {
+      label: "View all robots",
+      href: "/solar-panel-cleaning-system",
+      isButton: true,
     },
   ];
 
@@ -103,8 +109,7 @@ export default function Header() {
               onMouseEnter={() => setDropdownOpen(true)}
               onMouseLeave={() => setDropdownOpen(false)}
             >
-              <Link
-                href="/solar-panel-cleaning-system"
+              <div
                 title="Solar Panel Cleaning Robot"
                 className={`text-white px-3 py-2 text-md font-medium cursor-pointer flex items-center transition-all duration-300 hover:underline underline-offset-8 hover:text-[#39D600] ${
                   isSolarActive() ? "underline" : ""
@@ -124,15 +129,19 @@ export default function Header() {
                     d="M19 9l-7 7-7-7"
                   />
                 </svg>
-              </Link>
+              </div>
               {dropdownOpen && (
-                <div className="absolute left-0 w-[400px] h-[350px] bg-white rounded-md shadow-lg z-10 py-1">
+                <div className="absolute left-0 w-[400px] bg-white rounded-md shadow-lg z-10 py-1">
                   {solarMenu.map((item) => (
                     <Link
                       href={item.href}
                       key={item.label}
                       title="Robot Type"
-                      className="block px-5 py-5 text-[#052638] text-xl transition-all duration-300 hover:bg-[#39D600] hover:text-[#052638] rounded-md transform hover:translate-x-1"
+                      className={
+                        item.isButton
+                          ? "block bg-[#A8C117] text-black font-medium hover:bg-[#39D600] text-center mx-auto my-1 px-3 py-2 text-xl rounded-md transition-all duration-300 w-fit"
+                          : "block px-5 py-3 text-xl text-[#052638] hover:bg-[#39D600] hover:text-[#052638] rounded-md transition-all duration-300 transform hover:translate-x-1"
+                      }
                     >
                       {item.label}
                     </Link>
@@ -160,16 +169,23 @@ export default function Header() {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Link
-              href="/contact"
-              title="Contact"
+              href="tel:+918956114050"
+              title="Call us now"
               className="bg-[#A8C117] text-black px-7 py-3 rounded-md font-medium hover:bg-[#39D600] transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
             >
-              Get in touch
+              Call us now
             </Link>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Mobile menu button and Call us now */}
+          <div className="md:hidden flex items-center gap-3">
+            <Link
+              href="tel:+918956114050"
+              title="Call us now"
+              className="bg-[#A8C117] text-black px-4 py-2 rounded-md font-medium text-sm hover:bg-[#39D600] transition-all duration-300 transform hover:scale-105"
+            >
+              Call us now
+            </Link>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-white hover:text-gray-300 focus:outline-none"
@@ -225,10 +241,6 @@ export default function Header() {
               className={`w-full text-left text-white hover:text-gray-300 block px-3 py-2 text-base font-medium flex justify-between items-center ${
                 isSolarActive() ? "underline underline-offset-8" : ""
               }`}
-              onClick={() => {
-                setIsMenuOpen(false);
-                router.push("/solar-panel-cleaning-system");
-              }}
             >
               Solar Panel Cleaning Robots
               <svg
@@ -254,21 +266,16 @@ export default function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="ml-6 text-white hover:text-gray-300 block px-3 py-2 text-base font-medium"
+                  className={
+                    item.isButton
+                      ? "block bg-[#A8C117] text-black px-3 py-1.5 rounded-md font-medium text-center hover:bg-[#39D600] transition-all duration-300 transform hover:scale-105 mx-auto my-1 text-base w-fit"
+                      : "ml-6 text-white hover:text-gray-300 block px-3 py-2 text-base font-medium"
+                  }
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  • {item.label}
+                  {item.isButton ? item.label : `• ${item.label}`}
                 </Link>
               ))}
-
-            <Link
-              href="/contact"
-              title="Contact"
-              className="block bg-[#A8C117] text-black px-5 py-2 rounded-md font-medium text-center hover:bg-[#39D600] transition-all duration-300 transform hover:scale-105"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Get in touch
-            </Link>
           </div>
         </div>
       )}
