@@ -39,7 +39,8 @@
     "react-dom": "19.2.1",
     "react-leaflet": "^5.0.0",
     "server-only": "^0.0.1",
-    "tailwindcss": "^4.1.17"
+    "tailwindcss": "^4.1.17",
+    "@google/generative-ai": "^0.21.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

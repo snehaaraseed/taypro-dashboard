@@ -169,7 +169,7 @@ export default function Header() {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Link
-              href="tel:+918956114050"
+              href="tel:08043843569"
               title="Call us now"
               className="bg-[#A8C117] text-black px-7 py-3 rounded-md font-medium hover:bg-[#39D600] transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
             >
@@ -180,7 +180,7 @@ export default function Header() {
           {/* Mobile menu button and Call us now */}
           <div className="md:hidden flex items-center gap-3">
             <Link
-              href="tel:+918956114050"
+              href="tel:08043843569"
               title="Call us now"
               className="bg-[#A8C117] text-black px-4 py-2 rounded-md font-medium text-sm hover:bg-[#39D600] transition-all duration-300 transform hover:scale-105"
             >

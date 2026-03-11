@@ -328,7 +328,7 @@ If you use third-party services that process personal data on your behalf, you n
 
 **Contact**:
 - Email: sales@taypro.in
-- Phone: +918956114050
+- Phone: 08043843569
 
 **Data Protection Officer**: Not currently designated (may be required if processing is extensive)
 

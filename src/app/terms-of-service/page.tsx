@@ -225,10 +225,10 @@ export default function TermsOfServicePage() {
               <span>
                 Phone:{" "}
                 <a
-                  href="tel:+918956114050"
+                  href="tel:08043843569"
                   className="hover:text-[#A8C117] transition-colors"
                 >
-                  +918956114050
+                  08043843569
                 </a>
               </span>
             </div>
