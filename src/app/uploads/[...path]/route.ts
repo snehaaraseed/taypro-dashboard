@@ -14,24 +14,31 @@ export async function GET(
     const { path: pathSegments } = await params;
     const filePath = pathSegments.join("/");
 
-    // Security: Only allow files from the uploads subtree.
-    // This supports all years (current and future) without hardcoding.
+    // Security: only allow safe relative paths under /public/uploads.
     if (
+      !filePath ||
       filePath.includes("..") ||
       path.isAbsolute(filePath) ||
-      !/^uploads\/[a-zA-Z0-9/_\-.]+$/.test(filePath)
+      !/^[a-zA-Z0-9/_\-.]+$/.test(filePath)
     ) {
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
 
-    // Construct full file path
-    // In standalone mode, process.cwd() is .next/standalone
-    const fullPath = path.join(process.cwd(), "public", filePath);
+    // Route is /uploads/[...path], so params are relative to uploads.
+    // In standalone mode, process.cwd() is .next/standalone.
+    const fullPath = path.join(process.cwd(), "public", "uploads", filePath);
 
     // Check if file exists
     if (!existsSync(fullPath)) {
       // Try root public directory as fallback
-      const rootPath = path.join(process.cwd(), "..", "..", "public", filePath);
+      const rootPath = path.join(
+        process.cwd(),
+        "..",
+        "..",
+        "public",
+        "uploads",
+        filePath
+      );
       if (existsSync(rootPath)) {
         const fileBuffer = await readFile(rootPath);
         const ext = path.extname(filePath).toLowerCase();
