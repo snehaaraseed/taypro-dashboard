@@ -99,24 +99,25 @@ export async function POST(request: NextRequest) {
     // Get original filename and sanitize it
     let originalName = file.name || "image";
     
-    // Get the actual extension from the original filename first
-    const originalExt = path.extname(originalName).toLowerCase();
-    
-    // Determine extension: use original filename extension if present, otherwise use MIME type
-    let extension: string;
-    if (originalExt) {
-      extension = originalExt;
-    } else {
-      // Map MIME types to extensions
-      const mimeToExt: Record<string, string> = {
-        "image/jpeg": ".jpg",
-        "image/jpg": ".jpg",
-        "image/png": ".png",
-        "image/webp": ".webp",
-        "image/gif": ".gif",
-      };
-      extension = mimeToExt[file.type] || ".jpg";
+    // Always derive extension from validated MIME type.
+    // Do not trust user-provided filename extensions.
+    const mimeToExt: Record<string, string> = {
+      "image/jpeg": ".jpg",
+      "image/jpg": ".jpg",
+      "image/png": ".png",
+      "image/webp": ".webp",
+      "image/gif": ".gif",
+    };
+    const extension = mimeToExt[file.type];
+    if (!extension) {
+      return NextResponse.json(
+        { error: "Unsupported image MIME type." },
+        { status: 400 }
+      );
     }
+    
+    // Get the actual extension from original filename only for basename parsing
+    const originalExt = path.extname(originalName).toLowerCase();
     
     // Get base name without extension - remove the actual extension from filename
     let nameWithoutExt: string;
@@ -226,7 +227,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         error: errorMessage,
-        details: error instanceof Error ? error.stack : undefined,
+        // Avoid leaking stack traces in API responses.
+        details: process.env.NODE_ENV !== "production" && error instanceof Error ? error.stack : undefined,
       },
       { status: 500 }
     );

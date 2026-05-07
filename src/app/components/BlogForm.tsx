@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 
@@ -33,6 +32,7 @@ export default function BlogForm() {
   const [message, setMessage] = useState("");
   const [imageError, setImageError] = useState(false);
   const [imageLoading, setImageLoading] = useState(false);
+  const [uploadingFeaturedImage, setUploadingFeaturedImage] = useState(false);
 
   const isValidUrl = (url: string): boolean => {
     if (!url) return false;
@@ -42,7 +42,15 @@ export default function BlogForm() {
 
     try {
       const urlObj = new URL(url);
-      // Only allow HTTPS remote images and hosts that are whitelisted
+      // Allow localhost/http for local development previews.
+      if (
+        urlObj.hostname === "localhost" ||
+        urlObj.hostname === "127.0.0.1"
+      ) {
+        return true;
+      }
+
+      // Only allow HTTPS remote images in production-like environments.
       if (urlObj.protocol !== "https:") return false;
 
       const allowedHosts = new Set([
@@ -83,6 +91,62 @@ export default function BlogForm() {
   const handleImageLoadError = () => {
     setImageLoading(false);
     setImageError(true);
+  };
+
+  const handleFeaturedImageUpload = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const allowedTypes = [
+      "image/jpeg",
+      "image/jpg",
+      "image/png",
+      "image/webp",
+      "image/gif",
+    ];
+
+    if (!allowedTypes.includes(file.type)) {
+      setMessage("Error: Invalid file type. Please upload a valid image.");
+      e.target.value = "";
+      return;
+    }
+
+    if (file.size > 10 * 1024 * 1024) {
+      setMessage("Error: File size exceeds 10MB limit.");
+      e.target.value = "";
+      return;
+    }
+
+    setUploadingFeaturedImage(true);
+    setMessage("");
+
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const response = await fetch("/api/admin/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || !data?.url) {
+        throw new Error(data?.error || "Failed to upload featured image");
+      }
+
+      handleImageUrlChange(data.url);
+    } catch (error) {
+      setMessage(
+        `Error uploading featured image: ${
+          error instanceof Error ? error.message : "Please try again."
+        }`
+      );
+    } finally {
+      setUploadingFeaturedImage(false);
+      e.target.value = "";
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -223,6 +287,18 @@ export default function BlogForm() {
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Featured Image URL
             </label>
+            <div className="mb-3">
+              <label className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 cursor-pointer transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                {uploadingFeaturedImage ? "Uploading..." : "Upload Featured Image"}
+                <input
+                  type="file"
+                  accept="image/jpeg,image/jpg,image/png,image/webp,image/gif"
+                  onChange={handleFeaturedImageUpload}
+                  disabled={uploadingFeaturedImage || isLoading}
+                  className="hidden"
+                />
+              </label>
+            </div>
             <input
               type="text"
               value={formData.featuredImage}
@@ -232,7 +308,7 @@ export default function BlogForm() {
                   ? "border-red-500 focus:ring-red-400"
                   : "border-gray-300 focus:ring-blue-500"
               }`}
-              placeholder="https://res.cloudinary.com/your-image-url"
+              placeholder="https://res.cloudinary.com/your-image-url or /uploads/..."
             />
 
             {formData.featuredImage && !isValidUrl(formData.featuredImage) && (
@@ -262,14 +338,12 @@ export default function BlogForm() {
                     </div>
                   )}
                   <div className="relative w-full h-60 rounded-md overflow-hidden border border-gray-300 bg-gray-100">
-                    <Image
+                    <img
                       src={formData.featuredImage}
                       alt="Featured image preview"
-                      fill
-                      className="object-cover"
-                      onLoadingComplete={handleImageLoadSuccess}
+                      className="h-full w-full object-cover"
+                      onLoad={handleImageLoadSuccess}
                       onError={handleImageLoadError}
-                      sizes="(max-width: 768px) 100vw, 400px"
                     />
                   </div>
                 </div>
@@ -318,6 +392,7 @@ export default function BlogForm() {
               type="submit"
               disabled={
                 isLoading ||
+                uploadingFeaturedImage ||
                 !formData.title ||
                 !formData.description ||
                 !formData.content ||

@@ -14,8 +14,13 @@ export async function GET(
     const { path: pathSegments } = await params;
     const filePath = pathSegments.join("/");
 
-    // Security: Only allow files from uploads directory
-    if (!filePath.startsWith("uploads/") && !filePath.startsWith("2025/") && !filePath.startsWith("2024/")) {
+    // Security: Only allow files from the uploads subtree.
+    // This supports all years (current and future) without hardcoding.
+    if (
+      filePath.includes("..") ||
+      path.isAbsolute(filePath) ||
+      !/^uploads\/[a-zA-Z0-9/_\-.]+$/.test(filePath)
+    ) {
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
 
