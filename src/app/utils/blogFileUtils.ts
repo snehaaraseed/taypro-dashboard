@@ -273,6 +273,10 @@ export async function createBlogFiles(
     const pagePath = path.join(targetDir, "page.tsx");
     await fs.writeFile(pagePath, pageContent, "utf-8");
 
+    // Persist raw HTML content for reliable runtime rendering.
+    const contentHtmlPath = path.join(targetDir, "content.html");
+    await fs.writeFile(contentHtmlPath, blogData.content || "", "utf-8");
+
     return { success: true, slug: finalSlug };
   } catch (error) {
     console.error("Error creating blog files:", error);
@@ -370,6 +374,10 @@ export async function updateBlogFiles(
     const pageContent = generatePageTSX(metadata, blogData.content);
     const pagePath = path.join(targetDir, "page.tsx");
     await fs.writeFile(pagePath, pageContent, "utf-8");
+
+    // Keep content.html in sync with the latest editor content.
+    const contentHtmlPath = path.join(targetDir, "content.html");
+    await fs.writeFile(contentHtmlPath, blogData.content || "", "utf-8");
 
     return { success: true, slug: finalSlug };
   } catch (error) {

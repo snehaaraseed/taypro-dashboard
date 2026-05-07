@@ -126,8 +126,10 @@ async function getBlogData(slug: string): Promise<BlogData | null> {
       try {
         const pageContent = await fs.readFile(contentPath, "utf-8");
         
-        // Extract HTML from __html: `...content...\`, }} />
+        // Extract HTML from known page patterns used in this codebase.
         const patterns = [
+          /content=\{\s*`([\s\S]*?)`\s*\}/,                      // BlogContent content={`...`}
+          /content=\{\\?`([\s\S]*?)\\?`\}/,                      // Escaped template variant
           /__html:\s*`([\s\S]*?)\\\\?`\s*,\s*\}\s*\}\s*\/>/,  // With comma
           /__html:\s*`([\s\S]*?)\\\\?`\s*\}\s*\}\s*\/>/,     // Without comma
         ];
@@ -137,7 +139,11 @@ async function getBlogData(slug: string): Promise<BlogData | null> {
           const match = pageContent.match(pattern);
           if (match && match[1]) {
             content = match[1];
-            content = content.replace(/\\`/g, '`').replace(/\\\$/g, '$').replace(/\\\\/g, '\\');
+            content = content
+              .replace(/\\n/g, "\n")
+              .replace(/\\`/g, "`")
+              .replace(/\\\$/g, "$")
+              .replace(/\\\\/g, "\\");
             found = true;
             break;
           }
