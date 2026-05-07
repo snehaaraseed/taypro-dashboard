@@ -170,7 +170,7 @@ export default function AdminDashboard() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Blogs Card */}
           <Link
             href="/admin/blogs"
@@ -265,6 +265,61 @@ export default function AdminDashboard() {
                 </p>
                 <div className="flex items-center text-green-600 font-medium group-hover:text-green-700">
                   Go to Projects
+                  <svg
+                    className="w-5 h-5 ml-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* Authors Card */}
+          <Link
+            href="/admin/authors"
+            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow cursor-pointer group"
+          >
+            <div className="flex items-start justify-between">
+              <div className="flex-1">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 bg-purple-100 rounded-lg mr-4 group-hover:bg-purple-200 transition-colors">
+                    <svg
+                      className="w-8 h-8 text-purple-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 20h5V4H2v16h5m10 0v-2a4 4 0 00-4-4H9a4 4 0 00-4 4v2m12 0H7m10-10a4 4 0 11-8 0 4 4 0 018 0z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">
+                      Authors
+                    </h3>
+                    <p className="text-sm text-gray-500 mt-1">
+                      Manage blog authors
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gray-600 mb-4">
+                  Add and maintain author profiles used in blog publishing and author pages.
+                </p>
+                <div className="flex items-center text-purple-600 font-medium group-hover:text-purple-700">
+                  Go to Authors
                   <svg
                     className="w-5 h-5 ml-2"
                     fill="none"

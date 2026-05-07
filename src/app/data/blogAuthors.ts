@@ -1,0 +1,55 @@
+export interface BlogAuthor {
+  name: string;
+  slug: string;
+  role: string;
+  bio: string;
+  avatarUrl?: string;
+}
+
+export const BLOG_AUTHORS: BlogAuthor[] = [
+  {
+    name: "Taypro Team",
+    slug: "taypro-team",
+    role: "Solar Automation Specialists",
+    bio: "The Taypro editorial team writes about solar operations, robotic cleaning systems, plant efficiency, and maintenance best practices.",
+    avatarUrl:
+      "https://ui-avatars.com/api/?name=Taypro+Team&background=052638&color=ffffff&size=256",
+  },
+  {
+    name: "Yogesh",
+    slug: "yogesh",
+    role: "Product & Growth",
+    bio: "Yogesh shares practical insights on solar technology adoption, product strategy, and performance optimization in utility-scale projects.",
+    avatarUrl:
+      "https://ui-avatars.com/api/?name=Yogesh&background=0c3c57&color=ffffff&size=256",
+  },
+];
+
+export function slugifyAuthorName(name: string): string {
+  return name
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
+
+export function getAuthorByName(name: string): BlogAuthor | undefined {
+  const normalizedName = name.trim().toLowerCase();
+  return BLOG_AUTHORS.find((author) => author.name.toLowerCase() === normalizedName);
+}
+
+export function getAuthorBySlug(slug: string): BlogAuthor | undefined {
+  return BLOG_AUTHORS.find((author) => author.slug === slug);
+}
+
+export function getAuthorAvatarUrl(name: string): string {
+  const knownAuthor = getAuthorByName(name);
+  if (knownAuthor?.avatarUrl) {
+    return knownAuthor.avatarUrl;
+  }
+
+  const encodedName = encodeURIComponent(name || "Author");
+  return `https://ui-avatars.com/api/?name=${encodedName}&background=4b5563&color=ffffff&size=256`;
+}
+

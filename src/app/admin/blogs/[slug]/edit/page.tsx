@@ -55,12 +55,33 @@ export default function EditBlogPage() {
   const [showGallery, setShowGallery] = useState(false);
   const [galleryImages, setGalleryImages] = useState<Array<{ url: string; name: string }>>([]);
   const [loadingGallery, setLoadingGallery] = useState(false);
+  const [selectedAuthor, setSelectedAuthor] = useState<string>("Taypro Team");
+  const [authors, setAuthors] = useState<Array<{ name: string; slug: string; role: string }>>([]);
 
   useEffect(() => {
     if (slug) {
       fetchBlog();
     }
   }, [slug]);
+
+  useEffect(() => {
+    const fetchAuthors = async () => {
+      try {
+        const response = await fetch("/api/authors");
+        const data = await response.json();
+        setAuthors(data.authors || []);
+      } catch {
+        setAuthors([{ name: "Taypro Team", slug: "taypro-team", role: "Solar Automation Specialists" }]);
+      }
+    };
+    fetchAuthors();
+  }, []);
+
+  useEffect(() => {
+    if (!formData.author) return;
+    const isPresetAuthor = authors.some((author) => author.name === formData.author);
+    setSelectedAuthor(isPresetAuthor ? formData.author : "__custom__");
+  }, [authors, formData.author]);
 
   const fetchBlog = async () => {
     try {
@@ -498,14 +519,38 @@ export default function EditBlogPage() {
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Author
           </label>
-          <input
-            type="text"
-            value={formData.author}
-            onChange={(e) =>
-              setFormData({ ...formData, author: e.target.value })
-            }
-            className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+          <div className="space-y-3">
+            <select
+              value={selectedAuthor}
+              onChange={(e) => {
+                const value = e.target.value;
+                setSelectedAuthor(value);
+                if (value !== "__custom__") {
+                  setFormData({ ...formData, author: value });
+                }
+              }}
+              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              {authors.map((author) => (
+                <option key={author.slug} value={author.name}>
+                  {author.name} - {author.role}
+                </option>
+              ))}
+              <option value="__custom__">Custom author</option>
+            </select>
+
+            {selectedAuthor === "__custom__" && (
+              <input
+                type="text"
+                value={formData.author}
+                onChange={(e) =>
+                  setFormData({ ...formData, author: e.target.value })
+                }
+                placeholder="Enter custom author name"
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            )}
+          </div>
         </div>
 
         <div>

@@ -10,6 +10,11 @@ import { promises as fs } from "fs";
 import path from "path";
 import { DynamicBlog } from "../../api/blog/list/route";
 import { addInternalLinks } from "../../utils/internalLinking";
+import {
+  getAuthorAvatarUrl,
+  slugifyAuthorName,
+} from "../../data/blogAuthors";
+import { getStoredAuthors } from "../../utils/blogAuthorsStore";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
@@ -31,6 +36,65 @@ interface BlogData {
   slug: string;
   publishDate: string;
   source?: "file";
+}
+
+interface TocItem {
+  id: string;
+  text: string;
+  level: 2 | 3;
+}
+
+function slugifyHeading(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/&amp;/g, "and")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
+
+function addHeadingIdsAndExtractToc(html: string): {
+  contentWithIds: string;
+  toc: TocItem[];
+} {
+  if (!html) {
+    return { contentWithIds: html, toc: [] };
+  }
+
+  const toc: TocItem[] = [];
+  const usedIds = new Set<string>();
+
+  const contentWithIds = html.replace(
+    /<h([23])([^>]*)>([\s\S]*?)<\/h\1>/gi,
+    (match, levelStr, attrs, innerHtml) => {
+      const plainText = innerHtml
+        .replace(/<[^>]+>/g, "")
+        .replace(/&nbsp;/g, " ")
+        .trim();
+
+      if (!plainText) return match;
+
+      const level = Number(levelStr) as 2 | 3;
+      let id = slugifyHeading(plainText) || `section-${toc.length + 1}`;
+      let suffix = 2;
+      while (usedIds.has(id)) {
+        id = `${id}-${suffix}`;
+        suffix += 1;
+      }
+      usedIds.add(id);
+
+      toc.push({ id, text: plainText, level });
+
+      if (/id\s*=\s*["'][^"']+["']/i.test(attrs)) {
+        return `<h${level}${attrs}>${innerHtml}</h${level}>`;
+      }
+
+      return `<h${level}${attrs} id="${id}">${innerHtml}</h${level}>`;
+    }
+  );
+
+  return { contentWithIds, toc };
 }
 
 // Fetch all blogs for similar blogs section
@@ -287,6 +351,23 @@ export default async function BlogPost({ params }: BlogPostProps) {
     month: "long",
     day: "numeric",
   });
+  const readingMinutes = Math.max(
+    1,
+    Math.ceil(blog.content.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length / 220)
+  );
+
+  const { contentWithIds, toc } = addHeadingIdsAndExtractToc(
+    addInternalLinks(blog.content, allBlogs, slug, 8)
+  );
+  const authorSlug = slugifyAuthorName(blog.author || "Taypro Team");
+  const authors = await getStoredAuthors();
+  const knownAuthor = authors.find(
+    (author) => author.name.toLowerCase() === (blog.author || "Taypro Team").toLowerCase()
+  );
+  const authorAvatarUrl = knownAuthor?.avatarUrl || getAuthorAvatarUrl(blog.author || "Taypro Team");
+  const moreFromAuthor = allBlogs
+    .filter((post) => post.slug !== slug && post.author === blog.author)
+    .slice(0, 3);
 
   return (
     <>
@@ -307,14 +388,79 @@ export default async function BlogPost({ params }: BlogPostProps) {
         }}
       />
 
-      {/* Main Layout with Similar Blogs Sidebar */}
+      {/* Main Layout with TOC + Main Content + Right Sidebar */}
       <div className="w-full bg-white">
-        <div className="max-w-7xl mx-auto px-6 pt-20 pb-20">
-          <div className="flex flex-col lg:flex-row gap-8">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-6 pt-0 pb-20">
+          {/* Ahrefs-style Top Article Header */}
+          <section className="relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-[#052638] border-y border-[#0c3c57] mb-10">
+            <header className="max-w-4xl mx-auto px-6 md:px-8 py-8 md:py-10">
+              <p className="text-sm font-medium text-[#A8C117] mb-3">Blog</p>
+              <h1 className="text-4xl md:text-5xl font-semibold text-white leading-tight mb-4">
+                {blog.title}
+              </h1>
+              <div className="flex flex-wrap items-center gap-3 text-sm text-slate-200 mb-5">
+                <img
+                  src={authorAvatarUrl}
+                  alt={blog.author}
+                  className="w-9 h-9 rounded-full border border-slate-500 object-cover"
+                />
+                <span className="font-medium text-white">
+                  By{" "}
+                  <Link
+                    href={`/blog/author/${authorSlug}`}
+                    className="underline decoration-slate-300/60 underline-offset-2 hover:text-[#A8C117] transition-colors"
+                  >
+                    {blog.author}
+                  </Link>
+                  {knownAuthor?.role ? (
+                    <span className="ml-2 font-normal text-slate-300">
+                      ({knownAuthor.role})
+                    </span>
+                  ) : null}
+                </span>
+                <span aria-hidden="true">|</span>
+                <span>{publishDate}</span>
+                <span aria-hidden="true">|</span>
+                <span>{readingMinutes} min read</span>
+              </div>
+              <p className="text-lg text-slate-100 leading-relaxed">{blog.description}</p>
+            </header>
+          </section>
+
+          <div className="grid grid-cols-1 xl:grid-cols-[260px_minmax(0,1fr)_320px] gap-10">
+            {/* Left TOC */}
+            <aside className="hidden xl:block">
+              {toc.length > 0 && (
+                <div className="sticky top-24 border border-gray-200 rounded-xl p-5 bg-white">
+                  <h3 className="text-sm font-semibold uppercase tracking-wide text-[#052638] mb-4">
+                    Contents
+                  </h3>
+                  <nav aria-label="Table of contents">
+                    <ul className="space-y-2">
+                      {toc.map((item) => (
+                        <li key={item.id}>
+                          <a
+                            href={`#${item.id}`}
+                            className={`block text-sm leading-snug hover:text-blue-700 transition-colors ${
+                              item.level === 3
+                                ? "text-gray-600 pl-4"
+                                : "text-[#052638] font-medium"
+                            }`}
+                          >
+                            {item.text}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                </div>
+              )}
+            </aside>
+
             {/* Main Content Column */}
-            <div className="flex-1 lg:max-w-3xl">
+            <div className="min-w-0">
               {/* Hero Section with Featured Image */}
-              <section className="pb-10">
+              <section className="pb-8">
                 {blog.featuredImage && (
                   <div className="relative w-full h-96 mb-8 overflow-hidden rounded-lg bg-gray-100">
                     <BlogImage
@@ -327,60 +473,12 @@ export default async function BlogPost({ params }: BlogPostProps) {
                     />
                   </div>
                 )}
-
-                {/* Article Header */}
-                <header className="mb-8">
-                  <h1 className="text-4xl md:text-5xl font-semibold text-[#052638] mb-4 leading-tight">
-                    {blog.title}
-                  </h1>
-
-                  <div className="flex flex-wrap items-center gap-4 text-gray-600 text-sm mb-6">
-                    <span className="flex items-center gap-2">
-                      <svg
-                        className="w-4 h-4"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.414-1.414L11 9.586V6z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      {publishDate}
-                    </span>
-
-                    <span className="flex items-center gap-2">
-                      <svg
-                        className="w-4 h-4"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      {blog.author}
-                    </span>
-
-                    <span className="px-2 py-1 text-xs bg-gray-200 rounded">
-                      📁 File
-                    </span>
-                  </div>
-
-                  <h2 className="text-lg text-gray-700 leading-relaxed">
-                    {blog.description}
-                  </h2>
-                </header>
               </section>
 
               {/* Main Content */}
               <article suppressHydrationWarning>
                 <BlogContent
-                  content={addInternalLinks(blog.content, allBlogs, slug, 8)}
+                  content={contentWithIds}
                   className="prose prose-lg max-w-none space-y-5
                    prose-headings:text-[#052638]
                    prose-headings:font-semibold
@@ -426,10 +524,98 @@ export default async function BlogPost({ params }: BlogPostProps) {
                   </Link>
                 </div>
               </article>
+
+              {moreFromAuthor.length > 0 && (
+                <section className="mt-12 border-t border-gray-200 pt-10">
+                  <h3 className="text-2xl font-semibold text-[#052638] mb-6">
+                    More from this author
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    {moreFromAuthor.map((post) => (
+                      <Link
+                        key={post.slug}
+                        href={post.href}
+                        className="block rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition-shadow"
+                      >
+                        <div className="relative w-full h-40 bg-gray-100">
+                          {post.featuredImage ? (
+                            <BlogImage
+                              src={post.featuredImage}
+                              alt={post.title}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 1024px) 100vw, 33vw"
+                            />
+                          ) : null}
+                        </div>
+                        <div className="p-4">
+                          <h4 className="text-base font-semibold text-[#052638] line-clamp-2 mb-2">
+                            {post.title}
+                          </h4>
+                          <p className="text-sm text-gray-600 line-clamp-2">
+                            {post.description}
+                          </p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
             </div>
 
-            {/* Similar Blogs Sidebar - Full Height */}
-            <SimilarBlogs blogs={allBlogs} currentSlug={slug} />
+            {/* Right Sidebar */}
+            <aside className="xl:w-80 flex-shrink-0">
+              <div className="sticky top-24 space-y-6">
+                <div className="rounded-xl border border-gray-200 bg-gradient-to-br from-[#052638] to-[#0c3c57] p-6 text-white">
+                  <p className="text-xs uppercase tracking-wider text-[#A8C117] mb-2">
+                    Product
+                  </p>
+                  <h3 className="text-2xl font-semibold leading-tight mb-3">
+                    Discover Taypro Solar Cleaning Robot
+                  </h3>
+                  <p className="text-sm text-slate-100 mb-5">
+                    Reduce manual effort, improve panel performance, and automate maintenance with Taypro.
+                  </p>
+                  <Link
+                    href="/solar-panel-cleaning-system"
+                    className="inline-flex items-center justify-center rounded-md bg-[#A8C117] px-4 py-2 text-sm font-semibold text-[#052638] hover:bg-[#bfd63a] transition-colors"
+                  >
+                    Explore Product
+                  </Link>
+                </div>
+
+                <div className="rounded-xl border border-gray-200 p-6 bg-white">
+                  <h3 className="text-xl font-semibold text-[#052638] mb-2">
+                    Subscribe Newsletter
+                  </h3>
+                  <p className="text-sm text-gray-600 mb-4">
+                    Get the latest blog updates and solar cleaning insights in your inbox.
+                  </p>
+                  <form className="space-y-3">
+                    <label htmlFor="newsletter-email" className="sr-only">
+                      Email address
+                    </label>
+                    <input
+                      id="newsletter-email"
+                      type="email"
+                      placeholder="Enter your email"
+                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0c3c57]"
+                    />
+                    <button
+                      type="button"
+                      className="w-full rounded-md bg-[#052638] px-4 py-2 text-sm font-medium text-white hover:bg-[#0c3c57] transition-colors"
+                    >
+                      Subscribe
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          {/* Similar Blogs Bottom Section */}
+          <div className="mt-16">
+            <SimilarBlogs blogs={allBlogs} currentSlug={slug} layout="bottom" />
           </div>
         </div>
       </div>

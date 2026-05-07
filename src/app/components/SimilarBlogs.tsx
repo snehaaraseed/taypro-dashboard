@@ -5,6 +5,7 @@ import { DynamicBlog } from "../api/blog/list/route";
 interface SimilarBlogsProps {
   blogs: DynamicBlog[];
   currentSlug?: string;
+  layout?: "sidebar" | "bottom";
 }
 
 // Stop words to filter out common words
@@ -156,12 +157,58 @@ function getSimilarBlogs(
   return blogsWithScores;
 }
 
-export function SimilarBlogs({ blogs, currentSlug }: SimilarBlogsProps) {
+export function SimilarBlogs({
+  blogs,
+  currentSlug,
+  layout = "sidebar",
+}: SimilarBlogsProps) {
   // Get similar blogs based on keyword matching
   const similarBlogs = getSimilarBlogs(blogs, currentSlug);
 
   if (similarBlogs.length === 0) {
     return null;
+  }
+
+  if (layout === "bottom") {
+    return (
+      <section>
+        <h3 className="text-3xl font-semibold text-[#052638] mb-8">
+          Similar Blogs
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {similarBlogs.map((similarBlog) => (
+            <Link
+              key={similarBlog.slug}
+              href={similarBlog.href}
+              className="block group"
+            >
+              <div className="h-full border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
+                <div className="relative w-full h-52 overflow-hidden">
+                  <Image
+                    src={similarBlog.featuredImage}
+                    alt={`${similarBlog.title} - Similar blog article`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-5">
+                  <h4 className="text-xl font-semibold text-[#052638] mb-2 line-clamp-2 group-hover:text-[#A8C117] transition-colors">
+                    {similarBlog.title}
+                  </h4>
+                  <p className="text-sm text-gray-600 line-clamp-3 mb-3">
+                    {similarBlog.description}
+                  </p>
+                  <span className="text-xs text-gray-500">
+                    {formatDate(similarBlog.publishDate)}
+                  </span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+    );
   }
 
   return (

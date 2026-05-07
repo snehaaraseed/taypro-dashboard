@@ -10,17 +10,17 @@ export function Breadcrumbs({
     <>
       {items && items.length > 0 && <BreadcrumbListSchema items={items} />}
       <nav
-        className="py-3 w-full text-center"
+        className="py-3 w-full text-center bg-[#052638] border-b border-[#0c3c57]"
         aria-label="Breadcrumb navigation"
       >
         <div className="max-w-7xl mx-auto px-6">
-          <ol className="flex items-center justify-start gap-2 text-[#f3f6ee] text-sm">
+          <ol className="flex items-center justify-start gap-2 text-slate-200 text-sm">
           {items.map((item, i) => (
             <li key={`${item.href}-${i}`} className="flex items-center">
               <Link
                 href={item.href || "#"}
                 title={`Breadcrumb: ${item.name}`}
-                className="hover:underline"
+                className="hover:underline hover:text-white transition-colors"
               >
                 {item.name}
               </Link>

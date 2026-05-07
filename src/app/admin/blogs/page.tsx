@@ -90,12 +90,20 @@ export default function AdminBlogsPage() {
     <div>
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-semibold text-[#052638]">Blogs</h1>
-        <button
-          onClick={() => router.push("/admin/blogs/new")}
-          className="bg-[#A8C117] hover:bg-lime-500 text-white px-6 py-2 rounded-md transition-colors"
-        >
-          Create New Blog
-        </button>
+        <div className="flex gap-3">
+          <button
+            onClick={() => router.push("/admin/authors")}
+            className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-md transition-colors"
+          >
+            Manage Authors
+          </button>
+          <button
+            onClick={() => router.push("/admin/blogs/new")}
+            className="bg-[#A8C117] hover:bg-lime-500 text-white px-6 py-2 rounded-md transition-colors"
+          >
+            Create New Blog
+          </button>
+        </div>
       </div>
 
       <div className="mb-6">
