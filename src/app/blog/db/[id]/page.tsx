@@ -27,6 +27,7 @@ interface BlogData {
   slug: string;
   publishDate: string;
   createdAt: string;
+  updatedAt?: string;
 }
 
 // Fetch all blogs for similar blogs section
@@ -197,6 +198,8 @@ export async function generateMetadata({
         "Taypro",
       ];
 
+  const modifiedIso = blog.updatedAt || blog.publishDate;
+
   return {
     title: `${blog.title} - Taypro Blog`,
     description: blog.description,
@@ -206,6 +209,8 @@ export async function generateMetadata({
       description: blog.description,
       url: `${siteUrl}/blog/db/${id}`,
       type: "article",
+      publishedTime: blog.publishDate,
+      modifiedTime: modifiedIso,
       images: blog.featuredImage ? [
         {
           url: blog.featuredImage.startsWith('http') ? blog.featuredImage : `${siteUrl}${blog.featuredImage.startsWith('/') ? '' : '/'}${blog.featuredImage}`,
@@ -244,7 +249,9 @@ export default async function BlogPost({ params }: BlogPostProps) {
     { name: blog.title, href: "" },
   ];
 
-  const publishDate = new Date(blog.publishDate).toLocaleDateString("en-US", {
+  const lastUpdatedDisplay = new Date(
+    blog.updatedAt || blog.publishDate
+  ).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -294,7 +301,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
                           clipRule="evenodd"
                         />
                       </svg>
-                      {publishDate}
+                      Last updated {lastUpdatedDisplay}
                     </span>
 
                     <span className="flex items-center gap-2">

@@ -29,6 +29,7 @@ export async function GET(request: NextRequest) {
               image: metadata.image,
               details: metadata.details,
               date: metadata.date,
+              updatedAt: metadata.updatedAt,
               href: `/projects/${metadata.slug}`,
               published: metadata.published !== undefined ? metadata.published : true,
             };

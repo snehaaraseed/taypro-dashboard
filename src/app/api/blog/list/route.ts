@@ -9,6 +9,8 @@ export interface DynamicBlog {
   author: string;
   slug: string;
   publishDate: string;
+  /** ISO; when set, public UI shows this as “last updated” instead of publish date. */
+  updatedAt?: string;
   href: string;
   source: "file";
 }
@@ -21,7 +23,7 @@ async function getFileBlogs(): Promise<DynamicBlog[]> {
     const blogDirs = entries.filter(
       (entry) =>
         entry.isDirectory() &&
-        !["components", "api", "[slug]", "add", "db"].includes(entry.name)
+        !["components", "api", "[slug]", "add", "db", "author"].includes(entry.name)
     );
 
     const blogs: DynamicBlog[] = [];

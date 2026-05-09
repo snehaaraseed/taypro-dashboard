@@ -9,8 +9,11 @@ export interface ProjectMetadata {
   image: string;
   details: string[];
   slug: string;
+  /** Shown in admin as published date (calendar). */
   date: string;
   createdAt: string;
+  /** ISO timestamp; bumped on every save. Omitted on older projects until next edit. */
+  updatedAt?: string;
   published?: boolean; // Defaults to true for backward compatibility
 }
 
@@ -40,11 +43,16 @@ export function generatePageTSX(
   metadata: ProjectMetadata,
   content?: string
 ): string {
-  const dateFormatted = new Date(metadata.date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  const lastUpdatedIso =
+    metadata.updatedAt || metadata.createdAt || metadata.date;
+  const lastUpdatedFormatted = new Date(lastUpdatedIso).toLocaleDateString(
+    "en-US",
+    {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }
+  );
 
   // Escape strings for use in template literals
   const escapeForTemplate = (str: string): string => {
@@ -138,8 +146,11 @@ export default async function ProjectPage() {
             <h1 className="font-semibold text-[#052638] text-4xl md:text-5xl mb-7 text-center">
               ${escapedTitle}
             </h1>
-            <p className="text-[#A8C117] text-center text-[18px] mb-4">
+            <p className="text-[#A8C117] text-center text-[18px] mb-2">
               Solar Panel Cleaning Robot Installation Project
+            </p>
+            <p className="text-gray-600 text-center text-sm mb-4">
+              Last updated: ${lastUpdatedFormatted}
             </p>
           </div>
 
@@ -217,13 +228,14 @@ function getProjectsDir(): string {
  */
 export async function createProjectFiles(
   projectData: ProjectData
-): Promise<{ slug: string }> {
+): Promise<{ slug: string; updatedAt: string }> {
   const slug = createSlug(projectData.title);
   const projectDir = path.join(getProjectsDir(), slug);
 
   // Create directory if it doesn't exist
   await fs.mkdir(projectDir, { recursive: true });
 
+  const now = new Date().toISOString();
   const metadata: ProjectMetadata = {
     title: projectData.title,
     description: projectData.description,
@@ -231,7 +243,8 @@ export async function createProjectFiles(
     details: projectData.details || [],
     slug: slug,
     date: projectData.date || new Date().toISOString().split("T")[0],
-    createdAt: new Date().toISOString(),
+    createdAt: now,
+    updatedAt: now,
     published:
       projectData.published !== undefined ? projectData.published : true,
   };
@@ -245,7 +258,7 @@ export async function createProjectFiles(
   const pageContent = generatePageTSX(metadata, projectData.content);
   await fs.writeFile(pagePath, pageContent, "utf-8");
 
-  return { slug };
+  return { slug, updatedAt: now };
 }
 
 /**
@@ -422,14 +435,27 @@ export async function updateProjectFiles(
   slug: string,
   projectData: ProjectData,
   newSlug?: string
-): Promise<{ slug: string }> {
+): Promise<{ slug: string; updatedAt: string }> {
   const oldProjectDir = path.join(getProjectsDir(), slug);
   const finalSlug = newSlug || slug;
   const newProjectDir = path.join(getProjectsDir(), finalSlug);
 
+  if (finalSlug !== slug) {
+    try {
+      await fs.access(newProjectDir);
+      throw new Error(`Project with slug "${finalSlug}" already exists`);
+    } catch (e: unknown) {
+      const err = e as NodeJS.ErrnoException;
+      if (err.code !== "ENOENT") {
+        throw e;
+      }
+    }
+  }
+
   // Read existing metadata to preserve createdAt
   const existingMetadata = await readProjectMetadata(slug);
   const createdAt = existingMetadata?.createdAt || new Date().toISOString();
+  const now = new Date().toISOString();
 
   const metadata: ProjectMetadata = {
     title: projectData.title,
@@ -442,6 +468,7 @@ export async function updateProjectFiles(
       existingMetadata?.date ||
       new Date().toISOString().split("T")[0],
     createdAt: createdAt,
+    updatedAt: now,
     published:
       projectData.published !== undefined
         ? projectData.published
@@ -483,7 +510,7 @@ export async function updateProjectFiles(
     await fs.writeFile(pagePath, pageContent, "utf-8");
   }
 
-  return { slug: finalSlug };
+  return { slug: finalSlug, updatedAt: now };
 }
 
 /**

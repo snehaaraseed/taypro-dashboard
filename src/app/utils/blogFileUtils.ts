@@ -9,6 +9,8 @@ export interface BlogMetadata {
   slug: string;
   publishDate: string;
   createdAt: string;
+  /** ISO timestamp; bumped on every save. Omitted on older posts until next edit. */
+  updatedAt?: string;
   published?: boolean; // Defaults to true for backward compatibility
 }
 
@@ -224,7 +226,12 @@ export default function BlogPost() {
 export async function createBlogFiles(
   blogData: BlogData,
   slug?: string
-): Promise<{ success: boolean; slug: string; error?: string }> {
+): Promise<{
+  success: boolean;
+  slug: string;
+  updatedAt?: string;
+  error?: string;
+}> {
   try {
     const finalSlug = slug || createSlug(blogData.title);
 
@@ -257,6 +264,7 @@ export async function createBlogFiles(
       slug: finalSlug,
       publishDate: blogData.publishDate || now,
       createdAt: now,
+      updatedAt: now,
       published: blogData.published !== undefined ? blogData.published : true,
     };
 
@@ -277,7 +285,7 @@ export async function createBlogFiles(
     const contentHtmlPath = path.join(targetDir, "content.html");
     await fs.writeFile(contentHtmlPath, blogData.content || "", "utf-8");
 
-    return { success: true, slug: finalSlug };
+    return { success: true, slug: finalSlug, updatedAt: now };
   } catch (error) {
     console.error("Error creating blog files:", error);
     return {
@@ -296,7 +304,12 @@ export async function updateBlogFiles(
   oldSlug: string,
   blogData: BlogData,
   newSlug?: string
-): Promise<{ success: boolean; slug: string; error?: string }> {
+): Promise<{
+  success: boolean;
+  slug: string;
+  updatedAt?: string;
+  error?: string;
+}> {
   try {
     const blogDir = path.join(process.cwd(), "src", "app", "blog");
     const oldDir = path.join(blogDir, oldSlug);
@@ -348,6 +361,7 @@ export async function updateBlogFiles(
       slug: finalSlug,
       publishDate: blogData.publishDate || existingMetadata?.publishDate || now,
       createdAt: existingMetadata?.createdAt || now,
+      updatedAt: now,
       published: blogData.published !== undefined ? blogData.published : (existingMetadata?.published !== undefined ? existingMetadata.published : true),
     };
 
@@ -379,7 +393,7 @@ export async function updateBlogFiles(
     const contentHtmlPath = path.join(targetDir, "content.html");
     await fs.writeFile(contentHtmlPath, blogData.content || "", "utf-8");
 
-    return { success: true, slug: finalSlug };
+    return { success: true, slug: finalSlug, updatedAt: now };
   } catch (error) {
     console.error("Error updating blog files:", error);
     return {

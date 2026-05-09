@@ -27,7 +27,11 @@ interface ProjectData {
   details: string[];
   date: string;
   content: string;
+  /** URL segment under /projects/ — editable; sent as newSlug on save */
+  slug: string;
   published?: boolean;
+  /** ISO from metadata; refreshed after save */
+  updatedAt?: string;
 }
 
 export default function EditProjectPage() {
@@ -42,6 +46,7 @@ export default function EditProjectPage() {
     details: [],
     date: new Date().toISOString().split("T")[0],
     content: "",
+    slug: "",
     published: true,
   });
   const [detailInput, setDetailInput] = useState("");
@@ -84,6 +89,8 @@ export default function EditProjectPage() {
               ? new Date(data.project.date).toISOString().split("T")[0]
               : new Date().toISOString().split("T")[0],
             content: data.project.content || "",
+            slug: data.project.slug || slug,
+            updatedAt: data.project.updatedAt,
             published: data.project.published !== undefined ? data.project.published : true,
           });
         }
@@ -257,19 +264,37 @@ export default function EditProjectPage() {
     setIsSaving(true);
     setMessage("");
 
+    if (!formData.slug.trim()) {
+      setMessage("URL slug is required.");
+      setIsSaving(false);
+      return;
+    }
+
     try {
+      const { slug: urlSlug, ...fields } = formData;
       const response = await fetch(`/api/admin/project/${slug}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...fields,
+          newSlug: urlSlug.trim(),
+        }),
       });
 
       const data = await response.json();
 
       if (response.ok && data.success) {
-        router.push(`/admin/projects`);
+        const nextSlug = data.slug as string | undefined;
+        if (typeof data.updatedAt === "string") {
+          setFormData((prev) => ({ ...prev, updatedAt: data.updatedAt }));
+        }
+        if (nextSlug && nextSlug !== slug) {
+          router.replace(`/admin/projects/${nextSlug}/edit`);
+        } else {
+          router.push(`/admin/projects`);
+        }
       } else {
         throw new Error(data.error || "Failed to update project");
       }
@@ -343,6 +368,37 @@ export default function EditProjectPage() {
               className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Enter project title"
             />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              URL slug *
+            </label>
+            <div className="flex rounded-md shadow-sm">
+              <span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-sm text-gray-600">
+                /projects/
+              </span>
+              <input
+                type="text"
+                required
+                value={formData.slug}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    slug: e.target.value
+                      .toLowerCase()
+                      .replace(/[^a-z0-9-]/g, "-")
+                      .replace(/-+/g, "-"),
+                  }))
+                }
+                className="flex-1 min-w-0 rounded-r-md border border-gray-300 px-3 py-2 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="project-url"
+                spellCheck={false}
+              />
+            </div>
+            <p className="mt-1 text-xs text-gray-500">
+              Changing the slug moves the project folder and updates the public URL. Old links will break unless you add redirects elsewhere.
+            </p>
           </div>
 
           <div>
@@ -536,7 +592,7 @@ export default function EditProjectPage() {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Date
+              Published date
             </label>
             <input
               type="date"
@@ -546,6 +602,21 @@ export default function EditProjectPage() {
               }
               className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
+            <p className="mt-1 text-xs text-gray-500">
+              Project date shown in metadata. The public project page shows last updated only.
+            </p>
+          </div>
+
+          <div className="rounded-md border border-gray-200 bg-gray-50 px-4 py-3">
+            <p className="text-sm font-medium text-gray-800">Last updated</p>
+            <p className="text-sm text-gray-600 mt-1">
+              {formData.updatedAt
+                ? new Date(formData.updatedAt).toLocaleString("en-US", {
+                    dateStyle: "medium",
+                    timeStyle: "short",
+                  })
+                : "— (appears after the next save)"}
+            </p>
           </div>
 
           <div>

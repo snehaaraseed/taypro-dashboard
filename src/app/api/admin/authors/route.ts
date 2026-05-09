@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAuth } from "../../../utils/auth";
+import { normalizeLinkedInUrl } from "../../../data/blogAuthors";
 import { getStoredAuthors, upsertAuthor } from "../../../utils/blogAuthorsStore";
 
 export async function GET(request: NextRequest) {
@@ -15,7 +16,10 @@ export async function POST(request: NextRequest) {
   if (authResponse) return authResponse;
 
   try {
-    const { name, role, bio, avatarUrl, slug } = await request.json();
+    const body = await request.json();
+    const { name, role, bio, avatarUrl, slug } = body;
+    let { linkedInUrl } = body;
+
     if (!name || !role || !bio) {
       return NextResponse.json(
         { error: "Name, role, and bio are required" },
@@ -23,7 +27,32 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const authors = await upsertAuthor({ name, role, bio, avatarUrl, slug });
+    const rawLinkedIn =
+      typeof linkedInUrl === "string" ? linkedInUrl.trim() : "";
+    if (rawLinkedIn) {
+      const normalized = normalizeLinkedInUrl(rawLinkedIn);
+      if (!normalized) {
+        return NextResponse.json(
+          {
+            error:
+              "Invalid LinkedIn URL. Use a full https link on linkedin.com (e.g. https://www.linkedin.com/in/your-profile).",
+          },
+          { status: 400 }
+        );
+      }
+      linkedInUrl = normalized;
+    } else {
+      linkedInUrl = undefined;
+    }
+
+    const authors = await upsertAuthor({
+      name,
+      role,
+      bio,
+      avatarUrl,
+      linkedInUrl,
+      slug,
+    });
     return NextResponse.json({ success: true, authors });
   } catch (error) {
     return NextResponse.json(

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { promises as fs } from "fs";
 import path from "path";
 import { Breadcrumbs } from "../components/Breadcrumbs";
+import { NewsletterSubscribeCard } from "../components/NewsletterSubscribeCard";
 import {
   getAuthorAvatarUrl,
   slugifyAuthorName,
@@ -111,6 +112,10 @@ export default async function AuthorsPage() {
                 </Link>
               );
             })}
+          </div>
+
+          <div className="max-w-xl mx-auto mt-12">
+            <NewsletterSubscribeCard />
           </div>
         </div>
       </section>

@@ -104,6 +104,11 @@ function formatDate(dateString: string): string {
   }
 }
 
+function lastUpdatedDisplayString(blog: DynamicBlog): string {
+  const iso = blog.updatedAt || blog.publishDate;
+  return formatDate(iso);
+}
+
 // Get similar blogs based on keyword matching
 function getSimilarBlogs(
   allBlogs: DynamicBlog[],
@@ -200,7 +205,7 @@ export function SimilarBlogs({
                     {similarBlog.description}
                   </p>
                   <span className="text-xs text-gray-500">
-                    {formatDate(similarBlog.publishDate)}
+                    Last updated {lastUpdatedDisplayString(similarBlog)}
                   </span>
                 </div>
               </div>
@@ -242,7 +247,7 @@ export function SimilarBlogs({
                     {similarBlog.description}
                   </p>
                   <span className="text-xs text-gray-500">
-                    {formatDate(similarBlog.publishDate)}
+                    Last updated {lastUpdatedDisplayString(similarBlog)}
                   </span>
                 </div>
               </div>

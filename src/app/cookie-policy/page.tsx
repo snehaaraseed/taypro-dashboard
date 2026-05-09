@@ -115,10 +115,11 @@ export default function CookiePolicyPage() {
                 helps us improve the website's functionality and user experience.
               </div>
               <div className="text-[#0c2f42] text-lg mb-4">
-                <strong>Currently:</strong> We do not use analytics cookies at this
-                time, but the option is available for future implementation. If we
-                add analytics cookies in the future, we will update this policy and
-                require your consent before activation.
+                <strong>Currently:</strong> If you enable analytics cookies in the
+                cookie banner, we load Google Tag Manager, which can fire Google
+                Analytics 4 (GA4) and other measurement tags you configure in Tag
+                Manager. Those services may set cookies controlled by Google&apos;s
+                privacy policy. Analytics stays off unless you opt in.
               </div>
             </div>
 
@@ -158,6 +159,12 @@ export default function CookiePolicyPage() {
                 <li>
                   <strong>Google Fonts:</strong> May set cookies for font loading
                   optimization.
+                </li>
+                <li>
+                  <strong>Google Tag Manager / Google Analytics 4:</strong> If you
+                  accept analytics cookies, Google Tag Manager may load and Google
+                  Analytics (or other tags you add in GTM) may set cookies. See
+                  Google&apos;s privacy policy for how they process this data.
                 </li>
               </ul>
               <div className="text-[#0c2f42] text-lg mt-4">

@@ -5,6 +5,7 @@ import { BlogImage } from "../../components/BlogImage";
 import { BlogContent } from "../../components/BlogContent";
 import { ArticleSchema } from "../../components/StructuredData";
 import { SimilarBlogs } from "../../components/SimilarBlogs";
+import { NewsletterSubscribeCard } from "../../components/NewsletterSubscribeCard";
 import type { Metadata } from "next";
 import { promises as fs } from "fs";
 import path from "path";
@@ -35,6 +36,7 @@ interface BlogData {
   featuredImage: string;
   slug: string;
   publishDate: string;
+  updatedAt?: string;
   source?: "file";
 }
 
@@ -123,7 +125,7 @@ async function getFileBlogs(): Promise<DynamicBlog[]> {
     const blogDirs = entries.filter(
       (entry) =>
         entry.isDirectory() &&
-        !["components", "api", "[slug]", "add", "db"].includes(entry.name)
+        !["components", "api", "[slug]", "add", "db", "author"].includes(entry.name)
     );
 
     const blogs: DynamicBlog[] = [];
@@ -311,7 +313,7 @@ export async function generateMetadata({
         ? [blog.featuredImage.startsWith("http") ? blog.featuredImage : `${siteUrl}${blog.featuredImage}`]
         : [`${siteUrl}/tayproasset/taypro-robotImage.png`],
       publishedTime: blog.publishDate,
-      modifiedTime: blog.publishDate,
+      modifiedTime: blog.updatedAt || blog.publishDate,
       authors: [blog.author || "Taypro Team"],
     },
     twitter: {
@@ -346,11 +348,15 @@ export default async function BlogPost({ params }: BlogPostProps) {
     { name: blog.title, href: "" },
   ];
 
-  const publishDate = new Date(blog.publishDate).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  const lastUpdatedIso = blog.updatedAt || blog.publishDate;
+  const lastUpdatedDisplay = new Date(lastUpdatedIso).toLocaleDateString(
+    "en-US",
+    {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }
+  );
   const readingMinutes = Math.max(
     1,
     Math.ceil(blog.content.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length / 220)
@@ -377,7 +383,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
         description={blog.description}
         image={blog.featuredImage?.startsWith("http") ? blog.featuredImage : `${siteUrl}${blog.featuredImage || "/tayproasset/taypro-robotImage.png"}`}
         datePublished={blog.publishDate}
-        dateModified={blog.publishDate}
+        dateModified={lastUpdatedIso}
         author={{
           name: blog.author || "Taypro Team",
           url: siteUrl,
@@ -419,7 +425,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
                   ) : null}
                 </span>
                 <span aria-hidden="true">|</span>
-                <span>{publishDate}</span>
+                <span>Last updated {lastUpdatedDisplay}</span>
                 <span aria-hidden="true">|</span>
                 <span>{readingMinutes} min read</span>
               </div>
@@ -584,31 +590,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
                   </Link>
                 </div>
 
-                <div className="rounded-xl border border-gray-200 p-6 bg-white">
-                  <h3 className="text-xl font-semibold text-[#052638] mb-2">
-                    Subscribe Newsletter
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-4">
-                    Get the latest blog updates and solar cleaning insights in your inbox.
-                  </p>
-                  <form className="space-y-3">
-                    <label htmlFor="newsletter-email" className="sr-only">
-                      Email address
-                    </label>
-                    <input
-                      id="newsletter-email"
-                      type="email"
-                      placeholder="Enter your email"
-                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0c3c57]"
-                    />
-                    <button
-                      type="button"
-                      className="w-full rounded-md bg-[#052638] px-4 py-2 text-sm font-medium text-white hover:bg-[#0c3c57] transition-colors"
-                    >
-                      Subscribe
-                    </button>
-                  </form>
-                </div>
+                <NewsletterSubscribeCard compact />
               </div>
             </aside>
           </div>

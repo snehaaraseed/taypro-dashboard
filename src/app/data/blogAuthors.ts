@@ -3,7 +3,33 @@ export interface BlogAuthor {
   slug: string;
   role: string;
   bio: string;
+  /** Profile image URL (e.g. from site upload). */
   avatarUrl?: string;
+  /** Full LinkedIn profile URL (https only, linkedin.com host). */
+  linkedInUrl?: string;
+}
+
+/**
+ * Accepts a full URL or pasted path; returns a normalized https URL or undefined if invalid.
+ */
+export function normalizeLinkedInUrl(
+  input: string | undefined | null
+): string | undefined {
+  if (!input?.trim()) return undefined;
+  let raw = input.trim();
+  if (!/^https?:\/\//i.test(raw)) {
+    raw = `https://${raw}`;
+  }
+  try {
+    const u = new URL(raw);
+    if (u.protocol !== "https:") return undefined;
+    const host = u.hostname.replace(/^www\./i, "").toLowerCase();
+    if (!host.endsWith("linkedin.com")) return undefined;
+    u.hash = "";
+    return u.toString();
+  } catch {
+    return undefined;
+  }
 }
 
 export const BLOG_AUTHORS: BlogAuthor[] = [

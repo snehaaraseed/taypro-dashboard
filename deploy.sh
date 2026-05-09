@@ -2,6 +2,16 @@
 
 # Taypro Website Deployment Script
 # This script safely deploys changes while preserving production blogs and projects
+#
+# IMPORTANT — do not use `git pull` on the production server for releases.
+# Use this script from a developer machine with a current clone. `git pull` overwrites
+# file-based CMS content (blogs, projects, authors) with whatever is on the branch and
+# bypasses the merge logic below.
+#
+# Persistent deploy snapshots (max 3) live on the server under:
+#   /var/www/taypro-dashboard/.deploy-snapshots/deploy-YYYYMMDD-HHMMSS/
+# plus /tmp/taypro-backup-* for the merge source of the current run.
+# Manual revert: pick a snapshot and merge files the same way as Step 3, or copy whole slug dirs.
 
 set -e  # Exit on error
 
@@ -20,48 +30,73 @@ LOCAL_PATH="/Users/yogesh/TayproWebsite/taypro-dashboard"
 echo -e "${GREEN}🚀 Starting Taypro Website Deployment${NC}"
 echo ""
 
-# Step 1: Backup production blogs and projects
-echo -e "${YELLOW}📦 Step 1: Backing up production blogs and projects...${NC}"
+# Step 1: Snapshot production CMS + uploads (persistent, rotated) and mirror to /tmp for merge step
+echo -e "${YELLOW}📦 Step 1: Snapshotting production (persistent, keep last 3) + merge source...${NC}"
 ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
+    set -e
     cd /var/www/taypro-dashboard
-    
-    # Create backup directory with timestamp
-    BACKUP_DIR="/tmp/taypro-backup-$(date +%Y%m%d-%H%M%S)"
-    mkdir -p "$BACKUP_DIR"
-    
-    # Backup blog posts (only actual blog content, not route files)
-    if [ -d "src/app/blog" ]; then
-        echo "  Backing up blog posts..."
-        find src/app/blog -type d -name "*-*" -mindepth 1 -maxdepth 1 | while read blog_dir; do
-            # Only backup if it contains metadata.json or page.tsx (actual blog posts)
-            if [ -f "$blog_dir/metadata.json" ] || [ -f "$blog_dir/page.tsx" ]; then
-                mkdir -p "$BACKUP_DIR/$(dirname "$blog_dir")"
-                cp -r "$blog_dir" "$BACKUP_DIR/$blog_dir" 2>/dev/null || true
-            fi
-        done
-    fi
-    
-    # Backup project pages (only actual project content)
-    if [ -d "src/app/projects" ]; then
-        echo "  Backing up project pages..."
-        find src/app/projects -type d -name "*-*" -mindepth 1 -maxdepth 1 | while read project_dir; do
-            # Only backup if it contains metadata.json or page.tsx (actual projects)
-            if [ -f "$project_dir/metadata.json" ] || [ -f "$project_dir/page.tsx" ]; then
-                mkdir -p "$BACKUP_DIR/$(dirname "$project_dir")"
-                cp -r "$project_dir" "$BACKUP_DIR/$project_dir" 2>/dev/null || true
-            fi
-        done
-    fi
-    
-    # Backup uploaded images (admin console uploads only)
-    if [ -d "public/uploads" ]; then
-        echo "  Backing up production-uploaded images..."
-        mkdir -p "$BACKUP_DIR/public"
-        cp -r public/uploads "$BACKUP_DIR/public/uploads" 2>/dev/null || true
-    fi
-    
-    echo "  ✅ Backup created at: $BACKUP_DIR"
-    echo "$BACKUP_DIR" > /tmp/taypro-backup-path.txt
+
+    SNAPSHOT_ROOT="/var/www/taypro-dashboard/.deploy-snapshots"
+    mkdir -p "$SNAPSHOT_ROOT"
+
+    STAMP=$(date +%Y%m%d-%H%M%S)
+    PERSISTENT_DIR="$SNAPSHOT_ROOT/deploy-$STAMP"
+    MERGE_DIR="/tmp/taypro-backup-$STAMP"
+
+    for DIR in "$PERSISTENT_DIR" "$MERGE_DIR"; do
+        mkdir -p "$DIR/src/app/data" "$DIR/data" "$DIR/public"
+    done
+
+    snapshot_one() {
+        local DEST="$1"
+        if [ -d "src/app/blog" ]; then
+            echo "  → $DEST : blog posts..."
+            find src/app/blog -mindepth 1 -maxdepth 1 -type d -name "*-*" | while read -r blog_dir; do
+                if [ -f "$blog_dir/metadata.json" ] || [ -f "$blog_dir/page.tsx" ]; then
+                    mkdir -p "$DEST/$(dirname "$blog_dir")"
+                    cp -a "$blog_dir" "$DEST/$blog_dir"
+                fi
+            done
+        fi
+        if [ -d "src/app/projects" ]; then
+            echo "  → $DEST : projects..."
+            find src/app/projects -mindepth 1 -maxdepth 1 -type d | while read -r project_dir; do
+                slug=$(basename "$project_dir")
+                case "$slug" in "."|".."|"layout") continue ;; esac
+                if [ -f "$project_dir/metadata.json" ] || [ -f "$project_dir/page.tsx" ]; then
+                    mkdir -p "$DEST/$(dirname "$project_dir")"
+                    cp -a "$project_dir" "$DEST/$project_dir"
+                fi
+            done
+        fi
+        if [ -f "src/app/data/blogAuthors.store.json" ]; then
+            cp -a "src/app/data/blogAuthors.store.json" "$DEST/src/app/data/"
+        fi
+        if [ -f "data/published-topics.json" ]; then
+            cp -a "data/published-topics.json" "$DEST/data/"
+        fi
+        if [ -d "public/uploads" ]; then
+            echo "  → $DEST : uploads..."
+            cp -a public/uploads "$DEST/public/"
+        fi
+    }
+
+    echo "  Persistent snapshot: $PERSISTENT_DIR"
+    snapshot_one "$PERSISTENT_DIR"
+
+    echo "  Merge source copy: $MERGE_DIR"
+    snapshot_one "$MERGE_DIR"
+
+    # Keep only the 3 newest deploy-* trees under .deploy-snapshots
+    echo "  Rotating old snapshots (max 3 kept)..."
+    cd "$SNAPSHOT_ROOT"
+    ls -1dt deploy-* 2>/dev/null | tail -n +4 | while read -r OLD; do
+        echo "    Removing old snapshot: $OLD"
+        rm -rf "$SNAPSHOT_ROOT/$OLD"
+    done
+
+    echo "  ✅ Snapshot complete"
+    echo "$MERGE_DIR" > /tmp/taypro-backup-path.txt
 EOF
 
 BACKUP_PATH=$(ssh -i "$SSH_KEY" "$REMOTE_HOST" "cat /tmp/taypro-backup-path.txt 2>/dev/null || echo ''")
@@ -75,10 +110,10 @@ rsync -avz --checksum \
     --exclude '.next' \
     --exclude '.git' \
     --exclude 'public/uploads' \
-    --exclude 'src/app/blog/**/metadata.json' \
-    --exclude 'src/app/blog/**/page.tsx' \
-    --exclude 'src/app/projects/**/metadata.json' \
-    --exclude 'src/app/projects/**/page.tsx' \
+    --exclude 'src/app/blog/*-*/metadata.json' \
+    --exclude 'src/app/blog/*-*/page.tsx' \
+    --exclude 'src/app/projects/*-*/metadata.json' \
+    --exclude 'src/app/projects/*-*/page.tsx' \
     -e "ssh -i $SSH_KEY" \
     "$LOCAL_PATH/" \
     "$REMOTE_HOST:$REMOTE_PATH/"
@@ -86,68 +121,156 @@ rsync -avz --checksum \
 echo -e "${GREEN}  ✅ Files synced${NC}"
 echo ""
 
-# Step 3: Restore production blogs and projects
-echo -e "${YELLOW}🔄 Step 3: Restoring production blogs and projects...${NC}"
+# Step 3: Merge production CMS files (admin / frontend writes) over rsync result
+echo -e "${YELLOW}🔄 Step 3: Merging production CMS files from backup (production wins)...${NC}"
 ssh -i "$SSH_KEY" "$REMOTE_HOST" << EOF
     cd /var/www/taypro-dashboard
     
     if [ -n "$BACKUP_PATH" ] && [ -d "$BACKUP_PATH" ]; then
-        # Restore blog posts
+        # For every blog slug captured in the backup, re-apply admin-managed files so a stale
+        # local tree cannot overwrite production metadata, body HTML, or legacy routes.
         if [ -d "$BACKUP_PATH/src/app/blog" ]; then
-            echo "  Restoring blog posts..."
-            find "$BACKUP_PATH/src/app/blog" -type d -name "*-*" -mindepth 1 -maxdepth 1 | while read backup_blog_dir; do
+            echo "  Merging blog CMS files from backup..."
+            find "$BACKUP_PATH/src/app/blog" -mindepth 1 -maxdepth 1 -type d -name "*-*" | while read -r backup_blog_dir; do
                 blog_slug=\$(basename "\$backup_blog_dir")
                 target_dir="src/app/blog/\$blog_slug"
-                
-                # Only restore if it doesn't exist in source (production-only content)
-                if [ ! -d "\$target_dir" ] || [ ! -f "\$target_dir/metadata.json" ]; then
-                    mkdir -p "\$(dirname "\$target_dir")"
-                    cp -r "\$backup_blog_dir" "\$target_dir" 2>/dev/null || true
-                    echo "    ✅ Restored blog: \$blog_slug"
-                fi
+                mkdir -p "\$target_dir"
+                for f in metadata.json page.tsx content.html page.legacy.tsx; do
+                    if [ -f "\$backup_blog_dir/\$f" ]; then
+                        cp "\$backup_blog_dir/\$f" "\$target_dir/\$f"
+                    fi
+                done
+                echo "    ✅ Merged blog: \$blog_slug"
             done
         fi
-        
-        # Restore project pages
+
+        # Same for projects (all slug dirs that were backed up, including e.g. capex, automatic)
         if [ -d "$BACKUP_PATH/src/app/projects" ]; then
-            echo "  Restoring project pages..."
-            find "$BACKUP_PATH/src/app/projects" -type d -name "*-*" -mindepth 1 -maxdepth 1 | while read backup_project_dir; do
+            echo "  Merging project CMS files from backup..."
+            find "$BACKUP_PATH/src/app/projects" -mindepth 1 -maxdepth 1 -type d | while read -r backup_project_dir; do
                 project_slug=\$(basename "\$backup_project_dir")
+                case "\$project_slug" in
+                    "."|".."|"layout") continue ;;
+                esac
                 target_dir="src/app/projects/\$project_slug"
-                
-                # Only restore if it doesn't exist in source (production-only content)
-                if [ ! -d "\$target_dir" ] || [ ! -f "\$target_dir/metadata.json" ]; then
-                    mkdir -p "\$(dirname "\$target_dir")"
-                    cp -r "\$backup_project_dir" "\$target_dir" 2>/dev/null || true
-                    echo "    ✅ Restored project: \$project_slug"
-                fi
+                mkdir -p "\$target_dir"
+                for f in metadata.json page.tsx page.legacy.tsx; do
+                    if [ -f "\$backup_project_dir/\$f" ]; then
+                        cp "\$backup_project_dir/\$f" "\$target_dir/\$f"
+                    fi
+                done
+                echo "    ✅ Merged project: \$project_slug"
             done
+        fi
+
+        if [ -f "$BACKUP_PATH/src/app/data/blogAuthors.store.json" ]; then
+            mkdir -p src/app/data
+            cp "$BACKUP_PATH/src/app/data/blogAuthors.store.json" "src/app/data/blogAuthors.store.json"
+            echo "    ✅ Restored src/app/data/blogAuthors.store.json"
+        fi
+
+        if [ -f "$BACKUP_PATH/data/published-topics.json" ]; then
+            mkdir -p data
+            cp "$BACKUP_PATH/data/published-topics.json" "data/published-topics.json"
+            echo "    ✅ Restored data/published-topics.json"
         fi
         
         # Restore uploaded images (preserve production uploads, keep new design assets from local)
         if [ -d "$BACKUP_PATH/public/uploads" ]; then
             echo "  Restoring production-uploaded images..."
             mkdir -p public/uploads
-            # Use rsync to merge: preserve production uploads, but don't overwrite existing files
-            # This ensures production uploads are restored, while any new local uploads remain
             rsync -av "$BACKUP_PATH/public/uploads/" "public/uploads/" 2>/dev/null || true
             echo "    ✅ Production-uploaded images restored"
         fi
         
-        # Note: Design assets (tayproasset, tayprorobots, etc.) are already synced from local
-        # in Step 2, so they're updated with any design changes while uploads are preserved
-        
-        echo "  ✅ Restoration completed"
+        echo "  ✅ CMS merge completed"
     else
-        echo "  ⚠️  No backup found, skipping restoration"
+        echo "  ⚠️  No backup found, skipping CMS merge"
     fi
 EOF
 
 echo -e "${GREEN}  ✅ Production content restored${NC}"
 echo ""
 
-# Step 4: Build and restart
-echo -e "${YELLOW}🔨 Step 4: Building application...${NC}"
+# Step 4: Migrate legacy per-slug page routes to dynamic renderer
+echo -e "${YELLOW}🧭 Step 4: Migrating legacy blog routes...${NC}"
+ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
+    cd /var/www/taypro-dashboard
+
+    if [ -d "src/app/blog" ]; then
+        echo "  Scanning blog directories for legacy page routes..."
+        find src/app/blog -mindepth 1 -maxdepth 1 -type d | while read blog_dir; do
+            slug=$(basename "$blog_dir")
+            case "$slug" in
+                "[slug]"|"add"|"db"|"api"|"author"|"components")
+                    continue
+                    ;;
+            esac
+
+            metadata_file="$blog_dir/metadata.json"
+            legacy_page="$blog_dir/page.tsx"
+            content_file="$blog_dir/content.html"
+
+            # Only process real blog directories
+            if [ ! -f "$metadata_file" ]; then
+                continue
+            fi
+
+            # If content.html is missing, try extracting content from legacy page.tsx
+            if [ ! -f "$content_file" ] && [ -f "$legacy_page" ]; then
+                node - <<'NODE' "$legacy_page" "$content_file"
+const fs = require("fs");
+const [legacyPagePath, contentPath] = process.argv.slice(2);
+const source = fs.readFileSync(legacyPagePath, "utf8");
+const patterns = [
+  /content=\{\s*`([\s\S]*?)`\s*\}/,
+  /content=\{\\?`([\s\S]*?)\\?`\}/,
+  /__html:\s*`([\s\S]*?)\\\\?`\s*,\s*\}\s*\}\s*\/>/,
+  /__html:\s*`([\s\S]*?)\\\\?`\s*\}\s*\}\s*\/>/
+];
+let content = "";
+for (const pattern of patterns) {
+  const match = source.match(pattern);
+  if (match && match[1]) {
+    content = match[1]
+      .replace(/\\n/g, "\n")
+      .replace(/\\`/g, "`")
+      .replace(/\\\$/g, "$")
+      .replace(/\\\\/g, "\\");
+    break;
+  }
+}
+if (!content) {
+  const start = source.indexOf("__html: `");
+  const end = source.indexOf("\\`,", start);
+  if (start !== -1 && end !== -1 && end > start) {
+    content = source
+      .slice(start + "__html: `".length, end)
+      .replace(/\\`/g, "`")
+      .replace(/\\\$/g, "$")
+      .replace(/\\\\/g, "\\");
+  }
+}
+if (content.trim()) {
+  fs.writeFileSync(contentPath, content, "utf8");
+}
+NODE
+            fi
+
+            # Move legacy page.tsx out of route resolution so dynamic [slug] handles rendering
+            if [ -f "$legacy_page" ]; then
+                mv "$legacy_page" "$blog_dir/page.legacy.tsx" 2>/dev/null || true
+                echo "    ✅ Migrated route for: $slug"
+            fi
+        done
+    fi
+EOF
+
+echo -e "${GREEN}  ✅ Legacy route migration completed${NC}"
+echo ""
+
+# Step 5: Build and restart
+echo -e "${YELLOW}🔨 Step 5: Building application...${NC}"
 ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     cd /var/www/taypro-dashboard
     
@@ -212,8 +335,8 @@ fi
 
 echo ""
 
-# Step 5: Restart PM2
-echo -e "${YELLOW}🔄 Step 5: Restarting application...${NC}"
+# Step 6: Restart PM2
+echo -e "${YELLOW}🔄 Step 6: Restarting application...${NC}"
 ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     cd /var/www/taypro-dashboard
     
@@ -257,6 +380,12 @@ echo ""
 echo -e "${GREEN}✅ Deployment completed successfully!${NC}"
 echo ""
 echo "Website: https://taypro.in"
-echo "Backup location: $BACKUP_PATH"
+echo "This run merge source (also under .deploy-snapshots): $BACKUP_PATH"
+echo "Persistent snapshots (max 3): $REMOTE_PATH/.deploy-snapshots/"
+echo ""
+echo "Revert from a snapshot or merge dir (SSH to server), then rebuild:"
+echo "  cp -a $REMOTE_PATH/.deploy-snapshots/deploy-YYYYMMDD-HHMMSS/src/app/blog/<slug> $REMOTE_PATH/src/app/blog/"
+echo "  # or restore whole blog tree from a snapshot: rsync -a SNAPSHOT/src/app/blog/ $REMOTE_PATH/src/app/blog/"
+echo "  cd $REMOTE_PATH && npm run build && pm2 restart taypro-dashboard"
 echo ""
 

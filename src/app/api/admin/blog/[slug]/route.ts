@@ -83,8 +83,19 @@ export async function PUT(
       );
     }
 
-    // If newSlug is provided and different, use it
-    const finalSlug = newSlug ? createSlug(newSlug) : slug;
+    const rawNewSlug =
+      typeof newSlug === "string" ? newSlug.trim() : "";
+    let finalSlug = slug;
+    if (rawNewSlug) {
+      const cleaned = createSlug(rawNewSlug);
+      if (!cleaned) {
+        return NextResponse.json(
+          { error: "Invalid URL slug. Use letters, numbers, or hyphens." },
+          { status: 400 }
+        );
+      }
+      finalSlug = cleaned;
+    }
 
     // Update blog files
     const result = await updateBlogFiles(
@@ -121,6 +132,7 @@ export async function PUT(
       message: "Blog updated successfully",
       slug: result.slug,
       url: `/blog/${result.slug}`,
+      updatedAt: result.updatedAt,
     });
   } catch (error) {
     console.error("Error in PUT /api/admin/blog/[slug]:", error);

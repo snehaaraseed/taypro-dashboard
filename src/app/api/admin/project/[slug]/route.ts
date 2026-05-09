@@ -60,26 +60,38 @@ export async function PUT(
 
   try {
     const { slug } = await params;
-    const body: ProjectData & { newSlug?: string } = await request.json();
+    const body = (await request.json()) as ProjectData & { newSlug?: string };
+    const { newSlug: rawNewSlug, ...projectFields } = body;
 
     // Validate required fields
-    if (!body.title || !body.description || !body.image) {
+    if (!projectFields.title || !projectFields.description || !projectFields.image) {
       return NextResponse.json(
         { error: "Title, description, and image are required" },
         { status: 400 }
       );
     }
 
-    const newSlug = body.title ? createSlug(body.title) : undefined;
-    const { slug: updatedSlug } = await updateProjectFiles(
+    let renameTo: string | undefined;
+    if (typeof rawNewSlug === "string" && rawNewSlug.trim() !== "") {
+      const cleaned = createSlug(rawNewSlug);
+      if (!cleaned) {
+        return NextResponse.json(
+          { error: "Invalid URL slug. Use letters, numbers, or hyphens." },
+          { status: 400 }
+        );
+      }
+      renameTo = cleaned;
+    }
+
+    const { slug: updatedSlug, updatedAt } = await updateProjectFiles(
       slug,
-      body,
-      newSlug
+      projectFields,
+      renameTo
     );
 
     // Revalidate the updated project page and projects list page immediately
     // If slug changed, revalidate both old and new paths
-    if (newSlug && newSlug !== slug) {
+    if (renameTo && renameTo !== slug) {
       revalidatePath(`/projects/${slug}`);
     }
     revalidatePath(`/projects/${updatedSlug}`);
@@ -88,6 +100,7 @@ export async function PUT(
     return NextResponse.json({
       success: true,
       slug: updatedSlug,
+      updatedAt,
       message: "Project updated successfully",
     });
   } catch (error) {

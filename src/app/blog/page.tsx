@@ -1,6 +1,7 @@
 import { DynamicBlog } from "../api/blog/list/route";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { AnimateOnScroll } from "../components/AnimateOnScroll";
+import { NewsletterSubscribeCard } from "../components/NewsletterSubscribeCard";
 import BlogList from "./BlogList";
 import { promises as fs } from "fs";
 import path from "path";
@@ -21,7 +22,7 @@ async function getFileBlogs(): Promise<DynamicBlog[]> {
     const blogDirs = entries.filter(
       (entry) =>
         entry.isDirectory() &&
-        !["components", "api", "[slug]", "add", "db"].includes(entry.name)
+        !["components", "api", "[slug]", "add", "db", "author"].includes(entry.name)
     );
 
     const blogs: DynamicBlog[] = [];
@@ -68,7 +69,9 @@ export default async function Blog() {
       blog.featuredImage && blog.featuredImage.trim() !== ""
         ? blog.featuredImage
         : null,
-    date: new Date(blog.publishDate).toLocaleDateString(),
+    date: `Updated ${new Date(
+      blog.updatedAt || blog.publishDate
+    ).toLocaleDateString()}`,
     href: blog.href,
     slug: blog.slug,
   }));
@@ -90,7 +93,12 @@ export default async function Blog() {
               </span>
             </div>
           ) : (
-            <BlogList blogs={allBlogs} />
+            <>
+              <BlogList blogs={allBlogs} />
+              <div className="max-w-xl mx-auto mt-6">
+                <NewsletterSubscribeCard />
+              </div>
+            </>
           )}
         </div>
       </section>

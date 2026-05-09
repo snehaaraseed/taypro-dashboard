@@ -29,6 +29,8 @@ interface BlogData {
   publishDate: string;
   content: string;
   published?: boolean;
+  /** ISO; from metadata, refreshed after save */
+  updatedAt?: string;
 }
 
 export default function EditBlogPage() {
@@ -90,6 +92,7 @@ export default function EditBlogPage() {
         const data = await response.json();
         setFormData({
           ...data,
+          slug: data.slug || slug,
           publishDate: data.publishDate
             ? new Date(data.publishDate).toISOString().split("T")[0]
             : new Date().toISOString().split("T")[0],
@@ -253,6 +256,12 @@ export default function EditBlogPage() {
     setIsSaving(true);
     setMessage("");
 
+    if (!formData.slug.trim()) {
+      setMessage("URL slug is required.");
+      setIsSaving(false);
+      return;
+    }
+
     try {
       const publishDateISO = formData.publishDate
         ? new Date(formData.publishDate).toISOString()
@@ -264,8 +273,14 @@ export default function EditBlogPage() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          ...formData,
+          title: formData.title,
+          description: formData.description,
+          featuredImage: formData.featuredImage,
+          author: formData.author,
+          content: formData.content,
           publishDate: publishDateISO,
+          published: formData.published,
+          newSlug: formData.slug.trim(),
         }),
       });
 
@@ -273,9 +288,17 @@ export default function EditBlogPage() {
 
       if (response.ok) {
         setMessage("✅ Blog updated successfully! Redirecting...");
+        const nextSlug = data.slug as string | undefined;
+        if (typeof data.updatedAt === "string") {
+          setFormData((prev) => ({ ...prev, updatedAt: data.updatedAt }));
+        }
         setTimeout(() => {
-          router.push("/admin/blogs");
-        }, 1000);
+          if (nextSlug && nextSlug !== slug) {
+            router.replace(`/admin/blogs/${nextSlug}/edit`);
+          } else {
+            router.push("/admin/blogs");
+          }
+        }, 800);
       } else {
         throw new Error(data.error || "Failed to update blog");
       }
@@ -354,6 +377,37 @@ export default function EditBlogPage() {
             className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter blog title"
           />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            URL slug *
+          </label>
+          <div className="flex rounded-md shadow-sm">
+            <span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-sm text-gray-600">
+              /blog/
+            </span>
+            <input
+              type="text"
+              required
+              value={formData.slug}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  slug: e.target.value
+                    .toLowerCase()
+                    .replace(/[^a-z0-9-]/g, "-")
+                    .replace(/-+/g, "-"),
+                })
+              }
+              className="flex-1 min-w-0 rounded-r-md border border-gray-300 px-3 py-2 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="your-post-url"
+              spellCheck={false}
+            />
+          </div>
+          <p className="mt-1 text-xs text-gray-500">
+            Changing the slug updates the public URL. Old links will stop working unless you add redirects elsewhere.
+          </p>
         </div>
 
         <div>
@@ -555,7 +609,7 @@ export default function EditBlogPage() {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Publish Date
+            Published date
           </label>
           <input
             type="date"
@@ -565,6 +619,21 @@ export default function EditBlogPage() {
             }
             className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
+          <p className="mt-1 text-xs text-gray-500">
+            Original publication date (used for SEO and sorting). The public blog shows last updated only.
+          </p>
+        </div>
+
+        <div className="rounded-md border border-gray-200 bg-gray-50 px-4 py-3">
+          <p className="text-sm font-medium text-gray-800">Last updated</p>
+          <p className="text-sm text-gray-600 mt-1">
+            {formData.updatedAt
+              ? new Date(formData.updatedAt).toLocaleString("en-US", {
+                  dateStyle: "medium",
+                  timeStyle: "short",
+                })
+              : "— (appears after the next save)"}
+          </p>
         </div>
 
         <div>

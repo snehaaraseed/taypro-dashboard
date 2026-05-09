@@ -11,6 +11,7 @@ interface Project {
   image: string;
   details: string[];
   date: string;
+  updatedAt?: string;
   href: string;
   published?: boolean;
 }
@@ -138,7 +139,25 @@ export default function AdminProjectsPage() {
                       </span>
                     ))}
                   </div>
-                  <p className="text-sm text-gray-500 mb-4">{project.date}</p>
+                  <div className="text-sm text-gray-500 mb-4 space-y-0.5">
+                    <p>
+                      <span className="font-medium text-gray-600">
+                        Published:
+                      </span>{" "}
+                      {new Date(project.date).toLocaleDateString()}
+                    </p>
+                    <p>
+                      <span className="font-medium text-gray-600">
+                        Last updated:
+                      </span>{" "}
+                      {project.updatedAt
+                        ? new Date(project.updatedAt).toLocaleString("en-US", {
+                            dateStyle: "medium",
+                            timeStyle: "short",
+                          })
+                        : "—"}
+                    </p>
+                  </div>
                   <div className="flex gap-2">
                     <Link
                       href={`/admin/projects/${project.slug}/edit`}

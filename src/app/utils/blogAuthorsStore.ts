@@ -1,6 +1,11 @@
 import { promises as fs } from "fs";
 import path from "path";
-import { BLOG_AUTHORS, BlogAuthor, slugifyAuthorName } from "../data/blogAuthors";
+import {
+  BLOG_AUTHORS,
+  BlogAuthor,
+  normalizeLinkedInUrl,
+  slugifyAuthorName,
+} from "../data/blogAuthors";
 
 const AUTHORS_FILE = path.join(
   process.cwd(),
@@ -39,12 +44,15 @@ export async function upsertAuthor(
   const authors = await getStoredAuthors();
   const slug = authorInput.slug?.trim() || slugifyAuthorName(authorInput.name);
   const existingIndex = authors.findIndex((a) => a.slug === slug);
+  const linkedIn = normalizeLinkedInUrl(authorInput.linkedInUrl);
+
   const nextAuthor: BlogAuthor = {
     name: authorInput.name.trim(),
     slug,
     role: authorInput.role.trim(),
     bio: authorInput.bio.trim(),
     avatarUrl: authorInput.avatarUrl?.trim() || undefined,
+    linkedInUrl: linkedIn,
   };
 
   if (existingIndex >= 0) {

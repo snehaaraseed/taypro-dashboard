@@ -10,6 +10,7 @@ import { TableRow } from "@tiptap/extension-table-row";
 import { TableCell } from "@tiptap/extension-table-cell";
 import { TableHeader } from "@tiptap/extension-table-header";
 import { useState, useEffect } from "react";
+import { List, ListOrdered } from "lucide-react";
 
 interface BlogEditorProps {
   onContentChange: (content: string) => void;
@@ -473,15 +474,9 @@ export default function BlogEditor({
                   ? "bg-blue-100 text-blue-700"
                   : "text-gray-700"
               }`}
-              title="Bullet List"
+              title="Bullet list"
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  fillRule="evenodd"
-                  d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <List className="w-5 h-5" strokeWidth={2} aria-hidden />
             </button>
             <button
               type="button"
@@ -491,15 +486,9 @@ export default function BlogEditor({
                   ? "bg-blue-100 text-blue-700"
                   : "text-gray-700"
               }`}
-              title="Numbered List"
+              title="Numbered list"
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  fillRule="evenodd"
-                  d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <ListOrdered className="w-5 h-5" strokeWidth={2} aria-hidden />
             </button>
           </div>
 
