@@ -304,6 +304,16 @@ export async function readProjectContent(slug: string): Promise<string> {
     const pagePath = path.join(getProjectsDir(), slug, "page.tsx");
     const fileContent = await fs.readFile(pagePath, "utf-8");
 
+    // Template-literal form: content={`...`} (same style as generated blog pages)
+    const backtickMatch = fileContent.match(/content=\{\s*`([\s\S]*?)`\s*\}/);
+    if (backtickMatch?.[1]) {
+      return backtickMatch[1]
+        .replace(/\\n/g, "\n")
+        .replace(/\\`/g, "`")
+        .replace(/\\\$/g, "$")
+        .replace(/\\\\/g, "\\");
+    }
+
     // First, try to extract content from BlogContent component
     // The content is stored as content={"..."} where the string is a JSON-encoded string
     // Look for BlogContent component and extract its content prop value

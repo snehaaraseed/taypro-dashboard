@@ -51,7 +51,12 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
         local DEST="$1"
         if [ -d "src/app/blog" ]; then
             echo "  → $DEST : blog posts..."
-            find src/app/blog -mindepth 1 -maxdepth 1 -type d -name "*-*" | while read -r blog_dir; do
+            # Match Step 4 reserved names — do not use "*-*" only (slugs without "-" would be skipped).
+            find src/app/blog -mindepth 1 -maxdepth 1 -type d | while read -r blog_dir; do
+                slug=$(basename "$blog_dir")
+                case "$slug" in
+                    "."|".."|"[slug]"|"add"|"db"|"api"|"author"|"components") continue ;;
+                esac
                 if [ -f "$blog_dir/metadata.json" ] || [ -f "$blog_dir/page.tsx" ]; then
                     mkdir -p "$DEST/$(dirname "$blog_dir")"
                     cp -a "$blog_dir" "$DEST/$blog_dir"
@@ -131,8 +136,11 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << EOF
         # local tree cannot overwrite production metadata, body HTML, or legacy routes.
         if [ -d "$BACKUP_PATH/src/app/blog" ]; then
             echo "  Merging blog CMS files from backup..."
-            find "$BACKUP_PATH/src/app/blog" -mindepth 1 -maxdepth 1 -type d -name "*-*" | while read -r backup_blog_dir; do
+            find "$BACKUP_PATH/src/app/blog" -mindepth 1 -maxdepth 1 -type d | while read -r backup_blog_dir; do
                 blog_slug=\$(basename "\$backup_blog_dir")
+                case "\$blog_slug" in
+                    "."|".."|"[slug]"|"add"|"db"|"api"|"author"|"components") continue ;;
+                esac
                 target_dir="src/app/blog/\$blog_slug"
                 mkdir -p "\$target_dir"
                 for f in metadata.json page.tsx content.html page.legacy.tsx; do
@@ -185,7 +193,8 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << EOF
         
         echo "  ✅ CMS merge completed"
     else
-        echo "  ⚠️  No backup found, skipping CMS merge"
+        echo "  ⚠️  No backup found — CMS merge SKIPPED (rsync may overwrite production blogs/projects)."
+        echo "  ⚠️  Fix Step 1 / SSH before relying on this deploy."
     fi
 EOF
 

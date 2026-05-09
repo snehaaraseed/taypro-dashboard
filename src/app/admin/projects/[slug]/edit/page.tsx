@@ -651,6 +651,7 @@ export default function EditProjectPage() {
             </p>
             <div className="border border-gray-300 rounded-lg overflow-hidden">
               <BlogEditor
+                key={slug}
                 initialContent={formData.content}
                 onContentChange={(html) =>
                   setFormData((prev) => ({ ...prev, content: html }))

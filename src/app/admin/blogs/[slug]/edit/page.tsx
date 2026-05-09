@@ -642,8 +642,9 @@ export default function EditBlogPage() {
           </label>
           <div className="bg-white border border-gray-300 rounded-md p-2">
             <BlogEditor
+              key={slug}
               onContentChange={(content) =>
-                setFormData({ ...formData, content })
+                setFormData((prev) => ({ ...prev, content }))
               }
               initialContent={formData.content}
             />

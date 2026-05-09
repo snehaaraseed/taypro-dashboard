@@ -465,66 +465,88 @@ export async function readBlogMetadata(
 }
 
 /**
- * Read blog content from page.tsx
+ * Read blog HTML for admin editing. Prefer `content.html` (same source as the public
+ * blog page) so the editor matches what visitors see; fall back to extracting from `page.tsx`.
  */
 export async function readBlogContent(
   slug: string
 ): Promise<{ success: boolean; content?: string; error?: string }> {
+  const blogDir = path.join(process.cwd(), "src", "app", "blog", slug);
+  const contentHtmlPath = path.join(blogDir, "content.html");
+  const pagePath = path.join(blogDir, "page.tsx");
+
   try {
-    const blogDir = path.join(process.cwd(), "src", "app", "blog");
-    const targetDir = path.join(blogDir, slug);
-    const pagePath = path.join(targetDir, "page.tsx");
+    const fromHtml = await fs.readFile(contentHtmlPath, "utf-8");
+    if (fromHtml.trim().length > 0) {
+      return { success: true, content: fromHtml };
+    }
+  } catch {
+    // No content.html yet — fall through to page.tsx
+  }
 
-    const pageContent = await fs.readFile(pagePath, "utf-8");
+  let pageContent: string;
+  try {
+    pageContent = await fs.readFile(pagePath, "utf-8");
+  } catch (error) {
+    console.error("Error reading blog page.tsx:", error);
+    return { success: true, content: "" };
+  }
 
-    // Extract content from BlogContent component
-    // Match patterns like: content={\`...`\} or content={\`...`}
-    // We need to match the actual file format which has escaped backticks
-    const contentMatch = pageContent.match(
-      /content=\{\\?`([\s\S]*?)\\?`\}/m
-    );
-    
-    if (contentMatch && contentMatch[1]) {
-      // Unescape the content
-      let content = contentMatch[1];
-      // Unescape in reverse order to avoid double-processing
-      content = content
-        .replace(/\\n/g, "\n")
+  const unescapeTemplate = (raw: string) =>
+    raw
+      .replace(/\\n/g, "\n")
+      .replace(/\\`/g, "`")
+      .replace(/\\\$/g, "$")
+      .replace(/\\\\/g, "\\");
+
+  const patterns = [
+    /content=\{\s*`([\s\S]*?)`\s*\}/,
+    /content=\{\\?`([\s\S]*?)\\?`\}/,
+    /__html:\s*`([\s\S]*?)\\\\?`\s*,\s*\}\s*\}\s*\/>/,
+    /__html:\s*`([\s\S]*?)\\\\?`\s*\}\s*\}\s*\/>/,
+  ];
+
+  for (const pattern of patterns) {
+    const match = pageContent.match(pattern);
+    if (match?.[1]) {
+      return { success: true, content: unescapeTemplate(match[1]) };
+    }
+  }
+
+  const startPattern = /__html:\s*`/;
+  const endPattern = /\\\`,\s*\}\s*\}\s*\/>/;
+  const startMatch = pageContent.match(startPattern);
+  const endMatch = pageContent.match(endPattern);
+  if (
+    startMatch &&
+    endMatch &&
+    startMatch.index !== undefined &&
+    endMatch.index !== undefined
+  ) {
+    const startPos = startMatch.index + startMatch[0].length;
+    const endPos = endMatch.index;
+    const slice = pageContent.substring(startPos, endPos);
+    return {
+      success: true,
+      content: slice
         .replace(/\\`/g, "`")
         .replace(/\\\$/g, "$")
-        .replace(/\\\\/g, "\\");
-      return { success: true, content };
-    }
-
-    // Fallback: try to extract from article tag (for old format)
-    const articleMatch = pageContent.match(
-      /<article[^>]*>([\s\S]*?)<\/article>/
-    );
-    
-    if (articleMatch && articleMatch[1]) {
-      return { success: true, content: articleMatch[1] };
-    }
-
-    // Last resort: try to find dangerouslySetInnerHTML (old format)
-    const innerHTMLMatch = pageContent.match(
-      /dangerouslySetInnerHTML=\{\{\s*__html:\s*['"`]([\s\S]*?)['"`]\s*\}\}/
-    );
-    
-    if (innerHTMLMatch && innerHTMLMatch[1]) {
-      return { success: true, content: innerHTMLMatch[1] };
-    }
-
-    return {
-      success: false,
-      error: "Could not extract content from page.tsx",
-    };
-  } catch (error) {
-    console.error("Error reading blog content:", error);
-    return {
-      success: false,
-      error:
-        error instanceof Error ? error.message : "Unknown error occurred",
+        .replace(/\\\\/g, "\\"),
     };
   }
+
+  const articleMatch = pageContent.match(/<article[^>]*>([\s\S]*?)<\/article>/);
+  if (articleMatch?.[1]) {
+    return { success: true, content: articleMatch[1] };
+  }
+
+  const innerHTMLMatch = pageContent.match(
+    /dangerouslySetInnerHTML=\{\{\s*__html:\s*['"`]([\s\S]*?)['"`]\s*\}\}/
+  );
+  if (innerHTMLMatch?.[1]) {
+    return { success: true, content: innerHTMLMatch[1] };
+  }
+
+  return { success: true, content: "" };
 }
 
