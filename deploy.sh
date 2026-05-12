@@ -8,6 +8,9 @@
 # file-based CMS content (blogs, projects, authors) with whatever is on the branch and
 # bypasses the merge logic below.
 #
+# PM2 must use cwd = .next/standalone (Next standalone). Admin API writes blogs under that
+# path. Step 1 flushes standalone → repo root before snapshot so backups include live posts.
+#
 # Persistent deploy snapshots (max 3) live on the server under:
 #   /var/www/taypro-dashboard/.deploy-snapshots/deploy-YYYYMMDD-HHMMSS/
 # plus /tmp/taypro-backup-* for the merge source of the current run.
@@ -36,6 +39,36 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     set -e
     cd /var/www/taypro-dashboard
 
+    # PM2 runs Next with cwd = .next/standalone, so blogFileUtils / uploads write UNDER STANDALONE.
+    # Snapshots and merges use repo root — without this flush, new admin blogs/authors NEVER enter the backup
+    # and disappear on the next "npm run build" (standalone is rebuilt from root).
+    STAND=".next/standalone"
+    if [ -d "$STAND/src/app/blog" ]; then
+        echo "  Flushing blogs: standalone → repo root (PM2 cwd is .next/standalone)..."
+        mkdir -p src/app/blog
+        rsync -au "$STAND/src/app/blog/" src/app/blog/
+    fi
+    if [ -d "$STAND/src/app/projects" ]; then
+        echo "  Flushing projects: standalone → repo root..."
+        mkdir -p src/app/projects
+        rsync -au "$STAND/src/app/projects/" src/app/projects/
+    fi
+    if [ -f "$STAND/src/app/data/blogAuthors.store.json" ]; then
+        echo "  Flushing blogAuthors.store.json from standalone..."
+        mkdir -p src/app/data
+        cp -a "$STAND/src/app/data/blogAuthors.store.json" src/app/data/blogAuthors.store.json
+    fi
+    if [ -f "$STAND/data/published-topics.json" ]; then
+        echo "  Flushing published-topics.json from standalone..."
+        mkdir -p data
+        cp -a "$STAND/data/published-topics.json" data/published-topics.json
+    fi
+    if [ -d "$STAND/public/uploads" ]; then
+        echo "  Flushing public/uploads from standalone..."
+        mkdir -p public/uploads
+        rsync -au "$STAND/public/uploads/" public/uploads/
+    fi
+
     SNAPSHOT_ROOT="/var/www/taypro-dashboard/.deploy-snapshots"
     mkdir -p "$SNAPSHOT_ROOT"
 
@@ -57,7 +90,8 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
                 case "$slug" in
                     "."|".."|"[slug]"|"add"|"db"|"api"|"author"|"components") continue ;;
                 esac
-                if [ -f "$blog_dir/metadata.json" ] || [ -f "$blog_dir/page.tsx" ]; then
+                # Include drafts / odd states: any real post dir with CMS files (not only metadata+legacy page).
+                if [ -f "$blog_dir/metadata.json" ] || [ -f "$blog_dir/page.tsx" ] || [ -f "$blog_dir/content.html" ] || [ -f "$blog_dir/page.legacy.tsx" ]; then
                     mkdir -p "$DEST/$(dirname "$blog_dir")"
                     cp -a "$blog_dir" "$DEST/$blog_dir"
                 fi
@@ -68,7 +102,7 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
             find src/app/projects -mindepth 1 -maxdepth 1 -type d | while read -r project_dir; do
                 slug=$(basename "$project_dir")
                 case "$slug" in "."|".."|"layout") continue ;; esac
-                if [ -f "$project_dir/metadata.json" ] || [ -f "$project_dir/page.tsx" ]; then
+                if [ -f "$project_dir/metadata.json" ] || [ -f "$project_dir/page.tsx" ] || [ -f "$project_dir/page.legacy.tsx" ]; then
                     mkdir -p "$DEST/$(dirname "$project_dir")"
                     cp -a "$project_dir" "$DEST/$project_dir"
                 fi
@@ -104,8 +138,12 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     echo "$MERGE_DIR" > /tmp/taypro-backup-path.txt
 EOF
 
-BACKUP_PATH=$(ssh -i "$SSH_KEY" "$REMOTE_HOST" "cat /tmp/taypro-backup-path.txt 2>/dev/null || echo ''")
-echo -e "${GREEN}  ✅ Backup completed${NC}"
+BACKUP_PATH=$(ssh -i "$SSH_KEY" "$REMOTE_HOST" "tr -d '\r\n' < /tmp/taypro-backup-path.txt 2>/dev/null || echo ''")
+if [ -z "$BACKUP_PATH" ]; then
+    echo -e "${RED}❌ Step 1 did not produce a merge backup path. Aborting deploy (would risk overwriting production CMS).${NC}"
+    exit 1
+fi
+echo -e "${GREEN}  ✅ Backup completed (merge source: $BACKUP_PATH)${NC}"
 echo ""
 
 # Step 2: Sync files (excluding production-specific content but including design assets)
@@ -115,10 +153,16 @@ rsync -avz --checksum \
     --exclude '.next' \
     --exclude '.git' \
     --exclude 'public/uploads' \
+    --exclude 'src/app/data/blogAuthors.store.json' \
+    --exclude 'data/published-topics.json' \
     --exclude 'src/app/blog/*-*/metadata.json' \
     --exclude 'src/app/blog/*-*/page.tsx' \
+    --exclude 'src/app/blog/*/metadata.json' \
+    --exclude 'src/app/blog/*/page.tsx' \
     --exclude 'src/app/projects/*-*/metadata.json' \
     --exclude 'src/app/projects/*-*/page.tsx' \
+    --exclude 'src/app/projects/*/metadata.json' \
+    --exclude 'src/app/projects/*/page.tsx' \
     -e "ssh -i $SSH_KEY" \
     "$LOCAL_PATH/" \
     "$REMOTE_HOST:$REMOTE_PATH/"
@@ -135,7 +179,7 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << EOF
         # For every blog slug captured in the backup, re-apply admin-managed files so a stale
         # local tree cannot overwrite production metadata, body HTML, or legacy routes.
         if [ -d "$BACKUP_PATH/src/app/blog" ]; then
-            echo "  Merging blog CMS files from backup..."
+            echo "  Merging blog CMS files from backup (full slug tree, production wins)..."
             find "$BACKUP_PATH/src/app/blog" -mindepth 1 -maxdepth 1 -type d | while read -r backup_blog_dir; do
                 blog_slug=\$(basename "\$backup_blog_dir")
                 case "\$blog_slug" in
@@ -143,18 +187,15 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << EOF
                 esac
                 target_dir="src/app/blog/\$blog_slug"
                 mkdir -p "\$target_dir"
-                for f in metadata.json page.tsx content.html page.legacy.tsx; do
-                    if [ -f "\$backup_blog_dir/\$f" ]; then
-                        cp "\$backup_blog_dir/\$f" "\$target_dir/\$f"
-                    fi
-                done
+                # Exact mirror of pre-deploy slug dir — removes stray files left by rsync (e.g. local placeholders).
+                rsync -a --delete "\$backup_blog_dir/" "\$target_dir/"
                 echo "    ✅ Merged blog: \$blog_slug"
             done
         fi
 
         # Same for projects (all slug dirs that were backed up, including e.g. capex, automatic)
         if [ -d "$BACKUP_PATH/src/app/projects" ]; then
-            echo "  Merging project CMS files from backup..."
+            echo "  Merging project CMS files from backup (full slug tree, production wins)..."
             find "$BACKUP_PATH/src/app/projects" -mindepth 1 -maxdepth 1 -type d | while read -r backup_project_dir; do
                 project_slug=\$(basename "\$backup_project_dir")
                 case "\$project_slug" in
@@ -162,24 +203,22 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << EOF
                 esac
                 target_dir="src/app/projects/\$project_slug"
                 mkdir -p "\$target_dir"
-                for f in metadata.json page.tsx page.legacy.tsx; do
-                    if [ -f "\$backup_project_dir/\$f" ]; then
-                        cp "\$backup_project_dir/\$f" "\$target_dir/\$f"
-                    fi
-                done
+                rsync -a --delete "\$backup_project_dir/" "\$target_dir/"
                 echo "    ✅ Merged project: \$project_slug"
             done
         fi
 
+        mkdir -p src/app/data
         if [ -f "$BACKUP_PATH/src/app/data/blogAuthors.store.json" ]; then
-            mkdir -p src/app/data
-            cp "$BACKUP_PATH/src/app/data/blogAuthors.store.json" "src/app/data/blogAuthors.store.json"
+            cp -a "$BACKUP_PATH/src/app/data/blogAuthors.store.json" "src/app/data/blogAuthors.store.json"
             echo "    ✅ Restored src/app/data/blogAuthors.store.json"
+        else
+            echo "    ⚠️  No blogAuthors.store.json in backup (first deploy or empty); leaving rsync result."
         fi
 
+        mkdir -p data
         if [ -f "$BACKUP_PATH/data/published-topics.json" ]; then
-            mkdir -p data
-            cp "$BACKUP_PATH/data/published-topics.json" "data/published-topics.json"
+            cp -a "$BACKUP_PATH/data/published-topics.json" "data/published-topics.json"
             echo "    ✅ Restored data/published-topics.json"
         fi
         

@@ -128,7 +128,7 @@ export default async function ProjectPage() {
 
   const allProjects = await getAllFileProjects();
   const relatedProjects = allProjects
-    .filter((p) => p.slug !== "${metadata.slug}")
+    .filter((p) => p.id !== "${metadata.slug}")
     .slice(0, 3);
 
   return (

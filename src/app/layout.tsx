@@ -14,6 +14,7 @@ const Footer = dynamic(() => import("./components/Footer"), {
 import Header from "./components/Header";
 // Cookie consent banner - client-side only (imported as client component)
 import CookieConsentWrapper from "./components/CookieConsentWrapper";
+import ClarityLoader from "./components/ClarityLoader";
 import GoogleTagManagerLoader from "./components/GoogleTagManagerLoader";
 
 const blinker = Blinker({
@@ -153,6 +154,7 @@ export default function RootLayout({
           <Footer />
           <CookieConsentWrapper />
           <GoogleTagManagerLoader />
+          <ClarityLoader />
         </div>
       </body>
     </html>
