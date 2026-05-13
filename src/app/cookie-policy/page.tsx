@@ -1,6 +1,8 @@
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import type { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
   title: "Cookie Policy | Taypro - Solar Panel Cleaning Robots",
   description:
@@ -11,7 +13,11 @@ export const metadata: Metadata = {
     title: "Cookie Policy | Taypro",
     description:
       "Learn about how Taypro uses cookies and similar technologies on our website.",
+    url: `${siteUrl}/cookie-policy`,
     type: "website",
+  },
+  alternates: {
+    canonical: `${siteUrl}/cookie-policy`,
   },
 };
 

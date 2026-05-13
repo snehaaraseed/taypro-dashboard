@@ -1,6 +1,8 @@
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import type { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
   title: "Terms of Service | Taypro - Solar Panel Cleaning Robots",
   description:
@@ -9,7 +11,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Terms of Service | Taypro",
     description: "Terms and conditions for using Taypro's website and services.",
+    url: `${siteUrl}/terms-of-service`,
     type: "website",
+  },
+  alternates: {
+    canonical: `${siteUrl}/terms-of-service`,
   },
 };
 

@@ -6,6 +6,7 @@ import { promises as fs } from "fs";
 import path from "path";
 import { Breadcrumbs } from "../../../components/Breadcrumbs";
 import { NewsletterSubscribeCard } from "../../../components/NewsletterSubscribeCard";
+import { ProfilePageSchema } from "../../../components/StructuredData";
 import {
   getAuthorAvatarUrl,
   slugifyAuthorName,
@@ -160,6 +161,23 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
     "Author profile generated from published blog posts.";
   const authorAvatar = knownAuthor?.avatarUrl || getAuthorAvatarUrl(authorName);
 
+  // SEO: ProfilePage/Person JSON-LD. Mirrors the description used in
+  // generateMetadata so head + body schema stay consistent.
+  const bioTrimmed = knownAuthor?.bio?.trim();
+  const schemaDescription =
+    bioTrimmed && bioTrimmed.length > 40
+      ? bioTrimmed
+      : `${authorRole} at Taypro. Read ${authorBlogs.length} ${
+          authorBlogs.length === 1 ? "article" : "articles"
+        } on Solar Panel Cleaning Robots, plant performance, and O&M best practices.`;
+  const profileImage = authorAvatar.startsWith("http")
+    ? authorAvatar
+    : `${siteUrl}${authorAvatar.startsWith("/") ? "" : "/"}${authorAvatar}`;
+  const profileUrl = `${siteUrl}/blog/author/${authorSlug}`;
+  const profileSameAs = knownAuthor?.linkedInUrl
+    ? [knownAuthor.linkedInUrl]
+    : undefined;
+
   const breadcrumbs = [
     { name: "Home", href: "/" },
     { name: "Blog", href: "/blog" },
@@ -169,6 +187,15 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
 
   return (
     <>
+      <ProfilePageSchema
+        url={profileUrl}
+        name={authorName}
+        description={schemaDescription}
+        role={authorRole}
+        image={profileImage}
+        sameAs={profileSameAs}
+        postCount={authorBlogs.length}
+      />
       <Breadcrumbs items={breadcrumbs} />
 
       <section className="w-full bg-[#052638] border-b border-[#0c3c57]">

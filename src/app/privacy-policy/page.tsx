@@ -1,6 +1,8 @@
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import type { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
   title: "Privacy Policy at Taypro Private Limited",
   description:
@@ -11,8 +13,11 @@ export const metadata: Metadata = {
     title: "Privacy Policy at Taypro Private Limited",
     description:
       "Taypro (“we,” “our,” “us”) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website, products, and services (collectively, the “Services”).",
-    url: "https://taypro-dashboard.vercel.app/privacy-policy",
+    url: `${siteUrl}/privacy-policy`,
     type: "website",
+  },
+  alternates: {
+    canonical: `${siteUrl}/privacy-policy`,
   },
 };
 

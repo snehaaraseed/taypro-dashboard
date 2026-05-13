@@ -674,3 +674,66 @@ export function CollectionPageSchema({
   );
 }
 
+interface ProfilePageSchemaProps {
+  url: string;
+  name: string;
+  description: string;
+  role?: string;
+  image?: string;
+  sameAs?: string[];
+  postCount?: number;
+  siteUrl?: string;
+}
+
+export function ProfilePageSchema({
+  url,
+  name,
+  description,
+  role,
+  image,
+  sameAs,
+  postCount,
+  siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
+}: ProfilePageSchemaProps) {
+  const person: Record<string, unknown> = {
+    "@type": "Person",
+    name,
+    description,
+    url,
+  };
+  if (role) person.jobTitle = role;
+  if (image)
+    person.image = image.startsWith("http") ? image : `${siteUrl}${image}`;
+  if (sameAs && sameAs.length > 0) person.sameAs = sameAs;
+  person.worksFor = {
+    "@type": "Organization",
+    name: "Taypro",
+    url: siteUrl,
+  };
+
+  const schema: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    url,
+    name: `${name} - Taypro Blog Author`,
+    description,
+    mainEntity: person,
+  };
+
+  if (typeof postCount === "number") {
+    schema.interactionStatistic = {
+      "@type": "InteractionCounter",
+      interactionType: "https://schema.org/WriteAction",
+      userInteractionCount: postCount,
+    };
+  }
+
+  return (
+    <Script
+      id="profile-page-schema"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
