@@ -1143,13 +1143,7 @@ export default function AutomaticSolarPanelCleaningRobot() {
           </Container>
         </section>
 
-        <section
-          className="w-full py-24 bg-[#052638] bg-center"
-          style={{
-            backgroundImage: "url('/tayproasset/taypro-spiral.png')",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
+        <section className="w-full py-24 bg-[#052638]">
           <Container size="narrow">
             <AnimateOnScroll
               animation="fadeInUp"

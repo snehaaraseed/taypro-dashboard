@@ -588,6 +588,59 @@ export function HowToSchema({
   );
 }
 
+export interface ItemListEntry {
+  name: string;
+  url: string;
+  description?: string;
+  image?: string;
+}
+
+export function ItemListSchema({
+  name,
+  description,
+  items,
+  siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
+}: {
+  name: string;
+  description?: string;
+  items: ItemListEntry[];
+  siteUrl?: string;
+}) {
+  if (!items || items.length === 0) return null;
+
+  const schema: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name,
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    numberOfItems: items.length,
+    itemListElement: items.map((entry, idx) => ({
+      "@type": "ListItem",
+      position: idx + 1,
+      url: entry.url.startsWith("http") ? entry.url : `${siteUrl}${entry.url}`,
+      name: entry.name,
+      ...(entry.description ? { description: entry.description } : {}),
+      ...(entry.image
+        ? {
+            image: entry.image.startsWith("http")
+              ? entry.image
+              : `${siteUrl}${entry.image}`,
+          }
+        : {}),
+    })),
+  };
+
+  if (description) schema.description = description;
+
+  return (
+    <Script
+      id="item-list-schema"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 export function CollectionPageSchema({
   name,
   description,

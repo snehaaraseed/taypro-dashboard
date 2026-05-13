@@ -26,25 +26,35 @@ export default function Header() {
     { name: "Blogs", href: "/blog" },
   ];
 
-  const solarMenu = [
+  const solarMenu: {
+    label: string;
+    description?: string;
+    href: string;
+    isButton?: boolean;
+  }[] = [
     {
-      label: "Automatic Solar Panel Cleaning Robot",
+      label: "Model-A",
+      description: "Automatic solar cleaning robot",
       href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
     },
     {
       label: "Model-B",
+      description: "Semi-automatic pick & place",
       href: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
     },
     {
       label: "Model-T",
+      description: "Single-axis tracker cleaning",
       href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
     },
     {
       label: "Taypro Console",
+      description: "Fleet monitoring & control",
       href: "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
     },
     {
-      label: "Solar Panel Cleaning Service",
+      label: "Taypro OPEX",
+      description: "Robotic cleaning service",
       href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
     },
     {
@@ -131,19 +141,32 @@ export default function Header() {
                 </svg>
               </div>
               {dropdownOpen && (
-                <div className="absolute left-0 w-[400px] bg-white rounded-md shadow-lg z-10 py-1">
+                <div className="absolute left-0 w-[22rem] max-w-[calc(100vw-2rem)] bg-white rounded-md shadow-lg z-10 p-2">
                   {solarMenu.map((item) => (
                     <Link
                       href={item.href}
                       key={item.label}
-                      title="Robot Type"
+                      title={item.label}
                       className={
                         item.isButton
-                          ? "block bg-[#A8C117] text-black font-medium hover:bg-[#39D600] text-center mx-auto my-1 px-3 py-2 text-xl rounded-md transition-all duration-300 w-fit"
-                          : "block px-5 py-3 text-xl text-[#052638] hover:bg-[#39D600] hover:text-[#052638] rounded-md transition-all duration-300 transform hover:translate-x-1"
+                          ? "block bg-[#A8C117] text-[#052638] font-medium hover:bg-[#39D600] text-center mx-auto mt-2 mb-1 px-4 py-2 text-sm rounded-md transition-all duration-200 w-fit"
+                          : "block px-4 py-2.5 rounded-md text-[#052638] hover:bg-[#39D600]/15 transition-colors duration-200 group"
                       }
                     >
-                      {item.label}
+                      {item.isButton ? (
+                        item.label
+                      ) : (
+                        <span className="flex flex-col">
+                          <span className="text-base font-semibold leading-snug group-hover:text-[#052638]">
+                            {item.label}
+                          </span>
+                          {item.description && (
+                            <span className="text-xs text-gray-500 leading-snug mt-0.5">
+                              {item.description}
+                            </span>
+                          )}
+                        </span>
+                      )}
                     </Link>
                   ))}
                 </div>
@@ -268,12 +291,25 @@ export default function Header() {
                   href={item.href}
                   className={
                     item.isButton
-                      ? "block bg-[#A8C117] text-black px-3 py-1.5 rounded-md font-medium text-center hover:bg-[#39D600] transition-all duration-300 transform hover:scale-105 mx-auto my-1 text-base w-fit"
-                      : "ml-6 text-white hover:text-gray-300 block px-3 py-2 text-base font-medium"
+                      ? "block bg-[#A8C117] text-[#052638] px-4 py-2 rounded-md font-medium text-center hover:bg-[#39D600] transition-all duration-200 mx-auto my-2 text-sm w-fit"
+                      : "ml-4 text-white hover:text-gray-300 block px-3 py-2"
                   }
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {item.isButton ? item.label : `• ${item.label}`}
+                  {item.isButton ? (
+                    item.label
+                  ) : (
+                    <span className="flex flex-col">
+                      <span className="text-base font-medium leading-snug">
+                        {item.label}
+                      </span>
+                      {item.description && (
+                        <span className="text-xs text-gray-400 leading-snug mt-0.5">
+                          {item.description}
+                        </span>
+                      )}
+                    </span>
+                  )}
                 </Link>
               ))}
           </div>
