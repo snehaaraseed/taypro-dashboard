@@ -15,6 +15,7 @@ import Header from "./components/Header";
 // Cookie consent banner - client-side only (imported as client component)
 import CookieConsentWrapper from "./components/CookieConsentWrapper";
 import SiteLeadSlideIn from "./components/SiteLeadSlideIn";
+import LeadModalRoot from "./components/LeadModalRoot";
 import ClarityLoader from "./components/ClarityLoader";
 import GoogleTagManagerLoader from "./components/GoogleTagManagerLoader";
 
@@ -149,15 +150,17 @@ export default function RootLayout({
             queryInput: "required name=search_term_string",
           }}
         />
-        <div className="min-h-screen flex flex-col">
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-          <CookieConsentWrapper />
-          <SiteLeadSlideIn />
-          <GoogleTagManagerLoader />
-          <ClarityLoader />
-        </div>
+        <LeadModalRoot>
+          <div className="min-h-screen flex flex-col">
+            <Header />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+            <CookieConsentWrapper />
+            <SiteLeadSlideIn />
+            <GoogleTagManagerLoader />
+            <ClarityLoader />
+          </div>
+        </LeadModalRoot>
       </body>
     </html>
   );

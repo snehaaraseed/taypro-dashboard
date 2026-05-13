@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import {
   BadgeCheck,
   BatteryCharging,
@@ -24,7 +21,6 @@ import CallbackCard from "@/app/components/CallbackCard";
 import ClientsCard from "@/app/components/ClientsCard";
 import { RobotCard } from "@/app/components/RobotCard";
 import {
-  additionalProjects,
   robotFeatures,
   robotProducts,
   robotSolutions,
@@ -37,6 +33,9 @@ import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROITayproCalculator from "@/app/components/ROICalculator";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
+import FAQAccordion from "@/app/components/FAQAccordion";
+import DynamicProjectsRollup from "@/app/components/DynamicProjectsRollup";
+import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import {
   CollectionPageSchema,
   FAQPageSchema,
@@ -277,8 +276,6 @@ const heroStats = [
 const allProductsForSchema = [...robotProducts, ...robotSolutions];
 
 export default function SolarPanelCleaningRobot() {
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
-
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
@@ -332,12 +329,14 @@ export default function SolarPanelCleaningRobot() {
                   .
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                  <Link
-                    href="/contact"
+                  <OpenLeadModalButton
+                    topic="Request a quote"
+                    title="Request a quote"
+                    subtitle="Share your plant details and our team will follow up with the right Solar Panel Cleaning Robot fit."
                     className="inline-flex items-center justify-center min-h-[48px] sm:min-w-[200px] bg-[#A8C117] text-[#052638] font-medium px-7 py-3.5 rounded-md hover:bg-[#b3cf3d] transition"
                   >
                     Request a quote
-                  </Link>
+                  </OpenLeadModalButton>
                   <Link
                     href="/solar-panel-cleaning-robot-price-calculator"
                     className="inline-flex items-center justify-center min-h-[48px] sm:min-w-[200px] border-2 border-white/70 text-white font-medium px-7 py-3.5 rounded-md hover:bg-white/10 transition"
@@ -663,9 +662,12 @@ export default function SolarPanelCleaningRobot() {
                 Not sure which platform fits? Share your plant details and our
                 team will recommend the right Solar Panel Cleaning Robot mix
                 after a quick soiling study.{" "}
-                <Link href="/contact" className="text-[#A8C117] hover:underline">
+                <OpenLeadModalButton
+                  topic="Talk to Taypro"
+                  className="text-[#A8C117] hover:underline font-medium"
+                >
                   Talk to Taypro
-                </Link>
+                </OpenLeadModalButton>
                 .
               </p>
             </AnimateOnScroll>
@@ -753,86 +755,14 @@ export default function SolarPanelCleaningRobot() {
           </Container>
         </section>
 
-        {/* PROOF / DEPLOYMENTS */}
-        <section className="bg-[#f4f1e9] py-16 sm:py-20">
-          <Container>
-            <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
-              <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                Deployed at utility scale
-              </div>
-              <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight">
-                Solar Panel Cleaning Robots already at work across India
-              </h2>
-              <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mt-5">
-                Taypro robots clean panels at multi-megawatt plants across
-                Maharashtra, Madhya Pradesh, Karnataka and beyond. A small
-                sample of recent installations is below.
-              </p>
-            </AnimateOnScroll>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-              {additionalProjects.map((project, idx) => (
-                <AnimateOnScroll
-                  key={project.id}
-                  animation="fadeInUp"
-                  delay={idx * 80}
-                  className="bg-white rounded-lg overflow-hidden shadow-sm flex flex-col h-full"
-                >
-                  <Link
-                    href={project.href}
-                    title={`${project.title} — Solar Panel Cleaning Robot deployment`}
-                    className="relative aspect-[4/3] w-full overflow-hidden block"
-                  >
-                    <Image
-                      src={project.img}
-                      alt={`${project.title} — Solar Panel Cleaning Robot deployment by Taypro`}
-                      title={project.title}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </Link>
-                  <div className="p-5 flex flex-col flex-1">
-                    <h3 className="text-[#052638] font-semibold text-base sm:text-lg leading-snug mb-2">
-                      <Link
-                        href={project.href}
-                        className="hover:text-[#A8C117] transition-colors"
-                      >
-                        {project.title}
-                      </Link>
-                    </h3>
-                    <div className="flex flex-wrap gap-1.5 mb-4">
-                      {project.details.map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-flex items-center text-xs font-medium bg-[#A8C117]/15 text-[#052638] px-2 py-1 rounded"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <Link
-                      href={project.href}
-                      className="mt-auto inline-flex items-center gap-1 text-[#A8C117] font-medium text-sm hover:underline"
-                    >
-                      View case study
-                      <ChevronRight className="w-4 h-4" />
-                    </Link>
-                  </div>
-                </AnimateOnScroll>
-              ))}
-            </div>
-
-            <AnimateOnScroll animation="fadeInUp" className="text-center mt-10">
-              <Link
-                href="/projects"
-                className="inline-flex items-center justify-center bg-[#052638] text-white font-medium px-7 py-3.5 rounded-md hover:bg-[#0c3d56] transition"
-              >
-                See all solar projects
-              </Link>
-            </AnimateOnScroll>
-          </Container>
-        </section>
+        {/* PROOF / DEPLOYMENTS — dynamic, reads from src/app/projects/* */}
+        <DynamicProjectsRollup
+          eyebrow="Deployed at utility scale"
+          heading="Solar Panel Cleaning Robots already at work across India"
+          subheading="Taypro robots clean panels at multi-megawatt plants across Maharashtra, Madhya Pradesh, Karnataka and beyond. A small sample of recent installations is below."
+          limit={4}
+          background="cream"
+        />
 
         {/* ROI CALCULATOR */}
         <section className="py-12 lg:py-16 bg-white">
@@ -1035,43 +965,17 @@ export default function SolarPanelCleaningRobot() {
               <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
                 Quick answers to the questions plant owners and EPC teams ask
                 most often. For plant-specific recommendations,{" "}
-                <Link href="/contact" className="text-[#A8C117] hover:underline">
+                <OpenLeadModalButton
+                  topic="Contact Taypro"
+                  className="text-[#A8C117] hover:underline font-medium"
+                >
                   contact Taypro
-                </Link>
+                </OpenLeadModalButton>
                 .
               </p>
             </AnimateOnScroll>
 
-            {hubFaqs.map((faq, idx) => (
-              <div key={faq.question} className="border-b border-gray-200 py-5">
-                <button
-                  type="button"
-                  onClick={() =>
-                    setOpenFaqIndex(openFaqIndex === idx ? null : idx)
-                  }
-                  className="w-full flex justify-between items-start text-left gap-4"
-                  aria-expanded={openFaqIndex === idx}
-                >
-                  <h3 className="text-[#052638] font-medium text-lg sm:text-xl">
-                    {faq.question}
-                  </h3>
-                  <span className="text-[#A8C117] text-2xl leading-none shrink-0">
-                    {openFaqIndex === idx ? "−" : "+"}
-                  </span>
-                </button>
-                <div
-                  className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
-                    openFaqIndex === idx ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <p className="text-gray-600 text-base sm:text-lg leading-relaxed pt-4">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
+            <FAQAccordion faqs={hubFaqs} variant="modern" />
           </Container>
         </section>
 
@@ -1096,12 +1000,14 @@ export default function SolarPanelCleaningRobot() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 shrink-0 justify-center">
-                <Link
-                  href="/contact"
+                <OpenLeadModalButton
+                  topic="Request a quote"
+                  title="Request a quote"
+                  subtitle="Share your plant details and our team will follow up with the right Solar Panel Cleaning Robot fit."
                   className="inline-flex items-center justify-center min-h-[48px] sm:min-w-[200px] bg-[#A8C117] text-[#052638] font-medium px-7 py-3.5 rounded-md hover:bg-[#b3cf3d] transition"
                 >
                   Request a quote
-                </Link>
+                </OpenLeadModalButton>
                 <Link
                   href="/solar-panel-cleaning-robot-price-calculator"
                   className="inline-flex items-center justify-center min-h-[48px] sm:min-w-[200px] border-2 border-white text-white font-medium px-7 py-3.5 rounded-md hover:bg-white/10 transition"

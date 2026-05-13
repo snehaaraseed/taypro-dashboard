@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import {
   BarChart3,
   CloudSun,
@@ -20,11 +17,13 @@ import {
 } from "lucide-react";
 import { modelBCards, tayproRobotConnectivitySummary } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
-import ProjectsCard from "@/app/components/ProjectsCard";
+import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import ModelCards from "@/app/components/ModelCards";
 import ClientsCard from "@/app/components/ClientsCard";
 import EnergyResourceCard from "@/app/components/EnergyResourceCard";
 import HeroSection from "@/app/components/Herosection";
+import FAQAccordion from "@/app/components/FAQAccordion";
+import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import {
   SoftwareApplicationSchema,
@@ -145,8 +144,6 @@ const breadcrumbs = [
 ];
 
 export default function TayproConsolePage() {
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
-
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
@@ -344,26 +341,26 @@ export default function TayproConsolePage() {
             <div className="block lg:hidden">
               <AnimateOnScroll animation="fadeInUp" delay={100}>
                 <div className="relative w-full aspect-[16/10] overflow-hidden rounded-lg">
-                  <Image
-                    src="/tayproasset/taypro-console.png"
+                <Image
+                  src="/tayproasset/taypro-console.png"
                     alt="Taypro Console dashboard — fleet and block-level solar cleaning robot monitoring"
                     title="Taypro Console"
-                    fill
-                    className="object-cover"
+                  fill
+                  className="object-cover"
                     sizes="100vw"
-                  />
-                </div>
+                />
+              </div>
                 <div className="bg-[#7da300] p-6 mt-4 rounded-lg">
                   <h3 className="text-white text-start text-xl sm:text-2xl mb-4">
                     Precision without complexity
                   </h3>
-                  <p className="text-white text-start text-sm sm:text-base leading-relaxed">
+                <p className="text-white text-start text-sm sm:text-base leading-relaxed">
                     Console reflects how Taypro robots actually work in the field:
                     block-wise plans, seasonal cleaning strategy, and tracker-aware
                     context where Model-T is deployed. Your operators see the
                     signal; Taypro protects the underlying control logic.
-                  </p>
-                </div>
+                </p>
+              </div>
               </AnimateOnScroll>
             </div>
 
@@ -418,20 +415,22 @@ export default function TayproConsolePage() {
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-4 w-full sm:justify-center lg:justify-start lg:w-auto lg:shrink-0 lg:pt-1">
-                  <Link
-                    href="/contact"
+                  <OpenLeadModalButton
+                    topic="Taypro Console access"
+                    title="Request Console access"
+                    subtitle="Tell us about your fleet and our team will get you set up with Taypro Console."
                     className="inline-flex items-center justify-center min-h-[48px] w-full sm:w-auto sm:min-w-[220px] bg-[#A8C117] text-[#052638] font-medium px-8 py-3.5 rounded-md hover:bg-[#b3cf3d] transition text-center"
                   >
                     Request Console access
-                  </Link>
+                  </OpenLeadModalButton>
                   <a
                     href="mailto:service@taypro.in?subject=Taypro%20Console%20access%20%2F%20support"
                     className="inline-flex items-center justify-center min-h-[48px] w-full sm:w-auto sm:min-w-[220px] border-2 border-white text-white font-medium px-8 py-3.5 rounded-md hover:bg-white/10 transition text-center"
                   >
                     Email service@taypro.in
                   </a>
-                </div>
-              </div>
+            </div>
+          </div>
             </AnimateOnScroll>
           </Container>
         </section>
@@ -448,45 +447,13 @@ export default function TayproConsolePage() {
                 customer documentation.
               </p>
             </AnimateOnScroll>
-            {consoleFaqs.map((faq, idx) => (
-              <div
-                key={faq.question}
-                className="border-b border-gray-200 py-5"
-              >
-                <button
-                  type="button"
-                  onClick={() =>
-                    setOpenFaqIndex(openFaqIndex === idx ? null : idx)
-                  }
-                  className="w-full flex justify-between items-start text-left gap-4"
-                  aria-expanded={openFaqIndex === idx}
-                >
-                  <h3 className="text-[#052638] font-medium text-lg sm:text-xl">
-                    {faq.question}
-                  </h3>
-                  <span className="text-[#A8C117] text-2xl leading-none shrink-0">
-                    {openFaqIndex === idx ? "−" : "+"}
-                  </span>
-                </button>
-                <div
-                  className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
-                    openFaqIndex === idx ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <p className="text-gray-600 text-base sm:text-lg leading-relaxed pt-4">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
+            <FAQAccordion faqs={consoleFaqs} variant="modern" />
           </Container>
         </section>
 
         <EnergyResourceCard />
 
-        <ProjectsCard showHeader={true} headerText="Our Most Recent Projects" />
+        <ProjectsCardServer useFileProjects showHeader headerText="Our Most Recent Projects" />
 
         <ClientsCard />
 

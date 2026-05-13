@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { CheckCircle2 } from "lucide-react";
 
 export type RequestEstimateFormProps = {
   variant?: "fullPage" | "embedded";
@@ -14,6 +15,8 @@ export type RequestEstimateFormProps = {
   stackedEmbedded?: boolean;
   /** Embedded: extra compact spacing (narrow slide-in, no internal scroll). */
   compactEmbedded?: boolean;
+  /** Embedded: no outer white box — parent supplies surface (e.g. plant-check modal). */
+  embeddedFlush?: boolean;
   /** Override primary submit button label. */
   submitLabel?: string;
   messageRows?: number;
@@ -23,9 +26,27 @@ export type RequestEstimateFormProps = {
   messagePlaceholder?: string;
   /** Focus first name field on mount (e.g. after opening a slide-in form step). */
   autoFocus?: boolean;
-  /** When false, success message stays on page and onSuccess runs instead of redirect. Default true. */
+  /**
+   * When true, redirect to /contact/thank-you after a successful submission.
+   * Default is `false` — the form shows an inline thank-you state so the
+   * user stays on the same page / inside the same modal.
+   */
   redirectOnSuccess?: boolean;
   onSuccess?: () => void;
+  /** Override the inline thank-you panel heading. */
+  thankYouTitle?: string;
+  /** Override the inline thank-you panel body text. */
+  thankYouMessage?: string;
+  /** Hide the "Send another request" link in the inline thank-you state. */
+  hideResetAfterSuccess?: boolean;
+};
+
+const INITIAL_FORM = {
+  firstName: "",
+  companyName: "",
+  email: "",
+  phone: "",
+  message: "",
 };
 
 export default function RequestEstimateForm({
@@ -36,25 +57,23 @@ export default function RequestEstimateForm({
   showEmbeddedHeading = true,
   stackedEmbedded = false,
   compactEmbedded = false,
+  embeddedFlush = false,
   submitLabel,
   messageRows = 3,
   messageLabel,
   messagePlaceholder,
   autoFocus = false,
-  redirectOnSuccess = true,
+  redirectOnSuccess = false,
   onSuccess,
+  thankYouTitle = "Thanks — we've got your request.",
+  thankYouMessage = "Our applications team will get back to you shortly with the right Solar Panel Cleaning Robot fit for your plant. Feel free to keep exploring the site.",
+  hideResetAfterSuccess = false,
 }: RequestEstimateFormProps = {}) {
   const router = useRouter();
-  const [formData, setFormData] = useState({
-    firstName: "",
-    companyName: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState(INITIAL_FORM);
 
   const [loading, setLoading] = useState(false);
-  const [successMsg, setSuccessMsg] = useState("");
+  const [submitted, setSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (
@@ -71,7 +90,6 @@ export default function RequestEstimateForm({
     e.preventDefault();
     setLoading(true);
     setErrorMsg("");
-    setSuccessMsg("");
 
     try {
       const name = formData.firstName.trim();
@@ -109,19 +127,13 @@ export default function RequestEstimateForm({
         );
       }
 
-      const data = payload;
-      setSuccessMsg(data.message || "Request submitted successfully.");
       onSuccess?.();
       if (redirectOnSuccess) {
         router.push("/contact/thank-you");
+        return;
       }
-      // setFormData({
-      //   firstName: "",
-      //   companyName: "",
-      //   email: "",
-      //   phone: "",
-      //   message: "",
-      // });
+      setSubmitted(true);
+      setFormData(INITIAL_FORM);
     } catch (error) {
       if (error instanceof Error) {
         setErrorMsg(error.message);
@@ -156,16 +168,47 @@ export default function RequestEstimateForm({
     ? "w-full border-b border-[#D4DADA] focus:border-[#A8C117] outline-none py-1.5 text-sm text-[#052638] placeholder:text-[#C4CFD3] font-normal bg-transparent"
     : "w-full border-b border-[#D4DADA] focus:border-[#A8C117] outline-none py-2 text-[#052638] placeholder:text-[#C4CFD3] font-normal bg-transparent";
 
-  const formInner = (
+  const thankYouPanel = (
     <div
-      className={
-        variant === "embedded"
-          ? compactEmbedded
-            ? `bg-white w-full px-0 py-0 ${className}`
-            : `bg-white w-full px-4 sm:px-6 ${stackedEmbedded ? "py-4" : "py-5"} ${className}`
-          : `bg-white rounded-[12px] shadow-lg px-4 sm:px-8 md:px-12 lg:px-16 py-6 sm:py-8 md:py-10 lg:py-12 w-full ${className}`
-      }
+      role="status"
+      aria-live="polite"
+      className="rounded-xl border border-[#A8C117]/40 bg-[#f7faea] p-6 sm:p-8 text-center"
     >
+      <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#A8C117] text-[#052638]">
+        <CheckCircle2 className="h-6 w-6" aria-hidden />
+      </div>
+      <h3 className="text-[#052638] font-semibold text-xl sm:text-2xl mb-2">
+        {thankYouTitle}
+      </h3>
+      <p className="text-[#475569] text-sm sm:text-base leading-relaxed max-w-md mx-auto">
+        {thankYouMessage}
+      </p>
+      {!hideResetAfterSuccess && (
+        <button
+          type="button"
+          onClick={() => {
+            setSubmitted(false);
+            setErrorMsg("");
+          }}
+          className="mt-5 text-sm font-medium text-[#052638] underline underline-offset-4 hover:text-[#0a4a66]"
+        >
+          Send another request
+        </button>
+      )}
+    </div>
+  );
+
+  const embeddedWrapClass =
+    variant === "embedded"
+      ? compactEmbedded
+        ? `bg-white w-full px-0 py-0 ${className}`
+        : embeddedFlush
+          ? `w-full px-0 py-0 ${className}`
+          : `bg-white w-full px-4 sm:px-6 ${stackedEmbedded ? "py-4" : "py-5"} ${className}`
+      : `bg-white rounded-[12px] shadow-lg px-4 sm:px-8 md:px-12 lg:px-16 py-6 sm:py-8 md:py-10 lg:py-12 w-full ${className}`;
+
+  const formInner = (
+    <div className={embeddedWrapClass}>
       {variant === "embedded" && showEmbeddedHeading && (
         <div className="mb-5 text-center sm:text-left">
           <div className="text-[#A8C117] text-sm mb-1">{resolvedEyebrow}</div>
@@ -174,113 +217,108 @@ export default function RequestEstimateForm({
           </h2>
         </div>
       )}
-      <form onSubmit={handleSubmit}>
-            <div className={gridClass}>
-              <div>
-                <label className={labelClass}>
-                  First Name*
-                </label>
-                <input
-                  type="text"
-                  name="firstName"
-                  placeholder="Praveen"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  suppressHydrationWarning
-                  autoFocus={autoFocus}
-                  className={fieldClass}
-                />
-              </div>
-              <div>
-                <label className={labelClass}>
-                  Company Name
-                </label>
-                <input
-                  type="text"
-                  name="companyName"
-                  placeholder="My Company Private Limited"
-                  value={formData.companyName}
-                  onChange={handleChange}
-                  suppressHydrationWarning
-                  className={fieldClass}
-                />
-              </div>
-              <div>
-                <label className={labelClass}>
-                  Email Address*
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="info@company.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                  suppressHydrationWarning
-                  className={fieldClass}
-                />
-              </div>
-              <div>
-                <label className={labelClass}>
-                  Phone Number*
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="+123-456-7890"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  suppressHydrationWarning
-                  className={fieldClass}
-                />
-              </div>
-            </div>
-
-            <div
-              className={
-                compactEmbedded
-                  ? "mb-2.5"
-                  : stackedEmbedded
-                    ? "mb-4"
-                    : "mb-6 md:mb-8"
-              }
-            >
-              <label className={labelClass}>
-                {resolvedMessageLabel}
-              </label>
-              <textarea
-                rows={messageRows}
-                name="message"
-                value={formData.message}
+      {submitted ? (
+        thankYouPanel
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <div className={gridClass}>
+            <div>
+              <label className={labelClass}>First Name*</label>
+              <input
+                type="text"
+                name="firstName"
+                placeholder="Praveen"
+                value={formData.firstName}
                 onChange={handleChange}
                 suppressHydrationWarning
-                placeholder={resolvedMessagePlaceholder}
-                className={
-                  compactEmbedded
-                    ? `${fieldClass} min-h-[2.5rem]`
-                    : fieldClass
-                }
+                autoFocus={autoFocus}
+                className={fieldClass}
               />
             </div>
+            <div>
+              <label className={labelClass}>Company Name</label>
+              <input
+                type="text"
+                name="companyName"
+                placeholder="My Company Private Limited"
+                value={formData.companyName}
+                onChange={handleChange}
+                suppressHydrationWarning
+                className={fieldClass}
+              />
+            </div>
+            <div>
+              <label className={labelClass}>Email Address*</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="info@company.com"
+                value={formData.email}
+                onChange={handleChange}
+                suppressHydrationWarning
+                className={fieldClass}
+              />
+            </div>
+            <div>
+              <label className={labelClass}>Phone Number*</label>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="+123-456-7890"
+                value={formData.phone}
+                onChange={handleChange}
+                suppressHydrationWarning
+                className={fieldClass}
+              />
+            </div>
+          </div>
 
-            {errorMsg && (
-              <div className={`text-red-500 text-xs ${compactEmbedded ? "mb-2" : "mb-4 text-sm"}`}>{errorMsg}</div>
-            )}
-            {successMsg && (
-              <div className={`text-green-600 text-xs ${compactEmbedded ? "mb-2" : "mb-4 text-sm"}`}>{successMsg}</div>
-            )}
-
-            <button
-              type="submit"
-              disabled={loading}
+          <div
+            className={
+              compactEmbedded
+                ? "mb-2.5"
+                : stackedEmbedded
+                  ? "mb-4"
+                  : "mb-6 md:mb-8"
+            }
+          >
+            <label className={labelClass}>{resolvedMessageLabel}</label>
+            <textarea
+              rows={messageRows}
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              suppressHydrationWarning
+              placeholder={resolvedMessagePlaceholder}
               className={
-                compactEmbedded
-                  ? "w-full mt-2 bg-[#A8C117] hover:bg-[#B8CC31] text-[#052638] font-semibold text-sm rounded-md py-2.5 transition-colors cursor-pointer disabled:opacity-50"
-                  : "w-full mt-4 sm:mt-5 bg-[#A8C117] hover:bg-[#B8CC31] text-[#052638] font-semibold text-base sm:text-lg rounded-[4px] py-3 transition-colors cursor-pointer disabled:opacity-50"
+                compactEmbedded ? `${fieldClass} min-h-[2.5rem]` : fieldClass
               }
+            />
+          </div>
+
+          {errorMsg && (
+            <div
+              className={`text-red-500 text-xs ${compactEmbedded ? "mb-2" : "mb-4 text-sm"}`}
             >
-              {loading ? "Sending..." : submitLabel ?? "Send Request"}
-            </button>
-          </form>
+              {errorMsg}
+            </div>
+          )}
+
+          <button
+            type="submit"
+            disabled={loading}
+            className={
+              compactEmbedded
+                ? "w-full mt-2 bg-[#A8C117] hover:bg-[#B8CC31] text-[#052638] font-semibold text-sm rounded-md py-2.5 transition-colors cursor-pointer disabled:opacity-50"
+                : stackedEmbedded
+                  ? "w-full mt-4 sm:mt-5 rounded-xl bg-[#A8C117] py-3.5 text-center text-base sm:text-lg font-semibold text-[#052638] shadow-md transition hover:bg-[#b8cf3d] hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#052638] focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                  : "w-full mt-4 sm:mt-5 bg-[#A8C117] hover:bg-[#B8CC31] text-[#052638] font-semibold text-base sm:text-lg rounded-[4px] py-3 transition-colors cursor-pointer disabled:opacity-50"
+            }
+          >
+            {loading ? "Sending..." : submitLabel ?? "Send Request"}
+          </button>
+        </form>
+      )}
     </div>
   );
 

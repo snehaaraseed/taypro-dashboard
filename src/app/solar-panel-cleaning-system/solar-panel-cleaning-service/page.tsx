@@ -1,11 +1,8 @@
-"use client";
-
 import {
   cleaningServiceFaqs,
   modelBCards,
   tayproRobotConnectivitySummary,
 } from "@/app/data";
-import { useState } from "react";
 import {
   ClipboardList,
   Cpu,
@@ -34,7 +31,9 @@ import CallbackCard from "@/app/components/CallbackCard";
 import ResourcesCard from "@/app/components/ResourcesCard";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROITayproCalculator from "@/app/components/ROICalculator";
-import ProjectsCard from "@/app/components/ProjectsCard";
+import ProjectsCardServer from "@/app/components/ProjectsCardServer";
+import FAQAccordion from "@/app/components/FAQAccordion";
+import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import {
   ServiceSchema,
   FAQPageSchema,
@@ -156,7 +155,6 @@ const plantStudyFactors = [
 ];
 
 export default function SolarPanelCleaningService() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
   const allFaqs = [...opexServiceFaqs, ...cleaningServiceFaqs];
 
   const benefits = [
@@ -303,12 +301,14 @@ export default function SolarPanelCleaningService() {
                 simple question: did we restore transmissivity to the contracted
                 panel population this month?
               </p>
-              <Link
-                href="/contact"
+              <OpenLeadModalButton
+                topic="Taypro OPEX"
+                title="Talk to our OPEX team"
+                subtitle="Tell us about your plant and our OPEX team will get back with a pay-per-panel cleaning proposal."
                 className="inline-block bg-[#A8C117] text-[#052638] font-medium px-8 sm:px-12 py-4 sm:py-5 rounded-md hover:bg-[#b3cf3d] transition text-base sm:text-lg"
               >
                 Talk to our OPEX team
-              </Link>
+              </OpenLeadModalButton>
             </AnimateOnScroll>
           </Container>
         </section>
@@ -466,7 +466,7 @@ export default function SolarPanelCleaningService() {
             <AnimateOnScroll animation="fadeInUp">
               <h2 className="font-semibold text-3xl sm:text-4xl md:text-5xl text-[#052638] mb-6">
                 How Taypro operates the fleet on your site
-              </h2>
+            </h2>
               <p className="mb-12 text-start text-lg text-gray-600 max-w-3xl">
                 These pillars sit underneath every OPEX contract — whether we
                 are running Model-A, Model-B, Model-T, or a blended deployment.
@@ -505,7 +505,7 @@ export default function SolarPanelCleaningService() {
                     <Icon className="w-9 h-9 text-[#A8C117] mb-3" />
                     <h3 className="text-xl font-semibold text-[#052638] mb-3">
                       {block.title}
-                    </h3>
+              </h3>
                     <p className="text-gray-600 text-base leading-relaxed">
                       {block.body}
                     </p>
@@ -642,38 +642,13 @@ export default function SolarPanelCleaningService() {
                 FAQs below.
               </p>
             </AnimateOnScroll>
-            {allFaqs.map((faq, idx) => (
-              <div key={faq.question} className="border-b border-gray-300">
-                <button
-                  type="button"
-                  className="flex items-start w-full py-4 text-left text-lg font-medium text-[#052638] hover:text-[#A8C117] cursor-pointer gap-3"
-                  onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                  aria-expanded={openIndex === idx}
-                >
-                  <span className="flex items-center justify-center w-8 h-8 shrink-0 bg-[#052638] text-white font-semibold rounded-sm text-lg select-none">
-                    {openIndex === idx ? "−" : "+"}
-                  </span>
-                  <span>{faq.question}</span>
-                </button>
-                <div
-                  className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
-                    openIndex === idx ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <div className="pl-11 pr-2 pb-6 text-base text-[#435063] leading-relaxed">
-                      {faq.answer}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+            <FAQAccordion faqs={allFaqs} variant="classic" />
           </Container>
         </section>
 
         <ClientsCard />
 
-        <ProjectsCard showHeader={true} headerText="Our Projects" />
+        <ProjectsCardServer useFileProjects showHeader headerText="Our Projects" />
 
         {/* Advantages */}
         <section className="w-full py-16 sm:py-20 bg-white">
@@ -810,7 +785,7 @@ export default function SolarPanelCleaningService() {
               >
                 <div className="w-14 h-14 flex items-center justify-center bg-[#A8C117]/15 rounded-xl mb-5">
                   <Gauge className="text-[#A8C117] w-7 h-7" />
-                </div>
+              </div>
                 <h3 className="text-[#052638] font-semibold text-2xl sm:text-3xl mb-4 leading-snug">
                   What is the ROI of Taypro OPEX?
                 </h3>
@@ -830,12 +805,14 @@ export default function SolarPanelCleaningService() {
                   >
                     Open the ROI calculator
                   </Link>
-                  <Link
-                    href="/contact"
+                  <OpenLeadModalButton
+                    topic="Taypro OPEX"
+                    title="Talk to our OPEX team"
+                    subtitle="Tell us about your plant and our OPEX team will get back with a pay-per-panel cleaning proposal."
                     className="inline-flex items-center border border-[#052638] text-[#052638] font-medium px-6 py-3 rounded-md hover:bg-[#052638] hover:text-white transition"
                   >
                     Talk to OPEX team
-                  </Link>
+                  </OpenLeadModalButton>
                 </div>
               </AnimateOnScroll>
             </div>

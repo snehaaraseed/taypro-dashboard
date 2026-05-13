@@ -1,9 +1,11 @@
 "use client";
 
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
+import { PLANT_CHECK_PERKS } from "@/app/components/plantCheckPerks";
 import Image from "next/image";
-import { ArrowLeft, Check, Droplets, Headphones, Sparkles } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { usePathname } from "next/navigation";
 
 const STORAGE_DISMISS_SLOT = "taypro_lead_slidein_dismiss_slot";
@@ -49,31 +51,18 @@ function readDismissedThisHour(): boolean {
   }
 }
 
-const perks = [
-  {
-    icon: Droplets,
-    title: "Waterless, built for real farms",
-    text: "See how dry cleaning fits your O&M and water story, not a generic brochure.",
-  },
-  {
-    icon: Sparkles,
-    title: "Model fit, not a catalog pitch",
-    text: "Fixed-tilt, single-axis tracker, or service-led. We point you to what applies.",
-  },
-  {
-    icon: Headphones,
-    title: "Talk to people who ship robots",
-    text: "Short follow-up from our applications team. No prize wheels, no spam blasts.",
-  },
-];
-
 export default function SiteLeadSlideIn() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [stage, setStage] = useState<Stage>("teaser");
   const [eligible, setEligible] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const dwellDone = useRef(false);
   const scrollDone = useRef(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const tryOpen = useCallback(() => {
     if (typeof window === "undefined") return;
@@ -100,9 +89,12 @@ export default function SiteLeadSlideIn() {
     } catch {
       /* ignore quota */
     }
-    setOpen(false);
-    setEligible(false);
-    setStage("teaser");
+    // Let the user see the inline thank-you panel before we close.
+    window.setTimeout(() => {
+      setOpen(false);
+      setEligible(false);
+      setStage("teaser");
+    }, 2800);
   }, []);
 
   useEffect(() => {
@@ -170,11 +162,12 @@ export default function SiteLeadSlideIn() {
   if (shouldSuppressPath(pathname)) return null;
   if (!eligible) return null;
   if (!open) return null;
+  if (!mounted) return null;
 
   const titleId = stage === "teaser" ? "taypro-slidein-title" : "taypro-slidein-form-title";
 
-  return (
-    <div className="fixed inset-0 z-[100] flex items-end justify-center sm:items-end sm:justify-end pointer-events-auto p-4 pb-24 sm:pb-6 sm:p-6">
+  const panel = (
+    <div className="fixed inset-0 z-[9998] flex items-end justify-center sm:items-end sm:justify-end pointer-events-auto p-4 pb-24 sm:pb-6 sm:p-6">
       <button
         type="button"
         className="taypro-lead-backdrop absolute inset-0 bg-[#052638]/55 backdrop-blur-[3px]"
@@ -238,7 +231,7 @@ export default function SiteLeadSlideIn() {
               </p>
 
               <ul className="mt-5 space-y-3 sm:mt-6">
-                {perks.map(({ icon: Icon, title, text }) => (
+                {PLANT_CHECK_PERKS.map(({ icon: Icon, title, text }) => (
                   <li
                     key={title}
                     className="flex gap-3 rounded-xl border border-[#e2e8ec] bg-white/90 px-3 py-3 shadow-sm sm:gap-3.5 sm:px-4 sm:py-3.5"
@@ -318,7 +311,10 @@ export default function SiteLeadSlideIn() {
                 messagePlaceholder="MW, fixed-tilt or trackers, soiling or water limits, how you clean today, and what you want to improve."
                 submitLabel="Send my fit check"
                 autoFocus
-                redirectOnSuccess
+                redirectOnSuccess={false}
+                hideResetAfterSuccess
+                thankYouTitle="Got it — your fit check is on the way"
+                thankYouMessage="Our applications team will follow up shortly with the right Solar Panel Cleaning Robot direction for your plant."
                 onSuccess={handleSuccess}
               />
             </div>
@@ -327,4 +323,6 @@ export default function SiteLeadSlideIn() {
       </div>
     </div>
   );
+
+  return createPortal(panel, document.body);
 }

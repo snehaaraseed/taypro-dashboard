@@ -1,22 +1,23 @@
 "use client";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { CheckCircle2 } from "lucide-react";
 
 interface DemoSectionProps {
   headerText: React.ReactNode;
 }
 
+const INITIAL_FORM = {
+  firstName: "",
+  email: "",
+  phone: "",
+};
+
 export default function CallbackCard({ headerText }: DemoSectionProps) {
-  const router = useRouter();
-  const [formData, setFormData] = useState({
-    firstName: "",
-    email: "",
-    phone: "",
-  });
+  const [formData, setFormData] = useState(INITIAL_FORM);
 
   const [loading, setLoading] = useState(false);
-  const [successMsg, setSuccessMsg] = useState("");
+  const [submitted, setSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (
@@ -33,7 +34,6 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
     e.preventDefault();
     setLoading(true);
     setErrorMsg("");
-    setSuccessMsg("");
 
     try {
       const response = await fetch(
@@ -52,13 +52,12 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
       );
 
       if (!response.ok) {
-        const errorData = await response.json();
+        const errorData = await response.json().catch(() => ({}));
         throw new Error(errorData.message || "Please fill the required fields");
       }
 
-      const data = await response.json();
-      setSuccessMsg(data.message || "Request submitted successfully.");
-      router.push("/contact/thank-you");
+      setSubmitted(true);
+      setFormData(INITIAL_FORM);
     } catch (error) {
       if (error instanceof Error) {
         setErrorMsg(error.message);
@@ -94,63 +93,95 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
             boxShadow: "0px 8px 32px rgba(0,0,0,0.1)",
           }}
         >
-          <h2 className="text-white font-semibold text-3xl mt-3 mb-6">
-            Let us help you
-          </h2>
-          <form onSubmit={handleSubmit} className="space-y-7">
-            <div>
-              <label className="text-white text-base">Full Name*</label>
-              <input
-                type="text"
-                name="firstName"
-                placeholder="Praveen"
-                value={formData.firstName}
-                onChange={handleChange}
-                suppressHydrationWarning
-                className="bg-transparent text-white border-b border-[#A8C117] outline-none w-full py-3 mt-2 placeholder:text-[#bdc6ce] text-lg"
-              />
-            </div>
-            <div className="flex flex-row gap-6">
-              <div className="w-1/2">
-                <label className="text-white text-base">Email Address*</label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="info@company.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                  suppressHydrationWarning
-                  className="bg-transparent text-white border-b border-[#A8C117] outline-none w-full py-3 mt-2 placeholder:text-[#bdc6ce] text-lg"
-                />
-              </div>
-              <div className="w-1/2">
-                <label className="text-white text-base">Phone Number*</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="+123-456-7890"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  suppressHydrationWarning
-                  className="bg-transparent text-white border-b border-[#A8C117] outline-none w-full py-3 mt-2 placeholder:text-[#bdc6ce] text-lg"
-                />
-              </div>
-            </div>
-
-            {errorMsg && (
-              <div className="mb-4 text-red-500 text-sm">{errorMsg}</div>
-            )}
-            {successMsg && (
-              <div className="mb-4 text-green-600 text-sm">{successMsg}</div>
-            )}
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full mt-4 sm:mt-5 bg-[#A8C117] hover:bg-[#B8CC31] text-[#052638] font-semibold text-base sm:text-lg rounded-[4px] py-3 transition-colors cursor-pointer disabled:opacity-50"
+          {submitted ? (
+            <div
+              role="status"
+              aria-live="polite"
+              className="text-center text-white py-6"
             >
-              {loading ? "Sending..." : "Get a Callback"}
-            </button>
-          </form>
+              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#A8C117] text-[#052638]">
+                <CheckCircle2 className="h-7 w-7" aria-hidden />
+              </div>
+              <h2 className="font-semibold text-3xl mb-3">
+                Thanks — we&apos;ll be in touch
+              </h2>
+              <p className="text-[#bdc6ce] text-base sm:text-lg leading-relaxed max-w-sm mx-auto">
+                Our team will reach out to you shortly. Feel free to keep
+                exploring the site in the meantime.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setSubmitted(false);
+                  setErrorMsg("");
+                }}
+                className="mt-5 text-sm font-medium text-white underline underline-offset-4 hover:text-[#A8C117]"
+              >
+                Request another callback
+              </button>
+            </div>
+          ) : (
+            <>
+              <h2 className="text-white font-semibold text-3xl mt-3 mb-6">
+                Let us help you
+              </h2>
+              <form onSubmit={handleSubmit} className="space-y-7">
+                <div>
+                  <label className="text-white text-base">Full Name*</label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    placeholder="Praveen"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    suppressHydrationWarning
+                    className="bg-transparent text-white border-b border-[#A8C117] outline-none w-full py-3 mt-2 placeholder:text-[#bdc6ce] text-lg"
+                  />
+                </div>
+                <div className="flex flex-row gap-6">
+                  <div className="w-1/2">
+                    <label className="text-white text-base">
+                      Email Address*
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="info@company.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      suppressHydrationWarning
+                      className="bg-transparent text-white border-b border-[#A8C117] outline-none w-full py-3 mt-2 placeholder:text-[#bdc6ce] text-lg"
+                    />
+                  </div>
+                  <div className="w-1/2">
+                    <label className="text-white text-base">
+                      Phone Number*
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="+123-456-7890"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      suppressHydrationWarning
+                      className="bg-transparent text-white border-b border-[#A8C117] outline-none w-full py-3 mt-2 placeholder:text-[#bdc6ce] text-lg"
+                    />
+                  </div>
+                </div>
+
+                {errorMsg && (
+                  <div className="mb-4 text-red-500 text-sm">{errorMsg}</div>
+                )}
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full mt-4 sm:mt-5 bg-[#A8C117] hover:bg-[#B8CC31] text-[#052638] font-semibold text-base sm:text-lg rounded-[4px] py-3 transition-colors cursor-pointer disabled:opacity-50"
+                >
+                  {loading ? "Sending..." : "Get a Callback"}
+                </button>
+              </form>
+            </>
+          )}
         </div>
 
         <div

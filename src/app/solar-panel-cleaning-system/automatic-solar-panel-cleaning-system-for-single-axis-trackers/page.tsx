@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
 import {
   Brain,
   Cloud,
@@ -18,12 +15,13 @@ import {
 } from "lucide-react";
 import { modelTCards, tayproRobotConnectivitySummary } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
-import ProjectsCard from "@/app/components/ProjectsCard";
+import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import ModelCards from "@/app/components/ModelCards";
 import ClientsCard from "@/app/components/ClientsCard";
 import HeroSection from "@/app/components/Herosection";
 import EnergyResourceCard from "@/app/components/EnergyResourceCard";
 import CallbackCard from "@/app/components/CallbackCard";
+import FAQAccordion from "@/app/components/FAQAccordion";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import Product360Viewer from "@/app/components/Product360Viewer";
@@ -265,8 +263,6 @@ const modelTFaqs = [
 ];
 
 export default function ModelTPage() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
@@ -1155,7 +1151,7 @@ export default function ModelTPage() {
 
         <EnergyResourceCard />
 
-        <ProjectsCard showHeader={true} headerText="" />
+        <ProjectsCardServer useFileProjects showHeader headerText="" />
 
         {/* FAQs */}
         <section className="w-full bg-white py-20">
@@ -1170,39 +1166,7 @@ export default function ModelTPage() {
               Common questions about the Taypro Model-T Solar Panel Cleaning
               Robot for single-axis tracker installations.
             </p>
-            {modelTFaqs.map((faq, idx) => (
-              <div
-                key={faq.question}
-                className="border-b border-gray-200 py-5"
-              >
-                <button
-                  type="button"
-                  onClick={() =>
-                    setOpenIndex(openIndex === idx ? null : idx)
-                  }
-                  className="w-full flex justify-between items-start text-left"
-                  aria-expanded={openIndex === idx}
-                >
-                  <h3 className="text-[#052638] font-medium text-lg sm:text-xl pr-6">
-                    {faq.question}
-                  </h3>
-                  <span className="text-[#A8C117] text-2xl leading-none shrink-0">
-                    {openIndex === idx ? "−" : "+"}
-                  </span>
-                </button>
-                <div
-                  className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
-                    openIndex === idx ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <p className="text-gray-600 text-base sm:text-lg leading-relaxed pt-4">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
+            <FAQAccordion faqs={modelTFaqs} variant="modern" />
           </Container>
         </section>
 

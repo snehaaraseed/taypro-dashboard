@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
+import OpenLeadModalButton from "./OpenLeadModalButton";
 
 interface ProjectOverviewSectionProps {
   image: string;
@@ -38,13 +38,14 @@ function ProjectOverviewSection({
             <h2 className="text-white text-sm sm:text-base lg:text-md leading-relaxed">
               {overviewText}
             </h2>
-            <Link
-              title="Contact"
-              href="/contact"
+            <OpenLeadModalButton
+              topic="Let's work together"
+              title="Let's work together"
+              subtitle="Tell us about your plant and our team will follow up with the right Solar Panel Cleaning Robot fit for your site."
               className="text-white text-lg sm:text-xl mt-4 sm:mt-6 lg:mt-8 border-b-2 border-[#e6ee9d] hover:text-[#e6ee9d] transition-colors duration-300"
             >
               Let&apos;s work together
-            </Link>
+            </OpenLeadModalButton>
           </div>
         </div>
       </div>

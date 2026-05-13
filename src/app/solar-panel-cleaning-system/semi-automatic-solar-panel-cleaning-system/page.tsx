@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
 import {
   Droplet,
   Dumbbell,
@@ -19,7 +16,8 @@ import {
 } from "lucide-react";
 import { modelBCards } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
-import ProjectsCard from "@/app/components/ProjectsCard";
+import ProjectsCardServer from "@/app/components/ProjectsCardServer";
+import FAQAccordion from "@/app/components/FAQAccordion";
 import ModelCards from "@/app/components/ModelCards";
 import ResourcesCard from "@/app/components/ResourcesCard";
 import CallbackCard from "@/app/components/CallbackCard";
@@ -258,8 +256,6 @@ const modelBFaqs = [
 ];
 
 export default function SemiAutomaticSolarPanelCleaningRobot() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
@@ -1055,8 +1051,8 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
           </Container>
         </section>
 
-        {/* PROJECTS */}
-        <ProjectsCard showHeader={true} headerText="" />
+        {/* PROJECTS — dynamic */}
+        <ProjectsCardServer useFileProjects showHeader headerText="" />
 
         {/* FAQs */}
         <section className="w-full bg-white py-20">
@@ -1071,39 +1067,7 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
               Common questions about the Taypro Model-B Semi-Automatic Solar
               Panel Cleaning Robot.
             </p>
-            {modelBFaqs.map((faq, idx) => (
-              <div
-                key={faq.question}
-                className="border-b border-gray-200 py-5"
-              >
-                <button
-                  type="button"
-                  onClick={() =>
-                    setOpenIndex(openIndex === idx ? null : idx)
-                  }
-                  className="w-full flex justify-between items-start text-left"
-                  aria-expanded={openIndex === idx}
-                >
-                  <h3 className="text-[#052638] font-medium text-lg sm:text-xl pr-6">
-                    {faq.question}
-                  </h3>
-                  <span className="text-[#A8C117] text-2xl leading-none shrink-0">
-                    {openIndex === idx ? "−" : "+"}
-                  </span>
-                </button>
-                <div
-                  className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
-                    openIndex === idx ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <p className="text-gray-600 text-base sm:text-lg leading-relaxed pt-4">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
+            <FAQAccordion faqs={modelBFaqs} variant="modern" />
           </Container>
         </section>
 

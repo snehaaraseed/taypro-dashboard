@@ -5,14 +5,21 @@ import Link from "next/link";
 import React from "react";
 import { AnimateOnScroll } from "./AnimateOnScroll";
 import { Container } from "./Container";
+import OpenLeadModalButton from "./OpenLeadModalButton";
 
 interface HeroSectionProps {
   title: React.ReactNode;
   subtitle: React.ReactNode;
   imgSrc: string;
   imgAlt?: string;
+  /**
+   * When unset or equal to `/contact`, the CTA opens the global lead-capture
+   * modal so the user stays on the page. Pass an explicit href to override.
+   */
   ctaHref?: string;
   ctaText?: string;
+  /** Optional analytics topic surfaced on the lead modal chip. */
+  ctaTopic?: string;
   className?: string;
 }
 
@@ -23,6 +30,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   imgAlt,
   ctaHref = "/contact",
   ctaText = "Request a quote",
+  ctaTopic,
   className = "",
 }) => {
   const titleString = typeof title === "string" ? title : "";
@@ -54,6 +62,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     : "Solar Panel Cleaning Robot by Taypro";
 
   const isInternal = ctaHref.startsWith("/");
+  const opensModal = ctaHref === "/contact";
+  const ctaClass =
+    "bg-[#A8C117] inline-block w-full sm:w-auto sm:min-w-[240px] px-8 sm:px-12 py-4 sm:py-5 text-[#052638] font-medium text-base sm:text-xl text-center transition hover:bg-[#b3cf3d]";
 
   return (
     <section className={`bg-white ${className}`}>
@@ -70,18 +81,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="text-base sm:text-xl text-white leading-relaxed max-w-xl mb-8 sm:mb-9">
               {subtitle}
             </div>
-            {isInternal ? (
-              <Link
-                href={ctaHref}
-                className="bg-[#A8C117] inline-block w-full sm:w-auto sm:min-w-[240px] px-8 sm:px-12 py-4 sm:py-5 text-[#052638] font-medium text-base sm:text-xl text-center transition hover:bg-[#b3cf3d]"
+            {opensModal ? (
+              <OpenLeadModalButton
+                className={ctaClass}
+                topic={ctaTopic ?? ctaText}
               >
+                {ctaText}
+              </OpenLeadModalButton>
+            ) : isInternal ? (
+              <Link href={ctaHref} className={ctaClass}>
                 {ctaText}
               </Link>
             ) : (
-              <a
-                href={ctaHref}
-                className="bg-[#A8C117] inline-block w-full sm:w-auto sm:min-w-[240px] px-8 sm:px-12 py-4 sm:py-5 text-[#052638] font-medium text-base sm:text-xl text-center transition hover:bg-[#b3cf3d]"
-              >
+              <a href={ctaHref} className={ctaClass}>
                 {ctaText}
               </a>
             )}
