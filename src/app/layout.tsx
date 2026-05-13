@@ -14,6 +14,7 @@ const Footer = dynamic(() => import("./components/Footer"), {
 import Header from "./components/Header";
 // Cookie consent banner - client-side only (imported as client component)
 import CookieConsentWrapper from "./components/CookieConsentWrapper";
+import SiteLeadSlideIn from "./components/SiteLeadSlideIn";
 import ClarityLoader from "./components/ClarityLoader";
 import GoogleTagManagerLoader from "./components/GoogleTagManagerLoader";
 
@@ -153,6 +154,7 @@ export default function RootLayout({
           <main className="flex-grow">{children}</main>
           <Footer />
           <CookieConsentWrapper />
+          <SiteLeadSlideIn />
           <GoogleTagManagerLoader />
           <ClarityLoader />
         </div>
