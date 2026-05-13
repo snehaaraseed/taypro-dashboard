@@ -7,6 +7,8 @@ import ClientsCard from "@/app/components/ClientsCard";
 import EnergyResourceCard from "@/app/components/EnergyResourceCard";
 import HeroSection from "@/app/components/Herosection";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
+import { SoftwareApplicationSchema } from "@/app/components/StructuredData";
+import { Container } from "@/app/components/Container";
 import type { Metadata } from "next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
@@ -60,7 +62,7 @@ const breadcrumbs = [
     href: "/solar-panel-cleaning-system",
   },
   {
-    name: "Taypro Console",
+    name: "Cleaning Robot Monitoring App",
     href: "",
   },
 ];
@@ -69,6 +71,12 @@ export default function AutomaticCleaningRobotMonitoringApp() {
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
+      <SoftwareApplicationSchema
+        name="Taypro Console - Solar Panel Cleaning Robot Monitoring App"
+        description="Cloud-based remote monitoring and control portal for Taypro autonomous Solar Panel Cleaning Robot fleets. Individual and group commands, seasonal scheduling, real-time fault detection and weather integration."
+        image={`${siteUrl}/tayproasset/taypro-dashboard.png`}
+        url={`${siteUrl}/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app`}
+      />
       <div className="min-h-screen">
         <HeroSection
           title="Taypro Console"
@@ -80,22 +88,22 @@ export default function AutomaticCleaningRobotMonitoringApp() {
         />
 
         <section
-          className="w-full py-30 bg-white"
+          className="w-full py-24 bg-white"
           style={{
             background: "url('/tayprobglayout/taypro-semi.png') repeat",
             backgroundSize: "auto",
           }}
         >
-          <div className="max-w-7xl mx-auto px-6">
+          <Container>
             <div className="text-center mb-12">
-              <h3 className="text-[#052638] font-semibold text-3xl md:text-4xl lg:text-5xl leading-tight max-w-4xl mx-auto">
+              <h2 className="text-[#052638] font-semibold text-3xl md:text-4xl lg:text-5xl leading-tight max-w-4xl mx-auto">
                 SEAMLESS CONNECTIVITY AND WEATHER INTEGRATION
-              </h3>
+              </h2>
             </div>
 
             {/* Mobile Layout */}
             <div className="block lg:hidden">
-              <div className="relative w-full h-[300px] sm:h-[400px] overflow-hidden">
+              <div className="relative w-full aspect-[16/10] overflow-hidden">
                 <Image
                   src="/tayproasset/taypro-console.png"
                   alt="Taypro Console - Solar Panel Cleaning Robot Monitoring Dashboard Interface showing fleet management and control panel"
@@ -105,10 +113,10 @@ export default function AutomaticCleaningRobotMonitoringApp() {
                   priority
                 />
               </div>
-              <div className="bg-[#7da300] p-6 mx-4 -mt-20 relative">
-                <h4 className="text-white text-start text-xl sm:text-2xl mb-4">
+              <div className="bg-[#7da300] p-6 -mt-16 relative">
+                <h3 className="text-white text-start text-xl sm:text-2xl mb-4">
                   Precision in Operation
-                </h4>
+                </h3>
                 <p className="text-white text-start text-sm sm:text-base leading-relaxed">
                   The TAYPRO CONSOLE goes beyond conventional cleaning methods.
                   It allows for the application of individual and group
@@ -121,7 +129,7 @@ export default function AutomaticCleaningRobotMonitoringApp() {
             </div>
 
             {/* Desktop Layout */}
-            <div className="hidden lg:block relative w-full h-[700px] overflow-hidden">
+            <div className="hidden lg:block relative w-full aspect-[16/9] overflow-hidden">
               <Image
                 src="/tayproasset/taypro-console.png"
                 alt="Taypro Console - Solar Panel Cleaning Robot Monitoring Dashboard Interface showing fleet management and control panel"
@@ -132,10 +140,10 @@ export default function AutomaticCleaningRobotMonitoringApp() {
               />
 
               {/* Overlay card */}
-              <div className="absolute right-10 top-1/2 transform -translate-y-1/2 bg-[#7da300] p-6 w-90 h-[350px] flex flex-col justify-center items-center text-center">
-                <div className="text-white text-2xl mb-4">
+              <div className="absolute right-10 top-1/2 -translate-y-1/2 bg-[#7da300] p-6 w-[360px] flex flex-col justify-center items-center text-center">
+                <h3 className="text-white text-2xl mb-4">
                   Precision in Operation
-                </div>
+                </h3>
                 <p className="text-white text-md leading-relaxed">
                   The TAYPRO CONSOLE goes beyond conventional cleaning methods.
                   It allows for the application of individual and group
@@ -146,7 +154,7 @@ export default function AutomaticCleaningRobotMonitoringApp() {
                 </p>
               </div>
             </div>
-          </div>
+          </Container>
         </section>
 
         <EnergyResourceCard />

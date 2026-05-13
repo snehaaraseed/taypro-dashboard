@@ -256,12 +256,6 @@ export default function SiteLeadSlideIn() {
                 ))}
               </ul>
 
-              <p className="mt-5 flex items-start gap-2.5 text-sm leading-snug text-[#5c7582] sm:mt-6 sm:text-base sm:leading-relaxed">
-                <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#3c8152] sm:h-5 sm:w-5" strokeWidth={2.5} aria-hidden />
-                <span>
-                  Same secure request as our site estimate. Your details go straight to our sales lead flow.
-                </span>
-              </p>
 
               <div className="mt-6 flex flex-col gap-2 sm:mt-7">
                 <button

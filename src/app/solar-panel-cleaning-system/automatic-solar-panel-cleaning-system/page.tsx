@@ -23,6 +23,7 @@ import { ProductSchema } from "@/app/components/StructuredData";
 import Link from "next/link";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import Product360Viewer from "@/app/components/Product360Viewer";
+import { Container } from "@/app/components/Container";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
@@ -56,257 +57,160 @@ export default function AutomaticSolarPanelCleaningRobot() {
         }}
       />
       <div className="min-h-screen">
-        <section className="min-h-[600px] mx-4 sm:mx-20 flex flex-col lg:flex-row relative overflow-hidden">
-          {/* LEFT - Content */}
-          <AnimateOnScroll
-            animation="fadeInLeft"
-            className="bg-[#052638] w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-8 xl:px-24 py-12 sm:py-16"
-          >
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-semibold text-white mb-6 leading-tight">
-              Automatic Solar Panel Cleaning Robot: <br /> MODEL-
-              <span className="">A</span>
-            </h1>
-            <div className="text-base sm:text-xl text-white leading-relaxed max-w-full sm:max-w-xl mb-8 sm:mb-9">
-              Autonomous Waterless Solar Panel Cleaning Robot for Utility Scale
-              Solar Power Plants
+        <section className="bg-white">
+          <Container className="py-12 sm:py-16">
+            <div className="min-h-[600px] flex flex-col lg:flex-row relative overflow-hidden">
+              {/* LEFT - Content */}
+              <AnimateOnScroll
+                animation="fadeInLeft"
+                className="bg-[#052638] w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-10 py-12 sm:py-16"
+              >
+                <h1 className="text-3xl sm:text-5xl md:text-6xl font-semibold text-white mb-6 leading-tight">
+                  Automatic Solar Panel Cleaning Robot: <br /> MODEL-A
+                </h1>
+                <div className="text-base sm:text-xl text-white leading-relaxed max-w-xl mb-8 sm:mb-9">
+                  Autonomous Waterless Solar Panel Cleaning Robot for Utility
+                  Scale Solar Power Plants
+                </div>
+                <Link
+                  href="/contact"
+                  className="bg-[#A8C117] inline-block w-full sm:w-auto sm:min-w-[240px] px-8 sm:px-12 py-4 sm:py-5 text-[#052638] font-medium text-base sm:text-xl text-center transition hover:bg-[#b3cf3d]"
+                >
+                  Request a quote
+                </Link>
+              </AnimateOnScroll>
+              {/* RIGHT - IMAGE */}
+              <AnimateOnScroll
+                animation="fadeInRight"
+                delay={100}
+                className="relative w-full lg:w-1/2 min-h-[240px] sm:min-h-[360px] mt-10 lg:mt-0"
+              >
+                <Image
+                  alt="Taypro Automatic Solar Panel Cleaning Robot Model-A cleaning solar panels at utility-scale solar farm"
+                  src="/tayprosolarpanel/solar-panel.jpg"
+                  title="Automatic Solar Panel Cleaning Robot Model-A by Taypro"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </AnimateOnScroll>
             </div>
-            <a
-              href="/contact"
-              className="bg-[#A8C117] rounded-none w-full max-w-xl py-4 sm:py-6 text-[#052638] font-medium text-base sm:text-xl text-center transition hover:bg-[#b3cf3d]"
-            >
-              Request a quote
-            </a>
-          </AnimateOnScroll>
-          {/* RIGHT - IMAGE */}
-          <AnimateOnScroll
-            animation="fadeInRight"
-            delay={100}
-            className="relative w-full sm:w-300 lg:w-1/2 min-h-[240px] sm:min-h-[360px] mr-0 sm:mr-20 mt-10 lg:mt-0"
-          >
-            <Image
-              alt="Taypro Automatic Solar Panel Cleaning Robot Model-A cleaning solar panels at utility-scale solar farm"
-              src="/tayprosolarpanel/solar-panel.jpg"
-              title="Automatic Solar Panel Cleaning Robot Model-A by Taypro"
-              fill
-              className="object-contain"
-              priority
-            />
-            <svg
-              className="absolute right-0 top-0 w-full h-full pointer-events-none"
-              viewBox="0 0 900 700"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path
-                d="M700,90 Q990,160 990,400 Q990,680 510,700"
-                stroke="#ede9df"
-                strokeWidth="2"
-                fill="none"
-              />
-              <path
-                d="M740,140 Q970,230 970,430 Q970,680 530,670"
-                stroke="#ede9df"
-                strokeWidth="2"
-                fill="none"
-              />
-              <path
-                d="M740,140 Q970,230 970,430 Q970,680 530,670"
-                stroke="#ede9df"
-                strokeWidth="2"
-                fill="none"
-              />
-              <path
-                d="M740,140 Q970,230 970,430 Q970,680 530,670"
-                stroke="#ede9df"
-                strokeWidth="2"
-                fill="none"
-              />
-            </svg>
-          </AnimateOnScroll>
+          </Container>
         </section>
 
         {/* 360-Degree Product Viewer Section */}
-        <section className="max-w-[1650px] bg-gradient-to-b from-white to-gray-50 mx-auto px-4 sm:px-6 py-20">
-          <AnimateOnScroll animation="fadeInUp" className="text-center mb-8">
-            <div className="text-[#A8C117] text-xl sm:text-2xl font-medium mb-2">
-              Interactive Product Tour
-            </div>
-            <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-4">
-              360° View of Model-A
-            </h2>
-            <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
-              Drag left or right to rotate and explore our Automatic Solar Panel
-              Cleaning Robot from every angle
-            </p>
-          </AnimateOnScroll>
-          <AnimateOnScroll
-            animation="fadeInUp"
-            delay={100}
-            className="flex justify-center"
-          >
-            <div className="w-full max-w-4xl">
-              <Product360Viewer
-                imagePath="/360-degree-images/Model-A/MODEL-A-"
-                imageCount={61}
-                imagePrefix=""
-                imageSuffix=".png"
-                startIndex={100}
-                width={800}
-                height={600}
-                className="mx-auto"
-              />
-            </div>
-          </AnimateOnScroll>
+        <section className="bg-gradient-to-b from-white to-gray-50 py-20">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="text-center mb-8">
+              <div className="text-[#A8C117] text-xl sm:text-2xl font-medium mb-2">
+                Interactive Product Tour
+              </div>
+              <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-4">
+                360° View of Model-A
+              </h2>
+              <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
+                Drag left or right to rotate and explore our Automatic Solar Panel
+                Cleaning Robot from every angle
+              </p>
+            </AnimateOnScroll>
+            <AnimateOnScroll
+              animation="fadeInUp"
+              delay={100}
+              className="flex justify-center"
+            >
+              <div className="w-full max-w-4xl">
+                <Product360Viewer
+                  imagePath="/360-degree-images/Model-A/MODEL-A-"
+                  imageCount={61}
+                  imagePrefix=""
+                  imageSuffix=".png"
+                  startIndex={100}
+                  width={800}
+                  height={600}
+                  className="mx-auto"
+                />
+              </div>
+            </AnimateOnScroll>
+          </Container>
         </section>
 
-        <section className="max-w-[1650px] bg-white mx-auto px-4 sm:px-6 py-20 pt-40">
-          <AnimateOnScroll
-            animation="fadeInUp"
-            className="text-center text-[#A8C117] text-2xl font-medium mb-2"
-          >
-            <div>MODEL A – Automatic Solar Panel Cleaning Robot</div>
-          </AnimateOnScroll>
-          <AnimateOnScroll
-            animation="fadeInUp"
-            delay={100}
-            className="text-center text-[#052638] font-semibold text-6xl mb-14"
-          >
-            <h3>USPs</h3>
-          </AnimateOnScroll>
-          <div className="grid grid-cols-1 gap-y-6 gap-x-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center px-4 sm:px-0">
-            {/* Row 1 */}
+        <section className="bg-white py-20 sm:pt-32">
+          <Container>
             <AnimateOnScroll
               animation="fadeInUp"
-              delay={150}
-              className="flex items-center gap-4 w-full max-w-xs md:w-[400px]"
+              className="text-center text-[#A8C117] text-2xl font-medium mb-2"
             >
-              <span className="flex items-center justify-center w-15 h-15 border-2 border-[#6ad10b] rounded-xl">
-                <Droplet size={40} className="text-[#052638]" />
-              </span>
-              <span className="text-[#052638] text-xl font-semibold">
-                Superior Cleaning Efficiency
-              </span>
+              <div>MODEL A – Automatic Solar Panel Cleaning Robot</div>
             </AnimateOnScroll>
             <AnimateOnScroll
               animation="fadeInUp"
-              delay={200}
-              className="flex items-center gap-4 w-full max-w-xs md:w-[400px]"
+              delay={100}
+              className="text-center text-[#052638] font-semibold text-5xl sm:text-6xl mb-14"
             >
-              <span className="flex items-center justify-center w-15 h-15 border-2 border-[#6ad10b] rounded-xl">
-                <Dumbbell size={40} className="text-[#052638]" />
-              </span>
-              <span className="text-[#052638] text-xl font-semibold">
-                Robust & Durable Design
-              </span>
+              <h2>USPs</h2>
             </AnimateOnScroll>
-            <AnimateOnScroll
-              animation="fadeInUp"
-              delay={250}
-              className="flex items-center gap-4 w-full max-w-xs md:w-[400px]"
-            >
-              <span className="flex items-center justify-center w-20 h-20 border-2 border-[#6ad10b] rounded-xl">
-                <LineChart size={40} className="text-[#052638]" />
-              </span>
-              <span className="text-[#052638] text-xl font-semibold">
-                Greater Coverage
-              </span>
-            </AnimateOnScroll>
-            {/* Row 2 */}
-            <AnimateOnScroll
-              animation="fadeInUp"
-              delay={300}
-              className="flex items-center gap-5 w-full max-w-xs md:w-[400px]"
-            >
-              <span className="flex items-center justify-center w-15 h-15 border-2 border-[#6ad10b] rounded-xl">
-                <RotateCcw size={40} className="text-[#052638]" />
-              </span>
-              <span className="text-[#052638] text-xl font-semibold">
-                High-Speed Cleaning
-              </span>
-            </AnimateOnScroll>
-            <AnimateOnScroll
-              animation="fadeInUp"
-              delay={350}
-              className="flex items-center gap-4 w-full max-w-xs md:w-[400px]"
-            >
-              <span className="flex items-center justify-center w-15 h-15 border-2 border-[#6ad10b] rounded-xl">
-                <Hand size={40} className="text-[#052638]" />
-              </span>
-              <span className="text-[#052638] text-xl font-semibold">
-                Advanced Edge & Obstacle Detection
-              </span>
-            </AnimateOnScroll>
-            <AnimateOnScroll
-              animation="fadeInUp"
-              delay={400}
-              className="flex items-center gap-5 w-full max-w-xs md:w-[400px]"
-            >
-              <span className="flex items-center justify-center w-15 h-15 border-2 border-[#6ad10b] rounded-xl">
-                <Cloud size={40} className="text-[#052638]" />
-              </span>
-              <span className="text-[#052638] text-xl font-semibold">
-                Cloud-Based Remote Monitoring
-              </span>
-            </AnimateOnScroll>
-            {/* Row 3 */}
-            <AnimateOnScroll
-              animation="fadeInUp"
-              delay={450}
-              className="flex items-center gap-4 w-full max-w-xs ml-0 md:ml-100"
-            >
-              <span className="flex items-center justify-center w-15 h-15 border-2 border-[#6ad10b] rounded-xl">
-                <Brain size={40} className="text-[#052638]" />
-              </span>
-              <span className="text-[#052638] text-xl font-semibold">
-                Self-Cleaning Technology
-              </span>
-            </AnimateOnScroll>
-            <AnimateOnScroll
-              animation="fadeInUp"
-              delay={500}
-              className="flex items-center gap-4 w-full max-w-xs md:col-span-2 md:w-[calc(800px)]"
-            >
-              <span className="flex items-center justify-center w-15 h-15 border-2 border-[#6ad10b] rounded-xl">
-                <CheckCheck size={40} className="text-[#052638]" />
-              </span>
-              <span className="text-[#052638] text-xl font-semibold">
-                Certified & Tested for Harsh <br className="hidden md:block" />
-                Conditions
-              </span>
-            </AnimateOnScroll>
-          </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-6 justify-items-center sm:justify-items-start">
+              {[
+                { Icon: Droplet, label: "Superior Cleaning Efficiency" },
+                { Icon: Dumbbell, label: "Robust & Durable Design" },
+                { Icon: LineChart, label: "Greater Coverage" },
+                { Icon: RotateCcw, label: "High-Speed Cleaning" },
+                { Icon: Hand, label: "Advanced Edge & Obstacle Detection" },
+                { Icon: Cloud, label: "Cloud-Based Remote Monitoring" },
+                { Icon: Brain, label: "Self-Cleaning Technology" },
+                { Icon: CheckCheck, label: "Certified & Tested for Harsh Conditions" },
+              ].map(({ Icon, label }, idx) => (
+                <AnimateOnScroll
+                  key={label}
+                  animation="fadeInUp"
+                  delay={150 + idx * 50}
+                  className="flex items-center gap-4 w-full max-w-xs sm:max-w-none"
+                >
+                  <span className="flex items-center justify-center w-15 h-15 shrink-0 border-2 border-[#6ad10b] rounded-xl">
+                    <Icon size={40} className="text-[#052638]" />
+                  </span>
+                  <span className="text-[#052638] text-xl font-semibold">
+                    {label}
+                  </span>
+                </AnimateOnScroll>
+              ))}
+            </div>
+          </Container>
         </section>
 
-        <section className="pt-30 pb-5 bg-white px-4 sm:px-0">
-          <AnimateOnScroll animation="fadeInUp" className="text-center">
-            <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
-              Automatic Solar Panel Cleaning Robot Cost <br /> & ROI Calculation
-            </h2>
-            <div className="text-gray-600 my-6 text-base sm:text-xl">
-              Calculate How Effective A{" "}
-              <span style={{ color: "#A8C117" }}>
-                Solar Panel Cleaning Robot
-              </span>{" "}
-              Can Be And How Much It Can Save.
-            </div>
-          </AnimateOnScroll>
+        <section className="pt-24 pb-5 bg-white">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="text-center">
+              <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
+                Automatic Solar Panel Cleaning Robot Cost <br /> & ROI Calculation
+              </h2>
+              <div className="text-gray-600 my-6 text-base sm:text-xl">
+                Calculate How Effective A{" "}
+                <span style={{ color: "#A8C117" }}>
+                  Solar Panel Cleaning Robot
+                </span>{" "}
+                Can Be And How Much It Can Save.
+              </div>
+            </AnimateOnScroll>
+          </Container>
           <ROITayproCalculator />
         </section>
 
-        <section className="pt-10 pb-1 bg-white px-4 sm:px-0">
-          <AnimateOnScroll animation="fadeInUp" className="text-center">
-            <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
-              Projects with MODEL A – Automatic <br /> Solar Panel Cleaning
-              Robot
-              <br />
-              Installations
-            </h2>
-            <div className="text-gray-600 my-6 text-base sm:text-xl italic px-2 sm:px-0">
-              We have ensured quick installation and dedicated technical support
-              with a promise of same-day breakdown resolution.
-            </div>
-          </AnimateOnScroll>
+        <section className="pt-10 pb-1 bg-white">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="text-center">
+              <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
+                Projects with MODEL A – Automatic <br /> Solar Panel Cleaning
+                Robot
+                <br />
+                Installations
+              </h2>
+              <div className="text-gray-600 my-6 text-base sm:text-xl italic">
+                We have ensured quick installation and dedicated technical support
+                with a promise of same-day breakdown resolution.
+              </div>
+            </AnimateOnScroll>
+          </Container>
         </section>
 
         <ProjectsCard />
@@ -320,11 +224,11 @@ export default function AutomaticSolarPanelCleaningRobot() {
           }
         />
 
-        <section className="pt-30 pb-5 bg-white px-4 sm:px-0">
-          <div className="text-start ml-0 sm:ml-30 ">
+        <section className="pt-24 pb-5 bg-white">
+          <Container>
             <AnimateOnScroll animation="fadeInUp">
               <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
-                Features of Taypro&apos;s Automatic Solar Panel <br /> Cleaning
+                Features of Taypro&rsquo;s Automatic Solar Panel <br /> Cleaning
                 Robots: Model-A
               </h2>
             </AnimateOnScroll>
@@ -390,20 +294,21 @@ export default function AutomaticSolarPanelCleaningRobot() {
               that detect the panel edges. These sensors can detect uneven
               surfaces and other potential hazards.
             </div>
-          </div>
+          </Container>
         </section>
 
-        <section className="w-full bg-white flex flex-col items-center pt-30 pb-10 px-4 sm:px-0">
-          <AnimateOnScroll
-            animation="fadeInUp"
-            className="font-semibold text-[#052638] text-center text-3xl sm:text-5xl md:text-6xl mb-12 sm:mb-15"
-          >
-            <h2>
-              Automatic Solar Panel Cleaning Robot <br /> Model-A Specifications
-            </h2>
-          </AnimateOnScroll>
-          {/* Specifications Table Container */}
-          <div className="w-full max-w-6xl bg-white shadow-md overflow-x-auto">
+        <section className="w-full bg-white pt-24 pb-10">
+          <Container>
+            <AnimateOnScroll
+              animation="fadeInUp"
+              className="font-semibold text-[#052638] text-center text-3xl sm:text-5xl md:text-6xl mb-12 sm:mb-15"
+            >
+              <h2>
+                Automatic Solar Panel Cleaning Robot <br /> Model-A Specifications
+              </h2>
+            </AnimateOnScroll>
+            {/* Specifications Table Container */}
+            <div className="w-full bg-white shadow-md overflow-x-auto">
             <table className="w-full text-left border border-gray-300 text-sm sm:text-base">
               <thead>
                 <tr className="bg-gray-100">
@@ -562,11 +467,12 @@ export default function AutomaticSolarPanelCleaningRobot() {
                 </tr>
               </tbody>
             </table>
-          </div>
+            </div>
+          </Container>
         </section>
 
-        <section className="pt-30 pb-5 bg-white px-4 sm:px-0">
-          <div className="text-start ml-0 sm:ml-30 ">
+        <section className="pt-24 pb-5 bg-white">
+          <Container>
             <AnimateOnScroll animation="fadeInUp">
               <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
                 Advantages of Using Automatic Solar Panel <br /> Cleaning Robots
@@ -632,17 +538,17 @@ export default function AutomaticSolarPanelCleaningRobot() {
               that detect the panel edges. These sensors can detect uneven
               surfaces and other potential hazards.
             </div>
-          </div>
+          </Container>
         </section>
 
         <section
-          className="w-full items-center py-24 bg-[#052638] bg-center px-4 sm:px-6 lg:px-0"
+          className="w-full py-24 bg-[#052638] bg-center"
           style={{
             backgroundImage: "url('/tayproasset/taypro-spiral.png')",
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="w-full max-w-5xl mx-auto px-4 sm:px-6">
+          <Container size="narrow">
             <AnimateOnScroll
               animation="fadeInUp"
               className="text-white font-semibold text-3xl sm:text-5xl text-start mb-16"
@@ -676,11 +582,11 @@ export default function AutomaticSolarPanelCleaningRobot() {
               for solar power plants with easy installations and safe
               operations.
             </p>
-          </div>
+          </Container>
         </section>
 
-        <section className="w-full items-center pt-30 pb-2 bg-white bg-center px-4 sm:px-6 lg:px-0">
-          <div className="max-w-5xl mx-auto px-6">
+        <section className="w-full pt-24 pb-2 bg-white bg-center">
+          <Container size="narrow">
             <AnimateOnScroll
               animation="fadeInUp"
               className="font-semibold text-3xl sm:text-5xl md:text-5xl text-start mb-16"
@@ -691,9 +597,9 @@ export default function AutomaticSolarPanelCleaningRobot() {
               </h2>
             </AnimateOnScroll>
             <p className="mb-7 text-start text-base sm:text-lg">
-              TAYPRO’s Model A Automatic Solar Panel Cleaning Robot delivers a
-              high return on investment ROI by significantly increasing power
-              generation.
+              TAYPRO&rsquo;s Model A Automatic Solar Panel Cleaning Robot
+              delivers a high return on investment ROI by significantly
+              increasing power generation.
             </p>
             <p className="mb-7 text-start text-base sm:text-lg">
               Also, Model A reduces operational cleaning costs and offers
@@ -710,11 +616,11 @@ export default function AutomaticSolarPanelCleaningRobot() {
                 </span>
               </Link>
             </p>
-          </div>
+          </Container>
         </section>
 
-        <section className="w-full items-center pt-24 pb-5 bg-white bg-center px-4 sm:px-6 lg:px-0">
-          <div className="max-w-5xl mx-auto px-6">
+        <section className="w-full pt-24 pb-5 bg-white bg-center">
+          <Container size="narrow">
             <AnimateOnScroll
               animation="fadeInUp"
               className="font-semibold text-3xl sm:text-5xl md:text-5xl text-start mb-16"
@@ -759,17 +665,17 @@ export default function AutomaticSolarPanelCleaningRobot() {
               like obstacle detection, self-cleaning microfiber and adaptive
               navigation.
             </p>
-          </div>
+          </Container>
         </section>
 
-        <section className="w-full mr-0 sm:mr-50 items-center p-4 sm:p-50 pt-2 pb-2 bg-white bg-center">
-          <AnimateOnScroll
-            animation="fadeInUp"
-            className="font-semibold text-center text-[#052638] text-3xl sm:text-5xl md:text-5xl mb-8"
-          >
-            <h3>FAQs</h3>
-          </AnimateOnScroll>
-          <div className="max-w-5xl mx-auto px-4 sm:px-0">
+        <section className="w-full py-16 bg-white">
+          <Container size="narrow">
+            <AnimateOnScroll
+              animation="fadeInUp"
+              className="font-semibold text-center text-[#052638] text-3xl sm:text-5xl md:text-5xl mb-8"
+            >
+              <h2>FAQs</h2>
+            </AnimateOnScroll>
             {faqs.map((faq, idx) => (
               <div key={idx} className="border-b border-gray-300">
                 <button
@@ -779,20 +685,20 @@ export default function AutomaticSolarPanelCleaningRobot() {
                   <span className="flex items-center justify-center w-6 h-6 bg-[#052638] text-white font-semibold rounded-sm mr-4 text-xl select-none">
                     {openIndex === idx ? "-" : "+"}
                   </span>
-                  <h4>{faq.question}</h4>
+                  <h3>{faq.question}</h3>
                 </button>
                 <div
-                  className={`pl-16 pr-4 pb-6 text-sm sm:text-base text-[#052638] transition-all duration-200 ${
+                  className={`grid pl-16 pr-4 text-sm sm:text-base text-[#052638] transition-all duration-200 ${
                     openIndex === idx
-                      ? "max-h-40 opacity-100"
-                      : "max-h-0 opacity-0 overflow-hidden"
+                      ? "grid-rows-[1fr] opacity-100 pb-6"
+                      : "grid-rows-[0fr] opacity-0"
                   }`}
                 >
-                  {faq.answer}
+                  <div className="overflow-hidden">{faq.answer}</div>
                 </div>
               </div>
             ))}
-          </div>
+          </Container>
         </section>
 
         <ModelCards title="Looking for more solutions?" cards={modelCards} />

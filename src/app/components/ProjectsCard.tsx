@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { projects } from "../data";
 import Link from "next/link";
+import { Container } from "./Container";
 
 interface ProjectItem {
   img: string;
@@ -51,12 +52,13 @@ function ProjectsCardDisplay({
   };
 
   return (
-    <section className="py-10 pb-40 bg-white px-4 sm:px-6 lg:px-30 max-w-full overflow-x-hidden mx-auto">
+    <section className="py-10 pb-40 bg-white overflow-x-hidden">
+      <Container>
       {showHeader &&
         (headerText ? (
-          <h3 className="text-2xl text-center bg-white lg:text-4xl py-15 font-semibold">
+          <h2 className="text-2xl text-center bg-white lg:text-4xl py-15 font-semibold">
             {headerText}
-          </h3>
+          </h2>
         ) : (
           <h2 className="text-3xl text-center bg-white lg:text-6xl py-15 font-semibold">
             Our Most Recent <br /> Projects
@@ -68,7 +70,7 @@ function ProjectsCardDisplay({
           <p>No projects available at the moment.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {displayProjects.map((project) => {
             const detailsArray = normalizeDetails(project.details);
             return (
@@ -135,6 +137,7 @@ function ProjectsCardDisplay({
       )}
 
       <div className="border border-[#cbd2d0] mt-5"></div>
+      </Container>
     </section>
   );
 }

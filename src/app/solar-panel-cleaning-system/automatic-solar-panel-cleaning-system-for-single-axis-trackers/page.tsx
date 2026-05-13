@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { modelTCards } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import ProjectsCard from "@/app/components/ProjectsCard";
@@ -11,6 +10,8 @@ import EnergyResourceCard from "@/app/components/EnergyResourceCard";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import Product360Viewer from "@/app/components/Product360Viewer";
+import { ProductSchema } from "@/app/components/StructuredData";
+import { Container } from "@/app/components/Container";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
@@ -21,7 +22,7 @@ const breadcrumbs = [
     href: "/solar-panel-cleaning-system",
   },
   {
-    name: "Model-T",
+    name: "Solar Panel Cleaning Robot for Single-Axis Trackers",
     href: "",
   },
 ];
@@ -30,9 +31,21 @@ export default function AutomaticSolarPanelCleaningSystem() {
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
-      <div className="min-h-screen overflow-x-hidden px-4 sm:px-6 lg:px-0">
+      <ProductSchema
+        name="Solar Panel Cleaning Robot for Single-Axis Trackers - Model-T"
+        description="Model-T: Autonomous waterless Solar Panel Cleaning Robot purpose-built for single-axis tracker installations. AI-driven scheduling, cloud-based remote monitoring and a flexible rotational bridge."
+        image={`${siteUrl}/tayprorobots/taypro-modelT-img.png`}
+        brand="Taypro"
+        sku="MODEL-T"
+        offers={{
+          price: "Contact for pricing",
+          priceCurrency: "INR",
+          availability: "https://schema.org/InStock",
+        }}
+      />
+      <div className="min-h-screen overflow-x-hidden">
         <HeroSection
-          title="Model-T"
+          title="Solar Panel Cleaning Robot for Single-Axis Trackers — Model-T"
           subtitle="Autonomous solar panel cleaning robot for single-axis trackers"
           imgSrc="/tayprorobots/taypro-modelT-img.png"
           imgAlt="Taypro Single-Axis Tracker Solar Panel Cleaning Robot Model-T - Autonomous robotic cleaning system for tracking solar panel installations"
@@ -41,21 +54,21 @@ export default function AutomaticSolarPanelCleaningSystem() {
         />
 
         <section
-          className="w-full py-30 bg-white px-4 sm:px-6 lg:px-0"
+          className="w-full py-24 bg-white"
           style={{
             background: "url('/tayprobglayout/taypro-semi.png') repeat",
             backgroundSize: "auto",
           }}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
+          <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
               <div className="text-[#A8C117] text-md font-medium mb-6">
                 TAYPRO MODEL-T
               </div>
-              <h3 className="text-[#052638] font-semibold text-3xl md:text-4xl lg:text-5xl leading-tight max-w-4xl mx-auto">
+              <h2 className="text-[#052638] font-semibold text-3xl md:text-4xl lg:text-5xl leading-tight max-w-4xl mx-auto">
                 AUTONOMOUS WATERLESS SOLAR PANEL CLEANING ROBOT FOR SINGLE AXIS
                 TRACKER INSTALLATIONS
-              </h3>
+              </h2>
             </AnimateOnScroll>
 
             {/* Mobile Layout */}
@@ -65,9 +78,9 @@ export default function AutomaticSolarPanelCleaningSystem() {
                   <div className="text-[#A8C117] text-xl sm:text-2xl font-medium mb-2">
                     Interactive Product Tour
                   </div>
-                  <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-4">
+                  <h3 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-4">
                     360° View of Model-T
-                  </h2>
+                  </h3>
                   <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
                     Drag left or right to rotate and explore our Single-Axis Tracker Solar Panel Cleaning Robot from every angle
                   </p>
@@ -86,10 +99,10 @@ export default function AutomaticSolarPanelCleaningSystem() {
                 </div>
               </AnimateOnScroll>
 
-              <AnimateOnScroll animation="fadeInUp" delay={200} className="bg-[#7da300] p-6 mx-4">
-                <h4 className="text-white text-start text-xl sm:text-2xl mb-4">
+              <AnimateOnScroll animation="fadeInUp" delay={200} className="bg-[#7da300] p-6">
+                <h3 className="text-white text-start text-xl sm:text-2xl mb-4">
                   The Innovation Behind the MODEL-T
-                </h4>
+                </h3>
                 <p className="text-white text-start text-sm sm:text-base leading-relaxed">
                   The TAYPRO MODEL-T represents a synergy of cutting-edge
                   technologies meticulously engineered to address the challenges
@@ -108,9 +121,9 @@ export default function AutomaticSolarPanelCleaningSystem() {
               <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
                 <AnimateOnScroll animation="fadeInLeft" delay={100} className="flex-1 flex flex-col">
                   <div className="text-center mb-3">
-                    <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-2">
+                    <h3 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-2">
                       360° View of Model-T
-                    </h2>
+                    </h3>
                     <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto mb-4">
                       Drag left or right to rotate and explore our Single-Axis Tracker Solar Panel Cleaning Robot</p>
                   </div>
@@ -145,7 +158,7 @@ export default function AutomaticSolarPanelCleaningSystem() {
                 </AnimateOnScroll>
               </div>
             </div>
-          </div>
+          </Container>
         </section>
 
         <EnergyResourceCard />

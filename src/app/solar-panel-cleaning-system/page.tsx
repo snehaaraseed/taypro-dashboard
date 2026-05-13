@@ -7,7 +7,8 @@ import {
   faqs,
   moreFaqs,
   robotFeatures,
-  robots,
+  robotProducts,
+  robotSolutions,
   robotsAdvantages,
   toDoFeatures,
 } from "@/app/data";
@@ -18,6 +19,7 @@ import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROITayproCalculator from "@/app/components/ROICalculator";
 import Link from "next/link";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
+import { Container } from "@/app/components/Container";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -25,52 +27,66 @@ const breadcrumbs = [
 ];
 
 export default function SolarPanelCleaningRobot() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [openMoreFaqIndex, setOpenMoreFaqIndex] = useState<number | null>(null);
 
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
       <div className="min-h-screen">
-        <section className="pt-2 pb-20 bg-white px-4 sm:px-6 lg:px-0">
-          <AnimateOnScroll animation="fadeInUp" className="text-center my-12 px-2 sm:px-0">
-            <h1 className="text-4xl sm:text-6xl font-semibold">
-              Solar Panel Cleaning Robot <br /> With Highest Uptime
-            </h1>
-            <div className="text-green-700 my-6 text-base sm:text-lg px-4 sm:px-0 leading-relaxed">
-              We design and deliver efficient Solar Panel Cleaning Robots with
-              the highest up-time guarantee. We offer tech- <br /> driven and
-              AI-oriented cleaning solutions for unstoppable power generation.
-              Discover more about our waterless <br />
-              solar panel cleaning robots.
+        <section className="pt-2 pb-20 bg-white">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="text-center my-12">
+              <h1 className="text-4xl sm:text-6xl font-semibold">
+                Solar Panel Cleaning Robot <br /> With Highest Uptime
+              </h1>
+              <div className="text-green-700 my-6 text-base sm:text-lg leading-relaxed">
+                We design and deliver efficient Solar Panel Cleaning Robots with
+                the highest up-time guarantee. We offer tech-driven and
+                AI-oriented cleaning solutions for unstoppable power generation.
+                Discover more about our waterless solar panel cleaning robots.
+              </div>
+            </AnimateOnScroll>
+            <div className="mt-12">
+              <AnimateOnScroll animation="fadeInUp" className="mb-6 text-center">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#052638]">
+                  Our Cleaning Robots
+                </h2>
+              </AnimateOnScroll>
+              <div className="flex flex-col sm:flex-row flex-wrap justify-center items-stretch gap-6">
+                {robotProducts.map((robot, idx) => (
+                  <AnimateOnScroll key={robot.model} animation="scaleIn" delay={idx * 150}>
+                    <RobotCard robot={robot} priority={idx === 0} />
+                  </AnimateOnScroll>
+                ))}
+              </div>
             </div>
-          </AnimateOnScroll>
-          <div className="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-6 px-4 sm:px-0">
-            {robots.slice(0, 3).map((robot, idx) => (
-              <AnimateOnScroll key={robot.model} animation="scaleIn" delay={idx * 150}>
-                <RobotCard robot={robot} />
-              </AnimateOnScroll>
-            ))}
-          </div>
 
-          <div className="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-6 px-4 sm:px-0 mt-8">
-            {robots.slice(3).map((robot, idx) => (
-              <AnimateOnScroll key={robot.model} animation="scaleIn" delay={(idx + 3) * 150}>
-                <RobotCard robot={robot} />
+            <div className="mt-16">
+              <AnimateOnScroll animation="fadeInUp" className="mb-6 text-center">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#052638]">
+                  Software & Services
+                </h2>
               </AnimateOnScroll>
-            ))}
-          </div>
+              <div className="flex flex-col sm:flex-row flex-wrap justify-center items-stretch gap-6">
+                {robotSolutions.map((robot, idx) => (
+                  <AnimateOnScroll key={robot.model} animation="scaleIn" delay={idx * 150}>
+                    <RobotCard robot={robot} />
+                  </AnimateOnScroll>
+                ))}
+              </div>
+            </div>
+          </Container>
         </section>
 
         <section className="py-12 lg:py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4">
+          <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold leading-tight mb-4">
-                Calculate How Much Can Solar Cleaning Robots Save?
-                <br className="hidden sm:block" />
-                <span className="sm:hidden"> </span>Robots Save?
+                Calculate How Much Solar Cleaning Robots Can Save
               </h2>
             </AnimateOnScroll>
-          </div>
+          </Container>
 
           <ROITayproCalculator />
         </section>
@@ -79,92 +95,94 @@ export default function SolarPanelCleaningRobot() {
 
         <ClientsCard />
 
-        <section className="p-5 mx-4 sm:mx-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 m-0 sm:m-30 items-center">
-            {/* Right Content - Features List */}
-            <div className="space-y-6 sm:space-y-8">
-              <AnimateOnScroll animation="fadeInUp">
-                <h2 className="text-2xl sm:text-4xl font-semibold text-white ml-0 sm:ml-10">
-                  Features of Taypro's Solar Panel Cleaning Robots
-                </h2>
+        <section className="py-16 sm:py-24">
+          <Container>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              {/* Right Content - Features List */}
+              <div className="space-y-6 sm:space-y-8">
+                <AnimateOnScroll animation="fadeInUp">
+                  <h2 className="text-2xl sm:text-4xl font-semibold text-white">
+                    Features of Taypro&rsquo;s Solar Panel Cleaning Robots
+                  </h2>
+                </AnimateOnScroll>
+                {robotFeatures.map((feature, idx) => (
+                  <AnimateOnScroll key={idx} animation="fadeInLeft" delay={idx * 100} className="flex items-start space-x-3 sm:space-x-4">
+                    <div className="flex-shrink-0 mt-1">
+                      <Check className="text-[#39D600]" strokeWidth={2} />
+                    </div>
+                    <div>
+                      <div className="text-lg sm:text-xl font-semibold text-white">
+                        {feature.title}
+                      </div>
+                      <span className="leading-relaxed text-white/90 text-sm sm:text-base">
+                        {feature.description}
+                      </span>
+                    </div>
+                  </AnimateOnScroll>
+                ))}
+              </div>
+              {/* left content  */}
+              <AnimateOnScroll animation="fadeInRight" delay={100}>
+                <Image
+                  src="/tayproasset/taypro-robotFeature.jpg"
+                  alt="Taypro Solar Panel Cleaning Robot Features - Autonomous waterless cleaning with AI-powered scheduling"
+                  title="Solar Panel Cleaning Robot Features by Taypro"
+                  width={400}
+                  height={600}
+                  className="w-full h-auto"
+                />
               </AnimateOnScroll>
-              {robotFeatures.map((feature, idx) => (
-                <AnimateOnScroll key={idx} animation="fadeInLeft" delay={idx * 100} className="flex items-start space-x-3 sm:space-x-4">
-                  <div className="flex-shrink-0 mt-1">
-                    <Check className="text-[#39D600]" strokeWidth={2} />
-                  </div>
-                  <div>
-                    <div className="text-lg sm:text-xl font-semibold text-white">
-                      {feature.title}
-                    </div>
-                    <span className="leading-relaxed text-white/90 text-sm sm:text-base">
-                      {feature.description}
-                    </span>
-                  </div>
-                </AnimateOnScroll>
-              ))}
             </div>
-            {/* left content  */}
-            <AnimateOnScroll animation="fadeInRight" delay={100} className="px-0 sm:px-0">
-              <Image
-                src="/tayproasset/taypro-robotFeature.jpg"
-                alt="Taypro Solar Panel Cleaning Robot Features - Autonomous waterless cleaning with AI-powered scheduling"
-                title="Solar Panel Cleaning Robot Features by Taypro"
-                width={400}
-                height={600}
-                priority
-                className="w-full h-auto"
-              />
-            </AnimateOnScroll>
-          </div>
+          </Container>
         </section>
-        <section className="p-8 sm:p-16 lg:py-24 bg-white">
-          <AnimateOnScroll animation="fadeInUp" className="text-center mb-10 sm:mb-16 px-4 sm:px-0">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#052638] mb-3 sm:mb-4">
-              Advantages Of Using Solar Panel Cleaning Robots
-            </h2>
-          </AnimateOnScroll>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center px-4 sm:px-0">
-            {/* Left Content - Image */}
-            <AnimateOnScroll animation="fadeInLeft" delay={100} className="">
-              <Image
-                src="/tayprosolarpanel/taypro-solar-panel.jpg"
-                alt="Taypro Solar Panel Cleaning Robot cleaning solar panels at solar farm - Increase efficiency up to 30%"
-                title="Solar Panel Cleaning Robot by Taypro"
-                width={400}
-                height={400}
-                priority
-                className="w-full h-auto"
-              />
+        <section className="py-16 sm:py-24 bg-white relative overflow-hidden">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="text-center mb-10 sm:mb-16">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#052638] mb-3 sm:mb-4">
+                Advantages Of Using Solar Panel Cleaning Robots
+              </h2>
             </AnimateOnScroll>
 
-            {/* Right Content - Features List */}
-            <div className="space-y-5 sm:space-y-8">
-              {robotsAdvantages.map((feature, idx) => (
-                <AnimateOnScroll key={idx} animation="fadeInRight" delay={idx * 100} className="flex items-start space-x-3 sm:space-x-4">
-                  <div className="flex-shrink-0 mt-1">
-                    <Check className="text-[#39D600]" strokeWidth={2} />
-                  </div>
-                  <div>
-                    <div className="text-lg sm:text-xl font-semibold text-[#052638]">
-                      {feature.title}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+              {/* Left Content - Image */}
+              <AnimateOnScroll animation="fadeInLeft" delay={100}>
+                <Image
+                  src="/tayprosolarpanel/taypro-solar-panel.jpg"
+                  alt="Taypro Solar Panel Cleaning Robot cleaning solar panels at solar farm - Increase efficiency up to 30%"
+                  title="Solar Panel Cleaning Robot by Taypro"
+                  width={400}
+                  height={400}
+                  className="w-full h-auto"
+                />
+              </AnimateOnScroll>
+
+              {/* Right Content - Features List */}
+              <div className="space-y-5 sm:space-y-8">
+                {robotsAdvantages.map((feature, idx) => (
+                  <AnimateOnScroll key={idx} animation="fadeInRight" delay={idx * 100} className="flex items-start space-x-3 sm:space-x-4">
+                    <div className="flex-shrink-0 mt-1">
+                      <Check className="text-[#39D600]" strokeWidth={2} />
                     </div>
-                    <span className="leading-relaxed text-gray-600 text-sm sm:text-base">
-                      {feature.description}
-                    </span>
-                  </div>
-                </AnimateOnScroll>
-              ))}
+                    <div>
+                      <div className="text-lg sm:text-xl font-semibold text-[#052638]">
+                        {feature.title}
+                      </div>
+                      <span className="leading-relaxed text-gray-600 text-sm sm:text-base">
+                        {feature.description}
+                      </span>
+                    </div>
+                  </AnimateOnScroll>
+                ))}
+              </div>
             </div>
-          </div>
+          </Container>
 
           {/* Background decorative elements hidden on mobile */}
-          <div className="hidden sm:block absolute top-0 left-0 w-64 h-64 bg-[#39D600]/5 rounded-full blur-3xl -translate-x-32 -translate-y-32"></div>
-          <div className="hidden sm:block absolute bottom-0 right-0 w-96 h-96 bg-[#052638]/5 rounded-full blur-3xl translate-x-32 translate-y-32"></div>
+          <div className="hidden sm:block absolute top-0 left-0 w-64 h-64 bg-[#39D600]/5 rounded-full blur-3xl -translate-x-32 -translate-y-32 pointer-events-none"></div>
+          <div className="hidden sm:block absolute bottom-0 right-0 w-96 h-96 bg-[#052638]/5 rounded-full blur-3xl translate-x-32 translate-y-32 pointer-events-none"></div>
         </section>
-        <section className="py-10 bg-white px-4 sm:px-0">
-          <div className="text-start m-0 sm:m-30">
+        <section className="py-10 bg-white">
+          <Container>
             <AnimateOnScroll animation="fadeInUp">
               <h2 className="mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
                 How Long Does It Take To Install The Solar Panel Cleaning Robots?
@@ -270,10 +288,10 @@ export default function SolarPanelCleaningRobot() {
               robots for solar panels due to their huge efficiency and
               compatibility.
             </div>
-          </div>
+          </Container>
         </section>
-        <section className="w-full items-center py-24 bg-[#052638] bg-center px-4 sm:px-6 lg:px-0">
-          <div className="max-w-5xl mx-auto px-2 sm:px-6">
+        <section className="w-full items-center py-24 bg-[#052638] bg-center">
+          <Container size="narrow">
             <AnimateOnScroll animation="fadeInUp">
               <h2 className="text-white font-semibold text-3xl sm:text-5xl text-start mb-8 sm:mb-12">
                 What Are The Things To Keep In Mind While Cleaning Solar Panels?
@@ -296,32 +314,32 @@ export default function SolarPanelCleaningRobot() {
                 </div>
               </AnimateOnScroll>
             ))}
-          </div>
+          </Container>
         </section>
-        <section className="w-full px-4 sm:px-0 py-10 bg-white">
-          <AnimateOnScroll animation="fadeInUp" className="font-semibold text-[#052638] text-2xl sm:text-5xl mb-6 sm:mb-8 text-center px-2 sm:px-0">
-            <h2>FAQs</h2>
-          </AnimateOnScroll>
-          <div className="max-w-5xl mx-auto px-2 sm:px-0">
+        <section className="w-full py-10 bg-white">
+          <Container size="narrow">
+            <AnimateOnScroll animation="fadeInUp" className="font-semibold text-[#052638] text-2xl sm:text-5xl mb-6 sm:mb-8 text-center">
+              <h2>FAQs</h2>
+            </AnimateOnScroll>
             {faqs.map((faq, idx) => (
               <div key={idx} className="border-b border-gray-300">
                 <button
                   className={`flex items-center w-full py-3 text-base sm:text-xl font-medium transition-colors duration-200 text-[#052638] hover:text-[#A8C117] cursor-pointer`}
-                  onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                  onClick={() => setOpenFaqIndex(openFaqIndex === idx ? null : idx)}
                 >
                   <span className="flex items-center justify-center w-6 h-6 bg-[#052638] text-white font-semibold rounded-sm mr-4 text-lg select-none">
-                    {openIndex === idx ? "-" : "+"}
+                    {openFaqIndex === idx ? "-" : "+"}
                   </span>
-                  <h4>{faq.question}</h4>
+                  <h3>{faq.question}</h3>
                 </button>
                 <div
-                  className={`pl-12 pr-4 pb-6 text-sm sm:text-base text-[#052638] transition-all duration-200 ${
-                    openIndex === idx
-                      ? "max-h-40 opacity-100"
-                      : "max-h-0 opacity-0 overflow-hidden"
+                  className={`grid pl-12 pr-4 text-sm sm:text-base text-[#052638] transition-all duration-200 ${
+                    openFaqIndex === idx
+                      ? "grid-rows-[1fr] opacity-100 pb-6"
+                      : "grid-rows-[0fr] opacity-0"
                   }`}
                 >
-                  {faq.answer}
+                  <div className="overflow-hidden">{faq.answer}</div>
                 </div>
               </div>
             ))}
@@ -330,25 +348,25 @@ export default function SolarPanelCleaningRobot() {
               <div key={idx} className="border-b border-gray-300">
                 <button
                   className={`flex items-center w-full py-3 text-base sm:text-xl font-medium transition-colors duration-200 text-[#052638] hover:text-[#A8C117] cursor-pointer`}
-                  onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                  onClick={() => setOpenMoreFaqIndex(openMoreFaqIndex === idx ? null : idx)}
                 >
                   <span className="flex items-center justify-center w-6 h-6 bg-[#052638] text-white font-semibold rounded-sm mr-4 text-lg select-none">
-                    {openIndex === idx ? "-" : "+"}
+                    {openMoreFaqIndex === idx ? "-" : "+"}
                   </span>
-                  {faq.question}
+                  <h3>{faq.question}</h3>
                 </button>
                 <div
-                  className={`pl-12 pr-4 pb-6 text-sm sm:text-base text-[#052638] transition-all duration-200 ${
-                    openIndex === idx
-                      ? "max-h-40 opacity-100"
-                      : "max-h-0 opacity-0 overflow-hidden"
+                  className={`grid pl-12 pr-4 text-sm sm:text-base text-[#052638] transition-all duration-200 ${
+                    openMoreFaqIndex === idx
+                      ? "grid-rows-[1fr] opacity-100 pb-6"
+                      : "grid-rows-[0fr] opacity-0"
                   }`}
                 >
-                  {faq.answer}
+                  <div className="overflow-hidden">{faq.answer}</div>
                 </div>
               </div>
             ))}
-          </div>
+          </Container>
         </section>
 
         <RequestEstimateForm />

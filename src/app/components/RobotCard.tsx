@@ -8,7 +8,7 @@ type Robot = {
   href: string;
 };
 
-export function RobotCard({ robot }: { robot: Robot }) {
+export function RobotCard({ robot, priority = false }: { robot: Robot; priority?: boolean }) {
   const getAltText = (model: string) => {
     if (model.toLowerCase().includes("model-a") || model.toLowerCase().includes("automatic")) {
       return "Taypro Automatic Solar Panel Cleaning Robot - AI-enabled autonomous cleaning system for solar farms";
@@ -21,7 +21,7 @@ export function RobotCard({ robot }: { robot: Robot }) {
   };
 
   return (
-    <div className="bg-gray-50 w-80 shadow hover:shadow-xl transition-all duration-300 overflow-hidden m-4 transform hover:-translate-y-2">
+    <div className="bg-gray-50 w-80 shadow hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
       <div className="relative w-full h-48 overflow-hidden">
         <Image
           src={robot.imgPath}
@@ -30,7 +30,8 @@ export function RobotCard({ robot }: { robot: Robot }) {
           fill
           className="object-cover transition-transform duration-300 hover:scale-110"
           sizes="(max-width: 768px) 100vw, 320px"
-          priority
+          priority={priority}
+          loading={priority ? "eager" : "lazy"}
         />
       </div>
 

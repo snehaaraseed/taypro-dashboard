@@ -2,6 +2,7 @@ import { ourSolutions } from "@/app/data";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { RobotCard } from "../components/RobotCard";
 import CallbackCard from "../components/CallbackCard";
+import { Container } from "../components/Container";
 import type { Metadata } from "next";
 
 const breadcrumbs = [
@@ -91,8 +92,8 @@ export default function CleaningTechnology() {
           </div>
         </section>
 
-        <section className="pt-2 pb-1 bg-white px-6 sm:px-8 lg:px-0">
-          <div className="max-w-6xl mx-auto">
+        <section className="pt-2 pb-1 bg-white">
+          <Container size="narrow">
             <div className="text-start mb-6">
               <div className="text-gray-600 my-6 text-xl">
                 Taypro is at the forefront of revolutionizing solar energy
@@ -473,20 +474,20 @@ export default function CleaningTechnology() {
                 greener planet.
               </div>
             </div>
-          </div>
+          </Container>
         </section>
 
         <section className="pt-2 bg-white">
-          <div className="text-center my-12">
-            <h2 className="text-5xl font-semibold">Our Solutions</h2>
-          </div>
-          <div className="max-w-7xl mx-auto px-4">
+          <Container>
+            <div className="text-center my-12">
+              <h2 className="text-5xl font-semibold">Our Solutions</h2>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 justify-items-center">
               {ourSolutions.slice(0, 3).map((robot) => (
                 <RobotCard key={robot.model} robot={robot} />
               ))}
             </div>
-          </div>
+          </Container>
         </section>
 
         <CallbackCard headerText={""} />

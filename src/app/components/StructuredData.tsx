@@ -227,6 +227,114 @@ export function ProductSchema({
   );
 }
 
+interface ServiceSchemaProps {
+  name: string;
+  description: string;
+  image?: string;
+  provider?: string;
+  serviceType?: string;
+  areaServed?: string;
+  url?: string;
+}
+
+export function ServiceSchema({
+  name,
+  description,
+  image,
+  provider = "Taypro",
+  serviceType = "Solar Panel Cleaning Service",
+  areaServed = "India",
+  url,
+  siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
+}: ServiceSchemaProps & { siteUrl?: string }) {
+  const schema: any = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: name,
+    description: description,
+    serviceType: serviceType,
+    provider: {
+      "@type": "Organization",
+      name: provider,
+      url: siteUrl,
+    },
+    areaServed: {
+      "@type": "Country",
+      name: areaServed,
+    },
+  };
+
+  if (image) {
+    schema.image = image.startsWith("http") ? image : `${siteUrl}${image}`;
+  }
+
+  if (url) {
+    schema.url = url.startsWith("http") ? url : `${siteUrl}${url}`;
+  }
+
+  return (
+    <Script
+      id="service-schema"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+interface SoftwareApplicationSchemaProps {
+  name: string;
+  description: string;
+  image?: string;
+  applicationCategory?: string;
+  operatingSystem?: string;
+  url?: string;
+}
+
+export function SoftwareApplicationSchema({
+  name,
+  description,
+  image,
+  applicationCategory = "BusinessApplication",
+  operatingSystem = "Web, iOS, Android",
+  url,
+  siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
+}: SoftwareApplicationSchemaProps & { siteUrl?: string }) {
+  const schema: any = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: name,
+    description: description,
+    applicationCategory: applicationCategory,
+    operatingSystem: operatingSystem,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "INR",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Taypro",
+      url: siteUrl,
+    },
+  };
+
+  if (image) {
+    schema.image = image.startsWith("http") ? image : `${siteUrl}${image}`;
+  }
+
+  if (url) {
+    schema.url = url.startsWith("http") ? url : `${siteUrl}${url}`;
+  }
+
+  return (
+    <Script
+      id="software-application-schema"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 export function WebSiteSchema({
   siteUrl,
   searchAction,

@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export type RequestEstimateFormProps = {
@@ -45,7 +45,6 @@ export default function RequestEstimateForm({
   onSuccess,
 }: RequestEstimateFormProps = {}) {
   const router = useRouter();
-  const messageFieldId = useId();
   const [formData, setFormData] = useState({
     firstName: "",
     companyName: "",
@@ -245,11 +244,10 @@ export default function RequestEstimateForm({
                     : "mb-6 md:mb-8"
               }
             >
-              <label className={labelClass} htmlFor={messageFieldId}>
+              <label className={labelClass}>
                 {resolvedMessageLabel}
               </label>
               <textarea
-                id={messageFieldId}
                 rows={messageRows}
                 name="message"
                 value={formData.message}

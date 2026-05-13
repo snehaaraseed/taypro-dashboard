@@ -11,6 +11,8 @@ import ResourcesCard from "@/app/components/ResourcesCard";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import Product360Viewer from "@/app/components/Product360Viewer";
+import { ProductSchema } from "@/app/components/StructuredData";
+import { Container } from "@/app/components/Container";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
@@ -21,7 +23,7 @@ const breadcrumbs = [
     href: "/solar-panel-cleaning-system",
   },
   {
-    name: "Model-B",
+    name: "Semi-Automatic Solar Panel Cleaning Robot",
     href: "",
   },
 ];
@@ -38,9 +40,21 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
-      <div className="min-h-screen overflow-x-hidden px-4 sm:px-6 lg:px-0">
+      <ProductSchema
+        name="Semi-Automatic Solar Panel Cleaning Robot - Model-B"
+        description="Model-B: Pick-and-place semi-automatic Solar Panel Cleaning Robot for fixed tilt, seasonal tilt and horizontal single-axis trackers. Waterless cleaning, long-lasting battery, scratch-free microfiber technology, and fast ROI."
+        image={`${siteUrl}/tayprorobots/taypro-modelBcopy.png`}
+        brand="Taypro"
+        sku="MODEL-B"
+        offers={{
+          price: "Contact for pricing",
+          priceCurrency: "INR",
+          availability: "https://schema.org/InStock",
+        }}
+      />
+      <div className="min-h-screen overflow-x-hidden">
         <HeroSection
-          title="Model-B"
+          title="Semi-Automatic Solar Panel Cleaning Robot — Model-B"
           subtitle="A pick-and-place type solar panel cleaning robot."
           imgSrc="/tayprorobots/taypro-opex.jpg"
           imgAlt="Taypro Semi-Automatic Solar Panel Cleaning Robot Model-B - Pick-and-place type robotic cleaning system for solar farms"
@@ -57,38 +71,40 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
             </>
           }
           description={
-            "The Taypro Model-B is not just another cleaning device; it's a result of meticulous study and analysis aimed at addressing prevalent issues in solar power plants. The innovative cleaning assembly and driving mechanism elevate its compatibility, making it suitable for fixed tilt, seasonal tilt, and horizontal single-axis trackers. This adaptability extends to solar panel rows of any size, showcasing a device that thrives amidst irregularities and undulations."
+            "The Taypro Model-B is not just another cleaning device; it’s a result of meticulous study and analysis aimed at addressing prevalent issues in solar power plants. The innovative cleaning assembly and driving mechanism elevate its compatibility, making it suitable for fixed tilt, seasonal tilt, and horizontal single-axis trackers. This adaptability extends to solar panel rows of any size, showcasing a device that thrives amidst irregularities and undulations."
           }
           benefits={benefits}
         />
 
         {/* 360-Degree Product Viewer Section */}
-        <section className="max-w-[1650px] bg-gradient-to-b from-white to-gray-50 mx-auto px-4 sm:px-6 py-20">
-          <AnimateOnScroll animation="fadeInUp" className="text-center mb-8">
-            <div className="text-[#A8C117] text-xl sm:text-2xl font-medium mb-2">
-              Interactive Product Tour
-            </div>
-            <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-4">
-              360° View of Model-B
-            </h2>
-            <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
-              Drag left or right to rotate and explore our Semi-Automatic Solar Panel Cleaning Robot from every angle
-            </p>
-          </AnimateOnScroll>
-          <AnimateOnScroll animation="fadeInUp" delay={100} className="flex justify-center">
-            <div className="w-full max-w-4xl">
-              <Product360Viewer
-                imagePath="/360-degree-images/Model-B/0001-MB-2000-1224-"
-                imageCount={51}
-                imagePrefix=""
-                imageSuffix=".png"
-                startIndex={100}
-                width={800}
-                height={600}
-                className="mx-auto"
-              />
-            </div>
-          </AnimateOnScroll>
+        <section className="bg-gradient-to-b from-white to-gray-50 py-20">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="text-center mb-8">
+              <div className="text-[#A8C117] text-xl sm:text-2xl font-medium mb-2">
+                Interactive Product Tour
+              </div>
+              <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-4">
+                360° View of Model-B
+              </h2>
+              <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
+                Drag left or right to rotate and explore our Semi-Automatic Solar Panel Cleaning Robot from every angle
+              </p>
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fadeInUp" delay={100} className="flex justify-center">
+              <div className="w-full max-w-4xl">
+                <Product360Viewer
+                  imagePath="/360-degree-images/Model-B/0001-MB-2000-1224-"
+                  imageCount={51}
+                  imagePrefix=""
+                  imageSuffix=".png"
+                  startIndex={100}
+                  width={800}
+                  height={600}
+                  className="mx-auto"
+                />
+              </div>
+            </AnimateOnScroll>
+          </Container>
         </section>
 
         <section
@@ -98,20 +114,19 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
             backgroundSize: "auto",
           }}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
+          <Container className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
             <AnimateOnScroll animation="fadeInLeft" className="lg:w-1/2 flex flex-col items-center lg:items-start">
-              <h3 className="text-[#052638] font-semibold text-4xl lg:text-5xl mb-12 text-center lg:text-left leading-tight">
+              <h2 className="text-[#052638] font-semibold text-4xl lg:text-5xl mb-12 text-center lg:text-left leading-tight">
                 Elevating ROI through Efficient Cleaning
-              </h3>
+              </h2>
               <div className="relative w-full max-w-xs sm:max-w-sm lg:w-96 h-64 lg:h-80 mx-auto lg:mx-0">
                 <Image
                   src="/tayproasset/taypro-robotImage.png"
                   alt="Taypro Semi-Automatic Solar Panel Cleaning Robot Model-B - Pick-and-place robotic cleaning system for solar farms"
                   title="Taypro Semi-Automatic Solar Panel Cleaning Robot Model-B"
                   fill
-                  sizes="sm"
+                  sizes="(max-width: 640px) 90vw, 384px"
                   className="object-contain"
-                  priority
                 />
               </div>
             </AnimateOnScroll>
@@ -120,7 +135,7 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
               <p className="text-[#6B7280] text-lg leading-relaxed">
                 The impact of clean solar panels on the overall performance and
                 efficiency of solar power plants cannot be overstated.
-                Taypro&apos;s cutting-edge technology contributes to a
+                Taypro&rsquo;s cutting-edge technology contributes to a
                 significant increase in the rate of return, often exceeding 15%.
                 This not only underscores the economic viability of solar energy
                 but positions Taypro as a leader in optimizing the financial
@@ -141,12 +156,12 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
               </p>
 
               <p className="text-[#6B7280] text-lg leading-relaxed">
-                If you don&apos;t want to own and invest in the Capex of the
+                If you don&rsquo;t want to own and invest in the Capex of the
                 robots, we can provide you cleaning service which can help you
-                  to improve the energy generation of the plant.
+                to improve the energy generation of the plant.
               </p>
             </AnimateOnScroll>
-          </div>
+          </Container>
         </section>
 
         <ProjectsCard showHeader={true} headerText="" />
@@ -154,7 +169,7 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
         <ResourcesCard />
 
         <section className="w-full min-h-[640px] bg-[#052C42] flex items-center">
-          <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-16 w-full">
+          <Container className="flex flex-col lg:flex-row items-center justify-between gap-16">
             <AnimateOnScroll animation="fadeInLeft" className="lg:w-1/2 flex justify-center">
               <h2 className="text-white font-semibold text-5xl lg:text-6xl leading-tight">
                 Transforming Solar Panel Cleaning Practices
@@ -164,14 +179,14 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
             <AnimateOnScroll animation="fadeInRight" delay={100} className="lg:w-1/2">
               <p className="text-white text-lg lg:text-xl leading-relaxed">
                 The solar panel cleaning landscape has evolved into a critical
-                industry best practice. Taypro&apos;s commitment to providing
+                industry best practice. Taypro&rsquo;s commitment to providing
                 the best cleaning solutions in India is evident across
                 residential, industrial, and commercial rooftop installations,
                 as well as ground-mounted solar power plants, whether on-grid,
                 off-grid, or hybrid PV systems.
               </p>
             </AnimateOnScroll>
-          </div>
+          </Container>
         </section>
 
         <ModelCards title="Looking for more solutions?" cards={modelBCards} />

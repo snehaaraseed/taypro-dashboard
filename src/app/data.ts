@@ -31,18 +31,21 @@ export const robots = [
   {
     model: "Taypro Opex",
     description:
-      "Next-gen autonomous solar panel cleaner with self-charging & AI-optimized route planning.",
+      "Operator-led robotic solar cleaning service for utility-scale plants — no capex required.",
     imgPath: "/tayprorobots/taypro-opex.jpg",
     href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
   },
   {
     model: "Taypro Console",
     description:
-      "Compact portable cleaner for rooftop installations with real-time monitoring & weather resilience.",
+      "Cloud dashboard for monitoring, scheduling and controlling Taypro robots in the field.",
     imgPath: "/tayproasset/taypro-console.png",
     href: "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
   },
 ];
+
+export const robotProducts = robots.slice(0, 3);
+export const robotSolutions = robots.slice(3);
 
 export const ourSolutions = [
   {
