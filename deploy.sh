@@ -91,7 +91,7 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
                     "."|".."|"[slug]"|"add"|"db"|"api"|"author"|"components") continue ;;
                 esac
                 # Include drafts / odd states: any real post dir with CMS files (not only metadata+legacy page).
-                if [ -f "$blog_dir/metadata.json" ] || [ -f "$blog_dir/page.tsx" ] || [ -f "$blog_dir/content.html" ] || [ -f "$blog_dir/page.legacy.tsx" ]; then
+                if [ -f "$blog_dir/metadata.json" ] || [ -f "$blog_dir/page.tsx" ] || [ -f "$blog_dir/content.html" ] || [ -f "$blog_dir/page.legacy.tsx" ] || [ -f "$blog_dir/page.legacy.txt" ]; then
                     mkdir -p "$DEST/$(dirname "$blog_dir")"
                     cp -a "$blog_dir" "$DEST/$blog_dir"
                 fi
@@ -102,7 +102,7 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
             find src/app/projects -mindepth 1 -maxdepth 1 -type d | while read -r project_dir; do
                 slug=$(basename "$project_dir")
                 case "$slug" in "."|".."|"layout") continue ;; esac
-                if [ -f "$project_dir/metadata.json" ] || [ -f "$project_dir/page.tsx" ] || [ -f "$project_dir/page.legacy.tsx" ]; then
+                if [ -f "$project_dir/metadata.json" ] || [ -f "$project_dir/page.tsx" ] || [ -f "$project_dir/page.legacy.tsx" ] || [ -f "$project_dir/page.legacy.txt" ]; then
                     mkdir -p "$DEST/$(dirname "$project_dir")"
                     cp -a "$project_dir" "$DEST/$project_dir"
                 fi
@@ -173,6 +173,7 @@ echo ""
 # Step 3: Merge production CMS files (admin / frontend writes) over rsync result
 echo -e "${YELLOW}🔄 Step 3: Merging production CMS files from backup (production wins)...${NC}"
 ssh -i "$SSH_KEY" "$REMOTE_HOST" << EOF
+    set -euo pipefail
     cd /var/www/taypro-dashboard
     
     if [ -n "$BACKUP_PATH" ] && [ -d "$BACKUP_PATH" ]; then
@@ -229,11 +230,68 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << EOF
             rsync -av "$BACKUP_PATH/public/uploads/" "public/uploads/" 2>/dev/null || true
             echo "    ✅ Production-uploaded images restored"
         fi
+
+        echo "  Verifying restored production content..."
+        if [ -d "$BACKUP_PATH/src/app/blog" ]; then
+            find "$BACKUP_PATH/src/app/blog" -mindepth 1 -maxdepth 1 -type d | while read -r backup_blog_dir; do
+                blog_slug=\$(basename "\$backup_blog_dir")
+                case "\$blog_slug" in
+                    "."|".."|"[slug]"|"add"|"db"|"api"|"author"|"components") continue ;;
+                esac
+                target_dir="src/app/blog/\$blog_slug"
+                if [ ! -d "\$target_dir" ]; then
+                    echo "  ❌ Missing restored blog directory: \$blog_slug"
+                    exit 1
+                fi
+                diff_line=\$(rsync -ain --delete "\$backup_blog_dir/" "\$target_dir/" | sed -n '/^\.\/$/!{p;q;}')
+                if [ -n "\$diff_line" ]; then
+                    echo "  ❌ Restored blog does not match backup: \$blog_slug"
+                    exit 1
+                fi
+            done
+        fi
+
+        if [ -d "$BACKUP_PATH/src/app/projects" ]; then
+            find "$BACKUP_PATH/src/app/projects" -mindepth 1 -maxdepth 1 -type d | while read -r backup_project_dir; do
+                project_slug=\$(basename "\$backup_project_dir")
+                case "\$project_slug" in "."|".."|"layout") continue ;; 
+                esac
+                target_dir="src/app/projects/\$project_slug"
+                if [ ! -d "\$target_dir" ]; then
+                    echo "  ❌ Missing restored project directory: \$project_slug"
+                    exit 1
+                fi
+                diff_line=\$(rsync -ain --delete "\$backup_project_dir/" "\$target_dir/" | sed -n '/^\.\/$/!{p;q;}')
+                if [ -n "\$diff_line" ]; then
+                    echo "  ❌ Restored project does not match backup: \$project_slug"
+                    exit 1
+                fi
+            done
+        fi
+
+        if [ -f "$BACKUP_PATH/src/app/data/blogAuthors.store.json" ] && [ ! -f "src/app/data/blogAuthors.store.json" ]; then
+            echo "  ❌ Missing restored src/app/data/blogAuthors.store.json"
+            exit 1
+        fi
+
+        if [ -f "$BACKUP_PATH/data/published-topics.json" ] && [ ! -f "data/published-topics.json" ]; then
+            echo "  ❌ Missing restored data/published-topics.json"
+            exit 1
+        fi
+
+        if [ -d "$BACKUP_PATH/public/uploads" ]; then
+            diff_line=\$(rsync -ain "$BACKUP_PATH/public/uploads/" "public/uploads/" | sed -n '/^\.\/$/!{p;q;}')
+            if [ -n "\$diff_line" ]; then
+                echo "  ❌ Restored uploads do not fully match backup"
+                exit 1
+            fi
+        fi
         
-        echo "  ✅ CMS merge completed"
+        echo "  ✅ CMS merge completed and verified"
     else
         echo "  ⚠️  No backup found — CMS merge SKIPPED (rsync may overwrite production blogs/projects)."
         echo "  ⚠️  Fix Step 1 / SSH before relying on this deploy."
+        exit 1
     fi
 EOF
 
@@ -243,6 +301,7 @@ echo ""
 # Step 4: Migrate legacy per-slug page routes to dynamic renderer
 echo -e "${YELLOW}🧭 Step 4: Migrating legacy blog routes...${NC}"
 ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
+    set -euo pipefail
     cd /var/www/taypro-dashboard
 
     if [ -d "src/app/blog" ]; then
@@ -257,6 +316,8 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
 
             metadata_file="$blog_dir/metadata.json"
             legacy_page="$blog_dir/page.tsx"
+            legacy_backup="$blog_dir/page.legacy.txt"
+            legacy_backup_tsx="$blog_dir/page.legacy.tsx"
             content_file="$blog_dir/content.html"
 
             # Only process real blog directories
@@ -264,9 +325,18 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
                 continue
             fi
 
-            # If content.html is missing, try extracting content from legacy page.tsx
-            if [ ! -f "$content_file" ] && [ -f "$legacy_page" ]; then
-                node - <<'NODE' "$legacy_page" "$content_file"
+            legacy_source=""
+            if [ -f "$legacy_page" ]; then
+                legacy_source="$legacy_page"
+            elif [ -f "$legacy_backup" ]; then
+                legacy_source="$legacy_backup"
+            elif [ -f "$legacy_backup_tsx" ]; then
+                legacy_source="$legacy_backup_tsx"
+            fi
+
+            # If content.html is missing, try extracting content from a preserved legacy page source.
+            if [ ! -f "$content_file" ] && [ -n "$legacy_source" ]; then
+                node - <<'NODE' "$legacy_source" "$content_file"
 const fs = require("fs");
 const [legacyPagePath, contentPath] = process.argv.slice(2);
 const source = fs.readFileSync(legacyPagePath, "utf8");
@@ -305,10 +375,40 @@ if (content.trim()) {
 NODE
             fi
 
-            # Move legacy page.tsx out of route resolution so dynamic [slug] handles rendering
+            # Keep legacy page backups out of the TS/Next compile graph so broken historical JSX
+            # doesn't fail production builds after the route has moved to the dynamic renderer.
+            if [ -f "$legacy_backup_tsx" ]; then
+                if [ -f "$legacy_backup" ]; then
+                    rm -f "$legacy_backup_tsx"
+                else
+                    mv "$legacy_backup_tsx" "$legacy_backup" 2>/dev/null || true
+                fi
+            fi
+
+            # Move legacy page.tsx out of route resolution so dynamic [slug] handles rendering.
             if [ -f "$legacy_page" ]; then
-                mv "$legacy_page" "$blog_dir/page.legacy.tsx" 2>/dev/null || true
+                mv "$legacy_page" "$legacy_backup" 2>/dev/null || true
                 echo "    ✅ Migrated route for: $slug"
+            fi
+        done
+    fi
+
+    if [ -d "src/app/projects" ]; then
+        echo "  Converting legacy project backups to non-compiled files..."
+        find src/app/projects -mindepth 1 -maxdepth 1 -type d | while read -r project_dir; do
+            slug=$(basename "$project_dir")
+            case "$slug" in "."|".."|"layout") continue ;; esac
+
+            legacy_backup="$project_dir/page.legacy.txt"
+            legacy_backup_tsx="$project_dir/page.legacy.tsx"
+
+            if [ -f "$legacy_backup_tsx" ]; then
+                if [ -f "$legacy_backup" ]; then
+                    rm -f "$legacy_backup_tsx"
+                else
+                    mv "$legacy_backup_tsx" "$legacy_backup" 2>/dev/null || true
+                fi
+                echo "    ✅ Archived project legacy page: $slug"
             fi
         done
     fi
@@ -334,6 +434,7 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     
     # Build application
     echo "  Building Next.js application..."
+    rm -rf .next
     npm run build 2>&1 | tail -20
     
     # Check if build was successful

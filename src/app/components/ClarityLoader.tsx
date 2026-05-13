@@ -42,11 +42,11 @@ function readAnalyticsPreference(): boolean {
 function ensureClarityBootstrap() {
   if (document.getElementById("taypro-clarity-script")) return;
 
-  const clarity =
+  const clarity: ClarityFn =
     window.clarity ||
-    (function clarity(...args: unknown[]) {
+    ((...args: unknown[]) => {
       (clarity.q = clarity.q || []).push(args);
-    } as ClarityFn);
+    });
 
   window.clarity = clarity;
 
