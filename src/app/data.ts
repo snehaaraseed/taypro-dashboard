@@ -6,6 +6,10 @@ interface EnergyResourceCard {
   href: string;
 }
 
+/** Fleet connectivity to Taypro Console (Model-A & Model-T). */
+export const tayproRobotConnectivitySummary =
+  "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN";
+
 export const robots = [
   {
     model: "Model-A",

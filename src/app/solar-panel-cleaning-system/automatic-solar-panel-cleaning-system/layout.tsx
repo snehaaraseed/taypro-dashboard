@@ -3,25 +3,48 @@ import type { Metadata } from "next";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
 export const metadata: Metadata = {
-  title: "Automatic Solar Panel Cleaning Robot | Model-A | Taypro",
+  title:
+    "Automatic Solar Panel Cleaning Robot India | Model-A — Waterless, AI | Taypro",
   description:
-    "Model-A: Fully automatic Solar Panel Cleaning Robot with AI-enabled technology. Removes up to 100% dust and debris. Autonomous waterless cleaning for utility-scale solar power plants. Highest efficiency robotic cleaning system.",
+    "Automatic Solar Panel Cleaning Robot for utility-scale plants: Taypro Model-A is fully autonomous and waterless. AI/ML dual-pass dry cleaning removes 99%+ dust per cycle, cleans up to 3,600 modules per charge, Taypro Console connectivity via LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN, TÜV NORD certified, 72-hour pan-India service.",
   keywords: [
     "Automatic Solar Panel Cleaning Robot",
-    "solar panel cleaning robot",
     "automatic solar panel cleaning robot",
-    "Model-A solar cleaning robot",
-    "AI-enabled solar panel cleaning",
-    "autonomous solar cleaning robot",
-    "waterless solar panel cleaning robot",
-    "utility scale solar cleaning",
-    "taypro automatic robot",
-    "solar farm cleaning automation",
+    "automatic solar panel cleaning robot India",
+    "automatic solar panel cleaning robot manufacturer",
+    "automatic solar panel cleaning robot manufacturer India",
+    "automatic solar panel cleaning robot price",
+    "automatic solar panel cleaning robot cost",
+    "buy automatic solar panel cleaning robot",
+    "best automatic solar panel cleaning robot",
+    "automatic solar panel cleaning system",
+    "automatic solar module cleaning robot",
+    "fully automatic solar panel cleaning robot",
+    "autonomous solar panel cleaning robot",
+    "solar panel cleaning robot",
+    "solar panel cleaning robot India",
+    "solar panel cleaning robot manufacturer India",
+    "utility scale automatic solar cleaning robot",
+    "solar farm automatic cleaning robot",
+    "robotic solar panel cleaning system",
+    "AI automatic solar panel cleaning robot",
+    "waterless automatic solar panel cleaning robot",
+    "dual pass automatic solar cleaning robot",
+    "fixed tilt automatic solar cleaning robot",
+    "solar plant performance ratio improvement",
+    "soiling loss reduction solar",
+    "LoRa solar robot",
+    "LoRaWAN solar monitoring",
+    "RF mesh solar cleaning robot",
+    "TÜV NORD certified solar cleaning robot",
+    "taypro Model-A",
+    "taypro automatic solar panel cleaning robot",
   ],
   openGraph: {
-    title: "Automatic Solar Panel Cleaning Robot | Model-A | Taypro",
+    title:
+      "Automatic Solar Panel Cleaning Robot India | Model-A — Waterless, AI | Taypro",
     description:
-      "Model-A: Fully automatic Solar Panel Cleaning Robot with AI technology. Removes 100% dust, autonomous waterless cleaning for utility-scale solar plants.",
+      "Taypro Model-A: Automatic Solar Panel Cleaning Robot for utility-scale plants. Autonomous waterless dual-pass cleaning, 99%+ dust removal per cycle, up to 3,600 modules per charge, LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN to Taypro Console, TÜV NORD certified.",
     url: `${siteUrl}/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system`,
     type: "website",
     images: [
@@ -29,15 +52,16 @@ export const metadata: Metadata = {
         url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
         width: 1200,
         height: 630,
-        alt: "Taypro Automatic Solar Panel Cleaning Robot Model-A",
+        alt: "Taypro Model-A — Automatic Solar Panel Cleaning Robot for utility-scale solar farms",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Automatic Solar Panel Cleaning Robot | Model-A | Taypro",
+    title:
+      "Automatic Solar Panel Cleaning Robot India | Model-A — Waterless, AI | Taypro",
     description:
-      "Fully automatic AI-enabled Solar Panel Cleaning Robot for utility-scale solar farms. Waterless cleaning with highest efficiency.",
+      "Taypro Model-A Automatic Solar Panel Cleaning Robot: autonomous, waterless, AI-driven. 99%+ dust removal per cycle, up to 3,600 modules per charge, LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN to Taypro Console.",
     images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
   },
   alternates: {

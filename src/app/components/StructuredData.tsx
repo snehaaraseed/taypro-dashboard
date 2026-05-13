@@ -541,6 +541,53 @@ export function LocalBusinessSchema({
   );
 }
 
+export interface HowToStep {
+  name: string;
+  text: string;
+}
+
+export function HowToSchema({
+  name,
+  description,
+  steps,
+  totalTime,
+  image,
+  siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
+}: {
+  name: string;
+  description: string;
+  steps: HowToStep[];
+  totalTime?: string;
+  image?: string;
+  siteUrl?: string;
+}) {
+  if (!steps || steps.length === 0) return null;
+
+  const schema: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name,
+    description,
+    step: steps.map((s, idx) => ({
+      "@type": "HowToStep",
+      position: idx + 1,
+      name: s.name,
+      text: s.text,
+    })),
+  };
+
+  if (totalTime) schema.totalTime = totalTime;
+  if (image) schema.image = image.startsWith("http") ? image : `${siteUrl}${image}`;
+
+  return (
+    <Script
+      id="howto-schema"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 export function CollectionPageSchema({
   name,
   description,

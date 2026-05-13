@@ -93,7 +93,10 @@ export default function CookieConsent() {
 
     return (
       <button
-        onClick={() => setShowSettings(true)}
+        onClick={() => {
+          setShowBanner(true);
+          setShowSettings(true);
+        }}
         className="fixed bottom-4 right-4 z-50 bg-[#052638] text-white p-3 rounded-full shadow-lg hover:bg-[#0c3d56] transition-colors"
         aria-label="Cookie Settings"
         title="Cookie Settings"
