@@ -13,7 +13,7 @@ import {
   Move,
   Compass,
 } from "lucide-react";
-import { modelTCards, tayproRobotConnectivitySummary } from "@/app/data";
+import { modelTCards, tayproRobotConnectivitySummary, tayproTrustedByStatsStrip } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import ModelCards from "@/app/components/ModelCards";
@@ -707,12 +707,7 @@ export default function ModelTPage() {
               </h2>
             </AnimateOnScroll>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10 text-center">
-              {[
-                { value: "5 GW+", label: "Robot Capacity Deployed" },
-                { value: "100+", label: "Plant Installations" },
-                { value: "4 Billion+", label: "Litres of Water Saved" },
-                { value: "500+", label: "Robots Manufactured / Month" },
-              ].map((stat) => (
+              {[...tayproTrustedByStatsStrip].map((stat) => (
                 <AnimateOnScroll
                   key={stat.label}
                   animation="fadeInUp"
@@ -763,9 +758,9 @@ export default function ModelTPage() {
                 },
                 {
                   icon: Headset,
-                  title: "72-Hour On-Site Intervention SLA",
+                  title: "Same-Day On-Site Intervention",
                   body:
-                    "When on-site work is required, Taypro guarantees technical intervention within 72 hours of breakdown, available pan-India.",
+                    "When on-site work is required, Taypro targets same-day on-site breakdown resolution, available pan-India, with immediate remote diagnostics from Taypro Console.",
                 },
               ].map((p) => {
                 const Icon = p.icon;
@@ -1111,7 +1106,7 @@ export default function ModelTPage() {
                 {
                   title: "Pan-India Service Network",
                   body:
-                    "On-site technical intervention within 72 hours of breakdown, anywhere in India, with immediate remote diagnostics from the Taypro Console — the fastest robotic-cleaning SLA in the country for tracker plants.",
+                    "Same-day on-site breakdown resolution across India, with immediate remote diagnostics from Taypro Console — backed by regional spare inventory and structured AMC programs.",
                 },
               ].map((card) => (
                 <AnimateOnScroll

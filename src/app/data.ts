@@ -10,6 +10,49 @@ interface EnergyResourceCard {
 export const tayproRobotConnectivitySummary =
   "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN";
 
+/**
+ * Canonical marketing copy for breakdown / field service — keep aligned across
+ * hub, product pages, FAQs, and metadata (same-day pan-India positioning).
+ */
+export const tayproServiceSlaCopy = {
+  panIndiaServiceCardBody:
+    "Taypro targets same-day on-site breakdown resolution across India, with immediate remote diagnostics through Taypro Console, regional spare inventory, and structured AMC programs so mean time to repair stays predictable.",
+  combinedSupportParagraph:
+    "Taypro provides same-day on-site breakdown resolution across India along with immediate remote diagnostics from Taypro Console, dedicated field engineers, and AMC-backed spare planning.",
+} as const;
+
+/**
+ * Impact and scale figures for hero strips and sustainability callouts.
+ * Update here first, then reuse on `/company` and product pages.
+ */
+export const tayproMarketingImpactStats = {
+  robotCapacityDeployed: {
+    value: "5 GW+",
+    label: "Robot Capacity Deployed",
+  },
+  plantInstallations: { value: "100+", label: "Plant Installations" },
+  waterSavedAnnually: {
+    value: "1.4 Bn",
+    label: "Liters of Water Saved Annually",
+  },
+  robotsManufacturedPerMonth: {
+    value: "600+",
+    label: "Robots Manufacturing Capacity per Month",
+  },
+  co2ReducedAnnually: {
+    value: "67.5k",
+    label: "Metric Tons Of CO2 Emission Reduced Annually",
+  },
+} as const;
+
+/** Trusted-by stat row on Model-A / B / T marketing pages (four tiles). */
+export const tayproTrustedByStatsStrip = [
+  tayproMarketingImpactStats.robotCapacityDeployed,
+  tayproMarketingImpactStats.plantInstallations,
+  tayproMarketingImpactStats.waterSavedAnnually,
+  tayproMarketingImpactStats.robotsManufacturedPerMonth,
+] as const;
+
 export const robots = [
   {
     model: "Model-A",
@@ -295,7 +338,7 @@ export const faqs = [
   {
     question: "Does Taypro Provide AMC for Solar Panel Cleaning?",
     answer:
-      "Yes, TAYPRO offers AMC services for its solar panel cleaning services The AMC includes regular maintenance, real-time monitoring and onsite support within 24 hours to ensure continuous operation.",
+      "Yes, TAYPRO offers AMC services for its solar panel cleaning services The AMC includes regular maintenance, real-time monitoring and onsite support targeting same-day resolution to ensure continuous operation.",
   },
   {
     question:

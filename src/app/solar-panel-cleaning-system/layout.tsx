@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title:
     "Solar Panel Cleaning Robot in India — Compare Taypro Models & Services",
   description:
-    "Compare every Taypro Solar Panel Cleaning Robot in one place. Choose between Model-A (automatic), Model-B (semi-automatic, pick-and-place), Model-T (single-axis tracker), or Taypro OPEX as a service. Waterless dual-pass cleaning, AI/ML scheduling, TÜV NORD certified, 72-hour pan-India support.",
+    "Compare every Taypro Solar Panel Cleaning Robot in one place. Choose between Model-A (automatic), Model-B (semi-automatic, pick-and-place), Model-T (single-axis tracker), or Taypro OPEX as a service. Waterless dual-pass cleaning, AI/ML scheduling, TÜV NORD certified, same-day pan-India breakdown support.",
   keywords: [
     "solar panel cleaning robot",
     "solar panel cleaning robot India",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Solar Panel Cleaning Robot | Taypro — Made in India",
     description:
-      "Automatic, semi-automatic and tracker-ready Solar Panel Cleaning Robots with waterless cleaning, AI scheduling and 72-hour pan-India service.",
+      "Automatic, semi-automatic and tracker-ready Solar Panel Cleaning Robots with waterless cleaning, AI scheduling and same-day pan-India breakdown support.",
     images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
   },
   alternates: {

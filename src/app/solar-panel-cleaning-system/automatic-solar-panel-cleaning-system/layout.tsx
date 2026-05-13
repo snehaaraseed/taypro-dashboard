@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title:
     "Automatic Solar Panel Cleaning Robot — Taypro Model-A (Waterless, AI)",
   description:
-    "Taypro Model-A is a fully autonomous, waterless Automatic Solar Panel Cleaning Robot. AI/ML dual-pass dry cleaning removes 99%+ dust per cycle, runs up to 3,600 modules per charge, connects to Taypro Console via LTE / Wi-Fi / RF mesh / LoRa / LoRaWAN, and is TÜV NORD certified with 72-hour pan-India service.",
+    "Taypro Model-A is a fully autonomous, waterless Automatic Solar Panel Cleaning Robot. AI/ML dual-pass dry cleaning removes 99%+ dust per cycle, runs up to 3,600 modules per charge, connects to Taypro Console via LTE / Wi-Fi / RF mesh / LoRa / LoRaWAN, and is TÜV NORD certified with same-day pan-India breakdown support.",
   keywords: [
     "automatic solar panel cleaning robot",
     "automatic solar panel cleaning robot India",

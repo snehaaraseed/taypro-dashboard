@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { founders, items, metrics } from "../data";
+import { founders, items, metrics, tayproMarketingImpactStats } from "../data";
 import { Linkedin } from "lucide-react";
 import CallbackCard from "../components/CallbackCard";
 import { Breadcrumbs } from "../components/Breadcrumbs";
@@ -168,13 +168,19 @@ export default function AboutUsPage() {
                 </Link>
               </div>
               <div className="mt-4 mb-6">
-                <div className="text-6xl font-semibold mb-2">1.4 Bn</div>
-                <div className="text-lg">Liters Water Saved Annually</div>
+                <div className="text-6xl font-semibold mb-2">
+                  {tayproMarketingImpactStats.waterSavedAnnually.value}
+                </div>
+                <div className="text-lg">
+                  {tayproMarketingImpactStats.waterSavedAnnually.label}
+                </div>
               </div>
               <div>
-                <div className="text-5xl font-semibold mb-2">67.5k</div>
+                <div className="text-5xl font-semibold mb-2">
+                  {tayproMarketingImpactStats.co2ReducedAnnually.value}
+                </div>
                 <div className="text-lg">
-                  Metric Tons Of CO2 Emission Reduced Annually
+                  {tayproMarketingImpactStats.co2ReducedAnnually.label}
                 </div>
               </div>
             </AnimateOnScroll>
@@ -314,8 +320,10 @@ export default function AboutUsPage() {
               </p>
               <p className="text-[#27415c] text-lg max-w-xl leading-relaxed">
                 That ecosystem mindset is how we scale to{" "}
-                <span className="whitespace-nowrap">600+</span> units per month capacity, stock
-                eight-plus warehouses, and honour commitments like same-day breakdown support
+                <span className="whitespace-nowrap">{metrics[1].value}</span>{" "}
+                robots per month of manufacturing capacity, stock{" "}
+                <span className="whitespace-nowrap">{metrics[2].value}</span>{" "}
+                warehouses across India, and honour commitments like same-day breakdown support
                 for fleets monitored in{" "}
                 <Link
                   href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"

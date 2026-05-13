@@ -26,6 +26,7 @@ import {
   robotSolutions,
   robotsAdvantages,
   tayproRobotConnectivitySummary,
+  tayproServiceSlaCopy,
   toDoFeatures,
 } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
@@ -185,8 +186,8 @@ const indianConditions = [
   },
   {
     icon: LifeBuoy,
-    title: "72-hour pan-India service SLA",
-    body: "On-site technical intervention within 72 hours anywhere in India, with immediate remote diagnostics from Taypro Console — the fastest robotic-cleaning SLA in the country.",
+    title: "Same-day pan-India breakdown response",
+    body: tayproServiceSlaCopy.panIndiaServiceCardBody,
   },
 ];
 
@@ -208,8 +209,8 @@ const whyTaypro = [
   },
   {
     icon: Wrench,
-    title: "Same-day breakdown support",
-    body: "Dedicated service engineers, remote diagnostics on Console, and a 72-hour on-site SLA so a robot down doesn't mean a row down for long.",
+    title: "Rapid breakdown response",
+    body: tayproServiceSlaCopy.panIndiaServiceCardBody,
   },
 ];
 
@@ -251,8 +252,7 @@ const hubFaqs = [
   },
   {
     question: "What support does Taypro provide if a robot breaks down?",
-    answer:
-      "Taypro provides a 72-hour on-site service SLA across India along with immediate remote diagnostics from Taypro Console, plus AMC packages for ongoing preventive maintenance. Dedicated technicians, an in-house manufacturing line, and a structured ticketing workflow on Console keep MTTR predictable.",
+    answer: `${tayproServiceSlaCopy.combinedSupportParagraph} AMC packages add preventive maintenance, spares planning, and a structured ticketing workflow on Console so mean time to repair stays predictable.`,
   },
   {
     question: "Is Taypro a manufacturer or a reseller of Solar Panel Cleaning Robots?",
@@ -268,7 +268,7 @@ const hubFaqs = [
 
 const heroStats = [
   { value: "50 MW+", label: "Typical plant size deployed" },
-  { value: "72 hr", label: "Pan-India service SLA" },
+  { value: "Same day", label: "Pan-India breakdown response" },
   { value: "TÜV NORD", label: "Certified hardware" },
   { value: "Waterless", label: "Dual-pass cleaning" },
 ];
@@ -318,8 +318,8 @@ export default function SolarPanelCleaningRobot() {
                   <strong>Automatic (Model-A)</strong>, semi-automatic
                   pick-and-place <strong>(Model-B)</strong>, and tracker-ready{" "}
                   <strong>(Model-T)</strong>. Waterless dual-pass cleaning,
-                  AI/ML scheduling, TÜV NORD certified hardware, and a 72-hour
-                  pan-India service SLA — available as CAPEX or as a monthly{" "}
+                  AI/ML scheduling, TÜV NORD certified hardware, and same-day
+                  pan-India breakdown support — available as CAPEX or as a monthly{" "}
                   <Link
                     href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
                     className="text-[#A8C117] hover:underline font-medium"

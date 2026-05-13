@@ -14,7 +14,7 @@ import {
   Sun,
   Settings,
 } from "lucide-react";
-import { modelBCards } from "@/app/data";
+import { modelBCards, tayproTrustedByStatsStrip } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import FAQAccordion from "@/app/components/FAQAccordion";
@@ -251,7 +251,7 @@ const modelBFaqs = [
   {
     question: "What kind of after-sales support does Taypro provide for Model-B?",
     answer:
-      "Every Model-B deployment is backed by Taypro's pan-India service model: pre-scheduled preventive and corrective maintenance, immediate remote diagnostics upon incident notification, and on-site technical intervention within 72 hours of breakdown — anywhere in India. Annual maintenance contracts (AMC) are available for long-term operations.",
+      "Every Model-B deployment is backed by Taypro's pan-India service model: pre-scheduled preventive and corrective maintenance, immediate remote diagnostics upon incident notification, and same-day on-site breakdown resolution targets — anywhere in India. Annual maintenance contracts (AMC) are available for long-term operations.",
   },
 ];
 
@@ -609,12 +609,7 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
               </h2>
             </AnimateOnScroll>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10 text-center">
-              {[
-                { value: "5 GW+", label: "Robot Capacity Deployed" },
-                { value: "100+", label: "Plant Installations" },
-                { value: "4 Billion+", label: "Litres of Water Saved" },
-                { value: "500+", label: "Robots Manufactured / Month" },
-              ].map((stat) => (
+              {[...tayproTrustedByStatsStrip].map((stat) => (
                 <AnimateOnScroll
                   key={stat.label}
                   animation="fadeInUp"
@@ -665,9 +660,9 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
                 },
                 {
                   icon: Headset,
-                  title: "72-Hour On-Site Intervention SLA",
+                  title: "Same-Day On-Site Intervention",
                   body:
-                    "When on-site work is required, Taypro guarantees technical intervention within 72 hours of breakdown, available pan-India.",
+                    "When on-site work is required, Taypro targets same-day on-site breakdown resolution, available pan-India, with immediate remote diagnostics from Taypro Console.",
                 },
               ].map((p) => {
                 const Icon = p.icon;
@@ -1012,7 +1007,7 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
                 {
                   title: "Pan-India Service Network",
                   body:
-                    "On-site technical intervention within 72 hours of breakdown, anywhere in India, with immediate remote diagnostics — the fastest robotic-cleaning SLA in the country.",
+                    "Same-day on-site breakdown resolution across India, with immediate remote diagnostics from Taypro Console — backed by regional spare inventory and structured AMC programs.",
                 },
               ].map((card) => (
                 <AnimateOnScroll
