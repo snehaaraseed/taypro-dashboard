@@ -75,9 +75,9 @@ export default function HomePage() {
         <section className="pt-12 lg:pt-40 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-8 lg:mb-12">
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
                 High-Tech Solar Panel Cleaning Robots
-              </h3>
+              </h2>
             </AnimateOnScroll>
 
             <div className="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-6 px-4 sm:px-0">
