@@ -318,6 +318,138 @@ export default function TayproConsolePage() {
           </Container>
         </section>
 
+        {/* Workflow fit — adds O&M / SCADA context + internal links */}
+        <section className="w-full py-16 sm:py-20 bg-white">
+          <Container size="narrow">
+            <AnimateOnScroll animation="fadeInUp">
+              <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
+                Fits your existing O&amp;M
+              </div>
+              <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-6 leading-tight">
+                How Taypro Console fits into your solar O&amp;M workflow
+              </h2>
+              <div className="space-y-5 text-gray-600 text-base sm:text-lg leading-relaxed">
+                <p>
+                  Taypro Console is not a generic plant SCADA, and it is not a
+                  replacement for your work-management system. It is a focused
+                  fleet layer for robotic solar panel cleaning that sits
+                  alongside the tools your operations team already runs — plant
+                  SCADA for generation, CMMS for tickets and assets, and your
+                  field reporting stack for daily logs.
+                </p>
+                <p>
+                  Cleaning crews use Console to confirm last night&apos;s
+                  block-wise coverage before the morning shift. Plant managers
+                  use it to compare planned vs. actual cycles against the
+                  monthly cleaning strategy. Central engineering uses it to
+                  spot soiling trends across multiple sites in a portfolio.
+                  Finance teams use the exports to reconcile cleaning evidence
+                  with O&amp;M billing — especially useful for plants on{" "}
+                  <Link
+                    href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
+                    className="text-[#A8C117] hover:underline"
+                  >
+                    Taypro OPEX
+                  </Link>{" "}
+                  where billing is per panel cleaned.
+                </p>
+                <p>
+                  If you&apos;re still deciding between owning a robot fleet
+                  and consuming cleaning as a service, our{" "}
+                  <Link
+                    href="/solar-panel-cleaning-system"
+                    className="text-[#A8C117] hover:underline"
+                  >
+                    Solar Panel Cleaning Robot category page
+                  </Link>{" "}
+                  walks through Model-A, Model-B, Model-T, and OPEX side by
+                  side — Console is the operations layer behind every one of
+                  those paths.
+                </p>
+                <p>
+                  Further reading:{" "}
+                  <Link
+                    href="/blog/the-role-of-data-analytics-in-solar-panel-cleaning-improving-efficiency-with-taypro"
+                    className="text-[#A8C117] hover:underline"
+                  >
+                    data analytics in solar cleaning operations
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    href="/blog/beyond-cleaning-how-automated-systems-can-monitor-solar-panel-performance"
+                    className="text-[#A8C117] hover:underline"
+                  >
+                    monitoring performance beyond cleaning cycles
+                  </Link>
+                  .
+                </p>
+              </div>
+            </AnimateOnScroll>
+          </Container>
+        </section>
+
+        {/* Scheduling depth — capability detail + ROI calculator link */}
+        <section className="w-full py-16 sm:py-20 bg-[#f4f1e9]">
+          <Container size="narrow">
+            <AnimateOnScroll animation="fadeInUp">
+              <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
+                Cleaning rhythm, not just buttons
+              </div>
+              <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-6 leading-tight">
+                Schedules, rest zones, and cleaning windows — explained
+              </h2>
+              <div className="space-y-5 text-gray-600 text-base sm:text-lg leading-relaxed">
+                <p>
+                  Robotic solar cleaning at utility scale is not about pressing
+                  &quot;clean now&quot;. The hard part is choosing how often,
+                  in which order, and inside which environmental window.
+                  Console exposes the planning loop that Taypro engineers and
+                  your operators agree on during commissioning, so cleaning
+                  cadence stays consistent week after week, season after
+                  season.
+                </p>
+                <ul className="list-disc pl-6 space-y-3">
+                  <li>
+                    <strong>Block-wise timers.</strong> Each block carries its
+                    own cleaning window — typically post-sunset or pre-sunrise
+                    — so cleaning never overlaps peak generation.
+                  </li>
+                  <li>
+                    <strong>Rest zones and parking.</strong> The portal shows
+                    where each robot is meant to idle between cycles. Site
+                    teams use the same map for security rounds and morning
+                    checks.
+                  </li>
+                  <li>
+                    <strong>Seasonal cadence.</strong> Plants in dusty zones
+                    move to denser cycles (often 6–10 per month) during summer
+                    and post-harvest; quieter months drop to 3–4 cycles.
+                    Console keeps the working schedule visible to everyone on
+                    the account.
+                  </li>
+                  <li>
+                    <strong>Weather context.</strong> Dashboards surface the
+                    same weather signal robots use to skip wet or windy
+                    cycles, so manual overrides happen with full context.
+                  </li>
+                </ul>
+                <p>
+                  Want a quick sense of how cycle cadence translates to
+                  generation gain and payback for your plant? Run the numbers
+                  in the{" "}
+                  <Link
+                    href="/solar-panel-cleaning-robot-price-calculator"
+                    className="text-[#A8C117] hover:underline"
+                  >
+                    Solar Panel Cleaning Robot ROI calculator
+                  </Link>{" "}
+                  before talking to our team.
+                </p>
+              </div>
+            </AnimateOnScroll>
+          </Container>
+        </section>
+
         {/* Visual + precision (preserved layout, copy tightened) */}
         <section
           className="w-full py-20 bg-white"

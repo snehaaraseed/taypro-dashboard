@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
+import { ArticleSchema, PlaceSchema } from "@/app/components/StructuredData";
 import { AllProjectsOverviewSection } from "@/app/components/AllProjectsOverviewSection";
 import { AllRelatedProjectsSection } from "@/app/components/AllRelatedProjectsSection";
 import { BlogContent } from "@/app/components/BlogContent";
@@ -47,8 +48,8 @@ export const metadata: Metadata = {
 
 export default async function ProjectPage() {
   // Check if project is published
-  const metadata = await readProjectMetadata("soyegaon-solar-project");
-  if (!metadata || metadata.published === false) {
+  const fileMeta = await readProjectMetadata("soyegaon-solar-project");
+  if (!fileMeta || fileMeta.published === false) {
     notFound();
   }
   const allProjects = await getAllFileProjects();
@@ -56,9 +57,32 @@ export default async function ProjectPage() {
     .filter((p) => p.id !== "soyegaon-solar-project" && p.href !== "/projects/soyegaon-solar-project")
     .slice(0, 3);
 
+  const datePublished = fileMeta.date || "2025-01-28";
+  const dateModified = fileMeta.updatedAt || fileMeta.date || datePublished;
+
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
+      <ArticleSchema
+        scriptId="article-schema-soyegaon-solar-project"
+        headline="Soyegaon Maharashtra – 100 MW"
+        description={fileMeta.description}
+        image={fileMeta.image}
+        url={`${siteUrl}/projects/soyegaon-solar-project`}
+        datePublished={datePublished}
+        dateModified={dateModified}
+        author={{ name: "Taypro Team", url: `${siteUrl}/authors` }}
+        siteUrl={siteUrl}
+      />
+      <PlaceSchema
+        schemaId="place-schema-soyegaon-solar-project"
+        name="Soyegaon Solar Power Plant, Maharashtra"
+        description={fileMeta.description}
+        addressLocality="Soyegaon"
+        addressRegion="Maharashtra"
+        latitude={20.58}
+        longitude={74.52}
+      />
       <div className="min-h-screen">
         <section
           className="bg-white min-h-[50vh] flex flex-col items-center justify-start relative"

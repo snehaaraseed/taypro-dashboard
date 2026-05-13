@@ -443,6 +443,23 @@ export default function SolarPanelCleaningRobot() {
                   </Link>{" "}
                   service.
                 </p>
+                <p>
+                  Further reading:{" "}
+                  <Link
+                    href="/blog/the-complete-guide-to-solar-panel-maintenance"
+                    className="text-[#A8C117] hover:underline"
+                  >
+                    solar panel maintenance guide
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    href="/blog/what-is-a-solar-panel-cleaning-robot"
+                    className="text-[#A8C117] hover:underline"
+                  >
+                    what defines a solar panel cleaning robot
+                  </Link>
+                  .
+                </p>
               </div>
             </AnimateOnScroll>
           </Container>

@@ -17,12 +17,12 @@ export default function HomePage() {
   return (
     <>
       <VideoObjectSchema
-        name="TAYPRO - Robotic Solar Panel Cleaning - Solar Panel Cleaning Robot"
+        name="TAYPRO - Autonomous Solar Panel Cleaning Robot"
         description="Watch how Taypro's Solar Panel Cleaning Robot autonomously cleans solar panels at utility-scale solar farms. Our waterless robotic cleaning system increases efficiency up to 30% with AI-powered scheduling."
-        thumbnailUrl="https://img.youtube.com/vi/PiXJhQ_MYgk/maxresdefault.jpg"
+        thumbnailUrl="https://img.youtube.com/vi/y9iRhH2bLwY/maxresdefault.jpg"
         uploadDate="2024-01-01"
-        embedUrl="https://www.youtube.com/embed/PiXJhQ_MYgk"
-        contentUrl="https://www.youtube.com/watch?v=PiXJhQ_MYgk"
+        embedUrl="https://www.youtube.com/embed/y9iRhH2bLwY"
+        contentUrl="https://www.youtube.com/watch?v=y9iRhH2bLwY"
       />
       <ProductSchema
         name="Solar Panel Cleaning Robot - Model A"

@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
+const EFFECTIVE_DATE = "July 1, 2020";
+const LAST_UPDATED = "May 13, 2026";
+
 export const metadata: Metadata = {
   title: "Privacy Policy at Taypro Private Limited",
   description:
@@ -38,10 +41,12 @@ export default function PrivacyPolicySection() {
 
             <div className="mt-8">
               <h2 className="text-[#0c2f42] font-semibold text-2xl mb-4">
-                Privacy Policy
+                Overview
               </h2>
               <div className="text-[#0c2f42] text-lg mb-8 font-normal">
-                Effective Date: 01-07-2020
+                Effective Date: {EFFECTIVE_DATE}
+                <span className="mx-2 text-gray-400">·</span>
+                Last Updated: {LAST_UPDATED}
               </div>
               <div className="text-[#0c2f42] text-lg font-normal leading-9">
                 Taypro (“we,” “our,” “us”) is committed to protecting your

@@ -1,21 +1,38 @@
 "use client";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { additionalProjects } from "@/app/data";
+import { ItemListSchema } from "@/app/components/StructuredData";
 import Image from "next/image";
 import Link from "next/link";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
 export default function ProjectTypePage() {
   const breadcrumbs = [
     { name: "Home", href: "/" },
+    { name: "Projects", href: "/projects" },
     {
       name: "Automatic",
       href: "",
     },
   ];
 
+  const itemListEntries = additionalProjects.map((card) => ({
+    name: card.title,
+    url: card.href,
+    image: card.img,
+  }));
+
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
+      <ItemListSchema
+        scriptId="item-list-schema-projects-automatic"
+        name="Automatic Solar Panel Cleaning Robot installation projects"
+        description="Utility-scale solar plants where Taypro Model-A and related automatic robotic cleaning systems are deployed."
+        items={itemListEntries}
+        siteUrl={siteUrl}
+      />
       <section className="w-full pt-20 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 text-start">
           <h1 className="text-[#052638] text-4xl md:text-5xl mb-4 font-semibold">
@@ -45,13 +62,13 @@ export default function ProjectTypePage() {
                   />
 
                   <div className="absolute bottom-4 left-4 text-white flex flex-col transition-all duration-300">
-                    <h4 className="text-sm font-semibold bg-opacity-10 px-3 transition-transform duration-300 group-hover:-translate-y-3">
+                    <h3 className="text-sm font-semibold bg-opacity-10 px-3 transition-transform duration-300 group-hover:-translate-y-3">
                       {card.title}
-                    </h4>
+                    </h3>
 
-                    <h2 className="text-xs bg-opacity-60 px-3 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300">
+                    <p className="text-xs bg-opacity-60 px-3 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 text-white/90">
                       {card.date}
-                    </h2>
+                    </p>
                   </div>
                 </div>
               </Link>

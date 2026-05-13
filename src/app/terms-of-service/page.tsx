@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
+const LAST_UPDATED = "May 13, 2026";
+
 export const metadata: Metadata = {
   title: "Terms of Service | Taypro - Solar Panel Cleaning Robots",
   description:
@@ -37,14 +39,10 @@ export default function TermsOfServicePage() {
 
             <div className="mt-8">
               <h2 className="text-[#0c2f42] font-semibold text-2xl mb-4">
-                Terms of Service
+                Overview
               </h2>
               <div className="text-[#0c2f42] text-lg mb-8 font-normal">
-                Last Updated: {new Date().toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
+                Last Updated: {LAST_UPDATED}
               </div>
               <div className="text-[#0c2f42] text-lg font-normal leading-9">
                 Please read these Terms of Service ("Terms") carefully before using

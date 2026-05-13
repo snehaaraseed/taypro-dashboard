@@ -46,6 +46,8 @@ interface ArticleSchemaProps {
   headline: string;
   description: string;
   image?: string;
+  /** Canonical article URL (absolute or site-root path). */
+  url?: string;
   datePublished?: string;
   dateModified?: string;
   author?: {
@@ -56,6 +58,8 @@ interface ArticleSchemaProps {
     name: string;
     logo?: string;
   };
+  /** Unique id when multiple Article scripts could coexist in dev HMR. */
+  scriptId?: string;
 }
 
 interface VideoObjectSchemaProps {
@@ -122,15 +126,23 @@ export function BreadcrumbListSchema({
   items: BreadcrumbItem[];
   siteUrl?: string;
 }) {
+  // Per Google's BreadcrumbList guidance, `item` is optional on the last list element.
+  // When a breadcrumb entry has an empty href (the current page), we omit the `item`
+  // field rather than emitting an inaccurate URL (e.g. the site root).
   const schema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: items.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: item.name,
-      item: `${siteUrl}${item.href || ""}`,
-    })),
+    itemListElement: items.map((item, index) => {
+      const base: Record<string, unknown> = {
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.name,
+      };
+      if (item.href) {
+        base.item = `${siteUrl}${item.href}`;
+      }
+      return base;
+    }),
   };
 
   return (
@@ -376,13 +388,15 @@ export function ArticleSchema({
   headline,
   description,
   image,
+  url,
   datePublished,
   dateModified,
   author,
   publisher,
+  scriptId = "article-schema",
   siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
 }: ArticleSchemaProps & { siteUrl?: string }) {
-  const schema: any = {
+  const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: headline,
@@ -399,6 +413,15 @@ export function ArticleSchema({
 
   if (image) {
     schema.image = image.startsWith("http") ? image : `${siteUrl}${image}`;
+  }
+
+  if (url) {
+    const fullUrl = url.startsWith("http") ? url : `${siteUrl}${url}`;
+    schema.url = fullUrl;
+    schema.mainEntityOfPage = {
+      "@type": "WebPage",
+      "@id": fullUrl,
+    };
   }
 
   if (datePublished) {
@@ -419,7 +442,59 @@ export function ArticleSchema({
 
   return (
     <Script
-      id="article-schema"
+      id={scriptId}
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+export function PlaceSchema({
+  name,
+  description,
+  addressLocality,
+  addressRegion,
+  addressCountry = "IN",
+  latitude,
+  longitude,
+  schemaId = "place-schema",
+}: {
+  name: string;
+  description?: string;
+  addressLocality: string;
+  addressRegion: string;
+  addressCountry?: string;
+  latitude?: number;
+  longitude?: number;
+  schemaId?: string;
+}) {
+  const schema: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    name,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality,
+      addressRegion,
+      addressCountry,
+    },
+  };
+
+  if (description) {
+    schema.description = description;
+  }
+
+  if (latitude != null && longitude != null) {
+    schema.geo = {
+      "@type": "GeoCoordinates",
+      latitude,
+      longitude,
+    };
+  }
+
+  return (
+    <Script
+      id={schemaId}
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
@@ -599,11 +674,13 @@ export function ItemListSchema({
   name,
   description,
   items,
+  scriptId = "item-list-schema",
   siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
 }: {
   name: string;
   description?: string;
   items: ItemListEntry[];
+  scriptId?: string;
   siteUrl?: string;
 }) {
   if (!items || items.length === 0) return null;
@@ -634,7 +711,7 @@ export function ItemListSchema({
 
   return (
     <Script
-      id="item-list-schema"
+      id={scriptId}
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />

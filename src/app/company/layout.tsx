@@ -3,23 +3,26 @@ import type { Metadata } from "next";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
 export const metadata: Metadata = {
-  title: "About Taypro - Made-in-India Solar Panel Cleaning Robot Manufacturer",
+  title: "About Taypro | Solar Panel Cleaning Robot Manufacturer in India",
   description:
-    "Taypro is a Made-in-India manufacturer of autonomous Solar Panel Cleaning Robots. Meet the founders, engineering team, and the values behind India's most deployed waterless robotic cleaning systems for utility-scale solar plants.",
+    "Learn how Taypro Private Limited engineers Made-in-India autonomous solar panel cleaning robots—including Model-A, Model-B, Model-T, Taypro Opex, and Taypro Console—for utility-scale and commercial PV. Vision, leadership, manufacturing scale in Pune, and nationwide service.",
   keywords: [
     "About Taypro",
-    "Taypro company",
-    "Solar Panel Cleaning Robot manufacturer",
+    "Taypro Private Limited",
+    "Solar Panel Cleaning Robot manufacturer India",
     "Made in India solar cleaning robot",
+    "autonomous solar panel cleaning",
     "Taypro founders",
-    "Taypro team",
+    "Taypro team Chakan Pune",
     "robotic solar cleaning company",
     "utility-scale solar O&M",
+    "waterless solar panel cleaning",
+    "Taypro Console",
   ],
   openGraph: {
-    title: "About Taypro - Made-in-India Solar Panel Cleaning Robot Manufacturer",
+    title: "About Taypro | Solar Panel Cleaning Robot Manufacturer in India",
     description:
-      "Meet the team building India's most deployed Solar Panel Cleaning Robots. Made-in-India manufacturing, patented dual-pass waterless cleaning, and pan-India service.",
+      "Company story, vision, and leadership behind Taypro’s autonomous and semi-automatic solar cleaning robots, dual-pass waterless technology, and pan-India deployment support.",
     url: `${siteUrl}/company`,
     type: "website",
     images: [
@@ -33,9 +36,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Taypro - Solar Panel Cleaning Robot Manufacturer",
+    title: "About Taypro | Solar Panel Cleaning Robot Manufacturer in India",
     description:
-      "Made-in-India manufacturer of autonomous Solar Panel Cleaning Robots. Meet the team behind utility-scale robotic cleaning across India.",
+      "Made-in-India solar panel cleaning robots, nationwide warehouses, and cloud fleet monitoring—built for utility-scale asset owners and O&M teams.",
     images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
   },
   alternates: {

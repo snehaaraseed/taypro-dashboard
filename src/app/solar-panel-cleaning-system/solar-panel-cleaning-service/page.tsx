@@ -1,5 +1,4 @@
 import {
-  cleaningServiceFaqs,
   modelBCards,
   tayproRobotConnectivitySummary,
 } from "@/app/data";
@@ -155,7 +154,7 @@ const plantStudyFactors = [
 ];
 
 export default function SolarPanelCleaningService() {
-  const allFaqs = [...opexServiceFaqs, ...cleaningServiceFaqs];
+  const allFaqs = opexServiceFaqs;
 
   const benefits = [
     "Plant-specific soiling study & 3–10 dry cycles / month",
@@ -274,6 +273,23 @@ export default function SolarPanelCleaningService() {
                   day, or per cycle depending on your governance needs — via
                   Taypro Console, with fleet telemetry carried over{" "}
                   {tayproRobotConnectivitySummary} as designed for your site.
+                </p>
+                <p>
+                  Further reading:{" "}
+                  <Link
+                    href="/blog/cost-benefit-analysis-of-solar-panel-cleaning-services-in-india"
+                    className="text-[#A8C117] hover:underline"
+                  >
+                    cost–benefit of cleaning services in India
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    href="/blog/why-solar-power-plants-need-robotic-cleaning-for-maximum-roi"
+                    className="text-[#A8C117] hover:underline"
+                  >
+                    why plants adopt robotic cleaning for ROI
+                  </Link>
+                  .
                 </p>
               </div>
             </AnimateOnScroll>

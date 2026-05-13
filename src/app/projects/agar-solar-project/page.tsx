@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
+import { ArticleSchema, PlaceSchema } from "@/app/components/StructuredData";
 import { AllProjectsOverviewSection } from "@/app/components/AllProjectsOverviewSection";
 import { AllRelatedProjectsSection } from "@/app/components/AllRelatedProjectsSection";
 import { BlogContent } from "@/app/components/BlogContent";
@@ -47,8 +48,8 @@ export const metadata: Metadata = {
 
 export default async function ProjectPage() {
   // Check if project is published
-  const metadata = await readProjectMetadata("agar-solar-project");
-  if (!metadata || metadata.published === false) {
+  const fileMeta = await readProjectMetadata("agar-solar-project");
+  if (!fileMeta || fileMeta.published === false) {
     notFound();
   }
   const allProjects = await getAllFileProjects();
@@ -56,9 +57,32 @@ export default async function ProjectPage() {
     .filter((p) => p.id !== "agar-solar-project" && p.href !== "/projects/agar-solar-project")
     .slice(0, 3);
 
+  const datePublished = fileMeta.date || "2022-05-27";
+  const dateModified = fileMeta.updatedAt || fileMeta.date || datePublished;
+
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
+      <ArticleSchema
+        scriptId="article-schema-agar-solar-project"
+        headline="Agar, Madhya Pradesh – 250 MW"
+        description={fileMeta.description}
+        image={fileMeta.image}
+        url={`${siteUrl}/projects/agar-solar-project`}
+        datePublished={datePublished}
+        dateModified={dateModified}
+        author={{ name: "Taypro Team", url: `${siteUrl}/authors` }}
+        siteUrl={siteUrl}
+      />
+      <PlaceSchema
+        schemaId="place-schema-agar-solar-project"
+        name="Agar Solar Power Plant, Madhya Pradesh"
+        description={fileMeta.description}
+        addressLocality="Agar Malwa"
+        addressRegion="Madhya Pradesh"
+        latitude={23.7117}
+        longitude={76.0157}
+      />
       <div className="min-h-screen">
         <section
           className="bg-white min-h-[50vh] flex flex-col items-center justify-start relative"

@@ -187,7 +187,7 @@ export default function Blog() {
                   <li>
                     <Link
                       href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
-                      title="Automatic Solar Panel CLeaning Robot"
+                      title="Automatic Solar Panel Cleaning Robot"
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
                       Automatic Solar Panel Cleaning Robot
@@ -214,7 +214,7 @@ export default function Blog() {
                   <li>
                     <Link
                       href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
-                      title="Solar Panel Cleanign Service"
+                      title="Solar Panel Cleaning Service"
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
                       Solar Panel Cleaning Service

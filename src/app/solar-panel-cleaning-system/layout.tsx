@@ -3,38 +3,25 @@ import type { Metadata } from "next";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
 export const metadata: Metadata = {
+  // Primary intent: category landing for "solar panel cleaning robot in India".
+  // Child URLs own model-specific intent (automatic / semi-automatic / tracker / service / monitoring).
   title:
-    "Solar Panel Cleaning Robot India | Automatic, Semi-Automatic & Tracker Models",
+    "Solar Panel Cleaning Robot in India — Compare Taypro Models & Services",
   description:
-    "Taypro builds India's most deployed Solar Panel Cleaning Robots — fully Automatic Solar Panel Cleaning Robot (Model-A), pick-and-place semi-automatic (Model-B), and single-axis tracker cleaning robot (Model-T). Waterless dual-pass cleaning, AI/ML scheduling, TÜV NORD certified, 72-hour pan-India service. Choose CAPEX or OPEX (pay-per-panel) with monitoring on Taypro Console.",
+    "Compare every Taypro Solar Panel Cleaning Robot in one place. Choose between Model-A (automatic), Model-B (semi-automatic, pick-and-place), Model-T (single-axis tracker), or Taypro OPEX as a service. Waterless dual-pass cleaning, AI/ML scheduling, TÜV NORD certified, 72-hour pan-India support.",
   keywords: [
-    "Solar Panel Cleaning Robot",
     "solar panel cleaning robot",
     "solar panel cleaning robot India",
-    "Automatic Solar Panel Cleaning Robot",
-    "automatic solar panel cleaning robot India",
-    "best solar panel cleaning robot",
-    "solar panel cleaning robot manufacturer",
     "solar panel cleaning robot manufacturer India",
-    "solar panel cleaning robot price",
-    "solar panel cleaning robot cost",
-    "buy solar panel cleaning robot",
-    "solar panel cleaning robot for solar farm",
-    "utility scale solar panel cleaning robot",
-    "waterless solar panel cleaning robot",
-    "robotic solar panel cleaner",
-    "robotic solar panel cleaning system",
-    "AI solar panel cleaning robot",
-    "autonomous solar panel cleaning robot",
-    "semi-automatic solar panel cleaning robot",
-    "single axis tracker solar panel cleaning robot",
     "solar panel cleaning robot company India",
+    "buy solar panel cleaning robot",
+    "best solar panel cleaning robot",
+    "utility scale solar panel cleaning robot",
+    "robotic solar panel cleaning system",
+    "solar panel cleaning robot for solar farm",
     "Taypro solar cleaning robot",
-    "Taypro Model-A",
-    "Taypro Model-B",
-    "Taypro Model-T",
-    "solar panel cleaning service India",
-    "solar panel cleaning OPEX",
+    "Taypro Model-A vs Model-B vs Model-T",
+    "CAPEX vs OPEX solar cleaning",
   ],
   openGraph: {
     siteName: "Taypro",

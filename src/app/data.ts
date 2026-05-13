@@ -227,7 +227,7 @@ export const projects = [
     img: "/tayprosolarfirm/yadgir-solar.jpg",
     title: "Yadgir Solar Project – 50 MW",
     details: "Automatic, Capex, Semi-Automatic",
-    href: "/projects/yadgir-solar-project",
+    href: "/projects/yadgir-solar-project-50-mw",
     date: "January 28, 2025",
   },
 ];
@@ -246,13 +246,13 @@ export const additionalProjects = [
     img: "/tayprosolarfirm/yadgir-solar.jpg",
     title: "Yadgir Solar Project – 50 MW",
     details: ["Automatic", "Capex", "Semi-Automatic"],
-    href: "/projects/yadgir-solar-project",
+    href: "/projects/yadgir-solar-project-50-mw",
     date: "January 28, 2025",
   },
   {
     id: 3,
     img: "/tayprosolarfirm/soyegaon-solar.jpg",
-    title: "Soyegaon Maharastra – 100 MW",
+    title: "Soyegaon Maharashtra – 100 MW",
     details: ["Automatic", "Capex", "Semi-Automatic"],
     href: "/projects/soyegaon-solar-project",
     date: "January 28, 2025",
@@ -348,44 +348,6 @@ export const moreFaqs = [
   },
 ];
 
-export const cleaningServiceFaqs = [
-  {
-    question: "What awards has TAYPRO won?",
-    answer:
-      "Winner: InnovateNEXT 1.0 (IIT Delhi), PATHFINDER Business Plan Competition, and Top 25 Young Innovators (Zee 24 Taas).",
-  },
-  {
-    question: "How does TAYPRO handle agricultural residue?",
-    answer:
-      "Satellites track crop-burning events in Punjab/Haryana. Robots clean proactively to remove ash, boosting efficiency by 12–15%.",
-  },
-  {
-    question: "What certifications does TAYPRO have?",
-    answer:
-      "ISO 9001 (quality), ISO 14001 (environment), and patents for Dual Pass Cleaning and RF mesh. Complies with UL and IEC standards.",
-  },
-  {
-    question: "What is the energy gain for a 100 MW plant?",
-    answer:
-      "A 100 MW plant regains 15–20% efficiency, saving ₹1.8–2.4 crore/year (at ₹3/kWh). In Karnataka, this funded a ₹50 lakh CSR water project.",
-  },
-  {
-    question: "Can TAYPRO reduce DISCOM penalties?",
-    answer:
-      "Yes. By maintaining PPA output targets, a 200 MW plant in Maharashtra avoided ₹4.8 crore in penalties over 2 years.",
-  },
-  {
-    question: "How does TAYPRO handle panel degradation?",
-    answer:
-      "Non-abrasive cleaning limits degradation to 0.5%/year vs. 2%/year with manual brushes. A 10-year study at NTPC’s Rajasthan plant confirmed TAYPRO-maintained panels retained 92% efficiency after a decade.",
-  },
-  {
-    question: "What is the annualized ROI for TAYPRO?",
-    answer:
-      "Annualized ROI is 16.03% for a 200 MW plant, factoring in compounding savings. Over 20 years, returns reach 1,660% due to reduced O&M costs, extended panel lifespan, and energy gains.",
-  },
-];
-
 export const modelCards = [
   {
     label: "MODEL-B",
@@ -446,19 +408,24 @@ export const resources = [
 
 export const items = [
   {
-    label: "Root Strengths",
+    label: "Who we are",
     heading:
-      "High-tech capabilities with a patent for Dual-Pass Solar Cleaning Technique.",
+      "Engineering-led robotics for solar asset owners and operators across India.",
+    body:
+      "Taypro Private Limited designs, manufactures, and supports autonomous solar panel cleaning robots for fixed tilt, seasonal tilt, rooftop, and single-axis tracker installations. Our Made-in-India systems combine waterless dual-pass cleaning, resilient field connectivity, and cloud monitoring through Taypro Console—so plants can sustain higher performance ratios with predictable operations and maintenance.",
   },
   {
     label: "Vision",
-    heading:
-      "To Enable the Full Potential of Renewable Energy for a Sustainable Future.",
+    heading: "Unlock the full economic and environmental value of every solar megawatt.",
+    body:
+      "Soiling is one of the largest avoidable drags on generation. We believe renewable energy only scales when performance is dependable year after year. Taypro exists to give IPPs, developers, and O&M teams a repeatable way to protect yield, labour safety, and water resources on the same assets that power communities and industry.",
   },
   {
     label: "Mission",
     heading:
-      "To Innovate Technologies that Drive the Performance of Renewable Energy Systems.",
+      "Ship reliable robots, transparent service, and measurable outcomes—site by site.",
+    body:
+      "We invest in R&D, manufacturing capacity, and nationwide logistics so customers receive consistent quality, rapid spare availability, and responsive support. From Model-A and Model-B for distributed layouts to Model-T for trackers, plus Taypro Opex for operator-led cleaning, our roadmap stays tied to one question: does it improve plant uptime, safety, and total cost of ownership?",
   },
 ];
 

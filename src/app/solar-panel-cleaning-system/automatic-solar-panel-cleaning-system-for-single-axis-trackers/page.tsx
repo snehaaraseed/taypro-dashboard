@@ -374,6 +374,20 @@ export default function ModelTPage() {
                   </Link>
                   .
                 </p>
+                <p>
+                  Further reading:{" "}
+                  <Link
+                    href="/blog/seasonal-solar-panel-maintenance-tips-a-comprehensive-guide"
+                    className="text-[#A8C117] hover:underline"
+                  >
+                    seasonal maintenance for tracker-heavy sites
+                  </Link>{" "}
+                  and{" "}
+                  <Link href="/blog" className="text-[#A8C117] hover:underline">
+                    more articles on solar O&amp;M
+                  </Link>
+                  .
+                </p>
               </div>
             </AnimateOnScroll>
           </Container>
@@ -422,6 +436,7 @@ export default function ModelTPage() {
                     width={600}
                     height={450}
                     className="mx-auto"
+                    productLabel="Taypro Model-T — Solar Panel Cleaning Robot for Single-Axis Trackers"
                   />
                 </div>
               </AnimateOnScroll>
@@ -474,6 +489,7 @@ export default function ModelTPage() {
                       width={700}
                       height={525}
                       className="mx-auto"
+                      productLabel="Taypro Model-T — Solar Panel Cleaning Robot for Single-Axis Trackers"
                     />
                   </div>
                 </AnimateOnScroll>

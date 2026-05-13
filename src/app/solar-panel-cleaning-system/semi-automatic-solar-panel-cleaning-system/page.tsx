@@ -293,8 +293,8 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
               charge — operable by any two-person site team.
             </>
           }
-          imgSrc="/tayprorobots/taypro-opex.jpg"
-          imgAlt="Taypro Semi-Automatic Solar Panel Cleaning Robot Model-B - Pick-and-place type robotic cleaning system for solar farms"
+          imgSrc="/tayprorobots/taypro-modelBcopy.png"
+          imgAlt="Taypro Model-B — Semi-Automatic Solar Panel Cleaning Robot, pick-and-place waterless cleaner for utility-scale solar plants"
           ctaHref="/contact"
           ctaText="Request a quote"
         />
@@ -365,6 +365,20 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
                   </Link>
                   .
                 </p>
+                <p>
+                  Further reading:{" "}
+                  <Link
+                    href="/blog/what-are-the-different-methods-used-for-solar-panel-cleaning"
+                    className="text-[#A8C117] hover:underline"
+                  >
+                    methods used for solar panel cleaning
+                  </Link>{" "}
+                  (where semi-automatic robots fit) and related guides on the{" "}
+                  <Link href="/blog" className="text-[#A8C117] hover:underline">
+                    Taypro blog
+                  </Link>
+                  .
+                </p>
               </div>
             </AnimateOnScroll>
           </Container>
@@ -399,6 +413,7 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
                   width={800}
                   height={600}
                   className="mx-auto"
+                  productLabel="Taypro Model-B — Semi-Automatic Solar Panel Cleaning Robot"
                 />
               </div>
             </AnimateOnScroll>

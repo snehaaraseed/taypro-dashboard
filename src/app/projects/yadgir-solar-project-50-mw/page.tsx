@@ -1,10 +1,12 @@
 import { Metadata } from "next";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
+import { ArticleSchema, PlaceSchema } from "@/app/components/StructuredData";
 import { AllProjectsOverviewSection } from "@/app/components/AllProjectsOverviewSection";
 import { AllRelatedProjectsSection } from "@/app/components/AllRelatedProjectsSection";
 import { BlogContent } from "@/app/components/BlogContent";
-import { getAllFileProjects } from "@/app/utils/projectFileUtils";
+import { getAllFileProjects, readProjectMetadata } from "@/app/utils/projectFileUtils";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
@@ -44,13 +46,8 @@ export const metadata: Metadata = {
 };
 
 export default async function ProjectPage() {
-  // Check if project is published
-  const { readProjectMetadata } = await import("@/app/utils/projectFileUtils");
-  const metadata_check = await readProjectMetadata("yadgir-solar-project-50-mw");
-  
-  // Return 404 for drafts
-  if (metadata_check && metadata_check.published === false) {
-    const { notFound } = await import("next/navigation");
+  const fileMeta = await readProjectMetadata("yadgir-solar-project-50-mw");
+  if (fileMeta?.published === false) {
     notFound();
   }
 
@@ -59,9 +56,36 @@ export default async function ProjectPage() {
     .filter((p) => p.href !== "/projects/yadgir-solar-project-50-mw")
     .slice(0, 3);
 
+  const description =
+    fileMeta?.description ??
+    "A 50 MW solar power project in Yadgir contributing to India's renewable energy goals.";
+  const image = fileMeta?.image ?? "/tayprosolarfirm/yadgir-solar.jpg";
+  const datePublished = fileMeta?.date || "2025-01-28";
+  const dateModified = fileMeta?.updatedAt || fileMeta?.date || datePublished;
+
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
+      <ArticleSchema
+        scriptId="article-schema-yadgir-solar-project-50-mw"
+        headline="Yadgir Solar Project – 50 MW"
+        description={description}
+        image={image}
+        url={`${siteUrl}/projects/yadgir-solar-project-50-mw`}
+        datePublished={datePublished}
+        dateModified={dateModified}
+        author={{ name: "Taypro Team", url: `${siteUrl}/authors` }}
+        siteUrl={siteUrl}
+      />
+      <PlaceSchema
+        schemaId="place-schema-yadgir-solar-project-50-mw"
+        name="Yadgir Solar Power Plant, Karnataka"
+        description={description}
+        addressLocality="Yadgir"
+        addressRegion="Karnataka"
+        latitude={16.7626}
+        longitude={76.8358}
+      />
       <div className="min-h-screen">
         <section
           className="bg-white min-h-[50vh] flex flex-col items-center justify-start relative"

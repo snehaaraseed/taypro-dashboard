@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   Droplet,
   Dumbbell,
@@ -28,7 +29,6 @@ import {
   FAQPageSchema,
   HowToSchema,
 } from "@/app/components/StructuredData";
-import Link from "next/link";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import Product360Viewer from "@/app/components/Product360Viewer";
 import { Container } from "@/app/components/Container";
@@ -231,6 +231,23 @@ export default function AutomaticSolarPanelCleaningRobot() {
                   one table to the next, keeping coverage uninterrupted across
                   the entire site.
                 </p>
+                <p>
+                  Further reading:{" "}
+                  <Link
+                    href="/blog/how-does-a-solar-panel-cleaning-robot-work-"
+                    className="text-[#A8C117] hover:underline"
+                  >
+                    how an automatic cleaning robot works on modules
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    href="/blog/benefits-of-using-solar-panel-cleaning-robot-in-a-solar-plant"
+                    className="text-[#A8C117] hover:underline"
+                  >
+                    benefits of robotic cleaning at utility scale
+                  </Link>
+                  .
+                </p>
               </div>
             </AnimateOnScroll>
           </Container>
@@ -307,6 +324,7 @@ export default function AutomaticSolarPanelCleaningRobot() {
                 width={800}
                 height={600}
                 className="mx-auto"
+                productLabel="Taypro Model-A — Automatic Solar Panel Cleaning Robot"
               />
             </div>
           </AnimateOnScroll>
@@ -1221,7 +1239,7 @@ export default function AutomaticSolarPanelCleaningRobot() {
               animation="fadeInUp"
               className="font-semibold text-3xl sm:text-5xl md:text-5xl text-start mb-16"
             >
-              <h2>How Does Automatic Solar Panel Cleaning Robot Work?</h2>
+              <h2>Inside a Model-A cleaning cycle — step by step</h2>
             </AnimateOnScroll>
             <p className="mb-7 text-start text-base sm:text-lg">
               ⦿ The robot initialises its sensors on the activation and performs

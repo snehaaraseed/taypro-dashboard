@@ -6,6 +6,7 @@ import { Linkedin } from "lucide-react";
 import CallbackCard from "../components/CallbackCard";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { AnimateOnScroll } from "../components/AnimateOnScroll";
+import { FAQPageSchema } from "../components/StructuredData";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -14,8 +15,6 @@ const breadcrumbs = [
     href: "",
   },
 ];
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
 export default function AboutUsPage() {
   const resources = [
@@ -32,8 +31,33 @@ export default function AboutUsPage() {
       href: "/blog/new-solar-panel-technologies-2025",
     },
   ];
+
+  const companyFaqs = [
+    {
+      question: "What does Taypro manufacture?",
+      answer:
+        "Taypro Private Limited builds autonomous and semi-automatic solar panel cleaning robots for utility-scale and commercial solar plants in India—including Model-A (autonomous waterless cleaning), Model-B (portable dry cleaning), Model-T for single-axis trackers, Taypro Opex as an operator-led cleaning service, and Taypro Console for fleet monitoring and scheduling.",
+    },
+    {
+      question: "Where is Taypro based and where do you operate?",
+      answer:
+        "Taypro is headquartered and manufactures from Chakan, Pune, Maharashtra, with a warehouse network across India to support spare parts, commissioning, and same-day breakdown response for deployed robots.",
+    },
+    {
+      question: "Why is waterless robotic cleaning important for solar plants?",
+      answer:
+        "Water scarcity and logistics make manual or wet washing expensive and inconsistent. Taypro’s patented dual-pass method first clears dry dust, then finishes with microfiber contact—helping plants save millions of litres annually while stabilising performance ratio through repeatable, weather-aware cleaning cycles.",
+    },
+    {
+      question: "How can developers or O&M teams evaluate Taypro?",
+      answer:
+        "Start with your plant layout (fixed tilt, rooftop, or trackers), capacity, and cleaning goals. Explore the solar panel cleaning system pages for technical specifications, case studies under Projects, or contact Taypro for a site-specific discussion, ROI inputs, and deployment planning.",
+    },
+  ];
+
   return (
     <>
+      <FAQPageSchema faqs={companyFaqs} />
       <Breadcrumbs items={breadcrumbs} />
       <div className="min-h-screen overflow-x-hidden">
         <section
@@ -43,15 +67,29 @@ export default function AboutUsPage() {
             backgroundSize: "cover",
           }}
         >
-          <AnimateOnScroll animation="fadeInUp" className="pt-10">
-            <h1 className="text-[#A8C117] text-center text-[16px] mb-4">
-              Who we are
-            </h1>
-            <h1 className="font-semibold text-[#052638] text-4xl md:text-5xl mb-7 text-center">
+          <AnimateOnScroll animation="fadeInUp" className="pt-10 px-4 max-w-4xl mx-auto">
+            <p className="text-[#A8C117] text-center text-[16px] mb-4 uppercase tracking-wide">
+              About Taypro
+            </p>
+            <h1 className="font-semibold text-[#052638] text-4xl md:text-5xl mb-6 text-center leading-tight">
               Engineers of a
               <br />
               sustainable future
             </h1>
+            <p className="text-[#22405a] text-center text-lg md:text-xl leading-relaxed">
+              Taypro Private Limited is a Made-in-India manufacturer of autonomous and
+              semi-automatic{" "}
+              <Link
+                href="/solar-panel-cleaning-system"
+                className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
+              >
+                solar panel cleaning robots
+              </Link>{" "}
+              for utility-scale, commercial, and rooftop PV. From our manufacturing hub in
+              Chakan, Pune, we ship waterless dual-pass systems, pan-India spare logistics, and
+              the Taypro Console fleet dashboard—so developers and O&amp;M teams can protect
+              yield, safety, and water without compromising uptime.
+            </p>
           </AnimateOnScroll>
 
           {/* Add curve SVG or image beneath the form */}
@@ -113,11 +151,16 @@ export default function AboutUsPage() {
             {/* Middle Card: Sustainability Block */}
             <AnimateOnScroll animation="fadeInUp" delay={100} className="bg-[#75AA00] px-8 py-10 flex flex-col justify-center text-white min-h-[600px]">
               <div className="mb-12">
-                <h3 className="mb-2 text-2xl flex leading-relaxed">
+                <h3 className="mb-3 text-2xl flex leading-relaxed">
                   For our company,
                   <br /> diversity &amp; sustainability
                   <br /> are not just words.
                 </h3>
+                <p className="text-white/95 text-base leading-relaxed mb-4">
+                  Every deployment replaces labour-intensive washing, cuts diesel and water
+                  intensity, and returns cleaner megawatt-hours to the grid. See how operating
+                  teams quantify savings across live plants.
+                </p>
                 <Link href="/projects" title="Solar Project">
                   <div className="hover:text-[#caed7f] text-lg underline underline-offset-4 mb-2 cursor-pointer">
                     Explore Projects
@@ -152,31 +195,56 @@ export default function AboutUsPage() {
                   Community
                 </div>
                 <h3 className="text-[#073448] text-xl font-medium leading-relaxed">
-                  Sustainable energy is
-                  <br />
-                  our corporate responsibility and                   obligation to society.
+                  Sustainable energy is our corporate responsibility and obligation to society.
                 </h3>
+                <p className="mt-4 text-[#245165] text-base leading-relaxed">
+                  We design for communities that depend on affordable power—and for the field
+                  teams who keep plants running through dust storms, monsoons, and peak summer
+                  loads.
+                </p>
               </div>
             </AnimateOnScroll>
           </div>
         </section>
 
-        <section className="w-full py-30 bg-white px-4 sm:px-6 lg:px-0 overflow-x-hidden">
+        <section
+          className="w-full py-16 md:py-24 bg-white px-4 sm:px-6 lg:px-0 overflow-x-hidden"
+          aria-labelledby="company-story-heading"
+        >
           <div className="max-w-6xl mx-auto px-4 sm:px-0">
+            <AnimateOnScroll animation="fadeInUp" className="mb-12 md:mb-16">
+              <h2
+                id="company-story-heading"
+                className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3"
+              >
+                Company story, vision, and mission
+              </h2>
+              <p className="text-[#27415c] text-lg max-w-3xl leading-relaxed">
+                Taypro unifies hardware engineering, manufacturing discipline, and field service
+                so solar investors get a single accountable partner for robotic cleaning at
+                scale.
+              </p>
+            </AnimateOnScroll>
             {items.map((item, idx) => (
-              <AnimateOnScroll key={item.label} animation="fadeInUp" delay={idx * 100} className={`grid grid-cols-5 gap-2 sm:gap-4 items-start mb-10 ${
-                  idx !== items.length - 1
-                    ? "border-b border-gray-200 pb-10"
-                    : ""
-                }`}>
-                {/* Left label (green) */}
-                <div className="col-span-1 text-[#b2cb19] text-xl font-normal pt-3">
+              <AnimateOnScroll
+                key={item.label}
+                animation="fadeInUp"
+                delay={idx * 100}
+                className={`grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-6 items-start mb-10 ${
+                  idx !== items.length - 1 ? "border-b border-gray-200 pb-10" : ""
+                }`}
+              >
+                <div className="md:col-span-1 text-[#b2cb19] text-xl font-medium pt-1 md:pt-3">
                   {item.label}
                 </div>
-                {/* Right headline */}
-                <h2 className="col-span-4 text-[#052638] font-semibold text-4xl md:text-5xl leading-tight">
-                  {item.heading}
-                </h2>
+                <div className="md:col-span-4">
+                  <h3 className="text-[#052638] font-semibold text-2xl sm:text-3xl md:text-4xl leading-tight">
+                    {item.heading}
+                  </h3>
+                  <p className="mt-4 text-[#27415c] text-base md:text-lg leading-relaxed">
+                    {item.body}
+                  </p>
+                </div>
               </AnimateOnScroll>
             ))}
           </div>
@@ -189,7 +257,7 @@ export default function AboutUsPage() {
               <div className="w-[520px] h-[460px] relative overflow-hidden shadow-md">
                 <Image
                   src="/tayprosolarpanel/taypro-about1.jpg"
-                  alt="Taypro Solar Panel Cleaning Robot - Technological marvel revolutionizing solar panel maintenance with autonomous robotic cleaning systems"
+                  alt="Taypro autonomous solar panel cleaning robot operating on a utility-scale PV array"
                   title="Taypro Solar Panel Cleaning Robot Technology"
                   fill
                   sizes="sm"
@@ -199,16 +267,33 @@ export default function AboutUsPage() {
               </div>
             </AnimateOnScroll>
             {/* Right: Content */}
-            <AnimateOnScroll animation="fadeInRight" delay={100} className="flex flex-col justify-center items-center text-center">
-              <h3 className="text-[#b2cb19] text-2xl font-medium mb-6">
-                A Technological Marvel
-              </h3>
-              <p className="text-[#27415c] text-lg max-w-xl">
-                Years of intensive development, collaboration with top-tier
-                engineers, and integration of the latest technology culminated
-                in the creation of the Taypro AMS. This revolutionary solar
-                panel cleaning system is not merely a tool; it's a game-changer
-                for solar system owners.
+            <AnimateOnScroll animation="fadeInRight" delay={100} className="flex flex-col justify-center items-center md:items-start text-center md:text-left">
+              <h2 className="text-[#b2cb19] text-2xl font-medium mb-4">
+                Built for real-world solar sites
+              </h2>
+              <p className="text-[#27415c] text-lg max-w-xl leading-relaxed mb-4">
+                Years of co-development with plant operators taught us that “works in a lab” is
+                not enough. Taypro robots are engineered for uneven terrain, tracker curvature,
+                RF-dark pockets, and the pace of utility-scale O&amp;M—where every hour of
+                downtime matters.
+              </p>
+              <p className="text-[#27415c] text-lg max-w-xl leading-relaxed">
+                Patented dual-pass cleaning, AI-assisted scheduling, LTE/Wi-Fi/mesh connectivity,
+                and predictive maintenance workflows come together in platforms such as{" "}
+                <Link
+                  href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
+                  className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
+                >
+                  Model-A
+                </Link>{" "}
+                and{" "}
+                <Link
+                  href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
+                  className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
+                >
+                  Model-T
+                </Link>
+                , giving asset managers measurable control over soiling loss.
               </p>
             </AnimateOnScroll>
           </div>
@@ -218,25 +303,36 @@ export default function AboutUsPage() {
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Left: Image */}
 
-            <AnimateOnScroll animation="fadeInLeft" delay={100} className="flex flex-col justify-center items-center text-center">
-              <h3 className="text-[#b2cb19] text-2xl font-medium mb-6">
-                Taypro’s Collaborative Approach
-              </h3>
-              <p className="text-[#27415c] text-lg max-w-xl">
-                At Taypro Private Limited, collaboration is at the heart of our
-                success. We work seamlessly with the best minds in engineering,
-                top-tier suppliers, and cutting-edge manufacturers. This
-                collaboration ensures that every innovation, like the Taypro
-                Model A, is a testament to progress and                   technology at its best.
+            <AnimateOnScroll animation="fadeInLeft" delay={100} className="flex flex-col justify-center items-center md:items-start text-center md:text-left order-2 md:order-1">
+              <h2 className="text-[#b2cb19] text-2xl font-medium mb-4">
+                Collaboration from design to dispatch
+              </h2>
+              <p className="text-[#27415c] text-lg max-w-xl leading-relaxed mb-4">
+                Taypro partners with tier-one component suppliers, specialist manufacturers, and
+                on-ground commissioning crews so every robot leaves our line ready for harsh
+                field duty—not a science project awaiting custom fixes on site.
+              </p>
+              <p className="text-[#27415c] text-lg max-w-xl leading-relaxed">
+                That ecosystem mindset is how we scale to{" "}
+                <span className="whitespace-nowrap">600+</span> units per month capacity, stock
+                eight-plus warehouses, and honour commitments like same-day breakdown support
+                for fleets monitored in{" "}
+                <Link
+                  href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
+                  className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
+                >
+                  Taypro Console
+                </Link>
+                .
               </p>
             </AnimateOnScroll>
 
             {/* Right: Content */}
-            <AnimateOnScroll animation="fadeInRight" delay={100} className="flex justify-center items-center">
+            <AnimateOnScroll animation="fadeInRight" delay={100} className="flex justify-center items-center order-1 md:order-2">
               <div className="w-[520px] h-[460px] relative overflow-hidden shadow-md">
                 <Image
                   src="/tayprosolarpanel/taypro-about2.webp"
-                  alt="Taypro Collaborative Engineering - Solar Panel Cleaning Robot development through collaboration with top-tier engineers and manufacturers"
+                  alt="Taypro engineering and manufacturing collaboration for solar panel cleaning robot production"
                   title="Taypro Solar Panel Cleaning Robot Collaborative Development"
                   fill
                   sizes="sm"
@@ -248,8 +344,18 @@ export default function AboutUsPage() {
           </div>
         </section>
 
-        <section className="w-full py-30 bg-white px-4 sm:px-6 lg:px-0 overflow-x-hidden">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-center">
+        <section className="w-full py-16 md:py-24 bg-white px-4 sm:px-6 lg:px-0 overflow-x-hidden">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3">
+              Scale you can spec with confidence
+            </h2>
+            <p className="text-[#27415c] text-lg leading-relaxed">
+              Benchmarks reflect our manufacturing investments, nationwide logistics footprint, and
+              obsession with repeatable cleaning performance across India&apos;s diverse solar
+              geographies.
+            </p>
+          </div>
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 text-center">
             {metrics.map((stat, idx) => (
               <AnimateOnScroll key={stat.label} animation="scaleIn" delay={idx * 150} className="flex flex-col items-center">
                 <span className="text-[#b2cb19] font-semibold text-6xl mb-2">
@@ -263,8 +369,12 @@ export default function AboutUsPage() {
 
         <section className="w-full py-30 px-4 sm:px-6 lg:px-0 overflow-x-hidden bg-[#073448]">
           <div className="max-w-7xl mx-auto">
-            <AnimateOnScroll animation="fadeInUp" className="text-white font-semibold text-4xl mb-8">
-              <h3>Our Team</h3>
+            <AnimateOnScroll animation="fadeInUp" className="text-white mb-8">
+              <h2 className="font-semibold text-4xl mb-3">Leadership team</h2>
+              <p className="text-white/90 text-lg max-w-3xl font-normal leading-relaxed">
+                Meet the executives guiding Taypro&apos;s product roadmap, manufacturing scale, and
+                customer partnerships across India&apos;s solar sector.
+              </p>
             </AnimateOnScroll>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 team-cards-container">
               {founders.map((f, idx) => (
@@ -391,23 +501,15 @@ export default function AboutUsPage() {
           <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row justify-between items-start gap-10">
             {/* Left: Title, description, button */}
             <AnimateOnScroll animation="fadeInLeft" delay={0} className="flex flex-col w-full lg:w-2/5">
-              <h3 className="text-[#052638] font-semibold text-5xl mb-5">
+              <h2 className="text-[#052638] font-semibold text-4xl sm:text-5xl mb-5">
                 Resources
-              </h3>
-              <div className="text-[#22405a] text-xl mt-6 leading-relaxed">
-                In a world where sustainability is paramount,
-                <br />
-                Taypro Private Limited emerges as a pioneer,
-                <br />
-                reshaping the solar energy landscape. The Taypro
-                <br />
-                Model A is not just a cleaning system; it’s a<br />
-                statement – a testament to Taypro’s unwavering
-                <br />
-                commitment to a greener, more sustainable
-                <br />
-                planet.
-              </div>
+              </h2>
+              <p className="text-[#22405a] text-lg sm:text-xl mt-4 leading-relaxed">
+                Deep dives on soiling science, maintenance economics, and emerging PV technologies
+                help finance, engineering, and O&amp;M leaders align on what robotic cleaning can
+                unlock. Bookmark these guides or browse the full archive for procurement-ready
+                insights.
+              </p>
               <Link href="/blog" title="blog">
                 <button className="mt-6 inline-block w-full sm:w-auto bg-[#b2cb19] text-[#22405a] text-xl text-center py-2 px-4 rounded-lg hover:bg-lime-500 transition cursor-pointer">
                   View all resources
@@ -454,6 +556,43 @@ export default function AboutUsPage() {
                 ))}
               </div>
             </div>
+          </div>
+        </section>
+
+        <section
+          className="w-full py-16 md:py-20 bg-[#f4f7f9] px-4 sm:px-6 overflow-x-hidden"
+          aria-labelledby="company-faq-heading"
+        >
+          <div className="max-w-3xl mx-auto">
+            <AnimateOnScroll animation="fadeInUp">
+              <h2
+                id="company-faq-heading"
+                className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3 text-center"
+              >
+                Frequently asked questions
+              </h2>
+              <p className="text-[#27415c] text-center text-lg mb-10 leading-relaxed">
+                Quick answers for partners evaluating Taypro as their solar cleaning robotics vendor.
+              </p>
+            </AnimateOnScroll>
+            <div className="space-y-6">
+              {companyFaqs.map((faq, idx) => (
+                <AnimateOnScroll key={faq.question} animation="fadeInUp" delay={idx * 80}>
+                  <article className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+                    <h3 className="text-[#052638] font-semibold text-lg mb-3">{faq.question}</h3>
+                    <p className="text-[#27415c] leading-relaxed">{faq.answer}</p>
+                  </article>
+                </AnimateOnScroll>
+              ))}
+            </div>
+            <AnimateOnScroll animation="fadeInUp" delay={200} className="mt-10 text-center">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center min-h-[48px] bg-[#b2cb19] text-[#22405a] font-medium px-8 py-3 rounded-lg hover:bg-lime-500 transition"
+              >
+                Talk to our team
+              </Link>
+            </AnimateOnScroll>
           </div>
         </section>
 

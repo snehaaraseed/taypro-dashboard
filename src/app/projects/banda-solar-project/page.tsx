@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
+import { ArticleSchema, PlaceSchema } from "@/app/components/StructuredData";
 import { AllProjectsOverviewSection } from "@/app/components/AllProjectsOverviewSection";
 import { AllRelatedProjectsSection } from "@/app/components/AllRelatedProjectsSection";
 import { BlogContent } from "@/app/components/BlogContent";
@@ -47,8 +48,8 @@ export const metadata: Metadata = {
 
 export default async function ProjectPage() {
   // Check if project is published
-  const metadata = await readProjectMetadata("banda-solar-project");
-  if (!metadata || metadata.published === false) {
+  const fileMeta = await readProjectMetadata("banda-solar-project");
+  if (!fileMeta || fileMeta.published === false) {
     notFound();
   }
 
@@ -57,9 +58,32 @@ export default async function ProjectPage() {
     .filter((p) => p.id !== "banda-solar-project" && p.href !== "/projects/banda-solar-project")
     .slice(0, 3);
 
+  const datePublished = fileMeta.date || "2025-01-28";
+  const dateModified = fileMeta.updatedAt || fileMeta.date || datePublished;
+
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
+      <ArticleSchema
+        scriptId="article-schema-banda-solar-project"
+        headline="Banda Solar Project – 70 MW"
+        description={fileMeta.description}
+        image={fileMeta.image}
+        url={`${siteUrl}/projects/banda-solar-project`}
+        datePublished={datePublished}
+        dateModified={dateModified}
+        author={{ name: "Taypro Team", url: `${siteUrl}/authors` }}
+        siteUrl={siteUrl}
+      />
+      <PlaceSchema
+        schemaId="place-schema-banda-solar-project"
+        name="Banda Solar Power Plant, Uttar Pradesh"
+        description={fileMeta.description}
+        addressLocality="Banda"
+        addressRegion="Uttar Pradesh"
+        latitude={25.4796}
+        longitude={80.3386}
+      />
       <div className="min-h-screen">
         <section
           className="bg-white min-h-[50vh] flex flex-col items-center justify-start relative"

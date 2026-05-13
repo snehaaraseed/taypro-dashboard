@@ -43,11 +43,14 @@ export default function ContactUsPage() {
         <section className="w-full bg-white py-10">
           <div className="max-w-5xl mx-auto flex flex-col items-center">
             <AnimateOnScroll animation="fadeInUp">
-              <h1 className="text-[#052638] font-semibold text-6xl md:text-7xl text-center mb-8 leading-tight">
-                The future of energy begins <br /> now.
+              <h1 className="text-[#052638] font-semibold text-5xl md:text-6xl text-center mb-6 leading-tight">
+                Contact Taypro about Solar Panel <br /> Cleaning Robots
               </h1>
-              <h2 className="text-[#3c8152] text-2xl mb-8">
-                Let&apos;s Work Together!
+              <p className="text-[#3c8152] text-2xl text-center mb-4">
+                The future of energy begins now.
+              </p>
+              <h2 className="text-[#22405a] text-2xl text-center mb-8 font-medium">
+                Let&apos;s work together
               </h2>
             </AnimateOnScroll>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full mt-6">
