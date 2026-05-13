@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
   title: "Thank You | Taypro – We Appreciate Your Interest",
   description:
@@ -10,8 +12,11 @@ export const metadata: Metadata = {
     title: "Thank You | Taypro – We Appreciate Your Interest",
     description:
       "Thank you for contacting Taypro. We’ll connect with you soon to discuss how our solar cleaning robots can enhance your solar plant performance and savings.",
-    url: "https://taypro.in/contact/thank-you",
+    url: `${siteUrl}/contact/thank-you`,
     type: "website",
+  },
+  alternates: {
+    canonical: `${siteUrl}/contact/thank-you`,
   },
 };
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { promises as fs } from "fs";
 import path from "path";
 import { Breadcrumbs } from "../components/Breadcrumbs";
@@ -8,6 +9,46 @@ import {
   slugifyAuthorName,
 } from "../data/blogAuthors";
 import { getStoredAuthors } from "../utils/blogAuthorsStore";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
+export const metadata: Metadata = {
+  title: "Blog Authors | Taypro - Solar Panel Cleaning Robot Experts",
+  description:
+    "Meet the engineers, researchers and field experts writing the Taypro blog. Browse every contributor to our Solar Panel Cleaning Robot articles and field notes.",
+  keywords: [
+    "Taypro authors",
+    "Solar Panel Cleaning Robot authors",
+    "Taypro blog contributors",
+    "solar O&M experts",
+    "Taypro engineering team",
+  ],
+  openGraph: {
+    title: "Blog Authors | Taypro - Solar Panel Cleaning Robot Experts",
+    description:
+      "Meet the engineers and field experts behind Taypro's Solar Panel Cleaning Robot articles and field notes.",
+    url: `${siteUrl}/authors`,
+    type: "website",
+    images: [
+      {
+        url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
+        width: 1200,
+        height: 630,
+        alt: "Taypro blog authors",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog Authors | Taypro",
+    description:
+      "Engineers and field experts behind Taypro's Solar Panel Cleaning Robot blog.",
+    images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
+  },
+  alternates: {
+    canonical: `${siteUrl}/authors`,
+  },
+};
 
 interface AuthorStats {
   name: string;

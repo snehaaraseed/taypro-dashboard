@@ -127,6 +127,19 @@ const nextConfig = {
     // Don't fail build on TypeScript errors (optional, for now we keep it strict)
     ignoreBuildErrors: false,
   },
+  // Permanent redirects (SEO: avoid duplicate URLs)
+  async redirects() {
+    return [
+      {
+        // /home is an internal module path consumed by src/app/page.tsx.
+        // Any external link to /home should resolve to the single canonical
+        // homepage URL to prevent duplicate content / split signals.
+        source: "/home",
+        destination: "/",
+        permanent: true,
+      },
+    ];
+  },
   // Add headers for better caching and performance
   async headers() {
     return [

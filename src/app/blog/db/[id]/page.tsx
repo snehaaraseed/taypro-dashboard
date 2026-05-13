@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { Breadcrumbs } from "../../../components/Breadcrumbs";
 import { BlogImage } from "../../../components/BlogImage";
 import { BlogContent } from "../../../components/BlogContent";
@@ -8,6 +8,34 @@ import { promises as fs } from "fs";
 import path from "path";
 import { DynamicBlog } from "../../../api/blog/list/route";
 import type { Metadata } from "next";
+
+/**
+ * Returns the canonical /blog/[slug] path when this post is also published as
+ * a file-backed blog. Otherwise null — DB-only posts have no /blog/[slug]
+ * page and would 404 there, so we keep them at /blog/db/[id].
+ */
+async function getFileBackedSlug(slug?: string): Promise<string | null> {
+  if (!slug) return null;
+  if (["components", "api", "[slug]", "add", "db", "author"].includes(slug)) {
+    return null;
+  }
+  try {
+    const metadataPath = path.join(
+      process.cwd(),
+      "src",
+      "app",
+      "blog",
+      slug,
+      "metadata.json"
+    );
+    const raw = await fs.readFile(metadataPath, "utf-8");
+    const metadata = JSON.parse(raw);
+    if (metadata.published === false) return null;
+    return slug;
+  } catch {
+    return null;
+  }
+}
 
 interface PageParams {
   id: string;
@@ -199,6 +227,11 @@ export async function generateMetadata({
       ];
 
   const modifiedIso = blog.updatedAt || blog.publishDate;
+  const fileBackedSlug = await getFileBackedSlug(blog.slug);
+  const canonicalPath = fileBackedSlug
+    ? `/blog/${fileBackedSlug}`
+    : `/blog/db/${id}`;
+  const canonicalUrl = `${siteUrl}${canonicalPath}`;
 
   return {
     title: `${blog.title} - Taypro Blog`,
@@ -207,7 +240,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${blog.title} - Taypro Blog`,
       description: blog.description,
-      url: `${siteUrl}/blog/db/${id}`,
+      url: canonicalUrl,
       type: "article",
       publishedTime: blog.publishDate,
       modifiedTime: modifiedIso,
@@ -227,7 +260,7 @@ export async function generateMetadata({
       images: blog.featuredImage ? [blog.featuredImage.startsWith('http') ? blog.featuredImage : `${siteUrl}${blog.featuredImage.startsWith('/') ? '' : '/'}${blog.featuredImage}`] : [],
     },
     alternates: {
-      canonical: `${siteUrl}/blog/db/${id}`,
+      canonical: canonicalUrl,
     },
   };
 }
@@ -241,6 +274,14 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
   if (!blog) {
     notFound();
+  }
+
+  // SEO: if this post is also published as a file-backed blog, the canonical
+  // home is /blog/[slug]. 301-redirect so external links to /blog/db/[id]
+  // converge on the single indexable URL.
+  const fileBackedSlug = await getFileBackedSlug(blog.slug);
+  if (fileBackedSlug) {
+    permanentRedirect(`/blog/${fileBackedSlug}`);
   }
 
   const breadcrumbs = [

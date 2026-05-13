@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { promises as fs } from "fs";
 import path from "path";
@@ -10,6 +11,8 @@ import {
   slugifyAuthorName,
 } from "../../../data/blogAuthors";
 import { getStoredAuthors } from "../../../utils/blogAuthorsStore";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
 interface AuthorPageParams {
   authorSlug: string;
@@ -73,6 +76,68 @@ export async function generateStaticParams(): Promise<AuthorPageParams[]> {
     slugs.add(slugifyAuthorName(blog.author));
   }
   return [...slugs].map((authorSlug) => ({ authorSlug }));
+}
+
+export async function generateMetadata({
+  params,
+}: AuthorPageProps): Promise<Metadata> {
+  const { authorSlug } = await params;
+  const [allBlogs, storedAuthors] = await Promise.all([
+    getAllPublishedBlogs(),
+    getStoredAuthors(),
+  ]);
+  const authorBlogs = allBlogs.filter(
+    (blog) => slugifyAuthorName(blog.author) === authorSlug
+  );
+
+  if (authorBlogs.length === 0) {
+    return {
+      title: "Author Not Found | Taypro Blog",
+      description: "The requested author profile could not be found.",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const knownAuthor = storedAuthors.find((author) => author.slug === authorSlug);
+  const authorName = knownAuthor?.name || authorBlogs[0].author;
+  const authorRole = knownAuthor?.role || "Contributing Author";
+  const bio = knownAuthor?.bio?.trim();
+  const fallbackDescription = `${authorRole} at Taypro. Read ${authorBlogs.length} ${
+    authorBlogs.length === 1 ? "article" : "articles"
+  } on Solar Panel Cleaning Robots, plant performance, and O&M best practices.`;
+  const description = bio && bio.length > 40 ? bio : fallbackDescription;
+
+  const rawAvatar = knownAuthor?.avatarUrl || getAuthorAvatarUrl(authorName);
+  const ogImage = rawAvatar.startsWith("http")
+    ? rawAvatar
+    : `${siteUrl}${rawAvatar.startsWith("/") ? "" : "/"}${rawAvatar}`;
+  const canonical = `${siteUrl}/blog/author/${authorSlug}`;
+
+  return {
+    title: `${authorName} | Taypro Blog Authors`,
+    description,
+    openGraph: {
+      title: `${authorName} - Taypro Blog Author`,
+      description,
+      url: canonical,
+      type: "profile",
+      images: [
+        {
+          url: ogImage,
+          alt: `${authorName} - Taypro`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary",
+      title: `${authorName} | Taypro Blog`,
+      description,
+      images: [ogImage],
+    },
+    alternates: {
+      canonical,
+    },
+  };
 }
 
 export default async function AuthorPage({ params }: AuthorPageProps) {

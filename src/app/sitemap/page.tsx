@@ -3,6 +3,8 @@ import { additionalProjects, energyResourceCards } from "../data";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import type { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
 export const metadata: Metadata = {
   title: "Sitemap | Taypro – Complete Website Navigation",
   description:
@@ -19,8 +21,26 @@ export const metadata: Metadata = {
     title: "Sitemap | Taypro – Complete Website Navigation",
     description:
       "Browse Taypro’s sitemap to quickly access all website sections, including projects, services, and company information.",
-    url: "https://taypro-dashboard.vercel.app/sitemap",
+    url: `${siteUrl}/sitemap`,
     type: "website",
+    images: [
+      {
+        url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
+        width: 1200,
+        height: 630,
+        alt: "Taypro website sitemap",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sitemap | Taypro",
+    description:
+      "Browse Taypro’s sitemap to quickly access all website sections.",
+    images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
+  },
+  alternates: {
+    canonical: `${siteUrl}/sitemap`,
   },
 };
 
