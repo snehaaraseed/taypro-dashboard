@@ -29,7 +29,7 @@ export default function HomeHeroVideo({ videoId, title }: HomeHeroVideoProps) {
     <button
       type="button"
       onClick={() => setActive(true)}
-      className="group relative h-full w-full cursor-pointer overflow-hidden bg-[#052638]"
+      className="group relative block h-full min-h-full w-full cursor-pointer overflow-hidden bg-[#052638]"
       aria-label={`Play video: ${title}`}
     >
       <Image

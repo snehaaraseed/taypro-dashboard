@@ -84,13 +84,14 @@ echo ""
 
 # Step 2: Sync code (exclude production data)
 echo -e "${YELLOW}📤 Step 2: Syncing code files...${NC}"
-rsync -avz --checksum \
+rsync -avz --checksum --delete \
     --exclude 'node_modules' \
     --exclude '.next' \
     --exclude '.git' \
     --exclude 'data/cms.sqlite' \
     --exclude 'data/cms.sqlite-*' \
     --exclude 'public/uploads' \
+    --exclude '.deploy-snapshots' \
     -e "ssh -i $SSH_KEY" \
     "$LOCAL_PATH/" \
     "$REMOTE_HOST:$REMOTE_PATH/"
@@ -175,6 +176,9 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     echo "  CMS database OK (${BLOG_COUNT} blogs)"
 
     echo "  Building Next.js application..."
+    pm2 stop taypro-dashboard 2>/dev/null || true
+    sleep 2
+    chmod -R u+w .next 2>/dev/null || true
     rm -rf .next
     npm run build 2>&1 | tail -25
 
@@ -186,11 +190,14 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
 
     if [ -d ".next/standalone" ]; then
         if [ -d "public" ]; then
-            cp -r public .next/standalone/ 2>/dev/null || true
+            mkdir -p .next/standalone/public
+            rsync -a --delete public/ .next/standalone/public/
+            echo "  ✅ Synced public/ → standalone/public/"
         fi
         if [ -d ".next/static" ]; then
             mkdir -p .next/standalone/.next
-            cp -r .next/static .next/standalone/.next/ 2>/dev/null || true
+            rsync -a .next/static/ .next/standalone/.next/static/
+            echo "  ✅ Synced .next/static → standalone/.next/static/"
         fi
         if [ -f ".env.production" ]; then
             cp .env.production .next/standalone/.env.production 2>/dev/null || true
@@ -218,9 +225,10 @@ echo -e "${YELLOW}🔄 Step 5: Restarting application...${NC}"
 ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     cd /var/www/taypro-dashboard
 
-    if [ -d ".next/standalone" ] && [ -d "public/uploads" ]; then
-        mkdir -p .next/standalone/public/uploads
-        rsync -a public/uploads/ .next/standalone/public/uploads/ 2>/dev/null || true
+    if [ -d "public" ] && [ -d ".next/standalone" ]; then
+        mkdir -p .next/standalone/public
+        rsync -a public/ .next/standalone/public/
+        echo "  ✅ Refreshed standalone/public (assets + uploads)"
     fi
     if [ -f "data/cms.sqlite" ] && [ -d ".next/standalone/data" ]; then
         cp -a data/cms.sqlite .next/standalone/data/cms.sqlite 2>/dev/null || true

@@ -89,7 +89,7 @@ export default function Header() {
                 title="Taypro - Solar Panel Cleaning Robot Manufacturer Logo"
                 width={160}
                 height={50}
-                style={{ width: "auto", height: "auto" }}
+                className="h-10 w-auto sm:h-12"
                 priority
                 quality={90}
               />

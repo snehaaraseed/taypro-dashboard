@@ -24,9 +24,8 @@ export default function ClientsCard() {
                 title={`Taypro Solar Panel Cleaning Robot Client ${idx + 1}`}
                 width={200}
                 height={85}
-                className="max-h-[120px] max-w-[80%] object-contain transition-transform duration-300 hover:scale-105"
+                className="h-auto max-h-[120px] w-auto max-w-[80%] object-contain transition-transform duration-300 hover:scale-105"
                 loading="lazy"
-                style={{ width: "auto", height: "auto" }}
               />
             </AnimateOnScroll>
           ))}

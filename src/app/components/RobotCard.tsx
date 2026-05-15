@@ -32,13 +32,13 @@ const mediaStyles: Record<
     bg: "bg-[#0a2a38]",
     pad: "p-5 sm:p-6",
     image:
-      "object-contain object-center [transform:scale(1.04)] group-hover:[transform:scale(1.06)]",
+      "object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]",
   },
   "robot-wide": {
     bg: "bg-[#0a2a38]",
     pad: "p-4 sm:p-5",
     image:
-      "object-contain object-center [transform:scale(1.14)] group-hover:[transform:scale(1.16)]",
+      "object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]",
   },
   photo: {
     bg: "bg-[#0c3040]",
@@ -50,7 +50,7 @@ const mediaStyles: Record<
     bg: "bg-[#e8eef4]",
     pad: "p-4 sm:p-5",
     image:
-      "object-contain object-center [transform:scale(1.06)] group-hover:[transform:scale(1.08)]",
+      "object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]",
   },
 };
 

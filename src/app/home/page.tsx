@@ -146,7 +146,7 @@ export default async function HomePage() {
                 delay={100}
                 className="flex justify-center lg:justify-end"
               >
-                <div className="w-full max-w-[720px] aspect-video rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/10">
+                <div className="relative w-full max-w-[720px] aspect-video rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/10">
                   <HomeHeroVideo
                     videoId={HERO_VIDEO_ID}
                     title="Taypro autonomous solar panel cleaning robot — waterless utility-scale cleaning"
