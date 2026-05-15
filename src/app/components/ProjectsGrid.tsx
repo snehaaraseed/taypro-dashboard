@@ -3,14 +3,26 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AnimateOnScroll } from "./AnimateOnScroll";
+import { getProjectHeroImageAlt } from "../utils/imageAlt";
 
 type Project = {
   id: string;
   title: string;
   img: string;
   href: string;
+  description?: string;
+  imageAlt?: string;
   details?: string[];
 };
+
+function projectImageAlt(project: Project): string {
+  return getProjectHeroImageAlt({
+    title: project.title,
+    imageAlt: project.imageAlt,
+    description: project.description,
+    details: project.details,
+  });
+}
 
 export default function ProjectsGrid({ projects }: { projects: Project[] }) {
   if (projects.length === 0) {
@@ -29,8 +41,8 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
             <div className="absolute inset-0">
               <Image
                 src={project.img}
-                alt={`${project.title} - Solar Panel Cleaning Robot Installation Project by Taypro`}
-                title={`${project.title} Solar Project with Solar Panel Cleaning Robot`}
+                alt={projectImageAlt(project)}
+                title={project.title}
                 fill
                 className="object-cover transform group-hover:scale-105 transition duration-300"
                 sizes="(max-width: 768px) 100vw, 50vw"

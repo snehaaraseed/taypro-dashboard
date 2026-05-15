@@ -18,6 +18,14 @@ import {
   slugifyAuthorName,
 } from "../../data/blogAuthors";
 import { getStoredAuthors } from "../../utils/blogAuthorsStore";
+import {
+  blogAuthorProfileUrl,
+  blogPostMetadataDescription,
+  blogPostMetadataTitle,
+  blogPostOpenGraphTitle,
+  isRobotCleaningTopic,
+} from "@/lib/seo/blog-metadata";
+import { getBlogFeaturedImageAlt } from "../../utils/imageAlt";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
@@ -36,6 +44,7 @@ interface BlogData {
   content: string;
   author: string;
   featuredImage: string;
+  featuredImageAlt?: string;
   slug: string;
   publishDate: string;
   updatedAt?: string;
@@ -146,8 +155,8 @@ export async function generateMetadata({
     };
   }
 
-  const blogKeywords = blog.title.toLowerCase().includes("robot") || 
-    blog.description.toLowerCase().includes("robot") 
+  const robotTopic = isRobotCleaningTopic(blog.title, blog.description);
+  const blogKeywords = robotTopic
     ? [
         "Solar Panel Cleaning Robot",
         "solar panel cleaning robot",
@@ -168,13 +177,11 @@ export async function generateMetadata({
       ];
 
   return {
-    title: `${blog.title} | Taypro Blog - Solar Panel Cleaning Robot`,
-    description: blog.description.includes("robot") 
-      ? blog.description 
-      : `${blog.description} Learn about Solar Panel Cleaning Robot technology and solutions.`,
+    title: blogPostMetadataTitle(blog.title, blog.description),
+    description: blogPostMetadataDescription(blog.title, blog.description),
     keywords: blogKeywords,
     openGraph: {
-      title: `${blog.title} | Taypro Blog`,
+      title: blogPostOpenGraphTitle(blog.title),
       description: blog.description,
       url: `${siteUrl}/blog/${slug}`,
       type: "article",
@@ -187,7 +194,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${blog.title} | Taypro Blog`,
+      title: blogPostOpenGraphTitle(blog.title),
       description: blog.description,
       images: blog.featuredImage 
         ? [blog.featuredImage.startsWith("http") ? blog.featuredImage : `${siteUrl}${blog.featuredImage}`]
@@ -251,16 +258,19 @@ export default async function BlogPost({ params }: BlogPostProps) {
         headline={blog.title}
         description={blog.description}
         image={blog.featuredImage?.startsWith("http") ? blog.featuredImage : `${siteUrl}${blog.featuredImage || "/tayproasset/taypro-robotImage.png"}`}
+        imageAlt={getBlogFeaturedImageAlt(blog)}
+        url={`${siteUrl}/blog/${slug}`}
         datePublished={blog.publishDate}
         dateModified={lastUpdatedIso}
         author={{
           name: blog.author || "Taypro Team",
-          url: siteUrl,
+          url: blogAuthorProfileUrl(siteUrl, blog.author || "Taypro Team"),
         }}
         publisher={{
           name: "Taypro",
           logo: `${siteUrl}/tayproasset/taypro-logo.png`,
         }}
+        siteUrl={siteUrl}
       />
 
       {/* Main Layout with TOC + Main Content + Right Sidebar */}
@@ -340,7 +350,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
                   <div className="relative w-full h-96 mb-8 overflow-hidden rounded-lg bg-gray-100">
                     <BlogImage
                       src={blog.featuredImage}
-                      alt={`${blog.title} - Featured image for Solar Panel Cleaning Robot blog article by Taypro`}
+                      alt={getBlogFeaturedImageAlt(blog)}
                       fill
                       className="object-cover"
                       priority
@@ -416,7 +426,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
                           {post.featuredImage ? (
                             <BlogImage
                               src={post.featuredImage}
-                              alt={post.title}
+                              alt={getBlogFeaturedImageAlt(post)}
                               fill
                               className="object-cover"
                               sizes="(max-width: 1024px) 100vw, 33vw"

@@ -2,12 +2,29 @@ import Image from "next/image";
 import { projects } from "../data";
 import Link from "next/link";
 import { Container } from "./Container";
+import { getProjectHeroImageAlt } from "../utils/imageAlt";
 
 interface ProjectItem {
   img: string;
   title: string;
   details: string | string[];
   href: string;
+  description?: string;
+  imageAlt?: string;
+}
+
+function projectImageAlt(project: ProjectItem): string {
+  const details = Array.isArray(project.details)
+    ? project.details
+    : project.details
+      ? [project.details]
+      : [];
+  return getProjectHeroImageAlt({
+    title: project.title,
+    imageAlt: project.imageAlt,
+    description: project.description,
+    details,
+  });
 }
 
 interface ProjectsCardProps {
@@ -81,8 +98,8 @@ function ProjectsCardDisplay({
                 <div className="absolute inset-0">
                   <Image
                     src={project.img}
-                    alt={`${project.title} - Solar Panel Cleaning Robot Installation Project by Taypro`}
-                    title={`${project.title} Solar Project with Solar Panel Cleaning Robot`}
+                    alt={projectImageAlt(project)}
+                    title={project.title}
                     fill
                     className="object-cover transform group-hover:scale-105 transition duration-300"
                     sizes="(max-width: 768px) 100vw, 50vw"

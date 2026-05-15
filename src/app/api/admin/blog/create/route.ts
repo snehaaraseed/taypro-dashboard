@@ -12,8 +12,16 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const { title, description, featuredImage, author, content, publishDate, published } =
-      await request.json();
+    const {
+      title,
+      description,
+      featuredImage,
+      featuredImageAlt,
+      author,
+      content,
+      publishDate,
+      published,
+    } = await request.json();
 
     // Validation
     if (!title || !description || !content) {
@@ -28,6 +36,8 @@ export async function POST(request: NextRequest) {
       title,
       description,
       featuredImage: featuredImage || "",
+      featuredImageAlt:
+        typeof featuredImageAlt === "string" ? featuredImageAlt : "",
       author: author || "Taypro Team",
       content,
       publishDate,

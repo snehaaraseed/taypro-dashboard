@@ -147,6 +147,8 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
 
         <AllProjectsOverviewSection
           image={metadata.image}
+          imageAlt={metadata.imageAlt}
+          projectTitle={metadata.title}
           overviewText={overviewText}
         />
 

@@ -5,6 +5,7 @@ export interface DynamicBlog {
   title: string;
   description: string;
   featuredImage: string;
+  featuredImageAlt?: string;
   author: string;
   slug: string;
   publishDate: string;

@@ -26,6 +26,7 @@ export default function NewBlogPage() {
     title: "",
     description: "",
     featuredImage: "",
+    featuredImageAlt: "",
     author: "Taypro Team",
     content: "",
     publishDate: new Date().toISOString().split("T")[0],
@@ -383,7 +384,11 @@ export default function NewBlogPage() {
                 <button
                   type="button"
                   onClick={() => {
-                    setFormData({ ...formData, featuredImage: "" });
+                    setFormData({
+                      ...formData,
+                      featuredImage: "",
+                      featuredImageAlt: "",
+                    });
                     setImageError(false);
                   }}
                   className="mt-2 text-sm text-red-600 hover:text-red-800"
@@ -392,6 +397,24 @@ export default function NewBlogPage() {
                 </button>
               </div>
             )}
+
+          <div className="mt-4">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Featured image alt text
+            </label>
+            <input
+              type="text"
+              value={formData.featuredImageAlt}
+              onChange={(e) =>
+                setFormData({ ...formData, featuredImageAlt: e.target.value })
+              }
+              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Describe the image for accessibility and SEO"
+            />
+            <p className="mt-1 text-xs text-gray-500">
+              Leave blank to use an auto-generated description from the blog title.
+            </p>
+          </div>
         </div>
 
         <div>

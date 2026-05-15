@@ -7,6 +7,7 @@ export interface BlogMetadata {
   title: string;
   description: string;
   featuredImage: string;
+  featuredImageAlt?: string;
   author: string;
   slug: string;
   publishDate: string;
@@ -19,6 +20,7 @@ export interface BlogData {
   title: string;
   description: string;
   featuredImage: string;
+  featuredImageAlt?: string;
   author: string;
   content: string;
   publishDate?: string;

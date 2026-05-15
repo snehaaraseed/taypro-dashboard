@@ -1,16 +1,26 @@
 "use client";
 import Image from "next/image";
 import OpenLeadModalButton from "./OpenLeadModalButton";
+import { getProjectHeroImageAlt } from "../utils/imageAlt";
 
 interface ProjectOverviewSectionProps {
   image: string;
+  imageAlt?: string;
+  projectTitle: string;
   overviewText: string;
 }
 
 function ProjectOverviewSection({
   image,
+  imageAlt,
+  projectTitle,
   overviewText,
 }: ProjectOverviewSectionProps) {
+  const heroAlt = getProjectHeroImageAlt({
+    title: projectTitle,
+    imageAlt,
+    description: overviewText,
+  });
   return (
     <section
       className="w-full pb-16 sm:pb-20 lg:pb-30 bg-white overflow-x-hidden"
@@ -23,7 +33,7 @@ function ProjectOverviewSection({
         <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[700px] overflow-hidden">
           <Image
             src={image}
-            alt={`Solar Panel Cleaning Robot Project Overview - ${overviewText.substring(0, 50)}...`}
+            alt={heroAlt}
             title="Solar Panel Cleaning Robot Project Overview by Taypro"
             fill
             className="object-cover"

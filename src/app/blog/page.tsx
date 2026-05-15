@@ -13,13 +13,15 @@ import {
 } from "../components/StructuredData";
 import BlogList from "./BlogList";
 import { listAllBlogs } from "@/lib/cms/blogService";
+import { BLOG_LIST_PAGE_SIZE } from "@/lib/seo/sitemap-config";
+import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
   { name: "Blog", href: "" },
 ];
 
-const PAGE_SIZE = 12;
+const PAGE_SIZE = BLOG_LIST_PAGE_SIZE;
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
 const featuredTopics = [
@@ -113,7 +115,7 @@ export async function generateMetadata({
       : `Browse page ${page} of Taypro's solar panel cleaning and O&M articles for developers, EPC teams, and asset managers.`;
 
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: { canonical },
     openGraph: {
@@ -146,6 +148,10 @@ export default async function Blog({ searchParams }: BlogPageProps) {
       blog.featuredImage && blog.featuredImage.trim() !== ""
         ? blog.featuredImage
         : null,
+    imgAlt: getBlogFeaturedImageAlt({
+      title: blog.title,
+      featuredImageAlt: blog.featuredImageAlt,
+    }),
     date: new Date(blog.updatedAt || blog.publishDate).toLocaleDateString(
       "en-IN",
       { year: "numeric", month: "short", day: "numeric" }

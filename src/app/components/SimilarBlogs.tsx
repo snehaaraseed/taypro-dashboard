@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { getBlogFeaturedImageAlt } from "../utils/imageAlt";
 import { DynamicBlog } from "../api/blog/list/route";
 
 interface SimilarBlogsProps {
@@ -191,7 +192,7 @@ export function SimilarBlogs({
                 <div className="relative w-full h-52 overflow-hidden">
                   <Image
                     src={similarBlog.featuredImage}
-                    alt={`${similarBlog.title} - Similar blog article`}
+                    alt={getBlogFeaturedImageAlt(similarBlog)}
                     fill
                     sizes="(max-width: 1024px) 100vw, 33vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -233,7 +234,7 @@ export function SimilarBlogs({
                 <div className="relative w-full h-48 overflow-hidden">
                   <Image
                     src={similarBlog.featuredImage}
-                    alt={`${similarBlog.title} - Similar blog article`}
+                    alt={getBlogFeaturedImageAlt(similarBlog)}
                     fill
                     sizes="(max-width: 1024px) 100vw, 320px"
                     className="object-cover group-hover:scale-105 transition-transform duration-300"

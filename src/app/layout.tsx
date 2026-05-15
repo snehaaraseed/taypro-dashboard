@@ -12,12 +12,8 @@ const Footer = dynamic(() => import("./components/Footer"), {
 
 // Header needs to be loaded immediately for navigation
 import Header from "./components/Header";
-// Cookie consent banner - client-side only (imported as client component)
-import CookieConsentWrapper from "./components/CookieConsentWrapper";
-import SiteLeadSlideIn from "./components/SiteLeadSlideIn";
 import LeadModalRoot from "./components/LeadModalRoot";
-import ClarityLoader from "./components/ClarityLoader";
-import GoogleTagManagerLoader from "./components/GoogleTagManagerLoader";
+import DeferredLayoutWidgets from "./components/DeferredLayoutWidgets";
 
 const blinker = Blinker({
   subsets: ["latin"],
@@ -109,8 +105,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/tayproasset/taypro-favicon.png" sizes="any" />
-        <link rel="canonical" href={siteUrl} />
-        
+
         {/* DNS Prefetch for external resources - improves first-time connection speed */}
         <link rel="dns-prefetch" href="https://www.youtube.com" />
         <link rel="dns-prefetch" href="https://img.youtube.com" />
@@ -130,35 +125,16 @@ export default function RootLayout({
           as="image"
           type="image/png"
         />
-        <link
-          rel="preload"
-          href="/tayproasset/taypro-robotImage.png"
-          as="image"
-          type="image/png"
-        />
-        
-        {/* Prefetch likely next resources - improves navigation speed */}
-        <link rel="prefetch" href="/blog" as="document" />
-        <link rel="prefetch" href="/projects" as="document" />
       </head>
       <body className={blinker.className}>
         <OrganizationSchema siteUrl={siteUrl} />
-        <WebSiteSchema
-          siteUrl={siteUrl}
-          searchAction={{
-            target: `${siteUrl}/blog?q={search_term_string}`,
-            queryInput: "required name=search_term_string",
-          }}
-        />
+        <WebSiteSchema siteUrl={siteUrl} />
         <LeadModalRoot>
           <div className="min-h-screen flex flex-col">
             <Header />
             <main className="flex-grow">{children}</main>
             <Footer />
-            <CookieConsentWrapper />
-            <SiteLeadSlideIn />
-            <GoogleTagManagerLoader />
-            <ClarityLoader />
+            <DeferredLayoutWidgets />
           </div>
         </LeadModalRoot>
       </body>

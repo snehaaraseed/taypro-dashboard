@@ -3,6 +3,9 @@ import type { MetadataRoute } from "next";
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
+/** Must match paginated blog list (`src/app/blog/page.tsx`). */
+export const BLOG_LIST_PAGE_SIZE = 12;
+
 type ChangeFrequency = NonNullable<
   MetadataRoute.Sitemap[number]["changeFrequency"]
 >;
@@ -78,5 +81,9 @@ export const CMS_SITEMAP_DEFAULTS = {
   author: {
     changeFrequency: "weekly" as ChangeFrequency,
     priority: 0.7,
+  },
+  blogPagination: {
+    changeFrequency: "weekly" as ChangeFrequency,
+    priority: 0.65,
   },
 } as const;

@@ -19,6 +19,7 @@ function rowToMetadata(row: typeof blogs.$inferSelect): BlogMetadata {
     title: row.title,
     description: row.description,
     featuredImage: row.featuredImage,
+    featuredImageAlt: row.featuredImageAlt,
     author: row.author,
     slug: row.slug,
     publishDate: row.publishDate,
@@ -47,6 +48,32 @@ export async function listPublishedBlogSlugs(): Promise<string[]> {
     .from(blogs)
     .where(eq(blogs.published, true));
   return rows.map((r) => r.slug);
+}
+
+export type BlogSitemapEntry = {
+  slug: string;
+  author: string;
+  publishDate: string;
+  updatedAt?: string | null;
+};
+
+/** Published posts only — used by dynamic sitemap generation. */
+export async function listPublishedBlogsForSitemap(): Promise<BlogSitemapEntry[]> {
+  const db = getDb();
+  const rows = await db
+    .select({
+      slug: blogs.slug,
+      author: blogs.author,
+      publishDate: blogs.publishDate,
+      updatedAt: blogs.updatedAt,
+    })
+    .from(blogs)
+    .where(eq(blogs.published, true));
+
+  return rows.sort(
+    (a, b) =>
+      new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
+  );
 }
 
 export async function getBlogBySlug(
@@ -95,6 +122,7 @@ export async function createBlog(
       title: blogData.title,
       description: blogData.description,
       featuredImage: blogData.featuredImage || "",
+      featuredImageAlt: blogData.featuredImageAlt?.trim() || "",
       author: blogData.author || "Taypro Team",
       content: blogData.content || "",
       publishDate: blogData.publishDate || now,
@@ -164,6 +192,7 @@ export async function updateBlog(
         title: blogData.title,
         description: blogData.description,
         featuredImage: blogData.featuredImage || "",
+        featuredImageAlt: blogData.featuredImageAlt?.trim() ?? existing.featuredImageAlt,
         author: blogData.author || "Taypro Team",
         content: blogData.content || "",
         publishDate: blogData.publishDate || existing.publishDate,

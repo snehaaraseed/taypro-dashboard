@@ -3,7 +3,11 @@ import type { Metadata } from "next";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
 export const metadata: Metadata = {
-  title: "Taypro Blog — Solar Panel Cleaning Robot Insights & O&M Guides",
+  title: {
+    template: "%s",
+    default:
+      "Taypro Blog — Solar Panel Cleaning Robot Insights & O&M Guides",
+  },
   description:
     "Expert articles on solar panel cleaning robots, soiling, dry O&M, plant economics, and utility-scale automation in India—by Taypro engineers and field teams.",
   keywords: [

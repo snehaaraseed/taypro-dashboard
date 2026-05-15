@@ -11,6 +11,7 @@ import {
   slugifyAuthorName,
 } from "../../../data/blogAuthors";
 import { getStoredAuthors } from "../../../utils/blogAuthorsStore";
+import { getBlogFeaturedImageAlt } from "../../../utils/imageAlt";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
@@ -26,6 +27,7 @@ interface AuthorBlog {
   title: string;
   description: string;
   featuredImage: string;
+  featuredImageAlt?: string;
   slug: string;
   publishDate: string;
   updatedAt?: string;
@@ -38,6 +40,7 @@ async function getAllPublishedBlogs(): Promise<AuthorBlog[]> {
     title: metadata.title,
     description: metadata.description,
     featuredImage: metadata.featuredImage,
+    featuredImageAlt: metadata.featuredImageAlt,
     slug: metadata.slug,
     publishDate: metadata.publishDate,
     updatedAt: metadata.updatedAt,
@@ -223,7 +226,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
                   {blog.featuredImage ? (
                     <Image
                       src={blog.featuredImage}
-                      alt={blog.title}
+                      alt={getBlogFeaturedImageAlt(blog)}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 1024px) 100vw, 33vw"

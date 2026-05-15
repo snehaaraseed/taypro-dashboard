@@ -29,6 +29,7 @@ function rowToMetadata(row: typeof projects.$inferSelect): ProjectMetadata {
     title: row.title,
     description: row.description,
     image: row.image,
+    imageAlt: row.imageAlt,
     details,
     slug: row.slug,
     date: row.date,
@@ -48,11 +49,38 @@ export async function listAllProjects(
     .map(rowToMetadata);
 }
 
+export type ProjectSitemapEntry = {
+  slug: string;
+  date: string;
+  updatedAt?: string | null;
+};
+
+/** Published projects only — used by dynamic sitemap generation. */
+export async function listPublishedProjectsForSitemap(): Promise<
+  ProjectSitemapEntry[]
+> {
+  const db = getDb();
+  const rows = await db
+    .select({
+      slug: projects.slug,
+      date: projects.date,
+      updatedAt: projects.updatedAt,
+    })
+    .from(projects)
+    .where(eq(projects.published, true));
+
+  return rows.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+}
+
 export async function getAllFileProjects(): Promise<
   Array<{
     id: string;
     img: string;
     title: string;
+    description: string;
+    imageAlt?: string;
     details: string[];
     href: string;
     date: string;
@@ -63,6 +91,8 @@ export async function getAllFileProjects(): Promise<
     id: metadata.slug,
     img: metadata.image,
     title: metadata.title,
+    description: metadata.description,
+    imageAlt: metadata.imageAlt,
     details: metadata.details,
     href: `/projects/${metadata.slug}`,
     date: metadata.date,
@@ -113,6 +143,7 @@ export async function createProjectFiles(
     title: projectData.title,
     description: projectData.description,
     image: projectData.image,
+    imageAlt: projectData.imageAlt?.trim() || "",
     details: JSON.stringify(projectData.details || []),
     content: projectData.content || "",
     date: projectData.date || new Date().toISOString().split("T")[0],
@@ -161,6 +192,7 @@ export async function updateProjectFiles(
       title: projectData.title,
       description: projectData.description,
       image: projectData.image,
+      imageAlt: projectData.imageAlt?.trim() ?? existing.imageAlt,
       details: JSON.stringify(projectData.details || []),
       content: projectData.content || "",
       date: projectData.date || existing.date,

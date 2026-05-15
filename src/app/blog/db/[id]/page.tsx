@@ -7,6 +7,13 @@ import { SimilarBlogs } from "../../../components/SimilarBlogs";
 import { getBlogBySlug, listAllBlogs } from "@/lib/cms/blogService";
 import { DynamicBlog } from "../../../api/blog/list/route";
 import type { Metadata } from "next";
+import {
+  blogPostMetadataDescription,
+  blogPostMetadataTitle,
+  blogPostOpenGraphTitle,
+  isRobotCleaningTopic,
+} from "@/lib/seo/blog-metadata";
+import { getBlogFeaturedImageAlt } from "../../../utils/imageAlt";
 
 /**
  * Returns the canonical /blog/[slug] path when this post is also published as
@@ -34,6 +41,7 @@ interface BlogData {
   content: string;
   author: string;
   featuredImage: string;
+  featuredImageAlt?: string;
   slug: string;
   publishDate: string;
   createdAt: string;
@@ -151,8 +159,8 @@ export async function generateMetadata({
     };
   }
 
-  const blogKeywords = blog.title.toLowerCase().includes("robot") || 
-    blog.description.toLowerCase().includes("robot") 
+  const robotTopic = isRobotCleaningTopic(blog.title, blog.description);
+  const blogKeywords = robotTopic
     ? [
         "Solar Panel Cleaning Robot",
         "solar panel cleaning robot",
@@ -180,11 +188,11 @@ export async function generateMetadata({
   const canonicalUrl = `${siteUrl}${canonicalPath}`;
 
   return {
-    title: `${blog.title} - Taypro Blog`,
-    description: blog.description,
+    title: blogPostMetadataTitle(blog.title, blog.description),
+    description: blogPostMetadataDescription(blog.title, blog.description),
     keywords: blogKeywords,
     openGraph: {
-      title: `${blog.title} - Taypro Blog`,
+      title: blogPostOpenGraphTitle(blog.title),
       description: blog.description,
       url: canonicalUrl,
       type: "article",
@@ -201,7 +209,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${blog.title} - Taypro Blog`,
+      title: blogPostOpenGraphTitle(blog.title),
       description: blog.description.substring(0, 200),
       images: blog.featuredImage ? [blog.featuredImage.startsWith('http') ? blog.featuredImage : `${siteUrl}${blog.featuredImage.startsWith('/') ? '' : '/'}${blog.featuredImage}`] : [],
     },
@@ -260,7 +268,10 @@ export default async function BlogPost({ params }: BlogPostProps) {
                   <div className="relative w-full h-96 mb-8 overflow-hidden rounded-lg bg-gray-100">
                     <BlogImage
                       src={blog.featuredImage}
-                      alt={blog.title}
+                      alt={getBlogFeaturedImageAlt({
+                        title: blog.title,
+                        featuredImageAlt: blog.featuredImageAlt,
+                      })}
                       fill
                       className="object-cover"
                       priority

@@ -11,8 +11,10 @@ import {
 } from "@/app/components/StructuredData";
 import DynamicProjectsRollup from "@/app/components/DynamicProjectsRollup";
 import { listAllBlogs } from "@/lib/cms/blogService";
+import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
 import HomePageInteractive from "./HomePageInteractive";
 import HomeHeroCTAs from "./HomeHeroCTAs";
+import HomeHeroVideo from "@/app/components/HomeHeroVideo";
 
 const AnimateOnScroll = dynamic(
   () =>
@@ -58,6 +60,10 @@ async function getLatestBlogs(limit = 3) {
   return rows.slice(0, limit).map((b) => ({
     title: b.title,
     description: b.description,
+    imageAlt: getBlogFeaturedImageAlt({
+      title: b.title,
+      featuredImageAlt: b.featuredImageAlt,
+    }),
     href: `/blog/${b.slug}`,
     date: new Date(b.updatedAt || b.publishDate).toLocaleDateString("en-IN", {
       year: "numeric",
@@ -141,12 +147,9 @@ export default async function HomePage() {
                 className="flex justify-center lg:justify-end"
               >
                 <div className="w-full max-w-[720px] aspect-video rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/10">
-                  <iframe
-                    src={`https://www.youtube.com/embed/${HERO_VIDEO_ID}?mute=1&rel=0&modestbranding=1`}
+                  <HomeHeroVideo
+                    videoId={HERO_VIDEO_ID}
                     title="Taypro autonomous solar panel cleaning robot — waterless utility-scale cleaning"
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
                   />
                 </div>
               </AnimateOnScroll>
@@ -310,7 +313,7 @@ export default async function HomePage() {
                         {post.image ? (
                           <Image
                             src={post.image}
-                            alt={`${post.title} — Taypro blog`}
+                            alt={post.imageAlt}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-300"
                             sizes="(max-width: 768px) 100vw, 33vw"

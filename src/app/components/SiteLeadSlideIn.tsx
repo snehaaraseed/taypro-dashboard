@@ -186,7 +186,7 @@ export default function SiteLeadSlideIn() {
             <div className="relative h-40 shrink-0 overflow-hidden bg-gradient-to-br from-[#021a24] via-[#052638] to-[#0a4a66] sm:h-44">
               <Image
                 src="/tayproasset/taypro-robotImage.png"
-                alt=""
+                alt="Taypro solar panel cleaning robot"
                 fill
                 className="object-cover object-center opacity-35 mix-blend-luminosity scale-105"
                 sizes="416px"

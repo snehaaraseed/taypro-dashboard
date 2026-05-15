@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${siteUrl}/contact/thank-you`,
   },
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: { index: false, follow: false },
+  },
 };
 
 export default function ThankyouLayout({

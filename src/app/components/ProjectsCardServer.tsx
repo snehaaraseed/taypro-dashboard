@@ -47,6 +47,8 @@ export default async function ProjectsCardServer({
       title: p.title,
       details: p.details,
       href: p.href,
+      description: p.description,
+      imageAlt: p.imageAlt,
     }));
   } else if (!providedProjects && !useFileProjects) {
     displayProjects = normalizeProjectsData(projects);

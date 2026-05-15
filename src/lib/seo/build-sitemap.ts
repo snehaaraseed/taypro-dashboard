@@ -2,21 +2,29 @@ import "server-only";
 
 import type { MetadataRoute } from "next";
 import { slugifyAuthorName } from "@/app/data/blogAuthors";
-import { listAllBlogs } from "@/lib/cms/blogService";
-import { listAllProjects } from "@/lib/cms/projectService";
+import { listPublishedBlogsForSitemap } from "@/lib/cms/blogService";
+import { listPublishedProjectsForSitemap } from "@/lib/cms/projectService";
 import {
+  BLOG_LIST_PAGE_SIZE,
   CMS_SITEMAP_DEFAULTS,
   SITE_URL,
   STATIC_SITEMAP_ROUTES,
 } from "./sitemap-config";
 
-function parseLastModified(...candidates: (string | undefined)[]): Date {
+const INDEXABLE_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+function parseLastModified(...candidates: (string | null | undefined)[]): Date {
   for (const value of candidates) {
     if (!value) continue;
     const date = new Date(value);
     if (!Number.isNaN(date.getTime())) return date;
   }
   return new Date();
+}
+
+function isIndexableSlug(slug: string): boolean {
+  const normalized = slug.trim();
+  return Boolean(normalized && INDEXABLE_SLUG.test(normalized));
 }
 
 function entry(
@@ -35,11 +43,9 @@ function entry(
   };
 }
 
-/** Author profile URLs that resolve to real pages (at least one published post). */
-async function collectAuthorPaths(): Promise<
-  Map<string, { lastModified: Date }>
-> {
-  const blogs = await listAllBlogs(false);
+function collectAuthorPaths(
+  blogs: Awaited<ReturnType<typeof listPublishedBlogsForSitemap>>
+): Map<string, { lastModified: Date }> {
   const bySlug = new Map<string, { lastModified: Date }>();
 
   for (const blog of blogs) {
@@ -54,6 +60,18 @@ async function collectAuthorPaths(): Promise<
   return bySlug;
 }
 
+function latestBlogModified(
+  blogs: Awaited<ReturnType<typeof listPublishedBlogsForSitemap>>
+): Date {
+  let latest = new Date(0);
+  for (const blog of blogs) {
+    const modified = parseLastModified(blog.updatedAt, blog.publishDate);
+    if (modified > latest) latest = modified;
+  }
+  return latest.getTime() > 0 ? latest : new Date();
+}
+
+/** Builds sitemap URLs from static routes + live CMS (published blogs/projects/authors). */
 export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
   const urls = new Map<string, MetadataRoute.Sitemap[number]>();
 
@@ -72,13 +90,17 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
   }
 
   try {
-    const [blogs, projects, authorPaths] = await Promise.all([
-      listAllBlogs(false),
-      listAllProjects(false),
-      collectAuthorPaths(),
+    const [blogs, projects] = await Promise.all([
+      listPublishedBlogsForSitemap(),
+      listPublishedProjectsForSitemap(),
     ]);
 
-    for (const blog of blogs) {
+    const indexableBlogs = blogs.filter((b) => isIndexableSlug(b.slug));
+    const indexableProjects = projects.filter((p) => isIndexableSlug(p.slug));
+    const authorPaths = collectAuthorPaths(indexableBlogs);
+    const blogListLastModified = latestBlogModified(indexableBlogs);
+
+    for (const blog of indexableBlogs) {
       add(
         entry(`/blog/${blog.slug}`, {
           lastModified: parseLastModified(blog.updatedAt, blog.publishDate),
@@ -88,7 +110,21 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
       );
     }
 
-    for (const project of projects) {
+    const totalBlogPages = Math.max(
+      1,
+      Math.ceil(indexableBlogs.length / BLOG_LIST_PAGE_SIZE)
+    );
+    for (let page = 2; page <= totalBlogPages; page++) {
+      add(
+        entry(`/blog?page=${page}`, {
+          lastModified: blogListLastModified,
+          changeFrequency: CMS_SITEMAP_DEFAULTS.blogPagination.changeFrequency,
+          priority: CMS_SITEMAP_DEFAULTS.blogPagination.priority,
+        })
+      );
+    }
+
+    for (const project of indexableProjects) {
       add(
         entry(`/projects/${project.slug}`, {
           lastModified: parseLastModified(project.updatedAt, project.date),
@@ -107,8 +143,21 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
         })
       );
     }
+
+    const skipped =
+      blogs.length -
+      indexableBlogs.length +
+      (projects.length - indexableProjects.length);
+    if (skipped > 0) {
+      console.warn(
+        `[sitemap] Skipped ${skipped} CMS URL(s) with invalid or unpublished slugs`
+      );
+    }
   } catch (error) {
-    console.error("[sitemap] CMS lookup failed; serving static routes only:", error);
+    console.error(
+      "[sitemap] CMS lookup failed; serving static routes only:",
+      error
+    );
   }
 
   return [...urls.values()].sort((a, b) => a.url.localeCompare(b.url));

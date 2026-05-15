@@ -9,6 +9,7 @@ export interface BlogItem {
   title: string;
   description?: string;
   imgSrc?: string | null;
+  imgAlt: string;
   date: string;
   href: string;
   slug: string;
@@ -75,7 +76,7 @@ export default function BlogList({ blogs }: BlogListProps) {
                 {blog.imgSrc ? (
                   <Image
                     src={blog.imgSrc}
-                    alt={`${blog.title} — Taypro solar panel cleaning blog`}
+                    alt={blog.imgAlt}
                     title={blog.title}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

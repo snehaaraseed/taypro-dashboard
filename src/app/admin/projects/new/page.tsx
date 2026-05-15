@@ -26,6 +26,7 @@ export default function NewProjectPage() {
     title: "",
     description: "",
     image: "",
+    imageAlt: "",
     details: [] as string[],
     date: new Date().toISOString().split("T")[0],
     content: "",
@@ -419,7 +420,11 @@ export default function NewProjectPage() {
                   <button
                     type="button"
                     onClick={() => {
-                      setFormData((prev) => ({ ...prev, image: "" }));
+                      setFormData((prev) => ({
+                        ...prev,
+                        image: "",
+                        imageAlt: "",
+                      }));
                       setImageError(false);
                     }}
                     className="mt-2 text-sm text-red-600 hover:text-red-800"
@@ -428,6 +433,27 @@ export default function NewProjectPage() {
                   </button>
                 </div>
               )}
+
+            <div className="mt-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Hero image alt text
+              </label>
+              <input
+                type="text"
+                value={formData.imageAlt}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    imageAlt: e.target.value,
+                  }))
+                }
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Describe the project image for accessibility and SEO"
+              />
+              <p className="mt-1 text-xs text-gray-500">
+                Leave blank to use an auto-generated description from the project title.
+              </p>
+            </div>
           </div>
 
           <div>

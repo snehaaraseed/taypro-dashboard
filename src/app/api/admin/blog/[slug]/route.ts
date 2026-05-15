@@ -69,6 +69,7 @@ export async function PUT(
       title,
       description,
       featuredImage,
+      featuredImageAlt,
       author,
       content,
       publishDate,
@@ -105,6 +106,8 @@ export async function PUT(
         title,
         description,
         featuredImage: featuredImage || "",
+        featuredImageAlt:
+          typeof featuredImageAlt === "string" ? featuredImageAlt : "",
         author: author || "Taypro Team",
         content,
         publishDate,

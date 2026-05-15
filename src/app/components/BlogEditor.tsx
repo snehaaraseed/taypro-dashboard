@@ -39,6 +39,9 @@ export default function BlogEditor({
   const [loadingGallery, setLoadingGallery] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string>("");
+  const [imageAltText, setImageAltText] = useState("");
+  const [showEditImageAltModal, setShowEditImageAltModal] = useState(false);
+  const [editImageAlt, setEditImageAlt] = useState("");
 
   const editor = useEditor({
     extensions: [
@@ -111,20 +114,67 @@ export default function BlogEditor({
     }
   }, [editor, initialContent]);
 
+  const resetImageInsertModal = () => {
+    setImageUrl("");
+    setImageUrlError(null);
+    setImageAltText("");
+    setSelectedFile(null);
+    if (previewUrl) {
+      URL.revokeObjectURL(previewUrl);
+      setPreviewUrl("");
+    }
+  };
+
+  const openImageInsertModal = () => {
+    resetImageInsertModal();
+    setImageModalTab("url");
+    setShowImageModal(true);
+  };
+
+  const insertImage = (src: string, alt?: string) => {
+    if (!editor) return;
+    const trimmedAlt = alt?.trim();
+    editor
+      .chain()
+      .focus()
+      .setImage({
+        src,
+        ...(trimmedAlt ? { alt: trimmedAlt } : {}),
+      })
+      .run();
+    resetImageInsertModal();
+    setShowImageModal(false);
+  };
+
+  const openEditImageAltModal = () => {
+    if (!editor) return;
+    const attrs = editor.getAttributes("image");
+    setEditImageAlt(typeof attrs.alt === "string" ? attrs.alt : "");
+    setShowEditImageAltModal(true);
+  };
+
+  const saveSelectedImageAlt = () => {
+    if (!editor) return;
+    const trimmed = editImageAlt.trim();
+    editor
+      .chain()
+      .focus()
+      .updateAttributes("image", { alt: trimmed || null })
+      .run();
+    setShowEditImageAltModal(false);
+    setEditImageAlt("");
+  };
+
   const addImage = () => {
     if (!editor) return;
 
-    // Validate image URL before inserting
     const valid = validateImageUrl(imageUrl);
     if (!valid.valid) {
       setImageUrlError(valid.message || "Invalid image URL");
       return;
     }
 
-    editor.chain().focus().setImage({ src: imageUrl }).run();
-    setImageUrl("");
-    setImageUrlError(null);
-    setShowImageModal(false);
+    insertImage(imageUrl, imageAltText);
   };
 
   // Simple client-side validation for image URLs.
@@ -249,15 +299,7 @@ export default function BlogEditor({
       }
 
       if (response.ok && data.url) {
-        editor.chain().focus().setImage({ src: data.url }).run();
-        setImageUrl("");
-        setShowImageModal(false);
-        setSelectedFile(null);
-        if (previewUrl) {
-          URL.revokeObjectURL(previewUrl);
-          setPreviewUrl("");
-        }
-        // Refresh gallery
+        insertImage(data.url, imageAltText);
         fetchGalleryImages();
       } else {
         throw new Error(data.error || "Failed to upload image");
@@ -636,9 +678,19 @@ export default function BlogEditor({
           </div>
 
           {/* Image */}
+          {editor.isActive("image") && (
+            <button
+              type="button"
+              onClick={openEditImageAltModal}
+              className="p-2 rounded hover:bg-gray-200 transition-colors text-blue-700 bg-blue-50"
+              title="Edit image alt text"
+            >
+              <span className="text-xs font-semibold px-1">Alt</span>
+            </button>
+          )}
           <button
             type="button"
-            onClick={() => setShowImageModal(true)}
+            onClick={openImageInsertModal}
             className="p-2 rounded hover:bg-gray-200 transition-colors text-gray-700"
             title="Insert Image"
           >
@@ -977,6 +1029,19 @@ export default function BlogEditor({
           <div className="bg-white rounded-lg p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <h3 className="text-lg font-semibold mb-4">Insert Image</h3>
 
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Alt text (accessibility &amp; SEO)
+              </label>
+              <input
+                type="text"
+                value={imageAltText}
+                onChange={(e) => setImageAltText(e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Describe what the image shows"
+              />
+            </div>
+
             {/* Tabs */}
             <div className="flex gap-2 mb-4 border-b">
               <button
@@ -1079,11 +1144,7 @@ export default function BlogEditor({
                     type="button"
                     onClick={() => {
                       setShowImageModal(false);
-                      setSelectedFile(null);
-                      if (previewUrl) {
-                        URL.revokeObjectURL(previewUrl);
-                        setPreviewUrl("");
-                      }
+                      resetImageInsertModal();
                     }}
                     className="px-4 py-2 text-gray-700 bg-gray-200 rounded hover:bg-gray-300 transition-colors"
                   >
@@ -1156,7 +1217,7 @@ export default function BlogEditor({
                     type="button"
                     onClick={() => {
                       setShowImageModal(false);
-                      setImageUrl("");
+                      resetImageInsertModal();
                     }}
                     className="px-4 py-2 text-gray-700 bg-gray-200 rounded hover:bg-gray-300 transition-colors"
                   >
@@ -1198,15 +1259,7 @@ export default function BlogEditor({
                         <div
                           key={idx}
                           onClick={() => {
-                            if (editor) {
-                              editor
-                                .chain()
-                                .focus()
-                                .setImage({ src: img.url })
-                                .run();
-                              setShowImageModal(false);
-                              setImageUrl("");
-                            }
+                            insertImage(img.url, imageAltText);
                           }}
                           className="relative cursor-pointer group bg-gray-100 border-2 border-gray-200 rounded hover:border-blue-500 transition-colors"
                         >
@@ -1243,7 +1296,7 @@ export default function BlogEditor({
                     type="button"
                     onClick={() => {
                       setShowImageModal(false);
-                      setImageUrl("");
+                      resetImageInsertModal();
                     }}
                     className="px-4 py-2 text-gray-700 bg-gray-200 rounded hover:bg-gray-300 transition-colors"
                   >
@@ -1252,6 +1305,44 @@ export default function BlogEditor({
                 </div>
               </div>
             )}
+          </div>
+        </div>
+      )}
+
+      {showEditImageAltModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+            <h3 className="text-lg font-semibold mb-4">Edit image alt text</h3>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Alt text
+            </label>
+            <input
+              type="text"
+              value={editImageAlt}
+              onChange={(e) => setEditImageAlt(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+              placeholder="Describe what the image shows"
+              autoFocus
+            />
+            <div className="flex gap-2 justify-end">
+              <button
+                type="button"
+                onClick={() => {
+                  setShowEditImageAltModal(false);
+                  setEditImageAlt("");
+                }}
+                className="px-4 py-2 text-gray-700 bg-gray-200 rounded hover:bg-gray-300 transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={saveSelectedImageAlt}
+                className="px-4 py-2 bg-[#A8C117] text-white rounded hover:bg-lime-500 transition-colors"
+              >
+                Save
+              </button>
+            </div>
           </div>
         </div>
       )}

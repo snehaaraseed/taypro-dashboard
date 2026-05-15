@@ -46,6 +46,7 @@ interface ArticleSchemaProps {
   headline: string;
   description: string;
   image?: string;
+  imageAlt?: string;
   /** Canonical article URL (absolute or site-root path). */
   url?: string;
   datePublished?: string;
@@ -388,6 +389,7 @@ export function ArticleSchema({
   headline,
   description,
   image,
+  imageAlt,
   url,
   datePublished,
   dateModified,
@@ -412,7 +414,12 @@ export function ArticleSchema({
   };
 
   if (image) {
-    schema.image = image.startsWith("http") ? image : `${siteUrl}${image}`;
+    const imageUrl = image.startsWith("http") ? image : `${siteUrl}${image}`;
+    schema.image = {
+      "@type": "ImageObject",
+      url: imageUrl,
+      caption: imageAlt?.trim() || headline,
+    };
   }
 
   if (url) {
@@ -433,11 +440,16 @@ export function ArticleSchema({
   }
 
   if (author) {
-    schema.author = {
+    const authorNode: Record<string, unknown> = {
       "@type": "Person",
       name: author.name,
-      url: author.url || siteUrl,
     };
+    if (author.url) {
+      authorNode.url = author.url.startsWith("http")
+        ? author.url
+        : `${siteUrl}${author.url.startsWith("/") ? "" : "/"}${author.url}`;
+    }
+    schema.author = authorNode;
   }
 
   return (

@@ -4,6 +4,7 @@ export interface ProjectMetadata {
   title: string;
   description: string;
   image: string;
+  imageAlt?: string;
   details: string[];
   slug: string;
   date: string;
@@ -16,6 +17,7 @@ export interface ProjectData {
   title: string;
   description: string;
   image: string;
+  imageAlt?: string;
   details: string[];
   date?: string;
   content?: string;

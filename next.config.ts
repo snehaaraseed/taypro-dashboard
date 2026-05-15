@@ -57,6 +57,11 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "img.youtube.com",
+        pathname: "/vi/**",
+      },
+      {
+        protocol: "https",
         hostname: "images.unsplash.com",
         pathname: "/**",
       },
@@ -143,6 +148,11 @@ const nextConfig = {
         // app/sitemap.ts serves /sitemap.xml; human-readable map lives at /site-map.
         source: "/sitemap",
         destination: "/site-map",
+        permanent: true,
+      },
+      {
+        source: "/contact/thank-you",
+        destination: "/contact",
         permanent: true,
       },
     ];
