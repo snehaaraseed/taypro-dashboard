@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { socialImagesFromPreset } from "@/lib/seo/open-graph";
+import { SITE_URL } from "@/lib/seo/sitemap-config";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const siteUrl = SITE_URL;
+const og = socialImagesFromPreset("modelB");
 
 export const metadata: Metadata = {
   title: "Semi-Automatic Solar Panel Cleaning Robot Projects | Taypro",
@@ -20,20 +23,12 @@ export const metadata: Metadata = {
       "Semi-automatic Solar Panel Cleaning Robot installation projects with pick-and-place robotic cleaning systems.",
     url: `${siteUrl}/projects/semi-automatic`,
     type: "website",
-    images: [
-      {
-        url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
-        width: 1200,
-        height: 630,
-        alt: "Semi-Automatic Solar Panel Cleaning Robot Projects by Taypro",
-      },
-    ],
+    ...og.openGraph,
   },
   twitter: {
-    card: "summary_large_image",
     title: "Semi-Automatic Solar Panel Cleaning Robot Projects | Taypro",
     description: "Semi-automatic Solar Panel Cleaning Robot installation projects.",
-    images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
+    ...og.twitter,
   },
   alternates: {
     canonical: `${siteUrl}/projects/semi-automatic`,

@@ -13,7 +13,12 @@ import {
 } from "../components/StructuredData";
 import BlogList from "./BlogList";
 import { listAllBlogs } from "@/lib/cms/blogService";
-import { BLOG_LIST_PAGE_SIZE } from "@/lib/seo/sitemap-config";
+import {
+  BLOG_LIST_PAGE_SIZE,
+  blogListPagePath,
+  blogListPageUrl,
+  blogListPaginationLinks,
+} from "@/lib/seo/blog-pagination";
 import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
 
 const breadcrumbs = [
@@ -101,8 +106,8 @@ export async function generateMetadata({
   const totalPages = Math.max(1, Math.ceil(dynamicBlogs.length / PAGE_SIZE));
   const page = Math.min(pageNum, totalPages);
 
-  const canonical =
-    page <= 1 ? `${siteUrl}/blog` : `${siteUrl}/blog?page=${page}`;
+  const canonical = blogListPageUrl(siteUrl, page);
+  const pagination = blogListPaginationLinks(siteUrl, page, totalPages);
 
   const title =
     page <= 1
@@ -118,6 +123,14 @@ export async function generateMetadata({
     title: { absolute: title },
     description,
     alternates: { canonical },
+    ...(pagination.previous || pagination.next
+      ? {
+          pagination: {
+            ...(pagination.previous ? { previous: pagination.previous } : {}),
+            ...(pagination.next ? { next: pagination.next } : {}),
+          },
+        }
+      : {}),
     openGraph: {
       title,
       description,
@@ -395,8 +408,8 @@ export default async function Blog({ searchParams }: BlogPageProps) {
                   >
                     {page > 1 ? (
                       <Link
-                        href={page === 2 ? "/blog" : `/blog?page=${page - 1}`}
-                        rel={page === 2 ? undefined : "prev"}
+                        href={blogListPagePath(page - 1)}
+                        rel="prev"
                         className="inline-flex items-center justify-center min-h-[44px] px-5 rounded-lg border border-[#052638] text-[#052638] font-medium hover:bg-[#052638] hover:text-white transition"
                       >
                         Previous
@@ -411,7 +424,7 @@ export default async function Blog({ searchParams }: BlogPageProps) {
                     </span>
                     {page < totalPages ? (
                       <Link
-                        href={`/blog?page=${page + 1}`}
+                        href={blogListPagePath(page + 1)}
                         rel="next"
                         className="inline-flex items-center justify-center min-h-[44px] px-5 rounded-lg border border-[#052638] text-[#052638] font-medium hover:bg-[#052638] hover:text-white transition"
                       >

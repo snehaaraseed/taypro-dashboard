@@ -14,6 +14,8 @@ import {
   isRobotCleaningTopic,
 } from "@/lib/seo/blog-metadata";
 import { getBlogFeaturedImageAlt } from "../../../utils/imageAlt";
+import { socialImagesFromMedia } from "@/lib/seo/open-graph";
+import { SITE_URL } from "@/lib/seo/sitemap-config";
 
 /**
  * Returns the canonical /blog/[slug] path when this post is also published as
@@ -143,7 +145,7 @@ async function getBlogData(id: string): Promise<BlogData | null> {
   }
 }
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const siteUrl = SITE_URL;
 
 // Generate metadata for SEO
 export async function generateMetadata({
@@ -186,6 +188,11 @@ export async function generateMetadata({
     ? `/blog/${fileBackedSlug}`
     : `/blog/db/${id}`;
   const canonicalUrl = `${siteUrl}${canonicalPath}`;
+  const shareImages = socialImagesFromMedia(
+    blog.featuredImage,
+    getBlogFeaturedImageAlt(blog),
+    "blog"
+  );
 
   return {
     title: blogPostMetadataTitle(blog.title, blog.description),
@@ -198,20 +205,12 @@ export async function generateMetadata({
       type: "article",
       publishedTime: blog.publishDate,
       modifiedTime: modifiedIso,
-      images: blog.featuredImage ? [
-        {
-          url: blog.featuredImage.startsWith('http') ? blog.featuredImage : `${siteUrl}${blog.featuredImage.startsWith('/') ? '' : '/'}${blog.featuredImage}`,
-          width: 1200,
-          height: 630,
-          alt: blog.title,
-        }
-      ] : [],
+      ...shareImages.openGraph,
     },
     twitter: {
-      card: "summary_large_image",
       title: blogPostOpenGraphTitle(blog.title),
       description: blog.description.substring(0, 200),
-      images: blog.featuredImage ? [blog.featuredImage.startsWith('http') ? blog.featuredImage : `${siteUrl}${blog.featuredImage.startsWith('/') ? '' : '/'}${blog.featuredImage}`] : [],
+      ...shareImages.twitter,
     },
     alternates: {
       canonical: canonicalUrl,

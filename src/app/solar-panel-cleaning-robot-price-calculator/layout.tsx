@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { socialImagesFromPreset } from "@/lib/seo/open-graph";
+import { SITE_URL } from "@/lib/seo/sitemap-config";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const siteUrl = SITE_URL;
+const og = socialImagesFromPreset("calculator");
 
 export const metadata: Metadata = {
   title:
@@ -24,21 +27,13 @@ export const metadata: Metadata = {
       "Estimate robot investment, payback, labour savings, and generation gain for your solar plant. Free online tool by Taypro.",
     url: `${siteUrl}/solar-panel-cleaning-robot-price-calculator`,
     type: "website",
-    images: [
-      {
-        url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
-        width: 1200,
-        height: 630,
-        alt: "Taypro solar panel cleaning robot ROI and price calculator",
-      },
-    ],
+    ...og.openGraph,
   },
   twitter: {
-    card: "summary_large_image",
     title: "Solar Panel Cleaning Robot ROI Calculator | Taypro",
     description:
       "Estimate payback and savings for Taypro cleaning robots on your solar plant.",
-    images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
+    ...og.twitter,
   },
   alternates: {
     canonical: `${siteUrl}/solar-panel-cleaning-robot-price-calculator`,

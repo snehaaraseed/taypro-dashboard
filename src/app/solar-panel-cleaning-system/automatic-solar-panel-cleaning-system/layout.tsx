@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { socialImagesFromPreset } from "@/lib/seo/open-graph";
+import { SITE_URL } from "@/lib/seo/sitemap-config";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const siteUrl = SITE_URL;
+const modelAOg = socialImagesFromPreset("modelA");
 
 export const metadata: Metadata = {
   // Primary intent: "Automatic Solar Panel Cleaning Robot" (waterless, autonomous).
@@ -34,22 +37,14 @@ export const metadata: Metadata = {
       "Taypro Model-A: Automatic Solar Panel Cleaning Robot for utility-scale plants. Autonomous waterless dual-pass cleaning, 99%+ dust removal per cycle, up to 3,600 modules per charge, LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN to Taypro Console, TÜV NORD certified.",
     url: `${siteUrl}/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system`,
     type: "website",
-    images: [
-      {
-        url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
-        width: 1200,
-        height: 630,
-        alt: "Taypro Model-A — Automatic Solar Panel Cleaning Robot for utility-scale solar farms",
-      },
-    ],
+    ...modelAOg.openGraph,
   },
   twitter: {
-    card: "summary_large_image",
     title:
       "Automatic Solar Panel Cleaning Robot — Taypro Model-A (Waterless, AI)",
     description:
       "Taypro Model-A Automatic Solar Panel Cleaning Robot: autonomous, waterless, AI-driven. 99%+ dust removal per cycle, up to 3,600 modules per charge, LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN to Taypro Console.",
-    images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
+    ...modelAOg.twitter,
   },
   alternates: {
     canonical: `${siteUrl}/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system`,

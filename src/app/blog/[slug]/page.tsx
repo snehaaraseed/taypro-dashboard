@@ -26,8 +26,10 @@ import {
   isRobotCleaningTopic,
 } from "@/lib/seo/blog-metadata";
 import { getBlogFeaturedImageAlt } from "../../utils/imageAlt";
+import { socialImagesFromMedia } from "@/lib/seo/open-graph";
+import { SITE_URL } from "@/lib/seo/sitemap-config";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const siteUrl = SITE_URL;
 
 interface PageParams {
   slug: string;
@@ -176,6 +178,12 @@ export async function generateMetadata({
         "taypro",
       ];
 
+  const shareImages = socialImagesFromMedia(
+    blog.featuredImage,
+    getBlogFeaturedImageAlt(blog),
+    "blog"
+  );
+
   return {
     title: blogPostMetadataTitle(blog.title, blog.description),
     description: blogPostMetadataDescription(blog.title, blog.description),
@@ -185,20 +193,15 @@ export async function generateMetadata({
       description: blog.description,
       url: `${siteUrl}/blog/${slug}`,
       type: "article",
-      images: blog.featuredImage 
-        ? [blog.featuredImage.startsWith("http") ? blog.featuredImage : `${siteUrl}${blog.featuredImage}`]
-        : [`${siteUrl}/tayproasset/taypro-robotImage.png`],
+      ...shareImages.openGraph,
       publishedTime: blog.publishDate,
       modifiedTime: blog.updatedAt || blog.publishDate,
       authors: [blog.author || "Taypro Team"],
     },
     twitter: {
-      card: "summary_large_image",
       title: blogPostOpenGraphTitle(blog.title),
       description: blog.description,
-      images: blog.featuredImage 
-        ? [blog.featuredImage.startsWith("http") ? blog.featuredImage : `${siteUrl}${blog.featuredImage}`]
-        : [`${siteUrl}/tayproasset/taypro-robotImage.png`],
+      ...shareImages.twitter,
     },
     alternates: {
       canonical: `${siteUrl}/blog/${slug}`,

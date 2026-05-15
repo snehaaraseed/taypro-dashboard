@@ -3,7 +3,10 @@ import dynamic from "next/dynamic";
 import { Blinker } from "next/font/google";
 import { OrganizationSchema, WebSiteSchema } from "./components/StructuredData";
 
+import { OG_PRESETS, buildOgImage, buildTwitterImageUrls } from "@/lib/seo/open-graph";
 import "./globals.css";
+
+const defaultOg = buildOgImage(OG_PRESETS.default);
 
 // Lazy load Footer - it's not critical for initial render
 const Footer = dynamic(() => import("./components/Footer"), {
@@ -17,9 +20,10 @@ import DeferredLayoutWidgets from "./components/DeferredLayoutWidgets";
 
 const blinker = Blinker({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"], // Only load weights actually used
-  display: "swap", // Optimize font loading
+  weight: ["400", "600", "700"],
+  display: "swap",
   preload: true,
+  adjustFontFallback: true,
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
@@ -69,21 +73,14 @@ export const metadata: Metadata = {
     title: "Solar Panel Cleaning Robot | Taypro - Autonomous Waterless Solar Cleaning",
     description:
       "Best Solar Panel Cleaning Robots for solar farms in India. Autonomous waterless cleaning increases efficiency up to 30% with AI-powered scheduling.",
-    images: [
-      {
-        url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
-        width: 1200,
-        height: 630,
-        alt: "Taypro Solar Panel Cleaning Robot",
-      },
-    ],
+    images: [defaultOg],
   },
   twitter: {
     card: "summary_large_image",
     title: "Solar Panel Cleaning Robot | Taypro",
     description:
       "Autonomous, waterless Solar Panel Cleaning Robots for solar farms. Increase efficiency up to 30% with AI-powered robotic cleaning systems.",
-    images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
+    images: buildTwitterImageUrls([defaultOg]),
     creator: "@taypro",
     site: "@taypro",
   },
@@ -106,25 +103,11 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/tayproasset/taypro-favicon.png" sizes="any" />
 
-        {/* DNS Prefetch for external resources - improves first-time connection speed */}
-        <link rel="dns-prefetch" href="https://www.youtube.com" />
-        <link rel="dns-prefetch" href="https://img.youtube.com" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
-        
-        {/* Preconnect to establish early connections - critical for first-time visitors */}
-        <link rel="preconnect" href="https://www.youtube.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://img.youtube.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
-        {/* Preload critical resources - improves LCP for first-time visitors */}
-        <link
-          rel="preload"
-          href="/tayproasset/taypro-logo.png"
-          as="image"
-          type="image/png"
-        />
       </head>
       <body className={blinker.className}>
         <OrganizationSchema siteUrl={siteUrl} />

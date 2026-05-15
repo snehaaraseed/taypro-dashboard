@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { socialImagesFromPreset } from "@/lib/seo/open-graph";
+import { SITE_URL } from "@/lib/seo/sitemap-config";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const siteUrl = SITE_URL;
+const og = socialImagesFromPreset("opex");
 
 export const metadata: Metadata = {
   title: "CAPEX Solar Panel Cleaning Robot Projects | Taypro",
@@ -20,20 +23,12 @@ export const metadata: Metadata = {
       "CAPEX model Solar Panel Cleaning Robot projects with automatic and semi-automatic robotic cleaning systems.",
     url: `${siteUrl}/projects/capex`,
     type: "website",
-    images: [
-      {
-        url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
-        width: 1200,
-        height: 630,
-        alt: "CAPEX Solar Panel Cleaning Robot Projects by Taypro",
-      },
-    ],
+    ...og.openGraph,
   },
   twitter: {
-    card: "summary_large_image",
     title: "CAPEX Solar Panel Cleaning Robot Projects | Taypro",
     description: "CAPEX model Solar Panel Cleaning Robot projects for solar farms.",
-    images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
+    ...og.twitter,
   },
   alternates: {
     canonical: `${siteUrl}/projects/capex`,

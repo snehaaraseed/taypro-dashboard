@@ -10,7 +10,8 @@
     "cms:migrate": "node scripts/migrate-cms-from-files.mjs",
     "cms:backfill-projects": "node scripts/backfill-project-content.mjs",
     "cms:cleanup-legacy": "node scripts/cleanup-legacy-cms-dirs.mjs",
-    "cms:migrate-extras": "node scripts/migrate-topics-and-uploads.mjs"
+    "cms:migrate-extras": "node scripts/migrate-topics-and-uploads.mjs",
+    "cms:migrate-image-alt": "node scripts/apply-image-alt-migration.mjs"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",

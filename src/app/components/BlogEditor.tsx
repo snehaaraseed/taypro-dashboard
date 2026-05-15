@@ -2,8 +2,13 @@
 
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import Image from "@tiptap/extension-image";
 import Link from "@tiptap/extension-link";
+import {
+  EditableImage,
+  getSelectedImageAlt,
+  isImageNodeSelected,
+  suggestAltFromImageSrc,
+} from "./editor/editableImageExtension";
 import TextAlign from "@tiptap/extension-text-align";
 import { Table } from "@tiptap/extension-table";
 import { TableRow } from "@tiptap/extension-table-row";
@@ -40,8 +45,8 @@ export default function BlogEditor({
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string>("");
   const [imageAltText, setImageAltText] = useState("");
-  const [showEditImageAltModal, setShowEditImageAltModal] = useState(false);
-  const [editImageAlt, setEditImageAlt] = useState("");
+  const [isImageSelected, setIsImageSelected] = useState(false);
+  const [inlineImageAlt, setInlineImageAlt] = useState("");
 
   const editor = useEditor({
     extensions: [
@@ -50,9 +55,9 @@ export default function BlogEditor({
           levels: [2, 3, 4],
         },
       }),
-      Image.configure({
+      EditableImage.configure({
         HTMLAttributes: {
-          class: "blog-image max-w-full h-auto rounded-lg my-4",
+          class: "blog-image max-w-full h-auto rounded-lg my-4 cursor-pointer",
         },
         inline: false,
       }),
@@ -114,6 +119,27 @@ export default function BlogEditor({
     }
   }, [editor, initialContent]);
 
+  useEffect(() => {
+    if (!editor) return;
+
+    const syncImageSelection = () => {
+      const selected = isImageNodeSelected(editor);
+      setIsImageSelected(selected);
+      if (selected) {
+        setInlineImageAlt(getSelectedImageAlt(editor));
+      }
+    };
+
+    syncImageSelection();
+    editor.on("selectionUpdate", syncImageSelection);
+    editor.on("transaction", syncImageSelection);
+
+    return () => {
+      editor.off("selectionUpdate", syncImageSelection);
+      editor.off("transaction", syncImageSelection);
+    };
+  }, [editor]);
+
   const resetImageInsertModal = () => {
     setImageUrl("");
     setImageUrlError(null);
@@ -133,7 +159,7 @@ export default function BlogEditor({
 
   const insertImage = (src: string, alt?: string) => {
     if (!editor) return;
-    const trimmedAlt = alt?.trim();
+    const trimmedAlt = alt?.trim() || suggestAltFromImageSrc(src);
     editor
       .chain()
       .focus()
@@ -146,23 +172,14 @@ export default function BlogEditor({
     setShowImageModal(false);
   };
 
-  const openEditImageAltModal = () => {
-    if (!editor) return;
-    const attrs = editor.getAttributes("image");
-    setEditImageAlt(typeof attrs.alt === "string" ? attrs.alt : "");
-    setShowEditImageAltModal(true);
-  };
-
-  const saveSelectedImageAlt = () => {
-    if (!editor) return;
-    const trimmed = editImageAlt.trim();
+  const applyInlineImageAlt = () => {
+    if (!editor || !isImageNodeSelected(editor)) return;
+    const trimmed = inlineImageAlt.trim();
     editor
       .chain()
       .focus()
       .updateAttributes("image", { alt: trimmed || null })
       .run();
-    setShowEditImageAltModal(false);
-    setEditImageAlt("");
   };
 
   const addImage = () => {
@@ -253,9 +270,10 @@ export default function BlogEditor({
     }
 
     setSelectedFile(file);
-    // Create preview URL
     const url = URL.createObjectURL(file);
     setPreviewUrl(url);
+    const suggested = suggestAltFromImageSrc(file.name);
+    if (suggested) setImageAltText(suggested);
   };
 
   const handleImageUpload = async () => {
@@ -678,16 +696,6 @@ export default function BlogEditor({
           </div>
 
           {/* Image */}
-          {editor.isActive("image") && (
-            <button
-              type="button"
-              onClick={openEditImageAltModal}
-              className="p-2 rounded hover:bg-gray-200 transition-colors text-blue-700 bg-blue-50"
-              title="Edit image alt text"
-            >
-              <span className="text-xs font-semibold px-1">Alt</span>
-            </button>
-          )}
           <button
             type="button"
             onClick={openImageInsertModal}
@@ -903,6 +911,38 @@ export default function BlogEditor({
             </button>
           </div>
         </div>
+
+        {isImageSelected && viewMode === "visual" && (
+          <div className="flex flex-wrap items-center gap-2 px-3 py-2 bg-blue-50 border-t border-blue-200">
+            <span className="text-sm font-medium text-blue-900 shrink-0">
+              Image alt text
+            </span>
+            <input
+              type="text"
+              value={inlineImageAlt}
+              onChange={(e) => setInlineImageAlt(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  applyInlineImageAlt();
+                }
+              }}
+              className="flex-1 min-w-[12rem] px-3 py-1.5 text-sm border border-blue-200 rounded-md bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Describe this image for accessibility and SEO"
+            />
+            <button
+              type="button"
+              onClick={applyInlineImageAlt}
+              className="px-3 py-1.5 text-sm font-medium bg-[#A8C117] text-white rounded-md hover:bg-lime-500 transition-colors shrink-0"
+            >
+              Apply
+            </button>
+            <span className="text-xs text-blue-700/80 w-full sm:w-auto">
+              Click an image in the editor to edit its alt. A suggestion is
+              filled from the filename when you insert.
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Editor Content */}
@@ -910,7 +950,7 @@ export default function BlogEditor({
         <div className="bg-white">
           <EditorContent
             editor={editor}
-            className="prose prose-lg max-w-none min-h-96 p-4
+            className="prose prose-lg max-w-none min-h-96 p-4 [&_.ProseMirror_img.ProseMirror-selectednode]:outline [&_.ProseMirror_img.ProseMirror-selectednode]:outline-2 [&_.ProseMirror_img.ProseMirror-selectednode]:outline-blue-500
              prose-headings:text-[#052638]
              prose-headings:font-semibold
             prose-p:text-gray-700
@@ -1183,6 +1223,10 @@ export default function BlogEditor({
                             ? null
                             : valid.message || "Invalid image URL"
                         );
+                        if (valid.valid) {
+                          const suggested = suggestAltFromImageSrc(v);
+                          if (suggested) setImageAltText(suggested);
+                        }
                       } else {
                         setImageUrlError(null);
                       }
@@ -1259,7 +1303,11 @@ export default function BlogEditor({
                         <div
                           key={idx}
                           onClick={() => {
-                            insertImage(img.url, imageAltText);
+                            const suggested =
+                              imageAltText.trim() ||
+                              suggestAltFromImageSrc(img.name) ||
+                              suggestAltFromImageSrc(img.url);
+                            insertImage(img.url, suggested);
                           }}
                           className="relative cursor-pointer group bg-gray-100 border-2 border-gray-200 rounded hover:border-blue-500 transition-colors"
                         >
@@ -1309,43 +1357,6 @@ export default function BlogEditor({
         </div>
       )}
 
-      {showEditImageAltModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4">
-            <h3 className="text-lg font-semibold mb-4">Edit image alt text</h3>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Alt text
-            </label>
-            <input
-              type="text"
-              value={editImageAlt}
-              onChange={(e) => setEditImageAlt(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-              placeholder="Describe what the image shows"
-              autoFocus
-            />
-            <div className="flex gap-2 justify-end">
-              <button
-                type="button"
-                onClick={() => {
-                  setShowEditImageAltModal(false);
-                  setEditImageAlt("");
-                }}
-                className="px-4 py-2 text-gray-700 bg-gray-200 rounded hover:bg-gray-300 transition-colors"
-              >
-                Cancel
-              </button>
-              <button
-                type="button"
-                onClick={saveSelectedImageAlt}
-                className="px-4 py-2 bg-[#A8C117] text-white rounded hover:bg-lime-500 transition-colors"
-              >
-                Save
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

@@ -30,13 +30,16 @@ import { Container } from "../components/Container";
 import { AnimateOnScroll } from "../components/AnimateOnScroll";
 import FAQAccordion from "../components/FAQAccordion";
 import { FAQPageSchema, HowToSchema } from "../components/StructuredData";
+import { socialImagesFromPreset } from "@/lib/seo/open-graph";
+import { SITE_URL } from "@/lib/seo/sitemap-config";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
   { name: "Cleaning technology", href: "" },
 ];
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const siteUrl = SITE_URL;
+const cleaningTechOg = socialImagesFromPreset("cleaningTech");
 
 const technologyPillars = [
   {
@@ -444,21 +447,13 @@ export const metadata: Metadata = {
       "Patented dual-pass waterless cleaning, AI scheduling, and fleet connectivity for utility-scale solar in India.",
     url: `${siteUrl}/cleaning-technology`,
     type: "website",
-    images: [
-      {
-        url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
-        width: 1200,
-        height: 630,
-        alt: "Taypro solar panel cleaning robot technology",
-      },
-    ],
+    ...cleaningTechOg.openGraph,
   },
   twitter: {
-    card: "summary_large_image",
     title: "Solar Panel Cleaning Robot Technology — Taypro",
     description:
       "Waterless dual-pass cleaning, AI scheduling, and Taypro Console fleet monitoring.",
-    images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
+    ...cleaningTechOg.twitter,
   },
   alternates: {
     canonical: `${siteUrl}/cleaning-technology`,

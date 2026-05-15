@@ -91,6 +91,7 @@ rsync -avz --checksum --delete \
     --exclude 'data/cms.sqlite' \
     --exclude 'data/cms.sqlite-*' \
     --exclude 'public/uploads' \
+    --exclude '.env.production' \
     --exclude '.deploy-snapshots' \
     -e "ssh -i $SSH_KEY" \
     "$LOCAL_PATH/" \
@@ -166,6 +167,9 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
 
     echo "  Sync topics + upload index into DB (idempotent)..."
     npm run cms:migrate-extras 2>&1 | tail -6
+
+    echo "  Apply image alt columns + backfill (idempotent)..."
+    npm run cms:migrate-image-alt 2>&1 | tail -8
 
     if [ ! -f "data/cms.sqlite" ]; then
         echo "  ❌ data/cms.sqlite still missing after setup"

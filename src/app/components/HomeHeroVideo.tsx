@@ -11,7 +11,8 @@ interface HomeHeroVideoProps {
 /** Click-to-play facade — avoids loading YouTube iframe until interaction (LCP). */
 export default function HomeHeroVideo({ videoId, title }: HomeHeroVideoProps) {
   const [active, setActive] = useState(false);
-  const thumb = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  /** hqdefault (~480px) loads much faster than maxresdefault for LCP. */
+  const thumb = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
   if (active) {
     return (
@@ -38,7 +39,9 @@ export default function HomeHeroVideo({ videoId, title }: HomeHeroVideoProps) {
         fill
         className="object-cover transition group-hover:scale-[1.02]"
         sizes="(max-width: 1024px) 100vw, 720px"
+        quality={75}
         priority
+        fetchPriority="high"
       />
       <span
         className="absolute inset-0 bg-[#052638]/25 transition group-hover:bg-[#052638]/15"

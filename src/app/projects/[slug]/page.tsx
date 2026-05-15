@@ -8,8 +8,11 @@ import { BlogContent } from "@/app/components/BlogContent";
 import { PROJECT_PLACE_BY_SLUG } from "@/app/data/projectPlaceSchema";
 import { getAllFileProjects } from "@/app/utils/projectFileUtils";
 import { getProjectBySlug, listAllProjects } from "@/lib/cms/projectService";
+import { getProjectHeroImageAlt } from "@/app/utils/imageAlt";
+import { socialImagesFromMedia } from "@/lib/seo/open-graph";
+import { SITE_URL } from "@/lib/seo/sitemap-config";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const siteUrl = SITE_URL;
 
 const proseClassName =
   "prose prose-lg max-w-none space-y-5 prose-headings:text-[#052638] prose-headings:font-semibold prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-blue-600 prose-a:hover:text-blue-800 prose-strong:text-[#052638] prose-ul:text-gray-700 prose-ol:text-gray-700 prose-li:text-gray-700";
@@ -40,6 +43,11 @@ export async function generateMetadata({
 
   const { metadata } = post;
   const url = `${siteUrl}/projects/${slug}`;
+  const shareImages = socialImagesFromMedia(
+    metadata.image,
+    getProjectHeroImageAlt(metadata),
+    "projects"
+  );
 
   return {
     title: `${metadata.title} - Solar Panel Cleaning Robot Installation | Taypro`,
@@ -47,15 +55,14 @@ export async function generateMetadata({
     openGraph: {
       title: `${metadata.title} | Taypro`,
       description: metadata.description,
-      images: metadata.image ? [metadata.image] : undefined,
       url,
       type: "website",
+      ...shareImages.openGraph,
     },
     twitter: {
-      card: "summary_large_image",
       title: metadata.title,
       description: metadata.description,
-      images: metadata.image ? [metadata.image] : undefined,
+      ...shareImages.twitter,
     },
     alternates: { canonical: url },
   };

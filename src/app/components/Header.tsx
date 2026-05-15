@@ -1,17 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useRouter } from "next/navigation";
 
 export default function Header() {
-  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  // const [isSolarMenuOpen, setIsSolarMenuOpen] = useState(true);
-  const isSolarMenuOpen = true;
+  const [isSolarMenuOpen, setIsSolarMenuOpen] = useState(false);
   const pathname = usePathname();
 
   const navItems = [
@@ -64,7 +61,6 @@ export default function Header() {
     },
   ];
 
-  // fnc to check if current path matches the nav item
   const isActive = (href: string) => {
     if (href === "/") {
       return pathname === "/";
@@ -76,13 +72,55 @@ export default function Header() {
     return pathname.startsWith("/solar-panel-cleaning-system");
   };
 
+  const closeMobileMenu = () => {
+    setIsMenuOpen(false);
+    setIsSolarMenuOpen(false);
+  };
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setIsSolarMenuOpen(false);
+    setDropdownOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const nav = document.getElementById("mobile-nav");
+    if (nav) nav.scrollTop = 0;
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    if (!isMenuOpen || !isSolarMenuOpen) return;
+    const frame = requestAnimationFrame(() => {
+      document
+        .getElementById("mobile-solar-section")
+        ?.scrollIntoView({ block: "nearest" });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [isMenuOpen, isSolarMenuOpen]);
+
   return (
-    <header className="sticky top-0 z-50 bg-[#052638]">
-      <div className="p-4">
+    <header
+      className={`z-50 bg-[#052638] ${
+        isMenuOpen
+          ? "fixed inset-0 flex flex-col overflow-hidden lg:sticky lg:inset-auto lg:overflow-visible"
+          : "sticky top-0"
+      }`}
+    >
+      <div className="p-4 shrink-0">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href={"/"}>
+            <Link href={"/"} onClick={closeMobileMenu}>
               <Image
                 src="/tayproasset/taypro-logo.png"
                 alt="Taypro Logo - Solar Panel Cleaning Robot Manufacturer"
@@ -97,8 +135,7 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8 relative z-50">
-            {/* Home Link */}
+          <nav className="hidden lg:flex space-x-8 relative z-50">
             {navItems
               .filter((item) => item.name === "Home")
               .map((item) => (
@@ -190,7 +227,7 @@ export default function Header() {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Link
               href="tel:08043843569"
               title="Call us now"
@@ -201,25 +238,29 @@ export default function Header() {
           </div>
 
           {/* Mobile menu button and Call us now */}
-          <div className="md:hidden flex items-center gap-3">
+          <div className="lg:hidden flex items-center gap-2 sm:gap-3">
             <Link
               href="tel:08043843569"
               title="Call us now"
-              className="bg-[#A8C117] text-black px-4 py-2 rounded-md font-medium text-sm hover:bg-[#39D600] transition-all duration-300 transform hover:scale-105"
+              className="bg-[#A8C117] text-black px-3 sm:px-4 py-2 rounded-md font-medium text-sm hover:bg-[#39D600] transition-all duration-300"
             >
               Call us now
             </Link>
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white hover:text-gray-300 focus:outline-none"
+              type="button"
+              onClick={() => setIsMenuOpen((open) => !open)}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-nav"
+              className="text-white hover:text-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] rounded-md p-2 min-w-11 min-h-11 flex items-center justify-center shrink-0"
             >
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
                 {isMenuOpen ? (
                   <path
                     strokeLinecap="round"
@@ -243,37 +284,45 @@ export default function Header() {
 
       {/* Mobile navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-[#052638] border-t border-gray-700">
-          <div className="px-4 pt-4 pb-3 space-y-2">
+        <nav
+          id="mobile-nav"
+          className="lg:hidden flex-1 min-h-0 overflow-y-auto overscroll-contain bg-[#052638] border-t border-gray-700 [-webkit-overflow-scrolling:touch]"
+          aria-label="Mobile navigation"
+        >
+          <div className="px-4 pt-4 pb-6 space-y-1">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 title="Nav Item"
-                className={`text-white hover:text-gray-300 block px-3 py-2 text-base font-medium ${
+                className={`text-white hover:text-gray-300 block px-3 py-2.5 text-base font-medium min-h-10 flex items-center ${
                   isActive(item.href) ? "underline underline-offset-8" : ""
                 }`}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={closeMobileMenu}
               >
                 {item.name}
               </Link>
             ))}
 
-            {/* Solar Panel Cleaning Robots Parent */}
+            <div id="mobile-solar-section">
             <button
-              className={`w-full text-left text-white hover:text-gray-300 block px-3 py-2 text-base font-medium flex justify-between items-center ${
+              type="button"
+              onClick={() => setIsSolarMenuOpen((open) => !open)}
+              aria-expanded={isSolarMenuOpen}
+              className={`w-full text-left text-white hover:text-gray-300 px-3 py-2.5 text-base font-medium flex justify-between items-center gap-3 min-h-10 ${
                 isSolarActive() ? "underline underline-offset-8" : ""
               }`}
             >
-              Solar Panel Cleaning Robots
+              <span>Solar Panel Cleaning Robots</span>
               <svg
-                className={`h-4 w-4 transform transition-transform ${
+                className={`h-4 w-4 shrink-0 transform transition-transform ${
                   isSolarMenuOpen ? "rotate-180" : "rotate-0"
                 }`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
                 strokeWidth={2}
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -283,37 +332,40 @@ export default function Header() {
               </svg>
             </button>
 
-            {/* Nested Solar Menu Links */}
-            {isSolarMenuOpen &&
-              solarMenu.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className={
-                    item.isButton
-                      ? "block bg-[#A8C117] text-[#052638] px-4 py-2 rounded-md font-medium text-center hover:bg-[#39D600] transition-all duration-200 mx-auto my-2 text-sm w-fit"
-                      : "ml-4 text-white hover:text-gray-300 block px-3 py-2"
-                  }
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.isButton ? (
-                    item.label
-                  ) : (
-                    <span className="flex flex-col">
-                      <span className="text-base font-medium leading-snug">
-                        {item.label}
-                      </span>
-                      {item.description && (
-                        <span className="text-xs text-gray-400 leading-snug mt-0.5">
-                          {item.description}
+            {isSolarMenuOpen && (
+              <div className="space-y-1 pb-2">
+                {solarMenu.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className={
+                      item.isButton
+                        ? "block bg-[#A8C117] text-[#052638] px-4 py-3 rounded-md font-medium text-center hover:bg-[#39D600] transition-all duration-200 mx-3 my-2 text-sm w-fit min-h-11"
+                        : "ml-3 text-white hover:text-gray-300 block px-3 py-3 min-h-11"
+                    }
+                    onClick={closeMobileMenu}
+                  >
+                    {item.isButton ? (
+                      item.label
+                    ) : (
+                      <span className="flex flex-col">
+                        <span className="text-base font-medium leading-snug">
+                          {item.label}
                         </span>
-                      )}
-                    </span>
-                  )}
-                </Link>
-              ))}
+                        {item.description && (
+                          <span className="text-xs text-gray-400 leading-snug mt-0.5">
+                            {item.description}
+                          </span>
+                        )}
+                      </span>
+                    )}
+                  </Link>
+                ))}
+              </div>
+            )}
+            </div>
           </div>
-        </div>
+        </nav>
       )}
     </header>
   );

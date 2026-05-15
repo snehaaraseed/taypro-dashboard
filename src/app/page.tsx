@@ -1,7 +1,10 @@
 import HomePage from "./home/page";
 import type { Metadata } from "next";
+import { socialImagesFromPreset } from "@/lib/seo/open-graph";
+import { SITE_URL } from "@/lib/seo/sitemap-config";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const siteUrl = SITE_URL;
+const homeOg = socialImagesFromPreset("default");
 
 export const metadata: Metadata = {
   title: "Solar Panel Cleaning Robot | Taypro - Autonomous Waterless Solar Cleaning",
@@ -32,21 +35,13 @@ export const metadata: Metadata = {
       "Autonomous waterless solar panel cleaning robots for utility-scale plants in India—dual-pass dry cleaning and Taypro Console fleet monitoring.",
     url: siteUrl,
     type: "website",
-    images: [
-      {
-        url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
-        width: 1200,
-        height: 630,
-        alt: "Taypro Solar Panel Cleaning Robot",
-      },
-    ],
+    ...homeOg.openGraph,
   },
   twitter: {
-    card: "summary_large_image",
     title: "Solar Panel Cleaning Robot | Taypro",
     description:
       "Autonomous and semi-automatic waterless solar panel cleaning robots for utility-scale solar farms in India.",
-    images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
+    ...homeOg.twitter,
   },
   alternates: {
     canonical: siteUrl,
