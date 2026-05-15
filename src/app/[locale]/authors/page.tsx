@@ -1,0 +1,149 @@
+import Link from "next/link";
+import type { Metadata } from "next";
+import { listAllBlogs } from "@/lib/cms/blogService";
+import { Breadcrumbs } from "@/app/components/Breadcrumbs";
+import { NewsletterSubscribeCard } from "@/app/components/NewsletterSubscribeCard";
+import {
+  getAuthorAvatarUrl,
+  slugifyAuthorName,
+} from "@/app/data/blogAuthors";
+import { getStoredAuthors } from "@/app/utils/blogAuthorsStore";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
+export const metadata: Metadata = {
+  title: "Blog Authors | Taypro - Solar Panel Cleaning Robot Experts",
+  description:
+    "Meet the engineers, researchers and field experts writing the Taypro blog. Browse every contributor to our Solar Panel Cleaning Robot articles and field notes.",
+  keywords: [
+    "Taypro authors",
+    "Solar Panel Cleaning Robot authors",
+    "Taypro blog contributors",
+    "solar O&M experts",
+    "Taypro engineering team",
+  ],
+  openGraph: {
+    title: "Blog Authors | Taypro - Solar Panel Cleaning Robot Experts",
+    description:
+      "Meet the engineers and field experts behind Taypro's Solar Panel Cleaning Robot articles and field notes.",
+    url: `${siteUrl}/authors`,
+    type: "website",
+    images: [
+      {
+        url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
+        width: 1200,
+        height: 630,
+        alt: "Taypro blog authors",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog Authors | Taypro",
+    description:
+      "Engineers and field experts behind Taypro's Solar Panel Cleaning Robot blog.",
+    images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
+  },
+  alternates: {
+    canonical: `${siteUrl}/authors`,
+  },
+};
+
+interface AuthorStats {
+  name: string;
+  slug: string;
+  count: number;
+}
+
+async function getAuthorStats(): Promise<AuthorStats[]> {
+  const storedAuthors = await getStoredAuthors();
+  const blogs = await listAllBlogs(false);
+  const counts = new Map<string, { name: string; count: number }>();
+
+  for (const metadata of blogs) {
+    const authorName = metadata.author || "Taypro Team";
+    const authorSlug = slugifyAuthorName(authorName);
+    const existing = counts.get(authorSlug);
+    counts.set(authorSlug, {
+      name: authorName,
+      count: (existing?.count || 0) + 1,
+    });
+  }
+
+  // Include configured authors even if they have no posts yet
+  for (const author of storedAuthors) {
+    if (!counts.has(author.slug)) {
+      counts.set(author.slug, { name: author.name, count: 0 });
+    }
+  }
+
+  return [...counts.entries()]
+    .map(([slug, data]) => ({ slug, name: data.name, count: data.count }))
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+}
+
+export default async function AuthorsPage() {
+  const authorStats = await getAuthorStats();
+  const storedAuthors = await getStoredAuthors();
+
+  const breadcrumbs = [
+    { name: "Home", href: "/" },
+    { name: "Authors", href: "" },
+  ];
+
+  return (
+    <>
+      <Breadcrumbs items={breadcrumbs} />
+      <section className="w-full bg-[#052638] border-b border-[#0c3c57]">
+        <div className="max-w-6xl mx-auto px-6 py-12">
+          <p className="text-sm text-[#A8C117] font-medium mb-2">Blog Directory</p>
+          <h1 className="text-4xl font-semibold text-white mb-3">Authors</h1>
+          <p className="text-slate-200 max-w-3xl">
+            Explore all blog contributors and read their published articles.
+          </p>
+        </div>
+      </section>
+
+      <section className="w-full bg-white">
+        <div className="max-w-6xl mx-auto px-6 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {authorStats.map((author) => {
+              const knownAuthor = storedAuthors.find((item) => item.slug === author.slug);
+              return (
+                <Link
+                  key={author.slug}
+                  href={`/blog/author/${author.slug}`}
+                  className="block rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow"
+                >
+                  <img
+                    src={knownAuthor?.avatarUrl || getAuthorAvatarUrl(author.name)}
+                    alt={author.name}
+                    className="w-16 h-16 rounded-full border border-gray-200 object-cover mb-4"
+                  />
+                  <h2 className="text-xl font-semibold text-[#052638] mb-1">
+                    {author.name}
+                  </h2>
+                  <p className="text-sm text-gray-600 mb-3">
+                    {knownAuthor?.role || "Contributing Author"}
+                  </p>
+                  <p className="text-sm text-gray-500 line-clamp-3 mb-4">
+                    {knownAuthor?.bio ||
+                      "Read this author's blog posts and insights."}
+                  </p>
+                  <p className="text-xs font-medium text-[#0c3c57]">
+                    {author.count} {author.count === 1 ? "article" : "articles"}
+                  </p>
+                </Link>
+              );
+            })}
+          </div>
+
+          <div className="max-w-xl mx-auto mt-12">
+            <NewsletterSubscribeCard />
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+

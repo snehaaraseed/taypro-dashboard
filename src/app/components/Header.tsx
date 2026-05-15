@@ -1,26 +1,28 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
+import LocaleSwitcher from "@/app/components/LocaleSwitcher";
 
 export default function Header() {
+  const t = useTranslations("Navigation");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isSolarMenuOpen, setIsSolarMenuOpen] = useState(false);
   const pathname = usePathname();
 
   const navItems = [
-    { name: "Home", href: "/" },
-    { name: "Projects", href: "/projects" },
+    { name: t("home"), href: "/" },
+    { name: t("projects"), href: "/projects" },
     {
-      name: "ROI Calculator",
+      name: t("roiCalculator"),
       href: "/solar-panel-cleaning-robot-price-calculator",
     },
-    { name: "About Us", href: "/company" },
-    { name: "Contact Us", href: "/contact" },
-    { name: "Blogs", href: "/blog" },
+    { name: t("aboutUs"), href: "/company" },
+    { name: t("contactUs"), href: "/contact" },
+    { name: t("blogs"), href: "/blog" },
   ];
 
   const solarMenu: {
@@ -30,32 +32,32 @@ export default function Header() {
     isButton?: boolean;
   }[] = [
     {
-      label: "Model-A",
-      description: "Automatic solar cleaning robot",
+      label: t("modelA"),
+      description: t("modelADesc"),
       href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
     },
     {
-      label: "Model-B",
-      description: "Semi-automatic pick & place",
+      label: t("modelB"),
+      description: t("modelBDesc"),
       href: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
     },
     {
-      label: "Model-T",
-      description: "Single-axis tracker cleaning",
+      label: t("modelT"),
+      description: t("modelTDesc"),
       href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
     },
     {
-      label: "Taypro Console",
-      description: "Fleet monitoring & control",
+      label: t("tayproConsole"),
+      description: t("tayproConsoleDesc"),
       href: "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
     },
     {
-      label: "Taypro OPEX",
-      description: "Robotic cleaning service",
+      label: t("tayproOpex"),
+      description: t("tayproOpexDesc"),
       href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
     },
     {
-      label: "View all robots",
+      label: t("viewAllRobots"),
       href: "/solar-panel-cleaning-system",
       isButton: true,
     },
@@ -137,7 +139,7 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex space-x-8 relative z-50">
             {navItems
-              .filter((item) => item.name === "Home")
+              .filter((item) => item.href === "/")
               .map((item) => (
                 <Link
                   key={item.name}
@@ -162,7 +164,7 @@ export default function Header() {
                   isSolarActive() ? "underline" : ""
                 }`}
               >
-                Solar Panel Cleaning Robots
+                {t("solarRobotsMenu")}
                 <svg
                   className="ml-2 w-4 h-4"
                   fill="none"
@@ -211,7 +213,7 @@ export default function Header() {
             </div>
 
             {navItems
-              .filter((item) => item.name !== "Home")
+              .filter((item) => item.href !== "/")
               .map((item) => (
                 <Link
                   key={item.name}
@@ -227,24 +229,26 @@ export default function Header() {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex items-center gap-4">
+            <LocaleSwitcher />
             <Link
               href="tel:08043843569"
-              title="Call us now"
+              title={t("callUs")}
               className="bg-[#A8C117] text-black px-7 py-3 rounded-md font-medium hover:bg-[#39D600] transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
             >
-              Call us now
+              {t("callUs")}
             </Link>
           </div>
 
           {/* Mobile menu button and Call us now */}
           <div className="lg:hidden flex items-center gap-2 sm:gap-3">
+            <LocaleSwitcher />
             <Link
               href="tel:08043843569"
-              title="Call us now"
+              title={t("callUs")}
               className="bg-[#A8C117] text-black px-3 sm:px-4 py-2 rounded-md font-medium text-sm hover:bg-[#39D600] transition-all duration-300"
             >
-              Call us now
+              {t("callUs")}
             </Link>
             <button
               type="button"
@@ -313,7 +317,7 @@ export default function Header() {
                 isSolarActive() ? "underline underline-offset-8" : ""
               }`}
             >
-              <span>Solar Panel Cleaning Robots</span>
+              <span>{t("solarRobotsMenu")}</span>
               <svg
                 className={`h-4 w-4 shrink-0 transform transition-transform ${
                   isSolarMenuOpen ? "rotate-180" : "rotate-0"

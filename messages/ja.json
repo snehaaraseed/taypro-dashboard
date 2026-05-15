@@ -1,0 +1,50 @@
+{
+  "LocaleSwitcher": {
+    "label": "言語",
+    "marketsHint": "Tier 1 + 日本"
+  },
+  "Navigation": {
+    "home": "ホーム",
+    "projects": "プロジェクト",
+    "roiCalculator": "ROI計算機",
+    "aboutUs": "会社概要",
+    "contactUs": "お問い合わせ",
+    "blogs": "ブログ",
+    "solarRobots": "ソーラーロボット",
+    "solarRobotsMenu": "ソーラーパネル清掃ロボット",
+    "callUs": "今すぐ電話",
+    "openMenu": "メニューを開く",
+    "modelA": "モデルA",
+    "modelADesc": "自動ソーラー清掃ロボット",
+    "modelB": "モデルB",
+    "modelBDesc": "セミオート ピック＆プレース",
+    "modelT": "モデルT",
+    "modelTDesc": "単軸トラッカー清掃",
+    "tayproConsole": "Taypro Console",
+    "tayproConsoleDesc": "フリート監視・制御",
+    "tayproOpex": "Taypro OPEX",
+    "tayproOpexDesc": "ロボット清掃サービス",
+    "viewAllRobots": "すべてのロボットを見る"
+  },
+  "Footer": {
+    "mail": "メール",
+    "phone": "電話",
+    "aboutUs": "会社概要",
+    "projects": "プロジェクト",
+    "blogs": "ブログ",
+    "contact": "お問い合わせ",
+    "sitemap": "サイトマップ",
+    "ourTechnology": "技術",
+    "privacyPolicy": "プライバシーポリシー",
+    "cookiePolicy": "クッキーポリシー",
+    "termsOfService": "利用規約",
+    "performanceMethodology": "性能・試験方法",
+    "ourSolutions": "ソリューション",
+    "copyright": "© Copyright {year} – TAYPRO PRIVATE LIMITED. All Rights Reserved."
+  },
+  "LocaleBanner": {
+    "title": "翻訳作業中",
+    "body": "ナビゲーションはご利用の言語で表示されます。ページ本文は現在英語です。Tier 1市場と日本向けに順次ローカライズしています。",
+    "dismiss": "閉じる"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "LocaleSwitcher": {
+    "label": "ভাষা",
+    "marketsHint": "টিয়ার ১ + জাপান"
+  },
+  "Navigation": {
+    "home": "হোম",
+    "projects": "প্রকল্প",
+    "roiCalculator": "ROI ক্যালকুলেটর",
+    "aboutUs": "আমাদের সম্পর্কে",
+    "contactUs": "যোগাযোগ",
+    "blogs": "ব্লগ",
+    "solarRobots": "সোলার রোবট",
+    "solarRobotsMenu": "সোলার প্যানেল পরিষ্কার রোবট",
+    "callUs": "এখনই কল করুন",
+    "openMenu": "মেনু খুলুন",
+    "modelA": "মডেল-A",
+    "modelADesc": "স্বয়ংক্রিয় সোলার পরিষ্কার রোবট",
+    "modelB": "মডেল-B",
+    "modelBDesc": "সেমি-অটো পিক অ্যান্ড প্লেস",
+    "modelT": "মডেল-T",
+    "modelTDesc": "সিঙ্গল-অ্যাক্সিস ট্র্যাকার পরিষ্কার",
+    "tayproConsole": "Taypro Console",
+    "tayproConsoleDesc": "ফ্লিট মনিটরিং ও নিয়ন্ত্রণ",
+    "tayproOpex": "Taypro OPEX",
+    "tayproOpexDesc": "রোবটিক পরিষ্কার সেবা",
+    "viewAllRobots": "সব রোবট দেখুন"
+  },
+  "Footer": {
+    "mail": "ইমেইল",
+    "phone": "ফোন",
+    "aboutUs": "আমাদের সম্পর্কে",
+    "projects": "প্রকল্প",
+    "blogs": "ব্লগ",
+    "contact": "যোগাযোগ",
+    "sitemap": "সাইটম্যাপ",
+    "ourTechnology": "আমাদের প্রযুক্তি",
+    "privacyPolicy": "গোপনীয়তা নীতি",
+    "cookiePolicy": "কুকি নীতি",
+    "termsOfService": "সেবার শর্তাবলী",
+    "performanceMethodology": "পারফরম্যান্স ও পরীক্ষা পদ্ধতি",
+    "ourSolutions": "আমাদের সমাধান",
+    "copyright": "© কপিরাইট {year} – TAYPRO PRIVATE LIMITED. সর্বস্বত্ব সংরক্ষিত।"
+  },
+  "LocaleBanner": {
+    "title": "অনুবাদ চলমান",
+    "body": "নেভিগেশন আপনার ভাষায় উপলব্ধ। সম্পূর্ণ পৃষ্ঠার বিষয়বস্তু এখনও ইংরেজিতে — আমরা টিয়ার ১ বাজার ও জাপানের জন্য স্থানীয়করণ করছি।",
+    "dismiss": "বন্ধ করুন"
+  }
+}

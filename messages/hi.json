@@ -1,0 +1,50 @@
+{
+  "LocaleSwitcher": {
+    "label": "भाषा",
+    "marketsHint": "टियर 1 + जापान"
+  },
+  "Navigation": {
+    "home": "होम",
+    "projects": "प्रोजेक्ट",
+    "roiCalculator": "ROI कैलकुलेटर",
+    "aboutUs": "हमारे बारे में",
+    "contactUs": "संपर्क",
+    "blogs": "ब्लॉग",
+    "solarRobots": "सोलर रोबोट",
+    "solarRobotsMenu": "सोलर पैनल क्लीनिंग रोबोट",
+    "callUs": "अभी कॉल करें",
+    "openMenu": "मेनू खोलें",
+    "modelA": "मॉडल-A",
+    "modelADesc": "ऑटोमैटिक सोलर क्लीनिंग रोबोट",
+    "modelB": "मॉडल-B",
+    "modelBDesc": "सेमी-ऑटोमैटिक पिक एंड प्लेस",
+    "modelT": "मॉडल-T",
+    "modelTDesc": "सिंगल-एक्सिस ट्रैकर क्लीनिंग",
+    "tayproConsole": "Taypro Console",
+    "tayproConsoleDesc": "फ्लीट मॉनिटरिंग और नियंत्रण",
+    "tayproOpex": "Taypro OPEX",
+    "tayproOpexDesc": "रोबोटिक क्लीनिंग सेवा",
+    "viewAllRobots": "सभी रोबोट देखें"
+  },
+  "Footer": {
+    "mail": "ईमेल",
+    "phone": "फ़ोन",
+    "aboutUs": "हमारे बारे में",
+    "projects": "प्रोजेक्ट",
+    "blogs": "ब्लॉग",
+    "contact": "संपर्क",
+    "sitemap": "साइटमैप",
+    "ourTechnology": "हमारी तकनीक",
+    "privacyPolicy": "गोपनीयता नीति",
+    "cookiePolicy": "कुकी नीति",
+    "termsOfService": "सेवा की शर्तें",
+    "performanceMethodology": "प्रदर्शन और परीक्षण पद्धति",
+    "ourSolutions": "हमारे समाधान",
+    "copyright": "© कॉपीराइट {year} – TAYPRO PRIVATE LIMITED. सर्वाधिकार सुरक्षित।"
+  },
+  "LocaleBanner": {
+    "title": "अनुवाद प्रगति पर है",
+    "body": "नेविगेशन आपकी भाषा में उपलब्ध है। पूर्ण पृष्ठ सामग्री अभी अंग्रेज़ी में है — हम टियर 1 बाज़ारों और जापान के लिए स्थानीयकरण कर रहे हैं।",
+    "dismiss": "बंद करें"
+  }
+}

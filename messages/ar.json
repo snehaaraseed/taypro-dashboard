@@ -1,0 +1,50 @@
+{
+  "LocaleSwitcher": {
+    "label": "اللغة",
+    "marketsHint": "المستوى 1 + اليابان"
+  },
+  "Navigation": {
+    "home": "الرئيسية",
+    "projects": "المشاريع",
+    "roiCalculator": "حاسبة العائد",
+    "aboutUs": "من نحن",
+    "contactUs": "اتصل بنا",
+    "blogs": "المدونة",
+    "solarRobots": "روبوتات الطاقة الشمسية",
+    "solarRobotsMenu": "روبوتات تنظيف الألواح الشمسية",
+    "callUs": "اتصل الآن",
+    "openMenu": "فتح القائمة",
+    "modelA": "الموديل A",
+    "modelADesc": "روبوت تنظيف شمسي آلي",
+    "modelB": "الموديل B",
+    "modelBDesc": "شبه آلي للنقل والوضع",
+    "modelT": "الموديل T",
+    "modelTDesc": "تنظيف متتبع أحادي المحور",
+    "tayproConsole": "Taypro Console",
+    "tayproConsoleDesc": "مراقبة الأسطول والتحكم",
+    "tayproOpex": "Taypro OPEX",
+    "tayproOpexDesc": "خدمة التنظيف الروبوتية",
+    "viewAllRobots": "عرض جميع الروبوتات"
+  },
+  "Footer": {
+    "mail": "البريد",
+    "phone": "الهاتف",
+    "aboutUs": "من نحن",
+    "projects": "المشاريع",
+    "blogs": "المدونة",
+    "contact": "اتصل بنا",
+    "sitemap": "خريطة الموقع",
+    "ourTechnology": "تقنيتنا",
+    "privacyPolicy": "سياسة الخصوصية",
+    "cookiePolicy": "سياسة ملفات تعريف الارتباط",
+    "termsOfService": "شروط الخدمة",
+    "performanceMethodology": "منهجية الأداء والاختبار",
+    "ourSolutions": "حلولنا",
+    "copyright": "© حقوق النشر {year} – TAYPRO PRIVATE LIMITED. جميع الحقوق محفوظة."
+  },
+  "LocaleBanner": {
+    "title": "الترجمة قيد التنفيذ",
+    "body": "التنقل متاح بلغتك. محتوى الصفحة الكامل لا يزال بالإنجليزية — نحن نعرب أسواق المستوى 1 واليابان.",
+    "dismiss": "إغلاق"
+  }
+}

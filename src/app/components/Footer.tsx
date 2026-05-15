@@ -1,9 +1,11 @@
 "use client";
 import { Facebook, Instagram, Linkedin, Youtube, X } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 import { useState, useEffect } from "react";
 
 export default function Footer() {
+  const t = useTranslations("Footer");
   const pathnameHook = usePathname();
   const [pathname, setPathname] = useState<string>("");
   const [mounted, setMounted] = useState(false);
@@ -18,23 +20,23 @@ export default function Footer() {
 
   const footerSections = {
     "Important Links Left": [
-      { name: "About Us", href: "/company" },
-      { name: "Projects", href: "/projects" },
-      { name: "Blogs", href: "/blog" },
-      { name: "Contact", href: "/contact" },
+      { name: t("aboutUs"), href: "/company" },
+      { name: t("projects"), href: "/projects" },
+      { name: t("blogs"), href: "/blog" },
+      { name: t("contact"), href: "/contact" },
     ],
     "Important Links Right": [
-      { name: "Sitemap", href: "/site-map" },
-      { name: "Our Technology", href: "/cleaning-technology" },
-      { name: "Privacy Policy", href: "/privacy-policy" },
-      { name: "Cookie Policy", href: "/cookie-policy" },
-      { name: "Terms of Service", href: "/terms-of-service" },
+      { name: t("sitemap"), href: "/site-map" },
+      { name: t("ourTechnology"), href: "/cleaning-technology" },
+      { name: t("privacyPolicy"), href: "/privacy-policy" },
+      { name: t("cookiePolicy"), href: "/cookie-policy" },
+      { name: t("termsOfService"), href: "/terms-of-service" },
       {
-        name: "Performance & Test Methodology",
+        name: t("performanceMethodology"),
         href: "/performance-and-test-methodology",
       },
       {
-        name: "Our Solutions",
+        name: t("ourSolutions"),
         href: "/solar-panel-cleaning-system",
       },
     ],
@@ -48,7 +50,7 @@ export default function Footer() {
           <div className="md:w-1/2">
             <div className="flex flex-col sm:flex-row items-start gap-4 text-white text-2xl">
               <span>
-                Mail:{" "}
+                {t("mail")}:{" "}
                 <a
                   href="mailto:sales@taypro.in"
                   className="hover:text-[#A8C117] transition-colors"
@@ -58,7 +60,7 @@ export default function Footer() {
               </span>
               <span className="hidden sm:block mx-2"></span>
               <span>
-                Phone:{" "}
+                {t("phone")}:{" "}
                 <a
                   href="tel:08043843569"
                   className="hover:text-[#A8C117] transition-colors"
@@ -183,7 +185,7 @@ export default function Footer() {
                   const active = mounted && pathname === link.href;
                   return (
                     <li key={link.name} className="relative">
-                      <a
+                      <Link
                         href={link.href}
                         className={`transition duration-200 relative inline-block group ${
                           active
@@ -197,7 +199,7 @@ export default function Footer() {
                             active ? "w-full" : "w-0 group-hover:w-full"
                           }`}
                         ></span>
-                      </a>
+                      </Link>
                     </li>
                   );
                 })}
@@ -214,7 +216,7 @@ export default function Footer() {
                   const active = mounted && pathname === link.href;
                   return (
                     <li key={link.name} className="relative">
-                      <a
+                      <Link
                         href={link.href}
                         className={`transition duration-200 relative inline-block group ${
                           active
@@ -228,7 +230,7 @@ export default function Footer() {
                             active ? "w-full" : "w-0 group-hover:w-full"
                           }`}
                         ></span>
-                      </a>
+                      </Link>
                     </li>
                   );
                 })}
@@ -241,9 +243,7 @@ export default function Footer() {
         <div className="pt-5">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-300 text-lg">
-              © Copyright {currentYear} –{" "}
-              <span style={{ color: "#A8C117" }}>TAYPRO PRIVATE LIMITED.</span>{" "}
-              All Rights Reserved.
+              {t("copyright", { year: currentYear })}
             </p>
           </div>
         </div>

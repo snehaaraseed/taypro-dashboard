@@ -1,0 +1,51 @@
+{
+  "LocaleSwitcher": {
+    "label": "Language",
+    "marketsHint": "Tier 1 + Japan"
+  },
+  "Navigation": {
+    "home": "Home",
+    "projects": "Projects",
+    "roiCalculator": "ROI Calculator",
+    "aboutUs": "About Us",
+    "contactUs": "Contact Us",
+    "blogs": "Blogs",
+    "solarRobots": "Solar Robots",
+    "solarRobotsMenu": "Solar Panel Cleaning Robots",
+    "callUs": "Call us now",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "modelA": "Model-A",
+    "modelADesc": "Automatic solar cleaning robot",
+    "modelB": "Model-B",
+    "modelBDesc": "Semi-automatic pick & place",
+    "modelT": "Model-T",
+    "modelTDesc": "Single-axis tracker cleaning",
+    "tayproConsole": "Taypro Console",
+    "tayproConsoleDesc": "Fleet monitoring & control",
+    "tayproOpex": "Taypro OPEX",
+    "tayproOpexDesc": "Robotic cleaning service",
+    "viewAllRobots": "View all robots"
+  },
+  "Footer": {
+    "mail": "Mail",
+    "phone": "Phone",
+    "aboutUs": "About Us",
+    "projects": "Projects",
+    "blogs": "Blogs",
+    "contact": "Contact",
+    "sitemap": "Sitemap",
+    "ourTechnology": "Our Technology",
+    "privacyPolicy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy",
+    "termsOfService": "Terms of Service",
+    "performanceMethodology": "Performance & Test Methodology",
+    "ourSolutions": "Our Solutions",
+    "copyright": "© Copyright {year} – TAYPRO PRIVATE LIMITED. All Rights Reserved."
+  },
+  "LocaleBanner": {
+    "title": "Translation in progress",
+    "body": "Navigation is available in your language. Full page content is still in English — we're localizing Tier 1 markets and Japan.",
+    "dismiss": "Dismiss"
+  }
+}
