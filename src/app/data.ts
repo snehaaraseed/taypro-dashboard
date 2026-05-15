@@ -697,7 +697,7 @@ export const energyResourceCards: EnergyResourceCard[] = [
     title: "How Does A Solar Panel Cleaning Robot Work? ",
     imgSrc: "/blogs/taypro-energy-resource17.webp",
     date: "April 18, 2025",
-    href: "/blog/how-does-a-solar-panel-cleaning-robot-work",
+    href: "/blog/how-are-pv-panel-cleaning-robots-installed",
   },
   {
     title: "What is a Solar Panel Cleaning Robot?",

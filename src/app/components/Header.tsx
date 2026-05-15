@@ -120,7 +120,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href={"/"} onClick={closeMobileMenu}>
+            <Link href={"/"} onClick={closeMobileMenu} aria-label="Taypro home">
               <Image
                 src="/tayproasset/taypro-logo.png"
                 alt="Taypro Logo - Solar Panel Cleaning Robot Manufacturer"

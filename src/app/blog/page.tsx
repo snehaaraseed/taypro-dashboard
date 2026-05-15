@@ -46,7 +46,7 @@ const featuredTopics = [
     title: "How robots work",
     description:
       "Dry cleaning cycles, dual-pass methodology, and fleet operations at scale.",
-    href: "/blog/how-does-a-solar-panel-cleaning-robot-work",
+    href: "/blog/microfiber-vs-traditional-brushes-why-taypros-patented-dual-pass-solar-panel-cleaning-system-outperforms",
   },
   {
     title: "Cleaning methods",

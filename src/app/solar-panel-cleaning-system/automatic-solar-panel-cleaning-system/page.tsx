@@ -235,7 +235,7 @@ export default function AutomaticSolarPanelCleaningRobot() {
                 <p>
                   Further reading:{" "}
                   <Link
-                    href="/blog/how-does-a-solar-panel-cleaning-robot-work-"
+                    href="/blog/what-is-a-solar-panel-cleaning-robot"
                     className="text-[#A8C117] hover:underline"
                   >
                     how an automatic cleaning robot works on modules

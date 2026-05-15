@@ -9,6 +9,8 @@ type AnimateOnScrollProps = {
   duration?: number;
   className?: string;
   threshold?: number;
+  /** Above-the-fold content: visible immediately (avoids opacity-0 hurting LCP). */
+  eager?: boolean;
 };
 
 export function AnimateOnScroll({
@@ -18,12 +20,15 @@ export function AnimateOnScroll({
   duration = 600,
   className = "",
   threshold = 0.1,
+  eager = false,
 }: AnimateOnScrollProps) {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(eager);
   const ref = useRef<HTMLDivElement>(null);
-  const hasBeenVisible = useRef(false);
+  const hasBeenVisible = useRef(eager);
 
   useEffect(() => {
+    if (eager) return;
+
     // Check if element is already in viewport on mount (handles fast scroll)
     const checkInitialVisibility = () => {
       if (ref.current && !hasBeenVisible.current) {
@@ -91,7 +96,7 @@ export function AnimateOnScroll({
       }
       observer.disconnect();
     };
-  }, [threshold]);
+  }, [threshold, eager]);
 
   const animationClasses = {
     fadeIn: isVisible ? "opacity-100" : "opacity-0",

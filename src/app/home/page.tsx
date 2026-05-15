@@ -107,9 +107,10 @@ export default async function HomePage() {
         {/* Hero */}
         <section className="relative px-4 sm:px-6 lg:px-8 py-10 md:py-14">
           <Container className="!px-0">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+            <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
               <AnimateOnScroll
                 animation="fadeInRight"
+                eager
                 className="text-white space-y-5 lg:space-y-6"
               >
                 <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide">
@@ -143,7 +144,7 @@ export default async function HomePage() {
 
               <AnimateOnScroll
                 animation="fadeInLeft"
-                delay={100}
+                eager
                 className="flex justify-center lg:justify-end"
               >
                 <div className="relative w-full max-w-[720px] aspect-video rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/10">

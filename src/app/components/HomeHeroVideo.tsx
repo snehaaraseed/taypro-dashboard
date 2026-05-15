@@ -11,8 +11,8 @@ interface HomeHeroVideoProps {
 /** Click-to-play facade — avoids loading YouTube iframe until interaction (LCP). */
 export default function HomeHeroVideo({ videoId, title }: HomeHeroVideoProps) {
   const [active, setActive] = useState(false);
-  /** hqdefault (~480px) loads much faster than maxresdefault for LCP. */
-  const thumb = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+  /** Local poster avoids third-party latency on LCP (YouTube loads only on play). */
+  const poster = "/tayproasset/taypro-robotImage.png";
 
   if (active) {
     return (
@@ -34,12 +34,12 @@ export default function HomeHeroVideo({ videoId, title }: HomeHeroVideoProps) {
       aria-label={`Play video: ${title}`}
     >
       <Image
-        src={thumb}
+        src={poster}
         alt={title}
         fill
-        className="object-cover transition group-hover:scale-[1.02]"
+        className="object-cover object-center transition group-hover:scale-[1.02]"
         sizes="(max-width: 1024px) 100vw, 720px"
-        quality={75}
+        quality={80}
         priority
         fetchPriority="high"
       />

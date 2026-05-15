@@ -174,7 +174,7 @@ const technicalSnapshot = [
 
 /** Prefer these slugs when published; remaining slots fill from newest posts. */
 const PREFERRED_TECH_BLOG_SLUGS = [
-  "how-does-a-solar-panel-cleaning-robot-work",
+  "what-is-a-solar-panel-cleaning-robot",
   "microfiber-vs-traditional-brushes-why-taypros-patented-dual-pass-solar-panel-cleaning-system-outperforms",
   "the-complete-guide-to-solar-panel-maintenance",
   "what-are-the-different-methods-used-for-solar-panel-cleaning",

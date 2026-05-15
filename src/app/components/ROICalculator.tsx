@@ -306,10 +306,11 @@ export default function ROITayproCalculator({
         <div className="grid gap-6 sm:grid-cols-2">
           {/* A: Plant Type */}
           <div>
-            <label className="text-white/90 text-sm font-medium mb-1.5 block">
+            <label htmlFor="roi-plant-type" className="text-white/90 text-sm font-medium mb-1.5 block">
               Plant Type
             </label>
             <select
+              id="roi-plant-type"
               value={formData.plantType}
               onChange={(e) => handleInput("plantType", e.target.value)}
               className={inputClassName}
@@ -323,8 +324,9 @@ export default function ROITayproCalculator({
           {/* B: Installation Type (Ground only) */}
           {formData.plantType === "Ground Mount" && (
             <div>
-              <label className="text-white mb-1 block">Installation Type</label>
+              <label htmlFor="roi-installation-type" className="text-white mb-1 block">Installation Type</label>
               <select
+                id="roi-installation-type"
                 value={formData.installationType}
                 onChange={(e) =>
                   handleInput("installationType", e.target.value)
@@ -340,8 +342,9 @@ export default function ROITayproCalculator({
 
           {/* C: Automation Level */}
           <div className="">
-            <label className="text-white mb-1 block">Automation Level</label>
+            <label htmlFor="roi-automation-level" className="text-white mb-1 block">Automation Level</label>
             <select
+              id="roi-automation-level"
               value={formData.automationLevel}
               onChange={(e) => handleInput("automationLevel", e.target.value)}
               className={inputClassName}
@@ -355,10 +358,11 @@ export default function ROITayproCalculator({
           {/* E or F */}
           {formData.plantType === "Ground Mount" ? (
             <div>
-              <label className="text-white mb-1 block">
+              <label htmlFor="roi-capacity-mw" className="text-white mb-1 block">
                 Plant Capacity (MW)
               </label>
               <input
+                id="roi-capacity-mw"
                 type="number"
                 value={formData.plantCapacityMW}
                 onChange={(e) =>
@@ -378,10 +382,11 @@ export default function ROITayproCalculator({
             </div>
           ) : (
             <div>
-              <label className="text-white mb-1 block">
+              <label htmlFor="roi-capacity-kw" className="text-white mb-1 block">
                 Plant Capacity (KW)
               </label>
               <input
+                id="roi-capacity-kw"
                 type="number"
                 value={formData.plantCapacityKW}
                 onChange={(e) =>
@@ -403,10 +408,11 @@ export default function ROITayproCalculator({
 
           {/* G: Electricity Tariff */}
           <div>
-            <label className="text-white mb-1 block">
+            <label htmlFor="roi-electricity-tariff" className="text-white mb-1 block">
               Electricity Tariff (₹/kWh)
             </label>
             <input
+              id="roi-electricity-tariff"
               type="number"
               step={0.1}
               value={formData.electricityTariff}
@@ -425,10 +431,11 @@ export default function ROITayproCalculator({
 
           {/* H: Module Capacity */}
           <div>
-            <label className="text-white mb-1 block">
+            <label htmlFor="roi-module-capacity" className="text-white mb-1 block">
               Module Capacity (Wp)
             </label>
             <input
+              id="roi-module-capacity"
               type="number"
               value={formData.moduleCapacity}
               onChange={(e) =>

@@ -70,6 +70,7 @@ export default function Footer() {
             href="https://www.facebook.com/taypro.official?_gl=1*1i9ka0l*_ga*MTU1NzYyODIyMi4xNzQyMzU5NjM5*_ga_7G1M6KFY3K*czE3NTg2OTkxNTUkbzMkZzAkdDE3NTg2OTkxNTUkajYwJGwwJGgw"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Taypro on Facebook"
           >
             <div className="bg-[#F1EFE6] p-2 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
               <Facebook className="text-[#052638] w-6 h-6" />
@@ -79,6 +80,7 @@ export default function Footer() {
             href="https://x.com/taypro_official?_gl=1*1i9ka0l*_ga*MTU1NzYyODIyMi4xNzQyMzU5NjM5*_ga_7G1M6KFY3K*czE3NTg2OTkxNTUkbzMkZzAkdDE3NTg2OTkxNTUkajYwJGwwJGgw"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Taypro on X"
           >
             <div className="bg-[#F1EFE6] p-2 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
               <X className="text-[#052638] w-6 h-6" />
@@ -88,6 +90,7 @@ export default function Footer() {
             href="https://www.instagram.com/taypro_official/?_gl=1*1i9ka0l*_ga*MTU1NzYyODIyMi4xNzQyMzU5NjM5*_ga_7G1M6KFY3K*czE3NTg2OTkxNTUkbzMkZzAkdDE3NTg2OTkxNTUkajYwJGwwJGgw"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Taypro on Instagram"
           >
             <div className="bg-[#F1EFE6] p-2 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
               <Instagram className="text-[#052638] w-6 h-6" />
@@ -97,6 +100,7 @@ export default function Footer() {
             href="https://www.linkedin.com/company/taypro?_gl=1*wpuod0*_ga*MTU1NzYyODIyMi4xNzQyMzU5NjM5*_ga_7G1M6KFY3K*czE3NTg2OTkxNTUkbzMkZzAkdDE3NTg2OTkxNTUkajYwJGwwJGgw"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Taypro on LinkedIn"
           >
             <div className="bg-[#F1EFE6] p-2 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
               <Linkedin className="text-[#052638] w-6 h-6" />
@@ -106,6 +110,7 @@ export default function Footer() {
             href="https://www.youtube.com/c/taypro"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Taypro on YouTube"
           >
             <div className="bg-[#F1EFE6] p-2 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
               <Youtube className="text-[#052638] w-6 h-6" />

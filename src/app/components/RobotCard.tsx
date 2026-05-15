@@ -137,10 +137,9 @@ export function RobotCard({
         </p>
         <Link
           href={robot.href}
-          title={`Learn more about ${cardTitle}`}
           className="mt-auto inline-flex items-center justify-center min-h-[40px] w-full px-4 rounded-lg bg-[#A8C117] text-[#052638] text-sm font-semibold hover:bg-[#b3cf3d] transition text-center"
         >
-          Learn more
+          Explore {cardTitle}
         </Link>
       </div>
     </article>

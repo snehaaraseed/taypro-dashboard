@@ -137,7 +137,7 @@ export default function CookieConsent() {
                       href="/cookie-policy"
                       className="text-[#A8C117] hover:underline"
                     >
-                      Learn more
+                      Read our cookie policy
                     </a>
                   </p>
                 </div>
