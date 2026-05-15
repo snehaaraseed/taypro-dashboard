@@ -63,7 +63,7 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
   { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.5 },
   { path: "/terms-of-service", changeFrequency: "yearly", priority: 0.5 },
   { path: "/cookie-policy", changeFrequency: "yearly", priority: 0.5 },
-  { path: "/sitemap", changeFrequency: "monthly", priority: 0.5 },
+  { path: "/site-map", changeFrequency: "monthly", priority: 0.5 },
 ];
 
 export const CMS_SITEMAP_DEFAULTS = {

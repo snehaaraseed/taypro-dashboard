@@ -24,7 +24,7 @@ export default function Footer() {
       { name: "Contact", href: "/contact" },
     ],
     "Important Links Right": [
-      { name: "Sitemap", href: "/sitemap" },
+      { name: "Sitemap", href: "/site-map" },
       { name: "Our Technology", href: "/cleaning-technology" },
       { name: "Privacy Policy", href: "/privacy-policy" },
       { name: "Cookie Policy", href: "/cookie-policy" },

@@ -139,6 +139,12 @@ const nextConfig = {
         destination: "/",
         permanent: true,
       },
+      {
+        // app/sitemap.ts serves /sitemap.xml; human-readable map lives at /site-map.
+        source: "/sitemap",
+        destination: "/site-map",
+        permanent: true,
+      },
     ];
   },
   // Add headers for better caching and performance

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "Sitemap | Taypro – Complete Website Navigation",
     description:
       "Browse Taypro’s sitemap to quickly access all website sections, including projects, services, and company information.",
-    url: `${siteUrl}/sitemap`,
+    url: `${siteUrl}/site-map`,
     type: "website",
     images: [
       {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
   },
   alternates: {
-    canonical: `${siteUrl}/sitemap`,
+    canonical: `${siteUrl}/site-map`,
   },
 };
 
@@ -52,7 +52,7 @@ const breadcrumbs = [
   },
 ];
 
-export default function Blog() {
+export default function SiteMapPage() {
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
@@ -159,7 +159,7 @@ export default function Blog() {
               </li>
               <li>
                 <Link
-                  href="/sitemap"
+                  href="/site-map"
                   title="Sitemap"
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
