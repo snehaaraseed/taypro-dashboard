@@ -10,7 +10,8 @@
     "lint": "eslint",
     "cms:migrate": "node scripts/migrate-cms-from-files.mjs",
     "cms:backfill-projects": "node scripts/backfill-project-content.mjs",
-    "cms:cleanup-legacy": "node scripts/cleanup-legacy-cms-dirs.mjs"
+    "cms:cleanup-legacy": "node scripts/cleanup-legacy-cms-dirs.mjs",
+    "cms:migrate-extras": "node scripts/migrate-topics-and-uploads.mjs"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",

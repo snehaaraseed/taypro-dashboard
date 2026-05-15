@@ -3,6 +3,7 @@ import { requireAuth } from "../../../utils/auth";
 import { writeFile, mkdir, access } from "fs/promises";
 import path from "path";
 import { getDeploymentRoot } from "../../../utils/deploymentRoot";
+import { registerUpload } from "@/lib/cms/uploadService";
 
 // Route segment config for App Router
 export const runtime = "nodejs";
@@ -186,6 +187,14 @@ export async function POST(request: NextRequest) {
     const publicUrl = `/uploads/${year}/${month}/${fileName}`;
 
     console.log(`File uploaded successfully: ${publicUrl} -> ${filePath}`);
+
+    await registerUpload({
+      url: publicUrl,
+      fileName,
+      filePath,
+      mimeType: file.type,
+      size: file.size,
+    });
 
     return NextResponse.json({
       success: true,

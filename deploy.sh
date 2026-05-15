@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Taypro Website Deployment Script
-# CMS content lives in data/cms.sqlite (SQLite). Deploy preserves the DB, uploads,
-# and published-topics — not per-slug blog/project folders.
+# CMS content lives in data/cms.sqlite (SQLite). Deploy preserves cms.sqlite + public/uploads/.
+# Topics and upload metadata are inside cms.sqlite (not separate JSON files).
 #
 # Do not use `git pull` on the production server for releases; run this script
 # from a developer machine with a current clone.
@@ -34,11 +34,6 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
         mkdir -p data
         cp -a "$STAND/data/cms.sqlite" data/cms.sqlite
     fi
-    if [ -f "$STAND/data/published-topics.json" ]; then
-        echo "  Flushing published-topics.json from standalone..."
-        mkdir -p data
-        cp -a "$STAND/data/published-topics.json" data/published-topics.json
-    fi
     if [ -d "$STAND/public/uploads" ]; then
         echo "  Flushing public/uploads from standalone..."
         mkdir -p public/uploads
@@ -58,9 +53,6 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
         if [ -f "data/cms.sqlite" ]; then
             cp -a data/cms.sqlite "$DEST/data/"
             echo "  → $DEST : cms.sqlite"
-        fi
-        if [ -f "data/published-topics.json" ]; then
-            cp -a data/published-topics.json "$DEST/data/"
         fi
         if [ -d "public/uploads" ]; then
             mkdir -p "$DEST/public"
@@ -98,7 +90,6 @@ rsync -avz --checksum \
     --exclude '.git' \
     --exclude 'data/cms.sqlite' \
     --exclude 'data/cms.sqlite-*' \
-    --exclude 'data/published-topics.json' \
     --exclude 'public/uploads' \
     -e "ssh -i $SSH_KEY" \
     "$LOCAL_PATH/" \
@@ -138,11 +129,6 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << EOF
         echo "    ⚠️  No cms.sqlite in backup (first DB deploy on this server)."
     fi
 
-    if [ -f "$BACKUP_PATH/data/published-topics.json" ]; then
-        cp -a "$BACKUP_PATH/data/published-topics.json" data/published-topics.json
-        echo "    ✅ Restored data/published-topics.json"
-    fi
-
     if [ -d "$BACKUP_PATH/public/uploads" ]; then
         rsync -a "$BACKUP_PATH/public/uploads/" public/uploads/
         echo "    ✅ Restored public/uploads"
@@ -177,6 +163,9 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
         npm run cms:backfill-projects 2>&1 | tail -5
     fi
 
+    echo "  Sync topics + upload index into DB (idempotent)..."
+    npm run cms:migrate-extras 2>&1 | tail -6
+
     if [ ! -f "data/cms.sqlite" ]; then
         echo "  ❌ data/cms.sqlite still missing after setup"
         exit 1
@@ -210,10 +199,6 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
             mkdir -p .next/standalone/data
             cp -a data/cms.sqlite .next/standalone/data/
             echo "  ✅ Copied cms.sqlite to standalone"
-        fi
-        if [ -f "data/published-topics.json" ]; then
-            mkdir -p .next/standalone/data
-            cp -a data/published-topics.json .next/standalone/data/
         fi
         if [ -d "drizzle" ]; then
             mkdir -p .next/standalone/drizzle

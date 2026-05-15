@@ -40,6 +40,28 @@ export const projects = sqliteTable("projects", {
   published: integer("published", { mode: "boolean" }).notNull().default(true),
 });
 
+export const publishedTopics = sqliteTable("published_topics", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  title: text("title").notNull(),
+  slug: text("slug").notNull(),
+  publishDate: text("publish_date").notNull(),
+  category: text("category"),
+  createdAt: text("created_at").notNull(),
+});
+
+/** Image files stay on disk; this table indexes paths for the admin gallery. */
+export const uploads = sqliteTable("uploads", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  url: text("url").notNull().unique(),
+  fileName: text("file_name").notNull(),
+  filePath: text("file_path").notNull(),
+  mimeType: text("mime_type"),
+  size: integer("size").notNull(),
+  uploadedAt: text("uploaded_at").notNull(),
+});
+
 export type AuthorRow = typeof authors.$inferSelect;
 export type BlogRow = typeof blogs.$inferSelect;
 export type ProjectRow = typeof projects.$inferSelect;
+export type PublishedTopicRow = typeof publishedTopics.$inferSelect;
+export type UploadRow = typeof uploads.$inferSelect;
