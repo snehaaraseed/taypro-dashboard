@@ -892,7 +892,7 @@ export default function SolarPanelCleaningRobot() {
               <AnimateOnScroll animation="fadeInLeft" delay={100}>
                 <Image
                   src="/tayprosolarpanel/taypro-solar-panel.jpg"
-                  alt="Solar Panel Cleaning Robot operating at a utility-scale solar farm in India — boosting efficiency up to 30%"
+                  alt="Solar Panel Cleaning Robot operating at a utility-scale solar farm in India — recovering generation lost to soiling"
                   title="Solar Panel Cleaning Robot by Taypro at a utility-scale plant"
                   width={400}
                   height={400}

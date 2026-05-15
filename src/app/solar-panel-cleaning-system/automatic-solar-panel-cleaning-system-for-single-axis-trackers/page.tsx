@@ -31,6 +31,8 @@ import {
   HowToSchema,
 } from "@/app/components/StructuredData";
 import { Container } from "@/app/components/Container";
+import { PerformanceMethodologyFootnote } from "@/app/components/PerformanceMethodologyLink";
+import { PerformanceMethodologyNotice } from "@/app/components/PerformanceMethodologyNotice";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
@@ -324,15 +326,21 @@ export default function ModelTPage() {
                   </strong>{" "}
                   purpose-built for daily cleaning of{" "}
                   <strong>single-axis tracker solar power plants</strong>. The
-                  robot removes over <strong>99% of dust in a single
-                  automated run</strong>, covering up to{" "}
+                  robot removes over{" "}
+                  <strong>
+                    99% of dust in a single automated run
+                    <PerformanceMethodologyFootnote />
+                  </strong>
+                  , covering up to{" "}
                   <strong>2.2 km — around 3,600 modules — on a single
                   charge</strong>. Cleaning is best scheduled after energy
                   production hours and is managed end-to-end through the Taypro
                   Console remote monitoring app. Supported fleet links are{" "}
                   <strong>{tayproRobotConnectivitySummary}</strong> — pick the
-                  best path per block based on coverage and bandwidth needs.
+                  best path per block based on coverage and bandwidth needs
+                  (site-dependent).
                 </p>
+                <PerformanceMethodologyNotice className="mt-4" />
                 <p>
                   Compatible with <strong>NEXTracker</strong> and{" "}
                   <strong>Gamechanger</strong> single-axis tracker platforms,

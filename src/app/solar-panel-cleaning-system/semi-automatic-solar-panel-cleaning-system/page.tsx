@@ -31,6 +31,8 @@ import {
   HowToSchema,
 } from "@/app/components/StructuredData";
 import { Container } from "@/app/components/Container";
+import { PerformanceMethodologyFootnote } from "@/app/components/PerformanceMethodologyLink";
+import { PerformanceMethodologyNotice } from "@/app/components/PerformanceMethodologyNotice";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
@@ -325,13 +327,18 @@ export default function SemiAutomaticSolarPanelCleaningRobot() {
                 <p>
                   The robot deploys a pair of{" "}
                   <strong>counter-rotating UV-stable PBT brushes</strong> that
-                  eliminate over <strong>99% of accumulated dust</strong> from
-                  panel surfaces in a single pass, covering{" "}
+                  eliminate over{" "}
+                  <strong>
+                    99% of accumulated dust
+                    <PerformanceMethodologyFootnote />
+                  </strong>{" "}
+                  from panel surfaces in a single pass, covering{" "}
                   <strong>up to 3 km of solar modules</strong> on a single
                   charge. Cleaning operations are best scheduled
                   post-energy-production hours to ensure zero disruption to
-                  generation cycles.
+                  generation cycles (site-dependent).
                 </p>
+                <PerformanceMethodologyNotice className="mt-4" />
                 <p>
                   Equipped with precision{" "}
                   <strong>edge-detection technology</strong> to prevent

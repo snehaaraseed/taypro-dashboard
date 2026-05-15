@@ -25,6 +25,8 @@ import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import FAQAccordion from "@/app/components/FAQAccordion";
 import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
+import { PerformanceMethodologyFootnote } from "@/app/components/PerformanceMethodologyLink";
+import { PerformanceMethodologyNotice } from "@/app/components/PerformanceMethodologyNotice";
 import {
   ProductSchema,
   FAQPageSchema,
@@ -210,10 +212,15 @@ export default function AutomaticSolarPanelCleaningRobot() {
                   Model-A is a fully autonomous unit engineered for reliable
                   daily cleaning of utility-scale solar power plants. A single
                   automated run removes over{" "}
-                  <strong>99% of dust</strong> from the module surface using a
-                  rotating, self-cleaning microfiber drum, driving consistent
-                  performance ratio gains across the plant.
+                  <strong>
+                    99% of dust
+                    <PerformanceMethodologyFootnote />
+                  </strong>{" "}
+                  from the module surface using a rotating, self-cleaning
+                  microfiber drum, driving consistent performance ratio gains
+                  across the plant (site-dependent).
                 </p>
+                <PerformanceMethodologyNotice className="mt-4" />
                 <p>
                   On a single charge, Model-A cleans up to{" "}
                   <strong>2.2 km of running length — approximately 3,600

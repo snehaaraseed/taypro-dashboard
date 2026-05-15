@@ -4,6 +4,11 @@ import { Blinker } from "next/font/google";
 import { OrganizationSchema, WebSiteSchema } from "./components/StructuredData";
 
 import { OG_PRESETS, buildOgImage, buildTwitterImageUrls } from "@/lib/seo/open-graph";
+import {
+  ROOT_DEFAULT_DESCRIPTION,
+  ROOT_DEFAULT_OG_DESCRIPTION,
+  ROOT_DEFAULT_TWITTER_DESCRIPTION,
+} from "@/lib/seo/performance-methodology";
 import "./globals.css";
 
 const defaultOg = buildOgImage(OG_PRESETS.default);
@@ -35,8 +40,7 @@ export const metadata: Metadata = {
       "Solar Panel Cleaning Robot | Taypro - Autonomous Waterless Solar Cleaning",
     template: "%s | Taypro",
   },
-  description:
-      "Best Solar Panel Cleaning Robots for solar farms in India. Autonomous waterless cleaning increases efficiency up to 30% with AI-powered scheduling. Highest uptime guarantee.",
+  description: ROOT_DEFAULT_DESCRIPTION,
   keywords: [
     "Solar Panel Cleaning Robot",
     "solar panel cleaning robot",
@@ -71,15 +75,13 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "Taypro",
     title: "Solar Panel Cleaning Robot | Taypro - Autonomous Waterless Solar Cleaning",
-    description:
-      "Best Solar Panel Cleaning Robots for solar farms in India. Autonomous waterless cleaning increases efficiency up to 30% with AI-powered scheduling.",
+    description: ROOT_DEFAULT_OG_DESCRIPTION,
     images: [defaultOg],
   },
   twitter: {
     card: "summary_large_image",
     title: "Solar Panel Cleaning Robot | Taypro",
-    description:
-      "Autonomous, waterless Solar Panel Cleaning Robots for solar farms. Increase efficiency up to 30% with AI-powered robotic cleaning systems.",
+    description: ROOT_DEFAULT_TWITTER_DESCRIPTION,
     images: buildTwitterImageUrls([defaultOg]),
     creator: "@taypro",
     site: "@taypro",

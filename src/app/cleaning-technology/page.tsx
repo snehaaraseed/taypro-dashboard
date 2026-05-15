@@ -32,6 +32,7 @@ import FAQAccordion from "../components/FAQAccordion";
 import { FAQPageSchema, HowToSchema } from "../components/StructuredData";
 import { socialImagesFromPreset } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
+import { PerformanceMethodologyNotice } from "../components/PerformanceMethodologyNotice";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -816,6 +817,9 @@ export default async function CleaningTechnologyPage() {
                 </table>
               </div>
             </AnimateOnScroll>
+            <AnimateOnScroll animation="fadeInUp" delay={120} className="mt-6 max-w-3xl mx-auto">
+              <PerformanceMethodologyNotice variant="dark" />
+            </AnimateOnScroll>
           </Container>
         </section>
 
@@ -1025,6 +1029,9 @@ export default async function CleaningTechnologyPage() {
                   </div>
                 ))}
               </dl>
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fadeInUp" delay={120} className="mt-8 max-w-3xl mx-auto">
+              <PerformanceMethodologyNotice />
             </AnimateOnScroll>
           </Container>
         </section>

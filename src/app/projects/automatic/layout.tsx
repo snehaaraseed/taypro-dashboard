@@ -8,7 +8,7 @@ const og = socialImagesFromPreset("modelA");
 export const metadata: Metadata = {
   title: "Automatic Solar Panel Cleaning Robot Projects | Taypro",
   description:
-    "Explore Taypro's automatic Solar Panel Cleaning Robot installation projects. Our AI-enabled autonomous cleaning systems deliver up to 30% efficiency increase and highest ROI for solar farms.",
+    "Explore Taypro automatic Solar Panel Cleaning Robot installations—autonomous waterless fleets on utility-scale plants in India, with site-dependent recovery of generation lost to soiling.",
   keywords: [
     "Automatic Solar Panel Cleaning Robot projects",
     "automatic solar cleaning robot installations",

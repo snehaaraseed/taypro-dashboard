@@ -5,7 +5,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 export const metadata: Metadata = {
   title: "Taypro Solar Projects - Solar Panel Cleaning Robot Installations",
   description:
-    "Explore Taypro's sustainable solar projects using our Solar Panel Cleaning Robot systems. We deliver high ROI and 99% cleaning efficiency. See how our robotic cleaning solutions enhance solar panel performance ratio across India.",
+    "Explore Taypro utility-scale solar projects with autonomous and semi-automatic cleaning robots across India—field deployments with site-dependent soiling recovery and O&M outcomes.",
   keywords: [
     "Solar Panel Cleaning Robot projects",
     "solar panel cleaning robot installations",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Taypro Solar Projects - Solar Panel Cleaning Robot Installations",
     description:
-      "Explore Taypro's sustainable solar projects using our Solar Panel Cleaning Robot systems. 99% cleaning efficiency with high ROI.",
+      "Taypro solar projects with robotic dry cleaning—utility-scale installations across India with measurable O&M outcomes (site-dependent).",
     url: `${siteUrl}/projects`,
     type: "website",
     images: [
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Taypro Solar Projects - Solar Panel Cleaning Robot Installations",
     description:
-      "Sustainable solar projects with Solar Panel Cleaning Robot systems. 99% cleaning efficiency.",
+      "Utility-scale solar projects using Taypro cleaning robots—autonomous and semi-automatic deployments across India.",
     images: [`${siteUrl}/tayproasset/taypro-project.png`],
   },
   alternates: {

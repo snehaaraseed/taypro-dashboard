@@ -5,7 +5,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 export const metadata: Metadata = {
   title: "Contact Taypro - Get Your Solar Panel Cleaning Robot Quote",
   description:
-    "Contact Taypro for advanced Solar Panel Cleaning Robot solutions. Our innovative robotic cleaning systems deliver up to 99% cleaning efficiency, maximize energy generation, and ensure high ROI for your solar assets. Get a quote today!",
+    "Contact Taypro for solar panel cleaning robot quotes. Waterless autonomous and semi-automatic platforms for utility-scale plants in India—field-validated dust removal per cycle (site-dependent). Pan-India commissioning and support.",
   keywords: [
     "Solar Panel Cleaning Robot",
     "contact Taypro",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Taypro - Get Your Solar Panel Cleaning Robot Quote",
     description:
-      "Contact Taypro for advanced Solar Panel Cleaning Robot solutions. Our robotic systems deliver 99% cleaning efficiency and maximize energy generation.",
+      "Contact Taypro for solar panel cleaning robot solutions. Waterless robotic cleaning with site-dependent dust removal and generation recovery—get a quote for your plant.",
     url: `${siteUrl}/contact`,
     type: "website",
     images: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contact Taypro - Get Your Solar Panel Cleaning Robot Quote",
     description:
-      "Get a quote for our advanced Solar Panel Cleaning Robot solutions. 99% cleaning efficiency guaranteed.",
+      "Get a quote for Taypro solar panel cleaning robots—autonomous and semi-automatic waterless platforms for utility-scale plants in India.",
     images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
   },
   alternates: {

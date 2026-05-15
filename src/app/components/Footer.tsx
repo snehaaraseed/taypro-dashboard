@@ -30,6 +30,10 @@ export default function Footer() {
       { name: "Cookie Policy", href: "/cookie-policy" },
       { name: "Terms of Service", href: "/terms-of-service" },
       {
+        name: "Performance & Test Methodology",
+        href: "/performance-and-test-methodology",
+      },
+      {
         name: "Our Solutions",
         href: "/solar-panel-cleaning-system",
       },

@@ -141,6 +141,15 @@ export default function SiteMapPage() {
               </li>
               <li>
                 <Link
+                  href="/performance-and-test-methodology"
+                  title="Performance & Test Methodology"
+                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                >
+                  Performance &amp; Test Methodology
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/projects"
                   title="Projects"
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
