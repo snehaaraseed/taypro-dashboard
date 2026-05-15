@@ -1,3 +1,11 @@
+const path = require('path');
+const {
+  isDraftBlog,
+  isDraftProject,
+  getPublishedBlogSlugs,
+  getPublishedProjectSlugs,
+} = require('./scripts/cms-sitemap-helper.cjs');
+
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
@@ -15,54 +23,17 @@ module.exports = {
   
   // Transform function to set priorities and changefreq dynamically
   transform: async (config, path) => {
-    const fs = require('fs').promises;
-    const pathModule = require('path');
-    
-    // Check if this is a blog or project route that might be a draft
-    if (path.startsWith('/blog/') && !path.includes('/add') && !path.includes('/db/')) {
-      try {
-        const blogSlug = path.split('/blog/')[1];
-        const blogDir = pathModule.join(process.cwd(), 'src', 'app', 'blog', blogSlug);
-        const metadataPath = pathModule.join(blogDir, 'metadata.json');
-        
-        try {
-          const metadataContent = await fs.readFile(metadataPath, 'utf-8');
-          const metadata = JSON.parse(metadataContent);
-          
-          // Exclude drafts from sitemap
-          if (metadata.published === false) {
-            return null;
-          }
-        } catch (error) {
-          // If metadata doesn't exist or can't be read, skip this route
-          return null;
-        }
-      } catch (error) {
-        // If path parsing fails, include it (might be database blog)
+    if (path.startsWith('/blog/') && !path.includes('/add') && !path.includes('/db/') && !path.includes('/author/')) {
+      const blogSlug = path.split('/blog/')[1]?.split('/')[0];
+      if (blogSlug && isDraftBlog(blogSlug) !== false) {
+        return null;
       }
     }
-    
-    // Check if this is a project route that might be a draft
+
     if (path.startsWith('/projects/')) {
-      try {
-        const projectSlug = path.split('/projects/')[1];
-        const projectDir = pathModule.join(process.cwd(), 'src', 'app', 'projects', projectSlug);
-        const metadataPath = pathModule.join(projectDir, 'metadata.json');
-        
-        try {
-          const metadataContent = await fs.readFile(metadataPath, 'utf-8');
-          const metadata = JSON.parse(metadataContent);
-          
-          // Exclude drafts from sitemap
-          if (metadata.published === false) {
-            return null;
-          }
-        } catch (error) {
-          // If metadata doesn't exist or can't be read, skip this route
-          return null;
-        }
-      } catch (error) {
-        // If path parsing fails, include it
+      const projectSlug = path.split('/projects/')[1]?.split('/')[0];
+      if (projectSlug && isDraftProject(projectSlug) === true) {
+        return null;
       }
     }
     
@@ -123,10 +94,25 @@ module.exports = {
   // Additional paths to include (if needed)
   additionalPaths: async (config) => {
     const result = [];
-    
-    // You can add dynamic routes here if needed
-    // For example, if you have dynamic blog posts that aren't statically generated
-    
+    const siteUrl = config.siteUrl;
+
+    for (const slug of getPublishedBlogSlugs()) {
+      result.push({
+        loc: `/blog/${slug}`,
+        changefreq: 'weekly',
+        priority: 0.8,
+        lastmod: new Date().toISOString(),
+      });
+    }
+    for (const slug of getPublishedProjectSlugs()) {
+      result.push({
+        loc: `/projects/${slug}`,
+        changefreq: 'monthly',
+        priority: 0.8,
+        lastmod: new Date().toISOString(),
+      });
+    }
+
     return result;
   },
   

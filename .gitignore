@@ -20,6 +20,10 @@
 # production
 /build
 
+# CMS database (production data lives on server)
+/data/cms.sqlite
+/data/cms.sqlite-*
+
 # misc
 .DS_Store
 *.pem

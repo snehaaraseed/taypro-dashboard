@@ -2,8 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { promises as fs } from "fs";
-import path from "path";
+import { listAllBlogs } from "@/lib/cms/blogService";
 import { Breadcrumbs } from "../../../components/Breadcrumbs";
 import { NewsletterSubscribeCard } from "../../../components/NewsletterSubscribeCard";
 import { ProfilePageSchema } from "../../../components/StructuredData";
@@ -34,39 +33,16 @@ interface AuthorBlog {
 }
 
 async function getAllPublishedBlogs(): Promise<AuthorBlog[]> {
-  const blogDir = path.join(process.cwd(), "src", "app", "blog");
-  const entries = await fs.readdir(blogDir, { withFileTypes: true });
-  const blogDirs = entries.filter(
-    (entry) =>
-      entry.isDirectory() &&
-      !["components", "api", "[slug]", "add", "db", "author"].includes(entry.name)
-  );
-
-  const blogs: AuthorBlog[] = [];
-  for (const dir of blogDirs) {
-    try {
-      const metadataPath = path.join(blogDir, dir.name, "metadata.json");
-      const metadataRaw = await fs.readFile(metadataPath, "utf-8");
-      const metadata = JSON.parse(metadataRaw);
-      if (metadata.published === false) continue;
-
-      blogs.push({
-        title: metadata.title,
-        description: metadata.description,
-        featuredImage: metadata.featuredImage,
-        slug: dir.name,
-        publishDate: metadata.publishDate,
-        updatedAt: metadata.updatedAt,
-        author: metadata.author || "Taypro Team",
-      });
-    } catch {
-      // Skip invalid blog folders
-    }
-  }
-
-  return blogs.sort(
-    (a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
-  );
+  const rows = await listAllBlogs(false);
+  return rows.map((metadata) => ({
+    title: metadata.title,
+    description: metadata.description,
+    featuredImage: metadata.featuredImage,
+    slug: metadata.slug,
+    publishDate: metadata.publishDate,
+    updatedAt: metadata.updatedAt,
+    author: metadata.author || "Taypro Team",
+  }));
 }
 
 export async function generateStaticParams(): Promise<AuthorPageParams[]> {

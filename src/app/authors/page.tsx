@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { promises as fs } from "fs";
-import path from "path";
+import { listAllBlogs } from "@/lib/cms/blogService";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { NewsletterSubscribeCard } from "../components/NewsletterSubscribeCard";
 import {
@@ -58,33 +57,17 @@ interface AuthorStats {
 
 async function getAuthorStats(): Promise<AuthorStats[]> {
   const storedAuthors = await getStoredAuthors();
-  const blogDir = path.join(process.cwd(), "src", "app", "blog");
-  const entries = await fs.readdir(blogDir, { withFileTypes: true });
-  const blogDirs = entries.filter(
-    (entry) =>
-      entry.isDirectory() &&
-      !["components", "api", "[slug]", "add", "db", "author"].includes(entry.name)
-  );
-
+  const blogs = await listAllBlogs(false);
   const counts = new Map<string, { name: string; count: number }>();
 
-  for (const dir of blogDirs) {
-    try {
-      const metadataPath = path.join(blogDir, dir.name, "metadata.json");
-      const metadataRaw = await fs.readFile(metadataPath, "utf-8");
-      const metadata = JSON.parse(metadataRaw);
-      if (metadata.published === false) continue;
-
-      const authorName = metadata.author || "Taypro Team";
-      const authorSlug = slugifyAuthorName(authorName);
-      const existing = counts.get(authorSlug);
-      counts.set(authorSlug, {
-        name: authorName,
-        count: (existing?.count || 0) + 1,
-      });
-    } catch {
-      // Skip invalid metadata
-    }
+  for (const metadata of blogs) {
+    const authorName = metadata.author || "Taypro Team";
+    const authorSlug = slugifyAuthorName(authorName);
+    const existing = counts.get(authorSlug);
+    counts.set(authorSlug, {
+      name: authorName,
+      count: (existing?.count || 0) + 1,
+    });
   }
 
   // Include configured authors even if they have no posts yet

@@ -6,6 +6,7 @@ const nextConfig = {
   reactStrictMode: true,
   // Enable static page generation for better performance
   output: "standalone",
+  serverExternalPackages: ["better-sqlite3"],
   // Enable experimental features for better performance
   experimental: {
     optimizeCss: true,

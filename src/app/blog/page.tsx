@@ -5,8 +5,7 @@ import { Breadcrumbs } from "../components/Breadcrumbs";
 import { AnimateOnScroll } from "../components/AnimateOnScroll";
 import { NewsletterSubscribeCard } from "../components/NewsletterSubscribeCard";
 import BlogList from "./BlogList";
-import { promises as fs } from "fs";
-import path from "path";
+import { listAllBlogs } from "@/lib/cms/blogService";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -19,56 +18,13 @@ const breadcrumbs = [
 const PAGE_SIZE = 12;
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
-async function getFileBlogs(): Promise<DynamicBlog[]> {
-  try {
-    const blogDir = path.join(process.cwd(), "src", "app", "blog");
-    const entries = await fs.readdir(blogDir, { withFileTypes: true });
-
-    const blogDirs = entries.filter(
-      (entry) =>
-        entry.isDirectory() &&
-        ![
-          "components",
-          "api",
-          "[slug]",
-          "add",
-          "db",
-          "author",
-          "page.tsx",
-        ].includes(entry.name)
-    );
-
-    const blogs: DynamicBlog[] = [];
-
-    for (const dir of blogDirs) {
-      try {
-        const metadataPath = path.join(blogDir, dir.name, "metadata.json");
-        const metadataContent = await fs.readFile(metadataPath, "utf-8");
-        const metadata = JSON.parse(metadataContent);
-
-        // Filter out drafts (only show published blogs, defaulting to true)
-        if (metadata.published === false) {
-          continue;
-        }
-
-        blogs.push({
-          ...metadata,
-          href: `/blog/${dir.name}`,
-          source: "file",
-        });
-      } catch (error) {
-        console.warn(`No metadata found for blog: ${dir.name}`);
-      }
-    }
-
-    return blogs.sort(
-      (a, b) =>
-        new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
-    );
-  } catch (error) {
-    console.error("Error fetching file blogs:", error);
-    return [];
-  }
+async function getPublishedBlogs(): Promise<DynamicBlog[]> {
+  const rows = await listAllBlogs(false);
+  return rows.map((metadata) => ({
+    ...metadata,
+    href: `/blog/${metadata.slug}`,
+    source: "db" as const,
+  }));
 }
 
 type BlogPageProps = {
@@ -83,7 +39,7 @@ export async function generateMetadata({
   const parsed = parseInt(String(pageRaw || "1"), 10);
   const pageNum = Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
 
-  const dynamicBlogs = await getFileBlogs();
+  const dynamicBlogs = await getPublishedBlogs();
   const total = dynamicBlogs.length;
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
   const page = Math.min(pageNum, totalPages);
@@ -102,7 +58,7 @@ export default async function Blog({ searchParams }: BlogPageProps) {
   const parsed = parseInt(String(pageRaw || "1"), 10);
   const pageNum = Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
 
-  const dynamicBlogs = await getFileBlogs();
+  const dynamicBlogs = await getPublishedBlogs();
   const total = dynamicBlogs.length;
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
   const page = Math.min(pageNum, totalPages);
@@ -133,16 +89,7 @@ export default async function Blog({ searchParams }: BlogPageProps) {
             <h1 className="text-[#052638] text-4xl">Blogs</h1>
             <p className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed max-w-3xl">
               Practical guides on solar panel cleaning, soiling, O&amp;M economics,
-              and how robotic cleaning fits utility-scale plants in India. New
-              articles are published here first; for bylines and contributor
-              bios see{" "}
-              <Link
-                href="/authors"
-                className="text-[#A8C117] hover:underline font-medium"
-              >
-                Authors
-              </Link>
-              .
+              and how robotic cleaning fits utility-scale plants in India.
             </p>
           </AnimateOnScroll>
 

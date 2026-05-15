@@ -1,5 +1,10 @@
 import { promises as fs } from "fs";
 import path from "path";
+import { getDeploymentRoot } from "@/app/utils/deploymentRoot";
+
+function topicsFilePath(): string {
+  return path.join(getDeploymentRoot(), "data", "published-topics.json");
+}
 
 export interface PublishedTopic {
   title: string;
@@ -13,14 +18,12 @@ interface PublishedTopicsData {
   topics: PublishedTopic[];
 }
 
-const TOPICS_FILE_PATH = path.join(process.cwd(), "data", "published-topics.json");
-
 /**
  * Read published topics from JSON file
  */
 export async function readPublishedTopics(): Promise<PublishedTopic[]> {
   try {
-    const fileContent = await fs.readFile(TOPICS_FILE_PATH, "utf-8");
+    const fileContent = await fs.readFile(topicsFilePath(), "utf-8");
     const data: PublishedTopicsData = JSON.parse(fileContent);
     return data.topics || [];
   } catch (error) {
@@ -87,12 +90,12 @@ export async function addPublishedTopic(
   topics.push(newTopic);
 
   // Ensure data directory exists
-  const dataDir = path.dirname(TOPICS_FILE_PATH);
+  const dataDir = path.dirname(topicsFilePath());
   await fs.mkdir(dataDir, { recursive: true });
 
   // Write updated topics to file
   const data: PublishedTopicsData = { topics };
-  await fs.writeFile(TOPICS_FILE_PATH, JSON.stringify(data, null, 2), "utf-8");
+  await fs.writeFile(topicsFilePath(), JSON.stringify(data, null, 2), "utf-8");
 }
 
 /**

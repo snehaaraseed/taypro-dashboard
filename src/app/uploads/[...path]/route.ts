@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { readFile } from "fs/promises";
 import path from "path";
 import { existsSync } from "fs";
+import { getDeploymentRoot } from "@/app/utils/deploymentRoot";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -24,37 +25,17 @@ export async function GET(
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
 
-    // Route is /uploads/[...path], so params are relative to uploads.
-    // In standalone mode, process.cwd() is .next/standalone.
-    const fullPath = path.join(process.cwd(), "public", "uploads", filePath);
+    const fullPath = path.join(
+      getDeploymentRoot(),
+      "public",
+      "uploads",
+      filePath
+    );
 
-    // Check if file exists
     if (!existsSync(fullPath)) {
-      // Try root public directory as fallback
-      const rootPath = path.join(
-        process.cwd(),
-        "..",
-        "..",
-        "public",
-        "uploads",
-        filePath
-      );
-      if (existsSync(rootPath)) {
-        const fileBuffer = await readFile(rootPath);
-        const ext = path.extname(filePath).toLowerCase();
-        const contentType = getContentType(ext);
-        
-        return new NextResponse(fileBuffer, {
-          headers: {
-            "Content-Type": contentType,
-            "Cache-Control": "public, max-age=31536000, immutable",
-          },
-        });
-      }
-      return NextResponse.json({ error: "File not found" }, { status: 404 });
+      return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
 
-    // Read and serve the file
     const fileBuffer = await readFile(fullPath);
     const ext = path.extname(filePath).toLowerCase();
     const contentType = getContentType(ext);
@@ -86,6 +67,3 @@ function getContentType(ext: string): string {
   };
   return contentTypes[ext] || "application/octet-stream";
 }
-
-
-

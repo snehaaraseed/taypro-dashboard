@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { requireAuth } from "../../../utils/auth";
 import { writeFile, mkdir, access } from "fs/promises";
 import path from "path";
+import { getDeploymentRoot } from "../../../utils/deploymentRoot";
 
 // Route segment config for App Router
 export const runtime = "nodejs";
@@ -88,7 +89,13 @@ export async function POST(request: NextRequest) {
     const now = new Date();
     const year = now.getFullYear().toString();
     const month = String(now.getMonth() + 1).padStart(2, "0");
-    const uploadDir = path.join(process.cwd(), "public", "uploads", year, month);
+    const uploadDir = path.join(
+      getDeploymentRoot(),
+      "public",
+      "uploads",
+      year,
+      month
+    );
 
     // Create directory if it doesn't exist
     await mkdir(uploadDir, { recursive: true });
@@ -179,28 +186,6 @@ export async function POST(request: NextRequest) {
     const publicUrl = `/uploads/${year}/${month}/${fileName}`;
 
     console.log(`File uploaded successfully: ${publicUrl} -> ${filePath}`);
-
-    // In standalone mode, also copy to root public directory for better compatibility
-    // This ensures the file is accessible even if public folder gets re-synced
-    try {
-      // Check if we're in standalone mode (process.cwd() contains .next/standalone)
-      if (process.cwd().includes(".next/standalone")) {
-        // Calculate path to root public directory (go up two levels from .next/standalone)
-        const rootDir = process.cwd().replace(/.next\/standalone.*$/, "");
-        const rootPublicPath = path.join(rootDir, "public", "uploads", year, month);
-        const rootFilePath = path.join(rootPublicPath, fileName);
-        
-        // Only copy if paths are different
-        if (rootFilePath !== filePath) {
-          await mkdir(rootPublicPath, { recursive: true });
-          await writeFile(rootFilePath, buffer);
-          console.log(`File also copied to root public directory: ${rootFilePath}`);
-        }
-      }
-    } catch (syncError) {
-      // Non-critical - log but don't fail the upload
-      console.warn("Could not sync to root public directory:", syncError);
-    }
 
     return NextResponse.json({
       success: true,

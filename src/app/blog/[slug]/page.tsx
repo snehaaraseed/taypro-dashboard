@@ -7,9 +7,11 @@ import { ArticleSchema } from "../../components/StructuredData";
 import { SimilarBlogs } from "../../components/SimilarBlogs";
 import { NewsletterSubscribeCard } from "../../components/NewsletterSubscribeCard";
 import type { Metadata } from "next";
-import { promises as fs } from "fs";
-import path from "path";
 import { DynamicBlog } from "../../api/blog/list/route";
+import {
+  getBlogBySlug,
+  listAllBlogs,
+} from "@/lib/cms/blogService";
 import { addInternalLinks } from "../../utils/internalLinking";
 import {
   getAuthorAvatarUrl,
@@ -37,7 +39,7 @@ interface BlogData {
   slug: string;
   publishDate: string;
   updatedAt?: string;
-  source?: "file";
+  source?: "db";
 }
 
 interface TocItem {
@@ -101,163 +103,30 @@ function addHeadingIdsAndExtractToc(html: string): {
 
 // Fetch all blogs for similar blogs section
 async function getAllBlogs(): Promise<DynamicBlog[]> {
-  try {
-    // Only fetch from file system now
-    const fileBlogs = await getFileBlogs();
-
-    const allBlogs = fileBlogs.sort(
-      (a, b) =>
-        new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
-    );
-
-    return allBlogs;
-  } catch (error) {
-    console.error("Error fetching blogs:", error);
-    return [];
-  }
+  const rows = await listAllBlogs(false);
+  return rows.map((metadata) => ({
+    ...metadata,
+    href: `/blog/${metadata.slug}`,
+    source: "db" as const,
+  }));
 }
 
-async function getFileBlogs(): Promise<DynamicBlog[]> {
-  try {
-    const blogDir = path.join(process.cwd(), "src", "app", "blog");
-    const entries = await fs.readdir(blogDir, { withFileTypes: true });
-
-    const blogDirs = entries.filter(
-      (entry) =>
-        entry.isDirectory() &&
-        !["components", "api", "[slug]", "add", "db", "author"].includes(entry.name)
-    );
-
-    const blogs: DynamicBlog[] = [];
-
-    for (const dir of blogDirs) {
-      try {
-        const metadataPath = path.join(blogDir, dir.name, "metadata.json");
-        const metadataContent = await fs.readFile(metadataPath, "utf-8");
-        const metadata = JSON.parse(metadataContent);
-
-        if (metadata.published === false) {
-          continue;
-        }
-
-        blogs.push({
-          ...metadata,
-          href: `/blog/${dir.name}`,
-          source: "file",
-        });
-      } catch (error) {
-        console.warn(`No metadata found for blog: ${dir.name}`);
-      }
-    }
-
-    return blogs;
-  } catch (error) {
-    console.error("Error fetching file blogs:", error);
-    return [];
-  }
-}
-
-// Fetch blog data from file system only (database blogs have been migrated)
 async function getBlogData(slug: string): Promise<BlogData | null> {
-  // Fetch from file system
-  try {
-    const blogDir = path.join(process.cwd(), "src", "app", "blog", slug);
-    const metadataPath = path.join(blogDir, "metadata.json");
-    const contentHtmlPath = path.join(blogDir, "content.html");
-    const contentPath = path.join(blogDir, "page.tsx");
-
-    // ✅ Check if metadata file exists before trying to read
-    try {
-      await fs.access(metadataPath);
-    } catch (error) {
-      console.log("❌ Blog not found in file system either:", error);
-      return null;
-    }
-
-    const metadataContent = await fs.readFile(metadataPath, "utf-8");
-    const metadata = JSON.parse(metadataContent);
-
-    // Check if blog is published (default to true for backward compatibility)
-    if (metadata.published === false) {
-      // Return null for drafts so they show 404
-      return null;
-    }
-
-    // Try to read from content.html first (clean extracted content)
-    let content = "";
-    try {
-      content = await fs.readFile(contentHtmlPath, "utf-8");
-    } catch (error) {
-      // Fallback: extract from page.tsx if it exists
-      try {
-        const pageContent = await fs.readFile(contentPath, "utf-8");
-        
-        // Extract HTML from known page patterns used in this codebase.
-        const patterns = [
-          /content=\{\s*`([\s\S]*?)`\s*\}/,                      // BlogContent content={`...`}
-          /content=\{\\?`([\s\S]*?)\\?`\}/,                      // Escaped template variant
-          /__html:\s*`([\s\S]*?)\\\\?`\s*,\s*\}\s*\}\s*\/>/,  // With comma
-          /__html:\s*`([\s\S]*?)\\\\?`\s*\}\s*\}\s*\/>/,     // Without comma
-        ];
-        
-        let found = false;
-        for (const pattern of patterns) {
-          const match = pageContent.match(pattern);
-          if (match && match[1]) {
-            content = match[1];
-            content = content
-              .replace(/\\n/g, "\n")
-              .replace(/\\`/g, "`")
-              .replace(/\\\$/g, "$")
-              .replace(/\\\\/g, "\\");
-            found = true;
-            break;
-          }
-        }
-        
-        // If no match, try finding between __html: ` and \`, before }} />
-        if (!found) {
-          const startPattern = /__html:\s*`/;
-          const endPattern = /\\\`,\s*\}\s*\}\s*\/>/;
-          const startMatch = pageContent.match(startPattern);
-          const endMatch = pageContent.match(endPattern);
-          
-          if (startMatch && endMatch && startMatch.index !== undefined && endMatch.index !== undefined) {
-            const startPos = startMatch.index + startMatch[0].length;
-            const endPos = endMatch.index;
-            content = pageContent.substring(startPos, endPos);
-            content = content.replace(/\\`/g, '`').replace(/\\\$/g, '$').replace(/\\\\/g, '\\');
-          }
-        }
-      } catch (pageError) {
-        // No page.tsx or content.html, content will be empty
-        content = "";
-      }
-    }
-
-    return {
-      ...metadata,
-      content,
-      slug,
-      source: "file",
-    };
-  } catch (error) {
-    console.error("❌ Error fetching blog from file system:", error);
-    return null;
-  }
+  const post = await getBlogBySlug(slug);
+  if (!post) return null;
+  return {
+    ...post.metadata,
+    content: post.content,
+    slug,
+    source: "db",
+  };
 }
 
-// Generate static params for all blog pages at build time
 export async function generateStaticParams(): Promise<PageParams[]> {
-  const blogs = await getFileBlogs();
-  
-  // Only generate static params for published blogs
-  // Note: getFileBlogs already filters out unpublished blogs, but we check again for safety
-  return blogs
-    .filter((blog) => (blog as DynamicBlog & { published?: boolean }).published !== false)
-    .map((blog) => ({
-      slug: blog.slug,
-    }));
+  const blogs = await getAllBlogs();
+  return blogs.map((blog) => ({
+    slug: blog.slug,
+  }));
 }
 
 // Enable ISR: regenerate pages every hour, but allow stale-while-revalidate

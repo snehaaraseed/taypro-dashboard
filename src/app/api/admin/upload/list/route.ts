@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { requireAuth } from "../../../../utils/auth";
 import { readdir, stat, readlink } from "fs/promises";
 import path from "path";
+import { getDeploymentRoot } from "../../../../utils/deploymentRoot";
 
 interface ImageFile {
   url: string;
@@ -18,7 +19,7 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const uploadsDir = path.join(process.cwd(), "public", "uploads");
+    const uploadsDir = path.join(getDeploymentRoot(), "public", "uploads");
     const images: ImageFile[] = [];
 
     // This function recursively scans directories including OldWebsiteImages
