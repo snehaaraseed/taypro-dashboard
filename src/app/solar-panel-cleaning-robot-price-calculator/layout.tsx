@@ -3,24 +3,25 @@ import type { Metadata } from "next";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
 export const metadata: Metadata = {
-  title: "Solar Panel Cleaning Robot ROI Calculator | Taypro – Estimate Your Savings",
+  title:
+    "Solar Panel Cleaning Robot Price & ROI Calculator | Taypro India",
   description:
-    "Calculate your potential savings with Taypro's Solar Panel Cleaning Robot ROI Calculator. Discover how our solar panel cleaning robots can boost efficiency up to 30%, reduce maintenance costs, and maximize your solar power output. Get an instant estimate!",
+    "Free solar panel cleaning robot price and ROI calculator for utility-scale and commercial PV plants. Estimate payback, annual savings, water avoided, investment, and CO₂ impact—then request a tailored Taypro quote.",
   keywords: [
-    "Solar Panel Cleaning Robot ROI calculator",
     "solar panel cleaning robot price calculator",
-    "solar cleaning robot ROI",
-    "solar panel cleaning robot cost calculator",
-    "calculate solar cleaning robot savings",
-    "solar panel cleaning robot investment ROI",
-    "automatic solar cleaning robot cost",
-    "solar panel cleaning efficiency calculator",
+    "solar panel cleaning robot ROI calculator",
+    "solar cleaning robot cost calculator India",
+    "automatic solar panel cleaning robot investment",
+    "solar panel cleaning robot payback period",
+    "utility scale solar cleaning robot price",
     "taypro ROI calculator",
+    "solar O&M robot savings calculator",
   ],
   openGraph: {
-    title: "Solar Panel Cleaning Robot ROI Calculator | Taypro – Estimate Your Savings",
+    title:
+      "Solar Panel Cleaning Robot Price & ROI Calculator | Taypro",
     description:
-      "Calculate potential savings with Taypro's Solar Panel Cleaning Robot ROI Calculator. Boost efficiency up to 30% and reduce costs.",
+      "Estimate robot investment, payback, labour savings, and generation gain for your solar plant. Free online tool by Taypro.",
     url: `${siteUrl}/solar-panel-cleaning-robot-price-calculator`,
     type: "website",
     images: [
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
         url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
         width: 1200,
         height: 630,
-        alt: "Taypro Solar Panel Cleaning Robot ROI Calculator",
+        alt: "Taypro solar panel cleaning robot ROI and price calculator",
       },
     ],
   },
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Solar Panel Cleaning Robot ROI Calculator | Taypro",
     description:
-      "Calculate potential savings with our Solar Panel Cleaning Robot. Boost efficiency up to 30%.",
+      "Estimate payback and savings for Taypro cleaning robots on your solar plant.",
     images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
   },
   alternates: {

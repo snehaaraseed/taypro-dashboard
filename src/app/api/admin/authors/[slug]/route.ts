@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { requireAuth } from "../../../../utils/auth";
 import { deleteAuthor } from "../../../../utils/blogAuthorsStore";
 
@@ -13,6 +14,7 @@ export async function DELETE(request: NextRequest, { params }: RouteParams) {
   try {
     const { slug } = await params;
     const authors = await deleteAuthor(slug);
+    revalidateSitemap();
     return NextResponse.json({ success: true, authors });
   } catch (error) {
     return NextResponse.json(

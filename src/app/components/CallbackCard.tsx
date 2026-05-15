@@ -81,7 +81,7 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
         paddingTop: "7.5rem",
       }}
     >
-      <h3 className="font-semibold text-[#052638] text-center text-5xl md:text-6xl mb-10">
+      <h3 className="font-semibold text-[#052638] text-center text-3xl sm:text-4xl md:text-5xl mb-10 [&_*]:text-[#052638]">
         {headerText}
       </h3>
 

@@ -52,7 +52,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
                 title="Solar Project"
                 className="text-white text-2xl sm:text-3xl mb-3 drop-shadow-md font-semibold hover:text-[#A8C117] transition-colors duration-300"
               >
-                <h4>{project.title}</h4>
+                <h3>{project.title}</h3>
               </Link>
 
               {project.details && project.details.length > 0 && (

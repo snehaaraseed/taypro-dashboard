@@ -22,7 +22,7 @@ import CallbackCard from "@/app/components/CallbackCard";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import ModelCards from "@/app/components/ModelCards";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
-import ROITayproCalculator from "@/app/components/ROICalculator";
+import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import FAQAccordion from "@/app/components/FAQAccordion";
 import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import {
@@ -379,22 +379,27 @@ export default function AutomaticSolarPanelCleaningRobot() {
           </Container>
         </section>
 
-        <section className="pt-24 pb-5 bg-white">
+        <section className="py-14 md:py-20 bg-[#f4f7f9]" aria-labelledby="model-a-roi-heading">
           <Container>
-          <AnimateOnScroll animation="fadeInUp" className="text-center">
-            <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
-              Automatic Solar Panel Cleaning Robot Cost <br /> & ROI Calculation
-            </h2>
-            <div className="text-gray-600 my-6 text-base sm:text-xl">
-              Calculate How Effective A{" "}
-              <span style={{ color: "#A8C117" }}>
-                Solar Panel Cleaning Robot
-              </span>{" "}
-              Can Be And How Much It Can Save.
-            </div>
-          </AnimateOnScroll>
+            <AnimateOnScroll animation="fadeInUp" className="text-center max-w-3xl mx-auto mb-8">
+              <h2
+                id="model-a-roi-heading"
+                className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
+              >
+                Automatic solar panel cleaning robot cost &amp; ROI
+              </h2>
+              <p className="text-[#27415c] text-lg leading-relaxed">
+                Calculate how effective a{" "}
+                <span className="text-[#5a8f00] font-medium">
+                  solar panel cleaning robot
+                </span>{" "}
+                can be and how much it can save your plant.
+              </p>
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fadeInUp" delay={100}>
+              <ROICalculatorEmbed />
+            </AnimateOnScroll>
           </Container>
-          <ROITayproCalculator />
         </section>
 
         <section className="pt-10 pb-1 bg-white">

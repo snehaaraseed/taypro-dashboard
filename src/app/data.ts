@@ -56,36 +56,42 @@ export const tayproTrustedByStatsStrip = [
 export const robots = [
   {
     model: "Model-A",
+    /** Customer-facing title for SEO hubs (generic keywords, not model names). */
+    marketingName: "Automatic solar panel cleaning robot",
     description:
-      "Autonomous Waterless Cleaning Robot with Dual pass cleaning method with AI and ML Capabilities.",
+      "Fully autonomous, waterless dry cleaning with dual-pass airflow and microfiber—AI scheduling for fixed and seasonal-tilt utility plants.",
     imgPath: "/tayprorobots/taypro-modelAcopy.png",
     href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
   },
   {
     model: "Model-B",
+    marketingName: "Semi-automatic solar panel cleaning robot",
     description:
-      "A pick-and-place type portable dry solar panel cleaning robot for scattered utility scale solar power plants.",
+      "Portable pick-and-place dry cleaning robot for scattered blocks and plants that need flexible crew-assisted coverage.",
     imgPath: "/tayprorobots/taypro-modelBcopy.png",
     href: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
   },
   {
     model: "Model-T",
+    marketingName: "Tracker solar panel cleaning robot",
     description:
-      "Autonomous patented cleaning robot with flexible body and 360° flexible rotational bridge for single-axis trackers.",
+      "Autonomous waterless robot for single-axis trackers—flexible bridge and 360° rotation across tracker brands.",
     imgPath: "/tayprorobots/taypro-modelTcopy.png",
     href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
   },
   {
     model: "Taypro Opex",
+    marketingName: "Robotic solar panel cleaning service",
     description:
-      "Operator-led robotic solar cleaning service for utility-scale plants — no capex required.",
+      "Pay-per-panel-cleaned Opex—Taypro operates the cleaning robot fleet on your plant with no upfront CAPEX.",
     imgPath: "/tayprorobots/taypro-opex.jpg",
     href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
   },
   {
     model: "Taypro Console",
+    marketingName: "Solar cleaning robot monitoring software",
     description:
-      "Cloud dashboard for monitoring, scheduling and controlling Taypro robots in the field.",
+      "Fleet portal to schedule, monitor, and report on solar panel cleaning robots across your site.",
     imgPath: "/tayproasset/taypro-console.png",
     href: "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
   },
@@ -131,47 +137,47 @@ export const clientLogos = [
 
 export const features = [
   {
-    title: "Maximise Plant Efficiency-",
+    title: "Maximise plant efficiency",
     description:
-      "Our intelligent solar cleaning robots enhance plant efficiency by enabling immaculate solar panel cleaning using intelligent AI and ML systems.",
+      "Waterless robotic cleaning reduces soiling losses on utility-scale plants—recovering generation that manual washing often cannot sustain at scale.",
   },
   {
-    title: "Maintain Consistent Performance Ratio-",
+    title: "Consistent performance ratio",
     description:
-      "Our solutions are made to ensure a high and consistent performance ratio of the plant for unstoppable power generation.",
+      "Scheduled dry cycles help keep performance ratio stable through dusty seasons, without water logistics or crew availability gaps.",
   },
   {
-    title: "High-Uptime Guarantee-",
+    title: "Highest uptime guarantee",
     description:
-      "Our solutions are made from advanced technology that assures the highest uptime guarantee.",
+      "Taypro targets industry-leading robot availability with pan-India spares, Console remote diagnostics, and structured AMC support.",
   },
   {
-    title: "Same-Day Breakdown Resolution-",
+    title: "Same-day breakdown resolution",
     description:
-      "Our dedicated technical team keeps the promise of same-day breakdown resolution — making us the only company in India to deliver this excellence.",
+      "Field engineers and regional inventory support same-day on-site response across India—backed by Taypro Console ticketing.",
   },
 ];
 
 export const otherFeatures = [
   {
-    title: "Patented Dual Pass Cleaning -",
+    title: "Patented dual-pass cleaning",
     description:
-      "Our robots employ a dual-pass cleaning method, first blowing away dry dust and then using a microfiber cloth for thorough cleaning.",
+      "Airflow lifts dry dust first, then microfiber completes the wipe—see our cleaning technology page for the full methodology.",
   },
   {
-    title: "RF-Based Mesh Communication -",
+    title: "RF mesh & fleet connectivity",
     description:
-      "Our innovative RF-based Mesh Communication with isolated cloud-based SCADA provides robust communication in all terrains.",
+      "LTE, Wi-Fi, hybrid RF mesh, LoRa, and LoRaWAN—sized per site so robots and Taypro Console stay connected in the field.",
   },
   {
-    title: "High-Uptime Guarantee-",
+    title: "AI/ML scheduling",
     description:
-      "Our solutions are made from advanced technology that assures the highest uptime guarantee.",
+      "Automatic cleaning robots adjust cycle cadence from weather and soiling inputs—fewer wasted runs, more predictable O&M.",
   },
   {
-    title: "Advanced Weather Sensing-",
+    title: "Made in India",
     description:
-      "Our robots intelligently schedule cleaning cycles based on weather conditions and consistently optimise efficiency.",
+      "Designed and manufactured at our Chakan, Pune hub with TÜV NORD certified hardware and patents on core cleaning systems.",
   },
 ];
 

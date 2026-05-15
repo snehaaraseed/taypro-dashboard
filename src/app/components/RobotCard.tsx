@@ -3,49 +3,146 @@ import Link from "next/link";
 
 type Robot = {
   model: string;
+  marketingName?: string;
   description: string;
   imgPath: string;
   href: string;
 };
 
-export function RobotCard({ robot, priority = false }: { robot: Robot; priority?: boolean }) {
-  const getAltText = (model: string) => {
-    if (model.toLowerCase().includes("model-a") || model.toLowerCase().includes("automatic")) {
-      return "Taypro Automatic Solar Panel Cleaning Robot - AI-enabled autonomous cleaning system for solar farms";
-    } else if (model.toLowerCase().includes("model-b") || model.toLowerCase().includes("semi")) {
-      return "Taypro Semi-Automatic Solar Panel Cleaning Robot - Cost-effective robotic cleaning solution";
-    } else if (model.toLowerCase().includes("model-t") || model.toLowerCase().includes("tracker")) {
-      return "Taypro Single-Axis Tracker Solar Panel Cleaning Robot - For tracking solar panel systems";
+type ImagePresentation = "robot-standard" | "robot-wide" | "photo" | "screenshot";
+
+function getImagePresentation(imgPath: string): ImagePresentation {
+  if (imgPath.includes("modelB") || imgPath.includes("modelT")) {
+    return "robot-wide";
+  }
+  if (imgPath.includes("opex")) {
+    return "photo";
+  }
+  if (imgPath.includes("console")) {
+    return "screenshot";
+  }
+  return "robot-standard";
+}
+
+const mediaStyles: Record<
+  ImagePresentation,
+  { bg: string; image: string; pad: string }
+> = {
+  "robot-standard": {
+    bg: "bg-[#0a2a38]",
+    pad: "p-5 sm:p-6",
+    image:
+      "object-contain object-center [transform:scale(1.04)] group-hover:[transform:scale(1.06)]",
+  },
+  "robot-wide": {
+    bg: "bg-[#0a2a38]",
+    pad: "p-4 sm:p-5",
+    image:
+      "object-contain object-center [transform:scale(1.14)] group-hover:[transform:scale(1.16)]",
+  },
+  photo: {
+    bg: "bg-[#0c3040]",
+    pad: "p-0",
+    image:
+      "object-cover object-center transition-transform duration-300 group-hover:scale-[1.03]",
+  },
+  screenshot: {
+    bg: "bg-[#e8eef4]",
+    pad: "p-4 sm:p-5",
+    image:
+      "object-contain object-center [transform:scale(1.06)] group-hover:[transform:scale(1.08)]",
+  },
+};
+
+export function RobotCard({
+  robot,
+  priority = false,
+  preferGenericTitle = false,
+  className = "",
+}: {
+  robot: Robot;
+  priority?: boolean;
+  preferGenericTitle?: boolean;
+  className?: string;
+}) {
+  const showGeneric =
+    preferGenericTitle && Boolean(robot.marketingName?.trim());
+  const cardTitle = showGeneric ? robot.marketingName! : robot.model;
+  const presentation = getImagePresentation(robot.imgPath);
+  const media = mediaStyles[presentation];
+
+  const getAltText = () => {
+    if (showGeneric && robot.marketingName) {
+      return `Taypro ${robot.marketingName}`;
     }
-    return `Taypro ${model} Solar Panel Cleaning Robot - Robotic cleaning system for solar panels`;
+    const model = robot.model;
+    if (
+      model.toLowerCase().includes("model-a") ||
+      model.toLowerCase().includes("automatic")
+    ) {
+      return "Taypro automatic solar panel cleaning robot for utility-scale solar farms";
+    }
+    if (
+      model.toLowerCase().includes("model-b") ||
+      model.toLowerCase().includes("semi")
+    ) {
+      return "Taypro semi-automatic solar panel cleaning robot";
+    }
+    if (
+      model.toLowerCase().includes("model-t") ||
+      model.toLowerCase().includes("tracker")
+    ) {
+      return "Taypro solar panel cleaning robot for single-axis trackers";
+    }
+    return `Taypro ${model} solar panel cleaning robot`;
   };
 
   return (
-    <div className="bg-gray-50 w-80 shadow hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
-      <div className="relative w-full h-48 overflow-hidden">
-        <Image
-          src={robot.imgPath}
-          alt={getAltText(robot.model)}
-          title={`${robot.model} - Solar Panel Cleaning Robot by Taypro`}
-          fill
-          className="object-cover transition-transform duration-300 hover:scale-110"
-          sizes="(max-width: 768px) 100vw, 320px"
-          priority={priority}
-          loading={priority ? "eager" : "lazy"}
-        />
+    <article
+      className={`group flex flex-col h-full w-full rounded-2xl border border-gray-200/90 bg-white shadow-sm overflow-hidden hover:border-[#A8C117]/80 hover:shadow-md transition-all duration-300 ${className}`.trim()}
+    >
+      {/* Fixed-height media frame — same footprint for every card */}
+      <div
+        className={`relative w-full h-[13.5rem] sm:h-[14.25rem] shrink-0 overflow-hidden ${media.bg}`}
+      >
+        <div className={`absolute inset-0 ${media.pad}`}>
+          <div className="relative w-full h-full">
+            <Image
+              src={robot.imgPath}
+              alt={getAltText()}
+              title={`${cardTitle} — Taypro`}
+              fill
+              className={`transition-transform duration-300 ${media.image}`}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px"
+              priority={priority}
+              loading={priority ? "eager" : "lazy"}
+            />
+          </div>
+        </div>
       </div>
 
-      <div className="p-6 bg-[#052638] h-72">
-        <h4 className="text-2xl font-semibold mb-2 text-white">
-          {robot.model}
-        </h4>
-        <p className="text-white/90">{robot.description}</p>
-        <Link href={robot.href} title={`Learn more about ${robot.model} Solar Panel Cleaning Robot`}>
-          <button className="mt-9 px-4 py-1 bg-white rounded-4xl hover:bg-[#39D600] transition-all duration-300 cursor-pointer transform hover:scale-105">
-            <span className="text-dark">Learn More</span>
-          </button>
+      <div className="flex flex-col flex-1 bg-[#052638] p-5">
+        <div className="min-h-[3.5rem] mb-2">
+          {showGeneric ? (
+            <p className="text-[#A8C117] text-[11px] font-semibold uppercase tracking-wider mb-1">
+              {robot.model}
+            </p>
+          ) : null}
+          <h3 className="text-[15px] sm:text-base font-semibold text-white leading-snug line-clamp-2">
+            {cardTitle}
+          </h3>
+        </div>
+        <p className="text-sm text-white/85 leading-relaxed line-clamp-3 min-h-[4.125rem] mb-4">
+          {robot.description}
+        </p>
+        <Link
+          href={robot.href}
+          title={`Learn more about ${cardTitle}`}
+          className="mt-auto inline-flex items-center justify-center min-h-[40px] w-full px-4 rounded-lg bg-[#A8C117] text-[#052638] text-sm font-semibold hover:bg-[#b3cf3d] transition text-center"
+        >
+          Learn more
         </Link>
       </div>
-    </div>
+    </article>
   );
 }

@@ -119,15 +119,6 @@ export default function Blog() {
                   Contact
                 </Link>
                 <ul className="mt-2 ml-6 space-y-2 list-circle list-inside text-base">
-                  <li>
-                    <Link
-                      href="/contact/thank-you"
-                      title="Thank You Page"
-                      className="text-[#7CB342] hover:text-[#689F38] transition-colors"
-                    >
-                      Thank You
-                    </Link>
-                  </li>
                 </ul>
               </li>
               <li>

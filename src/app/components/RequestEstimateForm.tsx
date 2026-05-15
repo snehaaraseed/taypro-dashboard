@@ -172,9 +172,9 @@ export default function RequestEstimateForm({
     <div
       role="status"
       aria-live="polite"
-      className="rounded-xl border border-[#A8C117]/40 bg-[#f7faea] p-6 sm:p-8 text-center"
+      className="rounded-xl border border-[#A8C117]/40 bg-[#f7faea] p-6 sm:p-8 text-center thank-you-panel-enter"
     >
-      <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#A8C117] text-[#052638]">
+      <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#A8C117] text-[#052638] thank-you-icon-pop">
         <CheckCircle2 className="h-6 w-6" aria-hidden />
       </div>
       <h3 className="text-[#052638] font-semibold text-xl sm:text-2xl mb-2">

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
+import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { generateUniqueTopic, generateBlogContent } from "@/lib/aiService";
 import { isBlogCreatedToday, addPublishedTopic } from "@/lib/topicTracker";
 import { createBlogFiles } from "@/app/utils/blogFileUtils";
@@ -102,6 +103,7 @@ export async function POST(request: NextRequest) {
     revalidatePath(`/blog/${result.slug}`);
     revalidatePath("/blog");
     revalidatePath("/admin/blogs");
+    revalidateSitemap();
 
     console.log(`Blog created successfully as draft: ${result.slug}`);
 

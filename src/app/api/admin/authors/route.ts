@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { requireAuth } from "../../../utils/auth";
 import { normalizeLinkedInUrl } from "../../../data/blogAuthors";
 import { getStoredAuthors, upsertAuthor } from "../../../utils/blogAuthorsStore";
@@ -53,6 +54,7 @@ export async function POST(request: NextRequest) {
       linkedInUrl,
       slug,
     });
+    revalidateSitemap();
     return NextResponse.json({ success: true, authors });
   } catch (error) {
     return NextResponse.json(

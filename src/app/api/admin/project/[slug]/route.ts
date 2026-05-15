@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
+import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { requireAuth } from "../../../../utils/auth";
 import {
   readProjectMetadata,
@@ -96,6 +97,7 @@ export async function PUT(
     }
     revalidatePath(`/projects/${updatedSlug}`);
     revalidatePath("/projects");
+    revalidateSitemap();
 
     return NextResponse.json({
       success: true,
@@ -132,6 +134,7 @@ export async function DELETE(
     // Revalidate the deleted project page and projects list page immediately
     revalidatePath(`/projects/${slug}`);
     revalidatePath("/projects");
+    revalidateSitemap();
 
     return NextResponse.json({
       success: true,

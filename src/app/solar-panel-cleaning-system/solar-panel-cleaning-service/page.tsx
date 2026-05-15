@@ -29,7 +29,7 @@ import FeaturesSection from "@/app/components/FeaturesSection";
 import CallbackCard from "@/app/components/CallbackCard";
 import ResourcesCard from "@/app/components/ResourcesCard";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
-import ROITayproCalculator from "@/app/components/ROICalculator";
+import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import FAQAccordion from "@/app/components/FAQAccordion";
 import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
@@ -633,18 +633,28 @@ export default function SolarPanelCleaningService() {
           </Container>
         </section>
 
-        <section className="w-full pt-24 pb-2 bg-white bg-center">
+        <section
+          className="py-14 md:py-20 bg-[#f4f7f9]"
+          aria-labelledby="opex-roi-heading"
+        >
           <Container size="narrow">
-            <h2 className="font-semibold text-3xl sm:text-4xl md:text-5xl text-[#052638] mb-6">
-              Calculate ROI &amp; savings on Taypro OPEX
-            </h2>
-            <p className="mb-10 text-start text-lg text-gray-600">
-              Model how much additional generation and avoided manual cost you
-              unlock when soiling is removed systematically instead of
-              episodically.
-            </p>
+            <AnimateOnScroll animation="fadeInUp" className="text-center mb-8">
+              <h2
+                id="opex-roi-heading"
+                className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
+              >
+                Calculate ROI &amp; savings on Taypro Opex
+              </h2>
+              <p className="text-[#27415c] text-lg leading-relaxed text-center">
+                Model how much additional generation and avoided manual cost you
+                unlock when soiling is removed systematically instead of
+                episodically.
+              </p>
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fadeInUp" delay={100}>
+              <ROICalculatorEmbed />
+            </AnimateOnScroll>
           </Container>
-          <ROITayproCalculator />
         </section>
 
         <section className="w-full py-24 bg-white bg-center">

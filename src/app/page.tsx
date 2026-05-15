@@ -6,7 +6,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 export const metadata: Metadata = {
   title: "Solar Panel Cleaning Robot | Taypro - Autonomous Waterless Solar Cleaning",
   description:
-    "Best Solar Panel Cleaning Robots for solar farms in India. Autonomous waterless cleaning increases efficiency up to 30% with AI-powered scheduling. Highest uptime guarantee.",
+    "Autonomous and semi-automatic waterless solar panel cleaning robots for utility-scale plants in India. Dual-pass dry cleaning, fleet monitoring, and pan-India service by Taypro.",
   keywords: [
     "Solar Panel Cleaning Robot",
     "solar panel cleaning robot",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Solar Panel Cleaning Robot | Taypro - Autonomous Waterless Solar Cleaning",
     description:
-      "Best Solar Panel Cleaning Robots for solar farms. Autonomous waterless cleaning increases efficiency up to 30% with AI-powered scheduling.",
+      "Autonomous waterless solar panel cleaning robots for utility-scale plants in India—dual-pass dry cleaning and Taypro Console fleet monitoring.",
     url: siteUrl,
     type: "website",
     images: [
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Solar Panel Cleaning Robot | Taypro",
     description:
-      "Autonomous, waterless Solar Panel Cleaning Robots for solar farms. Increase efficiency up to 30% with AI-powered robotic cleaning systems.",
+      "Autonomous and semi-automatic waterless solar panel cleaning robots for utility-scale solar farms in India.",
     images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
   },
   alternates: {

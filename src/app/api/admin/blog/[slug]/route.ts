@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
+import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { requireAuth } from "../../../../utils/auth";
 import {
   updateBlogFiles,
@@ -126,6 +127,7 @@ export async function PUT(
     }
     revalidatePath(`/blog/${result.slug}`);
     revalidatePath("/blog");
+    revalidateSitemap();
 
     return NextResponse.json({
       success: true,
@@ -171,6 +173,7 @@ export async function DELETE(
     // Revalidate the deleted blog page and blog list page immediately
     revalidatePath(`/blog/${slug}`);
     revalidatePath("/blog");
+    revalidateSitemap();
 
     return NextResponse.json({
       success: true,

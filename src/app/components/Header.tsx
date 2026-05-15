@@ -77,7 +77,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-4 bg-[#052638]">
+    <header className="sticky top-0 z-50 bg-[#052638]">
       <div className="p-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -97,7 +97,7 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8 relative">
+          <nav className="hidden md:flex space-x-8 relative z-50">
             {/* Home Link */}
             {navItems
               .filter((item) => item.name === "Home")
@@ -141,7 +141,7 @@ export default function Header() {
                 </svg>
               </div>
               {dropdownOpen && (
-                <div className="absolute left-0 w-[22rem] max-w-[calc(100vw-2rem)] bg-white rounded-md shadow-lg z-10 p-2">
+                <div className="absolute left-0 top-full pt-2 w-[22rem] max-w-[calc(100vw-2rem)] bg-white rounded-md shadow-xl ring-1 ring-black/5 z-50 p-2">
                   {solarMenu.map((item) => (
                     <Link
                       href={item.href}

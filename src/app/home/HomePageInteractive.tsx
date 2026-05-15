@@ -1,126 +1,164 @@
 "use client";
 
+import Link from "next/link";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import { ArrowRight, Check } from "lucide-react";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
-import YouTubeEmbed from "@/app/components/YouTubeEmbed";
+import { Container } from "@/app/components/Container";
+import FAQAccordion from "@/app/components/FAQAccordion";
 
-// Lazy load heavy components
-const ROITayproCalculator = dynamic(() => import("@/app/components/ROICalculator"), {
-  loading: () => <div className="min-h-[400px] flex items-center justify-center"><div className="animate-pulse text-gray-400">Loading calculator...</div></div>,
-  ssr: false, // ROI Calculator uses client-side libraries
-});
+import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 
-const RequestEstimateForm = dynamic(() => import("@/app/components/RequestEstimateForm"), {
-  loading: () => <div className="min-h-[300px] flex items-center justify-center"><div className="animate-pulse text-gray-400">Loading form...</div></div>,
-});
+const RequestEstimateForm = dynamic(
+  () => import("@/app/components/RequestEstimateForm"),
+  {
+    loading: () => (
+      <div className="min-h-[300px] flex items-center justify-center">
+        <div className="animate-pulse text-gray-400">Loading form…</div>
+      </div>
+    ),
+  }
+);
 
 const ClientsCard = dynamic(() => import("@/app/components/ClientsCard"), {
-  loading: () => <div className="min-h-[200px] flex items-center justify-center"><div className="animate-pulse text-gray-400">Loading clients...</div></div>,
+  loading: () => (
+    <div className="min-h-[200px] flex items-center justify-center bg-white">
+      <div className="animate-pulse text-gray-400">Loading clients…</div>
+    </div>
+  ),
 });
 
 interface HomePageInteractiveProps {
   features: Array<{ title: string; description: string }>;
   otherFeatures: Array<{ title: string; description: string }>;
+  homeFaqs: Array<{ question: string; answer: string }>;
 }
 
 export default function HomePageInteractive({
   features,
   otherFeatures,
+  homeFaqs,
 }: HomePageInteractiveProps) {
   return (
     <>
-      {/* Video Section with YouTube Embed */}
-      <section className="px-4 sm:px-8 lg:px-16 py-20 lg:py-40 bg-white relative">
-        <div className="max-w-7xl mx-auto">
-          <AnimateOnScroll animation="fadeInUp" className="text-center mb-12 lg:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold text-[#052638] mb-4 px-4">
-              How Our Solar Panel Cleaning Robot Drives Unstoppable Power Generation
+      {/* Why Taypro */}
+      <section
+        className="py-14 md:py-20 bg-white"
+        aria-labelledby="why-taypro-heading"
+      >
+        <Container>
+          <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mx-auto text-center mb-12">
+            <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
+              Why utility-scale operators choose Taypro
+            </p>
+            <h2
+              id="why-taypro-heading"
+              className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
+            >
+              Waterless robots built for Indian solar plants
             </h2>
+            <p className="text-[#27415c] text-lg leading-relaxed">
+              From fixed-tilt fields to single-axis trackers—recover generation,
+              cut water use, and replace labour-heavy washing with a fleet you can
+              monitor on{" "}
+              <Link
+                href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
+                className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
+              >
+                Taypro Console
+              </Link>
+              . See how{" "}
+              <Link
+                href="/cleaning-technology"
+                className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
+              >
+                dual-pass dry cleaning
+              </Link>{" "}
+              works in the field.
+            </p>
           </AnimateOnScroll>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <AnimateOnScroll animation="fadeInLeft" delay={100} className="order-2 lg:order-1">
-              <YouTubeEmbed
-                videoId="PiXJhQ_MYgk"
-                title="TAYPRO - Robotic Solar Panel Cleaning"
-                className="w-full max-w-lg lg:max-w-none mx-auto shadow-2xl rounded-lg"
-              />
-            </AnimateOnScroll>
-
-            <div className="space-y-6 lg:space-y-8 order-1 lg:order-2">
-              {features.map((feature, idx) => (
-                <AnimateOnScroll key={idx} animation="fadeInRight" delay={idx * 100} className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg
-                      className="text-[#39D600] w-5 h-5 lg:w-6 lg:h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      strokeWidth={2}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {features.map((feature, idx) => (
+              <AnimateOnScroll
+                key={feature.title}
+                animation="fadeInUp"
+                delay={idx * 80}
+              >
+                <article className="flex gap-4 rounded-xl border border-gray-200 bg-[#f8fafb] p-6 h-full">
+                  <Check
+                    className="w-6 h-6 text-[#5a8f00] shrink-0 mt-0.5"
+                    aria-hidden
+                  />
                   <div>
-                    <div className="text-lg sm:text-xl font-semibold text-[#052638] italic">
+                    <h3 className="text-[#052638] font-semibold text-lg mb-2">
                       {feature.title}
-                    </div>
-                    <span className="text-sm sm:text-base text-gray-600 leading-relaxed italic">
+                    </h3>
+                    <p className="text-[#27415c] text-sm leading-relaxed">
                       {feature.description}
-                    </span>
+                    </p>
                   </div>
-                </AnimateOnScroll>
-              ))}
-            </div>
+                </article>
+              </AnimateOnScroll>
+            ))}
           </div>
-        </div>
-
-        <div className="absolute top-0 left-0 w-32 h-32 lg:w-64 lg:h-64 bg-[#39D600]/5 rounded-full blur-3xl -translate-x-16 lg:-translate-x-32 -translate-y-16 lg:-translate-y-32"></div>
-        <div className="absolute bottom-0 right-0 w-48 h-48 lg:w-96 lg:h-96 bg-[#052638]/5 rounded-full blur-3xl translate-x-16 lg:translate-x-32 translate-y-16 lg:translate-y-32"></div>
+        </Container>
       </section>
 
-      {/* Advanced Technology Section */}
-      <section className="px-4 sm:px-8 lg:px-10 py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="space-y-6 lg:space-y-8 order-2 lg:order-1">
+      {/* Technology */}
+      <section
+        className="py-14 md:py-20 bg-[#052638]"
+        aria-labelledby="technology-heading"
+      >
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+            <div className="space-y-6">
               <AnimateOnScroll animation="fadeInUp">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white text-center lg:text-left lg:ml-25">
-                  Advanced Solar Panel Cleaning Robot Technology
+                <h2
+                  id="technology-heading"
+                  className="text-white font-semibold text-3xl md:text-4xl leading-tight"
+                >
+                  Advanced solar panel cleaning robot technology
                 </h2>
+                <p className="text-white/80 mt-4 text-lg leading-relaxed">
+                  Patented hardware and connectivity designed for dusty,
+                  utility-scale sites—documented across{" "}
+                  <Link href="/projects" className="text-[#A8C117] hover:underline">
+                    live deployments
+                  </Link>
+                  .
+                </p>
               </AnimateOnScroll>
               {otherFeatures.map((feature, idx) => (
-                <AnimateOnScroll key={idx} animation="fadeInLeft" delay={idx * 100} className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg
-                      className="text-[#39D600] w-5 h-5 lg:w-6 lg:h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      strokeWidth={2}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
+                <AnimateOnScroll
+                  key={feature.title}
+                  animation="fadeInLeft"
+                  delay={idx * 80}
+                  className="flex gap-4"
+                >
+                  <Check
+                    className="w-5 h-5 text-[#A8C117] shrink-0 mt-1"
+                    aria-hidden
+                  />
                   <div>
-                    <div className="text-lg sm:text-xl font-semibold text-white">
+                    <h3 className="text-lg font-semibold text-white mb-1">
                       {feature.title}
-                    </div>
-                    <span className="text-sm sm:text-base text-white/90 leading-relaxed">
+                    </h3>
+                    <p className="text-white/85 text-sm leading-relaxed">
                       {feature.description}
-                    </span>
+                    </p>
                   </div>
                 </AnimateOnScroll>
               ))}
             </div>
 
-            <AnimateOnScroll animation="fadeInRight" delay={100} className="order-1 lg:order-2 flex justify-center">
-              <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-full">
+            <AnimateOnScroll animation="fadeInRight" delay={100}>
+              <div className="relative w-full max-w-md mx-auto lg:max-w-none">
                 <Image
                   src="/tayproasset/robots.png"
-                  alt="Taypro Solar Panel Cleaning Robot Models - Automatic and Semi-Automatic robotic cleaning systems"
-                  title="Solar Panel Cleaning Robot Models by Taypro"
+                  alt="Taypro automatic, semi-automatic, and tracker solar panel cleaning robots"
+                  title="Taypro solar panel cleaning robot lineup"
                   width={600}
                   height={900}
                   className="w-full h-auto"
@@ -129,33 +167,102 @@ export default function HomePageInteractive({
               </div>
             </AnimateOnScroll>
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* ROI Calculator Section */}
-      <section className="py-12 lg:pt-40 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <AnimateOnScroll animation="fadeInUp" className="text-center">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold leading-tight mb-4">
-              Calculate How Much Can Our Solar Panel Cleaning Robot{" "}
-              <br className="hidden sm:block" />
-              <span className="sm:hidden"> </span>Save You?
+      {/* ROI teaser */}
+      <section
+        id="roi-calculator"
+        className="py-14 md:py-20 bg-[#f4f7f9]"
+        aria-labelledby="home-roi-heading"
+      >
+        <Container>
+          <AnimateOnScroll animation="fadeInUp" className="text-center max-w-3xl mx-auto mb-8">
+            <h2
+              id="home-roi-heading"
+              className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
+            >
+              Estimate robot payback for your plant
             </h2>
-            <h5 className="text-gray-700 my-4 lg:my-6 text-base sm:text-lg px-4">
-              Our Solar Panel Cleaning Robot not only increases the overall efficiency
-              of the solar power plant but also saves significant{" "}
-              <br className="hidden lg:block" />
-              <div className="lg:hidden"> </div>operational costs through automated cleaning.
-            </h5>
+            <p className="text-[#27415c] text-lg leading-relaxed">
+              Run a directional ROI on labour, water, and generation savings—or open
+              the full calculator for PDF export and detailed assumptions.
+            </p>
+            <Link
+              href="/solar-panel-cleaning-robot-price-calculator"
+              className="inline-flex items-center gap-2 mt-4 text-[#5a8f00] font-semibold hover:underline"
+            >
+              Open full ROI &amp; price calculator
+              <ArrowRight className="w-4 h-4" aria-hidden />
+            </Link>
           </AnimateOnScroll>
-        </div>
 
-        <ROITayproCalculator />
+          <AnimateOnScroll animation="fadeInUp" delay={100}>
+            <ROICalculatorEmbed />
+          </AnimateOnScroll>
+        </Container>
       </section>
 
       <ClientsCard />
-      <RequestEstimateForm />
+
+      {/* FAQ */}
+      <section
+        className="py-14 md:py-20 bg-white"
+        aria-labelledby="home-faq-heading"
+      >
+        <Container size="narrow">
+          <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
+            <h2
+              id="home-faq-heading"
+              className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3"
+            >
+              Frequently asked questions
+            </h2>
+            <p className="text-[#27415c] text-lg">
+              Quick answers about Taypro cleaning robots in India.
+            </p>
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fadeInUp" delay={80}>
+            <FAQAccordion faqs={homeFaqs} variant="modern" />
+          </AnimateOnScroll>
+        </Container>
+      </section>
+
+      <section
+        id="request-quote"
+        className="py-16 md:py-20 bg-[#f4f7f9] border-t border-gray-200/80"
+        aria-labelledby="home-quote-heading"
+      >
+        <Container size="narrow">
+          <AnimateOnScroll animation="fadeInUp" className="text-center mb-8 md:mb-10">
+            <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-2">
+              Get started
+            </p>
+            <h2
+              id="home-quote-heading"
+              className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3"
+            >
+              Request a solar panel cleaning robot quote
+            </h2>
+            <p className="text-[#27415c] text-lg leading-relaxed max-w-xl mx-auto">
+              Share plant capacity, layout, and procurement preference—our team will
+              recommend the right cleaning robot or Opex model for your site.
+            </p>
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fadeInUp" delay={80}>
+            <div className="rounded-2xl bg-white p-6 sm:p-8 shadow-md ring-1 ring-gray-200/80">
+              <RequestEstimateForm
+                variant="embedded"
+                stackedEmbedded
+                showEmbeddedHeading={false}
+                submitLabel="Send request"
+                messageLabel="Plant details & requirements"
+                messagePlaceholder="e.g. 100 MW fixed tilt in Rajasthan, evaluating robots vs manual O&M…"
+              />
+            </div>
+          </AnimateOnScroll>
+        </Container>
+      </section>
     </>
   );
 }
-

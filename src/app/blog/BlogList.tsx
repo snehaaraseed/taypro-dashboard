@@ -5,8 +5,9 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { AnimateOnScroll } from "../components/AnimateOnScroll";
 
-interface BlogItem {
+export interface BlogItem {
   title: string;
+  description?: string;
   imgSrc?: string | null;
   date: string;
   href: string;
@@ -32,63 +33,81 @@ export default function BlogList({ blogs }: BlogListProps) {
   return (
     <>
       {isPending && loadingSlug && (
-        <div className="fixed inset-0 bg-white bg-opacity-75 flex items-center justify-center z-50">
+        <div
+          className="fixed inset-0 bg-white/80 flex items-center justify-center z-50"
+          aria-live="polite"
+          aria-busy="true"
+        >
           <div className="flex space-x-2">
-            <span className="dot w-3 h-3 bg-gray-500 rounded-full animate-bounce"></span>
-            <span className="dot w-3 h-3 bg-gray-500 rounded-full animate-bounce delay-100"></span>
-            <span className="dot w-3 h-3 bg-gray-500 rounded-full animate-bounce delay-200"></span>
+            <span className="w-3 h-3 bg-[#052638] rounded-full animate-bounce" />
+            <span className="w-3 h-3 bg-[#052638] rounded-full animate-bounce [animation-delay:100ms]" />
+            <span className="w-3 h-3 bg-[#052638] rounded-full animate-bounce [animation-delay:200ms]" />
           </div>
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-        {blogs.map((blog, idx: number) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {blogs.map((blog, idx) => (
           <AnimateOnScroll
             key={blog.slug}
-            animation="scaleIn"
-            delay={Math.min(idx * 50, 300)}
+            animation="fadeInUp"
+            delay={Math.min(idx * 60, 300)}
           >
-            <div
+            <article
               onClick={() => handleClick(blog.href, blog.slug)}
-              className="cursor-pointer block border border-gray-300 p-4 overflow-hidden group relative"
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  handleClick(blog.href, blog.slug);
+                }
+              }}
+              role="link"
+              tabIndex={0}
+              className="group cursor-pointer flex flex-col h-full rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm hover:border-[#A8C117] hover:shadow-md transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] focus-visible:ring-offset-2"
             >
-              {isPending && loadingSlug === blog.slug && (
-                <div className="absolute inset-0 bg-white bg-opacity-60 flex items-center justify-center">
-                  <div className="animate-spin rounded-full h-8 w-8 border-4 border-blue-600 border-t-transparent"></div>
-                </div>
-              )}
-
-              <div className="relative w-full h-64 sm:h-72 md:h-80 overflow-hidden">
-                {blog.imgSrc ? (
-                  <Image
-                    src={blog.imgSrc}
-                    alt={`${blog.title} - Solar Panel Cleaning Robot blog article by Taypro`}
-                    title={`${blog.title} - Solar Panel Cleaning Robot Blog`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105 group-hover:translate-x-3"
-                    priority={idx < 3}
-                  />
-                ) : (
-                  // Fallback placeholder when no image is provided
-                  <div className="w-full h-full bg-gray-100 flex items-center justify-center">
-                    <span className="text-gray-400">No image</span>
+              <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#eef3f8]">
+                {isPending && loadingSlug === blog.slug && (
+                  <div className="absolute inset-0 z-10 bg-white/70 flex items-center justify-center">
+                    <div className="animate-spin rounded-full h-8 w-8 border-4 border-[#052638] border-t-transparent" />
                   </div>
                 )}
 
-                {/* Dark overlay gradient for better title visibility */}
-                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/60 via-black/40 to-transparent pointer-events-none"></div>
-
-                <div className="absolute bottom-4 left-4 text-white flex flex-col transition-all duration-300">
-                  <h4 className="text-sm font-semibold px-3 transition-transform duration-300 group-hover:-translate-y-3">
-                    {blog.title}
-                  </h4>
-                  <div className="text-xs bg-opacity-60 px-3 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300">
-                    {blog.date}
+                {blog.imgSrc ? (
+                  <Image
+                    src={blog.imgSrc}
+                    alt={`${blog.title} — Taypro solar panel cleaning blog`}
+                    title={blog.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    priority={idx < 3}
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center text-[#5c6f82] text-sm">
+                    Taypro blog
                   </div>
-                </div>
+                )}
+
+                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#052638]/90 via-[#052638]/50 to-transparent pointer-events-none" />
               </div>
-            </div>
+
+              <div className="flex flex-col flex-1 p-5">
+                <time className="text-xs font-medium text-[#5a8f00] uppercase tracking-wide mb-2">
+                  {blog.date}
+                </time>
+                <h2 className="text-[#052638] font-semibold text-lg leading-snug mb-2 group-hover:text-[#5a8f00] transition-colors line-clamp-3">
+                  {blog.title}
+                </h2>
+                {blog.description ? (
+                  <p className="text-[#27415c] text-sm leading-relaxed line-clamp-3 flex-1">
+                    {blog.description}
+                  </p>
+                ) : null}
+                <span className="mt-4 text-sm font-medium text-[#5a8f00] group-hover:underline">
+                  Read article →
+                </span>
+              </div>
+            </article>
           </AnimateOnScroll>
         ))}
       </div>

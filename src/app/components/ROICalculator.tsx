@@ -17,7 +17,22 @@ export interface ROIResults {
   annualCarbonSavings: number;
 }
 
-export default function ROITayproCalculator() {
+type ROICalculatorProps = {
+  /** Hide the internal card title when the host page provides its own heading */
+  hideTitle?: boolean;
+  className?: string;
+};
+
+const inputClassName =
+  "w-full p-2.5 bg-[#0f4a5c] text-white rounded-lg border border-white/10 focus:outline-none focus:ring-2 focus:ring-[#A8C117]/80 focus:border-transparent transition";
+
+const primaryButtonClassName =
+  "w-full mt-6 bg-[#A8C117] hover:bg-[#98B015] text-[#052638] font-semibold py-3 px-6 rounded-lg transition-colors duration-200 cursor-pointer";
+
+export default function ROITayproCalculator({
+  hideTitle = false,
+  className = "",
+}: ROICalculatorProps) {
   const doc = useRef<jsPDF | null>(null);
   if (!doc.current) {
     doc.current = new jsPDF({ unit: "pt", format: "a4" });
@@ -283,19 +298,21 @@ export default function ROITayproCalculator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 py-8 pb-20">
-      <div className="bg-[#052638] rounded-lg p-6 mb-8">
-        <div className="text-white text-2xl font-semibold mb-4">
-          ROI Calculator
-        </div>
+    <div className={`w-full ${className}`.trim()}>
+      <div className="bg-[#052638] rounded-xl p-6 sm:p-8 mb-6">
+        {!hideTitle && (
+          <h2 className="text-white text-2xl font-semibold mb-4">ROI Calculator</h2>
+        )}
         <div className="grid gap-6 sm:grid-cols-2">
           {/* A: Plant Type */}
           <div>
-            <label className="text-white mb-1 block">Plant Type</label>
+            <label className="text-white/90 text-sm font-medium mb-1.5 block">
+              Plant Type
+            </label>
             <select
               value={formData.plantType}
               onChange={(e) => handleInput("plantType", e.target.value)}
-              className="w-full p-2 bg-[#0a3a4a] text-white rounded"
+              className={inputClassName}
             >
               {plantTypeOptions.map((o) => (
                 <option key={o}>{o}</option>
@@ -312,7 +329,7 @@ export default function ROITayproCalculator() {
                 onChange={(e) =>
                   handleInput("installationType", e.target.value)
                 }
-                className="w-full p-2 bg-[#0a3a4a] text-white rounded"
+                className={inputClassName}
               >
                 {installationTypeOptions.map((o) => (
                   <option key={o}>{o}</option>
@@ -327,7 +344,7 @@ export default function ROITayproCalculator() {
             <select
               value={formData.automationLevel}
               onChange={(e) => handleInput("automationLevel", e.target.value)}
-              className="w-full p-2 bg-[#0a3a4a] text-white rounded"
+              className={inputClassName}
             >
               {automationLevelOptions.map((o) => (
                 <option key={o}>{o}</option>
@@ -355,7 +372,7 @@ export default function ROITayproCalculator() {
                 }
                 min={1}
                 max={10000}
-                className="w-full p-2 bg-[#0a3a4a] text-white rounded"
+                className={inputClassName}
               />
               <div className="text-gray-400 text-xs">Min:1 Max:10000</div>
             </div>
@@ -378,7 +395,7 @@ export default function ROITayproCalculator() {
                 }
                 min={100}
                 max={10000}
-                className="w-full p-2 bg-[#0a3a4a] text-white rounded"
+                className={inputClassName}
               />
               <div className="text-gray-400 text-xs">Min:100 Max:10000</div>
             </div>
@@ -401,7 +418,7 @@ export default function ROITayproCalculator() {
               }
               min={1}
               max={50}
-              className="w-full p-2 bg-[#0a3a4a] text-white rounded"
+              className={inputClassName}
             />
             <div className="text-gray-400 text-xs">Min:1 Max:50</div>
           </div>
@@ -422,35 +439,45 @@ export default function ROITayproCalculator() {
               }
               min={1}
               max={1000}
-              className="w-full p-2 bg-[#0a3a4a] text-white rounded"
+              className={inputClassName}
             />
             <div className="text-gray-400 text-xs">Min:1 Max:1000</div>
           </div>
         </div>
 
-        <button
-          onClick={calculateROI}
-          className="w-full mt-6 bg-[#A8C117] hover:bg-[#98B015] text-white font-semibold py-3 px-6 rounded transition-colors duration-200 cursor-pointer"
-        >
+        <button type="button" onClick={calculateROI} className={primaryButtonClassName}>
           Calculate ROI
         </button>
       </div>
 
-      {/* Results */}
       {showResults && (
-        <div className="bg-[#052638] rounded-lg p-6">
-          <div className="flex justify-between items-center mb-4">
-            <div className="text-white text-2xl font-semibold">
-              Return On Investment
-            </div>
+        <div className="bg-[#052638] rounded-xl p-6 sm:p-8">
+          <div className="flex justify-between items-center mb-6">
+            <h3 className="text-white text-2xl font-semibold">Your estimate</h3>
             <button
-              className="text-white text-2xl hover:text-[#A8C117]"
+              type="button"
+              className="text-white/80 text-sm hover:text-[#A8C117] transition"
               onClick={() => setShowResults(false)}
+              aria-label="Collapse results"
             >
-              ▲
+              Hide ▲
             </button>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-1 text-white">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+            <div className="rounded-lg bg-[#0f4a5c] border border-[#A8C117]/30 p-4">
+              <p className="text-white/70 text-sm mb-1">Payback timeline</p>
+              <p className="text-[#A8C117] text-2xl font-semibold">
+                {formatNumber(results.roiTimeline)} years
+              </p>
+            </div>
+            <div className="rounded-lg bg-[#0f4a5c] border border-[#A8C117]/30 p-4">
+              <p className="text-white/70 text-sm mb-1">Annual savings</p>
+              <p className="text-[#A8C117] text-2xl font-semibold">
+                {formatCurrency(results.totalMoneySavedAnnually)}
+              </p>
+            </div>
+          </div>
+          <div className="divide-y divide-white/10 text-white">
             <div className="flex justify-between py-2">
               <span>Annual Cost Of Labour Saved</span>
               <span className="font-semibold">
@@ -523,10 +550,11 @@ export default function ROITayproCalculator() {
           </div>
 
           <button
-            className="w-full mt-6 bg-[#A8C117] hover:bg-[#98B015] text-white font-semibold py-3 px-6 rounded transition-colors duration-200 cursor-pointer"
+            type="button"
+            className={primaryButtonClassName}
             onClick={handleDownloadPdf}
           >
-            Download Complete Report
+            Download complete report (PDF)
           </button>
         </div>
       )}

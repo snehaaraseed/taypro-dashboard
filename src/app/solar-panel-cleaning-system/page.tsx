@@ -15,6 +15,7 @@ import {
   Sparkles,
   Sun,
   Wrench,
+  ArrowRight,
 } from "lucide-react";
 
 import CallbackCard from "@/app/components/CallbackCard";
@@ -31,7 +32,7 @@ import {
 } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
-import ROITayproCalculator from "@/app/components/ROICalculator";
+import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
 import FAQAccordion from "@/app/components/FAQAccordion";
@@ -492,7 +493,11 @@ export default function SolarPanelCleaningRobot() {
                     className="w-full flex justify-center"
                   >
                     <div className="flex flex-col w-80 max-w-full">
-                      <RobotCard robot={robot} priority={idx === 0} />
+                      <RobotCard
+                        robot={robot}
+                        priority={idx === 0}
+                        preferGenericTitle
+                      />
                       {highlight && (
                         <div className="bg-white border border-gray-200 border-t-0 rounded-b-md px-5 pt-4 pb-5 -mt-1">
                           <div className="text-[#A8C117] text-xs font-semibold uppercase tracking-wide mb-2">
@@ -538,7 +543,7 @@ export default function SolarPanelCleaningRobot() {
                       className="w-full flex justify-center"
                     >
                       <div className="flex flex-col w-80 max-w-full">
-                        <RobotCard robot={robot} />
+                        <RobotCard robot={robot} preferGenericTitle />
                         {highlight && (
                           <div className="bg-white border border-gray-200 border-t-0 rounded-b-md px-5 pt-4 pb-5 -mt-1">
                             <div className="text-[#A8C117] text-xs font-semibold uppercase tracking-wide mb-2">
@@ -782,19 +787,38 @@ export default function SolarPanelCleaningRobot() {
         />
 
         {/* ROI CALCULATOR */}
-        <section className="py-12 lg:py-16 bg-white">
+        <section
+          className="py-14 md:py-20 bg-[#f4f7f9]"
+          aria-labelledby="hub-roi-heading"
+        >
           <Container>
-            <AnimateOnScroll animation="fadeInUp" className="text-center">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold leading-tight mb-4 text-[#052638]">
-                Calculate how much a Solar Panel Cleaning Robot can save your plant
+            <AnimateOnScroll
+              animation="fadeInUp"
+              className="text-center max-w-3xl mx-auto mb-8"
+            >
+              <h2
+                id="hub-roi-heading"
+                className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
+              >
+                Calculate how much a solar panel cleaning robot can save your
+                plant
               </h2>
-              <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
-                Plug in your plant size and tariff for an instant payback
-                estimate. Real proposals are tuned after a plant soiling study.
+              <p className="text-[#27415c] text-lg leading-relaxed">
+                Plug in your plant size and tariff for a directional payback
+                estimate—or open the full calculator for PDF export.
               </p>
+              <Link
+                href="/solar-panel-cleaning-robot-price-calculator"
+                className="inline-flex items-center gap-2 mt-4 text-[#5a8f00] font-semibold hover:underline"
+              >
+                Open full ROI &amp; price calculator
+                <ArrowRight className="w-4 h-4" aria-hidden />
+              </Link>
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fadeInUp" delay={100}>
+              <ROICalculatorEmbed />
             </AnimateOnScroll>
           </Container>
-          <ROITayproCalculator />
         </section>
 
         <CallbackCard headerText={""} />
@@ -802,7 +826,7 @@ export default function SolarPanelCleaningRobot() {
         <ClientsCard />
 
         {/* FEATURES */}
-        <section className="py-16 sm:py-24">
+        <section className="py-16 sm:py-24 bg-white">
           <Container>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div className="space-y-6 sm:space-y-8">
@@ -810,7 +834,7 @@ export default function SolarPanelCleaningRobot() {
                   <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-2">
                     Inside every Taypro robot
                   </div>
-                  <h2 className="text-2xl sm:text-4xl font-semibold text-white">
+                  <h2 className="text-2xl sm:text-4xl font-semibold text-[#052638]">
                     Features of Taypro&rsquo;s Solar Panel Cleaning Robots
                   </h2>
                 </AnimateOnScroll>
@@ -825,10 +849,10 @@ export default function SolarPanelCleaningRobot() {
                       <Check className="text-[#39D600]" strokeWidth={2} />
                     </div>
                     <div>
-                      <div className="text-lg sm:text-xl font-semibold text-white">
+                      <div className="text-lg sm:text-xl font-semibold text-[#052638]">
                         {feature.title}
                       </div>
-                      <span className="leading-relaxed text-white/90 text-sm sm:text-base">
+                      <span className="leading-relaxed text-[#27415c] text-sm sm:text-base">
                         {feature.description}
                       </span>
                     </div>

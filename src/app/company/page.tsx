@@ -1,12 +1,47 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { founders, items, metrics, tayproMarketingImpactStats } from "../data";
+import {
+  founders,
+  items,
+  metrics,
+  robots,
+  tayproMarketingImpactStats,
+  tayproTrustedByStatsStrip,
+} from "../data";
 import { Linkedin } from "lucide-react";
 import CallbackCard from "../components/CallbackCard";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { AnimateOnScroll } from "../components/AnimateOnScroll";
+import { Container } from "../components/Container";
 import { FAQPageSchema } from "../components/StructuredData";
+
+const partnerSteps = [
+  {
+    step: "01",
+    title: "Understand your plant",
+    description:
+      "Share layout (fixed tilt, rooftop, or trackers), DC capacity, soiling profile, and whether you prefer CAPEX ownership or Taypro Opex as a managed service.",
+  },
+  {
+    step: "02",
+    title: "Technical fit and ROI",
+    description:
+      "We map Model-A, Model-B, or Model-T plus Console monitoring to your blocks, align on cleaning frequency, and use ROI tools to quantify water and labour savings.",
+  },
+  {
+    step: "03",
+    title: "Deploy and commission",
+    description:
+      "Robots are manufactured in Chakan, Pune and shipped through our warehouse network. Commissioning crews install, train your O&M team, and connect fleets to Taypro Console.",
+  },
+  {
+    step: "04",
+    title: "Operate with continuity",
+    description:
+      "Nationwide spares, predictive maintenance workflows, and same-day breakdown response keep fleets productive. Case studies under Projects document outcomes at utility scale.",
+  },
+] as const;
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -53,6 +88,21 @@ export default function AboutUsPage() {
       answer:
         "Start with your plant layout (fixed tilt, rooftop, or trackers), capacity, and cleaning goals. Explore the solar panel cleaning system pages for technical specifications, case studies under Projects, or contact Taypro for a site-specific discussion, ROI inputs, and deployment planning.",
     },
+    {
+      question: "Which Taypro robot fits fixed-tilt vs single-axis tracker plants?",
+      answer:
+        "Model-A targets autonomous waterless cleaning on fixed and seasonal-tilt arrays. Model-B is portable for scattered blocks. Model-T is engineered for single-axis trackers with a flexible bridge. Many sites combine models by block—our team maps robots to each array during site assessment.",
+    },
+    {
+      question: "Can we buy robots (CAPEX) or use an operator-led service (Opex)?",
+      answer:
+        "Both. CAPEX customers purchase robots with Taypro commissioning and spare support. Taypro Opex delivers operator-led cleaning without upfront robot capital—useful when you want predictable O&M costs and Taypro accountability for uptime.",
+    },
+    {
+      question: "What role does Taypro Console play after installation?",
+      answer:
+        "Taypro Console is the cloud dashboard for scheduling cleaning cycles, monitoring robot health, reviewing connectivity, and auditing fleet performance across blocks—helping O&M leads document cleaning history for performance ratio discussions with asset owners.",
+    },
   ];
 
   return (
@@ -60,14 +110,27 @@ export default function AboutUsPage() {
       <FAQPageSchema faqs={companyFaqs} />
       <Breadcrumbs items={breadcrumbs} />
       <div className="min-h-screen overflow-x-hidden">
-        <section
-          className="bg-white min-h-[50vh] flex flex-col items-center justify-start relative"
-          style={{
-            background: "url('/tayprobglayout/taypro-project.png') no-repeat",
-            backgroundSize: "cover",
-          }}
-        >
-          <AnimateOnScroll animation="fadeInUp" className="pt-10 px-4 max-w-4xl mx-auto">
+        <section className="relative min-h-[50vh] flex flex-col items-center justify-start overflow-hidden">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url('/tayprobglayout/taypro-project.png')",
+            }}
+            aria-hidden
+          />
+          <div
+            className="absolute inset-0 bg-white/90 sm:bg-white/85"
+            aria-hidden
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/50 to-white/75"
+            aria-hidden
+          />
+
+          <AnimateOnScroll
+            animation="fadeInUp"
+            className="relative z-10 pt-10 px-4 max-w-4xl mx-auto pb-28"
+          >
             <p className="text-[#A8C117] text-center text-[16px] mb-4 uppercase tracking-wide">
               About Taypro
             </p>
@@ -93,7 +156,7 @@ export default function AboutUsPage() {
           </AnimateOnScroll>
 
           {/* Add curve SVG or image beneath the form */}
-          <div className="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
+          <div className="absolute bottom-0 left-0 right-0 z-20 overflow-hidden pointer-events-none">
             <svg
               className="w-full h-24 md:h-40"
               viewBox="0 0 1440 320"
@@ -104,6 +167,34 @@ export default function AboutUsPage() {
               <path fill="#052638" d="M0,224L1440,96L1440,320L0,320Z" />
             </svg>
           </div>
+        </section>
+
+        <section className="w-full py-14 md:py-16 bg-[#052638]">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
+              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-2">
+                At a glance
+              </p>
+              <h2 className="text-white font-semibold text-2xl md:text-3xl">
+                Manufacturing scale and field footprint
+              </h2>
+            </AnimateOnScroll>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10 text-center">
+              {[...tayproTrustedByStatsStrip].map((stat, idx) => (
+                <AnimateOnScroll
+                  key={stat.label}
+                  animation="fadeInUp"
+                  delay={idx * 80}
+                  className="px-2"
+                >
+                  <div className="text-[#A8C117] font-semibold text-3xl sm:text-4xl mb-2">
+                    {stat.value}
+                  </div>
+                  <div className="text-white/80 text-sm sm:text-base">{stat.label}</div>
+                </AnimateOnScroll>
+              ))}
+            </div>
+          </Container>
         </section>
 
         <section className="w-full py-16 bg-[#073448] flex justify-center">
@@ -256,6 +347,64 @@ export default function AboutUsPage() {
           </div>
         </section>
 
+        <section
+          className="w-full py-16 md:py-20 bg-[#f4f7f9] px-4 sm:px-6"
+          aria-labelledby="company-solutions-heading"
+        >
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mb-10">
+              <h2
+                id="company-solutions-heading"
+                className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
+              >
+                Robots, services, and fleet software
+              </h2>
+              <p className="text-[#27415c] text-lg leading-relaxed">
+                Taypro is a single vendor for hardware, operator-led cleaning, and cloud
+                monitoring. Explore each platform for specifications, or read{" "}
+                <Link
+                  href="/cleaning-technology"
+                  className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
+                >
+                  how our cleaning technology works
+                </Link>
+                .
+              </p>
+            </AnimateOnScroll>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {robots.map((robot, idx) => (
+                <AnimateOnScroll key={robot.model} animation="fadeInUp" delay={idx * 80}>
+                  <Link
+                    href={robot.href}
+                    className="group flex flex-col h-full rounded-lg border border-gray-200 bg-white overflow-hidden shadow-sm hover:border-[#A8C117] hover:shadow-md transition"
+                  >
+                    <div className="relative h-44 w-full bg-[#f0f4f6]">
+                      <Image
+                        src={robot.imgPath}
+                        alt={`${robot.model} - Taypro solar panel cleaning robot`}
+                        fill
+                        className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                    </div>
+                    <div className="p-5 flex flex-col flex-1">
+                      <h3 className="text-[#052638] font-semibold text-lg mb-2 group-hover:text-[#5a8f00] transition-colors">
+                        {robot.model}
+                      </h3>
+                      <p className="text-[#27415c] text-sm leading-relaxed flex-1">
+                        {robot.description}
+                      </p>
+                      <span className="mt-4 text-[#5a8f00] font-medium text-sm group-hover:underline">
+                        View {robot.model} →
+                      </span>
+                    </div>
+                  </Link>
+                </AnimateOnScroll>
+              ))}
+            </div>
+          </Container>
+        </section>
+
         <section className="w-full py-30 bg-white px-4 sm:px-6 lg:px-0 overflow-x-hidden">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Left: Image */}
@@ -350,6 +499,56 @@ export default function AboutUsPage() {
               </div>
             </AnimateOnScroll>
           </div>
+        </section>
+
+        <section
+          className="w-full py-16 md:py-20 bg-[#052638] px-4 sm:px-6"
+          aria-labelledby="partner-journey-heading"
+        >
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mx-auto text-center mb-12">
+              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-2">
+                How we engage
+              </p>
+              <h2
+                id="partner-journey-heading"
+                className="text-white font-semibold text-3xl md:text-4xl mb-4"
+              >
+                From first conversation to fleet operations
+              </h2>
+              <p className="text-white/85 text-lg leading-relaxed">
+                Developers, IPPs, and O&amp;M teams typically follow a structured path with Taypro—
+                whether you are evaluating a single block or a multi-hundred-megawatt portfolio.
+              </p>
+            </AnimateOnScroll>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+              {partnerSteps.map((step, idx) => (
+                <AnimateOnScroll key={step.step} animation="fadeInUp" delay={idx * 100}>
+                  <article className="rounded-lg border border-white/15 bg-white/5 p-6 md:p-8 h-full">
+                    <span className="text-[#A8C117] font-semibold text-2xl mb-3 block">
+                      {step.step}
+                    </span>
+                    <h3 className="text-white font-semibold text-xl mb-3">{step.title}</h3>
+                    <p className="text-white/80 leading-relaxed">{step.description}</p>
+                  </article>
+                </AnimateOnScroll>
+              ))}
+            </div>
+            <AnimateOnScroll animation="fadeInUp" delay={400} className="mt-10 flex flex-wrap justify-center gap-4">
+              <Link
+                href="/projects"
+                className="inline-flex items-center justify-center min-h-[48px] border border-white/60 text-white font-medium px-6 py-3 rounded-lg hover:bg-white/10 transition"
+              >
+                View projects
+              </Link>
+              <Link
+                href="/solar-panel-cleaning-robot-price-calculator"
+                className="inline-flex items-center justify-center min-h-[48px] bg-[#b2cb19] text-[#22405a] font-medium px-6 py-3 rounded-lg hover:bg-lime-500 transition"
+              >
+                ROI calculator
+              </Link>
+            </AnimateOnScroll>
+          </Container>
         </section>
 
         <section className="w-full py-16 md:py-24 bg-white px-4 sm:px-6 lg:px-0 overflow-x-hidden">
@@ -550,9 +749,9 @@ export default function AboutUsPage() {
                           className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-105"
                           priority
                         />
-                        <h4 className="absolute bottom-4 left-4 text-white text-sm font-semibold bg-opacity-30 px-3 py-1 transition-transform duration-300 transform translate-y-4 group-hover:translate-y-0">
+                        <h3 className="absolute bottom-4 left-4 text-white text-sm font-semibold bg-opacity-30 px-3 py-1 transition-transform duration-300 transform translate-y-4 group-hover:translate-y-0">
                           {r.title}
-                        </h4>
+                        </h3>
                       </div>
                       {/* Date overlay */}
                       <div className="absolute bottom-4 right-4 text-white text-xs bg-black bg-opacity-30 px-2 py-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -565,6 +764,36 @@ export default function AboutUsPage() {
               </div>
             </div>
           </div>
+        </section>
+
+        <section className="w-full py-12 bg-white px-4 sm:px-6 border-t border-gray-100">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="text-center max-w-3xl mx-auto">
+              <h2 className="text-[#052638] font-semibold text-2xl md:text-3xl mb-4">
+                Continue exploring Taypro
+              </h2>
+              <p className="text-[#27415c] text-lg leading-relaxed mb-8">
+                Dive into live deployments, technical deep-dives, and tools to model savings on
+                your plant.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                {[
+                  { label: "Installation projects", href: "/projects" },
+                  { label: "Cleaning technology", href: "/cleaning-technology" },
+                  { label: "All robot models", href: "/solar-panel-cleaning-system" },
+                  { label: "Contact sales", href: "/contact" },
+                ].map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="inline-flex items-center justify-center min-h-[44px] px-5 rounded-lg border border-[#052638] text-[#052638] font-medium hover:bg-[#052638] hover:text-white transition"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </AnimateOnScroll>
+          </Container>
         </section>
 
         <section
