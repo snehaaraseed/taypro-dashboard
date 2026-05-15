@@ -178,7 +178,7 @@ export default function SiteLeadSlideIn() {
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="taypro-lead-panel relative z-10 flex w-full max-w-[26rem] flex-col overflow-hidden rounded-2xl border border-white/10 shadow-[0_24px_80px_-12px_rgba(5,38,56,0.45)]"
+        className="taypro-lead-panel relative z-10 flex w-full max-w-[26rem] max-h-[calc(100dvh-7rem)] flex-col overflow-hidden rounded-2xl border border-white/10 shadow-[0_24px_80px_-12px_rgba(5,38,56,0.45)] sm:max-h-[min(92vh,calc(100dvh-3rem))]"
         onClick={(e) => e.stopPropagation()}
       >
         {stage === "teaser" ? (
@@ -221,7 +221,7 @@ export default function SiteLeadSlideIn() {
               </div>
             </div>
 
-            <div className="flex flex-col bg-gradient-to-b from-white to-[#f4f7f8] px-5 pb-5 pt-5 sm:px-6 sm:pb-6 sm:pt-6">
+            <div className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain bg-gradient-to-b from-white to-[#f4f7f8] px-5 pb-5 pt-5 sm:px-6 sm:pb-6 sm:pt-6">
               <p className="text-base leading-relaxed text-[#22405a] sm:text-lg">
                 You&apos;ve already shown you care about the details. Here&apos;s a{" "}
                 <span className="font-semibold text-[#052638]">no-pressure fit check</span>. We connect what
@@ -269,7 +269,7 @@ export default function SiteLeadSlideIn() {
             </div>
           </>
         ) : (
-          <div className="flex flex-col bg-white">
+          <div className="flex min-h-0 flex-1 flex-col overflow-hidden bg-white">
             <div className="shrink-0 border-b border-[#e8eef1] bg-gradient-to-r from-[#052638] to-[#0a3d52] px-5 py-4 sm:px-6 sm:py-5">
               <div className="flex items-start justify-between gap-2">
                 <button
@@ -301,7 +301,7 @@ export default function SiteLeadSlideIn() {
                 A few fields. Then our team can reply with model direction and questions worth answering on a call.
               </p>
             </div>
-            <div className="px-5 py-5 sm:px-6 sm:py-6">
+            <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-5 sm:px-6 sm:py-6">
               <RequestEstimateForm
                 variant="embedded"
                 showEmbeddedHeading={false}
