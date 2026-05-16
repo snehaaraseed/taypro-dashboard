@@ -7,7 +7,7 @@ export const PERFORMANCE_METHODOLOGY_TITLE =
 
 /** Default site description — aligned with homepage; no “Best” or unqualified efficiency %. */
 export const ROOT_DEFAULT_DESCRIPTION =
-  "Autonomous and semi-automatic waterless solar panel cleaning robots for utility-scale plants in India. Dual-pass dry cleaning helps recover generation lost to soiling (site-dependent), with AI scheduling and pan-India fleet support by Taypro.";
+  "Waterless solar panel cleaning robots for utility-scale plants in India. Dual-pass dry cleaning, fleet monitoring, nationwide Taypro support—auto & semi-auto.";
 
 export const ROOT_DEFAULT_OG_DESCRIPTION =
   "Autonomous waterless solar panel cleaning robots for utility-scale plants in India—dual-pass dry cleaning, Taypro Console fleet monitoring, and pan-India service.";

@@ -1,5 +1,3 @@
-import Script from "next/script";
-
 interface BreadcrumbItem {
   name: string;
   href: string;
@@ -113,7 +111,7 @@ export function OrganizationSchema({
   };
 
   return (
-    <Script
+    <script
       id="organization-schema"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -148,7 +146,7 @@ export function BreadcrumbListSchema({
   };
 
   return (
-    <Script
+    <script
       id="breadcrumb-schema"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -185,7 +183,7 @@ export function FAQPageSchema({ faqs }: { faqs: FAQItem[] | FAQItem[][] }) {
   };
 
   return (
-    <Script
+    <script
       id="faq-schema"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -233,7 +231,7 @@ export function ProductSchema({
   }
 
   return (
-    <Script
+    <script
       id="product-schema"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -287,7 +285,7 @@ export function ServiceSchema({
   }
 
   return (
-    <Script
+    <script
       id="service-schema"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -341,7 +339,7 @@ export function SoftwareApplicationSchema({
   }
 
   return (
-    <Script
+    <script
       id="software-application-schema"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -378,7 +376,7 @@ export function WebSiteSchema({
   }
 
   return (
-    <Script
+    <script
       id="website-schema"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -454,7 +452,7 @@ export function ArticleSchema({
   }
 
   return (
-    <Script
+    <script
       id={scriptId}
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -506,7 +504,7 @@ export function PlaceSchema({
   }
 
   return (
-    <Script
+    <script
       id={schemaId}
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -540,7 +538,7 @@ export function VideoObjectSchema({
   }
 
   return (
-    <Script
+    <script
       id="video-schema"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -621,7 +619,7 @@ export function LocalBusinessSchema({
   }
 
   return (
-    <Script
+    <script
       id="local-business-schema"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -668,7 +666,7 @@ export function HowToSchema({
   if (image) schema.image = image.startsWith("http") ? image : `${siteUrl}${image}`;
 
   return (
-    <Script
+    <script
       id="howto-schema"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -723,7 +721,7 @@ export function ItemListSchema({
   if (description) schema.description = description;
 
   return (
-    <Script
+    <script
       id={scriptId}
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -756,7 +754,7 @@ export function CollectionPageSchema({
   };
 
   return (
-    <Script
+    <script
       id="collection-page-schema"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -819,7 +817,7 @@ export function ProfilePageSchema({
   }
 
   return (
-    <Script
+    <script
       id="profile-page-schema"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}

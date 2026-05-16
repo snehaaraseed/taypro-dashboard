@@ -248,6 +248,13 @@ echo -e "${YELLOW}🔄 Step 5: Restarting application...${NC}"
 ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     cd /var/www/taypro-dashboard
 
+    # Next standalone runs with cwd=.next/standalone; it loads .env.production there only.
+    if [ -f ".env.production" ] && [ -d ".next/standalone" ]; then
+        cp -a .env.production .next/standalone/.env.production
+        chmod 600 .next/standalone/.env.production 2>/dev/null || true
+        echo "  ✅ Synced .env.production → .next/standalone/"
+    fi
+
     if [ -d "public" ] && [ -d ".next/standalone" ]; then
         mkdir -p .next/standalone/public
         rsync -a public/ .next/standalone/public/
