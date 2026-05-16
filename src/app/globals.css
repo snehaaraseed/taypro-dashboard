@@ -193,9 +193,8 @@ body {
   padding-left: 1rem;
 }
 
-/* All link styling - ensure they're always visible with underline and color */
-.prose a,
-article a {
+/* Rich-text links (.prose only) — avoid styling CTA links inside <article> cards */
+.prose a {
   text-decoration: underline !important;
   text-decoration-thickness: 2px !important;
   text-underline-offset: 3px !important;
@@ -204,8 +203,7 @@ article a {
   font-weight: 500 !important;
 }
 
-.prose a:hover,
-article a:hover {
+.prose a:hover {
   color: #1e40af !important;
   text-decoration-color: #1e40af !important;
 }

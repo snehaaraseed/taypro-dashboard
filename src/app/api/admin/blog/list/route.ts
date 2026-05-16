@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAuth } from "../../../../utils/auth";
-import { listAllBlogs } from "@/lib/cms/blogService";
+import {
+  getBlogTranslationAllSyncedBatch,
+  listAllBlogs,
+} from "@/lib/cms/blogService";
 
 export async function GET(request: NextRequest) {
   const authResponse = await requireAuth(request);
@@ -10,7 +13,18 @@ export async function GET(request: NextRequest) {
 
   try {
     const sortedBlogs = await listAllBlogs(true);
-    return NextResponse.json({ blogs: sortedBlogs });
+    const publishedSlugs = sortedBlogs
+      .filter((b) => b.published !== false)
+      .map((b) => b.slug);
+    const syncMap = await getBlogTranslationAllSyncedBatch(publishedSlugs);
+
+    const blogs = sortedBlogs.map((b) => ({
+      ...b,
+      translationsSynced:
+        b.published === false ? false : (syncMap[b.slug] ?? false),
+    }));
+
+    return NextResponse.json({ blogs });
   } catch (error) {
     console.error("Error in GET /api/admin/blog/list:", error);
     return NextResponse.json(

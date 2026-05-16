@@ -92,6 +92,8 @@ rsync -avz --checksum --delete \
     --exclude 'data/cms.sqlite-*' \
     --exclude 'public/uploads' \
     --exclude '.env.production' \
+    --exclude '.env.local' \
+    --exclude '.env*.local' \
     --exclude '.deploy-snapshots' \
     -e "ssh -i $SSH_KEY" \
     "$LOCAL_PATH/" \

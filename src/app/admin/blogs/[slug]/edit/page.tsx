@@ -4,6 +4,10 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useRouter, useParams } from "next/navigation";
+import {
+  summarizeTranslateBlogResults,
+  translateBlogAllLocales,
+} from "@/app/admin/utils/translate-blog";
 
 const BlogEditor = dynamic(() => import("../../../../components/BlogEditor"), {
   ssr: false,
@@ -34,6 +38,11 @@ interface BlogData {
   updatedAt?: string;
 }
 
+type TranslationSyncInfo = {
+  allSynced: boolean;
+  locales: { locale: string; synced: boolean }[];
+};
+
 export default function EditBlogPage() {
   const router = useRouter();
   const params = useParams();
@@ -61,6 +70,9 @@ export default function EditBlogPage() {
   const [loadingGallery, setLoadingGallery] = useState(false);
   const [selectedAuthor, setSelectedAuthor] = useState<string>("Taypro Team");
   const [authors, setAuthors] = useState<Array<{ name: string; slug: string; role: string }>>([]);
+  const [translationSync, setTranslationSync] = useState<TranslationSyncInfo | null>(
+    null
+  );
 
   useEffect(() => {
     if (slug) {
@@ -87,18 +99,60 @@ export default function EditBlogPage() {
     setSelectedAuthor(isPresetAuthor ? formData.author : "__custom__");
   }, [authors, formData.author]);
 
+  const [translateLoading, setTranslateLoading] = useState(false);
+
+  const handleTranslateLocales = async (force: boolean) => {
+    if (formData.published === false) {
+      setMessage(
+        "Publish the blog first. Translations are generated from the English published version."
+      );
+      return;
+    }
+    const slugForApi = slug;
+    const msg = force
+      ? "Re-translate all languages from current English (overwrites existing). Continue?"
+      : "Translate into hi, ar, ja, and bn from English? This uses Gemini and may take a minute.";
+    if (!confirm(msg)) return;
+
+    setTranslateLoading(true);
+    setMessage("");
+    try {
+      const data = await translateBlogAllLocales(slugForApi, { force });
+      const summary = summarizeTranslateBlogResults(data);
+      setMessage(
+        data.success
+          ? `✅ Translation successful.\n${summary}`
+          : `⚠️ Translation finished with errors.\n${summary}`
+      );
+      await fetchBlog();
+    } catch (e) {
+      setMessage(
+        `❌ ${e instanceof Error ? e.message : "Translation failed"}`
+      );
+    } finally {
+      setTranslateLoading(false);
+    }
+  };
+
   const fetchBlog = async () => {
     try {
       const response = await fetch(`/api/admin/blog/${slug}`);
       if (response.ok) {
-        const data = await response.json();
+        const json = (await response.json()) as BlogData & {
+          translationSync?: TranslationSyncInfo;
+        };
+        const { translationSync: sync, ...rest } = json;
+        setTranslationSync(
+          sync && typeof sync === "object" && "allSynced" in sync ? sync : null
+        );
         setFormData({
-          ...data,
-          slug: data.slug || slug,
-          publishDate: data.publishDate
-            ? new Date(data.publishDate).toISOString().split("T")[0]
+          ...rest,
+          slug: rest.slug || slug,
+          publishDate: rest.publishDate
+            ? new Date(rest.publishDate).toISOString().split("T")[0]
             : new Date().toISOString().split("T")[0],
-          published: data.published !== undefined ? data.published : true,
+          published:
+            rest.published !== undefined ? rest.published : true,
         });
       } else {
         if (response.status === 401) {
@@ -294,6 +348,9 @@ export default function EditBlogPage() {
         const nextSlug = data.slug as string | undefined;
         if (typeof data.updatedAt === "string") {
           setFormData((prev) => ({ ...prev, updatedAt: data.updatedAt }));
+        }
+        if (data.translationSync && typeof data.translationSync === "object") {
+          setTranslationSync(data.translationSync as TranslationSyncInfo);
         }
         setTimeout(() => {
           if (nextSlug && nextSlug !== slug) {
@@ -659,6 +716,71 @@ export default function EditBlogPage() {
                 })
               : "— (appears after the next save)"}
           </p>
+        </div>
+
+        <div className="rounded-md border border-sky-200 bg-sky-50 px-4 py-3 space-y-3">
+          <p className="text-sm font-medium text-[#052638]">
+            Translations (hi, ar, ja, bn)
+          </p>
+          {formData.published && translationSync?.allSynced ? (
+            <>
+              <p className="text-sm text-gray-600">
+                All languages are up to date with this English version. Saving
+                changes to a published post automatically queues translation
+                updates in the background.
+              </p>
+              <div className="rounded border border-green-200 bg-green-50/80 px-3 py-2 text-xs text-green-900">
+                Synced:{" "}
+                {translationSync.locales
+                  .filter((l) => l.synced)
+                  .map((l) => l.locale)
+                  .join(", ")}
+              </div>
+            </>
+          ) : (
+            <>
+              <p className="text-sm text-gray-600">
+                Uses the English version of this post and Gemini to fill or
+                update localized pages. Saving a published post also triggers
+                translation updates automatically.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  disabled={translateLoading || formData.published === false}
+                  onClick={() => handleTranslateLocales(false)}
+                  className="inline-flex items-center justify-center rounded-md bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  {translateLoading ? "Working…" : "Translate all languages"}
+                </button>
+                <button
+                  type="button"
+                  disabled={translateLoading || formData.published === false}
+                  onClick={() => handleTranslateLocales(true)}
+                  className="inline-flex items-center justify-center rounded-md border border-sky-600 bg-white px-4 py-2 text-sm font-medium text-sky-800 hover:bg-sky-100 disabled:cursor-not-allowed disabled:opacity-50"
+                  title="Ignore cache and regenerate every locale from English"
+                >
+                  Force re-translate all
+                </button>
+              </div>
+              {translationSync &&
+                !translationSync.allSynced &&
+                formData.published && (
+                  <p className="text-xs text-gray-600">
+                    Out of date:{" "}
+                    {translationSync.locales
+                      .filter((l) => !l.synced)
+                      .map((l) => l.locale)
+                      .join(", ")}
+                  </p>
+                )}
+            </>
+          )}
+          {formData.published === false && (
+            <p className="text-xs text-amber-800">
+              Publish this post first to enable translation.
+            </p>
+          )}
         </div>
 
         <div>

@@ -9,6 +9,7 @@ import {
   readBlogContent,
   createSlug,
 } from "../../../../utils/blogFileUtils";
+import { getBlogTranslationSyncInfo } from "@/lib/cms/blogService";
 
 interface RouteParams {
   params: Promise<{
@@ -39,9 +40,12 @@ export async function GET(
       );
     }
 
+    const translationSync = await getBlogTranslationSyncInfo(slug);
+
     return NextResponse.json({
       ...metadataResult.metadata,
       content: contentResult.content || "",
+      translationSync,
     });
   } catch (error) {
     console.error("Error in GET /api/admin/blog/[slug]:", error);
@@ -132,12 +136,15 @@ export async function PUT(
     revalidatePath("/blog");
     revalidateSitemap();
 
+    const translationSync = await getBlogTranslationSyncInfo(result.slug);
+
     return NextResponse.json({
       success: true,
       message: "Blog updated successfully",
       slug: result.slug,
       url: `/blog/${result.slug}`,
       updatedAt: result.updatedAt,
+      translationSync,
     });
   } catch (error) {
     console.error("Error in PUT /api/admin/blog/[slug]:", error);

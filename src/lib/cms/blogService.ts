@@ -1,12 +1,12 @@
 import "server-only";
 
-import { and, eq } from "drizzle-orm";
+import { and, eq, inArray } from "drizzle-orm";
 import { getDb } from "@/lib/db";
 import { blogs } from "@/lib/db/schema";
 import type { BlogData, BlogMetadata } from "@/app/utils/blogFileUtils";
 import type { TayproLocale } from "@/i18n/markets";
 import { isActiveLocale } from "@/i18n/markets";
-import { SOURCE_LOCALE } from "@/lib/translation/config";
+import { SOURCE_LOCALE, TARGET_LOCALES } from "@/lib/translation/config";
 import { scheduleBlogTranslations } from "@/lib/translation/translate-cms";
 
 export function createSlug(title: string): string {
@@ -295,6 +295,117 @@ export async function deleteBlog(
       error: error instanceof Error ? error.message : "Unknown error occurred",
     };
   }
+}
+
+export type BlogTranslationLocaleStatus = {
+  locale: TayproLocale;
+  synced: boolean;
+};
+
+export type BlogTranslationSyncInfo = {
+  allSynced: boolean;
+  locales: BlogTranslationLocaleStatus[];
+};
+
+/** Compare ISO timestamps (lexicographic works for UTC ISO strings). */
+function isTranslationRowSynced(
+  sourceUpdatedAt: string | null,
+  rowUpdatedAt: string | null | undefined
+): boolean {
+  return Boolean(
+    sourceUpdatedAt && rowUpdatedAt && rowUpdatedAt >= sourceUpdatedAt
+  );
+}
+
+/** Per-slug sync state for admin (English vs target locale rows). */
+export async function getBlogTranslationSyncInfo(
+  slug: string
+): Promise<BlogTranslationSyncInfo | null> {
+  const db = getDb();
+  const enRows = await db
+    .select()
+    .from(blogs)
+    .where(and(eq(blogs.slug, slug), eq(blogs.locale, SOURCE_LOCALE)))
+    .limit(1);
+  const source = enRows[0];
+  if (!source) return null;
+
+  if (!source.published) {
+    return {
+      allSynced: false,
+      locales: TARGET_LOCALES.map((locale) => ({ locale, synced: false })),
+    };
+  }
+
+  const srcAt = source.updatedAt;
+  const locales: BlogTranslationLocaleStatus[] = [];
+
+  for (const locale of TARGET_LOCALES) {
+    const rows = await db
+      .select({ updatedAt: blogs.updatedAt })
+      .from(blogs)
+      .where(and(eq(blogs.slug, slug), eq(blogs.locale, locale)))
+      .limit(1);
+    locales.push({
+      locale,
+      synced: isTranslationRowSynced(srcAt, rows[0]?.updatedAt),
+    });
+  }
+
+  return {
+    allSynced: locales.every((l) => l.synced),
+    locales,
+  };
+}
+
+/** Map slug → all target locales synced with published English (for blog list). */
+export async function getBlogTranslationAllSyncedBatch(
+  slugs: string[]
+): Promise<Record<string, boolean>> {
+  if (slugs.length === 0) return {};
+  const db = getDb();
+  const unique = [...new Set(slugs)];
+  const allowedLocales = [SOURCE_LOCALE, ...TARGET_LOCALES] as TayproLocale[];
+
+  const rows = await db
+    .select({
+      slug: blogs.slug,
+      locale: blogs.locale,
+      published: blogs.published,
+      updatedAt: blogs.updatedAt,
+    })
+    .from(blogs)
+    .where(
+      and(inArray(blogs.slug, unique), inArray(blogs.locale, allowedLocales))
+    );
+
+  const bySlug = new Map<string, typeof rows>();
+  for (const r of rows) {
+    const list = bySlug.get(r.slug) ?? [];
+    list.push(r);
+    bySlug.set(r.slug, list);
+  }
+
+  const out: Record<string, boolean> = {};
+  for (const slug of unique) {
+    const list = bySlug.get(slug) ?? [];
+    const source = list.find((r) => r.locale === SOURCE_LOCALE);
+    if (!source?.published || !source.updatedAt) {
+      out[slug] = false;
+      continue;
+    }
+    const srcAt = source.updatedAt;
+    let all = true;
+    for (const loc of TARGET_LOCALES) {
+      const t = list.find((r) => r.locale === loc);
+      if (!isTranslationRowSynced(srcAt, t?.updatedAt)) {
+        all = false;
+        break;
+      }
+    }
+    out[slug] = all;
+  }
+  return out;
 }
 
 export async function readBlogMetadata(

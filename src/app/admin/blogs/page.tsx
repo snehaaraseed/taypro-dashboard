@@ -3,6 +3,10 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import {
+  summarizeTranslateBlogResults,
+  translateBlogAllLocales,
+} from "@/app/admin/utils/translate-blog";
 
 interface Blog {
   title: string;
@@ -14,6 +18,8 @@ interface Blog {
   createdAt: string;
   updatedAt?: string;
   published?: boolean;
+  /** True when hi/ar/ja/bn rows match English updatedAt */
+  translationsSynced?: boolean;
 }
 
 export default function AdminBlogsPage() {
@@ -22,6 +28,7 @@ export default function AdminBlogsPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [deleteLoading, setDeleteLoading] = useState<string | null>(null);
+  const [translateLoading, setTranslateLoading] = useState<string | null>(null);
 
   useEffect(() => {
     fetchBlogs();
@@ -42,6 +49,30 @@ export default function AdminBlogsPage() {
       console.error("Error fetching blogs:", error);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleTranslate = async (slug: string, title: string) => {
+    if (
+      !confirm(
+        `Translate "${title}" into all site languages (hi, ar, ja, bn) from English? This uses the Gemini API and may take a minute.`
+      )
+    ) {
+      return;
+    }
+    setTranslateLoading(slug);
+    try {
+      const data = await translateBlogAllLocales(slug, { force: false });
+      alert(
+        data.success
+          ? `Translation finished.\n\n${summarizeTranslateBlogResults(data)}`
+          : `Some locales failed.\n\n${summarizeTranslateBlogResults(data)}`
+      );
+    } catch (e) {
+      alert(e instanceof Error ? e.message : "Translation failed");
+    } finally {
+      setTranslateLoading(null);
+      void fetchBlogs();
     }
   };
 
@@ -223,6 +254,33 @@ export default function AdminBlogsPage() {
                       >
                         Edit
                       </button>
+                      {blog.published !== false && !blog.translationsSynced ? (
+                        <button
+                          type="button"
+                          onClick={() => handleTranslate(blog.slug, blog.title)}
+                          disabled={translateLoading === blog.slug}
+                          className="text-sky-600 hover:text-sky-900 disabled:opacity-50 disabled:cursor-not-allowed"
+                          title="Generate hi, ar, ja, bn from English (Gemini)"
+                        >
+                          {translateLoading === blog.slug
+                            ? "Translating..."
+                            : "Translate"}
+                        </button>
+                      ) : blog.published !== false && blog.translationsSynced ? (
+                        <span
+                          className="text-gray-400 text-sm"
+                          title="All languages match English"
+                        >
+                          Translated
+                        </span>
+                      ) : (
+                        <span
+                          className="text-gray-400 text-sm"
+                          title="Publish the post first"
+                        >
+                          Translate
+                        </span>
+                      )}
                       <button
                         onClick={() => handleDelete(blog.slug, blog.title)}
                         disabled={deleteLoading === blog.slug}
