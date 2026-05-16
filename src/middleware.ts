@@ -53,7 +53,7 @@ function applySecurityAndCacheHeaders(
       "img-src 'self' data: blob: https:",
       "font-src 'self' data:",
       "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://console.taypro.in",
-      "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com",
+      "frame-src 'self' https://app.taypro.in https://www.youtube.com https://www.youtube-nocookie.com",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",

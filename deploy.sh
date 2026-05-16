@@ -70,6 +70,12 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
         rm -rf "$SNAPSHOT_ROOT/$OLD"
     done
 
+    # /tmp merge copies are only needed until Step 3 restore; old runs were never deleted.
+    ls -1dt /tmp/taypro-backup-* 2>/dev/null | tail -n +4 | while read -r OLD; do
+        echo "    Removing stale /tmp merge backup: $OLD"
+        rm -rf "$OLD"
+    done
+
     echo "$MERGE_DIR" > /tmp/taypro-backup-path.txt
     echo "  ✅ Snapshot complete"
 EOF
@@ -142,6 +148,12 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << EOF
     npm run cms:cleanup-legacy 2>&1 || true
 
     echo "  ✅ CMS data files restored"
+
+    # Merge backup is redundant with .deploy-snapshots; drop it to avoid filling /tmp.
+    if [ -d "$BACKUP_PATH" ]; then
+        rm -rf "$BACKUP_PATH"
+        echo "    ✅ Removed /tmp merge backup (snapshots remain under .deploy-snapshots)"
+    fi
 EOF
 
 echo -e "${GREEN}  ✅ Production CMS data restored${NC}"
