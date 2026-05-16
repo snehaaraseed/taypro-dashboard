@@ -48,7 +48,8 @@ export default function ClientsCard({
                 alt={alt}
                 title={title}
                 width={200}
-                height={85}
+                height={200}
+                sizes="(max-width: 640px) 50vw, 200px"
                 className="h-auto max-h-[120px] w-auto max-w-[80%] object-contain transition-transform duration-300 hover:scale-105"
                 loading="lazy"
               />

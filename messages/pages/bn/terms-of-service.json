@@ -61,6 +61,7 @@
     }
   },
   "Common": {
-    "breadcrumbHome": "হোম"
+    "breadcrumbHome": "হোম",
+    "emailLink": "আমাদের ইমেইল করুন"
   }
 }

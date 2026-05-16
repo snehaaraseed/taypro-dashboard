@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   BatteryCharging,
   Brain,
@@ -12,17 +11,19 @@ import {
   RotateCcw,
   ShieldCheck,
   Sun,
+  TrendingUp,
   Wrench,
+  Zap,
 } from "lucide-react";
 import { modelCards, tayproTrustedByStatsStrip } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import CallbackCard from "@/app/components/CallbackCard";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import ModelCards from "@/app/components/ModelCards";
+import HeroSection from "@/app/components/Herosection";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import FAQAccordion from "@/app/components/FAQAccordion";
-import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import { PerformanceMethodologyFootnote } from "@/app/components/PerformanceMethodologyLink";
 import { PerformanceMethodologyNotice } from "@/app/components/PerformanceMethodologyNotice";
 import {
@@ -83,6 +84,29 @@ const SPEC_ROW_KEYS = [
   "designLife",
   "weight",
 ] as const;
+
+const FEATURE_KEYS = [
+  "aiCleaning",
+  "microfiber",
+  "range",
+  "battery",
+  "weather",
+  "connectivity",
+  "edge",
+  "build",
+] as const;
+
+const ADVANTAGE_KEYS = [
+  "energy",
+  "waterless",
+  "autonomous",
+  "cost",
+  "safe",
+] as const;
+
+const ADVANTAGE_ICONS = [Zap, Droplet, Brain, TrendingUp, ShieldCheck] as const;
+
+const CYCLE_STEP_COUNT = 9;
 
 export default async function AutomaticSolarPanelCleaningRobot({
   params,
@@ -159,8 +183,27 @@ export default async function AutomaticSolarPanelCleaningRobot({
     </p>
   );
 
+  const modelAFeatures = FEATURE_KEYS.map((key, i) => ({
+    icon: USP_ICONS[i],
+    title: t(`featuresLongForm.${key}.title`),
+    body:
+      key === "connectivity"
+        ? `${t("featuresLongForm.connectivity.bodyBeforeStrong")}${connectivity}${t("featuresLongForm.connectivity.bodyAfterConnectivityStrong")}${t("featuresLongForm.connectivity.bodyBoldMesh")}${t("featuresLongForm.connectivity.bodyAfterMesh")}${t("featuresLongForm.connectivity.bodyBoldLoRa")}${t("featuresLongForm.connectivity.bodyAfterLoRa")}`
+        : t(`featuresLongForm.${key}.body`),
+  }));
+
+  const modelAAdvantages = ADVANTAGE_KEYS.map((key, i) => ({
+    icon: ADVANTAGE_ICONS[i],
+    title: t(`advantagesSection.${key}.title`),
+    body: t(`advantagesSection.${key}.body`),
+  }));
+
+  const cycleSteps = Array.from({ length: CYCLE_STEP_COUNT }, (_, i) =>
+    t(`cycleNarrative.steps.s${i}`).replace(/^⦿\s*/, ""),
+  );
+
   return (
-    <div className="min-h-screen">
+    <>
       <Breadcrumbs items={breadcrumbs} />
       <ProductSchema
         name={t("schema.product.name")}
@@ -183,53 +226,32 @@ export default async function AutomaticSolarPanelCleaningRobot({
         image={t("schema.howTo.imagePath")}
       />
 
-      <section className="bg-white">
-        <Container className="py-12 sm:py-16">
-          <div className="min-h-[600px] flex flex-col lg:flex-row relative overflow-hidden">
-            <AnimateOnScroll
-              animation="fadeInLeft"
-              className="bg-[#052638] w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-10 py-12 sm:py-16"
-            >
-              <h1 className="text-3xl sm:text-5xl md:text-6xl font-semibold text-white mb-6 leading-tight">
-                {t("hero.h1Line1")}
-                <br />
-                {t("hero.h1Line2")}
-              </h1>
-              <div className="text-base sm:text-xl text-white leading-relaxed max-w-xl mb-8 sm:mb-9">
-                {t("hero.leadBeforeStrong")}
-                <strong>{t("hero.leadStrong")}</strong>
-                {t("hero.leadAfterStrong")}
-                {connectivity}
-                {t("hero.leadAfterConnectivity")}
-              </div>
-              <OpenLeadModalButton
-                topic={t("hero.primaryCta.topic")}
-                title={t("hero.primaryCta.title")}
-                subtitle={t("hero.primaryCta.subtitle")}
-                className="bg-[#A8C117] inline-block w-full sm:w-auto sm:min-w-[240px] px-8 sm:px-12 py-4 sm:py-5 text-[#052638] font-medium text-base sm:text-xl text-center transition hover:bg-[#b3cf3d]"
-              >
-                {t("hero.primaryCta.label")}
-              </OpenLeadModalButton>
-            </AnimateOnScroll>
-            <AnimateOnScroll
-              animation="fadeInRight"
-              delay={100}
-              className="relative w-full lg:w-1/2 min-h-[240px] sm:min-h-[360px] mt-10 lg:mt-0"
-            >
-              <Image
-                alt={t("hero.heroImageAlt")}
-                src="/tayprosolarpanel/solar-panel.jpg"
-                title={t("hero.heroImageTitle")}
-                fill
-                className="object-contain"
-                priority
-              />
-            </AnimateOnScroll>
-          </div>
-        </Container>
-      </section>
+      <div className="min-h-screen overflow-x-hidden">
+        <HeroSection
+          title={
+            <>
+              {t("hero.h1Line1")}
+              <br />
+              {t("hero.h1Line2")}
+            </>
+          }
+          subtitle={
+            <>
+              {t("hero.leadBeforeStrong")}
+              <strong>{t("hero.leadStrong")}</strong>
+              {t("hero.leadAfterStrong")}
+              {connectivity}
+              {t("hero.leadAfterConnectivity")}
+            </>
+          }
+          imgSrc="/tayprosolarpanel/solar-panel.jpg"
+          imgAlt={t("hero.heroImageAlt")}
+          ctaHref="/contact"
+          ctaText={t("hero.primaryCta.label")}
+          ctaTopic={t("hero.primaryCta.topic")}
+        />
 
-      <section className="bg-white pt-12 sm:pt-20 pb-4">
+      <section className="bg-white pt-8 sm:pt-14 pb-4">
         <Container size="narrow">
           <AnimateOnScroll animation="fadeInUp">
             <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
@@ -278,7 +300,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
         </Container>
       </section>
 
-      <section className="bg-[#f4f1e9] py-16 sm:py-20">
+      <section className="w-full bg-white py-20">
         <Container size="narrow">
           <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
             <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
@@ -297,7 +319,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
               <AnimateOnScroll
                 key={step.name}
                 animation="fadeInUp"
-                className="flex gap-5 bg-white p-6 rounded-lg shadow-sm"
+                className="flex gap-5 bg-[#f4f1e9] p-6 rounded-xl"
               >
                 <div className="shrink-0 w-12 h-12 flex items-center justify-center bg-[#A8C117] text-white font-semibold text-lg rounded-full">
                   {idx + 1}
@@ -316,33 +338,33 @@ export default async function AutomaticSolarPanelCleaningRobot({
         </Container>
       </section>
 
-      <section className="bg-gradient-to-b from-white to-gray-50 py-20">
+      <section
+        className="w-full py-20 bg-white"
+        style={{
+          background: "url('/tayprobglayout/taypro-semi.png') repeat",
+          backgroundSize: "auto",
+        }}
+      >
         <Container>
-          <AnimateOnScroll animation="fadeInUp" className="text-center mb-8">
-            <div className="text-[#A8C117] text-xl sm:text-2xl font-medium mb-2">
+          <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
+            <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
               {t("product360.eyebrow")}
             </div>
-            <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-4">
+            <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-4 leading-tight">
               {t("product360.title")}
             </h2>
             <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
               {t("product360.subtitle")}
             </p>
           </AnimateOnScroll>
-          <AnimateOnScroll
-            animation="fadeInUp"
-            delay={100}
-            className="flex justify-center"
-          >
-            <div className="w-full max-w-4xl">
+          <AnimateOnScroll animation="fadeInUp" delay={100} className="flex justify-center">
+            <div className="w-full max-w-4xl rounded-2xl bg-white p-4 sm:p-6 shadow-lg ring-1 ring-black/5">
               <Product360Viewer
                 imagePath="/360-degree-images/Model-A/MODEL-A-"
                 imageCount={61}
                 imagePrefix=""
                 imageSuffix=".png"
                 startIndex={100}
-                width={800}
-                height={600}
                 className="mx-auto"
                 productLabel={t("product360.productLabel")}
               />
@@ -351,35 +373,31 @@ export default async function AutomaticSolarPanelCleaningRobot({
         </Container>
       </section>
 
-      <section className="bg-white py-20 sm:pt-32">
+      <section className="w-full py-20 bg-[#f4f1e9]">
         <Container>
-          <AnimateOnScroll
-            animation="fadeInUp"
-            className="text-center text-[#A8C117] text-2xl font-medium mb-2"
-          >
-            <div>{t("usps.eyebrow")}</div>
+          <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
+            <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
+              {t("usps.eyebrow")}
+            </div>
+            <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight">
+              {t("usps.title")}
+            </h2>
           </AnimateOnScroll>
-          <AnimateOnScroll
-            animation="fadeInUp"
-            delay={100}
-            className="text-center text-[#052638] font-semibold text-5xl sm:text-6xl mb-14"
-          >
-            <h2>{t("usps.title")}</h2>
-          </AnimateOnScroll>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-6 justify-items-center sm:justify-items-start">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {USP_ICONS.map((Icon, idx) => (
               <AnimateOnScroll
                 key={idx}
                 animation="fadeInUp"
-                delay={150 + idx * 50}
-                className="flex items-center gap-4 w-full max-w-xs sm:max-w-none"
+                delay={100 + idx * 40}
+                className="bg-white p-6 rounded-xl shadow-sm flex flex-col items-start h-full"
               >
-                <span className="flex items-center justify-center w-15 h-15 shrink-0 border-2 border-[#6ad10b] rounded-xl">
-                  <Icon size={40} className="text-[#052638]" />
-                </span>
-                <span className="text-[#052638] text-xl font-semibold">
+                <div className="w-12 h-12 flex items-center justify-center bg-[#A8C117]/10 rounded-lg mb-4">
+                  <Icon className="text-[#A8C117] w-7 h-7" />
+                </div>
+                <h3 className="text-[#052638] font-semibold text-lg leading-snug">
                   {t(`usps.items.item${idx}`)}
-                </span>
+                </h3>
               </AnimateOnScroll>
             ))}
           </div>
@@ -412,13 +430,10 @@ export default async function AutomaticSolarPanelCleaningRobot({
       <section className="pt-10 pb-1 bg-white">
         <Container>
           <AnimateOnScroll animation="fadeInUp" className="text-center">
-            <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
+            <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight max-w-4xl mx-auto">
               {t("projects.headingLine1")}
-              <br />
               {t("projects.headingLine2")}
-              <br />
               {t("projects.headingLine3")}
-              <br />
               {t("projects.headingLine4")}
             </h2>
             <div className="text-gray-600 my-6 text-base sm:text-xl italic">
@@ -511,90 +526,40 @@ export default async function AutomaticSolarPanelCleaningRobot({
         }
       />
 
-      <section className="pt-24 pb-5 bg-white">
+      <section className="w-full bg-white py-20">
         <Container>
-          <AnimateOnScroll animation="fadeInUp">
-            <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
+          <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
+            <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
+              {t("usps.eyebrow")}
+            </div>
+            <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight max-w-4xl mx-auto">
               {t("featuresLongForm.mainHeading")}
             </h2>
           </AnimateOnScroll>
 
-          <AnimateOnScroll animation="fadeInUp" delay={100}>
-            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
-              {t("featuresLongForm.aiCleaning.title")}
-            </h3>
-          </AnimateOnScroll>
-          <div className="text-gray-600 my-6 text-base sm:text-xl">
-            {t("featuresLongForm.aiCleaning.body")}
-          </div>
-
-          <AnimateOnScroll animation="fadeInUp" delay={150}>
-            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
-              {t("featuresLongForm.microfiber.title")}
-            </h3>
-          </AnimateOnScroll>
-          <div className="text-gray-600 my-6 text-base sm:text-xl">
-            {t("featuresLongForm.microfiber.body")}
-          </div>
-
-          <AnimateOnScroll animation="fadeInUp" delay={200}>
-            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
-              {t("featuresLongForm.range.title")}
-            </h3>
-          </AnimateOnScroll>
-          <div className="text-gray-600 my-6 text-base sm:text-xl">
-            {t("featuresLongForm.range.body")}
-          </div>
-
-          <AnimateOnScroll animation="fadeInUp" delay={250}>
-            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
-              {t("featuresLongForm.battery.title")}
-            </h3>
-          </AnimateOnScroll>
-          <div className="text-gray-600 my-6 text-base sm:text-xl">
-            {t("featuresLongForm.battery.body")}
-          </div>
-
-          <AnimateOnScroll animation="fadeInUp" delay={300}>
-            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
-              {t("featuresLongForm.weather.title")}
-            </h3>
-          </AnimateOnScroll>
-          <div className="text-gray-600 my-6 text-base sm:text-xl">
-            {t("featuresLongForm.weather.body")}
-          </div>
-
-          <AnimateOnScroll animation="fadeInUp" delay={350}>
-            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
-              {t("featuresLongForm.connectivity.title")}
-            </h3>
-          </AnimateOnScroll>
-          <div className="text-gray-600 my-6 text-base sm:text-xl">
-            {t("featuresLongForm.connectivity.bodyBeforeStrong")}
-            <strong>{connectivity}</strong>
-            {t("featuresLongForm.connectivity.bodyAfterConnectivityStrong")}
-            <strong>{t("featuresLongForm.connectivity.bodyBoldMesh")}</strong>
-            {t("featuresLongForm.connectivity.bodyAfterMesh")}
-            <strong>{t("featuresLongForm.connectivity.bodyBoldLoRa")}</strong>
-            {t("featuresLongForm.connectivity.bodyAfterLoRa")}
-          </div>
-
-          <AnimateOnScroll animation="fadeInUp" delay={400}>
-            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
-              {t("featuresLongForm.edge.title")}
-            </h3>
-          </AnimateOnScroll>
-          <div className="text-gray-600 my-6 text-base sm:text-xl">
-            {t("featuresLongForm.edge.body")}
-          </div>
-
-          <AnimateOnScroll animation="fadeInUp" delay={450}>
-            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
-              {t("featuresLongForm.build.title")}
-            </h3>
-          </AnimateOnScroll>
-          <div className="text-gray-600 my-6 text-base sm:text-xl">
-            {t("featuresLongForm.build.body")}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
+            {modelAFeatures.map((feature) => {
+              const Icon = feature.icon;
+              return (
+                <AnimateOnScroll
+                  key={feature.title}
+                  animation="fadeInUp"
+                  className="flex gap-5"
+                >
+                  <div className="shrink-0 w-12 h-12 flex items-center justify-center bg-[#A8C117]/10 rounded-lg">
+                    <Icon className="text-[#A8C117] w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-[#052638] font-semibold text-xl mb-2">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600 text-base leading-relaxed">
+                      {feature.body}
+                    </p>
+                  </div>
+                </AnimateOnScroll>
+              );
+            })}
           </div>
         </Container>
       </section>
@@ -650,8 +615,8 @@ export default async function AutomaticSolarPanelCleaningRobot({
             </p>
           </AnimateOnScroll>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border border-gray-200 text-sm sm:text-base">
+          <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
+            <table className="w-full text-left text-sm sm:text-base">
               <thead>
                 <tr className="bg-[#f4f1e9]">
                   <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#052638]">
@@ -730,28 +695,30 @@ export default async function AutomaticSolarPanelCleaningRobot({
             animation="fadeInUp"
             className="font-semibold text-[#052638] text-center text-3xl sm:text-5xl md:text-6xl mb-12 sm:mb-15"
           >
-            <h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl leading-tight max-w-3xl mx-auto">
               {t("specifications.titleLine1")}
-              <br />
               {t("specifications.titleLine2")}
             </h2>
           </AnimateOnScroll>
-          <div className="w-full bg-white shadow-md overflow-x-auto">
+          <div className="w-full overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
             <table className="w-full text-left border border-gray-300 text-sm sm:text-base">
               <thead>
-                <tr className="bg-gray-100">
-                  <th className="py-4 px-6 font-semibold text-base md:text-xl text-[#052638]">
+                <tr className="bg-[#052638] text-white">
+                  <th className="py-4 px-6 font-semibold text-base md:text-lg text-white">
                     {t("specifications.tableHeaders.spec")}
                   </th>
-                  <th className="py-4 px-6 font-semibold text-base md:text-xl text-[#052638]">
+                  <th className="py-4 px-6 font-semibold text-base md:text-lg text-white">
                     {t("specifications.tableHeaders.details")}
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {SPEC_ROW_KEYS.map((rowKey) => (
-                  <tr key={rowKey}>
-                    <td className="py-3 px-6 border-t text-base md:text-lg">
+                {SPEC_ROW_KEYS.map((rowKey, rowIdx) => (
+                  <tr
+                    key={rowKey}
+                    className={rowIdx % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                  >
+                    <td className="py-3 px-6 border-t text-base md:text-lg font-medium text-[#052638]">
                       {t(`specifications.rows.${rowKey}.spec`)}
                     </td>
                     <td className="py-3 px-6 border-t text-base md:text-lg">
@@ -767,94 +734,66 @@ export default async function AutomaticSolarPanelCleaningRobot({
         </Container>
       </section>
 
-      <section className="pt-24 pb-5 bg-white">
+      <section className="w-full py-20 bg-[#f4f1e9]">
         <Container>
-          <AnimateOnScroll animation="fadeInUp">
-            <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold">
+          <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
+            <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight max-w-3xl mx-auto">
               {t("advantagesSection.heading")}
             </h2>
           </AnimateOnScroll>
 
-          <AnimateOnScroll animation="fadeInUp" delay={100}>
-            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
-              {t("advantagesSection.energy.title")}
-            </h3>
-          </AnimateOnScroll>
-          <div className="text-gray-600 my-6 text-base sm:text-xl">
-            {t("advantagesSection.energy.body")}
-          </div>
-
-          <AnimateOnScroll animation="fadeInUp" delay={200}>
-            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
-              {t("advantagesSection.waterless.title")}
-            </h3>
-          </AnimateOnScroll>
-          <div className="text-gray-600 my-6 text-base sm:text-xl">
-            {t("advantagesSection.waterless.body")}
-          </div>
-
-          <AnimateOnScroll animation="fadeInUp" delay={300}>
-            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
-              {t("advantagesSection.autonomous.title")}
-            </h3>
-          </AnimateOnScroll>
-          <div className="text-gray-600 my-6 text-base sm:text-xl">
-            {t("advantagesSection.autonomous.body")}
-          </div>
-
-          <AnimateOnScroll animation="fadeInUp" delay={400}>
-            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
-              {t("advantagesSection.cost.title")}
-            </h3>
-          </AnimateOnScroll>
-          <div className="text-gray-600 my-6 text-base sm:text-xl">
-            {t("advantagesSection.cost.body")}
-          </div>
-
-          <AnimateOnScroll animation="fadeInUp" delay={500}>
-            <h3 className="mt-8 sm:mt-10 text-2xl sm:text-3xl lg:text-5xl font-semibold">
-              {t("advantagesSection.safe.title")}
-            </h3>
-          </AnimateOnScroll>
-          <div className="text-gray-600 my-6 text-base sm:text-xl">
-            {t("advantagesSection.safe.body")}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            {modelAAdvantages.map((item) => {
+              const Icon = item.icon;
+              return (
+                <AnimateOnScroll
+                  key={item.title}
+                  animation="fadeInUp"
+                  className="bg-white p-6 sm:p-8 rounded-xl shadow-sm h-full"
+                >
+                  <div className="w-12 h-12 flex items-center justify-center bg-[#A8C117]/10 rounded-lg mb-4">
+                    <Icon className="text-[#A8C117] w-6 h-6" />
+                  </div>
+                  <h3 className="text-[#052638] font-semibold text-xl mb-2">{item.title}</h3>
+                  <p className="text-gray-600 text-base leading-relaxed">{item.body}</p>
+                </AnimateOnScroll>
+              );
+            })}
           </div>
         </Container>
       </section>
 
-      <section className="w-full py-24 bg-[#052638]">
+      <section className="w-full py-20 sm:py-24 bg-[#052638]">
         <Container size="narrow">
-          <AnimateOnScroll
-            animation="fadeInUp"
-            className="text-white font-semibold text-3xl sm:text-5xl text-start mb-16"
-          >
-            <h2>{t("installSection.title")}</h2>
+          <AnimateOnScroll animation="fadeInUp" className="mb-10">
+            <div className="text-[#A8C117] text-base font-medium mb-3">
+              {t("servicePromise.eyebrow")}
+            </div>
+            <h2 className="text-white font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight">{t("installSection.title")}</h2>
           </AnimateOnScroll>
-          <p className="text-white/90 mb-7 text-start text-base sm:text-lg">
+          <div className="space-y-4">
+          <p className="text-white/90 text-base sm:text-lg bg-white/5 border border-white/10 rounded-xl p-5 sm:p-6">
             {t("installSection.p1")}
           </p>
-          <p className="text-white/90 mb-7 text-start text-base sm:text-lg">
+          <p className="text-white/90 text-base sm:text-lg bg-white/5 border border-white/10 rounded-xl p-5 sm:p-6">
             {t("installSection.p2")}
           </p>
-          <p className="text-white/90 mb-7 text-start text-base sm:text-lg">
+          <p className="text-white/90 text-base sm:text-lg bg-white/5 border border-white/10 rounded-xl p-5 sm:p-6">
             {t("installSection.p3")}
           </p>
-          <p className="text-white/90 text-start text-base sm:text-lg">
+          <p className="text-white/90 text-base sm:text-lg bg-white/5 border border-white/10 rounded-xl p-5 sm:p-6">
             {t("installSection.p4")}
           </p>
+          </div>
         </Container>
       </section>
 
-      <section className="w-full pt-24 pb-2 bg-white bg-center">
+      <section className="w-full py-16 bg-white">
         <Container size="narrow">
-          <AnimateOnScroll
-            animation="fadeInUp"
-            className="font-semibold text-3xl sm:text-5xl md:text-5xl text-start mb-16"
-          >
-            <h2>{t("roiSection.title")}</h2>
-          </AnimateOnScroll>
-          <p className="mb-7 text-start text-base sm:text-lg">{t("roiSection.p1")}</p>
-          <p className="mb-7 text-start text-base sm:text-lg">
+          <AnimateOnScroll animation="fadeInUp" className="bg-[#f4f1e9] rounded-2xl p-6 sm:p-10">
+            <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl mb-6">{t("roiSection.title")}</h2>
+            <p className="mb-5 text-base sm:text-lg text-gray-600 leading-relaxed">{t("roiSection.p1")}</p>
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
             {t("roiSection.p2BeforeLink")}
             <Link
               href="/solar-panel-cleaning-robot-price-calculator"
@@ -864,22 +803,32 @@ export default async function AutomaticSolarPanelCleaningRobot({
             </Link>
             {t("roiSection.p2AfterLink")}
           </p>
+          </AnimateOnScroll>
         </Container>
       </section>
 
-      <section className="w-full pt-24 pb-5 bg-white bg-center">
+      <section className="w-full py-20 bg-[#f4f1e9]">
         <Container size="narrow">
-          <AnimateOnScroll
-            animation="fadeInUp"
-            className="font-semibold text-3xl sm:text-5xl md:text-5xl text-start mb-16"
-          >
-            <h2>{t("cycleNarrative.title")}</h2>
+          <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
+            <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight">
+              {t("cycleNarrative.title")}
+            </h2>
           </AnimateOnScroll>
-          {[...Array(9)].map((_, i) => (
-            <p key={i} className="mb-7 text-start text-base sm:text-lg">
-              {t(`cycleNarrative.steps.s${i}`)}
-            </p>
-          ))}
+          <ol className="space-y-4">
+            {cycleSteps.map((step, idx) => (
+              <AnimateOnScroll
+                key={idx}
+                animation="fadeInUp"
+                delay={idx * 40}
+                className="flex gap-4 bg-white p-5 sm:p-6 rounded-xl shadow-sm"
+              >
+                <div className="shrink-0 w-10 h-10 flex items-center justify-center bg-[#A8C117] text-white font-semibold rounded-full">
+                  {idx + 1}
+                </div>
+                <p className="text-gray-600 text-base leading-relaxed pt-1.5">{step}</p>
+              </AnimateOnScroll>
+            ))}
+          </ol>
         </Container>
       </section>
 
@@ -898,6 +847,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
       <ModelCards title={t("modelCards.title")} cards={modelCards} />
 
       <RequestEstimateForm />
-    </div>
+      </div>
+    </>
   );
 }

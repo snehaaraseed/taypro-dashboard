@@ -111,7 +111,8 @@
       "bodyBefore": "New deployments receive structured onboarding, training, and the full customer user guide. Existing customers can request additional seats or sites through their Taypro account manager or",
       "bodyAfter": ".",
       "requestAccess": "Request Console access",
-      "emailService": "Email service@taypro.in",
+      "emailService": "Email support",
+      "emailServiceLink": "our support team",
       "leadTopic": "Taypro Console access",
       "leadTitle": "Request Console access",
       "leadSubtitle": "Tell us about your fleet and our team will get you set up with Taypro Console."
@@ -122,7 +123,7 @@
       "q0": "What is Taypro Console?",
       "a0": "Taypro Console is the secure web portal Taypro customers use to monitor and manage their Solar Panel Cleaning Robot fleets across one or many solar sites. It brings together live operational data, schedules, historical cleaning records, performance analytics, and support workflows — so plant and O&M teams can run robotic cleaning with the same rigour they expect from any critical plant system.",
       "q1": "How do we get access to Taypro Console?",
-      "a1": "Taypro provisions each client organisation with private access to the production portal. Your account team shares the login link, credentials, and onboarding pack outside this public site. For new deployments, start from our contact form; existing customers can request additional seats, sites, or password help via service@taypro.in.",
+      "a1": "Taypro provisions each client organisation with private access to the production portal. Your account team shares the login link, credentials, and onboarding pack outside this public site. For new deployments, start from our contact form; existing customers can request additional seats, sites, or password help through their Taypro account manager or our support team.",
       "q2": "Which Taypro robots work with Taypro Console?",
       "a2": "Taypro Console is the common fleet layer for Taypro autonomous and semi-automatic cleaning robots, including Model-A (fixed / seasonal tilt), Model-B (pick-and-place), and Model-T (single-axis trackers). The exact screens and commands available depend on your site layout, connectivity, and service package.",
       "q3": "Can we schedule cleaning from the portal?",

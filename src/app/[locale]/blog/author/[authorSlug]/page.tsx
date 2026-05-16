@@ -189,9 +189,12 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
 
       <section className="w-full bg-[#052638] border-b border-[#0c3c57]">
         <div className="max-w-6xl mx-auto px-6 py-12">
-          <img
+          <Image
             src={authorAvatar}
             alt={authorName}
+            width={80}
+            height={80}
+            sizes="80px"
             className="w-20 h-20 rounded-full border border-slate-500 object-cover mb-4"
           />
           <p className="text-sm text-[#A8C117] font-medium mb-2">

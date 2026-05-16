@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
@@ -292,9 +293,12 @@ export default async function BlogPost({ params }: BlogPostProps) {
                 {blog.title}
               </h1>
               <div className="flex flex-wrap items-center gap-3 text-sm text-slate-200 mb-5">
-                <img
+                <Image
                   src={authorAvatarUrl}
                   alt={blog.author}
+                  width={36}
+                  height={36}
+                  sizes="36px"
                   className="w-9 h-9 rounded-full border border-slate-500 object-cover"
                 />
                 <span className="font-medium text-white">

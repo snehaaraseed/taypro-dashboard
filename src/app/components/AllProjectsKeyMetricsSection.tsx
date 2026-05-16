@@ -35,6 +35,7 @@ export default function ProjectKeyMetricsSection({
                 title={`${title} Solar Project Metrics with Solar Panel Cleaning Robot`}
                 fill
                 className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
           </div>

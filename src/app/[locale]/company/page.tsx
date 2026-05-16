@@ -459,7 +459,7 @@ export default function AboutUsPage() {
                   alt={t("builtForSites.aboutImageAlt")}
                   title={t("builtForSites.aboutImageTitle")}
                   fill
-                  sizes="sm"
+                  sizes="(max-width: 768px) 100vw, 520px"
                   className="object-cover"
                   priority
                 />
@@ -544,7 +544,7 @@ export default function AboutUsPage() {
                   alt={t("collaboration.about2ImageAlt")}
                   title={t("collaboration.about2ImageTitle")}
                   fill
-                  sizes="sm"
+                  sizes="(max-width: 768px) 100vw, 520px"
                   className="object-cover"
                   priority
                 />
@@ -857,7 +857,7 @@ export default function AboutUsPage() {
                                 title,
                               })}
                               fill
-                              sizes="sm"
+                              sizes="(max-width: 768px) 100vw, 33vw"
                               className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-105"
                               priority
                             />

@@ -29,6 +29,7 @@
   },
   "Footer": {
     "mail": "メール",
+    "emailLink": "メールする",
     "phone": "電話",
     "aboutUs": "会社概要",
     "projects": "プロジェクト",
@@ -47,5 +48,33 @@
     "title": "記事本文は英語です",
     "body": "ブログのナビゲーションとページUIはご利用の言語です。記事全文とプロジェクト事例の本文は英語のままです。",
     "dismiss": "閉じる"
+  },
+  "NotFoundPage": {
+    "meta": {
+      "title": "ページが見つかりません | Taypro",
+      "description": "このページは利用できません。Taypro.inは稼働中です。ソーラーパネル清掃ロボット、プロジェクト、ブログ、お問い合わせをご覧ください。"
+    },
+    "breadcrumbHome": "ホーム",
+    "breadcrumbNotFound": "ページが見つかりません",
+    "eyebrow": "404 — ページが見つかりません",
+    "title": "このページは利用できません",
+    "description": "リンクが古い、誤入力、またはページが移動した可能性があります。",
+    "reassurance": "このURLだけが見つかりません — Taypro.inは正常です。下のリンクをご利用いただくか、ここに何を期待していたかお知らせください。",
+    "linksHeading": "便利なリンク",
+    "linkHome": "ホームに戻る",
+    "linkContact": "お問い合わせ",
+    "linkSitemap": "サイトマップ",
+    "linkProjects": "プロジェクト",
+    "linkBlog": "ブログ",
+    "linkCalculator": "ROI計算機",
+    "reportLabel": "リンク切れを報告",
+    "reportHint": "開こうとしたURLとリンクの場所をメールでお知らせください。",
+    "reportSubject": "Tayproサイトのリンク切れ",
+    "reportBody": "taypro.inで次のURLを開こうとしました:\n\n\nこのリンクは次の場所で見つけました（ページ/メール/資料）:\n\n",
+    "reportEmailLink": "サポートにメール",
+    "ctaQuote": "見積もりを依頼",
+    "ctaQuoteTopic": "404ページ — 見積依頼",
+    "ctaQuoteTitle": "ソーラー清掃ロボットの見積もり",
+    "ctaQuoteSubtitle": "プラントの詳細を共有いただければ、最適なTayproソリューションをご提案します。"
   }
 }

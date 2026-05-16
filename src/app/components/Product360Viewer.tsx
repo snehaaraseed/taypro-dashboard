@@ -26,8 +26,8 @@ export default function Product360Viewer({
   imagePrefix = "",
   imageSuffix = ".png",
   startIndex = 100,
-  width = 800,
-  height = 600,
+  width = 1920,
+  height = 1080,
   className = "",
   productLabel = "Taypro Solar Panel Cleaning Robot",
 }: Product360ViewerProps) {
@@ -352,7 +352,9 @@ export default function Product360Viewer({
         <img
           src={getImageUrl(currentFrame)}
           alt={`${productLabel} — 360° view (frame ${currentFrame + 1} of ${imageCount})`}
-          className="w-full h-full object-contain transition-opacity duration-100"
+          width={width}
+          height={height}
+          className="w-full h-auto max-w-full object-contain transition-opacity duration-100"
           draggable={false}
           style={{ display: "block" }}
           key={currentFrame} // Force re-render for smooth transitions

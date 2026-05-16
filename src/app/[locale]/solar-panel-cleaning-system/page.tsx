@@ -769,8 +769,8 @@ export default async function SolarPanelCleaningRobot({
                   src="/tayproasset/taypro-robotFeature.jpg"
                   alt={t("featuresSection.imageAlt")}
                   title={t("featuresSection.imageTitle")}
-                  width={400}
-                  height={600}
+                  width={800}
+                  height={1067}
                   className="w-full h-auto rounded-lg"
                 />
               </AnimateOnScroll>
@@ -798,8 +798,8 @@ export default async function SolarPanelCleaningRobot({
                   src="/tayprosolarpanel/taypro-solar-panel.jpg"
                   alt={t("advantagesSection.imageAlt")}
                   title={t("advantagesSection.imageTitle")}
-                  width={400}
-                  height={400}
+                  width={800}
+                  height={1063}
                   className="w-full h-auto rounded-lg"
                 />
               </AnimateOnScroll>

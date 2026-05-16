@@ -24,6 +24,7 @@ import ClientsCard from "@/app/components/ClientsCard";
 import EnergyResourceCard from "@/app/components/EnergyResourceCard";
 import HeroSection from "@/app/components/Herosection";
 import FAQAccordion from "@/app/components/FAQAccordion";
+import { ContactEmailLink } from "@/app/components/ContactEmailLink";
 import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import {
@@ -354,7 +355,7 @@ export default async function TayproConsolePage({
                     title="Taypro Console"
                     fill
                     className="object-cover"
-                    sizes="100vw"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </div>
                 <div className="bg-[#7da300] p-6 mt-4 rounded-lg">
@@ -402,12 +403,12 @@ export default async function TayproConsolePage({
                   </h2>
                   <div className="text-white/80 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
                     {t("cta.bodyBefore")}{" "}
-                    <a
-                      href="mailto:service@taypro.in"
+                    <ContactEmailLink
+                      mailbox="service"
                       className="text-[#A8C117] hover:underline font-medium"
                     >
-                      service@taypro.in
-                    </a>
+                      {t("cta.emailServiceLink")}
+                    </ContactEmailLink>
                     {t("cta.bodyAfter")}
                   </div>
                 </div>
@@ -420,12 +421,13 @@ export default async function TayproConsolePage({
                   >
                     {t("cta.requestAccess")}
                   </OpenLeadModalButton>
-                  <a
-                    href="mailto:service@taypro.in?subject=Taypro%20Console%20access%20%2F%20support"
+                  <ContactEmailLink
+                    mailbox="service"
+                    subject="Taypro Console access / support"
                     className="inline-flex items-center justify-center min-h-[48px] w-full sm:w-auto sm:min-w-[220px] border-2 border-white text-white font-medium px-8 py-3.5 rounded-md hover:bg-white/10 transition text-center"
                   >
                     {t("cta.emailService")}
-                  </a>
+                  </ContactEmailLink>
                 </div>
               </div>
             </AnimateOnScroll>

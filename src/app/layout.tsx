@@ -7,7 +7,7 @@ import "@/app/globals.css";
 
 const blinker = Blinker({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "600"],
   display: "swap",
   preload: true,
   adjustFontFallback: true,
@@ -16,7 +16,11 @@ const blinker = Blinker({
 /** Minimal root metadata; locale routes add richer metadata in [locale]/layout. */
 export const metadata: Metadata = {
   icons: {
-    icon: [{ url: "/tayproasset/taypro-favicon.png", sizes: "any" }],
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32", type: "image/png" },
+      { url: "/tayproasset/taypro-favicon.png", sizes: "any" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
 };
 
@@ -33,19 +37,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning>
       <head>
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="dns-prefetch" href="https://img.youtube.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.googleapis.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
       </head>
       <body className={blinker.className} suppressHydrationWarning>
         {children}

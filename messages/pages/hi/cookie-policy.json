@@ -115,6 +115,7 @@
     }
   },
   "Common": {
-    "breadcrumbHome": "होम"
+    "breadcrumbHome": "होम",
+    "emailLink": "हमें ईमेल करें"
   }
 }

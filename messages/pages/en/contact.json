@@ -27,6 +27,7 @@
     },
     "channels": {
       "sales": "Sales enquiries",
+      "emailLink": "Email us",
       "phone": "Phone",
       "hq": "Headquarters",
       "hqValue": "T3-906, Kohinoor World Towers, Pimpri Colony, Pune, Maharashtra 411019",

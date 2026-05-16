@@ -41,7 +41,7 @@ function RelatedProjectsSection({
                   alt={t("relatedImageAlt", { title: project.title })}
                   title={t("relatedImageTitleAttr", { title: project.title })}
                   fill
-                  sizes="sm"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div

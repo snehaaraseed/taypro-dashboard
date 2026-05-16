@@ -25,6 +25,7 @@
     },
     "channels": {
       "sales": "営業お問い合わせ",
+      "emailLink": "メールする",
       "phone": "電話",
       "hq": "本社",
       "hqValue": "T3-906, Kohinoor World Towers, Pimpri Colony, Pune, Maharashtra 411019",

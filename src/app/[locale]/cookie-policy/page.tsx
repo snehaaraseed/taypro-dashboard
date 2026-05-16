@@ -1,5 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
+import { ContactEmailLink } from "@/app/components/ContactEmailLink";
 import { ContactPhoneLink } from "@/app/components/ContactPhoneLink";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
@@ -345,12 +346,9 @@ export default async function CookiePolicyPage({
               <br />
               <span>
                 {t("s8.mailLabel")}{" "}
-                <a
-                  href="mailto:sales@taypro.in"
-                  className="hover:text-[#A8C117] transition-colors"
-                >
-                  sales@taypro.in
-                </a>
+                <ContactEmailLink className="hover:text-[#A8C117] transition-colors">
+                  {tCommon("emailLink")}
+                </ContactEmailLink>
               </span>
               <span className="hidden sm:block mx-2"></span>
               <span>

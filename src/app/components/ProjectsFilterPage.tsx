@@ -70,7 +70,7 @@ export default function ProjectsFilterPage({
                     alt={`${card.title} - ${t(`${variant}.imageAltSuffix`)}`}
                     title={`${card.title} - ${t(`${variant}.imageTitleSuffix`)}`}
                     fill
-                    sizes="sm"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105 group-hover:translate-x-3"
                     priority
                   />

@@ -9,6 +9,7 @@ import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
 import FAQAccordion from "@/app/components/FAQAccordion";
 
+import LazyWhenVisible from "@/app/components/LazyWhenVisible";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 
 function FormLoading() {
@@ -165,8 +166,9 @@ export default function HomePageInteractive({
                   src="/tayproasset/robots.png"
                   alt={t("technology.imageAlt")}
                   title={t("technology.imageTitle")}
-                  width={600}
-                  height={900}
+                  width={1536}
+                  height={1024}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="w-full h-auto"
                   loading="lazy"
                 />
@@ -199,17 +201,21 @@ export default function HomePageInteractive({
             </Link>
           </AnimateOnScroll>
 
-          <AnimateOnScroll animation="fadeInUp" delay={100}>
-            <ROICalculatorEmbed />
-          </AnimateOnScroll>
+          <LazyWhenVisible minHeight={360}>
+            <AnimateOnScroll animation="fadeInUp" delay={100}>
+              <ROICalculatorEmbed />
+            </AnimateOnScroll>
+          </LazyWhenVisible>
         </Container>
       </section>
 
-      <ClientsCard
-        heading={t("clients.heading")}
-        resolveLogoAlt={(index) => t("clients.logoAlt", { index })}
-        resolveLogoTitle={(index) => t("clients.logoTitle", { index })}
-      />
+      <LazyWhenVisible minHeight={420} rootMargin="320px 0px">
+        <ClientsCard
+          heading={t("clients.heading")}
+          resolveLogoAlt={(index) => t("clients.logoAlt", { index })}
+          resolveLogoTitle={(index) => t("clients.logoTitle", { index })}
+        />
+      </LazyWhenVisible>
 
       <section
         className="py-14 md:py-20 bg-white"

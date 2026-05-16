@@ -115,6 +115,7 @@
     }
   },
   "Common": {
-    "breadcrumbHome": "الرئيسية"
+    "breadcrumbHome": "الرئيسية",
+    "emailLink": "راسلنا"
   }
 }

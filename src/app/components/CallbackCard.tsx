@@ -193,7 +193,7 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
             alt="Taypro Solar Panel Cleaning Robot demonstration - Cleaning solar panels at solar farm with autonomous robotic system"
             title="Solar Panel Cleaning Robot Demo by Taypro"
             fill
-            sizes="sm"
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
             priority
           />

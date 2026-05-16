@@ -102,6 +102,7 @@
     }
   },
   "Common": {
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "Home",
+    "emailLink": "Email us"
   }
 }

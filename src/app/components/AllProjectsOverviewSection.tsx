@@ -39,6 +39,7 @@ function ProjectOverviewSection({
             title="Solar Panel Cleaning Robot Project Overview by Taypro"
             fill
             className="object-cover"
+            sizes="(max-width: 1280px) 100vw, 1280px"
             priority
           />
 

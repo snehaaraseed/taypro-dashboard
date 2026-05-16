@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
+import { headers } from "next/headers";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { clientNamespacesForRequest } from "@/i18n/client-message-namespaces";
+import { pickMessages } from "@/i18n/pick-messages";
 import { OrganizationSchema, WebSiteSchema } from "@/app/components/StructuredData";
 import { TAYPRO_SALES_PHONE_E164 } from "@/lib/contact";
+import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
 import LeadModalRoot from "@/app/components/LeadModalRoot";
 import DeferredLayoutWidgets from "@/app/components/DeferredLayoutWidgets";
@@ -17,8 +20,6 @@ import {
   ROOT_DEFAULT_OG_DESCRIPTION,
   ROOT_DEFAULT_TWITTER_DESCRIPTION,
 } from "@/lib/seo/performance-methodology";
-
-const Footer = dynamic(() => import("@/app/components/Footer"), { ssr: true });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 const defaultOg = buildOgImage(OG_PRESETS.default);
@@ -101,15 +102,20 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
   const messages = await getMessages();
+  const headerList = await headers();
+  const pathname = headerList.get("x-pathname") ?? "/";
+  const clientMessages = pickMessages(
+    messages,
+    clientNamespacesForRequest(pathname)
+  );
 
   return (
-    <NextIntlClientProvider messages={messages}>
+    <NextIntlClientProvider messages={clientMessages}>
       <OrganizationSchema
         siteUrl={siteUrl}
         contactPoint={{
           contactType: "customer service",
           telephone: TAYPRO_SALES_PHONE_E164,
-          email: "sales@taypro.in",
         }}
       />
       <WebSiteSchema siteUrl={siteUrl} />

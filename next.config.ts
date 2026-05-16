@@ -24,7 +24,7 @@ const nextConfig = {
   },
   experimental: {
     optimizeCss: true,
-    optimizePackageImports: ["lucide-react", "@tiptap/react"],
+    optimizePackageImports: ["lucide-react", "@tiptap/react", "next-intl"],
   },
   // Turbopack configuration (Next.js 16+)
   turbopack: {},
@@ -103,7 +103,6 @@ const nextConfig = {
     ],
   },
   webpack: (config: any, { isServer }: { isServer: boolean }) => {
-    // Only bundle fs and path on server side
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,
@@ -111,37 +110,6 @@ const nextConfig = {
         path: false,
       };
     }
-
-    // Optimize bundle splitting
-    if (!isServer) {
-      config.optimization = {
-        ...config.optimization,
-        splitChunks: {
-          chunks: "all",
-          cacheGroups: {
-            default: false,
-            vendors: false,
-            // Vendor chunk for node_modules
-            vendor: {
-              name: "vendor",
-              chunks: "all",
-              test: /node_modules/,
-              priority: 20,
-            },
-            // Separate chunk for common components
-            common: {
-              name: "common",
-              minChunks: 2,
-              chunks: "all",
-              priority: 10,
-              reuseExistingChunk: true,
-              enforce: true,
-            },
-          },
-        },
-      };
-    }
-
     return config;
   },
   typescript: {
@@ -207,16 +175,24 @@ const nextConfig = {
   },
   // Add headers for better caching and performance
   async headers() {
+    const globalHeaders: { key: string; value: string }[] = [
+      {
+        key: "X-DNS-Prefetch-Control",
+        value: "on",
+      },
+    ];
+    if (process.env.NODE_ENV === "production") {
+      globalHeaders.push({
+        key: "Strict-Transport-Security",
+        value: "max-age=31536000; includeSubDomains",
+      });
+    }
+
     return [
       {
         // Apply caching headers to static assets
         source: "/:path*",
-        headers: [
-          {
-            key: "X-DNS-Prefetch-Control",
-            value: "on",
-          },
-        ],
+        headers: globalHeaders,
       },
       {
         // Cache fonts aggressively

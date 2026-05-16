@@ -3,18 +3,11 @@
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
-const CookieConsentWrapper = dynamic(
-  () => import("./CookieConsentWrapper"),
+const CookieConsent = dynamic(() => import("./CookieConsent"), { ssr: false });
+const DeferredSecondaryWidgets = dynamic(
+  () => import("./DeferredSecondaryWidgets"),
   { ssr: false }
 );
-const SiteLeadSlideIn = dynamic(() => import("./SiteLeadSlideIn"), {
-  ssr: false,
-});
-const GoogleTagManagerLoader = dynamic(
-  () => import("./GoogleTagManagerLoader"),
-  { ssr: false }
-);
-const ClarityLoader = dynamic(() => import("./ClarityLoader"), { ssr: false });
 
 /** Defer non-critical widgets until the main thread is idle (better TBT / INP). */
 function useIdleReady(timeoutMs = 4000) {
@@ -39,14 +32,8 @@ export default function DeferredLayoutWidgets() {
 
   return (
     <>
-      <CookieConsentWrapper />
-      {secondaryReady ? (
-        <>
-          <SiteLeadSlideIn />
-          <GoogleTagManagerLoader />
-          <ClarityLoader />
-        </>
-      ) : null}
+      <CookieConsent />
+      {secondaryReady ? <DeferredSecondaryWidgets /> : null}
     </>
   );
 }

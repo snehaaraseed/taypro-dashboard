@@ -93,7 +93,7 @@ export function OrganizationSchema({
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
-      email: "info@taypro.in",
+      url: `${siteUrl}/contact`,
       ...contactPoint,
     },
     sameAs: sameAs,

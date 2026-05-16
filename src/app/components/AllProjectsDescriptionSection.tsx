@@ -28,14 +28,14 @@ export default function ProjectDescriptionSection({
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <div className="w-full flex justify-center lg:justify-start">
-          <div className="w-full max-w-md lg:max-w-none">
+          <div className="relative w-full max-w-md lg:max-w-none aspect-[5/4]">
             <Image
               src={image}
               alt={`${title} - Solar Panel Cleaning Robot installation project by Taypro`}
               title={`${title} Solar Project with Solar Panel Cleaning Robot`}
-              width={500}
-              height={400}
-              className="w-full h-auto"
+              fill
+              className="object-contain"
+              sizes="(max-width: 1024px) 100vw, 50vw"
               priority
             />
           </div>

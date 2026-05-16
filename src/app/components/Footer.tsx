@@ -2,6 +2,7 @@
 import { Facebook, Instagram, Linkedin, Youtube, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
+import { ContactEmailLink } from "@/app/components/ContactEmailLink";
 import {
   TAYPRO_SALES_PHONE_DISPLAY,
   TAYPRO_SALES_PHONE_TEL,
@@ -55,12 +56,9 @@ export default function Footer() {
             <div className="flex flex-col sm:flex-row items-start gap-4 text-white text-2xl">
               <span>
                 {t("mail")}:{" "}
-                <a
-                  href="mailto:sales@taypro.in"
-                  className="hover:text-[#A8C117] transition-colors"
-                >
-                  sales@taypro.in
-                </a>
+                <ContactEmailLink className="hover:text-[#A8C117] transition-colors">
+                  {t("emailLink")}
+                </ContactEmailLink>
               </span>
               <span className="hidden sm:block mx-2"></span>
               <span>

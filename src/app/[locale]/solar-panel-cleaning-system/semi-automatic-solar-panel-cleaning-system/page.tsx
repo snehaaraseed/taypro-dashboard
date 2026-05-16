@@ -300,8 +300,6 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
                   imagePrefix=""
                   imageSuffix=".png"
                   startIndex={100}
-                  width={800}
-                  height={600}
                   className="mx-auto"
                   productLabel={t("product360.productLabel")}
                 />

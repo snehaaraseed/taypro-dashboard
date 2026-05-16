@@ -12,6 +12,7 @@ import {
   Phone,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { ContactEmailLink } from "@/app/components/ContactEmailLink";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
@@ -49,8 +50,8 @@ export default function ContactUsPage() {
     {
       icon: Mail,
       label: t("channels.sales"),
-      value: "sales@taypro.in",
-      href: "mailto:sales@taypro.in",
+      value: t("channels.emailLink"),
+      emailMailbox: "sales" as const,
     },
     {
       icon: Phone,
@@ -221,7 +222,14 @@ export default function ContactUsPage() {
                         animation="fadeInUp"
                         delay={idx * 60}
                       >
-                        {channel.href ? (
+                        {"emailMailbox" in channel ? (
+                          <ContactEmailLink
+                            mailbox={channel.emailMailbox}
+                            className="block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] rounded-xl"
+                          >
+                            {inner}
+                          </ContactEmailLink>
+                        ) : channel.href ? (
                           <a
                             href={channel.href}
                             {...("external" in channel && channel.external

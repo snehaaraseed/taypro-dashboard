@@ -1,4 +1,5 @@
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
+import { ContactEmailLink } from "@/app/components/ContactEmailLink";
 import { ContactPhoneLink } from "@/app/components/ContactPhoneLink";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
@@ -207,12 +208,9 @@ export default async function PrivacyPolicySection({
             </ul>
             <div className="text-[#0c2f42] text-lg mb-10">
               {t("s6.contactBefore")}{" "}
-              <a
-                href="mailto:sales@taypro.in"
-                className="text-[#A8C117] hover:underline"
-              >
-                sales@taypro.in
-              </a>
+              <ContactEmailLink className="text-[#A8C117] hover:underline">
+                {tCommon("emailLink")}
+              </ContactEmailLink>
               {t("s6.contactAfter")}
             </div>
             <hr className="border border-gray-300 mt-8" />
@@ -270,12 +268,9 @@ export default async function PrivacyPolicySection({
               <br />
               <span>
                 {t("s11.mailLabel")}{" "}
-                <a
-                  href="mailto:sales@taypro.in"
-                  className="hover:text-[#A8C117] transition-colors"
-                >
-                  sales@taypro.in
-                </a>
+                <ContactEmailLink className="hover:text-[#A8C117] transition-colors">
+                  {tCommon("emailLink")}
+                </ContactEmailLink>
               </span>
               <span className="hidden sm:block mx-2"></span>
               <span>

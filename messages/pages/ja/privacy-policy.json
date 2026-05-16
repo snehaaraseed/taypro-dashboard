@@ -102,6 +102,7 @@
     }
   },
   "Common": {
-    "breadcrumbHome": "ホーム"
+    "breadcrumbHome": "ホーム",
+    "emailLink": "メールする"
   }
 }

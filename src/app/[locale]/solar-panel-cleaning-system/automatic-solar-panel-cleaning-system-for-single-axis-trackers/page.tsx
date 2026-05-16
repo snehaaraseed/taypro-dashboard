@@ -329,8 +329,6 @@ export default async function ModelTPage({
                     imagePrefix=""
                     imageSuffix=".png"
                     startIndex={100}
-                    width={600}
-                    height={450}
                     className="mx-auto"
                     productLabel={t("innovation360.productLabel")}
                   />
@@ -374,8 +372,6 @@ export default async function ModelTPage({
                       imagePrefix=""
                       imageSuffix=".png"
                       startIndex={100}
-                      width={700}
-                      height={525}
                       className="mx-auto"
                       productLabel={t("innovation360.productLabel")}
                     />

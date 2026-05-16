@@ -68,7 +68,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <section className={`bg-white ${className}`}>
-      <Container className="py-12 sm:py-16">
+      <Container className="pt-0 pb-12 sm:pb-16">
         <div className="min-h-[600px] flex flex-col lg:flex-row relative overflow-hidden">
           {/* LEFT - Content */}
           <AnimateOnScroll
@@ -111,6 +111,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               title={titleAttr}
               fill
               className="object-contain"
+              sizes="(max-width: 1024px) 100vw, 50vw"
               priority
             />
             <svg

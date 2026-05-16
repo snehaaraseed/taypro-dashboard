@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import dynamic from "next/dynamic";
 import { getLocale, getTranslations } from "next-intl/server";
+import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { robots, tayproTrustedByStatsStrip } from "@/app/data";
 import { RobotCard } from "@/app/components/RobotCard";
 import { Container } from "@/app/components/Container";
@@ -16,14 +16,6 @@ import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
 import HomePageInteractive from "./HomePageInteractive";
 import HomeHeroCTAs from "./HomeHeroCTAs";
 import HomeHeroVideo from "@/app/components/HomeHeroVideo";
-
-const AnimateOnScroll = dynamic(
-  () =>
-    import("@/app/components/AnimateOnScroll").then((mod) => ({
-      default: mod.AnimateOnScroll,
-    })),
-  { ssr: true }
-);
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 const HERO_VIDEO_ID = "y9iRhH2bLwY";
@@ -337,6 +329,10 @@ export default async function HomePage() {
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-300"
                             sizes="(max-width: 768px) 100vw, 33vw"
+                            unoptimized={
+                              post.image.startsWith("http") ||
+                              post.image.startsWith("//")
+                            }
                           />
                         ) : null}
                       </div>
