@@ -35,7 +35,8 @@ function runMigrations(database: Database.Database) {
     const cause = (error as { cause?: { code?: string } })?.cause;
     if (
       cause?.code === "SQLITE_ERROR" &&
-      message.includes("already exists")
+      (message.includes("already exists") ||
+        message.includes("duplicate column"))
     ) {
       return;
     }

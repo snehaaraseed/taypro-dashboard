@@ -1,0 +1,36 @@
+{
+  "ProjectsFilterPage": {
+    "automatic": {
+      "breadcrumb": "Automatic",
+      "title": "Automatic Solar Panel Cleaning Robot Projects",
+      "description": "Explore our automatic Solar Panel Cleaning Robot installation projects. AI-enabled autonomous cleaning systems delivering highest efficiency and ROI.",
+      "schemaName": "Automatic Solar Panel Cleaning Robot installation projects",
+      "schemaDescription": "Utility-scale solar plants where Taypro Model-A and related automatic robotic cleaning systems are deployed.",
+      "imageAltSuffix": "Automatic Solar Panel Cleaning Robot Installation Project by Taypro",
+      "imageTitleSuffix": "Automatic Solar Panel Cleaning Robot Project"
+    },
+    "semiAutomatic": {
+      "breadcrumb": "Semi-Automatic",
+      "title": "Semi-Automatic Solar Panel Cleaning Robot Projects",
+      "description": "Explore semi-automatic Solar Panel Cleaning Robot deployments. Portable Model-B systems for flexible dry cleaning across plant blocks.",
+      "schemaName": "Semi-automatic Solar Panel Cleaning Robot installation projects",
+      "schemaDescription": "Solar plants using Taypro Model-B and related semi-automatic portable cleaning robots.",
+      "imageAltSuffix": "Semi-Automatic Solar Panel Cleaning Robot Installation Project by Taypro",
+      "imageTitleSuffix": "Semi-Automatic Solar Panel Cleaning Robot Project"
+    },
+    "capex": {
+      "breadcrumb": "CAPEX",
+      "title": "CAPEX Solar Panel Cleaning Robot Projects",
+      "description": "Explore CAPEX-owned Solar Panel Cleaning Robot installations. Customers who purchased Taypro hardware for in-house O&M teams.",
+      "schemaName": "CAPEX Solar Panel Cleaning Robot installation projects",
+      "schemaDescription": "Utility-scale plants where asset owners purchased Taypro cleaning robots under CAPEX procurement.",
+      "imageAltSuffix": "CAPEX Solar Panel Cleaning Robot Installation Project by Taypro",
+      "imageTitleSuffix": "CAPEX Solar Panel Cleaning Robot Project"
+    },
+    "projectLinkTitle": "Solar Project",
+    "breadcrumbProjects": "Projects"
+  },
+  "Common": {
+    "breadcrumbHome": "Home"
+  }
+}

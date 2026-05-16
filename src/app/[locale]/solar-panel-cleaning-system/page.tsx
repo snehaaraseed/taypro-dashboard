@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import {
   BadgeCheck,
   BatteryCharging,
@@ -16,20 +15,14 @@ import {
   Sun,
   Wrench,
   ArrowRight,
+  type LucideIcon,
 } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
 import CallbackCard from "@/app/components/CallbackCard";
 import ClientsCard from "@/app/components/ClientsCard";
 import { RobotCard } from "@/app/components/RobotCard";
-import {
-  robotFeatures,
-  robotProducts,
-  robotSolutions,
-  robotsAdvantages,
-  tayproRobotConnectivitySummary,
-  tayproServiceSlaCopy,
-  toDoFeatures,
-} from "@/app/data";
+import { robotProducts, robotSolutions } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
@@ -43,257 +36,182 @@ import {
   FAQPageSchema,
   ItemListSchema,
 } from "@/app/components/StructuredData";
+import { Link } from "@/i18n/navigation";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
-const breadcrumbs = [
-  { name: "Home", href: "/" },
-  { name: "Solar Panel Cleaning Robots", href: "" },
-];
+type SchemaItemKey =
+  | "modelA"
+  | "modelB"
+  | "modelT"
+  | "tayproOpex"
+  | "tayproConsole";
 
-const robotProductHighlights: Record<
-  string,
-  { eyebrow: string; bullets: string[] }
-> = {
-  "Model-A": {
-    eyebrow: "Fully Autonomous · CAPEX",
-    bullets: [
-      "Dual-pass waterless cleaning (air + microfiber)",
-      "Up to 3,600 modules per charge, AI/ML scheduling",
-      "Best for fixed / seasonal-tilt utility-scale plants",
-    ],
-  },
-  "Model-B": {
-    eyebrow: "Semi-Automatic · Pick & Place",
-    bullets: [
-      "1 MW cleaned in ~2 hours, portable across blocks",
-      "Lowest cost-per-MW for distributed plants",
-      "Ideal for scattered or constrained layouts",
-    ],
-  },
-  "Model-T": {
-    eyebrow: "Tracker-Ready · Autonomous",
-    bullets: [
-      "Patented 360° flexible rotational bridge",
-      "Works across NEXTracker, Gamechanger & more",
-      "Built for single-axis tracker plants",
-    ],
-  },
-};
+function modelToSchemaKey(model: string): SchemaItemKey {
+  const map: Record<string, SchemaItemKey> = {
+    "Model-A": "modelA",
+    "Model-B": "modelB",
+    "Model-T": "modelT",
+    "Taypro Opex": "tayproOpex",
+    "Taypro Console": "tayproConsole",
+  };
+  const key = map[model];
+  if (!key) {
+    throw new Error(`Unknown robot model for schema i18n key: ${model}`);
+  }
+  return key;
+}
 
-const robotSolutionHighlights: Record<
-  string,
-  { eyebrow: string; bullets: string[] }
-> = {
-  "Taypro Opex": {
-    eyebrow: "Service · Pay Per Panel Cleaned",
-    bullets: [
-      "No CAPEX — monthly OPEX, billed by panels cleaned",
-      "Plant soiling study + 3–10 cycles per month",
-      "Operated by TAYPRO Private Limited",
-    ],
-  },
-  "Taypro Console": {
-    eyebrow: "Software · Fleet Portal",
-    bullets: [
-      "Site dashboards, schedules, logs & exports",
-      "Gateway and robot health visibility",
-      "Role-based access, support tickets, chat",
-    ],
-  },
-};
-
-const decisionGuide = [
+const DECISION_GUIDE = [
   {
     icon: Sun,
-    title: "Fixed / seasonal-tilt utility plants",
-    body: "Daily, fully autonomous cleaning on every row, every night. Choose Model-A for the highest cleaning uptime and lowest manual intervention.",
-    cta: { label: "See Model-A", href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system" },
+    cardKey: "card0" as const,
+    href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
   },
   {
     icon: Factory,
-    title: "Scattered or distributed plants",
-    body: "Multiple smaller blocks, rooftops or constrained layouts where one robot per row is overkill. Model-B moves block-to-block and cleans 1 MW in roughly 2 hours.",
-    cta: { label: "See Model-B", href: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system" },
+    cardKey: "card1" as const,
+    href: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
   },
   {
     icon: Cog,
-    title: "Single-axis tracker plants",
-    body: "Tracker structures need a tracker-aware robot. Model-T's 360° rotational bridge handles NEXTracker, Gamechanger and other popular trackers out of the box.",
-    cta: { label: "See Model-T", href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers" },
+    cardKey: "card2" as const,
+    href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
   },
   {
     icon: BatteryCharging,
-    title: "Prefer outcomes, not assets?",
-    body: "If you'd rather not own the hardware, Taypro OPEX delivers robotic cleaning as a monthly service, with reports surfaced in Taypro Console.",
-    cta: { label: "See Taypro OPEX", href: "/solar-panel-cleaning-system/solar-panel-cleaning-service" },
+    cardKey: "card3" as const,
+    href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
   },
+] as const;
+
+const INDIAN_CONDITIONS_ICONS: LucideIcon[] = [
+  Droplets,
+  Sun,
+  Gauge,
+  LifeBuoy,
 ];
 
-const comparisonRows: { criterion: string; modelA: string; modelB: string; modelT: string }[] = [
-  {
-    criterion: "Plant type",
-    modelA: "Fixed / seasonal-tilt utility-scale",
-    modelB: "Distributed, scattered or constrained",
-    modelT: "Single-axis tracker plants",
-  },
-  {
-    criterion: "Autonomy",
-    modelA: "Fully autonomous (one robot per row)",
-    modelB: "Semi-automatic (operator-assisted pick & place)",
-    modelT: "Fully autonomous with tracker handover",
-  },
-  {
-    criterion: "Cleaning method",
-    modelA: "Waterless dual-pass — airflow + microfiber",
-    modelB: "Waterless dry cleaning, portable arm",
-    modelT: "Waterless dual-pass with flexible 360° bridge",
-  },
-  {
-    criterion: "Cleaning rate",
-    modelA: "Up to 3,600 modules per charge",
-    modelB: "~1 MW in ~2 hours per unit",
-    modelT: "Row-by-row, tracker-synchronised",
-  },
-  {
-    criterion: "Commercial model",
-    modelA: "CAPEX + AMC, 12–18 month payback typical",
-    modelB: "CAPEX + AMC, lowest cost-per-MW",
-    modelT: "CAPEX + AMC, tracker plant economics",
-  },
-  {
-    criterion: "Connectivity to Taypro Console",
-    modelA: tayproRobotConnectivitySummary,
-    modelB: "Operator-led with Console reporting",
-    modelT: tayproRobotConnectivitySummary,
-  },
+const WHY_TAYPRO_ICONS: LucideIcon[] = [
+  Factory,
+  BadgeCheck,
+  MapPin,
+  Wrench,
 ];
 
-const indianConditions = [
-  {
-    icon: Droplets,
-    title: "Waterless — for water-scarce states",
-    body: "Indian utility plants increasingly sit in water-stressed districts. Taypro's waterless dual-pass cleaning removes module washing from your water plan entirely.",
-  },
-  {
-    icon: Sun,
-    title: "High-soiling region performance",
-    body: "Daily or near-daily robotic cycles are the only economical way to neutralise the 8–25% soiling losses common across Rajasthan, Gujarat, MP and Maharashtra.",
-  },
-  {
-    icon: Gauge,
-    title: "Temperature & humidity tested",
-    body: "Validated for operating temperatures up to 90°C and TÜV NORD certified for damp-heat / dry-heat — proven across summer, monsoon and post-monsoon cycles.",
-  },
-  {
-    icon: LifeBuoy,
-    title: "Same-day pan-India breakdown response",
-    body: tayproServiceSlaCopy.panIndiaServiceCardBody,
-  },
-];
+const COMPARISON_ROW_KEYS = [
+  "row0",
+  "row1",
+  "row2",
+  "row3",
+  "row4",
+  "row5",
+] as const;
 
-const whyTaypro = [
-  {
-    icon: Factory,
-    title: "Made-in-India manufacturing",
-    body: "Designed, manufactured and serviced by TAYPRO Private Limited — engineered for the realities of Indian utility-scale solar O&M.",
-  },
-  {
-    icon: BadgeCheck,
-    title: "Certified & patented technology",
-    body: "TÜV NORD certified hardware, ISO-aligned processes, and patented dual-pass cleaning and RF mesh communications.",
-  },
-  {
-    icon: MapPin,
-    title: "Deployed across India",
-    body: "Robotic cleaning live at multi-megawatt plants across Maharashtra, Madhya Pradesh, Karnataka and beyond — including 50–250 MW projects.",
-  },
-  {
-    icon: Wrench,
-    title: "Rapid breakdown response",
-    body: tayproServiceSlaCopy.panIndiaServiceCardBody,
-  },
-];
+export default async function SolarPanelCleaningRobot({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "SolarSystemPage" });
 
-const hubFaqs = [
-  {
-    question: "What is a Solar Panel Cleaning Robot and why do solar plants need one?",
-    answer:
-      "A Solar Panel Cleaning Robot is an automated machine that removes dust, bird droppings and other soiling from PV modules without water and without manual labour. For Indian utility-scale plants, soiling can cut generation by 8–25%, which directly hits PPA performance and DISCOM penalties. Robotic cleaning recovers that lost yield, removes water from your O&M plan, and gives you predictable cleaning every cycle — far more consistent than manual wash teams.",
-  },
-  {
-    question: "Which is the best Solar Panel Cleaning Robot for utility-scale plants in India?",
-    answer:
-      "For most large fixed or seasonal-tilt plants, the Taypro Model-A Automatic Solar Panel Cleaning Robot is the right answer — fully autonomous, waterless dual-pass cleaning, AI/ML scheduling, and built for Indian heat and dust. For single-axis tracker plants, Model-T is the tracker-aware option. For scattered or smaller blocks, Model-B's semi-automatic pick-and-place model gives the lowest cost-per-MW.",
-  },
-  {
-    question: "Are Taypro's Solar Panel Cleaning Robots fully automatic?",
-    answer:
-      "Model-A and Model-T are fully autonomous — they run on pre-scheduled cycles, return to their docking station, and report status to Taypro Console without daily operator effort. Model-B is semi-automatic and operator-assisted, which keeps it portable across blocks. Across all three, the Taypro Console fleet portal lets your team monitor health, schedule cleaning, and pull cleaning reports remotely.",
-  },
-  {
-    question: "Do Solar Panel Cleaning Robots use water?",
-    answer:
-      "No. All Taypro robots are waterless. They use a patented dual-pass dry cleaning method — first airflow to lift dust, then a soft microfiber cloth for a deep wipe. There's no water tanker logistics, no module thermal-shock risk, and no consumption of scarce water in dry districts.",
-  },
-  {
-    question: "How much does a Solar Panel Cleaning Robot cost in India and what's the ROI?",
-    answer:
-      "Pricing depends on plant size, model (Model-A / B / T), site layout and commercial structure (CAPEX vs OPEX). Typical CAPEX deployments target a 12–18 month payback driven by yield recovery, reduced water and labour, and lower DISCOM penalties. Use the Taypro Solar Panel Cleaning Robot ROI Calculator on our website for a quick plant-specific estimate, then contact us for a detailed quote.",
-  },
-  {
-    question: "Can I buy robotic cleaning as a service instead of CAPEX?",
-    answer:
-      "Yes. Taypro OPEX is our pay-per-panel-cleaned monthly service for utility-scale plants (typically 50 MW+). Taypro deploys Model-A, Model-B or Model-T as the site requires, runs 3–10 cycles per month based on a soiling study, and bills only for panels cleaned. You see every cycle and report on Taypro Console without owning the hardware.",
-  },
-  {
-    question: "How are the robots monitored after installation?",
-    answer:
-      "Every Taypro deployment is monitored through Taypro Console — the secure customer portal for fleet dashboards, schedules, cleaning logs, exports, and support tickets. Fleet connectivity uses LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa and LoRaWAN, designed and sized by Taypro engineers during commissioning.",
-  },
-  {
-    question: "What support does Taypro provide if a robot breaks down?",
-    answer: `${tayproServiceSlaCopy.combinedSupportParagraph} AMC packages add preventive maintenance, spares planning, and a structured ticketing workflow on Console so mean time to repair stays predictable.`,
-  },
-  {
-    question: "Is Taypro a manufacturer or a reseller of Solar Panel Cleaning Robots?",
-    answer:
-      "Taypro is a Made-in-India manufacturer. TAYPRO Private Limited designs, builds, deploys and services its own Solar Panel Cleaning Robots, with patented dual-pass cleaning and RF mesh communications, TÜV NORD certified hardware, and a pan-India service network.",
-  },
-  {
-    question: "How often should solar panels be cleaned in India?",
-    answer:
-      "Frequency depends on dust load, agricultural residue events (such as crop burning in Punjab and Haryana), monsoon patterns and PPA performance targets. Most Indian utility-scale plants benefit from cleaning every 1–3 days during dry months and faster cycles after dust storms. Taypro starts every project with a plant soiling study to recommend the right cleaning cadence per block.",
-  },
-];
+  const connectivitySummary = t("shared.connectivitySummary");
+  const panIndiaCardBody = t("shared.panIndiaServiceCardBody");
 
-const heroStats = [
-  { value: "50 MW+", label: "Typical plant size deployed" },
-  { value: "Same day", label: "Pan-India breakdown response" },
-  { value: "TÜV NORD", label: "Certified hardware" },
-  { value: "Waterless", label: "Dual-pass cleaning" },
-];
+  const breadcrumbs = [
+    { name: t("breadcrumbs.home"), href: "/" },
+    { name: t("breadcrumbs.solarPanelCleaningRobots"), href: "" },
+  ];
 
-const allProductsForSchema = [...robotProducts, ...robotSolutions];
+  const comparisonRows = COMPARISON_ROW_KEYS.map((rowKey) => {
+    const prefix = `comparison.rows.${rowKey}` as const;
+    return {
+      criterion: t(`${prefix}.criterion`),
+      modelA:
+        rowKey === "row5"
+          ? connectivitySummary
+          : t(`${prefix}.modelA`),
+      modelB: t(`${prefix}.modelB`),
+      modelT:
+        rowKey === "row5"
+          ? connectivitySummary
+          : t(`${prefix}.modelT`),
+    };
+  });
 
-export default function SolarPanelCleaningRobot() {
+  const indianConditions = [0, 1, 2, 3].map((i) => {
+    const icon = INDIAN_CONDITIONS_ICONS[i]!;
+    const body =
+      i === 3
+        ? panIndiaCardBody
+        : t(`indianConditions.cards.card${i}.body`);
+    return {
+      icon,
+      title: t(`indianConditions.cards.card${i}.title`),
+      body,
+    };
+  });
+
+  const whyTaypro = [0, 1, 2, 3].map((i) => {
+    const icon = WHY_TAYPRO_ICONS[i]!;
+    const body =
+      i === 3
+        ? panIndiaCardBody
+        : t(`whyTaypro.items.item${i}.body`);
+    return {
+      icon,
+      title: t(`whyTaypro.items.item${i}.title`),
+      body,
+    };
+  });
+
+  const hubFaqs = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => ({
+    question: t(`faq.items.item${i}.question`),
+    answer: t(`faq.items.item${i}.answer`),
+  }));
+
+  const heroStats = [0, 1, 2, 3].map((i) => ({
+    value: t(`heroStats.stat${i}.value`),
+    label: t(`heroStats.stat${i}.label`),
+  }));
+
+  const robotFeatureRows = [0, 1, 2, 3, 4, 5].map((i) => ({
+    title: t(`robotFeatures.feature${i}.title`),
+    description: t(`robotFeatures.feature${i}.description`),
+  }));
+
+  const robotsAdvantagesRows = [0, 1, 2, 3, 4].map((i) => ({
+    title: t(`robotsAdvantages.advantage${i}.title`),
+    description: t(`robotsAdvantages.advantage${i}.description`),
+  }));
+
+  const toDoFeatureRows = [0, 1, 2, 3, 4].map((i) =>
+    t(`toDoFeatures.item${i}.title`)
+  );
+
+  const allProductsForSchema = [...robotProducts, ...robotSolutions];
+
   return (
-    <>
+    <div>
       <Breadcrumbs items={breadcrumbs} />
       <CollectionPageSchema
-        name="Solar Panel Cleaning Robots by Taypro"
-        description="Category of Solar Panel Cleaning Robots from Taypro: Automatic (Model-A), Semi-Automatic (Model-B), Tracker-Ready (Model-T), Taypro OPEX cleaning service, and Taypro Console fleet portal."
+        name={t("schema.collectionPage.name")}
+        description={t("schema.collectionPage.description")}
         url={`${siteUrl}/solar-panel-cleaning-system`}
       />
       <ItemListSchema
-        name="Taypro Solar Panel Cleaning Robots — Product Line"
-        description="Complete line of Taypro Solar Panel Cleaning Robots and related software / service offerings."
-        items={allProductsForSchema.map((r) => ({
-          name: `${r.model} — Solar Panel Cleaning Robot`,
-          url: r.href,
-          description: r.description,
-          image: r.imgPath,
-        }))}
+        name={t("schema.itemList.name")}
+        description={t("schema.itemList.description")}
+        items={allProductsForSchema.map((r) => {
+          const key = modelToSchemaKey(r.model);
+          return {
+            name: `${r.model}${t("schema.itemList.itemNameSuffix")}`,
+            url: r.href,
+            description: t(`schema.itemList.items.${key}.description`),
+            image: r.imgPath,
+          };
+        })}
       />
       <FAQPageSchema faqs={hubFaqs} />
 
@@ -307,42 +225,43 @@ export default function SolarPanelCleaningRobot() {
                 className="bg-[#052638] text-white px-6 sm:px-10 py-10 sm:py-14 flex flex-col justify-center rounded-lg"
               >
                 <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                  Solar Panel Cleaning Robots · Made in India
+                  {t("hero.eyebrow")}
                 </div>
                 <h1 className="text-3xl sm:text-5xl md:text-6xl font-semibold leading-tight mb-5">
-                  Solar Panel Cleaning Robots for Utility-Scale Solar Plants
+                  {t("hero.title")}
                 </h1>
                 <p className="text-white/85 text-base sm:text-lg leading-relaxed mb-7 max-w-2xl">
-                  Taypro designs, manufactures and services{" "}
-                  <strong>Solar Panel Cleaning Robots</strong> for India&rsquo;s
-                  utility-scale solar plants — fully{" "}
-                  <strong>Automatic (Model-A)</strong>, semi-automatic
-                  pick-and-place <strong>(Model-B)</strong>, and tracker-ready{" "}
-                  <strong>(Model-T)</strong>. Waterless dual-pass cleaning,
-                  AI/ML scheduling, TÜV NORD certified hardware, and same-day
-                  pan-India breakdown support — available as CAPEX or as a monthly{" "}
+                  {t("hero.leadHtmlSegments.beforeBold1")}
+                  <strong>{t("hero.leadHtmlSegments.bold1")}</strong>
+                  {t("hero.leadHtmlSegments.afterBold1")}
+                  <strong>{t("hero.leadHtmlSegments.bold2")}</strong>
+                  {t("hero.leadHtmlSegments.afterBold2")}
+                  <strong>{t("hero.leadHtmlSegments.bold3")}</strong>
+                  {t("hero.leadHtmlSegments.afterBold3")}
+                  <strong>{t("hero.leadHtmlSegments.bold4")}</strong>
+                  {t("hero.leadHtmlSegments.afterBold4")}
                   <Link
                     href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
                     className="text-[#A8C117] hover:underline font-medium"
                   >
-                    pay-per-panel-cleaned service
+                    {t("hero.payPerPanelServiceLinkText")}
                   </Link>
-                  .
+                  {t("hero.leadAfterLink")}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <OpenLeadModalButton
-                    topic="Request a quote"
-                    title="Request a quote"
-                    subtitle="Share your plant details and our team will follow up with the right Solar Panel Cleaning Robot fit."
+                    topic={t("hero.primaryCta.topic")}
+                    title={t("hero.primaryCta.title")}
+                    subtitle={t("hero.primaryCta.subtitle")}
                     className="inline-flex items-center justify-center min-h-[48px] sm:min-w-[200px] bg-[#A8C117] text-[#052638] font-medium px-7 py-3.5 rounded-md hover:bg-[#b3cf3d] transition"
                   >
-                    Request a quote
+                    {t("hero.primaryCta.label")}
                   </OpenLeadModalButton>
                   <Link
                     href="/solar-panel-cleaning-robot-price-calculator"
                     className="inline-flex items-center justify-center min-h-[48px] sm:min-w-[200px] border-2 border-white/70 text-white font-medium px-7 py-3.5 rounded-md hover:bg-white/10 transition"
                   >
-                    Calculate ROI
+                    {t("hero.secondaryCta")}
                   </Link>
                 </div>
               </AnimateOnScroll>
@@ -353,8 +272,8 @@ export default function SolarPanelCleaningRobot() {
               >
                 <Image
                   src="/tayproasset/taypro-robotImage.png"
-                  alt="Taypro Solar Panel Cleaning Robots — Model-A automatic, Model-B semi-automatic, Model-T tracker for utility-scale solar plants in India"
-                  title="Solar Panel Cleaning Robots by Taypro"
+                  alt={t("hero.heroImageAlt")}
+                  title={t("hero.heroImageTitle")}
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -363,7 +282,6 @@ export default function SolarPanelCleaningRobot() {
               </AnimateOnScroll>
             </div>
 
-            {/* Hero stat strip */}
             <div className="mt-8 sm:mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
               {heroStats.map((stat) => (
                 <div
@@ -382,109 +300,100 @@ export default function SolarPanelCleaningRobot() {
           </Container>
         </section>
 
-        {/* INTRO / PILLAR COPY */}
         <section className="bg-white pt-2 pb-12 sm:pb-16">
           <Container size="narrow">
             <AnimateOnScroll animation="fadeInUp">
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                Why robotic cleaning, why Taypro
+                {t("intro.eyebrow")}
               </div>
               <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
-                The category leader for{" "}
-                <span className="whitespace-nowrap">Solar Panel Cleaning Robots</span>{" "}
-                in India
+                {t("intro.title")}
               </h2>
               <div className="space-y-5 text-gray-600 text-base sm:text-lg leading-relaxed">
+                <p>{t("intro.p1")}</p>
                 <p>
-                  Dust, agricultural residue and bird droppings can cut PV
-                  generation by <strong>8–25%</strong> across Indian utility
-                  plants. Manual washing is expensive, water-hungry, and never
-                  consistent across rows or shifts. A purpose-built{" "}
-                  <strong>Solar Panel Cleaning Robot</strong> recovers that lost
-                  yield, cleans every panel the same way every night, and
-                  removes water from your O&amp;M plan entirely.
-                </p>
-                <p>
-                  Taypro is a <strong>Made-in-India manufacturer</strong> of
-                  robotic cleaning systems. Our line spans the fully{" "}
+                  {t("intro.p2BeforeLinks")}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
                     className="text-[#A8C117] hover:underline"
                   >
-                    Automatic Solar Panel Cleaning Robot (Model-A)
+                    {t("intro.p2LinkAutomatic")}
                   </Link>
-                  , the semi-automatic pick-and-place{" "}
+                  {t("intro.p2BetweenAB")}
                   <Link
                     href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
                     className="text-[#A8C117] hover:underline"
                   >
-                    Model-B
-                  </Link>{" "}
-                  for scattered plants, and the tracker-ready{" "}
+                    {t("intro.p2LinkModelB")}
+                  </Link>
+                  {t("intro.p2BetweenBT")}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
                     className="text-[#A8C117] hover:underline"
                   >
-                    Model-T
-                  </Link>{" "}
-                  for single-axis tracker layouts. Every robot is monitored
-                  through the{" "}
+                    {t("intro.p2LinkModelT")}
+                  </Link>
+                  {t("intro.p2AfterT")}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                     className="text-[#A8C117] hover:underline"
                   >
-                    Taypro Console
-                  </Link>{" "}
-                  fleet portal and can be deployed as CAPEX or as a monthly{" "}
+                    {t("intro.p2LinkConsole")}
+                  </Link>
+                  {t("intro.p2AfterConsole")}
                   <Link
                     href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
                     className="text-[#A8C117] hover:underline"
                   >
-                    Taypro OPEX
-                  </Link>{" "}
-                  service.
+                    {t("intro.p2LinkOpex")}
+                  </Link>
+                  {t("intro.p2AfterOpex")}
                 </p>
                 <p>
-                  Further reading:{" "}
+                  {t("intro.p3Prefix")}
                   <Link
                     href="/blog/the-complete-guide-to-solar-panel-maintenance"
                     className="text-[#A8C117] hover:underline"
                   >
-                    solar panel maintenance guide
-                  </Link>{" "}
-                  and{" "}
+                    {t("intro.p3BlogMaintenance")}
+                  </Link>
+                  {t("intro.p3Between")}
                   <Link
                     href="/blog/what-is-a-solar-panel-cleaning-robot"
                     className="text-[#A8C117] hover:underline"
                   >
-                    what defines a solar panel cleaning robot
+                    {t("intro.p3BlogRobotDef")}
                   </Link>
-                  .
+                  {t("intro.p3Suffix")}
                 </p>
               </div>
             </AnimateOnScroll>
           </Container>
         </section>
 
-        {/* PRODUCT GRID */}
         <section className="pt-4 pb-16 sm:pb-20 bg-white">
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                Our robot line-up
+                {t("productGrid.eyebrow")}
               </div>
               <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight">
-                Choose your Solar Panel Cleaning Robot
+                {t("productGrid.title")}
               </h2>
               <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mt-5">
-                Three robot platforms, one fleet portal, two commercial models —
-                pick the one engineered for your plant.
+                {t("productGrid.subtitle")}
               </p>
             </AnimateOnScroll>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 justify-items-center">
               {robotProducts.map((robot, idx) => {
-                const highlight = robotProductHighlights[robot.model];
+                const schemaKey = modelToSchemaKey(robot.model);
+                const highlightPrefix = `productGrid.robotHighlights.${schemaKey}`;
+                const bullets = [
+                  t(`${highlightPrefix}.bullet0`),
+                  t(`${highlightPrefix}.bullet1`),
+                  t(`${highlightPrefix}.bullet2`),
+                ];
                 return (
                   <AnimateOnScroll
                     key={robot.model}
@@ -494,17 +403,79 @@ export default function SolarPanelCleaningRobot() {
                   >
                     <div className="flex flex-col w-80 max-w-full">
                       <RobotCard
-                        robot={robot}
+                        robot={{
+                          ...robot,
+                          description: t(
+                            `schema.itemList.items.${schemaKey}.description`
+                          ),
+                        }}
                         priority={idx === 0}
                         preferGenericTitle
                       />
-                      {highlight && (
+                      <div className="bg-white border border-gray-200 border-t-0 rounded-b-md px-5 pt-4 pb-5 -mt-1">
+                        <div className="text-[#A8C117] text-xs font-semibold uppercase tracking-wide mb-2">
+                          {t(`${highlightPrefix}.eyebrow`)}
+                        </div>
+                        <ul className="space-y-1.5">
+                          {bullets.map((b) => (
+                            <li
+                              key={b}
+                              className="flex items-start gap-2 text-gray-700 text-sm leading-snug"
+                            >
+                              <Check className="w-4 h-4 text-[#A8C117] mt-0.5 shrink-0" />
+                              <span>{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </AnimateOnScroll>
+                );
+              })}
+            </div>
+
+            <div className="mt-16">
+              <AnimateOnScroll animation="fadeInUp" className="text-center mb-8">
+                <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
+                  {t("productGrid.solutionsEyebrow")}
+                </div>
+                <h2 className="text-[#052638] font-semibold text-2xl sm:text-3xl md:text-4xl leading-tight">
+                  {t("productGrid.solutionsTitle")}
+                </h2>
+              </AnimateOnScroll>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 justify-items-center">
+                {robotSolutions.map((robot, idx) => {
+                  const schemaKey = modelToSchemaKey(robot.model);
+                  const highlightPrefix = `productGrid.solutionHighlights.${schemaKey}`;
+                  const bullets = [
+                    t(`${highlightPrefix}.bullet0`),
+                    t(`${highlightPrefix}.bullet1`),
+                    t(`${highlightPrefix}.bullet2`),
+                  ];
+                  return (
+                    <AnimateOnScroll
+                      key={robot.model}
+                      animation="scaleIn"
+                      delay={idx * 100}
+                      className="w-full flex justify-center"
+                    >
+                      <div className="flex flex-col w-80 max-w-full">
+                        <RobotCard
+                          robot={{
+                            ...robot,
+                            description: t(
+                              `schema.itemList.items.${schemaKey}.description`
+                            ),
+                          }}
+                          preferGenericTitle
+                        />
                         <div className="bg-white border border-gray-200 border-t-0 rounded-b-md px-5 pt-4 pb-5 -mt-1">
                           <div className="text-[#A8C117] text-xs font-semibold uppercase tracking-wide mb-2">
-                            {highlight.eyebrow}
+                            {t(`${highlightPrefix}.eyebrow`)}
                           </div>
                           <ul className="space-y-1.5">
-                            {highlight.bullets.map((b) => (
+                            {bullets.map((b) => (
                               <li
                                 key={b}
                                 className="flex items-start gap-2 text-gray-700 text-sm leading-snug"
@@ -515,53 +486,6 @@ export default function SolarPanelCleaningRobot() {
                             ))}
                           </ul>
                         </div>
-                      )}
-                    </div>
-                  </AnimateOnScroll>
-                );
-              })}
-            </div>
-
-            <div className="mt-16">
-              <AnimateOnScroll animation="fadeInUp" className="text-center mb-8">
-                <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                  Software &amp; services
-                </div>
-                <h2 className="text-[#052638] font-semibold text-2xl sm:text-3xl md:text-4xl leading-tight">
-                  Buy as a product or consume as a service
-                </h2>
-              </AnimateOnScroll>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 justify-items-center">
-                {robotSolutions.map((robot, idx) => {
-                  const highlight = robotSolutionHighlights[robot.model];
-                  return (
-                    <AnimateOnScroll
-                      key={robot.model}
-                      animation="scaleIn"
-                      delay={idx * 100}
-                      className="w-full flex justify-center"
-                    >
-                      <div className="flex flex-col w-80 max-w-full">
-                        <RobotCard robot={robot} preferGenericTitle />
-                        {highlight && (
-                          <div className="bg-white border border-gray-200 border-t-0 rounded-b-md px-5 pt-4 pb-5 -mt-1">
-                            <div className="text-[#A8C117] text-xs font-semibold uppercase tracking-wide mb-2">
-                              {highlight.eyebrow}
-                            </div>
-                            <ul className="space-y-1.5">
-                              {highlight.bullets.map((b) => (
-                                <li
-                                  key={b}
-                                  className="flex items-start gap-2 text-gray-700 text-sm leading-snug"
-                                >
-                                  <Check className="w-4 h-4 text-[#A8C117] mt-0.5 shrink-0" />
-                                  <span>{b}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
                       </div>
                     </AnimateOnScroll>
                   );
@@ -571,29 +495,27 @@ export default function SolarPanelCleaningRobot() {
           </Container>
         </section>
 
-        {/* DECISION GUIDE */}
         <section className="bg-[#f4f1e9] py-16 sm:py-20">
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                Decision guide
+                {t("decisionGuide.eyebrow")}
               </div>
               <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight">
-                Which Solar Panel Cleaning Robot fits your plant?
+                {t("decisionGuide.title")}
               </h2>
               <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mt-5">
-                A quick guide to picking the right Taypro platform. Final
-                recommendation is always confirmed with a plant soiling study
-                and site walkthrough.
+                {t("decisionGuide.subtitle")}
               </p>
             </AnimateOnScroll>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {decisionGuide.map((item) => {
+              {DECISION_GUIDE.map((item) => {
                 const Icon = item.icon;
+                const cardPath = `decisionGuide.cards.${item.cardKey}`;
                 return (
                   <AnimateOnScroll
-                    key={item.title}
+                    key={item.cardKey}
                     animation="fadeInUp"
                     className="bg-white p-6 rounded-lg shadow-sm flex flex-col h-full"
                   >
@@ -601,16 +523,16 @@ export default function SolarPanelCleaningRobot() {
                       <Icon className="w-6 h-6 text-[#A8C117]" />
                     </div>
                     <h3 className="text-[#052638] font-semibold text-lg mb-2">
-                      {item.title}
+                      {t(`${cardPath}.title`)}
                     </h3>
                     <p className="text-gray-600 text-sm sm:text-base leading-relaxed flex-1">
-                      {item.body}
+                      {t(`${cardPath}.body`)}
                     </p>
                     <Link
-                      href={item.cta.href}
+                      href={item.href}
                       className="mt-4 inline-flex items-center gap-1 text-[#A8C117] font-medium text-sm hover:underline"
                     >
-                      {item.cta.label}
+                      {t(`${cardPath}.cta`)}
                       <ChevronRight className="w-4 h-4" />
                     </Link>
                   </AnimateOnScroll>
@@ -620,20 +542,17 @@ export default function SolarPanelCleaningRobot() {
           </Container>
         </section>
 
-        {/* COMPARISON TABLE */}
         <section className="bg-white py-16 sm:py-20">
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                Side-by-side
+                {t("comparison.eyebrow")}
               </div>
               <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight">
-                Model-A vs Model-B vs Model-T
+                {t("comparison.title")}
               </h2>
               <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mt-5">
-                Quick comparison of Taypro&rsquo;s three Solar Panel Cleaning
-                Robot platforms across plant fit, cleaning method, autonomy and
-                commercial model.
+                {t("comparison.subtitle")}
               </p>
             </AnimateOnScroll>
 
@@ -642,16 +561,16 @@ export default function SolarPanelCleaningRobot() {
                 <thead className="bg-[#052638] text-white">
                   <tr>
                     <th className="py-4 px-5 text-sm sm:text-base font-semibold w-1/4">
-                      Criteria
+                      {t("comparison.tableHeaders.criteria")}
                     </th>
                     <th className="py-4 px-5 text-sm sm:text-base font-semibold">
-                      Model-A
+                      {t("comparison.tableHeaders.modelA")}
                     </th>
                     <th className="py-4 px-5 text-sm sm:text-base font-semibold">
-                      Model-B
+                      {t("comparison.tableHeaders.modelB")}
                     </th>
                     <th className="py-4 px-5 text-sm sm:text-base font-semibold">
-                      Model-T
+                      {t("comparison.tableHeaders.modelT")}
                     </th>
                   </tr>
                 </thead>
@@ -681,36 +600,30 @@ export default function SolarPanelCleaningRobot() {
 
             <AnimateOnScroll animation="fadeInUp" className="text-center mt-10">
               <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto">
-                Not sure which platform fits? Share your plant details and our
-                team will recommend the right Solar Panel Cleaning Robot mix
-                after a quick soiling study.{" "}
+                {t("comparison.ctaLine")}
                 <OpenLeadModalButton
-                  topic="Talk to Taypro"
+                  topic={t("comparison.ctaLink.topic")}
                   className="text-[#A8C117] hover:underline font-medium"
                 >
-                  Talk to Taypro
+                  {t("comparison.ctaLink.label")}
                 </OpenLeadModalButton>
-                .
+                {t("comparison.ctaLineSuffix")}
               </p>
             </AnimateOnScroll>
           </Container>
         </section>
 
-        {/* INDIAN CONDITIONS */}
         <section className="w-full bg-[#052638] py-16 sm:py-20">
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                Engineered for Indian solar
+                {t("indianConditions.eyebrow")}
               </div>
               <h2 className="text-white font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight">
-                Built for Indian utility-scale conditions
+                {t("indianConditions.title")}
               </h2>
               <p className="text-white/80 text-base sm:text-lg max-w-3xl mx-auto mt-5">
-                Rajasthan dust storms, Gujarat heat, Karnataka humidity, Tamil
-                Nadu monsoons — Taypro&rsquo;s Solar Panel Cleaning Robots are
-                designed, tested and serviced for the realities of large-scale
-                Indian solar O&amp;M.
+                {t("indianConditions.subtitle")}
               </p>
             </AnimateOnScroll>
 
@@ -737,20 +650,17 @@ export default function SolarPanelCleaningRobot() {
           </Container>
         </section>
 
-        {/* WHY TAYPRO */}
         <section className="bg-white py-16 sm:py-20">
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                Why Taypro
+                {t("whyTaypro.eyebrow")}
               </div>
               <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight">
-                A trusted Solar Panel Cleaning Robot manufacturer
+                {t("whyTaypro.title")}
               </h2>
               <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mt-5">
-                Designed, manufactured and serviced by TAYPRO Private Limited —
-                with patented technology, certified hardware, and pan-India
-                deployments behind us.
+                {t("whyTaypro.subtitle")}
               </p>
             </AnimateOnScroll>
 
@@ -777,16 +687,14 @@ export default function SolarPanelCleaningRobot() {
           </Container>
         </section>
 
-        {/* PROOF / DEPLOYMENTS — dynamic, reads from src/app/projects/* */}
         <DynamicProjectsRollup
-          eyebrow="Deployed at utility scale"
-          heading="Solar Panel Cleaning Robots already at work across India"
-          subheading="Taypro robots clean panels at multi-megawatt plants across Maharashtra, Madhya Pradesh, Karnataka and beyond. A small sample of recent installations is below."
+          eyebrow={t("dynamicProjectsRollup.eyebrow")}
+          heading={t("dynamicProjectsRollup.heading")}
+          subheading={t("dynamicProjectsRollup.subheading")}
           limit={4}
           background="cream"
         />
 
-        {/* ROI CALCULATOR */}
         <section
           className="py-14 md:py-20 bg-[#f4f7f9]"
           aria-labelledby="hub-roi-heading"
@@ -800,18 +708,16 @@ export default function SolarPanelCleaningRobot() {
                 id="hub-roi-heading"
                 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
               >
-                Calculate how much a solar panel cleaning robot can save your
-                plant
+                {t("roiBand.title")}
               </h2>
               <p className="text-[#27415c] text-lg leading-relaxed">
-                Plug in your plant size and tariff for a directional payback
-                estimate—or open the full calculator for PDF export.
+                {t("roiBand.body")}
               </p>
               <Link
                 href="/solar-panel-cleaning-robot-price-calculator"
                 className="inline-flex items-center gap-2 mt-4 text-[#5a8f00] font-semibold hover:underline"
               >
-                Open full ROI &amp; price calculator
+                {t("roiBand.linkFullCalculator")}
                 <ArrowRight className="w-4 h-4" aria-hidden />
               </Link>
             </AnimateOnScroll>
@@ -821,24 +727,23 @@ export default function SolarPanelCleaningRobot() {
           </Container>
         </section>
 
-        <CallbackCard headerText={""} />
+        <CallbackCard headerText="" />
 
         <ClientsCard />
 
-        {/* FEATURES */}
         <section className="py-16 sm:py-24 bg-white">
           <Container>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div className="space-y-6 sm:space-y-8">
                 <AnimateOnScroll animation="fadeInUp">
                   <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-2">
-                    Inside every Taypro robot
+                    {t("featuresSection.eyebrow")}
                   </div>
                   <h2 className="text-2xl sm:text-4xl font-semibold text-[#052638]">
-                    Features of Taypro&rsquo;s Solar Panel Cleaning Robots
+                    {t("featuresSection.title")}
                   </h2>
                 </AnimateOnScroll>
-                {robotFeatures.map((feature, idx) => (
+                {robotFeatureRows.map((feature, idx) => (
                   <AnimateOnScroll
                     key={feature.title}
                     animation="fadeInLeft"
@@ -862,8 +767,8 @@ export default function SolarPanelCleaningRobot() {
               <AnimateOnScroll animation="fadeInRight" delay={100}>
                 <Image
                   src="/tayproasset/taypro-robotFeature.jpg"
-                  alt="Taypro Solar Panel Cleaning Robot features — autonomous waterless dual-pass cleaning with AI/ML scheduling for Indian solar farms"
-                  title="Solar Panel Cleaning Robot Features by Taypro"
+                  alt={t("featuresSection.imageAlt")}
+                  title={t("featuresSection.imageTitle")}
                   width={400}
                   height={600}
                   className="w-full h-auto rounded-lg"
@@ -873,7 +778,6 @@ export default function SolarPanelCleaningRobot() {
           </Container>
         </section>
 
-        {/* ADVANTAGES */}
         <section className="py-16 sm:py-24 bg-white relative overflow-hidden">
           <Container>
             <AnimateOnScroll
@@ -881,10 +785,10 @@ export default function SolarPanelCleaningRobot() {
               className="text-center mb-10 sm:mb-16"
             >
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                Why operators love it
+                {t("advantagesSection.eyebrow")}
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#052638] mb-3 sm:mb-4">
-                Advantages of using Solar Panel Cleaning Robots
+                {t("advantagesSection.title")}
               </h2>
             </AnimateOnScroll>
 
@@ -892,8 +796,8 @@ export default function SolarPanelCleaningRobot() {
               <AnimateOnScroll animation="fadeInLeft" delay={100}>
                 <Image
                   src="/tayprosolarpanel/taypro-solar-panel.jpg"
-                  alt="Solar Panel Cleaning Robot operating at a utility-scale solar farm in India — recovering generation lost to soiling"
-                  title="Solar Panel Cleaning Robot by Taypro at a utility-scale plant"
+                  alt={t("advantagesSection.imageAlt")}
+                  title={t("advantagesSection.imageTitle")}
                   width={400}
                   height={400}
                   className="w-full h-auto rounded-lg"
@@ -901,7 +805,7 @@ export default function SolarPanelCleaningRobot() {
               </AnimateOnScroll>
 
               <div className="space-y-5 sm:space-y-8">
-                {robotsAdvantages.map((feature, idx) => (
+                {robotsAdvantagesRows.map((feature, idx) => (
                   <AnimateOnScroll
                     key={feature.title}
                     animation="fadeInRight"
@@ -929,7 +833,6 @@ export default function SolarPanelCleaningRobot() {
           <div className="hidden sm:block absolute bottom-0 right-0 w-96 h-96 bg-[#052638]/5 rounded-full blur-3xl translate-x-32 translate-y-32 pointer-events-none"></div>
         </section>
 
-        {/* CONSOLE BAND */}
         <section className="w-full bg-[#052638] py-14 sm:py-16">
           <Container>
             <AnimateOnScroll
@@ -939,56 +842,50 @@ export default function SolarPanelCleaningRobot() {
               <div className="text-center lg:text-left">
                 <div className="flex items-center gap-2 justify-center lg:justify-start text-[#A8C117] text-sm font-medium mb-3">
                   <LayoutDashboard className="w-4 h-4" />
-                  Taypro Console — fleet portal
+                  {t("consoleBand.eyebrow")}
                 </div>
                 <h2 className="text-white font-semibold text-2xl sm:text-3xl md:text-4xl leading-tight mb-3">
-                  One portal to monitor every Solar Panel Cleaning Robot in your plant
+                  {t("consoleBand.title")}
                 </h2>
                 <p className="text-white/80 text-base sm:text-lg max-w-2xl">
-                  Site dashboards, weather context, block-wise schedules,
-                  cleaning logs, exports, gateway and robot health, and support
-                  tickets — all role-based and ready for utility-scale O&amp;M
-                  governance.
+                  {t("consoleBand.body")}
                 </p>
               </div>
               <Link
                 href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                 className="inline-flex items-center justify-center min-h-[48px] sm:min-w-[200px] bg-[#A8C117] text-[#052638] font-medium px-7 py-3.5 rounded-md hover:bg-[#b3cf3d] transition shrink-0"
               >
-                Explore Taypro Console
+                {t("consoleBand.cta")}
               </Link>
             </AnimateOnScroll>
           </Container>
         </section>
 
-        {/* THINGS TO KEEP IN MIND */}
         <section className="w-full bg-white py-16 sm:py-20">
           <Container size="narrow">
             <AnimateOnScroll animation="fadeInUp">
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                Field-tested practices
+                {t("thingsToMind.eyebrow")}
               </div>
               <h2 className="text-[#052638] font-semibold text-2xl sm:text-4xl md:text-5xl leading-tight mb-6">
-                Things to keep in mind while cleaning solar panels with robots
+                {t("thingsToMind.title")}
               </h2>
               <p className="text-gray-600 text-base sm:text-lg mb-8">
-                Whether you operate a 50 MW or a 250 MW plant, a few simple
-                practices keep robotic cleaning consistent, safe and
-                audit-ready.
+                {t("thingsToMind.intro")}
               </p>
             </AnimateOnScroll>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-              {toDoFeatures.map((feature, idx) => (
+              {toDoFeatureRows.map((title, idx) => (
                 <AnimateOnScroll
-                  key={feature.title}
+                  key={title}
                   animation="fadeInUp"
                   delay={idx * 60}
                   className="flex items-start space-x-3 bg-[#f4f1e9] p-4 sm:p-5 rounded-lg"
                 >
                   <Sparkles className="w-5 h-5 text-[#A8C117] mt-0.5 shrink-0" />
                   <p className="text-[#052638] text-sm sm:text-base leading-relaxed">
-                    {feature.title}
+                    {title}
                   </p>
                 </AnimateOnScroll>
               ))}
@@ -996,23 +893,21 @@ export default function SolarPanelCleaningRobot() {
           </Container>
         </section>
 
-        {/* FAQS */}
         <section className="w-full py-16 sm:py-20 bg-white">
           <Container size="narrow">
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
               <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-4">
-                Solar Panel Cleaning Robot — FAQs
+                {t("faq.title")}
               </h2>
               <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
-                Quick answers to the questions plant owners and EPC teams ask
-                most often. For plant-specific recommendations,{" "}
+                {t("faq.subtitleLead")}
                 <OpenLeadModalButton
-                  topic="Contact Taypro"
+                  topic={t("faq.subtitleCta.topic")}
                   className="text-[#A8C117] hover:underline font-medium"
                 >
-                  contact Taypro
+                  {t("faq.subtitleCta.label")}
                 </OpenLeadModalButton>
-                .
+                {t("faq.subtitleSuffix")}
               </p>
             </AnimateOnScroll>
 
@@ -1020,7 +915,6 @@ export default function SolarPanelCleaningRobot() {
           </Container>
         </section>
 
-        {/* FINAL CTA */}
         <section className="w-full py-16 sm:py-20 bg-[#052638] border-t border-[#0c3c57]">
           <Container>
             <AnimateOnScroll
@@ -1029,31 +923,29 @@ export default function SolarPanelCleaningRobot() {
             >
               <div className="text-center lg:text-left">
                 <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                  Ready to deploy?
+                  {t("finalCta.eyebrow")}
                 </div>
                 <h2 className="text-white font-semibold text-2xl sm:text-3xl md:text-4xl mb-3 leading-tight">
-                  Bring robotic solar panel cleaning to your plant
+                  {t("finalCta.title")}
                 </h2>
                 <p className="text-white/80 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0">
-                  Share your plant details — Taypro will recommend the right
-                  Solar Panel Cleaning Robot mix and commercial model after a
-                  short soiling study.
+                  {t("finalCta.body")}
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 shrink-0 justify-center">
                 <OpenLeadModalButton
-                  topic="Request a quote"
-                  title="Request a quote"
-                  subtitle="Share your plant details and our team will follow up with the right Solar Panel Cleaning Robot fit."
+                  topic={t("finalCta.primaryCta.topic")}
+                  title={t("finalCta.primaryCta.title")}
+                  subtitle={t("finalCta.primaryCta.subtitle")}
                   className="inline-flex items-center justify-center min-h-[48px] sm:min-w-[200px] bg-[#A8C117] text-[#052638] font-medium px-7 py-3.5 rounded-md hover:bg-[#b3cf3d] transition"
                 >
-                  Request a quote
+                  {t("finalCta.primaryCta.label")}
                 </OpenLeadModalButton>
                 <Link
                   href="/solar-panel-cleaning-robot-price-calculator"
                   className="inline-flex items-center justify-center min-h-[48px] sm:min-w-[200px] border-2 border-white text-white font-medium px-7 py-3.5 rounded-md hover:bg-white/10 transition"
                 >
-                  Calculate ROI
+                  {t("finalCta.secondaryCta")}
                 </Link>
               </div>
             </AnimateOnScroll>
@@ -1062,6 +954,6 @@ export default function SolarPanelCleaningRobot() {
 
         <RequestEstimateForm />
       </div>
-    </>
+    </div>
   );
 }

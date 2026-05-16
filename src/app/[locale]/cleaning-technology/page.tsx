@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 import {
   ArrowRight,
   Building2,
@@ -32,148 +33,42 @@ import FAQAccordion from "@/app/components/FAQAccordion";
 import { FAQPageSchema, HowToSchema } from "@/app/components/StructuredData";
 import { socialImagesFromPreset } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
+import { withHreflang } from "@/lib/seo/with-hreflang";
 import { PerformanceMethodologyNotice } from "@/app/components/PerformanceMethodologyNotice";
 
-const breadcrumbs = [
-  { name: "Home", href: "/" },
-  { name: "Cleaning technology", href: "" },
-];
-
+const CLEANING_TECH_PATH = "/cleaning-technology";
 const siteUrl = SITE_URL;
 const cleaningTechOg = socialImagesFromPreset("cleaningTech");
 
-const technologyPillars = [
-  {
-    icon: Wind,
-    title: "Patented dual-pass dry cleaning",
-    description:
-      "High-speed airflow lifts dry dust without scratching modules, then ultra-soft microfiber completes the wipe—no water tankers on site.",
-  },
-  {
-    icon: Cpu,
-    title: "AI-assisted cleaning schedules",
-    description:
-      "Robots adapt cycle cadence from weather, soiling, and fleet history—skipping wasted runs after rain and prioritising post-storm recovery.",
-  },
-  {
-    icon: Radio,
-    title: "Resilient fleet connectivity",
-    description: `Telemetry and commands over ${tayproRobotConnectivitySummary}, with Taypro Console for scheduling, health, and audit-ready reporting.`,
-  },
-  {
-    icon: Shield,
-    title: "Built for harsh field duty",
-    description:
-      "Waterproof drives, anti-corrosion coatings, and modular layouts sized for utility blocks—from desert dust to coastal humidity.",
-  },
+const PILLAR_ICONS = [Wind, Cpu, Radio, Shield] as const;
+const AUDIENCE_ICONS = [Building2, Wrench, HardHat] as const;
+const AUDIENCE_LINK_HREFS = [
+  ["/solar-panel-cleaning-robot-price-calculator", "/projects"],
+  [
+    "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
+    "/contact",
+  ],
+  ["/solar-panel-cleaning-system", "#tech-faq-heading"],
 ] as const;
 
-const audienceSegments = [
-  {
-    icon: Building2,
-    title: "Developers & asset owners",
-    description:
-      "Protect performance ratio and tariff capture with predictable dry-cleaning cadence, documented cycles in Taypro Console, and CAPEX or Taypro Opex procurement models.",
-    links: [
-      { label: "ROI calculator", href: "/solar-panel-cleaning-robot-price-calculator" },
-      { label: "Project case studies", href: "/projects" },
-    ],
-  },
-  {
-    icon: Wrench,
-    title: "O&M and plant operators",
-    description:
-      "Replace labour-heavy washing with fleet schedules you can audit—same-day breakdown targets, pan-India spares, and remote diagnostics before trucks roll.",
-    links: [
-      { label: "Taypro Console", href: "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app" },
-      { label: "Contact support", href: "/contact" },
-    ],
-  },
-  {
-    icon: HardHat,
-    title: "EPC & technical teams",
-    description:
-      "Specify robots by array type—fixed tilt, seasonal tilt, scattered blocks, or single-axis trackers—with connectivity and commissioning plans sized at design stage.",
-    links: [
-      { label: "Robot specifications", href: "/solar-panel-cleaning-system" },
-      { label: "Cleaning technology FAQ", href: "#tech-faq-heading" },
-    ],
-  },
+const DEEP_DIVE_CONFIG = [
+  { id: "dual-pass", image: "/tayprosolarpanel/taypro-about1.jpg", reverse: false, key: "dualPass" as const },
+  { id: "ai-scheduling", image: "/tayproasset/taypro-console.png", reverse: true, key: "aiScheduling" as const },
+  { id: "connectivity", image: "/tayproasset/robots.png", reverse: false, key: "connectivity" as const },
+  { id: "field-hardware", image: "/tayprosolarpanel/taypro-about2.webp", reverse: true, key: "fieldHardware" as const },
 ] as const;
 
-const dualPassHowToSteps = [
-  {
-    name: "Airflow pass — lift dry dust",
-    text: "High-speed controlled airflow dislodges loose dust and sand without abrasive contact on the module glass—reducing scratch risk compared with dry brushing alone.",
-  },
-  {
-    name: "Microfiber pass — remove adhered residue",
-    text: "Ultra-soft microfiber completes the wipe for pollen, agricultural film, or post-storm particulates that airflow alone cannot clear.",
-  },
-  {
-    name: "AI-timed cycle on the row",
-    text: "Automatic robots execute the dual-pass sequence along each row at controlled speed while Taypro Console logs the cycle for O&M audit trails.",
-  },
-  {
-    name: "Fleet repeat on schedule",
-    text: "Schedules adapt to weather and soiling—tighter cadence after dust events, paused cycles when rain makes cleaning redundant—so performance ratio stays stable through the season.",
-  },
+const COMPARISON_ROW_KEYS = ["row0", "row1", "row2", "row3", "row4", "row5"] as const;
+const FAQ_KEYS = ["q0", "q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9"] as const;
+const EXPLORE_HREFS = [
+  "/solar-panel-cleaning-system",
+  "/solar-panel-cleaning-robot-price-calculator",
+  "/projects",
+  "/contact",
 ] as const;
+const STAT_LABEL_KEYS = ["label0", "label1", "label2", "label3"] as const;
+const SNAPSHOT_ROW_KEYS = ["row0", "row1", "row2", "row3", "row4", "row5", "row6", "row7"] as const;
 
-const cleaningMethodComparison = [
-  {
-    factor: "Water consumption",
-    manual: "High (tankers, scheduling)",
-    semiAuto: "None (dry)",
-    autonomous: "None (dry)",
-  },
-  {
-    factor: "Labour at 50–250 MW",
-    manual: "Large crews, inconsistent",
-    semiAuto: "Crew places robot per row",
-    autonomous: "Minimal — fleet runs rows",
-  },
-  {
-    factor: "Cleaning cadence",
-    manual: "Weekly/monthly at best",
-    semiAuto: "Daily possible on blocks",
-    autonomous: "Daily/alternate-day fleet-wide",
-  },
-  {
-    factor: "Soiling recovery",
-    manual: "Variable by crew & season",
-    semiAuto: "99%+ dust per pass (Model-B)",
-    autonomous: "99%+ dust per cycle (Model-A/T)",
-  },
-  {
-    factor: "Fleet visibility",
-    manual: "Paper logs, if any",
-    semiAuto: "Limited telemetry",
-    autonomous: "Taypro Console + connectivity",
-  },
-  {
-    factor: "Best fit",
-    manual: "Small sites, water-available",
-    semiAuto: "Scattered blocks, mixed layout",
-    autonomous: "Utility fixed-tilt & trackers",
-  },
-] as const;
-
-const technicalSnapshot = [
-  { label: "Cleaning method", value: "Patented dual-pass dry (airflow + microfiber)" },
-  { label: "Water required", value: "None — waterless O&M" },
-  { label: "Typical dust removal", value: "99%+ per automated cycle (platform-dependent)" },
-  { label: "Scheduling", value: "AI/ML-informed cycles via Taypro Console" },
-  {
-    label: "Connectivity",
-    value: tayproRobotConnectivitySummary,
-  },
-  { label: "Certification", value: "TÜV NORD validated platforms (field deployments)" },
-  { label: "Manufacturing", value: "Chakan, Pune — Made in India" },
-  { label: "Service", value: "Pan-India spares, same-day breakdown targets" },
-] as const;
-
-/** Prefer these slugs when published; remaining slots fill from newest posts. */
 const PREFERRED_TECH_BLOG_SLUGS = [
   "what-is-a-solar-panel-cleaning-robot",
   "microfiber-vs-traditional-brushes-why-taypros-patented-dual-pass-solar-panel-cleaning-system-outperforms",
@@ -188,292 +83,202 @@ const PREFERRED_TECH_BLOG_SLUGS = [
 async function getLatestProjects(limit = 3) {
   const projects = await getAllFileProjects();
   return [...projects]
-    .sort(
-      (a, b) =>
-        new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime()
-    )
+    .sort((a, b) => new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime())
     .slice(0, limit);
 }
 
-async function getBlogPostsForTechPage(limit = 6) {
+function blogDateLocale(locale: string) {
+  if (locale === "hi") return "hi-IN";
+  if (locale === "ar") return "ar";
+  if (locale === "ja") return "ja-JP";
+  if (locale === "bn") return "bn-IN";
+  return "en-IN";
+}
+
+async function getBlogPostsForTechPage(locale: string, limit = 6) {
   const all = await listAllBlogs(false);
   const bySlug = new Map(all.map((b) => [b.slug, b]));
   const picked: (typeof all)[number][] = [];
-
   for (const slug of PREFERRED_TECH_BLOG_SLUGS) {
     const post = bySlug.get(slug);
     if (post) picked.push(post);
     if (picked.length >= limit) break;
   }
-
   for (const post of all) {
     if (picked.length >= limit) break;
     if (!picked.some((p) => p.slug === post.slug)) picked.push(post);
   }
-
   return picked.slice(0, limit).map((b) => ({
     title: b.title,
     description: b.description,
     href: `/blog/${b.slug}`,
-    date: new Date(b.updatedAt || b.publishDate).toLocaleDateString("en-IN", {
+    date: new Date(b.updatedAt || b.publishDate).toLocaleDateString(blogDateLocale(locale), {
       year: "numeric",
       month: "short",
       day: "numeric",
     }),
-    image:
-      b.featuredImage && b.featuredImage.trim() !== "" ? b.featuredImage : null,
+    image: b.featuredImage && b.featuredImage.trim() !== "" ? b.featuredImage : null,
   }));
 }
 
-type DeepDiveSection = {
-  id: string;
-  eyebrow: string;
-  title: string;
-  paragraphs: ReactNode[];
-  bullets?: string[];
-  image: string;
-  imageAlt: string;
-  reverse: boolean;
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "CleaningTechnologyPage.meta" });
+  const keywords = [t("keyword0"), t("keyword1"), t("keyword2"), t("keyword3"), t("keyword4"), t("keyword5"), t("keyword6")];
+  return withHreflang(CLEANING_TECH_PATH, locale, {
+    title: t("title"),
+    description: t("description"),
+    keywords,
+    openGraph: {
+      title: t("openGraphTitle"),
+      description: t("openGraphDescription"),
+      url: `${siteUrl}${CLEANING_TECH_PATH}`,
+      type: "website",
+      ...cleaningTechOg.openGraph,
+    },
+    twitter: {
+      title: t("twitterTitle"),
+      description: t("twitterDescription"),
+      ...cleaningTechOg.twitter,
+    },
+  });
+}
 
-const deepDiveSections: DeepDiveSection[] = [
-  {
-    id: "dual-pass",
-    eyebrow: "Core methodology",
-    title: "Dual-pass waterless solar panel cleaning",
-    paragraphs: [
-      "Soiling is the silent tax on Indian utility-scale PV: dust films can suppress generation by double-digit percentages in arid and agricultural belts before O&M teams mobilise manual crews. Taypro’s patented approach treats cleaning as a two-stage mechanical process tuned for dry climates—not a hose-down adapted for robots.",
-      "Pass one uses controlled airflow to lift loose particulates without dragging grit across the glass. Pass two follows with microfiber contact to remove adhered residue—the combination field teams rely on after agricultural dust, pollen, or post-storm events.",
-      "Because the first pass is non-contact, modules see less abrasive wear over years of daily cleaning than with stiff brushes or uncontrolled dry wiping. That matters when asset owners model 25-year degradation and warranty exposure on glass.",
-      <>
-        The method is documented across{" "}
-        <Link href="/projects" className="text-[#5a8f00] font-medium hover:underline">
-          live utility projects
-        </Link>{" "}
-        and explored in our{" "}
-        <Link
-          href="/blog/microfiber-vs-traditional-brushes-why-taypros-patented-dual-pass-solar-panel-cleaning-system-outperforms"
-          className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
-        >
-          dual-pass vs traditional brushes
-        </Link>{" "}
-        guide—without water, thermal shock, or tanker logistics.
-      </>,
-    ],
-    bullets: [
-      "No water procurement or runoff compliance on site",
-      "Suitable for fixed tilt, seasonal tilt, rooftop, and tracker rows (platform-dependent)",
-      "Documented 99%+ dust removal per cycle on automatic platforms",
-    ],
-    image: "/tayprosolarpanel/taypro-about1.jpg",
-    imageAlt:
-      "Taypro waterless solar panel cleaning robot operating on a utility-scale PV array",
-    reverse: false,
-  },
-  {
-    id: "ai-scheduling",
-    eyebrow: "Intelligent automation",
-    title: "AI and ML for predictable O&M",
-    paragraphs: [
-      "Cleaning robots only create value when they run at the right time. Taypro automatic platforms ingest weather forecasts, historical soiling patterns, and fleet telemetry to decide when to clean, pause, or accelerate cycles.",
-      "After heavy rain, robots stand down to conserve charge and avoid redundant passes. Following dust storms or harvest seasons, schedules tighten so performance ratio recovers before the next revenue-critical period.",
-      "Predictive maintenance hooks in the same data stream: battery health, motor loads, and fault codes surface in Console before they become multi-day outages—supporting Taypro’s same-day breakdown response commitment on deployed fleets.",
-      <>
-        Operators monitor outcomes in{" "}
-        <Link
-          href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
-          className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
-        >
-          Taypro Console
-        </Link>
-        —scheduling, battery health, cycle logs, and alerts in one dashboard for multi-block sites. Read how{" "}
-        <Link
-          href="/blog/how-ai-can-improve-solar-energy-output"
-          className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
-        >
-          AI improves solar output
-        </Link>{" "}
-        in field operations.
-      </>,
-    ],
-    bullets: [
-      "Weather-aware pause and resume logic",
-      "Cycle history for PR and warranty discussions",
-      "Integration with pan-India service and spares network",
-    ],
-    image: "/tayproasset/taypro-console.png",
-    imageAlt: "Taypro Console fleet monitoring for solar panel cleaning robots",
-    reverse: true,
-  },
-  {
-    id: "connectivity",
-    eyebrow: "Fleet operations",
-    title: "Connectivity sized per plant",
-    paragraphs: [
-      `Large sites rarely have uniform network coverage. Taypro engineers deploy ${tayproRobotConnectivitySummary} so robots stay reachable across blocks—whether that means LTE backhaul, Wi-Fi at the substation, hybrid RF mesh through rows, or LoRa where long-range low-power links fit.`,
-      "Real-time telemetry shortens mean time to repair: faults surface in Console before they become multi-day outages, and field teams arrive with the right spares.",
-      "Mesh-style links help when a single gateway cannot cover hundreds of hectares—robots relay status row-to-row while backhaul carries aggregated fleet data to the cloud.",
-      <>
-        See how connectivity maps to each robot platform on the{" "}
-        <Link
-          href="/solar-panel-cleaning-system"
-          className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
-        >
-          solar panel cleaning robots hub
-        </Link>
-        ,{" "}
-        <Link
-          href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
-          className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
-        >
-          automatic robot specs
-        </Link>
-        , and{" "}
-        <Link
-          href="/blog/how-are-pv-panel-cleaning-robots-installed"
-          className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
-        >
-          installation guide
-        </Link>
-        .
-      </>,
-    ],
-    bullets: [
-      "Site-specific network design at commissioning",
-      "Secure telemetry path to Taypro Console",
-      "Remote diagnostics before truck rolls",
-    ],
-    image: "/tayproasset/robots.png",
-    imageAlt:
-      "Taypro automatic, semi-automatic, and tracker solar panel cleaning robots",
-    reverse: false,
-  },
-  {
-    id: "field-hardware",
-    eyebrow: "Engineering",
-    title: "Hardware built for Indian field conditions",
-    paragraphs: [
-      "Utility plants in India face dust storms, monsoon humidity, coastal salt, and wide temperature swings—consumer-grade robotics do not survive that calendar. Taypro platforms use waterproof drives, corrosion-resistant materials, and modular sub-assemblies sized for rapid swap in the field.",
-      "Model-T adds tracker-specific mechanics: flexible bridge geometry and rotation across single-axis brands so one cleaning head traverses table-to-table without manual repositioning every few metres.",
-      "Manufacturing and QA run from Chakan, Pune with capacity to produce hundreds of robots per month—so fleet expansions and spare pipelines keep pace with multi-hundred-MW rollouts.",
-    ],
-    bullets: [
-      "TÜV NORD certified robot platforms",
-      "Modular design for commissioning and spares",
-      "Compatible with major tracker ecosystems (Model-T)",
-    ],
-    image: "/tayprosolarpanel/taypro-about2.webp",
-    imageAlt:
-      "Taypro engineering and manufacturing for solar panel cleaning robots",
-    reverse: true,
-  },
-];
+export default async function CleaningTechnologyPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "CleaningTechnologyPage" });
+  const tCommon = await getTranslations({ locale, namespace: "Common" });
+  const connectivity = tayproRobotConnectivitySummary;
 
-const technologyFaqs = [
-  {
-    question: "Do Taypro solar panel cleaning robots use water?",
-    answer:
-      "No. Taypro robots use a patented dual-pass dry method—airflow plus microfiber—so plants avoid water procurement, runoff management, and module thermal shock common with wet washing in arid regions.",
-  },
-  {
-    question: "What is dual-pass cleaning and why two stages?",
-    answer:
-      "The first pass dislodges dry dust with airflow to minimise contact with the glass surface. The second pass uses microfiber to remove finer or sticky residue. Together they deliver thorough cleaning without abrasives that can micro-scratch modules over time.",
-  },
-  {
-    question: "How much soiling can robotic cleaning recover on utility plants?",
-    answer:
-      "Soiling loss varies by region and season—often cited in the 8–25% range on Indian utility plants when washing is infrequent. Taypro deployments target 99%+ dust removal per cycle on automatic platforms with schedules tight enough to stabilise performance ratio; exact gains depend on your baseline soiling and tariff.",
-  },
-  {
-    question: "How does AI change when robots actually clean?",
-    answer:
-      "Scheduling logic considers weather forecasts, recent soiling events, and fleet history. Robots may pause during effective rain and prioritise cleaning after dust storms or high-soiling seasons—reducing wasted cycles and aligning O&M with generation risk.",
-  },
-  {
-    question: "What connectivity options do Taypro robots support?",
-    answer: `Deployments use ${tayproRobotConnectivitySummary} depending on site layout and backhaul. Taypro sizes the architecture during commissioning so Taypro Console receives telemetry and can push schedules reliably across the plant.`,
-  },
-  {
-    question: "Are Taypro robots suitable for single-axis trackers?",
-    answer:
-      "Yes. Model-T is engineered for tracker rows with a flexible bridge and rotation across brands. Model-A targets fixed and seasonal-tilt arrays; Model-B covers portable crew-assisted blocks. Compare platforms on the solar panel cleaning system hub.",
-  },
-  {
-    question: "How is Taypro different from manual wet washing?",
-    answer:
-      "Manual wet washing needs water logistics, large crews, and typically lower cadence on MW-scale sites. Taypro robots run waterless dual-pass cycles on a predictable schedule with Console visibility—reducing labour variance and improving repeatability through dust season.",
-  },
-  {
-    question: "What certifications apply to Taypro cleaning robots?",
-    answer:
-      "Taypro robot platforms are field-validated with TÜV NORD certification on applicable models. Patents cover core cleaning system technology. Specifications and certificates are listed on each product page under the solar panel cleaning system section.",
-  },
-  {
-    question: "Can Taypro operate robots for us instead of CAPEX purchase?",
-    answer:
-      "Yes. Taypro Opex is an operator-led model—pay per panel cleaned with Taypro running the fleet on your plant. Technology is the same dual-pass dry platform; economics differ. Discuss both models during site assessment.",
-  },
-  {
-    question: "How can I validate ROI before buying robots?",
-    answer:
-      "Use the free solar panel cleaning robot ROI calculator, review case studies under Projects, then contact Taypro with your layout for a site-specific robot count, quote, and service SLA.",
-  },
-];
+  const breadcrumbs = [
+    { name: tCommon("breadcrumbHome"), href: "/" },
+    { name: t("breadcrumb"), href: "" },
+  ];
 
-const exploreLinks = [
-  { label: "Solar cleaning robots", href: "/solar-panel-cleaning-system" },
-  { label: "ROI calculator", href: "/solar-panel-cleaning-robot-price-calculator" },
-  { label: "Live projects", href: "/projects" },
-  { label: "Contact Taypro", href: "/contact" },
-] as const;
+  const technologyPillars = PILLAR_ICONS.map((icon, i) => ({
+    icon,
+    title: t(`pillars.item${i}.title`),
+    description: t(`pillars.item${i}.description`, { connectivity }),
+  }));
 
-export const metadata: Metadata = {
-  title:
-    "Solar Panel Cleaning Robot Technology | Waterless Dual-Pass — Taypro",
-  description:
-    "How Taypro waterless solar panel cleaning robots work: patented dual-pass dry cleaning (99%+ dust per cycle), AI scheduling, fleet connectivity, field deployments across India, method comparison vs manual washing, and TÜV NORD certified platforms.",
-  keywords: [
-    "solar panel cleaning robot technology",
-    "waterless solar panel cleaning",
-    "dual-pass solar cleaning",
-    "dry solar panel cleaning robot",
-    "AI solar panel cleaning",
-    "solar robot connectivity",
-    "taypro cleaning technology",
-  ],
-  openGraph: {
-    title: "Solar Panel Cleaning Robot Technology — Taypro",
-    description:
-      "Patented dual-pass waterless cleaning, AI scheduling, and fleet connectivity for utility-scale solar in India.",
-    url: `${siteUrl}/cleaning-technology`,
-    type: "website",
-    ...cleaningTechOg.openGraph,
-  },
-  twitter: {
-    title: "Solar Panel Cleaning Robot Technology — Taypro",
-    description:
-      "Waterless dual-pass cleaning, AI scheduling, and Taypro Console fleet monitoring.",
-    ...cleaningTechOg.twitter,
-  },
-  alternates: {
-    canonical: `${siteUrl}/cleaning-technology`,
-  },
-};
+  const audienceSegments = AUDIENCE_ICONS.map((icon, i) => ({
+    icon,
+    title: t(`audience.segment${i}.title`),
+    description: t(`audience.segment${i}.description`),
+    links: [
+      { label: t(`audience.segment${i}.link0`), href: AUDIENCE_LINK_HREFS[i][0] },
+      { label: t(`audience.segment${i}.link1`), href: AUDIENCE_LINK_HREFS[i][1] },
+    ],
+  }));
 
-export default async function CleaningTechnologyPage() {
+  const dualPassHowToSteps = [0, 1, 2, 3].map((i) => ({
+    name: t(`schema.howToStep${i}Name`),
+    text: t(`schema.howToStep${i}Text`),
+  }));
+
+  const cleaningMethodComparison = COMPARISON_ROW_KEYS.map((rowKey) => ({
+    factor: t(`comparison.${rowKey}.factor`),
+    manual: t(`comparison.${rowKey}.manual`),
+    semiAuto: t(`comparison.${rowKey}.semiAuto`),
+    autonomous: t(`comparison.${rowKey}.autonomous`),
+  }));
+
+  const technicalSnapshot = SNAPSHOT_ROW_KEYS.map((rowKey) => ({
+    label: t(`snapshot.${rowKey}Label`),
+    value: rowKey === "row4" ? connectivity : t(`snapshot.${rowKey}Value`),
+  }));
+
+  const technologyFaqs = FAQ_KEYS.map((qKey, i) => ({
+    question: t(`faq.${qKey}`),
+    answer: t(`faq.a${i}`, { connectivity }),
+  }));
+
+  const exploreLinks = EXPLORE_HREFS.map((href, i) => ({
+    label: t(`explore.link${i}`),
+    href,
+  }));
+
+  const waterlessStats = [
+    tayproMarketingImpactStats.robotCapacityDeployed,
+    tayproMarketingImpactStats.plantInstallations,
+    tayproMarketingImpactStats.co2ReducedAnnually,
+    tayproMarketingImpactStats.robotsManufacturedPerMonth,
+  ].map((stat, i) => ({ value: stat.value, label: t(`waterless.stat${i}Label`) }));
+
+  function buildDeepDiveParagraphs(key: (typeof DEEP_DIVE_CONFIG)[number]["key"]): ReactNode[] {
+    const base = `deepDive.${key}`;
+    if (key === "dualPass") {
+      return [
+        t(`${base}.p0`), t(`${base}.p1`), t(`${base}.p2`),
+        <>
+          {t(`${base}.p3Before`)}{" "}
+          <Link href="/projects" className="text-[#5a8f00] font-medium hover:underline">{t(`${base}.projectsLink`)}</Link>{" "}
+          {t(`${base}.p3Mid`)}{" "}
+          <Link href="/blog/microfiber-vs-traditional-brushes-why-taypros-patented-dual-pass-solar-panel-cleaning-system-outperforms" className="text-[#5a8f00] font-medium underline-offset-4 hover:underline">{t(`${base}.blogLink`)}</Link>{" "}
+          {t(`${base}.p3After`)}
+        </>,
+      ];
+    }
+    if (key === "aiScheduling") {
+      return [
+        t(`${base}.p0`), t(`${base}.p1`), t(`${base}.p2`),
+        <>
+          {t(`${base}.p3Before`)}{" "}
+          <Link href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app" className="text-[#5a8f00] font-medium underline-offset-4 hover:underline">{t(`${base}.consoleLink`)}</Link>
+          {t(`${base}.p3Mid`)}{" "}
+          <Link href="/blog/how-ai-can-improve-solar-energy-output" className="text-[#5a8f00] font-medium underline-offset-4 hover:underline">{t(`${base}.aiBlogLink`)}</Link>{" "}
+          {t(`${base}.p3After`)}
+        </>,
+      ];
+    }
+    if (key === "connectivity") {
+      return [
+        t(`${base}.p0`, { connectivity }), t(`${base}.p1`), t(`${base}.p2`),
+        <>
+          {t(`${base}.p3Before`)}{" "}
+          <Link href="/solar-panel-cleaning-system" className="text-[#5a8f00] font-medium underline-offset-4 hover:underline">{t(`${base}.hubLink`)}</Link>
+          {t(`${base}.p3Mid1`)}{" "}
+          <Link href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system" className="text-[#5a8f00] font-medium underline-offset-4 hover:underline">{t(`${base}.autoSpecsLink`)}</Link>
+          {t(`${base}.p3Mid2`)}{" "}
+          <Link href="/blog/how-are-pv-panel-cleaning-robots-installed" className="text-[#5a8f00] font-medium underline-offset-4 hover:underline">{t(`${base}.installLink`)}</Link>
+          {t(`${base}.p3After`)}
+        </>,
+      ];
+    }
+    return [t(`${base}.p0`), t(`${base}.p1`), t(`${base}.p2`)];
+  }
+
+  const deepDiveSections = DEEP_DIVE_CONFIG.map((cfg) => ({
+    id: cfg.id,
+    eyebrow: t(`deepDive.${cfg.key}.eyebrow`),
+    title: t(`deepDive.${cfg.key}.title`),
+    paragraphs: buildDeepDiveParagraphs(cfg.key),
+    bullets: [0, 1, 2].map((i) => t(`deepDive.${cfg.key}.bullet${i}`)),
+    image: cfg.image,
+    imageAlt: t(`deepDive.${cfg.key}.imageAlt`),
+    reverse: cfg.reverse,
+  }));
+
   const [latestProjects, techBlogPosts] = await Promise.all([
     getLatestProjects(3),
-    getBlogPostsForTechPage(6),
+    getBlogPostsForTechPage(locale, 6),
   ]);
 
   return (
     <>
       <FAQPageSchema faqs={technologyFaqs} />
       <HowToSchema
-        name="How Taypro dual-pass waterless solar panel cleaning works"
-        description="Two-stage dry cleaning for utility-scale solar: airflow dust removal, microfiber finish, and AI-scheduled fleet cycles via Taypro Console."
-        steps={[...dualPassHowToSteps]}
+        name={t("schema.howToName")}
+        description={t("schema.howToDescription")}
+        steps={dualPassHowToSteps}
         totalTime="PT15M"
         image="/tayprosolarpanel/taypro-about1.jpg"
       />
@@ -481,7 +286,7 @@ export default async function CleaningTechnologyPage() {
 
       <div className="min-h-screen overflow-x-hidden">
         {/* Hero */}
-        <section className="relative flex flex-col items-center justify-start overflow-x-hidden">
+        <div className="relative flex flex-col items-center justify-start overflow-x-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: "url('/tayprobglayout/taypro-bg.png')" }}
@@ -501,33 +306,32 @@ export default async function CleaningTechnologyPage() {
             className="relative z-20 pt-10 px-4 sm:px-6 max-w-4xl mx-auto pb-12 md:pb-16 text-center"
           >
             <p className="text-[#A8C117] text-sm mb-4 uppercase tracking-wide font-medium">
-              Waterless · AI-scheduled · Fleet-connected
+              {t("hero.eyebrow")}
             </p>
             <h1 className="font-semibold text-[#052638] text-4xl md:text-5xl mb-6 leading-tight text-balance">
-              Solar panel cleaning robot technology
+              {t("hero.title")}
             </h1>
             <p className="text-[#22405a] text-lg md:text-xl leading-relaxed max-w-3xl mx-auto text-pretty">
-              Taypro engineers autonomous and semi-automatic{" "}
+              {t("hero.bodyBeforeStrong")}{" "}
               <strong className="font-medium text-[#052638]">
-                solar panel cleaning robots
+                {t("hero.bodyStrong")}
               </strong>{" "}
-              for dusty utility-scale sites in India—combining patented dual-pass
-              dry cleaning, intelligent schedules, and{" "}
+              {t("hero.bodyMid")}{" "}
               <Link
                 href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                 className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
               >
-                Taypro Console
+                {t("hero.consoleLink")}
               </Link>{" "}
-              so O&amp;M teams recover generation without water logistics.
+              {t("hero.bodyAfter")}
             </p>
           </AnimateOnScroll>
-        </section>
+        </div>
 
         {/* Stats */}
-        <section
+        <div
           className="w-full py-10 md:py-12 bg-[#052638] border-y border-white/10"
-          aria-label="Taypro technology impact"
+          aria-label={t("stats.ariaLabel")}
         >
           <Container>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
@@ -541,15 +345,15 @@ export default async function CleaningTechnologyPage() {
                   <p className="text-[#A8C117] font-semibold text-2xl sm:text-3xl md:text-4xl mb-1">
                     {stat.value}
                   </p>
-                  <p className="text-white/80 text-xs sm:text-sm">{stat.label}</p>
+                  <p className="text-white/80 text-xs sm:text-sm">{t(`stats.${STAT_LABEL_KEYS[idx]}`)}</p>
                 </AnimateOnScroll>
               ))}
             </div>
           </Container>
-        </section>
+        </div>
 
         {/* Pillars */}
-        <section
+        <div
           className="py-14 md:py-20 bg-white"
           aria-labelledby="tech-pillars-heading"
         >
@@ -559,18 +363,16 @@ export default async function CleaningTechnologyPage() {
               className="max-w-3xl mx-auto text-center mb-12"
             >
               <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
-                Platform overview
+                {t("pillars.eyebrow")}
               </p>
               <h2
                 id="tech-pillars-heading"
                 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
               >
-                What powers Taypro cleaning robots
+                {t("pillars.heading")}
               </h2>
               <p className="text-[#27415c] text-lg leading-relaxed">
-                Hardware, software, and connectivity designed together—so
-                performance ratio gains are repeatable, not dependent on crew
-                availability or tanker schedules.
+                {t("pillars.intro")}
               </p>
             </AnimateOnScroll>
 
@@ -597,10 +399,10 @@ export default async function CleaningTechnologyPage() {
               ))}
             </div>
           </Container>
-        </section>
+        </div>
 
-        {/* Who this is for */}
-        <section
+        {/* {t("audience.eyebrow")} */}
+        <div
           className="py-14 md:py-20 bg-[#052638]"
           aria-labelledby="audience-heading"
         >
@@ -610,18 +412,16 @@ export default async function CleaningTechnologyPage() {
               className="max-w-3xl mx-auto text-center mb-10"
             >
               <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
-                Who this is for
+                {t("audience.eyebrow")}
               </p>
               <h2
                 id="audience-heading"
                 className="text-white font-semibold text-3xl md:text-4xl mb-4"
               >
-                Built for every stakeholder in the plant lifecycle
+                {t("audience.heading")}
               </h2>
               <p className="text-white/85 text-lg leading-relaxed">
-                Whether you underwrite generation, run daily O&amp;M, or
-                engineer the array—Taypro&apos;s cleaning technology maps to
-                your decisions on budget, uptime, and long-term module care.
+                {t("audience.intro")}
               </p>
             </AnimateOnScroll>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
@@ -660,10 +460,10 @@ export default async function CleaningTechnologyPage() {
               ))}
             </div>
           </Container>
-        </section>
+        </div>
 
         {/* Soiling context */}
-        <section
+        <div
           className="py-14 md:py-20 bg-[#f4f7f9]"
           aria-labelledby="soiling-context-heading"
         >
@@ -673,43 +473,28 @@ export default async function CleaningTechnologyPage() {
                 id="soiling-context-heading"
                 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
               >
-                Why soiling matters on Indian utility plants
+                {t("soiling.heading")}
               </h2>
               <div className="space-y-4 text-[#27415c] text-base md:text-lg leading-relaxed">
+                <p>{t("soiling.p0")}</p>
                 <p>
-                  Dust, pollen, and agricultural particulates settle on modules
-                  within days in many states—long before manual crews can cover
-                  every block. Uncleaned arrays lose irradiance, drag down
-                  performance ratio, and create uncomfortable conversations
-                  between O&amp;M and asset owners during peak tariff months.
-                </p>
-                <p>
-                  Wet washing at 100 MW scale competes for water, labour, and
-                  daylight. Tanker schedules slip; crews skip rows; and
-                  inconsistent cadence leaves soiling losses baked into annual
-                  budgets. That is why developers increasingly specify{" "}
+                  {t("soiling.p1Before")}{" "}
                   <Link
                     href="/solar-panel-cleaning-system"
                     className="text-[#5a8f00] font-medium hover:underline"
                   >
-                    solar panel cleaning robots
+                    {t("soiling.p1Link")}
                   </Link>{" "}
-                  as core O&amp;M infrastructure—not an optional add-on.
+                  {t("soiling.p1After")}
                 </p>
-                <p>
-                  Taypro&apos;s technology stack targets repeatable dry
-                  cleaning: remove dust without water, log every cycle, and
-                  tighten schedules when the weather turns harsh. The sections
-                  below explain dual-pass mechanics, AI timing, connectivity, and
-                  the hardware that survives real field duty.
-                </p>
+                <p>{t("soiling.p2")}</p>
               </div>
             </AnimateOnScroll>
           </Container>
-        </section>
+        </div>
 
         {/* How dual-pass works */}
-        <section
+        <div
           id="how-dual-pass-works"
           className="py-14 md:py-20 bg-white"
           aria-labelledby="how-dual-pass-heading"
@@ -720,18 +505,16 @@ export default async function CleaningTechnologyPage() {
               className="max-w-3xl mx-auto text-center mb-10"
             >
               <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
-                Step by step
+                {t("dualPass.eyebrow")}
               </p>
               <h2
                 id="how-dual-pass-heading"
                 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
               >
-                How dual-pass dry cleaning works
+                {t("dualPass.heading")}
               </h2>
               <p className="text-[#27415c] text-lg leading-relaxed">
-                A four-stage waterless cycle executed on each row—designed to
-                maximise dust removal while limiting abrasive contact with module
-                glass.
+                {t("dualPass.intro")}
               </p>
             </AnimateOnScroll>
             <ol className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -761,10 +544,10 @@ export default async function CleaningTechnologyPage() {
               ))}
             </ol>
           </Container>
-        </section>
+        </div>
 
         {/* Method comparison */}
-        <section
+        <div
           className="py-14 md:py-20 bg-[#052638]"
           aria-labelledby="method-comparison-heading"
         >
@@ -777,11 +560,10 @@ export default async function CleaningTechnologyPage() {
                 id="method-comparison-heading"
                 className="text-white font-semibold text-3xl md:text-4xl mb-4"
               >
-                Cleaning method comparison
+                {t("comparison.heading")}
               </h2>
               <p className="text-white/85 text-lg leading-relaxed">
-                How autonomous Taypro robots compare to manual wet washing and
-                semi-automatic dry platforms for utility-scale O&amp;M in India.
+                {t("comparison.intro")}
               </p>
             </AnimateOnScroll>
             <AnimateOnScroll animation="fadeInUp" delay={80}>
@@ -789,13 +571,13 @@ export default async function CleaningTechnologyPage() {
                 <table className="w-full min-w-[640px] text-left text-sm">
                   <thead>
                     <tr className="bg-white/10 text-white">
-                      <th className="px-4 py-3 font-semibold">Factor</th>
-                      <th className="px-4 py-3 font-semibold">Manual wet</th>
+                      <th className="px-4 py-3 font-semibold">{t("comparison.colFactor")}</th>
+                      <th className="px-4 py-3 font-semibold">{t("comparison.colManual")}</th>
                       <th className="px-4 py-3 font-semibold">
-                        Semi-auto dry (Model-B)
+                        {t("comparison.colSemiAuto")}
                       </th>
                       <th className="px-4 py-3 font-semibold">
-                        Autonomous dry (Model-A / T)
+                        {t("comparison.colAutonomous")}
                       </th>
                     </tr>
                   </thead>
@@ -821,11 +603,11 @@ export default async function CleaningTechnologyPage() {
               <PerformanceMethodologyNotice variant="dark" />
             </AnimateOnScroll>
           </Container>
-        </section>
+        </div>
 
         {/* Deep dives */}
         {deepDiveSections.map((section) => (
-          <section
+          <div
             key={section.id}
             id={section.id}
             className={`py-14 md:py-20 ${
@@ -899,11 +681,11 @@ export default async function CleaningTechnologyPage() {
                 </AnimateOnScroll>
               </div>
             </Container>
-          </section>
+          </div>
         ))}
 
         {/* Waterless impact */}
-        <section
+        <div
           className="py-14 md:py-20 bg-[#052638]"
           aria-labelledby="waterless-impact-heading"
         >
@@ -918,59 +700,35 @@ export default async function CleaningTechnologyPage() {
                   id="waterless-impact-heading"
                   className="text-white font-semibold text-3xl md:text-4xl mb-4 leading-tight"
                 >
-                  Waterless O&amp;M at utility scale
+                  {t("waterless.heading")}
                 </h2>
                 <p className="text-white/85 text-lg leading-relaxed mb-4">
-                  Manual wet washing competes for scarce water, labour, and
-                  daylight windows. Taypro robots eliminate tanker dependency
-                  while keeping cleaning cycles predictable through dust
-                  seasons.
+                  {t("waterless.p0")}
                 </p>
                 <p className="text-white/80 text-base leading-relaxed mb-6">
-                  Taypro deployments have contributed to saving{" "}
+                  {t("waterless.p1Before")}{" "}
                   <strong className="text-[#A8C117] font-semibold">
                     {tayproMarketingImpactStats.waterSavedAnnually.value}{" "}
-                    {tayproMarketingImpactStats.waterSavedAnnually.label.toLowerCase()}
+                    {t(`stats.${STAT_LABEL_KEYS[2]}`).toLowerCase()}
                   </strong>{" "}
-                  across customer fleets—while supporting{" "}
+                  {t("waterless.p1After")}{" "}
                   <strong className="text-white font-semibold">
                     {tayproMarketingImpactStats.robotCapacityDeployed.value}
                   </strong>{" "}
-                  of robot capacity in the field.
+                  {t("waterless.p1End")}
                 </p>
                 <Link
                   href="/projects"
                   className="inline-flex items-center gap-2 text-[#A8C117] font-medium hover:underline"
                 >
-                  Browse field case studies
+                  {t("waterless.caseStudiesLink")}
                   <ArrowRight className="w-4 h-4" aria-hidden />
                 </Link>
               </AnimateOnScroll>
 
               <AnimateOnScroll animation="fadeInRight" delay={80}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {[
-                    {
-                      label: "Robot capacity deployed",
-                      value: tayproMarketingImpactStats.robotCapacityDeployed
-                        .value,
-                    },
-                    {
-                      label: "Plant installations",
-                      value: tayproMarketingImpactStats.plantInstallations
-                        .value,
-                    },
-                    {
-                      label: "CO₂ reduced annually",
-                      value: tayproMarketingImpactStats.co2ReducedAnnually.value,
-                    },
-                    {
-                      label: "Monthly manufacturing capacity",
-                      value:
-                        tayproMarketingImpactStats.robotsManufacturedPerMonth
-                          .value,
-                    },
-                  ].map((item) => (
+                  {waterlessStats.map((item) => (
                     <div
                       key={item.label}
                       className="rounded-xl border border-white/15 bg-white/5 px-5 py-4 text-center"
@@ -987,10 +745,10 @@ export default async function CleaningTechnologyPage() {
               </AnimateOnScroll>
             </div>
           </Container>
-        </section>
+        </div>
 
         {/* Technical snapshot */}
-        <section
+        <div
           className="py-14 md:py-20 bg-white border-t border-gray-100"
           aria-labelledby="tech-snapshot-heading"
         >
@@ -1000,17 +758,16 @@ export default async function CleaningTechnologyPage() {
               className="max-w-3xl mx-auto text-center mb-10"
             >
               <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
-                At a glance
+                {t("snapshot.eyebrow")}
               </p>
               <h2
                 id="tech-snapshot-heading"
                 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
               >
-                Taypro cleaning technology snapshot
+                {t("snapshot.heading")}
               </h2>
               <p className="text-[#27415c] text-lg leading-relaxed">
-                Key attributes asset managers and EPC teams review when
-                specifying robotic dry cleaning for MW-scale plants.
+                {t("snapshot.intro")}
               </p>
             </AnimateOnScroll>
             <AnimateOnScroll animation="fadeInUp" delay={80}>
@@ -1034,10 +791,10 @@ export default async function CleaningTechnologyPage() {
               <PerformanceMethodologyNotice />
             </AnimateOnScroll>
           </Container>
-        </section>
+        </div>
 
-        {/* Field proof */}
-        <section
+        {/* {t("fieldProof.eyebrow")} */}
+        <div
           className="py-14 md:py-20 bg-[#f4f7f9]"
           aria-labelledby="field-proof-heading"
         >
@@ -1047,18 +804,16 @@ export default async function CleaningTechnologyPage() {
               className="max-w-3xl mx-auto text-center mb-10"
             >
               <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
-                Field proof
+                {t("fieldProof.eyebrow")}
               </p>
               <h2
                 id="field-proof-heading"
                 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
               >
-                Technology deployed on utility-scale plants
+                {t("fieldProof.heading")}
               </h2>
               <p className="text-[#27415c] text-lg leading-relaxed">
-                Dual-pass dry cleaning, automatic fleets, and Console monitoring
-                across multi-MW installations in India—documented as project
-                case studies.
+                {t("fieldProof.intro")}
               </p>
             </AnimateOnScroll>
             {latestProjects.length > 0 ? (
@@ -1077,7 +832,7 @@ export default async function CleaningTechnologyPage() {
                     <div className="relative aspect-[16/10] overflow-hidden bg-[#eef3f8]">
                       <Image
                         src={project.img}
-                        alt={`${project.title} — Taypro solar panel cleaning robot deployment`}
+                        alt={`${project.title}${t("fieldProof.projectImageAltSuffix")}`}
                         fill
                         className="object-cover object-center group-hover:scale-[1.02] transition-transform duration-300"
                         sizes="(max-width: 768px) 100vw, 33vw"
@@ -1100,7 +855,7 @@ export default async function CleaningTechnologyPage() {
                         </div>
                       ) : null}
                       <span className="mt-auto text-[#5a8f00] text-sm font-medium inline-flex items-center gap-1">
-                        Read case study
+                        {t("fieldProof.readCaseStudy")}
                         <ArrowRight className="w-4 h-4" aria-hidden />
                       </span>
                     </div>
@@ -1117,18 +872,18 @@ export default async function CleaningTechnologyPage() {
                 href="/projects"
                 className="inline-flex items-center gap-2 text-[#5a8f00] font-medium hover:underline"
               >
-                View all projects
+                {t("fieldProof.viewAllProjects")}
                 <ArrowRight className="w-4 h-4" aria-hidden />
               </Link>
             </AnimateOnScroll>
             </>
             ) : null}
           </Container>
-        </section>
+        </div>
 
         {/* Related guides — from CMS */}
         {techBlogPosts.length > 0 && (
-          <section
+          <div
             className="py-14 md:py-20 bg-white"
             aria-labelledby="related-guides-heading"
           >
@@ -1142,18 +897,17 @@ export default async function CleaningTechnologyPage() {
                     id="related-guides-heading"
                     className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3"
                   >
-                    Deeper reading on cleaning &amp; O&amp;M
+                    {t("relatedGuides.heading")}
                   </h2>
                   <p className="text-[#27415c] text-lg leading-relaxed">
-                    Guides from the Taypro blog on robots, soiling, economics,
-                    and plant performance—updated as new articles publish.
+                    {t("relatedGuides.intro")}
                   </p>
                 </div>
                 <Link
                   href="/blog"
                   className="inline-flex items-center justify-center gap-2 text-[#5a8f00] font-medium hover:underline shrink-0 mx-auto sm:mx-0"
                 >
-                  View all articles
+                  {t("relatedGuides.viewAllArticles")}
                   <ArrowRight className="w-4 h-4" aria-hidden />
                 </Link>
               </AnimateOnScroll>
@@ -1172,7 +926,7 @@ export default async function CleaningTechnologyPage() {
                         {post.image ? (
                           <Image
                             src={post.image}
-                            alt={`${post.title} — Taypro blog`}
+                            alt={`${post.title}${t("relatedGuides.blogImageAltSuffix")}`}
                             fill
                             className="object-cover group-hover:scale-[1.02] transition-transform duration-300"
                             sizes="(max-width: 640px) 100vw, 33vw"
@@ -1197,11 +951,11 @@ export default async function CleaningTechnologyPage() {
                 ))}
               </div>
             </Container>
-          </section>
+          </div>
         )}
 
         {/* Robot lineup */}
-        <section
+        <div
           className="py-14 md:py-20 bg-[#f4f7f9]"
           aria-labelledby="tech-robots-heading"
         >
@@ -1211,24 +965,23 @@ export default async function CleaningTechnologyPage() {
               className="text-center max-w-3xl mx-auto mb-10"
             >
               <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-2">
-                Product platforms
+                {t("robots.eyebrow")}
               </p>
               <h2
                 id="tech-robots-heading"
                 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3"
               >
-                Robots built on this technology
+                {t("robots.heading")}
               </h2>
               <p className="text-[#27415c] text-lg leading-relaxed">
-                Automatic, semi-automatic, and tracker-ready platforms share the
-                same dry-cleaning DNA—configured per array type.{" "}
+                {t("robots.introBefore")}{" "}
                 <Link
                   href="/solar-panel-cleaning-system"
                   className="text-[#5a8f00] font-medium hover:underline"
                 >
-                  Compare all robots
+                  {t("robots.compareLink")}
                 </Link>
-                .
+                {t("robots.introAfter")}
               </p>
             </AnimateOnScroll>
 
@@ -1266,10 +1019,10 @@ export default async function CleaningTechnologyPage() {
               ))}
             </AnimateOnScroll>
           </Container>
-        </section>
+        </div>
 
         {/* FAQ */}
-        <section
+        <div
           className="py-14 md:py-20 bg-[#f4f7f9]"
           aria-labelledby="tech-faq-heading"
         >
@@ -1279,31 +1032,28 @@ export default async function CleaningTechnologyPage() {
                 id="tech-faq-heading"
                 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3"
               >
-                Technology FAQs
+                {t("faq.heading")}
               </h2>
-              <p className="text-[#27415c] text-lg">
-                Common questions about Taypro dry cleaning, AI scheduling, and
-                fleet connectivity.
-              </p>
+              <p className="text-[#27415c] text-lg">{t("faq.intro")}</p>
             </AnimateOnScroll>
             <AnimateOnScroll animation="fadeInUp" delay={80}>
               <FAQAccordion faqs={technologyFaqs} variant="modern" />
             </AnimateOnScroll>
           </Container>
-        </section>
+        </div>
 
         {/* Explore */}
-        <section className="py-12 md:py-14 bg-white border-t border-gray-100">
+        <div className="py-12 md:py-14 bg-white border-t border-gray-100">
           <Container>
             <AnimateOnScroll
               animation="fadeInUp"
               className="text-center mb-8"
             >
               <h2 className="text-[#052638] font-semibold text-2xl md:text-3xl mb-2">
-                Explore next
+                {t("explore.heading")}
               </h2>
               <p className="text-[#27415c]">
-                Quotes, ROI, and project proof points for your plant.
+                {t("explore.intro")}
               </p>
             </AnimateOnScroll>
             <div className="flex flex-wrap justify-center gap-3">
@@ -1320,10 +1070,10 @@ export default async function CleaningTechnologyPage() {
               ))}
             </div>
           </Container>
-        </section>
+        </div>
 
         <CallbackCard
-          headerText="Discuss cleaning technology for your plant"
+          headerText={t("callback.header")}
         />
       </div>
     </>

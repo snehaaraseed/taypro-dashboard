@@ -1,0 +1,63 @@
+{
+  "SiteMapPage": {
+    "meta": {
+      "title": "خريطة الموقع | Taypro – تنقل كامل للموقع",
+      "description": "تصفّح خريطة موقع Taypro للوصول السريع إلى جميع أقسام الموقع، بما في ذلك المشاريع والخدمات ومعلومات الشركة.",
+      "openGraphTitle": "خريطة الموقع | Taypro – تنقل كامل للموقع",
+      "openGraphDescription": "تصفّح خريطة موقع Taypro للوصول السريع إلى جميع أقسام الموقع، بما في ذلك المشاريع والخدمات ومعلومات الشركة.",
+      "openGraphImageAlt": "خريطة موقع Taypro",
+      "twitterTitle": "خريطة الموقع | Taypro",
+      "twitterDescription": "تصفّح خريطة موقع Taypro للوصول السريع إلى جميع أقسام الموقع.",
+      "keyword0": "خريطة موقع Taypro",
+      "keyword1": "تنقل موقع روبوت تنظيف الألواح الشمسية",
+      "keyword2": "خريطة الموقع",
+      "keyword3": "خريطة الموقع الإلكتروني",
+      "keyword4": "تنقل Taypro",
+      "keyword5": "صفحات روبوت تنظيف الألواح الشمسية"
+    },
+    "breadcrumbs": { "sitemap": "خريطة الموقع" },
+    "heading": "خريطة الموقع",
+    "sections": {
+      "posts": "المقالات",
+      "pages": "الصفحات",
+      "portfolio": "المحفظة"
+    },
+    "posts": { "energyResourcesTitle": "موارد الطاقة" },
+    "portfolio": { "solarProjectTitle": "مشروع شمسي" },
+    "links": {
+      "aboutUsLabel": "من نحن",
+      "aboutUsTitle": "من نحن",
+      "blogLabel": "المدونة",
+      "blogTitle": "المدونة",
+      "contactLabel": "اتصل بنا",
+      "contactTitle": "اتصل بنا",
+      "homeLabel": "الرئيسية",
+      "homeTitle": "الرئيسية",
+      "privacyPolicyLabel": "سياسة الخصوصية",
+      "privacyPolicyTitle": "سياسة الخصوصية",
+      "performanceMethodologyLabel": "منهجية الأداء والاختبار",
+      "performanceMethodologyTitle": "منهجية الأداء والاختبار",
+      "projectsLabel": "المشاريع",
+      "projectsTitle": "المشاريع",
+      "roiCalculatorLabel": "حاسبة العائد على الاستثمار",
+      "roiCalculatorTitle": "حاسبة العائد على الاستثمار",
+      "sitemapLabel": "خريطة الموقع",
+      "sitemapTitle": "خريطة الموقع",
+      "solarRobotsLabel": "روبوتات تنظيف الألواح الشمسية",
+      "solarRobotsTitle": "روبوتات شمسية لتنظيف الألواح الشمسية",
+      "automaticRobotLabel": "روبوت تنظيف ألواح شمسية أوتوماتيكي",
+      "automaticRobotTitle": "روبوت تنظيف ألواح شمسية أوتوماتيكي",
+      "modelBLabel": "Model-B",
+      "modelBTitle": "نظام تنظيف ألواح شمسية شبه أوتوماتيكي",
+      "modelTLabel": "Model-T",
+      "modelTTitle": "Model-T",
+      "cleaningServiceLabel": "خدمة تنظيف الألواح الشمسية",
+      "cleaningServiceTitle": "خدمة تنظيف الألواح الشمسية",
+      "tayproConsoleLabel": "Taypro Console",
+      "tayproConsoleTitle": "تطبيق روبوت التنظيف الأوتوماتيكي",
+      "cleaningTechnologyLabel": "التقنية وراء Taypro",
+      "cleaningTechnologyTitle": "تقنية التنظيف"
+    }
+  },
+  "Common": { "breadcrumbHome": "الرئيسية" }
+}

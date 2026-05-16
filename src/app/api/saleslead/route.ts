@@ -1,13 +1,42 @@
 import { NextRequest, NextResponse } from "next/server";
+import { checkApiRateLimit } from "@/app/utils/rateLimit";
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "https://console.taypro.in";
+const BACKEND_URL =
+  process.env.SALESLEAD_BACKEND_URL ||
+  process.env.NEXT_PUBLIC_BACKEND_URL ||
+  "https://console.taypro.in";
+
+const MAX_FIELD_LENGTH = 500;
+const MAX_COMMENTS_LENGTH = 5000;
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const { name, email, phone, company_name, comments } = body;
+    const rateLimit = checkApiRateLimit(request, "saleslead");
+    if (rateLimit.limited) {
+      return NextResponse.json(
+        { success: false, message: "Too many submissions. Please try again later." },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": String(
+              Math.ceil((rateLimit.resetTime - Date.now()) / 1000)
+            ),
+          },
+        }
+      );
+    }
 
-    // Validate required fields
+    const body = await request.json();
+    const name = String(body.name ?? "").trim().slice(0, MAX_FIELD_LENGTH);
+    const email = String(body.email ?? "").trim().slice(0, MAX_FIELD_LENGTH);
+    const phone = String(body.phone ?? "").trim().slice(0, MAX_FIELD_LENGTH);
+    const company_name = String(body.company_name ?? "")
+      .trim()
+      .slice(0, MAX_FIELD_LENGTH);
+    const comments = String(body.comments ?? "")
+      .trim()
+      .slice(0, MAX_COMMENTS_LENGTH);
+
     if (!name || !email || !phone) {
       return NextResponse.json(
         { 
@@ -62,16 +91,9 @@ export async function POST(request: NextRequest) {
       // Fall through to local handling or success response
     }
 
-    // If external API is not available, still return success
-    // (In production, you might want to store this in a database or send via email)
-    console.log("Sales Lead Submission:", {
-      name,
-      email,
-      phone,
-      company_name,
-      comments,
-      timestamp: new Date().toISOString(),
-    });
+    if (process.env.NODE_ENV !== "production") {
+      console.log("Sales lead stored locally (backend unavailable)");
+    }
 
     return NextResponse.json({
       success: true,

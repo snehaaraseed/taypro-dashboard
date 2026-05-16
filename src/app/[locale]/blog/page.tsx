@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { ArrowRight, BookOpen, Calculator, Users } from "lucide-react";
+import { formatLocaleDateShort } from "@/i18n/format-date";
 import { DynamicBlog } from "@/app/api/blog/list/route";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
@@ -19,70 +21,40 @@ import {
   blogListPageUrl,
   blogListPaginationLinks,
 } from "@/lib/seo/blog-pagination";
+import { withHreflang } from "@/lib/seo/with-hreflang";
 import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
-
-const breadcrumbs = [
-  { name: "Home", href: "/" },
-  { name: "Blog", href: "" },
-];
 
 const PAGE_SIZE = BLOG_LIST_PAGE_SIZE;
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
-const featuredTopics = [
-  {
-    title: "Maintenance & soiling",
-    description:
-      "Checklists, seasonal care, and how soiling affects performance ratio on Indian plants.",
-    href: "/blog/the-complete-guide-to-solar-panel-maintenance",
-  },
-  {
-    title: "Cleaning economics",
-    description:
-      "Cost–benefit of robotic vs manual cleaning and when O&M automation pays back.",
-    href: "/blog/cost-benefit-analysis-of-solar-panel-cleaning-services-in-india",
-  },
-  {
-    title: "How robots work",
-    description:
-      "Dry cleaning cycles, dual-pass methodology, and fleet operations at scale.",
-    href: "/blog/microfiber-vs-traditional-brushes-why-taypros-patented-dual-pass-solar-panel-cleaning-system-outperforms",
-  },
-  {
-    title: "Cleaning methods",
-    description:
-      "Compare manual, wet, semi-automatic, and fully autonomous approaches.",
-    href: "/blog/what-are-the-different-methods-used-for-solar-panel-cleaning",
-  },
+const FEATURED_TOPIC_HREFS = [
+  "/blog/the-complete-guide-to-solar-panel-maintenance",
+  "/blog/cost-benefit-analysis-of-solar-panel-cleaning-services-in-india",
+  "/blog/microfiber-vs-traditional-brushes-why-taypros-patented-dual-pass-solar-panel-cleaning-system-outperforms",
+  "/blog/what-are-the-different-methods-used-for-solar-panel-cleaning",
 ] as const;
 
-const exploreLinks = [
-  { label: "Solar cleaning robots", href: "/solar-panel-cleaning-system" },
-  { label: "ROI calculator", href: "/solar-panel-cleaning-robot-price-calculator" },
-  { label: "Cleaning technology", href: "/cleaning-technology" },
-  { label: "Projects", href: "/projects" },
+const FEATURED_TOPIC_KEYS = [
+  { titleKey: "topicMaintenanceTitle", descKey: "topicMaintenanceDescription" },
+  { titleKey: "topicEconomicsTitle", descKey: "topicEconomicsDescription" },
+  { titleKey: "topicRobotsTitle", descKey: "topicRobotsDescription" },
+  { titleKey: "topicMethodsTitle", descKey: "topicMethodsDescription" },
 ] as const;
 
-const blogIndexFaqs = [
+const EXPLORE_LINK_KEYS = [
+  { labelKey: "exploreSolarRobots", href: "/solar-panel-cleaning-system" },
   {
-    question: "Who writes the Taypro blog?",
-    answer:
-      "Articles are published by the Taypro Team and field experts—engineers, applications specialists, and O&M practitioners who work on utility-scale robotic cleaning in India. Meet every contributor on the authors directory.",
+    labelKey: "exploreRoi",
+    href: "/solar-panel-cleaning-robot-price-calculator",
   },
-  {
-    question: "What topics does the Taypro blog cover?",
-    answer:
-      "We focus on solar panel cleaning robots, soiling and performance ratio, waterless O&M, plant economics, installation and maintenance guides, and product news—written for developers, EPC teams, and asset managers operating MW-scale plants.",
-  },
-  {
-    question: "How often is new content published?",
-    answer:
-      "We add and refresh articles regularly as technology, tariffs, and field learnings evolve. Check back often or subscribe to the newsletter below for updates when new guides go live.",
-  },
-];
+  { labelKey: "exploreTechnology", href: "/cleaning-technology" },
+  { labelKey: "exploreProjects", href: "/projects" },
+] as const;
 
-async function getPublishedBlogs(): Promise<DynamicBlog[]> {
-  const rows = await listAllBlogs(false);
+const FAQ_KEYS = ["0", "1", "2"] as const;
+
+async function getPublishedBlogs(locale: string): Promise<DynamicBlog[]> {
+  const rows = await listAllBlogs(false, locale);
   return rows.map((metadata) => ({
     ...metadata,
     href: `/blog/${metadata.slug}`,
@@ -91,38 +63,49 @@ async function getPublishedBlogs(): Promise<DynamicBlog[]> {
 }
 
 type BlogPageProps = {
+  params: Promise<{ locale: string }>;
   searchParams?: Promise<{ page?: string | string[] }>;
 };
 
 export async function generateMetadata({
+  params,
   searchParams,
 }: BlogPageProps): Promise<Metadata> {
+  const { locale } = await params;
   const sp = (await searchParams) ?? {};
   const pageRaw = Array.isArray(sp.page) ? sp.page[0] : sp.page;
   const parsed = parseInt(String(pageRaw || "1"), 10);
   const pageNum = Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
 
-  const dynamicBlogs = await getPublishedBlogs();
+  const dynamicBlogs = await getPublishedBlogs(locale);
   const totalPages = Math.max(1, Math.ceil(dynamicBlogs.length / PAGE_SIZE));
   const page = Math.min(pageNum, totalPages);
+  const t = await getTranslations({ locale, namespace: "BlogPage.index" });
 
   const canonical = blogListPageUrl(siteUrl, page);
   const pagination = blogListPaginationLinks(siteUrl, page, totalPages);
 
   const title =
     page <= 1
-      ? "Taypro Blog — Solar Panel Cleaning Robot Insights & O&M Guides"
-      : `Taypro Blog — Page ${page} | Solar Cleaning & O&M Articles`;
+      ? t("metaTitle")
+      : t("metaTitlePaged", { page });
 
   const description =
     page <= 1
-      ? "Expert articles on solar panel cleaning robots, soiling, dry O&M, plant economics, and utility-scale automation in India—written by Taypro engineers and field teams."
-      : `Browse page ${page} of Taypro's solar panel cleaning and O&M articles for developers, EPC teams, and asset managers.`;
+      ? t("metaDescription")
+      : t("metaDescriptionPaged", { page });
 
-  return {
+  const listPath = blogListPagePath(page);
+  const querySuffix = listPath.includes("?")
+    ? listPath.slice(listPath.indexOf("?"))
+    : "";
+
+  return withHreflang(
+    "/blog",
+    locale,
+    {
     title: { absolute: title },
     description,
-    alternates: { canonical },
     ...(pagination.previous || pagination.next
       ? {
           pagination: {
@@ -137,16 +120,46 @@ export async function generateMetadata({
       url: canonical,
       type: "website",
     },
-  };
+  },
+    { canonicalSuffix: querySuffix }
+  );
 }
 
-export default async function Blog({ searchParams }: BlogPageProps) {
+export default async function Blog({
+  params,
+  searchParams,
+}: BlogPageProps) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "BlogPage.index" });
+  const tCommon = await getTranslations({ locale, namespace: "Common" });
+
   const sp = (await searchParams) ?? {};
   const pageRaw = Array.isArray(sp.page) ? sp.page[0] : sp.page;
   const parsed = parseInt(String(pageRaw || "1"), 10);
   const pageNum = Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
 
-  const dynamicBlogs = await getPublishedBlogs();
+  const breadcrumbs = [
+    { name: tCommon("breadcrumbHome"), href: "/" },
+    { name: t("breadcrumbBlog"), href: "" },
+  ];
+
+  const blogIndexFaqs = FAQ_KEYS.map((i) => ({
+    question: t(`faq${i}Question`),
+    answer: t(`faq${i}Answer`),
+  }));
+
+  const featuredTopics = FEATURED_TOPIC_KEYS.map((keys, idx) => ({
+    title: t(keys.titleKey),
+    description: t(keys.descKey),
+    href: FEATURED_TOPIC_HREFS[idx],
+  }));
+
+  const exploreLinks = EXPLORE_LINK_KEYS.map((link) => ({
+    label: t(link.labelKey),
+    href: link.href,
+  }));
+
+  const dynamicBlogs = await getPublishedBlogs(locale);
   const total = dynamicBlogs.length;
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
   const page = Math.min(pageNum, totalPages);
@@ -165,9 +178,9 @@ export default async function Blog({ searchParams }: BlogPageProps) {
       title: blog.title,
       featuredImageAlt: blog.featuredImageAlt,
     }),
-    date: new Date(blog.updatedAt || blog.publishDate).toLocaleDateString(
-      "en-IN",
-      { year: "numeric", month: "short", day: "numeric" }
+    date: formatLocaleDateShort(
+      locale,
+      blog.updatedAt || blog.publishDate
     ),
     href: blog.href,
     slug: blog.slug,
@@ -187,8 +200,8 @@ export default async function Blog({ searchParams }: BlogPageProps) {
     <>
       <Breadcrumbs items={breadcrumbs} />
       <CollectionPageSchema
-        name="Taypro Blog — Solar Panel Cleaning Robot Articles"
-        description="Expert articles on solar panel cleaning robots, soiling, O&M economics, and utility-scale automation for Indian solar plants."
+        name={t("schemaCollectionName")}
+        description={t("schemaCollectionDescription")}
         url={`${siteUrl}/blog${page > 1 ? `?page=${page}` : ""}`}
         siteUrl={siteUrl}
       />
@@ -196,8 +209,12 @@ export default async function Blog({ searchParams }: BlogPageProps) {
       {itemListEntries.length > 0 && (
         <ItemListSchema
           scriptId="item-list-schema-blog-index"
-          name={`Taypro blog articles${page > 1 ? ` — page ${page}` : ""}`}
-          description="Solar panel cleaning robot guides, O&M insights, and field notes from Taypro."
+          name={
+            page > 1
+              ? t("schemaItemListNamePaged", { page })
+              : t("schemaItemListName")
+          }
+          description={t("schemaItemListDescription")}
           items={itemListEntries}
           siteUrl={siteUrl}
         />
@@ -225,33 +242,32 @@ export default async function Blog({ searchParams }: BlogPageProps) {
             className="relative z-20 pt-10 px-4 sm:px-6 max-w-4xl mx-auto pb-12 md:pb-16 text-center"
           >
             <p className="text-[#A8C117] text-[16px] mb-4 uppercase tracking-wide font-medium">
-              Insights for solar O&amp;M teams
+              {t("heroEyebrow")}
             </p>
             <h1 className="font-semibold text-[#052638] text-4xl md:text-5xl mb-6 leading-tight">
-              Solar panel cleaning
+              {t("heroTitleLine1")}
               <br />
-              robot blog &amp; guides
+              {t("heroTitleLine2")}
             </h1>
             <p className="text-[#22405a] text-lg md:text-xl leading-relaxed max-w-3xl mx-auto text-pretty">
-              Practical articles on soiling, dry cleaning,{" "}
+              {t("heroBodyBeforeLink")}{" "}
               <Link
                 href="/solar-panel-cleaning-system"
                 className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
               >
-                autonomous robots
+                {t("heroLinkRobots")}
               </Link>
-              , and plant economics—written for developers, EPC teams, and O&amp;M
-              leads running utility-scale PV in India.
+              {t("heroBodyAfterLink")}
             </p>
             <p className="text-[#22405a] text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mt-4 text-pretty">
-              Written by the{" "}
+              {t("heroBodyAuthorsBefore")}{" "}
               <Link
                 href="/authors"
                 className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
               >
-                Taypro authors
+                {t("heroLinkAuthors")}
               </Link>
-              ; refreshed as field learnings evolve.
+              {t("heroBodyAuthorsAfter")}
             </p>
           </AnimateOnScroll>
         </section>
@@ -269,7 +285,7 @@ export default async function Blog({ searchParams }: BlogPageProps) {
                   <p className="text-[#A8C117] text-3xl font-semibold mb-1">
                     {total}
                   </p>
-                  <p className="text-white/80 text-sm">Published articles</p>
+                  <p className="text-white/80 text-sm">{t("statsArticles")}</p>
                 </div>
               </AnimateOnScroll>
               <AnimateOnScroll animation="fadeInUp" delay={80}>
@@ -281,9 +297,11 @@ export default async function Blog({ searchParams }: BlogPageProps) {
                     className="w-8 h-8 text-[#A8C117] mx-auto mb-2"
                     aria-hidden
                   />
-                  <p className="text-white font-semibold mb-1">Meet authors</p>
+                  <p className="text-white font-semibold mb-1">
+                    {t("statsAuthorsTitle")}
+                  </p>
                   <p className="text-white/70 text-sm">
-                    Engineers &amp; field experts →
+                    {t("statsAuthorsSubtitle")}
                   </p>
                 </Link>
               </AnimateOnScroll>
@@ -296,9 +314,11 @@ export default async function Blog({ searchParams }: BlogPageProps) {
                     className="w-8 h-8 text-[#A8C117] mx-auto mb-2"
                     aria-hidden
                   />
-                  <p className="text-white font-semibold mb-1">ROI calculator</p>
+                  <p className="text-white font-semibold mb-1">
+                    {t("statsRoiTitle")}
+                  </p>
                   <p className="text-white/70 text-sm">
-                    Estimate robot payback →
+                    {t("statsRoiSubtitle")}
                   </p>
                 </Link>
               </AnimateOnScroll>
@@ -317,11 +337,10 @@ export default async function Blog({ searchParams }: BlogPageProps) {
                 id="topics-heading"
                 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
               >
-                Start with a popular topic
+                {t("topicsHeading")}
               </h2>
               <p className="text-[#27415c] text-lg leading-relaxed">
-                Jump into guides our readers use most when evaluating robotic
-                cleaning—or browse the full archive below.
+                {t("topicsIntro")}
               </p>
             </AnimateOnScroll>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -342,7 +361,7 @@ export default async function Blog({ searchParams }: BlogPageProps) {
                       {topic.description}
                     </p>
                     <span className="mt-4 text-[#5a8f00] text-sm font-medium group-hover:underline inline-flex items-center gap-1">
-                      Read guide
+                      {t("readGuide")}
                       <ArrowRight className="w-4 h-4" aria-hidden />
                     </span>
                   </Link>
@@ -367,12 +386,18 @@ export default async function Blog({ searchParams }: BlogPageProps) {
                   id="articles-heading"
                   className="text-[#052638] font-semibold text-3xl md:text-4xl mb-2"
                 >
-                  All articles
+                  {t("articlesHeading")}
                 </h2>
                 {total > 0 ? (
                   <p className="text-[#27415c]">
-                    Showing {rangeStart}–{rangeEnd} of {total}
-                    {totalPages > 1 ? ` · Page ${page} of ${totalPages}` : ""}
+                    {t("articlesShowing", {
+                      start: rangeStart,
+                      end: rangeEnd,
+                      total,
+                    })}
+                    {totalPages > 1
+                      ? t("articlesPageOf", { page, totalPages })
+                      : ""}
                   </p>
                 ) : null}
               </div>
@@ -380,7 +405,7 @@ export default async function Blog({ searchParams }: BlogPageProps) {
                 href="/authors"
                 className="inline-flex items-center gap-2 text-[#5a8f00] font-medium hover:underline shrink-0"
               >
-                View all authors
+                {t("viewAllAuthors")}
                 <ArrowRight className="w-4 h-4" aria-hidden />
               </Link>
             </AnimateOnScroll>
@@ -388,13 +413,13 @@ export default async function Blog({ searchParams }: BlogPageProps) {
             {total === 0 ? (
               <div className="text-center py-16">
                 <p className="text-[#27415c] text-lg mb-4">
-                  No articles published yet. Check back soon.
+                  {t("emptyMessage")}
                 </p>
                 <Link
                   href="/contact"
                   className="inline-flex items-center justify-center min-h-[48px] bg-[#052638] text-white font-medium px-8 py-3 rounded-md hover:bg-[#0a3a4a] transition"
                 >
-                  Contact Taypro
+                  {t("contactCta")}
                 </Link>
               </div>
             ) : (
@@ -404,7 +429,7 @@ export default async function Blog({ searchParams }: BlogPageProps) {
                 {totalPages > 1 && (
                   <nav
                     className="flex flex-wrap justify-center items-center gap-4 mt-12"
-                    aria-label="Blog pagination"
+                    aria-label={t("paginationLabel")}
                   >
                     {page > 1 ? (
                       <Link
@@ -412,15 +437,15 @@ export default async function Blog({ searchParams }: BlogPageProps) {
                         rel="prev"
                         className="inline-flex items-center justify-center min-h-[44px] px-5 rounded-lg border border-[#052638] text-[#052638] font-medium hover:bg-[#052638] hover:text-white transition"
                       >
-                        Previous
+                        {t("paginationPrevious")}
                       </Link>
                     ) : (
                       <span className="inline-flex min-h-[44px] px-5 items-center text-gray-400 border border-gray-200 rounded-lg cursor-not-allowed">
-                        Previous
+                        {t("paginationPrevious")}
                       </span>
                     )}
                     <span className="text-[#27415c] text-sm sm:text-base font-medium">
-                      Page {page} of {totalPages}
+                      {t("paginationPageOf", { page, totalPages })}
                     </span>
                     {page < totalPages ? (
                       <Link
@@ -428,11 +453,11 @@ export default async function Blog({ searchParams }: BlogPageProps) {
                         rel="next"
                         className="inline-flex items-center justify-center min-h-[44px] px-5 rounded-lg border border-[#052638] text-[#052638] font-medium hover:bg-[#052638] hover:text-white transition"
                       >
-                        Next
+                        {t("paginationNext")}
                       </Link>
                     ) : (
                       <span className="inline-flex min-h-[44px] px-5 items-center text-gray-400 border border-gray-200 rounded-lg cursor-not-allowed">
-                        Next
+                        {t("paginationNext")}
                       </span>
                     )}
                   </nav>
@@ -457,7 +482,7 @@ export default async function Blog({ searchParams }: BlogPageProps) {
                 id="blog-faq-heading"
                 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3"
               >
-                About this blog
+                {t("faqHeading")}
               </h2>
             </AnimateOnScroll>
             <div className="space-y-6">
@@ -484,11 +509,9 @@ export default async function Blog({ searchParams }: BlogPageProps) {
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-8">
               <h2 className="text-[#052638] font-semibold text-2xl md:text-3xl mb-2">
-                Explore Taypro
+                {t("exploreHeading")}
               </h2>
-              <p className="text-[#27415c]">
-                Products, tools, and field deployments beyond the blog.
-              </p>
+              <p className="text-[#27415c]">{t("exploreIntro")}</p>
             </AnimateOnScroll>
             <div className="flex flex-wrap justify-center gap-3">
               {exploreLinks.map((link) => (

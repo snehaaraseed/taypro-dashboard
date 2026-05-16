@@ -1,0 +1,63 @@
+{
+  "SiteMapPage": {
+    "meta": {
+      "title": "সাইটম্যাপ | Taypro – সম্পূর্ণ ওয়েবসাইট নেভিগেশন",
+      "description": "প্রকল্প, সেবা এবং কোম্পানির তথ্যসহ ওয়েবসাইটের সব বিভাগে দ্রুত যেতে Taypro-এর সাইটম্যাপ ব্রাউজ করুন।",
+      "openGraphTitle": "সাইটম্যাপ | Taypro – সম্পূর্ণ ওয়েবসাইট নেভিগেশন",
+      "openGraphDescription": "প্রকল্প, সেবা এবং কোম্পানির তথ্যসহ ওয়েবসাইটের সব বিভাগে দ্রুত যেতে Taypro-এর সাইটম্যাপ ব্রাউজ করুন।",
+      "openGraphImageAlt": "Taypro ওয়েবসাইট সাইটম্যাপ",
+      "twitterTitle": "সাইটম্যাপ | Taypro",
+      "twitterDescription": "ওয়েবসাইটের সব বিভাগে দ্রুত যেতে Taypro-এর সাইটম্যাপ ব্রাউজ করুন।",
+      "keyword0": "Taypro সাইটম্যাপ",
+      "keyword1": "সোলার প্যানেল ক্লিনিং রোবট ওয়েবসাইট নেভিগেশন",
+      "keyword2": "সাইটম্যাপ",
+      "keyword3": "ওয়েবসাইট মানচিত্র",
+      "keyword4": "Taypro নেভিগেশন",
+      "keyword5": "সোলার প্যানেল ক্লিনিং রোবট পেজ"
+    },
+    "breadcrumbs": { "sitemap": "সাইটম্যাপ" },
+    "heading": "সাইটম্যাপ",
+    "sections": {
+      "posts": "পোস্ট",
+      "pages": "পেজ",
+      "portfolio": "পোর্টফোলিও"
+    },
+    "posts": { "energyResourcesTitle": "শক্তি সম্পদ" },
+    "portfolio": { "solarProjectTitle": "সোলার প্রকল্প" },
+    "links": {
+      "aboutUsLabel": "আমাদের সম্পর্কে",
+      "aboutUsTitle": "আমাদের সম্পর্কে",
+      "blogLabel": "ব্লগ",
+      "blogTitle": "ব্লগ",
+      "contactLabel": "যোগাযোগ",
+      "contactTitle": "যোগাযোগ",
+      "homeLabel": "হোম",
+      "homeTitle": "হোম",
+      "privacyPolicyLabel": "গোপনীয়তা নীতি",
+      "privacyPolicyTitle": "গোপনীয়তা নীতি",
+      "performanceMethodologyLabel": "পারফরম্যান্স ও টেস্ট পদ্ধতি",
+      "performanceMethodologyTitle": "পারফরম্যান্স ও টেস্ট পদ্ধতি",
+      "projectsLabel": "প্রকল্প",
+      "projectsTitle": "প্রকল্প",
+      "roiCalculatorLabel": "ROI ক্যালকুলেটর",
+      "roiCalculatorTitle": "ROI ক্যালকুলেটর",
+      "sitemapLabel": "সাইটম্যাপ",
+      "sitemapTitle": "সাইটম্যাপ",
+      "solarRobotsLabel": "সোলার প্যানেল ক্লিনিং রোবট",
+      "solarRobotsTitle": "সোলার রোবট সোলার প্যানেল ক্লিনিং রোবট",
+      "automaticRobotLabel": "অটোমেটিক সোলার প্যানেল ক্লিনিং রোবট",
+      "automaticRobotTitle": "অটোমেটিক সোলার প্যানেল ক্লিনিং রোবট",
+      "modelBLabel": "Model-B",
+      "modelBTitle": "সেমি-অটোমেটিক সোলার প্যানেল ক্লিনিং সিস্টেম",
+      "modelTLabel": "Model-T",
+      "modelTTitle": "Model-T",
+      "cleaningServiceLabel": "সোলার প্যানেল ক্লিনিং সেবা",
+      "cleaningServiceTitle": "সোলার প্যানেল ক্লিনিং সেবা",
+      "tayproConsoleLabel": "Taypro Console",
+      "tayproConsoleTitle": "অটোমেটিক ক্লিনিং রোবট অ্যাপ",
+      "cleaningTechnologyLabel": "Taypro-এর পিছনের প্রযুক্তি",
+      "cleaningTechnologyTitle": "ক্লিনিং প্রযুক্তি"
+    }
+  },
+  "Common": { "breadcrumbHome": "হোম" }
+}

@@ -1,5 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 import {
   BarChart3,
   CloudSun,
@@ -15,7 +16,7 @@ import {
   Timer,
   Users,
 } from "lucide-react";
-import { modelBCards, tayproRobotConnectivitySummary } from "@/app/data";
+import { modelBCards } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import ModelCards from "@/app/components/ModelCards";
@@ -35,121 +36,59 @@ import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 const consoleProductPageUrl = `${siteUrl}/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app`;
 
-const consoleFaqs = [
-  {
-    question: "What is Taypro Console?",
-    answer:
-      "Taypro Console is the secure web portal Taypro customers use to monitor and manage their Solar Panel Cleaning Robot fleets across one or many solar sites. It brings together live operational data, schedules, historical cleaning records, performance analytics, and support workflows — so plant and O&M teams can run robotic cleaning with the same rigour they expect from any critical plant system.",
-  },
-  {
-    question: "How do we get access to Taypro Console?",
-    answer:
-      "Taypro provisions each client organisation with private access to the production portal. Your account team shares the login link, credentials, and onboarding pack outside this public site. For new deployments, start from our contact form; existing customers can request additional seats, sites, or password help via service@taypro.in.",
-  },
-  {
-    question: "Which Taypro robots work with Taypro Console?",
-    answer:
-      "Taypro Console is the common fleet layer for Taypro autonomous and semi-automatic cleaning robots, including Model-A (fixed / seasonal tilt), Model-B (pick-and-place), and Model-T (single-axis trackers). The exact screens and commands available depend on your site layout, connectivity, and service package.",
-  },
-  {
-    question: "Can we schedule cleaning from the portal?",
-    answer:
-      "Yes. Client teams can define and review block-wise automation schedules (timers) aligned with your plant’s operating rules and weather strategy. Execution still respects on-robot safety interlocks — the portal plans and requests; the fleet executes within engineered limits.",
-  },
-  {
-    question: "What kind of reporting does Taypro Console provide?",
-    answer:
-      "Taypro Console surfaces site-level and block-wise cleaning coverage, robot battery and execution status, downloadable cleaning reports for audit and internal review, and statistics views for trends over time. Export formats and retention policies are aligned with your enterprise needs during onboarding.",
-  },
-  {
-    question: "How does Taypro Console connect to robots in the field?",
-    answer:
-      `Depending on each plant’s network design, fleet telemetry and commands travel over secure links such as ${tayproRobotConnectivitySummary}. Taypro engineers size the gateway and backhaul architecture during deployment so Console stays responsive even on large, multi-block sites.`,
-  },
-  {
-    question: "How do we get help if something looks wrong in the data?",
-    answer:
-      "Taypro Console includes structured ticketing so your site administrators can raise issues, attach evidence, and track resolution with Taypro’s service team. For urgent operational events, your contract may also include direct escalation channels outside the portal.",
-  },
-  {
-    question: "Is Taypro Console a replacement for our plant SCADA?",
-    answer:
-      "No. Taypro Console is specialised for robotic solar cleaning — schedules, cleaning logs, robot health, and fleet analytics. It complements your existing energy SCADA and work-management tools; Taypro can advise on read-only integrations or export workflows where required.",
-  },
-];
+const CAPABILITY_ICONS = [
+  LayoutDashboard,
+  Sliders,
+  Timer,
+  FileDown,
+  BarChart3,
+  Gauge,
+  MapPin,
+  Radio,
+  Ticket,
+  Users,
+] as const;
 
-const capabilityCards = [
-  {
-    icon: LayoutDashboard,
-    title: "Site dashboards",
-    body: "At-a-glance view of weather context, block-wise cleaning coverage, gateway connectivity, and robot battery readiness so operators can plan shifts with confidence.",
-  },
-  {
-    icon: Sliders,
-    title: "Robot configuration & device layout",
-    body: "Structured visibility into deployed robots, block allocation, and permitted operating parameters — tuned by Taypro during commissioning, then monitored by your team.",
-  },
-  {
-    icon: Timer,
-    title: "Automation schedules",
-    body: "Centralised view of block-wise timers and cleaning windows so night-time or post-production cycles stay aligned with plant rules and seasonal soiling patterns.",
-  },
-  {
-    icon: FileDown,
-    title: "Cleaning logs & exports",
-    body: "Historical cleaning activity, downloadable reports for selected dates, and tabbed views for completed runs, in-progress work, errors, and offline assets — built for audit-ready O&M.",
-  },
-  {
-    icon: BarChart3,
-    title: "Statistics & trends",
-    body: "Charts for area cleaned, blocks serviced, execution mix, and efficiency indicators — filterable by site, time range, and (where licensed) robot or block.",
-  },
-  {
-    icon: Gauge,
-    title: "Controlled robot commands",
-    body: "A curated, permissioned command set for day-to-day operations — always confirmed, always logged. Deep engineering actions remain with Taypro service engineers.",
-  },
-  {
-    icon: MapPin,
-    title: "Fleet tracking context",
-    body: "Live and last-known robot positioning on site layouts where available — ideal for coordination with security, O&M convoys, and incident response.",
-  },
-  {
-    icon: Radio,
-    title: "Gateway & field telemetry health",
-    body: "Visibility into gateway and field-device status so you can distinguish a true robot fault from a communications brownout before dispatching crews.",
-  },
-  {
-    icon: Ticket,
-    title: "Tickets & service history",
-    body: "Raise, comment on, and close Taypro service tickets with a full timeline — fewer ad-hoc email threads, more traceability for your internal governance.",
-  },
-  {
-    icon: Users,
-    title: "Users, roles & collaboration",
-    body: "Invite the right mix of plant, central engineering, and finance stakeholders with scoped access. Optional chat channels keep operational conversations next to the data.",
-  },
-];
+const FAQ_KEYS = ["0", "1", "2", "3", "4", "5", "6", "7"] as const;
+const CAPABILITY_KEYS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
 
-const breadcrumbs = [
-  { name: "Home", href: "/" },
-  {
-    name: "Solar Panel Cleaning Robots",
-    href: "/solar-panel-cleaning-system",
-  },
-  {
-    name: "Cleaning Robot Monitoring App",
-    href: "",
-  },
-];
+export default async function TayproConsolePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "TayproConsolePage" });
+  const tCommon = await getTranslations({ locale, namespace: "Common" });
 
-export default function TayproConsolePage() {
+  const breadcrumbs = [
+    { name: tCommon("breadcrumbHome"), href: "/" },
+    { name: t("breadcrumbs.robots"), href: "/solar-panel-cleaning-system" },
+    { name: t("breadcrumbs.current"), href: "" },
+  ];
+
+  const consoleFaqs = FAQ_KEYS.map((i) => ({
+    question: t(`faq.q${i}`),
+    answer:
+      i === "5"
+        ? t("faq.a5", {
+            connectivity: tCommon("connectivitySummary"),
+          })
+        : t(`faq.a${i}`),
+  }));
+
+  const capabilityCards = CAPABILITY_KEYS.map((i, idx) => ({
+    icon: CAPABILITY_ICONS[idx],
+    title: t(`capabilitiesCards.${i}.title`),
+    body: t(`capabilitiesCards.${i}.body`),
+  }));
+
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
       <SoftwareApplicationSchema
-        name="Taypro Console"
-        description="Secure web application for monitoring and managing Taypro Solar Panel Cleaning Robot fleets: dashboards, weather context, schedules, cleaning logs and exports, statistics, gateway health, controlled robot commands, fleet tracking, support tickets, and role-based user management."
+        name={t("schema.name")}
+        description={t("schema.description")}
         image={`${siteUrl}/tayproasset/taypro-dashboard.png`}
         url={consoleProductPageUrl}
         applicationCategory="WebApplication"
@@ -159,80 +98,74 @@ export default function TayproConsolePage() {
 
       <div className="min-h-screen overflow-x-hidden">
         <HeroSection
-          title="Taypro Console — Solar Panel Cleaning Robot Fleet Portal"
-          subtitle="The secure web command centre for your Taypro robot fleet — live dashboards, weather-aware context, schedules, cleaning logs, exportable reports, analytics, and support workflows. Login details and the customer portal link are shared privately by Taypro after contract onboarding."
+          title={t("hero.title")}
+          subtitle={t("hero.subtitle")}
           imgSrc="/tayproasset/taypro-dashboard.png"
-          imgAlt="Taypro Console — Solar Panel Cleaning Robot monitoring and fleet control dashboard"
+          imgAlt={t("hero.imgAlt")}
           ctaHref="/contact"
-          ctaText="Request access"
+          ctaText={t("hero.ctaText")}
         />
 
         <section className="bg-white pt-12 sm:pt-20 pb-8">
           <Container size="narrow">
             <AnimateOnScroll animation="fadeInUp">
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                Fleet software for robotic solar cleaning
+                {t("intro.eyebrow")}
               </div>
               <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-6 leading-tight">
-                What is Taypro Console?
+                {t("intro.title")}
               </h2>
               <div className="space-y-5 text-gray-600 text-base sm:text-lg leading-relaxed">
-                <p>
-                  Taypro Console is the{" "}
-                  <strong>client operations portal</strong> behind every major
-                  Taypro deployment. It translates raw robot telemetry into
-                  decisions plant teams actually use: when to clean, which blocks
-                  finished first, which assets need a closer look, and how last
-                  night&apos;s run compared to the monthly cleaning plan.
-                </p>
-                <p>
-                  The product is designed for{" "}
-                  <strong>utility-scale transparency</strong> — multi-site
+                <div>
+                  {t("intro.p1Before")}{" "}
+                  <strong>{t("intro.p1Strong")}</strong>{" "}
+                  {t("intro.p1After")}
+                </div>
+                <div>
+                  {t("intro.p2Before")}{" "}
+                  <strong>{t("intro.p2Strong")}</strong> — multi-site
                   portfolios, multi-block plants, and mixed fleets of{" "}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
                     className="text-[#A8C117] hover:underline"
                   >
-                    Model-A
+                    {t("intro.modelA")}
                   </Link>
                   ,{" "}
                   <Link
                     href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
                     className="text-[#A8C117] hover:underline"
                   >
-                    Model-B
+                    {t("intro.modelB")}
                   </Link>
                   , and{" "}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
                     className="text-[#A8C117] hover:underline"
                   >
-                    Model-T
+                    {t("intro.modelT")}
                   </Link>{" "}
-                  robots. Detailed click-paths, security policies, and
-                  configuration limits are covered in your{" "}
-                  <strong>customer user guide</strong> — this page stays at the
-                  product-story level so your competitive edge stays protected.
-                </p>
+                  {t("intro.p2Mid")}{" "}
+                  <strong>{t("intro.p2GuideStrong")}</strong>{" "}
+                  {t("intro.p2End")}
+                </div>
               </div>
             </AnimateOnScroll>
           </Container>
         </section>
 
-        {/* Capabilities grid */}
         <section className="w-full py-16 sm:py-20 bg-[#f4f1e9]">
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                Inside the portal
+                {t("capabilities.eyebrow")}
               </div>
               <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight max-w-4xl mx-auto">
-                What your teams can do in Taypro Console
+                {t("capabilities.title")}
               </h2>
-              <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mt-6">
-                High-level capability areas — your Taypro onboarding pack and
-                user guide explain each screen in the depth your operators need.
-              </p>
+              <div className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mt-6">
+                {t("capabilities.subtitle")}
+              </div>
             </AnimateOnScroll>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -250,9 +183,9 @@ export default function TayproConsolePage() {
                     <h3 className="text-[#052638] font-semibold text-lg mb-2">
                       {card.title}
                     </h3>
-                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                    <div className="text-gray-600 text-sm sm:text-base leading-relaxed">
                       {card.body}
-                    </p>
+                    </div>
                   </AnimateOnScroll>
                 );
               })}
@@ -260,57 +193,47 @@ export default function TayproConsolePage() {
           </Container>
         </section>
 
-        {/* Security strip */}
         <section className="w-full py-16 sm:py-20 bg-white">
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                Enterprise-grade governance
+                {t("security.eyebrow")}
               </div>
               <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight">
-                Security, roles &amp; auditability — without publishing our playbook
+                {t("security.title")}
               </h2>
-              <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mt-6">
-                Taypro Console is built for critical infrastructure customers:
-                authenticated access, role-based permissions, encrypted transport,
-                session safeguards, and tamper-evident activity history for
-                privileged actions. Exact control matrices evolve with each
-                software release — your security questionnaire receives precise
-                answers under NDA from Taypro IT.
-              </p>
+              <div className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mt-6">
+                {t("security.subtitle")}
+              </div>
             </AnimateOnScroll>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                {
-                  icon: Shield,
-                  title: "Least-privilege access",
-                  body: "Client admins invite only the stakeholders who need a given site or block — permissions can be tightened or revoked instantly.",
-                },
+                { icon: Shield, titleKey: "card0Title", bodyKey: "card0Body" },
                 {
                   icon: CloudSun,
-                  title: "Weather-smart operations",
-                  body: "Dashboards surface the same environmental context your robots use so human and machine decisions stay aligned.",
+                  titleKey: "card1Title",
+                  bodyKey: "card1Body",
                 },
                 {
                   icon: Headphones,
-                  title: "Service-linked workflows",
-                  body: "Tickets, chat, and logs live next to telemetry so Taypro support sees what your operators see — faster root cause, fewer loops.",
+                  titleKey: "card2Title",
+                  bodyKey: "card2Body",
                 },
               ].map((item) => {
                 const Icon = item.icon;
                 return (
                   <AnimateOnScroll
-                    key={item.title}
+                    key={item.titleKey}
                     animation="fadeInUp"
                     className="bg-[#f4f1e9] p-6 rounded-lg"
                   >
                     <Icon className="w-9 h-9 text-[#A8C117] mb-3" />
                     <h3 className="text-[#052638] font-semibold text-lg mb-2">
-                      {item.title}
+                      {t(`security.${item.titleKey}`)}
                     </h3>
-                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                      {item.body}
-                    </p>
+                    <div className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                      {t(`security.${item.bodyKey}`)}
+                    </div>
                   </AnimateOnScroll>
                 );
               })}
@@ -318,139 +241,93 @@ export default function TayproConsolePage() {
           </Container>
         </section>
 
-        {/* Workflow fit — adds O&M / SCADA context + internal links */}
         <section className="w-full py-16 sm:py-20 bg-white">
           <Container size="narrow">
             <AnimateOnScroll animation="fadeInUp">
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                Fits your existing O&amp;M
+                {t("workflow.eyebrow")}
               </div>
               <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-6 leading-tight">
-                How Taypro Console fits into your solar O&amp;M workflow
+                {t("workflow.title")}
               </h2>
               <div className="space-y-5 text-gray-600 text-base sm:text-lg leading-relaxed">
-                <p>
-                  Taypro Console is not a generic plant SCADA, and it is not a
-                  replacement for your work-management system. It is a focused
-                  fleet layer for robotic solar panel cleaning that sits
-                  alongside the tools your operations team already runs — plant
-                  SCADA for generation, CMMS for tickets and assets, and your
-                  field reporting stack for daily logs.
-                </p>
-                <p>
-                  Cleaning crews use Console to confirm last night&apos;s
-                  block-wise coverage before the morning shift. Plant managers
-                  use it to compare planned vs. actual cycles against the
-                  monthly cleaning strategy. Central engineering uses it to
-                  spot soiling trends across multiple sites in a portfolio.
-                  Finance teams use the exports to reconcile cleaning evidence
-                  with O&amp;M billing — especially useful for plants on{" "}
+                <div>{t("workflow.p1")}</div>
+                <div>
+                  {t("workflow.p2Before")}{" "}
                   <Link
                     href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
                     className="text-[#A8C117] hover:underline"
                   >
-                    Taypro OPEX
+                    {t("workflow.opexLink")}
                   </Link>{" "}
-                  where billing is per panel cleaned.
-                </p>
-                <p>
-                  If you&apos;re still deciding between owning a robot fleet
-                  and consuming cleaning as a service, our{" "}
+                  {t("workflow.p2After")}
+                </div>
+                <div>
+                  {t("workflow.p3Before")}{" "}
                   <Link
                     href="/solar-panel-cleaning-system"
                     className="text-[#A8C117] hover:underline"
                   >
-                    Solar Panel Cleaning Robot category page
+                    {t("workflow.categoryLink")}
                   </Link>{" "}
-                  walks through Model-A, Model-B, Model-T, and OPEX side by
-                  side — Console is the operations layer behind every one of
-                  those paths.
-                </p>
-                <p>
-                  Further reading:{" "}
+                  {t("workflow.p3After")}
+                </div>
+                <div>
+                  {t("workflow.p4Before")}{" "}
                   <Link
                     href="/blog/the-role-of-data-analytics-in-solar-panel-cleaning-improving-efficiency-with-taypro"
                     className="text-[#A8C117] hover:underline"
                   >
-                    data analytics in solar cleaning operations
+                    {t("workflow.blogAnalytics")}
                   </Link>{" "}
-                  and{" "}
+                  {t("workflow.p4Mid")}{" "}
                   <Link
                     href="/blog/beyond-cleaning-how-automated-systems-can-monitor-solar-panel-performance"
                     className="text-[#A8C117] hover:underline"
                   >
-                    monitoring performance beyond cleaning cycles
+                    {t("workflow.blogMonitoring")}
                   </Link>
-                  .
-                </p>
+                  {t("workflow.p4End")}
+                </div>
               </div>
             </AnimateOnScroll>
           </Container>
         </section>
 
-        {/* Scheduling depth — capability detail + ROI calculator link */}
         <section className="w-full py-16 sm:py-20 bg-[#f4f1e9]">
           <Container size="narrow">
             <AnimateOnScroll animation="fadeInUp">
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                Cleaning rhythm, not just buttons
+                {t("scheduling.eyebrow")}
               </div>
               <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-6 leading-tight">
-                Schedules, rest zones, and cleaning windows — explained
+                {t("scheduling.title")}
               </h2>
               <div className="space-y-5 text-gray-600 text-base sm:text-lg leading-relaxed">
-                <p>
-                  Robotic solar cleaning at utility scale is not about pressing
-                  &quot;clean now&quot;. The hard part is choosing how often,
-                  in which order, and inside which environmental window.
-                  Console exposes the planning loop that Taypro engineers and
-                  your operators agree on during commissioning, so cleaning
-                  cadence stays consistent week after week, season after
-                  season.
-                </p>
+                <div>{t("scheduling.p1")}</div>
                 <ul className="list-disc pl-6 space-y-3">
-                  <li>
-                    <strong>Block-wise timers.</strong> Each block carries its
-                    own cleaning window — typically post-sunset or pre-sunrise
-                    — so cleaning never overlaps peak generation.
-                  </li>
-                  <li>
-                    <strong>Rest zones and parking.</strong> The portal shows
-                    where each robot is meant to idle between cycles. Site
-                    teams use the same map for security rounds and morning
-                    checks.
-                  </li>
-                  <li>
-                    <strong>Seasonal cadence.</strong> Plants in dusty zones
-                    move to denser cycles (often 6–10 per month) during summer
-                    and post-harvest; quieter months drop to 3–4 cycles.
-                    Console keeps the working schedule visible to everyone on
-                    the account.
-                  </li>
-                  <li>
-                    <strong>Weather context.</strong> Dashboards surface the
-                    same weather signal robots use to skip wet or windy
-                    cycles, so manual overrides happen with full context.
-                  </li>
+                  {(["0", "1", "2", "3"] as const).map((i) => (
+                    <li key={i}>
+                      <strong>{t(`scheduling.li${i}Strong`)}</strong>{" "}
+                      {t(`scheduling.li${i}`)}
+                    </li>
+                  ))}
                 </ul>
-                <p>
-                  Want a quick sense of how cycle cadence translates to
-                  generation gain and payback for your plant? Run the numbers
-                  in the{" "}
+                <div>
+                  {t("scheduling.p2Before")}{" "}
                   <Link
                     href="/solar-panel-cleaning-robot-price-calculator"
                     className="text-[#A8C117] hover:underline"
                   >
-                    Solar Panel Cleaning Robot ROI calculator
+                    {t("scheduling.roiLink")}
                   </Link>{" "}
-                  before talking to our team.
-                </p>
+                  {t("scheduling.p2After")}
+                </div>
               </div>
             </AnimateOnScroll>
           </Container>
         </section>
 
-        {/* Visual + precision (preserved layout, copy tightened) */}
         <section
           className="w-full py-20 bg-white"
           style={{
@@ -461,45 +338,40 @@ export default function TayproConsolePage() {
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
               <h2 className="text-[#052638] font-semibold text-3xl md:text-4xl lg:text-5xl leading-tight max-w-4xl mx-auto">
-                From fleet overview to per-robot clarity
+                {t("visual.title")}
               </h2>
-              <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto mt-4">
-                Search across sites, jump into a single robot context, compare
-                blocks, and export evidence — without losing the thread of what
-                happened on the plant overnight.
-              </p>
+              <div className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto mt-4">
+                {t("visual.subtitle")}
+              </div>
             </AnimateOnScroll>
 
             <div className="block lg:hidden">
               <AnimateOnScroll animation="fadeInUp" delay={100}>
                 <div className="relative w-full aspect-[16/10] overflow-hidden rounded-lg">
-                <Image
-                  src="/tayproasset/taypro-console.png"
-                    alt="Taypro Console dashboard — fleet and block-level solar cleaning robot monitoring"
+                  <Image
+                    src="/tayproasset/taypro-console.png"
+                    alt={t("visual.imageAlt")}
                     title="Taypro Console"
-                  fill
-                  className="object-cover"
+                    fill
+                    className="object-cover"
                     sizes="100vw"
-                />
-              </div>
+                  />
+                </div>
                 <div className="bg-[#7da300] p-6 mt-4 rounded-lg">
                   <h3 className="text-white text-start text-xl sm:text-2xl mb-4">
-                    Precision without complexity
+                    {t("visual.panelTitle")}
                   </h3>
-                <p className="text-white text-start text-sm sm:text-base leading-relaxed">
-                    Console reflects how Taypro robots actually work in the field:
-                    block-wise plans, seasonal cleaning strategy, and tracker-aware
-                    context where Model-T is deployed. Your operators see the
-                    signal; Taypro protects the underlying control logic.
-                </p>
-              </div>
+                  <div className="text-white text-start text-sm sm:text-base leading-relaxed">
+                    {t("visual.panelBody")}
+                  </div>
+                </div>
               </AnimateOnScroll>
             </div>
 
             <div className="hidden lg:block relative w-full aspect-[16/9] overflow-hidden rounded-lg">
               <Image
                 src="/tayproasset/taypro-console.png"
-                alt="Taypro Console dashboard — fleet and block-level solar cleaning robot monitoring"
+                alt={t("visual.imageAlt")}
                 title="Taypro Console"
                 fill
                 className="object-cover"
@@ -507,77 +379,68 @@ export default function TayproConsolePage() {
               />
               <div className="absolute right-6 xl:right-10 top-1/2 -translate-y-1/2 bg-[#7da300] p-6 sm:p-8 max-w-[min(100%,360px)] rounded-lg shadow-lg">
                 <h3 className="text-white text-2xl mb-4 text-center sm:text-left">
-                  Precision without complexity
+                  {t("visual.panelTitle")}
                 </h3>
-                <p className="text-white text-sm sm:text-base leading-relaxed text-center sm:text-left">
-                  Console reflects how Taypro robots actually work in the field:
-                  block-wise plans, seasonal cleaning strategy, and tracker-aware
-                  context where Model-T is deployed. Your operators see the
-                  signal; Taypro protects the underlying control logic.
-                </p>
+                <div className="text-white text-sm sm:text-base leading-relaxed text-center sm:text-left">
+                  {t("visual.panelBody")}
+                </div>
               </div>
             </div>
           </Container>
         </section>
 
-        {/* CTA */}
         <section className="w-full py-16 sm:py-20 bg-[#052638] border-t border-[#0c3c57]">
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="w-full">
               <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_auto] gap-10 lg:gap-14 lg:items-start">
                 <div className="min-w-0 text-center lg:text-left">
                   <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                    Console access
+                    {t("cta.eyebrow")}
                   </div>
                   <h2 className="text-white font-semibold text-2xl sm:text-3xl md:text-4xl mb-4 leading-tight">
-                    Ready to bring your fleet onto Taypro Console?
+                    {t("cta.title")}
                   </h2>
-                  <p className="text-white/80 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                    New deployments receive structured onboarding, training, and
-                    the full customer user guide. Existing customers can request
-                    additional seats or sites through their Taypro account
-                    manager or{" "}
+                  <div className="text-white/80 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                    {t("cta.bodyBefore")}{" "}
                     <a
                       href="mailto:service@taypro.in"
                       className="text-[#A8C117] hover:underline font-medium"
                     >
                       service@taypro.in
                     </a>
-                    .
-                  </p>
+                    {t("cta.bodyAfter")}
+                  </div>
                 </div>
                 <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-4 w-full sm:justify-center lg:justify-start lg:w-auto lg:shrink-0 lg:pt-1">
                   <OpenLeadModalButton
-                    topic="Taypro Console access"
-                    title="Request Console access"
-                    subtitle="Tell us about your fleet and our team will get you set up with Taypro Console."
+                    topic={t("cta.leadTopic")}
+                    title={t("cta.leadTitle")}
+                    subtitle={t("cta.leadSubtitle")}
                     className="inline-flex items-center justify-center min-h-[48px] w-full sm:w-auto sm:min-w-[220px] bg-[#A8C117] text-[#052638] font-medium px-8 py-3.5 rounded-md hover:bg-[#b3cf3d] transition text-center"
                   >
-                    Request Console access
+                    {t("cta.requestAccess")}
                   </OpenLeadModalButton>
                   <a
                     href="mailto:service@taypro.in?subject=Taypro%20Console%20access%20%2F%20support"
                     className="inline-flex items-center justify-center min-h-[48px] w-full sm:w-auto sm:min-w-[220px] border-2 border-white text-white font-medium px-8 py-3.5 rounded-md hover:bg-white/10 transition text-center"
                   >
-                    Email service@taypro.in
+                    {t("cta.emailService")}
                   </a>
-            </div>
-          </div>
+                </div>
+              </div>
             </AnimateOnScroll>
           </Container>
         </section>
 
-        {/* FAQs */}
         <section className="w-full py-16 sm:py-20 bg-white">
           <Container size="narrow">
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
               <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-4">
-                Frequently asked questions
+                {t("faq.title")}
               </h2>
-              <p className="text-gray-600 text-base sm:text-lg">
-                Product-level answers — detailed procedures live in your Taypro
-                customer documentation.
-              </p>
+              <div className="text-gray-600 text-base sm:text-lg">
+                {t("faq.subtitle")}
+              </div>
             </AnimateOnScroll>
             <FAQAccordion faqs={consoleFaqs} variant="modern" />
           </Container>
@@ -585,11 +448,15 @@ export default function TayproConsolePage() {
 
         <EnergyResourceCard />
 
-        <ProjectsCardServer useFileProjects showHeader headerText="Our Most Recent Projects" />
+        <ProjectsCardServer
+          useFileProjects
+          showHeader
+          headerText={t("misc.projectsHeader")}
+        />
 
         <ClientsCard />
 
-        <ModelCards title="Looking for more solutions?" cards={modelBCards} />
+        <ModelCards title={t("misc.modelCardsTitle")} cards={modelBCards} />
 
         <RequestEstimateForm />
       </div>

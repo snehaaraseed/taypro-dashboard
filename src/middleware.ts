@@ -1,11 +1,36 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import createIntlMiddleware from "next-intl/middleware";
+import { withGeoLocaleDetection } from "./i18n/detect-locale-from-geo";
 import { routing } from "./i18n/routing";
 import { verifyToken } from "./app/utils/jwt";
 
 const COOKIE_NAME = "admin-auth";
 const handleI18nRouting = createIntlMiddleware(routing);
+
+/** Paths served from /public — must not be locale-prefixed by next-intl. */
+const PUBLIC_ASSET_ROOTS = [
+  "360-degree-images",
+  "tayproasset",
+  "tayprobglayout",
+  "tayproclients",
+  "tayproenergyresource",
+  "tayprofounders",
+  "tayprokeymetrics",
+  "tayprorobots",
+  "tayprosolarfirm",
+  "tayprosolarpanel",
+  "tayprosolar",
+  "blogs",
+  "uploads",
+] as const;
+
+function isPublicAssetPath(pathname: string): boolean {
+  if (/\.[a-zA-Z0-9]+$/.test(pathname)) return true;
+  return PUBLIC_ASSET_ROOTS.some(
+    (root) => pathname === `/${root}` || pathname.startsWith(`/${root}/`)
+  );
+}
 
 function applySecurityAndCacheHeaders(
   response: NextResponse,
@@ -15,6 +40,26 @@ function applySecurityAndCacheHeaders(
   response.headers.set("X-Frame-Options", "DENY");
   response.headers.set("X-XSS-Protection", "1; mode=block");
   response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  response.headers.set(
+    "Permissions-Policy",
+    "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+  );
+  response.headers.set(
+    "Content-Security-Policy",
+    [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: blob: https:",
+      "font-src 'self' data:",
+      "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://console.taypro.in",
+      "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com",
+      "object-src 'none'",
+      "base-uri 'self'",
+      "form-action 'self'",
+      "frame-ancestors 'none'",
+    ].join("; ")
+  );
 
   if (
     pathname.startsWith("/_next/static/") ||
@@ -120,10 +165,38 @@ export async function middleware(request: NextRequest) {
   }
 
   if (pathname.startsWith("/api")) {
-    return NextResponse.next();
+    if (
+      pathname.startsWith("/api/admin/") &&
+      !pathname.startsWith("/api/admin/auth/")
+    ) {
+      const authCookie = request.cookies.get(COOKIE_NAME);
+      if (!authCookie?.value) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+      }
+      const isValid = await verifyToken(authCookie.value);
+      if (!isValid) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+      }
+    }
+
+    if (pathname === "/api/blog/create") {
+      return NextResponse.json({ error: "Not found" }, { status: 404 });
+    }
+
+    return applySecurityAndCacheHeaders(NextResponse.next(), pathname);
   }
 
-  const intlResponse = handleI18nRouting(request);
+  if (/\/blog\/add\/?$/.test(pathname)) {
+    const blogUrl = new URL("/blog", request.url);
+    return NextResponse.redirect(blogUrl);
+  }
+
+  // Static files in /public (360° frames, brand assets, etc.)
+  if (isPublicAssetPath(pathname)) {
+    return applySecurityAndCacheHeaders(NextResponse.next(), pathname);
+  }
+
+  const intlResponse = handleI18nRouting(withGeoLocaleDetection(request));
   if (intlResponse.status >= 300 && intlResponse.status < 400) {
     return intlResponse;
   }
@@ -133,7 +206,7 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico|uploads/).*)",
+    "/((?!api|_next/static|_next/image|_next|favicon.ico|uploads/).*)",
     "/admin/:path*",
     "/api/admin/:path*",
   ],

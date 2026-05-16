@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 type Project = {
   id: string | number;
@@ -17,11 +18,13 @@ interface RelatedProjectsSectionProps {
 function RelatedProjectsSection({
   projects,
 }: RelatedProjectsSectionProps) {
+  const t = useTranslations("ProjectDetailPage");
+
   return (
     <section className="w-full bg-white pb-16 sm:pb-20 lg:pb-30 overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <h3 className="text-[#0c2f42] font-medium text-2xl sm:text-3xl mb-4 sm:mb-5">
-          Related Projects
+          {t("relatedHeading")}
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -29,14 +32,14 @@ function RelatedProjectsSection({
             <Link
               key={project.id}
               href={project.href}
-              title="Solar Project"
+              title={t("relatedImageTitle")}
               className="group block"
             >
               <div className="relative w-full h-[200px] sm:h-[240px] lg:h-[280px] mb-4 sm:mb-6 overflow-hidden">
                 <Image
                   src={project.img}
-                  alt={`${project.title} - Related Solar Panel Cleaning Robot Installation Project by Taypro`}
-                  title={`${project.title} Solar Project with Solar Panel Cleaning Robot`}
+                  alt={t("relatedImageAlt", { title: project.title })}
+                  title={t("relatedImageTitleAttr", { title: project.title })}
                   fill
                   sizes="sm"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"

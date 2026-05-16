@@ -1,0 +1,98 @@
+{
+  "ContactPage": {
+    "meta": {
+      "title": "Tayproへのお問い合わせ | ソーラーパネル清掃ロボット見積・サポート",
+      "description": "ソーラーパネル清掃ロボットの見積、技術相談、工場見学はTayproまで。インドのユーティリティ規模PV向けアプリケーションズチーム。"
+    },
+    "breadcrumbs": { "contact": "お問い合わせ" },
+    "schema": {
+      "businessName": "Taypro Private Limited",
+      "businessDescription": "インドのユーティリティ規模・商用PVプラント向け自律型・半自動ソーラーパネル清掃ロボットのメーカー。"
+    },
+    "hero": {
+      "eyebrow": "チームにお問い合わせ",
+      "titleLine1": "ソーラーパネル清掃ロボットについて",
+      "titleLine2": "Tayproへのお問い合わせ",
+      "bodyBeforeLink": "見積依頼、技術ディスカッション、チャカン製造拠点の見学をご予約ください。デベロッパー、IPP、O&Mチームのプラントレイアウトと調達モデルに合わせ、",
+      "bodyLink": "Model-A、Model-B、Model-T",
+      "bodyAfterLink": "ロボットとTaypro OpexまたはConsoleをご提案します。"
+    },
+    "main": {
+      "heading": "アプリケーションズチームへ",
+      "bodyBeforeLink": "プラントの詳細をお知らせください。ハードウェア、オペレーター主導のOpex、または",
+      "bodyLink": "Taypro Console",
+      "bodyAfterLink": "による混在フリートなど、最適なロボット清掃方式をご提案します。"
+    },
+    "channels": {
+      "sales": "営業お問い合わせ",
+      "phone": "電話",
+      "hq": "本社",
+      "hqValue": "T3-906, Kohinoor World Towers, Pimpri Colony, Pune, Maharashtra 411019",
+      "manufacturing": "製造拠点",
+      "manufacturingValue": "Chakan, Pune, Maharashtra 410501",
+      "hours": "営業時間",
+      "hoursValue": "月曜〜金曜 9:00〜18:00（IST）"
+    },
+    "form": {
+      "eyebrow": "見積依頼",
+      "title": "ソーラープラントについてお聞かせください",
+      "submit": "お問い合わせを送信",
+      "thankYouTitle": "ありがとうございます — お問い合わせを受け付けました",
+      "thankYouMessage": "アプリケーションズチームが1営業日以内にご連絡します。"
+    },
+    "tips": {
+      "heading": "メッセージに含めるとよい情報",
+      "roiLink": "まずROI計算機をお試しください",
+      "tip0": "DC容量（MW）とプラントの州・地域",
+      "tip1": "アレイ種別：固定傾斜、季節傾斜、屋根置き、単軸トラッカー",
+      "tip2": "汚れプロファイル、水の可用性、現在の清掃方法",
+      "tip3": "CAPEX購入かTaypro Opexマネージドサービスかの検討",
+      "viewProjects": "プロジェクトを見る",
+      "aboutTaypro": "Tayproについて"
+    },
+    "locations": {
+      "heading": "プネの拠点",
+      "intro": "ピンプリの本社とチャカンのロボット製造—いずれもプネ地域です。製造拠点は下の地図、住所はGoogleマップでご確認ください。",
+      "hqTitle": "本社",
+      "hqAddress": "T3-906, Kohinoor World Towers, Pimpri Colony, Pune, Maharashtra, India 411019",
+      "hqMaps": "本社をGoogleマップで開く",
+      "mfgTitle": "製造拠点",
+      "mfgAddress": "Plot No 87, Survey No 286/2, near Saint Gobain, Chakan, Pune, Maharashtra, India 410501",
+      "mfgNote": "工場見学・ウォークスルーは予約制です。",
+      "mfgMaps": "製造拠点をGoogleマップで開く",
+      "mapCaption": "地図：本社（ピンプリ）と製造拠点（チャカン）。緑ピン＝本社、紺ピン＝工場。"
+    },
+    "faq": {
+      "heading": "よくある質問",
+      "subheading": "お問い合わせ前、またはプネ拠点訪問前の一般的な質問です。",
+      "q0": "Tayproはどのくらい早く返信しますか？",
+      "a0": "通常1営業日以内に次のステップでご連絡します。既存顧客の緊急フリート・故障は優先対応します。",
+      "q1": "正確なロボット推奨に役立つ情報は？",
+      "a1": "ブロックレイアウト、列長、トラッカーブランド、清掃頻度、水・人件費の制約をお知らせください。写真、単線図、O&Mレポートがあると迅速です。ROI計算機から始めても構いません。",
+      "q2": "デベロッパーやEPCはチャカン工場を見学できますか？",
+      "a2": "はい—チャカン拠点で予約制の見学・ウォークスルーが可能です。希望日と参加者（設計、調達、O&M）をお知らせください。",
+      "q3": "マハーラーシュトラ以外のプラントも対応していますか？",
+      "a3": "Tayproはインド全土で展開・サービスしています。チャカン製造と全国の倉庫ネットワークでスペア、試運転、現場対応を支えます。"
+    }
+  },
+  "Forms": {
+    "firstName": "名*",
+    "firstNamePlaceholder": "太郎",
+    "companyName": "会社名",
+    "companyPlaceholder": "株式会社サンプル",
+    "email": "メール*",
+    "emailPlaceholder": "you@company.com",
+    "phone": "電話*",
+    "phonePlaceholder": "+91 98765 43210",
+    "message": "メッセージ",
+    "messagePlaceholder": "プラント容量、所在地、アレイ種別、制約など…",
+    "submit": "送信",
+    "submitting": "送信中…",
+    "requiredError": "必須項目を入力してください",
+    "genericError": "エラーが発生しました。もう一度お試しください。",
+    "thankYouDefaultTitle": "ありがとうございます — リクエストを受け付けました。",
+    "thankYouDefaultMessage": "アプリケーションズチームがプラントに最適なソーラーパネル清掃ロボットについてご連絡します。",
+    "sendAnother": "別のリクエストを送信"
+  },
+  "Common": { "breadcrumbHome": "ホーム" }
+}

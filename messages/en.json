@@ -44,8 +44,8 @@
     "copyright": "© Copyright {year} – TAYPRO PRIVATE LIMITED. All Rights Reserved."
   },
   "LocaleBanner": {
-    "title": "Translation in progress",
-    "body": "Navigation is available in your language. Full page content is still in English — we're localizing Tier 1 markets and Japan.",
+    "title": "Article text in English",
+    "body": "Blog navigation and page chrome are in your language. Full article and project case-study bodies remain in English.",
     "dismiss": "Dismiss"
   }
 }

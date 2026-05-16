@@ -1,55 +1,60 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import { withHreflang } from "@/lib/seo/with-hreflang";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const BLOG_PATH = "/blog";
 
-export const metadata: Metadata = {
-  title: {
-    template: "%s",
-    default:
-      "Taypro Blog — Solar Panel Cleaning Robot Insights & O&M Guides",
-  },
-  description:
-    "Expert articles on solar panel cleaning robots, soiling, dry O&M, plant economics, and utility-scale automation in India—by Taypro engineers and field teams.",
-  keywords: [
-    "Solar Panel Cleaning Robot",
-    "solar panel cleaning robot blog",
-    "solar panel cleaning robot articles",
-    "solar panel cleaning automation",
-    "automatic solar panel cleaning robot",
-    "semi-automatic solar panel cleaning robot",
-    "solar robot technology",
-    "solar energy maintenance",
-    "taypro",
-    "blogs",
-    "articles",
-    "energy resources",
-  ],
-  openGraph: {
-    title: "Taypro Blog – Expert Articles on Solar Panel Cleaning Robot",
-    description:
-      "Expert insights on Solar Panel Cleaning Robot technology, solar automation, and smart cleaning solutions for solar farms.",
-    url: `${siteUrl}/blog`,
-    type: "website",
-    images: [
-      {
-        url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
-        width: 1200,
-        height: 630,
-        alt: "Taypro Solar Panel Cleaning Robot Blog",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Taypro Blog – Expert Articles on Solar Panel Cleaning Robot",
-    description:
-      "Expert insights on Solar Panel Cleaning Robot technology and solar automation.",
-    images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
-  },
-  alternates: {
-    canonical: `${siteUrl}/blog`,
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "BlogPage.meta" });
+
+  const keywords = [
+    t("keyword0"),
+    t("keyword1"),
+    t("keyword2"),
+    t("keyword3"),
+    t("keyword4"),
+    t("keyword5"),
+    t("keyword6"),
+    t("keyword7"),
+    t("keyword8"),
+    t("keyword9"),
+  ];
+
+  return withHreflang(BLOG_PATH, locale, {
+    title: {
+      template: "%s",
+      default: t("title"),
+    },
+    description: t("description"),
+    keywords,
+    openGraph: {
+      title: t("openGraphTitle"),
+      description: t("openGraphDescription"),
+      url: `${siteUrl}${BLOG_PATH}`,
+      type: "website",
+      images: [
+        {
+          url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
+          width: 1200,
+          height: 630,
+          alt: t("openGraphImageAlt"),
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("twitterTitle"),
+      description: t("twitterDescription"),
+      images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
+    },
+  });
+}
 
 export default function TayproBlog({
   children,

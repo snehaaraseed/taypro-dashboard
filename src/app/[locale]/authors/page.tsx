@@ -1,5 +1,7 @@
-import Link from "next/link";
-import type { Metadata } from "next";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
+import { withHreflang } from "@/lib/seo/with-hreflang";
+import { SITE_URL } from "@/lib/seo/sitemap-config";
 import { listAllBlogs } from "@/lib/cms/blogService";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { NewsletterSubscribeCard } from "@/app/components/NewsletterSubscribeCard";
@@ -8,46 +10,57 @@ import {
   slugifyAuthorName,
 } from "@/app/data/blogAuthors";
 import { getStoredAuthors } from "@/app/utils/blogAuthorsStore";
+import type { Metadata } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const AUTHORS_PATH = "/authors";
+const siteUrl = SITE_URL;
+const ogImage = `${siteUrl}/tayproasset/taypro-robotImage.png`;
 
-export const metadata: Metadata = {
-  title: "Blog Authors | Taypro - Solar Panel Cleaning Robot Experts",
-  description:
-    "Meet the engineers, researchers and field experts writing the Taypro blog. Browse every contributor to our Solar Panel Cleaning Robot articles and field notes.",
-  keywords: [
-    "Taypro authors",
-    "Solar Panel Cleaning Robot authors",
-    "Taypro blog contributors",
-    "solar O&M experts",
-    "Taypro engineering team",
-  ],
-  openGraph: {
-    title: "Blog Authors | Taypro - Solar Panel Cleaning Robot Experts",
-    description:
-      "Meet the engineers and field experts behind Taypro's Solar Panel Cleaning Robot articles and field notes.",
-    url: `${siteUrl}/authors`,
-    type: "website",
-    images: [
-      {
-        url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
-        width: 1200,
-        height: 630,
-        alt: "Taypro blog authors",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Blog Authors | Taypro",
-    description:
-      "Engineers and field experts behind Taypro's Solar Panel Cleaning Robot blog.",
-    images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
-  },
-  alternates: {
-    canonical: `${siteUrl}/authors`,
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({
+    locale,
+    namespace: "AuthorsPage.meta",
+  });
+
+  const keywords = [
+    t("keyword0"),
+    t("keyword1"),
+    t("keyword2"),
+    t("keyword3"),
+    t("keyword4"),
+  ];
+
+  return withHreflang(AUTHORS_PATH, locale, {
+    title: t("title"),
+    description: t("description"),
+    keywords,
+    openGraph: {
+      title: t("openGraphTitle"),
+      description: t("openGraphDescription"),
+      url: `${siteUrl}${AUTHORS_PATH}`,
+      type: "website",
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: t("openGraphImageAlt"),
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("twitterTitle"),
+      description: t("twitterDescription"),
+      images: [ogImage],
+    },
+  });
+}
 
 interface AuthorStats {
   name: string;
@@ -70,7 +83,6 @@ async function getAuthorStats(): Promise<AuthorStats[]> {
     });
   }
 
-  // Include configured authors even if they have no posts yet
   for (const author of storedAuthors) {
     if (!counts.has(author.slug)) {
       counts.set(author.slug, { name: author.name, count: 0 });
@@ -82,25 +94,34 @@ async function getAuthorStats(): Promise<AuthorStats[]> {
     .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
 }
 
-export default async function AuthorsPage() {
+export default async function AuthorsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "AuthorsPage" });
+  const tCommon = await getTranslations({ locale, namespace: "Common" });
   const authorStats = await getAuthorStats();
   const storedAuthors = await getStoredAuthors();
 
   const breadcrumbs = [
-    { name: "Home", href: "/" },
-    { name: "Authors", href: "" },
+    { name: tCommon("breadcrumbHome"), href: "/" },
+    { name: t("breadcrumbs.authors"), href: "" },
   ];
 
   return (
-    <>
+    <div>
       <Breadcrumbs items={breadcrumbs} />
       <section className="w-full bg-[#052638] border-b border-[#0c3c57]">
         <div className="max-w-6xl mx-auto px-6 py-12">
-          <p className="text-sm text-[#A8C117] font-medium mb-2">Blog Directory</p>
-          <h1 className="text-4xl font-semibold text-white mb-3">Authors</h1>
-          <p className="text-slate-200 max-w-3xl">
-            Explore all blog contributors and read their published articles.
+          <p className="text-sm text-[#A8C117] font-medium mb-2">
+            {t("hero.eyebrow")}
           </p>
+          <h1 className="text-4xl font-semibold text-white mb-3">
+            {t("hero.title")}
+          </h1>
+          <p className="text-slate-200 max-w-3xl">{t("hero.description")}</p>
         </div>
       </section>
 
@@ -108,7 +129,9 @@ export default async function AuthorsPage() {
         <div className="max-w-6xl mx-auto px-6 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {authorStats.map((author) => {
-              const knownAuthor = storedAuthors.find((item) => item.slug === author.slug);
+              const knownAuthor = storedAuthors.find(
+                (item) => item.slug === author.slug
+              );
               return (
                 <Link
                   key={author.slug}
@@ -116,7 +139,9 @@ export default async function AuthorsPage() {
                   className="block rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow"
                 >
                   <img
-                    src={knownAuthor?.avatarUrl || getAuthorAvatarUrl(author.name)}
+                    src={
+                      knownAuthor?.avatarUrl || getAuthorAvatarUrl(author.name)
+                    }
                     alt={author.name}
                     className="w-16 h-16 rounded-full border border-gray-200 object-cover mb-4"
                   />
@@ -124,14 +149,14 @@ export default async function AuthorsPage() {
                     {author.name}
                   </h2>
                   <p className="text-sm text-gray-600 mb-3">
-                    {knownAuthor?.role || "Contributing Author"}
+                    {knownAuthor?.role || t("defaultRole")}
                   </p>
                   <p className="text-sm text-gray-500 line-clamp-3 mb-4">
-                    {knownAuthor?.bio ||
-                      "Read this author's blog posts and insights."}
+                    {knownAuthor?.bio || t("defaultBio")}
                   </p>
                   <p className="text-xs font-medium text-[#0c3c57]">
-                    {author.count} {author.count === 1 ? "article" : "articles"}
+                    {author.count}{" "}
+                    {author.count === 1 ? t("article") : t("articles")}
                   </p>
                 </Link>
               );
@@ -143,7 +168,6 @@ export default async function AuthorsPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
-

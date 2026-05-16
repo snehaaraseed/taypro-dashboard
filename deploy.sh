@@ -211,6 +211,11 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
             cp -a data/cms.sqlite .next/standalone/data/
             echo "  ✅ Copied cms.sqlite to standalone"
         fi
+        if [ -d "messages" ]; then
+            mkdir -p .next/standalone/messages
+            rsync -a messages/ .next/standalone/messages/
+            echo "  ✅ Synced messages/ → standalone/messages/"
+        fi
         if [ -d "drizzle" ]; then
             mkdir -p .next/standalone/drizzle
             cp -a drizzle/* .next/standalone/drizzle/ 2>/dev/null || true
@@ -236,6 +241,11 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     fi
     if [ -f "data/cms.sqlite" ] && [ -d ".next/standalone/data" ]; then
         cp -a data/cms.sqlite .next/standalone/data/cms.sqlite 2>/dev/null || true
+    fi
+    if [ -d "messages" ] && [ -d ".next/standalone" ]; then
+        mkdir -p .next/standalone/messages
+        rsync -a messages/ .next/standalone/messages/
+        echo "  ✅ Refreshed standalone/messages/"
     fi
 
     pm2 restart taypro-dashboard || pm2 start ecosystem.config.js

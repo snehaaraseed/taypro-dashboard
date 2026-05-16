@@ -14,6 +14,7 @@
     "solarRobotsMenu": "ソーラーパネル清掃ロボット",
     "callUs": "今すぐ電話",
     "openMenu": "メニューを開く",
+    "closeMenu": "メニューを閉じる",
     "modelA": "モデルA",
     "modelADesc": "自動ソーラー清掃ロボット",
     "modelB": "モデルB",
@@ -43,8 +44,8 @@
     "copyright": "© Copyright {year} – TAYPRO PRIVATE LIMITED. All Rights Reserved."
   },
   "LocaleBanner": {
-    "title": "翻訳作業中",
-    "body": "ナビゲーションはご利用の言語で表示されます。ページ本文は現在英語です。Tier 1市場と日本向けに順次ローカライズしています。",
+    "title": "記事本文は英語です",
+    "body": "ブログのナビゲーションとページUIはご利用の言語です。記事全文とプロジェクト事例の本文は英語のままです。",
     "dismiss": "閉じる"
   }
 }

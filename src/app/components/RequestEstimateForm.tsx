@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { CheckCircle2 } from "lucide-react";
 
 export type RequestEstimateFormProps = {
@@ -65,10 +66,11 @@ export default function RequestEstimateForm({
   autoFocus = false,
   redirectOnSuccess = false,
   onSuccess,
-  thankYouTitle = "Thanks — we've got your request.",
-  thankYouMessage = "Our applications team will get back to you shortly with the right Solar Panel Cleaning Robot fit for your plant. Feel free to keep exploring the site.",
+  thankYouTitle,
+  thankYouMessage,
   hideResetAfterSuccess = false,
 }: RequestEstimateFormProps = {}) {
+  const t = useTranslations("Forms");
   const router = useRouter();
   const [formData, setFormData] = useState(INITIAL_FORM);
 
@@ -99,7 +101,7 @@ export default function RequestEstimateForm({
       const comments = formData.message.trim();
 
       if (!name || !email || !phone) {
-        setErrorMsg("Please fill in first name, email, and phone.");
+        setErrorMsg(t("requiredError"));
         setLoading(false);
         return;
       }
@@ -123,7 +125,7 @@ export default function RequestEstimateForm({
       if (!response.ok) {
         throw new Error(
           (typeof payload.message === "string" && payload.message) ||
-            "Something went wrong. Please try again."
+            t("genericError")
         );
       }
 
@@ -145,6 +147,10 @@ export default function RequestEstimateForm({
     }
   };
 
+  const resolvedThankYouTitle =
+    thankYouTitle ?? t("thankYouDefaultTitle");
+  const resolvedThankYouMessage =
+    thankYouMessage ?? t("thankYouDefaultMessage");
   const resolvedEyebrow = eyebrow ?? "Let's Get Started";
   const resolvedTitle = title ?? "Request a detailed estimate";
   const resolvedMessageLabel =
@@ -178,10 +184,10 @@ export default function RequestEstimateForm({
         <CheckCircle2 className="h-6 w-6" aria-hidden />
       </div>
       <h3 className="text-[#052638] font-semibold text-xl sm:text-2xl mb-2">
-        {thankYouTitle}
+        {resolvedThankYouTitle}
       </h3>
       <p className="text-[#475569] text-sm sm:text-base leading-relaxed max-w-md mx-auto">
-        {thankYouMessage}
+        {resolvedThankYouMessage}
       </p>
       {!hideResetAfterSuccess && (
         <button
@@ -192,7 +198,7 @@ export default function RequestEstimateForm({
           }}
           className="mt-5 text-sm font-medium text-[#052638] underline underline-offset-4 hover:text-[#0a4a66]"
         >
-          Send another request
+          {t("sendAnother")}
         </button>
       )}
     </div>
@@ -223,11 +229,11 @@ export default function RequestEstimateForm({
         <form onSubmit={handleSubmit}>
           <div className={gridClass}>
             <div>
-              <label className={labelClass}>First Name*</label>
+              <label className={labelClass}>{t("firstName")}</label>
               <input
                 type="text"
                 name="firstName"
-                placeholder="Praveen"
+                placeholder={t("firstNamePlaceholder")}
                 value={formData.firstName}
                 onChange={handleChange}
                 suppressHydrationWarning
@@ -236,11 +242,11 @@ export default function RequestEstimateForm({
               />
             </div>
             <div>
-              <label className={labelClass}>Company Name</label>
+              <label className={labelClass}>{t("companyName")}</label>
               <input
                 type="text"
                 name="companyName"
-                placeholder="My Company Private Limited"
+                placeholder={t("companyPlaceholder")}
                 value={formData.companyName}
                 onChange={handleChange}
                 suppressHydrationWarning
@@ -248,11 +254,11 @@ export default function RequestEstimateForm({
               />
             </div>
             <div>
-              <label className={labelClass}>Email Address*</label>
+              <label className={labelClass}>{t("email")}</label>
               <input
                 type="email"
                 name="email"
-                placeholder="info@company.com"
+                placeholder={t("emailPlaceholder")}
                 value={formData.email}
                 onChange={handleChange}
                 suppressHydrationWarning
@@ -260,11 +266,11 @@ export default function RequestEstimateForm({
               />
             </div>
             <div>
-              <label className={labelClass}>Phone Number*</label>
+              <label className={labelClass}>{t("phone")}</label>
               <input
                 type="tel"
                 name="phone"
-                placeholder="+123-456-7890"
+                placeholder={t("phonePlaceholder")}
                 value={formData.phone}
                 onChange={handleChange}
                 suppressHydrationWarning
@@ -315,7 +321,7 @@ export default function RequestEstimateForm({
                   : "w-full mt-4 sm:mt-5 bg-[#A8C117] hover:bg-[#B8CC31] text-[#052638] font-semibold text-base sm:text-lg rounded-[4px] py-3 transition-colors cursor-pointer disabled:opacity-50"
             }
           >
-            {loading ? "Sending..." : submitLabel ?? "Send Request"}
+            {loading ? t("submitting") : submitLabel ?? t("submit")}
           </button>
         </form>
       )}

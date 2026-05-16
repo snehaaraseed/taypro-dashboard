@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { defineLocalizedMetadata } from "@/lib/seo/with-hreflang";
 import { socialImagesFromPreset } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 
 const siteUrl = SITE_URL;
 const og = socialImagesFromPreset("modelB");
 
-export const metadata: Metadata = {
+export const generateMetadata = defineLocalizedMetadata("/projects/semi-automatic", () => ({
   title: "Semi-Automatic Solar Panel Cleaning Robot Projects | Taypro",
   description:
     "Explore Taypro's semi-automatic Solar Panel Cleaning Robot installation projects. Cost-effective pick-and-place robotic cleaning systems with fastest ROI for solar farms.",
@@ -29,11 +30,7 @@ export const metadata: Metadata = {
     title: "Semi-Automatic Solar Panel Cleaning Robot Projects | Taypro",
     description: "Semi-automatic Solar Panel Cleaning Robot installation projects.",
     ...og.twitter,
-  },
-  alternates: {
-    canonical: `${siteUrl}/projects/semi-automatic`,
-  },
-};
+  }}));
 
 export default function SemiautomaticProjectLayout({
   children,

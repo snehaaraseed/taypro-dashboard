@@ -1,0 +1,71 @@
+{
+  "SiteMapPage": {
+    "meta": {
+      "title": "Sitemap | Taypro – Complete Website Navigation",
+      "description": "Browse Taypro's sitemap to quickly access all website sections, including projects, services, and company information.",
+      "openGraphTitle": "Sitemap | Taypro – Complete Website Navigation",
+      "openGraphDescription": "Browse Taypro's sitemap to quickly access all website sections, including projects, services, and company information.",
+      "openGraphImageAlt": "Taypro website sitemap",
+      "twitterTitle": "Sitemap | Taypro",
+      "twitterDescription": "Browse Taypro's sitemap to quickly access all website sections.",
+      "keyword0": "Taypro sitemap",
+      "keyword1": "Solar Panel Cleaning Robot website navigation",
+      "keyword2": "sitemap",
+      "keyword3": "website map",
+      "keyword4": "Taypro navigation",
+      "keyword5": "solar panel cleaning robot pages"
+    },
+    "breadcrumbs": {
+      "sitemap": "Sitemap"
+    },
+    "heading": "Sitemap",
+    "sections": {
+      "posts": "Posts",
+      "pages": "Pages",
+      "portfolio": "Portfolio"
+    },
+    "posts": {
+      "energyResourcesTitle": "Energy Resources"
+    },
+    "portfolio": {
+      "solarProjectTitle": "Solar Project"
+    },
+    "links": {
+      "aboutUsLabel": "About Us",
+      "aboutUsTitle": "About Us",
+      "blogLabel": "Blogs",
+      "blogTitle": "Blog",
+      "contactLabel": "Contact",
+      "contactTitle": "Contact",
+      "homeLabel": "Home",
+      "homeTitle": "Home",
+      "privacyPolicyLabel": "Privacy Policy",
+      "privacyPolicyTitle": "Privacy Policy",
+      "performanceMethodologyLabel": "Performance & Test Methodology",
+      "performanceMethodologyTitle": "Performance & Test Methodology",
+      "projectsLabel": "Projects",
+      "projectsTitle": "Projects",
+      "roiCalculatorLabel": "ROI Calculator",
+      "roiCalculatorTitle": "ROI Calculator",
+      "sitemapLabel": "Sitemap",
+      "sitemapTitle": "Sitemap",
+      "solarRobotsLabel": "Solar Panel Cleaning Robots",
+      "solarRobotsTitle": "Solar Robots Solar Panel Cleaning Robot",
+      "automaticRobotLabel": "Automatic Solar Panel Cleaning Robot",
+      "automaticRobotTitle": "Automatic Solar Panel Cleaning Robot",
+      "modelBLabel": "Model-B",
+      "modelBTitle": "Semi-automatic Solar Panel Cleaning System",
+      "modelTLabel": "Model-T",
+      "modelTTitle": "Model-T",
+      "cleaningServiceLabel": "Solar Panel Cleaning Service",
+      "cleaningServiceTitle": "Solar Panel Cleaning Service",
+      "tayproConsoleLabel": "Taypro Console",
+      "tayproConsoleTitle": "Automatic Cleaning Robot App",
+      "cleaningTechnologyLabel": "The Technology Behind Taypro",
+      "cleaningTechnologyTitle": "Cleaning Technology"
+    }
+  },
+  "Common": {
+    "breadcrumbHome": "Home"
+  }
+}

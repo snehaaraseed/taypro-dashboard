@@ -12,7 +12,7 @@ Your server has several security vulnerabilities that could potentially be explo
 
 ### 1. ⚠️ **CRITICAL: Admin Password Exposed**
 - **Location:** `/var/www/taypro-dashboard/.env.production`
-- **Issue:** Admin password stored in plain text: `YR1socT7TNkfPyc3ndQYMrPmMcXjd1fi`
+- **Issue:** Admin password stored in plain text in `.env.production` (rotate if ever committed)
 - **Risk:** If file system is compromised, attacker gains full admin access
 - **Impact:** Complete control over admin panel, ability to modify/delete content
 - **Status:** ⚠️ NEEDS IMMEDIATE ATTENTION

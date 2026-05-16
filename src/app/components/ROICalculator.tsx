@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useRef } from "react";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
+import { useLocale, useTranslations } from "next-intl";
 
 export interface ROIResults {
   annualCostLabourSaved: number;
@@ -17,6 +18,10 @@ export interface ROIResults {
   annualCarbonSavings: number;
 }
 
+type PlantType = "groundMount" | "rooftop";
+type InstallationType = "fixedTilt" | "seasonalTilt" | "singleAxisTracker";
+type AutomationLevel = "automatic" | "semiAutomatic";
+
 type ROICalculatorProps = {
   /** Hide the internal card title when the host page provides its own heading */
   hideTitle?: boolean;
@@ -29,19 +34,51 @@ const inputClassName =
 const primaryButtonClassName =
   "w-full mt-6 bg-[#A8C117] hover:bg-[#98B015] text-[#052638] font-semibold py-3 px-6 rounded-lg transition-colors duration-200 cursor-pointer";
 
+const PLANT_TYPE_OPTIONS: { value: PlantType; labelKey: string }[] = [
+  { value: "groundMount", labelKey: "plantTypeGroundMount" },
+  { value: "rooftop", labelKey: "plantTypeRooftop" },
+];
+
+const INSTALLATION_OPTIONS: { value: InstallationType; labelKey: string }[] = [
+  { value: "fixedTilt", labelKey: "installationFixedTilt" },
+  { value: "seasonalTilt", labelKey: "installationSeasonalTilt" },
+  { value: "singleAxisTracker", labelKey: "installationSingleAxis" },
+];
+
+const AUTOMATION_OPTIONS: { value: AutomationLevel; labelKey: string }[] = [
+  { value: "automatic", labelKey: "automationAutomatic" },
+  { value: "semiAutomatic", labelKey: "automationSemiAutomatic" },
+];
+
+const NUMBER_LOCALE: Record<string, string> = {
+  en: "en-IN",
+  hi: "hi-IN",
+  ar: "ar",
+  ja: "ja-JP",
+  bn: "bn-IN",
+};
+
+function numberLocale(locale: string): string {
+  return NUMBER_LOCALE[locale] ?? "en-IN";
+}
+
 export default function ROITayproCalculator({
   hideTitle = false,
   className = "",
 }: ROICalculatorProps) {
+  const t = useTranslations("PriceCalculatorPage.calculator");
+  const locale = useLocale();
+  const fmtLocale = numberLocale(locale);
+
   const doc = useRef<jsPDF | null>(null);
   if (!doc.current) {
     doc.current = new jsPDF({ unit: "pt", format: "a4" });
   }
 
   const [formData, setFormData] = useState({
-    plantType: "Ground Mount",
-    installationType: "Fixed Tilt",
-    automationLevel: "Waterless Automatic Solar Panel Cleaning Robots",
+    plantType: "groundMount" as PlantType,
+    installationType: "fixedTilt" as InstallationType,
+    automationLevel: "automatic" as AutomationLevel,
     plantCapacityMW: 200,
     plantCapacityKW: 200,
     electricityTariff: 3,
@@ -63,22 +100,10 @@ export default function ROITayproCalculator({
 
   const [showResults, setShowResults] = useState(false);
 
-  const plantTypeOptions = ["Ground Mount", "Rooftop"];
-  const installationTypeOptions = [
-    "Fixed Tilt",
-    "Seasonal Tilt",
-    "Single Axis Tracker",
-  ];
-  const automationLevelOptions = [
-    "Waterless Automatic Solar Panel Cleaning Robots",
-    "Waterless Semi-Automatic Solar Panel Cleaning Robots",
-  ];
-
-  // update tariff value
   useEffect(() => {
     setFormData((prev) => ({
       ...prev,
-      electricityTariff: prev.plantType === "Ground Mount" ? 3 : 10,
+      electricityTariff: prev.plantType === "groundMount" ? 3 : 10,
     }));
   }, [formData.plantType]);
 
@@ -93,29 +118,25 @@ export default function ROITayproCalculator({
       installationType,
     } = formData;
 
-    const capacity = plantType === "Ground Mount" ? E * 1000 : F;
+    const capacity = plantType === "groundMount" ? E * 1000 : F;
     const annualCostLabourSaved = Math.round(capacity / (H / 1000)) * 0.5 * 20;
     const waterSavedLitres = Math.round(capacity / (H / 1000)) * 20 * 3;
     const annualCostWaterSaved = waterSavedLitres * 0.12;
-    const energyFactor = plantType === "Ground Mount" ? 0.0295 : 0.113;
+    const energyFactor = plantType === "groundMount" ? 0.0295 : 0.113;
     const annualCostEnergyGain = capacity * energyFactor * 1500 * G;
     const totalMoneySavedAnnually =
       annualCostLabourSaved + annualCostWaterSaved + annualCostEnergyGain;
 
-    // Multipliers
-    const automationMultiplier = automationLevel.includes("Automatic")
-      ? 2.0
-      : 0.5;
+    const automationMultiplier = automationLevel === "automatic" ? 2.0 : 0.5;
     const installationMultiplier =
-      installationType === "Fixed Tilt"
+      installationType === "fixedTilt"
         ? 2.0
-        : installationType === "Seasonal Tilt"
-        ? 2.0
-        : 3.0;
+        : installationType === "seasonalTilt"
+          ? 2.0
+          : 3.0;
 
-    // Investment
     const baseInvestment =
-      plantType === "Ground Mount"
+      plantType === "groundMount"
         ? E * automationMultiplier * installationMultiplier
         : (F * automationMultiplier) / 130;
     const perUnitCost = Math.max(
@@ -157,22 +178,29 @@ export default function ROITayproCalculator({
     setFormData((prev) => ({ ...prev, [field]: value }));
 
   const formatCurrency = (v: number) =>
-    new Intl.NumberFormat("en-IN", {
+    new Intl.NumberFormat(fmtLocale, {
       style: "currency",
       currency: "INR",
       maximumFractionDigits: 2,
     }).format(v);
 
   const pdfFormatCurrency = (v: number) =>
-    new Intl.NumberFormat("en-IN", {
+    new Intl.NumberFormat(fmtLocale, {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     }).format(v);
 
   const formatNumber = (v: number) =>
-    new Intl.NumberFormat("en-IN", {
+    new Intl.NumberFormat(fmtLocale, {
       maximumFractionDigits: 2,
     }).format(v);
+
+  const labelForPlantType = (value: PlantType) =>
+    t(PLANT_TYPE_OPTIONS.find((o) => o.value === value)!.labelKey);
+  const labelForInstallation = (value: InstallationType) =>
+    t(INSTALLATION_OPTIONS.find((o) => o.value === value)!.labelKey);
+  const labelForAutomation = (value: AutomationLevel) =>
+    t(AUTOMATION_OPTIONS.find((o) => o.value === value)!.labelKey);
 
   const handleDownloadPdf = () => {
     const {
@@ -185,10 +213,9 @@ export default function ROITayproCalculator({
       moduleCapacity,
     } = formData;
 
-    const doc = new jsPDF({ unit: "pt", format: "a4" });
+    const pdf = new jsPDF({ unit: "pt", format: "a4" });
 
-    //  heaader
-    doc.addImage(
+    pdf.addImage(
       "/tayproasset/taypro-logoforwhitebg.png",
       "PNG",
       40,
@@ -196,36 +223,35 @@ export default function ROITayproCalculator({
       80,
       40
     );
-    doc.setFontSize(18);
-    doc.setTextColor("#052638");
-    doc.text("ROI Calculator Report", 140, 55);
+    pdf.setFontSize(18);
+    pdf.setTextColor("#052638");
+    pdf.text(t("pdfTitle"), 140, 55);
 
     let y = 100;
 
-    // table
-    doc.setFontSize(14);
-    doc.text("Inputs", 40, y);
+    pdf.setFontSize(14);
+    pdf.text(t("pdfInputs"), 40, y);
     y += 10;
 
-    const inputRows = [
-      ["Plant Type", plantType],
-      ...(plantType === "Ground Mount"
-        ? [["Installation Type", installationType]]
+    const inputRows: (string | number)[][] = [
+      [t("plantType"), labelForPlantType(plantType)],
+      ...(plantType === "groundMount"
+        ? [[t("installationType"), labelForInstallation(installationType)]]
         : []),
-      ["Automation Level", automationLevel],
+      [t("automationLevel"), labelForAutomation(automationLevel)],
       [
-        plantType === "Ground Mount"
-          ? "Plant Capacity (MW)"
-          : "Plant Capacity (KW)",
-        plantType === "Ground Mount" ? plantCapacityMW : plantCapacityKW,
+        plantType === "groundMount"
+          ? t("pdfPlantCapacityMw")
+          : t("pdfPlantCapacityKw"),
+        plantType === "groundMount" ? plantCapacityMW : plantCapacityKW,
       ],
-      ["Electricity Tariff (Rs/kWh)", electricityTariff],
-      ["Module Capacity (Wp)", moduleCapacity],
+      [t("pdfElectricityTariff"), electricityTariff],
+      [t("pdfModuleCapacity"), moduleCapacity],
     ];
 
-    autoTable(doc, {
+    autoTable(pdf, {
       startY: y + 10,
-      head: [["Parameter", "Value"]],
+      head: [[t("pdfParameter"), t("pdfValue")]],
       body: inputRows,
       theme: "grid",
       headStyles: {
@@ -236,54 +262,51 @@ export default function ROITayproCalculator({
       styles: { fontSize: 11, cellPadding: 5 },
     });
 
-    // roi calculations
-    doc.setFontSize(14);
-
     const resultsRows = [
       [
-        "Annual Cost Of Labour Saved",
+        t("resultLabourSaved"),
         `Rs. ${pdfFormatCurrency(results.annualCostLabourSaved)}`,
       ],
       [
-        "Annual Cost Of Water Saved",
+        t("resultWaterSaved"),
         `Rs. ${pdfFormatCurrency(results.annualCostWaterSaved)}`,
       ],
       [
-        "Annual Cost Of Energy Gain",
+        t("resultEnergyGain"),
         `Rs. ${pdfFormatCurrency(results.annualCostEnergyGain)}`,
       ],
       [
-        "Total Money Saved Annually",
+        t("resultTotalSaved"),
         `Rs. ${pdfFormatCurrency(results.totalMoneySavedAnnually)}`,
       ],
       [
-        "Total Investment Required",
+        t("resultInvestment"),
         `Rs. ${pdfFormatCurrency(results.totalInvestmentRequired)}`,
       ],
       [
-        "Return On Investment Timeline",
-        `${formatNumber(results.roiTimeline)} Years`,
+        t("resultRoiTimeline"),
+        `${formatNumber(results.roiTimeline)} ${t("yearsCapitalized")}`,
       ],
       [
-        "Annualised Return On Investment",
+        t("resultAnnualisedRoi"),
         `${formatNumber(results.annualisedROI)} %`,
       ],
       [
-        "ROI for 20 Years of Operation",
+        t("resultRoi20Years"),
         `${formatNumber(results.roi20Years)} %`,
       ],
       [
-        "Amount Of Water Saved Annually (Liters)",
+        t("resultWaterLiters"),
         `${formatNumber(results.waterSavedAnnually)} L`,
       ],
       [
-        "Annual Carbon Savings (kg CO2)",
-        `${formatNumber(results.annualCarbonSavings)} kg CO2`,
+        t("resultCarbon"),
+        `${formatNumber(results.annualCarbonSavings)} ${t("pdfCarbonUnit")}`,
       ],
     ];
 
-    autoTable(doc, {
-      head: [["Parameter", "Value"]],
+    autoTable(pdf, {
+      head: [[t("pdfParameter"), t("pdfValue")]],
       body: resultsRows,
       theme: "grid",
       headStyles: {
@@ -294,72 +317,97 @@ export default function ROITayproCalculator({
       styles: { fontSize: 11, cellPadding: 5 },
     });
 
-    doc.save("ROI-Report.pdf");
+    pdf.save("ROI-Report.pdf");
   };
 
   return (
     <div className={`w-full ${className}`.trim()}>
       <div className="bg-[#052638] rounded-xl p-6 sm:p-8 mb-6">
         {!hideTitle && (
-          <h2 className="text-white text-2xl font-semibold mb-4">ROI Calculator</h2>
+          <h2 className="text-white text-2xl font-semibold mb-4">{t("title")}</h2>
         )}
         <div className="grid gap-6 sm:grid-cols-2">
-          {/* A: Plant Type */}
           <div>
-            <label htmlFor="roi-plant-type" className="text-white/90 text-sm font-medium mb-1.5 block">
-              Plant Type
+            <label
+              htmlFor="roi-plant-type"
+              className="text-white/90 text-sm font-medium mb-1.5 block"
+            >
+              {t("plantType")}
             </label>
             <select
               id="roi-plant-type"
               value={formData.plantType}
-              onChange={(e) => handleInput("plantType", e.target.value)}
+              onChange={(e) =>
+                handleInput("plantType", e.target.value as PlantType)
+              }
               className={inputClassName}
             >
-              {plantTypeOptions.map((o) => (
-                <option key={o}>{o}</option>
+              {PLANT_TYPE_OPTIONS.map((o) => (
+                <option key={o.value} value={o.value}>
+                  {t(o.labelKey)}
+                </option>
               ))}
             </select>
           </div>
 
-          {/* B: Installation Type (Ground only) */}
-          {formData.plantType === "Ground Mount" && (
+          {formData.plantType === "groundMount" && (
             <div>
-              <label htmlFor="roi-installation-type" className="text-white mb-1 block">Installation Type</label>
+              <label
+                htmlFor="roi-installation-type"
+                className="text-white mb-1 block"
+              >
+                {t("installationType")}
+              </label>
               <select
                 id="roi-installation-type"
                 value={formData.installationType}
                 onChange={(e) =>
-                  handleInput("installationType", e.target.value)
+                  handleInput(
+                    "installationType",
+                    e.target.value as InstallationType
+                  )
                 }
                 className={inputClassName}
               >
-                {installationTypeOptions.map((o) => (
-                  <option key={o}>{o}</option>
+                {INSTALLATION_OPTIONS.map((o) => (
+                  <option key={o.value} value={o.value}>
+                    {t(o.labelKey)}
+                  </option>
                 ))}
               </select>
             </div>
           )}
 
-          {/* C: Automation Level */}
-          <div className="">
-            <label htmlFor="roi-automation-level" className="text-white mb-1 block">Automation Level</label>
+          <div>
+            <label
+              htmlFor="roi-automation-level"
+              className="text-white mb-1 block"
+            >
+              {t("automationLevel")}
+            </label>
             <select
               id="roi-automation-level"
               value={formData.automationLevel}
-              onChange={(e) => handleInput("automationLevel", e.target.value)}
+              onChange={(e) =>
+                handleInput("automationLevel", e.target.value as AutomationLevel)
+              }
               className={inputClassName}
             >
-              {automationLevelOptions.map((o) => (
-                <option key={o}>{o}</option>
+              {AUTOMATION_OPTIONS.map((o) => (
+                <option key={o.value} value={o.value}>
+                  {t(o.labelKey)}
+                </option>
               ))}
             </select>
           </div>
 
-          {/* E or F */}
-          {formData.plantType === "Ground Mount" ? (
+          {formData.plantType === "groundMount" ? (
             <div>
-              <label htmlFor="roi-capacity-mw" className="text-white mb-1 block">
-                Plant Capacity (MW)
+              <label
+                htmlFor="roi-capacity-mw"
+                className="text-white mb-1 block"
+              >
+                {t("plantCapacityMw")}
               </label>
               <input
                 id="roi-capacity-mw"
@@ -378,12 +426,15 @@ export default function ROITayproCalculator({
                 max={10000}
                 className={inputClassName}
               />
-              <div className="text-gray-400 text-xs">Min:1 Max:10000</div>
+              <div className="text-gray-400 text-xs">{t("minMaxMw")}</div>
             </div>
           ) : (
             <div>
-              <label htmlFor="roi-capacity-kw" className="text-white mb-1 block">
-                Plant Capacity (KW)
+              <label
+                htmlFor="roi-capacity-kw"
+                className="text-white mb-1 block"
+              >
+                {t("plantCapacityKw")}
               </label>
               <input
                 id="roi-capacity-kw"
@@ -402,14 +453,16 @@ export default function ROITayproCalculator({
                 max={10000}
                 className={inputClassName}
               />
-              <div className="text-gray-400 text-xs">Min:100 Max:10000</div>
+              <div className="text-gray-400 text-xs">{t("minMaxKw")}</div>
             </div>
           )}
 
-          {/* G: Electricity Tariff */}
           <div>
-            <label htmlFor="roi-electricity-tariff" className="text-white mb-1 block">
-              Electricity Tariff (₹/kWh)
+            <label
+              htmlFor="roi-electricity-tariff"
+              className="text-white mb-1 block"
+            >
+              {t("electricityTariff")}
             </label>
             <input
               id="roi-electricity-tariff"
@@ -426,13 +479,15 @@ export default function ROITayproCalculator({
               max={50}
               className={inputClassName}
             />
-            <div className="text-gray-400 text-xs">Min:1 Max:50</div>
+            <div className="text-gray-400 text-xs">{t("minMaxTariff")}</div>
           </div>
 
-          {/* H: Module Capacity */}
           <div>
-            <label htmlFor="roi-module-capacity" className="text-white mb-1 block">
-              Module Capacity (Wp)
+            <label
+              htmlFor="roi-module-capacity"
+              className="text-white mb-1 block"
+            >
+              {t("moduleCapacity")}
             </label>
             <input
               id="roi-module-capacity"
@@ -448,37 +503,39 @@ export default function ROITayproCalculator({
               max={1000}
               className={inputClassName}
             />
-            <div className="text-gray-400 text-xs">Min:1 Max:1000</div>
+            <div className="text-gray-400 text-xs">{t("minMaxModule")}</div>
           </div>
         </div>
 
         <button type="button" onClick={calculateROI} className={primaryButtonClassName}>
-          Calculate ROI
+          {t("calculateButton")}
         </button>
       </div>
 
       {showResults && (
         <div className="bg-[#052638] rounded-xl p-6 sm:p-8">
           <div className="flex justify-between items-center mb-6">
-            <h3 className="text-white text-2xl font-semibold">Your estimate</h3>
+            <h3 className="text-white text-2xl font-semibold">
+              {t("resultsHeading")}
+            </h3>
             <button
               type="button"
               className="text-white/80 text-sm hover:text-[#A8C117] transition"
               onClick={() => setShowResults(false)}
-              aria-label="Collapse results"
+              aria-label={t("collapseResults")}
             >
-              Hide ▲
+              {t("hideResults")}
             </button>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             <div className="rounded-lg bg-[#0f4a5c] border border-[#A8C117]/30 p-4">
-              <p className="text-white/70 text-sm mb-1">Payback timeline</p>
+              <p className="text-white/70 text-sm mb-1">{t("paybackTimeline")}</p>
               <p className="text-[#A8C117] text-2xl font-semibold">
-                {formatNumber(results.roiTimeline)} years
+                {formatNumber(results.roiTimeline)} {t("yearsUnit")}
               </p>
             </div>
             <div className="rounded-lg bg-[#0f4a5c] border border-[#A8C117]/30 p-4">
-              <p className="text-white/70 text-sm mb-1">Annual savings</p>
+              <p className="text-white/70 text-sm mb-1">{t("annualSavings")}</p>
               <p className="text-[#A8C117] text-2xl font-semibold">
                 {formatCurrency(results.totalMoneySavedAnnually)}
               </p>
@@ -486,72 +543,63 @@ export default function ROITayproCalculator({
           </div>
           <div className="divide-y divide-white/10 text-white">
             <div className="flex justify-between py-2">
-              <span>Annual Cost Of Labour Saved</span>
+              <span>{t("resultLabourSaved")}</span>
               <span className="font-semibold">
                 {formatCurrency(results.annualCostLabourSaved)}
               </span>
             </div>
-
             <div className="flex justify-between py-1">
-              <span>Annual Cost Of Water Saved</span>
+              <span>{t("resultWaterSaved")}</span>
               <span className="font-semibold">
                 {formatCurrency(results.annualCostWaterSaved)}
               </span>
             </div>
-
             <div className="flex justify-between py-2">
-              <span>Annual Cost Of Energy Gain</span>
+              <span>{t("resultEnergyGain")}</span>
               <span className="font-semibold">
                 {formatCurrency(results.annualCostEnergyGain)}
               </span>
             </div>
-
             <div className="flex justify-between py-2">
-              <span>Total Money Saved Annually</span>
+              <span>{t("resultTotalSaved")}</span>
               <span className="font-semibold">
                 {formatCurrency(results.totalMoneySavedAnnually)}
               </span>
             </div>
-
             <div className="flex justify-between py-2">
-              <span>Total Investment Required</span>
+              <span>{t("resultInvestment")}</span>
               <span className="font-semibold">
                 {formatCurrency(results.totalInvestmentRequired)}
               </span>
             </div>
-
             <div className="flex justify-between py-2">
-              <span>Return On Investment Timeline</span>
+              <span>{t("resultRoiTimeline")}</span>
               <span className="font-semibold">
-                {formatNumber(results.roiTimeline)} Years
+                {formatNumber(results.roiTimeline)} {t("yearsCapitalized")}
               </span>
             </div>
-
             <div className="flex justify-between py-2">
-              <span>Annualised Return On Investment</span>
+              <span>{t("resultAnnualisedRoi")}</span>
               <span className="font-semibold">
                 {formatNumber(results.annualisedROI)} %
               </span>
             </div>
-
             <div className="flex justify-between py-2">
-              <span>ROI for 20 Years of Operation</span>
+              <span>{t("resultRoi20Years")}</span>
               <span className="font-semibold">
                 {formatNumber(results.roi20Years)} %
               </span>
             </div>
-
             <div className="flex justify-between py-2">
-              <span>Amount Of Water Saved Annually (Liters)</span>
+              <span>{t("resultWaterLiters")}</span>
               <span className="font-semibold">
-                {formatNumber(results.waterSavedAnnually)} Liters
+                {formatNumber(results.waterSavedAnnually)} {t("litersUnit")}
               </span>
             </div>
-
             <div className="flex justify-between py-2">
-              <span>Annual Carbon Savings (kg CO₂)</span>
+              <span>{t("resultCarbon")}</span>
               <span className="font-semibold">
-                {formatNumber(results.annualCarbonSavings)} kg CO₂
+                {formatNumber(results.annualCarbonSavings)} {t("pdfCarbonUnit")}
               </span>
             </div>
           </div>
@@ -561,7 +609,7 @@ export default function ROITayproCalculator({
             className={primaryButtonClassName}
             onClick={handleDownloadPdf}
           >
-            Download complete report (PDF)
+            {t("downloadPdf")}
           </button>
         </div>
       )}

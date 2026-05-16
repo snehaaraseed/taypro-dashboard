@@ -1,0 +1,107 @@
+{
+  "PrivacyPolicyPage": {
+    "meta": {
+      "title": "Privacy Policy at Taypro Private Limited",
+      "description": "Taypro (“we,” “our,” “us”) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website, products, and services (collectively, the “Services”).",
+      "keywords": "taypro privacy policy, privacy, policy terms, privacy rights, secured information, data practices, taypro"
+    },
+    "breadcrumb": "Privacy Policy",
+    "title": "Privacy Policy",
+    "overview": {
+      "heading": "Overview",
+      "effectiveDate": "Effective Date: {date}",
+      "lastUpdated": "Last Updated: {date}",
+      "intro": "Taypro (“we,” “our,” “us”) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website, products, and services (collectively, the “Services”). Please read this Privacy Policy carefully. If you do not agree with the terms of this Privacy Policy, please do not use our Services."
+    },
+    "s1": {
+      "heading": "1. Information We Collect",
+      "intro": "We may collect information about you in various ways. The types of information we collect include:",
+      "personal": {
+        "heading": "a. Personal Information",
+        "intro": "When you interact with our Services, we may collect personal information such as:",
+        "li0": "Your name, email address, phone number, and mailing address.",
+        "li1": "Company name and job title (if applicable).",
+        "li2": "Payment information (processed securely via third-party providers)."
+      },
+      "nonPersonal": {
+        "heading": "b. Non-Personal Information",
+        "intro": "We may also collect non-personal information, such as:",
+        "li0": "Device and browser information (e.g., IP address, operating system, and browser type).",
+        "li1": "Usage data, including pages visited, links clicked, and other actions taken on our website.",
+        "li2": "Location data (if enabled on your device)."
+      },
+      "thirdParty": {
+        "heading": "c. Information from Third Parties",
+        "body": "We may receive information about you from third-party sources, such as business partners, public databases, and social media platforms."
+      }
+    },
+    "s2": {
+      "heading": "2. How We Use Your Information",
+      "intro": "We use the information we collect for various purposes, including:",
+      "li0": "To provide, operate, and improve our Services.",
+      "li1": "To process transactions and send purchase confirmations.",
+      "li2": "To communicate with you about updates, promotions, and important notices.",
+      "li3": "To personalize your experience and deliver tailored content.",
+      "li4": "To comply with legal obligations and enforce our terms of use."
+    },
+    "s3": {
+      "heading": "3. How We Share Your Information",
+      "intro": "We do not sell your personal information. However, we may share your information in the following circumstances:",
+      "serviceProviders": {
+        "heading": "a. With Service Providers",
+        "body": "We may share your information with third-party vendors who perform services on our behalf, such as payment processing, data analysis, and customer support."
+      },
+      "legal": {
+        "heading": "b. For Legal Compliance",
+        "body": "We may disclose your information to comply with legal obligations, respond to lawful requests, or protect our legal rights."
+      },
+      "consent": {
+        "heading": "c. With Your Consent",
+        "body": "We may share your information for other purposes with your explicit consent."
+      }
+    },
+    "s4": {
+      "heading": "4. Data Retention",
+      "body": "We retain your personal information only as long as necessary to fulfill the purposes outlined in this Privacy Policy or as required by law. Non-personal information may be retained indefinitely for analytical purposes."
+    },
+    "s5": {
+      "heading": "5. Security of Your Information",
+      "body": "We implement reasonable security measures to protect your information from unauthorized access, disclosure, alteration, or destruction. However, no security system is entirely foolproof, and we cannot guarantee the absolute security of your data."
+    },
+    "s6": {
+      "heading": "6. Your Privacy Rights",
+      "intro": "Depending on your location, you may have certain rights regarding your personal information, including:",
+      "li0": "The right to access, correct, or delete your personal information.",
+      "li1": "The right to object to or restrict the processing of your data.",
+      "li2": "The right to data portability.",
+      "li3": "The right to withdraw consent at any time.",
+      "contactBefore": "To exercise your rights, please contact us at",
+      "contactAfter": "."
+    },
+    "s7": {
+      "heading": "7. Cookies and Tracking Technologies",
+      "body": "We use cookies and similar technologies to enhance your experience on our website. You can control or disable cookies through your browser settings. Note that disabling cookies may impact the functionality of our Services."
+    },
+    "s8": {
+      "heading": "8. Third-Party Links",
+      "body": "Our website may contain links to third-party websites. We are not responsible for the privacy practices or content of these external sites. Please review their privacy policies before providing any information."
+    },
+    "s9": {
+      "heading": "9. Children’s Privacy",
+      "body": "Our Services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children. If we become aware that we have collected information from a child without parental consent, we will delete it promptly."
+    },
+    "s10": {
+      "heading": "10. Changes to This Privacy Policy",
+      "body": "We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated “Effective Date.” We encourage you to review this Privacy Policy periodically to stay informed about how we are protecting your information."
+    },
+    "s11": {
+      "heading": "11. Contact Us",
+      "intro": "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us:",
+      "mailLabel": "Mail:",
+      "phoneLabel": "Phone:"
+    }
+  },
+  "Common": {
+    "breadcrumbHome": "Home"
+  }
+}

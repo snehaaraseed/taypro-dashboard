@@ -10,6 +10,7 @@ import {
   SITE_URL,
   STATIC_SITEMAP_ROUTES,
 } from "./sitemap-config";
+import { sitemapPathsForAllLocales } from "./locale-alternates";
 
 const INDEXABLE_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
@@ -80,13 +81,30 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
     urls.set(path, item);
   };
 
+  const addLocalized = (
+    internalPath: string,
+    options: {
+      lastModified?: Date;
+      changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+      priority: number;
+    }
+  ) => {
+    for (const path of sitemapPathsForAllLocales(internalPath)) {
+      add(
+        entry(path, {
+          lastModified: options.lastModified,
+          changeFrequency: options.changeFrequency,
+          priority: options.priority,
+        })
+      );
+    }
+  };
+
   for (const route of STATIC_SITEMAP_ROUTES) {
-    add(
-      entry(route.path, {
-        changeFrequency: route.changeFrequency,
-        priority: route.priority,
-      })
-    );
+    addLocalized(route.path, {
+      changeFrequency: route.changeFrequency,
+      priority: route.priority,
+    });
   }
 
   try {
@@ -95,19 +113,34 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
       listPublishedProjectsForSitemap(),
     ]);
 
-    const indexableBlogs = blogs.filter((b) => isIndexableSlug(b.slug));
-    const indexableProjects = projects.filter((p) => isIndexableSlug(p.slug));
-    const authorPaths = collectAuthorPaths(indexableBlogs);
-    const blogListLastModified = latestBlogModified(indexableBlogs);
+    const indexableBlogs = blogs.filter(
+      (b) => isIndexableSlug(b.slug) && b.locale
+    );
+    const indexableProjects = projects.filter(
+      (p) => isIndexableSlug(p.slug) && p.locale
+    );
+
+    const blogListByLocale = new Map<string, typeof indexableBlogs>();
+    for (const blog of indexableBlogs) {
+      const list = blogListByLocale.get(blog.locale) ?? [];
+      list.push(blog);
+      blogListByLocale.set(blog.locale, list);
+    }
+
+    const authorPaths = collectAuthorPaths(
+      blogListByLocale.get("en") ?? indexableBlogs.filter((b) => b.locale === "en")
+    );
+    const enBlogs =
+      blogListByLocale.get("en") ??
+      indexableBlogs.filter((b) => b.locale === "en");
+    const blogListLastModified = latestBlogModified(enBlogs);
 
     for (const blog of indexableBlogs) {
-      add(
-        entry(`/blog/${blog.slug}`, {
-          lastModified: parseLastModified(blog.updatedAt, blog.publishDate),
-          changeFrequency: CMS_SITEMAP_DEFAULTS.blog.changeFrequency,
-          priority: CMS_SITEMAP_DEFAULTS.blog.priority,
-        })
-      );
+      addLocalized(`/blog/${blog.slug}`, {
+        lastModified: parseLastModified(blog.updatedAt, blog.publishDate),
+        changeFrequency: CMS_SITEMAP_DEFAULTS.blog.changeFrequency,
+        priority: CMS_SITEMAP_DEFAULTS.blog.priority,
+      });
     }
 
     const totalBlogPages = Math.max(
@@ -115,33 +148,26 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
       Math.ceil(indexableBlogs.length / BLOG_LIST_PAGE_SIZE)
     );
     for (let page = 2; page <= totalBlogPages; page++) {
-      add(
-        entry(`/blog?page=${page}`, {
-          lastModified: blogListLastModified,
-          changeFrequency: CMS_SITEMAP_DEFAULTS.blogPagination.changeFrequency,
-          priority: CMS_SITEMAP_DEFAULTS.blogPagination.priority,
-        })
-      );
+      addLocalized(`/blog?page=${page}`, {
+        lastModified: blogListLastModified,
+        changeFrequency: CMS_SITEMAP_DEFAULTS.blogPagination.changeFrequency,
+        priority: CMS_SITEMAP_DEFAULTS.blogPagination.priority,
+      });
     }
-
     for (const project of indexableProjects) {
-      add(
-        entry(`/projects/${project.slug}`, {
-          lastModified: parseLastModified(project.updatedAt, project.date),
-          changeFrequency: CMS_SITEMAP_DEFAULTS.project.changeFrequency,
-          priority: CMS_SITEMAP_DEFAULTS.project.priority,
-        })
-      );
+      addLocalized(`/projects/${project.slug}`, {
+        lastModified: parseLastModified(project.updatedAt, project.date),
+        changeFrequency: CMS_SITEMAP_DEFAULTS.project.changeFrequency,
+        priority: CMS_SITEMAP_DEFAULTS.project.priority,
+      });
     }
 
     for (const [authorSlug, meta] of authorPaths) {
-      add(
-        entry(`/blog/author/${authorSlug}`, {
-          lastModified: meta.lastModified,
-          changeFrequency: CMS_SITEMAP_DEFAULTS.author.changeFrequency,
-          priority: CMS_SITEMAP_DEFAULTS.author.priority,
-        })
-      );
+      addLocalized(`/blog/author/${authorSlug}`, {
+        lastModified: meta.lastModified,
+        changeFrequency: CMS_SITEMAP_DEFAULTS.author.changeFrequency,
+        priority: CMS_SITEMAP_DEFAULTS.author.priority,
+      });
     }
 
     const skipped =

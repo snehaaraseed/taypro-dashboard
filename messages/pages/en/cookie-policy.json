@@ -1,0 +1,120 @@
+{
+  "CookiePolicyPage": {
+    "meta": {
+      "title": "Cookie Policy | Taypro - Solar Panel Cleaning Robots",
+      "description": "Learn about how Taypro uses cookies and similar technologies on our website. Understand what cookies we use, why we use them, and how you can manage your cookie preferences.",
+      "keywords": "cookie policy, cookies, tracking, privacy, taypro, data protection, GDPR",
+      "openGraphTitle": "Cookie Policy | Taypro",
+      "openGraphDescription": "Learn about how Taypro uses cookies and similar technologies on our website."
+    },
+    "breadcrumb": "Cookie Policy",
+    "title": "Cookie Policy",
+    "overview": {
+      "heading": "Overview",
+      "lastUpdated": "Last Updated: {date}",
+      "introBefore": "This Cookie Policy explains how Taypro (\"we,\" \"our,\" \"us\") uses cookies and similar tracking technologies on our website (taypro.in). This policy should be read alongside our",
+      "privacyLink": "Privacy Policy",
+      "introAfter": "."
+    },
+    "s1": {
+      "heading": "1. What Are Cookies?",
+      "p0": "Cookies are small text files that are placed on your device (computer, tablet, or mobile) when you visit a website. They are widely used to make websites work more efficiently and provide information to website owners.",
+      "p1": "We also use similar technologies such as web beacons, pixel tags, and local storage, which function similarly to cookies."
+    },
+    "s2": {
+      "heading": "2. Types of Cookies We Use",
+      "necessary": {
+        "heading": "a. Necessary Cookies (Always Active)",
+        "intro": "These cookies are essential for the website to function properly. They enable core functionality such as security, network management, and accessibility. You cannot opt-out of these cookies.",
+        "adminAuthLabel": "admin-auth:",
+        "adminAuthDesc": "Session cookie for admin authentication (httpOnly, secure)",
+        "consentLabel": "cookie-consent:",
+        "consentDesc": "Stores your cookie consent preferences"
+      },
+      "analytics": {
+        "heading": "b. Analytics Cookies (Optional)",
+        "intro": "These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. This helps us improve the website's functionality and user experience.",
+        "currentlyLabel": "Currently:",
+        "currentlyBody": "If you enable analytics cookies in the cookie banner, we load Google Tag Manager, which can fire Google Analytics 4 (GA4) and other measurement tags you configure in Tag Manager. Those services may set cookies controlled by Google's privacy policy. Analytics stays off unless you opt in."
+      },
+      "marketing": {
+        "heading": "c. Marketing Cookies (Optional)",
+        "intro": "These cookies are used to track visitors across websites for the purpose of displaying advertisements that are relevant and engaging.",
+        "currentlyLabel": "Currently:",
+        "currentlyBody": "We do not use marketing cookies. If we implement marketing cookies in the future, we will update this policy and require your explicit consent."
+      },
+      "thirdPartyTypes": {
+        "heading": "d. Third-Party Cookies",
+        "intro": "Some third-party services we use may set their own cookies:",
+        "youtubeLabel": "YouTube:",
+        "youtubeDesc": "When you interact with embedded YouTube videos, YouTube may set cookies for functionality and analytics. These are controlled by YouTube's privacy policy.",
+        "mapsLabel": "Google Maps:",
+        "mapsDesc": "When you view embedded Google Maps, Google may set cookies. These are controlled by Google's privacy policy.",
+        "fontsLabel": "Google Fonts:",
+        "fontsDesc": "May set cookies for font loading optimization.",
+        "gtmLabel": "Google Tag Manager / Google Analytics 4:",
+        "gtmDesc": "If you accept analytics cookies, Google Tag Manager may load and Google Analytics (or other tags you add in GTM) may set cookies. See Google's privacy policy for how they process this data.",
+        "noteLabel": "Note:",
+        "noteBody": "We use YouTube embeds and Google Maps with privacy-enhanced mode where possible. These third-party services only load after you provide consent."
+      }
+    },
+    "s3": {
+      "heading": "3. How We Use Cookies",
+      "intro": "We use cookies for the following purposes:",
+      "li0": "To enable essential website functionality",
+      "li1": "To remember your cookie preferences",
+      "li2": "To maintain admin session security",
+      "li3": "To improve website performance and user experience (if analytics cookies are enabled)"
+    },
+    "s4": {
+      "heading": "4. Managing Your Cookie Preferences",
+      "intro": "You have control over your cookie preferences:",
+      "li0": "Use our cookie consent banner to accept or reject non-essential cookies",
+      "li1": "Click the cookie icon (bottom-right) to change your preferences at any time",
+      "li2": "Most web browsers allow you to control cookies through their settings preferences. However, limiting cookies may impact your experience on our website",
+      "browserSettings": {
+        "heading": "Browser Settings",
+        "intro": "You can control cookies through your browser settings. Here are links to instructions for popular browsers:",
+        "chrome": "Google Chrome",
+        "firefox": "Mozilla Firefox",
+        "safari": "Safari",
+        "edge": "Microsoft Edge"
+      }
+    },
+    "s5": {
+      "heading": "5. Cookie Duration",
+      "intro": "Cookies can be either \"session\" cookies or \"persistent\" cookies:",
+      "sessionLabel": "Session cookies:",
+      "sessionDesc": "Temporary cookies that expire when you close your browser",
+      "persistentLabel": "Persistent cookies:",
+      "persistentDesc": "Remain on your device for a set period or until you delete them",
+      "durationsIntro": "Our cookies are stored for the following durations:",
+      "adminAuthLabel": "admin-auth:",
+      "adminAuthDuration": "7 days (session management)",
+      "consentLabel": "cookie-consent:",
+      "consentDuration": "1 year (your preferences)"
+    },
+    "s6": {
+      "heading": "6. Third-Party Cookies",
+      "p0": "Our website may contain embedded content from third-party services that may set their own cookies. We have no control over these cookies. We only load third-party content after you provide consent.",
+      "servicesIntro": "Third-party services we use:",
+      "youtubeLabel": "YouTube:",
+      "mapsLabel": "Google Maps:",
+      "fontsLabel": "Google Fonts:",
+      "googlePrivacyLink": "Google Privacy Policy"
+    },
+    "s7": {
+      "heading": "7. Changes to This Cookie Policy",
+      "body": "We may update this Cookie Policy from time to time to reflect changes in our practices or for legal, operational, or regulatory reasons. We will notify you of any material changes by posting the new Cookie Policy on this page and updating the \"Last Updated\" date."
+    },
+    "s8": {
+      "heading": "8. Contact Us",
+      "intro": "If you have any questions about our use of cookies or this Cookie Policy, please contact us:",
+      "mailLabel": "Mail:",
+      "phoneLabel": "Phone:"
+    }
+  },
+  "Common": {
+    "breadcrumbHome": "Home"
+  }
+}

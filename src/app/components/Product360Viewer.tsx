@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { publicAssetUrl } from "@/lib/public-asset-url";
 
 interface Product360ViewerProps {
   imagePath: string; // Base path like "/360-degree-images/Model-A/MODEL-A"
@@ -42,15 +43,27 @@ export default function Product360Viewer({
   const hasAutoRotatedRef = useRef<boolean>(false); // Track if auto-rotation has been triggered
   const autoRotateAnimationRef = useRef<number | null>(null);
 
+  const buildFramePath = useCallback(
+    (frameIndex: number) => {
+      const frameNumber = startIndex + frameIndex;
+      const paddedNumber = frameNumber.toString().padStart(4, "0");
+      return `${imagePath}${imagePrefix}${paddedNumber}${imageSuffix}`;
+    },
+    [imagePath, imagePrefix, imageSuffix, startIndex]
+  );
+
+  const getImageUrl = useCallback(
+    (frameIndex: number) => publicAssetUrl(buildFramePath(frameIndex)),
+    [buildFramePath]
+  );
+
   // Preload images
   useEffect(() => {
     const loadImages = async () => {
       const imagePromises: Promise<void>[] = [];
 
       for (let i = 0; i < imageCount; i++) {
-        const frameNumber = startIndex + i;
-        const paddedNumber = frameNumber.toString().padStart(4, "0");
-        const imageUrl = `${imagePath}${imagePrefix}${paddedNumber}${imageSuffix}`;
+        const imageUrl = getImageUrl(i);
 
         const img = new window.Image();
         const promise = new Promise<void>((resolve) => {
@@ -69,16 +82,7 @@ export default function Product360Viewer({
     };
 
     loadImages();
-  }, [imagePath, imageCount, imagePrefix, imageSuffix, startIndex]);
-
-  const getImageUrl = useCallback(
-    (frameIndex: number) => {
-      const frameNumber = startIndex + frameIndex;
-      const paddedNumber = frameNumber.toString().padStart(4, "0");
-      return `${imagePath}${imagePrefix}${paddedNumber}${imageSuffix}`;
-    },
-    [imagePath, imagePrefix, imageSuffix, startIndex]
-  );
+  }, [imageCount, getImageUrl]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     // Cancel auto-rotation if active

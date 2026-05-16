@@ -92,10 +92,11 @@ export function OrganizationSchema({
     description:
       "Taypro develops and manufactures autonomous solar panel cleaning robots that help solar farms maintain optimal efficiency. We offer waterless cleaning solutions, dual-pass cleaning technology, and AI-powered scheduling systems.",
     foundingDate: "2020",
-    contactPoint: contactPoint || {
+    contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
       email: "info@taypro.in",
+      ...contactPoint,
     },
     sameAs: sameAs,
     areaServed: {

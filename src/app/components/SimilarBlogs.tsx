@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
+import { formatLocaleDate } from "@/i18n/format-date";
 import { getBlogFeaturedImageAlt } from "../utils/imageAlt";
 import { DynamicBlog } from "../api/blog/list/route";
 
@@ -90,24 +94,9 @@ function calculateSimilarity(blog1: DynamicBlog, blog2: DynamicBlog): number {
   return similarity + titleBoost;
 }
 
-// Format date consistently for server and client to avoid hydration mismatches
-function formatDate(dateString: string): string {
-  try {
-    const date = new Date(dateString);
-    // Use consistent format: Month DD, YYYY (e.g., "January 15, 2025")
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
-  } catch {
-    return dateString;
-  }
-}
-
-function lastUpdatedDisplayString(blog: DynamicBlog): string {
+function lastUpdatedDisplayString(blog: DynamicBlog, locale: string): string {
   const iso = blog.updatedAt || blog.publishDate;
-  return formatDate(iso);
+  return formatLocaleDate(locale, iso);
 }
 
 // Get similar blogs based on keyword matching
@@ -168,7 +157,8 @@ export function SimilarBlogs({
   currentSlug,
   layout = "sidebar",
 }: SimilarBlogsProps) {
-  // Get similar blogs based on keyword matching
+  const t = useTranslations("BlogPage.similar");
+  const locale = useLocale();
   const similarBlogs = getSimilarBlogs(blogs, currentSlug);
 
   if (similarBlogs.length === 0) {
@@ -179,7 +169,7 @@ export function SimilarBlogs({
     return (
       <section>
         <h3 className="text-3xl font-semibold text-[#052638] mb-8">
-          Similar Blogs
+          {t("heading")}
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {similarBlogs.map((similarBlog) => (
@@ -206,7 +196,9 @@ export function SimilarBlogs({
                     {similarBlog.description}
                   </p>
                   <span className="text-xs text-gray-500">
-                    Last updated {lastUpdatedDisplayString(similarBlog)}
+                    {t("lastUpdated", {
+                      date: lastUpdatedDisplayString(similarBlog, locale),
+                    })}
                   </span>
                 </div>
               </div>
@@ -221,7 +213,7 @@ export function SimilarBlogs({
     <aside className="lg:w-80 flex-shrink-0">
       <div className="sticky top-24">
         <h3 className="text-2xl font-semibold text-[#052638] mb-6">
-          Similar Blogs
+          {t("heading")}
         </h3>
         <div className="space-y-6">
           {similarBlogs.map((similarBlog) => (
@@ -248,7 +240,9 @@ export function SimilarBlogs({
                     {similarBlog.description}
                   </p>
                   <span className="text-xs text-gray-500">
-                    Last updated {lastUpdatedDisplayString(similarBlog)}
+                    {t("lastUpdated", {
+                      date: lastUpdatedDisplayString(similarBlog, locale),
+                    })}
                   </span>
                 </div>
               </div>

@@ -1,55 +1,42 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { socialImagesFromPreset } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
+import { withHreflang } from "@/lib/seo/with-hreflang";
 
 const siteUrl = SITE_URL;
+const MODEL_A_PATH =
+  "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system";
 const modelAOg = socialImagesFromPreset("modelA");
 
-export const metadata: Metadata = {
-  // Primary intent: "Automatic Solar Panel Cleaning Robot" (waterless, autonomous).
-  // Title omits trailing "| Taypro" because the root layout template appends it.
-  title:
-    "Automatic Solar Panel Cleaning Robot — Taypro Model-A (Waterless, AI)",
-  description:
-    "Taypro Model-A is a fully autonomous, waterless Automatic Solar Panel Cleaning Robot. AI/ML dual-pass dry cleaning removes 99%+ dust per cycle, runs up to 3,600 modules per charge, connects to Taypro Console via LTE / Wi-Fi / RF mesh / LoRa / LoRaWAN, and is TÜV NORD certified with same-day pan-India breakdown support.",
-  keywords: [
-    "automatic solar panel cleaning robot",
-    "automatic solar panel cleaning robot India",
-    "automatic solar panel cleaning robot manufacturer",
-    "automatic solar panel cleaning robot price",
-    "automatic solar panel cleaning robot cost",
-    "buy automatic solar panel cleaning robot",
-    "best automatic solar panel cleaning robot",
-    "automatic solar panel cleaning system",
-    "fully automatic solar panel cleaning robot",
-    "autonomous solar panel cleaning robot",
-    "waterless automatic solar panel cleaning robot",
-    "dual pass automatic solar cleaning robot",
-    "fixed tilt automatic solar cleaning robot",
-    "AI automatic solar panel cleaning robot",
-    "TÜV NORD certified solar cleaning robot",
-    "Taypro Model-A",
-  ],
-  openGraph: {
-    title:
-      "Automatic Solar Panel Cleaning Robot — Taypro Model-A (Waterless, AI)",
-    description:
-      "Taypro Model-A: Automatic Solar Panel Cleaning Robot for utility-scale plants. Autonomous waterless dual-pass cleaning, 99%+ dust removal per cycle, up to 3,600 modules per charge, LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN to Taypro Console, TÜV NORD certified.",
-    url: `${siteUrl}/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system`,
-    type: "website",
-    ...modelAOg.openGraph,
-  },
-  twitter: {
-    title:
-      "Automatic Solar Panel Cleaning Robot — Taypro Model-A (Waterless, AI)",
-    description:
-      "Taypro Model-A Automatic Solar Panel Cleaning Robot: autonomous, waterless, AI-driven. 99%+ dust removal per cycle, up to 3,600 modules per charge, LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN to Taypro Console.",
-    ...modelAOg.twitter,
-  },
-  alternates: {
-    canonical: `${siteUrl}/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system`,
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "ModelAPage.meta" });
+  const keywords = t.raw("keywords") as string[];
+
+  return withHreflang(MODEL_A_PATH, locale, {
+    title: t("title"),
+    description: t("description"),
+    keywords,
+    openGraph: {
+      title: t("openGraphTitle"),
+      description: t("openGraphDescription"),
+      url: `${siteUrl}${MODEL_A_PATH}`,
+      type: "website",
+      ...modelAOg.openGraph,
+    },
+    twitter: {
+      ...modelAOg.twitter,
+      card: "summary_large_image",
+      title: t("twitterTitle"),
+      description: t("twitterDescription"),
+    },
+  });
+}
 
 export default function AutomaticRobotLayout({
   children,

@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useMemo } from "react";
+import { sanitizeBlogHtml } from "@/lib/security/sanitize-html";
 
 interface BlogContentProps {
   content: string;
@@ -10,6 +11,7 @@ interface BlogContentProps {
 export function BlogContent({ content, className = "" }: BlogContentProps) {
   const contentRef = useRef<HTMLDivElement>(null);
   const isMountedRef = useRef(false);
+  const safeHtml = useMemo(() => sanitizeBlogHtml(content), [content]);
 
   useEffect(() => {
     // Mark as mounted after first render
@@ -41,7 +43,7 @@ export function BlogContent({ content, className = "" }: BlogContentProps) {
     <div
       ref={contentRef}
       className={className}
-      dangerouslySetInnerHTML={{ __html: content }}
+      dangerouslySetInnerHTML={{ __html: safeHtml }}
       suppressHydrationWarning
     />
   );

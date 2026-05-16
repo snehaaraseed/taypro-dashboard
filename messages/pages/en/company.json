@@ -1,0 +1,201 @@
+{
+  "CompanyPage": {
+    "meta": {
+      "title": "About Taypro | Solar Panel Cleaning Robot Manufacturer in India",
+      "description": "Learn how Taypro Private Limited engineers Made-in-India autonomous solar panel cleaning robots—including Model-A, Model-B, Model-T, Taypro Opex, and Taypro Console—for utility-scale and commercial PV. Vision, leadership, manufacturing scale in Pune, and nationwide service.",
+      "openGraphDescription": "Company story, vision, and leadership behind Taypro's autonomous and semi-automatic solar cleaning robots, dual-pass waterless technology, and pan-India deployment support.",
+      "openGraphImageAlt": "About Taypro - Solar Panel Cleaning Robot Manufacturer",
+      "twitterDescription": "Made-in-India solar panel cleaning robots, nationwide warehouses, and cloud fleet monitoring—built for utility-scale asset owners and O&M teams."
+    },
+    "breadcrumbs": {
+      "aboutUs": "About Us"
+    },
+    "hero": {
+      "eyebrow": "About Taypro",
+      "titleLine1": "Engineers of a",
+      "titleLine2": "sustainable future",
+      "bodyBeforeLink": "Taypro Private Limited is a Made-in-India manufacturer of autonomous and semi-automatic",
+      "bodyLink": "solar panel cleaning robots",
+      "bodyAfterLink": "for utility-scale, commercial, and rooftop PV. From our manufacturing hub in Chakan, Pune, we ship waterless dual-pass systems, pan-India spare logistics, and the Taypro Console fleet dashboard—so developers and O&M teams can protect yield, safety, and water without compromising uptime."
+    },
+    "statsStrip": {
+      "eyebrow": "At a glance",
+      "heading": "Manufacturing scale and field footprint",
+      "robotCapacityDeployed": "Robot Capacity Deployed",
+      "plantInstallations": "Plant Installations",
+      "waterSavedAnnually": "Liters of Water Saved Annually",
+      "robotsManufacturedPerMonth": "Robots Manufacturing Capacity per Month"
+    },
+    "brandValues": {
+      "heading": "Our Brand Values",
+      "value0": "Innovative",
+      "value1": "Powerful",
+      "value2": "Consistent",
+      "value3": "Agile",
+      "value4": "Dependable",
+      "value5": "Empathetic",
+      "value6": "Excellence",
+      "cta": "Explore Our Solutions",
+      "ctaTitle": "Solar Panel Cleaning Robot"
+    },
+    "sustainability": {
+      "titleLine1": "For our company,",
+      "titleLine2": "diversity & sustainability",
+      "titleLine3": "are not just words.",
+      "body": "Every deployment replaces labour-intensive washing, cuts diesel and water intensity, and returns cleaner megawatt-hours to the grid. See how operating teams quantify savings across live plants.",
+      "exploreProjects": "Explore Projects",
+      "exploreProjectsTitle": "Solar Project",
+      "waterSavedLabel": "Liters of Water Saved Annually",
+      "co2ReducedLabel": "Metric Tons Of CO2 Emission Reduced Annually",
+      "communityEyebrow": "Community",
+      "communityHeading": "Sustainable energy is our corporate responsibility and obligation to society.",
+      "communityBody": "We design for communities that depend on affordable power—and for the field teams who keep plants running through dust storms, monsoons, and peak summer loads.",
+      "modelTImageAlt": "Taypro Single-Axis Tracker Solar Panel Cleaning Robot Model-T operating on solar panel array",
+      "modelTImageTitle": "Taypro Single-Axis Tracker Solar Panel Cleaning Robot Model-T"
+    },
+    "story": {
+      "heading": "Company story, vision, and mission",
+      "intro": "Taypro unifies hardware engineering, manufacturing discipline, and field service so solar investors get a single accountable partner for robotic cleaning at scale.",
+      "whoWeAre": {
+        "label": "Who we are",
+        "heading": "Engineering-led robotics for solar asset owners and operators across India.",
+        "body": "Taypro Private Limited designs, manufactures, and supports autonomous solar panel cleaning robots for fixed tilt, seasonal tilt, rooftop, and single-axis tracker installations. Our Made-in-India systems combine waterless dual-pass cleaning, resilient field connectivity, and cloud monitoring through Taypro Console—so plants can sustain higher performance ratios with predictable operations and maintenance."
+      },
+      "vision": {
+        "label": "Vision",
+        "heading": "Unlock the full economic and environmental value of every solar megawatt.",
+        "body": "Soiling is one of the largest avoidable drags on generation. We believe renewable energy only scales when performance is dependable year after year. Taypro exists to give IPPs, developers, and O&M teams a repeatable way to protect yield, labour safety, and water resources on the same assets that power communities and industry."
+      },
+      "mission": {
+        "label": "Mission",
+        "heading": "Ship reliable robots, transparent service, and measurable outcomes—site by site.",
+        "body": "We invest in R&D, manufacturing capacity, and nationwide logistics so customers receive consistent quality, rapid spare availability, and responsive support. From Model-A and Model-B for distributed layouts to Model-T for trackers, plus Taypro Opex for operator-led cleaning, our roadmap stays tied to one question: does it improve plant uptime, safety, and total cost of ownership?"
+      }
+    },
+    "solutions": {
+      "heading": "Robots, services, and fleet software",
+      "bodyBeforeLink": "Taypro is a single vendor for hardware, operator-led cleaning, and cloud monitoring. Explore each platform for specifications, or read",
+      "bodyLink": "how our cleaning technology works",
+      "bodyAfterLink": ".",
+      "viewRobot": "View {model} →",
+      "robotImageAlt": "{model} - Taypro solar panel cleaning robot",
+      "robots": {
+        "modelA": "Fully autonomous, waterless dry cleaning with dual-pass airflow and microfiber—AI scheduling for fixed and seasonal-tilt utility plants.",
+        "modelB": "Portable pick-and-place dry cleaning robot for scattered blocks and plants that need flexible crew-assisted coverage.",
+        "modelT": "Autonomous waterless robot for single-axis trackers—flexible bridge and 360° rotation across tracker brands.",
+        "tayproOpex": "Pay-per-panel-cleaned Opex—Taypro operates the cleaning robot fleet on your plant with no upfront CAPEX.",
+        "tayproConsole": "Fleet portal to schedule, monitor, and report on solar panel cleaning robots across your site."
+      }
+    },
+    "builtForSites": {
+      "heading": "Built for real-world solar sites",
+      "paragraph1": "Years of co-development with plant operators taught us that \"works in a lab\" is not enough. Taypro robots are engineered for uneven terrain, tracker curvature, RF-dark pockets, and the pace of utility-scale O&M—where every hour of downtime matters.",
+      "paragraph2BeforeModelA": "Patented dual-pass cleaning, AI-assisted scheduling, LTE/Wi-Fi/mesh connectivity, and predictive maintenance workflows come together in platforms such as",
+      "modelALink": "Model-A",
+      "paragraph2Middle": "and",
+      "modelTLink": "Model-T",
+      "paragraph2After": ", giving asset managers measurable control over soiling loss.",
+      "aboutImageAlt": "Taypro autonomous solar panel cleaning robot operating on a utility-scale PV array",
+      "aboutImageTitle": "Taypro Solar Panel Cleaning Robot Technology"
+    },
+    "collaboration": {
+      "heading": "Collaboration from design to dispatch",
+      "paragraph1": "Taypro partners with tier-one component suppliers, specialist manufacturers, and on-ground commissioning crews so every robot leaves our line ready for harsh field duty—not a science project awaiting custom fixes on site.",
+      "paragraph2Before": "That ecosystem mindset is how we scale to",
+      "paragraph2Middle": "robots per month of manufacturing capacity, stock",
+      "paragraph2AfterWarehouses": "warehouses across India, and honour commitments like same-day breakdown support for fleets monitored in",
+      "consoleLink": "Taypro Console",
+      "paragraph2End": ".",
+      "about2ImageAlt": "Taypro engineering and manufacturing collaboration for solar panel cleaning robot production",
+      "about2ImageTitle": "Taypro Solar Panel Cleaning Robot Collaborative Development"
+    },
+    "partnerJourney": {
+      "eyebrow": "How we engage",
+      "heading": "From first conversation to fleet operations",
+      "intro": "Developers, IPPs, and O&M teams typically follow a structured path with Taypro—whether you are evaluating a single block or a multi-hundred-megawatt portfolio.",
+      "step0": {
+        "title": "Understand your plant",
+        "description": "Share layout (fixed tilt, rooftop, or trackers), DC capacity, soiling profile, and whether you prefer CAPEX ownership or Taypro Opex as a managed service."
+      },
+      "step1": {
+        "title": "Technical fit and ROI",
+        "description": "We map Model-A, Model-B, or Model-T plus Console monitoring to your blocks, align on cleaning frequency, and use ROI tools to quantify water and labour savings."
+      },
+      "step2": {
+        "title": "Deploy and commission",
+        "description": "Robots are manufactured in Chakan, Pune and shipped through our warehouse network. Commissioning crews install, train your O&M team, and connect fleets to Taypro Console."
+      },
+      "step3": {
+        "title": "Operate with continuity",
+        "description": "Nationwide spares, predictive maintenance workflows, and same-day breakdown response keep fleets productive. Case studies under Projects document outcomes at utility scale."
+      },
+      "viewProjects": "View projects",
+      "roiCalculator": "ROI calculator"
+    },
+    "scale": {
+      "heading": "Scale you can spec with confidence",
+      "body": "Benchmarks reflect our manufacturing investments, nationwide logistics footprint, and obsession with repeatable cleaning performance across India's diverse solar geographies.",
+      "cleaningEfficiency": "Cleaning Efficiency",
+      "manufacturingCapacity": "Robots Manufacturing Capacity per Month",
+      "warehouses": "Warehouses in India"
+    },
+    "leadership": {
+      "heading": "Leadership team",
+      "body": "Meet the executives guiding Taypro's product roadmap, manufacturing scale, and customer partnerships across India's solar sector.",
+      "roleCeo": "CEO",
+      "roleCoo": "COO",
+      "roleCto": "CTO",
+      "roleCmo": "CMO",
+      "founderImageAlt": "{name} - {role} at Taypro, leading Solar Panel Cleaning Robot manufacturer",
+      "founderImageTitle": "{name} - {role} at Taypro",
+      "linkedinAria": "LinkedIn of {name}"
+    },
+    "resources": {
+      "heading": "Resources",
+      "body": "Deep dives on soiling science, maintenance economics, and emerging PV technologies help finance, engineering, and O&M leaders align on what robotic cleaning can unlock. Bookmark these guides or browse the full archive for procurement-ready insights.",
+      "viewAll": "View all resources",
+      "viewAllTitle": "blog",
+      "cardLinkTitle": "Energy Resources",
+      "resourceImageAlt": "{title} - Solar Panel Cleaning Robot technology and solar energy resource article by Taypro",
+      "resourceImageTitle": "{title} - Solar Panel Cleaning Robot Energy Resource",
+      "item0": {
+        "title": "The Complete Guide to Solar Panel Maintenance",
+        "date": "July 27, 2025"
+      },
+      "item1": {
+        "title": "New Solar Panel Technologies 2025",
+        "date": "July 23, 2025"
+      }
+    },
+    "explore": {
+      "heading": "Continue exploring Taypro",
+      "body": "Dive into live deployments, technical deep-dives, and tools to model savings on your plant.",
+      "link0": "Installation projects",
+      "link1": "Cleaning technology",
+      "link2": "All robot models",
+      "link3": "Contact sales"
+    },
+    "faq": {
+      "heading": "Frequently asked questions",
+      "subheading": "Quick answers for partners evaluating Taypro as their solar cleaning robotics vendor.",
+      "talkToTeam": "Talk to our team",
+      "q0": "What does Taypro manufacture?",
+      "a0": "Taypro Private Limited builds autonomous and semi-automatic solar panel cleaning robots for utility-scale and commercial solar plants in India—including Model-A (autonomous waterless cleaning), Model-B (portable dry cleaning), Model-T for single-axis trackers, Taypro Opex as an operator-led cleaning service, and Taypro Console for fleet monitoring and scheduling.",
+      "q1": "Where is Taypro based and where do you operate?",
+      "a1": "Taypro is headquartered and manufactures from Chakan, Pune, Maharashtra, with a warehouse network across India to support spare parts, commissioning, and same-day breakdown response for deployed robots.",
+      "q2": "Why is waterless robotic cleaning important for solar plants?",
+      "a2": "Water scarcity and logistics make manual or wet washing expensive and inconsistent. Taypro's patented dual-pass method first clears dry dust, then finishes with microfiber contact—helping plants save millions of litres annually while stabilising performance ratio through repeatable, weather-aware cleaning cycles.",
+      "q3": "How can developers or O&M teams evaluate Taypro?",
+      "a3": "Start with your plant layout (fixed tilt, rooftop, or trackers), capacity, and cleaning goals. Explore the solar panel cleaning system pages for technical specifications, case studies under Projects, or contact Taypro for a site-specific discussion, ROI inputs, and deployment planning.",
+      "q4": "Which Taypro robot fits fixed-tilt vs single-axis tracker plants?",
+      "a4": "Model-A targets autonomous waterless cleaning on fixed and seasonal-tilt arrays. Model-B is portable for scattered blocks. Model-T is engineered for single-axis trackers with a flexible bridge. Many sites combine models by block—our team maps robots to each array during site assessment.",
+      "q5": "Can we buy robots (CAPEX) or use an operator-led service (Opex)?",
+      "a5": "Both. CAPEX customers purchase robots with Taypro commissioning and spare support. Taypro Opex delivers operator-led cleaning without upfront robot capital—useful when you want predictable O&M costs and Taypro accountability for uptime.",
+      "q6": "What role does Taypro Console play after installation?",
+      "a6": "Taypro Console is the cloud dashboard for scheduling cleaning cycles, monitoring robot health, reviewing connectivity, and auditing fleet performance across blocks—helping O&M leads document cleaning history for performance ratio discussions with asset owners."
+    }
+  },
+  "Common": {
+    "breadcrumbHome": "Home"
+  }
+}

@@ -4,6 +4,10 @@ import { writeFile, mkdir, access } from "fs/promises";
 import path from "path";
 import { getDeploymentRoot } from "../../../utils/deploymentRoot";
 import { registerUpload } from "@/lib/cms/uploadService";
+import {
+  resolvePathInsideRoot,
+  validateImageMagicBytes,
+} from "@/lib/security";
 
 // Route segment config for App Router
 export const runtime = "nodejs";
@@ -69,7 +73,13 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate file type
-    const allowedTypes = ["image/jpeg", "image/jpg", "image/png", "image/webp", "image/gif"];
+    const allowedTypes = [
+      "image/jpeg",
+      "image/jpg",
+      "image/png",
+      "image/webp",
+      "image/gif",
+    ];
     if (!allowedTypes.includes(file.type)) {
       return NextResponse.json(
         { error: "Invalid file type. Only images are allowed." },
@@ -90,13 +100,11 @@ export async function POST(request: NextRequest) {
     const now = new Date();
     const year = now.getFullYear().toString();
     const month = String(now.getMonth() + 1).padStart(2, "0");
-    const uploadDir = path.join(
-      getDeploymentRoot(),
-      "public",
-      "uploads",
-      year,
-      month
-    );
+    const uploadsRoot = path.join(getDeploymentRoot(), "public", "uploads");
+    const uploadDir = resolvePathInsideRoot(uploadsRoot, year, month);
+    if (!uploadDir) {
+      return NextResponse.json({ error: "Invalid upload path" }, { status: 400 });
+    }
 
     // Create directory if it doesn't exist
     await mkdir(uploadDir, { recursive: true });
@@ -155,12 +163,21 @@ export async function POST(request: NextRequest) {
     
     // Create final filename with timestamp (extension is added separately, so no double extension)
     const fileName = `${baseName}-${timestamp}${extension}`;
-    const filePath = path.join(uploadDir, fileName);
+    const filePath = resolvePathInsideRoot(uploadDir, fileName);
+    if (!filePath) {
+      return NextResponse.json({ error: "Invalid file path" }, { status: 400 });
+    }
 
-    // Convert file to buffer and save
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
-    
+
+    if (!validateImageMagicBytes(buffer, file.type)) {
+      return NextResponse.json(
+        { error: "File content does not match declared image type." },
+        { status: 400 }
+      );
+    }
+
     try {
       await writeFile(filePath, buffer);
       

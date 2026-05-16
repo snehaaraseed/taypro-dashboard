@@ -55,7 +55,6 @@ Key benefits of our Solar Panel Cleaning Robot:
 ## Blog
 /blog - Blog listing page with all articles
 /blog/[slug] - Individual blog post pages (dynamic routing)
-/blog/add - Blog creation interface (authenticated)
 /blog/db/[id] - Database-stored blog posts (dynamic routing)
 
 Blog topics include:
@@ -83,12 +82,6 @@ GET /api/blog/list
 GET /api/blog/slug/[slug]
 - Returns: Single blog post by slug
 - Response: Blog post data with content
-
-POST /api/blog/create
-- Creates a new blog post in the database
-- Body: { title, description, featuredImage, author, content }
-- Requires: All fields except author (defaults to "Taypro Team")
-- Response: { success: boolean, id, slug, url }
 
 ### Other APIs
 GET /api/blog/scrape
@@ -236,8 +229,7 @@ The site also uses images from:
 
 ## For Content Creation
 1. Authenticate via /api/admin/auth/login
-2. Use /api/admin/blog/create for file-based blogs
-3. Use /api/blog/create for database-stored blogs
+2. Use /api/admin/blog/create (authenticated) for CMS blogs
 4. Upload images via /api/admin/upload
 
 ## For Data Analysis

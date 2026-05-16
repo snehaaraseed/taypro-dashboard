@@ -1,70 +1,89 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 import { additionalProjects, energyResourceCards } from "@/app/data";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
+import { withHreflang } from "@/lib/seo/with-hreflang";
+import { SITE_URL } from "@/lib/seo/sitemap-config";
 import type { Metadata } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const SITE_MAP_PATH = "/site-map";
+const siteUrl = SITE_URL;
+const ogImage = `${siteUrl}/tayproasset/taypro-robotImage.png`;
 
-export const metadata: Metadata = {
-  title: "Sitemap | Taypro – Complete Website Navigation",
-  description:
-    "Browse Taypro’s sitemap to quickly access all website sections, including projects, services, and company information.",
-  keywords: [
-    "Taypro sitemap",
-    "Solar Panel Cleaning Robot website navigation",
-    "sitemap",
-    "website map",
-    "Taypro navigation",
-    "solar panel cleaning robot pages",
-  ],
-  openGraph: {
-    title: "Sitemap | Taypro – Complete Website Navigation",
-    description:
-      "Browse Taypro’s sitemap to quickly access all website sections, including projects, services, and company information.",
-    url: `${siteUrl}/site-map`,
-    type: "website",
-    images: [
-      {
-        url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
-        width: 1200,
-        height: 630,
-        alt: "Taypro website sitemap",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Sitemap | Taypro",
-    description:
-      "Browse Taypro’s sitemap to quickly access all website sections.",
-    images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
-  },
-  alternates: {
-    canonical: `${siteUrl}/site-map`,
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({
+    locale,
+    namespace: "SiteMapPage.meta",
+  });
 
-const breadcrumbs = [
-  { name: "Home", href: "/" },
-  {
-    name: "Sitemap",
-    href: "",
-  },
-];
+  const keywords = [
+    t("keyword0"),
+    t("keyword1"),
+    t("keyword2"),
+    t("keyword3"),
+    t("keyword4"),
+    t("keyword5"),
+  ];
 
-export default function SiteMapPage() {
+  return withHreflang(SITE_MAP_PATH, locale, {
+    title: t("title"),
+    description: t("description"),
+    keywords,
+    openGraph: {
+      title: t("openGraphTitle"),
+      description: t("openGraphDescription"),
+      url: `${siteUrl}${SITE_MAP_PATH}`,
+      type: "website",
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: t("openGraphImageAlt"),
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("twitterTitle"),
+      description: t("twitterDescription"),
+      images: [ogImage],
+    },
+  });
+}
+
+export default async function SiteMapPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "SiteMapPage" });
+  const tCommon = await getTranslations({ locale, namespace: "Common" });
+  const l = (key: string) => t(`links.${key}`);
+
+  const breadcrumbs = [
+    { name: tCommon("breadcrumbHome"), href: "/" },
+    { name: t("breadcrumbs.sitemap"), href: "" },
+  ];
+
   return (
-    <>
+    <div>
       <Breadcrumbs items={breadcrumbs} />
       <section className="w-full pt-20 pb-5 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
           <h1 className="text-[#052638] text-6xl font-semibold text-center mb-16">
-            Sitemap
+            {t("heading")}
           </h1>
 
           <div className="text-start">
             <h3 className="text-[#052638] text-4xl font-semibold mb-8">
-              Posts
+              {t("sections.posts")}
             </h3>
 
             <ul className="space-y-1 list-disc list-inside">
@@ -72,7 +91,7 @@ export default function SiteMapPage() {
                 <li key={idx} className="text-lg">
                   <Link
                     href={card.href}
-                    title="Energy Resources"
+                    title={t("posts.energyResourcesTitle")}
                     className="text-[#7CB342] hover:text-[#689F38] transition-colors duration-200 font-medium"
                   >
                     {card.title}
@@ -88,145 +107,144 @@ export default function SiteMapPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
           <div className="text-start">
             <h3 className="text-[#052638] text-4xl font-semibold mb-8">
-              Pages
+              {t("sections.pages")}
             </h3>
 
             <ul className="space-y-1 list-disc list-inside text-lg">
               <li>
                 <Link
                   href="/company"
-                  title="About Us"
+                  title={l("aboutUsTitle")}
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
-                  About Us
+                  {l("aboutUsLabel")}
                 </Link>
               </li>
               <li>
                 <Link
                   href="/blog"
-                  title="Blog"
+                  title={l("blogTitle")}
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
-                  Blogs
+                  {l("blogLabel")}
                 </Link>
               </li>
               <li>
                 <Link
                   href="/contact"
-                  title="Contact"
+                  title={l("contactTitle")}
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
-                  Contact
+                  {l("contactLabel")}
                 </Link>
-                <ul className="mt-2 ml-6 space-y-2 list-circle list-inside text-base">
-                </ul>
+                <ul className="mt-2 ml-6 space-y-2 list-circle list-inside text-base" />
               </li>
               <li>
                 <Link
                   href="/"
-                  title="Home"
+                  title={l("homeTitle")}
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
-                  Home
+                  {l("homeLabel")}
                 </Link>
               </li>
               <li>
                 <Link
                   href="/privacy-policy"
-                  title="Privacy Policy"
+                  title={l("privacyPolicyTitle")}
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
-                  Privacy Policy
+                  {l("privacyPolicyLabel")}
                 </Link>
               </li>
               <li>
                 <Link
                   href="/performance-and-test-methodology"
-                  title="Performance & Test Methodology"
+                  title={l("performanceMethodologyTitle")}
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
-                  Performance &amp; Test Methodology
+                  {l("performanceMethodologyLabel")}
                 </Link>
               </li>
               <li>
                 <Link
                   href="/projects"
-                  title="Projects"
+                  title={l("projectsTitle")}
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
-                  Projects
+                  {l("projectsLabel")}
                 </Link>
               </li>
               <li>
                 <Link
                   href="/solar-panel-cleaning-robot-price-calculator"
-                  title="ROI Calculator"
+                  title={l("roiCalculatorTitle")}
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
-                  ROI Calculator
+                  {l("roiCalculatorLabel")}
                 </Link>
               </li>
               <li>
                 <Link
                   href="/site-map"
-                  title="Sitemap"
+                  title={l("sitemapTitle")}
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
-                  Sitemap
+                  {l("sitemapLabel")}
                 </Link>
               </li>
               <li>
                 <Link
                   href="/solar-panel-cleaning-system"
-                  title="Solar Robots Solar Panel Cleaning Robot"
+                  title={l("solarRobotsTitle")}
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
-                  Solar Panel Cleaning Robots
+                  {l("solarRobotsLabel")}
                 </Link>
                 <ul className="mt-2 ml-6 space-y-2 list-circle list-inside text-base">
                   <li>
                     <Link
                       href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
-                      title="Automatic Solar Panel Cleaning Robot"
+                      title={l("automaticRobotTitle")}
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
-                      Automatic Solar Panel Cleaning Robot
+                      {l("automaticRobotLabel")}
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
-                      title="Semi-automatic Solar Panel Cleaning System"
+                      title={l("modelBTitle")}
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
-                      Model-B
+                      {l("modelBLabel")}
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
-                      title="Model-T"
+                      title={l("modelTTitle")}
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
-                      Model-T
+                      {l("modelTLabel")}
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
-                      title="Solar Panel Cleaning Service"
+                      title={l("cleaningServiceTitle")}
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
-                      Solar Panel Cleaning Service
+                      {l("cleaningServiceLabel")}
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
-                      title="Automatic Cleaning Robot App"
+                      title={l("tayproConsoleTitle")}
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
-                      Taypro Console
+                      {l("tayproConsoleLabel")}
                     </Link>
                   </li>
                 </ul>
@@ -234,10 +252,10 @@ export default function SiteMapPage() {
               <li>
                 <Link
                   href="/cleaning-technology"
-                  title="Cleaning Technology"
+                  title={l("cleaningTechnologyTitle")}
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
-                  The Technology Behind Taypro
+                  {l("cleaningTechnologyLabel")}
                 </Link>
               </li>
             </ul>
@@ -249,7 +267,7 @@ export default function SiteMapPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
           <div className="text-start">
             <h3 className="text-[#052638] text-4xl font-semibold mb-8">
-              Portfolio
+              {t("sections.portfolio")}
             </h3>
 
             <ul className="space-y-1 list-disc list-inside">
@@ -257,7 +275,7 @@ export default function SiteMapPage() {
                 <li key={idx} className="text-lg">
                   <Link
                     href={card.href}
-                    title="Solar Project"
+                    title={t("portfolio.solarProjectTitle")}
                     className="text-[#7CB342] hover:text-[#689F38] transition-colors duration-200 font-medium"
                   >
                     {card.title}
@@ -268,6 +286,6 @@ export default function SiteMapPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

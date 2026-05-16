@@ -1,32 +1,57 @@
+import { Link } from "@/i18n/navigation";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
+import { ContactPhoneLink } from "@/app/components/ContactPhoneLink";
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import { withHreflang } from "@/lib/seo/with-hreflang";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
-
 const LAST_UPDATED = "May 13, 2026";
 
-export const metadata: Metadata = {
-  title: "Cookie Policy | Taypro - Solar Panel Cleaning Robots",
-  description:
-    "Learn about how Taypro uses cookies and similar technologies on our website. Understand what cookies we use, why we use them, and how you can manage your cookie preferences.",
-  keywords:
-    "cookie policy, cookies, tracking, privacy, taypro, data protection, GDPR",
-  openGraph: {
-    title: "Cookie Policy | Taypro",
-    description:
-      "Learn about how Taypro uses cookies and similar technologies on our website.",
-    url: `${siteUrl}/cookie-policy`,
-    type: "website",
-  },
-  alternates: {
-    canonical: `${siteUrl}/cookie-policy`,
-  },
-};
+const BROWSER_LINKS = {
+  chrome: "https://support.google.com/chrome/answer/95647",
+  firefox:
+    "https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences",
+  safari:
+    "https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac",
+  edge: "https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09",
+} as const;
 
-export default function CookiePolicyPage() {
+const GOOGLE_PRIVACY_URL = "https://policies.google.com/privacy";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "CookiePolicyPage.meta" });
+
+  return withHreflang("/cookie-policy", locale, {
+    title: t("title"),
+    description: t("description"),
+    keywords: t("keywords"),
+    openGraph: {
+      title: t("openGraphTitle"),
+      description: t("openGraphDescription"),
+      url: `${siteUrl}/cookie-policy`,
+      type: "website",
+    },
+  });
+}
+
+export default async function CookiePolicyPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "CookiePolicyPage" });
+  const tCommon = await getTranslations({ locale, namespace: "Common" });
+
   const breadcrumbs = [
-    { name: "Home", href: "/" },
-    { name: "Cookie Policy", href: "" },
+    { name: tCommon("breadcrumbHome"), href: "/" },
+    { name: t("breadcrumb"), href: "" },
   ];
 
   return (
@@ -36,27 +61,22 @@ export default function CookiePolicyPage() {
         <section className="w-full bg-white py-15">
           <div className="max-w-6xl mx-auto px-6">
             <h1 className="text-[#0c2f42] text-center font-semibold text-7xl mb-20">
-              Cookie Policy
+              {t("title")}
             </h1>
 
             <div className="mt-8">
               <h2 className="text-[#0c2f42] font-semibold text-2xl mb-4">
-                Overview
+                {t("overview.heading")}
               </h2>
               <div className="text-[#0c2f42] text-lg mb-8 font-normal">
-                Last Updated: {LAST_UPDATED}
+                {t("overview.lastUpdated", { date: LAST_UPDATED })}
               </div>
               <div className="text-[#0c2f42] text-lg font-normal leading-9">
-                This Cookie Policy explains how Taypro ("we," "our," "us") uses
-                cookies and similar tracking technologies on our website
-                (taypro.in). This policy should be read alongside our{" "}
-                <a
-                  href="/privacy-policy"
-                  className="text-[#A8C117] hover:underline"
-                >
-                  Privacy Policy
-                </a>
-                .
+                {t("overview.introBefore")}{" "}
+                <Link href="/privacy-policy" className="text-[#A8C117] hover:underline">
+                  {t("overview.privacyLink")}
+                </Link>
+                {t("overview.introAfter")}
               </div>
               <hr className="border border-gray-300 mt-8" />
             </div>
@@ -65,116 +85,90 @@ export default function CookiePolicyPage() {
 
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
-            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">
-              1. What Are Cookies?
-            </h3>
-            <div className="text-[#0c2f42] text-lg mb-5">
-              Cookies are small text files that are placed on your device (computer,
-              tablet, or mobile) when you visit a website. They are widely used to
-              make websites work more efficiently and provide information to website
-              owners.
-            </div>
-            <div className="text-[#0c2f42] text-lg mb-5">
-              We also use similar technologies such as web beacons, pixel tags, and
-              local storage, which function similarly to cookies.
-            </div>
+            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">{t("s1.heading")}</h3>
+            <div className="text-[#0c2f42] text-lg mb-5">{t("s1.p0")}</div>
+            <div className="text-[#0c2f42] text-lg mb-5">{t("s1.p1")}</div>
             <hr className="border border-gray-300 mt-8" />
           </div>
         </section>
 
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
-            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">
-              2. Types of Cookies We Use
-            </h3>
+            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">{t("s2.heading")}</h3>
 
             <div className="mb-10">
               <h4 className="text-[#0c2f42] font-semibold text-2xl mb-4">
-                a. Necessary Cookies (Always Active)
+                {t("s2.necessary.heading")}
               </h4>
               <div className="text-[#0c2f42] text-lg mb-4">
-                These cookies are essential for the website to function properly.
-                They enable core functionality such as security, network management,
-                and accessibility. You cannot opt-out of these cookies.
+                {t("s2.necessary.intro")}
               </div>
               <ul className="list-disc pl-10 space-y-2 text-lg text-[#0c2f42]">
                 <li>
-                  <strong>admin-auth:</strong> Session cookie for admin
-                  authentication (httpOnly, secure)
+                  <strong>{t("s2.necessary.adminAuthLabel")}</strong>{" "}
+                  {t("s2.necessary.adminAuthDesc")}
                 </li>
                 <li>
-                  <strong>cookie-consent:</strong> Stores your cookie consent
-                  preferences
+                  <strong>{t("s2.necessary.consentLabel")}</strong>{" "}
+                  {t("s2.necessary.consentDesc")}
                 </li>
               </ul>
             </div>
 
             <div className="mb-10">
               <h4 className="text-[#0c2f42] font-semibold text-2xl mb-4">
-                b. Analytics Cookies (Optional)
+                {t("s2.analytics.heading")}
               </h4>
               <div className="text-[#0c2f42] text-lg mb-4">
-                These cookies help us understand how visitors interact with our
-                website by collecting and reporting information anonymously. This
-                helps us improve the website's functionality and user experience.
+                {t("s2.analytics.intro")}
               </div>
               <div className="text-[#0c2f42] text-lg mb-4">
-                <strong>Currently:</strong> If you enable analytics cookies in the
-                cookie banner, we load Google Tag Manager, which can fire Google
-                Analytics 4 (GA4) and other measurement tags you configure in Tag
-                Manager. Those services may set cookies controlled by Google&apos;s
-                privacy policy. Analytics stays off unless you opt in.
+                <strong>{t("s2.analytics.currentlyLabel")}</strong>{" "}
+                {t("s2.analytics.currentlyBody")}
               </div>
             </div>
 
             <div className="mb-10">
               <h4 className="text-[#0c2f42] font-semibold text-2xl mb-4">
-                c. Marketing Cookies (Optional)
+                {t("s2.marketing.heading")}
               </h4>
               <div className="text-[#0c2f42] text-lg mb-4">
-                These cookies are used to track visitors across websites for the
-                purpose of displaying advertisements that are relevant and engaging.
+                {t("s2.marketing.intro")}
               </div>
               <div className="text-[#0c2f42] text-lg mb-4">
-                <strong>Currently:</strong> We do not use marketing cookies. If we
-                implement marketing cookies in the future, we will update this policy
-                and require your explicit consent.
+                <strong>{t("s2.marketing.currentlyLabel")}</strong>{" "}
+                {t("s2.marketing.currentlyBody")}
               </div>
             </div>
 
             <div className="mb-10">
               <h4 className="text-[#0c2f42] font-semibold text-2xl mb-4">
-                d. Third-Party Cookies
+                {t("s2.thirdPartyTypes.heading")}
               </h4>
               <div className="text-[#0c2f42] text-lg mb-4">
-                Some third-party services we use may set their own cookies:
+                {t("s2.thirdPartyTypes.intro")}
               </div>
               <ul className="list-disc pl-10 space-y-2 text-lg text-[#0c2f42]">
                 <li>
-                  <strong>YouTube:</strong> When you interact with embedded YouTube
-                  videos, YouTube may set cookies for functionality and analytics.
-                  These are controlled by YouTube's privacy policy.
+                  <strong>{t("s2.thirdPartyTypes.youtubeLabel")}</strong>{" "}
+                  {t("s2.thirdPartyTypes.youtubeDesc")}
                 </li>
                 <li>
-                  <strong>Google Maps:</strong> When you view embedded Google Maps,
-                  Google may set cookies. These are controlled by Google's privacy
-                  policy.
+                  <strong>{t("s2.thirdPartyTypes.mapsLabel")}</strong>{" "}
+                  {t("s2.thirdPartyTypes.mapsDesc")}
                 </li>
                 <li>
-                  <strong>Google Fonts:</strong> May set cookies for font loading
-                  optimization.
+                  <strong>{t("s2.thirdPartyTypes.fontsLabel")}</strong>{" "}
+                  {t("s2.thirdPartyTypes.fontsDesc")}
                 </li>
                 <li>
-                  <strong>Google Tag Manager / Google Analytics 4:</strong> If you
-                  accept analytics cookies, Google Tag Manager may load and Google
-                  Analytics (or other tags you add in GTM) may set cookies. See
-                  Google&apos;s privacy policy for how they process this data.
+                  <strong>{t("s2.thirdPartyTypes.gtmLabel")}</strong>{" "}
+                  {t("s2.thirdPartyTypes.gtmDesc")}
                 </li>
               </ul>
               <div className="text-[#0c2f42] text-lg mt-4">
-                <strong>Note:</strong> We use YouTube embeds and Google Maps with
-                privacy-enhanced mode where possible. These third-party services only
-                load after you provide consent.
+                <strong>{t("s2.thirdPartyTypes.noteLabel")}</strong>{" "}
+                {t("s2.thirdPartyTypes.noteBody")}
               </div>
             </div>
 
@@ -184,20 +178,13 @@ export default function CookiePolicyPage() {
 
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
-            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">
-              3. How We Use Cookies
-            </h3>
-            <div className="text-[#0c2f42] text-lg mb-5">
-              We use cookies for the following purposes:
-            </div>
+            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">{t("s3.heading")}</h3>
+            <div className="text-[#0c2f42] text-lg mb-5">{t("s3.intro")}</div>
             <ul className="list-disc pl-10 space-y-3 text-lg text-[#0c2f42]">
-              <li>To enable essential website functionality</li>
-              <li>To remember your cookie preferences</li>
-              <li>To maintain admin session security</li>
-              <li>
-                To improve website performance and user experience (if analytics
-                cookies are enabled)
-              </li>
+              <li>{t("s3.li0")}</li>
+              <li>{t("s3.li1")}</li>
+              <li>{t("s3.li2")}</li>
+              <li>{t("s3.li3")}</li>
             </ul>
             <hr className="border border-gray-300 mt-8" />
           </div>
@@ -205,74 +192,59 @@ export default function CookiePolicyPage() {
 
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
-            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">
-              4. Managing Your Cookie Preferences
-            </h3>
-            <div className="text-[#0c2f42] text-lg mb-5">
-              You have control over your cookie preferences:
-            </div>
+            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">{t("s4.heading")}</h3>
+            <div className="text-[#0c2f42] text-lg mb-5">{t("s4.intro")}</div>
             <ul className="list-disc pl-10 space-y-3 text-lg text-[#0c2f42]">
-              <li>
-                Use our cookie consent banner to accept or reject non-essential
-                cookies
-              </li>
-              <li>
-                Click the cookie icon (bottom-right) to change your preferences at
-                any time
-              </li>
-              <li>
-                Most web browsers allow you to control cookies through their settings
-                preferences. However, limiting cookies may impact your experience on
-                our website
-              </li>
+              <li>{t("s4.li0")}</li>
+              <li>{t("s4.li1")}</li>
+              <li>{t("s4.li2")}</li>
             </ul>
             <div className="bg-gray-50 p-6 rounded-lg mt-6">
               <h4 className="text-[#0c2f42] font-semibold text-xl mb-3">
-                Browser Settings
+                {t("s4.browserSettings.heading")}
               </h4>
               <div className="text-[#0c2f42] text-lg">
-                You can control cookies through your browser settings. Here are links
-                to instructions for popular browsers:
+                {t("s4.browserSettings.intro")}
               </div>
               <ul className="list-disc pl-10 space-y-2 text-lg text-[#0c2f42] mt-3">
                 <li>
                   <a
-                    href="https://support.google.com/chrome/answer/95647"
+                    href={BROWSER_LINKS.chrome}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#A8C117] hover:underline"
                   >
-                    Google Chrome
+                    {t("s4.browserSettings.chrome")}
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences"
+                    href={BROWSER_LINKS.firefox}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#A8C117] hover:underline"
                   >
-                    Mozilla Firefox
+                    {t("s4.browserSettings.firefox")}
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac"
+                    href={BROWSER_LINKS.safari}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#A8C117] hover:underline"
                   >
-                    Safari
+                    {t("s4.browserSettings.safari")}
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09"
+                    href={BROWSER_LINKS.edge}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#A8C117] hover:underline"
                   >
-                    Microsoft Edge
+                    {t("s4.browserSettings.edge")}
                   </a>
                 </li>
               </ul>
@@ -283,31 +255,25 @@ export default function CookiePolicyPage() {
 
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
-            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">
-              5. Cookie Duration
-            </h3>
-            <div className="text-[#0c2f42] text-lg mb-5">
-              Cookies can be either "session" cookies or "persistent" cookies:
-            </div>
+            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">{t("s5.heading")}</h3>
+            <div className="text-[#0c2f42] text-lg mb-5">{t("s5.intro")}</div>
             <ul className="list-disc pl-10 space-y-3 text-lg text-[#0c2f42]">
               <li>
-                <strong>Session cookies:</strong> Temporary cookies that expire when
-                you close your browser
+                <strong>{t("s5.sessionLabel")}</strong> {t("s5.sessionDesc")}
               </li>
               <li>
-                <strong>Persistent cookies:</strong> Remain on your device for a set
-                period or until you delete them
+                <strong>{t("s5.persistentLabel")}</strong> {t("s5.persistentDesc")}
               </li>
             </ul>
             <div className="text-[#0c2f42] text-lg mt-5">
-              Our cookies are stored for the following durations:
+              {t("s5.durationsIntro")}
             </div>
             <ul className="list-disc pl-10 space-y-2 text-lg text-[#0c2f42] mt-3">
               <li>
-                <strong>admin-auth:</strong> 7 days (session management)
+                <strong>{t("s5.adminAuthLabel")}</strong> {t("s5.adminAuthDuration")}
               </li>
               <li>
-                <strong>cookie-consent:</strong> 1 year (your preferences)
+                <strong>{t("s5.consentLabel")}</strong> {t("s5.consentDuration")}
               </li>
             </ul>
             <hr className="border border-gray-300 mt-8" />
@@ -316,49 +282,43 @@ export default function CookiePolicyPage() {
 
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
-            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">
-              6. Third-Party Cookies
-            </h3>
+            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">{t("s6.heading")}</h3>
+            <div className="text-[#0c2f42] text-lg mb-5">{t("s6.p0")}</div>
             <div className="text-[#0c2f42] text-lg mb-5">
-              Our website may contain embedded content from third-party services that
-              may set their own cookies. We have no control over these cookies. We
-              only load third-party content after you provide consent.
-            </div>
-            <div className="text-[#0c2f42] text-lg mb-5">
-              Third-party services we use:
+              {t("s6.servicesIntro")}
             </div>
             <ul className="list-disc pl-10 space-y-3 text-lg text-[#0c2f42]">
               <li>
-                <strong>YouTube:</strong>{" "}
+                <strong>{t("s6.youtubeLabel")}</strong>{" "}
                 <a
-                  href="https://policies.google.com/privacy"
+                  href={GOOGLE_PRIVACY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#A8C117] hover:underline"
                 >
-                  Google Privacy Policy
+                  {t("s6.googlePrivacyLink")}
                 </a>
               </li>
               <li>
-                <strong>Google Maps:</strong>{" "}
+                <strong>{t("s6.mapsLabel")}</strong>{" "}
                 <a
-                  href="https://policies.google.com/privacy"
+                  href={GOOGLE_PRIVACY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#A8C117] hover:underline"
                 >
-                  Google Privacy Policy
+                  {t("s6.googlePrivacyLink")}
                 </a>
               </li>
               <li>
-                <strong>Google Fonts:</strong>{" "}
+                <strong>{t("s6.fontsLabel")}</strong>{" "}
                 <a
-                  href="https://policies.google.com/privacy"
+                  href={GOOGLE_PRIVACY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#A8C117] hover:underline"
                 >
-                  Google Privacy Policy
+                  {t("s6.googlePrivacyLink")}
                 </a>
               </li>
             </ul>
@@ -368,15 +328,8 @@ export default function CookiePolicyPage() {
 
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
-            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">
-              7. Changes to This Cookie Policy
-            </h3>
-            <div className="text-[#0c2f42] text-lg mb-5">
-              We may update this Cookie Policy from time to time to reflect changes
-              in our practices or for legal, operational, or regulatory reasons. We
-              will notify you of any material changes by posting the new Cookie Policy
-              on this page and updating the "Last Updated" date.
-            </div>
+            <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">{t("s7.heading")}</h3>
+            <div className="text-[#0c2f42] text-lg mb-5">{t("s7.body")}</div>
             <hr className="border border-gray-300 mt-8" />
           </div>
         </section>
@@ -384,15 +337,14 @@ export default function CookiePolicyPage() {
         <section className="w-full bg-white py-5 pb-10">
           <div className="max-w-6xl mx-auto px-6">
             <h3 className="text-[#0c2f42] font-semibold text-5xl mb-10">
-              8. Contact Us
+              {t("s8.heading")}
             </h3>
             <div className="text-[#0c2f42] text-lg mb-5">
-              If you have any questions about our use of cookies or this Cookie
-              Policy, please contact us:
+              {t("s8.intro")}
               <br />
               <br />
               <span>
-                Mail:{" "}
+                {t("s8.mailLabel")}{" "}
                 <a
                   href="mailto:sales@taypro.in"
                   className="hover:text-[#A8C117] transition-colors"
@@ -402,13 +354,7 @@ export default function CookiePolicyPage() {
               </span>
               <span className="hidden sm:block mx-2"></span>
               <span>
-                Phone:{" "}
-                <a
-                  href="tel:08043843569"
-                  className="hover:text-[#A8C117] transition-colors"
-                >
-                  08043843569
-                </a>
+                {t("s8.phoneLabel")} <ContactPhoneLink />
               </span>
             </div>
           </div>
@@ -417,4 +363,3 @@ export default function CookiePolicyPage() {
     </>
   );
 }
-

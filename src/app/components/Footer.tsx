@@ -2,6 +2,10 @@
 import { Facebook, Instagram, Linkedin, Youtube, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
+import {
+  TAYPRO_SALES_PHONE_DISPLAY,
+  TAYPRO_SALES_PHONE_TEL,
+} from "@/lib/contact";
 import { useState, useEffect } from "react";
 
 export default function Footer() {
@@ -62,10 +66,10 @@ export default function Footer() {
               <span>
                 {t("phone")}:{" "}
                 <a
-                  href="tel:08043843569"
+                  href={TAYPRO_SALES_PHONE_TEL}
                   className="hover:text-[#A8C117] transition-colors"
                 >
-                  08043843569
+                  {TAYPRO_SALES_PHONE_DISPLAY}
                 </a>
               </span>
             </div>

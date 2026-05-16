@@ -1,0 +1,102 @@
+import type { Metadata } from "next";
+import { routing } from "@/i18n/routing";
+import { ACTIVE_LOCALES, type TayproLocale } from "@/i18n/markets";
+import { SITE_URL } from "./sitemap-config";
+
+/** Internal path without locale prefix, always leading slash (e.g. `/blog`, `/company`). */
+export function normalizeInternalPath(path: string): string {
+  if (!path || path === "/") return "/";
+  return path.startsWith("/") ? path : `/${path}`;
+}
+
+/** Strip `/hi`, `/ar`, etc. from a request pathname. */
+export function stripLocalePrefix(pathname: string): string {
+  const normalized = normalizeInternalPath(pathname);
+  for (const locale of ACTIVE_LOCALES) {
+    if (locale === routing.defaultLocale) continue;
+    const prefix = `/${locale}`;
+    if (normalized === prefix) return "/";
+    if (normalized.startsWith(`${prefix}/`)) {
+      return normalized.slice(prefix.length) || "/";
+    }
+  }
+  return normalized;
+}
+
+/** Public URL for a locale + internal path (English has no `/en` prefix). */
+export function localizedUrl(
+  internalPath: string,
+  locale: string
+): string {
+  const path = normalizeInternalPath(internalPath);
+  if (locale === routing.defaultLocale) {
+    return `${SITE_URL}${path === "/" ? "" : path}` || SITE_URL;
+  }
+  return `${SITE_URL}/${locale}${path === "/" ? "" : path}`;
+}
+
+export type LocaleAlternatesOptions = {
+  /** When false, only default locale + x-default (e.g. untranslated blog posts). */
+  includeAllLocales?: boolean;
+  /** Appended to every locale URL (e.g. `?page=2` on blog index). */
+  canonicalSuffix?: string;
+};
+
+export function buildLocaleAlternates(
+  internalPath: string,
+  currentLocale: string,
+  options: LocaleAlternatesOptions = { includeAllLocales: true }
+): NonNullable<Metadata["alternates"]> {
+  const path = normalizeInternalPath(internalPath);
+  const includeAll = options.includeAllLocales !== false;
+  const suffix = options.canonicalSuffix ?? "";
+
+  const languages: Record<string, string> = {};
+
+  if (includeAll) {
+    for (const locale of routing.locales) {
+      languages[locale] = localizedUrl(path, locale) + suffix;
+    }
+  } else {
+    languages[routing.defaultLocale] = localizedUrl(
+      path,
+      routing.defaultLocale
+    );
+  }
+
+  languages["x-default"] = localizedUrl(path, routing.defaultLocale) + suffix;
+
+  return {
+    canonical: localizedUrl(path, currentLocale) + suffix,
+    languages,
+  };
+}
+
+export function mergePageAlternates(
+  internalPath: string,
+  currentLocale: string,
+  existing?: Metadata["alternates"],
+  options?: LocaleAlternatesOptions
+): Metadata["alternates"] {
+  const built = buildLocaleAlternates(internalPath, currentLocale, options);
+  return {
+    ...existing,
+    canonical: built.canonical,
+    languages: built.languages,
+  };
+}
+
+export function isTayproLocale(value: string): value is TayproLocale {
+  return (ACTIVE_LOCALES as readonly string[]).includes(value);
+}
+
+/** Expand sitemap paths for every active locale. */
+export function sitemapPathsForAllLocales(internalPath: string): string[] {
+  const path = normalizeInternalPath(internalPath);
+  return routing.locales.map((locale) => {
+    if (locale === routing.defaultLocale) {
+      return path;
+    }
+    return path === "/" ? `/${locale}` : `/${locale}${path}`;
+  });
+}

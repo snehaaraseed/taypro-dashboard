@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
+import { sqliteTable, text, integer, unique } from "drizzle-orm/sqlite-core";
 
 export const authors = sqliteTable("authors", {
   id: integer("id").primaryKey({ autoIncrement: true }),
@@ -12,35 +12,49 @@ export const authors = sqliteTable("authors", {
   updatedAt: text("updated_at").notNull(),
 });
 
-export const blogs = sqliteTable("blogs", {
-  id: integer("id").primaryKey({ autoIncrement: true }),
-  slug: text("slug").notNull().unique(),
-  title: text("title").notNull(),
-  description: text("description").notNull(),
-  featuredImage: text("featured_image").notNull().default(""),
-  featuredImageAlt: text("featured_image_alt").notNull().default(""),
-  author: text("author").notNull().default("Taypro Team"),
-  content: text("content").notNull().default(""),
-  publishDate: text("publish_date").notNull(),
-  createdAt: text("created_at").notNull(),
-  updatedAt: text("updated_at"),
-  published: integer("published", { mode: "boolean" }).notNull().default(true),
-});
+export const blogs = sqliteTable(
+  "blogs",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    slug: text("slug").notNull(),
+    locale: text("locale").notNull().default("en"),
+    title: text("title").notNull(),
+    description: text("description").notNull(),
+    featuredImage: text("featured_image").notNull().default(""),
+    featuredImageAlt: text("featured_image_alt").notNull().default(""),
+    author: text("author").notNull().default("Taypro Team"),
+    content: text("content").notNull().default(""),
+    publishDate: text("publish_date").notNull(),
+    createdAt: text("created_at").notNull(),
+    updatedAt: text("updated_at"),
+    published: integer("published", { mode: "boolean" }).notNull().default(true),
+  },
+  (table) => ({
+    slugLocale: unique().on(table.slug, table.locale),
+  })
+);
 
-export const projects = sqliteTable("projects", {
-  id: integer("id").primaryKey({ autoIncrement: true }),
-  slug: text("slug").notNull().unique(),
-  title: text("title").notNull(),
-  description: text("description").notNull(),
-  image: text("image").notNull(),
-  imageAlt: text("image_alt").notNull().default(""),
-  details: text("details").notNull().default("[]"),
-  content: text("content").notNull().default(""),
-  date: text("date").notNull(),
-  createdAt: text("created_at").notNull(),
-  updatedAt: text("updated_at"),
-  published: integer("published", { mode: "boolean" }).notNull().default(true),
-});
+export const projects = sqliteTable(
+  "projects",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    slug: text("slug").notNull(),
+    locale: text("locale").notNull().default("en"),
+    title: text("title").notNull(),
+    description: text("description").notNull(),
+    image: text("image").notNull(),
+    imageAlt: text("image_alt").notNull().default(""),
+    details: text("details").notNull().default("[]"),
+    content: text("content").notNull().default(""),
+    date: text("date").notNull(),
+    createdAt: text("created_at").notNull(),
+    updatedAt: text("updated_at"),
+    published: integer("published", { mode: "boolean" }).notNull().default(true),
+  },
+  (table) => ({
+    slugLocale: unique().on(table.slug, table.locale),
+  })
+);
 
 export const publishedTopics = sqliteTable("published_topics", {
   id: integer("id").primaryKey({ autoIncrement: true }),

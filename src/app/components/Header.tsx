@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import LocaleSwitcher from "@/app/components/LocaleSwitcher";
+import { TAYPRO_SALES_PHONE_TEL } from "@/lib/contact";
 
 export default function Header() {
   const t = useTranslations("Navigation");
@@ -232,7 +233,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <LocaleSwitcher />
             <Link
-              href="tel:08043843569"
+              href={TAYPRO_SALES_PHONE_TEL}
               title={t("callUs")}
               className="bg-[#A8C117] text-black px-7 py-3 rounded-md font-medium hover:bg-[#39D600] transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
             >
@@ -244,7 +245,7 @@ export default function Header() {
           <div className="lg:hidden flex items-center gap-2 sm:gap-3">
             <LocaleSwitcher />
             <Link
-              href="tel:08043843569"
+              href={TAYPRO_SALES_PHONE_TEL}
               title={t("callUs")}
               className="bg-[#A8C117] text-black px-3 sm:px-4 py-2 rounded-md font-medium text-sm hover:bg-[#39D600] transition-all duration-300"
             >
@@ -253,7 +254,7 @@ export default function Header() {
             <button
               type="button"
               onClick={() => setIsMenuOpen((open) => !open)}
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
               aria-expanded={isMenuOpen}
               aria-controls="mobile-nav"
               className="text-white hover:text-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] rounded-md p-2 min-w-11 min-h-11 flex items-center justify-center shrink-0"

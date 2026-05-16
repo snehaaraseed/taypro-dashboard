@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
+import { formatLocaleDate } from "@/i18n/format-date";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { BlogImage } from "@/app/components/BlogImage";
 import { BlogContent } from "@/app/components/BlogContent";
@@ -28,15 +30,16 @@ import {
 import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
 import { socialImagesFromMedia } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
+import { withHreflang } from "@/lib/seo/with-hreflang";
 
 const siteUrl = SITE_URL;
 
-interface PageParams {
+interface BlogSlugParams {
   slug: string;
 }
 
 interface BlogPostProps {
-  params: Promise<PageParams>;
+  params: Promise<{ locale: string; slug: string }>;
 }
 
 interface BlogData {
@@ -113,8 +116,8 @@ function addHeadingIdsAndExtractToc(html: string): {
 }
 
 // Fetch all blogs for similar blogs section
-async function getAllBlogs(): Promise<DynamicBlog[]> {
-  const rows = await listAllBlogs(false);
+async function getAllBlogs(locale: string): Promise<DynamicBlog[]> {
+  const rows = await listAllBlogs(false, locale);
   return rows.map((metadata) => ({
     ...metadata,
     href: `/blog/${metadata.slug}`,
@@ -122,8 +125,11 @@ async function getAllBlogs(): Promise<DynamicBlog[]> {
   }));
 }
 
-async function getBlogData(slug: string): Promise<BlogData | null> {
-  const post = await getBlogBySlug(slug);
+async function getBlogData(
+  slug: string,
+  locale: string
+): Promise<BlogData | null> {
+  const post = await getBlogBySlug(slug, { locale });
   if (!post) return null;
   return {
     ...post.metadata,
@@ -133,11 +139,11 @@ async function getBlogData(slug: string): Promise<BlogData | null> {
   };
 }
 
-export async function generateStaticParams(): Promise<PageParams[]> {
-  const blogs = await getAllBlogs();
-  return blogs.map((blog) => ({
-    slug: blog.slug,
-  }));
+export async function generateStaticParams(): Promise<BlogSlugParams[]> {
+  const { listPublishedBlogSlugs } = await import("@/lib/cms/blogService");
+  const { SOURCE_LOCALE } = await import("@/lib/translation/config");
+  const slugs = await listPublishedBlogSlugs(SOURCE_LOCALE);
+  return slugs.map((slug) => ({ slug }));
 }
 
 // Enable ISR: regenerate pages every hour, but allow stale-while-revalidate
@@ -147,8 +153,8 @@ export const revalidate = 3600; // 1 hour in seconds
 export async function generateMetadata({
   params,
 }: BlogPostProps): Promise<Metadata> {
-  const { slug } = await params;
-  const blog = await getBlogData(slug);
+  const { slug, locale } = await params;
+  const blog = await getBlogData(slug, locale);
 
   if (!blog) {
     return {
@@ -184,58 +190,55 @@ export async function generateMetadata({
     "blog"
   );
 
-  return {
-    title: blogPostMetadataTitle(blog.title, blog.description),
-    description: blogPostMetadataDescription(blog.title, blog.description),
-    keywords: blogKeywords,
-    openGraph: {
-      title: blogPostOpenGraphTitle(blog.title),
-      description: blog.description,
-      url: `${siteUrl}/blog/${slug}`,
-      type: "article",
-      ...shareImages.openGraph,
-      publishedTime: blog.publishDate,
-      modifiedTime: blog.updatedAt || blog.publishDate,
-      authors: [blog.author || "Taypro Team"],
+  return withHreflang(
+    `/blog/${slug}`,
+    locale,
+    {
+      title: blogPostMetadataTitle(blog.title, blog.description),
+      description: blogPostMetadataDescription(blog.title, blog.description),
+      keywords: blogKeywords,
+      openGraph: {
+        title: blogPostOpenGraphTitle(blog.title),
+        description: blog.description,
+        url: `${siteUrl}/blog/${slug}`,
+        type: "article",
+        ...shareImages.openGraph,
+        publishedTime: blog.publishDate,
+        modifiedTime: blog.updatedAt || blog.publishDate,
+        authors: [blog.author || "Taypro Team"],
+      },
+      twitter: {
+        title: blogPostOpenGraphTitle(blog.title),
+        description: blog.description,
+        ...shareImages.twitter,
+      },
     },
-    twitter: {
-      title: blogPostOpenGraphTitle(blog.title),
-      description: blog.description,
-      ...shareImages.twitter,
-    },
-    alternates: {
-      canonical: `${siteUrl}/blog/${slug}`,
-    },
-  };
+    { includeAllLocales: true }
+  );
 }
 
 export default async function BlogPost({ params }: BlogPostProps) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
+  const t = await getTranslations({ locale, namespace: "BlogPage.post" });
+  const tCommon = await getTranslations({ locale, namespace: "Common" });
+
   const [blog, allBlogs] = await Promise.all([
-    getBlogData(slug),
-    getAllBlogs(),
+    getBlogData(slug, locale),
+    getAllBlogs(locale),
   ]);
 
   if (!blog) {
     notFound();
   }
 
-
   const breadcrumbs = [
-    { name: "Home", href: "/" },
-    { name: "Blog", href: "/blog" },
+    { name: tCommon("breadcrumbHome"), href: "/" },
+    { name: t("breadcrumbBlog"), href: "/blog" },
     { name: blog.title, href: "" },
   ];
 
   const lastUpdatedIso = blog.updatedAt || blog.publishDate;
-  const lastUpdatedDisplay = new Date(lastUpdatedIso).toLocaleDateString(
-    "en-US",
-    {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    }
-  );
+  const lastUpdatedDisplay = formatLocaleDate(locale, lastUpdatedIso);
   const readingMinutes = Math.max(
     1,
     Math.ceil(blog.content.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length / 220)
@@ -282,7 +285,9 @@ export default async function BlogPost({ params }: BlogPostProps) {
           {/* Ahrefs-style Top Article Header */}
           <section className="relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-[#052638] border-y border-[#0c3c57] mb-10">
             <header className="max-w-4xl mx-auto px-6 md:px-8 py-8 md:py-10">
-              <p className="text-sm font-medium text-[#A8C117] mb-3">Blog</p>
+              <p className="text-sm font-medium text-[#A8C117] mb-3">
+                {t("labelBlog")}
+              </p>
               <h1 className="text-4xl md:text-5xl font-semibold text-white leading-tight mb-4">
                 {blog.title}
               </h1>
@@ -293,7 +298,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
                   className="w-9 h-9 rounded-full border border-slate-500 object-cover"
                 />
                 <span className="font-medium text-white">
-                  By{" "}
+                  {t("byAuthor")}{" "}
                   <Link
                     href={`/blog/author/${authorSlug}`}
                     className="underline decoration-slate-300/60 underline-offset-2 hover:text-[#A8C117] transition-colors"
@@ -307,9 +312,11 @@ export default async function BlogPost({ params }: BlogPostProps) {
                   ) : null}
                 </span>
                 <span aria-hidden="true">|</span>
-                <span>Last updated {lastUpdatedDisplay}</span>
+                <span>
+                  {t("lastUpdated", { date: lastUpdatedDisplay })}
+                </span>
                 <span aria-hidden="true">|</span>
-                <span>{readingMinutes} min read</span>
+                <span>{t("minRead", { minutes: readingMinutes })}</span>
               </div>
               <p className="text-lg text-slate-100 leading-relaxed">{blog.description}</p>
             </header>
@@ -321,9 +328,9 @@ export default async function BlogPost({ params }: BlogPostProps) {
               {toc.length > 0 && (
                 <div className="sticky top-24 border border-gray-200 rounded-xl p-5 bg-white">
                   <h3 className="text-sm font-semibold uppercase tracking-wide text-[#052638] mb-4">
-                    Contents
+                    {t("contents")}
                   </h3>
-                  <nav aria-label="Table of contents">
+                  <nav aria-label={t("tocLabel")}>
                     <ul className="space-y-2">
                       {toc.map((item) => (
                         <li key={item.id}>
@@ -408,7 +415,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
                         d="M10 19l-7-7m0 0l7-7m-7 7h18"
                       />
                     </svg>
-                    Back to All Blogs
+                    {t("backToAll")}
                   </Link>
                 </div>
               </article>
@@ -416,7 +423,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
               {moreFromAuthor.length > 0 && (
                 <section className="mt-12 border-t border-gray-200 pt-10">
                   <h3 className="text-2xl font-semibold text-[#052638] mb-6">
-                    More from this author
+                    {t("moreFromAuthor")}
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                     {moreFromAuthor.map((post) => (
@@ -456,19 +463,19 @@ export default async function BlogPost({ params }: BlogPostProps) {
               <div className="sticky top-24 space-y-6">
                 <div className="rounded-xl border border-gray-200 bg-gradient-to-br from-[#052638] to-[#0c3c57] p-6 text-white">
                   <p className="text-xs uppercase tracking-wider text-[#A8C117] mb-2">
-                    Product
+                    {t("sidebarProduct")}
                   </p>
                   <h3 className="text-2xl font-semibold leading-tight mb-3">
-                    Discover Taypro Solar Cleaning Robot
+                    {t("sidebarTitle")}
                   </h3>
                   <p className="text-sm text-slate-100 mb-5">
-                    Reduce manual effort, improve panel performance, and automate maintenance with Taypro.
+                    {t("sidebarBody")}
                   </p>
                   <Link
                     href="/solar-panel-cleaning-system"
                     className="inline-flex items-center justify-center rounded-md bg-[#A8C117] px-4 py-2 text-sm font-semibold text-[#052638] hover:bg-[#bfd63a] transition-colors"
                   >
-                    Explore Product
+                    {t("sidebarCta")}
                   </Link>
                 </div>
 

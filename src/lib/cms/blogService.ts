@@ -1,9 +1,13 @@
 import "server-only";
 
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { getDb } from "@/lib/db";
 import { blogs } from "@/lib/db/schema";
 import type { BlogData, BlogMetadata } from "@/app/utils/blogFileUtils";
+import type { TayproLocale } from "@/i18n/markets";
+import { isActiveLocale } from "@/i18n/markets";
+import { SOURCE_LOCALE } from "@/lib/translation/config";
+import { scheduleBlogTranslations } from "@/lib/translation/translate-cms";
 
 export function createSlug(title: string): string {
   return title
@@ -12,6 +16,11 @@ export function createSlug(title: string): string {
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-")
     .trim();
+}
+
+function resolveLocale(locale?: string): TayproLocale {
+  if (locale && isActiveLocale(locale)) return locale;
+  return SOURCE_LOCALE;
 }
 
 function rowToMetadata(row: typeof blogs.$inferSelect): BlogMetadata {
@@ -29,9 +38,13 @@ function rowToMetadata(row: typeof blogs.$inferSelect): BlogMetadata {
   };
 }
 
-export async function listAllBlogs(includeDrafts = false): Promise<BlogMetadata[]> {
+export async function listAllBlogs(
+  includeDrafts = false,
+  locale?: string
+): Promise<BlogMetadata[]> {
+  const loc = resolveLocale(locale);
   const db = getDb();
-  const rows = await db.select().from(blogs);
+  const rows = await db.select().from(blogs).where(eq(blogs.locale, loc));
   return rows
     .filter((r) => includeDrafts || r.published !== false)
     .map(rowToMetadata)
@@ -41,28 +54,32 @@ export async function listAllBlogs(includeDrafts = false): Promise<BlogMetadata[
     );
 }
 
-export async function listPublishedBlogSlugs(): Promise<string[]> {
+export async function listPublishedBlogSlugs(
+  locale?: string
+): Promise<string[]> {
+  const loc = resolveLocale(locale);
   const db = getDb();
   const rows = await db
     .select({ slug: blogs.slug })
     .from(blogs)
-    .where(eq(blogs.published, true));
+    .where(and(eq(blogs.published, true), eq(blogs.locale, loc)));
   return rows.map((r) => r.slug);
 }
 
 export type BlogSitemapEntry = {
   slug: string;
+  locale: TayproLocale;
   author: string;
   publishDate: string;
   updatedAt?: string | null;
 };
 
-/** Published posts only — used by dynamic sitemap generation. */
 export async function listPublishedBlogsForSitemap(): Promise<BlogSitemapEntry[]> {
   const db = getDb();
   const rows = await db
     .select({
       slug: blogs.slug,
+      locale: blogs.locale,
       author: blogs.author,
       publishDate: blogs.publishDate,
       updatedAt: blogs.updatedAt,
@@ -70,18 +87,32 @@ export async function listPublishedBlogsForSitemap(): Promise<BlogSitemapEntry[]
     .from(blogs)
     .where(eq(blogs.published, true));
 
-  return rows.sort(
-    (a, b) =>
-      new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
-  );
+  return rows
+    .filter((r) => isActiveLocale(r.locale))
+    .map((r) => ({
+      slug: r.slug,
+      locale: r.locale as TayproLocale,
+      author: r.author,
+      publishDate: r.publishDate,
+      updatedAt: r.updatedAt,
+    }))
+    .sort(
+      (a, b) =>
+        new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
+    );
 }
 
 export async function getBlogBySlug(
   slug: string,
-  options?: { includeDraft?: boolean }
+  options?: { includeDraft?: boolean; locale?: string }
 ): Promise<{ metadata: BlogMetadata; content: string } | null> {
+  const loc = resolveLocale(options?.locale);
   const db = getDb();
-  const rows = await db.select().from(blogs).where(eq(blogs.slug, slug)).limit(1);
+  const rows = await db
+    .select()
+    .from(blogs)
+    .where(and(eq(blogs.slug, slug), eq(blogs.locale, loc)))
+    .limit(1);
   const row = rows[0];
   if (!row) return null;
   if (!options?.includeDraft && row.published === false) return null;
@@ -106,7 +137,9 @@ export async function createBlog(
     const existing = await db
       .select({ id: blogs.id })
       .from(blogs)
-      .where(eq(blogs.slug, finalSlug))
+      .where(
+        and(eq(blogs.slug, finalSlug), eq(blogs.locale, SOURCE_LOCALE))
+      )
       .limit(1);
     if (existing.length > 0) {
       return {
@@ -117,8 +150,11 @@ export async function createBlog(
     }
 
     const now = new Date().toISOString();
+    const published = blogData.published !== undefined ? blogData.published : true;
+
     await db.insert(blogs).values({
       slug: finalSlug,
+      locale: SOURCE_LOCALE,
       title: blogData.title,
       description: blogData.description,
       featuredImage: blogData.featuredImage || "",
@@ -128,8 +164,12 @@ export async function createBlog(
       publishDate: blogData.publishDate || now,
       createdAt: now,
       updatedAt: now,
-      published: blogData.published !== undefined ? blogData.published : true,
+      published,
     });
+
+    if (published) {
+      scheduleBlogTranslations(finalSlug);
+    }
 
     return { success: true, slug: finalSlug, updatedAt: now };
   } catch (error) {
@@ -157,7 +197,9 @@ export async function updateBlog(
     const existingRows = await db
       .select()
       .from(blogs)
-      .where(eq(blogs.slug, oldSlug))
+      .where(
+        and(eq(blogs.slug, oldSlug), eq(blogs.locale, SOURCE_LOCALE))
+      )
       .limit(1);
     const existing = existingRows[0];
     if (!existing) {
@@ -173,7 +215,9 @@ export async function updateBlog(
       const conflict = await db
         .select({ id: blogs.id })
         .from(blogs)
-        .where(eq(blogs.slug, finalSlug))
+        .where(
+          and(eq(blogs.slug, finalSlug), eq(blogs.locale, SOURCE_LOCALE))
+        )
         .limit(1);
       if (conflict.length > 0) {
         return {
@@ -182,27 +226,38 @@ export async function updateBlog(
           error: `Blog with slug "${finalSlug}" already exists`,
         };
       }
+
+      await db
+        .update(blogs)
+        .set({ slug: finalSlug })
+        .where(eq(blogs.slug, oldSlug));
     }
 
     const now = new Date().toISOString();
+    const published =
+      blogData.published !== undefined ? blogData.published : existing.published;
+
     await db
       .update(blogs)
       .set({
-        slug: finalSlug,
         title: blogData.title,
         description: blogData.description,
         featuredImage: blogData.featuredImage || "",
-        featuredImageAlt: blogData.featuredImageAlt?.trim() ?? existing.featuredImageAlt,
+        featuredImageAlt:
+          blogData.featuredImageAlt?.trim() ?? existing.featuredImageAlt,
         author: blogData.author || "Taypro Team",
         content: blogData.content || "",
         publishDate: blogData.publishDate || existing.publishDate,
         updatedAt: now,
-        published:
-          blogData.published !== undefined
-            ? blogData.published
-            : existing.published,
+        published,
       })
-      .where(eq(blogs.slug, oldSlug));
+      .where(
+        and(eq(blogs.slug, finalSlug), eq(blogs.locale, SOURCE_LOCALE))
+      );
+
+    if (published) {
+      scheduleBlogTranslations(finalSlug);
+    }
 
     return { success: true, slug: finalSlug, updatedAt: now };
   } catch (error) {
@@ -245,7 +300,10 @@ export async function deleteBlog(
 export async function readBlogMetadata(
   slug: string
 ): Promise<{ success: boolean; metadata?: BlogMetadata; error?: string }> {
-  const post = await getBlogBySlug(slug, { includeDraft: true });
+  const post = await getBlogBySlug(slug, {
+    includeDraft: true,
+    locale: SOURCE_LOCALE,
+  });
   if (!post) {
     return { success: false, error: "Blog not found" };
   }
@@ -255,7 +313,10 @@ export async function readBlogMetadata(
 export async function readBlogContent(
   slug: string
 ): Promise<{ success: boolean; content?: string; error?: string }> {
-  const post = await getBlogBySlug(slug, { includeDraft: true });
+  const post = await getBlogBySlug(slug, {
+    includeDraft: true,
+    locale: SOURCE_LOCALE,
+  });
   if (!post) {
     return { success: false, error: "Blog not found" };
   }

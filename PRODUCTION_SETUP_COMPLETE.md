@@ -155,7 +155,7 @@ ssh -i AWS_Key/CloudServer.pem ubuntu@13.204.129.120 'sudo aide --check'
 Current `.env.production` settings:
 ```env
 NODE_ENV=production
-ADMIN_PASSWORD=KM7ZHf5qaHpi5CJwAzNga5A3hdkG456g
+ADMIN_PASSWORD=<set-a-strong-secret-on-server-only>
 NEXT_PUBLIC_BASE_URL=https://taypro.in
 ```
 

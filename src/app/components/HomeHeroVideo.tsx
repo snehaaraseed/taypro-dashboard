@@ -12,7 +12,7 @@ interface HomeHeroVideoProps {
 export default function HomeHeroVideo({ videoId, title }: HomeHeroVideoProps) {
   const [active, setActive] = useState(false);
   /** Local poster avoids third-party latency on LCP (YouTube loads only on play). */
-  const poster = "/tayproasset/taypro-robotImage.png";
+  const poster = "/tayproasset/taypro-robotFeature.jpg";
 
   if (active) {
     return (

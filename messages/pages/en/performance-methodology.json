@@ -1,0 +1,70 @@
+{
+  "PerformanceMethodologyPage": {
+    "meta": {
+      "title": "Performance & Test Methodology | Taypro",
+      "description": "How Taypro defines, tests, and reports 99%+ dust-removal claims, soiling-related generation recovery, and platform-specific performance for solar cleaning robots in India."
+    },
+    "breadcrumb": "Performance & Test Methodology",
+    "lastUpdated": "Last updated: {date}",
+    "purpose": {
+      "heading": "Purpose",
+      "body": "This page explains how Taypro Private Limited defines, measures, and communicates performance figures on taypro.in — including \"99%+\" dust-removal statements and references to generation or performance ratio recovery. It is intended for asset owners, EPC teams, and O&M leads evaluating robotic dry cleaning for utility-scale PV in India."
+    },
+    "dustRemoval": {
+      "heading": "What \"99%+ dust removal\" means",
+      "li0": "Dust removal is the fraction of loose surface particulate removed from the module glass in one completed cleaning pass (Model-B) or automated dual-pass cycle (Model-A, Model-T), under defined test or field conditions.",
+      "li1": "It does not mean the solar panel converts 99% of sunlight to electricity, nor that the plant will gain 99% more energy output.",
+      "li2": "Figures are platform-dependent: brush-based semi-automatic paths (Model-B) and dual-pass autonomous paths (Model-A / Model-T) use different mechanics and are quoted per pass or per cycle accordingly."
+    },
+    "generation": {
+      "heading": "Generation recovery vs. module efficiency",
+      "p0": "Soiling on Indian utility plants can suppress usable output when washing is infrequent — industry discussions often cite roughly 8–25% seasonal soiling loss depending on region, tilt, and O&M practice. Robotic dry cleaning aims to recover energy that would otherwise be lost to dust, not to raise nameplate module efficiency.",
+      "p1Before": "Actual MWh recovered depends on your baseline soiling, cleaning cadence, tariff, and weather. Taypro does not publish a single universal \"efficiency increase %\" for all sites. Use the",
+      "roiLink": "ROI calculator",
+      "p1After": "for directional economics, then request a plant-specific assessment from our applications team."
+    },
+    "testing": {
+      "heading": "How we test and validate",
+      "intro": "Taypro validates cleaning performance through a combination of:",
+      "li0": "Controlled bench and field trials on representative module types, using standardised artificial and natural dust loads where applicable.",
+      "li1": "Visual and gravimetric checks (before/after surface condition and mass of removed dust) on deployed platforms.",
+      "li2": "Operational data from live fleets — cycle completion, route coverage, and performance ratio trends where customers share SCADA or IV data under NDA.",
+      "li3": "Third-party review — selected platforms are TÜV NORD certified; certification scope is stated on product datasheets and proposals.",
+      "note": "Results vary with dust type (agricultural film, sand, pollen, post-storm mix), module tilt, tracker motion, and whether one or two passes are completed in a cycle."
+    },
+    "platform": {
+      "heading": "Platform summary",
+      "colPlatform": "Platform",
+      "colMetric": "Typical quoted metric",
+      "colMethod": "Method",
+      "modelA": "Model-A (automatic)",
+      "modelAMetric": "99%+ dust per automated dual-pass cycle",
+      "modelAMethod": "Airflow + microfiber drum; autonomous row run",
+      "modelB": "Model-B (semi-automatic)",
+      "modelBMetric": "99%+ dust per single forward pass",
+      "modelBMethod": "Counter-rotating PBT brushes; operator placement per row",
+      "modelT": "Model-T (trackers)",
+      "modelTMetric": "99%+ dust per dual-pass cycle on tracker tables",
+      "modelTMethod": "Dual-pass dry cleaning with flexible bridge; tracker compatibility per site assessment"
+    },
+    "uptime": {
+      "heading": "Uptime and service commitments",
+      "body": "Marketing references to \"highest uptime\" or \"same-day breakdown\" response describe Taypro service targets backed by pan-India spares, Taypro Console remote diagnostics, and AMC programs. Contractual SLAs are defined in customer agreements, not on this page."
+    },
+    "documentation": {
+      "heading": "Plant-specific documentation",
+      "bodyBefore": "For tenders, lender diligence, or internal technical review, Taypro can provide site-specific cleaning plans, cycle assumptions, and — where available — anonymised field outcomes from comparable deployments.",
+      "contactLink": "Contact our applications team",
+      "bodyAfter": "with plant capacity, layout, and location."
+    },
+    "related": {
+      "label": "Related:",
+      "cleaningTech": "Cleaning technology",
+      "systems": "Solar panel cleaning systems",
+      "terms": "Terms of Service"
+    }
+  },
+  "Common": {
+    "breadcrumbHome": "Home"
+  }
+}

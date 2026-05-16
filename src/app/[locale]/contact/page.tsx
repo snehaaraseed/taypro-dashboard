@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import dynamic from "next/dynamic";
 import {
   ArrowRight,
@@ -11,6 +11,7 @@ import {
   MapPin,
   Phone,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
@@ -19,98 +20,86 @@ import {
   FAQPageSchema,
   LocalBusinessSchema,
 } from "@/app/components/StructuredData";
+import {
+  TAYPRO_SALES_PHONE_DISPLAY,
+  TAYPRO_SALES_PHONE_E164,
+  TAYPRO_SALES_PHONE_TEL,
+} from "@/lib/contact";
 
 const Map = dynamic(() => import("@/app/components/Map"), { ssr: false });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
-const breadcrumbs = [
-  { name: "Home", href: "/" },
-  { name: "Contact", href: "" },
-];
-
-const contactChannels = [
-  {
-    icon: Mail,
-    label: "Sales enquiries",
-    value: "sales@taypro.in",
-    href: "mailto:sales@taypro.in",
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "08043843569",
-    href: "tel:08043843569",
-  },
-  {
-    icon: Building2,
-    label: "Headquarters",
-    value:
-      "T3-906, Kohinoor World Towers, Pimpri Colony, Pune, Maharashtra 411019",
-    href: "https://www.google.com/maps/search/?api=1&query=T3-906+Kohinoor+World+Towers+Pimpri+Colony+Pune+411019",
-    external: true,
-  },
-  {
-    icon: MapPin,
-    label: "Manufacturing hub",
-    value: "Chakan, Pune, Maharashtra 410501",
-    href: "https://www.google.com/maps/search/?api=1&query=18.735204,73.8519138",
-    external: true,
-  },
-  {
-    icon: Clock,
-    label: "Working hours",
-    value: "Monday – Friday, 9:00 AM – 6:00 PM IST",
-    href: undefined,
-  },
-] as const;
-
-const enquiryTips = [
-  "DC capacity (MW) and state / region of the plant",
-  "Array type: fixed tilt, seasonal tilt, rooftop, or single-axis trackers",
-  "Soiling profile, water availability, and current cleaning approach",
-  "Whether you are evaluating CAPEX purchase or Taypro Opex as a managed service",
-] as const;
-
-const contactFaqs = [
-  {
-    question: "How quickly will Taypro respond to my enquiry?",
-    answer:
-      "Our applications team typically responds within one business day with next steps—clarifying questions, scheduling a technical call, or requesting layout inputs. Urgent fleet or breakdown topics from existing customers are prioritised through the same sales line.",
-  },
-  {
-    question: "What information helps you prepare an accurate robot recommendation?",
-    answer:
-      "Share block layouts, approximate row lengths, tracker brand (if applicable), desired cleaning frequency, and any water or labour constraints. Photos, single-line diagrams, or O&M reports accelerate the conversation. You can also start with the ROI calculator and bring those inputs to the call.",
-  },
-  {
-    question: "Can developers or EPC teams visit the Chakan manufacturing facility?",
-    answer:
-      "Yes—site visits and factory walkthroughs can be arranged by appointment at our Chakan, Pune hub. Contact us with your preferred dates and the stakeholders attending (engineering, procurement, or O&M).",
-  },
-  {
-    question: "Does Taypro support plants outside Maharashtra?",
-    answer:
-      "Taypro deploys and services robots pan-India. Manufacturing is in Chakan, Pune, with warehouses across India for spares, commissioning support, and field response—whether your plant is in Rajasthan, Karnataka, Gujarat, or elsewhere.",
-  },
-];
-
-const HEADQUARTERS_ADDRESS =
-  "T3-906, Kohinoor World Towers, Pimpri Colony, Pune, Maharashtra, India 411019";
-
-const MANUFACTURING_ADDRESS =
-  "Plot No 87, Survey No 286/2, near Saint Gobain, Chakan, Pune, Maharashtra, India 410501";
-
 const HEADQUARTERS_MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=T3-906+Kohinoor+World+Towers+Pimpri+Colony+Pune+411019";
 
+const MFG_MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=18.735204,73.8519138";
+
 export default function ContactUsPage() {
+  const t = useTranslations("ContactPage");
+  const tCommon = useTranslations("Common");
+
+  const breadcrumbs = [
+    { name: tCommon("breadcrumbHome"), href: "/" },
+    { name: t("breadcrumbs.contact"), href: "" },
+  ];
+
+  const contactChannels = [
+    {
+      icon: Mail,
+      label: t("channels.sales"),
+      value: "sales@taypro.in",
+      href: "mailto:sales@taypro.in",
+    },
+    {
+      icon: Phone,
+      label: t("channels.phone"),
+      value: TAYPRO_SALES_PHONE_DISPLAY,
+      href: TAYPRO_SALES_PHONE_TEL,
+    },
+    {
+      icon: Building2,
+      label: t("channels.hq"),
+      value: t("channels.hqValue"),
+      href: HEADQUARTERS_MAPS_URL,
+      external: true,
+    },
+    {
+      icon: MapPin,
+      label: t("channels.manufacturing"),
+      value: t("channels.manufacturingValue"),
+      href: MFG_MAPS_URL,
+      external: true,
+    },
+    {
+      icon: Clock,
+      label: t("channels.hours"),
+      value: t("channels.hoursValue"),
+      href: undefined,
+    },
+  ] as const;
+
+  const enquiryTips = [
+    t("tips.tip0"),
+    t("tips.tip1"),
+    t("tips.tip2"),
+    t("tips.tip3"),
+  ];
+
+  const contactFaqs = [
+    { question: t("faq.q0"), answer: t("faq.a0") },
+    { question: t("faq.q1"), answer: t("faq.a1") },
+    { question: t("faq.q2"), answer: t("faq.a2") },
+    { question: t("faq.q3"), answer: t("faq.a3") },
+  ];
+
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
       <LocalBusinessSchema
-        name="Taypro Private Limited"
-        description="Manufacturer of autonomous and semi-automatic solar panel cleaning robots for utility-scale and commercial PV plants in India."
+        name={t("schema.businessName")}
+        description={t("schema.businessDescription")}
         address={{
           streetAddress: "Plot No 87, Survey No 286/2, near Saint Gobain",
           addressLocality: "Chakan",
@@ -118,7 +107,7 @@ export default function ContactUsPage() {
           postalCode: "410501",
           addressCountry: "IN",
         }}
-        telephone="+918043843569"
+        telephone={TAYPRO_SALES_PHONE_E164}
         url={`${siteUrl}/contact`}
         openingHours="Mo-Fr 09:00-18:00"
         priceRange="$$"
@@ -128,7 +117,6 @@ export default function ContactUsPage() {
       <FAQPageSchema faqs={contactFaqs} />
 
       <div className="min-h-screen overflow-x-hidden">
-        {/* Hero */}
         <section className="relative min-h-[44vh] flex flex-col items-center justify-start overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -151,25 +139,22 @@ export default function ContactUsPage() {
             className="relative z-10 pt-10 px-4 max-w-4xl mx-auto pb-24 text-center"
           >
             <p className="text-[#A8C117] text-[16px] mb-4 uppercase tracking-wide">
-              Talk to our team
+              {t("hero.eyebrow")}
             </p>
             <h1 className="font-semibold text-[#052638] text-4xl md:text-5xl mb-6 leading-tight">
-              Contact Taypro about
+              {t("hero.titleLine1")}
               <br />
-              solar panel cleaning robots
+              {t("hero.titleLine2")}
             </h1>
             <p className="text-[#22405a] text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
-              Request a quote, book a technical discussion, or plan a visit to our
-              Chakan manufacturing hub. We help developers, IPPs, and O&amp;M teams
-              match{" "}
+              {t("hero.bodyBeforeLink")}{" "}
               <Link
                 href="/solar-panel-cleaning-system"
                 className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
               >
-                Model-A, Model-B, or Model-T
+                {t("hero.bodyLink")}
               </Link>{" "}
-              robots—and Taypro Opex or Console—to your plant layout and procurement
-              model.
+              {t("hero.bodyAfterLink")}
             </p>
           </AnimateOnScroll>
 
@@ -186,7 +171,6 @@ export default function ContactUsPage() {
           </div>
         </section>
 
-        {/* Form + contact details */}
         <section
           className="w-full py-14 md:py-20 bg-[#f4f7f9]"
           aria-labelledby="contact-main-heading"
@@ -199,19 +183,17 @@ export default function ContactUsPage() {
                     id="contact-main-heading"
                     className="text-[#052638] font-semibold text-2xl md:text-3xl mb-4"
                   >
-                    Reach our applications team
+                    {t("main.heading")}
                   </h2>
                   <p className="text-[#27415c] text-lg leading-relaxed">
-                    Share your plant details and we will recommend the right
-                    robotic cleaning approach—hardware, operator-led Opex, or a
-                    mixed fleet with{" "}
+                    {t("main.bodyBeforeLink")}{" "}
                     <Link
                       href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                       className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
                     >
-                      Taypro Console
+                      {t("main.bodyLink")}
                     </Link>{" "}
-                    monitoring.
+                    {t("main.bodyAfterLink")}
                   </p>
                 </AnimateOnScroll>
 
@@ -270,11 +252,11 @@ export default function ContactUsPage() {
                   <RequestEstimateForm
                     variant="embedded"
                     showEmbeddedHeading
-                    eyebrow="Request a quote"
-                    title="Tell us about your solar plant"
-                    submitLabel="Send enquiry"
-                    thankYouTitle="Thanks — we've received your enquiry"
-                    thankYouMessage="Our applications team will respond within one business day."
+                    eyebrow={t("form.eyebrow")}
+                    title={t("form.title")}
+                    submitLabel={t("form.submit")}
+                    thankYouTitle={t("form.thankYouTitle")}
+                    thankYouMessage={t("form.thankYouMessage")}
                     className="!shadow-none !rounded-none !p-0"
                     embeddedFlush
                   />
@@ -294,14 +276,14 @@ export default function ContactUsPage() {
                       id="enquiry-tips-heading"
                       className="font-semibold text-lg md:text-xl text-white"
                     >
-                      What to include in your message
+                      {t("tips.heading")}
                     </h3>
                   </div>
                   <Link
                     href="/solar-panel-cleaning-robot-price-calculator"
                     className="inline-flex items-center gap-2 text-[#A8C117] font-medium text-sm hover:underline shrink-0"
                   >
-                    Try the ROI calculator first
+                    {t("tips.roiLink")}
                     <ArrowRight className="h-4 w-4" aria-hidden />
                   </Link>
                 </div>
@@ -327,13 +309,13 @@ export default function ContactUsPage() {
                     href="/projects"
                     className="inline-flex items-center justify-center min-h-[44px] px-5 rounded-lg border border-white/30 text-white font-medium text-sm hover:bg-white/10 transition"
                   >
-                    View projects
+                    {t("tips.viewProjects")}
                   </Link>
                   <Link
                     href="/company"
                     className="inline-flex items-center justify-center min-h-[44px] px-5 rounded-lg border border-white/30 text-white font-medium text-sm hover:bg-white/10 transition"
                   >
-                    About Taypro
+                    {t("tips.aboutTaypro")}
                   </Link>
                 </div>
               </div>
@@ -341,7 +323,6 @@ export default function ContactUsPage() {
           </Container>
         </section>
 
-        {/* Locations */}
         <section
           className="w-full py-14 md:py-20 bg-white px-4 sm:px-6"
           aria-labelledby="locations-heading"
@@ -352,12 +333,10 @@ export default function ContactUsPage() {
                 id="locations-heading"
                 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
               >
-                Our locations in Pune
+                {t("locations.heading")}
               </h2>
               <p className="text-[#27415c] text-lg leading-relaxed">
-                Corporate headquarters in Pimpri and robot manufacturing in Chakan—both
-                within the Pune region. Use the map below for the manufacturing hub, or
-                open either address in Google Maps for directions.
+                {t("locations.intro")}
               </p>
             </AnimateOnScroll>
 
@@ -367,17 +346,19 @@ export default function ContactUsPage() {
                   <div className="flex items-center gap-3 mb-4">
                     <Building2 className="h-6 w-6 text-[#5a8f00]" aria-hidden />
                     <h3 className="text-[#052638] font-semibold text-xl">
-                      Corporate headquarters
+                      {t("locations.hqTitle")}
                     </h3>
                   </div>
-                  <p className="text-[#27415c] leading-relaxed">{HEADQUARTERS_ADDRESS}</p>
+                  <p className="text-[#27415c] leading-relaxed">
+                    {t("locations.hqAddress")}
+                  </p>
                   <a
                     href={HEADQUARTERS_MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-4 inline-flex items-center gap-2 text-[#5a8f00] font-medium hover:underline text-sm"
                   >
-                    Open headquarters in Google Maps
+                    {t("locations.hqMaps")}
                     <ArrowRight className="h-4 w-4" aria-hidden />
                   </a>
                 </div>
@@ -388,22 +369,22 @@ export default function ContactUsPage() {
                   <div className="flex items-center gap-3 mb-4">
                     <Factory className="h-6 w-6 text-[#5a8f00]" aria-hidden />
                     <h3 className="text-[#052638] font-semibold text-xl">
-                      Manufacturing hub
+                      {t("locations.mfgTitle")}
                     </h3>
                   </div>
                   <p className="text-[#27415c] leading-relaxed mb-2">
-                    {MANUFACTURING_ADDRESS}
+                    {t("locations.mfgAddress")}
                   </p>
                   <p className="text-[#27415c] text-sm leading-relaxed">
-                    Factory visits and walkthroughs can be arranged by appointment.
+                    {t("locations.mfgNote")}
                   </p>
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=18.735204,73.8519138"
+                    href={MFG_MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-4 inline-flex items-center gap-2 text-[#5a8f00] font-medium hover:underline text-sm"
                   >
-                    Open manufacturing hub in Google Maps
+                    {t("locations.mfgMaps")}
                     <ArrowRight className="h-4 w-4" aria-hidden />
                   </a>
                 </div>
@@ -411,10 +392,7 @@ export default function ContactUsPage() {
             </div>
 
             <AnimateOnScroll animation="fadeInUp" delay={200}>
-              <p className="text-[#27415c] text-sm mb-3">
-                Map: corporate headquarters (Pimpri) and manufacturing hub
-                (Chakan). Green pin = HQ, navy pin = factory.
-              </p>
+              <p className="text-[#27415c] text-sm mb-3">{t("locations.mapCaption")}</p>
             </AnimateOnScroll>
 
             <AnimateOnScroll animation="fadeInUp" delay={100}>
@@ -425,7 +403,6 @@ export default function ContactUsPage() {
           </Container>
         </section>
 
-        {/* FAQ */}
         <section
           className="w-full py-16 md:py-20 bg-[#f4f7f9] px-4 sm:px-6"
           aria-labelledby="contact-faq-heading"
@@ -436,11 +413,10 @@ export default function ContactUsPage() {
                 id="contact-faq-heading"
                 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3"
               >
-                Frequently asked questions
+                {t("faq.heading")}
               </h2>
               <p className="text-[#27415c] text-lg leading-relaxed">
-                Common questions before you submit an enquiry or visit our Pune
-                facility.
+                {t("faq.subheading")}
               </p>
             </AnimateOnScroll>
             <div className="space-y-6">

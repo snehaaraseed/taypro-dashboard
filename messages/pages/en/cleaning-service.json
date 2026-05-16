@@ -1,0 +1,310 @@
+{
+  "CleaningServicePage": {
+    "meta": {
+      "title": "Robotic Solar Panel Cleaning Service — Pay Per Panel | Taypro OPEX",
+      "description": "Taypro OPEX is a monthly robotic solar panel cleaning service for utility-scale plants (typically 50 MW+). We deploy Model-A, Model-B or Model-T as needed, recommend 3–10 waterless dry cycles per month from a full plant soiling study, and bill only for panels cleaned. Includes cleaning SOPs, robot paths, rest zones, dedicated parking, and daily reports via Taypro Console.",
+      "openGraphDescription": "Monthly waterless robotic cleaning: plant-specific 3–10 cycles, detailed cleaning plans, daily reports, billing per panels cleaned. Model-A, B or T.",
+      "openGraphImageAlt": "Taypro OPEX robotic solar panel cleaning service at utility-scale solar plant",
+      "twitterDescription": "Pay per panel cleaned monthly. Plant study, 3–10 dry cycles, SOPs, paths, rest zones, Taypro Console reports."
+    },
+    "breadcrumbs": {
+      "robots": "Solar Panel Cleaning Robots",
+      "current": "Taypro OPEX — Solar Panel Cleaning Service"
+    },
+    "schema": {
+      "name": "Taypro OPEX — Robotic Solar Panel Cleaning Service",
+      "description": "Monthly robotic solar panel cleaning service for utility-scale plants: pay per panel cleaned, plant-specific soiling study, 3–10 recommended waterless dry cycles per month, detailed cleaning plans with paths and robot rest zones, daily reports via Taypro Console, deployment of Taypro Model-A, Model-B or Model-T robots with dedicated operators.",
+      "serviceType": "Solar panel cleaning service"
+    },
+    "hero": {
+      "title": "Taypro OPEX — Robotic Solar Panel Cleaning Service",
+      "subtitlePanels": "solar panels we clean each month",
+      "subtitleCycles": "3–10 waterless dry cleaning cycles per month",
+      "modelA": "Model-A",
+      "modelB": "Model-B",
+      "modelT": "Model-T",
+      "console": "Taypro Console",
+      "imgAlt": "Taypro OPEX solar panel cleaning service — robotic waterless cleaning at utility-scale solar plant",
+      "ctaText": "Request a quote",
+      "subtitleBefore": "Pay only for the",
+      "subtitleDeploy": "We deploy",
+      "subtitleOr": "or",
+      "subtitleProgramme": "under a managed",
+      "subtitleAfter": "programme with"
+    },
+    "faqs": {
+      "0": {
+        "question": "What is Taypro OPEX?",
+        "answer": "Taypro OPEX is a fully managed, robotic solar panel cleaning service from TAYPRO Private Limited. We place the right Taypro cleaning robot (Model-A automatic, Model-B semi-automatic pick-and-place, or Model-T for single-axis trackers) at your plant, operate it with dedicated trained manpower, and maintain peak plant performance — without you purchasing the robot fleet. You pay a predictable monthly fee based on the number of solar panels actually cleaned each billing period."
+      },
+      "1": {
+        "question": "How does billing work on Taypro OPEX?",
+        "answer": "Commercial terms are structured around verified panel-cleaning volume: you are charged for the number of panels cleaned in each monthly settlement cycle, aligned with Taypro Console telemetry and agreed reconciliation rules. This keeps your OPEX aligned directly to delivered cleaning outcomes rather than idle asset time."
+      },
+      "2": {
+        "question": "How do you decide how many cleaning cycles my plant needs each month?",
+        "answer": "Before mobilisation, Taypro engineers conduct a structured plant study covering soiling rate, local dust sources, seasonal wind and rain patterns, soil and geology type, module height and row geometry, tracker vs fixed-tilt behaviour, nearby construction or agricultural activity, and historical performance ratio trends. From that study we recommend a custom programme — typically between 3 and 10 waterless dry cleaning cycles per month — designed to maximise energy yield while avoiding unnecessary wear or operational conflict with generation."
+      },
+      "3": {
+        "question": "What deliverables do I receive beyond the cleaning itself?",
+        "answer": "Every Taypro OPEX engagement includes a written cleaning plan and standard operating procedure: when robots move, which arrays and paths they follow, where they pause in idle conditions, and where dedicated robot parking and charging / rest zones are located on site. You also receive detailed cleaning reports — available for each run and summarised monthly — through the Taypro Console, including cycle completion, route coverage, exceptions, and fleet health data where connectivity is provided via LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, or LoRaWAN."
+      },
+      "4": {
+        "question": "Which robot models can Taypro deploy under OPEX?",
+        "answer": "We match the robot platform to your plant architecture and economics. Fixed-tilt and large utility blocks typically use the Automatic Solar Panel Cleaning Robot (Model-A). Scattered blocks or pick-and-place workflows may use Model-B. Single-axis tracker sites use Model-T. The same Taypro Console stack is used across models for scheduling, reporting, and service coordination."
+      },
+      "5": {
+        "question": "Is Taypro OPEX only for very large plants?",
+        "answer": "Taypro OPEX is engineered primarily for utility-scale solar power plants — especially those from about 50 MW and upward — where robotic cleaning at scale and predictable monthly economics matter most. Smaller or distributed portfolios may still qualify; our team assesses feasibility, cycle count, and manpower footprint during the proposal stage."
+      },
+      "6": {
+        "question": "How is Taypro OPEX different from buying robots (capex)?",
+        "answer": "With capex you own the robots, spares inventory, and depreciation. With Taypro OPEX, TAYPRO Private Limited retains ownership and lifecycle risk for the deployed fleet while you consume cleaning as a service: agreed cycles, agreed reporting, and billing tied to panels cleaned. Many IPPs choose OPEX to move quickly, preserve balance sheet, and lock in operational outcomes with a single accountable vendor."
+      }
+    },
+    "howToSteps": {
+      "0": {
+        "name": "Plant study & soiling assessment",
+        "text": "Taypro engineers characterise your site: soiling patterns, environmental exposure, soil and dust type, module and row layout, tracker behaviour if applicable, nearby land use, and historical PR loss. This study drives the recommended monthly dry-cleaning cycle count (typically 3–10) and risk controls for each season."
+      },
+      "1": {
+        "name": "Robot selection & detailed cleaning plan",
+        "text": "We select Model-A, Model-B or Model-T (or a mixed fleet) and publish a detailed cleaning plan: when robots move, which paths they take across tables or blocks, idle behaviour, and dedicated parking / rest and charging locations so plant security and O&M always know where equipment is."
+      },
+      "2": {
+        "name": "Mobilisation & operator deployment",
+        "text": "Dedicated trained operators are stationed or rotated to your site to run the fleet safely alongside your existing O&M rhythm. They execute the approved SOP, coordinate with your control room, and escalate anomalies through Taypro Console."
+      },
+      "3": {
+        "name": "Execute scheduled waterless dry cleaning cycles",
+        "text": "Robots perform AI- and ML-informed dual-pass dry cleaning on the agreed calendar — timed to avoid meaningful generation loss and adapted using live weather intelligence where available."
+      },
+      "4": {
+        "name": "Reporting & monthly panel-cleaning reconciliation",
+        "text": "Each cycle produces structured telemetry and cleaning reports in Taypro Console (connectivity via LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, or LoRaWAN as designed for your site). At month-end, billable volume is reconciled against verified panels cleaned under the contract formula."
+      }
+    },
+    "plantStudy": {
+      "0": {
+        "title": "Soiling rate & pattern",
+        "body": "On-site dust accumulation curves, directional soiling bias, and row-to-row variance inform how aggressively we must clean and which blocks lead the schedule."
+      },
+      "1": {
+        "title": "Environmental exposure",
+        "body": "Wind rose, humidity, dew point, rain probability, and seasonal haze or smoke events determine safe cleaning windows and when to skip or compress cycles."
+      },
+      "2": {
+        "title": "Soil & geology",
+        "body": "Local soil type, sand fraction, and soluble salts change how dust adheres to glass and anti-reflective coatings — tuning brush pressure, speed, and pass count."
+      },
+      "3": {
+        "title": "Plant layout & area",
+        "body": "Inter-row spacing, block count, module tilt or tracker brand, and distance to parking or staging areas drive path planning, bridge requirements, and idle/rest strategy."
+      },
+      "4": {
+        "title": "Nearby vicinity & land use",
+        "body": "Quarries, highways, agricultural burns, cement batching, or industrial stacks nearby are mapped so we can pre-empt soiling spikes instead of reacting after PR collapse."
+      }
+    },
+    "benefits": {
+      "0": "Plant-specific soiling study & 3–10 dry cycles / month",
+      "1": "Billing based on panels cleaned each month",
+      "2": "Detailed SOP: timing, paths, idle & dedicated rest zones",
+      "3": "Daily cleaning reports & Taypro Console transparency",
+      "4": "Model-A, Model-B or Model-T matched to your site",
+      "5": "Dedicated operators + nationwide technical support"
+    },
+    "misc": {
+      "modelCardsTitle": "Looking for more solutions?",
+      "projectsHeader": "Our Projects",
+      "faqTitle": "Frequently asked questions",
+      "faqSubtitle": "Taypro OPEX service questions — plus broader Taypro programme FAQs below."
+    },
+    "overview": {
+      "eyebrow": "Pay-per-outcome solar O&M cleaning",
+      "title": "What is Taypro OPEX?",
+      "p1Before": "Taypro OPEX is how large solar plants consume ",
+      "p1Strong": "robotic solar panel cleaning as a service",
+      "p1After": " instead of buying and maintaining their own fleet. Under a Taypro OPEX contract, TAYPRO Private Limited supplies the robots, spare parts philosophy, trained operators, remote monitoring, and continuous optimisation — while you pay in line with ",
+      "p1BillingStrong": "verified panels cleaned each month",
+      "p1Suffix": ", not unused machine hours.",
+      "p2Before": "Every engagement begins with a disciplined ",
+      "p2StudyStrong": "plant study",
+      "p2Mid": " that quantifies soiling drivers and recommends an operating envelope — most utility sites land on ",
+      "p2CyclesStrong": "three to ten dry cleaning cycles per month",
+      "p2AfterCycles": " once meteorology, dust chemistry, and generation risk are balanced. From that study we publish a ",
+      "p2PlanStrong": "detailed cleaning plan",
+      "p2Mid2": " that spells out when robots move, which electrical blocks and tracker tables are visited in sequence, where robots dwell in idle, and where the",
+      "p2RestStrong": " dedicated parking / rest area",
+      "p2AfterRest": " sits relative to roads, substations, and fire lanes.",
+      "p3Before": "During operations, your team receives ",
+      "p3ReportsStrong": "granular cleaning reports",
+      "p3AfterReports": " — per shift, per day, or per cycle depending on your governance needs — via Taypro Console, with fleet telemetry carried over ",
+      "p3ConnectivitySuffix": " as designed for your site.",
+      "p4Prefix": "Further reading: ",
+      "linkBlogCost": "cost–benefit of cleaning services in India",
+      "p4Mid": " and ",
+      "linkBlogRoi": "why plants adopt robotic cleaning for ROI",
+      "p4Suffix": "."
+    },
+    "billing": {
+      "eyebrow": "Commercial model",
+      "title": "Billing tied to panels cleaned — not capex",
+      "body": "Your monthly invoice is anchored to the count of modules actually cleaned in the period, cross-checked against Taypro Console logs and the mutually agreed measurement protocol. That keeps plant leadership, finance and O&M aligned on one simple question: did we restore transmissivity to the contracted panel population this month?",
+      "ctaLabel": "Talk to our OPEX team",
+      "ctaTitle": "Talk to our OPEX team",
+      "ctaSubtitle": "Tell us about your plant and our OPEX team will get back with a pay-per-panel cleaning proposal."
+    },
+    "plantStudySection": {
+      "eyebrow": "Engineering-first programme design",
+      "title": "What goes into the Taypro OPEX plant study?",
+      "subtitle": "We do not guess cycle counts from a brochure. Each proposal is built from structured field and desk analytics so your cleaning calendar matches real soiling physics and commercial risk."
+    },
+    "deliverables": {
+      "eyebrow": "What you receive on day one",
+      "title": "Cleaning plan, paths, rest zones & reports",
+      "card0Title": "Movement & path design",
+      "card0Body": "Time-of-day rules, block sequencing, tracker parking collaboration (where relevant), and row-by-row path sheets so every shift knows exactly where robots should be.",
+      "card1Title": "Idle, staging & dedicated rest",
+      "card1Body": "Documented idle behaviour on modules, staging points between blocks, and a dedicated robot parking / charging enclave that satisfies your HSE, security, and fire access rules.",
+      "card2Title": "Cleaning reports",
+      "card2Body": "Cycle-level and daily summaries delivered through Taypro Console: distance travelled, blocks completed, anomalies, operator notes, and exportable files for your internal performance review boards.",
+      "card3Title": "Safety & module-care governance",
+      "card3Body": "Written risk assessments, edge-case playbooks, and alignment with your module warranty and O&M insurance requirements — backed by Taypro's lab-tested cleaning physics."
+    },
+    "methodology": {
+      "eyebrow": "Methodology",
+      "title": "Built for utility-scale performance",
+      "p1Before": "At ",
+      "p1CompanyStrong": "TAYPRO Private Limited",
+      "p1After": ", we treat solar module transmissivity as a first-class production input — especially for ",
+      "p1MwStrong": "50 MW and larger",
+      "p1Suffix": " plants where even a single percentage point of performance ratio shows up immediately in your revenue line.",
+      "p2Before": "",
+      "p2OpexStrong": "Taypro OPEX",
+      "p2Mid": " is our dedicated monthly cleaning service built around that reality: a recommended schedule of ",
+      "p2CyclesStrong": "custom three to ten waterless dry cleaning cycles",
+      "p2AfterCycles": " each calendar month, tuned from the plant study above, executed by Taypro robots and operators, and ",
+      "p2GoalStrong": "strategically planned to maximise energy generation while minimising downtime",
+      "p2Suffix": " for your operations and finance teams."
+    },
+    "featuresSection": {
+      "headlineLine1": "Why plants choose",
+      "headlineLine2": "Taypro OPEX",
+      "descriptionBefore": "Taypro OPEX combines the same ",
+      "descriptionStrong": "waterless, AI- and ML-driven",
+      "descriptionAfter": " robotics trusted on gigawatts of Indian solar with a service wrapper: you get outcomes and transparency — we carry fleet risk, manpower scheduling, and continuous programme tuning."
+    },
+    "fleetOps": {
+      "title": "How Taypro operates the fleet on your site",
+      "subtitle": "These pillars sit underneath every OPEX contract — whether we are running Model-A, Model-B, Model-T, or a blended deployment.",
+      "card0Title": "Dedicated skilled manpower",
+      "card0Body": "Trained Taypro operators remain accountable for safe robot deployment, daily checklists, and coordination with your control room so modules never see experimental handling.",
+      "card1Title": "Weather-aware scheduling",
+      "card1Body": "Wind, rain, humidity, and dust forecasts feed the live cleaning calendar so we clean when physics says it will help — not when a static calendar says we must.",
+      "card2Title": "Same-day breakdown discipline",
+      "card2Body": "Automated ticketing, remote diagnostics, and a nationwide field bench mean faults get triaged immediately — with same-day resolution targets on qualifying service plans.",
+      "card3Title": "Dual-pass dry physics",
+      "card3Body": "Patented dual-pass waterless cleaning removes loose dust then tackles adhered film without water chemistry — preserving anti-reflective coatings and keeping discharge compliance simple."
+    },
+    "callbackHeader": "Schedule a Taypro OPEX solar panel cleaning consultation",
+    "opexVsCapex": {
+      "title": "Taypro OPEX vs buying robots (capex)",
+      "subtitle": "Both routes use the same Taypro hardware DNA — the question is who carries asset risk and how you want to recognise cost.",
+      "topic": "Topic",
+      "opex": "Taypro OPEX",
+      "capex": "Robot purchase (capex)",
+      "row0": {
+        "t": "Capital outlay",
+        "opex": "Low — robots stay on Taypro balance sheet",
+        "capex": "High — full robot + spare parts capitalisation"
+      },
+      "row1": {
+        "t": "Billing model",
+        "opex": "Per panels cleaned per month (contracted formula)",
+        "capex": "Sunk cost + O&M to operate your own fleet"
+      },
+      "row2": {
+        "t": "Programme design",
+        "opex": "Taypro-led plant study & 3–10 cycle recommendation",
+        "capex": "Your engineering team sets cycle strategy"
+      },
+      "row3": {
+        "t": "Risk ownership",
+        "opex": "Fleet, manpower surge, upgrade path with Taypro",
+        "capex": "Asset depreciation, obsolescence, inventory risk"
+      },
+      "explorePrefix": "Explore hardware directly: ",
+      "linkModelA": "Model-A",
+      "linkBetweenAB": ", ",
+      "linkModelB": "Model-B",
+      "linkBetweenBT": ", ",
+      "linkModelT": "Model-T",
+      "linkBetweenTConsole": ", or ",
+      "linkConsole": "Taypro Console",
+      "exploreSuffix": "."
+    },
+    "roiSection": {
+      "title": "Calculate ROI & savings on Taypro Opex",
+      "body": "Model how much additional generation and avoided manual cost you unlock when soiling is removed systematically instead of episodically."
+    },
+    "faqSection": {
+      "title": "Frequently asked questions",
+      "subtitle": "Taypro OPEX service questions — plus broader Taypro programme FAQs below."
+    },
+    "advantages": {
+      "eyebrow": "Why solar plants choose Taypro OPEX",
+      "title": "Advantages of Taypro OPEX solar cleaning",
+      "subtitle": "Outcome-based cleaning with robotics, transparency, and no surprise asset ownership.",
+      "card0Title": "Expert handling for best results",
+      "card0Body": "Trained Taypro technicians supervise every robotic cycle so AI decisions stay inside safe envelopes for your modules and trackers.",
+      "card1Title": "Maintaining panel safety",
+      "card1Body": "Waterless dual-pass systems and frame-riding kinematics are chosen specifically to protect glass, ARC, and tracker mechanics.",
+      "card2Title": "Enhanced efficiency",
+      "card2Body": "Cleaning calendars are revisited whenever soiling drivers shift — keeping performance ratio closer to nameplate across seasons.",
+      "card3Title": "Eco-friendly operation",
+      "card3Body": "Zero water consumption for module washing means no tanker queues, no discharge risk, and simpler environmental compliance.",
+      "card4Title": "Hassle-free for your O&M",
+      "card4Body": "Single vendor accountability: robots, connectivity, manpower, reporting, and billing tied to panels cleaned.",
+      "card5Title": "Value for money",
+      "card5Body": "You fund cleaning outcomes, not stranded capital — ideal when you want predictable monthly OPEX lines and rapid scale-out."
+    },
+    "cadenceRoi": {
+      "eyebrow": "The economics & cadence",
+      "title": "Cleaning cadence & return on investment",
+      "cycleTitle": "How long does a Taypro OPEX cleaning cycle take?",
+      "cycleBodyBefore": "Robotic passes typically run at ",
+      "cycleSpeedStrong": "10–15 metres per minute",
+      "cycleMid": " with a maximum autonomous range of up to ",
+      "cycleRangeStrong": "2.2 km",
+      "cycleAfterRange": " per charge, depending on the deployed model. Under Taypro OPEX, the ",
+      "cycleProgramStrong": "monthly programme",
+      "cycleMid2": " is not a single visit — it is the agreed ",
+      "cycleCountStrong": "3–10 dry cleaning cycles",
+      "cycleSuffix": " derived from your plant study, spaced to maximise generation and minimise operational conflict. Night-time or post-production windows are preferred so cleaning never competes with your peak irradiance hours.",
+      "stat0Value": "10–15",
+      "stat0Label": "m/min",
+      "stat1Value": "2.2 km",
+      "stat1Label": "per charge",
+      "stat2Value": "3–10",
+      "stat2Label": "cycles / month",
+      "roiTitle": "What is the ROI of Taypro OPEX?",
+      "roiBodyBefore": "Soiling can erode ",
+      "roiLossStrong": "10–25% of practical output",
+      "roiAfterLoss": " on aggressive sites. Taypro OPEX converts that hidden loss into a managed service line item with measurable before / after performance ratio lift — letting you compare a clean, contracted O&M cost against unpredictable manual washing or under-cleaned baseline scenarios.",
+      "roiCalculatorLink": "Open the ROI calculator",
+      "roiCtaLabel": "Talk to OPEX team"
+    },
+    "skillSection": {
+      "titleLine1": "Skillful operation",
+      "titleLine2": "for optimal results",
+      "body": "Taypro OPEX pairs soft, lab-validated contact materials with disciplined operator oversight — so panels stay clean, warranty exposure stays controlled, and your team always knows who is on site, why, and what was achieved each shift."
+    },
+    "modelCardsTitle": "Looking for more solutions?",
+    "projectsHeader": "Our Projects"
+  },
+  "Common": {
+    "breadcrumbHome": "Home",
+    "connectivitySummary": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN"
+  }
+}

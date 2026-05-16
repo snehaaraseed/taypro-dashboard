@@ -21,6 +21,16 @@ export default function CookieConsent() {
     marketing: false,
   });
 
+  const applyCookiePreferences = (prefs: CookiePreferences) => {
+    if (typeof window !== "undefined") {
+      (window as Window & { cookieConsent?: CookiePreferences }).cookieConsent =
+        prefs;
+      window.dispatchEvent(
+        new CustomEvent("cookieConsentUpdated", { detail: prefs })
+      );
+    }
+  };
+
   useEffect(() => {
     // Check if user has already given consent
     const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
@@ -40,18 +50,6 @@ export default function CookieConsent() {
       }
     }
   }, []);
-
-  const applyCookiePreferences = (prefs: CookiePreferences) => {
-    // Apply preferences to window object for other components to use
-    if (typeof window !== "undefined") {
-      (window as any).cookieConsent = prefs;
-      
-      // Dispatch custom event for components to listen to
-      window.dispatchEvent(
-        new CustomEvent("cookieConsentUpdated", { detail: prefs })
-      );
-    }
-  };
 
   const handleAcceptAll = () => {
     const allAccepted: CookiePreferences = {

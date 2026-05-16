@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 import { getAllFileProjects } from "@/app/utils/projectFileUtils";
 import { tayproTrustedByStatsStrip } from "@/app/data";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
@@ -14,57 +15,41 @@ import CallbackCard from "@/app/components/CallbackCard";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
-const breadcrumbs = [
-  { name: "Home", href: "/" },
-  { name: "Projects", href: "" },
+const PROJECT_CATEGORY_KEYS = [
+  { key: "automatic" as const, href: "/projects/automatic" },
+  { key: "semiAutomatic" as const, href: "/projects/semi-automatic" },
+  { key: "capex" as const, href: "/projects/capex" },
 ];
 
-const projectCategories = [
-  {
-    title: "Automatic",
-    href: "/projects/automatic",
-    description:
-      "Autonomous Model-A and Model-T deployments with AI scheduling, waterless dual-pass cleaning, and fleet monitoring via Taypro Console.",
-  },
-  {
-    title: "Semi-Automatic",
-    href: "/projects/semi-automatic",
-    description:
-      "Model-B portable dry cleaning for scattered blocks, difficult terrain, and plants that need flexible crew-assisted coverage.",
-  },
-  {
-    title: "CAPEX",
-    href: "/projects/capex",
-    description:
-      "Developer-owned robot purchases with Taypro commissioning, training, and pan-India spare support—documented ROI and uptime targets.",
-  },
+const STAT_LABEL_KEYS = [
+  "robotCapacityLabel",
+  "plantInstallationsLabel",
+  "waterSavedLabel",
+  "robotsManufacturedLabel",
 ] as const;
 
-const projectsFaqs = [
-  {
-    question: "What types of solar plants does Taypro document in this portfolio?",
-    answer:
-      "Our case studies cover utility-scale ground-mount sites, single-axis tracker arrays, and multi-block plants across India—typically 50 MW and above where soiling, water scarcity, or manual O&M costs justify robotic cleaning.",
-  },
-  {
-    question: "What is the difference between automatic, semi-automatic, and CAPEX project listings?",
-    answer:
-      "Automatic listings highlight fully autonomous robots (Model-A, Model-T). Semi-automatic listings feature Model-B portable systems. CAPEX listings describe plants where the developer purchased robots outright; the same site may also use Taypro Opex as an operator-led service—browse each category or the individual case study for the exact deployment model.",
-  },
-  {
-    question: "How do Taypro cleaning robots affect plant performance ratio?",
-    answer:
-      "Consistent, weather-aware cleaning reduces soiling losses that can otherwise suppress performance ratio by several percentage points on dusty sites. Case studies note cleaning efficiency targets, cycle frequency, and how waterless methods avoid logistics tied to manual washing.",
-  },
-  {
-    question: "How can I evaluate Taypro for my own solar project?",
-    answer:
-      "Review the relevant case study for your plant type (fixed tilt vs trackers), explore Model-A, Model-B, or Model-T specifications on the solar panel cleaning system pages, use the ROI calculator, or contact Taypro with your DC capacity and layout for a site-specific proposal.",
-  },
-];
+const FAQ_KEYS = ["q0", "q1", "q2", "q3"] as const;
 
-export default async function ProjectPage() {
-  const projects = await getAllFileProjects();
+export default async function ProjectPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "ProjectsPage" });
+  const tCommon = await getTranslations({ locale, namespace: "Common" });
+
+  const projects = await getAllFileProjects(locale);
+
+  const breadcrumbs = [
+    { name: tCommon("breadcrumbHome"), href: "/" },
+    { name: t("breadcrumbs.projects"), href: "" },
+  ];
+
+  const projectsFaqs = FAQ_KEYS.map((qKey, i) => ({
+    question: t(`faq.${qKey}`),
+    answer: t(`faq.a${i}`),
+  }));
 
   const itemListEntries = projects.map((p) => ({
     name: p.title,
@@ -76,15 +61,15 @@ export default async function ProjectPage() {
     <>
       <Breadcrumbs items={breadcrumbs} />
       <CollectionPageSchema
-        name="Solar Panel Cleaning Robot Installation Projects"
-        description="View Taypro's portfolio of solar panel cleaning robot installation projects across India—automatic, semi-automatic, and CAPEX deployments on utility-scale plants."
+        name={t("schema.collectionName")}
+        description={t("schema.collectionDescription")}
         siteUrl={siteUrl}
         url={`${siteUrl}/projects`}
       />
       <ItemListSchema
         scriptId="item-list-schema-projects-hub"
-        name="Taypro solar panel cleaning robot installation projects"
-        description="Utility-scale solar plants where Taypro robotic cleaning systems are deployed across India."
+        name={t("schema.itemListName")}
+        description={t("schema.itemListDescription")}
         items={itemListEntries}
         siteUrl={siteUrl}
       />
@@ -113,25 +98,22 @@ export default async function ProjectPage() {
             className="relative z-10 pt-10 px-4 max-w-4xl mx-auto pb-28"
           >
             <p className="text-[#A8C117] text-center text-[16px] mb-4 uppercase tracking-wide">
-              Deployments across India
+              {t("hero.eyebrow")}
             </p>
             <h1 className="font-semibold text-[#052638] text-4xl md:text-5xl mb-6 text-center leading-tight">
-              Solar panel cleaning robot
+              {t("hero.titleLine1")}
               <br />
-              installation projects
+              {t("hero.titleLine2")}
             </h1>
             <p className="text-[#22405a] text-center text-lg md:text-xl leading-relaxed">
-              Taypro documents real utility-scale deployments where autonomous and
-              semi-automatic{" "}
+              {t("hero.bodyBeforeLink")}{" "}
               <Link
                 href="/solar-panel-cleaning-system"
                 className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
               >
-                solar panel cleaning robots
+                {t("hero.bodyLink")}
               </Link>{" "}
-              protect performance ratio, cut water use, and replace labour-intensive
-              washing. Browse by deployment type or open a case study for capacity,
-              location, and cleaning model details.
+              {t("hero.bodyAfterLink")}
             </p>
           </AnimateOnScroll>
 
@@ -152,10 +134,10 @@ export default async function ProjectPage() {
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
               <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-2">
-                At a glance
+                {t("stats.eyebrow")}
               </p>
               <h2 className="text-white font-semibold text-2xl md:text-3xl">
-                Proven scale on Indian solar plants
+                {t("stats.heading")}
               </h2>
             </AnimateOnScroll>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10 text-center">
@@ -169,7 +151,9 @@ export default async function ProjectPage() {
                   <div className="text-[#A8C117] font-semibold text-3xl sm:text-4xl mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-white/80 text-sm sm:text-base">{stat.label}</div>
+                  <div className="text-white/80 text-sm sm:text-base">
+                    {t(`stats.${STAT_LABEL_KEYS[idx]}`)}
+                  </div>
                 </AnimateOnScroll>
               ))}
             </div>
@@ -186,30 +170,31 @@ export default async function ProjectPage() {
                 id="browse-by-type-heading"
                 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
               >
-                Browse by deployment type
+                {t("categories.heading")}
               </h2>
               <p className="text-[#27415c] text-lg leading-relaxed">
-                Each category groups plants that share a similar procurement or
-                operating model. Individual case studies below may span more than one
-                tag—for example, a CAPEX purchase with automatic Model-A robots on
-                fixed-tilt arrays.
+                {t("categories.intro")}
               </p>
             </AnimateOnScroll>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {projectCategories.map((cat, idx) => (
-                <AnimateOnScroll key={cat.href} animation="fadeInUp" delay={idx * 100}>
+              {PROJECT_CATEGORY_KEYS.map((cat, idx) => (
+                <AnimateOnScroll
+                  key={cat.href}
+                  animation="fadeInUp"
+                  delay={idx * 100}
+                >
                   <Link
                     href={cat.href}
                     className="group flex flex-col h-full rounded-lg border border-gray-200 bg-[#f8fafb] p-6 shadow-sm hover:border-[#A8C117] hover:shadow-md transition"
                   >
                     <h3 className="text-[#052638] font-semibold text-xl mb-3 group-hover:text-[#5a8f00] transition-colors">
-                      {cat.title} projects
+                      {t(`categories.${cat.key}.cardTitle`)}
                     </h3>
                     <p className="text-[#27415c] text-base leading-relaxed flex-1">
-                      {cat.description}
+                      {t(`categories.${cat.key}.description`)}
                     </p>
                     <span className="mt-4 text-[#5a8f00] font-medium text-sm group-hover:underline">
-                      View {cat.title.toLowerCase()} case studies →
+                      {t(`categories.${cat.key}.viewLink`)}
                     </span>
                   </Link>
                 </AnimateOnScroll>
@@ -228,25 +213,24 @@ export default async function ProjectPage() {
                 id="featured-projects-heading"
                 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
               >
-                Featured installation case studies
+                {t("featured.heading")}
               </h2>
               <p className="text-[#27415c] text-lg leading-relaxed">
-                Select a plant to read commissioning context, robot models used, and
-                operational outcomes. For technology background, see{" "}
+                {t("featured.bodyBeforeCleaningLink")}{" "}
                 <Link
                   href="/cleaning-technology"
                   className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
                 >
-                  how Taypro cleaning works
+                  {t("featured.cleaningLink")}
                 </Link>{" "}
-                or estimate savings with the{" "}
+                {t("featured.bodyMiddle")}{" "}
                 <Link
                   href="/solar-panel-cleaning-robot-price-calculator"
                   className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
                 >
-                  ROI calculator
+                  {t("featured.roiLink")}
                 </Link>
-                .
+                {t("featured.bodyAfter")}
               </p>
             </AnimateOnScroll>
             <ProjectsGrid projects={projects} />
@@ -263,16 +247,19 @@ export default async function ProjectPage() {
                 id="projects-faq-heading"
                 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3 text-center"
               >
-                Frequently asked questions
+                {t("faq.heading")}
               </h2>
               <p className="text-[#27415c] text-center text-lg mb-10 leading-relaxed">
-                Common questions from developers and O&amp;M teams reviewing Taypro
-                project references.
+                {t("faq.subheading")}
               </p>
             </AnimateOnScroll>
             <div className="space-y-6">
               {projectsFaqs.map((faq, idx) => (
-                <AnimateOnScroll key={faq.question} animation="fadeInUp" delay={idx * 80}>
+                <AnimateOnScroll
+                  key={faq.question}
+                  animation="fadeInUp"
+                  delay={idx * 80}
+                >
                   <article className="bg-[#f8fafb] rounded-lg border border-gray-200 p-6 shadow-sm">
                     <h3 className="text-[#052638] font-semibold text-lg mb-3">
                       {faq.question}
@@ -287,13 +274,13 @@ export default async function ProjectPage() {
                 href="/contact"
                 className="inline-flex items-center justify-center min-h-[48px] bg-[#b2cb19] text-[#22405a] font-medium px-8 py-3 rounded-lg hover:bg-lime-500 transition"
               >
-                Discuss your plant
+                {t("faq.cta")}
               </Link>
             </AnimateOnScroll>
           </Container>
         </section>
 
-        <CallbackCard headerText="" />
+        <CallbackCard headerText={t("callback.header")} />
       </div>
     </>
   );

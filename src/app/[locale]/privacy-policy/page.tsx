@@ -1,34 +1,48 @@
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
+import { ContactPhoneLink } from "@/app/components/ContactPhoneLink";
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import { withHreflang } from "@/lib/seo/with-hreflang";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
-
 const EFFECTIVE_DATE = "July 1, 2020";
 const LAST_UPDATED = "May 13, 2026";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy at Taypro Private Limited",
-  description:
-    "Taypro (“we,” “our,” “us”) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website, products, and services (collectively, the “Services”).",
-  keywords:
-    "taypro privacy policy, privacy, policy terms, privacy rights, secured information, data practices, taypro",
-  openGraph: {
-    title: "Privacy Policy at Taypro Private Limited",
-    description:
-      "Taypro (“we,” “our,” “us”) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website, products, and services (collectively, the “Services”).",
-    url: `${siteUrl}/privacy-policy`,
-    type: "website",
-  },
-  alternates: {
-    canonical: `${siteUrl}/privacy-policy`,
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "PrivacyPolicyPage.meta" });
 
-export default function PrivacyPolicySection() {
+  return withHreflang("/privacy-policy", locale, {
+    title: t("title"),
+    description: t("description"),
+    keywords: t("keywords"),
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      url: `${siteUrl}/privacy-policy`,
+      type: "website",
+    },
+  });
+}
+
+export default async function PrivacyPolicySection({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "PrivacyPolicyPage" });
+  const tCommon = await getTranslations({ locale, namespace: "Common" });
+
   const breadcrumbs = [
-    { name: "Home", href: "/" },
-    { name: "Privacy Policy", href: "" },
+    { name: tCommon("breadcrumbHome"), href: "/" },
+    { name: t("breadcrumb"), href: "" },
   ];
+
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
@@ -36,26 +50,20 @@ export default function PrivacyPolicySection() {
         <section className="w-full bg-white py-15">
           <div className="max-w-6xl mx-auto px-6">
             <h1 className="text-[#0c2f42] text-center font-semibold text-7xl mb-20">
-              Privacy Policy
+              {t("title")}
             </h1>
 
             <div className="mt-8">
               <h2 className="text-[#0c2f42] font-semibold text-2xl mb-4">
-                Overview
+                {t("overview.heading")}
               </h2>
               <div className="text-[#0c2f42] text-lg mb-8 font-normal">
-                Effective Date: {EFFECTIVE_DATE}
+                {t("overview.effectiveDate", { date: EFFECTIVE_DATE })}
                 <span className="mx-2 text-gray-400">·</span>
-                Last Updated: {LAST_UPDATED}
+                {t("overview.lastUpdated", { date: LAST_UPDATED })}
               </div>
               <div className="text-[#0c2f42] text-lg font-normal leading-9">
-                Taypro (“we,” “our,” “us”) is committed to protecting your
-                privacy. This Privacy Policy explains how we collect, use,
-                disclose, and safeguard your information when you use our
-                website, products, and services (collectively, the “Services”).
-                Please read this Privacy Policy carefully. If you do not agree
-                with the terms of this Privacy Policy, please do not use our
-                Services.
+                {t("overview.intro")}
               </div>
               <hr className="border border-gray-300 mt-8" />
             </div>
@@ -65,61 +73,44 @@ export default function PrivacyPolicySection() {
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
             <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">
-              1. Information We Collect
+              {t("s1.heading")}
             </h3>
-            <div className="text-[#0c2f42] text-lg mb-10">
-              We may collect information about you in various ways. The types of
-              information we collect include:
-            </div>
+            <div className="text-[#0c2f42] text-lg mb-10">{t("s1.intro")}</div>
 
             <div className="mb-10">
               <h4 className="text-[#0c2f42] font-semibold text-2xl mb-4">
-                a. Personal Information
+                {t("s1.personal.heading")}
               </h4>
               <div className="text-[#0c2f42] text-lg mb-4">
-                When you interact with our Services, we may collect personal
-                information such as:
+                {t("s1.personal.intro")}
               </div>
               <ul className="list-disc pl-10 space-y-3 text-lg text-[#0c2f42]">
-                <li>
-                  Your name, email address, phone number, and mailing address.
-                </li>
-                <li>Company name and job title (if applicable).</li>
-                <li>
-                  Payment information (processed securely via third-party
-                  providers).
-                </li>
+                <li>{t("s1.personal.li0")}</li>
+                <li>{t("s1.personal.li1")}</li>
+                <li>{t("s1.personal.li2")}</li>
               </ul>
             </div>
 
             <div className="mb-10">
               <h4 className="text-[#0c2f42] font-semibold text-2xl mb-4">
-                b. Non-Personal Information
+                {t("s1.nonPersonal.heading")}
               </h4>
               <div className="text-[#0c2f42] text-lg mb-4">
-                We may also collect non-personal information, such as:
+                {t("s1.nonPersonal.intro")}
               </div>
               <ul className="list-disc pl-10 space-y-3 text-lg text-[#0c2f42]">
-                <li>
-                  Device and browser information (e.g., IP address, operating
-                  system, and browser type).
-                </li>
-                <li>
-                  Usage data, including pages visited, links clicked, and other
-                  actions taken on our website.
-                </li>
-                <li>Location data (if enabled on your device).</li>
+                <li>{t("s1.nonPersonal.li0")}</li>
+                <li>{t("s1.nonPersonal.li1")}</li>
+                <li>{t("s1.nonPersonal.li2")}</li>
               </ul>
             </div>
 
             <div className="mb-10">
               <h4 className="text-[#0c2f42] font-semibold text-2xl mb-4">
-                c. Information from Third Parties
+                {t("s1.thirdParty.heading")}
               </h4>
               <div className="text-[#0c2f42] text-lg mb-4">
-                We may receive information about you from third-party sources,
-                such as business partners, public databases, and social media
-                platforms.
+                {t("s1.thirdParty.body")}
               </div>
             </div>
 
@@ -130,27 +121,16 @@ export default function PrivacyPolicySection() {
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
             <h3 className="text-[#0c2f42] font-semibold text-5xl mb-10">
-              2. How We Use Your Information
+              {t("s2.heading")}
             </h3>
-            <div className="text-[#0c2f42] text-lg mb-5">
-              We use the information we collect for various purposes, including:
-            </div>
-
+            <div className="text-[#0c2f42] text-lg mb-5">{t("s2.intro")}</div>
             <ul className="list-disc pl-10 space-y-3 text-lg text-[#0c2f42]">
-              <li>To provide, operate, and improve our Services.</li>
-              <li>To process transactions and send purchase confirmations.</li>
-              <li>
-                To communicate with you about updates, promotions, and important
-                notices.
-              </li>
-              <li>
-                To personalize your experience and deliver tailored content.
-              </li>
-              <li>
-                To comply with legal obligations and enforce our terms of use.
-              </li>
+              <li>{t("s2.li0")}</li>
+              <li>{t("s2.li1")}</li>
+              <li>{t("s2.li2")}</li>
+              <li>{t("s2.li3")}</li>
+              <li>{t("s2.li4")}</li>
             </ul>
-
             <hr className="border border-gray-300 mt-8" />
           </div>
         </section>
@@ -158,42 +138,34 @@ export default function PrivacyPolicySection() {
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
             <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">
-              3. How We Share Your Information
+              {t("s3.heading")}
             </h3>
-            <div className="text-[#0c2f42] text-lg mb-10">
-              We do not sell your personal information. However, we may share
-              your information in the following circumstances:
-            </div>
+            <div className="text-[#0c2f42] text-lg mb-10">{t("s3.intro")}</div>
 
             <div className="mb-10">
               <h4 className="text-[#0c2f42] font-semibold text-2xl mb-4">
-                a. With Service Providers
+                {t("s3.serviceProviders.heading")}
               </h4>
               <div className="text-[#0c2f42] text-lg mb-4">
-                We may share your information with third-party vendors who
-                perform services on our behalf, such as payment processing, data
-                analysis, and customer support.
+                {t("s3.serviceProviders.body")}
               </div>
             </div>
 
             <div className="mb-10">
               <h4 className="text-[#0c2f42] font-semibold text-2xl mb-4">
-                b. For Legal Compliance
+                {t("s3.legal.heading")}
               </h4>
               <div className="text-[#0c2f42] text-lg mb-4">
-                We may disclose your information to comply with legal
-                obligations, respond to lawful requests, or protect our legal
-                rights.
+                {t("s3.legal.body")}
               </div>
             </div>
 
             <div className="mb-10">
               <h4 className="text-[#0c2f42] font-semibold text-2xl mb-4">
-                c. With Your Consent
+                {t("s3.consent.heading")}
               </h4>
               <div className="text-[#0c2f42] text-lg mb-4">
-                We may share your information for other purposes with your
-                explicit consent.
+                {t("s3.consent.body")}
               </div>
             </div>
 
@@ -204,15 +176,9 @@ export default function PrivacyPolicySection() {
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
             <h3 className="text-[#0c2f42] font-semibold text-5xl mb-10">
-              4. Data Retention
+              {t("s4.heading")}
             </h3>
-            <div className="text-[#0c2f42] text-lg mb-5">
-              We retain your personal information only as long as necessary to
-              fulfill the purposes outlined in this Privacy Policy or as
-              required by law. Non-personal information may be retained
-              indefinitely for analytical purposes.
-            </div>
-
+            <div className="text-[#0c2f42] text-lg mb-5">{t("s4.body")}</div>
             <hr className="border border-gray-300 mt-8" />
           </div>
         </section>
@@ -220,15 +186,9 @@ export default function PrivacyPolicySection() {
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
             <h3 className="text-[#0c2f42] font-semibold text-5xl mb-10">
-              5. Security of Your Information
+              {t("s5.heading")}
             </h3>
-            <div className="text-[#0c2f42] text-lg mb-5">
-              We implement reasonable security measures to protect your
-              information from unauthorized access, disclosure, alteration, or
-              destruction. However, no security system is entirely foolproof,
-              and we cannot guarantee the absolute security of your data.
-            </div>
-
+            <div className="text-[#0c2f42] text-lg mb-5">{t("s5.body")}</div>
             <hr className="border border-gray-300 mt-8" />
           </div>
         </section>
@@ -236,36 +196,25 @@ export default function PrivacyPolicySection() {
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
             <h3 className="text-[#0c2f42] font-semibold text-5xl mb-7">
-              6. Your Privacy Rights
+              {t("s6.heading")}
             </h3>
-            <div className="text-[#0c2f42] text-lg mb-10">
-              Depending on your location, you may have certain rights regarding
-              your personal information, including:
-            </div>
-
+            <div className="text-[#0c2f42] text-lg mb-10">{t("s6.intro")}</div>
             <ul className="list-disc mb-10 pl-10 space-y-3 text-lg text-[#0c2f42]">
-              <li>
-                The right to access, correct, or delete your personal
-                information.
-              </li>
-              <li>
-                The right to object to or restrict the processing of your data.
-              </li>
-              <li>The right to data portability.</li>
-              <li>The right to withdraw consent at any time.</li>
+              <li>{t("s6.li0")}</li>
+              <li>{t("s6.li1")}</li>
+              <li>{t("s6.li2")}</li>
+              <li>{t("s6.li3")}</li>
             </ul>
-
             <div className="text-[#0c2f42] text-lg mb-10">
-              To exercise your rights, please contact us at{" "}
+              {t("s6.contactBefore")}{" "}
               <a
                 href="mailto:sales@taypro.in"
                 className="text-[#A8C117] hover:underline"
               >
                 sales@taypro.in
               </a>
-              .
+              {t("s6.contactAfter")}
             </div>
-
             <hr className="border border-gray-300 mt-8" />
           </div>
         </section>
@@ -273,15 +222,9 @@ export default function PrivacyPolicySection() {
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
             <h3 className="text-[#0c2f42] font-semibold text-5xl mb-10">
-              7. Cookies and Tracking Technologies
+              {t("s7.heading")}
             </h3>
-            <div className="text-[#0c2f42] text-lg mb-5">
-              We use cookies and similar technologies to enhance your experience
-              on our website. You can control or disable cookies through your
-              browser settings. Note that disabling cookies may impact the
-              functionality of our Services.
-            </div>
-
+            <div className="text-[#0c2f42] text-lg mb-5">{t("s7.body")}</div>
             <hr className="border border-gray-300 mt-8" />
           </div>
         </section>
@@ -289,15 +232,9 @@ export default function PrivacyPolicySection() {
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
             <h3 className="text-[#0c2f42] font-semibold text-5xl mb-10">
-              8. Third-Party Links
+              {t("s8.heading")}
             </h3>
-            <div className="text-[#0c2f42] text-lg mb-5">
-              Our website may contain links to third-party websites. We are not
-              responsible for the privacy practices or content of these external
-              sites. Please review their privacy policies before providing any
-              information.
-            </div>
-
+            <div className="text-[#0c2f42] text-lg mb-5">{t("s8.body")}</div>
             <hr className="border border-gray-300 mt-8" />
           </div>
         </section>
@@ -305,15 +242,9 @@ export default function PrivacyPolicySection() {
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
             <h3 className="text-[#0c2f42] font-semibold text-5xl mb-10">
-              9. Children’s Privacy
+              {t("s9.heading")}
             </h3>
-            <div className="text-[#0c2f42] text-lg mb-5">
-              Our Services are not directed to individuals under the age of 18.
-              We do not knowingly collect personal information from children. If
-              we become aware that we have collected information from a child
-              without parental consent, we will delete it promptly.
-            </div>
-
+            <div className="text-[#0c2f42] text-lg mb-5">{t("s9.body")}</div>
             <hr className="border border-gray-300 mt-8" />
           </div>
         </section>
@@ -321,15 +252,9 @@ export default function PrivacyPolicySection() {
         <section className="w-full bg-white py-5 pb-20">
           <div className="max-w-6xl mx-auto px-6">
             <h3 className="text-[#0c2f42] font-semibold text-5xl mb-10">
-              10. Changes to This Privacy Policy
+              {t("s10.heading")}
             </h3>
-            <div className="text-[#0c2f42] text-lg mb-5">
-              We may update this Privacy Policy from time to time. Any changes
-              will be posted on this page with an updated “Effective Date.” We
-              encourage you to review this Privacy Policy periodically to stay
-              informed about how we are protecting your information.
-            </div>
-
+            <div className="text-[#0c2f42] text-lg mb-5">{t("s10.body")}</div>
             <hr className="border border-gray-300 mt-8" />
           </div>
         </section>
@@ -337,15 +262,14 @@ export default function PrivacyPolicySection() {
         <section className="w-full bg-white py-5 pb-10">
           <div className="max-w-6xl mx-auto px-6">
             <h3 className="text-[#0c2f42] font-semibold text-5xl mb-10">
-              11. Contact Us
+              {t("s11.heading")}
             </h3>
             <div className="text-[#0c2f42] text-lg mb-5">
-              If you have any questions or concerns about this Privacy Policy or
-              our data practices, please contact us:
+              {t("s11.intro")}
               <br />
               <br />
               <span>
-                Mail:{" "}
+                {t("s11.mailLabel")}{" "}
                 <a
                   href="mailto:sales@taypro.in"
                   className="hover:text-[#A8C117] transition-colors"
@@ -355,13 +279,7 @@ export default function PrivacyPolicySection() {
               </span>
               <span className="hidden sm:block mx-2"></span>
               <span>
-                Phone:{" "}
-                <a
-                  href="tel:08043843569"
-                  className="hover:text-[#A8C117] transition-colors"
-                >
-                  08043843569
-                </a>
+                {t("s11.phoneLabel")} <ContactPhoneLink />
               </span>
             </div>
           </div>

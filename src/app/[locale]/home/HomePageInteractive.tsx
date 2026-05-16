@@ -1,32 +1,41 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { ArrowRight, Check } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
 import FAQAccordion from "@/app/components/FAQAccordion";
 
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 
+function FormLoading() {
+  const t = useTranslations("Home.loading");
+  return (
+    <div className="min-h-[300px] flex items-center justify-center">
+      <div className="animate-pulse text-gray-400">{t("form")}</div>
+    </div>
+  );
+}
+
+function ClientsLoading() {
+  const t = useTranslations("Home.loading");
+  return (
+    <div className="min-h-[200px] flex items-center justify-center bg-white">
+      <div className="animate-pulse text-gray-400">{t("clients")}</div>
+    </div>
+  );
+}
+
 const RequestEstimateForm = dynamic(
   () => import("@/app/components/RequestEstimateForm"),
-  {
-    loading: () => (
-      <div className="min-h-[300px] flex items-center justify-center">
-        <div className="animate-pulse text-gray-400">Loading form…</div>
-      </div>
-    ),
-  }
+  { loading: () => <FormLoading /> }
 );
 
 const ClientsCard = dynamic(() => import("@/app/components/ClientsCard"), {
-  loading: () => (
-    <div className="min-h-[200px] flex items-center justify-center bg-white">
-      <div className="animate-pulse text-gray-400">Loading clients…</div>
-    </div>
-  ),
+  loading: () => <ClientsLoading />,
 });
 
 interface HomePageInteractiveProps {
@@ -40,9 +49,10 @@ export default function HomePageInteractive({
   otherFeatures,
   homeFaqs,
 }: HomePageInteractiveProps) {
+  const t = useTranslations("Home");
+
   return (
     <>
-      {/* Why Taypro */}
       <section
         className="py-14 md:py-20 bg-white"
         aria-labelledby="why-taypro-heading"
@@ -50,32 +60,30 @@ export default function HomePageInteractive({
         <Container>
           <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mx-auto text-center mb-12">
             <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
-              Why utility-scale operators choose Taypro
+              {t("whyTaypro.eyebrow")}
             </p>
             <h2
               id="why-taypro-heading"
               className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
             >
-              Waterless robots built for Indian solar plants
+              {t("whyTaypro.heading")}
             </h2>
             <p className="text-[#27415c] text-lg leading-relaxed">
-              From fixed-tilt fields to single-axis trackers—recover generation,
-              cut water use, and replace labour-heavy washing with a fleet you can
-              monitor on{" "}
+              {t("whyTaypro.bodyBeforeConsole")}{" "}
               <Link
                 href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                 className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
               >
-                Taypro Console
+                {t("whyTaypro.consoleLink")}
               </Link>
-              . See how{" "}
+              {t("whyTaypro.bodyBetween")}{" "}
               <Link
                 href="/cleaning-technology"
                 className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
               >
-                dual-pass dry cleaning
+                {t("whyTaypro.cleaningTechLink")}
               </Link>{" "}
-              works in the field.
+              {t("whyTaypro.bodyAfter")}
             </p>
           </AnimateOnScroll>
 
@@ -106,7 +114,6 @@ export default function HomePageInteractive({
         </Container>
       </section>
 
-      {/* Technology */}
       <section
         className="py-14 md:py-20 bg-[#052638]"
         aria-labelledby="technology-heading"
@@ -119,15 +126,14 @@ export default function HomePageInteractive({
                   id="technology-heading"
                   className="text-white font-semibold text-3xl md:text-4xl leading-tight"
                 >
-                  Advanced solar panel cleaning robot technology
+                  {t("technology.heading")}
                 </h2>
                 <p className="text-white/80 mt-4 text-lg leading-relaxed">
-                  Patented hardware and connectivity designed for dusty,
-                  utility-scale sites—documented across{" "}
+                  {t("technology.bodyBefore")}{" "}
                   <Link href="/projects" className="text-[#A8C117] hover:underline">
-                    live deployments
+                    {t("technology.deploymentsLink")}
                   </Link>
-                  .
+                  {t("technology.bodyAfter")}
                 </p>
               </AnimateOnScroll>
               {otherFeatures.map((feature, idx) => (
@@ -157,8 +163,8 @@ export default function HomePageInteractive({
               <div className="relative w-full max-w-md mx-auto lg:max-w-none">
                 <Image
                   src="/tayproasset/robots.png"
-                  alt="Taypro automatic, semi-automatic, and tracker solar panel cleaning robots"
-                  title="Taypro solar panel cleaning robot lineup"
+                  alt={t("technology.imageAlt")}
+                  title={t("technology.imageTitle")}
                   width={600}
                   height={900}
                   className="w-full h-auto"
@@ -170,7 +176,6 @@ export default function HomePageInteractive({
         </Container>
       </section>
 
-      {/* ROI teaser */}
       <section
         id="roi-calculator"
         className="py-14 md:py-20 bg-[#f4f7f9]"
@@ -182,17 +187,14 @@ export default function HomePageInteractive({
               id="home-roi-heading"
               className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
             >
-              Estimate robot payback for your plant
+              {t("roi.heading")}
             </h2>
-            <p className="text-[#27415c] text-lg leading-relaxed">
-              Run a directional ROI on labour, water, and generation savings—or open
-              the full calculator for PDF export and detailed assumptions.
-            </p>
+            <p className="text-[#27415c] text-lg leading-relaxed">{t("roi.body")}</p>
             <Link
               href="/solar-panel-cleaning-robot-price-calculator"
               className="inline-flex items-center gap-2 mt-4 text-[#5a8f00] font-semibold hover:underline"
             >
-              Open full ROI &amp; price calculator
+              {t("roi.link")}
               <ArrowRight className="w-4 h-4" aria-hidden />
             </Link>
           </AnimateOnScroll>
@@ -203,9 +205,12 @@ export default function HomePageInteractive({
         </Container>
       </section>
 
-      <ClientsCard />
+      <ClientsCard
+        heading={t("clients.heading")}
+        resolveLogoAlt={(index) => t("clients.logoAlt", { index })}
+        resolveLogoTitle={(index) => t("clients.logoTitle", { index })}
+      />
 
-      {/* FAQ */}
       <section
         className="py-14 md:py-20 bg-white"
         aria-labelledby="home-faq-heading"
@@ -216,11 +221,9 @@ export default function HomePageInteractive({
               id="home-faq-heading"
               className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3"
             >
-              Frequently asked questions
+              {t("faq.heading")}
             </h2>
-            <p className="text-[#27415c] text-lg">
-              Quick answers about Taypro cleaning robots in India.
-            </p>
+            <p className="text-[#27415c] text-lg">{t("faq.subheading")}</p>
           </AnimateOnScroll>
           <AnimateOnScroll animation="fadeInUp" delay={80}>
             <FAQAccordion faqs={homeFaqs} variant="modern" />
@@ -236,17 +239,16 @@ export default function HomePageInteractive({
         <Container size="narrow">
           <AnimateOnScroll animation="fadeInUp" className="text-center mb-8 md:mb-10">
             <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-2">
-              Get started
+              {t("quote.eyebrow")}
             </p>
             <h2
               id="home-quote-heading"
               className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3"
             >
-              Request a solar panel cleaning robot quote
+              {t("quote.heading")}
             </h2>
             <p className="text-[#27415c] text-lg leading-relaxed max-w-xl mx-auto">
-              Share plant capacity, layout, and procurement preference—our team will
-              recommend the right cleaning robot or Opex model for your site.
+              {t("quote.body")}
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll animation="fadeInUp" delay={80}>
@@ -255,9 +257,9 @@ export default function HomePageInteractive({
                 variant="embedded"
                 stackedEmbedded
                 showEmbeddedHeading={false}
-                submitLabel="Send request"
-                messageLabel="Plant details & requirements"
-                messagePlaceholder="e.g. 100 MW fixed tilt in Rajasthan, evaluating robots vs manual O&M…"
+                submitLabel={t("quote.submitLabel")}
+                messageLabel={t("quote.messageLabel")}
+                messagePlaceholder={t("quote.messagePlaceholder")}
               />
             </div>
           </AnimateOnScroll>

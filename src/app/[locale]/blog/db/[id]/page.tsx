@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
+import { getTranslations } from "next-intl/server";
+import { formatLocaleDate } from "@/i18n/format-date";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { BlogImage } from "@/app/components/BlogImage";
 import { BlogContent } from "@/app/components/BlogContent";
@@ -16,6 +18,7 @@ import {
 import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
 import { socialImagesFromMedia } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
+import { withHreflang } from "@/lib/seo/with-hreflang";
 
 /**
  * Returns the canonical /blog/[slug] path when this post is also published as
@@ -28,12 +31,12 @@ async function getPublishedSlug(slug?: string): Promise<string | null> {
   return post ? slug : null;
 }
 
-interface PageParams {
+interface BlogDbIdParams {
   id: string;
 }
 
 interface BlogPostProps {
-  params: Promise<PageParams>;
+  params: Promise<{ locale: string; id: string }>;
 }
 
 interface BlogData {
@@ -151,7 +154,7 @@ const siteUrl = SITE_URL;
 export async function generateMetadata({
   params,
 }: BlogPostProps): Promise<Metadata> {
-  const { id } = await params;
+  const { id, locale } = await params;
   const blog = await getBlogData(id);
 
   if (!blog) {
@@ -194,32 +197,37 @@ export async function generateMetadata({
     "blog"
   );
 
-  return {
-    title: blogPostMetadataTitle(blog.title, blog.description),
-    description: blogPostMetadataDescription(blog.title, blog.description),
-    keywords: blogKeywords,
-    openGraph: {
-      title: blogPostOpenGraphTitle(blog.title),
-      description: blog.description,
-      url: canonicalUrl,
-      type: "article",
-      publishedTime: blog.publishDate,
-      modifiedTime: modifiedIso,
-      ...shareImages.openGraph,
+  return withHreflang(
+    canonicalPath,
+    locale,
+    {
+      title: blogPostMetadataTitle(blog.title, blog.description),
+      description: blogPostMetadataDescription(blog.title, blog.description),
+      keywords: blogKeywords,
+      openGraph: {
+        title: blogPostOpenGraphTitle(blog.title),
+        description: blog.description,
+        url: canonicalUrl,
+        type: "article",
+        publishedTime: blog.publishDate,
+        modifiedTime: modifiedIso,
+        ...shareImages.openGraph,
+      },
+      twitter: {
+        title: blogPostOpenGraphTitle(blog.title),
+        description: blog.description.substring(0, 200),
+        ...shareImages.twitter,
+      },
     },
-    twitter: {
-      title: blogPostOpenGraphTitle(blog.title),
-      description: blog.description.substring(0, 200),
-      ...shareImages.twitter,
-    },
-    alternates: {
-      canonical: canonicalUrl,
-    },
-  };
+    { includeAllLocales: false }
+  );
 }
 
 export default async function BlogPost({ params }: BlogPostProps) {
-  const { id } = await params;
+  const { id, locale } = await params;
+  const t = await getTranslations({ locale, namespace: "BlogPage.post" });
+  const tCommon = await getTranslations({ locale, namespace: "Common" });
+
   const [blog, allBlogs] = await Promise.all([
     getBlogData(id),
     getAllBlogs(),
@@ -238,18 +246,15 @@ export default async function BlogPost({ params }: BlogPostProps) {
   }
 
   const breadcrumbs = [
-    { name: "Home", href: "/" },
-    { name: "Blog", href: "/blog" },
+    { name: tCommon("breadcrumbHome"), href: "/" },
+    { name: t("breadcrumbBlog"), href: "/blog" },
     { name: blog.title, href: "" },
   ];
 
-  const lastUpdatedDisplay = new Date(
+  const lastUpdatedDisplay = formatLocaleDate(
+    locale,
     blog.updatedAt || blog.publishDate
-  ).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  );
 
   return (
     <>
@@ -298,7 +303,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
                           clipRule="evenodd"
                         />
                       </svg>
-                      Last updated {lastUpdatedDisplay}
+                      {t("lastUpdated", { date: lastUpdatedDisplay })}
                     </span>
 
                     <span className="flex items-center gap-2">
@@ -366,7 +371,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
                         d="M10 19l-7-7m0 0l7-7m-7 7h18"
                       />
                     </svg>
-                    Back to All Blogs
+                    {t("backToAll")}
                   </Link>
                 </div>
               </article>

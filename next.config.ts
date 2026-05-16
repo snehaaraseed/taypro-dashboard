@@ -1,9 +1,11 @@
+const path = require("path");
 const createNextIntlPlugin = require("next-intl/plugin");
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  outputFileTracingRoot: path.join(__dirname),
   // Performance optimizations
   compress: true,
   poweredByHeader: false,
@@ -12,16 +14,17 @@ const nextConfig = {
   output: "standalone",
   serverExternalPackages: ["better-sqlite3"],
   // Enable experimental features for better performance
+  outputFileTracingIncludes: {
+    "/*": [
+      "./node_modules/sharp/**/*",
+      "./node_modules/@img/**/*",
+      "./public/**/*",
+      "./messages/**/*",
+    ],
+  },
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ["lucide-react", "@tiptap/react"],
-    outputFileTracingIncludes: {
-      "/*": [
-        "./node_modules/sharp/**/*",
-        "./node_modules/@img/**/*",
-        "./public/**/*",
-      ],
-    },
   },
   // Turbopack configuration (Next.js 16+)
   turbopack: {},
@@ -145,6 +148,29 @@ const nextConfig = {
     // Don't fail build on TypeScript errors (optional, for now we keep it strict)
     ignoreBuildErrors: false,
   },
+  // Locale-prefixed requests to /public assets (e.g. /hi/360-degree-images/...) → root path
+  async rewrites() {
+    const locales = ["hi", "ar", "ja", "bn", "en"];
+    const publicRoots = [
+      "360-degree-images",
+      "tayproasset",
+      "tayprobglayout",
+      "tayproclients",
+      "tayproenergyresource",
+      "tayprofounders",
+      "tayprokeymetrics",
+      "tayprorobots",
+      "tayprosolarfirm",
+      "tayprosolarpanel",
+      "blogs",
+    ];
+    return locales.flatMap((locale) =>
+      publicRoots.map((root) => ({
+        source: `/${locale}/${root}/:path*`,
+        destination: `/${root}/:path*`,
+      }))
+    );
+  },
   // Permanent redirects (SEO: avoid duplicate URLs)
   async redirects() {
     return [
@@ -165,6 +191,16 @@ const nextConfig = {
       {
         source: "/contact/thank-you",
         destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/en",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/en/:path*",
+        destination: "/:path*",
         permanent: true,
       },
     ];

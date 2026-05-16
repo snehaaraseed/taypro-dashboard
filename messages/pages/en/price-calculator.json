@@ -1,0 +1,209 @@
+{
+  "PriceCalculatorPage": {
+    "meta": {
+      "title": "Solar Panel Cleaning Robot Price & ROI Calculator | Taypro India",
+      "description": "Free solar panel cleaning robot price and ROI calculator for utility-scale and commercial PV plants. Estimate payback, annual savings, water avoided, investment, and CO₂ impact—then request a tailored Taypro quote.",
+      "openGraphTitle": "Solar Panel Cleaning Robot Price & ROI Calculator | Taypro",
+      "openGraphDescription": "Estimate robot investment, payback, labour savings, and generation gain for your solar plant. Free online tool by Taypro.",
+      "twitterTitle": "Solar Panel Cleaning Robot ROI Calculator | Taypro",
+      "twitterDescription": "Estimate payback and savings for Taypro cleaning robots on your solar plant.",
+      "keyword0": "solar panel cleaning robot price calculator",
+      "keyword1": "solar panel cleaning robot ROI calculator",
+      "keyword2": "solar cleaning robot cost calculator India",
+      "keyword3": "automatic solar panel cleaning robot investment",
+      "keyword4": "solar panel cleaning robot payback period",
+      "keyword5": "utility scale solar cleaning robot price",
+      "keyword6": "taypro ROI calculator",
+      "keyword7": "solar O&M robot savings calculator"
+    },
+    "breadcrumbs": {
+      "calculator": "ROI & price calculator"
+    },
+    "schema": {
+      "softwareName": "Taypro Solar Panel Cleaning Robot ROI Calculator",
+      "softwareDescription": "Free online calculator to estimate solar panel cleaning robot investment, payback, labour savings, water avoided, and generation gain for utility-scale and commercial PV plants in India."
+    },
+    "hero": {
+      "eyebrow": "Free online tool",
+      "titleLine1": "Solar panel cleaning robot",
+      "titleLine2": "price & ROI calculator",
+      "bodyBeforeLink": "Estimate payback, annual savings, water avoided, and indicative investment for",
+      "bodyLink": "Taypro autonomous and semi-automatic cleaning robots",
+      "bodyAfterLink": "on your plant—before you request a site-specific quote.",
+      "calculatorSrOnly": "Solar panel cleaning robot ROI calculator"
+    },
+    "note": {
+      "label": "Note:",
+      "beforeOpexLink": "ROI is based on representative assumptions for Indian utility-scale and commercial plants. Actual payback varies with layout, soiling, cycle cadence, and whether you choose CAPEX purchase or",
+      "opexLink": "Taypro Opex",
+      "afterOpexLink": "."
+    },
+    "stats": {
+      "eyebrow": "Why operators model ROI",
+      "heading": "Scale Taypro has already proven in the field",
+      "stat0": { "label": "Robot Capacity Deployed" },
+      "stat1": { "label": "Plant Installations" },
+      "stat2": { "label": "Liters of Water Saved Annually" },
+      "stat3": { "label": "Robots Manufacturing Capacity per Month" }
+    },
+    "benefits": {
+      "heading": "What this calculator estimates",
+      "subheading": "Directional figures for developers, EPC teams, and O&M leads evaluating robotic cleaning against manual labour and wet washing—not a binding price list.",
+      "item0": {
+        "title": "Labour & O&M savings",
+        "description": "Compare manual washing crews and downtime against automated dry-cleaning cycles scaled to your DC capacity."
+      },
+      "item1": {
+        "title": "Water avoided",
+        "description": "Taypro robots are waterless—see estimated litres not consumed versus periodic wet washing on dusty sites."
+      },
+      "item2": {
+        "title": "Generation recovered",
+        "description": "Model soiling loss against tariff to quantify annual energy gain from more consistent panel cleanliness."
+      }
+    },
+    "howItWorks": {
+      "heading": "How to use this tool",
+      "subheading": "Three steps from rough estimate to a conversation with our applications team.",
+      "step0": {
+        "title": "Enter plant inputs",
+        "description": "Ground-mount or rooftop, fixed tilt / seasonal tilt / trackers, automation level, MW or kW capacity, tariff, and module wattage."
+      },
+      "step1": {
+        "title": "Run the estimate",
+        "description": "The model applies Taypro deployment assumptions—cycle cadence, dual-pass dry cleaning, and representative Indian utility tariffs."
+      },
+      "step2": {
+        "title": "Download or talk to us",
+        "description": "Export a PDF summary for internal review, then share it with our applications team for a plant-specific quote and SLA draft."
+      }
+    },
+    "models": {
+      "heading": "Match results to the right robot",
+      "subheading": "The calculator's automation and installation inputs align with Taypro's product line. Explore specifications before you finalize procurement.",
+      "viewDetails": "View details",
+      "robot0": {
+        "description": "Fully autonomous, waterless dry cleaning with dual-pass airflow and microfiber—AI scheduling for fixed and seasonal-tilt utility plants."
+      },
+      "robot1": {
+        "description": "Portable pick-and-place dry cleaning robot for scattered blocks and plants that need flexible crew-assisted coverage."
+      },
+      "robot2": {
+        "description": "Autonomous waterless robot for single-axis trackers—flexible bridge and 360° rotation across tracker brands."
+      },
+      "robot3": {
+        "description": "Pay-per-panel-cleaned Opex—Taypro operates the cleaning robot fleet on your plant with no upfront CAPEX."
+      }
+    },
+    "methodology": {
+      "eyebrow": "Methodology",
+      "heading": "What goes into the numbers",
+      "paragraph0": "The calculator converts plant size, per-kWh tariff, assumed soiling recovery, and representative cleaning-cycle economics into annual generation gain, water savings, labour avoided, and a payback estimate. It reflects utility-scale conditions on Indian plants where Taypro robots operate today—fixed-tilt or single-axis tracker, dusty agricultural or arid environments, and roughly 3–10 dry cleaning cycles per month.",
+      "paragraph1BeforeTech": "Final figures depend on your",
+      "paragraph1TechLink": "cleaning technology and dual-pass methodology",
+      "paragraph1Between": ", the robot model for your layout (",
+      "paragraph1ModelA": "Model-A",
+      "paragraph1BetweenModels": ",",
+      "paragraph1ModelB": "Model-B",
+      "paragraph1Or": "or",
+      "paragraph1ModelT": "Model-T",
+      "paragraph1AfterModels": "), and CAPEX versus",
+      "paragraph1OpexLink": "Taypro Opex",
+      "paragraph1AfterOpex": ". Compare models on the",
+      "paragraph1OverviewLink": "solar panel cleaning robot overview",
+      "paragraph1End": ".",
+      "paragraph2BeforeConsole": "Track fleet performance after deployment with",
+      "paragraph2ConsoleLink": "Taypro Console",
+      "paragraph2Between": ". For real project economics, browse our",
+      "paragraph2ProjectsLink": "installation case studies",
+      "paragraph2End": ".",
+      "ctaTopic": "Solar Panel Cleaning Robot quote (ROI calculator)",
+      "ctaTitle": "Get a tailored ROI quote",
+      "ctaSubtitle": "Share a few plant details — our team will turn the calculator estimate into a precise number for your site.",
+      "ctaButton": "Get a tailored ROI quote",
+      "contactButton": "Contact Taypro"
+    },
+    "faq": {
+      "heading": "Frequently asked questions",
+      "subheading": "Common questions about robot pricing, payback, and how this tool relates to a formal Taypro proposal.",
+      "q0": "Is this solar panel cleaning robot price calculator the same as a formal quote?",
+      "a0": "No. This tool gives a directional ROI and investment band based on typical Taypro deployments. A formal quote accounts for your exact row lengths, tracker brand, soiling study, procurement model (CAPEX vs Taypro Opex), and service scope. Use the results as a starting point, then contact Taypro or open the lead form with your plant details.",
+      "q1": "What plant sizes does the ROI calculator support?",
+      "a1": "Ground-mount utility plants from 1 MW to 10 GW (model cap) and rooftop sites from 100 kW to 10 MW. Defaults assume utility-scale tariffs (~₹3/kWh ground, ~₹10/kWh rooftop) which you can override. For very large or multi-block sites, our team refines robot counts and pricing after layout review.",
+      "q2": "Which Taypro robot models does the calculator assume?",
+      "a2": "Automation level maps to fully automatic (Model-A / Model-T class) versus semi-automatic (Model-B). Installation type adjusts multipliers for fixed tilt, seasonal tilt, or single-axis trackers. For model-by-model specifications, see Model-A, Model-B, and Model-T product pages linked below.",
+      "q3": "Can I use Taypro Opex instead of buying robots outright?",
+      "a3": "Yes. Many developers choose Taypro Opex—pay per panel cleaned with Taypro operating the fleet. The calculator models CAPEX-style investment; for Opex economics, mention your preference when requesting a tailored quote and we will align the business case to your procurement model.",
+      "q4": "How accurate are the water and carbon figures?",
+      "a4": "Water savings assume dry cleaning replaces a representative wet-wash schedule. Carbon figures use standard grid emission factors applied to recovered generation. Both are indicative; your site's actual numbers depend on cleaning frequency, soiling rate, and regional grid intensity."
+    },
+    "explore": {
+      "heading": "Continue exploring",
+      "subheading": "Deep-dive on technology, deployments, or speak with our team.",
+      "link0": "Solar cleaning robots overview",
+      "link1": "Cleaning technology & dual-pass",
+      "link2": "Installation projects",
+      "link3": "Contact Taypro"
+    },
+    "calculator": {
+      "title": "ROI Calculator",
+      "plantType": "Plant Type",
+      "installationType": "Installation Type",
+      "automationLevel": "Automation Level",
+      "plantCapacityMw": "Plant Capacity (MW)",
+      "plantCapacityKw": "Plant Capacity (KW)",
+      "electricityTariff": "Electricity Tariff (₹/kWh)",
+      "moduleCapacity": "Module Capacity (Wp)",
+      "minMaxMw": "Min:1 Max:10000",
+      "minMaxKw": "Min:100 Max:10000",
+      "minMaxTariff": "Min:1 Max:50",
+      "minMaxModule": "Min:1 Max:1000",
+      "calculateButton": "Calculate ROI",
+      "resultsHeading": "Your estimate",
+      "collapseResults": "Collapse results",
+      "hideResults": "Hide ▲",
+      "paybackTimeline": "Payback timeline",
+      "annualSavings": "Annual savings",
+      "yearsUnit": "years",
+      "yearsCapitalized": "Years",
+      "litersUnit": "Liters",
+      "resultLabourSaved": "Annual Cost Of Labour Saved",
+      "resultWaterSaved": "Annual Cost Of Water Saved",
+      "resultEnergyGain": "Annual Cost Of Energy Gain",
+      "resultTotalSaved": "Total Money Saved Annually",
+      "resultInvestment": "Total Investment Required",
+      "resultRoiTimeline": "Return On Investment Timeline",
+      "resultAnnualisedRoi": "Annualised Return On Investment",
+      "resultRoi20Years": "ROI for 20 Years of Operation",
+      "resultWaterLiters": "Amount Of Water Saved Annually (Liters)",
+      "resultCarbon": "Annual Carbon Savings (kg CO₂)",
+      "downloadPdf": "Download complete report (PDF)",
+      "plantTypeGroundMount": "Ground Mount",
+      "plantTypeRooftop": "Rooftop",
+      "installationFixedTilt": "Fixed Tilt",
+      "installationSeasonalTilt": "Seasonal Tilt",
+      "installationSingleAxis": "Single Axis Tracker",
+      "automationAutomatic": "Waterless Automatic Solar Panel Cleaning Robots",
+      "automationSemiAutomatic": "Waterless Semi-Automatic Solar Panel Cleaning Robots",
+      "pdfTitle": "ROI Calculator Report",
+      "pdfInputs": "Inputs",
+      "pdfResults": "Results",
+      "pdfParameter": "Parameter",
+      "pdfValue": "Value",
+      "pdfPlantCapacityMw": "Plant Capacity (MW)",
+      "pdfPlantCapacityKw": "Plant Capacity (KW)",
+      "pdfElectricityTariff": "Electricity Tariff (Rs/kWh)",
+      "pdfModuleCapacity": "Module Capacity (Wp)",
+      "pdfCarbonUnit": "kg CO2"
+    },
+    "embed": {
+      "loading": "Loading calculator…",
+      "loadingAria": "Loading calculator",
+      "disclaimerNote": "Note:",
+      "disclaimerBody": "ROI is based on representative Taypro deployment assumptions. Contact us for a formal quote and plant-specific model."
+    }
+  },
+  "Common": {
+    "breadcrumbHome": "Home"
+  }
+}

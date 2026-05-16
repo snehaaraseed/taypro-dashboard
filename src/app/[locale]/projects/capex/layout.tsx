@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { defineLocalizedMetadata } from "@/lib/seo/with-hreflang";
 import { socialImagesFromPreset } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 
 const siteUrl = SITE_URL;
 const og = socialImagesFromPreset("opex");
 
-export const metadata: Metadata = {
+export const generateMetadata = defineLocalizedMetadata("/projects/capex", () => ({
   title: "CAPEX Solar Panel Cleaning Robot Projects | Taypro",
   description:
     "Explore Taypro's CAPEX model Solar Panel Cleaning Robot projects. Capital expenditure projects with automatic and semi-automatic robotic cleaning systems for solar farms.",
@@ -29,11 +30,7 @@ export const metadata: Metadata = {
     title: "CAPEX Solar Panel Cleaning Robot Projects | Taypro",
     description: "CAPEX model Solar Panel Cleaning Robot projects for solar farms.",
     ...og.twitter,
-  },
-  alternates: {
-    canonical: `${siteUrl}/projects/capex`,
-  },
-};
+  }}));
 
 export default function CapexProjectLayout({
   children,

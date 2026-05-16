@@ -1,0 +1,179 @@
+{
+  "Home": {
+    "meta": {
+      "title": "Solar Panel Cleaning Robot | Taypro - Autonomous Waterless Solar Cleaning",
+      "description": "Autonomous and semi-automatic waterless solar panel cleaning robots for utility-scale plants in India. Dual-pass dry cleaning, fleet monitoring, and pan-India service by Taypro.",
+      "ogTitle": "Solar Panel Cleaning Robot | Taypro - Autonomous Waterless Solar Cleaning",
+      "ogDescription": "Autonomous waterless solar panel cleaning robots for utility-scale plants in India—dual-pass dry cleaning and Taypro Console fleet monitoring.",
+      "twitterTitle": "Solar Panel Cleaning Robot | Taypro",
+      "twitterDescription": "Autonomous and semi-automatic waterless solar panel cleaning robots for utility-scale solar farms in India."
+    },
+    "schema": {
+      "video": {
+        "name": "TAYPRO - Autonomous Solar Panel Cleaning Robot",
+        "description": "How Taypro's waterless solar panel cleaning robots clean utility-scale plants in India—autonomous dry cleaning with AI scheduling and fleet monitoring."
+      },
+      "product": {
+        "name": "Taypro Solar Panel Cleaning Robot",
+        "description": "Autonomous and semi-automatic waterless solar panel cleaning robots with dual-pass dry cleaning and fleet monitoring for utility-scale plants in India.",
+        "brand": "Taypro",
+        "offersPrice": "Contact for pricing"
+      }
+    },
+    "hero": {
+      "eyebrow": "Made in India · 5 GW+ deployed",
+      "titleBefore": "Autonomous",
+      "titleHighlight": "solar panel cleaning robots",
+      "titleAfter": "for utility-scale plants",
+      "bodyBeforeProjects": "Waterless dry cleaning, AI-driven scheduling, and the highest uptime guarantee—built for fixed tilt, seasonal tilt, and single-axis tracker sites across India. Explore",
+      "bodyProjectsLink": "live projects",
+      "bodyBetweenLinks": "or read insights on our",
+      "bodyBlogLink": "blog",
+      "bodyAfterBlog": ".",
+      "videoTitle": "Taypro autonomous solar panel cleaning robot — waterless utility-scale cleaning",
+      "videoPlayLabel": "Play video: {title}",
+      "ctaQuote": "Get a quote",
+      "ctaQuoteTopic": "Homepage hero",
+      "ctaQuoteTitle": "Request a solar cleaning robot quote",
+      "ctaQuoteSubtitle": "Tell us about your plant and we'll recommend Model-A, B, or T.",
+      "ctaExplore": "Explore robots",
+      "ctaRoi": "ROI calculator"
+    },
+    "stats": {
+      "stat0": { "label": "Robot Capacity Deployed" },
+      "stat1": { "label": "Plant Installations" },
+      "stat2": { "label": "Liters of Water Saved Annually" },
+      "stat3": { "label": "Robots Manufacturing Capacity per Month" }
+    },
+    "robots": {
+      "eyebrow": "Product lineup",
+      "heading": "Solar panel cleaning robots & services",
+      "subheadingBefore": "Automatic, semi-automatic, and tracker-ready solar panel cleaning robots—plus managed cleaning service and fleet software.",
+      "compareLink": "Compare solar panel cleaning robots",
+      "subheadingAfter": ".",
+      "waterlessEyebrow": "Waterless cleaning robots",
+      "serviceEyebrow": "Service & fleet software",
+      "robot0": {
+        "marketingName": "Automatic solar panel cleaning robot",
+        "description": "Fully autonomous, waterless dry cleaning with dual-pass airflow and microfiber—AI scheduling for fixed and seasonal-tilt utility plants."
+      },
+      "robot1": {
+        "marketingName": "Semi-automatic solar panel cleaning robot",
+        "description": "Portable pick-and-place dry cleaning robot for scattered blocks and plants that need flexible crew-assisted coverage."
+      },
+      "robot2": {
+        "marketingName": "Tracker solar panel cleaning robot",
+        "description": "Autonomous waterless robot for single-axis trackers—flexible bridge and 360° rotation across tracker brands."
+      },
+      "robot3": {
+        "marketingName": "Robotic solar panel cleaning service",
+        "description": "Pay-per-panel-cleaned Opex—Taypro operates the cleaning robot fleet on your plant with no upfront CAPEX."
+      },
+      "robot4": {
+        "marketingName": "Solar cleaning robot monitoring software",
+        "description": "Fleet portal to schedule, monitor, and report on solar panel cleaning robots across your site."
+      }
+    },
+    "features": {
+      "feature0": {
+        "title": "Maximise plant efficiency",
+        "description": "Waterless robotic cleaning reduces soiling losses on utility-scale plants—recovering generation that manual washing often cannot sustain at scale."
+      },
+      "feature1": {
+        "title": "Consistent performance ratio",
+        "description": "Scheduled dry cycles help keep performance ratio stable through dusty seasons, without water logistics or crew availability gaps."
+      },
+      "feature2": {
+        "title": "Highest uptime guarantee",
+        "description": "Taypro targets industry-leading robot availability with pan-India spares, Console remote diagnostics, and structured AMC support."
+      },
+      "feature3": {
+        "title": "Same-day breakdown resolution",
+        "description": "Field engineers and regional inventory support same-day on-site response across India—backed by Taypro Console ticketing."
+      }
+    },
+    "otherFeatures": {
+      "feature0": {
+        "title": "Patented dual-pass cleaning",
+        "description": "Airflow lifts dry dust first, then microfiber completes the wipe—see our cleaning technology page for the full methodology."
+      },
+      "feature1": {
+        "title": "RF mesh & fleet connectivity",
+        "description": "LTE, Wi-Fi, hybrid RF mesh, LoRa, and LoRaWAN—sized per site so robots and Taypro Console stay connected in the field."
+      },
+      "feature2": {
+        "title": "AI/ML scheduling",
+        "description": "Automatic cleaning robots adjust cycle cadence from weather and soiling inputs—fewer wasted runs, more predictable O&M."
+      },
+      "feature3": {
+        "title": "Made in India",
+        "description": "Designed and manufactured at our Chakan, Pune hub with TÜV NORD certified hardware and patents on core cleaning systems."
+      }
+    },
+    "whyTaypro": {
+      "eyebrow": "Why utility-scale operators choose Taypro",
+      "heading": "Waterless robots built for Indian solar plants",
+      "bodyBeforeConsole": "From fixed-tilt fields to single-axis trackers—recover generation, cut water use, and replace labour-heavy washing with a fleet you can monitor on",
+      "consoleLink": "Taypro Console",
+      "bodyBetween": ". See how",
+      "cleaningTechLink": "dual-pass dry cleaning",
+      "bodyAfter": "works in the field."
+    },
+    "technology": {
+      "heading": "Advanced solar panel cleaning robot technology",
+      "bodyBefore": "Patented hardware and connectivity designed for dusty, utility-scale sites—documented across",
+      "deploymentsLink": "live deployments",
+      "bodyAfter": ".",
+      "imageAlt": "Taypro automatic, semi-automatic, and tracker solar panel cleaning robots",
+      "imageTitle": "Taypro solar panel cleaning robot lineup"
+    },
+    "roi": {
+      "heading": "Estimate robot payback for your plant",
+      "body": "Run a directional ROI on labour, water, and generation savings—or open the full calculator for PDF export and detailed assumptions.",
+      "link": "Open full ROI & price calculator"
+    },
+    "clients": {
+      "heading": "Our Esteemed Clients",
+      "logoAlt": "Taypro Solar Panel Cleaning Robot Client {index} - Partner using Taypro robotic cleaning solutions",
+      "logoTitle": "Taypro Solar Panel Cleaning Robot Client {index}"
+    },
+    "faq": {
+      "heading": "Frequently asked questions",
+      "subheading": "Quick answers about Taypro cleaning robots in India.",
+      "q0": "What is a solar panel cleaning robot?",
+      "a0": "A solar panel cleaning robot autonomously removes dust and soiling from PV modules—typically without water. On Indian utility-scale plants, soiling can suppress generation significantly; robotic dry cleaning helps recover yield with predictable cycles and lower O&M friction than manual crews.",
+      "q1": "Which solar panel cleaning robot is right for my plant?",
+      "a1Before": "Fixed and seasonal-tilt utility plants typically use fully automatic waterless robots. Single-axis tracker sites need tracker-compatible autonomous robots. Scattered or smaller blocks often suit semi-automatic portable robots. You can also choose robotic cleaning as a managed Opex service. Compare options on the",
+      "a1Link": "solar panel cleaning robots hub",
+      "a1After": ".",
+      "q2": "Do Taypro robots use water?",
+      "a2": "No. Taypro uses patented dual-pass dry cleaning—airflow plus microfiber—so you avoid water tankers, module thermal shock, and scarcity constraints in dry regions.",
+      "q3": "How do I estimate ROI before buying?",
+      "a3": "Use the free solar panel cleaning robot ROI calculator on taypro.in, then contact our applications team with your layout for a plant-specific quote and SLA draft.",
+      "q4": "Where are Taypro robots made and supported?",
+      "a4": "Taypro designs and manufactures in Chakan, Pune, with pan-India commissioning, spares, and same-day breakdown targets backed by Taypro Console remote diagnostics."
+    },
+    "quote": {
+      "eyebrow": "Get started",
+      "heading": "Request a solar panel cleaning robot quote",
+      "body": "Share plant capacity, layout, and procurement preference—our team will recommend the right cleaning robot or Opex model for your site.",
+      "submitLabel": "Send request",
+      "messageLabel": "Plant details & requirements",
+      "messagePlaceholder": "e.g. 100 MW fixed tilt in Rajasthan, evaluating robots vs manual O&M…"
+    },
+    "projects": {
+      "eyebrow": "Proven in the field",
+      "heading": "Utility-scale cleaning robot deployments",
+      "subheading": "Browse case studies from Indian solar plants using Taypro autonomous and semi-automatic robots."
+    },
+    "blog": {
+      "heading": "From the blog",
+      "subheading": "O&M guides, soiling, and robotic cleaning economics.",
+      "viewAll": "View all articles"
+    },
+    "loading": {
+      "form": "Loading form…",
+      "clients": "Loading clients…"
+    }
+  }
+}

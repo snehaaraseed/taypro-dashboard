@@ -14,7 +14,8 @@ This system automatically generates unique, SEO-optimized blog posts daily about
 2. **Environment Variables:**
    The `GEMINI_API_KEY` has been added to `.env.local`. Make sure it's set:
    ```
-   GEMINI_API_KEY=AIzaSyAGS1pDJ_ZCwuOW68JUnQ9JgMAOq6I1IAk
+   GEMINI_API_KEY=your-gemini-api-key
+   AUTOMATION_CRON_SECRET=long-random-secret-for-cron-only
    ```
 
 ## Usage
@@ -23,7 +24,8 @@ This system automatically generates unique, SEO-optimized blog posts daily about
 
 **Generate a blog manually:**
 ```bash
-curl -X POST http://localhost:3000/api/automation/generate-blog
+curl -X POST http://localhost:3000/api/automation/generate-blog \
+  -H "Authorization: Bearer $AUTOMATION_CRON_SECRET"
 ```
 
 **Check if blog created today:**
@@ -44,12 +46,12 @@ If you have SSH access to your server:
 
 2. **Add daily job (runs at 9 AM):**
    ```bash
-   0 9 * * * curl -X POST https://taypro.in/api/automation/generate-blog
+   0 9 * * * curl -X POST https://taypro.in/api/automation/generate-blog -H "Authorization: Bearer $AUTOMATION_CRON_SECRET"
    ```
 
 3. **Or with logging:**
    ```bash
-   0 9 * * * curl -X POST https://taypro.in/api/automation/generate-blog >> /var/log/blog-automation.log 2>&1
+   0 9 * * * curl -X POST https://taypro.in/api/automation/generate-blog -H "Authorization: Bearer $AUTOMATION_CRON_SECRET" >> /var/log/blog-automation.log 2>&1
    ```
 
 #### Option 2: External Cron Service
@@ -63,7 +65,7 @@ Use services like:
 1. Create account on chosen service
 2. Add new cron job
 3. URL: `https://taypro.in/api/automation/generate-blog`
-4. Method: POST
+4. Method: POST with header `Authorization: Bearer <AUTOMATION_CRON_SECRET>`
 5. Schedule: Daily at your preferred time (e.g., 9:00 AM)
 
 #### Option 3: Vercel Cron (if deployed on Vercel)
@@ -94,7 +96,8 @@ Create `vercel.json`:
 
 ```bash
 # Test the endpoint
-curl -X POST http://localhost:3000/api/automation/generate-blog
+curl -X POST http://localhost:3000/api/automation/generate-blog \
+  -H "Authorization: Bearer $AUTOMATION_CRON_SECRET"
 ```
 
 Expected response:

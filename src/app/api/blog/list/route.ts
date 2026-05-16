@@ -15,9 +15,11 @@ export interface DynamicBlog {
   id?: string;
 }
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
-    const metadataList = await listAllBlogs(false);
+    const { searchParams } = new URL(request.url);
+    const locale = searchParams.get("locale") ?? undefined;
+    const metadataList = await listAllBlogs(false, locale);
     const allBlogs: DynamicBlog[] = metadataList.map((metadata) => ({
       ...metadata,
       href: `/blog/${metadata.slug}`,

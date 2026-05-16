@@ -1,0 +1,179 @@
+{
+  "Home": {
+    "meta": {
+      "title": "ソーラーパネル清掃ロボット | Taypro - 自律型ウォーターレス清掃",
+      "description": "インドのユーティリティ規模プラント向け自律型・半自動ウォーターレスソーラーパネル清掃ロボット。デュアルパス乾式清掃、フリート監視、Tayproの全国サービス。",
+      "ogTitle": "ソーラーパネル清掃ロボット | Taypro - 自律型ウォーターレス清掃",
+      "ogDescription": "インドのユーティリティ規模プラント向け自律型ウォーターレスソーラーパネル清掃ロボット—デュアルパス乾式清掃とTaypro Consoleフリート監視。",
+      "twitterTitle": "ソーラーパネル清掃ロボット | Taypro",
+      "twitterDescription": "インドのユーティリティ規模ソーラーファーム向け自律型・半自動ウォーターレスソーラーパネル清掃ロボット。"
+    },
+    "schema": {
+      "video": {
+        "name": "TAYPRO - 自律型ソーラーパネル清掃ロボット",
+        "description": "Tayproのウォーターレスソーラーパネル清掃ロボットがインドのユーティリティ規模プラントを清掃する様子—AIスケジューリングとフリート監視による自律乾式清掃。"
+      },
+      "product": {
+        "name": "Tayproソーラーパネル清掃ロボット",
+        "description": "インドのユーティリティ規模プラント向けデュアルパス乾式清掃とフリート監視を備えた自律型・半自動ウォーターレスソーラーパネル清掃ロボット。",
+        "brand": "Taypro",
+        "offersPrice": "価格はお問い合わせください"
+      }
+    },
+    "hero": {
+      "eyebrow": "Made in India · 5 GW+ 導入実績",
+      "titleBefore": "自律型",
+      "titleHighlight": "ソーラーパネル清掃ロボット",
+      "titleAfter": "ユーティリティ規模プラント向け",
+      "bodyBeforeProjects": "ウォーターレス乾式清掃、AIスケジューリング、最高のアップタイム保証—インド全土の固定傾斜・季節傾斜・単軸トラッカーサイト向け。",
+      "bodyProjectsLink": "稼働プロジェクト",
+      "bodyBetweenLinks": "を見るか、",
+      "bodyBlogLink": "ブログ",
+      "bodyAfterBlog": "でインサイトを読む。",
+      "videoTitle": "Taypro自律型ソーラーパネル清掃ロボット — ウォーターレスユーティリティ規模清掃",
+      "videoPlayLabel": "動画を再生: {title}",
+      "ctaQuote": "見積もりを取得",
+      "ctaQuoteTopic": "ホームページヒーロー",
+      "ctaQuoteTitle": "ソーラー清掃ロボットの見積もり依頼",
+      "ctaQuoteSubtitle": "プラントについてお聞かせください—Model-A、B、Tをご提案します。",
+      "ctaExplore": "ロボットを見る",
+      "ctaRoi": "ROI計算機"
+    },
+    "stats": {
+      "stat0": { "label": "導入ロボット容量" },
+      "stat1": { "label": "プラント導入数" },
+      "stat2": { "label": "年間節水量（リットル）" },
+      "stat3": { "label": "月間ロボット製造能力" }
+    },
+    "robots": {
+      "eyebrow": "製品ラインナップ",
+      "heading": "ソーラーパネル清掃ロボットとサービス",
+      "subheadingBefore": "自動・半自動・トラッカー対応ソーラーパネル清掃ロボット—管理清掃サービスとフリートソフトウェアも。",
+      "compareLink": "ソーラーパネル清掃ロボットを比較",
+      "subheadingAfter": "。",
+      "waterlessEyebrow": "ウォーターレス清掃ロボット",
+      "serviceEyebrow": "サービスとフリートソフトウェア",
+      "robot0": {
+        "marketingName": "自動ソーラーパネル清掃ロボット",
+        "description": "完全自律型ウォーターレス乾式清掃—デュアルパス気流とマイクロファイバー、固定・季節傾斜ユーティリティ向けAIスケジューリング。"
+      },
+      "robot1": {
+        "marketingName": "半自動ソーラーパネル清掃ロボット",
+        "description": "分散ブロックや柔軟なクルー支援カバレッジが必要なプラント向けポータブルピックアンドプレース乾式清掃ロボット。"
+      },
+      "robot2": {
+        "marketingName": "トラッカー用ソーラーパネル清掃ロボット",
+        "description": "単軸トラッカー向け自律型ウォーターレスロボット—柔軟ブリッジとトラッカーブランド横断360°回転。"
+      },
+      "robot3": {
+        "marketingName": "ロボットソーラーパネル清掃サービス",
+        "description": "パネル清掃ごとのOpex—前払いCAPEXなしでTayproがプラントで清掃ロボットフリートを運用。"
+      },
+      "robot4": {
+        "marketingName": "ソーラー清掃ロボット監視ソフトウェア",
+        "description": "サイト全体のソーラーパネル清掃ロボットをスケジュール・監視・レポートするフリートポータル。"
+      }
+    },
+    "features": {
+      "feature0": {
+        "title": "プラント効率を最大化",
+        "description": "ウォーターレスロボット清掃はユーティリティ規模の汚損損失を低減—手洗いでは規模で維持しにくい発電量を回復。"
+      },
+      "feature1": {
+        "title": "安定した性能比",
+        "description": "定期乾式サイクルは粉塵シーズンでも性能比を安定—水物流やクルー不足のギャップなし。"
+      },
+      "feature2": {
+        "title": "最高のアップタイム保証",
+        "description": "Tayproは全国スペア、Consoleリモート診断、構造化AMCで業界トップのロボット可用性を目指します。"
+      },
+      "feature3": {
+        "title": "当日故障対応",
+        "description": "フィールドエンジニアと地域在庫がインド全土で当日オンサイト対応—Taypro Consoleチケットで支援。"
+      }
+    },
+    "otherFeatures": {
+      "feature0": {
+        "title": "特許デュアルパス清掃",
+        "description": "気流が乾燥粉塵を先に持ち上げ、マイクロファイバーが拭き上げ—詳細は清掃技術ページへ。"
+      },
+      "feature1": {
+        "title": "RFメッシュとフリート接続",
+        "description": "LTE、Wi-Fi、ハイブリッド自己修復RFメッシュ、LoRa、LoRaWAN—サイトごとに最適化しロボットとTaypro Consoleを現場で接続。"
+      },
+      "feature2": {
+        "title": "AI/MLスケジューリング",
+        "description": "自動清掃ロボットが天候と汚損入力からサイクル頻度を調整—無駄な運転を減らしO&Mを予測可能に。"
+      },
+      "feature3": {
+        "title": "Made in India",
+        "description": "Chakan, Pune拠点で設計・製造—TÜV NORD認証ハードウェアとコア清掃システムの特許。"
+      }
+    },
+    "whyTaypro": {
+      "eyebrow": "ユーティリティ規模事業者がTayproを選ぶ理由",
+      "heading": "インドのソーラープラント向けウォーターレスロボット",
+      "bodyBeforeConsole": "固定傾斜から単軸トラッカーまで—発電を回復し水を節約し、重労働洗浄を",
+      "consoleLink": "Taypro Console",
+      "bodyBetween": "で監視できるフリートに置き換え。",
+      "cleaningTechLink": "デュアルパス乾式清掃",
+      "bodyAfter": "の現場での仕組みを見る。"
+    },
+    "technology": {
+      "heading": "高度なソーラーパネル清掃ロボット技術",
+      "bodyBefore": "粉塵の多いユーティリティ規模サイト向け特許ハードウェアと接続—",
+      "deploymentsLink": "稼働導入",
+      "bodyAfter": "で文書化。",
+      "imageAlt": "Taypro自動・半自動・トラッカー用ソーラーパネル清掃ロボット",
+      "imageTitle": "Tayproソーラーパネル清掃ロボットラインナップ"
+    },
+    "roi": {
+      "heading": "プラントのロボット回収期間を試算",
+      "body": "人件費・水・発電節約の方向性ROIを実行—またはPDF出力と詳細前提のフル計算機を開く。",
+      "link": "フルROI・価格計算機を開く"
+    },
+    "clients": {
+      "heading": "主要クライアント",
+      "logoAlt": "Tayproソーラーパネル清掃ロボットクライアント{index} - Tayproロボット清掃ソリューション導入パートナー",
+      "logoTitle": "Tayproソーラーパネル清掃ロボットクライアント{index}"
+    },
+    "faq": {
+      "heading": "よくある質問",
+      "subheading": "インドにおけるTaypro清掃ロボットのクイック回答。",
+      "q0": "ソーラーパネル清掃ロボットとは？",
+      "a0": "ソーラーパネル清掃ロボットはPVモジュールの粉塵・汚損を自律的に除去—通常水なし。インドのユーティリティ規模では汚損が発電を大きく抑制；ロボット乾式清掃は予測可能なサイクルと手作業より低いO&M摩擦で収量回復を支援。",
+      "q1": "私のプラントに合うソーラーパネル清掃ロボットは？",
+      "a1Before": "固定・季節傾斜ユーティリティは通常完全自動ウォーターレスロボット。単軸トラッカーはトラッカー対応自律ロボット。分散・小規模ブロックは半自動ポータブルが適する場合も。管理Opexサービスとしてのロボット清掃も選択可。",
+      "a1Link": "ソーラーパネル清掃ロボットハブ",
+      "a1After": "で比較。",
+      "q2": "Tayproロボットは水を使いますか？",
+      "a2": "いいえ。Tayproは特許デュアルパス乾式清掃—気流とマイクロファイバー—で水タンカー、モジュール熱衝撃、乾燥地域の水不足を回避。",
+      "q3": "購入前にROIをどう試算しますか？",
+      "a3": "taypro.inの無料ソーラーパネル清掃ロボットROI計算機を使用し、レイアウトをアプリケーションチームに送ってプラント別見積とSLA草案を取得。",
+      "q4": "Tayproロボットはどこで製造・サポートされていますか？",
+      "a4": "TayproはChakan, Puneで設計・製造、全国コミッショニング・スペア、Taypro Consoleリモート診断で支援する当日故障目標。"
+    },
+    "quote": {
+      "eyebrow": "始める",
+      "heading": "ソーラーパネル清掃ロボットの見積もり依頼",
+      "body": "プラント容量・レイアウト・調達希望を共有—チームが最適な清掃ロボットまたはOpexモデルを提案します。",
+      "submitLabel": "リクエストを送信",
+      "messageLabel": "プラント詳細と要件",
+      "messagePlaceholder": "例: ラジャスタン100MW固定傾斜、ロボット対手動O&M評価…"
+    },
+    "projects": {
+      "eyebrow": "現場で実証",
+      "heading": "ユーティリティ規模清掃ロボット導入",
+      "subheading": "Taypro自律・半自動ロボットを使用するインドのソーラープラントのケーススタディを閲覧。"
+    },
+    "blog": {
+      "heading": "ブログより",
+      "subheading": "O&Mガイド、汚損、ロボット清掃の経済性。",
+      "viewAll": "すべての記事を見る"
+    },
+    "loading": {
+      "form": "フォームを読み込み中…",
+      "clients": "クライアントを読み込み中…"
+    }
+  }
+}

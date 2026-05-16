@@ -1,0 +1,452 @@
+{
+  "SolarSystemPage": {
+    "meta": {
+      "title": "インドの太陽光パネル清掃ロボット — Taypro 各モデル・サービスを比較",
+      "description": "Taypro の太陽光パネル清掃ロボットを一覧で比較。Model-A（全自動）、Model-B（セミオート、搬送・設置）、Model-T（シングルアクストラッカー）、またはサービスとしての Taypro OPEX から選択。無水デュアルパス清掃、AI/ML スケジューリング、TÜV NORD 認証ハードウェア、インド全域で当日の故障対応。",
+      "keywords": [
+        "solar panel cleaning robot",
+        "solar panel cleaning robot India",
+        "solar panel cleaning robot manufacturer India",
+        "solar panel cleaning robot company India",
+        "buy solar panel cleaning robot",
+        "best solar panel cleaning robot",
+        "utility scale solar panel cleaning robot",
+        "robotic solar panel cleaning system",
+        "solar panel cleaning robot for solar farm",
+        "Taypro solar cleaning robot",
+        "Taypro Model-A vs Model-B vs Model-T",
+        "CAPEX vs OPEX solar cleaning"
+      ],
+      "openGraphSiteName": "Taypro",
+      "openGraphTitle": "太陽光パネル清掃ロボット | 自動・半自動・トラッカー対応 — Taypro",
+      "openGraphDescription": "ソーラープラントに適した太陽光パネル清掃ロボットを選択 — 自律型 Model-A、半自動ピック・アンド・プレイスの Model-B、シングルアクストラッカー向け Model-T、クリーン済みパネル課金の Taypro OPEX、および Taypro Console のフリート運用ソフトウェア。",
+      "openGraphImageAlt": "Taypro 太陽光パネル清掃ロボット — インドのソーラープラント向け Model-A、Model-B、Model-T",
+      "openGraphLocale": "ja_IN",
+      "openGraphType": "website",
+      "twitterCard": "summary_large_image",
+      "twitterTitle": "太陽光パネル清掃ロボット | Taypro — Made in India",
+      "twitterDescription": "自動・半自動・トラッカー対応の太陽光パネル清掃ロボット。無水清掃、AI スケジューリング、インド全域での当日故障対応。"
+    },
+    "breadcrumbs": {
+      "home": "ホーム",
+      "solarPanelCleaningRobots": "太陽光パネル清掃ロボット"
+    },
+    "schema": {
+      "collectionPage": {
+        "name": "Taypro の太陽光パネル清掃ロボット",
+        "description": "Taypro の太陽光パネル清掃ロボットのカテゴリ：自動（Model-A）、半自動（Model-B）、トラッカー対応（Model-T）、Taypro OPEX 清掃サービス、Taypro Console フリートポータル。"
+      },
+      "itemList": {
+        "name": "Taypro 太陽光パネル清掃ロボット — 製品ライン",
+        "description": "Taypro の太陽光パネル清掃ロボットと関連ソフトウェア／サービスを網羅したラインアップ。",
+        "itemNameSuffix": " — 太陽光パネル清掃ロボット",
+        "items": {
+          "modelA": {
+            "description": "完全自律の無水ドライ清掃 — デュアルパス気流とマイクロファイバー。固定式・季節可変傾斜のユーティリティープラント向け AI スケジューリング。"
+          },
+          "modelB": {
+            "description": "分散ブロックやクルー支援で柔軟なカバレッジが必要な発電所向け、搬送・設置型のポータブル無水清掃ロボット。"
+          },
+          "modelT": {
+            "description": "シングルアクストラッカー向け自律型無水ロボット — 柔軟なブリッジと各トラッカーブランドにわたる 360° 旋回。"
+          },
+          "tayproOpex": {
+            "description": "パネルあたりの清掃に応じた OPEX — 前払い CAPEX なしで、Taypro が貴社プラントで清掃ロボットフリートを運用。"
+          },
+          "tayproConsole": {
+            "description": "サイト内の太陽光パネル清掃ロボットのスケジュール、監視、レポートを行うフリートポータル。"
+          }
+        }
+      }
+    },
+    "shared": {
+      "connectivitySummary": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN",
+      "panIndiaServiceCardBody": "Taypro はインド全域で当日オンサイト故障解決を目指し、Taypro Console による即時リモート診断、地域スペア在庫、体系化された AMC プログラムで平均修復時間（MTTR）の予測可能性を維持します。",
+      "combinedSupportParagraph": "Taypro はインド全域で当日オンサイト故障解決に加え、Taypro Console からの即時リモート診断、専任フィールドエンジニア、AMC に基づくスペア計画を提供します。",
+      "faqSupportAmcSuffix": " AMC パッケージには予防保全、スペア計画、Console 上のチケット運用が含まれ、平均修復時間の予測可能性を高めます。"
+    },
+    "robotFeatures": {
+      "feature0": {
+        "title": "最大稼働率の保証 —",
+        "description": "Taypro のソーラー清掃ロボットは高い稼働率保証を提供します。高度な清掃ソリューションにより、ソーラープラントの発電と運用を最大化します。"
+      },
+      "feature1": {
+        "title": "AI と ML システム —",
+        "description": "太陽光パネル清掃ロボットは AI と Machine Learning の知能により精密な清掃を実現。リアルタイムな追跡と発電効率の向上を支えます。"
+      },
+      "feature2": {
+        "title": "当日故障対応 —",
+        "description": "太陽光パネル清掃ロボットについて当日中の故障対応を約束。各サイト・都市に専任技術チームが待機し、専用サービスポータルを通じて解決します。"
+      },
+      "feature3": {
+        "title": "デュアルパス清掃方式 —",
+        "description": "独自特許のデュアルパス清掃。まず気流でパネルのホコリを除去し、続けてマイクロファイバーで深く拭き取ります。"
+      },
+      "feature4": {
+        "title": "RF ベースのメッシュ通信 —",
+        "description": "太陽光パネル清掃ロボットは RF ベースのメッシュ通信で動作。クラウド型 SCADA が広いエリアでも安全かつ確実な通信を実現します。"
+      },
+      "feature5": {
+        "title": "予測型ソーラー清掃 —",
+        "description": "高度なロボットは気象を捉えながら清掃し、効率向上のために天気予報に基づいてサイクルをスケジュールします。"
+      }
+    },
+    "robotsAdvantages": {
+      "advantage0": {
+        "title": "AI と ML の統合 —",
+        "description": "AI 指向と machine learning を統合すると、クリーンな清掃結果が得られます。ML 駆動のロボティクスにより、コスト効率よく発電を最大化できます。"
+      },
+      "advantage1": {
+        "title": "無水清掃技術 —",
+        "description": "Taypro の太陽光パネル清掃ロボットは固定傾斜、季節可変傾斜、屋上設置向けに無水清掃を採用。気流とマイクロファイバーによるデュアルパス方式です。"
+      },
+      "advantage2": {
+        "title": "高速かつ安全な清掃 —",
+        "description": "技術的なデュアルパス方式により、最高効率と傷ゼロで素早く清掃。気流とマイクロファイバーでパネルを安全に扱います。"
+      },
+      "advantage3": {
+        "title": "より速いリターン —",
+        "description": "迅速で効率的な動作により円滑な運用と省エネを実現し、投資回収を早めます。運用工数と人件費削減にもつながります。"
+      },
+      "advantage4": {
+        "title": "バッテリー電源 —",
+        "description": "無水ロボットは先進バッテリーで駆動。充電時間に対して最大の稼働を確保。バッテリー容量のカスタマイズで清掃範囲を延ばせます。"
+      }
+    },
+    "toDoFeatures": {
+      "item0": {
+        "title": "効果最大化のために太陽光パネルの清掃スケジュールを管理しましょう。"
+      },
+      "item1": {
+        "title": "太陽が沈みパネルが冷めた時間帯を選び、効率的に清掃しましょう。"
+      },
+      "item2": {
+        "title": "屋根と表面状態を十分に確認してからロボットを走行させましょう。"
+      },
+      "item3": {
+        "title": "ロボットの清掃とメンテナンスを継続的に行いましょう。"
+      },
+      "item4": {
+        "title": "バッテリーを適宜充電し、ロボットの長寿命化を図りましょう。"
+      }
+    },
+    "hero": {
+      "eyebrow": "太陽光パネル清掃ロボット · Made in India",
+      "title": "ユーティリティ規模ソーラープラント向け太陽光パネル清掃ロボット",
+      "leadHtmlSegments": {
+        "beforeBold1": "Taypro はインドのユーティリティ規模ソーラープラント向けに ",
+        "bold1": "太陽光パネル清掃ロボット",
+        "afterBold1": " を設計・製造・サービス提供 — 完全 ",
+        "bold2": "自動（Model-A）",
+        "afterBold2": "、半自動の搬送・設置型 ",
+        "bold3": "（Model-B）",
+        "afterBold3": "、トラッカー対応 ",
+        "bold4": "（Model-T）",
+        "afterBold4": "。無水デュアルパス清掃、AI/ML スケジューリング、TÜV NORD 認証ハードウェア、インド全域の当日故障対応 — CAPEX での導入も、月次の "
+      },
+      "payPerPanelServiceLinkText": "クリーン済みパネル課金サービス",
+      "leadAfterLink": " としてもご利用いただけます。",
+      "primaryCta": {
+        "topic": "見積り依頼",
+        "title": "見積りを依頼",
+        "subtitle": "プラント情報をご共有ください。最適な太陽光パネル清掃ロボットをご提案します。",
+        "label": "見積りを依頼"
+      },
+      "secondaryCta": "ROI を計算",
+      "heroImageAlt": "Taypro 太陽光パネル清掃ロボット — Model-A（自動）、Model-B（半自動）、Model-T（トラッカー）によるインドのユーティリティ規模プラント",
+      "heroImageTitle": "Taypro 太陽光パネル清掃ロボット"
+    },
+    "heroStats": {
+      "stat0": { "value": "50 MW+", "label": "典型導入プラント規模" },
+      "stat1": { "value": "当日", "label": "インド全域の故障対応" },
+      "stat2": { "value": "TÜV NORD", "label": "認証ハードウェア" },
+      "stat3": { "value": "無水", "label": "デュアルパス清掃" }
+    },
+    "intro": {
+      "eyebrow": "なぜロボット清掃か、なぜ Taypro か",
+      "title": "インドにおける太陽光パネル清掃ロボットのカテゴリーリーダー",
+      "p1": "ほこり、農業残渣、鳥のふんなどはインドのユーティリティプラントで発電を 8〜25% 落とすことがあります。手洗いはコスト・水使用量が高く、列ごとシフトごとに品質が揺れます。プラント専用に設計された太陽光パネル清掃ロボットは失われた発電を回復し、毎夜同じように全パネルを清掃し、O&M から水を完全になくします。",
+      "p2LinkAutomatic": "自動太陽光パネル清掃ロボット（Model-A）",
+      "p2LinkModelB": "Model-B",
+      "p2LinkModelT": "Model-T",
+      "p2LinkConsole": "Taypro Console",
+      "p2LinkOpex": "Taypro OPEX",
+      "p2BeforeLinks": "Taypro は Made in India のロボット清掃システムメーカーです。製品ラインは完全自律の ",
+      "p2BetweenAB": "、分散プラント向け半自動ピック・アンド・プレイスの ",
+      "p2BetweenBT": "、シングルアクストラッカー向けの ",
+      "p2AfterT": " を網羅。すべてのロボットは ",
+      "p2AfterConsole": " フリートポータルで監視でき、CAPEX でも月次の ",
+      "p2AfterOpex": " サービスでも導入できます。",
+      "p3BlogMaintenance": "太陽光パネルメンテナンスガイド",
+      "p3BlogRobotDef": "太陽光パネル清掃ロボットの定義",
+      "p3Prefix": "関連記事：",
+      "p3Between": " と ",
+      "p3Suffix": "。"
+    },
+    "productGrid": {
+      "eyebrow": "ロボットラインナップ",
+      "title": "太陽光パネル清掃ロボットを選ぶ",
+      "subtitle": "3 つのロボットプラットフォーム、1 つのフリートポータル、2 つの商業モデル — プラントに最適なものを。",
+      "robotHighlights": {
+        "modelA": {
+          "eyebrow": "完全自律 · CAPEX",
+          "bullet0": "無水デュアルパス清掃（エア＋マイクロファイバー）",
+          "bullet1": "1 充電で最大 3,600 枚、AI/ML スケジューリング",
+          "bullet2": "固定／季節可変傾斜のユーティリティ規模向け"
+        },
+        "modelB": {
+          "eyebrow": "半自動 · 搬送・設置",
+          "bullet0": "約 2 時間で約 1 MW、ブロック間をポータブル移動",
+          "bullet1": "分散プラントで最も低いコスト／MW",
+          "bullet2": "散在・制約レイアウトに最適"
+        },
+        "modelT": {
+          "eyebrow": "トラッカー対応 · 自律",
+          "bullet0": "特許の 360° 可動ブリッジ",
+          "bullet1": "NEXTracker、Gamechanger などに対応",
+          "bullet2": "シングルアクストラッカープラント向け"
+        }
+      },
+      "solutionsEyebrow": "ソフトウェアとサービス",
+      "solutionsTitle": "製品として、またはサービスとして",
+      "solutionHighlights": {
+        "tayproOpex": {
+          "eyebrow": "サービス · クリーン済みパネル課金",
+          "bullet0": "CAPEX なし — 月次 OPEX、清掃パネルに課金",
+          "bullet1": "プラント汚れ調査と月 3〜10 回のサイクル",
+          "bullet2": "TAYPRO Private Limited が運営"
+        },
+        "tayproConsole": {
+          "eyebrow": "ソフトウェア · フリートポータル",
+          "bullet0": "サイトダッシュボード、スケジュール、ログ・エクスポート",
+          "bullet1": "ゲートウェイとロボット健全性の可視化",
+          "bullet2": "ロールベースアクセス、サポートチケット、チャット"
+        }
+      }
+    },
+    "decisionGuide": {
+      "eyebrow": "選定ガイド",
+      "title": "どの太陽光パネル清掃ロボットがプラントに合うか",
+      "subtitle": "Taypro プラットフォーム選択の簡易ガイド。最終推奨は汚れ調査と現場確認のうえで確定します。",
+      "cards": {
+        "card0": {
+          "title": "固定／季節可変傾斜のユーティリティプラント",
+          "body": "毎晩すべての列を完全自律で清掃。最高の清掃稼働と最小の人的介入には Model-A。",
+          "cta": "Model-A を見る"
+        },
+        "card1": {
+          "title": "分散・小ブロック多数のプラント",
+          "body": "複数の小ブロック、屋根、制約レイアウトで列ごとに 1 台は過剰な場合。Model-B はブロック間を移動し約 2 時間で約 1 MW。",
+          "cta": "Model-B を見る"
+        },
+        "card2": {
+          "title": "シングルアクストラッカープラント",
+          "body": "トラッカー構造にはトラッカー対応ロボットが必要。Model-T の 360° 回転ブリッジは NEXTracker、Gamechanger など主要トラッカーにそのまま対応。",
+          "cta": "Model-T を見る"
+        },
+        "card3": {
+          "title": "資産より成果を重視する場合",
+          "body": "ハードを所有したくない場合は、Taypro OPEX が月次サービスでロボット清掃を提供し、Taypro Console でレポートを確認できます。",
+          "cta": "Taypro OPEX を見る"
+        }
+      }
+    },
+    "comparison": {
+      "eyebrow": "並べて比較",
+      "title": "Model-A vs Model-B vs Model-T",
+      "subtitle": "プラント適合、清掃方式、自律性、商業モデルにおける Taypro の 3 プラットフォームの早見表。",
+      "tableHeaders": {
+        "criteria": "項目",
+        "modelA": "Model-A",
+        "modelB": "Model-B",
+        "modelT": "Model-T"
+      },
+      "rows": {
+        "row0": {
+          "criterion": "プラントタイプ",
+          "modelA": "固定／季節可変傾斜のユーティリティ規模",
+          "modelB": "分散、散在、制約レイアウト",
+          "modelT": "シングルアクストラッカープラント"
+        },
+        "row1": {
+          "criterion": "自律性",
+          "modelA": "完全自律（列あたり 1 台）",
+          "modelB": "半自動（オペレーター支援の搬送・設置）",
+          "modelT": "トラッカー引き渡し込みで完全自律"
+        },
+        "row2": {
+          "criterion": "清掃方式",
+          "modelA": "無水デュアルパス — 気流＋マイクロファイバー",
+          "modelB": "無水ドライ清掃、ポータブルアーム",
+          "modelT": "360° 可動ブリッジ付き無水デュアルパス"
+        },
+        "row3": {
+          "criterion": "清掃速度",
+          "modelA": "1 充電で最大 3,600 枚",
+          "modelB": "1 台あたり約 2 時間で約 1 MW",
+          "modelT": "列単位、トラッカー同期"
+        },
+        "row4": {
+          "criterion": "商業モデル",
+          "modelA": "CAPEX + AMC、典型的に 12〜18 か月で回収",
+          "modelB": "CAPEX + AMC、最低コスト／MW",
+          "modelT": "CAPEX + AMC、トラッカープラントの経済性"
+        },
+        "row5": {
+          "criterion": "Taypro Console 接続",
+          "modelA": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN",
+          "modelB": "オペレータ主導、Console でレポート",
+          "modelT": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN"
+        }
+      },
+      "ctaLine": "どのプラットフォームが合うか不明な場合は、プラント情報をお送りください。簡易汚れ調査のうえ最適なミックスをご提案します。 ",
+      "ctaLink": {
+        "topic": "Taypro に相談",
+        "label": "Taypro に相談"
+      },
+      "ctaLineSuffix": "。"
+    },
+    "indianConditions": {
+      "eyebrow": "インドのソーラー向け設計",
+      "title": "インドのユーティリティ条件向けに設計",
+      "subtitle": "ラジャスタンの砂嵐、グジャラートの酷暑、カルナータカの湿気、タミル Nadu のモンスーン — Taypro のロボットは大規模インド O&M の現実向けに設計・試験・サービスされています。",
+      "cards": {
+        "card0": {
+          "title": "無水 — 水不足地域向け",
+          "body": "インドの多くのユーティリティは水資源逼迫地域に立地。無水デュアルパス清掃でモジュール洗浄用水を計画から外せます。"
+        },
+        "card1": {
+          "title": "高汚れ地域での性能",
+          "body": "毎日〜準毎日のロボットサイクルだけが、ラジャスタン、グジャラート、マディヤ・プラデーシュ、マハラシュトラで一般的な 8〜25% の汚れ損失を経済的に抑えられます。"
+        },
+        "card2": {
+          "title": "温度・湿度試験済み",
+          "body": "動作温度 90°C まで検証済み、TÜV NORD による湿热／乾熱認証 — 夏季、モンスーン、梅雨明けサイクルで実証。"
+        },
+        "card3": {
+          "title": "インド全域で当日故障対応",
+          "body": "Taypro はインド全域で当日オンサイト故障解決を目指し、Taypro Console で即時リモート診断、地域スペア、構造化 AMC で MTTR を予測可能にします。"
+        }
+      }
+    },
+    "whyTaypro": {
+      "eyebrow": "Taypro を選ぶ理由",
+      "title": "信頼できる太陽光パネル清掃ロボットメーカー",
+      "subtitle": "TAYPRO Private Limited により設計・製造・サービス — 特許技術、認証済みハードウェア、インド全域での導入実績。",
+      "items": {
+        "item0": {
+          "title": "Made-in-India 製造",
+          "body": "TAYPRO Private Limited が設計・製造・サービス — インドのユーティリティ規模ソーラー O&M の現実に合わせて設計。"
+        },
+        "item1": {
+          "title": "認証・特許技術",
+          "body": "TÜV NORD 認証ハードウェア、ISO 整合プロセス、特許デュアルパス清掃と RF mesh 通信。"
+        },
+        "item2": {
+          "title": "インド全域に展開",
+          "body": "マハラシュトラ、マディヤ・プラデーシュ、カルナータカなど複数 MW プラントで稼働中 — 50〜250 MW 案件を含む。"
+        },
+        "item3": {
+          "title": "迅速な故障対応",
+          "body": "インド全域で当日オンサイト解決を目指し、Taypro Console の即時リモート診断、地域スペア、AMC で MTTR を予測可能に。"
+        }
+      }
+    },
+    "dynamicProjectsRollup": {
+      "eyebrow": "ユーティリティ規模で稼働中",
+      "heading": "インド各地で稼働する太陽光パネル清掃ロボット",
+      "subheading": "Taypro のロボットはマハラシュトラ、マディヤ・プラデーシュ、カルナータカほか複数 MW プラントで清掃しています。最近の導入例の一部を以下に。"
+    },
+    "roiBand": {
+      "title": "ソーラープラントでの清掃ロボットの節効果を試算",
+      "body": "プラント規模と料金を入力して概算ペイバックを確認するか、フル計算機で PDF 出力。",
+      "linkFullCalculator": "ROI・価格計算機を開く"
+    },
+    "featuresSection": {
+      "eyebrow": "すべての Taypro ロボットの中身",
+      "title": "Taypro 太陽光パネル清掃ロボットの特長",
+      "imageAlt": "Taypro 太陽光パネル清掃ロボットの特長 — インドのソーラーファーム向け AI/ML スケジュール付き無水自律デュアルパス清掃",
+      "imageTitle": "Taypro の太陽光パネル清掃ロボット機能"
+    },
+    "advantagesSection": {
+      "eyebrow": "運用会社に選ばれる理由",
+      "title": "太陽光パネル清掃ロボットを使う利点",
+      "imageAlt": "インドのユーティリティ規模ソーラーファームで稼働する清掃ロボット — 汚れによる発電低下を回復",
+      "imageTitle": "ユーティリティ規模プラントの Taypro 太陽光パネル清掃ロボット"
+    },
+    "consoleBand": {
+      "eyebrow": "Taypro Console — フリートポータル",
+      "title": "プラント内のすべての清掃ロボットを一つのポータルで",
+      "body": "サイトダッシュボード、天候コンテキスト、ブロック別スケジュール、清掃ログ、エクスポート、ゲートウェイ・ロボット健全性、サポートチケット — ロールベースでユーティリティ O&M 統制に対応。",
+      "cta": "Taypro Console を見る"
+    },
+    "thingsToMind": {
+      "eyebrow": "現場で証明されたプラクティス",
+      "title": "ロボットでソーラーパネルを清掃する際の心得",
+      "intro": "50 MW でも 250 MW でも、いくつかの習慣がロボット清掃を一貫・安全・監査対応に保ちます。"
+    },
+    "faq": {
+      "title": "太陽光パネル清掃ロボット — FAQ",
+      "subtitleLead": "発電事業者と EPC がよく尋ねる質問への短い回答。プラント別のご提案は ",
+      "subtitleCta": {
+        "topic": "Taypro に問い合わせ",
+        "label": "Taypro に連絡"
+      },
+      "subtitleSuffix": " ください。",
+      "items": {
+        "item0": {
+          "question": "太陽光パネル清掃ロボットとは何か、ソーラープラントに必要な理由は？",
+          "answer": "太陽光パネル清掃ロボットは、水や人手を使わずにホコリ・鳥ふんなどを PV モジュールから除去する自動機です。インドのユーティリティでは汚れで発電が 8〜25% 低下し、PPA のパフォーマンスや DISCOM のペナルティに直結します。ロボット清掃で発電を回復し、O&M から水をなくし、毎サイクル予測可能な清掃 — 手洗いより一貫性があります。"
+        },
+        "item1": {
+          "question": "インドのユーティリティ規模プラントで最適な清掃ロボットは？",
+          "answer": "大型の固定または季節可変傾斜では、Taypro Model-A の自動ロボットが一般的に最適です — 完全自律、無水デュアルパス、AI/ML スケジュール、高温・ホコリ向け設計。シングルアクストラッカーは Model-T。散在や小ブロックは Model-B の半自動搬送・設置モデルがコスト／MW が最も低くなります。"
+        },
+        "item2": {
+          "question": "Taypro のロボットはすべて完全自動か？",
+          "answer": "Model-A と Model-T は完全自律 — 事前スケジュールで運転しドックに戻り、日々のオペ無しで Taypro Console に報告。Model-B は半自動でオペ支援によりブロック間の可搬性を確保。3 機種すべてで Console から健全性監視、スケジュール、レポート取得が可能です。"
+        },
+        "item3": {
+          "question": "清掃ロボットは水を使うか？",
+          "answer": "いいえ。すべての Taypro ロボットは無水です。特許のデュアルパスドライ清掃 — まず気流でホコリを浮かせ、柔らかいマイクロファイバーで拭取。タンクローリー不要、熱衝撃リスクなし、水不足地域での消費もありません。"
+        },
+        "item4": {
+          "question": "インドでの価格と ROI は？",
+          "answer": "価格はプラント規模、モデル（Model-A／B／T）、レイアウト、CAPEX と OPEX の商業構造によります。典型 CAPEX 導入は発電回復・水・労務削減・DISCOM ペナルティ低減で 12〜18 か月の回収を目指します。サイト上の Taypro ROI 計算機で概算後、詳細見積をご請求ください。"
+        },
+        "item5": {
+          "question": "CAPEX ではなくサービスとして買えるか？",
+          "answer": "はい。Taypro OPEX はクリーン済みパネル課金の月次サービスです（典型的に 50 MW+）。サイトに応じ Model-A／B／T を配置し、汚れ調査に基づき月 3〜10 回運転し、清掃したパネルのみ請求。Console で全サイクルとレポートを確認できます。"
+        },
+        "item6": {
+          "question": "導入後の監視は？",
+          "answer": "すべての Taypro 導入は Taypro Console — ダッシュボード、スケジュール、ログ、エクスポート、チケットの顧客ポータルで監視。接続は LTE、Wi-Fi、hybrid self-healing RF mesh、LoRa、LoRaWAN で、試運転時に Taypro エンジニアが設計・サイジングします。"
+        },
+        "item7": {
+          "question": "故障時のサポートは？",
+          "answer": "Taypro はインド全域で当日オンサイト解決と Console からの即時リモート診断、専任フィールド、AMC スペア計画を提供。AMC には予防保全、スペア、Console のチケット運用が含まれ MTTR を予測可能にします。"
+        },
+        "item8": {
+          "question": "Taypro はメーカーか再販か？",
+          "answer": "Taypro は Made in India メーカーです。TAYPRO Private Limited が自社の太陽光パネル清掃ロボットを設計・製造・展開・サービスし、特許デュアルパスと RF mesh、TÜV NORD 認証、インド全域のサービス網を持ちます。"
+        },
+        "item9": {
+          "question": "インドではどのくらいの頻度で清掃すべきか？",
+          "answer": "頻度はホコリ負荷、農業残渣（パンジャブ・ハリヤーナの炊き出しなど）、モンスーン、PPA 目標によります。多くのユーティリティは乾季に 1〜3 日ごと、砂嵐後はより速いサイクルが有効です。Taypro はブロックごとの推奨頻度を汚れ調査から提案します。"
+        }
+      }
+    },
+    "finalCta": {
+      "eyebrow": "導入の準備はできましたか？",
+      "title": "プラントへロボット清掃を",
+      "body": "プラント情報をご共有ください。簡易汚れ調査のうえ、最適なロボット構成と商業モデルをご提案します。",
+      "primaryCta": {
+        "topic": "見積り依頼",
+        "title": "見積りを依頼",
+        "subtitle": "プラント情報を共有いただき、最適な太陽光パネル清掃ロボットをご案内します。",
+        "label": "見積りを依頼"
+      },
+      "secondaryCta": "ROI を計算"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "SiteMapPage": {
+    "meta": {
+      "title": "साइटमैप | Taypro – पूर्ण वेबसाइट नेविगेशन",
+      "description": "प्रोजेक्ट, सेवाएँ और कंपनी जानकारी सहित सभी वेबसाइट अनुभागों तक तुरंत पहुँचने के लिए Taypro की साइटमैप देखें।",
+      "openGraphTitle": "साइटमैप | Taypro – पूर्ण वेबसाइट नेविगेशन",
+      "openGraphDescription": "प्रोजेक्ट, सेवाएँ और कंपनी जानकारी सहित सभी वेबसाइट अनुभागों तक तुरंत पहुँचने के लिए Taypro की साइटमैप देखें।",
+      "openGraphImageAlt": "Taypro वेबसाइट साइटमैप",
+      "twitterTitle": "साइटमैप | Taypro",
+      "twitterDescription": "सभी वेबसाइट अनुभागों तक तुरंत पहुँचने के लिए Taypro की साइटमैप देखें।",
+      "keyword0": "Taypro साइटमैप",
+      "keyword1": "सोलर पैनल क्लीनिंग रोबोट वेबसाइट नेविगेशन",
+      "keyword2": "साइटमैप",
+      "keyword3": "वेबसाइट मानचित्र",
+      "keyword4": "Taypro नेविगेशन",
+      "keyword5": "सोलर पैनल क्लीनिंग रोबोट पेज"
+    },
+    "breadcrumbs": { "sitemap": "साइटमैप" },
+    "heading": "साइटमैप",
+    "sections": {
+      "posts": "पोस्ट",
+      "pages": "पेज",
+      "portfolio": "पोर्टफोलियो"
+    },
+    "posts": { "energyResourcesTitle": "ऊर्जा संसाधन" },
+    "portfolio": { "solarProjectTitle": "सोलर प्रोजेक्ट" },
+    "links": {
+      "aboutUsLabel": "हमारे बारे में",
+      "aboutUsTitle": "हमारे बारे में",
+      "blogLabel": "ब्लॉग",
+      "blogTitle": "ब्लॉग",
+      "contactLabel": "संपर्क",
+      "contactTitle": "संपर्क",
+      "homeLabel": "होम",
+      "homeTitle": "होम",
+      "privacyPolicyLabel": "गोपनीयता नीति",
+      "privacyPolicyTitle": "गोपनीयता नीति",
+      "performanceMethodologyLabel": "प्रदर्शन और परीक्षण पद्धति",
+      "performanceMethodologyTitle": "प्रदर्शन और परीक्षण पद्धति",
+      "projectsLabel": "प्रोजेक्ट",
+      "projectsTitle": "प्रोजेक्ट",
+      "roiCalculatorLabel": "ROI कैलकुलेटर",
+      "roiCalculatorTitle": "ROI कैलकुलेटर",
+      "sitemapLabel": "साइटमैप",
+      "sitemapTitle": "साइटमैप",
+      "solarRobotsLabel": "सोलर पैनल क्लीनिंग रोबोट",
+      "solarRobotsTitle": "सोलर रोबोट सोलर पैनल क्लीनिंग रोबोट",
+      "automaticRobotLabel": "ऑटोमैटिक सोलर पैनल क्लीनिंग रोबोट",
+      "automaticRobotTitle": "ऑटोमैटिक सोलर पैनल क्लीनिंग रोबोट",
+      "modelBLabel": "Model-B",
+      "modelBTitle": "सेमी-ऑटोमैटिक सोलर पैनल क्लीनिंग सिस्टम",
+      "modelTLabel": "Model-T",
+      "modelTTitle": "Model-T",
+      "cleaningServiceLabel": "सोलर पैनल क्लीनिंग सेवा",
+      "cleaningServiceTitle": "सोलर पैनल क्लीनिंग सेवा",
+      "tayproConsoleLabel": "Taypro Console",
+      "tayproConsoleTitle": "ऑटोमैटिक क्लीनिंग रोबोट ऐप",
+      "cleaningTechnologyLabel": "Taypro के पीछे की तकनीक",
+      "cleaningTechnologyTitle": "क्लीनिंग तकनीक"
+    }
+  },
+  "Common": { "breadcrumbHome": "होम" }
+}

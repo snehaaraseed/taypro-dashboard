@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { ArticleSchema, PlaceSchema } from "@/app/components/StructuredData";
 import { AllProjectsOverviewSection } from "@/app/components/AllProjectsOverviewSection";
@@ -11,46 +12,52 @@ import { getProjectBySlug, listAllProjects } from "@/lib/cms/projectService";
 import { getProjectHeroImageAlt } from "@/app/utils/imageAlt";
 import { socialImagesFromMedia } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
+import { withHreflang } from "@/lib/seo/with-hreflang";
 
 const siteUrl = SITE_URL;
 
 const proseClassName =
   "prose prose-lg max-w-none space-y-5 prose-headings:text-[#052638] prose-headings:font-semibold prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-blue-600 prose-a:hover:text-blue-800 prose-strong:text-[#052638] prose-ul:text-gray-700 prose-ol:text-gray-700 prose-li:text-gray-700";
 
-interface PageParams {
+interface ProjectSlugParams {
   slug: string;
 }
 
 interface ProjectPageProps {
-  params: Promise<PageParams>;
+  params: Promise<{ locale: string; slug: string }>;
 }
 
 export const revalidate = 3600;
 
-export async function generateStaticParams(): Promise<PageParams[]> {
-  const projects = await listAllProjects(false);
+export async function generateStaticParams(): Promise<ProjectSlugParams[]> {
+  const { listAllProjects } = await import("@/lib/cms/projectService");
+  const { SOURCE_LOCALE } = await import("@/lib/translation/config");
+  const projects = await listAllProjects(false, SOURCE_LOCALE);
   return projects.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: ProjectPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const post = await getProjectBySlug(slug);
+  const { slug, locale } = await params;
+  const post = await getProjectBySlug(slug, { locale });
+  const t = await getTranslations({ locale, namespace: "ProjectDetailPage" });
+
   if (!post) {
-    return { title: "Project Not Found | Taypro" };
+    return { title: t("notFoundTitle") };
   }
 
   const { metadata } = post;
   const url = `${siteUrl}/projects/${slug}`;
+  const internalPath = `/projects/${slug}`;
   const shareImages = socialImagesFromMedia(
     metadata.image,
     getProjectHeroImageAlt(metadata),
     "projects"
   );
 
-  return {
-    title: `${metadata.title} - Solar Panel Cleaning Robot Installation | Taypro`,
+  return withHreflang(internalPath, locale, {
+    title: `${metadata.title}${t("metaTitleSuffix")}`,
     description: metadata.description,
     openGraph: {
       title: `${metadata.title} | Taypro`,
@@ -64,27 +71,29 @@ export async function generateMetadata({
       description: metadata.description,
       ...shareImages.twitter,
     },
-    alternates: { canonical: url },
-  };
+  });
 }
 
 export default async function DynamicProjectPage({ params }: ProjectPageProps) {
-  const { slug } = await params;
-  const post = await getProjectBySlug(slug);
+  const { slug, locale } = await params;
+  const t = await getTranslations({ locale, namespace: "ProjectDetailPage" });
+  const tCommon = await getTranslations({ locale, namespace: "Common" });
+
+  const post = await getProjectBySlug(slug, { locale });
   if (!post) {
     notFound();
   }
 
   const { metadata, content } = post;
   const place = PROJECT_PLACE_BY_SLUG[slug];
-  const allProjects = await getAllFileProjects();
+  const allProjects = await getAllFileProjects(locale);
   const relatedProjects = allProjects
     .filter((p) => p.id !== slug && p.href !== `/projects/${slug}`)
     .slice(0, 3);
 
   const breadcrumbs = [
-    { name: "Home", href: "/" },
-    { name: "Projects", href: "/projects" },
+    { name: tCommon("breadcrumbHome"), href: "/" },
+    { name: t("breadcrumbProjects"), href: "/projects" },
     { name: metadata.title, href: "" },
   ];
 
@@ -135,7 +144,7 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
               {metadata.title}
             </h1>
             <p className="text-[#A8C117] text-center text-[18px] mb-4">
-              Solar Panel Cleaning Robot Installation Project
+              {t("heroSubtitle")}
             </p>
           </div>
 

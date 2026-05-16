@@ -1,0 +1,120 @@
+{
+  "CookiePolicyPage": {
+    "meta": {
+      "title": "クッキーポリシー | Taypro - ソーラーパネル清掃ロボット",
+      "description": "Tayproがウェブサイトでクッキーおよび類似技術をどのように使用するかをご確認ください。使用するクッキー、その目的、設定の管理方法を理解できます。",
+      "keywords": "cookie policy, cookies, tracking, privacy, taypro, data protection, GDPR",
+      "openGraphTitle": "クッキーポリシー | Taypro",
+      "openGraphDescription": "Tayproがウェブサイトでクッキーおよび類似技術をどのように使用するかをご確認ください。"
+    },
+    "breadcrumb": "クッキーポリシー",
+    "title": "クッキーポリシー",
+    "overview": {
+      "heading": "概要",
+      "lastUpdated": "最終更新: {date}",
+      "introBefore": "本クッキーポリシーは、Taypro（「当社」「私たち」）がウェブサイト（taypro.in）でクッキーおよび類似のトラッキング技術をどのように使用するかを説明します。本ポリシーは、当社の",
+      "privacyLink": "プライバシーポリシー",
+      "introAfter": "と併せてお読みください。"
+    },
+    "s1": {
+      "heading": "1. クッキーとは",
+      "p0": "クッキーは、ウェブサイトを訪問した際にデバイス（コンピュータ、タブレット、モバイル）に保存される小さなテキストファイルです。ウェブサイトを効率的に動作させ、サイト運営者に情報を提供するために広く使用されています。",
+      "p1": "当社は、ウェブビーコン、ピクセルタグ、ローカルストレージなど、クッキーと同様に機能する技術も使用しています。"
+    },
+    "s2": {
+      "heading": "2. 使用するクッキーの種類",
+      "necessary": {
+        "heading": "a. 必須クッキー（常に有効）",
+        "intro": "これらのクッキーは、ウェブサイトが正しく機能するために不可欠です。セキュリティ、ネットワーク管理、アクセシビリティなどの中核機能を有効にします。これらのクッキーはオプトアウトできません。",
+        "adminAuthLabel": "admin-auth:",
+        "adminAuthDesc": "管理者認証用のセッションクッキー（httpOnly、secure）",
+        "consentLabel": "cookie-consent:",
+        "consentDesc": "クッキー同意の設定を保存"
+      },
+      "analytics": {
+        "heading": "b. 分析クッキー（任意）",
+        "intro": "これらのクッキーは、訪問者が当社ウェブサイトとどのようにやり取りするかを匿名で収集・報告し、サイトの機能とユーザー体験の改善に役立てます。",
+        "currentlyLabel": "現状:",
+        "currentlyBody": "クッキーバナーで分析クッキーを有効にすると、Google Tag Managerが読み込まれ、Tag Managerで設定したGoogle Analytics 4（GA4）およびその他の計測タグが発火する場合があります。これらのサービスは、Googleのプライバシーポリシーに従うクッキーを設定する場合があります。オプトインしない限り、分析は無効のままです。"
+      },
+      "marketing": {
+        "heading": "c. マーケティングクッキー（任意）",
+        "intro": "これらのクッキーは、関連性の高い魅力的な広告を表示するために、ウェブサイト間で訪問者を追跡するために使用されます。",
+        "currentlyLabel": "現状:",
+        "currentlyBody": "当社はマーケティングクッキーを使用していません。将来導入する場合は、本ポリシーを更新し、明示的な同意を求めます。"
+      },
+      "thirdPartyTypes": {
+        "heading": "d. 第三者クッキー",
+        "intro": "当社が利用する一部の第三者サービスは、独自のクッキーを設定する場合があります。",
+        "youtubeLabel": "YouTube:",
+        "youtubeDesc": "埋め込みYouTube動画とやり取りすると、YouTubeは機能および分析のためにクッキーを設定する場合があります。これらはYouTubeのプライバシーポリシーに従います。",
+        "mapsLabel": "Google Maps:",
+        "mapsDesc": "埋め込みGoogle Mapsを表示すると、Googleがクッキーを設定する場合があります。これらはGoogleのプライバシーポリシーに従います。",
+        "fontsLabel": "Google Fonts:",
+        "fontsDesc": "フォント読み込みの最適化のためにクッキーを設定する場合があります。",
+        "gtmLabel": "Google Tag Manager / Google Analytics 4:",
+        "gtmDesc": "分析クッキーに同意すると、Google Tag Managerが読み込まれ、Google Analytics（またはGTMに追加した他のタグ）がクッキーを設定する場合があります。データの処理方法についてはGoogleのプライバシーポリシーをご参照ください。",
+        "noteLabel": "注:",
+        "noteBody": "可能な限り、プライバシー強化モードでYouTube埋め込みおよびGoogle Mapsを使用しています。これらの第三者サービスは、同意後にのみ読み込まれます。"
+      }
+    },
+    "s3": {
+      "heading": "3. クッキーの利用目的",
+      "intro": "当社は、以下の目的でクッキーを使用します。",
+      "li0": "ウェブサイトの必須機能の有効化",
+      "li1": "クッキー設定の記憶",
+      "li2": "管理者セッションのセキュリティ維持",
+      "li3": "ウェブサイトのパフォーマンスとユーザー体験の向上（分析クッキーが有効な場合）"
+    },
+    "s4": {
+      "heading": "4. クッキー設定の管理",
+      "intro": "クッキー設定はお客様が管理できます。",
+      "li0": "クッキー同意バナーで、必須以外のクッキーを承認または拒否",
+      "li1": "右下のクッキーアイコンをクリックして、いつでも設定を変更",
+      "li2": "ほとんどのブラウザでは設定からクッキーを制御できます。ただし、クッキーを制限すると、当社サイトでの体験に影響する場合があります",
+      "browserSettings": {
+        "heading": "ブラウザ設定",
+        "intro": "ブラウザ設定からクッキーを制御できます。主要ブラウザの手順へのリンクは以下のとおりです。",
+        "chrome": "Google Chrome",
+        "firefox": "Mozilla Firefox",
+        "safari": "Safari",
+        "edge": "Microsoft Edge"
+      }
+    },
+    "s5": {
+      "heading": "5. クッキーの有効期間",
+      "intro": "クッキーには「セッション」クッキーと「永続」クッキーがあります。",
+      "sessionLabel": "セッションクッキー:",
+      "sessionDesc": "ブラウザを閉じると期限切れになる一時的なクッキー",
+      "persistentLabel": "永続クッキー:",
+      "persistentDesc": "一定期間、または削除するまでデバイスに残る",
+      "durationsIntro": "当社のクッキーは、以下の期間保存されます。",
+      "adminAuthLabel": "admin-auth:",
+      "adminAuthDuration": "7日間（セッション管理）",
+      "consentLabel": "cookie-consent:",
+      "consentDuration": "1年間（お客様の設定）"
+    },
+    "s6": {
+      "heading": "6. 第三者クッキー",
+      "p0": "当社のウェブサイトには、独自のクッキーを設定する可能性のある第三者サービスの埋め込みコンテンツが含まれる場合があります。当社はこれらのクッキーを制御できません。第三者コンテンツは、同意後にのみ読み込まれます。",
+      "servicesIntro": "当社が利用する第三者サービス:",
+      "youtubeLabel": "YouTube:",
+      "mapsLabel": "Google Maps:",
+      "fontsLabel": "Google Fonts:",
+      "googlePrivacyLink": "Googleプライバシーポリシー"
+    },
+    "s7": {
+      "heading": "7. 本クッキーポリシーの変更",
+      "body": "当社の慣行の変更、または法的・運用上・規制上の理由により、本クッキーポリシーを随時更新する場合があります。重要な変更がある場合は、本ページに新しいポリシーを掲載し、「最終更新」日を更新してお知らせします。"
+    },
+    "s8": {
+      "heading": "8. お問い合わせ",
+      "intro": "クッキーの使用または本クッキーポリシーについてご質問がある場合は、以下までご連絡ください。",
+      "mailLabel": "メール:",
+      "phoneLabel": "電話:"
+    }
+  },
+  "Common": {
+    "breadcrumbHome": "ホーム"
+  }
+}

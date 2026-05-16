@@ -1,0 +1,63 @@
+{
+  "SiteMapPage": {
+    "meta": {
+      "title": "サイトマップ | Taypro – ウェブサイト全体のナビゲーション",
+      "description": "Tayproのサイトマップで、プロジェクト、サービス、会社情報など、サイトのすべてのセクションにすばやくアクセスできます。",
+      "openGraphTitle": "サイトマップ | Taypro – ウェブサイト全体のナビゲーション",
+      "openGraphDescription": "Tayproのサイトマップで、プロジェクト、サービス、会社情報など、サイトのすべてのセクションにすばやくアクセスできます。",
+      "openGraphImageAlt": "Tayproウェブサイトのサイトマップ",
+      "twitterTitle": "サイトマップ | Taypro",
+      "twitterDescription": "Tayproのサイトマップですべてのウェブサイトセクションにすばやくアクセスできます。",
+      "keyword0": "Taypro サイトマップ",
+      "keyword1": "ソーラーパネル清掃ロボット ウェブサイトナビゲーション",
+      "keyword2": "サイトマップ",
+      "keyword3": "ウェブサイトマップ",
+      "keyword4": "Taypro ナビゲーション",
+      "keyword5": "ソーラーパネル清掃ロボット ページ"
+    },
+    "breadcrumbs": { "sitemap": "サイトマップ" },
+    "heading": "サイトマップ",
+    "sections": {
+      "posts": "投稿",
+      "pages": "ページ",
+      "portfolio": "ポートフォリオ"
+    },
+    "posts": { "energyResourcesTitle": "エネルギーリソース" },
+    "portfolio": { "solarProjectTitle": "ソーラープロジェクト" },
+    "links": {
+      "aboutUsLabel": "会社概要",
+      "aboutUsTitle": "会社概要",
+      "blogLabel": "ブログ",
+      "blogTitle": "ブログ",
+      "contactLabel": "お問い合わせ",
+      "contactTitle": "お問い合わせ",
+      "homeLabel": "ホーム",
+      "homeTitle": "ホーム",
+      "privacyPolicyLabel": "プライバシーポリシー",
+      "privacyPolicyTitle": "プライバシーポリシー",
+      "performanceMethodologyLabel": "性能・試験方法論",
+      "performanceMethodologyTitle": "性能・試験方法論",
+      "projectsLabel": "プロジェクト",
+      "projectsTitle": "プロジェクト",
+      "roiCalculatorLabel": "ROI計算機",
+      "roiCalculatorTitle": "ROI計算機",
+      "sitemapLabel": "サイトマップ",
+      "sitemapTitle": "サイトマップ",
+      "solarRobotsLabel": "ソーラーパネル清掃ロボット",
+      "solarRobotsTitle": "ソーラーロボット ソーラーパネル清掃ロボット",
+      "automaticRobotLabel": "自動ソーラーパネル清掃ロボット",
+      "automaticRobotTitle": "自動ソーラーパネル清掃ロボット",
+      "modelBLabel": "Model-B",
+      "modelBTitle": "半自動ソーラーパネル清掃システム",
+      "modelTLabel": "Model-T",
+      "modelTTitle": "Model-T",
+      "cleaningServiceLabel": "ソーラーパネル清掃サービス",
+      "cleaningServiceTitle": "ソーラーパネル清掃サービス",
+      "tayproConsoleLabel": "Taypro Console",
+      "tayproConsoleTitle": "自動清掃ロボットアプリ",
+      "cleaningTechnologyLabel": "Tayproの技術背景",
+      "cleaningTechnologyTitle": "清掃技術"
+    }
+  },
+  "Common": { "breadcrumbHome": "ホーム" }
+}

@@ -1,7 +1,8 @@
 /**
- * Simple in-memory rate limiter
- * Tracks login attempts per IP address
+ * In-memory rate limiter (per-instance; use Redis at scale).
  */
+
+import { getClientIp } from "@/lib/security";
 
 interface RateLimitEntry {
   count: number;
@@ -10,76 +11,68 @@ interface RateLimitEntry {
 
 const rateLimitStore = new Map<string, RateLimitEntry>();
 
-// Configuration
-const MAX_ATTEMPTS = 5;
-const WINDOW_MS = 15 * 60 * 1000; // 15 minutes
+const LOGIN_MAX_ATTEMPTS = 5;
+const LOGIN_WINDOW_MS = 15 * 60 * 1000;
 
-/**
- * Get client IP from request
- */
-function getClientIP(request: Request | { headers: Headers }): string {
-  // Try to get IP from various headers (for proxy/load balancer scenarios)
-  const forwarded = request.headers.get("x-forwarded-for");
-  if (forwarded) {
-    return forwarded.split(",")[0].trim();
-  }
-  
-  const realIP = request.headers.get("x-real-ip");
-  if (realIP) {
-    return realIP;
-  }
-  
-  // Fallback - use a default key for rate limiting
-  // In production behind nginx, x-real-ip should always be set
-  return "unknown";
-}
+const API_LIMITS: Record<string, { max: number; windowMs: number }> = {
+  saleslead: { max: 10, windowMs: 60 * 60 * 1000 },
+};
 
-/**
- * Check if request should be rate limited
- * @returns rate limit info with limited flag, remaining attempts, and reset time
- */
-export function checkRateLimit(request: Request | { headers: Headers }): { limited: boolean; remaining: number; resetTime: number } | null {
-  const ip = getClientIP(request);
-  const now = Date.now();
-  
-  // Clean up old entries
-  if (rateLimitStore.size > 1000) {
-    // Prevent memory leak - remove expired entries
-    for (const [key, entry] of rateLimitStore.entries()) {
-      if (entry.resetTime < now) {
-        rateLimitStore.delete(key);
-      }
+function pruneStore(now: number): void {
+  if (rateLimitStore.size <= 1000) return;
+  for (const [key, entry] of rateLimitStore.entries()) {
+    if (entry.resetTime < now) {
+      rateLimitStore.delete(key);
     }
   }
-  
-  const entry = rateLimitStore.get(ip);
-  
+}
+
+function checkLimit(
+  bucketKey: string,
+  max: number,
+  windowMs: number
+): { limited: boolean; remaining: number; resetTime: number } {
+  const now = Date.now();
+  pruneStore(now);
+
+  const entry = rateLimitStore.get(bucketKey);
+
   if (!entry || entry.resetTime < now) {
-    // No entry or expired - create new entry
-    rateLimitStore.set(ip, {
-      count: 1,
-      resetTime: now + WINDOW_MS,
-    });
-    return { limited: false, remaining: MAX_ATTEMPTS - 1, resetTime: now + WINDOW_MS };
+    const resetTime = now + windowMs;
+    rateLimitStore.set(bucketKey, { count: 1, resetTime });
+    return { limited: false, remaining: max - 1, resetTime };
   }
-  
-  // Entry exists and is valid
-  if (entry.count >= MAX_ATTEMPTS) {
+
+  if (entry.count >= max) {
     return { limited: true, remaining: 0, resetTime: entry.resetTime };
   }
-  
-  // Increment count
+
   entry.count++;
-  rateLimitStore.set(ip, entry);
-  
-  return { limited: false, remaining: MAX_ATTEMPTS - entry.count, resetTime: entry.resetTime };
+  rateLimitStore.set(bucketKey, entry);
+  return {
+    limited: false,
+    remaining: max - entry.count,
+    resetTime: entry.resetTime,
+  };
 }
 
-/**
- * Reset rate limit for an IP (useful after successful login)
- */
+export function checkRateLimit(
+  request: Request | { headers: Headers }
+): { limited: boolean; remaining: number; resetTime: number } | null {
+  const ip = getClientIp(request);
+  return checkLimit(`login:${ip}`, LOGIN_MAX_ATTEMPTS, LOGIN_WINDOW_MS);
+}
+
 export function resetRateLimit(request: Request | { headers: Headers }): void {
-  const ip = getClientIP(request);
-  rateLimitStore.delete(ip);
+  const ip = getClientIp(request);
+  rateLimitStore.delete(`login:${ip}`);
 }
 
+export function checkApiRateLimit(
+  request: Request | { headers: Headers },
+  apiName: keyof typeof API_LIMITS
+): { limited: boolean; remaining: number; resetTime: number } {
+  const config = API_LIMITS[apiName];
+  const ip = getClientIp(request);
+  return checkLimit(`${apiName}:${ip}`, config.max, config.windowMs);
+}

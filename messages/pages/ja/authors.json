@@ -1,0 +1,29 @@
+{
+  "AuthorsPage": {
+    "meta": {
+      "title": "ブログ著者 | Taypro - ソーラーパネル清掃ロボットの専門家",
+      "description": "Tayproブログを執筆するエンジニア、研究者、現場の専門家に会いましょう。ソーラーパネル清掃ロボットの記事と現場メモのすべての寄稿者を閲覧できます。",
+      "openGraphTitle": "ブログ著者 | Taypro - ソーラーパネル清掃ロボットの専門家",
+      "openGraphDescription": "Tayproのソーラーパネル清掃ロボット記事と現場メモの背後にいるエンジニアと現場の専門家に会いましょう。",
+      "openGraphImageAlt": "Tayproブログ著者",
+      "twitterTitle": "ブログ著者 | Taypro",
+      "twitterDescription": "Tayproのソーラーパネル清掃ロボットブログの背後にいるエンジニアと現場の専門家。",
+      "keyword0": "Taypro 著者",
+      "keyword1": "ソーラーパネル清掃ロボット 著者",
+      "keyword2": "Taypro ブログ寄稿者",
+      "keyword3": "ソーラー O&M 専門家",
+      "keyword4": "Taypro エンジニアリングチーム"
+    },
+    "breadcrumbs": { "authors": "著者" },
+    "hero": {
+      "eyebrow": "ブログディレクトリ",
+      "title": "著者",
+      "description": "すべてのブログ寄稿者を探索し、公開記事をお読みください。"
+    },
+    "defaultRole": "寄稿著者",
+    "defaultBio": "この著者のブログ投稿とインサイトをお読みください。",
+    "article": "記事",
+    "articles": "記事"
+  },
+  "Common": { "breadcrumbHome": "ホーム" }
+}

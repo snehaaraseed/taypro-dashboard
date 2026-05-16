@@ -1,15 +1,15 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { getRandomCategory, type TopicCategory } from "./topicCategories";
+import { getRandomCategory } from "./topicCategories";
 import { getProductKnowledgeBase } from "./productKnowledge";
 import { isTopicPublished } from "./topicTracker";
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-
-if (!GEMINI_API_KEY) {
-  throw new Error("GEMINI_API_KEY environment variable is not set");
+function getGenAI(): GoogleGenerativeAI {
+  const key = process.env.GEMINI_API_KEY?.trim();
+  if (!key) {
+    throw new Error("GEMINI_API_KEY is not set — add it to run AI features.");
+  }
+  return new GoogleGenerativeAI(key);
 }
-
-const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
 /**
  * Generate a unique blog topic using Gemini AI
@@ -20,6 +20,7 @@ export async function generateUniqueTopic(
   const category = getRandomCategory();
   const productKnowledge = getProductKnowledgeBase();
 
+  const genAI = getGenAI();
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
   const prompt = `You are a content strategist for a solar panel cleaning robot company called Taypro.
@@ -117,6 +118,7 @@ export async function generateBlogContent(
   content: string;
 }> {
   const productKnowledge = getProductKnowledgeBase();
+  const genAI = getGenAI();
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
   const prompt = `You are an expert content writer specializing in solar panel cleaning robots and solar power plant operations & maintenance. Write a comprehensive, SEO-optimized blog post about: ${topic}

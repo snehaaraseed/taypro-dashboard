@@ -1,0 +1,33 @@
+{
+  "AuthorsPage": {
+    "meta": {
+      "title": "Blog Authors | Taypro - Solar Panel Cleaning Robot Experts",
+      "description": "Meet the engineers, researchers and field experts writing the Taypro blog. Browse every contributor to our Solar Panel Cleaning Robot articles and field notes.",
+      "openGraphTitle": "Blog Authors | Taypro - Solar Panel Cleaning Robot Experts",
+      "openGraphDescription": "Meet the engineers and field experts behind Taypro's Solar Panel Cleaning Robot articles and field notes.",
+      "openGraphImageAlt": "Taypro blog authors",
+      "twitterTitle": "Blog Authors | Taypro",
+      "twitterDescription": "Engineers and field experts behind Taypro's Solar Panel Cleaning Robot blog.",
+      "keyword0": "Taypro authors",
+      "keyword1": "Solar Panel Cleaning Robot authors",
+      "keyword2": "Taypro blog contributors",
+      "keyword3": "solar O&M experts",
+      "keyword4": "Taypro engineering team"
+    },
+    "breadcrumbs": {
+      "authors": "Authors"
+    },
+    "hero": {
+      "eyebrow": "Blog Directory",
+      "title": "Authors",
+      "description": "Explore all blog contributors and read their published articles."
+    },
+    "defaultRole": "Contributing Author",
+    "defaultBio": "Read this author's blog posts and insights.",
+    "article": "article",
+    "articles": "articles"
+  },
+  "Common": {
+    "breadcrumbHome": "Home"
+  }
+}

@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { OrganizationSchema, WebSiteSchema } from "@/app/components/StructuredData";
+import { TAYPRO_SALES_PHONE_E164 } from "@/lib/contact";
 import Header from "@/app/components/Header";
 import LeadModalRoot from "@/app/components/LeadModalRoot";
 import DeferredLayoutWidgets from "@/app/components/DeferredLayoutWidgets";
@@ -86,9 +87,6 @@ export const metadata: Metadata = {
     creator: "@taypro",
     site: "@taypro",
   },
-  alternates: {
-    canonical: siteUrl,
-  },
   verification: {
     google: "POwpbCt1VC81SCiYeic_JNaILeWuPXppkUxgAdfwAQo",
   },
@@ -137,7 +135,14 @@ export default async function LocaleLayout({
       </head>
       <body className={blinker.className}>
         <NextIntlClientProvider messages={messages}>
-          <OrganizationSchema siteUrl={siteUrl} />
+          <OrganizationSchema
+            siteUrl={siteUrl}
+            contactPoint={{
+              contactType: "customer service",
+              telephone: TAYPRO_SALES_PHONE_E164,
+              email: "sales@taypro.in",
+            }}
+          />
           <WebSiteSchema siteUrl={siteUrl} />
           <LeadModalRoot>
             <div className="min-h-screen flex flex-col">

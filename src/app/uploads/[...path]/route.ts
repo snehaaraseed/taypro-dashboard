@@ -3,6 +3,7 @@ import { readFile } from "fs/promises";
 import path from "path";
 import { existsSync } from "fs";
 import { getDeploymentRoot } from "@/app/utils/deploymentRoot";
+import { resolvePathInsideRoot } from "@/lib/security";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -25,14 +26,10 @@ export async function GET(
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
 
-    const fullPath = path.join(
-      getDeploymentRoot(),
-      "public",
-      "uploads",
-      filePath
-    );
+    const uploadsRoot = path.join(getDeploymentRoot(), "public", "uploads");
+    const fullPath = resolvePathInsideRoot(uploadsRoot, filePath);
 
-    if (!existsSync(fullPath)) {
+    if (!fullPath || !existsSync(fullPath)) {
       return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
 
@@ -62,7 +59,6 @@ function getContentType(ext: string): string {
     ".png": "image/png",
     ".gif": "image/gif",
     ".webp": "image/webp",
-    ".svg": "image/svg+xml",
     ".ico": "image/x-icon",
   };
   return contentTypes[ext] || "application/octet-stream";
