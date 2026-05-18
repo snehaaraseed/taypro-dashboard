@@ -19,6 +19,36 @@ REMOTE_HOST="ubuntu@13.204.129.120"
 REMOTE_PATH="/var/www/taypro-dashboard"
 LOCAL_PATH="/Users/yogesh/TayproWebsite/taypro-dashboard"
 
+enable_remote_maintenance() {
+    ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
+        set -e
+        cd /var/www/taypro-dashboard
+        chmod +x scripts/maintenance-mode.sh 2>/dev/null || true
+        touch .maintenance
+        sudo nginx -t
+        sudo systemctl reload nginx
+        sleep 1
+        CODE=$(curl -s -o /dev/null -w '%{http_code}' -k --resolve taypro.in:443:127.0.0.1 https://taypro.in/ || echo "000")
+        if [ "$CODE" != "503" ]; then
+            echo "  ⚠️  Maintenance verify got HTTP $CODE (expected 503)"
+            exit 1
+        fi
+        echo "  ✅ Maintenance mode ON (HTTP 503 verified)"
+EOF
+}
+
+disable_remote_maintenance() {
+    ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF' 2>/dev/null || true
+        set -e
+        cd /var/www/taypro-dashboard
+        rm -f .maintenance
+        sudo nginx -t 2>/dev/null && sudo systemctl reload nginx 2>/dev/null || true
+        echo "  ✅ Maintenance mode OFF"
+EOF
+}
+
+trap 'echo -e "${YELLOW}⚠️  Deploy interrupted — turning off maintenance mode...${NC}"; disable_remote_maintenance' INT TERM
+
 echo -e "${GREEN}🚀 Starting Taypro Website Deployment${NC}"
 echo ""
 
@@ -108,6 +138,17 @@ rsync -avz --checksum --delete \
 echo -e "${GREEN}  ✅ Files synced${NC}"
 echo ""
 
+# Step 2a: Ensure nginx can serve SEO-safe 503 maintenance during build
+echo -e "${YELLOW}🔧 Step 2a: Ensuring nginx maintenance mode is configured...${NC}"
+ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
+    set -e
+    cd /var/www/taypro-dashboard
+    chmod +x scripts/maintenance-mode.sh scripts/install-nginx-maintenance.sh 2>/dev/null || true
+    ./scripts/install-nginx-maintenance.sh
+EOF
+echo -e "${GREEN}  ✅ Maintenance mode ready${NC}"
+echo ""
+
 # Step 2b: Backfill project HTML on server while legacy page.tsx still exists (first deploy after cleanup)
 echo -e "${YELLOW}📋 Step 2b: Backfill project content in DB (if legacy pages present)...${NC}"
 ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
@@ -161,6 +202,9 @@ echo ""
 
 # Step 4: Build and restart
 echo -e "${YELLOW}🔨 Step 4: Building application...${NC}"
+echo -e "${YELLOW}  Turning on maintenance page (503) before build...${NC}"
+enable_remote_maintenance
+echo ""
 ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     set -e
     cd /var/www/taypro-dashboard
@@ -244,6 +288,7 @@ EOF
 
 if [ $? -ne 0 ]; then
     echo -e "${RED}  ❌ Build failed!${NC}"
+    disable_remote_maintenance
     exit 1
 fi
 echo -e "${GREEN}  ✅ Build completed${NC}"
@@ -285,8 +330,11 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     else
         echo "  ⚠️  Application responded with HTTP $HTTP_CODE"
     fi
+
 EOF
 
+echo -e "${YELLOW}  Turning off maintenance page...${NC}"
+disable_remote_maintenance
 echo ""
 echo -e "${GREEN}✅ Deployment completed successfully!${NC}"
 echo ""

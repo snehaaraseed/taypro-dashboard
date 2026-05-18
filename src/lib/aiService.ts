@@ -2,6 +2,11 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { getRandomCategory } from "./topicCategories";
 import { getProductKnowledgeBase } from "./productKnowledge";
 import { createSlug } from "@/app/utils/blogFileUtils";
+import {
+  ANTI_GENERIC_WRITING_RULES,
+  isTooGenericDescription,
+  isTooGenericTitle,
+} from "@/lib/seo/content-quality";
 import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
 import {
   formatSeoPromptBlock,
@@ -108,6 +113,8 @@ Requirements:
 - Topics should sound natural and human-written
 - Focus on practical, valuable content for solar plant operators and managers
 
+${ANTI_GENERIC_WRITING_RULES}
+
 ${productKnowledge}
 
 IMPORTANT: 
@@ -141,6 +148,10 @@ Return ONLY a JSON array of 5 topic titles, like this:
 
       for (const topicTitle of topics) {
         if (!topicTitle || typeof topicTitle !== "string") continue;
+
+        if (isTooGenericTitle(topicTitle, seoBrief?.primary)) {
+          continue;
+        }
 
         const isPublished = await isTopicPublished(
           topicTitle,
@@ -211,6 +222,8 @@ ${productKnowledge}
 - Always verify any technical claims against the knowledge base
 
 Requirements:
+${ANTI_GENERIC_WRITING_RULES}
+- The JSON "title" must match the specific angle of: ${topic}
 - Word count: 1500-2500 words
 - Natural, conversational tone (avoid AI-sounding language)
 - Factual, accurate information about solar panel cleaning and solar plant O&M
@@ -252,6 +265,15 @@ Return the response in the following JSON format:
     if (!blogData.title || !blogData.description || !blogData.content) {
       throw new Error(
         "AI response missing required fields (title, description, content)"
+      );
+    }
+
+    if (
+      isTooGenericTitle(blogData.title, seoBrief?.primary) ||
+      isTooGenericDescription(blogData.description)
+    ) {
+      throw new Error(
+        "Generated title or meta description was too generic; retry automation"
       );
     }
 
