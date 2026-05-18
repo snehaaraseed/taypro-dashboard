@@ -1,0 +1,91 @@
+import "server-only";
+
+import { listAllBlogs } from "@/lib/cms/blogService";
+import { SOURCE_LOCALE } from "@/lib/translation/config";
+import {
+  getUsedSeoKeywords,
+  loadSeoKeywordRows,
+} from "@/lib/seo/keyword-stats";
+
+const RECENT_POST_LIMIT = 15;
+const USED_KEYWORD_LIMIT = 20;
+
+/**
+ * Core editorial rules (aligned with docs/SEO-STRATEGY.md §2–3).
+ * Kept in code so production prompts stay stable without parsing markdown at runtime.
+ */
+const STRATEGY_CORE = `EDITORIAL STRATEGY (Taypro India):
+- Audience: Utility-scale solar asset owners, EPC teams, and O&M managers (MW-scale plants). Not residential DIY or generic "solar panels" shoppers.
+- Business: Taypro sells autonomous waterless solar panel cleaning robots and plant O&M solutions — NOT PV modules or panel resale.
+- Blog role (Tier B): Support money pages with comparisons, how-to, soiling/PR, brush vs robot, cleaning frequency, equipment guides. Do not write another generic homepage or hub page.
+- Money pages to reference naturally (suggest 2–3 internal links using these paths only):
+  /solar-panel-cleaning-system
+  /solar-panel-cleaning-system/automatic-solar-panel-cleaning-system
+  /solar-panel-cleaning-system/solar-panel-cleaning-service
+  /solar-panel-cleaning-robot-price-calculator
+  /cleaning-technology
+- Content gaps to prioritize when they fit the target keyword: robot vs manual brush TCO, cleaning frequency for utility plants, dust/soiling and performance ratio, waterless/automatic systems at scale, India utility case angles.
+- Do NOT target as primary focus: generic "solar panels", panel price, module manufacturers, US/AU city names, student/project PDF intent.`;
+
+const TIER_B_ANGLES = [
+  "robot vs brush / manual cleaning TCO",
+  "cleaning frequency & O&M scheduling",
+  "dust, soiling, and performance ratio (PR)",
+  "waterless / automatic cleaning at utility scale",
+  "cleaning equipment for 10MW+ plants",
+  "cost / ROI vs manual methods (link to calculator)",
+];
+
+/**
+ * Builds a compact prompt block: strategy, recent posts, used keywords, remaining pool.
+ */
+export async function formatEditorialContextPrompt(): Promise<string> {
+  const allPosts = await listAllBlogs(true, SOURCE_LOCALE);
+  const recent = allPosts.slice(0, RECENT_POST_LIMIT);
+  const publishedCount = allPosts.filter((p) => p.published !== false).length;
+  const draftCount = allPosts.length - publishedCount;
+
+  const usedKeywords = [...(await getUsedSeoKeywords())].sort();
+  const allKeywordRows = loadSeoKeywordRows();
+  const remaining = allKeywordRows.length - usedKeywords.length;
+
+  const recentLines =
+    recent.length > 0
+      ? recent.map((p) => {
+          const status = p.published === false ? "draft" : "published";
+          return `  - [${status}] ${p.title}`;
+        })
+      : ["  - (none yet)"];
+
+  const usedLines =
+    usedKeywords.length > 0
+      ? usedKeywords
+          .slice(-USED_KEYWORD_LIMIT)
+          .map((k) => `  - ${k}`)
+      : ["  - (none from automation yet)"];
+
+  const recentTitlesLower = recent.map((p) => p.title.toLowerCase()).join(" ");
+  const gapHints = TIER_B_ANGLES.filter(
+    (angle) => !recentTitlesLower.includes(angle.split(" ")[0].toLowerCase())
+  )
+    .slice(0, 4)
+    .map((g) => `  - ${g}`);
+
+  return `${STRATEGY_CORE}
+
+CONTENT PROGRAM (do not repeat these topics or angles):
+- English posts in CMS: ${allPosts.length} total (${publishedCount} published, ${draftCount} drafts).
+- Last ${recent.length} posts (newest first):
+${recentLines.join("\n")}
+
+SEO KEYWORDS already used by automation (${usedKeywords.length} of ${allKeywordRows.length}; ${remaining} still in queue):
+${usedLines.join("\n")}
+
+Suggested angles not obvious in recent titles (pick one if it fits today's keyword):
+${gapHints.length > 0 ? gapHints.join("\n") : "  - (cover the primary SEO keyword with a fresh utility-scale angle)"}
+
+Rules for this draft:
+- Pick a NEW angle vs the recent list above; do not rehash the same headline theme.
+- Support Taypro pillars with 2–3 internal link mentions (paths above).
+- Write for plant decision-makers, not consumers.`;
+}

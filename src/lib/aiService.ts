@@ -2,10 +2,22 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { getRandomCategory } from "./topicCategories";
 import { getProductKnowledgeBase } from "./productKnowledge";
 import { createSlug } from "@/app/utils/blogFileUtils";
+import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
+import {
+  formatSeoPromptBlock,
+  pickSeoKeywordBrief,
+  type SeoKeywordBrief,
+} from "@/lib/seo/keyword-stats";
 import { isTopicPublished } from "./topicTracker";
 
-const DEFAULT_BLOG_MODEL =
-  process.env.GEMINI_BLOG_MODEL?.trim() || "gemini-2.5-flash";
+/** Free tier: prefer 3.1 Flash Lite (500 RPD) over 2.5 Flash (20 RPD). */
+const DEFAULT_BLOG_MODEL = "gemini-3.1-flash-lite";
+
+const BLOG_MODEL_CANDIDATES = [
+  process.env.GEMINI_BLOG_MODEL?.trim(),
+  DEFAULT_BLOG_MODEL,
+  "gemini-3.1-flash-lite-preview",
+].filter((m): m is string => Boolean(m));
 
 function getGenAI(): GoogleGenerativeAI {
   const key = process.env.GEMINI_API_KEY?.trim();
@@ -15,25 +27,79 @@ function getGenAI(): GoogleGenerativeAI {
   return new GoogleGenerativeAI(key);
 }
 
-/**
- * Generate a unique blog topic using Gemini AI
- */
-export async function generateUniqueTopic(
-  maxRetries: number = 5
-): Promise<{ title: string; category: string }> {
-  const category = getRandomCategory();
-  const productKnowledge = getProductKnowledgeBase();
+function isQuotaError(error: unknown): boolean {
+  const message = error instanceof Error ? error.message : String(error);
+  return message.includes("429") || message.toLowerCase().includes("quota");
+}
 
+function quotaErrorMessage(error: unknown): string {
+  const base =
+    "Gemini API quota exceeded. Enable billing at https://aistudio.google.com/apikey or retry after the daily limit resets.";
+  if (error instanceof Error && error.message) {
+    return `${base} (${error.message.slice(0, 200)})`;
+  }
+  return base;
+}
+
+async function generateText(prompt: string): Promise<string> {
   const genAI = getGenAI();
-  const model = genAI.getGenerativeModel({ model: DEFAULT_BLOG_MODEL });
+  let lastError: unknown;
 
-  const prompt = `You are a content strategist for a solar panel cleaning robot company called Taypro.
+  for (const modelName of BLOG_MODEL_CANDIDATES) {
+    try {
+      const model = genAI.getGenerativeModel({ model: modelName });
+      const result = await model.generateContent(prompt);
+      return result.response.text().trim();
+    } catch (error) {
+      lastError = error;
+      if (isQuotaError(error)) {
+        throw new Error(quotaErrorMessage(error));
+      }
+      console.warn(`Gemini model ${modelName} failed, trying next...`, error);
+    }
+  }
+
+  throw new Error(
+    lastError instanceof Error
+      ? lastError.message
+      : "All configured Gemini models failed"
+  );
+}
+
+/**
+ * Generate a unique blog topic using Gemini AI (one API call per attempt).
+ */
+export type GeneratedTopic = {
+  title: string;
+  category: string;
+  seoKeyword: string;
+  seoBrief: SeoKeywordBrief | null;
+};
+
+export async function generateUniqueTopic(
+  maxRetries: number = 2,
+  editorialContext?: string
+): Promise<GeneratedTopic> {
+  const productKnowledge = getProductKnowledgeBase();
+  const seoBrief = await pickSeoKeywordBrief();
+  const editorial =
+    editorialContext ?? (await formatEditorialContextPrompt());
+
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    const category = getRandomCategory();
+    const seoBlock = seoBrief
+      ? `\n${formatSeoPromptBlock(seoBrief)}\n- Each title should clearly support the primary keyword or a close variant.\n`
+      : "";
+
+    const prompt = `You are a content strategist for a solar panel cleaning robot company called Taypro.
+
+${editorial}
 
 Generate 5 unique, SEO-friendly blog topic titles about: ${category.name}
 
 Category Description: ${category.description}
 Category Keywords: ${category.keywords.join(", ")}
-
+${seoBlock}
 Requirements:
 - Each topic should be unique and not repeated
 - Topics should be relevant to solar panel cleaning robots, solar power plant operations & maintenance (O&M), or related solar energy topics
@@ -52,34 +118,27 @@ IMPORTANT:
 Return ONLY a JSON array of 5 topic titles, like this:
 ["Topic 1", "Topic 2", "Topic 3", "Topic 4", "Topic 5"]`;
 
-  for (let attempt = 0; attempt < maxRetries; attempt++) {
     try {
-      const result = await model.generateContent(prompt);
-      const response = await result.response;
-      const text = response.text().trim();
+      const text = await generateText(prompt);
 
-      // Extract JSON array from response
       let topics: string[] = [];
       try {
-        // Try to parse as JSON directly
         topics = JSON.parse(text);
       } catch {
-        // If that fails, try to extract JSON from markdown code blocks or text
-        // Use a cross-line-safe pattern without relying on the /s flag
         const jsonMatch = text.match(/\[[\s\S]*\]/);
         if (jsonMatch) {
           topics = JSON.parse(jsonMatch[0]);
         } else {
-          // Fallback: split by newlines and clean up
           topics = text
             .split("\n")
-            .map((line) => line.replace(/^[-*•]\s*/, "").replace(/^"\s*|\s*"$/g, "").trim())
+            .map((line) =>
+              line.replace(/^[-*•]\s*/, "").replace(/^"\s*|\s*"$/g, "").trim()
+            )
             .filter((line) => line.length > 0)
             .slice(0, 5);
         }
       }
 
-      // Check each topic for uniqueness
       for (const topicTitle of topics) {
         if (!topicTitle || typeof topicTitle !== "string") continue;
 
@@ -91,22 +150,27 @@ Return ONLY a JSON array of 5 topic titles, like this:
           return {
             title: topicTitle.trim(),
             category: category.name,
+            seoKeyword: seoBrief?.primary ?? "",
+            seoBrief,
           };
         }
       }
 
-      // If all topics are duplicates, try again
       if (attempt < maxRetries - 1) {
-        console.log(`All topics were duplicates, retrying... (attempt ${attempt + 1}/${maxRetries})`);
-        await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait 1 second before retry
-        continue;
+        console.log(
+          `All topics were duplicates, retrying... (attempt ${attempt + 2}/${maxRetries})`
+        );
       }
     } catch (error) {
+      if (isQuotaError(error)) {
+        throw error;
+      }
       console.error(`Error generating topic (attempt ${attempt + 1}):`, error);
       if (attempt === maxRetries - 1) {
-        throw new Error(`Failed to generate unique topic after ${maxRetries} attempts: ${error}`);
+        throw new Error(
+          `Failed to generate unique topic after ${maxRetries} attempts: ${error}`
+        );
       }
-      await new Promise((resolve) => setTimeout(resolve, 1000));
     }
   }
 
@@ -118,18 +182,23 @@ Return ONLY a JSON array of 5 topic titles, like this:
  */
 export async function generateBlogContent(
   topic: string,
-  category: string
+  _category: string,
+  seoBrief?: SeoKeywordBrief | null,
+  editorialContext?: string
 ): Promise<{
   title: string;
   description: string;
   content: string;
 }> {
   const productKnowledge = getProductKnowledgeBase();
-  const genAI = getGenAI();
-  const model = genAI.getGenerativeModel({ model: DEFAULT_BLOG_MODEL });
+  const seoBlock = seoBrief ? `\n${formatSeoPromptBlock(seoBrief)}\n` : "";
+  const editorial =
+    editorialContext ?? (await formatEditorialContextPrompt());
 
   const prompt = `You are an expert content writer specializing in solar panel cleaning robots and solar power plant operations & maintenance. Write a comprehensive, SEO-optimized blog post about: ${topic}
 
+${editorial}
+${seoBlock}
 CRITICAL: Product/Service Information Accuracy
 - ONLY use the following verified information about Taypro products/services. DO NOT invent or hallucinate any features, specifications, or capabilities.
 - If you need to mention Taypro products, refer ONLY to this knowledge base:
@@ -148,12 +217,13 @@ Requirements:
 - Include relevant statistics and data points (use industry-standard ranges, not specific unverified numbers)
 - Use headings (H2, H3) for structure
 - Include bullet points and examples
-- Natural keyword integration (solar panel cleaning robot, solar plant maintenance, solar O&M, etc.)
+- Natural keyword integration (use the SEO target above when provided; also solar plant maintenance, solar O&M, etc.)
 - Good readability (aim for Flesch Reading Ease 60+)
 - Original content (do not copy from other sources)
 - Include practical tips and actionable insights
 - Cover overall solar power plant operations and maintenance when relevant
 - Reference Taypro's solutions naturally where relevant, but ONLY use verified information
+- Include 2–3 internal links to Taypro pillar paths listed in the editorial strategy (use relative hrefs like href="/solar-panel-cleaning-system")
 
 Format the output as clean HTML with proper paragraph tags (<p>), headings (<h2>, <h3>), and lists (<ul>, <ol>).
 
@@ -165,17 +235,12 @@ Return the response in the following JSON format:
 }`;
 
   try {
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = response.text().trim();
+    const text = await generateText(prompt);
 
-    // Extract JSON from response
     let blogData: { title: string; description: string; content: string };
     try {
-      // Try to parse as JSON directly
       blogData = JSON.parse(text);
     } catch {
-      // If that fails, try to extract JSON from markdown code blocks
       const jsonMatch = text.match(/\{[\s\S]*\}/);
       if (jsonMatch) {
         blogData = JSON.parse(jsonMatch[0]);
@@ -184,9 +249,10 @@ Return the response in the following JSON format:
       }
     }
 
-    // Validate response structure
     if (!blogData.title || !blogData.description || !blogData.content) {
-      throw new Error("AI response missing required fields (title, description, content)");
+      throw new Error(
+        "AI response missing required fields (title, description, content)"
+      );
     }
 
     return {
@@ -197,7 +263,7 @@ Return the response in the following JSON format:
   } catch (error) {
     console.error("Error generating blog content:", error);
     throw new Error(
-      `Failed to generate blog content: ${error instanceof Error ? error.message : "Unknown error"}`
+      error instanceof Error ? error.message : "Failed to generate blog content"
     );
   }
 }

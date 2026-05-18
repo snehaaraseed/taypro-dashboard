@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { generateUniqueTopic, generateBlogContent } from "@/lib/aiService";
+import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
+import { formatTopicCategory } from "@/lib/seo/keyword-stats";
 import {
   getBlogAutomationSchedule,
   addPublishedTopic,
@@ -28,16 +30,22 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { title: topicTitle, category } = await generateUniqueTopic(5);
+    const editorialContext = await formatEditorialContextPrompt();
+    const topic = await generateUniqueTopic(2, editorialContext);
 
-    if (!topicTitle) {
+    if (!topic.title) {
       return NextResponse.json(
         { success: false, error: "Failed to generate a unique topic" },
         { status: 500 }
       );
     }
 
-    const blogData = await generateBlogContent(topicTitle, category);
+    const blogData = await generateBlogContent(
+      topic.title,
+      topic.category,
+      topic.seoBrief,
+      editorialContext
+    );
 
     if (!blogData.title || !blogData.description || !blogData.content) {
       return NextResponse.json(
@@ -81,7 +89,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    await addPublishedTopic(blogData.title, result.slug, category);
+    const categoryMeta = topic.seoKeyword
+      ? formatTopicCategory(topic.category, topic.seoKeyword)
+      : topic.category;
+    await addPublishedTopic(blogData.title, result.slug, categoryMeta);
 
     revalidatePath(`/blog/${result.slug}`);
     revalidatePath("/blog");
@@ -97,7 +108,8 @@ export async function POST(request: NextRequest) {
         url: `/blog/${result.slug}`,
         adminUrl: `/admin/blogs`,
         status: "draft",
-        category,
+        category: topic.category,
+        seoKeyword: topic.seoKeyword || undefined,
       },
       schedule: await getBlogAutomationSchedule(),
     });

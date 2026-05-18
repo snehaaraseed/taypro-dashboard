@@ -225,6 +225,11 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
             cp -a data/cms.sqlite .next/standalone/data/
             echo "  ✅ Copied cms.sqlite to standalone"
         fi
+        if [ -f "data/seo-keywords.csv" ]; then
+            mkdir -p .next/standalone/data
+            cp -a data/seo-keywords.csv .next/standalone/data/
+            echo "  ✅ Copied seo-keywords.csv to standalone"
+        fi
         if [ -d "messages" ]; then
             mkdir -p .next/standalone/messages
             rsync -a messages/ .next/standalone/messages/

@@ -16,5 +16,7 @@ export function localeDisplayName(locale: TayproLocale): string {
 }
 
 export function geminiTranslationModel(): string {
-  return process.env.GEMINI_TRANSLATION_MODEL?.trim() || "gemini-2.5-flash";
+  return (
+    process.env.GEMINI_TRANSLATION_MODEL?.trim() || "gemini-3.1-flash-lite"
+  );
 }
