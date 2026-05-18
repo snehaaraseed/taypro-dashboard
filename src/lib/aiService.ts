@@ -4,6 +4,7 @@ import { getProductKnowledgeBase } from "./productKnowledge";
 import { createSlug } from "@/app/utils/blogFileUtils";
 import {
   ANTI_GENERIC_WRITING_RULES,
+  LONG_FORM_CONTENT_RULES,
   SEO_AND_READER_RULES,
   isTooGenericDescription,
   isTooGenericTitle,
@@ -243,9 +244,10 @@ ${productKnowledge}
 Requirements:
 ${ANTI_GENERIC_WRITING_RULES}
 ${SEO_AND_READER_RULES}
+${LONG_FORM_CONTENT_RULES}
 - Use this exact working title unless you can improve it without making it vaguer: "${topic}"
 - The JSON "title" field should match or tightly paraphrase that line (must stay specific)
-- Word count: 1500-2500 words
+- Word count: 2,800-3,200 words (minimum 2,600; do not pad with filler)
 - Natural, conversational tone (avoid AI-sounding language)
 - Factual, accurate information about solar panel cleaning and solar plant O&M
 - Include relevant statistics and data points (use industry-standard ranges, not specific unverified numbers)
@@ -257,7 +259,7 @@ ${SEO_AND_READER_RULES}
 - Include practical tips and actionable insights
 - Cover overall solar power plant operations and maintenance when relevant
 - Reference Taypro's solutions naturally where relevant, but ONLY use verified information
-- Include 2–3 internal links to Taypro pillar paths listed in the editorial strategy (use relative hrefs like href="/solar-panel-cleaning-system")
+- Include 3–5 internal links to Taypro pillar paths listed in the editorial strategy (use relative hrefs like href="/solar-panel-cleaning-system")
 
 Format the output as clean HTML with proper paragraph tags (<p>), headings (<h2>, <h3>), and lists (<ul>, <ol>).
 

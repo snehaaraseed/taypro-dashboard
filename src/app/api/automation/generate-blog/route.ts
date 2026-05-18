@@ -5,6 +5,7 @@ import { generateUniqueTopic, generateBlogContent } from "@/lib/aiService";
 import { isGenericContentError } from "@/lib/seo/content-quality";
 import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
 import { pickBlogFeaturedImage } from "@/lib/seo/blog-image-picker";
+import { enrichBlogContentWithInlineImages } from "@/lib/seo/blog-inline-images";
 import { formatTopicCategory } from "@/lib/seo/keyword-stats";
 import {
   getBlogAutomationSchedule,
@@ -17,7 +18,7 @@ import { isAutomationAuthorized } from "@/lib/security";
 const MAX_GENERATION_ATTEMPTS = 3;
 
 /** Imagen + long Gemini runs can exceed default route timeout. */
-export const maxDuration = 120;
+export const maxDuration = 180;
 
 export async function POST(request: NextRequest) {
   if (!isAutomationAuthorized(request)) {
@@ -75,6 +76,16 @@ export async function POST(request: NextRequest) {
           category: topic.category,
         });
 
+        const { content: contentWithImages, inlineImage } =
+          await enrichBlogContentWithInlineImages({
+            content: blogData.content,
+            title: blogData.title,
+            description: blogData.description,
+            seoKeyword: topic.seoKeyword,
+            category: topic.category,
+            featured,
+          });
+
         const result = await createBlogFiles(
           {
             title: blogData.title,
@@ -82,7 +93,7 @@ export async function POST(request: NextRequest) {
             featuredImage: featured.url,
             featuredImageAlt: featured.alt,
             author: "Taypro Team",
-            content: blogData.content,
+            content: contentWithImages,
             publishDate: new Date().toISOString(),
             published: false,
           },
@@ -125,6 +136,8 @@ export async function POST(request: NextRequest) {
         featuredImageAlt: featured.alt,
         imageSource: featured.source,
         imageMode: featured.mode,
+        inlineImage: inlineImage?.url,
+        inlineImageSource: inlineImage?.source,
       },
           schedule: await getBlogAutomationSchedule(),
         });

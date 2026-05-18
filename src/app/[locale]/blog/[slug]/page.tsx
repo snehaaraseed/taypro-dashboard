@@ -396,7 +396,10 @@ export default async function BlogPost({ params }: BlogPostProps) {
                    prose-code:bg-gray-100
                    prose-code:px-2
                    prose-code:py-1
-                   prose-code:rounded"
+                   prose-code:rounded
+                   prose-img:rounded-lg
+                   prose-img:w-full
+                   prose-figure:my-8"
                 />
 
                 {/* Back to Blog Button */}
