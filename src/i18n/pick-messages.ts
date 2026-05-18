@@ -1,3 +1,9 @@
+import { clientNamespacesForRequest } from "@/i18n/client-message-namespaces";
+import { pathnameWithoutLocale } from "@/i18n/pathname-without-locale";
+
+/** Always ship these to the client when present (layout chrome + lead forms). */
+const GLOBAL_CLIENT_NAMESPACES = ["Common", "Forms"] as const;
+
 /** Top-level namespaces passed to NextIntlClientProvider (reduces serialized HTML). */
 export function pickMessages(
   messages: Record<string, unknown>,
@@ -10,4 +16,26 @@ export function pickMessages(
     }
   }
   return picked;
+}
+
+/**
+ * Build the client message bundle for a request pathname.
+ * Ensures global namespaces and home-only namespaces are never dropped.
+ */
+export function buildClientMessages(
+  messages: Record<string, unknown>,
+  pathname: string
+): Record<string, unknown> {
+  const namespaceSet = new Set<string>([
+    ...clientNamespacesForRequest(pathname),
+    ...GLOBAL_CLIENT_NAMESPACES,
+  ]);
+
+  const path = pathnameWithoutLocale(pathname);
+  if (path === "/" || path === "") {
+    namespaceSet.add("Home");
+    namespaceSet.add("PriceCalculatorPage");
+  }
+
+  return pickMessages(messages, [...namespaceSet]);
 }

@@ -1,4 +1,4 @@
-import { isActiveLocale } from "@/i18n/markets";
+import { pathnameWithoutLocale } from "@/i18n/pathname-without-locale";
 
 /** Always required by layout chrome and global client widgets. */
 export const LAYOUT_CLIENT_NAMESPACES = [
@@ -8,6 +8,7 @@ export const LAYOUT_CLIENT_NAMESPACES = [
   "LocaleSwitcher",
   "Forms",
   "NotFoundPage",
+  "Common",
 ] as const;
 
 const PROJECT_FILTER_SEGMENTS = new Set([
@@ -15,15 +16,6 @@ const PROJECT_FILTER_SEGMENTS = new Set([
   "semi-automatic",
   "capex",
 ]);
-
-function pathnameWithoutLocale(pathname: string): string {
-  const segments = pathname.split("/").filter(Boolean);
-  if (segments.length > 0 && isActiveLocale(segments[0])) {
-    const rest = segments.slice(1);
-    return rest.length > 0 ? `/${rest.join("/")}` : "/";
-  }
-  return pathname || "/";
-}
 
 /**
  * Extra translation namespaces for client components on this route.

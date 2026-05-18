@@ -1,4 +1,7 @@
 {
+  "Common": {
+    "breadcrumbHome": "Home"
+  },
   "LocaleSwitcher": {
     "label": "Language",
     "marketsHint": "Tier 1 + Japan"

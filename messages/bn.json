@@ -1,4 +1,7 @@
 {
+  "Common": {
+    "breadcrumbHome": "হোম"
+  },
   "LocaleSwitcher": {
     "label": "ভাষা",
     "marketsHint": "টিয়ার ১ + জাপান"

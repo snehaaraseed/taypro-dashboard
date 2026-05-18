@@ -20,6 +20,7 @@
     "cms:migrate-image-alt": "node scripts/apply-image-alt-migration.mjs"
   },
   "dependencies": {
+    "@google/genai": "^1.52.0",
     "@google/generative-ai": "^0.21.0",
     "@tailwindcss/postcss": "^4.1.17",
     "@tiptap/extension-image": "^3.13.0",

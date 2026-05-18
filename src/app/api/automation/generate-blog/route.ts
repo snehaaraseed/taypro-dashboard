@@ -4,6 +4,7 @@ import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { generateUniqueTopic, generateBlogContent } from "@/lib/aiService";
 import { isGenericContentError } from "@/lib/seo/content-quality";
 import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
+import { pickBlogFeaturedImage } from "@/lib/seo/blog-image-picker";
 import { formatTopicCategory } from "@/lib/seo/keyword-stats";
 import {
   getBlogAutomationSchedule,
@@ -14,6 +15,9 @@ import { createBlogFiles, createSlug } from "@/app/utils/blogFileUtils";
 import { isAutomationAuthorized } from "@/lib/security";
 
 const MAX_GENERATION_ATTEMPTS = 3;
+
+/** Imagen + long Gemini runs can exceed default route timeout. */
+export const maxDuration = 120;
 
 export async function POST(request: NextRequest) {
   if (!isAutomationAuthorized(request)) {
@@ -64,11 +68,19 @@ export async function POST(request: NextRequest) {
           );
         }
 
+        const featured = await pickBlogFeaturedImage({
+          title: blogData.title,
+          description: blogData.description,
+          seoKeyword: topic.seoKeyword,
+          category: topic.category,
+        });
+
         const result = await createBlogFiles(
           {
             title: blogData.title,
             description: blogData.description,
-            featuredImage: "",
+            featuredImage: featured.url,
+            featuredImageAlt: featured.alt,
             author: "Taypro Team",
             content: blogData.content,
             publishDate: new Date().toISOString(),
@@ -107,9 +119,13 @@ export async function POST(request: NextRequest) {
             adminUrl: `/admin/blogs`,
             status: "draft",
             category: topic.category,
-            seoKeyword: topic.seoKeyword || undefined,
-            searchIntent: topic.seoBrief?.searchIntent,
-          },
+        seoKeyword: topic.seoKeyword || undefined,
+        searchIntent: topic.seoBrief?.searchIntent,
+        featuredImage: featured.url,
+        featuredImageAlt: featured.alt,
+        imageSource: featured.source,
+        imageMode: featured.mode,
+      },
           schedule: await getBlogAutomationSchedule(),
         });
       } catch (error) {

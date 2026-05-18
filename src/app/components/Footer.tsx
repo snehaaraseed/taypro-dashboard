@@ -23,37 +23,37 @@ export default function Footer() {
 
   const currentYear = new Date().getFullYear();
 
-  const footerSections = {
-    "Important Links Left": [
-      { name: t("aboutUs"), href: "/company" },
-      { name: t("projects"), href: "/projects" },
-      { name: t("blogs"), href: "/blog" },
-      { name: t("contact"), href: "/contact" },
-    ],
-    "Important Links Right": [
-      { name: t("sitemap"), href: "/site-map" },
-      { name: t("ourTechnology"), href: "/cleaning-technology" },
-      { name: t("privacyPolicy"), href: "/privacy-policy" },
-      { name: t("cookiePolicy"), href: "/cookie-policy" },
-      { name: t("termsOfService"), href: "/terms-of-service" },
-      {
-        name: t("performanceMethodology"),
-        href: "/performance-and-test-methodology",
-      },
-      {
-        name: t("ourSolutions"),
-        href: "/solar-panel-cleaning-system",
-      },
-      {
-        name: t("cleaningService"),
-        href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
-      },
-      {
-        name: t("roiCalculator"),
-        href: "/solar-panel-cleaning-robot-price-calculator#calculator",
-      },
-    ],
-  };
+  const importantLinks = [
+    { name: t("aboutUs"), href: "/company" },
+    { name: t("projects"), href: "/projects" },
+    { name: t("blogs"), href: "/blog" },
+    { name: t("contact"), href: "/contact" },
+    { name: t("sitemap"), href: "/site-map" },
+    { name: t("ourTechnology"), href: "/cleaning-technology" },
+    { name: t("privacyPolicy"), href: "/privacy-policy" },
+    { name: t("cookiePolicy"), href: "/cookie-policy" },
+    { name: t("termsOfService"), href: "/terms-of-service" },
+    {
+      name: t("performanceMethodology"),
+      href: "/performance-and-test-methodology",
+    },
+    {
+      name: t("ourSolutions"),
+      href: "/solar-panel-cleaning-system",
+    },
+    {
+      name: t("cleaningService"),
+      href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
+    },
+    {
+      name: t("roiCalculator"),
+      href: "/solar-panel-cleaning-robot-price-calculator#calculator",
+    },
+  ];
+
+  const importantLinksMid = Math.ceil(importantLinks.length / 2);
+  const importantLinksLeft = importantLinks.slice(0, importantLinksMid);
+  const importantLinksRight = importantLinks.slice(importantLinksMid);
 
   return (
     <footer className="bg-[#052638]">
@@ -191,7 +191,7 @@ export default function Footer() {
             <div>
               <div className="text-lg text-white mb-4">Important Links</div>
               <ul className="space-y-2">
-                {footerSections["Important Links Left"].map((link) => {
+                {importantLinksLeft.map((link) => {
                   const active = mounted && pathname === link.href;
                   return (
                     <li key={link.name} className="relative">
@@ -222,7 +222,7 @@ export default function Footer() {
                 Important Links
               </div>
               <ul className="space-y-2">
-                {footerSections["Important Links Right"].map((link) => {
+                {importantLinksRight.map((link) => {
                   const active = mounted && pathname === link.href;
                   return (
                     <li key={link.name} className="relative">

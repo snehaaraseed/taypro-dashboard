@@ -1,4 +1,7 @@
 {
+  "Common": {
+    "breadcrumbHome": "الرئيسية"
+  },
   "LocaleSwitcher": {
     "label": "اللغة",
     "marketsHint": "المستوى 1 + اليابان"

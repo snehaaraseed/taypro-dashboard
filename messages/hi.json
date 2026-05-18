@@ -1,4 +1,7 @@
 {
+  "Common": {
+    "breadcrumbHome": "होम"
+  },
   "LocaleSwitcher": {
     "label": "भाषा",
     "marketsHint": "टियर 1 + जापान"

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import createIntlMiddleware from "next-intl/middleware";
 import { withGeoLocaleDetection } from "./i18n/detect-locale-from-geo";
+import { pathnameWithoutLocale } from "./i18n/pathname-without-locale";
 import { routing } from "./i18n/routing";
 import { verifyToken } from "./app/utils/jwt";
 
@@ -130,6 +131,7 @@ function applySecurityAndCacheHeaders(
 
   if (!pathname.startsWith("/api") && !pathname.startsWith("/_next")) {
     response.headers.set("x-pathname", pathname);
+    response.headers.set("x-logical-pathname", pathnameWithoutLocale(pathname));
   }
 
   return response;
