@@ -264,22 +264,6 @@ export default function ROITayproCalculator({
 
     const resultsRows = [
       [
-        t("resultLabourSaved"),
-        `Rs. ${pdfFormatCurrency(results.annualCostLabourSaved)}`,
-      ],
-      [
-        t("resultWaterSaved"),
-        `Rs. ${pdfFormatCurrency(results.annualCostWaterSaved)}`,
-      ],
-      [
-        t("resultEnergyGain"),
-        `Rs. ${pdfFormatCurrency(results.annualCostEnergyGain)}`,
-      ],
-      [
-        t("resultTotalSaved"),
-        `Rs. ${pdfFormatCurrency(results.totalMoneySavedAnnually)}`,
-      ],
-      [
         t("resultInvestment"),
         `Rs. ${pdfFormatCurrency(results.totalInvestmentRequired)}`,
       ],
@@ -294,6 +278,22 @@ export default function ROITayproCalculator({
       [
         t("resultRoi20Years"),
         `${formatNumber(results.roi20Years)} %`,
+      ],
+      [
+        t("resultTotalSaved"),
+        `Rs. ${pdfFormatCurrency(results.totalMoneySavedAnnually)}`,
+      ],
+      [
+        t("resultLabourSaved"),
+        `Rs. ${pdfFormatCurrency(results.annualCostLabourSaved)}`,
+      ],
+      [
+        t("resultWaterSaved"),
+        `Rs. ${pdfFormatCurrency(results.annualCostWaterSaved)}`,
+      ],
+      [
+        t("resultEnergyGain"),
+        `Rs. ${pdfFormatCurrency(results.annualCostEnergyGain)}`,
       ],
       [
         t("resultWaterLiters"),
@@ -527,7 +527,14 @@ export default function ROITayproCalculator({
               {t("hideResults")}
             </button>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            <div className="rounded-lg bg-[#0f4a5c] border-2 border-[#A8C117] p-4">
+              <p className="text-white/70 text-sm mb-1">{t("highlightInvestment")}</p>
+              <p className="text-[#A8C117] text-2xl sm:text-3xl font-semibold">
+                {formatCurrency(results.totalInvestmentRequired)}
+              </p>
+              <p className="text-white/55 text-xs mt-2">{t("investmentDisclaimer")}</p>
+            </div>
             <div className="rounded-lg bg-[#0f4a5c] border border-[#A8C117]/30 p-4">
               <p className="text-white/70 text-sm mb-1">{t("paybackTimeline")}</p>
               <p className="text-[#A8C117] text-2xl font-semibold">
@@ -543,32 +550,8 @@ export default function ROITayproCalculator({
           </div>
           <div className="divide-y divide-white/10 text-white">
             <div className="flex justify-between py-2">
-              <span>{t("resultLabourSaved")}</span>
-              <span className="font-semibold">
-                {formatCurrency(results.annualCostLabourSaved)}
-              </span>
-            </div>
-            <div className="flex justify-between py-1">
-              <span>{t("resultWaterSaved")}</span>
-              <span className="font-semibold">
-                {formatCurrency(results.annualCostWaterSaved)}
-              </span>
-            </div>
-            <div className="flex justify-between py-2">
-              <span>{t("resultEnergyGain")}</span>
-              <span className="font-semibold">
-                {formatCurrency(results.annualCostEnergyGain)}
-              </span>
-            </div>
-            <div className="flex justify-between py-2">
-              <span>{t("resultTotalSaved")}</span>
-              <span className="font-semibold">
-                {formatCurrency(results.totalMoneySavedAnnually)}
-              </span>
-            </div>
-            <div className="flex justify-between py-2">
               <span>{t("resultInvestment")}</span>
-              <span className="font-semibold">
+              <span className="font-semibold text-[#A8C117]">
                 {formatCurrency(results.totalInvestmentRequired)}
               </span>
             </div>
@@ -588,6 +571,30 @@ export default function ROITayproCalculator({
               <span>{t("resultRoi20Years")}</span>
               <span className="font-semibold">
                 {formatNumber(results.roi20Years)} %
+              </span>
+            </div>
+            <div className="flex justify-between py-2">
+              <span>{t("resultTotalSaved")}</span>
+              <span className="font-semibold">
+                {formatCurrency(results.totalMoneySavedAnnually)}
+              </span>
+            </div>
+            <div className="flex justify-between py-2">
+              <span>{t("resultLabourSaved")}</span>
+              <span className="font-semibold">
+                {formatCurrency(results.annualCostLabourSaved)}
+              </span>
+            </div>
+            <div className="flex justify-between py-1">
+              <span>{t("resultWaterSaved")}</span>
+              <span className="font-semibold">
+                {formatCurrency(results.annualCostWaterSaved)}
+              </span>
+            </div>
+            <div className="flex justify-between py-2">
+              <span>{t("resultEnergyGain")}</span>
+              <span className="font-semibold">
+                {formatCurrency(results.annualCostEnergyGain)}
               </span>
             </div>
             <div className="flex justify-between py-2">

@@ -75,17 +75,17 @@ const staticPageLinks: InternalLink[] = [
   },
   {
     keyword: "ROI calculator",
-    url: "/solar-panel-cleaning-robot-price-calculator",
+    url: "/solar-panel-cleaning-robot-price-calculator#calculator",
     priority: 8,
   },
   {
     keyword: "ROI",
-    url: "/solar-panel-cleaning-robot-price-calculator",
+    url: "/solar-panel-cleaning-robot-price-calculator#calculator",
     priority: 6,
   },
   {
     keyword: "cost calculator",
-    url: "/solar-panel-cleaning-robot-price-calculator",
+    url: "/solar-panel-cleaning-robot-price-calculator#calculator",
     priority: 7,
   },
   {

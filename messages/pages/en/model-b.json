@@ -5,7 +5,24 @@
       "description": "Taypro Model-B is a 39 kg pick-and-place, semi-automatic Solar Panel Cleaning Robot. Counter-rotating PBT brushes remove 99%+ dust in a single waterless pass, clean a 1 MW plant in under 2 hours, run up to 3 km on a single charge, TÜV NORD certified — built for fixed-tilt and seasonal-tilt plants.",
       "openGraphDescription": "Pick-and-place Solar Panel Cleaning Robot. 39 kg, waterless, dual counter-rotating PBT brushes, 99%+ dust removal in a single pass, 3 km per charge, TÜV NORD certified.",
       "openGraphImageAlt": "Taypro Semi-Automatic Solar Panel Cleaning Robot Model-B — Pick-and-place type, waterless",
-      "twitterDescription": "39 kg pick-and-place Solar Panel Cleaning Robot. Waterless, dual counter-rotating PBT brushes, 99%+ dust removal per pass, TÜV NORD certified."
+      "twitterDescription": "39 kg pick-and-place Solar Panel Cleaning Robot. Waterless, dual counter-rotating PBT brushes, 99%+ dust removal per pass, TÜV NORD certified.",
+      "keywords": [
+        "semi-automatic solar panel cleaning robot",
+        "semi automatic solar panel cleaning robot",
+        "pick and place solar cleaning robot",
+        "lift and shift solar cleaning robot",
+        "portable solar panel cleaning robot",
+        "manual deployment solar cleaning robot",
+        "rooftop solar cleaning robot",
+        "fixed tilt solar panel cleaning",
+        "seasonal tilt solar panel cleaning",
+        "PBT brush solar cleaning robot",
+        "counter-rotating brush solar cleaning",
+        "dry solar panel cleaning robot",
+        "utility scale solar panel cleaning robot",
+        "Taypro Model-B",
+        "Taypro Loop"
+      ]
     },
     "breadcrumbs": {
       "robots": "Solar Panel Cleaning Robots",
@@ -472,7 +489,13 @@
       "title": "Frequently Asked Questions",
       "subtitle": "Common questions about the Taypro Model-B Semi-Automatic Solar Panel Cleaning Robot."
     },
-    "modelCardsTitle": "Looking for more solutions?"
+    "modelCardsTitle": "Looking for more solutions?",
+    "roiBand": {
+      "title": "Semi-automatic cleaning robot cost & ROI",
+      "bodyBeforeSpan": "Estimate payback for a ",
+      "bodySpan": "semi-automatic solar panel cleaning robot",
+      "bodyAfterSpan": " on your plant before requesting a Model-B quote."
+    }
   },
   "Common": {
     "breadcrumbHome": "Home",

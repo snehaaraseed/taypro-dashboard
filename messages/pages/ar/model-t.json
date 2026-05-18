@@ -5,7 +5,18 @@
       "description": "Taypro Model-T عبارة عن روبوت لتنظيف الألواح الشمسية مستقل بدون ماء يعمل بالذكاء الاصطناعي والتعلم الآلي، وقد تم تصميمه خصيصًا لمزارع الطاقة الشمسية ذات المحور الواحد. إزالة الغبار بنسبة 99%+ لكل تمريرة مزدوجة، وما يصل إلى 3600 وحدة لكل شحنة، ومرونة ±15 درجة بين الطاولات، ومتوافقة مع NEXTracker وGamechanger (إمالة الوحدة من -52 درجة إلى +52 درجة)، ومعتمدة من TÜV NORD.",
       "openGraphDescription": "روبوت تنظيف الألواح الشمسية المستقل الذي يعمل بالذكاء الاصطناعي لمحطات التتبع أحادية المحور. إزالة الغبار بنسبة 99%+ لكل دورة، وما يصل إلى 3600 وحدة لكل شحنة، Taypro Console عبر LTE/Wi-Fi/RF شبكة/LoRa/LoRaWAN، متوافق مع NEXTracker وGamechanger، معتمد من TÜV NORD.",
       "openGraphImageAlt": "Taypro روبوت تنظيف الألواح الشمسية ذو المحور الواحد Model-T - يعمل بالذكاء الاصطناعي، بدون ماء",
-      "twitterDescription": "روبوت مستقل لتنظيف الألواح الشمسية لمحطات التتبع. 3600 وحدة لكل شحنة، متوافقة مع LTE/Wi-Fi/RF شبكة/LoRa/LoRaWAN، NEXTracker وGamechanger."
+      "twitterDescription": "روبوت مستقل لتنظيف الألواح الشمسية لمحطات التتبع. 3600 وحدة لكل شحنة، متوافقة مع LTE/Wi-Fi/RF شبكة/LoRa/LoRaWAN، NEXTracker وGamechanger.",
+      "keywords": [
+        "single axis tracker solar panel cleaning",
+        "single-axis tracker solar cleaning robot",
+        "tracker solar panel cleaning robot",
+        "NEXTracker solar cleaning robot",
+        "Gamechanger tracker cleaning robot",
+        "horizontal single axis tracker cleaning",
+        "utility scale solar panel cleaning robot",
+        "automatic solar panel cleaning system tracker",
+        "Taypro Model-T"
+      ]
     },
     "breadcrumbs": {
       "robots": "روبوتات تنظيف الألواح الشمسية",
@@ -498,6 +509,12 @@
     "modelCardsTitle": "هل تبحث عن المزيد من الحلول؟",
     "common": {
       "breadcrumbHome": "الرئيسية"
+    },
+    "roiBand": {
+      "title": "تكلفة روبوت تنظيف المتتبع",
+      "bodyBeforeSpan": "",
+      "bodySpan": "تنظيف ألواح متتبع أحادي المحور",
+      "bodyAfterSpan": " — استخدم الحاسبة قبل عرض Model-T."
     }
   },
   "Common": {

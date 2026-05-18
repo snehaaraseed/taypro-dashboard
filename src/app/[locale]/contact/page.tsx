@@ -288,7 +288,7 @@ export default function ContactUsPage() {
                     </h3>
                   </div>
                   <Link
-                    href="/solar-panel-cleaning-robot-price-calculator"
+                    href="/solar-panel-cleaning-robot-price-calculator#calculator"
                     className="inline-flex items-center gap-2 text-[#A8C117] font-medium text-sm hover:underline shrink-0"
                   >
                     {t("tips.roiLink")}

@@ -23,6 +23,14 @@ const GENERIC_DESCRIPTION_PATTERNS: RegExp[] = [
   /^in this (blog|article|post)\b/i,
 ];
 
+export const SEO_AND_READER_RULES = `SEO & READER INTENT (every post):
+- Write for a real search query: answer what the reader came to decide (compare methods, pick frequency, justify budget, understand soiling impact).
+- Match search intent: comparison posts use tables/pros-cons; how-to posts use numbered steps; cost posts reference ROI and link to /solar-panel-cleaning-robot-price-calculator.
+- Earn clicks: meta description = specific outcome or question (e.g. "Manual brush vs robot on 50 MW: water, labour, and PR impact").
+- Rankings: one clear primary keyword in title + H1 theme; 3–6 related terms in H2s; FAQ-style H2 for "how often / how much / which is better" where natural.
+- Make it readable: short paragraphs, real plant scenarios (MW-scale, India dust/coastal/agri soiling), not textbook filler.
+- Support money pages with 2–3 internal links; blogs compare/educate — they do not replace product pages.`;
+
 export const ANTI_GENERIC_WRITING_RULES = `TITLE & ANGLE RULES (strict):
 - NO vague marketing titles (e.g. "Boost X with AI-Driven Y", "The Future of Solar", "Unlock Peak Performance").
 - Each title must name a SPECIFIC problem, method, or comparison (brush vs robot, cleaning every N days, soiling loss %, 10MW plant logistics, tracker farms, waterless vs sprinkler).
@@ -57,4 +65,9 @@ function titleReflectsKeyword(title: string, keyword: string): boolean {
   if (words.length === 0) return true;
   const matched = words.filter((w) => titleLower.includes(w)).length;
   return matched >= Math.min(2, words.length);
+}
+
+export function isGenericContentError(error: unknown): boolean {
+  const msg = error instanceof Error ? error.message : String(error);
+  return msg.includes("too generic");
 }

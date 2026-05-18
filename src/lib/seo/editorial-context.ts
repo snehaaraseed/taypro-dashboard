@@ -25,7 +25,8 @@ const STRATEGY_CORE = `EDITORIAL STRATEGY (Taypro India):
   /solar-panel-cleaning-robot-price-calculator
   /cleaning-technology
 - Content gaps to prioritize when they fit the target keyword: robot vs manual brush TCO, cleaning frequency for utility plants, dust/soiling and performance ratio, waterless/automatic systems at scale, India utility case angles.
-- Do NOT target as primary focus: generic "solar panels", panel price, module manufacturers, US/AU city names, student/project PDF intent.`;
+- Do NOT target as primary focus: generic "solar panels", panel price, module manufacturers, US/AU city names, student/project PDF intent.
+- Ranking goal: each post should be link-worthy for operators — specific enough to rank for long-tail queries and support Tier A pages with internal links.`;
 
 const TIER_B_ANGLES = [
   "robot vs brush / manual cleaning TCO",

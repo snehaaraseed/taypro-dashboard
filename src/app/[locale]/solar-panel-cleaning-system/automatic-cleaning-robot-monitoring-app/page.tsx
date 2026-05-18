@@ -317,7 +317,7 @@ export default async function TayproConsolePage({
                 <div>
                   {t("scheduling.p2Before")}{" "}
                   <Link
-                    href="/solar-panel-cleaning-robot-price-calculator"
+                    href="/solar-panel-cleaning-robot-price-calculator#calculator"
                     className="text-[#A8C117] hover:underline"
                   >
                     {t("scheduling.roiLink")}

@@ -1,7 +1,7 @@
 {
   "SolarSystemPage": {
     "meta": {
-      "title": "Solar Panel Cleaning Robot in India — Compare Taypro Models & Services",
+      "title": "Solar Panel Cleaning Robot & System in India — Machines & Models | Taypro",
       "description": "Compare every Taypro Solar Panel Cleaning Robot in one place. Choose between Model-A (automatic), Model-B (semi-automatic, pick-and-place), Model-T (single-axis tracker), or Taypro OPEX as a service. Waterless dual-pass cleaning, AI/ML scheduling, TÜV NORD certified, same-day pan-India breakdown support.",
       "keywords": [
         "solar panel cleaning robot",
@@ -15,7 +15,13 @@
         "solar panel cleaning robot for solar farm",
         "Taypro solar cleaning robot",
         "Taypro Model-A vs Model-B vs Model-T",
-        "CAPEX vs OPEX solar cleaning"
+        "CAPEX vs OPEX solar cleaning",
+        "solar panel cleaning system",
+        "solar cleaning system",
+        "solar panel cleaning machine",
+        "pv panel cleaning",
+        "automated solar panel cleaning system",
+        "solar panel cleaning"
       ],
       "openGraphSiteName": "Taypro",
       "openGraphTitle": "Solar Panel Cleaning Robot | Automatic, Semi-Automatic & Tracker Models — Taypro",
@@ -305,6 +311,25 @@
         "label": "Talk to Taypro"
       },
       "ctaLineSuffix": "."
+    },
+    "brushComparison": {
+      "eyebrow": "Robot vs manual brush",
+      "title": "Solar panel cleaning brush vs robot — utility-scale TCO",
+      "subtitle": "Manual brushes and wipers work on small sites; at 10 MW+ the labour, water, downtime, and inconsistent coverage usually favour robotic dry cleaning.",
+      "brushTitle": "Manual brush / washing crews",
+      "brush0": "Recurring labour cost scales with MW and cycle count",
+      "brush1": "Water, detergents, and discharge compliance on many sites",
+      "brush2": "Inconsistent pass quality and weather windows",
+      "brush3": "Hard to audit panel-level proof for investors",
+      "robotTitle": "Taypro cleaning robots (Model-A / B / T or OPEX)",
+      "robot0": "Waterless dual-pass — predictable cycles per month",
+      "robot1": "Telemetry and reports via Taypro Console",
+      "robot2": "Designed for utility row lengths and tracker tables",
+      "robot3": "CAPEX purchase or Taypro OPEX pay-per-panel-cleaned",
+      "ctaService": "Explore cleaning service",
+      "ctaCalculator": "ROI & cost calculator",
+      "videoTitle": "See Taypro robots cleaning a utility plant",
+      "videoCaption": "Waterless autonomous solar panel cleaning robots in operation on Indian utility-scale sites."
     },
     "indianConditions": {
       "eyebrow": "Engineered for Indian solar",

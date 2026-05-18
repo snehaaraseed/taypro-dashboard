@@ -32,6 +32,7 @@ import {
   HowToSchema,
 } from "@/app/components/StructuredData";
 import { Container } from "@/app/components/Container";
+import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import { PerformanceMethodologyFootnote } from "@/app/components/PerformanceMethodologyLink";
 import { PerformanceMethodologyNotice } from "@/app/components/PerformanceMethodologyNotice";
 
@@ -704,6 +705,24 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
                 </Link>
                 {t("modelBvsModelA.crossSellSuffix")}
               </div>
+            </AnimateOnScroll>
+          </Container>
+        </section>
+
+        <section className="bg-[#f4f1e9] py-16 sm:py-20">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="text-center mb-8">
+              <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight max-w-4xl mx-auto">
+                {t("roiBand.title")}
+              </h2>
+              <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mt-5">
+                {t("roiBand.bodyBeforeSpan")}
+                <strong>{t("roiBand.bodySpan")}</strong>
+                {t("roiBand.bodyAfterSpan")}
+              </p>
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fadeInUp" delay={100}>
+              <ROICalculatorEmbed />
             </AnimateOnScroll>
           </Container>
         </section>

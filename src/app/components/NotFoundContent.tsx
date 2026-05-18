@@ -49,7 +49,7 @@ export default function NotFoundContent({ labels }: NotFoundContentProps) {
     { href: "/projects" as const, label: labels.linkProjects },
     { href: "/blog" as const, label: labels.linkBlog },
     {
-      href: "/solar-panel-cleaning-robot-price-calculator" as const,
+      href: "/solar-panel-cleaning-robot-price-calculator#calculator" as const,
       label: labels.linkCalculator,
     },
   ];

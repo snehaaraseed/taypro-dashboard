@@ -89,7 +89,7 @@ export default async function PerformanceAndTestMethodologyPage({
               <p className="text-[#27415c] text-lg leading-relaxed mt-4">
                 {t("generation.p1Before")}{" "}
                 <Link
-                  href="/solar-panel-cleaning-robot-price-calculator"
+                  href="/solar-panel-cleaning-robot-price-calculator#calculator"
                   className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
                 >
                   {t("generation.roiLink")}

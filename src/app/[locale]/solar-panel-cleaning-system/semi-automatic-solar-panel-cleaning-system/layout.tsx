@@ -13,6 +13,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ModelBPage.meta" });
+  const keywords = t.raw("keywords") as string[];
 
   return withHreflang(
     "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
@@ -20,22 +21,7 @@ export async function generateMetadata({
     {
       title: t("title"),
       description: t("description"),
-      keywords: [
-        "semi-automatic solar panel cleaning robot",
-        "semi automatic solar cleaning robot",
-        "pick and place solar cleaning robot",
-        "lift and shift solar cleaning robot",
-        "portable solar panel cleaning robot",
-        "manual deployment solar cleaning robot",
-        "rooftop solar cleaning robot",
-        "fixed tilt solar panel cleaning",
-        "seasonal tilt solar panel cleaning",
-        "PBT brush solar cleaning robot",
-        "counter-rotating brush solar cleaning",
-        "dry solar panel cleaning robot",
-        "Taypro Model-B",
-        "Taypro Loop",
-      ],
+      keywords,
       openGraph: {
         title: t("title"),
         description: t("openGraphDescription"),

@@ -44,6 +44,14 @@ export default function Footer() {
         name: t("ourSolutions"),
         href: "/solar-panel-cleaning-system",
       },
+      {
+        name: t("cleaningService"),
+        href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
+      },
+      {
+        name: t("roiCalculator"),
+        href: "/solar-panel-cleaning-robot-price-calculator#calculator",
+      },
     ],
   };
 

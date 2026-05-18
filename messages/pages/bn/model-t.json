@@ -5,7 +5,18 @@
       "description": "Taypro Model-T হল একটি AI- এবং ML-চালিত, জলবিহীন স্বায়ত্তশাসিত সোলার প্যানেল ক্লিনিং রোবট যা একক-অক্ষ ট্র্যাকার সৌর খামারগুলির জন্য নির্মিত৷ ডুয়াল-পাস রান প্রতি 99%+ ধুলো অপসারণ, প্রতি চার্জ 3,600 মডিউল পর্যন্ত, টেবিলের মধ্যে ±15° ফ্লেক্স, NEXTracker এবং Gamechanger সামঞ্জস্যপূর্ণ (-52° থেকে +52° মডিউল টিল্ট), TÜV NORD প্রত্যয়িত।",
       "openGraphDescription": "একক-অক্ষ ট্র্যাকার প্ল্যান্টের জন্য স্বায়ত্তশাসিত AI-চালিত সোলার প্যানেল ক্লিনিং রোবট। প্রতি চক্রে 99%+ ধুলো অপসারণ, চার্জ প্রতি 3,600 মডিউল পর্যন্ত, LTE/Wi-Fi/RF জাল/LoRa/LoRaWAN এর মাধ্যমে Taypro Console, NEXTracker এবং Gamechanger সামঞ্জস্যপূর্ণ, TÜV NORD প্রত্যয়িত৷",
       "openGraphImageAlt": "Taypro একক-অক্ষ ট্র্যাকার সোলার প্যানেল ক্লিনিং রোবট Model-T — এআই-চালিত, জলহীন",
-      "twitterDescription": "ট্র্যাকার উদ্ভিদের জন্য স্বায়ত্তশাসিত সৌর প্যানেল পরিষ্কারের রোবট। প্রতি চার্জ 3,600 মডিউল, LTE/Wi-Fi/RF জাল/LoRa/LoRaWAN, NEXTracker এবং Gamechanger সামঞ্জস্যপূর্ণ।"
+      "twitterDescription": "ট্র্যাকার উদ্ভিদের জন্য স্বায়ত্তশাসিত সৌর প্যানেল পরিষ্কারের রোবট। প্রতি চার্জ 3,600 মডিউল, LTE/Wi-Fi/RF জাল/LoRa/LoRaWAN, NEXTracker এবং Gamechanger সামঞ্জস্যপূর্ণ।",
+      "keywords": [
+        "single axis tracker solar panel cleaning",
+        "single-axis tracker solar cleaning robot",
+        "tracker solar panel cleaning robot",
+        "NEXTracker solar cleaning robot",
+        "Gamechanger tracker cleaning robot",
+        "horizontal single axis tracker cleaning",
+        "utility scale solar panel cleaning robot",
+        "automatic solar panel cleaning system tracker",
+        "Taypro Model-T"
+      ]
     },
     "breadcrumbs": {
       "robots": "সোলার প্যানেল ক্লিনিং রোবট",
@@ -498,6 +509,12 @@
     "modelCardsTitle": "আরো সমাধান খুঁজছেন?",
     "common": {
       "breadcrumbHome": "হোম"
+    },
+    "roiBand": {
+      "title": "ট্র্যাকার রোবট খরচ ও ROI",
+      "bodyBeforeSpan": "",
+      "bodySpan": "সিঙ্গেল-অ্যাক্সিস ট্র্যাকার পরিষ্কার",
+      "bodyAfterSpan": " — কোটের আগে ক্যালকুলেটর ব্যবহার করুন।"
     }
   },
   "Common": {

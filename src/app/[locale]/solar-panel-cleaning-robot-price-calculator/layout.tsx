@@ -25,6 +25,9 @@ export async function generateMetadata({
     t("keyword5"),
     t("keyword6"),
     t("keyword7"),
+    t("keyword8"),
+    t("keyword9"),
+    t("keyword10"),
   ];
 
   return withHreflang(CALCULATOR_PATH, locale, {

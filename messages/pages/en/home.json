@@ -37,7 +37,8 @@
       "ctaQuoteTitle": "Request a solar cleaning robot quote",
       "ctaQuoteSubtitle": "Tell us about your plant and we'll recommend Model-A, B, or T.",
       "ctaExplore": "Explore robots",
-      "ctaRoi": "ROI calculator"
+      "ctaService": "Cleaning service",
+      "ctaRoi": "Price & ROI calculator"
     },
     "stats": {
       "stat0": { "label": "Robot Capacity Deployed" },

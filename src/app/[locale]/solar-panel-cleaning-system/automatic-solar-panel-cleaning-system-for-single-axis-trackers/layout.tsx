@@ -13,6 +13,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ModelTPage.meta" });
+  const keywords = t.raw("keywords") as string[];
 
   return withHreflang(
     "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
@@ -20,21 +21,7 @@ export async function generateMetadata({
     {
       title: t("title"),
       description: t("description"),
-      keywords: [
-        "solar panel cleaning robot for single-axis trackers",
-        "single axis tracker cleaning robot",
-        "tracker solar panel cleaning robot",
-        "solar tracker cleaning robot India",
-        "tracker farm cleaning automation",
-        "NEXTracker cleaning robot",
-        "Nextracker solar cleaning robot",
-        "Gamechanger tracker cleaning robot",
-        "solar panel cleaning robot for trackers India",
-        "utility scale tracker plant cleaning",
-        "flexible body solar cleaning robot",
-        "tracker bridge solar cleaning",
-        "Taypro Model-T",
-      ],
+      keywords,
       openGraph: {
         title: t("title"),
         description: t("openGraphDescription"),

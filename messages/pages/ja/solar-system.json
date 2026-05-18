@@ -1,7 +1,7 @@
 {
   "SolarSystemPage": {
     "meta": {
-      "title": "インドの太陽光パネル清掃ロボット — Taypro 各モデル・サービスを比較",
+      "title": "ソーラーパネル清掃ロボット・システム — 機械 | Taypro インド",
       "description": "Taypro の太陽光パネル清掃ロボットを一覧で比較。Model-A（全自動）、Model-B（セミオート、搬送・設置）、Model-T（シングルアクストラッカー）、またはサービスとしての Taypro OPEX から選択。無水デュアルパス清掃、AI/ML スケジューリング、TÜV NORD 認証ハードウェア、インド全域で当日の故障対応。",
       "keywords": [
         "solar panel cleaning robot",
@@ -15,7 +15,10 @@
         "solar panel cleaning robot for solar farm",
         "Taypro solar cleaning robot",
         "Taypro Model-A vs Model-B vs Model-T",
-        "CAPEX vs OPEX solar cleaning"
+        "CAPEX vs OPEX solar cleaning",
+        "ソーラーパネル清掃システム",
+        "清掃システム",
+        "清掃マシン"
       ],
       "openGraphSiteName": "Taypro",
       "openGraphTitle": "太陽光パネル清掃ロボット | 自動・半自動・トラッカー対応 — Taypro",
@@ -157,10 +160,22 @@
       "heroImageTitle": "Taypro 太陽光パネル清掃ロボット"
     },
     "heroStats": {
-      "stat0": { "value": "50 MW+", "label": "典型導入プラント規模" },
-      "stat1": { "value": "当日", "label": "インド全域の故障対応" },
-      "stat2": { "value": "TÜV NORD", "label": "認証ハードウェア" },
-      "stat3": { "value": "無水", "label": "デュアルパス清掃" }
+      "stat0": {
+        "value": "50 MW+",
+        "label": "典型導入プラント規模"
+      },
+      "stat1": {
+        "value": "当日",
+        "label": "インド全域の故障対応"
+      },
+      "stat2": {
+        "value": "TÜV NORD",
+        "label": "認証ハードウェア"
+      },
+      "stat3": {
+        "value": "無水",
+        "label": "デュアルパス清掃"
+      }
     },
     "intro": {
       "eyebrow": "なぜロボット清掃か、なぜ Taypro か",
@@ -447,6 +462,25 @@
         "label": "見積りを依頼"
       },
       "secondaryCta": "ROI を計算"
+    },
+    "brushComparison": {
+      "eyebrow": "ロボット対手動ブラシ",
+      "title": "パネル清掃ブラシ vs ロボット — 大規模TCO",
+      "subtitle": "小規模では手動ブラシも可。10MW以上では人件費・水・ばらつきからドライロボット清掃が有利なことが多いです。",
+      "brushTitle": "手動ブラシ／洗浄クルー",
+      "brush0": "人件費がMWとサイクルで増加",
+      "brush1": "水・薬剤・排水対応",
+      "brush2": "品質と天候のばらつき",
+      "brush3": "パネル単位の監査が困難",
+      "robotTitle": "Taypro清掃ロボット（Model-A/B/TまたはOPEX）",
+      "robot0": "無水デュアルパス—月次サイクル",
+      "robot1": "Consoleでテレメトリ",
+      "robot2": "大規模列・トラッカー向け",
+      "robot3": "CAPEXまたはパネル課金OPEX",
+      "ctaService": "清掃サービスを見る",
+      "ctaCalculator": "ROI・コスト計算",
+      "videoTitle": "大規模プラントのTayproロボット",
+      "videoCaption": "インドの大規模サイトでの無水自律清掃ロボット。"
     }
   }
 }

@@ -171,50 +171,55 @@ Add to `next.config.ts` → `redirects()` if any old URLs still receive traffic 
 - [ ] Confirm meta in `messages/pages/en/home.json` stays solar-robot focused  
 - [ ] Remove generic appliance keywords from Semrush On-Page project for `/`  
 - [ ] Hero H1: autonomous **solar panel cleaning robots** (already aligned)  
-- [ ] Add prominent CTA → hub + calculator  
+- [x] Add prominent CTA → hub + calculator (+ service)  
 
 ### 4.4 Service page (highest ROI — competition index 18)
 
 **URL:** `/solar-panel-cleaning-system/solar-panel-cleaning-service`  
 **Files:** `messages/pages/en/cleaning-service.json` (or equivalent page component)
 
-- [ ] Expand to **900–1,200 words** of indexable copy (above fold + sections)  
-- [ ] H1 includes: **solar panel cleaning service**  
-- [ ] Sections: Opex model, SLA, pan-India support, who it's for (10MW+), who it's not for (residential)  
-- [ ] FAQ (8 questions) — use Tier A service keywords as questions  
-- [ ] `FAQPage` schema (pattern: `src/app/[locale]/home/page.tsx`)  
-- [ ] CTAs → contact + calculator  
-- [ ] Internal links from hub, homepage, footer  
+- [x] Expand to **900–1,200 words** of indexable copy (above fold + sections)  
+- [x] H1 includes: **solar panel cleaning service**  
+- [x] Sections: Opex model, SLA, pan-India support, who it's for (10MW+), who it's not for (residential)  
+- [x] FAQ (8 questions) — use Tier A service keywords as questions  
+- [x] `FAQPage` schema (pattern: `src/app/[locale]/home/page.tsx`)  
+- [x] CTAs → contact + calculator  
+- [x] Internal links from hub, homepage, footer  
 
 ### 4.5 Hub page
 
 **URL:** `/solar-panel-cleaning-system`  
 **Files:** `messages/pages/en/solar-system.json`, hub page component
 
-- [ ] **1,000+ words** indexable content (intro, comparison table, robot vs brush section)  
-- [ ] H1/H2 map: robot, system, cleaning, machine  
-- [ ] Model comparison table → links to Model-A, B, T, Opex, Console  
-- [ ] FAQ block (10 Qs) from Tier A synonym cluster  
-- [ ] `Product` + `FAQPage` schema  
-- [ ] Embed product video  
+- [x] **1,000+ words** indexable content (intro, comparison table, robot vs brush section)  
+- [x] H1/H2 map: robot, system, cleaning, machine  
+- [x] Model comparison table → links to Model-A, B, T, Opex, Console  
+- [x] FAQ block (10 Qs) from Tier A synonym cluster  
+- [ ] `Product` + `FAQPage` schema (FAQPage done; Product on child pages)  
+- [x] Embed product video  
 - [ ] Link to 3+ project case studies  
 
 ### 4.6 Calculator page
 
-**URL:** `/solar-panel-cleaning-robot-price-calculator`  
-**Files:** `messages/pages/en/price-calculator.json`
+**URL:** `/solar-panel-cleaning-robot-price-calculator` (canonical)  
+**Redirects:** `/roi-calculator`, `/solar-panel-cleaning-robot-price`, `/solar-panel-cleaning-cost-calculator`, `/solar-panel-cleaning-robot-roi-calculator` → canonical (`next.config.ts`)  
+**Files:** `messages/pages/en/price-calculator.json`, `ROICalculator.tsx`, calculator `page.tsx`
 
-- [ ] FAQ: cost, price, India, payback, CAPEX vs Opex  
-- [ ] Meta targets: `solar panel cleaning cost`, `solar panel cleaning prices`  
-- [ ] Link from every product page + hub  
+- [x] Single **Price & ROI** tool (no separate price-only calculator)
+- [x] Investment-first results + PDF row order
+- [x] Opex banner on calculator page → service URL
+- [x] FAQ: cost, price, India, payback, CAPEX vs Opex
+- [x] Meta targets: `solar panel cleaning cost`, `solar panel cleaning prices`
+- [x] Homepage CTA → `#calculator`
+- [ ] Hub + all product CTAs → `#calculator` where primary CTA is estimate/price
 
 ### 4.7 Internal linking pass
 
-- [ ] Homepage → hub, service, calculator  
+- [x] Homepage → hub, service, calculator  
 - [ ] Hub → all child models + service + calculator + technology  
-- [ ] Each model page → calculator + service + hub  
+- [x] Each model page → calculator + service + hub  
 - [ ] Blog posts use `src/app/utils/internalLinking.ts` keyword map  
-- [ ] Footer / nav includes hub + service (if not already)  
+- [x] Footer / nav includes hub + service (if not already)  
 
 ### 4.8 First blog post (brush trap)
 

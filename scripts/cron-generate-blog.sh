@@ -26,7 +26,7 @@ ENDPOINT="${SITE_URL%/}/api/automation/generate-blog"
 
 {
   echo "$(date -Is) POST $ENDPOINT"
-  curl -sS -m 600 -X POST "$ENDPOINT" \
+  curl -sS -m 900 -X POST "$ENDPOINT" \
     -H "Authorization: Bearer ${AUTOMATION_CRON_SECRET}" \
     -H "Content-Type: application/json"
   echo ""

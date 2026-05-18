@@ -5,7 +5,18 @@
       "description": "Taypro Model-T は、単軸トラッカー太陽光発電所専用に構築された、AI および ML を搭載した水を使わない自律型ソーラー パネル クリーニング ロボットです。デュアルパス実行ごとに 99% 以上の塵除去、充電ごとに最大 3,600 モジュール、テーブル間で ±15° のフレックス、NEXTracker および Gamechanger 互換 (-52° ～ +52° のモジュール傾斜)、TÜV NORD 認定。",
       "openGraphDescription": "単軸トラッカープラント向けの自律型 AI 搭載ソーラーパネル洗浄ロボット。 1 サイクルあたり 99% 以上の塵除去、1 回の充電で最大 3,600 モジュール、LTE/Wi-Fi/RF メッシュ/LoRa/LoRaWAN 経由の Taypro Console、NEXTracker および Gamechanger 互換、TÜV NORD 認定。",
       "openGraphImageAlt": "Taypro 単軸トラッカー ソーラーパネル清掃ロボット Model-T — AI 搭載、水を使わない",
-      "twitterDescription": "トラッカープラント用の自律型ソーラーパネル洗浄ロボット。 1 回の充電で 3,600 モジュール、LTE/Wi-Fi/RF メッシュ/LoRa/LoRaWAN、NEXTracker および Gamechanger と互換性があります。"
+      "twitterDescription": "トラッカープラント用の自律型ソーラーパネル洗浄ロボット。 1 回の充電で 3,600 モジュール、LTE/Wi-Fi/RF メッシュ/LoRa/LoRaWAN、NEXTracker および Gamechanger と互換性があります。",
+      "keywords": [
+        "single axis tracker solar panel cleaning",
+        "single-axis tracker solar cleaning robot",
+        "tracker solar panel cleaning robot",
+        "NEXTracker solar cleaning robot",
+        "Gamechanger tracker cleaning robot",
+        "horizontal single axis tracker cleaning",
+        "utility scale solar panel cleaning robot",
+        "automatic solar panel cleaning system tracker",
+        "Taypro Model-T"
+      ]
     },
     "breadcrumbs": {
       "robots": "ソーラーパネル清掃ロボット",
@@ -498,6 +509,12 @@
     "modelCardsTitle": "さらにソリューションをお探しですか?",
     "common": {
       "breadcrumbHome": "ホーム"
+    },
+    "roiBand": {
+      "title": "トラッカー清掃ロボットのコストとROI",
+      "bodyBeforeSpan": "",
+      "bodySpan": "単軸トラッカー清掃",
+      "bodyAfterSpan": "の試算は計算機で。"
     }
   },
   "Common": {

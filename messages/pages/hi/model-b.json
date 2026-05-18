@@ -5,7 +5,24 @@
       "description": "Taypro Model-B एक 39 किलोग्राम पिक-एंड-प्लेस, अर्ध-स्वचालित सौर पैनल सफाई रोबोट है। काउंटर-रोटेटिंग पीबीटी ब्रश एक पानी रहित पास में 99% से अधिक धूल हटाते हैं, 2 घंटे से कम समय में 1 मेगावाट के संयंत्र को साफ करते हैं, एक बार चार्ज करने पर 3 किमी तक चलते हैं, TÜV NORD प्रमाणित - निश्चित-झुकाव और मौसमी-झुकाव वाले संयंत्रों के लिए बनाया गया है।",
       "openGraphDescription": "सौर पैनल सफाई रोबोट चुनें और रखें। 39 किग्रा, पानी रहित, डुअल काउंटर-रोटेटिंग पीबीटी ब्रश, एक बार में 99%+ धूल हटाना, 3 किमी प्रति चार्ज, TÜV NORD प्रमाणित।",
       "openGraphImageAlt": "Taypro अर्ध-स्वचालित सौर पैनल सफाई रोबोट Model-B - पिक-एंड-प्लेस प्रकार, पानी रहित",
-      "twitterDescription": "39 किलो वजनी सोलर पैनल क्लीनिंग रोबोट। जल रहित, दोहरे काउंटर-रोटेटिंग पीबीटी ब्रश, प्रति पास 99%+ धूल हटाना, TÜV NORD प्रमाणित।"
+      "twitterDescription": "39 किलो वजनी सोलर पैनल क्लीनिंग रोबोट। जल रहित, दोहरे काउंटर-रोटेटिंग पीबीटी ब्रश, प्रति पास 99%+ धूल हटाना, TÜV NORD प्रमाणित।",
+      "keywords": [
+        "semi-automatic solar panel cleaning robot",
+        "semi automatic solar panel cleaning robot",
+        "pick and place solar cleaning robot",
+        "lift and shift solar cleaning robot",
+        "portable solar panel cleaning robot",
+        "manual deployment solar cleaning robot",
+        "rooftop solar cleaning robot",
+        "fixed tilt solar panel cleaning",
+        "seasonal tilt solar panel cleaning",
+        "PBT brush solar cleaning robot",
+        "counter-rotating brush solar cleaning",
+        "dry solar panel cleaning robot",
+        "utility scale solar panel cleaning robot",
+        "Taypro Model-B",
+        "Taypro Loop"
+      ]
     },
     "breadcrumbs": {
       "robots": "सोलर पैनल सफाई करने वाले रोबोट",
@@ -478,6 +495,12 @@
     },
     "modelTvsModelA": {
       "criterion": "मानदंड"
+    },
+    "roiBand": {
+      "title": "सेमी-ऑटोमैटिक क्लीनिंग रोबोट लागत और ROI",
+      "bodyBeforeSpan": "कोटेशन से पहले ",
+      "bodySpan": "सेमी-ऑटोमैटिक सोलर पैनल क्लीनिंग रोबोट",
+      "bodyAfterSpan": " के लिए पेबैक अनुमान लगाएं।"
     }
   },
   "Common": {

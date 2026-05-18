@@ -796,7 +796,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
             {t("roiSection.p2BeforeLink")}
             <Link
-              href="/solar-panel-cleaning-robot-price-calculator"
+              href="/solar-panel-cleaning-robot-price-calculator#calculator"
               className="text-[#A8C117] underline hover:no-underline"
             >
               {t("roiSection.roiCalculatorLink")}

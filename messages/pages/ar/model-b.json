@@ -5,7 +5,24 @@
       "description": "Taypro Model-B عبارة عن روبوت تنظيف الألواح الشمسية شبه الأوتوماتيكي الذي يبلغ وزنه 39 كجم. تعمل فرش PBT ذات الدوران المعاكس على إزالة أكثر من 99% من الغبار في تمريرة واحدة بدون ماء، وتنظيف محطة بقدرة 1 ميجاوات في أقل من ساعتين، وتشغيل ما يصل إلى 3 كم بشحنة واحدة، معتمدة من TÜV NORD - مصممة للمحطات ذات الإمالة الثابتة والإمالة الموسمية.",
       "openGraphDescription": "روبوت تنظيف الألواح الشمسية واختيار المكان. 39 كجم، فرش PBT مزدوجة بدون ماء، دوارة عكسية، إزالة الغبار بنسبة 99%+ في تمريرة واحدة، 3 كم لكل شحنة، معتمدة من TÜV NORD.",
       "openGraphImageAlt": "Taypro روبوت تنظيف الألواح الشمسية شبه الأوتوماتيكي Model-B - نوع الانتقاء والمكان، بدون ماء",
-      "twitterDescription": "روبوت تنظيف الألواح الشمسية بوزن 39 كجم. فرش PBT بدون ماء، مزدوجة بعكس الدوران، إزالة الغبار بنسبة 99%+ في كل تمريرة، معتمدة من TÜV NORD."
+      "twitterDescription": "روبوت تنظيف الألواح الشمسية بوزن 39 كجم. فرش PBT بدون ماء، مزدوجة بعكس الدوران، إزالة الغبار بنسبة 99%+ في كل تمريرة، معتمدة من TÜV NORD.",
+      "keywords": [
+        "semi-automatic solar panel cleaning robot",
+        "semi automatic solar panel cleaning robot",
+        "pick and place solar cleaning robot",
+        "lift and shift solar cleaning robot",
+        "portable solar panel cleaning robot",
+        "manual deployment solar cleaning robot",
+        "rooftop solar cleaning robot",
+        "fixed tilt solar panel cleaning",
+        "seasonal tilt solar panel cleaning",
+        "PBT brush solar cleaning robot",
+        "counter-rotating brush solar cleaning",
+        "dry solar panel cleaning robot",
+        "utility scale solar panel cleaning robot",
+        "Taypro Model-B",
+        "Taypro Loop"
+      ]
     },
     "breadcrumbs": {
       "robots": "روبوتات تنظيف الألواح الشمسية",
@@ -475,6 +492,12 @@
     "modelCardsTitle": "هل تبحث عن المزيد من الحلول؟",
     "common": {
       "breadcrumbHome": "الرئيسية"
+    },
+    "roiBand": {
+      "title": "تكلفة وعائد روبوت التنظيف شبه الآلي",
+      "bodyBeforeSpan": "قدّر العائد لـ ",
+      "bodySpan": "روبوت تنظيف شبه آلي",
+      "bodyAfterSpan": " قبل طلب عرض Model-B."
     }
   },
   "Common": {

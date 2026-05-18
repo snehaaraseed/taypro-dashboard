@@ -19,7 +19,7 @@ export default function Header() {
     { name: t("projects"), href: "/projects" },
     {
       name: t("roiCalculator"),
-      href: "/solar-panel-cleaning-robot-price-calculator",
+      href: "/solar-panel-cleaning-robot-price-calculator#calculator",
     },
     { name: t("aboutUs"), href: "/company" },
     { name: t("contactUs"), href: "/contact" },

@@ -10,12 +10,16 @@ export type SeoKeywordRow = {
   /** Google Ads volume bucket (e.g. 500, 5000), not exact counts. */
   volumeBucket: number;
   competition: string;
+  /** Ads competition index 0–100; lower is easier to rank. */
+  competitionIndex: number;
 };
 
 export type SeoKeywordBrief = {
   primary: string;
   volumeBucket: number;
   competition: string;
+  competitionIndex: number;
+  searchIntent: string;
   related: string[];
 };
 
@@ -27,7 +31,7 @@ const RELEVANT =
 
 /** Low-intent, geo, or off-brand terms to skip. */
 const EXCLUDE =
-  /near me|san diego|sydney|melbourne|austin|tucson|fresno|gold coast|canberra|utah|geelong|central coast|san antonio|diy\b|cleaning jobs|cleaning license|gutter and|www solar|cheap solar|panel price|pv panel installation|solar panel installation|^solar panels$|^best solar panels$|^top 10 solar|^top solar panel in india$|^solar panel companies$|^solar panel manufacturers$|^pv panels$|^photovoltaic panels$/i;
+  /near me|san diego|sydney|melbourne|austin|tucson|fresno|gold coast|canberra|utah|geelong|central coast|san antonio|diy\b|cleaning jobs|cleaning license|gutter and|www solar|cheap solar|panel price|pv panel installation|solar panel installation|panel manufacturers|module manufacturers|top .+ manufacturers|^solar panels$|^best solar panels$|^top 10 solar|^top solar panel in india$|^solar panel companies$|^solar panel manufacturers$|^pv panels$|^photovoltaic panels$/i;
 
 let cachedRows: SeoKeywordRow[] | null = null;
 
@@ -73,6 +77,10 @@ export function loadSeoKeywordRows(): SeoKeywordRow[] {
 
     const volumeBucket = parseVolumeBucket(cols[2] ?? "");
     const competition = (cols[5] ?? "").trim();
+    const competitionIndex = Number.parseInt(
+      (cols[6] ?? "").replace(/,/g, ""),
+      10
+    );
     if (volumeBucket <= 0) continue;
     if (!RELEVANT.test(keyword)) continue;
     if (EXCLUDE.test(keyword)) continue;
@@ -81,10 +89,13 @@ export function loadSeoKeywordRows(): SeoKeywordRow[] {
       keyword: keyword.toLowerCase(),
       volumeBucket,
       competition,
+      competitionIndex: Number.isFinite(competitionIndex)
+        ? competitionIndex
+        : 50,
     });
   }
 
-  rows.sort((a, b) => b.volumeBucket - a.volumeBucket);
+  rows.sort((a, b) => scoreKeywordRow(b) - scoreKeywordRow(a));
   cachedRows = rows;
   return rows;
 }
@@ -101,7 +112,40 @@ export async function getUsedSeoKeywords(): Promise<Set<string>> {
   return used;
 }
 
-/** Pick the highest-volume unused keyword, with light randomness in the top tier. */
+function scoreKeywordRow(row: SeoKeywordRow): number {
+  let score = row.volumeBucket * 10;
+  const comp = row.competition.toLowerCase();
+  if (comp === "low") score += 800;
+  else if (comp === "medium") score += 400;
+  if (row.competitionIndex > 0 && row.competitionIndex <= 25) score += 600;
+  else if (row.competitionIndex <= 40) score += 300;
+  if (/cleaning robot|cleaning service|automatic|waterless|brush/.test(row.keyword)) {
+    score += 250;
+  }
+  return score;
+}
+
+function inferSearchIntent(keyword: string): string {
+  const k = keyword.toLowerCase();
+  if (/cost|price|roi|calculator/.test(k)) {
+    return "Commercial — reader comparing costs/ROI; cite ranges and point to price calculator.";
+  }
+  if (/vs|compare|brush|manual|sprinkler/.test(k)) {
+    return "Comparison — reader choosing between methods; use pros/cons and utility-scale examples.";
+  }
+  if (/how often|frequency|best way|when to/.test(k)) {
+    return "Informational/decision — scheduling and O&M best practice for MW plants.";
+  }
+  if (/service|company/.test(k)) {
+    return "Commercial — evaluating vendors/Opex; explain what to look for in robot cleaning partners.";
+  }
+  if (/equipment|machine|system|robot/.test(k)) {
+    return "Research — understanding equipment options for 5MW+ sites; tie to Taypro models where accurate.";
+  }
+  return "Informational — utility operator researching cleaning/soiling; give actionable technical guidance.";
+}
+
+/** Pick a high-value unused keyword (volume + low competition + Taypro fit). */
 export async function pickSeoKeywordBrief(): Promise<SeoKeywordBrief | null> {
   const rows = loadSeoKeywordRows();
   if (rows.length === 0) return null;
@@ -110,22 +154,21 @@ export async function pickSeoKeywordBrief(): Promise<SeoKeywordBrief | null> {
   const available = rows.filter((r) => !used.has(r.keyword));
   if (available.length === 0) return null;
 
-  const topVolume = available[0].volumeBucket;
-  const tier = available.filter(
-    (r) => r.volumeBucket >= Math.max(50, topVolume / 2)
-  );
-  const pool = tier.slice(0, Math.min(12, tier.length));
+  const pool = available.slice(0, Math.min(20, available.length));
   const primary = pool[Math.floor(Math.random() * pool.length)];
 
   const related = available
     .filter((r) => r.keyword !== primary.keyword)
-    .slice(0, 8)
-    .map((r) => r.keyword);
+    .slice(0, 12)
+    .map((r) => r.keyword)
+    .slice(0, 8);
 
   return {
     primary: primary.keyword,
     volumeBucket: primary.volumeBucket,
     competition: primary.competition,
+    competitionIndex: primary.competitionIndex,
+    searchIntent: inferSearchIntent(primary.keyword),
     related,
   };
 }
@@ -138,6 +181,32 @@ export function formatTopicCategory(
   return `${categoryName}|${SEO_CATEGORY_PREFIX}${seoKeyword}`;
 }
 
+/** Deterministic, specific title when the model returns vague options. */
+export function buildFallbackTopicTitle(keyword: string): string {
+  const k = keyword.toLowerCase().trim();
+  if (/brush/.test(k)) {
+    return "Solar Panel Cleaning Brush vs Robot: TCO for Utility Plants in India";
+  }
+  if (/frequency|how often/.test(k)) {
+    return "How Often Should You Clean Solar Panels on a 50 MW Plant in India?";
+  }
+  if (/cost|price/.test(k)) {
+    return "Solar Panel Cleaning Cost on Utility Plants: Manual vs Robot Breakdown";
+  }
+  if (/waterless/.test(k)) {
+    return "Waterless Solar Panel Cleaning Robots: When They Beat Sprinklers on MW Sites";
+  }
+  if (/automatic|robot|machine|system/.test(k)) {
+    const phrase = keyword.replace(/\b\w/g, (c) => c.toUpperCase());
+    return `${phrase}: What Indian Utility O&M Teams Should Evaluate`;
+  }
+  if (/service|company/.test(k)) {
+    return `Choosing a ${keyword.replace(/\b\w/g, (c) => c.toUpperCase())} for MW-Scale Solar in India`;
+  }
+  const titled = keyword.replace(/\b\w/g, (c) => c.toUpperCase());
+  return `${titled}: Practical Guide for Utility-Scale Solar O&M in India`;
+}
+
 export function formatSeoPromptBlock(brief: SeoKeywordBrief): string {
   const volumeLabel =
     brief.volumeBucket >= 5000
@@ -147,8 +216,10 @@ export function formatSeoPromptBlock(brief: SeoKeywordBrief): string {
         : "niche";
 
   return `SEO TARGET (from Google Keyword Planner — India):
-- Primary keyword: "${brief.primary}" (~${brief.volumeBucket}+ avg. monthly searches bucket, ${volumeLabel} volume, competition: ${brief.competition || "n/a"})
-- Work this phrase naturally into the title, meta description, first paragraph, at least one H2, and conclusion.
-- Related terms to weave in where natural: ${brief.related.slice(0, 6).join(", ")}
-- Do NOT keyword-stuff; write for plant owners and O&M managers first.`;
+- Primary keyword: "${brief.primary}" (~${brief.volumeBucket}+ avg. monthly searches bucket, ${volumeLabel} volume, competition: ${brief.competition || "n/a"}, index: ${brief.competitionIndex})
+- Search intent: ${brief.searchIntent}
+- Work the primary phrase in: title, meta description, first 100 words, at least one H2, and conclusion.
+- Related terms for H2/H3 and body: ${brief.related.slice(0, 6).join(", ")}
+- Add one FAQ-style H2 (e.g. "How often…", "Is a robot worth it…") if it fits the query.
+- Do NOT keyword-stuff; satisfy the reader's intent first — that is what earns rankings.`;
 }

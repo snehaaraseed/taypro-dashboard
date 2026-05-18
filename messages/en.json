@@ -42,6 +42,8 @@
     "termsOfService": "Terms of Service",
     "performanceMethodology": "Performance & Test Methodology",
     "ourSolutions": "Our Solutions",
+    "cleaningService": "Solar Panel Cleaning Service",
+    "roiCalculator": "ROI & Price Calculator",
     "copyright": "© Copyright {year} – TAYPRO PRIVATE LIMITED. All Rights Reserved."
   },
   "LocaleBanner": {
@@ -66,7 +68,7 @@
     "linkSitemap": "Browse sitemap",
     "linkProjects": "View projects",
     "linkBlog": "Read blog",
-    "linkCalculator": "ROI calculator",
+    "linkCalculator": "Price & ROI calculator",
     "reportLabel": "Report a broken link",
     "reportHint": "Email us the URL you tried and where you found the link so we can fix it.",
     "reportSubject": "Broken link on Taypro website",

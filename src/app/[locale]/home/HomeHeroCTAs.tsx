@@ -24,7 +24,13 @@ export default function HomeHeroCTAs() {
         {t("ctaExplore")}
       </Link>
       <Link
-        href="/solar-panel-cleaning-robot-price-calculator"
+        href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
+        className="inline-flex items-center justify-center min-h-[48px] border border-[#A8C117]/60 text-[#A8C117] font-medium px-6 py-3 rounded-lg hover:bg-[#A8C117]/10 transition text-center"
+      >
+        {t("ctaService")}
+      </Link>
+      <Link
+        href="/solar-panel-cleaning-robot-price-calculator#calculator"
         className="inline-flex items-center justify-center min-h-[48px] text-[#A8C117] font-medium px-4 py-3 hover:underline text-center"
       >
         {t("ctaRoi")}

@@ -177,7 +177,7 @@ export default async function SiteMapPage({
               </li>
               <li>
                 <Link
-                  href="/solar-panel-cleaning-robot-price-calculator"
+                  href="/solar-panel-cleaning-robot-price-calculator#calculator"
                   title={l("roiCalculatorTitle")}
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >

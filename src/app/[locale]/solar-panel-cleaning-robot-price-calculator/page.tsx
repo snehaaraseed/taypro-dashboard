@@ -19,7 +19,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 const BENEFIT_ICONS = [IndianRupee, Droplets, TrendingUp] as const;
 const BENEFIT_KEYS = ["item0", "item1", "item2"] as const;
 const HOW_IT_WORKS_KEYS = ["step0", "step1", "step2"] as const;
-const FAQ_KEYS = ["0", "1", "2", "3", "4"] as const;
+const FAQ_KEYS = ["0", "1", "2", "3", "4", "5", "6"] as const;
 const EXPLORE_LINKS = [
   { labelKey: "explore.link0", href: "/solar-panel-cleaning-system" },
   { labelKey: "explore.link1", href: "/cleaning-technology" },
@@ -141,6 +141,23 @@ export default function SolarPanelCleaningRobotPriceCalculatorPage() {
                   </Link>
                   {t("note.afterOpexLink")}
                 </p>
+                <div className="mt-6 max-w-2xl mx-auto rounded-xl border border-[#A8C117]/40 bg-[#052638]/5 px-5 py-4 text-center sm:text-left sm:flex sm:items-center sm:justify-between sm:gap-4">
+                  <div>
+                    <p className="text-[#052638] font-semibold text-sm sm:text-base">
+                      {t("opexBanner.heading")}
+                    </p>
+                    <p className="text-[#5c6f82] text-sm mt-1 leading-relaxed">
+                      {t("opexBanner.body")}
+                    </p>
+                  </div>
+                  <Link
+                    href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
+                    className="inline-flex items-center justify-center gap-1 mt-3 sm:mt-0 shrink-0 text-[#5a8f00] font-medium text-sm hover:underline underline-offset-4"
+                  >
+                    {t("opexBanner.cta")}
+                    <ArrowRight className="h-4 w-4" aria-hidden />
+                  </Link>
+                </div>
               </AnimateOnScroll>
             </Container>
           </div>

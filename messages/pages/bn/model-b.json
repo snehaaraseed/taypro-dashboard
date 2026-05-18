@@ -5,7 +5,24 @@
       "description": "Taypro Model-B হল একটি 39 কেজি পিক-এন্ড-প্লেস, আধা-স্বয়ংক্রিয় সোলার প্যানেল ক্লিনিং রোবট। পাল্টা-ঘূর্ণায়মান PBT ব্রাশগুলি একটি জলবিহীন পাসে 99%+ ধুলো অপসারণ করে, 2 ঘন্টার মধ্যে একটি 1 মেগাওয়াট প্ল্যান্ট পরিষ্কার করে, একক চার্জে 3 কিমি পর্যন্ত চালায়, TÜV NORD প্রত্যয়িত — ফিক্সড-টিল্ট এবং সিজনাল-টিল্ট প্ল্যান্টের জন্য তৈরি।",
       "openGraphDescription": "সোলার প্যানেল ক্লিনিং রোবট বাছাই করুন। 39 কেজি, জলহীন, ডুয়াল কাউন্টার-রোটেটিং PBT ব্রাশ, একক পাসে 99%+ ধুলো অপসারণ, প্রতি চার্জ 3 কিমি, TÜV NORD প্রত্যয়িত।",
       "openGraphImageAlt": "Taypro সেমি-অটোমেটিক সোলার প্যানেল ক্লিনিং রোবট Model-B — পিক-এন্ড-প্লেস টাইপ, জলহীন",
-      "twitterDescription": "39 কেজি পিক-এন্ড-প্লেস সোলার প্যানেল ক্লিনিং রোবট। জলহীন, ডুয়াল কাউন্টার-রোটেটিং PBT ব্রাশ, প্রতি পাসে 99%+ ধুলো অপসারণ, TÜV NORD প্রত্যয়িত।"
+      "twitterDescription": "39 কেজি পিক-এন্ড-প্লেস সোলার প্যানেল ক্লিনিং রোবট। জলহীন, ডুয়াল কাউন্টার-রোটেটিং PBT ব্রাশ, প্রতি পাসে 99%+ ধুলো অপসারণ, TÜV NORD প্রত্যয়িত।",
+      "keywords": [
+        "semi-automatic solar panel cleaning robot",
+        "semi automatic solar panel cleaning robot",
+        "pick and place solar cleaning robot",
+        "lift and shift solar cleaning robot",
+        "portable solar panel cleaning robot",
+        "manual deployment solar cleaning robot",
+        "rooftop solar cleaning robot",
+        "fixed tilt solar panel cleaning",
+        "seasonal tilt solar panel cleaning",
+        "PBT brush solar cleaning robot",
+        "counter-rotating brush solar cleaning",
+        "dry solar panel cleaning robot",
+        "utility scale solar panel cleaning robot",
+        "Taypro Model-B",
+        "Taypro Loop"
+      ]
     },
     "breadcrumbs": {
       "robots": "সোলার প্যানেল ক্লিনিং রোবট",
@@ -475,6 +492,12 @@
     "modelCardsTitle": "আরো সমাধান খুঁজছেন?",
     "common": {
       "breadcrumbHome": "হোম"
+    },
+    "roiBand": {
+      "title": "সেমি-অটো রোবট খরচ ও ROI",
+      "bodyBeforeSpan": "কোটের আগে ",
+      "bodySpan": "সেমি-অটোমেটিক সোলার প্যানেল ক্লিনিং রোবট",
+      "bodyAfterSpan": " এর পেব্যাক অনুমান করুন।"
     }
   },
   "Common": {

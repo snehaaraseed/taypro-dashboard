@@ -45,7 +45,7 @@ const EXPLORE_LINK_KEYS = [
   { labelKey: "exploreSolarRobots", href: "/solar-panel-cleaning-system" },
   {
     labelKey: "exploreRoi",
-    href: "/solar-panel-cleaning-robot-price-calculator",
+    href: "/solar-panel-cleaning-robot-price-calculator#calculator",
   },
   { labelKey: "exploreTechnology", href: "/cleaning-technology" },
   { labelKey: "exploreProjects", href: "/projects" },
@@ -307,7 +307,7 @@ export default async function Blog({
               </AnimateOnScroll>
               <AnimateOnScroll animation="fadeInUp" delay={160}>
                 <Link
-                  href="/solar-panel-cleaning-robot-price-calculator"
+                  href="/solar-panel-cleaning-robot-price-calculator#calculator"
                   className="block rounded-xl border border-white/10 bg-white/5 px-5 py-4 hover:border-[#A8C117]/50 hover:bg-white/10 transition h-full"
                 >
                   <Calculator

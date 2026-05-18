@@ -42,7 +42,10 @@ import { getTranslations } from "next-intl/server";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
-const FAQ_INDICES = ["0", "1", "2", "3", "4", "5", "6"] as const;
+const FAQ_INDICES = ["0", "1", "2", "3", "4", "5", "6", "7", "8"] as const;
+const ELIGIBILITY_FOR_KEYS = ["0", "1", "2"] as const;
+const ELIGIBILITY_NOT_KEYS = ["0", "1", "2"] as const;
+const SLA_KEYS = ["0", "1", "2", "3"] as const;
 const HOWTO_INDICES = ["0", "1", "2", "3", "4"] as const;
 const PLANT_STUDY_INDICES = ["0", "1", "2", "3", "4"] as const;
 const BENEFIT_INDICES = ["0", "1", "2", "3", "4", "5"] as const;
@@ -249,6 +252,43 @@ export default async function SolarPanelCleaningService({
           </Container>
         </section>
 
+        {/* Eligibility */}
+        <section className="bg-[#f4f1e9] py-16 sm:py-20">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
+              <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
+                {t("eligibility.eyebrow")}
+              </div>
+              <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight max-w-4xl mx-auto">
+                {t("eligibility.title")}
+              </h2>
+            </AnimateOnScroll>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              <AnimateOnScroll animation="fadeInUp" className="bg-white p-6 sm:p-8 rounded-lg border border-[#A8C117]/20">
+                <h3 className="text-[#052638] font-semibold text-xl mb-4 flex items-center gap-2">
+                  <ShieldCheck className="w-6 h-6 text-[#A8C117]" />
+                  {t("eligibility.forTitle")}
+                </h3>
+                <ul className="space-y-3 text-gray-600 text-base leading-relaxed list-disc pl-5">
+                  {ELIGIBILITY_FOR_KEYS.map((i) => (
+                    <li key={i}>{t(`eligibility.for${i}`)}</li>
+                  ))}
+                </ul>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fadeInUp" className="bg-white p-6 sm:p-8 rounded-lg border border-gray-200">
+                <h3 className="text-[#052638] font-semibold text-xl mb-4">
+                  {t("eligibility.notForTitle")}
+                </h3>
+                <ul className="space-y-3 text-gray-600 text-base leading-relaxed list-disc pl-5">
+                  {ELIGIBILITY_NOT_KEYS.map((i) => (
+                    <li key={i}>{t(`eligibility.not${i}`)}</li>
+                  ))}
+                </ul>
+              </AnimateOnScroll>
+            </div>
+          </Container>
+        </section>
+
         {/* Billing highlight */}
         <section className="bg-[#f4f1e9] py-16 sm:py-20">
           <Container size="narrow">
@@ -426,6 +466,39 @@ export default async function SolarPanelCleaningService({
                   </AnimateOnScroll>
                 );
               })}
+            </div>
+          </Container>
+        </section>
+
+        {/* SLA */}
+        <section className="bg-[#052638] py-16 sm:py-20">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
+              <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
+                {t("sla.eyebrow")}
+              </div>
+              <h2 className="text-white font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight max-w-4xl mx-auto">
+                {t("sla.title")}
+              </h2>
+              <p className="text-white/80 text-base sm:text-lg max-w-3xl mx-auto mt-6 leading-relaxed">
+                {t("sla.intro")}
+              </p>
+            </AnimateOnScroll>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {SLA_KEYS.map((i) => (
+                <AnimateOnScroll
+                  key={i}
+                  animation="fadeInUp"
+                  className="bg-white/5 border border-white/10 p-6 sm:p-7 rounded-lg"
+                >
+                  <h3 className="text-white font-semibold text-xl mb-2">
+                    {t(`sla.item${i}Title`)}
+                  </h3>
+                  <p className="text-white/80 text-base leading-relaxed">
+                    {t(`sla.item${i}Body`)}
+                  </p>
+                </AnimateOnScroll>
+              ))}
             </div>
           </Container>
         </section>
@@ -662,7 +735,7 @@ export default async function SolarPanelCleaningService({
                 </div>
                 <div className="mt-auto flex flex-wrap gap-3 items-center">
                   <Link
-                    href="/solar-panel-cleaning-robot-price-calculator"
+                    href="/solar-panel-cleaning-robot-price-calculator#calculator"
                     className="inline-flex items-center bg-[#A8C117] text-[#052638] font-medium px-6 py-3 rounded-md hover:bg-[#b3cf3d] transition"
                   >
                     {t("cadenceRoi.roiCalculatorLink")}

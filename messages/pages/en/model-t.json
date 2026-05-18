@@ -5,7 +5,18 @@
       "description": "Taypro Model-T is an AI- and ML-powered, waterless autonomous Solar Panel Cleaning Robot purpose-built for single-axis tracker solar farms. 99%+ dust removal per dual-pass run, up to 3,600 modules per charge, ±15° flex between tables, NEXTracker and Gamechanger compatible (-52° to +52° module tilt), TÜV NORD certified.",
       "openGraphDescription": "Autonomous AI-powered Solar Panel Cleaning Robot for single-axis tracker plants. 99%+ dust removal per cycle, up to 3,600 modules per charge, Taypro Console via LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN, NEXTracker & Gamechanger compatible, TÜV NORD certified.",
       "openGraphImageAlt": "Taypro Single-Axis Tracker Solar Panel Cleaning Robot Model-T — AI-powered, waterless",
-      "twitterDescription": "Autonomous Solar Panel Cleaning Robot for tracker plants. 3,600 modules per charge, LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN, NEXTracker & Gamechanger compatible."
+      "twitterDescription": "Autonomous Solar Panel Cleaning Robot for tracker plants. 3,600 modules per charge, LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN, NEXTracker & Gamechanger compatible.",
+      "keywords": [
+        "single axis tracker solar panel cleaning",
+        "single-axis tracker solar cleaning robot",
+        "tracker solar panel cleaning robot",
+        "NEXTracker solar cleaning robot",
+        "Gamechanger tracker cleaning robot",
+        "horizontal single axis tracker cleaning",
+        "utility scale solar panel cleaning robot",
+        "automatic solar panel cleaning system tracker",
+        "Taypro Model-T"
+      ]
     },
     "breadcrumbs": {
       "robots": "Solar Panel Cleaning Robots",
@@ -495,7 +506,13 @@
       "title": "Frequently Asked Questions",
       "subtitle": "Common questions about the Taypro Model-T Solar Panel Cleaning Robot for single-axis tracker installations."
     },
-    "modelCardsTitle": "Looking for more solutions?"
+    "modelCardsTitle": "Looking for more solutions?",
+    "roiBand": {
+      "title": "Tracker cleaning robot cost & ROI",
+      "bodyBeforeSpan": "Model ",
+      "bodySpan": "single-axis tracker solar panel cleaning",
+      "bodyAfterSpan": " economics for your site—use the calculator before a Model-T quote."
+    }
   },
   "Common": {
     "breadcrumbHome": "Home",

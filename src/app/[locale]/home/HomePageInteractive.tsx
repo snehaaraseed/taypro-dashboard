@@ -193,7 +193,7 @@ export default function HomePageInteractive({
             </h2>
             <p className="text-[#27415c] text-lg leading-relaxed">{t("roi.body")}</p>
             <Link
-              href="/solar-panel-cleaning-robot-price-calculator"
+              href="/solar-panel-cleaning-robot-price-calculator#calculator"
               className="inline-flex items-center gap-2 mt-4 text-[#5a8f00] font-semibold hover:underline"
             >
               {t("roi.link")}

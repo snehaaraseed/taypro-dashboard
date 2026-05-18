@@ -1,7 +1,7 @@
 {
   "PriceCalculatorPage": {
     "meta": {
-      "title": "ソーラーパネル清掃ロボット 価格・ROI計算機 | Taypro India",
+      "title": "清掃コスト・ロボット価格計算 | Taypro インド",
       "description": "ユーティリティ・商業PV向けの無料ソーラーパネル清掃ロボット価格・ROI計算機。回収期間、年間節約、節水、投資額、CO₂影響を試算し、Tayproに見積依頼。",
       "openGraphTitle": "ソーラーパネル清掃ロボット 価格・ROI計算機 | Taypro",
       "openGraphDescription": "発電所向けのロボット投資、回収期間、人件費削減、発電増を試算。Tayproの無料オンラインツール。",
@@ -14,9 +14,14 @@
       "keyword4": "ソーラーパネル清掃ロボット 回収期間",
       "keyword5": "ユーティリティ規模 ソーラー清掃ロボット 価格",
       "keyword6": "taypro ROI計算機",
-      "keyword7": "ソーラーO&Mロボット 節約計算機"
+      "keyword7": "ソーラーO&Mロボット 節約計算機",
+      "keyword8": "solar panel cleaning cost",
+      "keyword9": "solar panel cleaning prices",
+      "keyword10": "solar panel maintenance cost"
     },
-    "breadcrumbs": { "calculator": "ROI・価格計算機" },
+    "breadcrumbs": {
+      "calculator": "ROI・価格計算機"
+    },
     "schema": {
       "softwareName": "Taypro ソーラーパネル清掃ロボット ROI計算機",
       "softwareDescription": "インドのユーティリティ・商業PV向けに、清掃ロボット投資、回収期間、人件費削減、節水、発電増を試算する無料オンライン計算機。"
@@ -39,10 +44,18 @@
     "stats": {
       "eyebrow": "オペレーターがROIを試算する理由",
       "heading": "Tayproが現場で実証した規模",
-      "stat0": { "label": "導入ロボット容量" },
-      "stat1": { "label": "発電所導入件数" },
-      "stat2": { "label": "年間節水量（リットル）" },
-      "stat3": { "label": "月間ロボット製造能力" }
+      "stat0": {
+        "label": "導入ロボット容量"
+      },
+      "stat1": {
+        "label": "発電所導入件数"
+      },
+      "stat2": {
+        "label": "年間節水量（リットル）"
+      },
+      "stat3": {
+        "label": "月間ロボット製造能力"
+      }
     },
     "benefits": {
       "heading": "この計算機で試算できること",
@@ -80,10 +93,18 @@
       "heading": "結果を適切なロボットに合わせる",
       "subheading": "計算機の自動化・設置入力はTaypro製品ラインと整合。調達前に仕様を確認。",
       "viewDetails": "詳細を見る",
-      "robot0": { "description": "固定・季節傾斜ユーティリティ向けAIスケジュール付き完全自律・無水ドライ清掃。" },
-      "robot1": { "description": "分散ブロックや柔軟なクルー支援カバレッジ向けポータブルピックアンドプレースドライ清掃ロボット。" },
-      "robot2": { "description": "単軸トラッカー向け自律無水ロボット—ブランド横断の柔軟ブリッジと360°回転。" },
-      "robot3": { "description": "パネル清掃ごとのOpex—前払いCAPEXなしでTayproがフリートを運用。" }
+      "robot0": {
+        "description": "固定・季節傾斜ユーティリティ向けAIスケジュール付き完全自律・無水ドライ清掃。"
+      },
+      "robot1": {
+        "description": "分散ブロックや柔軟なクルー支援カバレッジ向けポータブルピックアンドプレースドライ清掃ロボット。"
+      },
+      "robot2": {
+        "description": "単軸トラッカー向け自律無水ロボット—ブランド横断の柔軟ブリッジと360°回転。"
+      },
+      "robot3": {
+        "description": "パネル清掃ごとのOpex—前払いCAPEXなしでTayproがフリートを運用。"
+      }
     },
     "methodology": {
       "eyebrow": "方法論",
@@ -125,7 +146,11 @@
       "q3": "購入の代わりにTaypro Opexは使えますか？",
       "a3": "はい。計算機はCAPEX型投資をモデル化。Opex希望は見積依頼時に記載してください。",
       "q4": "水・炭素数値の精度は？",
-      "a4": "節水はドライ清掃が代表的水洗スケジュールに置き換わる前提。炭素は標準グリッド排出係数。いずれも参考値。"
+      "a4": "節水はドライ清掃が代表的水洗スケジュールに置き換わる前提。炭素は標準グリッド排出係数。いずれも参考値。",
+      "q5": "インドでのパネル清掃費用は？",
+      "a5": "規模、汚れ、サイクル、CAPEXかOpexによります。本ツールは目安です。",
+      "q6": "CAPEXとTaypro Opexを比較すべき？",
+      "a6": "はい。Opexは清掃サービスページを参照。"
     },
     "explore": {
       "heading": "さらに探索",
@@ -184,14 +209,23 @@
       "pdfPlantCapacityKw": "発電所容量 (KW)",
       "pdfElectricityTariff": "電力タリフ (Rs/kWh)",
       "pdfModuleCapacity": "モジュール容量 (Wp)",
-      "pdfCarbonUnit": "kg CO2"
+      "pdfCarbonUnit": "kg CO2",
+      "highlightInvestment": "Indicative investment (CAPEX)",
+      "investmentDisclaimer": "Directional estimate—not a formal quote."
     },
     "embed": {
       "loading": "計算機を読み込み中…",
       "loadingAria": "計算機を読み込み中",
       "disclaimerNote": "注：",
       "disclaimerBody": "ROIは代表的なTaypro導入前提に基づきます。正式見積・サイト別モデルはお問い合わせください。"
+    },
+    "opexBanner": {
+      "heading": "Prefer pay-per-panel cleaning?",
+      "body": "Taypro Opex covers fleet operation without upfront CAPEX. This calculator models purchase economics; our service team will align Opex pricing to your layout.",
+      "cta": "Explore Taypro Opex service"
     }
   },
-  "Common": { "breadcrumbHome": "ホーム" }
+  "Common": {
+    "breadcrumbHome": "ホーム"
+  }
 }

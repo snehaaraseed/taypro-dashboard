@@ -614,7 +614,7 @@ export default function AboutUsPage() {
                 {t("partnerJourney.viewProjects")}
               </Link>
               <Link
-                href="/solar-panel-cleaning-robot-price-calculator"
+                href="/solar-panel-cleaning-robot-price-calculator#calculator"
                 className="inline-flex items-center justify-center min-h-[48px] bg-[#b2cb19] text-[#22405a] font-medium px-6 py-3 rounded-lg hover:bg-lime-500 transition"
               >
                 {t("partnerJourney.roiCalculator")}

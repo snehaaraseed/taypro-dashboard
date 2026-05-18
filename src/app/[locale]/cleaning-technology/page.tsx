@@ -128,7 +128,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "CleaningTechnologyPage.meta" });
-  const keywords = [t("keyword0"), t("keyword1"), t("keyword2"), t("keyword3"), t("keyword4"), t("keyword5"), t("keyword6")];
+  const keywords = [
+    t("keyword0"),
+    t("keyword1"),
+    t("keyword2"),
+    t("keyword3"),
+    t("keyword4"),
+    t("keyword5"),
+    t("keyword6"),
+    t("keyword7"),
+    t("keyword8"),
+    t("keyword9"),
+  ];
   return withHreflang(CLEANING_TECH_PATH, locale, {
     title: t("title"),
     description: t("description"),

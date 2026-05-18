@@ -1,12 +1,12 @@
 {
   "PriceCalculatorPage": {
     "meta": {
-      "title": "Solar Panel Cleaning Robot Price & ROI Calculator | Taypro India",
-      "description": "Free solar panel cleaning robot price and ROI calculator for utility-scale and commercial PV plants. Estimate payback, annual savings, water avoided, investment, and CO₂ impact—then request a tailored Taypro quote.",
+      "title": "Solar Panel Cleaning Cost & Robot Price Calculator | Taypro India",
+      "description": "Free solar panel cleaning cost, price and ROI calculator for utility-scale PV plants in India. Estimate robot investment, payback, maintenance savings, and Opex vs CAPEX—then request a tailored Taypro quote.",
       "openGraphTitle": "Solar Panel Cleaning Robot Price & ROI Calculator | Taypro",
       "openGraphDescription": "Estimate robot investment, payback, labour savings, and generation gain for your solar plant. Free online tool by Taypro.",
-      "twitterTitle": "Solar Panel Cleaning Robot ROI Calculator | Taypro",
-      "twitterDescription": "Estimate payback and savings for Taypro cleaning robots on your solar plant.",
+      "twitterTitle": "Solar Panel Cleaning Robot Price & ROI Calculator | Taypro",
+      "twitterDescription": "Estimate robot investment, payback, and savings for Taypro cleaning robots on your solar plant.",
       "keyword0": "solar panel cleaning robot price calculator",
       "keyword1": "solar panel cleaning robot ROI calculator",
       "keyword2": "solar cleaning robot cost calculator India",
@@ -14,23 +14,31 @@
       "keyword4": "solar panel cleaning robot payback period",
       "keyword5": "utility scale solar cleaning robot price",
       "keyword6": "taypro ROI calculator",
-      "keyword7": "solar O&M robot savings calculator"
+      "keyword7": "solar O&M robot savings calculator",
+      "keyword8": "solar panel cleaning cost",
+      "keyword9": "solar panel cleaning prices",
+      "keyword10": "solar panel maintenance cost"
     },
     "breadcrumbs": {
-      "calculator": "ROI & price calculator"
+      "calculator": "Price & ROI calculator"
     },
     "schema": {
-      "softwareName": "Taypro Solar Panel Cleaning Robot ROI Calculator",
+      "softwareName": "Taypro Solar Panel Cleaning Robot Price & ROI Calculator",
       "softwareDescription": "Free online calculator to estimate solar panel cleaning robot investment, payback, labour savings, water avoided, and generation gain for utility-scale and commercial PV plants in India."
     },
     "hero": {
       "eyebrow": "Free online tool",
       "titleLine1": "Solar panel cleaning robot",
       "titleLine2": "price & ROI calculator",
-      "bodyBeforeLink": "Estimate payback, annual savings, water avoided, and indicative investment for",
+      "bodyBeforeLink": "Estimate indicative robot investment, payback, annual savings, and water avoided for",
       "bodyLink": "Taypro autonomous and semi-automatic cleaning robots",
-      "bodyAfterLink": "on your plant—before you request a site-specific quote.",
-      "calculatorSrOnly": "Solar panel cleaning robot ROI calculator"
+      "bodyAfterLink": "on your plant—then request a site-specific quote.",
+      "calculatorSrOnly": "Solar panel cleaning robot price and ROI calculator"
+    },
+    "opexBanner": {
+      "heading": "Prefer pay-per-panel cleaning?",
+      "body": "Taypro Opex covers fleet operation without upfront CAPEX. This calculator models purchase economics; our service team will align Opex pricing to your layout.",
+      "cta": "Explore Taypro Opex service"
     },
     "note": {
       "label": "Note:",
@@ -135,7 +143,11 @@
       "q3": "Can I use Taypro Opex instead of buying robots outright?",
       "a3": "Yes. Many developers choose Taypro Opex—pay per panel cleaned with Taypro operating the fleet. The calculator models CAPEX-style investment; for Opex economics, mention your preference when requesting a tailored quote and we will align the business case to your procurement model.",
       "q4": "How accurate are the water and carbon figures?",
-      "a4": "Water savings assume dry cleaning replaces a representative wet-wash schedule. Carbon figures use standard grid emission factors applied to recovered generation. Both are indicative; your site's actual numbers depend on cleaning frequency, soiling rate, and regional grid intensity."
+      "a4": "Water savings assume dry cleaning replaces a representative wet-wash schedule. Carbon figures use standard grid emission factors applied to recovered generation. Both are indicative; your site's actual numbers depend on cleaning frequency, soiling rate, and regional grid intensity.",
+      "q5": "What does solar panel cleaning cost in India?",
+      "a5": "Cleaning cost depends on plant size, soiling, cycle count, and whether you buy robots (CAPEX) or use Taypro Opex (pay per panel cleaned). This calculator gives a directional investment and savings band; for a formal solar panel cleaning price or service quote, contact Taypro with your MW and layout.",
+      "q6": "Should I compare CAPEX robot purchase with Taypro Opex?",
+      "a6": "Yes. CAPEX suits owners who want to capitalise robots on the balance sheet; Taypro Opex moves cleaning to a monthly service line tied to panels cleaned. Use the automation toggle here for capex-style ROI, then read our solar panel cleaning service page for Opex economics."
     },
     "explore": {
       "heading": "Continue exploring",
@@ -146,7 +158,7 @@
       "link3": "Contact Taypro"
     },
     "calculator": {
-      "title": "ROI Calculator",
+      "title": "Price & ROI calculator",
       "plantType": "Plant Type",
       "installationType": "Installation Type",
       "automationLevel": "Automation Level",
@@ -158,10 +170,12 @@
       "minMaxKw": "Min:100 Max:10000",
       "minMaxTariff": "Min:1 Max:50",
       "minMaxModule": "Min:1 Max:1000",
-      "calculateButton": "Calculate ROI",
-      "resultsHeading": "Your estimate",
+      "calculateButton": "Estimate price & ROI",
+      "resultsHeading": "Your price & ROI estimate",
       "collapseResults": "Collapse results",
       "hideResults": "Hide ▲",
+      "highlightInvestment": "Indicative investment (CAPEX)",
+      "investmentDisclaimer": "Directional estimate—not a formal quote.",
       "paybackTimeline": "Payback timeline",
       "annualSavings": "Annual savings",
       "yearsUnit": "years",
@@ -185,7 +199,7 @@
       "installationSingleAxis": "Single Axis Tracker",
       "automationAutomatic": "Waterless Automatic Solar Panel Cleaning Robots",
       "automationSemiAutomatic": "Waterless Semi-Automatic Solar Panel Cleaning Robots",
-      "pdfTitle": "ROI Calculator Report",
+      "pdfTitle": "Price & ROI Calculator Report",
       "pdfInputs": "Inputs",
       "pdfResults": "Results",
       "pdfParameter": "Parameter",
@@ -200,7 +214,7 @@
       "loading": "Loading calculator…",
       "loadingAria": "Loading calculator",
       "disclaimerNote": "Note:",
-      "disclaimerBody": "ROI is based on representative Taypro deployment assumptions. Contact us for a formal quote and plant-specific model."
+      "disclaimerBody": "Investment and ROI figures use representative Taypro deployment assumptions. Contact us for a formal quote and plant-specific model."
     }
   },
   "Common": {

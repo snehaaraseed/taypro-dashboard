@@ -35,10 +35,16 @@ import {
   CollectionPageSchema,
   FAQPageSchema,
   ItemListSchema,
+  VideoObjectSchema,
 } from "@/app/components/StructuredData";
+import YouTubeEmbed from "@/app/components/YouTubeEmbed";
 import { Link } from "@/i18n/navigation";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const HUB_PRODUCT_VIDEO_ID = "y9iRhH2bLwY";
+
+const BRUSH_COMPARE_BRUSH_KEYS = ["0", "1", "2", "3"] as const;
+const BRUSH_COMPARE_ROBOT_KEYS = ["0", "1", "2", "3"] as const;
 
 type SchemaItemKey =
   | "modelA"
@@ -258,7 +264,7 @@ export default async function SolarPanelCleaningRobot({
                     {t("hero.primaryCta.label")}
                   </OpenLeadModalButton>
                   <Link
-                    href="/solar-panel-cleaning-robot-price-calculator"
+                    href="/solar-panel-cleaning-robot-price-calculator#calculator"
                     className="inline-flex items-center justify-center min-h-[48px] sm:min-w-[200px] border-2 border-white/70 text-white font-medium px-7 py-3.5 rounded-md hover:bg-white/10 transition"
                   >
                     {t("hero.secondaryCta")}
@@ -613,6 +619,78 @@ export default async function SolarPanelCleaningRobot({
           </Container>
         </section>
 
+        <section className="bg-white py-16 sm:py-20">
+          <Container>
+            <VideoObjectSchema
+              name={t("brushComparison.videoTitle")}
+              description={t("brushComparison.videoCaption")}
+              thumbnailUrl={`https://img.youtube.com/vi/${HUB_PRODUCT_VIDEO_ID}/maxresdefault.jpg`}
+              uploadDate="2024-01-01"
+              embedUrl={`https://www.youtube.com/embed/${HUB_PRODUCT_VIDEO_ID}`}
+              contentUrl={`https://www.youtube.com/watch?v=${HUB_PRODUCT_VIDEO_ID}`}
+            />
+            <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
+              <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
+                {t("brushComparison.eyebrow")}
+              </div>
+              <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight max-w-4xl mx-auto">
+                {t("brushComparison.title")}
+              </h2>
+              <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mt-5 leading-relaxed">
+                {t("brushComparison.subtitle")}
+              </p>
+            </AnimateOnScroll>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start mb-12">
+              <AnimateOnScroll animation="fadeInUp">
+                <YouTubeEmbed
+                  videoId={HUB_PRODUCT_VIDEO_ID}
+                  title={t("brushComparison.videoTitle")}
+                  className="w-full rounded-lg overflow-hidden shadow-lg"
+                />
+                <p className="text-gray-500 text-sm mt-3 text-center">
+                  {t("brushComparison.videoCaption")}
+                </p>
+              </AnimateOnScroll>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <AnimateOnScroll animation="fadeInUp" className="bg-[#f4f1e9] p-6 rounded-lg">
+                  <h3 className="text-[#052638] font-semibold text-lg mb-4">
+                    {t("brushComparison.brushTitle")}
+                  </h3>
+                  <ul className="space-y-2 text-gray-600 text-sm sm:text-base list-disc pl-5">
+                    {BRUSH_COMPARE_BRUSH_KEYS.map((i) => (
+                      <li key={i}>{t(`brushComparison.brush${i}`)}</li>
+                    ))}
+                  </ul>
+                </AnimateOnScroll>
+                <AnimateOnScroll animation="fadeInUp" className="bg-[#052638] p-6 rounded-lg">
+                  <h3 className="text-white font-semibold text-lg mb-4">
+                    {t("brushComparison.robotTitle")}
+                  </h3>
+                  <ul className="space-y-2 text-white/85 text-sm sm:text-base list-disc pl-5">
+                    {BRUSH_COMPARE_ROBOT_KEYS.map((i) => (
+                      <li key={i}>{t(`brushComparison.robot${i}`)}</li>
+                    ))}
+                  </ul>
+                </AnimateOnScroll>
+              </div>
+            </div>
+            <AnimateOnScroll animation="fadeInUp" className="flex flex-wrap justify-center gap-4">
+              <Link
+                href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
+                className="inline-flex items-center justify-center min-h-[48px] bg-[#A8C117] text-[#052638] font-semibold px-7 py-3 rounded-lg hover:bg-[#b3cf3d] transition"
+              >
+                {t("brushComparison.ctaService")}
+              </Link>
+              <Link
+                href="/solar-panel-cleaning-robot-price-calculator#calculator"
+                className="inline-flex items-center justify-center min-h-[48px] border-2 border-[#052638] text-[#052638] font-medium px-7 py-3 rounded-lg hover:bg-[#052638]/5 transition"
+              >
+                {t("brushComparison.ctaCalculator")}
+              </Link>
+            </AnimateOnScroll>
+          </Container>
+        </section>
+
         <section className="w-full bg-[#052638] py-16 sm:py-20">
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
@@ -714,7 +792,7 @@ export default async function SolarPanelCleaningRobot({
                 {t("roiBand.body")}
               </p>
               <Link
-                href="/solar-panel-cleaning-robot-price-calculator"
+                href="/solar-panel-cleaning-robot-price-calculator#calculator"
                 className="inline-flex items-center gap-2 mt-4 text-[#5a8f00] font-semibold hover:underline"
               >
                 {t("roiBand.linkFullCalculator")}
@@ -942,7 +1020,7 @@ export default async function SolarPanelCleaningRobot({
                   {t("finalCta.primaryCta.label")}
                 </OpenLeadModalButton>
                 <Link
-                  href="/solar-panel-cleaning-robot-price-calculator"
+                  href="/solar-panel-cleaning-robot-price-calculator#calculator"
                   className="inline-flex items-center justify-center min-h-[48px] sm:min-w-[200px] border-2 border-white text-white font-medium px-7 py-3.5 rounded-md hover:bg-white/10 transition"
                 >
                   {t("finalCta.secondaryCta")}

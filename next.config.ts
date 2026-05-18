@@ -171,6 +171,27 @@ const nextConfig = {
         destination: "/:path*",
         permanent: true,
       },
+      // Canonical price + ROI tool (Keyword Planner: cost, price, ROI)
+      {
+        source: "/solar-panel-cleaning-robot-price",
+        destination: "/solar-panel-cleaning-robot-price-calculator",
+        permanent: true,
+      },
+      {
+        source: "/solar-panel-cleaning-cost-calculator",
+        destination: "/solar-panel-cleaning-robot-price-calculator",
+        permanent: true,
+      },
+      {
+        source: "/solar-panel-cleaning-robot-roi-calculator",
+        destination: "/solar-panel-cleaning-robot-price-calculator",
+        permanent: true,
+      },
+      {
+        source: "/roi-calculator",
+        destination: "/solar-panel-cleaning-robot-price-calculator",
+        permanent: true,
+      },
     ];
   },
   // Add headers for better caching and performance

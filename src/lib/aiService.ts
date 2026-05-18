@@ -4,11 +4,13 @@ import { getProductKnowledgeBase } from "./productKnowledge";
 import { createSlug } from "@/app/utils/blogFileUtils";
 import {
   ANTI_GENERIC_WRITING_RULES,
+  SEO_AND_READER_RULES,
   isTooGenericDescription,
   isTooGenericTitle,
 } from "@/lib/seo/content-quality";
 import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
 import {
+  buildFallbackTopicTitle,
   formatSeoPromptBlock,
   pickSeoKeywordBrief,
   type SeoKeywordBrief,
@@ -82,7 +84,7 @@ export type GeneratedTopic = {
 };
 
 export async function generateUniqueTopic(
-  maxRetries: number = 2,
+  maxRetries: number = 3,
   editorialContext?: string
 ): Promise<GeneratedTopic> {
   const productKnowledge = getProductKnowledgeBase();
@@ -93,7 +95,7 @@ export async function generateUniqueTopic(
   for (let attempt = 0; attempt < maxRetries; attempt++) {
     const category = getRandomCategory();
     const seoBlock = seoBrief
-      ? `\n${formatSeoPromptBlock(seoBrief)}\n- Each title should clearly support the primary keyword or a close variant.\n`
+      ? `\n${formatSeoPromptBlock(seoBrief)}\n- At least 3 of the 5 titles MUST include the exact phrase "${seoBrief.primary}" or a word-order variant.\n`
       : "";
 
     const prompt = `You are a content strategist for a solar panel cleaning robot company called Taypro.
@@ -114,6 +116,7 @@ Requirements:
 - Focus on practical, valuable content for solar plant operators and managers
 
 ${ANTI_GENERIC_WRITING_RULES}
+${SEO_AND_READER_RULES}
 
 ${productKnowledge}
 
@@ -185,6 +188,22 @@ Return ONLY a JSON array of 5 topic titles, like this:
     }
   }
 
+  if (seoBrief) {
+    const category = getRandomCategory();
+    const fallbackTitle = buildFallbackTopicTitle(seoBrief.primary);
+    if (
+      !isTooGenericTitle(fallbackTitle, seoBrief.primary) &&
+      !(await isTopicPublished(fallbackTitle, createSlug(fallbackTitle)))
+    ) {
+      return {
+        title: fallbackTitle,
+        category: category.name,
+        seoKeyword: seoBrief.primary,
+        seoBrief,
+      };
+    }
+  }
+
   throw new Error(`Failed to generate unique topic after ${maxRetries} attempts`);
 }
 
@@ -223,7 +242,9 @@ ${productKnowledge}
 
 Requirements:
 ${ANTI_GENERIC_WRITING_RULES}
-- The JSON "title" must match the specific angle of: ${topic}
+${SEO_AND_READER_RULES}
+- Use this exact working title unless you can improve it without making it vaguer: "${topic}"
+- The JSON "title" field should match or tightly paraphrase that line (must stay specific)
 - Word count: 1500-2500 words
 - Natural, conversational tone (avoid AI-sounding language)
 - Factual, accurate information about solar panel cleaning and solar plant O&M

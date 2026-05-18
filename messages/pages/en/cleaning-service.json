@@ -1,8 +1,8 @@
 {
   "CleaningServicePage": {
     "meta": {
-      "title": "Robotic Solar Panel Cleaning Service — Pay Per Panel | Taypro OPEX",
-      "description": "Taypro OPEX is a monthly robotic solar panel cleaning service for utility-scale plants (typically 50 MW+). We deploy Model-A, Model-B or Model-T as needed, recommend 3–10 waterless dry cycles per month from a full plant soiling study, and bill only for panels cleaned. Includes cleaning SOPs, robot paths, rest zones, dedicated parking, and daily reports via Taypro Console.",
+      "title": "Solar Panel Cleaning Service — Robotic OPEX | Pay Per Panel | Taypro",
+      "description": "Taypro is a solar panel cleaning company offering monthly robotic cleaning service for utility-scale plants (10 MW+). Solar cleaning service with pay-per-panel billing: Model-A, B or T deployed, 3–10 waterless dry cycles from a plant soiling study, SOPs, paths, rest zones, and Taypro Console reports. Not for residential rooftop-only sites.",
       "openGraphDescription": "Monthly waterless robotic cleaning: plant-specific 3–10 cycles, detailed cleaning plans, daily reports, billing per panels cleaned. Model-A, B or T.",
       "openGraphImageAlt": "Taypro OPEX robotic solar panel cleaning service at utility-scale solar plant",
       "twitterDescription": "Pay per panel cleaned monthly. Plant study, 3–10 dry cycles, SOPs, paths, rest zones, Taypro Console reports."
@@ -60,7 +60,40 @@
       "6": {
         "question": "How is Taypro OPEX different from buying robots (capex)?",
         "answer": "With capex you own the robots, spares inventory, and depreciation. With Taypro OPEX, TAYPRO Private Limited retains ownership and lifecycle risk for the deployed fleet while you consume cleaning as a service: agreed cycles, agreed reporting, and billing tied to panels cleaned. Many IPPs choose OPEX to move quickly, preserve balance sheet, and lock in operational outcomes with a single accountable vendor."
+      },
+      "7": {
+        "question": "Who is Taypro OPEX not for?",
+        "answer": "Taypro OPEX is not designed for single-home rooftop solar, hobby arrays, or sites that only need occasional manual brush cleaning. We focus on utility-scale and commercial ground-mount portfolios—typically from about 10 MW upward—where robotic dry cleaning at scale and predictable monthly economics justify a managed fleet. If you operate a smaller C&I site, contact us anyway; we may recommend capex purchase, Model-B, or a lighter programme after feasibility review."
+      },
+      "8": {
+        "question": "Does Taypro OPEX include solar panel maintenance?",
+        "answer": "Taypro OPEX covers robotic module cleaning and the service wrapper around it: fleet health, operator deployment, cleaning SOPs, spare parts for cleaning robots, and reporting through Taypro Console. It does not replace inverter maintenance, HV electrical O&M, tracker mechanical repair, or module replacement—that remains with your EPC or O&M contractor. When we say maintenance in an OPEX context, we mean keeping the cleaning robots and cleaning programme running, not full-plant EPC maintenance."
       }
+    },
+    "eligibility": {
+      "eyebrow": "Who this service is for",
+      "title": "Built for utility-scale plants — not residential rooftops",
+      "forTitle": "Ideal for",
+      "for0": "Ground-mount and utility solar from ~10 MW and up (many programmes start near 50 MW)",
+      "for1": "IPPs, developers, and O&M teams that want pay-per-panel-cleaned billing",
+      "for2": "Sites with recurring soiling where 3–10 dry robotic cycles per month move performance ratio",
+      "notForTitle": "Not designed for",
+      "not0": "Single-home rooftop or small residential arrays",
+      "not1": "One-off manual brush or pressure-washer jobs without a robotic programme",
+      "not2": "Full-plant EPC maintenance (inverters, trackers, module swap) — we partner with your existing O&M on cleaning scope only"
+    },
+    "sla": {
+      "eyebrow": "Service levels",
+      "title": "SLA, reporting & breakdown response",
+      "intro": "Every Taypro OPEX contract defines measurable service levels so your O&M and asset management teams know what to expect beyond the cleaning calendar.",
+      "item0Title": "Cleaning reports",
+      "item0Body": "Cycle-level and daily summaries in Taypro Console—route coverage, completion status, exceptions, and exportable files for monthly governance.",
+      "item1Title": "Breakdown response",
+      "item1Body": "Automated ticketing and remote diagnostics with same-day resolution targets on qualifying plans; nationwide field bench for on-site intervention when needed.",
+      "item2Title": "Programme reviews",
+      "item2Body": "Quarterly or seasonal reviews of soiling drivers and cycle count so the 3–10 dry cleaning envelope stays aligned with actual PR and weather.",
+      "item3Title": "Reconciliation",
+      "item3Body": "Monthly panel-cleaning volume reconciled against agreed measurement rules before invoicing—aligned to panels cleaned, not idle hours."
     },
     "howToSteps": {
       "0": {

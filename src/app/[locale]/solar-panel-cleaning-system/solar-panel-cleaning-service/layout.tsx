@@ -35,6 +35,10 @@ export async function generateMetadata({
         "robotic solar O&M service",
         "dry solar panel cleaning cycles",
         "Taypro OPEX",
+        "solar cleaning service",
+        "solar cleaning company",
+        "solar panel cleaning company",
+        "solar power cleaning service",
       ],
       openGraph: {
         title: t("title"),

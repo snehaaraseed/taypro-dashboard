@@ -5,7 +5,18 @@
       "description": "Taypro Model-T एक AI- और ML-संचालित, जल रहित स्वायत्त सोलर पैनल क्लीनिंग रोबोट है, जिसे सिंगल-एक्सिस ट्रैकर सोलर फार्मों के लिए बनाया गया है। प्रति डुअल-पास रन में 99%+ धूल हटाना, प्रति चार्ज 3,600 मॉड्यूल तक, टेबलों के बीच ±15° फ्लेक्स, NEXTracker और Gamechanger संगत (-52° से +52° मॉड्यूल झुकाव), TÜV NORD प्रमाणित।",
       "openGraphDescription": "एकल-अक्ष ट्रैकर संयंत्रों के लिए स्वायत्त एआई-संचालित सौर पैनल सफाई रोबोट। प्रति चक्र 99%+ धूल हटाना, प्रति चार्ज 3,600 मॉड्यूल तक, एलटीई/वाई-फाई/आरएफ मेश/लोरा/लोरावन के माध्यम से Taypro Console, NEXTracker और Gamechanger संगत, TÜV NORD प्रमाणित।",
       "openGraphImageAlt": "Taypro सिंगल-एक्सिस ट्रैकर सोलर पैनल क्लीनिंग रोबोट Model-T - AI-पावर्ड, वॉटरलेस",
-      "twitterDescription": "ट्रैकर संयंत्रों के लिए स्वायत्त सौर पैनल सफाई रोबोट। प्रति चार्ज 3,600 मॉड्यूल, LTE/Wi-Fi/RF मेश/LoRa/LoRaWAN, NEXTracker और Gamechanger संगत।"
+      "twitterDescription": "ट्रैकर संयंत्रों के लिए स्वायत्त सौर पैनल सफाई रोबोट। प्रति चार्ज 3,600 मॉड्यूल, LTE/Wi-Fi/RF मेश/LoRa/LoRaWAN, NEXTracker और Gamechanger संगत।",
+      "keywords": [
+        "single axis tracker solar panel cleaning",
+        "single-axis tracker solar cleaning robot",
+        "tracker solar panel cleaning robot",
+        "NEXTracker solar cleaning robot",
+        "Gamechanger tracker cleaning robot",
+        "horizontal single axis tracker cleaning",
+        "utility scale solar panel cleaning robot",
+        "automatic solar panel cleaning system tracker",
+        "Taypro Model-T"
+      ]
     },
     "breadcrumbs": {
       "robots": "सोलर पैनल सफाई करने वाले रोबोट",
@@ -495,7 +506,13 @@
       "title": "अक्सर पूछे जाने वाले प्रश्नों",
       "subtitle": "सिंगल-एक्सिस ट्रैकर इंस्टॉलेशन के लिए Taypro Model-T सोलर पैनल क्लीनिंग रोबोट के बारे में सामान्य प्रश्न।"
     },
-    "modelCardsTitle": "और अधिक समाधान खोज रहे हैं?"
+    "modelCardsTitle": "और अधिक समाधान खोज रहे हैं?",
+    "roiBand": {
+      "title": "ट्रैकर क्लीनिंग रोबोट लागत और ROI",
+      "bodyBeforeSpan": "",
+      "bodySpan": "सिंगल-एक्सिस ट्रैकर सोलर पैनल क्लीनिंग",
+      "bodyAfterSpan": " के लिए कैलकुलेटर चलाएं।"
+    }
   },
   "Common": {
     "breadcrumbHome": "होम",
