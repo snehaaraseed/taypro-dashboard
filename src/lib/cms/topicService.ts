@@ -1,8 +1,9 @@
 import "server-only";
 
-import { desc } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 import { getDb } from "@/lib/db";
-import { publishedTopics } from "@/lib/db/schema";
+import { blogs, publishedTopics } from "@/lib/db/schema";
+import { SOURCE_LOCALE } from "@/lib/translation/config";
 
 export interface PublishedTopic {
   title: string;
@@ -31,23 +32,45 @@ export async function readPublishedTopics(): Promise<PublishedTopic[]> {
   return rows.map(rowToTopic);
 }
 
+function matchesExistingTopic(
+  titleLower: string,
+  slugLower: string | undefined,
+  existingTitle: string,
+  existingSlug: string
+): boolean {
+  const existingTitleLower = existingTitle.toLowerCase().trim();
+  const existingSlugLower = existingSlug.toLowerCase().trim();
+
+  if (existingTitleLower === titleLower) return true;
+  if (slugLower && existingSlugLower === slugLower) return true;
+  if (calculateSimilarity(existingTitleLower, titleLower) > 0.85) return true;
+  return false;
+}
+
+/** True if title/slug overlaps automation history or any English CMS blog. */
 export async function isTopicPublished(
   topicTitle: string,
   topicSlug?: string
 ): Promise<boolean> {
-  const topics = await readPublishedTopics();
   const titleLower = topicTitle.toLowerCase().trim();
   const slugLower = topicSlug?.toLowerCase().trim();
 
-  return topics.some((topic) => {
-    const existingTitleLower = topic.title.toLowerCase().trim();
-    const existingSlugLower = topic.slug.toLowerCase().trim();
+  const topics = await readPublishedTopics();
+  for (const topic of topics) {
+    if (matchesExistingTopic(titleLower, slugLower, topic.title, topic.slug)) {
+      return true;
+    }
+  }
 
-    if (existingTitleLower === titleLower) return true;
-    if (slugLower && existingSlugLower === slugLower) return true;
-    if (calculateSimilarity(existingTitleLower, titleLower) > 0.85) return true;
-    return false;
-  });
+  const db = getDb();
+  const blogRows = await db
+    .select({ title: blogs.title, slug: blogs.slug })
+    .from(blogs)
+    .where(eq(blogs.locale, SOURCE_LOCALE));
+
+  return blogRows.some((row) =>
+    matchesExistingTopic(titleLower, slugLower, row.title, row.slug)
+  );
 }
 
 export async function addPublishedTopic(
@@ -66,10 +89,59 @@ export async function addPublishedTopic(
   });
 }
 
-export async function isBlogCreatedToday(): Promise<boolean> {
+const MS_PER_DAY = 86_400_000;
+
+/** Minimum days between automated drafts (default 3 ≈ 2 posts/week). */
+export function getBlogAutomationMinDays(): number {
+  const raw = process.env.BLOG_AUTOMATION_MIN_DAYS?.trim();
+  const parsed = raw ? Number.parseInt(raw, 10) : 3;
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 3;
+}
+
+export type BlogAutomationSchedule = {
+  canGenerate: boolean;
+  minDaysBetween: number;
+  daysSinceLastRun: number | null;
+  lastRunAt: string | null;
+  nextEligibleAt: string | null;
+};
+
+export async function getBlogAutomationSchedule(): Promise<BlogAutomationSchedule> {
+  const minDaysBetween = getBlogAutomationMinDays();
   const topics = await readPublishedTopics();
-  const today = new Date().toISOString().split("T")[0];
-  return topics.some((topic) => topic.publishDate.split("T")[0] === today);
+
+  if (topics.length === 0) {
+    return {
+      canGenerate: true,
+      minDaysBetween,
+      daysSinceLastRun: null,
+      lastRunAt: null,
+      nextEligibleAt: null,
+    };
+  }
+
+  const lastRunAt = topics[0].publishDate;
+  const lastDate = new Date(lastRunAt);
+  const daysSinceLastRun =
+    (Date.now() - lastDate.getTime()) / MS_PER_DAY;
+  const canGenerate = daysSinceLastRun >= minDaysBetween;
+  const nextEligibleAt = canGenerate
+    ? null
+    : new Date(lastDate.getTime() + minDaysBetween * MS_PER_DAY).toISOString();
+
+  return {
+    canGenerate,
+    minDaysBetween,
+    daysSinceLastRun: Math.round(daysSinceLastRun * 10) / 10,
+    lastRunAt,
+    nextEligibleAt,
+  };
+}
+
+/** @deprecated Use getBlogAutomationSchedule — kept for imports. */
+export async function isBlogCreatedToday(): Promise<boolean> {
+  const schedule = await getBlogAutomationSchedule();
+  return !schedule.canGenerate;
 }
 
 export async function getTopicHistory(days: number): Promise<PublishedTopic[]> {

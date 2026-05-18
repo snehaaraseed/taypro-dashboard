@@ -2,9 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { generateUniqueTopic, generateBlogContent } from "@/lib/aiService";
-import { isBlogCreatedToday, addPublishedTopic } from "@/lib/topicTracker";
-import { createBlogFiles } from "@/app/utils/blogFileUtils";
-import { createSlug } from "@/app/utils/blogFileUtils";
+import {
+  getBlogAutomationSchedule,
+  addPublishedTopic,
+  isTopicPublished,
+} from "@/lib/topicTracker";
+import { createBlogFiles, createSlug } from "@/app/utils/blogFileUtils";
 import { isAutomationAuthorized } from "@/lib/security";
 
 export async function POST(request: NextRequest) {
@@ -13,13 +16,13 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const alreadyCreated = await isBlogCreatedToday();
-    if (alreadyCreated) {
+    const schedule = await getBlogAutomationSchedule();
+    if (!schedule.canGenerate) {
       return NextResponse.json(
         {
           success: false,
-          message:
-            "Blog has already been created today. Only one blog per day is allowed.",
+          message: `Blog automation is on a ${schedule.minDaysBetween}-day cadence. Next eligible run: ${schedule.nextEligibleAt}`,
+          schedule,
         },
         { status: 200 }
       );
@@ -44,6 +47,16 @@ export async function POST(request: NextRequest) {
     }
 
     const slug = createSlug(blogData.title);
+    if (await isTopicPublished(blogData.title, slug)) {
+      return NextResponse.json(
+        {
+          success: false,
+          error:
+            "Generated title/slug overlaps an existing blog. Retry later or adjust prompts.",
+        },
+        { status: 409 }
+      );
+    }
 
     const result = await createBlogFiles(
       {
@@ -86,6 +99,7 @@ export async function POST(request: NextRequest) {
         status: "draft",
         category,
       },
+      schedule: await getBlogAutomationSchedule(),
     });
   } catch (error) {
     console.error("Error in POST /api/automation/generate-blog:", error);
@@ -106,12 +120,12 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const alreadyCreated = await isBlogCreatedToday();
+    const schedule = await getBlogAutomationSchedule();
     return NextResponse.json({
-      blogCreatedToday: alreadyCreated,
-      message: alreadyCreated
-        ? "A blog has already been created today"
-        : "No blog created today yet",
+      ...schedule,
+      message: schedule.canGenerate
+        ? "Ready to generate a new draft"
+        : `Wait until ${schedule.nextEligibleAt} (${schedule.minDaysBetween}-day cadence)`,
     });
   } catch (error) {
     console.error("Error in GET /api/automation/generate-blog:", error);

@@ -1,6 +1,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { getRandomCategory } from "./topicCategories";
 import { getProductKnowledgeBase } from "./productKnowledge";
+import { createSlug } from "@/app/utils/blogFileUtils";
 import { isTopicPublished } from "./topicTracker";
 
 const DEFAULT_BLOG_MODEL =
@@ -82,7 +83,10 @@ Return ONLY a JSON array of 5 topic titles, like this:
       for (const topicTitle of topics) {
         if (!topicTitle || typeof topicTitle !== "string") continue;
 
-        const isPublished = await isTopicPublished(topicTitle);
+        const isPublished = await isTopicPublished(
+          topicTitle,
+          createSlug(topicTitle)
+        );
         if (!isPublished) {
           return {
             title: topicTitle.trim(),

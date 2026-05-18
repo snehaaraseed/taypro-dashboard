@@ -4,6 +4,8 @@ export {
   isTopicPublished,
   addPublishedTopic,
   isBlogCreatedToday,
+  getBlogAutomationSchedule,
+  getBlogAutomationMinDays,
   getTopicHistory,
   getAllTopics,
 } from "@/lib/cms/topicService";
