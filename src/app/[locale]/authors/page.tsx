@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { NewsletterSubscribeCard } from "@/app/components/NewsletterSubscribeCard";
 import {
   getAuthorAvatarUrl,
-  slugifyAuthorName,
+  resolveAuthorSlug,
 } from "@/app/data/blogAuthors";
 import { getStoredAuthors } from "@/app/utils/blogAuthorsStore";
 import type { Metadata } from "next";
@@ -73,20 +73,19 @@ async function getAuthorStats(): Promise<AuthorStats[]> {
   const blogs = await listAllBlogs(false);
   const counts = new Map<string, { name: string; count: number }>();
 
-  for (const metadata of blogs) {
-    const authorName = metadata.author || "Taypro Team";
-    const authorSlug = slugifyAuthorName(authorName);
-    const existing = counts.get(authorSlug);
-    counts.set(authorSlug, {
-      name: authorName,
-      count: (existing?.count || 0) + 1,
-    });
+  for (const author of storedAuthors) {
+    counts.set(author.slug, { name: author.name, count: 0 });
   }
 
-  for (const author of storedAuthors) {
-    if (!counts.has(author.slug)) {
-      counts.set(author.slug, { name: author.name, count: 0 });
-    }
+  for (const metadata of blogs) {
+    const authorName = metadata.author || "Taypro Team";
+    const authorSlug = resolveAuthorSlug(authorName, storedAuthors);
+    const existing = counts.get(authorSlug);
+    const stored = storedAuthors.find((a) => a.slug === authorSlug);
+    counts.set(authorSlug, {
+      name: stored?.name || existing?.name || authorName,
+      count: (existing?.count || 0) + 1,
+    });
   }
 
   return [...counts.entries()]

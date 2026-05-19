@@ -10,7 +10,7 @@ import { NewsletterSubscribeCard } from "@/app/components/NewsletterSubscribeCar
 import { ProfilePageSchema } from "@/app/components/StructuredData";
 import {
   getAuthorAvatarUrl,
-  slugifyAuthorName,
+  resolveAuthorSlug,
 } from "@/app/data/blogAuthors";
 import { getStoredAuthors } from "@/app/utils/blogAuthorsStore";
 import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
@@ -56,7 +56,7 @@ export async function generateStaticParams(): Promise<AuthorSlugParams[]> {
   const storedAuthors = await getStoredAuthors();
   const slugs = new Set<string>(storedAuthors.map((author) => author.slug));
   for (const blog of blogs) {
-    slugs.add(slugifyAuthorName(blog.author));
+    slugs.add(resolveAuthorSlug(blog.author, storedAuthors));
   }
   return [...slugs].map((authorSlug) => ({ authorSlug }));
 }
@@ -71,10 +71,11 @@ export async function generateMetadata({
     getStoredAuthors(),
   ]);
   const authorBlogs = allBlogs.filter(
-    (blog) => slugifyAuthorName(blog.author) === authorSlug
+    (blog) => resolveAuthorSlug(blog.author, storedAuthors) === authorSlug
   );
+  const knownAuthor = storedAuthors.find((author) => author.slug === authorSlug);
 
-  if (authorBlogs.length === 0) {
+  if (authorBlogs.length === 0 && !knownAuthor) {
     return {
       title: t("notFoundTitle"),
       description: t("notFoundDescription"),
@@ -82,8 +83,7 @@ export async function generateMetadata({
     };
   }
 
-  const knownAuthor = storedAuthors.find((author) => author.slug === authorSlug);
-  const authorName = knownAuthor?.name || authorBlogs[0].author;
+  const authorName = knownAuthor?.name || authorBlogs[0]?.author || authorSlug;
   const authorRole = knownAuthor?.role || t("defaultRole");
   const bio = knownAuthor?.bio?.trim();
   const articlesLabel =
@@ -132,16 +132,16 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
 
   const allBlogs = await getAllPublishedBlogs();
   const authors = await getStoredAuthors();
+  const knownAuthor = authors.find((author) => author.slug === authorSlug);
   const authorBlogs = allBlogs.filter(
-    (blog) => slugifyAuthorName(blog.author) === authorSlug
+    (blog) => resolveAuthorSlug(blog.author, authors) === authorSlug
   );
 
-  if (authorBlogs.length === 0) {
+  if (authorBlogs.length === 0 && !knownAuthor) {
     notFound();
   }
 
-  const knownAuthor = authors.find((author) => author.slug === authorSlug);
-  const authorName = knownAuthor?.name || authorBlogs[0].author;
+  const authorName = knownAuthor?.name || authorBlogs[0]?.author || authorSlug;
   const authorRole = knownAuthor?.role || t("defaultRole");
   const authorBio = knownAuthor?.bio || t("fallbackBio");
   const authorAvatar = knownAuthor?.avatarUrl || getAuthorAvatarUrl(authorName);

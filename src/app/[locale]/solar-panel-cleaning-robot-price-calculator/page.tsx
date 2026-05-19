@@ -7,6 +7,7 @@ import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
 import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
+import { FaqSection } from "@/app/components/FaqSection";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import {
   FAQPageSchema,
@@ -416,40 +417,12 @@ export default function SolarPanelCleaningRobotPriceCalculatorPage() {
           </Container>
         </div>
 
-        <div
-          className="w-full py-16 md:py-20 bg-white px-4 sm:px-6"
-          aria-labelledby="calculator-faq-heading"
-        >
-          <Container size="narrow">
-            <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
-              <h2
-                id="calculator-faq-heading"
-                className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3"
-              >
-                {t("faq.heading")}
-              </h2>
-              <p className="text-[#27415c] text-lg leading-relaxed">
-                {t("faq.subheading")}
-              </p>
-            </AnimateOnScroll>
-            <div className="space-y-6">
-              {calculatorFaqs.map((faq, idx) => (
-                <AnimateOnScroll
-                  key={faq.question}
-                  animation="fadeInUp"
-                  delay={idx * 80}
-                >
-                  <div className="bg-[#f8fafb] rounded-xl border border-gray-200 p-6 shadow-sm">
-                    <h3 className="text-[#052638] font-semibold text-lg mb-3">
-                      {faq.question}
-                    </h3>
-                    <p className="text-[#27415c] leading-relaxed">{faq.answer}</p>
-                  </div>
-                </AnimateOnScroll>
-              ))}
-            </div>
-          </Container>
-        </div>
+        <FaqSection
+          id="calculator-faq-heading"
+          title={t("faq.heading")}
+          subtitle={t("faq.subheading")}
+          faqs={calculatorFaqs}
+        />
 
         <div className="w-full py-14 md:py-16 bg-[#f4f7f9]">
           <Container>

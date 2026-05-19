@@ -5,9 +5,12 @@ const PRIMARY_KEYWORD = "Solar Panel Cleaning Robot";
 
 export function blogAuthorProfileUrl(
   siteUrl: string,
-  authorName: string
+  authorName: string,
+  authorSlug?: string
 ): string {
-  return `${siteUrl}/blog/author/${slugifyAuthorName(authorName || "Taypro Team")}`;
+  const slug =
+    authorSlug ?? slugifyAuthorName(authorName || "Taypro Team");
+  return `${siteUrl}/blog/author/${slug}`;
 }
 
 /**

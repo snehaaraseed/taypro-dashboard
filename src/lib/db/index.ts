@@ -32,11 +32,13 @@ function runMigrations(database: Database.Database) {
   } catch (error) {
     const message =
       error instanceof Error ? error.message : String(error);
-    const cause = (error as { cause?: { code?: string } })?.cause;
+    const cause = error as { cause?: { code?: string; message?: string } };
+    const causeMessage = cause.cause?.message ?? "";
     if (
-      cause?.code === "SQLITE_ERROR" &&
+      cause.cause?.code === "SQLITE_ERROR" &&
       (message.includes("already exists") ||
-        message.includes("duplicate column"))
+        message.includes("duplicate column") ||
+        causeMessage.includes("duplicate column"))
     ) {
       return;
     }

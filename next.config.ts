@@ -100,6 +100,12 @@ const nextConfig = {
         hostname: "example.com",
         pathname: "/**",
       },
+      // Blog author fallback avatars (see src/app/data/blogAuthors.ts)
+      {
+        protocol: "https",
+        hostname: "ui-avatars.com",
+        pathname: "/api/**",
+      },
     ],
   },
   webpack: (config: any, { isServer }: { isServer: boolean }) => {

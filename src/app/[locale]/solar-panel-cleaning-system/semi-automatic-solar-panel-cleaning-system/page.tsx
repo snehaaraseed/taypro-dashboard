@@ -18,7 +18,7 @@ import {
 import { modelBCards, tayproTrustedByStatsStrip } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
-import FAQAccordion from "@/app/components/FAQAccordion";
+import { FaqSection } from "@/app/components/FaqSection";
 import ModelCards from "@/app/components/ModelCards";
 import ResourcesCard from "@/app/components/ResourcesCard";
 import CallbackCard from "@/app/components/CallbackCard";
@@ -798,21 +798,12 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
         {/* PROJECTS — dynamic */}
         <ProjectsCardServer useFileProjects showHeader headerText="" />
 
-        {/* FAQs */}
-        <section className="w-full bg-white py-20">
-          <Container size="narrow">
-            <AnimateOnScroll
-              animation="fadeInUp"
-              className="font-semibold text-center text-[#052638] text-3xl sm:text-5xl md:text-5xl mb-8"
-            >
-              <h2>{t("faqSection.title")}</h2>
-            </AnimateOnScroll>
-            <div className="text-center text-gray-600 text-base sm:text-lg max-w-2xl mx-auto mb-10">
-              {t("faqSection.subtitle")}
-            </div>
-            <FAQAccordion faqs={modelBFaqs} variant="modern" />
-          </Container>
-        </section>
+        <FaqSection
+          id="model-b-faq-heading"
+          title={t("faqSection.title")}
+          subtitle={t("faqSection.subtitle")}
+          faqs={modelBFaqs}
+        />
 
         <ResourcesCard />
 

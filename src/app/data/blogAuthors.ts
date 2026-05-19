@@ -60,6 +60,26 @@ export function slugifyAuthorName(name: string): string {
     .replace(/-+/g, "-");
 }
 
+function normalizeAuthorName(name: string): string {
+  return name.trim().toLowerCase();
+}
+
+/**
+ * Maps a blog's free-text author field to the canonical author slug.
+ * Prefer stored authors (by name) so profile URLs stay stable when slug !== slugify(name).
+ */
+export function resolveAuthorSlug(
+  authorName: string,
+  storedAuthors: BlogAuthor[]
+): string {
+  const normalized = normalizeAuthorName(authorName || "Taypro Team");
+  const byName = storedAuthors.find(
+    (author) => normalizeAuthorName(author.name) === normalized
+  );
+  if (byName) return byName.slug;
+  return slugifyAuthorName(authorName || "Taypro Team");
+}
+
 export function getAuthorByName(name: string): BlogAuthor | undefined {
   const normalizedName = name.trim().toLowerCase();
   return BLOG_AUTHORS.find((author) => author.name.toLowerCase() === normalizedName);

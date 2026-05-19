@@ -29,12 +29,16 @@ import { RobotCard } from "@/app/components/RobotCard";
 import CallbackCard from "@/app/components/CallbackCard";
 import { Container } from "@/app/components/Container";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
-import FAQAccordion from "@/app/components/FAQAccordion";
+import { FaqSection } from "@/app/components/FaqSection";
 import { FAQPageSchema, HowToSchema } from "@/app/components/StructuredData";
 import { socialImagesFromPreset } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 import { withHreflang } from "@/lib/seo/with-hreflang";
 import { PerformanceMethodologyNotice } from "@/app/components/PerformanceMethodologyNotice";
+import {
+  HARDWARE_ROBOTS_GRID_HOME,
+  hardwareRobotsGridItemClass,
+} from "@/lib/products/robot-grid-layout";
 
 const CLEANING_TECH_PATH = "/cleaning-technology";
 const siteUrl = SITE_URL;
@@ -996,13 +1000,13 @@ export default async function CleaningTechnologyPage({
               </p>
             </AnimateOnScroll>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+            <div className={HARDWARE_ROBOTS_GRID_HOME}>
               {robotProducts.map((robot, idx) => (
                 <AnimateOnScroll
                   key={robot.model}
                   animation="fadeInUp"
                   delay={idx * 70}
-                  className="h-full"
+                  className={hardwareRobotsGridItemClass(idx, "home")}
                 >
                   <RobotCard
                     robot={robot}
@@ -1032,26 +1036,13 @@ export default async function CleaningTechnologyPage({
           </Container>
         </div>
 
-        {/* FAQ */}
-        <div
-          className="py-14 md:py-20 bg-[#f4f7f9]"
-          aria-labelledby="tech-faq-heading"
-        >
-          <Container size="narrow">
-            <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
-              <h2
-                id="tech-faq-heading"
-                className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3"
-              >
-                {t("faq.heading")}
-              </h2>
-              <p className="text-[#27415c] text-lg">{t("faq.intro")}</p>
-            </AnimateOnScroll>
-            <AnimateOnScroll animation="fadeInUp" delay={80}>
-              <FAQAccordion faqs={technologyFaqs} variant="modern" />
-            </AnimateOnScroll>
-          </Container>
-        </div>
+        <FaqSection
+          id="tech-faq-heading"
+          title={t("faq.heading")}
+          subtitle={t("faq.intro")}
+          faqs={technologyFaqs}
+          tone="muted"
+        />
 
         {/* Explore */}
         <div className="py-12 md:py-14 bg-white border-t border-gray-100">

@@ -7,7 +7,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
-import FAQAccordion from "@/app/components/FAQAccordion";
+import { FaqSection } from "@/app/components/FaqSection";
 
 import LazyWhenVisible from "@/app/components/LazyWhenVisible";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
@@ -217,25 +217,12 @@ export default function HomePageInteractive({
         />
       </LazyWhenVisible>
 
-      <section
-        className="py-14 md:py-20 bg-white"
-        aria-labelledby="home-faq-heading"
-      >
-        <Container size="narrow">
-          <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
-            <h2
-              id="home-faq-heading"
-              className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3"
-            >
-              {t("faq.heading")}
-            </h2>
-            <p className="text-[#27415c] text-lg">{t("faq.subheading")}</p>
-          </AnimateOnScroll>
-          <AnimateOnScroll animation="fadeInUp" delay={80}>
-            <FAQAccordion faqs={homeFaqs} variant="modern" />
-          </AnimateOnScroll>
-        </Container>
-      </section>
+      <FaqSection
+        id="home-faq-heading"
+        title={t("faq.heading")}
+        subtitle={t("faq.subheading")}
+        faqs={homeFaqs}
+      />
 
       <section
         id="request-quote"

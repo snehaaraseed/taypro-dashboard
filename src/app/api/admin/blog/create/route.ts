@@ -3,6 +3,7 @@ import { revalidatePath } from "next/cache";
 import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { requireAuth } from "../../../../utils/auth";
 import { createBlogFiles } from "../../../../utils/blogFileUtils";
+import { normalizeBlogFaqsInput } from "@/lib/cms/blog-faqs";
 
 export async function POST(request: NextRequest) {
   // Check authentication
@@ -21,6 +22,7 @@ export async function POST(request: NextRequest) {
       content,
       publishDate,
       published,
+      faqs,
     } = await request.json();
 
     // Validation
@@ -42,6 +44,7 @@ export async function POST(request: NextRequest) {
       content,
       publishDate,
       published: published !== undefined ? published : true,
+      faqs: normalizeBlogFaqsInput(faqs),
     });
 
     if (!result.success) {

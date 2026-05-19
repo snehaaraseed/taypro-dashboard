@@ -57,6 +57,18 @@ export async function upsertAuthor(
   const slug = authorInput.slug?.trim() || slugifyAuthorName(authorInput.name);
   const linkedIn = normalizeLinkedInUrl(authorInput.linkedInUrl);
   const now = new Date().toISOString();
+  const normalizedName = authorInput.name.trim().toLowerCase();
+
+  const allAuthors = await db.select().from(authors);
+  const duplicateName = allAuthors.find(
+    (row) =>
+      row.name.trim().toLowerCase() === normalizedName && row.slug !== slug
+  );
+  if (duplicateName) {
+    throw new Error(
+      `An author named "${authorInput.name.trim()}" already exists (slug: ${duplicateName.slug}). Edit the existing profile instead.`
+    );
+  }
 
   const existing = await db
     .select()

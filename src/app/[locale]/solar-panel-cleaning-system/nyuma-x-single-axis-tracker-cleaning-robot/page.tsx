@@ -22,7 +22,7 @@ import ClientsCard from "@/app/components/ClientsCard";
 import HeroSection from "@/app/components/Herosection";
 import EnergyResourceCard from "@/app/components/EnergyResourceCard";
 import CallbackCard from "@/app/components/CallbackCard";
-import FAQAccordion from "@/app/components/FAQAccordion";
+import { FaqSection } from "@/app/components/FaqSection";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import Product360Viewer from "@/app/components/Product360Viewer";
@@ -887,21 +887,12 @@ export default async function NyumaXTrackerCleaningRobotPage({
 
         <ProjectsCardServer useFileProjects showHeader headerText="" />
 
-        {/* FAQs */}
-        <section className="w-full bg-white py-20">
-          <Container size="narrow">
-            <AnimateOnScroll
-              animation="fadeInUp"
-              className="font-semibold text-center text-[#052638] text-3xl sm:text-5xl md:text-5xl mb-8"
-            >
-              <h2>{t("faqSection.title")}</h2>
-            </AnimateOnScroll>
-            <div className="text-center text-gray-600 text-base sm:text-lg max-w-2xl mx-auto mb-10">
-              {t("faqSection.subtitle")}
-            </div>
-            <FAQAccordion faqs={modelTFaqs} variant="modern" />
-          </Container>
-        </section>
+        <FaqSection
+          id="nyuma-x-faq-heading"
+          title={t("faqSection.title")}
+          subtitle={t("faqSection.subtitle")}
+          faqs={modelTFaqs}
+        />
 
         <ClientsCard />
 

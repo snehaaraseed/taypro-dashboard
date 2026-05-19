@@ -20,6 +20,10 @@ import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
 import HomePageInteractive from "./HomePageInteractive";
 import HomeHeroCTAs from "./HomeHeroCTAs";
 import HomeHeroVideo from "@/app/components/HomeHeroVideo";
+import {
+  HARDWARE_ROBOTS_GRID_HOME,
+  hardwareRobotsGridItemClass,
+} from "@/lib/products/robot-grid-layout";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 const HERO_VIDEO_ID = "y9iRhH2bLwY";
@@ -240,13 +244,13 @@ export default async function HomePage() {
                 <p className="text-[#5a7a8f] font-medium text-xs uppercase tracking-wider mb-5 text-center">
                   {t("robots.waterlessEyebrow")}
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+                <div className={HARDWARE_ROBOTS_GRID_HOME}>
                   {translatedHardware.map((robot, idx) => (
                     <AnimateOnScroll
                       key={robot.model}
                       animation="fadeInUp"
                       delay={idx * 70}
-                      className="h-full"
+                      className={hardwareRobotsGridItemClass(idx, "home")}
                     >
                       <RobotCard
                         robot={robot}

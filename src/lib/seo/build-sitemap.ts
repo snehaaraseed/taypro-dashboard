@@ -1,7 +1,9 @@
 import "server-only";
 
 import type { MetadataRoute } from "next";
-import { slugifyAuthorName } from "@/app/data/blogAuthors";
+import { resolveAuthorSlug } from "@/app/data/blogAuthors";
+import type { BlogAuthor } from "@/app/data/blogAuthors";
+import { getStoredAuthors } from "@/lib/cms/authorService";
 import { listPublishedBlogsForSitemap } from "@/lib/cms/blogService";
 import { listPublishedProjectsForSitemap } from "@/lib/cms/projectService";
 import {
@@ -45,12 +47,13 @@ function entry(
 }
 
 function collectAuthorPaths(
-  blogs: Awaited<ReturnType<typeof listPublishedBlogsForSitemap>>
+  blogs: Awaited<ReturnType<typeof listPublishedBlogsForSitemap>>,
+  storedAuthors: BlogAuthor[]
 ): Map<string, { lastModified: Date }> {
   const bySlug = new Map<string, { lastModified: Date }>();
 
   for (const blog of blogs) {
-    const authorSlug = slugifyAuthorName(blog.author);
+    const authorSlug = resolveAuthorSlug(blog.author, storedAuthors);
     const lastModified = parseLastModified(blog.updatedAt, blog.publishDate);
     const existing = bySlug.get(authorSlug);
     if (!existing || lastModified > existing.lastModified) {
@@ -127,8 +130,10 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
       blogListByLocale.set(blog.locale, list);
     }
 
+    const storedAuthors = await getStoredAuthors();
     const authorPaths = collectAuthorPaths(
-      blogListByLocale.get("en") ?? indexableBlogs.filter((b) => b.locale === "en")
+      blogListByLocale.get("en") ?? indexableBlogs.filter((b) => b.locale === "en"),
+      storedAuthors
     );
     const enBlogs =
       blogListByLocale.get("en") ??

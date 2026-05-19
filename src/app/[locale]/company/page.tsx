@@ -15,6 +15,7 @@ import CallbackCard from "@/app/components/CallbackCard";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
+import { FaqSection } from "@/app/components/FaqSection";
 import { FAQPageSchema } from "@/app/components/StructuredData";
 
 const STAT_STRIP_LABEL_KEYS = [
@@ -913,60 +914,21 @@ export default function AboutUsPage() {
           </Container>
         </div>
 
-        <div
-          className="w-full py-16 md:py-20 bg-[#f4f7f9] px-4 sm:px-6 overflow-x-hidden"
-          aria-labelledby="company-faq-heading"
-        >
-          <div className="max-w-3xl mx-auto">
-            <AnimateOnScroll animation="fadeInUp">
-              <div
-                id="company-faq-heading"
-                role="heading"
-                aria-level={2}
-                className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3 text-center"
-              >
-                {t("faq.heading")}
-              </div>
-              <div className="text-[#27415c] text-center text-lg mb-10 leading-relaxed">
-                {t("faq.subheading")}
-              </div>
-            </AnimateOnScroll>
-            <div className="space-y-6">
-              {companyFaqs.map((faq, idx) => (
-                <AnimateOnScroll
-                  key={faq.question}
-                  animation="fadeInUp"
-                  delay={idx * 80}
-                >
-                  <div className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
-                    <div
-                      role="heading"
-                      aria-level={3}
-                      className="text-[#052638] font-semibold text-lg mb-3"
-                    >
-                      {faq.question}
-                    </div>
-                    <div className="text-[#27415c] leading-relaxed">
-                      {faq.answer}
-                    </div>
-                  </div>
-                </AnimateOnScroll>
-              ))}
-            </div>
-            <AnimateOnScroll
-              animation="fadeInUp"
-              delay={200}
-              className="mt-10 text-center"
+        <FaqSection
+          id="company-faq-heading"
+          title={t("faq.heading")}
+          subtitle={t("faq.subheading")}
+          faqs={companyFaqs}
+          tone="muted"
+          footer={
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center min-h-[48px] bg-[#b2cb19] text-[#22405a] font-medium px-8 py-3 rounded-lg hover:bg-lime-500 transition"
             >
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center min-h-[48px] bg-[#b2cb19] text-[#22405a] font-medium px-8 py-3 rounded-lg hover:bg-lime-500 transition"
-              >
-                {t("faq.talkToTeam")}
-              </Link>
-            </AnimateOnScroll>
-          </div>
-        </div>
+              {t("faq.talkToTeam")}
+            </Link>
+          }
+        />
 
         <CallbackCard headerText="" />
       </div>

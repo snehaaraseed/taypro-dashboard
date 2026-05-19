@@ -28,7 +28,7 @@ import ResourcesCard from "@/app/components/ResourcesCard";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
-import FAQAccordion from "@/app/components/FAQAccordion";
+import { FaqSection } from "@/app/components/FaqSection";
 import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import {
   ServiceSchema,
@@ -604,19 +604,12 @@ export default async function SolarPanelCleaningService({
           </Container>
         </section>
 
-        <section className="w-full py-24 bg-white bg-center">
-          <Container size="narrow">
-            <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
-              <h2 className="font-semibold text-[#052638] text-3xl sm:text-4xl md:text-5xl mb-4">
-                {t("faqSection.title")}
-              </h2>
-              <div className="text-gray-600 text-base sm:text-lg">
-                {t("faqSection.subtitle")}
-              </div>
-            </AnimateOnScroll>
-            <FAQAccordion faqs={allFaqs} variant="classic" />
-          </Container>
-        </section>
+        <FaqSection
+          id="opex-faq-heading"
+          title={t("faqSection.title")}
+          subtitle={t("faqSection.subtitle")}
+          faqs={allFaqs}
+        />
 
         <ClientsCard />
 

@@ -9,6 +9,9 @@ import {
   readBlogContent,
   createSlug,
 } from "../../../../utils/blogFileUtils";
+import { normalizeBlogFaqsInput } from "@/lib/cms/blog-faqs";
+import { getBlogBySlug } from "@/lib/cms/blogService";
+import { SOURCE_LOCALE } from "@/lib/translation/config";
 import { getBlogTranslationSyncInfo } from "@/lib/cms/blogService";
 
 interface RouteParams {
@@ -41,10 +44,15 @@ export async function GET(
     }
 
     const translationSync = await getBlogTranslationSyncInfo(slug);
+    const post = await getBlogBySlug(slug, {
+      includeDraft: true,
+      locale: SOURCE_LOCALE,
+    });
 
     return NextResponse.json({
       ...metadataResult.metadata,
       content: contentResult.content || "",
+      faqs: post?.metadata.faqs ?? [],
       translationSync,
     });
   } catch (error) {
@@ -79,6 +87,7 @@ export async function PUT(
       publishDate,
       published,
       newSlug,
+      faqs,
     } = await request.json();
 
     // Validation
@@ -116,6 +125,7 @@ export async function PUT(
         content,
         publishDate,
         published: published !== undefined ? published : true,
+        faqs: normalizeBlogFaqsInput(faqs),
       },
       finalSlug !== slug ? finalSlug : undefined
     );

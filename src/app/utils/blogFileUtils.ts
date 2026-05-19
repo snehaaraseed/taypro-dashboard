@@ -3,6 +3,8 @@
  * Types and function names kept for existing admin API imports.
  */
 
+export type { BlogFaqItem } from "@/lib/cms/blog-faqs";
+
 export interface BlogMetadata {
   title: string;
   description: string;
@@ -14,6 +16,7 @@ export interface BlogMetadata {
   createdAt: string;
   updatedAt?: string;
   published?: boolean;
+  faqs?: import("@/lib/cms/blog-faqs").BlogFaqItem[];
 }
 
 export interface BlogData {
@@ -25,6 +28,7 @@ export interface BlogData {
   content: string;
   publishDate?: string;
   published?: boolean;
+  faqs?: import("@/lib/cms/blog-faqs").BlogFaqItem[];
 }
 
 export {

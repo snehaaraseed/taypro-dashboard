@@ -12,6 +12,7 @@ import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
 import ProjectsGrid from "@/app/components/ProjectsGrid";
 import CallbackCard from "@/app/components/CallbackCard";
+import { FaqSection } from "@/app/components/FaqSection";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
@@ -237,48 +238,20 @@ export default async function ProjectPage({
           </Container>
         </section>
 
-        <section
-          className="w-full py-16 md:py-20 bg-white px-4 sm:px-6"
-          aria-labelledby="projects-faq-heading"
-        >
-          <Container size="narrow">
-            <AnimateOnScroll animation="fadeInUp">
-              <h2
-                id="projects-faq-heading"
-                className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3 text-center"
-              >
-                {t("faq.heading")}
-              </h2>
-              <p className="text-[#27415c] text-center text-lg mb-10 leading-relaxed">
-                {t("faq.subheading")}
-              </p>
-            </AnimateOnScroll>
-            <div className="space-y-6">
-              {projectsFaqs.map((faq, idx) => (
-                <AnimateOnScroll
-                  key={faq.question}
-                  animation="fadeInUp"
-                  delay={idx * 80}
-                >
-                  <article className="bg-[#f8fafb] rounded-lg border border-gray-200 p-6 shadow-sm">
-                    <h3 className="text-[#052638] font-semibold text-lg mb-3">
-                      {faq.question}
-                    </h3>
-                    <p className="text-[#27415c] leading-relaxed">{faq.answer}</p>
-                  </article>
-                </AnimateOnScroll>
-              ))}
-            </div>
-            <AnimateOnScroll animation="fadeInUp" delay={200} className="mt-10 text-center">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center min-h-[48px] bg-[#b2cb19] text-[#22405a] font-medium px-8 py-3 rounded-lg hover:bg-lime-500 transition"
-              >
-                {t("faq.cta")}
-              </Link>
-            </AnimateOnScroll>
-          </Container>
-        </section>
+        <FaqSection
+          id="projects-faq-heading"
+          title={t("faq.heading")}
+          subtitle={t("faq.subheading")}
+          faqs={projectsFaqs}
+          footer={
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center min-h-[48px] bg-[#b2cb19] text-[#22405a] font-medium px-8 py-3 rounded-lg hover:bg-lime-500 transition"
+            >
+              {t("faq.cta")}
+            </Link>
+          }
+        />
 
         <CallbackCard headerText={t("callback.header")} />
       </div>

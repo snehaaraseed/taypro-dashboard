@@ -7,7 +7,9 @@ import { getDb } from "@/lib/db";
 import { blogs, projects } from "@/lib/db/schema";
 import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { SOURCE_LOCALE, TARGET_LOCALES } from "./config";
+import { parseBlogFaqs, serializeBlogFaqs } from "@/lib/cms/blog-faqs";
 import {
+  translateBlogFaqsWithGemini,
   translateFieldsWithGemini,
   translateStringListWithGemini,
 } from "./gemini-translate";
@@ -33,6 +35,7 @@ async function upsertBlogLocale(
     description: string;
     content: string;
     featuredImageAlt: string;
+    faqs: string;
   }
 ): Promise<void> {
   const db = getDb();
@@ -49,6 +52,7 @@ async function upsertBlogLocale(
     title: translated.title,
     description: translated.description,
     content: translated.content,
+    faqs: translated.faqs,
     featuredImage: source.featuredImage,
     featuredImageAlt: translated.featuredImageAlt || source.featuredImageAlt,
     author: source.author,
@@ -194,6 +198,8 @@ export async function translatePublishedBlog(
         }
       }
 
+      const sourceFaqs = parseBlogFaqs(source.faqs);
+
       const translated = await translateFieldsWithGemini(
         {
           title: source.title,
@@ -204,11 +210,16 @@ export async function translatePublishedBlog(
         locale
       );
 
+      const translatedFaqs = sourceFaqs.length
+        ? await translateBlogFaqsWithGemini(sourceFaqs, locale)
+        : [];
+
       await upsertBlogLocale(slug, locale, source, {
         title: translated.title,
         description: translated.description,
         content: translated.content,
         featuredImageAlt: translated.featuredImageAlt || source.featuredImageAlt,
+        faqs: serializeBlogFaqs(translatedFaqs),
       });
 
       results.push({ locale, success: true });

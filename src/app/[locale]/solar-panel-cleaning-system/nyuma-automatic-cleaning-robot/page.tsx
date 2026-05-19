@@ -23,7 +23,7 @@ import ModelCards from "@/app/components/ModelCards";
 import HeroSection from "@/app/components/Herosection";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
-import FAQAccordion from "@/app/components/FAQAccordion";
+import { FaqSection } from "@/app/components/FaqSection";
 import { PerformanceMethodologyFootnote } from "@/app/components/PerformanceMethodologyLink";
 import { PerformanceMethodologyNotice } from "@/app/components/PerformanceMethodologyNotice";
 import {
@@ -832,17 +832,7 @@ export default async function NyumaAutomaticCleaningRobotPage({
         </Container>
       </section>
 
-      <section className="w-full py-16 bg-white">
-        <Container size="narrow">
-          <AnimateOnScroll
-            animation="fadeInUp"
-            className="font-semibold text-center text-[#052638] text-3xl sm:text-5xl md:text-5xl mb-8"
-          >
-            <h2>{t("faq.title")}</h2>
-          </AnimateOnScroll>
-          <FAQAccordion faqs={allFaqEntries} variant="classic" />
-        </Container>
-      </section>
+      <FaqSection id="nyuma-faq-heading" title={t("faq.title")} faqs={allFaqEntries} />
 
         <ModelCards title={t("modelCards.title")} cards={nyumaCards} />
 

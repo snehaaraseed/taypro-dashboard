@@ -33,7 +33,11 @@ import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
-import FAQAccordion from "@/app/components/FAQAccordion";
+import {
+  HARDWARE_ROBOTS_GRID_SOLAR,
+  hardwareRobotsGridItemClass,
+} from "@/lib/products/robot-grid-layout";
+import { FaqSection } from "@/app/components/FaqSection";
 import DynamicProjectsRollup from "@/app/components/DynamicProjectsRollup";
 import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import {
@@ -432,7 +436,7 @@ export default async function SolarPanelCleaningRobot({
               </p>
             </AnimateOnScroll>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 justify-items-center">
+            <div className={`${HARDWARE_ROBOTS_GRID_SOLAR} justify-items-center`}>
               {robotProducts.map((robot, idx) => {
                 const schemaKey = productToSchemaKey(robot.model);
                 const highlightPrefix = `productGrid.robotHighlights.${schemaKey}`;
@@ -446,7 +450,7 @@ export default async function SolarPanelCleaningRobot({
                     key={robot.model}
                     animation="scaleIn"
                     delay={idx * 100}
-                    className="w-full flex justify-center"
+                    className={`${hardwareRobotsGridItemClass(idx, "solar")} flex justify-center`}
                   >
                     <div className="flex flex-col w-80 max-w-full">
                       <RobotCard
@@ -1074,27 +1078,23 @@ export default async function SolarPanelCleaningRobot({
           </Container>
         </section>
 
-        <section className="w-full py-16 sm:py-20 bg-white">
-          <Container size="narrow">
-            <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
-              <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-4">
-                {t("faq.title")}
-              </h2>
-              <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
-                {t("faq.subtitleLead")}
-                <OpenLeadModalButton
-                  topic={t("faq.subtitleCta.topic")}
-                  className="text-[#A8C117] hover:underline font-medium"
-                >
-                  {t("faq.subtitleCta.label")}
-                </OpenLeadModalButton>
-                {t("faq.subtitleSuffix")}
-              </p>
-            </AnimateOnScroll>
-
-            <FAQAccordion faqs={hubFaqs} variant="modern" />
-          </Container>
-        </section>
+        <FaqSection
+          id="solar-hub-faq-heading"
+          title={t("faq.title")}
+          subtitle={
+            <>
+              {t("faq.subtitleLead")}
+              <OpenLeadModalButton
+                topic={t("faq.subtitleCta.topic")}
+                className="text-[#A8C117] hover:underline font-medium"
+              >
+                {t("faq.subtitleCta.label")}
+              </OpenLeadModalButton>
+              {t("faq.subtitleSuffix")}
+            </>
+          }
+          faqs={hubFaqs}
+        />
 
         <section className="w-full py-16 sm:py-20 bg-[#052638] border-t border-[#0c3c57]">
           <Container>

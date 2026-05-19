@@ -6,7 +6,8 @@ import { formatLocaleDate } from "@/i18n/format-date";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { BlogImage } from "@/app/components/BlogImage";
 import { BlogContent } from "@/app/components/BlogContent";
-import { ArticleSchema } from "@/app/components/StructuredData";
+import { ArticleSchema, FAQPageSchema } from "@/app/components/StructuredData";
+import { FaqSection } from "@/app/components/FaqSection";
 import { SimilarBlogs } from "@/app/components/SimilarBlogs";
 import { NewsletterSubscribeCard } from "@/app/components/NewsletterSubscribeCard";
 import type { Metadata } from "next";
@@ -18,7 +19,7 @@ import {
 import { addInternalLinks } from "@/app/utils/internalLinking";
 import {
   getAuthorAvatarUrl,
-  slugifyAuthorName,
+  resolveAuthorSlug,
 } from "@/app/data/blogAuthors";
 import { getStoredAuthors } from "@/app/utils/blogAuthorsStore";
 import {
@@ -55,6 +56,7 @@ interface BlogData {
   publishDate: string;
   updatedAt?: string;
   source?: "db";
+  faqs?: { question: string; answer: string }[];
 }
 
 interface TocItem {
@@ -248,19 +250,22 @@ export default async function BlogPost({ params }: BlogPostProps) {
   const { contentWithIds, toc } = addHeadingIdsAndExtractToc(
     addInternalLinks(blog.content, allBlogs, slug, 8)
   );
-  const authorSlug = slugifyAuthorName(blog.author || "Taypro Team");
   const authors = await getStoredAuthors();
+  const authorName = blog.author || "Taypro Team";
+  const authorSlug = resolveAuthorSlug(authorName, authors);
   const knownAuthor = authors.find(
-    (author) => author.name.toLowerCase() === (blog.author || "Taypro Team").toLowerCase()
+    (author) => author.slug === authorSlug
   );
   const authorAvatarUrl = knownAuthor?.avatarUrl || getAuthorAvatarUrl(blog.author || "Taypro Team");
   const moreFromAuthor = allBlogs
     .filter((post) => post.slug !== slug && post.author === blog.author)
     .slice(0, 3);
+  const postFaqs = blog.faqs ?? [];
 
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
+      {postFaqs.length > 0 ? <FAQPageSchema faqs={postFaqs} /> : null}
       <ArticleSchema
         headline={blog.title}
         description={blog.description}
@@ -271,7 +276,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
         dateModified={lastUpdatedIso}
         author={{
           name: blog.author || "Taypro Team",
-          url: blogAuthorProfileUrl(siteUrl, blog.author || "Taypro Team"),
+          url: blogAuthorProfileUrl(siteUrl, authorName, authorSlug),
         }}
         publisher={{
           name: "Taypro",
@@ -401,6 +406,17 @@ export default async function BlogPost({ params }: BlogPostProps) {
                    prose-img:w-full
                    prose-figure:my-8"
                 />
+
+                {postFaqs.length > 0 ? (
+                  <div className="mt-14 -mx-4 sm:mx-0">
+                    <FaqSection
+                      id="blog-post-faq-heading"
+                      title={t("faqHeading")}
+                      faqs={postFaqs}
+                      className="!py-10 md:!py-12"
+                    />
+                  </div>
+                ) : null}
 
                 {/* Back to Blog Button */}
                 <div className="mt-12 pt-8 border-t border-gray-200">

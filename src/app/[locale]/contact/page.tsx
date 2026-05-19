@@ -17,6 +17,7 @@ import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
+import { FaqSection } from "@/app/components/FaqSection";
 import {
   FAQPageSchema,
   LocalBusinessSchema,
@@ -411,40 +412,13 @@ export default function ContactUsPage() {
           </Container>
         </section>
 
-        <section
-          className="w-full py-16 md:py-20 bg-[#f4f7f9] px-4 sm:px-6"
-          aria-labelledby="contact-faq-heading"
-        >
-          <Container size="narrow">
-            <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
-              <h2
-                id="contact-faq-heading"
-                className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3"
-              >
-                {t("faq.heading")}
-              </h2>
-              <p className="text-[#27415c] text-lg leading-relaxed">
-                {t("faq.subheading")}
-              </p>
-            </AnimateOnScroll>
-            <div className="space-y-6">
-              {contactFaqs.map((faq, idx) => (
-                <AnimateOnScroll
-                  key={faq.question}
-                  animation="fadeInUp"
-                  delay={idx * 80}
-                >
-                  <article className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-                    <h3 className="text-[#052638] font-semibold text-lg mb-3">
-                      {faq.question}
-                    </h3>
-                    <p className="text-[#27415c] leading-relaxed">{faq.answer}</p>
-                  </article>
-                </AnimateOnScroll>
-              ))}
-            </div>
-          </Container>
-        </section>
+        <FaqSection
+          id="contact-faq-heading"
+          title={t("faq.heading")}
+          subtitle={t("faq.subheading")}
+          faqs={contactFaqs}
+          tone="muted"
+        />
       </div>
     </>
   );

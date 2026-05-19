@@ -24,6 +24,7 @@ export const blogs = sqliteTable(
     featuredImageAlt: text("featured_image_alt").notNull().default(""),
     author: text("author").notNull().default("Taypro Team"),
     content: text("content").notNull().default(""),
+    faqs: text("faqs").notNull().default("[]"),
     publishDate: text("publish_date").notNull(),
     createdAt: text("created_at").notNull(),
     updatedAt: text("updated_at"),

@@ -8,6 +8,8 @@ import {
   summarizeTranslateBlogResults,
   translateBlogAllLocales,
 } from "@/app/admin/utils/translate-blog";
+import { BlogFaqEditor } from "@/app/admin/components/BlogFaqEditor";
+import type { BlogFaqItem } from "@/lib/cms/blog-faqs";
 
 const BlogEditor = dynamic(() => import("../../../../components/BlogEditor"), {
   ssr: false,
@@ -33,6 +35,7 @@ interface BlogData {
   slug: string;
   publishDate: string;
   content: string;
+  faqs: BlogFaqItem[];
   published?: boolean;
   /** ISO; from metadata, refreshed after save */
   updatedAt?: string;
@@ -57,6 +60,7 @@ export default function EditBlogPage() {
     slug: "",
     publishDate: new Date().toISOString().split("T")[0],
     content: "",
+    faqs: [],
     published: true,
   });
   const [isLoading, setIsLoading] = useState(true);
@@ -68,7 +72,7 @@ export default function EditBlogPage() {
   const [showGallery, setShowGallery] = useState(false);
   const [galleryImages, setGalleryImages] = useState<Array<{ url: string; name: string }>>([]);
   const [loadingGallery, setLoadingGallery] = useState(false);
-  const [selectedAuthor, setSelectedAuthor] = useState<string>("Taypro Team");
+  const [selectedAuthor, setSelectedAuthor] = useState<string>("taypro-team");
   const [authors, setAuthors] = useState<Array<{ name: string; slug: string; role: string }>>([]);
   const [translationSync, setTranslationSync] = useState<TranslationSyncInfo | null>(
     null
@@ -95,8 +99,8 @@ export default function EditBlogPage() {
 
   useEffect(() => {
     if (!formData.author) return;
-    const isPresetAuthor = authors.some((author) => author.name === formData.author);
-    setSelectedAuthor(isPresetAuthor ? formData.author : "__custom__");
+    const match = authors.find((author) => author.name === formData.author);
+    setSelectedAuthor(match ? match.slug : "__custom__");
   }, [authors, formData.author]);
 
   const [translateLoading, setTranslateLoading] = useState(false);
@@ -140,14 +144,16 @@ export default function EditBlogPage() {
       if (response.ok) {
         const json = (await response.json()) as BlogData & {
           translationSync?: TranslationSyncInfo;
+          faqs?: BlogFaqItem[];
         };
-        const { translationSync: sync, ...rest } = json;
+        const { translationSync: sync, faqs: loadedFaqs, ...rest } = json;
         setTranslationSync(
           sync && typeof sync === "object" && "allSynced" in sync ? sync : null
         );
         setFormData({
           ...rest,
           slug: rest.slug || slug,
+          faqs: Array.isArray(loadedFaqs) ? loadedFaqs : [],
           publishDate: rest.publishDate
             ? new Date(rest.publishDate).toISOString().split("T")[0]
             : new Date().toISOString().split("T")[0],
@@ -338,6 +344,7 @@ export default function EditBlogPage() {
           publishDate: publishDateISO,
           published: formData.published,
           newSlug: formData.slug.trim(),
+          faqs: formData.faqs,
         }),
       });
 
@@ -662,13 +669,16 @@ export default function EditBlogPage() {
                 const value = e.target.value;
                 setSelectedAuthor(value);
                 if (value !== "__custom__") {
-                  setFormData({ ...formData, author: value });
+                  const author = authors.find((item) => item.slug === value);
+                  if (author) {
+                    setFormData({ ...formData, author: author.name });
+                  }
                 }
               }}
               className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               {authors.map((author) => (
-                <option key={author.slug} value={author.name}>
+                <option key={author.slug} value={author.slug}>
                   {author.name} - {author.role}
                 </option>
               ))}
@@ -797,6 +807,11 @@ export default function EditBlogPage() {
             />
           </div>
         </div>
+
+        <BlogFaqEditor
+          faqs={formData.faqs}
+          onChange={(faqs) => setFormData((prev) => ({ ...prev, faqs }))}
+        />
 
         <div className="flex gap-4">
           <button

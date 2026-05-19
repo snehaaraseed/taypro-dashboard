@@ -7,6 +7,7 @@ import { DynamicBlog } from "@/app/api/blog/list/route";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
+import { FaqSection } from "@/app/components/FaqSection";
 import { NewsletterSubscribeCard } from "@/app/components/NewsletterSubscribeCard";
 import {
   CollectionPageSchema,
@@ -471,38 +472,11 @@ export default async function Blog({
           </Container>
         </section>
 
-        {/* FAQ */}
-        <section
-          className="w-full py-14 md:py-16 bg-white"
-          aria-labelledby="blog-faq-heading"
-        >
-          <Container size="narrow">
-            <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
-              <h2
-                id="blog-faq-heading"
-                className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3"
-              >
-                {t("faqHeading")}
-              </h2>
-            </AnimateOnScroll>
-            <div className="space-y-6">
-              {blogIndexFaqs.map((faq, idx) => (
-                <AnimateOnScroll
-                  key={faq.question}
-                  animation="fadeInUp"
-                  delay={idx * 80}
-                >
-                  <article className="bg-[#f8fafb] rounded-xl border border-gray-200 p-6 shadow-sm">
-                    <h3 className="text-[#052638] font-semibold text-lg mb-3">
-                      {faq.question}
-                    </h3>
-                    <p className="text-[#27415c] leading-relaxed">{faq.answer}</p>
-                  </article>
-                </AnimateOnScroll>
-              ))}
-            </div>
-          </Container>
-        </section>
+        <FaqSection
+          id="blog-faq-heading"
+          title={t("faqHeading")}
+          faqs={blogIndexFaqs}
+        />
 
         {/* Explore */}
         <section className="w-full py-12 md:py-14 bg-[#f4f7f9] border-t border-gray-200">

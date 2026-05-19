@@ -17,6 +17,10 @@ import {
   type SeoKeywordBrief,
 } from "@/lib/seo/keyword-stats";
 import { isTopicPublished } from "./topicTracker";
+import {
+  normalizeBlogFaqsInput,
+  type BlogFaqItem,
+} from "@/lib/cms/blog-faqs";
 
 /** Free tier: prefer 3.1 Flash Lite (500 RPD) over 2.5 Flash (20 RPD). */
 const DEFAULT_BLOG_MODEL = "gemini-3.1-flash-lite";
@@ -211,16 +215,19 @@ Return ONLY a JSON array of 5 topic titles, like this:
 /**
  * Generate blog content using Gemini AI
  */
+export type GeneratedBlogContent = {
+  title: string;
+  description: string;
+  content: string;
+  faqs: BlogFaqItem[];
+};
+
 export async function generateBlogContent(
   topic: string,
   _category: string,
   seoBrief?: SeoKeywordBrief | null,
   editorialContext?: string
-): Promise<{
-  title: string;
-  description: string;
-  content: string;
-}> {
+): Promise<GeneratedBlogContent> {
   const productKnowledge = getProductKnowledgeBase();
   const seoBlock = seoBrief ? `\n${formatSeoPromptBlock(seoBrief)}\n` : "";
   const editorial =
@@ -260,6 +267,7 @@ ${LONG_FORM_CONTENT_RULES}
 - Cover overall solar power plant operations and maintenance when relevant
 - Reference Taypro's solutions naturally where relevant, but ONLY use verified information
 - Include 3–5 internal links to Taypro pillar paths listed in the editorial strategy (use relative hrefs like href="/solar-panel-cleaning-system")
+- Do NOT include a "Frequently asked questions" section in the HTML — FAQs belong only in the "faqs" JSON array below.
 
 Format the output as clean HTML with proper paragraph tags (<p>), headings (<h2>, <h3>), and lists (<ul>, <ol>).
 
@@ -267,13 +275,30 @@ Return the response in the following JSON format:
 {
   "title": "Blog post title (SEO-optimized, 50-60 characters)",
   "description": "Meta description (150-160 characters, SEO-optimized)",
-  "content": "<p>Full HTML content here...</p>"
-}`;
+  "content": "<p>Full HTML content here...</p>",
+  "faqs": [
+    {
+      "question": "Specific reader question tied to the primary keyword (8–15 words)",
+      "answer": "Direct, factual answer in 2–4 sentences (40–80 words). No HTML."
+    }
+  ]
+}
+
+FAQ rules for the "faqs" array:
+- Include exactly 4 items (minimum 3, maximum 5).
+- Questions must be natural search queries (how often, how much, which is better, is X worth it).
+- Answers must be self-contained plain text (no HTML tags).
+- Do not duplicate FAQ text inside "content".`;
 
   try {
     const text = await generateText(prompt);
 
-    let blogData: { title: string; description: string; content: string };
+    let blogData: {
+      title: string;
+      description: string;
+      content: string;
+      faqs?: unknown;
+    };
     try {
       blogData = JSON.parse(text);
     } catch {
@@ -291,6 +316,13 @@ Return the response in the following JSON format:
       );
     }
 
+    const faqs = normalizeBlogFaqsInput(blogData.faqs);
+    if (faqs.length < 3) {
+      throw new Error(
+        "AI response must include at least 3 FAQs in the faqs array"
+      );
+    }
+
     if (
       isTooGenericTitle(blogData.title, seoBrief?.primary) ||
       isTooGenericDescription(blogData.description)
@@ -304,6 +336,7 @@ Return the response in the following JSON format:
       title: blogData.title.trim(),
       description: blogData.description.trim(),
       content: blogData.content.trim(),
+      faqs: faqs.slice(0, 5),
     };
   } catch (error) {
     console.error("Error generating blog content:", error);

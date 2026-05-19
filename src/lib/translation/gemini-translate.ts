@@ -4,6 +4,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import type { TayproLocale } from "@/i18n/markets";
 import { geminiTranslationModel, localeDisplayName } from "./config";
 import { maskMediaInHtml, unmaskMediaInHtml } from "./preserve-html";
+import type { BlogFaqItem } from "@/lib/cms/blog-faqs";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
 
@@ -113,4 +114,37 @@ ${JSON.stringify(items)}`;
   }
 
   return parsed.map((s) => String(s).trim());
+}
+
+/** Translate blog FAQ question/answer pairs. */
+export async function translateBlogFaqsWithGemini(
+  faqs: BlogFaqItem[],
+  targetLocale: TayproLocale
+): Promise<BlogFaqItem[]> {
+  if (!faqs.length) return [];
+  if (!process.env.GEMINI_API_KEY?.trim()) {
+    throw new Error("GEMINI_API_KEY is not set");
+  }
+
+  const model = genAI.getGenerativeModel({ model: geminiTranslationModel() });
+  const language = localeDisplayName(targetLocale);
+
+  const prompt = `Translate each FAQ object in this JSON array from English to ${language} (${targetLocale}).
+Return ONLY a JSON array of objects with keys "question" and "answer", same length and order.
+Keep brand names (Taypro, GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, NECTYR) unchanged unless a well-known localized form exists.
+Use professional ${language} for utility-scale solar plant operators.
+
+${JSON.stringify(faqs)}`;
+
+  const result = await model.generateContent(prompt);
+  const parsed = parseJsonObject<BlogFaqItem[]>(result.response.text());
+
+  if (!Array.isArray(parsed) || parsed.length !== faqs.length) {
+    throw new Error(`FAQ translation length mismatch for ${targetLocale}`);
+  }
+
+  return parsed.map((item, i) => ({
+    question: String(item?.question ?? faqs[i].question).trim(),
+    answer: String(item?.answer ?? faqs[i].answer).trim(),
+  }));
 }

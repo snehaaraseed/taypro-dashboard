@@ -23,7 +23,7 @@ import ModelCards from "@/app/components/ModelCards";
 import ClientsCard from "@/app/components/ClientsCard";
 import EnergyResourceCard from "@/app/components/EnergyResourceCard";
 import HeroSection from "@/app/components/Herosection";
-import FAQAccordion from "@/app/components/FAQAccordion";
+import { FaqSection } from "@/app/components/FaqSection";
 import { ContactEmailLink } from "@/app/components/ContactEmailLink";
 import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
@@ -434,19 +434,12 @@ export default async function TayproConsolePage({
           </Container>
         </section>
 
-        <section className="w-full py-16 sm:py-20 bg-white">
-          <Container size="narrow">
-            <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
-              <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-4">
-                {t("faq.title")}
-              </h2>
-              <div className="text-gray-600 text-base sm:text-lg">
-                {t("faq.subtitle")}
-              </div>
-            </AnimateOnScroll>
-            <FAQAccordion faqs={consoleFaqs} variant="modern" />
-          </Container>
-        </section>
+        <FaqSection
+          id="console-faq-heading"
+          title={t("faq.title")}
+          subtitle={t("faq.subtitle")}
+          faqs={consoleFaqs}
+        />
 
         <EnergyResourceCard />
 

@@ -94,6 +94,7 @@ export async function POST(request: NextRequest) {
             featuredImageAlt: featured.alt,
             author: "Taypro Team",
             content: contentWithImages,
+            faqs: blogData.faqs,
             publishDate: new Date().toISOString(),
             published: false,
           },
@@ -138,6 +139,7 @@ export async function POST(request: NextRequest) {
         imageMode: featured.mode,
         inlineImage: inlineImage?.url,
         inlineImageSource: inlineImage?.source,
+        faqCount: blogData.faqs.length,
       },
           schedule: await getBlogAutomationSchedule(),
         });

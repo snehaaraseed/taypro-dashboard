@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
+import { BlogFaqEditor } from "@/app/admin/components/BlogFaqEditor";
+import type { BlogFaqItem } from "@/lib/cms/blog-faqs";
 
 const BlogEditor = dynamic(() => import("../../../components/BlogEditor"), {
   ssr: false,
@@ -29,6 +31,7 @@ export default function NewBlogPage() {
     featuredImageAlt: "",
     author: "Taypro Team",
     content: "",
+    faqs: [] as BlogFaqItem[],
     publishDate: new Date().toISOString().split("T")[0],
     published: true,
   });
@@ -41,7 +44,7 @@ export default function NewBlogPage() {
   const [galleryImages, setGalleryImages] = useState<Array<{ url: string; name: string }>>([]);
   const [loadingGallery, setLoadingGallery] = useState(false);
   const [authors, setAuthors] = useState<Array<{ name: string; slug: string; role: string }>>([]);
-  const [selectedAuthor, setSelectedAuthor] = useState<string>("Taypro Team");
+  const [selectedAuthor, setSelectedAuthor] = useState<string>("taypro-team");
 
   useEffect(() => {
     const fetchAuthors = async () => {
@@ -451,13 +454,16 @@ export default function NewBlogPage() {
                 const value = e.target.value;
                 setSelectedAuthor(value);
                 if (value !== "__custom__") {
-                  setFormData({ ...formData, author: value });
+                  const author = authors.find((item) => item.slug === value);
+                  if (author) {
+                    setFormData({ ...formData, author: author.name });
+                  }
                 }
               }}
               className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               {authors.map((author) => (
-                <option key={author.slug} value={author.name}>
+                <option key={author.slug} value={author.slug}>
                   {author.name} - {author.role}
                 </option>
               ))}
@@ -505,6 +511,11 @@ export default function NewBlogPage() {
             />
           </div>
         </div>
+
+        <BlogFaqEditor
+          faqs={formData.faqs}
+          onChange={(faqs) => setFormData((prev) => ({ ...prev, faqs }))}
+        />
 
         <div className="flex gap-4">
           <button

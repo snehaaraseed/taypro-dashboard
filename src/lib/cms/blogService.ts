@@ -4,6 +4,7 @@ import { and, eq, inArray } from "drizzle-orm";
 import { getDb } from "@/lib/db";
 import { blogs } from "@/lib/db/schema";
 import type { BlogData, BlogMetadata } from "@/app/utils/blogFileUtils";
+import { parseBlogFaqs, serializeBlogFaqs } from "@/lib/cms/blog-faqs";
 import type { TayproLocale } from "@/i18n/markets";
 import { isActiveLocale } from "@/i18n/markets";
 import { SOURCE_LOCALE, TARGET_LOCALES } from "@/lib/translation/config";
@@ -35,6 +36,7 @@ function rowToMetadata(row: typeof blogs.$inferSelect): BlogMetadata {
     createdAt: row.createdAt,
     updatedAt: row.updatedAt ?? undefined,
     published: row.published,
+    faqs: parseBlogFaqs(row.faqs),
   };
 }
 
@@ -161,6 +163,7 @@ export async function createBlog(
       featuredImageAlt: blogData.featuredImageAlt?.trim() || "",
       author: blogData.author || "Taypro Team",
       content: blogData.content || "",
+      faqs: serializeBlogFaqs(blogData.faqs),
       publishDate: blogData.publishDate || now,
       createdAt: now,
       updatedAt: now,
@@ -247,6 +250,10 @@ export async function updateBlog(
           blogData.featuredImageAlt?.trim() ?? existing.featuredImageAlt,
         author: blogData.author || "Taypro Team",
         content: blogData.content || "",
+        faqs:
+          blogData.faqs !== undefined
+            ? serializeBlogFaqs(blogData.faqs)
+            : existing.faqs,
         publishDate: blogData.publishDate || existing.publishDate,
         updatedAt: now,
         published,
