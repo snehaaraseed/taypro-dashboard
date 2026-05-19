@@ -77,14 +77,23 @@ export default async function SiteMapPage({
       <Breadcrumbs items={breadcrumbs} />
       <section className="w-full pt-20 pb-5 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
-          <h1 className="text-[#052638] text-6xl font-semibold text-center mb-16">
+          <h1 className="text-[#052638] text-4xl md:text-6xl font-semibold text-center mb-6">
             {t("heading")}
           </h1>
+          <p className="text-[#27415c] text-lg text-center max-w-3xl mx-auto mb-6 leading-relaxed">
+            {t("intro")}
+          </p>
+          <p className="text-[#6B7280] text-base text-center max-w-2xl mx-auto mb-16 leading-relaxed">
+            {t("introSecondary")}
+          </p>
 
           <div className="text-start">
-            <h3 className="text-[#052638] text-4xl font-semibold mb-8">
+            <h2 className="text-[#052638] text-3xl md:text-4xl font-semibold mb-3">
               {t("sections.posts")}
-            </h3>
+            </h2>
+            <p className="text-[#27415c] text-lg mb-8 max-w-3xl leading-relaxed">
+              {t("sections.postsIntro")}
+            </p>
 
             <ul className="space-y-1 list-disc list-inside">
               {energyResourceCards.map((card, idx) => (
@@ -106,9 +115,12 @@ export default async function SiteMapPage({
       <section className="w-full pt-10 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
           <div className="text-start">
-            <h3 className="text-[#052638] text-4xl font-semibold mb-8">
+            <h2 className="text-[#052638] text-3xl md:text-4xl font-semibold mb-3">
               {t("sections.pages")}
-            </h3>
+            </h2>
+            <p className="text-[#27415c] text-lg mb-8 max-w-3xl leading-relaxed">
+              {t("sections.pagesIntro")}
+            </p>
 
             <ul className="space-y-1 list-disc list-inside text-lg">
               <li>
@@ -302,9 +314,12 @@ export default async function SiteMapPage({
       <section className="w-full pt-10 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
           <div className="text-start">
-            <h3 className="text-[#052638] text-4xl font-semibold mb-8">
+            <h2 className="text-[#052638] text-3xl md:text-4xl font-semibold mb-3">
               {t("sections.portfolio")}
-            </h3>
+            </h2>
+            <p className="text-[#27415c] text-lg mb-8 max-w-3xl leading-relaxed">
+              {t("sections.portfolioIntro")}
+            </p>
 
             <ul className="space-y-1 list-disc list-inside">
               {additionalProjects.map((card, idx) => (

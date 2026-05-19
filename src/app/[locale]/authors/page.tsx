@@ -4,7 +4,9 @@ import { withHreflang } from "@/lib/seo/with-hreflang";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 import { listAllBlogs } from "@/lib/cms/blogService";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
+import { FaqSection } from "@/app/components/FaqSection";
 import { NewsletterSubscribeCard } from "@/app/components/NewsletterSubscribeCard";
+import { FAQPageSchema } from "@/app/components/StructuredData";
 import {
   getAuthorAvatarUrl,
   resolveAuthorSlug,
@@ -104,6 +106,13 @@ export default async function AuthorsPage({
   const authorStats = await getAuthorStats();
   const storedAuthors = await getStoredAuthors();
 
+  const authorFaqs = ["q0", "q1", "q2"].map((qKey, i) => ({
+    question: t(`faq.${qKey}`),
+    answer: t(`faq.a${i}`),
+  }));
+
+  const topicKeys = ["t0", "t1", "t2", "t3"] as const;
+
   const breadcrumbs = [
     { name: tCommon("breadcrumbHome"), href: "/" },
     { name: t("breadcrumbs.authors"), href: "" },
@@ -112,6 +121,7 @@ export default async function AuthorsPage({
   return (
     <div>
       <Breadcrumbs items={breadcrumbs} />
+      <FAQPageSchema faqs={authorFaqs} />
       <section className="w-full bg-[#052638] border-b border-[#0c3c57]">
         <div className="max-w-6xl mx-auto px-6 py-12">
           <p className="text-sm text-[#A8C117] font-medium mb-2">
@@ -120,7 +130,43 @@ export default async function AuthorsPage({
           <h1 className="text-4xl font-semibold text-white mb-3">
             {t("hero.title")}
           </h1>
-          <p className="text-slate-200 max-w-3xl">{t("hero.description")}</p>
+          <p className="text-slate-200 max-w-3xl mb-4">{t("hero.description")}</p>
+          <div className="max-w-3xl space-y-4 text-slate-200 leading-relaxed">
+            <p>{t("hero.introP1")}</p>
+            <p>
+              {t("hero.introP2Before")}{" "}
+              <Link
+                href="/blog"
+                className="text-[#c5db4a] font-medium underline-offset-4 hover:underline"
+              >
+                {t("hero.introP2BlogLink")}
+              </Link>{" "}
+              {t("hero.introP2Middle")}{" "}
+              <Link
+                href="/solar-panel-cleaning-robot-price-calculator#calculator"
+                className="text-[#c5db4a] font-medium underline-offset-4 hover:underline"
+              >
+                {t("hero.introP2CalculatorLink")}
+              </Link>
+              {t("hero.introP2After")}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full bg-[#f4f7f9] py-10 border-b border-gray-200">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-[#052638] font-semibold text-2xl md:text-3xl mb-3">
+            {t("topics.heading")}
+          </h2>
+          <p className="text-[#27415c] text-lg mb-6 max-w-3xl leading-relaxed">
+            {t("topics.intro")}
+          </p>
+          <ul className="list-disc list-inside space-y-2 text-[#27415c] text-base md:text-lg max-w-3xl">
+            {topicKeys.map((key) => (
+              <li key={key}>{t(`topics.${key}`)}</li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -167,6 +213,14 @@ export default async function AuthorsPage({
           </div>
         </div>
       </section>
+
+      <FaqSection
+        id="authors-faq-heading"
+        title={t("faq.heading")}
+        subtitle={t("faq.subheading")}
+        faqs={authorFaqs}
+        tone="muted"
+      />
     </div>
   );
 }

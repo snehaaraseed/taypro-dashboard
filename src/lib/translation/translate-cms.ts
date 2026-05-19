@@ -13,6 +13,37 @@ import {
   translateFieldsWithGemini,
   translateStringListWithGemini,
 } from "./gemini-translate";
+async function onBlogLocaleTranslated(
+  slug: string,
+  locale: TayproLocale,
+  success: boolean,
+  error?: unknown
+): Promise<void> {
+  const { clearTranslationRetry, enqueueTranslationRetry } = await import(
+    "./translation-queue"
+  );
+  if (success) {
+    await clearTranslationRetry("blog", slug, locale);
+    return;
+  }
+  await enqueueTranslationRetry("blog", slug, locale, error);
+}
+
+async function onProjectLocaleTranslated(
+  slug: string,
+  locale: TayproLocale,
+  success: boolean,
+  error?: unknown
+): Promise<void> {
+  const { clearTranslationRetry, enqueueTranslationRetry } = await import(
+    "./translation-queue"
+  );
+  if (success) {
+    await clearTranslationRetry("project", slug, locale);
+    return;
+  }
+  await enqueueTranslationRetry("project", slug, locale, error);
+}
 
 export type TranslationResult = {
   locale: TayproLocale;
@@ -194,6 +225,7 @@ export async function translatePublishedBlog(
           existing[0].updatedAt >= source.updatedAt
         ) {
           results.push({ locale, success: true });
+          await onBlogLocaleTranslated(slug, locale, true);
           continue;
         }
       }
@@ -223,12 +255,14 @@ export async function translatePublishedBlog(
       });
 
       results.push({ locale, success: true });
+      await onBlogLocaleTranslated(slug, locale, true);
     } catch (error) {
       results.push({
         locale,
         success: false,
         error: error instanceof Error ? error.message : "Translation failed",
       });
+      await onBlogLocaleTranslated(slug, locale, false, error);
     }
   }
 
@@ -329,12 +363,14 @@ export async function translatePublishedProject(
       });
 
       results.push({ locale, success: true });
+      await onProjectLocaleTranslated(slug, locale, true);
     } catch (error) {
       results.push({
         locale,
         success: false,
         error: error instanceof Error ? error.message : "Translation failed",
       });
+      await onProjectLocaleTranslated(slug, locale, false, error);
     }
   }
 

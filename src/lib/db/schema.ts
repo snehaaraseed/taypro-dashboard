@@ -77,6 +77,27 @@ export const uploads = sqliteTable("uploads", {
   uploadedAt: text("uploaded_at").notNull(),
 });
 
+/** Pending CMS locale translations (auto-resume after Gemini quota / transient errors). */
+export const translationQueue = sqliteTable(
+  "translation_queue",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    contentType: text("content_type").notNull(),
+    slug: text("slug").notNull(),
+    locale: text("locale").notNull(),
+    attempts: integer("attempts").notNull().default(0),
+    lastError: text("last_error"),
+    nextRetryAt: text("next_retry_at").notNull(),
+    createdAt: text("created_at").notNull(),
+    updatedAt: text("updated_at").notNull(),
+  },
+  (table) => ({
+    contentSlugLocale: unique().on(table.contentType, table.slug, table.locale),
+  })
+);
+
+export type TranslationQueueRow = typeof translationQueue.$inferSelect;
+
 export type AuthorRow = typeof authors.$inferSelect;
 export type BlogRow = typeof blogs.$inferSelect;
 export type ProjectRow = typeof projects.$inferSelect;

@@ -69,12 +69,20 @@ export default function AdminProjectsPage() {
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold text-gray-900">Manage Projects</h1>
-          <Link
-            href="/admin/projects/new"
-            className="bg-[#A8C117] hover:bg-lime-500 text-white px-6 py-2 rounded-md transition-colors"
-          >
-            + Add New Project
-          </Link>
+          <div className="flex gap-3 flex-wrap">
+            <Link
+              href="/admin/projects/generate"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md transition-colors"
+            >
+              Generate with AI
+            </Link>
+            <Link
+              href="/admin/projects/new"
+              className="bg-[#A8C117] hover:bg-lime-500 text-white px-6 py-2 rounded-md transition-colors"
+            >
+              + Add New Project
+            </Link>
+          </div>
         </div>
 
         {/* Search */}

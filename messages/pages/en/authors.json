@@ -20,7 +20,31 @@
     "hero": {
       "eyebrow": "Blog Directory",
       "title": "Authors",
-      "description": "Explore all blog contributors and read their published articles."
+      "description": "Explore all blog contributors and read their published articles.",
+      "introP1": "The Taypro blog is written for solar developers, EPC teams, and O&M leads who run utility-scale PV in India. Articles cover soiling and performance ratio, dry robotic cleaning, plant economics, commissioning lessons, and field notes from real deployments.",
+      "introP2Before": "Every profile below links to that author's published posts. For the full article archive, visit the",
+      "introP2BlogLink": "Taypro blog",
+      "introP2Middle": "or estimate robot payback with the",
+      "introP2CalculatorLink": "ROI calculator",
+      "introP2After": "."
+    },
+    "topics": {
+      "heading": "What our authors write about",
+      "intro": "Contributors include application engineers, robotics specialists, and O&M practitioners who work on GLYDE, HELYX, and fleet monitoring in the field.",
+      "t0": "Soiling loss, cleaning frequency, and performance ratio on dusty Indian sites.",
+      "t1": "Comparing dry robotic cleaning with manual washing and sprinkler logistics.",
+      "t2": "CAPEX vs Opex procurement and when to own robots vs outsource cycles.",
+      "t3": "Tracker vs fixed-tilt layouts, safety, and NECTYR scheduling practices."
+    },
+    "faq": {
+      "heading": "Frequently asked questions",
+      "subheading": "About Taypro blog authorship and expertise.",
+      "q0": "Who writes the Taypro blog?",
+      "a0": "Posts are authored by Taypro engineers, application specialists, and field teams who commission and support solar panel cleaning robots on utility-scale plants. Named contributors are listed on this page; some articles are published under Taypro Team when multiple experts collaborate.",
+      "q1": "How do I read articles by a specific author?",
+      "a1": "Select an author card below to open their archive of published posts. Each card shows role, short bio, and article count so you can follow the voices most relevant to your plant type.",
+      "q2": "Can I suggest a topic or speak with an author?",
+      "a2": "Yes. Use the contact form or newsletter signup on this page to reach the editorial team. Share your MW, region, and question—O&M economics, robot selection, or soiling—and we will route it to the right specialist."
     },
     "defaultRole": "Contributing Author",
     "defaultBio": "Read this author's blog posts and insights.",

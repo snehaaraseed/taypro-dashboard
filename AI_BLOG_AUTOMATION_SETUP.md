@@ -82,6 +82,32 @@ Create `vercel.json`:
 }
 ```
 
+### CMS translation auto-resume (hourly)
+
+When Gemini quota is exceeded, failed blog/project locales are stored in `translation_queue` and retried automatically.
+
+**Server cron (recommended):**
+
+```bash
+# Every hour — drain up to 8 pending locale jobs per run
+0 * * * * /var/www/taypro-dashboard/scripts/cron-retry-translations.sh
+```
+
+Or from the app directory after deploy:
+
+```bash
+npm run cms:retry-translations
+```
+
+**Manual trigger:**
+
+```bash
+curl -X POST "https://taypro.in/api/automation/retry-translations?reconcile=true" \
+  -H "Authorization: Bearer $AUTOMATION_CRON_SECRET"
+```
+
+`?reconcile=true` also enqueues any published posts that are missing translations. Logs: `/var/log/translation-queue.log`.
+
 ## Workflow
 
 1. **Automation runs** → Blog generated and saved as draft (`published: false`)

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Taypro — Scheduled maintenance</title>
+    <link rel="icon" href="__FAVICON_DATA_URI__" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Blinker:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #052638;
+        --blue: #0b3955;
+        --accent: #6ce7fd;
+        --lime: #a8c117;
+        --lime-hover: #b3cf3d;
+        --green: #39d600;
+        --text: #ffffff;
+        --muted: #9bb8c7;
+        --card: rgba(11, 57, 85, 0.65);
+        --card-border: rgba(108, 231, 253, 0.22);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        min-height: 100vh;
+        font-family: "Blinker", system-ui, -apple-system, sans-serif;
+        background: var(--primary);
+        color: var(--text);
+        line-height: 1.55;
+        overflow-x: hidden;
+      }
+
+      .accent-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        z-index: 10;
+        background: linear-gradient(90deg, var(--lime), var(--accent), var(--green));
+      }
+
+      .bg {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(ellipse 90% 55% at 15% -5%, rgba(108, 231, 253, 0.16), transparent 50%),
+          radial-gradient(ellipse 55% 45% at 95% 90%, rgba(168, 193, 23, 0.12), transparent 45%),
+          linear-gradient(168deg, var(--primary) 0%, #031a26 50%, var(--blue) 100%);
+      }
+
+      .grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(108, 231, 253, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(108, 231, 253, 0.05) 1px, transparent 1px);
+        background-size: 56px 56px;
+        mask-image: radial-gradient(ellipse 75% 65% at 50% 35%, black 15%, transparent 78%);
+      }
+
+      .page {
+        position: relative;
+        z-index: 1;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2.5rem 1.25rem 2.5rem;
+      }
+
+      .shell {
+        width: 100%;
+        max-width: 58rem;
+        display: grid;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      @media (min-width: 840px) {
+        .shell {
+          grid-template-columns: 1.05fr 0.95fr;
+          gap: 2.5rem 3rem;
+        }
+      }
+
+      .panel {
+        padding: 1.75rem 1.5rem 2rem;
+        border-radius: 1.25rem;
+        background: var(--card);
+        border: 1px solid var(--card-border);
+        backdrop-filter: blur(12px);
+        box-shadow:
+          0 4px 24px rgba(0, 0, 0, 0.25),
+          inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      @media (min-width: 480px) {
+        .panel {
+          padding: 2rem 2rem 2.25rem;
+        }
+      }
+
+      .brand img {
+        display: block;
+        width: auto;
+        height: 2.5rem;
+        max-width: min(100%, 11.5rem);
+        object-fit: contain;
+        object-position: left center;
+        margin-bottom: 1.75rem;
+      }
+
+      @media (min-width: 480px) {
+        .brand img {
+          height: 2.85rem;
+          max-width: 13rem;
+        }
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--lime);
+        margin-bottom: 0.75rem;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 1.25rem;
+        height: 2px;
+        background: var(--lime);
+        border-radius: 1px;
+      }
+
+      h1 {
+        font-size: clamp(1.85rem, 4.5vw, 2.5rem);
+        font-weight: 700;
+        line-height: 1.12;
+        letter-spacing: -0.02em;
+        margin-bottom: 1rem;
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: 1.0625rem;
+        max-width: 28rem;
+        margin-bottom: 1.35rem;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin-bottom: 1.35rem;
+      }
+
+      .chip {
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 0.35rem 0.65rem;
+        border-radius: 999px;
+        border: 1px solid rgba(108, 231, 253, 0.25);
+        background: rgba(5, 38, 56, 0.5);
+        color: rgba(232, 244, 248, 0.9);
+      }
+
+      .chip--lime {
+        border-color: rgba(168, 193, 23, 0.45);
+        color: var(--lime);
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.55rem 1rem 0.55rem 0.85rem;
+        border-radius: 999px;
+        background: rgba(108, 231, 253, 0.1);
+        border: 1px solid rgba(108, 231, 253, 0.28);
+        color: var(--accent);
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 1.15rem;
+      }
+
+      .dots {
+        display: inline-flex;
+        gap: 0.28rem;
+      }
+
+      .dots span {
+        width: 0.35rem;
+        height: 0.35rem;
+        border-radius: 50%;
+        background: var(--accent);
+        animation: pulse 1.2s ease-in-out infinite;
+      }
+
+      .dots span:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .dots span:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes pulse {
+        0%,
+        80%,
+        100% {
+          opacity: 0.35;
+        }
+        40% {
+          opacity: 1;
+        }
+      }
+
+      .task {
+        font-size: 0.9375rem;
+        color: rgba(232, 244, 248, 0.88);
+        min-height: 1.5em;
+        margin-bottom: 1.35rem;
+        transition: opacity 0.35s ease;
+      }
+
+      .task.fade {
+        opacity: 0;
+      }
+
+      .progress-wrap {
+        margin-bottom: 1.75rem;
+      }
+
+      .progress-label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: var(--muted);
+        margin-bottom: 0.4rem;
+      }
+
+      .progress-bar {
+        height: 5px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+      }
+
+      .progress-bar span {
+        display: block;
+        height: 100%;
+        width: 38%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--lime), var(--accent));
+        animation: slide 2.2s ease-in-out infinite;
+      }
+
+      @keyframes slide {
+        0% {
+          transform: translateX(-120%);
+        }
+        100% {
+          transform: translateX(320%);
+        }
+      }
+
+      .contact {
+        font-size: 0.9375rem;
+        color: var(--muted);
+        padding-top: 0.25rem;
+        border-top: 1px solid rgba(108, 231, 253, 0.12);
+      }
+
+      .contact a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+        padding: 0.75rem 1.35rem;
+        border-radius: 0.375rem;
+        background: var(--lime);
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+        box-shadow: 0 4px 14px rgba(168, 193, 23, 0.25);
+      }
+
+      .contact a:hover {
+        background: var(--lime-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(168, 193, 23, 0.35);
+      }
+
+      .contact a:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+
+      .contact a svg {
+        width: 1.1rem;
+        height: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .tagline {
+        margin-top: 1.25rem;
+        font-size: 0.8125rem;
+        color: rgba(155, 184, 199, 0.8);
+        line-height: 1.5;
+      }
+
+      .tagline strong {
+        color: var(--green);
+        font-weight: 600;
+      }
+
+      /* Animated solar scene (card frame behind SVG — never on top) */
+      .visual {
+        position: relative;
+        width: 100%;
+        max-width: 22rem;
+        margin: 0 auto;
+        aspect-ratio: 1;
+        isolation: isolate;
+      }
+
+      .visual-glow {
+        position: absolute;
+        inset: 12% 8% 18%;
+        z-index: 0;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(108, 231, 253, 0.22) 0%, transparent 68%);
+        filter: blur(20px);
+        animation: glow 5s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      @keyframes glow {
+        0%,
+        100% {
+          opacity: 0.55;
+          transform: scale(0.96);
+        }
+        50% {
+          opacity: 0.9;
+          transform: scale(1.04);
+        }
+      }
+
+      .scene-card {
+        position: absolute;
+        inset: 8%;
+        z-index: 1;
+        border-radius: 1.25rem;
+        background: rgba(11, 57, 85, 0.5);
+        border: 1px solid rgba(108, 231, 253, 0.22);
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+        pointer-events: none;
+      }
+
+      .visual svg {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        display: block;
+        filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.25));
+      }
+
+      .visual .panel-shine {
+        animation: panel-shine 2.8s ease-in-out infinite;
+      }
+
+      @keyframes panel-shine {
+        0%,
+        100% {
+          opacity: 0.18;
+        }
+        50% {
+          opacity: 0.62;
+        }
+      }
+
+      .visual .robot {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: robot-move 4s ease-in-out infinite;
+      }
+
+      @keyframes robot-move {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(22px);
+        }
+      }
+
+      .visual .sun {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: sun-pulse 3.5s ease-in-out infinite;
+      }
+
+      @keyframes sun-pulse {
+        0%,
+        100% {
+          opacity: 0.88;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.08);
+        }
+      }
+
+      .orbit {
+        position: absolute;
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background: var(--lime);
+        box-shadow: 0 0 14px var(--lime);
+        top: 11%;
+        right: 10%;
+        z-index: 3;
+        animation: orbit-pulse 2s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      @keyframes orbit-pulse {
+        0%,
+        100% {
+          opacity: 0.45;
+          transform: scale(0.85);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.2);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .dots span,
+        .progress-bar span,
+        .visual .panel-shine,
+        .visual-glow,
+        .visual .robot,
+        .visual .sun,
+        .orbit {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="accent-bar" aria-hidden="true"></div>
+    <div class="bg" aria-hidden="true">
+      <div class="grid"></div>
+    </div>
+
+    <div class="page">
+      <div class="shell">
+        <section class="panel">
+          <div class="brand">
+            <img
+              src="__LOGO_DATA_URI__"
+              width="220"
+              height="60"
+              alt="Taypro — Solar Panel Cleaning Robot Manufacturer"
+            />
+          </div>
+
+          <p class="eyebrow">Scheduled update</p>
+          <h1>We&rsquo;ll be right back</h1>
+          <p class="lead">
+            Taypro is undergoing a scheduled update. This is temporary&mdash;we&rsquo;re
+            improving the site and will be online again shortly.
+          </p>
+
+          <div class="chips" aria-hidden="true">
+            <span class="chip chip--lime">Waterless</span>
+            <span class="chip">GLYDE</span>
+            <span class="chip">NYUMA</span>
+            <span class="chip">NECTYR</span>
+          </div>
+
+          <p class="status" aria-live="polite">
+            <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+            Maintenance in progress
+          </p>
+
+          <p class="task" id="task" aria-live="polite">Calibrating solar cleaning robots&hellip;</p>
+
+          <div class="progress-wrap" aria-hidden="true">
+            <div class="progress-label">
+              <span>Site upgrade</span>
+              <span>In progress</span>
+            </div>
+            <div class="progress-bar"><span></span></div>
+          </div>
+
+          <p class="contact">
+            Questions while we&rsquo;re offline?
+            <br />
+            <a href="mailto:sales@taypro.in">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M4 6h16v12H4V6z" stroke-linejoin="round"/>
+                <path d="M4 8l8 5 8-5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              sales@taypro.in
+            </a>
+          </p>
+
+          <p class="tagline">
+            <strong>Made in India</strong> &mdash; autonomous solar panel cleaning robots for
+            utility-scale plants &amp; trackers
+          </p>
+        </section>
+
+        <section class="visual" aria-hidden="true">
+          <div class="visual-glow"></div>
+          <div class="scene-card"></div>
+          <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g class="sun" transform="translate(228, 36)">
+              <circle cx="32" cy="32" r="22" fill="#fdb52a" opacity="0.9"/>
+              <circle cx="32" cy="32" r="14" fill="#ffb016"/>
+            </g>
+            <g transform="translate(40, 120)">
+              <rect x="0" y="0" width="240" height="8" rx="2" fill="#0f4a5c"/>
+              <rect x="0" y="14" width="72" height="44" rx="3" fill="#0b3955" stroke="rgba(108,231,253,0.35)" stroke-width="1.5"/>
+              <rect x="84" y="14" width="72" height="44" rx="3" fill="#0b3955" stroke="rgba(108,231,253,0.35)" stroke-width="1.5"/>
+              <rect x="168" y="14" width="72" height="44" rx="3" fill="#0b3955" stroke="rgba(108,231,253,0.35)" stroke-width="1.5"/>
+              <rect x="0" y="66" width="72" height="44" rx="3" fill="#0b3955" stroke="rgba(108,231,253,0.35)" stroke-width="1.5"/>
+              <rect x="84" y="66" width="72" height="44" rx="3" fill="#0b3955" stroke="rgba(108,231,253,0.35)" stroke-width="1.5"/>
+              <rect x="168" y="66" width="72" height="44" rx="3" fill="#0b3955" stroke="rgba(108,231,253,0.35)" stroke-width="1.5"/>
+              <line x1="24" y1="14" x2="24" y2="58" stroke="rgba(108,231,253,0.2)" stroke-width="1"/>
+              <line x1="48" y1="14" x2="48" y2="58" stroke="rgba(108,231,253,0.2)" stroke-width="1"/>
+              <line x1="108" y1="14" x2="108" y2="58" stroke="rgba(108,231,253,0.2)" stroke-width="1"/>
+              <line x1="132" y1="14" x2="132" y2="58" stroke="rgba(108,231,253,0.2)" stroke-width="1"/>
+              <rect class="panel-shine" x="0" y="14" width="240" height="96" rx="3" fill="url(#shine)" opacity="0.35"/>
+            </g>
+            <g class="robot" transform="translate(52, 200)">
+              <rect x="0" y="8" width="56" height="28" rx="6" fill="#052638" stroke="#6ce7fd" stroke-width="1.5"/>
+              <rect x="8" y="0" width="40" height="12" rx="4" fill="#a8c117"/>
+              <circle cx="14" cy="40" r="6" fill="#0b3955" stroke="#6ce7fd" stroke-width="1"/>
+              <circle cx="42" cy="40" r="6" fill="#0b3955" stroke="#6ce7fd" stroke-width="1"/>
+              <rect x="20" y="16" width="16" height="6" rx="2" fill="#6ce7fd" opacity="0.8"/>
+            </g>
+            <text x="160" y="292" text-anchor="middle" fill="#9bb8c7" font-family="Blinker, sans-serif" font-size="11" font-weight="600" letter-spacing="0.08em">KEEPING PANELS AT PEAK OUTPUT</text>
+            <defs>
+              <linearGradient id="shine" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#6ce7fd" stop-opacity="0"/>
+                <stop offset="45%" stop-color="#6ce7fd" stop-opacity="0.5"/>
+                <stop offset="55%" stop-color="#a8c117" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#6ce7fd" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="orbit"></span>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var tasks = [
+          "Calibrating solar cleaning robots\u2026",
+          "Syncing NECTYR monitoring dashboards\u2026",
+          "Polishing waterless cleaning specs\u2026",
+          "Tuning performance for Indian solar plants\u2026",
+          "Almost there \u2014 thanks for your patience\u2026",
+        ];
+        var el = document.getElementById("task");
+        if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        var i = 0;
+        setInterval(function () {
+          el.classList.add("fade");
+          setTimeout(function () {
+            i = (i + 1) % tasks.length;
+            el.textContent = tasks[i];
+            el.classList.remove("fade");
+          }, 350);
+        }, 3200);
+      })();
+    </script>
+  </body>
+</html>

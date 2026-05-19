@@ -131,15 +131,11 @@ export default function AboutUsPage() {
             <div className="text-[#A8C117] text-center text-[16px] mb-4 uppercase tracking-wide">
               {t("hero.eyebrow")}
             </div>
-            <div
-              role="heading"
-              aria-level={1}
-              className="font-semibold text-[#052638] text-4xl md:text-5xl mb-6 text-center leading-tight"
-            >
+            <h1 className="font-semibold text-[#052638] text-4xl md:text-5xl mb-6 text-center leading-tight">
               {t("hero.titleLine1")}
               <br />
               {t("hero.titleLine2")}
-            </div>
+            </h1>
             <div className="text-[#22405a] text-center text-lg md:text-xl leading-relaxed">
               {t("hero.bodyBeforeLink")}{" "}
               <Link
@@ -171,13 +167,9 @@ export default function AboutUsPage() {
               <div className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-2">
                 {t("statsStrip.eyebrow")}
               </div>
-              <div
-                role="heading"
-                aria-level={2}
-                className="text-white font-semibold text-2xl md:text-3xl"
-              >
+              <h2 className="text-white font-semibold text-2xl md:text-3xl">
                 {t("statsStrip.heading")}
-              </div>
+              </h2>
             </AnimateOnScroll>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10 text-center">
               {[...tayproTrustedByStatsStrip].map((stat, idx) => (
@@ -207,13 +199,9 @@ export default function AboutUsPage() {
               className="bg-white px-10 py-10 flex flex-col justify-between shadow-lg min-h-[600px]"
             >
               <div>
-                <div
-                  role="heading"
-                  aria-level={3}
-                  className="text-[#073448] font-semibold text-2xl mb-8"
-                >
+                <h3 className="text-[#073448] font-semibold text-2xl mb-8">
                   {t("brandValues.heading")}
-                </div>
+                </h3>
                 <div
                   className="space-y-5 text-lg text-[#245165] mb-10"
                   role="list"
@@ -254,17 +242,13 @@ export default function AboutUsPage() {
               className="bg-[#75AA00] px-8 py-10 flex flex-col justify-center text-white min-h-[600px]"
             >
               <div className="mb-12">
-                <div
-                  role="heading"
-                  aria-level={3}
-                  className="mb-3 text-2xl flex leading-relaxed"
-                >
+                <h3 className="mb-3 text-2xl flex leading-relaxed">
                   {t("sustainability.titleLine1")}
                   <br />
                   {t("sustainability.titleLine2")}
                   <br />
                   {t("sustainability.titleLine3")}
-                </div>
+                </h3>
                 <div className="text-white/95 text-base leading-relaxed mb-4">
                   {t("sustainability.body")}
                 </div>
@@ -311,13 +295,9 @@ export default function AboutUsPage() {
                 <div className="text-[#75AA00] font-semibold text-lg mb-2">
                   {t("sustainability.communityEyebrow")}
                 </div>
-                <div
-                  role="heading"
-                  aria-level={3}
-                  className="text-[#073448] text-xl font-medium leading-relaxed"
-                >
+                <h3 className="text-[#073448] text-xl font-medium leading-relaxed">
                   {t("sustainability.communityHeading")}
-                </div>
+                </h3>
                 <div className="mt-4 text-[#245165] text-base leading-relaxed">
                   {t("sustainability.communityBody")}
                 </div>
@@ -332,14 +312,12 @@ export default function AboutUsPage() {
         >
           <div className="max-w-6xl mx-auto px-4 sm:px-0">
             <AnimateOnScroll animation="fadeInUp" className="mb-12 md:mb-16">
-              <div
+              <h2
                 id="company-story-heading"
-                role="heading"
-                aria-level={2}
                 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3"
               >
                 {t("story.heading")}
-              </div>
+              </h2>
               <div className="text-[#27415c] text-lg max-w-3xl leading-relaxed">
                 {t("story.intro")}
               </div>
@@ -359,13 +337,9 @@ export default function AboutUsPage() {
                   {t(`story.${key}.label`)}
                 </div>
                 <div className="md:col-span-4">
-                  <div
-                    role="heading"
-                    aria-level={3}
-                    className="text-[#052638] font-semibold text-2xl sm:text-3xl md:text-4xl leading-tight"
-                  >
+                  <h3 className="text-[#052638] font-semibold text-2xl sm:text-3xl md:text-4xl leading-tight">
                     {t(`story.${key}.heading`)}
-                  </div>
+                  </h3>
                   <div className="mt-4 text-[#27415c] text-base md:text-lg leading-relaxed">
                     {t(`story.${key}.body`)}
                   </div>
@@ -381,14 +355,12 @@ export default function AboutUsPage() {
         >
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mb-10">
-              <div
+              <h2
                 id="company-solutions-heading"
-                role="heading"
-                aria-level={2}
                 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
               >
                 {t("solutions.heading")}
-              </div>
+              </h2>
               <div className="text-[#27415c] text-lg leading-relaxed">
                 {t("solutions.bodyBeforeLink")}{" "}
                 <Link
@@ -423,13 +395,9 @@ export default function AboutUsPage() {
                         />
                       </div>
                       <div className="p-5 flex flex-col flex-1">
-                        <div
-                          role="heading"
-                          aria-level={3}
-                          className="text-[#052638] font-semibold text-lg mb-2 group-hover:text-[#5a8f00] transition-colors"
-                        >
+                        <h3 className="text-[#052638] font-semibold text-lg mb-2 group-hover:text-[#5a8f00] transition-colors">
                           {robot.model}
-                        </div>
+                        </h3>
                         <div className="text-[#27415c] text-sm leading-relaxed flex-1">
                           {descKey
                             ? t(`solutions.robots.${descKey}`)
@@ -471,13 +439,9 @@ export default function AboutUsPage() {
               delay={100}
               className="flex flex-col justify-center items-center md:items-start text-center md:text-left"
             >
-              <div
-                role="heading"
-                aria-level={2}
-                className="text-[#b2cb19] text-2xl font-medium mb-4"
-              >
+              <h2 className="text-[#b2cb19] text-2xl font-medium mb-4">
                 {t("builtForSites.heading")}
-              </div>
+              </h2>
               <div className="text-[#27415c] text-lg max-w-xl leading-relaxed mb-4">
                 {t("builtForSites.paragraph1")}
               </div>
@@ -509,13 +473,9 @@ export default function AboutUsPage() {
               delay={100}
               className="flex flex-col justify-center items-center md:items-start text-center md:text-left order-2 md:order-1"
             >
-              <div
-                role="heading"
-                aria-level={2}
-                className="text-[#b2cb19] text-2xl font-medium mb-4"
-              >
+              <h2 className="text-[#b2cb19] text-2xl font-medium mb-4">
                 {t("collaboration.heading")}
-              </div>
+              </h2>
               <div className="text-[#27415c] text-lg max-w-xl leading-relaxed mb-4">
                 {t("collaboration.paragraph1")}
               </div>
@@ -566,14 +526,12 @@ export default function AboutUsPage() {
               <div className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-2">
                 {t("partnerJourney.eyebrow")}
               </div>
-              <div
+              <h2
                 id="partner-journey-heading"
-                role="heading"
-                aria-level={2}
                 className="text-white font-semibold text-3xl md:text-4xl mb-4"
               >
                 {t("partnerJourney.heading")}
-              </div>
+              </h2>
               <div className="text-white/85 text-lg leading-relaxed">
                 {t("partnerJourney.intro")}
               </div>
@@ -589,13 +547,9 @@ export default function AboutUsPage() {
                     <span className="text-[#A8C117] font-semibold text-2xl mb-3 block">
                       {step.step}
                     </span>
-                    <div
-                      role="heading"
-                      aria-level={3}
-                      className="text-white font-semibold text-xl mb-3"
-                    >
+                    <h3 className="text-white font-semibold text-xl mb-3">
                       {step.title}
-                    </div>
+                    </h3>
                     <div className="text-white/80 leading-relaxed">
                       {step.description}
                     </div>
@@ -626,13 +580,9 @@ export default function AboutUsPage() {
 
         <div className="w-full py-16 md:py-24 bg-white px-4 sm:px-6 lg:px-0 overflow-x-hidden">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <div
-              role="heading"
-              aria-level={2}
-              className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3"
-            >
+            <h2 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3">
               {t("scale.heading")}
-            </div>
+            </h2>
             <div className="text-[#27415c] text-lg leading-relaxed">
               {t("scale.body")}
             </div>
@@ -659,13 +609,9 @@ export default function AboutUsPage() {
         <div className="w-full py-30 px-4 sm:px-6 lg:px-0 overflow-x-hidden bg-[#073448]">
           <div className="max-w-7xl mx-auto">
             <AnimateOnScroll animation="fadeInUp" className="text-white mb-8">
-              <div
-                role="heading"
-                aria-level={2}
-                className="font-semibold text-4xl mb-3"
-              >
+              <h2 className="font-semibold text-4xl mb-3">
                 {t("leadership.heading")}
-              </div>
+              </h2>
               <div className="text-white/90 text-lg max-w-3xl font-normal leading-relaxed">
                 {t("leadership.body")}
               </div>
@@ -817,13 +763,9 @@ export default function AboutUsPage() {
               delay={0}
               className="flex flex-col w-full lg:w-2/5"
             >
-              <div
-                role="heading"
-                aria-level={2}
-                className="text-[#052638] font-semibold text-4xl sm:text-5xl mb-5"
-              >
+              <h2 className="text-[#052638] font-semibold text-4xl sm:text-5xl mb-5">
                 {t("resources.heading")}
-              </div>
+              </h2>
               <div className="text-[#22405a] text-lg sm:text-xl mt-4 leading-relaxed">
                 {t("resources.body")}
               </div>
@@ -862,13 +804,9 @@ export default function AboutUsPage() {
                               className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-105"
                               priority
                             />
-                            <div
-                              role="heading"
-                              aria-level={3}
-                              className="absolute bottom-4 left-4 text-white text-sm font-semibold bg-opacity-30 px-3 py-1 transition-transform duration-300 transform translate-y-4 group-hover:translate-y-0"
-                            >
+                            <h3 className="absolute bottom-4 left-4 text-white text-sm font-semibold bg-opacity-30 px-3 py-1 transition-transform duration-300 transform translate-y-4 group-hover:translate-y-0">
                               {title}
-                            </div>
+                            </h3>
                           </div>
                           <div className="absolute bottom-4 right-4 text-white text-xs bg-black bg-opacity-30 px-2 py-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             {date}
@@ -889,13 +827,9 @@ export default function AboutUsPage() {
               animation="fadeInUp"
               className="text-center max-w-3xl mx-auto"
             >
-              <div
-                role="heading"
-                aria-level={2}
-                className="text-[#052638] font-semibold text-2xl md:text-3xl mb-4"
-              >
+              <h2 className="text-[#052638] font-semibold text-2xl md:text-3xl mb-4">
                 {t("explore.heading")}
-              </div>
+              </h2>
               <div className="text-[#27415c] text-lg leading-relaxed mb-8">
                 {t("explore.body")}
               </div>

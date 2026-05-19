@@ -1,48 +1,48 @@
 {
   "ModelAPage": {
     "meta": {
-      "title": "デュアルパス自動ソーラーパネル清掃ロボット — Taypro GLYDE（無水・AI）",
-      "description": "Taypro GLYDEは完全自律・無水の自動ソーラーパネル清掃ロボットです。AI/MLデュアルパス乾式清掃でサイクルあたり99%超のホコリ除去、1充電で最大3,600モジュール、NECTYR経由のLTE/Wi-Fi/RF mesh/LoRa/LoRaWAN、TÜV NORD認証。",
+      "title": "Dual-Pass Automatic Solar Panel Cleaning Robot — Taypro GLYDE (Waterless, AI)",
+      "description": "Taypro GLYDE is a fully autonomous, waterless Automatic Solar Panel Cleaning Robot. AI/ML dual-pass dry cleaning removes 99%+ dust per cycle, runs up to 3,600 modules per charge, connects to NECTYR via LTE / Wi-Fi / RF mesh / LoRa / LoRaWAN, and is TÜV NORD certified with same-day pan-India breakdown support.",
       "keywords": [
-        "自動ソーラーパネル洗浄ロボット",
-        "自動ソーラーパネル洗浄ロボット インド",
-        "自動ソーラーパネル洗浄ロボット メーカー",
-        "自動ソーラーパネル洗浄ロボット 価格",
-        "自動ソーラーパネル洗浄ロボット コスト",
-        "自動ソーラーパネル洗浄ロボット 購入",
-        "最高の自動ソーラーパネル洗浄ロボット",
-        "自動ソーラーパネル洗浄システム",
-        "完全自動ソーラーパネル洗浄ロボット",
-        "自律型ソーラーパネル洗浄ロボット",
-        "水なし自動ソーラーパネル洗浄ロボット",
-        "デュアルパス自動ソーラー洗浄ロボット",
-        "固定傾斜自動ソーラー洗浄ロボット",
-        "AI自動ソーラーパネル洗浄ロボット",
-        "TÜV NORD認証ソーラー洗浄ロボット",
+        "automatic solar panel cleaning robot",
+        "automatic solar panel cleaning robot India",
+        "automatic solar panel cleaning robot manufacturer",
+        "automatic solar panel cleaning robot price",
+        "automatic solar panel cleaning robot cost",
+        "buy automatic solar panel cleaning robot",
+        "best automatic solar panel cleaning robot",
+        "automatic solar panel cleaning system",
+        "fully automatic solar panel cleaning robot",
+        "autonomous solar panel cleaning robot",
+        "waterless automatic solar panel cleaning robot",
+        "dual pass automatic solar cleaning robot",
+        "fixed tilt automatic solar cleaning robot",
+        "AI automatic solar panel cleaning robot",
+        "TÜV NORD certified solar cleaning robot",
         "Taypro GLYDE"
       ],
-      "openGraphTitle": "デュアルパス自動清掃ロボット — Taypro GLYDE",
-      "openGraphDescription": "特許デュアルパスマイクロファイバー。自律無水清掃、NECTYRフリートポータル。",
+      "openGraphTitle": "Dual-Pass Automatic Solar Panel Cleaning Robot — Taypro GLYDE (Waterless, AI)",
+      "openGraphDescription": "Taypro GLYDE: patented dual-pass microfiber Automatic Solar Panel Cleaning Robot for utility-scale plants. Autonomous waterless cleaning, 99%+ dust removal per cycle, up to 3,600 modules per charge, LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN to NECTYR, TÜV NORD certified.",
       "openGraphType": "website",
-      "openGraphImageAlt": "Taypro GLYDE 自動ソーラーパネル清掃ロボット",
-      "twitterTitle": "デュアルパス自動清掃ロボット — Taypro GLYDE",
-      "twitterDescription": "GLYDE：自律無水デュアルパス、1充電3,600モジュール、NECTYR。",
+      "openGraphImageAlt": "Taypro GLYDE automatic solar panel cleaning robot",
+      "twitterTitle": "Dual-Pass Automatic Solar Panel Cleaning Robot — Taypro GLYDE (Waterless, AI)",
+      "twitterDescription": "Taypro GLYDE Automatic Solar Panel Cleaning Robot: autonomous, waterless, AI-driven. 99%+ dust removal per cycle, up to 3,600 modules per charge, LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN to NECTYR.",
       "twitterCard": "summary_large_image"
     },
     "breadcrumbs": {
-      "home": "ホーム",
+      "home": "Home",
       "solarPanelCleaningRobots": "ソーラーパネル清掃ロボット",
-      "automaticRobot": "自動ソーラーパネル清掃ロボット"
+      "automaticRobot": "Automatic Solar Panel Cleaning Robot"
     },
     "shared": {
-      "connectivitySummary": "LTE、Wi-Fi、ハイブリッド自己修復RFメッシュ、LoRa、LoRaWAN"
+      "connectivitySummary": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN"
     },
     "schema": {
       "product": {
         "name": "Automatic Solar Panel Cleaning Robot — GLYDE (Taypro)",
-        "description": "Taypro GLYDEは完全自律・無水の自動ソーラーパネル清掃ロボットです。AI/MLデュアルパス乾式清掃でサイクルあたり99%超のホコリ除去、1充電で最大3,600モジュール、NECTYR経由のLTE/Wi-Fi/RF mesh/LoRa/LoRaWAN、TÜV NORD認証。",
+        "description": "Taypro GLYDE is a fully autonomous Automatic Solar Panel Cleaning Robot for utility-scale solar power plants. Waterless AI- and ML-driven dual-pass dry cleaning removes over 99% of dust per cycle, cleans up to 3,600 modules on a single charge, connects to NECTYR via LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN, and is field-validated and TÜV NORD certified.",
         "brand": "Taypro",
-        "sku": "GLYDE",
+        "sku": "BR0トークン",
         "offers": {
           "price": "価格についてはお問い合わせください",
           "priceCurrency": "INR",
@@ -57,205 +57,205 @@
       }
     },
     "hero": {
-      "h1Line1": "自動ソーラーパネル清掃ロボット — ",
-      "h1Line2": "Taypro GLYDE",
-      "leadBeforeStrong": "Taypro GLYDEは",
-      "leadStrong": "自動ソーラーパネル清掃ロボット",
-      "leadAfterStrong": "で、ユーティリティ規模の太陽光発電所向け。自律無水デュアルパス清掃、AI/MLスケジューリング、1充電最大3,600モジュール、フリート接続 ",
-      "leadAfterConnectivity": "、TÜV NORD認証ビルドで高い稼働率を実現。",
+      "h1Line1": "Automatic Solar Panel Cleaning Robot — ",
+      "h1Line2": "GLYDE by Taypro",
+      "leadBeforeStrong": "The Taypro GLYDE is an ",
+      "leadStrong": "Automatic Solar Panel Cleaning Robot",
+      "leadAfterStrong": " for utility-scale solar power plants: autonomous, waterless dual-pass cleaning, AI- and ML-driven scheduling, up to 3,600 modules per charge, with fleet connectivity via ",
+      "leadAfterConnectivity": ", and a TÜV NORD–validated build for maximum uptime.",
       "primaryCta": {
-        "topic": "GLYDE見積もり",
-        "title": "GLYDE見積もりを依頼",
-        "subtitle": "プラント情報をお送りください。GLYDEのサイジング・構成・商談オプションをご案内します。",
-        "label": "見積もりを依頼"
+        "topic": "GLYDE quote",
+        "title": "Request a GLYDE quote",
+        "subtitle": "Tell us about your plant and our team will follow up with GLYDE sizing, configuration, and commercial options.",
+        "label": "見積もりを依頼する"
       },
-      "heroImageAlt": "ユーティリティ規模ソーラーファームでパネルを清掃するTaypro GLYDE自動ロボット",
-      "heroImageTitle": "自動ソーラーパネル清掃ロボット GLYDE — Taypro"
+      "heroImageAlt": "Taypro Automatic Solar Panel Cleaning Robot GLYDE cleaning solar panels at utility-scale solar farm",
+      "heroImageTitle": "Automatic Solar Panel Cleaning Robot GLYDE by Taypro"
     },
     "overview": {
-      "eyebrow": "ユーティリティ規模向け自動ソーラーパネル清掃ロボット",
-      "title": "Taypro GLYDE自動清掃ロボットとは",
+      "eyebrow": "Automatic Solar Panel Cleaning Robot for Utility-Scale Plants",
+      "title": "What is the Taypro GLYDE Automatic Solar Panel Cleaning Robot?",
       "p1BeforeStrong": "The ",
-      "p1StrongCategory": "自動ソーラーパネル清掃ロボット",
-      "p1AfterCategory": "は完全自律・無水でモジュールを清掃します。GLYDEはユーティリティ規模の日常清掃向け。1回の走行で",
-      "p1DustClaimStrong": "99%超のホコリ",
-      "p1AfterDustClaim": "をマイクロファイバードラムで除去します。",
-      "methodologyFootnoteAriaSuffix": "（脚注）",
+      "p1StrongCategory": "Automatic Solar Panel Cleaning Robot",
+      "p1AfterCategory": " category describes fully autonomous, waterless robots that clean solar modules without tankers or night crews. Taypro GLYDE is a fully autonomous unit engineered for reliable daily cleaning of utility-scale solar power plants. A single automated run removes over ",
+      "p1DustClaimStrong": "99% of dust",
+      "p1AfterDustClaim": " from the module surface using a rotating, self-cleaning microfiber drum, driving consistent performance ratio gains across the plant (site-dependent).",
+      "methodologyFootnoteAriaSuffix": " (footnote)",
       "methodologyNotice": {
-        "strong": "パフォーマンス数値について：",
-        "body": "本サイトの「99%+」は1パス/サイクルあたりのモジュール表面ホコリ除去を指し、変換効率や総出力の保証ではありません。回復はベースライン汚損・頻度・気象・設計に依存します。Tayproの検証・見積方法は methodology を参照。"
+        "strong": "About performance figures:",
+        "body": "References to \"99%+\" on this site describe dust removed from the module surface per automated pass or cycle, not a guarantee of panel conversion efficiency or total plant output. Recovery of energy lost to soiling depends on baseline soiling, cleaning cadence, weather, and plant design. See our performance & test methodology for how Taypro validates and quotes results."
       },
-      "methodologyLinkText": "パフォーマンス・試験方法論",
-      "methodologyLinkTitle": "パフォーマンス・試験方法論",
+      "methodologyLinkText": "performance & test methodology",
+      "methodologyLinkTitle": "Performance & Test Methodology",
       "p2BeforeStrong": "On a single charge, GLYDE cleans up to ",
       "p2Strong": "2.2 km of running length — approximately 3,600 solar modules",
       "p2AfterStrong": ". Cleaning cycles are best scheduled outside energy production hours and can be programmed remotely, ensuring zero impact on plant generation.",
       "p3": "Advanced edge and obstacle detection allow GLYDE to traverse panels safely without risk of falling, while continuous surface-undulation tracking adjusts motor performance row-by-row for consistent cleaning quality. Real-time battery monitoring guarantees the robot only covers what it can complete and returns safely to its docking station — never stranded mid-array. Lightweight bridges enable seamless movement from one table to the next, keeping coverage uninterrupted across the entire site.",
-      "p4Blog1": "モジュール上で自動清掃ロボットがどう動くか",
-      "p4Blog2": "ユーティリティ規模でのロボット清掃のメリット",
-      "p4Prefix": "関連記事: ",
-      "p4Middle": " および ",
+      "p4Blog1": "how an automatic cleaning robot works on modules",
+      "p4Blog2": "benefits of robotic cleaning at utility scale",
+      "p4Prefix": "さらに読む:",
+      "p4Middle": "そして",
       "p4Suffix": "。"
     },
     "howToSection": {
-      "eyebrow": "自律清掃サイクル",
-      "title": "自動ソーラーパネル清掃ロボットはどう動くか？",
-      "subtitle": "GLYDEは列上でオペレーター不要のエンドツーエンド運転。以下はHowTo構造化データと現場の日常です。",
+      "eyebrow": "Autonomous Cleaning Cycle",
+      "title": "How Does an Automatic Solar Panel Cleaning Robot Work?",
+      "subtitle": "GLYDE runs end-to-end without operators on the row. Below is the same workflow encoded in our HowTo structured data for search engines — and the daily reality at every deployed plant.",
       "steps": {
         "step0": {
-          "name": "各自動ロボットを専用アレイに割当",
-          "text": "各GLYDEは特定アレイに常設され、列横の影のないドックとペア。リチウム充電は外部電源不要で日次自律運転。"
+          "name": "Assign each Automatic Solar Panel Cleaning Robot to a dedicated array",
+          "text": "Each Taypro GLYDE unit is permanently assigned to a specific solar array and paired with a shadow-free docking station beside the row. The integrated lithium-ion charging system requires no external power connection — the robot is self-contained for daily autonomous operation."
         },
         "step1": {
-          "name": "NECTYRでAI/MLスケジューリング",
-          "text": "NECTYRアプリで発電時間外に清掃をスケジュール。AI/MLが気象と発電信号で頻度最適化・雨天スキップ・アラート送信。"
+          "name": "Schedule cleaning from the NECTYR with AI- and ML-driven logic",
+          "text": "Operators use the NECTYR remote monitoring app to schedule cleaning cycles outside energy production hours. AI- and ML-driven scheduling combines real-time weather data with plant performance signals to optimise frequency, skip unnecessary runs during rain, and push alerts for critical conditions."
         },
         "step2": {
-          "name": "ロボットが列へ自律展開",
-          "text": "予定時刻に自律アンドックしフレーム上を走行。エッジ・障害物検知でガラス・セルに荷重なし。"
+          "name": "Robot self-deploys onto the module row",
+          "text": "At the scheduled time, the Automatic Solar Panel Cleaning Robot undocks autonomously and moves onto the solar panel row along the module frame. Advanced edge and obstacle detection continuously map the path ahead so the robot never applies load to the glass or cells."
         },
         "step3": {
-          "name": "自己洗浄マイクロファイバーでデュアルパス無水清掃",
-          "text": "回転自己洗浄ドラムが10–15m/分でデュアルパス乾式清掃 — 1走行99%超、水・洗剤・人手ゼロ。"
+          "name": "Dual-pass waterless cleaning with a self-cleaning microfiber drum",
+          "text": "A rotating, self-cleaning microfiber drum executes a dual-pass dry cleaning cycle that removes over 99% of accumulated dust per automated run at 10–15 metres per minute — with zero water, detergent or manual labour."
         },
         "step4": {
-          "name": "バッテリー認識でドックへ復帰",
-          "text": "リアルタイム監視で完了可能な走行のみ。各サイクル後ドックへ安全復帰・ロック — 最大180km/h風速。"
+          "name": "Battery-aware return to the docking station",
+          "text": "Real-time battery monitoring ensures the Automatic Solar Panel Cleaning Robot only commits to a distance it can complete safely, then autonomously returns to the docking station and locks securely — rated for wind gusts up to 180 km/hr while docked."
         },
         "step5": {
-          "name": "テレメトリとフリート健全性をクラウド同期",
-          "textBeforeConnectivity": "各サイクル後、バッテリー・充電・サイクル・フリート性能をNECTYRへ ",
-          "textAfterConnectivity": " — サイトに最適なリンクを選択 — 全ロボットの監査対応レポート。"
+          "name": "Sync telemetry and fleet health to the cloud",
+          "textBeforeConnectivity": "After each cycle, battery level, charging status, cycle telemetry and overall fleet performance are synced to the NECTYR over ",
+          "textAfterConnectivity": " — pick the link that best fits each site — for audit-ready reporting across every deployed Automatic Solar Panel Cleaning Robot."
         }
       }
     },
     "product360": {
-      "eyebrow": "インタラクティブ製品ツアー",
-      "title": "GLYDEの360°ビュー",
-      "subtitle": "左右にドラッグしてロボットをあらゆる角度から確認",
-      "productLabel": "Taypro GLYDE — 自動ソーラーパネル清掃ロボット"
+      "eyebrow": "インタラクティブな製品ツアー",
+      "title": "360° View of GLYDE",
+      "subtitle": "Drag left or right to rotate and explore our Automatic Solar Panel Cleaning Robot from every angle",
+      "productLabel": "Taypro GLYDE — Automatic Solar Panel Cleaning Robot"
     },
     "usps": {
-      "eyebrow": "GLYDE — 自動ソーラーパネル清掃ロボット",
-      "title": "主な特長",
+      "eyebrow": "MODEL A – Automatic Solar Panel Cleaning Robot",
+      "title": "USPs",
       "items": {
-        "item0": "高い清掃効率（デュアルパス）",
-        "item1": "堅牢で耐久性の高い設計",
-        "item2": "広いカバレッジ（1充電約3,600モジュール）",
-        "item3": "高速清掃",
-        "item4": "エッジ・障害物検知",
-        "item5": "LTE/Wi-Fi/RF mesh/LoRa遠隔監視",
-        "item6": "自己洗浄マイクロファイバー",
-        "item7": "過酷環境向け認証・試験済み"
+        "item0": "Superior Cleaning Efficiency",
+        "item1": "Robust & Durable Design",
+        "item2": "Greater Coverage",
+        "item3": "High-Speed Cleaning",
+        "item4": "Advanced Edge & Obstacle Detection",
+        "item5": "Multi-Link Remote Monitoring (LTE / Wi-Fi / RF mesh / LoRa)",
+        "item6": "Self-Cleaning Technology",
+        "item7": "Certified & Tested for Harsh Conditions"
       }
     },
     "roiBand": {
-      "title": "自動清掃ロボットのコストとROI",
-      "bodyBeforeSpan": "Taypro ",
-      "bodySpan": "GLYDE",
-      "bodyAfterSpan": " — use the ROI calculator for your site."
+      "title": "Automatic solar panel cleaning robot cost & ROI",
+      "bodyBeforeSpan": "Calculate how effective a ",
+      "bodySpan": "solar panel cleaning robot",
+      "bodyAfterSpan": " can be and how much it can save your plant."
     },
     "projects": {
-      "headingLine1": "GLYDE — 自動",
-      "headingLine2": "ソーラーパネル清掃",
-      "headingLine3": "ロボット",
-      "headingLine4": "導入事例",
-      "tagline": "迅速導入と専任技術サポート — 当日故障対応をお約束。",
-      "recentProjectsHeader": "最新プロジェクト"
+      "headingLine1": "Projects with MODEL A – Automatic ",
+      "headingLine2": "Solar Panel Cleaning",
+      "headingLine3": "Robot",
+      "headingLine4": "Installations",
+      "tagline": "We have ensured quick installation and dedicated technical support with a promise of same-day breakdown resolution.",
+      "recentProjectsHeader": "最新のプロジェクト"
     },
     "trustStats": {
-      "eyebrow": "太陽光プラントがTayproを選ぶ理由",
-      "title": "インドの主要ソーラーオペレーターに信頼",
-      "subtitle": "過去10年、Tayproはインドで5,000MW超の太陽光容量のPR改善を支援。",
+      "eyebrow": "Why Solar Plants Choose Taypro",
+      "title": "インドの大手太陽光発電事業者からの信頼",
+      "subtitle": "Over the past decade, Taypro has driven performance-ratio improvement across more than 5,000 MW of solar power plant capacity for leading independent power producers and utility-scale plants across India.",
       "stats": {
         "stat0": {
           "value": "5 GW+",
-          "label": "導入ロボット容量"
+          "label": "導入されたロボットの能力"
         },
         "stat1": {
           "value": "100+",
-          "label": "プラント導入"
+          "label": "プラント設備"
         },
         "stat2": {
           "value": "1.4 Bn",
-          "label": "年間節水量（リットル）"
+          "label": "毎年節約される水のリットル"
         },
         "stat3": {
           "value": "600+",
-          "label": "月間ロボット製造能力"
+          "label": "ロボットの月間生産能力"
         }
       }
     },
     "servicePromise": {
-      "eyebrow": "毎日の運用信頼",
-      "title": "サービス・メンテナンスの約束",
-      "subtitle": "全GLYDE導入は計画保全とSLAでピークPRを維持。",
+      "eyebrow": "毎日の経営の信頼性",
+      "title": "サービスとメンテナンスの約束",
+      "subtitle": "Every Taypro GLYDE deployment is backed by a planned maintenance programme and a guaranteed response SLA so your plant stays at peak performance ratio.",
       "cards": {
         "card0": {
-          "title": "計画予防保全",
-          "body": "予防・是正保全を事前スケジュール — 計画外停止を排除しピーク性能を維持。"
+          "title": "Scheduled Preventive Maintenance",
+          "body": "All preventive and corrective maintenance activities are executed on a pre-scheduled basis, designed to eliminate unplanned downtime and sustain peak operational performance throughout the robot's lifecycle."
         },
         "card1": {
           "title": "即時リモート診断",
-          "body": "インシデント時、NECTYRで即リモート診断 — 多くは現地訪問なしで解決。"
+          "body": "On incident notification, Taypro engineers begin remote diagnostics and troubleshooting immediately via the NECTYR portal — most issues are resolved over-the-air with no site visit required."
         },
         "card2": {
-          "title": "当日オンサイト対応",
-          "body": "現地対応時はインド全国で当日オンサイト故障対応を目標 — NECTYR即時診断付き。"
+          "title": "即日オンサイト介入",
+          "body": "When physical attention is needed, Taypro targets same-day on-site breakdown resolution — available pan-India through Taypro's field service network, with immediate remote diagnostics from NECTYR."
         }
       }
     },
     "callbackCard": {
-      "line1": "自動ソーラーパネル清掃ロボットの",
-      "line2": "オンラインデモを予約"
+      "line1": "Schedule Online Demo For Automatic Solar ",
+      "line2": "パネル清掃ロボット"
     },
     "featuresLongForm": {
-      "mainHeading": "Taypro GLYDE自動清掃ロボットの特長",
+      "mainHeading": "Features of Taypro's Automatic Solar Panel Cleaning Robots: GLYDE",
       "aiCleaning": {
-        "title": "AI対応・無水デュアルパス清掃",
-        "body": "GLYDEはAI/MLと特許デュアルパス — 1走行で99%超、水不要・研磨なし。"
+        "title": "AI-Enabled Waterless Dual-Pass Cleaning",
+        "body": "GLYDE uses AI- and ML-driven cleaning logic with a patented dual-pass mechanism — the first pass loosens dry dust while the second sweeps away sticky residue. The result: over 99% dust removal in a single automated run, without a drop of water and without abrasive contact on the cells or glass."
       },
       "microfiber": {
-        "title": "自己洗浄マイクロファイバードラム",
-        "body": "回転クロスは自己洗浄。フレーム走行でガラス・セルに荷重なし。"
+        "title": "Self-Cleaning Microfiber Drum",
+        "body": "The rotating microfiber cloth is engineered to self-clean as it operates, maintaining peak cleaning efficiency across thousands of modules and extending consumable life. The robot moves along the module frame so no load is ever applied to the glass or solar cells, preserving panel longevity and power output."
       },
       "range": {
-        "title": "広い清掃レンジ",
-        "body": "1充電で最大2.2km（約3,600モジュール）、10–15m/分。追加レール不要。"
+        "title": "Extended Cleaning Range",
+        "body": "GLYDE cleans up to 2.2 km of running length — roughly 3,600 modules — on a single charge, at cleaning speeds of 10–15 m/min. With its lithium-ion battery and integrated charging system, each robot is assigned to a specific array and is deployed quickly without additional railings, across a wide range of panel inclinations and seasonal tilts."
       },
       "battery": {
-        "title": "バッテリー認識自律",
-        "body": "リアルタイム監視で安全ドック復帰。最大180km/h風速。"
+        "title": "Battery-Aware Autonomy",
+        "body": "GLYDE monitors battery level in real time and only commits to a cleaning run it can complete, safely returning to its docking station every cycle. The robot stays securely locked when docked and is designed to withstand wind gusts of up to 180 km/hr at the docking position."
       },
       "weather": {
-        "title": "スマート気象最適化",
-        "body": "風・雨・湿度・ホコリでスケジュール最適化。重大アラートはNECTYRへ。"
+        "title": "Smart Weather Optimization",
+        "body": "The cleaning schedule is continuously optimised against real-time weather data — wind speed, rain probability, humidity and dust events — so cycles run when they will be most effective. Critical-condition alerts are pushed to the remote portal automatically so plant operators never need to react manually."
       },
       "connectivity": {
-        "title": "クラウド遠隔監視",
-        "bodyBeforeStrong": "全GLYDEは",
-        "bodyAfterConnectivityStrong": "に接続。LTE/Wi-Fi、",
-        "bodyBoldMesh": "自己修復RFメッシュ",
-        "bodyAfterMesh": "、または",
+        "title": "クラウド接続のリモート監視",
+        "bodyBeforeStrong": "Every GLYDE robot connects to the NECTYR using ",
+        "bodyAfterConnectivityStrong": ". Deployments can use LTE or Wi-Fi for high-bandwidth telemetry, a ",
+        "bodyBoldMesh": "hybrid self-healing RF mesh",
+        "bodyAfterMesh": " for resilient plant-wide backhaul, or ",
         "bodyBoldLoRa": "LoRa / LoRaWAN",
-        "bodyAfterLoRa": " — NECTYRでフリート管理とドックテレメトリ。"
+        "bodyAfterLoRa": " where low-power, long-range links suit remote blocks. Schedule cleaning cycles, adjust operating parameters and track fleet-wide performance from any device, with docking-station telemetry (battery, charging status, faults) available in real time."
       },
       "edge": {
-        "title": "エッジ・障害物検知",
-        "body": "高精度センサーと段差追従で一貫した清掃品質。"
+        "title": "Edge & Obstacle Detection Technology",
+        "body": "High-precision edge-detection sensors map every panel boundary and continuously scan for obstacles, eliminating any risk of fall. Surface-undulation tracking modulates motor performance row-by-row for consistent cleaning quality even on imperfect installations."
       },
       "build": {
-        "title": "密封フィールド仕様",
-        "body": "電気部品を密封ボディで保護。"
+        "title": "Sealed, Field-Hardened Build",
+        "body": "All electrical components, wiring harnesses and connectors are fully enclosed within a sealed device body, providing robust protection against moisture, dust and environmental contaminants in harsh utility-scale environments."
       }
     },
     "certifications": {
       "eyebrow": "独立したテストおよび認定済み",
       "title": "認証と現場で検証されたテスト",
-      "subtitle": "Taypro の洗浄ソリューションは、認定された太陽光発電分野の試験機関によって実施される、現実的な屋外条件下での毎日の洗浄サイクルをシミュレートする、厳格な現場検証および実験室検証を受けています。",
+      "subtitle": "Every Taypro GLYDE is subjected to rigorous laboratory and field validation by accredited solar-sector testing laboratories, simulating real plant conditions to guarantee long-term reliability.",
       "cards": {
         "card0": {
-          "title": "TÜV NORD Certified",
+          "title": "TÜV NORD認定",
           "body": "Independently tested and certified for IP55 protection and validated for extreme damp-heat and dry-heat performance by TÜV NORD."
         },
         "card1": {
@@ -269,301 +269,300 @@
       }
     },
     "manualVsAutomatic": {
-      "eyebrow": "ロボット対手動清掃",
-      "title": "手動清掃より自動ロボットを選ぶ理由",
-      "subtitle": "手動クルーと水タンカーでは大規模プラントの日次汚損に追いつけません。",
+      "eyebrow": "ロボットによる太陽熱洗浄と手動による太陽熱洗浄",
+      "title": "Why Choose an Automatic Solar Panel Cleaning Robot Over Manual Cleaning?",
+      "subtitle": "Manual cleaning crews, water tankers and ad-hoc schedules cannot keep up with the daily soiling losses on utility-scale solar power plants. An automatic robotic solar cleaning solution is no longer a premium — it's a performance-ratio essential.",
       "tableHeaders": {
         "criterion": "基準",
-        "manual": "手動",
+        "manual": "手動クリーニング",
         "modelA": "Taypro GLYDE"
       },
       "rows": {
         "row0": {
-          "criterion": "清掃頻度",
-          "manual": "週次など",
-          "modelA": "毎日の自動サイクル"
+          "criterion": "掃除の頻度",
+          "manual": "天気がよければ毎週または隔週",
+          "modelA": "Daily automated cycles, weather-aware scheduling"
         },
         "row1": {
-          "criterion": "水",
-          "manual": "多い",
-          "modelA": "ゼロ・無水デュアルパス"
+          "criterion": "水の使用量",
+          "manual": "High — 1.5 to 3 litres of water per module per wash",
+          "modelA": "ゼロ — 完全に水を使わないデュアルパスドライクリーニング"
         },
         "row2": {
-          "criterion": "品質",
-          "manual": "ばらつき",
-          "modelA": "毎回99%超"
+          "criterion": "洗浄品質",
+          "manual": "一貫性がなく、オペレータに依存する",
+          "modelA": "99%+ dust removal in a single automated run, every time"
         },
         "row3": {
-          "criterion": "労務・安全",
-          "manual": "高コスト",
-          "modelA": "夜間自律"
+          "criterion": "労働と安全",
+          "manual": "High labour cost, panel damage risk, night-shift safety risk",
+          "modelA": "Autonomous after-hours operation, no manual intervention"
         },
         "row4": {
-          "criterion": "PR",
-          "manual": "5–25%損失",
-          "modelA": "PR維持・4–8%向上"
+          "criterion": "パフォーマンス比率への影響",
+          "manual": "洗濯ごとに 5 ～ 25% の汚れが蓄積します",
+          "modelA": "毎日の清掃により最高の PR が維持され、植物の収量が 4 ～ 8% 向上します"
         },
         "row5": {
-          "criterion": "パネル安全",
-          "manual": "リスク",
-          "modelA": "フレーム走行のみ"
+          "criterion": "パネルの安全性",
+          "manual": "微小な亀裂、ARC の摩耗、傷の危険性",
+          "modelA": "Robot rides on the module frame — no load on glass or cells"
         },
         "row6": {
-          "criterion": "監視",
-          "manual": "なし",
-          "modelAPrefix": "NECTYR ",
-          "modelASuffix": "で監査証跡"
+          "criterion": "Monitoring & Reporting",
+          "manual": "No telemetry, no cleaning audit trail",
+          "modelAPrefix": "NECTYR via ",
+          "modelASuffix": "; full audit trail"
         },
         "row7": {
-          "criterion": "TCO",
-          "manual": "繰り返し費用",
-          "modelA": "12–18ヶ月回収・20年設計"
+          "criterion": "総所有コスト",
+          "manual": "Recurring water, labour, equipment and downtime costs",
+          "modelA": "One-time investment, 12–18 month payback, 20-year design life"
         }
       }
     },
     "indianConditions": {
-      "eyebrow": "インドの条件向け設計",
-      "title": "インドのユーティリティ規模プラント向け",
-      "subtitle": "ラージャスタンの砂嵐、グジャラートの暑さ、カルナータカの湿度、タミル・ナードゥのモンスーン向け。",
+      "eyebrow": "インドの状況に合わせて設計",
+      "title": "Built for Indian Utility-Scale Solar Plants",
+      "subtitle": "Rajasthan dust storms, Gujarat heat, Karnataka humidity and Tamil Nadu monsoons — Taypro GLYDE is engineered, tested and deployed for the realities of large-scale Indian solar O&M, not generic Western field conditions.",
       "cards": {
         "card0": {
-          "title": "高汚損地域での性能",
-          "body": "ラージャスタン・グジャラート等で8–25%汚損損失には毎日のロボット清掃が最適。"
+          "title": "汚れの多い地域のパフォーマンス",
+          "body": "Daily robotic cleaning is the only economical way to neutralise the soiling losses (often 8–25%) typical of Indian utility-scale plants in Rajasthan, Gujarat, Madhya Pradesh and Maharashtra."
         },
         "card1": {
-          "title": "温度・湿度耐性",
-          "body": "最大90°C、TÜV NORD耐湿熱・乾熱認証 — インドの季節サイクル。"
+          "title": "温度と湿度の耐性",
+          "body": "Validated for operating temperatures up to 90°C and certified by TÜV NORD for damp-heat and dry-heat performance — proven across Indian summer, monsoon and post-monsoon cycles."
         },
         "card2": {
-          "title": "無水 — 水不足地域でも",
-          "body": "水不足地域ではGLYDEが水をO&Mから排除。"
+          "title": "Waterless — Even in Water-Scarce States",
+          "body": "Many Indian solar farms are in water-stressed districts where allocations for module washing are tightening. GLYDE's waterless dual-pass cleaning removes water entirely from your O&M plan and frees water tankers for higher-priority use."
         },
         "card3": {
-          "title": "インド全国サービス網",
-          "body": "NECTYR即時診断と当日オンサイト — 地域スペアとAMC。"
+          "title": "全インドサービスネットワーク",
+          "body": "地域の予備在庫と構造化された AMC プログラムに裏付けられた、NECTYR からの即時リモート診断により、インド全土で同日オンサイト故障を解決します。"
         }
       },
-      "crossSellLead": "関連O&Mは ",
-      "linkModelB": "半自動清掃ロボット（HELYX）",
+      "crossSellLead": "隣接する太陽光発電の O&M ニーズを検討していますか?を探索してください",
+      "linkModelB": "Semi-Automatic Solar Cleaning Robot (HELYX)",
       "linkBetweenBAndT": "、",
-      "linkModelT": "単軸トラッカーロボット（GLYDE-X）",
+      "linkModelT": "fixed and seasonal-tilt Cleaning Robot (GLYDE)",
       "linkBetweenTAndOpex": "、",
-      "linkOpex": "Taypro OPEX清掃サービス",
-      "linkBetweenOpexAndConsole": " または ",
+      "linkOpex": "Taypro OPEX クリーニング サービス",
+      "linkBetweenOpexAndConsole": "または",
       "linkConsole": "NECTYR監視アプリ",
       "crossSellSuffix": "。"
     },
     "specifications": {
-      "titleLine1": "自動ソーラーパネル清掃ロボット ",
-      "titleLine2": "GLYDE仕様",
+      "titleLine1": "Automatic Solar Panel Cleaning Robot ",
+      "titleLine2": "GLYDE Specifications",
       "tableHeaders": {
         "spec": "仕様",
-        "details": "詳細"
+        "details": "Details"
       },
       "rows": {
         "dimensions": {
-          "spec": "寸法",
-          "details": "750 mm × 4800 mm"
+          "spec": "Dimensions",
+          "details": "750mm×4800mm"
         },
         "cleaningMethod": {
-          "spec": "清掃方式",
-          "details": "無水"
+          "spec": "洗浄方法",
+          "details": "Waterless"
         },
         "cleaningType": {
-          "spec": "清掃タイプ",
-          "details": "デュアルパス"
+          "spec": "Cleaning Type",
+          "details": "Dual-Pass Cleaning"
         },
         "cleaningMaterial": {
-          "spec": "清掃材",
-          "details": "マイクロファイバー"
+          "spec": "洗浄剤",
+          "details": "Microfiber Cloth"
         },
         "cleaningSpeed": {
-          "spec": "清掃速度",
-          "details": "10–15 m/分"
+          "spec": "洗浄速度",
+          "details": "10 ～ 15 メートル/分"
         },
         "maxRunningLength": {
-          "spec": "最大走行長",
-          "details": "最大2.2km"
+          "spec": "Max. Running Length",
+          "details": "2.2 km まで"
         },
         "recommendedRunningLength": {
-          "spec": "推奨走行長",
+          "spec": "Recommended Running Length",
           "details": "1.6 km"
         },
         "windDocking": {
-          "spec": "ドック時耐風",
-          "details": "180 km/hr"
+          "spec": "Wind Speed Resistance at Docking",
+          "details": "180 km/時間"
         },
         "windOperation": {
-          "spec": "稼働時耐風",
-          "details": "40 km/hr"
+          "spec": "Wind Speed Resistance in Operation",
+          "details": "40 km/時間"
         },
         "maxTilt": {
-          "spec": "最大モジュール傾斜",
+          "spec": "Max. Module Tilt",
           "details": "45°"
         },
         "maxTemp": {
-          "spec": "最大稼働温度",
-          "details": "90°C"
+          "spec": "Max. Operating Temperature",
+          "details": "90℃"
         },
         "maxSlope": {
-          "spec": "最大東西勾配",
+          "spec": "Max. East-West Slope",
           "details": "15°"
         },
         "maxUndulation": {
-          "spec": "最大モジュールうねり",
-          "details": "+20 mm"
+          "spec": "Max. Module Undulation",
+          "details": "+20mm"
         },
         "ipRating": {
           "spec": "IP Rating",
           "details": "IP65"
         },
         "corrosion": {
-          "spec": "腐食クラス",
+          "spec": "Corrosion Class",
           "details": "C3"
         },
         "battery": {
-          "spec": "バッテリー種別",
+          "spec": "Battery Type",
           "details": "リチウムイオン"
         },
         "connectivity": {
-          "spec": "接続（NECTYR）",
-          "details": "LTE、Wi-Fi、自己修復RFメッシュ、LoRa、LoRaWAN"
+          "spec": "接続 (Taypro コンソール)",
+          "details": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN"
         },
         "designLife": {
-          "spec": "設計寿命",
+          "spec": "デザインライフ",
           "details": "20年"
         },
         "weight": {
-          "spec": "重量",
-          "details": "45 kg"
+          "spec": "Weight",
+          "details": "45 Kg"
         }
       }
     },
     "advantagesSection": {
-      "heading": "自動清掃ロボットの利点",
+      "heading": "Advantages of Using Automatic Solar Panel Cleaning Robots",
       "energy": {
-        "title": "エネルギー効率向上",
-        "body": "ホコリ除去で発電効率が向上。"
+        "title": "Increased Energy Efficiency",
+        "body": "Automatic solar panel cleaning robots can significantly increase the efficiency of solar power plants. By cleaning the dust and debris consistently, the overall power generation is improved."
       },
       "waterless": {
-        "title": "無水清掃",
-        "body": "GLYDEは水なしで最大99.5%除去 — 水不足地域に最適。"
+        "title": "Waterless Cleaning",
+        "body": "GLYDE removes up to 99.5% dust and debris without water requirement. This makes it a perfect option in the regions where there is greater water scarcity."
       },
       "autonomous": {
-        "title": "完全自律・スマート運転",
-        "body": "統合AI-ML — 人手不要。"
+        "title": "Fully Autonomous & Smart Operation",
+        "body": "GLYDE is a fully autonomous robot with integrated AI-ML technology that gives smart operation. There is no human intervention required to operate the robots."
       },
       "cost": {
-        "title": "コスト効率の高いソリューション",
-        "body": "繰返し人件費を削減しROI最大化。"
+        "title": "Cost-Effective Solution",
+        "body": "GLYDE eliminates the recurring labour and operation costs and gives maximum return on investment. Its efficient cleaning technology ensures long-term savings."
       },
       "safe": {
-        "title": "安全で信頼できる運転",
-        "body": "高精度エッジセンサーが段差と危険を検知。"
+        "title": "Safe and Reliable Operation",
+        "body": "GLYDE built-in advanced high-precision edge detection sensors that detect the panel edges. These sensors can detect uneven surfaces and other potential hazards."
       }
     },
     "installSection": {
-      "title": "自動ロボットの設置にはどのくらい？",
-      "p1": "既存レイアウト変更不要。GLYDEはパネルフレーム上を走行。",
-      "p2": "数時間から数日 — ドック、キャリブレーション、統合。",
-      "p3": "大規模は数日〜1週間。Tayproは当日故障対応。",
-      "p4": "GLYDEはTayproのスケーラブルで安全な導入ソリューション。"
+      "title": "How Long Does It Take to Install the Automated Solar Panel Cleaning Robots?",
+      "p1": "The installation of the Solar Panel Cleaning Robot requires no modifications to the existing solar plant layout. The GLYDE Automated Solar Panel Cleaning Robot is designed to operate directly on the panel frame.",
+      "p2": "The installation typically takes a few hours to a couple of days depending on the size of the solar plant. The solar panel cleaning robot installation process involves the placement of a docking station, configuration and calibration, and system integration.",
+      "p3": "For large-scale solar power plants, the installation may take from a few days to a week depending on the complexity of the layout. After the installation, the robots operate autonomously and do not need any manual intervention. TAYPRO provides complete dedicated support and assures the same-day breakdown resolution.",
+      "p4": "TAYPRO GLYDE robots offer cost-effective and scalable solutions for solar power plants with easy installations and safe operations."
     },
     "roiSection": {
-      "title": "Taypro GLYDE自動ロボットのROIは？",
-      "p1": "GLYDEは発電増とO&M削減で高いROI。",
-      "p2BeforeLink": "多くのサイトで1年以内に回収。",
-      "roiCalculatorLink": "ROI計算機",
-      "p2AfterLink": "で試算してください。"
+      "title": "What Is the ROI for Installing the Taypro GLYDE Automatic Solar Panel Cleaning Robot?",
+      "p1": "TAYPRO's GLYDE Automatic Solar Panel Cleaning Robot delivers a high return on investment ROI by significantly increasing power generation.",
+      "p2BeforeLink": "Also, GLYDE reduces operational cleaning costs and offers long-term financial benefits. The initial investment is quickly recovered within one year, making it an effective and sustainable investment. You can calculate the ROI on Solar Panel Cleaning Robots by using the ",
+      "roiCalculatorLink": "ROI Calculator",
+      "p2AfterLink": ""
     },
     "cycleNarrative": {
-      "title": "GLYDE清掃サイクル — ステップごと",
+      "title": "Inside a GLYDE cleaning cycle — step by step",
       "steps": {
-        "s0": "⦿ 起動時にセンサー初期化し中央監視との接続を確認",
-        "s1": "⦿ リモートポータルで清掃スケジュール事前設定 — 完全自動運転",
-        "s2": "⦿ 走行モーターがフレーム上を案内",
-        "s3": "⦿ ブラシモーターが無水デュアルパスマイクロファイバー清掃を開始",
-        "s4": "⦿ エッジセンサーが常時周囲をスキャンしパネル端を超えない",
-        "s5": "⦿ NECTYRから清掃速度・方向を調整",
-        "s6": "⦿ サイクル完了後ドックで充電し次回スケジュールまで待機",
-        "s7": "⦿ 高度故障検知がパラメータを継続分析",
-        "s8": "⦿ 障害物検知・自己洗浄マイクロファイバー・適応ナビで安全運転"
+        "s0": "⦿ The robot initialises its sensors on the activation and performs the system checks connectivity with the central monitoring system",
+        "s1": "⦿ The cleaning schedule is pre-set via a remote monitoring portal which enables fully automated operation",
+        "s2": "⦿ The locomotion motor powers the movement and guides the robot along the solar panel frames",
+        "s3": "⦿ The cleaning brush motor starts and enables the waterless dual-pass cleaning technology with a microfiber cloth",
+        "s4": "⦿ The edge detection sensors continually scan the surroundings which prevents the robot from overshooting the panel edges",
+        "s5": "⦿ Users can adjust the cleaning speed and direction from the TAYPRO console",
+        "s6": "⦿ Once the cleaning cycle is complete, the robot returns to its docking station, where it recharges using solar energy and remains idle until the next scheduled cycle.",
+        "s7": "⦿ Advanced fault detection systems continuously analyse the robot parameters and if in case of any",
+        "s8": "⦿ The system ensures safe and efficient operations with features like obstacle detection, self-cleaning microfiber and adaptive navigation."
       }
     },
     "faq": {
-      "title": "よくある質問",
+      "title": "FAQs",
       "sharedFromData": {
         "item0": {
-          "question": "設置後のメンテナンスは誰が？",
-          "answer": "NECTYRで遠隔監視。Tayproが技術サポート。"
+          "question": "Who looks after the Automatic Solar Panel Cleaning System after Installation?",
+          "answer": "After installation, the system can be remotely monitored and controlled through the TAYPRO console. The TAYPRO team provides technical support and troubleshooting issues."
         },
         "item1": {
-          "question": "清掃に水は必要？",
-          "answer": "いいえ。GLYDEは無水と回転マイクロファイバー。"
+          "question": "Does the automatic solar module cleaning system require water for cleaning?",
+          "answer": "No, the TAYPRO GLYDE operates using waterless cleaning technology. It uses a rotating microfiber cloth to remove the dust and debris efficiently."
         },
         "item2": {
-          "question": "メンテナンス頻度は？",
-          "answer": "自己洗浄と故障検知で最小限。"
+          "question": "How often does the Automatic Solar Panel Cleaning Robot need to be maintained?",
+          "answer": "The TAYPRO GLYDE requires minimal maintenance due to its self-cleaning microfiber cloth and automated fault detection system."
         },
         "item3": {
-          "question": "清掃スケジュールは？",
-          "answer": "発電時間外 — 発電損失回避。"
+          "question": "What Is the Cleaning Schedule Followed by the Automatic Solar Cleaning Robots?",
+          "answer": "The robots operate after solar energy production hours to avoid power loss and optimise the cleaning efficiency."
         },
         "item4": {
-          "question": "TayproはAMCを提供？",
-          "answer": "はい — 定期保全、リアルタイム監視、当日オンサイト。"
+          "question": "Does Taypro Provide AMC for Solar Panel Cleaning?",
+          "answer": "Yes, TAYPRO offers AMC services for its solar panel cleaning services The AMC includes regular maintenance, real-time monitoring and onsite support targeting same-day resolution to ensure continuous operation."
         },
         "item5": {
-          "question": "外部電源は必要？",
-          "answer": "いいえ。GLYDEは自律バッテリー。"
+          "question": "Does the Automatic Solar Panel Cleaning Robot require an external power connection?",
+          "answer": "No, TAYPRO's GLYDE does not require an external power connection. It is self -powered system."
         },
         "item6": {
-          "question": "ロボット管理は？",
-          "answer": "NECTYRポータルでスケジュール・速度・フリート。"
+          "question": "How Do You Manage the Functioning of Automatic Solar Panel Cleaning Robots?",
+          "answer": "The cleaning robots are managed through a remote monitoring portal which allows users to schedule cleaning cycles, adjust speed and monitor system performance."
         }
       },
       "modelASpecific": {
         "item0": {
-          "question": "GLYDEのようなロボットの価格は？",
-          "answer": "規模・レイアウト・地形次第。多くは12–18ヶ月回収。見積を。"
+          "question": "How much does an Automatic Solar Panel Cleaning Robot like GLYDE cost?",
+          "answer": "Pricing for the Taypro GLYDE Automatic Solar Panel Cleaning Robot depends on plant size, panel layout, terrain and the level of integration with your existing monitoring stack. For most utility-scale projects, the robotic cleaning investment pays back inside 12–18 months through higher generation, lower water consumption and reduced manual labour costs. Request a quote from our team to receive a site-specific cost estimate and a detailed ROI calculation."
         },
         "item1": {
-          "question": "自動ロボットのROIは？",
-          "answer": "多尘サイトでPR 4–8%改善。20年設計寿命。"
+          "question": "What is the ROI of installing an Automatic Solar Panel Cleaning Robot?",
+          "answer": "Robotic dry cleaning typically lifts solar plant performance ratio (PR) by 4–8% on dusty sites by maintaining higher module transmissivity day-on-day. Combined with the elimination of water tankers, manual labour and unsafe night-shift cleaning, most Taypro GLYDE deployments achieve full ROI within 12–18 months and continue to compound returns through the 20-year design life of the robot."
         },
         "item2": {
-          "question": "GLYDE、HELYX、GLYDE-Xの違いは？",
-          "answer": "GLYDEは固定向け完全自律。HELYXは半自動。GLYDE-Xは単軸。全てNECTYR。"
+          "question": "What is the difference between GLYDE, HELYX and GLYDE?",
+          "answer": "GLYDE is a fully autonomous Solar Panel Cleaning Robot for utility-scale fixed-tilt and seasonal-tilt installations. HELYX is a semi-automatic, pick-and-place portable robot for scattered or smaller plants. GLYDE is purpose-built for fixed and seasonal-tilt installations with a flexible 360° rotational bridge. All three are waterless, AI-driven, and managed from the same NECTYR portal."
         },
         "item3": {
-          "question": "ロボット清掃はモジュールに安全？",
-          "answer": "はい — フレームのみ、非研磨、独立試験済み。"
+          "question": "Is robotic solar panel cleaning safe for the modules?",
+          "answer": "Yes. Taypro GLYDE moves only along the module frame so no load is ever applied to the glass or solar cells. The rotating microfiber drum is non-abrasive, and every robot is independently tested for micro-crack formation, optical reflectance loss and Anti-Reflective Coating (ARC) preservation under simulated daily cleaning cycles by accredited solar-sector testing laboratories."
         },
         "item4": {
-          "question": "GLYDEの清掃頻度は？",
-          "answer": "多くのインドプラントで毎日夜間サイクルが最適。NECTYR気象スケジューラ。"
+          "question": "How often should solar panels be cleaned with GLYDE?",
+          "answer": "For most Indian utility-scale plants, a daily automated cleaning cycle delivers the best performance-ratio outcome — GLYDE is designed to run every night or post-production-hours without consuming water or manpower. Sites in extremely dusty regions or near construction zones may schedule additional cycles, while sites with frequent rainfall can dynamically reduce cycles via the weather-aware scheduler in the NECTYR."
         },
         "item5": {
-          "question": "GLYDEはインドの季節・暑さ・砂嵐に対応？",
-          "answer": "はい — 90°C、IP65、TÜV NORD、砂嵐試験、ドック180km/h。"
+          "question": "Does Taypro GLYDE work in Indian monsoon, summer heat and dust-storm conditions?",
+          "answer": "Yes. GLYDE is engineered for harsh Indian utility-scale conditions: operating temperatures up to 90°C, IP65 sealed enclosure, TÜV NORD-certified IP55 protection, and field-validated under simulated sandstorm cycles of 10 g/m² per event for 12 events per year. The robot self-docks and locks securely at wind gusts of up to 180 km/hr and pauses cleaning at unsafe wind speeds in operation."
         },
         "item6": {
-          "question": "既存プラントに後付け可能？",
-          "answer": "はい — 追加レール・構造変更なし。アレイごとにバッテリーとドック。"
+          "question": "Can GLYDE be retrofitted to existing solar plants without modifying the panels?",
+          "answer": "Yes. GLYDE requires no additional railings, no modification to the existing solar module mounting structure, and no external power supply. Each robot is assigned to a specific array, runs on its own lithium-ion battery and self-charging docking station, and can be deployed across different panel inclinations and seasonal tilts with minimal site disruption."
         }
       }
     },
     "modelCards": {
-      "title": "Looking for more solutions?",
+      "title": "さらにソリューションをお探しですか?",
       "cardLabels": {
-        "modelB": "HELYX",
-        "modelT": "GLYDE-X"
+        "modelB": "BR0トークン",
+        "modelT": "BR0トークン"
       },
       "cardTitleTemplate": "{label} Solar Panel Cleaning Robot"
     }
   },
   "Common": {
-    "breadcrumbHome": "ホーム",
-    "connectivitySummary": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN"
+    "breadcrumbHome": "Home"
   }
 }

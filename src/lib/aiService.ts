@@ -222,20 +222,77 @@ export type GeneratedBlogContent = {
   faqs: BlogFaqItem[];
 };
 
+export type GenerateBlogContentOptions = {
+  /** Outline, angle, or requirements from the admin author */
+  userBrief?: string;
+  /** First entry = primary SEO keyword; rest = secondary terms */
+  focusedKeywords?: string[];
+};
+
+function formatFocusedKeywordsBlock(
+  keywords: string[],
+  kind: "blog" | "project" = "blog"
+): string {
+  const cleaned = keywords.map((k) => k.trim()).filter(Boolean);
+  if (!cleaned.length) return "";
+
+  const [primary, ...related] = cleaned;
+  const relatedLine = related.length
+    ? `- Secondary keywords: ${related.join(", ")}\n`
+    : "";
+  const placement =
+    kind === "project"
+      ? "title, meta description, overview details, and at least one H2"
+      : "title, meta description, first 100 words, at least one H2, and at least 2 FAQ questions";
+
+  return `FOCUS KEYWORDS (admin-provided — prioritize for SEO; satisfy reader intent first):
+- Primary keyword: "${primary}"
+${relatedLine}- Work the primary phrase in: ${placement}.
+- Use secondary terms naturally in H2/H3 and body — do NOT keyword-stuff.
+`;
+}
+
+const PROJECT_CASE_STUDY_RULES = `PROJECT CASE STUDY (not a blog article):
+- Write as a Taypro deployment / reference project page: site facts, soiling context, cleaning approach, outcomes.
+- Word count: 1,000–1,800 words in "content" (minimum 900; no filler).
+- Structure: 4–7 H2 sections (e.g. Site overview, Challenge, Taypro solution, Implementation, Results, What this means for similar plants).
+- Include specific plant-scale signals: MW capacity, state/region in India, tracker/fixed-tilt if known from the brief, cleaning mode (automatic / semi-automatic / manual assist).
+- "details" array: 4–8 short overview chips (2–8 words each) shown on the project card — e.g. "250 MW", "Madhya Pradesh", "Automatic cleaning", "Utility-scale".
+- If the brief names a real location or capacity, use those exactly; otherwise use plausible utility-scale India ranges and label assumptions generically.
+- Include 1–2 internal links to Taypro product pages (relative hrefs like href="/solar-panel-cleaning-system").
+- End with a short "Key outcomes" or "Why this matters" H2 with 3–5 bullets.
+- Do NOT invent client names, exact ROI percentages, or Taypro specs not in the knowledge base.`;
+
 export async function generateBlogContent(
   topic: string,
   _category: string,
   seoBrief?: SeoKeywordBrief | null,
-  editorialContext?: string
+  editorialContext?: string,
+  options?: GenerateBlogContentOptions
 ): Promise<GeneratedBlogContent> {
   const productKnowledge = getProductKnowledgeBase();
   const seoBlock = seoBrief ? `\n${formatSeoPromptBlock(seoBrief)}\n` : "";
   const editorial =
     editorialContext ?? (await formatEditorialContextPrompt());
+  const userBrief = options?.userBrief?.trim();
+  const briefBlock = userBrief
+    ? `
+AUTHOR BRIEF (follow closely — audience, angle, must-cover points, tone):
+${userBrief}
+`
+    : "";
+  const focusedKeywordBlock = formatFocusedKeywordsBlock(
+    options?.focusedKeywords ?? [],
+    "blog"
+  );
+  const primaryKeyword =
+    options?.focusedKeywords?.[0]?.trim() || seoBrief?.primary;
 
   const prompt = `You are an expert content writer specializing in solar panel cleaning robots and solar power plant operations & maintenance. Write a comprehensive, SEO-optimized blog post about: ${topic}
 
 ${editorial}
+${briefBlock}
+${focusedKeywordBlock}
 ${seoBlock}
 CRITICAL: Product/Service Information Accuracy
 - ONLY use the following verified information about Taypro products/services. DO NOT invent or hallucinate any features, specifications, or capabilities.
@@ -324,7 +381,7 @@ FAQ rules for the "faqs" array:
     }
 
     if (
-      isTooGenericTitle(blogData.title, seoBrief?.primary) ||
+      isTooGenericTitle(blogData.title, primaryKeyword) ||
       isTooGenericDescription(blogData.description)
     ) {
       throw new Error(
@@ -342,6 +399,133 @@ FAQ rules for the "faqs" array:
     console.error("Error generating blog content:", error);
     throw new Error(
       error instanceof Error ? error.message : "Failed to generate blog content"
+    );
+  }
+}
+
+export type GeneratedProjectContent = {
+  title: string;
+  description: string;
+  details: string[];
+  content: string;
+};
+
+export type GenerateProjectContentOptions = {
+  userBrief?: string;
+  focusedKeywords?: string[];
+};
+
+function normalizeProjectDetails(input: unknown): string[] {
+  if (!Array.isArray(input)) return [];
+  return input
+    .map((item) => (typeof item === "string" ? item.trim() : ""))
+    .filter(Boolean)
+    .slice(0, 10);
+}
+
+export async function generateProjectContent(
+  topic: string,
+  editorialContext?: string,
+  options?: GenerateProjectContentOptions
+): Promise<GeneratedProjectContent> {
+  const productKnowledge = getProductKnowledgeBase();
+  const editorial =
+    editorialContext ?? (await formatEditorialContextPrompt());
+  const userBrief = options?.userBrief?.trim();
+  const briefBlock = userBrief
+    ? `
+AUTHOR BRIEF (follow closely — site facts, deployment story, must-cover points):
+${userBrief}
+`
+    : "";
+  const focusedKeywordBlock = formatFocusedKeywordsBlock(
+    options?.focusedKeywords ?? [],
+    "project"
+  );
+  const primaryKeyword = options?.focusedKeywords?.[0]?.trim();
+
+  const prompt = `You are an expert writer for Taypro, a solar panel cleaning robot company. Write a detailed project case study page for: ${topic}
+
+${editorial}
+${briefBlock}
+${focusedKeywordBlock}
+CRITICAL: Product/Service Information Accuracy
+- ONLY use verified Taypro product information from this knowledge base:
+
+${productKnowledge}
+
+- DO NOT invent model numbers, client names, or unverified performance claims.
+
+${ANTI_GENERIC_WRITING_RULES}
+${SEO_AND_READER_RULES}
+${PROJECT_CASE_STUDY_RULES}
+- Use this working title unless you can improve it with specific location/capacity: "${topic}"
+- The JSON "title" should include capacity or location when the brief provides them (e.g. "Agar, Madhya Pradesh – 250 MW").
+
+Format "content" as clean HTML with <p>, <h2>, <h3>, <ul>, <ol>.
+
+Return ONLY valid JSON:
+{
+  "title": "Project title with location and/or MW (SEO-friendly)",
+  "description": "Meta description (140-160 characters, specific outcome)",
+  "details": ["250 MW", "Madhya Pradesh", "Automatic cleaning", "Utility-scale"],
+  "content": "<p>Case study HTML...</p>"
+}`;
+
+  try {
+    const text = await generateText(prompt);
+
+    let projectData: {
+      title: string;
+      description: string;
+      details?: unknown;
+      content: string;
+    };
+    try {
+      projectData = JSON.parse(text);
+    } catch {
+      const jsonMatch = text.match(/\{[\s\S]*\}/);
+      if (jsonMatch) {
+        projectData = JSON.parse(jsonMatch[0]);
+      } else {
+        throw new Error("Could not parse JSON from AI response");
+      }
+    }
+
+    if (!projectData.title || !projectData.description || !projectData.content) {
+      throw new Error(
+        "AI response missing required fields (title, description, content)"
+      );
+    }
+
+    const details = normalizeProjectDetails(projectData.details);
+    if (details.length < 3) {
+      throw new Error(
+        "AI response must include at least 3 overview details in the details array"
+      );
+    }
+
+    if (
+      isTooGenericTitle(projectData.title, primaryKeyword) ||
+      isTooGenericDescription(projectData.description)
+    ) {
+      throw new Error(
+        "Generated title or meta description was too generic; retry generation"
+      );
+    }
+
+    return {
+      title: projectData.title.trim(),
+      description: projectData.description.trim(),
+      details,
+      content: projectData.content.trim(),
+    };
+  } catch (error) {
+    console.error("Error generating project content:", error);
+    throw new Error(
+      error instanceof Error
+        ? error.message
+        : "Failed to generate project content"
     );
   }
 }

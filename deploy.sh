@@ -120,6 +120,8 @@ echo ""
 
 # Step 2: Sync code (exclude production data)
 echo -e "${YELLOW}📤 Step 2: Syncing code files...${NC}"
+echo -e "${YELLOW}  Building maintenance page (embedded logo & assets)...${NC}"
+node "$LOCAL_PATH/scripts/build-maintenance-html.mjs"
 rsync -avz --checksum --delete \
     --exclude 'node_modules' \
     --exclude '.next' \

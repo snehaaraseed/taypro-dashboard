@@ -9,7 +9,13 @@ import {
 
 /**
  * POST — translate all published English blogs and/or projects.
- * Body: { blogs?: boolean, projects?: boolean, force?: boolean, limit?: number }
+ * Body: {
+ *   blogs?: boolean,
+ *   projects?: boolean,
+ *   force?: boolean,
+ *   limit?: number,
+ *   slugs?: string[] — only these blog slugs (must be published English)
+ * }
  */
 export async function POST(request: NextRequest) {
   const authResponse = await requireAuth(request);
@@ -21,6 +27,7 @@ export async function POST(request: NextRequest) {
       projects?: boolean;
       force?: boolean;
       limit?: number;
+      slugs?: string[];
     };
 
     const doBlogs = body.blogs !== false;
@@ -28,6 +35,9 @@ export async function POST(request: NextRequest) {
     const force = Boolean(body.force);
     const limit =
       typeof body.limit === "number" && body.limit > 0 ? body.limit : undefined;
+    const slugFilter = Array.isArray(body.slugs)
+      ? body.slugs.filter((s): s is string => typeof s === "string" && s.length > 0)
+      : undefined;
 
     const summary: {
       blogs: Awaited<ReturnType<typeof translatePublishedBlog>>[];
@@ -35,7 +45,8 @@ export async function POST(request: NextRequest) {
     } = { blogs: [], projects: [] };
 
     if (doBlogs) {
-      let slugs = await listEnglishBlogSlugs();
+      let slugs =
+        slugFilter?.length ? slugFilter : await listEnglishBlogSlugs();
       if (limit) slugs = slugs.slice(0, limit);
       for (const slug of slugs) {
         summary.blogs.push(await translatePublishedBlog(slug, { force }));

@@ -254,9 +254,18 @@ export default function NewProjectPage() {
           Back
         </button>
 
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">
-          Create New Project
-        </h1>
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold text-gray-900">
+            Create New Project
+          </h1>
+          <button
+            type="button"
+            onClick={() => router.push("/admin/projects/generate")}
+            className="mt-2 text-sm text-blue-600 hover:text-blue-800"
+          >
+            Generate with AI instead →
+          </button>
+        </div>
 
         {message && (
           <div

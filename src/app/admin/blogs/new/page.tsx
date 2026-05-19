@@ -209,9 +209,18 @@ export default function NewBlogPage() {
   return (
     <div className="bg-white rounded-lg shadow-lg p-8">
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-semibold text-[#052638]">
-          Create New Blog
-        </h1>
+        <div>
+          <h1 className="text-3xl font-semibold text-[#052638]">
+            Create New Blog
+          </h1>
+          <button
+            type="button"
+            onClick={() => router.push("/admin/blogs/generate")}
+            className="mt-2 text-sm text-blue-600 hover:text-blue-800"
+          >
+            Generate with AI instead →
+          </button>
+        </div>
         <button
           type="button"
           onClick={() => router.back()}

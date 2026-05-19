@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import {
+  summarizeBlogsBackfillResults,
   summarizeTranslateBlogResults,
   translateBlogAllLocales,
+  translateBlogsBackfill,
 } from "@/app/admin/utils/translate-blog";
 
 interface Blog {
@@ -29,6 +31,7 @@ export default function AdminBlogsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [deleteLoading, setDeleteLoading] = useState<string | null>(null);
   const [translateLoading, setTranslateLoading] = useState<string | null>(null);
+  const [translateAllLoading, setTranslateAllLoading] = useState(false);
 
   useEffect(() => {
     fetchBlogs();
@@ -72,6 +75,41 @@ export default function AdminBlogsPage() {
       alert(e instanceof Error ? e.message : "Translation failed");
     } finally {
       setTranslateLoading(null);
+      void fetchBlogs();
+    }
+  };
+
+  const outOfSyncSlugs = blogs
+    .filter((b) => b.published !== false && !b.translationsSynced)
+    .map((b) => b.slug);
+
+  const handleTranslateAll = async () => {
+    if (outOfSyncSlugs.length === 0) {
+      alert("All published blogs are already translated for every language.");
+      return;
+    }
+    if (
+      !confirm(
+        `Translate ${outOfSyncSlugs.length} published blog(s) into hi, ar, ja, and bn using Gemini?\n\nThis can take several minutes. If quota is exceeded, failed locales are queued and retried hourly by the server cron (or run "Translate all" again).`
+      )
+    ) {
+      return;
+    }
+    setTranslateAllLoading(true);
+    try {
+      const data = await translateBlogsBackfill({ slugs: outOfSyncSlugs });
+      const stillFailed = data.summary.blogs.filter((b) =>
+        b.results.some((r) => !r.success)
+      );
+      alert(
+        stillFailed.length === 0
+          ? `Bulk translation finished.\n\n${summarizeBlogsBackfillResults(data)}`
+          : `Bulk translation finished with errors (often quota). Re-run "Translate all" after the daily limit resets.\n\n${summarizeBlogsBackfillResults(data)}`
+      );
+    } catch (e) {
+      alert(e instanceof Error ? e.message : "Bulk translation failed");
+    } finally {
+      setTranslateAllLoading(false);
       void fetchBlogs();
     }
   };
@@ -122,12 +160,35 @@ export default function AdminBlogsPage() {
     <div>
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-semibold text-[#052638]">Blogs</h1>
-        <div className="flex gap-3">
+        <div className="flex gap-3 flex-wrap">
+          <button
+            type="button"
+            onClick={handleTranslateAll}
+            disabled={translateAllLoading || outOfSyncSlugs.length === 0}
+            className="bg-sky-600 hover:bg-sky-700 disabled:opacity-50 disabled:cursor-not-allowed text-white px-6 py-2 rounded-md transition-colors"
+            title={
+              outOfSyncSlugs.length === 0
+                ? "All published blogs are in sync"
+                : `Translate ${outOfSyncSlugs.length} blog(s) missing hi/ar/ja/bn`
+            }
+          >
+            {translateAllLoading
+              ? "Translating all…"
+              : outOfSyncSlugs.length > 0
+                ? `Translate all (${outOfSyncSlugs.length})`
+                : "Translate all"}
+          </button>
           <button
             onClick={() => router.push("/admin/authors")}
             className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-md transition-colors"
           >
             Manage Authors
+          </button>
+          <button
+            onClick={() => router.push("/admin/blogs/generate")}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md transition-colors"
+          >
+            Generate with AI
           </button>
           <button
             onClick={() => router.push("/admin/blogs/new")}
