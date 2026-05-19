@@ -35,7 +35,7 @@ export async function generateMetadata({
         "autonomous solar cleaning monitoring",
         "weather-aware solar cleaning scheduling",
         "solar plant cleaning analytics",
-        "Taypro Console",
+        "NECTYR",
         "Taypro fleet portal",
       ],
       openGraph: {

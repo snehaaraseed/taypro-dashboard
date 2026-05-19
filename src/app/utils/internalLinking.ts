@@ -39,22 +39,57 @@ const staticPageLinks: InternalLink[] = [
     priority: 8,
   },
   {
-    keyword: "Model-A",
+    keyword: "GLYDE",
     url: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
     priority: 7,
   },
   {
-    keyword: "Model-B",
+    keyword: "HELYX",
     url: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
     priority: 7,
   },
   {
-    keyword: "Model-T",
+    keyword: "GLYDE-X",
     url: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
     priority: 7,
   },
   {
-    keyword: "Taypro Console",
+    keyword: "NYUMA",
+    url: "/solar-panel-cleaning-system/nyuma-automatic-cleaning-robot",
+    priority: 7,
+  },
+  {
+    keyword: "NYUMA-X",
+    url: "/solar-panel-cleaning-system/nyuma-x-single-axis-tracker-cleaning-robot",
+    priority: 7,
+  },
+  {
+    keyword: "PBT solar panel cleaning robot",
+    url: "/solar-panel-cleaning-system/nyuma-automatic-cleaning-robot",
+    priority: 8,
+  },
+  {
+    keyword: "single-pass solar panel cleaning",
+    url: "/solar-panel-cleaning-system/nyuma-automatic-cleaning-robot",
+    priority: 7,
+  },
+  {
+    keyword: "PBT tracker cleaning robot",
+    url: "/solar-panel-cleaning-system/nyuma-x-single-axis-tracker-cleaning-robot",
+    priority: 8,
+  },
+  {
+    keyword: "single-pass tracker cleaning",
+    url: "/solar-panel-cleaning-system/nyuma-x-single-axis-tracker-cleaning-robot",
+    priority: 7,
+  },
+  {
+    keyword: "dual-pass solar panel cleaning",
+    url: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
+    priority: 7,
+  },
+  {
+    keyword: "NECTYR",
     url: "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
     priority: 8,
   },

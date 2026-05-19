@@ -46,16 +46,16 @@
     },
     "categories": {
       "heading": "Browse by deployment type",
-      "intro": "Each category groups plants that share a similar procurement or operating model. Individual case studies below may span more than one tag—for example, a CAPEX purchase with automatic Model-A robots on fixed-tilt arrays.",
+      "intro": "Each category groups plants that share a similar procurement or operating model. Individual case studies below may span more than one tag—for example, a CAPEX purchase with automatic GLYDE robots on fixed-tilt arrays.",
       "automatic": {
         "title": "Automatic",
-        "description": "Autonomous Model-A and Model-T deployments with AI scheduling, waterless dual-pass cleaning, and fleet monitoring via Taypro Console.",
+        "description": "Autonomous GLYDE and GLYDE-X deployments with AI scheduling, waterless dual-pass cleaning, and fleet monitoring via NECTYR.",
         "cardTitle": "Automatic projects",
         "viewLink": "View automatic case studies →"
       },
       "semiAutomatic": {
         "title": "Semi-Automatic",
-        "description": "Model-B portable dry cleaning for scattered blocks, difficult terrain, and plants that need flexible crew-assisted coverage.",
+        "description": "HELYX portable dry cleaning for scattered blocks, difficult terrain, and plants that need flexible crew-assisted coverage.",
         "cardTitle": "Semi-Automatic projects",
         "viewLink": "View semi-automatic case studies →"
       },
@@ -81,11 +81,11 @@
       "q0": "What types of solar plants does Taypro document in this portfolio?",
       "a0": "Our case studies cover utility-scale ground-mount sites, single-axis tracker arrays, and multi-block plants across India—typically 50 MW and above where soiling, water scarcity, or manual O&M costs justify robotic cleaning.",
       "q1": "What is the difference between automatic, semi-automatic, and CAPEX project listings?",
-      "a1": "Automatic listings highlight fully autonomous robots (Model-A, Model-T). Semi-automatic listings feature Model-B portable systems. CAPEX listings describe plants where the developer purchased robots outright; the same site may also use Taypro Opex as an operator-led service—browse each category or the individual case study for the exact deployment model.",
+      "a1": "Automatic listings highlight fully autonomous robots (GLYDE, GLYDE-X). Semi-automatic listings feature HELYX portable systems. CAPEX listings describe plants where the developer purchased robots outright; the same site may also use Taypro Opex as an operator-led service—browse each category or the individual case study for the exact deployment model.",
       "q2": "How do Taypro cleaning robots affect plant performance ratio?",
       "a2": "Consistent, weather-aware cleaning reduces soiling losses that can otherwise suppress performance ratio by several percentage points on dusty sites. Case studies note cleaning efficiency targets, cycle frequency, and how waterless methods avoid logistics tied to manual washing.",
       "q3": "How can I evaluate Taypro for my own solar project?",
-      "a3": "Review the relevant case study for your plant type (fixed tilt vs trackers), explore Model-A, Model-B, or Model-T specifications on the solar panel cleaning system pages, use the ROI calculator, or contact Taypro with your DC capacity and layout for a site-specific proposal."
+      "a3": "Review the relevant case study for your plant type (fixed tilt vs trackers), explore GLYDE, HELYX, or GLYDE-X specifications on the solar panel cleaning system pages, use the ROI calculator, or contact Taypro with your DC capacity and layout for a site-specific proposal."
     },
     "callback": {
       "header": "Discuss your solar plant with Taypro"

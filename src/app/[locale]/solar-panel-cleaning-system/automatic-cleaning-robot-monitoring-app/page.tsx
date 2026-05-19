@@ -352,7 +352,7 @@ export default async function TayproConsolePage({
                   <Image
                     src="/tayproasset/taypro-console.png"
                     alt={t("visual.imageAlt")}
-                    title="Taypro Console"
+                    title="NECTYR"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -373,7 +373,7 @@ export default async function TayproConsolePage({
               <Image
                 src="/tayproasset/taypro-console.png"
                 alt={t("visual.imageAlt")}
-                title="Taypro Console"
+                title="NECTYR"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1280px) 100vw, 1200px"
@@ -423,7 +423,7 @@ export default async function TayproConsolePage({
                   </OpenLeadModalButton>
                   <ContactEmailLink
                     mailbox="service"
-                    subject="Taypro Console access / support"
+                    subject="NECTYR access / support"
                     className="inline-flex items-center justify-center min-h-[48px] w-full sm:w-auto sm:min-w-[220px] border-2 border-white text-white font-medium px-8 py-3.5 rounded-md hover:bg-white/10 transition text-center"
                   >
                     {t("cta.emailService")}

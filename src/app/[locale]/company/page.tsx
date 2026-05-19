@@ -40,11 +40,11 @@ const FOUNDER_ROLE_KEYS = [
 ] as const;
 
 const ROBOT_DESC_KEY: Record<string, string> = {
-  "Model-A": "modelA",
-  "Model-B": "modelB",
-  "Model-T": "modelT",
+  GLYDE: "modelA",
+  HELYX: "modelB",
+  "GLYDE-X": "modelT",
   "Taypro Opex": "tayproOpex",
-  "Taypro Console": "tayproConsole",
+  "NECTYR": "tayproConsole",
 };
 
 const PARTNER_STEP_KEYS = ["step0", "step1", "step2", "step3"] as const;

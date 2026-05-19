@@ -1,10 +1,10 @@
 {
   "ModelBPage": {
     "meta": {
-      "title": "Semi-Automatic Solar Panel Cleaning Robot — Taypro Model-B (Pick-and-Place)",
-      "description": "Taypro Model-B is a 39 kg pick-and-place, semi-automatic Solar Panel Cleaning Robot. Counter-rotating PBT brushes remove 99%+ dust in a single waterless pass, clean a 1 MW plant in under 2 hours, run up to 3 km on a single charge, TÜV NORD certified — built for fixed-tilt and seasonal-tilt plants.",
+      "title": "Semi-Automatic Solar Panel Cleaning Robot — Taypro HELYX (Pick-and-Place)",
+      "description": "Taypro HELYX is a 39 kg pick-and-place, semi-automatic Solar Panel Cleaning Robot. Counter-rotating PBT brushes remove 99%+ dust in a single waterless pass, clean a 1 MW plant in under 2 hours, run up to 3 km on a single charge, TÜV NORD certified — built for fixed-tilt and seasonal-tilt plants.",
       "openGraphDescription": "Pick-and-place Solar Panel Cleaning Robot. 39 kg, waterless, dual counter-rotating PBT brushes, 99%+ dust removal in a single pass, 3 km per charge, TÜV NORD certified.",
-      "openGraphImageAlt": "Taypro Semi-Automatic Solar Panel Cleaning Robot Model-B — Pick-and-place type, waterless",
+      "openGraphImageAlt": "Taypro Semi-Automatic Solar Panel Cleaning Robot HELYX — Pick-and-place type, waterless",
       "twitterDescription": "39 kg pick-and-place Solar Panel Cleaning Robot. Waterless, dual counter-rotating PBT brushes, 99%+ dust removal per pass, TÜV NORD certified.",
       "keywords": [
         "semi-automatic solar panel cleaning robot",
@@ -20,7 +20,7 @@
         "counter-rotating brush solar cleaning",
         "dry solar panel cleaning robot",
         "utility scale solar panel cleaning robot",
-        "Taypro Model-B",
+        "Taypro HELYX",
         "Taypro Loop"
       ]
     },
@@ -29,24 +29,24 @@
       "current": "Semi-Automatic Solar Panel Cleaning Robot"
     },
     "schema": {
-      "productName": "Semi-Automatic Solar Panel Cleaning Robot - Model-B",
-      "productDescription": "Taypro Model-B is a 39 kg pick-and-place, semi-automatic Solar Panel Cleaning Robot. Counter-rotating UV-stable PBT brushes remove 99%+ dust in a single pass, clean a 1 MW plant in under 2 hours, run up to 3 km on a single charge, TÜV NORD certified, and built for fixed tilt, seasonal tilt and horizontal single-axis tracker plants.",
+      "productName": "Semi-Automatic Solar Panel Cleaning Robot - HELYX",
+      "productDescription": "Taypro HELYX is a 39 kg pick-and-place, semi-automatic Solar Panel Cleaning Robot. Counter-rotating UV-stable PBT brushes remove 99%+ dust in a single pass, clean a 1 MW plant in under 2 hours, run up to 3 km on a single charge, TÜV NORD certified, and built for fixed tilt, seasonal tilt and single-axis tracker plants (see GLYDE-X or NYUMA-X).",
       "offersPrice": "Contact for pricing",
-      "howToName": "How to clean solar panels with the Taypro Model-B Semi-Automatic Solar Panel Cleaning Robot",
-      "howToDescription": "Step-by-step deployment of the Taypro Model-B pick-and-place semi-automatic solar panel cleaning robot — from lifting the robot onto the first row through recharging at the docking station."
+      "howToName": "How to clean solar panels with the Taypro HELYX Semi-Automatic Solar Panel Cleaning Robot",
+      "howToDescription": "Step-by-step deployment of the Taypro HELYX pick-and-place semi-automatic solar panel cleaning robot — from lifting the robot onto the first row through recharging at the docking station."
     },
     "hero": {
-      "title": "Semi-Automatic Solar Panel Cleaning Robot — Model-B",
+      "title": "Semi-Automatic Solar Panel Cleaning Robot — HELYX",
       "subtitleBefore": "A 39 kg pick-and-place, waterless Solar Panel Cleaning Robot engineered for utility-scale solar power plants. Dual counter-rotating UV-stable PBT brushes lift over",
       "subtitleStrong": "99% of dust in a single pass",
       "subtitleAfter": ", cleaning a 1 MW block in under 2 hours and running up to 3 km on a single charge — operable by any two-person site team.",
-      "imgAlt": "Taypro Model-B — Semi-Automatic Solar Panel Cleaning Robot, pick-and-place waterless cleaner for utility-scale solar plants",
+      "imgAlt": "Taypro HELYX — Semi-Automatic Solar Panel Cleaning Robot, pick-and-place waterless cleaner for utility-scale solar plants",
       "ctaText": "Request a quote"
     },
     "usps": {
       "0": {
         "title": "Pick-and-Place Deployment",
-        "description": "Lift-and-shift design lets a two-person team deploy Model-B across multiple arrays simultaneously — ideal for scattered, irregular or multi-block solar plants."
+        "description": "Lift-and-shift design lets a two-person team deploy HELYX across multiple arrays simultaneously — ideal for scattered, irregular or multi-block solar plants."
       },
       "1": {
         "title": "100% Waterless Single-Pass Cleaning",
@@ -70,7 +70,7 @@
       },
       "6": {
         "title": "Operator-Centric Onboard Controls",
-        "description": "Simple onboard controls let any site personnel operate Model-B with zero specialised training, eliminating dependency on skilled labour for daily cleaning."
+        "description": "Simple onboard controls let any site personnel operate HELYX with zero specialised training, eliminating dependency on skilled labour for daily cleaning."
       },
       "7": {
         "title": "TÜV NORD Certified Build",
@@ -92,7 +92,7 @@
       },
       "3": {
         "title": "Pick-and-Place Multi-Array Deployment",
-        "body": "Built around a true lift-and-shift workflow, Model-B is moved between arrays by the operator using factory-fitted ergonomic handles. Inter-row traversal is supported by purpose-designed bridge kits supplied and installed by Taypro, letting one robot service multiple rows without dedicated rails or panel modifications."
+        "body": "Built around a true lift-and-shift workflow, HELYX is moved between arrays by the operator using factory-fitted ergonomic handles. Inter-row traversal is supported by purpose-designed bridge kits supplied and installed by Taypro, letting one robot service multiple rows without dedicated rails or panel modifications."
       },
       "4": {
         "title": "Edge-Detection & Fall-Prevention",
@@ -188,7 +188,7 @@
     "steps": {
       "0": {
         "name": "Lift and place the robot on the first solar row",
-        "text": "Using the factory-fitted ergonomic handles, two operators lift the 39 kg Model-B Solar Panel Cleaning Robot onto the leading edge of the first solar panel row. The compact, balanced chassis is designed for tool-free placement without any cranes or forklifts."
+        "text": "Using the factory-fitted ergonomic handles, two operators lift the 39 kg HELYX Solar Panel Cleaning Robot onto the leading edge of the first solar panel row. The compact, balanced chassis is designed for tool-free placement without any cranes or forklifts."
       },
       "1": {
         "name": "Activate the onboard controls",
@@ -208,49 +208,49 @@
       },
       "5": {
         "name": "Recharge and review performance",
-        "text": "After completing the assigned arrays (up to 3 km per charge), the robot is returned to its docking station for lithium-ion recharging. Cleaning telemetry and operational health data are available via the Taypro Console portal for fleet-wide review."
+        "text": "After completing the assigned arrays (up to 3 km per charge), the robot is returned to its docking station for lithium-ion recharging. Cleaning telemetry and operational health data are available via the NECTYR portal for fleet-wide review."
       }
     },
     "faqs": {
       "0": {
-        "question": "What is a Semi-Automatic Solar Panel Cleaning Robot, and how does Taypro Model-B work?",
-        "answer": "A semi-automatic Solar Panel Cleaning Robot is a portable robotic cleaner that is manually deployed by an operator onto a row of solar panels, after which it cleans autonomously along that row. Taypro Model-B is a pick-and-place, lift-and-shift type robot: the operator places it on the first row using factory-fitted handles, starts the cleaning cycle via onboard controls, and the robot uses two counter-rotating UV-stable PBT brushes to sweep over 99% of dust off the module surface in a single pass. Once the row is complete, the operator moves the robot to the next row using Taypro's bridge kits or by lift-and-shift."
+        "question": "What is a Semi-Automatic Solar Panel Cleaning Robot, and how does Taypro HELYX work?",
+        "answer": "A semi-automatic Solar Panel Cleaning Robot is a portable robotic cleaner that is manually deployed by an operator onto a row of solar panels, after which it cleans autonomously along that row. Taypro HELYX is a pick-and-place, lift-and-shift type robot: the operator places it on the first row using factory-fitted handles, starts the cleaning cycle via onboard controls, and the robot uses two counter-rotating UV-stable PBT brushes to sweep over 99% of dust off the module surface in a single pass. Once the row is complete, the operator moves the robot to the next row using Taypro's bridge kits or by lift-and-shift."
       },
       "1": {
-        "question": "How is Model-B different from the Model-A Automatic Solar Panel Cleaning Robot?",
-        "answer": "Model-A is a fully autonomous robot that is permanently assigned to a specific array and runs daily cleaning cycles without any human intervention — ideal for large utility-scale plants where labour is the bottleneck. Model-B is a semi-automatic, pick-and-place robot operated by a small two-person team across multiple arrays — ideal for scattered, irregular, smaller or rooftop plants where the capex of a per-array robot isn't justified. Both robots are waterless, AI-driven and managed from the same Taypro Console portal."
+        "question": "How is HELYX different from the GLYDE Automatic Solar Panel Cleaning Robot?",
+        "answer": "GLYDE is a fully autonomous robot that is permanently assigned to a specific array and runs daily cleaning cycles without any human intervention — ideal for large utility-scale plants where labour is the bottleneck. HELYX is a semi-automatic, pick-and-place robot operated by a small two-person team across multiple arrays — ideal for scattered, irregular, smaller or rooftop plants where the capex of a per-array robot isn't justified. Both robots are waterless, AI-driven and managed from the same NECTYR portal."
       },
       "2": {
-        "question": "How big a solar plant can Model-B clean in a day?",
-        "answer": "A single Model-B can clean approximately 1 MW of solar capacity in under 2 hours, which translates to several MW per shift depending on plant layout, inter-row distance and operator workflow. Most semi-automatic deployments use multiple Model-B units in parallel to cover utility-scale plants on a daily or alternate-day cleaning cycle."
+        "question": "How big a solar plant can HELYX clean in a day?",
+        "answer": "A single HELYX can clean approximately 1 MW of solar capacity in under 2 hours, which translates to several MW per shift depending on plant layout, inter-row distance and operator workflow. Most semi-automatic deployments use multiple HELYX units in parallel to cover utility-scale plants on a daily or alternate-day cleaning cycle."
       },
       "3": {
-        "question": "Does Model-B require water for cleaning solar panels?",
-        "answer": "No. Taypro Model-B is a 100% waterless solar panel cleaning robot. It uses a pair of counter-rotating UV-stable PBT brushes that physically lift and sweep dust off the module surface in a single dry pass — eliminating water consumption, detergent costs, run-off contamination and the logistics of water tankers entirely."
+        "question": "Does HELYX require water for cleaning solar panels?",
+        "answer": "No. Taypro HELYX is a 100% waterless solar panel cleaning robot. It uses a pair of counter-rotating UV-stable PBT brushes that physically lift and sweep dust off the module surface in a single dry pass — eliminating water consumption, detergent costs, run-off contamination and the logistics of water tankers entirely."
       },
       "4": {
         "question": "Is the PBT brush safe for solar modules and Anti-Reflective Coating (ARC)?",
-        "answer": "Yes. The UV-stable PBT brush system is engineered to be panel-safe and non-abrasive. Every robot is independently tested for micro-crack formation, optical reflectance loss and ARC preservation under simulated daily cleaning cycles by accredited solar-sector testing laboratories. Model-B is also TÜV NORD certified for IP55 protection and validated for damp-heat and dry-heat performance."
+        "answer": "Yes. The UV-stable PBT brush system is engineered to be panel-safe and non-abrasive. Every robot is independently tested for micro-crack formation, optical reflectance loss and ARC preservation under simulated daily cleaning cycles by accredited solar-sector testing laboratories. HELYX is also TÜV NORD certified for IP55 protection and validated for damp-heat and dry-heat performance."
       },
       "5": {
-        "question": "What types of solar plants is Model-B suitable for — rooftop, ground-mounted, fixed tilt or tracker?",
-        "answer": "Model-B is built for fixed-tilt, seasonal-tilt and horizontal single-axis tracker plants. It supports module tilts up to 45° and east–west terrain slopes of up to 15°, making it compatible with most utility-scale, commercial and industrial rooftop, and ground-mounted installations. For dedicated single-axis tracker plants we recommend Model-T; for fully autonomous large utility-scale plants we recommend Model-A."
+        "question": "What types of solar plants is HELYX suitable for — rooftop, ground-mounted, fixed tilt or tracker?",
+        "answer": "HELYX is built for fixed-tilt, seasonal-tilt and single-axis tracker plants (see GLYDE-X or NYUMA-X). It supports module tilts up to 45° and east–west terrain slopes of up to 15°, making it compatible with most utility-scale, commercial and industrial rooftop, and ground-mounted installations. For dedicated single-axis tracker plants we recommend GLYDE-X; for fully autonomous large utility-scale plants we recommend GLYDE."
       },
       "6": {
-        "question": "How much does the Taypro Model-B Semi-Automatic Solar Panel Cleaning Robot cost?",
-        "answer": "The price of a Model-B Semi-Automatic Solar Panel Cleaning Robot depends on the number of units, plant layout, bridge-kit requirements and AMC scope. Most customers achieve a fast payback because Model-B replaces recurring water, labour and tanker costs with a single capex investment. Contact our team for a site-specific quote and a detailed ROI calculation."
+        "question": "How much does the Taypro HELYX Semi-Automatic Solar Panel Cleaning Robot cost?",
+        "answer": "The price of a HELYX Semi-Automatic Solar Panel Cleaning Robot depends on the number of units, plant layout, bridge-kit requirements and AMC scope. Most customers achieve a fast payback because HELYX replaces recurring water, labour and tanker costs with a single capex investment. Contact our team for a site-specific quote and a detailed ROI calculation."
       },
       "7": {
-        "question": "How many people are needed to operate a Taypro Model-B robot?",
-        "answer": "Just two. The 39 kg optimised weight with factory-fitted ergonomic handles allows a compact two-person site team to lift, place, operate and relocate Model-B across multiple arrays without any forklifts, cranes or heavy lifting equipment. Operators do not require specialised training — the onboard controls are designed for any site personnel."
+        "question": "How many people are needed to operate a Taypro HELYX robot?",
+        "answer": "Just two. The 39 kg optimised weight with factory-fitted ergonomic handles allows a compact two-person site team to lift, place, operate and relocate HELYX across multiple arrays without any forklifts, cranes or heavy lifting equipment. Operators do not require specialised training — the onboard controls are designed for any site personnel."
       },
       "8": {
-        "question": "Does Model-B work in extreme Indian climatic conditions like dust storms, heat and monsoon?",
-        "answer": "Yes. Model-B is engineered for harsh Indian utility-scale field conditions: maximum operating temperature of 90°C, IP65-rated sealed enclosure, TÜV NORD-certified IP55 protection and field-validated under 12 simulated sandstorm cycles per year at 10 g/m² sand loading. The robot can clean in winds up to 40 km/hr and locks securely at its docking station up to 180 km/hr."
+        "question": "Does HELYX work in extreme Indian climatic conditions like dust storms, heat and monsoon?",
+        "answer": "Yes. HELYX is engineered for harsh Indian utility-scale field conditions: maximum operating temperature of 90°C, IP65-rated sealed enclosure, TÜV NORD-certified IP55 protection and field-validated under 12 simulated sandstorm cycles per year at 10 g/m² sand loading. The robot can clean in winds up to 40 km/hr and locks securely at its docking station up to 180 km/hr."
       },
       "9": {
-        "question": "What kind of after-sales support does Taypro provide for Model-B?",
-        "answer": "Every Model-B deployment is backed by Taypro's pan-India service model: pre-scheduled preventive and corrective maintenance, immediate remote diagnostics upon incident notification, and same-day on-site breakdown resolution targets — anywhere in India. Annual maintenance contracts (AMC) are available for long-term operations."
+        "question": "What kind of after-sales support does Taypro provide for HELYX?",
+        "answer": "Every HELYX deployment is backed by Taypro's pan-India service model: pre-scheduled preventive and corrective maintenance, immediate remote diagnostics upon incident notification, and same-day on-site breakdown resolution targets — anywhere in India. Annual maintenance contracts (AMC) are available for long-term operations."
       }
     },
     "misc": {
@@ -258,13 +258,13 @@
       "callbackLine1": "Schedule Online Demo For Semi-Automatic Solar",
       "callbackLine2": "Panel Cleaning Robots",
       "faqTitle": "Frequently Asked Questions",
-      "faqSubtitle": "Common questions about the Taypro Model-B Semi-Automatic Solar Panel Cleaning Robot.",
-      "product360Label": "Taypro Model-B — Semi-Automatic Solar Panel Cleaning Robot"
+      "faqSubtitle": "Common questions about the Taypro HELYX Semi-Automatic Solar Panel Cleaning Robot.",
+      "product360Label": "Taypro HELYX — Semi-Automatic Solar Panel Cleaning Robot"
     },
     "overview": {
       "eyebrow": "Pick-and-Place Solar Cleaning Robot for Utility-Scale Plants",
-      "title": "What is Taypro Model-B?",
-      "p1Before": "Taypro Model-B is a ",
+      "title": "What is Taypro HELYX?",
+      "p1Before": "Taypro HELYX is a ",
       "p1Strong": "semi-automatic, pick-and-place type Solar Panel Cleaning Robot",
       "p1After": " purpose-built for utility-scale solar installations. It is capable of cleaning a 1 MW solar power plant in ",
       "p1HoursStrong": "under 2 hours",
@@ -278,15 +278,15 @@
       "p2AfterRange": " on a single charge. Cleaning operations are best scheduled post-energy-production hours to ensure zero disruption to generation cycles (site-dependent).",
       "p3Before": "Equipped with precision ",
       "p3EdgeStrong": "edge-detection technology",
-      "p3Mid": " to prevent accidental falls, Model-B can be manually deployed by operators across multiple arrays simultaneously. Inter-row traversal is facilitated via purpose-designed ",
+      "p3Mid": " to prevent accidental falls, HELYX can be manually deployed by operators across multiple arrays simultaneously. Inter-row traversal is facilitated via purpose-designed ",
       "p3BridgeStrong": "bridge kits",
       "p3AfterBridge": " supplied and installed by Taypro, letting one robot service many rows without rails or modifications to your modules.",
-      "p4Before": "Model-B is a strong fit for ",
+      "p4Before": "HELYX is a strong fit for ",
       "p4TiltStrong": "fixed-tilt, seasonal-tilt and horizontal single-axis tracker",
       "p4Mid": " installations where the capex of a per-array automatic robot is not justified — including rooftop, ground-mounted and multi-block utility-scale plants. For fully autonomous, always-on cleaning we recommend ",
-      "linkModelA": "Model-A",
+      "linkModelA": "GLYDE",
       "p4BetweenAT": "; for dedicated single-axis tracker plants we recommend ",
-      "linkModelT": "Model-T",
+      "linkModelT": "GLYDE-X",
       "p4Suffix": ".",
       "p5Prefix": "Further reading: ",
       "linkBlogMethods": "methods used for solar panel cleaning",
@@ -296,23 +296,23 @@
     },
     "product360": {
       "eyebrow": "Interactive Product Tour",
-      "title": "360° View of Model-B",
+      "title": "360° View of HELYX",
       "subtitle": "Drag left or right to rotate and explore the Semi-Automatic Solar Panel Cleaning Robot from every angle.",
-      "productLabel": "Taypro Model-B — Semi-Automatic Solar Panel Cleaning Robot"
+      "productLabel": "Taypro HELYX — Semi-Automatic Solar Panel Cleaning Robot"
     },
     "howItWorks": {
       "eyebrow": "Step-by-Step Deployment",
-      "title": "How Does the Model-B Solar Panel Cleaning Robot Work?",
-      "subtitle": "Model-B is engineered around a simple, repeatable pick-and-place workflow that any site team can execute. A full cleaning cycle on a 1 MW block typically takes under 2 hours from first lift to dock."
+      "title": "How Does the HELYX Solar Panel Cleaning Robot Work?",
+      "subtitle": "HELYX is engineered around a simple, repeatable pick-and-place workflow that any site team can execute. A full cleaning cycle on a 1 MW block typically takes under 2 hours from first lift to dock."
     },
     "uspSection": {
-      "eyebrow": "Why Choose Taypro Model-B",
+      "eyebrow": "Why Choose Taypro HELYX",
       "title": "Engineered for Real-World Solar Operations"
     },
     "featuresSection": {
       "eyebrow": "Key Features Setting Taypro Apart",
-      "title": "Inside the Model-B Semi-Automatic Cleaning Robot",
-      "subtitle": "Every sub-system on Model-B — from the brush head to the chassis — is engineered for high uptime, fast deployment and long-term panel safety on utility-scale solar power plants."
+      "title": "Inside the HELYX Semi-Automatic Cleaning Robot",
+      "subtitle": "Every sub-system on HELYX — from the brush head to the chassis — is engineered for high uptime, fast deployment and long-term panel safety on utility-scale solar power plants."
     },
     "certifications": {
       "eyebrow": "Independently Tested & Certified",
@@ -344,13 +344,13 @@
     "servicePromise": {
       "eyebrow": "Operating Confidence, Every Day",
       "title": "Service & Maintenance Promise",
-      "subtitle": "Every Model-B deployment is backed by a structured service model designed to keep your fleet running at peak uptime across India.",
+      "subtitle": "Every HELYX deployment is backed by a structured service model designed to keep your fleet running at peak uptime across India.",
       "card0Title": "Pre-Scheduled Preventive Maintenance",
       "card0Body": "All preventive and corrective maintenance activities are executed on a pre-scheduled basis — designed to eliminate unplanned downtime and sustain peak operational performance across the robot's 20-year lifecycle.",
       "card1Title": "Immediate Remote Diagnostics",
       "card1Body": "Taypro provides immediate remote diagnostics and troubleshooting upon incident notification — most issues are resolved without requiring a physical site visit.",
       "card2Title": "Same-Day On-Site Intervention",
-      "card2Body": "When on-site work is required, Taypro targets same-day on-site breakdown resolution, available pan-India, with immediate remote diagnostics from Taypro Console."
+      "card2Body": "When on-site work is required, Taypro targets same-day on-site breakdown resolution, available pan-India, with immediate remote diagnostics from NECTYR."
     },
     "callbackCard": {
       "line1": "Schedule Online Demo For Semi-Automatic Solar",
@@ -358,17 +358,17 @@
     },
     "specifications": {
       "titleLine1": "Semi-Automatic Solar Panel Cleaning Robot",
-      "titleLine2": "Model-B Specifications",
+      "titleLine2": "HELYX Specifications",
       "specHeader": "Specification",
       "valueHeader": "Value"
     },
     "manualVsRobotic": {
       "eyebrow": "Robotic vs Manual Solar Cleaning",
       "title": "Why Choose a Semi-Automatic Cleaning Robot Over Manual Cleaning?",
-      "subtitle": "Manual cleaning crews, water tankers and ad-hoc schedules can't keep up with daily soiling losses on utility-scale solar plants. Even a small fleet of Model-B robots transforms solar O&M economics overnight.",
+      "subtitle": "Manual cleaning crews, water tankers and ad-hoc schedules can't keep up with daily soiling losses on utility-scale solar plants. Even a small fleet of HELYX robots transforms solar O&M economics overnight.",
       "criterion": "Criterion",
       "manual": "Manual Cleaning",
-      "modelB": "Taypro Model-B",
+      "modelB": "Taypro HELYX",
       "row0": {
         "criterion": "Cleaning Frequency",
         "manual": "Weekly or fortnightly, weather-permitting",
@@ -412,11 +412,11 @@
     },
     "modelBvsModelA": {
       "eyebrow": "Choosing the Right Taypro Robot",
-      "title": "Model-B vs Model-A: Which Solar Cleaning Robot Is Right for You?",
-      "subtitle": "Both robots use waterless dry cleaning and are managed from the same Taypro Console. The choice depends on plant size, labour availability and capex appetite.",
+      "title": "HELYX vs GLYDE: Which Solar Cleaning Robot Is Right for You?",
+      "subtitle": "Both robots use waterless dry cleaning and are managed from the same NECTYR. The choice depends on plant size, labour availability and capex appetite.",
       "criterion": "Criterion",
-      "modelBHeader": "Model-B (Semi-Automatic)",
-      "modelAHeader": "Model-A (Fully Automatic)",
+      "modelBHeader": "HELYX (Semi-Automatic)",
+      "modelAHeader": "GLYDE (Fully Automatic)",
       "row0": {
         "criterion": "Operation Mode",
         "modelB": "Semi-automatic, pick-and-place (manual deployment)",
@@ -458,7 +458,7 @@
         "modelA": "Designed for utility-scale tilt range"
       },
       "crossSellLead": "Cleaning a single-axis tracker plant? Look at ",
-      "linkModelT": "Model-T",
+      "linkModelT": "GLYDE-X",
       "crossSellMid": ". Prefer outsourcing cleaning entirely? Explore the ",
       "linkOpex": "Taypro OPEX cleaning service",
       "crossSellSuffix": "."
@@ -466,35 +466,35 @@
     "indianConditions": {
       "eyebrow": "Engineered for Indian Conditions",
       "title": "Built for Indian Solar Plants — From Rooftop to Utility Scale",
-      "subtitle": "Rajasthan dust storms, Gujarat heat, Karnataka humidity and Tamil Nadu monsoons — Taypro Model-B is engineered, tested and deployed for the realities of large-scale Indian solar O&M.",
+      "subtitle": "Rajasthan dust storms, Gujarat heat, Karnataka humidity and Tamil Nadu monsoons — Taypro HELYX is engineered, tested and deployed for the realities of large-scale Indian solar O&M.",
       "card0Title": "High-Soiling Region Performance",
-      "card0Body": "Increased cleaning frequency is the only economical way to neutralise the 8–25% soiling losses typical of Indian utility-scale plants. Model-B's 1 MW-in-2-hours cleaning rate makes daily or alternate-day cycles operationally affordable.",
+      "card0Body": "Increased cleaning frequency is the only economical way to neutralise the 8–25% soiling losses typical of Indian utility-scale plants. HELYX's 1 MW-in-2-hours cleaning rate makes daily or alternate-day cycles operationally affordable.",
       "card1Title": "Temperature & Humidity Tolerance",
       "card1Body": "Validated for operating temperatures up to 90°C and TÜV NORD certified for damp-heat and dry-heat performance — proven across Indian summer, monsoon and post-monsoon cycles.",
       "card2Title": "Waterless — Critical for Water-Scarce States",
-      "card2Body": "Many Indian solar farms are in water-stressed districts. Model-B's waterless cleaning removes water tankers from your O&M plan entirely, freeing water and logistics for higher-priority site use.",
+      "card2Body": "Many Indian solar farms are in water-stressed districts. HELYX's waterless cleaning removes water tankers from your O&M plan entirely, freeing water and logistics for higher-priority site use.",
       "card3Title": "Pan-India Service Network",
-      "card3Body": "Same-day on-site breakdown resolution across India, with immediate remote diagnostics from Taypro Console — backed by regional spare inventory and structured AMC programs.",
+      "card3Body": "Same-day on-site breakdown resolution across India, with immediate remote diagnostics from NECTYR — backed by regional spare inventory and structured AMC programs.",
       "crossSellLead": "Looking at adjacent solar O&M needs? Explore the ",
-      "linkModelA": "fully-automatic Model-A robot",
+      "linkModelA": "fully-automatic GLYDE robot",
       "linkBetweenAT": ", the ",
-      "linkModelT": "Model-T robot for single-axis trackers",
+      "linkModelT": "GLYDE-X robot for single-axis trackers",
       "linkBetweenTOpex": ", the ",
       "linkOpex": "Taypro OPEX cleaning service",
       "linkBetweenOpexConsole": " or the ",
-      "linkConsole": "Taypro Console monitoring app",
+      "linkConsole": "NECTYR monitoring app",
       "crossSellSuffix": "."
     },
     "faqSection": {
       "title": "Frequently Asked Questions",
-      "subtitle": "Common questions about the Taypro Model-B Semi-Automatic Solar Panel Cleaning Robot."
+      "subtitle": "Common questions about the Taypro HELYX Semi-Automatic Solar Panel Cleaning Robot."
     },
     "modelCardsTitle": "Looking for more solutions?",
     "roiBand": {
       "title": "Semi-automatic cleaning robot cost & ROI",
       "bodyBeforeSpan": "Estimate payback for a ",
       "bodySpan": "semi-automatic solar panel cleaning robot",
-      "bodyAfterSpan": " on your plant before requesting a Model-B quote."
+      "bodyAfterSpan": " on your plant before requesting a HELYX quote."
     }
   },
   "Common": {

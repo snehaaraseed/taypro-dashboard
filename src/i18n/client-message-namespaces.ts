@@ -4,7 +4,6 @@ import { pathnameWithoutLocale } from "@/i18n/pathname-without-locale";
 export const LAYOUT_CLIENT_NAMESPACES = [
   "Navigation",
   "Footer",
-  "LocaleBanner",
   "LocaleSwitcher",
   "Forms",
   "NotFoundPage",
@@ -16,6 +15,21 @@ const PROJECT_FILTER_SEGMENTS = new Set([
   "semi-automatic",
   "capex",
 ]);
+
+/**
+ * Namespaces used by full "use client" pages and shared client widgets.
+ * Always included in the client bundle so client-side navigation does not
+ * show raw message keys (layout does not re-run on route changes).
+ */
+export const CLIENT_PAGE_NAMESPACES = [
+  "Home",
+  "ContactPage",
+  "CompanyPage",
+  "PriceCalculatorPage",
+  "BlogPage",
+  "ProjectDetailPage",
+  "ProjectsFilterPage",
+] as const;
 
 /**
  * Extra translation namespaces for client components on this route.
@@ -36,23 +50,13 @@ export function clientNamespacesForPathname(pathname: string): string[] {
     return ["CompanyPage", "Common"];
   }
 
-  if (
-    path === "/solar-panel-cleaning-robot-price-calculator" ||
-    path.startsWith("/solar-panel-cleaning-system")
-  ) {
-    const extra: string[] = [];
-    if (
-      path === "/solar-panel-cleaning-system" ||
-      path ===
-        "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system" ||
-      path === "/solar-panel-cleaning-system/solar-panel-cleaning-service"
-    ) {
-      extra.push("PriceCalculatorPage");
-    }
-    if (path === "/solar-panel-cleaning-robot-price-calculator") {
-      return ["PriceCalculatorPage", "Common"];
-    }
-    return extra;
+  if (path === "/solar-panel-cleaning-robot-price-calculator") {
+    return ["PriceCalculatorPage", "Common"];
+  }
+
+  // ROICalculatorEmbed is used on hub, product, service, and Opex pages under this prefix.
+  if (path.startsWith("/solar-panel-cleaning-system")) {
+    return ["PriceCalculatorPage"];
   }
 
   if (path.startsWith("/blog") || path === "/authors") {
@@ -74,5 +78,11 @@ export function clientNamespacesForPathname(pathname: string): string[] {
 
 export function clientNamespacesForRequest(pathname: string): string[] {
   const routeNamespaces = clientNamespacesForPathname(pathname);
-  return [...new Set([...LAYOUT_CLIENT_NAMESPACES, ...routeNamespaces])];
+  return [
+    ...new Set([
+      ...LAYOUT_CLIENT_NAMESPACES,
+      ...CLIENT_PAGE_NAMESPACES,
+      ...routeNamespaces,
+    ]),
+  ];
 }

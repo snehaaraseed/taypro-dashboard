@@ -22,7 +22,12 @@ import { getTranslations } from "next-intl/server";
 import CallbackCard from "@/app/components/CallbackCard";
 import ClientsCard from "@/app/components/ClientsCard";
 import { RobotCard } from "@/app/components/RobotCard";
-import { robotProducts, robotSolutions } from "@/app/data";
+import {
+  comingSoonRobotProducts,
+  robotProducts,
+  robotSolutions,
+} from "@/app/data";
+import { ComingSoonRobotCard } from "@/app/components/ComingSoonRobotCard";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
@@ -39,6 +44,7 @@ import {
 } from "@/app/components/StructuredData";
 import YouTubeEmbed from "@/app/components/YouTubeEmbed";
 import { Link } from "@/i18n/navigation";
+import { PRODUCT_CATALOG, type ProductId } from "@/lib/products/catalog";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 const HUB_PRODUCT_VIDEO_ID = "y9iRhH2bLwY";
@@ -47,21 +53,37 @@ const BRUSH_COMPARE_BRUSH_KEYS = ["0", "1", "2", "3"] as const;
 const BRUSH_COMPARE_ROBOT_KEYS = ["0", "1", "2", "3"] as const;
 
 type SchemaItemKey =
-  | "modelA"
-  | "modelB"
-  | "modelT"
+  | "helyx"
+  | "glyde"
+  | "nyuma"
+  | "glydeX"
+  | "nyumaX"
   | "tayproOpex"
-  | "tayproConsole";
+  | "tayproConsole"
+  | "miny"
+  | "cradyl";
 
-function modelToSchemaKey(model: string): SchemaItemKey {
-  const map: Record<string, SchemaItemKey> = {
-    "Model-A": "modelA",
-    "Model-B": "modelB",
-    "Model-T": "modelT",
+const COMPARISON_PRODUCT_KEYS = [
+  "glyde",
+  "glydeX",
+  "nyuma",
+  "nyumaX",
+  "helyx",
+] as const satisfies readonly ProductId[];
+
+function productToSchemaKey(model: string): SchemaItemKey {
+  const byName: Record<string, SchemaItemKey> = {
+    HELYX: "helyx",
+    GLYDE: "glyde",
+    NYUMA: "nyuma",
+    "GLYDE-X": "glydeX",
+    "NYUMA-X": "nyumaX",
     "Taypro Opex": "tayproOpex",
-    "Taypro Console": "tayproConsole",
+    "NECTYR": "tayproConsole",
+    MINY: "miny",
+    CRADYL: "cradyl",
   };
-  const key = map[model];
+  const key = byName[model];
   if (!key) {
     throw new Error(`Unknown robot model for schema i18n key: ${model}`);
   }
@@ -72,21 +94,31 @@ const DECISION_GUIDE = [
   {
     icon: Sun,
     cardKey: "card0" as const,
-    href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
-  },
-  {
-    icon: Factory,
-    cardKey: "card1" as const,
-    href: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
+    href: PRODUCT_CATALOG.glyde.href,
   },
   {
     icon: Cog,
+    cardKey: "card1" as const,
+    href: PRODUCT_CATALOG.glydeX.href,
+  },
+  {
+    icon: Gauge,
     cardKey: "card2" as const,
-    href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
+    href: PRODUCT_CATALOG.nyuma.href,
+  },
+  {
+    icon: Sparkles,
+    cardKey: "card3" as const,
+    href: PRODUCT_CATALOG.nyumaX.href,
+  },
+  {
+    icon: Factory,
+    cardKey: "card4" as const,
+    href: PRODUCT_CATALOG.helyx.href,
   },
   {
     icon: BatteryCharging,
-    cardKey: "card3" as const,
+    cardKey: "card5" as const,
     href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
   },
 ] as const;
@@ -132,17 +164,17 @@ export default async function SolarPanelCleaningRobot({
 
   const comparisonRows = COMPARISON_ROW_KEYS.map((rowKey) => {
     const prefix = `comparison.rows.${rowKey}` as const;
+    const cells = Object.fromEntries(
+      COMPARISON_PRODUCT_KEYS.map((pk) => {
+        if (rowKey === "row5" && (pk === "glyde" || pk === "glydeX" || pk === "nyuma" || pk === "nyumaX")) {
+          return [pk, connectivitySummary];
+        }
+        return [pk, t(`${prefix}.${pk}`)];
+      })
+    ) as Record<(typeof COMPARISON_PRODUCT_KEYS)[number], string>;
     return {
       criterion: t(`${prefix}.criterion`),
-      modelA:
-        rowKey === "row5"
-          ? connectivitySummary
-          : t(`${prefix}.modelA`),
-      modelB: t(`${prefix}.modelB`),
-      modelT:
-        rowKey === "row5"
-          ? connectivitySummary
-          : t(`${prefix}.modelT`),
+      ...cells,
     };
   });
 
@@ -196,7 +228,11 @@ export default async function SolarPanelCleaningRobot({
     t(`toDoFeatures.item${i}.title`)
   );
 
-  const allProductsForSchema = [...robotProducts, ...robotSolutions];
+  const allProductsForSchema = [
+    ...robotProducts,
+    ...robotSolutions,
+    ...comingSoonRobotProducts,
+  ] as const;
 
   return (
     <div>
@@ -210,7 +246,12 @@ export default async function SolarPanelCleaningRobot({
         name={t("schema.itemList.name")}
         description={t("schema.itemList.description")}
         items={allProductsForSchema.map((r) => {
-          const key = modelToSchemaKey(r.model);
+          const key =
+            r.model === "MINY"
+              ? "miny"
+              : r.model === "CRADYL"
+                ? "cradyl"
+                : productToSchemaKey(r.model);
           return {
             name: `${r.model}${t("schema.itemList.itemNameSuffix")}`,
             url: r.href,
@@ -393,7 +434,7 @@ export default async function SolarPanelCleaningRobot({
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 justify-items-center">
               {robotProducts.map((robot, idx) => {
-                const schemaKey = modelToSchemaKey(robot.model);
+                const schemaKey = productToSchemaKey(robot.model);
                 const highlightPrefix = `productGrid.robotHighlights.${schemaKey}`;
                 const bullets = [
                   t(`${highlightPrefix}.bullet0`),
@@ -452,7 +493,7 @@ export default async function SolarPanelCleaningRobot({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 justify-items-center">
                 {robotSolutions.map((robot, idx) => {
-                  const schemaKey = modelToSchemaKey(robot.model);
+                  const schemaKey = productToSchemaKey(robot.model);
                   const highlightPrefix = `productGrid.solutionHighlights.${schemaKey}`;
                   const bullets = [
                     t(`${highlightPrefix}.bullet0`),
@@ -475,6 +516,70 @@ export default async function SolarPanelCleaningRobot({
                             ),
                           }}
                           preferGenericTitle
+                        />
+                        <div className="bg-white border border-gray-200 border-t-0 rounded-b-md px-5 pt-4 pb-5 -mt-1">
+                          <div className="text-[#A8C117] text-xs font-semibold uppercase tracking-wide mb-2">
+                            {t(`${highlightPrefix}.eyebrow`)}
+                          </div>
+                          <ul className="space-y-1.5">
+                            {bullets.map((b) => (
+                              <li
+                                key={b}
+                                className="flex items-start gap-2 text-gray-700 text-sm leading-snug"
+                              >
+                                <Check className="w-4 h-4 text-[#A8C117] mt-0.5 shrink-0" />
+                                <span>{b}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </AnimateOnScroll>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="mt-20 pt-16 border-t border-gray-200">
+              <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
+                <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
+                  {t("productGrid.comingSoonEyebrow")}
+                </div>
+                <h2 className="text-[#052638] font-semibold text-2xl sm:text-3xl md:text-4xl leading-tight">
+                  {t("productGrid.comingSoonTitle")}
+                </h2>
+                <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mt-5">
+                  {t("productGrid.comingSoonSubtitle")}
+                </p>
+              </AnimateOnScroll>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 justify-items-center max-w-3xl mx-auto">
+                {comingSoonRobotProducts.map((robot, idx) => {
+                  const schemaKey =
+                    robot.model === "MINY" ? "miny" : "cradyl";
+                  const highlightPrefix = `productGrid.comingSoonHighlights.${schemaKey}`;
+                  const bullets = [
+                    t(`${highlightPrefix}.bullet0`),
+                    t(`${highlightPrefix}.bullet1`),
+                    t(`${highlightPrefix}.bullet2`),
+                  ];
+                  return (
+                    <AnimateOnScroll
+                      key={robot.model}
+                      animation="scaleIn"
+                      delay={idx * 100}
+                      className="w-full flex justify-center"
+                    >
+                      <div className="flex flex-col w-80 max-w-full">
+                        <ComingSoonRobotCard
+                          robot={{
+                            ...robot,
+                            description: t(
+                              `schema.itemList.items.${schemaKey}.description`
+                            ),
+                            comingSoonLabel: t("productGrid.comingSoonBadge"),
+                            ctaLabel: t("productGrid.comingSoonCta"),
+                          }}
                         />
                         <div className="bg-white border border-gray-200 border-t-0 rounded-b-md px-5 pt-4 pb-5 -mt-1">
                           <div className="text-[#A8C117] text-xs font-semibold uppercase tracking-wide mb-2">
@@ -563,21 +668,20 @@ export default async function SolarPanelCleaningRobot({
             </AnimateOnScroll>
 
             <div className="overflow-x-auto rounded-lg border border-gray-200">
-              <table className="w-full text-left min-w-[760px]">
+              <table className="w-full text-left min-w-[960px]">
                 <thead className="bg-[#052638] text-white">
                   <tr>
-                    <th className="py-4 px-5 text-sm sm:text-base font-semibold w-1/4">
+                    <th className="py-4 px-4 text-sm sm:text-base font-semibold">
                       {t("comparison.tableHeaders.criteria")}
                     </th>
-                    <th className="py-4 px-5 text-sm sm:text-base font-semibold">
-                      {t("comparison.tableHeaders.modelA")}
-                    </th>
-                    <th className="py-4 px-5 text-sm sm:text-base font-semibold">
-                      {t("comparison.tableHeaders.modelB")}
-                    </th>
-                    <th className="py-4 px-5 text-sm sm:text-base font-semibold">
-                      {t("comparison.tableHeaders.modelT")}
-                    </th>
+                    {COMPARISON_PRODUCT_KEYS.map((pk) => (
+                      <th
+                        key={pk}
+                        className="py-4 px-4 text-sm sm:text-base font-semibold"
+                      >
+                        {t(`comparison.tableHeaders.${pk}`)}
+                      </th>
+                    ))}
                   </tr>
                 </thead>
                 <tbody>
@@ -586,18 +690,17 @@ export default async function SolarPanelCleaningRobot({
                       key={row.criterion}
                       className={idx % 2 === 0 ? "bg-white" : "bg-[#f4f1e9]/60"}
                     >
-                      <td className="py-3 px-5 text-sm sm:text-base font-medium text-[#052638] align-top">
+                      <td className="py-3 px-4 text-sm sm:text-base font-medium text-[#052638] align-top">
                         {row.criterion}
                       </td>
-                      <td className="py-3 px-5 text-sm sm:text-base text-gray-700 align-top">
-                        {row.modelA}
-                      </td>
-                      <td className="py-3 px-5 text-sm sm:text-base text-gray-700 align-top">
-                        {row.modelB}
-                      </td>
-                      <td className="py-3 px-5 text-sm sm:text-base text-gray-700 align-top">
-                        {row.modelT}
-                      </td>
+                      {COMPARISON_PRODUCT_KEYS.map((pk) => (
+                        <td
+                          key={pk}
+                          className="py-3 px-4 text-sm sm:text-base text-gray-700 align-top"
+                        >
+                          {row[pk]}
+                        </td>
+                      ))}
                     </tr>
                   ))}
                 </tbody>

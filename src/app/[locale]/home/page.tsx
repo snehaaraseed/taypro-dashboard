@@ -2,7 +2,11 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
-import { robots, tayproTrustedByStatsStrip } from "@/app/data";
+import {
+  robotProducts,
+  robotSolutions,
+  tayproTrustedByStatsStrip,
+} from "@/app/data";
 import { RobotCard } from "@/app/components/RobotCard";
 import { Container } from "@/app/components/Container";
 import {
@@ -90,11 +94,20 @@ export default async function HomePage() {
   const otherFeatures = buildTranslatedFeatures(t, "otherFeatures", OTHER_FEATURE_COUNT);
   const homeFaqs = buildHomeFaqs(t);
 
-  const translatedRobots = robots.map((robot, i) => ({
+  const translatedHardware = robotProducts.map((robot, i) => ({
     ...robot,
     marketingName: t(`robots.robot${i}.marketingName`),
     description: t(`robots.robot${i}.description`),
   }));
+
+  const translatedSolutions = robotSolutions.map((robot, i) => {
+    const msgIdx = robotProducts.length + i;
+    return {
+      ...robot,
+      marketingName: t(`robots.robot${msgIdx}.marketingName`),
+      description: t(`robots.robot${msgIdx}.description`),
+    };
+  });
 
   const stats = tayproTrustedByStatsStrip.map((stat, i) => ({
     value: stat.value,
@@ -228,7 +241,7 @@ export default async function HomePage() {
                   {t("robots.waterlessEyebrow")}
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-                  {translatedRobots.slice(0, 3).map((robot, idx) => (
+                  {translatedHardware.map((robot, idx) => (
                     <AnimateOnScroll
                       key={robot.model}
                       animation="fadeInUp"
@@ -250,7 +263,7 @@ export default async function HomePage() {
                   {t("robots.serviceEyebrow")}
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 items-stretch lg:grid-cols-6">
-                  {translatedRobots.slice(3).map((robot, idx) => (
+                  {translatedSolutions.map((robot, idx) => (
                     <AnimateOnScroll
                       key={robot.model}
                       animation="fadeInUp"

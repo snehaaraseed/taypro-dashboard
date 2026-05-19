@@ -1,0 +1,108 @@
+{
+  "MinyPage": {
+    "meta": {
+      "title": "MINY — Compact Rooftop Solar Cleaning Robot (Coming Soon) | Taypro",
+      "description": "MINY is Taypro's upcoming compact solar panel cleaning robot for smaller rooftop plants. Waterless, lightweight, and engineered for distributed commercial rooftops — register your interest for launch updates.",
+      "openGraphTitle": "MINY — Compact Rooftop Solar Cleaning Robot | Taypro",
+      "openGraphDescription": "Coming soon: a compact Taypro cleaning robot built for smaller rooftop solar plants across India.",
+      "openGraphImageAlt": "Taypro MINY compact rooftop solar panel cleaning robot — coming soon",
+      "twitterTitle": "MINY Compact Rooftop Cleaning Robot | Taypro",
+      "twitterDescription": "Compact solar cleaning robot for smaller rooftop plants — coming soon from Taypro.",
+      "keywords": [
+        "rooftop solar cleaning robot",
+        "compact solar panel cleaning robot",
+        "small rooftop solar cleaning",
+        "commercial rooftop solar O&M",
+        "MINY Taypro",
+        "solar panel cleaning robot India"
+      ]
+    },
+    "breadcrumbs": {
+      "robots": "Solar Panel Cleaning Robots",
+      "current": "MINY — Compact Rooftop Robot"
+    },
+    "schema": {
+      "productName": "MINY — Compact Rooftop Solar Panel Cleaning Robot",
+      "productDescription": "MINY is a compact Taypro solar panel cleaning robot engineered for smaller rooftop plants — waterless, lightweight, and built for distributed commercial rooftops.",
+      "offersPrice": "Coming soon — contact for early access"
+    },
+    "hero": {
+      "comingSoonBadge": "Coming soon",
+      "title": "MINY — Compact Rooftop Cleaning Robot",
+      "subtitle": "A compact solar panel cleaning robot engineered for smaller rooftop plants — lighter footprint, waterless cleaning, and Taypro reliability in a package sized for distributed commercial rooftops.",
+      "imgAlt": "Taypro MINY compact rooftop solar panel cleaning robot — coming soon",
+      "ctaText": "Register interest"
+    },
+    "intro": {
+      "eyebrow": "Built for rooftops",
+      "title": "Robotic cleaning sized for smaller rooftop portfolios",
+      "p1": "Utility-scale robots are over-specified for many commercial and industrial rooftops. MINY brings Taypro's waterless cleaning philosophy into a compact chassis designed for tighter layouts, lower parapets, and plants where every kilogram and centimetre of deck space matters.",
+      "p2": "We are finalising field trials with EPC and asset-owner partners across India. Share your rooftop plant profile to receive launch timelines, specification sheets, and pilot availability."
+    },
+    "highlightsSection": {
+      "eyebrow": "What to expect",
+      "title": "Why teams are asking for MINY"
+    },
+    "highlights": {
+      "0": {
+        "title": "Compact for smaller rooftops",
+        "body": "Sized for commercial and industrial rooftops where full utility-scale robots cannot deploy — without sacrificing Taypro's panel-safe cleaning approach."
+      },
+      "1": {
+        "title": "Waterless Taypro cleaning",
+        "body": "Dry cleaning methodology aligned with Taypro's proven waterless systems — no wash water logistics on congested roof decks."
+      },
+      "2": {
+        "title": "Distributed plant economics",
+        "body": "Targeted at portfolios of smaller rooftops where manual labour cost and soiling losses compound across many sites."
+      },
+      "3": {
+        "title": "Early access programme",
+        "body": "Register interest now for specification previews, pilot slots, and regional launch updates from our Pune engineering team."
+      }
+    },
+    "useCasesSection": {
+      "eyebrow": "Ideal deployments",
+      "title": "Where MINY fits best"
+    },
+    "useCases": {
+      "0": {
+        "title": "Commercial & industrial rooftops",
+        "body": "Factories, warehouses, and campus buildings with 100 kW–2 MW arrays that need consistent dry cleaning without heavy equipment."
+      },
+      "1": {
+        "title": "Constrained roof layouts",
+        "body": "Plants with limited walkway space, parapets, or HVAC clutter where a full-size autonomous robot is impractical."
+      },
+      "2": {
+        "title": "Multi-site O&M programmes",
+        "body": "Operators managing many small rooftops who want a standardised robotic platform instead of ad-hoc manual crews per site."
+      }
+    },
+    "notify": {
+      "title": "Get notified when MINY launches",
+      "subtitle": "Tell us about your rooftop plant and we will share specs, pricing guidance, and pilot opportunities as we approach general availability.",
+      "formEyebrow": "Early access",
+      "formTitle": "Register interest in MINY",
+      "messageLabel": "Rooftop plant details",
+      "messagePlaceholder": "Plant capacity, city, roof type, current cleaning method, timeline…",
+      "submitLabel": "Send interest request"
+    },
+    "related": {
+      "eyebrow": "Available today",
+      "title": "Explore Taypro robots shipping now",
+      "linkCta": "Learn more",
+      "links": {
+        "0": {
+          "label": "HELYX — Semi-automatic robot",
+          "description": "Pick-and-place waterless cleaning for scattered blocks and flexible layouts today."
+        },
+        "1": {
+          "label": "All solar cleaning robots",
+          "description": "Compare GLYDE, HELYX, GLYDE-X, Taypro OPEX, and NECTYR."
+        }
+      }
+    },
+    "footerNote": "MINY is under active development. Specifications, pricing, and availability dates may change before launch."
+  }
+}

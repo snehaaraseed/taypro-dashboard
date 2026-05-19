@@ -2,7 +2,7 @@
   "SolarSystemPage": {
     "meta": {
       "title": "Solar Panel Cleaning Robot & System in India — Machines & Models | Taypro",
-      "description": "Compare every Taypro Solar Panel Cleaning Robot in one place. Choose between Model-A (automatic), Model-B (semi-automatic, pick-and-place), Model-T (single-axis tracker), or Taypro OPEX as a service. Waterless dual-pass cleaning, AI/ML scheduling, TÜV NORD certified, same-day pan-India breakdown support.",
+      "description": "Compare every Taypro Solar Panel Cleaning Robot: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, plus Taypro OPEX and NECTYR. Waterless cleaning, AI scheduling, TÜV NORD certified, pan-India support.",
       "keywords": [
         "solar panel cleaning robot",
         "solar panel cleaning robot India",
@@ -14,7 +14,7 @@
         "robotic solar panel cleaning system",
         "solar panel cleaning robot for solar farm",
         "Taypro solar cleaning robot",
-        "Taypro Model-A vs Model-B vs Model-T",
+        "Taypro GLYDE NYUMA HELYX robot lineup",
         "CAPEX vs OPEX solar cleaning",
         "solar panel cleaning system",
         "solar cleaning system",
@@ -25,13 +25,13 @@
       ],
       "openGraphSiteName": "Taypro",
       "openGraphTitle": "Solar Panel Cleaning Robot | Automatic, Semi-Automatic & Tracker Models — Taypro",
-      "openGraphDescription": "Choose the right Solar Panel Cleaning Robot for your solar plant — autonomous Model-A, semi-automatic pick-and-place Model-B, single-axis tracker Model-T, plus Taypro OPEX (pay per panel cleaned) and Taypro Console fleet software.",
-      "openGraphImageAlt": "Taypro Solar Panel Cleaning Robots — Model-A, Model-B and Model-T for Indian solar plants",
+      "openGraphDescription": "Choose the right robot for your plant — GLYDE and GLYDE-X flagship dual-pass robots, NYUMA and NYUMA-X PBT platforms, HELYX for scattered plants, plus OPEX and NECTYR.",
+      "openGraphImageAlt": "Taypro Solar Panel Cleaning Robots — GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX",
       "openGraphLocale": "en_IN",
       "openGraphType": "website",
       "twitterCard": "summary_large_image",
       "twitterTitle": "Solar Panel Cleaning Robot | Taypro — Made in India",
-      "twitterDescription": "Automatic, semi-automatic and tracker-ready Solar Panel Cleaning Robots with waterless cleaning, AI scheduling and same-day pan-India breakdown support."
+      "twitterDescription": "Five Taypro cleaning robots for fixed-tilt and tracker plants — PBT single-pass and patented dual-pass microfiber options."
     },
     "breadcrumbs": {
       "home": "Home",
@@ -40,36 +40,48 @@
     "schema": {
       "collectionPage": {
         "name": "Solar Panel Cleaning Robots by Taypro",
-        "description": "Category of Solar Panel Cleaning Robots from Taypro: Automatic (Model-A), Semi-Automatic (Model-B), Tracker-Ready (Model-T), Taypro OPEX cleaning service, and Taypro Console fleet portal."
+        "description": "Taypro robots: GLYDE and GLYDE-X (dual-pass flagship), NYUMA and NYUMA-X (PBT automatic), HELYX (semi-automatic pick-and-place), plus OPEX and NECTYR."
       },
       "itemList": {
         "name": "Taypro Solar Panel Cleaning Robots — Product Line",
         "description": "Complete line of Taypro Solar Panel Cleaning Robots and related software / service offerings.",
         "itemNameSuffix": " — Solar Panel Cleaning Robot",
         "items": {
-          "modelA": {
-            "description": "Fully autonomous, waterless dry cleaning with dual-pass airflow and microfiber—AI scheduling for fixed and seasonal-tilt utility plants."
+          "helyx": {
+            "description": "Semi-automatic pick-and-place waterless cleaning with single-pass PBT for scattered and distributed utility plants."
           },
-          "modelB": {
-            "description": "Portable pick-and-place dry cleaning robot for scattered blocks and plants that need flexible crew-assisted coverage."
+          "glyde": {
+            "description": "Fully autonomous waterless cleaning with patented dual-pass airflow and microfiber for fixed and seasonal-tilt utility plants."
           },
-          "modelT": {
-            "description": "Autonomous waterless robot for single-axis trackers—flexible bridge and 360° rotation across tracker brands."
+          "nyuma": {
+            "description": "Fully autonomous single-pass PBT waterless cleaning for fixed and seasonal-tilt utility-scale plants."
+          },
+          "glydeX": {
+            "description": "Autonomous tracker robot with patented dual-pass microfiber and flexible 360° bridge."
+          },
+          "nyumaX": {
+            "description": "Autonomous tracker robot with single-pass PBT cleaning and flexible body for single-axis tables."
           },
           "tayproOpex": {
             "description": "Pay-per-panel-cleaned Opex—Taypro operates the cleaning robot fleet on your plant with no upfront CAPEX."
           },
           "tayproConsole": {
             "description": "Fleet portal to schedule, monitor, and report on solar panel cleaning robots across your site."
+          },
+          "miny": {
+            "description": "Compact cleaning robot for smaller rooftop plants — waterless, lightweight, coming soon."
+          },
+          "cradyl": {
+            "description": "Movable docking station for autonomous row-to-row robot transfer on scattered plants — coming soon."
           }
         }
       }
     },
     "shared": {
       "connectivitySummary": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN",
-      "panIndiaServiceCardBody": "Taypro targets same-day on-site breakdown resolution across India, with immediate remote diagnostics through Taypro Console, regional spare inventory, and structured AMC programs so mean time to repair stays predictable.",
-      "combinedSupportParagraph": "Taypro provides same-day on-site breakdown resolution across India along with immediate remote diagnostics from Taypro Console, dedicated field engineers, and AMC-backed spare planning.",
-      "faqSupportAmcSuffix": " AMC packages add preventive maintenance, spares planning, and a structured ticketing workflow on Console so mean time to repair stays predictable."
+      "panIndiaServiceCardBody": "Taypro targets same-day on-site breakdown resolution across India, with immediate remote diagnostics through NECTYR, regional spare inventory, and structured AMC programs so mean time to repair stays predictable.",
+      "combinedSupportParagraph": "Taypro provides same-day on-site breakdown resolution across India along with immediate remote diagnostics from NECTYR, dedicated field engineers, and AMC-backed spare planning.",
+      "faqSupportAmcSuffix": " AMC packages add preventive maintenance, spares planning, and a structured ticketing workflow on NECTYR so mean time to repair stays predictable."
     },
     "robotFeatures": {
       "feature0": {
@@ -143,11 +155,11 @@
         "beforeBold1": "Taypro designs, manufactures and services ",
         "bold1": "Solar Panel Cleaning Robots",
         "afterBold1": " for India's utility-scale solar plants — fully ",
-        "bold2": "Automatic (Model-A)",
+        "bold2": "Automatic (GLYDE)",
         "afterBold2": ", semi-automatic pick-and-place ",
-        "bold3": "(Model-B)",
+        "bold3": "(HELYX)",
         "afterBold3": ", and tracker-ready ",
-        "bold4": "(Model-T)",
+        "bold4": "(GLYDE-X)",
         "afterBold4": ". Waterless dual-pass cleaning, AI/ML scheduling, TÜV NORD certified hardware, and same-day pan-India breakdown support — available as CAPEX or as a monthly "
       },
       "payPerPanelServiceLinkText": "pay-per-panel-cleaned service",
@@ -159,23 +171,35 @@
         "label": "Request a quote"
       },
       "secondaryCta": "Calculate ROI",
-      "heroImageAlt": "Taypro Solar Panel Cleaning Robots — Model-A automatic, Model-B semi-automatic, Model-T tracker for utility-scale solar plants in India",
+      "heroImageAlt": "Taypro Solar Panel Cleaning Robots — GLYDE automatic, HELYX semi-automatic, GLYDE-X tracker for utility-scale solar plants in India",
       "heroImageTitle": "Solar Panel Cleaning Robots by Taypro"
     },
     "heroStats": {
-      "stat0": { "value": "50 MW+", "label": "Typical plant size deployed" },
-      "stat1": { "value": "Same day", "label": "Pan-India breakdown response" },
-      "stat2": { "value": "TÜV NORD", "label": "Certified hardware" },
-      "stat3": { "value": "Waterless", "label": "Dual-pass cleaning" }
+      "stat0": {
+        "value": "50 MW+",
+        "label": "Typical plant size deployed"
+      },
+      "stat1": {
+        "value": "Same day",
+        "label": "Pan-India breakdown response"
+      },
+      "stat2": {
+        "value": "TÜV NORD",
+        "label": "Certified hardware"
+      },
+      "stat3": {
+        "value": "Waterless",
+        "label": "Dual-pass cleaning"
+      }
     },
     "intro": {
       "eyebrow": "Why robotic cleaning, why Taypro",
       "title": "The category leader for Solar Panel Cleaning Robots in India",
       "p1": "Dust, agricultural residue and bird droppings can cut PV generation by 8–25% across Indian utility plants. Manual washing is expensive, water-hungry, and never consistent across rows or shifts. A purpose-built Solar Panel Cleaning Robot recovers that lost yield, cleans every panel the same way every night, and removes water from your O&M plan entirely.",
-      "p2LinkAutomatic": "Automatic Solar Panel Cleaning Robot (Model-A)",
-      "p2LinkModelB": "Model-B",
-      "p2LinkModelT": "Model-T",
-      "p2LinkConsole": "Taypro Console",
+      "p2LinkAutomatic": "GLYDE automatic robot",
+      "p2LinkModelB": "HELYX",
+      "p2LinkModelT": "GLYDE-X",
+      "p2LinkConsole": "NECTYR",
       "p2LinkOpex": "Taypro OPEX",
       "p2BeforeLinks": "Taypro is a Made-in-India manufacturer of robotic cleaning systems. Our line spans the fully ",
       "p2BetweenAB": ", the semi-automatic pick-and-place ",
@@ -192,25 +216,37 @@
     "productGrid": {
       "eyebrow": "Our robot line-up",
       "title": "Choose your Solar Panel Cleaning Robot",
-      "subtitle": "Three robot platforms, one fleet portal, two commercial models — pick the one engineered for your plant.",
+      "subtitle": "Five robot platforms, one fleet portal, two commercial models — pick the plant fit and cleaning technology that match your site.",
       "robotHighlights": {
-        "modelA": {
-          "eyebrow": "Fully Autonomous · CAPEX",
-          "bullet0": "Dual-pass waterless cleaning (air + microfiber)",
-          "bullet1": "Up to 3,600 modules per charge, AI/ML scheduling",
-          "bullet2": "Best for fixed / seasonal-tilt utility-scale plants"
-        },
-        "modelB": {
+        "helyx": {
           "eyebrow": "Semi-Automatic · Pick & Place",
-          "bullet0": "1 MW cleaned in ~2 hours, portable across blocks",
-          "bullet1": "Lowest cost-per-MW for distributed plants",
-          "bullet2": "Ideal for scattered or constrained layouts"
+          "bullet0": "Single-pass PBT — no dual-pass, no microfiber",
+          "bullet1": "~1 MW in ~2 hours, portable across blocks",
+          "bullet2": "Scattered and distributed utility plants"
         },
-        "modelT": {
-          "eyebrow": "Tracker-Ready · Autonomous",
-          "bullet0": "Patented 360° flexible rotational bridge",
-          "bullet1": "Works across NEXTracker, Gamechanger & more",
-          "bullet2": "Built for single-axis tracker plants"
+        "glyde": {
+          "eyebrow": "Fully Autonomous · Dual-Pass",
+          "bullet0": "Patented dual-pass microfiber (air + microfiber)",
+          "bullet1": "Up to 3,600 modules per charge, AI/ML scheduling",
+          "bullet2": "Fixed / seasonal-tilt utility-scale plants"
+        },
+        "nyuma": {
+          "eyebrow": "Fully Autonomous · PBT",
+          "bullet0": "Single-pass UV-stable PBT brush",
+          "bullet1": "Up to 2.2 km per charge, AI/ML scheduling",
+          "bullet2": "Fixed / seasonal-tilt utility-scale plants"
+        },
+        "glydeX": {
+          "eyebrow": "Tracker · Dual-Pass",
+          "bullet0": "Patented dual-pass microfiber on trackers",
+          "bullet1": "Flexible body and 360° bridge",
+          "bullet2": "Single-axis tracker plants"
+        },
+        "nyumaX": {
+          "eyebrow": "Tracker · PBT",
+          "bullet0": "Single-pass PBT — same family as NYUMA",
+          "bullet1": "Flexible body for tracker tables",
+          "bullet2": "Single-axis tracker plants"
         }
       },
       "solutionsEyebrow": "Software & services",
@@ -228,6 +264,25 @@
           "bullet1": "Gateway and robot health visibility",
           "bullet2": "Role-based access, support tickets, chat"
         }
+      },
+      "comingSoonEyebrow": "Roadmap",
+      "comingSoonTitle": "Coming soon from Taypro",
+      "comingSoonSubtitle": "Next-generation platforms in active development — register interest for launch updates and early pilots.",
+      "comingSoonBadge": "Coming soon",
+      "comingSoonCta": "Learn more",
+      "comingSoonHighlights": {
+        "miny": {
+          "eyebrow": "Rooftop · Compact",
+          "bullet0": "Sized for smaller commercial & industrial rooftops",
+          "bullet1": "Waterless Taypro cleaning in a lighter chassis",
+          "bullet2": "Early access & pilot registration open"
+        },
+        "cradyl": {
+          "eyebrow": "Docking · Row transfer",
+          "bullet0": "Autonomous robot transfer between rows",
+          "bullet1": "One robot, multiple rows on scattered plants",
+          "bullet2": "Pairs with Taypro cleaning robots in the field"
+        }
       }
     },
     "decisionGuide": {
@@ -236,73 +291,97 @@
       "subtitle": "A quick guide to picking the right Taypro platform. Final recommendation is always confirmed with a plant soiling study and site walkthrough.",
       "cards": {
         "card0": {
-          "title": "Fixed / seasonal-tilt utility plants",
-          "body": "Daily, fully autonomous cleaning on every row, every night. Choose Model-A for the highest cleaning uptime and lowest manual intervention.",
-          "cta": "See Model-A"
+          "title": "Fixed-tilt — patented dual-pass",
+          "body": "Want Taypro's core dual-pass microfiber technology on fixed or seasonal-tilt arrays? GLYDE delivers fully autonomous cleaning with AI scheduling.",
+          "cta": "See GLYDE"
         },
         "card1": {
-          "title": "Scattered or distributed plants",
-          "body": "Multiple smaller blocks, rooftops or constrained layouts where one robot per row is overkill. Model-B moves block-to-block and cleans 1 MW in roughly 2 hours.",
-          "cta": "See Model-B"
+          "title": "Single-axis tracker — dual-pass",
+          "body": "GLYDE-X pairs patented dual-pass microfiber with a flexible body for horizontal single-axis tracker plants.",
+          "cta": "See GLYDE-X"
         },
         "card2": {
-          "title": "Single-axis tracker plants",
-          "body": "Tracker structures need a tracker-aware robot. Model-T's 360° rotational bridge handles NEXTracker, Gamechanger and other popular trackers out of the box.",
-          "cta": "See Model-T"
+          "title": "Fixed-tilt — PBT platform",
+          "body": "Prefer a fully autonomous PBT single-pass platform on the same plant types? NYUMA is built for reliable daily dry cleaning without microfiber.",
+          "cta": "See NYUMA"
         },
         "card3": {
+          "title": "Single-axis tracker — PBT",
+          "body": "NYUMA-X delivers single-pass PBT cleaning on trackers with the same flexible-body platform class as GLYDE-X.",
+          "cta": "See NYUMA-X"
+        },
+        "card4": {
+          "title": "Scattered or distributed plants",
+          "body": "HELYX is semi-automatic pick-and-place with single-pass PBT — ideal when crews move one robot across multiple blocks.",
+          "cta": "See HELYX"
+        },
+        "card5": {
           "title": "Prefer outcomes, not assets?",
-          "body": "If you'd rather not own the hardware, Taypro OPEX delivers robotic cleaning as a monthly service, with reports surfaced in Taypro Console.",
+          "body": "Taypro OPEX delivers robotic cleaning as a monthly service, with reports in NECTYR.",
           "cta": "See Taypro OPEX"
         }
       }
     },
     "comparison": {
       "eyebrow": "Side-by-side",
-      "title": "Model-A vs Model-B vs Model-T",
-      "subtitle": "Quick comparison of Taypro's three Solar Panel Cleaning Robot platforms across plant fit, cleaning method, autonomy and commercial model.",
+      "title": "Compare Taypro cleaning robots",
+      "subtitle": "Five hardware platforms across plant type, cleaning technology, autonomy, and connectivity.",
       "tableHeaders": {
         "criteria": "Criteria",
-        "modelA": "Model-A",
-        "modelB": "Model-B",
-        "modelT": "Model-T"
+        "glyde": "GLYDE",
+        "glydeX": "GLYDE-X",
+        "nyuma": "NYUMA",
+        "nyumaX": "NYUMA-X",
+        "helyx": "HELYX"
       },
       "rows": {
         "row0": {
           "criterion": "Plant type",
-          "modelA": "Fixed / seasonal-tilt utility-scale",
-          "modelB": "Distributed, scattered or constrained",
-          "modelT": "Single-axis tracker plants"
+          "helyx": "Scattered / distributed fixed-tilt",
+          "glyde": "Fixed / seasonal-tilt utility-scale",
+          "nyuma": "Fixed / seasonal-tilt utility-scale",
+          "glydeX": "Single-axis tracker",
+          "nyumaX": "Single-axis tracker"
         },
         "row1": {
           "criterion": "Autonomy",
-          "modelA": "Fully autonomous (one robot per row)",
-          "modelB": "Semi-automatic (operator-assisted pick & place)",
-          "modelT": "Fully autonomous with tracker handover"
+          "helyx": "Semi-automatic (pick & place)",
+          "glyde": "Fully autonomous",
+          "nyuma": "Fully autonomous",
+          "glydeX": "Fully autonomous",
+          "nyumaX": "Fully autonomous"
         },
         "row2": {
-          "criterion": "Cleaning method",
-          "modelA": "Waterless dual-pass — airflow + microfiber",
-          "modelB": "Waterless dry cleaning, portable arm",
-          "modelT": "Waterless dual-pass with flexible 360° bridge"
+          "criterion": "Cleaning technology",
+          "helyx": "Single-pass PBT brush",
+          "glyde": "Patented dual-pass microfiber",
+          "nyuma": "Single-pass PBT brush",
+          "glydeX": "Patented dual-pass microfiber",
+          "nyumaX": "Single-pass PBT brush"
         },
         "row3": {
           "criterion": "Cleaning rate",
-          "modelA": "Up to 3,600 modules per charge",
-          "modelB": "~1 MW in ~2 hours per unit",
-          "modelT": "Row-by-row, tracker-synchronised"
+          "helyx": "~1 MW in ~2 hours per unit",
+          "glyde": "Up to 3,600 modules per charge",
+          "nyuma": "Up to 2.2 km (~3,600 modules) per charge",
+          "glydeX": "Row-by-row, tracker-synchronised",
+          "nyumaX": "Row-by-row, tracker-synchronised"
         },
         "row4": {
           "criterion": "Commercial model",
-          "modelA": "CAPEX + AMC, 12–18 month payback typical",
-          "modelB": "CAPEX + AMC, lowest cost-per-MW",
-          "modelT": "CAPEX + AMC, tracker plant economics"
+          "helyx": "CAPEX + AMC",
+          "glyde": "CAPEX + AMC",
+          "nyuma": "CAPEX + AMC",
+          "glydeX": "CAPEX + AMC",
+          "nyumaX": "CAPEX + AMC"
         },
         "row5": {
-          "criterion": "Connectivity to Taypro Console",
-          "modelA": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN",
-          "modelB": "Operator-led with Console reporting",
-          "modelT": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN"
+          "criterion": "NECTYR",
+          "helyx": "Operator-led with NECTYR reporting",
+          "glyde": "LTE, Wi-Fi, RF mesh, LoRa, LoRaWAN",
+          "nyuma": "LTE, Wi-Fi, RF mesh, LoRa, LoRaWAN",
+          "glydeX": "LTE, Wi-Fi, RF mesh, LoRa, LoRaWAN",
+          "nyumaX": "LTE, Wi-Fi, RF mesh, LoRa, LoRaWAN"
         }
       },
       "ctaLine": "Not sure which platform fits? Share your plant details and our team will recommend the right Solar Panel Cleaning Robot mix after a quick soiling study. ",
@@ -321,9 +400,9 @@
       "brush1": "Water, detergents, and discharge compliance on many sites",
       "brush2": "Inconsistent pass quality and weather windows",
       "brush3": "Hard to audit panel-level proof for investors",
-      "robotTitle": "Taypro cleaning robots (Model-A / B / T or OPEX)",
+      "robotTitle": "Taypro cleaning robots (GLYDE / NYUMA / HELYX / OPEX)",
       "robot0": "Waterless dual-pass — predictable cycles per month",
-      "robot1": "Telemetry and reports via Taypro Console",
+      "robot1": "Telemetry and reports via NECTYR",
       "robot2": "Designed for utility row lengths and tracker tables",
       "robot3": "CAPEX purchase or Taypro OPEX pay-per-panel-cleaned",
       "ctaService": "Explore cleaning service",
@@ -350,7 +429,7 @@
         },
         "card3": {
           "title": "Same-day pan-India breakdown response",
-          "body": "Taypro targets same-day on-site breakdown resolution across India, with immediate remote diagnostics through Taypro Console, regional spare inventory, and structured AMC programs so mean time to repair stays predictable."
+          "body": "Taypro targets same-day on-site breakdown resolution across India, with immediate remote diagnostics through NECTYR, regional spare inventory, and structured AMC programs so mean time to repair stays predictable."
         }
       }
     },
@@ -373,7 +452,7 @@
         },
         "item3": {
           "title": "Rapid breakdown response",
-          "body": "Taypro targets same-day on-site breakdown resolution across India, with immediate remote diagnostics through Taypro Console, regional spare inventory, and structured AMC programs so mean time to repair stays predictable."
+          "body": "Taypro targets same-day on-site breakdown resolution across India, with immediate remote diagnostics through NECTYR, regional spare inventory, and structured AMC programs so mean time to repair stays predictable."
         }
       }
     },
@@ -400,10 +479,10 @@
       "imageTitle": "Solar Panel Cleaning Robot by Taypro at a utility-scale plant"
     },
     "consoleBand": {
-      "eyebrow": "Taypro Console — fleet portal",
+      "eyebrow": "NECTYR — fleet portal",
       "title": "One portal to monitor every Solar Panel Cleaning Robot in your plant",
       "body": "Site dashboards, weather context, block-wise schedules, cleaning logs, exports, gateway and robot health, and support tickets — all role-based and ready for utility-scale O&M governance.",
-      "cta": "Explore Taypro Console"
+      "cta": "Explore NECTYR"
     },
     "thingsToMind": {
       "eyebrow": "Field-tested practices",
@@ -425,11 +504,11 @@
         },
         "item1": {
           "question": "Which is the best Solar Panel Cleaning Robot for utility-scale plants in India?",
-          "answer": "For most large fixed or seasonal-tilt plants, the Taypro Model-A Automatic Solar Panel Cleaning Robot is the right answer — fully autonomous, waterless dual-pass cleaning, AI/ML scheduling, and built for Indian heat and dust. For single-axis tracker plants, Model-T is the tracker-aware option. For scattered or smaller blocks, Model-B's semi-automatic pick-and-place model gives the lowest cost-per-MW."
+          "answer": "For most large fixed or seasonal-tilt plants, the Taypro GLYDE Automatic Solar Panel Cleaning Robot is the right answer — fully autonomous, waterless dual-pass cleaning, AI/ML scheduling, and built for Indian heat and dust. For single-axis tracker plants, GLYDE-X is the tracker-aware option. For scattered or smaller blocks, HELYX's semi-automatic pick-and-place model gives the lowest cost-per-MW."
         },
         "item2": {
           "question": "Are Taypro's Solar Panel Cleaning Robots fully automatic?",
-          "answer": "Model-A and Model-T are fully autonomous — they run on pre-scheduled cycles, return to their docking station, and report status to Taypro Console without daily operator effort. Model-B is semi-automatic and operator-assisted, which keeps it portable across blocks. Across all three, the Taypro Console fleet portal lets your team monitor health, schedule cleaning, and pull cleaning reports remotely."
+          "answer": "GLYDE and GLYDE-X are fully autonomous — they run on pre-scheduled cycles, return to their docking station, and report status to NECTYR without daily operator effort. HELYX is semi-automatic and operator-assisted, which keeps it portable across blocks. Across all three, the NECTYR fleet portal lets your team monitor health, schedule cleaning, and pull cleaning reports remotely."
         },
         "item3": {
           "question": "Do Solar Panel Cleaning Robots use water?",
@@ -437,19 +516,19 @@
         },
         "item4": {
           "question": "How much does a Solar Panel Cleaning Robot cost in India and what's the ROI?",
-          "answer": "Pricing depends on plant size, model (Model-A / B / T), site layout and commercial structure (CAPEX vs OPEX). Typical CAPEX deployments target a 12–18 month payback driven by yield recovery, reduced water and labour, and lower DISCOM penalties. Use the Taypro Solar Panel Cleaning Robot ROI Calculator on our website for a quick plant-specific estimate, then contact us for a detailed quote."
+          "answer": "Pricing depends on plant size, model (GLYDE / B / T), site layout and commercial structure (CAPEX vs OPEX). Typical CAPEX deployments target a 12–18 month payback driven by yield recovery, reduced water and labour, and lower DISCOM penalties. Use the Taypro Solar Panel Cleaning Robot ROI Calculator on our website for a quick plant-specific estimate, then contact us for a detailed quote."
         },
         "item5": {
           "question": "Can I buy robotic cleaning as a service instead of CAPEX?",
-          "answer": "Yes. Taypro OPEX is our pay-per-panel-cleaned monthly service for utility-scale plants (typically 50 MW+). Taypro deploys Model-A, Model-B or Model-T as the site requires, runs 3–10 cycles per month based on a soiling study, and bills only for panels cleaned. You see every cycle and report on Taypro Console without owning the hardware."
+          "answer": "Yes. Taypro OPEX is our pay-per-panel-cleaned monthly service for utility-scale plants (typically 50 MW+). Taypro deploys GLYDE, HELYX or GLYDE-X as the site requires, runs 3–10 cycles per month based on a soiling study, and bills only for panels cleaned. You see every cycle and report on NECTYR without owning the hardware."
         },
         "item6": {
           "question": "How are the robots monitored after installation?",
-          "answer": "Every Taypro deployment is monitored through Taypro Console — the secure customer portal for fleet dashboards, schedules, cleaning logs, exports, and support tickets. Fleet connectivity uses LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa and LoRaWAN, designed and sized by Taypro engineers during commissioning."
+          "answer": "Every Taypro deployment is monitored through NECTYR — the secure customer portal for fleet dashboards, schedules, cleaning logs, exports, and support tickets. Fleet connectivity uses LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa and LoRaWAN, designed and sized by Taypro engineers during commissioning."
         },
         "item7": {
           "question": "What support does Taypro provide if a robot breaks down?",
-          "answer": "Taypro provides same-day on-site breakdown resolution across India along with immediate remote diagnostics from Taypro Console, dedicated field engineers, and AMC-backed spare planning. AMC packages add preventive maintenance, spares planning, and a structured ticketing workflow on Console so mean time to repair stays predictable."
+          "answer": "Taypro provides same-day on-site breakdown resolution across India along with immediate remote diagnostics from NECTYR, dedicated field engineers, and AMC-backed spare planning. AMC packages add preventive maintenance, spares planning, and a structured ticketing workflow on NECTYR so mean time to repair stays predictable."
         },
         "item8": {
           "question": "Is Taypro a manufacturer or a reseller of Solar Panel Cleaning Robots?",

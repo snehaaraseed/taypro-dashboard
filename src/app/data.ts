@@ -1,3 +1,14 @@
+import {
+  CRADYL_PRODUCT_PATH,
+  MINY_PRODUCT_PATH,
+} from "@/lib/product-coming-soon";
+import {
+  getRelatedProductCards,
+  HARDWARE_PRODUCT_IDS,
+  PRODUCT_CATALOG,
+  type ProductId,
+} from "@/lib/products/catalog";
+
 // import { EnergyResourceCard } from "./utils/extractSlug";
 interface EnergyResourceCard {
   title: string;
@@ -6,7 +17,7 @@ interface EnergyResourceCard {
   href: string;
 }
 
-/** Fleet connectivity to Taypro Console (Model-A & Model-T). */
+/** Fleet connectivity to NECTYR (GLYDE, GLYDE-X, NYUMA, NYUMA-X). */
 export const tayproRobotConnectivitySummary =
   "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN";
 
@@ -16,9 +27,9 @@ export const tayproRobotConnectivitySummary =
  */
 export const tayproServiceSlaCopy = {
   panIndiaServiceCardBody:
-    "Taypro targets same-day on-site breakdown resolution across India, with immediate remote diagnostics through Taypro Console, regional spare inventory, and structured AMC programs so mean time to repair stays predictable.",
+    "Taypro targets same-day on-site breakdown resolution across India, with immediate remote diagnostics through NECTYR, regional spare inventory, and structured AMC programs so mean time to repair stays predictable.",
   combinedSupportParagraph:
-    "Taypro provides same-day on-site breakdown resolution across India along with immediate remote diagnostics from Taypro Console, dedicated field engineers, and AMC-backed spare planning.",
+    "Taypro provides same-day on-site breakdown resolution across India along with immediate remote diagnostics from NECTYR, dedicated field engineers, and AMC-backed spare planning.",
 } as const;
 
 /**
@@ -45,7 +56,7 @@ export const tayproMarketingImpactStats = {
   },
 } as const;
 
-/** Trusted-by stat row on Model-A / B / T marketing pages (four tiles). */
+/** Trusted-by stat row on product marketing pages (four tiles). */
 export const tayproTrustedByStatsStrip = [
   tayproMarketingImpactStats.robotCapacityDeployed,
   tayproMarketingImpactStats.plantInstallations,
@@ -53,32 +64,20 @@ export const tayproTrustedByStatsStrip = [
   tayproMarketingImpactStats.robotsManufacturedPerMonth,
 ] as const;
 
+function hardwareRobotFromCatalog(id: ProductId) {
+  const p = PRODUCT_CATALOG[id];
+  return {
+    model: p.itemName,
+    marketingName: p.marketingName,
+    description: p.description,
+    imgPath: p.imagePath,
+    href: p.href,
+    productId: p.id,
+  };
+}
+
 export const robots = [
-  {
-    model: "Model-A",
-    /** Customer-facing title for SEO hubs (generic keywords, not model names). */
-    marketingName: "Automatic solar panel cleaning robot",
-    description:
-      "Fully autonomous, waterless dry cleaning with dual-pass airflow and microfiber—AI scheduling for fixed and seasonal-tilt utility plants.",
-    imgPath: "/tayprorobots/taypro-modelAcopy.png",
-    href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
-  },
-  {
-    model: "Model-B",
-    marketingName: "Semi-automatic solar panel cleaning robot",
-    description:
-      "Portable pick-and-place dry cleaning robot for scattered blocks and plants that need flexible crew-assisted coverage.",
-    imgPath: "/tayprorobots/taypro-modelBcopy.png",
-    href: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
-  },
-  {
-    model: "Model-T",
-    marketingName: "Tracker solar panel cleaning robot",
-    description:
-      "Autonomous waterless robot for single-axis trackers—flexible bridge and 360° rotation across tracker brands.",
-    imgPath: "/tayprorobots/taypro-modelTcopy.png",
-    href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
-  },
+  ...HARDWARE_PRODUCT_IDS.map(hardwareRobotFromCatalog),
   {
     model: "Taypro Opex",
     marketingName: "Robotic solar panel cleaning service",
@@ -88,7 +87,7 @@ export const robots = [
     href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
   },
   {
-    model: "Taypro Console",
+    model: "NECTYR",
     marketingName: "Solar cleaning robot monitoring software",
     description:
       "Fleet portal to schedule, monitor, and report on solar panel cleaning robots across your site.",
@@ -97,32 +96,40 @@ export const robots = [
   },
 ];
 
-export const robotProducts = robots.slice(0, 3);
-export const robotSolutions = robots.slice(3);
+export const robotProducts = HARDWARE_PRODUCT_IDS.map(hardwareRobotFromCatalog);
+export const robotSolutions = robots.filter(
+  (r) => r.model === "Taypro Opex" || r.model === "NECTYR"
+);
 
-export const ourSolutions = [
+/** Upcoming products — marketing pages live; hardware not yet GA. */
+export const comingSoonRobotProducts = [
   {
-    model: "Model-A",
+    model: "MINY",
+    marketingName: "Compact rooftop solar cleaning robot",
     description:
-      "Autonomous Waterless Cleaning Robot with Dual pass cleaning method with AI and ML Capabilities.",
-    imgPath: "/tayprorobots/taypro-modelAcopy.png",
-    href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
-  },
-  {
-    model: "Model-B",
-    description:
-      "A pick-and-place type portable dry solar panel cleaning robot for scattered utility scale solar power plants.",
+      "A compact cleaning robot for smaller rooftop plants — waterless, lightweight, and sized for distributed commercial rooftops.",
     imgPath: "/tayprorobots/taypro-modelBcopy.png",
-    href: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
+    href: MINY_PRODUCT_PATH,
   },
   {
-    model: "Model-T",
+    model: "CRADYL",
+    marketingName: "Autonomous row-transfer docking station",
     description:
-      "Autonomous patented cleaning robot with flexible body and 360° flexible rotational bridge for single-axis trackers.",
-    imgPath: "/tayprorobots/taypro-modelTcopy.png",
-    href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
+      "A movable docking station that autonomously moves one cleaning robot from row to row — multi-row coverage with a single robot on scattered plants.",
+    imgPath: "/tayprorobots/taypro-modelBcopy.png",
+    href: CRADYL_PRODUCT_PATH,
   },
-];
+] as const;
+
+export const ourSolutions = HARDWARE_PRODUCT_IDS.map((id) => {
+  const p = PRODUCT_CATALOG[id];
+  return {
+    model: p.itemName,
+    description: p.description,
+    imgPath: p.imagePath,
+    href: p.href,
+  };
+});
 
 export const clientLogos = [
   "/tayproclients/taypro-client1.png",
@@ -149,12 +156,12 @@ export const features = [
   {
     title: "Highest uptime guarantee",
     description:
-      "Taypro targets industry-leading robot availability with pan-India spares, Console remote diagnostics, and structured AMC support.",
+      "Taypro targets industry-leading robot availability with pan-India spares, NECTYR remote diagnostics, and structured AMC support.",
   },
   {
     title: "Same-day breakdown resolution",
     description:
-      "Field engineers and regional inventory support same-day on-site response across India—backed by Taypro Console ticketing.",
+      "Field engineers and regional inventory support same-day on-site response across India—backed by NECTYR ticketing.",
   },
 ];
 
@@ -167,7 +174,7 @@ export const otherFeatures = [
   {
     title: "RF mesh & fleet connectivity",
     description:
-      "LTE, Wi-Fi, hybrid RF mesh, LoRa, and LoRaWAN—sized per site so robots and Taypro Console stay connected in the field.",
+      "LTE, Wi-Fi, hybrid RF mesh, LoRa, and LoRaWAN—sized per site so robots and NECTYR stay connected in the field.",
   },
   {
     title: "AI/ML scheduling",
@@ -327,13 +334,13 @@ export const faqs = [
     question:
       "Does the automatic solar module cleaning system require water for cleaning?",
     answer:
-      "No, the TAYPRO Model-A operates using waterless cleaning technology. It uses a rotating microfiber cloth to remove the dust and debris efficiently.",
+      "No, the TAYPRO GLYDE operates using waterless cleaning technology. It uses a rotating microfiber cloth to remove the dust and debris efficiently.",
   },
   {
     question:
       "How often does the Automatic Solar Panel Cleaning Robot need to be maintained?",
     answer:
-      "The TAYPRO Model-A requires minimal maintenance due to its self-cleaning microfiber cloth and automated fault detection system.",
+      "The TAYPRO GLYDE requires minimal maintenance due to its self-cleaning microfiber cloth and automated fault detection system.",
   },
   {
     question:
@@ -350,7 +357,7 @@ export const faqs = [
     question:
       "Does the Automatic Solar Panel Cleaning Robot require an external power connection?",
     answer:
-      "No, TAYPRO’s Model-A does not require an external power connection. It is self -powered system.",
+      "No, TAYPRO’s GLYDE does not require an external power connection. It is self -powered system.",
   },
   {
     question:
@@ -397,44 +404,11 @@ export const moreFaqs = [
   },
 ];
 
-export const modelCards = [
-  {
-    label: "MODEL-B",
-    image: "/tayprorobots/taypro-modelBcopy.png",
-    href: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
-  },
-  {
-    label: "MODEL-T",
-    image: "/tayprorobots/taypro-modelTcopy.png",
-    href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
-  },
-];
-
-export const modelBCards = [
-  {
-    label: "MODEL-A",
-    image: "/tayprorobots/taypro-modelAcopy.png",
-    href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
-  },
-  {
-    label: "MODEL-T",
-    image: "/tayprorobots/taypro-modelTcopy.png",
-    href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
-  },
-];
-
-export const modelTCards = [
-  {
-    label: "MODEL-A",
-    image: "/tayprorobots/taypro-modelAcopy.png",
-    href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
-  },
-  {
-    label: "MODEL-B",
-    image: "/tayprorobots/taypro-modelBcopy.png",
-    href: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
-  },
-];
+export const modelCards = getRelatedProductCards("glyde");
+export const modelBCards = getRelatedProductCards("helyx");
+export const modelTCards = getRelatedProductCards("glydeX");
+export const nyumaCards = getRelatedProductCards("nyuma");
+export const nyumaXCards = getRelatedProductCards("nyumaX");
 
 export const resources = [
   {
@@ -461,7 +435,7 @@ export const items = [
     heading:
       "Engineering-led robotics for solar asset owners and operators across India.",
     body:
-      "Taypro Private Limited designs, manufactures, and supports autonomous solar panel cleaning robots for fixed tilt, seasonal tilt, rooftop, and single-axis tracker installations. Our Made-in-India systems combine waterless dual-pass cleaning, resilient field connectivity, and cloud monitoring through Taypro Console—so plants can sustain higher performance ratios with predictable operations and maintenance.",
+      "Taypro Private Limited designs, manufactures, and supports autonomous solar panel cleaning robots for fixed tilt, seasonal tilt, rooftop, and single-axis tracker installations. Our Made-in-India systems combine waterless dual-pass cleaning, resilient field connectivity, and cloud monitoring through NECTYR—so plants can sustain higher performance ratios with predictable operations and maintenance.",
   },
   {
     label: "Vision",
@@ -474,7 +448,7 @@ export const items = [
     heading:
       "Ship reliable robots, transparent service, and measurable outcomes—site by site.",
     body:
-      "We invest in R&D, manufacturing capacity, and nationwide logistics so customers receive consistent quality, rapid spare availability, and responsive support. From Model-A and Model-B for distributed layouts to Model-T for trackers, plus Taypro Opex for operator-led cleaning, our roadmap stays tied to one question: does it improve plant uptime, safety, and total cost of ownership?",
+      "We invest in R&D, manufacturing capacity, and nationwide logistics so customers receive consistent quality, rapid spare availability, and responsive support. From GLYDE and HELYX for distributed layouts to GLYDE-X for trackers, plus Taypro Opex for operator-led cleaning, our roadmap stays tied to one question: does it improve plant uptime, safety, and total cost of ownership?",
   },
 ];
 

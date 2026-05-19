@@ -1,29 +1,35 @@
 {
   "SiteMapPage": {
     "meta": {
-      "title": "サイトマップ | Taypro – ウェブサイト全体のナビゲーション",
-      "description": "Tayproのサイトマップで、プロジェクト、サービス、会社情報など、サイトのすべてのセクションにすばやくアクセスできます。",
-      "openGraphTitle": "サイトマップ | Taypro – ウェブサイト全体のナビゲーション",
-      "openGraphDescription": "Tayproのサイトマップで、プロジェクト、サービス、会社情報など、サイトのすべてのセクションにすばやくアクセスできます。",
-      "openGraphImageAlt": "Tayproウェブサイトのサイトマップ",
+      "title": "サイトマップ | Taypro – サイト全体ナビゲーション",
+      "description": "Tayproのサイトマップで、プロジェクト・サービス・会社情報など全セクションへ素早くアクセス。",
+      "openGraphTitle": "サイトマップ | Taypro – サイト全体ナビゲーション",
+      "openGraphDescription": "Tayproのサイトマップで、プロジェクト・サービス・会社情報など全セクションへ素早くアクセス。",
+      "openGraphImageAlt": "Tayproウェブサイトサイトマップ",
       "twitterTitle": "サイトマップ | Taypro",
-      "twitterDescription": "Tayproのサイトマップですべてのウェブサイトセクションにすばやくアクセスできます。",
-      "keyword0": "Taypro サイトマップ",
-      "keyword1": "ソーラーパネル清掃ロボット ウェブサイトナビゲーション",
+      "twitterDescription": "Tayproのサイトマップですべてのセクションへ素早くアクセス。",
+      "keyword0": "Tayproサイトマップ",
+      "keyword1": "ソーラーパネル洗浄ロボットサイトナビ",
       "keyword2": "サイトマップ",
       "keyword3": "ウェブサイトマップ",
-      "keyword4": "Taypro ナビゲーション",
-      "keyword5": "ソーラーパネル清掃ロボット ページ"
+      "keyword4": "Tayproナビゲーション",
+      "keyword5": "ソーラーパネル洗浄ロボットページ"
     },
-    "breadcrumbs": { "sitemap": "サイトマップ" },
+    "breadcrumbs": {
+      "sitemap": "サイトマップ"
+    },
     "heading": "サイトマップ",
     "sections": {
       "posts": "投稿",
       "pages": "ページ",
       "portfolio": "ポートフォリオ"
     },
-    "posts": { "energyResourcesTitle": "エネルギーリソース" },
-    "portfolio": { "solarProjectTitle": "ソーラープロジェクト" },
+    "posts": {
+      "energyResourcesTitle": "エネルギーリソース"
+    },
+    "portfolio": {
+      "solarProjectTitle": "ソーラープロジェクト"
+    },
     "links": {
       "aboutUsLabel": "会社概要",
       "aboutUsTitle": "会社概要",
@@ -35,29 +41,39 @@
       "homeTitle": "ホーム",
       "privacyPolicyLabel": "プライバシーポリシー",
       "privacyPolicyTitle": "プライバシーポリシー",
-      "performanceMethodologyLabel": "性能・試験方法論",
-      "performanceMethodologyTitle": "性能・試験方法論",
+      "performanceMethodologyLabel": "性能・試験方法",
+      "performanceMethodologyTitle": "性能・試験方法",
       "projectsLabel": "プロジェクト",
       "projectsTitle": "プロジェクト",
       "roiCalculatorLabel": "ROI計算機",
       "roiCalculatorTitle": "ROI計算機",
       "sitemapLabel": "サイトマップ",
       "sitemapTitle": "サイトマップ",
-      "solarRobotsLabel": "ソーラーパネル清掃ロボット",
-      "solarRobotsTitle": "ソーラーロボット ソーラーパネル清掃ロボット",
-      "automaticRobotLabel": "自動ソーラーパネル清掃ロボット",
-      "automaticRobotTitle": "自動ソーラーパネル清掃ロボット",
-      "modelBLabel": "Model-B",
-      "modelBTitle": "半自動ソーラーパネル清掃システム",
-      "modelTLabel": "Model-T",
-      "modelTTitle": "Model-T",
-      "cleaningServiceLabel": "ソーラーパネル清掃サービス",
-      "cleaningServiceTitle": "ソーラーパネル清掃サービス",
-      "tayproConsoleLabel": "Taypro Console",
-      "tayproConsoleTitle": "自動清掃ロボットアプリ",
-      "cleaningTechnologyLabel": "Tayproの技術背景",
-      "cleaningTechnologyTitle": "清掃技術"
+      "solarRobotsLabel": "ソーラーパネル洗浄ロボット",
+      "solarRobotsTitle": "ソーラーロボット ソーラーパネル洗浄ロボット",
+      "glydeLabel": "GLYDE",
+      "glydeTitle": "GLYDE自動ソーラー洗浄ロボット",
+      "helyxLabel": "HELYX",
+      "helyxTitle": "HELYX半自動ソーラー洗浄ロボット",
+      "nyumaLabel": "NYUMA",
+      "nyumaTitle": "NYUMA自動PBTソーラー洗浄ロボット",
+      "glydeXLabel": "GLYDE-X",
+      "glydeXTitle": "GLYDE-Xトラッカーソーラー洗浄ロボット",
+      "nyumaXLabel": "NYUMA-X",
+      "nyumaXTitle": "NYUMA-XトラッカーPBTソーラー洗浄ロボット",
+      "cleaningServiceLabel": "ソーラーパネル洗浄サービス",
+      "cleaningServiceTitle": "ソーラーパネル洗浄サービス",
+      "tayproConsoleLabel": "NECTYR",
+      "tayproConsoleTitle": "NECTYRフリート監視ソフトウェア",
+      "minyLabel": "MINY — コンパクト屋根ロボット",
+      "minyTitle": "MINYコンパクト屋根ソーラー洗浄ロボット（近日公開）",
+      "cradylLabel": "CRADYL — 行間移動ドッキング",
+      "cradylTitle": "CRADYL自律行間移動ドッキングステーション（近日公開）",
+      "cleaningTechnologyLabel": "Tayproの技術",
+      "cleaningTechnologyTitle": "洗浄技術"
     }
   },
-  "Common": { "breadcrumbHome": "ホーム" }
+  "Common": {
+    "breadcrumbHome": "ホーム"
+  }
 }

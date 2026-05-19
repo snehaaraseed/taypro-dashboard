@@ -1,0 +1,108 @@
+{
+  "CradylPage": {
+    "meta": {
+      "title": "CRADYL — Autonomous Row-Transfer Docking Station (Coming Soon) | Taypro",
+      "description": "CRADYL is Taypro's upcoming movable docking station that autonomously transfers a solar panel cleaning robot from one row to the next — clean multiple rows with a single robot on scattered plants.",
+      "openGraphTitle": "CRADYL — Row-Transfer Docking for Solar Cleaning Robots | Taypro",
+      "openGraphDescription": "Coming soon: autonomous row-to-row transfer so one cleaning robot can service multiple rows on scattered solar plants.",
+      "openGraphImageAlt": "Taypro CRADYL autonomous row-transfer docking station for solar cleaning robots — coming soon",
+      "twitterTitle": "CRADYL Row-Transfer Docking | Taypro",
+      "twitterDescription": "Movable docking station for autonomous robot row transfer across scattered solar plants — coming soon.",
+      "keywords": [
+        "solar robot docking station",
+        "row transfer solar cleaning robot",
+        "scattered solar plant cleaning",
+        "autonomous solar robot transfer",
+        "CRADYL Taypro",
+        "multi-row solar panel cleaning"
+      ]
+    },
+    "breadcrumbs": {
+      "robots": "Solar Panel Cleaning Robots",
+      "current": "CRADYL — Row-Transfer Docking"
+    },
+    "schema": {
+      "productName": "CRADYL — Autonomous Row-Transfer Docking Station",
+      "productDescription": "CRADYL is a movable docking station that autonomously moves a solar panel cleaning robot from one row to another, enabling multi-row cleaning with a single robot on scattered plants.",
+      "offersPrice": "Coming soon — contact for early access"
+    },
+    "hero": {
+      "comingSoonBadge": "Coming soon",
+      "title": "CRADYL — Autonomous Row-Transfer Docking",
+      "subtitle": "A movable docking station that carries your solar panel cleaning robot from one row to the next autonomously — so a single robot can clean multiple rows across scattered, non-contiguous plant layouts.",
+      "imgAlt": "Taypro CRADYL autonomous row-transfer docking station for solar cleaning robots — coming soon",
+      "ctaText": "Register interest"
+    },
+    "intro": {
+      "eyebrow": "One robot, many rows",
+      "title": "Unlock multi-row coverage without multiplying robot CAPEX",
+      "p1": "Scattered utility blocks and irregular row spacing force operators to choose between deploying multiple robots or accepting manual transfers between arrays. CRADYL automates that gap: a self-propelled docking platform receives the cleaning robot, navigates to the next row, and redeploys it — hands-free.",
+      "p2": "CRADYL is designed to pair with Taypro cleaning robots already in the field. Register your plant layout to join early pilot discussions and integration planning with our robotics team."
+    },
+    "highlightsSection": {
+      "eyebrow": "What to expect",
+      "title": "How CRADYL changes scattered-plant economics"
+    },
+    "highlights": {
+      "0": {
+        "title": "Autonomous row-to-row transfer",
+        "body": "Moves one solar panel cleaning robot between rows without crew lift-and-shift — reducing labour and transfer downtime between blocks."
+      },
+      "1": {
+        "title": "Single-robot, multi-row coverage",
+        "body": "Stretch one robot across more rows per shift on plants where buying a robot per contiguous block is not economical."
+      },
+      "2": {
+        "title": "Built for scattered layouts",
+        "body": "Engineered for plants with gaps, roads, drains, or non-uniform row spacing between arrays — common across Indian utility portfolios."
+      },
+      "3": {
+        "title": "Fleet-ready integration",
+        "body": "Planned compatibility with NECTYR for transfer status, route planning, and support workflows alongside existing robots."
+      }
+    },
+    "useCasesSection": {
+      "eyebrow": "Ideal deployments",
+      "title": "Where CRADYL fits best"
+    },
+    "useCases": {
+      "0": {
+        "title": "Scattered utility blocks",
+        "body": "Multi-block plants where rows are separated by roads, drainage, or buffer land and one robot cannot traverse continuously."
+      },
+      "1": {
+        "title": "Semi-automatic robot fleets",
+        "body": "Sites running HELYX or similar pick-and-place robots that need faster inter-row movement without adding headcount."
+      },
+      "2": {
+        "title": "CAPEX optimisation programmes",
+        "body": "Owners who want autonomous cleaning coverage but need to defer buying additional robots until transfer automation proves ROI."
+      }
+    },
+    "notify": {
+      "title": "Get notified when CRADYL launches",
+      "subtitle": "Share your plant layout and robot model — we will follow up with integration notes, pilot timelines, and specification previews.",
+      "formEyebrow": "Early access",
+      "formTitle": "Register interest in CRADYL",
+      "messageLabel": "Plant & fleet details",
+      "messagePlaceholder": "MW capacity, row spacing, robot model in use, blocks per plant…",
+      "submitLabel": "Send interest request"
+    },
+    "related": {
+      "eyebrow": "Available today",
+      "title": "Explore Taypro robots shipping now",
+      "linkCta": "Learn more",
+      "links": {
+        "0": {
+          "label": "HELYX — Semi-automatic robot",
+          "description": "Pick-and-place waterless cleaning for scattered blocks — a natural partner for CRADYL transfers."
+        },
+        "1": {
+          "label": "GLYDE — Automatic robot",
+          "description": "Fully autonomous cleaning for contiguous fixed-tilt rows before CRADYL extends reach across gaps."
+        }
+      }
+    },
+    "footerNote": "CRADYL is under active development. Robot compatibility, specifications, and availability dates may change before launch."
+  }
+}

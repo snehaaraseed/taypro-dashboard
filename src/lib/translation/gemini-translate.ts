@@ -53,7 +53,7 @@ STRICT RULES:
 2. In "content", preserve EVERY media placeholder exactly as written (e.g. ⟦M0⟧, ⟦M1⟧). Do NOT remove, translate, or renumber them.
 3. Preserve all HTML tags and attribute names in "content". Only translate human-readable text nodes.
 4. Do NOT change URLs, file paths, image src values, email addresses, or HTML attributes inside placeholders.
-5. Keep brand names (Taypro, Model-A, Model-B, Model-T, TÜV NORD) and standard units (MW, kWh) unless a well-known localized form exists.
+5. Keep brand names (Taypro, GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, NECTYR, TÜV NORD) and standard units (MW, kWh) unless a well-known localized form exists.
 6. Use professional, natural ${language} suitable for utility-scale solar plant operators.
 7. Meta description: stay within ~160 characters where possible.
 

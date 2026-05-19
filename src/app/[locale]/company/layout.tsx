@@ -26,7 +26,7 @@ export async function generateMetadata({
       "robotic solar cleaning company",
       "utility-scale solar O&M",
       "waterless solar panel cleaning",
-      "Taypro Console",
+      "NECTYR",
     ],
     openGraph: {
       title: t("title"),

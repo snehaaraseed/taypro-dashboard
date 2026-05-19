@@ -1,9 +1,15 @@
 "use client";
-import { useState, useEffect } from "react";
-import { useRef } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import { useLocale, useTranslations } from "next-intl";
+import { calculateRoi } from "@/lib/roi-calculator/calculate-roi";
+import {
+  resolveRoiMarket,
+  type RoiMarketProfile,
+} from "@/lib/roi-calculator/market-profiles";
+import { useVisitorCountry } from "@/lib/roi-calculator/use-visitor-country";
+import { isActiveLocale } from "@/i18n/markets";
 
 export interface ROIResults {
   annualCostLabourSaved: number;
@@ -58,7 +64,8 @@ const NUMBER_LOCALE: Record<string, string> = {
   bn: "bn-IN",
 };
 
-function numberLocale(locale: string): string {
+function numberLocale(locale: string, market: RoiMarketProfile): string {
+  if (market.currency !== "INR") return market.formatLocale;
   return NUMBER_LOCALE[locale] ?? "en-IN";
 }
 
@@ -68,22 +75,33 @@ export default function ROITayproCalculator({
 }: ROICalculatorProps) {
   const t = useTranslations("PriceCalculatorPage.calculator");
   const locale = useLocale();
-  const fmtLocale = numberLocale(locale);
+  const visitorCountry = useVisitorCountry();
+  const market = useMemo(
+    () =>
+      resolveRoiMarket(
+        isActiveLocale(locale) ? locale : "en",
+        visitorCountry
+      ),
+    [locale, visitorCountry]
+  );
+  const fmtLocale = numberLocale(locale, market);
+  const showMarketNote = market.id !== "india";
+  const regionName = showMarketNote ? t(market.regionLabelKey) : "";
 
   const doc = useRef<jsPDF | null>(null);
   if (!doc.current) {
     doc.current = new jsPDF({ unit: "pt", format: "a4" });
   }
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState(() => ({
     plantType: "groundMount" as PlantType,
     installationType: "fixedTilt" as InstallationType,
     automationLevel: "automatic" as AutomationLevel,
     plantCapacityMW: 200,
     plantCapacityKW: 200,
-    electricityTariff: 3,
+    electricityTariff: market.defaultTariffGround,
     moduleCapacity: 545,
-  });
+  }));
 
   const [results, setResults] = useState<ROIResults>({
     annualCostLabourSaved: 0,
@@ -99,96 +117,67 @@ export default function ROITayproCalculator({
   });
 
   const [showResults, setShowResults] = useState(false);
+  const tariffTouchedRef = useRef(false);
 
+  const defaultTariffForPlant = (plantType: PlantType) =>
+    plantType === "groundMount"
+      ? market.defaultTariffGround
+      : market.defaultTariffRooftop;
+
+  // Plant-type toggle always applies fresh defaults for that type.
   useEffect(() => {
+    tariffTouchedRef.current = false;
     setFormData((prev) => ({
       ...prev,
-      electricityTariff: prev.plantType === "groundMount" ? 3 : 10,
+      electricityTariff: defaultTariffForPlant(prev.plantType),
     }));
+    // Only re-run when the user switches ground ↔ rooftop.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formData.plantType]);
 
-  const calculateROI = () => {
-    const {
-      plantType,
-      plantCapacityMW: E,
-      plantCapacityKW: F,
-      electricityTariff: G,
-      moduleCapacity: H,
-      automationLevel,
-      installationType,
-    } = formData;
+  // Geo/locale market resolution: apply defaults once, do not wipe a custom tariff.
+  useEffect(() => {
+    if (tariffTouchedRef.current) return;
+    setFormData((prev) => ({
+      ...prev,
+      electricityTariff: defaultTariffForPlant(prev.plantType),
+    }));
+  }, [market.id, market.defaultTariffGround, market.defaultTariffRooftop]);
 
-    const capacity = plantType === "groundMount" ? E * 1000 : F;
-    const annualCostLabourSaved = Math.round(capacity / (H / 1000)) * 0.5 * 20;
-    const waterSavedLitres = Math.round(capacity / (H / 1000)) * 20 * 3;
-    const annualCostWaterSaved = waterSavedLitres * 0.12;
-    const energyFactor = plantType === "groundMount" ? 0.0295 : 0.113;
-    const annualCostEnergyGain = capacity * energyFactor * 1500 * G;
-    const totalMoneySavedAnnually =
-      annualCostLabourSaved + annualCostWaterSaved + annualCostEnergyGain;
-
-    const automationMultiplier = automationLevel === "automatic" ? 2.0 : 0.5;
-    const installationMultiplier =
-      installationType === "fixedTilt"
-        ? 2.0
-        : installationType === "seasonalTilt"
-          ? 2.0
-          : 3.0;
-
-    const baseInvestment =
-      plantType === "groundMount"
-        ? E * automationMultiplier * installationMultiplier
-        : (F * automationMultiplier) / 130;
-    const perUnitCost = Math.max(
-      42000,
-      Math.min(114000, 114000 - (114000 - 42000) * (baseInvestment / 400))
+  const runCalculation = () => {
+    const next = calculateRoi(
+      {
+        plantType: formData.plantType,
+        installationType: formData.installationType,
+        automationLevel: formData.automationLevel,
+        plantCapacityMW: formData.plantCapacityMW,
+        plantCapacityKW: formData.plantCapacityKW,
+        electricityTariff: formData.electricityTariff,
+        moduleCapacityWp: formData.moduleCapacity,
+      },
+      market
     );
-    const totalInvestmentRequired = baseInvestment * perUnitCost;
-
-    const roiTimeline = totalInvestmentRequired / totalMoneySavedAnnually;
-    const annualisedROI =
-      (Math.pow(
-        (totalMoneySavedAnnually * 20) / totalInvestmentRequired,
-        1 / 20
-      ) -
-        1) *
-      100;
-    const roi20Years =
-      ((totalMoneySavedAnnually * 20 * 0.9 - totalInvestmentRequired) /
-        totalInvestmentRequired) *
-      100;
-    const annualCarbonSavings = capacity * energyFactor * 1500 * 0.496;
-
-    setResults({
-      annualCostLabourSaved,
-      annualCostWaterSaved,
-      annualCostEnergyGain,
-      totalMoneySavedAnnually,
-      totalInvestmentRequired,
-      roiTimeline,
-      annualisedROI,
-      roi20Years,
-      waterSavedAnnually: waterSavedLitres,
-      annualCarbonSavings,
-    });
+    setResults(next);
     setShowResults(true);
   };
 
-  const handleInput = (field: keyof typeof formData, value: unknown) =>
+  const handleInput = (field: keyof typeof formData, value: unknown) => {
+    if (field === "electricityTariff") tariffTouchedRef.current = true;
     setFormData((prev) => ({ ...prev, [field]: value }));
+  };
 
-  const formatCurrency = (v: number) =>
+  const formatCurrency = (amount: number) =>
     new Intl.NumberFormat(fmtLocale, {
       style: "currency",
-      currency: "INR",
-      maximumFractionDigits: 2,
-    }).format(v);
+      currency: market.currency,
+      maximumFractionDigits: market.moneyMaxFractionDigits,
+    }).format(amount);
 
-  const pdfFormatCurrency = (v: number) =>
+  const pdfFormatCurrency = (amount: number) =>
     new Intl.NumberFormat(fmtLocale, {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }).format(v);
+      minimumFractionDigits: market.moneyMaxFractionDigits,
+      maximumFractionDigits: market.moneyMaxFractionDigits,
+    }).format(amount);
 
   const formatNumber = (v: number) =>
     new Intl.NumberFormat(fmtLocale, {
@@ -245,7 +234,10 @@ export default function ROITayproCalculator({
           : t("pdfPlantCapacityKw"),
         plantType === "groundMount" ? plantCapacityMW : plantCapacityKW,
       ],
-      [t("pdfElectricityTariff"), electricityTariff],
+      [
+        `${t("pdfElectricityTariff")} (${market.currency}/kWh)`,
+        electricityTariff,
+      ],
       [t("pdfModuleCapacity"), moduleCapacity],
     ];
 
@@ -262,11 +254,11 @@ export default function ROITayproCalculator({
       styles: { fontSize: 11, cellPadding: 5 },
     });
 
+    const pdfMoney = (amount: number) =>
+      `${market.currency} ${pdfFormatCurrency(amount)}`;
+
     const resultsRows = [
-      [
-        t("resultInvestment"),
-        `Rs. ${pdfFormatCurrency(results.totalInvestmentRequired)}`,
-      ],
+      [t("resultInvestment"), pdfMoney(results.totalInvestmentRequired)],
       [
         t("resultRoiTimeline"),
         `${formatNumber(results.roiTimeline)} ${t("yearsCapitalized")}`,
@@ -279,22 +271,10 @@ export default function ROITayproCalculator({
         t("resultRoi20Years"),
         `${formatNumber(results.roi20Years)} %`,
       ],
-      [
-        t("resultTotalSaved"),
-        `Rs. ${pdfFormatCurrency(results.totalMoneySavedAnnually)}`,
-      ],
-      [
-        t("resultLabourSaved"),
-        `Rs. ${pdfFormatCurrency(results.annualCostLabourSaved)}`,
-      ],
-      [
-        t("resultWaterSaved"),
-        `Rs. ${pdfFormatCurrency(results.annualCostWaterSaved)}`,
-      ],
-      [
-        t("resultEnergyGain"),
-        `Rs. ${pdfFormatCurrency(results.annualCostEnergyGain)}`,
-      ],
+      [t("resultTotalSaved"), pdfMoney(results.totalMoneySavedAnnually)],
+      [t("resultLabourSaved"), pdfMoney(results.annualCostLabourSaved)],
+      [t("resultWaterSaved"), pdfMoney(results.annualCostWaterSaved)],
+      [t("resultEnergyGain"), pdfMoney(results.annualCostEnergyGain)],
       [
         t("resultWaterLiters"),
         `${formatNumber(results.waterSavedAnnually)} L`,
@@ -462,24 +442,35 @@ export default function ROITayproCalculator({
               htmlFor="roi-electricity-tariff"
               className="text-white mb-1 block"
             >
-              {t("electricityTariff")}
+              {t("electricityTariffLabel")} ({market.currency}/kWh)
             </label>
             <input
               id="roi-electricity-tariff"
               type="number"
-              step={0.1}
+              step={market.tariffStep}
               value={formData.electricityTariff}
               onChange={(e) =>
                 handleInput(
                   "electricityTariff",
-                  Math.max(1, Math.min(50, parseFloat(e.target.value) || 0))
+                  Math.max(
+                    market.tariffMin,
+                    Math.min(
+                      market.tariffMax,
+                      parseFloat(e.target.value) || 0
+                    )
+                  )
                 )
               }
-              min={1}
-              max={50}
+              min={market.tariffMin}
+              max={market.tariffMax}
               className={inputClassName}
             />
-            <div className="text-gray-400 text-xs">{t("minMaxTariff")}</div>
+            <div className="text-gray-400 text-xs">
+              {t("minMaxTariff", {
+                min: market.tariffMin,
+                max: market.tariffMax,
+              })}
+            </div>
           </div>
 
           <div>
@@ -507,7 +498,7 @@ export default function ROITayproCalculator({
           </div>
         </div>
 
-        <button type="button" onClick={calculateROI} className={primaryButtonClassName}>
+        <button type="button" onClick={runCalculation} className={primaryButtonClassName}>
           {t("calculateButton")}
         </button>
       </div>
@@ -534,6 +525,14 @@ export default function ROITayproCalculator({
                 {formatCurrency(results.totalInvestmentRequired)}
               </p>
               <p className="text-white/55 text-xs mt-2">{t("investmentDisclaimer")}</p>
+              {showMarketNote ? (
+                <p className="text-white/45 text-xs mt-1">
+                  {t("marketAssumptionsNote", {
+                    region: regionName,
+                    currency: market.currency,
+                  })}
+                </p>
+              ) : null}
             </div>
             <div className="rounded-lg bg-[#0f4a5c] border border-[#A8C117]/30 p-4">
               <p className="text-white/70 text-sm mb-1">{t("paybackTimeline")}</p>

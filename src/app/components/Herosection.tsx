@@ -39,17 +39,26 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   const getAltText = () => {
     if (imgAlt) return imgAlt;
     const lower = titleString.toLowerCase();
-    if (lower.includes("model-t") || lower.includes("tracker")) {
-      return "Taypro Single-Axis Tracker Solar Panel Cleaning Robot - Autonomous robotic cleaning system for tracking solar panel installations";
+    if (lower.includes("nyuma-x") || (lower.includes("nyuma") && lower.includes("tracker"))) {
+      return "Taypro NYUMA-X PBT solar panel cleaning robot for single-axis trackers";
     }
-    if (lower.includes("model-b") || lower.includes("semi")) {
-      return "Taypro Semi-Automatic Solar Panel Cleaning Robot - Cost-effective pick-and-place robotic cleaning solution for solar farms";
+    if (lower.includes("glyde-x") || (lower.includes("glyde") && lower.includes("tracker"))) {
+      return "Taypro GLYDE-X dual-pass solar panel cleaning robot for single-axis trackers";
     }
-    if (lower.includes("model-a") || lower.includes("automatic")) {
-      return "Taypro Automatic Solar Panel Cleaning Robot - AI-enabled autonomous cleaning system for utility-scale solar power plants";
+    if (lower.includes("helyx") || lower.includes("semi")) {
+      return "Taypro HELYX semi-automatic solar panel cleaning robot";
+    }
+    if (lower.includes("nyuma")) {
+      return "Taypro NYUMA automatic PBT solar panel cleaning robot";
+    }
+    if (lower.includes("glyde") || lower.includes("automatic")) {
+      return "Taypro GLYDE automatic dual-pass solar panel cleaning robot";
+    }
+    if (lower.includes("tracker")) {
+      return "Taypro solar panel cleaning robot for single-axis trackers";
     }
     if (lower.includes("console") || lower.includes("monitoring")) {
-      return "Taypro Console - Solar Panel Cleaning Robot Monitoring and Control Dashboard for fleet management";
+      return "NECTYR - Solar Panel Cleaning Robot Monitoring and Control Dashboard for fleet management";
     }
     if (lower.includes("service") || lower.includes("opex")) {
       return "Taypro Solar Panel Cleaning Service - Professional robotic cleaning services using Solar Panel Cleaning Robot systems";

@@ -4,7 +4,7 @@ import { withHreflang } from "@/lib/seo/with-hreflang";
 import { socialImagesFromPreset } from "@/lib/seo/open-graph";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
-const modelTOg = socialImagesFromPreset("modelT");
+const modelTOg = socialImagesFromPreset("glydeX");
 
 export async function generateMetadata({
   params,

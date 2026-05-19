@@ -1,10 +1,10 @@
 {
   "ModelTPage": {
     "meta": {
-      "title": "Solar Panel Cleaning Robot for Single-Axis Trackers — Taypro Model-T",
-      "description": "Taypro Model-T is an AI- and ML-powered, waterless autonomous Solar Panel Cleaning Robot purpose-built for single-axis tracker solar farms. 99%+ dust removal per dual-pass run, up to 3,600 modules per charge, ±15° flex between tables, NEXTracker and Gamechanger compatible (-52° to +52° module tilt), TÜV NORD certified.",
-      "openGraphDescription": "Autonomous AI-powered Solar Panel Cleaning Robot for single-axis tracker plants. 99%+ dust removal per cycle, up to 3,600 modules per charge, Taypro Console via LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN, NEXTracker & Gamechanger compatible, TÜV NORD certified.",
-      "openGraphImageAlt": "Taypro Single-Axis Tracker Solar Panel Cleaning Robot Model-T — AI-powered, waterless",
+      "title": "Dual-Pass Tracker Solar Panel Cleaning Robot — Taypro GLYDE-X",
+      "description": "Taypro GLYDE-X is an AI- and ML-powered, waterless autonomous Solar Panel Cleaning Robot purpose-built for single-axis tracker solar farms. 99%+ dust removal per dual-pass run, up to 3,600 modules per charge, ±15° flex between tables, NEXTracker and Gamechanger compatible (-52° to +52° module tilt), TÜV NORD certified.",
+      "openGraphDescription": "Autonomous AI-powered Solar Panel Cleaning Robot for single-axis tracker plants. 99%+ dust removal per cycle, up to 3,600 modules per charge, NECTYR via LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN, NEXTracker & Gamechanger compatible, TÜV NORD certified.",
+      "openGraphImageAlt": "Taypro Single-Axis Tracker Solar Panel Cleaning Robot GLYDE-X — AI-powered, waterless",
       "twitterDescription": "Autonomous Solar Panel Cleaning Robot for tracker plants. 3,600 modules per charge, LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN, NEXTracker & Gamechanger compatible.",
       "keywords": [
         "single axis tracker solar panel cleaning",
@@ -15,7 +15,7 @@
         "horizontal single axis tracker cleaning",
         "utility scale solar panel cleaning robot",
         "automatic solar panel cleaning system tracker",
-        "Taypro Model-T"
+        "Taypro GLYDE-X"
       ]
     },
     "breadcrumbs": {
@@ -23,18 +23,18 @@
       "current": "Solar Panel Cleaning Robot for Single-Axis Trackers"
     },
     "schema": {
-      "productName": "Solar Panel Cleaning Robot for Single-Axis Trackers - Model-T",
-      "productDescription": "Taypro Model-T is an AI- and ML-powered autonomous, waterless Solar Panel Cleaning Robot purpose-built for single-axis tracker installations. Dual-pass dry cleaning removes 99%+ dust per cycle, cleans up to 3,600 modules per charge, flexes ±15° between tables, connects via {connectivity}, is compatible with NEXTracker and Gamechanger, supports module tilts from -52° to +52°, TÜV NORD certified.",
+      "productName": "Solar Panel Cleaning Robot for Single-Axis Trackers - GLYDE-X",
+      "productDescription": "Taypro GLYDE-X is an AI- and ML-powered autonomous, waterless Solar Panel Cleaning Robot purpose-built for single-axis tracker installations. Dual-pass dry cleaning removes 99%+ dust per cycle, cleans up to 3,600 modules per charge, flexes ±15° between tables, connects via {connectivity}, is compatible with NEXTracker and Gamechanger, supports module tilts from -52° to +52°, TÜV NORD certified.",
       "offersPrice": "Contact for pricing",
-      "howToName": "How does the Taypro Model-T Single-Axis Tracker Solar Panel Cleaning Robot clean tracker plants?",
-      "howToDescription": "Step-by-step autonomous cleaning cycle of the Taypro Model-T solar panel cleaning robot for single-axis tracker installations — from AI-scheduled deployment through self-docking and cloud telemetry sync."
+      "howToName": "How does the Taypro GLYDE-X Single-Axis Tracker Solar Panel Cleaning Robot clean tracker plants?",
+      "howToDescription": "Step-by-step autonomous cleaning cycle of the Taypro GLYDE-X solar panel cleaning robot for single-axis tracker installations — from AI-scheduled deployment through self-docking and cloud telemetry sync."
     },
     "hero": {
-      "title": "Solar Panel Cleaning Robot for Single-Axis Trackers — Model-T",
+      "title": "Solar Panel Cleaning Robot for Single-Axis Trackers — GLYDE-X",
       "subtitleBefore": "An AI- and ML-powered, waterless autonomous Solar Panel Cleaning Robot purpose-built for single-axis tracker solar farms. Cleans up to 3,600 modules per charge,",
       "subtitleStrong": "flexes ±15° between tables",
       "subtitleAfter": ", supports module tilts from -52° to +52°, and is compatible with NEXTracker, Gamechanger and equivalent trackers.",
-      "imgAlt": "Taypro Single-Axis Tracker Solar Panel Cleaning Robot Model-T - Autonomous robotic cleaning system for tracking solar panel installations",
+      "imgAlt": "Taypro Single-Axis Tracker Solar Panel Cleaning Robot GLYDE-X - Autonomous robotic cleaning system for tracking solar panel installations",
       "ctaText": "Request a quote"
     },
     "usps": {
@@ -56,15 +56,15 @@
       },
       "4": {
         "title": "AI- and ML-Driven Autonomy",
-        "description": "Advanced edge, obstacle and angle detection lets Model-T move safely across panels without risk of falling — continuously tracking path and surface undulations along each row."
+        "description": "Advanced edge, obstacle and angle detection lets GLYDE-X move safely across panels without risk of falling — continuously tracking path and surface undulations along each row."
       },
       "5": {
         "title": "Cloud-Connected Remote Monitoring",
-        "description": "Supported connectivity includes {connectivity}, feeding real-time telemetry into the Taypro Console — schedule cleaning, adjust settings, track performance and receive weather alerts from any device."
+        "description": "Supported connectivity includes {connectivity}, feeding real-time telemetry into the NECTYR — schedule cleaning, adjust settings, track performance and receive weather alerts from any device."
       },
       "6": {
         "title": "Up to 2.2 km / 3,600 Modules Per Charge",
-        "description": "A single Model-T cleans up to 2.2 km of tracker run on a single charge — typically around 3,600 modules — before self-docking and recharging at its shadow-free dock."
+        "description": "A single GLYDE-X cleans up to 2.2 km of tracker run on a single charge — typically around 3,600 modules — before self-docking and recharging at its shadow-free dock."
       },
       "7": {
         "title": "TÜV NORD Certified Build",
@@ -74,11 +74,11 @@
     "features": {
       "0": {
         "title": "Flexible Body Bridge for Tracker Tables",
-        "body": "Tracker plants rarely sit perfectly aligned across rows — slight angle differences between adjacent tables are the norm. Model-T's body flexes up to 15° to safely traverse these inter-table angle deviations, working in tandem with purpose-designed bridge kits to maintain continuous cleaning across the row."
+        "body": "Tracker plants rarely sit perfectly aligned across rows — slight angle differences between adjacent tables are the norm. GLYDE-X's body flexes up to 15° to safely traverse these inter-table angle deviations, working in tandem with purpose-designed bridge kits to maintain continuous cleaning across the row."
       },
       "1": {
         "title": "NEXTracker and Gamechanger Compatibility",
-        "body": "Model-T is engineered for the dominant single-axis tracker platforms in utility-scale solar — compatible with NEXTracker, Gamechanger and equivalent trackers. The robot integrates with existing tracker structures with no modifications to your modules or tracker mounting hardware."
+        "body": "GLYDE-X is engineered for the dominant single-axis tracker platforms in utility-scale solar — compatible with NEXTracker, Gamechanger and equivalent trackers. The robot integrates with existing tracker structures with no modifications to your modules or tracker mounting hardware."
       },
       "2": {
         "title": "Edge, Obstacle & Angle Detection",
@@ -90,21 +90,17 @@
       },
       "4": {
         "title": "Real-Time Weather-Aware Scheduling",
-        "body": "The Taypro Console pulls live weather data to optimise the cleaning schedule, push alerts for critical conditions and skip cycles when not needed. All schedule changes are reflected automatically on the portal — no manual intervention required at the plant."
+        "body": "The NECTYR pulls live weather data to optimise the cleaning schedule, push alerts for critical conditions and skip cycles when not needed. All schedule changes are reflected automatically on the portal — no manual intervention required at the plant."
       },
       "5": {
         "title": "Self-Docking Charging Station",
-        "body": "After each cleaning cycle, Model-T returns to a secure docking station placed beside the modules — positioned to avoid casting shadows on the array. The integrated charging system needs no external power. Battery level, charging status and health are visible in real time on the remote portal."
+        "body": "After each cleaning cycle, GLYDE-X returns to a secure docking station placed beside the modules — positioned to avoid casting shadows on the array. The integrated charging system needs no external power. Battery level, charging status and health are visible in real time on the remote portal."
       },
       "6": {
         "title": "Battery-Aware Return Safety",
         "body": "The system monitors battery levels in real time and only commits to a cleaning distance it can complete safely, ensuring the robot returns to its docking station without stopping midway on the tracker row."
       },
       "7": {
-        "title": "Battery-Aware Return Safety",
-        "body": "The system monitors battery levels in real time and only commits to a cleaning distance it can complete safely, ensuring the robot returns to its docking station without stopping midway on the tracker row."
-      },
-      "8": {
         "title": "Sealed IP65 Body, Wind-Safe at Dock",
         "body": "All electrical components and wiring are fully enclosed within the sealed IP65 device body. While docked, the robot is securely locked and can withstand wind speeds of up to 180 km/hr, with operational cleaning permitted up to 40 km/hr wind."
       }
@@ -183,7 +179,7 @@
         "value": "90°C"
       },
       "18": {
-        "label": "Connectivity (Taypro Console)",
+        "label": "Connectivity (NECTYR)",
         "value": "{connectivity}"
       },
       "19": {
@@ -192,21 +188,21 @@
       }
     },
     "compare": {
-      "cloudModelT": "Taypro Console via {connectivity}",
-      "cloudModelA": "Taypro Console via {connectivity}"
+      "cloudModelT": "NECTYR via {connectivity}",
+      "cloudModelA": "NECTYR via {connectivity}"
     },
     "steps": {
       "0": {
         "name": "Robot is assigned to a specific tracker array",
-        "text": "Each Model-T is permanently assigned to a single-axis tracker array and lives at a shadow-free docking station beside the row — no daily transport, no operator handling, no external power."
+        "text": "Each GLYDE-X is permanently assigned to a single-axis tracker array and lives at a shadow-free docking station beside the row — no daily transport, no operator handling, no external power."
       },
       "1": {
         "name": "AI scheduler selects the optimal cleaning window",
-        "text": "The Taypro Console pulls real-time weather data and tracker production schedules to automatically pick the best post-production cleaning window — typically at night or during low-irradiance periods — without disrupting energy generation."
+        "text": "The NECTYR pulls real-time weather data and tracker production schedules to automatically pick the best post-production cleaning window — typically at night or during low-irradiance periods — without disrupting energy generation."
       },
       "2": {
         "name": "Self-deploys onto the tracker row",
-        "text": "At the scheduled time, Model-T undocks autonomously and moves onto the tracker row. Edge, obstacle and angle-detection sensors continuously map the path and surface undulations ahead of the robot."
+        "text": "At the scheduled time, GLYDE-X undocks autonomously and moves onto the tracker row. Edge, obstacle and angle-detection sensors continuously map the path and surface undulations ahead of the robot."
       },
       "3": {
         "name": "Dual-pass waterless cleaning across the row",
@@ -218,49 +214,49 @@
       },
       "5": {
         "name": "Recharge and cloud telemetry sync",
-        "text": "Lithium-ion charging starts automatically. Battery level, charging status, cycle telemetry and overall performance are continuously synced to the Taypro Console over {connectivity} for fleet-wide visibility."
+        "text": "Lithium-ion charging starts automatically. Battery level, charging status, cycle telemetry and overall performance are continuously synced to the NECTYR over {connectivity} for fleet-wide visibility."
       }
     },
     "faqs": {
       "0": {
-        "question": "What is a Solar Panel Cleaning Robot for Single-Axis Trackers, and how does Model-T work?",
-        "answer": "A solar cleaning robot for single-axis trackers is an autonomous robotic cleaner purpose-built to operate on tracker-based solar power plants — where modules tilt across the day and where rows often have small angle deviations between adjacent tables. Taypro Model-T is permanently assigned to a tracker array; at scheduled cleaning windows it self-deploys, executes a waterless dual-pass cleaning cycle across the row, articulates its body up to ±15° to safely cross inter-table angle deviations, and returns to a shadow-free docking station to recharge — all without human intervention."
+        "question": "What is a Solar Panel Cleaning Robot for Single-Axis Trackers, and how does GLYDE-X work?",
+        "answer": "A solar cleaning robot for single-axis trackers is an autonomous robotic cleaner purpose-built to operate on tracker-based solar power plants — where modules tilt across the day and where rows often have small angle deviations between adjacent tables. Taypro GLYDE-X is permanently assigned to a tracker array; at scheduled cleaning windows it self-deploys, executes a waterless dual-pass cleaning cycle across the row, articulates its body up to ±15° to safely cross inter-table angle deviations, and returns to a shadow-free docking station to recharge — all without human intervention."
       },
       "1": {
-        "question": "Which tracker manufacturers and platforms is Taypro Model-T compatible with?",
-        "answer": "Model-T is compatible with the leading single-axis tracker platforms used in utility-scale solar, including NEXTracker and Gamechanger. The robot integrates with existing tracker mounting structures without modifications to your modules, torque tubes or tracker hardware. For any non-standard tracker platform, our team will validate compatibility as part of the site assessment."
+        "question": "Which tracker manufacturers and platforms is Taypro GLYDE-X compatible with?",
+        "answer": "GLYDE-X is compatible with the leading single-axis tracker platforms used in utility-scale solar, including NEXTracker and Gamechanger. The robot integrates with existing tracker mounting structures without modifications to your modules, torque tubes or tracker hardware. For any non-standard tracker platform, our team will validate compatibility as part of the site assessment."
       },
       "2": {
-        "question": "How is Model-T different from Model-A and Model-B?",
-        "answer": "Model-A is a fully autonomous robot for fixed-tilt utility-scale plants. Model-B is a semi-automatic pick-and-place robot for scattered, smaller or rooftop plants. Model-T is the only Taypro robot purpose-built for single-axis tracker plants — it supports module tilts from -52° to +52°, flexes ±15° between tables, and is engineered for NEXTracker / Gamechanger style trackers. All three are waterless, AI-driven and managed from the same Taypro Console portal."
+        "question": "How is GLYDE-X different from GLYDE and HELYX?",
+        "answer": "GLYDE is a fully autonomous robot for fixed-tilt utility-scale plants. HELYX is a semi-automatic pick-and-place robot for scattered, smaller or rooftop plants. GLYDE-X is the only Taypro robot purpose-built for single-axis tracker plants — it supports module tilts from -52° to +52°, flexes ±15° between tables, and is engineered for NEXTracker / Gamechanger style trackers. All three are waterless, AI-driven and managed from the same NECTYR portal."
       },
       "3": {
-        "question": "How many solar modules can Model-T clean on a single charge?",
-        "answer": "Model-T can clean up to 2.2 km of tracker running length — approximately 3,600 solar modules — on a single lithium-ion charge. The recommended sustained operational range is 1.6 km per cycle, ensuring a safe return to the docking station with battery headroom in every cycle."
+        "question": "How many solar modules can GLYDE-X clean on a single charge?",
+        "answer": "GLYDE-X can clean up to 2.2 km of tracker running length — approximately 3,600 solar modules — on a single lithium-ion charge. The recommended sustained operational range is 1.6 km per cycle, ensuring a safe return to the docking station with battery headroom in every cycle."
       },
       "4": {
-        "question": "Does Model-T require water or external power to clean tracker panels?",
-        "answer": "No. Model-T is 100% waterless — a dual-pass cleaning cycle lifts over 99% of dust using rotating microfiber or UV-stable PBT cleaning heads without any water, detergent or run-off. The docking station is fitted with an integrated lithium-ion charging system and does not require any external power source."
+        "question": "Does GLYDE-X require water or external power to clean tracker panels?",
+        "answer": "No. GLYDE-X is 100% waterless — a dual-pass cleaning cycle lifts over 99% of dust using rotating microfiber or UV-stable PBT cleaning heads without any water, detergent or run-off. The docking station is fitted with an integrated lithium-ion charging system and does not require any external power source."
       },
       "5": {
-        "question": "Is the Model-T cleaning cycle safe for solar modules and ARC?",
-        "answer": "Yes. Model-T moves along the frame of the solar modules — with binders that distribute load and preserve panel integrity. Every robot is independently tested for micro-crack formation, optical reflectance loss, full electrical parameter evaluation and Anti-Reflective Coating (ARC) preservation under simulated daily cleaning cycles by accredited solar-sector testing laboratories. Model-T is also TÜV NORD certified for IP55 protection."
+        "question": "Is the GLYDE-X cleaning cycle safe for solar modules and ARC?",
+        "answer": "Yes. GLYDE-X moves along the frame of the solar modules — with binders that distribute load and preserve panel integrity. Every robot is independently tested for micro-crack formation, optical reflectance loss, full electrical parameter evaluation and Anti-Reflective Coating (ARC) preservation under simulated daily cleaning cycles by accredited solar-sector testing laboratories. GLYDE-X is also TÜV NORD certified for IP55 protection."
       },
       "6": {
-        "question": "How does Model-T handle inter-table angle differences on tracker rows?",
-        "answer": "Tracker rows rarely sit perfectly co-planar across adjacent tables. Model-T's flexible body articulates up to 15° to safely cross these inter-table angle deviations and works in conjunction with Taypro-supplied flexible bridges between tables — ensuring smooth, continuous cleaning across the entire row regardless of small terrain or tracker misalignment."
+        "question": "How does GLYDE-X handle inter-table angle differences on tracker rows?",
+        "answer": "Tracker rows rarely sit perfectly co-planar across adjacent tables. GLYDE-X's flexible body articulates up to 15° to safely cross these inter-table angle deviations and works in conjunction with Taypro-supplied flexible bridges between tables — ensuring smooth, continuous cleaning across the entire row regardless of small terrain or tracker misalignment."
       },
       "7": {
-        "question": "How much does the Taypro Model-T Single-Axis Tracker Cleaning Robot cost?",
-        "answer": "Pricing for Model-T depends on the tracker platform, plant size, terrain and the level of integration with your existing SCADA and monitoring stack. Most tracker plant deployments achieve full ROI within 12–18 months through higher generation, eliminated water consumption and removed manual cleaning overhead. Contact our team for a site-specific quote and detailed ROI calculation."
+        "question": "How much does the Taypro GLYDE-X Single-Axis Tracker Cleaning Robot cost?",
+        "answer": "Pricing for GLYDE-X depends on the tracker platform, plant size, terrain and the level of integration with your existing SCADA and monitoring stack. Most tracker plant deployments achieve full ROI within 12–18 months through higher generation, eliminated water consumption and removed manual cleaning overhead. Contact our team for a site-specific quote and detailed ROI calculation."
       },
       "8": {
-        "question": "Does Model-T work in extreme Indian climatic conditions like dust storms, heat and monsoon?",
-        "answer": "Yes. Model-T is engineered for harsh Indian utility-scale tracker field conditions: maximum operating temperature of 90°C, IP65 sealed enclosure, TÜV NORD certified IP55 protection, and field-validated under 12 simulated sandstorm cycles per year at 10 g/m² sand loading. It can clean in winds up to 40 km/hr and locks securely at its docking station up to 180 km/hr."
+        "question": "Does GLYDE-X work in extreme Indian climatic conditions like dust storms, heat and monsoon?",
+        "answer": "Yes. GLYDE-X is engineered for harsh Indian utility-scale tracker field conditions: maximum operating temperature of 90°C, IP65 sealed enclosure, TÜV NORD certified IP55 protection, and field-validated under 12 simulated sandstorm cycles per year at 10 g/m² sand loading. It can clean in winds up to 40 km/hr and locks securely at its docking station up to 180 km/hr."
       },
       "9": {
-        "question": "How is Model-T monitored and controlled across a large tracker plant?",
-        "answer": "All Model-T robots connect to the Taypro Console using {connectivity}. The portal provides a unified interface to schedule cleaning, adjust settings, monitor battery levels, view cycle telemetry, receive weather alerts and roll up performance across hundreds of robots and plants — from any device, anywhere."
+        "question": "How is GLYDE-X monitored and controlled across a large tracker plant?",
+        "answer": "All GLYDE-X robots connect to the NECTYR using {connectivity}. The portal provides a unified interface to schedule cleaning, adjust settings, monitor battery levels, view cycle telemetry, receive weather alerts and roll up performance across hundreds of robots and plants — from any device, anywhere."
       }
     },
     "misc": {
@@ -268,12 +264,12 @@
       "callbackLine1": "Schedule Online Demo For Single-Axis Tracker",
       "callbackLine2": "Solar Panel Cleaning Robots",
       "faqTitle": "Frequently Asked Questions",
-      "faqSubtitle": "Common questions about the Taypro Model-T Solar Panel Cleaning Robot for single-axis tracker installations."
+      "faqSubtitle": "Common questions about the Taypro GLYDE-X Solar Panel Cleaning Robot for single-axis tracker installations."
     },
     "overview": {
       "eyebrow": "Solar Panel Cleaning Robot for Single-Axis Tracker Plants",
-      "title": "What is Taypro Model-T?",
-      "p1Before": "Taypro Model-T is an ",
+      "title": "What is Taypro GLYDE-X?",
+      "p1Before": "Taypro GLYDE-X is an ",
       "p1Strong": "AI- and ML-powered, autonomous Solar Panel Cleaning Robot",
       "p1After": " purpose-built for daily cleaning of ",
       "p1TrackerStrong": "single-axis tracker solar power plants",
@@ -281,24 +277,24 @@
       "p1DustStrong": "99% of dust in a single automated run",
       "p1AfterDust": ", covering up to ",
       "p1RangeStrong": "2.2 km — around 3,600 modules — on a single charge",
-      "p1AfterRange": ". Cleaning is best scheduled after energy production hours and is managed end-to-end through the Taypro Console remote monitoring app. Supported fleet links are ",
+      "p1AfterRange": ". Cleaning is best scheduled after energy production hours and is managed end-to-end through the NECTYR remote monitoring app. Supported fleet links are ",
       "p1ConnectivitySuffix": " — pick the best path per block based on coverage and bandwidth needs (site-dependent).",
       "p2Before": "Compatible with ",
       "p2NexStrong": "NEXTracker",
       "p2And": " and ",
       "p2GameStrong": "Gamechanger",
-      "p2Mid": " single-axis tracker platforms, Model-T can ",
+      "p2Mid": " single-axis tracker platforms, GLYDE-X can ",
       "p2FlexStrong": "flex its body up to 15°",
       "p2AfterFlex": " to accommodate angle deviations between adjacent tracker tables — ensuring safe and reliable movement across panels and inter-table bridges. The robot supports module tilts across the full operational tracker range of ",
       "p2TiltStrong": "-52° to +52°",
       "p2Suffix": ".",
-      "p3Before": "Model-T operates autonomously using advanced ",
+      "p3Before": "GLYDE-X operates autonomously using advanced ",
       "p3DetectStrong": "edge, obstacle and angle detection",
-      "p3AfterDetect": " to move safely across panels without risk of falling. It continuously tracks the path and surface undulations along each row, adjusting motor performance as needed for consistent cleaning. After each cleaning cycle, Model-T returns to a secure, shadow-free docking station and locks in — wind-safe up to 180 km/hr.",
+      "p3AfterDetect": " to move safely across panels without risk of falling. It continuously tracks the path and surface undulations along each row, adjusting motor performance as needed for consistent cleaning. After each cleaning cycle, GLYDE-X returns to a secure, shadow-free docking station and locks in — wind-safe up to 180 km/hr.",
       "p4Lead": "Operating a fixed-tilt utility-scale plant? Choose the fully-autonomous ",
-      "linkModelA": "Model-A",
+      "linkModelA": "GLYDE",
       "p4Mid": ". Cleaning smaller or scattered plants? Use the semi-automatic pick-and-place ",
-      "linkModelB": "Model-B",
+      "linkModelB": "HELYX",
       "p4Suffix": ".",
       "p5Prefix": "Further reading: ",
       "linkBlogSeasonal": "seasonal maintenance for tracker-heavy sites",
@@ -307,29 +303,29 @@
       "p5Suffix": "."
     },
     "innovation360": {
-      "badge": "TAYPRO MODEL-T",
+      "badge": "TAYPRO GLYDE-X",
       "title": "Autonomous Waterless Solar Panel Cleaning Robot for Single-Axis Tracker Installations",
       "tourEyebrow": "Interactive Product Tour",
-      "tourTitle": "360° View of Model-T",
+      "tourTitle": "360° View of GLYDE-X",
       "tourSubtitleMobile": "Drag left or right to rotate and explore our Single-Axis Tracker Solar Panel Cleaning Robot from every angle.",
       "tourSubtitleDesktop": "Drag left or right to rotate and explore our Single-Axis Tracker Solar Panel Cleaning Robot.",
-      "productLabel": "Taypro Model-T — Solar Panel Cleaning Robot for Single-Axis Trackers",
-      "innovationTitle": "The Innovation Behind the MODEL-T",
-      "innovationBody": "The Taypro Model-T represents a synergy of cutting-edge technologies meticulously engineered to address the challenges of solar panel maintenance for single-axis tracker installations. Powered by advanced sensors and machine learning capabilities, Model-T delivers truly autonomous operation devoid of any human intervention. Its cloud-based management system enables remote monitoring and control, ensuring optimal performance from anywhere, anytime."
+      "productLabel": "Taypro GLYDE-X — Solar Panel Cleaning Robot for Single-Axis Trackers",
+      "innovationTitle": "The Innovation Behind the GLYDE-X",
+      "innovationBody": "The Taypro GLYDE-X represents a synergy of cutting-edge technologies meticulously engineered to address the challenges of solar panel maintenance for single-axis tracker installations. Powered by advanced sensors and machine learning capabilities, GLYDE-X delivers truly autonomous operation devoid of any human intervention. Its cloud-based management system enables remote monitoring and control, ensuring optimal performance from anywhere, anytime."
     },
     "howItWorks": {
       "eyebrow": "Step-by-Step Autonomous Cleaning Cycle",
-      "title": "How Does Model-T Clean Single-Axis Tracker Plants?",
-      "subtitle": "Model-T executes a fully autonomous cleaning cycle from AI-scheduled deployment through self-docking and cloud telemetry sync — without any operator on site."
+      "title": "How Does GLYDE-X Clean Single-Axis Tracker Plants?",
+      "subtitle": "GLYDE-X executes a fully autonomous cleaning cycle from AI-scheduled deployment through self-docking and cloud telemetry sync — without any operator on site."
     },
     "uspSection": {
-      "eyebrow": "Why Choose Taypro Model-T",
+      "eyebrow": "Why Choose Taypro GLYDE-X",
       "title": "Engineered for Tracker-Based Solar Farms"
     },
     "featuresSection": {
       "eyebrow": "Key Features Setting Taypro Apart",
-      "title": "Inside the Model-T Tracker Cleaning Robot",
-      "subtitle": "From flexible bridge articulation to weather-aware AI scheduling, every Model-T sub-system is engineered for the realities of single-axis tracker O&M at utility scale."
+      "title": "Inside the GLYDE-X Tracker Cleaning Robot",
+      "subtitle": "From flexible bridge articulation to weather-aware AI scheduling, every GLYDE-X sub-system is engineered for the realities of single-axis tracker O&M at utility scale."
     },
     "certifications": {
       "eyebrow": "Independently Tested & Certified",
@@ -361,13 +357,13 @@
     "servicePromise": {
       "eyebrow": "Operating Confidence, Every Day",
       "title": "Service & Maintenance Promise",
-      "subtitle": "Every Model-T deployment is backed by a structured service model designed to keep your tracker-plant cleaning fleet running at peak uptime across India.",
+      "subtitle": "Every GLYDE-X deployment is backed by a structured service model designed to keep your tracker-plant cleaning fleet running at peak uptime across India.",
       "card0Title": "Pre-Scheduled Preventive Maintenance",
       "card0Body": "All preventive and corrective maintenance activities are executed on a pre-scheduled basis — designed to eliminate unplanned downtime and sustain peak operational performance across the robot's 20-year lifecycle.",
       "card1Title": "Immediate Remote Diagnostics",
       "card1Body": "Taypro provides immediate remote diagnostics and troubleshooting upon incident notification — most tracker-plant issues are resolved without a physical site visit.",
       "card2Title": "Same-Day On-Site Intervention",
-      "card2Body": "When on-site work is required, Taypro targets same-day on-site breakdown resolution, available pan-India, with immediate remote diagnostics from Taypro Console."
+      "card2Body": "When on-site work is required, Taypro targets same-day on-site breakdown resolution, available pan-India, with immediate remote diagnostics from NECTYR."
     },
     "callbackCard": {
       "line1": "Schedule Online Demo For Single-Axis Tracker",
@@ -375,7 +371,7 @@
     },
     "specifications": {
       "titleLine1": "Solar Panel Cleaning Robot for Single-Axis Trackers",
-      "titleLine2": "Model-T Specifications",
+      "titleLine2": "GLYDE-X Specifications",
       "specHeader": "Specification",
       "valueHeader": "Value"
     },
@@ -385,7 +381,7 @@
       "subtitle": "Tracker plants compound every challenge of manual cleaning — moving modules, larger row lengths and tighter inter-row spacing. Robotic cleaning isn't a premium choice for trackers; it's the only way to economically sustain peak Performance Ratio.",
       "criterion": "Criterion",
       "manual": "Manual Cleaning of Trackers",
-      "modelT": "Taypro Model-T",
+      "modelT": "Taypro GLYDE-X",
       "row0": {
         "criterion": "Cleaning Frequency",
         "manual": "Weekly or fortnightly — limited by tracker production schedule and labour windows",
@@ -429,11 +425,11 @@
     },
     "modelTvsModelA": {
       "eyebrow": "Choosing the Right Taypro Robot",
-      "title": "Model-T vs Model-A: Which Robot Suits Your Solar Plant?",
-      "subtitle": "Both robots are fully autonomous and waterless, both run on the same Taypro Console. The choice is dictated by your mounting structure — tracker vs fixed-tilt.",
+      "title": "GLYDE-X vs GLYDE: Which Robot Suits Your Solar Plant?",
+      "subtitle": "Both robots are fully autonomous and waterless, both run on the same NECTYR. The choice is dictated by your mounting structure — tracker vs fixed-tilt.",
       "criterion": "Criterion",
-      "modelTHeader": "Model-T (Tracker)",
-      "modelAHeader": "Model-A (Fixed-Tilt)",
+      "modelTHeader": "GLYDE-X (Tracker)",
+      "modelAHeader": "GLYDE (Fixed-Tilt)",
       "row0": {
         "criterion": "Mounting Structure",
         "modelT": "Single-axis trackers (NEXTracker, Gamechanger and equivalent)",
@@ -471,11 +467,11 @@
       },
       "row7": {
         "criterion": "Cloud Monitoring",
-        "modelT": "Taypro Console via {connectivity}",
-        "modelA": "Taypro Console via {connectivity}"
+        "modelT": "NECTYR via {connectivity}",
+        "modelA": "NECTYR via {connectivity}"
       },
       "crossSellLead": "Cleaning smaller or scattered plants? Look at the semi-automatic ",
-      "linkModelB": "Model-B",
+      "linkModelB": "HELYX",
       "crossSellMid": ". Prefer outsourcing cleaning entirely? Explore the ",
       "linkOpex": "Taypro OPEX cleaning service",
       "crossSellSuffix": "."
@@ -483,35 +479,35 @@
     "indianConditions": {
       "eyebrow": "Engineered for Indian Conditions",
       "title": "Built for Indian Single-Axis Tracker Plants",
-      "subtitle": "Rajasthan dust storms, Gujarat heat, Karnataka humidity and Tamil Nadu monsoons — Taypro Model-T is engineered, tested and deployed for the realities of large Indian tracker O&M, not generic Western field conditions.",
+      "subtitle": "Rajasthan dust storms, Gujarat heat, Karnataka humidity and Tamil Nadu monsoons — Taypro GLYDE-X is engineered, tested and deployed for the realities of large Indian tracker O&M, not generic Western field conditions.",
       "card0Title": "Designed for High-Soiling Tracker Regions",
       "card0Body": "Daily autonomous cleaning is the only economical way to neutralise 8–25% soiling losses on tracker plants in Rajasthan, Gujarat, Madhya Pradesh and Maharashtra — exactly where most NEXTracker and Gamechanger installations sit.",
       "card1Title": "Temperature & Humidity Tolerance",
       "card1Body": "Validated for operating temperatures up to 90°C and TÜV NORD certified for damp-heat and dry-heat performance — proven across Indian summer, monsoon and post-monsoon cycles.",
       "card2Title": "Waterless — Critical for Water-Scarce Districts",
-      "card2Body": "Many tracker plants are in water-stressed districts where water allocations for module washing are tightening. Model-T removes water from your O&M plan entirely, freeing tanker logistics for higher-priority site needs.",
+      "card2Body": "Many tracker plants are in water-stressed districts where water allocations for module washing are tightening. GLYDE-X removes water from your O&M plan entirely, freeing tanker logistics for higher-priority site needs.",
       "card3Title": "Pan-India Service Network",
-      "card3Body": "Same-day on-site breakdown resolution across India, with immediate remote diagnostics from Taypro Console — backed by regional spare inventory and structured AMC programs.",
+      "card3Body": "Same-day on-site breakdown resolution across India, with immediate remote diagnostics from NECTYR — backed by regional spare inventory and structured AMC programs.",
       "crossSellLead": "Looking at adjacent solar O&M needs? Explore the ",
-      "linkModelA": "fully-automatic Model-A robot",
+      "linkModelA": "fully-automatic GLYDE robot",
       "linkBetweenAB": ", the ",
-      "linkModelB": "semi-automatic Model-B robot",
+      "linkModelB": "semi-automatic HELYX robot",
       "linkBetweenBOpex": ", the ",
       "linkOpex": "Taypro OPEX cleaning service",
       "linkBetweenOpexConsole": " or the ",
-      "linkConsole": "Taypro Console monitoring app",
+      "linkConsole": "NECTYR monitoring app",
       "crossSellSuffix": "."
     },
     "faqSection": {
       "title": "Frequently Asked Questions",
-      "subtitle": "Common questions about the Taypro Model-T Solar Panel Cleaning Robot for single-axis tracker installations."
+      "subtitle": "Common questions about the Taypro GLYDE-X Solar Panel Cleaning Robot for single-axis tracker installations."
     },
     "modelCardsTitle": "Looking for more solutions?",
     "roiBand": {
       "title": "Tracker cleaning robot cost & ROI",
       "bodyBeforeSpan": "Model ",
       "bodySpan": "single-axis tracker solar panel cleaning",
-      "bodyAfterSpan": " economics for your site—use the calculator before a Model-T quote."
+      "bodyAfterSpan": " economics for your site—use the calculator before a GLYDE-X quote."
     }
   },
   "Common": {

@@ -82,7 +82,7 @@ Choose ONE image from the list below that best matches the article topic for hum
 Rules:
 - Pick ONLY a url from the list (exact path).
 - Prefer real Taypro robots, plants, projects, or product photos over generic stock.
-- Match intent: brush comparison → robots/cleaning; Model-A → model A image; service/opex → opex; tracker → model T; project/case → project image.
+- Match intent: brush comparison → robots/cleaning; GLYDE/NYUMA fixed-tilt → model A image; HELYX → model B image; GLYDE-X/NYUMA-X tracker → model T image; service/opex → opex; project/case → project image.
 - Write alt text: specific, 80–160 chars, describes what is shown, includes topic naturally. No "image of" prefix.
 
 Candidates:
@@ -198,14 +198,23 @@ function buildAltFromBlog(
   if (contextLabel.toLowerCase().includes("project")) {
     return `${base} — Taypro utility-scale solar cleaning robot deployment in India`;
   }
-  if (/model-a|model a/i.test(contextLabel)) {
-    return `${base} — Taypro Model-A automatic waterless solar panel cleaning robot`;
+  if (/glyde-x|glyde x/i.test(contextLabel)) {
+    return `${base} — Taypro GLYDE-X dual-pass tracker solar cleaning robot`;
   }
-  if (/model-b|model b/i.test(contextLabel)) {
-    return `${base} — Taypro Model-B semi-automatic solar panel cleaning robot`;
+  if (/\bglyde\b/i.test(contextLabel)) {
+    return `${base} — Taypro GLYDE automatic dual-pass solar cleaning robot`;
   }
-  if (/model-t|tracker/i.test(contextLabel)) {
-    return `${base} — Taypro Model-T cleaning robot on single-axis trackers`;
+  if (/nyuma-x|nyuma x/i.test(contextLabel)) {
+    return `${base} — Taypro NYUMA-X PBT tracker solar cleaning robot`;
+  }
+  if (/\bnyuma\b/i.test(contextLabel)) {
+    return `${base} — Taypro NYUMA automatic PBT solar cleaning robot`;
+  }
+  if (/helyx/i.test(contextLabel)) {
+    return `${base} — Taypro HELYX semi-automatic solar cleaning robot`;
+  }
+  if (/tracker/i.test(contextLabel)) {
+    return `${base} — Taypro solar cleaning robot on single-axis trackers`;
   }
   if (/opex|service/i.test(contextLabel)) {
     return `${base} — Taypro robotic solar panel cleaning service at a utility plant`;

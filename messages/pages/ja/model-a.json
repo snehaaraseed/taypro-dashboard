@@ -1,48 +1,48 @@
 {
   "ModelAPage": {
     "meta": {
-      "title": "自動ソーラーパネル清掃ロボット — Taypro Model-A（水なし、AI）",
-      "description": "Taypro Model-A は完全自律型、水を使わない自動ソーラーパネル清掃ロボットです。 AI/ML デュアルパス ドライ クリーニングは、サイクルごとに 99% 以上の塵を除去し、充電ごとに最大 3,600 モジュールを実行し、LTE / Wi-Fi / RF mesh / LoRa / LoRaWAN を介して Taypro Console に接続し、TÜV NORD で認定されています。インド全土の同日の故障サポート。",
+      "title": "デュアルパス自動ソーラーパネル清掃ロボット — Taypro GLYDE（無水・AI）",
+      "description": "Taypro GLYDEは完全自律・無水の自動ソーラーパネル清掃ロボットです。AI/MLデュアルパス乾式清掃でサイクルあたり99%超のホコリ除去、1充電で最大3,600モジュール、NECTYR経由のLTE/Wi-Fi/RF mesh/LoRa/LoRaWAN、TÜV NORD認証。",
       "keywords": [
-        "automatic solar panel cleaning robot",
-        "automatic solar panel cleaning robot India",
-        "automatic solar panel cleaning robot manufacturer",
-        "automatic solar panel cleaning robot price",
-        "automatic solar panel cleaning robot cost",
-        "buy automatic solar panel cleaning robot",
-        "best automatic solar panel cleaning robot",
-        "automatic solar panel cleaning system",
-        "fully automatic solar panel cleaning robot",
-        "autonomous solar panel cleaning robot",
-        "waterless automatic solar panel cleaning robot",
-        "dual pass automatic solar cleaning robot",
-        "fixed tilt automatic solar cleaning robot",
-        "AI automatic solar panel cleaning robot",
-        "TÜV NORD certified solar cleaning robot",
-        "Taypro Model-A"
+        "自動ソーラーパネル洗浄ロボット",
+        "自動ソーラーパネル洗浄ロボット インド",
+        "自動ソーラーパネル洗浄ロボット メーカー",
+        "自動ソーラーパネル洗浄ロボット 価格",
+        "自動ソーラーパネル洗浄ロボット コスト",
+        "自動ソーラーパネル洗浄ロボット 購入",
+        "最高の自動ソーラーパネル洗浄ロボット",
+        "自動ソーラーパネル洗浄システム",
+        "完全自動ソーラーパネル洗浄ロボット",
+        "自律型ソーラーパネル洗浄ロボット",
+        "水なし自動ソーラーパネル洗浄ロボット",
+        "デュアルパス自動ソーラー洗浄ロボット",
+        "固定傾斜自動ソーラー洗浄ロボット",
+        "AI自動ソーラーパネル洗浄ロボット",
+        "TÜV NORD認証ソーラー洗浄ロボット",
+        "Taypro GLYDE"
       ],
-      "openGraphTitle": "自動ソーラーパネル清掃ロボット — Taypro Model-A（水なし、AI）",
-      "openGraphDescription": "Taypro Model-A: 実用規模のプラント向けの自動ソーラーパネル洗浄ロボット。自律型水なしデュアルパス洗浄、サイクルあたり 99% 以上の塵除去、充電あたり最大 3,600 モジュール、LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN ～ Taypro Console、TÜV NORD 認定。",
+      "openGraphTitle": "デュアルパス自動清掃ロボット — Taypro GLYDE",
+      "openGraphDescription": "特許デュアルパスマイクロファイバー。自律無水清掃、NECTYRフリートポータル。",
       "openGraphType": "website",
-      "openGraphImageAlt": "Taypro Model-A 自動ソーラーパネル清掃ロボット",
-      "twitterTitle": "自動ソーラーパネル清掃ロボット — Taypro Model-A（水なし、AI）",
-      "twitterDescription": "Taypro Model-A 自動ソーラーパネル清掃ロボット: 自律型、水を使わない、AI 駆動。 1 サイクルあたり 99% 以上の粉塵除去、1 回の充電で最大 3,600 モジュール、LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN ～ Taypro Console。",
+      "openGraphImageAlt": "Taypro GLYDE 自動ソーラーパネル清掃ロボット",
+      "twitterTitle": "デュアルパス自動清掃ロボット — Taypro GLYDE",
+      "twitterDescription": "GLYDE：自律無水デュアルパス、1充電3,600モジュール、NECTYR。",
       "twitterCard": "summary_large_image"
     },
     "breadcrumbs": {
       "home": "ホーム",
       "solarPanelCleaningRobots": "ソーラーパネル清掃ロボット",
-      "automaticRobot": "自動ソーラーパネル洗浄ロボット"
+      "automaticRobot": "自動ソーラーパネル清掃ロボット"
     },
     "shared": {
-      "connectivitySummary": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN"
+      "connectivitySummary": "LTE、Wi-Fi、ハイブリッド自己修復RFメッシュ、LoRa、LoRaWAN"
     },
     "schema": {
       "product": {
-        "name": "自動ソーラーパネル清掃ロボット — Model-A (Taypro)",
-        "description": "Taypro Model-A は、ユーティリティ規模の太陽光発電所向けの完全自律型 Automatic Solar Panel Cleaning Robot です。無水の AI・ML デュアルパス乾式洗浄はサイクルごとに 99% 超のほこりを除去し、一充電で最大 3,600 モジュールを清掃します。LTE、Wi‑Fi、hybrid self-healing RF mesh、LoRa、LoRaWAN で Taypro Console に接続し、現場検証済みで TÜV NORD 認定です。",
+        "name": "Automatic Solar Panel Cleaning Robot — GLYDE (Taypro)",
+        "description": "Taypro GLYDEは完全自律・無水の自動ソーラーパネル清掃ロボットです。AI/MLデュアルパス乾式清掃でサイクルあたり99%超のホコリ除去、1充電で最大3,600モジュール、NECTYR経由のLTE/Wi-Fi/RF mesh/LoRa/LoRaWAN、TÜV NORD認証。",
         "brand": "Taypro",
-        "sku": "MODEL-A",
+        "sku": "GLYDE",
         "offers": {
           "price": "価格についてはお問い合わせください",
           "priceCurrency": "INR",
@@ -50,312 +50,312 @@
         }
       },
       "howTo": {
-        "name": "自動ソーラーパネル清掃ロボットが実用規模の太陽光発電所を清掃する方法 (Taypro Model-A)",
-        "description": "Taypro Model-A 自動ソーラーパネル清掃ロボットのステップバイステップの自律清掃サイクル — アレイの割り当てと AI のスケジュール設定から、デュアルパス水なし清掃、セルフドッキング、クラウド テレメトリまで。",
+        "name": "How an Automatic Solar Panel Cleaning Robot cleans a utility-scale solar plant (Taypro GLYDE)",
+        "description": "Step-by-step autonomous cleaning cycle of the Taypro GLYDE Automatic Solar Panel Cleaning Robot — from array assignment and AI scheduling through dual-pass waterless cleaning, self-docking, and cloud telemetry.",
         "totalTime": "PT2H",
         "imagePath": "/tayproasset/taypro-robotImage.png"
       }
     },
     "hero": {
-      "h1Line1": "自動ソーラーパネル清掃ロボット —",
-      "h1Line2": "Model-A by Taypro",
-      "leadBeforeStrong": "Taypro Model-A は",
-      "leadStrong": "自動ソーラーパネル洗浄ロボット",
-      "leadAfterStrong": " で、ユーティリティ規模の太陽光発電所向けの自律・無水デュアルパス洗浄、AI・ML スケジューリング、一充電あたり最大 3,600 モジュール、フリート接続は ",
-      "leadAfterConnectivity": "、稼働時間を最大化するための TÜV NORD 検証済みビルド。",
+      "h1Line1": "自動ソーラーパネル清掃ロボット — ",
+      "h1Line2": "Taypro GLYDE",
+      "leadBeforeStrong": "Taypro GLYDEは",
+      "leadStrong": "自動ソーラーパネル清掃ロボット",
+      "leadAfterStrong": "で、ユーティリティ規模の太陽光発電所向け。自律無水デュアルパス清掃、AI/MLスケジューリング、1充電最大3,600モジュール、フリート接続 ",
+      "leadAfterConnectivity": "、TÜV NORD認証ビルドで高い稼働率を実現。",
       "primaryCta": {
-        "topic": "Model-A 見積もり",
-        "title": "Model-A 見積もりをリクエストする",
-        "subtitle": "貴社のプラントについてお知らせください。当社のチームがサイジング、構成、および価格オプションをフォローアップします。",
-        "label": "見積もりを依頼する"
+        "topic": "GLYDE見積もり",
+        "title": "GLYDE見積もりを依頼",
+        "subtitle": "プラント情報をお送りください。GLYDEのサイジング・構成・商談オプションをご案内します。",
+        "label": "見積もりを依頼"
       },
-      "heroImageAlt": "Taypro 自動ソーラーパネル洗浄ロボット Model-A 実用規模の太陽光発電所でソーラーパネルを洗浄",
-      "heroImageTitle": "自動ソーラーパネル清掃ロボット Model-A by Taypro"
+      "heroImageAlt": "ユーティリティ規模ソーラーファームでパネルを清掃するTaypro GLYDE自動ロボット",
+      "heroImageTitle": "自動ソーラーパネル清掃ロボット GLYDE — Taypro"
     },
     "overview": {
-      "eyebrow": "実用規模のプラント向け自動ソーラーパネル洗浄ロボット",
-      "title": "Taypro Model-A 自動ソーラーパネル清掃ロボットとは何ですか?",
-      "p1BeforeStrong": "",
-      "p1StrongCategory": "Automatic Solar Panel Cleaning Robot",
-      "p1AfterCategory": " は、給水車や夜間クルーを使わずモジュールを洗浄する完全自律の無水ロボットのカテゴリです。Taypro Model-A はこのカテゴリのユニットとして、大規模太陽光プラントの毎日の信頼性の高い清掃のために設計されています。自動の一パスで、回転する自浄マイクロファイバドラムにより表面から ",
-      "p1DustClaimStrong": "99% 超のほこり",
-      "p1AfterDustClaim": " を除去し、サイト条件に応じてプラント全体で安定した性能比の改善へつながります。",
+      "eyebrow": "ユーティリティ規模向け自動ソーラーパネル清掃ロボット",
+      "title": "Taypro GLYDE自動清掃ロボットとは",
+      "p1BeforeStrong": "The ",
+      "p1StrongCategory": "自動ソーラーパネル清掃ロボット",
+      "p1AfterCategory": "は完全自律・無水でモジュールを清掃します。GLYDEはユーティリティ規模の日常清掃向け。1回の走行で",
+      "p1DustClaimStrong": "99%超のホコリ",
+      "p1AfterDustClaim": "をマイクロファイバードラムで除去します。",
       "methodologyFootnoteAriaSuffix": "（脚注）",
       "methodologyNotice": {
-        "strong": "パフォーマンスの数値について:",
-        "body": "このサイトの「99%+」への言及は、自動パスまたはサイクルごとにモジュール表面から除去されたほこりを説明するものであり、変換効率や総出力の保証ではありません。ソーリングで失われたエネルギーの回復は、基準となる汚れ、清掃頻度、天候、プラント設計に依存します。Taypro の検証については performance & test methodology を参照してください。"
+        "strong": "パフォーマンス数値について：",
+        "body": "本サイトの「99%+」は1パス/サイクルあたりのモジュール表面ホコリ除去を指し、変換効率や総出力の保証ではありません。回復はベースライン汚損・頻度・気象・設計に依存します。Tayproの検証・見積方法は methodology を参照。"
       },
-      "methodologyLinkText": "performance & test methodology",
-      "methodologyLinkTitle": "パフォーマンスとテスト方法",
-      "p2BeforeStrong": "一充電で Model-A は最大 ",
-      "p2Strong": "走行長 2.2 km — およそ 3,600 のソーラーモジュール",
-      "p2AfterStrong": "清掃サイクルは発電時間外に計画すると最適で、リモートで運用できるためプラント出力へ影響しません。",
-      "p3": "高度なエッジおよび障害物検出により、Model-A は落下の危険なく安全にパネルを横切ることができ、また連続的な表面の起伏追跡によりモーターのパフォーマンスを行ごとに調整して、一貫した洗浄品質を実現します。リアルタイムのバッテリー監視により、ロボットは完了できる作業のみを実行し、アレイ内で立ち往生することなくドッキング ステーションに安全に戻ることが保証されます。軽量ブリッジにより、あるテーブルから次のテーブルへのシームレスな移動が可能になり、サイト全体でカバレッジが中断されなくなります。",
-      "p4Blog1": "自動清掃ロボットがモジュール上でどのように動作するか",
-      "p4Blog2": "実用規模でのロボット掃除のメリット",
-      "p4Prefix": "さらに読む:",
-      "p4Middle": "そして",
+      "methodologyLinkText": "パフォーマンス・試験方法論",
+      "methodologyLinkTitle": "パフォーマンス・試験方法論",
+      "p2BeforeStrong": "On a single charge, GLYDE cleans up to ",
+      "p2Strong": "2.2 km of running length — approximately 3,600 solar modules",
+      "p2AfterStrong": ". Cleaning cycles are best scheduled outside energy production hours and can be programmed remotely, ensuring zero impact on plant generation.",
+      "p3": "Advanced edge and obstacle detection allow GLYDE to traverse panels safely without risk of falling, while continuous surface-undulation tracking adjusts motor performance row-by-row for consistent cleaning quality. Real-time battery monitoring guarantees the robot only covers what it can complete and returns safely to its docking station — never stranded mid-array. Lightweight bridges enable seamless movement from one table to the next, keeping coverage uninterrupted across the entire site.",
+      "p4Blog1": "モジュール上で自動清掃ロボットがどう動くか",
+      "p4Blog2": "ユーティリティ規模でのロボット清掃のメリット",
+      "p4Prefix": "関連記事: ",
+      "p4Middle": " および ",
       "p4Suffix": "。"
     },
     "howToSection": {
-      "eyebrow": "自律的なクリーニングサイクル",
-      "title": "自動ソーラーパネル清掃ロボットはどのように動作しますか?",
-      "subtitle": "Model-A は列上のオペレーターを要さずエンドツーエンドで実行されます。以下は検索エンジン向け HowTo 構造化データに符号化したワークフローと同じであり、すべての運用プラントでの日常でもあります。",
+      "eyebrow": "自律清掃サイクル",
+      "title": "自動ソーラーパネル清掃ロボットはどう動くか？",
+      "subtitle": "GLYDEは列上でオペレーター不要のエンドツーエンド運転。以下はHowTo構造化データと現場の日常です。",
       "steps": {
         "step0": {
-          "name": "各自動ソーラー パネル クリーニング ロボットを専用アレイに割り当てます",
-          "text": "各 Taypro Model-A ユニットは特定の太陽電池アレイに永続的に割り当てられ、列の横にある影のないドッキング ステーションとペアになります。統合されたリチウムイオン充電システムは外部電源接続を必要とせず、ロボットは日常の自律動作のために自己完結型です。"
+          "name": "各自動ロボットを専用アレイに割当",
+          "text": "各GLYDEは特定アレイに常設され、列横の影のないドックとペア。リチウム充電は外部電源不要で日次自律運転。"
         },
         "step1": {
-          "name": "AIおよびML駆動ロジックを使用してTaypro Consoleからクリーニングをスケジュール設定",
-          "text": "オペレーターは Taypro Console リモート監視アプリを使用して、エネルギー生産時間外に清掃サイクルをスケジュールします。AI と ML によるスケジューリングは、リアルタイムの気象データとプラントのパフォーマンス信号を組み合わせて頻度を最適化し、雨天時の不要な運転をスキップし、重大な状況へのアラートを送ります。"
+          "name": "NECTYRでAI/MLスケジューリング",
+          "text": "NECTYRアプリで発電時間外に清掃をスケジュール。AI/MLが気象と発電信号で頻度最適化・雨天スキップ・アラート送信。"
         },
         "step2": {
-          "name": "ロボットがモジュール列に自己展開します",
-          "text": "予定時刻になると、自動ソーラーパネル洗浄ロボットが自律的にドッキングを解除し、モジュールフレームに沿ってソーラーパネルの列に移動します。高度なエッジと障害物の検出により、前方の経路が継続的にマッピングされるため、ロボットがガラスやセルに負荷を加えることがありません。"
+          "name": "ロボットが列へ自律展開",
+          "text": "予定時刻に自律アンドックしフレーム上を走行。エッジ・障害物検知でガラス・セルに荷重なし。"
         },
         "step3": {
-          "name": "セルフクリーニングマイクロファイバードラムによるデュアルパス水なしクリーニング",
-          "text": "回転する自動洗浄マイクロファイバー ドラムがデュアルパス ドライ クリーニング サイクルを実行し、毎分 10 ～ 15 メートルの自動運転で蓄積した塵の 99% 以上を除去します。水、洗剤、手作業は不要です。"
+          "name": "自己洗浄マイクロファイバーでデュアルパス無水清掃",
+          "text": "回転自己洗浄ドラムが10–15m/分でデュアルパス乾式清掃 — 1走行99%超、水・洗剤・人手ゼロ。"
         },
         "step4": {
-          "name": "バッテリーを意識したドッキング ステーションへの復帰",
-          "text": "リアルタイムのバッテリー監視により、Automatic Solar Panel Cleaning Robot は安全に完走できる距離のみをコミットし、その後自律的にドッキングステーションへ戻って確実にロックします。係留中は最大約 180 km/hr の瞬間風にも耐えます。"
+          "name": "バッテリー認識でドックへ復帰",
+          "text": "リアルタイム監視で完了可能な走行のみ。各サイクル後ドックへ安全復帰・ロック — 最大180km/h風速。"
         },
         "step5": {
-          "name": "テレメトリとフリートの健全性をクラウドに同期する",
-          "textBeforeConnectivity": "各サイクルの後、バッテリーレベル、充電状態、サイクルテレメトリ、およびフリート全体のパフォーマンスが、",
-          "textAfterConnectivity": " 経由で Taypro Console に同期されます — サイトに最適なリンクを選択 — すべての運用済み Automatic Solar Panel Cleaning Robot で監査に耐える報告が可能になります。"
+          "name": "テレメトリとフリート健全性をクラウド同期",
+          "textBeforeConnectivity": "各サイクル後、バッテリー・充電・サイクル・フリート性能をNECTYRへ ",
+          "textAfterConnectivity": " — サイトに最適なリンクを選択 — 全ロボットの監査対応レポート。"
         }
       }
     },
     "product360": {
-      "eyebrow": "インタラクティブな製品ツアー",
-      "title": "Model-Aの360°ビュー",
-      "subtitle": "左右にドラッグして回転させ、自動ソーラーパネル洗浄ロボットをあらゆる角度から探索してください",
-      "productLabel": "Taypro Model-A — 自動ソーラーパネル清掃ロボット"
+      "eyebrow": "インタラクティブ製品ツアー",
+      "title": "GLYDEの360°ビュー",
+      "subtitle": "左右にドラッグしてロボットをあらゆる角度から確認",
+      "productLabel": "Taypro GLYDE — 自動ソーラーパネル清掃ロボット"
     },
     "usps": {
-      "eyebrow": "モデル A – 自動ソーラーパネル洗浄ロボット",
-      "title": "USP",
+      "eyebrow": "GLYDE — 自動ソーラーパネル清掃ロボット",
+      "title": "主な特長",
       "items": {
-        "item0": "優れた洗浄効率",
-        "item1": "堅牢で耐久性に優れた設計",
-        "item2": "より広い範囲をカバー",
-        "item3": "高速洗浄",
-        "item4": "高度なエッジと障害物の検出",
-        "item5": "マルチリンク遠隔監視（LTE / Wi-Fi / RF mesh / LoRa）",
-        "item6": "セルフクリーニング技術",
-        "item7": "過酷な条件に対する認定およびテスト済み"
+        "item0": "高い清掃効率（デュアルパス）",
+        "item1": "堅牢で耐久性の高い設計",
+        "item2": "広いカバレッジ（1充電約3,600モジュール）",
+        "item3": "高速清掃",
+        "item4": "エッジ・障害物検知",
+        "item5": "LTE/Wi-Fi/RF mesh/LoRa遠隔監視",
+        "item6": "自己洗浄マイクロファイバー",
+        "item7": "過酷環境向け認証・試験済み"
       }
     },
     "roiBand": {
-      "title": "自動ソーラーパネル清掃ロボットのコスト & ROI",
-      "bodyBeforeSpan": "どれくらい効果があるかを計算してください",
-      "bodySpan": "ソーラーパネル掃除ロボット",
-      "bodyAfterSpan": " がどれだけ有効か、プラントにどれだけ節約をもたらせるかを試算できます。"
+      "title": "自動清掃ロボットのコストとROI",
+      "bodyBeforeSpan": "Taypro ",
+      "bodySpan": "GLYDE",
+      "bodyAfterSpan": " — use the ROI calculator for your site."
     },
     "projects": {
-      "headingLine1": "モデル A を使用したプロジェクト – 自動",
-      "headingLine2": "ソーラーパネルの清掃",
+      "headingLine1": "GLYDE — 自動",
+      "headingLine2": "ソーラーパネル清掃",
       "headingLine3": "ロボット",
-      "headingLine4": "インスタレーション",
-      "tagline": "当社は迅速な設置と同日の故障解決をお約束する専用の技術サポートを保証します。",
-      "recentProjectsHeader": "最新のプロジェクト"
+      "headingLine4": "導入事例",
+      "tagline": "迅速導入と専任技術サポート — 当日故障対応をお約束。",
+      "recentProjectsHeader": "最新プロジェクト"
     },
     "trustStats": {
-      "eyebrow": "太陽光発電所が Taypro を選択する理由",
-      "title": "インドの大手太陽光発電事業者からの信頼",
-      "subtitle": "過去 10 年間にわたり、Taypro は、インド全土の大手独立系発電事業者および事業規模の発電所の 5,000 MW を超える太陽光発電所の容量全体で性能比の向上を推進してきました。",
+      "eyebrow": "太陽光プラントがTayproを選ぶ理由",
+      "title": "インドの主要ソーラーオペレーターに信頼",
+      "subtitle": "過去10年、Tayproはインドで5,000MW超の太陽光容量のPR改善を支援。",
       "stats": {
         "stat0": {
           "value": "5 GW+",
-          "label": "導入されたロボットの能力"
+          "label": "導入ロボット容量"
         },
         "stat1": {
           "value": "100+",
-          "label": "プラント設備"
+          "label": "プラント導入"
         },
         "stat2": {
           "value": "1.4 Bn",
-          "label": "年間の節水（Liters）"
+          "label": "年間節水量（リットル）"
         },
         "stat3": {
           "value": "600+",
-          "label": "月間ロボット製造キャパシティ（台）"
+          "label": "月間ロボット製造能力"
         }
       }
     },
     "servicePromise": {
-      "eyebrow": "毎日の経営の信頼性",
-      "title": "サービスとメンテナンスの約束",
-      "subtitle": "すべての Taypro Model-A 導入は、計画されたメンテナンスと保証された応答 SLA で支えられ、プラントを高いパフォーマンス比に保ちます。",
+      "eyebrow": "毎日の運用信頼",
+      "title": "サービス・メンテナンスの約束",
+      "subtitle": "全GLYDE導入は計画保全とSLAでピークPRを維持。",
       "cards": {
         "card0": {
-          "title": "定期予防メンテナンス",
-          "body": "すべての予防および是正メンテナンス活動は事前スケジュールに基づいて実行され、計画外のダウンタイムを排除し、ロボットのライフサイクル全体を通じて最高の動作パフォーマンスを維持するように設計されています。"
+          "title": "計画予防保全",
+          "body": "予防・是正保全を事前スケジュール — 計画外停止を排除しピーク性能を維持。"
         },
         "card1": {
           "title": "即時リモート診断",
-          "body": "インシデント通知後、Taypro エンジニアが Taypro Console ポータルからただちにリモート診断とトラブルシュートを開始します。多くの事象は現地訪問なしでオーバー・ザ・エア解決されます。"
+          "body": "インシデント時、NECTYRで即リモート診断 — 多くは現地訪問なしで解決。"
         },
         "card2": {
-          "title": "即日オンサイト介入",
-          "body": "現地での手当てが必要な場合、Taypro は同日オンサイトでの故障解消を目標とします — Taypro のフィールドサービスネットワークで India 全域に対応し、Taypro Console からの即時リモート診断と併用できます。"
+          "title": "当日オンサイト対応",
+          "body": "現地対応時はインド全国で当日オンサイト故障対応を目標 — NECTYR即時診断付き。"
         }
       }
     },
     "callbackCard": {
-      "line1": "自動太陽光発電のオンライン デモをスケジュールする",
-      "line2": "パネル清掃ロボット"
+      "line1": "自動ソーラーパネル清掃ロボットの",
+      "line2": "オンラインデモを予約"
     },
     "featuresLongForm": {
-      "mainHeading": "Tayproのソーラーパネル自動清掃ロボットの特徴: Model-A",
+      "mainHeading": "Taypro GLYDE自動清掃ロボットの特長",
       "aiCleaning": {
-        "title": "AI対応の水なしデュアルパスクリーニング",
-        "body": "Model-A は、特許取得済みのデュアルパス機構を備えた AI および ML 駆動の洗浄ロジックを使用しています。最初のパスで乾いたほこりを取り除き、2 番目のパスで粘着性の残留物を除去します。その結果、1 回の自動運転で、水滴を垂らすことなく、セルやガラスに研磨剤が接触することなく、99% 以上の塵を除去できます。"
+        "title": "AI対応・無水デュアルパス清掃",
+        "body": "GLYDEはAI/MLと特許デュアルパス — 1走行で99%超、水不要・研磨なし。"
       },
       "microfiber": {
-        "title": "セルフクリーニングマイクロファイバードラム",
-        "body": "回転するマイクロファイバークロスは、動作中に自己洗浄するように設計されており、数千のモジュールにわたって最高の洗浄効率を維持し、消耗品の寿命を延ばします。ロボットはモジュールのフレームに沿って移動するため、ガラスや太陽電池に負荷がかからず、パネルの寿命と出力が維持されます。"
+        "title": "自己洗浄マイクロファイバードラム",
+        "body": "回転クロスは自己洗浄。フレーム走行でガラス・セルに荷重なし。"
       },
       "range": {
-        "title": "清掃範囲の拡大",
-        "body": "Model-A は、10 ～ 15 m/min の洗浄速度で、1 回の充電で最大 2.2 km の実行長（約 3,600 個のモジュール）を洗浄します。リチウムイオン電池と統合された充電システムを備えた各ロボットは、特定のアレイに割り当てられ、追加の手すりなしで、幅広いパネルの傾斜や季節の傾斜に応じて迅速に展開されます。"
+        "title": "広い清掃レンジ",
+        "body": "1充電で最大2.2km（約3,600モジュール）、10–15m/分。追加レール不要。"
       },
       "battery": {
-        "title": "バッテリーを意識した自律性",
-        "body": "Model-A はバッテリー レベルをリアルタイムで監視し、クリーニング実行を完了できるのは 1 回のみで、サイクルごとにドッキング ステーションに安全に戻ります。ロボットはドッキング時にしっかりとロックされた状態を維持し、ドッキング位置で最大 180 km/hr の突風に耐えられるように設計されています。"
+        "title": "バッテリー認識自律",
+        "body": "リアルタイム監視で安全ドック復帰。最大180km/h風速。"
       },
       "weather": {
-        "title": "スマートな天気の最適化",
-        "body": "清掃スケジュールは、風速、降水確率、湿度、粉塵などのリアルタイムの気象データに基づいて継続的に最適化されるため、最も効果的なタイミングでサイクルが実行されます。重大な状態のアラートはリモート ポータルに自動的にプッシュされるため、プラントのオペレーターが手動で対応する必要はありません。"
+        "title": "スマート気象最適化",
+        "body": "風・雨・湿度・ホコリでスケジュール最適化。重大アラートはNECTYRへ。"
       },
       "connectivity": {
-        "title": "クラウド接続のリモート監視",
-        "bodyBeforeStrong": "すべての Model-A ロボットは次で Taypro Console に接続します：",
-        "bodyAfterConnectivityStrong": "。LTE または Wi‑Fi で高帯域テレメトリ、",
-        "bodyBoldMesh": "hybrid self-healing RF mesh",
-        "bodyAfterMesh": " でプラント全体に丈夫なバックホール、または ",
+        "title": "クラウド遠隔監視",
+        "bodyBeforeStrong": "全GLYDEは",
+        "bodyAfterConnectivityStrong": "に接続。LTE/Wi-Fi、",
+        "bodyBoldMesh": "自己修復RFメッシュ",
+        "bodyAfterMesh": "、または",
         "bodyBoldLoRa": "LoRa / LoRaWAN",
-        "bodyAfterLoRa": " を遠隔ブロック向けの低消費電力・長距離リンクに。清掃サイクルの予約、運転パラメータ調整、あらゆる端末からのフリート性能追跡に加え、ドッキングステーションのテレメトリ（バッテリー、充電状態、故障）をリアルタイムで確認できます。"
+        "bodyAfterLoRa": " — NECTYRでフリート管理とドックテレメトリ。"
       },
       "edge": {
-        "title": "エッジおよび障害物検出テクノロジー",
-        "body": "高精度のエッジ検出センサーがすべてのパネル境界をマッピングし、障害物を継続的にスキャンすることで、落下の危険を排除します。表面の起伏を追跡することでモーターの性能を行ごとに調整し、不完全な設置でも一貫した洗浄品質を実現します。"
+        "title": "エッジ・障害物検知",
+        "body": "高精度センサーと段差追従で一貫した清掃品質。"
       },
       "build": {
-        "title": "密閉された現場で強化されたビルド",
-        "body": "すべての電気コンポーネント、ワイヤリング ハーネス、コネクタは密閉されたデバイス本体内に完全に密閉されており、過酷な実用規模の環境において、湿気、塵、環境汚染物質に対する堅牢な保護を提供します。"
+        "title": "密封フィールド仕様",
+        "body": "電気部品を密封ボディで保護。"
       }
     },
     "certifications": {
       "eyebrow": "独立したテストおよび認定済み",
       "title": "認証と現場で検証されたテスト",
-      "subtitle": "すべての Taypro Model-A は、認定された太陽光発電分野の試験機関による厳格な実験室および現場検証を受け、実際のプラントの状態をシミュレートして長期信頼性を保証します。",
+      "subtitle": "Taypro の洗浄ソリューションは、認定された太陽光発電分野の試験機関によって実施される、現実的な屋外条件下での毎日の洗浄サイクルをシミュレートする、厳格な現場検証および実験室検証を受けています。",
       "cards": {
         "card0": {
-          "title": "TÜV NORD 認定済み",
-          "body": "IP55 保護については独立してテストおよび認定され、極端な湿熱および乾熱性能については TÜV NORD によって検証されています。"
+          "title": "TÜV NORD Certified",
+          "body": "Independently tested and certified for IP55 protection and validated for extreme damp-heat and dry-heat performance by TÜV NORD."
         },
         "card1": {
-          "title": "砂嵐耐久性テスト済み",
-          "body": "1 サイクルあたり 10 g/m² の砂負荷で年間 12 回の砂嵐イベントを含む、模擬屋外清掃サイクルの下で検証されています。"
+          "title": "Sandstorm-Endurance Tested",
+          "body": "Validated under simulated outdoor cleaning cycles, including 12 sandstorm events per year at a sand loading of 10 g/m² per cycle."
         },
         "card2": {
-          "title": "パネルセーフクリーニング",
-          "body": "テストには、マイクロクラック分析、光反射率測定、完全な電気パラメータ評価、および反射防止コーティング (ARC) の保護が含まれます。"
+          "title": "Panel-Safe Cleaning",
+          "body": "Testing covers micro-crack analysis, optical reflectance measurements, full electrical parameter evaluation and Anti-Reflective Coating (ARC) preservation."
         }
       }
     },
     "manualVsAutomatic": {
-      "eyebrow": "ロボット清掃と手動清掃",
-      "title": "手動清掃ではなく自動ソーラーパネル清掃ロボットを選択する理由",
-      "subtitle": "手作業の清掃班、給水車、場当たりのスケジュールでは、ユーティリティ規模の太陽光プラントで毎日積み上がるソーリング損失に追いつけません。自動ロボット清掃はもはやオプションではなく、性能比を維持する必須の手段です。",
+      "eyebrow": "ロボット対手動清掃",
+      "title": "手動清掃より自動ロボットを選ぶ理由",
+      "subtitle": "手動クルーと水タンカーでは大規模プラントの日次汚損に追いつけません。",
       "tableHeaders": {
         "criterion": "基準",
-        "manual": "手動クリーニング",
-        "modelA": "Taypro Model-A"
+        "manual": "手動",
+        "modelA": "Taypro GLYDE"
       },
       "rows": {
         "row0": {
-          "criterion": "掃除の頻度",
-          "manual": "天気がよければ毎週または隔週",
-          "modelA": "毎日の自動サイクル、天候を考慮したスケジュール設定"
+          "criterion": "清掃頻度",
+          "manual": "週次など",
+          "modelA": "毎日の自動サイクル"
         },
         "row1": {
-          "criterion": "水の使用量",
-          "manual": "高 — 洗浄ごとにモジュールごとに 1.5 ～ 3 リットルの水",
-          "modelA": "ゼロ — 完全に水を使わないデュアルパスドライクリーニング"
+          "criterion": "水",
+          "manual": "多い",
+          "modelA": "ゼロ・無水デュアルパス"
         },
         "row2": {
-          "criterion": "洗浄品質",
-          "manual": "一貫性がなく、オペレータに依存する",
-          "modelA": "1 回の自動実行で毎回 99% 以上の塵を除去"
+          "criterion": "品質",
+          "manual": "ばらつき",
+          "modelA": "毎回99%超"
         },
         "row3": {
-          "criterion": "労働と安全",
-          "manual": "高い人件費、パネル損傷のリスク、夜勤の安全リスク",
-          "modelA": "時間外の自律的な操作、手動介入なし"
+          "criterion": "労務・安全",
+          "manual": "高コスト",
+          "modelA": "夜間自律"
         },
         "row4": {
-          "criterion": "パフォーマンス比率への影響",
-          "manual": "洗浄のたびに 5～25% のソーリング損失が蓄積",
-          "modelA": "毎日の清掃によりピーク PR が維持され、プラントの収量が 4 ～ 8% 向上します"
+          "criterion": "PR",
+          "manual": "5–25%損失",
+          "modelA": "PR維持・4–8%向上"
         },
         "row5": {
-          "criterion": "パネルの安全性",
-          "manual": "微小な亀裂、ARC の摩耗、傷の危険性",
-          "modelA": "ロボットはモジュールフレームに乗ります – ガラスやセルに負荷はかかりません"
+          "criterion": "パネル安全",
+          "manual": "リスク",
+          "modelA": "フレーム走行のみ"
         },
         "row6": {
-          "criterion": "モニタリングとレポート",
-          "manual": "テレメトリもクリーニング監査証跡もありません",
-          "modelAPrefix": "Taypro Console経由",
-          "modelASuffix": ";完全な監査証跡"
+          "criterion": "監視",
+          "manual": "なし",
+          "modelAPrefix": "NECTYR ",
+          "modelASuffix": "で監査証跡"
         },
         "row7": {
-          "criterion": "総所有コスト",
-          "manual": "定期的に発生する水、人件費、設備、ダウンタイムのコスト",
-          "modelA": "1 回限りの投資、12 ～ 18 か月の投資回収、20 年の設計寿命"
+          "criterion": "TCO",
+          "manual": "繰り返し費用",
+          "modelA": "12–18ヶ月回収・20年設計"
         }
       }
     },
     "indianConditions": {
-      "eyebrow": "インドの状況に合わせて設計",
-      "title": "インドの実用規模の太陽光発電所向けに構築",
-      "subtitle": "ラジャスタン州の砂嵐、グジャラート州の暑さ、カルナータカ州の湿度、タミル・ナードゥ州のモンスーン - Taypro Model-A は、一般的な西側のフィールド条件ではなく、インドの大規模太陽光発電 O&M の現実に合わせて設計、テスト、導入されています。",
+      "eyebrow": "インドの条件向け設計",
+      "title": "インドのユーティリティ規模プラント向け",
+      "subtitle": "ラージャスタンの砂嵐、グジャラートの暑さ、カルナータカの湿度、タミル・ナードゥのモンスーン向け。",
       "cards": {
         "card0": {
-          "title": "汚れの多い地域のパフォーマンス",
-          "body": "毎日のロボット洗浄は、ラジャスタン州、グジャラート州、マディヤ プラデーシュ州およびマハラシュトラ州にあるインドの実用規模のプラントに典型的な汚れの損失（多くの場合 8 ～ 25%）を中和する唯一の経済的な方法です。"
+          "title": "高汚損地域での性能",
+          "body": "ラージャスタン・グジャラート等で8–25%汚損損失には毎日のロボット清掃が最適。"
         },
         "card1": {
-          "title": "温度と湿度の耐性",
-          "body": "最大90℃までの動作温度で検証され、湿熱および乾熱性能についてはTÜV NORDによって認定されており、インドの土壌、モンスーンおよびポストモンスーンサイクル全体で実証されています。"
+          "title": "温度・湿度耐性",
+          "body": "最大90°C、TÜV NORD耐湿熱・乾熱認証 — インドの季節サイクル。"
         },
         "card2": {
-          "title": "水のない状態 — 水不足の州でも",
-          "body": "インドの太陽光発電所の多くは水不足の地域にあり、モジュール洗浄の割り当てが厳しくなっている。 Model-A の水なしデュアルパス洗浄により、O&M プランから水を完全に除去し、給水タンクをより優先度の高い使用のために解放します。"
+          "title": "無水 — 水不足地域でも",
+          "body": "水不足地域ではGLYDEが水をO&Mから排除。"
         },
         "card3": {
-          "title": "全インドサービスネットワーク",
-          "body": "India 全域で同日オンサイト故障解消を実施し、Taypro Console からの即時リモート診断を併用 — 地域ごとのスペア在庫と体系化された AMC プログラムで支えられます。"
+          "title": "インド全国サービス網",
+          "body": "NECTYR即時診断と当日オンサイト — 地域スペアとAMC。"
         }
       },
-      "crossSellLead": "ソーラーの O&M で隣接するニーズも検討中ですか？ 次をご覧ください：",
-      "linkModelB": "半自動ソーラー清掃ロボット (Model-B)",
+      "crossSellLead": "関連O&Mは ",
+      "linkModelB": "半自動清掃ロボット（HELYX）",
       "linkBetweenBAndT": "、",
-      "linkModelT": "単軸トラッカー清掃ロボット (Model-T)",
+      "linkModelT": "単軸トラッカーロボット（GLYDE-X）",
       "linkBetweenTAndOpex": "、",
-      "linkOpex": "Taypro OPEX クリーニングサービス",
-      "linkBetweenOpexAndConsole": "または",
-      "linkConsole": "Taypro Console監視アプリ",
+      "linkOpex": "Taypro OPEX清掃サービス",
+      "linkBetweenOpexAndConsole": " または ",
+      "linkConsole": "NECTYR監視アプリ",
       "crossSellSuffix": "。"
     },
     "specifications": {
-      "titleLine1": "自動ソーラーパネル洗浄ロボット",
-      "titleLine2": "Model-A 仕様",
+      "titleLine1": "自動ソーラーパネル清掃ロボット ",
+      "titleLine2": "GLYDE仕様",
       "tableHeaders": {
         "spec": "仕様",
         "details": "詳細"
@@ -366,35 +366,35 @@
           "details": "750 mm × 4800 mm"
         },
         "cleaningMethod": {
-          "spec": "洗浄方法",
+          "spec": "清掃方式",
           "details": "無水"
         },
         "cleaningType": {
-          "spec": "洗浄タイプ",
-          "details": "デュアルパスクリーニング"
+          "spec": "清掃タイプ",
+          "details": "デュアルパス"
         },
         "cleaningMaterial": {
-          "spec": "洗浄剤",
-          "details": "マイクロファイバークロス"
+          "spec": "清掃材",
+          "details": "マイクロファイバー"
         },
         "cleaningSpeed": {
-          "spec": "洗浄速度",
-          "details": "10–15 m/min"
+          "spec": "清掃速度",
+          "details": "10–15 m/分"
         },
         "maxRunningLength": {
           "spec": "最大走行長",
-          "details": "最大 2.2 km"
+          "details": "最大2.2km"
         },
         "recommendedRunningLength": {
           "spec": "推奨走行長",
           "details": "1.6 km"
         },
         "windDocking": {
-          "spec": "ドッキング時の耐風速",
+          "spec": "ドック時耐風",
           "details": "180 km/hr"
         },
         "windOperation": {
-          "spec": "運転時の耐風速",
+          "spec": "稼働時耐風",
           "details": "40 km/hr"
         },
         "maxTilt": {
@@ -402,7 +402,7 @@
           "details": "45°"
         },
         "maxTemp": {
-          "spec": "最大動作温度",
+          "spec": "最大稼働温度",
           "details": "90°C"
         },
         "maxSlope": {
@@ -414,7 +414,7 @@
           "details": "+20 mm"
         },
         "ipRating": {
-          "spec": "IP等級",
+          "spec": "IP Rating",
           "details": "IP65"
         },
         "corrosion": {
@@ -423,14 +423,14 @@
         },
         "battery": {
           "spec": "バッテリー種別",
-          "details": "Lithium-Ion"
+          "details": "リチウムイオン"
         },
         "connectivity": {
-          "spec": "接続性 (Taypro Console)",
-          "details": "LTE、Wi-Fi、hybrid self-healing RF mesh、LoRa、LoRaWAN"
+          "spec": "接続（NECTYR）",
+          "details": "LTE、Wi-Fi、自己修復RFメッシュ、LoRa、LoRaWAN"
         },
         "designLife": {
-          "spec": "デザインライフ",
+          "spec": "設計寿命",
           "details": "20年"
         },
         "weight": {
@@ -440,126 +440,130 @@
       }
     },
     "advantagesSection": {
-      "heading": "ソーラーパネル自動清掃ロボットを使用するメリット",
+      "heading": "自動清掃ロボットの利点",
       "energy": {
-        "title": "エネルギー効率の向上",
-        "body": "自動ソーラーパネル清掃ロボットは、太陽光発電所の効率を大幅に向上させることができます。ほこりやゴミを一貫して清掃することで、全体的な発電量が向上します。"
+        "title": "エネルギー効率向上",
+        "body": "ホコリ除去で発電効率が向上。"
       },
       "waterless": {
-        "title": "水なし洗浄",
-        "body": "Model-A は水を必要とせずに最大 99.5% の塵や破片を除去します。そのため、水不足が深刻な地域では最適な選択肢となります。"
+        "title": "無水清掃",
+        "body": "GLYDEは水なしで最大99.5%除去 — 水不足地域に最適。"
       },
       "autonomous": {
-        "title": "完全自律型でスマートな操作",
-        "body": "Model-A は、統合された AI-ML テクノロジーを備えた完全自律型ロボットで、スマートな操作を実現します。ロボットを操作するために人間の介入は必要ありません。"
+        "title": "完全自律・スマート運転",
+        "body": "統合AI-ML — 人手不要。"
       },
       "cost": {
-        "title": "費用対効果の高いソリューション",
-        "body": "Model-A では、人件費と運用コストの繰り返しが不要になり、最大の投資収益率が得られます。効率的な洗浄技術により、長期的な節約が保証されます。"
+        "title": "コスト効率の高いソリューション",
+        "body": "繰返し人件費を削減しROI最大化。"
       },
       "safe": {
-        "title": "安全で信頼性の高い操作",
-        "body": "Model-A パネルのエッジを検出する高度な高精度エッジ検出センサーを内蔵しています。これらのセンサーは、凹凸のある表面やその他の潜在的な危険を検出できます。"
+        "title": "安全で信頼できる運転",
+        "body": "高精度エッジセンサーが段差と危険を検知。"
       }
     },
     "installSection": {
-      "title": "自動ソーラーパネル清掃ロボットの設置にはどのくらい時間がかかりますか?",
-      "p1": "ソーラーパネル清掃ロボットの設置には、既存の太陽光発電所のレイアウトを変更する必要はありません。 Model-A 自動ソーラーパネル洗浄ロボットは、パネルフレーム上で直接動作するように設計されています。",
-      "p2": "太陽光発電所の規模に応じて、設置には通常、数時間から数日かかります。ソーラー パネル クリーニング ロボットの設置プロセスには、ドッキング ステーションの設置、構成と校正、およびシステムの統合が含まれます。",
-      "p3": "大規模太陽光発電所の場合、レイアウトの複雑さに応じて設置に数日から1週間程度かかる場合があります。設置後、ロボットは自律的に動作するため、手動による介入は必要ありません。 TAYPRO は完全な専用サポートを提供し、同日中の故障解決を保証します。",
-      "p4": "TAYPRO Model-A ロボットは、設置が簡単で安全な操作が可能な、太陽光発電所向けのコスト効率が高く拡張性の高いソリューションを提供します。"
+      "title": "自動ロボットの設置にはどのくらい？",
+      "p1": "既存レイアウト変更不要。GLYDEはパネルフレーム上を走行。",
+      "p2": "数時間から数日 — ドック、キャリブレーション、統合。",
+      "p3": "大規模は数日〜1週間。Tayproは当日故障対応。",
+      "p4": "GLYDEはTayproのスケーラブルで安全な導入ソリューション。"
     },
     "roiSection": {
-      "title": "自動ソーラーパネル清掃ロボット Model-A を設置するための ROI とは何ですか?",
-      "p1": "TAYPRO のモデル A 自動ソーラー パネル クリーニング ロボットは、発電量を大幅に増加させることで、高い投資収益率 ROI を実現します。",
-      "p2BeforeLink": "また、モデル A は運用上の清掃コストを削減し、長期的な経済的メリットをもたらします。初期投資は1年以内に回収できるため、効果的で持続可能な投資となります。ソーラーパネル清掃ロボットの ROI は、次の式を使用して計算できます。",
-      "roiCalculatorLink": "ROI Calculator",
-      "p2AfterLink": ""
+      "title": "Taypro GLYDE自動ロボットのROIは？",
+      "p1": "GLYDEは発電増とO&M削減で高いROI。",
+      "p2BeforeLink": "多くのサイトで1年以内に回収。",
+      "roiCalculatorLink": "ROI計算機",
+      "p2AfterLink": "で試算してください。"
     },
     "cycleNarrative": {
-      "title": "Model-A 洗浄サイクルの内部 — ステップバイステップ",
+      "title": "GLYDE清掃サイクル — ステップごと",
       "steps": {
-        "s0": "⦿ ロボットは起動時にセンサーを初期化し、中央監視システムとの接続性をシステムチェックします。",
-        "s1": "⦿ 清掃スケジュールはリモート監視ポータル経由で事前に設定され、完全に自動化された操作が可能になります。",
-        "s2": "⦿ 移動モーターが動きに動力を供給し、ソーラーパネルのフレームに沿ってロボットを誘導します。",
-        "s3": "⦿ クリーニングブラシモーターが起動し、マイクロファイバークロスを使用した水なしデュアルパスクリーニングテクノロジーが有効になります。",
-        "s4": "⦿ エッジ検出センサーは周囲を継続的にスキャンし、ロボットがパネルのエッジを越えるのを防ぎます。",
-        "s5": "⦿ Taypro Console から清掃速度と方向を調整できます",
-        "s6": "⦿ 掃除サイクルが完了すると、ロボットはドッキング ステーションに戻り、そこで太陽エネルギーを使用して充電し、次のスケジュールされたサイクルまでアイドル状態を保ちます。",
-        "s7": "⦿ 高度な異常検知がパラメータを常時解析しイシューを早期に検出します",
-        "s8": "⦿ このシステムは、障害物検出、自動洗浄マイクロファイバー、適応ナビゲーションなどの機能により、安全で効率的な操作を保証します。"
+        "s0": "⦿ 起動時にセンサー初期化し中央監視との接続を確認",
+        "s1": "⦿ リモートポータルで清掃スケジュール事前設定 — 完全自動運転",
+        "s2": "⦿ 走行モーターがフレーム上を案内",
+        "s3": "⦿ ブラシモーターが無水デュアルパスマイクロファイバー清掃を開始",
+        "s4": "⦿ エッジセンサーが常時周囲をスキャンしパネル端を超えない",
+        "s5": "⦿ NECTYRから清掃速度・方向を調整",
+        "s6": "⦿ サイクル完了後ドックで充電し次回スケジュールまで待機",
+        "s7": "⦿ 高度故障検知がパラメータを継続分析",
+        "s8": "⦿ 障害物検知・自己洗浄マイクロファイバー・適応ナビで安全運転"
       }
     },
     "faq": {
       "title": "よくある質問",
       "sharedFromData": {
         "item0": {
-          "question": "設置後のソーラーパネル自動洗浄システムの管理は誰が行いますか?",
-          "answer": "インストール後、システムは TAYPRO コンソールを通じてリモートから監視および制御できます。 TAYPRO チームは、技術サポートと問題のトラブルシューティングを提供します。"
+          "question": "設置後のメンテナンスは誰が？",
+          "answer": "NECTYRで遠隔監視。Tayproが技術サポート。"
         },
         "item1": {
-          "question": "太陽電池モジュール自動洗浄システムの洗浄には水が必要ですか?",
-          "answer": "いいえ、TAYPRO Model-A は水なし洗浄技術を使用して動作します。回転するマイクロファイバークロスを使用し、ホコリやゴミを効率よく取り除きます。"
+          "question": "清掃に水は必要？",
+          "answer": "いいえ。GLYDEは無水と回転マイクロファイバー。"
         },
         "item2": {
-          "question": "自動ソーラーパネル清掃ロボットはどのくらいの頻度でメンテナンスが必要ですか?",
-          "answer": "TAYPRO Model-A は、自動洗浄するマイクロファイバー クロスと自動故障検出システムにより、最小限のメンテナンスで済みます。"
+          "question": "メンテナンス頻度は？",
+          "answer": "自己洗浄と故障検知で最小限。"
         },
         "item3": {
-          "question": "自動ソーラー清掃ロボットによる清掃スケジュールは何ですか?",
-          "answer": "ロボットは、電力損失を回避し、清掃効率を最適化するために、太陽エネルギーの生産時間後に稼働します。"
+          "question": "清掃スケジュールは？",
+          "answer": "発電時間外 — 発電損失回避。"
         },
         "item4": {
-          "question": "Taypro はソーラーパネルのクリーニングに AMC を提供しますか?",
-          "answer": "はい。Taypro は太陽光パネル清掃に AMC を提供します。定期的な保全、リアルタイム監視、同日解決を目指すオンサイト支援が含まれ、安定稼働を支えます。"
+          "question": "TayproはAMCを提供？",
+          "answer": "はい — 定期保全、リアルタイム監視、当日オンサイト。"
         },
         "item5": {
-          "question": "自動ソーラーパネル清掃ロボットには外部電源接続が必要ですか?",
-          "answer": "いいえ、TAYPROのModel-Aには外部電源接続は必要ありません。セルフパワーシステムです。"
+          "question": "外部電源は必要？",
+          "answer": "いいえ。GLYDEは自律バッテリー。"
         },
         "item6": {
-          "question": "自動ソーラーパネル清掃ロボットの機能をどのように管理していますか?",
-          "answer": "清掃ロボットはリモート監視ポータルを通じて管理され、ユーザーは清掃サイクルをスケジュールし、速度を調整し、システムのパフォーマンスを監視できます。"
+          "question": "ロボット管理は？",
+          "answer": "NECTYRポータルでスケジュール・速度・フリート。"
         }
       },
       "modelASpecific": {
         "item0": {
-          "question": "Model-A のような自動ソーラーパネル清掃ロボットの価格はいくらですか?",
-          "answer": "Taypro Model-A 自動ソーラーパネル洗浄ロボットの価格は、プラントのサイズ、パネルのレイアウト、地形、および既存の監視スタックとの統合レベルによって異なります。ほとんどの公共規模のプロジェクトでは、ロボット清掃への投資は、発電量の増加、水消費量の削減、人件費の削減を通じて 12 ～ 18 か月以内に回収されます。サイト固有のコスト見積もりと詳細な ROI 計算を受け取るには、当社のチームに見積もりをリクエストしてください。"
+          "question": "GLYDEのようなロボットの価格は？",
+          "answer": "規模・レイアウト・地形次第。多くは12–18ヶ月回収。見積を。"
         },
         "item1": {
-          "question": "自動ソーラーパネル清掃ロボットを導入した場合の ROI は？",
-          "answer": "ロボットによるドライクリーニングは、通常、モジュールの透過率を日々より高く維持することで、ほこりの多い現場で太陽光発電所の性能比 (PR) を 4 ～ 8% 向上させます。給水車、手作業、危険な夜勤清掃の排除と組み合わせると、ほとんどの Taypro Model-A 導入では 12 ～ 18 か月以内に完全な ROI が達成され、ロボットの 20 年の設計寿命を通じて利益が増大し続けます。"
+          "question": "自動ロボットのROIは？",
+          "answer": "多尘サイトでPR 4–8%改善。20年設計寿命。"
         },
         "item2": {
-          "question": "Model-A、Model-B、Model-Tの違いは何ですか?",
-          "answer": "Model-A は、実用規模の固定傾斜設置および季節傾斜設置用の完全自律型ソーラー パネル クリーニング ロボットです。 Model-B は、点在する植物や小規模な植物用の半自動ピックアンドプレイスポータブル ロボットです。 Model-T は、柔軟な 360° 回転ブリッジを備えた単軸トラッカーの設置専用に設計されています。 3 つはすべて水を使用せず、AI で駆動され、同じ Taypro Console ポータルから管理されます。"
+          "question": "GLYDE、HELYX、GLYDE-Xの違いは？",
+          "answer": "GLYDEは固定向け完全自律。HELYXは半自動。GLYDE-Xは単軸。全てNECTYR。"
         },
         "item3": {
-          "question": "ロボットによるソーラーパネルの清掃はモジュールにとって安全ですか?",
-          "answer": "はい。 Taypro Model-A はモジュールのフレームに沿ってのみ移動するため、ガラスや太陽電池には負荷がかかりません。回転するマイクロファイバードラムは非研磨性であり、すべてのロボットは、認定された太陽光発電分野の試験機関によって、毎日の洗浄サイクルを模擬して、微小亀裂の形成、光反射率の損失、反射防止コーティング（ARC）の保存性について個別にテストされています。"
+          "question": "ロボット清掃はモジュールに安全？",
+          "answer": "はい — フレームのみ、非研磨、独立試験済み。"
         },
         "item4": {
-          "question": "ソーラーパネルはどのくらいの頻度でModel-Aで洗浄する必要がありますか?",
-          "answer": "インドの多くのユーティリティ規模プラントでは、毎日の自動清掃サイクルが最も良い性能比の結果をもたらします。Model-A は水・人力を使わず、毎夜または発電後の時間帯に動くよう設計されています。砂塵が極端な地域や工事現場近くでは追加サイクルを組み、降雨の多いサイトでは Taypro Console の気象連動スケジューラで動的に回数を減らせます。"
+          "question": "GLYDEの清掃頻度は？",
+          "answer": "多くのインドプラントで毎日夜間サイクルが最適。NECTYR気象スケジューラ。"
         },
         "item5": {
-          "question": "Taypro Model-A はインドのモンスーンでも、暑さや砂嵐の条件下でも機能しますか?",
-          "answer": "はい。 Model-A は、インドの過酷な事業規模の条件に合わせて設計されています。動作温度は最大 90°C、IP65 密閉エンクロージャ、TÜV NORD 認定のIP55 保護、および年間 12 回のイベントごとに 10 g/m² の砂嵐サイクルをシミュレートして現場で検証されています。ロボットは、最大 180 km/hr の突風が吹くと自動的にドッキングして安全にロックされ、動作中に危険な風速になると清掃を一時停止します。"
+          "question": "GLYDEはインドの季節・暑さ・砂嵐に対応？",
+          "answer": "はい — 90°C、IP65、TÜV NORD、砂嵐試験、ドック180km/h。"
         },
         "item6": {
-          "question": "Model-A は、パネルを変更せずに既存の太陽光発電所に後付けできますか?",
-          "answer": "はい。 Model-A では、手すりを追加したり、既存の太陽電池モジュールの取り付け構造を変更したり、外部電源を必要としたりする必要はありません。各ロボットは特定のアレイに割り当てられ、独自のリチウムイオン バッテリーと自己充電ドッキング ステーションで動作し、現場の混乱を最小限に抑えながら、さまざまなパネルの傾きや季節の傾きに合わせて展開できます。"
+          "question": "既存プラントに後付け可能？",
+          "answer": "はい — 追加レール・構造変更なし。アレイごとにバッテリーとドック。"
         }
       }
     },
     "modelCards": {
-      "title": "さらにソリューションをお探しですか?",
+      "title": "Looking for more solutions?",
       "cardLabels": {
-        "modelB": "MODEL-B",
-        "modelT": "MODEL-T"
+        "modelB": "HELYX",
+        "modelT": "GLYDE-X"
       },
-      "cardTitleTemplate": "{label} ソーラーパネル清掃ロボット"
+      "cardTitleTemplate": "{label} Solar Panel Cleaning Robot"
     }
+  },
+  "Common": {
+    "breadcrumbHome": "ホーム",
+    "connectivitySummary": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN"
   }
 }

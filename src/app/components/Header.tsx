@@ -6,6 +6,10 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import LocaleSwitcher from "@/app/components/LocaleSwitcher";
 import { TAYPRO_SALES_PHONE_TEL } from "@/lib/contact";
+import {
+  HARDWARE_PRODUCT_IDS,
+  PRODUCT_CATALOG,
+} from "@/lib/products/catalog";
 
 export default function Header() {
   const t = useTranslations("Navigation");
@@ -32,21 +36,14 @@ export default function Header() {
     href: string;
     isButton?: boolean;
   }[] = [
-    {
-      label: t("modelA"),
-      description: t("modelADesc"),
-      href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
-    },
-    {
-      label: t("modelB"),
-      description: t("modelBDesc"),
-      href: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
-    },
-    {
-      label: t("modelT"),
-      description: t("modelTDesc"),
-      href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
-    },
+    ...HARDWARE_PRODUCT_IDS.map((id) => {
+      const p = PRODUCT_CATALOG[id];
+      return {
+        label: t(id),
+        description: t(`${id}Desc`),
+        href: p.href,
+      };
+    }),
     {
       label: t("tayproConsole"),
       description: t("tayproConsoleDesc"),
@@ -56,6 +53,16 @@ export default function Header() {
       label: t("tayproOpex"),
       description: t("tayproOpexDesc"),
       href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
+    },
+    {
+      label: t("miny"),
+      description: t("minyDesc"),
+      href: "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
+    },
+    {
+      label: t("cradyl"),
+      description: t("cradylDesc"),
+      href: "/solar-panel-cleaning-system/cradyl-row-transfer-docking-station",
     },
     {
       label: t("viewAllRobots"),

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { productAltText } from "@/lib/products/catalog";
 
 type ModelCardItem = {
   label: string;
@@ -14,14 +15,7 @@ type ModelCardsProps = {
 
 export default function ModelCards({ title, cards }: ModelCardsProps) {
   const getAltText = (label: string) => {
-    if (label.toLowerCase().includes("model-a") || label.toLowerCase().includes("automatic")) {
-      return `${label} - Taypro Automatic Solar Panel Cleaning Robot product card`;
-    } else if (label.toLowerCase().includes("model-b") || label.toLowerCase().includes("semi")) {
-      return `${label} - Taypro Semi-Automatic Solar Panel Cleaning Robot product card`;
-    } else if (label.toLowerCase().includes("model-t") || label.toLowerCase().includes("tracker")) {
-      return `${label} - Taypro Single-Axis Tracker Solar Panel Cleaning Robot product card`;
-    }
-    return `${label} - Taypro Solar Panel Cleaning Robot product card`;
+    return `${productAltText(label)} product card`;
   };
 
   return (

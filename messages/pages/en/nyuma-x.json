@@ -1,0 +1,520 @@
+{
+  "NyumaXPage": {
+    "meta": {
+      "title": "PBT Tracker Solar Panel Cleaning Robot — Taypro NYUMA-X",
+      "description": "Taypro NYUMA-X is a waterless PBT single-pass Solar Panel Cleaning Robot for single-axis tracker farms. 99%+ dust removal per run, up to 3,600 modules per charge, ±15° flex, NEXTracker and Gamechanger compatible, NECTYR fleet portal, TÜV NORD certified.",
+      "openGraphDescription": "NYUMA-X: PBT single-pass autonomous cleaning for single-axis trackers. 99%+ dust removal, NECTYR monitoring, NEXTracker & Gamechanger compatible.",
+      "openGraphImageAlt": "Taypro NYUMA-X PBT tracker solar panel cleaning robot",
+      "twitterDescription": "Taypro NYUMA-X: PBT single-pass tracker robot. 3,600 modules per charge, NECTYR fleet portal, NEXTracker & Gamechanger compatible.",
+      "keywords": [
+        "PBT tracker solar cleaning robot",
+        "single-pass tracker solar cleaning robot",
+        "single axis tracker solar panel cleaning",
+        "single-axis tracker solar cleaning robot",
+        "tracker solar panel cleaning robot",
+        "NEXTracker solar cleaning robot",
+        "Gamechanger tracker cleaning robot",
+        "PBT solar panel cleaning robot tracker",
+        "utility scale solar panel cleaning robot",
+        "Taypro NYUMA-X"
+      ],
+      "openGraphTitle": "PBT Tracker Solar Panel Cleaning Robot — Taypro NYUMA-X",
+      "twitterTitle": "PBT Tracker Solar Panel Cleaning Robot — Taypro NYUMA-X"
+    },
+    "breadcrumbs": {
+      "robots": "Solar Panel Cleaning Robots",
+      "current": "Solar Panel Cleaning Robot for Single-Axis Trackers"
+    },
+    "schema": {
+      "productName": "Solar Panel Cleaning Robot for Single-Axis Trackers - NYUMA-X",
+      "productDescription": "Taypro NYUMA-X is an AI- and ML-powered autonomous, waterless Solar Panel Cleaning Robot purpose-built for single-axis tracker installations. single-pass dry cleaning removes 99%+ dust per cycle, cleans up to 3,600 modules per charge, flexes ±15° between tables, connects via {connectivity}, is compatible with NEXTracker and Gamechanger, supports module tilts from -52° to +52°, TÜV NORD certified.",
+      "offersPrice": "Contact for pricing",
+      "howToName": "How does the Taypro NYUMA-X Single-Axis Tracker Solar Panel Cleaning Robot clean tracker plants?",
+      "howToDescription": "Step-by-step autonomous cleaning cycle of the Taypro NYUMA-X solar panel cleaning robot for single-axis tracker installations — from AI-scheduled deployment through self-docking and cloud telemetry sync."
+    },
+    "hero": {
+      "title": "Solar Panel Cleaning Robot for Single-Axis Trackers — NYUMA-X",
+      "subtitleBefore": "An AI- and ML-powered, waterless autonomous Solar Panel Cleaning Robot purpose-built for single-axis tracker solar farms. Cleans up to 3,600 modules per charge,",
+      "subtitleStrong": "flexes ±15° between tables",
+      "subtitleAfter": ", supports module tilts from -52° to +52°, and is compatible with NEXTracker, Gamechanger and equivalent trackers.",
+      "imgAlt": "Taypro Single-Axis Tracker Solar Panel Cleaning Robot NYUMA-X - Autonomous robotic cleaning system for tracking solar panel installations",
+      "ctaText": "Request a quote"
+    },
+    "usps": {
+      "0": {
+        "title": "Purpose-Built for Single-Axis Trackers",
+        "description": "Engineered from the ground up for tracker-based solar farms — compatible with NEXTracker, Gamechanger and other leading single-axis tracker manufacturers."
+      },
+      "1": {
+        "title": "Flexible ±15° Body Articulation",
+        "description": "Flexes its body up to 15° to accommodate angle differences between adjacent tables, ensuring safe and reliable movement over panels and inter-table bridges."
+      },
+      "2": {
+        "title": "Wide Module Tilt Range (-52° to +52°)",
+        "description": "Cleans modules across the full operational tilt range of a single-axis tracker — from steep morning angle through flat noon position to steep evening angle."
+      },
+      "3": {
+        "title": "100% Waterless single-pass Cleaning",
+        "description": "Two-pass dry cleaning lifts over 99% of dust from module surfaces using PBT brush or PBT — no water, no detergent, no run-off contamination."
+      },
+      "4": {
+        "title": "AI- and ML-Driven Autonomy",
+        "description": "Advanced edge, obstacle and angle detection lets NYUMA-X move safely across panels without risk of falling — continuously tracking path and surface undulations along each row."
+      },
+      "5": {
+        "title": "Cloud-Connected Remote Monitoring",
+        "description": "Supported connectivity includes {connectivity}, feeding real-time telemetry into the NECTYR — schedule cleaning, adjust settings, track performance and receive weather alerts from any device."
+      },
+      "6": {
+        "title": "Up to 2.2 km / 3,600 Modules Per Charge",
+        "description": "A single NYUMA-X cleans up to 2.2 km of tracker run on a single charge — typically around 3,600 modules — before self-docking and recharging at its shadow-free dock."
+      },
+      "7": {
+        "title": "TÜV NORD Certified Build",
+        "description": "Independently tested and certified by TÜV NORD for IP55 protection and validated under simulated sandstorm and damp-heat/dry-heat extremes."
+      }
+    },
+    "features": {
+      "0": {
+        "title": "Flexible Body Bridge for Tracker Tables",
+        "body": "Tracker plants rarely sit perfectly aligned across rows — slight angle differences between adjacent tables are the norm. NYUMA-X's body flexes up to 15° to safely traverse these inter-table angle deviations, working in tandem with purpose-designed bridge kits to maintain continuous cleaning across the row."
+      },
+      "1": {
+        "title": "NEXTracker and Gamechanger Compatibility",
+        "body": "NYUMA-X is engineered for the dominant single-axis tracker platforms in utility-scale solar — compatible with NEXTracker, Gamechanger and equivalent trackers. The robot integrates with existing tracker structures with no modifications to your modules or tracker mounting hardware."
+      },
+      "2": {
+        "title": "Edge, Obstacle & Angle Detection",
+        "body": "On-board sensors continuously detect module edges, surface obstacles and inter-table angle changes. Motor performance is adjusted in real time as the robot tracks path and surface undulations — preserving consistent cleaning quality and preventing accidental falls."
+      },
+      "3": {
+        "title": "single-pass Cleaning — PBT brush or PBT",
+        "body": "A single-pass cleaning cycle lifts over 99% of accumulated dust from the module surface. Cleaning material can be specified as either rotating PBT brush (best for fine-dust regions) or UV-stable PBT brush (best for high-particulate sand and arid sites) depending on plant location."
+      },
+      "4": {
+        "title": "Real-Time Weather-Aware Scheduling",
+        "body": "The NECTYR pulls live weather data to optimise the cleaning schedule, push alerts for critical conditions and skip cycles when not needed. All schedule changes are reflected automatically on the portal — no manual intervention required at the plant."
+      },
+      "5": {
+        "title": "Self-Docking Charging Station",
+        "body": "After each cleaning cycle, NYUMA-X returns to a secure docking station placed beside the modules — positioned to avoid casting shadows on the array. The integrated charging system needs no external power. Battery level, charging status and health are visible in real time on the remote portal."
+      },
+      "6": {
+        "title": "Battery-Aware Return Safety",
+        "body": "The system monitors battery levels in real time and only commits to a cleaning distance it can complete safely, ensuring the robot returns to its docking station without stopping midway on the tracker row."
+      },
+      "7": {
+        "title": "Sealed IP65 Body, Wind-Safe at Dock",
+        "body": "All electrical components and wiring are fully enclosed within the sealed IP65 device body. While docked, the robot is securely locked and can withstand wind speeds of up to 180 km/hr, with operational cleaning permitted up to 40 km/hr wind."
+      }
+    },
+    "specs": {
+      "0": {
+        "label": "Cleaning Method",
+        "value": "Waterless, single-pass"
+      },
+      "1": {
+        "label": "Cleaning Material",
+        "value": "PBT brush or PBT"
+      },
+      "2": {
+        "label": "Cleaning Speed",
+        "value": "10–15 Metres/Minute"
+      },
+      "3": {
+        "label": "Maximum Operational Range",
+        "value": "Up to 2.2 km"
+      },
+      "4": {
+        "label": "Recommended Operational Range",
+        "value": "1.6 km"
+      },
+      "5": {
+        "label": "Operation Mode",
+        "value": "Automatic"
+      },
+      "6": {
+        "label": "Battery Technology",
+        "value": "Lithium-Ion"
+      },
+      "7": {
+        "label": "Overall Dimensions",
+        "value": "450 mm × 2700 mm"
+      },
+      "8": {
+        "label": "Operating Weight",
+        "value": "25 kg"
+      },
+      "9": {
+        "label": "Design Life",
+        "value": "20 Years"
+      },
+      "10": {
+        "label": "Corrosion Resistance Class",
+        "value": "C3"
+      },
+      "11": {
+        "label": "IP Protection Rating",
+        "value": "IP65"
+      },
+      "12": {
+        "label": "Wind Resistance (In Operation)",
+        "value": "40 km/hr"
+      },
+      "13": {
+        "label": "Wind Resistance (At Docking Station)",
+        "value": "180 km/hr"
+      },
+      "14": {
+        "label": "Maximum Module Undulation",
+        "value": "+20 mm"
+      },
+      "15": {
+        "label": "Maximum Module Tilt",
+        "value": "-52° to +52°"
+      },
+      "16": {
+        "label": "Maximum East–West Terrain Slope",
+        "value": "15°"
+      },
+      "17": {
+        "label": "Maximum Operating Temperature",
+        "value": "90°C"
+      },
+      "18": {
+        "label": "Connectivity (NECTYR)",
+        "value": "{connectivity}"
+      },
+      "19": {
+        "label": "Tracker Compatibility",
+        "value": "NEXTracker, Gamechanger and equivalent single-axis trackers"
+      }
+    },
+    "compare": {
+      "cloudModelT": "NECTYR via {connectivity}",
+      "cloudModelA": "NECTYR via {connectivity}"
+    },
+    "steps": {
+      "0": {
+        "name": "Robot is assigned to a specific tracker array",
+        "text": "Each NYUMA-X is permanently assigned to a single-axis tracker array and lives at a shadow-free docking station beside the row — no daily transport, no operator handling, no external power."
+      },
+      "1": {
+        "name": "AI scheduler selects the optimal cleaning window",
+        "text": "The NECTYR pulls real-time weather data and tracker production schedules to automatically pick the best post-production cleaning window — typically at night or during low-irradiance periods — without disrupting energy generation."
+      },
+      "2": {
+        "name": "Self-deploys onto the tracker row",
+        "text": "At the scheduled time, NYUMA-X undocks autonomously and moves onto the tracker row. Edge, obstacle and angle-detection sensors continuously map the path and surface undulations ahead of the robot."
+      },
+      "3": {
+        "name": "single-pass waterless cleaning across the row",
+        "text": "Counter-rotating PBT brush or UV-stable PBT cleaning heads execute a single-pass cleaning cycle, lifting over 99% of accumulated dust at 10–15 metres per minute. The flexible body articulates up to ±15° to safely cross inter-table angle deviations on NEXTracker, Gamechanger and equivalent trackers."
+      },
+      "4": {
+        "name": "Battery-aware return to docking station",
+        "text": "The robot monitors battery levels continuously and only commits to a cleaning distance it can complete safely. At cycle end it returns autonomously to the docking station and locks securely — wind-safe up to 180 km/hr."
+      },
+      "5": {
+        "name": "Recharge and cloud telemetry sync",
+        "text": "Lithium-ion charging starts automatically. Battery level, charging status, cycle telemetry and overall performance are continuously synced to the NECTYR over {connectivity} for fleet-wide visibility."
+      }
+    },
+    "faqs": {
+      "0": {
+        "question": "What is a Solar Panel Cleaning Robot for Single-Axis Trackers, and how does NYUMA-X work?",
+        "answer": "A solar cleaning robot for single-axis trackers is an autonomous robotic cleaner purpose-built to operate on tracker-based solar power plants — where modules tilt across the day and where rows often have small angle deviations between adjacent tables. Taypro NYUMA-X is permanently assigned to a tracker array; at scheduled cleaning windows it self-deploys, executes a waterless single-pass cleaning cycle across the row, articulates its body up to ±15° to safely cross inter-table angle deviations, and returns to a shadow-free docking station to recharge — all without human intervention."
+      },
+      "1": {
+        "question": "Which tracker manufacturers and platforms is Taypro NYUMA-X compatible with?",
+        "answer": "NYUMA-X is compatible with the leading single-axis tracker platforms used in utility-scale solar, including NEXTracker and Gamechanger. The robot integrates with existing tracker mounting structures without modifications to your modules, torque tubes or tracker hardware. For any non-standard tracker platform, our team will validate compatibility as part of the site assessment."
+      },
+      "2": {
+        "question": "How is NYUMA-X different from NYUMA and HELYX?",
+        "answer": "NYUMA is a fully autonomous robot for fixed-tilt utility-scale plants. HELYX is a semi-automatic pick-and-place robot for scattered, smaller or rooftop plants. NYUMA-X is the only Taypro robot purpose-built for single-axis tracker plants — it supports module tilts from -52° to +52°, flexes ±15° between tables, and is engineered for NEXTracker / Gamechanger style trackers. All three are waterless, AI-driven and managed from the same NECTYR portal."
+      },
+      "3": {
+        "question": "How many solar modules can NYUMA-X clean on a single charge?",
+        "answer": "NYUMA-X can clean up to 2.2 km of tracker running length — approximately 3,600 solar modules — on a single lithium-ion charge. The recommended sustained operational range is 1.6 km per cycle, ensuring a safe return to the docking station with battery headroom in every cycle."
+      },
+      "4": {
+        "question": "Does NYUMA-X require water or external power to clean tracker panels?",
+        "answer": "No. NYUMA-X is 100% waterless — a single-pass cleaning cycle lifts over 99% of dust using rotating PBT brush or UV-stable PBT cleaning heads without any water, detergent or run-off. The docking station is fitted with an integrated lithium-ion charging system and does not require any external power source."
+      },
+      "5": {
+        "question": "Is the NYUMA-X cleaning cycle safe for solar modules and ARC?",
+        "answer": "Yes. NYUMA-X moves along the frame of the solar modules — with binders that distribute load and preserve panel integrity. Every robot is independently tested for micro-crack formation, optical reflectance loss, full electrical parameter evaluation and Anti-Reflective Coating (ARC) preservation under simulated daily cleaning cycles by accredited solar-sector testing laboratories. NYUMA-X is also TÜV NORD certified for IP55 protection."
+      },
+      "6": {
+        "question": "How does NYUMA-X handle inter-table angle differences on tracker rows?",
+        "answer": "Tracker rows rarely sit perfectly co-planar across adjacent tables. NYUMA-X's flexible body articulates up to 15° to safely cross these inter-table angle deviations and works in conjunction with Taypro-supplied flexible bridges between tables — ensuring smooth, continuous cleaning across the entire row regardless of small terrain or tracker misalignment."
+      },
+      "7": {
+        "question": "How much does the Taypro NYUMA-X Single-Axis Tracker Cleaning Robot cost?",
+        "answer": "Pricing for NYUMA-X depends on the tracker platform, plant size, terrain and the level of integration with your existing SCADA and monitoring stack. Most tracker plant deployments achieve full ROI within 12–18 months through higher generation, eliminated water consumption and removed manual cleaning overhead. Contact our team for a site-specific quote and detailed ROI calculation."
+      },
+      "8": {
+        "question": "Does NYUMA-X work in extreme Indian climatic conditions like dust storms, heat and monsoon?",
+        "answer": "Yes. NYUMA-X is engineered for harsh Indian utility-scale tracker field conditions: maximum operating temperature of 90°C, IP65 sealed enclosure, TÜV NORD certified IP55 protection, and field-validated under 12 simulated sandstorm cycles per year at 10 g/m² sand loading. It can clean in winds up to 40 km/hr and locks securely at its docking station up to 180 km/hr."
+      },
+      "9": {
+        "question": "How is NYUMA-X monitored and controlled across a large tracker plant?",
+        "answer": "All NYUMA-X robots connect to the NECTYR using {connectivity}. The portal provides a unified interface to schedule cleaning, adjust settings, monitor battery levels, view cycle telemetry, receive weather alerts and roll up performance across hundreds of robots and plants — from any device, anywhere."
+      }
+    },
+    "misc": {
+      "modelCardsTitle": "Looking for more solutions?",
+      "callbackLine1": "Schedule Online Demo For Single-Axis Tracker",
+      "callbackLine2": "Solar Panel Cleaning Robots",
+      "faqTitle": "Frequently Asked Questions",
+      "faqSubtitle": "Common questions about the Taypro NYUMA-X Solar Panel Cleaning Robot for single-axis tracker installations."
+    },
+    "overview": {
+      "eyebrow": "Solar Panel Cleaning Robot for Single-Axis Tracker Plants",
+      "title": "What is Taypro NYUMA-X?",
+      "p1Before": "Taypro NYUMA-X is an ",
+      "p1Strong": "AI- and ML-powered, autonomous Solar Panel Cleaning Robot",
+      "p1After": " purpose-built for daily cleaning of ",
+      "p1TrackerStrong": "single-axis tracker solar power plants",
+      "p1Mid": ". The robot removes over ",
+      "p1DustStrong": "99% of dust in a single automated run",
+      "p1AfterDust": ", covering up to ",
+      "p1RangeStrong": "2.2 km — around 3,600 modules — on a single charge",
+      "p1AfterRange": ". Cleaning is best scheduled after energy production hours and is managed end-to-end through the NECTYR remote monitoring app. Supported fleet links are ",
+      "p1ConnectivitySuffix": " — pick the best path per block based on coverage and bandwidth needs (site-dependent).",
+      "p2Before": "Compatible with ",
+      "p2NexStrong": "NEXTracker",
+      "p2And": " and ",
+      "p2GameStrong": "Gamechanger",
+      "p2Mid": " single-axis tracker platforms, NYUMA-X can ",
+      "p2FlexStrong": "flex its body up to 15°",
+      "p2AfterFlex": " to accommodate angle deviations between adjacent tracker tables — ensuring safe and reliable movement across panels and inter-table bridges. The robot supports module tilts across the full operational tracker range of ",
+      "p2TiltStrong": "-52° to +52°",
+      "p2Suffix": ".",
+      "p3Before": "NYUMA-X operates autonomously using advanced ",
+      "p3DetectStrong": "edge, obstacle and angle detection",
+      "p3AfterDetect": " to move safely across panels without risk of falling. It continuously tracks the path and surface undulations along each row, adjusting motor performance as needed for consistent cleaning. After each cleaning cycle, NYUMA-X returns to a secure, shadow-free docking station and locks in — wind-safe up to 180 km/hr.",
+      "p4Lead": "Operating a fixed-tilt utility-scale plant? Choose the fully-autonomous ",
+      "linkModelA": "NYUMA",
+      "p4Mid": ". Cleaning smaller or scattered plants? Use the semi-automatic pick-and-place ",
+      "linkModelB": "HELYX",
+      "p4Suffix": ".",
+      "p5Prefix": "Further reading: ",
+      "linkBlogSeasonal": "seasonal maintenance for tracker-heavy sites",
+      "p5Mid": " and ",
+      "linkBlog": "more articles on solar O&M",
+      "p5Suffix": "."
+    },
+    "innovation360": {
+      "badge": "TAYPRO GLYDE-X",
+      "title": "Autonomous Waterless Solar Panel Cleaning Robot for Single-Axis Tracker Installations",
+      "tourEyebrow": "Interactive Product Tour",
+      "tourTitle": "360° View of NYUMA-X",
+      "tourSubtitleMobile": "Drag left or right to rotate and explore our Single-Axis Tracker Solar Panel Cleaning Robot from every angle.",
+      "tourSubtitleDesktop": "Drag left or right to rotate and explore our Single-Axis Tracker Solar Panel Cleaning Robot.",
+      "productLabel": "Taypro NYUMA-X — Solar Panel Cleaning Robot for Single-Axis Trackers",
+      "innovationTitle": "The Innovation Behind the GLYDE-X",
+      "innovationBody": "The Taypro NYUMA-X represents a synergy of cutting-edge technologies meticulously engineered to address the challenges of solar panel maintenance for single-axis tracker installations. Powered by advanced sensors and machine learning capabilities, NYUMA-X delivers truly autonomous operation devoid of any human intervention. Its cloud-based management system enables remote monitoring and control, ensuring optimal performance from anywhere, anytime."
+    },
+    "howItWorks": {
+      "eyebrow": "Step-by-Step Autonomous Cleaning Cycle",
+      "title": "How Does NYUMA-X Clean Single-Axis Tracker Plants?",
+      "subtitle": "NYUMA-X executes a fully autonomous cleaning cycle from AI-scheduled deployment through self-docking and cloud telemetry sync — without any operator on site."
+    },
+    "uspSection": {
+      "eyebrow": "Why Choose Taypro NYUMA-X",
+      "title": "Engineered for Tracker-Based Solar Farms"
+    },
+    "featuresSection": {
+      "eyebrow": "Key Features Setting Taypro Apart",
+      "title": "Inside the NYUMA-X Tracker Cleaning Robot",
+      "subtitle": "From flexible bridge articulation to weather-aware AI scheduling, every NYUMA-X sub-system is engineered for the realities of single-axis tracker O&M at utility scale."
+    },
+    "certifications": {
+      "eyebrow": "Independently Tested & Certified",
+      "title": "Certifications & Field-Validated Testing",
+      "subtitle": "Taypro's cleaning solutions are subjected to rigorous field and laboratory validation, simulating daily cleaning cycles under realistic outdoor conditions, conducted by accredited solar-sector testing laboratories.",
+      "card0Title": "TÜV NORD Certified",
+      "card0Body": "Independently tested and certified by TÜV NORD for IP55 protection and validated under extreme damp-heat and dry-heat performance conditions.",
+      "card1Title": "Simulated Sandstorm Testing",
+      "card1Body": "Validated under 12 sandstorm events per year at a sand loading of 10 g/m² per cycle — the toughest desert-climate cleaning protocol.",
+      "card2Title": "Panel-Safe Verified",
+      "card2Body": "Tested for micro-crack analysis, full electrical parameter evaluation, optical reflectance and ARC (Anti-Reflective Coating) preservation."
+    },
+    "trustStats": {
+      "eyebrow": "Proven at Scale",
+      "title": "Trusted by India's Leading Solar Operators",
+      "stat0": {
+        "label": "Robot Capacity Deployed"
+      },
+      "stat1": {
+        "label": "Plant Installations"
+      },
+      "stat2": {
+        "label": "Liters of Water Saved Annually"
+      },
+      "stat3": {
+        "label": "Robots Manufacturing Capacity per Month"
+      }
+    },
+    "servicePromise": {
+      "eyebrow": "Operating Confidence, Every Day",
+      "title": "Service & Maintenance Promise",
+      "subtitle": "Every NYUMA-X deployment is backed by a structured service model designed to keep your tracker-plant cleaning fleet running at peak uptime across India.",
+      "card0Title": "Pre-Scheduled Preventive Maintenance",
+      "card0Body": "All preventive and corrective maintenance activities are executed on a pre-scheduled basis — designed to eliminate unplanned downtime and sustain peak operational performance across the robot's 20-year lifecycle.",
+      "card1Title": "Immediate Remote Diagnostics",
+      "card1Body": "Taypro provides immediate remote diagnostics and troubleshooting upon incident notification — most tracker-plant issues are resolved without a physical site visit.",
+      "card2Title": "Same-Day On-Site Intervention",
+      "card2Body": "When on-site work is required, Taypro targets same-day on-site breakdown resolution, available pan-India, with immediate remote diagnostics from NECTYR."
+    },
+    "callbackCard": {
+      "line1": "Schedule Online Demo For Single-Axis Tracker",
+      "line2": "Solar Panel Cleaning Robots"
+    },
+    "specifications": {
+      "titleLine1": "Solar Panel Cleaning Robot for Single-Axis Trackers",
+      "titleLine2": "NYUMA-X Specifications",
+      "specHeader": "Specification",
+      "valueHeader": "Value"
+    },
+    "manualVsRobotic": {
+      "eyebrow": "Robotic vs Manual Tracker Cleaning",
+      "title": "Why Robotic Cleaning Is Essential for Single-Axis Tracker Plants",
+      "subtitle": "Tracker plants compound every challenge of manual cleaning — moving modules, larger row lengths and tighter inter-row spacing. Robotic cleaning isn't a premium choice for trackers; it's the only way to economically sustain peak Performance Ratio.",
+      "criterion": "Criterion",
+      "manual": "Manual Cleaning of Trackers",
+      "modelT": "Taypro NYUMA-X",
+      "row0": {
+        "criterion": "Cleaning Frequency",
+        "manual": "Weekly or fortnightly — limited by tracker production schedule and labour windows",
+        "modelT": "Daily autonomous cycles, weather-aware AI scheduling"
+      },
+      "row1": {
+        "criterion": "Water Consumption",
+        "manual": "1.5–3 litres of water per module per wash, plus tanker logistics",
+        "modelT": "Zero — fully waterless single-pass dry cleaning"
+      },
+      "row2": {
+        "criterion": "Tracker Movement Compatibility",
+        "manual": "Tracker must be parked flat, taking arrays offline during the day",
+        "modelT": "Cleans post-production hours; supports the full -52° to +52° tilt range"
+      },
+      "row3": {
+        "criterion": "Inter-Table Angle Tolerance",
+        "manual": "Manual crews work around small misalignments slowly and inconsistently",
+        "modelT": "Flexes body ±15° to cross inter-table angle deviations safely"
+      },
+      "row4": {
+        "criterion": "Cleaning Quality",
+        "manual": "Inconsistent, operator-dependent",
+        "modelT": "99%+ dust removal per single-pass cycle, every cleaning run"
+      },
+      "row5": {
+        "criterion": "Labour & Safety",
+        "manual": "Large crews; tracker-row safety risk; uneven ground access risk",
+        "modelT": "Zero manual intervention — runs autonomously after install"
+      },
+      "row6": {
+        "criterion": "Performance Ratio Impact",
+        "manual": "Soiling losses of 5–25% accumulate between washes",
+        "modelT": "Daily cleaning sustains peak PR, lifting plant yield 4–8%"
+      },
+      "row7": {
+        "criterion": "Total Cost of Ownership",
+        "manual": "Recurring water, labour, tanker, downtime and tracker-parking costs",
+        "modelT": "One-time capex, replaces recurring opex, 20-year design life"
+      }
+    },
+    "modelTvsModelA": {
+      "eyebrow": "Choosing the Right Taypro Robot",
+      "title": "NYUMA-X vs NYUMA: Which Robot Suits Your Solar Plant?",
+      "subtitle": "Both robots are fully autonomous and waterless, both run on the same NECTYR. The choice is dictated by your mounting structure — tracker vs fixed-tilt.",
+      "criterion": "Criterion",
+      "modelTHeader": "NYUMA-X (Tracker)",
+      "modelAHeader": "NYUMA (Fixed-Tilt)",
+      "row0": {
+        "criterion": "Mounting Structure",
+        "modelT": "Single-axis trackers (NEXTracker, Gamechanger and equivalent)",
+        "modelA": "Fixed-tilt and seasonal-tilt utility-scale plants"
+      },
+      "row1": {
+        "criterion": "Module Tilt Range",
+        "modelT": "-52° to +52° (full tracker range)",
+        "modelA": "Designed for fixed-tilt and seasonal-tilt range"
+      },
+      "row2": {
+        "criterion": "Inter-Table Flex",
+        "modelT": "±15° body articulation between adjacent tables",
+        "modelA": "Not required — fixed-tilt rows are co-planar"
+      },
+      "row3": {
+        "criterion": "Cleaning Mechanism",
+        "modelT": "Waterless single-pass — PBT brush or PBT brush",
+        "modelA": "Waterless single-pass — self-cleaning PBT brush drum"
+      },
+      "row4": {
+        "criterion": "Range Per Charge",
+        "modelT": "Up to 2.2 km / ~3,600 modules",
+        "modelA": "Up to 3,600 modules per charge"
+      },
+      "row5": {
+        "criterion": "Operating Weight",
+        "modelT": "25 kg (most compact)",
+        "modelA": "Heavier — designed for fixed-tilt utility-scale"
+      },
+      "row6": {
+        "criterion": "Cleaning Mode",
+        "modelT": "Fully autonomous, AI-scheduled",
+        "modelA": "Fully autonomous, AI-scheduled"
+      },
+      "row7": {
+        "criterion": "Cloud Monitoring",
+        "modelT": "NECTYR via {connectivity}",
+        "modelA": "NECTYR via {connectivity}"
+      },
+      "crossSellLead": "Cleaning smaller or scattered plants? Look at the semi-automatic ",
+      "linkModelB": "HELYX",
+      "crossSellMid": ". Prefer outsourcing cleaning entirely? Explore the ",
+      "linkOpex": "Taypro OPEX cleaning service",
+      "crossSellSuffix": "."
+    },
+    "indianConditions": {
+      "eyebrow": "Engineered for Indian Conditions",
+      "title": "Built for Indian Single-Axis Tracker Plants",
+      "subtitle": "Rajasthan dust storms, Gujarat heat, Karnataka humidity and Tamil Nadu monsoons — Taypro NYUMA-X is engineered, tested and deployed for the realities of large Indian tracker O&M, not generic Western field conditions.",
+      "card0Title": "Designed for High-Soiling Tracker Regions",
+      "card0Body": "Daily autonomous cleaning is the only economical way to neutralise 8–25% soiling losses on tracker plants in Rajasthan, Gujarat, Madhya Pradesh and Maharashtra — exactly where most NEXTracker and Gamechanger installations sit.",
+      "card1Title": "Temperature & Humidity Tolerance",
+      "card1Body": "Validated for operating temperatures up to 90°C and TÜV NORD certified for damp-heat and dry-heat performance — proven across Indian summer, monsoon and post-monsoon cycles.",
+      "card2Title": "Waterless — Critical for Water-Scarce Districts",
+      "card2Body": "Many tracker plants are in water-stressed districts where water allocations for module washing are tightening. NYUMA-X removes water from your O&M plan entirely, freeing tanker logistics for higher-priority site needs.",
+      "card3Title": "Pan-India Service Network",
+      "card3Body": "Same-day on-site breakdown resolution across India, with immediate remote diagnostics from NECTYR — backed by regional spare inventory and structured AMC programs.",
+      "crossSellLead": "Looking at adjacent solar O&M needs? Explore the ",
+      "linkModelA": "fully-automatic NYUMA robot",
+      "linkBetweenAB": ", the ",
+      "linkModelB": "semi-automatic HELYX robot",
+      "linkBetweenBOpex": ", the ",
+      "linkOpex": "Taypro OPEX cleaning service",
+      "linkBetweenOpexConsole": " or the ",
+      "linkConsole": "NECTYR monitoring app",
+      "crossSellSuffix": "."
+    },
+    "faqSection": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Common questions about the Taypro NYUMA-X Solar Panel Cleaning Robot for single-axis tracker installations."
+    },
+    "modelCardsTitle": "Looking for more solutions?",
+    "roiBand": {
+      "title": "Tracker cleaning robot cost & ROI",
+      "bodyBeforeSpan": "Model ",
+      "bodySpan": "single-axis tracker solar panel cleaning",
+      "bodyAfterSpan": " economics for your site—use the calculator before a NYUMA-X quote."
+    }
+  },
+  "Common": {
+    "breadcrumbHome": "Home",
+    "connectivitySummary": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN"
+  }
+}

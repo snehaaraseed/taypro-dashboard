@@ -18,17 +18,25 @@
     "callUs": "今すぐ電話",
     "openMenu": "メニューを開く",
     "closeMenu": "メニューを閉じる",
-    "modelA": "モデルA",
-    "modelADesc": "自動ソーラー清掃ロボット",
-    "modelB": "モデルB",
-    "modelBDesc": "セミオート ピック＆プレース",
-    "modelT": "モデルT",
-    "modelTDesc": "単軸トラッカー清掃",
-    "tayproConsole": "Taypro Console",
+    "tayproConsole": "NECTYR",
     "tayproConsoleDesc": "フリート監視・制御",
     "tayproOpex": "Taypro OPEX",
     "tayproOpexDesc": "ロボット清掃サービス",
-    "viewAllRobots": "すべてのロボットを見る"
+    "miny": "MINY",
+    "minyDesc": "コンパクト屋根用ロボット · 近日公開",
+    "cradyl": "CRADYL",
+    "cradylDesc": "列間移送ドック · 近日公開",
+    "viewAllRobots": "すべてのロボットを見る",
+    "helyx": "HELYX",
+    "helyxDesc": "半自動 · ピック＆プレース · PBT",
+    "glyde": "GLYDE",
+    "glydeDesc": "自動 · デュアルパス · マイクロファイバー",
+    "nyuma": "NYUMA",
+    "nyumaDesc": "自動 · シングルパス · PBT",
+    "glydeX": "GLYDE-X",
+    "glydeXDesc": "トラッカー · デュアルパス · マイクロファイバー",
+    "nyumaX": "NYUMA-X",
+    "nyumaXDesc": "トラッカー · シングルパス · PBT"
   },
   "Footer": {
     "mail": "メール",
@@ -48,11 +56,6 @@
     "cleaningService": "ソーラーパネル清掃サービス",
     "roiCalculator": "ROI・価格計算機",
     "copyright": "© Copyright {year} – TAYPRO PRIVATE LIMITED. All Rights Reserved."
-  },
-  "LocaleBanner": {
-    "title": "記事本文は英語です",
-    "body": "ブログのナビゲーションとページUIはご利用の言語です。記事全文とプロジェクト事例の本文は英語のままです。",
-    "dismiss": "閉じる"
   },
   "NotFoundPage": {
     "meta": {

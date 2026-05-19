@@ -488,11 +488,11 @@ export default async function ModelTPage({
             </AnimateOnScroll>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
-              {modelTFeatures.map((f) => {
+              {modelTFeatures.map((f, featureIndex) => {
                 const Icon = f.icon;
                 return (
                   <AnimateOnScroll
-                    key={f.title}
+                    key={`feature-${featureIndex}`}
                     animation="fadeInUp"
                     className="flex gap-5"
                   >

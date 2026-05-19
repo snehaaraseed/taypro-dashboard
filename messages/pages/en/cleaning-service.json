@@ -2,10 +2,10 @@
   "CleaningServicePage": {
     "meta": {
       "title": "Solar Panel Cleaning Service — Robotic OPEX | Pay Per Panel | Taypro",
-      "description": "Taypro is a solar panel cleaning company offering monthly robotic cleaning service for utility-scale plants (10 MW+). Solar cleaning service with pay-per-panel billing: Model-A, B or T deployed, 3–10 waterless dry cycles from a plant soiling study, SOPs, paths, rest zones, and Taypro Console reports. Not for residential rooftop-only sites.",
-      "openGraphDescription": "Monthly waterless robotic cleaning: plant-specific 3–10 cycles, detailed cleaning plans, daily reports, billing per panels cleaned. Model-A, B or T.",
+      "description": "Taypro is a solar panel cleaning company offering monthly robotic cleaning service for utility-scale plants (10 MW+). Solar cleaning service with pay-per-panel billing: GLYDE, B or T deployed, 3–10 waterless dry cycles from a plant soiling study, SOPs, paths, rest zones, and NECTYR reports. Not for residential rooftop-only sites.",
+      "openGraphDescription": "Monthly waterless robotic cleaning: plant-specific 3–10 cycles, detailed cleaning plans, daily reports, billing per panels cleaned. GLYDE, B or T.",
       "openGraphImageAlt": "Taypro OPEX robotic solar panel cleaning service at utility-scale solar plant",
-      "twitterDescription": "Pay per panel cleaned monthly. Plant study, 3–10 dry cycles, SOPs, paths, rest zones, Taypro Console reports."
+      "twitterDescription": "Pay per panel cleaned monthly. Plant study, 3–10 dry cycles, SOPs, paths, rest zones, NECTYR reports."
     },
     "breadcrumbs": {
       "robots": "Solar Panel Cleaning Robots",
@@ -13,17 +13,17 @@
     },
     "schema": {
       "name": "Taypro OPEX — Robotic Solar Panel Cleaning Service",
-      "description": "Monthly robotic solar panel cleaning service for utility-scale plants: pay per panel cleaned, plant-specific soiling study, 3–10 recommended waterless dry cycles per month, detailed cleaning plans with paths and robot rest zones, daily reports via Taypro Console, deployment of Taypro Model-A, Model-B or Model-T robots with dedicated operators.",
+      "description": "Monthly robotic solar panel cleaning service for utility-scale plants: pay per panel cleaned, plant-specific soiling study, 3–10 recommended waterless dry cycles per month, detailed cleaning plans with paths and robot rest zones, daily reports via NECTYR, deployment of Taypro GLYDE, HELYX or GLYDE-X robots with dedicated operators.",
       "serviceType": "Solar panel cleaning service"
     },
     "hero": {
       "title": "Taypro OPEX — Robotic Solar Panel Cleaning Service",
       "subtitlePanels": "solar panels we clean each month",
       "subtitleCycles": "3–10 waterless dry cleaning cycles per month",
-      "modelA": "Model-A",
-      "modelB": "Model-B",
-      "modelT": "Model-T",
-      "console": "Taypro Console",
+      "modelA": "GLYDE",
+      "modelB": "HELYX",
+      "modelT": "GLYDE-X",
+      "console": "NECTYR",
       "imgAlt": "Taypro OPEX solar panel cleaning service — robotic waterless cleaning at utility-scale solar plant",
       "ctaText": "Request a quote",
       "subtitleBefore": "Pay only for the",
@@ -35,11 +35,11 @@
     "faqs": {
       "0": {
         "question": "What is Taypro OPEX?",
-        "answer": "Taypro OPEX is a fully managed, robotic solar panel cleaning service from TAYPRO Private Limited. We place the right Taypro cleaning robot (Model-A automatic, Model-B semi-automatic pick-and-place, or Model-T for single-axis trackers) at your plant, operate it with dedicated trained manpower, and maintain peak plant performance — without you purchasing the robot fleet. You pay a predictable monthly fee based on the number of solar panels actually cleaned each billing period."
+        "answer": "Taypro OPEX is a fully managed, robotic solar panel cleaning service from TAYPRO Private Limited. We place the right Taypro cleaning robot (GLYDE automatic, HELYX semi-automatic pick-and-place, or GLYDE-X for single-axis trackers) at your plant, operate it with dedicated trained manpower, and maintain peak plant performance — without you purchasing the robot fleet. You pay a predictable monthly fee based on the number of solar panels actually cleaned each billing period."
       },
       "1": {
         "question": "How does billing work on Taypro OPEX?",
-        "answer": "Commercial terms are structured around verified panel-cleaning volume: you are charged for the number of panels cleaned in each monthly settlement cycle, aligned with Taypro Console telemetry and agreed reconciliation rules. This keeps your OPEX aligned directly to delivered cleaning outcomes rather than idle asset time."
+        "answer": "Commercial terms are structured around verified panel-cleaning volume: you are charged for the number of panels cleaned in each monthly settlement cycle, aligned with NECTYR telemetry and agreed reconciliation rules. This keeps your OPEX aligned directly to delivered cleaning outcomes rather than idle asset time."
       },
       "2": {
         "question": "How do you decide how many cleaning cycles my plant needs each month?",
@@ -47,11 +47,11 @@
       },
       "3": {
         "question": "What deliverables do I receive beyond the cleaning itself?",
-        "answer": "Every Taypro OPEX engagement includes a written cleaning plan and standard operating procedure: when robots move, which arrays and paths they follow, where they pause in idle conditions, and where dedicated robot parking and charging / rest zones are located on site. You also receive detailed cleaning reports — available for each run and summarised monthly — through the Taypro Console, including cycle completion, route coverage, exceptions, and fleet health data where connectivity is provided via LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, or LoRaWAN."
+        "answer": "Every Taypro OPEX engagement includes a written cleaning plan and standard operating procedure: when robots move, which arrays and paths they follow, where they pause in idle conditions, and where dedicated robot parking and charging / rest zones are located on site. You also receive detailed cleaning reports — available for each run and summarised monthly — through the NECTYR, including cycle completion, route coverage, exceptions, and fleet health data where connectivity is provided via LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, or LoRaWAN."
       },
       "4": {
         "question": "Which robot models can Taypro deploy under OPEX?",
-        "answer": "We match the robot platform to your plant architecture and economics. Fixed-tilt and large utility blocks typically use the Automatic Solar Panel Cleaning Robot (Model-A). Scattered blocks or pick-and-place workflows may use Model-B. Single-axis tracker sites use Model-T. The same Taypro Console stack is used across models for scheduling, reporting, and service coordination."
+        "answer": "We match the robot platform to your plant architecture and economics. Fixed-tilt and large utility blocks typically use the Automatic Solar Panel Cleaning Robot (GLYDE). Scattered blocks or pick-and-place workflows may use HELYX. Single-axis tracker sites use GLYDE-X. The same NECTYR stack is used across models for scheduling, reporting, and service coordination."
       },
       "5": {
         "question": "Is Taypro OPEX only for very large plants?",
@@ -63,11 +63,11 @@
       },
       "7": {
         "question": "Who is Taypro OPEX not for?",
-        "answer": "Taypro OPEX is not designed for single-home rooftop solar, hobby arrays, or sites that only need occasional manual brush cleaning. We focus on utility-scale and commercial ground-mount portfolios—typically from about 10 MW upward—where robotic dry cleaning at scale and predictable monthly economics justify a managed fleet. If you operate a smaller C&I site, contact us anyway; we may recommend capex purchase, Model-B, or a lighter programme after feasibility review."
+        "answer": "Taypro OPEX is not designed for single-home rooftop solar, hobby arrays, or sites that only need occasional manual brush cleaning. We focus on utility-scale and commercial ground-mount portfolios—typically from about 10 MW upward—where robotic dry cleaning at scale and predictable monthly economics justify a managed fleet. If you operate a smaller C&I site, contact us anyway; we may recommend capex purchase, HELYX, or a lighter programme after feasibility review."
       },
       "8": {
         "question": "Does Taypro OPEX include solar panel maintenance?",
-        "answer": "Taypro OPEX covers robotic module cleaning and the service wrapper around it: fleet health, operator deployment, cleaning SOPs, spare parts for cleaning robots, and reporting through Taypro Console. It does not replace inverter maintenance, HV electrical O&M, tracker mechanical repair, or module replacement—that remains with your EPC or O&M contractor. When we say maintenance in an OPEX context, we mean keeping the cleaning robots and cleaning programme running, not full-plant EPC maintenance."
+        "answer": "Taypro OPEX covers robotic module cleaning and the service wrapper around it: fleet health, operator deployment, cleaning SOPs, spare parts for cleaning robots, and reporting through NECTYR. It does not replace inverter maintenance, HV electrical O&M, tracker mechanical repair, or module replacement—that remains with your EPC or O&M contractor. When we say maintenance in an OPEX context, we mean keeping the cleaning robots and cleaning programme running, not full-plant EPC maintenance."
       }
     },
     "eligibility": {
@@ -87,7 +87,7 @@
       "title": "SLA, reporting & breakdown response",
       "intro": "Every Taypro OPEX contract defines measurable service levels so your O&M and asset management teams know what to expect beyond the cleaning calendar.",
       "item0Title": "Cleaning reports",
-      "item0Body": "Cycle-level and daily summaries in Taypro Console—route coverage, completion status, exceptions, and exportable files for monthly governance.",
+      "item0Body": "Cycle-level and daily summaries in NECTYR—route coverage, completion status, exceptions, and exportable files for monthly governance.",
       "item1Title": "Breakdown response",
       "item1Body": "Automated ticketing and remote diagnostics with same-day resolution targets on qualifying plans; nationwide field bench for on-site intervention when needed.",
       "item2Title": "Programme reviews",
@@ -102,11 +102,11 @@
       },
       "1": {
         "name": "Robot selection & detailed cleaning plan",
-        "text": "We select Model-A, Model-B or Model-T (or a mixed fleet) and publish a detailed cleaning plan: when robots move, which paths they take across tables or blocks, idle behaviour, and dedicated parking / rest and charging locations so plant security and O&M always know where equipment is."
+        "text": "We select GLYDE, HELYX or GLYDE-X (or a mixed fleet) and publish a detailed cleaning plan: when robots move, which paths they take across tables or blocks, idle behaviour, and dedicated parking / rest and charging locations so plant security and O&M always know where equipment is."
       },
       "2": {
         "name": "Mobilisation & operator deployment",
-        "text": "Dedicated trained operators are stationed or rotated to your site to run the fleet safely alongside your existing O&M rhythm. They execute the approved SOP, coordinate with your control room, and escalate anomalies through Taypro Console."
+        "text": "Dedicated trained operators are stationed or rotated to your site to run the fleet safely alongside your existing O&M rhythm. They execute the approved SOP, coordinate with your control room, and escalate anomalies through NECTYR."
       },
       "3": {
         "name": "Execute scheduled waterless dry cleaning cycles",
@@ -114,7 +114,7 @@
       },
       "4": {
         "name": "Reporting & monthly panel-cleaning reconciliation",
-        "text": "Each cycle produces structured telemetry and cleaning reports in Taypro Console (connectivity via LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, or LoRaWAN as designed for your site). At month-end, billable volume is reconciled against verified panels cleaned under the contract formula."
+        "text": "Each cycle produces structured telemetry and cleaning reports in NECTYR (connectivity via LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, or LoRaWAN as designed for your site). At month-end, billable volume is reconciled against verified panels cleaned under the contract formula."
       }
     },
     "plantStudy": {
@@ -143,8 +143,8 @@
       "0": "Plant-specific soiling study & 3–10 dry cycles / month",
       "1": "Billing based on panels cleaned each month",
       "2": "Detailed SOP: timing, paths, idle & dedicated rest zones",
-      "3": "Daily cleaning reports & Taypro Console transparency",
-      "4": "Model-A, Model-B or Model-T matched to your site",
+      "3": "Daily cleaning reports & NECTYR transparency",
+      "4": "GLYDE, HELYX or GLYDE-X matched to your site",
       "5": "Dedicated operators + nationwide technical support"
     },
     "misc": {
@@ -172,7 +172,7 @@
       "p2AfterRest": " sits relative to roads, substations, and fire lanes.",
       "p3Before": "During operations, your team receives ",
       "p3ReportsStrong": "granular cleaning reports",
-      "p3AfterReports": " — per shift, per day, or per cycle depending on your governance needs — via Taypro Console, with fleet telemetry carried over ",
+      "p3AfterReports": " — per shift, per day, or per cycle depending on your governance needs — via NECTYR, with fleet telemetry carried over ",
       "p3ConnectivitySuffix": " as designed for your site.",
       "p4Prefix": "Further reading: ",
       "linkBlogCost": "cost–benefit of cleaning services in India",
@@ -183,7 +183,7 @@
     "billing": {
       "eyebrow": "Commercial model",
       "title": "Billing tied to panels cleaned — not capex",
-      "body": "Your monthly invoice is anchored to the count of modules actually cleaned in the period, cross-checked against Taypro Console logs and the mutually agreed measurement protocol. That keeps plant leadership, finance and O&M aligned on one simple question: did we restore transmissivity to the contracted panel population this month?",
+      "body": "Your monthly invoice is anchored to the count of modules actually cleaned in the period, cross-checked against NECTYR logs and the mutually agreed measurement protocol. That keeps plant leadership, finance and O&M aligned on one simple question: did we restore transmissivity to the contracted panel population this month?",
       "ctaLabel": "Talk to our OPEX team",
       "ctaTitle": "Talk to our OPEX team",
       "ctaSubtitle": "Tell us about your plant and our OPEX team will get back with a pay-per-panel cleaning proposal."
@@ -201,7 +201,7 @@
       "card1Title": "Idle, staging & dedicated rest",
       "card1Body": "Documented idle behaviour on modules, staging points between blocks, and a dedicated robot parking / charging enclave that satisfies your HSE, security, and fire access rules.",
       "card2Title": "Cleaning reports",
-      "card2Body": "Cycle-level and daily summaries delivered through Taypro Console: distance travelled, blocks completed, anomalies, operator notes, and exportable files for your internal performance review boards.",
+      "card2Body": "Cycle-level and daily summaries delivered through NECTYR: distance travelled, blocks completed, anomalies, operator notes, and exportable files for your internal performance review boards.",
       "card3Title": "Safety & module-care governance",
       "card3Body": "Written risk assessments, edge-case playbooks, and alignment with your module warranty and O&M insurance requirements — backed by Taypro's lab-tested cleaning physics."
     },
@@ -230,7 +230,7 @@
     },
     "fleetOps": {
       "title": "How Taypro operates the fleet on your site",
-      "subtitle": "These pillars sit underneath every OPEX contract — whether we are running Model-A, Model-B, Model-T, or a blended deployment.",
+      "subtitle": "These pillars sit underneath every OPEX contract — whether we are running GLYDE, HELYX, GLYDE-X, or a blended deployment.",
       "card0Title": "Dedicated skilled manpower",
       "card0Body": "Trained Taypro operators remain accountable for safe robot deployment, daily checklists, and coordination with your control room so modules never see experimental handling.",
       "card1Title": "Weather-aware scheduling",
@@ -268,13 +268,13 @@
         "capex": "Asset depreciation, obsolescence, inventory risk"
       },
       "explorePrefix": "Explore hardware directly: ",
-      "linkModelA": "Model-A",
+      "linkModelA": "GLYDE",
       "linkBetweenAB": ", ",
-      "linkModelB": "Model-B",
+      "linkModelB": "HELYX",
       "linkBetweenBT": ", ",
-      "linkModelT": "Model-T",
+      "linkModelT": "GLYDE-X",
       "linkBetweenTConsole": ", or ",
-      "linkConsole": "Taypro Console",
+      "linkConsole": "NECTYR",
       "exploreSuffix": "."
     },
     "roiSection": {

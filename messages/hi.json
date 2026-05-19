@@ -18,17 +18,25 @@
     "callUs": "अभी कॉल करें",
     "openMenu": "मेनू खोलें",
     "closeMenu": "मेनू बंद करें",
-    "modelA": "मॉडल-A",
-    "modelADesc": "ऑटोमैटिक सोलर क्लीनिंग रोबोट",
-    "modelB": "मॉडल-B",
-    "modelBDesc": "सेमी-ऑटोमैटिक पिक एंड प्लेस",
-    "modelT": "मॉडल-T",
-    "modelTDesc": "सिंगल-एक्सिस ट्रैकर क्लीनिंग",
-    "tayproConsole": "Taypro Console",
+    "tayproConsole": "NECTYR",
     "tayproConsoleDesc": "फ्लीट मॉनिटरिंग और नियंत्रण",
     "tayproOpex": "Taypro OPEX",
     "tayproOpexDesc": "रोबोटिक क्लीनिंग सेवा",
-    "viewAllRobots": "सभी रोबोट देखें"
+    "miny": "MINY",
+    "minyDesc": "कॉम्पैक्ट रूफटॉप रोबोट · जल्द आ रहा है",
+    "cradyl": "CRADYL",
+    "cradylDesc": "रो ट्रांसफर डॉकिंग · जल्द आ रहा है",
+    "viewAllRobots": "सभी रोबोट देखें",
+    "helyx": "HELYX",
+    "helyxDesc": "अर्ध-स्वचालित पिक-एंड-प्लेस · PBT",
+    "glyde": "GLYDE",
+    "glydeDesc": "स्वचालित · डुअल-पास माइक्रोफाइबर",
+    "nyuma": "NYUMA",
+    "nyumaDesc": "स्वचालित · सिंगल-पास PBT",
+    "glydeX": "GLYDE-X",
+    "glydeXDesc": "ट्रैकर · डुअल-पास माइक्रोफाइबर",
+    "nyumaX": "NYUMA-X",
+    "nyumaXDesc": "ट्रैकर · सिंगल-पास PBT"
   },
   "Footer": {
     "mail": "ईमेल",
@@ -48,11 +56,6 @@
     "cleaningService": "सोलर पैनल क्लीनिंग सेवा",
     "roiCalculator": "ROI और कीमत कैलकुलेटर",
     "copyright": "© कॉपीराइट {year} – TAYPRO PRIVATE LIMITED. सर्वाधिकार सुरक्षित।"
-  },
-  "LocaleBanner": {
-    "title": "लेख की मुख्य सामग्री अंग्रेज़ी में",
-    "body": "ब्लॉग नेविगेशन और पेज UI आपकी भाषा में हैं। पूरे लेख और प्रोजेक्ट केस स्टडी की सामग्री अंग्रेज़ी में रहती है।",
-    "dismiss": "बंद करें"
   },
   "NotFoundPage": {
     "meta": {

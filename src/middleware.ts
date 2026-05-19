@@ -1,7 +1,11 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import createIntlMiddleware from "next-intl/middleware";
-import { withGeoLocaleDetection } from "./i18n/detect-locale-from-geo";
+import {
+  getCountryCodeFromRequest,
+  withGeoLocaleDetection,
+} from "./i18n/detect-locale-from-geo";
+import { VISITOR_COUNTRY_COOKIE } from "./lib/roi-calculator/market-profiles";
 import { pathnameWithoutLocale } from "./i18n/pathname-without-locale";
 import { routing } from "./i18n/routing";
 import { verifyToken } from "./app/utils/jwt";
@@ -132,6 +136,17 @@ function applySecurityAndCacheHeaders(
   if (!pathname.startsWith("/api") && !pathname.startsWith("/_next")) {
     response.headers.set("x-pathname", pathname);
     response.headers.set("x-logical-pathname", pathnameWithoutLocale(pathname));
+  }
+
+  const visitorCountry = getCountryCodeFromRequest(request);
+  if (visitorCountry) {
+    response.headers.set("x-visitor-country", visitorCountry);
+    response.cookies.set(VISITOR_COUNTRY_COOKIE, visitorCountry, {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 30,
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+    });
   }
 
   return response;

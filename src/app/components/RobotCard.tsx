@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import { productAltText } from "@/lib/products/catalog";
 
 type Robot = {
   model: string;
@@ -75,26 +76,7 @@ export function RobotCard({
     if (showGeneric && robot.marketingName) {
       return `Taypro ${robot.marketingName}`;
     }
-    const model = robot.model;
-    if (
-      model.toLowerCase().includes("model-a") ||
-      model.toLowerCase().includes("automatic")
-    ) {
-      return "Taypro automatic solar panel cleaning robot for utility-scale solar farms";
-    }
-    if (
-      model.toLowerCase().includes("model-b") ||
-      model.toLowerCase().includes("semi")
-    ) {
-      return "Taypro semi-automatic solar panel cleaning robot";
-    }
-    if (
-      model.toLowerCase().includes("model-t") ||
-      model.toLowerCase().includes("tracker")
-    ) {
-      return "Taypro solar panel cleaning robot for single-axis trackers";
-    }
-    return `Taypro ${model} solar panel cleaning robot`;
+    return productAltText(robot.model, robot.marketingName);
   };
 
   return (

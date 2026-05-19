@@ -1,486 +1,556 @@
 {
   "SolarSystemPage": {
     "meta": {
-      "title": "ソーラーパネル清掃ロボット・システム — 機械 | Taypro インド",
-      "description": "Taypro の太陽光パネル清掃ロボットを一覧で比較。Model-A（全自動）、Model-B（セミオート、搬送・設置）、Model-T（シングルアクストラッカー）、またはサービスとしての Taypro OPEX から選択。無水デュアルパス清掃、AI/ML スケジューリング、TÜV NORD 認証ハードウェア、インド全域で当日の故障対応。",
+      "title": "インドのソーラーパネル洗浄ロボット＆システム — 機種一覧 | Taypro",
+      "description": "Tayproのソーラーパネル洗浄ロボットを比較：GLYDE、GLYDE-X、NYUMA、NYUMA-X、HELYX、Taypro Opex、NECTYR。水なし洗浄、AIスケジューリング、TÜV NORD認証、インド全国サポート。",
       "keywords": [
-        "solar panel cleaning robot",
-        "solar panel cleaning robot India",
-        "solar panel cleaning robot manufacturer India",
-        "solar panel cleaning robot company India",
-        "buy solar panel cleaning robot",
-        "best solar panel cleaning robot",
-        "utility scale solar panel cleaning robot",
-        "robotic solar panel cleaning system",
-        "solar panel cleaning robot for solar farm",
-        "Taypro solar cleaning robot",
-        "Taypro Model-A vs Model-B vs Model-T",
-        "CAPEX vs OPEX solar cleaning",
-        "ソーラーパネル清掃システム",
-        "清掃システム",
-        "清掃マシン"
+        "ソーラーパネル洗浄ロボット",
+        "ソーラーパネル洗浄ロボット インド",
+        "ソーラーパネル洗浄ロボット メーカー インド",
+        "ソーラーパネル洗浄ロボット 会社 インド",
+        "ソーラーパネル洗浄ロボット 購入",
+        "最高のソーラーパネル洗浄ロボット",
+        "ユーティリティ規模 ソーラーパネル洗浄ロボット",
+        "ロボット式ソーラーパネル洗浄システム",
+        "ソーラーファーム洗浄ロボット",
+        "Tayproソーラー洗浄ロボット",
+        "Taypro GLYDE NYUMA HELYX ラインナップ",
+        "CAPEX対OPEX ソーラー洗浄",
+        "ソーラーパネル洗浄システム",
+        "ソーラー洗浄システム",
+        "ソーラーパネル洗浄機",
+        "PVパネル洗浄",
+        "自動ソーラーパネル洗浄システム",
+        "ソーラーパネル洗浄"
       ],
       "openGraphSiteName": "Taypro",
-      "openGraphTitle": "太陽光パネル清掃ロボット | 自動・半自動・トラッカー対応 — Taypro",
-      "openGraphDescription": "ソーラープラントに適した太陽光パネル清掃ロボットを選択 — 自律型 Model-A、半自動ピック・アンド・プレイスの Model-B、シングルアクストラッカー向け Model-T、クリーン済みパネル課金の Taypro OPEX、および Taypro Console のフリート運用ソフトウェア。",
-      "openGraphImageAlt": "Taypro 太陽光パネル清掃ロボット — インドのソーラープラント向け Model-A、Model-B、Model-T",
-      "openGraphLocale": "ja_IN",
+      "openGraphTitle": "ソーラーパネル洗浄ロボット | 自動・半自動・トラッカー対応 — Taypro",
+      "openGraphDescription": "発電所に最適なロボットを選択 — デュアルパス主力のGLYDE・GLYDE-X、PBTのNYUMA・NYUMA-X、分散向けHELYX、OPEXとNECTYR。",
+      "openGraphImageAlt": "Tayproソーラーパネル洗浄ロボット — GLYDE、GLYDE-X、NYUMA、NYUMA-X、HELYX",
+      "openGraphLocale": "en_IN",
       "openGraphType": "website",
       "twitterCard": "summary_large_image",
-      "twitterTitle": "太陽光パネル清掃ロボット | Taypro — Made in India",
-      "twitterDescription": "自動・半自動・トラッカー対応の太陽光パネル清掃ロボット。無水清掃、AI スケジューリング、インド全域での当日故障対応。"
+      "twitterTitle": "ソーラーパネル洗浄ロボット | Taypro — Made in India",
+      "twitterDescription": "固定傾斜・トラッカー向け5機種 — PBTシングルパスと特許デュアルパスマイクロファイバー。"
     },
     "breadcrumbs": {
       "home": "ホーム",
-      "solarPanelCleaningRobots": "太陽光パネル清掃ロボット"
+      "solarPanelCleaningRobots": "ソーラーパネル洗浄ロボット"
     },
     "schema": {
       "collectionPage": {
-        "name": "Taypro の太陽光パネル清掃ロボット",
-        "description": "Taypro の太陽光パネル清掃ロボットのカテゴリ：自動（Model-A）、半自動（Model-B）、トラッカー対応（Model-T）、Taypro OPEX 清掃サービス、Taypro Console フリートポータル。"
+        "name": "Tayproのソーラーパネル洗浄ロボット",
+        "description": "Tayproロボット：GLYDE・GLYDE-X（デュアルパス主力）、NYUMA・NYUMA-X（PBT自動）、HELYX（半自動ピック＆プレース）、OPEXとNECTYR。"
       },
       "itemList": {
-        "name": "Taypro 太陽光パネル清掃ロボット — 製品ライン",
-        "description": "Taypro の太陽光パネル清掃ロボットと関連ソフトウェア／サービスを網羅したラインアップ。",
-        "itemNameSuffix": " — 太陽光パネル清掃ロボット",
+        "name": "Tayproソーラーパネル洗浄ロボット — 製品ライン",
+        "description": "Tayproソーラーパネル洗浄ロボットと関連ソフトウェア・サービスの全ラインナップ。",
+        "itemNameSuffix": " — ソーラーパネル洗浄ロボット",
         "items": {
-          "modelA": {
-            "description": "完全自律の無水ドライ清掃 — デュアルパス気流とマイクロファイバー。固定式・季節可変傾斜のユーティリティープラント向け AI スケジューリング。"
+          "helyx": {
+            "description": "分散・小規模分散向けの半自動ピック＆プレース、シングルパスPBTの水なし洗浄。"
           },
-          "modelB": {
-            "description": "分散ブロックやクルー支援で柔軟なカバレッジが必要な発電所向け、搬送・設置型のポータブル無水清掃ロボット。"
+          "glyde": {
+            "description": "固定・季節傾斜向けの特許デュアルパス気流＋マイクロファイバーによる完全自律の水なし洗浄。"
           },
-          "modelT": {
-            "description": "シングルアクストラッカー向け自律型無水ロボット — 柔軟なブリッジと各トラッカーブランドにわたる 360° 旋回。"
+          "nyuma": {
+            "description": "固定・季節傾斜の大規模発電所向け、シングルパスPBTの完全自律水なし洗浄。"
+          },
+          "glydeX": {
+            "description": "特許デュアルパスマイクロファイバーと柔軟な360°ブリッジの自律トラッカーロボット。"
+          },
+          "nyumaX": {
+            "description": "シングルパスPBT洗浄と単軸テーブル向けフレキシブルボディの自律トラッカーロボット。"
           },
           "tayproOpex": {
-            "description": "パネルあたりの清掃に応じた OPEX — 前払い CAPEX なしで、Taypro が貴社プラントで清掃ロボットフリートを運用。"
+            "description": "パネル洗浄ごとのOpex — 前払いCAPEXなしでTayproがフリートを運用。"
           },
           "tayproConsole": {
-            "description": "サイト内の太陽光パネル清掃ロボットのスケジュール、監視、レポートを行うフリートポータル。"
+            "description": "サイト全体の洗浄ロボットをスケジュール・監視・報告するフリートポータル。"
+          },
+          "miny": {
+            "description": "小規模屋根向けコンパクト洗浄ロボット — 水なし・軽量・近日公開。"
+          },
+          "cradyl": {
+            "description": "分散プラント向け行間自律移動の可動ドッキングステーション — 近日公開。"
           }
         }
       }
     },
     "shared": {
-      "connectivitySummary": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN",
-      "panIndiaServiceCardBody": "Taypro はインド全域で当日オンサイト故障解決を目指し、Taypro Console による即時リモート診断、地域スペア在庫、体系化された AMC プログラムで平均修復時間（MTTR）の予測可能性を維持します。",
-      "combinedSupportParagraph": "Taypro はインド全域で当日オンサイト故障解決に加え、Taypro Console からの即時リモート診断、専任フィールドエンジニア、AMC に基づくスペア計画を提供します。",
-      "faqSupportAmcSuffix": " AMC パッケージには予防保全、スペア計画、Console 上のチケット運用が含まれ、平均修復時間の予測可能性を高めます。"
+      "connectivitySummary": "LTE、Wi-Fi、ハイブリッド自己修復RFメッシュ、LoRa、LoRaWAN",
+      "panIndiaServiceCardBody": "TayproはNECTYRによる即時リモート診断、地域スペア在庫、構造化AMCでインド全国同日現場復旧を目指します。",
+      "combinedSupportParagraph": "Tayproはインド全国で同日現場復旧、NECTYR即時リモート診断、専任フィールドエンジニア、AMCスペア計画を提供します。",
+      "faqSupportAmcSuffix": " AMCパッケージはNECTYR上で予防保全・スペア計画・構造化チケットを追加し、修理時間を予測可能にします。"
     },
     "robotFeatures": {
       "feature0": {
-        "title": "最大稼働率の保証 —",
-        "description": "Taypro のソーラー清掃ロボットは高い稼働率保証を提供します。高度な清掃ソリューションにより、ソーラープラントの発電と運用を最大化します。"
+        "title": "最大稼働率保証 -",
+        "description": "Tayproの洗浄ロボットは最高の稼働率保証。高度な洗浄で発電所の最大運転と発電を実現します。"
       },
       "feature1": {
-        "title": "AI と ML システム —",
-        "description": "太陽光パネル清掃ロボットは AI と Machine Learning の知能により精密な清掃を実現。リアルタイムな追跡と発電効率の向上を支えます。"
+        "title": "AI・MLシステム -",
+        "description": "AI/MLで精密洗浄、リアルタイム追跡、発電所効率向上を実現します。"
       },
       "feature2": {
-        "title": "当日故障対応 —",
-        "description": "太陽光パネル清掃ロボットについて当日中の故障対応を約束。各サイト・都市に専任技術チームが待機し、専用サービスポータルを通じて解決します。"
+        "title": "同日故障対応 -",
+        "description": "洗浄ロボットの同日故障対応を保証。全サイト・都市に専任技術者が対応します。"
       },
       "feature3": {
-        "title": "デュアルパス清掃方式 —",
-        "description": "独自特許のデュアルパス清掃。まず気流でパネルのホコリを除去し、続けてマイクロファイバーで深く拭き取ります。"
+        "title": "デュアルパス洗浄方式 -",
+        "description": "特許デュアルパス — まず気流で塵を除去し、マイクロファイバーで深く拭きます。"
       },
       "feature4": {
-        "title": "RF ベースのメッシュ通信 —",
-        "description": "太陽光パネル清掃ロボットは RF ベースのメッシュ通信で動作。クラウド型 SCADA が広いエリアでも安全かつ確実な通信を実現します。"
+        "title": "RFメッシュ通信 -",
+        "description": "RFメッシュ通信。クラウドSCADAが広域でも安全・信頼性を確保します。"
       },
       "feature5": {
-        "title": "予測型ソーラー清掃 —",
-        "description": "高度なロボットは気象を捉えながら清掃し、効率向上のために天気予報に基づいてサイクルをスケジュールします。"
+        "title": "予測型ソーラー洗浄 -",
+        "description": "天候を感知して洗浄し、予報に基づきサイクルをスケジュールします。"
       }
     },
     "robotsAdvantages": {
       "advantage0": {
-        "title": "AI と ML の統合 —",
-        "description": "AI 指向と machine learning を統合すると、クリーンな清掃結果が得られます。ML 駆動のロボティクスにより、コスト効率よく発電を最大化できます。"
+        "title": "AI・ML統合 -",
+        "description": "AI/ML統合で高精度洗浄と最大発電をコスト効率よく実現。"
       },
       "advantage1": {
-        "title": "無水清掃技術 —",
-        "description": "Taypro の太陽光パネル清掃ロボットは固定傾斜、季節可変傾斜、屋上設置向けに無水清掃を採用。気流とマイクロファイバーによるデュアルパス方式です。"
+        "title": "水なし洗浄技術 -",
+        "description": "Tayproロボットは固定・季節傾斜・屋根向けに水なしデュアルパス（気流＋マイクロファイバー）で洗浄。"
       },
       "advantage2": {
-        "title": "高速かつ安全な清掃 —",
-        "description": "技術的なデュアルパス方式により、最高効率と傷ゼロで素早く清掃。気流とマイクロファイバーでパネルを安全に扱います。"
+        "title": "高速で安全な洗浄 -",
+        "description": "デュアルパスで傷なく高速・高効率洗浄 — 気流とマイクロファイバーで安全。"
       },
       "advantage3": {
-        "title": "より速いリターン —",
-        "description": "迅速で効率的な動作により円滑な運用と省エネを実現し、投資回収を早めます。運用工数と人件費削減にもつながります。"
+        "title": "より速く高いリターン -",
+        "description": "迅速な運用でエネルギー節約・人件費削減 — ROI短縮。"
       },
       "advantage4": {
-        "title": "バッテリー電源 —",
-        "description": "無水ロボットは先進バッテリーで駆動。充電時間に対して最大の稼働を確保。バッテリー容量のカスタマイズで清掃範囲を延ばせます。"
+        "title": "バッテリー駆動 -",
+        "description": "水なしロボットは高性能バッテリー駆動 — 大容量・短充電、容量カスタム可能。"
       }
     },
     "toDoFeatures": {
       "item0": {
-        "title": "効果最大化のために太陽光パネルの清掃スケジュールを管理しましょう。"
+        "title": "最大効果のため洗浄スケジュールを管理しましょう。"
       },
       "item1": {
-        "title": "太陽が沈みパネルが冷めた時間帯を選び、効率的に清掃しましょう。"
+        "title": "日没後、パネルが冷えた時間帯を選びましょう。"
       },
       "item2": {
-        "title": "屋根と表面状態を十分に確認してからロボットを走行させましょう。"
+        "title": "運転前に屋根と表面を評価してください。"
       },
       "item3": {
-        "title": "ロボットの清掃とメンテナンスを継続的に行いましょう。"
+        "title": "ロボットの定期的な清掃・保守が必要です。"
       },
       "item4": {
-        "title": "バッテリーを適宜充電し、ロボットの長寿命化を図りましょう。"
+        "title": "長寿命のため定期的にバッテリーを充電してください。"
       }
     },
     "hero": {
-      "eyebrow": "太陽光パネル清掃ロボット · Made in India",
-      "title": "ユーティリティ規模ソーラープラント向け太陽光パネル清掃ロボット",
+      "eyebrow": "ソーラーパネル洗浄ロボット · Made in India",
+      "title": "大規模ソーラー発電所向けソーラーパネル洗浄ロボット",
       "leadHtmlSegments": {
-        "beforeBold1": "Taypro はインドのユーティリティ規模ソーラープラント向けに ",
-        "bold1": "太陽光パネル清掃ロボット",
-        "afterBold1": " を設計・製造・サービス提供 — 完全 ",
-        "bold2": "自動（Model-A）",
-        "afterBold2": "、半自動の搬送・設置型 ",
-        "bold3": "（Model-B）",
-        "afterBold3": "、トラッカー対応 ",
-        "bold4": "（Model-T）",
-        "afterBold4": "。無水デュアルパス清掃、AI/ML スケジューリング、TÜV NORD 認証ハードウェア、インド全域の当日故障対応 — CAPEX での導入も、月次の "
+        "beforeBold1": "Tayproはインドの大規模ソーラー発電所向けに ",
+        "bold1": "ソーラーパネル洗浄ロボット",
+        "afterBold1": " を設計・製造・サービス — 完全",
+        "bold2": "自動（GLYDE）",
+        "afterBold2": "、半自動ピック＆プレース",
+        "bold3": "（HELYX）",
+        "afterBold3": "、トラッカー対応",
+        "bold4": "（GLYDE-X）",
+        "afterBold4": "。水なしデュアルパス、AI/MLスケジューリング、TÜV NORD認証、同日全国サポート — CAPEXまたは月額"
       },
-      "payPerPanelServiceLinkText": "クリーン済みパネル課金サービス",
-      "leadAfterLink": " としてもご利用いただけます。",
+      "payPerPanelServiceLinkText": "パネル洗浄ごとの従量サービス",
+      "leadAfterLink": "。",
       "primaryCta": {
-        "topic": "見積り依頼",
-        "title": "見積りを依頼",
-        "subtitle": "プラント情報をご共有ください。最適な太陽光パネル清掃ロボットをご提案します。",
-        "label": "見積りを依頼"
+        "topic": "見積依頼",
+        "title": "見積依頼",
+        "subtitle": "発電所情報を共有いただければ最適なロボットをご提案します。",
+        "label": "見積依頼"
       },
-      "secondaryCta": "ROI を計算",
-      "heroImageAlt": "Taypro 太陽光パネル清掃ロボット — Model-A（自動）、Model-B（半自動）、Model-T（トラッカー）によるインドのユーティリティ規模プラント",
-      "heroImageTitle": "Taypro 太陽光パネル清掃ロボット"
+      "secondaryCta": "ROIを計算",
+      "heroImageAlt": "Taypro洗浄ロボット — GLYDE自動、HELYX半自動、GLYDE-Xトラッカー、インド大規模発電所",
+      "heroImageTitle": "Tayproのソーラーパネル洗浄ロボット"
     },
     "heroStats": {
       "stat0": {
         "value": "50 MW+",
-        "label": "典型導入プラント規模"
+        "label": "典型的な導入発電所規模"
       },
       "stat1": {
-        "value": "当日",
-        "label": "インド全域の故障対応"
+        "value": "同日",
+        "label": "インド全国の故障対応"
       },
       "stat2": {
         "value": "TÜV NORD",
         "label": "認証ハードウェア"
       },
       "stat3": {
-        "value": "無水",
-        "label": "デュアルパス清掃"
+        "value": "水なし",
+        "label": "デュアルパス洗浄"
       }
     },
     "intro": {
-      "eyebrow": "なぜロボット清掃か、なぜ Taypro か",
-      "title": "インドにおける太陽光パネル清掃ロボットのカテゴリーリーダー",
-      "p1": "ほこり、農業残渣、鳥のふんなどはインドのユーティリティプラントで発電を 8〜25% 落とすことがあります。手洗いはコスト・水使用量が高く、列ごとシフトごとに品質が揺れます。プラント専用に設計された太陽光パネル清掃ロボットは失われた発電を回復し、毎夜同じように全パネルを清掃し、O&M から水を完全になくします。",
-      "p2LinkAutomatic": "自動太陽光パネル清掃ロボット（Model-A）",
-      "p2LinkModelB": "Model-B",
-      "p2LinkModelT": "Model-T",
-      "p2LinkConsole": "Taypro Console",
-      "p2LinkOpex": "Taypro OPEX",
-      "p2BeforeLinks": "Taypro は Made in India のロボット清掃システムメーカーです。製品ラインは完全自律の ",
-      "p2BetweenAB": "、分散プラント向け半自動ピック・アンド・プレイスの ",
-      "p2BetweenBT": "、シングルアクストラッカー向けの ",
-      "p2AfterT": " を網羅。すべてのロボットは ",
-      "p2AfterConsole": " フリートポータルで監視でき、CAPEX でも月次の ",
-      "p2AfterOpex": " サービスでも導入できます。",
-      "p3BlogMaintenance": "太陽光パネルメンテナンスガイド",
-      "p3BlogRobotDef": "太陽光パネル清掃ロボットの定義",
+      "eyebrow": "なぜロボット洗浄、なぜTaypro",
+      "title": "インドのソーラーパネル洗浄ロボット分野のリーダー",
+      "p1": "塵、農業残渣、鳥糞はインドの大規模発電所で発電を8–25%低下させます。手洗いは高コストで水を大量消費。専用洗浄ロボットが発電回復と毎晩均一洗浄、水不要O&Mを実現します。",
+      "p2LinkAutomatic": "GLYDE自動ロボット",
+      "p2LinkModelB": "HELYX",
+      "p2LinkModelT": "GLYDE-X",
+      "p2LinkConsole": "NECTYR",
+      "p2LinkOpex": "Taypro Opex",
+      "p2BeforeLinks": "TayproはMade in Indiaのロボット洗浄メーカー。ラインナップは完全",
+      "p2BetweenAB": "、半自動ピック＆プレース",
+      "p2BetweenBT": " 分散向け、トラッカー対応",
+      "p2AfterT": " 単軸トラッカー向け。全ロボットは",
+      "p2AfterConsole": " フリートポータルで監視され、CAPEXまたは月額",
+      "p2AfterOpex": "サービスとして展開可能。",
+      "p3BlogMaintenance": "ソーラーパネル保守ガイド",
+      "p3BlogRobotDef": "ソーラーパネル洗浄ロボットの定義",
       "p3Prefix": "関連記事：",
       "p3Between": " と ",
       "p3Suffix": "。"
     },
     "productGrid": {
       "eyebrow": "ロボットラインナップ",
-      "title": "太陽光パネル清掃ロボットを選ぶ",
-      "subtitle": "3 つのロボットプラットフォーム、1 つのフリートポータル、2 つの商業モデル — プラントに最適なものを。",
+      "title": "ソーラーパネル洗浄ロボットを選ぶ",
+      "subtitle": "5ロボット、1フリートポータル、2商業モデル — サイトに合わせて選択。",
       "robotHighlights": {
-        "modelA": {
-          "eyebrow": "完全自律 · CAPEX",
-          "bullet0": "無水デュアルパス清掃（エア＋マイクロファイバー）",
-          "bullet1": "1 充電で最大 3,600 枚、AI/ML スケジューリング",
-          "bullet2": "固定／季節可変傾斜のユーティリティ規模向け"
+        "helyx": {
+          "eyebrow": "半自動 · ピック＆プレース",
+          "bullet0": "シングルパスPBT — デュアルパス・マイクロファイバーなし",
+          "bullet1": "約1MWを約2時間、ブロック間移動可",
+          "bullet2": "分散・小規模分散ユーティリティ"
         },
-        "modelB": {
-          "eyebrow": "半自動 · 搬送・設置",
-          "bullet0": "約 2 時間で約 1 MW、ブロック間をポータブル移動",
-          "bullet1": "分散プラントで最も低いコスト／MW",
-          "bullet2": "散在・制約レイアウトに最適"
+        "glyde": {
+          "eyebrow": "完全自律 · デュアルパス",
+          "bullet0": "特許デュアルパスマイクロファイバー（気流＋布）",
+          "bullet1": "1充電あたり最大3,600モジュール、AI/MLスケジュール",
+          "bullet2": "固定・季節傾斜の大規模発電所"
         },
-        "modelT": {
-          "eyebrow": "トラッカー対応 · 自律",
-          "bullet0": "特許の 360° 可動ブリッジ",
-          "bullet1": "NEXTracker、Gamechanger などに対応",
-          "bullet2": "シングルアクストラッカープラント向け"
+        "nyuma": {
+          "eyebrow": "完全自律 · PBT",
+          "bullet0": "シングルパスUV安定PBTブラシ",
+          "bullet1": "1充電2.2kmまで、AI/MLスケジュール",
+          "bullet2": "固定・季節傾斜の大規模発電所"
+        },
+        "glydeX": {
+          "eyebrow": "トラッカー · デュアルパス",
+          "bullet0": "トラッカー向け特許デュアルパス",
+          "bullet1": "フレキシブルボディと360°ブリッジ",
+          "bullet2": "単軸トラッカー発電所"
+        },
+        "nyumaX": {
+          "eyebrow": "トラッカー · PBT",
+          "bullet0": "シングルパスPBT — NYUMAファミリー同等",
+          "bullet1": "トラッカーテーブル向けフレキシブルボディ",
+          "bullet2": "単軸トラッカー発電所"
         }
       },
       "solutionsEyebrow": "ソフトウェアとサービス",
-      "solutionsTitle": "製品として、またはサービスとして",
+      "solutionsTitle": "製品購入かサービス利用か",
       "solutionHighlights": {
         "tayproOpex": {
-          "eyebrow": "サービス · クリーン済みパネル課金",
-          "bullet0": "CAPEX なし — 月次 OPEX、清掃パネルに課金",
-          "bullet1": "プラント汚れ調査と月 3〜10 回のサイクル",
-          "bullet2": "TAYPRO Private Limited が運営"
+          "eyebrow": "サービス · パネル従量",
+          "bullet0": "CAPEX不要 — 洗浄パネル数に応じ月額OPEX",
+          "bullet1": "汚れ調査＋月3–10サイクル",
+          "bullet2": "TAYPRO Private Limitedが運用"
         },
         "tayproConsole": {
           "eyebrow": "ソフトウェア · フリートポータル",
-          "bullet0": "サイトダッシュボード、スケジュール、ログ・エクスポート",
-          "bullet1": "ゲートウェイとロボット健全性の可視化",
+          "bullet0": "サイトダッシュボード、スケジュール、ログ、エクスポート",
+          "bullet1": "ゲートウェイ・ロボットヘルス可視化",
           "bullet2": "ロールベースアクセス、サポートチケット、チャット"
+        }
+      },
+      "comingSoonEyebrow": "ロードマップ",
+      "comingSoonTitle": "Tayproから近日公開",
+      "comingSoonSubtitle": "次世代プラットフォーム開発中 — ローンチ情報と早期パイロット登録を受付中。",
+      "comingSoonBadge": "近日公開",
+      "comingSoonCta": "詳しく見る",
+      "comingSoonHighlights": {
+        "miny": {
+          "eyebrow": "屋根 · コンパクト",
+          "bullet0": "小規模C&I屋根向けサイズ",
+          "bullet1": "軽量シャーシの水なしTaypro洗浄",
+          "bullet2": "早期アクセス・パイロット登録受付中"
+        },
+        "cradyl": {
+          "eyebrow": "ドッキング · 行間移動",
+          "bullet0": "行間の自律ロボット移動",
+          "bullet1": "分散プラントで1台が複数行をカバー",
+          "bullet2": "現場のTaypro洗浄ロボットと連携"
         }
       }
     },
     "decisionGuide": {
       "eyebrow": "選定ガイド",
-      "title": "どの太陽光パネル清掃ロボットがプラントに合うか",
-      "subtitle": "Taypro プラットフォーム選択の簡易ガイド。最終推奨は汚れ調査と現場確認のうえで確定します。",
+      "title": "どの洗浄ロボットが発電所に合うか",
+      "subtitle": "Tayproプラットフォーム選定のクイックガイド。最終推奨は汚れ調査と現地確認後。",
       "cards": {
         "card0": {
-          "title": "固定／季節可変傾斜のユーティリティプラント",
-          "body": "毎晩すべての列を完全自律で清掃。最高の清掃稼働と最小の人的介入には Model-A。",
-          "cta": "Model-A を見る"
+          "title": "固定傾斜 — 特許デュアルパス",
+          "body": "固定・季節傾斜でコアデュアルパス？GLYDEがAIスケジュール付き完全自律洗浄。",
+          "cta": "GLYDEを見る"
         },
         "card1": {
-          "title": "分散・小ブロック多数のプラント",
-          "body": "複数の小ブロック、屋根、制約レイアウトで列ごとに 1 台は過剰な場合。Model-B はブロック間を移動し約 2 時間で約 1 MW。",
-          "cta": "Model-B を見る"
+          "title": "単軸トラッカー — デュアルパス",
+          "body": "GLYDE-Xは水平単軸トラッカー向けにデュアルパスとフレキシブルボディを融合。",
+          "cta": "GLYDE-Xを見る"
         },
         "card2": {
-          "title": "シングルアクストラッカープラント",
-          "body": "トラッカー構造にはトラッカー対応ロボットが必要。Model-T の 360° 回転ブリッジは NEXTracker、Gamechanger など主要トラッカーにそのまま対応。",
-          "cta": "Model-T を見る"
+          "title": "固定傾斜 — PBT",
+          "body": "同条件で自律PBTシングルパス？NYUMAはマイクロファイバーなしの乾式日常洗浄向け。",
+          "cta": "NYUMAを見る"
         },
         "card3": {
-          "title": "資産より成果を重視する場合",
-          "body": "ハードを所有したくない場合は、Taypro OPEX が月次サービスでロボット清掃を提供し、Taypro Console でレポートを確認できます。",
-          "cta": "Taypro OPEX を見る"
+          "title": "単軸トラッカー — PBT",
+          "body": "NYUMA-XはGLYDE-X同等のフレキシブルボディでトラッカーPBT洗浄。",
+          "cta": "NYUMA-Xを見る"
+        },
+        "card4": {
+          "title": "分散・小規模分散",
+          "body": "HELYXは半自動ピック＆プレースのPBT — 1台で複数ブロックを回る場合に最適。",
+          "cta": "HELYXを見る"
+        },
+        "card5": {
+          "title": "資産より成果重視？",
+          "body": "Taypro Opexは月額サービスで洗浄し、NECTYRで報告。",
+          "cta": "Taypro Opexを見る"
         }
       }
     },
     "comparison": {
-      "eyebrow": "並べて比較",
-      "title": "Model-A vs Model-B vs Model-T",
-      "subtitle": "プラント適合、清掃方式、自律性、商業モデルにおける Taypro の 3 プラットフォームの早見表。",
+      "eyebrow": "一覧比較",
+      "title": "Taypro洗浄ロボット比較",
+      "subtitle": "発電所タイプ・洗浄技術・自律性・接続の5プラットフォーム比較。",
       "tableHeaders": {
         "criteria": "項目",
-        "modelA": "Model-A",
-        "modelB": "Model-B",
-        "modelT": "Model-T"
+        "glyde": "GLYDE",
+        "glydeX": "GLYDE-X",
+        "nyuma": "NYUMA",
+        "nyumaX": "NYUMA-X",
+        "helyx": "HELYX"
       },
       "rows": {
         "row0": {
-          "criterion": "プラントタイプ",
-          "modelA": "固定／季節可変傾斜のユーティリティ規模",
-          "modelB": "分散、散在、制約レイアウト",
-          "modelT": "シングルアクストラッカープラント"
+          "criterion": "発電所タイプ",
+          "helyx": "分散固定傾斜",
+          "glyde": "固定・季節傾斜・大規模",
+          "nyuma": "固定・季節傾斜・大規模",
+          "glydeX": "単軸トラッカー",
+          "nyumaX": "単軸トラッカー"
         },
         "row1": {
           "criterion": "自律性",
-          "modelA": "完全自律（列あたり 1 台）",
-          "modelB": "半自動（オペレーター支援の搬送・設置）",
-          "modelT": "トラッカー引き渡し込みで完全自律"
+          "helyx": "半自動（ピック＆プレース）",
+          "glyde": "完全自律",
+          "nyuma": "完全自律",
+          "glydeX": "完全自律",
+          "nyumaX": "完全自律"
         },
         "row2": {
-          "criterion": "清掃方式",
-          "modelA": "無水デュアルパス — 気流＋マイクロファイバー",
-          "modelB": "無水ドライ清掃、ポータブルアーム",
-          "modelT": "360° 可動ブリッジ付き無水デュアルパス"
+          "criterion": "洗浄技術",
+          "helyx": "シングルパスPBTブラシ",
+          "glyde": "特許デュアルパスマイクロファイバー",
+          "nyuma": "シングルパスPBTブラシ",
+          "glydeX": "特許デュアルパスマイクロファイバー",
+          "nyumaX": "シングルパスPBTブラシ"
         },
         "row3": {
-          "criterion": "清掃速度",
-          "modelA": "1 充電で最大 3,600 枚",
-          "modelB": "1 台あたり約 2 時間で約 1 MW",
-          "modelT": "列単位、トラッカー同期"
+          "criterion": "洗浄速度",
+          "helyx": "1ユニットあたり約1MWを約2時間",
+          "glyde": "1充電最大3,600モジュール",
+          "nyuma": "1充電2.2km（約3,600モジュール）",
+          "glydeX": "行ごと、トラッカー同期",
+          "nyumaX": "行ごと、トラッカー同期"
         },
         "row4": {
           "criterion": "商業モデル",
-          "modelA": "CAPEX + AMC、典型的に 12〜18 か月で回収",
-          "modelB": "CAPEX + AMC、最低コスト／MW",
-          "modelT": "CAPEX + AMC、トラッカープラントの経済性"
+          "helyx": "CAPEX + AMC",
+          "glyde": "CAPEX + AMC",
+          "nyuma": "CAPEX + AMC",
+          "glydeX": "CAPEX + AMC",
+          "nyumaX": "CAPEX + AMC"
         },
         "row5": {
-          "criterion": "Taypro Console 接続",
-          "modelA": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN",
-          "modelB": "オペレータ主導、Console でレポート",
-          "modelT": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN"
+          "criterion": "NECTYR",
+          "helyx": "オペレータ主導＋NECTYR報告",
+          "glyde": "LTE、Wi-Fi、RF mesh、LoRa、LoRaWAN",
+          "nyuma": "LTE、Wi-Fi、RF mesh、LoRa、LoRaWAN",
+          "glydeX": "LTE、Wi-Fi、RF mesh、LoRa、LoRaWAN",
+          "nyumaX": "LTE、Wi-Fi、RF mesh、LoRa、LoRaWAN"
         }
       },
-      "ctaLine": "どのプラットフォームが合うか不明な場合は、プラント情報をお送りください。簡易汚れ調査のうえ最適なミックスをご提案します。 ",
+      "ctaLine": "どのプラットフォームか不明？発電所情報を共有ください — 汚れ調査後に最適構成を提案します。 ",
       "ctaLink": {
-        "topic": "Taypro に相談",
-        "label": "Taypro に相談"
+        "topic": "Tayproに相談",
+        "label": "Tayproに相談"
       },
       "ctaLineSuffix": "。"
     },
+    "brushComparison": {
+      "eyebrow": "ロボット vs 手動ブラシ",
+      "title": "手動ブラシ vs ロボット — 大規模TCO",
+      "subtitle": "小規模では手動ブラシも可。10MW超では人件費・水・ダウンタイム・品質ばらつきからロボット乾式洗浄が有利なことが多い。",
+      "brushTitle": "手動ブラシ・洗浄クルー",
+      "brush0": "MWとサイクル数に応じ人件費が増加",
+      "brush1": "水・洗剤・排水コンプライアンス",
+      "brush2": "品質のばらつきと天候制約",
+      "brush3": "パネル単位の証跡が投資家監査で困難",
+      "robotTitle": "Taypro洗浄ロボット（GLYDE / NYUMA / HELYX / OPEX）",
+      "robot0": "水なしデュアルパス — 月次で予測可能なサイクル",
+      "robot1": "NECTYRでテレメトリとレポート",
+      "robot2": "大規模行長・トラッカーテーブル向け設計",
+      "robot3": "CAPEX購入またはTaypro Opex従量",
+      "ctaService": "清掃サービスを見る",
+      "ctaCalculator": "ROI・コスト計算",
+      "videoTitle": "大規模発電所でのTaypro洗浄を見る",
+      "videoCaption": "インドの大規模サイトで稼働する水なし自律ソーラー洗浄ロボット。"
+    },
     "indianConditions": {
-      "eyebrow": "インドのソーラー向け設計",
-      "title": "インドのユーティリティ条件向けに設計",
-      "subtitle": "ラジャスタンの砂嵐、グジャラートの酷暑、カルナータカの湿気、タミル Nadu のモンスーン — Taypro のロボットは大規模インド O&M の現実向けに設計・試験・サービスされています。",
+      "eyebrow": "インドソーラー向け設計",
+      "title": "インド大規模条件向けに構築",
+      "subtitle": "ラジャスタンの砂嵐、グジャラートの暑さ、カルナータカの湿気、タミル・ナードゥのモンスーン — インドO&M向けに設計・試験・サービス。",
       "cards": {
         "card0": {
-          "title": "無水 — 水不足地域向け",
-          "body": "インドの多くのユーティリティは水資源逼迫地域に立地。無水デュアルパス清掃でモジュール洗浄用水を計画から外せます。"
+          "title": "水なし — 水不足地域向け",
+          "body": "インドの発電所は水不足地域に増加。Taypro水なしデュアルパスで洗浄用水をゼロに。"
         },
         "card1": {
-          "title": "高汚れ地域での性能",
-          "body": "毎日〜準毎日のロボットサイクルだけが、ラジャスタン、グジャラート、マディヤ・プラデーシュ、マハラシュトラで一般的な 8〜25% の汚れ損失を経済的に抑えられます。"
+          "title": "高汚染地域での性能",
+          "body": "ラジャスタン等で8–25%の損失を抑えるには日次〜準日次のロボット洗浄が現実的。"
         },
         "card2": {
           "title": "温度・湿度試験済み",
-          "body": "動作温度 90°C まで検証済み、TÜV NORD による湿热／乾熱認証 — 夏季、モンスーン、梅雨明けサイクルで実証。"
+          "body": "90°C動作、TÜV NORD damp-heat/dry-heat認証 — 夏季・モンスーン・秋雨後を実証。"
         },
         "card3": {
-          "title": "インド全域で当日故障対応",
-          "body": "Taypro はインド全域で当日オンサイト故障解決を目指し、Taypro Console で即時リモート診断、地域スペア、構造化 AMC で MTTR を予測可能にします。"
+          "title": "インド全国同日故障対応",
+          "body": "TayproはNECTYR即時診断、地域スペア、AMCでインド全国同日現場復旧を目指します。"
         }
       }
     },
     "whyTaypro": {
-      "eyebrow": "Taypro を選ぶ理由",
-      "title": "信頼できる太陽光パネル清掃ロボットメーカー",
-      "subtitle": "TAYPRO Private Limited により設計・製造・サービス — 特許技術、認証済みハードウェア、インド全域での導入実績。",
+      "eyebrow": "なぜTaypro",
+      "title": "信頼できる洗浄ロボットメーカー",
+      "subtitle": "TAYPRO Private Limitedが設計・製造・サービス — 特許技術、認証ハードウェア、全国導入。",
       "items": {
         "item0": {
-          "title": "Made-in-India 製造",
-          "body": "TAYPRO Private Limited が設計・製造・サービス — インドのユーティリティ規模ソーラー O&M の現実に合わせて設計。"
+          "title": "Made in India製造",
+          "body": "TAYPRO Private Limitedがインド大規模O&M向けに設計。"
         },
         "item1": {
           "title": "認証・特許技術",
-          "body": "TÜV NORD 認証ハードウェア、ISO 整合プロセス、特許デュアルパス清掃と RF mesh 通信。"
+          "body": "TÜV NORD認証、ISOプロセス、特許デュアルパスとRFメッシュ。"
         },
         "item2": {
-          "title": "インド全域に展開",
-          "body": "マハラシュトラ、マディヤ・プラデーシュ、カルナータカなど複数 MW プラントで稼働中 — 50〜250 MW 案件を含む。"
+          "title": "インド全国に導入",
+          "body": "マハーラーシュトラ、MP、カルナータカ等の数十〜数百MW案件で稼働。"
         },
         "item3": {
           "title": "迅速な故障対応",
-          "body": "インド全域で当日オンサイト解決を目指し、Taypro Console の即時リモート診断、地域スペア、AMC で MTTR を予測可能に。"
+          "body": "TayproはNECTYR・地域スペア・AMCで同日現場復旧を目指します。"
         }
       }
     },
     "dynamicProjectsRollup": {
-      "eyebrow": "ユーティリティ規模で稼働中",
-      "heading": "インド各地で稼働する太陽光パネル清掃ロボット",
-      "subheading": "Taypro のロボットはマハラシュトラ、マディヤ・プラデーシュ、カルナータカほか複数 MW プラントで清掃しています。最近の導入例の一部を以下に。"
+      "eyebrow": "大規模で導入済み",
+      "heading": "インド各地で稼働中の洗浄ロボット",
+      "subheading": "Tayproロボットはマハーラーシュトラ、MP、カルナータカ等で洗浄。最近の導入例を掲載。"
     },
     "roiBand": {
-      "title": "ソーラープラントでの清掃ロボットの節効果を試算",
-      "body": "プラント規模と料金を入力して概算ペイバックを確認するか、フル計算機で PDF 出力。",
-      "linkFullCalculator": "ROI・価格計算機を開く"
+      "title": "洗浄ロボットでどれだけ節約できるか計算",
+      "body": "発電所規模とタリフで回収見込みを試算 — またはPDF出力用のフル計算機を開く。",
+      "linkFullCalculator": "フルROI・価格計算を開く"
     },
     "featuresSection": {
-      "eyebrow": "すべての Taypro ロボットの中身",
-      "title": "Taypro 太陽光パネル清掃ロボットの特長",
-      "imageAlt": "Taypro 太陽光パネル清掃ロボットの特長 — インドのソーラーファーム向け AI/ML スケジュール付き無水自律デュアルパス清掃",
-      "imageTitle": "Taypro の太陽光パネル清掃ロボット機能"
+      "eyebrow": "Tayproロボットの中身",
+      "title": "Tayproソーラー洗浄ロボットの特長",
+      "imageAlt": "Taypro洗浄ロボットの特長 — AI/MLスケジュール付き水なし自律デュアルパス",
+      "imageTitle": "Tayproのソーラー洗浄ロボット特長"
     },
     "advantagesSection": {
-      "eyebrow": "運用会社に選ばれる理由",
-      "title": "太陽光パネル清掃ロボットを使う利点",
-      "imageAlt": "インドのユーティリティ規模ソーラーファームで稼働する清掃ロボット — 汚れによる発電低下を回復",
-      "imageTitle": "ユーティリティ規模プラントの Taypro 太陽光パネル清掃ロボット"
+      "eyebrow": "運用者に選ばれる理由",
+      "title": "ソーラー洗浄ロボット利用のメリット",
+      "imageAlt": "インド大規模発電所で稼働する洗浄ロボット — 汚れ損失の回復",
+      "imageTitle": "大規模発電所のTaypro洗浄ロボット"
     },
     "consoleBand": {
-      "eyebrow": "Taypro Console — フリートポータル",
-      "title": "プラント内のすべての清掃ロボットを一つのポータルで",
-      "body": "サイトダッシュボード、天候コンテキスト、ブロック別スケジュール、清掃ログ、エクスポート、ゲートウェイ・ロボット健全性、サポートチケット — ロールベースでユーティリティ O&M 統制に対応。",
-      "cta": "Taypro Console を見る"
+      "eyebrow": "NECTYR — フリートポータル",
+      "title": "発電所の全洗浄ロボットを監視する一つのポータル",
+      "body": "サイトダッシュボード、天候、ブロック別スケジュール、ログ、エクスポート、ヘルス、チケット — ロールベースで大規模O&M向け。",
+      "cta": "NECTYRを見る"
     },
     "thingsToMind": {
-      "eyebrow": "現場で証明されたプラクティス",
-      "title": "ロボットでソーラーパネルを清掃する際の心得",
-      "intro": "50 MW でも 250 MW でも、いくつかの習慣がロボット清掃を一貫・安全・監査対応に保ちます。"
+      "eyebrow": "現場で実証されたベストプラクティス",
+      "title": "ロボット洗浄時の留意点",
+      "intro": "50MWでも250MWでも、いくつかの習慣で洗浄を一貫・安全・監査対応に。"
     },
     "faq": {
-      "title": "太陽光パネル清掃ロボット — FAQ",
-      "subtitleLead": "発電事業者と EPC がよく尋ねる質問への短い回答。プラント別のご提案は ",
+      "title": "ソーラーパネル洗浄ロボット — FAQ",
+      "subtitleLead": "発電所オーナー・EPCがよく聞く質問への回答。サイト別の推奨は",
       "subtitleCta": {
-        "topic": "Taypro に問い合わせ",
-        "label": "Taypro に連絡"
+        "topic": "Tayproにお問い合わせ",
+        "label": "Tayproにお問い合わせ"
       },
-      "subtitleSuffix": " ください。",
+      "subtitleSuffix": "。",
       "items": {
         "item0": {
-          "question": "太陽光パネル清掃ロボットとは何か、ソーラープラントに必要な理由は？",
-          "answer": "太陽光パネル清掃ロボットは、水や人手を使わずにホコリ・鳥ふんなどを PV モジュールから除去する自動機です。インドのユーティリティでは汚れで発電が 8〜25% 低下し、PPA のパフォーマンスや DISCOM のペナルティに直結します。ロボット清掃で発電を回復し、O&M から水をなくし、毎サイクル予測可能な清掃 — 手洗いより一貫性があります。"
+          "question": "ソーラーパネル洗浄ロボットとは？発電所になぜ必要か",
+          "answer": "水も人手も不要で塵・鳥糞などを除去する自動機。インドでは汚れで8–25%発電低下しPPA・DISCOMペナルティに直結。ロボット洗浄が発電回復・水不要・毎サイクル均一洗浄を実現。"
         },
         "item1": {
-          "question": "インドのユーティリティ規模プラントで最適な清掃ロボットは？",
-          "answer": "大型の固定または季節可変傾斜では、Taypro Model-A の自動ロボットが一般的に最適です — 完全自律、無水デュアルパス、AI/ML スケジュール、高温・ホコリ向け設計。シングルアクストラッカーは Model-T。散在や小ブロックは Model-B の半自動搬送・設置モデルがコスト／MW が最も低くなります。"
+          "question": "インド大規模発電所に最適な洗浄ロボットは？",
+          "answer": "大規模固定・季節傾斜ではGLYDE自動が最適 — 完全自律、水なしデュアルパス、AI/ML。単軸はGLYDE-X。分散ブロックはHELYX半自動がMW当たり最安。"
         },
         "item2": {
-          "question": "Taypro のロボットはすべて完全自動か？",
-          "answer": "Model-A と Model-T は完全自律 — 事前スケジュールで運転しドックに戻り、日々のオペ無しで Taypro Console に報告。Model-B は半自動でオペ支援によりブロック間の可搬性を確保。3 機種すべてで Console から健全性監視、スケジュール、レポート取得が可能です。"
+          "question": "Tayproの洗浄ロボットは完全自動か？",
+          "answer": "GLYDE・GLYDE-Xは完全自律 — 事前スケジュール、ドック復帰、NECTYR報告。HELYXは半自動でブロック間移動可。全機NECTYRで遠隔管理。"
         },
         "item3": {
-          "question": "清掃ロボットは水を使うか？",
-          "answer": "いいえ。すべての Taypro ロボットは無水です。特許のデュアルパスドライ清掃 — まず気流でホコリを浮かせ、柔らかいマイクロファイバーで拭取。タンクローリー不要、熱衝撃リスクなし、水不足地域での消費もありません。"
+          "question": "洗浄ロボットは水を使うか？",
+          "answer": "いいえ。全Tayproロボットは水なし — 特許乾式デュアルパス：気流→マイクロファイバー。水車両・熱衝撃・乾燥地域の取水なし。"
         },
         "item4": {
-          "question": "インドでの価格と ROI は？",
-          "answer": "価格はプラント規模、モデル（Model-A／B／T）、レイアウト、CAPEX と OPEX の商業構造によります。典型 CAPEX 導入は発電回復・水・労務削減・DISCOM ペナルティ低減で 12〜18 か月の回収を目指します。サイト上の Taypro ROI 計算機で概算後、詳細見積をご請求ください。"
+          "question": "インドでの洗浄ロボットの価格とROIは？",
+          "answer": "価格は規模・機種（GLYDE/HELYX/GLYDE-X）・レイアウト・CAPEX/OPEX次第。CAPEXは12–18ヶ月回収が目安。サイトのROI計算機の後、見積依頼を。"
         },
         "item5": {
-          "question": "CAPEX ではなくサービスとして買えるか？",
-          "answer": "はい。Taypro OPEX はクリーン済みパネル課金の月次サービスです（典型的に 50 MW+）。サイトに応じ Model-A／B／T を配置し、汚れ調査に基づき月 3〜10 回運転し、清掃したパネルのみ請求。Console で全サイクルとレポートを確認できます。"
+          "question": "CAPEXではなくサービスで導入できるか？",
+          "answer": "はい。Taypro Opexはパネル従量の月額サービス（通常50MW以上）。GLYDE/HELYX/GLYDE-Xを展開し月3–10サイクル、洗浄パネル課金。ハードウェア不要でNECTYRに全記録。"
         },
         "item6": {
-          "question": "導入後の監視は？",
-          "answer": "すべての Taypro 導入は Taypro Console — ダッシュボード、スケジュール、ログ、エクスポート、チケットの顧客ポータルで監視。接続は LTE、Wi-Fi、hybrid self-healing RF mesh、LoRa、LoRaWAN で、試運転時に Taypro エンジニアが設計・サイジングします。"
+          "question": "設置後の監視は？",
+          "answer": "全導入をNECTYRで監視 — ダッシュボード、スケジュール、ログ、チケット。LTE/Wi-Fi/RF mesh/LoRa/LoRaWANはコミッショニング時に設計。"
         },
         "item7": {
-          "question": "故障時のサポートは？",
-          "answer": "Taypro はインド全域で当日オンサイト解決と Console からの即時リモート診断、専任フィールド、AMC スペア計画を提供。AMC には予防保全、スペア、Console のチケット運用が含まれ MTTR を予測可能にします。"
+          "question": "故障時のTayproサポートは？",
+          "answer": "同日現場対応、NECTYR即時診断、専任エンジニア、AMCスペア計画。AMCはNECTYRで予防保全とチケット。"
         },
         "item8": {
-          "question": "Taypro はメーカーか再販か？",
-          "answer": "Taypro は Made in India メーカーです。TAYPRO Private Limited が自社の太陽光パネル清掃ロボットを設計・製造・展開・サービスし、特許デュアルパスと RF mesh、TÜV NORD 認証、インド全域のサービス網を持ちます。"
+          "question": "Tayproはメーカーか再販か？",
+          "answer": "TayproはMade in Indiaメーカー。TAYPRO Private Limitedが設計・製造・導入・サービス — 特許デュアルパス、RF mesh、TÜV NORD、全国ネットワーク。"
         },
         "item9": {
-          "question": "インドではどのくらいの頻度で清掃すべきか？",
-          "answer": "頻度はホコリ負荷、農業残渣（パンジャブ・ハリヤーナの炊き出しなど）、モンスーン、PPA 目標によります。多くのユーティリティは乾季に 1〜3 日ごと、砂嵐後はより速いサイクルが有効です。Taypro はブロックごとの推奨頻度を汚れ調査から提案します。"
+          "question": "インドではどのくらいの頻度で洗浄すべきか？",
+          "answer": "頻度は塵、農業焼却、モンスーン、PPA目標次第。乾季は1–3日ごと、砂嵐後は短周期が有効。Tayproは汚れ調査から始めます。"
         }
       }
     },
     "finalCta": {
-      "eyebrow": "導入の準備はできましたか？",
-      "title": "プラントへロボット清掃を",
-      "body": "プラント情報をご共有ください。簡易汚れ調査のうえ、最適なロボット構成と商業モデルをご提案します。",
+      "eyebrow": "導入の準備は？",
+      "title": "発電所にロボット洗浄を導入",
+      "body": "発電所情報を共有ください — 簡易汚れ調査後に最適なロボット構成と商業モデルを提案します。",
       "primaryCta": {
-        "topic": "見積り依頼",
-        "title": "見積りを依頼",
-        "subtitle": "プラント情報を共有いただき、最適な太陽光パネル清掃ロボットをご案内します。",
-        "label": "見積りを依頼"
+        "topic": "見積依頼",
+        "title": "見積依頼",
+        "subtitle": "発電所情報を共有いただければ最適なロボットをご提案します。",
+        "label": "見積依頼"
       },
-      "secondaryCta": "ROI を計算"
-    },
-    "brushComparison": {
-      "eyebrow": "ロボット対手動ブラシ",
-      "title": "パネル清掃ブラシ vs ロボット — 大規模TCO",
-      "subtitle": "小規模では手動ブラシも可。10MW以上では人件費・水・ばらつきからドライロボット清掃が有利なことが多いです。",
-      "brushTitle": "手動ブラシ／洗浄クルー",
-      "brush0": "人件費がMWとサイクルで増加",
-      "brush1": "水・薬剤・排水対応",
-      "brush2": "品質と天候のばらつき",
-      "brush3": "パネル単位の監査が困難",
-      "robotTitle": "Taypro清掃ロボット（Model-A/B/TまたはOPEX）",
-      "robot0": "無水デュアルパス—月次サイクル",
-      "robot1": "Consoleでテレメトリ",
-      "robot2": "大規模列・トラッカー向け",
-      "robot3": "CAPEXまたはパネル課金OPEX",
-      "ctaService": "清掃サービスを見る",
-      "ctaCalculator": "ROI・コスト計算",
-      "videoTitle": "大規模プラントのTayproロボット",
-      "videoCaption": "インドの大規模サイトでの無水自律清掃ロボット。"
+      "secondaryCta": "ROIを計算"
     }
   }
 }

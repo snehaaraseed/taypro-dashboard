@@ -7,7 +7,7 @@ import { withHreflang } from "@/lib/seo/with-hreflang";
 const siteUrl = SITE_URL;
 const MODEL_A_PATH =
   "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system";
-const modelAOg = socialImagesFromPreset("modelA");
+const modelAOg = socialImagesFromPreset("glyde");
 
 export async function generateMetadata({
   params,

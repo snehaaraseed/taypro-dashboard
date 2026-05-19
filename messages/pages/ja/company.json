@@ -1,27 +1,29 @@
 {
   "CompanyPage": {
     "meta": {
-      "title": "Tayproについて | インドのソーラーパネル清掃ロボットメーカー",
-      "description": "Taypro Private LimitedがModel-A、Model-B、Model-T、Taypro Opex、Taypro ConsoleなどMade-in-Indiaの自律型ソーラーパネル清掃ロボットをユーティリティ・商業PV向けに設計・製造する方法。ビジョン、リーダーシップ、プネーでの製造規模、全国サービス。",
-      "openGraphDescription": "自律型・半自動ソーラー清掃ロボット、二重パス無水技術、インド全国展開サポートの背後にあるTayproの企業ストーリー、ビジョン、リーダーシップ。",
-      "openGraphImageAlt": "Tayproについて - ソーラーパネル清掃ロボットメーカー",
-      "twitterDescription": "Made-in-Indiaソーラーパネル清掃ロボット、全国倉庫、クラウドフリート監視—ユーティリティ規模の資産オーナーとO&Mチーム向け。"
+      "title": "Tayproについて | インドのソーラーパネル洗浄ロボットメーカー",
+      "description": "Taypro Private LimitedがMade-in-Indiaの自律型ソーラーパネル洗浄ロボット—GLYDE、HELYX、GLYDE-X、Taypro Opex、NECTYR—をユーティリティ規模・商用PV向けに設計する方法をご覧ください。Puneでの製造規模、ビジョン、リーダーシップ、全国サービス。",
+      "openGraphDescription": "Tayproの自律型・半自動ソーラー洗浄ロボット、デュアルパス水なし技術、インド全国展開サポートの背景にある企業ストーリー、ビジョン、リーダーシップ。",
+      "openGraphImageAlt": "Tayproについて — ソーラーパネル洗浄ロボットメーカー",
+      "twitterDescription": "Made-in-Indiaソーラーパネル洗浄ロボット、全国倉庫、クラウドフリート監視—ユーティリティ規模の資産所有者とO&Mチーム向け。"
     },
-    "breadcrumbs": { "aboutUs": "会社概要" },
+    "breadcrumbs": {
+      "aboutUs": "会社概要"
+    },
     "hero": {
       "eyebrow": "Tayproについて",
-      "titleLine1": "持続可能な未来の",
-      "titleLine2": "エンジニア",
-      "bodyBeforeLink": "Taypro Private Limitedは、自律型・半自動の",
-      "bodyLink": "ソーラーパネル清掃ロボット",
-      "bodyAfterLink": "のMade-in-Indiaメーカーです。ユーティリティ・商業・屋根置きPV向け。チャカン（プネー）の製造拠点から、無水二重パスシステム、全国スペア物流、Taypro Consoleフリートダッシュボードを出荷し、開発者とO&Mチームが稼働率を損なわずに発電量・安全・水を守れるようにします。"
+      "titleLine1": "持続可能な",
+      "titleLine2": "未来のエンジニア",
+      "bodyBeforeLink": "Taypro Private LimitedはMade-in-Indiaの自律型・半自動",
+      "bodyLink": "ソーラーパネル洗浄ロボット",
+      "bodyAfterLink": "をユーティリティ規模・商用・屋根置きPV向けに製造しています。Chakan, Puneの製造拠点から、水なしデュアルパスシステム、India全土のスペア物流、NECTYRフリートダッシュボードを出荷—開発者とO&Mチームが稼働率を損なうことなく、発電量・安全・水資源を守れるように。"
     },
     "statsStrip": {
       "eyebrow": "概要",
-      "heading": "製造規模とフィールドフットプリント",
-      "robotCapacityDeployed": "導入ロボット容量",
-      "plantInstallations": "プラント導入数",
-      "waterSavedAnnually": "年間節水量（リットル）",
+      "heading": "製造規模と現場フットプリント",
+      "robotCapacityDeployed": "展開済みロボット容量",
+      "plantInstallations": "プラント設置数",
+      "waterSavedAnnually": "年間節水リットル数",
       "robotsManufacturedPerMonth": "月間ロボット製造能力"
     },
     "brandValues": {
@@ -31,167 +33,169 @@
       "value2": "一貫性",
       "value3": "機敏",
       "value4": "信頼性",
-      "value5": "共感",
+      "value5": "共感的",
       "value6": "卓越性",
       "cta": "ソリューションを見る",
-      "ctaTitle": "ソーラーパネル清掃ロボット"
+      "ctaTitle": "ソーラーパネル洗浄ロボット"
     },
     "sustainability": {
       "titleLine1": "当社にとって、",
-      "titleLine2": "多様性と持続可能性は",
-      "titleLine3": "単なる言葉ではありません。",
-      "body": "各導入は人手洗浄に代わり、ディーゼルと水の強度を下げ、よりクリーンなメガワット時を系統に返します。稼働プラントでの節約の定量方法をご覧ください。",
+      "titleLine2": "多様性と持続可能性",
+      "titleLine3": "は単なる言葉ではありません。",
+      "body": "すべての展開が、労働集約的な洗浄に取って代わり、ディーゼルと水の使用強度を削減し、よりクリーンなメガワット時を送電網に返します。稼働中の発電所での節約を運用チームがどう定量化するかご覧ください。",
       "exploreProjects": "プロジェクトを見る",
       "exploreProjectsTitle": "ソーラープロジェクト",
-      "waterSavedLabel": "年間節水量（リットル）",
-      "co2ReducedLabel": "年間CO₂削減量（メトリックトン）",
+      "waterSavedLabel": "年間節水リットル数",
+      "co2ReducedLabel": "年間削減CO2排出量（メトリックトン）",
       "communityEyebrow": "コミュニティ",
-      "communityHeading": "持続可能なエネルギーは企業の社会的責任と義務です。",
-      "communityBody": "手頃な電力に依存する地域社会と、砂嵐・モンスーン・盛夏負荷でプラントを稼働させる現場チームのために設計しています。",
-      "modelTImageAlt": "ソーラーアレイ上で稼働するModel-T単軸トラッカー用清掃ロボット",
-      "modelTImageTitle": "Taypro Model-T 単軸トラッカー用ソーラーパネル清掃ロボット"
+      "communityHeading": "持続可能なエネルギーは、当社の企業責任であり社会への義務です。",
+      "communityBody": "手頃な電力に依存するコミュニティのために、そして砂嵐・モンスーン・夏季ピーク負荷の中で発電所を稼働させる現場チームのために設計しています。",
+      "modelTImageAlt": "Taypro単軸トラッカー用ソーラーパネル洗浄ロボットGLYDE-Xがソーラーアレイ上で稼働",
+      "modelTImageTitle": "Taypro単軸トラッカー用ソーラーパネル洗浄ロボット GLYDE-X"
     },
     "story": {
       "heading": "企業ストーリー、ビジョン、ミッション",
-      "intro": "Tayproはハードウェア工学、製造規律、フィールドサービスを統合し、ソーラー投資家に大規模ロボット清掃の単一責任パートナーを提供します。",
+      "intro": "Tayproはハードウェアエンジニアリング、製造規律、現場サービスを統合し、ソーラー投資家に大規模ロボット清掃の単一責任パートナーを提供します。",
       "whoWeAre": {
         "label": "私たちについて",
-        "heading": "インド全土のソーラー資産オーナー・オペレーター向けエンジニアリング主導のロボティクス。",
-        "body": "Taypro Private Limitedは固定傾斜・季節傾斜・屋根・単軸トラッカー向け自律型ソーラーパネル清掃ロボットを設計・製造・サポート。Made-in-Indiaシステムは無水二重パス清掃、堅牢な現場接続、Taypro Consoleによるクラウド監視を組み合わせます。"
+        "heading": "India全土のソーラー資産所有者・オペレーター向けのエンジニアリング主導ロボティクス。",
+        "body": "Taypro Private Limitedは固定傾斜、季節傾斜、屋根置き、単軸トラッカー向けの自律型ソーラーパネル洗浄ロボットを設計・製造・サポートします。Made-in-Indiaシステムは水なしデュアルパス洗浄、堅牢な現場接続、NECTYRによるクラウド監視を組み合わせ—予測可能なO&Mで高い性能比を維持します。"
       },
       "vision": {
         "label": "ビジョン",
-        "heading": "すべてのソーラーメガワットの経済・環境価値を最大限に引き出す。",
-        "body": "汚れは発電を妨げる最大の回避可能要因の一つ。再生可能エネルギーは年々安定した性能があってこそ拡大すると信じています。TayproはIPP、開発者、O&Mチームに発電量・労働安全・水資源を守る再現可能な方法を提供します。"
+        "heading": "すべてのソーラーメガワットの経済的・環境的価値を最大限に引き出す。",
+        "body": "汚損は発電量を下げる最大の回避可能な要因の一つです。再生可能エネルギーは、年々安定した性能があって初めて拡大すると私たちは考えています。Tayproは、IPP、開発者、O&Mチームに、コミュニティと産業に電力を供給する同じ資産で、発電量・労働安全・水資源を守る再現可能な方法を提供するために存在します。"
       },
       "mission": {
         "label": "ミッション",
         "heading": "信頼できるロボット、透明なサービス、測定可能な成果を—サイトごとに届ける。",
-        "body": "R&D、製造能力、全国物流に投資し、一貫した品質、迅速なスペア、レスポンシブサポートを提供。Model-A・BからModel-T、Taypro Opexまで—ロードマップは一つの問いに結びつきます：プラント稼働率・安全・TCOは改善されるか。"
+        "body": "R&D、製造能力、全国物流に投資し、顧客に一貫した品質、迅速なスペア供給、迅速なサポートを提供します。GLYDE・HELYXからGLYDE-X（トラッカー向け）、Taypro Opex（オペレーター主導清掃）まで—ロードマップは一つの問いに結びついています：発電所の稼働率、安全、TCOを改善するか？"
       }
     },
     "solutions": {
       "heading": "ロボット、サービス、フリートソフトウェア",
-      "bodyBeforeLink": "Tayproはハードウェア、オペレータ主導清掃、クラウド監視の単一ベンダーです。各プラットフォームの仕様を確認するか、",
-      "bodyLink": "清掃技術の仕組み",
-      "bodyAfterLink": "をお読みください。",
+      "bodyBeforeLink": "Tayproはハードウェア、オペレーター主導清掃、クラウド監視の単一ベンダーです。各プラットフォームの仕様を確認するか、",
+      "bodyLink": "当社の洗浄技術の仕組み",
+      "bodyAfterLink": "をご覧ください。",
       "viewRobot": "{model}を見る →",
-      "robotImageAlt": "{model} - Tayproソーラーパネル清掃ロボット",
+      "robotImageAlt": "{model} — Tayproソーラーパネル洗浄ロボット",
       "robots": {
-        "modelA": "二重パス気流とマイクロファイバーによる完全自律無水ドライ清掃—固定・季節傾斜ユーティリティ向けAIスケジューリング。",
-        "modelB": "分散ブロックや柔軟なクルー支援カバレッジ向けポータブルpick-and-placeドライ清掃ロボット。",
-        "modelT": "単軸トラッカー向け自律無水ロボット—柔軟ブリッジとトラッカーブランド横断360°回転。",
-        "tayproOpex": "パネル清掃ごとのOpex—前払いCAPEXなしでTayproがプラントで清掃ロボットフリートを運用。",
-        "tayproConsole": "サイト全体のソーラーパネル清掃ロボットのスケジュール・監視・レポート用フリートポータル。"
+        "modelA": "完全自律の水なしドライ洗浄—デュアルパス気流とマイクロファイバー—固定・季節傾斜ユーティリティ向けAIスケジューリング。",
+        "modelB": "散在ブロックや柔軟なクルー支援カバレッジが必要な発電所向けのポータブルピック＆プレースドライ洗浄ロボット。",
+        "modelT": "単軸トラッカー向け自律型水なしロボット—柔軟なブリッジとトラッカーブランド間360°回転。",
+        "tayproOpex": "パネル清掃あたりのOpex—Tayproが前払いCAPEXなしで発電所の清掃ロボットフリートを運用。",
+        "tayproConsole": "サイト全体のソーラーパネル洗浄ロボットをスケジュール・監視・レポートするフリートポータル。"
       }
     },
     "builtForSites": {
       "heading": "実際のソーラーサイト向けに構築",
-      "paragraph1": "プラントオペレーターとの共同開発で、「ラボで動く」だけでは不十分だと学びました。Tayproロボットは不均一地形、トラッカー曲率、RF死角、ユーティリティO&Mのペース向けに設計されています。",
-      "paragraph2BeforeModelA": "特許二重パス清掃、AI支援スケジューリング、LTE/Wi-Fi/mesh接続、予知保全は",
-      "modelALink": "Model-A",
-      "paragraph2Middle": "や",
-      "modelTLink": "Model-T",
-      "paragraph2After": "などのプラットフォームで統合され、資産管理者に汚れ損失の測定可能な制御を与えます。",
-      "aboutImageAlt": "ユーティリティ規模PVアレイで稼働するTaypro自律ソーラーパネル清掃ロボット",
-      "aboutImageTitle": "Tayproソーラーパネル清掃ロボット技術"
+      "paragraph1": "プラントオペレーターとの長年の共同開発で、「ラボで動く」だけでは不十分だと学びました。Tayproロボットは不均一な地形、トラッカー曲率、RF死角、ユーティリティ規模O&Mのペース向けに設計—ダウンタイム1時間が重要です。",
+      "paragraph2BeforeModelA": "特許デュアルパス洗浄、AI支援スケジューリング、LTE/Wi-Fi/mesh接続、予知保全ワークフローが",
+      "modelALink": "GLYDE",
+      "paragraph2Middle": "と",
+      "modelTLink": "GLYDE-X",
+      "paragraph2After": "GLYDEやGLYDE-Xなどのプラットフォームで統合され、資産管理者に汚損損失の測定可能な制御を提供します。",
+      "aboutImageAlt": "Taypro自律型ソーラーパネル洗浄ロボットがユーティリティ規模PVアレイ上で稼働",
+      "aboutImageTitle": "Tayproソーラーパネル洗浄ロボット技術"
     },
     "collaboration": {
       "heading": "設計から出荷までの協業",
-      "paragraph1": "Tayproはティア1部品サプライヤー、専門メーカー、現地コミッショニングクルーと協力し、各ロボットが厳しい現場任務に備えて出荷されるようにしています。",
-      "paragraph2Before": "このエコシステム思考により、月間",
-      "paragraph2Middle": "台の製造能力に拡大し、インド全土に",
-      "paragraph2AfterWarehouses": "以上の倉庫を備え、",
-      "consoleLink": "Taypro Console",
-      "paragraph2End": "で監視するフリートへの当日故障対応などのコミットメントを果たします。",
-      "about2ImageAlt": "ソーラーパネル清掃ロボット生産のためのTaypro工学・製造協業",
-      "about2ImageTitle": "Tayproソーラーパネル清掃ロボット共同開発"
+      "paragraph1": "Tayproはティア1部品サプライヤー、専門メーカー、現地試運転クルーと協力し、すべてのロボットが過酷な現場任務に備えてラインを出荷—現場でのカスタム修正待ちの実験プロジェクトではありません。",
+      "paragraph2Before": "そのエコシステム思考こそが、",
+      "paragraph2Middle": "月間製造能力のロボット規模へ拡大し、India全土に",
+      "paragraph2AfterWarehouses": "倉庫を確保し、",
+      "consoleLink": "NECTYR",
+      "paragraph2End": "NECTYRで監視するフリート向けの同日故障対応などのコミットメントを守る方法です。",
+      "about2ImageAlt": "Tayproソーラーパネル洗浄ロボット生産のためのエンジニアリング・製造協業",
+      "about2ImageTitle": "Tayproソーラーパネル洗浄ロボット共同開発"
     },
     "partnerJourney": {
       "eyebrow": "協業の進め方",
-      "heading": "最初の会話からフリート運用まで",
-      "intro": "開発者、IPP、O&Mチームは通常、単一ブロックでも数百MWポートフォリオでも、Tayproと構造化されたプロセスを辿ります。",
+      "heading": "最初の対話からフリート運用まで",
+      "intro": "開発者、IPP、O&Mチームは通常、Tayproと構造化されたプロセスをたどります—単一ブロックの評価でも数百MWのポートフォリオでも。",
       "step0": {
-        "title": "プラントを理解する",
-        "description": "レイアウト（固定傾斜・屋根・トラッカー）、DC容量、汚れプロファイル、CAPEX所有かTaypro Opexマネージドサービスかを共有してください。"
+        "title": "発電所を把握する",
+        "description": "レイアウト（固定傾斜、屋根置き、トラッカー）、DC容量、汚損プロファイルを共有し、CAPEX所有かTaypro Opexのマネージドサービスかをお知らせください。"
       },
       "step1": {
-        "title": "技術適合とROI",
-        "description": "Model-A、B、TとConsole監視をブロックにマッピングし、清掃頻度を合意し、ROIツールで水・人件費削減を定量化します。"
+        "title": "技術適合性とROI",
+        "description": "GLYDE、HELYX、GLYDE-XとNECTYR監視をブロックにマッピングし、清掃頻度を合意し、ROIツールで水・労務節約を定量化します。"
       },
       "step2": {
-        "title": "展開とコミッショニング",
-        "description": "ロボットはチャカン（プネー）で製造され倉庫ネットワーク経由で出荷。コミッショニングクルーが設置、O&M研修、Taypro Console接続を行います。"
+        "title": "展開と試運転",
+        "description": "ロボットはChakan, Puneで製造され、倉庫ネットワーク経由で出荷。試運転クルーが設置、O&Mチーム研修、NECTYRへのフリート接続を行います。"
       },
       "step3": {
-        "title": "継続運用",
-        "description": "全国スペア、予知保全、当日故障対応でフリートを生産的に維持。Projectsのケーススタディがユーティリティ規模の成果を記録します。"
+        "title": "継続性のある運用",
+        "description": "全国スペア、予知保全ワークフロー、同日故障対応でフリートを稼働させ続けます。Projectsの事例がユーティリティ規模の成果を示します。"
       },
       "viewProjects": "プロジェクトを見る",
       "roiCalculator": "ROI計算機"
     },
     "scale": {
       "heading": "自信を持って仕様化できる規模",
-      "body": "ベンチマークは製造投資、全国物流フットプリント、インドの多様なソーラー地域での再現可能な清掃性能へのこだわりを反映します。",
+      "body": "ベンチマークは製造投資、全国物流フットプリント、Indiaの多様なソーラー地域での再現可能な清掃性能へのこだわりを反映します。",
       "cleaningEfficiency": "清掃効率",
       "manufacturingCapacity": "月間ロボット製造能力",
-      "warehouses": "インド国内倉庫"
+      "warehouses": "Indiaの倉庫"
     },
     "leadership": {
       "heading": "リーダーシップチーム",
-      "body": "インドのソーラー分野でTayproの製品ロードマップ、製造規模、顧客パートナーシップを導く経営陣をご紹介します。",
+      "body": "IndiaのソーラーセクターでTayproの製品ロードマップ、製造規模、顧客パートナーシップを導く経営陣をご紹介します。",
       "roleCeo": "CEO",
       "roleCoo": "COO",
       "roleCto": "CTO",
       "roleCmo": "CMO",
-      "founderImageAlt": "{name} - Tayproの{role}、ソーラーパネル清掃ロボットメーカーを率いる",
-      "founderImageTitle": "{name} - Tayproの{role}",
+      "founderImageAlt": "{name} — Tayproの{role}、ソーラーパネル洗浄ロボットメーカーを率いる",
+      "founderImageTitle": "{name} — Tayproの{role}",
       "linkedinAria": "{name}のLinkedIn"
     },
     "resources": {
       "heading": "リソース",
-      "body": "汚れ科学、メンテナンス経済、新興PV技術の深掘りが、ロボット清掃の可能性について財務・工学・O&Mリーダーを揃えるのに役立ちます。",
+      "body": "汚損科学、メンテナンス経済、新興PV技術の深掘りが、財務・エンジニアリング・O&Mリーダーのロボット清掃の価値理解を支援します。ガイドをブックマークするか、調達向けインサイトの全アーカイブをご覧ください。",
       "viewAll": "すべてのリソースを見る",
       "viewAllTitle": "ブログ",
       "cardLinkTitle": "エネルギーリソース",
-      "resourceImageAlt": "{title} - Tayproによるソーラー技術リソース記事",
-      "resourceImageTitle": "{title} - ソーラーパネル清掃ロボットエネルギーリソース",
+      "resourceImageAlt": "{title} — Tayproによるソーラーパネル洗浄ロボット技術・ソーラーエネルギーリソース記事",
+      "resourceImageTitle": "{title} — ソーラーパネル洗浄ロボットエネルギーリソース",
       "item0": {
         "title": "ソーラーパネルメンテナンス完全ガイド",
         "date": "2025年7月27日"
       },
       "item1": {
-        "title": "2025年の新ソーラーパネル技術",
+        "title": "新ソーラーパネル技術 2025",
         "date": "2025年7月23日"
       }
     },
     "explore": {
-      "heading": "Tayproの探索を続ける",
-      "body": "稼働中の導入、技術詳細、プラントでの節約モデリングツールをご覧ください。",
-      "link0": "導入プロジェクト",
-      "link1": "清掃技術",
-      "link2": "全ロボットモデル",
-      "link3": "営業に連絡"
+      "heading": "Tayproをさらに探索",
+      "body": "稼働中の展開、技術深掘り、発電所の節約モデリングツールをご覧ください。",
+      "link0": "設置プロジェクト",
+      "link1": "洗浄技術",
+      "link2": "すべてのロボットモデル",
+      "link3": "営業に問い合わせ"
     },
     "faq": {
       "heading": "よくある質問",
-      "subheading": "Tayproをソーラー清掃ロボティクスベンダーとして評価するパートナー向けの簡潔な回答。",
+      "subheading": "Tayproをソーラー清掃ロボティクスベンダーとして評価するパートナー向けのクイック回答。",
       "talkToTeam": "チームに相談",
       "q0": "Tayproは何を製造していますか？",
-      "a0": "Taypro Private Limitedはインドのユーティリティ・商業ソーラープラント向けに自律型・半自動ソーラーパネル清掃ロボットを製造—Model-A、B、T、Taypro Opex、Taypro Consoleを含みます。",
+      "a0": "Taypro Private LimitedはIndiaのユーティリティ規模・商用ソーラー発電所向けに自律型・半自動ソーラーパネル洗浄ロボットを製造—GLYDE（自律水なし清掃）、HELYX（ポータブルドライ清掃）、GLYDE-X（単軸トラッカー向け）、Taypro Opex（オペレーター主導清掃サービス）、NECTYR（フリート監視・スケジューリング）。",
       "q1": "Tayproの拠点と事業エリアは？",
-      "a1": "本社・製造はマハラシュトラ州プネー・チャカン。インド全土の倉庫ネットワークがスペア、コミッショニング、当日故障対応を支えます。",
-      "q2": "プラントに無水ロボット清掃が重要な理由は？",
-      "a2": "水不足と物流が手洗い・水洗いを高コスト・不安定にします。Tayproの特許二重パスはまず乾燥粉塵を除去し、マイクロファイバーで仕上げます。",
-      "q3": "開発者・O&MチームはTayproをどう評価できますか？",
-      "a3": "プラントレイアウト、容量、清掃目標から始めてください。ソーラーパネル清掃システムページ、Projectsのケーススタディ、またはTayproへのお問い合わせ。",
-      "q4": "固定傾斜と単軸トラッカー向けのロボットは？",
-      "a4": "Model-Aは固定・季節傾斜向け自律無水清掃。Model-Bは分散ブロック向けポータブル。Model-Tは単軸トラッカー向け。多くのサイトはブロックごとにモデルを組み合わせます。",
-      "q5": "ロボット購入（CAPEX）かOpexサービスか？",
-      "a5": "両方。CAPEX顧客はTayproコミッショニングとスペアサポート付きで購入。Taypro Opexは前払い資本なしのオペレータ主導清掃です。",
-      "q6": "導入後のTaypro Consoleの役割は？",
-      "a6": "Taypro Consoleは清掃サイクルスケジュール、ロボット健全性監視、接続確認、ブロック横断フリート監査のクラウドダッシュボードです。"
+      "a1": "TayproはChakan, Pune, Maharashtraに本社・製造拠点を置き、India全土の倉庫ネットワークで展開ロボットのスペア、試運転、同日故障対応をサポートします。",
+      "q2": "ソーラー発電所にとって水なしロボット清掃が重要な理由は？",
+      "a2": "水不足と物流の制約で手洗い・湿式洗浄は高コストで不安定です。Tayproの特許デュアルパス方式はまず乾燥粉塵を除去し、マイクロファイバー接触で仕上げ—年間数百万リットル節水と、天候を考慮した再現可能な清掃サイクルで性能比を安定させます。",
+      "q3": "開発者やO&MチームはTayproをどう評価できますか？",
+      "a3": "発電所レイアウト（固定傾斜、屋根置き、トラッカー）、容量、清掃目標から始めてください。仕様はソーラーパネル洗浄システムページ、Projectsの事例、またはサイト別相談・ROI入力・展開計画はTayproにお問い合わせください。",
+      "q4": "固定傾斜と単軸トラッカー発電所に適したTayproロボットは？",
+      "a4": "GLYDEは固定・季節傾斜アレイ向け自律水なし清掃。HELYXは散在ブロック向けポータブル。GLYDE-Xは柔軟ブリッジ付き単軸トラッカー向け。多くのサイトはブロックごとにモデルを組み合わせ—現地評価時に各アレイへロボットをマッピングします。",
+      "q5": "ロボット購入（CAPEX）とオペレーター主導サービス（Opex）のどちらも選べますか？",
+      "a5": "両方可能です。CAPEX顧客はTaypro試運転・スペアサポート付きでロボットを購入。Taypro Opexは前払いロボット資本なしのオペレーター主導清掃—予測可能なO&Mコストと稼働率へのTaypro責任が必要な場合に有効。",
+      "q6": "設置後のNECTYRの役割は？",
+      "a6": "NECTYRは清掃サイクルスケジュール、ロボット健全性監視、接続性レビュー、ブロック横断フリート性能監査のクラウドダッシュボード—O&Mリードが資産所有者との性能比議論のため清掃履歴を記録するのに役立ちます。"
     }
   },
-  "Common": { "breadcrumbHome": "ホーム" }
+  "Common": {
+    "breadcrumbHome": "ホーム"
+  }
 }

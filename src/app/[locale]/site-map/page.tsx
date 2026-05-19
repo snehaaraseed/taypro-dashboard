@@ -205,28 +205,46 @@ export default async function SiteMapPage({
                   <li>
                     <Link
                       href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
-                      title={l("automaticRobotTitle")}
+                      title={l("glydeTitle")}
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
-                      {l("automaticRobotLabel")}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
-                      title={l("modelBTitle")}
-                      className="text-[#7CB342] hover:text-[#689F38] transition-colors"
-                    >
-                      {l("modelBLabel")}
+                      {l("glydeLabel")}
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
-                      title={l("modelTTitle")}
+                      title={l("glydeXTitle")}
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
-                      {l("modelTLabel")}
+                      {l("glydeXLabel")}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/solar-panel-cleaning-system/nyuma-automatic-cleaning-robot"
+                      title={l("nyumaTitle")}
+                      className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                    >
+                      {l("nyumaLabel")}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/solar-panel-cleaning-system/nyuma-x-single-axis-tracker-cleaning-robot"
+                      title={l("nyumaXTitle")}
+                      className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                    >
+                      {l("nyumaXLabel")}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
+                      title={l("helyxTitle")}
+                      className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                    >
+                      {l("helyxLabel")}
                     </Link>
                   </li>
                   <li>
@@ -245,6 +263,24 @@ export default async function SiteMapPage({
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
                       {l("tayproConsoleLabel")}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot"
+                      title={l("minyTitle")}
+                      className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                    >
+                      {l("minyLabel")}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/solar-panel-cleaning-system/cradyl-row-transfer-docking-station"
+                      title={l("cradylTitle")}
+                      className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                    >
+                      {l("cradylLabel")}
                     </Link>
                   </li>
                 </ul>

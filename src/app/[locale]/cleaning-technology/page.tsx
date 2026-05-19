@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import {
   robotProducts,
-  robots,
+  robotSolutions,
   tayproMarketingImpactStats,
   tayproRobotConnectivitySummary,
   tayproTrustedByStatsStrip,
@@ -1018,7 +1018,7 @@ export default async function CleaningTechnologyPage({
               delay={200}
               className="mt-10 flex flex-wrap justify-center gap-4"
             >
-              {robots.slice(3).map((r) => (
+              {robotSolutions.map((r) => (
                 <Link
                   key={r.model}
                   href={r.href}

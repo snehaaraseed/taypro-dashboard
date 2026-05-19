@@ -35,12 +35,22 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
     priority: 0.9,
   },
   {
-    path: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
+    path: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
     changeFrequency: "weekly",
     priority: 0.9,
   },
   {
-    path: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
+    path: "/solar-panel-cleaning-system/nyuma-automatic-cleaning-robot",
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    path: "/solar-panel-cleaning-system/nyuma-x-single-axis-tracker-cleaning-robot",
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    path: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
     changeFrequency: "weekly",
     priority: 0.9,
   },
@@ -53,6 +63,16 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
     path: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
     changeFrequency: "weekly",
     priority: 0.9,
+  },
+  {
+    path: "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
+    changeFrequency: "weekly",
+    priority: 0.85,
+  },
+  {
+    path: "/solar-panel-cleaning-system/cradyl-row-transfer-docking-station",
+    changeFrequency: "weekly",
+    priority: 0.85,
   },
   {
     path: "/solar-panel-cleaning-robot-price-calculator",

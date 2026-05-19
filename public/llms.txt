@@ -34,11 +34,13 @@ Key benefits of our Solar Panel Cleaning Robot:
 
 ## Products & Services - Solar Panel Cleaning Robot Models
 /solar-panel-cleaning-system - Overview of Solar Panel Cleaning Robot systems and models
-/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system - Automatic Solar Panel Cleaning Robot (Model-A): Fully autonomous AI-enabled robot
-/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system - Semi-Automatic Solar Panel Cleaning Robot (Model-B): Cost-effective solution
-/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers - Single-Axis Tracker Solar Panel Cleaning Robot (Model-T): For tracking systems
+/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system - GLYDE: Fully autonomous dual-pass microfiber robot for fixed-tilt plants
+/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system - HELYX: Semi-automatic pick-and-place PBT single-pass robot
+/solar-panel-cleaning-system/nyuma-automatic-cleaning-robot - NYUMA: Fully autonomous PBT single-pass robot for fixed-tilt plants
+/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers - GLYDE-X: Dual-pass microfiber robot for single-axis trackers
+/solar-panel-cleaning-system/nyuma-x-single-axis-tracker-cleaning-robot - NYUMA-X: PBT single-pass robot for single-axis trackers
 /solar-panel-cleaning-system/solar-panel-cleaning-service - Solar Panel Cleaning Robot service and maintenance offerings
-/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app - Taypro Console: Monitoring app for Solar Panel Cleaning Robot fleet
+/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app - NECTYR: Monitoring app for Solar Panel Cleaning Robot fleet
 
 ## Technology
 /cleaning-technology - Technical details about cleaning technology
@@ -172,16 +174,19 @@ The site also uses images from:
 
 # Key Features - Solar Panel Cleaning Robot
 
-## Solar Panel Cleaning Robot Models
-- Model A (Automatic Solar Panel Cleaning Robot): Fully autonomous with AI-enabled scheduling
-- Model B (Semi-Automatic Solar Panel Cleaning Robot): Cost-effective semi-autonomous solution
-- Model T (Single-Axis Tracker Solar Panel Cleaning Robot): Designed for tracking solar panel systems
+## Solar Panel Cleaning Robot Models (display order: flagship first)
+- GLYDE: Fully autonomous dual-pass microfiber robot for fixed/seasonal-tilt utility plants
+- GLYDE-X: Fully autonomous dual-pass microfiber robot for single-axis trackers
+- NYUMA: Fully autonomous PBT single-pass robot for fixed/seasonal-tilt plants
+- NYUMA-X: PBT single-pass robot for single-axis trackers
+- HELYX: Semi-automatic pick-and-place PBT robot for scattered/distributed plants
+- NECTYR: Fleet monitoring portal (schedules, logs, tickets, dashboards)
 
 ## Solar Panel Cleaning Robot Technology
 - Waterless cleaning technology: Our Solar Panel Cleaning Robot uses zero water, saving millions of liters
 - Dual-pass cleaning system: Air blast + microfiber for 100% dust removal
 - AI-powered scheduling: Intelligent cleaning cycles based on weather and dust prediction
-- Real-time monitoring: Taypro Console mobile app for Solar Panel Cleaning Robot fleet management
+- Real-time monitoring: NECTYR mobile app for Solar Panel Cleaning Robot fleet management
 - Highest uptime guarantee: Industry-leading reliability for Solar Panel Cleaning Robot systems
 - Suitable for fixed-tilt and single-axis tracker solar panel systems
 - Increases solar panel efficiency by up to 30%

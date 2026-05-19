@@ -1,19 +1,20 @@
 /**
- * Product Knowledge Base
- * 
- * This file contains exact, verified specifications for all Taypro products and services.
- * This knowledge base is used in AI prompts to prevent hallucination and ensure accuracy.
- * 
- * IMPORTANT: Only include verified, factual information. Do not add unverified claims.
+ * Product Knowledge Base — verified specs for Taypro robots and services.
+ * Used in AI prompts to prevent hallucination. No panel-count or legacy model codes.
  */
 
+import { PRODUCT_CATALOG, type ProductId } from "@/lib/products/catalog";
+
 export interface ProductSpec {
-  model: string;
-  name: string;
+  itemName: string;
+  plantType: string;
+  cleaningTechnology: string;
+  autonomy: string;
   specifications: Record<string, string | number | string[]>;
   features: string[];
   suitableFor: string[];
   description: string;
+  forbiddenClaims: string[];
 }
 
 export interface ServiceSpec {
@@ -23,110 +24,139 @@ export interface ServiceSpec {
   benefits: string[];
 }
 
-export const modelA: ProductSpec = {
-  model: "Model-A",
-  name: "Automatic Solar Panel Cleaning Robot",
-  description: "Autonomous Waterless Cleaning Robot with Dual pass cleaning method with AI and ML Capabilities.",
-  specifications: {
-    cleaningRange: "up to 2.2km on single charge",
-    speed: "14 meters per minute",
-    technology: "AI-enabled waterless cleaning",
-    dustRemoval: "up to 100%",
-  },
-  features: [
-    "AI-enabled waterless cleaning",
-    "Dual-pass cleaning method",
-    "Microfiber cloths",
-    "Extended cleaning range (2.2km)",
-    "High-speed cleaning rate (14 m/min)",
-    "Smart weather optimization",
-  ],
-  suitableFor: [
-    "Fixed-tilt installations",
-    "Seasonal tilt installations",
-    "Rooftop installations",
-  ],
-};
+function specFromCatalog(id: ProductId, extra: Partial<ProductSpec>): ProductSpec {
+  const p = PRODUCT_CATALOG[id];
+  return {
+    itemName: p.itemName,
+    plantType: p.plantType,
+    cleaningTechnology: p.cleaningTechnology,
+    autonomy: p.autonomy,
+    specifications: {},
+    features: [],
+    suitableFor: [],
+    description: p.description,
+    forbiddenClaims: [],
+    ...extra,
+  };
+}
 
-export const modelB: ProductSpec = {
-  model: "Model-B",
-  name: "Semi-Automatic Solar Panel Cleaning Robot",
-  description: "A pick-and-place type portable dry solar panel cleaning robot for scattered utility scale solar power plants.",
+export const helyx = specFromCatalog("helyx", {
   specifications: {
-    cleaningRange: "up to 2.2km",
-    speed: "10 to 15 meters per minute",
-    type: "Pick-and-place portable",
-    weight: "Light-weight",
+    weight: "39 kg",
+    speed: "10–15 metres per minute",
+    range: "Up to 3 km per charge",
+    cleaningMaterial: "UV-stable PBT brush (single-pass)",
   },
   features: [
-    "Pick-and-place type",
-    "Portable design",
-    "Waterless cleaning",
-    "Fall prevention system",
-    "Contactless sensors",
-    "Light-weight construction",
+    "Pick-and-place semi-automatic deployment",
+    "Single-pass PBT waterless cleaning",
+    "Portable across scattered plant blocks",
+    "Fall prevention and panel-safe contact",
   ],
   suitableFor: [
-    "Fixed-tilt installations",
-    "Seasonal-tilt installations",
-    "Scattered utility scale solar power plants",
+    "Scattered and distributed utility-scale plants",
+    "Fixed-tilt and seasonal-tilt layouts",
   ],
-};
+  forbiddenClaims: ["dual-pass", "microfiber", "patented dual-pass"],
+});
 
-export const modelT: ProductSpec = {
-  model: "Model-T",
-  name: "Single-Axis Tracker Solar Panel Cleaning Robot",
-  description: "Autonomous patented cleaning robot with flexible body and 360° flexible rotational bridge for single-axis trackers.",
+export const nyuma = specFromCatalog("nyuma", {
   specifications: {
-    cleaningRange: "up to 2.2km on single charge",
-    bridgeType: "360-degree flexible bridge",
-    charging: "Built-in solar panel for charging",
-    communication: "High efficiency, smooth communication network",
+    dimensions: "690 mm × 4800 mm",
+    weight: "45 kg",
+    speed: "10–15 metres per minute",
+    range: "Up to 2.2 km per charge (~3,600 modules)",
+    recommendedRange: "1.6 km",
+    cleaningMaterial: "UV-stable PBT brush, 5-start helix (single-pass)",
+    ipRating: "IP65",
+    maxTilt: "45°",
+    maxTerrainSlope: "15° E–W",
+    maxOperatingTemp: "90°C",
   },
   features: [
-    "360-degree flexible bridge",
-    "Built-in solar panel for charging",
-    "Autonomous operation",
-    "Patented design",
-    "Flexible body",
-    "High efficiency communication",
+    "Fully autonomous single-pass PBT cleaning",
+    "AI/ML scheduling via NECTYR",
+    "LTE and Wi-Fi connectivity",
+    "Edge and obstacle detection",
+    "Self-docking charging",
   ],
-  suitableFor: [
-    "Single-axis tracker systems",
+  suitableFor: ["Fixed-tilt utility-scale plants", "Seasonal-tilt installations"],
+  forbiddenClaims: ["dual-pass", "microfiber", "patented dual-pass"],
+});
+
+export const glyde = specFromCatalog("glyde", {
+  specifications: {
+    range: "Up to 2.2 km per charge (~3,600 modules)",
+    speed: "10–15 metres per minute",
+    cleaningMethod: "Patented dual-pass (airflow + microfiber)",
+  },
+  features: [
+    "Patented dual-pass microfiber cleaning (core TAYPRO technology)",
+    "Fully autonomous waterless operation",
+    "AI/ML scheduling",
+    "RF mesh and NECTYR connectivity",
   ],
-};
+  suitableFor: ["Fixed-tilt utility-scale plants", "Seasonal-tilt installations"],
+  forbiddenClaims: ["PBT-only primary cleaning", "single-pass PBT as main method"],
+});
+
+export const nyumaX = specFromCatalog("nyumaX", {
+  specifications: {
+    cleaningMaterial: "UV-stable PBT brush (single-pass)",
+    bodyArticulation: "Flexible body for tracker tables",
+    moduleTiltRange: "-52° to +52° (typical tracker range)",
+  },
+  features: [
+    "Single-pass PBT cleaning on single-axis trackers",
+    "Flexible body for inter-table movement",
+    "Compatible with NEXTracker, Gamechanger and equivalent trackers",
+    "Fully autonomous with NECTYR",
+  ],
+  suitableFor: ["Horizontal single-axis tracker plants"],
+  forbiddenClaims: ["dual-pass", "microfiber", "patented dual-pass"],
+});
+
+export const glydeX = specFromCatalog("glydeX", {
+  specifications: {
+    cleaningMethod: "Patented dual-pass (airflow + microfiber)",
+    bodyArticulation: "Flexible body; 360° rotational bridge",
+    moduleTiltRange: "-52° to +52°",
+  },
+  features: [
+    "Patented dual-pass microfiber on tracker plants",
+    "Flexible body and 360° bridge for tracker tables",
+    "NEXTracker and Gamechanger compatible",
+    "Fully autonomous with NECTYR",
+  ],
+  suitableFor: ["Horizontal single-axis tracker plants"],
+  forbiddenClaims: ["PBT-only primary cleaning"],
+});
 
 export const tayproOPEX: ServiceSpec = {
   name: "Taypro OPEX",
-  description: "Solar Panel Cleaning Service - OPEX model with dedicated skilled manpower",
+  description:
+    "Solar panel cleaning service — OPEX model with dedicated skilled manpower",
   features: [
     "Dedicated skilled manpower for robot operation",
-    "Smart & efficient cleaning",
-    "Ensuring panel safety",
-    "Enhanced energy output",
-    "Environmental sustainability",
-    "Seamless integration into plant operations",
-    "Cost-effective and long-term solution",
-    "Same-day breakdown resolution",
-    "Real-time monitoring via Taypro Console",
+    "Fleet may include HELYX, GLYDE, GLYDE-X, NYUMA, or NYUMA-X as required",
+    "Real-time monitoring via NECTYR",
+    "Same-day breakdown resolution targets",
   ],
   benefits: [
     "No upfront capital investment",
     "Professional service management",
-    "Guaranteed uptime",
-    "Same-day issue resolution",
+    "Guaranteed uptime targets",
   ],
 };
 
 export const tayproConsole: ServiceSpec = {
-  name: "Taypro Console",
-  description: "Monitoring app for Solar Panel Cleaning Robot fleet management",
+  name: "NECTYR",
+  description: "Fleet monitoring for solar panel cleaning robots",
   features: [
     "Real-time monitoring",
-    "Remote control and scheduling",
-    "Performance tracking",
-    "Fault detection and alerts",
-    "Weather-based optimization",
+    "Remote scheduling",
+    "Performance tracking and alerts",
+    "Weather-aware optimization",
   ],
   benefits: [
     "Centralized fleet management",
@@ -138,96 +168,51 @@ export const tayproConsole: ServiceSpec = {
 export const generalFeatures = {
   allModels: [
     "Waterless cleaning technology",
-    "Patented dual-pass cleaning method (airflow + microfiber)",
-    "RF-based mesh communication",
-    "Cloud-based SCADA",
-    "AI & ML integration",
-    "Weather sensing and predictive cleaning",
-    "Highest uptime guarantee",
+    "AI and ML scheduling options",
+    "NECTYR fleet portal",
+    "Pan-India service and AMC options",
   ],
   certifications: [
     "ISO 9001 (Quality Management)",
     "ISO 14001 (Environmental Management)",
-    "UL standards compliant",
-    "IEC standards compliant",
+    "TÜV NORD testing (select platforms)",
   ],
-  patents: [
-    "Dual Pass Cleaning System",
-    "RF Mesh Communication",
-  ],
+  patents: ["Dual Pass Cleaning System (GLYDE and GLYDE-X)", "RF Mesh Communication"],
 };
 
-/**
- * Get formatted product knowledge base string for use in AI prompts
- */
 export function getProductKnowledgeBase(): string {
+  const products = [glyde, glydeX, nyuma, nyumaX, helyx];
+  const blocks = products.map(
+    (p) => `
+${p.itemName.toUpperCase()}:
+- Plant fit: ${p.suitableFor.join("; ")}
+- Cleaning: ${p.cleaningTechnology}
+- Autonomy: ${p.autonomy}
+- Description: ${p.description}
+- Key specs: ${JSON.stringify(p.specifications)}
+- Features: ${p.features.join("; ")}
+- DO NOT claim: ${p.forbiddenClaims.join(", ")}
+`
+  );
+
   return `
-TAYPRO PRODUCT KNOWLEDGE BASE - VERIFIED INFORMATION ONLY
+TAYPRO PRODUCT KNOWLEDGE BASE — VERIFIED INFORMATION ONLY
 
-MODEL A (Automatic Solar Panel Cleaning Robot):
-- Model Name: Model-A
-- Description: Autonomous Waterless Cleaning Robot with Dual pass cleaning method with AI and ML Capabilities
-- Cleaning Range: Up to 2.2km on single charge
-- Speed: 14 meters per minute
-- Technology: AI-enabled waterless cleaning
-- Dust Removal: Up to 100%
-- Suitable For: Fixed-tilt, seasonal tilt, and rooftop installations
-- Key Features: AI-enabled waterless cleaning, dual-pass cleaning method, microfiber cloths, extended cleaning range, high-speed cleaning rate, smart weather optimization
+${blocks.join("\n")}
 
-MODEL B (Semi-Automatic Solar Panel Cleaning Robot):
-- Model Name: Model-B
-- Description: A pick-and-place type portable dry solar panel cleaning robot for scattered utility scale solar power plants
-- Cleaning Range: Up to 2.2km
-- Speed: 10 to 15 meters per minute
-- Type: Pick-and-place portable
-- Weight: Light-weight
-- Suitable For: Fixed-tilt, seasonal-tilt, scattered utility scale solar power plants
-- Key Features: Pick-and-place type, portable design, waterless cleaning, fall prevention system, contactless sensors, light-weight construction
+TAYPRO OPEX: ${tayproOPEX.description}
+NECTYR: ${tayproConsole.description}
 
-MODEL T (Single-Axis Tracker Solar Panel Cleaning Robot):
-- Model Name: Model-T
-- Description: Autonomous patented cleaning robot with flexible body and 360° flexible rotational bridge for single-axis trackers
-- Cleaning Range: Up to 2.2km on single charge
-- Bridge: 360-degree flexible bridge
-- Charging: Built-in solar panel for charging
-- Communication: High efficiency, smooth communication network
-- Suitable For: Single-axis tracker systems
-- Key Features: 360-degree flexible bridge, built-in solar panel for charging, autonomous operation, patented design, flexible body, high efficiency communication
-
-TAYPRO OPEX SERVICE:
-- Service Model: OPEX (Operational Expenditure)
-- Description: Solar Panel Cleaning Service with dedicated skilled manpower
-- Features: Dedicated skilled manpower, smart & efficient cleaning, panel safety, enhanced energy output, environmental sustainability, seamless integration, cost-effective solution, same-day breakdown resolution, real-time monitoring via Taypro Console
-- Benefits: No upfront capital investment, professional service management, guaranteed uptime, same-day issue resolution
-
-TAYPRO CONSOLE:
-- Description: Monitoring app for Solar Panel Cleaning Robot fleet management
-- Features: Real-time monitoring, remote control and scheduling, performance tracking, fault detection and alerts, weather-based optimization
-- Benefits: Centralized fleet management, proactive maintenance, data-driven insights
-
-GENERAL FEATURES (All Models):
-- Waterless cleaning technology
-- Patented dual-pass cleaning method (airflow + microfiber)
-- RF-based mesh communication
-- Cloud-based SCADA
-- AI & ML integration
-- Weather sensing and predictive cleaning
-- Highest uptime guarantee
-
-CERTIFICATIONS:
-- ISO 9001 (Quality Management)
-- ISO 14001 (Environmental Management)
-- UL standards compliant
-- IEC standards compliant
-
-PATENTS:
-- Dual Pass Cleaning System
-- RF Mesh Communication
-
-IMPORTANT NOTES:
-- DO NOT invent or add any specifications not listed above
-- DO NOT make up model numbers or product names
-- If information is not in this knowledge base, either omit it or state it generically
-- Always verify any technical claims against this knowledge base
+GENERAL:
+- Product names on the website: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, NECTYR only (no legacy Model-A/B/T or NECTYR in customer copy)
+- GLYDE and GLYDE-X use patented dual-pass microfiber; HELYX, NYUMA, NYUMA-X use single-pass PBT only
+- Do not invent specifications not listed above
 `;
 }
+
+/** @deprecated Use glyde */
+export const modelA = glyde;
+/** @deprecated Use helyx */
+export const modelB = helyx;
+/** @deprecated Use glydeX */
+export const modelT = glydeX;

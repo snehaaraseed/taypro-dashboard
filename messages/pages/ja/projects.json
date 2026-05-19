@@ -1,13 +1,13 @@
 {
   "ProjectsPage": {
     "meta": {
-      "title": "Tayproソーラープロジェクト - ソーラーパネル清掃ロボット導入事例",
-      "description": "インド全土の自律型・半自動清掃ロボットを備えたTayproのユーティリティ規模ソーラープロジェクトをご覧ください。サイトに応じた汚れ回復とO&M成果の現場導入事例です。",
-      "openGraphTitle": "Tayproソーラープロジェクト - ソーラーパネル清掃ロボット導入事例",
-      "openGraphDescription": "ロボット乾式清掃によるTayproソーラープロジェクト—インドのユーティリティ規模導入と測定可能なO&M成果（サイト依存）。",
-      "openGraphImageAlt": "ソーラーパネル清掃ロボットによるTayproソーラープロジェクト",
-      "twitterTitle": "Tayproソーラープロジェクト - ソーラーパネル清掃ロボット導入事例",
-      "twitterDescription": "Taypro清掃ロボットを使用するユーティリティ規模ソーラープロジェクト—インドでの自律型・半自動導入。",
+      "title": "Taypro Solar Projects - Solar Panel Cleaning Robot Installations",
+      "description": "Explore Taypro utility-scale solar projects with autonomous and semi-automatic cleaning robots across India—field deployments with site-dependent soiling recovery and O&M outcomes.",
+      "openGraphTitle": "Taypro Solar Projects - Solar Panel Cleaning Robot Installations",
+      "openGraphDescription": "Taypro solar projects with robotic dry cleaning—utility-scale installations across India with measurable O&M outcomes (site-dependent).",
+      "openGraphImageAlt": "Taypro Solar Projects with Solar Panel Cleaning Robot",
+      "twitterTitle": "Taypro Solar Projects - Solar Panel Cleaning Robot Installations",
+      "twitterDescription": "Utility-scale solar projects using Taypro cleaning robots—autonomous and semi-automatic deployments across India.",
       "keyword0": "Solar Panel Cleaning Robot projects",
       "keyword1": "solar panel cleaning robot installations",
       "keyword2": "solar projects with cleaning robots",
@@ -20,93 +20,93 @@
       "keyword9": "maximum power generation"
     },
     "breadcrumbs": {
-      "projects": "プロジェクト"
+      "projects": "Projects"
     },
     "schema": {
-      "collectionName": "ソーラーパネル清掃ロボット導入プロジェクト",
-      "collectionDescription": "インド全土のTayproソーラーパネル清掃ロボット導入プロジェクトのポートフォリオ—ユーティリティ規模プラントでの自動・半自動・CAPEX導入。",
-      "itemListName": "Tayproソーラーパネル清掃ロボット導入プロジェクト",
-      "itemListDescription": "インド全土でTayproロボット清掃システムが導入されているユーティリティ規模ソーラープラント。"
+      "collectionName": "Solar Panel Cleaning Robot Installation Projects",
+      "collectionDescription": "View Taypro's portfolio of solar panel cleaning robot installation projects across India—automatic, semi-automatic, and CAPEX deployments on utility-scale plants.",
+      "itemListName": "Taypro solar panel cleaning robot installation projects",
+      "itemListDescription": "Utility-scale solar plants where Taypro robotic cleaning systems are deployed across India."
     },
     "hero": {
-      "eyebrow": "インド全土での導入",
-      "titleLine1": "ソーラーパネル清掃ロボット",
-      "titleLine2": "導入プロジェクト",
-      "bodyBeforeLink": "Tayproは、自律型・半自動の",
-      "bodyLink": "ソーラーパネル清掃ロボット",
-      "bodyAfterLink": "が性能比を守り、用水を削減し、人手の洗浄を置き換える実際のユーティリティ規模導入を記録しています。導入タイプ別に閲覧するか、容量・所在地・清掃モデルの詳細はケーススタディをご覧ください。"
+      "eyebrow": "Deployments across India",
+      "titleLine1": "Solar panel cleaning robot",
+      "titleLine2": "installation projects",
+      "bodyBeforeLink": "Taypro documents real utility-scale deployments where autonomous and semi-automatic",
+      "bodyLink": "solar panel cleaning robots",
+      "bodyAfterLink": "protect performance ratio, cut water use, and replace labour-intensive washing. Browse by deployment type or open a case study for capacity, location, and cleaning model details."
     },
     "stats": {
-      "eyebrow": "概要",
-      "heading": "インドのソーラープラントで実証された規模",
-      "robotCapacityLabel": "導入ロボット容量",
-      "plantInstallationsLabel": "プラント導入数",
-      "waterSavedLabel": "年間節水量（リットル）",
-      "robotsManufacturedLabel": "月間ロボット製造能力"
+      "eyebrow": "At a glance",
+      "heading": "Proven scale on Indian solar plants",
+      "robotCapacityLabel": "Robot Capacity Deployed",
+      "plantInstallationsLabel": "Plant Installations",
+      "waterSavedLabel": "Liters of Water Saved Annually",
+      "robotsManufacturedLabel": "Robots Manufacturing Capacity per Month"
     },
     "categories": {
-      "heading": "導入タイプ別に閲覧",
-      "intro": "各カテゴリは類似の調達・運用モデルを共有するプラントをグループ化します。下のケーススタディは複数タグにまたがる場合があります—例：固定傾斜アレイでの自動Model-AロボットによるCAPEX購入。",
+      "heading": "Browse by deployment type",
+      "intro": "Each category groups plants that share a similar procurement or operating model. Individual case studies below may span more than one tag—for example, a CAPEX purchase with automatic GLYDE robots on fixed-tilt arrays.",
       "automatic": {
         "title": "Automatic",
-        "description": "AIスケジューリング、無水デュアルパス清掃、Taypro Consoleによるフリート監視を備えた自律型Model-A・Model-T導入。",
-        "cardTitle": "Automaticプロジェクト",
-        "viewLink": "Automaticケーススタディを見る →"
+        "description": "Autonomous GLYDE and GLYDE-X deployments with AI scheduling, waterless dual-pass cleaning, and fleet monitoring via NECTYR.",
+        "cardTitle": "Automatic projects",
+        "viewLink": "View automatic case studies →"
       },
       "semiAutomatic": {
         "title": "Semi-Automatic",
-        "description": "分散ブロック、困難な地形、柔軟なクルー支援カバレッジが必要なプラント向けのModel-Bポータブル乾式清掃。",
-        "cardTitle": "Semi-Automaticプロジェクト",
-        "viewLink": "Semi-automaticケーススタディを見る →"
+        "description": "HELYX portable dry cleaning for scattered blocks, difficult terrain, and plants that need flexible crew-assisted coverage.",
+        "cardTitle": "Semi-Automatic projects",
+        "viewLink": "View semi-automatic case studies →"
       },
       "capex": {
         "title": "CAPEX",
-        "description": "Tayproのコミッショニング、トレーニング、インド全土のスペアサポート付きのデベロッパー所有ロボット購入—文書化されたROIと稼働率目標。",
-        "cardTitle": "CAPEXプロジェクト",
-        "viewLink": "CAPEXケーススタディを見る →"
+        "description": "Developer-owned robot purchases with Taypro commissioning, training, and pan-India spare support—documented ROI and uptime targets.",
+        "cardTitle": "CAPEX projects",
+        "viewLink": "View CAPEX case studies →"
       }
     },
     "featured": {
-      "heading": "注目の導入ケーススタディ",
-      "bodyBeforeCleaningLink": "プラントを選び、コミッショニングの文脈、使用ロボットモデル、運用成果をお読みください。技術背景は",
-      "cleaningLink": "Taypro清掃の仕組み",
-      "bodyMiddle": "、または",
-      "roiLink": "ROI計算機",
-      "bodyAfter": "で節約を試算してください。"
+      "heading": "Featured installation case studies",
+      "bodyBeforeCleaningLink": "Select a plant to read commissioning context, robot models used, and operational outcomes. For technology background, see",
+      "cleaningLink": "how Taypro cleaning works",
+      "bodyMiddle": "or estimate savings with the",
+      "roiLink": "ROI calculator",
+      "bodyAfter": "."
     },
     "faq": {
-      "heading": "よくある質問",
-      "subheading": "Tayproプロジェクト参考資料を検討するデベロッパーとO&Mチームからの一般的な質問。",
-      "cta": "プラントについて相談",
-      "q0": "Tayproはこのポートフォリオでどのタイプのソーラープラントを記録していますか？",
-      "a0": "ケーススタディはインド全土のユーティリティ規模地上設置サイト、単軸トラッカーアレイ、マルチブロックプラントをカバー—通常50MW以上で、汚れ、水不足、手動O&Mコストがロボット清掃を正当化する規模です。",
-      "q1": "自動・半自動・CAPEXプロジェクト一覧の違いは何ですか？",
-      "a1": "自動一覧は完全自律ロボット（Model-A、Model-T）を強調。半自動一覧はModel-Bポータブルシステム。CAPEX一覧はデベロッパーがロボットを直接購入したプラント—同じサイトでTaypro Opexをオペレータ主導サービスとして利用する場合も—正確な導入モデルは各カテゴリまたは個別ケーススタディをご覧ください。",
-      "q2": "Taypro清掃ロボットはプラント性能比にどう影響しますか？",
-      "a2": "一貫した天候対応清掃は、粉塵の多いサイトで性能比を数パーセント押し下げる汚れ損失を減らします。ケーススタディは清掃効率目標、サイクル頻度、無水方式が手洗いの物流をどう回避するかを記載しています。",
-      "q3": "自社ソーラープロジェクトでTayproをどう評価できますか？",
-      "a3": "プラントタイプ（固定傾斜 vs トラッカー）に合ったケーススタディを確認し、ソーラーパネル清掃システムページでModel-A、Model-B、Model-Tの仕様を調べ、ROI計算機を使うか、DC容量とレイアウトを添えてTayproにお問い合わせください。"
+      "heading": "Frequently asked questions",
+      "subheading": "Common questions from developers and O&M teams reviewing Taypro project references.",
+      "cta": "Discuss your plant",
+      "q0": "What types of solar plants does Taypro document in this portfolio?",
+      "a0": "Our case studies cover utility-scale ground-mount sites, single-axis tracker arrays, and multi-block plants across India—typically 50 MW and above where soiling, water scarcity, or manual O&M costs justify robotic cleaning.",
+      "q1": "What is the difference between automatic, semi-automatic, and CAPEX project listings?",
+      "a1": "Automatic listings highlight fully autonomous robots (GLYDE, GLYDE-X). Semi-automatic listings feature HELYX portable systems. CAPEX listings describe plants where the developer purchased robots outright; the same site may also use Taypro Opex as an operator-led service—browse each category or the individual case study for the exact deployment model.",
+      "q2": "How do Taypro cleaning robots affect plant performance ratio?",
+      "a2": "Consistent, weather-aware cleaning reduces soiling losses that can otherwise suppress performance ratio by several percentage points on dusty sites. Case studies note cleaning efficiency targets, cycle frequency, and how waterless methods avoid logistics tied to manual washing.",
+      "q3": "How can I evaluate Taypro for my own solar project?",
+      "a3": "Review the relevant case study for your plant type (fixed tilt vs trackers), explore GLYDE, HELYX, or GLYDE-X specifications on the solar panel cleaning system pages, use the ROI calculator, or contact Taypro with your DC capacity and layout for a site-specific proposal."
     },
     "callback": {
-      "header": "ソーラープラントについてTayproに相談"
+      "header": "Discuss your solar plant with Taypro"
     }
   },
   "ProjectDetailPage": {
-    "notFoundTitle": "プロジェクトが見つかりません | Taypro",
-    "metaTitleSuffix": " - ソーラーパネル清掃ロボット設置 | Taypro",
-    "breadcrumbProjects": "プロジェクト",
-    "heroSubtitle": "ソーラーパネル清掃ロボット設置プロジェクト",
-    "overviewHeading": "概要",
-    "leadTopic": "一緒に進めましょう",
-    "leadTitle": "一緒に進めましょう",
-    "leadSubtitle": "プラントについてお知らせください。サイトに最適なソーラーパネル清掃ロボットについてチームがフォローします。",
-    "leadCta": "一緒に進めましょう",
-    "relatedHeading": "関連プロジェクト",
-    "relatedImageTitle": "ソーラープロジェクト",
-    "relatedImageAlt": "{title} - Tayproによる関連ソーラーパネル清掃ロボット設置プロジェクト",
-    "relatedImageTitleAttr": "{title} ソーラープロジェクト（ソーラーパネル清掃ロボット）"
+    "notFoundTitle": "Project Not Found | Taypro",
+    "metaTitleSuffix": " - Solar Panel Cleaning Robot Installation | Taypro",
+    "breadcrumbProjects": "Projects",
+    "heroSubtitle": "Solar Panel Cleaning Robot Installation Project",
+    "overviewHeading": "Overview",
+    "leadTopic": "Let's work together",
+    "leadTitle": "Let's work together",
+    "leadSubtitle": "Tell us about your plant and our team will follow up with the right Solar Panel Cleaning Robot fit for your site.",
+    "leadCta": "Let's work together",
+    "relatedHeading": "Related Projects",
+    "relatedImageTitle": "Solar Project",
+    "relatedImageAlt": "{title} - Related Solar Panel Cleaning Robot Installation Project by Taypro",
+    "relatedImageTitleAttr": "{title} Solar Project with Solar Panel Cleaning Robot"
   },
   "Common": {
-    "breadcrumbHome": "ホーム"
+    "breadcrumbHome": "Home"
   }
 }

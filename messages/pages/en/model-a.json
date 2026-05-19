@@ -1,8 +1,8 @@
 {
   "ModelAPage": {
     "meta": {
-      "title": "Automatic Solar Panel Cleaning Robot — Taypro Model-A (Waterless, AI)",
-      "description": "Taypro Model-A is a fully autonomous, waterless Automatic Solar Panel Cleaning Robot. AI/ML dual-pass dry cleaning removes 99%+ dust per cycle, runs up to 3,600 modules per charge, connects to Taypro Console via LTE / Wi-Fi / RF mesh / LoRa / LoRaWAN, and is TÜV NORD certified with same-day pan-India breakdown support.",
+      "title": "Dual-Pass Automatic Solar Panel Cleaning Robot — Taypro GLYDE (Waterless, AI)",
+      "description": "Taypro GLYDE is a fully autonomous, waterless Automatic Solar Panel Cleaning Robot. AI/ML dual-pass dry cleaning removes 99%+ dust per cycle, runs up to 3,600 modules per charge, connects to NECTYR via LTE / Wi-Fi / RF mesh / LoRa / LoRaWAN, and is TÜV NORD certified with same-day pan-India breakdown support.",
       "keywords": [
         "automatic solar panel cleaning robot",
         "automatic solar panel cleaning robot India",
@@ -19,14 +19,14 @@
         "fixed tilt automatic solar cleaning robot",
         "AI automatic solar panel cleaning robot",
         "TÜV NORD certified solar cleaning robot",
-        "Taypro Model-A"
+        "Taypro GLYDE"
       ],
-      "openGraphTitle": "Automatic Solar Panel Cleaning Robot — Taypro Model-A (Waterless, AI)",
-      "openGraphDescription": "Taypro Model-A: Automatic Solar Panel Cleaning Robot for utility-scale plants. Autonomous waterless dual-pass cleaning, 99%+ dust removal per cycle, up to 3,600 modules per charge, LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN to Taypro Console, TÜV NORD certified.",
+      "openGraphTitle": "Dual-Pass Automatic Solar Panel Cleaning Robot — Taypro GLYDE (Waterless, AI)",
+      "openGraphDescription": "Taypro GLYDE: patented dual-pass microfiber Automatic Solar Panel Cleaning Robot for utility-scale plants. Autonomous waterless cleaning, 99%+ dust removal per cycle, up to 3,600 modules per charge, LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN to NECTYR, TÜV NORD certified.",
       "openGraphType": "website",
-      "openGraphImageAlt": "Taypro Model-A automatic solar panel cleaning robot",
-      "twitterTitle": "Automatic Solar Panel Cleaning Robot — Taypro Model-A (Waterless, AI)",
-      "twitterDescription": "Taypro Model-A Automatic Solar Panel Cleaning Robot: autonomous, waterless, AI-driven. 99%+ dust removal per cycle, up to 3,600 modules per charge, LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN to Taypro Console.",
+      "openGraphImageAlt": "Taypro GLYDE automatic solar panel cleaning robot",
+      "twitterTitle": "Dual-Pass Automatic Solar Panel Cleaning Robot — Taypro GLYDE (Waterless, AI)",
+      "twitterDescription": "Taypro GLYDE Automatic Solar Panel Cleaning Robot: autonomous, waterless, AI-driven. 99%+ dust removal per cycle, up to 3,600 modules per charge, LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN to NECTYR.",
       "twitterCard": "summary_large_image"
     },
     "breadcrumbs": {
@@ -39,10 +39,10 @@
     },
     "schema": {
       "product": {
-        "name": "Automatic Solar Panel Cleaning Robot — Model-A (Taypro)",
-        "description": "Taypro Model-A is a fully autonomous Automatic Solar Panel Cleaning Robot for utility-scale solar power plants. Waterless AI- and ML-driven dual-pass dry cleaning removes over 99% of dust per cycle, cleans up to 3,600 modules on a single charge, connects to Taypro Console via LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN, and is field-validated and TÜV NORD certified.",
+        "name": "Automatic Solar Panel Cleaning Robot — GLYDE (Taypro)",
+        "description": "Taypro GLYDE is a fully autonomous Automatic Solar Panel Cleaning Robot for utility-scale solar power plants. Waterless AI- and ML-driven dual-pass dry cleaning removes over 99% of dust per cycle, cleans up to 3,600 modules on a single charge, connects to NECTYR via LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN, and is field-validated and TÜV NORD certified.",
         "brand": "Taypro",
-        "sku": "MODEL-A",
+        "sku": "GLYDE",
         "offers": {
           "price": "Contact for pricing",
           "priceCurrency": "INR",
@@ -50,34 +50,34 @@
         }
       },
       "howTo": {
-        "name": "How an Automatic Solar Panel Cleaning Robot cleans a utility-scale solar plant (Taypro Model-A)",
-        "description": "Step-by-step autonomous cleaning cycle of the Taypro Model-A Automatic Solar Panel Cleaning Robot — from array assignment and AI scheduling through dual-pass waterless cleaning, self-docking, and cloud telemetry.",
+        "name": "How an Automatic Solar Panel Cleaning Robot cleans a utility-scale solar plant (Taypro GLYDE)",
+        "description": "Step-by-step autonomous cleaning cycle of the Taypro GLYDE Automatic Solar Panel Cleaning Robot — from array assignment and AI scheduling through dual-pass waterless cleaning, self-docking, and cloud telemetry.",
         "totalTime": "PT2H",
         "imagePath": "/tayproasset/taypro-robotImage.png"
       }
     },
     "hero": {
       "h1Line1": "Automatic Solar Panel Cleaning Robot — ",
-      "h1Line2": "Model-A by Taypro",
-      "leadBeforeStrong": "The Taypro Model-A is an ",
+      "h1Line2": "GLYDE by Taypro",
+      "leadBeforeStrong": "The Taypro GLYDE is an ",
       "leadStrong": "Automatic Solar Panel Cleaning Robot",
       "leadAfterStrong": " for utility-scale solar power plants: autonomous, waterless dual-pass cleaning, AI- and ML-driven scheduling, up to 3,600 modules per charge, with fleet connectivity via ",
       "leadAfterConnectivity": ", and a TÜV NORD–validated build for maximum uptime.",
       "primaryCta": {
-        "topic": "Model-A quote",
-        "title": "Request a Model-A quote",
-        "subtitle": "Tell us about your plant and our team will follow up with Model-A sizing, configuration, and commercial options.",
+        "topic": "GLYDE quote",
+        "title": "Request a GLYDE quote",
+        "subtitle": "Tell us about your plant and our team will follow up with GLYDE sizing, configuration, and commercial options.",
         "label": "Request a quote"
       },
-      "heroImageAlt": "Taypro Automatic Solar Panel Cleaning Robot Model-A cleaning solar panels at utility-scale solar farm",
-      "heroImageTitle": "Automatic Solar Panel Cleaning Robot Model-A by Taypro"
+      "heroImageAlt": "Taypro Automatic Solar Panel Cleaning Robot GLYDE cleaning solar panels at utility-scale solar farm",
+      "heroImageTitle": "Automatic Solar Panel Cleaning Robot GLYDE by Taypro"
     },
     "overview": {
       "eyebrow": "Automatic Solar Panel Cleaning Robot for Utility-Scale Plants",
-      "title": "What is the Taypro Model-A Automatic Solar Panel Cleaning Robot?",
+      "title": "What is the Taypro GLYDE Automatic Solar Panel Cleaning Robot?",
       "p1BeforeStrong": "The ",
       "p1StrongCategory": "Automatic Solar Panel Cleaning Robot",
-      "p1AfterCategory": " category describes fully autonomous, waterless robots that clean solar modules without tankers or night crews. Taypro Model-A is a fully autonomous unit engineered for reliable daily cleaning of utility-scale solar power plants. A single automated run removes over ",
+      "p1AfterCategory": " category describes fully autonomous, waterless robots that clean solar modules without tankers or night crews. Taypro GLYDE is a fully autonomous unit engineered for reliable daily cleaning of utility-scale solar power plants. A single automated run removes over ",
       "p1DustClaimStrong": "99% of dust",
       "p1AfterDustClaim": " from the module surface using a rotating, self-cleaning microfiber drum, driving consistent performance ratio gains across the plant (site-dependent).",
       "methodologyFootnoteAriaSuffix": " (footnote)",
@@ -87,10 +87,10 @@
       },
       "methodologyLinkText": "performance & test methodology",
       "methodologyLinkTitle": "Performance & Test Methodology",
-      "p2BeforeStrong": "On a single charge, Model-A cleans up to ",
+      "p2BeforeStrong": "On a single charge, GLYDE cleans up to ",
       "p2Strong": "2.2 km of running length — approximately 3,600 solar modules",
       "p2AfterStrong": ". Cleaning cycles are best scheduled outside energy production hours and can be programmed remotely, ensuring zero impact on plant generation.",
-      "p3": "Advanced edge and obstacle detection allow Model-A to traverse panels safely without risk of falling, while continuous surface-undulation tracking adjusts motor performance row-by-row for consistent cleaning quality. Real-time battery monitoring guarantees the robot only covers what it can complete and returns safely to its docking station — never stranded mid-array. Lightweight bridges enable seamless movement from one table to the next, keeping coverage uninterrupted across the entire site.",
+      "p3": "Advanced edge and obstacle detection allow GLYDE to traverse panels safely without risk of falling, while continuous surface-undulation tracking adjusts motor performance row-by-row for consistent cleaning quality. Real-time battery monitoring guarantees the robot only covers what it can complete and returns safely to its docking station — never stranded mid-array. Lightweight bridges enable seamless movement from one table to the next, keeping coverage uninterrupted across the entire site.",
       "p4Blog1": "how an automatic cleaning robot works on modules",
       "p4Blog2": "benefits of robotic cleaning at utility scale",
       "p4Prefix": "Further reading: ",
@@ -100,15 +100,15 @@
     "howToSection": {
       "eyebrow": "Autonomous Cleaning Cycle",
       "title": "How Does an Automatic Solar Panel Cleaning Robot Work?",
-      "subtitle": "Model-A runs end-to-end without operators on the row. Below is the same workflow encoded in our HowTo structured data for search engines — and the daily reality at every deployed plant.",
+      "subtitle": "GLYDE runs end-to-end without operators on the row. Below is the same workflow encoded in our HowTo structured data for search engines — and the daily reality at every deployed plant.",
       "steps": {
         "step0": {
           "name": "Assign each Automatic Solar Panel Cleaning Robot to a dedicated array",
-          "text": "Each Taypro Model-A unit is permanently assigned to a specific solar array and paired with a shadow-free docking station beside the row. The integrated lithium-ion charging system requires no external power connection — the robot is self-contained for daily autonomous operation."
+          "text": "Each Taypro GLYDE unit is permanently assigned to a specific solar array and paired with a shadow-free docking station beside the row. The integrated lithium-ion charging system requires no external power connection — the robot is self-contained for daily autonomous operation."
         },
         "step1": {
-          "name": "Schedule cleaning from the Taypro Console with AI- and ML-driven logic",
-          "text": "Operators use the Taypro Console remote monitoring app to schedule cleaning cycles outside energy production hours. AI- and ML-driven scheduling combines real-time weather data with plant performance signals to optimise frequency, skip unnecessary runs during rain, and push alerts for critical conditions."
+          "name": "Schedule cleaning from the NECTYR with AI- and ML-driven logic",
+          "text": "Operators use the NECTYR remote monitoring app to schedule cleaning cycles outside energy production hours. AI- and ML-driven scheduling combines real-time weather data with plant performance signals to optimise frequency, skip unnecessary runs during rain, and push alerts for critical conditions."
         },
         "step2": {
           "name": "Robot self-deploys onto the module row",
@@ -124,16 +124,16 @@
         },
         "step5": {
           "name": "Sync telemetry and fleet health to the cloud",
-          "textBeforeConnectivity": "After each cycle, battery level, charging status, cycle telemetry and overall fleet performance are synced to the Taypro Console over ",
+          "textBeforeConnectivity": "After each cycle, battery level, charging status, cycle telemetry and overall fleet performance are synced to the NECTYR over ",
           "textAfterConnectivity": " — pick the link that best fits each site — for audit-ready reporting across every deployed Automatic Solar Panel Cleaning Robot."
         }
       }
     },
     "product360": {
       "eyebrow": "Interactive Product Tour",
-      "title": "360° View of Model-A",
+      "title": "360° View of GLYDE",
       "subtitle": "Drag left or right to rotate and explore our Automatic Solar Panel Cleaning Robot from every angle",
-      "productLabel": "Taypro Model-A — Automatic Solar Panel Cleaning Robot"
+      "productLabel": "Taypro GLYDE — Automatic Solar Panel Cleaning Robot"
     },
     "usps": {
       "eyebrow": "MODEL A – Automatic Solar Panel Cleaning Robot",
@@ -177,7 +177,7 @@
     "servicePromise": {
       "eyebrow": "Operating Confidence, Every Day",
       "title": "Service & Maintenance Promise",
-      "subtitle": "Every Taypro Model-A deployment is backed by a planned maintenance programme and a guaranteed response SLA so your plant stays at peak performance ratio.",
+      "subtitle": "Every Taypro GLYDE deployment is backed by a planned maintenance programme and a guaranteed response SLA so your plant stays at peak performance ratio.",
       "cards": {
         "card0": {
           "title": "Scheduled Preventive Maintenance",
@@ -185,11 +185,11 @@
         },
         "card1": {
           "title": "Immediate Remote Diagnostics",
-          "body": "On incident notification, Taypro engineers begin remote diagnostics and troubleshooting immediately via the Taypro Console portal — most issues are resolved over-the-air with no site visit required."
+          "body": "On incident notification, Taypro engineers begin remote diagnostics and troubleshooting immediately via the NECTYR portal — most issues are resolved over-the-air with no site visit required."
         },
         "card2": {
           "title": "Same-Day On-Site Intervention",
-          "body": "When physical attention is needed, Taypro targets same-day on-site breakdown resolution — available pan-India through Taypro's field service network, with immediate remote diagnostics from Taypro Console."
+          "body": "When physical attention is needed, Taypro targets same-day on-site breakdown resolution — available pan-India through Taypro's field service network, with immediate remote diagnostics from NECTYR."
         }
       }
     },
@@ -198,10 +198,10 @@
       "line2": "Panel Cleaning Robots"
     },
     "featuresLongForm": {
-      "mainHeading": "Features of Taypro's Automatic Solar Panel Cleaning Robots: Model-A",
+      "mainHeading": "Features of Taypro's Automatic Solar Panel Cleaning Robots: GLYDE",
       "aiCleaning": {
         "title": "AI-Enabled Waterless Dual-Pass Cleaning",
-        "body": "Model-A uses AI- and ML-driven cleaning logic with a patented dual-pass mechanism — the first pass loosens dry dust while the second sweeps away sticky residue. The result: over 99% dust removal in a single automated run, without a drop of water and without abrasive contact on the cells or glass."
+        "body": "GLYDE uses AI- and ML-driven cleaning logic with a patented dual-pass mechanism — the first pass loosens dry dust while the second sweeps away sticky residue. The result: over 99% dust removal in a single automated run, without a drop of water and without abrasive contact on the cells or glass."
       },
       "microfiber": {
         "title": "Self-Cleaning Microfiber Drum",
@@ -209,11 +209,11 @@
       },
       "range": {
         "title": "Extended Cleaning Range",
-        "body": "Model-A cleans up to 2.2 km of running length — roughly 3,600 modules — on a single charge, at cleaning speeds of 10–15 m/min. With its lithium-ion battery and integrated charging system, each robot is assigned to a specific array and is deployed quickly without additional railings, across a wide range of panel inclinations and seasonal tilts."
+        "body": "GLYDE cleans up to 2.2 km of running length — roughly 3,600 modules — on a single charge, at cleaning speeds of 10–15 m/min. With its lithium-ion battery and integrated charging system, each robot is assigned to a specific array and is deployed quickly without additional railings, across a wide range of panel inclinations and seasonal tilts."
       },
       "battery": {
         "title": "Battery-Aware Autonomy",
-        "body": "Model-A monitors battery level in real time and only commits to a cleaning run it can complete, safely returning to its docking station every cycle. The robot stays securely locked when docked and is designed to withstand wind gusts of up to 180 km/hr at the docking position."
+        "body": "GLYDE monitors battery level in real time and only commits to a cleaning run it can complete, safely returning to its docking station every cycle. The robot stays securely locked when docked and is designed to withstand wind gusts of up to 180 km/hr at the docking position."
       },
       "weather": {
         "title": "Smart Weather Optimization",
@@ -221,7 +221,7 @@
       },
       "connectivity": {
         "title": "Cloud-Connected Remote Monitoring",
-        "bodyBeforeStrong": "Every Model-A robot connects to the Taypro Console using ",
+        "bodyBeforeStrong": "Every GLYDE robot connects to the NECTYR using ",
         "bodyAfterConnectivityStrong": ". Deployments can use LTE or Wi-Fi for high-bandwidth telemetry, a ",
         "bodyBoldMesh": "hybrid self-healing RF mesh",
         "bodyAfterMesh": " for resilient plant-wide backhaul, or ",
@@ -240,7 +240,7 @@
     "certifications": {
       "eyebrow": "Independently Tested & Certified",
       "title": "Certifications & Field-Validated Testing",
-      "subtitle": "Every Taypro Model-A is subjected to rigorous laboratory and field validation by accredited solar-sector testing laboratories, simulating real plant conditions to guarantee long-term reliability.",
+      "subtitle": "Every Taypro GLYDE is subjected to rigorous laboratory and field validation by accredited solar-sector testing laboratories, simulating real plant conditions to guarantee long-term reliability.",
       "cards": {
         "card0": {
           "title": "TÜV NORD Certified",
@@ -263,7 +263,7 @@
       "tableHeaders": {
         "criterion": "Criterion",
         "manual": "Manual Cleaning",
-        "modelA": "Taypro Model-A"
+        "modelA": "Taypro GLYDE"
       },
       "rows": {
         "row0": {
@@ -299,7 +299,7 @@
         "row6": {
           "criterion": "Monitoring & Reporting",
           "manual": "No telemetry, no cleaning audit trail",
-          "modelAPrefix": "Taypro Console via ",
+          "modelAPrefix": "NECTYR via ",
           "modelASuffix": "; full audit trail"
         },
         "row7": {
@@ -312,7 +312,7 @@
     "indianConditions": {
       "eyebrow": "Engineered for Indian Conditions",
       "title": "Built for Indian Utility-Scale Solar Plants",
-      "subtitle": "Rajasthan dust storms, Gujarat heat, Karnataka humidity and Tamil Nadu monsoons — Taypro Model-A is engineered, tested and deployed for the realities of large-scale Indian solar O&M, not generic Western field conditions.",
+      "subtitle": "Rajasthan dust storms, Gujarat heat, Karnataka humidity and Tamil Nadu monsoons — Taypro GLYDE is engineered, tested and deployed for the realities of large-scale Indian solar O&M, not generic Western field conditions.",
       "cards": {
         "card0": {
           "title": "High-Soiling Region Performance",
@@ -324,26 +324,26 @@
         },
         "card2": {
           "title": "Waterless — Even in Water-Scarce States",
-          "body": "Many Indian solar farms are in water-stressed districts where allocations for module washing are tightening. Model-A's waterless dual-pass cleaning removes water entirely from your O&M plan and frees water tankers for higher-priority use."
+          "body": "Many Indian solar farms are in water-stressed districts where allocations for module washing are tightening. GLYDE's waterless dual-pass cleaning removes water entirely from your O&M plan and frees water tankers for higher-priority use."
         },
         "card3": {
           "title": "Pan-India Service Network",
-          "body": "Same-day on-site breakdown resolution across India, with immediate remote diagnostics from Taypro Console — backed by regional spare inventory and structured AMC programs."
+          "body": "Same-day on-site breakdown resolution across India, with immediate remote diagnostics from NECTYR — backed by regional spare inventory and structured AMC programs."
         }
       },
       "crossSellLead": "Looking at adjacent solar O&M needs? Explore the ",
-      "linkModelB": "Semi-Automatic Solar Cleaning Robot (Model-B)",
+      "linkModelB": "Semi-Automatic Solar Cleaning Robot (HELYX)",
       "linkBetweenBAndT": ", the ",
-      "linkModelT": "Single-Axis Tracker Cleaning Robot (Model-T)",
+      "linkModelT": "Single-Axis Tracker Cleaning Robot (GLYDE-X)",
       "linkBetweenTAndOpex": ", the ",
       "linkOpex": "Taypro OPEX cleaning service",
       "linkBetweenOpexAndConsole": " or the ",
-      "linkConsole": "Taypro Console monitoring app",
+      "linkConsole": "NECTYR monitoring app",
       "crossSellSuffix": "."
     },
     "specifications": {
       "titleLine1": "Automatic Solar Panel Cleaning Robot ",
-      "titleLine2": "Model-A Specifications",
+      "titleLine2": "GLYDE Specifications",
       "tableHeaders": {
         "spec": "Specification",
         "details": "Details"
@@ -365,7 +365,7 @@
         "ipRating": { "spec": "IP Rating", "details": "IP65" },
         "corrosion": { "spec": "Corrosion Class", "details": "C3" },
         "battery": { "spec": "Battery Type", "details": "Lithium-Ion" },
-        "connectivity": { "spec": "Connectivity (Taypro Console)", "details": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN" },
+        "connectivity": { "spec": "Connectivity (NECTYR)", "details": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN" },
         "designLife": { "spec": "Design Life", "details": "20 Years" },
         "weight": { "spec": "Weight", "details": "45 Kg" }
       }
@@ -378,37 +378,37 @@
       },
       "waterless": {
         "title": "Waterless Cleaning",
-        "body": "Model-A removes up to 99.5% dust and debris without water requirement. This makes it a perfect option in the regions where there is greater water scarcity."
+        "body": "GLYDE removes up to 99.5% dust and debris without water requirement. This makes it a perfect option in the regions where there is greater water scarcity."
       },
       "autonomous": {
         "title": "Fully Autonomous & Smart Operation",
-        "body": "Model-A is a fully autonomous robot with integrated AI-ML technology that gives smart operation. There is no human intervention required to operate the robots."
+        "body": "GLYDE is a fully autonomous robot with integrated AI-ML technology that gives smart operation. There is no human intervention required to operate the robots."
       },
       "cost": {
         "title": "Cost-Effective Solution",
-        "body": "Model-A eliminates the recurring labour and operation costs and gives maximum return on investment. Its efficient cleaning technology ensures long-term savings."
+        "body": "GLYDE eliminates the recurring labour and operation costs and gives maximum return on investment. Its efficient cleaning technology ensures long-term savings."
       },
       "safe": {
         "title": "Safe and Reliable Operation",
-        "body": "Model-A built-in advanced high-precision edge detection sensors that detect the panel edges. These sensors can detect uneven surfaces and other potential hazards."
+        "body": "GLYDE built-in advanced high-precision edge detection sensors that detect the panel edges. These sensors can detect uneven surfaces and other potential hazards."
       }
     },
     "installSection": {
       "title": "How Long Does It Take to Install the Automated Solar Panel Cleaning Robots?",
-      "p1": "The installation of the Solar Panel Cleaning Robot requires no modifications to the existing solar plant layout. The Model-A Automated Solar Panel Cleaning Robot is designed to operate directly on the panel frame.",
+      "p1": "The installation of the Solar Panel Cleaning Robot requires no modifications to the existing solar plant layout. The GLYDE Automated Solar Panel Cleaning Robot is designed to operate directly on the panel frame.",
       "p2": "The installation typically takes a few hours to a couple of days depending on the size of the solar plant. The solar panel cleaning robot installation process involves the placement of a docking station, configuration and calibration, and system integration.",
       "p3": "For large-scale solar power plants, the installation may take from a few days to a week depending on the complexity of the layout. After the installation, the robots operate autonomously and do not need any manual intervention. TAYPRO provides complete dedicated support and assures the same-day breakdown resolution.",
-      "p4": "TAYPRO Model-A robots offer cost-effective and scalable solutions for solar power plants with easy installations and safe operations."
+      "p4": "TAYPRO GLYDE robots offer cost-effective and scalable solutions for solar power plants with easy installations and safe operations."
     },
     "roiSection": {
-      "title": "What Is the ROI for Installing the Automatic Solar Panel Cleaning Robot Model-A?",
-      "p1": "TAYPRO's Model A Automatic Solar Panel Cleaning Robot delivers a high return on investment ROI by significantly increasing power generation.",
-      "p2BeforeLink": "Also, Model A reduces operational cleaning costs and offers long-term financial benefits. The initial investment is quickly recovered within one year, making it an effective and sustainable investment. You can calculate the ROI on Solar Panel Cleaning Robots by using the ",
+      "title": "What Is the ROI for Installing the Taypro GLYDE Automatic Solar Panel Cleaning Robot?",
+      "p1": "TAYPRO's GLYDE Automatic Solar Panel Cleaning Robot delivers a high return on investment ROI by significantly increasing power generation.",
+      "p2BeforeLink": "Also, GLYDE reduces operational cleaning costs and offers long-term financial benefits. The initial investment is quickly recovered within one year, making it an effective and sustainable investment. You can calculate the ROI on Solar Panel Cleaning Robots by using the ",
       "roiCalculatorLink": "ROI Calculator",
       "p2AfterLink": ""
     },
     "cycleNarrative": {
-      "title": "Inside a Model-A cleaning cycle — step by step",
+      "title": "Inside a GLYDE cleaning cycle — step by step",
       "steps": {
         "s0": "⦿ The robot initialises its sensors on the activation and performs the system checks connectivity with the central monitoring system",
         "s1": "⦿ The cleaning schedule is pre-set via a remote monitoring portal which enables fully automated operation",
@@ -430,11 +430,11 @@
         },
         "item1": {
           "question": "Does the automatic solar module cleaning system require water for cleaning?",
-          "answer": "No, the TAYPRO Model-A operates using waterless cleaning technology. It uses a rotating microfiber cloth to remove the dust and debris efficiently."
+          "answer": "No, the TAYPRO GLYDE operates using waterless cleaning technology. It uses a rotating microfiber cloth to remove the dust and debris efficiently."
         },
         "item2": {
           "question": "How often does the Automatic Solar Panel Cleaning Robot need to be maintained?",
-          "answer": "The TAYPRO Model-A requires minimal maintenance due to its self-cleaning microfiber cloth and automated fault detection system."
+          "answer": "The TAYPRO GLYDE requires minimal maintenance due to its self-cleaning microfiber cloth and automated fault detection system."
         },
         "item3": {
           "question": "What Is the Cleaning Schedule Followed by the Automatic Solar Cleaning Robots?",
@@ -446,7 +446,7 @@
         },
         "item5": {
           "question": "Does the Automatic Solar Panel Cleaning Robot require an external power connection?",
-          "answer": "No, TAYPRO's Model-A does not require an external power connection. It is self -powered system."
+          "answer": "No, TAYPRO's GLYDE does not require an external power connection. It is self -powered system."
         },
         "item6": {
           "question": "How Do You Manage the Functioning of Automatic Solar Panel Cleaning Robots?",
@@ -455,40 +455,40 @@
       },
       "modelASpecific": {
         "item0": {
-          "question": "How much does an Automatic Solar Panel Cleaning Robot like Model-A cost?",
-          "answer": "Pricing for the Taypro Model-A Automatic Solar Panel Cleaning Robot depends on plant size, panel layout, terrain and the level of integration with your existing monitoring stack. For most utility-scale projects, the robotic cleaning investment pays back inside 12–18 months through higher generation, lower water consumption and reduced manual labour costs. Request a quote from our team to receive a site-specific cost estimate and a detailed ROI calculation."
+          "question": "How much does an Automatic Solar Panel Cleaning Robot like GLYDE cost?",
+          "answer": "Pricing for the Taypro GLYDE Automatic Solar Panel Cleaning Robot depends on plant size, panel layout, terrain and the level of integration with your existing monitoring stack. For most utility-scale projects, the robotic cleaning investment pays back inside 12–18 months through higher generation, lower water consumption and reduced manual labour costs. Request a quote from our team to receive a site-specific cost estimate and a detailed ROI calculation."
         },
         "item1": {
           "question": "What is the ROI of installing an Automatic Solar Panel Cleaning Robot?",
-          "answer": "Robotic dry cleaning typically lifts solar plant performance ratio (PR) by 4–8% on dusty sites by maintaining higher module transmissivity day-on-day. Combined with the elimination of water tankers, manual labour and unsafe night-shift cleaning, most Taypro Model-A deployments achieve full ROI within 12–18 months and continue to compound returns through the 20-year design life of the robot."
+          "answer": "Robotic dry cleaning typically lifts solar plant performance ratio (PR) by 4–8% on dusty sites by maintaining higher module transmissivity day-on-day. Combined with the elimination of water tankers, manual labour and unsafe night-shift cleaning, most Taypro GLYDE deployments achieve full ROI within 12–18 months and continue to compound returns through the 20-year design life of the robot."
         },
         "item2": {
-          "question": "What is the difference between Model-A, Model-B and Model-T?",
-          "answer": "Model-A is a fully autonomous Solar Panel Cleaning Robot for utility-scale fixed-tilt and seasonal-tilt installations. Model-B is a semi-automatic, pick-and-place portable robot for scattered or smaller plants. Model-T is purpose-built for single-axis tracker installations with a flexible 360° rotational bridge. All three are waterless, AI-driven, and managed from the same Taypro Console portal."
+          "question": "What is the difference between GLYDE, HELYX and GLYDE-X?",
+          "answer": "GLYDE is a fully autonomous Solar Panel Cleaning Robot for utility-scale fixed-tilt and seasonal-tilt installations. HELYX is a semi-automatic, pick-and-place portable robot for scattered or smaller plants. GLYDE-X is purpose-built for single-axis tracker installations with a flexible 360° rotational bridge. All three are waterless, AI-driven, and managed from the same NECTYR portal."
         },
         "item3": {
           "question": "Is robotic solar panel cleaning safe for the modules?",
-          "answer": "Yes. Taypro Model-A moves only along the module frame so no load is ever applied to the glass or solar cells. The rotating microfiber drum is non-abrasive, and every robot is independently tested for micro-crack formation, optical reflectance loss and Anti-Reflective Coating (ARC) preservation under simulated daily cleaning cycles by accredited solar-sector testing laboratories."
+          "answer": "Yes. Taypro GLYDE moves only along the module frame so no load is ever applied to the glass or solar cells. The rotating microfiber drum is non-abrasive, and every robot is independently tested for micro-crack formation, optical reflectance loss and Anti-Reflective Coating (ARC) preservation under simulated daily cleaning cycles by accredited solar-sector testing laboratories."
         },
         "item4": {
-          "question": "How often should solar panels be cleaned with Model-A?",
-          "answer": "For most Indian utility-scale plants, a daily automated cleaning cycle delivers the best performance-ratio outcome — Model-A is designed to run every night or post-production-hours without consuming water or manpower. Sites in extremely dusty regions or near construction zones may schedule additional cycles, while sites with frequent rainfall can dynamically reduce cycles via the weather-aware scheduler in the Taypro Console."
+          "question": "How often should solar panels be cleaned with GLYDE?",
+          "answer": "For most Indian utility-scale plants, a daily automated cleaning cycle delivers the best performance-ratio outcome — GLYDE is designed to run every night or post-production-hours without consuming water or manpower. Sites in extremely dusty regions or near construction zones may schedule additional cycles, while sites with frequent rainfall can dynamically reduce cycles via the weather-aware scheduler in the NECTYR."
         },
         "item5": {
-          "question": "Does Taypro Model-A work in Indian monsoon, summer heat and dust-storm conditions?",
-          "answer": "Yes. Model-A is engineered for harsh Indian utility-scale conditions: operating temperatures up to 90°C, IP65 sealed enclosure, TÜV NORD-certified IP55 protection, and field-validated under simulated sandstorm cycles of 10 g/m² per event for 12 events per year. The robot self-docks and locks securely at wind gusts of up to 180 km/hr and pauses cleaning at unsafe wind speeds in operation."
+          "question": "Does Taypro GLYDE work in Indian monsoon, summer heat and dust-storm conditions?",
+          "answer": "Yes. GLYDE is engineered for harsh Indian utility-scale conditions: operating temperatures up to 90°C, IP65 sealed enclosure, TÜV NORD-certified IP55 protection, and field-validated under simulated sandstorm cycles of 10 g/m² per event for 12 events per year. The robot self-docks and locks securely at wind gusts of up to 180 km/hr and pauses cleaning at unsafe wind speeds in operation."
         },
         "item6": {
-          "question": "Can Model-A be retrofitted to existing solar plants without modifying the panels?",
-          "answer": "Yes. Model-A requires no additional railings, no modification to the existing solar module mounting structure, and no external power supply. Each robot is assigned to a specific array, runs on its own lithium-ion battery and self-charging docking station, and can be deployed across different panel inclinations and seasonal tilts with minimal site disruption."
+          "question": "Can GLYDE be retrofitted to existing solar plants without modifying the panels?",
+          "answer": "Yes. GLYDE requires no additional railings, no modification to the existing solar module mounting structure, and no external power supply. Each robot is assigned to a specific array, runs on its own lithium-ion battery and self-charging docking station, and can be deployed across different panel inclinations and seasonal tilts with minimal site disruption."
         }
       }
     },
     "modelCards": {
       "title": "Looking for more solutions?",
       "cardLabels": {
-        "modelB": "MODEL-B",
-        "modelT": "MODEL-T"
+        "modelB": "HELYX",
+        "modelT": "GLYDE-X"
       },
       "cardTitleTemplate": "{label} Solar Panel Cleaning Robot"
     }

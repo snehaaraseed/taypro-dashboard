@@ -18,16 +18,24 @@
     "callUs": "Call us now",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "modelA": "Model-A",
-    "modelADesc": "Automatic solar cleaning robot",
-    "modelB": "Model-B",
-    "modelBDesc": "Semi-automatic pick & place",
-    "modelT": "Model-T",
-    "modelTDesc": "Single-axis tracker cleaning",
-    "tayproConsole": "Taypro Console",
+    "helyx": "HELYX",
+    "helyxDesc": "Semi-automatic pick & place · PBT",
+    "glyde": "GLYDE",
+    "glydeDesc": "Automatic · dual-pass microfiber",
+    "nyuma": "NYUMA",
+    "nyumaDesc": "Automatic · single-pass PBT",
+    "glydeX": "GLYDE-X",
+    "glydeXDesc": "Tracker · dual-pass microfiber",
+    "nyumaX": "NYUMA-X",
+    "nyumaXDesc": "Tracker · single-pass PBT",
+    "tayproConsole": "NECTYR",
     "tayproConsoleDesc": "Fleet monitoring & control",
     "tayproOpex": "Taypro OPEX",
     "tayproOpexDesc": "Robotic cleaning service",
+    "miny": "MINY",
+    "minyDesc": "Compact rooftop robot · Coming soon",
+    "cradyl": "CRADYL",
+    "cradylDesc": "Row-transfer docking · Coming soon",
     "viewAllRobots": "View all robots"
   },
   "Footer": {
@@ -48,11 +56,6 @@
     "cleaningService": "Solar Panel Cleaning Service",
     "roiCalculator": "ROI & Price Calculator",
     "copyright": "© Copyright {year} – TAYPRO PRIVATE LIMITED. All Rights Reserved."
-  },
-  "LocaleBanner": {
-    "title": "Article text in English",
-    "body": "Blog navigation and page chrome are in your language. Full article and project case-study bodies remain in English.",
-    "dismiss": "Dismiss"
   },
   "NotFoundPage": {
     "meta": {

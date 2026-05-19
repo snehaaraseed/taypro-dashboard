@@ -10,7 +10,6 @@ import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
 import LeadModalRoot from "@/app/components/LeadModalRoot";
 import DeferredLayoutWidgets from "@/app/components/DeferredLayoutWidgets";
-import LocaleBanner from "@/app/components/LocaleBanner";
 import { routing } from "@/i18n/routing";
 import { isActiveLocale } from "@/i18n/markets";
 import { OG_PRESETS, buildOgImage, buildTwitterImageUrls } from "@/lib/seo/open-graph";
@@ -109,7 +108,7 @@ export default async function LocaleLayout({
   const clientMessages = buildClientMessages(messages, pathname);
 
   return (
-    <NextIntlClientProvider messages={clientMessages}>
+    <NextIntlClientProvider locale={locale} messages={clientMessages}>
       <OrganizationSchema
         siteUrl={siteUrl}
         contactPoint={{
@@ -121,7 +120,6 @@ export default async function LocaleLayout({
       <LeadModalRoot>
         <div className="min-h-screen flex flex-col">
           <Header />
-          {locale !== "en" ? <LocaleBanner /> : null}
           <main className="flex-grow">{children}</main>
           <Footer />
           <DeferredLayoutWidgets />

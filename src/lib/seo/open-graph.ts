@@ -60,17 +60,40 @@ export const OG_PRESETS = {
     path: "/tayproasset/robots.png",
     alt: "Taypro solar panel cleaning robot ROI calculator",
   },
+  glyde: {
+    path: "/tayprorobots/taypro-modelAcopy.png",
+    alt: "Taypro GLYDE automatic solar panel cleaning robot",
+  },
+  helyx: {
+    path: "/tayprorobots/taypro-modelBcopy.png",
+    alt: "Taypro HELYX semi-automatic solar panel cleaning robot",
+  },
+  glydeX: {
+    path: "/tayprorobots/taypro-modelTcopy.png",
+    alt: "Taypro GLYDE-X tracker solar panel cleaning robot",
+  },
+  nyuma: {
+    path: "/tayprorobots/taypro-modelAcopy.png",
+    alt: "Taypro NYUMA automatic PBT solar panel cleaning robot",
+  },
+  nyumaX: {
+    path: "/tayprorobots/taypro-modelTcopy.png",
+    alt: "Taypro NYUMA-X tracker PBT solar panel cleaning robot",
+  },
+  /** @deprecated Use glyde */
   modelA: {
     path: "/tayprorobots/taypro-modelAcopy.png",
-    alt: "Taypro Model-A automatic solar panel cleaning robot",
+    alt: "Taypro GLYDE automatic solar panel cleaning robot",
   },
+  /** @deprecated Use helyx */
   modelB: {
     path: "/tayprorobots/taypro-modelBcopy.png",
-    alt: "Taypro Model-B semi-automatic solar panel cleaning robot",
+    alt: "Taypro HELYX semi-automatic solar panel cleaning robot",
   },
+  /** @deprecated Use glydeX */
   modelT: {
     path: "/tayprorobots/taypro-modelTcopy.png",
-    alt: "Taypro Model-T tracker solar panel cleaning robot",
+    alt: "Taypro GLYDE-X tracker solar panel cleaning robot",
   },
   opex: {
     path: "/tayprorobots/taypro-opex.jpg",
@@ -78,7 +101,7 @@ export const OG_PRESETS = {
   },
   console: {
     path: "/tayproasset/taypro-console.png",
-    alt: "Taypro Console fleet monitoring for cleaning robots",
+    alt: "NECTYR fleet monitoring for cleaning robots",
   },
 } as const satisfies Record<string, OgImageSpec>;
 

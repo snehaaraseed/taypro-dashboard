@@ -24,7 +24,7 @@
 | 23 keywords at **50k+** volume are mostly **panel price / solar panels** | Ignore for product SEO |
 | **15+ cleaning keywords at 5k** are the core market | Hub + service + model pages |
 | **Service cluster** (5k, competition index **18**) = fastest commercial win | Prioritize Opex/service page |
-| **Robot cluster** (5k, index **39**) = category ownership | Hub + Model-A |
+| **Robot cluster** (5k, index **39**) = category ownership | Hub + GLYDE (dual-pass) + NYUMA (PBT) |
 | **Brush / washing** (5k, index **95–100**) = manual intent | Comparison **blogs**, not product H1 |
 | Semrush legacy URLs (`/solar_panel_cleaning_robot`, etc.) | Add **301 redirects** in `next.config.ts` |
 | Export missing semi-auto / tracker / utility seeds | Second Planner download ([§12](#12-second-keyword-planner-export)) |
@@ -64,13 +64,15 @@
 ```
 /                                    → Brand + robots India (NOT generic "solar panels")
 /solar-panel-cleaning-system         → robot, system, cleaning, machine (HUB)
-  /automatic-solar-panel-cleaning-system
-  /semi-automatic-solar-panel-cleaning-system
-  /automatic-solar-panel-cleaning-system-for-single-axis-trackers
-  /solar-panel-cleaning-service      → service, company (Opex)
-  /automatic-cleaning-robot-monitoring-app
+  /automatic-solar-panel-cleaning-system              → GLYDE (dual-pass flagship, fixed-tilt)
+  /automatic-solar-panel-cleaning-system-for-single-axis-trackers → GLYDE-X (dual-pass tracker)
+  /nyuma-automatic-cleaning-robot                     → NYUMA (PBT single-pass, fixed-tilt)
+  /nyuma-x-single-axis-tracker-cleaning-robot         → NYUMA-X (PBT single-pass, tracker)
+  /semi-automatic-solar-panel-cleaning-system         → HELYX (semi-auto, distributed)
+  /solar-panel-cleaning-service                       → Taypro OPEX (service)
+  /automatic-cleaning-robot-monitoring-app            → NECTYR (fleet portal)
 /solar-panel-cleaning-robot-price-calculator → cost, price, ROI
-/cleaning-technology                 → waterless, dry, dual-pass
+/cleaning-technology                 → waterless, dry, dual-pass vs PBT
 /projects, /projects/*               → proof, E-E-A-T
 /blog                                → brush, how-to, dust, comparisons
 /company, /contact                   → trust + conversion

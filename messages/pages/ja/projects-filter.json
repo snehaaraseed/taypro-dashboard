@@ -2,33 +2,33 @@
   "ProjectsFilterPage": {
     "automatic": {
       "breadcrumb": "自動",
-      "title": "自動ソーラーパネル清掃ロボット導入事例",
-      "description": "自動ソーラーパネル清掃ロボットの導入事例をご覧ください。AI対応の自律清掃システムが最高の効率とROIを実現します。",
-      "schemaName": "自動ソーラーパネル清掃ロボット導入事例",
-      "schemaDescription": "Taypro Model-Aおよび関連する自動ロボット清掃システムが導入されたユーティリティ規模の太陽光発電所。",
-      "imageAltSuffix": "Tayproによる自動ソーラーパネル清掃ロボット導入事例",
-      "imageTitleSuffix": "自動ソーラーパネル清掃ロボット導入事例"
+      "title": "自動ソーラーパネル洗浄ロボット導入事例",
+      "description": "自動ソーラーパネル洗浄ロボットの導入事例。AI自律清掃で高効率とROIを実現。",
+      "schemaName": "自動ソーラーパネル洗浄ロボット導入プロジェクト",
+      "schemaDescription": "Taypro GLYDE等の自動ロボット洗浄が導入されたユーティリティ規模発電所。",
+      "imageAltSuffix": "Tayproによる自動ソーラーパネル洗浄ロボット導入プロジェクト",
+      "imageTitleSuffix": "自動ソーラーパネル洗浄ロボットプロジェクト"
     },
     "semiAutomatic": {
-      "breadcrumb": "セミオートマチック",
-      "title": "セミオートマチックソーラーパネル清掃ロボット導入事例",
-      "description": "セミオートマチックソーラーパネル清掃ロボットの導入事例をご覧ください。発電所ブロック全体で柔軟なドライ清掃が可能なポータブルModel-Bシステム。",
-      "schemaName": "セミオートマチックソーラーパネル清掃ロボット導入事例",
-      "schemaDescription": "Taypro Model-Bおよび関連するセミオートマチックポータブル清掃ロボットを使用する太陽光発電所。",
-      "imageAltSuffix": "Tayproによるセミオートマチックソーラーパネル清掃ロボット導入事例",
-      "imageTitleSuffix": "セミオートマチックソーラーパネル清掃ロボット導入事例"
+      "breadcrumb": "半自動",
+      "title": "半自動ソーラーパネル洗浄ロボット導入事例",
+      "description": "半自動ソーラーパネル洗浄ロボットの導入事例。ポータブルHELYXでブロック横断の柔軟な乾式洗浄。",
+      "schemaName": "半自動ソーラーパネル洗浄ロボット導入プロジェクト",
+      "schemaDescription": "Taypro HELYX等の半自動ポータブル洗浄ロボットを使用する発電所。",
+      "imageAltSuffix": "Tayproによる半自動ソーラーパネル洗浄ロボット導入プロジェクト",
+      "imageTitleSuffix": "半自動ソーラーパネル洗浄ロボットプロジェクト"
     },
     "capex": {
       "breadcrumb": "CAPEX",
-      "title": "CAPEXソーラーパネル清掃ロボット導入事例",
-      "description": "CAPEXによるソーラーパネル清掃ロボット導入事例をご覧ください。社内O&Mチーム向けにTayproハードウェアを購入されたお客様。",
-      "schemaName": "CAPEXソーラーパネル清掃ロボット導入事例",
-      "schemaDescription": "CAPEX調達によりTaypro清掃ロボットを購入された資産所有者のユーティリティ規模発電所。",
-      "imageAltSuffix": "TayproによるCAPEXソーラーパネル清掃ロボット導入事例",
-      "imageTitleSuffix": "CAPEXソーラーパネル清掃ロボット導入事例"
+      "title": "CAPEXソーラーパネル洗浄ロबोット導入事例",
+      "description": "CAPEX所有のソーラーパネル洗浄ロボット導入事例。社内O&M向けにTayproハードウェアを購入した顧客。",
+      "schemaName": "CAPEXソーラーパネル洗浄ロボット導入プロジェクト",
+      "schemaDescription": "CAPEX調達で資産所有者がTaypro洗浄ロボットを購入したユーティリティ規模プラント。",
+      "imageAltSuffix": "TayproによるCAPEXソーラーパネル洗浄ロボット導入プロジェクト",
+      "imageTitleSuffix": "CAPEXソーラーパネル洗浄ロボットプロジェクト"
     },
-    "projectLinkTitle": "太陽光プロジェクト",
-    "breadcrumbProjects": "導入事例"
+    "projectLinkTitle": "ソーラープロジェクト",
+    "breadcrumbProjects": "プロジェクト"
   },
   "Common": {
     "breadcrumbHome": "ホーム"
