@@ -21,8 +21,9 @@ if [ -z "${AUTOMATION_CRON_SECRET:-}" ]; then
   exit 1
 fi
 
-SITE_URL="${NEXT_PUBLIC_SITE_URL:-https://taypro.in}"
-ENDPOINT="${SITE_URL%/}/api/automation/retry-translations?reconcile=true"
+# Hit the app directly (bypasses nginx 30s proxy_read_timeout on taypro.in).
+API_BASE="${CMS_CRON_API_BASE:-http://127.0.0.1:3000}"
+ENDPOINT="${API_BASE%/}/api/automation/retry-translations?reconcile=true"
 
 {
   echo "$(date -Is) POST $ENDPOINT"

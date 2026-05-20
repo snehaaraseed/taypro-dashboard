@@ -84,5 +84,16 @@
     "ctaQuoteTopic": "404ページ — 見積依頼",
     "ctaQuoteTitle": "ソーラー清掃ロボットの見積もり",
     "ctaQuoteSubtitle": "プラントの詳細を共有いただければ、最適なTayproソリューションをご提案します。"
+  },
+  "PerformanceMethodology": {
+    "noticeAriaLabel": "パフォーマンス数値に関する注記",
+    "noticeStrong": "パフォーマンス数値について：",
+    "noticeBeforeEm": "本サイトの「99%+」は",
+    "noticeEm": "1パス／サイクルあたりのモジュール表面ホコリ除去",
+    "noticeBeforeLink": "を指し、変換効率や総出力の保証ではありません。回復はベースライン汚損・頻度・気象・設計に依存します。",
+    "noticeAfterLink": "をご参照ください。",
+    "linkLabel": "パフォーマンス・試験方法論",
+    "linkTitle": "パフォーマンス・試験方法論",
+    "footnoteAriaLabel": "パフォーマンス・試験方法論（脚注）"
   }
 }

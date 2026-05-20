@@ -84,5 +84,16 @@
     "ctaQuoteTopic": "404 page — quote request",
     "ctaQuoteTitle": "Request a solar cleaning robot quote",
     "ctaQuoteSubtitle": "Share your plant details and our team will recommend the right Taypro solution."
+  },
+  "PerformanceMethodology": {
+    "noticeAriaLabel": "Performance claim disclosure",
+    "noticeStrong": "About performance figures:",
+    "noticeBeforeEm": "References to \"99%+\" on this site describe ",
+    "noticeEm": "dust removed from the module surface per automated pass or cycle",
+    "noticeBeforeLink": ", not a guarantee of panel conversion efficiency or total plant output. Recovery of energy lost to soiling depends on baseline soiling, cleaning cadence, weather, and plant design. See our ",
+    "noticeAfterLink": " for how Taypro validates and quotes results.",
+    "linkLabel": "performance & test methodology",
+    "linkTitle": "Performance & Test Methodology",
+    "footnoteAriaLabel": "Performance & Test Methodology (footnote)"
   }
 }

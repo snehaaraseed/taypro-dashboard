@@ -272,6 +272,7 @@ const OVERVIEW_GLYDE = {
   ar: {
     eyebrow: "روبوت تنظيف ألواح شمسية أوتوماتيكي لمحطات المرافق",
     title: "ما هو روبوت Taypro GLYDE؟",
+    p1BeforeStrong: "",
     p1StrongCategory: "روبوت تنظيف ألواح شمسية أوتوماتيكي",
     p1AfterCategory:
       " يصف روبوتات مستقلة بالكامل بدون ماء. GLYDE مصمم للتنظيف اليومي الموثوق. تشغيلة واحدة تزيل أكثر من ",
@@ -281,6 +282,7 @@ const OVERVIEW_GLYDE = {
   ja: {
     eyebrow: "ユーティリティ規模向け自動ソーラーパネル清掃ロボット",
     title: "Taypro GLYDE自動清掃ロボットとは",
+    p1BeforeStrong: "",
     p1StrongCategory: "自動ソーラーパネル清掃ロボット",
     p1AfterCategory:
       "は完全自律・無水でモジュールを清掃します。GLYDEはユーティリティ規模の日常清掃向け。1回の走行で",
@@ -290,11 +292,43 @@ const OVERVIEW_GLYDE = {
   bn: {
     eyebrow: "ইউটিলিটি-স্কেল প্ল্যান্টের জন্য অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট",
     title: "Taypro GLYDE অটোমেটিক রোবট কী?",
+    p1BeforeStrong: "",
     p1StrongCategory: "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট",
     p1AfterCategory:
       " শ্রেণী সম্পূর্ণ স্বায়ত্তশাসিত, জলবিহীন রোবট। GLYDE ইউটিলিটি-স্কেল দৈনিক পরিষ্কারের জন্য।",
     p1DustClaimStrong: "৯৯%+ ধূলো",
     p1AfterDustClaim: " মাইক্রোফাইবার ড্রাম দিয়ে সরায়।",
+  },
+};
+
+const SCHEMA_GLYDE = {
+  hi: {
+    productName: "स्वचालित सोलर पैनल सफाई रोबोट — GLYDE (Taypro)",
+    howToName:
+      "स्वचालित सोलर पैनल सफाई रोबोट यूटिलिटी प्लांट कैसे साफ करता है (Taypro GLYDE)",
+    howToDescription:
+      "Taypro GLYDE का स्वायत्त सफाई चक्र — AI शेड्यूलिंग, डुअल-पास वॉटरलेस सफाई, सेल्फ-डॉकिंग और क्लाउड टेलीमेट्री।",
+  },
+  ar: {
+    productName: "روبوت تنظيف ألواح شمسية أوتوماتيكي — GLYDE (Taypro)",
+    howToName:
+      "كيف ينظف روبوت Taypro GLYDE أوتوماتيكياً محطة شمسية على نطاق المرافق؟",
+    howToDescription:
+      "دورة تنظيف ذاتية لـ GLYDE — جدولة AI، تنظيف ثنائي المرور بدون ماء، إرساء ذاتي واتصال سحابي.",
+  },
+  ja: {
+    productName: "自動ソーラーパネル清掃ロボット — GLYDE (Taypro)",
+    howToName:
+      "自動ソーラーパネル清掃ロボットがユーティリティ規模プラントを清掃する方法（Taypro GLYDE）",
+    howToDescription:
+      "GLYDEの自律清掃サイクル — AIスケジューリング、デュアルパス無水清掃、セルフドッキング、クラウドテレメトリ。",
+  },
+  bn: {
+    productName: "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট — GLYDE (Taypro)",
+    howToName:
+      "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট ইউটিলিটি-স্কেল প্ল্যান্ট কীভাবে পরিষ্কার করে (Taypro GLYDE)",
+    howToDescription:
+      "GLYDE-এর স্বায়ত্তশাসিত পরিষ্কার চক্র — AI শিডিউলিং, ডুয়াল-পাস জলবিহীন পরিষ্কার, সেল্ফ-ডকিং ও ক্লাউড টেলিমেট্রি।",
   },
 };
 
@@ -448,33 +482,41 @@ for (const loc of locales) {
 
   deepMerge(glyde, resolvePack(glydeProductPack.ModelAPage, loc));
 
-  if (hiT.ModelTPage.schema) {
+  const connectivitySummary =
+    hiT.ModelTPage?.shared?.connectivitySummary ??
+    hiT.Common?.connectivitySummary ??
+    enA.ModelAPage?.shared?.connectivitySummary ??
+    enA.Common?.connectivitySummary;
+
+  if (glyde.shared) {
+    glyde.shared.connectivitySummary = connectivitySummary;
+  }
+
+  const schemaLoc = SCHEMA_GLYDE[loc];
+  if (hiT.ModelTPage.schema && schemaLoc) {
     glyde.schema = {
       product: {
-        name:
-          loc === "hi"
-            ? "स्वचालित सोलर पैनल सफाई रोबोट — GLYDE (Taypro)"
-            : glyde.schema?.product?.name,
+        name: schemaLoc.productName,
         description: META_GLYDE[loc].description,
         brand: "Taypro",
         sku: "GLYDE",
         offers: {
           price:
             hiT.ModelTPage.schema.offersPrice ??
-            (loc === "hi" ? "मूल्य निर्धारण के लिए संपर्क करें" : "Contact for pricing"),
+            (loc === "hi"
+              ? "मूल्य निर्धारण के लिए संपर्क करें"
+              : loc === "ar"
+                ? "الاتصال للحصول على التسعير"
+                : loc === "ja"
+                  ? "価格についてはお問い合わせください"
+                  : "মূল্যের জন্য যোগাযোগ করুন"),
           priceCurrency: "INR",
           availabilitySchemaUrl: "https://schema.org/InStock",
         },
       },
       howTo: {
-        name:
-          loc === "hi"
-            ? "स्वचालित सोलर पैनल सफाई रोबोट यूटिलिटी प्लांट कैसे साफ करता है (Taypro GLYDE)"
-            : glyde.schema?.howTo?.name,
-        description:
-          loc === "hi"
-            ? "Taypro GLYDE का स्वायत्त सफाई चक्र — AI शेड्यूलिंग, डुअल-पास वॉटरलेस सफाई, सेल्फ-डॉकिंग और क्लाउड टेलीमेट्री।"
-            : glyde.schema?.howTo?.description,
+        name: schemaLoc.howToName,
+        description: schemaLoc.howToDescription,
         totalTime: "PT2H",
         imagePath: "/tayproasset/taypro-robotImage.png",
       },
@@ -484,9 +526,7 @@ for (const loc of locales) {
   const common = {
     breadcrumbHome:
       loc === "hi" ? "होम" : loc === "ar" ? "الرئيسية" : loc === "ja" ? "ホーム" : "হোম",
-    connectivitySummary:
-      enA.ModelAPage?.shared?.connectivitySummary ??
-      enA.Common?.connectivitySummary,
+    connectivitySummary,
   };
 
   writeFileSync(

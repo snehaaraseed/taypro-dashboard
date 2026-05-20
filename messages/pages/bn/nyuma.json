@@ -1,41 +1,34 @@
 {
   "NyumaPage": {
     "meta": {
-      "title": "PBT Automatic Solar Panel Cleaning Robot — Taypro NYUMA (Waterless, AI)",
-      "description": "Taypro NYUMA is a fully autonomous PBT single-pass Automatic Solar Panel Cleaning Robot for fixed and seasonal-tilt utility plants. Waterless AI/ML dry cleaning removes 99%+ dust per cycle, up to 3,600 modules per charge, NECTYR fleet portal, TÜV NORD certified, same-day pan-India support.",
+      "title": "সিঙ্গল-পাস PBT অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট — Taypro NYUMA (জলবিহীন, AI)",
+      "description": "Taypro NYUMA সম্পূর্ণ স্বায়ত্তশাসিত, জলবিহীন অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট। AI/ML সিঙ্গল-পাস PBT ড্রাই ক্লিনিং প্রতি চক্রে ৯৯%+ ধূলো সরায়, প্রতি চার্জে ৩,৬০০ মডিউল পর্যন্ত, NECTYR-এর মাধ্যমে LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN, TÜV NORD সনদপ্রাপ্ত।",
       "keywords": [
-        "PBT solar panel cleaning robot",
-        "PBT automatic solar panel cleaning robot",
-        "single-pass solar panel cleaning robot",
-        "single-pass automatic solar cleaning robot",
-        "waterless PBT solar cleaning robot",
-        "fixed tilt PBT cleaning robot",
-        "automatic solar panel cleaning robot India",
-        "autonomous solar panel cleaning robot",
-        "utility scale solar cleaning robot",
-        "TÜV NORD certified solar cleaning robot",
+        "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট",
+        "ডুয়াল পাস সোলার ক্লিনিং রোবট",
+        "ফিক্সড টিল্ট সোলার ক্লিনিং",
         "Taypro NYUMA"
       ],
-      "openGraphTitle": "PBT Automatic Solar Panel Cleaning Robot — Taypro NYUMA",
-      "openGraphDescription": "Taypro NYUMA: PBT single-pass automatic cleaning for utility fixed-tilt plants. 99%+ dust removal per cycle, up to 3,600 modules per charge, NECTYR fleet monitoring, TÜV NORD certified.",
+      "openGraphTitle": "সিঙ্গল-পাস PBT অটোমেটিক রোবট — Taypro NYUMA",
+      "openGraphDescription": "পেটেন্টেড সিঙ্গল-পাস PBT PBT ব্রাশ। স্বায়ত্তশাসিত জলবিহীন পরিষ্কার, NECTYR।",
       "openGraphType": "website",
-      "openGraphImageAlt": "Taypro NYUMA PBT automatic solar panel cleaning robot",
-      "twitterTitle": "PBT Automatic Solar Panel Cleaning Robot — Taypro NYUMA",
-      "twitterDescription": "Taypro NYUMA: autonomous waterless PBT single-pass cleaning, 99%+ dust removal per cycle, NECTYR-connected fleet portal.",
+      "openGraphImageAlt": "Taypro NYUMA অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট",
+      "twitterTitle": "সিঙ্গল-পাস PBT অটোমেটিক রোবট — Taypro NYUMA",
+      "twitterDescription": "NYUMA: স্বায়ত্তশাসিত জলবিহীন সিঙ্গল-পাস PBT, NECTYR।",
       "twitterCard": "summary_large_image"
     },
     "breadcrumbs": {
-      "home": "Home",
+      "home": "হোম",
       "solarPanelCleaningRobots": "সোলার প্যানেল ক্লিনিং রোবট",
-      "automaticRobot": "Automatic Solar Panel Cleaning Robot"
+      "automaticRobot": "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট"
     },
     "shared": {
-      "connectivitySummary": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN"
+      "connectivitySummary": "LTE, Wi-Fi, হাইব্রিড সেল্ফ-হিলিং RF মেশ, LoRa ও LoRaWAN"
     },
     "schema": {
       "product": {
-        "name": "Automatic Solar Panel Cleaning Robot — NYUMA (Taypro)",
-        "description": "Taypro NYUMA is a fully autonomous Automatic Solar Panel Cleaning Robot for utility-scale solar power plants. Waterless AI- and ML-driven single-pass dry cleaning removes over 99% of dust per cycle, cleans up to 3,600 modules on a single charge, connects to NECTYR via LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN, and is field-validated and TÜV NORD certified.",
+        "name": "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট — NYUMA (Taypro)",
+        "description": "Taypro NYUMA সম্পূর্ণ স্বায়ত্তশাসিত, জলবিহীন অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট। AI/ML সিঙ্গল-পাস PBT ড্রাই ক্লিনিং প্রতি চক্রে ৯৯%+ ধূলো সরায়, প্রতি চার্জে ৩,৬০০ মডিউল পর্যন্ত, NECTYR-এর মাধ্যমে LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN, TÜV NORD সনদপ্রাপ্ত।",
         "brand": "Taypro",
         "sku": "NYUMA",
         "offers": {
@@ -45,212 +38,212 @@
         }
       },
       "howTo": {
-        "name": "How an Automatic Solar Panel Cleaning Robot cleans a utility-scale solar plant (Taypro NYUMA)",
-        "description": "Step-by-step autonomous cleaning cycle of the Taypro NYUMA Automatic Solar Panel Cleaning Robot — from array assignment and AI scheduling through single-pass waterless cleaning, self-docking, and cloud telemetry.",
+        "name": "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট ইউটিলিটি-স্কেল প্ল্যান্ট কীভাবে পরিষ্কার করে (Taypro NYUMA)",
+        "description": "NYUMA-এর স্বায়ত্তশাসিত পরিষ্কার চক্র — AI শিডিউলিং, সিঙ্গল-পাস PBT জলবিহীন পরিষ্কার, সেল্ফ-ডকিং ও ক্লাউড টেলিমেট্রি।",
         "totalTime": "PT2H",
         "imagePath": "/tayproasset/taypro-robotImage.png"
       }
     },
     "hero": {
-      "h1Line1": "Automatic Solar Panel Cleaning Robot — ",
-      "h1Line2": "NYUMA by Taypro",
-      "leadBeforeStrong": "The Taypro NYUMA is an ",
-      "leadStrong": "Automatic Solar Panel Cleaning Robot",
-      "leadAfterStrong": " for utility-scale solar power plants: autonomous, waterless single-pass cleaning, AI- and ML-driven scheduling, up to 3,600 modules per charge, with fleet connectivity via ",
-      "leadAfterConnectivity": ", and a TÜV NORD–validated build for maximum uptime.",
+      "h1Line1": "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট — ",
+      "h1Line2": "Taypro NYUMA",
+      "leadBeforeStrong": "Taypro NYUMA হল একটি ",
+      "leadStrong": "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট",
+      "leadAfterStrong": " ইউটিলিটি-স্কেল সোলার পাওয়ার প্ল্যান্টের জন্য: স্বায়ত্তশাসিত, জলবিহীন সিঙ্গল-পাস PBT পরিষ্কার, AI/ML শিডিউলিং, প্রতি চার্জে ৩,৬০০ মডিউল পর্যন্ত, ফ্লিট সংযোগ ",
+      "leadAfterConnectivity": " এর মাধ্যমে, এবং সর্বোচ্চ আপটাইমের জন্য TÜV NORD–যাচাইকৃত বিল্ড।",
       "primaryCta": {
-        "topic": "NYUMA quote",
-        "title": "Request a NYUMA quote",
-        "subtitle": "Tell us about your plant and our team will follow up with NYUMA sizing, configuration, and commercial options.",
-        "label": "একটি উদ্ধৃতি অনুরোধ"
+        "topic": "NYUMA কোটেশন",
+        "title": "NYUMA কোটেশন অনুরোধ",
+        "subtitle": "আপনার প্ল্যান্ট সম্পর্কে জানান — আমাদের দল NYUMA সাইজিং, কনফিগারেশন ও বাণিজ্যিক বিকল্প নিয়ে যোগাযোগ করবে।",
+        "label": "কোটেশন অনুরোধ"
       },
-      "heroImageAlt": "Taypro Automatic Solar Panel Cleaning Robot NYUMA cleaning solar panels at utility-scale solar farm",
-      "heroImageTitle": "Automatic Solar Panel Cleaning Robot NYUMA by Taypro"
+      "heroImageAlt": "ইউটিলিটি-স্কেল সোলার ফার্মে প্যানেল পরিষ্কার করছে Taypro NYUMA অটোমেটিক রোবট",
+      "heroImageTitle": "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট NYUMA — Taypro"
     },
     "overview": {
-      "eyebrow": "Automatic Solar Panel Cleaning Robot for Utility-Scale Plants",
-      "title": "What is the Taypro NYUMA Automatic Solar Panel Cleaning Robot?",
-      "p1BeforeStrong": "The ",
-      "p1StrongCategory": "Automatic Solar Panel Cleaning Robot",
-      "p1AfterCategory": " category describes fully autonomous, waterless robots that clean solar modules without tankers or night crews. Taypro NYUMA is a fully autonomous unit engineered for reliable daily cleaning of utility-scale solar power plants. A single automated run removes over ",
-      "p1DustClaimStrong": "99% of dust",
-      "p1AfterDustClaim": " from the module surface using a rotating, self-cleaning PBT brush drum, driving consistent performance ratio gains across the plant (site-dependent).",
-      "methodologyFootnoteAriaSuffix": " (footnote)",
+      "eyebrow": "ইউটিলিটি-স্কেল প্ল্যান্টের জন্য অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট",
+      "title": "Taypro NYUMA অটোমেটিক রোবট কী?",
+      "p1BeforeStrong": "",
+      "p1StrongCategory": "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট",
+      "p1AfterCategory": " শ্রেণী সম্পূর্ণ স্বায়ত্তশাসিত, জলবিহীন রোবট। NYUMA ইউটিলিটি-স্কেল দৈনিক পরিষ্কারের জন্য।",
+      "p1DustClaimStrong": "৯৯%+ ধূলো",
+      "p1AfterDustClaim": " PBT ব্রাশ ড্রাম দিয়ে সরায়।",
+      "methodologyFootnoteAriaSuffix": " (ফুটনোট)",
       "methodologyNotice": {
-        "strong": "About performance figures:",
-        "body": "References to \"99%+\" on this site describe dust removed from the module surface per automated pass or cycle, not a guarantee of panel conversion efficiency or total plant output. Recovery of energy lost to soiling depends on baseline soiling, cleaning cadence, weather, and plant design. See our performance & test methodology for how Taypro validates and quotes results."
+        "strong": "পারফরম্যান্স পরিসংখ্যান সম্পর্কে:",
+        "body": "এই সাইটে \"৯৯%+\" প্রতি পাস/চক্রে মডিউল পৃষ্ঠ থেকে সরানো ধূলো বোঝায় — রূপান্তর দক্ষতা বা মোট আউটপুটের গ্যারান্টি নয়। সোইলিং পুনরুদ্ধার বেসলাইন, ফ্রিকোয়েন্সি, আবহাওয়া ও ডিজাইনে নির্ভর করে। Taypro যাচাই পদ্ধতি দেখুন।"
       },
-      "methodologyLinkText": "performance & test methodology",
-      "methodologyLinkTitle": "Performance & Test Methodology",
+      "methodologyLinkText": "পারফরম্যান্স ও পরীক্ষা পদ্ধতি",
+      "methodologyLinkTitle": "পারফরম্যান্স ও পরীক্ষা পদ্ধতি",
       "p2BeforeStrong": "On a single charge, NYUMA cleans up to ",
       "p2Strong": "2.2 km of running length — approximately 3,600 solar modules",
       "p2AfterStrong": ". Cleaning cycles are best scheduled outside energy production hours and can be programmed remotely, ensuring zero impact on plant generation.",
       "p3": "Advanced edge and obstacle detection allow NYUMA to traverse panels safely without risk of falling, while continuous surface-undulation tracking adjusts motor performance row-by-row for consistent cleaning quality. Real-time battery monitoring guarantees the robot only covers what it can complete and returns safely to its docking station — never stranded mid-array. Lightweight bridges enable seamless movement from one table to the next, keeping coverage uninterrupted across the entire site.",
-      "p4Blog1": "how an automatic cleaning robot works on modules",
-      "p4Blog2": "benefits of robotic cleaning at utility scale",
-      "p4Prefix": "আরও পড়া:",
-      "p4Middle": "এবং",
-      "p4Suffix": "."
+      "p4Blog1": "মডিউলে অটোমেটিক পরিষ্কার রোবট কীভাবে কাজ করে",
+      "p4Blog2": "ইউটিলিটি স্কেলে রোবোটিক পরিষ্কারের সুবিধা",
+      "p4Prefix": "আরও পড়ুন: ",
+      "p4Middle": " এবং ",
+      "p4Suffix": "।"
     },
     "howToSection": {
-      "eyebrow": "Autonomous Cleaning Cycle",
-      "title": "How Does an Automatic Solar Panel Cleaning Robot Work?",
-      "subtitle": "NYUMA runs end-to-end without operators on the row. Below is the same workflow encoded in our HowTo structured data for search engines — and the daily reality at every deployed plant.",
+      "eyebrow": "স্বায়ত্তশাসিত পরিষ্কার চক্র",
+      "title": "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট কীভাবে কাজ করে?",
+      "subtitle": "NYUMA সারিতে অপারেটর ছাড়াই শেষ থেকে শেষ চলে। নিচে HowTo স্ট্রাকচার্ড ডেটা ও প্রতিটি সাইটের দৈনিক বাস্তবতা।",
       "steps": {
         "step0": {
-          "name": "Assign each Automatic Solar Panel Cleaning Robot to a dedicated array",
-          "text": "Each Taypro NYUMA unit is permanently assigned to a specific solar array and paired with a shadow-free docking station beside the row. The integrated lithium-ion charging system requires no external power connection — the robot is self-contained for daily autonomous operation."
+          "name": "প্রতিটি অটোমেটিক রোবট নির্দিষ্ট অ্যারেতে বরাদ্দ",
+          "text": "প্রতিটি Taypro NYUMA একটি নির্দিষ্ট সোলার অ্যারেতে স্থায়ীভাবে বরাদ্দ এবং সারির পাশে ছায়ামুক্ত ডকিং স্টেশন। বাহ্যিক বিদ্যুৎ ছাড়াই দৈনিক স্বায়ত্তশাসিত পরিচালনা।"
         },
         "step1": {
-          "name": "Schedule cleaning from the NECTYR with AI- and ML-driven logic",
-          "text": "Operators use the NECTYR remote monitoring app to schedule cleaning cycles outside energy production hours. AI- and ML-driven scheduling combines real-time weather data with plant performance signals to optimise frequency, skip unnecessary runs during rain, and push alerts for critical conditions."
+          "name": "NECTYR থেকে AI/ML-চালিত শিডিউলিং",
+          "text": "NECTYR অ্যাপে উৎপাদন সময়ের বাইরে চক্র শিডিউল। AI/ML আবহাওয়া ও প্ল্যান্ট সিগন্যাল দিয়ে ফ্রিকোয়েন্সি অপ্টিমাইজ, বৃষ্টিতে স্কিপ ও সতর্কতা।"
         },
         "step2": {
-          "name": "Robot self-deploys onto the module row",
-          "text": "At the scheduled time, the Automatic Solar Panel Cleaning Robot undocks autonomously and moves onto the solar panel row along the module frame. Advanced edge and obstacle detection continuously map the path ahead so the robot never applies load to the glass or cells."
+          "name": "রোবট স্বয়ংক্রিয়ভাবে মডিউল সারিতে",
+          "text": "নির্ধারিত সময়ে স্বয়ংক্রিয়ভাবে আনডক করে ফ্রেম বরাবর চলে। এজ/বাধা শনাক্তকরণে গ্লাস/সেলে বোঝা নেই।"
         },
         "step3": {
-          "name": "single-pass waterless cleaning with a self-cleaning PBT brush drum",
-          "text": "A rotating, self-cleaning PBT brush drum executes a single-pass dry cleaning cycle that removes over 99% of accumulated dust per automated run at 10–15 metres per minute — with zero water, detergent or manual labour."
+          "name": "সেল্ফ-ক্লিনিং PBT ব্রাশ ড্রামে সিঙ্গল-পাস PBT জলবিহীন",
+          "text": "ঘূর্ণায়মান সেল্ফ-ক্লিনিং ড্রাম ১০–১৫ m/min এ সিঙ্গল-পাস PBT — প্রতি রানে ৯৯%+ ধূলো, জল/ডিটারজেন্ট/শ্রম শূন্য।"
         },
         "step4": {
-          "name": "Battery-aware return to the docking station",
-          "text": "Real-time battery monitoring ensures the Automatic Solar Panel Cleaning Robot only commits to a distance it can complete safely, then autonomously returns to the docking station and locks securely — rated for wind gusts up to 180 km/hr while docked."
+          "name": "ব্যাটারি-সচেতন ডকিং স্টেশনে প্রত্যাবর্তন",
+          "text": "রিয়েল-টাইম ব্যাটারি মনিটরিং নিরাপদ দূরত্ব নিশ্চিত করে ডকে ফিরে লক — ডকে ১৮০ km/hr পর্যন্ত।"
         },
         "step5": {
-          "name": "Sync telemetry and fleet health to the cloud",
-          "textBeforeConnectivity": "After each cycle, battery level, charging status, cycle telemetry and overall fleet performance are synced to the NECTYR over ",
-          "textAfterConnectivity": " — pick the link that best fits each site — for audit-ready reporting across every deployed Automatic Solar Panel Cleaning Robot."
+          "name": "ক্লাউডে টেলিমেট্রি ও ফ্লিট স্বাস্থ্য সিঙ্ক",
+          "textBeforeConnectivity": "প্রতি চক্রে ব্যাটারি, চার্জিং, চক্র টেলিমেট্রি ও ফ্লিট পারফরম্যান্স NECTYR-এ ",
+          "textAfterConnectivity": " — সাইট অনুযায়ী সেরা লিংক — প্রতিটি রোবটের অডিট-প্রস্তুত রিপোর্টিং।"
         }
       }
     },
     "product360": {
-      "eyebrow": "ইন্টারেক্টিভ পণ্য সফর",
-      "title": "360° View of NYUMA",
-      "subtitle": "Drag left or right to rotate and explore our Automatic Solar Panel Cleaning Robot from every angle",
-      "productLabel": "Taypro NYUMA — Automatic Solar Panel Cleaning Robot"
+      "eyebrow": "ইন্টারঅ্যাকটিভ পণ্য ট্যুর",
+      "title": "NYUMA-এর 360° ভিউ",
+      "subtitle": "বাম বা ডানে টেনে রোবটটি প্রতিটি কোণ থেকে দেখুন",
+      "productLabel": "Taypro NYUMA — অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট"
     },
     "usps": {
-      "eyebrow": "MODEL A – Automatic Solar Panel Cleaning Robot",
-      "title": "USPs",
+      "eyebrow": "NYUMA — অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট",
+      "title": "মূল বৈশিষ্ট্য",
       "items": {
-        "item0": "Superior Cleaning Efficiency",
-        "item1": "Robust & Durable Design",
-        "item2": "Greater Coverage",
-        "item3": "High-Speed Cleaning",
-        "item4": "Advanced Edge & Obstacle Detection",
-        "item5": "Multi-Link Remote Monitoring (LTE / Wi-Fi / RF mesh / LoRa)",
-        "item6": "Self-Cleaning Technology",
-        "item7": "Certified & Tested for Harsh Conditions"
+        "item0": "উচ্চ পরিষ্কার দক্ষতা (সিঙ্গল-পাস PBT)",
+        "item1": "শক্তিশালী ও টেকসই ডিজাইন",
+        "item2": "বিস্তৃত কভারেজ — প্রতি চার্জে ~৩,৬০০ মডিউল",
+        "item3": "দ্রুত পরিষ্কার",
+        "item4": "এজ ও বাধা শনাক্তকরণ",
+        "item5": "মাল্টি-লিংক রিমোট মনিটরিং",
+        "item6": "সেল্ফ-ক্লিনিং PBT ব্রাশ",
+        "item7": "কঠোর অবস্থার জন্য সনদপ্রাপ্ত"
       }
     },
     "roiBand": {
-      "title": "Automatic solar panel cleaning robot cost & ROI",
-      "bodyBeforeSpan": "Calculate how effective a ",
-      "bodySpan": "solar panel cleaning robot",
-      "bodyAfterSpan": " can be and how much it can save your plant."
+      "title": "অটোমেটিক রোবট খরচ ও ROI",
+      "bodyBeforeSpan": "Taypro ",
+      "bodySpan": "NYUMA",
+      "bodyAfterSpan": " — use the ROI calculator for your site."
     },
     "projects": {
-      "headingLine1": "Projects with MODEL A – Automatic ",
-      "headingLine2": "Solar Panel Cleaning",
-      "headingLine3": "Robot",
-      "headingLine4": "Installations",
-      "tagline": "We have ensured quick installation and dedicated technical support with a promise of same-day breakdown resolution.",
-      "recentProjectsHeader": "আমাদের অতি সাম্প্রতিক প্রকল্প"
+      "headingLine1": "NYUMA — অটোমেটিক ",
+      "headingLine2": "সোলার প্যানেল পরিষ্কার",
+      "headingLine3": "রোবট",
+      "headingLine4": "ইনস্টলেশন",
+      "tagline": "দ্রুত ইনস্টলেশন ও নিবেদিত প্রযুক্তি সহায়তা — একই দিনে ব্রেকডাউন সমাধানের প্রতিশ্রুতি।",
+      "recentProjectsHeader": "আমাদের সাম্প্রতিক প্রকল্প"
     },
     "trustStats": {
-      "eyebrow": "Why Solar Plants Choose Taypro",
-      "title": "ভারতের নেতৃস্থানীয় সোলার অপারেটরদের দ্বারা বিশ্বস্ত",
-      "subtitle": "Over the past decade, Taypro has driven performance-ratio improvement across more than 5,000 MW of solar power plant capacity for leading independent power producers and utility-scale plants across India.",
+      "eyebrow": "সোলার প্ল্যান্ট কেন Taypro বেছে নেয়",
+      "title": "ভারতের শীর্ষ সোলার অপারেটরদের বিশ্বস্ত",
+      "subtitle": "গত দশকে Taypro ভারত জুড়ে ৫,০০০ MW+ সোলার ক্ষমতায় PR উন্নতি করেছে।",
       "stats": {
         "stat0": {
           "value": "5 GW+",
-          "label": "রোবট সক্ষমতা স্থাপন করা হয়েছে"
+          "label": "রোবট ক্ষমতা স্থাপিত"
         },
         "stat1": {
           "value": "100+",
-          "label": "উদ্ভিদ ইনস্টলেশন"
+          "label": "প্ল্যান্ট ইনস্টলেশন"
         },
         "stat2": {
           "value": "1.4 Bn",
-          "label": "লিটার পানি বার্ষিক সংরক্ষণ করা হয়"
+          "label": "লিটার জল বাঁচানো বার্ষিক"
         },
         "stat3": {
           "value": "600+",
-          "label": "প্রতি মাসে রোবট উৎপাদন ক্ষমতা"
+          "label": "রোবট/মাস উৎপাদন ক্ষমতা"
         }
       }
     },
     "servicePromise": {
-      "eyebrow": "অপারেটিং কনফিডেন্স, প্রতিদিন",
-      "title": "পরিষেবা এবং রক্ষণাবেক্ষণ প্রতিশ্রুতি",
-      "subtitle": "Every Taypro NYUMA deployment is backed by a planned maintenance programme and a guaranteed response SLA so your plant stays at peak performance ratio.",
+      "eyebrow": "প্রতিদিন পরিচালনা আত্মবিশ্বাস",
+      "title": "সেবা ও রক্ষণাবেক্ষণ প্রতিশ্রুতি",
+      "subtitle": "প্রতিটি Taypro NYUMA স্থাপনায় পরিকল্পিত রক্ষণাবেক্ষণ ও SLA — সর্বোচ্চ PR।",
       "cards": {
         "card0": {
-          "title": "Scheduled Preventive Maintenance",
-          "body": "All preventive and corrective maintenance activities are executed on a pre-scheduled basis, designed to eliminate unplanned downtime and sustain peak operational performance throughout the robot's lifecycle."
+          "title": "নির্ধারিত প্রতিরোধমূলক রক্ষণাবেক্ষণ",
+          "body": "সব প্রতিরোধমূলক ও সংশোধনমূলক কার্যক্রম পূর্ব-নির্ধারিত — অপ্রত্যাশিত ডাউনটাইম দূর ও শীর্ষ পারফরম্যান্স।"
         },
         "card1": {
-          "title": "তাত্ক্ষণিক দূরবর্তী ডায়াগনস্টিকস",
-          "body": "On incident notification, Taypro engineers begin remote diagnostics and troubleshooting immediately via the NECTYR portal — most issues are resolved over-the-air with no site visit required."
+          "title": "তাৎক্ষণিক রিমোট ডায়াগনস্টিক্স",
+          "body": "ঘটনায় Taypro প্রকৌশলী NECTYR পোর্টালে তৎক্ষণাৎ রিমোট ডায়াগনস্টিক্স — বেশিরভাগ ওভার-দ্য-এয়ার।"
         },
         "card2": {
           "title": "একই দিনে অন-সাইট হস্তক্ষেপ",
-          "body": "When physical attention is needed, Taypro targets same-day on-site breakdown resolution — available pan-India through Taypro's field service network, with immediate remote diagnostics from NECTYR."
+          "body": "শারীরিক সহায়তায় Taypro সারা ভারতে একই দিনে অন-সাইট ব্রেকডাউন — NECTYR রিমোট ডায়াগনস্টিক্স সহ।"
         }
       }
     },
     "callbackCard": {
-      "line1": "Schedule Online Demo For Automatic Solar ",
-      "line2": "প্যানেল ক্লিনিং রোবট"
+      "line1": "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবটের ",
+      "line2": "অনলাইন ডেমো শিডিউল করুন"
     },
     "featuresLongForm": {
-      "mainHeading": "Features of Taypro's Automatic Solar Panel Cleaning Robots: NYUMA",
+      "mainHeading": "Taypro NYUMA অটোমেটিক রোবটের বৈশিষ্ট্য",
       "aiCleaning": {
-        "title": "AI-Enabled Waterless single-pass Cleaning",
-        "body": "NYUMA uses AI- and ML-driven cleaning logic with a single-pass mechanism — the first pass loosens dry dust while the second sweeps away sticky residue. The result: over 99% dust removal in a single automated run, without a drop of water and without abrasive contact on the cells or glass."
+        "title": "AI-সক্ষম জলবিহীন সিঙ্গল-পাস PBT পরিষ্কার",
+        "body": "NYUMA AI/ML ও পেটেন্টেড সিঙ্গল-পাস PBT — এক রানে ৯৯%+ ধূলো, জল ও ঘর্ষণ ছাড়াই।"
       },
       "microfiber": {
-        "title": "Self-Cleaning PBT brush Drum",
-        "body": "The rotating PBT brush cloth is engineered to self-clean as it operates, maintaining peak cleaning efficiency across thousands of modules and extending consumable life. The robot moves along the module frame so no load is ever applied to the glass or solar cells, preserving panel longevity and power output."
+        "title": "সেল্ফ-ক্লিনিং PBT ব্রাশ ড্রাম",
+        "body": "ঘূর্ণায়মান PBT ব্রাশ স্ব-পরিষ্কার; ফ্রেমে চলে — গ্লাস/সেলে বোঝা নেই।"
       },
       "range": {
-        "title": "Extended Cleaning Range",
-        "body": "NYUMA cleans up to 2.2 km of running length — roughly 3,600 modules — on a single charge, at cleaning speeds of 10–15 m/min. With its lithium-ion battery and integrated charging system, each robot is assigned to a specific array and is deployed quickly without additional railings, across a wide range of panel inclinations and seasonal tilts."
+        "title": "বিস্তৃত পরিষ্কার রেঞ্জ",
+        "body": "এক চার্জে ২.২ km (~৩,৬০০ মডিউল), ১০–১৫ m/min; অতিরিক্ত রেলিং ছাড়াই।"
       },
       "battery": {
-        "title": "Battery-Aware Autonomy",
-        "body": "NYUMA monitors battery level in real time and only commits to a cleaning run it can complete, safely returning to its docking station every cycle. The robot stays securely locked when docked and is designed to withstand wind gusts of up to 180 km/hr at the docking position."
+        "title": "ব্যাটারি-সচেতন স্বায়ত্তশাসন",
+        "body": "রিয়েল-টাইম মনিটরিং; প্রতি চক্রে নিরাপদ ডক; ডকে ১৮০ km/hr।"
       },
       "weather": {
-        "title": "Smart Weather Optimization",
-        "body": "The cleaning schedule is continuously optimised against real-time weather data — wind speed, rain probability, humidity and dust events — so cycles run when they will be most effective. Critical-condition alerts are pushed to the remote portal automatically so plant operators never need to react manually."
+        "title": "স্মার্ট আবহাওয়া অপ্টিমাইজেশন",
+        "body": "বাতাস, বৃষ্টি, আর্দ্রতা, ধূলোর বিরুদ্ধে শিডিউল; সতর্কতা NECTYR-এ স্বয়ংক্রিয়।"
       },
       "connectivity": {
-        "title": "ক্লাউড-সংযুক্ত রিমোট মনিটরিং",
-        "bodyBeforeStrong": "Every NYUMA robot connects to the NECTYR using ",
-        "bodyAfterConnectivityStrong": ". Deployments can use LTE or Wi-Fi for high-bandwidth telemetry, a ",
-        "bodyBoldMesh": "hybrid self-healing RF mesh",
-        "bodyAfterMesh": " for resilient plant-wide backhaul, or ",
+        "title": "ক্লাউড রিমোট মনিটরিং",
+        "bodyBeforeStrong": "প্রতিটি NYUMA ",
+        "bodyAfterConnectivityStrong": " এর সাথে সংযুক্ত। LTE/Wi-Fi, ",
+        "bodyBoldMesh": "হাইব্রিড সেল্ফ-হিলিং RF mesh",
+        "bodyAfterMesh": ", বা ",
         "bodyBoldLoRa": "LoRa / LoRaWAN",
-        "bodyAfterLoRa": " where low-power, long-range links suit remote blocks. Schedule cleaning cycles, adjust operating parameters and track fleet-wide performance from any device, with docking-station telemetry (battery, charging status, faults) available in real time."
+        "bodyAfterLoRa": " — NECTYR থেকে ফ্লিট ও ডক টেলিমেট্রি।"
       },
       "edge": {
-        "title": "Edge & Obstacle Detection Technology",
-        "body": "High-precision edge-detection sensors map every panel boundary and continuously scan for obstacles, eliminating any risk of fall. Surface-undulation tracking modulates motor performance row-by-row for consistent cleaning quality even on imperfect installations."
+        "title": "এজ ও বাধা শনাক্তকরণ",
+        "body": "উচ্চ-নির্ভুল সেন্সর; পৃষ্ঠ তরঙ্গ সারি অনুযায়ী মোটর সমন্বয়।"
       },
       "build": {
-        "title": "Sealed, Field-Hardened Build",
-        "body": "All electrical components, wiring harnesses and connectors are fully enclosed within a sealed device body, providing robust protection against moisture, dust and environmental contaminants in harsh utility-scale environments."
+        "title": "সিল্ড ফিল্ড-হার্ডেনড বিল্ড",
+        "body": "সিল্ড বডিতে সুরক্ষা — আর্দ্রতা, ধূলো ও কঠোর পরিবেশ।"
       }
     },
     "certifications": {
       "eyebrow": "স্বাধীনভাবে পরীক্ষিত এবং প্রত্যয়িত",
       "title": "সার্টিফিকেশন এবং ক্ষেত্র-প্রমাণিত পরীক্ষা",
-      "subtitle": "Every Taypro NYUMA is subjected to rigorous laboratory and field validation by accredited solar-sector testing laboratories, simulating real plant conditions to guarantee long-term reliability.",
+      "subtitle": "Taypro-এর ক্লিনিং সলিউশনগুলি কঠোর ক্ষেত্র এবং পরীক্ষাগার যাচাইকরণের সাপেক্ষে, বাস্তবসম্মত বহিরঙ্গন পরিস্থিতিতে দৈনন্দিন পরিচ্ছন্নতার চক্র অনুকরণ করে, স্বীকৃত সোলার-সেক্টর টেস্টিং ল্যাবরেটরি দ্বারা পরিচালিত।",
       "cards": {
         "card0": {
-          "title": "TÜV NORD সার্টিফাইড",
+          "title": "TÜV NORD Certified",
           "body": "Independently tested and certified for IP55 protection and validated for extreme damp-heat and dry-heat performance by TÜV NORD."
         },
         "card1": {
@@ -264,292 +257,292 @@
       }
     },
     "manualVsAutomatic": {
-      "eyebrow": "রোবোটিক বনাম ম্যানুয়াল সোলার ক্লিনিং",
-      "title": "Why Choose an Automatic Solar Panel Cleaning Robot Over Manual Cleaning?",
-      "subtitle": "Manual cleaning crews, water tankers and ad-hoc schedules cannot keep up with the daily soiling losses on utility-scale solar power plants. An automatic robotic solar cleaning solution is no longer a premium — it's a performance-ratio essential.",
+      "eyebrow": "রোবোটিক বনাম ম্যানুয়াল",
+      "title": "ম্যানুয়ালের বদলে অটোমেটিক রোবট কেন?",
+      "subtitle": "ইউটিলিটি-স্কেল প্ল্যান্টে দৈনিক সোইলিং ম্যানুয়ালে সামলানো যায় না।",
       "tableHeaders": {
         "criterion": "মানদণ্ড",
-        "manual": "ম্যানুয়াল ক্লিনিং",
+        "manual": "ম্যানুয়াল",
         "modelA": "Taypro NYUMA"
       },
       "rows": {
         "row0": {
-          "criterion": "ক্লিনিং ফ্রিকোয়েন্সি",
-          "manual": "সাপ্তাহিক বা পাক্ষিক, আবহাওয়া-অনুমতি",
-          "modelA": "Daily automated cycles, weather-aware scheduling"
+          "criterion": "ফ্রিকোয়েন্সি",
+          "manual": "সাপ্তাহিক",
+          "modelA": "দৈনিক অটো"
         },
         "row1": {
-          "criterion": "জল খরচ",
-          "manual": "High — 1.5 to 3 litres of water per module per wash",
-          "modelA": "শূন্য — সম্পূর্ণরূপে জলবিহীন একক-পাস ড্রাই ক্লিনিং"
+          "criterion": "জল",
+          "manual": "উচ্চ",
+          "modelA": "শূন্য — জলবিহীন"
         },
         "row2": {
-          "criterion": "পরিচ্ছন্নতার গুণমান",
-          "manual": "অসঙ্গত, অপারেটর-নির্ভর",
-          "modelA": "99%+ dust removal in a single automated run, every time"
+          "criterion": "মান",
+          "manual": "অসঙ্গত",
+          "modelA": "৯৯%+ প্রতিবার"
         },
         "row3": {
-          "criterion": "শ্রম ও নিরাপত্তা",
-          "manual": "High labour cost, panel damage risk, night-shift safety risk",
-          "modelA": "Autonomous after-hours operation, no manual intervention"
+          "criterion": "শ্রম",
+          "manual": "ব্যয়বহুল",
+          "modelA": "স্বায়ত্তশাসিত রাত"
         },
         "row4": {
-          "criterion": "কর্মক্ষমতা অনুপাত প্রভাব",
-          "manual": "ধোয়ার মধ্যে 5-25% সয়েলিং লস জমা হয়",
-          "modelA": "দৈনিক পরিচ্ছন্নতা সর্বোচ্চ পিআর বজায় রাখে, উদ্ভিদের ফলন 4-8%"
+          "criterion": "PR",
+          "manual": "৫–২৫% ক্ষতি",
+          "modelA": "PR রক্ষা"
         },
         "row5": {
-          "criterion": "প্যানেল নিরাপত্তা",
-          "manual": "মাইক্রো-ফাটল, ARC ঘর্ষণ এবং স্ক্র্যাচের ঝুঁকি",
-          "modelA": "Robot rides on the module frame — no load on glass or cells"
+          "criterion": "প্যানেল",
+          "manual": "ঝুঁকি",
+          "modelA": "ফ্রেমে চলা"
         },
         "row6": {
-          "criterion": "Monitoring & Reporting",
-          "manual": "No telemetry, no cleaning audit trail",
-          "modelAPrefix": "NECTYR via ",
-          "modelASuffix": "; full audit trail"
+          "criterion": "মনিটরিং",
+          "manual": "নেই",
+          "modelAPrefix": "NECTYR ",
+          "modelASuffix": " — সম্পূর্ণ অডিট"
         },
         "row7": {
-          "criterion": "মালিকানার মোট খরচ",
-          "manual": "Recurring water, labour, equipment and downtime costs",
-          "modelA": "One-time investment, 12–18 month payback, 20-year design life"
+          "criterion": "TCO",
+          "manual": "পুনরাবৃত্ত",
+          "modelA": "১২–১৮ মাস পেব্যাক"
         }
       }
     },
     "indianConditions": {
-      "eyebrow": "ভারতীয় অবস্থার জন্য ইঞ্জিনিয়ারড",
-      "title": "Built for Indian Utility-Scale Solar Plants",
-      "subtitle": "Rajasthan dust storms, Gujarat heat, Karnataka humidity and Tamil Nadu monsoons — Taypro NYUMA is engineered, tested and deployed for the realities of large-scale Indian solar O&M, not generic Western field conditions.",
+      "eyebrow": "ভারতীয় অবস্থার জন্য তৈরি",
+      "title": "ভারতীয় ইউটিলিটি-স্কেল সোলার প্ল্যান্টের জন্য",
+      "subtitle": "রাজস্থানের ধূলোঝড়, গুজরাটের তাপ, কর্ণাটকের আর্দ্রতা, তামিলনাড়ুর বর্ষা — ভারতীয় O&M-এর জন্য NYUMA।",
       "cards": {
         "card0": {
-          "title": "উচ্চ-মৃত্তিকা অঞ্চলের কর্মক্ষমতা",
-          "body": "Daily robotic cleaning is the only economical way to neutralise the soiling losses (often 8–25%) typical of Indian utility-scale plants in Rajasthan, Gujarat, Madhya Pradesh and Maharashtra."
+          "title": "উচ্চ-সোইলিং অঞ্চল পারফরম্যান্স",
+          "body": "রাজস্থান, গুজরাট, MP, মহারাষ্ট্রে ৮–২৫% সোইলিং ক্ষতির জন্য দৈনিক রোবোটিক পরিষ্কার।"
         },
         "card1": {
-          "title": "তাপমাত্রা এবং আর্দ্রতা সহনশীলতা",
-          "body": "Validated for operating temperatures up to 90°C and certified by TÜV NORD for damp-heat and dry-heat performance — proven across Indian summer, monsoon and post-monsoon cycles."
+          "title": "তাপমাত্রা ও আর্দ্রতা সহনশীলতা",
+          "body": "৯০°C পর্যন্ত; TÜV NORD আর্দ্র-তাপ/শুষ্ক-তাপ — ভারতীয় ঋতু।"
         },
         "card2": {
-          "title": "Waterless — Even in Water-Scarce States",
-          "body": "Many Indian solar farms are in water-stressed districts where allocations for module washing are tightening. NYUMA's waterless single-pass cleaning removes water entirely from your O&M plan and frees water tankers for higher-priority use."
+          "title": "জলবিহীন — জল সংকট রাজ্যেও",
+          "body": "জল-সংকট জেলায় NYUMA জল ও ট্যাঙ্কার নির্ভরতা দূর করে।"
         },
         "card3": {
-          "title": "প্যান-ইন্ডিয়া সার্ভিস নেটওয়ার্ক",
-          "body": "NECTYR থেকে অবিলম্বে দূরবর্তী ডায়াগনস্টিক সহ ভারত জুড়ে একই দিনে অন-সাইট ব্রেকডাউন রেজোলিউশন — আঞ্চলিক অতিরিক্ত তালিকা এবং কাঠামোগত AMC প্রোগ্রামগুলির দ্বারা সমর্থিত।"
+          "title": "প্যান-ইন্ডিয়া সেবা নেটওয়ার্ক",
+          "body": "NECTYR রিমোট ও একই দিনে অন-সাইট — আঞ্চলিক স্পেয়ার ও AMC।"
         }
       },
-      "crossSellLead": "সন্নিহিত সৌর O&M চাহিদার দিকে তাকিয়ে? অন্বেষণ",
-      "linkModelB": "Semi-Automatic Solar Cleaning Robot (HELYX)",
-      "linkBetweenBAndT": ", the",
-      "linkModelT": "fixed and seasonal-tilt Cleaning Robot (NYUMA)",
-      "linkBetweenTAndOpex": ", the",
-      "linkOpex": "Taypro OPEX ক্লিনিং সার্ভিস",
-      "linkBetweenOpexAndConsole": "অথবা",
+      "crossSellLead": "সংলগ্ন O&M? দেখুন ",
+      "linkModelB": "অর্ধ-স্বয়ংক্রিয় রোবট (HELYX)",
+      "linkBetweenBAndT": ", ",
+      "linkModelT": "সিঙ্গল-অ্যাক্সিস ট্র্যাকার রোবট (NYUMA)",
+      "linkBetweenTAndOpex": ", ",
+      "linkOpex": "Taypro OPEX পরিষ্কার সেবা",
+      "linkBetweenOpexAndConsole": " বা ",
       "linkConsole": "NECTYR মনিটরিং অ্যাপ",
-      "crossSellSuffix": "."
+      "crossSellSuffix": "।"
     },
     "specifications": {
-      "titleLine1": "Automatic Solar Panel Cleaning Robot ",
-      "titleLine2": "NYUMA Specifications",
+      "titleLine1": "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট ",
+      "titleLine2": "NYUMA স্পেসিফিকেশন",
       "tableHeaders": {
         "spec": "স্পেসিফিকেশন",
-        "details": "Details"
+        "details": "বিবরণ"
       },
       "rows": {
         "dimensions": {
-          "spec": "Dimensions",
-          "details": "750 মিমি × 4800 মিমি"
+          "spec": "মাত্রা",
+          "details": "750 mm × 4800 mm"
         },
         "cleaningMethod": {
-          "spec": "পরিষ্কারের পদ্ধতি",
-          "details": "Waterless"
+          "spec": "পরিষ্কার পদ্ধতি",
+          "details": "জলবিহীন"
         },
         "cleaningType": {
-          "spec": "Cleaning Type",
-          "details": "single-pass Cleaning"
+          "spec": "পরিষ্কারের ধরন",
+          "details": "সিঙ্গল-পাস PBT"
         },
         "cleaningMaterial": {
-          "spec": "পরিচ্ছন্নতার উপাদান",
-          "details": "PBT brush Cloth"
+          "spec": "পরিষ্কার উপাদান",
+          "details": "PBT ব্রাশ কাপড়"
         },
         "cleaningSpeed": {
-          "spec": "ক্লিনিং স্পিড",
-          "details": "10-15 মিটার/মিনিট"
+          "spec": "পরিষ্কার গতি",
+          "details": "১০–১৫ মিটার/মিনিট"
         },
         "maxRunningLength": {
-          "spec": "Max. Running Length",
+          "spec": "সর্বোচ্চ রানিং দৈর্ঘ্য",
           "details": "২.২ km পর্যন্ত"
         },
         "recommendedRunningLength": {
-          "spec": "Recommended Running Length",
+          "spec": "সুপারিশকৃত রানিং দৈর্ঘ্য",
           "details": "1.6 km"
         },
         "windDocking": {
-          "spec": "Wind Speed Resistance at Docking",
-          "details": "180 km/ঘণ্টা"
+          "spec": "ডকিংয়ে বাতাস প্রতিরোধ",
+          "details": "180 km/hr"
         },
         "windOperation": {
-          "spec": "Wind Speed Resistance in Operation",
-          "details": "40 km/ঘণ্টা"
+          "spec": "পরিচালনায় বাতাস প্রতিরোধ",
+          "details": "40 km/hr"
         },
         "maxTilt": {
-          "spec": "Max. Module Tilt",
+          "spec": "সর্বোচ্চ মডিউল টিল্ট",
           "details": "45°"
         },
         "maxTemp": {
-          "spec": "Max. Operating Temperature",
-          "details": "90°সে"
+          "spec": "সর্বোচ্চ পরিচালনা তাপমাত্রা",
+          "details": "90°C"
         },
         "maxSlope": {
-          "spec": "Max. East-West Slope",
+          "spec": "সর্বোচ্চ পূর্ব-পশ্চিম ঢাল",
           "details": "15°"
         },
         "maxUndulation": {
-          "spec": "Max. Module Undulation",
-          "details": "+20 মিমি"
+          "spec": "সর্বোচ্চ মডিউল তরঙ্গ",
+          "details": "+20 mm"
         },
         "ipRating": {
           "spec": "IP Rating",
           "details": "IP65"
         },
         "corrosion": {
-          "spec": "Corrosion Class",
+          "spec": "ক্ষয় শ্রেণি",
           "details": "C3"
         },
         "battery": {
-          "spec": "Battery Type",
+          "spec": "ব্যাটারি ধরন",
           "details": "লিথিয়াম-আয়ন"
         },
         "connectivity": {
-          "spec": "সংযোগ (Taypro কনসোল)",
-          "details": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN"
+          "spec": "সংযোগ (NECTYR)",
+          "details": "LTE, Wi-Fi, হাইব্রিড সেল্ফ-হিলিং RF mesh, LoRa, LoRaWAN"
         },
         "designLife": {
           "spec": "ডিজাইন জীবন",
-          "details": "20 বছর"
+          "details": "২০ বছর"
         },
         "weight": {
-          "spec": "Weight",
-          "details": "45 Kg"
+          "spec": "ওজন",
+          "details": "৪৫ কেজি"
         }
       }
     },
     "advantagesSection": {
-      "heading": "Advantages of Using Automatic Solar Panel Cleaning Robots",
+      "heading": "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবটের সুবিধা",
       "energy": {
-        "title": "Increased Energy Efficiency",
-        "body": "Automatic solar panel cleaning robots can significantly increase the efficiency of solar power plants. By cleaning the dust and debris consistently, the overall power generation is improved."
+        "title": "বর্ধিত শক্তি দক্ষতা",
+        "body": "ধূলো সরিয়ে উৎপাদন বৃদ্ধি।"
       },
       "waterless": {
-        "title": "Waterless Cleaning",
-        "body": "NYUMA removes up to 99.5% dust and debris without water requirement. This makes it a perfect option in the regions where there is greater water scarcity."
+        "title": "জলবিহীন পরিষ্কার",
+        "body": "NYUMA জল ছাড়াই ৯৯.৫% পর্যন্ত — জল সংকট অঞ্চলে আদর্শ।"
       },
       "autonomous": {
-        "title": "Fully Autonomous & Smart Operation",
-        "body": "NYUMA is a fully autonomous robot with integrated AI-ML technology that gives smart operation. There is no human intervention required to operate the robots."
+        "title": "সম্পূর্ণ স্বায়ত্তশাসিত ও স্মার্ট পরিচালনা",
+        "body": "একীভূত AI-ML — মানব হস্তক্ষেপ প্রয়োজন নেই।"
       },
       "cost": {
-        "title": "Cost-Effective Solution",
-        "body": "NYUMA eliminates the recurring labour and operation costs and gives maximum return on investment. Its efficient cleaning technology ensures long-term savings."
+        "title": "খরচ-কার্যকর সমাধান",
+        "body": "পুনরাবৃত্ত শ্রম দূর; দীর্ঘমেয়াদি সঞ্চয় ও ROI।"
       },
       "safe": {
-        "title": "Safe and Reliable Operation",
-        "body": "NYUMA built-in advanced high-precision edge detection sensors that detect the panel edges. These sensors can detect uneven surfaces and other potential hazards."
+        "title": "নিরাপদ ও নির্ভরযোগ্য পরিচালনা",
+        "body": "উচ্চ-নির্ভুল এজ সেন্সর অসম সত্ত্বা ও ঝুঁকি শনাক্ত।"
       }
     },
     "installSection": {
-      "title": "How Long Does It Take to Install the Automated Solar Panel Cleaning Robots?",
-      "p1": "The installation of the Solar Panel Cleaning Robot requires no modifications to the existing solar plant layout. The NYUMA Automated Solar Panel Cleaning Robot is designed to operate directly on the panel frame.",
-      "p2": "The installation typically takes a few hours to a couple of days depending on the size of the solar plant. The solar panel cleaning robot installation process involves the placement of a docking station, configuration and calibration, and system integration.",
-      "p3": "For large-scale solar power plants, the installation may take from a few days to a week depending on the complexity of the layout. After the installation, the robots operate autonomously and do not need any manual intervention. TAYPRO provides complete dedicated support and assures the same-day breakdown resolution.",
-      "p4": "TAYPRO NYUMA robots offer cost-effective and scalable solutions for solar power plants with easy installations and safe operations."
+      "title": "অটোমেটিক রোবট ইনস্টলেশনে কত সময়?",
+      "p1": "বিদ্যমান লেআউটে পরিবর্তন নেই। NYUMA সরাসরি ফ্রেমে চলে।",
+      "p2": "কয়েক ঘণ্টা থেকে কয়েক দিন — ডকিং, ক্যালিব্রেশন, ইন্টিগ্রেশন।",
+      "p3": "বড় প্ল্যান্টে কয়েক দিন থেকে এক সপ্তাহ। Taypro একই দিনে ব্রেকডাউন সমাধান।",
+      "p4": "NYUMA হল Taypro-এর স্কেলেবল, নিরাপদ ও সহজ ইনস্টলেশন সমাধান।"
     },
     "roiSection": {
-      "title": "What Is the ROI for Installing the Automatic Solar Panel Cleaning Robot NYUMA?",
-      "p1": "TAYPRO's NYUMA Automatic Solar Panel Cleaning Robot delivers a high return on investment ROI by significantly increasing power generation.",
-      "p2BeforeLink": "Also, NYUMA reduces operational cleaning costs and offers long-term financial benefits. The initial investment is quickly recovered within one year, making it an effective and sustainable investment. You can calculate the ROI on Solar Panel Cleaning Robots by using the ",
-      "roiCalculatorLink": "ROI Calculator",
-      "p2AfterLink": ""
+      "title": "Taypro NYUMA অটোমেটিক রোবটের ROI কী?",
+      "p1": "NYUMA উচ্চ উৎপাদন ও কম O&M খরচে শক্তিশালী ROI।",
+      "p2BeforeLink": "বেশিরভাগ সাইটে এক বছরের মধ্যে ফেরত। ",
+      "roiCalculatorLink": "ROI ক্যালকুলেটর",
+      "p2AfterLink": " দিয়ে আপনার সাইটের অনুমান করুন।"
     },
     "cycleNarrative": {
-      "title": "Inside a NYUMA cleaning cycle — step by step",
+      "title": "NYUMA পরিষ্কার চক্র — ধাপে ধাপে",
       "steps": {
-        "s0": "⦿ The robot initialises its sensors on the activation and performs the system checks connectivity with the central monitoring system",
-        "s1": "⦿ The cleaning schedule is pre-set via a remote monitoring portal which enables fully automated operation",
-        "s2": "⦿ The locomotion motor powers the movement and guides the robot along the solar panel frames",
-        "s3": "⦿ The cleaning brush motor starts and enables the waterless single-pass cleaning technology with a PBT brush cloth",
-        "s4": "⦿ The edge detection sensors continually scan the surroundings which prevents the robot from overshooting the panel edges",
-        "s5": "⦿ Users can adjust the cleaning speed and direction from the TAYPRO console",
-        "s6": "⦿ Once the cleaning cycle is complete, the robot returns to its docking station, where it recharges using solar energy and remains idle until the next scheduled cycle.",
-        "s7": "⦿ Advanced fault detection systems continuously analyse the robot parameters and if in case of any",
-        "s8": "⦿ The system ensures safe and efficient operations with features like obstacle detection, self-cleaning PBT brush and adaptive navigation."
+        "s0": "⦿ সক্রিয়করণে রোবট সেন্সর শুরু করে এবং কেন্দ্রীয় মনিটরিংয়ের সাথে সংযোগ পরীক্ষা",
+        "s1": "⦿ রিমোট পোর্টালে পরিষ্কার শিডিউল প্রিসেট — সম্পূর্ণ স্বয়ংক্রিয় পরিচালনা",
+        "s2": "⦿ লোকোমোশন মোটর চালায় এবং ফ্রেম বরাবর রোবট পরিচালনা",
+        "s3": "⦿ পরিষ্কার ব্রাশ মোটর জলবিহীন সিঙ্গল-পাস PBT PBT ব্রাশ শুরু",
+        "s4": "⦿ এজ সেন্সর ক্রমাগত স্ক্যান — প্যানেল প্রান্ত অতিক্রম নয়",
+        "s5": "⦿ NECTYR থেকে পরিষ্কার গতি ও দিক সামঞ্জস্য",
+        "s6": "⦿ চক্র শেষে ডকে ফিরে রিচার্জ ও পরবর্তী শিডিউল পর্যন্ত অপেক্ষা",
+        "s7": "⦿ উন্নত ফল্ট ডিটেকশন ক্রমাগত প্যারামিটার বিশ্লেষণ",
+        "s8": "⦿ বাধা শনাক্তকরণ, সেল্ফ-ক্লিনিং PBT ব্রাশ ও অভিযোজিত নেভিগেশনে নিরাপদ পরিচালনা"
       }
     },
     "faq": {
-      "title": "FAQs",
+      "title": "প্রশ্নোত্তর",
       "sharedFromData": {
         "item0": {
-          "question": "Who looks after the Automatic Solar Panel Cleaning System after Installation?",
-          "answer": "After installation, the system can be remotely monitored and controlled through the TAYPRO console. The TAYPRO team provides technical support and troubleshooting issues."
+          "question": "ইনস্টলেশনের পর সিস্টেম কে দেখভাল করে?",
+          "answer": "NECTYR দিয়ে রিমোট মনিটরিং; Taypro প্রযুক্তি সহায়তা।"
         },
         "item1": {
-          "question": "Does the automatic solar module cleaning system require water for cleaning?",
-          "answer": "No, the TAYPRO NYUMA operates using waterless cleaning technology. It uses a rotating PBT brush cloth to remove the dust and debris efficiently."
+          "question": "পরিষ্কারের জন্য জল লাগে?",
+          "answer": "না। NYUMA জলবিহীন ও ঘূর্ণায়মান PBT ব্রাশ।"
         },
         "item2": {
-          "question": "How often does the Automatic Solar Panel Cleaning Robot need to be maintained?",
-          "answer": "The TAYPRO NYUMA requires minimal maintenance due to its self-cleaning PBT brush cloth and automated fault detection system."
+          "question": "রক্ষণাবেক্ষণ কতবার?",
+          "answer": "সেল্ফ-ক্লিনিং ও ফল্ট ডিটেকশনে ন্যূনতম।"
         },
         "item3": {
-          "question": "What Is the Cleaning Schedule Followed by the Automatic Solar Cleaning Robots?",
-          "answer": "The robots operate after solar energy production hours to avoid power loss and optimise the cleaning efficiency."
+          "question": "পরিষ্কার শিডিউল কী?",
+          "answer": "উৎপাদন সময়ের বাইরে — বিদ্যুৎ ক্ষতি এড়াতে।"
         },
         "item4": {
-          "question": "Does Taypro Provide AMC for Solar Panel Cleaning?",
-          "answer": "Yes, TAYPRO offers AMC services for its solar panel cleaning services The AMC includes regular maintenance, real-time monitoring and onsite support targeting same-day resolution to ensure continuous operation."
+          "question": "Taypro AMC দেয়?",
+          "answer": "হ্যাঁ — নিয়মিত রক্ষণাবেক্ষণ, রিয়েল-টাইম মনিটরিং, একই দিনে অন-সাইট।"
         },
         "item5": {
-          "question": "Does the Automatic Solar Panel Cleaning Robot require an external power connection?",
-          "answer": "No, TAYPRO's NYUMA does not require an external power connection. It is self -powered system."
+          "question": "বাহ্যিক বিদ্যুৎ সংযোগ লাগে?",
+          "answer": "না। NYUMA স্ব-চালিত ব্যাটারি।"
         },
         "item6": {
-          "question": "How Do You Manage the Functioning of Automatic Solar Panel Cleaning Robots?",
-          "answer": "The cleaning robots are managed through a remote monitoring portal which allows users to schedule cleaning cycles, adjust speed and monitor system performance."
+          "question": "রোবট কীভাবে পরিচালিত?",
+          "answer": "NECTYR পোর্টালে চক্র, গতি ও ফ্লিট।"
         }
       },
       "modelASpecific": {
         "item0": {
-          "question": "How much does an Automatic Solar Panel Cleaning Robot like NYUMA cost?",
-          "answer": "Pricing for the Taypro NYUMA Automatic Solar Panel Cleaning Robot depends on plant size, panel layout, terrain and the level of integration with your existing monitoring stack. For most utility-scale projects, the robotic cleaning investment pays back inside 12–18 months through higher generation, lower water consumption and reduced manual labour costs. Request a quote from our team to receive a site-specific cost estimate and a detailed ROI calculation."
+          "question": "NYUMA-এর মতো রোবটের দাম?",
+          "answer": "প্ল্যান্ট আকার, লেআউট, ভূখণ্ডে নির্ভর। ১২–১৮ মাস পেব্যাক। কোটেশন নিন।"
         },
         "item1": {
-          "question": "What is the ROI of installing an Automatic Solar Panel Cleaning Robot?",
-          "answer": "Robotic dry cleaning typically lifts solar plant performance ratio (PR) by 4–8% on dusty sites by maintaining higher module transmissivity day-on-day. Combined with the elimination of water tankers, manual labour and unsafe night-shift cleaning, most Taypro NYUMA deployments achieve full ROI within 12–18 months and continue to compound returns through the 20-year design life of the robot."
+          "question": "অটোমেটিক রোবটের ROI?",
+          "answer": "ধূলোময় সাইটে PR ৪–৮% উন্নতি; ২০ বছর ডিজাইন জীবন।"
         },
         "item2": {
-          "question": "What is the difference between NYUMA, HELYX and NYUMA?",
-          "answer": "NYUMA is a fully autonomous Solar Panel Cleaning Robot for utility-scale fixed-tilt and seasonal-tilt installations. HELYX is a semi-automatic, pick-and-place portable robot for scattered or smaller plants. NYUMA is purpose-built for fixed and seasonal-tilt installations with a flexible 360° rotational bridge. All three are waterless, AI-driven, and managed from the same NECTYR portal."
+          "question": "NYUMA, HELYX, NYUMA পার্থক্য?",
+          "answer": "NYUMA: ফিক্সড/সিজনাল টিল্ট। HELYX: অর্ধ-স্বয়ংক্রিয়। NYUMA: সিঙ্গল-অ্যাক্সিস। সব NECTYR।"
         },
         "item3": {
-          "question": "Is robotic solar panel cleaning safe for the modules?",
-          "answer": "Yes. Taypro NYUMA moves only along the module frame so no load is ever applied to the glass or solar cells. The rotating PBT brush drum is non-abrasive, and every robot is independently tested for micro-crack formation, optical reflectance loss and Anti-Reflective Coating (ARC) preservation under simulated daily cleaning cycles by accredited solar-sector testing laboratories."
+          "question": "রোবোটিক পরিষ্কার মডিউলে নিরাপদ?",
+          "answer": "হ্যাঁ — শুধু ফ্রেমে, অ-ঘর্ষণ PBT ব্রাশ, স্বতন্ত্র পরীক্ষা।"
         },
         "item4": {
-          "question": "How often should solar panels be cleaned with NYUMA?",
-          "answer": "For most Indian utility-scale plants, a daily automated cleaning cycle delivers the best performance-ratio outcome — NYUMA is designed to run every night or post-production-hours without consuming water or manpower. Sites in extremely dusty regions or near construction zones may schedule additional cycles, while sites with frequent rainfall can dynamically reduce cycles via the weather-aware scheduler in the NECTYR."
+          "question": "NYUMA দিয়ে কতবার পরিষ্কার?",
+          "answer": "বেশিরভাগ ভারতীয় প্ল্যান্টে দৈনিক রাতের চক্র; NECTYR আবহাওয়া শিডিউলার।"
         },
         "item5": {
-          "question": "Does Taypro NYUMA work in Indian monsoon, summer heat and dust-storm conditions?",
-          "answer": "Yes. NYUMA is engineered for harsh Indian utility-scale conditions: operating temperatures up to 90°C, IP65 sealed enclosure, TÜV NORD-certified IP55 protection, and field-validated under simulated sandstorm cycles of 10 g/m² per event for 12 events per year. The robot self-docks and locks securely at wind gusts of up to 180 km/hr and pauses cleaning at unsafe wind speeds in operation."
+          "question": "NYUMA ভারতীয় মৌসুম/তাপ/ধূলোঝড়ে কাজ করে?",
+          "answer": "হ্যাঁ — ৯০°C, IP65, TÜV NORD, ধূলোঝড় সিমুলেশন; ডকে ১৮০ km/hr।"
         },
         "item6": {
-          "question": "Can NYUMA be retrofitted to existing solar plants without modifying the panels?",
-          "answer": "Yes. NYUMA requires no additional railings, no modification to the existing solar module mounting structure, and no external power supply. Each robot is assigned to a specific array, runs on its own lithium-ion battery and self-charging docking station, and can be deployed across different panel inclinations and seasonal tilts with minimal site disruption."
+          "question": "বিদ্যমান প্ল্যান্টে রেট্রোফিট সম্ভব?",
+          "answer": "হ্যাঁ — অতিরিক্ত রেলিং/মাউন্ট পরিবর্তন নেই; অ্যারে অনুযায়ী ব্যাটারি ও ডক।"
         }
       }
     },
     "modelCards": {
-      "title": "আরো সমাধান খুঁজছেন?",
+      "title": "Looking for more solutions?",
       "cardLabels": {
         "modelB": "HELYX",
         "modelT": "NYUMA"
@@ -558,6 +551,7 @@
     }
   },
   "Common": {
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "হোম",
+    "connectivitySummary": "LTE, Wi-Fi, হাইব্রিড সেল্ফ-হিলিং RF মেশ, LoRa ও LoRaWAN"
   }
 }

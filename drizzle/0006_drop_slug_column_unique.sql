@@ -1,0 +1,3 @@
+-- Rebuild blogs/projects: remove legacy `slug TEXT UNIQUE` (blocks per-locale rows).
+-- Implemented in scripts/fix-cms-slug-locale-unique.mjs (run on deploy).
+-- This marker keeps drizzle journal in sync for fresh installs.
