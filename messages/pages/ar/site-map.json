@@ -75,7 +75,9 @@
       "cradylLabel": "CRADYL — إرساء نقل بين الصفوف",
       "cradylTitle": "محطة CRADYL للإرساء والنقل الذاتي بين الصفوف (قريباً)",
       "cleaningTechnologyLabel": "التقنية وراء Taypro",
-      "cleaningTechnologyTitle": "تكنولوجيا التنظيف"
+      "cleaningTechnologyTitle": "تكنولوجيا التنظيف",
+      "orionLabel": "ORION — ذكاء المحطة",
+      "orionTitle": "منصة ORION لمراقبة صحة المحطة الشمسية (قريباً)"
     }
   },
   "Common": {

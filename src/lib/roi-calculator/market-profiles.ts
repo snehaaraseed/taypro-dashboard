@@ -93,10 +93,10 @@ export const ROI_MARKET_PROFILES: Record<RoiMarketId, RoiMarketProfile> = {
     economics: {
       labourPerModulePerCycle: 0.5,
       cleaningCyclesPerYear: 20,
-      litresPerModulePerCycle: 3,
+      litresPerModulePerCycle: 3.5,
       waterCostPerLitre: 0.12,
       specificYieldKwhPerKw: 1500,
-      soilingRecoveryFactorGround: 0.0295,
+      soilingRecoveryFactorGround: 0.025,
       soilingRecoveryFactorRooftop: 0.113,
       investmentUnitMin: 42_000,
       investmentUnitMax: 114_000,

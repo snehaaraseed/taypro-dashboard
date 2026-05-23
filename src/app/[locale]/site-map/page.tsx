@@ -295,6 +295,15 @@ export default async function SiteMapPage({
                       {l("cradylLabel")}
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      href="/solar-panel-cleaning-system/orion-plant-intelligence-platform"
+                      title={l("orionTitle")}
+                      className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                    >
+                      {l("orionLabel")}
+                    </Link>
+                  </li>
                 </ul>
               </li>
               <li>

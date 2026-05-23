@@ -75,6 +75,11 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
     priority: 0.85,
   },
   {
+    path: "/solar-panel-cleaning-system/orion-plant-intelligence-platform",
+    changeFrequency: "weekly",
+    priority: 0.85,
+  },
+  {
     path: "/solar-panel-cleaning-robot-price-calculator",
     changeFrequency: "monthly",
     priority: 0.8,

@@ -269,7 +269,7 @@ export const glydeProductPack = {
           ),
         },
         stat2: {
-          value: "1.4 Bn",
+          value: "875M+",
           label: T(
             "लीटर पानी वार्षिक बचत",
             "لتر ماء موفر سنوياً",

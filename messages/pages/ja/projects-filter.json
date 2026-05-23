@@ -1,10 +1,10 @@
 {
   "ProjectsFilterPage": {
     "automatic": {
-      "breadcrumb": "Automatic",
+      "breadcrumb": "自動",
       "eyebrow": "Utility-scale deployments",
-      "title": "Automatic Solar Panel Cleaning Robot Projects",
-      "description": "Explore our automatic Solar Panel Cleaning Robot installation projects. AI-enabled autonomous cleaning systems delivering highest efficiency and ROI.",
+      "title": "自動ソーラーパネル洗浄ロボット導入事例",
+      "description": "自動ソーラーパネル洗浄ロボットの導入事例。AI自律清掃で高効率とROIを実現。",
       "introP1Before": "This portfolio groups Indian utility-scale plants where Taypro deploys fully",
       "introP1Link": "automatic GLYDE and GLYDE-X cleaning robots",
       "introP1After": "on fixed-tilt and single-axis tracker arrays. Fleets run on waterless dual-pass schedules, coordinated through NECTYR monitoring, so O&M teams recover generation lost to soiling without manual washing crews.",
@@ -29,10 +29,10 @@
       "closingBodyMiddle": "for your array type, then",
       "closingContactLink": "contact Taypro",
       "closingBodyAfter": " with DC capacity, row pitch, and tracker vs fixed-tilt layout for a site-specific proposal.",
-      "schemaName": "Automatic Solar Panel Cleaning Robot installation projects",
-      "schemaDescription": "Utility-scale solar plants where Taypro GLYDE and related automatic robotic cleaning systems are deployed.",
-      "imageAltSuffix": "Automatic Solar Panel Cleaning Robot Installation Project by Taypro",
-      "imageTitleSuffix": "Automatic Solar Panel Cleaning Robot Project",
+      "schemaName": "自動ソーラーパネル洗浄ロボット導入プロジェクト",
+      "schemaDescription": "Taypro GLYDE等の自動ロボット洗浄が導入されたユーティリティ規模発電所。",
+      "imageAltSuffix": "Tayproによる自動ソーラーパネル洗浄ロボット導入プロジェクト",
+      "imageTitleSuffix": "自動ソーラーパネル洗浄ロボットプロジェクト",
       "faq": {
         "heading": "Frequently asked questions — automatic projects",
         "subheading": "What developers and O&M teams ask when reviewing Taypro automatic deployments.",
@@ -46,10 +46,10 @@
       }
     },
     "semiAutomatic": {
-      "breadcrumb": "Semi-Automatic",
+      "breadcrumb": "半自動",
       "eyebrow": "Portable & flexible coverage",
-      "title": "Semi-Automatic Solar Panel Cleaning Robot Projects",
-      "description": "Explore semi-automatic Solar Panel Cleaning Robot deployments. Portable HELYX systems for flexible dry cleaning across plant blocks.",
+      "title": "半自動ソーラーパネル洗浄ロボット導入事例",
+      "description": "半自動ソーラーパネル洗浄ロボットの導入事例。ポータブルHELYXでブロック横断の柔軟な乾式洗浄。",
       "introP1Before": "Semi-automatic listings document plants where Taypro deploys",
       "introP1Link": "HELYX portable dry-cleaning robots",
       "introP1After": "across multiple blocks, uneven terrain, or phases where a full autonomous fleet is not yet justified. Crews move robots between rows while retaining waterless, brush-based cleaning quality.",
@@ -74,10 +74,10 @@
       "closingBodyMiddle": "for specifications, then",
       "closingContactLink": "reach Taypro",
       "closingBodyAfter": " with block layout, road access, and target cleaning frequency.",
-      "schemaName": "Semi-automatic Solar Panel Cleaning Robot installation projects",
-      "schemaDescription": "Solar plants using Taypro HELYX and related semi-automatic portable cleaning robots.",
-      "imageAltSuffix": "Semi-Automatic Solar Panel Cleaning Robot Installation Project by Taypro",
-      "imageTitleSuffix": "Semi-Automatic Solar Panel Cleaning Robot Project",
+      "schemaName": "半自動ソーラーパネル洗浄ロボット導入プロジェクト",
+      "schemaDescription": "Taypro HELYX等の半自動ポータブル洗浄ロボットを使用する発電所。",
+      "imageAltSuffix": "Tayproによる半自動ソーラーパネル洗浄ロボット導入プロジェクト",
+      "imageTitleSuffix": "半自動ソーラーパネル洗浄ロボットプロジェクト",
       "faq": {
         "heading": "Frequently asked questions — semi-automatic projects",
         "subheading": "Common questions about HELYX-style portable deployments.",
@@ -93,8 +93,8 @@
     "capex": {
       "breadcrumb": "CAPEX",
       "eyebrow": "Developer-owned equipment",
-      "title": "CAPEX Solar Panel Cleaning Robot Projects",
-      "description": "Explore CAPEX-owned Solar Panel Cleaning Robot installations. Customers who purchased Taypro hardware for in-house O&M teams.",
+      "title": "CAPEXソーラーパネル洗浄ロबोット導入事例",
+      "description": "CAPEX所有のソーラーパネル洗浄ロボット導入事例。社内O&M向けにTayproハードウェアを購入した顧客。",
       "introP1Before": "CAPEX project listings show utilities and IPPs that purchased Taypro cleaning robots outright—capital on the balance sheet, operated by in-house or contracted O&M. This contrasts with",
       "introP1Link": "Taypro Opex cleaning as a service",
       "introP1After": ", where Taypro owns robots and runs cycles under SLA. Both models appear across India; the right choice depends on balance-sheet preference, internal O&M maturity, and payback horizon.",
@@ -119,10 +119,10 @@
       "closingBodyMiddle": "alongside robot specs, then",
       "closingContactLink": "talk to Taypro",
       "closingBodyAfter": " about CAPEX fleet sizing, training, and spare support for your MW and layout.",
-      "schemaName": "CAPEX Solar Panel Cleaning Robot installation projects",
-      "schemaDescription": "Utility-scale plants where asset owners purchased Taypro cleaning robots under CAPEX procurement.",
-      "imageAltSuffix": "CAPEX Solar Panel Cleaning Robot Installation Project by Taypro",
-      "imageTitleSuffix": "CAPEX Solar Panel Cleaning Robot Project",
+      "schemaName": "CAPEXソーラーパネル洗浄ロボット導入プロジェクト",
+      "schemaDescription": "CAPEX調達で資産所有者がTaypro洗浄ロボットを購入したユーティリティ規模プラント。",
+      "imageAltSuffix": "TayproによるCAPEXソーラーパネル洗浄ロボット導入プロジェクト",
+      "imageTitleSuffix": "CAPEXソーラーパネル洗浄ロボットプロジェクト",
       "faq": {
         "heading": "Frequently asked questions — CAPEX projects",
         "subheading": "How asset owners compare buying robots vs Taypro-operated cleaning.",
@@ -135,10 +135,10 @@
         "a2": "Some owners buy hardware CAPEX and contract Taypro for monitoring or periodic audits. Case studies call out the model when published. Share your preferred split with Taypro during proposal."
       }
     },
-    "projectLinkTitle": "Solar Project",
-    "breadcrumbProjects": "Projects"
+    "projectLinkTitle": "ソーラープロジェクト",
+    "breadcrumbProjects": "プロジェクト"
   },
   "Common": {
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "ホーム"
   }
 }

@@ -21,9 +21,9 @@ function legacyIndia(input) {
   const capacity = plantType === "groundMount" ? E * 1000 : F;
   const modules = Math.round(capacity / (H / 1000));
   const annualCostLabourSaved = modules * 0.5 * 20;
-  const waterSavedLitres = modules * 20 * 3;
+  const waterSavedLitres = modules * 20 * 3.5;
   const annualCostWaterSaved = waterSavedLitres * 0.12;
-  const energyFactor = plantType === "groundMount" ? 0.0295 : 0.113;
+  const energyFactor = plantType === "groundMount" ? 0.025 : 0.113;
   const annualCostEnergyGain = capacity * energyFactor * 1500 * G;
   const automationMultiplier = automationLevel === "automatic" ? 2.0 : 0.5;
   const installationMultiplier =

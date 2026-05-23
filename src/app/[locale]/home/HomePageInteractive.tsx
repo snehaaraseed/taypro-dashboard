@@ -39,6 +39,11 @@ const ClientsCard = dynamic(() => import("@/app/components/ClientsCard"), {
   loading: () => <ClientsLoading />,
 });
 
+const ModuleManufacturerTrust = dynamic(
+  () => import("@/app/components/ModuleManufacturerTrust"),
+  { loading: () => null }
+);
+
 interface HomePageInteractiveProps {
   features: Array<{ title: string; description: string }>;
   otherFeatures: Array<{ title: string; description: string }>;
@@ -208,6 +213,10 @@ export default function HomePageInteractive({
           </LazyWhenVisible>
         </Container>
       </section>
+
+      <LazyWhenVisible minHeight={280} rootMargin="320px 0px">
+        <ModuleManufacturerTrust />
+      </LazyWhenVisible>
 
       <LazyWhenVisible minHeight={420} rootMargin="320px 0px">
         <ClientsCard

@@ -4,6 +4,7 @@ import { siteMapPack } from "./site-map.mjs";
 import { performanceMethodologyPack } from "./performance-methodology.mjs";
 import { minyPack } from "./miny.mjs";
 import { cradylPack } from "./cradyl.mjs";
+import { orionPack } from "./orion.mjs";
 import { companyPack } from "./company.mjs";
 import { solarSystemPack } from "./solar-system.mjs";
 import { cleaningTechnologyPack } from "./cleaning-technology.mjs";
@@ -24,6 +25,7 @@ export const pagePacks = [
   { slug: "performance-methodology", pack: performanceMethodologyPack },
   { slug: "miny", pack: minyPack },
   { slug: "cradyl", pack: cradylPack },
+  { slug: "orion", pack: orionPack },
   { slug: "company", pack: companyPack },
   { slug: "solar-system", pack: solarSystemPack },
   { slug: "cleaning-service", pack: cleaningServicePack },

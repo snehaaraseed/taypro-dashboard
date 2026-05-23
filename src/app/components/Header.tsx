@@ -65,6 +65,11 @@ export default function Header() {
       href: "/solar-panel-cleaning-system/cradyl-row-transfer-docking-station",
     },
     {
+      label: t("orion"),
+      description: t("orionDesc"),
+      href: "/solar-panel-cleaning-system/orion-plant-intelligence-platform",
+    },
+    {
       label: t("viewAllRobots"),
       href: "/solar-panel-cleaning-system",
       isButton: true,

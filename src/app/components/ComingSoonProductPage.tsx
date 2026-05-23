@@ -240,9 +240,11 @@ export async function ComingSoonProductPage({
                 </Link>
               ))}
             </div>
-            <ModelCards
-              cards={product.id === "cradyl" ? modelTCards : modelBCards}
-            />
+            {product.showRobotModelCards !== false && (
+              <ModelCards
+                cards={product.id === "cradyl" ? modelTCards : modelBCards}
+              />
+            )}
           </Container>
         </section>
 

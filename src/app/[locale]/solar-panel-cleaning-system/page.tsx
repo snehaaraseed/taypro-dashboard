@@ -21,6 +21,7 @@ import { getTranslations } from "next-intl/server";
 
 import CallbackCard from "@/app/components/CallbackCard";
 import ClientsCard from "@/app/components/ClientsCard";
+import ModuleManufacturerTrust from "@/app/components/ModuleManufacturerTrust";
 import { RobotCard } from "@/app/components/RobotCard";
 import {
   comingSoonRobotProducts,
@@ -65,7 +66,8 @@ type SchemaItemKey =
   | "tayproOpex"
   | "tayproConsole"
   | "miny"
-  | "cradyl";
+  | "cradyl"
+  | "orion";
 
 const COMPARISON_PRODUCT_KEYS = [
   "glyde",
@@ -86,6 +88,7 @@ function productToSchemaKey(model: string): SchemaItemKey {
     "NECTYR": "tayproConsole",
     MINY: "miny",
     CRADYL: "cradyl",
+    ORION: "orion",
   };
   const key = byName[model];
   if (!key) {
@@ -250,12 +253,7 @@ export default async function SolarPanelCleaningRobot({
         name={t("schema.itemList.name")}
         description={t("schema.itemList.description")}
         items={allProductsForSchema.map((r) => {
-          const key =
-            r.model === "MINY"
-              ? "miny"
-              : r.model === "CRADYL"
-                ? "cradyl"
-                : productToSchemaKey(r.model);
+          const key = productToSchemaKey(r.model);
           return {
             name: `${r.model}${t("schema.itemList.itemNameSuffix")}`,
             url: r.href,
@@ -557,10 +555,9 @@ export default async function SolarPanelCleaningRobot({
                 </p>
               </AnimateOnScroll>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 justify-items-center max-w-3xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 justify-items-center max-w-5xl mx-auto">
                 {comingSoonRobotProducts.map((robot, idx) => {
-                  const schemaKey =
-                    robot.model === "MINY" ? "miny" : "cradyl";
+                  const schemaKey = productToSchemaKey(robot.model);
                   const highlightPrefix = `productGrid.comingSoonHighlights.${schemaKey}`;
                   const bullets = [
                     t(`${highlightPrefix}.bullet0`),
@@ -913,6 +910,8 @@ export default async function SolarPanelCleaningRobot({
         </section>
 
         <CallbackCard headerText="" />
+
+        <ModuleManufacturerTrust />
 
         <ClientsCard />
 

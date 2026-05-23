@@ -73,6 +73,9 @@
           },
           "cradyl": {
             "description": "Movable docking station for autonomous row-to-row robot transfer on scattered plants — coming soon."
+          },
+          "orion": {
+            "description": "Generation-trained solar plant health monitoring SaaS — SCADA-aware insights with optional Taypro robot field data."
           }
         }
       }
@@ -282,6 +285,12 @@
           "bullet0": "Autonomous robot transfer between rows",
           "bullet1": "One robot, multiple rows on scattered plants",
           "bullet2": "Pairs with Taypro cleaning robots in the field"
+        },
+        "orion": {
+          "eyebrow": "Software · Plant intelligence",
+          "bullet0": "PR, soiling & degradation signals from generation data",
+          "bullet1": "Robot-enriched row context & optional field sensing",
+          "bullet2": "Early access pilots for utility & IPP partners"
         }
       }
     },

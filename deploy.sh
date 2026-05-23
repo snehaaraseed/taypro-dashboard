@@ -230,9 +230,11 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
 
     echo "  Apply image alt columns + backfill (idempotent)..."
     npm run cms:migrate-image-alt 2>&1 | tail -8
+    test "${PIPESTATUS[0]}" -eq 0
 
     echo "  Fix blogs/projects slug UNIQUE (per-locale rows)..."
     npm run cms:fix-slug-locale-unique 2>&1 | tail -8
+    test "${PIPESTATUS[0]}" -eq 0
 
     if [ ! -f "data/cms.sqlite" ]; then
         echo "  ❌ data/cms.sqlite still missing after setup"

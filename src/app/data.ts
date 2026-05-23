@@ -1,7 +1,9 @@
 import {
   CRADYL_PRODUCT_PATH,
   MINY_PRODUCT_PATH,
+  ORION_PRODUCT_PATH,
 } from "@/lib/product-coming-soon";
+import { buildTayproMarketingImpactStats } from "@/lib/esg/format-fleet-marketing-impact";
 import {
   getRelatedProductCards,
   HARDWARE_PRODUCT_IDS,
@@ -34,27 +36,10 @@ export const tayproServiceSlaCopy = {
 
 /**
  * Impact and scale figures for hero strips and sustainability callouts.
- * Update here first, then reuse on `/company` and product pages.
+ * Computed from fleet ESG assumptions (see `src/lib/esg/`). Sync hardcoded
+ * product-page trust stats when `fleetCapacityGw` or assumptions change.
  */
-export const tayproMarketingImpactStats = {
-  robotCapacityDeployed: {
-    value: "5 GW+",
-    label: "Robot Capacity Deployed",
-  },
-  plantInstallations: { value: "100+", label: "Plant Installations" },
-  waterSavedAnnually: {
-    value: "1.4 Bn",
-    label: "Liters of Water Saved Annually",
-  },
-  robotsManufacturedPerMonth: {
-    value: "600+",
-    label: "Robots Manufacturing Capacity per Month",
-  },
-  co2ReducedAnnually: {
-    value: "67.5k",
-    label: "Metric Tons Of CO2 Emission Reduced Annually",
-  },
-} as const;
+export const tayproMarketingImpactStats = buildTayproMarketingImpactStats();
 
 /** Trusted-by stat row on product marketing pages (four tiles). */
 export const tayproTrustedByStatsStrip = [
@@ -118,6 +103,14 @@ export const comingSoonRobotProducts = [
       "A movable docking station that autonomously moves one cleaning robot from row to row — multi-row coverage with a single robot on scattered plants.",
     imgPath: "/tayprorobots/taypro-modelBcopy.png",
     href: CRADYL_PRODUCT_PATH,
+  },
+  {
+    model: "ORION",
+    marketingName: "Solar plant intelligence platform",
+    description:
+      "Generation-trained plant health monitoring SaaS — SCADA-aware insights enriched by Taypro robot field data on site.",
+    imgPath: "/tayproasset/taypro-console.png",
+    href: ORION_PRODUCT_PATH,
   },
 ] as const;
 

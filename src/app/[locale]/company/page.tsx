@@ -12,6 +12,7 @@ import {
 } from "@/app/data";
 import { Linkedin } from "lucide-react";
 import CallbackCard from "@/app/components/CallbackCard";
+import ModuleManufacturerTrust from "@/app/components/ModuleManufacturerTrust";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
@@ -266,6 +267,14 @@ export default function AboutUsPage() {
                   {t("sustainability.waterSavedLabel")}
                 </div>
               </div>
+              <div className="mb-6">
+                <div className="text-5xl font-semibold mb-2">
+                  {tayproMarketingImpactStats.extraCleanEnergyAnnually.value}
+                </div>
+                <div className="text-lg">
+                  {t("sustainability.extraGenerationLabel")}
+                </div>
+              </div>
               <div>
                 <div className="text-5xl font-semibold mb-2">
                   {tayproMarketingImpactStats.co2ReducedAnnually.value}
@@ -465,6 +474,8 @@ export default function AboutUsPage() {
             </AnimateOnScroll>
           </div>
         </div>
+
+        <ModuleManufacturerTrust />
 
         <div className="w-full py-30 bg-white px-4 sm:px-6 lg:px-0 overflow-x-hidden">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">

@@ -1,10 +1,10 @@
 {
   "ProjectsFilterPage": {
     "automatic": {
-      "breadcrumb": "Automatic",
+      "breadcrumb": "स्वचालित",
       "eyebrow": "Utility-scale deployments",
-      "title": "Automatic Solar Panel Cleaning Robot Projects",
-      "description": "Explore our automatic Solar Panel Cleaning Robot installation projects. AI-enabled autonomous cleaning systems delivering highest efficiency and ROI.",
+      "title": "स्वचालित सोलर पैनल सफाई रोबोट परियोजनाएं",
+      "description": "हमारी स्वचालित सोलर पैनल सफाई रोबोट स्थापना परियोजनाएं देखें। AI-सक्षम स्वायत्त सफाई प्रणाली उच्च दक्षता और ROI देती हैं।",
       "introP1Before": "This portfolio groups Indian utility-scale plants where Taypro deploys fully",
       "introP1Link": "automatic GLYDE and GLYDE-X cleaning robots",
       "introP1After": "on fixed-tilt and single-axis tracker arrays. Fleets run on waterless dual-pass schedules, coordinated through NECTYR monitoring, so O&M teams recover generation lost to soiling without manual washing crews.",
@@ -29,10 +29,10 @@
       "closingBodyMiddle": "for your array type, then",
       "closingContactLink": "contact Taypro",
       "closingBodyAfter": " with DC capacity, row pitch, and tracker vs fixed-tilt layout for a site-specific proposal.",
-      "schemaName": "Automatic Solar Panel Cleaning Robot installation projects",
-      "schemaDescription": "Utility-scale solar plants where Taypro GLYDE and related automatic robotic cleaning systems are deployed.",
-      "imageAltSuffix": "Automatic Solar Panel Cleaning Robot Installation Project by Taypro",
-      "imageTitleSuffix": "Automatic Solar Panel Cleaning Robot Project",
+      "schemaName": "स्वचालित सोलर पैनल सफाई रोबोट स्थापना परियोजनाएं",
+      "schemaDescription": "यूटिलिटी-स्केल सोलर प्लांट जहां Taypro GLYDE और संबंधित स्वचालित रोबोटिक सफाई तैनात है।",
+      "imageAltSuffix": "Taypro द्वारा स्वचालित सोलर पैनल सफाई रोबोट स्थापना परियोजना",
+      "imageTitleSuffix": "स्वचालित सोलर पैनल सफाई रोबोट परियोजना",
       "faq": {
         "heading": "Frequently asked questions — automatic projects",
         "subheading": "What developers and O&M teams ask when reviewing Taypro automatic deployments.",
@@ -46,10 +46,10 @@
       }
     },
     "semiAutomatic": {
-      "breadcrumb": "Semi-Automatic",
+      "breadcrumb": "अर्ध-स्वचालित",
       "eyebrow": "Portable & flexible coverage",
-      "title": "Semi-Automatic Solar Panel Cleaning Robot Projects",
-      "description": "Explore semi-automatic Solar Panel Cleaning Robot deployments. Portable HELYX systems for flexible dry cleaning across plant blocks.",
+      "title": "अर्ध-स्वचालित सोलर पैनल सफाई रोबोट परियोजनाएं",
+      "description": "अर्ध-स्वचालित सोलर पैनल सफाई रोबोट तैनाती देखें। पोर्टेबल HELYX सिस्टम प्लांट ब्लॉक में लचीली शुष्क सफाई के लिए।",
       "introP1Before": "Semi-automatic listings document plants where Taypro deploys",
       "introP1Link": "HELYX portable dry-cleaning robots",
       "introP1After": "across multiple blocks, uneven terrain, or phases where a full autonomous fleet is not yet justified. Crews move robots between rows while retaining waterless, brush-based cleaning quality.",
@@ -74,10 +74,10 @@
       "closingBodyMiddle": "for specifications, then",
       "closingContactLink": "reach Taypro",
       "closingBodyAfter": " with block layout, road access, and target cleaning frequency.",
-      "schemaName": "Semi-automatic Solar Panel Cleaning Robot installation projects",
-      "schemaDescription": "Solar plants using Taypro HELYX and related semi-automatic portable cleaning robots.",
-      "imageAltSuffix": "Semi-Automatic Solar Panel Cleaning Robot Installation Project by Taypro",
-      "imageTitleSuffix": "Semi-Automatic Solar Panel Cleaning Robot Project",
+      "schemaName": "अर्ध-स्वचालित सोलर पैनल सफाई रोबोट स्थापना परियोजनाएं",
+      "schemaDescription": "सोलर प्लांट जहां Taypro HELYX और संबंधित अर्ध-स्वचालित पोर्टेबल सफाई रोबोट उपयोग में हैं।",
+      "imageAltSuffix": "Taypro द्वारा अर्ध-स्वचालित सोलर पैनल सफाई रोबोट स्थापना परियोजना",
+      "imageTitleSuffix": "अर्ध-स्वचालित सोलर पैनल सफाई रोबोट परियोजना",
       "faq": {
         "heading": "Frequently asked questions — semi-automatic projects",
         "subheading": "Common questions about HELYX-style portable deployments.",
@@ -93,8 +93,8 @@
     "capex": {
       "breadcrumb": "CAPEX",
       "eyebrow": "Developer-owned equipment",
-      "title": "CAPEX Solar Panel Cleaning Robot Projects",
-      "description": "Explore CAPEX-owned Solar Panel Cleaning Robot installations. Customers who purchased Taypro hardware for in-house O&M teams.",
+      "title": "CAPEX सोलर पैनल सफाई रोबोट परियोजनाएं",
+      "description": "CAPEX-स्वामित्व सोलर पैनल सफाई रोबोट स्थापनाएं देखें। ग्राहकों ने इन-हाउस O&M के लिए Taypro हार्डवेयर खरीदा।",
       "introP1Before": "CAPEX project listings show utilities and IPPs that purchased Taypro cleaning robots outright—capital on the balance sheet, operated by in-house or contracted O&M. This contrasts with",
       "introP1Link": "Taypro Opex cleaning as a service",
       "introP1After": ", where Taypro owns robots and runs cycles under SLA. Both models appear across India; the right choice depends on balance-sheet preference, internal O&M maturity, and payback horizon.",
@@ -119,10 +119,10 @@
       "closingBodyMiddle": "alongside robot specs, then",
       "closingContactLink": "talk to Taypro",
       "closingBodyAfter": " about CAPEX fleet sizing, training, and spare support for your MW and layout.",
-      "schemaName": "CAPEX Solar Panel Cleaning Robot installation projects",
-      "schemaDescription": "Utility-scale plants where asset owners purchased Taypro cleaning robots under CAPEX procurement.",
-      "imageAltSuffix": "CAPEX Solar Panel Cleaning Robot Installation Project by Taypro",
-      "imageTitleSuffix": "CAPEX Solar Panel Cleaning Robot Project",
+      "schemaName": "CAPEX सोलर पैनल सफाई रोबोट स्थापना परियोजनाएं",
+      "schemaDescription": "यूटिलिटी-स्केल प्लांट जहां मालिकों ने CAPEX खरीद के तहत Taypro सफाई रोबोट खरीदे।",
+      "imageAltSuffix": "Taypro द्वारा CAPEX सोलर पैनल सफाई रोबोट स्थापना परियोजना",
+      "imageTitleSuffix": "CAPEX सोलर पैनल सफाई रोबोट परियोजना",
       "faq": {
         "heading": "Frequently asked questions — CAPEX projects",
         "subheading": "How asset owners compare buying robots vs Taypro-operated cleaning.",
@@ -135,10 +135,10 @@
         "a2": "Some owners buy hardware CAPEX and contract Taypro for monitoring or periodic audits. Case studies call out the model when published. Share your preferred split with Taypro during proposal."
       }
     },
-    "projectLinkTitle": "Solar Project",
-    "breadcrumbProjects": "Projects"
+    "projectLinkTitle": "सोलर परियोजना",
+    "breadcrumbProjects": "परियोजनाएं"
   },
   "Common": {
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "होम"
   }
 }

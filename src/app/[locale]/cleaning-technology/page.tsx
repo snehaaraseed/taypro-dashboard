@@ -27,6 +27,7 @@ import { getAllFileProjects } from "@/app/utils/projectFileUtils";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { RobotCard } from "@/app/components/RobotCard";
 import CallbackCard from "@/app/components/CallbackCard";
+import ModuleManufacturerTrust from "@/app/components/ModuleManufacturerTrust";
 import { Container } from "@/app/components/Container";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { FaqSection } from "@/app/components/FaqSection";
@@ -698,6 +699,8 @@ export default async function CleaningTechnologyPage({
             </Container>
           </div>
         ))}
+
+        <ModuleManufacturerTrust />
 
         {/* Waterless impact */}
         <div

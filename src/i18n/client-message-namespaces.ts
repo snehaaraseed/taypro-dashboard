@@ -25,6 +25,7 @@ export const CLIENT_PAGE_NAMESPACES = [
   "Home",
   "ContactPage",
   "CompanyPage",
+  "ModuleManufacturerTrust",
   "PriceCalculatorPage",
   "BlogPage",
   "ProjectDetailPage",
