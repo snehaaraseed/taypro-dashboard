@@ -1,4 +1,5 @@
-import Image from "next/image";
+import { Suspense } from "react";
+import { preload } from "react-dom";
 import { Link } from "@/i18n/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
@@ -15,11 +16,10 @@ import {
   FAQPageSchema,
 } from "@/app/components/StructuredData";
 import DynamicProjectsRollup from "@/app/components/DynamicProjectsRollup";
-import { listAllBlogs } from "@/lib/cms/blogService";
-import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
 import HomePageInteractive from "./HomePageInteractive";
 import HomeHeroCTAs from "./HomeHeroCTAs";
 import HomeHeroVideo from "@/app/components/HomeHeroVideo";
+import HomeLatestBlogs from "./HomeLatestBlogs";
 import {
   HARDWARE_ROBOTS_GRID_HOME,
   hardwareRobotsGridItemClass,
@@ -27,19 +27,12 @@ import {
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 const HERO_VIDEO_ID = "y9iRhH2bLwY";
+const HERO_POSTER = "/tayproasset/taypro-robotFeature.jpg";
 
 const FEATURE_COUNT = 4;
 const OTHER_FEATURE_COUNT = 4;
 const FAQ_COUNT = 5;
 const STAT_COUNT = 4;
-
-const DATE_LOCALE: Record<string, string> = {
-  en: "en-IN",
-  hi: "hi-IN",
-  ar: "ar",
-  ja: "ja-JP",
-  bn: "bn-IN",
-};
 
 function buildTranslatedFeatures(
   t: Awaited<ReturnType<typeof getTranslations>>,
@@ -68,31 +61,11 @@ function buildHomeFaqs(t: Awaited<ReturnType<typeof getTranslations>>) {
   return faqs;
 }
 
-async function getLatestBlogs(limit = 3, locale: string) {
-  const rows = await listAllBlogs(false);
-  const dateLocale = DATE_LOCALE[locale] ?? "en-IN";
-  return rows.slice(0, limit).map((b) => ({
-    title: b.title,
-    description: b.description,
-    imageAlt: getBlogFeaturedImageAlt({
-      title: b.title,
-      featuredImageAlt: b.featuredImageAlt,
-    }),
-    href: `/blog/${b.slug}`,
-    date: new Date(b.updatedAt || b.publishDate).toLocaleDateString(dateLocale, {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    }),
-    image:
-      b.featuredImage && b.featuredImage.trim() !== "" ? b.featuredImage : null,
-  }));
-}
-
 export default async function HomePage() {
+  preload(HERO_POSTER, { as: "image", fetchPriority: "high" });
+
   const locale = await getLocale();
   const t = await getTranslations({ locale, namespace: "Home" });
-  const latestBlogs = await getLatestBlogs(3, locale);
 
   const features = buildTranslatedFeatures(t, "features", FEATURE_COUNT);
   const otherFeatures = buildTranslatedFeatures(t, "otherFeatures", OTHER_FEATURE_COUNT);
@@ -148,11 +121,21 @@ export default async function HomePage() {
       <div className="min-h-screen overflow-x-hidden">
         <section className="relative px-4 sm:px-6 lg:px-8 py-10 md:py-14">
           <Container className="!px-0">
-            <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+            <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+              <AnimateOnScroll
+                animation="fadeInLeft"
+                eager
+                className="order-1 lg:order-none flex justify-center lg:justify-end lg:col-start-2 lg:row-start-1"
+              >
+                <div className="relative w-full max-w-[720px] aspect-video rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/10">
+                  <HomeHeroVideo videoId={HERO_VIDEO_ID} title={videoTitle} />
+                </div>
+              </AnimateOnScroll>
+
               <AnimateOnScroll
                 animation="fadeInRight"
                 eager
-                className="text-white space-y-5 lg:space-y-6"
+                className="order-2 lg:order-none text-white space-y-5 lg:space-y-6 lg:col-start-1 lg:row-start-1"
               >
                 <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide">
                   {t("hero.eyebrow")}
@@ -177,16 +160,6 @@ export default async function HomePage() {
                   {t("hero.bodyAfterBlog")}
                 </p>
                 <HomeHeroCTAs />
-              </AnimateOnScroll>
-
-              <AnimateOnScroll
-                animation="fadeInLeft"
-                eager
-                className="flex justify-center lg:justify-end"
-              >
-                <div className="relative w-full max-w-[720px] aspect-video rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/10">
-                  <HomeHeroVideo videoId={HERO_VIDEO_ID} title={videoTitle} />
-                </div>
               </AnimateOnScroll>
             </div>
           </Container>
@@ -299,80 +272,9 @@ export default async function HomePage() {
           background="white"
         />
 
-        {latestBlogs.length > 0 && (
-          <section
-            className="py-14 md:py-16 bg-white border-t border-gray-100"
-            aria-labelledby="latest-blog-heading"
-          >
-            <Container>
-              <AnimateOnScroll
-                animation="fadeInUp"
-                className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10"
-              >
-                <div>
-                  <h2
-                    id="latest-blog-heading"
-                    className="text-[#052638] font-semibold text-3xl md:text-4xl mb-2"
-                  >
-                    {t("blog.heading")}
-                  </h2>
-                  <p className="text-[#27415c]">{t("blog.subheading")}</p>
-                </div>
-                <Link
-                  href="/blog"
-                  className="inline-flex items-center gap-2 text-[#5a8f00] font-medium hover:underline shrink-0"
-                >
-                  {t("blog.viewAll")}
-                  <span aria-hidden>→</span>
-                </Link>
-              </AnimateOnScroll>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {latestBlogs.map((post, idx) => (
-                  <AnimateOnScroll
-                    key={post.href}
-                    animation="fadeInUp"
-                    delay={idx * 80}
-                  >
-                    <Link
-                      href={post.href}
-                      className="group flex flex-col h-full rounded-xl border border-gray-200 overflow-hidden bg-[#f8fafb] hover:border-[#A8C117] hover:shadow-md transition"
-                    >
-                      <div className="relative aspect-[16/10] bg-[#eef3f8]">
-                        {post.image ? (
-                          <Image
-                            src={post.image}
-                            alt={post.imageAlt}
-                            fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-300"
-                            sizes="(max-width: 768px) 100vw, 33vw"
-                            unoptimized={
-                              post.image.startsWith("http") ||
-                              post.image.startsWith("//")
-                            }
-                          />
-                        ) : null}
-                      </div>
-                      <div className="p-5 flex flex-col flex-1">
-                        <time className="text-xs text-[#5a8f00] font-medium mb-2">
-                          {post.date}
-                        </time>
-                        <h3 className="text-[#052638] font-semibold text-lg mb-2 line-clamp-2 group-hover:text-[#5a8f00] transition-colors">
-                          {post.title}
-                        </h3>
-                        {post.description ? (
-                          <p className="text-[#27415c] text-sm line-clamp-2 flex-1">
-                            {post.description}
-                          </p>
-                        ) : null}
-                      </div>
-                    </Link>
-                  </AnimateOnScroll>
-                ))}
-              </div>
-            </Container>
-          </section>
-        )}
+        <Suspense fallback={null}>
+          <HomeLatestBlogs />
+        </Suspense>
       </div>
     </>
   );

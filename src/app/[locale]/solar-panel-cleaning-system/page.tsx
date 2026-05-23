@@ -271,6 +271,7 @@ export default async function SolarPanelCleaningRobot({
             <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-8 lg:gap-12 items-stretch">
               <AnimateOnScroll
                 animation="fadeInLeft"
+                eager
                 className="bg-[#052638] text-white px-6 sm:px-10 py-10 sm:py-14 flex flex-col justify-center rounded-lg"
               >
                 <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
@@ -317,6 +318,7 @@ export default async function SolarPanelCleaningRobot({
 
               <AnimateOnScroll
                 animation="fadeInRight"
+                eager
                 className="relative min-h-[280px] sm:min-h-[360px] lg:min-h-[480px]"
               >
                 <Image
@@ -325,6 +327,7 @@ export default async function SolarPanelCleaningRobot({
                   title={t("hero.heroImageTitle")}
                   fill
                   priority
+                  fetchPriority="high"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-contain"
                 />

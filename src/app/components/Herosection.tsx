@@ -82,6 +82,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           {/* LEFT - Content */}
           <AnimateOnScroll
             animation="fadeInLeft"
+            eager
             className="bg-[#052638] w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-10 py-12 sm:py-16"
           >
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-semibold text-white mb-6 leading-tight">
@@ -111,6 +112,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           {/* RIGHT - IMAGE */}
           <AnimateOnScroll
             animation="fadeInRight"
+            eager
             delay={100}
             className="relative w-full lg:w-1/2 min-h-[240px] sm:min-h-[360px] lg:min-h-[600px] mt-10 lg:mt-0"
           >
@@ -122,6 +124,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               className="object-contain"
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority
+              fetchPriority="high"
             />
             <svg
               className="hidden sm:block absolute right-0 top-0 w-full h-full pointer-events-none"

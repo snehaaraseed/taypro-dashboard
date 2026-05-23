@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, ReactNode } from "react";
+import { useLayoutEffect, useRef, useState, ReactNode } from "react";
 
 type AnimateOnScrollProps = {
   children: ReactNode;
@@ -22,14 +22,17 @@ export function AnimateOnScroll({
   threshold = 0.1,
   eager = false,
 }: AnimateOnScrollProps) {
-  const [isVisible, setIsVisible] = useState(eager);
+  /** Start visible so SSR/first paint count toward LCP; hide below-fold before paint. */
+  const [isVisible, setIsVisible] = useState(true);
   const ref = useRef<HTMLDivElement>(null);
   const hasBeenVisible = useRef(eager);
 
-  useEffect(() => {
-    if (eager) return;
+  useLayoutEffect(() => {
+    if (eager) {
+      hasBeenVisible.current = true;
+      return;
+    }
 
-    // Check if element is already in viewport on mount (handles fast scroll)
     const checkInitialVisibility = () => {
       if (ref.current && !hasBeenVisible.current) {
         const rect = ref.current.getBoundingClientRect();
@@ -38,7 +41,7 @@ export function AnimateOnScroll({
           rect.bottom > 0 &&
           rect.left < window.innerWidth &&
           rect.right > 0;
-        
+
         if (isInViewport) {
           setIsVisible(true);
           hasBeenVisible.current = true;
@@ -48,10 +51,11 @@ export function AnimateOnScroll({
       return false;
     };
 
-    // Check immediately
     if (checkInitialVisibility()) {
       return;
     }
+
+    setIsVisible(false);
 
     const observer = new IntersectionObserver(
       ([entry]) => {

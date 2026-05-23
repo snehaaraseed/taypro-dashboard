@@ -32,6 +32,12 @@ interface ProductSchemaProps {
   };
 }
 
+/** Google Product/Offer: price must be a numeric string (e.g. "99.99"), not marketing copy. */
+function isValidOfferPrice(price: string | undefined): boolean {
+  if (!price?.trim()) return false;
+  return /^\d+(\.\d{1,2})?$/.test(price.trim());
+}
+
 interface WebSiteSchemaProps {
   siteUrl: string;
   searchAction?: {
@@ -221,13 +227,16 @@ export function ProductSchema({
   }
 
   if (offers) {
-    schema.offers = {
+    const offer: Record<string, unknown> = {
       "@type": "Offer",
-      price: offers.price || "0",
-      priceCurrency: offers.priceCurrency || "INR",
       availability: offers.availability || "https://schema.org/InStock",
       url: `${siteUrl}/contact`,
     };
+    if (isValidOfferPrice(offers.price)) {
+      offer.price = offers.price!.trim();
+      offer.priceCurrency = offers.priceCurrency || "INR";
+    }
+    schema.offers = offer;
   }
 
   return (

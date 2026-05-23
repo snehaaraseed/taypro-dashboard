@@ -127,6 +127,7 @@ export default function AboutUsPage() {
 
           <AnimateOnScroll
             animation="fadeInUp"
+            eager
             className="relative z-10 pt-10 px-4 max-w-4xl mx-auto pb-28"
           >
             <div className="text-[#A8C117] text-center text-[16px] mb-4 uppercase tracking-wide">
