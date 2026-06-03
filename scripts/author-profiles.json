@@ -1,0 +1,78 @@
+[
+  {
+    "slug": "ananya-iyer",
+    "name": "Ananya Iyer",
+    "role": "Utility Solar Performance Analyst",
+    "bio": "Ananya spent years reviewing SCADA and monthly generation reports for 100MW+ portfolios in Rajasthan and Gujarat. She writes about soiling curves, performance ratio gaps, and how to prove cleaning ROI with meter data—not headline renewable energy news.",
+    "avatarUrl": "/uploads/2026/06/author-ananya-iyer-1780479607844.png"
+  },
+  {
+    "slug": "arjun-sharma",
+    "name": "Arjun Sharma",
+    "role": "Solar Asset Management Writer",
+    "bio": "Arjun explains lifecycle Opex, cleaning contract structures, and what IPPs should diligence before robotics or AMC renewals. His angle is investor and asset-owner economics on Indian utility-scale plants.",
+    "avatarUrl": "/uploads/2026/06/author-arjun-sharma-1780479607844.png"
+  },
+  {
+    "slug": "kavya-reddy",
+    "name": "Kavya Reddy",
+    "role": "Waterless Solar O&M Specialist",
+    "bio": "Kavya focuses on water use at arid and semi-arid sites, dust behaviour on glass, and when waterless robotic cleaning is the only scalable option for daily cycles. She bridges environmental constraints with field-ready O&M practice.",
+    "avatarUrl": "/uploads/2026/06/author-kavya-reddy-1780479607844.png"
+  },
+  {
+    "slug": "manpreet-singh",
+    "name": "Manpreet Singh",
+    "role": "Solar EPC & Commissioning Editor",
+    "bio": "Manpreet writes from an EPC handover perspective: row spacing, tracker tolerances, cable management, and owner specs that prevent costly rework when autonomous cleaners are commissioned. Utility-scale construction in India is his lane.",
+    "avatarUrl": "/uploads/2026/06/author-manpreet-singh-1780479607844.png"
+  },
+  {
+    "slug": "prathamesh-kulkarni",
+    "name": "Prathamesh Kulkarni",
+    "role": "Solar Robotics & Field Automation Editor",
+    "bio": "Prathamesh documents autonomous cleaning robots, docking stations, fleet dashboards, and block-by-block deployment on 50MW+ sites. He cares about what works on fixed-tilt and tracker rows in live Indian conditions.",
+    "avatarUrl": "/uploads/2026/06/author-prathamesh-kulkarni-1780479607844.png"
+  },
+  {
+    "slug": "rohan-mehta",
+    "name": "Rohan Mehta",
+    "role": "Digital O&M & Predictive Maintenance Writer",
+    "bio": "Rohan covers weather-aware scheduling, remote monitoring portals, and where ML actually improves cleaning timing versus marketing buzz. He translates industrial IoT concepts for plant O&M leads.",
+    "avatarUrl": "/uploads/2026/06/author-rohan-mehta-1780479607844.png"
+  },
+  {
+    "slug": "rohit-jadhav",
+    "name": "Rohit Jadhav",
+    "role": "Utility-Scale Plant Operations Contributor",
+    "bio": "Rohit publishes practical guidance for plant managers: shift planning, HSE around energised fields, scaling crews across blocks, and when to shift from manual washing to automation. His audience is operations, not residential installers.",
+    "avatarUrl": "/uploads/2026/06/author-rohit-jadhav-1780479607844.png"
+  },
+  {
+    "slug": "saurabh-patil",
+    "name": "Saurabh Patil",
+    "role": "Solar O&M Equipment & Methods Editor",
+    "bio": "Saurabh compares manual brush crews, semi-automatic systems, and full autonomous robots with honest trade-offs on labour, water, cycle time, and night-time production windows. He has commissioned cleaning methods on large Madhya Pradesh plants.",
+    "avatarUrl": "/uploads/2026/06/author-saurabh-patil-1780479607844.png"
+  },
+  {
+    "slug": "suraj",
+    "name": "Suraj Kadam",
+    "role": "Chief Editor, Utility Solar",
+    "bio": "Suraj sets editorial direction for utility-scale solar, robotic cleaning, and India O&M policy. He turns project interviews and operating data into long-form guides for asset owners, EPC teams, and service contractors."
+  },
+  {
+    "slug": "tejaswini-joshi",
+    "name": "Tejaswini Joshi",
+    "role": "Solar AMC & Service Contract Analyst",
+    "bio": "Tejaswini decodes AMC scopes, SLA metrics, penalty clauses, and how owners should audit contractor performance against robotic or hybrid cleaning programmes. Her posts help renegotiate maintenance spend with evidence.",
+    "avatarUrl": "/uploads/2026/06/author-tejaswini-joshi-1780479607844.png"
+  },
+  {
+    "slug": "vaishnavi-deshmukh",
+    "name": "Vaishnavi Deshmukh",
+    "role": "Single-Axis Tracker & Cleaning Systems Writer",
+    "bio": "Vaishnavi specialises in tracker geometry, inter-row clearance, slope limits, and robot path planning on single-axis sites. She writes technical fit guides—not generic sustainability essays or residential tips.",
+    "avatarUrl": "/uploads/2026/06/author-vaishnavi-deshmukh-1780479607844.png"
+  }
+]

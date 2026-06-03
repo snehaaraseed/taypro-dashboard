@@ -89,13 +89,40 @@ export function getAuthorBySlug(slug: string): BlogAuthor | undefined {
   return BLOG_AUTHORS.find((author) => author.slug === slug);
 }
 
+const AUTHOR_AVATAR_BACKGROUNDS = [
+  "052638",
+  "0c3c57",
+  "1a4d63",
+  "2a6578",
+  "356f7f",
+  "447a8f",
+  "5b8499",
+  "6d93a8",
+  "7fa2b6",
+  "91b1c4",
+] as const;
+
+function avatarBackgroundForSlug(slug: string): string {
+  let hash = 0;
+  for (let i = 0; i < slug.length; i++) {
+    hash = (hash + slug.charCodeAt(i) * (i + 1)) % 997;
+  }
+  return AUTHOR_AVATAR_BACKGROUNDS[hash % AUTHOR_AVATAR_BACKGROUNDS.length];
+}
+
+/** Default initials avatar when no upload is stored in CMS. */
+export function getDefaultAuthorAvatarUrl(name: string, slug?: string): string {
+  const encodedName = encodeURIComponent(name || "Author");
+  const bg = slug ? avatarBackgroundForSlug(slug) : "4b5563";
+  return `https://ui-avatars.com/api/?name=${encodedName}&background=${bg}&color=ffffff&size=256`;
+}
+
 export function getAuthorAvatarUrl(name: string): string {
   const knownAuthor = getAuthorByName(name);
   if (knownAuthor?.avatarUrl) {
     return knownAuthor.avatarUrl;
   }
 
-  const encodedName = encodeURIComponent(name || "Author");
-  return `https://ui-avatars.com/api/?name=${encodedName}&background=4b5563&color=ffffff&size=256`;
+  return getDefaultAuthorAvatarUrl(name);
 }
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { getAuthorAvatarUrl } from "@/app/data/blogAuthors";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { slugifyAuthorName } from "../../data/blogAuthors";
@@ -295,25 +296,24 @@ export default function AdminAuthorsPage() {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
-            {authors.map((author) => (
+            {authors.map((author) => {
+              const avatarSrc =
+                author.avatarUrl || getAuthorAvatarUrl(author.name);
+              return (
               <tr key={author.slug}>
                 <td className="px-4 py-3">
                   <div className="relative w-10 h-10 rounded-full overflow-hidden bg-gray-100 border border-gray-200">
-                    {author.avatarUrl ? (
-                      <Image
-                        src={author.avatarUrl}
-                        alt=""
-                        fill
-                        className="object-cover"
-                        sizes="40px"
-                        unoptimized={
-                          author.avatarUrl.startsWith("/uploads/") ||
-                          author.avatarUrl.startsWith("http")
-                        }
-                      />
-                    ) : (
-                      <span className="absolute inset-0 flex items-center justify-center text-xs text-gray-400">, </span>
-                    )}
+                    <Image
+                      src={avatarSrc}
+                      alt=""
+                      fill
+                      className="object-cover"
+                      sizes="40px"
+                      unoptimized={
+                        avatarSrc.startsWith("/uploads/") ||
+                        avatarSrc.startsWith("http")
+                      }
+                    />
                   </div>
                 </td>
                 <td className="px-6 py-4 text-sm text-gray-900">{author.name}</td>
@@ -336,7 +336,8 @@ export default function AdminAuthorsPage() {
                   </button>
                 </td>
               </tr>
-            ))}
+            );
+            })}
           </tbody>
         </table>
       </div>

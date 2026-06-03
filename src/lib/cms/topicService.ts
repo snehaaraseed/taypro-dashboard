@@ -143,11 +143,11 @@ export async function addPublishedTopic(
 
 const MS_PER_DAY = 86_400_000;
 
-/** Minimum days between automated drafts (default 3 ≈ 2 posts/week). */
+/** Minimum days between automated drafts (default 1 = at most one draft per day). */
 export function getBlogAutomationMinDays(): number {
   const raw = process.env.BLOG_AUTOMATION_MIN_DAYS?.trim();
-  const parsed = raw ? Number.parseInt(raw, 10) : 3;
-  return Number.isFinite(parsed) && parsed > 0 ? parsed : 3;
+  const parsed = raw ? Number.parseInt(raw, 10) : 1;
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
 }
 
 export type BlogAutomationSchedule = {

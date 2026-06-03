@@ -72,7 +72,7 @@
             "description": "小規模屋根向けコンパクト洗浄ロボット, 水なし・軽量・近日公開。"
           },
           "cradyl": {
-            "description": "分散プラント向け行間自律移動の可動ドッキングステーション, 近日公開。"
+            "description": "エンドレール上のバッテリー駆動可動ドッキング, 分散プラント向け自律行間ロボット移動。"
           },
           "orion": {
             "description": "発電データで学習する太陽光プラント健全性監視SaaS, SCADA連携とTayproロボット現場データ。"
@@ -291,6 +291,17 @@
           "bullet0": "発電データからPR・汚れ・劣化シグナル",
           "bullet1": "ロボット連携の行コンテキストとオプション現場センシング",
           "bullet2": "ユーティリティ・IPP向け早期パイロット"
+        }
+      },
+      "accessoryEyebrow": "フリートアクセサリ",
+      "accessoryTitle": "分散プラントでロボットの到達範囲を拡大",
+      "accessorySubtitle": "CRADYLは本日提供中。旧Taypro MDS。エンドレール上の自律行間ドッキング。",
+      "accessoryHighlights": {
+        "cradyl": {
+          "eyebrow": "ドッキング · 行間移動",
+          "bullet0": "レール上の自律行間ロボット移動",
+          "bullet1": "分散プラントで1台が複数行をカバー",
+          "bullet2": "ソーラー充電・IP65・NECTYRクラウド連携"
         }
       }
     },

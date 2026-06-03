@@ -1,18 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isAutomationAuthorized } from "@/lib/security";
-import {
-  getTranslationQueueStats,
-  processTranslationQueue,
-} from "@/lib/translation/translation-queue";
+import { processDailyBlogTranslations } from "@/lib/translation/translation-queue";
 
-/** Gemini translation runs can be slow when draining the queue. */
-export const maxDuration = 300;
+/** Up to 5 blogs × 4 locales — can take several minutes. */
+export const maxDuration = 900;
 
 /**
- * POST, process pending CMS translation jobs (quota auto-resume).
- * Secured with AUTOMATION_CRON_SECRET (same as generate-blog).
- *
- * Query: ?reconcile=true, also enqueue any published posts missing translations.
+ * POST — daily blog translation cron (AUTOMATION_CRON_SECRET).
+ * Translates up to BLOG_TRANSLATION_MAX_PER_DAY published EN blogs.
+ * Stops for the rest of the run when Gemini quota is exceeded (retries next day).
  */
 export async function POST(request: NextRequest) {
   if (!isAutomationAuthorized(request)) {
@@ -20,22 +16,22 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const reconcile = request.nextUrl.searchParams.get("reconcile") === "true";
-    const before = await getTranslationQueueStats();
-    const result = await processTranslationQueue({ reconcile });
-    const after = await getTranslationQueueStats();
+    const dailyResult = await processDailyBlogTranslations();
 
     return NextResponse.json({
       success: true,
-      queue: { before, after },
-      ...result,
+      mode: "daily",
+      quotaSkippedForDay: dailyResult.quotaSkippedForDay,
+      daily: dailyResult,
     });
   } catch (error) {
     console.error("POST /api/automation/retry-translations:", error);
     return NextResponse.json(
       {
         error:
-          error instanceof Error ? error.message : "Translation queue failed",
+          error instanceof Error
+            ? error.message
+            : "Daily blog translation failed",
       },
       { status: 500 }
     );

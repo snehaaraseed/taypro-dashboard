@@ -1,8 +1,5 @@
-import {
-  CRADYL_PRODUCT_PATH,
-  MINY_PRODUCT_PATH,
-  ORION_PRODUCT_PATH,
-} from "@/lib/product-coming-soon";
+import { CRADYL_PRODUCT_PATH } from "@/lib/product-cradyl";
+import { MINY_PRODUCT_PATH, ORION_PRODUCT_PATH } from "@/lib/product-coming-soon";
 import { buildTayproMarketingImpactStats } from "@/lib/esg/format-fleet-marketing-impact";
 import { buildTayproPublicProofStats } from "@/lib/marketing/public-proof-stats";
 import {
@@ -95,6 +92,18 @@ export const robotSolutions = robots.filter(
   (r) => r.model === "Taypro Opex" || r.model === "NECTYR"
 );
 
+/** Launched fleet accessories (non-cleaning-robot hardware). */
+export const fleetAccessoryProducts = [
+  {
+    model: "CRADYL",
+    marketingName: "Autonomous row-transfer docking station",
+    description:
+      "Battery-powered movable docking station on end-row rails that autonomously transfers one cleaning robot between rows on scattered plants.",
+    imgPath: "/tayprorobots/cradyl-field.png",
+    href: CRADYL_PRODUCT_PATH,
+  },
+] as const;
+
 /** Upcoming products, marketing pages live; hardware not yet GA. */
 export const comingSoonRobotProducts = [
   {
@@ -104,14 +113,6 @@ export const comingSoonRobotProducts = [
       "A compact cleaning robot for smaller rooftop plants, waterless, lightweight, and sized for distributed commercial rooftops.",
     imgPath: "/tayprorobots/taypro-modelBcopy.png",
     href: MINY_PRODUCT_PATH,
-  },
-  {
-    model: "CRADYL",
-    marketingName: "Autonomous row-transfer docking station",
-    description:
-      "A movable docking station that autonomously moves one cleaning robot from row to row, multi-row coverage with a single robot on scattered plants.",
-    imgPath: "/tayprorobots/taypro-modelBcopy.png",
-    href: CRADYL_PRODUCT_PATH,
   },
   {
     model: "ORION",

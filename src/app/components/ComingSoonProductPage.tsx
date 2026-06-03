@@ -15,7 +15,7 @@ import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import ModelCards from "@/app/components/ModelCards";
 import { Link } from "@/i18n/navigation";
 import type { ComingSoonProductConfig } from "@/lib/product-coming-soon";
-import { modelBCards, modelTCards } from "@/app/data";
+import { modelBCards } from "@/app/data";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 
 const siteUrl = SITE_URL;
@@ -287,9 +287,7 @@ export async function ComingSoonProductPage({
               ))}
             </div>
             {product.showRobotModelCards !== false && (
-              <ModelCards
-                cards={product.id === "cradyl" ? modelTCards : modelBCards}
-              />
+              <ModelCards cards={modelBCards} />
             )}
           </Container>
         </section>

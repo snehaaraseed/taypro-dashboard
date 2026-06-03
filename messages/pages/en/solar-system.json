@@ -72,7 +72,7 @@
             "description": "Compact cleaning robot for smaller rooftop plants, waterless, lightweight, coming soon."
           },
           "cradyl": {
-            "description": "Movable docking station for autonomous row-to-row robot transfer on scattered plants, coming soon."
+            "description": "Battery-powered movable docking station on end-row rails for autonomous row-to-row robot transfer on scattered plants."
           },
           "orion": {
             "description": "Generation-trained solar plant health monitoring SaaS, SCADA-aware insights with optional Taypro robot field data."
@@ -268,6 +268,17 @@
           "bullet2": "Role-based access, support tickets, chat"
         }
       },
+      "accessoryEyebrow": "Fleet accessories",
+      "accessoryTitle": "Extend robot reach across scattered plants",
+      "accessorySubtitle": "CRADYL is shipping today, formerly Taypro MDS, autonomous row-transfer docking on end-row rail tracks.",
+      "accessoryHighlights": {
+        "cradyl": {
+          "eyebrow": "Docking · Row transfer",
+          "bullet0": "Autonomous robot transfer between rows on rail tracks",
+          "bullet1": "One robot, multiple rows on scattered plants",
+          "bullet2": "Solar-charged, IP65, cloud-connected with NECTYR"
+        }
+      },
       "comingSoonEyebrow": "Roadmap",
       "comingSoonTitle": "Coming soon from Taypro",
       "comingSoonSubtitle": "Next-generation platforms in active development, register interest for launch updates and early pilots.",
@@ -279,12 +290,6 @@
           "bullet0": "Sized for smaller commercial & industrial rooftops",
           "bullet1": "Waterless Taypro cleaning in a lighter chassis",
           "bullet2": "Early access & pilot registration open"
-        },
-        "cradyl": {
-          "eyebrow": "Docking · Row transfer",
-          "bullet0": "Autonomous robot transfer between rows",
-          "bullet1": "One robot, multiple rows on scattered plants",
-          "bullet2": "Pairs with Taypro cleaning robots in the field"
         },
         "orion": {
           "eyebrow": "Software · Plant intelligence",

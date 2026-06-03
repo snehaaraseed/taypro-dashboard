@@ -9,6 +9,7 @@ import {
   slugifyAuthorName,
   normalizeLinkedInUrl,
 } from "@/app/data/blogAuthors";
+import { isEligibleBlogAuthor } from "@/lib/cms/blog-author-pool";
 
 function rowToAuthor(row: typeof authors.$inferSelect): BlogAuthor {
   return {
@@ -109,4 +110,26 @@ export async function getAuthorBySlug(
 ): Promise<BlogAuthor | undefined> {
   const all = await getStoredAuthors();
   return all.find((a) => a.slug === slug);
+}
+
+/** Random CMS author for automation (excludes Taypro Team, Suraj Kadam, etc.). */
+export async function pickRandomBlogAuthor(): Promise<BlogAuthor> {
+  const all = await getStoredAuthors();
+  const pool = all.filter(isEligibleBlogAuthor);
+  const pickFrom = pool.length > 0 ? pool : all;
+  if (pickFrom.length === 0) {
+    return (
+      all[0] ?? {
+        name: "Taypro Team",
+        slug: "taypro-team",
+        role: "Solar Automation Specialists",
+        bio: "Editorial team covering solar O&M and robotic cleaning.",
+      }
+    );
+  }
+  return pickFrom[Math.floor(Math.random() * pickFrom.length)];
+}
+
+export async function pickRandomBlogAuthorName(): Promise<string> {
+  return (await pickRandomBlogAuthor()).name;
 }

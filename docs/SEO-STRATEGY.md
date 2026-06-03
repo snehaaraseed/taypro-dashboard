@@ -297,7 +297,7 @@ Add to `next.config.ts` → `redirects()` if any old URLs still receive traffic 
 
 ### 6.1 Content & automation
 
-- [ ] Blog automation: 2 posts/week max; min days between posts (`BLOG_AUTOMATION_MIN_DAYS`)  
+- [ ] Blog automation: 1 draft/day max (`BLOG_AUTOMATION_MIN_DAYS=1`); random 9:00–15:00 IST  
 - [ ] Every auto-post: internal links to hub + one product page  
 - [ ] Refresh hub + service quarterly (new GW deployed, new projects)  
 

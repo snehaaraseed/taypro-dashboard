@@ -12,6 +12,7 @@ import {
   extractH2Headings,
 } from "@/lib/seo/blog-similarity";
 import { assertBlogNotTooSimilar } from "@/lib/seo/blog-uniqueness";
+import { pickRandomBlogAuthor } from "@/lib/cms/authorService";
 import { addPublishedTopic } from "@/lib/topicTracker";
 import { createBlogFiles, createSlug } from "@/app/utils/blogFileUtils";
 import { requireAuth } from "@/app/utils/auth";
@@ -66,6 +67,7 @@ export async function POST(request: NextRequest) {
     }
 
     const editorialContext = await formatEditorialContextPrompt();
+    const bylineAuthor = await pickRandomBlogAuthor();
     const category = "Custom";
     let lastError: unknown;
 
@@ -76,7 +78,7 @@ export async function POST(request: NextRequest) {
           category,
           null,
           editorialContext,
-          { userBrief: brief, focusedKeywords }
+          { userBrief: brief, focusedKeywords, author: bylineAuthor }
         );
 
         if (!blogData.title || !blogData.description || !blogData.content) {
@@ -137,7 +139,7 @@ export async function POST(request: NextRequest) {
             description: blogData.description,
             featuredImage: featured.url,
             featuredImageAlt: featured.alt,
-            author: "Taypro Team",
+            author: bylineAuthor.name,
             content: contentWithImages,
             faqs: blogData.faqs,
             publishDate: new Date().toISOString(),

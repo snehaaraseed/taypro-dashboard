@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { socialImagesFromPreset } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 import { withHreflang } from "@/lib/seo/with-hreflang";
-import { CRADYL_PRODUCT_PATH } from "@/lib/product-coming-soon";
+import { CRADYL_PRODUCT_PATH } from "@/lib/product-cradyl";
 
 const siteUrl = SITE_URL;
-const cradylOg = socialImagesFromPreset("modelB");
+const cradylOgImage = `${siteUrl}/tayprorobots/cradyl-field.png`;
 
 export async function generateMetadata({
   params,
@@ -26,11 +25,18 @@ export async function generateMetadata({
       description: t("openGraphDescription"),
       url: `${siteUrl}${CRADYL_PRODUCT_PATH}`,
       type: "website",
-      ...cradylOg.openGraph,
+      images: [
+        {
+          url: cradylOgImage,
+          width: 1200,
+          height: 630,
+          alt: t("openGraphImageAlt"),
+        },
+      ],
     },
     twitter: {
-      ...cradylOg.twitter,
       card: "summary_large_image",
+      images: [cradylOgImage],
       title: t("twitterTitle"),
       description: t("twitterDescription"),
     },

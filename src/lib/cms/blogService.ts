@@ -204,7 +204,7 @@ export async function createBlog(
       published,
     });
 
-    if (published) {
+    if (published && blogData.scheduleTranslations !== false) {
       scheduleBlogTranslations(finalSlug);
     }
 

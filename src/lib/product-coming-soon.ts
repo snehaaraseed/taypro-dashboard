@@ -1,21 +1,20 @@
 /** Coming-soon product routes and shared metadata keys. */
+export { CRADYL_PRODUCT_PATH } from "@/lib/product-cradyl";
+
 export const MINY_PRODUCT_PATH =
   "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot";
-
-export const CRADYL_PRODUCT_PATH =
-  "/solar-panel-cleaning-system/cradyl-row-transfer-docking-station";
 
 export const ORION_PRODUCT_PATH =
   "/solar-panel-cleaning-system/orion-plant-intelligence-platform";
 
-export type ComingSoonProductId = "miny" | "cradyl" | "orion";
+export type ComingSoonProductId = "miny" | "orion";
 
 export type ComingSoonProductConfig = {
   id: ComingSoonProductId;
   model: string;
   path: string;
   /** i18n namespace root, e.g. MinyPage */
-  namespace: "MinyPage" | "CradylPage" | "OrionPage";
+  namespace: "MinyPage" | "OrionPage";
   heroImagePath: string;
   relatedHrefs: string[];
   /** When false, the page omits hardware model cards at the bottom (software products). */
@@ -32,17 +31,6 @@ export const comingSoonProducts: ComingSoonProductConfig[] = [
     relatedHrefs: [
       "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
       "/solar-panel-cleaning-system",
-    ],
-  },
-  {
-    id: "cradyl",
-    model: "CRADYL",
-    path: CRADYL_PRODUCT_PATH,
-    namespace: "CradylPage",
-    heroImagePath: "/tayprorobots/taypro-modelBcopy.png",
-    relatedHrefs: [
-      "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
-      "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
     ],
   },
   {

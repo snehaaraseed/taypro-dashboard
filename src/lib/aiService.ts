@@ -1,5 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { getRandomCategory } from "./topicCategories";
+import { buildBlogKnowledgeContext } from "@/lib/seo/blog-knowledge-context";
 import { getProductKnowledgeBase } from "./productKnowledge";
 import { createSlug } from "@/app/utils/blogFileUtils";
 import {
@@ -11,7 +12,9 @@ import {
   isTooGenericTitle,
   sanitizeEmDash,
 } from "@/lib/seo/content-quality";
+import { formatAuthorVoicePrompt } from "@/lib/seo/author-voice-context";
 import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
+import type { BlogAuthor } from "@/app/data/blogAuthors";
 import {
   buildFallbackTopicTitle,
   formatSeoPromptBlock,
@@ -92,15 +95,20 @@ export type GeneratedTopic = {
 
 export async function generateUniqueTopic(
   maxRetries: number = 3,
-  editorialContext?: string
+  editorialContext?: string,
+  author?: BlogAuthor
 ): Promise<GeneratedTopic> {
-  const productKnowledge = getProductKnowledgeBase();
   const seoBrief = await pickSeoKeywordBrief();
   const editorial =
     editorialContext ?? (await formatEditorialContextPrompt());
+  const authorBlock = author ? `\n${formatAuthorVoicePrompt(author)}\n` : "";
 
   for (let attempt = 0; attempt < maxRetries; attempt++) {
     const category = getRandomCategory();
+    const knowledgeContext = await buildBlogKnowledgeContext({
+      seoKeyword: seoBrief?.primary,
+      extraTerms: category.name,
+    });
     const seoBlock = seoBrief
       ? `\n${formatSeoPromptBlock(seoBrief)}\n- At least 3 of the 5 titles MUST include the exact phrase "${seoBrief.primary}" or a word-order variant.\n`
       : "";
@@ -108,7 +116,7 @@ export async function generateUniqueTopic(
     const prompt = `You are a content strategist for a solar panel cleaning robot company called Taypro.
 
 ${editorial}
-
+${authorBlock}
 Generate 5 unique, SEO-friendly blog topic titles about: ${category.name}
 
 Category Description: ${category.description}
@@ -121,16 +129,17 @@ Requirements:
 - Each topic should be 8-15 words long
 - Topics should sound natural and human-written
 - Focus on practical, valuable content for solar plant operators and managers
+${author ? "- Each title must be a post this BYLINE AUTHOR would credibly write given their role and bio" : ""}
 
 ${ANTI_GENERIC_WRITING_RULES}
 ${PUNCTUATION_RULES}
 ${SEO_AND_READER_RULES}
 
-${productKnowledge}
+${knowledgeContext}
 
 IMPORTANT: 
 - Only reference Taypro products if the topic naturally calls for it
-- Use ONLY verified information from the knowledge base above
+- Use ONLY verified information from the knowledge pack above
 - Do NOT invent product features or specifications
 
 Return ONLY a JSON array of 5 topic titles, like this:
@@ -230,6 +239,8 @@ export type GenerateBlogContentOptions = {
   userBrief?: string;
   /** First entry = primary SEO keyword; rest = secondary terms */
   focusedKeywords?: string[];
+  /** Byline author — bio/role steer topic voice (automation picks randomly) */
+  author?: BlogAuthor;
 };
 
 function formatFocusedKeywordsBlock(
@@ -273,11 +284,20 @@ export async function generateBlogContent(
   editorialContext?: string,
   options?: GenerateBlogContentOptions
 ): Promise<GeneratedBlogContent> {
-  const productKnowledge = getProductKnowledgeBase();
+  const primaryKeyword =
+    options?.focusedKeywords?.[0]?.trim() || seoBrief?.primary;
+  const knowledgeContext = await buildBlogKnowledgeContext({
+    topic,
+    seoKeyword: primaryKeyword,
+    extraTerms: _category,
+  });
   const seoBlock = seoBrief ? `\n${formatSeoPromptBlock(seoBrief)}\n` : "";
   const editorial =
     editorialContext ?? (await formatEditorialContextPrompt());
   const userBrief = options?.userBrief?.trim();
+  const authorBlock = options?.author
+    ? `\n${formatAuthorVoicePrompt(options.author)}\n`
+    : "";
   const briefBlock = userBrief
     ? `
 AUTHOR BRIEF (follow closely, audience, angle, must-cover points, tone):
@@ -288,25 +308,18 @@ ${userBrief}
     options?.focusedKeywords ?? [],
     "blog"
   );
-  const primaryKeyword =
-    options?.focusedKeywords?.[0]?.trim() || seoBrief?.primary;
-
   const prompt = `You are an expert content writer specializing in solar panel cleaning robots and solar power plant operations & maintenance. Write a comprehensive, SEO-optimized blog post about: ${topic}
 
 ${editorial}
+${authorBlock}
 ${briefBlock}
 ${focusedKeywordBlock}
 ${seoBlock}
-CRITICAL: Product/Service Information Accuracy
-- ONLY use the following verified information about Taypro products/services. DO NOT invent or hallucinate any features, specifications, or capabilities.
-- If you need to mention Taypro products, refer ONLY to this knowledge base:
+CRITICAL: Accuracy (product specs, public proof stats, site positioning)
+- Use ONLY the verified knowledge pack below. Do NOT invent features, specifications, fleet statistics, or product names.
+- If unsure about a product detail, omit it or state it generically.
 
-${productKnowledge}
-
-- DO NOT make up specifications, features, or capabilities
-- DO NOT invent model numbers or product names
-- If unsure about a product detail, either omit it or state it generically
-- Always verify any technical claims against the knowledge base
+${knowledgeContext}
 
 Requirements:
 ${ANTI_GENERIC_WRITING_RULES}
@@ -316,9 +329,9 @@ ${LONG_FORM_CONTENT_RULES}
 - Use this exact working title unless you can improve it without making it vaguer: "${topic}"
 - The JSON "title" field should match or tightly paraphrase that line (must stay specific)
 - Word count: 2,800-3,200 words (minimum 2,600; do not pad with filler)
-- Natural, conversational tone (avoid AI-sounding language)
+- Natural, conversational tone (avoid AI-sounding language)${options?.author ? "\n- Voice and examples must match the BYLINE AUTHOR block above" : ""}
 - Factual, accurate information about solar panel cleaning and solar plant O&M
-- Include relevant statistics and data points (use industry-standard ranges, not specific unverified numbers)
+- For Taypro fleet/impact claims use PUBLIC PROOF POINTS from the knowledge pack only; for general industry data use typical ranges and do not invent precise studies
 - Use headings (H2, H3) for structure
 - Include bullet points and examples
 - Natural keyword integration (use the SEO target above when provided; also solar plant maintenance, solar O&M, etc.)

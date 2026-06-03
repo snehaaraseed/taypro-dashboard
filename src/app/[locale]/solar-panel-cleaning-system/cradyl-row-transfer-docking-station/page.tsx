@@ -1,15 +1,10 @@
-import { ComingSoonProductPage } from "@/app/components/ComingSoonProductPage";
-import { comingSoonProducts } from "@/lib/product-coming-soon";
+import { CradylProductPage } from "@/app/components/CradylProductPage";
 
-export default async function CradylProductPage({
+export default async function CradylProductRoutePage({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const product = comingSoonProducts.find((p) => p.id === "cradyl");
-  if (!product) {
-    throw new Error("CRADYL product config missing");
-  }
-  return <ComingSoonProductPage product={product} locale={locale} />;
+  return <CradylProductPage locale={locale} />;
 }

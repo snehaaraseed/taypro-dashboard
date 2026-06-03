@@ -25,6 +25,7 @@ import ModuleManufacturerTrust from "@/app/components/ModuleManufacturerTrust";
 import { RobotCard } from "@/app/components/RobotCard";
 import {
   comingSoonRobotProducts,
+  fleetAccessoryProducts,
   robotProducts,
   robotSolutions,
 } from "@/app/data";
@@ -238,6 +239,7 @@ export default async function SolarPanelCleaningRobot({
   const allProductsForSchema = [
     ...robotProducts,
     ...robotSolutions,
+    ...fleetAccessoryProducts,
     ...comingSoonRobotProducts,
   ] as const;
 
@@ -500,6 +502,68 @@ export default async function SolarPanelCleaningRobot({
                 {robotSolutions.map((robot, idx) => {
                   const schemaKey = productToSchemaKey(robot.model);
                   const highlightPrefix = `productGrid.solutionHighlights.${schemaKey}`;
+                  const bullets = [
+                    t(`${highlightPrefix}.bullet0`),
+                    t(`${highlightPrefix}.bullet1`),
+                    t(`${highlightPrefix}.bullet2`),
+                  ];
+                  return (
+                    <AnimateOnScroll
+                      key={robot.model}
+                      animation="scaleIn"
+                      delay={idx * 100}
+                      className="w-full flex justify-center"
+                    >
+                      <div className="flex flex-col w-80 max-w-full">
+                        <RobotCard
+                          robot={{
+                            ...robot,
+                            description: t(
+                              `schema.itemList.items.${schemaKey}.description`
+                            ),
+                          }}
+                          preferGenericTitle
+                        />
+                        <div className="bg-white border border-gray-200 border-t-0 rounded-b-md px-5 pt-4 pb-5 -mt-1">
+                          <div className="text-[#A8C117] text-xs font-semibold uppercase tracking-wide mb-2">
+                            {t(`${highlightPrefix}.eyebrow`)}
+                          </div>
+                          <ul className="space-y-1.5">
+                            {bullets.map((b) => (
+                              <li
+                                key={b}
+                                className="flex items-start gap-2 text-gray-700 text-sm leading-snug"
+                              >
+                                <Check className="w-4 h-4 text-[#A8C117] mt-0.5 shrink-0" />
+                                <span>{b}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </AnimateOnScroll>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="mt-20 pt-16 border-t border-gray-200">
+              <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
+                <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
+                  {t("productGrid.accessoryEyebrow")}
+                </div>
+                <h2 className="text-[#052638] font-semibold text-2xl sm:text-3xl md:text-4xl leading-tight">
+                  {t("productGrid.accessoryTitle")}
+                </h2>
+                <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mt-5">
+                  {t("productGrid.accessorySubtitle")}
+                </p>
+              </AnimateOnScroll>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 justify-items-center max-w-3xl mx-auto">
+                {fleetAccessoryProducts.map((robot, idx) => {
+                  const schemaKey = productToSchemaKey(robot.model);
+                  const highlightPrefix = `productGrid.accessoryHighlights.${schemaKey}`;
                   const bullets = [
                     t(`${highlightPrefix}.bullet0`),
                     t(`${highlightPrefix}.bullet1`),

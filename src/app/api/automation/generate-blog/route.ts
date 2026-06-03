@@ -12,6 +12,7 @@ import {
   extractH2Headings,
 } from "@/lib/seo/blog-similarity";
 import { assertBlogNotTooSimilar } from "@/lib/seo/blog-uniqueness";
+import { pickRandomBlogAuthor } from "@/lib/cms/authorService";
 import { getBlogAutomationSchedule, addPublishedTopic } from "@/lib/topicTracker";
 import { createBlogFiles, createSlug } from "@/app/utils/blogFileUtils";
 import { isAutomationAuthorized } from "@/lib/security";
@@ -34,7 +35,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          message: `Blog automation is on a ${schedule.minDaysBetween}-day cadence. Next eligible run: ${schedule.nextEligibleAt}. Use ?force=true to override.`,
+          message: `Daily blog cap reached (1 post per ${schedule.minDaysBetween} day(s)). Next eligible run: ${schedule.nextEligibleAt}. Use ?force=true to override.`,
           schedule,
         },
         { status: 200 }
@@ -42,11 +43,16 @@ export async function POST(request: NextRequest) {
     }
 
     const editorialContext = await formatEditorialContextPrompt();
+    const bylineAuthor = await pickRandomBlogAuthor();
     let lastError: unknown;
 
     for (let genAttempt = 0; genAttempt < MAX_GENERATION_ATTEMPTS; genAttempt++) {
       try {
-        const topic = await generateUniqueTopic(3, editorialContext);
+        const topic = await generateUniqueTopic(
+          3,
+          editorialContext,
+          bylineAuthor
+        );
 
         if (!topic.title) {
           throw new Error("Failed to generate a unique topic");
@@ -56,7 +62,8 @@ export async function POST(request: NextRequest) {
           topic.title,
           topic.category,
           topic.seoBrief,
-          editorialContext
+          editorialContext,
+          { author: bylineAuthor }
         );
 
         if (!blogData.title || !blogData.description || !blogData.content) {
@@ -95,11 +102,12 @@ export async function POST(request: NextRequest) {
             description: blogData.description,
             featuredImage: featured.url,
             featuredImageAlt: featured.alt,
-            author: "Taypro Team",
+            author: bylineAuthor.name,
             content: contentWithImages,
             faqs: blogData.faqs,
             publishDate: new Date().toISOString(),
-            published: false,
+            published: true,
+            scheduleTranslations: false,
           },
           slug
         );
@@ -133,13 +141,13 @@ export async function POST(request: NextRequest) {
 
         return NextResponse.json({
           success: true,
-          message: "Blog generated successfully and saved as draft",
+          message: "Blog generated and published (English live)",
           blog: {
             title: blogData.title,
             slug: result.slug,
             url: `/blog/${result.slug}`,
             adminUrl: `/admin/blogs`,
-            status: "draft",
+            status: "published",
             category: topic.category,
             seoKeyword: topic.seoKeyword || undefined,
             searchIntent: topic.seoBrief?.searchIntent,
@@ -150,6 +158,8 @@ export async function POST(request: NextRequest) {
             inlineImage: inlineImage?.url,
             inlineImageSource: inlineImage?.source,
             faqCount: blogData.faqs.length,
+            author: bylineAuthor.name,
+            authorRole: bylineAuthor.role,
           },
           schedule: await getBlogAutomationSchedule(),
         });
@@ -195,8 +205,8 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({
       ...schedule,
       message: schedule.canGenerate
-        ? "Ready to generate a new draft"
-        : `Wait until ${schedule.nextEligibleAt} (${schedule.minDaysBetween}-day cadence). POST with ?force=true to override.`,
+        ? "Ready to generate and publish a new post"
+        : `Wait until ${schedule.nextEligibleAt} (max 1 post/day). POST with ?force=true to override.`,
     });
   } catch (error) {
     console.error("Error in GET /api/automation/generate-blog:", error);

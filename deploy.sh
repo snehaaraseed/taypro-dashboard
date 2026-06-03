@@ -1,8 +1,10 @@
 #!/bin/bash
 
 # Taypro Website Deployment Script
-# CMS content lives in data/cms.sqlite (SQLite). Deploy preserves cms.sqlite + public/uploads/.
-# Topics and upload metadata are inside cms.sqlite (not separate JSON files).
+# CMS content lives in data/cms.sqlite (SQLite WAL mode). Deploy preserves DB + uploads.
+#
+# SQLite safety: stop PM2 before DB work, checkpoint WAL, snapshot/restore full DB bundle,
+# integrity check before build. See scripts/deploy-cms-safe.sh
 #
 # Do not use `git pull` on the production server for releases; run this script
 # from a developer machine with a current clone.
@@ -19,7 +21,10 @@ REMOTE_HOST="ubuntu@13.204.129.120"
 REMOTE_PATH="/var/www/taypro-dashboard"
 LOCAL_PATH="/Users/yogesh/TayproWebsite/taypro-dashboard"
 
+DEPLOY_MAINTENANCE_ON=0
+
 enable_remote_maintenance() {
+    DEPLOY_MAINTENANCE_ON=1
     ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
         set -e
         cd /var/www/taypro-dashboard
@@ -38,6 +43,7 @@ EOF
 }
 
 disable_remote_maintenance() {
+    DEPLOY_MAINTENANCE_ON=0
     ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF' 2>/dev/null || true
         set -e
         cd /var/www/taypro-dashboard
@@ -47,28 +53,53 @@ disable_remote_maintenance() {
 EOF
 }
 
-trap 'echo -e "${YELLOW}⚠️  Deploy interrupted — turning off maintenance mode...${NC}"; disable_remote_maintenance' INT TERM
+ensure_remote_app_running() {
+    ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF' 2>/dev/null || true
+        cd /var/www/taypro-dashboard
+        chmod +x scripts/deploy-cms-safe.sh 2>/dev/null || true
+        if [ -f scripts/deploy-cms-safe.sh ]; then
+            ./scripts/deploy-cms-safe.sh start
+        else
+            pm2 restart taypro-dashboard 2>/dev/null || pm2 start ecosystem.config.js 2>/dev/null || true
+        fi
+EOF
+}
+
+deploy_cleanup() {
+    echo -e "${YELLOW}⚠️  Deploy interrupted or failed — recovering site...${NC}"
+    disable_remote_maintenance
+    ensure_remote_app_running
+}
+
+trap deploy_cleanup EXIT INT TERM
 
 echo -e "${GREEN}🚀 Starting Taypro Website Deployment${NC}"
 echo ""
 
-# Step 1: Snapshot CMS database, topics file, and uploads
-echo -e "${YELLOW}📦 Step 1: Snapshotting production CMS (SQLite + uploads)...${NC}"
+# Upload CMS safety script first (Step 1 depends on it)
+echo -e "${YELLOW}📋 Uploading deploy-cms-safe.sh...${NC}"
+ssh -i "$SSH_KEY" "$REMOTE_HOST" "mkdir -p $REMOTE_PATH/scripts"
+scp -q -i "$SSH_KEY" "$LOCAL_PATH/scripts/deploy-cms-safe.sh" "$REMOTE_HOST:$REMOTE_PATH/scripts/"
+ssh -i "$SSH_KEY" "$REMOTE_HOST" "chmod +x $REMOTE_PATH/scripts/deploy-cms-safe.sh"
+echo -e "${GREEN}  ✅ CMS safety script ready${NC}"
+echo ""
+
+# Step 1: Stop app, checkpoint DB, snapshot CMS + uploads, restart app on old build
+echo -e "${YELLOW}📦 Step 1: Snapshotting production CMS (SQLite WAL-safe)...${NC}"
 ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     set -e
     cd /var/www/taypro-dashboard
+    chmod +x scripts/deploy-cms-safe.sh
 
-    STAND=".next/standalone"
-    if [ -f "$STAND/data/cms.sqlite" ]; then
-        echo "  Flushing cms.sqlite: standalone → repo root..."
-        mkdir -p data
-        cp -a "$STAND/data/cms.sqlite" data/cms.sqlite
-    fi
-    if [ -d "$STAND/public/uploads" ]; then
+    ./scripts/deploy-cms-safe.sh stop
+
+    if [ -d ".next/standalone/public/uploads" ]; then
         echo "  Flushing public/uploads from standalone..."
         mkdir -p public/uploads
-        rsync -a "$STAND/public/uploads/" public/uploads/
+        rsync -a .next/standalone/public/uploads/ public/uploads/
     fi
+
+    ./scripts/deploy-cms-safe.sh flush
 
     SNAPSHOT_ROOT="/var/www/taypro-dashboard/.deploy-snapshots"
     mkdir -p "$SNAPSHOT_ROOT"
@@ -76,23 +107,9 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     STAMP=$(date +%Y%m%d-%H%M%S)
     PERSISTENT_DIR="$SNAPSHOT_ROOT/deploy-$STAMP"
     MERGE_DIR="/tmp/taypro-backup-$STAMP"
-    mkdir -p "$PERSISTENT_DIR/data" "$PERSISTENT_DIR/public" "$MERGE_DIR/data" "$MERGE_DIR/public"
 
-    snapshot_one() {
-        local DEST="$1"
-        if [ -f "data/cms.sqlite" ]; then
-            cp -a data/cms.sqlite "$DEST/data/"
-            echo "  → $DEST : cms.sqlite"
-        fi
-        if [ -d "public/uploads" ]; then
-            mkdir -p "$DEST/public"
-            cp -a public/uploads "$DEST/public/"
-            echo "  → $DEST : uploads"
-        fi
-    }
-
-    snapshot_one "$PERSISTENT_DIR"
-    snapshot_one "$MERGE_DIR"
+    ./scripts/deploy-cms-safe.sh snapshot "$PERSISTENT_DIR"
+    ./scripts/deploy-cms-safe.sh snapshot "$MERGE_DIR"
 
     cd "$SNAPSHOT_ROOT"
     ls -1dt deploy-* 2>/dev/null | tail -n +4 | while read -r OLD; do
@@ -100,14 +117,16 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
         rm -rf "$SNAPSHOT_ROOT/$OLD"
     done
 
-    # /tmp merge copies are only needed until Step 3 restore; old runs were never deleted.
     ls -1dt /tmp/taypro-backup-* 2>/dev/null | tail -n +4 | while read -r OLD; do
         echo "    Removing stale /tmp merge backup: $OLD"
         rm -rf "$OLD"
     done
 
     echo "$MERGE_DIR" > /tmp/taypro-backup-path.txt
-    echo "  ✅ Snapshot complete"
+
+    cd /var/www/taypro-dashboard
+    ./scripts/deploy-cms-safe.sh start
+    echo "  ✅ Snapshot complete (app restarted on previous build)"
 EOF
 
 BACKUP_PATH=$(ssh -i "$SSH_KEY" "$REMOTE_HOST" "tr -d '\r\n' < /tmp/taypro-backup-path.txt 2>/dev/null || echo ''")
@@ -151,7 +170,7 @@ EOF
 echo -e "${GREEN}  ✅ Maintenance mode ready${NC}"
 echo ""
 
-# Step 2b: Backfill project HTML on server while legacy page.tsx still exists (first deploy after cleanup)
+# Step 2b: Backfill project HTML on server while legacy page.tsx still exists
 echo -e "${YELLOW}📋 Step 2b: Backfill project content in DB (if legacy pages present)...${NC}"
 ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     set -e
@@ -162,37 +181,25 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
 EOF
 echo ""
 
-# Step 3: Restore production CMS data
+# Step 3: Restore production CMS data from backup
 echo -e "${YELLOW}🔄 Step 3: Restoring production CMS data from backup...${NC}"
 ssh -i "$SSH_KEY" "$REMOTE_HOST" << EOF
     set -euo pipefail
     cd /var/www/taypro-dashboard
+    chmod +x scripts/deploy-cms-safe.sh
 
     if [ ! -d "$BACKUP_PATH" ]; then
         echo "  ❌ Backup path missing: $BACKUP_PATH"
         exit 1
     fi
 
-    mkdir -p data public/uploads
-
-    if [ -f "$BACKUP_PATH/data/cms.sqlite" ]; then
-        cp -a "$BACKUP_PATH/data/cms.sqlite" data/cms.sqlite
-        echo "    ✅ Restored data/cms.sqlite"
-    else
-        echo "    ⚠️  No cms.sqlite in backup (first DB deploy on this server)."
-    fi
-
-    if [ -d "$BACKUP_PATH/public/uploads" ]; then
-        rsync -a "$BACKUP_PATH/public/uploads/" public/uploads/
-        echo "    ✅ Restored public/uploads"
-    fi
+    ./scripts/deploy-cms-safe.sh restore "$BACKUP_PATH"
 
     echo "  Removing legacy file-based CMS directories on server..."
     npm run cms:cleanup-legacy 2>&1 || true
 
     echo "  ✅ CMS data files restored"
 
-    # Merge backup is redundant with .deploy-snapshots; drop it to avoid filling /tmp.
     if [ -d "$BACKUP_PATH" ]; then
         rm -rf "$BACKUP_PATH"
         echo "    ✅ Removed /tmp merge backup (snapshots remain under .deploy-snapshots)"
@@ -210,11 +217,14 @@ echo ""
 ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     set -e
     cd /var/www/taypro-dashboard
+    chmod +x scripts/deploy-cms-safe.sh
 
     export NODE_ENV=production
     if [ -f .env.production ]; then
         export $(cat .env.production | grep -v '^#' | xargs)
     fi
+
+    ./scripts/deploy-cms-safe.sh stop
 
     echo "  Installing dependencies..."
     npm install --production=false 2>&1 | tail -5
@@ -224,6 +234,8 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
         npm run cms:migrate 2>&1 | tail -10
         npm run cms:backfill-projects 2>&1 | tail -5
     fi
+
+    ./scripts/deploy-cms-safe.sh verify data/cms.sqlite
 
     echo "  Sync topics + upload index into DB (idempotent)..."
     npm run cms:migrate-extras 2>&1 | tail -6
@@ -236,17 +248,9 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     npm run cms:fix-slug-locale-unique 2>&1 | tail -8
     test "${PIPESTATUS[0]}" -eq 0
 
-    if [ ! -f "data/cms.sqlite" ]; then
-        echo "  ❌ data/cms.sqlite still missing after setup"
-        exit 1
-    fi
-
-    BLOG_COUNT=$(node -e 'const D=require("better-sqlite3");const d=new D("data/cms.sqlite",{readonly:true});const n=d.prepare("SELECT COUNT(*) AS n FROM blogs").get().n;d.close();process.stdout.write(String(n));')
-    echo "  CMS database OK (${BLOG_COUNT} blogs)"
+    ./scripts/deploy-cms-safe.sh verify data/cms.sqlite
 
     echo "  Building Next.js application..."
-    pm2 stop taypro-dashboard 2>/dev/null || true
-    sleep 2
     chmod -R u+w .next 2>/dev/null || true
     rm -rf .next
     npm run build 2>&1 | tail -25
@@ -271,11 +275,7 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
         if [ -f ".env.production" ]; then
             cp .env.production .next/standalone/.env.production 2>/dev/null || true
         fi
-        if [ -f "data/cms.sqlite" ]; then
-            mkdir -p .next/standalone/data
-            cp -a data/cms.sqlite .next/standalone/data/
-            echo "  ✅ Copied cms.sqlite to standalone"
-        fi
+        ./scripts/deploy-cms-safe.sh push-standalone
         if [ -f "data/seo-keywords.csv" ]; then
             mkdir -p .next/standalone/data
             cp -a data/seo-keywords.csv .next/standalone/data/
@@ -295,7 +295,6 @@ EOF
 
 if [ $? -ne 0 ]; then
     echo -e "${RED}  ❌ Build failed!${NC}"
-    disable_remote_maintenance
     exit 1
 fi
 echo -e "${GREEN}  ✅ Build completed${NC}"
@@ -305,7 +304,6 @@ echo -e "${YELLOW}🔄 Step 5: Restarting application...${NC}"
 ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     cd /var/www/taypro-dashboard
 
-    # Next standalone runs with cwd=.next/standalone; it loads .env.production there only.
     if [ -f ".env.production" ] && [ -d ".next/standalone" ]; then
         cp -a .env.production .next/standalone/.env.production
         chmod 600 .next/standalone/.env.production 2>/dev/null || true
@@ -317,9 +315,14 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
         rsync -a public/ .next/standalone/public/
         echo "  ✅ Refreshed standalone/public (assets + uploads)"
     fi
-    if [ -f "data/cms.sqlite" ] && [ -d ".next/standalone/data" ]; then
+
+    chmod +x scripts/deploy-cms-safe.sh 2>/dev/null || true
+    if [ -f scripts/deploy-cms-safe.sh ]; then
+        ./scripts/deploy-cms-safe.sh push-standalone
+    elif [ -f "data/cms.sqlite" ] && [ -d ".next/standalone/data" ]; then
         cp -a data/cms.sqlite .next/standalone/data/cms.sqlite 2>/dev/null || true
     fi
+
     if [ -d "messages" ] && [ -d ".next/standalone" ]; then
         mkdir -p .next/standalone/messages
         rsync -a messages/ .next/standalone/messages/
@@ -342,11 +345,14 @@ EOF
 
 echo -e "${YELLOW}  Turning off maintenance page...${NC}"
 disable_remote_maintenance
+
+# Success — disable EXIT trap recovery (would restart unnecessarily)
+trap - EXIT INT TERM
+
 echo ""
 echo -e "${GREEN}✅ Deployment completed successfully!${NC}"
 echo ""
 echo "Website: https://taypro.in"
 echo "CMS database: $REMOTE_PATH/data/cms.sqlite"
-echo "This run backup: $BACKUP_PATH"
 echo "Snapshots (max 3): $REMOTE_PATH/.deploy-snapshots/"
 echo ""

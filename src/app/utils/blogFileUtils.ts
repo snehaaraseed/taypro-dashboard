@@ -28,6 +28,8 @@ export interface BlogData {
   content: string;
   publishDate?: string;
   published?: boolean;
+  /** Default true when published; set false for automation (evening translation cron). */
+  scheduleTranslations?: boolean;
   faqs?: import("@/lib/cms/blog-faqs").BlogFaqItem[];
 }
 

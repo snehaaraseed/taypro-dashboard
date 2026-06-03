@@ -20,3 +20,10 @@ export function geminiTranslationModel(): string {
     process.env.GEMINI_TRANSLATION_MODEL?.trim() || "gemini-3.1-flash-lite"
   );
 }
+
+/** Max published English blogs to translate (all target locales) per daily cron run. */
+export function getBlogTranslationMaxPerDay(): number {
+  const raw = process.env.BLOG_TRANSLATION_MAX_PER_DAY?.trim();
+  const parsed = raw ? Number.parseInt(raw, 10) : 5;
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 5;
+}

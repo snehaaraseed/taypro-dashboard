@@ -19,14 +19,11 @@ async function onBlogLocaleTranslated(
   success: boolean,
   error?: unknown
 ): Promise<void> {
-  const { clearTranslationRetry, enqueueTranslationRetry } = await import(
-    "./translation-queue"
+  if (success) return;
+  console.warn(
+    `[translate] blog ${slug} (${locale}) failed; will retry on next daily cron:`,
+    error instanceof Error ? error.message : error
   );
-  if (success) {
-    await clearTranslationRetry("blog", slug, locale);
-    return;
-  }
-  await enqueueTranslationRetry("blog", slug, locale, error);
 }
 
 async function onProjectLocaleTranslated(
@@ -35,14 +32,11 @@ async function onProjectLocaleTranslated(
   success: boolean,
   error?: unknown
 ): Promise<void> {
-  const { clearTranslationRetry, enqueueTranslationRetry } = await import(
-    "./translation-queue"
+  if (success) return;
+  console.warn(
+    `[translate] project ${slug} (${locale}) failed; will retry on next daily cron:`,
+    error instanceof Error ? error.message : error
   );
-  if (success) {
-    await clearTranslationRetry("project", slug, locale);
-    return;
-  }
-  await enqueueTranslationRetry("project", slug, locale, error);
 }
 
 export type TranslationResult = {

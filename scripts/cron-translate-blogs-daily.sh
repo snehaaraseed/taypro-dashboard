@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Hourly cron: resume failed CMS translations after Gemini quota resets.
+# Daily cron: translate up to BLOG_TRANSLATION_MAX_PER_DAY published EN blogs (default 5).
 set -euo pipefail
 
 ROOT="${TAYPRO_APP_ROOT:-/var/www/taypro-dashboard}"
-LOG="${TRANSLATION_QUEUE_LOG:-/var/log/translation-queue.log}"
+LOG="${BLOG_TRANSLATION_LOG:-/var/log/blog-translation-daily.log}"
 ENV_FILE="$ROOT/.env.production"
 
 if [ ! -f "$ENV_FILE" ]; then
@@ -21,13 +21,12 @@ if [ -z "${AUTOMATION_CRON_SECRET:-}" ]; then
   exit 1
 fi
 
-# Hit the app directly (bypasses nginx 30s proxy_read_timeout on taypro.in).
 API_BASE="${CMS_CRON_API_BASE:-http://127.0.0.1:3000}"
-ENDPOINT="${API_BASE%/}/api/automation/retry-translations?reconcile=true"
+ENDPOINT="${API_BASE%/}/api/automation/retry-translations"
 
 {
   echo "$(date -Is) POST $ENDPOINT"
-  curl -sS -m 600 -X POST "$ENDPOINT" \
+  curl -sS -m 900 -X POST "$ENDPOINT" \
     -H "Authorization: Bearer ${AUTOMATION_CRON_SECRET}" \
     -H "Content-Type: application/json"
   echo ""

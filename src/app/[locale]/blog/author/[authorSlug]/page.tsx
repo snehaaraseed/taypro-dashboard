@@ -9,7 +9,7 @@ import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { NewsletterSubscribeCard } from "@/app/components/NewsletterSubscribeCard";
 import { ProfilePageSchema } from "@/app/components/StructuredData";
 import {
-  getAuthorAvatarUrl,
+  getDefaultAuthorAvatarUrl,
   resolveAuthorSlug,
 } from "@/app/data/blogAuthors";
 import { getStoredAuthors } from "@/app/utils/blogAuthorsStore";
@@ -95,7 +95,9 @@ export async function generateMetadata({
   });
   const description = bio && bio.length > 40 ? bio : fallbackDescription;
 
-  const rawAvatar = knownAuthor?.avatarUrl || getAuthorAvatarUrl(authorName);
+  const rawAvatar =
+    knownAuthor?.avatarUrl ||
+    getDefaultAuthorAvatarUrl(authorName, authorSlug);
   const ogImage = rawAvatar.startsWith("http")
     ? rawAvatar
     : `${siteUrl}${rawAvatar.startsWith("/") ? "" : "/"}${rawAvatar}`;
@@ -144,7 +146,9 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
   const authorName = knownAuthor?.name || authorBlogs[0]?.author || authorSlug;
   const authorRole = knownAuthor?.role || t("defaultRole");
   const authorBio = knownAuthor?.bio || t("fallbackBio");
-  const authorAvatar = knownAuthor?.avatarUrl || getAuthorAvatarUrl(authorName);
+  const authorAvatar =
+    knownAuthor?.avatarUrl ||
+    getDefaultAuthorAvatarUrl(authorName, authorSlug);
 
   // SEO: ProfilePage/Person JSON-LD. Mirrors the description used in
   // generateMetadata so head + body schema stay consistent.

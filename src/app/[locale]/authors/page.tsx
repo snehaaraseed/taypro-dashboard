@@ -8,7 +8,7 @@ import { FaqSection } from "@/app/components/FaqSection";
 import { NewsletterSubscribeCard } from "@/app/components/NewsletterSubscribeCard";
 import { FAQPageSchema } from "@/app/components/StructuredData";
 import {
-  getAuthorAvatarUrl,
+  getDefaultAuthorAvatarUrl,
   resolveAuthorSlug,
 } from "@/app/data/blogAuthors";
 import { getStoredAuthors } from "@/app/utils/blogAuthorsStore";
@@ -185,10 +185,12 @@ export default async function AuthorsPage({
                 >
                   <img
                     src={
-                      knownAuthor?.avatarUrl || getAuthorAvatarUrl(author.name)
+                      knownAuthor?.avatarUrl ||
+                      getDefaultAuthorAvatarUrl(author.name, author.slug)
                     }
                     alt={author.name}
                     className="w-16 h-16 rounded-full border border-gray-200 object-cover mb-4"
+                    loading="lazy"
                   />
                   <h2 className="text-xl font-semibold text-[#052638] mb-1">
                     {author.name}

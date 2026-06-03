@@ -2,7 +2,7 @@
 
 ## Overview
 
-This system automatically generates unique, SEO-optimized blog posts daily about solar panel cleaning robots and solar power plant operations & maintenance. Generated blogs are saved as **drafts** for manual review before publishing.
+This system automatically generates unique, SEO-optimized blog posts daily about solar panel cleaning robots and solar power plant operations & maintenance. Generated blogs are **published automatically** (English live). Review in `/admin/blogs` and edit or unpublish if needed.
 
 ## Installation
 
@@ -33,88 +33,60 @@ curl -X POST http://localhost:3000/api/automation/generate-blog \
 curl http://localhost:3000/api/automation/generate-blog
 ```
 
-### Automated Daily Execution
+### Automated daily schedule (production)
 
-#### Option 1: Server Cron Job (Recommended)
+**Blog writer** — max **1 published post per day**, at a **random time between 9:00 AM and 3:00 PM IST**. Each run: picks a **random CMS author** (excludes Taypro Team, Suraj Kadam) → feeds **bio + role** with editorial/knowledge context → Gemini chooses a **relevant topic** → writes the post in that voice (`published: true`).
 
-If you have SSH access to your server:
+**Translations** — run in the **evening** (after the writer window), up to 5 published blogs (hi/ar/ja/bn). New posts are not translated immediately on publish.
 
-1. **Edit crontab:**
-   ```bash
-   crontab -e
-   ```
+Set in `.env.production`:
 
-2. **Add daily job (runs at 9 AM):**
-   ```bash
-   0 9 * * * curl -X POST https://taypro.in/api/automation/generate-blog -H "Authorization: Bearer $AUTOMATION_CRON_SECRET"
-   ```
-
-3. **Or with logging:**
-   ```bash
-   0 9 * * * curl -X POST https://taypro.in/api/automation/generate-blog -H "Authorization: Bearer $AUTOMATION_CRON_SECRET" >> /var/log/blog-automation.log 2>&1
-   ```
-
-#### Option 2: External Cron Service
-
-Use services like:
-- **cron-job.org** (free tier available)
-- **EasyCron**
-- **UptimeRobot** (monitoring + cron)
-
-**Setup:**
-1. Create account on chosen service
-2. Add new cron job
-3. URL: `https://taypro.in/api/automation/generate-blog`
-4. Method: POST with header `Authorization: Bearer <AUTOMATION_CRON_SECRET>`
-5. Schedule: Daily at your preferred time (e.g., 9:00 AM)
-
-#### Option 3: Vercel Cron (if deployed on Vercel)
-
-Create `vercel.json`:
-```json
-{
-  "crons": [
-    {
-      "path": "/api/automation/generate-blog",
-      "schedule": "0 9 * * *"
-    }
-  ]
-}
+```
+BLOG_AUTOMATION_MIN_DAYS=1
+BLOG_TRANSLATION_MAX_PER_DAY=5
 ```
 
-### CMS translation auto-resume (hourly)
-
-When Gemini quota is exceeded, failed blog/project locales are stored in `translation_queue` and retried automatically.
-
-**Server cron (recommended):**
+**Server crontab (`CRON_TZ=Asia/Kolkata`):**
 
 ```bash
-# Every hour — drain up to 8 pending locale jobs per run
-0 * * * * /var/www/taypro-dashboard/scripts/cron-retry-translations.sh
+# Blog writer: random 9:00–15:00 IST (1/day)
+*/5 9-14 * * * /var/www/taypro-dashboard/scripts/cron-generate-blog.sh
+0 15 * * * /var/www/taypro-dashboard/scripts/cron-generate-blog.sh
+
+# Translations: evening, after writer window
+0 18 * * * /var/www/taypro-dashboard/scripts/cron-translate-blogs-daily.sh
 ```
 
-Or from the app directory after deploy:
+Logs: `/var/log/blog-automation.log`, `/var/log/blog-translation-daily.log`
+
+### CMS blog translations (daily only, max 5 blogs)
+
+Published English blogs are translated into **hi, ar, ja, bn** once per day:
+
+- **`BLOG_TRANSLATION_MAX_PER_DAY`** (default `5`) — max published EN blogs per run
+- Each selected blog is translated into **all missing** target locales in one pass
+- If **Gemini quota** is exceeded, the run **stops for the day**; remaining blogs are picked up on the next cron (no hourly retries)
+
+From the app directory after deploy:
 
 ```bash
-npm run cms:retry-translations
+npm run cms:translate-blogs-daily
 ```
 
 **Manual trigger:**
 
 ```bash
-curl -X POST "https://taypro.in/api/automation/retry-translations?reconcile=true" \
+curl -X POST "http://127.0.0.1:3000/api/automation/retry-translations" \
   -H "Authorization: Bearer $AUTOMATION_CRON_SECRET"
 ```
 
-`?reconcile=true` also enqueues any published posts that are missing translations. Logs: `/var/log/translation-queue.log`.
+Logs: `/var/log/blog-translation-daily.log`
 
 ## Workflow
 
-1. **Automation runs** → Blog generated and saved as draft (`published: false`)
-2. **You review** → Check the blog in `/admin/blogs` (drafts are visible)
-3. **You edit if needed** → Update title, description, or content
-4. **You publish** → Change `published: true` in admin panel
-5. **Blog goes live** → Visible on public blog listing
+1. **Automation runs** → Blog generated and **published** (`published: true`, English live)
+2. **You review daily** → Check `/admin/blogs` or the live post; edit, unpublish, or delete if needed
+3. **Evening cron** → Translates up to 5 published posts missing locale versions
 
 ## Testing
 
@@ -179,6 +151,7 @@ taypro-dashboard/
 │   ├── lib/
 │   │   ├── aiService.ts               # Gemini API integration
 │   │   ├── cms/topicService.ts        # published_topics tracking
+│   │   ├── seo/blog-knowledge-context.ts  # Product KB + proof stats + llms.txt + related posts
 │   │   ├── seo/blog-similarity.ts     # H2/fingerprint/keyword similarity
 │   │   ├── seo/blog-uniqueness.ts     # Pre-save duplicate gate
 │   │   ├── topicCategories.ts         # Predefined topic categories
@@ -207,6 +180,13 @@ Edit `src/lib/productKnowledge.ts` to:
 - Update product specifications
 - Add new products/services
 - Ensure accuracy (prevents AI hallucinations)
+
+**Live knowledge pack (Phase 1):** Each generation also loads:
+- `TAYPRO_PUBLIC_PROOF` from `src/lib/marketing/public-proof-stats.ts` (homepage-aligned stats)
+- Trimmed `public/llms.txt` (site routes and positioning)
+- Short excerpts from 2 most relevant **published** English blogs (consistency, not copying)
+
+Update proof stats in `public-proof-stats.ts` when marketing numbers change; `llms.txt` when major routes/products change.
 
 ## Troubleshooting
 
