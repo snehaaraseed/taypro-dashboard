@@ -25,7 +25,7 @@ export type BlogKnowledgeContextOptions = {
   extraTerms?: string;
 };
 
-function formatPublicProofBlock(): string {
+export function formatPublicProofBlock(): string {
   const p = TAYPRO_PUBLIC_PROOF;
   return `PUBLIC PROOF POINTS (use ONLY these figures when citing Taypro fleet/marketing impact; do not invent other company stats):
 - Robot capacity deployed: ${p.capacityGw}

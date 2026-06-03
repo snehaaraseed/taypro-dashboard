@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { getRandomCategory } from "./topicCategories";
 import { buildBlogKnowledgeContext } from "@/lib/seo/blog-knowledge-context";
-import { getProductKnowledgeBase } from "./productKnowledge";
+import { buildProjectKnowledgeContext } from "@/lib/seo/project-knowledge-context";
 import { createSlug } from "@/app/utils/blogFileUtils";
 import {
   ANTI_GENERIC_WRITING_RULES,
@@ -454,10 +454,15 @@ export async function generateProjectContent(
   editorialContext?: string,
   options?: GenerateProjectContentOptions
 ): Promise<GeneratedProjectContent> {
-  const productKnowledge = getProductKnowledgeBase();
+  const primaryKeyword = options?.focusedKeywords?.[0]?.trim();
+  const userBrief = options?.userBrief?.trim();
+  const knowledgeContext = await buildProjectKnowledgeContext({
+    topic,
+    seoKeyword: primaryKeyword,
+    extraTerms: userBrief?.slice(0, 300),
+  });
   const editorial =
     editorialContext ?? (await formatEditorialContextPrompt());
-  const userBrief = options?.userBrief?.trim();
   const briefBlock = userBrief
     ? `
 AUTHOR BRIEF (follow closely, site facts, deployment story, must-cover points):
@@ -468,19 +473,17 @@ ${userBrief}
     options?.focusedKeywords ?? [],
     "project"
   );
-  const primaryKeyword = options?.focusedKeywords?.[0]?.trim();
 
   const prompt = `You are an expert writer for Taypro, a solar panel cleaning robot company. Write a detailed project case study page for: ${topic}
 
 ${editorial}
 ${briefBlock}
 ${focusedKeywordBlock}
-CRITICAL: Product/Service Information Accuracy
-- ONLY use verified Taypro product information from this knowledge base:
+CRITICAL: Accuracy (product specs, public proof stats, site positioning)
+- Use ONLY the verified knowledge pack below. Do NOT invent features, specifications, fleet statistics, or product names.
+- For Taypro fleet/impact claims use PUBLIC PROOF POINTS from the knowledge pack only; for this plant use AUTHOR BRIEF facts when provided.
 
-${productKnowledge}
-
-- DO NOT invent model numbers, client names, or unverified performance claims.
+${knowledgeContext}
 
 ${ANTI_GENERIC_WRITING_RULES}
 ${PUNCTUATION_RULES}
