@@ -291,41 +291,6 @@ export const projects = [
   },
 ];
 
-export const additionalProjects = [
-  {
-    id: 1,
-    img: "/tayprosolarfirm/banda-solar.jpg",
-    title: "Banda Solar Project – 70 MW",
-    details: ["Automatic", "Capex", "Semi-Automatic"],
-    href: "/projects/banda-solar-project",
-    date: "January 28, 2025",
-  },
-  {
-    id: 2,
-    img: "/tayprosolarfirm/yadgir-solar.jpg",
-    title: "Yadgir Solar Project – 50 MW",
-    details: ["Automatic", "Capex", "Semi-Automatic"],
-    href: "/projects/yadgir-solar-project-50-mw",
-    date: "January 28, 2025",
-  },
-  {
-    id: 3,
-    img: "/tayprosolarfirm/soyegaon-solar.jpg",
-    title: "Soyegaon Maharashtra – 100 MW",
-    details: ["Automatic", "Capex", "Semi-Automatic"],
-    href: "/projects/soyegaon-solar-project",
-    date: "January 28, 2025",
-  },
-  {
-    id: 4,
-    img: "/tayprosolarfirm/agar-solar.jpg",
-    title: "Agar, Madhya Pradesh – 250 MW",
-    details: ["Automatic", "Capex", "Semi-Automatic"],
-    href: "/projects/agar-solar-project",
-    date: "May 27, 2022",
-  },
-];
-
 export const faqs = [
   {
     question:

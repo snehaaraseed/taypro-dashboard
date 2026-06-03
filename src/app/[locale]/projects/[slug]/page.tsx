@@ -6,10 +6,12 @@ import { ArticleSchema, PlaceSchema } from "@/app/components/StructuredData";
 import { AllProjectsOverviewSection } from "@/app/components/AllProjectsOverviewSection";
 import { AllRelatedProjectsSection } from "@/app/components/AllRelatedProjectsSection";
 import { BlogContent } from "@/app/components/BlogContent";
+import CallbackCard from "@/app/components/CallbackCard";
 import { PROJECT_PLACE_BY_SLUG } from "@/app/data/projectPlaceSchema";
 import { getAllFileProjects } from "@/app/utils/projectFileUtils";
 import { getProjectBySlug, listAllProjects } from "@/lib/cms/projectService";
 import { getProjectHeroImageAlt } from "@/app/utils/imageAlt";
+import { addInternalLinksToProject } from "@/app/utils/internalLinking";
 import { socialImagesFromMedia } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 import { withHreflang } from "@/lib/seo/with-hreflang";
@@ -77,6 +79,7 @@ export async function generateMetadata({
 export default async function DynamicProjectPage({ params }: ProjectPageProps) {
   const { slug, locale } = await params;
   const t = await getTranslations({ locale, namespace: "ProjectDetailPage" });
+  const tHub = await getTranslations({ locale, namespace: "ProjectsPage" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
 
   const post = await getProjectBySlug(slug, { locale });
@@ -105,6 +108,17 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
     metadata.details?.length > 0
       ? metadata.details.join(" · ")
       : metadata.description;
+
+  const projectLinkSources = allProjects.map((p) => ({
+    slug: p.id,
+    title: p.title,
+    href: p.href,
+    description: p.description,
+  }));
+
+  const contentWithInternalLinks = content
+    ? addInternalLinksToProject(content, projectLinkSources, slug, 8)
+    : "";
 
   return (
     <>
@@ -168,10 +182,13 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
           overviewText={overviewText}
         />
 
-        {content ? (
+        {contentWithInternalLinks ? (
           <article className="w-full pb-20 bg-white">
             <div className="max-w-7xl mx-auto px-6">
-              <BlogContent content={content} className={proseClassName} />
+              <BlogContent
+                content={contentWithInternalLinks}
+                className={proseClassName}
+              />
             </div>
           </article>
         ) : null}
@@ -179,6 +196,8 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
         {relatedProjects.length > 0 ? (
           <AllRelatedProjectsSection projects={relatedProjects} />
         ) : null}
+
+        <CallbackCard headerText={tHub("callback.header")} />
       </div>
     </>
   );

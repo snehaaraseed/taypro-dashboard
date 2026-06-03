@@ -146,11 +146,13 @@ export default function GenerateProjectPage() {
               onChange={(e) => setBrief(e.target.value)}
               className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60"
               rows={8}
-              placeholder="Capacity, location, tracker type, soiling challenge, Taypro solution deployed (Model-A / waterless / etc.), outcomes, timeline, anything visitors should know..."
+              placeholder="Capacity, location, tracker type, soiling challenge, Taypro solution deployed (GLYDE / HELYX / etc.), outcomes, timeline. Include category tags: Automatic, Semi-Automatic, and/or Capex..."
             />
             <p className="mt-1 text-xs text-gray-500">
-              Include real site facts when you have them. Gemini uses Taypro&apos;s
-              product knowledge base and will not invent specs.
+              Include real site facts when you have them. State deployment type with
+              exact tags Automatic, Semi-Automatic, and/or Capex so the project
+              appears on the right category pages. Gemini uses Taypro&apos;s product
+              knowledge base and will not invent specs.
             </p>
           </div>
 

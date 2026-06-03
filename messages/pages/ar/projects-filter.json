@@ -136,7 +136,8 @@
       }
     },
     "projectLinkTitle": "مشروع شمسي",
-    "breadcrumbProjects": "المشاريع"
+    "breadcrumbProjects": "المشاريع",
+    "emptyGrid": "لا توجد دراسات حالة منشورة في هذه الفئة بعد. تصفح جميع المشاريع في مركز المشاريع أو تواصل مع Taypro لمراجع قريبة من نوع محطتك."
   },
   "Common": {
     "breadcrumbHome": "الرئيسية"

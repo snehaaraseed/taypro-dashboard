@@ -13,6 +13,10 @@ import {
   translateFieldsWithGemini,
   translateStringListWithGemini,
 } from "./gemini-translate";
+import {
+  mergeTranslatedProjectDetails,
+  partitionProjectDetailsForTranslation,
+} from "@/lib/cms/project-categories";
 async function onBlogLocaleTranslated(
   slug: string,
   locale: TayproLocale,
@@ -343,9 +347,17 @@ export async function translatePublishedProject(
         locale
       );
 
-      const translatedDetails = await translateStringListWithGemini(
+      const { categoryByIndex, translatableIndices } =
+        partitionProjectDetailsForTranslation(details);
+      const translatableValues = translatableIndices.map((i) => details[i]);
+      const translatedFacts = translatableValues.length
+        ? await translateStringListWithGemini(translatableValues, locale)
+        : [];
+      const translatedDetails = mergeTranslatedProjectDetails(
         details,
-        locale
+        translatedFacts,
+        translatableIndices,
+        categoryByIndex
       );
 
       await upsertProjectLocale(slug, locale, source, {

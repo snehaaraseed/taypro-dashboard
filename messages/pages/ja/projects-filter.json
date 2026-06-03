@@ -136,7 +136,8 @@
       }
     },
     "projectLinkTitle": "ソーラープロジェクト",
-    "breadcrumbProjects": "プロジェクト"
+    "breadcrumbProjects": "プロジェクト",
+    "emptyGrid": "このカテゴリに該当する公開事例はまだありません。プロジェクト一覧をご覧いただくか、発電所タイプに近い参考事例について Taypro までお問い合わせください。"
   },
   "Common": {
     "breadcrumbHome": "ホーム"

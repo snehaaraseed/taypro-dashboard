@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AnimateOnScroll } from "./AnimateOnScroll";
+import { ProjectDetailChips } from "./ProjectDetailChips";
 import { getProjectHeroImageAlt } from "../utils/imageAlt";
 
 type Project = {
@@ -82,18 +83,10 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
                       "cubic-bezier(0.4,0.4,0.2,0.5)",
                   }}
                 >
-                  {project.details.map((item, index) => {
-                    return (
-                      <Link
-                        key={index}
-                        href={`/projects/${item.toLowerCase().toString()}`}
-                        title="Solar Project"
-                        className="hover:underline hover:text-[#c3d958] transition-colors duration-300"
-                      >
-                        {item}
-                      </Link>
-                    );
-                  })}
+                  <ProjectDetailChips
+                    items={project.details}
+                    linkClassName="hover:underline hover:text-[#c3d958] transition-colors duration-300"
+                  />
                 </div>
               )}
             </div>

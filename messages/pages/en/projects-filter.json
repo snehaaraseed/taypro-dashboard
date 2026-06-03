@@ -136,7 +136,8 @@
       }
     },
     "projectLinkTitle": "Solar Project",
-    "breadcrumbProjects": "Projects"
+    "breadcrumbProjects": "Projects",
+    "emptyGrid": "No published case studies match this category yet. Browse all projects on the projects hub or contact Taypro for references closest to your plant type."
   },
   "Common": {
     "breadcrumbHome": "Home"

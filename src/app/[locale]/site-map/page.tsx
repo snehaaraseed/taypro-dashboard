@@ -1,6 +1,7 @@
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
-import { additionalProjects, energyResourceCards } from "@/app/data";
+import { energyResourceCards } from "@/app/data";
+import { getAllFileProjects } from "@/app/utils/projectFileUtils";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { withHreflang } from "@/lib/seo/with-hreflang";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
@@ -66,6 +67,7 @@ export default async function SiteMapPage({
   const t = await getTranslations({ locale, namespace: "SiteMapPage" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
   const l = (key: string) => t(`links.${key}`);
+  const portfolioProjects = await getAllFileProjects(locale);
 
   const breadcrumbs = [
     { name: tCommon("breadcrumbHome"), href: "/" },
@@ -340,8 +342,8 @@ export default async function SiteMapPage({
             </p>
 
             <ul className="space-y-1 list-disc list-inside">
-              {additionalProjects.map((card, idx) => (
-                <li key={idx} className="text-lg">
+              {portfolioProjects.map((card) => (
+                <li key={card.id} className="text-lg">
                   <Link
                     href={card.href}
                     title={t("portfolio.solarProjectTitle")}

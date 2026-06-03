@@ -11,6 +11,13 @@ import type { TayproLocale } from "@/i18n/markets";
 import { isActiveLocale } from "@/i18n/markets";
 import { SOURCE_LOCALE } from "@/lib/translation/config";
 import { scheduleProjectTranslations } from "@/lib/translation/translate-cms";
+import {
+  canonicalizeCategoryDetailTags,
+  projectMatchesCategory,
+  type ProjectCategoryFilter,
+} from "@/lib/cms/project-categories";
+
+export type { ProjectCategoryFilter } from "@/lib/cms/project-categories";
 
 function resolveLocale(locale?: string): TayproLocale {
   if (locale && isActiveLocale(locale)) return locale;
@@ -123,6 +130,16 @@ export async function getAllFileProjects(
   }));
 }
 
+export type ProjectCard = Awaited<ReturnType<typeof getAllFileProjects>>[number];
+
+export async function getProjectsByCategory(
+  category: ProjectCategoryFilter,
+  locale?: string
+): Promise<ProjectCard[]> {
+  const all = await getAllFileProjects(locale);
+  return all.filter((p) => projectMatchesCategory(p.details, category));
+}
+
 export async function readProjectMetadata(
   slug: string
 ): Promise<ProjectMetadata | null> {
@@ -178,7 +195,9 @@ export async function createProjectFiles(
     description: projectData.description,
     image: projectData.image,
     imageAlt: projectData.imageAlt?.trim() || "",
-    details: JSON.stringify(projectData.details || []),
+    details: JSON.stringify(
+      canonicalizeCategoryDetailTags(projectData.details || [])
+    ),
     content: projectData.content || "",
     date: projectData.date || new Date().toISOString().split("T")[0],
     createdAt: now,
@@ -245,7 +264,9 @@ export async function updateProjectFiles(
       description: projectData.description,
       image: projectData.image,
       imageAlt: projectData.imageAlt?.trim() ?? existing.imageAlt,
-      details: JSON.stringify(projectData.details || []),
+      details: JSON.stringify(
+        canonicalizeCategoryDetailTags(projectData.details || [])
+      ),
       content: projectData.content || "",
       date: projectData.date || existing.date,
       updatedAt: now,

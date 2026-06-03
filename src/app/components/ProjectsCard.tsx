@@ -2,6 +2,7 @@ import Image from "next/image";
 import { projects } from "../data";
 import Link from "next/link";
 import { Container } from "./Container";
+import { ProjectDetailChips } from "./ProjectDetailChips";
 import { getProjectHeroImageAlt } from "../utils/imageAlt";
 
 interface ProjectItem {
@@ -132,18 +133,10 @@ function ProjectsCardDisplay({
                           "cubic-bezier(0.4, 0.4, 0.2, 0.5)",
                       }}
                     >
-                      {detailsArray.map((item) => (
-                        <Link
-                          key={item}
-                          title="Solar Project"
-                          href={`/projects/${item
-                            .toLowerCase()
-                            .replace(/\s+/g, "-")}`}
-                          className="hover:underline hover:text-[#c3d958] transition-colors duration-300"
-                        >
-                          {item}
-                        </Link>
-                      ))}
+                      <ProjectDetailChips
+                        items={detailsArray}
+                        linkClassName="hover:underline hover:text-[#c3d958] transition-colors duration-300"
+                      />
                     </div>
                   )}
                 </div>

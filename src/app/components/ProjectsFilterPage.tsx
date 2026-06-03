@@ -4,7 +4,10 @@ import { Link } from "@/i18n/navigation";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { Container } from "@/app/components/Container";
 import { FaqSection } from "@/app/components/FaqSection";
-import { additionalProjects } from "@/app/data";
+import {
+  getProjectsByCategory,
+  type ProjectCategoryFilter,
+} from "@/lib/cms/projectService";
 import {
   FAQPageSchema,
   ItemListSchema,
@@ -12,7 +15,7 @@ import {
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
-export type ProjectsFilterVariant = "automatic" | "semiAutomatic" | "capex";
+export type ProjectsFilterVariant = ProjectCategoryFilter;
 
 const SCHEMA_IDS: Record<ProjectsFilterVariant, string> = {
   automatic: "item-list-schema-projects-automatic",
@@ -41,6 +44,7 @@ export default async function ProjectsFilterPage({
   const t = await getTranslations({ locale, namespace: "ProjectsFilterPage" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
   const v = variant;
+  const categoryProjects = await getProjectsByCategory(v, locale);
 
   const breadcrumbs = [
     { name: tCommon("breadcrumbHome"), href: "/" },
@@ -48,7 +52,7 @@ export default async function ProjectsFilterPage({
     { name: t(`${v}.breadcrumb`), href: "" },
   ];
 
-  const itemListEntries = additionalProjects.map((card) => ({
+  const itemListEntries = categoryProjects.map((card) => ({
     name: card.title,
     url: card.href,
     image: card.img,
@@ -140,36 +144,42 @@ export default async function ProjectsFilterPage({
             {t(`${v}.gridIntro`)}
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {additionalProjects.map((card, idx) => (
-              <Link
-                href={card.href}
-                key={idx}
-                title={t("projectLinkTitle")}
-                className="block border border-gray-300 p-4 overflow-hidden group"
-              >
-                <div className="relative w-full h-64 sm:h-72 md:h-80 overflow-hidden">
-                  <Image
-                    src={card.img}
-                    alt={`${card.title} - ${t(`${v}.imageAltSuffix`)}`}
-                    title={`${card.title} - ${t(`${v}.imageTitleSuffix`)}`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 25vw"
-                    className="object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105 group-hover:translate-x-3"
-                    priority={idx < 4}
-                  />
-                  <div className="absolute bottom-4 left-4 text-white flex flex-col transition-all duration-300">
-                    <h3 className="text-sm font-semibold bg-opacity-10 px-3 transition-transform duration-300 group-hover:-translate-y-3">
-                      {card.title}
-                    </h3>
-                    <p className="text-xs bg-opacity-60 px-3 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 text-white/90">
-                      {card.date}
-                    </p>
+          {categoryProjects.length === 0 ? (
+            <p className="text-[#6B7280] text-lg leading-relaxed max-w-3xl">
+              {t("emptyGrid")}
+            </p>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {categoryProjects.map((card, idx) => (
+                <Link
+                  href={card.href}
+                  key={card.id}
+                  title={t("projectLinkTitle")}
+                  className="block border border-gray-300 p-4 overflow-hidden group"
+                >
+                  <div className="relative w-full h-64 sm:h-72 md:h-80 overflow-hidden">
+                    <Image
+                      src={card.img}
+                      alt={`${card.title} - ${t(`${v}.imageAltSuffix`)}`}
+                      title={`${card.title} - ${t(`${v}.imageTitleSuffix`)}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 25vw"
+                      className="object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105 group-hover:translate-x-3"
+                      priority={idx < 4}
+                    />
+                    <div className="absolute bottom-4 left-4 text-white flex flex-col transition-all duration-300">
+                      <h3 className="text-sm font-semibold bg-opacity-10 px-3 transition-transform duration-300 group-hover:-translate-y-3">
+                        {card.title}
+                      </h3>
+                      <p className="text-xs bg-opacity-60 px-3 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 text-white/90">
+                        {card.date}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+                </Link>
+              ))}
+            </div>
+          )}
         </Container>
       </section>
 

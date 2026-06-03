@@ -575,7 +575,7 @@ export default function EditProjectPage() {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Project Details (e.g., "Automatic", "Capex", "Semi-Automatic")
+              Project details (facts + category tags)
             </label>
             <div className="flex gap-2 mb-2">
               <input
@@ -589,7 +589,7 @@ export default function EditProjectPage() {
                   }
                 }}
                 className="flex-1 px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Enter detail and press Enter"
+                placeholder='e.g. 250 MW, Maharashtra, Automatic, Capex — press Enter'
               />
               <button
                 type="button"
@@ -616,6 +616,11 @@ export default function EditProjectPage() {
                 </span>
               ))}
             </div>
+            <p className="mt-2 text-xs text-gray-500">
+              Include at least one category tag exactly as Automatic,
+              Semi-Automatic, or Capex, plus factual chips (MW, state, array type).
+              Category tags stay in English on translated pages.
+            </p>
           </div>
 
           <div>

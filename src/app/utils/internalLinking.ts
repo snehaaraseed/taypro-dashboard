@@ -1,5 +1,13 @@
 import { DynamicBlog } from "../api/blog/list/route";
 
+/** Published project card / case study used for cross-links. */
+export interface ProjectLinkSource {
+  slug: string;
+  title: string;
+  href: string;
+  description?: string;
+}
+
 export interface InternalLink {
   keyword: string;
   url: string;
@@ -242,6 +250,71 @@ function findRelevantBlogs(
   }));
 }
 
+function findRelevantProjects(
+  content: string,
+  allProjects: ProjectLinkSource[],
+  currentSlug: string,
+  maxProjects: number = 3
+): InternalLink[] {
+  const contentLower = content.toLowerCase();
+  const relevant: Array<{ project: ProjectLinkSource; score: number }> = [];
+
+  for (const project of allProjects) {
+    if (project.slug === currentSlug) continue;
+
+    let score = 0;
+    const titleLower = project.title.toLowerCase();
+    const titleKeywords = titleLower.split(/\s+/);
+
+    for (const keyword of titleKeywords) {
+      if (keyword.length > 3 && contentLower.includes(keyword)) {
+        score += 2;
+      }
+    }
+
+    const descLower = (project.description || "").toLowerCase();
+    for (const keyword of descLower.split(/\s+/)) {
+      if (keyword.length > 3 && contentLower.includes(keyword)) {
+        score += 1;
+      }
+    }
+
+    if (contentLower.includes("mw") && titleLower.includes("mw")) {
+      score += 2;
+    }
+    if (
+      contentLower.includes("cleaning") &&
+      (titleLower.includes("cleaning") || descLower.includes("cleaning"))
+    ) {
+      score += 2;
+    }
+    if (
+      contentLower.includes("robot") &&
+      (titleLower.includes("robot") || descLower.includes("robot"))
+    ) {
+      score += 2;
+    }
+    if (
+      contentLower.includes("utility") &&
+      (titleLower.includes("utility") || descLower.includes("utility"))
+    ) {
+      score += 1;
+    }
+
+    if (score > 0) {
+      relevant.push({ project, score });
+    }
+  }
+
+  relevant.sort((a, b) => b.score - a.score);
+
+  return relevant.slice(0, maxProjects).map((item) => ({
+    keyword: item.project.title,
+    url: item.project.href,
+    priority: item.score,
+  }));
+}
+
 /**
  * Extract text from HTML (excluding script, style, and link tags)
  */
@@ -427,38 +500,15 @@ function isInsideTagAtPosition(html: string, position: number): boolean {
   return false;
 }
 
-/**
- * Add internal links to blog content, evenly distributed throughout
- * Distribution: 5 links to pages, 3 links to blogs (total 8)
- */
-export function addInternalLinks(
-  content: string,
-  allBlogs: DynamicBlog[],
-  currentSlug: string,
-  targetLinkCount: number = 8
-): string {
-  // Don't process if content is empty
-  if (!content || content.trim().length === 0) {
-    return content;
-  }
+type MatchWithLink = {
+  match: { start: number; end: number; text: string };
+  link: InternalLink;
+  position: number;
+};
 
-  // Bifurcate link counts: 5 pages, 3 blogs
-  const pageLinkCount = 5;
-  const blogLinkCount = 3;
-
-  // Get relevant blogs
-  const blogLinks = findRelevantBlogs(content, allBlogs, currentSlug, 5);
-
-  const processedContent = content;
-
-  // Collect all valid match positions first (grouped by URL to avoid duplicates)
-  type MatchWithLink = {
-    match: { start: number; end: number; text: string };
-    link: InternalLink;
-    position: number; // Position in content for sorting
-  };
-
-  // Process PAGE links separately
+function collectPageLinkMatches(
+  processedContent: string
+): MatchWithLink[] {
   const pageMatches: MatchWithLink[] = [];
   const pageUrlMatchMap = new Map<string, MatchWithLink[]>();
 
@@ -472,7 +522,7 @@ export function addInternalLinks(
           link,
           position: match.start,
         };
-        
+
         if (!pageUrlMatchMap.has(link.url)) {
           pageUrlMatchMap.set(link.url, []);
         }
@@ -481,25 +531,30 @@ export function addInternalLinks(
     }
   }
 
-  // For each page URL, keep only the best match
-  for (const [url, matches] of pageUrlMatchMap.entries()) {
+  for (const matches of pageUrlMatchMap.values()) {
     matches.sort((a, b) => {
       if (b.link.priority !== a.link.priority) {
         return b.link.priority - a.link.priority;
       }
       return a.position - b.position;
     });
-    
+
     if (matches.length > 0) {
       pageMatches.push(matches[0]);
     }
   }
 
-  // Process BLOG links separately
-  const blogMatches: MatchWithLink[] = [];
-  const blogUrlMatchMap = new Map<string, MatchWithLink[]>();
+  return pageMatches;
+}
 
-  for (const link of blogLinks) {
+function collectSecondaryLinkMatches(
+  processedContent: string,
+  secondaryLinks: InternalLink[]
+): MatchWithLink[] {
+  const secondaryMatches: MatchWithLink[] = [];
+  const urlMatchMap = new Map<string, MatchWithLink[]>();
+
+  for (const link of secondaryLinks) {
     const matches = findKeywordMatches(processedContent, link.keyword);
 
     for (const match of matches) {
@@ -509,46 +564,59 @@ export function addInternalLinks(
           link,
           position: match.start,
         };
-        
-        if (!blogUrlMatchMap.has(link.url)) {
-          blogUrlMatchMap.set(link.url, []);
+
+        if (!urlMatchMap.has(link.url)) {
+          urlMatchMap.set(link.url, []);
         }
-        blogUrlMatchMap.get(link.url)!.push(matchWithLink);
+        urlMatchMap.get(link.url)!.push(matchWithLink);
       }
     }
   }
 
-  // For each blog URL, keep only the best match
-  for (const [url, matches] of blogUrlMatchMap.entries()) {
+  for (const matches of urlMatchMap.values()) {
     matches.sort((a, b) => {
       if (b.link.priority !== a.link.priority) {
         return b.link.priority - a.link.priority;
       }
       return a.position - b.position;
     });
-    
+
     if (matches.length > 0) {
-      blogMatches.push(matches[0]);
+      secondaryMatches.push(matches[0]);
     }
   }
 
-  // Sort both by position
+  return secondaryMatches;
+}
+
+function injectDistributedInternalLinks(
+  content: string,
+  pageLinkCount: number,
+  secondaryLinks: InternalLink[],
+  secondaryLinkCount: number,
+  targetLinkCount: number
+): string {
+  if (!content || content.trim().length === 0) {
+    return content;
+  }
+
+  const processedContent = content;
+  const pageMatches = collectPageLinkMatches(processedContent);
+  const secondaryMatches = collectSecondaryLinkMatches(
+    processedContent,
+    secondaryLinks
+  );
+
   pageMatches.sort((a, b) => a.position - b.position);
-  blogMatches.sort((a, b) => a.position - b.position);
+  secondaryMatches.sort((a, b) => a.position - b.position);
 
-  // Select page links (up to 5)
   const selectedPageMatches = pageMatches.slice(0, pageLinkCount);
+  const selectedSecondaryMatches = secondaryMatches.slice(0, secondaryLinkCount);
+  const allSelectedMatches = [
+    ...selectedPageMatches,
+    ...selectedSecondaryMatches,
+  ];
 
-  // Select blog links (up to 3)
-  const selectedBlogMatches = blogMatches.slice(0, blogLinkCount);
-
-  // Combine all selected matches
-  const allSelectedMatches = [...selectedPageMatches, ...selectedBlogMatches];
-
-  // Sort by position for even distribution
-  allSelectedMatches.sort((a, b) => a.position - b.position);
-
-  // Distribute evenly across content
   const contentLength = processedContent.length;
   const finalSelectedMatches: MatchWithLink[] = [];
   const usedUrls = new Set<string>();
@@ -557,20 +625,17 @@ export function addInternalLinks(
   if (allSelectedMatches.length > 0) {
     const targetSections = Math.min(allSelectedMatches.length, targetLinkCount);
     const sectionSize = contentLength / (targetSections + 1);
-
-    // Create target positions for even distribution
     const targetPositions: number[] = [];
+
     for (let i = 1; i <= targetSections; i++) {
       targetPositions.push(Math.floor(sectionSize * i));
     }
 
-    // For each target position, find the closest available match
     for (const targetPos of targetPositions) {
       let closestMatch: MatchWithLink | null = null;
       let closestDistance = Infinity;
 
       for (const matchWithLink of allSelectedMatches) {
-        // Skip if URL already used or position already selected
         if (usedUrls.has(matchWithLink.link.url)) continue;
         if (selectedPositions.has(matchWithLink.position)) continue;
 
@@ -589,22 +654,50 @@ export function addInternalLinks(
     }
   }
 
-  // Sort selected matches by position (descending) to apply from end to start
-  // This prevents position shifts when inserting links
   finalSelectedMatches.sort((a, b) => b.position - a.position);
 
-  // Apply links from end to start to maintain correct positions
   let resultContent = processedContent;
   for (const { match, link } of finalSelectedMatches) {
     const before = resultContent.substring(0, match.start);
     const after = resultContent.substring(match.end);
-
-    // Create the link with internal-link class for CSS styling
     const linkHtml = `<a href="${link.url}" class="internal-link" title="${link.keyword}">${match.text}</a>`;
-
     resultContent = before + linkHtml + after;
   }
 
   return resultContent;
+}
+
+/**
+ * Add internal links to blog content, evenly distributed throughout
+ * Distribution: 5 links to pages, 3 links to blogs (total 8)
+ */
+export function addInternalLinks(
+  content: string,
+  allBlogs: DynamicBlog[],
+  currentSlug: string,
+  targetLinkCount: number = 8
+): string {
+  const blogLinks = findRelevantBlogs(content, allBlogs, currentSlug, 5);
+  return injectDistributedInternalLinks(content, 5, blogLinks, 3, targetLinkCount);
+}
+
+/**
+ * Add internal links to project case-study content (same pattern as blogs).
+ * Distribution: 5 pillar/product pages, 3 related project case studies (total 8)
+ */
+export function addInternalLinksToProject(
+  content: string,
+  allProjects: ProjectLinkSource[],
+  currentSlug: string,
+  targetLinkCount: number = 8
+): string {
+  const projectLinks = findRelevantProjects(content, allProjects, currentSlug, 5);
+  return injectDistributedInternalLinks(
+    content,
+    5,
+    projectLinks,
+    3,
+    targetLinkCount
+  );
 }
 
