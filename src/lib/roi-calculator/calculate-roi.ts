@@ -33,7 +33,7 @@ function moduleCount(capacityKw: number, moduleCapacityWp: number): number {
 }
 
 /**
- * Directional ROI model — all amounts in the market profile's local currency.
+ * Directional ROI model, all amounts in the market profile's local currency.
  * Structure matches the legacy India Taypro spreadsheet assumptions.
  */
 export function calculateRoi(

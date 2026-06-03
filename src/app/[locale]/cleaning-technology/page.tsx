@@ -899,7 +899,7 @@ export default async function CleaningTechnologyPage({
           </Container>
         </div>
 
-        {/* Related guides — from CMS */}
+        {/* Related guides, from CMS */}
         {techBlogPosts.length > 0 && (
           <div
             className="py-14 md:py-20 bg-white"

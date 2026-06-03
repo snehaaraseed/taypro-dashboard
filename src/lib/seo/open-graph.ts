@@ -34,7 +34,7 @@ export function buildTwitterImageUrls(
   return images.map((img) => img.url);
 }
 
-/** Preset share images — use page-specific art where it exists. */
+/** Preset share images, use page-specific art where it exists. */
 export const OG_PRESETS = {
   default: {
     path: "/tayproasset/taypro-robotImage.png",
@@ -42,7 +42,7 @@ export const OG_PRESETS = {
   },
   blog: {
     path: "/tayproasset/taypro-robotImage.png",
-    alt: "Taypro Blog — solar panel cleaning robot insights and O&M guides",
+    alt: "Taypro Blog, solar panel cleaning robot insights and O&M guides",
   },
   projects: {
     path: "/tayproasset/taypro-project.png",
@@ -50,7 +50,7 @@ export const OG_PRESETS = {
   },
   company: {
     path: "/tayproasset/taypro-robotImage.png",
-    alt: "About Taypro — solar panel cleaning robot manufacturer in India",
+    alt: "About Taypro, solar panel cleaning robot manufacturer in India",
   },
   cleaningTech: {
     path: "/tayproasset/robots.png",

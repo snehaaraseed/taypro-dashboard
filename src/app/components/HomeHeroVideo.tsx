@@ -8,7 +8,7 @@ interface HomeHeroVideoProps {
   title: string;
 }
 
-/** Click-to-play facade — avoids loading YouTube iframe until interaction (LCP). */
+/** Click-to-play facade, avoids loading YouTube iframe until interaction (LCP). */
 export default function HomeHeroVideo({ videoId, title }: HomeHeroVideoProps) {
   const [active, setActive] = useState(false);
   /** Local poster avoids third-party latency on LCP (YouTube loads only on play). */

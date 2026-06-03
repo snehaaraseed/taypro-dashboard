@@ -25,7 +25,7 @@ function patch(path, rules) {
   console.log("patched", path);
 }
 
-// ROI — GLYDE
+// ROI, GLYDE
 patch("messages/pages/en/model-a.json", [
   [
     /TAYPRO's Model A Automatic Solar Panel Cleaning Robot/g,
@@ -38,7 +38,7 @@ patch("messages/pages/en/model-a.json", [
   ],
 ]);
 
-// ROI — NYUMA
+// ROI, NYUMA
 patch("messages/pages/en/nyuma.json", [
   [
     /TAYPRO's Model A Automatic Solar Panel Cleaning Robot/g,
@@ -50,16 +50,16 @@ patch("messages/pages/en/nyuma.json", [
 // GLYDE meta: dual-pass in title (flagship owns generic automatic + dual-pass)
 patch("messages/pages/en/model-a.json", [
   [
-    /"title": "Automatic Solar Panel Cleaning Robot — Taypro GLYDE \(Waterless, AI\)"/,
-    '"title": "Dual-Pass Automatic Solar Panel Cleaning Robot — Taypro GLYDE (Waterless, AI)"',
+    /"title": "Automatic Solar Panel Cleaning Robot, Taypro GLYDE \(Waterless, AI\)"/,
+    '"title": "Dual-Pass Automatic Solar Panel Cleaning Robot, Taypro GLYDE (Waterless, AI)"',
   ],
   [
-    /"openGraphTitle": "Automatic Solar Panel Cleaning Robot — Taypro GLYDE \(Waterless, AI\)"/,
-    '"openGraphTitle": "Dual-Pass Automatic Solar Panel Cleaning Robot — Taypro GLYDE (Waterless, AI)"',
+    /"openGraphTitle": "Automatic Solar Panel Cleaning Robot, Taypro GLYDE \(Waterless, AI\)"/,
+    '"openGraphTitle": "Dual-Pass Automatic Solar Panel Cleaning Robot, Taypro GLYDE (Waterless, AI)"',
   ],
   [
-    /"twitterTitle": "Automatic Solar Panel Cleaning Robot — Taypro GLYDE \(Waterless, AI\)"/,
-    '"twitterTitle": "Dual-Pass Automatic Solar Panel Cleaning Robot — Taypro GLYDE (Waterless, AI)"',
+    /"twitterTitle": "Automatic Solar Panel Cleaning Robot, Taypro GLYDE \(Waterless, AI\)"/,
+    '"twitterTitle": "Dual-Pass Automatic Solar Panel Cleaning Robot, Taypro GLYDE (Waterless, AI)"',
   ],
   [
     /"openGraphDescription": "Taypro GLYDE: Automatic Solar Panel Cleaning Robot for utility-scale plants\. Autonomous waterless dual-pass cleaning/,
@@ -67,13 +67,13 @@ patch("messages/pages/en/model-a.json", [
   ],
 ]);
 
-// NYUMA meta — PBT differentiation
+// NYUMA meta, PBT differentiation
 const nyumaMeta = JSON.parse(
   readFileSync(join(root, "messages/pages/en/nyuma.json"), "utf8")
 );
 Object.assign(nyumaMeta.NyumaPage.meta, {
   title:
-    "PBT Automatic Solar Panel Cleaning Robot — Taypro NYUMA (Waterless, AI)",
+    "PBT Automatic Solar Panel Cleaning Robot, Taypro NYUMA (Waterless, AI)",
   description:
     "Taypro NYUMA is a fully autonomous PBT single-pass Automatic Solar Panel Cleaning Robot for fixed and seasonal-tilt utility plants. Waterless AI/ML dry cleaning removes 99%+ dust per cycle, up to 3,600 modules per charge, NECTYR fleet portal, TÜV NORD certified, same-day pan-India support.",
   keywords: [
@@ -90,13 +90,13 @@ Object.assign(nyumaMeta.NyumaPage.meta, {
     "Taypro NYUMA",
   ],
   openGraphTitle:
-    "PBT Automatic Solar Panel Cleaning Robot — Taypro NYUMA",
+    "PBT Automatic Solar Panel Cleaning Robot, Taypro NYUMA",
   openGraphDescription:
     "Taypro NYUMA: PBT single-pass automatic cleaning for utility fixed-tilt plants. 99%+ dust removal per cycle, up to 3,600 modules per charge, NECTYR fleet monitoring, TÜV NORD certified.",
   openGraphImageAlt:
     "Taypro NYUMA PBT automatic solar panel cleaning robot",
   twitterTitle:
-    "PBT Automatic Solar Panel Cleaning Robot — Taypro NYUMA",
+    "PBT Automatic Solar Panel Cleaning Robot, Taypro NYUMA",
   twitterDescription:
     "Taypro NYUMA: autonomous waterless PBT single-pass cleaning, 99%+ dust removal per cycle, NECTYR-connected fleet portal.",
 });
@@ -112,17 +112,17 @@ const nyumaXMeta = JSON.parse(
 );
 Object.assign(nyumaXMeta.NyumaXPage.meta, {
   title:
-    "PBT Tracker Solar Panel Cleaning Robot — Taypro NYUMA-X",
+    "PBT Tracker Solar Panel Cleaning Robot, Taypro NYUMA-X",
   description:
     "Taypro NYUMA-X is a waterless PBT single-pass Solar Panel Cleaning Robot for single-axis tracker farms. 99%+ dust removal per run, up to 3,600 modules per charge, ±15° flex, NEXTracker and Gamechanger compatible, NECTYR fleet portal, TÜV NORD certified.",
   openGraphTitle:
-    "PBT Tracker Solar Panel Cleaning Robot — Taypro NYUMA-X",
+    "PBT Tracker Solar Panel Cleaning Robot, Taypro NYUMA-X",
   openGraphDescription:
     "NYUMA-X: PBT single-pass autonomous cleaning for single-axis trackers. 99%+ dust removal, NECTYR monitoring, NEXTracker & Gamechanger compatible.",
   openGraphImageAlt:
     "Taypro NYUMA-X PBT tracker solar panel cleaning robot",
   twitterTitle:
-    "PBT Tracker Solar Panel Cleaning Robot — Taypro NYUMA-X",
+    "PBT Tracker Solar Panel Cleaning Robot, Taypro NYUMA-X",
   twitterDescription:
     "Taypro NYUMA-X: PBT single-pass tracker robot. 3,600 modules per charge, NECTYR fleet portal, NEXTracker & Gamechanger compatible.",
   keywords: [
@@ -147,16 +147,16 @@ console.log("patched messages/pages/en/nyuma-x.json (meta)");
 // GLYDE-X meta: dual-pass in title
 patch("messages/pages/en/model-t.json", [
   [
-    /"title": "Solar Panel Cleaning Robot for Single-Axis Trackers — Taypro GLYDE-X"/,
-    '"title": "Dual-Pass Tracker Solar Panel Cleaning Robot — Taypro GLYDE-X"',
+    /"title": "Solar Panel Cleaning Robot for Single-Axis Trackers, Taypro GLYDE-X"/,
+    '"title": "Dual-Pass Tracker Solar Panel Cleaning Robot, Taypro GLYDE-X"',
   ],
   [
-    /"openGraphTitle": "Solar Panel Cleaning Robot for Single-Axis Trackers — Taypro GLYDE-X"/,
-    '"openGraphTitle": "Dual-Pass Tracker Solar Panel Cleaning Robot — Taypro GLYDE-X"',
+    /"openGraphTitle": "Solar Panel Cleaning Robot for Single-Axis Trackers, Taypro GLYDE-X"/,
+    '"openGraphTitle": "Dual-Pass Tracker Solar Panel Cleaning Robot, Taypro GLYDE-X"',
   ],
   [
-    /"twitterTitle": "Solar Panel Cleaning Robot for Single-Axis Trackers — Taypro GLYDE-X"/,
-    '"twitterTitle": "Dual-Pass Tracker Solar Panel Cleaning Robot — Taypro GLYDE-X"',
+    /"twitterTitle": "Solar Panel Cleaning Robot for Single-Axis Trackers, Taypro GLYDE-X"/,
+    '"twitterTitle": "Dual-Pass Tracker Solar Panel Cleaning Robot, Taypro GLYDE-X"',
   ],
 ]);
 

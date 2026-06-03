@@ -2,7 +2,7 @@
  * SQLite cannot DROP a column-level UNIQUE on slug; migration 0003 only added
  * (slug, locale) index. Rebuild blogs/projects so only (slug, locale) is unique.
  *
- * Idempotent — safe on every deploy.
+ * Idempotent, safe on every deploy.
  */
 import Database from "better-sqlite3";
 import fs from "fs";

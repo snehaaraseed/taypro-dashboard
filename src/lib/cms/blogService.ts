@@ -40,6 +40,40 @@ function rowToMetadata(row: typeof blogs.$inferSelect): BlogMetadata {
   };
 }
 
+export type BlogSimilarityCorpusRow = {
+  slug: string;
+  title: string;
+  description: string;
+  content: string;
+};
+
+export async function listBlogsForSimilarityCheck(
+  includeDrafts = true,
+  locale?: string
+): Promise<BlogSimilarityCorpusRow[]> {
+  const loc = resolveLocale(locale);
+  const db = getDb();
+  const rows = await db
+    .select({
+      slug: blogs.slug,
+      title: blogs.title,
+      description: blogs.description,
+      content: blogs.content,
+      published: blogs.published,
+    })
+    .from(blogs)
+    .where(eq(blogs.locale, loc));
+
+  return rows
+    .filter((r) => includeDrafts || r.published !== false)
+    .map(({ slug, title, description, content }) => ({
+      slug,
+      title,
+      description,
+      content,
+    }));
+}
+
 export async function listAllBlogs(
   includeDrafts = false,
   locale?: string

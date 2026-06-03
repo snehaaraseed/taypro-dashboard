@@ -22,7 +22,7 @@ import { withHreflang } from "@/lib/seo/with-hreflang";
 
 /**
  * Returns the canonical /blog/[slug] path when this post is also published as
- * a file-backed blog. Otherwise null — DB-only posts have no /blog/[slug]
+ * a file-backed blog. Otherwise null, DB-only posts have no /blog/[slug]
  * page and would 404 there, so we keep them at /blog/db/[id].
  */
 async function getPublishedSlug(slug?: string): Promise<string | null> {

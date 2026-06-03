@@ -339,7 +339,7 @@ export function resolveRoiMarket(
   return ROI_MARKET_PROFILES.india;
 }
 
-/** @deprecated Use RoiMarketProfile — kept for imports during migration */
+/** @deprecated Use RoiMarketProfile, kept for imports during migration */
 export type CalculatorCurrencyProfile = Pick<
   RoiMarketProfile,
   | "currency"

@@ -175,8 +175,7 @@ export default async function SolarPanelCleaningService({
                 className="text-[#A8C117] hover:underline"
               >
                 {t("hero.modelT")}
-              </Link>{" "}
-              — {t("hero.subtitleProgramme")}{" "}
+              </Link>{" "}, {t("hero.subtitleProgramme")}{" "}
               <strong>{t("hero.subtitleCycles")}</strong>
               {t("hero.subtitleAfter")}{" "}
               <Link
@@ -659,7 +658,7 @@ export default async function SolarPanelCleaningService({
           </Container>
         </section>
 
-        {/* Duration & ROI — two-up cards */}
+        {/* Duration & ROI, two-up cards */}
         <section className="w-full py-16 sm:py-20 bg-[#f4f1e9]">
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">

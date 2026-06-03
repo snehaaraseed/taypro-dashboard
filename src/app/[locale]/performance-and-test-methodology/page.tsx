@@ -173,6 +173,15 @@ export default async function PerformanceAndTestMethodologyPage({
 
             <section className="mb-10">
               <h2 className="text-[#052638] font-semibold text-2xl mb-4">
+                {t("publicProof.heading")}
+              </h2>
+              <p className="text-[#27415c] text-lg leading-relaxed">
+                {t("publicProof.body")}
+              </p>
+            </section>
+
+            <section className="mb-10">
+              <h2 className="text-[#052638] font-semibold text-2xl mb-4">
                 {t("documentation.heading")}
               </h2>
               <p className="text-[#27415c] text-lg leading-relaxed">

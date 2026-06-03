@@ -8,7 +8,7 @@ interface ClientsCardProps {
   /** Plain template with `{index}` replaced per logo (default English). */
   logoAltTemplate?: string;
   logoTitleTemplate?: string;
-  /** Prefer when using next-intl — avoids FORMATTING_ERROR on `{index}` placeholders. */
+  /** Prefer when using next-intl, avoids FORMATTING_ERROR on `{index}` placeholders. */
   resolveLogoAlt?: (index: number) => string;
   resolveLogoTitle?: (index: number) => string;
 }

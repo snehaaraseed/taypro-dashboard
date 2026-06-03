@@ -83,7 +83,7 @@ export function RobotCard({
     <article
       className={`group flex flex-col h-full w-full rounded-2xl border border-gray-200/90 bg-white shadow-sm overflow-hidden hover:border-[#A8C117]/80 hover:shadow-md transition-all duration-300 ${className}`.trim()}
     >
-      {/* Fixed-height media frame — same footprint for every card */}
+      {/* Fixed-height media frame, same footprint for every card */}
       <div
         className={`relative w-full h-[13.5rem] sm:h-[14.25rem] shrink-0 overflow-hidden ${media.bg}`}
       >
@@ -92,7 +92,7 @@ export function RobotCard({
             <Image
               src={robot.imgPath}
               alt={getAltText()}
-              title={`${cardTitle} — Taypro`}
+              title={`${cardTitle}, Taypro`}
               fill
               className={`transition-transform duration-300 ${media.image}`}
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px"

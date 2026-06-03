@@ -4,7 +4,7 @@ import {
   type TayproLocale,
 } from "@/i18n/markets";
 
-/** Canonical CMS language — admin edits this version; translations are generated from it. */
+/** Canonical CMS language, admin edits this version; translations are generated from it. */
 export const SOURCE_LOCALE: TayproLocale = "en";
 
 export const TARGET_LOCALES = ACTIVE_LOCALES.filter(

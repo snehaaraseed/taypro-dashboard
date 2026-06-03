@@ -2,11 +2,11 @@
   "modelBUsps": [
     {
       "title": "Pick-and-Place Deployment",
-      "description": "Lift-and-shift design lets a two-person team deploy Model-B across multiple arrays simultaneously — ideal for scattered, irregular or multi-block solar plants."
+      "description": "Lift-and-shift design lets a two-person team deploy Model-B across multiple arrays simultaneously, ideal for scattered, irregular or multi-block solar plants."
     },
     {
       "title": "100% Waterless Single-Pass Cleaning",
-      "description": "Dual counter-rotating PBT brushes lift over 99% of accumulated dust in a single pass — no water, no detergent, no run-off."
+      "description": "Dual counter-rotating PBT brushes lift over 99% of accumulated dust in a single pass, no water, no detergent, no run-off."
     },
     {
       "title": "UV-Stable PBT Brush System",
@@ -14,15 +14,15 @@
     },
     {
       "title": "Ergonomic 39 kg Chassis",
-      "description": "Light-but-rigid 39 kg construction with integrated fixed handles enables effortless installation, retrieval and inter-row transfer — without any lifting equipment."
+      "description": "Light-but-rigid 39 kg construction with integrated fixed handles enables effortless installation, retrieval and inter-row transfer, without any lifting equipment."
     },
     {
       "title": "Edge-Detection Safety",
-      "description": "On-board edge-detection prevents accidental falls from the module edge — protecting the robot, the plant and the operator throughout every cleaning cycle."
+      "description": "On-board edge-detection prevents accidental falls from the module edge, protecting the robot, the plant and the operator throughout every cleaning cycle."
     },
     {
       "title": "Up to 3 km Range Per Charge",
-      "description": "A high-capacity lithium-ion pack delivers up to 3 km of cleaning range on a single charge — enough to clean a 1 MW solar plant in under 2 hours."
+      "description": "A high-capacity lithium-ion pack delivers up to 3 km of cleaning range on a single charge, enough to clean a 1 MW solar plant in under 2 hours."
     },
     {
       "title": "Operator-Centric Onboard Controls",
@@ -32,11 +32,11 @@
   "modelBFeatures": [
     {
       "title": "Counter-Rotating PBT Brush System",
-      "body": "Two counter-rotating UV-stable PBT brushes work in opposing directions to lift loose dust upward while sweeping fine particulates outward — eliminating over 99% of soiling in a single forward pass. The PBT bristles are non-abrasive, panel-safe and engineered for long life under continuous outdoor cleaning."
+      "body": "Two counter-rotating UV-stable PBT brushes work in opposing directions to lift loose dust upward while sweeping fine particulates outward, eliminating over 99% of soiling in a single forward pass. The PBT bristles are non-abrasive, panel-safe and engineered for long life under continuous outdoor cleaning."
     },
     {
       "title": "Cleans a 1 MW Plant in Under 2 Hours",
-      "body": "A cleaning speed of 10–15 metres per minute means a typical 1 MW utility-scale block is fully cleaned in less than 2 hours — making daily or alternate-day cleaning operationally viable even on large solar farms with constrained labour windows."
+      "body": "A cleaning speed of 10–15 metres per minute means a typical 1 MW utility-scale block is fully cleaned in less than 2 hours, making daily or alternate-day cleaning operationally viable even on large solar farms with constrained labour windows."
     },
     {
       "title": "Up to 3 km Range on a Single Charge",
@@ -48,11 +48,11 @@
     },
     {
       "title": "Edge-Detection & Fall-Prevention",
-      "body": "Onboard edge-detection sensors continuously scan the module boundary and stop the robot at the panel edge — preventing falls, panel damage and operator risk. A precision-engineered drive system holds the robot stable even at maximum module tilt of 45°."
+      "body": "Onboard edge-detection sensors continuously scan the module boundary and stop the robot at the panel edge, preventing falls, panel damage and operator risk. A precision-engineered drive system holds the robot stable even at maximum module tilt of 45°."
     },
     {
       "title": "Rapid Field Serviceability",
-      "body": "Critical components (brushes, drive wheels, battery, controllers) can be accessed and replaced without dismantling the main assembly. Most field service operations are completed in minutes, not hours — minimising planned and unplanned downtime."
+      "body": "Critical components (brushes, drive wheels, battery, controllers) can be accessed and replaced without dismantling the main assembly. Most field service operations are completed in minutes, not hours, minimising planned and unplanned downtime."
     },
     {
       "title": "Reinforced Heavy-Duty Chassis",
@@ -136,11 +136,11 @@
     },
     {
       "name": "Activate the onboard controls",
-      "text": "The operator powers on the robot and selects a cleaning cycle from the intuitive onboard controls. No specialised training is required — the interface is designed for any site personnel and starts a single forward cleaning pass along the row."
+      "text": "The operator powers on the robot and selects a cleaning cycle from the intuitive onboard controls. No specialised training is required, the interface is designed for any site personnel and starts a single forward cleaning pass along the row."
     },
     {
       "name": "Counter-rotating PBT brushes lift dust waterless",
-      "text": "Two counter-rotating UV-stable PBT brushes engage the module surface, lifting and sweeping over 99% of accumulated dust in a single dry pass at a cleaning speed of 10–15 metres per minute — without water, detergent or operator supervision."
+      "text": "Two counter-rotating UV-stable PBT brushes engage the module surface, lifting and sweeping over 99% of accumulated dust in a single dry pass at a cleaning speed of 10–15 metres per minute, without water, detergent or operator supervision."
     },
     {
       "name": "Edge-detection prevents falls at row ends",
@@ -148,7 +148,7 @@
     },
     {
       "name": "Move the robot to the next row via bridge kit or lift-and-shift",
-      "text": "Operators retrieve the robot using the integrated handles and transfer it to the next row using Taypro's purpose-designed bridge kits — or lift-and-shift it directly across short inter-row gaps. The same robot can clean multiple arrays in sequence."
+      "text": "Operators retrieve the robot using the integrated handles and transfer it to the next row using Taypro's purpose-designed bridge kits, or lift-and-shift it directly across short inter-row gaps. The same robot can clean multiple arrays in sequence."
     }
   ],
   "modelBFaqs": [
@@ -158,7 +158,7 @@
     },
     {
       "question": "How is Model-B different from the Model-A Automatic Solar Panel Cleaning Robot?",
-      "answer": "Model-A is a fully autonomous robot that is permanently assigned to a specific array and runs daily cleaning cycles without any human intervention — ideal for large utility-scale plants where labour is the bottleneck. Model-B is a semi-automatic, pick-and-place robot operated by a small two-person team across multiple arrays — ideal for scattered, irregular, smaller or rooftop plants where the capex of a per-array robot isn't justified. Both robots are waterless, AI-driven and managed from the same Taypro Console portal."
+      "answer": "Model-A is a fully autonomous robot that is permanently assigned to a specific array and runs daily cleaning cycles without any human intervention, ideal for large utility-scale plants where labour is the bottleneck. Model-B is a semi-automatic, pick-and-place robot operated by a small two-person team across multiple arrays, ideal for scattered, irregular, smaller or rooftop plants where the capex of a per-array robot isn't justified. Both robots are waterless, AI-driven and managed from the same Taypro Console portal."
     },
     {
       "question": "How big a solar plant can Model-B clean in a day?",
@@ -166,14 +166,14 @@
     },
     {
       "question": "Does Model-B require water for cleaning solar panels?",
-      "answer": "No. Taypro Model-B is a 100% waterless solar panel cleaning robot. It uses a pair of counter-rotating UV-stable PBT brushes that physically lift and sweep dust off the module surface in a single dry pass — eliminating water consumption, detergent costs, run-off contamination and the logistics of water tankers entirely."
+      "answer": "No. Taypro Model-B is a 100% waterless solar panel cleaning robot. It uses a pair of counter-rotating UV-stable PBT brushes that physically lift and sweep dust off the module surface in a single dry pass, eliminating water consumption, detergent costs, run-off contamination and the logistics of water tankers entirely."
     },
     {
       "question": "Is the PBT brush safe for solar modules and Anti-Reflective Coating (ARC)?",
       "answer": "Yes. The UV-stable PBT brush system is engineered to be panel-safe and non-abrasive. Every robot is independently tested for micro-crack formation, optical reflectance loss and ARC preservation under simulated daily cleaning cycles by accredited solar-sector testing laboratories. Model-B is also TÜV NORD certified for IP55 protection and validated for damp-heat and dry-heat performance."
     },
     {
-      "question": "What types of solar plants is Model-B suitable for — rooftop, ground-mounted, fixed tilt or tracker?",
+      "question": "What types of solar plants is Model-B suitable for, rooftop, ground-mounted, fixed tilt or tracker?",
       "answer": "Model-B is built for fixed-tilt, seasonal-tilt and horizontal single-axis tracker plants. It supports module tilts up to 45° and east–west terrain slopes of up to 15°, making it compatible with most utility-scale, commercial and industrial rooftop, and ground-mounted installations. For dedicated single-axis tracker plants we recommend Model-T; for fully autonomous large utility-scale plants we recommend Model-A."
     },
     {
@@ -182,7 +182,7 @@
     },
     {
       "question": "How many people are needed to operate a Taypro Model-B robot?",
-      "answer": "Just two. The 39 kg optimised weight with factory-fitted ergonomic handles allows a compact two-person site team to lift, place, operate and relocate Model-B across multiple arrays without any forklifts, cranes or heavy lifting equipment. Operators do not require specialised training — the onboard controls are designed for any site personnel."
+      "answer": "Just two. The 39 kg optimised weight with factory-fitted ergonomic handles allows a compact two-person site team to lift, place, operate and relocate Model-B across multiple arrays without any forklifts, cranes or heavy lifting equipment. Operators do not require specialised training, the onboard controls are designed for any site personnel."
     },
     {
       "question": "Does Model-B work in extreme Indian climatic conditions like dust storms, heat and monsoon?",

@@ -798,6 +798,70 @@ export default async function SolarPanelCleaningRobot({
           </Container>
         </section>
 
+        <section className="bg-[#f4f7f9] py-16 sm:py-20">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="text-center mb-10 max-w-3xl mx-auto">
+              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
+                {t("commercialModel.eyebrow")}
+              </p>
+              <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl mb-4">
+                {t("commercialModel.title")}
+              </h2>
+              <p className="text-[#27415c] text-base sm:text-lg leading-relaxed">
+                {t("commercialModel.subtitle")}
+              </p>
+            </AnimateOnScroll>
+            <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {([0, 1, 2, 3, 4] as const).map((i) => (
+                <AnimateOnScroll key={i} animation="fadeInUp" delay={i * 60}>
+                  <li className="list-none h-full rounded-xl border border-gray-200 bg-white p-6">
+                    <span className="text-[#A8C117] text-sm font-semibold">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="text-[#052638] font-semibold text-lg mt-2 mb-2">
+                      {t(`commercialModel.line${i}.title`)}
+                    </h3>
+                    <p className="text-[#27415c] text-sm leading-relaxed">
+                      {t(`commercialModel.line${i}.body`)}
+                    </p>
+                  </li>
+                </AnimateOnScroll>
+              ))}
+            </ol>
+          </Container>
+        </section>
+
+        <section className="bg-white py-14 sm:py-16 border-y border-gray-100">
+          <Container className="max-w-3xl text-center">
+            <AnimateOnScroll animation="fadeInUp">
+              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
+                {t("ippPositioning.eyebrow")}
+              </p>
+              <h2 className="text-[#052638] font-semibold text-2xl sm:text-3xl mb-4">
+                {t("ippPositioning.title")}
+              </h2>
+              <p className="text-[#27415c] text-base sm:text-lg leading-relaxed mb-6">
+                {t("ippPositioning.body")}
+              </p>
+              <p className="text-sm text-[#5a7a8f]">
+                <Link
+                  href="/utility-scale-solar-operations"
+                  className="text-[#5a8f00] font-medium hover:underline underline-offset-4"
+                >
+                  {t("ippPositioning.linkOperations")}
+                </Link>
+                {" · "}
+                <Link
+                  href="/performance-and-test-methodology"
+                  className="text-[#5a8f00] font-medium hover:underline underline-offset-4"
+                >
+                  {t("ippPositioning.linkMethodology")}
+                </Link>
+              </p>
+            </AnimateOnScroll>
+          </Container>
+        </section>
+
         <section className="w-full bg-[#052638] py-16 sm:py-20">
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">

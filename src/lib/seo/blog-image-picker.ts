@@ -196,28 +196,28 @@ function buildAltFromBlog(
 ): string {
   const base = title.replace(/\s+/g, " ").trim();
   if (contextLabel.toLowerCase().includes("project")) {
-    return `${base} — Taypro utility-scale solar cleaning robot deployment in India`;
+    return `${base}, Taypro utility-scale solar cleaning robot deployment in India`;
   }
   if (/glyde-x|glyde x/i.test(contextLabel)) {
-    return `${base} — Taypro GLYDE-X dual-pass tracker solar cleaning robot`;
+    return `${base}, Taypro GLYDE-X dual-pass tracker solar cleaning robot`;
   }
   if (/\bglyde\b/i.test(contextLabel)) {
-    return `${base} — Taypro GLYDE automatic dual-pass solar cleaning robot`;
+    return `${base}, Taypro GLYDE automatic dual-pass solar cleaning robot`;
   }
   if (/nyuma-x|nyuma x/i.test(contextLabel)) {
-    return `${base} — Taypro NYUMA-X PBT tracker solar cleaning robot`;
+    return `${base}, Taypro NYUMA-X PBT tracker solar cleaning robot`;
   }
   if (/\bnyuma\b/i.test(contextLabel)) {
-    return `${base} — Taypro NYUMA automatic PBT solar cleaning robot`;
+    return `${base}, Taypro NYUMA automatic PBT solar cleaning robot`;
   }
   if (/helyx/i.test(contextLabel)) {
-    return `${base} — Taypro HELYX semi-automatic solar cleaning robot`;
+    return `${base}, Taypro HELYX semi-automatic solar cleaning robot`;
   }
   if (/tracker/i.test(contextLabel)) {
-    return `${base} — Taypro solar cleaning robot on single-axis trackers`;
+    return `${base}, Taypro solar cleaning robot on single-axis trackers`;
   }
   if (/opex|service/i.test(contextLabel)) {
-    return `${base} — Taypro robotic solar panel cleaning service at a utility plant`;
+    return `${base}, Taypro robotic solar panel cleaning service at a utility plant`;
   }
-  return `${base} — ${seoKeyword} | Taypro solar cleaning robots`;
+  return `${base}, ${seoKeyword} | Taypro solar cleaning robots`;
 }

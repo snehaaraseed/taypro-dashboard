@@ -27,13 +27,13 @@ function buildModelB(extracted) {
     ModelBPage: {
       meta: {
         title:
-          "Semi-Automatic Solar Panel Cleaning Robot — Taypro Model-B (Pick-and-Place)",
+          "Semi-Automatic Solar Panel Cleaning Robot, Taypro Model-B (Pick-and-Place)",
         description:
-          "Taypro Model-B is a 39 kg pick-and-place, semi-automatic Solar Panel Cleaning Robot. Counter-rotating PBT brushes remove 99%+ dust in a single waterless pass, clean a 1 MW plant in under 2 hours, run up to 3 km on a single charge, TÜV NORD certified — built for fixed-tilt and seasonal-tilt plants.",
+          "Taypro Model-B is a 39 kg pick-and-place, semi-automatic Solar Panel Cleaning Robot. Counter-rotating PBT brushes remove 99%+ dust in a single waterless pass, clean a 1 MW plant in under 2 hours, run up to 3 km on a single charge, TÜV NORD certified, built for fixed-tilt and seasonal-tilt plants.",
         openGraphDescription:
           "Pick-and-place Solar Panel Cleaning Robot. 39 kg, waterless, dual counter-rotating PBT brushes, 99%+ dust removal in a single pass, 3 km per charge, TÜV NORD certified.",
         openGraphImageAlt:
-          "Taypro Semi-Automatic Solar Panel Cleaning Robot Model-B — Pick-and-place type, waterless",
+          "Taypro Semi-Automatic Solar Panel Cleaning Robot Model-B, Pick-and-place type, waterless",
         twitterDescription:
           "39 kg pick-and-place Solar Panel Cleaning Robot. Waterless, dual counter-rotating PBT brushes, 99%+ dust removal per pass, TÜV NORD certified.",
       },
@@ -49,16 +49,16 @@ function buildModelB(extracted) {
         howToName:
           "How to clean solar panels with the Taypro Model-B Semi-Automatic Solar Panel Cleaning Robot",
         howToDescription:
-          "Step-by-step deployment of the Taypro Model-B pick-and-place semi-automatic solar panel cleaning robot — from lifting the robot onto the first row through recharging at the docking station.",
+          "Step-by-step deployment of the Taypro Model-B pick-and-place semi-automatic solar panel cleaning robot, from lifting the robot onto the first row through recharging at the docking station.",
       },
       hero: {
-        title: "Semi-Automatic Solar Panel Cleaning Robot — Model-B",
+        title: "Semi-Automatic Solar Panel Cleaning Robot, Model-B",
         subtitleBefore: "A 39 kg pick-and-place, waterless Solar Panel Cleaning Robot engineered for utility-scale solar power plants. Dual counter-rotating UV-stable PBT brushes lift over",
         subtitleStrong: "99% of dust in a single pass",
         subtitleAfter:
-          ", cleaning a 1 MW block in under 2 hours and running up to 3 km on a single charge — operable by any two-person site team.",
+          ", cleaning a 1 MW block in under 2 hours and running up to 3 km on a single charge, operable by any two-person site team.",
         imgAlt:
-          "Taypro Model-B — Semi-Automatic Solar Panel Cleaning Robot, pick-and-place waterless cleaner for utility-scale solar plants",
+          "Taypro Model-B, Semi-Automatic Solar Panel Cleaning Robot, pick-and-place waterless cleaner for utility-scale solar plants",
         ctaText: "Request a quote",
       },
       usps: toIndexed(extracted.modelBUsps),

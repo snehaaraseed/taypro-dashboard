@@ -128,21 +128,21 @@ function scoreKeywordRow(row: SeoKeywordRow): number {
 function inferSearchIntent(keyword: string): string {
   const k = keyword.toLowerCase();
   if (/cost|price|roi|calculator/.test(k)) {
-    return "Commercial — reader comparing costs/ROI; cite ranges and point to price calculator.";
+    return "Commercial, reader comparing costs/ROI; cite ranges and point to price calculator.";
   }
   if (/vs|compare|brush|manual|sprinkler/.test(k)) {
-    return "Comparison — reader choosing between methods; use pros/cons and utility-scale examples.";
+    return "Comparison, reader choosing between methods; use pros/cons and utility-scale examples.";
   }
   if (/how often|frequency|best way|when to/.test(k)) {
-    return "Informational/decision — scheduling and O&M best practice for MW plants.";
+    return "Informational/decision, scheduling and O&M best practice for MW plants.";
   }
   if (/service|company/.test(k)) {
-    return "Commercial — evaluating vendors/Opex; explain what to look for in robot cleaning partners.";
+    return "Commercial, evaluating vendors/Opex; explain what to look for in robot cleaning partners.";
   }
   if (/equipment|machine|system|robot/.test(k)) {
-    return "Research — understanding equipment options for 5MW+ sites; tie to Taypro models where accurate.";
+    return "Research, understanding equipment options for 5MW+ sites; tie to Taypro models where accurate.";
   }
-  return "Informational — utility operator researching cleaning/soiling; give actionable technical guidance.";
+  return "Informational, utility operator researching cleaning/soiling; give actionable technical guidance.";
 }
 
 /** Pick a high-value unused keyword (volume + low competition + Taypro fit). */
@@ -215,11 +215,11 @@ export function formatSeoPromptBlock(brief: SeoKeywordBrief): string {
         ? "medium"
         : "niche";
 
-  return `SEO TARGET (from Google Keyword Planner — India):
+  return `SEO TARGET (from Google Keyword Planner, India):
 - Primary keyword: "${brief.primary}" (~${brief.volumeBucket}+ avg. monthly searches bucket, ${volumeLabel} volume, competition: ${brief.competition || "n/a"}, index: ${brief.competitionIndex})
 - Search intent: ${brief.searchIntent}
 - Work the primary phrase in: title, meta description, first 100 words, at least one H2, and conclusion.
 - Related terms for H2/H3 and body: ${brief.related.slice(0, 6).join(", ")}
 - Add one FAQ-style H2 (e.g. "How often…", "Is a robot worth it…") if it fits the query.
-- Do NOT keyword-stuff; satisfy the reader's intent first — that is what earns rankings.`;
+- Do NOT keyword-stuff; satisfy the reader's intent first, that is what earns rankings.`;
 }

@@ -12,7 +12,7 @@ const locales = ["hi", "ar", "ja", "bn"];
 /** Localized SEO meta (unique vs GLYDE-X / model-t). */
 const NYUMA_X_META_BY_LOCALE = {
   ar: {
-    title: "روبوت تنظيف ألواح PBT لأجهزة التتبع أحادية المحور — Taypro NYUMA-X",
+    title: "روبوت تنظيف ألواح PBT لأجهزة التتبع أحادية المحور, Taypro NYUMA-X",
     description:
       "Taypro NYUMA-X هو روبوت تنظيف ألواح شمسية بدون ماء بتمريرة واحدة بتقنية PBT، مصمم لمزارع التتبع أحادية المحور. إزالة غبار بنسبة 99%+ لكل دورة، حتى 3600 وحدة لكل شحنة، مرونة ±15°، متوافق مع NEXTracker وGamechanger، بوابة أسطول NECTYR، معتمد من TÜV NORD.",
     openGraphDescription:
@@ -20,8 +20,8 @@ const NYUMA_X_META_BY_LOCALE = {
     openGraphImageAlt: "روبوت Taypro NYUMA-X PBT لتنظيف ألواح التتبع الشمسية",
     twitterDescription:
       "Taypro NYUMA-X: روبوت تتبع بتمريرة واحدة PBT. 3600 وحدة لكل شحنة، بوابة أسطول NECTYR، متوافق مع NEXTracker وGamechanger.",
-    openGraphTitle: "روبوت تنظيف ألواح PBT لأجهزة التتبع أحادية المحور — Taypro NYUMA-X",
-    twitterTitle: "روبوت تنظيف ألواح PBT لأجهزة التتبع أحادية المحور — Taypro NYUMA-X",
+    openGraphTitle: "روبوت تنظيف ألواح PBT لأجهزة التتبع أحادية المحور, Taypro NYUMA-X",
+    twitterTitle: "روبوت تنظيف ألواح PBT لأجهزة التتبع أحادية المحور, Taypro NYUMA-X",
     keywords: [
       "روبوت تنظيف PBT للتتبع الشمسي",
       "روبوت تنظيف تتبع بتمريرة واحدة",
@@ -35,7 +35,7 @@ const NYUMA_X_META_BY_LOCALE = {
     ],
   },
   hi: {
-    title: "PBT ट्रैकर सोलर पैनल सफाई रोबोट — Taypro NYUMA-X",
+    title: "PBT ट्रैकर सोलर पैनल सफाई रोबोट, Taypro NYUMA-X",
     description:
       "Taypro NYUMA-X एकल-अक्ष ट्रैकर खेतों के लिए जल रहित PBT सिंगल-पास सोलर पैनल क्लीनिंग रोबोट है। प्रति रन 99%+ धूल हटाना, प्रति चार्ज 3,600 मॉड्यूल तक, ±15° फ्लेक्स, NEXTracker और Gamechanger संगत, NECTYR फ्लीट पोर्टल, TÜV NORD प्रमाणित।",
     openGraphDescription:
@@ -43,8 +43,8 @@ const NYUMA_X_META_BY_LOCALE = {
     openGraphImageAlt: "Taypro NYUMA-X PBT ट्रैकर सोलर पैनल क्लीनिंग रोबोट",
     twitterDescription:
       "Taypro NYUMA-X: PBT सिंगल-पास ट्रैकर रोबोट। प्रति चार्ज 3,600 मॉड्यूल, NECTYR फ्लीट पोर्टल, NEXTracker और Gamechanger संगत।",
-    openGraphTitle: "PBT ट्रैकर सोलर पैनल सफाई रोबोट — Taypro NYUMA-X",
-    twitterTitle: "PBT ट्रैकर सोलर पैनल सफाई रोबोट — Taypro NYUMA-X",
+    openGraphTitle: "PBT ट्रैकर सोलर पैनल सफाई रोबोट, Taypro NYUMA-X",
+    twitterTitle: "PBT ट्रैकर सोलर पैनल सफाई रोबोट, Taypro NYUMA-X",
     keywords: [
       "PBT ट्रैकर सोलर सफाई रोबोट",
       "सिंगल-पास ट्रैकर सोलर सफाई रोबोट",
@@ -58,7 +58,7 @@ const NYUMA_X_META_BY_LOCALE = {
     ],
   },
   ja: {
-    title: "PBTトラッカー用ソーラーパネル清掃ロボット — Taypro NYUMA-X",
+    title: "PBTトラッカー用ソーラーパネル清掃ロボット, Taypro NYUMA-X",
     description:
       "Taypro NYUMA-X は、単軸トラッカー発電所向けの水を使わない PBT シングルパスソーラーパネル清掃ロボットです。1回の走行で99%以上の塵除去、1充電で最大3,600モジュール、±15°フレックス、NEXTrackerおよびGamechanger互換、NECTYRフリートポータル、TÜV NORD認定。",
     openGraphDescription:
@@ -66,8 +66,8 @@ const NYUMA_X_META_BY_LOCALE = {
     openGraphImageAlt: "Taypro NYUMA-X PBTトラッカーソーラーパネル清掃ロボット",
     twitterDescription:
       "Taypro NYUMA-X：PBTシングルパストラッカーロボット。1充電で3,600モジュール、NECTYRフリートポータル、NEXTrackerおよびGamechanger互換。",
-    openGraphTitle: "PBTトラッカー用ソーラーパネル清掃ロボット — Taypro NYUMA-X",
-    twitterTitle: "PBTトラッカー用ソーラーパネル清掃ロボット — Taypro NYUMA-X",
+    openGraphTitle: "PBTトラッカー用ソーラーパネル清掃ロボット, Taypro NYUMA-X",
+    twitterTitle: "PBTトラッカー用ソーラーパネル清掃ロボット, Taypro NYUMA-X",
     keywords: [
       "PBTトラッカー ソーラー洗浄ロボット",
       "シングルパス トラッカー ソーラー洗浄ロボット",
@@ -81,7 +81,7 @@ const NYUMA_X_META_BY_LOCALE = {
     ],
   },
   bn: {
-    title: "PBT ট্র্যাকার সোলার প্যানেল পরিষ্কারের রোবট — Taypro NYUMA-X",
+    title: "PBT ট্র্যাকার সোলার প্যানেল পরিষ্কারের রোবট, Taypro NYUMA-X",
     description:
       "Taypro NYUMA-X হল একক-অক্ষ ট্র্যাকার খামারের জন্য জলবিহীন PBT সিঙ্গল-পাস সোলার প্যানেল ক্লিনিং রোবট। প্রতি রানে 99%+ ধুলো অপসারণ, প্রতি চার্জে 3,600 মডিউল পর্যন্ত, টেবিলের মধ্যে ±15° ফ্লেক্স, NEXTracker এবং Gamechanger সামঞ্জস্যপূর্ণ, NECTYR ফ্লিট পোর্টাল, TÜV NORD প্রত্যয়িত।",
     openGraphDescription:
@@ -89,8 +89,8 @@ const NYUMA_X_META_BY_LOCALE = {
     openGraphImageAlt: "Taypro NYUMA-X PBT ট্র্যাকার সোলার প্যানেল ক্লিনিং রোবট",
     twitterDescription:
       "Taypro NYUMA-X: PBT সিঙ্গল-পাস ট্র্যাকার রোবট। প্রতি চার্জ 3,600 মডিউল, NECTYR ফ্লিট পোর্টাল, NEXTracker এবং Gamechanger সামঞ্জস্যপূর্ণ।",
-    openGraphTitle: "PBT ট্র্যাকার সোলার প্যানেল পরিষ্কারের রোবট — Taypro NYUMA-X",
-    twitterTitle: "PBT ট্র্যাকার সোলার প্যানেল পরিষ্কারের রোবট — Taypro NYUMA-X",
+    openGraphTitle: "PBT ট্র্যাকার সোলার প্যানেল পরিষ্কারের রোবট, Taypro NYUMA-X",
+    twitterTitle: "PBT ট্র্যাকার সোলার প্যানেল পরিষ্কারের রোবট, Taypro NYUMA-X",
     keywords: [
       "PBT ট্র্যাকার সোলার পরিষ্কার রোবট",
       "সিঙ্গল-পাস ট্র্যাকার সোলার পরিষ্কার রোবট",
@@ -158,7 +158,7 @@ function enToModelTEquivalent(text) {
     .replace(/PBT brush or PBT/gi, "microfiber or PBT")
     .replace(/PBT brush/gi, "microfiber")
     .replace(/100% Waterless single-pass Cleaning/g, "100% Waterless Dual-Pass Cleaning")
-    .replace(/single-pass Cleaning — PBT brush or PBT/g, "Dual-Pass Cleaning — Microfiber or PBT")
+    .replace(/single-pass Cleaning, PBT brush or PBT/g, "Dual-Pass Cleaning, Microfiber or PBT")
     .replace(/single-pass dry cleaning/g, "dual-pass dry cleaning")
     .replace(/waterless single-pass/gi, "waterless dual-pass")
     .replace(/a single-pass cleaning cycle/g, "a dual-pass cleaning cycle")
@@ -266,7 +266,7 @@ function nyumaXFix(text) {
     .replace(/تنظيف مزدوج بدون ماء عبر الصف/g, "تنظيف بتمريرة واحدة بدون ماء عبر الصف")
     .replace(/دورة التنظيف المزدوجة/g, "دورة التنظيف بتمريرة واحدة PBT")
     .replace(/دورة تنظيف مزدوجة المسار/g, "دورة تنظيف بتمريرة واحدة PBT")
-    .replace(/التنظيف المزدوج — ألياف دقيقة أو PBT/g, "التنظيف بتمريرة واحدة PBT — فرشاة PBT")
+    .replace(/التنظيف المزدوج, ألياف دقيقة أو PBT/g, "التنظيف بتمريرة واحدة PBT, فرشاة PBT")
     .replace(/التنظيف المزدوج/g, "التنظيف بتمريرة واحدة PBT")
     .replace(/التنظيف الجاف المزدوج/g, "التنظيف الجاف بتمريرة واحدة PBT")
     .replace(/تنفيذ دورة تنظيف ذات تمرير مزدوج/g, "تنفيذ دورة تنظيف بتمريرة واحدة")

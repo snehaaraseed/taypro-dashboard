@@ -1,10 +1,10 @@
 {
   "NyumaXPage": {
     "meta": {
-      "title": "単軸トラッカー用ソーラーパネル清掃ロボット — Taypro GLYDE-X",
+      "title": "単軸トラッカー用ソーラーパネル清掃ロボット, Taypro GLYDE-X",
       "description": "Taypro GLYDE-X は、単軸トラッカー太陽光発電所専用に構築された、AI および ML を搭載した水を使わない自律型ソーラー パネル クリーニング ロボットです。シングルパスPBT実行ごとに 99% 以上の塵除去、充電ごとに最大 3,600 モジュール、テーブル間で ±15° のフレックス、NEXTracker および Gamechanger 互換 (-52° ～ +52° のモジュール傾斜)、TÜV NORD 認定。",
       "openGraphDescription": "単軸トラッカープラント向けの自律型 AI 搭載ソーラーパネル洗浄ロボット。 1 サイクルあたり 99% 以上の塵除去、1 回の充電で最大 3,600 モジュール、LTE/Wi-Fi/RF メッシュ/LoRa/LoRaWAN 経由の NECTYR、NEXTracker および Gamechanger 互換、TÜV NORD 認定。",
-      "openGraphImageAlt": "Taypro 単軸トラッカー ソーラーパネル清掃ロボット GLYDE-X — AI 搭載、水を使わない",
+      "openGraphImageAlt": "Taypro 単軸トラッカー ソーラーパネル清掃ロボット GLYDE-X, AI 搭載、水を使わない",
       "twitterDescription": "トラッカープラント用の自律型ソーラーパネル洗浄ロボット。 1 回の充電で 3,600 モジュール、LTE/Wi-Fi/RF メッシュ/LoRa/LoRaWAN、NEXTracker および Gamechanger と互換性があります。",
       "keywords": [
         "単軸トラッカー ソーラーパネル洗浄",
@@ -17,8 +17,8 @@
         "トラッカー向け自動ソーラーパネル洗浄システム",
         "Taypro GLYDE-X"
       ],
-      "openGraphTitle": "PBT Tracker Solar Panel Cleaning Robot — Taypro NYUMA-X",
-      "twitterTitle": "PBT Tracker Solar Panel Cleaning Robot — Taypro NYUMA-X"
+      "openGraphTitle": "PBT Tracker Solar Panel Cleaning Robot, Taypro NYUMA-X",
+      "twitterTitle": "PBT Tracker Solar Panel Cleaning Robot, Taypro NYUMA-X"
     },
     "breadcrumbs": {
       "robots": "ソーラーパネル清掃ロボット",
@@ -32,7 +32,7 @@
       "howToDescription": "単軸トラッカー設置用の Taypro GLYDE-X ソーラー パネル清掃ロボットの段階的な自律清掃サイクル - AI によるスケジュールされた展開からセルフドッキングとクラウド テレメトリ同期まで。"
     },
     "hero": {
-      "title": "単軸トラッカー用ソーラーパネル清掃ロボット — GLYDE-X",
+      "title": "単軸トラッカー用ソーラーパネル清掃ロボット, GLYDE-X",
       "subtitleBefore": "AI および ML を活用した、水を使わない自律型ソーラー パネル クリーニング ロボットは、単軸トラッカー太陽光発電所専用に設計されています。 1 回の充電で最大 3,600 個のモジュールをクリーニングします。",
       "subtitleStrong": "テーブル間で±15°屈曲",
       "subtitleAfter": "、-52°から+52°までのモジュールの傾斜をサポートし、NEXTracker、Gamechanger、および同等のトラッカーと互換性があります。",
@@ -87,7 +87,7 @@
         "body": "オンボードセンサーはモジュールの端、表面の障害物、テーブル間の角度の変化を継続的に検出します。ロボットが経路や表面の起伏を追跡する際に、モーターのパフォーマンスがリアルタイムで調整されるため、一貫した洗浄品質が維持され、偶発的な落下が防止されます。"
       },
       "3": {
-        "title": "シングルパスPBT クリーニング — PBTブラシまたは PBT",
+        "title": "シングルパスPBT クリーニング, PBTブラシまたは PBT",
         "body": "シングルパスPBTクリーニングサイクルにより、モジュール表面から蓄積された塵の 99% 以上を除去します。洗浄材は、プラントの場所に応じて、回転PBTブラシ (細かい粉塵の多い地域に最適) または UV 安定性 PBT ブラシ (粒子の多い砂や乾燥した場所に最適) のいずれかを指定できます。"
       },
       "4": {
@@ -278,9 +278,9 @@
       "p1Mid": "。ロボットが取り除きます",
       "p1DustStrong": "1 回の自動運転で 99% の粉塵を除去",
       "p1AfterDust": "までカバーします。",
-      "p1RangeStrong": "1 回の充電で 2.2 km — 約 3,600 モジュール —",
+      "p1RangeStrong": "1 回の充電で 2.2 km, 約 3,600 モジュール, ",
       "p1AfterRange": "。清掃はエネルギー生産時間後にスケジュールするのが最適で、NECTYR リモート監視アプリを通じてエンドツーエンドで管理されます。サポートされているフリート リンクは次のとおりです。",
-      "p1ConnectivitySuffix": "— カバレッジと帯域幅のニーズ (サイト依存) に基づいて、ブロックごとに最適なパスを選択します。",
+      "p1ConnectivitySuffix": ", カバレッジと帯域幅のニーズ (サイト依存) に基づいて、ブロックごとに最適なパスを選択します。",
       "p2Before": "と互換性があります",
       "p2NexStrong": "BR0トークン",
       "p2And": "そして",
@@ -311,7 +311,7 @@
       "tourTitle": "GLYDE-Xの360°ビュー",
       "tourSubtitleMobile": "左右にドラッグして回転させ、当社の単軸トラッカー ソーラー パネル クリーニング ロボットをあらゆる角度から探索してください。",
       "tourSubtitleDesktop": "左または右にドラッグして回転し、単軸トラッカー ソーラー パネル クリーニング ロボットを探索します。",
-      "productLabel": "Taypro GLYDE-X — 単軸トラッカー用ソーラーパネル清掃ロボット",
+      "productLabel": "Taypro GLYDE-X, 単軸トラッカー用ソーラーパネル清掃ロボット",
       "innovationTitle": "MODEL-Tの背後にあるイノベーション",
       "innovationBody": "Taypro GLYDE-X は、単軸トラッカー設置におけるソーラー パネルのメンテナンスの課題に対処するために細心の注意を払って設計された最先端技術の相乗効果を表しています。高度なセンサーと機械学習機能を活用した GLYDE-X は、人間の介入を一切必要としない真の自律的な動作を実現します。クラウドベースの管理システムにより、リモート監視と制御が可能になり、いつでもどこからでも最適なパフォーマンスを確保できます。"
     },
@@ -386,13 +386,13 @@
       "modelT": "BR1トークン BR0トークン",
       "row0": {
         "criterion": "掃除の頻度",
-        "manual": "毎週または隔週 — トラッカーの生産スケジュールと労働時間枠によって制限されます",
+        "manual": "毎週または隔週, トラッカーの生産スケジュールと労働時間枠によって制限されます",
         "modelT": "毎日の自律サイクル、天候を認識した AI スケジューリング"
       },
       "row1": {
         "criterion": "水の使用量",
         "manual": "洗浄ごとにモジュールごとに 1.5 ～ 3 リットルの水、およびタンカー物流",
-        "modelT": "ゼロ — 完全に水を使わないシングルパスPBTドライクリーニング"
+        "modelT": "ゼロ, 完全に水を使わないシングルパスPBTドライクリーニング"
       },
       "row2": {
         "criterion": "トラッカーの動きの互換性",
@@ -450,7 +450,7 @@
       "row3": {
         "criterion": "クリーニング機構",
         "modelT": "水なしシングルパスPBT - PBTブラシまたは PBT ブラシ",
-        "modelA": "水なしシングルパスPBT — セルフクリーニングPBTブラシドラム"
+        "modelA": "水なしシングルパスPBT, セルフクリーニングPBTブラシドラム"
       },
       "row4": {
         "criterion": "1充電あたりの航続距離",
@@ -460,7 +460,7 @@
       "row5": {
         "criterion": "動作重量",
         "modelT": "25kg（最もコンパクト）",
-        "modelA": "より重い — 固定傾斜ユーティリティスケール向けに設計"
+        "modelA": "より重い, 固定傾斜ユーティリティスケール向けに設計"
       },
       "row6": {
         "criterion": "クリーニングモード",
@@ -481,7 +481,7 @@
     "indianConditions": {
       "eyebrow": "インドの状況に合わせて設計",
       "title": "インドの単軸トラッカープラント向けに構築",
-      "subtitle": "ラジャスタンの砂嵐、グジャラートの暑さ、カルナータカ州の湿気、タミル・ナドゥ州のモンスーン — Taypro GLYDE-X は、一般的な西側の現場条件ではなく、インドの大規模トラッカー O&M の現実に合わせて設計、テスト、導入されています。",
+      "subtitle": "ラジャスタンの砂嵐、グジャラートの暑さ、カルナータカ州の湿気、タミル・ナドゥ州のモンスーン, Taypro GLYDE-X は、一般的な西側の現場条件ではなく、インドの大規模トラッカー O&M の現実に合わせて設計、テスト、導入されています。",
       "card0Title": "汚れの多いトラッカー地域向けに設計",
       "card0Body": "毎日の自律清掃は、ラジャスタン州、グジャラート州、マディヤ プラデーシュ州、マハラシュトラ州のトラッカー工場の 8 ～ 25% の汚れ損失を中和する唯一の経済的な方法です。まさに NEXTracker と Gamechanger のほとんどの施設が設置されている場所です。",
       "card1Title": "温度と湿度の耐性",
@@ -509,7 +509,7 @@
       "title": "Tracker cleaning robot cost & ROI",
       "bodyBeforeSpan": "Model ",
       "bodySpan": "single-axis tracker solar panel cleaning",
-      "bodyAfterSpan": " economics for your site—use the calculator before a NYUMA-X quote."
+      "bodyAfterSpan": " economics for your site, use the calculator before a NYUMA-X quote."
     },
     "shared": {
       "connectivitySummary": "LTE、Wi-Fi、ハイブリッド自己修復RFメッシュ、LoRa、LoRaWAN"

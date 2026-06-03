@@ -124,7 +124,7 @@ export default async function TayproConsolePage({
                 </div>
                 <div>
                   {t("intro.p2Before")}{" "}
-                  <strong>{t("intro.p2Strong")}</strong> — multi-site
+                  <strong>{t("intro.p2Strong")}</strong>, multi-site
                   portfolios, multi-block plants, and mixed fleets of{" "}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"

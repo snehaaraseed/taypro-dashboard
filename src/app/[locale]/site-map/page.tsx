@@ -180,6 +180,15 @@ export default async function SiteMapPage({
               </li>
               <li>
                 <Link
+                  href="/utility-scale-solar-operations"
+                  title={l("utilityOperationsTitle")}
+                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                >
+                  {l("utilityOperationsLabel")}
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/projects"
                   title={l("projectsTitle")}
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"

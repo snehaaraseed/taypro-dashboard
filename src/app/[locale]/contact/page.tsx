@@ -87,6 +87,7 @@ export default function ContactUsPage() {
     t("tips.tip1"),
     t("tips.tip2"),
     t("tips.tip3"),
+    t("tips.tip4"),
   ];
 
   const contactFaqs = [
@@ -298,11 +299,13 @@ export default function ContactUsPage() {
                   </Link>
                 </div>
 
-                <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {enquiryTips.map((tip) => (
+                <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+                  {enquiryTips.map((tip, index) => (
                     <li
                       key={tip}
-                      className="flex gap-3 rounded-lg border border-white/10 bg-white/5 p-4 md:p-5"
+                      className={`flex gap-3 rounded-lg border border-white/10 bg-white/5 p-4 md:p-5 ${
+                        index < 3 ? "lg:col-span-2" : "lg:col-span-3"
+                      }`}
                     >
                       <span className="text-[#A8C117] font-bold shrink-0" aria-hidden>
                         •

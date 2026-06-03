@@ -1,3 +1,4 @@
+import { utilityOperationsPack } from "./utility-operations.mjs";
 import { homePack } from "./home.mjs";
 import { contactPack } from "./contact.mjs";
 import { siteMapPack } from "./site-map.mjs";
@@ -19,6 +20,7 @@ import { tayproConsolePack } from "./taypro-console.mjs";
 
 /** @type {{ slug: string; pack: object }[]} */
 export const pagePacks = [
+  { slug: "utility-operations", pack: utilityOperationsPack },
   { slug: "home", pack: homePack },
   { slug: "contact", pack: contactPack },
   { slug: "site-map", pack: siteMapPack },

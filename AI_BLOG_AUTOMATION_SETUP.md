@@ -152,22 +152,37 @@ Expected response:
 
 ### Test Uniqueness
 
-The system prevents duplicate topics by:
-- Checking against `data/published-topics.json`
-- Using similarity matching (85% threshold)
-- Retrying up to 5 times if duplicates found
+The system prevents duplicate topics and near-duplicate drafts by:
+- Tracking automation history in SQLite `published_topics` (title, slug, SEO keyword, H2 outline, content fingerprint)
+- Cross-checking all English CMS blogs (drafts included)
+- Title/slug overlap, meta description similarity, H2 outline overlap, keyword similarity, and content fingerprint match
+- Retrying up to 3 times when content is too generic or too similar
+
+**Backfill topic metadata from existing blogs:**
+```bash
+node scripts/sync-published-topics.mjs
+```
+
+Optional tuning via environment variables:
+- `BLOG_SIMILARITY_THRESHOLD` (default `0.52`)
+- `BLOG_H2_OVERLAP_THRESHOLD` (default `0.60`)
 
 ## File Structure
 
 ```
 taypro-dashboard/
 ├── data/
-│   └── published-topics.json          # Tracks all published topics
+│   └── cms.sqlite                     # published_topics + blogs tables
+├── scripts/
+│   └── sync-published-topics.mjs      # Backfill topic tracking metadata
 ├── src/
 │   ├── lib/
 │   │   ├── aiService.ts               # Gemini API integration
+│   │   ├── cms/topicService.ts        # published_topics tracking
+│   │   ├── seo/blog-similarity.ts     # H2/fingerprint/keyword similarity
+│   │   ├── seo/blog-uniqueness.ts     # Pre-save duplicate gate
 │   │   ├── topicCategories.ts         # Predefined topic categories
-│   │   ├── topicTracker.ts            # File-based topic tracking
+│   │   ├── topicTracker.ts            # Re-exports topicService
 │   │   └── productKnowledge.ts        # Product specs (prevents hallucinations)
 │   └── app/
 │       └── api/
@@ -213,9 +228,9 @@ Edit `src/lib/productKnowledge.ts` to:
 
 ### Duplicate Topics
 
-- System automatically retries if duplicates found
-- Check `data/published-topics.json` to see all published topics
-- Manually edit if needed
+- System automatically retries if duplicates or near-duplicates are detected
+- Inspect `published_topics` in `data/cms.sqlite` or run `node scripts/sync-published-topics.mjs`
+- Lower `BLOG_SIMILARITY_THRESHOLD` if legitimate posts are rejected too often
 
 ### Content Quality Issues
 
@@ -241,6 +256,6 @@ Edit `src/lib/productKnowledge.ts` to:
 
 For issues or questions:
 1. Check server logs
-2. Review `data/published-topics.json`
+2. Review `published_topics` in `data/cms.sqlite`
 3. Test endpoint manually
 4. Verify environment variables

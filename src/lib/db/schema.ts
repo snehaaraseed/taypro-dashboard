@@ -63,6 +63,8 @@ export const publishedTopics = sqliteTable("published_topics", {
   slug: text("slug").notNull(),
   publishDate: text("publish_date").notNull(),
   category: text("category"),
+  h2Outline: text("h2_outline"),
+  contentFingerprint: text("content_fingerprint"),
   createdAt: text("created_at").notNull(),
 });
 

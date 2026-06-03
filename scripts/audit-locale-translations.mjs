@@ -24,7 +24,7 @@ const SKIP_PAGES = new Set([
 
 const INTENTIONAL_EN = [
   /^https?:\/\//i,
-  /^[+\d\s.,₹$€£%°–—\-:(){}[\]/\\]+$/,
+  /^[+\d\s.,₹$€£%°–, \-:(){}[\]/\\]+$/,
   /^(Taypro|GLYDE|HELYX|NYUMA|NECTYR|MINY|CRADYL|TÜV NORD|Taypro Opex|Taypro OPEX)$/i,
   /^LTE|Wi-Fi|LoRa|LoRaWAN|RF mesh|CAPEX|Opex$/i,
   /^MW$|^kW$|^kWh$|^Wp$|^IP\d+$/i,
@@ -151,7 +151,7 @@ function auditPages() {
       const enPath = join(enDir, file);
       const locPath = join(root, "messages/pages", loc, file);
       if (!existsSync(locPath)) {
-        console.log(`| ${loc} | ${file} | — | — | — | — | FILE MISSING |`);
+        console.log(`| ${loc} | ${file} |, |, |, |, | FILE MISSING |`);
         continue;
       }
       const r = auditFile(enPath, locPath, loc);
@@ -232,7 +232,7 @@ function levenshteinRatio(a, b) {
 }
 
 function printWorstSamples(byLocale) {
-  console.log("\n# Worst offenders — sample untranslated strings (hi)\n");
+  console.log("\n# Worst offenders, sample untranslated strings (hi)\n");
   const hi = byLocale.hi;
   for (const { file, samples, counts } of hi.files.slice(0, 6)) {
     console.log(`\n### ${file} (${counts.identical_en} identical, ${counts.english_like} english-like)`);

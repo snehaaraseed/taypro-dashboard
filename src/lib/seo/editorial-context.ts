@@ -1,6 +1,7 @@
 import "server-only";
 
 import { listAllBlogs } from "@/lib/cms/blogService";
+import { readPublishedTopics } from "@/lib/cms/topicService";
 import { SOURCE_LOCALE } from "@/lib/translation/config";
 import {
   getUsedSeoKeywords,
@@ -8,7 +9,13 @@ import {
 } from "@/lib/seo/keyword-stats";
 
 const RECENT_POST_LIMIT = 15;
+const AUTOMATION_HISTORY_LIMIT = 40;
 const USED_KEYWORD_LIMIT = 20;
+
+function parseAutomationSeoKeyword(category?: string): string | null {
+  const match = (category ?? "").match(/seo:([^|]+)/i);
+  return match?.[1]?.trim() ?? null;
+}
 
 /**
  * Core editorial rules (aligned with docs/SEO-STRATEGY.md §2–3).
@@ -16,7 +23,7 @@ const USED_KEYWORD_LIMIT = 20;
  */
 const STRATEGY_CORE = `EDITORIAL STRATEGY (Taypro India):
 - Audience: Utility-scale solar asset owners, EPC teams, and O&M managers (MW-scale plants). Not residential DIY or generic "solar panels" shoppers.
-- Business: Taypro sells autonomous waterless solar panel cleaning robots and plant O&M solutions — NOT PV modules or panel resale.
+- Business: Taypro sells autonomous waterless solar panel cleaning robots and plant O&M solutions, NOT PV modules or panel resale.
 - Blog role (Tier B): Support money pages with comparisons, how-to, soiling/PR, brush vs robot, cleaning frequency, equipment guides. Do not write another generic homepage or hub page.
 - Money pages to reference naturally (suggest 2–3 internal links using these paths only):
   /solar-panel-cleaning-system
@@ -26,7 +33,7 @@ const STRATEGY_CORE = `EDITORIAL STRATEGY (Taypro India):
   /cleaning-technology
 - Content gaps to prioritize when they fit the target keyword: robot vs manual brush TCO, cleaning frequency for utility plants, dust/soiling and performance ratio, waterless/automatic systems at scale, India utility case angles.
 - Do NOT target as primary focus: generic "solar panels", panel price, module manufacturers, US/AU city names, student/project PDF intent.
-- Ranking goal: each post should be link-worthy for operators — specific enough to rank for long-tail queries and support Tier A pages with internal links.`;
+- Ranking goal: each post should be link-worthy for operators, specific enough to rank for long-tail queries and support Tier A pages with internal links.`;
 
 const TIER_B_ANGLES = [
   "robot vs brush / manual cleaning TCO",
@@ -42,13 +49,28 @@ const TIER_B_ANGLES = [
  */
 export async function formatEditorialContextPrompt(): Promise<string> {
   const allPosts = await listAllBlogs(true, SOURCE_LOCALE);
-  const recent = allPosts.slice(0, RECENT_POST_LIMIT);
+  const automationHistory = (await readPublishedTopics()).slice(
+    0,
+    AUTOMATION_HISTORY_LIMIT
+  );
+  const automationTitleSet = new Set(
+    automationHistory.map((t) => t.title.toLowerCase().trim())
+  );
+  const recent = allPosts
+    .filter((p) => !automationTitleSet.has(p.title.toLowerCase().trim()))
+    .slice(0, RECENT_POST_LIMIT);
   const publishedCount = allPosts.filter((p) => p.published !== false).length;
   const draftCount = allPosts.length - publishedCount;
 
-  const usedKeywords = [...(await getUsedSeoKeywords())].sort();
-  const allKeywordRows = loadSeoKeywordRows();
-  const remaining = allKeywordRows.length - usedKeywords.length;
+  const automationLines =
+    automationHistory.length > 0
+      ? automationHistory.map((t) => {
+          const kw = parseAutomationSeoKeyword(t.category);
+          return kw
+            ? `  - ${t.title} (seo: ${kw})`
+            : `  - ${t.title}`;
+        })
+      : ["  - (none from automation yet)"];
 
   const recentLines =
     recent.length > 0
@@ -57,6 +79,10 @@ export async function formatEditorialContextPrompt(): Promise<string> {
           return `  - [${status}] ${p.title}`;
         })
       : ["  - (none yet)"];
+
+  const usedKeywords = [...(await getUsedSeoKeywords())].sort();
+  const allKeywordRows = loadSeoKeywordRows();
+  const remaining = allKeywordRows.length - usedKeywords.length;
 
   const usedLines =
     usedKeywords.length > 0
@@ -76,7 +102,9 @@ export async function formatEditorialContextPrompt(): Promise<string> {
 
 CONTENT PROGRAM (do not repeat these topics or angles):
 - English posts in CMS: ${allPosts.length} total (${publishedCount} published, ${draftCount} drafts).
-- Last ${recent.length} posts (newest first):
+- Automation history (last ${automationHistory.length} generated topics, do not repeat):
+${automationLines.join("\n")}
+- Last ${recent.length} CMS posts not listed above (newest first):
 ${recentLines.join("\n")}
 
 SEO KEYWORDS already used by automation (${usedKeywords.length} of ${allKeywordRows.length}; ${remaining} still in queue):

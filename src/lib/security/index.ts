@@ -10,7 +10,7 @@ export function safeCompareSecret(provided: string, expected: string): boolean {
 }
 
 /**
- * Cron / automation endpoints — require `Authorization: Bearer <secret>` or
+ * Cron / automation endpoints, require `Authorization: Bearer <secret>` or
  * `x-automation-secret: <secret>` matching AUTOMATION_CRON_SECRET.
  */
 export function isAutomationAuthorized(request: NextRequest): boolean {

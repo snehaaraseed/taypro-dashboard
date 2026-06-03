@@ -6,8 +6,9 @@ import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import {
   robotProducts,
   robotSolutions,
-  tayproTrustedByStatsStrip,
+  tayproHomeStatsStrip,
 } from "@/app/data";
+import HomePlatformSection from "./HomePlatformSection";
 import { RobotCard } from "@/app/components/RobotCard";
 import { Container } from "@/app/components/Container";
 import {
@@ -31,7 +32,7 @@ const HERO_POSTER = "/tayproasset/taypro-robotFeature.jpg";
 
 const FEATURE_COUNT = 4;
 const OTHER_FEATURE_COUNT = 4;
-const FAQ_COUNT = 5;
+const FAQ_COUNT = 7;
 const STAT_COUNT = 4;
 
 function buildTranslatedFeatures(
@@ -86,7 +87,7 @@ export default async function HomePage() {
     };
   });
 
-  const stats = tayproTrustedByStatsStrip.map((stat, i) => ({
+  const stats = tayproHomeStatsStrip.map((stat, i) => ({
     value: stat.value,
     label: t(`stats.stat${i}.label`),
   }));
@@ -141,19 +142,34 @@ export default async function HomePage() {
                   {t("hero.eyebrow")}
                 </p>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
-                  {t("hero.titleBefore")}{" "}
-                  <span className="text-[#A8C117]">{t("hero.titleHighlight")}</span>{" "}
-                  {t("hero.titleAfter")}
+                  {t("hero.titleLine1")}{" "}
+                  <span className="text-[#A8C117]">{t("hero.titleHighlight")}</span>
+                  {t("hero.titleLine2") ? (
+                    <>
+                      {" "}
+                      {t("hero.titleLine2")}
+                    </>
+                  ) : null}
                 </h1>
                 <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl">
+                  {t("hero.lead")}
+                </p>
+                <p className="text-sm text-gray-400 leading-relaxed max-w-xl">
                   {t("hero.bodyBeforeProjects")}{" "}
                   <Link
                     href="/projects"
                     className="text-[#A8C117] font-medium hover:underline"
                   >
                     {t("hero.bodyProjectsLink")}
-                  </Link>{" "}
-                  {t("hero.bodyBetweenLinks")}{" "}
+                  </Link>
+                  {t("hero.bodyAfterProjects")}{" "}
+                  <Link
+                    href="/utility-scale-solar-operations"
+                    className="text-[#A8C117] font-medium hover:underline"
+                  >
+                    {t("hero.bodyUtilityOpsLink")}
+                  </Link>
+                  {t("hero.bodyBeforeBlog")}{" "}
                   <Link href="/blog" className="text-[#A8C117] font-medium hover:underline">
                     {t("hero.bodyBlogLink")}
                   </Link>
@@ -184,6 +200,8 @@ export default async function HomePage() {
             </div>
           </Container>
         </section>
+
+        <HomePlatformSection />
 
         <section
           className="py-14 md:py-20 bg-white"

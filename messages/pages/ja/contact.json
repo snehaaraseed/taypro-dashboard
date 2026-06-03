@@ -13,11 +13,11 @@
     },
     "hero": {
       "eyebrow": "チームに相談",
-      "titleLine1": "Tayproにお問い合わせ —",
+      "titleLine1": "Tayproにお問い合わせ, ",
       "titleLine2": "ソーラーパネル洗浄ロボット",
       "bodyBeforeLink": "見積依頼、技術打合せ、Chakan製造拠点の見学をご予約ください。開発者、IPP、O&Mチームに",
       "bodyLink": "GLYDE、HELYX、GLYDE-X",
-      "bodyAfterLink": "ロボット — およびTaypro OpexやNECTYR — を発電所レイアウトと調達モデルに合わせます。"
+      "bodyAfterLink": "ロボット, およびTaypro OpexやNECTYR, を発電所レイアウトと調達モデルに合わせます。"
     },
     "main": {
       "heading": "アプリケーションチームへ",
@@ -40,7 +40,7 @@
       "eyebrow": "見積依頼",
       "title": "ソーラー発電所について",
       "submit": "お問い合わせを送信",
-      "thankYouTitle": "ありがとうございます — お問い合わせを受け付けました",
+      "thankYouTitle": "ありがとうございます, お問い合わせを受け付けました",
       "thankYouMessage": "アプリケーションチームが1営業日以内にご連絡します。"
     },
     "tips": {
@@ -51,11 +51,12 @@
       "tip2": "汚損プロファイル、水の可否、現在の清掃方法",
       "tip3": "CAPEX購入かTaypro Opexマネージドサービスを検討しているか",
       "viewProjects": "プロジェクトを見る",
-      "aboutTaypro": "Tayproについて"
+      "aboutTaypro": "Tayproについて",
+      "tip4": "パートナー・投資家の方はメッセージに「Partners & investors」と記載ください"
     },
     "locations": {
       "heading": "Puneの拠点",
-      "intro": "本社はPimpri、ロボット製造はChakan — いずれもPune地域。下の地図またはGoogle Mapsで案内をご確認ください。",
+      "intro": "本社はPimpri、ロボット製造はChakan, いずれもPune地域。下の地図またはGoogle Mapsで案内をご確認ください。",
       "hqTitle": "本社",
       "hqAddress": "T3-906, Kohinoor World Towers, Pimpri Colony, Pune, Maharashtra, India 411019",
       "hqMaps": "Google Mapsで本社を開く",
@@ -73,9 +74,9 @@
       "q1": "正確なロボット推奨に役立つ情報は？",
       "a1": "ブロックレイアウト、行長の目安、トラッカーブランド（該当時）、清掃頻度、水・労務の制約を共有ください。写真・単線図・O&M報告書があると早いです。ROI計算機から始めて結果をお持ちいただいても構いません。",
       "q2": "開発者やEPCはChakan工場を見学できますか？",
-      "a2": "はい — Chakan, Pune拠点で予約制の見学・工場ツアーが可能です。希望日と参加者（設計・調達・O&M）をお知らせください。",
+      "a2": "はい, Chakan, Pune拠点で予約制の見学・工場ツアーが可能です。希望日と参加者（設計・調達・O&M）をお知らせください。",
       "q3": "TayproはMaharashtra以外の発電所もサポートしますか？",
-      "a3": "Tayproはインド全国でロボットを展開・サービスします。製造はChakan, Pune、全国倉庫でスペア・試運転・現場対応 — Rajasthan、Karnataka、Gujaratなどどこでも。"
+      "a3": "Tayproはインド全国でロボットを展開・サービスします。製造はChakan, Pune、全国倉庫でスペア・試運転・現場対応, Rajasthan、Karnataka、Gujaratなどどこでも。"
     }
   },
   "Forms": {
@@ -93,7 +94,7 @@
     "submitting": "送信中…",
     "requiredError": "必須項目を入力してください",
     "genericError": "問題が発生しました。もう一度お試しください。",
-    "thankYouDefaultTitle": "ありがとうございます — リクエストを受け付けました。",
+    "thankYouDefaultTitle": "ありがとうございます, リクエストを受け付けました。",
     "thankYouDefaultMessage": "アプリケーションチームが最適なソーラーパネル洗浄ロボットをご提案します。引き続きサイトをご覧ください。",
     "sendAnother": "別のリクエストを送信"
   },

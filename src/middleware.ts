@@ -13,7 +13,7 @@ import { verifyToken } from "./app/utils/jwt";
 const COOKIE_NAME = "admin-auth";
 const handleI18nRouting = createIntlMiddleware(routing);
 
-/** Paths served from /public — must not be locale-prefixed by next-intl. */
+/** Paths served from /public, must not be locale-prefixed by next-intl. */
 const PUBLIC_ASSET_ROOTS = [
   "360-degree-images",
   "tayproasset",

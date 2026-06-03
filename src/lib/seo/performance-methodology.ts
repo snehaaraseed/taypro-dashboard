@@ -5,12 +5,12 @@ export const PERFORMANCE_METHODOLOGY_PATH =
 export const PERFORMANCE_METHODOLOGY_TITLE =
   "Performance & Test Methodology";
 
-/** Default site description — aligned with homepage; no “Best” or unqualified efficiency %. */
+/** Default site description, aligned with homepage; no “Best” or unqualified efficiency %. */
 export const ROOT_DEFAULT_DESCRIPTION =
-  "Waterless solar panel cleaning robots for utility-scale plants in India. Dual-pass dry cleaning, fleet monitoring, nationwide Taypro support—auto & semi-auto.";
+  "Waterless solar panel cleaning robots for utility-scale plants in India. Dual-pass dry cleaning, fleet monitoring, nationwide Taypro support, auto & semi-auto.";
 
 export const ROOT_DEFAULT_OG_DESCRIPTION =
-  "Autonomous waterless solar panel cleaning robots for utility-scale plants in India—dual-pass dry cleaning, NECTYR fleet monitoring, and pan-India service.";
+  "Autonomous waterless solar panel cleaning robots for utility-scale plants in India, dual-pass dry cleaning, NECTYR fleet monitoring, and pan-India service.";
 
 export const ROOT_DEFAULT_TWITTER_DESCRIPTION =
   "Autonomous and semi-automatic waterless solar panel cleaning robots for utility-scale solar farms in India.";

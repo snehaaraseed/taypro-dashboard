@@ -1,13 +1,13 @@
 {
   "OrionPage": {
     "meta": {
-      "title": "ORION — Solar Plant Intelligence Platform (Coming Soon) | Taypro",
-      "description": "ORION is Taypro's upcoming SaaS for solar plant health monitoring — trained on generation and operational data, with optional field signals from Taypro cleaning robots. Register for early access and pilot programmes.",
-      "openGraphTitle": "ORION — Solar Plant Intelligence Platform | Taypro",
+      "title": "ORION, Solar Plant Intelligence Platform (Coming Soon) | Taypro",
+      "description": "ORION is Taypro's upcoming SaaS for solar plant health monitoring, trained on generation and operational data, with optional field signals from Taypro cleaning robots. Register for early access and pilot programmes.",
+      "openGraphTitle": "ORION, Solar Plant Intelligence Platform | Taypro",
       "openGraphDescription": "Coming soon: generation-aware plant health monitoring that complements SCADA and connects to Taypro's robotic field presence.",
-      "openGraphImageAlt": "ORION — Taypro solar plant intelligence and health monitoring platform",
+      "openGraphImageAlt": "ORION, Taypro solar plant intelligence and health monitoring platform",
       "twitterTitle": "ORION Plant Intelligence | Taypro",
-      "twitterDescription": "Solar plant health monitoring SaaS — generation-trained insights plus Taypro robot field data. Coming soon.",
+      "twitterDescription": "Solar plant health monitoring SaaS, generation-trained insights plus Taypro robot field data. Coming soon.",
       "keywords": [
         "solar plant monitoring software",
         "solar asset management platform",
@@ -21,42 +21,55 @@
     },
     "breadcrumbs": {
       "robots": "Solar solutions",
-      "current": "ORION — Plant Intelligence"
+      "current": "ORION, Plant Intelligence"
     },
     "schema": {
-      "productName": "ORION — Solar Plant Intelligence Platform",
-      "productDescription": "ORION is Taypro's upcoming cloud platform for solar plant health monitoring — combining generation and operational data with optional field context from Taypro cleaning robots on site.",
-      "offersPrice": "Coming soon — contact for early access"
+      "productName": "ORION, Solar Plant Intelligence Platform",
+      "productDescription": "ORION is Taypro's upcoming cloud platform for solar plant health monitoring, combining generation and operational data with optional field context from Taypro cleaning robots on site.",
+      "offersPrice": "Coming soon, contact for early access"
     },
     "hero": {
       "comingSoonBadge": "Coming soon",
-      "title": "ORION — Solar Plant Intelligence Platform",
-      "subtitle": "A generation-aware health layer for utility solar — built to turn inverter and plant data into actionable O&M signals, enriched by Taypro's unique presence on every row through robotic cleaning fleets.",
-      "imgAlt": "ORION — Taypro solar plant intelligence and health monitoring dashboard",
+      "title": "ORION, Solar Plant Intelligence Platform",
+      "subtitle": "A generation-aware health layer for utility solar, built to turn inverter and plant data into actionable O&M signals, enriched by Taypro's unique presence on every row through robotic cleaning fleets.",
+      "imgAlt": "ORION, Taypro solar plant intelligence and health monitoring dashboard",
       "ctaText": "Register interest"
     },
     "intro": {
       "eyebrow": "Beyond fleet software",
       "title": "Plant health intelligence that learns from how your plant actually performs",
-      "p1": "Most monitoring stops at alarms. ORION is designed to interpret what your generation curves are already saying — performance ratio drift, weather-normalised shortfalls, block-level divergence, and the economic impact in terms your asset team can act on. It complements your existing SCADA and work-management stack; it does not replace them.",
-      "p2": "Where Taypro robots already clean your site, ORION can fuse scheduled row coverage, fleet telemetry, and optional on-route field capture into the same health model — a data loop competitors cannot replicate without robots on the ground. Pilot programmes are opening for select utility and IPP partners under NDA."
+      "p1": "Most monitoring stops at alarms. ORION is designed to interpret what your generation curves are already saying, performance ratio drift, weather-normalised shortfalls, block-level divergence, and the economic impact in terms your asset team can act on. It complements your existing SCADA and work-management stack; it does not replace them.",
+      "p2": "Where Taypro robots already clean your site, ORION can fuse scheduled row coverage, fleet telemetry, and optional on-route field capture into the same health model, a data loop competitors cannot replicate without robots on the ground. Pilot programmes are opening for select utility and IPP partners under NDA."
+    },
+    "healthKit": {
+      "eyebrow": "In development",
+      "title": "Plant health monitoring package",
+      "body": "ORION is designed as the intelligence layer on a full plant health stack, not cleaning alone. Field accessories in development include thermal hotspot detection and dust/soiling level sensing, with data feeding NECTYR and ORION alongside robot traverse telemetry.",
+      "item0": "Thermal hotspot detection accessories (in development)",
+      "item1": "Dust and soiling level sensing at plant scale (in development)",
+      "item2": "Unified data layer with robot coverage and SCADA context"
+    },
+    "renewalAttach": {
+      "eyebrow": "For existing Taypro fleets",
+      "title": "Designed to attach at AMC renewal",
+      "body": "ORION is built for plants that already run Taypro robots and NECTYR, not cold-start software sales. Early access and pilots prioritise fleets where cleaning cycles, service history, and labelled telemetry already exist on rails Taypro operates."
     },
     "highlightsSection": {
       "eyebrow": "What to expect",
-      "title": "Capabilities designed to impress operators — without publishing our playbook"
+      "title": "Capabilities designed to impress operators, without publishing our playbook"
     },
     "highlights": {
       "0": {
         "title": "Generation-native baselines",
-        "body": "Continuous learning from plant generation history to surface PR deviation, soiling loss indicators, and degradation trends — with weather and seasonality factored in at portfolio scale."
+        "body": "Continuous learning from plant generation history to surface PR deviation, soiling loss indicators, and degradation trends, with weather and seasonality factored in at portfolio scale."
       },
       "1": {
         "title": "Block & string health signals",
-        "body": "Rank underperforming zones early — from combiner to block level — with executive views for revenue-at-risk and technician views for targeted investigation, without exposing proprietary model architecture."
+        "body": "Rank underperforming zones early, from combiner to block level, with executive views for revenue-at-risk and technician views for targeted investigation, without exposing proprietary model architecture."
       },
       "2": {
         "title": "Robot-enriched field context",
-        "body": "Correlate cleaning cycles with yield recovery, map row traverse coverage to generation blocks, and explore optional sensing payloads during scheduled robot routes — including thermal anomaly hints where deployed."
+        "body": "Correlate cleaning cycles with yield recovery, map row traverse coverage to generation blocks, and explore optional sensing payloads during scheduled robot routes, including thermal anomaly hints where deployed."
       },
       "3": {
         "title": "Built for Taypro ecosystems",
@@ -70,7 +83,7 @@
     "useCases": {
       "0": {
         "title": "Utility IPPs & asset owners",
-        "body": "Portfolio dashboards that translate raw MWh into prioritised O&M actions — fewer false alarms, clearer capex decisions on which blocks deserve a truck roll."
+        "body": "Portfolio dashboards that translate raw MWh into prioritised O&M actions, fewer false alarms, clearer capex decisions on which blocks deserve a truck roll."
       },
       "1": {
         "title": "O&M contractors at scale",
@@ -96,12 +109,12 @@
       "linkCta": "Learn more",
       "links": {
         "0": {
-          "label": "NECTYR — Fleet portal",
+          "label": "NECTYR, Fleet portal",
           "description": "Schedules, logs, robot health, and support workflows for Taypro cleaning robots already on your plant."
         },
         "1": {
           "label": "Solar cleaning robots",
-          "description": "GLYDE, HELYX, NYUMA, and OPEX — the field presence that makes ORION's robot-enriched signals possible."
+          "description": "GLYDE, HELYX, NYUMA, and OPEX, the field presence that makes ORION's robot-enriched signals possible."
         }
       }
     },

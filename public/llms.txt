@@ -8,8 +8,9 @@
 # Technology Stack: Next.js 15.5.4, React 19, TypeScript, Tailwind CSS
 # Base URL: https://taypro.in (or your deployment domain)
 
-# About Taypro - Solar Panel Cleaning Robot Manufacturer
-Taypro develops and manufactures autonomous Solar Panel Cleaning Robots that help solar farms maintain optimal efficiency. 
+# About Taypro - Solar Panel Cleaning Robot Manufacturer & Operations Layer
+Taypro develops and manufactures autonomous Solar Panel Cleaning Robots that help solar farms maintain optimal efficiency.
+Taypro is also building the autonomous operations layer for utility-scale solar in India: waterless robots on every row (field execution), NECTYR fleet operations portal (live today), and ORION plant intelligence (roadmap / early access).
 Our Solar Panel Cleaning Robot systems offer waterless cleaning solutions, dual-pass cleaning technology, and AI-powered scheduling systems.
 Taypro has won patents for our revolutionary Solar Panel Cleaning Robot system.
 
@@ -31,6 +32,10 @@ Key benefits of our Solar Panel Cleaning Robot:
 
 ## Company Information
 /company - About Taypro, team members, mission, and vision
+/company#investors - Partners & investors narrative (non-financial; contact CTA under NDA)
+
+## Utility Solar Operations (SEO + buyer education)
+/utility-scale-solar-operations - Utility-scale solar operations gap, soiling losses, SCADA vs operations, waterless solar panel cleaning robots, NECTYR fleet layer, ORION roadmap; FAQ schema for long-tail robot/O&M queries
 
 ## Products & Services - Solar Panel Cleaning Robot Models
 /solar-panel-cleaning-system - Overview of Solar Panel Cleaning Robot systems and models

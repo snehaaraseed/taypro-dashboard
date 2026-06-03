@@ -2,7 +2,7 @@
   "modelTUsps": [
     {
       "title": "Purpose-Built for Single-Axis Trackers",
-      "description": "Engineered from the ground up for tracker-based solar farms — compatible with NEXTracker, Gamechanger and other leading single-axis tracker manufacturers."
+      "description": "Engineered from the ground up for tracker-based solar farms, compatible with NEXTracker, Gamechanger and other leading single-axis tracker manufacturers."
     },
     {
       "title": "Flexible ±15° Body Articulation",
@@ -10,49 +10,49 @@
     },
     {
       "title": "Wide Module Tilt Range (-52° to +52°)",
-      "description": "Cleans modules across the full operational tilt range of a single-axis tracker — from steep morning angle through flat noon position to steep evening angle."
+      "description": "Cleans modules across the full operational tilt range of a single-axis tracker, from steep morning angle through flat noon position to steep evening angle."
     },
     {
       "title": "100% Waterless Dual-Pass Cleaning",
-      "description": "Two-pass dry cleaning lifts over 99% of dust from module surfaces using microfiber or PBT — no water, no detergent, no run-off contamination."
+      "description": "Two-pass dry cleaning lifts over 99% of dust from module surfaces using microfiber or PBT, no water, no detergent, no run-off contamination."
     },
     {
       "title": "AI- and ML-Driven Autonomy",
-      "description": "Advanced edge, obstacle and angle detection lets Model-T move safely across panels without risk of falling — continuously tracking path and surface undulations along each row."
+      "description": "Advanced edge, obstacle and angle detection lets Model-T move safely across panels without risk of falling, continuously tracking path and surface undulations along each row."
     },
     {
       "title": "Cloud-Connected Remote Monitoring",
-      "description": "Supported connectivity includes ${tayproRobotConnectivitySummary}, feeding real-time telemetry into the Taypro Console — schedule cleaning, adjust settings, track performance and receive weather alerts from any device."
+      "description": "Supported connectivity includes ${tayproRobotConnectivitySummary}, feeding real-time telemetry into the Taypro Console, schedule cleaning, adjust settings, track performance and receive weather alerts from any device."
     },
     {
       "title": "Up to 2.2 km / 3,600 Modules Per Charge",
-      "description": "A single Model-T cleans up to 2.2 km of tracker run on a single charge — typically around 3,600 modules — before self-docking and recharging at its shadow-free dock."
+      "description": "A single Model-T cleans up to 2.2 km of tracker run on a single charge, typically around 3,600 modules, before self-docking and recharging at its shadow-free dock."
     }
   ],
   "modelTFeatures": [
     {
       "title": "Flexible Body Bridge for Tracker Tables",
-      "body": "Tracker plants rarely sit perfectly aligned across rows — slight angle differences between adjacent tables are the norm. Model-T's body flexes up to 15° to safely traverse these inter-table angle deviations, working in tandem with purpose-designed bridge kits to maintain continuous cleaning across the row."
+      "body": "Tracker plants rarely sit perfectly aligned across rows, slight angle differences between adjacent tables are the norm. Model-T's body flexes up to 15° to safely traverse these inter-table angle deviations, working in tandem with purpose-designed bridge kits to maintain continuous cleaning across the row."
     },
     {
       "title": "NEXTracker and Gamechanger Compatibility",
-      "body": "Model-T is engineered for the dominant single-axis tracker platforms in utility-scale solar — compatible with NEXTracker, Gamechanger and equivalent trackers. The robot integrates with existing tracker structures with no modifications to your modules or tracker mounting hardware."
+      "body": "Model-T is engineered for the dominant single-axis tracker platforms in utility-scale solar, compatible with NEXTracker, Gamechanger and equivalent trackers. The robot integrates with existing tracker structures with no modifications to your modules or tracker mounting hardware."
     },
     {
       "title": "Edge, Obstacle & Angle Detection",
-      "body": "On-board sensors continuously detect module edges, surface obstacles and inter-table angle changes. Motor performance is adjusted in real time as the robot tracks path and surface undulations — preserving consistent cleaning quality and preventing accidental falls."
+      "body": "On-board sensors continuously detect module edges, surface obstacles and inter-table angle changes. Motor performance is adjusted in real time as the robot tracks path and surface undulations, preserving consistent cleaning quality and preventing accidental falls."
     },
     {
-      "title": "Dual-Pass Cleaning — Microfiber or PBT",
+      "title": "Dual-Pass Cleaning, Microfiber or PBT",
       "body": "A dual-pass cleaning cycle lifts over 99% of accumulated dust from the module surface. Cleaning material can be specified as either rotating microfiber (best for fine-dust regions) or UV-stable PBT brush (best for high-particulate sand and arid sites) depending on plant location."
     },
     {
       "title": "Real-Time Weather-Aware Scheduling",
-      "body": "The Taypro Console pulls live weather data to optimise the cleaning schedule, push alerts for critical conditions and skip cycles when not needed. All schedule changes are reflected automatically on the portal — no manual intervention required at the plant."
+      "body": "The Taypro Console pulls live weather data to optimise the cleaning schedule, push alerts for critical conditions and skip cycles when not needed. All schedule changes are reflected automatically on the portal, no manual intervention required at the plant."
     },
     {
       "title": "Self-Docking Charging Station",
-      "body": "After each cleaning cycle, Model-T returns to a secure docking station placed beside the modules — positioned to avoid casting shadows on the array. The integrated charging system needs no external power. Battery level, charging status and health are visible in real time on the remote portal."
+      "body": "After each cleaning cycle, Model-T returns to a secure docking station placed beside the modules, positioned to avoid casting shadows on the array. The integrated charging system needs no external power. Battery level, charging status and health are visible in real time on the remote portal."
     },
     {
       "title": "Battery-Aware Return Safety",
@@ -139,11 +139,11 @@
   "modelTSteps": [
     {
       "name": "Robot is assigned to a specific tracker array",
-      "text": "Each Model-T is permanently assigned to a single-axis tracker array and lives at a shadow-free docking station beside the row — no daily transport, no operator handling, no external power."
+      "text": "Each Model-T is permanently assigned to a single-axis tracker array and lives at a shadow-free docking station beside the row, no daily transport, no operator handling, no external power."
     },
     {
       "name": "AI scheduler selects the optimal cleaning window",
-      "text": "The Taypro Console pulls real-time weather data and tracker production schedules to automatically pick the best post-production cleaning window — typically at night or during low-irradiance periods — without disrupting energy generation."
+      "text": "The Taypro Console pulls real-time weather data and tracker production schedules to automatically pick the best post-production cleaning window, typically at night or during low-irradiance periods, without disrupting energy generation."
     },
     {
       "name": "Self-deploys onto the tracker row",
@@ -155,13 +155,13 @@
     },
     {
       "name": "Battery-aware return to docking station",
-      "text": "The robot monitors battery levels continuously and only commits to a cleaning distance it can complete safely. At cycle end it returns autonomously to the docking station and locks securely — wind-safe up to 180 km/hr."
+      "text": "The robot monitors battery levels continuously and only commits to a cleaning distance it can complete safely. At cycle end it returns autonomously to the docking station and locks securely, wind-safe up to 180 km/hr."
     }
   ],
   "modelTFaqs": [
     {
       "question": "What is a Solar Panel Cleaning Robot for Single-Axis Trackers, and how does Model-T work?",
-      "answer": "A solar cleaning robot for single-axis trackers is an autonomous robotic cleaner purpose-built to operate on tracker-based solar power plants — where modules tilt across the day and where rows often have small angle deviations between adjacent tables. Taypro Model-T is permanently assigned to a tracker array; at scheduled cleaning windows it self-deploys, executes a waterless dual-pass cleaning cycle across the row, articulates its body up to ±15° to safely cross inter-table angle deviations, and returns to a shadow-free docking station to recharge — all without human intervention."
+      "answer": "A solar cleaning robot for single-axis trackers is an autonomous robotic cleaner purpose-built to operate on tracker-based solar power plants, where modules tilt across the day and where rows often have small angle deviations between adjacent tables. Taypro Model-T is permanently assigned to a tracker array; at scheduled cleaning windows it self-deploys, executes a waterless dual-pass cleaning cycle across the row, articulates its body up to ±15° to safely cross inter-table angle deviations, and returns to a shadow-free docking station to recharge, all without human intervention."
     },
     {
       "question": "Which tracker manufacturers and platforms is Taypro Model-T compatible with?",
@@ -169,23 +169,23 @@
     },
     {
       "question": "How is Model-T different from Model-A and Model-B?",
-      "answer": "Model-A is a fully autonomous robot for fixed-tilt utility-scale plants. Model-B is a semi-automatic pick-and-place robot for scattered, smaller or rooftop plants. Model-T is the only Taypro robot purpose-built for single-axis tracker plants — it supports module tilts from -52° to +52°, flexes ±15° between tables, and is engineered for NEXTracker / Gamechanger style trackers. All three are waterless, AI-driven and managed from the same Taypro Console portal."
+      "answer": "Model-A is a fully autonomous robot for fixed-tilt utility-scale plants. Model-B is a semi-automatic pick-and-place robot for scattered, smaller or rooftop plants. Model-T is the only Taypro robot purpose-built for single-axis tracker plants, it supports module tilts from -52° to +52°, flexes ±15° between tables, and is engineered for NEXTracker / Gamechanger style trackers. All three are waterless, AI-driven and managed from the same Taypro Console portal."
     },
     {
       "question": "How many solar modules can Model-T clean on a single charge?",
-      "answer": "Model-T can clean up to 2.2 km of tracker running length — approximately 3,600 solar modules — on a single lithium-ion charge. The recommended sustained operational range is 1.6 km per cycle, ensuring a safe return to the docking station with battery headroom in every cycle."
+      "answer": "Model-T can clean up to 2.2 km of tracker running length, approximately 3,600 solar modules, on a single lithium-ion charge. The recommended sustained operational range is 1.6 km per cycle, ensuring a safe return to the docking station with battery headroom in every cycle."
     },
     {
       "question": "Does Model-T require water or external power to clean tracker panels?",
-      "answer": "No. Model-T is 100% waterless — a dual-pass cleaning cycle lifts over 99% of dust using rotating microfiber or UV-stable PBT cleaning heads without any water, detergent or run-off. The docking station is fitted with an integrated lithium-ion charging system and does not require any external power source."
+      "answer": "No. Model-T is 100% waterless, a dual-pass cleaning cycle lifts over 99% of dust using rotating microfiber or UV-stable PBT cleaning heads without any water, detergent or run-off. The docking station is fitted with an integrated lithium-ion charging system and does not require any external power source."
     },
     {
       "question": "Is the Model-T cleaning cycle safe for solar modules and ARC?",
-      "answer": "Yes. Model-T moves along the frame of the solar modules — with binders that distribute load and preserve panel integrity. Every robot is independently tested for micro-crack formation, optical reflectance loss, full electrical parameter evaluation and Anti-Reflective Coating (ARC) preservation under simulated daily cleaning cycles by accredited solar-sector testing laboratories. Model-T is also TÜV NORD certified for IP55 protection."
+      "answer": "Yes. Model-T moves along the frame of the solar modules, with binders that distribute load and preserve panel integrity. Every robot is independently tested for micro-crack formation, optical reflectance loss, full electrical parameter evaluation and Anti-Reflective Coating (ARC) preservation under simulated daily cleaning cycles by accredited solar-sector testing laboratories. Model-T is also TÜV NORD certified for IP55 protection."
     },
     {
       "question": "How does Model-T handle inter-table angle differences on tracker rows?",
-      "answer": "Tracker rows rarely sit perfectly co-planar across adjacent tables. Model-T's flexible body articulates up to 15° to safely cross these inter-table angle deviations and works in conjunction with Taypro-supplied flexible bridges between tables — ensuring smooth, continuous cleaning across the entire row regardless of small terrain or tracker misalignment."
+      "answer": "Tracker rows rarely sit perfectly co-planar across adjacent tables. Model-T's flexible body articulates up to 15° to safely cross these inter-table angle deviations and works in conjunction with Taypro-supplied flexible bridges between tables, ensuring smooth, continuous cleaning across the entire row regardless of small terrain or tracker misalignment."
     },
     {
       "question": "How much does the Taypro Model-T Single-Axis Tracker Cleaning Robot cost?",

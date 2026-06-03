@@ -29,22 +29,32 @@ export const SEO_AND_READER_RULES = `SEO & READER INTENT (every post):
 - Earn clicks: meta description = specific outcome or question (e.g. "Manual brush vs robot on 50 MW: water, labour, and PR impact").
 - Rankings: one clear primary keyword in title + H1 theme; 3–6 related terms in H2s; cover "how often / how much / which is better" in body sections or in the separate faqs array.
 - Make it readable: short paragraphs, real plant scenarios (MW-scale, India dust/coastal/agri soiling), not textbook filler.
-- Support money pages with 3–5 internal links; blogs compare/educate — they do not replace product pages.`;
+- Support money pages with 3–5 internal links; blogs compare/educate, they do not replace product pages.`;
 
-export const LONG_FORM_CONTENT_RULES = `DEPTH & LENGTH (target ~2,800–3,200 words — quality over padding):
-- Every section must add a NEW idea: data range, decision criterion, plant scenario, or trade-off — no repeating the intro in different words.
+export const LONG_FORM_CONTENT_RULES = `DEPTH & LENGTH (target ~2,800–3,200 words, quality over padding):
+- Every section must add a NEW idea: data range, decision criterion, plant scenario, or trade-off, no repeating the intro in different words.
 - Structure: 6–10 H2 sections; use H3 subsections where a topic needs steps or sub-comparisons.
 - Include at least one of: HTML comparison table (<table>), numbered checklist, or bullet list with specific thresholds (days, %, MW, INR ranges as industry-typical).
-- Do NOT put FAQs in the HTML body — they are returned separately in the JSON "faqs" array (see automation prompt).
-- End the article with a short "Key takeaways" or "What plant managers should do next" H2 (4–6 bullets) — no FAQ heading in content.
+- Do NOT put FAQs in the HTML body, they are returned separately in the JSON "faqs" array (see automation prompt).
+- End the article with a short "Key takeaways" or "What plant managers should do next" H2 (4–6 bullets), no FAQ heading in content.
 - Do NOT inflate word count with generic AI intros, duplicate conclusions, or filler about "the solar industry growing".`;
+
+export const PUNCTUATION_RULES = `PUNCTUATION (strict):
+- Do NOT use em dashes (Unicode U+2014, the long dash character) anywhere in title, description, content, FAQs, or topic titles.
+- Use commas, periods, colons, semicolons, or parentheses to join clauses (never the long em dash character).
+- Regular hyphens (-) in compound adjectives and en dashes in numeric ranges (3–10 MW) are fine.`;
+
+/** Replace em dashes in Gemini output when the model ignores prompt rules. */
+export function sanitizeEmDash(text: string): string {
+  return text.replace(/\s*\u2014\s*/g, ", ");
+}
 
 export const ANTI_GENERIC_WRITING_RULES = `TITLE & ANGLE RULES (strict):
 - NO vague marketing titles (e.g. "Boost X with AI-Driven Y", "The Future of Solar", "Unlock Peak Performance").
 - Each title must name a SPECIFIC problem, method, or comparison (brush vs robot, cleaning every N days, soiling loss %, 10MW plant logistics, tracker farms, waterless vs sprinkler).
-- Prefer concrete utility-scale India context: MW plants, O&M leads, asset owners — not generic "solar energy" readers.
+- Prefer concrete utility-scale India context: MW plants, O&M leads, asset owners, not generic "solar energy" readers.
 - If a primary SEO keyword is provided, include its exact phrase or a very close variant in the title.
-- Meta descriptions: start with the specific benefit or question — never "Discover how" or "Learn how".`;
+- Meta descriptions: start with the specific benefit or question, never "Discover how" or "Learn how".`;
 
 export function isTooGenericTitle(
   title: string,
@@ -78,4 +88,14 @@ function titleReflectsKeyword(title: string, keyword: string): boolean {
 export function isGenericContentError(error: unknown): boolean {
   const msg = error instanceof Error ? error.message : String(error);
   return msg.includes("too generic");
+}
+
+/** Retry automation when content is vague or overlaps an existing post. */
+export function isRetryableGenerationError(error: unknown): boolean {
+  const msg = error instanceof Error ? error.message : String(error);
+  return (
+    isGenericContentError(error) ||
+    msg.includes("too similar") ||
+    msg.includes("Blog too similar")
+  );
 }

@@ -1,6 +1,6 @@
 /**
  * Align __drizzle_migrations with schema already on disk (e.g. translation_queue exists).
- * Idempotent — safe on every deploy before next build.
+ * Idempotent, safe on every deploy before next build.
  */
 import Database from "better-sqlite3";
 import { drizzle } from "drizzle-orm/better-sqlite3";

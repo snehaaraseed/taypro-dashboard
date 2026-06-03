@@ -1,5 +1,5 @@
 /**
- * Tier 1 expansion markets + Japan — strategic registry for i18n and GTM.
+ * Tier 1 expansion markets + Japan, strategic registry for i18n and GTM.
  * Locales map to site languages; several countries share `en` or `ar` for B2B solar.
  */
 
@@ -32,7 +32,7 @@ export const LOCALE_LABELS: Record<
   bn: { native: "বাংলা", english: "Bengali", dir: "ltr" },
 };
 
-/** Tier 1 + Japan — country ↔ locale mapping */
+/** Tier 1 + Japan, country ↔ locale mapping */
 export const EXPANSION_MARKETS: TayproMarket[] = [
   // India (home)
   { id: "in", country: "India", tier: "tier1", locale: "hi", regionCode: "IN", notes: "Also served in English (default URLs)" },

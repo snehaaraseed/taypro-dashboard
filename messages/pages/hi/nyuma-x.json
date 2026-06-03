@@ -1,7 +1,7 @@
 {
   "NyumaXPage": {
     "meta": {
-      "title": "PBT ट्रैकर सोलर पैनल सफाई रोबोट — Taypro NYUMA-X",
+      "title": "PBT ट्रैकर सोलर पैनल सफाई रोबोट, Taypro NYUMA-X",
       "description": "Taypro NYUMA-X सिंगल-एक्सिस ट्रैकर के लिए PBT सिंगल-पास रोबोट। प्रति रन 99%+ धूल हटाना, NECTYR, NEXTracker और Gamechanger संगत।",
       "openGraphDescription": "एकल-अक्ष ट्रैकर संयंत्रों के लिए स्वायत्त एआई-संचालित सौर पैनल सफाई रोबोट। प्रति चक्र 99%+ धूल हटाना, प्रति चार्ज 3,600 मॉड्यूल तक, एलटीई/वाई-फाई/आरएफ मेश/लोरा/लोरावन के माध्यम से NECTYR, NEXTracker और Gamechanger संगत, TÜV NORD प्रमाणित।",
       "openGraphImageAlt": "Taypro सिंगल-एक्सिस ट्रैकर सोलर पैनल क्लीनिंग रोबोट GLYDE-X - AI-पावर्ड, वॉटरलेस",
@@ -17,8 +17,8 @@
         "ट्रैकर स्वचालित सोलर पैनल सफाई सिस्टम",
         "Taypro GLYDE-X"
       ],
-      "openGraphTitle": "PBT Tracker Solar Panel Cleaning Robot — Taypro NYUMA-X",
-      "twitterTitle": "PBT Tracker Solar Panel Cleaning Robot — Taypro NYUMA-X"
+      "openGraphTitle": "PBT Tracker Solar Panel Cleaning Robot, Taypro NYUMA-X",
+      "twitterTitle": "PBT Tracker Solar Panel Cleaning Robot, Taypro NYUMA-X"
     },
     "breadcrumbs": {
       "robots": "सोलर पैनल सफाई करने वाले रोबोट",
@@ -32,7 +32,7 @@
       "howToDescription": "सिंगल-एक्सिस ट्रैकर इंस्टॉलेशन के लिए Taypro GLYDE-X सौर पैनल सफाई रोबोट का चरण-दर-चरण स्वायत्त सफाई चक्र - सेल्फ-डॉकिंग और क्लाउड टेलीमेट्री सिंक के माध्यम से एआई-अनुसूचित तैनाती से।"
     },
     "hero": {
-      "title": "सिंगल-एक्सिस ट्रैकर सोलर पैनल सफाई रोबोट — NYUMA-X",
+      "title": "सिंगल-एक्सिस ट्रैकर सोलर पैनल सफाई रोबोट, NYUMA-X",
       "subtitleBefore": "एक एआई- और एमएल-संचालित, जल रहित स्वायत्त सौर पैनल सफाई रोबोट, जो एकल-अक्ष ट्रैकर सौर फार्मों के लिए बनाया गया है। प्रति चार्ज 3,600 मॉड्यूल तक साफ़ करता है,",
       "subtitleStrong": "टेबलों के बीच ±15° फ्लेक्स होता है",
       "subtitleAfter": ", -52° से +52° तक मॉड्यूल झुकाव का समर्थन करता है, और NEXTracker, Gamechanger और समकक्ष ट्रैकर्स के साथ संगत है।",
@@ -509,7 +509,7 @@
       "title": "Tracker cleaning robot cost & ROI",
       "bodyBeforeSpan": "Model ",
       "bodySpan": "single-axis tracker solar panel cleaning",
-      "bodyAfterSpan": " economics for your site—use the calculator before a NYUMA-X quote."
+      "bodyAfterSpan": " economics for your site, use the calculator before a NYUMA-X quote."
     },
     "shared": {
       "connectivitySummary": "LTE, Wi-Fi, हाइब्रिड सेल्फ-हीलिंग RF मेश, LoRa और LoRaWAN"

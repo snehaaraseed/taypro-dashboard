@@ -11,7 +11,7 @@ type LazyWhenVisibleProps = {
 };
 
 /**
- * Mount children only when near the viewport — defers JS chunks and lazy images below the fold.
+ * Mount children only when near the viewport, defers JS chunks and lazy images below the fold.
  */
 export default function LazyWhenVisible({
   children,

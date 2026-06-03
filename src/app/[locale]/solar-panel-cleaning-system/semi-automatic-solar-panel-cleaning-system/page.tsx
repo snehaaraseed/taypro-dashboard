@@ -795,7 +795,7 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
           </Container>
         </section>
 
-        {/* PROJECTS — dynamic */}
+        {/* PROJECTS, dynamic */}
         <ProjectsCardServer useFileProjects showHeader headerText="" />
 
         <FaqSection

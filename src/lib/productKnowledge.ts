@@ -1,5 +1,5 @@
 /**
- * Product Knowledge Base — verified specs for Taypro robots and services.
+ * Product Knowledge Base, verified specs for Taypro robots and services.
  * Used in AI prompts to prevent hallucination. No panel-count or legacy model codes.
  */
 
@@ -135,7 +135,7 @@ export const glydeX = specFromCatalog("glydeX", {
 export const tayproOPEX: ServiceSpec = {
   name: "Taypro OPEX",
   description:
-    "Solar panel cleaning service — OPEX model with dedicated skilled manpower",
+    "Solar panel cleaning service, OPEX model with dedicated skilled manpower",
   features: [
     "Dedicated skilled manpower for robot operation",
     "Fleet may include HELYX, GLYDE, GLYDE-X, NYUMA, or NYUMA-X as required",
@@ -196,7 +196,7 @@ ${p.itemName.toUpperCase()}:
   );
 
   return `
-TAYPRO PRODUCT KNOWLEDGE BASE — VERIFIED INFORMATION ONLY
+TAYPRO PRODUCT KNOWLEDGE BASE, VERIFIED INFORMATION ONLY
 
 ${blocks.join("\n")}
 

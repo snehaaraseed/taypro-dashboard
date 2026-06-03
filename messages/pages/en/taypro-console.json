@@ -1,11 +1,11 @@
 {
   "TayproConsolePage": {
     "meta": {
-      "title": "Solar Cleaning Robot Fleet Monitoring Software — NECTYR",
-      "description": "NECTYR is the secure web portal for monitoring and managing Taypro Solar Panel Cleaning Robot fleets: site dashboards, weather-aware scheduling, block-wise coverage, cleaning logs and exportable reports, gateway and robot health, statistics, support tickets, and role-based access — provisioned privately for each customer.",
+      "title": "Solar Cleaning Robot Fleet Monitoring Software, NECTYR",
+      "description": "NECTYR is the secure web portal for monitoring and managing Taypro Solar Panel Cleaning Robot fleets: site dashboards, weather-aware scheduling, block-wise coverage, cleaning logs and exportable reports, gateway and robot health, statistics, support tickets, and role-based access, provisioned privately for each customer.",
       "openGraphDescription": "Fleet dashboards, schedules, logs, statistics, tickets, and secure robot oversight for Taypro cleaning robots.",
-      "openGraphImageAlt": "NECTYR — solar cleaning robot fleet monitoring",
-      "twitterTitle": "NECTYR — Solar Cleaning Robot Fleet Monitoring",
+      "openGraphImageAlt": "NECTYR, solar cleaning robot fleet monitoring",
+      "twitterTitle": "NECTYR, Solar Cleaning Robot Fleet Monitoring",
       "twitterDescription": "Secure web portal for Taypro robot fleets: dashboards, schedules, reports, and support."
     },
     "breadcrumbs": {
@@ -17,9 +17,9 @@
       "description": "Secure web application for monitoring and managing Taypro Solar Panel Cleaning Robot fleets: dashboards, weather context, schedules, cleaning logs and exports, statistics, gateway health, controlled robot commands, fleet tracking, support tickets, and role-based user management."
     },
     "hero": {
-      "title": "NECTYR — Solar Panel Cleaning Robot Fleet Portal",
-      "subtitle": "The secure web command centre for your Taypro robot fleet — live dashboards, weather-aware context, schedules, cleaning logs, exportable reports, analytics, and support workflows. Login details and the customer portal link are shared privately by Taypro after contract onboarding.",
-      "imgAlt": "NECTYR — Solar Panel Cleaning Robot monitoring and fleet control dashboard",
+      "title": "NECTYR, Solar Panel Cleaning Robot Fleet Portal",
+      "subtitle": "The secure web command centre for your Taypro robot fleet, live dashboards, weather-aware context, schedules, cleaning logs, exportable reports, analytics, and support workflows. Login details and the customer portal link are shared privately by Taypro after contract onboarding.",
+      "imgAlt": "NECTYR, Solar Panel Cleaning Robot monitoring and fleet control dashboard",
       "ctaText": "Request access"
     },
     "intro": {
@@ -30,52 +30,52 @@
       "p1After": "behind every major Taypro deployment. It translates raw robot telemetry into decisions plant teams actually use: when to clean, which blocks finished first, which assets need a closer look, and how last night's run compared to the monthly cleaning plan.",
       "p2Before": "The product is designed for",
       "p2Strong": "utility-scale transparency",
-      "p2After": "— multi-site portfolios, multi-block plants, and mixed fleets of",
+      "p2After": ", multi-site portfolios, multi-block plants, and mixed fleets of",
       "modelA": "GLYDE",
       "modelB": "HELYX",
       "modelT": "GLYDE-X",
       "p2Mid": "robots. Detailed click-paths, security policies, and configuration limits are covered in your",
       "p2GuideStrong": "customer user guide",
-      "p2End": "— this page stays at the product-story level so your competitive edge stays protected."
+      "p2End": ", this page stays at the product-story level so your competitive edge stays protected."
     },
     "capabilities": {
       "eyebrow": "Inside the portal",
       "title": "What your teams can do in NECTYR",
-      "subtitle": "High-level capability areas — your Taypro onboarding pack and user guide explain each screen in the depth your operators need."
+      "subtitle": "High-level capability areas, your Taypro onboarding pack and user guide explain each screen in the depth your operators need."
     },
     "capabilitiesCards": {
       "0": { "title": "Site dashboards", "body": "At-a-glance view of weather context, block-wise cleaning coverage, gateway connectivity, and robot battery readiness so operators can plan shifts with confidence." },
-      "1": { "title": "Robot configuration & device layout", "body": "Structured visibility into deployed robots, block allocation, and permitted operating parameters — tuned by Taypro during commissioning, then monitored by your team." },
+      "1": { "title": "Robot configuration & device layout", "body": "Structured visibility into deployed robots, block allocation, and permitted operating parameters, tuned by Taypro during commissioning, then monitored by your team." },
       "2": { "title": "Automation schedules", "body": "Centralised view of block-wise timers and cleaning windows so night-time or post-production cycles stay aligned with plant rules and seasonal soiling patterns." },
-      "3": { "title": "Cleaning logs & exports", "body": "Historical cleaning activity, downloadable reports for selected dates, and tabbed views for completed runs, in-progress work, errors, and offline assets — built for audit-ready O&M." },
-      "4": { "title": "Statistics & trends", "body": "Charts for area cleaned, blocks serviced, execution mix, and efficiency indicators — filterable by site, time range, and (where licensed) robot or block." },
-      "5": { "title": "Controlled robot commands", "body": "A curated, permissioned command set for day-to-day operations — always confirmed, always logged. Deep engineering actions remain with Taypro service engineers." },
-      "6": { "title": "Fleet tracking context", "body": "Live and last-known robot positioning on site layouts where available — ideal for coordination with security, O&M convoys, and incident response." },
+      "3": { "title": "Cleaning logs & exports", "body": "Historical cleaning activity, downloadable reports for selected dates, and tabbed views for completed runs, in-progress work, errors, and offline assets, built for audit-ready O&M." },
+      "4": { "title": "Statistics & trends", "body": "Charts for area cleaned, blocks serviced, execution mix, and efficiency indicators, filterable by site, time range, and (where licensed) robot or block." },
+      "5": { "title": "Controlled robot commands", "body": "A curated, permissioned command set for day-to-day operations, always confirmed, always logged. Deep engineering actions remain with Taypro service engineers." },
+      "6": { "title": "Fleet tracking context", "body": "Live and last-known robot positioning on site layouts where available, ideal for coordination with security, O&M convoys, and incident response." },
       "7": { "title": "Gateway & field telemetry health", "body": "Visibility into gateway and field-device status so you can distinguish a true robot fault from a communications brownout before dispatching crews." },
-      "8": { "title": "Tickets & service history", "body": "Raise, comment on, and close Taypro service tickets with a full timeline — fewer ad-hoc email threads, more traceability for your internal governance." },
+      "8": { "title": "Tickets & service history", "body": "Raise, comment on, and close Taypro service tickets with a full timeline, fewer ad-hoc email threads, more traceability for your internal governance." },
       "9": { "title": "Users, roles & collaboration", "body": "Invite the right mix of plant, central engineering, and finance stakeholders with scoped access. Optional chat channels keep operational conversations next to the data." }
     },
     "security": {
       "eyebrow": "Enterprise-grade governance",
-      "title": "Security, roles & auditability — without publishing our playbook",
-      "subtitle": "NECTYR is built for critical infrastructure customers: authenticated access, role-based permissions, encrypted transport, session safeguards, and tamper-evident activity history for privileged actions. Exact control matrices evolve with each software release — your security questionnaire receives precise answers under NDA from Taypro IT.",
+      "title": "Security, roles & auditability, without publishing our playbook",
+      "subtitle": "NECTYR is built for critical infrastructure customers: authenticated access, role-based permissions, encrypted transport, session safeguards, and tamper-evident activity history for privileged actions. Exact control matrices evolve with each software release, your security questionnaire receives precise answers under NDA from Taypro IT.",
       "card0Title": "Least-privilege access",
-      "card0Body": "Client admins invite only the stakeholders who need a given site or block — permissions can be tightened or revoked instantly.",
+      "card0Body": "Client admins invite only the stakeholders who need a given site or block, permissions can be tightened or revoked instantly.",
       "card1Title": "Weather-smart operations",
       "card1Body": "Dashboards surface the same environmental context your robots use so human and machine decisions stay aligned.",
       "card2Title": "Service-linked workflows",
-      "card2Body": "Tickets, chat, and logs live next to telemetry so Taypro support sees what your operators see — faster root cause, fewer loops."
+      "card2Body": "Tickets, chat, and logs live next to telemetry so Taypro support sees what your operators see, faster root cause, fewer loops."
     },
     "workflow": {
       "eyebrow": "Fits your existing O&M",
       "title": "How NECTYR fits into your solar O&M workflow",
-      "p1": "NECTYR is not a generic plant SCADA, and it is not a replacement for your work-management system. It is a focused fleet layer for robotic solar panel cleaning that sits alongside the tools your operations team already runs — plant SCADA for generation, CMMS for tickets and assets, and your field reporting stack for daily logs.",
-      "p2Before": "Cleaning crews use NECTYR to confirm last night's block-wise coverage before the morning shift. Plant managers use it to compare planned vs. actual cycles against the monthly cleaning strategy. Central engineering uses it to spot soiling trends across multiple sites in a portfolio. Finance teams use the exports to reconcile cleaning evidence with O&M billing — especially useful for plants on",
+      "p1": "NECTYR is not a generic plant SCADA, and it is not a replacement for your work-management system. It is a focused fleet layer for robotic solar panel cleaning that sits alongside the tools your operations team already runs, plant SCADA for generation, CMMS for tickets and assets, and your field reporting stack for daily logs.",
+      "p2Before": "Cleaning crews use NECTYR to confirm last night's block-wise coverage before the morning shift. Plant managers use it to compare planned vs. actual cycles against the monthly cleaning strategy. Central engineering uses it to spot soiling trends across multiple sites in a portfolio. Finance teams use the exports to reconcile cleaning evidence with O&M billing, especially useful for plants on",
       "opexLink": "Taypro OPEX",
       "p2After": "where billing is per panel cleaned.",
       "p3Before": "If you're still deciding between owning a robot fleet and consuming cleaning as a service, our",
       "categoryLink": "Solar Panel Cleaning Robot category page",
-      "p3After": "walks through GLYDE, HELYX, GLYDE-X, and OPEX side by side — NECTYR is the operations layer behind every one of those paths.",
+      "p3After": "walks through GLYDE, HELYX, GLYDE-X, and OPEX side by side, NECTYR is the operations layer behind every one of those paths.",
       "p4Before": "Further reading:",
       "blogAnalytics": "data analytics in solar cleaning operations",
       "p4Mid": "and",
@@ -84,10 +84,10 @@
     },
     "scheduling": {
       "eyebrow": "Cleaning rhythm, not just buttons",
-      "title": "Schedules, rest zones, and cleaning windows — explained",
+      "title": "Schedules, rest zones, and cleaning windows, explained",
       "p1": "Robotic solar cleaning at utility scale is not about pressing \"clean now\". The hard part is choosing how often, in which order, and inside which environmental window. NECTYR exposes the planning loop that Taypro engineers and your operators agree on during commissioning, so cleaning cadence stays consistent week after week, season after season.",
       "li0Strong": "Block-wise timers.",
-      "li0": "Each block carries its own cleaning window — typically post-sunset or pre-sunrise — so cleaning never overlaps peak generation.",
+      "li0": "Each block carries its own cleaning window, typically post-sunset or pre-sunrise, so cleaning never overlaps peak generation.",
       "li1Strong": "Rest zones and parking.",
       "li1": "The portal shows where each robot is meant to idle between cycles. Site teams use the same map for security rounds and morning checks.",
       "li2Strong": "Seasonal cadence.",
@@ -100,10 +100,10 @@
     },
     "visual": {
       "title": "From fleet overview to per-robot clarity",
-      "subtitle": "Search across sites, jump into a single robot context, compare blocks, and export evidence — without losing the thread of what happened on the plant overnight.",
+      "subtitle": "Search across sites, jump into a single robot context, compare blocks, and export evidence, without losing the thread of what happened on the plant overnight.",
       "panelTitle": "Precision without complexity",
       "panelBody": "NECTYR reflects how Taypro robots actually work in the field: block-wise plans, seasonal cleaning strategy, and tracker-aware context where GLYDE-X is deployed. Your operators see the signal; Taypro protects the underlying control logic.",
-      "imageAlt": "NECTYR dashboard — fleet and block-level solar cleaning robot monitoring"
+      "imageAlt": "NECTYR dashboard, fleet and block-level solar cleaning robot monitoring"
     },
     "cta": {
       "eyebrow": "NECTYR access",
@@ -119,15 +119,15 @@
     },
     "faq": {
       "title": "Frequently asked questions",
-      "subtitle": "Product-level answers — detailed procedures live in your Taypro customer documentation.",
+      "subtitle": "Product-level answers, detailed procedures live in your Taypro customer documentation.",
       "q0": "What is NECTYR?",
-      "a0": "NECTYR is the secure web portal Taypro customers use to monitor and manage their Solar Panel Cleaning Robot fleets across one or many solar sites. It brings together live operational data, schedules, historical cleaning records, performance analytics, and support workflows — so plant and O&M teams can run robotic cleaning with the same rigour they expect from any critical plant system.",
+      "a0": "NECTYR is the secure web portal Taypro customers use to monitor and manage their Solar Panel Cleaning Robot fleets across one or many solar sites. It brings together live operational data, schedules, historical cleaning records, performance analytics, and support workflows, so plant and O&M teams can run robotic cleaning with the same rigour they expect from any critical plant system.",
       "q1": "How do we get access to NECTYR?",
       "a1": "Taypro provisions each client organisation with private access to the production portal. Your account team shares the login link, credentials, and onboarding pack outside this public site. For new deployments, start from our contact form; existing customers can request additional seats, sites, or password help through their Taypro account manager or our support team.",
       "q2": "Which Taypro robots work with NECTYR?",
       "a2": "NECTYR is the common fleet layer for Taypro autonomous and semi-automatic cleaning robots, including GLYDE (fixed / seasonal tilt), HELYX (pick-and-place), and GLYDE-X (single-axis trackers). The exact screens and commands available depend on your site layout, connectivity, and service package.",
       "q3": "Can we schedule cleaning from the portal?",
-      "a3": "Yes. Client teams can define and review block-wise automation schedules (timers) aligned with your plant's operating rules and weather strategy. Execution still respects on-robot safety interlocks — the portal plans and requests; the fleet executes within engineered limits.",
+      "a3": "Yes. Client teams can define and review block-wise automation schedules (timers) aligned with your plant's operating rules and weather strategy. Execution still respects on-robot safety interlocks, the portal plans and requests; the fleet executes within engineered limits.",
       "q4": "What kind of reporting does NECTYR provide?",
       "a4": "NECTYR surfaces site-level and block-wise cleaning coverage, robot battery and execution status, downloadable cleaning reports for audit and internal review, and statistics views for trends over time. Export formats and retention policies are aligned with your enterprise needs during onboarding.",
       "q5": "How does NECTYR connect to robots in the field?",
@@ -135,7 +135,7 @@
       "q6": "How do we get help if something looks wrong in the data?",
       "a6": "NECTYR includes structured ticketing so your site administrators can raise issues, attach evidence, and track resolution with Taypro's service team. For urgent operational events, your contract may also include direct escalation channels outside the portal.",
       "q7": "Is NECTYR a replacement for our plant SCADA?",
-      "a7": "No. NECTYR is specialised for robotic solar cleaning — schedules, cleaning logs, robot health, and fleet analytics. It complements your existing energy SCADA and work-management tools; Taypro can advise on read-only integrations or export workflows where required."
+      "a7": "No. NECTYR is specialised for robotic solar cleaning, schedules, cleaning logs, robot health, and fleet analytics. It complements your existing energy SCADA and work-management tools; Taypro can advise on read-only integrations or export workflows where required."
     },
     "misc": {
       "projectsHeader": "Our Most Recent Projects",

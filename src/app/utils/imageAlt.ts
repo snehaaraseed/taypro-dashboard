@@ -4,7 +4,7 @@ export function getBlogFeaturedImageAlt(blog: {
 }): string {
   const custom = blog.featuredImageAlt?.trim();
   if (custom) return custom;
-  return `${blog.title} — solar panel cleaning robot article | Taypro`;
+  return `${blog.title}, solar panel cleaning robot article | Taypro`;
 }
 
 export function getProjectHeroImageAlt(project: {
@@ -21,5 +21,5 @@ export function getProjectHeroImageAlt(project: {
       : project.description || project.title;
   const snippet =
     overview.length > 50 ? `${overview.substring(0, 50)}...` : overview;
-  return `${project.title} — solar panel cleaning robot project, ${snippet}`;
+  return `${project.title}, solar panel cleaning robot project, ${snippet}`;
 }

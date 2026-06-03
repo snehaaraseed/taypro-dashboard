@@ -86,7 +86,7 @@ async function pickInlineWithGemini(
     .join("\n");
 
   const prompt = `Select ONE image for an inline illustration inside a Taypro blog article (utility-scale solar, India).
-This is NOT the hero image — pick a complementary photo (robot detail, project site, plant context).
+This is NOT the hero image, pick a complementary photo (robot detail, project site, plant context).
 ${excludeNote}
 
 Article title: ${title}
@@ -153,7 +153,7 @@ async function pickLibraryInlineImage(
   if (fallback) {
     return {
       url: fallback.url,
-      alt: `${input.title.replace(/\s+/g, " ").trim()} — ${fallback.label} at a utility-scale solar site in India`,
+      alt: `${input.title.replace(/\s+/g, " ").trim()}, ${fallback.label} at a utility-scale solar site in India`,
       source: `${fallback.source} (inline keyword fallback)`,
     };
   }
@@ -161,7 +161,7 @@ async function pickLibraryInlineImage(
   if (pool[0]) {
     return {
       url: pool[0].url,
-      alt: `${input.title} — Taypro solar plant operations in India`,
+      alt: `${input.title}, Taypro solar plant operations in India`,
       source: `${pool[0].source} (inline pool fallback)`,
     };
   }

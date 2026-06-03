@@ -2,12 +2,17 @@ import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { generateBlogContent } from "@/lib/aiService";
-import { isGenericContentError } from "@/lib/seo/content-quality";
+import { isRetryableGenerationError } from "@/lib/seo/content-quality";
 import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
 import { pickBlogFeaturedImage } from "@/lib/seo/blog-image-picker";
 import { enrichBlogContentWithInlineImages } from "@/lib/seo/blog-inline-images";
 import { formatTopicCategory } from "@/lib/seo/keyword-stats";
-import { addPublishedTopic, isTopicPublished } from "@/lib/topicTracker";
+import {
+  buildContentFingerprint,
+  extractH2Headings,
+} from "@/lib/seo/blog-similarity";
+import { assertBlogNotTooSimilar } from "@/lib/seo/blog-uniqueness";
+import { addPublishedTopic } from "@/lib/topicTracker";
 import { createBlogFiles, createSlug } from "@/app/utils/blogFileUtils";
 import { requireAuth } from "@/app/utils/auth";
 
@@ -79,11 +84,13 @@ export async function POST(request: NextRequest) {
         }
 
         const slug = createSlug(blogData.title);
-        if (await isTopicPublished(blogData.title, slug)) {
-          throw new Error(
-            "Generated title overlaps an existing blog. Adjust the topic or brief and try again."
-          );
-        }
+
+        await assertBlogNotTooSimilar({
+          title: blogData.title,
+          description: blogData.description,
+          content: blogData.content,
+          slug,
+        });
 
         const featured = await pickBlogFeaturedImage({
           title: blogData.title,
@@ -152,7 +159,15 @@ export async function POST(request: NextRequest) {
         await addPublishedTopic(
           blogData.title,
           result.slug,
-          formatTopicCategory(category, topic)
+          formatTopicCategory(category, seoKeyword),
+          {
+            h2Outline: extractH2Headings(contentWithImages),
+            contentFingerprint: buildContentFingerprint(
+              blogData.title,
+              blogData.description,
+              contentWithImages
+            ),
+          }
         );
 
         revalidatePath(`/blog/${result.slug}`);
@@ -172,9 +187,13 @@ export async function POST(request: NextRequest) {
         });
       } catch (error) {
         lastError = error;
-        if (isGenericContentError(error) && genAttempt < MAX_GENERATION_ATTEMPTS - 1) {
+        if (
+          isRetryableGenerationError(error) &&
+          genAttempt < MAX_GENERATION_ATTEMPTS - 1
+        ) {
           console.warn(
-            `Admin blog generation attempt ${genAttempt + 1} too generic, retrying...`
+            `Admin blog generation attempt ${genAttempt + 1} rejected, retrying:`,
+            error instanceof Error ? error.message : error
           );
           continue;
         }

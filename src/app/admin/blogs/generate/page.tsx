@@ -155,7 +155,7 @@ export default function GenerateBlogPage() {
 
         {isGenerating && (
           <div className="rounded-md border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
-            <p className="font-medium">Generating — this usually takes 1–3 minutes</p>
+            <p className="font-medium">Generating, this usually takes 1–3 minutes</p>
             <p className="mt-1 text-amber-800">
               Writing content, selecting images, and saving a draft. Please keep
               this tab open.

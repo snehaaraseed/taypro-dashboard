@@ -4,6 +4,7 @@ import {
   ORION_PRODUCT_PATH,
 } from "@/lib/product-coming-soon";
 import { buildTayproMarketingImpactStats } from "@/lib/esg/format-fleet-marketing-impact";
+import { buildTayproPublicProofStats } from "@/lib/marketing/public-proof-stats";
 import {
   getRelatedProductCards,
   HARDWARE_PRODUCT_IDS,
@@ -24,7 +25,7 @@ export const tayproRobotConnectivitySummary =
   "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN";
 
 /**
- * Canonical marketing copy for breakdown / field service — keep aligned across
+ * Canonical marketing copy for breakdown / field service, keep aligned across
  * hub, product pages, FAQs, and metadata (same-day pan-India positioning).
  */
 export const tayproServiceSlaCopy = {
@@ -44,9 +45,17 @@ export const tayproMarketingImpactStats = buildTayproMarketingImpactStats();
 /** Trusted-by stat row on product marketing pages (four tiles). */
 export const tayproTrustedByStatsStrip = [
   tayproMarketingImpactStats.robotCapacityDeployed,
-  tayproMarketingImpactStats.plantInstallations,
+  tayproMarketingImpactStats.co2ReducedAnnually,
   tayproMarketingImpactStats.waterSavedAnnually,
   tayproMarketingImpactStats.robotsManufacturedPerMonth,
+] as const;
+
+/** Homepage stat strip, public proof order (capacity → CO₂ → generation → water). */
+export const tayproHomeStatsStrip = [
+  tayproMarketingImpactStats.robotCapacityDeployed,
+  tayproMarketingImpactStats.co2ReducedAnnually,
+  tayproMarketingImpactStats.extraCleanEnergyAnnually,
+  tayproMarketingImpactStats.waterSavedAnnually,
 ] as const;
 
 function hardwareRobotFromCatalog(id: ProductId) {
@@ -67,7 +76,7 @@ export const robots = [
     model: "Taypro Opex",
     marketingName: "Robotic solar panel cleaning service",
     description:
-      "Pay-per-panel-cleaned Opex—Taypro operates the cleaning robot fleet on your plant with no upfront CAPEX.",
+      "Pay-per-panel-cleaned Opex, Taypro operates the cleaning robot fleet on your plant with no upfront CAPEX.",
     imgPath: "/tayprorobots/taypro-opex.jpg",
     href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
   },
@@ -86,13 +95,13 @@ export const robotSolutions = robots.filter(
   (r) => r.model === "Taypro Opex" || r.model === "NECTYR"
 );
 
-/** Upcoming products — marketing pages live; hardware not yet GA. */
+/** Upcoming products, marketing pages live; hardware not yet GA. */
 export const comingSoonRobotProducts = [
   {
     model: "MINY",
     marketingName: "Compact rooftop solar cleaning robot",
     description:
-      "A compact cleaning robot for smaller rooftop plants — waterless, lightweight, and sized for distributed commercial rooftops.",
+      "A compact cleaning robot for smaller rooftop plants, waterless, lightweight, and sized for distributed commercial rooftops.",
     imgPath: "/tayprorobots/taypro-modelBcopy.png",
     href: MINY_PRODUCT_PATH,
   },
@@ -100,7 +109,7 @@ export const comingSoonRobotProducts = [
     model: "CRADYL",
     marketingName: "Autonomous row-transfer docking station",
     description:
-      "A movable docking station that autonomously moves one cleaning robot from row to row — multi-row coverage with a single robot on scattered plants.",
+      "A movable docking station that autonomously moves one cleaning robot from row to row, multi-row coverage with a single robot on scattered plants.",
     imgPath: "/tayprorobots/taypro-modelBcopy.png",
     href: CRADYL_PRODUCT_PATH,
   },
@@ -108,7 +117,7 @@ export const comingSoonRobotProducts = [
     model: "ORION",
     marketingName: "Solar plant intelligence platform",
     description:
-      "Generation-trained plant health monitoring SaaS — SCADA-aware insights enriched by Taypro robot field data on site.",
+      "Generation-trained plant health monitoring SaaS, SCADA-aware insights enriched by Taypro robot field data on site.",
     imgPath: "/tayproasset/taypro-console.png",
     href: ORION_PRODUCT_PATH,
   },
@@ -139,7 +148,7 @@ export const features = [
   {
     title: "Maximise plant efficiency",
     description:
-      "Waterless robotic cleaning reduces soiling losses on utility-scale plants—recovering generation that manual washing often cannot sustain at scale.",
+      "Waterless robotic cleaning reduces soiling losses on utility-scale plants, recovering generation that manual washing often cannot sustain at scale.",
   },
   {
     title: "Consistent performance ratio",
@@ -154,7 +163,7 @@ export const features = [
   {
     title: "Same-day breakdown resolution",
     description:
-      "Field engineers and regional inventory support same-day on-site response across India—backed by NECTYR ticketing.",
+      "Field engineers and regional inventory support same-day on-site response across India, backed by NECTYR ticketing.",
   },
 ];
 
@@ -162,17 +171,17 @@ export const otherFeatures = [
   {
     title: "Patented dual-pass cleaning",
     description:
-      "Airflow lifts dry dust first, then microfiber completes the wipe—see our cleaning technology page for the full methodology.",
+      "Airflow lifts dry dust first, then microfiber completes the wipe, see our cleaning technology page for the full methodology.",
   },
   {
     title: "RF mesh & fleet connectivity",
     description:
-      "LTE, Wi-Fi, hybrid RF mesh, LoRa, and LoRaWAN—sized per site so robots and NECTYR stay connected in the field.",
+      "LTE, Wi-Fi, hybrid RF mesh, LoRa, and LoRaWAN, sized per site so robots and NECTYR stay connected in the field.",
   },
   {
     title: "AI/ML scheduling",
     description:
-      "Automatic cleaning robots adjust cycle cadence from weather and soiling inputs—fewer wasted runs, more predictable O&M.",
+      "Automatic cleaning robots adjust cycle cadence from weather and soiling inputs, fewer wasted runs, more predictable O&M.",
   },
   {
     title: "Made in India",
@@ -428,7 +437,7 @@ export const items = [
     heading:
       "Engineering-led robotics for solar asset owners and operators across India.",
     body:
-      "Taypro Private Limited designs, manufactures, and supports autonomous solar panel cleaning robots for fixed tilt, seasonal tilt, rooftop, and single-axis tracker installations. Our Made-in-India systems combine waterless dual-pass cleaning, resilient field connectivity, and cloud monitoring through NECTYR—so plants can sustain higher performance ratios with predictable operations and maintenance.",
+      "Taypro Private Limited designs, manufactures, and supports autonomous solar panel cleaning robots for fixed tilt, seasonal tilt, rooftop, and single-axis tracker installations. Our Made-in-India systems combine waterless dual-pass cleaning, resilient field connectivity, and cloud monitoring through NECTYR, so plants can sustain higher performance ratios with predictable operations and maintenance.",
   },
   {
     label: "Vision",
@@ -439,24 +448,26 @@ export const items = [
   {
     label: "Mission",
     heading:
-      "Ship reliable robots, transparent service, and measurable outcomes—site by site.",
+      "Ship reliable robots, transparent service, and measurable outcomes, site by site.",
     body:
       "We invest in R&D, manufacturing capacity, and nationwide logistics so customers receive consistent quality, rapid spare availability, and responsive support. From GLYDE and HELYX for distributed layouts to GLYDE-X for trackers, plus Taypro Opex for operator-led cleaning, our roadmap stays tied to one question: does it improve plant uptime, safety, and total cost of ownership?",
   },
 ];
 
+const publicProofScale = buildTayproPublicProofStats();
+
 export const metrics = [
   {
-    value: "99%",
-    label: "Cleaning Efficiency",
+    value: publicProofScale.cleaningEfficiency.value,
+    label: publicProofScale.cleaningEfficiency.label,
   },
   {
-    value: "600+",
-    label: "Robots Manufacturing Capacity per Month",
+    value: publicProofScale.robotsManufacturedPerMonth.value,
+    label: publicProofScale.robotsManufacturedPerMonth.label,
   },
   {
-    value: "8+",
-    label: "Warehouses in India",
+    value: publicProofScale.warehouses.value,
+    label: publicProofScale.warehouses.label,
   },
 ];
 

@@ -28,7 +28,7 @@ type ROICalculatorEmbedProps = {
 };
 
 /**
- * Consistent embedded ROI calculator shell — matches home & dedicated calculator page.
+ * Consistent embedded ROI calculator shell, matches home & dedicated calculator page.
  * Always place inside a `<Container>` on the host page.
  */
 export function ROICalculatorEmbed({

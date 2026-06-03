@@ -1,4 +1,4 @@
-/** Projects filter UI (hi, ar, ja, bn) — not CMS project bodies. */
+/** Projects filter UI (hi, ar, ja, bn), not CMS project bodies. */
 import { T } from "./helpers.mjs";
 
 export const projectsFilterPack = {

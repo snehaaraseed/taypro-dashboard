@@ -11,7 +11,7 @@ export const TAYPRO_SALES_PHONE_TEL = `tel:${TAYPRO_SALES_PHONE_E164}`;
 
 export type TayproEmailMailbox = "sales" | "service";
 
-/** Character codes — avoids a harvestable address string in static HTML/JSON. */
+/** Character codes, avoids a harvestable address string in static HTML/JSON. */
 const MAILBOX_PARTS: Record<TayproEmailMailbox, readonly number[][]> = {
   sales: [
     [115, 97, 108, 101, 115],

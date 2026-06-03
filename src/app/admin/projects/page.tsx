@@ -163,7 +163,7 @@ export default function AdminProjectsPage() {
                             dateStyle: "medium",
                             timeStyle: "short",
                           })
-                        : "—"}
+                        : "-"}
                     </p>
                   </div>
                   <div className="flex gap-2">

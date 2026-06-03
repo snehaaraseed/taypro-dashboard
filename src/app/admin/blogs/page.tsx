@@ -291,7 +291,7 @@ export default function AdminBlogsPage() {
                           dateStyle: "medium",
                           timeStyle: "short",
                         })
-                      : "—"}
+                      : "-"}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                     <div className="flex justify-end gap-2">

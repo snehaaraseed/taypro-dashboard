@@ -103,7 +103,7 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
                 <CheckCircle2 className="h-7 w-7" aria-hidden />
               </div>
               <h2 className="font-semibold text-3xl mb-3">
-                Thanks — we&apos;ll be in touch
+                Thanks, we&apos;ll be in touch
               </h2>
               <p className="text-[#bdc6ce] text-base sm:text-lg leading-relaxed max-w-sm mx-auto">
                 Our team will reach out to you shortly. Feel free to keep

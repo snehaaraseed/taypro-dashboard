@@ -16,7 +16,7 @@ export type RequestEstimateFormProps = {
   stackedEmbedded?: boolean;
   /** Embedded: extra compact spacing (narrow slide-in, no internal scroll). */
   compactEmbedded?: boolean;
-  /** Embedded: no outer white box — parent supplies surface (e.g. plant-check modal). */
+  /** Embedded: no outer white box, parent supplies surface (e.g. plant-check modal). */
   embeddedFlush?: boolean;
   /** Override primary submit button label. */
   submitLabel?: string;
@@ -29,7 +29,7 @@ export type RequestEstimateFormProps = {
   autoFocus?: boolean;
   /**
    * When true, redirect to /contact/thank-you after a successful submission.
-   * Default is `false` — the form shows an inline thank-you state so the
+   * Default is `false`, the form shows an inline thank-you state so the
    * user stays on the same page / inside the same modal.
    */
   redirectOnSuccess?: boolean;

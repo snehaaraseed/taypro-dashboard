@@ -2,16 +2,17 @@ import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { generateUniqueTopic, generateBlogContent } from "@/lib/aiService";
-import { isGenericContentError } from "@/lib/seo/content-quality";
+import { isRetryableGenerationError } from "@/lib/seo/content-quality";
 import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
 import { pickBlogFeaturedImage } from "@/lib/seo/blog-image-picker";
 import { enrichBlogContentWithInlineImages } from "@/lib/seo/blog-inline-images";
 import { formatTopicCategory } from "@/lib/seo/keyword-stats";
 import {
-  getBlogAutomationSchedule,
-  addPublishedTopic,
-  isTopicPublished,
-} from "@/lib/topicTracker";
+  buildContentFingerprint,
+  extractH2Headings,
+} from "@/lib/seo/blog-similarity";
+import { assertBlogNotTooSimilar } from "@/lib/seo/blog-uniqueness";
+import { getBlogAutomationSchedule, addPublishedTopic } from "@/lib/topicTracker";
 import { createBlogFiles, createSlug } from "@/app/utils/blogFileUtils";
 import { isAutomationAuthorized } from "@/lib/security";
 
@@ -63,11 +64,13 @@ export async function POST(request: NextRequest) {
         }
 
         const slug = createSlug(blogData.title);
-        if (await isTopicPublished(blogData.title, slug)) {
-          throw new Error(
-            "Generated title/slug overlaps an existing blog. Retry later or adjust prompts."
-          );
-        }
+
+        await assertBlogNotTooSimilar({
+          title: blogData.title,
+          description: blogData.description,
+          content: blogData.content,
+          slug,
+        });
 
         const featured = await pickBlogFeaturedImage({
           title: blogData.title,
@@ -114,7 +117,14 @@ export async function POST(request: NextRequest) {
         const categoryMeta = topic.seoKeyword
           ? formatTopicCategory(topic.category, topic.seoKeyword)
           : topic.category;
-        await addPublishedTopic(blogData.title, result.slug, categoryMeta);
+        await addPublishedTopic(blogData.title, result.slug, categoryMeta, {
+          h2Outline: extractH2Headings(contentWithImages),
+          contentFingerprint: buildContentFingerprint(
+            blogData.title,
+            blogData.description,
+            contentWithImages
+          ),
+        });
 
         revalidatePath(`/blog/${result.slug}`);
         revalidatePath("/blog");
@@ -131,23 +141,27 @@ export async function POST(request: NextRequest) {
             adminUrl: `/admin/blogs`,
             status: "draft",
             category: topic.category,
-        seoKeyword: topic.seoKeyword || undefined,
-        searchIntent: topic.seoBrief?.searchIntent,
-        featuredImage: featured.url,
-        featuredImageAlt: featured.alt,
-        imageSource: featured.source,
-        imageMode: featured.mode,
-        inlineImage: inlineImage?.url,
-        inlineImageSource: inlineImage?.source,
-        faqCount: blogData.faqs.length,
-      },
+            seoKeyword: topic.seoKeyword || undefined,
+            searchIntent: topic.seoBrief?.searchIntent,
+            featuredImage: featured.url,
+            featuredImageAlt: featured.alt,
+            imageSource: featured.source,
+            imageMode: featured.mode,
+            inlineImage: inlineImage?.url,
+            inlineImageSource: inlineImage?.source,
+            faqCount: blogData.faqs.length,
+          },
           schedule: await getBlogAutomationSchedule(),
         });
       } catch (error) {
         lastError = error;
-        if (isGenericContentError(error) && genAttempt < MAX_GENERATION_ATTEMPTS - 1) {
+        if (
+          isRetryableGenerationError(error) &&
+          genAttempt < MAX_GENERATION_ATTEMPTS - 1
+        ) {
           console.warn(
-            `Blog generation attempt ${genAttempt + 1} too generic, retrying...`
+            `Blog generation attempt ${genAttempt + 1} rejected, retrying:`,
+            error instanceof Error ? error.message : error
           );
           continue;
         }

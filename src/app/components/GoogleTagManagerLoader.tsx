@@ -21,7 +21,7 @@ function readAnalyticsPreference(): boolean {
 
 /**
  * Loads the GTM web container only after analytics cookies are accepted.
- * Configure GA4 (e.g. G-7G1M6KFY3K) and other tags inside Tag Manager — not in this repo.
+ * Configure GA4 (e.g. G-7G1M6KFY3K) and other tags inside Tag Manager, not in this repo.
  */
 export default function GoogleTagManagerLoader() {
   useEffect(() => {

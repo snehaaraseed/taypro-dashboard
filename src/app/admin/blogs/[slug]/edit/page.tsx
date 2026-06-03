@@ -724,7 +724,7 @@ export default function EditBlogPage() {
                   dateStyle: "medium",
                   timeStyle: "short",
                 })
-              : "— (appears after the next save)"}
+              : ", (appears after the next save)"}
           </p>
         </div>
 

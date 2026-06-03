@@ -21,8 +21,8 @@ function convertNyuma() {
   s = s.replace(/Patented single-pass/g, "Single-pass");
   s = s.replace(/"sku": "MODEL-A"/, '"sku": "NYUMA"');
   s = s.replace(
-    /Automatic Solar Panel Cleaning Robot — NYUMA \(Waterless, AI\)/g,
-    "NYUMA Automatic Solar Panel Cleaning Robot — PBT, Waterless, AI"
+    /Automatic Solar Panel Cleaning Robot, NYUMA \(Waterless, AI\)/g,
+    "NYUMA Automatic Solar Panel Cleaning Robot, PBT, Waterless, AI"
   );
   writeFileSync(join(root, "messages/pages/en/nyuma.json"), s);
   console.log("nyuma.json converted");

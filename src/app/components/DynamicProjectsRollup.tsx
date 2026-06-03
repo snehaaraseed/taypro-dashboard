@@ -17,7 +17,7 @@ interface DynamicProjectsRollupProps {
 
 /**
  * Server-rendered project case-study grid that reads from
- * `src/app/projects/*` on every request — so newly published
+ * `src/app/projects/*` on every request, so newly published
  * projects appear automatically anywhere this component is used.
  */
 export default async function DynamicProjectsRollup({
@@ -74,12 +74,12 @@ export default async function DynamicProjectsRollup({
             >
               <Link
                 href={project.href}
-                title={`${project.title} — Solar Panel Cleaning Robot deployment`}
+                title={`${project.title}, Solar Panel Cleaning Robot deployment`}
                 className="relative aspect-[4/3] w-full overflow-hidden block"
               >
                 <Image
                   src={project.img}
-                  alt={`${project.title} — Solar Panel Cleaning Robot deployment by Taypro`}
+                  alt={`${project.title}, Solar Panel Cleaning Robot deployment by Taypro`}
                   title={project.title}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"

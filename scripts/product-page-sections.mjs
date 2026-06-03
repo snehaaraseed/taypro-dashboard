@@ -31,7 +31,7 @@ export const modelBSections = {
     p4TiltStrong:
       "fixed-tilt, seasonal-tilt and horizontal single-axis tracker",
     p4Mid:
-      " installations where the capex of a per-array automatic robot is not justified — including rooftop, ground-mounted and multi-block utility-scale plants. For fully autonomous, always-on cleaning we recommend ",
+      " installations where the capex of a per-array automatic robot is not justified, including rooftop, ground-mounted and multi-block utility-scale plants. For fully autonomous, always-on cleaning we recommend ",
     linkModelA: "Model-A",
     p4BetweenAT: "; for dedicated single-axis tracker plants we recommend ",
     linkModelT: "Model-T",
@@ -48,7 +48,7 @@ export const modelBSections = {
     subtitle:
       "Drag left or right to rotate and explore the Semi-Automatic Solar Panel Cleaning Robot from every angle.",
     productLabel:
-      "Taypro Model-B — Semi-Automatic Solar Panel Cleaning Robot",
+      "Taypro Model-B, Semi-Automatic Solar Panel Cleaning Robot",
   },
   howItWorks: {
     eyebrow: "Step-by-Step Deployment",
@@ -64,7 +64,7 @@ export const modelBSections = {
     eyebrow: "Key Features Setting Taypro Apart",
     title: "Inside the Model-B Semi-Automatic Cleaning Robot",
     subtitle:
-      "Every sub-system on Model-B — from the brush head to the chassis — is engineered for high uptime, fast deployment and long-term panel safety on utility-scale solar power plants.",
+      "Every sub-system on Model-B, from the brush head to the chassis, is engineered for high uptime, fast deployment and long-term panel safety on utility-scale solar power plants.",
   },
   certifications: {
     eyebrow: "Independently Tested & Certified",
@@ -76,7 +76,7 @@ export const modelBSections = {
       "Independently tested and certified by TÜV NORD for IP55 protection and validated under extreme damp-heat and dry-heat performance conditions.",
     card1Title: "Simulated Sandstorm Testing",
     card1Body:
-      "Validated under 12 sandstorm events per year at a sand loading of 10 g/m² per cycle — the toughest desert-climate cleaning protocol.",
+      "Validated under 12 sandstorm events per year at a sand loading of 10 g/m² per cycle, the toughest desert-climate cleaning protocol.",
     card2Title: "Panel-Safe Verified",
     card2Body:
       "Tested for micro-crack analysis, full electrical parameter evaluation, optical reflectance and ARC (Anti-Reflective Coating) preservation.",
@@ -96,10 +96,10 @@ export const modelBSections = {
       "Every Model-B deployment is backed by a structured service model designed to keep your fleet running at peak uptime across India.",
     card0Title: "Pre-Scheduled Preventive Maintenance",
     card0Body:
-      "All preventive and corrective maintenance activities are executed on a pre-scheduled basis — designed to eliminate unplanned downtime and sustain peak operational performance across the robot's 20-year lifecycle.",
+      "All preventive and corrective maintenance activities are executed on a pre-scheduled basis, designed to eliminate unplanned downtime and sustain peak operational performance across the robot's 20-year lifecycle.",
     card1Title: "Immediate Remote Diagnostics",
     card1Body:
-      "Taypro provides immediate remote diagnostics and troubleshooting upon incident notification — most issues are resolved without requiring a physical site visit.",
+      "Taypro provides immediate remote diagnostics and troubleshooting upon incident notification, most issues are resolved without requiring a physical site visit.",
     card2Title: "Same-Day On-Site Intervention",
     card2Body:
       "When on-site work is required, Taypro targets same-day on-site breakdown resolution, available pan-India, with immediate remote diagnostics from Taypro Console.",
@@ -131,7 +131,7 @@ export const modelBSections = {
     row1: {
       criterion: "Water Consumption",
       manual: "1.5–3 litres of water per module per wash",
-      modelB: "Zero — fully waterless single-pass dry cleaning",
+      modelB: "Zero, fully waterless single-pass dry cleaning",
     },
     row2: {
       criterion: "Cleaning Quality",
@@ -194,8 +194,8 @@ export const modelBSections = {
     },
     row3: {
       criterion: "Cleaning Speed",
-      modelB: "10–15 m/min — cleans 1 MW in under 2 hours",
-      modelA: "10–15 m/min — runs daily, after production hours",
+      modelB: "10–15 m/min, cleans 1 MW in under 2 hours",
+      modelA: "10–15 m/min, runs daily, after production hours",
     },
     row4: {
       criterion: "Range Per Charge",
@@ -205,7 +205,7 @@ export const modelBSections = {
     row5: {
       criterion: "Labour Requirement",
       modelB: "2 operators move robot between arrays",
-      modelA: "Zero — runs unattended after install",
+      modelA: "Zero, runs unattended after install",
     },
     row6: {
       criterion: "Capex Profile",
@@ -225,21 +225,21 @@ export const modelBSections = {
   },
   indianConditions: {
     eyebrow: "Engineered for Indian Conditions",
-    title: "Built for Indian Solar Plants — From Rooftop to Utility Scale",
+    title: "Built for Indian Solar Plants, From Rooftop to Utility Scale",
     subtitle:
-      "Rajasthan dust storms, Gujarat heat, Karnataka humidity and Tamil Nadu monsoons — Taypro Model-B is engineered, tested and deployed for the realities of large-scale Indian solar O&M.",
+      "Rajasthan dust storms, Gujarat heat, Karnataka humidity and Tamil Nadu monsoons, Taypro Model-B is engineered, tested and deployed for the realities of large-scale Indian solar O&M.",
     card0Title: "High-Soiling Region Performance",
     card0Body:
       "Increased cleaning frequency is the only economical way to neutralise the 8–25% soiling losses typical of Indian utility-scale plants. Model-B's 1 MW-in-2-hours cleaning rate makes daily or alternate-day cycles operationally affordable.",
     card1Title: "Temperature & Humidity Tolerance",
     card1Body:
-      "Validated for operating temperatures up to 90°C and TÜV NORD certified for damp-heat and dry-heat performance — proven across Indian summer, monsoon and post-monsoon cycles.",
-    card2Title: "Waterless — Critical for Water-Scarce States",
+      "Validated for operating temperatures up to 90°C and TÜV NORD certified for damp-heat and dry-heat performance, proven across Indian summer, monsoon and post-monsoon cycles.",
+    card2Title: "Waterless, Critical for Water-Scarce States",
     card2Body:
       "Many Indian solar farms are in water-stressed districts. Model-B's waterless cleaning removes water tankers from your O&M plan entirely, freeing water and logistics for higher-priority site use.",
     card3Title: "Pan-India Service Network",
     card3Body:
-      "Same-day on-site breakdown resolution across India, with immediate remote diagnostics from Taypro Console — backed by regional spare inventory and structured AMC programs.",
+      "Same-day on-site breakdown resolution across India, with immediate remote diagnostics from Taypro Console, backed by regional spare inventory and structured AMC programs.",
     crossSellLead: "Looking at adjacent solar O&M needs? Explore the ",
     linkModelA: "fully-automatic Model-A robot",
     linkBetweenAT: ", the ",
@@ -269,11 +269,11 @@ export const modelTSections = {
     p1Mid: ". The robot removes over ",
     p1DustStrong: "99% of dust in a single automated run",
     p1AfterDust: ", covering up to ",
-    p1RangeStrong: "2.2 km — around 3,600 modules — on a single charge",
+    p1RangeStrong: "2.2 km, around 3,600 modules, on a single charge",
     p1AfterRange:
       ". Cleaning is best scheduled after energy production hours and is managed end-to-end through the Taypro Console remote monitoring app. Supported fleet links are ",
     p1ConnectivitySuffix:
-      " — pick the best path per block based on coverage and bandwidth needs (site-dependent).",
+      ", pick the best path per block based on coverage and bandwidth needs (site-dependent).",
     p2Before: "Compatible with ",
     p2NexStrong: "NEXTracker",
     p2And: " and ",
@@ -282,13 +282,13 @@ export const modelTSections = {
       " single-axis tracker platforms, Model-T can ",
     p2FlexStrong: "flex its body up to 15°",
     p2AfterFlex:
-      " to accommodate angle deviations between adjacent tracker tables — ensuring safe and reliable movement across panels and inter-table bridges. The robot supports module tilts across the full operational tracker range of ",
+      " to accommodate angle deviations between adjacent tracker tables, ensuring safe and reliable movement across panels and inter-table bridges. The robot supports module tilts across the full operational tracker range of ",
     p2TiltStrong: "-52° to +52°",
     p2Suffix: ".",
     p3Before: "Model-T operates autonomously using advanced ",
     p3DetectStrong: "edge, obstacle and angle detection",
     p3AfterDetect:
-      " to move safely across panels without risk of falling. It continuously tracks the path and surface undulations along each row, adjusting motor performance as needed for consistent cleaning. After each cleaning cycle, Model-T returns to a secure, shadow-free docking station and locks in — wind-safe up to 180 km/hr.",
+      " to move safely across panels without risk of falling. It continuously tracks the path and surface undulations along each row, adjusting motor performance as needed for consistent cleaning. After each cleaning cycle, Model-T returns to a secure, shadow-free docking station and locks in, wind-safe up to 180 km/hr.",
     p4Lead: "Operating a fixed-tilt utility-scale plant? Choose the fully-autonomous ",
     linkModelA: "Model-A",
     p4Mid: ". Cleaning smaller or scattered plants? Use the semi-automatic pick-and-place ",
@@ -311,7 +311,7 @@ export const modelTSections = {
     tourSubtitleDesktop:
       "Drag left or right to rotate and explore our Single-Axis Tracker Solar Panel Cleaning Robot.",
     productLabel:
-      "Taypro Model-T — Solar Panel Cleaning Robot for Single-Axis Trackers",
+      "Taypro Model-T, Solar Panel Cleaning Robot for Single-Axis Trackers",
     innovationTitle: "The Innovation Behind the MODEL-T",
     innovationBody:
       "The Taypro Model-T represents a synergy of cutting-edge technologies meticulously engineered to address the challenges of solar panel maintenance for single-axis tracker installations. Powered by advanced sensors and machine learning capabilities, Model-T delivers truly autonomous operation devoid of any human intervention. Its cloud-based management system enables remote monitoring and control, ensuring optimal performance from anywhere, anytime.",
@@ -320,7 +320,7 @@ export const modelTSections = {
     eyebrow: "Step-by-Step Autonomous Cleaning Cycle",
     title: "How Does Model-T Clean Single-Axis Tracker Plants?",
     subtitle:
-      "Model-T executes a fully autonomous cleaning cycle from AI-scheduled deployment through self-docking and cloud telemetry sync — without any operator on site.",
+      "Model-T executes a fully autonomous cleaning cycle from AI-scheduled deployment through self-docking and cloud telemetry sync, without any operator on site.",
   },
   uspSection: {
     eyebrow: "Why Choose Taypro Model-T",
@@ -342,7 +342,7 @@ export const modelTSections = {
       "Independently tested and certified by TÜV NORD for IP55 protection and validated under extreme damp-heat and dry-heat performance conditions.",
     card1Title: "Simulated Sandstorm Testing",
     card1Body:
-      "Validated under 12 sandstorm events per year at a sand loading of 10 g/m² per cycle — the toughest desert-climate cleaning protocol.",
+      "Validated under 12 sandstorm events per year at a sand loading of 10 g/m² per cycle, the toughest desert-climate cleaning protocol.",
     card2Title: "Panel-Safe Verified",
     card2Body:
       "Tested for micro-crack analysis, full electrical parameter evaluation, optical reflectance and ARC (Anti-Reflective Coating) preservation.",
@@ -362,10 +362,10 @@ export const modelTSections = {
       "Every Model-T deployment is backed by a structured service model designed to keep your tracker-plant cleaning fleet running at peak uptime across India.",
     card0Title: "Pre-Scheduled Preventive Maintenance",
     card0Body:
-      "All preventive and corrective maintenance activities are executed on a pre-scheduled basis — designed to eliminate unplanned downtime and sustain peak operational performance across the robot's 20-year lifecycle.",
+      "All preventive and corrective maintenance activities are executed on a pre-scheduled basis, designed to eliminate unplanned downtime and sustain peak operational performance across the robot's 20-year lifecycle.",
     card1Title: "Immediate Remote Diagnostics",
     card1Body:
-      "Taypro provides immediate remote diagnostics and troubleshooting upon incident notification — most tracker-plant issues are resolved without a physical site visit.",
+      "Taypro provides immediate remote diagnostics and troubleshooting upon incident notification, most tracker-plant issues are resolved without a physical site visit.",
     card2Title: "Same-Day On-Site Intervention",
     card2Body:
       "When on-site work is required, Taypro targets same-day on-site breakdown resolution, available pan-India, with immediate remote diagnostics from Taypro Console.",
@@ -385,20 +385,20 @@ export const modelTSections = {
     title:
       "Why Robotic Cleaning Is Essential for Single-Axis Tracker Plants",
     subtitle:
-      "Tracker plants compound every challenge of manual cleaning — moving modules, larger row lengths and tighter inter-row spacing. Robotic cleaning isn't a premium choice for trackers; it's the only way to economically sustain peak Performance Ratio.",
+      "Tracker plants compound every challenge of manual cleaning, moving modules, larger row lengths and tighter inter-row spacing. Robotic cleaning isn't a premium choice for trackers; it's the only way to economically sustain peak Performance Ratio.",
     criterion: "Criterion",
     manual: "Manual Cleaning of Trackers",
     modelT: "Taypro Model-T",
     row0: {
       criterion: "Cleaning Frequency",
       manual:
-        "Weekly or fortnightly — limited by tracker production schedule and labour windows",
+        "Weekly or fortnightly, limited by tracker production schedule and labour windows",
       modelT: "Daily autonomous cycles, weather-aware AI scheduling",
     },
     row1: {
       criterion: "Water Consumption",
       manual: "1.5–3 litres of water per module per wash, plus tanker logistics",
-      modelT: "Zero — fully waterless dual-pass dry cleaning",
+      modelT: "Zero, fully waterless dual-pass dry cleaning",
     },
     row2: {
       criterion: "Tracker Movement Compatibility",
@@ -423,7 +423,7 @@ export const modelTSections = {
       criterion: "Labour & Safety",
       manual:
         "Large crews; tracker-row safety risk; uneven ground access risk",
-      modelT: "Zero manual intervention — runs autonomously after install",
+      modelT: "Zero manual intervention, runs autonomously after install",
     },
     row6: {
       criterion: "Performance Ratio Impact",
@@ -441,7 +441,7 @@ export const modelTSections = {
     eyebrow: "Choosing the Right Taypro Robot",
     title: "Model-T vs Model-A: Which Robot Suits Your Solar Plant?",
     subtitle:
-      "Both robots are fully autonomous and waterless, both run on the same Taypro Console. The choice is dictated by your mounting structure — tracker vs fixed-tilt.",
+      "Both robots are fully autonomous and waterless, both run on the same Taypro Console. The choice is dictated by your mounting structure, tracker vs fixed-tilt.",
     criterion: "Criterion",
     modelTHeader: "Model-T (Tracker)",
     modelAHeader: "Model-A (Fixed-Tilt)",
@@ -459,12 +459,12 @@ export const modelTSections = {
     row2: {
       criterion: "Inter-Table Flex",
       modelT: "±15° body articulation between adjacent tables",
-      modelA: "Not required — fixed-tilt rows are co-planar",
+      modelA: "Not required, fixed-tilt rows are co-planar",
     },
     row3: {
       criterion: "Cleaning Mechanism",
-      modelT: "Waterless dual-pass — microfiber or PBT brush",
-      modelA: "Waterless dual-pass — self-cleaning microfiber drum",
+      modelT: "Waterless dual-pass, microfiber or PBT brush",
+      modelA: "Waterless dual-pass, self-cleaning microfiber drum",
     },
     row4: {
       criterion: "Range Per Charge",
@@ -474,7 +474,7 @@ export const modelTSections = {
     row5: {
       criterion: "Operating Weight",
       modelT: "25 kg (most compact)",
-      modelA: "Heavier — designed for fixed-tilt utility-scale",
+      modelA: "Heavier, designed for fixed-tilt utility-scale",
     },
     row6: {
       criterion: "Cleaning Mode",
@@ -496,19 +496,19 @@ export const modelTSections = {
     eyebrow: "Engineered for Indian Conditions",
     title: "Built for Indian Single-Axis Tracker Plants",
     subtitle:
-      "Rajasthan dust storms, Gujarat heat, Karnataka humidity and Tamil Nadu monsoons — Taypro Model-T is engineered, tested and deployed for the realities of large Indian tracker O&M, not generic Western field conditions.",
+      "Rajasthan dust storms, Gujarat heat, Karnataka humidity and Tamil Nadu monsoons, Taypro Model-T is engineered, tested and deployed for the realities of large Indian tracker O&M, not generic Western field conditions.",
     card0Title: "Designed for High-Soiling Tracker Regions",
     card0Body:
-      "Daily autonomous cleaning is the only economical way to neutralise 8–25% soiling losses on tracker plants in Rajasthan, Gujarat, Madhya Pradesh and Maharashtra — exactly where most NEXTracker and Gamechanger installations sit.",
+      "Daily autonomous cleaning is the only economical way to neutralise 8–25% soiling losses on tracker plants in Rajasthan, Gujarat, Madhya Pradesh and Maharashtra, exactly where most NEXTracker and Gamechanger installations sit.",
     card1Title: "Temperature & Humidity Tolerance",
     card1Body:
-      "Validated for operating temperatures up to 90°C and TÜV NORD certified for damp-heat and dry-heat performance — proven across Indian summer, monsoon and post-monsoon cycles.",
-    card2Title: "Waterless — Critical for Water-Scarce Districts",
+      "Validated for operating temperatures up to 90°C and TÜV NORD certified for damp-heat and dry-heat performance, proven across Indian summer, monsoon and post-monsoon cycles.",
+    card2Title: "Waterless, Critical for Water-Scarce Districts",
     card2Body:
       "Many tracker plants are in water-stressed districts where water allocations for module washing are tightening. Model-T removes water from your O&M plan entirely, freeing tanker logistics for higher-priority site needs.",
     card3Title: "Pan-India Service Network",
     card3Body:
-      "Same-day on-site breakdown resolution across India, with immediate remote diagnostics from Taypro Console — backed by regional spare inventory and structured AMC programs.",
+      "Same-day on-site breakdown resolution across India, with immediate remote diagnostics from Taypro Console, backed by regional spare inventory and structured AMC programs.",
     crossSellLead: "Looking at adjacent solar O&M needs? Explore the ",
     linkModelA: "fully-automatic Model-A robot",
     linkBetweenAB: ", the ",
@@ -534,13 +534,13 @@ export const cleaningServiceSections = {
     p1Before: "Taypro OPEX is how large solar plants consume ",
     p1Strong: "robotic solar panel cleaning as a service",
     p1After:
-      " instead of buying and maintaining their own fleet. Under a Taypro OPEX contract, TAYPRO Private Limited supplies the robots, spare parts philosophy, trained operators, remote monitoring, and continuous optimisation — while you pay in line with ",
+      " instead of buying and maintaining their own fleet. Under a Taypro OPEX contract, TAYPRO Private Limited supplies the robots, spare parts philosophy, trained operators, remote monitoring, and continuous optimisation, while you pay in line with ",
     p1BillingStrong: "verified panels cleaned each month",
     p1Suffix: ", not unused machine hours.",
     p2Before: "Every engagement begins with a disciplined ",
     p2StudyStrong: "plant study",
     p2Mid:
-      " that quantifies soiling drivers and recommends an operating envelope — most utility sites land on ",
+      " that quantifies soiling drivers and recommends an operating envelope, most utility sites land on ",
     p2CyclesStrong: "three to ten dry cleaning cycles per month",
     p2AfterCycles:
       " once meteorology, dust chemistry, and generation risk are balanced. From that study we publish a ",
@@ -553,7 +553,7 @@ export const cleaningServiceSections = {
     p3Before: "During operations, your team receives ",
     p3ReportsStrong: "granular cleaning reports",
     p3AfterReports:
-      " — per shift, per day, or per cycle depending on your governance needs — via Taypro Console, with fleet telemetry carried over ",
+      ", per shift, per day, or per cycle depending on your governance needs, via Taypro Console, with fleet telemetry carried over ",
     p3ConnectivitySuffix: " as designed for your site.",
     p4Prefix: "Further reading: ",
     linkBlogCost: "cost–benefit of cleaning services in India",
@@ -563,7 +563,7 @@ export const cleaningServiceSections = {
   },
   billing: {
     eyebrow: "Commercial model",
-    title: "Billing tied to panels cleaned — not capex",
+    title: "Billing tied to panels cleaned, not capex",
     body:
       "Your monthly invoice is anchored to the count of modules actually cleaned in the period, cross-checked against Taypro Console logs and the mutually agreed measurement protocol. That keeps plant leadership, finance and O&M aligned on one simple question: did we restore transmissivity to the contracted panel population this month?",
     ctaLabel: "Talk to our OPEX team",
@@ -591,7 +591,7 @@ export const cleaningServiceSections = {
       "Cycle-level and daily summaries delivered through Taypro Console: distance travelled, blocks completed, anomalies, operator notes, and exportable files for your internal performance review boards.",
     card3Title: "Safety & module-care governance",
     card3Body:
-      "Written risk assessments, edge-case playbooks, and alignment with your module warranty and O&M insurance requirements — backed by Taypro's lab-tested cleaning physics.",
+      "Written risk assessments, edge-case playbooks, and alignment with your module warranty and O&M insurance requirements, backed by Taypro's lab-tested cleaning physics.",
   },
   methodology: {
     eyebrow: "Methodology",
@@ -599,7 +599,7 @@ export const cleaningServiceSections = {
     p1Before: "At ",
     p1CompanyStrong: "TAYPRO Private Limited",
     p1After:
-      ", we treat solar module transmissivity as a first-class production input — especially for ",
+      ", we treat solar module transmissivity as a first-class production input, especially for ",
     p1MwStrong: "50 MW and larger",
     p1Suffix:
       " plants where even a single percentage point of performance ratio shows up immediately in your revenue line.",
@@ -619,37 +619,37 @@ export const cleaningServiceSections = {
     descriptionBefore: "Taypro OPEX combines the same ",
     descriptionStrong: "waterless, AI- and ML-driven",
     descriptionAfter:
-      " robotics trusted on gigawatts of Indian solar with a service wrapper: you get outcomes and transparency — we carry fleet risk, manpower scheduling, and continuous programme tuning.",
+      " robotics trusted on gigawatts of Indian solar with a service wrapper: you get outcomes and transparency, we carry fleet risk, manpower scheduling, and continuous programme tuning.",
   },
   fleetOps: {
     title: "How Taypro operates the fleet on your site",
     subtitle:
-      "These pillars sit underneath every OPEX contract — whether we are running Model-A, Model-B, Model-T, or a blended deployment.",
+      "These pillars sit underneath every OPEX contract, whether we are running Model-A, Model-B, Model-T, or a blended deployment.",
     card0Title: "Dedicated skilled manpower",
     card0Body:
       "Trained Taypro operators remain accountable for safe robot deployment, daily checklists, and coordination with your control room so modules never see experimental handling.",
     card1Title: "Weather-aware scheduling",
     card1Body:
-      "Wind, rain, humidity, and dust forecasts feed the live cleaning calendar so we clean when physics says it will help — not when a static calendar says we must.",
+      "Wind, rain, humidity, and dust forecasts feed the live cleaning calendar so we clean when physics says it will help, not when a static calendar says we must.",
     card2Title: "Same-day breakdown discipline",
     card2Body:
-      "Automated ticketing, remote diagnostics, and a nationwide field bench mean faults get triaged immediately — with same-day resolution targets on qualifying service plans.",
+      "Automated ticketing, remote diagnostics, and a nationwide field bench mean faults get triaged immediately, with same-day resolution targets on qualifying service plans.",
     card3Title: "Dual-pass dry physics",
     card3Body:
-      "Patented dual-pass waterless cleaning removes loose dust then tackles adhered film without water chemistry — preserving anti-reflective coatings and keeping discharge compliance simple.",
+      "Patented dual-pass waterless cleaning removes loose dust then tackles adhered film without water chemistry, preserving anti-reflective coatings and keeping discharge compliance simple.",
   },
   callbackHeader: "Schedule a Taypro OPEX solar panel cleaning consultation",
   opexVsCapex: {
     title: "Taypro OPEX vs buying robots (capex)",
     subtitle:
-      "Both routes use the same Taypro hardware DNA — the question is who carries asset risk and how you want to recognise cost.",
+      "Both routes use the same Taypro hardware DNA, the question is who carries asset risk and how you want to recognise cost.",
     topic: "Topic",
     opex: "Taypro OPEX",
     capex: "Robot purchase (capex)",
     row0: {
       t: "Capital outlay",
-      opex: "Low — robots stay on Taypro balance sheet",
-      capex: "High — full robot + spare parts capitalisation",
+      opex: "Low, robots stay on Taypro balance sheet",
+      capex: "High, full robot + spare parts capitalisation",
     },
     row1: {
       t: "Billing model",
@@ -684,7 +684,7 @@ export const cleaningServiceSections = {
   faqSection: {
     title: "Frequently asked questions",
     subtitle:
-      "Taypro OPEX service questions — plus broader Taypro programme FAQs below.",
+      "Taypro OPEX service questions, plus broader Taypro programme FAQs below.",
   },
   advantages: {
     eyebrow: "Why solar plants choose Taypro OPEX",
@@ -699,7 +699,7 @@ export const cleaningServiceSections = {
       "Waterless dual-pass systems and frame-riding kinematics are chosen specifically to protect glass, ARC, and tracker mechanics.",
     card2Title: "Enhanced efficiency",
     card2Body:
-      "Cleaning calendars are revisited whenever soiling drivers shift — keeping performance ratio closer to nameplate across seasons.",
+      "Cleaning calendars are revisited whenever soiling drivers shift, keeping performance ratio closer to nameplate across seasons.",
     card3Title: "Eco-friendly operation",
     card3Body:
       "Zero water consumption for module washing means no tanker queues, no discharge risk, and simpler environmental compliance.",
@@ -708,7 +708,7 @@ export const cleaningServiceSections = {
       "Single vendor accountability: robots, connectivity, manpower, reporting, and billing tied to panels cleaned.",
     card5Title: "Value for money",
     card5Body:
-      "You fund cleaning outcomes, not stranded capital — ideal when you want predictable monthly OPEX lines and rapid scale-out.",
+      "You fund cleaning outcomes, not stranded capital, ideal when you want predictable monthly OPEX lines and rapid scale-out.",
   },
   cadenceRoi: {
     eyebrow: "The economics & cadence",
@@ -721,7 +721,7 @@ export const cleaningServiceSections = {
     cycleAfterRange:
       " per charge, depending on the deployed model. Under Taypro OPEX, the ",
     cycleProgramStrong: "monthly programme",
-    cycleMid2: " is not a single visit — it is the agreed ",
+    cycleMid2: " is not a single visit, it is the agreed ",
     cycleCountStrong: "3–10 dry cleaning cycles",
     cycleSuffix:
       " derived from your plant study, spaced to maximise generation and minimise operational conflict. Night-time or post-production windows are preferred so cleaning never competes with your peak irradiance hours.",
@@ -735,7 +735,7 @@ export const cleaningServiceSections = {
     roiBodyBefore: "Soiling can erode ",
     roiLossStrong: "10–25% of practical output",
     roiAfterLoss:
-      " on aggressive sites. Taypro OPEX converts that hidden loss into a managed service line item with measurable before / after performance ratio lift — letting you compare a clean, contracted O&M cost against unpredictable manual washing or under-cleaned baseline scenarios.",
+      " on aggressive sites. Taypro OPEX converts that hidden loss into a managed service line item with measurable before / after performance ratio lift, letting you compare a clean, contracted O&M cost against unpredictable manual washing or under-cleaned baseline scenarios.",
     roiCalculatorLink: "Open the ROI calculator",
     roiCtaLabel: "Talk to OPEX team",
   },
@@ -743,7 +743,7 @@ export const cleaningServiceSections = {
     titleLine1: "Skillful operation",
     titleLine2: "for optimal results",
     body:
-      "Taypro OPEX pairs soft, lab-validated contact materials with disciplined operator oversight — so panels stay clean, warranty exposure stays controlled, and your team always knows who is on site, why, and what was achieved each shift.",
+      "Taypro OPEX pairs soft, lab-validated contact materials with disciplined operator oversight, so panels stay clean, warranty exposure stays controlled, and your team always knows who is on site, why, and what was achieved each shift.",
   },
   hero: {
     subtitleBefore:

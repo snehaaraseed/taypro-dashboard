@@ -24,7 +24,7 @@ const PROJECT_CATEGORY_KEYS = [
 
 const STAT_LABEL_KEYS = [
   "robotCapacityLabel",
-  "plantInstallationsLabel",
+  "co2ReducedLabel",
   "waterSavedLabel",
   "robotsManufacturedLabel",
 ] as const;

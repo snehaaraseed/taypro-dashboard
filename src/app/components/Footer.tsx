@@ -25,6 +25,7 @@ export default function Footer() {
 
   const importantLinks = [
     { name: t("aboutUs"), href: "/company" },
+    { name: t("investors"), href: "/company#investors" },
     { name: t("projects"), href: "/projects" },
     { name: t("blogs"), href: "/blog" },
     { name: t("contact"), href: "/contact" },
@@ -36,6 +37,10 @@ export default function Footer() {
     {
       name: t("performanceMethodology"),
       href: "/performance-and-test-methodology",
+    },
+    {
+      name: t("utilityOperations"),
+      href: "/utility-scale-solar-operations",
     },
     {
       name: t("ourSolutions"),

@@ -29,7 +29,7 @@ apply("messages/pages/en/model-a.json", [
   [/Model-A\)/g, "GLYDE)"],
   [/Model-A"/g, 'GLYDE"'],
   [/Model-A\//g, "GLYDE/"],
-  [/— Model-A/g, "— GLYDE"],
+  [/, Model-A/g, ", GLYDE"],
   [/Model-A vs/g, "GLYDE vs"],
   [/Model-A and/g, "GLYDE and"],
   [/Model-A or/g, "GLYDE or"],

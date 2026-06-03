@@ -15,7 +15,7 @@ export function blogAuthorProfileUrl(
 
 /**
  * True only when the post is primarily about Taypro-style cleaning robots /
- * robotic automation—not generic “solar panel cleaning” or ESG content.
+ * robotic automation, not generic “solar panel cleaning” or ESG content.
  */
 export function isRobotCleaningTopic(title: string, description: string): boolean {
   const t = title.toLowerCase();

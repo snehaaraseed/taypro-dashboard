@@ -14,16 +14,16 @@ const locales = ["hi", "ar", "ja", "bn"];
 const META_GLYDE = {
   hi: {
     title:
-      "डुअल-पास स्वचालित सोलर पैनल सफाई रोबोट — Taypro GLYDE (वॉटरलेस, AI)",
+      "डुअल-पास स्वचालित सोलर पैनल सफाई रोबोट, Taypro GLYDE (वॉटरलेस, AI)",
     description:
       "Taypro GLYDE एक पूर्ण स्वायत्त, वॉटरलेस स्वचालित सोलर पैनल सफाई रोबोट है। AI/ML डुअल-पास ड्राई क्लीनिंग प्रति चक्र 99%+ धूल हटाती है, प्रति चार्ज 3,600 मॉड्यूल तक, NECTYR के माध्यम से LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN, TÜV NORD प्रमाणित, पूरे भारत में समान-दिवस ब्रेकडाउन सहायता।",
     openGraphTitle:
-      "डुअल-पास स्वचालित सोलर पैनल सफाई रोबोट — Taypro GLYDE",
+      "डुअल-पास स्वचालित सोलर पैनल सफाई रोबोट, Taypro GLYDE",
     openGraphDescription:
       "Taypro GLYDE: यूटिलिटी प्लांट के लिए पेटेंटेड डुअल-पास माइक्रोफाइबर रोबोट। स्वायत्त वॉटरलेस सफाई, प्रति चक्र 99%+ धूल हटाना, NECTYR फ्लीट पोर्टल।",
     openGraphImageAlt:
-      "Taypro GLYDE स्वचालित सोलर पैनल सफाई रोबोट — वॉटरलेस, AI",
-    twitterTitle: "डुअल-पास स्वचालित सोलर पैनल सफाई रोबोट — Taypro GLYDE",
+      "Taypro GLYDE स्वचालित सोलर पैनल सफाई रोबोट, वॉटरलेस, AI",
+    twitterTitle: "डुअल-पास स्वचालित सोलर पैनल सफाई रोबोट, Taypro GLYDE",
     twitterDescription:
       "Taypro GLYDE: स्वायत्त वॉटरलेस डुअल-पास सफाई, प्रति चार्ज 3,600 मॉड्यूल, NECTYR कनेक्टिविटी।",
     keywords: [
@@ -37,14 +37,14 @@ const META_GLYDE = {
   },
   ar: {
     title:
-      "روبوت تنظيف ألواح شمسية أوتوماتيكي ثنائي المرور — Taypro GLYDE (بدون ماء، AI)",
+      "روبوت تنظيف ألواح شمسية أوتوماتيكي ثنائي المرور, Taypro GLYDE (بدون ماء، AI)",
     description:
       "Taypro GLYDE روبوت تنظيف ألواح شمسية أوتوماتيكي بالكامل وبدون مياه. تنظيف جاف ثنائي المرور بتقنية AI/ML يزيل أكثر من 99% من الغبار لكل دورة، حتى 3,600 وحدة لكل شحنة، NECTYR عبر LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN، معتمد TÜV NORD.",
-    openGraphTitle: "روبوت تنظيف ثنائي المرور — Taypro GLYDE",
+    openGraphTitle: "روبوت تنظيف ثنائي المرور, Taypro GLYDE",
     openGraphDescription:
       "GLYDE: روبوت ألياف ميكروية ثنائي المرور لمحطات المرافق. تنظيف ذاتي بدون ماء ومراقبة NECTYR.",
     openGraphImageAlt: "Taypro GLYDE روبوت تنظيف ألواح شمسية أوتوماتيكي",
-    twitterTitle: "روبوت تنظيف ثنائي المرور — Taypro GLYDE",
+    twitterTitle: "روبوت تنظيف ثنائي المرور, Taypro GLYDE",
     twitterDescription:
       "GLYDE: تنظيف ثنائي المرور ذاتي، حتى 3,600 وحدة لكل شحنة، NECTYR.",
     keywords: [
@@ -56,14 +56,14 @@ const META_GLYDE = {
   },
   ja: {
     title:
-      "デュアルパス自動ソーラーパネル清掃ロボット — Taypro GLYDE（無水・AI）",
+      "デュアルパス自動ソーラーパネル清掃ロボット, Taypro GLYDE（無水・AI）",
     description:
       "Taypro GLYDEは完全自律・無水の自動ソーラーパネル清掃ロボットです。AI/MLデュアルパス乾式清掃でサイクルあたり99%超のホコリ除去、1充電で最大3,600モジュール、NECTYR経由のLTE/Wi-Fi/RF mesh/LoRa/LoRaWAN、TÜV NORD認証。",
-    openGraphTitle: "デュアルパス自動清掃ロボット — Taypro GLYDE",
+    openGraphTitle: "デュアルパス自動清掃ロボット, Taypro GLYDE",
     openGraphDescription:
       "特許デュアルパスマイクロファイバー。自律無水清掃、NECTYRフリートポータル。",
     openGraphImageAlt: "Taypro GLYDE 自動ソーラーパネル清掃ロボット",
-    twitterTitle: "デュアルパス自動清掃ロボット — Taypro GLYDE",
+    twitterTitle: "デュアルパス自動清掃ロボット, Taypro GLYDE",
     twitterDescription:
       "GLYDE：自律無水デュアルパス、1充電3,600モジュール、NECTYR。",
     keywords: [
@@ -75,14 +75,14 @@ const META_GLYDE = {
   },
   bn: {
     title:
-      "ডুয়াল-পাস অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট — Taypro GLYDE (জলবিহীন, AI)",
+      "ডুয়াল-পাস অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট, Taypro GLYDE (জলবিহীন, AI)",
     description:
       "Taypro GLYDE সম্পূর্ণ স্বায়ত্তশাসিত, জলবিহীন অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট। AI/ML ডুয়াল-পাস ড্রাই ক্লিনিং প্রতি চক্রে ৯৯%+ ধূলো সরায়, প্রতি চার্জে ৩,৬০০ মডিউল পর্যন্ত, NECTYR-এর মাধ্যমে LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN, TÜV NORD সনদপ্রাপ্ত।",
-    openGraphTitle: "ডুয়াল-পাস অটোমেটিক রোবট — Taypro GLYDE",
+    openGraphTitle: "ডুয়াল-পাস অটোমেটিক রোবট, Taypro GLYDE",
     openGraphDescription:
       "পেটেন্টেড ডুয়াল-পাস মাইক্রোফাইবার। স্বায়ত্তশাসিত জলবিহীন পরিষ্কার, NECTYR।",
     openGraphImageAlt: "Taypro GLYDE অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট",
-    twitterTitle: "ডুয়াল-পাস অটোমেটিক রোবট — Taypro GLYDE",
+    twitterTitle: "ডুয়াল-পাস অটোমেটিক রোবট, Taypro GLYDE",
     twitterDescription:
       "GLYDE: স্বায়ত্তশাসিত জলবিহীন ডুয়াল-পাস, NECTYR।",
     keywords: [
@@ -96,7 +96,7 @@ const META_GLYDE = {
 
 const HERO_GLYDE = {
   hi: {
-    h1Line1: "स्वचालित सोलर पैनल सफाई रोबोट — ",
+    h1Line1: "स्वचालित सोलर पैनल सफाई रोबोट, ",
     h1Line2: "Taypro GLYDE",
     leadBeforeStrong: "Taypro GLYDE एक ",
     leadStrong: "स्वचालित सोलर पैनल सफाई रोबोट",
@@ -108,15 +108,15 @@ const HERO_GLYDE = {
       topic: "GLYDE quote",
       title: "GLYDE कोटेशन का अनुरोध करें",
       subtitle:
-        "अपने प्लांट के बारे में बताएं — हमारी टीम GLYDE साइज़िंग और वाणिज्यिक विकल्पों के साथ जवाब देगी।",
+        "अपने प्लांट के बारे में बताएं, हमारी टीम GLYDE साइज़िंग और वाणिज्यिक विकल्पों के साथ जवाब देगी।",
       label: "कोटेशन का अनुरोध करें",
     },
     heroImageAlt:
       "यूटिलिटी-स्केल सोलर फार्म पर सोलर पैनल साफ करता Taypro GLYDE स्वचालित रोबोट",
-    heroImageTitle: "स्वचालित सोलर पैनल सफाई रोबोट GLYDE — Taypro",
+    heroImageTitle: "स्वचालित सोलर पैनल सफाई रोबोट GLYDE, Taypro",
   },
   ar: {
-    h1Line1: "روبوت تنظيف ألواح شمسية أوتوماتيكي — ",
+    h1Line1: "روبوت تنظيف ألواح شمسية أوتوماتيكي, ",
     h1Line2: "GLYDE من Taypro",
     leadBeforeStrong: "GLYDE من Taypro هو ",
     leadStrong: "روبوت تنظيف ألواح شمسية أوتوماتيكي",
@@ -131,10 +131,10 @@ const HERO_GLYDE = {
       label: "طلب عرض سعر",
     },
     heroImageAlt: "روبوت GLYDE يُنظّف ألواحاً في مزرعة شمسية على نطاق المرافق",
-    heroImageTitle: "روبوت تنظيف ألواح شمسية أوتوماتيكي GLYDE — Taypro",
+    heroImageTitle: "روبوت تنظيف ألواح شمسية أوتوماتيكي GLYDE, Taypro",
   },
   ja: {
-    h1Line1: "自動ソーラーパネル清掃ロボット — ",
+    h1Line1: "自動ソーラーパネル清掃ロボット, ",
     h1Line2: "Taypro GLYDE",
     leadBeforeStrong: "Taypro GLYDEは",
     leadStrong: "自動ソーラーパネル清掃ロボット",
@@ -150,10 +150,10 @@ const HERO_GLYDE = {
     },
     heroImageAlt:
       "ユーティリティ規模ソーラーファームでパネルを清掃するTaypro GLYDE自動ロボット",
-    heroImageTitle: "自動ソーラーパネル清掃ロボット GLYDE — Taypro",
+    heroImageTitle: "自動ソーラーパネル清掃ロボット GLYDE, Taypro",
   },
   bn: {
-    h1Line1: "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট — ",
+    h1Line1: "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট, ",
     h1Line2: "Taypro GLYDE",
     leadBeforeStrong: "Taypro GLYDE হল একটি ",
     leadStrong: "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট",
@@ -165,12 +165,12 @@ const HERO_GLYDE = {
       topic: "GLYDE quote",
       title: "GLYDE কোটেশন অনুরোধ",
       subtitle:
-        "আপনার প্ল্যান্ট সম্পর্কে জানান — আমাদের দল GLYDE কনফিগারেশন ও বাণিজ্যিক বিকল্প নিয়ে যোগাযোগ করবে।",
+        "আপনার প্ল্যান্ট সম্পর্কে জানান, আমাদের দল GLYDE কনফিগারেশন ও বাণিজ্যিক বিকল্প নিয়ে যোগাযোগ করবে।",
       label: "কোটেশন অনুরোধ",
     },
     heroImageAlt:
       "ইউটিলিটি-স্কেল সোলার ফার্মে প্যানেল পরিষ্কার করছে Taypro GLYDE অটোমেটিক রোবট",
-    heroImageTitle: "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট GLYDE — Taypro",
+    heroImageTitle: "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট GLYDE, Taypro",
   },
 };
 
@@ -262,9 +262,9 @@ const OVERVIEW_GLYDE = {
       " श्रेणी पूर्ण स्वायत्त, वॉटरलेस रोबोटों का वर्णन करती है जो टैंकर या रात्रि क्रू के बिना मॉड्यूल साफ करते हैं। Taypro GLYDE यूटिलिटी-स्केल प्लांटों के लिए दैनिक विश्वसनीय सफाई के लिए इंजीनियर किया गया है। एक स्वचालित रन से ",
     p1DustClaimStrong: "99% से अधिक धूल",
     p1AfterDustClaim:
-      " हटती है — घूमते, सेल्फ-क्लीनिंग माइक्रोफाइबर ड्रम से — जिससे PR में लगातार सुधार मिलता है (साइट-निर्भर)।",
+      " हटती है, घूमते, सेल्फ-क्लीनिंग माइक्रोफाइबर ड्रम से, जिससे PR में लगातार सुधार मिलता है (साइट-निर्भर)।",
     p2BeforeStrong: "एक चार्ज पर GLYDE अधिकतम ",
-    p2Strong: "2.2 km रनिंग लंबाई — लगभग 3,600 सोलर मॉड्यूल",
+    p2Strong: "2.2 km रनिंग लंबाई, लगभग 3,600 सोलर मॉड्यूल",
     p2AfterStrong:
       " साफ करता है। सफाई चक्र ऊर्जा उत्पादन घंटों के बाहर शेड्यूल करना सर्वोत्तम है और NECTYR से दूरस्थ प्रोग्राम किया जा सकता है।",
     p3: "एडवांस्ड एज और बाधा डिटेक्शन GLYDE को सुरक्षित पैनल पार करने देता है; सतह ट्रैकिंग पंक्ति-दर-पंक्ति मोटर प्रदर्शन समायोजित करती है। रियल-टाइम बैटरी मॉनिटरिंग सुनिश्चित करती है कि रोबोट केवल पूर्ण करने योग्य दूरी कवर करे और डॉकिंग स्टेशन पर लौटे। हल्के ब्रिज पूरे साइट पर निरंतर कवरेज देते हैं।",
@@ -303,32 +303,32 @@ const OVERVIEW_GLYDE = {
 
 const SCHEMA_GLYDE = {
   hi: {
-    productName: "स्वचालित सोलर पैनल सफाई रोबोट — GLYDE (Taypro)",
+    productName: "स्वचालित सोलर पैनल सफाई रोबोट, GLYDE (Taypro)",
     howToName:
       "स्वचालित सोलर पैनल सफाई रोबोट यूटिलिटी प्लांट कैसे साफ करता है (Taypro GLYDE)",
     howToDescription:
-      "Taypro GLYDE का स्वायत्त सफाई चक्र — AI शेड्यूलिंग, डुअल-पास वॉटरलेस सफाई, सेल्फ-डॉकिंग और क्लाउड टेलीमेट्री।",
+      "Taypro GLYDE का स्वायत्त सफाई चक्र, AI शेड्यूलिंग, डुअल-पास वॉटरलेस सफाई, सेल्फ-डॉकिंग और क्लाउड टेलीमेट्री।",
   },
   ar: {
-    productName: "روبوت تنظيف ألواح شمسية أوتوماتيكي — GLYDE (Taypro)",
+    productName: "روبوت تنظيف ألواح شمسية أوتوماتيكي, GLYDE (Taypro)",
     howToName:
       "كيف ينظف روبوت Taypro GLYDE أوتوماتيكياً محطة شمسية على نطاق المرافق؟",
     howToDescription:
-      "دورة تنظيف ذاتية لـ GLYDE — جدولة AI، تنظيف ثنائي المرور بدون ماء، إرساء ذاتي واتصال سحابي.",
+      "دورة تنظيف ذاتية لـ GLYDE, جدولة AI، تنظيف ثنائي المرور بدون ماء، إرساء ذاتي واتصال سحابي.",
   },
   ja: {
-    productName: "自動ソーラーパネル清掃ロボット — GLYDE (Taypro)",
+    productName: "自動ソーラーパネル清掃ロボット, GLYDE (Taypro)",
     howToName:
       "自動ソーラーパネル清掃ロボットがユーティリティ規模プラントを清掃する方法（Taypro GLYDE）",
     howToDescription:
-      "GLYDEの自律清掃サイクル — AIスケジューリング、デュアルパス無水清掃、セルフドッキング、クラウドテレメトリ。",
+      "GLYDEの自律清掃サイクル, AIスケジューリング、デュアルパス無水清掃、セルフドッキング、クラウドテレメトリ。",
   },
   bn: {
-    productName: "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট — GLYDE (Taypro)",
+    productName: "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট, GLYDE (Taypro)",
     howToName:
       "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট ইউটিলিটি-স্কেল প্ল্যান্ট কীভাবে পরিষ্কার করে (Taypro GLYDE)",
     howToDescription:
-      "GLYDE-এর স্বায়ত্তশাসিত পরিষ্কার চক্র — AI শিডিউলিং, ডুয়াল-পাস জলবিহীন পরিষ্কার, সেল্ফ-ডকিং ও ক্লাউড টেলিমেট্রি।",
+      "GLYDE-এর স্বায়ত্তশাসিত পরিষ্কার চক্র, AI শিডিউলিং, ডুয়াল-পাস জলবিহীন পরিষ্কার, সেল্ফ-ডকিং ও ক্লাউড টেলিমেট্রি।",
   },
 };
 
@@ -379,12 +379,12 @@ for (const loc of locales) {
 
   const USP_ITEMS = {
     hi: {
-      eyebrow: "GLYDE — स्वचालित सोलर पैनल सफाई रोबोट",
+      eyebrow: "GLYDE, स्वचालित सोलर पैनल सफाई रोबोट",
       title: "मुख्य विशेषताएं",
       items: {
         item0: "उत्कृष्ट सफाई दक्षता (डुअल-पास माइक्रोफाइबर)",
         item1: "मजबूत और टिकाऊ डिज़ाइन",
-        item2: "विस्तृत कवरेज — प्रति चार्ज ~3,600 मॉड्यूल",
+        item2: "विस्तृत कवरेज, प्रति चार्ज ~3,600 मॉड्यूल",
         item3: "उच्च गति सफाई (10–15 m/min)",
         item4: "एडवांस्ड एज और बाधा डिटेक्शन",
         item5: "मल्टी-लिंक रिमोट मॉनिटरिंग (LTE / Wi-Fi / RF mesh / LoRa)",
@@ -393,12 +393,12 @@ for (const loc of locales) {
       },
     },
     ar: {
-      eyebrow: "GLYDE — روبوت تنظيف ألواح شمسية أوتوماتيكي",
+      eyebrow: "GLYDE, روبوت تنظيف ألواح شمسية أوتوماتيكي",
       title: "أبرز المزايا",
       items: {
         item0: "كفاءة تنظيف فائقة (ثنائي المرور)",
         item1: "تصميم متين ومتين",
-        item2: "تغطية واسعة — حتى 3,600 وحدة/شحنة",
+        item2: "تغطية واسعة, حتى 3,600 وحدة/شحنة",
         item3: "تنظيف عالي السرعة",
         item4: "كشف الحواف والعوائق",
         item5: "مراقبة عن بُعد متعددة الروابط",
@@ -407,7 +407,7 @@ for (const loc of locales) {
       },
     },
     ja: {
-      eyebrow: "GLYDE — 自動ソーラーパネル清掃ロボット",
+      eyebrow: "GLYDE, 自動ソーラーパネル清掃ロボット",
       title: "主な特長",
       items: {
         item0: "高い清掃効率（デュアルパス）",
@@ -421,12 +421,12 @@ for (const loc of locales) {
       },
     },
     bn: {
-      eyebrow: "GLYDE — অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট",
+      eyebrow: "GLYDE, অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট",
       title: "মূল বৈশিষ্ট্য",
       items: {
         item0: "উচ্চ পরিষ্কার দক্ষতা (ডুয়াল-পাস)",
         item1: "শক্তিশালী ও টেকসই ডিজাইন",
-        item2: "বিস্তৃত কভারেজ — প্রতি চার্জে ~৩,৬০০ মডিউল",
+        item2: "বিস্তৃত কভারেজ, প্রতি চার্জে ~৩,৬০০ মডিউল",
         item3: "দ্রুত পরিষ্কার",
         item4: "এজ ও বাধা শনাক্তকরণ",
         item5: "মাল্টি-লিংক রিমোট মনিটরিং",
@@ -453,7 +453,7 @@ for (const loc of locales) {
       bodyAfterSpan:
         loc === "hi"
           ? " के लिए अपने साइट पर ROI कैलकुलेटर चलाएं।"
-          : " — use the ROI calculator for your site.",
+          : ", use the ROI calculator for your site.",
     };
   }
 
@@ -561,12 +561,12 @@ for (const loc of locales) {
   nyumaX = nyumaXFromPage(nyumaX);
   if (loc === "hi") {
     deepMerge(nyumaX.meta, {
-      title: "PBT ट्रैकर सोलर पैनल सफाई रोबोट — Taypro NYUMA-X",
+      title: "PBT ट्रैकर सोलर पैनल सफाई रोबोट, Taypro NYUMA-X",
       description:
         "Taypro NYUMA-X सिंगल-एक्सिस ट्रैकर के लिए PBT सिंगल-पास रोबोट। प्रति रन 99%+ धूल हटाना, NECTYR, NEXTracker और Gamechanger संगत।",
     });
     deepMerge(nyumaX.hero, {
-      title: "सिंगल-एक्सिस ट्रैकर सोलर पैनल सफाई रोबोट — NYUMA-X",
+      title: "सिंगल-एक्सिस ट्रैकर सोलर पैनल सफाई रोबोट, NYUMA-X",
     });
   }
 

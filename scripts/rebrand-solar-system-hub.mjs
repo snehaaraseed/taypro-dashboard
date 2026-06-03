@@ -12,11 +12,11 @@ p.meta.keywords = p.meta.keywords.map((k) =>
   k.replace(/Model-A vs Model-B vs Model-T/, "HELYX GLYDE NYUMA robot lineup")
 );
 p.meta.openGraphDescription =
-  "Choose the right robot for your plant — HELYX semi-automatic, NYUMA and GLYDE for fixed-tilt, NYUMA-X and GLYDE-X for single-axis trackers, plus OPEX and Console.";
+  "Choose the right robot for your plant, HELYX semi-automatic, NYUMA and GLYDE for fixed-tilt, NYUMA-X and GLYDE-X for single-axis trackers, plus OPEX and Console.";
 p.meta.openGraphImageAlt =
-  "Taypro Solar Panel Cleaning Robots — HELYX, NYUMA, GLYDE, NYUMA-X, GLYDE-X";
+  "Taypro Solar Panel Cleaning Robots, HELYX, NYUMA, GLYDE, NYUMA-X, GLYDE-X";
 p.meta.twitterDescription =
-  "Five Taypro cleaning robots for fixed-tilt and tracker plants — PBT single-pass and patented dual-pass microfiber options.";
+  "Five Taypro cleaning robots for fixed-tilt and tracker plants, PBT single-pass and patented dual-pass microfiber options.";
 
 p.schema.collectionPage.description =
   "Taypro robots: HELYX (pick-and-place), NYUMA and GLYDE (fixed-tilt automatic), NYUMA-X and GLYDE-X (tracker automatic), plus OPEX and Console.";
@@ -52,12 +52,12 @@ p.intro.p2LinkAutomatic = "GLYDE automatic robot";
 p.intro.p2LinkModelB = "HELYX";
 p.intro.p2LinkModelT = "GLYDE-X";
 p.productGrid.subtitle =
-  "Five robot platforms, one fleet portal, two commercial models — pick the plant fit and cleaning technology that match your site.";
+  "Five robot platforms, one fleet portal, two commercial models, pick the plant fit and cleaning technology that match your site.";
 
 p.productGrid.robotHighlights = {
   helyx: {
     eyebrow: "Semi-Automatic · Pick & Place",
-    bullet0: "Single-pass PBT — no dual-pass, no microfiber",
+    bullet0: "Single-pass PBT, no dual-pass, no microfiber",
     bullet1: "~1 MW in ~2 hours, portable across blocks",
     bullet2: "Scattered and distributed utility plants",
   },
@@ -81,7 +81,7 @@ p.productGrid.robotHighlights = {
   },
   nyumaX: {
     eyebrow: "Tracker · PBT",
-    bullet0: "Single-pass PBT — same family as NYUMA",
+    bullet0: "Single-pass PBT, same family as NYUMA",
     bullet1: "Flexible body for tracker tables",
     bullet2: "Single-axis tracker plants",
   },
@@ -89,27 +89,27 @@ p.productGrid.robotHighlights = {
 
 p.decisionGuide.cards = {
   card0: {
-    title: "Fixed-tilt — patented dual-pass",
+    title: "Fixed-tilt, patented dual-pass",
     body: "Want Taypro's core dual-pass microfiber technology on fixed or seasonal-tilt arrays? GLYDE delivers fully autonomous cleaning with AI scheduling.",
     cta: "See GLYDE",
   },
   card1: {
-    title: "Fixed-tilt — PBT platform",
+    title: "Fixed-tilt, PBT platform",
     body: "Prefer a fully autonomous PBT single-pass platform on the same plant types? NYUMA is built for reliable daily dry cleaning without microfiber.",
     cta: "See NYUMA",
   },
   card2: {
     title: "Scattered or distributed plants",
-    body: "HELYX is semi-automatic pick-and-place with single-pass PBT — ideal when crews move one robot across multiple blocks.",
+    body: "HELYX is semi-automatic pick-and-place with single-pass PBT, ideal when crews move one robot across multiple blocks.",
     cta: "See HELYX",
   },
   card3: {
-    title: "Single-axis tracker — dual-pass",
+    title: "Single-axis tracker, dual-pass",
     body: "GLYDE-X pairs patented dual-pass microfiber with a flexible body for horizontal single-axis tracker plants.",
     cta: "See GLYDE-X",
   },
   card4: {
-    title: "Single-axis tracker — PBT",
+    title: "Single-axis tracker, PBT",
     body: "NYUMA-X delivers single-pass PBT cleaning on trackers with the same flexible-body platform class as GLYDE-X.",
     cta: "See NYUMA-X",
   },

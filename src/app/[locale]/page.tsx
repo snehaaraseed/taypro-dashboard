@@ -37,6 +37,12 @@ export async function generateMetadata({
       "capex",
       "opex",
       "cleaning robots",
+      "solar plant operations software",
+      "solar O&M India",
+      "utility scale solar monitoring",
+      "NECTYR",
+      "ORION Taypro",
+      "autonomous solar operations",
     ],
     openGraph: {
       title: t("ogTitle"),

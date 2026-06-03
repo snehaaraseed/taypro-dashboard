@@ -313,7 +313,7 @@ export default function SiteLeadSlideIn() {
                 autoFocus
                 redirectOnSuccess={false}
                 hideResetAfterSuccess
-                thankYouTitle="Got it — your fit check is on the way"
+                thankYouTitle="Got it, your fit check is on the way"
                 thankYouMessage="Our applications team will follow up shortly with the right Solar Panel Cleaning Robot direction for your plant."
                 onSuccess={handleSuccess}
               />

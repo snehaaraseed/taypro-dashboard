@@ -1,10 +1,10 @@
 {
   "ModelBPage": {
     "meta": {
-      "title": "Semi-Automatic Solar Panel Cleaning Robot — Taypro HELYX (Pick-and-Place)",
-      "description": "Taypro HELYX is a 39 kg pick-and-place, semi-automatic Solar Panel Cleaning Robot. Counter-rotating PBT brushes remove 99%+ dust in a single waterless pass, clean a 1 MW plant in under 2 hours, run up to 3 km on a single charge, TÜV NORD certified — built for fixed-tilt and seasonal-tilt plants.",
+      "title": "Semi-Automatic Solar Panel Cleaning Robot, Taypro HELYX (Pick-and-Place)",
+      "description": "Taypro HELYX is a 39 kg pick-and-place, semi-automatic Solar Panel Cleaning Robot. Counter-rotating PBT brushes remove 99%+ dust in a single waterless pass, clean a 1 MW plant in under 2 hours, run up to 3 km on a single charge, TÜV NORD certified, built for fixed-tilt and seasonal-tilt plants.",
       "openGraphDescription": "Pick-and-place Solar Panel Cleaning Robot. 39 kg, waterless, dual counter-rotating PBT brushes, 99%+ dust removal in a single pass, 3 km per charge, TÜV NORD certified.",
-      "openGraphImageAlt": "Taypro Semi-Automatic Solar Panel Cleaning Robot HELYX — Pick-and-place type, waterless",
+      "openGraphImageAlt": "Taypro Semi-Automatic Solar Panel Cleaning Robot HELYX, Pick-and-place type, waterless",
       "twitterDescription": "39 kg pick-and-place Solar Panel Cleaning Robot. Waterless, dual counter-rotating PBT brushes, 99%+ dust removal per pass, TÜV NORD certified.",
       "keywords": [
         "semi-automatic solar panel cleaning robot",
@@ -33,24 +33,24 @@
       "productDescription": "Taypro HELYX is a 39 kg pick-and-place, semi-automatic Solar Panel Cleaning Robot. Counter-rotating UV-stable PBT brushes remove 99%+ dust in a single pass, clean a 1 MW plant in under 2 hours, run up to 3 km on a single charge, TÜV NORD certified, and built for fixed tilt, seasonal tilt and single-axis tracker plants (see GLYDE-X or NYUMA-X).",
       "offersPrice": "Contact for pricing",
       "howToName": "How to clean solar panels with the Taypro HELYX Semi-Automatic Solar Panel Cleaning Robot",
-      "howToDescription": "Step-by-step deployment of the Taypro HELYX pick-and-place semi-automatic solar panel cleaning robot — from lifting the robot onto the first row through recharging at the docking station."
+      "howToDescription": "Step-by-step deployment of the Taypro HELYX pick-and-place semi-automatic solar panel cleaning robot, from lifting the robot onto the first row through recharging at the docking station."
     },
     "hero": {
-      "title": "Semi-Automatic Solar Panel Cleaning Robot — HELYX",
+      "title": "Semi-Automatic Solar Panel Cleaning Robot, HELYX",
       "subtitleBefore": "A 39 kg pick-and-place, waterless Solar Panel Cleaning Robot engineered for utility-scale solar power plants. Dual counter-rotating UV-stable PBT brushes lift over",
       "subtitleStrong": "99% of dust in a single pass",
-      "subtitleAfter": ", cleaning a 1 MW block in under 2 hours and running up to 3 km on a single charge — operable by any two-person site team.",
-      "imgAlt": "Taypro HELYX — Semi-Automatic Solar Panel Cleaning Robot, pick-and-place waterless cleaner for utility-scale solar plants",
+      "subtitleAfter": ", cleaning a 1 MW block in under 2 hours and running up to 3 km on a single charge, operable by any two-person site team.",
+      "imgAlt": "Taypro HELYX, Semi-Automatic Solar Panel Cleaning Robot, pick-and-place waterless cleaner for utility-scale solar plants",
       "ctaText": "Request a quote"
     },
     "usps": {
       "0": {
         "title": "Pick-and-Place Deployment",
-        "description": "Lift-and-shift design lets a two-person team deploy HELYX across multiple arrays simultaneously — ideal for scattered, irregular or multi-block solar plants."
+        "description": "Lift-and-shift design lets a two-person team deploy HELYX across multiple arrays simultaneously, ideal for scattered, irregular or multi-block solar plants."
       },
       "1": {
         "title": "100% Waterless Single-Pass Cleaning",
-        "description": "Dual counter-rotating PBT brushes lift over 99% of accumulated dust in a single pass — no water, no detergent, no run-off."
+        "description": "Dual counter-rotating PBT brushes lift over 99% of accumulated dust in a single pass, no water, no detergent, no run-off."
       },
       "2": {
         "title": "UV-Stable PBT Brush System",
@@ -58,15 +58,15 @@
       },
       "3": {
         "title": "Ergonomic 39 kg Chassis",
-        "description": "Light-but-rigid 39 kg construction with integrated fixed handles enables effortless installation, retrieval and inter-row transfer — without any lifting equipment."
+        "description": "Light-but-rigid 39 kg construction with integrated fixed handles enables effortless installation, retrieval and inter-row transfer, without any lifting equipment."
       },
       "4": {
         "title": "Edge-Detection Safety",
-        "description": "On-board edge-detection prevents accidental falls from the module edge — protecting the robot, the plant and the operator throughout every cleaning cycle."
+        "description": "On-board edge-detection prevents accidental falls from the module edge, protecting the robot, the plant and the operator throughout every cleaning cycle."
       },
       "5": {
         "title": "Up to 3 km Range Per Charge",
-        "description": "A high-capacity lithium-ion pack delivers up to 3 km of cleaning range on a single charge — enough to clean a 1 MW solar plant in under 2 hours."
+        "description": "A high-capacity lithium-ion pack delivers up to 3 km of cleaning range on a single charge, enough to clean a 1 MW solar plant in under 2 hours."
       },
       "6": {
         "title": "Operator-Centric Onboard Controls",
@@ -80,11 +80,11 @@
     "features": {
       "0": {
         "title": "Counter-Rotating PBT Brush System",
-        "body": "Two counter-rotating UV-stable PBT brushes work in opposing directions to lift loose dust upward while sweeping fine particulates outward — eliminating over 99% of soiling in a single forward pass. The PBT bristles are non-abrasive, panel-safe and engineered for long life under continuous outdoor cleaning."
+        "body": "Two counter-rotating UV-stable PBT brushes work in opposing directions to lift loose dust upward while sweeping fine particulates outward, eliminating over 99% of soiling in a single forward pass. The PBT bristles are non-abrasive, panel-safe and engineered for long life under continuous outdoor cleaning."
       },
       "1": {
         "title": "Cleans a 1 MW Plant in Under 2 Hours",
-        "body": "A cleaning speed of 10–15 metres per minute means a typical 1 MW utility-scale block is fully cleaned in less than 2 hours — making daily or alternate-day cleaning operationally viable even on large solar farms with constrained labour windows."
+        "body": "A cleaning speed of 10–15 metres per minute means a typical 1 MW utility-scale block is fully cleaned in less than 2 hours, making daily or alternate-day cleaning operationally viable even on large solar farms with constrained labour windows."
       },
       "2": {
         "title": "Up to 3 km Range on a Single Charge",
@@ -96,11 +96,11 @@
       },
       "4": {
         "title": "Edge-Detection & Fall-Prevention",
-        "body": "Onboard edge-detection sensors continuously scan the module boundary and stop the robot at the panel edge — preventing falls, panel damage and operator risk. A precision-engineered drive system holds the robot stable even at maximum module tilt of 45°."
+        "body": "Onboard edge-detection sensors continuously scan the module boundary and stop the robot at the panel edge, preventing falls, panel damage and operator risk. A precision-engineered drive system holds the robot stable even at maximum module tilt of 45°."
       },
       "5": {
         "title": "Rapid Field Serviceability",
-        "body": "Critical components (brushes, drive wheels, battery, controllers) can be accessed and replaced without dismantling the main assembly. Most field service operations are completed in minutes, not hours — minimising planned and unplanned downtime."
+        "body": "Critical components (brushes, drive wheels, battery, controllers) can be accessed and replaced without dismantling the main assembly. Most field service operations are completed in minutes, not hours, minimising planned and unplanned downtime."
       },
       "6": {
         "title": "Reinforced Heavy-Duty Chassis",
@@ -108,7 +108,7 @@
       },
       "7": {
         "title": "Sealed Body, IP65 Protection",
-        "body": "All electrical components, wiring harnesses and connectors are fully enclosed within the sealed device body — providing IP65-rated protection against dust, moisture and environmental contaminants in extreme field conditions."
+        "body": "All electrical components, wiring harnesses and connectors are fully enclosed within the sealed device body, providing IP65-rated protection against dust, moisture and environmental contaminants in extreme field conditions."
       }
     },
     "specs": {
@@ -192,11 +192,11 @@
       },
       "1": {
         "name": "Activate the onboard controls",
-        "text": "The operator powers on the robot and selects a cleaning cycle from the intuitive onboard controls. No specialised training is required — the interface is designed for any site personnel and starts a single forward cleaning pass along the row."
+        "text": "The operator powers on the robot and selects a cleaning cycle from the intuitive onboard controls. No specialised training is required, the interface is designed for any site personnel and starts a single forward cleaning pass along the row."
       },
       "2": {
         "name": "Counter-rotating PBT brushes lift dust waterless",
-        "text": "Two counter-rotating UV-stable PBT brushes engage the module surface, lifting and sweeping over 99% of accumulated dust in a single dry pass at a cleaning speed of 10–15 metres per minute — without water, detergent or operator supervision."
+        "text": "Two counter-rotating UV-stable PBT brushes engage the module surface, lifting and sweeping over 99% of accumulated dust in a single dry pass at a cleaning speed of 10–15 metres per minute, without water, detergent or operator supervision."
       },
       "3": {
         "name": "Edge-detection prevents falls at row ends",
@@ -204,7 +204,7 @@
       },
       "4": {
         "name": "Move the robot to the next row via bridge kit or lift-and-shift",
-        "text": "Operators retrieve the robot using the integrated handles and transfer it to the next row using Taypro's purpose-designed bridge kits — or lift-and-shift it directly across short inter-row gaps. The same robot can clean multiple arrays in sequence."
+        "text": "Operators retrieve the robot using the integrated handles and transfer it to the next row using Taypro's purpose-designed bridge kits, or lift-and-shift it directly across short inter-row gaps. The same robot can clean multiple arrays in sequence."
       },
       "5": {
         "name": "Recharge and review performance",
@@ -218,7 +218,7 @@
       },
       "1": {
         "question": "How is HELYX different from the GLYDE Automatic Solar Panel Cleaning Robot?",
-        "answer": "GLYDE is a fully autonomous robot that is permanently assigned to a specific array and runs daily cleaning cycles without any human intervention — ideal for large utility-scale plants where labour is the bottleneck. HELYX is a semi-automatic, pick-and-place robot operated by a small two-person team across multiple arrays — ideal for scattered, irregular, smaller or rooftop plants where the capex of a per-array robot isn't justified. Both robots are waterless, AI-driven and managed from the same NECTYR portal."
+        "answer": "GLYDE is a fully autonomous robot that is permanently assigned to a specific array and runs daily cleaning cycles without any human intervention, ideal for large utility-scale plants where labour is the bottleneck. HELYX is a semi-automatic, pick-and-place robot operated by a small two-person team across multiple arrays, ideal for scattered, irregular, smaller or rooftop plants where the capex of a per-array robot isn't justified. Both robots are waterless, AI-driven and managed from the same NECTYR portal."
       },
       "2": {
         "question": "How big a solar plant can HELYX clean in a day?",
@@ -226,14 +226,14 @@
       },
       "3": {
         "question": "Does HELYX require water for cleaning solar panels?",
-        "answer": "No. Taypro HELYX is a 100% waterless solar panel cleaning robot. It uses a pair of counter-rotating UV-stable PBT brushes that physically lift and sweep dust off the module surface in a single dry pass — eliminating water consumption, detergent costs, run-off contamination and the logistics of water tankers entirely."
+        "answer": "No. Taypro HELYX is a 100% waterless solar panel cleaning robot. It uses a pair of counter-rotating UV-stable PBT brushes that physically lift and sweep dust off the module surface in a single dry pass, eliminating water consumption, detergent costs, run-off contamination and the logistics of water tankers entirely."
       },
       "4": {
         "question": "Is the PBT brush safe for solar modules and Anti-Reflective Coating (ARC)?",
         "answer": "Yes. The UV-stable PBT brush system is engineered to be panel-safe and non-abrasive. Every robot is independently tested for micro-crack formation, optical reflectance loss and ARC preservation under simulated daily cleaning cycles by accredited solar-sector testing laboratories. HELYX is also TÜV NORD certified for IP55 protection and validated for damp-heat and dry-heat performance."
       },
       "5": {
-        "question": "What types of solar plants is HELYX suitable for — rooftop, ground-mounted, fixed tilt or tracker?",
+        "question": "What types of solar plants is HELYX suitable for, rooftop, ground-mounted, fixed tilt or tracker?",
         "answer": "HELYX is built for fixed-tilt, seasonal-tilt and single-axis tracker plants (see GLYDE-X or NYUMA-X). It supports module tilts up to 45° and east–west terrain slopes of up to 15°, making it compatible with most utility-scale, commercial and industrial rooftop, and ground-mounted installations. For dedicated single-axis tracker plants we recommend GLYDE-X; for fully autonomous large utility-scale plants we recommend GLYDE."
       },
       "6": {
@@ -242,7 +242,7 @@
       },
       "7": {
         "question": "How many people are needed to operate a Taypro HELYX robot?",
-        "answer": "Just two. The 39 kg optimised weight with factory-fitted ergonomic handles allows a compact two-person site team to lift, place, operate and relocate HELYX across multiple arrays without any forklifts, cranes or heavy lifting equipment. Operators do not require specialised training — the onboard controls are designed for any site personnel."
+        "answer": "Just two. The 39 kg optimised weight with factory-fitted ergonomic handles allows a compact two-person site team to lift, place, operate and relocate HELYX across multiple arrays without any forklifts, cranes or heavy lifting equipment. Operators do not require specialised training, the onboard controls are designed for any site personnel."
       },
       "8": {
         "question": "Does HELYX work in extreme Indian climatic conditions like dust storms, heat and monsoon?",
@@ -250,7 +250,7 @@
       },
       "9": {
         "question": "What kind of after-sales support does Taypro provide for HELYX?",
-        "answer": "Every HELYX deployment is backed by Taypro's pan-India service model: pre-scheduled preventive and corrective maintenance, immediate remote diagnostics upon incident notification, and same-day on-site breakdown resolution targets — anywhere in India. Annual maintenance contracts (AMC) are available for long-term operations."
+        "answer": "Every HELYX deployment is backed by Taypro's pan-India service model: pre-scheduled preventive and corrective maintenance, immediate remote diagnostics upon incident notification, and same-day on-site breakdown resolution targets, anywhere in India. Annual maintenance contracts (AMC) are available for long-term operations."
       }
     },
     "misc": {
@@ -259,7 +259,7 @@
       "callbackLine2": "Panel Cleaning Robots",
       "faqTitle": "Frequently Asked Questions",
       "faqSubtitle": "Common questions about the Taypro HELYX Semi-Automatic Solar Panel Cleaning Robot.",
-      "product360Label": "Taypro HELYX — Semi-Automatic Solar Panel Cleaning Robot"
+      "product360Label": "Taypro HELYX, Semi-Automatic Solar Panel Cleaning Robot"
     },
     "overview": {
       "eyebrow": "Pick-and-Place Solar Cleaning Robot for Utility-Scale Plants",
@@ -283,7 +283,7 @@
       "p3AfterBridge": " supplied and installed by Taypro, letting one robot service many rows without rails or modifications to your modules.",
       "p4Before": "HELYX is a strong fit for ",
       "p4TiltStrong": "fixed-tilt, seasonal-tilt and horizontal single-axis tracker",
-      "p4Mid": " installations where the capex of a per-array automatic robot is not justified — including rooftop, ground-mounted and multi-block utility-scale plants. For fully autonomous, always-on cleaning we recommend ",
+      "p4Mid": " installations where the capex of a per-array automatic robot is not justified, including rooftop, ground-mounted and multi-block utility-scale plants. For fully autonomous, always-on cleaning we recommend ",
       "linkModelA": "GLYDE",
       "p4BetweenAT": "; for dedicated single-axis tracker plants we recommend ",
       "linkModelT": "GLYDE-X",
@@ -298,7 +298,7 @@
       "eyebrow": "Interactive Product Tour",
       "title": "360° View of HELYX",
       "subtitle": "Drag left or right to rotate and explore the Semi-Automatic Solar Panel Cleaning Robot from every angle.",
-      "productLabel": "Taypro HELYX — Semi-Automatic Solar Panel Cleaning Robot"
+      "productLabel": "Taypro HELYX, Semi-Automatic Solar Panel Cleaning Robot"
     },
     "howItWorks": {
       "eyebrow": "Step-by-Step Deployment",
@@ -312,7 +312,7 @@
     "featuresSection": {
       "eyebrow": "Key Features Setting Taypro Apart",
       "title": "Inside the HELYX Semi-Automatic Cleaning Robot",
-      "subtitle": "Every sub-system on HELYX — from the brush head to the chassis — is engineered for high uptime, fast deployment and long-term panel safety on utility-scale solar power plants."
+      "subtitle": "Every sub-system on HELYX, from the brush head to the chassis, is engineered for high uptime, fast deployment and long-term panel safety on utility-scale solar power plants."
     },
     "certifications": {
       "eyebrow": "Independently Tested & Certified",
@@ -321,7 +321,7 @@
       "card0Title": "TÜV NORD Certified",
       "card0Body": "Independently tested and certified by TÜV NORD for IP55 protection and validated under extreme damp-heat and dry-heat performance conditions.",
       "card1Title": "Simulated Sandstorm Testing",
-      "card1Body": "Validated under 12 sandstorm events per year at a sand loading of 10 g/m² per cycle — the toughest desert-climate cleaning protocol.",
+      "card1Body": "Validated under 12 sandstorm events per year at a sand loading of 10 g/m² per cycle, the toughest desert-climate cleaning protocol.",
       "card2Title": "Panel-Safe Verified",
       "card2Body": "Tested for micro-crack analysis, full electrical parameter evaluation, optical reflectance and ARC (Anti-Reflective Coating) preservation."
     },
@@ -346,9 +346,9 @@
       "title": "Service & Maintenance Promise",
       "subtitle": "Every HELYX deployment is backed by a structured service model designed to keep your fleet running at peak uptime across India.",
       "card0Title": "Pre-Scheduled Preventive Maintenance",
-      "card0Body": "All preventive and corrective maintenance activities are executed on a pre-scheduled basis — designed to eliminate unplanned downtime and sustain peak operational performance across the robot's 20-year lifecycle.",
+      "card0Body": "All preventive and corrective maintenance activities are executed on a pre-scheduled basis, designed to eliminate unplanned downtime and sustain peak operational performance across the robot's 20-year lifecycle.",
       "card1Title": "Immediate Remote Diagnostics",
-      "card1Body": "Taypro provides immediate remote diagnostics and troubleshooting upon incident notification — most issues are resolved without requiring a physical site visit.",
+      "card1Body": "Taypro provides immediate remote diagnostics and troubleshooting upon incident notification, most issues are resolved without requiring a physical site visit.",
       "card2Title": "Same-Day On-Site Intervention",
       "card2Body": "When on-site work is required, Taypro targets same-day on-site breakdown resolution, available pan-India, with immediate remote diagnostics from NECTYR."
     },
@@ -377,7 +377,7 @@
       "row1": {
         "criterion": "Water Consumption",
         "manual": "1.5–3 litres of water per module per wash",
-        "modelB": "Zero — fully waterless single-pass dry cleaning"
+        "modelB": "Zero, fully waterless single-pass dry cleaning"
       },
       "row2": {
         "criterion": "Cleaning Quality",
@@ -434,8 +434,8 @@
       },
       "row3": {
         "criterion": "Cleaning Speed",
-        "modelB": "10–15 m/min — cleans 1 MW in under 2 hours",
-        "modelA": "10–15 m/min — runs daily, after production hours"
+        "modelB": "10–15 m/min, cleans 1 MW in under 2 hours",
+        "modelA": "10–15 m/min, runs daily, after production hours"
       },
       "row4": {
         "criterion": "Range Per Charge",
@@ -445,7 +445,7 @@
       "row5": {
         "criterion": "Labour Requirement",
         "modelB": "2 operators move robot between arrays",
-        "modelA": "Zero — runs unattended after install"
+        "modelA": "Zero, runs unattended after install"
       },
       "row6": {
         "criterion": "Capex Profile",
@@ -465,16 +465,16 @@
     },
     "indianConditions": {
       "eyebrow": "Engineered for Indian Conditions",
-      "title": "Built for Indian Solar Plants — From Rooftop to Utility Scale",
-      "subtitle": "Rajasthan dust storms, Gujarat heat, Karnataka humidity and Tamil Nadu monsoons — Taypro HELYX is engineered, tested and deployed for the realities of large-scale Indian solar O&M.",
+      "title": "Built for Indian Solar Plants, From Rooftop to Utility Scale",
+      "subtitle": "Rajasthan dust storms, Gujarat heat, Karnataka humidity and Tamil Nadu monsoons, Taypro HELYX is engineered, tested and deployed for the realities of large-scale Indian solar O&M.",
       "card0Title": "High-Soiling Region Performance",
       "card0Body": "Increased cleaning frequency is the only economical way to neutralise the 8–25% soiling losses typical of Indian utility-scale plants. HELYX's 1 MW-in-2-hours cleaning rate makes daily or alternate-day cycles operationally affordable.",
       "card1Title": "Temperature & Humidity Tolerance",
-      "card1Body": "Validated for operating temperatures up to 90°C and TÜV NORD certified for damp-heat and dry-heat performance — proven across Indian summer, monsoon and post-monsoon cycles.",
-      "card2Title": "Waterless — Critical for Water-Scarce States",
+      "card1Body": "Validated for operating temperatures up to 90°C and TÜV NORD certified for damp-heat and dry-heat performance, proven across Indian summer, monsoon and post-monsoon cycles.",
+      "card2Title": "Waterless, Critical for Water-Scarce States",
       "card2Body": "Many Indian solar farms are in water-stressed districts. HELYX's waterless cleaning removes water tankers from your O&M plan entirely, freeing water and logistics for higher-priority site use.",
       "card3Title": "Pan-India Service Network",
-      "card3Body": "Same-day on-site breakdown resolution across India, with immediate remote diagnostics from NECTYR — backed by regional spare inventory and structured AMC programs.",
+      "card3Body": "Same-day on-site breakdown resolution across India, with immediate remote diagnostics from NECTYR, backed by regional spare inventory and structured AMC programs.",
       "crossSellLead": "Looking at adjacent solar O&M needs? Explore the ",
       "linkModelA": "fully-automatic GLYDE robot",
       "linkBetweenAT": ", the ",

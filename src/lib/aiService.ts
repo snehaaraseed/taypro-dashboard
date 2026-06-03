@@ -5,9 +5,11 @@ import { createSlug } from "@/app/utils/blogFileUtils";
 import {
   ANTI_GENERIC_WRITING_RULES,
   LONG_FORM_CONTENT_RULES,
+  PUNCTUATION_RULES,
   SEO_AND_READER_RULES,
   isTooGenericDescription,
   isTooGenericTitle,
+  sanitizeEmDash,
 } from "@/lib/seo/content-quality";
 import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
 import {
@@ -34,7 +36,7 @@ const BLOG_MODEL_CANDIDATES = [
 function getGenAI(): GoogleGenerativeAI {
   const key = process.env.GEMINI_API_KEY?.trim();
   if (!key) {
-    throw new Error("GEMINI_API_KEY is not set — add it to run AI features.");
+    throw new Error("GEMINI_API_KEY is not set, add it to run AI features.");
   }
   return new GoogleGenerativeAI(key);
 }
@@ -121,6 +123,7 @@ Requirements:
 - Focus on practical, valuable content for solar plant operators and managers
 
 ${ANTI_GENERIC_WRITING_RULES}
+${PUNCTUATION_RULES}
 ${SEO_AND_READER_RULES}
 
 ${productKnowledge}
@@ -167,7 +170,7 @@ Return ONLY a JSON array of 5 topic titles, like this:
         );
         if (!isPublished) {
           return {
-            title: topicTitle.trim(),
+            title: sanitizeEmDash(topicTitle.trim()),
             category: category.name,
             seoKeyword: seoBrief?.primary ?? "",
             seoBrief,
@@ -201,7 +204,7 @@ Return ONLY a JSON array of 5 topic titles, like this:
       !(await isTopicPublished(fallbackTitle, createSlug(fallbackTitle)))
     ) {
       return {
-        title: fallbackTitle,
+        title: sanitizeEmDash(fallbackTitle),
         category: category.name,
         seoKeyword: seoBrief.primary,
         seoBrief,
@@ -245,10 +248,10 @@ function formatFocusedKeywordsBlock(
       ? "title, meta description, overview details, and at least one H2"
       : "title, meta description, first 100 words, at least one H2, and at least 2 FAQ questions";
 
-  return `FOCUS KEYWORDS (admin-provided — prioritize for SEO; satisfy reader intent first):
+  return `FOCUS KEYWORDS (admin-provided, prioritize for SEO; satisfy reader intent first):
 - Primary keyword: "${primary}"
 ${relatedLine}- Work the primary phrase in: ${placement}.
-- Use secondary terms naturally in H2/H3 and body — do NOT keyword-stuff.
+- Use secondary terms naturally in H2/H3 and body, do NOT keyword-stuff.
 `;
 }
 
@@ -257,7 +260,7 @@ const PROJECT_CASE_STUDY_RULES = `PROJECT CASE STUDY (not a blog article):
 - Word count: 1,000–1,800 words in "content" (minimum 900; no filler).
 - Structure: 4–7 H2 sections (e.g. Site overview, Challenge, Taypro solution, Implementation, Results, What this means for similar plants).
 - Include specific plant-scale signals: MW capacity, state/region in India, tracker/fixed-tilt if known from the brief, cleaning mode (automatic / semi-automatic / manual assist).
-- "details" array: 4–8 short overview chips (2–8 words each) shown on the project card — e.g. "250 MW", "Madhya Pradesh", "Automatic cleaning", "Utility-scale".
+- "details" array: 4–8 short overview chips (2–8 words each) shown on the project card, e.g. "250 MW", "Madhya Pradesh", "Automatic cleaning", "Utility-scale".
 - If the brief names a real location or capacity, use those exactly; otherwise use plausible utility-scale India ranges and label assumptions generically.
 - Include 1–2 internal links to Taypro product pages (relative hrefs like href="/solar-panel-cleaning-system").
 - End with a short "Key outcomes" or "Why this matters" H2 with 3–5 bullets.
@@ -277,7 +280,7 @@ export async function generateBlogContent(
   const userBrief = options?.userBrief?.trim();
   const briefBlock = userBrief
     ? `
-AUTHOR BRIEF (follow closely — audience, angle, must-cover points, tone):
+AUTHOR BRIEF (follow closely, audience, angle, must-cover points, tone):
 ${userBrief}
 `
     : "";
@@ -307,6 +310,7 @@ ${productKnowledge}
 
 Requirements:
 ${ANTI_GENERIC_WRITING_RULES}
+${PUNCTUATION_RULES}
 ${SEO_AND_READER_RULES}
 ${LONG_FORM_CONTENT_RULES}
 - Use this exact working title unless you can improve it without making it vaguer: "${topic}"
@@ -324,7 +328,7 @@ ${LONG_FORM_CONTENT_RULES}
 - Cover overall solar power plant operations and maintenance when relevant
 - Reference Taypro's solutions naturally where relevant, but ONLY use verified information
 - Include 3–5 internal links to Taypro pillar paths listed in the editorial strategy (use relative hrefs like href="/solar-panel-cleaning-system")
-- Do NOT include a "Frequently asked questions" section in the HTML — FAQs belong only in the "faqs" JSON array below.
+- Do NOT include a "Frequently asked questions" section in the HTML, FAQs belong only in the "faqs" JSON array below.
 
 Format the output as clean HTML with proper paragraph tags (<p>), headings (<h2>, <h3>), and lists (<ul>, <ol>).
 
@@ -390,10 +394,13 @@ FAQ rules for the "faqs" array:
     }
 
     return {
-      title: blogData.title.trim(),
-      description: blogData.description.trim(),
-      content: blogData.content.trim(),
-      faqs: faqs.slice(0, 5),
+      title: sanitizeEmDash(blogData.title.trim()),
+      description: sanitizeEmDash(blogData.description.trim()),
+      content: sanitizeEmDash(blogData.content.trim()),
+      faqs: faqs.slice(0, 5).map((faq) => ({
+        question: sanitizeEmDash(faq.question),
+        answer: sanitizeEmDash(faq.answer),
+      })),
     };
   } catch (error) {
     console.error("Error generating blog content:", error);
@@ -434,7 +441,7 @@ export async function generateProjectContent(
   const userBrief = options?.userBrief?.trim();
   const briefBlock = userBrief
     ? `
-AUTHOR BRIEF (follow closely — site facts, deployment story, must-cover points):
+AUTHOR BRIEF (follow closely, site facts, deployment story, must-cover points):
 ${userBrief}
 `
     : "";
@@ -457,6 +464,7 @@ ${productKnowledge}
 - DO NOT invent model numbers, client names, or unverified performance claims.
 
 ${ANTI_GENERIC_WRITING_RULES}
+${PUNCTUATION_RULES}
 ${SEO_AND_READER_RULES}
 ${PROJECT_CASE_STUDY_RULES}
 - Use this working title unless you can improve it with specific location/capacity: "${topic}"
@@ -515,10 +523,10 @@ Return ONLY valid JSON:
     }
 
     return {
-      title: projectData.title.trim(),
-      description: projectData.description.trim(),
-      details,
-      content: projectData.content.trim(),
+      title: sanitizeEmDash(projectData.title.trim()),
+      description: sanitizeEmDash(projectData.description.trim()),
+      details: details.map((d) => sanitizeEmDash(d)),
+      content: sanitizeEmDash(projectData.content.trim()),
     };
   } catch (error) {
     console.error("Error generating project content:", error);

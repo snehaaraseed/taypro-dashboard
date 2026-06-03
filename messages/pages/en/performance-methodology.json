@@ -8,7 +8,7 @@
     "lastUpdated": "Last updated: {date}",
     "purpose": {
       "heading": "Purpose",
-      "body": "This page explains how Taypro Private Limited defines, measures, and communicates performance figures on taypro.in — including \"99%+\" dust-removal statements and references to generation or performance ratio recovery. It is intended for asset owners, EPC teams, and O&M leads evaluating robotic dry cleaning for utility-scale PV in India."
+      "body": "This page explains how Taypro Private Limited defines, measures, and communicates performance figures on taypro.in, including \"99%+\" dust-removal statements and references to generation or performance ratio recovery. It is intended for asset owners, EPC teams, and O&M leads evaluating robotic dry cleaning for utility-scale PV in India."
     },
     "dustRemoval": {
       "heading": "What \"99%+ dust removal\" means",
@@ -18,7 +18,7 @@
     },
     "generation": {
       "heading": "Generation recovery vs. module efficiency",
-      "p0": "Soiling on Indian utility plants can suppress usable output when washing is infrequent — industry discussions often cite roughly 8–25% seasonal soiling loss depending on region, tilt, and O&M practice. Robotic dry cleaning aims to recover energy that would otherwise be lost to dust, not to raise nameplate module efficiency.",
+      "p0": "Soiling on Indian utility plants can suppress usable output when washing is infrequent, industry discussions often cite roughly 8–25% seasonal soiling loss depending on region, tilt, and O&M practice. Robotic dry cleaning aims to recover energy that would otherwise be lost to dust, not to raise nameplate module efficiency.",
       "p1Before": "Actual MWh recovered depends on your baseline soiling, cleaning cadence, tariff, and weather. Taypro does not publish a single universal \"efficiency increase %\" for all sites. Use the",
       "roiLink": "ROI calculator",
       "p1After": "for directional economics, then request a plant-specific assessment from our applications team."
@@ -28,8 +28,8 @@
       "intro": "Taypro validates cleaning performance through a combination of:",
       "li0": "Controlled bench and field trials on representative module types, using standardised artificial and natural dust loads where applicable.",
       "li1": "Visual and gravimetric checks (before/after surface condition and mass of removed dust) on deployed platforms.",
-      "li2": "Operational data from live fleets — cycle completion, route coverage, and performance ratio trends where customers share SCADA or IV data under NDA.",
-      "li3": "Third-party review — selected platforms are TÜV NORD certified; certification scope is stated on product datasheets and proposals.",
+      "li2": "Operational data from live fleets, cycle completion, route coverage, and performance ratio trends where customers share SCADA or IV data under NDA.",
+      "li3": "Third-party review, selected platforms are TÜV NORD certified; certification scope is stated on product datasheets and proposals.",
       "note": "Results vary with dust type (agricultural film, sand, pollen, post-storm mix), module tilt, tracker motion, and whether one or two passes are completed in a cycle."
     },
     "platform": {
@@ -51,9 +51,13 @@
       "heading": "Uptime and service commitments",
       "body": "Marketing references to \"highest uptime\" or \"same-day breakdown\" response describe Taypro service targets backed by pan-India spares, NECTYR remote diagnostics, and AMC programs. Contractual SLAs are defined in customer agreements, not on this page."
     },
+    "publicProof": {
+      "heading": "Fleet impact figures on taypro.in",
+      "body": "Hero and company stats such as 5 GW+ capacity, 150+ live sites, 188 GWh+ additional clean generation, 700M+ litres of water saved annually, and 93k+ metric tons of CO₂ avoided use approved public marketing assumptions for India utility-scale fleets. Water-savings estimates follow CEEW-class wet-wash benchmarks (~7,000 L per MW per cycle × ~20 cycles per year vs. waterless robotic cleaning). Generation recovery figures compare waterless robotic cadence to typical wet-wash baselines, not nameplate module efficiency. Directional ESG model outputs may differ slightly from rounded public tiles; plant-specific outcomes require site assessment."
+    },
     "documentation": {
       "heading": "Plant-specific documentation",
-      "bodyBefore": "For tenders, lender diligence, or internal technical review, Taypro can provide site-specific cleaning plans, cycle assumptions, and — where available — anonymised field outcomes from comparable deployments.",
+      "bodyBefore": "For tenders, lender diligence, or internal technical review, Taypro can provide site-specific cleaning plans, cycle assumptions, and, where available, anonymised field outcomes from comparable deployments.",
       "contactLink": "Contact our applications team",
       "bodyAfter": "with plant capacity, layout, and location."
     },

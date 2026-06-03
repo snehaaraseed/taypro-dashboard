@@ -54,9 +54,11 @@
     "cookiePolicy": "クッキーポリシー",
     "termsOfService": "利用規約",
     "performanceMethodology": "性能・試験方法",
+    "utilityOperations": "大規模ソーラー運用",
     "ourSolutions": "ソリューション",
     "cleaningService": "ソーラーパネル清掃サービス",
     "roiCalculator": "ROI・価格計算機",
+    "investors": "パートナー・投資家",
     "copyright": "© Copyright {year} – TAYPRO PRIVATE LIMITED. All Rights Reserved."
   },
   "NotFoundPage": {
@@ -66,10 +68,10 @@
     },
     "breadcrumbHome": "ホーム",
     "breadcrumbNotFound": "ページが見つかりません",
-    "eyebrow": "404 — ページが見つかりません",
+    "eyebrow": "404, ページが見つかりません",
     "title": "このページは利用できません",
     "description": "リンクが古い、誤入力、またはページが移動した可能性があります。",
-    "reassurance": "このURLだけが見つかりません — Taypro.inは正常です。下のリンクをご利用いただくか、ここに何を期待していたかお知らせください。",
+    "reassurance": "このURLだけが見つかりません, Taypro.inは正常です。下のリンクをご利用いただくか、ここに何を期待していたかお知らせください。",
     "linksHeading": "便利なリンク",
     "linkHome": "ホームに戻る",
     "linkContact": "お問い合わせ",
@@ -83,7 +85,7 @@
     "reportBody": "taypro.inで次のURLを開こうとしました:\n\n\nこのリンクは次の場所で見つけました（ページ/メール/資料）:\n\n",
     "reportEmailLink": "サポートにメール",
     "ctaQuote": "見積もりを依頼",
-    "ctaQuoteTopic": "404ページ — 見積依頼",
+    "ctaQuoteTopic": "404ページ, 見積依頼",
     "ctaQuoteTitle": "ソーラー清掃ロボットの見積もり",
     "ctaQuoteSubtitle": "プラントの詳細を共有いただければ、最適なTayproソリューションをご提案します。"
   },

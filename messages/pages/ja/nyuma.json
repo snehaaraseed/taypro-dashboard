@@ -1,7 +1,7 @@
 {
   "NyumaPage": {
     "meta": {
-      "title": "シングルパスPBT自動ソーラーパネル清掃ロボット — Taypro NYUMA（無水・AI）",
+      "title": "シングルパスPBT自動ソーラーパネル清掃ロボット, Taypro NYUMA（無水・AI）",
       "description": "Taypro NYUMAは完全自律・無水の自動ソーラーパネル清掃ロボットです。AI/MLシングルパスPBT乾式清掃でサイクルあたり99%超のホコリ除去、1充電で最大3,600モジュール、NECTYR経由のLTE/Wi-Fi/RF mesh/LoRa/LoRaWAN、TÜV NORD認証。",
       "keywords": [
         "PBTソーラーパネル洗浄ロボット",
@@ -16,11 +16,11 @@
         "TÜV NORD認証ソーラー洗浄ロボット",
         "Taypro NYUMA"
       ],
-      "openGraphTitle": "シングルパスPBT自動清掃ロボット — Taypro NYUMA",
+      "openGraphTitle": "シングルパスPBT自動清掃ロボット, Taypro NYUMA",
       "openGraphDescription": "特許シングルパスPBTPBTブラシ。自律無水清掃、NECTYRフリートポータル。",
       "openGraphType": "website",
       "openGraphImageAlt": "Taypro NYUMA 自動ソーラーパネル清掃ロボット",
-      "twitterTitle": "シングルパスPBT自動清掃ロボット — Taypro NYUMA",
+      "twitterTitle": "シングルパスPBT自動清掃ロボット, Taypro NYUMA",
       "twitterDescription": "NYUMA：自律無水シングルパスPBT、1充電3,600モジュール、NECTYR。",
       "twitterCard": "summary_large_image"
     },
@@ -34,7 +34,7 @@
     },
     "schema": {
       "product": {
-        "name": "自動ソーラーパネル清掃ロボット — NYUMA (Taypro)",
+        "name": "自動ソーラーパネル清掃ロボット, NYUMA (Taypro)",
         "description": "Taypro NYUMAは完全自律・無水の自動ソーラーパネル清掃ロボットです。AI/MLシングルパスPBT乾式清掃でサイクルあたり99%超のホコリ除去、1充電で最大3,600モジュール、NECTYR経由のLTE/Wi-Fi/RF mesh/LoRa/LoRaWAN、TÜV NORD認証。",
         "brand": "Taypro",
         "sku": "NYUMA",
@@ -46,13 +46,13 @@
       },
       "howTo": {
         "name": "自動ソーラーパネル清掃ロボットがユーティリティ規模プラントを清掃する方法（Taypro NYUMA）",
-        "description": "NYUMAの自律清掃サイクル — AIスケジューリング、シングルパスPBT無水清掃、セルフドッキング、クラウドテレメトリ。",
+        "description": "NYUMAの自律清掃サイクル, AIスケジューリング、シングルパスPBT無水清掃、セルフドッキング、クラウドテレメトリ。",
         "totalTime": "PT2H",
         "imagePath": "/tayproasset/taypro-robotImage.png"
       }
     },
     "hero": {
-      "h1Line1": "自動ソーラーパネル清掃ロボット — ",
+      "h1Line1": "自動ソーラーパネル清掃ロボット, ",
       "h1Line2": "Taypro NYUMA",
       "leadBeforeStrong": "Taypro NYUMAは",
       "leadStrong": "自動ソーラーパネル清掃ロボット",
@@ -65,7 +65,7 @@
         "label": "見積もりを依頼"
       },
       "heroImageAlt": "ユーティリティ規模ソーラーファームでパネルを清掃するTaypro NYUMA自動ロボット",
-      "heroImageTitle": "自動ソーラーパネル清掃ロボット NYUMA — Taypro"
+      "heroImageTitle": "自動ソーラーパネル清掃ロボット NYUMA, Taypro"
     },
     "overview": {
       "eyebrow": "ユーティリティ規模向け自動ソーラーパネル清掃ロボット",
@@ -83,9 +83,9 @@
       "methodologyLinkText": "パフォーマンス・試験方法論",
       "methodologyLinkTitle": "パフォーマンス・試験方法論",
       "p2BeforeStrong": "On a single charge, NYUMA cleans up to ",
-      "p2Strong": "2.2 km of running length — approximately 3,600 solar modules",
+      "p2Strong": "2.2 km of running length, approximately 3,600 solar modules",
       "p2AfterStrong": ". Cleaning cycles are best scheduled outside energy production hours and can be programmed remotely, ensuring zero impact on plant generation.",
-      "p3": "Advanced edge and obstacle detection allow NYUMA to traverse panels safely without risk of falling, while continuous surface-undulation tracking adjusts motor performance row-by-row for consistent cleaning quality. Real-time battery monitoring guarantees the robot only covers what it can complete and returns safely to its docking station — never stranded mid-array. Lightweight bridges enable seamless movement from one table to the next, keeping coverage uninterrupted across the entire site.",
+      "p3": "Advanced edge and obstacle detection allow NYUMA to traverse panels safely without risk of falling, while continuous surface-undulation tracking adjusts motor performance row-by-row for consistent cleaning quality. Real-time battery monitoring guarantees the robot only covers what it can complete and returns safely to its docking station, never stranded mid-array. Lightweight bridges enable seamless movement from one table to the next, keeping coverage uninterrupted across the entire site.",
       "p4Blog1": "モジュール上で自動清掃ロボットがどう動くか",
       "p4Blog2": "ユーティリティ規模でのロボット清掃のメリット",
       "p4Prefix": "関連記事: ",
@@ -111,16 +111,16 @@
         },
         "step3": {
           "name": "自己洗浄PBTブラシでシングルパスPBT無水清掃",
-          "text": "回転自己洗浄ドラムが10–15m/分でシングルパスPBT乾式清掃 — 1走行99%超、水・洗剤・人手ゼロ。"
+          "text": "回転自己洗浄ドラムが10–15m/分でシングルパスPBT乾式清掃, 1走行99%超、水・洗剤・人手ゼロ。"
         },
         "step4": {
           "name": "バッテリー認識でドックへ復帰",
-          "text": "リアルタイム監視で完了可能な走行のみ。各サイクル後ドックへ安全復帰・ロック — 最大180km/h風速。"
+          "text": "リアルタイム監視で完了可能な走行のみ。各サイクル後ドックへ安全復帰・ロック, 最大180km/h風速。"
         },
         "step5": {
           "name": "テレメトリとフリート健全性をクラウド同期",
           "textBeforeConnectivity": "各サイクル後、バッテリー・充電・サイクル・フリート性能をNECTYRへ ",
-          "textAfterConnectivity": " — サイトに最適なリンクを選択 — 全ロボットの監査対応レポート。"
+          "textAfterConnectivity": ", サイトに最適なリンクを選択, 全ロボットの監査対応レポート。"
         }
       }
     },
@@ -128,10 +128,10 @@
       "eyebrow": "インタラクティブ製品ツアー",
       "title": "NYUMAの360°ビュー",
       "subtitle": "左右にドラッグしてロボットをあらゆる角度から確認",
-      "productLabel": "Taypro NYUMA — 自動ソーラーパネル清掃ロボット"
+      "productLabel": "Taypro NYUMA, 自動ソーラーパネル清掃ロボット"
     },
     "usps": {
-      "eyebrow": "NYUMA — 自動ソーラーパネル清掃ロボット",
+      "eyebrow": "NYUMA, 自動ソーラーパネル清掃ロボット",
       "title": "主な特長",
       "items": {
         "item0": "高い清掃効率（シングルパスPBT）",
@@ -148,14 +148,14 @@
       "title": "自動清掃ロボットのコストとROI",
       "bodyBeforeSpan": "Taypro ",
       "bodySpan": "NYUMA",
-      "bodyAfterSpan": " — use the ROI calculator for your site."
+      "bodyAfterSpan": ", use the ROI calculator for your site."
     },
     "projects": {
-      "headingLine1": "NYUMA — 自動",
+      "headingLine1": "NYUMA, 自動",
       "headingLine2": "ソーラーパネル清掃",
       "headingLine3": "ロボット",
       "headingLine4": "導入事例",
-      "tagline": "迅速導入と専任技術サポート — 当日故障対応をお約束。",
+      "tagline": "迅速導入と専任技術サポート, 当日故障対応をお約束。",
       "recentProjectsHeader": "最新プロジェクト"
     },
     "trustStats": {
@@ -188,15 +188,15 @@
       "cards": {
         "card0": {
           "title": "計画予防保全",
-          "body": "予防・是正保全を事前スケジュール — 計画外停止を排除しピーク性能を維持。"
+          "body": "予防・是正保全を事前スケジュール, 計画外停止を排除しピーク性能を維持。"
         },
         "card1": {
           "title": "即時リモート診断",
-          "body": "インシデント時、NECTYRで即リモート診断 — 多くは現地訪問なしで解決。"
+          "body": "インシデント時、NECTYRで即リモート診断, 多くは現地訪問なしで解決。"
         },
         "card2": {
           "title": "当日オンサイト対応",
-          "body": "現地対応時はインド全国で当日オンサイト故障対応を目標 — NECTYR即時診断付き。"
+          "body": "現地対応時はインド全国で当日オンサイト故障対応を目標, NECTYR即時診断付き。"
         }
       }
     },
@@ -208,7 +208,7 @@
       "mainHeading": "Taypro NYUMA自動清掃ロボットの特長",
       "aiCleaning": {
         "title": "AI対応・無水シングルパスPBT清掃",
-        "body": "NYUMAはAI/MLと特許シングルパスPBT — 1走行で99%超、水不要・研磨なし。"
+        "body": "NYUMAはAI/MLと特許シングルパスPBT, 1走行で99%超、水不要・研磨なし。"
       },
       "microfiber": {
         "title": "自己洗浄PBTブラシドラム",
@@ -233,7 +233,7 @@
         "bodyBoldMesh": "自己修復RFメッシュ",
         "bodyAfterMesh": "、または",
         "bodyBoldLoRa": "LoRa / LoRaWAN",
-        "bodyAfterLoRa": " — NECTYRでフリート管理とドックテレメトリ。"
+        "bodyAfterLoRa": ", NECTYRでフリート管理とドックテレメトリ。"
       },
       "edge": {
         "title": "エッジ・障害物検知",
@@ -327,15 +327,15 @@
         },
         "card1": {
           "title": "温度・湿度耐性",
-          "body": "最大90°C、TÜV NORD耐湿熱・乾熱認証 — インドの季節サイクル。"
+          "body": "最大90°C、TÜV NORD耐湿熱・乾熱認証, インドの季節サイクル。"
         },
         "card2": {
-          "title": "無水 — 水不足地域でも",
+          "title": "無水, 水不足地域でも",
           "body": "水不足地域ではNYUMAが水をO&Mから排除。"
         },
         "card3": {
           "title": "インド全国サービス網",
-          "body": "NECTYR即時診断と当日オンサイト — 地域スペアとAMC。"
+          "body": "NECTYR即時診断と当日オンサイト, 地域スペアとAMC。"
         }
       },
       "crossSellLead": "関連O&Mは ",
@@ -442,11 +442,11 @@
       },
       "waterless": {
         "title": "無水清掃",
-        "body": "NYUMAは水なしで最大99.5%除去 — 水不足地域に最適。"
+        "body": "NYUMAは水なしで最大99.5%除去, 水不足地域に最適。"
       },
       "autonomous": {
         "title": "完全自律・スマート運転",
-        "body": "統合AI-ML — 人手不要。"
+        "body": "統合AI-ML, 人手不要。"
       },
       "cost": {
         "title": "コスト効率の高いソリューション",
@@ -460,7 +460,7 @@
     "installSection": {
       "title": "自動ロボットの設置にはどのくらい？",
       "p1": "既存レイアウト変更不要。NYUMAはパネルフレーム上を走行。",
-      "p2": "数時間から数日 — ドック、キャリブレーション、統合。",
+      "p2": "数時間から数日, ドック、キャリブレーション、統合。",
       "p3": "大規模は数日〜1週間。Tayproは当日故障対応。",
       "p4": "NYUMAはTayproのスケーラブルで安全な導入ソリューション。"
     },
@@ -472,10 +472,10 @@
       "p2AfterLink": "で試算してください。"
     },
     "cycleNarrative": {
-      "title": "NYUMA清掃サイクル — ステップごと",
+      "title": "NYUMA清掃サイクル, ステップごと",
       "steps": {
         "s0": "⦿ 起動時にセンサー初期化し中央監視との接続を確認",
-        "s1": "⦿ リモートポータルで清掃スケジュール事前設定 — 完全自動運転",
+        "s1": "⦿ リモートポータルで清掃スケジュール事前設定, 完全自動運転",
         "s2": "⦿ 走行モーターがフレーム上を案内",
         "s3": "⦿ ブラシモーターが無水シングルパスPBTPBTブラシ清掃を開始",
         "s4": "⦿ エッジセンサーが常時周囲をスキャンしパネル端を超えない",
@@ -502,11 +502,11 @@
         },
         "item3": {
           "question": "清掃スケジュールは？",
-          "answer": "発電時間外 — 発電損失回避。"
+          "answer": "発電時間外, 発電損失回避。"
         },
         "item4": {
           "question": "TayproはAMCを提供？",
-          "answer": "はい — 定期保全、リアルタイム監視、当日オンサイト。"
+          "answer": "はい, 定期保全、リアルタイム監視、当日オンサイト。"
         },
         "item5": {
           "question": "外部電源は必要？",
@@ -532,7 +532,7 @@
         },
         "item3": {
           "question": "ロボット清掃はモジュールに安全？",
-          "answer": "はい — フレームのみ、非研磨、独立試験済み。"
+          "answer": "はい, フレームのみ、非研磨、独立試験済み。"
         },
         "item4": {
           "question": "NYUMAの清掃頻度は？",
@@ -540,11 +540,11 @@
         },
         "item5": {
           "question": "NYUMAはインドの季節・暑さ・砂嵐に対応？",
-          "answer": "はい — 90°C、IP65、TÜV NORD、砂嵐試験、ドック180km/h。"
+          "answer": "はい, 90°C、IP65、TÜV NORD、砂嵐試験、ドック180km/h。"
         },
         "item6": {
           "question": "既存プラントに後付け可能？",
-          "answer": "はい — 追加レール・構造変更なし。アレイごとにバッテリーとドック。"
+          "answer": "はい, 追加レール・構造変更なし。アレイごとにバッテリーとドック。"
         }
       }
     },

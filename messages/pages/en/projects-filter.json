@@ -17,7 +17,7 @@
       "highlightsHeading": "What automatic Taypro projects have in common",
       "highlights": {
         "h0": "Autonomous dry cleaning with AI-driven cycle planning and weather-aware hold windows.",
-        "h1": "Fleet visibility in NECTYR—block status, robot health, and cleaning history for O&M leads.",
+        "h1": "Fleet visibility in NECTYR, block status, robot health, and cleaning history for O&M leads.",
         "h2": "Documented commissioning on multi-block plants across Maharashtra, Karnataka, Uttar Pradesh, and other high-soiling regions.",
         "h3": "Integration paths for fixed-tilt (GLYDE) and tracker (GLYDE-X) layouts without sprinkler infrastructure."
       },
@@ -34,13 +34,13 @@
       "imageAltSuffix": "Automatic Solar Panel Cleaning Robot Installation Project by Taypro",
       "imageTitleSuffix": "Automatic Solar Panel Cleaning Robot Project",
       "faq": {
-        "heading": "Frequently asked questions — automatic projects",
+        "heading": "Frequently asked questions, automatic projects",
         "subheading": "What developers and O&M teams ask when reviewing Taypro automatic deployments.",
         "cta": "Discuss your plant",
         "q0": "Which plants are a good fit for automatic Taypro robots?",
-        "a0": "Ground-mount utility sites—often 50 MW and above—with repeatable row spacing, accessible blocks, and soiling or water constraints that make manual washing costly. Fixed-tilt arrays commonly use GLYDE; single-axis trackers use GLYDE-X with tracker-aware paths.",
+        "a0": "Ground-mount utility sites, often 50 MW and above, with repeatable row spacing, accessible blocks, and soiling or water constraints that make manual washing costly. Fixed-tilt arrays commonly use GLYDE; single-axis trackers use GLYDE-X with tracker-aware paths.",
         "q1": "How is an automatic project different from semi-automatic or CAPEX?",
-        "a1": "Automatic listings feature fully autonomous fleets on fixed schedules. Semi-automatic listings highlight portable HELYX coverage for scattered blocks. CAPEX listings describe outright robot purchases; the same owner may also use Taypro Opex as a managed service—check the individual case study for the exact model.",
+        "a1": "Automatic listings feature fully autonomous fleets on fixed schedules. Semi-automatic listings highlight portable HELYX coverage for scattered blocks. CAPEX listings describe outright robot purchases; the same owner may also use Taypro Opex as a managed service, check the individual case study for the exact model.",
         "q2": "What should I read before requesting a quote?",
         "a2": "Pick the case study closest to your MW and region, read the automatic product page for technical limits, run the ROI calculator with your tariff and soiling assumptions, then share layout drawings with Taypro for cycle-frequency recommendations."
       }
@@ -53,7 +53,7 @@
       "introP1Before": "Semi-automatic listings document plants where Taypro deploys",
       "introP1Link": "HELYX portable dry-cleaning robots",
       "introP1After": "across multiple blocks, uneven terrain, or phases where a full autonomous fleet is not yet justified. Crews move robots between rows while retaining waterless, brush-based cleaning quality.",
-      "introP2": "These projects suit sites that need flexible coverage—staged commissioning, mixed topography, or supplemental cleaning alongside an existing automatic fleet. HELYX reduces dependence on manual labour and sprinklers while keeping capital exposure lower than a full GLYDE deployment.",
+      "introP2": "These projects suit sites that need flexible coverage, staged commissioning, mixed topography, or supplemental cleaning alongside an existing automatic fleet. HELYX reduces dependence on manual labour and sprinklers while keeping capital exposure lower than a full GLYDE deployment.",
       "introP3Before": "Estimate economics with the",
       "introP3CalculatorLink": "ROI calculator",
       "introP3Middle": ", or browse",
@@ -62,7 +62,7 @@
       "highlightsHeading": "What semi-automatic Taypro projects highlight",
       "highlights": {
         "h0": "Portable robots and docking accessories moved between blocks as soiling patterns change.",
-        "h1": "Dry cleaning without high-pressure water—important where water logistics are constrained.",
+        "h1": "Dry cleaning without high-pressure water, important where water logistics are constrained.",
         "h2": "Use cases on multi-block plants, difficult access roads, and hybrid O&M strategies.",
         "h3": "A stepping stone toward full autonomy where layout or budget matures over time."
       },
@@ -79,7 +79,7 @@
       "imageAltSuffix": "Semi-Automatic Solar Panel Cleaning Robot Installation Project by Taypro",
       "imageTitleSuffix": "Semi-Automatic Solar Panel Cleaning Robot Project",
       "faq": {
-        "heading": "Frequently asked questions — semi-automatic projects",
+        "heading": "Frequently asked questions, semi-automatic projects",
         "subheading": "Common questions about HELYX-style portable deployments.",
         "cta": "Discuss your plant",
         "q0": "When should we choose semi-automatic instead of automatic robots?",
@@ -95,7 +95,7 @@
       "eyebrow": "Developer-owned equipment",
       "title": "CAPEX Solar Panel Cleaning Robot Projects",
       "description": "Explore CAPEX-owned Solar Panel Cleaning Robot installations. Customers who purchased Taypro hardware for in-house O&M teams.",
-      "introP1Before": "CAPEX project listings show utilities and IPPs that purchased Taypro cleaning robots outright—capital on the balance sheet, operated by in-house or contracted O&M. This contrasts with",
+      "introP1Before": "CAPEX project listings show utilities and IPPs that purchased Taypro cleaning robots outright, capital on the balance sheet, operated by in-house or contracted O&M. This contrasts with",
       "introP1Link": "Taypro Opex cleaning as a service",
       "introP1After": ", where Taypro owns robots and runs cycles under SLA. Both models appear across India; the right choice depends on balance-sheet preference, internal O&M maturity, and payback horizon.",
       "introP2": "CAPEX buyers typically want asset control, spare-parts stocking, and direct integration with plant SCADA and NECTYR. Taypro supports commissioning, operator training, and pan-India spare logistics after purchase. Documented CAPEX plants below show how owners sized fleets for MW, soiling class, and tracker vs fixed-tilt design.",
@@ -108,7 +108,7 @@
       "highlights": {
         "h0": "Outright purchase of GLYDE, GLYDE-X, or HELYX fleets with Taypro commissioning support.",
         "h1": "In-house O&M teams trained on NECTYR scheduling, rest zones, and robot health checks.",
-        "h2": "Clear contrast with Opex—where Taypro retains ownership and performs cleaning under contract.",
+        "h2": "Clear contrast with Opex, where Taypro retains ownership and performs cleaning under contract.",
         "h3": "Field evidence on payback drivers: soiling loss recovery, water savings, and labour redeployment."
       },
       "gridHeading": "Featured CAPEX installation case studies",
@@ -124,13 +124,13 @@
       "imageAltSuffix": "CAPEX Solar Panel Cleaning Robot Installation Project by Taypro",
       "imageTitleSuffix": "CAPEX Solar Panel Cleaning Robot Project",
       "faq": {
-        "heading": "Frequently asked questions — CAPEX projects",
+        "heading": "Frequently asked questions, CAPEX projects",
         "subheading": "How asset owners compare buying robots vs Taypro-operated cleaning.",
         "cta": "Discuss your plant",
         "q0": "What does CAPEX mean in Taypro project listings?",
         "a0": "The developer or IPP bought robots as capital equipment and operates them with internal or third-party O&M. Taypro delivers hardware, commissioning, and support; the owner carries depreciation and uptime responsibility.",
         "q1": "How is CAPEX different from Taypro Opex?",
-        "a1": "Under Opex, Taypro owns the fleet and performs cleaning under SLA—useful when you want predictable opex line items and outsourced cycle execution. CAPEX suits teams with strong in-house O&M and appetite for asset ownership. The Opex service page explains service scope.",
+        "a1": "Under Opex, Taypro owns the fleet and performs cleaning under SLA, useful when you want predictable opex line items and outsourced cycle execution. CAPEX suits teams with strong in-house O&M and appetite for asset ownership. The Opex service page explains service scope.",
         "q2": "Can a CAPEX plant still use Taypro for operations?",
         "a2": "Some owners buy hardware CAPEX and contract Taypro for monitoring or periodic audits. Case studies call out the model when published. Share your preferred split with Taypro during proposal."
       }

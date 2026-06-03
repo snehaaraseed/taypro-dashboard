@@ -21,7 +21,7 @@ import { FAQPageSchema } from "@/app/components/StructuredData";
 
 const STAT_STRIP_LABEL_KEYS = [
   "statsStrip.robotCapacityDeployed",
-  "statsStrip.plantInstallations",
+  "statsStrip.co2ReducedAnnually",
   "statsStrip.waterSavedAnnually",
   "statsStrip.robotsManufacturedPerMonth",
 ] as const;
@@ -78,9 +78,10 @@ const RESOURCE_ITEMS = [
 
 const EXPLORE_LINKS = [
   { labelKey: "explore.link0", href: "/projects" },
-  { labelKey: "explore.link1", href: "/cleaning-technology" },
-  { labelKey: "explore.link2", href: "/solar-panel-cleaning-system" },
-  { labelKey: "explore.link3", href: "/contact" },
+  { labelKey: "explore.link1", href: "/utility-scale-solar-operations" },
+  { labelKey: "explore.link2", href: "/cleaning-technology" },
+  { labelKey: "explore.link3", href: "/solar-panel-cleaning-system" },
+  { labelKey: "explore.link4", href: "/contact" },
 ] as const;
 
 export default function AboutUsPage() {
@@ -314,6 +315,96 @@ export default function AboutUsPage() {
               </div>
             </AnimateOnScroll>
           </div>
+        </div>
+
+        <div
+          id="investors"
+          className="w-full py-16 md:py-20 bg-[#052638] px-4 sm:px-6 lg:px-8 scroll-mt-24"
+          aria-labelledby="company-investors-heading"
+        >
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mx-auto text-center mb-10">
+              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
+                {t("investors.eyebrow")}
+              </p>
+              <h2
+                id="company-investors-heading"
+                className="text-white font-semibold text-3xl md:text-4xl mb-4"
+              >
+                {t("investors.heading")}
+              </h2>
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+                {t("investors.body")}
+              </p>
+            </AnimateOnScroll>
+            <ul className="max-w-2xl mx-auto space-y-4 mb-10 text-gray-300 text-sm md:text-base leading-relaxed">
+              {(["bullet0", "bullet1", "bullet2"] as const).map((key) => (
+                <li key={key} className="flex gap-3">
+                  <span className="text-[#A8C117] font-bold shrink-0" aria-hidden>
+                    ✓
+                  </span>
+                  {t(`investors.${key}`)}
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-col sm:flex-row justify-center gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex justify-center px-6 py-3 rounded-lg bg-[#A8C117] text-[#052638] font-semibold hover:bg-[#b3cf3d] transition-colors"
+              >
+                {t("investors.ctaContact")}
+              </Link>
+              <Link
+                href="/solar-panel-cleaning-system/orion-plant-intelligence-platform"
+                className="inline-flex justify-center px-6 py-3 rounded-lg border border-white/30 text-white font-medium hover:border-[#A8C117] hover:text-[#A8C117] transition-colors"
+              >
+                {t("investors.ctaOrion")}
+              </Link>
+            </div>
+          </Container>
+        </div>
+
+        <div
+          className="w-full py-12 md:py-16 bg-[#f4f7f9] border-y border-gray-200 px-4 sm:px-6 lg:px-8"
+          aria-labelledby="company-credibility-heading"
+        >
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mx-auto text-center mb-8">
+              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
+                {t("credibility.eyebrow")}
+              </p>
+              <h2
+                id="company-credibility-heading"
+                className="text-[#052638] font-semibold text-2xl md:text-3xl"
+              >
+                {t("credibility.heading")}
+              </h2>
+            </AnimateOnScroll>
+            <ul className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-[#27415c] text-sm md:text-base">
+              {(["item0", "item1", "item2", "item3"] as const).map((key) => (
+                <li key={key} className="flex gap-3 rounded-xl bg-white border border-gray-100 px-4 py-3 shadow-sm">
+                  <span className="text-[#A8C117] font-bold shrink-0" aria-hidden>
+                    ✓
+                  </span>
+                  {t(`credibility.${key}`)}
+                </li>
+              ))}
+            </ul>
+            <AnimateOnScroll animation="fadeInUp" className="max-w-xl mx-auto text-center">
+              <p className="text-[#052638] font-semibold text-lg mb-1">
+                {t("credibility.awardTitle")}
+              </p>
+              <p className="text-[#27415c] text-sm md:text-base mb-3">
+                {t("credibility.awardBody")}
+              </p>
+              <Link
+                href="/blog/mint-tech4good-awards-2024-taypros-green-ai-solutions-win-big-in-mumbai-india"
+                className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
+              >
+                {t("credibility.awardLink")}
+              </Link>
+            </AnimateOnScroll>
+          </Container>
         </div>
 
         <div

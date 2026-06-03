@@ -40,7 +40,7 @@ const modelBSupplements = {
   features: {
     "7": {
       title: "Sealed Body, IP65 Protection",
-      body: "All electrical components, wiring harnesses and connectors are fully enclosed within the sealed device body — providing IP65-rated protection against dust, moisture and environmental contaminants in extreme field conditions.",
+      body: "All electrical components, wiring harnesses and connectors are fully enclosed within the sealed device body, providing IP65-rated protection against dust, moisture and environmental contaminants in extreme field conditions.",
     },
   },
   steps: {
@@ -53,7 +53,7 @@ const modelBSupplements = {
     "9": {
       question: "What kind of after-sales support does Taypro provide for Model-B?",
       answer:
-        "Every Model-B deployment is backed by Taypro's pan-India service model: pre-scheduled preventive and corrective maintenance, immediate remote diagnostics upon incident notification, and same-day on-site breakdown resolution targets — anywhere in India. Annual maintenance contracts (AMC) are available for long-term operations.",
+        "Every Model-B deployment is backed by Taypro's pan-India service model: pre-scheduled preventive and corrective maintenance, immediate remote diagnostics upon incident notification, and same-day on-site breakdown resolution targets, anywhere in India. Annual maintenance contracts (AMC) are available for long-term operations.",
     },
   },
 };
@@ -69,13 +69,13 @@ function buildModelB() {
     ModelBPage: {
       meta: {
         title:
-          "Semi-Automatic Solar Panel Cleaning Robot — Taypro Model-B (Pick-and-Place)",
+          "Semi-Automatic Solar Panel Cleaning Robot, Taypro Model-B (Pick-and-Place)",
         description:
-          "Taypro Model-B is a 39 kg pick-and-place, semi-automatic Solar Panel Cleaning Robot. Counter-rotating PBT brushes remove 99%+ dust in a single waterless pass, clean a 1 MW plant in under 2 hours, run up to 3 km on a single charge, TÜV NORD certified — built for fixed-tilt and seasonal-tilt plants.",
+          "Taypro Model-B is a 39 kg pick-and-place, semi-automatic Solar Panel Cleaning Robot. Counter-rotating PBT brushes remove 99%+ dust in a single waterless pass, clean a 1 MW plant in under 2 hours, run up to 3 km on a single charge, TÜV NORD certified, built for fixed-tilt and seasonal-tilt plants.",
         openGraphDescription:
           "Pick-and-place Solar Panel Cleaning Robot. 39 kg, waterless, dual counter-rotating PBT brushes, 99%+ dust removal in a single pass, 3 km per charge, TÜV NORD certified.",
         openGraphImageAlt:
-          "Taypro Semi-Automatic Solar Panel Cleaning Robot Model-B — Pick-and-place type, waterless",
+          "Taypro Semi-Automatic Solar Panel Cleaning Robot Model-B, Pick-and-place type, waterless",
         twitterDescription:
           "39 kg pick-and-place Solar Panel Cleaning Robot. Waterless, dual counter-rotating PBT brushes, 99%+ dust removal per pass, TÜV NORD certified.",
       },
@@ -91,17 +91,17 @@ function buildModelB() {
         howToName:
           "How to clean solar panels with the Taypro Model-B Semi-Automatic Solar Panel Cleaning Robot",
         howToDescription:
-          "Step-by-step deployment of the Taypro Model-B pick-and-place semi-automatic solar panel cleaning robot — from lifting the robot onto the first row through recharging at the docking station.",
+          "Step-by-step deployment of the Taypro Model-B pick-and-place semi-automatic solar panel cleaning robot, from lifting the robot onto the first row through recharging at the docking station.",
       },
       hero: {
-        title: "Semi-Automatic Solar Panel Cleaning Robot — Model-B",
+        title: "Semi-Automatic Solar Panel Cleaning Robot, Model-B",
         subtitleBefore:
           "A 39 kg pick-and-place, waterless Solar Panel Cleaning Robot engineered for utility-scale solar power plants. Dual counter-rotating UV-stable PBT brushes lift over",
         subtitleStrong: "99% of dust in a single pass",
         subtitleAfter:
-          ", cleaning a 1 MW block in under 2 hours and running up to 3 km on a single charge — operable by any two-person site team.",
+          ", cleaning a 1 MW block in under 2 hours and running up to 3 km on a single charge, operable by any two-person site team.",
         imgAlt:
-          "Taypro Model-B — Semi-Automatic Solar Panel Cleaning Robot, pick-and-place waterless cleaner for utility-scale solar plants",
+          "Taypro Model-B, Semi-Automatic Solar Panel Cleaning Robot, pick-and-place waterless cleaner for utility-scale solar plants",
         ctaText: "Request a quote",
       },
       usps,
@@ -117,7 +117,7 @@ function buildModelB() {
         faqSubtitle:
           "Common questions about the Taypro Model-B Semi-Automatic Solar Panel Cleaning Robot.",
         product360Label:
-          "Taypro Model-B — Semi-Automatic Solar Panel Cleaning Robot",
+          "Taypro Model-B, Semi-Automatic Solar Panel Cleaning Robot",
       },
     },
     Common: {
@@ -158,7 +158,7 @@ const modelTSupplements = {
       question:
         "How is Model-T monitored and controlled across a large tracker plant?",
       answer:
-        "All Model-T robots connect to the Taypro Console using {connectivity}. The portal provides a unified interface to schedule cleaning, adjust settings, monitor battery levels, view cycle telemetry, receive weather alerts and roll up performance across hundreds of robots and plants — from any device, anywhere.",
+        "All Model-T robots connect to the Taypro Console using {connectivity}. The portal provides a unified interface to schedule cleaning, adjust settings, monitor battery levels, view cycle telemetry, receive weather alerts and roll up performance across hundreds of robots and plants, from any device, anywhere.",
     },
   },
 };
@@ -169,13 +169,13 @@ function buildModelT() {
     ModelTPage: {
       meta: {
         title:
-          "Solar Panel Cleaning Robot for Single-Axis Trackers — Taypro Model-T",
+          "Solar Panel Cleaning Robot for Single-Axis Trackers, Taypro Model-T",
         description:
           "Taypro Model-T is an AI- and ML-powered, waterless autonomous Solar Panel Cleaning Robot purpose-built for single-axis tracker solar farms. 99%+ dust removal per dual-pass run, up to 3,600 modules per charge, ±15° flex between tables, NEXTracker and Gamechanger compatible (-52° to +52° module tilt), TÜV NORD certified.",
         openGraphDescription:
           "Autonomous AI-powered Solar Panel Cleaning Robot for single-axis tracker plants. 99%+ dust removal per cycle, up to 3,600 modules per charge, Taypro Console via LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN, NEXTracker & Gamechanger compatible, TÜV NORD certified.",
         openGraphImageAlt:
-          "Taypro Single-Axis Tracker Solar Panel Cleaning Robot Model-T — AI-powered, waterless",
+          "Taypro Single-Axis Tracker Solar Panel Cleaning Robot Model-T, AI-powered, waterless",
         twitterDescription:
           "Autonomous Solar Panel Cleaning Robot for tracker plants. 3,600 modules per charge, LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN, NEXTracker & Gamechanger compatible.",
       },
@@ -192,11 +192,11 @@ function buildModelT() {
         howToName:
           "How does the Taypro Model-T Single-Axis Tracker Solar Panel Cleaning Robot clean tracker plants?",
         howToDescription:
-          "Step-by-step autonomous cleaning cycle of the Taypro Model-T solar panel cleaning robot for single-axis tracker installations — from AI-scheduled deployment through self-docking and cloud telemetry sync.",
+          "Step-by-step autonomous cleaning cycle of the Taypro Model-T solar panel cleaning robot for single-axis tracker installations, from AI-scheduled deployment through self-docking and cloud telemetry sync.",
       },
       hero: {
         title:
-          "Solar Panel Cleaning Robot for Single-Axis Trackers — Model-T",
+          "Solar Panel Cleaning Robot for Single-Axis Trackers, Model-T",
         subtitleBefore:
           "An AI- and ML-powered, waterless autonomous Solar Panel Cleaning Robot purpose-built for single-axis tracker solar farms. Cleans up to 3,600 modules per charge,",
         subtitleStrong: "flexes ±15° between tables",
@@ -222,7 +222,7 @@ function buildModelT() {
         faqSubtitle:
           "Common questions about the Taypro Model-T Solar Panel Cleaning Robot for single-axis tracker installations.",
         product360Label:
-          "Taypro Model-T — Solar Panel Cleaning Robot for Single-Axis Trackers",
+          "Taypro Model-T, Solar Panel Cleaning Robot for Single-Axis Trackers",
       },
     },
     Common: {
@@ -239,7 +239,7 @@ function buildCleaningService() {
     CleaningServicePage: {
       meta: {
         title:
-          "Robotic Solar Panel Cleaning Service — Pay Per Panel | Taypro OPEX",
+          "Robotic Solar Panel Cleaning Service, Pay Per Panel | Taypro OPEX",
         description:
           "Taypro OPEX is a monthly robotic solar panel cleaning service for utility-scale plants (typically 50 MW+). We deploy Model-A, Model-B or Model-T as needed, recommend 3–10 waterless dry cycles per month from a full plant soiling study, and bill only for panels cleaned. Includes cleaning SOPs, robot paths, rest zones, dedicated parking, and daily reports via Taypro Console.",
         openGraphDescription:
@@ -251,16 +251,16 @@ function buildCleaningService() {
       },
       breadcrumbs: {
         robots: "Solar Panel Cleaning Robots",
-        current: "Taypro OPEX — Solar Panel Cleaning Service",
+        current: "Taypro OPEX, Solar Panel Cleaning Service",
       },
       schema: {
-        name: "Taypro OPEX — Robotic Solar Panel Cleaning Service",
+        name: "Taypro OPEX, Robotic Solar Panel Cleaning Service",
         description:
           "Monthly robotic solar panel cleaning service for utility-scale plants: pay per panel cleaned, plant-specific soiling study, 3–10 recommended waterless dry cycles per month, detailed cleaning plans with paths and robot rest zones, daily reports via Taypro Console, deployment of Taypro Model-A, Model-B or Model-T robots with dedicated operators.",
         serviceType: "Solar panel cleaning service",
       },
       hero: {
-        title: "Taypro OPEX — Robotic Solar Panel Cleaning Service",
+        title: "Taypro OPEX, Robotic Solar Panel Cleaning Service",
         subtitlePanels: "solar panels we clean each month",
         subtitleCycles: "3–10 waterless dry cleaning cycles per month",
         modelA: "Model-A",
@@ -268,7 +268,7 @@ function buildCleaningService() {
         modelT: "Model-T",
         console: "Taypro Console",
         imgAlt:
-          "Taypro OPEX solar panel cleaning service — robotic waterless cleaning at utility-scale solar plant",
+          "Taypro OPEX solar panel cleaning service, robotic waterless cleaning at utility-scale solar plant",
         ctaText: "Request a quote",
       },
       faqs: idx(ex.opexServiceFaqs),
@@ -287,7 +287,7 @@ function buildCleaningService() {
         projectsHeader: "Our Projects",
         faqTitle: "Frequently asked questions",
         faqSubtitle:
-          "Taypro OPEX service questions — plus broader Taypro programme FAQs below.",
+          "Taypro OPEX service questions, plus broader Taypro programme FAQs below.",
       },
     },
     Common: {

@@ -2,12 +2,12 @@
   "SiteMapPage": {
     "meta": {
       "title": "साइटमैप | Taypro – पूर्ण वेबसाइट नेविगेशन",
-      "description": "Taypro की साइटमैप ब्राउज़ करें — प्रोजेक्ट, सेवाएँ और कंपनी जानकारी सहित सभी अनुभागों तक तुरंत पहुँचें।",
+      "description": "Taypro की साइटमैप ब्राउज़ करें, प्रोजेक्ट, सेवाएँ और कंपनी जानकारी सहित सभी अनुभागों तक तुरंत पहुँचें।",
       "openGraphTitle": "साइटमैप | Taypro – पूर्ण वेबसाइट नेविगेशन",
-      "openGraphDescription": "Taypro की साइटमैप ब्राउज़ करें — प्रोजेक्ट, सेवाएँ और कंपनी जानकारी सहित सभी अनुभागों तक तुरंत पहुँचें।",
+      "openGraphDescription": "Taypro की साइटमैप ब्राउज़ करें, प्रोजेक्ट, सेवाएँ और कंपनी जानकारी सहित सभी अनुभागों तक तुरंत पहुँचें।",
       "openGraphImageAlt": "Taypro वेबसाइट साइटमैप",
       "twitterTitle": "साइटमैप | Taypro",
-      "twitterDescription": "Taypro की साइटमैप ब्राउज़ करें — सभी वेबसाइट अनुभागों तक तुरंत पहुँचें।",
+      "twitterDescription": "Taypro की साइटमैप ब्राउज़ करें, सभी वेबसाइट अनुभागों तक तुरंत पहुँचें।",
       "keyword0": "Taypro साइटमैप",
       "keyword1": "सोलर पैनल सफाई रोबोट वेबसाइट नेविगेशन",
       "keyword2": "साइटमैप",
@@ -19,7 +19,7 @@
       "sitemap": "साइटमैप"
     },
     "heading": "साइटमैप",
-    "intro": "Use this HTML sitemap to find every major Taypro page—solar panel cleaning robots, utility-scale project case studies, O&M guides, and company information. Links are grouped by content type so developers, EPC teams, and asset managers can reach the right section quickly.",
+    "intro": "Use this HTML sitemap to find every major Taypro page, solar panel cleaning robots, utility-scale project case studies, O&M guides, and company information. Links are grouped by content type so developers, EPC teams, and asset managers can reach the right section quickly.",
     "introSecondary": "For search engines, our XML sitemap is also available at /sitemap.xml. This page is designed for human navigation and internal linking across the Taypro site.",
     "sections": {
       "posts": "पोस्ट",
@@ -27,7 +27,7 @@
       "pages": "पेज",
       "pagesIntro": "Core marketing and product pages, including robot specifications, cleaning technology, ROI tools, legal policies, and contact.",
       "portfolio": "पोर्टफोलियो",
-      "portfolioIntro": "Documented solar plant installations where Taypro robotic cleaning systems are deployed—browse case studies by project name."
+      "portfolioIntro": "Documented solar plant installations where Taypro robotic cleaning systems are deployed, browse case studies by project name."
     },
     "posts": {
       "energyResourcesTitle": "ऊर्जा संसाधन"
@@ -70,14 +70,16 @@
       "cleaningServiceTitle": "सोलर पैनल सफाई सेवा",
       "tayproConsoleLabel": "NECTYR",
       "tayproConsoleTitle": "NECTYR फ्लीट मॉनिटरिंग सॉफ़्टवेयर",
-      "minyLabel": "MINY — कॉम्पैक्ट रूफटॉप रोबोट",
+      "minyLabel": "MINY, कॉम्पैक्ट रूफटॉप रोबोट",
       "minyTitle": "MINY कॉम्पैक्ट रूफटॉप सोलर सफाई रोबोट (जल्द आ रहा है)",
-      "cradylLabel": "CRADYL — पंक्ति ट्रांसफ़र डॉकिंग",
+      "cradylLabel": "CRADYL, पंक्ति ट्रांसफ़र डॉकिंग",
       "cradylTitle": "CRADYL स्वायत्त पंक्ति-ट्रांसफ़र डॉकिंग स्टेशन (जल्द आ रहा है)",
       "cleaningTechnologyLabel": "Taypro के पीछे की तकनीक",
       "cleaningTechnologyTitle": "सफाई तकनीक",
-      "orionLabel": "ORION — प्लांट इंटेलिजेंस",
-      "orionTitle": "ORION सोलर प्लांट स्वास्थ्य मॉनिटरिंग प्लेटफ़ॉर्म (जल्द आ रहा है)"
+      "orionLabel": "ORION, प्लांट इंटेलिजेंस",
+      "orionTitle": "ORION सोलर प्लांट स्वास्थ्य मॉनिटरिंग प्लेटफ़ॉर्म (जल्द आ रहा है)",
+      "utilityOperationsLabel": "यूटिलिटी सोलर संचालन",
+      "utilityOperationsTitle": "यूटिलिटी-स्केल सोलर संचालन और सोलर पैनल सफाई रोबोट"
     }
   },
   "Common": {

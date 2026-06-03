@@ -3,6 +3,11 @@ import "server-only";
 import { desc, eq } from "drizzle-orm";
 import { getDb } from "@/lib/db";
 import { blogs, publishedTopics } from "@/lib/db/schema";
+import {
+  descriptionsTooSimilar,
+  parseH2OutlineJson,
+  titlesTooSimilar,
+} from "@/lib/seo/blog-similarity";
 import { SOURCE_LOCALE } from "@/lib/translation/config";
 
 export interface PublishedTopic {
@@ -10,8 +15,15 @@ export interface PublishedTopic {
   slug: string;
   publishDate: string;
   category?: string;
+  h2Outline?: string[];
+  contentFingerprint?: string;
   createdAt: string;
 }
+
+export type PublishedTopicMeta = {
+  h2Outline?: string[];
+  contentFingerprint?: string;
+};
 
 function rowToTopic(row: typeof publishedTopics.$inferSelect): PublishedTopic {
   return {
@@ -19,6 +31,8 @@ function rowToTopic(row: typeof publishedTopics.$inferSelect): PublishedTopic {
     slug: row.slug,
     publishDate: row.publishDate,
     category: row.category ?? undefined,
+    h2Outline: parseH2OutlineJson(row.h2Outline),
+    contentFingerprint: row.contentFingerprint ?? undefined,
     createdAt: row.createdAt,
   };
 }
@@ -35,56 +49,94 @@ export async function readPublishedTopics(): Promise<PublishedTopic[]> {
 function matchesExistingTopic(
   titleLower: string,
   slugLower: string | undefined,
+  descriptionLower: string | undefined,
   existingTitle: string,
-  existingSlug: string
+  existingSlug: string,
+  existingDescription?: string
 ): boolean {
   const existingTitleLower = existingTitle.toLowerCase().trim();
   const existingSlugLower = existingSlug.toLowerCase().trim();
 
   if (existingTitleLower === titleLower) return true;
   if (slugLower && existingSlugLower === slugLower) return true;
-  if (calculateSimilarity(existingTitleLower, titleLower) > 0.85) return true;
+  if (titlesTooSimilar(existingTitle, titleLower)) return true;
+  if (
+    descriptionLower &&
+    existingDescription &&
+    descriptionsTooSimilar(existingDescription, descriptionLower)
+  ) {
+    return true;
+  }
   return false;
 }
 
-/** True if title/slug overlaps automation history or any English CMS blog. */
+/** True if title/slug/description overlaps automation history or any English CMS blog. */
 export async function isTopicPublished(
   topicTitle: string,
-  topicSlug?: string
+  topicSlug?: string,
+  topicDescription?: string
 ): Promise<boolean> {
   const titleLower = topicTitle.toLowerCase().trim();
   const slugLower = topicSlug?.toLowerCase().trim();
+  const descriptionLower = topicDescription?.toLowerCase().trim();
 
   const topics = await readPublishedTopics();
   for (const topic of topics) {
-    if (matchesExistingTopic(titleLower, slugLower, topic.title, topic.slug)) {
+    if (
+      matchesExistingTopic(
+        titleLower,
+        slugLower,
+        descriptionLower,
+        topic.title,
+        topic.slug
+      )
+    ) {
       return true;
     }
   }
 
   const db = getDb();
   const blogRows = await db
-    .select({ title: blogs.title, slug: blogs.slug })
+    .select({
+      title: blogs.title,
+      slug: blogs.slug,
+      description: blogs.description,
+    })
     .from(blogs)
     .where(eq(blogs.locale, SOURCE_LOCALE));
 
   return blogRows.some((row) =>
-    matchesExistingTopic(titleLower, slugLower, row.title, row.slug)
+    matchesExistingTopic(
+      titleLower,
+      slugLower,
+      descriptionLower,
+      row.title,
+      row.slug,
+      row.description
+    )
   );
 }
 
 export async function addPublishedTopic(
   title: string,
   slug: string,
-  category?: string
+  category?: string,
+  meta?: PublishedTopicMeta
 ): Promise<void> {
   const db = getDb();
   const now = new Date().toISOString();
+  const h2Outline =
+    meta?.h2Outline && meta.h2Outline.length > 0
+      ? JSON.stringify(meta.h2Outline)
+      : null;
+
   await db.insert(publishedTopics).values({
     title,
     slug,
     publishDate: now,
     category: category ?? null,
+    h2Outline,
+    contentFingerprint: meta?.contentFingerprint ?? null,
     createdAt: now,
   });
 }
@@ -138,7 +190,7 @@ export async function getBlogAutomationSchedule(): Promise<BlogAutomationSchedul
   };
 }
 
-/** @deprecated Use getBlogAutomationSchedule — kept for imports. */
+/** @deprecated Use getBlogAutomationSchedule, kept for imports. */
 export async function isBlogCreatedToday(): Promise<boolean> {
   const schedule = await getBlogAutomationSchedule();
   return !schedule.canGenerate;
@@ -153,12 +205,4 @@ export async function getTopicHistory(days: number): Promise<PublishedTopic[]> {
 
 export async function getAllTopics(): Promise<PublishedTopic[]> {
   return readPublishedTopics();
-}
-
-function calculateSimilarity(str1: string, str2: string): number {
-  const words1 = new Set(str1.split(/\s+/));
-  const words2 = new Set(str2.split(/\s+/));
-  const intersection = new Set([...words1].filter((x) => words2.has(x)));
-  const union = new Set([...words1, ...words2]);
-  return union.size > 0 ? intersection.size / union.size : 0;
 }

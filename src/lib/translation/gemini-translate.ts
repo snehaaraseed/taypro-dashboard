@@ -5,6 +5,7 @@ import type { TayproLocale } from "@/i18n/markets";
 import { geminiTranslationModel, localeDisplayName } from "./config";
 import { maskMediaInHtml, unmaskMediaInHtml } from "./preserve-html";
 import type { BlogFaqItem } from "@/lib/cms/blog-faqs";
+import { PUNCTUATION_RULES, sanitizeEmDash } from "@/lib/seo/content-quality";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
 
@@ -57,6 +58,7 @@ STRICT RULES:
 5. Keep brand names (Taypro, GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, NECTYR, TÜV NORD) and standard units (MW, kWh) unless a well-known localized form exists.
 6. Use professional, natural ${language} suitable for utility-scale solar plant operators.
 7. Meta description: stay within ~160 characters where possible.
+${PUNCTUATION_RULES}
 
 Source JSON:
 ${JSON.stringify({
@@ -80,11 +82,13 @@ ${JSON.stringify({
   parsed.content = unmaskMediaInHtml(parsed.content, fragments);
 
   return {
-    title: parsed.title.trim(),
-    description: parsed.description.trim(),
-    content: parsed.content.trim(),
-    featuredImageAlt: parsed.featuredImageAlt?.trim(),
-    imageAlt: parsed.imageAlt?.trim(),
+    title: sanitizeEmDash(parsed.title.trim()),
+    description: sanitizeEmDash(parsed.description.trim()),
+    content: sanitizeEmDash(parsed.content.trim()),
+    featuredImageAlt: parsed.featuredImageAlt
+      ? sanitizeEmDash(parsed.featuredImageAlt.trim())
+      : undefined,
+    imageAlt: parsed.imageAlt ? sanitizeEmDash(parsed.imageAlt.trim()) : undefined,
   };
 }
 
@@ -103,6 +107,7 @@ export async function translateStringListWithGemini(
 
   const prompt = `Translate each string in this JSON array from English to ${language} (${targetLocale}).
 Return ONLY a JSON array of strings with the same length and order. Keep numbers and units accurate.
+${PUNCTUATION_RULES}
 
 ${JSON.stringify(items)}`;
 
@@ -113,7 +118,7 @@ ${JSON.stringify(items)}`;
     throw new Error(`Project details translation length mismatch for ${targetLocale}`);
   }
 
-  return parsed.map((s) => String(s).trim());
+  return parsed.map((s) => sanitizeEmDash(String(s).trim()));
 }
 
 /** Translate blog FAQ question/answer pairs. */
@@ -133,6 +138,7 @@ export async function translateBlogFaqsWithGemini(
 Return ONLY a JSON array of objects with keys "question" and "answer", same length and order.
 Keep brand names (Taypro, GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, NECTYR) unchanged unless a well-known localized form exists.
 Use professional ${language} for utility-scale solar plant operators.
+${PUNCTUATION_RULES}
 
 ${JSON.stringify(faqs)}`;
 
@@ -144,7 +150,7 @@ ${JSON.stringify(faqs)}`;
   }
 
   return parsed.map((item, i) => ({
-    question: String(item?.question ?? faqs[i].question).trim(),
-    answer: String(item?.answer ?? faqs[i].answer).trim(),
+    question: sanitizeEmDash(String(item?.question ?? faqs[i].question).trim()),
+    answer: sanitizeEmDash(String(item?.answer ?? faqs[i].answer).trim()),
   }));
 }

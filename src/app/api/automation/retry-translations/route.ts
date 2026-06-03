@@ -9,10 +9,10 @@ import {
 export const maxDuration = 300;
 
 /**
- * POST — process pending CMS translation jobs (quota auto-resume).
+ * POST, process pending CMS translation jobs (quota auto-resume).
  * Secured with AUTOMATION_CRON_SECRET (same as generate-blog).
  *
- * Query: ?reconcile=true — also enqueue any published posts missing translations.
+ * Query: ?reconcile=true, also enqueue any published posts missing translations.
  */
 export async function POST(request: NextRequest) {
   if (!isAutomationAuthorized(request)) {

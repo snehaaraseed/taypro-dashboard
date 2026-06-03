@@ -190,7 +190,7 @@ export default async function ModelTPage`
     '{t("innovation360.tourSubtitleDesktop")}'
   );
   s = s.replace(
-    'productLabel="Taypro Model-T — Solar Panel Cleaning Robot for Single-Axis Trackers"',
+    'productLabel="Taypro Model-T, Solar Panel Cleaning Robot for Single-Axis Trackers"',
     'productLabel={t("innovation360.productLabel")}'
   );
   s = s.replace(
@@ -206,7 +206,7 @@ export default async function ModelTPage`
     ["Step-by-Step Autonomous Cleaning Cycle", "howItWorks.eyebrow"],
     ["How Does Model-T Clean Single-Axis Tracker Plants?", "howItWorks.title"],
     [
-      "Model-T executes a fully autonomous cleaning cycle from\n                AI-scheduled deployment through self-docking and cloud\n                telemetry sync — without any operator on site.",
+      "Model-T executes a fully autonomous cleaning cycle from\n                AI-scheduled deployment through self-docking and cloud\n                telemetry sync, without any operator on site.",
       "howItWorks.subtitle",
     ],
     ["Why Choose Taypro Model-T", "uspSection.eyebrow"],
@@ -258,7 +258,7 @@ export default async function ModelTPage`
                 {
                   title: "Simulated Sandstorm Testing",
                   body:
-                    "Validated under 12 sandstorm events per year at a sand loading of 10 g/m² per cycle — the toughest desert-climate cleaning protocol.",
+                    "Validated under 12 sandstorm events per year at a sand loading of 10 g/m² per cycle, the toughest desert-climate cleaning protocol.",
                 },
                 {
                   title: "Panel-Safe Verified",
@@ -283,7 +283,7 @@ export default async function ModelTPage`
   }
 
   writeFileSync(path, s);
-  console.log("patched model-t (partial — review motion.div)");
+  console.log("patched model-t (partial, review motion.div)");
 }
 
 function patchCleaningService() {

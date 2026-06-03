@@ -19,9 +19,9 @@ export const FLEET_ESG_ASSUMPTIONS = {
   litresPerModulePerWetCycle: 3.5,
   /** Extra annual energy vs wet cleaning (2–3% generation gain; midpoint 2.5%). */
   generationGainVsWetCleaning: 0.025,
-  /** P50 specific yield (kWh per kW DC per year) — India utility-scale. */
+  /** P50 specific yield (kWh per kW DC per year), India utility-scale. */
   specificYieldKwhPerKw: 1500,
-  /** Grid emission factor (kg CO₂ per kWh) — India indicative / CEA-class. */
+  /** Grid emission factor (kg CO₂ per kWh), India indicative / CEA-class. */
   gridEmissionKgPerKwh: 0.496,
   /** Litres in a standard Olympic swimming pool (50 m × 25 m × 2 m). */
   olympicPoolLitres: 2_500_000,

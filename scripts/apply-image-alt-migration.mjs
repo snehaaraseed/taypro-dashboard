@@ -27,7 +27,7 @@ function ensureColumn(db, table, column, sql) {
 }
 
 function defaultBlogAlt(title) {
-  return `${title} — solar panel cleaning robot article | Taypro`;
+  return `${title}, solar panel cleaning robot article | Taypro`;
 }
 
 function defaultProjectAlt(title, description, detailsJson) {
@@ -42,7 +42,7 @@ function defaultProjectAlt(title, description, detailsJson) {
     details.length > 0 ? details.join(" · ") : description || title;
   const snippet =
     overview.length > 50 ? `${overview.substring(0, 50)}...` : overview;
-  return `${title} — solar panel cleaning robot project, ${snippet}`;
+  return `${title}, solar panel cleaning robot project, ${snippet}`;
 }
 
 function main() {

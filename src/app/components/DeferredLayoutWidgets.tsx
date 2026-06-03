@@ -26,7 +26,7 @@ function useIdleReady(timeoutMs = 4000) {
   return ready;
 }
 
-/** Analytics, lead UI, and consent — consent first; rest after idle. */
+/** Analytics, lead UI, and consent, consent first; rest after idle. */
 export default function DeferredLayoutWidgets() {
   const secondaryReady = useIdleReady(4000);
 

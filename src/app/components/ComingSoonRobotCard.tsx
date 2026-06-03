@@ -33,7 +33,7 @@ export function ComingSoonRobotCard({
             <Image
               src={robot.imgPath}
               alt={`Taypro ${robot.marketingName}`}
-              title={`${robot.model} — Taypro`}
+              title={`${robot.model}, Taypro`}
               fill
               className="object-contain object-center opacity-90 transition-transform duration-300 group-hover:scale-[1.02]"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px"

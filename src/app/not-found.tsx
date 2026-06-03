@@ -6,7 +6,7 @@ import { loadMessages } from "@/i18n/load-messages";
 export const metadata: Metadata = {
   title: "Page Not Found | Taypro",
   description:
-    "The page you requested is not available. Taypro.in is online — explore solar panel cleaning robots, projects, and contact options.",
+    "The page you requested is not available. Taypro.in is online, explore solar panel cleaning robots, projects, and contact options.",
   robots: { index: false, follow: true },
 };
 

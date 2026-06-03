@@ -2,7 +2,7 @@
   "PriceCalculatorPage": {
     "meta": {
       "title": "Solar Panel Cleaning Cost & Robot Price Calculator | Taypro India",
-      "description": "Free solar panel cleaning cost, price and ROI calculator for utility-scale PV plants in India. Estimate robot investment, payback, maintenance savings, and Opex vs CAPEX—then request a tailored Taypro quote.",
+      "description": "Free solar panel cleaning cost, price and ROI calculator for utility-scale PV plants in India. Estimate robot investment, payback, maintenance savings, and Opex vs CAPEX, then request a tailored Taypro quote.",
       "openGraphTitle": "Solar Panel Cleaning Robot Price & ROI Calculator | Taypro",
       "openGraphDescription": "Estimate robot investment, payback, labour savings, and generation gain for your solar plant. Free online tool by Taypro.",
       "twitterTitle": "Solar Panel Cleaning Robot Price & ROI Calculator | Taypro",
@@ -32,7 +32,7 @@
       "titleLine2": "price & ROI calculator",
       "bodyBeforeLink": "Estimate indicative robot investment, payback, annual savings, and water avoided for",
       "bodyLink": "Taypro autonomous and semi-automatic cleaning robots",
-      "bodyAfterLink": "on your plant—then request a site-specific quote.",
+      "bodyAfterLink": "on your plant, then request a site-specific quote.",
       "calculatorSrOnly": "Solar panel cleaning robot price and ROI calculator"
     },
     "opexBanner": {
@@ -56,14 +56,14 @@
     },
     "benefits": {
       "heading": "What this calculator estimates",
-      "subheading": "Directional figures for developers, EPC teams, and O&M leads evaluating robotic cleaning against manual labour and wet washing—not a binding price list.",
+      "subheading": "Directional figures for developers, EPC teams, and O&M leads evaluating robotic cleaning against manual labour and wet washing, not a binding price list.",
       "item0": {
         "title": "Labour & O&M savings",
         "description": "Compare manual washing crews and downtime against automated dry-cleaning cycles scaled to your DC capacity."
       },
       "item1": {
         "title": "Water avoided",
-        "description": "Taypro robots are waterless—see estimated litres not consumed versus periodic wet washing on dusty sites."
+        "description": "Taypro robots are waterless, see estimated litres not consumed versus periodic wet washing on dusty sites."
       },
       "item2": {
         "title": "Generation recovered",
@@ -79,7 +79,7 @@
       },
       "step1": {
         "title": "Run the estimate",
-        "description": "The model applies Taypro deployment assumptions—cycle cadence, dual-pass dry cleaning, and typical tariffs for your region (auto-selected from locale and location)."
+        "description": "The model applies Taypro deployment assumptions, cycle cadence, dual-pass dry cleaning, and typical tariffs for your region (auto-selected from locale and location)."
       },
       "step2": {
         "title": "Download or talk to us",
@@ -91,22 +91,22 @@
       "subheading": "The calculator's automation and installation inputs align with Taypro's product line. Explore specifications before you finalize procurement.",
       "viewDetails": "View details",
       "robot0": {
-        "description": "Fully autonomous, waterless dry cleaning with dual-pass airflow and microfiber—AI scheduling for fixed and seasonal-tilt utility plants."
+        "description": "Fully autonomous, waterless dry cleaning with dual-pass airflow and microfiber, AI scheduling for fixed and seasonal-tilt utility plants."
       },
       "robot1": {
         "description": "Portable pick-and-place dry cleaning robot for scattered blocks and plants that need flexible crew-assisted coverage."
       },
       "robot2": {
-        "description": "Autonomous waterless robot for single-axis trackers—flexible bridge and 360° rotation across tracker brands."
+        "description": "Autonomous waterless robot for single-axis trackers, flexible bridge and 360° rotation across tracker brands."
       },
       "robot3": {
-        "description": "Pay-per-panel-cleaned Opex—Taypro operates the cleaning robot fleet on your plant with no upfront CAPEX."
+        "description": "Pay-per-panel-cleaned Opex, Taypro operates the cleaning robot fleet on your plant with no upfront CAPEX."
       }
     },
     "methodology": {
       "eyebrow": "Methodology",
       "heading": "What goes into the numbers",
-      "paragraph0": "The calculator converts plant size, per-kWh tariff, assumed soiling recovery, and representative cleaning-cycle economics into annual generation gain, water savings, labour avoided, and a payback estimate. For India it reflects utility-scale conditions where Taypro robots operate today; for other regions it uses indicative local tariffs, labour, water, and yield—fixed-tilt or single-axis tracker sites with roughly 3–10 dry cleaning cycles per month.",
+      "paragraph0": "The calculator converts plant size, per-kWh tariff, assumed soiling recovery, and representative cleaning-cycle economics into annual generation gain, water savings, labour avoided, and a payback estimate. For India it reflects utility-scale conditions where Taypro robots operate today; for other regions it uses indicative local tariffs, labour, water, and yield, fixed-tilt or single-axis tracker sites with roughly 3–10 dry cleaning cycles per month.",
       "paragraph1BeforeTech": "Final figures depend on your",
       "paragraph1TechLink": "cleaning technology and dual-pass methodology",
       "paragraph1Between": ", the robot model for your layout (",
@@ -127,7 +127,7 @@
       "paragraph2End": ".",
       "ctaTopic": "Solar Panel Cleaning Robot quote (ROI calculator)",
       "ctaTitle": "Get a tailored ROI quote",
-      "ctaSubtitle": "Share a few plant details — our team will turn the calculator estimate into a precise number for your site.",
+      "ctaSubtitle": "Share a few plant details, our team will turn the calculator estimate into a precise number for your site.",
       "ctaButton": "Get a tailored ROI quote",
       "contactButton": "Contact Taypro"
     },
@@ -137,11 +137,11 @@
       "q0": "Is this solar panel cleaning robot price calculator the same as a formal quote?",
       "a0": "No. This tool gives a directional ROI and investment band based on typical Taypro deployments. A formal quote accounts for your exact row lengths, tracker brand, soiling study, procurement model (CAPEX vs Taypro Opex), and service scope. Use the results as a starting point, then contact Taypro or open the lead form with your plant details.",
       "q1": "What plant sizes does the ROI calculator support?",
-      "a1": "Ground-mount utility plants from 1 MW to 10 GW (model cap) and rooftop sites from 100 kW to 10 MW. Default tariffs follow your region—typically ~₹3/kWh ground and ~₹10/kWh rooftop in India, with local equivalents abroad (USD, AED, JPY, BDT, etc.). You can override any value. For very large sites, our team refines robot counts and pricing after layout review.",
+      "a1": "Ground-mount utility plants from 1 MW to 10 GW (model cap) and rooftop sites from 100 kW to 10 MW. Default tariffs follow your region, typically ~₹3/kWh ground and ~₹10/kWh rooftop in India, with local equivalents abroad (USD, AED, JPY, BDT, etc.). You can override any value. For very large sites, our team refines robot counts and pricing after layout review.",
       "q2": "Which Taypro robot models does the calculator assume?",
       "a2": "Automation level maps to fully automatic (GLYDE / GLYDE-X dual-pass or NYUMA / NYUMA-X PBT single-pass) versus semi-automatic (HELYX). Installation type adjusts multipliers for fixed tilt, seasonal tilt, or single-axis trackers. For specifications, see GLYDE, GLYDE-X, NYUMA, NYUMA-X, and HELYX product pages linked below.",
       "q3": "Can I use Taypro Opex instead of buying robots outright?",
-      "a3": "Yes. Many developers choose Taypro Opex—pay per panel cleaned with Taypro operating the fleet. The calculator models CAPEX-style investment; for Opex economics, mention your preference when requesting a tailored quote and we will align the business case to your procurement model.",
+      "a3": "Yes. Many developers choose Taypro Opex, pay per panel cleaned with Taypro operating the fleet. The calculator models CAPEX-style investment; for Opex economics, mention your preference when requesting a tailored quote and we will align the business case to your procurement model.",
       "q4": "How accurate are the water and carbon figures?",
       "a4": "Water savings assume dry cleaning replaces a representative wet-wash schedule. Carbon figures use standard grid emission factors applied to recovered generation. Both are indicative; your site's actual numbers depend on cleaning frequency, soiling rate, and regional grid intensity.",
       "q5": "What does solar panel cleaning cost in India?",
@@ -165,7 +165,7 @@
       "plantCapacityMw": "Plant Capacity (MW)",
       "plantCapacityKw": "Plant Capacity (KW)",
       "electricityTariffLabel": "Electricity tariff",
-      "marketAssumptionsNote": "Uses typical {region} utility tariffs, labour, water, and yield assumptions ({currency}). Directional only—not a formal quote.",
+      "marketAssumptionsNote": "Uses typical {region} utility tariffs, labour, water, and yield assumptions ({currency}). Directional only, not a formal quote.",
       "regionIndia": "India",
       "regionBangladesh": "Bangladesh",
       "regionGcc": "Middle East (GCC)",
@@ -184,7 +184,7 @@
       "collapseResults": "Collapse results",
       "hideResults": "Hide ▲",
       "highlightInvestment": "Indicative investment (CAPEX)",
-      "investmentDisclaimer": "Directional estimate—not a formal quote.",
+      "investmentDisclaimer": "Directional estimate, not a formal quote.",
       "paybackTimeline": "Payback timeline",
       "annualSavings": "Annual savings",
       "yearsUnit": "years",

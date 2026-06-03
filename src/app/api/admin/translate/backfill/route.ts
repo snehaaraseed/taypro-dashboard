@@ -8,13 +8,13 @@ import {
 } from "@/lib/translation/translate-cms";
 
 /**
- * POST — translate all published English blogs and/or projects.
+ * POST, translate all published English blogs and/or projects.
  * Body: {
  *   blogs?: boolean,
  *   projects?: boolean,
  *   force?: boolean,
  *   limit?: number,
- *   slugs?: string[] — only these blog slugs (must be published English)
+ *   slugs?: string[], only these blog slugs (must be published English)
  * }
  */
 export async function POST(request: NextRequest) {

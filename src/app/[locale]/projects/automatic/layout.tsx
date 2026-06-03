@@ -9,7 +9,7 @@ const og = socialImagesFromPreset("modelA");
 export const generateMetadata = defineLocalizedMetadata("/projects/automatic", () => ({
   title: "Automatic Solar Panel Cleaning Robot Projects | Taypro",
   description:
-    "Explore Taypro automatic Solar Panel Cleaning Robot installations—autonomous waterless fleets on utility-scale plants in India, with site-dependent recovery of generation lost to soiling.",
+    "Explore Taypro automatic Solar Panel Cleaning Robot installations, autonomous waterless fleets on utility-scale plants in India, with site-dependent recovery of generation lost to soiling.",
   keywords: [
     "Automatic Solar Panel Cleaning Robot projects",
     "automatic solar cleaning robot installations",

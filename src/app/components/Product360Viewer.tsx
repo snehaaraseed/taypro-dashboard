@@ -14,7 +14,7 @@ interface Product360ViewerProps {
   className?: string;
   /**
    * Human-readable label used in the `alt` text for each rendered frame.
-   * Example: "Taypro Model-A — Automatic Solar Panel Cleaning Robot".
+   * Example: "Taypro Model-A, Automatic Solar Panel Cleaning Robot".
    * Falls back to a generic "Taypro Solar Panel Cleaning Robot" label.
    */
   productLabel?: string;
@@ -351,7 +351,7 @@ export default function Product360Viewer({
       >
         <img
           src={getImageUrl(currentFrame)}
-          alt={`${productLabel} — 360° view (frame ${currentFrame + 1} of ${imageCount})`}
+          alt={`${productLabel}, 360° view (frame ${currentFrame + 1} of ${imageCount})`}
           width={width}
           height={height}
           className="w-full h-auto max-w-full object-contain transition-opacity duration-100"

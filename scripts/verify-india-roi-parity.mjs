@@ -94,4 +94,4 @@ if (failed > 0) {
   process.exit(1);
 }
 
-console.log("OK — India ROI matches legacy calculator for all checked scenarios.");
+console.log("OK, India ROI matches legacy calculator for all checked scenarios.");

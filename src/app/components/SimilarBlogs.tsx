@@ -6,92 +6,12 @@ import { useLocale, useTranslations } from "next-intl";
 import { formatLocaleDate } from "@/i18n/format-date";
 import { getBlogFeaturedImageAlt } from "../utils/imageAlt";
 import { DynamicBlog } from "../api/blog/list/route";
+import { calculateBlogSimilarity } from "@/lib/seo/blog-similarity-scoring";
 
 interface SimilarBlogsProps {
   blogs: DynamicBlog[];
   currentSlug?: string;
   layout?: "sidebar" | "bottom";
-}
-
-// Stop words to filter out common words
-const STOP_WORDS = new Set([
-  "a", "an", "and", "are", "as", "at", "be", "by", "for", "from",
-  "has", "he", "in", "is", "it", "its", "of", "on", "that", "the",
-  "to", "was", "will", "with", "the", "this", "but", "they", "have",
-  "had", "what", "said", "each", "which", "their", "time", "if",
-  "up", "out", "many", "then", "them", "these", "so", "some", "her",
-  "would", "make", "like", "into", "him", "has", "two", "more",
-  "very", "after", "words", "long", "than", "first", "been", "call",
-  "who", "oil", "sit", "now", "find", "down", "day", "did", "get",
-  "come", "made", "may", "part", "over", "new", "sound", "take",
-  "only", "little", "work", "know", "place", "year", "live", "me",
-  "back", "give", "most", "very", "after", "thing", "our", "just",
-  "name", "good", "sentence", "man", "think", "say", "great", "where",
-  "help", "through", "much", "before", "line", "right", "too", "mean",
-  "old", "any", "same", "tell", "boy", "follow", "came", "want",
-  "show", "also", "around", "form", "three", "small", "set", "put",
-  "end", "does", "another", "well", "large", "must", "big", "even",
-  "such", "because", "turn", "here", "why", "ask", "went", "men",
-  "read", "need", "land", "different", "home", "us", "move", "try",
-  "kind", "hand", "picture", "again", "change", "off", "play", "spell",
-  "air", "away", "animal", "house", "point", "page", "letter", "mother",
-  "answer", "found", "study", "still", "learn", "should", "america",
-  "world", "high", "every", "near", "add", "food", "between", "own",
-  "below", "country", "plant", "last", "school", "father", "keep",
-  "tree", "never", "start", "city", "earth", "eye", "light", "thought",
-  "head", "under", "story", "saw", "left", "don't", "few", "while",
-  "along", "might", "close", "something", "seem", "next", "hard",
-  "open", "example", "begin", "life", "always", "those", "both",
-  "paper", "together", "got", "group", "often", "run", "important",
-  "until", "children", "side", "feet", "car", "mile", "night", "walk",
-  "white", "sea", "began", "grow", "took", "river", "four", "carry",
-  "state", "once", "book", "hear", "stop", "without", "second",
-  "later", "miss", "idea", "enough", "eat", "face", "watch", "far",
-  "indian", "real", "almost", "let", "above", "girl", "sometimes",
-  "mountain", "cut", "young", "talk", "soon", "list", "song", "leave",
-  "family", "it's"
-]);
-
-// Extract keywords from text
-function extractKeywords(text: string): Set<string> {
-  // Convert to lowercase and split into words
-  const words = text
-    .toLowerCase()
-    .replace(/[^\w\s]/g, " ") // Replace punctuation with spaces
-    .split(/\s+/)
-    .filter((word) => word.length > 2) // Filter short words
-    .filter((word) => !STOP_WORDS.has(word)) // Filter stop words
-    .filter((word) => !/^\d+$/.test(word)); // Filter pure numbers
-
-  return new Set(words);
-}
-
-// Calculate similarity score between two blogs based on keyword overlap
-function calculateSimilarity(blog1: DynamicBlog, blog2: DynamicBlog): number {
-  // Extract keywords from title and description
-  const keywords1 = extractKeywords(`${blog1.title} ${blog1.description}`);
-  const keywords2 = extractKeywords(`${blog2.title} ${blog2.description}`);
-
-  // Calculate intersection (common keywords)
-  const intersection = new Set(
-    [...keywords1].filter((keyword) => keywords2.has(keyword))
-  );
-
-  // Calculate union (all unique keywords)
-  const union = new Set([...keywords1, ...keywords2]);
-
-  // Jaccard similarity coefficient
-  const similarity = union.size > 0 ? intersection.size / union.size : 0;
-
-  // Boost score if title has matching keywords (titles are more important)
-  const title1 = extractKeywords(blog1.title);
-  const title2 = extractKeywords(blog2.title);
-  const titleOverlap = new Set(
-    [...title1].filter((keyword) => title2.has(keyword))
-  );
-  const titleBoost = titleOverlap.size > 0 ? titleOverlap.size * 0.3 : 0;
-
-  return similarity + titleBoost;
 }
 
 function lastUpdatedDisplayString(blog: DynamicBlog, locale: string): string {
@@ -120,7 +40,7 @@ function getSimilarBlogs(
     .filter((b) => b.slug !== currentSlug)
     .map((blog) => ({
       blog,
-      score: calculateSimilarity(currentBlog, blog),
+      score: calculateBlogSimilarity(currentBlog, blog),
       publishDate: new Date(blog.publishDate).getTime(), // For deterministic sorting
     }))
     .sort((a, b) => {

@@ -19,7 +19,7 @@
       "sitemap": "Sitemap"
     },
     "heading": "Sitemap",
-    "intro": "Use this HTML sitemap to find every major Taypro page—solar panel cleaning robots, utility-scale project case studies, O&M guides, and company information. Links are grouped by content type so developers, EPC teams, and asset managers can reach the right section quickly.",
+    "intro": "Use this HTML sitemap to find every major Taypro page, solar panel cleaning robots, utility-scale project case studies, O&M guides, and company information. Links are grouped by content type so developers, EPC teams, and asset managers can reach the right section quickly.",
     "introSecondary": "For search engines, our XML sitemap is also available at /sitemap.xml. This page is designed for human navigation and internal linking across the Taypro site.",
     "sections": {
       "posts": "Posts",
@@ -27,7 +27,7 @@
       "pages": "Pages",
       "pagesIntro": "Core marketing and product pages, including robot specifications, cleaning technology, ROI tools, legal policies, and contact.",
       "portfolio": "Portfolio",
-      "portfolioIntro": "Documented solar plant installations where Taypro robotic cleaning systems are deployed—browse case studies by project name."
+      "portfolioIntro": "Documented solar plant installations where Taypro robotic cleaning systems are deployed, browse case studies by project name."
     },
     "posts": {
       "energyResourcesTitle": "Energy Resources"
@@ -48,6 +48,8 @@
       "privacyPolicyTitle": "Privacy Policy",
       "performanceMethodologyLabel": "Performance & Test Methodology",
       "performanceMethodologyTitle": "Performance & Test Methodology",
+      "utilityOperationsLabel": "Utility Solar Operations",
+      "utilityOperationsTitle": "Utility-scale solar operations and solar panel cleaning robots",
       "projectsLabel": "Projects",
       "projectsTitle": "Projects",
       "roiCalculatorLabel": "ROI Calculator",
@@ -70,11 +72,11 @@
       "cleaningServiceTitle": "Solar Panel Cleaning Service",
       "tayproConsoleLabel": "NECTYR",
       "tayproConsoleTitle": "NECTYR fleet monitoring software",
-      "minyLabel": "MINY — Compact Rooftop Robot",
+      "minyLabel": "MINY, Compact Rooftop Robot",
       "minyTitle": "MINY compact rooftop solar cleaning robot (coming soon)",
-      "cradylLabel": "CRADYL — Row-Transfer Docking",
+      "cradylLabel": "CRADYL, Row-Transfer Docking",
       "cradylTitle": "CRADYL autonomous row-transfer docking station (coming soon)",
-      "orionLabel": "ORION — Plant Intelligence",
+      "orionLabel": "ORION, Plant Intelligence",
       "orionTitle": "ORION solar plant health monitoring platform (coming soon)",
       "cleaningTechnologyLabel": "The Technology Behind Taypro",
       "cleaningTechnologyTitle": "Cleaning Technology"

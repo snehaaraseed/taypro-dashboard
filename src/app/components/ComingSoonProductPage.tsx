@@ -116,6 +116,52 @@ export async function ComingSoonProductPage({
           </Container>
         </section>
 
+        {product.id === "orion" && (
+          <>
+            <section className="bg-[#052638] py-14 sm:py-20">
+              <Container>
+                <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mx-auto mb-10">
+                  <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
+                    {t("healthKit.eyebrow")}
+                  </p>
+                  <h2 className="text-white font-semibold text-3xl sm:text-4xl mb-4">
+                    {t("healthKit.title")}
+                  </h2>
+                  <p className="text-gray-300 text-base leading-relaxed">
+                    {t("healthKit.body")}
+                  </p>
+                </AnimateOnScroll>
+                <ul className="max-w-2xl mx-auto space-y-3 text-gray-300">
+                  {(["0", "1", "2"] as const).map((key) => (
+                    <li key={key} className="flex gap-3 text-sm sm:text-base">
+                      <Check
+                        className="h-5 w-5 text-[#A8C117] shrink-0 mt-0.5"
+                        aria-hidden
+                      />
+                      {t(`healthKit.item${key}`)}
+                    </li>
+                  ))}
+                </ul>
+              </Container>
+            </section>
+            <section className="bg-white py-14 sm:py-16 border-y border-gray-100">
+              <Container className="max-w-3xl">
+                <AnimateOnScroll animation="fadeInUp">
+                  <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
+                    {t("renewalAttach.eyebrow")}
+                  </p>
+                  <h2 className="text-[#052638] font-semibold text-2xl sm:text-3xl mb-4">
+                    {t("renewalAttach.title")}
+                  </h2>
+                  <p className="text-[#27415c] text-base sm:text-lg leading-relaxed">
+                    {t("renewalAttach.body")}
+                  </p>
+                </AnimateOnScroll>
+              </Container>
+            </section>
+          </>
+        )}
+
         <section className="bg-[#f4f7f9] py-14 sm:py-20">
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">

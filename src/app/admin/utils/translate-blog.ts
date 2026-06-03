@@ -37,7 +37,7 @@ export function summarizeTranslateBlogResults(data: TranslateBlogResponse): stri
   if (bad.length) {
     lines.push(
       `Failed (${bad.length}): ${bad
-        .map((r) => `${r.locale}${r.error ? ` — ${r.error}` : ""}`)
+        .map((r) => `${r.locale}${r.error ? `, ${r.error}` : ""}`)
         .join("; ")}`
     );
   }

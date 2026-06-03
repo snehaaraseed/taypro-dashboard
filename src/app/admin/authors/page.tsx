@@ -312,9 +312,7 @@ export default function AdminAuthorsPage() {
                         }
                       />
                     ) : (
-                      <span className="absolute inset-0 flex items-center justify-center text-xs text-gray-400">
-                        —
-                      </span>
+                      <span className="absolute inset-0 flex items-center justify-center text-xs text-gray-400">, </span>
                     )}
                   </div>
                 </td>

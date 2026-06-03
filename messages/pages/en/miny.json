@@ -1,13 +1,13 @@
 {
   "MinyPage": {
     "meta": {
-      "title": "MINY — Compact Rooftop Solar Cleaning Robot (Coming Soon) | Taypro",
-      "description": "MINY is Taypro's upcoming compact solar panel cleaning robot for smaller rooftop plants. Waterless, lightweight, and engineered for distributed commercial rooftops — register your interest for launch updates.",
-      "openGraphTitle": "MINY — Compact Rooftop Solar Cleaning Robot | Taypro",
+      "title": "MINY, Compact Rooftop Solar Cleaning Robot (Coming Soon) | Taypro",
+      "description": "MINY is Taypro's upcoming compact solar panel cleaning robot for smaller rooftop plants. Waterless, lightweight, and engineered for distributed commercial rooftops, register your interest for launch updates.",
+      "openGraphTitle": "MINY, Compact Rooftop Solar Cleaning Robot | Taypro",
       "openGraphDescription": "Coming soon: a compact Taypro cleaning robot built for smaller rooftop solar plants across India.",
-      "openGraphImageAlt": "Taypro MINY compact rooftop solar panel cleaning robot — coming soon",
+      "openGraphImageAlt": "Taypro MINY compact rooftop solar panel cleaning robot, coming soon",
       "twitterTitle": "MINY Compact Rooftop Cleaning Robot | Taypro",
-      "twitterDescription": "Compact solar cleaning robot for smaller rooftop plants — coming soon from Taypro.",
+      "twitterDescription": "Compact solar cleaning robot for smaller rooftop plants, coming soon from Taypro.",
       "keywords": [
         "rooftop solar cleaning robot",
         "compact solar panel cleaning robot",
@@ -19,18 +19,18 @@
     },
     "breadcrumbs": {
       "robots": "Solar Panel Cleaning Robots",
-      "current": "MINY — Compact Rooftop Robot"
+      "current": "MINY, Compact Rooftop Robot"
     },
     "schema": {
-      "productName": "MINY — Compact Rooftop Solar Panel Cleaning Robot",
-      "productDescription": "MINY is a compact Taypro solar panel cleaning robot engineered for smaller rooftop plants — waterless, lightweight, and built for distributed commercial rooftops.",
-      "offersPrice": "Coming soon — contact for early access"
+      "productName": "MINY, Compact Rooftop Solar Panel Cleaning Robot",
+      "productDescription": "MINY is a compact Taypro solar panel cleaning robot engineered for smaller rooftop plants, waterless, lightweight, and built for distributed commercial rooftops.",
+      "offersPrice": "Coming soon, contact for early access"
     },
     "hero": {
       "comingSoonBadge": "Coming soon",
-      "title": "MINY — Compact Rooftop Cleaning Robot",
-      "subtitle": "A compact solar panel cleaning robot engineered for smaller rooftop plants — lighter footprint, waterless cleaning, and Taypro reliability in a package sized for distributed commercial rooftops.",
-      "imgAlt": "Taypro MINY compact rooftop solar panel cleaning robot — coming soon",
+      "title": "MINY, Compact Rooftop Cleaning Robot",
+      "subtitle": "A compact solar panel cleaning robot engineered for smaller rooftop plants, lighter footprint, waterless cleaning, and Taypro reliability in a package sized for distributed commercial rooftops.",
+      "imgAlt": "Taypro MINY compact rooftop solar panel cleaning robot, coming soon",
       "ctaText": "Register interest"
     },
     "intro": {
@@ -46,11 +46,11 @@
     "highlights": {
       "0": {
         "title": "Compact for smaller rooftops",
-        "body": "Sized for commercial and industrial rooftops where full utility-scale robots cannot deploy — without sacrificing Taypro's panel-safe cleaning approach."
+        "body": "Sized for commercial and industrial rooftops where full utility-scale robots cannot deploy, without sacrificing Taypro's panel-safe cleaning approach."
       },
       "1": {
         "title": "Waterless Taypro cleaning",
-        "body": "Dry cleaning methodology aligned with Taypro's proven waterless systems — no wash water logistics on congested roof decks."
+        "body": "Dry cleaning methodology aligned with Taypro's proven waterless systems, no wash water logistics on congested roof decks."
       },
       "2": {
         "title": "Distributed plant economics",
@@ -94,7 +94,7 @@
       "linkCta": "Learn more",
       "links": {
         "0": {
-          "label": "HELYX — Semi-automatic robot",
+          "label": "HELYX, Semi-automatic robot",
           "description": "Pick-and-place waterless cleaning for scattered blocks and flexible layouts today."
         },
         "1": {

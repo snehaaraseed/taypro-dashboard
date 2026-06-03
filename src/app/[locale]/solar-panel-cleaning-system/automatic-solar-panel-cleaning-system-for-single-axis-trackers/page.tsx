@@ -291,7 +291,7 @@ export default async function ModelTPage({
           </Container>
         </section>
 
-        {/* 360° + Innovation panel — preserved from old design */}
+        {/* 360° + Innovation panel, preserved from old design */}
         <section
           className="w-full py-20 bg-white"
           style={{

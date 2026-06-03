@@ -193,7 +193,7 @@ body {
   padding-left: 1rem;
 }
 
-/* Rich-text links (.prose only) — avoid styling CTA links inside <article> cards */
+/* Rich-text links (.prose only), avoid styling CTA links inside <article> cards */
 .prose a {
   text-decoration: underline !important;
   text-decoration-thickness: 2px !important;

@@ -84,6 +84,11 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
     changeFrequency: "monthly",
     priority: 0.8,
   },
+  {
+    path: "/utility-scale-solar-operations",
+    changeFrequency: "weekly",
+    priority: 0.85,
+  },
   { path: "/cleaning-technology", changeFrequency: "monthly", priority: 0.8 },
   { path: "/projects/automatic", changeFrequency: "monthly", priority: 0.8 },
   { path: "/projects/semi-automatic", changeFrequency: "monthly", priority: 0.8 },

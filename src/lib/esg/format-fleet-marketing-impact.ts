@@ -1,4 +1,5 @@
 import { calculateFleetEsgImpact } from "@/lib/esg/calculate-fleet-esg-impact";
+import { buildTayproPublicProofStats } from "@/lib/marketing/public-proof-stats";
 
 /** Compact marketing display (e.g. 875M+, 0.9 Bn+, 93k+, 188 GWh+). */
 export function formatCompactImpactValue(value: number, unit?: string): string {
@@ -33,34 +34,24 @@ export interface TayproMarketingImpactStat {
 
 /**
  * Hero / sustainability stats derived from {@link calculateFleetEsgImpact}.
- * Update assumptions in fleet-impact-assumptions.ts — values here recompute.
+ * Update assumptions in fleet-impact-assumptions.ts, values here recompute.
  */
 export function buildTayproMarketingImpactStats() {
   const impact = calculateFleetEsgImpact();
+  const publicProof = buildTayproPublicProofStats();
 
   return {
-    robotCapacityDeployed: {
-      value: "5 GW+",
-      label: "Robot Capacity Deployed",
-    },
-    plantInstallations: { value: "100+", label: "Plant Installations" },
-    waterSavedAnnually: {
-      value: formatCompactImpactValue(impact.waterSavedLitresAnnually),
-      label: "Liters of Water Saved Annually",
-    },
-    extraCleanEnergyAnnually: {
-      value: formatGwhValue(impact.additionalGenerationGwhAnnually),
-      label: "Additional Clean Solar Generation Annually",
-    },
-    co2ReducedAnnually: {
-      value: formatCompactImpactValue(impact.co2AvoidedMetricTonsAnnually),
-      label: "Metric Tons Of CO2 Emission Reduced Annually",
-    },
-    robotsManufacturedPerMonth: {
-      value: "600+",
-      label: "Robots Manufacturing Capacity per Month",
-    },
-    /** Raw numbers for footnotes, PDFs, or CMS — not shown in stat tiles by default. */
+    ...publicProof,
+    /** Raw ESG model output for methodology footnotes, not default stat tiles. */
     _raw: impact,
+    _esgComputed: {
+      waterSavedAnnually: formatCompactImpactValue(impact.waterSavedLitresAnnually),
+      extraCleanEnergyAnnually: formatGwhValue(
+        impact.additionalGenerationGwhAnnually
+      ),
+      co2ReducedAnnually: formatCompactImpactValue(
+        impact.co2AvoidedMetricTonsAnnually
+      ),
+    },
   } as const;
 }

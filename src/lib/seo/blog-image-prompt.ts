@@ -28,6 +28,6 @@ export function buildGeneratedBlogImageAlt(
 ): string {
   const base = title.replace(/\s+/g, " ").trim();
   const kw = seoKeyword.trim();
-  const alt = `${base} — utility-scale solar plant in India illustrating ${kw}`;
+  const alt = `${base}, utility-scale solar plant in India illustrating ${kw}`;
   return alt.length <= 200 ? alt : alt.slice(0, 197) + "...";
 }

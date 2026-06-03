@@ -6,7 +6,7 @@ interface RouteParams {
   params: Promise<{ slug: string }>;
 }
 
-/** POST — generate or refresh hi/ar/ja/bn translations for a published blog. */
+/** POST, generate or refresh hi/ar/ja/bn translations for a published blog. */
 export async function POST(
   request: NextRequest,
   { params }: RouteParams

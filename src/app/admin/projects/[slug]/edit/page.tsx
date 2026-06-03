@@ -28,7 +28,7 @@ interface ProjectData {
   details: string[];
   date: string;
   content: string;
-  /** URL segment under /projects/ — editable; sent as newSlug on save */
+  /** URL segment under /projects/, editable; sent as newSlug on save */
   slug: string;
   published?: boolean;
   /** ISO from metadata; refreshed after save */
@@ -643,7 +643,7 @@ export default function EditProjectPage() {
                     dateStyle: "medium",
                     timeStyle: "short",
                   })
-                : "— (appears after the next save)"}
+                : ", (appears after the next save)"}
             </p>
           </div>
 

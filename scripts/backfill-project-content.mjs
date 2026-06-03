@@ -36,7 +36,7 @@ function extractContent(source) {
 }
 
 if (!fs.existsSync(dbPath)) {
-  console.error("Missing data/cms.sqlite — run npm run cms:migrate first");
+  console.error("Missing data/cms.sqlite, run npm run cms:migrate first");
   process.exit(1);
 }
 

@@ -2,7 +2,7 @@
   "consoleFaqs": [
     {
       "question": "What is Taypro Console?",
-      "answer": "Taypro Console is the secure web portal Taypro customers use to monitor and manage their Solar Panel Cleaning Robot fleets across one or many solar sites. It brings together live operational data, schedules, historical cleaning records, performance analytics, and support workflows — so plant and O&M teams can run robotic cleaning with the same rigour they expect from any critical plant system."
+      "answer": "Taypro Console is the secure web portal Taypro customers use to monitor and manage their Solar Panel Cleaning Robot fleets across one or many solar sites. It brings together live operational data, schedules, historical cleaning records, performance analytics, and support workflows, so plant and O&M teams can run robotic cleaning with the same rigour they expect from any critical plant system."
     },
     {
       "question": "How do we get access to Taypro Console?",
@@ -14,7 +14,7 @@
     },
     {
       "question": "Can we schedule cleaning from the portal?",
-      "answer": "Yes. Client teams can define and review block-wise automation schedules (timers) aligned with your plant’s operating rules and weather strategy. Execution still respects on-robot safety interlocks — the portal plans and requests; the fleet executes within engineered limits."
+      "answer": "Yes. Client teams can define and review block-wise automation schedules (timers) aligned with your plant’s operating rules and weather strategy. Execution still respects on-robot safety interlocks, the portal plans and requests; the fleet executes within engineered limits."
     },
     {
       "question": "What kind of reporting does Taypro Console provide?",
@@ -36,7 +36,7 @@
     },
     {
       "title": "Robot configuration & device layout",
-      "body": "Structured visibility into deployed robots, block allocation, and permitted operating parameters — tuned by Taypro during commissioning, then monitored by your team."
+      "body": "Structured visibility into deployed robots, block allocation, and permitted operating parameters, tuned by Taypro during commissioning, then monitored by your team."
     },
     {
       "title": "Automation schedules",
@@ -44,19 +44,19 @@
     },
     {
       "title": "Cleaning logs & exports",
-      "body": "Historical cleaning activity, downloadable reports for selected dates, and tabbed views for completed runs, in-progress work, errors, and offline assets — built for audit-ready O&M."
+      "body": "Historical cleaning activity, downloadable reports for selected dates, and tabbed views for completed runs, in-progress work, errors, and offline assets, built for audit-ready O&M."
     },
     {
       "title": "Statistics & trends",
-      "body": "Charts for area cleaned, blocks serviced, execution mix, and efficiency indicators — filterable by site, time range, and (where licensed) robot or block."
+      "body": "Charts for area cleaned, blocks serviced, execution mix, and efficiency indicators, filterable by site, time range, and (where licensed) robot or block."
     },
     {
       "title": "Controlled robot commands",
-      "body": "A curated, permissioned command set for day-to-day operations — always confirmed, always logged. Deep engineering actions remain with Taypro service engineers."
+      "body": "A curated, permissioned command set for day-to-day operations, always confirmed, always logged. Deep engineering actions remain with Taypro service engineers."
     },
     {
       "title": "Fleet tracking context",
-      "body": "Live and last-known robot positioning on site layouts where available — ideal for coordination with security, O&M convoys, and incident response."
+      "body": "Live and last-known robot positioning on site layouts where available, ideal for coordination with security, O&M convoys, and incident response."
     },
     {
       "title": "Gateway & field telemetry health",
@@ -64,7 +64,7 @@
     },
     {
       "title": "Tickets & service history",
-      "body": "Raise, comment on, and close Taypro service tickets with a full timeline — fewer ad-hoc email threads, more traceability for your internal governance."
+      "body": "Raise, comment on, and close Taypro service tickets with a full timeline, fewer ad-hoc email threads, more traceability for your internal governance."
     }
   ]
 }

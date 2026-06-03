@@ -2,7 +2,7 @@
   "opexServiceFaqs": [
     {
       "question": "What is Taypro OPEX?",
-      "answer": "Taypro OPEX is a fully managed, robotic solar panel cleaning service from TAYPRO Private Limited. We place the right Taypro cleaning robot (Model-A automatic, Model-B semi-automatic pick-and-place, or Model-T for single-axis trackers) at your plant, operate it with dedicated trained manpower, and maintain peak plant performance — without you purchasing the robot fleet. You pay a predictable monthly fee based on the number of solar panels actually cleaned each billing period."
+      "answer": "Taypro OPEX is a fully managed, robotic solar panel cleaning service from TAYPRO Private Limited. We place the right Taypro cleaning robot (Model-A automatic, Model-B semi-automatic pick-and-place, or Model-T for single-axis trackers) at your plant, operate it with dedicated trained manpower, and maintain peak plant performance, without you purchasing the robot fleet. You pay a predictable monthly fee based on the number of solar panels actually cleaned each billing period."
     },
     {
       "question": "How does billing work on Taypro OPEX?",
@@ -10,11 +10,11 @@
     },
     {
       "question": "How do you decide how many cleaning cycles my plant needs each month?",
-      "answer": "Before mobilisation, Taypro engineers conduct a structured plant study covering soiling rate, local dust sources, seasonal wind and rain patterns, soil and geology type, module height and row geometry, tracker vs fixed-tilt behaviour, nearby construction or agricultural activity, and historical performance ratio trends. From that study we recommend a custom programme — typically between 3 and 10 waterless dry cleaning cycles per month — designed to maximise energy yield while avoiding unnecessary wear or operational conflict with generation."
+      "answer": "Before mobilisation, Taypro engineers conduct a structured plant study covering soiling rate, local dust sources, seasonal wind and rain patterns, soil and geology type, module height and row geometry, tracker vs fixed-tilt behaviour, nearby construction or agricultural activity, and historical performance ratio trends. From that study we recommend a custom programme, typically between 3 and 10 waterless dry cleaning cycles per month, designed to maximise energy yield while avoiding unnecessary wear or operational conflict with generation."
     },
     {
       "question": "What deliverables do I receive beyond the cleaning itself?",
-      "answer": "Every Taypro OPEX engagement includes a written cleaning plan and standard operating procedure: when robots move, which arrays and paths they follow, where they pause in idle conditions, and where dedicated robot parking and charging / rest zones are located on site. You also receive detailed cleaning reports — available for each run and summarised monthly — through the Taypro Console, including cycle completion, route coverage, exceptions, and fleet health data where connectivity is provided via LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, or LoRaWAN."
+      "answer": "Every Taypro OPEX engagement includes a written cleaning plan and standard operating procedure: when robots move, which arrays and paths they follow, where they pause in idle conditions, and where dedicated robot parking and charging / rest zones are located on site. You also receive detailed cleaning reports, available for each run and summarised monthly, through the Taypro Console, including cycle completion, route coverage, exceptions, and fleet health data where connectivity is provided via LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, or LoRaWAN."
     },
     {
       "question": "Which robot models can Taypro deploy under OPEX?",
@@ -22,7 +22,7 @@
     },
     {
       "question": "Is Taypro OPEX only for very large plants?",
-      "answer": "Taypro OPEX is engineered primarily for utility-scale solar power plants — especially those from about 50 MW and upward — where robotic cleaning at scale and predictable monthly economics matter most. Smaller or distributed portfolios may still qualify; our team assesses feasibility, cycle count, and manpower footprint during the proposal stage."
+      "answer": "Taypro OPEX is engineered primarily for utility-scale solar power plants, especially those from about 50 MW and upward, where robotic cleaning at scale and predictable monthly economics matter most. Smaller or distributed portfolios may still qualify; our team assesses feasibility, cycle count, and manpower footprint during the proposal stage."
     },
     {
       "question": "How is Taypro OPEX different from buying robots (capex)?",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Execute scheduled waterless dry cleaning cycles",
-      "text": "Robots perform AI- and ML-informed dual-pass dry cleaning on the agreed calendar — timed to avoid meaningful generation loss and adapted using live weather intelligence where available."
+      "text": "Robots perform AI- and ML-informed dual-pass dry cleaning on the agreed calendar, timed to avoid meaningful generation loss and adapted using live weather intelligence where available."
     },
     {
       "name": "Reporting & monthly panel-cleaning reconciliation",
@@ -62,7 +62,7 @@
     },
     {
       "title": "Soil & geology",
-      "body": "Local soil type, sand fraction, and soluble salts change how dust adheres to glass and anti-reflective coatings — tuning brush pressure, speed, and pass count."
+      "body": "Local soil type, sand fraction, and soluble salts change how dust adheres to glass and anti-reflective coatings, tuning brush pressure, speed, and pass count."
     },
     {
       "title": "Plant layout & area",

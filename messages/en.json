@@ -54,22 +54,24 @@
     "cookiePolicy": "Cookie Policy",
     "termsOfService": "Terms of Service",
     "performanceMethodology": "Performance & Test Methodology",
+    "utilityOperations": "Utility Solar Operations",
     "ourSolutions": "Our Solutions",
     "cleaningService": "Solar Panel Cleaning Service",
     "roiCalculator": "ROI & Price Calculator",
+    "investors": "Partners & Investors",
     "copyright": "© Copyright {year} – TAYPRO PRIVATE LIMITED. All Rights Reserved."
   },
   "NotFoundPage": {
     "meta": {
       "title": "Page Not Found | Taypro",
-      "description": "This page is not available. Taypro.in is online — explore solar panel cleaning robots, projects, blog, and contact options."
+      "description": "This page is not available. Taypro.in is online, explore solar panel cleaning robots, projects, blog, and contact options."
     },
     "breadcrumbHome": "Home",
     "breadcrumbNotFound": "Page not found",
-    "eyebrow": "404 — Page not found",
+    "eyebrow": "404, Page not found",
     "title": "This page isn't available",
     "description": "The link may be outdated, mistyped, or the page may have moved.",
-    "reassurance": "Only this URL is missing — Taypro.in is up and running. Use the links below or tell us if you expected something here.",
+    "reassurance": "Only this URL is missing, Taypro.in is up and running. Use the links below or tell us if you expected something here.",
     "linksHeading": "Helpful links",
     "linkHome": "Back to home",
     "linkContact": "Contact us",
@@ -83,7 +85,7 @@
     "reportBody": "I tried to open this URL on taypro.in:\n\n\nI found this link on (page/email/document):\n\n",
     "reportEmailLink": "Email support",
     "ctaQuote": "Request a quote",
-    "ctaQuoteTopic": "404 page — quote request",
+    "ctaQuoteTopic": "404 page, quote request",
     "ctaQuoteTitle": "Request a solar cleaning robot quote",
     "ctaQuoteSubtitle": "Share your plant details and our team will recommend the right Taypro solution."
   },

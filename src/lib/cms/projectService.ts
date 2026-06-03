@@ -70,7 +70,7 @@ export type ProjectSitemapEntry = {
   updatedAt?: string | null;
 };
 
-/** Published projects only — used by dynamic sitemap generation. */
+/** Published projects only, used by dynamic sitemap generation. */
 export async function listPublishedProjectsForSitemap(): Promise<
   ProjectSitemapEntry[]
 > {

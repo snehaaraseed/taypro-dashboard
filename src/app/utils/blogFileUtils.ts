@@ -1,5 +1,5 @@
 /**
- * Blog CMS — backed by SQLite (see src/lib/cms/blogService.ts).
+ * Blog CMS, backed by SQLite (see src/lib/cms/blogService.ts).
  * Types and function names kept for existing admin API imports.
  */
 
