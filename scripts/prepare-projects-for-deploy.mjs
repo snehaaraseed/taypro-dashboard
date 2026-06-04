@@ -41,8 +41,8 @@ run("5. Deterministic author assignment (all en projects)", "npm run cms:assign-
 run("6. Fix slugs: unpublish aliases, rename malformed", "node scripts/fix-project-slugs-for-deploy.mjs");
 run("7. Diversify hero images", "node scripts/refresh-project-hero-images.mjs");
 run(
-  "8. Dedupe tier-3 top-up blocks + re-apply HTML",
-  "node scripts/clean-handwritten-topup-duplicates.mjs && npm run cms:apply-handwritten-case-studies"
+  "8. Dedupe duplicate top-up blocks, then re-apply HTML to CMS",
+  "npm run cms:dedupe-project-topup && npm run cms:apply-handwritten-case-studies"
 );
 run("9. Product accuracy pass on handwritten files", "node scripts/fix-handwritten-product-accuracy.mjs");
 

@@ -105,14 +105,16 @@ for (const f of fs.readdirSync(dir).filter((x) => x.endsWith(".html"))) {
   let w = countWords(html);
   if (w >= MIN) continue;
   const topUp = `<h2>Operations evidence summary</h2><p>Owners should validate reported water, generation, and carbon statistics with local SCADA and tariffs; pair this case study with <a href="/performance-methodology">performance methodology</a>, the <a href="/projects">projects hub</a>, and the <a href="/solar-panel-cleaning-robot-price-calculator#calculator">ROI calculator</a> when building procurement packs. Scheduled cycles and weather-aware holds—not plant-wide daily washing—define Taypro utility programmes on this site.</p>\n\n`;
-  while (countWords(html) < MIN && !html.includes("Operations evidence summary")) {
+  if (!html.includes("<h2>Operations evidence summary</h2>")) {
     html = html.replace("<h2>Conclusion</h2>", topUp + "<h2>Conclusion</h2>");
   }
-  while (countWords(html) < MIN) {
+  let guard = 0;
+  while (countWords(html) < MIN && guard < 12) {
     html = html.replace(
       "<h2>Conclusion</h2>",
       `<p>Validate block-level cleaning evidence, conservative GWh attribution, and peer benchmarks on the <a href="/projects">projects hub</a> before investment committee sign-off.</p>\n\n<h2>Conclusion</h2>`
     );
+    guard += 1;
   }
   if (countWords(html) !== w) {
     fs.writeFileSync(fp, html);

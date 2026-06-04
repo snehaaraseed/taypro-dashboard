@@ -37,6 +37,8 @@
     "cms:seed-authors": "node scripts/seed-authors-from-profiles.mjs",
     "cms:backfill-author-expertise": "node scripts/backfill-author-expertise.mjs",
     "cms:assign-project-authors": "node scripts/assign-project-authors.mjs",
+    "cms:dedupe-project-topup": "node scripts/clean-handwritten-topup-duplicates.mjs",
+    "cms:dedupe-project-content-db": "node scripts/dedupe-project-content-db.mjs",
     "cms:prepare-deploy": "node scripts/prepare-projects-for-deploy.mjs",
     "cms:import-production-draft": "node scripts/import-projects-production-draft.mjs",
     "cms:unpublish-projects": "node scripts/unpublish-projects-for-deploy.mjs",
