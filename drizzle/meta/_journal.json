@@ -50,6 +50,13 @@
       "when": 1747672800000,
       "tag": "0006_drop_slug_column_unique",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "6",
+      "when": 1747759200000,
+      "tag": "0008_project_author",
+      "breakpoints": true
     }
   ]
 }

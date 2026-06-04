@@ -25,7 +25,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { slug } = await createProjectFiles(body);
+    const { slug } = await createProjectFiles({
+      ...body,
+      author: body.author?.trim() || "Taypro Team",
+    });
 
     // Revalidate the new project page and projects list page immediately
     revalidatePath(`/projects/${slug}`);

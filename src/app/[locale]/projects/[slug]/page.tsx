@@ -10,6 +10,8 @@ import CallbackCard from "@/app/components/CallbackCard";
 import { PROJECT_PLACE_BY_SLUG } from "@/app/data/projectPlaceSchema";
 import { getAllFileProjects } from "@/app/utils/projectFileUtils";
 import { getProjectBySlug, listAllProjects } from "@/lib/cms/projectService";
+import { getStoredAuthors } from "@/lib/cms/authorService";
+import { resolveAuthorSlug } from "@/app/data/blogAuthors";
 import { getProjectHeroImageAlt } from "@/app/utils/imageAlt";
 import { addInternalLinksToProject } from "@/app/utils/internalLinking";
 import { socialImagesFromMedia } from "@/lib/seo/open-graph";
@@ -88,6 +90,9 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
   }
 
   const { metadata, content } = post;
+  const authorName = metadata.author?.trim() || "Taypro Team";
+  const authors = await getStoredAuthors();
+  const authorSlug = resolveAuthorSlug(authorName, authors);
   const place = PROJECT_PLACE_BY_SLUG[slug];
   const allProjects = await getAllFileProjects(locale);
   const relatedProjects = allProjects
@@ -131,7 +136,10 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
         url={`${siteUrl}/projects/${slug}`}
         datePublished={datePublished}
         dateModified={dateModified}
-        author={{ name: "Taypro Team", url: `${siteUrl}/authors` }}
+        author={{
+          name: authorName,
+          url: `${siteUrl}/authors/${authorSlug}`,
+        }}
         siteUrl={siteUrl}
       />
       {place ? (

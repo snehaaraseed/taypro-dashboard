@@ -52,6 +52,7 @@ function rowToMetadata(row: typeof projects.$inferSelect): ProjectMetadata {
     createdAt: row.createdAt,
     updatedAt: row.updatedAt ?? undefined,
     published: row.published,
+    author: row.author ?? "Taypro Team",
   };
 }
 
@@ -199,6 +200,7 @@ export async function createProjectFiles(
       canonicalizeCategoryDetailTags(projectData.details || [])
     ),
     content: projectData.content || "",
+    author: projectData.author?.trim() || "Taypro Team",
     date: projectData.date || new Date().toISOString().split("T")[0],
     createdAt: now,
     updatedAt: now,
@@ -268,6 +270,8 @@ export async function updateProjectFiles(
         canonicalizeCategoryDetailTags(projectData.details || [])
       ),
       content: projectData.content || "",
+      author:
+        projectData.author?.trim() || existing.author || "Taypro Team",
       date: projectData.date || existing.date,
       updatedAt: now,
       published,

@@ -11,6 +11,7 @@ export interface ProjectMetadata {
   createdAt: string;
   updatedAt?: string;
   published?: boolean;
+  author?: string;
 }
 
 export interface ProjectData {
@@ -22,6 +23,7 @@ export interface ProjectData {
   date?: string;
   content?: string;
   published?: boolean;
+  author?: string;
 }
 
 export {

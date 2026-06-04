@@ -35,11 +35,20 @@ export default function GenerateProjectPage() {
       }
 
       const editUrl = data.project?.adminUrl as string | undefined;
+      const authorLabel = data.project?.author as string | undefined;
       if (editUrl) {
-        setMessage("✅ Project generated! Opening editor...");
+        setMessage(
+          authorLabel
+            ? `✅ Project generated (byline: ${authorLabel}). Opening editor...`
+            : "✅ Project generated! Opening editor..."
+        );
         setTimeout(() => router.push(editUrl), 800);
       } else {
-        setMessage("✅ Project generated successfully.");
+        setMessage(
+          authorLabel
+            ? `✅ Project generated successfully (byline: ${authorLabel}).`
+            : "✅ Project generated successfully."
+        );
       }
     } catch (error) {
       console.error("Generate project error:", error);
@@ -62,8 +71,9 @@ export default function GenerateProjectPage() {
               Generate Project with AI
             </h1>
             <p className="mt-2 text-gray-600 text-sm">
-              Case-study draft (1,000–1,800 words), overview detail chips, hero
-              + inline images, saved as unpublished for your review.
+              Case-study draft (1,000–1,800 words), random author byline (same
+              pool as blogs), overview detail chips, hero + inline images, saved
+              as unpublished for your review.
             </p>
           </div>
           <button

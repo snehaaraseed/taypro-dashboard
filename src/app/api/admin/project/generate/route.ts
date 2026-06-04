@@ -11,6 +11,7 @@ import {
   createSlug,
   readProjectMetadata,
 } from "@/lib/cms/projectService";
+import { pickRandomBlogAuthor } from "@/lib/cms/authorService";
 import { requireAuth } from "@/app/utils/auth";
 
 const MAX_GENERATION_ATTEMPTS = 3;
@@ -62,6 +63,7 @@ export async function POST(request: NextRequest) {
     }
 
     const editorialContext = await formatEditorialContextPrompt();
+    const bylineAuthor = await pickRandomBlogAuthor();
     const category = "Project case study";
     let lastError: unknown;
 
@@ -70,7 +72,7 @@ export async function POST(request: NextRequest) {
         const projectData = await generateProjectContent(
           topic,
           editorialContext,
-          { userBrief: brief, focusedKeywords }
+          { userBrief: brief, focusedKeywords, author: bylineAuthor }
         );
 
         if (
@@ -113,6 +115,9 @@ export async function POST(request: NextRequest) {
           image: featured.url,
           imageAlt: featured.alt,
           slug,
+          author: bylineAuthor.name,
+          authorSlug: bylineAuthor.slug,
+          authorRole: bylineAuthor.role,
           imageSource: featured.source,
           imageMode: featured.mode,
           inlineImage: inlineImage?.url,
@@ -134,6 +139,7 @@ export async function POST(request: NextRequest) {
           imageAlt: featured.alt,
           details: projectData.details,
           content: contentWithImages,
+          author: bylineAuthor.name,
           date: new Date().toISOString().split("T")[0],
           published: false,
         });

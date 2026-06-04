@@ -198,6 +198,37 @@ const nextConfig = {
         destination: "/solar-panel-cleaning-robot-price-calculator",
         permanent: true,
       },
+      // CMS project slug aliases (duplicate imports → canonical URL)
+      {
+        source: "/projects/akhadana-360-mw",
+        destination: "/projects/akhadana-rajasthan-360-mw",
+        permanent: true,
+      },
+      {
+        source: "/projects/bhadla-300-mw",
+        destination: "/projects/bhadlarajasthan-300-mw",
+        permanent: true,
+      },
+      {
+        source: "/projects/apex-13-mw",
+        destination: "/projects/apex-nagpur-13-mw",
+        permanent: true,
+      },
+      {
+        source: "/projects/hariwansh-07-mw",
+        destination: "/projects/hariwansh-nagpur-07-mw",
+        permanent: true,
+      },
+      {
+        source: "/projects/-12-mw",
+        destination: "/projects/kuber-agro-12-mw",
+        permanent: true,
+      },
+      {
+        source: "/projects/-03-mw",
+        destination: "/projects/shri-ganesh-industries-03-mw",
+        permanent: true,
+      },
     ];
   },
   // Add headers for better caching and performance

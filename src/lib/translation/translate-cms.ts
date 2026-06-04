@@ -132,6 +132,7 @@ async function upsertProjectLocale(
     image: source.image,
     imageAlt: translated.imageAlt || source.imageAlt,
     details: JSON.stringify(translated.details),
+    author: source.author,
     date: source.date,
     published: source.published,
     updatedAt: now,

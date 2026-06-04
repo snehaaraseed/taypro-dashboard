@@ -30,8 +30,13 @@ export default function NewProjectPage() {
     details: [] as string[],
     date: new Date().toISOString().split("T")[0],
     content: "",
+    author: "Taypro Team",
     published: true,
   });
+  const [authors, setAuthors] = useState<
+    Array<{ name: string; slug: string; role: string }>
+  >([]);
+  const [selectedAuthor, setSelectedAuthor] = useState("taypro-team");
   const [detailInput, setDetailInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -43,6 +48,32 @@ export default function NewProjectPage() {
     Array<{ url: string; name: string }>
   >([]);
   const [loadingGallery, setLoadingGallery] = useState(false);
+
+  useEffect(() => {
+    const fetchAuthors = async () => {
+      try {
+        const response = await fetch("/api/authors");
+        const data = await response.json();
+        const fetchedAuthors = (data.authors || []).map(
+          (author: { name: string; slug: string; role: string }) => ({
+            name: author.name,
+            slug: author.slug,
+            role: author.role,
+          })
+        );
+        setAuthors(fetchedAuthors);
+      } catch {
+        setAuthors([
+          {
+            name: "Taypro Team",
+            slug: "taypro-team",
+            role: "Solar Automation Specialists",
+          },
+        ]);
+      }
+    };
+    fetchAuthors();
+  }, []);
 
   const isValidUrl = (url: string): boolean => {
     if (!url) return false;
@@ -512,6 +543,52 @@ export default function NewProjectPage() {
               Include at least one category tag exactly as Automatic,
               Semi-Automatic, or Capex, plus factual chips (MW, state, array type).
               Category tags stay in English on translated pages.
+            </p>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Author
+            </label>
+            <div className="space-y-3">
+              <select
+                value={selectedAuthor}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setSelectedAuthor(value);
+                  if (value !== "__custom__") {
+                    const author = authors.find((item) => item.slug === value);
+                    if (author) {
+                      setFormData((prev) => ({ ...prev, author: author.name }));
+                    }
+                  }
+                }}
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                {authors.map((author) => (
+                  <option key={author.slug} value={author.slug}>
+                    {author.name} - {author.role}
+                  </option>
+                ))}
+                <option value="__custom__">Custom author</option>
+              </select>
+              {selectedAuthor === "__custom__" && (
+                <input
+                  type="text"
+                  value={formData.author}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      author: e.target.value,
+                    }))
+                  }
+                  placeholder="Enter custom author name"
+                  className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              )}
+            </div>
+            <p className="mt-1 text-xs text-gray-500">
+              AI generation picks a random eligible author automatically.
             </p>
           </div>
 

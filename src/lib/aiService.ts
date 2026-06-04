@@ -439,6 +439,8 @@ export type GeneratedProjectContent = {
 export type GenerateProjectContentOptions = {
   userBrief?: string;
   focusedKeywords?: string[];
+  /** Byline author — bio/role steer case study voice (automation picks randomly) */
+  author?: BlogAuthor;
 };
 
 function normalizeProjectDetails(input: unknown): string[] {
@@ -473,10 +475,14 @@ ${userBrief}
     options?.focusedKeywords ?? [],
     "project"
   );
+  const authorBlock = options?.author
+    ? `\n${formatAuthorVoicePrompt(options.author)}\n`
+    : "";
 
   const prompt = `You are an expert writer for Taypro, a solar panel cleaning robot company. Write a detailed project case study page for: ${topic}
 
 ${editorial}
+${authorBlock}
 ${briefBlock}
 ${focusedKeywordBlock}
 CRITICAL: Accuracy (product specs, public proof stats, site positioning)
@@ -489,7 +495,7 @@ ${ANTI_GENERIC_WRITING_RULES}
 ${PUNCTUATION_RULES}
 ${SEO_AND_READER_RULES}
 ${PROJECT_CASE_STUDY_RULES}
-- Use this working title unless you can improve it with specific location/capacity: "${topic}"
+- Use this working title unless you can improve it with specific location/capacity: "${topic}"${options?.author ? "\n- Voice and examples must match the BYLINE AUTHOR block above" : ""}
 - The JSON "title" should include capacity or location when the brief provides them (e.g. "Agar, Madhya Pradesh – 250 MW").
 
 Format "content" as clean HTML with <p>, <h2>, <h3>, <ul>, <ol>.

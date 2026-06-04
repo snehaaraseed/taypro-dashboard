@@ -47,6 +47,7 @@ export const projects = sqliteTable(
     imageAlt: text("image_alt").notNull().default(""),
     details: text("details").notNull().default("[]"),
     content: text("content").notNull().default(""),
+    author: text("author").notNull().default("Taypro Team"),
     date: text("date").notNull(),
     createdAt: text("created_at").notNull(),
     updatedAt: text("updated_at"),
