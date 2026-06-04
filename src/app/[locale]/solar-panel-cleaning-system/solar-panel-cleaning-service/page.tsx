@@ -28,6 +28,7 @@ import ResourcesCard from "@/app/components/ResourcesCard";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
+import { projectFilterForPage } from "@/lib/cms/project-page-filters";
 import { FaqSection } from "@/app/components/FaqSection";
 import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import {
@@ -616,6 +617,8 @@ export default async function SolarPanelCleaningService({
           useFileProjects
           showHeader
           headerText={t("projectsHeader")}
+          filter={projectFilterForPage("opex")}
+          locale={locale}
         />
 
         {/* Advantages */}

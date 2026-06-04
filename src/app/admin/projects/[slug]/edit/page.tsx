@@ -643,9 +643,10 @@ export default function EditProjectPage() {
               ))}
             </div>
             <p className="mt-2 text-xs text-gray-500">
-              Include at least one category tag exactly as Automatic,
-              Semi-Automatic, or Capex, plus factual chips (MW, state, array type).
-              Category tags stay in English on translated pages.
+              Include at least one category tag (Automatic, Semi-Automatic, or Capex)
+              and a product tag when known (GLYDE, GLYDE-X, HELYX, NYUMA, NYUMA-X).
+              Product tags control which product pages show this case study.
+              Category and product tags stay in English on translated pages.
             </p>
           </div>
 

@@ -512,7 +512,7 @@ export default function NewProjectPage() {
                   }
                 }}
                 className="flex-1 px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder='e.g. 250 MW, Maharashtra, Automatic, Capex — press Enter'
+                placeholder='e.g. 250 MW, Maharashtra, GLYDE, Automatic, Capex — press Enter'
               />
               <button
                 type="button"
@@ -540,9 +540,10 @@ export default function NewProjectPage() {
               ))}
             </div>
             <p className="mt-2 text-xs text-gray-500">
-              Include at least one category tag exactly as Automatic,
-              Semi-Automatic, or Capex, plus factual chips (MW, state, array type).
-              Category tags stay in English on translated pages.
+              Include at least one category tag (Automatic, Semi-Automatic, or Capex)
+              and a product tag when known (GLYDE, GLYDE-X, HELYX, NYUMA, NYUMA-X).
+              Product tags control which product pages show this case study.
+              Category and product tags stay in English on translated pages.
             </p>
           </div>
 

@@ -18,6 +18,7 @@ import {
 import { modelBCards, tayproTrustedByStatsStrip } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
+import { projectFilterForPage } from "@/lib/cms/project-page-filters";
 import { FaqSection } from "@/app/components/FaqSection";
 import ModelCards from "@/app/components/ModelCards";
 import ResourcesCard from "@/app/components/ResourcesCard";
@@ -796,7 +797,13 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
         </section>
 
         {/* PROJECTS, dynamic */}
-        <ProjectsCardServer useFileProjects showHeader headerText="" />
+        <ProjectsCardServer
+          useFileProjects
+          showHeader
+          headerText=""
+          filter={projectFilterForPage("helyx")}
+          locale={locale}
+        />
 
         <FaqSection
           id="model-b-faq-heading"

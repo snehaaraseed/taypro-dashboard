@@ -1,9 +1,10 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { getRandomCategory } from "./topicCategories";
+import { getRandomCategory, type TopicCategory } from "./topicCategories";
 import { buildBlogKnowledgeContext } from "@/lib/seo/blog-knowledge-context";
 import { buildProjectKnowledgeContext } from "@/lib/seo/project-knowledge-context";
 import { createSlug } from "@/app/utils/blogFileUtils";
 import {
+  AI_OVERVIEW_SNIPPET_RULES,
   ANTI_GENERIC_WRITING_RULES,
   LONG_FORM_CONTENT_RULES,
   PUNCTUATION_RULES,
@@ -30,6 +31,7 @@ import {
   normalizeBlogFaqsInput,
   type BlogFaqItem,
 } from "@/lib/cms/blog-faqs";
+import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
 
 /** Free tier: prefer 3.1 Flash Lite (500 RPD) over 2.5 Flash (20 RPD). */
 const DEFAULT_BLOG_MODEL = "gemini-3.1-flash-lite";
@@ -69,8 +71,14 @@ async function generateText(prompt: string): Promise<string> {
   for (const modelName of BLOG_MODEL_CANDIDATES) {
     try {
       const model = genAI.getGenerativeModel({ model: modelName });
-      const result = await model.generateContent(prompt);
-      return result.response.text().trim();
+      let text: string;
+      try {
+        const result = await model.generateContent(prompt);
+        text = result.response.text().trim();
+      } finally {
+        await pauseAfterGeminiCall();
+      }
+      return text;
     } catch (error) {
       lastError = error;
       if (isQuotaError(error)) {
@@ -97,18 +105,28 @@ export type GeneratedTopic = {
   seoBrief: SeoKeywordBrief | null;
 };
 
+export type GenerateUniqueTopicPlan = {
+  /** When set (automation), reuse the planned keyword instead of picking again. */
+  seoBrief?: SeoKeywordBrief | null;
+  /** When set (automation), reuse the category matched to the keyword. */
+  category?: TopicCategory;
+};
+
 export async function generateUniqueTopic(
   maxRetries: number = 3,
   editorialContext?: string,
-  author?: BlogAuthor
+  author?: BlogAuthor,
+  plan?: GenerateUniqueTopicPlan
 ): Promise<GeneratedTopic> {
-  const seoBrief = await pickSeoKeywordBrief();
+  const seoBrief =
+    plan?.seoBrief !== undefined ? plan.seoBrief : await pickSeoKeywordBrief();
   const editorial =
     editorialContext ?? (await formatEditorialContextPrompt());
   const authorBlock = author ? `\n${formatAuthorVoicePrompt(author)}\n` : "";
+  const fixedCategory = plan?.category;
 
   for (let attempt = 0; attempt < maxRetries; attempt++) {
-    const category = getRandomCategory();
+    const category = fixedCategory ?? getRandomCategory();
     const knowledgeContext = await buildBlogKnowledgeContext({
       seoKeyword: seoBrief?.primary,
       extraTerms: category.name,
@@ -133,6 +151,7 @@ Requirements:
 - Each topic should be 8-15 words long
 - Topics should sound natural and human-written
 - Focus on practical, valuable content for solar plant operators and managers
+- Prefer titles that match AI Overview / People Also Ask patterns: X vs Y, how often, how much, is it worth it, best method for 10MW+ / tracker plants in India
 ${author ? "- Each title must be a post this BYLINE AUTHOR would credibly write given their role and bio" : ""}
 
 ${ANTI_GENERIC_WRITING_RULES}
@@ -210,7 +229,7 @@ Return ONLY a JSON array of 5 topic titles, like this:
   }
 
   if (seoBrief) {
-    const category = getRandomCategory();
+    const category = fixedCategory ?? getRandomCategory();
     const fallbackTitle = buildFallbackTopicTitle(seoBrief.primary);
     if (
       !isTooGenericTitle(fallbackTitle, seoBrief.primary) &&
@@ -331,6 +350,7 @@ Requirements:
 ${ANTI_GENERIC_WRITING_RULES}
 ${PUNCTUATION_RULES}
 ${SEO_AND_READER_RULES}
+${AI_OVERVIEW_SNIPPET_RULES}
 ${LONG_FORM_CONTENT_RULES}
 - Use this exact working title unless you can improve it without making it vaguer: "${topic}"
 - The JSON "title" field should match or tightly paraphrase that line (must stay specific)
@@ -347,9 +367,9 @@ ${LONG_FORM_CONTENT_RULES}
 - Cover overall solar power plant operations and maintenance when relevant
 - Reference Taypro's solutions naturally where relevant, but ONLY use verified information
 - Include 3–5 internal links to Taypro pillar paths listed in the editorial strategy (use relative hrefs like href="/solar-panel-cleaning-system")
-- Do NOT include a "Frequently asked questions" section in the HTML, FAQs belong only in the "faqs" JSON array below.
+- Do NOT include a "Frequently asked questions" heading or FAQ list in the HTML; schema FAQs belong only in the "faqs" JSON array below.
 
-Format the output as clean HTML with proper paragraph tags (<p>), headings (<h2>, <h3>), and lists (<ul>, <ol>).
+Format the output as clean HTML with proper paragraph tags (<p>), headings (<h2>, <h3>), lists (<ul>, <ol>), and <table> where required.
 
 Return the response in the following JSON format:
 {
@@ -358,7 +378,7 @@ Return the response in the following JSON format:
   "content": "<p>Full HTML content here...</p>",
   "faqs": [
     {
-      "question": "Specific reader question tied to the primary keyword (8–15 words)",
+      "question": "Primary keyword phrased as a question (8–12 words, starts with How/What/Is/Which)",
       "answer": "Direct, factual answer in 2–4 sentences (40–80 words). No HTML."
     }
   ]
@@ -366,9 +386,10 @@ Return the response in the following JSON format:
 
 FAQ rules for the "faqs" array:
 - Include exactly 4 items (minimum 3, maximum 5).
-- Questions must be natural search queries (how often, how much, which is better, is X worth it).
-- Answers must be self-contained plain text (no HTML tags).
-- Do not duplicate FAQ text inside "content".`;
+- faqs[0] must ask the primary SEO question; its answer must match the Quick answer H2 facts.
+- Questions: 8–12 words, natural search queries (how often, how much, which is better, is X worth it).
+- Answers: first sentence = direct yes/no, number, or verdict; remaining sentences = context. Plain text only (no HTML).
+- Do not duplicate FAQ wording inside "content" HTML.`;
 
   try {
     const text = await generateText(prompt);

@@ -43,3 +43,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# cron logs (paths under logs/ are created on server)
+/logs/*.log

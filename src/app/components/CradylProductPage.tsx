@@ -29,6 +29,7 @@ import {
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import ModelCards from "@/app/components/ModelCards";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
+import { projectFilterForPage } from "@/lib/cms/project-page-filters";
 import { FaqSection } from "@/app/components/FaqSection";
 import ResourcesCard from "@/app/components/ResourcesCard";
 import CallbackCard from "@/app/components/CallbackCard";
@@ -779,7 +780,13 @@ export async function CradylProductPage({ locale }: CradylProductPageProps) {
           </Container>
         </section>
 
-        <ProjectsCardServer useFileProjects showHeader headerText="" />
+        <ProjectsCardServer
+          useFileProjects
+          showHeader
+          headerText=""
+          filter={projectFilterForPage("cradyl")}
+          locale={locale}
+        />
 
         <FaqSection
           id="cradyl-faq-heading"

@@ -6,6 +6,7 @@ import {
 } from "@/lib/seo/blog-image-catalog";
 import type { BlogFeaturedImagePick } from "@/lib/seo/blog-image-types";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
 
 const PICKER_MODEL =
   process.env.GEMINI_BLOG_MODEL?.trim() || "gemini-3.1-flash-lite";
@@ -98,8 +99,13 @@ ${list}
 
 Return ONLY JSON: {"url":"/path/from/list","alt":"80-160 char alt, describes the photo"}`;
 
-  const result = await model.generateContent(prompt);
-  const text = result.response.text().trim();
+  let text: string;
+  try {
+    const result = await model.generateContent(prompt);
+    text = result.response.text().trim();
+  } finally {
+    await pauseAfterGeminiCall();
+  }
   const urls = new Set(pool.map((c) => c.url));
   try {
     const jsonMatch = text.match(/\{[\s\S]*\}/);

@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
-# Daily cron: translate up to BLOG_TRANSLATION_MAX_PER_DAY published EN blogs (default 5).
+# Daily cron: translate up to BLOG_TRANSLATION_MAX_PER_DAY published EN blogs (default 10).
 set -euo pipefail
 
 ROOT="${TAYPRO_APP_ROOT:-/var/www/taypro-dashboard}"
-LOG="${BLOG_TRANSLATION_LOG:-/var/log/blog-translation-daily.log}"
+# Default under app dir — ubuntu cron cannot create new files in /var/log (Permission denied).
+LOG="${BLOG_TRANSLATION_LOG:-$ROOT/logs/blog-translation-daily.log}"
 ENV_FILE="$ROOT/.env.production"
+
+mkdir -p "$(dirname "$LOG")"
 
 if [ ! -f "$ENV_FILE" ]; then
   echo "$(date -Is) ERROR: missing $ENV_FILE" >> "$LOG"

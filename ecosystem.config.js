@@ -6,6 +6,8 @@ module.exports = {
       cwd: "/var/www/taypro-dashboard/.next/standalone",
       instances: 1,
       exec_mode: "fork",
+      // Load secrets from standalone copy; avoid baking vars into `pm2 save` dump.
+      env_file: "/var/www/taypro-dashboard/.next/standalone/.env.production",
       env: {
         NODE_ENV: "production",
         PORT: 3000,

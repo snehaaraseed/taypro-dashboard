@@ -53,7 +53,7 @@
         "name": "How an Automatic Solar Panel Cleaning Robot cleans a utility-scale solar plant (Taypro GLYDE)",
         "description": "Step-by-step autonomous cleaning cycle of the Taypro GLYDE Automatic Solar Panel Cleaning Robot, from array assignment and AI scheduling through dual-pass waterless cleaning, self-docking, and cloud telemetry.",
         "totalTime": "PT2H",
-        "imagePath": "/tayproasset/taypro-robotImage.png"
+        "imagePath": "/tayprorobots/glyde/glyde-tr150-top-view.png"
       }
     },
     "hero": {
@@ -70,9 +70,10 @@
         "label": "Request a quote"
       },
       "heroImageAlt": "Taypro Automatic Solar Panel Cleaning Robot GLYDE cleaning solar panels at utility-scale solar farm",
-      "heroImageTitle": "Automatic Solar Panel Cleaning Robot GLYDE by Taypro"
+      "heroImageTitle": "Taypro GLYDE TR-150 Automatic Solar Panel Cleaning Robot"
     },
     "overview": {
+      "productImageAlt": "Top view of Taypro GLYDE automatic solar panel cleaning robot on parallel cleaning rails",
       "eyebrow": "Automatic Solar Panel Cleaning Robot for Utility-Scale Plants",
       "title": "What is the Taypro GLYDE Automatic Solar Panel Cleaning Robot?",
       "p1BeforeStrong": "The ",
@@ -97,7 +98,19 @@
       "p4Middle": " and ",
       "p4Suffix": "."
     },
+    "gallery": {
+      "eyebrow": "Product engineering",
+      "title": "GLYDE hardware at a glance",
+      "subtitle": "Patented dual-pass cleaning on module-frame rails, autonomous docking, and fleet connectivity built for utility-scale fixed-tilt plants.",
+      "primaryAlt": "Taypro GLYDE TR-150 automatic cleaning robot, plan view showing rails and dual-pass cleaning elements",
+      "primaryCaption": "GLYDE TR-150 travels along the module frame with patented dual-pass microfiber cleaning.",
+      "mechanismAlt": "Close-up of Taypro GLYDE dual-pass rotating microfiber cleaning drum, wheels, and wireless antenna",
+      "mechanismCaption": "Rotating self-cleaning microfiber drum, frame-mounted travel, and remote monitoring antenna.",
+      "dockingAlt": "Taypro GLYDE shadow-free docking station with integrated solar charging for autonomous daily cycles",
+      "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array."
+    },
     "howToSection": {
+      "dualPassStepImageAlt": "Taypro GLYDE dual-pass waterless cleaning mechanism with rotating microfiber drum",
       "eyebrow": "Autonomous Cleaning Cycle",
       "title": "How Does an Automatic Solar Panel Cleaning Robot Work?",
       "subtitle": "GLYDE runs end-to-end without operators on the row. Below is the same workflow encoded in our HowTo structured data for search engines, and the daily reality at every deployed plant.",
@@ -394,6 +407,7 @@
       }
     },
     "installSection": {
+      "dockingImageAlt": "Taypro GLYDE docking station with integrated solar panel for autonomous robot charging between cleaning cycles",
       "title": "How Long Does It Take to Install the Automated Solar Panel Cleaning Robots?",
       "p1": "The installation of the Solar Panel Cleaning Robot requires no modifications to the existing solar plant layout. The GLYDE Automated Solar Panel Cleaning Robot is designed to operate directly on the panel frame.",
       "p2": "The installation typically takes a few hours to a couple of days depending on the size of the solar plant. The solar panel cleaning robot installation process involves the placement of a docking station, configuration and calibration, and system integration.",

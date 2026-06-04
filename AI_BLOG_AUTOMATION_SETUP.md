@@ -16,6 +16,8 @@ This system automatically generates unique, SEO-optimized blog posts daily about
    ```
    GEMINI_API_KEY=your-gemini-api-key
    AUTOMATION_CRON_SECRET=long-random-secret-for-cron-only
+   # Optional: pause after each Gemini text call (default 5000 ms; 0 = off). Helps 15 RPM free tier.
+   GEMINI_CALL_DELAY_MS=5000
    ```
 
 ## Usage
@@ -35,35 +37,59 @@ curl http://localhost:3000/api/automation/generate-blog
 
 ### Automated daily schedule (production)
 
-**Blog writer** — max **1 published post per day**, at a **random time between 9:00 AM and 3:00 PM IST**. Each run: picks a **random CMS author** (excludes Taypro Team, Suraj Kadam) → feeds **bio + role** with editorial/knowledge context → Gemini chooses a **relevant topic** → writes the post in that voice (`published: true`).
+**Blog writer** — max **1 published post per day**, at a **random time between 9:00 AM and 3:00 PM IST**. Each run: picks an **SEO keyword** (CSV queue) → **category** matched to that keyword → **CMS author** best matched to keyword + category via **expertise tags** (set in `/admin/authors`, or inferred from role/bio) → Gemini proposes **5 titles** (code picks one unique) → writes the post in that author’s voice (`published: true`).
 
-**Translations** — run in the **evening** (after the writer window), up to 5 published blogs (hi/ar/ja/bn). New posts are not translated immediately on publish.
+**Translations** — run in the **evening** (after the writer window), up to 10 published blogs (hi/ar/ja/bn). New posts are not translated immediately on publish.
 
 Set in `.env.production`:
 
 ```
 BLOG_AUTOMATION_MIN_DAYS=1
-BLOG_TRANSLATION_MAX_PER_DAY=5
+BLOG_TRANSLATION_MAX_PER_DAY=10
+GEMINI_CALL_DELAY_MS=5000
 ```
 
-**Server crontab (`CRON_TZ=Asia/Kolkata`):**
+**Rate limits:** Blog and translations use `gemini-3.1-flash-lite` by default. After every Gemini `generateContent` call the app waits **`GEMINI_CALL_DELAY_MS`** (default **5 seconds**) to stay under free-tier **15 RPM**. Set `GEMINI_CALL_DELAY_MS=0` to disable. A full evening run (10 blogs × 4 locales × 2 calls ≈ 80 API calls) adds on the order of **~7–8 minutes** of delay-only wait, plus API time (~1.5–2 h total cron time is normal).
+
+**Server crontab (host clock is UTC; use explicit UTC offsets — `CRON_TZ` in user crontab is ignored on some Ubuntu images):**
 
 ```bash
-# Blog writer: random 9:00–15:00 IST (1/day)
-*/5 9-14 * * * /var/www/taypro-dashboard/scripts/cron-generate-blog.sh
-0 15 * * * /var/www/taypro-dashboard/scripts/cron-generate-blog.sh
+# Blog writer: random 9:00–15:00 IST (IST = UTC+5:30)
+30,35,40,45,50,55 3 * * * /var/www/taypro-dashboard/scripts/cron-generate-blog.sh
+*/5 4-8 * * * /var/www/taypro-dashboard/scripts/cron-generate-blog.sh
+0,5,10,15,20,25,30 9 * * * /var/www/taypro-dashboard/scripts/cron-generate-blog.sh
 
-# Translations: evening, after writer window
-0 18 * * * /var/www/taypro-dashboard/scripts/cron-translate-blogs-daily.sh
+# Translations: 18:00 IST = 12:30 UTC
+30 12 * * * /var/www/taypro-dashboard/scripts/cron-translate-blogs-daily.sh
 ```
 
-Logs: `/var/log/blog-automation.log`, `/var/log/blog-translation-daily.log`
+The bash script still sets `TZ=Asia/Kolkata` for the random 9:00–15:00 window and daily cap checks.
 
-### CMS blog translations (daily only, max 5 blogs)
+After deploy, run once if needed: `npm run cms:sync-published-topics` (adds `published_topics.h2_outline` / `content_fingerprint`).
+
+**Cron logs**
+
+| Log | Default path |
+|-----|----------------|
+| Blog writer | `/var/log/blog-automation.log` (override: `BLOG_AUTOMATION_LOG`) |
+| Translations | `$ROOT/logs/blog-translation-daily.log` (override: `BLOG_TRANSLATION_LOG`) |
+
+Do **not** use `/var/log/blog-translation-daily.log` unless the file exists and `ubuntu` can write to it (Permission denied breaks the cron).
+
+**Log rotation (production)** — nginx rotates automatically; Taypro cron + PM2 logs do not unless you install:
+
+```bash
+cd /var/www/taypro-dashboard
+npm run ops:install-logrotate   # installs scripts/logrotate/taypro.conf → /etc/logrotate.d/taypro
+```
+
+Keeps **8 weekly** compressed rotations (`copytruncate`, `su ubuntu ubuntu`).
+
+### CMS blog translations (daily only, max 10 blogs)
 
 Published English blogs are translated into **hi, ar, ja, bn** once per day:
 
-- **`BLOG_TRANSLATION_MAX_PER_DAY`** (default `5`) — max published EN blogs per run
+- **`BLOG_TRANSLATION_MAX_PER_DAY`** (default `10`) — max published EN blogs per run (safe for 500 RPD / 15 RPM free tier with `GEMINI_CALL_DELAY_MS=5000`)
 - Each selected blog is translated into **all missing** target locales in one pass
 - If **Gemini quota** is exceeded, the run **stops for the day**; remaining blogs are picked up on the next cron (no hourly retries)
 
@@ -80,13 +106,13 @@ curl -X POST "http://127.0.0.1:3000/api/automation/retry-translations" \
   -H "Authorization: Bearer $AUTOMATION_CRON_SECRET"
 ```
 
-Logs: `/var/log/blog-translation-daily.log`
+Translation log: `$ROOT/logs/blog-translation-daily.log` (see table above).
 
 ## Workflow
 
 1. **Automation runs** → Blog generated and **published** (`published: true`, English live)
 2. **You review daily** → Check `/admin/blogs` or the live post; edit, unpublish, or delete if needed
-3. **Evening cron** → Translates up to 5 published posts missing locale versions
+3. **Evening cron** → Translates up to 10 published posts missing locale versions
 
 ## Testing
 
@@ -188,7 +214,32 @@ Edit `src/lib/productKnowledge.ts` to:
 
 Update proof stats in `public-proof-stats.ts` when marketing numbers change; `llms.txt` when major routes/products change.
 
+### AI Overview / snippet structure (blog posts)
+
+Prompt rules live in `src/lib/seo/content-quality.ts` (`AI_OVERVIEW_SNIPPET_RULES`) and are injected in `generateBlogContent` (`src/lib/aiService.ts`):
+
+- **Answer-first** opening paragraph after a short intro
+- **Quick answer** H2 with 3–5 specific bullets
+- **Question-shaped H2** with a direct answer paragraph (not a full FAQ section in HTML)
+- **JSON `faqs`** for `FAQPage` schema; `faqs[0]` must align with the Quick answer
+- **Comparison intent** (from Keyword Planner): mandatory HTML `<table>` via `formatSeoPromptBlock` in `src/lib/seo/keyword-stats.ts`
+
+Topic titles bias toward People Also Ask patterns (X vs Y, how often, how much, is it worth it).
+
+### Author expertise matching
+
+1. Tag each author in **`/admin/authors`** (expertise lanes) or run `npm run cms:backfill-author-expertise` after deploy.
+2. Automation plan: `src/lib/cms/blog-automation-context.ts` (`planBlogAutomation`).
+3. Matching logic: `src/lib/cms/blog-author-expertise.ts` (keyword + category → tags → best author).
+
 ## Troubleshooting
+
+### Translations Not Running (cron)
+
+1. Confirm crontab: `30 12 * * * .../cron-translate-blogs-daily.sh` (18:00 IST).
+2. Check log: `tail -50 /var/www/taypro-dashboard/logs/blog-translation-daily.log`
+3. If you see `Permission denied` on `/var/log/blog-translation-daily.log`, deploy the latest `cron-translate-blogs-daily.sh` (uses `logs/` under the app).
+4. Manual test: `npm run cms:translate-blogs-daily`
 
 ### Blog Not Generating
 
@@ -216,7 +267,7 @@ Update proof stats in `public-proof-stats.ts` when marketing numbers change; `ll
 
 - Review generated drafts before publishing
 - Edit content in admin panel if needed
-- Update prompts in `src/lib/aiService.ts` if necessary
+- Tune shared rules in `src/lib/seo/content-quality.ts` and `src/lib/aiService.ts` if necessary
 
 ## Security Notes
 

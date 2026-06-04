@@ -1,4 +1,5 @@
-import { getAllFileProjects } from "../utils/projectFileUtils";
+import { getFilteredFileProjects } from "@/lib/cms/projectService";
+import type { ProjectListFilter } from "@/lib/cms/projectService";
 import ProjectsCard from "./ProjectsCard";
 import { projects } from "../data";
 
@@ -14,6 +15,11 @@ interface ProjectsCardProps {
   headerText?: React.ReactNode;
   projects?: ProjectItem[];
   useFileProjects?: boolean;
+  /** When set with `useFileProjects`, only matching CMS projects are shown (newest first). */
+  filter?: ProjectListFilter;
+  /** Max cards to render; defaults to 6 for filtered file projects. */
+  limit?: number;
+  locale?: string;
 }
 
 function normalizeProjectsData(projectsData: typeof projects): ProjectItem[] {
@@ -37,11 +43,19 @@ export default async function ProjectsCardServer({
   headerText,
   projects: providedProjects,
   useFileProjects = false,
+  filter,
+  limit,
+  locale,
 }: ProjectsCardProps) {
   let displayProjects: ProjectItem[] = providedProjects || [];
 
   if (useFileProjects && !providedProjects) {
-    const fileProjects = await getAllFileProjects();
+    const cardLimit = limit ?? (filter ? 6 : 6);
+    const fileProjects = await getFilteredFileProjects(
+      filter ?? {},
+      locale,
+      cardLimit
+    );
     displayProjects = fileProjects.map((p) => ({
       img: p.img,
       title: p.title,
@@ -56,5 +70,4 @@ export default async function ProjectsCardServer({
 
   return <ProjectsCard showHeader={showHeader} headerText={headerText} projects={displayProjects} />;
 }
-
 

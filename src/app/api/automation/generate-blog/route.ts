@@ -12,15 +12,16 @@ import {
   extractH2Headings,
 } from "@/lib/seo/blog-similarity";
 import { assertBlogNotTooSimilar } from "@/lib/seo/blog-uniqueness";
-import { pickRandomBlogAuthor } from "@/lib/cms/authorService";
+import { planBlogAutomation } from "@/lib/cms/blog-automation-context";
+import { resolveAuthorExpertiseTags } from "@/lib/cms/blog-author-expertise";
 import { getBlogAutomationSchedule, addPublishedTopic } from "@/lib/topicTracker";
 import { createBlogFiles, createSlug } from "@/app/utils/blogFileUtils";
 import { isAutomationAuthorized } from "@/lib/security";
 
 const MAX_GENERATION_ATTEMPTS = 3;
 
-/** Imagen + long Gemini runs can exceed default route timeout. */
-export const maxDuration = 180;
+/** Imagen + long Gemini runs; cron curl allows 900s — keep in sync. */
+export const maxDuration = 900;
 
 export async function POST(request: NextRequest) {
   if (!isAutomationAuthorized(request)) {
@@ -43,7 +44,9 @@ export async function POST(request: NextRequest) {
     }
 
     const editorialContext = await formatEditorialContextPrompt();
-    const bylineAuthor = await pickRandomBlogAuthor();
+    const automationPlan = await planBlogAutomation();
+    const { author: bylineAuthor, category: plannedCategory, seoBrief } =
+      automationPlan;
     let lastError: unknown;
 
     for (let genAttempt = 0; genAttempt < MAX_GENERATION_ATTEMPTS; genAttempt++) {
@@ -51,7 +54,8 @@ export async function POST(request: NextRequest) {
         const topic = await generateUniqueTopic(
           3,
           editorialContext,
-          bylineAuthor
+          bylineAuthor,
+          { seoBrief, category: plannedCategory }
         );
 
         if (!topic.title) {
@@ -160,6 +164,8 @@ export async function POST(request: NextRequest) {
             faqCount: blogData.faqs.length,
             author: bylineAuthor.name,
             authorRole: bylineAuthor.role,
+            authorExpertise: resolveAuthorExpertiseTags(bylineAuthor),
+            plannedCategory: plannedCategory.name,
           },
           schedule: await getBlogAutomationSchedule(),
         });

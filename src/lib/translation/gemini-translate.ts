@@ -5,6 +5,7 @@ import type { TayproLocale } from "@/i18n/markets";
 import { geminiTranslationModel, localeDisplayName } from "./config";
 import { maskMediaInHtml, unmaskMediaInHtml } from "./preserve-html";
 import type { BlogFaqItem } from "@/lib/cms/blog-faqs";
+import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
 import { PUNCTUATION_RULES, sanitizeEmDash } from "@/lib/seo/content-quality";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
@@ -71,8 +72,13 @@ ${JSON.stringify({
     ...(source.imageAlt !== undefined ? { imageAlt: source.imageAlt } : {}),
   })}`;
 
-  const result = await model.generateContent(prompt);
-  const raw = result.response.text();
+  let raw: string;
+  try {
+    const result = await model.generateContent(prompt);
+    raw = result.response.text();
+  } finally {
+    await pauseAfterGeminiCall();
+  }
   const parsed = parseJsonObject<TranslatedFields>(raw);
 
   if (!parsed.title?.trim() || !parsed.description?.trim() || !parsed.content?.trim()) {
@@ -111,8 +117,14 @@ ${PUNCTUATION_RULES}
 
 ${JSON.stringify(items)}`;
 
-  const result = await model.generateContent(prompt);
-  const parsed = parseJsonObject<string[]>(result.response.text());
+  let responseText: string;
+  try {
+    const result = await model.generateContent(prompt);
+    responseText = result.response.text();
+  } finally {
+    await pauseAfterGeminiCall();
+  }
+  const parsed = parseJsonObject<string[]>(responseText);
 
   if (!Array.isArray(parsed) || parsed.length !== items.length) {
     throw new Error(`Project details translation length mismatch for ${targetLocale}`);
@@ -142,8 +154,14 @@ ${PUNCTUATION_RULES}
 
 ${JSON.stringify(faqs)}`;
 
-  const result = await model.generateContent(prompt);
-  const parsed = parseJsonObject<BlogFaqItem[]>(result.response.text());
+  let responseText: string;
+  try {
+    const result = await model.generateContent(prompt);
+    responseText = result.response.text();
+  } finally {
+    await pauseAfterGeminiCall();
+  }
+  const parsed = parseJsonObject<BlogFaqItem[]>(responseText);
 
   if (!Array.isArray(parsed) || parsed.length !== faqs.length) {
     throw new Error(`FAQ translation length mismatch for ${targetLocale}`);

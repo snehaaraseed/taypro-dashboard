@@ -22,6 +22,35 @@ REMOTE_PATH="/var/www/taypro-dashboard"
 LOCAL_PATH="/Users/yogesh/TayproWebsite/taypro-dashboard"
 
 DEPLOY_MAINTENANCE_ON=0
+DEPLOY_FAST=0
+DEPLOY_RESUME=0
+RSYNC_EXTRA=()
+
+for arg in "$@"; do
+    case "$arg" in
+        --fast) DEPLOY_FAST=1 ;;
+        --resume) DEPLOY_RESUME=1 ;;
+        --checksum) RSYNC_EXTRA+=(--checksum) ;;
+        -h|--help)
+            echo "Usage: ./deploy.sh [--fast] [--resume] [--checksum]"
+            echo "  --fast     Skip legacy backfill, one CMS snapshot, skip npm install if lockfile unchanged"
+            echo "  --resume   Code already on server; only finish build + PM2 + maintenance off"
+            echo "  --checksum Use slow rsync checksum (default: size+mtime only)"
+            exit 0
+            ;;
+    esac
+done
+
+step_start() {
+    STEP_LABEL="$1"
+    STEP_TS=$(date +%s)
+    echo -e "${YELLOW}⏱  ${STEP_LABEL} ($(date '+%H:%M:%S'))${NC}"
+}
+
+step_done() {
+    local now=$(date +%s)
+    echo -e "${GREEN}  ✅ ${STEP_LABEL} ($((now - STEP_TS))s)${NC}"
+}
 
 enable_remote_maintenance() {
     DEPLOY_MAINTENANCE_ON=1
@@ -60,7 +89,7 @@ ensure_remote_app_running() {
         if [ -f scripts/deploy-cms-safe.sh ]; then
             ./scripts/deploy-cms-safe.sh start
         else
-            pm2 restart taypro-dashboard 2>/dev/null || pm2 start ecosystem.config.js 2>/dev/null || true
+            pm2 restart taypro-dashboard --update-env 2>/dev/null || pm2 start ecosystem.config.js 2>/dev/null || true
         fi
 EOF
 }
@@ -74,7 +103,32 @@ deploy_cleanup() {
 trap deploy_cleanup EXIT INT TERM
 
 echo -e "${GREEN}🚀 Starting Taypro Website Deployment${NC}"
+if [ "$DEPLOY_RESUME" = "1" ]; then
+    echo -e "${YELLOW}  Mode: --resume (build + restart only; keep this terminal open ~20 min)${NC}"
+elif [ "$DEPLOY_FAST" = "1" ]; then
+    echo -e "${YELLOW}  Mode: --fast (shorter path; CMS snapshot + build still run)${NC}"
+fi
 echo ""
+
+if [ "$DEPLOY_RESUME" = "1" ]; then
+    step_start "Resume on server (build + PM2)"
+    scp -q -i "$SSH_KEY" \
+        "$LOCAL_PATH/scripts/deploy-resume.sh" \
+        "$LOCAL_PATH/scripts/deploy-cms-safe.sh" \
+        "$REMOTE_HOST:$REMOTE_PATH/scripts/"
+    ssh -i "$SSH_KEY" -o ServerAliveInterval=30 "$REMOTE_HOST" << 'EOF'
+        set -e
+        cd /var/www/taypro-dashboard
+        chmod +x scripts/deploy-resume.sh scripts/deploy-cms-safe.sh
+        bash scripts/deploy-resume.sh 2>&1 | tee /tmp/deploy-resume.log
+EOF
+    step_done
+    trap - EXIT INT TERM
+    echo ""
+    echo -e "${GREEN}✅ Resume deploy finished${NC}"
+    echo "Website: https://taypro.in"
+    exit 0
+fi
 
 # Upload CMS safety script first (Step 1 depends on it)
 echo -e "${YELLOW}📋 Uploading deploy-cms-safe.sh...${NC}"
@@ -85,8 +139,9 @@ echo -e "${GREEN}  ✅ CMS safety script ready${NC}"
 echo ""
 
 # Step 1: Stop app, checkpoint DB, snapshot CMS + uploads, restart app on old build
-echo -e "${YELLOW}📦 Step 1: Snapshotting production CMS (SQLite WAL-safe)...${NC}"
-ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
+step_start "Step 1: Snapshotting production CMS"
+ssh -i "$SSH_KEY" "$REMOTE_HOST" bash -s "$DEPLOY_FAST" << 'EOF'
+    DEPLOY_FAST="$1"
     set -e
     cd /var/www/taypro-dashboard
     chmod +x scripts/deploy-cms-safe.sh
@@ -108,8 +163,15 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     PERSISTENT_DIR="$SNAPSHOT_ROOT/deploy-$STAMP"
     MERGE_DIR="/tmp/taypro-backup-$STAMP"
 
-    ./scripts/deploy-cms-safe.sh snapshot "$PERSISTENT_DIR"
-    ./scripts/deploy-cms-safe.sh snapshot "$MERGE_DIR"
+    if [ "$DEPLOY_FAST" = "1" ]; then
+        ./scripts/deploy-cms-safe.sh snapshot "$MERGE_DIR"
+        rm -rf "$PERSISTENT_DIR"
+        cp -a "$MERGE_DIR" "$PERSISTENT_DIR"
+        echo "  → fast: one snapshot, copied to $PERSISTENT_DIR"
+    else
+        ./scripts/deploy-cms-safe.sh snapshot "$PERSISTENT_DIR"
+        ./scripts/deploy-cms-safe.sh snapshot "$MERGE_DIR"
+    fi
 
     cd "$SNAPSHOT_ROOT"
     ls -1dt deploy-* 2>/dev/null | tail -n +4 | while read -r OLD; do
@@ -129,6 +191,8 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     echo "  ✅ Snapshot complete (app restarted on previous build)"
 EOF
 
+step_done
+
 BACKUP_PATH=$(ssh -i "$SSH_KEY" "$REMOTE_HOST" "tr -d '\r\n' < /tmp/taypro-backup-path.txt 2>/dev/null || echo ''")
 if [ -z "$BACKUP_PATH" ]; then
     echo -e "${RED}❌ Step 1 did not produce a merge backup path. Aborting deploy.${NC}"
@@ -138,10 +202,10 @@ echo -e "${GREEN}  ✅ Backup completed (merge source: $BACKUP_PATH)${NC}"
 echo ""
 
 # Step 2: Sync code (exclude production data)
-echo -e "${YELLOW}📤 Step 2: Syncing code files...${NC}"
+step_start "Step 2: Syncing code"
 echo -e "${YELLOW}  Building maintenance page (embedded logo & assets)...${NC}"
 node "$LOCAL_PATH/scripts/build-maintenance-html.mjs"
-rsync -avz --checksum --delete \
+rsync -avz "${RSYNC_EXTRA[@]}" --delete \
     --exclude 'node_modules' \
     --exclude '.next' \
     --exclude '.git' \
@@ -156,33 +220,36 @@ rsync -avz --checksum --delete \
     "$LOCAL_PATH/" \
     "$REMOTE_HOST:$REMOTE_PATH/"
 
-echo -e "${GREEN}  ✅ Files synced${NC}"
+step_done
 echo ""
 
 # Step 2a: Ensure nginx can serve SEO-safe 503 maintenance during build
-echo -e "${YELLOW}🔧 Step 2a: Ensuring nginx maintenance mode is configured...${NC}"
+step_start "Step 2a: Nginx maintenance config"
 ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     set -e
     cd /var/www/taypro-dashboard
     chmod +x scripts/maintenance-mode.sh scripts/install-nginx-maintenance.sh 2>/dev/null || true
     ./scripts/install-nginx-maintenance.sh
 EOF
-echo -e "${GREEN}  ✅ Maintenance mode ready${NC}"
+step_done
 echo ""
 
 # Step 2b: Backfill project HTML on server while legacy page.tsx still exists
-echo -e "${YELLOW}📋 Step 2b: Backfill project content in DB (if legacy pages present)...${NC}"
-ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
-    set -e
-    cd /var/www/taypro-dashboard
-    if [ -f "src/app/projects/agar-solar-project/page.tsx" ] && [ -f "data/cms.sqlite" ]; then
-        npm run cms:backfill-projects 2>&1 | tail -6 || true
-    fi
+if [ "$DEPLOY_FAST" != "1" ]; then
+    step_start "Step 2b: Legacy project backfill (if needed)"
+    ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
+        set -e
+        cd /var/www/taypro-dashboard
+        if [ -f "src/app/projects/agar-solar-project/page.tsx" ] && [ -f "data/cms.sqlite" ]; then
+            npm run cms:backfill-projects 2>&1 | tail -6 || true
+        fi
 EOF
-echo ""
+    step_done
+    echo ""
+fi
 
 # Step 3: Restore production CMS data from backup
-echo -e "${YELLOW}🔄 Step 3: Restoring production CMS data from backup...${NC}"
+step_start "Step 3: Restoring CMS from backup"
 ssh -i "$SSH_KEY" "$REMOTE_HOST" << EOF
     set -euo pipefail
     cd /var/www/taypro-dashboard
@@ -206,15 +273,16 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << EOF
     fi
 EOF
 
-echo -e "${GREEN}  ✅ Production CMS data restored${NC}"
+step_done
 echo ""
 
 # Step 4: Build and restart
-echo -e "${YELLOW}🔨 Step 4: Building application...${NC}"
+step_start "Step 4: Build on server (longest step — live output below)"
 echo -e "${YELLOW}  Turning on maintenance page (503) before build...${NC}"
 enable_remote_maintenance
 echo ""
-ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
+ssh -i "$SSH_KEY" "$REMOTE_HOST" bash -s "$DEPLOY_FAST" << 'EOF'
+    DEPLOY_FAST="$1"
     set -e
     cd /var/www/taypro-dashboard
     chmod +x scripts/deploy-cms-safe.sh
@@ -226,8 +294,15 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
 
     ./scripts/deploy-cms-safe.sh stop
 
-    echo "  Installing dependencies..."
-    npm install --production=false 2>&1 | tail -5
+    mkdir -p .deploy-cache
+    LOCK_HASH=$(sha256sum package-lock.json 2>/dev/null | awk '{print $1}' || shasum -a 256 package-lock.json | awk '{print $1}')
+    if [ "$DEPLOY_FAST" = "1" ] && [ -f .deploy-cache/package-lock.sha256 ] && [ "$(cat .deploy-cache/package-lock.sha256)" = "$LOCK_HASH" ]; then
+        echo "  Skipping npm install (package-lock.json unchanged)"
+    else
+        echo "  Installing dependencies..."
+        npm install --production=false
+        echo "$LOCK_HASH" > .deploy-cache/package-lock.sha256
+    fi
 
     if [ ! -f "data/cms.sqlite" ]; then
         echo "  No cms.sqlite — run one-time import from legacy files..."
@@ -237,23 +312,16 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
 
     ./scripts/deploy-cms-safe.sh verify data/cms.sqlite
 
-    echo "  Sync topics + upload index into DB (idempotent)..."
-    npm run cms:migrate-extras 2>&1 | tail -6
-
-    echo "  Apply image alt columns + backfill (idempotent)..."
-    npm run cms:migrate-image-alt 2>&1 | tail -8
-    test "${PIPESTATUS[0]}" -eq 0
-
-    echo "  Fix blogs/projects slug UNIQUE (per-locale rows)..."
-    npm run cms:fix-slug-locale-unique 2>&1 | tail -8
-    test "${PIPESTATUS[0]}" -eq 0
+    echo "  CMS deploy prep (idempotent)..."
+    npm run cms:deploy-prep
 
     ./scripts/deploy-cms-safe.sh verify data/cms.sqlite
 
-    echo "  Building Next.js application..."
+    echo "  Building Next.js application (streaming; typically 6–15 min on this server)..."
     chmod -R u+w .next 2>/dev/null || true
     rm -rf .next
-    npm run build 2>&1 | tail -25
+    export NEXT_TELEMETRY_DISABLED=1
+    npm run build 2>&1 | tee /tmp/taypro-next-build.log
 
     if [ ! -f .next/BUILD_ID ]; then
         echo "  ❌ Build failed!"
@@ -297,10 +365,10 @@ if [ $? -ne 0 ]; then
     echo -e "${RED}  ❌ Build failed!${NC}"
     exit 1
 fi
-echo -e "${GREEN}  ✅ Build completed${NC}"
+step_done
 echo ""
 
-echo -e "${YELLOW}🔄 Step 5: Restarting application...${NC}"
+step_start "Step 5: Restarting application"
 ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     cd /var/www/taypro-dashboard
 
@@ -329,7 +397,7 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
         echo "  ✅ Refreshed standalone/messages/"
     fi
 
-    pm2 restart taypro-dashboard || pm2 start ecosystem.config.js
+    pm2 restart taypro-dashboard --update-env || pm2 start ecosystem.config.js
     pm2 save
     sleep 3
     pm2 status
@@ -343,6 +411,8 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
 
 EOF
 
+step_done
+
 echo -e "${YELLOW}  Turning off maintenance page...${NC}"
 disable_remote_maintenance
 
@@ -351,6 +421,7 @@ trap - EXIT INT TERM
 
 echo ""
 echo -e "${GREEN}✅ Deployment completed successfully!${NC}"
+echo -e "${YELLOW}  Tip: use ./deploy.sh --fast for routine releases (same safety, less I/O).${NC}"
 echo ""
 echo "Website: https://taypro.in"
 echo "CMS database: $REMOTE_PATH/data/cms.sqlite"

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   BatteryCharging,
   Brain,
@@ -19,6 +20,7 @@ import { modelCards, tayproTrustedByStatsStrip } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import CallbackCard from "@/app/components/CallbackCard";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
+import { projectFilterForPage } from "@/lib/cms/project-page-filters";
 import ModelCards from "@/app/components/ModelCards";
 import HeroSection from "@/app/components/Herosection";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
@@ -38,6 +40,12 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+
+const GLYDE_IMAGES = {
+  hero: "/tayprorobots/glyde/glyde-tr150-top-view.png",
+  mechanism: "/tayprorobots/glyde/glyde-dual-pass-mechanism.png",
+  docking: "/tayprorobots/glyde/glyde-docking-power-unit.png",
+} as const;
 
 const HOW_TO_STEP_KEYS = [
   "step0",
@@ -208,7 +216,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
       <ProductSchema
         name={t("schema.product.name")}
         description={t("schema.product.description")}
-        image={`${siteUrl}/tayproasset/taypro-robotImage.png`}
+        image={`${siteUrl}${GLYDE_IMAGES.hero}`}
         brand={t("schema.product.brand")}
         sku={t("schema.product.sku")}
         offers={{
@@ -373,6 +381,66 @@ export default async function AutomaticSolarPanelCleaningRobot({
         </Container>
       </section>
 
+      <section className="bg-gradient-to-b from-white to-gray-50 py-12 sm:py-16">
+        <Container>
+          <AnimateOnScroll animation="fadeInUp" className="text-center mb-8">
+            <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
+              {t("gallery.eyebrow")}
+            </div>
+            <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl mb-4">
+              {t("gallery.title")}
+            </h2>
+            <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto">
+              {t("gallery.subtitle")}
+            </p>
+          </AnimateOnScroll>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+            <AnimateOnScroll animation="fadeInUp" delay={60}>
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                <Image
+                  src={GLYDE_IMAGES.hero}
+                  alt={t("gallery.primaryAlt")}
+                  fill
+                  className="object-contain p-4"
+                  sizes="(max-width: 768px) 100vw, 480px"
+                />
+              </div>
+              <p className="text-center text-gray-500 text-sm mt-3">
+                {t("gallery.primaryCaption")}
+              </p>
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fadeInUp" delay={120}>
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                <Image
+                  src={GLYDE_IMAGES.mechanism}
+                  alt={t("gallery.mechanismAlt")}
+                  fill
+                  className="object-contain p-4"
+                  sizes="(max-width: 768px) 100vw, 480px"
+                />
+              </div>
+              <p className="text-center text-gray-500 text-sm mt-3">
+                {t("gallery.mechanismCaption")}
+              </p>
+            </AnimateOnScroll>
+          </div>
+          <AnimateOnScroll animation="fadeInUp" delay={180} className="max-w-md mx-auto mt-8 sm:mt-10">
+            <div className="relative aspect-[3/5] max-h-[420px] w-full mx-auto overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+              <Image
+                src={GLYDE_IMAGES.docking}
+                alt={t("gallery.dockingAlt")}
+                fill
+                className="object-contain p-4"
+                sizes="(max-width: 768px) 80vw, 400px"
+              />
+            </div>
+            <p className="text-center text-gray-500 text-sm mt-3">
+              {t("gallery.dockingCaption")}
+            </p>
+          </AnimateOnScroll>
+        </Container>
+      </section>
+
       <section className="w-full py-20 bg-[#f4f1e9]">
         <Container>
           <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
@@ -443,7 +511,13 @@ export default async function AutomaticSolarPanelCleaningRobot({
         </Container>
       </section>
 
-      <ProjectsCardServer useFileProjects showHeader headerText={t("projects.recentProjectsHeader")} />
+      <ProjectsCardServer
+        useFileProjects
+        showHeader
+        headerText={t("projects.recentProjectsHeader")}
+        filter={projectFilterForPage("glyde")}
+        locale={locale}
+      />
 
       <section className="w-full bg-[#052638] py-16 sm:py-20">
         <Container>

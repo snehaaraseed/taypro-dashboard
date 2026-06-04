@@ -13,6 +13,7 @@
     "cms:translate:blogs": "node scripts/translate-cms-content.mjs --blogs",
     "cms:translate:projects": "node scripts/translate-cms-content.mjs --projects-only",
     "cms:translate-blogs-daily": "bash scripts/cron-translate-blogs-daily.sh",
+    "ops:install-logrotate": "bash scripts/install-logrotate-taypro.sh",
     "verify:roi-india": "tsx scripts/verify-india-roi-parity.mjs",
     "verify:fleet-esg": "tsx scripts/verify-fleet-esg.mjs",
     "validate": "npm run validate:i18n && npm run verify:roi-india && tsc --noEmit && npm run lint",
@@ -32,6 +33,7 @@
     "cms:assign-random-authors": "node scripts/assign-random-blog-authors.mjs --also-standalone",
     "cms:update-author-bios": "node scripts/update-author-bios.mjs",
     "cms:seed-authors": "node scripts/seed-authors-from-profiles.mjs",
+    "cms:backfill-author-expertise": "node scripts/backfill-author-expertise.mjs",
     "cms:assign-project-authors": "node scripts/assign-project-authors.mjs",
     "cms:prepare-deploy": "node scripts/prepare-projects-for-deploy.mjs",
     "cms:import-production-draft": "node scripts/import-projects-production-draft.mjs",
@@ -42,6 +44,7 @@
     "cms:migrate-image-alt": "node scripts/apply-image-alt-migration.mjs",
     "cms:fix-slug-locale-unique": "node scripts/fix-cms-slug-locale-unique.mjs",
     "cms:reconcile-migrations": "node scripts/reconcile-drizzle-migrations.mjs",
+    "cms:deploy-prep": "node scripts/cms-deploy-prep.mjs",
     "build:maintenance": "node scripts/build-maintenance-html.mjs"
   },
   "dependencies": {

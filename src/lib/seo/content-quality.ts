@@ -27,15 +27,22 @@ export const SEO_AND_READER_RULES = `SEO & READER INTENT (every post):
 - Write for a real search query: answer what the reader came to decide (compare methods, pick frequency, justify budget, understand soiling impact).
 - Match search intent: comparison posts use tables/pros-cons; how-to posts use numbered steps; cost posts reference ROI and link to /solar-panel-cleaning-robot-price-calculator.
 - Earn clicks: meta description = specific outcome or question (e.g. "Manual brush vs robot on 50 MW: water, labour, and PR impact").
-- Rankings: one clear primary keyword in title + H1 theme; 3–6 related terms in H2s; cover "how often / how much / which is better" in body sections or in the separate faqs array.
+- Rankings: one clear primary keyword in title + H1 theme; 3–6 related terms in H2s; cover "how often / how much / which is better" in body sections and in the separate faqs array.
 - Make it readable: short paragraphs, real plant scenarios (MW-scale, India dust/coastal/agri soiling), not textbook filler.
 - Support money pages with 3–5 internal links; blogs compare/educate, they do not replace product pages.`;
 
+export const AI_OVERVIEW_SNIPPET_RULES = `AI OVERVIEW & FEATURED SNIPPET (strict):
+- Opening: the first <p> after a brief intro (1–2 sentences max) must be 2–3 sentences that directly answer the title question. No filler, no "the solar industry is growing".
+- Include one H2 titled "Quick answer" or "Summary for plant managers" with a <ul> of 3–5 bullets: specific ranges (days, %, MW, INR as industry-typical) and a clear decision outcome.
+- Include at least one other H2 phrased as a natural question (People Also Ask style, e.g. "How often should you clean solar panels on a 50 MW plant?") with a direct-answer <p> immediately below. Do NOT use a "Frequently asked questions" heading in the HTML body.
+- FAQ JSON: the first faqs[0] question must phrase the primary keyword as a question; its answer must align with the Quick answer bullets (same facts, not contradictory).
+- For Taypro fleet/impact use PUBLIC PROOF POINTS only; for industry data use "typical range" language, never invent study, report, or university names.`;
+
 export const LONG_FORM_CONTENT_RULES = `DEPTH & LENGTH (target ~2,800–3,200 words, quality over padding):
 - Every section must add a NEW idea: data range, decision criterion, plant scenario, or trade-off, no repeating the intro in different words.
-- Structure: 6–10 H2 sections; use H3 subsections where a topic needs steps or sub-comparisons.
-- Include at least one of: HTML comparison table (<table>), numbered checklist, or bullet list with specific thresholds (days, %, MW, INR ranges as industry-typical).
-- Do NOT put FAQs in the HTML body, they are returned separately in the JSON "faqs" array (see automation prompt).
+- Structure: 6–10 H2 sections including "Quick answer" (or "Summary for plant managers") and one question-shaped H2 with a direct answer paragraph; use H3 subsections where a topic needs steps or sub-comparisons.
+- Include at least one of: HTML comparison table (<table> with <thead>), numbered checklist, or bullet list with specific thresholds (days, %, MW, INR ranges as industry-typical). Comparison-intent posts MUST include an HTML <table>.
+- Do NOT put a "Frequently asked questions" heading or FAQ list in the HTML body; Q&A for schema lives only in the JSON "faqs" array.
 - End the article with a short "Key takeaways" or "What plant managers should do next" H2 (4–6 bullets), no FAQ heading in content.
 - Do NOT inflate word count with generic AI intros, duplicate conclusions, or filler about "the solar industry growing".`;
 

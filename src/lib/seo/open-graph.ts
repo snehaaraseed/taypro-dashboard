@@ -61,8 +61,8 @@ export const OG_PRESETS = {
     alt: "Taypro solar panel cleaning robot ROI calculator",
   },
   glyde: {
-    path: "/tayprorobots/taypro-modelAcopy.png",
-    alt: "Taypro GLYDE automatic solar panel cleaning robot",
+    path: "/tayprorobots/glyde/glyde-tr150-top-view.png",
+    alt: "Taypro GLYDE TR-150 automatic solar panel cleaning robot",
   },
   helyx: {
     path: "/tayprorobots/taypro-modelBcopy.png",

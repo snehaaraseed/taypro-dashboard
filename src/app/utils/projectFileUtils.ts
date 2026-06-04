@@ -32,6 +32,8 @@ export {
   updateProjectFiles,
   deleteProjectFiles,
   getAllFileProjects,
+  getFilteredFileProjects,
+  getRelatedFileProjects,
   readProjectMetadata,
   readProjectContent,
 } from "@/lib/cms/projectService";

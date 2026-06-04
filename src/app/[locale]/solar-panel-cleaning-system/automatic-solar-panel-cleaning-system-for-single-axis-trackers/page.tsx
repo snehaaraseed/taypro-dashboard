@@ -17,6 +17,7 @@ import {
 import { modelTCards, tayproTrustedByStatsStrip } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
+import { projectFilterForPage } from "@/lib/cms/project-page-filters";
 import ModelCards from "@/app/components/ModelCards";
 import ClientsCard from "@/app/components/ClientsCard";
 import HeroSection from "@/app/components/Herosection";
@@ -885,7 +886,13 @@ export default async function ModelTPage({
 
         <EnergyResourceCard />
 
-        <ProjectsCardServer useFileProjects showHeader headerText="" />
+        <ProjectsCardServer
+          useFileProjects
+          showHeader
+          headerText=""
+          filter={projectFilterForPage("glydeX")}
+          locale={locale}
+        />
 
         <FaqSection
           id="model-t-faq-heading"

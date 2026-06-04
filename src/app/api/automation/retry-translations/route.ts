@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { isAutomationAuthorized } from "@/lib/security";
 import { processDailyBlogTranslations } from "@/lib/translation/translation-queue";
 
-/** Up to 5 blogs × 4 locales — can take several minutes. */
+/** Up to BLOG_TRANSLATION_MAX_PER_DAY blogs × 4 locales — can take 1–2+ hours with delays. */
 export const maxDuration = 900;
 
 /**

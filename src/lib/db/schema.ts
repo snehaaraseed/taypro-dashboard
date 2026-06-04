@@ -8,6 +8,8 @@ export const authors = sqliteTable("authors", {
   bio: text("bio").notNull(),
   avatarUrl: text("avatar_url"),
   linkedInUrl: text("linkedin_url"),
+  /** JSON array of BlogAuthorExpertiseTag ids for automation matching */
+  expertiseTags: text("expertise_tags").notNull().default("[]"),
   createdAt: text("created_at").notNull(),
   updatedAt: text("updated_at").notNull(),
 });

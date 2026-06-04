@@ -15,6 +15,7 @@ import {
   getBlogImageMode,
   shouldUseProductLibraryImage,
 } from "@/lib/seo/blog-image-strategy";
+import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
 import type { BlogFeaturedImagePick } from "@/lib/seo/blog-image-types";
 
 export type { BlogFeaturedImagePick } from "@/lib/seo/blog-image-types";
@@ -91,8 +92,12 @@ ${formatCandidateList(pool)}
 Return ONLY JSON:
 {"url":"/exact/path/from/list","alt":"Descriptive alt text"}`;
 
-  const result = await model.generateContent(prompt);
-  return parsePickerResponse(result.response.text().trim(), pool);
+  try {
+    const result = await model.generateContent(prompt);
+    return parsePickerResponse(result.response.text().trim(), pool);
+  } finally {
+    await pauseAfterGeminiCall();
+  }
 }
 
 /**

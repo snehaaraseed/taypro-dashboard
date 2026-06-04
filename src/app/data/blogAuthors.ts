@@ -1,8 +1,12 @@
+import type { BlogAuthorExpertiseTag } from "@/lib/cms/blog-author-expertise-ids";
+
 export interface BlogAuthor {
   name: string;
   slug: string;
   role: string;
   bio: string;
+  /** CMS expertise lanes for blog automation (see BLOG_AUTHOR_EXPERTISE_TAGS). */
+  expertiseTags?: BlogAuthorExpertiseTag[];
   /** Profile image URL (e.g. from site upload). */
   avatarUrl?: string;
   /** Full LinkedIn profile URL (https only, linkedin.com host). */
@@ -46,6 +50,7 @@ export const BLOG_AUTHORS: BlogAuthor[] = [
     slug: "yogesh",
     role: "Product & Growth",
     bio: "Yogesh shares practical insights on solar technology adoption, product strategy, and performance optimization in utility-scale projects.",
+    expertiseTags: ["roi-cost", "robot-products", "industry-trends"],
     avatarUrl:
       "https://ui-avatars.com/api/?name=Yogesh&background=0c3c57&color=ffffff&size=256",
   },

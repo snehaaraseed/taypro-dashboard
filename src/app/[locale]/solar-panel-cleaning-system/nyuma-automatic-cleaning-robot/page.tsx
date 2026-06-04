@@ -19,6 +19,7 @@ import { nyumaCards, tayproTrustedByStatsStrip } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import CallbackCard from "@/app/components/CallbackCard";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
+import { projectFilterForPage } from "@/lib/cms/project-page-filters";
 import ModelCards from "@/app/components/ModelCards";
 import HeroSection from "@/app/components/Herosection";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
@@ -443,7 +444,13 @@ export default async function NyumaAutomaticCleaningRobotPage({
         </Container>
       </section>
 
-      <ProjectsCardServer useFileProjects showHeader headerText={t("projects.recentProjectsHeader")} />
+      <ProjectsCardServer
+        useFileProjects
+        showHeader
+        headerText={t("projects.recentProjectsHeader")}
+        filter={projectFilterForPage("nyuma")}
+        locale={locale}
+      />
 
       <section className="w-full bg-[#052638] py-16 sm:py-20">
         <Container>

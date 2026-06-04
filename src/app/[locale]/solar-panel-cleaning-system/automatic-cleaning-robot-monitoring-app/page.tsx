@@ -19,6 +19,7 @@ import {
 import { modelBCards } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
+import { projectFilterForPage } from "@/lib/cms/project-page-filters";
 import ModelCards from "@/app/components/ModelCards";
 import ClientsCard from "@/app/components/ClientsCard";
 import EnergyResourceCard from "@/app/components/EnergyResourceCard";
@@ -447,6 +448,8 @@ export default async function TayproConsolePage({
           useFileProjects
           showHeader
           headerText={t("misc.projectsHeader")}
+          filter={projectFilterForPage("console")}
+          locale={locale}
         />
 
         <ClientsCard />

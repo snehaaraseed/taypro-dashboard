@@ -73,7 +73,15 @@ if node -e "
   if (s.canGenerate === false) process.exit(0);
   process.exit(1);
 " "$SCHEDULE_JSON" 2>/dev/null; then
-  echo "$(date -Is) skip: daily cap already met for today" >> "$LOG"
+  LAST_RUN=$(node -e "
+    try {
+      const s = JSON.parse(process.argv[1]);
+      process.stdout.write(s.lastRunAt || 'n/a');
+    } catch {
+      process.stdout.write('n/a');
+    }
+  " "$SCHEDULE_JSON" 2>/dev/null || echo "n/a")
+  echo "$(date -Is) skip: cadence cap (canGenerate=false, last=$LAST_RUN)" >> "$LOG"
   touch "$DONE_FILE"
   exit 0
 fi

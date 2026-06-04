@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json();
-    const { name, role, bio, avatarUrl, slug } = body;
+    const { name, role, bio, avatarUrl, slug, expertiseTags } = body;
     let { linkedInUrl } = body;
 
     if (!name || !role || !bio) {
@@ -53,6 +53,7 @@ export async function POST(request: NextRequest) {
       avatarUrl,
       linkedInUrl,
       slug,
+      expertiseTags: Array.isArray(expertiseTags) ? expertiseTags : undefined,
     });
     revalidateSitemap();
     return NextResponse.json({ success: true, authors });

@@ -16,8 +16,14 @@ import {
   projectMatchesCategory,
   type ProjectCategoryFilter,
 } from "@/lib/cms/project-categories";
+import {
+  projectMatchesListFilter,
+  relatedProjectsFilterFromDetails,
+  type ProjectListFilter,
+} from "@/lib/cms/project-products";
 
 export type { ProjectCategoryFilter } from "@/lib/cms/project-categories";
+export type { ProjectListFilter } from "@/lib/cms/project-products";
 
 function resolveLocale(locale?: string): TayproLocale {
   if (locale && isActiveLocale(locale)) return locale;
@@ -137,8 +143,49 @@ export async function getProjectsByCategory(
   category: ProjectCategoryFilter,
   locale?: string
 ): Promise<ProjectCard[]> {
+  return getFilteredFileProjects({ category }, locale);
+}
+
+const DEFAULT_PROJECT_CARD_LIMIT = 6;
+
+function sortProjectsByDate(projects: ProjectCard[]): ProjectCard[] {
+  return [...projects].sort(
+    (a, b) => new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime()
+  );
+}
+
+export async function getFilteredFileProjects(
+  filter: ProjectListFilter,
+  locale?: string,
+  limit = DEFAULT_PROJECT_CARD_LIMIT
+): Promise<ProjectCard[]> {
   const all = await getAllFileProjects(locale);
-  return all.filter((p) => projectMatchesCategory(p.details, category));
+  const matched = sortProjectsByDate(
+    all.filter((p) =>
+      projectMatchesListFilter(
+        {
+          title: p.title,
+          description: p.description,
+          details: p.details,
+        },
+        filter
+      )
+    )
+  );
+  return limit > 0 ? matched.slice(0, limit) : matched;
+}
+
+export async function getRelatedFileProjects(
+  slug: string,
+  details: string[],
+  locale?: string,
+  limit = 3
+): Promise<ProjectCard[]> {
+  const filter = relatedProjectsFilterFromDetails(details);
+  const related = await getFilteredFileProjects(filter, locale, 0);
+  return related
+    .filter((p) => p.id !== slug && p.href !== `/projects/${slug}`)
+    .slice(0, limit);
 }
 
 export async function readProjectMetadata(

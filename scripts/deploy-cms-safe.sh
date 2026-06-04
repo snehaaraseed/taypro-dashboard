@@ -97,7 +97,13 @@ cms_flush_to_data() {
     echo "  ⚠️  No cms.sqlite found to flush"
     return 0
   fi
-  cms_copy_bundle_to "$SRC_DIR" "$CMS_DIR"
+  if [ "$(cd "$SRC_DIR" && pwd -P)" = "$(cd "$CMS_DIR" && pwd -P)" ]; then
+    echo "  → already in $CMS_DIR (checkpoint only)"
+    cms_checkpoint "$CMS_DIR/cms.sqlite"
+    cms_clear_wal_sidecars "$CMS_DIR"
+  else
+    cms_copy_bundle_to "$SRC_DIR" "$CMS_DIR"
+  fi
   cms_verify "$CMS_DIR/cms.sqlite"
 }
 

@@ -10,13 +10,24 @@ import {
   normalizeLinkedInUrl,
 } from "@/app/data/blogAuthors";
 import { isEligibleBlogAuthor } from "@/lib/cms/blog-author-pool";
+import {
+  inferExpertiseFromAuthor,
+  mergeTopicTags,
+  parseExpertiseTags,
+  pickBestAuthorForTopicTags,
+  serializeExpertiseTags,
+} from "@/lib/cms/blog-author-expertise";
+import type { BlogAuthorExpertiseTag } from "@/lib/cms/blog-author-expertise-ids";
+import type { TopicCategory } from "@/lib/topicCategories";
 
 function rowToAuthor(row: typeof authors.$inferSelect): BlogAuthor {
+  const expertiseTags = parseExpertiseTags(row.expertiseTags);
   return {
     name: row.name,
     slug: row.slug,
     role: row.role,
     bio: row.bio,
+    expertiseTags: expertiseTags.length > 0 ? expertiseTags : undefined,
     avatarUrl: row.avatarUrl ?? undefined,
     linkedInUrl: row.linkedInUrl ?? undefined,
   };
@@ -29,6 +40,10 @@ async function seedDefaultAuthorsIfEmpty(): Promise<void> {
 
   const now = new Date().toISOString();
   for (const author of BLOG_AUTHORS) {
+    const tags =
+      author.expertiseTags?.length ?
+        serializeExpertiseTags(author.expertiseTags)
+      : serializeExpertiseTags(inferExpertiseFromAuthor(author));
     await db.insert(authors).values({
       slug: author.slug,
       name: author.name,
@@ -36,6 +51,7 @@ async function seedDefaultAuthorsIfEmpty(): Promise<void> {
       bio: author.bio,
       avatarUrl: author.avatarUrl ?? null,
       linkedInUrl: author.linkedInUrl ?? null,
+      expertiseTags: tags,
       createdAt: now,
       updatedAt: now,
     });
@@ -49,8 +65,21 @@ export async function getStoredAuthors(): Promise<BlogAuthor[]> {
   return rows.map(rowToAuthor);
 }
 
+function normalizeExpertiseInput(
+  tags: BlogAuthorExpertiseTag[] | undefined,
+  fallbackAuthor: Pick<BlogAuthor, "role" | "bio" | "name">
+): string {
+  if (tags && tags.length > 0) {
+    return serializeExpertiseTags(tags);
+  }
+  return serializeExpertiseTags(inferExpertiseFromAuthor(fallbackAuthor));
+}
+
 export async function upsertAuthor(
-  authorInput: Omit<BlogAuthor, "slug"> & { slug?: string }
+  authorInput: Omit<BlogAuthor, "slug"> & {
+    slug?: string;
+    expertiseTags?: BlogAuthorExpertiseTag[];
+  }
 ): Promise<BlogAuthor[]> {
   const db = getDb();
   await seedDefaultAuthorsIfEmpty();
@@ -84,6 +113,11 @@ export async function upsertAuthor(
     bio: authorInput.bio.trim(),
     avatarUrl: authorInput.avatarUrl?.trim() || null,
     linkedInUrl: linkedIn ?? null,
+    expertiseTags: normalizeExpertiseInput(authorInput.expertiseTags, {
+      name: authorInput.name,
+      role: authorInput.role,
+      bio: authorInput.bio,
+    }),
     updatedAt: now,
   };
 
@@ -112,11 +146,15 @@ export async function getAuthorBySlug(
   return all.find((a) => a.slug === slug);
 }
 
+function eligibleAuthorPool(all: BlogAuthor[]): BlogAuthor[] {
+  const pool = all.filter(isEligibleBlogAuthor);
+  return pool.length > 0 ? pool : all;
+}
+
 /** Random CMS author for automation (excludes Taypro Team, Suraj Kadam, etc.). */
 export async function pickRandomBlogAuthor(): Promise<BlogAuthor> {
   const all = await getStoredAuthors();
-  const pool = all.filter(isEligibleBlogAuthor);
-  const pickFrom = pool.length > 0 ? pool : all;
+  const pickFrom = eligibleAuthorPool(all);
   if (pickFrom.length === 0) {
     return (
       all[0] ?? {
@@ -128,6 +166,25 @@ export async function pickRandomBlogAuthor(): Promise<BlogAuthor> {
     );
   }
   return pickFrom[Math.floor(Math.random() * pickFrom.length)];
+}
+
+/** Best-matching byline for today's keyword + category (falls back to random). */
+export async function pickAuthorForBlogTopic(input: {
+  seoKeyword: string;
+  category: TopicCategory;
+  searchIntent?: string;
+}): Promise<BlogAuthor> {
+  const all = await getStoredAuthors();
+  const pool = eligibleAuthorPool(all);
+  if (pool.length === 0) return pickRandomBlogAuthor();
+
+  const topicTags = mergeTopicTags(
+    input.seoKeyword,
+    input.category,
+    input.searchIntent
+  );
+  const matched = pickBestAuthorForTopicTags(pool, topicTags);
+  return matched ?? pickRandomBlogAuthor();
 }
 
 export async function pickRandomBlogAuthorName(): Promise<string> {

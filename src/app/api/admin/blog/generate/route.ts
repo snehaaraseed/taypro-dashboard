@@ -12,7 +12,9 @@ import {
   extractH2Headings,
 } from "@/lib/seo/blog-similarity";
 import { assertBlogNotTooSimilar } from "@/lib/seo/blog-uniqueness";
-import { pickRandomBlogAuthor } from "@/lib/cms/authorService";
+import { pickAuthorForBlogTopic } from "@/lib/cms/authorService";
+import { rankCategoriesForKeyword } from "@/lib/cms/blog-author-expertise";
+import type { TopicCategory } from "@/lib/topicCategories";
 import { addPublishedTopic } from "@/lib/topicTracker";
 import { createBlogFiles, createSlug } from "@/app/utils/blogFileUtils";
 import { requireAuth } from "@/app/utils/auth";
@@ -67,15 +69,23 @@ export async function POST(request: NextRequest) {
     }
 
     const editorialContext = await formatEditorialContextPrompt();
-    const bylineAuthor = await pickRandomBlogAuthor();
-    const category = "Custom";
+    const category: TopicCategory = rankCategoriesForKeyword(seoKeyword)[0] ?? {
+      name: "Custom",
+      description: "Admin-authored post",
+      keywords: [],
+    };
+    const bylineAuthor = await pickAuthorForBlogTopic({
+      seoKeyword,
+      category,
+    });
+    const categoryName = category.name;
     let lastError: unknown;
 
     for (let genAttempt = 0; genAttempt < MAX_GENERATION_ATTEMPTS; genAttempt++) {
       try {
         const blogData = await generateBlogContent(
           topic,
-          category,
+          categoryName,
           null,
           editorialContext,
           { userBrief: brief, focusedKeywords, author: bylineAuthor }
@@ -98,7 +108,7 @@ export async function POST(request: NextRequest) {
           title: blogData.title,
           description: blogData.description,
           seoKeyword,
-          category,
+          category: categoryName,
         });
 
         const { content: contentWithImages, inlineImage } =
@@ -107,7 +117,7 @@ export async function POST(request: NextRequest) {
             title: blogData.title,
             description: blogData.description,
             seoKeyword,
-            category,
+            category: categoryName,
             featured,
           });
 
@@ -161,7 +171,7 @@ export async function POST(request: NextRequest) {
         await addPublishedTopic(
           blogData.title,
           result.slug,
-          formatTopicCategory(category, seoKeyword),
+          formatTopicCategory(categoryName, seoKeyword),
           {
             h2Outline: extractH2Headings(contentWithImages),
             contentFingerprint: buildContentFingerprint(

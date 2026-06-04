@@ -59,7 +59,7 @@ export const PRODUCT_CATALOG: Record<ProductId, ProductCatalogEntry> = {
     itemName: "GLYDE",
     itemGroup: "Automatic Robot",
     href: GLYDE_PATH,
-    imagePath: "/tayprorobots/taypro-modelAcopy.png",
+    imagePath: "/tayprorobots/glyde/glyde-tr150-top-view.png",
     i18nNamespace: "ModelAPage",
     ogPreset: "glyde",
     plantType: "fixed_tilt",

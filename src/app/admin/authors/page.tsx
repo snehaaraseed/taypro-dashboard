@@ -4,12 +4,17 @@ import { getAuthorAvatarUrl } from "@/app/data/blogAuthors";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { slugifyAuthorName } from "../../data/blogAuthors";
+import {
+  BLOG_AUTHOR_EXPERTISE_TAGS,
+  type BlogAuthorExpertiseTag,
+} from "@/lib/cms/blog-author-expertise-ids";
 
 interface Author {
   name: string;
   slug: string;
   role: string;
   bio: string;
+  expertiseTags?: BlogAuthorExpertiseTag[];
   avatarUrl?: string;
   linkedInUrl?: string;
 }
@@ -18,6 +23,7 @@ const EMPTY_FORM = {
   name: "",
   role: "",
   bio: "",
+  expertiseTags: [] as BlogAuthorExpertiseTag[],
   avatarUrl: "",
   linkedInUrl: "",
 };
@@ -94,12 +100,25 @@ export default function AdminAuthorsPage() {
     setForm((prev) => ({ ...prev, avatarUrl: "" }));
   };
 
+  const toggleExpertise = (tagId: BlogAuthorExpertiseTag) => {
+    setForm((prev) => {
+      const has = prev.expertiseTags.includes(tagId);
+      return {
+        ...prev,
+        expertiseTags: has
+          ? prev.expertiseTags.filter((t) => t !== tagId)
+          : [...prev.expertiseTags, tagId],
+      };
+    });
+  };
+
   const startEdit = (author: Author) => {
     setEditingSlug(author.slug);
     setForm({
       name: author.name,
       role: author.role,
       bio: author.bio,
+      expertiseTags: author.expertiseTags ?? [],
       avatarUrl: author.avatarUrl || "",
       linkedInUrl: author.linkedInUrl || "",
     });
@@ -255,6 +274,35 @@ export default function AdminAuthorsPage() {
           className="w-full px-3 py-2 border border-gray-300 rounded-md"
         />
 
+        <div className="border border-gray-200 rounded-lg p-4 space-y-3">
+          <p className="text-sm font-medium text-gray-800">
+            Blog automation expertise
+          </p>
+          <p className="text-xs text-gray-500">
+            Daily posts match keyword + category to these lanes. Leave empty to
+            infer from role and bio.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {BLOG_AUTHOR_EXPERTISE_TAGS.map((tag) => {
+              const active = form.expertiseTags.includes(tag.id);
+              return (
+                <button
+                  key={tag.id}
+                  type="button"
+                  onClick={() => toggleExpertise(tag.id)}
+                  className={`text-xs px-3 py-1.5 rounded-full border transition-colors ${
+                    active
+                      ? "bg-[#052638] text-white border-[#052638]"
+                      : "bg-white text-gray-700 border-gray-300 hover:border-[#052638]"
+                  }`}
+                >
+                  {tag.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             LinkedIn profile (optional)
@@ -291,6 +339,9 @@ export default function AdminAuthorsPage() {
                 Author
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Role</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                Expertise
+              </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Slug</th>
               <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">Actions</th>
             </tr>
@@ -318,6 +369,17 @@ export default function AdminAuthorsPage() {
                 </td>
                 <td className="px-6 py-4 text-sm text-gray-900">{author.name}</td>
                 <td className="px-6 py-4 text-sm text-gray-700">{author.role}</td>
+                <td className="px-6 py-4 text-sm text-gray-500 max-w-xs">
+                  {(author.expertiseTags?.length ?? 0) > 0
+                    ? author.expertiseTags!
+                        .map(
+                          (id) =>
+                            BLOG_AUTHOR_EXPERTISE_TAGS.find((t) => t.id === id)
+                              ?.label ?? id
+                        )
+                        .join(", ")
+                    : "Inferred from bio"}
+                </td>
                 <td className="px-6 py-4 text-sm text-gray-500">{author.slug}</td>
                 <td className="px-6 py-4 text-right space-x-3">
                   <button

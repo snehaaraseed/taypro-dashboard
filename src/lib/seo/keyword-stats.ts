@@ -207,6 +207,10 @@ export function buildFallbackTopicTitle(keyword: string): string {
   return `${titled}: Practical Guide for Utility-Scale Solar O&M in India`;
 }
 
+export function isComparisonSearchIntent(searchIntent: string): boolean {
+  return /comparison/i.test(searchIntent);
+}
+
 export function formatSeoPromptBlock(brief: SeoKeywordBrief): string {
   const volumeLabel =
     brief.volumeBucket >= 5000
@@ -215,11 +219,15 @@ export function formatSeoPromptBlock(brief: SeoKeywordBrief): string {
         ? "medium"
         : "niche";
 
+  const comparisonTableRule = isComparisonSearchIntent(brief.searchIntent)
+    ? "\n- Comparison intent: include an HTML <table> with <thead> comparing methods (e.g. water, labour, frequency, capex/opex notes, PR impact)."
+    : "";
+
   return `SEO TARGET (from Google Keyword Planner, India):
 - Primary keyword: "${brief.primary}" (~${brief.volumeBucket}+ avg. monthly searches bucket, ${volumeLabel} volume, competition: ${brief.competition || "n/a"}, index: ${brief.competitionIndex})
 - Search intent: ${brief.searchIntent}
-- Work the primary phrase in: title, meta description, first 100 words, at least one H2, and conclusion.
+- Work the primary phrase in: title, meta description, first 100 words, Quick answer H2, at least one question-shaped H2, and conclusion.
 - Related terms for H2/H3 and body: ${brief.related.slice(0, 6).join(", ")}
-- Add one FAQ-style H2 (e.g. "How often…", "Is a robot worth it…") if it fits the query.
-- Do NOT keyword-stuff; satisfy the reader's intent first, that is what earns rankings.`;
+- Add one question-shaped H2 (e.g. "How often…", "Is a robot worth it…") with a direct answer paragraph under it. Do not add a "Frequently asked questions" section in HTML.${comparisonTableRule}
+- Do NOT keyword-stuff; satisfy the reader's intent first, that is what earns rankings and AI overview citations.`;
 }

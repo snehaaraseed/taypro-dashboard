@@ -8,7 +8,10 @@ import { AllRelatedProjectsSection } from "@/app/components/AllRelatedProjectsSe
 import { BlogContent } from "@/app/components/BlogContent";
 import CallbackCard from "@/app/components/CallbackCard";
 import { PROJECT_PLACE_BY_SLUG } from "@/app/data/projectPlaceSchema";
-import { getAllFileProjects } from "@/app/utils/projectFileUtils";
+import {
+  getAllFileProjects,
+  getRelatedFileProjects,
+} from "@/app/utils/projectFileUtils";
 import { getProjectBySlug, listAllProjects } from "@/lib/cms/projectService";
 import { getStoredAuthors } from "@/lib/cms/authorService";
 import { resolveAuthorSlug } from "@/app/data/blogAuthors";
@@ -95,9 +98,12 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
   const authorSlug = resolveAuthorSlug(authorName, authors);
   const place = PROJECT_PLACE_BY_SLUG[slug];
   const allProjects = await getAllFileProjects(locale);
-  const relatedProjects = allProjects
-    .filter((p) => p.id !== slug && p.href !== `/projects/${slug}`)
-    .slice(0, 3);
+  const relatedProjects = await getRelatedFileProjects(
+    slug,
+    metadata.details ?? [],
+    locale,
+    3
+  );
 
   const breadcrumbs = [
     { name: tCommon("breadcrumbHome"), href: "/" },

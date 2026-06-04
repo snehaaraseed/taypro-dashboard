@@ -123,7 +123,21 @@ CREATE TABLE IF NOT EXISTS uploads (
 );
 `);
 
+function ensureMetadataColumns(db) {
+  const cols = db.prepare("PRAGMA table_info(published_topics)").all();
+  const names = new Set(cols.map((c) => c.name));
+  if (!names.has("h2_outline")) {
+    db.exec("ALTER TABLE published_topics ADD COLUMN h2_outline text");
+    console.log("Topics: added column h2_outline");
+  }
+  if (!names.has("content_fingerprint")) {
+    db.exec("ALTER TABLE published_topics ADD COLUMN content_fingerprint text");
+    console.log("Topics: added column content_fingerprint");
+  }
+}
+
 importTopics(db);
+ensureMetadataColumns(db);
 importUploads(db);
 db.close();
 console.log("Done.");
