@@ -41,6 +41,7 @@ yarn-error.log*
 /secrets/
 gsc-service-account*.json
 data/gsc-oauth-tokens.json
+secrets/gsc-oauth-production.env
 
 # vercel
 .vercel

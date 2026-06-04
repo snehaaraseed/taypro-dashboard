@@ -1,16 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { requireAdminSession } from "@/lib/gsc/admin-auth";
+import {
+  GSC_OAUTH_STATE_COOKIE,
+  requireAdminSessionOrOAuthState,
+} from "@/lib/gsc/admin-auth";
 import {
   exchangeCodeForTokens,
   fetchOAuthUserEmail,
   saveGscOAuthTokens,
 } from "@/lib/gsc/oauth-tokens";
 
-const STATE_COOKIE = "gsc-oauth-state";
-
 export async function GET(request: NextRequest) {
-  const denied = await requireAdminSession(request);
+  const denied = await requireAdminSessionOrOAuthState(request);
   if (denied) return denied;
 
   const { searchParams } = request.nextUrl;
@@ -27,8 +28,8 @@ export async function GET(request: NextRequest) {
   const code = searchParams.get("code");
   const state = searchParams.get("state");
   const cookieStore = await cookies();
-  const expectedState = cookieStore.get(STATE_COOKIE)?.value;
-  cookieStore.delete(STATE_COOKIE);
+  const expectedState = cookieStore.get(GSC_OAUTH_STATE_COOKIE)?.value;
+  cookieStore.delete(GSC_OAUTH_STATE_COOKIE);
 
   if (!code || !state || !expectedState || state !== expectedState) {
     return NextResponse.redirect(

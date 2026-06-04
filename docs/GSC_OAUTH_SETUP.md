@@ -55,7 +55,7 @@ Tokens are stored in `data/gsc-oauth-tokens.json` on the server (not in git).
 
 ## 3. Connect in admin
 
-1. Log in to `/admin`
+1. Log in to `/admin` (stay logged in; use the same browser tab for Connect)
 2. Open **Search Console** in the nav (or `/admin/gsc`)
 3. Click **Connect with Google**
 4. Sign in with the Google account that has access to **taypro.in** in GSC
@@ -81,6 +81,7 @@ Weekly cron (`scripts/cron-sync-gsc-boost.sh`) uses the stored refresh token aut
 |--------|-----|
 | `oauth_not_configured` | Set `GSC_OAUTH_CLIENT_ID` and `SECRET` in env |
 | `redirect_uri_mismatch` | Redirect URI in Google must match **exactly** what `/admin/gsc` shows |
+| `{"error":"Unauthorized"}` on callback | Log in at `/admin` first, then Connect again; re-login if cookie expired |
 | `access_denied` | Add your Gmail under OAuth consent screen → Test users |
 | 403 on sync | Use the Google account that owns the `sc-domain:taypro.in` property |
 | No refresh token | Disconnect in admin, connect again (consent uses `prompt=consent`) |

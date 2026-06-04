@@ -84,27 +84,25 @@ cms_verify() {
   " "$db_path"
 }
 
-# Flush live DB from standalone (or data) into repo data/ with checkpoint.
+# Checkpoint canonical CMS in data/. Never overwrite data/ from standalone:
+# PM2 sets TAYPRO_CMS_ROOT to the repo root; admin writes go to data/cms.sqlite.
+# Standalone only holds a build-time copy — copying it back clobbers publish flags.
 cms_flush_to_data() {
   mkdir -p "$CMS_DIR"
-  local SRC_DIR="$CMS_DIR"
-  if [ -f "$STAND_DIR/cms.sqlite" ]; then
-    SRC_DIR="$STAND_DIR"
-    echo "  Source: $STAND_DIR (standalone)"
-  elif [ -f "$CMS_DIR/cms.sqlite" ]; then
-    echo "  Source: $CMS_DIR (repo data)"
-  else
-    echo "  ⚠️  No cms.sqlite found to flush"
-    return 0
-  fi
-  if [ "$(cd "$SRC_DIR" && pwd -P)" = "$(cd "$CMS_DIR" && pwd -P)" ]; then
-    echo "  → already in $CMS_DIR (checkpoint only)"
+  if [ -f "$CMS_DIR/cms.sqlite" ]; then
+    echo "  Source: $CMS_DIR (canonical; checkpoint only)"
     cms_checkpoint "$CMS_DIR/cms.sqlite"
     cms_clear_wal_sidecars "$CMS_DIR"
-  else
-    cms_copy_bundle_to "$SRC_DIR" "$CMS_DIR"
+    cms_verify "$CMS_DIR/cms.sqlite"
+    return 0
   fi
-  cms_verify "$CMS_DIR/cms.sqlite"
+  if [ -f "$STAND_DIR/cms.sqlite" ]; then
+    echo "  Source: $STAND_DIR (no data/cms.sqlite yet — one-time bootstrap)"
+    cms_copy_bundle_to "$STAND_DIR" "$CMS_DIR"
+    cms_verify "$CMS_DIR/cms.sqlite"
+    return 0
+  fi
+  echo "  ⚠️  No cms.sqlite found to flush"
 }
 
 cms_snapshot_to() {

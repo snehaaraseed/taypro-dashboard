@@ -1,4 +1,160 @@
 {
-  "description": "Optional: add keywords from Google Search Console with impressions but low CTR or positions 8–20. Automation prefers these when still in the keyword CSV and unused.",
-  "keywords": []
+  "description": "Auto-updated from Google Search Console (weekly sync). Blog automation prefers these after the editorial queue.",
+  "updatedAt": "2026-06-04T20:47:03.120Z",
+  "siteUrl": "sc-domain:taypro.in",
+  "lookbackDays": 28,
+  "keywords": [
+    "automatic solar panel cleaning system",
+    "automatic solar cleaning system",
+    "solar cleaning system automatic",
+    "solar automatic cleaning system",
+    "biggest solar plant in india",
+    "solar cleaning robot",
+    "solar auto cleaning system",
+    "solar panel cleaning robot",
+    "solar panel cleaning robot price in india",
+    "solar panel cleaning system automatic",
+    "solar panel cleaning system",
+    "automatic solar panel cleaning machine",
+    "average performance ratio solar",
+    "automatic solar panel cleaner",
+    "automatic solar panel cleaning robot"
+  ],
+  "opportunities": [
+    {
+      "query": "automatic solar panel cleaning system",
+      "clicks": 17,
+      "impressions": 665,
+      "ctr": 0.02556390977443609,
+      "position": 10.377443609022556,
+      "score": 2674.6225563909775,
+      "reason": "striking_distance"
+    },
+    {
+      "query": "automatic solar cleaning system",
+      "clicks": 2,
+      "impressions": 161,
+      "ctr": 0.012422360248447204,
+      "position": 10.503105590062113,
+      "score": 658.4968944099379,
+      "reason": "striking_distance"
+    },
+    {
+      "query": "solar cleaning system automatic",
+      "clicks": 4,
+      "impressions": 148,
+      "ctr": 0.02702702702702703,
+      "position": 8.202702702702702,
+      "score": 608.7972972972973,
+      "reason": "striking_distance"
+    },
+    {
+      "query": "solar automatic cleaning system",
+      "clicks": 4,
+      "impressions": 142,
+      "ctr": 0.028169014084507043,
+      "position": 8.97887323943662,
+      "score": 584.0211267605633,
+      "reason": "striking_distance"
+    },
+    {
+      "query": "biggest solar plant in india",
+      "clicks": 0,
+      "impressions": 131,
+      "ctr": 0,
+      "position": 11.916030534351146,
+      "score": 537.0839694656488,
+      "reason": "striking_distance"
+    },
+    {
+      "query": "solar cleaning robot",
+      "clicks": 3,
+      "impressions": 121,
+      "ctr": 0.024793388429752067,
+      "position": 12.462809917355372,
+      "score": 496.53719008264466,
+      "reason": "striking_distance"
+    },
+    {
+      "query": "solar auto cleaning system",
+      "clicks": 2,
+      "impressions": 116,
+      "ctr": 0.017241379310344827,
+      "position": 9.53448275862069,
+      "score": 479.4655172413793,
+      "reason": "striking_distance"
+    },
+    {
+      "query": "solar panel cleaning robot",
+      "clicks": 6,
+      "impressions": 103,
+      "ctr": 0.05825242718446602,
+      "position": 21.49514563106796,
+      "score": 415.50485436893206,
+      "reason": "striking_distance"
+    },
+    {
+      "query": "solar panel cleaning robot price in india",
+      "clicks": 6,
+      "impressions": 96,
+      "ctr": 0.0625,
+      "position": 9.166666666666666,
+      "score": 399.8333333333333,
+      "reason": "striking_distance"
+    },
+    {
+      "query": "solar panel cleaning system automatic",
+      "clicks": 2,
+      "impressions": 88,
+      "ctr": 0.022727272727272728,
+      "position": 9.659090909090908,
+      "score": 367.34090909090907,
+      "reason": "striking_distance"
+    },
+    {
+      "query": "solar panel cleaning system",
+      "clicks": 2,
+      "impressions": 81,
+      "ctr": 0.024691358024691357,
+      "position": 15.691358024691358,
+      "score": 333.30864197530866,
+      "reason": "striking_distance"
+    },
+    {
+      "query": "automatic solar panel cleaning machine",
+      "clicks": 3,
+      "impressions": 79,
+      "ctr": 0.0379746835443038,
+      "position": 9.936708860759493,
+      "score": 331.0632911392405,
+      "reason": "striking_distance"
+    },
+    {
+      "query": "average performance ratio solar",
+      "clicks": 0,
+      "impressions": 56,
+      "ctr": 0,
+      "position": 42.892857142857146,
+      "score": 280,
+      "reason": "low_ctr"
+    },
+    {
+      "query": "automatic solar panel cleaner",
+      "clicks": 1,
+      "impressions": 67,
+      "ctr": 0.014925373134328358,
+      "position": 14.417910447761194,
+      "score": 278.5820895522388,
+      "reason": "striking_distance"
+    },
+    {
+      "query": "automatic solar panel cleaning robot",
+      "clicks": 3,
+      "impressions": 65,
+      "ctr": 0.046153846153846156,
+      "position": 24.16923076923077,
+      "score": 260.83076923076925,
+      "reason": "striking_distance"
+    }
+  ]
 }

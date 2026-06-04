@@ -313,6 +313,7 @@ function main() {
         seoKeyword: primaryKeyword,
         usedUrls: usedImages,
         rowIndex: i,
+        slug,
       });
 
       let record = sanitizeProjectRecord(

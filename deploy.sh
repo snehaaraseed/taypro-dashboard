@@ -250,17 +250,59 @@ else
 fi
 scp -q -i "$SSH_KEY" \
     "$LOCAL_PATH/scripts/patch-production-gsc-env.sh" \
+    "$LOCAL_PATH/scripts/cron-sync-gsc-boost.sh" \
+    "$LOCAL_PATH/scripts/install-gsc-sync-cron.sh" \
     "$REMOTE_HOST:$REMOTE_PATH/scripts/"
-ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
+
+GSC_OAUTH_ENV_SNIP=""
+if [ -f "$LOCAL_PATH/.env.local" ]; then
+    GSC_OAUTH_ENV_SNIP=$(mktemp)
+    grep -E '^GSC_OAUTH_CLIENT_ID=|^GSC_OAUTH_CLIENT_SECRET=' "$LOCAL_PATH/.env.local" >> "$GSC_OAUTH_ENV_SNIP" || true
+    echo 'GSC_OAUTH_REDIRECT_URI=https://taypro.in/api/admin/gsc/oauth/callback' >> "$GSC_OAUTH_ENV_SNIP"
+    scp -q -i "$SSH_KEY" \
+        "$GSC_OAUTH_ENV_SNIP" \
+        "$REMOTE_HOST:$REMOTE_PATH/secrets/gsc-oauth-production.env"
+    rm -f "$GSC_OAUTH_ENV_SNIP"
+    echo -e "${GREEN}  ✅ Uploaded GSC OAuth env (production redirect URI)${NC}"
+fi
+
+for gsc_data in seo-gsc-boost.json gsc-latest-report.json gsc-oauth-tokens.json; do
+    if [ -f "$LOCAL_PATH/data/$gsc_data" ]; then
+        ssh -i "$SSH_KEY" "$REMOTE_HOST" "mkdir -p $REMOTE_PATH/data"
+        scp -q -i "$SSH_KEY" \
+            "$LOCAL_PATH/data/$gsc_data" \
+            "$REMOTE_HOST:$REMOTE_PATH/data/$gsc_data"
+        if [ "$gsc_data" = "gsc-oauth-tokens.json" ]; then
+            ssh -i "$SSH_KEY" "$REMOTE_HOST" \
+                "chmod 600 $REMOTE_PATH/data/gsc-oauth-tokens.json 2>/dev/null || true"
+        fi
+        echo -e "${GREEN}  ✅ Uploaded data/$gsc_data${NC}"
+    fi
+done
+
+ssh -i "$SSH_KEY" "$REMOTE_HOST" << EOF
     set -e
     cd /var/www/taypro-dashboard
     chmod +x scripts/patch-production-gsc-env.sh
-    ./scripts/patch-production-gsc-env.sh /var/www/taypro-dashboard
+    OAUTH_FILE=""
+    if [ -f secrets/gsc-oauth-production.env ]; then
+        OAUTH_FILE="$REMOTE_PATH/secrets/gsc-oauth-production.env"
+    fi
+    if [ -n "\$OAUTH_FILE" ]; then
+        ./scripts/patch-production-gsc-env.sh /var/www/taypro-dashboard "\$OAUTH_FILE"
+    else
+        ./scripts/patch-production-gsc-env.sh /var/www/taypro-dashboard
+    fi
     if [ -f .env.production ] && [ -d .next/standalone ]; then
         cp -a .env.production .next/standalone/.env.production
         chmod 600 .next/standalone/.env.production 2>/dev/null || true
         echo "  ✅ Synced .env.production → standalone (GSC vars)"
     fi
+    if [ -f data/gsc-oauth-tokens.json ] && [ -d .next/standalone/data ]; then
+        cp -a data/gsc-oauth-tokens.json .next/standalone/data/ 2>/dev/null || true
+    fi
+    chmod +x scripts/cron-sync-gsc-boost.sh scripts/install-gsc-sync-cron.sh 2>/dev/null || true
+    ./scripts/install-gsc-sync-cron.sh
 EOF
 step_done
 echo ""

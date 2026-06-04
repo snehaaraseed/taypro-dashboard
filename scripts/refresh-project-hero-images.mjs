@@ -35,6 +35,7 @@ for (let i = 0; i < rows.length; i++) {
     seoKeyword: "solar panel cleaning robot India",
     usedUrls,
     rowIndex: i,
+    slug,
   });
   if (!dryRun) {
     update.run({

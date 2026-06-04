@@ -37,9 +37,25 @@ set_kv "GSC_MIN_IMPRESSIONS" "15"
 set_kv "GSC_BOOST_MAX_KEYWORDS" "15"
 set_kv "TAYPRO_CMS_ROOT" "$ROOT"
 
-# OAuth (recommended): set GSC_OAUTH_CLIENT_ID, GSC_OAUTH_CLIENT_SECRET,
-# GSC_OAUTH_REDIRECT_URI=https://taypro.in/api/admin/gsc/oauth/callback in .env.production
-# Then connect once at https://taypro.in/admin/gsc
+# Optional: OAuth lines from deploy-uploaded file (secrets/gsc-oauth-production.env)
+OAUTH_ENV_FILE="${2:-}"
+if [ -n "$OAUTH_ENV_FILE" ] && [ -f "$OAUTH_ENV_FILE" ]; then
+  while IFS= read -r line || [ -n "$line" ]; do
+    line="${line%%#*}"
+    line="${line%"${line##*[![:space:]]}"}"
+    [ -z "$line" ] && continue
+    key="${line%%=*}"
+    val="${line#*=}"
+    [ -z "$key" ] || [ -z "$val" ] && continue
+    case "$key" in
+      GSC_OAUTH_CLIENT_ID|GSC_OAUTH_CLIENT_SECRET|GSC_OAUTH_REDIRECT_URI)
+        set_kv "$key" "$val"
+        ;;
+    esac
+  done < "$OAUTH_ENV_FILE"
+  chmod 600 "$OAUTH_ENV_FILE" 2>/dev/null || true
+  echo "  ✅ GSC OAuth client vars applied from $(basename "$OAUTH_ENV_FILE")"
+fi
 
 if [ ! -f "$GSC_KEY" ]; then
   echo "  ⚠️  Missing $GSC_KEY — deploy must upload secrets/gsc-service-account.json"

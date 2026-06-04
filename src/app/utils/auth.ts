@@ -43,7 +43,8 @@ export async function setAdminAuth(password: string): Promise<boolean> {
     cookieStore.set(COOKIE_NAME, token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      // lax: required so admin cookie is sent when Google redirects back to OAuth callback
+      sameSite: "lax",
       maxAge: COOKIE_MAX_AGE,
       path: "/",
     });

@@ -3,9 +3,12 @@
 set -euo pipefail
 
 ROOT="${TAYPRO_APP_ROOT:-/var/www/taypro-dashboard}"
-LOG="${GSC_SYNC_LOG:-/var/log/gsc-sync.log}"
+# Default under app dir — ubuntu cron often cannot write new files in /var/log.
+LOG="${GSC_SYNC_LOG:-$ROOT/logs/gsc-sync.log}"
 ENV_FILE="$ROOT/.env.production"
 BASE_URL="${TAYPRO_BASE_URL:-http://127.0.0.1:3000}"
+
+mkdir -p "$(dirname "$LOG")"
 
 if [ ! -f "$ENV_FILE" ]; then
   echo "$(date -Is) ERROR: missing $ENV_FILE" >> "$LOG"

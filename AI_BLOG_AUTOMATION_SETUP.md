@@ -50,7 +50,7 @@ curl http://localhost:3000/api/automation/generate-blog
 
 **Models:** All text generation uses **Google AI Studio free tier** only (`gemini-3.1-flash-lite` / `gemini-3.1-flash-lite-preview`). Paid model IDs in env are ignored with a console warning.
 
-**GSC closed loop (recommended):** Weekly `POST /api/automation/sync-gsc` pulls Search Console query data and refreshes `data/seo-gsc-boost.json` + `data/gsc-latest-report.json`. Setup: `docs/GSC_API_CLOSED_LOOP.md`. Cron: `scripts/cron-sync-gsc-boost.sh` (e.g. Monday morning). Manual fallback: paste queries into `seo-gsc-boost.json` `keywords` array.
+**GSC closed loop (recommended):** Weekly `POST /api/automation/sync-gsc` pulls Search Console query data and refreshes `data/seo-gsc-boost.json` + `data/gsc-latest-report.json`. Setup: `docs/GSC_API_CLOSED_LOOP.md`. On production after deploy: `npm run ops:install-gsc-cron` (or `bash scripts/install-gsc-sync-cron.sh`). Logs: `logs/gsc-sync.log`. Manual fallback: paste queries into `seo-gsc-boost.json` `keywords` array.
 
 **Translations** — run in the **evening** (after the writer window), up to 10 published blogs (hi/ar/ja/bn). New posts are not translated immediately on publish.
 
@@ -74,6 +74,9 @@ GEMINI_CALL_DELAY_MS=5000
 
 # Translations: 18:00 IST = 12:30 UTC
 30 12 * * * /var/www/taypro-dashboard/scripts/cron-translate-blogs-daily.sh
+
+# GSC boost refresh: Monday 06:30 IST = 01:00 UTC
+0 1 * * 1 /var/www/taypro-dashboard/scripts/cron-sync-gsc-boost.sh
 ```
 
 The bash script still sets `TZ=Asia/Kolkata` for the random 9:00–15:00 window and daily cap checks.

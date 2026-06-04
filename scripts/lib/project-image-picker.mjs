@@ -1,12 +1,18 @@
 import fs from "fs";
 import path from "path";
+import {
+  PROJECT_HERO_FALLBACK,
+  resolveProjectHeroForSlug,
+} from "./project-hero-image-map.mjs";
 
 const IMAGE_EXT = /\.(jpe?g|png|webp|gif)$/i;
 const ASSET_BLOCKLIST =
   /favicon|logo|spiral|dashboard\.png|logoforwhitebg/i;
+/** WordPress-style thumbs are not hero images. */
+const UPLOAD_THUMB_RE = /-\d{2,4}x\d{2,4}\.(jpe?g|png|webp)$/i;
 
 const OG_PRESETS = [
-  { path: "/tayproasset/taypro-project.png", alt: "Taypro utility-scale solar projects with cleaning robots", tags: ["project", "plant", "farm"] },
+  { path: PROJECT_HERO_FALLBACK, alt: "Taypro utility-scale solar projects with cleaning robots", tags: ["project", "plant", "farm"] },
   { path: "/tayproasset/taypro-robotImage.png", alt: "Taypro solar panel cleaning robot", tags: ["robot", "clean"] },
   { path: "/tayproasset/robots.png", alt: "Taypro robotic solar cleaning fleet", tags: ["robot", "farm", "plant"] },
   { path: "/tayprorobots/taypro-modelAcopy.png", alt: "Taypro GLYDE automatic cleaning robot", tags: ["automatic", "glyde", "model-a"] },
@@ -70,6 +76,7 @@ function scanUploads(publicRoot, limit = 80) {
         continue;
       }
       if (!IMAGE_EXT.test(entry.name)) continue;
+      if (UPLOAD_THUMB_RE.test(entry.name)) continue;
       const rel = path.relative(publicRoot, full).replace(/\\/g, "/");
       const url = `/${rel}`;
       out.push({
@@ -127,14 +134,29 @@ function scoreCandidate(c, title, seoKeyword, rowIndex) {
   return score;
 }
 
+function fileExists(publicRoot, urlPath) {
+  const rel = urlPath.replace(/^\//, "");
+  return fs.existsSync(path.join(publicRoot, rel));
+}
+
 export function pickProjectHeroImage({
   publicRoot,
   title,
   seoKeyword,
   usedUrls,
   rowIndex = 0,
+  slug,
 }) {
-  const pool = collectImageCandidates(publicRoot);
+  const mapped = slug ? resolveProjectHeroForSlug(slug) : null;
+  if (mapped && fileExists(publicRoot, mapped)) {
+    usedUrls.add(mapped);
+    const alt = `${title} - Solar Panel Cleaning Robot Installation Project by Taypro`;
+    return { url: mapped, alt: alt.slice(0, 200) };
+  }
+
+  const pool = collectImageCandidates(publicRoot).filter((c) =>
+    fileExists(publicRoot, c.url)
+  );
   const available = pool.filter((c) => !usedUrls.has(c.url));
   const ranked = [...(available.length ? available : pool)].sort(
     (a, b) =>

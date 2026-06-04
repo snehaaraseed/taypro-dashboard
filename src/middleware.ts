@@ -228,12 +228,38 @@ export async function middleware(request: NextRequest) {
       pathname.startsWith("/api/admin/") &&
       !pathname.startsWith("/api/admin/auth/")
     ) {
+      const isGscOAuthCallback =
+        pathname === "/api/admin/gsc/oauth/callback";
+      const oauthState = request.cookies.get("gsc-oauth-state")?.value;
+      const callbackState = request.nextUrl.searchParams.get("state");
+      const oauthStateValid =
+        isGscOAuthCallback &&
+        Boolean(
+          oauthState &&
+            callbackState &&
+            oauthState === callbackState
+        );
+
       const authCookie = request.cookies.get(COOKIE_NAME);
-      if (!authCookie?.value) {
-        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-      }
-      const isValid = await verifyToken(authCookie.value);
-      if (!isValid) {
+      const isValid =
+        authCookie?.value && (await verifyToken(authCookie.value));
+
+      if (!isValid && !oauthStateValid) {
+        const isBrowserGet =
+          request.method === "GET" &&
+          (request.headers.get("accept")?.includes("text/html") ||
+            pathname.includes("/oauth/"));
+
+        if (isBrowserGet) {
+          const login = new URL("/admin", request.url);
+          login.searchParams.set("next", "/admin/gsc");
+          return applySecurityAndCacheHeaders(
+            request,
+            NextResponse.redirect(login),
+            pathname
+          );
+        }
+
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
       }
     }

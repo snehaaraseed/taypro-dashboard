@@ -34,7 +34,8 @@ interface ProjectPageProps {
   params: Promise<{ locale: string; slug: string }>;
 }
 
-export const revalidate = 3600;
+/** Newly published slugs must render on demand (layout uses headers()). */
+export const dynamic = "force-dynamic";
 
 export async function generateStaticParams(): Promise<ProjectSlugParams[]> {
   const { listAllProjects } = await import("@/lib/cms/projectService");

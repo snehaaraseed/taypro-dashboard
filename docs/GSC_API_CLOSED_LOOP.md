@@ -66,9 +66,14 @@ Check `data/seo-gsc-boost.json` and `data/gsc-latest-report.json`.
 ## Weekly cron (server)
 
 ```bash
-# Monday 06:30 IST (UTC crontab example — adjust for your host)
-30 1 * * 1 /var/www/taypro-dashboard/scripts/cron-sync-gsc-boost.sh
+# On the server (idempotent):
+bash /var/www/taypro-dashboard/scripts/install-gsc-sync-cron.sh
+
+# Or add manually — Monday 06:30 IST = 01:00 UTC (host clock UTC)
+0 1 * * 1 /var/www/taypro-dashboard/scripts/cron-sync-gsc-boost.sh
 ```
+
+Logs: `/var/www/taypro-dashboard/logs/gsc-sync.log`
 
 Or add to `package.json` locally:
 
