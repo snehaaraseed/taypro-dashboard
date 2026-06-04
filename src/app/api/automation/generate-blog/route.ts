@@ -67,7 +67,11 @@ export async function POST(request: NextRequest) {
           topic.category,
           topic.seoBrief,
           editorialContext,
-          { author: bylineAuthor }
+          {
+            author: bylineAuthor,
+            useOutlinePass: genAttempt >= 1,
+            preferQualityModel: genAttempt >= 1,
+          }
         );
 
         if (!blogData.title || !blogData.description || !blogData.content) {

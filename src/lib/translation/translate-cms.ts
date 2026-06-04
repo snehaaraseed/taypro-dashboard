@@ -9,6 +9,10 @@ import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { SOURCE_LOCALE, TARGET_LOCALES } from "./config";
 import { parseBlogFaqs, serializeBlogFaqs } from "@/lib/cms/blog-faqs";
 import {
+  assertTranslatedBlogValid,
+  BlogContentValidationError,
+} from "@/lib/seo/blog-content-validator";
+import {
   translateBlogFaqsWithGemini,
   translateFieldsWithGemini,
   translateStringListWithGemini,
@@ -231,19 +235,61 @@ export async function translatePublishedBlog(
 
       const sourceFaqs = parseBlogFaqs(source.faqs);
 
-      const translated = await translateFieldsWithGemini(
-        {
-          title: source.title,
-          description: source.description,
-          content: source.content,
-          featuredImageAlt: source.featuredImageAlt,
-        },
-        locale
-      );
+      let translated: Awaited<
+        ReturnType<typeof translateFieldsWithGemini>
+      > | null = null;
+      let translatedFaqs: Awaited<ReturnType<typeof translateBlogFaqsWithGemini>> =
+        [];
+      const maxTranslationAttempts = 2;
 
-      const translatedFaqs = sourceFaqs.length
-        ? await translateBlogFaqsWithGemini(sourceFaqs, locale)
-        : [];
+      for (let attempt = 0; attempt < maxTranslationAttempts; attempt++) {
+        try {
+          const fields = await translateFieldsWithGemini(
+            {
+              title: source.title,
+              description: source.description,
+              content: source.content,
+              featuredImageAlt: source.featuredImageAlt,
+            },
+            locale
+          );
+
+          const faqs = sourceFaqs.length
+            ? await translateBlogFaqsWithGemini(sourceFaqs, locale)
+            : [];
+
+          assertTranslatedBlogValid({
+            sourceTitle: source.title,
+            sourceDescription: source.description,
+            sourceContent: source.content,
+            sourceFaqs,
+            translatedTitle: fields.title,
+            translatedDescription: fields.description,
+            translatedContent: fields.content,
+            translatedFaqs: faqs,
+          });
+
+          translated = fields;
+          translatedFaqs = faqs;
+          break;
+        } catch (error) {
+          if (
+            attempt < maxTranslationAttempts - 1 &&
+            error instanceof BlogContentValidationError
+          ) {
+            console.warn(
+              `[translate] blog ${slug} (${locale}) validation failed, retrying:`,
+              error.message
+            );
+            continue;
+          }
+          throw error;
+        }
+      }
+
+      if (!translated) {
+        throw new Error(`Translation failed for ${slug} (${locale})`);
+      }
 
       await upsertBlogLocale(slug, locale, source, {
         title: translated.title,

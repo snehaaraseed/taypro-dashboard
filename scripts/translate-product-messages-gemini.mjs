@@ -103,7 +103,9 @@ async function main() {
   const { locales: localeCodes, files: fileNames } = parseArgs();
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({
-    model: process.env.GEMINI_TRANSLATION_MODEL?.trim() || "gemini-2.0-flash",
+    model:
+      process.env.GEMINI_TRANSLATION_MODEL?.trim() ||
+      "gemini-3.1-flash-lite",
   });
 
   const localeDefs = LOCALES.filter((l) => localeCodes.includes(l.code));

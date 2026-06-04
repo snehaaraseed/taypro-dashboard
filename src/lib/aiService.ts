@@ -32,15 +32,8 @@ import {
   type BlogFaqItem,
 } from "@/lib/cms/blog-faqs";
 import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
-
-/** Free tier: prefer 3.1 Flash Lite (500 RPD) over 2.5 Flash (20 RPD). */
-const DEFAULT_BLOG_MODEL = "gemini-3.1-flash-lite";
-
-const BLOG_MODEL_CANDIDATES = [
-  process.env.GEMINI_BLOG_MODEL?.trim(),
-  DEFAULT_BLOG_MODEL,
-  "gemini-3.1-flash-lite-preview",
-].filter((m): m is string => Boolean(m));
+import { freeGeminiTextModelCandidates } from "@/lib/gemini/free-tier-models";
+import { assertGeneratedBlogValid } from "@/lib/seo/blog-content-validator";
 
 function getGenAI(): GoogleGenerativeAI {
   const key = process.env.GEMINI_API_KEY?.trim();
@@ -57,18 +50,32 @@ function isQuotaError(error: unknown): boolean {
 
 function quotaErrorMessage(error: unknown): string {
   const base =
-    "Gemini API quota exceeded. Enable billing at https://aistudio.google.com/apikey or retry after the daily limit resets.";
+    "Gemini API free-tier quota exceeded. Retry after the daily limit resets (Google AI Studio usage).";
   if (error instanceof Error && error.message) {
     return `${base} (${error.message.slice(0, 200)})`;
   }
   return base;
 }
 
-async function generateText(prompt: string): Promise<string> {
+type GenerateTextOptions = {
+  /** On retry, rotate to another free-tier model ID (e.g. flash-lite-preview). */
+  preferQualityModel?: boolean;
+};
+
+function blogModelCandidates(options?: GenerateTextOptions): string[] {
+  return freeGeminiTextModelCandidates({
+    preferRetryVariant: options?.preferQualityModel,
+  });
+}
+
+async function generateText(
+  prompt: string,
+  options?: GenerateTextOptions
+): Promise<string> {
   const genAI = getGenAI();
   let lastError: unknown;
 
-  for (const modelName of BLOG_MODEL_CANDIDATES) {
+  for (const modelName of blogModelCandidates(options)) {
     try {
       const model = genAI.getGenerativeModel({ model: modelName });
       let text: string;
@@ -264,6 +271,12 @@ export type GenerateBlogContentOptions = {
   focusedKeywords?: string[];
   /** Byline author — bio/role steer topic voice (automation picks randomly) */
   author?: BlogAuthor;
+  /** Second-pass: Gemini outline first, then full draft (used on automation retry). */
+  useOutlinePass?: boolean;
+  /** Retry with alternate free-tier model (GEMINI_BLOG_RETRY_MODEL, default flash-lite-preview). */
+  preferQualityModel?: boolean;
+  /** Search intent override when seoBrief is null (admin manual generate). */
+  searchIntent?: string;
 };
 
 function formatFocusedKeywordsBlock(
@@ -302,6 +315,54 @@ const PROJECT_CASE_STUDY_RULES = `PROJECT CASE STUDY (not a blog article):
 - End with a short "Key outcomes" or "Why this matters" H2 with 3–5 bullets.
 - Do NOT invent client names, exact ROI percentages, or Taypro specs not in the knowledge base.`;
 
+async function generateBlogOutline(
+  topic: string,
+  _category: string,
+  seoBrief: SeoKeywordBrief | null | undefined,
+  editorialContext: string,
+  options?: GenerateBlogContentOptions
+): Promise<string> {
+  const primaryKeyword =
+    options?.focusedKeywords?.[0]?.trim() || seoBrief?.primary;
+  const seoBlock = seoBrief ? `\n${formatSeoPromptBlock(seoBrief)}\n` : "";
+  const authorBlock = options?.author
+    ? `\n${formatAuthorVoicePrompt(options.author)}\n`
+    : "";
+
+  const prompt = `You are a senior SEO editor for Taypro (utility-scale solar cleaning robots, India).
+
+Plan a long-form blog outline for: ${topic}
+Category: ${_category}
+${seoBlock}
+${editorialContext}
+${authorBlock}
+${ANTI_GENERIC_WRITING_RULES}
+${SEO_AND_READER_RULES}
+${AI_OVERVIEW_SNIPPET_RULES}
+${LONG_FORM_CONTENT_RULES}
+
+Return ONLY valid JSON:
+{
+  "h2Outline": ["Quick answer", "Question-shaped H2 here", "..."],
+  "quickAnswerBullets": ["bullet 1 with specific range", "..."],
+  "faqQuestions": ["primary keyword as question", "...", "...", "..."]
+}
+Rules:
+- h2Outline: 6–10 items; first must be "Quick answer" or "Summary for plant managers"; include one People Also Ask style question H2.
+- quickAnswerBullets: 3–5 specific bullets (MW, %, days, INR ranges as industry-typical).
+- faqQuestions: exactly 4 natural search queries; first must use the primary SEO keyword when provided.`;
+
+  const text = await generateText(prompt, {
+    preferQualityModel: options?.preferQualityModel,
+  });
+  try {
+    const parsed = JSON.parse(text.match(/\{[\s\S]*\}/)?.[0] ?? text);
+    return JSON.stringify(parsed, null, 2);
+  } catch {
+    return text.slice(0, 4000);
+  }
+}
+
 export async function generateBlogContent(
   topic: string,
   _category: string,
@@ -311,6 +372,8 @@ export async function generateBlogContent(
 ): Promise<GeneratedBlogContent> {
   const primaryKeyword =
     options?.focusedKeywords?.[0]?.trim() || seoBrief?.primary;
+  const searchIntent =
+    seoBrief?.searchIntent ?? options?.searchIntent?.trim();
   const knowledgeContext = await buildBlogKnowledgeContext({
     topic,
     seoKeyword: primaryKeyword,
@@ -333,6 +396,26 @@ ${userBrief}
     options?.focusedKeywords ?? [],
     "blog"
   );
+
+  let outlineBlock = "";
+  if (options?.useOutlinePass) {
+    const outlineJson = await generateBlogOutline(
+      topic,
+      _category,
+      seoBrief,
+      editorial,
+      options
+    );
+    outlineBlock = `
+APPROVED OUTLINE (follow section order and facts; expand each H2 into full sections):
+${outlineJson}
+`;
+  }
+
+  const textGenOptions: GenerateTextOptions = {
+    preferQualityModel: options?.preferQualityModel,
+  };
+
   const prompt = `You are an expert content writer specializing in solar panel cleaning robots and solar power plant operations & maintenance. Write a comprehensive, SEO-optimized blog post about: ${topic}
 
 ${editorial}
@@ -340,6 +423,7 @@ ${authorBlock}
 ${briefBlock}
 ${focusedKeywordBlock}
 ${seoBlock}
+${outlineBlock}
 CRITICAL: Accuracy (product specs, public proof stats, site positioning)
 - Use ONLY the verified knowledge pack below. Do NOT invent features, specifications, fleet statistics, or product names.
 - If unsure about a product detail, omit it or state it generically.
@@ -385,14 +469,14 @@ Return the response in the following JSON format:
 }
 
 FAQ rules for the "faqs" array:
-- Include exactly 4 items (minimum 3, maximum 5).
+- Include exactly 4 items (required).
 - faqs[0] must ask the primary SEO question; its answer must match the Quick answer H2 facts.
 - Questions: 8–12 words, natural search queries (how often, how much, which is better, is X worth it).
 - Answers: first sentence = direct yes/no, number, or verdict; remaining sentences = context. Plain text only (no HTML).
 - Do not duplicate FAQ wording inside "content" HTML.`;
 
   try {
-    const text = await generateText(prompt);
+    const text = await generateText(prompt, textGenOptions);
 
     let blogData: {
       title: string;
@@ -418,9 +502,9 @@ FAQ rules for the "faqs" array:
     }
 
     const faqs = normalizeBlogFaqsInput(blogData.faqs);
-    if (faqs.length < 3) {
+    if (faqs.length < 4) {
       throw new Error(
-        "AI response must include at least 3 FAQs in the faqs array"
+        "AI response must include at least 4 FAQs in the faqs array"
       );
     }
 
@@ -433,7 +517,7 @@ FAQ rules for the "faqs" array:
       );
     }
 
-    return {
+    const result: GeneratedBlogContent = {
       title: sanitizeEmDash(blogData.title.trim()),
       description: sanitizeEmDash(blogData.description.trim()),
       content: sanitizeEmDash(blogData.content.trim()),
@@ -442,6 +526,17 @@ FAQ rules for the "faqs" array:
         answer: sanitizeEmDash(faq.answer),
       })),
     };
+
+    assertGeneratedBlogValid({
+      title: result.title,
+      description: result.description,
+      content: result.content,
+      faqs: result.faqs,
+      primaryKeyword,
+      searchIntent,
+    });
+
+    return result;
   } catch (error) {
     console.error("Error generating blog content:", error);
     throw new Error(

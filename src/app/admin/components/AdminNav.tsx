@@ -51,6 +51,16 @@ export default function AdminNav() {
               >
                 Projects
               </Link>
+              <Link
+                href="/admin/gsc"
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  pathname?.startsWith("/admin/gsc")
+                    ? "bg-blue-100 text-blue-700"
+                    : "text-gray-600 hover:text-[#052638] hover:bg-gray-100"
+                }`}
+              >
+                Search Console
+              </Link>
             </div>
           </div>
           <div className="flex items-center gap-4">

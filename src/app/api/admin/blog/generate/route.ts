@@ -6,7 +6,10 @@ import { isRetryableGenerationError } from "@/lib/seo/content-quality";
 import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
 import { pickBlogFeaturedImage } from "@/lib/seo/blog-image-picker";
 import { enrichBlogContentWithInlineImages } from "@/lib/seo/blog-inline-images";
-import { formatTopicCategory } from "@/lib/seo/keyword-stats";
+import {
+  formatTopicCategory,
+  inferSearchIntent,
+} from "@/lib/seo/keyword-stats";
 import {
   buildContentFingerprint,
   extractH2Headings,
@@ -88,7 +91,14 @@ export async function POST(request: NextRequest) {
           categoryName,
           null,
           editorialContext,
-          { userBrief: brief, focusedKeywords, author: bylineAuthor }
+          {
+            userBrief: brief,
+            focusedKeywords,
+            author: bylineAuthor,
+            useOutlinePass: genAttempt >= 1,
+            preferQualityModel: genAttempt >= 1,
+            searchIntent: inferSearchIntent(seoKeyword),
+          }
         );
 
         if (!blogData.title || !blogData.description || !blogData.content) {

@@ -13,6 +13,7 @@
     "cms:translate:blogs": "node scripts/translate-cms-content.mjs --blogs",
     "cms:translate:projects": "node scripts/translate-cms-content.mjs --projects-only",
     "cms:translate-blogs-daily": "bash scripts/cron-translate-blogs-daily.sh",
+    "gsc:sync": "bash scripts/cron-sync-gsc-boost.sh",
     "ops:install-logrotate": "bash scripts/install-logrotate-taypro.sh",
     "verify:roi-india": "tsx scripts/verify-india-roi-parity.mjs",
     "verify:fleet-esg": "tsx scripts/verify-fleet-esg.mjs",

@@ -97,12 +97,13 @@ export function isGenericContentError(error: unknown): boolean {
   return msg.includes("too generic");
 }
 
-/** Retry automation when content is vague or overlaps an existing post. */
+/** Retry automation when content is vague, invalid structure, or overlaps an existing post. */
 export function isRetryableGenerationError(error: unknown): boolean {
   const msg = error instanceof Error ? error.message : String(error);
   return (
     isGenericContentError(error) ||
     msg.includes("too similar") ||
-    msg.includes("Blog too similar")
+    msg.includes("Blog too similar") ||
+    msg.includes("Blog structure validation failed")
   );
 }

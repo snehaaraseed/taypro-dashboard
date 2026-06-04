@@ -190,6 +190,11 @@ async function handleAdminAuth(request: NextRequest): Promise<NextResponse> {
   return withAdminHeaders(NextResponse.next());
 }
 
+/** SEO crawl files: skip i18n/geo/cookies; www→apex redirect still applies below. */
+function isSeoCrawlFile(pathname: string): boolean {
+  return pathname === "/robots.txt" || pathname === "/sitemap.xml";
+}
+
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const url = request.nextUrl.clone();
@@ -208,6 +213,14 @@ export async function middleware(request: NextRequest) {
 
   if (pathname.startsWith("/admin")) {
     return handleAdminAuth(request);
+  }
+
+  if (isSeoCrawlFile(pathname)) {
+    return applySecurityAndCacheHeaders(
+      request,
+      NextResponse.next(),
+      pathname
+    );
   }
 
   if (pathname.startsWith("/api")) {

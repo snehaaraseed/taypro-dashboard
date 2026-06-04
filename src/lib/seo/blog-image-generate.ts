@@ -17,7 +17,8 @@ export function getBlogImageProvider(): BlogImageProvider {
   if (process.env.POLLINATIONS_API_KEY?.trim()) {
     return "pollinations";
   }
-  return "imagen";
+  // Imagen requires paid Google AI billing — never default to it.
+  return "pollinations";
 }
 
 export function isImageGenerationError(error: unknown): boolean {

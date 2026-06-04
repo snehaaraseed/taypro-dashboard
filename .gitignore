@@ -37,6 +37,11 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# Google Search Console service account keys (see docs/GSC_API_CLOSED_LOOP.md)
+/secrets/
+gsc-service-account*.json
+data/gsc-oauth-tokens.json
+
 # vercel
 .vercel
 

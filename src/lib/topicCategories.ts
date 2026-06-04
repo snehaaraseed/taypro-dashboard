@@ -21,9 +21,10 @@ export const topicCategories: TopicCategory[] = [
     name: "Robot Models & Features",
     description: "Topics about specific robot models and their features",
     keywords: [
-      "Model A automatic features",
-      "Model B semi-automatic benefits",
-      "Model T single-axis tracker specifications",
+      "GLYDE dual-pass automatic features",
+      "NYUMA PBT single-pass cleaning",
+      "HELYX semi-automatic benefits",
+      "GLYDE-X tracker cleaning specifications",
       "robot model comparison",
       "cleaning robot capabilities",
     ],

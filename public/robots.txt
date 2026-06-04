@@ -1,0 +1,9 @@
+User-Agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /blog/add
+Disallow: /blog/db/
+
+Host: https://taypro.in
+Sitemap: https://taypro.in/sitemap.xml

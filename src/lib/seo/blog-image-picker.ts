@@ -16,12 +16,18 @@ import {
   shouldUseProductLibraryImage,
 } from "@/lib/seo/blog-image-strategy";
 import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
+import {
+  DEFAULT_FREE_GEMINI_TEXT_MODEL,
+  resolveFreeGeminiTextModel,
+} from "@/lib/gemini/free-tier-models";
 import type { BlogFeaturedImagePick } from "@/lib/seo/blog-image-types";
 
 export type { BlogFeaturedImagePick } from "@/lib/seo/blog-image-types";
 
-const PICKER_MODEL =
-  process.env.GEMINI_BLOG_MODEL?.trim() || "gemini-3.1-flash-lite";
+const PICKER_MODEL = resolveFreeGeminiTextModel(
+  process.env.GEMINI_BLOG_MODEL?.trim(),
+  DEFAULT_FREE_GEMINI_TEXT_MODEL
+);
 
 function getGenAI(): GoogleGenerativeAI {
   const key = process.env.GEMINI_API_KEY?.trim();

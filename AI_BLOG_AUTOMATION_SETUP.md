@@ -18,6 +18,15 @@ This system automatically generates unique, SEO-optimized blog posts daily about
    AUTOMATION_CRON_SECRET=long-random-secret-for-cron-only
    # Optional: pause after each Gemini text call (default 5000 ms; 0 = off). Helps 15 RPM free tier.
    GEMINI_CALL_DELAY_MS=5000
+   # Text models: FREE TIER ONLY (see src/lib/gemini/free-tier-models.ts)
+   # GEMINI_BLOG_MODEL=gemini-3.1-flash-lite
+   # GEMINI_BLOG_RETRY_MODEL=gemini-3.1-flash-lite-preview
+   # GEMINI_TRANSLATION_MODEL=gemini-3.1-flash-lite
+   # Optional: minimum body word count (default 2600)
+   BLOG_MIN_WORD_COUNT=2600
+   # Images: default library (no paid Imagen). Paid AI heroes only if you opt in:
+   # BLOG_IMAGE_MODE=hybrid
+   # BLOG_IMAGE_ALLOW_PAID=true
    ```
 
 ## Usage
@@ -37,7 +46,11 @@ curl http://localhost:3000/api/automation/generate-blog
 
 ### Automated daily schedule (production)
 
-**Blog writer** — max **1 published post per day**, at a **random time between 9:00 AM and 3:00 PM IST**. Each run: picks an **SEO keyword** (CSV queue) → **category** matched to that keyword → **CMS author** best matched to keyword + category via **expertise tags** (set in `/admin/authors`, or inferred from role/bio) → Gemini proposes **5 titles** (code picks one unique) → writes the post in that author’s voice (`published: true`).
+**Blog writer** — max **1 published post per day**, at a **random time between 9:00 AM and 3:00 PM IST**. Each run: picks an **SEO keyword** (`data/seo-blog-queue.json` first, then `data/seo-gsc-boost.json`, then scored CSV pool) → **category** matched to that keyword → **CMS author** best matched to keyword + category via **expertise tags** (set in `/admin/authors`, or inferred from role/bio) → Gemini proposes **5 titles** (code picks one unique) → writes the post in that author’s voice → **structure validation** (Quick answer H2, PAA H2, word count, FAQs, comparison tables) with up to **3 attempts** (retry uses outline pass + alternate **free** model ID) → (`published: true`).
+
+**Models:** All text generation uses **Google AI Studio free tier** only (`gemini-3.1-flash-lite` / `gemini-3.1-flash-lite-preview`). Paid model IDs in env are ignored with a console warning.
+
+**GSC closed loop (recommended):** Weekly `POST /api/automation/sync-gsc` pulls Search Console query data and refreshes `data/seo-gsc-boost.json` + `data/gsc-latest-report.json`. Setup: `docs/GSC_API_CLOSED_LOOP.md`. Cron: `scripts/cron-sync-gsc-boost.sh` (e.g. Monday morning). Manual fallback: paste queries into `seo-gsc-boost.json` `keywords` array.
 
 **Translations** — run in the **evening** (after the writer window), up to 10 published blogs (hi/ar/ja/bn). New posts are not translated immediately on publish.
 

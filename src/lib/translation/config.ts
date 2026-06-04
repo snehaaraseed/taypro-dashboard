@@ -3,6 +3,10 @@ import {
   LOCALE_LABELS,
   type TayproLocale,
 } from "@/i18n/markets";
+import {
+  DEFAULT_FREE_GEMINI_TEXT_MODEL,
+  resolveFreeGeminiTextModel,
+} from "@/lib/gemini/free-tier-models";
 
 /** Canonical CMS language, admin edits this version; translations are generated from it. */
 export const SOURCE_LOCALE: TayproLocale = "en";
@@ -16,8 +20,9 @@ export function localeDisplayName(locale: TayproLocale): string {
 }
 
 export function geminiTranslationModel(): string {
-  return (
-    process.env.GEMINI_TRANSLATION_MODEL?.trim() || "gemini-3.1-flash-lite"
+  return resolveFreeGeminiTextModel(
+    process.env.GEMINI_TRANSLATION_MODEL?.trim(),
+    DEFAULT_FREE_GEMINI_TEXT_MODEL
   );
 }
 

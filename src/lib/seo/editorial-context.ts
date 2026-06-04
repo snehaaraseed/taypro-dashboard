@@ -3,10 +3,13 @@ import "server-only";
 import { listAllBlogs } from "@/lib/cms/blogService";
 import { readPublishedTopics } from "@/lib/cms/topicService";
 import { SOURCE_LOCALE } from "@/lib/translation/config";
+import { listStalePublishedBlogs } from "@/lib/seo/blog-freshness";
 import {
   getUsedSeoKeywords,
   loadSeoKeywordRows,
 } from "@/lib/seo/keyword-stats";
+import { loadGscEditorialHint } from "@/lib/seo/gsc-sync";
+import { loadSeoBlogQueueKeywords } from "@/lib/seo/seo-blog-queue";
 
 const RECENT_POST_LIMIT = 15;
 const AUTOMATION_HISTORY_LIMIT = 40;
@@ -98,6 +101,21 @@ export async function formatEditorialContextPrompt(): Promise<string> {
     .slice(0, 4)
     .map((g) => `  - ${g}`);
 
+  const queue = loadSeoBlogQueueKeywords();
+  const nextQueued = queue.find((k) => !usedKeywords.includes(k));
+  const stalePosts = await listStalePublishedBlogs({
+    olderThanDays: 180,
+    limit: 5,
+  });
+  const gscHint = loadGscEditorialHint();
+  const staleLines =
+    stalePosts.length > 0
+      ? stalePosts.map(
+          (p) =>
+            `  - ${p.title} (${p.daysSinceUpdate}d since update) — write NEW angles, do not duplicate`
+        )
+      : ["  - (none flagged)"];
+
   return `${STRATEGY_CORE}
 
 CONTENT PROGRAM (do not repeat these topics or angles):
@@ -113,6 +131,11 @@ ${usedLines.join("\n")}
 Suggested angles not obvious in recent titles (pick one if it fits today's keyword):
 ${gapHints.length > 0 ? gapHints.join("\n") : "  - (cover the primary SEO keyword with a fresh utility-scale angle)"}
 
+Editorial queue (automation picks next unused): ${nextQueued ? `"${nextQueued}"` : "(queue complete — pool selection)"}
+
+Stale posts (do not cannibalize; if covering same theme, add new data/angle):
+${staleLines.join("\n")}
+${gscHint ? `\n${gscHint}\n` : ""}
 Rules for this draft:
 - Pick a NEW angle vs the recent list above; do not rehash the same headline theme.
 - Support Taypro pillars with 2–3 internal link mentions (paths above).

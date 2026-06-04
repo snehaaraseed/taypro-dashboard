@@ -215,6 +215,7 @@ rsync -avz "${RSYNC_EXTRA[@]}" --delete \
     --exclude '.env.production' \
     --exclude '.env.local' \
     --exclude '.env*.local' \
+    --exclude 'secrets/' \
     --exclude '.deploy-snapshots' \
     -e "ssh -i $SSH_KEY" \
     "$LOCAL_PATH/" \
@@ -234,9 +235,39 @@ EOF
 step_done
 echo ""
 
-# Step 2b: Backfill project HTML on server while legacy page.tsx still exists
+# Step 2b: GSC service account + production env (uploaded via scp; not in git/rsync)
+step_start "Step 2b: GSC secrets and env"
+if [ -f "$LOCAL_PATH/secrets/gsc-service-account.json" ]; then
+    ssh -i "$SSH_KEY" "$REMOTE_HOST" "mkdir -p $REMOTE_PATH/secrets"
+    scp -q -i "$SSH_KEY" \
+        "$LOCAL_PATH/secrets/gsc-service-account.json" \
+        "$REMOTE_HOST:$REMOTE_PATH/secrets/gsc-service-account.json"
+    ssh -i "$SSH_KEY" "$REMOTE_HOST" \
+        "chmod 600 $REMOTE_PATH/secrets/gsc-service-account.json 2>/dev/null || true"
+    echo -e "${GREEN}  ✅ Uploaded gsc-service-account.json${NC}"
+else
+    echo -e "${YELLOW}  ⚠️  No local secrets/gsc-service-account.json — skip upload${NC}"
+fi
+scp -q -i "$SSH_KEY" \
+    "$LOCAL_PATH/scripts/patch-production-gsc-env.sh" \
+    "$REMOTE_HOST:$REMOTE_PATH/scripts/"
+ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
+    set -e
+    cd /var/www/taypro-dashboard
+    chmod +x scripts/patch-production-gsc-env.sh
+    ./scripts/patch-production-gsc-env.sh /var/www/taypro-dashboard
+    if [ -f .env.production ] && [ -d .next/standalone ]; then
+        cp -a .env.production .next/standalone/.env.production
+        chmod 600 .next/standalone/.env.production 2>/dev/null || true
+        echo "  ✅ Synced .env.production → standalone (GSC vars)"
+    fi
+EOF
+step_done
+echo ""
+
+# Step 2c: Backfill project HTML on server while legacy page.tsx still exists
 if [ "$DEPLOY_FAST" != "1" ]; then
-    step_start "Step 2b: Legacy project backfill (if needed)"
+    step_start "Step 2c: Legacy project backfill (if needed)"
     ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
         set -e
         cd /var/www/taypro-dashboard

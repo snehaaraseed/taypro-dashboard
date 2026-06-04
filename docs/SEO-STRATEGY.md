@@ -275,8 +275,8 @@ Add to `next.config.ts` → `redirects()` if any old URLs still receive traffic 
 **Automation:** align `src/lib/topicCategories.ts` with ROI, O&M, dust, regional India — avoid generic "solar panels" topics.  
 **Files:** `src/lib/aiService.ts`, `src/app/api/automation/generate-blog/route.ts`
 
-- [ ] Add SEO blog titles queue (optional `data/seo-blog-queue.json`)  
-- [ ] Human-edit all Tier B posts before publish  
+- [x] Add SEO blog titles queue (`data/seo-blog-queue.json`, wired in `pickSeoKeywordBrief`)  
+- [ ] Human-edit all Tier B posts before publish (optional; automation still auto-publishes)  
 
 ### 5.3 E-E-A-T & projects
 
@@ -388,8 +388,8 @@ Semrush On-Page Checker may still target wrong homepage keywords. **Align tool w
 ### Optional repo tasks (not started)
 
 - [ ] Create `data/seo-keywords.csv` — scored keywords with `tier`, `url`, `content_type`  
-- [ ] Create `data/seo-blog-queue.json` — ordered blog titles from §5.2  
-- [ ] Wire blog queue into `generateUniqueTopic()`  
+- [x] Create `data/seo-blog-queue.json` — ordered keywords from §5.2  
+- [x] Wire blog queue into `pickSeoKeywordBrief()` (automation planning)  
 - [ ] Add legacy redirects batch to `next.config.ts`  
 
 ---

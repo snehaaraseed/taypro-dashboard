@@ -55,8 +55,15 @@ export function shouldUseProductLibraryImage(input: {
   return false;
 }
 
+/**
+ * Default `library` (Taypro assets only) — no paid Imagen.
+ * Set BLOG_IMAGE_MODE=hybrid|generate and BLOG_IMAGE_ALLOW_PAID=true to enable AI hero generation.
+ */
 export function getBlogImageMode(): "hybrid" | "library" | "generate" {
   const mode = process.env.BLOG_IMAGE_MODE?.trim().toLowerCase();
   if (mode === "library" || mode === "generate") return mode;
-  return "hybrid";
+  if (mode === "hybrid" && process.env.BLOG_IMAGE_ALLOW_PAID?.trim() === "true") {
+    return "hybrid";
+  }
+  return "library";
 }

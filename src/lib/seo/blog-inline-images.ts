@@ -7,9 +7,16 @@ import {
 import type { BlogFeaturedImagePick } from "@/lib/seo/blog-image-types";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
+import {
+  DEFAULT_FREE_GEMINI_TEXT_MODEL,
+  resolveFreeGeminiTextModel,
+} from "@/lib/gemini/free-tier-models";
 
 const PICKER_MODEL =
-  process.env.GEMINI_BLOG_MODEL?.trim() || "gemini-3.1-flash-lite";
+  resolveFreeGeminiTextModel(
+    process.env.GEMINI_BLOG_MODEL?.trim(),
+    DEFAULT_FREE_GEMINI_TEXT_MODEL
+  );
 
 export type BlogInlineImage = {
   url: string;

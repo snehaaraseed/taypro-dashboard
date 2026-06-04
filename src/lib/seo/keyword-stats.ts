@@ -4,6 +4,8 @@ import fs from "fs";
 import path from "path";
 import { getDeploymentRoot } from "@/app/utils/deploymentRoot";
 import { readPublishedTopics } from "@/lib/cms/topicService";
+import { loadGscBoostKeywords } from "@/lib/seo/gsc-keyword-boost";
+import { loadSeoBlogQueueKeywords } from "@/lib/seo/seo-blog-queue";
 
 export type SeoKeywordRow = {
   keyword: string;
@@ -125,7 +127,7 @@ function scoreKeywordRow(row: SeoKeywordRow): number {
   return score;
 }
 
-function inferSearchIntent(keyword: string): string {
+export function inferSearchIntent(keyword: string): string {
   const k = keyword.toLowerCase();
   if (/cost|price|roi|calculator/.test(k)) {
     return "Commercial, reader comparing costs/ROI; cite ranges and point to price calculator.";
@@ -145,18 +147,10 @@ function inferSearchIntent(keyword: string): string {
   return "Informational, utility operator researching cleaning/soiling; give actionable technical guidance.";
 }
 
-/** Pick a high-value unused keyword (volume + low competition + Taypro fit). */
-export async function pickSeoKeywordBrief(): Promise<SeoKeywordBrief | null> {
-  const rows = loadSeoKeywordRows();
-  if (rows.length === 0) return null;
-
-  const used = await getUsedSeoKeywords();
-  const available = rows.filter((r) => !used.has(r.keyword));
-  if (available.length === 0) return null;
-
-  const pool = available.slice(0, Math.min(20, available.length));
-  const primary = pool[Math.floor(Math.random() * pool.length)];
-
+function buildSeoKeywordBrief(
+  primary: SeoKeywordRow,
+  available: SeoKeywordRow[]
+): SeoKeywordBrief {
   const related = available
     .filter((r) => r.keyword !== primary.keyword)
     .slice(0, 12)
@@ -171,6 +165,40 @@ export async function pickSeoKeywordBrief(): Promise<SeoKeywordBrief | null> {
     searchIntent: inferSearchIntent(primary.keyword),
     related,
   };
+}
+
+function pickByKeywordPriority(
+  priorityKeywords: string[],
+  available: SeoKeywordRow[]
+): SeoKeywordRow | null {
+  const byKeyword = new Map(available.map((r) => [r.keyword, r]));
+  for (const kw of priorityKeywords) {
+    const row = byKeyword.get(kw.toLowerCase().trim());
+    if (row) return row;
+  }
+  return null;
+}
+
+/**
+ * Pick next keyword: editorial queue → GSC boost list → scored random pool.
+ */
+export async function pickSeoKeywordBrief(): Promise<SeoKeywordBrief | null> {
+  const rows = loadSeoKeywordRows();
+  if (rows.length === 0) return null;
+
+  const used = await getUsedSeoKeywords();
+  const available = rows.filter((r) => !used.has(r.keyword));
+  if (available.length === 0) return null;
+
+  const queued = pickByKeywordPriority(loadSeoBlogQueueKeywords(), available);
+  if (queued) return buildSeoKeywordBrief(queued, available);
+
+  const boosted = pickByKeywordPriority(loadGscBoostKeywords(), available);
+  if (boosted) return buildSeoKeywordBrief(boosted, available);
+
+  const pool = available.slice(0, Math.min(20, available.length));
+  const primary = pool[Math.floor(Math.random() * pool.length)];
+  return buildSeoKeywordBrief(primary, available);
 }
 
 /** Category string persisted on published_topics for tracking. */
