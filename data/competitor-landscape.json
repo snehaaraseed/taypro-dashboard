@@ -1,0 +1,293 @@
+{
+  "meta": {
+    "lastResearched": "2026-06-05",
+    "scope": "Solar panel cleaning robots and robotic O&M for utility-scale and C&I plants in India",
+    "purpose": "Factual competitor context for Taypro blog AI. Do not invent specs beyond this file.",
+    "disclaimer": "Public web and industry press only. Market-share figures vary by source and year; cite the source year when using them."
+  },
+  "indiaMarketContext": {
+    "summary": "India's robotic solar module cleaning market is fragmented across Indian OEMs, Chinese suppliers, and global brands with local deployments. Listicles and AI Overviews often name multiple vendors for 'best robot' queries.",
+    "rankingSources": [
+      {
+        "source": "Mercom India Solar Market Leaderboard 2026 (2025 shipments)",
+        "url": "https://cms.mercomindia.com/top-robotic-solar-module-cleaning-equipment-suppliers-in-2025/",
+        "topFive": [
+          { "rank": 1, "name": "Langfang Sol-Bright New Energy Technology", "approxShare": "35%" },
+          { "rank": 2, "name": "Solabot Technologies", "approxShare": "12%" },
+          { "rank": 3, "name": "LEAPTING", "approxShare": "12%" },
+          { "rank": 4, "name": "Aegeus Technologies", "approxShare": ">11%" },
+          { "rank": 5, "name": "Vayu Solar", "approxShare": ">11%" }
+        ],
+        "note": "Mercom 2026 report does not list Taypro in top 5 by 2025 shipment share; Taypro appears in other industry roundups with different methodology."
+      },
+      {
+        "source": "Eco Digest (2024 market share roundup)",
+        "url": "https://ecodigest.in/whos-powering-clean-solar-in-india-top-robotic-cleaning-suppliers-of-2024/",
+        "topFive": [
+          { "rank": 1, "name": "Taypro", "approxShare": "27.5%", "notable": "360 MW Rajasthan deployment cited" },
+          { "rank": 2, "name": "Langfang Sol-Bright", "approxShare": "18.8%", "notable": "Khavda 3.5 GW cited" },
+          { "rank": 3, "name": "Airtouch Solar", "approxShare": "13%" },
+          { "rank": 4, "name": "Vayu Solar", "approxShare": "11.1%" },
+          { "rank": 5, "name": "LEAPTING", "approxShare": "9.8%" }
+        ]
+      }
+    ],
+    "commonBuyerCriteria": [
+      "Waterless vs wet cleaning",
+      "Fixed-tilt vs single-axis tracker compatibility",
+      "CAPEX purchase vs Opex / cleaning-as-a-service",
+      "Pan-India spares, commissioning, and uptime SLA",
+      "Cleaning efficiency and anti-reflective coating safety",
+      "Fleet monitoring and scheduling software",
+      "Made in India / local manufacturing and support"
+    ]
+  },
+  "tayproPositioning": {
+    "category": "Indian OEM + managed Opex service + fleet software (NECTYR)",
+    "differentiators": [
+      "Patented dual-pass dry cleaning on GLYDE / GLYDE-X (airflow + microfiber); PBT single-pass on NYUMA / NYUMA-X / HELYX",
+      "5 GW+ deployed, 150+ sites, Chakan Pune manufacturing, TÜV NORD certified hardware",
+      "Full stack: robots + NECTYR fleet portal + Taypro Opex pay-per-clean model",
+      "Tracker-specific GLYDE-X and NYUMA-X lines",
+      "Semi-automatic HELYX for scattered / distributed blocks"
+    ],
+    "whenTayproWins": [
+      "Utility-scale India plants needing waterless cleaning with local manufacturing and pan-India support",
+      "Developers wanting CAPEX robots or fully managed Opex cleaning with fleet diagnostics",
+      "Tracker farms needing dedicated dual-pass or PBT tracker robots",
+      "Plants comparing robot vs manual brush TCO at 10MW+ scale"
+    ]
+  },
+  "competitors": [
+    {
+      "id": "ecoppia",
+      "name": "Ecoppia",
+      "hq": "Israel (public, TASE: ECPA)",
+      "founded": 2013,
+      "website": "https://www.ecoppia.com/",
+      "segment": ["utility-scale", "global"],
+      "cleaningTechnology": "Water-free robotic cleaning; AI and cloud-connected fleet; microfiber and controlled airflow (per company materials)",
+      "products": ["H4", "T4", "Ecoppia robotic platform (tracker and fixed-tilt variants cited in press)"],
+      "indiaPresence": "Long-standing India deployments including Bhadla Solar Park (frequently cited in marketing and press)",
+      "commercialModel": ["CAPEX robot supply", "Operations and fleet software"],
+      "publicProof": [
+        "Claims world leader in robotic solar cleaning",
+        "10+ years in market; large global installed base",
+        "Bhadla and other India utility references on corporate site"
+      ],
+      "strengths": ["Global brand recognition", "Mature utility-scale track record", "Strong AI/cloud narrative"],
+      "limitationsVsTaypro": ["International OEM; Taypro competes on India-local manufacturing, Opex service depth, and dual-pass + NECTYR stack"],
+      "sources": ["https://www.ecoppia.com/", "https://tracxn.com/d/companies/taypro/__TSxXl8358rp0Oj57Zk0F1Gu_cB7FpIMeEoTxrPlARDQ"]
+    },
+    {
+      "id": "solabot",
+      "name": "Solabot Technologies",
+      "hq": "India",
+      "website": "https://solabot.in/",
+      "segment": ["utility-scale", "commissioned and under-construction plants"],
+      "cleaningTechnology": "Automatic dry cleaning robots; multiple robot variants for different applications",
+      "products": ["5+ robot variants (site lists specialized robots for different cleaning applications)"],
+      "indiaPresence": "14+ Indian states; 38,000 sqft manufacturing; service engineers in 8 states",
+      "commercialModel": ["CAPEX equipment supply"],
+      "publicProof": [
+        "Mercom 2025 #2 supplier (~12% share)",
+        "Claims compatibility certificates from 16 Tier-1 module manufacturers",
+        "Deployments in Rajasthan, Maharashtra, Gujarat, Karnataka, Andhra Pradesh",
+        "BluPine Energy Tharad Gujarat contract (Oct 2025, per Mercom)"
+      ],
+      "strengths": ["Strong India shipment volume", "Broad state coverage", "Module compatibility marketing"],
+      "limitationsVsTaypro": ["Less public emphasis on managed Opex fleet operations vs Taypro Opex + NECTYR"],
+      "sources": ["https://solabot.in/", "https://cms.mercomindia.com/top-robotic-solar-module-cleaning-equipment-suppliers-in-2025/"]
+    },
+    {
+      "id": "leapting",
+      "name": "LEAPTING (Huzhou LEAPTING Technology)",
+      "hq": "China (Huzhou)",
+      "website": "https://www.leapting.com/",
+      "segment": ["utility-scale", "tracker and fixed-tilt"],
+      "cleaningTechnology": "Waterless dry cleaning; G1 automatic cleaning robots; claims 99.5% cleaning efficiency",
+      "products": ["G1 Automatic Cleaning Robot", "G1 2P tracker variant", "PV inspection and mounting robots in broader portfolio"],
+      "indiaPresence": "33,000+ G1 robots across 9 Indian states (company press, 2026); 12 GW+ robotic solutions cited globally",
+      "commercialModel": ["CAPEX robot supply"],
+      "publicProof": [
+        "Mercom 2025 #3 (~12% share)",
+        "Adani Solar 2 GW supply agreement (Dec 2025, per Mercom/SolarQuarter)",
+        "ReNew Power ~2,500 G1 robots order",
+        "662 G1 2P robots for Gujarat 100 MW projects"
+      ],
+      "strengths": ["Very large India robot count", "Tracker-optimized G1 line", "Anti-corrosion and wind-resistant marketing for desert sites"],
+      "limitationsVsTaypro": ["Chinese OEM; Taypro differentiates on India manufacturing, patents, and local Opex service"],
+      "sources": ["https://solarquarter.com/2026/05/25/from-9-states-to-12-gw-inside-leapting-robotics-massive-indian-expansion-gaurav-gaba-sales-director-india/", "https://cms.mercomindia.com/top-robotic-solar-module-cleaning-equipment-suppliers-in-2025/"]
+    },
+    {
+      "id": "sol-bright",
+      "name": "Langfang Sol-Bright New Energy Technology",
+      "hq": "China (Langfang)",
+      "segment": ["utility-scale"],
+      "cleaningTechnology": "Water-free robotic module cleaning systems",
+      "products": ["Water-free robotic cleaning systems (specific model names vary by project press)"],
+      "indiaPresence": "Major supplier to large Rajasthan and Gujarat utility projects",
+      "commercialModel": ["CAPEX equipment supply"],
+      "publicProof": [
+        "Mercom 2025 #1 (~35% share)",
+        "Azure Power 300 MW Phalodi Rajasthan (Oct 2025)",
+        "Rays Power Infra 250 MW Bikaner (Dec 2025)",
+        "AMPIN 160 MW hybrid Rajasthan (Nov 2025)",
+        "Khavda 3.5 GW cited in Eco Digest 2024 roundup"
+      ],
+      "strengths": ["Highest cited shipment share in Mercom 2025 leaderboard", "Wins on mega-project tenders"],
+      "limitationsVsTaypro": ["Primarily equipment vendor positioning; less India-local service/Opex brand vs Taypro"],
+      "sources": ["https://cms.mercomindia.com/top-robotic-solar-module-cleaning-equipment-suppliers-in-2025/", "https://ecodigest.in/whos-powering-clean-solar-in-india-top-robotic-cleaning-suppliers-of-2024/"]
+    },
+    {
+      "id": "aegeus",
+      "name": "Aegeus Technologies",
+      "hq": "Bengaluru, India",
+      "founded": 2017,
+      "website": "https://aegeustechnologies.com/",
+      "segment": ["utility-scale", "rooftop", "C&I"],
+      "cleaningTechnology": "Patented Airwash: microfiber + controlled airflow + gravity; 99% soiling removal claimed; waterless",
+      "products": [
+        { "name": "Unicorn", "notes": "Utility and large rooftop; autonomous Unicorn Smart and semi-autonomous Unicorn R2R variants" },
+        { "name": "Shreem", "notes": "Lightweight rooftop robot (~5–16 kg cited in materials); ~200–600 panels/hour depending on source" }
+      ],
+      "indiaPresence": "Made in India; Bengaluru HQ; REI Expo and India trade show presence",
+      "commercialModel": ["CAPEX", "Module Cleaning as a Service (MCaaS) zero-capex per-panel model"],
+      "publicProof": [
+        "Mercom 2025 top five (>11% share)",
+        "400 MW Barmer Rajasthan supply cited in Mercom",
+        "Tracxn lists as top Taypro competitor"
+      ],
+      "strengths": ["Strong India brand", "Rooftop + utility portfolio", "MCaaS mirrors Opex buyers", "Airwash technology narrative"],
+      "limitationsVsTaypro": ["Dual-pass microfiber patent line and 5 GW+ scale claims on Taypro side; Taypro stronger on tracker-specific dual-pass GLYDE-X"],
+      "sources": ["https://aegeustechnologies.com/", "https://aegeustechnologies.com/unicorn-intelligent-waterless-solar-panel-cleaning-robot/", "https://cms.mercomindia.com/top-robotic-solar-module-cleaning-equipment-suppliers-in-2025/"]
+    },
+    {
+      "id": "airtouch",
+      "name": "Airtouch Solar",
+      "hq": "Israel",
+      "founded": 2017,
+      "website": "https://www.airtouchsolar.com/",
+      "segment": ["utility-scale"],
+      "cleaningTechnology": "Water-free autonomous robotic dry cleaning",
+      "products": ["AT 4.0", "AT 4.1 series robots"],
+      "indiaPresence": "Production centers in Israel and India; heavy Rajasthan deployment with Adani Green Energy",
+      "commercialModel": ["CAPEX supply and install", "Master Supply Agreement framework with large IPPs"],
+      "publicProof": [
+        "Multiple Adani Green orders including ~$6M AT 4.1 contract (2024 press)",
+        "~8.3 GWp agreements signed; ~4.4 GWp installed (company press, 2024)",
+        "Eco Digest 2024 #3 (~13% share)"
+      ],
+      "strengths": ["Large Adani relationship", "Proven utility-scale dry cleaning at IPP scale", "Public company track record"],
+      "limitationsVsTaypro": ["Israeli OEM vs Taypro India manufacturing narrative; Taypro Opex + NECTYR full stack"],
+      "sources": ["https://www.pv-magazine-india.com/2024/04/04/airtouch-solar-secures-6-million-cleaning-robot-contract-with-adani-green-energy/", "https://ecodigest.in/whos-powering-clean-solar-in-india-top-robotic-cleaning-suppliers-of-2024/"]
+    },
+    {
+      "id": "vayu",
+      "name": "Vayu Solar",
+      "hq": "India",
+      "segment": ["utility-scale", "mid-scale"],
+      "cleaningTechnology": "Robotic module cleaning (dry/waterless positioning in market roundups)",
+      "products": ["Robotic cleaning equipment for utility projects"],
+      "indiaPresence": "200 MW Ujjain Madhya Pradesh deployment cited in Eco Digest",
+      "commercialModel": ["CAPEX equipment supply"],
+      "publicProof": [
+        "Mercom 2025 top five (>11% share)",
+        "Eco Digest 2024 #4 (~11.1% share)"
+      ],
+      "strengths": ["Affordability and mid-scale project traction per industry commentary"],
+      "limitationsVsTaypro": ["Less public detail on fleet software and Opex managed service vs Taypro"],
+      "sources": ["https://ecodigest.in/whos-powering-clean-solar-in-india-top-robotic-cleaning-suppliers-of-2024/", "https://cms.mercomindia.com/top-robotic-solar-module-cleaning-equipment-suppliers-in-2025/"]
+    },
+    {
+      "id": "skilancer",
+      "name": "Skilancer Solar",
+      "hq": "Faridabad, India",
+      "founded": 2017,
+      "website": "https://www.skilancersolar.com/",
+      "segment": ["utility-scale", "rooftop", "decentralized"],
+      "cleaningTechnology": "Automatic self-powered waterless dry cleaning",
+      "products": ["3+ solar cleaning robot models", "EPC services for solar plants"],
+      "indiaPresence": "350+ robots manufactured; 280+ installed across Gujarat, Maharashtra, MP, Karnataka, Kerala, Rajasthan (2019-era press; verify before citing as current)",
+      "commercialModel": ["CAPEX robots", "EPC"],
+      "publicProof": [
+        "Tracxn top solar cleaning robot startup list",
+        "Self-powered waterless robot positioning"
+      ],
+      "strengths": ["Indian OEM", "Rooftop + utility range", "EPC cross-sell"],
+      "limitationsVsTaypro": ["Smaller cited fleet scale vs Taypro 5 GW+ / 150+ sites public proof"],
+      "sources": ["https://www.skilancersolar.com/", "https://www.mmindia.co.in/article/698/for-a-sustainable-future", "https://tracxn.com/d/trending-business-models/startups-in-solar-cleaning-robots/__JVw3gK2I96IT2wPM6jQmUOHuncptqY9V1z2JThAhHNU/companies"]
+    },
+    {
+      "id": "jetsons",
+      "name": "Jetsons Robotics",
+      "hq": "New Delhi, India",
+      "founded": 2018,
+      "website": "https://jetsonsrobotics.com/",
+      "segment": ["rooftop", "C&I commercial"],
+      "cleaningTechnology": "Autonomous waterless cleaning; wireless charging partnership with Powermat",
+      "products": ["ZERO robot (rooftop)", "NTX smart cam / monitoring tools", "Handheld cleaning tool"],
+      "indiaPresence": "Delhi HQ; claims 500+ solar operators (website marketing)",
+      "commercialModel": ["CAPEX rooftop robots"],
+      "publicProof": [
+        "ZERO cleans ~500 kW rooftop on single charge (2018 founding press)",
+        "Powermat wireless charging partnership (2021)",
+        "Tracxn lists among Taypro competitors; raised funding Nov 2025"
+      ],
+      "strengths": ["Rooftop C&I focus", "Wireless charging differentiation", "Monitoring add-ons"],
+      "limitationsVsTaypro": ["Not utility-scale row robot positioning like Taypro GLYDE/NYUMA lines"],
+      "sources": ["https://jetsonsrobotics.com/", "https://www.prnewswire.com/il/news-releases/jetsons-robotics-partners-with-powermat-to-manage-power-and-provide-advanced-wireless-charging-technology-to-enhance-the-operations-of-autonomous-solar-panel-cleaning-robots-for-commercial-and-industrial-solar-installations-301212425.html"]
+    },
+    {
+      "id": "serbot",
+      "name": "Serbot AG",
+      "hq": "Buochs, Switzerland",
+      "founded": 2009,
+      "website": "https://www.serbot.ch/",
+      "segment": ["utility-scale", "medium to large plants"],
+      "cleaningTechnology": "Wet and dry cleaning options depending on robot model; suction-cup locomotion on surfaces",
+      "products": ["pvClean", "pvEco", "GEKKO SOLAR", "pvClean PLUS+", "pvClean MASTER"],
+      "indiaPresence": "Expanding into India; Jurchen Technology India (Mumbai) lists Serbot as approved PEG cleaning partner",
+      "commercialModel": ["CAPEX robot supply", "After-sales support"],
+      "publicProof": [
+        "pvClean: up to ~1440 m²/h (~1.8 MWp/day) cited by Jurchen",
+        "Swiss engineering; Festo pneumatic components cited in profiles"
+      ],
+      "strengths": ["European engineering brand", "Wet+dry flexibility on some models"],
+      "limitationsVsTaypro": ["International OEM; Taypro waterless-only utility positioning and India manufacturing"],
+      "sources": ["https://www.serbot.ch/en/home/about-us", "https://www.jurchen-technology.com/peg-solar-cleaning-solutions/"]
+    },
+    {
+      "id": "solarcleano",
+      "name": "SolarCleano",
+      "hq": "Luxembourg / Europe",
+      "website": "https://www.solarcleano.com/",
+      "segment": ["utility-scale", "commercial rooftops"],
+      "cleaningTechnology": "Remote and autonomous cleaning robots; wet cleaning heritage in European market",
+      "products": ["SolarCleano robot family (multiple models for roof and field)"],
+      "indiaPresence": "Limited vs Indian OEMs; appears in global startup lists and keyword demand (`solarcleano price` in Taypro keyword CSV)",
+      "commercialModel": ["CAPEX"],
+      "publicProof": ["Tracxn global solar cleaning robots list"],
+      "strengths": ["Known European robot brand in global comparisons"],
+      "limitationsVsTaypro": ["Weaker India-local service story vs Taypro"],
+      "sources": ["https://tracxn.com/d/trending-business-models/startups-in-solar-cleaning-robots/__JVw3gK2I96IT2wPM6jQmUOHuncptqY9V1z2JThAhHNU/companies"]
+    }
+  ],
+  "categoryComparisonFramework": {
+    "dimensions": [
+      { "key": "cleaningMethod", "options": ["Dual-pass airflow + microfiber (Taypro GLYDE)", "Single-pass PBT brush (Taypro NYUMA/HELYX)", "Airwash microfiber + airflow (Aegeus)", "Generic dry brush/robot (various OEMs)", "Wet or wet+dry (some Serbot models)"] },
+      { "key": "plantType", "options": ["Fixed-tilt utility", "Single-axis tracker", "Scattered blocks / semi-auto", "Rooftop C&I"] },
+      { "key": "commercialModel", "options": ["CAPEX purchase", "Opex / cleaning-as-a-service", "MCaaS (Aegeus)", "Taypro Opex pay-per-panel-cleaned"] },
+      { "key": "software", "options": ["Fleet portal + scheduling (Taypro NECTYR)", "Vendor cloud AI (Ecoppia, others)", "Basic remote monitoring"] },
+      { "key": "localSupport", "options": ["India manufacturing + pan-India spares (Taypro, Solabot, Aegeus)", "Global OEM with India projects (Ecoppia, Airtouch, LEAPTING, Sol-Bright)"] }
+    ],
+    "blogUsageRules": [
+      "When writing manufacturer or 'best robot' posts, include a comparison table using dimensions above.",
+      "Name competitors only with facts from this file; do not invent specs or market share.",
+      "Always pair competitor mentions with Taypro fit criteria from tayproPositioning.whenTayproWins.",
+      "Use PUBLIC PROOF POINTS for Taypro scale claims, not competitor marketing superlatives.",
+      "Prefer category framing (waterless utility India) before named attacks; stay factual and legal-safe.",
+      "If market share is mentioned, cite source year (Mercom 2025 vs Eco Digest 2024) because figures conflict."
+    ]
+  }
+}

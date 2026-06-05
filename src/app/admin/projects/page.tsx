@@ -78,6 +78,7 @@ export default function AdminProjectsPage() {
             </Link>
             <Link
               href="/admin/projects/new"
+              prefetch
               className="bg-[#A8C117] hover:bg-lime-500 text-white px-6 py-2 rounded-md transition-colors"
             >
               + Add New Project

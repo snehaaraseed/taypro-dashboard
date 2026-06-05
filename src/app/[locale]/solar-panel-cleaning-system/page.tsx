@@ -154,6 +154,57 @@ const COMPARISON_ROW_KEYS = [
   "row5",
 ] as const;
 
+const MARKET_COMPARISON_ROW_KEYS = [
+  "row0",
+  "row1",
+  "row2",
+  "row3",
+  "row4",
+] as const;
+
+const MARKET_COMPARISON_COL_KEYS = [
+  "manualWet",
+  "importDry",
+  "taypro",
+] as const;
+
+const FEATURED_CASE_STUDIES = [
+  { slug: "agar-solar-project", cardKey: "agar" },
+  { slug: "banda-solar-project", cardKey: "banda" },
+  { slug: "yadgir-solar-project-50-mw", cardKey: "yadgir" },
+  { slug: "bachau-dvc-gujrat-300-mw", cardKey: "bachau" },
+] as const;
+
+const HUB_QUICK_LINKS = [
+  { key: "glyde", href: PRODUCT_CATALOG.glyde.href },
+  { key: "glydeX", href: PRODUCT_CATALOG.glydeX.href },
+  { key: "nyuma", href: PRODUCT_CATALOG.nyuma.href },
+  { key: "nyumaX", href: PRODUCT_CATALOG.nyumaX.href },
+  { key: "helyx", href: PRODUCT_CATALOG.helyx.href },
+  {
+    key: "opex",
+    href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
+  },
+  {
+    key: "nectyr",
+    href: "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
+  },
+  { key: "technology", href: "/cleaning-technology" },
+  {
+    key: "calculator",
+    href: "/solar-panel-cleaning-robot-price-calculator#calculator",
+  },
+  { key: "projects", href: "/projects" },
+] as const;
+
+const COMMERCIAL_MODEL_LINKS = [
+  "/solar-panel-cleaning-system",
+  "/contact",
+  "/solar-panel-cleaning-system/solar-panel-cleaning-service",
+  "/solar-panel-cleaning-system/solar-panel-cleaning-service",
+  "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
+] as const;
+
 export default async function SolarPanelCleaningRobot({
   params,
 }: {
@@ -169,6 +220,21 @@ export default async function SolarPanelCleaningRobot({
     { name: t("breadcrumbs.home"), href: "/" },
     { name: t("breadcrumbs.solarPanelCleaningRobots"), href: "" },
   ];
+
+  const marketComparisonRows = MARKET_COMPARISON_ROW_KEYS.map((rowKey) => {
+    const prefix = `marketComparison.rows.${rowKey}` as const;
+    const cells = Object.fromEntries(
+      MARKET_COMPARISON_COL_KEYS.map((col) => [col, t(`${prefix}.${col}`)])
+    ) as Record<(typeof MARKET_COMPARISON_COL_KEYS)[number], string>;
+    return {
+      criterion: t(`${prefix}.criterion`),
+      ...cells,
+    };
+  });
+
+  const tayproFitBullets = [0, 1, 2, 3].map((i) =>
+    t(`marketComparison.tayproFit${i}`)
+  );
 
   const comparisonRows = COMPARISON_ROW_KEYS.map((rowKey) => {
     const prefix = `comparison.rows.${rowKey}` as const;
@@ -212,7 +278,9 @@ export default async function SolarPanelCleaningRobot({
     };
   });
 
-  const hubFaqs = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => ({
+  /** Supplier FAQ (item10) placed after “best robot” (item1) for commercial-intent coverage. */
+  const hubFaqOrder = [0, 1, 10, 2, 3, 4, 5, 6, 7, 8, 9] as const;
+  const hubFaqs = hubFaqOrder.map((i) => ({
     question: t(`faq.items.item${i}.question`),
     answer: t(`faq.items.item${i}.answer`),
   }));
@@ -373,21 +441,42 @@ export default async function SolarPanelCleaningRobot({
                   >
                     {t("intro.p2LinkAutomatic")}
                   </Link>
-                  {t("intro.p2BetweenAB")}
+                  {t("intro.p2BetweenGlydeNyuma")}
+                  <Link
+                    href="/solar-panel-cleaning-system/nyuma-automatic-cleaning-robot"
+                    className="text-[#A8C117] hover:underline"
+                  >
+                    {t("intro.p2LinkNyuma")}
+                  </Link>
+                  {t("intro.p2BetweenNyumaHelyx")}
                   <Link
                     href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
                     className="text-[#A8C117] hover:underline"
                   >
                     {t("intro.p2LinkModelB")}
                   </Link>
-                  {t("intro.p2BetweenBT")}
+                  {t("intro.p2BetweenHelyxTracker")}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
                     className="text-[#A8C117] hover:underline"
                   >
                     {t("intro.p2LinkModelT")}
                   </Link>
-                  {t("intro.p2AfterT")}
+                  {t("intro.p2BetweenTrackers")}
+                  <Link
+                    href="/solar-panel-cleaning-system/nyuma-x-single-axis-tracker-cleaning-robot"
+                    className="text-[#A8C117] hover:underline"
+                  >
+                    {t("intro.p2LinkNyumaX")}
+                  </Link>
+                  {t("intro.p2AfterTrackers")}
+                  <Link
+                    href="/cleaning-technology"
+                    className="text-[#A8C117] hover:underline"
+                  >
+                    {t("intro.p2LinkTechnology")}
+                  </Link>
+                  {t("intro.p2BeforeConsole")}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                     className="text-[#A8C117] hover:underline"
@@ -422,6 +511,39 @@ export default async function SolarPanelCleaningRobot({
                 </p>
               </div>
             </AnimateOnScroll>
+          </Container>
+        </section>
+
+        <section className="bg-[#f4f7f9] py-12 sm:py-14 border-y border-gray-100">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="text-center mb-8">
+              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-2">
+                {t("hubQuickLinks.eyebrow")}
+              </p>
+              <h2 className="text-[#052638] font-semibold text-2xl sm:text-3xl">
+                {t("hubQuickLinks.title")}
+              </h2>
+              <p className="text-gray-600 text-base max-w-2xl mx-auto mt-3">
+                {t("hubQuickLinks.subtitle")}
+              </p>
+            </AnimateOnScroll>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 max-w-6xl mx-auto">
+              {HUB_QUICK_LINKS.map((item, idx) => (
+                <AnimateOnScroll key={item.key} animation="fadeInUp" delay={idx * 40}>
+                  <Link
+                    href={item.href}
+                    className="block h-full rounded-lg border border-gray-200 bg-white px-4 py-3 hover:border-[#A8C117]/60 hover:shadow-sm transition"
+                  >
+                    <span className="text-[#052638] font-semibold text-sm block">
+                      {t(`hubQuickLinks.links.${item.key}.label`)}
+                    </span>
+                    <span className="text-gray-600 text-xs mt-1 block leading-snug">
+                      {t(`hubQuickLinks.links.${item.key}.description`)}
+                    </span>
+                  </Link>
+                </AnimateOnScroll>
+              ))}
+            </div>
           </Container>
         </section>
 
@@ -862,6 +984,150 @@ export default async function SolarPanelCleaningRobot({
           </Container>
         </section>
 
+        <section className="bg-[#f4f1e9] py-16 sm:py-20">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="text-center mb-8">
+              <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
+                {t("marketComparison.eyebrow")}
+              </div>
+              <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight max-w-4xl mx-auto">
+                {t("marketComparison.title")}
+              </h2>
+              <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mt-5 leading-relaxed">
+                {t("marketComparison.subtitle")}
+              </p>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll animation="fadeInUp" className="max-w-4xl mx-auto mb-10">
+              <p className="text-gray-700 text-base sm:text-lg leading-relaxed text-center">
+                {t("marketComparison.intro")}
+              </p>
+            </AnimateOnScroll>
+
+            <div className="overflow-x-auto rounded-lg border border-gray-200 mb-12">
+              <table className="w-full text-left min-w-[720px]">
+                <thead className="bg-[#052638] text-white">
+                  <tr>
+                    <th className="py-4 px-4 text-sm sm:text-base font-semibold">
+                      {t("marketComparison.tableHeaders.criteria")}
+                    </th>
+                    {MARKET_COMPARISON_COL_KEYS.map((col) => (
+                      <th
+                        key={col}
+                        className={`py-4 px-4 text-sm sm:text-base font-semibold ${
+                          col === "taypro" ? "bg-[#0a3a52]" : ""
+                        }`}
+                      >
+                        {t(`marketComparison.tableHeaders.${col}`)}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {marketComparisonRows.map((row, idx) => (
+                    <tr
+                      key={row.criterion}
+                      className={idx % 2 === 0 ? "bg-white" : "bg-white/70"}
+                    >
+                      <td className="py-3 px-4 text-sm sm:text-base font-medium text-[#052638] align-top">
+                        {row.criterion}
+                      </td>
+                      {MARKET_COMPARISON_COL_KEYS.map((col) => (
+                        <td
+                          key={col}
+                          className={`py-3 px-4 text-sm sm:text-base align-top ${
+                            col === "taypro"
+                              ? "text-[#052638] font-medium bg-[#A8C117]/10"
+                              : "text-gray-700"
+                          }`}
+                        >
+                          {row[col]}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto mb-12">
+              <AnimateOnScroll animation="fadeInUp">
+                <h3 className="text-[#052638] font-semibold text-xl mb-4">
+                  {t("marketComparison.tayproFitTitle")}
+                </h3>
+                <ul className="space-y-2">
+                  {tayproFitBullets.map((bullet) => (
+                    <li
+                      key={bullet}
+                      className="flex items-start gap-2 text-gray-700 text-sm sm:text-base"
+                    >
+                      <Check className="w-4 h-4 text-[#A8C117] mt-1 shrink-0" />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </AnimateOnScroll>
+
+              <AnimateOnScroll animation="fadeInUp">
+                <h3 className="text-[#052638] font-semibold text-xl mb-2">
+                  {t("marketComparison.featuredTitle")}
+                </h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  {t("marketComparison.featuredSubtitle")}
+                </p>
+                <ul className="space-y-3">
+                  {FEATURED_CASE_STUDIES.map((study) => {
+                    const prefix = `marketComparison.featured.${study.cardKey}`;
+                    return (
+                      <li key={study.slug}>
+                        <Link
+                          href={`/projects/${study.slug}`}
+                          className="block rounded-lg border border-gray-200 bg-white px-4 py-3 hover:border-[#A8C117]/60 transition"
+                        >
+                          <span className="text-[#052638] font-semibold text-sm block">
+                            {t(`${prefix}.title`)}
+                          </span>
+                          <span className="text-gray-600 text-xs mt-1 block">
+                            {t(`${prefix}.stat`)}
+                          </span>
+                          <span className="text-[#A8C117] text-xs font-medium mt-2 inline-flex items-center gap-1">
+                            {t(`${prefix}.cta`)}
+                            <ChevronRight className="w-3 h-3" />
+                          </span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </AnimateOnScroll>
+            </div>
+
+            <AnimateOnScroll
+              animation="fadeInUp"
+              className="flex flex-wrap justify-center gap-4"
+            >
+              <Link
+                href="/projects"
+                className="inline-flex items-center justify-center min-h-[44px] bg-[#052638] text-white font-medium px-6 py-2.5 rounded-lg hover:bg-[#0a3a52] transition"
+              >
+                {t("marketComparison.ctaProjects")}
+              </Link>
+              <Link
+                href="/cleaning-technology"
+                className="inline-flex items-center justify-center min-h-[44px] border-2 border-[#052638] text-[#052638] font-medium px-6 py-2.5 rounded-lg hover:bg-[#052638]/5 transition"
+              >
+                {t("marketComparison.ctaTechnology")}
+              </Link>
+              <Link
+                href="/solar-panel-cleaning-robot-price-calculator#calculator"
+                className="inline-flex items-center justify-center min-h-[44px] border-2 border-[#A8C117] text-[#052638] font-medium px-6 py-2.5 rounded-lg hover:bg-[#A8C117]/10 transition"
+              >
+                {t("marketComparison.ctaCalculator")}
+              </Link>
+            </AnimateOnScroll>
+          </Container>
+        </section>
+
         <section className="bg-[#f4f7f9] py-16 sm:py-20">
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-10 max-w-3xl mx-auto">
@@ -883,7 +1149,12 @@ export default async function SolarPanelCleaningRobot({
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <h3 className="text-[#052638] font-semibold text-lg mt-2 mb-2">
-                      {t(`commercialModel.line${i}.title`)}
+                      <Link
+                        href={COMMERCIAL_MODEL_LINKS[i]}
+                        className="hover:text-[#A8C117] transition"
+                      >
+                        {t(`commercialModel.line${i}.title`)}
+                      </Link>
                     </h3>
                     <p className="text-[#27415c] text-sm leading-relaxed">
                       {t(`commercialModel.line${i}.body`)}

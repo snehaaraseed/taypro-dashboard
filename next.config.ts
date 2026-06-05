@@ -24,7 +24,8 @@ const nextConfig = {
   },
   experimental: {
     optimizeCss: true,
-    optimizePackageImports: ["lucide-react", "@tiptap/react", "next-intl"],
+    // TipTap must not be barrel-optimized — breaks dynamic editor chunks in admin.
+    optimizePackageImports: ["lucide-react", "next-intl"],
   },
   // Turbopack configuration (Next.js 16+)
   turbopack: {},

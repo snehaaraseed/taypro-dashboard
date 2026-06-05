@@ -4,6 +4,7 @@ import fs from "fs";
 import path from "path";
 import { getDeploymentRoot } from "@/app/utils/deploymentRoot";
 import { readPublishedTopics } from "@/lib/cms/topicService";
+import { passesSeoKeywordFilters } from "@/lib/seo/keyword-filters";
 import { loadGscBoostKeywords } from "@/lib/seo/gsc-keyword-boost";
 import { loadSeoBlogQueueKeywords } from "@/lib/seo/seo-blog-queue";
 
@@ -26,14 +27,6 @@ export type SeoKeywordBrief = {
 };
 
 const SEO_CATEGORY_PREFIX = "seo:";
-
-/** Taypro-relevant queries from Keyword Planner export. */
-const RELEVANT =
-  /clean|robot|maintenance|soil|waterless|automatic|sprinkler|tracker|utility|commercial solar|solar plant|solar farm|pv panel|performance ratio|om\b|o&m|dry clean|cleaning system|cleaning machine|cleaning equipment|cleaning service|solar washing|module clean/i;
-
-/** Low-intent, geo, or off-brand terms to skip. */
-const EXCLUDE =
-  /near me|san diego|sydney|melbourne|austin|tucson|fresno|gold coast|canberra|utah|geelong|central coast|san antonio|diy\b|cleaning jobs|cleaning license|gutter and|www solar|cheap solar|panel price|pv panel installation|solar panel installation|panel manufacturers|module manufacturers|top .+ manufacturers|^solar panels$|^best solar panels$|^top 10 solar|^top solar panel in india$|^solar panel companies$|^solar panel manufacturers$|^pv panels$|^photovoltaic panels$/i;
 
 let cachedRows: SeoKeywordRow[] | null = null;
 
@@ -84,8 +77,7 @@ export function loadSeoKeywordRows(): SeoKeywordRow[] {
       10
     );
     if (volumeBucket <= 0) continue;
-    if (!RELEVANT.test(keyword)) continue;
-    if (EXCLUDE.test(keyword)) continue;
+    if (!passesSeoKeywordFilters(keyword)) continue;
 
     rows.push({
       keyword: keyword.toLowerCase(),
@@ -102,7 +94,6 @@ export function loadSeoKeywordRows(): SeoKeywordRow[] {
   return rows;
 }
 
-/** Keywords already used by automation (stored in published_topics.category). */
 export async function getUsedSeoKeywords(): Promise<Set<string>> {
   const used = new Set<string>();
   const topics = await readPublishedTopics();
@@ -122,15 +113,24 @@ function scoreKeywordRow(row: SeoKeywordRow): number {
   if (row.competitionIndex > 0 && row.competitionIndex <= 25) score += 600;
   else if (row.competitionIndex <= 40) score += 300;
   if (/cleaning robot|cleaning service|automatic|waterless|brush/.test(row.keyword)) {
-    score += 250;
+    score += 200;
+  }
+  if (/panel price|pv panel price|inverter|manufacturer|supplier|equipment/.test(row.keyword)) {
+    score += 180;
   }
   return score;
 }
 
 export function inferSearchIntent(keyword: string): string {
   const k = keyword.toLowerCase();
+  if (/manufacturer|supplier|wholesal|companies/.test(k)) {
+    return "Commercial research, comparing vendors/specs for utility or C&I plants; bridge to post-commissioning O&M, soiling, and robotic cleaning—not a module sales page.";
+  }
+  if (/inverter|string combiner|transformer/.test(k)) {
+    return "Equipment buyer researching BOS for solar plants; connect reliability and layout to long-term O&M including panel cleaning and dust management.";
+  }
   if (/cost|price|roi|calculator/.test(k)) {
-    return "Commercial, reader comparing costs/ROI; cite ranges and point to price calculator.";
+    return "Commercial, reader comparing capex/opex; include equipment price context and lifetime O&M (cleaning, soiling, robots); link to price calculator where relevant.";
   }
   if (/vs|compare|brush|manual|sprinkler/.test(k)) {
     return "Comparison, reader choosing between methods; use pros/cons and utility-scale examples.";
@@ -179,8 +179,51 @@ function pickByKeywordPriority(
   return null;
 }
 
+/** Unused keyword rows from the CSV pool. */
+export async function listAvailableKeywordRows(): Promise<SeoKeywordRow[]> {
+  const rows = loadSeoKeywordRows();
+  if (rows.length === 0) return [];
+  const used = await getUsedSeoKeywords();
+  return rows.filter((r) => !used.has(r.keyword));
+}
+
+/**
+ * Code-ranked candidate pool for hybrid Gemini keyword selection.
+ * Order: editorial queue → GSC boost → scored remainder.
+ */
+export function buildKeywordCandidateBriefs(
+  available: SeoKeywordRow[],
+  maxCandidates = 12
+): SeoKeywordBrief[] {
+  const briefs: SeoKeywordBrief[] = [];
+  const seen = new Set<string>();
+
+  const addRow = (row: SeoKeywordRow | undefined) => {
+    if (!row || seen.has(row.keyword) || briefs.length >= maxCandidates) return;
+    seen.add(row.keyword);
+    briefs.push(buildSeoKeywordBrief(row, available));
+  };
+
+  const byKeyword = new Map(available.map((r) => [r.keyword, r]));
+
+  for (const kw of loadSeoBlogQueueKeywords()) {
+    addRow(byKeyword.get(kw.toLowerCase().trim()));
+  }
+  for (const kw of loadGscBoostKeywords()) {
+    addRow(byKeyword.get(kw.toLowerCase().trim()));
+  }
+
+  const scored = [...available].sort((a, b) => scoreKeywordRow(b) - scoreKeywordRow(a));
+  for (const row of scored) {
+    addRow(row);
+  }
+
+  return briefs;
+}
+
 /**
  * Pick next keyword: editorial queue → GSC boost list → scored random pool.
+ * @deprecated Prefer pickSeoKeywordBriefHybrid for automation.
  */
 export async function pickSeoKeywordBrief(): Promise<SeoKeywordBrief | null> {
   const rows = loadSeoKeywordRows();
@@ -196,7 +239,7 @@ export async function pickSeoKeywordBrief(): Promise<SeoKeywordBrief | null> {
   const boosted = pickByKeywordPriority(loadGscBoostKeywords(), available);
   if (boosted) return buildSeoKeywordBrief(boosted, available);
 
-  const pool = available.slice(0, Math.min(20, available.length));
+  const pool = available.slice(0, Math.min(40, available.length));
   const primary = pool[Math.floor(Math.random() * pool.length)];
   return buildSeoKeywordBrief(primary, available);
 }
@@ -212,6 +255,15 @@ export function formatTopicCategory(
 /** Deterministic, specific title when the model returns vague options. */
 export function buildFallbackTopicTitle(keyword: string): string {
   const k = keyword.toLowerCase().trim();
+  if (/manufacturer|supplier/.test(k)) {
+    return `${keyword.replace(/\b\w/g, (c) => c.toUpperCase())}: What Utility Plant Owners Should Know Before O&M and Cleaning`;
+  }
+  if (/inverter/.test(k)) {
+    return `${keyword.replace(/\b\w/g, (c) => c.toUpperCase())}: BOS Choices and Long-Term Cleaning O&M on Indian Solar Plants`;
+  }
+  if (/panel price|pv panel price|solar panel price/.test(k)) {
+    return "Solar Panel Price in India: Capex Context and O&M (Cleaning, Soiling) After You Buy";
+  }
   if (/brush/.test(k)) {
     return "Solar Panel Cleaning Brush vs Robot: TCO for Utility Plants in India";
   }
@@ -239,6 +291,12 @@ export function isComparisonSearchIntent(searchIntent: string): boolean {
   return /comparison/i.test(searchIntent);
 }
 
+export function isVendorResearchIntent(keyword: string, searchIntent?: string): boolean {
+  const k = keyword.toLowerCase();
+  if (/manufacturer|supplier|companies|wholesal/.test(k)) return true;
+  return /commercial research|evaluating vendors/i.test(searchIntent ?? "");
+}
+
 export function formatSeoPromptBlock(brief: SeoKeywordBrief): string {
   const volumeLabel =
     brief.volumeBucket >= 5000
@@ -251,11 +309,15 @@ export function formatSeoPromptBlock(brief: SeoKeywordBrief): string {
     ? "\n- Comparison intent: include an HTML <table> with <thead> comparing methods (e.g. water, labour, frequency, capex/opex notes, PR impact)."
     : "";
 
+  const vendorTableRule = isVendorResearchIntent(brief.primary, brief.searchIntent)
+    ? "\n- Vendor research intent: include an HTML <table> with <thead> comparing cleaning-robot approaches (include a Taypro column/row using COMPETITOR LANDSCAPE + PUBLIC PROOF; name other vendors only with facts from COMPETITOR LANDSCAPE; add criteria rows: plant type, waterless, CAPEX/Opex, India support, tracker fit)."
+    : "";
+
   return `SEO TARGET (from Google Keyword Planner, India):
 - Primary keyword: "${brief.primary}" (~${brief.volumeBucket}+ avg. monthly searches bucket, ${volumeLabel} volume, competition: ${brief.competition || "n/a"}, index: ${brief.competitionIndex})
 - Search intent: ${brief.searchIntent}
 - Work the primary phrase in: title, meta description, first 100 words, Quick answer H2, at least one question-shaped H2, and conclusion.
 - Related terms for H2/H3 and body: ${brief.related.slice(0, 6).join(", ")}
-- Add one question-shaped H2 (e.g. "How often…", "Is a robot worth it…") with a direct answer paragraph under it. Do not add a "Frequently asked questions" section in HTML.${comparisonTableRule}
+- Add one question-shaped H2 (e.g. "How often…", "Is a robot worth it…") with a direct answer paragraph under it. Do not add a "Frequently asked questions" section in HTML.${comparisonTableRule}${vendorTableRule}
 - Do NOT keyword-stuff; satisfy the reader's intent first, that is what earns rankings and AI overview citations.`;
 }

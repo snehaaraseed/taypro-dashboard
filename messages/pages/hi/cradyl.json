@@ -1,13 +1,13 @@
 {
   "CradylPage": {
     "meta": {
-      "title": "Solar Panel Cleaning Robot Row-Transfer Docking Station, Taypro CRADYL (formerly MDS)",
-      "description": "Taypro CRADYL is a battery-powered movable docking station for utility-scale solar plants in India. Autonomous row-to-row transfer on end-mounted rail tracks lets one cleaning robot service multiple rows on scattered plants. Formerly MDS. IP65, solar-charged, cloud-connected.",
+      "title": "Solar Panel Cleaning Robot Row-Transfer Docking Station, Taypro CRADYL",
+      "description": "Taypro CRADYL is a battery-powered movable docking station for utility-scale solar plants in India. Autonomous row-to-row transfer on end-mounted rail tracks lets one cleaning robot service multiple rows on scattered plants. IP65, solar-charged, cloud-connected.",
       "openGraphTitle": "CRADYL Row-Transfer Docking for Solar Cleaning Robots | Taypro India",
-      "openGraphDescription": "Launched movable docking station (formerly MDS): autonomous robot transfer between rows, rail-based travel, solar-charged lithium battery, LTE/Wi-Fi fleet integration with NECTYR.",
+      "openGraphDescription": "Launched movable docking station: autonomous robot transfer between rows, rail-based travel, solar-charged lithium battery, LTE/Wi-Fi fleet integration with NECTYR.",
       "openGraphImageAlt": "Taypro CRADYL row-transfer docking station on rail tracks at a utility-scale solar plant in India",
       "twitterTitle": "CRADYL Solar Robot Docking Station | Taypro",
-      "twitterDescription": "Movable docking station for autonomous row-to-row solar cleaning robot transfer. Formerly Taypro MDS. Built for scattered utility plants in India.",
+      "twitterDescription": "Movable docking station for autonomous row-to-row solar cleaning robot transfer. Built for scattered utility plants in India.",
       "keywords": [
         "solar panel cleaning robot docking station",
         "row transfer solar cleaning robot",
@@ -17,7 +17,7 @@
         "utility scale solar cleaning robot India",
         "solar robot row transfer India",
         "Taypro CRADYL",
-        "Taypro MDS movable docking station",
+        "Taypro CRADYL movable docking station",
         "multi-row solar panel cleaning",
         "solar cleaning robot manufacturer India",
         "rail mounted solar robot docking"
@@ -29,7 +29,7 @@
     },
     "schema": {
       "productName": "CRADYL, Autonomous Row-Transfer Docking Station for Solar Cleaning Robots",
-      "productDescription": "Taypro CRADYL is a battery-powered movable docking station that autonomously transfers solar panel cleaning robots between rows on end-mounted rail tracks, enabling multi-row coverage with a single robot on scattered Indian utility-scale plants. Formerly marketed as Taypro MDS (Movable Docking Station).",
+      "productDescription": "Taypro CRADYL is a battery-powered movable docking station that autonomously transfers solar panel cleaning robots between rows on end-mounted rail tracks, enabling multi-row coverage with a single robot on scattered Indian utility-scale plants.",
       "offersPrice": "Contact for pricing",
       "howToName": "How to transfer a solar cleaning robot between rows with Taypro CRADYL",
       "howToDescription": "Step-by-step autonomous row transfer using the Taypro CRADYL movable docking station on end-row railing tracks, from robot return and docking through rail navigation, alignment, and redeployment on the next row."
@@ -41,16 +41,14 @@
       "subtitleStrong": "movable docking station",
       "subtitleAfter": " autonomously carries your solar cleaning robot from one row to the next on end-mounted rail tracks, so ",
       "subtitleStrong2": "one robot can clean multiple rows",
-      "subtitleAfter2": " across scattered, non-contiguous utility-scale plants in India. Formerly Taypro MDS.",
+      "subtitleAfter2": " across scattered, non-contiguous utility-scale plants in India.",
       "imgAlt": "Taypro CRADYL movable docking station on end-row rail tracks at a utility-scale solar plant",
       "ctaText": "Request a quote"
     },
     "overview": {
       "eyebrow": "Row-transfer docking for scattered solar plants",
       "title": "What is Taypro CRADYL?",
-      "p1Before": "Taypro CRADYL (formerly ",
-      "p1MdsStrong": "MDS, Movable Docking Station",
-      "p1After": ") is an ",
+      "p1Before": "Taypro CRADYL is an ",
       "p1Strong": "autonomous mobility platform for solar panel cleaning robots",
       "p1AfterStrong": ". It is installed on dedicated railing tracks at the end of solar panel rows and transfers a cleaning robot from one row to another without manual lift-and-shift, unlocking multi-row coverage with a single robot where buying one robot per block is not economical.",
       "p2Before": "The docking station uses ",
@@ -80,7 +78,7 @@
       "title": "CRADYL on live utility-scale plants",
       "subtitle": "End-row rail installation with no modifications to solar modules, quick modular setup once columns and railing are aligned.",
       "aerialAlt": "Aerial view of Taypro CRADYL docking station integrated on solar panel rows",
-      "caption": "CRADYL on end-row rail tracks. Formerly branded Taypro MDS (Movable Docking Station)."
+      "caption": "CRADYL on end-row rail tracks."
     },
     "howItWorks": {
       "eyebrow": "Step-by-step row transfer",
@@ -240,7 +238,7 @@
       "valueHeader": "Value"
     },
     "specs": {
-      "0": { "label": "Product name (legacy)", "value": "Taypro MDS (Movable Docking Station), now CRADYL" },
+      "0": { "label": "Product name", "value": "CRADYL" },
       "1": { "label": "Footprint", "value": "1000 mm × 4000 mm" },
       "2": { "label": "Weight", "value": "220 kg" },
       "3": { "label": "Movement mechanism", "value": "Rail-based linear travel on end-row tracks" },
@@ -402,12 +400,12 @@
     },
     "faqSection": {
       "title": "Frequently asked questions",
-      "subtitle": "Common questions about Taypro CRADYL row-transfer docking (formerly MDS) for solar cleaning robots in India."
+      "subtitle": "Common questions about Taypro CRADYL row-transfer docking for solar cleaning robots in India."
     },
     "faqs": {
       "0": {
-        "question": "What is Taypro CRADYL, and how is it different from MDS?",
-        "answer": "CRADYL is Taypro's current brand for the autonomous row-transfer movable docking station formerly marketed as MDS (Movable Docking Station). It is the same product category: a battery-powered platform on end-row rails that moves a solar cleaning robot between rows. CRADYL reflects the launched, fleet-integrated platform name used on taypro.in today."
+        "question": "What is Taypro CRADYL?",
+        "answer": "CRADYL is Taypro's autonomous row-transfer movable docking station — a battery-powered platform on end-row rails that moves a solar cleaning robot between rows. It is the fleet-integrated platform name used on taypro.in today."
       },
       "1": {
         "question": "How does a solar panel cleaning robot row-transfer docking station work?",
@@ -461,6 +459,6 @@
       "linkCta": "Learn more"
     },
     "modelCardsTitle": "Explore more Taypro solar cleaning solutions",
-    "footerNote": "CRADYL was formerly branded as Taypro MDS (Movable Docking Station). Specifications may vary by site rail layout and robot model; confirm with Taypro engineering before procurement."
+    "footerNote": "Specifications may vary by site rail layout and robot model; confirm with Taypro engineering before procurement."
   }
 }

@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# CMS SQLite safety helpers for production deploy (WAL mode).
-# Sourced or invoked from deploy.sh on the server — do not run casually by hand.
+# INTERNAL: CMS helpers for ./deploy.sh only. Do not run this file directly.
 set -euo pipefail
+
+ROOT="${TAYPRO_APP_ROOT:-/var/www/taypro-dashboard}"
 
 CMS_DIR="${CMS_DIR:-data}"
 STAND_DIR="${STAND_DIR:-.next/standalone/data}"
@@ -76,12 +77,34 @@ cms_verify() {
       console.error('  ❌ integrity_check failed:', String(ic).slice(0, 200));
       process.exit(1);
     }
-    const total = db.prepare('SELECT COUNT(*) AS n FROM blogs').get().n;
+    const blogs = db.prepare('SELECT COUNT(*) AS n FROM blogs').get().n;
+    const blogsPub = db.prepare(\"SELECT COUNT(*) AS n FROM blogs WHERE locale='en' AND published=1\").get().n;
+    const projects = db.prepare(\"SELECT COUNT(*) AS n FROM projects WHERE locale='en'\").get().n;
+    const projectsPub = db.prepare(\"SELECT COUNT(*) AS n FROM projects WHERE locale='en' AND published=1\").get().n;
+    let authors = 0;
+    let uploads = 0;
+    try { authors = db.prepare('SELECT COUNT(*) AS n FROM authors').get().n; } catch (_) {}
+    try { uploads = db.prepare('SELECT COUNT(*) AS n FROM uploads').get().n; } catch (_) {}
     const locales = db.prepare('SELECT locale, COUNT(*) AS c FROM blogs GROUP BY locale ORDER BY locale').all();
-    console.log('  ✅ DB integrity OK —', total, 'blog rows');
-    for (const row of locales) console.log('     ', row.locale + ':', row.c);
+    console.log('  ✅ DB integrity OK — blogs:', blogs, '(en published:', blogsPub + ')');
+    console.log('     projects (en):', projects, '(published:', projectsPub + '), authors:', authors, ', upload index:', uploads);
+    for (const row of locales) console.log('     ', row.locale + ' blogs:', row.c);
     db.close();
   " "$db_path"
+}
+
+cms_save_metrics() {
+  local out_path="$1"
+  local db_path="${2:-data/cms.sqlite}"
+  mkdir -p "$(dirname "$out_path")"
+  node scripts/deploy-cms-metrics.mjs "$db_path" > "$out_path"
+  echo "  ✅ CMS metrics saved → $out_path"
+}
+
+cms_assert_unchanged() {
+  local before_path="$1"
+  local after_path="$2"
+  node scripts/deploy-cms-assert-unchanged.mjs "$before_path" "$after_path"
 }
 
 # Checkpoint canonical CMS in data/. Never overwrite data/ from standalone:
@@ -149,6 +172,22 @@ cms_push_to_standalone() {
   echo "  ✅ Synced checkpointed cms.sqlite → standalone"
 }
 
+# Sync public/ → standalone without --delete on uploads (gallery must survive).
+cms_sync_public_safe() {
+  local app_root="${1:-$ROOT}"
+  local src="$app_root/public"
+  local dest="$app_root/.next/standalone/public"
+  [ -d "$src" ] || return 0
+  [ -d "$app_root/.next/standalone" ] || return 0
+  mkdir -p "$dest"
+  if [ -d "$src/uploads" ]; then
+    mkdir -p "$dest/uploads"
+    rsync -a "$src/uploads/" "$dest/uploads/"
+  fi
+  rsync -a --delete --exclude 'uploads' "$src/" "$dest/"
+  echo "  ✅ Synced public/ → standalone/public/ (uploads preserved)"
+}
+
 case "${1:-}" in
   stop) cms_stop_app ;;
   start) cms_start_app ;;
@@ -157,8 +196,11 @@ case "${1:-}" in
   snapshot) cms_snapshot_to "$2" ;;
   restore) cms_restore_from "$2" ;;
   push-standalone) cms_push_to_standalone ;;
+  sync-public) cms_sync_public_safe "${2:-$ROOT}" ;;
+  save-metrics) cms_save_metrics "$2" "${3:-data/cms.sqlite}" ;;
+  assert-unchanged) cms_assert_unchanged "$2" "$3" ;;
   *)
-    echo "Usage: $0 {stop|start|flush|verify|snapshot <dir>|restore <dir>|push-standalone}"
+    echo "Usage: internal CMS helper — run ./deploy.sh from your machine instead."
     exit 1
     ;;
 esac

@@ -1,27 +1,89 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
-import { generateUniqueTopic, generateBlogContent } from "@/lib/aiService";
+import {
+  generateBlogContent,
+  planBlogContent,
+  type GeneratedTopic,
+} from "@/lib/aiService";
 import { isRetryableGenerationError } from "@/lib/seo/content-quality";
 import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
 import { pickBlogFeaturedImage } from "@/lib/seo/blog-image-picker";
 import { enrichBlogContentWithInlineImages } from "@/lib/seo/blog-inline-images";
 import { formatTopicCategory } from "@/lib/seo/keyword-stats";
 import {
+  assertBlogDraftUnique,
+  assertPlanUnique,
+  findTitleConflict,
+  loadBlogUniquenessContext,
+} from "@/lib/seo/blog-plan-gates";
+import {
   buildContentFingerprint,
   extractH2Headings,
 } from "@/lib/seo/blog-similarity";
-import { assertBlogNotTooSimilar } from "@/lib/seo/blog-uniqueness";
-import { planBlogAutomation } from "@/lib/cms/blog-automation-context";
+import {
+  pickTopicTitleHybrid,
+  planBlogAutomationHybrid,
+} from "@/lib/seo/blog-automation-hybrid";
+import { pickAuthorForBlogTopic } from "@/lib/cms/authorService";
 import { resolveAuthorExpertiseTags } from "@/lib/cms/blog-author-expertise";
 import { getBlogAutomationSchedule, addPublishedTopic } from "@/lib/topicTracker";
 import { createBlogFiles, createSlug } from "@/app/utils/blogFileUtils";
 import { isAutomationAuthorized } from "@/lib/security";
+import {
+  GeminiDailyBudgetError,
+  getBlogPipelineMaxCalls,
+  getGeminiDailyBudget,
+} from "@/lib/gemini/daily-budget";
 
-const MAX_GENERATION_ATTEMPTS = 3;
+/** One outer attempt ≈ topic + outline + body (not 5× full pipelines). */
+const MAX_PIPELINE_ATTEMPTS = 3;
 
 /** Imagen + long Gemini runs; cron curl allows 900s — keep in sync. */
 export const maxDuration = 900;
+
+async function pickAutomationTopic(
+  editorialContext: string,
+  rejectedTitles: string[],
+  automationPlan: Awaited<ReturnType<typeof planBlogAutomationHybrid>>
+): Promise<GeneratedTopic> {
+  const { author, category, seoBrief } = automationPlan;
+
+  if (!seoBrief?.primary) {
+    throw new Error("No SEO keyword available for topic selection");
+  }
+
+  const title = await pickTopicTitleHybrid({
+    seoBrief,
+    category,
+    author,
+    editorialContext,
+    rejectedTitles,
+  });
+
+  return {
+    title,
+    category: category.name,
+    seoKeyword: seoBrief.primary,
+    seoBrief,
+  };
+}
+
+function trackRejectedTitle(rejectedTitles: string[], title: string): void {
+  const trimmed = title.trim();
+  if (!trimmed) return;
+  if (!rejectedTitles.some((t) => t.toLowerCase() === trimmed.toLowerCase())) {
+    rejectedTitles.push(trimmed);
+  }
+}
+
+function trackRejectedFromError(rejectedTitles: string[], msg: string): void {
+  const match = msg.match(/"([^"]+)"/g);
+  if (!match) return;
+  for (const quoted of match) {
+    trackRejectedTitle(rejectedTitles, quoted.replace(/^"|"$/g, ""));
+  }
+}
 
 export async function POST(request: NextRequest) {
   if (!isAutomationAuthorized(request)) {
@@ -44,23 +106,63 @@ export async function POST(request: NextRequest) {
     }
 
     const editorialContext = await formatEditorialContextPrompt();
-    const automationPlan = await planBlogAutomation();
-    const { author: bylineAuthor, category: plannedCategory, seoBrief } =
-      automationPlan;
+    const automationPlan = await planBlogAutomationHybrid(
+      editorialContext,
+      pickAuthorForBlogTopic
+    );
+    const { author: bylineAuthor } = automationPlan;
+    const uniquenessCtx = await loadBlogUniquenessContext();
     let lastError: unknown;
+    const rejectedTitles: string[] = [];
 
-    for (let genAttempt = 0; genAttempt < MAX_GENERATION_ATTEMPTS; genAttempt++) {
+    for (
+      let pipelineAttempt = 0;
+      pipelineAttempt < MAX_PIPELINE_ATTEMPTS;
+      pipelineAttempt++
+    ) {
+      let attemptedTitle = "";
       try {
-        const topic = await generateUniqueTopic(
-          3,
+        const topic = await pickAutomationTopic(
           editorialContext,
-          bylineAuthor,
-          { seoBrief, category: plannedCategory }
+          rejectedTitles,
+          automationPlan
         );
 
         if (!topic.title) {
           throw new Error("Failed to generate a unique topic");
         }
+        attemptedTitle = topic.title;
+        const slug = createSlug(topic.title);
+
+        const titleConflict = await findTitleConflict(topic.title, slug);
+        if (titleConflict) {
+          trackRejectedTitle(rejectedTitles, topic.title);
+          throw new Error(
+            `Topic already published or too similar: "${topic.title}" (${titleConflict.slug})`
+          );
+        }
+
+        const contentPlan = await planBlogContent(
+          topic.title,
+          topic.category,
+          topic.seoBrief,
+          editorialContext,
+          {
+            author: bylineAuthor,
+            preferQualityModel: pipelineAttempt >= 1,
+            excludeTitles: rejectedTitles,
+          }
+        );
+
+        await assertPlanUnique(
+          {
+            title: topic.title,
+            description: contentPlan.description,
+            h2Outline: contentPlan.h2Outline,
+            slug,
+          },
+          uniquenessCtx
+        );
 
         const blogData = await generateBlogContent(
           topic.title,
@@ -69,23 +171,28 @@ export async function POST(request: NextRequest) {
           editorialContext,
           {
             author: bylineAuthor,
-            useOutlinePass: genAttempt >= 1,
-            preferQualityModel: genAttempt >= 1,
+            useOutlinePass: false,
+            preApprovedOutline: contentPlan.outlineJson,
+            preferQualityModel: pipelineAttempt >= 1,
+            excludeTitles: rejectedTitles,
+            lockedTitle: topic.title,
           }
         );
 
         if (!blogData.title || !blogData.description || !blogData.content) {
           throw new Error("Failed to generate complete blog content");
         }
+        attemptedTitle = blogData.title;
 
-        const slug = createSlug(blogData.title);
-
-        await assertBlogNotTooSimilar({
-          title: blogData.title,
-          description: blogData.description,
-          content: blogData.content,
-          slug,
-        });
+        await assertBlogDraftUnique(
+          {
+            title: blogData.title,
+            description: blogData.description,
+            content: blogData.content,
+            slug,
+          },
+          uniquenessCtx
+        );
 
         const featured = await pickBlogFeaturedImage({
           title: blogData.title,
@@ -169,19 +276,27 @@ export async function POST(request: NextRequest) {
             author: bylineAuthor.name,
             authorRole: bylineAuthor.role,
             authorExpertise: resolveAuthorExpertiseTags(bylineAuthor),
-            plannedCategory: plannedCategory.name,
+            plannedCategory: automationPlan.category.name,
+            pipelineAttempt: pipelineAttempt + 1,
+          geminiBudget: getGeminiDailyBudget(),
           },
           schedule: await getBlogAutomationSchedule(),
         });
       } catch (error) {
         lastError = error;
+        const msg = error instanceof Error ? error.message : String(error);
+        if (attemptedTitle) {
+          trackRejectedTitle(rejectedTitles, attemptedTitle);
+        }
+        trackRejectedFromError(rejectedTitles, msg);
+
         if (
           isRetryableGenerationError(error) &&
-          genAttempt < MAX_GENERATION_ATTEMPTS - 1
+          pipelineAttempt < MAX_PIPELINE_ATTEMPTS - 1
         ) {
           console.warn(
-            `Blog generation attempt ${genAttempt + 1} rejected, retrying:`,
-            error instanceof Error ? error.message : error
+            `Blog pipeline attempt ${pipelineAttempt + 1} rejected, retrying with new angle:`,
+            msg
           );
           continue;
         }
@@ -194,6 +309,16 @@ export async function POST(request: NextRequest) {
       : new Error("Blog generation failed");
   } catch (error) {
     console.error("Error in POST /api/automation/generate-blog:", error);
+    if (error instanceof GeminiDailyBudgetError) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: error.message,
+          geminiBudget: error.snapshot,
+        },
+        { status: 429 }
+      );
+    }
     return NextResponse.json(
       {
         success: false,
@@ -214,6 +339,8 @@ export async function GET(request: NextRequest) {
     const schedule = await getBlogAutomationSchedule();
     return NextResponse.json({
       ...schedule,
+      geminiBudget: getGeminiDailyBudget(),
+      blogPipelineMaxCalls: getBlogPipelineMaxCalls(),
       message: schedule.canGenerate
         ? "Ready to generate and publish a new post"
         : `Wait until ${schedule.nextEligibleAt} (max 1 post/day). POST with ?force=true to override.`,

@@ -28,6 +28,8 @@ mkdir -p "$RUNTIME_DIR"
 DAY=$(date +%Y%m%d)
 SLOT_FILE="$RUNTIME_DIR/target-$DAY.epoch"
 DONE_FILE="$RUNTIME_DIR/done-$DAY"
+FAIL_POSTS_FILE="$RUNTIME_DIR/fail-posts-$DAY"
+MAX_FAIL_POSTS="${BLOG_CRON_MAX_FAIL_POSTS:-1}"
 
 if [ -f "$DONE_FILE" ]; then
   exit 0
@@ -62,6 +64,16 @@ TARGET=$(cat "$SLOT_FILE")
 NOW=$(now_epoch)
 
 if [ "$NOW" -lt "$TARGET" ]; then
+  exit 0
+fi
+
+FAIL_POSTS=0
+if [ -f "$FAIL_POSTS_FILE" ]; then
+  FAIL_POSTS=$(cat "$FAIL_POSTS_FILE" 2>/dev/null || echo 0)
+fi
+if [ "$FAIL_POSTS" -ge "$MAX_FAIL_POSTS" ]; then
+  echo "$(date -Is) skip: $FAIL_POSTS failed POST attempt(s) today (max $MAX_FAIL_POSTS)" >> "$LOG"
+  touch "$DONE_FILE"
   exit 0
 fi
 
@@ -103,5 +115,12 @@ ENDPOINT="${API_BASE%/}/api/automation/generate-blog"
     process.exit(b.schedule && b.schedule.canGenerate === false ? 0 : 1);
   " "$BODY" 2>/dev/null; then
     touch "$DONE_FILE"
+  else
+    NEXT_FAIL=$((FAIL_POSTS + 1))
+    echo "$NEXT_FAIL" > "$FAIL_POSTS_FILE"
+    if [ "$NEXT_FAIL" -ge "$MAX_FAIL_POSTS" ]; then
+      echo "$(date -Is) giving up for $DAY after $NEXT_FAIL failed POST attempt(s)" >> "$LOG"
+      touch "$DONE_FILE"
+    fi
   fi
 } >> "$LOG" 2>&1

@@ -2,25 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
+import AdminRichTextEditor from "@/app/admin/components/AdminRichTextEditor";
 import { BlogFaqEditor } from "@/app/admin/components/BlogFaqEditor";
 import type { BlogFaqItem } from "@/lib/cms/blog-faqs";
-
-const BlogEditor = dynamic(() => import("../../../components/BlogEditor"), {
-  ssr: false,
-  loading: () => (
-    <div className="border border-gray-600 rounded-lg overflow-hidden bg-white">
-      <div className="flex items-center justify-center h-96 bg-white">
-        <div className="flex space-x-2">
-          <span className="dot w-3 h-3 bg-gray-500 rounded-full animate-bounce"></span>
-          <span className="dot w-3 h-3 bg-gray-500 rounded-full animate-bounce delay-100"></span>
-          <span className="dot w-3 h-3 bg-gray-500 rounded-full animate-bounce delay-200"></span>
-        </div>
-      </div>
-    </div>
-  ),
-});
 
 export default function NewBlogPage() {
   const router = useRouter();
@@ -512,7 +497,7 @@ export default function NewBlogPage() {
             Content *
           </label>
           <div className="bg-white border border-gray-300 rounded-md p-2">
-            <BlogEditor
+            <AdminRichTextEditor
               onContentChange={(content) =>
                 setFormData({ ...formData, content })
               }

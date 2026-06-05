@@ -170,7 +170,7 @@ function openingAnswersTitle(title: string, content: string): boolean {
   for (const t of titleTokens) {
     if (openingTokens.has(t)) hit += 1;
   }
-  return hit >= Math.min(3, Math.max(1, Math.ceil(titleTokens.size * 0.25)));
+  return hit >= Math.min(2, Math.max(1, Math.ceil(titleTokens.size * 0.2)));
 }
 
 /**

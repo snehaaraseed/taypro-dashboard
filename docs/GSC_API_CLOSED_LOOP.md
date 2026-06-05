@@ -6,7 +6,7 @@ Blog automation can **read real Search Console performance** and refresh `data/s
 
 1. **Weekly cron** calls `POST /api/automation/sync-gsc`
 2. Service account pulls **query** dimension (last 28 days by default)
-3. Scores Taypro-relevant queries (same filters as keyword CSV)
+3. Scores full-funnel solar plant queries (same filters as keyword CSV: panels, inverters, prices, O&M, cleaning)
 4. Writes:
    - `data/seo-gsc-boost.json` → `keywords[]` for `pickSeoKeywordBrief()`
    - `data/gsc-latest-report.json` → full snapshot for editorial prompts

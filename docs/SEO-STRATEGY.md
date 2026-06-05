@@ -12,7 +12,7 @@
 1. Work **top to bottom** within each phase (Foundation → Authority → Scale).
 2. Each task has a **checkbox** (`- [ ]`). Change to `- [x]` when done.
 3. **Owner** and **target files** are noted where implementation lives in this repo.
-4. Do **not** chase high-volume **panel sales** keywords (500k bucket) — Taypro sells **cleaning robots & services**, not PV modules.
+4. **Full-funnel blogs** may target panel price, manufacturers, inverters, brushes, etc. — bridge to O&M/cleaning robots (Taypro does not sell modules). Money pages stay robot/service focused.
 5. Re-run Keyword Planner quarterly; append new exports and update [Appendix B](#appendix-b-keyword--url-master-list).
 
 ---
@@ -21,7 +21,7 @@
 
 | Insight | Action |
 |--------|--------|
-| 23 keywords at **50k+** volume are mostly **panel price / solar panels** | Ignore for product SEO |
+| 23 keywords at **50k+** volume are mostly **panel price / solar panels** | Tier B blogs (buyer → O&M bridge); not product-page H1s |
 | **15+ cleaning keywords at 5k** are the core market | Hub + service + model pages |
 | **Service cluster** (5k, competition index **18**) = fastest commercial win | Prioritize Opex/service page |
 | **Robot cluster** (5k, index **39**) = category ownership | Hub + GLYDE (dual-pass) + NYUMA (PBT) |
@@ -128,13 +128,13 @@
 - robotic cleaning of solar panels  
 - autonomous solar panel cleaning robot  
 
-### Tier D — Do NOT target as primary pages
+### Tier D — Do NOT target
 
-- solar panels, solar panel price, photovoltaic panels price (500k)  
-- solar panel manufacturers, best solar panels in india (wrong business)  
-- solar plant (50k) without cleaning modifier  
-- Geo junk: san diego, melbourne, vadodara-only terms  
+- Geo junk: san diego, melbourne, `near me` US-style spam  
 - Student intent: robot project, pdf, ppt  
+- Residential DIY-only angles with no utility/O&M bridge  
+
+**Tier B funnel (blogs, not product H1):** solar panel price, manufacturers, inverters, brushes — content bridges to cleaning/O&M.  
 
 ---
 

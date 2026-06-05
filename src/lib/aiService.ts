@@ -32,8 +32,26 @@ import {
   type BlogFaqItem,
 } from "@/lib/cms/blog-faqs";
 import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
+import {
+  assertGeminiCallAllowed,
+  recordGeminiCall,
+  type GeminiCallPurpose,
+} from "@/lib/gemini/daily-budget";
 import { freeGeminiTextModelCandidates } from "@/lib/gemini/free-tier-models";
-import { assertGeneratedBlogValid } from "@/lib/seo/blog-content-validator";
+import {
+  assertGeneratedBlogValid,
+  getBlogMinWordCount,
+  validateGeneratedBlog,
+} from "@/lib/seo/blog-content-validator";
+import { stripHtmlToPlainText } from "@/lib/seo/blog-similarity";
+import { parseBlogContentPlanJson } from "@/lib/seo/blog-content-plan";
+import {
+  assembleSectionHtml,
+  buildFaqWriterPrompt,
+  buildSectionWriterPrompt,
+  chunkH2Outline,
+  type SectionWriterContext,
+} from "@/lib/seo/blog-section-writer";
 
 function getGenAI(): GoogleGenerativeAI {
   const key = process.env.GEMINI_API_KEY?.trim();
@@ -60,7 +78,44 @@ function quotaErrorMessage(error: unknown): string {
 type GenerateTextOptions = {
   /** On retry, rotate to another free-tier model ID (e.g. flash-lite-preview). */
   preferQualityModel?: boolean;
+  /** Override output token cap (blog generation uses BLOG_MAX_OUTPUT_TOKENS). */
+  maxOutputTokens?: number;
+  /** Daily RPD accounting bucket. */
+  purpose?: GeminiCallPurpose;
 };
+
+/** Long-form blog JSON needs a high output cap; default Gemini limits truncate ~800-word drafts. */
+const BLOG_MAX_OUTPUT_TOKENS = (() => {
+  const raw = process.env.BLOG_MAX_OUTPUT_TOKENS?.trim();
+  const n = raw ? Number.parseInt(raw, 10) : 16384;
+  return Number.isFinite(n) && n > 0 ? n : 16384;
+})();
+
+function blogTextOptions(
+  options?: GenerateTextOptions
+): GenerateTextOptions {
+  return {
+    ...options,
+    maxOutputTokens: options?.maxOutputTokens ?? BLOG_MAX_OUTPUT_TOKENS,
+  };
+}
+
+/** Per-section output cap — keeps each call well under TPM while hitting word targets. */
+const BLOG_SECTION_MAX_OUTPUT_TOKENS = (() => {
+  const raw = process.env.BLOG_SECTION_MAX_OUTPUT_TOKENS?.trim();
+  const n = raw ? Number.parseInt(raw, 10) : 8192;
+  return Number.isFinite(n) && n > 0 ? n : 8192;
+})();
+
+function blogSectionTextOptions(
+  options?: GenerateTextOptions
+): GenerateTextOptions {
+  return {
+    ...options,
+    maxOutputTokens: options?.maxOutputTokens ?? BLOG_SECTION_MAX_OUTPUT_TOKENS,
+    purpose: options?.purpose ?? "blog_section",
+  };
+}
 
 function blogModelCandidates(options?: GenerateTextOptions): string[] {
   return freeGeminiTextModelCandidates({
@@ -77,12 +132,21 @@ async function generateText(
 
   for (const modelName of blogModelCandidates(options)) {
     try {
-      const model = genAI.getGenerativeModel({ model: modelName });
+      assertGeminiCallAllowed(options?.purpose ?? "other");
+      const generationConfig =
+        options?.maxOutputTokens && options.maxOutputTokens > 0
+          ? { maxOutputTokens: options.maxOutputTokens }
+          : undefined;
+      const model = genAI.getGenerativeModel({
+        model: modelName,
+        ...(generationConfig ? { generationConfig } : {}),
+      });
       let text: string;
       try {
         const result = await model.generateContent(prompt);
         text = result.response.text().trim();
       } finally {
+        recordGeminiCall(options?.purpose ?? "other");
         await pauseAfterGeminiCall();
       }
       return text;
@@ -117,6 +181,8 @@ export type GenerateUniqueTopicPlan = {
   seoBrief?: SeoKeywordBrief | null;
   /** When set (automation), reuse the category matched to the keyword. */
   category?: TopicCategory;
+  /** Titles rejected by similarity or publish checks on prior attempts. */
+  excludeTitles?: string[];
 };
 
 export async function generateUniqueTopic(
@@ -131,6 +197,9 @@ export async function generateUniqueTopic(
     editorialContext ?? (await formatEditorialContextPrompt());
   const authorBlock = author ? `\n${formatAuthorVoicePrompt(author)}\n` : "";
   const fixedCategory = plan?.category;
+  const excludeTitles = new Set(
+    (plan?.excludeTitles ?? []).map((t) => t.toLowerCase().trim()).filter(Boolean)
+  );
 
   for (let attempt = 0; attempt < maxRetries; attempt++) {
     const category = fixedCategory ?? getRandomCategory();
@@ -142,10 +211,16 @@ export async function generateUniqueTopic(
       ? `\n${formatSeoPromptBlock(seoBrief)}\n- At least 3 of the 5 titles MUST include the exact phrase "${seoBrief.primary}" or a word-order variant.\n`
       : "";
 
+    const excludeBlock =
+      excludeTitles.size > 0
+        ? `\nDo NOT reuse or closely paraphrase these already-published or rejected titles:\n${[...excludeTitles].map((t) => `- ${t}`).join("\n")}\n`
+        : "";
+
     const prompt = `You are a content strategist for a solar panel cleaning robot company called Taypro.
 
 ${editorial}
 ${authorBlock}
+${excludeBlock}
 Generate 5 unique, SEO-friendly blog topic titles about: ${category.name}
 
 Category Description: ${category.description}
@@ -176,7 +251,7 @@ Return ONLY a JSON array of 5 topic titles, like this:
 ["Topic 1", "Topic 2", "Topic 3", "Topic 4", "Topic 5"]`;
 
     try {
-      const text = await generateText(prompt);
+      const text = await generateText(prompt, { purpose: "blog_topic" });
 
       let topics: string[] = [];
       try {
@@ -198,6 +273,8 @@ Return ONLY a JSON array of 5 topic titles, like this:
 
       for (const topicTitle of topics) {
         if (!topicTitle || typeof topicTitle !== "string") continue;
+        const normalizedTitle = topicTitle.trim();
+        if (excludeTitles.has(normalizedTitle.toLowerCase())) continue;
 
         if (isTooGenericTitle(topicTitle, seoBrief?.primary)) {
           continue;
@@ -277,7 +354,254 @@ export type GenerateBlogContentOptions = {
   preferQualityModel?: boolean;
   /** Search intent override when seoBrief is null (admin manual generate). */
   searchIntent?: string;
+  /** Rejected titles from prior similarity failures (automation retries). */
+  excludeTitles?: string[];
+  /** When set, force the returned title (automation uses planned topic title). */
+  lockedTitle?: string;
+  /** Skip outline Gemini call; use this JSON from planBlogContent instead. */
+  preApprovedOutline?: string;
 };
+
+import type { BlogContentPlan } from "@/lib/seo/blog-content-plan";
+export type { BlogContentPlan } from "@/lib/seo/blog-content-plan";
+
+function countPlainWords(html: string): number {
+  return stripHtmlToPlainText(html).split(/\s+/).filter(Boolean).length;
+}
+
+/** Keep automation titles inside validator bounds without a model round-trip. */
+function enforceSeoTitleLength(title: string): string {
+  const t = title.trim();
+  if (t.length <= 72) return t;
+  const colon = t.indexOf(":");
+  if (colon >= 35 && colon <= 72) return t.slice(0, colon).trim();
+  const dash = t.indexOf(" - ");
+  if (dash >= 35 && dash <= 72) return t.slice(0, dash).trim();
+  const slice = t.slice(0, 69).trim();
+  const lastSpace = slice.lastIndexOf(" ");
+  if (lastSpace >= 35) return slice.slice(0, lastSpace).trim();
+  return slice;
+}
+
+function parseBlogJsonFromText(text: string): {
+  title: string;
+  description: string;
+  content: string;
+  faqs?: unknown;
+} {
+  try {
+    return JSON.parse(text);
+  } catch {
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      return JSON.parse(jsonMatch[0]);
+    }
+    throw new Error("Could not parse JSON from AI response");
+  }
+}
+
+function normalizeParsedBlog(
+  blogData: {
+    title: string;
+    description: string;
+    content: string;
+    faqs?: unknown;
+  },
+  fallbackFaqs?: BlogFaqItem[]
+): GeneratedBlogContent {
+  if (!blogData.title || !blogData.description || !blogData.content) {
+    throw new Error(
+      "AI response missing required fields (title, description, content)"
+    );
+  }
+
+  let faqs = normalizeBlogFaqsInput(blogData.faqs);
+  if (faqs.length < 4 && (fallbackFaqs?.length ?? 0) >= 4) {
+    faqs = fallbackFaqs!;
+  }
+  if (faqs.length < 4) {
+    throw new Error(
+      "AI response must include at least 4 FAQs in the faqs array"
+    );
+  }
+
+  return {
+    title: enforceSeoTitleLength(sanitizeEmDash(blogData.title.trim())),
+    description: sanitizeEmDash(blogData.description.trim()),
+    content: sanitizeEmDash(blogData.content.trim()),
+    faqs: faqs.slice(0, 5).map((faq) => ({
+      question: sanitizeEmDash(faq.question),
+      answer: sanitizeEmDash(faq.answer),
+    })),
+  };
+}
+
+async function expandShortBlogDraft(
+  draft: GeneratedBlogContent,
+  topic: string,
+  primaryKeyword: string | undefined,
+  options?: GenerateTextOptions
+): Promise<GeneratedBlogContent> {
+  const wordCount = countPlainWords(draft.content);
+  const minWords = getBlogMinWordCount();
+  const wordsNeeded = Math.max(minWords - wordCount, 400);
+  const prompt = `You are expanding a SHORT utility-scale solar blog draft (${wordCount} words). Add at least ${wordsNeeded} more words so the total reaches ${minWords}–3,200.
+
+Working title: ${topic}
+Current title: ${draft.title}
+Primary SEO keyword: ${primaryKeyword?.trim() || "(none)"}
+
+CURRENT HTML (keep all H2 headings and structure; expand EVERY section with new India plant scenarios, numeric ranges, comparison tables, and O&M detail):
+${draft.content}
+
+${LONG_FORM_CONTENT_RULES}
+${AI_OVERVIEW_SNIPPET_RULES}
+${PUNCTUATION_RULES}
+
+Return ONLY valid JSON:
+{
+  "title": "50-60 chars, max 72",
+  "description": "meta description 150-160 chars",
+  "content": "<p>expanded full HTML...</p>",
+  "faqs": [ four FAQ objects matching expanded facts ]
+}
+
+Rules:
+- content MUST be at least ${minWords} words (target 2,800–3,200). You need ~${wordsNeeded} more words than the draft above.
+- Opening <p> must directly answer the title in 2-3 sentences.
+- Keep "Quick answer" H2 and one question-shaped H2.
+- No "Frequently asked questions" heading in HTML.
+- faqs: exactly 4 items; faqs[0] must phrase the primary keyword as a question.`;
+
+  const text = await generateText(
+    prompt,
+    blogTextOptions({ ...options, purpose: "blog_expand" })
+  );
+  return normalizeParsedBlog(parseBlogJsonFromText(text), draft.faqs);
+}
+
+async function repairBlogOpening(
+  draft: GeneratedBlogContent,
+  topic: string,
+  options?: GenerateTextOptions
+): Promise<GeneratedBlogContent> {
+  const prompt = `Fix the OPENING of this utility-scale solar blog so the first two <p> tags directly answer the title question (2-3 sentences, no filler).
+
+Title: ${draft.title}
+Working topic: ${topic}
+
+HTML (rewrite opening <p> tags only; keep all H2+ sections unchanged):
+${draft.content}
+
+Return ONLY valid JSON with the full HTML in "content", same title/description/faqs otherwise:
+{ "title": "...", "description": "...", "content": "...", "faqs": [ ... ] }`;
+
+  const text = await generateText(
+    prompt,
+    blogTextOptions({ ...options, purpose: "blog_repair" })
+  );
+  return normalizeParsedBlog(parseBlogJsonFromText(text), draft.faqs);
+}
+
+async function appendBlogSections(
+  draft: GeneratedBlogContent,
+  topic: string,
+  primaryKeyword: string | undefined,
+  options?: GenerateTextOptions
+): Promise<GeneratedBlogContent> {
+  const wordCount = countPlainWords(draft.content);
+  const minWords = getBlogMinWordCount();
+  const wordsNeeded = Math.max(minWords - wordCount, 300);
+
+  const prompt = `This utility-scale solar blog is ${wordCount} words but needs ${minWords}+ total. Add ${wordsNeeded}+ words as 2–3 NEW H2 sections (with H3 subsections and a comparison table or checklist if missing).
+
+Topic: ${topic}
+Primary keyword: ${primaryKeyword?.trim() || "(none)"}
+
+EXISTING HTML (keep unchanged; insert new sections BEFORE any "Key takeaways" / "What plant managers" H2):
+${draft.content}
+
+${LONG_FORM_CONTENT_RULES}
+${PUNCTUATION_RULES}
+
+Return ONLY valid JSON with the FULL merged HTML in "content" (original + new sections), same 4 faqs updated if needed, title 50-60 chars (max 72), description 150-160 chars.`;
+
+  const text = await generateText(
+    prompt,
+    blogTextOptions({ ...options, purpose: "blog_expand" })
+  );
+  return normalizeParsedBlog(parseBlogJsonFromText(text), draft.faqs);
+}
+
+async function generateBlogBodyFromPlan(
+  topic: string,
+  category: string,
+  plan: BlogContentPlan,
+  ctx: {
+    knowledgeContext: string;
+    editorial: string;
+    authorBlock: string;
+    seoBlock: string;
+    excludeBlock: string;
+    primaryKeyword?: string;
+  },
+  options?: GenerateTextOptions
+): Promise<{ content: string; faqs: BlogFaqItem[] }> {
+  const sectionCtx: SectionWriterContext = {
+    topic,
+    category,
+    knowledgeContext: ctx.knowledgeContext,
+    editorial: ctx.editorial,
+    authorBlock: ctx.authorBlock,
+    seoBlock: ctx.seoBlock,
+    excludeBlock: ctx.excludeBlock,
+    primaryKeyword: ctx.primaryKeyword,
+  };
+
+  const chunks = chunkH2Outline(plan.h2Outline, 2);
+  const htmlParts: string[] = [];
+
+  for (let i = 0; i < chunks.length; i++) {
+    const previousSectionsHtml = assembleSectionHtml(htmlParts);
+    const prompt = buildSectionWriterPrompt(sectionCtx, plan, chunks[i], {
+      isFirstChunk: i === 0,
+      sectionIndex: i,
+      totalSections: chunks.length,
+      previousSectionsHtml: i > 0 ? previousSectionsHtml : undefined,
+    });
+    const text = await generateText(
+      prompt,
+      blogSectionTextOptions({ ...options, purpose: "blog_section" })
+    );
+    let html: string;
+    try {
+      html = JSON.parse(text.match(/\{[\s\S]*\}/)?.[0] ?? text).html;
+    } catch {
+      throw new Error("Could not parse section HTML from AI response");
+    }
+    if (!html?.trim()) {
+      throw new Error("Section writer returned empty HTML");
+    }
+    htmlParts.push(sanitizeEmDash(String(html).trim()));
+  }
+
+  const content = assembleSectionHtml(htmlParts);
+  const faqPrompt = buildFaqWriterPrompt(sectionCtx, plan, content);
+  let faqs: BlogFaqItem[] = [];
+  for (let attempt = 0; attempt < 2 && faqs.length < 4; attempt++) {
+    const faqText = await generateText(
+      faqPrompt,
+      blogSectionTextOptions({ ...options, purpose: "blog_faq" })
+    );
+    const faqParsed = parseBlogJsonFromText(faqText);
+    faqs = normalizeBlogFaqsInput(faqParsed.faqs);
+  }
+  if (faqs.length < 4) {
+    throw new Error("FAQ writer must return at least 4 FAQs");
+  }
+
+  return { content, faqs: faqs.slice(0, 5) };
+}
 
 function formatFocusedKeywordsBlock(
   keywords: string[],
@@ -315,19 +639,22 @@ const PROJECT_CASE_STUDY_RULES = `PROJECT CASE STUDY (not a blog article):
 - End with a short "Key outcomes" or "Why this matters" H2 with 3–5 bullets.
 - Do NOT invent client names, exact ROI percentages, or Taypro specs not in the knowledge base.`;
 
-async function generateBlogOutline(
+/** Phase 2: cheap plan (meta + H2 outline) before full body generation. */
+export async function planBlogContent(
   topic: string,
   _category: string,
   seoBrief: SeoKeywordBrief | null | undefined,
   editorialContext: string,
   options?: GenerateBlogContentOptions
-): Promise<string> {
-  const primaryKeyword =
-    options?.focusedKeywords?.[0]?.trim() || seoBrief?.primary;
+): Promise<BlogContentPlan> {
   const seoBlock = seoBrief ? `\n${formatSeoPromptBlock(seoBrief)}\n` : "";
   const authorBlock = options?.author
     ? `\n${formatAuthorVoicePrompt(options.author)}\n`
     : "";
+  const excludeBlock =
+    options?.excludeTitles && options.excludeTitles.length > 0
+      ? `\nDo NOT mirror these rejected titles/angles:\n${options.excludeTitles.map((t) => `- ${t}`).join("\n")}\n`
+      : "";
 
   const prompt = `You are a senior SEO editor for Taypro (utility-scale solar cleaning robots, India).
 
@@ -336,6 +663,7 @@ Category: ${_category}
 ${seoBlock}
 ${editorialContext}
 ${authorBlock}
+${excludeBlock}
 ${ANTI_GENERIC_WRITING_RULES}
 ${SEO_AND_READER_RULES}
 ${AI_OVERVIEW_SNIPPET_RULES}
@@ -343,24 +671,98 @@ ${LONG_FORM_CONTENT_RULES}
 
 Return ONLY valid JSON:
 {
+  "description": "Meta description 150-160 chars, specific outcome for this exact title",
   "h2Outline": ["Quick answer", "Question-shaped H2 here", "..."],
   "quickAnswerBullets": ["bullet 1 with specific range", "..."],
   "faqQuestions": ["primary keyword as question", "...", "...", "..."]
 }
 Rules:
+- description must match THIS title angle (not a generic solar blog).
 - h2Outline: 6–10 items; first must be "Quick answer" or "Summary for plant managers"; include one People Also Ask style question H2.
 - quickAnswerBullets: 3–5 specific bullets (MW, %, days, INR ranges as industry-typical).
 - faqQuestions: exactly 4 natural search queries; first must use the primary SEO keyword when provided.`;
 
-  const text = await generateText(prompt, {
-    preferQualityModel: options?.preferQualityModel,
-  });
+  const text = await generateText(
+    prompt,
+    blogTextOptions({
+      preferQualityModel: options?.preferQualityModel,
+      purpose: "blog_plan",
+    })
+  );
+
+  let parsed: {
+    description?: string;
+    h2Outline?: unknown;
+    quickAnswerBullets?: unknown;
+    faqQuestions?: unknown;
+  };
   try {
-    const parsed = JSON.parse(text.match(/\{[\s\S]*\}/)?.[0] ?? text);
-    return JSON.stringify(parsed, null, 2);
+    parsed = JSON.parse(text.match(/\{[\s\S]*\}/)?.[0] ?? text);
   } catch {
-    return text.slice(0, 4000);
+    throw new Error("Could not parse outline JSON from AI response");
   }
+
+  const h2Outline = Array.isArray(parsed.h2Outline)
+    ? parsed.h2Outline
+        .map((h) => (typeof h === "string" ? sanitizeEmDash(h.trim()) : ""))
+        .filter(Boolean)
+    : [];
+  const description = sanitizeEmDash(String(parsed.description ?? "").trim());
+  const quickAnswerBullets = Array.isArray(parsed.quickAnswerBullets)
+    ? parsed.quickAnswerBullets
+        .map((b) => (typeof b === "string" ? sanitizeEmDash(b.trim()) : ""))
+        .filter(Boolean)
+    : [];
+  const faqQuestions = Array.isArray(parsed.faqQuestions)
+    ? parsed.faqQuestions
+        .map((q) => (typeof q === "string" ? sanitizeEmDash(q.trim()) : ""))
+        .filter(Boolean)
+    : [];
+
+  if (h2Outline.length < 6) {
+    throw new Error(`Outline needs ≥6 H2 sections (found ${h2Outline.length})`);
+  }
+  if (description.length < 120 || description.length > 170) {
+    throw new Error(
+      `Outline meta description ${description.length} chars (target 150–160, allow 120–170)`
+    );
+  }
+
+  const outlineJson = JSON.stringify(
+    {
+      description,
+      h2Outline,
+      quickAnswerBullets,
+      faqQuestions,
+    },
+    null,
+    2
+  );
+
+  return {
+    description,
+    h2Outline,
+    quickAnswerBullets,
+    faqQuestions,
+    outlineJson,
+  };
+}
+
+async function generateBlogOutline(
+  topic: string,
+  _category: string,
+  seoBrief: SeoKeywordBrief | null | undefined,
+  editorialContext: string,
+  options?: GenerateBlogContentOptions
+): Promise<string> {
+  const plan = await planBlogContent(
+    topic,
+    _category,
+    seoBrief,
+    editorialContext,
+    options
+  );
+  return plan.outlineJson;
 }
 
 export async function generateBlogContent(
@@ -396,9 +798,18 @@ ${userBrief}
     options?.focusedKeywords ?? [],
     "blog"
   );
+  const excludeBlock =
+    options?.excludeTitles && options.excludeTitles.length > 0
+      ? `\nDo NOT write about or reuse these rejected titles/angles:\n${options.excludeTitles.map((t) => `- ${t}`).join("\n")}\n`
+      : "";
 
   let outlineBlock = "";
-  if (options?.useOutlinePass) {
+  if (options?.preApprovedOutline?.trim()) {
+    outlineBlock = `
+APPROVED OUTLINE (follow section order and facts; expand each H2 into full sections):
+${options.preApprovedOutline.trim()}
+`;
+  } else if (options?.useOutlinePass) {
     const outlineJson = await generateBlogOutline(
       topic,
       _category,
@@ -412,9 +823,9 @@ ${outlineJson}
 `;
   }
 
-  const textGenOptions: GenerateTextOptions = {
+  const textGenOptions = blogTextOptions({
     preferQualityModel: options?.preferQualityModel,
-  };
+  });
 
   const prompt = `You are an expert content writer specializing in solar panel cleaning robots and solar power plant operations & maintenance. Write a comprehensive, SEO-optimized blog post about: ${topic}
 
@@ -423,6 +834,7 @@ ${authorBlock}
 ${briefBlock}
 ${focusedKeywordBlock}
 ${seoBlock}
+${excludeBlock}
 ${outlineBlock}
 CRITICAL: Accuracy (product specs, public proof stats, site positioning)
 - Use ONLY the verified knowledge pack below. Do NOT invent features, specifications, fleet statistics, or product names.
@@ -436,8 +848,9 @@ ${PUNCTUATION_RULES}
 ${SEO_AND_READER_RULES}
 ${AI_OVERVIEW_SNIPPET_RULES}
 ${LONG_FORM_CONTENT_RULES}
-- Use this exact working title unless you can improve it without making it vaguer: "${topic}"
-- The JSON "title" field should match or tightly paraphrase that line (must stay specific)
+- Use this exact working title: "${topic}"
+- The JSON "title" field MUST be "${topic}" or a tighter paraphrase under 72 chars (do not swap to a different article angle)
+- The full article must address the primary SEO keyword and working title; do NOT default to a generic "mistakes to avoid" listicle unless that is the working title
 - Word count: 2,800-3,200 words (minimum 2,600; do not pad with filler)
 - Natural, conversational tone (avoid AI-sounding language)${options?.author ? "\n- Voice and examples must match the BYLINE AUTHOR block above" : ""}
 - Factual, accurate information about solar panel cleaning and solar plant O&M
@@ -476,56 +889,127 @@ FAQ rules for the "faqs" array:
 - Do not duplicate FAQ wording inside "content" HTML.`;
 
   try {
-    const text = await generateText(prompt, textGenOptions);
+    let result: GeneratedBlogContent;
 
-    let blogData: {
-      title: string;
-      description: string;
-      content: string;
-      faqs?: unknown;
-    };
-    try {
-      blogData = JSON.parse(text);
-    } catch {
-      const jsonMatch = text.match(/\{[\s\S]*\}/);
-      if (jsonMatch) {
-        blogData = JSON.parse(jsonMatch[0]);
-      } else {
-        throw new Error("Could not parse JSON from AI response");
-      }
-    }
-
-    if (!blogData.title || !blogData.description || !blogData.content) {
-      throw new Error(
-        "AI response missing required fields (title, description, content)"
+    if (options?.preApprovedOutline?.trim()) {
+      const plan = parseBlogContentPlanJson(options.preApprovedOutline.trim());
+      const { content, faqs } = await generateBlogBodyFromPlan(
+        topic,
+        _category,
+        plan,
+        {
+          knowledgeContext,
+          editorial,
+          authorBlock,
+          seoBlock,
+          excludeBlock,
+          primaryKeyword,
+        },
+        textGenOptions
       );
-    }
-
-    const faqs = normalizeBlogFaqsInput(blogData.faqs);
-    if (faqs.length < 4) {
-      throw new Error(
-        "AI response must include at least 4 FAQs in the faqs array"
-      );
+      result = {
+        title: enforceSeoTitleLength(options?.lockedTitle?.trim() || topic),
+        description: plan.description,
+        content,
+        faqs: faqs.map((faq) => ({
+          question: sanitizeEmDash(faq.question),
+          answer: sanitizeEmDash(faq.answer),
+        })),
+      };
+    } else {
+    const text = await generateText(prompt, {
+      ...textGenOptions,
+      purpose: "blog_section",
+    });
+    result = normalizeParsedBlog(parseBlogJsonFromText(text));
     }
 
     if (
-      isTooGenericTitle(blogData.title, primaryKeyword) ||
-      isTooGenericDescription(blogData.description)
+      isTooGenericTitle(result.title, primaryKeyword) ||
+      isTooGenericDescription(result.description)
     ) {
       throw new Error(
         "Generated title or meta description was too generic; retry automation"
       );
     }
 
-    const result: GeneratedBlogContent = {
-      title: sanitizeEmDash(blogData.title.trim()),
-      description: sanitizeEmDash(blogData.description.trim()),
-      content: sanitizeEmDash(blogData.content.trim()),
-      faqs: faqs.slice(0, 5).map((faq) => ({
-        question: sanitizeEmDash(faq.question),
-        answer: sanitizeEmDash(faq.answer),
-      })),
-    };
+    const minWords = getBlogMinWordCount();
+    const maxExpansionPasses = options?.preApprovedOutline?.trim() ? 2 : 3;
+    for (let pass = 0; pass < maxExpansionPasses; pass++) {
+      const wc = countPlainWords(result.content);
+      if (wc >= minWords) break;
+      console.warn(
+        `Blog draft too short (${wc} words), expansion pass ${pass + 1}/${maxExpansionPasses}`
+      );
+      result = await expandShortBlogDraft(
+        result,
+        topic,
+        primaryKeyword,
+        textGenOptions
+      );
+    }
+
+    let afterExpansion = countPlainWords(result.content);
+    for (let appendPass = 0; appendPass < 2; appendPass++) {
+      if (afterExpansion >= minWords) break;
+      if (afterExpansion < minWords * 0.75) break;
+      console.warn(
+        `Blog draft near target (${afterExpansion}/${minWords} words), appending sections (${appendPass + 1}/2)`
+      );
+      const appended = await appendBlogSections(
+        result,
+        topic,
+        primaryKeyword,
+        textGenOptions
+      );
+      const appendedWords = countPlainWords(appended.content);
+      if (appendedWords > afterExpansion) {
+        result = appended;
+        afterExpansion = appendedWords;
+      } else {
+        break;
+      }
+    }
+
+    if (afterExpansion >= minWords * 0.9 && afterExpansion < minWords) {
+      console.warn(
+        `Blog draft final top-up (${afterExpansion}/${minWords} words)`
+      );
+      result = await expandShortBlogDraft(
+        result,
+        topic,
+        primaryKeyword,
+        textGenOptions
+      );
+    }
+
+    let validation = validateGeneratedBlog({
+      title: result.title,
+      description: result.description,
+      content: result.content,
+      faqs: result.faqs,
+      primaryKeyword,
+      searchIntent,
+    });
+    if (
+      !validation.ok &&
+      validation.issues.length === 1 &&
+      validation.issues[0].includes("Opening paragraphs")
+    ) {
+      result = await repairBlogOpening(result, topic, textGenOptions);
+      validation = validateGeneratedBlog({
+        title: result.title,
+        description: result.description,
+        content: result.content,
+        faqs: result.faqs,
+        primaryKeyword,
+        searchIntent,
+      });
+    }
+
+    if (options?.lockedTitle?.trim()) {
+      result = { ...result, title: enforceSeoTitleLength(options.lockedTitle.trim()) };
+    }
 
     assertGeneratedBlogValid({
       title: result.title,
@@ -687,4 +1171,12 @@ Return ONLY valid JSON:
         : "Failed to generate project content"
     );
   }
+}
+
+/** Exported for hybrid automation pickers (keyword/title). */
+export async function generateGeminiPrompt(
+  prompt: string,
+  options?: GenerateTextOptions
+): Promise<string> {
+  return generateText(prompt, options);
 }

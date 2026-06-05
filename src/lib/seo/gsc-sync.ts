@@ -7,12 +7,10 @@ import { fetchSearchAnalyticsQueries } from "@/lib/gsc/search-console-client";
 import { getGscSiteUrl } from "@/lib/gsc/google-service-account";
 import { getGscAuthMethod, isGscConfigured } from "@/lib/gsc/gsc-auth";
 import { invalidateGscBoostCache } from "@/lib/seo/gsc-keyword-boost";
+import { passesSeoKeywordFilters } from "@/lib/seo/keyword-filters";
 
-const RELEVANT =
-  /clean|robot|maintenance|soil|waterless|automatic|sprinkler|tracker|utility|commercial solar|solar plant|solar farm|pv panel|performance ratio|om\b|o&m|dry clean|cleaning system|cleaning machine|cleaning equipment|cleaning service|solar washing|module clean/i;
-
-const EXCLUDE =
-  /near me|san diego|sydney|melbourne|taypro$|^taypro /i;
+/** Branded queries are not blog targets. */
+const GSC_QUERY_EXCLUDE = /taypro$|^taypro /i;
 
 export type GscOpportunity = {
   query: string;
@@ -84,8 +82,8 @@ function pickOpportunities(
 
   for (const row of rows) {
     if (row.impressions < minImpressions) continue;
-    if (!RELEVANT.test(row.query)) continue;
-    if (EXCLUDE.test(row.query)) continue;
+    if (!passesSeoKeywordFilters(row.query)) continue;
+    if (GSC_QUERY_EXCLUDE.test(row.query)) continue;
 
     const { score, reason } = scoreQuery(row);
     if (score <= 0) continue;

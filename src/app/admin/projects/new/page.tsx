@@ -2,23 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-
-const BlogEditor = dynamic(() => import("../../../components/BlogEditor"), {
-  ssr: false,
-  loading: () => (
-    <div className="border border-gray-600 rounded-lg overflow-hidden bg-white">
-      <div className="flex items-center justify-center h-96 bg-white">
-        <div className="flex space-x-2">
-          <span className="dot w-3 h-3 bg-gray-500 rounded-full animate-bounce"></span>
-          <span className="dot w-3 h-3 bg-gray-500 rounded-full animate-bounce delay-100"></span>
-          <span className="dot w-3 h-3 bg-gray-500 rounded-full animate-bounce delay-200"></span>
-        </div>
-      </div>
-    </div>
-  ),
-});
+import AdminRichTextEditor from "@/app/admin/components/AdminRichTextEditor";
 
 export default function NewProjectPage() {
   const router = useRouter();
@@ -638,7 +623,7 @@ export default function NewProjectPage() {
               Use the editor below to add detailed content about the project. This will be displayed below the overview section on the project page.
             </p>
             <div className="border border-gray-300 rounded-lg overflow-hidden">
-              <BlogEditor
+              <AdminRichTextEditor
                 initialContent={formData.content}
                 onContentChange={(html) =>
                   setFormData((prev) => ({ ...prev, content: html }))

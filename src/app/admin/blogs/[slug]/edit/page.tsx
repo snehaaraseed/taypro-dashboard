@@ -2,29 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import { useRouter, useParams } from "next/navigation";
 import {
   summarizeTranslateBlogResults,
   translateBlogAllLocales,
 } from "@/app/admin/utils/translate-blog";
+import AdminRichTextEditor from "@/app/admin/components/AdminRichTextEditor";
 import { BlogFaqEditor } from "@/app/admin/components/BlogFaqEditor";
 import type { BlogFaqItem } from "@/lib/cms/blog-faqs";
-
-const BlogEditor = dynamic(() => import("../../../../components/BlogEditor"), {
-  ssr: false,
-  loading: () => (
-    <div className="border border-gray-600 rounded-lg overflow-hidden bg-white">
-      <div className="flex items-center justify-center h-96 bg-white">
-        <div className="flex space-x-2">
-          <span className="dot w-3 h-3 bg-gray-500 rounded-full animate-bounce"></span>
-          <span className="dot w-3 h-3 bg-gray-500 rounded-full animate-bounce delay-100"></span>
-          <span className="dot w-3 h-3 bg-gray-500 rounded-full animate-bounce delay-200"></span>
-        </div>
-      </div>
-    </div>
-  ),
-});
 
 interface BlogData {
   title: string;
@@ -798,7 +783,7 @@ export default function EditBlogPage() {
             Content *
           </label>
           <div className="bg-white border border-gray-300 rounded-md p-2">
-            <BlogEditor
+            <AdminRichTextEditor
               key={slug}
               onContentChange={(content) =>
                 setFormData((prev) => ({ ...prev, content }))

@@ -1,4 +1,4 @@
-/** CRADYL (formerly MDS) — launched row-transfer docking station. */
+/** CRADYL — launched row-transfer docking station. */
 export const CRADYL_PRODUCT_PATH =
   "/solar-panel-cleaning-system/cradyl-row-transfer-docking-station";
 

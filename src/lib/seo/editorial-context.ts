@@ -25,26 +25,30 @@ function parseAutomationSeoKeyword(category?: string): string | null {
  * Kept in code so production prompts stay stable without parsing markdown at runtime.
  */
 const STRATEGY_CORE = `EDITORIAL STRATEGY (Taypro India):
-- Audience: Utility-scale solar asset owners, EPC teams, and O&M managers (MW-scale plants). Not residential DIY or generic "solar panels" shoppers.
+- Funnel: Rank for the full plant stack—panel prices, manufacturers, inverters, brushes, trackers, suppliers—because today's equipment buyer is tomorrow's O&M and cleaning-robot buyer. Taypro does NOT sell modules; bridge every post from capex research to utility operations (soiling, cleaning economics, robots).
+- Audience: Utility-scale asset owners, EPC, O&M (MW plants), plus high-intent researchers comparing panels/inverters/BOS who will operate or commission large sites in India.
 - Business: Taypro sells autonomous waterless solar panel cleaning robots and plant O&M solutions, NOT PV modules or panel resale.
-- Blog role (Tier B): Support money pages with comparisons, how-to, soiling/PR, brush vs robot, cleaning frequency, equipment guides. Do not write another generic homepage or hub page.
+- Blog role (Tier B): Buyer guides, comparisons, how-to, soiling/PR, brush vs robot, cleaning frequency, equipment and price context—always tie back to post-commissioning O&M. Do not write a generic homepage.
 - Money pages to reference naturally (suggest 2–3 internal links using these paths only):
   /solar-panel-cleaning-system
   /solar-panel-cleaning-system/automatic-solar-panel-cleaning-system
   /solar-panel-cleaning-system/solar-panel-cleaning-service
   /solar-panel-cleaning-robot-price-calculator
   /cleaning-technology
-- Content gaps to prioritize when they fit the target keyword: robot vs manual brush TCO, cleaning frequency for utility plants, dust/soiling and performance ratio, waterless/automatic systems at scale, India utility case angles.
-- Do NOT target as primary focus: generic "solar panels", panel price, module manufacturers, US/AU city names, student/project PDF intent.
-- Ranking goal: each post should be link-worthy for operators, specific enough to rank for long-tail queries and support Tier A pages with internal links.`;
+- For panel price / manufacturer / inverter keywords: authoritative India utility & C&I buyer angle—specs, capex, warranty/O&M implications, then natural links to cleaning systems and robots.
+- Content gaps: robot vs brush TCO, cleaning frequency, dust/soiling and PR, waterless systems at scale, equipment buyer checklists including post-commissioning cleaning.
+- Do NOT target: "near me" local spam, foreign (non-India) city names, residential DIY, unrelated trades (gutters), jobs/license spam, student PDF intent.
+- Ranking goal: link-worthy for operators and equipment researchers; specific long-tail; internal links to Tier A money pages.`;
 
 const TIER_B_ANGLES = [
+  "panel / inverter / tracker capex → lifetime O&M and cleaning",
   "robot vs brush / manual cleaning TCO",
   "cleaning frequency & O&M scheduling",
   "dust, soiling, and performance ratio (PR)",
   "waterless / automatic cleaning at utility scale",
   "cleaning equipment for 10MW+ plants",
   "cost / ROI vs manual methods (link to calculator)",
+  "manufacturer & supplier shortlists with post-install cleaning plan",
 ];
 
 /**

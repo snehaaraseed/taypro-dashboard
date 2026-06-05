@@ -200,15 +200,21 @@
       "title": "The category leader for Solar Panel Cleaning Robots in India",
       "p1": "Dust, agricultural residue and bird droppings can cut PV generation by 8–25% across Indian utility plants. Manual washing is expensive, water-hungry, and never consistent across rows or shifts. A purpose-built Solar Panel Cleaning Robot recovers that lost yield, cleans every panel the same way every night, and removes water from your O&M plan entirely.",
       "p2LinkAutomatic": "GLYDE automatic robot",
+      "p2LinkNyuma": "NYUMA",
       "p2LinkModelB": "HELYX",
       "p2LinkModelT": "GLYDE-X",
+      "p2LinkNyumaX": "NYUMA-X",
       "p2LinkConsole": "NECTYR",
       "p2LinkOpex": "Taypro OPEX",
+      "p2LinkTechnology": "waterless cleaning technology",
       "p2BeforeLinks": "Taypro is a Made-in-India manufacturer of robotic cleaning systems. Our line spans the fully ",
-      "p2BetweenAB": ", the semi-automatic pick-and-place ",
-      "p2BetweenBT": " for scattered plants, and the tracker-ready ",
-      "p2AfterT": " for single-axis tracker layouts. Every robot is monitored through the ",
-      "p2AfterConsole": " fleet portal and can be deployed as CAPEX or as a monthly ",
+      "p2BetweenGlydeNyuma": ", the ",
+      "p2BetweenNyumaHelyx": " PBT automatic line, the semi-automatic pick-and-place ",
+      "p2BetweenHelyxTracker": " for scattered plants, tracker-ready ",
+      "p2BetweenTrackers": " and ",
+      "p2AfterTrackers": " for single-axis layouts. Learn how ",
+      "p2BeforeConsole": " works, then monitor every robot through ",
+      "p2AfterConsole": " and deploy as CAPEX or monthly ",
       "p2AfterOpex": " service.",
       "p3BlogMaintenance": "solar panel maintenance guide",
       "p3BlogRobotDef": "what defines a solar panel cleaning robot",
@@ -270,7 +276,7 @@
       },
       "accessoryEyebrow": "Fleet accessories",
       "accessoryTitle": "Extend robot reach across scattered plants",
-      "accessorySubtitle": "CRADYL is shipping today, formerly Taypro MDS, autonomous row-transfer docking on end-row rail tracks.",
+      "accessorySubtitle": "CRADYL is shipping today — autonomous row-transfer docking on end-row rail tracks.",
       "accessoryHighlights": {
         "cradyl": {
           "eyebrow": "Docking · Row transfer",
@@ -423,6 +429,129 @@
       "ctaCalculator": "ROI & cost calculator",
       "videoTitle": "See Taypro robots cleaning a utility plant",
       "videoCaption": "Waterless autonomous solar panel cleaning robots in operation on Indian utility-scale sites."
+    },
+    "marketComparison": {
+      "eyebrow": "Choosing a cleaning approach",
+      "title": "How Taypro compares to other robotic cleaning approaches",
+      "subtitle": "Utility buyers weigh cleaning method, commercial model, fleet software, and India-local support—not robot brochures alone. Use this category view when evaluating Taypro against wet washing, import dry robots, or labour-only O&M.",
+      "intro": "Taypro is a Made-in-India OEM with 5 GW+ robotic capacity deployed, patented dual-pass dry cleaning on GLYDE and GLYDE-X, single-pass PBT on NYUMA, NYUMA-X, and HELYX, the NECTYR fleet portal, and optional Taypro Opex pay-per-panel-cleaned service. The table compares typical approaches in Indian RFQs so you can see where Taypro fits your plant—without vendor name-dropping.",
+      "tableHeaders": {
+        "criteria": "What to evaluate",
+        "manualWet": "Manual wet wash crews",
+        "importDry": "Import dry robots (CAPEX hardware)",
+        "taypro": "Taypro"
+      },
+      "rows": {
+        "row0": {
+          "criterion": "Cleaning method",
+          "manualWet": "Water, brushes, variable pass quality",
+          "importDry": "Often single-pass dry brush or airflow",
+          "taypro": "Waterless dual-pass microfiber (GLYDE / GLYDE-X) or single-pass PBT (NYUMA / HELYX)"
+        },
+        "row1": {
+          "criterion": "Typical plant fit",
+          "manualWet": "Small C&I or emergency washes only",
+          "importDry": "Utility fixed-tilt; tracker lines vary by OEM",
+          "taypro": "10 MW+ utility, fixed-tilt, single-axis tracker, scattered blocks"
+        },
+        "row2": {
+          "criterion": "Commercial model",
+          "manualWet": "Recurring labour Opex",
+          "importDry": "CAPEX purchase; managed service optional",
+          "taypro": "CAPEX + AMC or Taypro Opex managed fleet"
+        },
+        "row3": {
+          "criterion": "Operations & audit proof",
+          "manualWet": "Paper logs; weak block-level proof",
+          "importDry": "Basic fleet telemetry on some platforms",
+          "taypro": "NECTYR scheduling, weather holds, completion maps, structured AMC"
+        },
+        "row4": {
+          "criterion": "India manufacturing & SLA",
+          "manualWet": "Local crews; water and tanker logistics",
+          "importDry": "Import supply chain; local SLA varies",
+          "taypro": "Chakan Pune manufacturing; pan-India spares; same-day breakdown targets"
+        }
+      },
+      "tayproFitTitle": "When Taypro is usually the better fit",
+      "tayproFit0": "Utility-scale India plants that need waterless cleaning with local manufacturing and field support",
+      "tayproFit1": "Owners who want CAPEX robots or a fully managed Opex fleet with NECTYR diagnostics",
+      "tayproFit2": "Tracker farms needing GLYDE-X or NYUMA-X, or scattered blocks needing HELYX",
+      "tayproFit3": "Teams comparing robot vs manual brush TCO at 10 MW+ with auditable cleaning proof",
+      "featuredTitle": "Proof on live Indian utility plants",
+      "featuredSubtitle": "Flagship deployments with robot counts, water saved, and reported generation outcomes.",
+      "featured": {
+        "agar": {
+          "title": "Agar, Madhya Pradesh",
+          "stat": "200 MW · 272 robots · ~7.5 GWh / year reported",
+          "cta": "Read case study"
+        },
+        "banda": {
+          "title": "Banda, Uttar Pradesh",
+          "stat": "70 MW · 160 robots · ~2.63 GWh / year reported",
+          "cta": "Read case study"
+        },
+        "yadgir": {
+          "title": "Yadgir, Karnataka",
+          "stat": "50 MW · 115 robots · ~1.88 GWh / year reported",
+          "cta": "Read case study"
+        },
+        "bachau": {
+          "title": "Bachau DVC, Gujarat",
+          "stat": "300 MW · 172 GLYDE automatic · automatic-first reference",
+          "cta": "Read case study"
+        }
+      },
+      "ctaProjects": "Browse all projects",
+      "ctaTechnology": "How dual-pass cleaning works",
+      "ctaCalculator": "ROI & price calculator"
+    },
+    "hubQuickLinks": {
+      "eyebrow": "Explore the Taypro stack",
+      "title": "Robots, service, software, and technology",
+      "subtitle": "Jump to the right page for your plant type, commercial model, or technical deep dive.",
+      "links": {
+        "glyde": {
+          "label": "GLYDE",
+          "description": "Fixed-tilt automatic, dual-pass"
+        },
+        "glydeX": {
+          "label": "GLYDE-X",
+          "description": "Single-axis tracker, dual-pass"
+        },
+        "nyuma": {
+          "label": "NYUMA",
+          "description": "Fixed-tilt automatic, PBT single-pass"
+        },
+        "nyumaX": {
+          "label": "NYUMA-X",
+          "description": "Tracker automatic, PBT single-pass"
+        },
+        "helyx": {
+          "label": "HELYX",
+          "description": "Semi-automatic, scattered blocks"
+        },
+        "opex": {
+          "label": "Taypro Opex service",
+          "description": "Pay-per-panel-cleaned managed fleet"
+        },
+        "nectyr": {
+          "label": "NECTYR",
+          "description": "Fleet monitoring and scheduling"
+        },
+        "technology": {
+          "label": "Cleaning technology",
+          "description": "Dual-pass vs PBT, waterless methods"
+        },
+        "calculator": {
+          "label": "ROI calculator",
+          "description": "Payback and cost screen for your MW"
+        },
+        "projects": {
+          "label": "All projects",
+          "description": "132+ utility case studies in India"
+        }
+      }
     },
     "commercialModel": {
       "eyebrow": "One partner",
@@ -583,6 +712,10 @@
         "item9": {
           "question": "How often should solar panels be cleaned in India?",
           "answer": "Frequency depends on dust load, agricultural residue events (such as crop burning in Punjab and Haryana), monsoon patterns and PPA performance targets. Most Indian utility-scale plants benefit from cleaning every 1–3 days during dry months and faster cycles after dust storms. Taypro starts every project with a plant soiling study to recommend the right cleaning cadence per block."
+        },
+        "item10": {
+          "question": "Who are the main solar panel cleaning robot suppliers in India?",
+          "answer": "Shortlist vendors on five criteria: waterless fit for your dust and soiling, fixed-tilt vs single-axis tracker compatibility, CAPEX robot purchase vs managed Opex cleaning, fleet software with block-level proof of completion, and India-local manufacturing with spares and breakdown SLA. Taypro is a Made-in-India manufacturer with 5 GW+ robotic capacity deployed across 150+ live sites, patented dual-pass dry cleaning on GLYDE and GLYDE-X, single-pass PBT on NYUMA, NYUMA-X, and HELYX, the NECTYR fleet portal, and optional Taypro Opex pay-per-panel-cleaned service, with utility case studies linked from this hub. Other suppliers commonly evaluated on Indian utility RFQs include Indian OEMs such as Solabot Technologies, Aegeus Technologies, Skilancer Solar, and Vayu Solar; global and regional OEMs with India deployments such as Ecoppia, Airtouch Solar, and LEAPTING (Huzhou LEAPTING Technology); and equipment suppliers active in India such as Langfang Sol-Bright New Energy Technology. Rooftop-focused vendors such as Jetsons Robotics are more common on commercial and industrial sites than on 50 MW+ utility fields. Published market-share rankings differ by source and year, so validate row layout fit, service SLA, and deployment proof, not brochure robot counts alone, before final selection."
         }
       }
     },

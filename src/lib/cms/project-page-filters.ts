@@ -31,7 +31,7 @@ export const PROJECT_PAGE_FILTERS = {
     category: "automatic",
   },
   cradyl: {
-    keywords: ["cradyl", "mds", "docking"],
+    keywords: ["cradyl", "docking"],
   },
 } as const satisfies Record<string, ProjectListFilter>;
 

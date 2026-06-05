@@ -104,6 +104,12 @@ export function isRetryableGenerationError(error: unknown): boolean {
     isGenericContentError(error) ||
     msg.includes("too similar") ||
     msg.includes("Blog too similar") ||
-    msg.includes("Blog structure validation failed")
+    msg.includes("Blog structure validation failed") ||
+    msg.includes("Could not parse JSON") ||
+    msg.includes("JSON at position") ||
+    msg.includes("Outline too similar") ||
+    msg.includes("Topic already published") ||
+    msg.includes("Outline needs") ||
+    msg.includes("Outline meta description")
   );
 }

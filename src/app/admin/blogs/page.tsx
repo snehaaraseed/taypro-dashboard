@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   summarizeBlogsBackfillResults,
   summarizeTranslateBlogResults,
@@ -190,12 +191,13 @@ export default function AdminBlogsPage() {
           >
             Generate with AI
           </button>
-          <button
-            onClick={() => router.push("/admin/blogs/new")}
+          <Link
+            href="/admin/blogs/new"
+            prefetch
             className="bg-[#A8C117] hover:bg-lime-500 text-white px-6 py-2 rounded-md transition-colors"
           >
             Create New Blog
-          </button>
+          </Link>
         </div>
       </div>
 

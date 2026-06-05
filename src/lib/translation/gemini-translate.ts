@@ -6,6 +6,10 @@ import { geminiTranslationModel, localeDisplayName } from "./config";
 import { maskMediaInHtml, unmaskMediaInHtml } from "./preserve-html";
 import type { BlogFaqItem } from "@/lib/cms/blog-faqs";
 import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
+import {
+  assertGeminiCallAllowed,
+  recordGeminiCall,
+} from "@/lib/gemini/daily-budget";
 import { PUNCTUATION_RULES, sanitizeEmDash } from "@/lib/seo/content-quality";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
@@ -74,9 +78,11 @@ ${JSON.stringify({
 
   let raw: string;
   try {
+    assertGeminiCallAllowed("translation");
     const result = await model.generateContent(prompt);
     raw = result.response.text();
   } finally {
+    recordGeminiCall("translation");
     await pauseAfterGeminiCall();
   }
   const parsed = parseJsonObject<TranslatedFields>(raw);
@@ -119,9 +125,11 @@ ${JSON.stringify(items)}`;
 
   let responseText: string;
   try {
+    assertGeminiCallAllowed("translation");
     const result = await model.generateContent(prompt);
     responseText = result.response.text();
   } finally {
+    recordGeminiCall("translation");
     await pauseAfterGeminiCall();
   }
   const parsed = parseJsonObject<string[]>(responseText);
@@ -156,9 +164,11 @@ ${JSON.stringify(faqs)}`;
 
   let responseText: string;
   try {
+    assertGeminiCallAllowed("translation");
     const result = await model.generateContent(prompt);
     responseText = result.response.text();
   } finally {
+    recordGeminiCall("translation");
     await pauseAfterGeminiCall();
   }
   const parsed = parseJsonObject<BlogFaqItem[]>(responseText);

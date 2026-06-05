@@ -1,13 +1,20 @@
 #!/bin/bash
 
 # Taypro Website Deployment Script
-# CMS content lives in data/cms.sqlite (SQLite WAL mode). Deploy preserves DB + uploads.
 #
-# SQLite safety: stop PM2 before DB work, checkpoint WAL, snapshot/restore full DB bundle,
-# integrity check before build. See scripts/deploy-cms-safe.sh
+# PRODUCTION CMS (always preserved on every deploy):
+#   - data/cms.sqlite  → blogs, authors, projects, upload gallery index
+#   - public/uploads/  → gallery / media files on disk
+#   Never rsync'd from your laptop. Snapshot at start → restore after code sync.
 #
-# Do not use `git pull` on the production server for releases; run this script
-# from a developer machine with a current clone.
+# Safety: internal scripts/deploy-cms-safe.sh (no standalone→data clobber), metrics assert.
+# Optional: DEPLOY_UPLOAD_GSC_FROM_LOCAL=1 to push local data/gsc-*.json (default: skip).
+#
+# Do not edit /admin CMS during the build window (~15 min) — restore uses start-of-deploy DB.
+# Do not run on the server: cms:prepare-deploy, cms:apply-handwritten-case-studies,
+# cms:import-projects-xlsx (unless you intend to bulk-change production content).
+#
+# Do not use `git pull` on the production server; run this from a dev machine.
 
 set -e
 
@@ -33,9 +40,16 @@ for arg in "$@"; do
         --checksum) RSYNC_EXTRA+=(--checksum) ;;
         -h|--help)
             echo "Usage: ./deploy.sh [--fast] [--resume] [--checksum]"
-            echo "  --fast     Skip legacy backfill, one CMS snapshot, skip npm install if lockfile unchanged"
-            echo "  --resume   Code already on server; only finish build + PM2 + maintenance off"
+            echo ""
+            echo "  This is the only deploy entry point. Do not run other deploy-*.sh scripts."
+            echo "  --fast     Skip legacy backfill; skip npm install if lockfile unchanged"
+            echo "  --resume   Server already has code + CMS; finish build + PM2 only"
             echo "  --checksum Use slow rsync checksum (default: size+mtime only)"
+            echo ""
+            echo "CMS protection (every deploy):"
+            echo "  - Never rsync data/cms.sqlite or public/uploads from laptop"
+            echo "  - Snapshot → restore + metrics assert (blogs/projects/authors/gallery)"
+            echo "  - DEPLOY_UPLOAD_GSC_FROM_LOCAL=1  optional GSC JSON upload from laptop"
             exit 0
             ;;
     esac
@@ -110,32 +124,66 @@ elif [ "$DEPLOY_FAST" = "1" ]; then
 fi
 echo ""
 
-if [ "$DEPLOY_RESUME" = "1" ]; then
-    step_start "Resume on server (build + PM2)"
+upload_deploy_helpers() {
+    ssh -i "$SSH_KEY" "$REMOTE_HOST" "mkdir -p $REMOTE_PATH/scripts"
     scp -q -i "$SSH_KEY" \
-        "$LOCAL_PATH/scripts/deploy-resume.sh" \
         "$LOCAL_PATH/scripts/deploy-cms-safe.sh" \
+        "$LOCAL_PATH/scripts/deploy-cms-metrics.mjs" \
+        "$LOCAL_PATH/scripts/deploy-cms-assert-unchanged.mjs" \
         "$REMOTE_HOST:$REMOTE_PATH/scripts/"
+    ssh -i "$SSH_KEY" "$REMOTE_HOST" "chmod +x $REMOTE_PATH/scripts/deploy-cms-safe.sh"
+}
+
+if [ "$DEPLOY_RESUME" = "1" ]; then
+    step_start "Resume (build + PM2 only)"
+    upload_deploy_helpers
     ssh -i "$SSH_KEY" -o ServerAliveInterval=30 "$REMOTE_HOST" << 'EOF'
         set -e
         cd /var/www/taypro-dashboard
-        chmod +x scripts/deploy-resume.sh scripts/deploy-cms-safe.sh
-        bash scripts/deploy-resume.sh 2>&1 | tee /tmp/deploy-resume.log
+        chmod +x scripts/deploy-cms-safe.sh
+        export NODE_ENV=production
+        if [ -f .env.production ]; then
+            set -a
+            # shellcheck disable=SC1091
+            source <(grep -v '^#' .env.production | sed 's/\r$//')
+            set +a
+        fi
+        export NEXT_TELEMETRY_DISABLED=1
+        if [ -f .next/BUILD_ID ]; then
+            echo "  .next/BUILD_ID present — skipping build"
+        else
+            chmod -R u+w .next 2>/dev/null || true
+            npm run build 2>&1 | tee /tmp/taypro-next-build.log
+        fi
+        [ -f .next/BUILD_ID ] || { echo "  ❌ Build failed"; exit 1; }
+        if [ -d .next/standalone ]; then
+            mkdir -p .next/standalone/.next
+            ./scripts/deploy-cms-safe.sh sync-public /var/www/taypro-dashboard
+            [ -d .next/static ] && rsync -a .next/static/ .next/standalone/.next/static/
+            [ -f .env.production ] && cp .env.production .next/standalone/.env.production
+            ./scripts/deploy-cms-safe.sh push-standalone
+            [ -d messages ] && mkdir -p .next/standalone/messages && rsync -a messages/ .next/standalone/messages/
+        fi
+        ./scripts/deploy-cms-safe.sh start
+        pm2 save
+        rm -f .maintenance
+        sudo nginx -t && sudo systemctl reload nginx
+        sleep 2
+        CODE=$(curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/ || echo "000")
+        echo "  localhost:3000 => HTTP $CODE"
 EOF
     step_done
     trap - EXIT INT TERM
     echo ""
-    echo -e "${GREEN}✅ Resume deploy finished${NC}"
+    echo -e "${GREEN}✅ Deploy finished (--resume)${NC}"
     echo "Website: https://taypro.in"
     exit 0
 fi
 
-# Upload CMS safety script first (Step 1 depends on it)
-echo -e "${YELLOW}📋 Uploading deploy-cms-safe.sh...${NC}"
-ssh -i "$SSH_KEY" "$REMOTE_HOST" "mkdir -p $REMOTE_PATH/scripts"
-scp -q -i "$SSH_KEY" "$LOCAL_PATH/scripts/deploy-cms-safe.sh" "$REMOTE_HOST:$REMOTE_PATH/scripts/"
-ssh -i "$SSH_KEY" "$REMOTE_HOST" "chmod +x $REMOTE_PATH/scripts/deploy-cms-safe.sh"
-echo -e "${GREEN}  ✅ CMS safety script ready${NC}"
+# Upload CMS helpers (Step 1 depends on them)
+echo -e "${YELLOW}📋 Uploading deploy helpers...${NC}"
+upload_deploy_helpers
+echo -e "${GREEN}  ✅ Ready${NC}"
 echo ""
 
 # Step 1: Stop app, checkpoint DB, snapshot CMS + uploads, restart app on old build
@@ -187,6 +235,10 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" bash -s "$DEPLOY_FAST" << 'EOF'
     echo "$MERGE_DIR" > /tmp/taypro-backup-path.txt
 
     cd /var/www/taypro-dashboard
+    ./scripts/deploy-cms-safe.sh save-metrics "$MERGE_DIR/cms-metrics.json"
+    cp -a "$MERGE_DIR/cms-metrics.json" /tmp/taypro-cms-metrics-before.json
+    echo "  📊 Pre-deploy CMS baseline saved (blogs/projects/authors/gallery)"
+
     ./scripts/deploy-cms-safe.sh start
     echo "  ✅ Snapshot complete (app restarted on previous build)"
 EOF
@@ -211,6 +263,10 @@ rsync -avz "${RSYNC_EXTRA[@]}" --delete \
     --exclude '.git' \
     --exclude 'data/cms.sqlite' \
     --exclude 'data/cms.sqlite-*' \
+    --exclude 'data/gsc-oauth-tokens.json' \
+    --exclude 'data/seo-gsc-boost.json' \
+    --exclude 'data/gsc-latest-report.json' \
+    --exclude 'data/import-projects-report.json' \
     --exclude 'public/uploads' \
     --exclude '.env.production' \
     --exclude '.env.local' \
@@ -266,8 +322,14 @@ if [ -f "$LOCAL_PATH/.env.local" ]; then
     echo -e "${GREEN}  ✅ Uploaded GSC OAuth env (production redirect URI)${NC}"
 fi
 
+# Default: do not overwrite production GSC JSON from laptop (use /admin/gsc on prod).
+if [ "${DEPLOY_UPLOAD_GSC_FROM_LOCAL:-0}" = "1" ]; then
+    echo -e "${YELLOW}  DEPLOY_UPLOAD_GSC_FROM_LOCAL=1 — uploading local GSC data files${NC}"
+else
+    echo -e "${YELLOW}  Skipping local data/gsc-*.json upload (set DEPLOY_UPLOAD_GSC_FROM_LOCAL=1 to override)${NC}"
+fi
 for gsc_data in seo-gsc-boost.json gsc-latest-report.json gsc-oauth-tokens.json; do
-    if [ -f "$LOCAL_PATH/data/$gsc_data" ]; then
+    if [ "${DEPLOY_UPLOAD_GSC_FROM_LOCAL:-0}" = "1" ] && [ -f "$LOCAL_PATH/data/$gsc_data" ]; then
         ssh -i "$SSH_KEY" "$REMOTE_HOST" "mkdir -p $REMOTE_PATH/data"
         scp -q -i "$SSH_KEY" \
             "$LOCAL_PATH/data/$gsc_data" \
@@ -340,6 +402,9 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << EOF
 
     echo "  ✅ CMS data files restored"
 
+    ./scripts/deploy-cms-safe.sh save-metrics /tmp/taypro-cms-metrics-after-restore.json
+    ./scripts/deploy-cms-safe.sh assert-unchanged /tmp/taypro-cms-metrics-before.json /tmp/taypro-cms-metrics-after-restore.json
+
     if [ -d "$BACKUP_PATH" ]; then
         rm -rf "$BACKUP_PATH"
         echo "    ✅ Removed /tmp merge backup (snapshots remain under .deploy-snapshots)"
@@ -404,9 +469,7 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" bash -s "$DEPLOY_FAST" << 'EOF'
 
     if [ -d ".next/standalone" ]; then
         if [ -d "public" ]; then
-            mkdir -p .next/standalone/public
-            rsync -a --delete public/ .next/standalone/public/
-            echo "  ✅ Synced public/ → standalone/public/"
+            ./scripts/deploy-cms-safe.sh sync-public /var/www/taypro-dashboard
         fi
         if [ -d ".next/static" ]; then
             mkdir -p .next/standalone/.next
@@ -432,6 +495,9 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" bash -s "$DEPLOY_FAST" << 'EOF'
             cp -a drizzle/* .next/standalone/drizzle/ 2>/dev/null || true
         fi
     fi
+
+    ./scripts/deploy-cms-safe.sh save-metrics /tmp/taypro-cms-metrics-after-build.json
+    ./scripts/deploy-cms-safe.sh assert-unchanged /tmp/taypro-cms-metrics-before.json /tmp/taypro-cms-metrics-after-build.json
 EOF
 
 if [ $? -ne 0 ]; then
@@ -452,9 +518,7 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     fi
 
     if [ -d "public" ] && [ -d ".next/standalone" ]; then
-        mkdir -p .next/standalone/public
-        rsync -a public/ .next/standalone/public/
-        echo "  ✅ Refreshed standalone/public (assets + uploads)"
+        ./scripts/deploy-cms-safe.sh sync-public /var/www/taypro-dashboard
     fi
 
     chmod +x scripts/deploy-cms-safe.sh 2>/dev/null || true
@@ -498,5 +562,7 @@ echo -e "${YELLOW}  Tip: use ./deploy.sh --fast for routine releases (same safet
 echo ""
 echo "Website: https://taypro.in"
 echo "CMS database: $REMOTE_PATH/data/cms.sqlite"
+echo "Upload gallery: $REMOTE_PATH/public/uploads/"
 echo "Snapshots (max 3): $REMOTE_PATH/.deploy-snapshots/"
+echo "CMS baseline: /tmp/taypro-cms-metrics-before.json on server (this deploy)"
 echo ""

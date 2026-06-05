@@ -228,8 +228,6 @@ export async function CradylProductPage({ locale }: CradylProductPageProps) {
               <div className="space-y-5 text-gray-600 text-base sm:text-lg leading-relaxed">
                 <p>
                   {t("overview.p1Before")}
-                  <strong>{t("overview.p1MdsStrong")}</strong>
-                  {t("overview.p1After")}
                   <strong>{t("overview.p1Strong")}</strong>
                   {t("overview.p1AfterStrong")}
                 </p>

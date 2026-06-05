@@ -61,13 +61,15 @@ const limit =
 const slugFilterIdx = args.indexOf("--slug");
 const slugFilter = slugFilterIdx >= 0 ? args[slugFilterIdx + 1] : undefined;
 
+const repoXlsx = path.join(root, "data", "Projects_Case_Studies_filled.xlsx");
+const downloadsXlsx = path.join(
+  process.env.HOME || "",
+  "Downloads",
+  "Projects_Case_Studies_filled.xlsx"
+);
 const xlsxPath =
   process.env.PROJECTS_XLSX ||
-  path.join(
-    process.env.HOME || "",
-    "Downloads",
-    "Projects_Case_Studies_filled.xlsx"
-  );
+  (fs.existsSync(repoXlsx) ? repoXlsx : downloadsXlsx);
 const dbPath =
   process.env.CMS_SQLITE || path.join(root, "data", "cms.sqlite");
 const publicRoot = path.join(root, "public");

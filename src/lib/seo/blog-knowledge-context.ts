@@ -5,6 +5,7 @@ import path from "path";
 import { getDeploymentRoot } from "@/app/utils/deploymentRoot";
 import { getBlogBySlug, listAllBlogs } from "@/lib/cms/blogService";
 import { getProductKnowledgeBase } from "@/lib/productKnowledge";
+import { formatCompetitorKnowledgeBlock } from "@/lib/seo/competitor-knowledge";
 import { TAYPRO_PUBLIC_PROOF } from "@/lib/marketing/public-proof-stats";
 import { calculateBlogSimilarity } from "@/lib/seo/blog-similarity-scoring";
 import { stripHtmlToPlainText } from "@/lib/seo/blog-similarity";
@@ -134,6 +135,7 @@ export async function buildBlogKnowledgeContext(
 ): Promise<string> {
   const productKnowledge = getProductKnowledgeBase();
   const proofBlock = formatPublicProofBlock();
+  const competitorBlock = formatCompetitorKnowledgeBlock();
   const llmsSummary = loadLlmsSiteSummary();
   const excerpts = await findRelevantBlogExcerpts(options);
 
@@ -154,18 +156,24 @@ ${excerpts
   .join("\n")}`
       : "";
 
+  const competitorSection = competitorBlock
+    ? `${competitorBlock}\n`
+    : "";
+
   return `
 ${productKnowledge}
 
 ${proofBlock}
 
-${llmsBlock}
+${competitorSection}${llmsBlock}
 
 ${excerptBlock}
 
 KNOWLEDGE RULES:
 - Product specs and names: use PRODUCT KNOWLEDGE BASE only.
 - Company/fleet impact numbers: use PUBLIC PROOF POINTS only.
+- Competitor names, products, and market-share claims: use COMPETITOR LANDSCAPE only; cite source year if mentioning share figures.
+- For manufacturer / best-robot / comparison posts: include Taypro using PUBLIC PROOF + PRODUCT KNOWLEDGE; stay factual, not disparaging.
 - Do not invent statistics, client names, or model codes not listed above.
 `.trim();
 }
