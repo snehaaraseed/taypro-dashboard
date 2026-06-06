@@ -27,6 +27,11 @@
 # misc
 .DS_Store
 *.pem
+/AWS_Key/
+/scripts/__pycache__/
+data/backups/
+data/*-report*.json
+data/backfill-*.json
 
 # debug
 npm-debug.log*
