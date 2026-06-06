@@ -211,9 +211,9 @@ export function keywordFallbackImage(
 ): BlogImageCandidate | null {
   const k = seoKeyword.toLowerCase();
   const rules: Array<{ test: RegExp; match: RegExp }> = [
-    { test: /model-t|tracker/, match: /modelt|model-t|tracker/i },
-    { test: /model-b|semi/, match: /modelb|model-b|semi/i },
-    { test: /model-a|automatic/, match: /modela|model-a|automatic/i },
+    { test: /glyde-x|tracker/, match: /glyde-x|glyde-x|tracker/i },
+    { test: /helyx|semi/, match: /helyx|helyx|semi/i },
+    { test: /glyde|automatic/, match: /glyde|glyde|automatic/i },
     { test: /opex|service/, match: /opex|service/i },
     { test: /console|monitor/, match: /console|dashboard/i },
     { test: /brush|manual/, match: /robot|clean|feature/i },

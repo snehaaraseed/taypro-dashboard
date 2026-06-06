@@ -21,6 +21,9 @@ interface HeroSectionProps {
   /** Optional analytics topic surfaced on the lead modal chip. */
   ctaTopic?: string;
   className?: string;
+  /** Native width/height ratio, e.g. "1653 / 702" for tracker robots. */
+  imageAspectRatio?: string;
+  imagePresentation?: "robot-standard" | "robot-wide";
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
@@ -32,7 +35,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   ctaText = "Request a quote",
   ctaTopic,
   className = "",
+  imageAspectRatio,
+  imagePresentation = "robot-standard",
 }) => {
+  const isWideHero = imagePresentation === "robot-wide";
   const titleString = typeof title === "string" ? title : "";
 
   // Generate SEO-friendly alt text if not provided
@@ -114,18 +120,30 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             animation="fadeInRight"
             eager
             delay={100}
-            className="relative w-full lg:w-1/2 min-h-[240px] sm:min-h-[360px] lg:min-h-[600px] mt-10 lg:mt-0"
+            className={`relative w-full lg:w-1/2 flex items-center justify-center mt-10 lg:mt-0 ${
+              isWideHero
+                ? "min-h-[200px] sm:min-h-[260px] lg:min-h-[600px] px-4 sm:px-6 lg:px-8"
+                : "min-h-[280px] sm:min-h-[400px] lg:min-h-[600px]"
+            }`}
           >
-            <Image
-              alt={getAltText()}
-              src={imgSrc}
-              title={titleAttr}
-              fill
-              className="object-contain"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              priority
-              fetchPriority="high"
-            />
+            <div
+              className="relative w-full max-w-full"
+              style={{
+                aspectRatio: imageAspectRatio ?? (isWideHero ? "2.2 / 1" : "4 / 3"),
+                maxHeight: isWideHero ? "min(42vw, 420px)" : "min(72vw, 600px)",
+              }}
+            >
+              <Image
+                alt={getAltText()}
+                src={imgSrc}
+                title={titleAttr}
+                fill
+                className="object-contain"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+                fetchPriority="high"
+              />
+            </div>
             <svg
               className="hidden sm:block absolute right-0 top-0 w-full h-full pointer-events-none"
               viewBox="0 0 900 700"

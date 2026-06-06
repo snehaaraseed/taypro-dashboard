@@ -66,7 +66,7 @@
       "p3Between": "، و",
       "linkGlyde": "روبوتات GLYDE الأوتوماتيكية",
       "p3After": "، وأساطيل GLYDE المتوافقة. تظهر الحركة ومستوى الشحن وبيانات الحساسات في ",
-      "linkConsole": "NECTYR",
+      "linkNectyr": "NECTYR",
       "p3Suffix": " بوابة السحابة إلى جانب جداول الروبوت الحالية.",
       "p4Prefix": "استكشف ",
       "linkHub": "تشكيلة روبوتات Taypro الكاملة",
@@ -452,7 +452,7 @@
       "linkBetween": " أو ",
       "linkGlyde": "GLYDE",
       "linkMid": "، راقب على ",
-      "linkConsole": "NECTYR",
+      "linkNectyr": "NECTYR",
       "crossSellSuffix": "، أو استكشف مركز الروبوتات الكامل."
     },
     "faqSection": {
@@ -525,7 +525,7 @@
         }
       }
     },
-    "modelCardsTitle": "استكشف المزيد من حلول تنظيف Taypro الشمسية",
+    "productCardsTitle": "استكشف المزيد من حلول تنظيف Taypro الشمسية",
     "footerNote": "قد تختلف المواصفات حسب تخطيط القضبان وطراز الروبوت؛ أكّد مع هندسة Taypro قبل الشراء.",
     "intro": {
       "eyebrow": "روبوت واحد، صفوف متعددة",

@@ -37,7 +37,7 @@
       "bodyBeforeStrong": "Taypro engineers autonomous and semi-automatic",
       "bodyStrong": "solar panel cleaning robots",
       "bodyMid": "for dusty utility-scale sites in India, combining patented dual-pass dry cleaning, intelligent schedules, and",
-      "consoleLink": "NECTYR",
+      "nectyrLink": "NECTYR",
       "bodyAfter": "so O&M teams recover generation without water logistics."
     },
     "stats": {
@@ -172,7 +172,7 @@
         "p1": "After heavy rain, robots stand down to conserve charge and avoid redundant passes. Following dust storms or harvest seasons, schedules tighten so performance ratio recovers before the next revenue-critical period.",
         "p2": "Predictive maintenance hooks in the same data stream: battery health, motor loads, and fault codes surface in NECTYR before they become multi-day outages, supporting Taypro's same-day breakdown response commitment on deployed fleets.",
         "p3Before": "Operators monitor outcomes in",
-        "consoleLink": "NECTYR",
+        "nectyrLink": "NECTYR",
         "p3Mid": ", scheduling, battery health, cycle logs, and alerts in one dashboard for multi-block sites. Read how",
         "aiBlogLink": "AI improves solar output",
         "p3After": "in field operations.",
@@ -282,7 +282,7 @@
       "q6": "How is Taypro different from manual wet washing?",
       "a6": "Manual wet washing needs water logistics, large crews, and typically lower cadence on MW-scale sites. Taypro robots run waterless dual-pass cycles on a predictable schedule with NECTYR visibility, reducing labour variance and improving repeatability through dust season.",
       "q7": "What certifications apply to Taypro cleaning robots?",
-      "a7": "Taypro robot platforms are field-validated with TÜV NORD certification on applicable models. Patents cover core cleaning system technology. Specifications and certificates are listed on each product page under the solar panel cleaning system section.",
+      "a7": "Taypro robot platforms are independently validated by TÜV NORD, the National Institute of Solar Energy (NISE), UL, Karandikar Labs, and Elca Labs — including accelerated module-safety testing equivalent to 30 years of daily cleaning cycles, IP65 rain and dust protection, static discharge and vibration tests, and damp-heat and dry-heat conditioning for desert and coastal sites, all within safe limits. Patents cover core cleaning system technology. Certificates are listed on product pages under the solar panel cleaning system section.",
       "q8": "Can Taypro operate robots for us instead of CAPEX purchase?",
       "a8": "Yes. Taypro Opex is an operator-led model, pay per panel cleaned with Taypro running the fleet on your plant. Technology is the same dual-pass dry platform; economics differ. Discuss both models during site assessment.",
       "q9": "How can I validate ROI before buying robots?",

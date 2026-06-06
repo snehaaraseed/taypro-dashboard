@@ -138,24 +138,24 @@ export default async function PerformanceAndTestMethodologyPage({
                   <tbody className="divide-y divide-gray-200 bg-white text-[#27415c]">
                     <tr>
                       <td className="px-4 py-3 font-medium text-[#052638]">
-                        {t("platform.modelA")}
+                        {t("platform.glyde")}
                       </td>
-                      <td className="px-4 py-3">{t("platform.modelAMetric")}</td>
-                      <td className="px-4 py-3">{t("platform.modelAMethod")}</td>
+                      <td className="px-4 py-3">{t("platform.glydeMetric")}</td>
+                      <td className="px-4 py-3">{t("platform.glydeMethod")}</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 font-medium text-[#052638]">
-                        {t("platform.modelB")}
+                        {t("platform.helyx")}
                       </td>
-                      <td className="px-4 py-3">{t("platform.modelBMetric")}</td>
-                      <td className="px-4 py-3">{t("platform.modelBMethod")}</td>
+                      <td className="px-4 py-3">{t("platform.helyxMetric")}</td>
+                      <td className="px-4 py-3">{t("platform.helyxMethod")}</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 font-medium text-[#052638]">
-                        {t("platform.modelT")}
+                        {t("platform.glydeX")}
                       </td>
-                      <td className="px-4 py-3">{t("platform.modelTMetric")}</td>
-                      <td className="px-4 py-3">{t("platform.modelTMethod")}</td>
+                      <td className="px-4 py-3">{t("platform.glydeXMetric")}</td>
+                      <td className="px-4 py-3">{t("platform.glydeXMethod")}</td>
                     </tr>
                   </tbody>
                 </table>

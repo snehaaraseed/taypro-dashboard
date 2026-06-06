@@ -329,8 +329,8 @@ export const siteMapPack = {
         "ソーラーパネル洗浄サービス",
         "সোলার প্যানেল পরিষ্কার সেবা"
       ),
-      tayproConsoleLabel: T("NECTYR", "NECTYR", "NECTYR", "NECTYR"),
-      tayproConsoleTitle: T(
+      nectyrLabel: T("NECTYR", "NECTYR", "NECTYR", "NECTYR"),
+      nectyrTitle: T(
         "NECTYR फ्लीट मॉनिटरिंग सॉफ़्टवेयर",
         "برنامج مراقبة أسطول NECTYR",
         "NECTYRフリート監視ソフトウェア",

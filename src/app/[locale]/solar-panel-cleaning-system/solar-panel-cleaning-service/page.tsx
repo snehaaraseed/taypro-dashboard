@@ -1,4 +1,4 @@
-import { modelBCards } from "@/app/data";
+import { helyxCards } from "@/app/data";
 import {
   ClipboardList,
   Cpu,
@@ -19,7 +19,7 @@ import {
   Warehouse,
 } from "lucide-react";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
-import ModelCards from "@/app/components/ModelCards";
+import ProductCards from "@/app/components/ProductCards";
 import ClientsCard from "@/app/components/ClientsCard";
 import HeroSection from "@/app/components/Herosection";
 import FeaturesSection from "@/app/components/FeaturesSection";
@@ -162,21 +162,21 @@ export default async function SolarPanelCleaningService({
                 href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
                 className="text-[#A8C117] hover:underline"
               >
-                {t("hero.modelA")}
+                {t("hero.glyde")}
               </Link>
               ,{" "}
               <Link
                 href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
                 className="text-[#A8C117] hover:underline"
               >
-                {t("hero.modelB")}
+                {t("hero.helyx")}
               </Link>
               , {t("hero.subtitleOr")}{" "}
               <Link
                 href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
                 className="text-[#A8C117] hover:underline"
               >
-                {t("hero.modelT")}
+                {t("hero.glydeX")}
               </Link>{" "}, {t("hero.subtitleProgramme")}{" "}
               <strong>{t("hero.subtitleCycles")}</strong>
               {t("hero.subtitleAfter")}{" "}
@@ -184,7 +184,7 @@ export default async function SolarPanelCleaningService({
                 href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                 className="text-[#A8C117] hover:underline"
               >
-                {t("hero.console")}
+                {t("hero.nectyr")}
               </Link>
               .
             </>
@@ -555,28 +555,28 @@ export default async function SolarPanelCleaningService({
                 href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
                 className="text-[#A8C117] hover:underline"
               >
-                {t("opexVsCapex.linkModelA")}
+                {t("opexVsCapex.linkGlyde")}
               </Link>
               {t("opexVsCapex.linkBetweenAB")}
               <Link
                 href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
                 className="text-[#A8C117] hover:underline"
               >
-                {t("opexVsCapex.linkModelB")}
+                {t("opexVsCapex.linkHelyx")}
               </Link>
               {t("opexVsCapex.linkBetweenBT")}
               <Link
                 href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
                 className="text-[#A8C117] hover:underline"
               >
-                {t("opexVsCapex.linkModelT")}
+                {t("opexVsCapex.linkGlydeX")}
               </Link>
-              {t("opexVsCapex.linkBetweenTConsole")}
+              {t("opexVsCapex.linkBetweenTAndNectyr")}
               <Link
                 href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                 className="text-[#A8C117] hover:underline"
               >
-                {t("opexVsCapex.linkConsole")}
+                {t("opexVsCapex.linkNectyr")}
               </Link>
               {t("opexVsCapex.exploreSuffix")}
             </div>
@@ -797,7 +797,7 @@ export default async function SolarPanelCleaningService({
           </Container>
         </section>
 
-        <ModelCards title={t("modelCardsTitle")} cards={modelBCards} />
+        <ProductCards title={t("productCardsTitle")} cards={helyxCards} />
 
         <RequestEstimateForm />
       </div>

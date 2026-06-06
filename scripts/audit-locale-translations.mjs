@@ -188,12 +188,12 @@ function auditRootMessages() {
 }
 
 function grepLegacy() {
-  console.log("\n# Legacy name grep (Model-A/B/T, Taypro Console)\n");
+  console.log("\n# Legacy name grep (Model-A/B/T, NECTYR)\n");
   const patterns = [
     { name: "Model-A", re: /\bModel-A\b/g },
     { name: "Model-B", re: /\bModel-B\b/g },
     { name: "Model-T", re: /\bModel-T\b/g },
-    { name: "Taypro Console", re: /Taypro Console/gi },
+    { name: "NECTYR", re: /NECTYR/gi },
     { name: "MODEL A", re: /\bMODEL A\b/g },
   ];
   for (const loc of locales) {

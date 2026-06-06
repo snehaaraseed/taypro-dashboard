@@ -16,11 +16,11 @@ import {
   Timer,
   Users,
 } from "lucide-react";
-import { modelBCards } from "@/app/data";
+import { helyxCards } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import { projectFilterForPage } from "@/lib/cms/project-page-filters";
-import ModelCards from "@/app/components/ModelCards";
+import ProductCards from "@/app/components/ProductCards";
 import ClientsCard from "@/app/components/ClientsCard";
 import EnergyResourceCard from "@/app/components/EnergyResourceCard";
 import HeroSection from "@/app/components/Herosection";
@@ -36,7 +36,7 @@ import { Container } from "@/app/components/Container";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
-const consoleProductPageUrl = `${siteUrl}/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app`;
+const nectyrPageUrl = `${siteUrl}/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app`;
 
 const CAPABILITY_ICONS = [
   LayoutDashboard,
@@ -54,13 +54,13 @@ const CAPABILITY_ICONS = [
 const FAQ_KEYS = ["0", "1", "2", "3", "4", "5", "6", "7"] as const;
 const CAPABILITY_KEYS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
 
-export default async function TayproConsolePage({
+export default async function NectyrPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "TayproConsolePage" });
+  const t = await getTranslations({ locale, namespace: "NectyrPage" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
 
   const breadcrumbs = [
@@ -69,7 +69,7 @@ export default async function TayproConsolePage({
     { name: t("breadcrumbs.current"), href: "" },
   ];
 
-  const consoleFaqs = FAQ_KEYS.map((i) => ({
+  const nectyrFaqs = FAQ_KEYS.map((i) => ({
     question: t(`faq.q${i}`),
     answer:
       i === "5"
@@ -92,11 +92,11 @@ export default async function TayproConsolePage({
         name={t("schema.name")}
         description={t("schema.description")}
         image={`${siteUrl}/tayproasset/taypro-dashboard.png`}
-        url={consoleProductPageUrl}
+        url={nectyrPageUrl}
         applicationCategory="WebApplication"
         operatingSystem="Web browser"
       />
-      <FAQPageSchema faqs={consoleFaqs} />
+      <FAQPageSchema faqs={nectyrFaqs} />
 
       <div className="min-h-screen overflow-x-hidden">
         <HeroSection
@@ -131,21 +131,21 @@ export default async function TayproConsolePage({
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
                     className="text-[#A8C117] hover:underline"
                   >
-                    {t("intro.modelA")}
+                    {t("intro.glyde")}
                   </Link>
                   ,{" "}
                   <Link
                     href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
                     className="text-[#A8C117] hover:underline"
                   >
-                    {t("intro.modelB")}
+                    {t("intro.helyx")}
                   </Link>
                   , and{" "}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
                     className="text-[#A8C117] hover:underline"
                   >
-                    {t("intro.modelT")}
+                    {t("intro.glydeX")}
                   </Link>{" "}
                   {t("intro.p2Mid")}{" "}
                   <strong>{t("intro.p2GuideStrong")}</strong>{" "}
@@ -351,7 +351,7 @@ export default async function TayproConsolePage({
               <AnimateOnScroll animation="fadeInUp" delay={100}>
                 <div className="relative w-full aspect-[16/10] overflow-hidden rounded-lg">
                   <Image
-                    src="/tayproasset/taypro-console.png"
+                    src="/tayproasset/nectyr.png"
                     alt={t("visual.imageAlt")}
                     title="NECTYR"
                     fill
@@ -372,7 +372,7 @@ export default async function TayproConsolePage({
 
             <div className="hidden lg:block relative w-full aspect-[16/9] overflow-hidden rounded-lg">
               <Image
-                src="/tayproasset/taypro-console.png"
+                src="/tayproasset/nectyr.png"
                 alt={t("visual.imageAlt")}
                 title="NECTYR"
                 fill
@@ -436,10 +436,10 @@ export default async function TayproConsolePage({
         </section>
 
         <FaqSection
-          id="console-faq-heading"
+          id="nectyr-faq-heading"
           title={t("faq.title")}
           subtitle={t("faq.subtitle")}
-          faqs={consoleFaqs}
+          faqs={nectyrFaqs}
         />
 
         <EnergyResourceCard />
@@ -454,7 +454,7 @@ export default async function TayproConsolePage({
 
         <ClientsCard />
 
-        <ModelCards title={t("misc.modelCardsTitle")} cards={modelBCards} />
+        <ProductCards title={t("misc.productCardsTitle")} cards={helyxCards} />
 
         <RequestEstimateForm />
       </div>

@@ -64,8 +64,8 @@
       "linkHelyx": "HELYX semi-automatic robots",
       "p3Between": ", ",
       "linkGlyde": "GLYDE automatic robots",
-      "p3After": ", and compatible Model-A fleets. Movement, charge level, and sensor data are visible in the ",
-      "linkConsole": "NECTYR",
+      "p3After": ", and compatible GLYDE fleets. Movement, charge level, and sensor data are visible in the ",
+      "linkNectyr": "NECTYR",
       "p3Suffix": " cloud portal alongside your existing robot schedules.",
       "p4Prefix": "Explore the full ",
       "linkHub": "Taypro robot lineup",
@@ -192,7 +192,7 @@
       },
       "6": {
         "title": "Broad Robot Compatibility",
-        "body": "Docking compatibility with Taypro Model-A and other Taypro cleaning robots in the field, including natural pairing with HELYX pick-and-place fleets and GLYDE autonomous rows."
+        "body": "Docking compatibility with Taypro GLYDE and other Taypro cleaning robots in the field, including natural pairing with HELYX pick-and-place fleets and GLYDE autonomous rows."
       },
       "7": {
         "title": "Slope and Temperature Tolerance",
@@ -300,7 +300,7 @@
       },
       "13": {
         "label": "Docking compatibility",
-        "value": "Taypro Model-A and compatible cleaning robots"
+        "value": "Taypro GLYDE and compatible cleaning robots"
       },
       "14": {
         "label": "Installation",
@@ -388,7 +388,7 @@
       },
       "row4": {
         "criterion": "Pairs with",
-        "cradyl": "HELYX, GLYDE, Model-A fleets",
+        "cradyl": "HELYX, GLYDE, GLYDE fleets",
         "extraRobot": "Standalone cleaning per array"
       },
       "row5": {
@@ -451,7 +451,7 @@
       "linkBetween": " or ",
       "linkGlyde": "GLYDE",
       "linkMid": ", monitor on ",
-      "linkConsole": "NECTYR",
+      "linkNectyr": "NECTYR",
       "crossSellSuffix": ", or explore the full robot hub."
     },
     "faqSection": {
@@ -469,7 +469,7 @@
       },
       "2": {
         "question": "Which Taypro cleaning robots are compatible with CRADYL?",
-        "answer": "CRADYL is designed for Taypro Model-A and compatible Taypro cleaning robots, including fleets already using HELYX semi-automatic pick-and-place robots and GLYDE automatic robots on scattered or multi-block layouts. Confirm rail layout, row spacing, and robot model with Taypro engineering before procurement."
+        "answer": "CRADYL is designed for Taypro GLYDE and compatible Taypro cleaning robots, including fleets already using HELYX semi-automatic pick-and-place robots and GLYDE automatic robots on scattered or multi-block layouts. Confirm rail layout, row spacing, and robot model with Taypro engineering before procurement."
       },
       "3": {
         "question": "Does CRADYL require modifications to solar panels?",
@@ -514,7 +514,7 @@
       "title": "Pair CRADYL with Taypro cleaning robots",
       "linkCta": "Learn more"
     },
-    "modelCardsTitle": "Explore more Taypro solar cleaning solutions",
+    "productCardsTitle": "Explore more Taypro solar cleaning solutions",
     "footerNote": "Specifications may vary by site rail layout and robot model; confirm with Taypro engineering before procurement."
   }
 }

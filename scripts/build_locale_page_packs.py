@@ -120,7 +120,7 @@ def main():
             "model-b": model_b(T),
             "model-t": model_t_pack(T),
             "cleaning-service": cleaning_service_pack(T),
-            "taypro-console": taypro_console_pack(T),
+            "nectyr": taypro_console_pack(T),
         }
     text = "export const localePagePacks = " + json.dumps(packs, ensure_ascii=False, indent=2) + ";\n"
     out_path.write_text(text, encoding="utf-8")

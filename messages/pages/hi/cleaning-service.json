@@ -20,10 +20,10 @@
       "title": "Taypro OPEX - रोबोटिक सौर पैनल सफाई सेवा",
       "subtitlePanels": "सौर पैनलों को हम हर महीने साफ करते हैं",
       "subtitleCycles": "प्रति माह 3-10 जलरहित ड्राई क्लीनिंग चक्र",
-      "modelA": "GLYDE",
-      "modelB": "HELYX",
-      "modelT": "GLYDE-X",
-      "console": "NECTYR",
+      "glyde": "GLYDE",
+      "helyx": "HELYX",
+      "glydeX": "GLYDE-X",
+      "nectyr": "NECTYR",
       "imgAlt": "Taypro OPEX सौर पैनल सफाई सेवा - उपयोगिता पैमाने के सौर संयंत्र में रोबोटिक जल रहित सफाई",
       "ctaText": "एक उद्धरण का अनुरोध करें",
       "subtitleBefore": "केवल के लिए भुगतान करें",
@@ -148,7 +148,7 @@
       "5": "समर्पित ऑपरेटर + राष्ट्रव्यापी तकनीकी सहायता"
     },
     "misc": {
-      "modelCardsTitle": "और अधिक समाधान खोज रहे हैं?",
+      "productCardsTitle": "और अधिक समाधान खोज रहे हैं?",
       "projectsHeader": "हमारी परियोजना",
       "faqTitle": "अक्सर पूछे जाने वाले प्रश्नों",
       "faqSubtitle": "Taypro OPEX सेवा प्रश्न - साथ ही नीचे व्यापक Taypro कार्यक्रम FAQ।"
@@ -268,13 +268,13 @@
         "capex": "परिसंपत्ति मूल्यह्रास, अप्रचलन, इन्वेंट्री जोखिम"
       },
       "explorePrefix": "सीधे हार्डवेयर का अन्वेषण करें:",
-      "linkModelA": "GLYDE",
+      "linkGlyde": "GLYDE",
       "linkBetweenAB": ", ",
-      "linkModelB": "HELYX",
+      "linkHelyx": "HELYX",
       "linkBetweenBT": ", ",
-      "linkModelT": "GLYDE-X",
-      "linkBetweenTConsole": ", या",
-      "linkConsole": "NECTYR",
+      "linkGlydeX": "GLYDE-X",
+      "linkBetweenTAndNectyr": ", या",
+      "linkNectyr": "NECTYR",
       "exploreSuffix": "."
     },
     "roiSection": {
@@ -334,7 +334,7 @@
       "titleLine2": "सर्वोत्तम परिणामों के लिए",
       "body": "Taypro OPEX नरम, लैब-मान्य संपर्क सामग्रियों को अनुशासित ऑपरेटर निरीक्षण के साथ जोड़ता है - ताकि पैनल साफ रहें, वारंटी एक्सपोज़र नियंत्रित रहे, और आपकी टीम को हमेशा पता चले कि साइट पर कौन है, क्यों है, और प्रत्येक शिफ्ट में क्या हासिल हुआ।"
     },
-    "modelCardsTitle": "और अधिक समाधान खोज रहे हैं?",
+    "productCardsTitle": "और अधिक समाधान खोज रहे हैं?",
     "projectsHeader": "हमारी परियोजना"
   },
   "Common": {

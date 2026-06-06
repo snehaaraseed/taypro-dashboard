@@ -15,9 +15,10 @@ const OG_PRESETS = [
   { path: PROJECT_HERO_FALLBACK, alt: "Taypro utility-scale solar projects with cleaning robots", tags: ["project", "plant", "farm"] },
   { path: "/tayproasset/taypro-robotImage.png", alt: "Taypro solar panel cleaning robot", tags: ["robot", "clean"] },
   { path: "/tayproasset/robots.png", alt: "Taypro robotic solar cleaning fleet", tags: ["robot", "farm", "plant"] },
-  { path: "/tayprorobots/taypro-nyuma-automatic-solar-cleaning-robot.png", alt: "Taypro NYUMA automatic cleaning robot", tags: ["automatic", "nyuma", "model-a"] },
-  { path: "/tayprorobots/taypro-helyx-semi-automatic-solar-cleaning-robot.png", alt: "Taypro HELYX semi-automatic cleaning robot", tags: ["semi", "helyx", "model-b"] },
-  { path: "/tayprorobots/taypro-glyde-x-tracker-solar-cleaning-robot.png", alt: "Taypro GLYDE-X tracker cleaning robot", tags: ["tracker", "glyde-x", "model-t"] },
+  { path: "/tayprorobots/nyuma/hero.webp", alt: "Taypro NYUMA automatic cleaning robot", tags: ["automatic", "nyuma", "glyde"] },
+  { path: "/tayprorobots/helyx/hero.webp", alt: "Taypro HELYX semi-automatic cleaning robot", tags: ["semi", "helyx", "helyx"] },
+  { path: "/tayprorobots/glyde-x/hero.webp", alt: "Taypro GLYDE-X tracker cleaning robot", tags: ["tracker", "glyde-x", "glyde-x"] },
+  { path: "/tayprorobots/nyuma-x/hero.webp", alt: "Taypro NYUMA-X tracker PBT cleaning robot", tags: ["tracker", "nyuma-x", "glyde-x"] },
   { path: "/tayprorobots/cradyl-aerial.png", alt: "Taypro CRADYL aerial transfer system", tags: ["plant", "utility"] },
   { path: "/tayprorobots/cradyl-field.png", alt: "Taypro field deployment", tags: ["project", "plant"] },
 ];

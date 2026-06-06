@@ -319,10 +319,10 @@ const GLYDE_X_KEYWORDS = TArray(
 );
 
 export const productKeywordPacks = [
-  { slug: "model-a", pack: { ModelAPage: { meta: { keywords: GLYDE_KEYWORDS } } } },
+  { slug: "glyde", pack: { GlydePage: { meta: { keywords: GLYDE_KEYWORDS } } } },
   { slug: "nyuma", pack: { NyumaPage: { meta: { keywords: NYUMA_KEYWORDS } } } },
-  { slug: "model-b", pack: { ModelBPage: { meta: { keywords: HELYX_KEYWORDS } } } },
-  { slug: "model-t", pack: { ModelTPage: { meta: { keywords: GLYDE_X_KEYWORDS } } } },
+  { slug: "helyx", pack: { HelyxPage: { meta: { keywords: HELYX_KEYWORDS } } } },
+  { slug: "glyde-x", pack: { GlydeXPage: { meta: { keywords: GLYDE_X_KEYWORDS } } } },
   { slug: "nyuma-x", pack: { NyumaXPage: { meta: { keywords: GLYDE_X_KEYWORDS } } } },
   {
     slug: "price-calculator",
@@ -331,7 +331,7 @@ export const productKeywordPacks = [
 ];
 
 export const productSharedPack = {
-  ModelAPage: {
+  GlydePage: {
     shared: {
       connectivitySummary: T(
         "LTE, Wi-Fi, हाइब्रिड सेल्फ-हीलिंग RF मेश, LoRa और LoRaWAN",
@@ -341,7 +341,7 @@ export const productSharedPack = {
       ),
     },
   },
-  ModelBPage: {
+  HelyxPage: {
     shared: {
       connectivitySummary: T(
         "LTE, Wi-Fi, हाइब्रिड सेल्फ-हीलिंग RF मेश, LoRa और LoRaWAN",
@@ -351,7 +351,7 @@ export const productSharedPack = {
       ),
     },
   },
-  ModelTPage: {
+  GlydeXPage: {
     shared: {
       connectivitySummary: T(
         "LTE, Wi-Fi, हाइब्रिड सेल्फ-हीलिंग RF मेश, LoRa और LoRaWAN",
@@ -381,7 +381,7 @@ export const productSharedPack = {
       ),
     },
   },
-  TayproConsolePage: {
+  NectyrPage: {
     shared: {
       connectivitySummary: T(
         "LTE, Wi-Fi, हाइब्रिड सेल्फ-हीलिंग RF मेश, LoRa और LoRaWAN",

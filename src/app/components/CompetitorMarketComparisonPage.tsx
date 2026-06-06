@@ -12,7 +12,7 @@ import {
 
 const MARKET_ROW_KEYS = [
   "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
-  "10", "11", "12", "13", "14", "15", "16", "17", "18",
+  "10", "11", "12", "13", "14", "15", "16", "17",
 ] as const;
 
 const MARKET_COL_KEYS = [
@@ -24,7 +24,6 @@ const MARKET_COL_KEYS = [
 ] as const;
 
 const TAYPRO_LEAD_KEYS = ["0", "1", "2", "3", "4", "5", "6"] as const;
-const COMPETITOR_ADVANTAGE_KEYS = ["0", "1", "2"] as const;
 const FAQ_KEYS = ["0", "1", "2"] as const;
 
 const PAIR_PAGE_IDS: ComparisonPageId[] = [
@@ -167,27 +166,6 @@ export default async function CompetitorMarketComparisonPage({
                   })}
                 </p>
               </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="py-12 md:py-16">
-        <Container>
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#052638] mb-4">
-            {t(`${ns}.competitorAdvantages.heading`)}
-          </h2>
-          <p className="text-[#27415c] leading-relaxed max-w-4xl mb-8">
-            {t(`${ns}.competitorAdvantages.intro`)}
-          </p>
-          <div className="space-y-6 max-w-4xl">
-            {COMPETITOR_ADVANTAGE_KEYS.map((key) => (
-              <p key={key} className="text-[#27415c] leading-relaxed">
-                <strong className="text-[#052638]">
-                  {t(`${ns}.competitorAdvantages.items.${key}.title`)}
-                </strong>{" "}
-                {t(`${ns}.competitorAdvantages.items.${key}.body`)}
-              </p>
             ))}
           </div>
         </Container>

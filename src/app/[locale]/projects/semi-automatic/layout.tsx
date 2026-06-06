@@ -4,7 +4,7 @@ import { socialImagesFromPreset } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 
 const siteUrl = SITE_URL;
-const og = socialImagesFromPreset("modelB");
+const og = socialImagesFromPreset("helyx");
 
 export const generateMetadata = defineLocalizedMetadata("/projects/semi-automatic", () => ({
   title: "Semi-Automatic Solar Panel Cleaning Robot Projects",
@@ -16,7 +16,7 @@ export const generateMetadata = defineLocalizedMetadata("/projects/semi-automati
     "pick-and-place solar panel cleaning robot",
     "cost-effective solar cleaning robot",
     "Taypro semi-automatic robot projects",
-    "Model-B solar cleaning robot projects",
+    "HELYX solar cleaning robot projects",
   ],
   openGraph: {
     title: "Semi-Automatic Solar Panel Cleaning Robot Projects",

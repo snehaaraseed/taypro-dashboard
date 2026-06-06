@@ -16,12 +16,12 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
-import { modelCards, tayproTrustedByStatsStrip } from "@/app/data";
+import { glydeCards, tayproTrustedByStatsStrip } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import CallbackCard from "@/app/components/CallbackCard";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import { projectFilterForPage } from "@/lib/cms/project-page-filters";
-import ModelCards from "@/app/components/ModelCards";
+import ProductCards from "@/app/components/ProductCards";
 import HeroSection from "@/app/components/Herosection";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
@@ -38,13 +38,15 @@ import Product360Viewer from "@/app/components/Product360Viewer";
 import { Container } from "@/app/components/Container";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { getProductImageUrl } from "@/lib/products/product-page-images";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
-const GLYDE_IMAGES = {
-  hero: "/tayprorobots/glyde/glyde-tr150-top-view.png",
-  mechanism: "/tayprorobots/glyde/glyde-dual-pass-mechanism.png",
-  docking: "/tayprorobots/glyde/glyde-docking-power-unit.png",
+/** Engineering gallery uses PNG detail shots (sharp close-ups); schema/OG use catalog paths. */
+const GLYDE_GALLERY = {
+  hero: "/tayprorobots/glyde/hero.png",
+  mechanism: "/tayprorobots/glyde/dual-pass-mechanism.png",
+  docking: "/tayprorobots/glyde/docking-power-unit.png",
 } as const;
 
 const HOW_TO_STEP_KEYS = [
@@ -122,7 +124,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "ModelAPage" });
+  const t = await getTranslations({ locale, namespace: "GlydePage" });
 
   const connectivity = t("shared.connectivitySummary");
 
@@ -151,8 +153,8 @@ export default async function AutomaticSolarPanelCleaningRobot({
   }));
 
   const modelSpecificFaqEntries = [...Array(7)].map((_, i) => ({
-    question: t(`faq.modelASpecific.item${i}.question`),
-    answer: t(`faq.modelASpecific.item${i}.answer`),
+    question: t(`faq.productSpecific.item${i}.question`),
+    answer: t(`faq.productSpecific.item${i}.answer`),
   }));
 
   const allFaqEntries = [...sharedFaqEntries, ...modelSpecificFaqEntries];
@@ -164,14 +166,14 @@ export default async function AutomaticSolarPanelCleaningRobot({
         href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
         className="text-[#A8C117] hover:underline"
       >
-        {t("indianConditions.linkModelB")}
+        {t("indianConditions.linkHelyx")}
       </Link>
       {t("indianConditions.linkBetweenBAndT")}
       <Link
         href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
         className="text-[#A8C117] hover:underline"
       >
-        {t("indianConditions.linkModelT")}
+        {t("indianConditions.linkGlydeX")}
       </Link>
       {t("indianConditions.linkBetweenTAndOpex")}
       <Link
@@ -180,18 +182,18 @@ export default async function AutomaticSolarPanelCleaningRobot({
       >
         {t("indianConditions.linkOpex")}
       </Link>
-      {t("indianConditions.linkBetweenOpexAndConsole")}
+      {t("indianConditions.linkBetweenOpexAndNectyr")}
       <Link
         href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
         className="text-[#A8C117] hover:underline"
       >
-        {t("indianConditions.linkConsole")}
+        {t("indianConditions.linkNectyr")}
       </Link>
       {t("indianConditions.crossSellSuffix")}
     </p>
   );
 
-  const modelAFeatures = FEATURE_KEYS.map((key, i) => ({
+  const productFeatures = FEATURE_KEYS.map((key, i) => ({
     icon: USP_ICONS[i],
     title: t(`featuresLongForm.${key}.title`),
     body:
@@ -200,7 +202,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
         : t(`featuresLongForm.${key}.body`),
   }));
 
-  const modelAAdvantages = ADVANTAGE_KEYS.map((key, i) => ({
+  const productAdvantages = ADVANTAGE_KEYS.map((key, i) => ({
     icon: ADVANTAGE_ICONS[i],
     title: t(`advantagesSection.${key}.title`),
     body: t(`advantagesSection.${key}.body`),
@@ -216,7 +218,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
       <ProductSchema
         name={t("schema.product.name")}
         description={t("schema.product.description")}
-        image={`${siteUrl}${GLYDE_IMAGES.hero}`}
+        image={getProductImageUrl("glyde", siteUrl)}
         brand={t("schema.product.brand")}
         sku={t("schema.product.sku")}
         offers={{
@@ -362,7 +364,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
           <AnimateOnScroll animation="fadeInUp" delay={100} className="flex justify-center">
             <div className="w-full max-w-4xl rounded-2xl bg-white p-4 sm:p-6 shadow-lg ring-1 ring-black/5">
               <Product360Viewer
-                imagePath="/360-degree-images/Model-A/MODEL-A-"
+                imagePath="/360-degree-images/glyde/glyde-"
                 imageCount={61}
                 imagePrefix=""
                 imageSuffix=".png"
@@ -392,7 +394,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
             <AnimateOnScroll animation="fadeInUp" delay={60}>
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
                 <Image
-                  src={GLYDE_IMAGES.hero}
+                  src={GLYDE_GALLERY.hero}
                   alt={t("gallery.primaryAlt")}
                   fill
                   className="object-contain p-4"
@@ -406,7 +408,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
             <AnimateOnScroll animation="fadeInUp" delay={120}>
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
                 <Image
-                  src={GLYDE_IMAGES.mechanism}
+                  src={GLYDE_GALLERY.mechanism}
                   alt={t("gallery.mechanismAlt")}
                   fill
                   className="object-contain p-4"
@@ -421,7 +423,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
           <AnimateOnScroll animation="fadeInUp" delay={180} className="max-w-md mx-auto mt-8 sm:mt-10">
             <div className="relative aspect-[3/5] max-h-[420px] w-full mx-auto overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
               <Image
-                src={GLYDE_IMAGES.docking}
+                src={GLYDE_GALLERY.docking}
                 alt={t("gallery.dockingAlt")}
                 fill
                 className="object-contain p-4"
@@ -466,11 +468,11 @@ export default async function AutomaticSolarPanelCleaningRobot({
         </Container>
       </section>
 
-      <section className="py-14 md:py-20 bg-[#f4f7f9]" aria-labelledby="model-a-roi-heading">
+      <section className="py-14 md:py-20 bg-[#f4f7f9]" aria-labelledby="glyde-roi-heading">
         <Container>
           <AnimateOnScroll animation="fadeInUp" className="text-center max-w-3xl mx-auto mb-8">
             <h2
-              id="model-a-roi-heading"
+              id="glyde-roi-heading"
               className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
             >
               {t("roiBand.title")}
@@ -606,7 +608,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
           </AnimateOnScroll>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
-            {modelAFeatures.map((feature) => {
+            {productFeatures.map((feature) => {
               const Icon = feature.icon;
               return (
                 <AnimateOnScroll
@@ -694,7 +696,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
                     {t("manualVsAutomatic.tableHeaders.manual")}
                   </th>
                   <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#A8C117]">
-                    {t("manualVsAutomatic.tableHeaders.modelA")}
+                    {t("manualVsAutomatic.tableHeaders.robot")}
                   </th>
                 </tr>
               </thead>
@@ -709,8 +711,8 @@ export default async function AutomaticSolarPanelCleaningRobot({
                     </td>
                     <td className="py-3 px-4 sm:px-6 border-t text-base align-top">
                       {rowIdx === 6
-                        ? `${t(`manualVsAutomatic.rows.row${rowIdx}.modelAPrefix`)}${connectivity}${t(`manualVsAutomatic.rows.row${rowIdx}.modelASuffix`)}`
-                        : t(`manualVsAutomatic.rows.row${rowIdx}.modelA`)}
+                        ? `${t(`manualVsAutomatic.rows.row${rowIdx}.nectyrPrefix`)}${connectivity}${t(`manualVsAutomatic.rows.row${rowIdx}.nectyrSuffix`)}`
+                        : t(`manualVsAutomatic.rows.row${rowIdx}.robot`)}
                     </td>
                   </tr>
                 ))}
@@ -811,7 +813,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
           </AnimateOnScroll>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {modelAAdvantages.map((item) => {
+            {productAdvantages.map((item) => {
               const Icon = item.icon;
               return (
                 <AnimateOnScroll
@@ -900,9 +902,9 @@ export default async function AutomaticSolarPanelCleaningRobot({
         </Container>
       </section>
 
-      <FaqSection id="model-a-faq-heading" title={t("faq.title")} faqs={allFaqEntries} />
+      <FaqSection id="glyde-faq-heading" title={t("faq.title")} faqs={allFaqEntries} />
 
-      <ModelCards title={t("modelCards.title")} cards={modelCards} />
+      <ProductCards title={t("productCards.title")} cards={glydeCards} />
 
       <RequestEstimateForm />
       </div>

@@ -66,7 +66,7 @@
       "p3Between": "、",
       "linkGlyde": "GLYDE自動ロボット",
       "p3After": "、互換GLYDEフリートに対応。移動・充電状態・センサーデータは ",
-      "linkConsole": "NECTYR",
+      "linkNectyr": "NECTYR",
       "p3Suffix": " クラウドポータルで既存ロボットスケジュールと併せて確認できます。",
       "p4Prefix": "全 ",
       "linkHub": "Tayproロボットラインナップ",
@@ -452,7 +452,7 @@
       "linkBetween": " または ",
       "linkGlyde": "GLYDE",
       "linkMid": " と組み合わせ、",
-      "linkConsole": "NECTYR",
+      "linkNectyr": "NECTYR",
       "crossSellSuffix": " で監視、またはロボットハブをご覧ください。"
     },
     "faqSection": {
@@ -525,7 +525,7 @@
         }
       }
     },
-    "modelCardsTitle": "その他のTayproソーラー洗浄ソリューションを見る",
+    "productCardsTitle": "その他のTayproソーラー洗浄ソリューションを見る",
     "footerNote": "仕様はサイトのレールとロボット機種により異なります。調達前にTayproエンジニアリングでご確認ください。",
     "intro": {
       "eyebrow": "1台で複数行",

@@ -20,10 +20,10 @@
       "title": "Taypro OPEX, ロボットによるソーラーパネル洗浄サービス",
       "subtitlePanels": "私たちは毎月掃除するソーラーパネル",
       "subtitleCycles": "月に 3 ～ 10 回の水なしドライ クリーニング サイクル",
-      "modelA": "GLYDE",
-      "modelB": "HELYX",
-      "modelT": "GLYDE-X",
-      "console": "NECTYR",
+      "glyde": "GLYDE",
+      "helyx": "HELYX",
+      "glydeX": "GLYDE-X",
+      "nectyr": "NECTYR",
       "imgAlt": "Taypro OPEX ソーラーパネル洗浄サービス, 実用規模の太陽光発電所におけるロボットによる水なし洗浄",
       "ctaText": "見積もりを依頼する",
       "subtitleBefore": "のみお支払いください",
@@ -148,7 +148,7 @@
       "5": "専任オペレーター + 全国規模の技術サポート"
     },
     "misc": {
-      "modelCardsTitle": "さらにソリューションをお探しですか?",
+      "productCardsTitle": "さらにソリューションをお探しですか?",
       "projectsHeader": "私たちのプロジェクト",
       "faqTitle": "よくある質問",
       "faqSubtitle": "Taypro OPEX サービスに関する質問, 加えて、以下の広範な Taypro プログラムに関する FAQ。"
@@ -268,13 +268,13 @@
         "capex": "資産の減価償却、陳腐化、在庫リスク"
       },
       "explorePrefix": "ハードウェアを直接探索します。",
-      "linkModelA": "BR0トークン",
+      "linkGlyde": "BR0トークン",
       "linkBetweenAB": "、",
-      "linkModelB": "BR0トークン",
+      "linkHelyx": "BR0トークン",
       "linkBetweenBT": "、",
-      "linkModelT": "BR0トークン",
-      "linkBetweenTConsole": "、 または",
-      "linkConsole": "BR0トークン",
+      "linkGlydeX": "BR0トークン",
+      "linkBetweenTAndNectyr": "、 または",
+      "linkNectyr": "BR0トークン",
       "exploreSuffix": "。"
     },
     "roiSection": {
@@ -334,7 +334,7 @@
       "titleLine2": "最適な結果を得るために",
       "body": "Taypro OPEX は、実験室で検証された柔らかいコンタクト素材と規律あるオペレーターの監視を組み合わせています。そのため、パネルはきれいな状態に保たれ、保証のエクスポージャーは管理された状態に保たれ、チームは常に誰が現場にいるのか、なぜ、そして各シフトで何が達成されたのかを把握できます。"
     },
-    "modelCardsTitle": "さらにソリューションをお探しですか?",
+    "productCardsTitle": "さらにソリューションをお探しですか?",
     "projectsHeader": "私たちのプロジェクト",
     "common": {
       "breadcrumbHome": "ホーム"

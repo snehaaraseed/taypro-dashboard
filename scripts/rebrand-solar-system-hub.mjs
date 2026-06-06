@@ -43,7 +43,7 @@ p.schema.itemList.items = {
       "Autonomous tracker robot with single-pass PBT cleaning and flexible body for single-axis tables.",
   },
   tayproOpex: p.schema.itemList.items.tayproOpex,
-  tayproConsole: p.schema.itemList.items.tayproConsole,
+  nectyr: p.schema.itemList.items.nectyr,
   miny: p.schema.itemList.items.miny,
   cradyl: p.schema.itemList.items.cradyl,
 };
@@ -115,7 +115,7 @@ p.decisionGuide.cards = {
   },
   card5: {
     title: "Prefer outcomes, not assets?",
-    body: "Taypro OPEX delivers robotic cleaning as a monthly service, with reports in Taypro Console.",
+    body: "Taypro OPEX delivers robotic cleaning as a monthly service, with reports in NECTYR.",
     cta: "See Taypro OPEX",
   },
 };
@@ -173,7 +173,7 @@ p.comparison.rows = {
     nyumaX: "CAPEX + AMC",
   },
   row5: {
-    criterion: "Taypro Console",
+    criterion: "NECTYR",
     helyx: "Operator-led with Console reporting",
     glyde: "LTE, Wi-Fi, RF mesh, LoRa, LoRaWAN",
     nyuma: "LTE, Wi-Fi, RF mesh, LoRa, LoRaWAN",

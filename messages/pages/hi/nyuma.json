@@ -48,7 +48,7 @@
         "name": "स्वचालित सोलर पैनल सफाई रोबोट यूटिलिटी प्लांट कैसे साफ करता है (Taypro NYUMA)",
         "description": "Taypro NYUMA का स्वायत्त सफाई चक्र, AI शेड्यूलिंग, सिंगल-पास PBT वॉटरलेस सफाई, सेल्फ-डॉकिंग और क्लाउड टेलीमेट्री।",
         "totalTime": "PT2H",
-        "imagePath": "/tayproasset/taypro-robotImage.png"
+        "imagePath": "/tayprorobots/nyuma/brush-detail.webp"
       }
     },
     "hero": {
@@ -139,9 +139,9 @@
       }
     },
     "product360": {
-      "eyebrow": "इंटरैक्टिव उत्पाद टूर",
-      "title": "NYUMA का 360° दृश्य",
-      "subtitle": "बाएँ या दाएँ घुमाकर हर कोण से हमारे स्वचालित सोलर पैनल सफाई रोबोट को देखें",
+      "eyebrow": "उत्पाद अवलोकन",
+      "title": "NYUMA रोबोट देखें",
+      "subtitle": "फिक्स्ड-टिल्ट और सीज़नल-टिल्ट यूटिलिटी-स्केल सोलर प्लांट के लिए इंजीनियर किया गया पूर्ण स्वायत्त PBT सफाई रोबोट",
       "productLabel": "Taypro NYUMA, स्वचालित सोलर पैनल सफाई रोबोट"
     },
     "usps": {
@@ -284,49 +284,49 @@
       "tableHeaders": {
         "criterion": "मानदंड",
         "manual": "मैनुअल सफाई",
-        "modelA": "Taypro NYUMA"
+        "robot": "Taypro NYUMA"
       },
       "rows": {
         "row0": {
           "criterion": "सफाई आवृत्ति",
           "manual": "साप्ताहिक/पाक्षिक, मौसम पर निर्भर",
-          "modelA": "दैनिक स्वचालित चक्र, मौसम-जागरूक शेड्यूल"
+          "robot": "दैनिक स्वचालित चक्र, मौसम-जागरूक शेड्यूल"
         },
         "row1": {
           "criterion": "पानी खपत",
           "manual": "उच्च, प्रति मॉड्यूल 1.5–3 लीटर",
-          "modelA": "शून्य, पूर्ण वॉटरलेस सिंगल-पास PBT"
+          "robot": "शून्य, पूर्ण वॉटरलेस सिंगल-पास PBT"
         },
         "row2": {
           "criterion": "सफाई गुणवत्ता",
           "manual": "असंगत, ऑपरेटर-निर्भर",
-          "modelA": "हर बार 99%+ धूल हटाना"
+          "robot": "हर बार 99%+ धूल हटाना"
         },
         "row3": {
           "criterion": "श्रम और सुरक्षा",
           "manual": "उच्च लागत, पैनल क्षति, रात्रि जोखिम",
-          "modelA": "स्वायत्त रात्रि संचालन, कोई मैनुअल हस्तक्षेप नहीं"
+          "robot": "स्वायत्त रात्रि संचालन, कोई मैनुअल हस्तक्षेप नहीं"
         },
         "row4": {
           "criterion": "PR प्रभाव",
           "manual": "धुलाई के बीच 5–25% सोइलिंग हानि",
-          "modelA": "दैनिक सफाई से PR बनाए रखना, उपज 4–8% बढ़ाना"
+          "robot": "दैनिक सफाई से PR बनाए रखना, उपज 4–8% बढ़ाना"
         },
         "row5": {
           "criterion": "पैनल सुरक्षा",
           "manual": "माइक्रो-क्रैक, ARC घर्षण का जोखिम",
-          "modelA": "रोबोट मॉड्यूल फ्रेम पर, ग्लास/सेल पर भार नहीं"
+          "robot": "रोबोट मॉड्यूल फ्रेम पर, ग्लास/सेल पर भार नहीं"
         },
         "row6": {
           "criterion": "मॉनिटरिंग और रिपोर्टिंग",
           "manual": "कोई टेलीमेट्री नहीं",
-          "modelAPrefix": "NECTYR ",
-          "modelASuffix": " के माध्यम से; पूर्ण ऑडिट ट्रेल"
+          "nectyrPrefix": "NECTYR ",
+          "nectyrSuffix": " के माध्यम से; पूर्ण ऑडिट ट्रेल"
         },
         "row7": {
           "criterion": "कुल स्वामित्व लागत",
           "manual": "आवर्ती पानी, श्रम, उपकरण, डाउनटाइम",
-          "modelA": "एकमुश्त निवेश, 12–18 महीने पेबैक, 20 वर्ष डिज़ाइन जीवन"
+          "robot": "एकमुश्त निवेश, 12–18 महीने पेबैक, 20 वर्ष डिज़ाइन जीवन"
         }
       }
     },
@@ -353,13 +353,13 @@
         }
       },
       "crossSellLead": "संलग्न O&M जरूरतें? देखें ",
-      "linkModelB": "अर्ध-स्वचालित सफाई रोबोट (HELYX)",
+      "linkHelyx": "अर्ध-स्वचालित सफाई रोबोट (HELYX)",
       "linkBetweenBAndT": ", ",
-      "linkModelT": "सिंगल-एक्सिस ट्रैकर रोबोट (NYUMA)",
+      "linkNyumaX": "सिंगल-एक्सिस ट्रैकर रोबोट (NYUMA)",
       "linkBetweenTAndOpex": ", ",
       "linkOpex": "Taypro OPEX सफाई सेवा",
-      "linkBetweenOpexAndConsole": " या ",
-      "linkConsole": "NECTYR मॉनिटरिंग ऐप",
+      "linkBetweenOpexAndNectyr": " या ",
+      "linkNectyr": "NECTYR मॉनिटरिंग ऐप",
       "crossSellSuffix": "।"
     },
     "specifications": {
@@ -532,7 +532,7 @@
           "answer": "NECTYR पोर्टल से चक्र, गति और फ्लीट प्रदर्शन।"
         }
       },
-      "modelASpecific": {
+      "productSpecific": {
         "item0": {
           "question": "NYUMA जैसे रोबोट की लागत?",
           "answer": "मूल्य प्लांट आकार, लेआउट, टेरेन पर निर्भर। अधिकांश 12–18 महीने पेबैक। कोट और ROI के लिए संपर्क करें।"
@@ -563,11 +563,11 @@
         }
       }
     },
-    "modelCards": {
+    "productCards": {
       "title": "और समाधान चाहिए?",
       "cardLabels": {
-        "modelB": "HELYX",
-        "modelT": "NYUMA"
+        "helyx": "HELYX",
+        "nyumaX": "NYUMA-X"
       },
       "cardTitleTemplate": "{label} सोलर पैनल सफाई रोबोट"
     }

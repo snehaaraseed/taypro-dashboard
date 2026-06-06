@@ -29,10 +29,10 @@ function deepMerge(target, source) {
 }
 
 const pages = [
-  { slug: "model-b", pageKey: "ModelBPage" },
-  { slug: "model-t", pageKey: "ModelTPage" },
+  { slug: "helyx", pageKey: "HelyxPage" },
+  { slug: "glyde-x", pageKey: "GlydeXPage" },
   { slug: "cleaning-service", pageKey: "CleaningServicePage" },
-  { slug: "taypro-console", pageKey: "TayproConsolePage" },
+  { slug: "nectyr", pageKey: "NectyrPage" },
 ];
 
 for (const loc of ["hi", "ar", "ja", "bn"]) {

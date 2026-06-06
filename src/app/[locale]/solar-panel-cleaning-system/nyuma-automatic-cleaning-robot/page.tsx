@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   BatteryCharging,
   Brain,
@@ -20,7 +21,7 @@ import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import CallbackCard from "@/app/components/CallbackCard";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import { projectFilterForPage } from "@/lib/cms/project-page-filters";
-import ModelCards from "@/app/components/ModelCards";
+import ProductCards from "@/app/components/ProductCards";
 import HeroSection from "@/app/components/Herosection";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
@@ -33,12 +34,28 @@ import {
   HowToSchema,
 } from "@/app/components/StructuredData";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
-import Product360Viewer from "@/app/components/Product360Viewer";
+import ProductStaticShowcase from "@/app/components/ProductStaticShowcase";
 import { Container } from "@/app/components/Container";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-
+import {
+  getProductHeroLayout,
+  getProductImageUrl,
+  productPageImages,
+} from "@/lib/products/product-page-images";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const nyumaImages = productPageImages("nyuma");
+const nyumaHeroLayout = getProductHeroLayout("nyuma");
+
+/** White-background PNGs for gallery and showcase; catalog/OG use WebP heroes. */
+const NYUMA_GALLERY = {
+  zoomed: "/tayprorobots/nyuma/brush-detail.png",
+  productRender: "/tayprorobots/nyuma/product-render.png",
+  topView: "/tayprorobots/nyuma/top-view.png",
+  brushDetail: "/tayprorobots/nyuma/brush-detail.png",
+  heroDark: "/tayprorobots/nyuma/hero-dark.png",
+  topViewDark: "/tayprorobots/nyuma/top-view-dark.png",
+} as const;
 
 const HOW_TO_STEP_KEYS = [
   "step0",
@@ -144,8 +161,8 @@ export default async function NyumaAutomaticCleaningRobotPage({
   }));
 
   const modelSpecificFaqEntries = [...Array(7)].map((_, i) => ({
-    question: t(`faq.modelASpecific.item${i}.question`),
-    answer: t(`faq.modelASpecific.item${i}.answer`),
+    question: t(`faq.productSpecific.item${i}.question`),
+    answer: t(`faq.productSpecific.item${i}.answer`),
   }));
 
   const allFaqEntries = [...sharedFaqEntries, ...modelSpecificFaqEntries];
@@ -157,14 +174,14 @@ export default async function NyumaAutomaticCleaningRobotPage({
         href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
         className="text-[#A8C117] hover:underline"
       >
-        {t("indianConditions.linkModelB")}
+        {t("indianConditions.linkHelyx")}
       </Link>
       {t("indianConditions.linkBetweenBAndT")}
       <Link
         href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
         className="text-[#A8C117] hover:underline"
       >
-        {t("indianConditions.linkModelT")}
+        {t("indianConditions.linkNyumaX")}
       </Link>
       {t("indianConditions.linkBetweenTAndOpex")}
       <Link
@@ -173,18 +190,18 @@ export default async function NyumaAutomaticCleaningRobotPage({
       >
         {t("indianConditions.linkOpex")}
       </Link>
-      {t("indianConditions.linkBetweenOpexAndConsole")}
+      {t("indianConditions.linkBetweenOpexAndNectyr")}
       <Link
         href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
         className="text-[#A8C117] hover:underline"
       >
-        {t("indianConditions.linkConsole")}
+        {t("indianConditions.linkNectyr")}
       </Link>
       {t("indianConditions.crossSellSuffix")}
     </p>
   );
 
-  const modelAFeatures = FEATURE_KEYS.map((key, i) => ({
+  const productFeatures = FEATURE_KEYS.map((key, i) => ({
     icon: USP_ICONS[i],
     title: t(`featuresLongForm.${key}.title`),
     body:
@@ -193,7 +210,7 @@ export default async function NyumaAutomaticCleaningRobotPage({
         : t(`featuresLongForm.${key}.body`),
   }));
 
-  const modelAAdvantages = ADVANTAGE_KEYS.map((key, i) => ({
+  const productAdvantages = ADVANTAGE_KEYS.map((key, i) => ({
     icon: ADVANTAGE_ICONS[i],
     title: t(`advantagesSection.${key}.title`),
     body: t(`advantagesSection.${key}.body`),
@@ -209,7 +226,7 @@ export default async function NyumaAutomaticCleaningRobotPage({
       <ProductSchema
         name={t("schema.product.name")}
         description={t("schema.product.description")}
-        image={`${siteUrl}/tayproasset/taypro-robotImage.png`}
+        image={getProductImageUrl("nyuma", siteUrl)}
         brand={t("schema.product.brand")}
         sku={t("schema.product.sku")}
         offers={{
@@ -239,8 +256,10 @@ export default async function NyumaAutomaticCleaningRobotPage({
               {t("hero.leadAfterConnectivity")}
             </>
           }
-          imgSrc="/tayprosolarpanel/solar-panel.jpg"
+          imgSrc={nyumaImages.hero}
           imgAlt={t("hero.heroImageAlt")}
+          imageAspectRatio={nyumaHeroLayout.aspectRatio}
+          imagePresentation={nyumaHeroLayout.presentation}
           ctaHref="/contact"
           ctaText={t("hero.primaryCta.label")}
           ctaTopic={t("hero.primaryCta.topic")}
@@ -333,37 +352,72 @@ export default async function NyumaAutomaticCleaningRobotPage({
         </Container>
       </section>
 
-      <section
-        className="w-full py-20 bg-white"
-        style={{
-          background: "url('/tayprobglayout/taypro-semi.png') repeat",
-          backgroundSize: "auto",
-        }}
-      >
+      <ProductStaticShowcase
+        imageSrc={NYUMA_GALLERY.topView}
+        detailImages={[NYUMA_GALLERY.brushDetail, NYUMA_GALLERY.productRender]}
+        imageAlt={t("product360.productLabel")}
+        imageAspectRatio="1024 / 768"
+        eyebrow={t("product360.eyebrow")}
+        title={t("product360.title")}
+        subtitle={t("product360.subtitle")}
+      />
+
+      <section className="bg-gradient-to-b from-white to-gray-50 py-12 sm:py-16">
         <Container>
-          <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
+          <AnimateOnScroll animation="fadeInUp" className="text-center mb-8">
             <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-              {t("product360.eyebrow")}
+              {t("gallery.eyebrow")}
             </div>
-            <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-4 leading-tight">
-              {t("product360.title")}
+            <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl mb-4">
+              {t("gallery.title")}
             </h2>
-            <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
-              {t("product360.subtitle")}
+            <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto">
+              {t("gallery.subtitle")}
             </p>
           </AnimateOnScroll>
-          <AnimateOnScroll animation="fadeInUp" delay={100} className="flex justify-center">
-            <div className="w-full max-w-4xl rounded-2xl bg-white p-4 sm:p-6 shadow-lg ring-1 ring-black/5">
-              <Product360Viewer
-                imagePath="/360-degree-images/Model-A/MODEL-A-"
-                imageCount={61}
-                imagePrefix=""
-                imageSuffix=".png"
-                startIndex={100}
-                className="mx-auto"
-                productLabel={t("product360.productLabel")}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+            <AnimateOnScroll animation="fadeInUp" delay={60}>
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                <Image
+                  src={NYUMA_GALLERY.topView}
+                  alt={t("gallery.primaryAlt")}
+                  fill
+                  className="object-contain p-4"
+                  sizes="(max-width: 768px) 100vw, 480px"
+                />
+              </div>
+              <p className="text-center text-gray-500 text-sm mt-3">
+                {t("gallery.primaryCaption")}
+              </p>
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fadeInUp" delay={120}>
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                <Image
+                  src={NYUMA_GALLERY.brushDetail}
+                  alt={t("gallery.detailAlt")}
+                  fill
+                  className="object-contain p-4"
+                  sizes="(max-width: 768px) 100vw, 480px"
+                />
+              </div>
+              <p className="text-center text-gray-500 text-sm mt-3">
+                {t("gallery.detailCaption")}
+              </p>
+            </AnimateOnScroll>
+          </div>
+          <AnimateOnScroll animation="fadeInUp" delay={180} className="max-w-3xl mx-auto mt-8 sm:mt-10">
+            <div className="relative aspect-[1024/723] w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+              <Image
+                src={NYUMA_GALLERY.productRender}
+                alt={t("gallery.heroAlt")}
+                fill
+                className="object-contain p-4"
+                sizes="(max-width: 768px) 100vw, 640px"
               />
             </div>
+            <p className="text-center text-gray-500 text-sm mt-3">
+              {t("gallery.heroCaption")}
+            </p>
           </AnimateOnScroll>
         </Container>
       </section>
@@ -399,11 +453,11 @@ export default async function NyumaAutomaticCleaningRobotPage({
         </Container>
       </section>
 
-      <section className="py-14 md:py-20 bg-[#f4f7f9]" aria-labelledby="model-a-roi-heading">
+      <section className="py-14 md:py-20 bg-[#f4f7f9]" aria-labelledby="glyde-roi-heading">
         <Container>
           <AnimateOnScroll animation="fadeInUp" className="text-center max-w-3xl mx-auto mb-8">
             <h2
-              id="model-a-roi-heading"
+              id="glyde-roi-heading"
               className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
             >
               {t("roiBand.title")}
@@ -539,7 +593,7 @@ export default async function NyumaAutomaticCleaningRobotPage({
           </AnimateOnScroll>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
-            {modelAFeatures.map((feature) => {
+            {productFeatures.map((feature) => {
               const Icon = feature.icon;
               return (
                 <AnimateOnScroll
@@ -627,7 +681,7 @@ export default async function NyumaAutomaticCleaningRobotPage({
                     {t("manualVsAutomatic.tableHeaders.manual")}
                   </th>
                   <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#A8C117]">
-                    {t("manualVsAutomatic.tableHeaders.modelA")}
+                    {t("manualVsAutomatic.tableHeaders.robot")}
                   </th>
                 </tr>
               </thead>
@@ -642,8 +696,8 @@ export default async function NyumaAutomaticCleaningRobotPage({
                     </td>
                     <td className="py-3 px-4 sm:px-6 border-t text-base align-top">
                       {rowIdx === 6
-                        ? `${t(`manualVsAutomatic.rows.row${rowIdx}.modelAPrefix`)}${connectivity}${t(`manualVsAutomatic.rows.row${rowIdx}.modelASuffix`)}`
-                        : t(`manualVsAutomatic.rows.row${rowIdx}.modelA`)}
+                        ? `${t(`manualVsAutomatic.rows.row${rowIdx}.nectyrPrefix`)}${connectivity}${t(`manualVsAutomatic.rows.row${rowIdx}.nectyrSuffix`)}`
+                        : t(`manualVsAutomatic.rows.row${rowIdx}.robot`)}
                     </td>
                   </tr>
                 ))}
@@ -665,6 +719,18 @@ export default async function NyumaAutomaticCleaningRobotPage({
             <p className="text-white/80 text-base sm:text-lg max-w-3xl mx-auto mt-6">
               {t("indianConditions.subtitle")}
             </p>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll animation="fadeInUp" delay={80} className="max-w-4xl mx-auto mb-12">
+            <div className="relative aspect-[1024/723] w-full overflow-hidden rounded-2xl ring-1 ring-white/10">
+              <Image
+                src={NYUMA_GALLERY.heroDark}
+                alt={t("gallery.heroAlt")}
+                fill
+                className="object-contain"
+                sizes="(max-width: 1024px) 100vw, 896px"
+              />
+            </div>
           </AnimateOnScroll>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
@@ -744,7 +810,7 @@ export default async function NyumaAutomaticCleaningRobotPage({
           </AnimateOnScroll>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {modelAAdvantages.map((item) => {
+            {productAdvantages.map((item) => {
               const Icon = item.icon;
               return (
                 <AnimateOnScroll
@@ -771,6 +837,17 @@ export default async function NyumaAutomaticCleaningRobotPage({
               {t("servicePromise.eyebrow")}
             </div>
             <h2 className="text-white font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight">{t("installSection.title")}</h2>
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fadeInUp" delay={80} className="mb-10">
+            <div className="relative aspect-[1024/594] w-full max-w-4xl mx-auto overflow-hidden rounded-2xl ring-1 ring-white/10">
+              <Image
+                src={NYUMA_GALLERY.topViewDark}
+                alt={t("gallery.primaryAlt")}
+                fill
+                className="object-contain"
+                sizes="(max-width: 1024px) 100vw, 896px"
+              />
+            </div>
           </AnimateOnScroll>
           <div className="space-y-4">
           <p className="text-white/90 text-base sm:text-lg bg-white/5 border border-white/10 rounded-xl p-5 sm:p-6">
@@ -835,7 +912,7 @@ export default async function NyumaAutomaticCleaningRobotPage({
 
       <FaqSection id="nyuma-faq-heading" title={t("faq.title")} faqs={allFaqEntries} />
 
-        <ModelCards title={t("modelCards.title")} cards={nyumaCards} />
+        <ProductCards title={t("productCards.title")} cards={nyumaCards} />
 
       <RequestEstimateForm />
       </div>

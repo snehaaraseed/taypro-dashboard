@@ -382,12 +382,12 @@ export default function CalculatorPageClient({
                   {t("methodology.paragraph1End")}
                 </p>
                 <p>
-                  {t("methodology.paragraph2BeforeConsole")}{" "}
+                  {t("methodology.paragraph2BeforeNectyr")}{" "}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                     className="text-[#A8C117] hover:underline"
                   >
-                    {t("methodology.paragraph2ConsoleLink")}
+                    {t("methodology.paragraph2NectyrLink")}
                   </Link>
                   {t("methodology.paragraph2Between")}{" "}
                   <Link href="/projects" className="text-[#A8C117] hover:underline">

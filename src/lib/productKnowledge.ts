@@ -149,7 +149,7 @@ export const tayproOPEX: ServiceSpec = {
   ],
 };
 
-export const tayproConsole: ServiceSpec = {
+export const nectyr: ServiceSpec = {
   name: "NECTYR",
   description: "Fleet monitoring for solar panel cleaning robots",
   features: [
@@ -201,18 +201,11 @@ TAYPRO PRODUCT KNOWLEDGE BASE, VERIFIED INFORMATION ONLY
 ${blocks.join("\n")}
 
 TAYPRO OPEX: ${tayproOPEX.description}
-NECTYR: ${tayproConsole.description}
+NECTYR: ${nectyr.description}
 
 GENERAL:
-- Product names on the website: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, NECTYR only (no legacy Model-A/B/T or NECTYR in customer copy)
+- Product names on the website: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, NECTYR only
 - GLYDE and GLYDE-X use patented dual-pass microfiber; HELYX, NYUMA, NYUMA-X use single-pass PBT only
 - Do not invent specifications not listed above
 `;
 }
-
-/** @deprecated Use glyde */
-export const modelA = glyde;
-/** @deprecated Use helyx */
-export const modelB = helyx;
-/** @deprecated Use glydeX */
-export const modelT = glydeX;

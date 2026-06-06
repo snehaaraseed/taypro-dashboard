@@ -18,6 +18,7 @@ import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
 import { FaqSection } from "@/app/components/FaqSection";
 import { FAQPageSchema } from "@/app/components/StructuredData";
+import { getProduct, getProductHeroAspectRatio } from "@/lib/products/catalog";
 
 const STAT_STRIP_LABEL_KEYS = [
   "statsStrip.robotCapacityDeployed",
@@ -42,11 +43,11 @@ const FOUNDER_ROLE_KEYS = [
 ] as const;
 
 const ROBOT_DESC_KEY: Record<string, string> = {
-  GLYDE: "modelA",
-  HELYX: "modelB",
-  "GLYDE-X": "modelT",
+  GLYDE: "glyde",
+  HELYX: "helyx",
+  "GLYDE-X": "glydeX",
   "Taypro Opex": "tayproOpex",
-  "NECTYR": "tayproConsole",
+  "NECTYR": "nectyr",
 };
 
 const PARTNER_STEP_KEYS = ["step0", "step1", "step2", "step3"] as const;
@@ -293,13 +294,16 @@ export default function AboutUsPage() {
               delay={200}
               className="bg-white flex flex-col shadow-lg min-h-[600px] overflow-hidden"
             >
-              <div className="w-full h-[360px] relative">
+              <div
+                className="relative w-full bg-[#0a2a38] px-6 py-8"
+                style={{ aspectRatio: getProductHeroAspectRatio("glydeX") }}
+              >
                 <Image
-                  src="/tayprorobots/taypro-modelT-img.png"
-                  alt={t("sustainability.modelTImageAlt")}
-                  title={t("sustainability.modelTImageTitle")}
+                  src={getProduct("glydeX").imagePath}
+                  alt={t("sustainability.glydeXImageAlt")}
+                  title={t("sustainability.glydeXImageTitle")}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
@@ -548,19 +552,19 @@ export default function AboutUsPage() {
                 {t("builtForSites.paragraph1")}
               </div>
               <div className="text-[#27415c] text-lg max-w-xl leading-relaxed">
-                {t("builtForSites.paragraph2BeforeModelA")}{" "}
+                {t("builtForSites.paragraph2BeforeGlyde")}{" "}
                 <Link
                   href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
                   className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
                 >
-                  {t("builtForSites.modelALink")}
+                  {t("builtForSites.glydeLink")}
                 </Link>{" "}
                 {t("builtForSites.paragraph2Middle")}{" "}
                 <Link
                   href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
                   className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
                 >
-                  {t("builtForSites.modelTLink")}
+                  {t("builtForSites.glydeXLink")}
                 </Link>
                 {t("builtForSites.paragraph2After")}
               </div>
@@ -593,7 +597,7 @@ export default function AboutUsPage() {
                   href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                   className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
                 >
-                  {t("collaboration.consoleLink")}
+                  {t("collaboration.nectyrLink")}
                 </Link>
                 {t("collaboration.paragraph2End")}
               </div>

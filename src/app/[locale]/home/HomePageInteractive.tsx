@@ -75,12 +75,12 @@ export default function HomePageInteractive({
               {t("whyTaypro.heading")}
             </h2>
             <p className="text-[#27415c] text-lg leading-relaxed">
-              {t("whyTaypro.bodyBeforeConsole")}{" "}
+              {t("whyTaypro.bodyBeforeNectyr")}{" "}
               <Link
                 href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                 className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
               >
-                {t("whyTaypro.consoleLink")}
+                {t("whyTaypro.nectyrLink")}
               </Link>
               {t("whyTaypro.bodyBetween")}{" "}
               <Link

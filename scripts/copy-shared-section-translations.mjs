@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Copy translated page sections from model-t → model-a (and derive nyuma / nyuma-x).
+ * Copy translated page sections from glyde-x → glyde (and derive nyuma / nyuma-x).
  */
 import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
@@ -351,24 +351,24 @@ const COPY_SECTIONS = [
   "installSection",
   "roiSection",
   "cycleNarrative",
-  "modelCards",
+  "glydeCards",
 ];
 
 for (const loc of locales) {
   const enA = JSON.parse(
-    readFileSync(join(root, "messages/pages/en/model-a.json"), "utf8")
+    readFileSync(join(root, "messages/pages/en/glyde.json"), "utf8")
   );
   const hiT = JSON.parse(
-    readFileSync(join(root, `messages/pages/${loc}/model-t.json`), "utf8")
+    readFileSync(join(root, `messages/pages/${loc}/glyde-x.json`), "utf8")
   );
 
-  let glyde = JSON.parse(JSON.stringify(enA.ModelAPage));
+  let glyde = JSON.parse(JSON.stringify(enA.GlydePage));
 
   for (const sec of COPY_SECTIONS) {
-    if (enA.ModelAPage[sec] && hiT.ModelTPage[sec]) {
+    if (enA.GlydePage[sec] && hiT.GlydeXPage[sec]) {
       glyde[sec] = mergeTranslatedStructure(
-        enA.ModelAPage[sec],
-        hiT.ModelTPage[sec]
+        enA.GlydePage[sec],
+        hiT.GlydeXPage[sec]
       );
     }
   }
@@ -469,7 +469,7 @@ for (const loc of locales) {
   deepMerge(glyde.breadcrumbs, {
     home: loc === "hi" ? "होम" : loc === "ar" ? "الرئيسية" : loc === "ja" ? "ホーム" : "হোম",
     solarPanelCleaningRobots:
-      hiT.ModelTPage.breadcrumbs?.robots ?? glyde.breadcrumbs.solarPanelCleaningRobots,
+      hiT.GlydeXPage.breadcrumbs?.robots ?? glyde.breadcrumbs.solarPanelCleaningRobots,
     automaticRobot:
       loc === "hi"
         ? "स्वचालित सोलर पैनल सफाई रोबोट"
@@ -480,12 +480,12 @@ for (const loc of locales) {
             : "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট",
   });
 
-  deepMerge(glyde, resolvePack(glydeProductPack.ModelAPage, loc));
+  deepMerge(glyde, resolvePack(glydeProductPack.GlydePage, loc));
 
   const connectivitySummary =
-    hiT.ModelTPage?.shared?.connectivitySummary ??
+    hiT.GlydeXPage?.shared?.connectivitySummary ??
     hiT.Common?.connectivitySummary ??
-    enA.ModelAPage?.shared?.connectivitySummary ??
+    enA.GlydePage?.shared?.connectivitySummary ??
     enA.Common?.connectivitySummary;
 
   if (glyde.shared) {
@@ -493,7 +493,7 @@ for (const loc of locales) {
   }
 
   const schemaLoc = SCHEMA_GLYDE[loc];
-  if (hiT.ModelTPage.schema && schemaLoc) {
+  if (hiT.GlydeXPage.schema && schemaLoc) {
     glyde.schema = {
       product: {
         name: schemaLoc.productName,
@@ -502,7 +502,7 @@ for (const loc of locales) {
         sku: "GLYDE",
         offers: {
           price:
-            hiT.ModelTPage.schema.offersPrice ??
+            hiT.GlydeXPage.schema.offersPrice ??
             (loc === "hi"
               ? "मूल्य निर्धारण के लिए संपर्क करें"
               : loc === "ar"
@@ -530,8 +530,8 @@ for (const loc of locales) {
   };
 
   writeFileSync(
-    join(root, `messages/pages/${loc}/model-a.json`),
-    JSON.stringify({ ModelAPage: glyde, Common: common }, null, 2) + "\n"
+    join(root, `messages/pages/${loc}/glyde.json`),
+    JSON.stringify({ GlydePage: glyde, Common: common }, null, 2) + "\n"
   );
 
   const nyuma = nyumaFromGlydePage(glyde);
@@ -543,18 +543,18 @@ for (const loc of locales) {
   let nyumaX = mergeTranslatedStructure(
     JSON.parse(readFileSync(join(root, "messages/pages/en/nyuma-x.json"), "utf8"))
       .NyumaXPage,
-    hiT.ModelTPage
+    hiT.GlydeXPage
   );
   for (const sec of COPY_SECTIONS) {
     if (
       JSON.parse(readFileSync(join(root, "messages/pages/en/nyuma-x.json"), "utf8"))
         .NyumaXPage[sec] &&
-      hiT.ModelTPage[sec]
+      hiT.GlydeXPage[sec]
     ) {
       nyumaX[sec] = mergeTranslatedStructure(
         JSON.parse(readFileSync(join(root, "messages/pages/en/nyuma-x.json"), "utf8"))
           .NyumaXPage[sec],
-        hiT.ModelTPage[sec]
+        hiT.GlydeXPage[sec]
       );
     }
   }

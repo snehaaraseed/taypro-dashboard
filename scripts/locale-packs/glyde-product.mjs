@@ -1,8 +1,8 @@
-/** Hand-authored GLYDE (model-a) product page locale pack, fills gaps after partial merges. */
+/** Hand-authored GLYDE (glyde) product page locale pack, fills gaps after partial merges. */
 import { T } from "./helpers.mjs";
 
 export const glydeProductPack = {
-  ModelAPage: {
+  GlydePage: {
     hero: {
       primaryCta: {
         topic: T(
@@ -741,14 +741,14 @@ export const glydeProductPack = {
         },
       },
       crossSellLead: T("संलग्न O&M जरूरतें? देखें ", "احتياجات O&M مجاورة؟ استكشف ", "関連O&Mは ", "সংলগ্ন O&M? দেখুন "),
-      linkModelB: T(
+      linkHelyx: T(
         "अर्ध-स्वचालित सफाई रोबोट (HELYX)",
         "روبوت تنظيف شبه أوتوماتيكي (HELYX)",
         "半自動清掃ロボット（HELYX）",
         "অর্ধ-স্বয়ংক্রিয় রোবট (HELYX)"
       ),
       linkBetweenBAndT: T(", ", "، ", "、", ", "),
-      linkModelT: T(
+      linkGlydeX: T(
         "सिंगल-एक्सिस ट्रैकर रोबोट (GLYDE-X)",
         "روبوت تتبع أحادي المحور (GLYDE-X)",
         "単軸トラッカーロボット（GLYDE-X）",
@@ -756,8 +756,8 @@ export const glydeProductPack = {
       ),
       linkBetweenTAndOpex: T(", ", "، ", "、", ", "),
       linkOpex: T("Taypro OPEX सफाई सेवा", "خدمة تنظيف Taypro OPEX", "Taypro OPEX清掃サービス", "Taypro OPEX পরিষ্কার সেবা"),
-      linkBetweenOpexAndConsole: T(" या ", " أو ", " または ", " বা "),
-      linkConsole: T("NECTYR मॉनिटरिंग ऐप", "تطبيق مراقبة NECTYR", "NECTYR監視アプリ", "NECTYR মনিটরিং অ্যাপ"),
+      linkBetweenOpexAndNectyr: T(" या ", " أو ", " または ", " বা "),
+      linkNectyr: T("NECTYR मॉनिटरिंग ऐप", "تطبيق مراقبة NECTYR", "NECTYR監視アプリ", "NECTYR মনিটরিং অ্যাপ"),
       crossSellSuffix: T("।", ".", "。", "।"),
     },
     advantagesSection: {
@@ -984,7 +984,7 @@ export const glydeProductPack = {
           ),
         },
       },
-      modelASpecific: {
+      productSpecific: {
         item0: {
           question: T(
             "GLYDE जैसे रोबोट की लागत?",

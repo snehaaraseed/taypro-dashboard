@@ -6,7 +6,7 @@ const root = join(import.meta.dirname, "..");
 
 function convertNyuma() {
   let s = readFileSync(join(root, "messages/pages/en/nyuma.json"), "utf8");
-  s = s.replace(/ModelAPage/g, "NyumaPage");
+  s = s.replace(/GlydePage/g, "NyumaPage");
   s = s.replace(/GLYDE-X/g, "NYUMA-X");
   s = s.replace(/GLYDE/g, "NYUMA");
   s = s.replace(/HELYX/g, "HELYX");
@@ -30,7 +30,7 @@ function convertNyuma() {
 
 function convertNyumaX() {
   let s = readFileSync(join(root, "messages/pages/en/nyuma-x.json"), "utf8");
-  s = s.replace(/ModelTPage/g, "NyumaXPage");
+  s = s.replace(/GlydeXPage/g, "NyumaXPage");
   s = s.replace(/GLYDE-X/g, "NYUMA-X");
   s = s.replace(/\bGLYDE\b/g, "NYUMA");
   s = s.replace(/dual-pass/gi, "single-pass");

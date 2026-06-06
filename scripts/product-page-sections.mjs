@@ -1,4 +1,4 @@
-/** Shared section strings for model-b, model-t, cleaning-service (EN + translations). */
+/** Shared section strings for helyx, glyde-x, cleaning-service (EN + translations). */
 
 export const modelBSections = {
   overview: {
@@ -32,9 +32,9 @@ export const modelBSections = {
       "fixed-tilt, seasonal-tilt and horizontal single-axis tracker",
     p4Mid:
       " installations where the capex of a per-array automatic robot is not justified, including rooftop, ground-mounted and multi-block utility-scale plants. For fully autonomous, always-on cleaning we recommend ",
-    linkModelA: "Model-A",
+    linkGlyde: "Model-A",
     p4BetweenAT: "; for dedicated single-axis tracker plants we recommend ",
-    linkModelT: "Model-T",
+    linkGlydeX: "Model-T",
     p4Suffix: ".",
     p5Prefix: "Further reading: ",
     linkBlogMethods: "methods used for solar panel cleaning",
@@ -102,7 +102,7 @@ export const modelBSections = {
       "Taypro provides immediate remote diagnostics and troubleshooting upon incident notification, most issues are resolved without requiring a physical site visit.",
     card2Title: "Same-Day On-Site Intervention",
     card2Body:
-      "When on-site work is required, Taypro targets same-day on-site breakdown resolution, available pan-India, with immediate remote diagnostics from Taypro Console.",
+      "When on-site work is required, Taypro targets same-day on-site breakdown resolution, available pan-India, with immediate remote diagnostics from NECTYR.",
   },
   callbackCard: {
     line1: "Schedule Online Demo For Semi-Automatic Solar",
@@ -169,14 +169,14 @@ export const modelBSections = {
         "One-time capex, replaces recurring opex, 20-year design life",
     },
   },
-  modelBvsModelA: {
+  helyxVsGlyde: {
     eyebrow: "Choosing the Right Taypro Robot",
     title: "Model-B vs Model-A: Which Solar Cleaning Robot Is Right for You?",
     subtitle:
-      "Both robots use waterless dry cleaning and are managed from the same Taypro Console. The choice depends on plant size, labour availability and capex appetite.",
+      "Both robots use waterless dry cleaning and are managed from the same NECTYR. The choice depends on plant size, labour availability and capex appetite.",
     criterion: "Criterion",
-    modelBHeader: "Model-B (Semi-Automatic)",
-    modelAHeader: "Model-A (Fully Automatic)",
+    helyxHeader: "Model-B (Semi-Automatic)",
+    glydeHeader: "Model-A (Fully Automatic)",
     row0: {
       criterion: "Operation Mode",
       modelB: "Semi-automatic, pick-and-place (manual deployment)",
@@ -218,7 +218,7 @@ export const modelBSections = {
       modelA: "Designed for utility-scale tilt range",
     },
     crossSellLead: "Cleaning a single-axis tracker plant? Look at ",
-    linkModelT: "Model-T",
+    linkGlydeX: "Model-T",
     crossSellMid: ". Prefer outsourcing cleaning entirely? Explore the ",
     linkOpex: "Taypro OPEX cleaning service",
     crossSellSuffix: ".",
@@ -239,15 +239,15 @@ export const modelBSections = {
       "Many Indian solar farms are in water-stressed districts. Model-B's waterless cleaning removes water tankers from your O&M plan entirely, freeing water and logistics for higher-priority site use.",
     card3Title: "Pan-India Service Network",
     card3Body:
-      "Same-day on-site breakdown resolution across India, with immediate remote diagnostics from Taypro Console, backed by regional spare inventory and structured AMC programs.",
+      "Same-day on-site breakdown resolution across India, with immediate remote diagnostics from NECTYR, backed by regional spare inventory and structured AMC programs.",
     crossSellLead: "Looking at adjacent solar O&M needs? Explore the ",
-    linkModelA: "fully-automatic Model-A robot",
+    linkGlyde: "fully-automatic Model-A robot",
     linkBetweenAT: ", the ",
-    linkModelT: "Model-T robot for single-axis trackers",
+    linkGlydeX: "Model-T robot for single-axis trackers",
     linkBetweenTOpex: ", the ",
     linkOpex: "Taypro OPEX cleaning service",
     linkBetweenOpexConsole: " or the ",
-    linkConsole: "Taypro Console monitoring app",
+    linkNectyr: "NECTYR monitoring app",
     crossSellSuffix: ".",
   },
   faqSection: {
@@ -255,7 +255,7 @@ export const modelBSections = {
     subtitle:
       "Common questions about the Taypro Model-B Semi-Automatic Solar Panel Cleaning Robot.",
   },
-  modelCardsTitle: "Looking for more solutions?",
+  productCardsTitle: "Looking for more solutions?",
 };
 
 export const modelTSections = {
@@ -271,7 +271,7 @@ export const modelTSections = {
     p1AfterDust: ", covering up to ",
     p1RangeStrong: "2.2 km, around 3,600 modules, on a single charge",
     p1AfterRange:
-      ". Cleaning is best scheduled after energy production hours and is managed end-to-end through the Taypro Console remote monitoring app. Supported fleet links are ",
+      ". Cleaning is best scheduled after energy production hours and is managed end-to-end through the NECTYR remote monitoring app. Supported fleet links are ",
     p1ConnectivitySuffix:
       ", pick the best path per block based on coverage and bandwidth needs (site-dependent).",
     p2Before: "Compatible with ",
@@ -290,9 +290,9 @@ export const modelTSections = {
     p3AfterDetect:
       " to move safely across panels without risk of falling. It continuously tracks the path and surface undulations along each row, adjusting motor performance as needed for consistent cleaning. After each cleaning cycle, Model-T returns to a secure, shadow-free docking station and locks in, wind-safe up to 180 km/hr.",
     p4Lead: "Operating a fixed-tilt utility-scale plant? Choose the fully-autonomous ",
-    linkModelA: "Model-A",
+    linkGlyde: "Model-A",
     p4Mid: ". Cleaning smaller or scattered plants? Use the semi-automatic pick-and-place ",
-    linkModelB: "Model-B",
+    linkHelyx: "Model-B",
     p4Suffix: ".",
     p5Prefix: "Further reading: ",
     linkBlogSeasonal: "seasonal maintenance for tracker-heavy sites",
@@ -368,7 +368,7 @@ export const modelTSections = {
       "Taypro provides immediate remote diagnostics and troubleshooting upon incident notification, most tracker-plant issues are resolved without a physical site visit.",
     card2Title: "Same-Day On-Site Intervention",
     card2Body:
-      "When on-site work is required, Taypro targets same-day on-site breakdown resolution, available pan-India, with immediate remote diagnostics from Taypro Console.",
+      "When on-site work is required, Taypro targets same-day on-site breakdown resolution, available pan-India, with immediate remote diagnostics from NECTYR.",
   },
   callbackCard: {
     line1: "Schedule Online Demo For Single-Axis Tracker",
@@ -437,14 +437,14 @@ export const modelTSections = {
       modelT: "One-time capex, replaces recurring opex, 20-year design life",
     },
   },
-  modelTvsModelA: {
+  glydeXVsGlyde: {
     eyebrow: "Choosing the Right Taypro Robot",
     title: "Model-T vs Model-A: Which Robot Suits Your Solar Plant?",
     subtitle:
-      "Both robots are fully autonomous and waterless, both run on the same Taypro Console. The choice is dictated by your mounting structure, tracker vs fixed-tilt.",
+      "Both robots are fully autonomous and waterless, both run on the same NECTYR. The choice is dictated by your mounting structure, tracker vs fixed-tilt.",
     criterion: "Criterion",
-    modelTHeader: "Model-T (Tracker)",
-    modelAHeader: "Model-A (Fixed-Tilt)",
+    glydeXHeader: "Model-T (Tracker)",
+    glydeHeader: "Model-A (Fixed-Tilt)",
     row0: {
       criterion: "Mounting Structure",
       modelT:
@@ -483,11 +483,11 @@ export const modelTSections = {
     },
     row7: {
       criterion: "Cloud Monitoring",
-      modelT: "Taypro Console via {connectivity}",
-      modelA: "Taypro Console via {connectivity}",
+      modelT: "NECTYR via {connectivity}",
+      modelA: "NECTYR via {connectivity}",
     },
     crossSellLead: "Cleaning smaller or scattered plants? Look at the semi-automatic ",
-    linkModelB: "Model-B",
+    linkHelyx: "Model-B",
     crossSellMid: ". Prefer outsourcing cleaning entirely? Explore the ",
     linkOpex: "Taypro OPEX cleaning service",
     crossSellSuffix: ".",
@@ -508,15 +508,15 @@ export const modelTSections = {
       "Many tracker plants are in water-stressed districts where water allocations for module washing are tightening. Model-T removes water from your O&M plan entirely, freeing tanker logistics for higher-priority site needs.",
     card3Title: "Pan-India Service Network",
     card3Body:
-      "Same-day on-site breakdown resolution across India, with immediate remote diagnostics from Taypro Console, backed by regional spare inventory and structured AMC programs.",
+      "Same-day on-site breakdown resolution across India, with immediate remote diagnostics from NECTYR, backed by regional spare inventory and structured AMC programs.",
     crossSellLead: "Looking at adjacent solar O&M needs? Explore the ",
-    linkModelA: "fully-automatic Model-A robot",
+    linkGlyde: "fully-automatic Model-A robot",
     linkBetweenAB: ", the ",
-    linkModelB: "semi-automatic Model-B robot",
+    linkHelyx: "semi-automatic Model-B robot",
     linkBetweenBOpex: ", the ",
     linkOpex: "Taypro OPEX cleaning service",
     linkBetweenOpexConsole: " or the ",
-    linkConsole: "Taypro Console monitoring app",
+    linkNectyr: "NECTYR monitoring app",
     crossSellSuffix: ".",
   },
   faqSection: {
@@ -524,7 +524,7 @@ export const modelTSections = {
     subtitle:
       "Common questions about the Taypro Model-T Solar Panel Cleaning Robot for single-axis tracker installations.",
   },
-  modelCardsTitle: "Looking for more solutions?",
+  productCardsTitle: "Looking for more solutions?",
 };
 
 export const cleaningServiceSections = {
@@ -553,7 +553,7 @@ export const cleaningServiceSections = {
     p3Before: "During operations, your team receives ",
     p3ReportsStrong: "granular cleaning reports",
     p3AfterReports:
-      ", per shift, per day, or per cycle depending on your governance needs, via Taypro Console, with fleet telemetry carried over ",
+      ", per shift, per day, or per cycle depending on your governance needs, via NECTYR, with fleet telemetry carried over ",
     p3ConnectivitySuffix: " as designed for your site.",
     p4Prefix: "Further reading: ",
     linkBlogCost: "cost–benefit of cleaning services in India",
@@ -565,7 +565,7 @@ export const cleaningServiceSections = {
     eyebrow: "Commercial model",
     title: "Billing tied to panels cleaned, not capex",
     body:
-      "Your monthly invoice is anchored to the count of modules actually cleaned in the period, cross-checked against Taypro Console logs and the mutually agreed measurement protocol. That keeps plant leadership, finance and O&M aligned on one simple question: did we restore transmissivity to the contracted panel population this month?",
+      "Your monthly invoice is anchored to the count of modules actually cleaned in the period, cross-checked against NECTYR logs and the mutually agreed measurement protocol. That keeps plant leadership, finance and O&M aligned on one simple question: did we restore transmissivity to the contracted panel population this month?",
     ctaLabel: "Talk to our OPEX team",
     ctaTitle: "Talk to our OPEX team",
     ctaSubtitle:
@@ -588,7 +588,7 @@ export const cleaningServiceSections = {
       "Documented idle behaviour on modules, staging points between blocks, and a dedicated robot parking / charging enclave that satisfies your HSE, security, and fire access rules.",
     card2Title: "Cleaning reports",
     card2Body:
-      "Cycle-level and daily summaries delivered through Taypro Console: distance travelled, blocks completed, anomalies, operator notes, and exportable files for your internal performance review boards.",
+      "Cycle-level and daily summaries delivered through NECTYR: distance travelled, blocks completed, anomalies, operator notes, and exportable files for your internal performance review boards.",
     card3Title: "Safety & module-care governance",
     card3Body:
       "Written risk assessments, edge-case playbooks, and alignment with your module warranty and O&M insurance requirements, backed by Taypro's lab-tested cleaning physics.",
@@ -667,13 +667,13 @@ export const cleaningServiceSections = {
       capex: "Asset depreciation, obsolescence, inventory risk",
     },
     explorePrefix: "Explore hardware directly: ",
-    linkModelA: "Model-A",
+    linkGlyde: "Model-A",
     linkBetweenAB: ", ",
-    linkModelB: "Model-B",
+    linkHelyx: "Model-B",
     linkBetweenBT: ", ",
-    linkModelT: "Model-T",
+    linkGlydeX: "Model-T",
     linkBetweenTConsole: ", or ",
-    linkConsole: "Taypro Console",
+    linkNectyr: "NECTYR",
     exploreSuffix: ".",
   },
   roiSection: {
@@ -753,6 +753,6 @@ export const cleaningServiceSections = {
     subtitleProgramme: "under a managed",
     subtitleAfter: "programme with",
   },
-  modelCardsTitle: "Looking for more solutions?",
+  productCardsTitle: "Looking for more solutions?",
   projectsHeader: "Our Projects",
 };

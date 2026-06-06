@@ -403,10 +403,10 @@ export default async function SiteMapPage({
                   <li>
                     <Link
                       href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
-                      title={l("tayproConsoleTitle")}
+                      title={l("nectyrTitle")}
                       className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                     >
-                      {l("tayproConsoleLabel")}
+                      {l("nectyrLabel")}
                     </Link>
                   </li>
                   <li>

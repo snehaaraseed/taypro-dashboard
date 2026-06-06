@@ -14,7 +14,7 @@ const BASIC_ROW_KEYS = ["0", "1", "2", "3", "4", "5"] as const;
 
 const VENDOR_ROW_KEYS = [
   "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
-  "10", "11", "12", "13", "14", "15", "16", "17", "18",
+  "10", "11", "12", "13", "14", "15", "16", "17",
 ] as const;
 
 const ROW_KEYS_BY_PAGE: Record<ComparisonPageId, readonly string[]> = {
@@ -248,17 +248,6 @@ export default async function ComparisonLandingPage({
                   </div>
                 ))}
               </div>
-            </Container>
-          </section>
-
-          <section className="py-12 md:py-16">
-            <Container>
-              <h2 className="text-2xl md:text-3xl font-semibold text-[#052638] mb-4">
-                {t(`${ns}.competitorStrengths.heading`)}
-              </h2>
-              <p className="text-[#27415c] leading-relaxed max-w-4xl">
-                {t(`${ns}.competitorStrengths.body`)}
-              </p>
             </Container>
           </section>
         </>

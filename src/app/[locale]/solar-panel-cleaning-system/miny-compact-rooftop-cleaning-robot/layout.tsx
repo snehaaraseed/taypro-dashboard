@@ -6,7 +6,7 @@ import { withHreflang } from "@/lib/seo/with-hreflang";
 import { MINY_PRODUCT_PATH } from "@/lib/product-coming-soon";
 
 const siteUrl = SITE_URL;
-const minyOg = socialImagesFromPreset("modelB");
+const minyOg = socialImagesFromPreset("helyx");
 
 export async function generateMetadata({
   params,

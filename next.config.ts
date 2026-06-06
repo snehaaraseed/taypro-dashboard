@@ -324,6 +324,88 @@ const nextConfig = {
         destination: "/projects/shri-ganesh-industries-03-mw",
         permanent: true,
       },
+      // Product hero image path migration (Image SEO Phase B)
+      {
+        source: "/tayprorobots/taypro-glyde-x-tracker-solar-cleaning-robot.png",
+        destination: "/tayprorobots/glyde-x/hero.png",
+        permanent: true,
+      },
+      {
+        source: "/tayprorobots/taypro-nyuma-automatic-solar-cleaning-robot.png",
+        destination: "/tayprorobots/nyuma/brush-detail.png",
+        permanent: true,
+      },
+      {
+        source: "/tayprorobots/taypro-nyuma-x-tracker-solar-cleaning-robot.png",
+        destination: "/tayprorobots/nyuma-x/hero.png",
+        permanent: true,
+      },
+      {
+        source: "/tayprorobots/taypro-helyx-semi-automatic-solar-cleaning-robot.png",
+        destination: "/tayprorobots/helyx/hero.png",
+        permanent: true,
+      },
+      {
+        source: "/tayprorobots/glyde/glyde-tr150-top-view.png",
+        destination: "/tayprorobots/glyde/hero.png",
+        permanent: true,
+      },
+      {
+        source: "/tayprorobots/glyde/glyde-dual-pass-mechanism.png",
+        destination: "/tayprorobots/glyde/dual-pass-mechanism.png",
+        permanent: true,
+      },
+      {
+        source: "/tayprorobots/glyde/glyde-docking-power-unit.png",
+        destination: "/tayprorobots/glyde/docking-power-unit.png",
+        permanent: true,
+      },
+      {
+        source: "/tayprorobots/taypro-modelT-img.png",
+        destination: "/tayprorobots/glyde-x/hero.png",
+        permanent: true,
+      },
+      {
+        source: "/tayproasset/taypro-console.png",
+        destination: "/tayproasset/nectyr.png",
+        permanent: true,
+      },
+      {
+        source: "/tayprorobots/taypro-modelA.png",
+        destination: "/tayprorobots/glyde/hero.png",
+        permanent: true,
+      },
+      {
+        source: "/tayprorobots/taypro-modelAcopy.png",
+        destination: "/tayprorobots/glyde/hero.png",
+        permanent: true,
+      },
+      {
+        source: "/tayprorobots/taypro-modelBcopy.png",
+        destination: "/tayprorobots/helyx/hero.png",
+        permanent: true,
+      },
+      {
+        source: "/tayprorobots/taypro-modelTcopy.png",
+        destination: "/tayprorobots/glyde-x/hero.png",
+        permanent: true,
+      },
+      // 360° frame sequences (legacy Model-A/B/T folder names)
+      {
+        source: "/360-degree-images/Model-A/MODEL-A-:frame",
+        destination: "/360-degree-images/glyde/glyde-:frame",
+        permanent: true,
+      },
+      {
+        source: "/360-degree-images/Model-B/:path*",
+        destination: "/360-degree-images/helyx/:path*",
+        permanent: true,
+      },
+      {
+        source: "/360-degree-images/Model-T/:path*",
+        destination: "/360-degree-images/glyde-x/:path*",
+        permanent: true,
+      },
     ];
   },
   // Add headers for better caching and performance

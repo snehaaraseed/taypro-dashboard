@@ -7,7 +7,7 @@ import { withHreflang } from "@/lib/seo/with-hreflang";
 const siteUrl = SITE_URL;
 const MODEL_A_PATH =
   "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system";
-const modelAOg = socialImagesFromPreset("glyde");
+const glydeOg = socialImagesFromPreset("glyde");
 
 export async function generateMetadata({
   params,
@@ -15,7 +15,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "ModelAPage.meta" });
+  const t = await getTranslations({ locale, namespace: "GlydePage.meta" });
   const keywords = t.raw("keywords") as string[];
 
   return withHreflang(MODEL_A_PATH, locale, {
@@ -27,10 +27,10 @@ export async function generateMetadata({
       description: t("openGraphDescription"),
       url: `${siteUrl}${MODEL_A_PATH}`,
       type: "website",
-      ...modelAOg.openGraph,
+      ...glydeOg.openGraph,
     },
     twitter: {
-      ...modelAOg.twitter,
+      ...glydeOg.twitter,
       card: "summary_large_image",
       title: t("twitterTitle"),
       description: t("twitterDescription"),

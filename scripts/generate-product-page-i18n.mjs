@@ -1,5 +1,5 @@
 /**
- * Generates messages/pages/en/{slug}.json for model-b, model-t, cleaning-service.
+ * Generates messages/pages/en/{slug}.json for helyx, glyde-x, cleaning-service.
  * Run: node scripts/generate-product-page-i18n.mjs
  */
 import { readFileSync, writeFileSync, mkdirSync } from "fs";
@@ -46,7 +46,7 @@ const modelBSupplements = {
   steps: {
     "5": {
       name: "Recharge and review performance",
-      text: "After completing the assigned arrays (up to 3 km per charge), the robot is returned to its docking station for lithium-ion recharging. Cleaning telemetry and operational health data are available via the Taypro Console portal for fleet-wide review.",
+      text: "After completing the assigned arrays (up to 3 km per charge), the robot is returned to its docking station for lithium-ion recharging. Cleaning telemetry and operational health data are available via the NECTYR portal for fleet-wide review.",
     },
   },
   faqs: {
@@ -59,14 +59,14 @@ const modelBSupplements = {
 };
 
 function buildModelB() {
-  const ex = loadExtracted("model-b");
-  const usps = { ...idx(ex.modelBUsps), ...modelBSupplements.usps };
-  const features = { ...idx(ex.modelBFeatures), ...modelBSupplements.features };
-  const steps = { ...idx(ex.modelBSteps), ...modelBSupplements.steps };
-  const faqs = { ...idx(ex.modelBFaqs), ...modelBSupplements.faqs };
+  const ex = loadExtracted("helyx");
+  const usps = { ...idx(ex.helyxUsps), ...modelBSupplements.usps };
+  const features = { ...idx(ex.helyxFeatures), ...modelBSupplements.features };
+  const steps = { ...idx(ex.helyxSteps), ...modelBSupplements.steps };
+  const faqs = { ...idx(ex.helyxFaqs), ...modelBSupplements.faqs };
 
   return {
-    ModelBPage: {
+    HelyxPage: {
       meta: {
         title:
           "Semi-Automatic Solar Panel Cleaning Robot, Taypro Model-B (Pick-and-Place)",
@@ -106,11 +106,11 @@ function buildModelB() {
       },
       usps,
       features,
-      specs: idx(ex.modelBSpecs),
+      specs: idx(ex.helyxSpecs),
       steps,
       faqs,
       misc: {
-        modelCardsTitle: "Looking for more solutions?",
+        productCardsTitle: "Looking for more solutions?",
         callbackLine1: "Schedule Online Demo For Semi-Automatic Solar",
         callbackLine2: "Panel Cleaning Robots",
         faqTitle: "Frequently Asked Questions",
@@ -150,7 +150,7 @@ const modelTSupplements = {
   steps: {
     "5": {
       name: "Recharge and cloud telemetry sync",
-      text: "Lithium-ion charging starts automatically. Battery level, charging status, cycle telemetry and overall performance are continuously synced to the Taypro Console over {connectivity} for fleet-wide visibility.",
+      text: "Lithium-ion charging starts automatically. Battery level, charging status, cycle telemetry and overall performance are continuously synced to the NECTYR over {connectivity} for fleet-wide visibility.",
     },
   },
   faqs: {
@@ -158,22 +158,22 @@ const modelTSupplements = {
       question:
         "How is Model-T monitored and controlled across a large tracker plant?",
       answer:
-        "All Model-T robots connect to the Taypro Console using {connectivity}. The portal provides a unified interface to schedule cleaning, adjust settings, monitor battery levels, view cycle telemetry, receive weather alerts and roll up performance across hundreds of robots and plants, from any device, anywhere.",
+        "All Model-T robots connect to the NECTYR using {connectivity}. The portal provides a unified interface to schedule cleaning, adjust settings, monitor battery levels, view cycle telemetry, receive weather alerts and roll up performance across hundreds of robots and plants, from any device, anywhere.",
     },
   },
 };
 
 function buildModelT() {
-  const ex = loadExtracted("model-t");
+  const ex = loadExtracted("glyde-x");
   return {
-    ModelTPage: {
+    GlydeXPage: {
       meta: {
         title:
           "Solar Panel Cleaning Robot for Single-Axis Trackers, Taypro Model-T",
         description:
           "Taypro Model-T is an AI- and ML-powered, waterless autonomous Solar Panel Cleaning Robot purpose-built for single-axis tracker solar farms. 99%+ dust removal per dual-pass run, up to 3,600 modules per charge, ±15° flex between tables, NEXTracker and Gamechanger compatible (-52° to +52° module tilt), TÜV NORD certified.",
         openGraphDescription:
-          "Autonomous AI-powered Solar Panel Cleaning Robot for single-axis tracker plants. 99%+ dust removal per cycle, up to 3,600 modules per charge, Taypro Console via LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN, NEXTracker & Gamechanger compatible, TÜV NORD certified.",
+          "Autonomous AI-powered Solar Panel Cleaning Robot for single-axis tracker plants. 99%+ dust removal per cycle, up to 3,600 modules per charge, NECTYR via LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN, NEXTracker & Gamechanger compatible, TÜV NORD certified.",
         openGraphImageAlt:
           "Taypro Single-Axis Tracker Solar Panel Cleaning Robot Model-T, AI-powered, waterless",
         twitterDescription:
@@ -206,16 +206,16 @@ function buildModelT() {
           "Taypro Single-Axis Tracker Solar Panel Cleaning Robot Model-T - Autonomous robotic cleaning system for tracking solar panel installations",
         ctaText: "Request a quote",
       },
-      usps: { ...idx(ex.modelTUsps), ...modelTSupplements.usps },
+      usps: { ...idx(ex.glydeXUsps), ...modelTSupplements.usps },
       features: {
-        ...idx(ex.modelTFeatures),
+        ...idx(ex.glydeXFeatures),
         ...modelTSupplements.features,
       },
-      specs: idx(ex.modelTSpecs),
-      steps: { ...idx(ex.modelTSteps), ...modelTSupplements.steps },
-      faqs: { ...idx(ex.modelTFaqs), ...modelTSupplements.faqs },
+      specs: idx(ex.glydeXSpecs),
+      steps: { ...idx(ex.glydeXSteps), ...modelTSupplements.steps },
+      faqs: { ...idx(ex.glydeXFaqs), ...modelTSupplements.faqs },
       misc: {
-        modelCardsTitle: "Looking for more solutions?",
+        productCardsTitle: "Looking for more solutions?",
         callbackLine1: "Schedule Online Demo For Single-Axis Tracker",
         callbackLine2: "Solar Panel Cleaning Robots",
         faqTitle: "Frequently Asked Questions",
@@ -241,13 +241,13 @@ function buildCleaningService() {
         title:
           "Robotic Solar Panel Cleaning Service, Pay Per Panel | Taypro OPEX",
         description:
-          "Taypro OPEX is a monthly robotic solar panel cleaning service for utility-scale plants (typically 50 MW+). We deploy Model-A, Model-B or Model-T as needed, recommend 3–10 waterless dry cycles per month from a full plant soiling study, and bill only for panels cleaned. Includes cleaning SOPs, robot paths, rest zones, dedicated parking, and daily reports via Taypro Console.",
+          "Taypro OPEX is a monthly robotic solar panel cleaning service for utility-scale plants (typically 50 MW+). We deploy Model-A, Model-B or Model-T as needed, recommend 3–10 waterless dry cycles per month from a full plant soiling study, and bill only for panels cleaned. Includes cleaning SOPs, robot paths, rest zones, dedicated parking, and daily reports via NECTYR.",
         openGraphDescription:
           "Monthly waterless robotic cleaning: plant-specific 3–10 cycles, detailed cleaning plans, daily reports, billing per panels cleaned. Model-A, B or T.",
         openGraphImageAlt:
           "Taypro OPEX robotic solar panel cleaning service at utility-scale solar plant",
         twitterDescription:
-          "Pay per panel cleaned monthly. Plant study, 3–10 dry cycles, SOPs, paths, rest zones, Taypro Console reports.",
+          "Pay per panel cleaned monthly. Plant study, 3–10 dry cycles, SOPs, paths, rest zones, NECTYR reports.",
       },
       breadcrumbs: {
         robots: "Solar Panel Cleaning Robots",
@@ -256,7 +256,7 @@ function buildCleaningService() {
       schema: {
         name: "Taypro OPEX, Robotic Solar Panel Cleaning Service",
         description:
-          "Monthly robotic solar panel cleaning service for utility-scale plants: pay per panel cleaned, plant-specific soiling study, 3–10 recommended waterless dry cycles per month, detailed cleaning plans with paths and robot rest zones, daily reports via Taypro Console, deployment of Taypro Model-A, Model-B or Model-T robots with dedicated operators.",
+          "Monthly robotic solar panel cleaning service for utility-scale plants: pay per panel cleaned, plant-specific soiling study, 3–10 recommended waterless dry cycles per month, detailed cleaning plans with paths and robot rest zones, daily reports via NECTYR, deployment of Taypro Model-A, Model-B or Model-T robots with dedicated operators.",
         serviceType: "Solar panel cleaning service",
       },
       hero: {
@@ -266,7 +266,7 @@ function buildCleaningService() {
         modelA: "Model-A",
         modelB: "Model-B",
         modelT: "Model-T",
-        console: "Taypro Console",
+        console: "NECTYR",
         imgAlt:
           "Taypro OPEX solar panel cleaning service, robotic waterless cleaning at utility-scale solar plant",
         ctaText: "Request a quote",
@@ -278,12 +278,12 @@ function buildCleaningService() {
         "0": "Plant-specific soiling study & 3–10 dry cycles / month",
         "1": "Billing based on panels cleaned each month",
         "2": "Detailed SOP: timing, paths, idle & dedicated rest zones",
-        "3": "Daily cleaning reports & Taypro Console transparency",
+        "3": "Daily cleaning reports & NECTYR transparency",
         "4": "Model-A, Model-B or Model-T matched to your site",
         "5": "Dedicated operators + nationwide technical support",
       },
       misc: {
-        modelCardsTitle: "Looking for more solutions?",
+        productCardsTitle: "Looking for more solutions?",
         projectsHeader: "Our Projects",
         faqTitle: "Frequently asked questions",
         faqSubtitle:
@@ -298,12 +298,12 @@ function buildCleaningService() {
   };
 }
 
-writeLocale("model-b", buildModelB());
-writeLocale("model-t", buildModelT());
+writeLocale("helyx", buildModelB());
+writeLocale("glyde-x", buildModelT());
 writeLocale("cleaning-service", buildCleaningService());
 
 // Clone to hi/ar/ja/bn with breadcrumbHome only (body stays EN until translated)
-for (const slug of ["model-b", "model-t", "cleaning-service", "taypro-console"]) {
+for (const slug of ["helyx", "glyde-x", "cleaning-service", "nectyr"]) {
   const enPath = join(root, "messages/pages/en", `${slug}.json`);
   const en = JSON.parse(readFileSync(enPath, "utf8"));
   for (const [loc, home] of [

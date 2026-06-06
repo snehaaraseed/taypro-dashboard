@@ -65,7 +65,7 @@
           "tayproOpex": {
             "description": "パネル洗浄ごとのOpex, 前払いCAPEXなしでTayproがフリートを運用。"
           },
-          "tayproConsole": {
+          "nectyr": {
             "description": "サイト全体の洗浄ロボットをスケジュール・監視・報告するフリートポータル。"
           },
           "miny": {
@@ -200,15 +200,15 @@
       "title": "インドのソーラーパネル洗浄ロボット分野のリーダー",
       "p1": "塵、農業残渣、鳥糞はインドの大規模発電所で発電を8–25%低下させます。手洗いは高コストで水を大量消費。専用洗浄ロボットが発電回復と毎晩均一洗浄、水不要O&Mを実現します。",
       "p2LinkAutomatic": "GLYDE自動ロボット",
-      "p2LinkModelB": "HELYX",
-      "p2LinkModelT": "GLYDE-X",
-      "p2LinkConsole": "NECTYR",
+      "p2LinkHelyx": "HELYX",
+      "p2LinkGlydeX": "GLYDE-X",
+      "p2LinkNectyr": "NECTYR",
       "p2LinkOpex": "Taypro Opex",
       "p2BeforeLinks": "TayproはMade in Indiaのロボット洗浄メーカー。ラインナップは完全",
       "p2BetweenAB": "、半自動ピック＆プレース",
       "p2BetweenBT": " 分散向け、トラッカー対応",
       "p2AfterT": " 単軸トラッカー向け。全ロボットは",
-      "p2AfterConsole": " で監視し、CAPEXまたは月額 ",
+      "p2AfterNectyr": " で監視し、CAPEXまたは月額 ",
       "p2AfterOpex": "サービスとして展開可能。",
       "p3BlogMaintenance": "ソーラーパネル保守ガイド",
       "p3BlogRobotDef": "ソーラーパネル洗浄ロボットの定義",
@@ -223,7 +223,7 @@
       "p2BetweenHelyxTracker": " 分散プラント向け、トラッカー対応 ",
       "p2BetweenTrackers": " と ",
       "p2AfterTrackers": " 単軸レイアウト向け。",
-      "p2BeforeConsole": " の仕組みを確認し、全ロボットを "
+      "p2BeforeNectyr": " の仕組みを確認し、全ロボットを "
     },
     "productGrid": {
       "eyebrow": "ロボットラインナップ",
@@ -270,7 +270,7 @@
           "bullet1": "汚れ調査＋月3–10サイクル",
           "bullet2": "TAYPRO Private Limitedが運用"
         },
-        "tayproConsole": {
+        "nectyr": {
           "eyebrow": "ソフトウェア · フリートポータル",
           "bullet0": "サイトダッシュボード、スケジュール、ログ、エクスポート",
           "bullet1": "ゲートウェイ・ロボットヘルス可視化",
@@ -528,7 +528,7 @@
       "imageAlt": "インド大規模発電所で稼働する洗浄ロボット, 汚れ損失の回復",
       "imageTitle": "大規模発電所のTaypro洗浄ロボット"
     },
-    "consoleBand": {
+    "nectyrBand": {
       "eyebrow": "NECTYR, フリートポータル",
       "title": "発電所の全洗浄ロボットを監視する一つのポータル",
       "body": "サイトダッシュボード、天候、ブロック別スケジュール、ログ、エクスポート、ヘルス、チケット, ロールベースで大規模O&M向け。",

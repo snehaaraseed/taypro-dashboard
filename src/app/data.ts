@@ -82,7 +82,7 @@ export const robots = [
     marketingName: "Solar cleaning robot monitoring software",
     description:
       "Fleet portal to schedule, monitor, and report on solar panel cleaning robots across your site.",
-    imgPath: "/tayproasset/taypro-console.png",
+    imgPath: "/tayproasset/nectyr.png",
     href: "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
   },
 ];
@@ -111,7 +111,7 @@ export const comingSoonRobotProducts = [
     marketingName: "Compact rooftop solar cleaning robot",
     description:
       "A compact cleaning robot for smaller rooftop plants, waterless, lightweight, and sized for distributed commercial rooftops.",
-    imgPath: "/tayprorobots/taypro-helyx-semi-automatic-solar-cleaning-robot.png",
+    imgPath: "/tayprorobots/helyx/hero.webp",
     href: MINY_PRODUCT_PATH,
   },
   {
@@ -119,7 +119,7 @@ export const comingSoonRobotProducts = [
     marketingName: "Solar plant intelligence platform",
     description:
       "Generation-trained plant health monitoring SaaS, SCADA-aware insights enriched by Taypro robot field data on site.",
-    imgPath: "/tayproasset/taypro-console.png",
+    imgPath: "/tayproasset/nectyr.png",
     href: ORION_PRODUCT_PATH,
   },
 ] as const;
@@ -296,7 +296,7 @@ export const faqs = [
     question:
       "Who looks after the Automatic Solar Panel Cleaning System after Installation?",
     answer:
-      "After installation, the system can be remotely monitored and controlled through the TAYPRO console. The TAYPRO team provides technical support and troubleshooting issues.",
+      "After installation, the system can be remotely monitored and controlled through the NECTYR. The TAYPRO team provides technical support and troubleshooting issues.",
   },
   {
     question:
@@ -372,9 +372,9 @@ export const moreFaqs = [
   },
 ];
 
-export const modelCards = getRelatedProductCards("glyde");
-export const modelBCards = getRelatedProductCards("helyx");
-export const modelTCards = getRelatedProductCards("glydeX");
+export const glydeCards = getRelatedProductCards("glyde");
+export const helyxCards = getRelatedProductCards("helyx");
+export const glydeXCards = getRelatedProductCards("glydeX");
 export const nyumaCards = getRelatedProductCards("nyuma");
 export const nyumaXCards = getRelatedProductCards("nyumaX");
 

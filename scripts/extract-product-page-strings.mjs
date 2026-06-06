@@ -37,17 +37,17 @@ function extractObjectArrays(src, names) {
 const pages = [
   [
     "semi-automatic-solar-panel-cleaning-system",
-    "model-b",
-    ["modelBUsps", "modelBFeatures", "modelBSpecs", "modelBSteps", "modelBFaqs"],
+    "helyx",
+    ["helyxUsps", "helyxFeatures", "helyxSpecs", "helyxSteps", "helyxFaqs"],
   ],
   [
     "automatic-solar-panel-cleaning-system-for-single-axis-trackers",
-    "model-t",
-    ["modelTUsps", "modelTFeatures", "modelTSpecs", "modelTSteps", "modelTFaqs"],
+    "glyde-x",
+    ["glydeXUsps", "glydeXFeatures", "glydeXSpecs", "glydeXSteps", "glydeXFaqs"],
   ],
   [
     "automatic-cleaning-robot-monitoring-app",
-    "taypro-console",
+    "nectyr",
     ["consoleFaqs", "capabilityCards"],
   ],
   [

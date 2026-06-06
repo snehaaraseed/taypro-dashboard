@@ -19,7 +19,7 @@ const PROTECTED_TERMS = [
   "TÜV NORD",
   "NEXTracker",
   "Gamechanger",
-  "Taypro Console",
+  "NECTYR",
   "TAYPRO Private Limited",
   "ARC",
   "IP55",
@@ -68,14 +68,14 @@ function pickFaqQKeys(faqObj) {
 }
 
 function buildIndexedEnglishSource() {
-  const modelB = loadEnPage("model-b").ModelBPage;
-  const modelT = loadEnPage("model-t").ModelTPage;
+  const modelB = loadEnPage("helyx").HelyxPage;
+  const modelT = loadEnPage("glyde-x").GlydeXPage;
   const cleaning = loadEnPage("cleaning-service").CleaningServicePage;
-  const consolePage = loadEnPage("taypro-console").TayproConsolePage;
+  const consolePage = loadEnPage("nectyr").NectyrPage;
 
   return {
-    "model-b": {
-      ModelBPage: {
+    "helyx": {
+      HelyxPage: {
         schema: modelB.schema,
         usps: pickIndexedObject(modelB.usps, 0, 7),
         features: pickIndexedObject(modelB.features, 0, 7),
@@ -84,8 +84,8 @@ function buildIndexedEnglishSource() {
         faqs: pickIndexedObject(modelB.faqs, 0, 9),
       },
     },
-    "model-t": {
-      ModelTPage: {
+    "glyde-x": {
+      GlydeXPage: {
         schema: modelT.schema,
         usps: pickIndexedObject(modelT.usps, 0, 7),
         features: pickIndexedObject(modelT.features, 0, 8),
@@ -102,8 +102,8 @@ function buildIndexedEnglishSource() {
         plantStudy: pickIndexedObject(cleaning.plantStudy, 0, 4),
       },
     },
-    "taypro-console": {
-      TayproConsolePage: {
+    "nectyr": {
+      NectyrPage: {
         intro: consolePage.intro,
         capabilities: consolePage.capabilities,
         capabilitiesCards: pickIndexedObject(consolePage.capabilitiesCards, 0, 9),

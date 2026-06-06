@@ -37,7 +37,7 @@ import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
 import {
-  HARDWARE_ROBOTS_GRID_SOLAR,
+  HARDWARE_ROBOTS_GRID_HOME,
   hardwareRobotsGridItemClass,
 } from "@/lib/products/robot-grid-layout";
 import { FaqSection } from "@/app/components/FaqSection";
@@ -66,7 +66,7 @@ type SchemaItemKey =
   | "glydeX"
   | "nyumaX"
   | "tayproOpex"
-  | "tayproConsole"
+  | "nectyr"
   | "miny"
   | "cradyl"
   | "orion";
@@ -87,7 +87,7 @@ function productToSchemaKey(model: string): SchemaItemKey {
     "GLYDE-X": "glydeX",
     "NYUMA-X": "nyumaX",
     "Taypro Opex": "tayproOpex",
-    "NECTYR": "tayproConsole",
+    "NECTYR": "nectyr",
     MINY: "miny",
     CRADYL: "cradyl",
     ORION: "orion",
@@ -454,14 +454,14 @@ export default async function SolarPanelCleaningRobot({
                     href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
                     className="text-[#A8C117] hover:underline"
                   >
-                    {t("intro.p2LinkModelB")}
+                    {t("intro.p2LinkHelyx")}
                   </Link>
                   {t("intro.p2BetweenHelyxTracker")}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
                     className="text-[#A8C117] hover:underline"
                   >
-                    {t("intro.p2LinkModelT")}
+                    {t("intro.p2LinkGlydeX")}
                   </Link>
                   {t("intro.p2BetweenTrackers")}
                   <Link
@@ -477,14 +477,14 @@ export default async function SolarPanelCleaningRobot({
                   >
                     {t("intro.p2LinkTechnology")}
                   </Link>
-                  {t("intro.p2BeforeConsole")}
+                  {t("intro.p2BeforeNectyr")}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                     className="text-[#A8C117] hover:underline"
                   >
-                    {t("intro.p2LinkConsole")}
+                    {t("intro.p2LinkNectyr")}
                   </Link>
-                  {t("intro.p2AfterConsole")}
+                  {t("intro.p2AfterNectyr")}
                   <Link
                     href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
                     className="text-[#A8C117] hover:underline"
@@ -562,7 +562,7 @@ export default async function SolarPanelCleaningRobot({
               </p>
             </AnimateOnScroll>
 
-            <div className={`${HARDWARE_ROBOTS_GRID_SOLAR} justify-items-center`}>
+            <div className={HARDWARE_ROBOTS_GRID_HOME}>
               {robotProducts.map((robot, idx) => {
                 const schemaKey = productToSchemaKey(robot.model);
                 const highlightPrefix = `productGrid.robotHighlights.${schemaKey}`;
@@ -574,11 +574,11 @@ export default async function SolarPanelCleaningRobot({
                 return (
                   <AnimateOnScroll
                     key={robot.model}
-                    animation="scaleIn"
-                    delay={idx * 100}
-                    className={`${hardwareRobotsGridItemClass(idx, "solar")} flex justify-center`}
+                    animation="fadeInUp"
+                    delay={idx * 70}
+                    className={hardwareRobotsGridItemClass(idx, "home")}
                   >
-                    <div className="flex flex-col w-80 max-w-full">
+                    <div className="flex flex-col h-full w-full">
                       <RobotCard
                         robot={{
                           ...robot,
@@ -589,7 +589,7 @@ export default async function SolarPanelCleaningRobot({
                         priority={idx === 0}
                         preferGenericTitle
                       />
-                      <div className="bg-white border border-gray-200 border-t-0 rounded-b-md px-5 pt-4 pb-5 -mt-1">
+                      <div className="bg-white border border-gray-200 border-t-0 rounded-b-2xl px-5 pt-4 pb-5 -mt-1">
                         <div className="text-[#A8C117] text-xs font-semibold uppercase tracking-wide mb-2">
                           {t(`${highlightPrefix}.eyebrow`)}
                         </div>
@@ -621,7 +621,7 @@ export default async function SolarPanelCleaningRobot({
                 </h2>
               </AnimateOnScroll>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 justify-items-center">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 items-stretch lg:grid-cols-6">
                 {robotSolutions.map((robot, idx) => {
                   const schemaKey = productToSchemaKey(robot.model);
                   const highlightPrefix = `productGrid.solutionHighlights.${schemaKey}`;
@@ -633,11 +633,13 @@ export default async function SolarPanelCleaningRobot({
                   return (
                     <AnimateOnScroll
                       key={robot.model}
-                      animation="scaleIn"
-                      delay={idx * 100}
-                      className="w-full flex justify-center"
+                      animation="fadeInUp"
+                      delay={idx * 70}
+                      className={`h-full w-full lg:col-span-2 ${
+                        idx === 0 ? "lg:col-start-2" : "lg:col-start-4"
+                      }`}
                     >
-                      <div className="flex flex-col w-80 max-w-full">
+                      <div className="flex flex-col h-full w-full">
                         <RobotCard
                           robot={{
                             ...robot,
@@ -647,7 +649,7 @@ export default async function SolarPanelCleaningRobot({
                           }}
                           preferGenericTitle
                         />
-                        <div className="bg-white border border-gray-200 border-t-0 rounded-b-md px-5 pt-4 pb-5 -mt-1">
+                        <div className="bg-white border border-gray-200 border-t-0 rounded-b-2xl px-5 pt-4 pb-5 -mt-1">
                           <div className="text-[#A8C117] text-xs font-semibold uppercase tracking-wide mb-2">
                             {t(`${highlightPrefix}.eyebrow`)}
                           </div>
@@ -683,7 +685,7 @@ export default async function SolarPanelCleaningRobot({
                 </p>
               </AnimateOnScroll>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 justify-items-center max-w-3xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 items-stretch max-w-3xl mx-auto">
                 {fleetAccessoryProducts.map((robot, idx) => {
                   const schemaKey = productToSchemaKey(robot.model);
                   const highlightPrefix = `productGrid.accessoryHighlights.${schemaKey}`;
@@ -695,11 +697,11 @@ export default async function SolarPanelCleaningRobot({
                   return (
                     <AnimateOnScroll
                       key={robot.model}
-                      animation="scaleIn"
-                      delay={idx * 100}
-                      className="w-full flex justify-center"
+                      animation="fadeInUp"
+                      delay={idx * 70}
+                      className="h-full w-full"
                     >
-                      <div className="flex flex-col w-80 max-w-full">
+                      <div className="flex flex-col h-full w-full">
                         <RobotCard
                           robot={{
                             ...robot,
@@ -709,7 +711,7 @@ export default async function SolarPanelCleaningRobot({
                           }}
                           preferGenericTitle
                         />
-                        <div className="bg-white border border-gray-200 border-t-0 rounded-b-md px-5 pt-4 pb-5 -mt-1">
+                        <div className="bg-white border border-gray-200 border-t-0 rounded-b-2xl px-5 pt-4 pb-5 -mt-1">
                           <div className="text-[#A8C117] text-xs font-semibold uppercase tracking-wide mb-2">
                             {t(`${highlightPrefix}.eyebrow`)}
                           </div>
@@ -745,7 +747,7 @@ export default async function SolarPanelCleaningRobot({
                 </p>
               </AnimateOnScroll>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 justify-items-center max-w-5xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 items-stretch max-w-5xl mx-auto">
                 {comingSoonRobotProducts.map((robot, idx) => {
                   const schemaKey = productToSchemaKey(robot.model);
                   const highlightPrefix = `productGrid.comingSoonHighlights.${schemaKey}`;
@@ -757,11 +759,11 @@ export default async function SolarPanelCleaningRobot({
                   return (
                     <AnimateOnScroll
                       key={robot.model}
-                      animation="scaleIn"
-                      delay={idx * 100}
-                      className="w-full flex justify-center"
+                      animation="fadeInUp"
+                      delay={idx * 70}
+                      className="h-full w-full"
                     >
-                      <div className="flex flex-col w-80 max-w-full">
+                      <div className="flex flex-col h-full w-full">
                         <ComingSoonRobotCard
                           robot={{
                             ...robot,
@@ -772,7 +774,7 @@ export default async function SolarPanelCleaningRobot({
                             ctaLabel: t("productGrid.comingSoonCta"),
                           }}
                         />
-                        <div className="bg-white border border-gray-200 border-t-0 rounded-b-md px-5 pt-4 pb-5 -mt-1">
+                        <div className="bg-white border border-gray-200 border-t-0 rounded-b-2xl px-5 pt-4 pb-5 -mt-1">
                           <div className="text-[#A8C117] text-xs font-semibold uppercase tracking-wide mb-2">
                             {t(`${highlightPrefix}.eyebrow`)}
                           </div>
@@ -1505,20 +1507,20 @@ export default async function SolarPanelCleaningRobot({
               <div className="text-center lg:text-left">
                 <div className="flex items-center gap-2 justify-center lg:justify-start text-[#A8C117] text-sm font-medium mb-3">
                   <LayoutDashboard className="w-4 h-4" />
-                  {t("consoleBand.eyebrow")}
+                  {t("nectyrBand.eyebrow")}
                 </div>
                 <h2 className="text-white font-semibold text-2xl sm:text-3xl md:text-4xl leading-tight mb-3">
-                  {t("consoleBand.title")}
+                  {t("nectyrBand.title")}
                 </h2>
                 <p className="text-white/80 text-base sm:text-lg max-w-2xl">
-                  {t("consoleBand.body")}
+                  {t("nectyrBand.body")}
                 </p>
               </div>
               <Link
                 href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                 className="inline-flex items-center justify-center min-h-[48px] sm:min-w-[200px] bg-[#A8C117] text-[#052638] font-medium px-7 py-3.5 rounded-md hover:bg-[#b3cf3d] transition shrink-0"
               >
-                {t("consoleBand.cta")}
+                {t("nectyrBand.cta")}
               </Link>
             </AnimateOnScroll>
           </Container>

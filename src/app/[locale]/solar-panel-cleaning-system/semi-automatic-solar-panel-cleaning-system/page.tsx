@@ -15,12 +15,12 @@ import {
   Sun,
   Settings,
 } from "lucide-react";
-import { modelBCards, tayproTrustedByStatsStrip } from "@/app/data";
+import { helyxCards, tayproTrustedByStatsStrip } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import { projectFilterForPage } from "@/lib/cms/project-page-filters";
 import { FaqSection } from "@/app/components/FaqSection";
-import ModelCards from "@/app/components/ModelCards";
+import ProductCards from "@/app/components/ProductCards";
 import ResourcesCard from "@/app/components/ResourcesCard";
 import CallbackCard from "@/app/components/CallbackCard";
 import HeroSection from "@/app/components/Herosection";
@@ -37,7 +37,15 @@ import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import { PerformanceMethodologyFootnote } from "@/app/components/PerformanceMethodologyLink";
 import { PerformanceMethodologyNotice } from "@/app/components/PerformanceMethodologyNotice";
 
+import {
+  getProductHeroLayout,
+  getProductImageUrl,
+  productPageImages,
+} from "@/lib/products/product-page-images";
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const helyxImages = productPageImages("helyx");
+const helyxHeroLayout = getProductHeroLayout("helyx");
 
 const USP_ICONS = [
   Hand,
@@ -76,7 +84,7 @@ const MANUAL_VS_ROW_KEYS = [
   "row6",
   "row7",
 ] as const;
-const MODEL_B_VS_A_ROW_KEYS = [
+const HELYX_VS_GLYDE_ROW_KEYS = [
   "row0",
   "row1",
   "row2",
@@ -96,7 +104,7 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "ModelBPage" });
+  const t = await getTranslations({ locale, namespace: "HelyxPage" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
 
   const breadcrumbs = [
@@ -105,29 +113,29 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
     { name: t("breadcrumbs.current"), href: "" },
   ];
 
-  const modelBUsps = Array.from({ length: USP_COUNT }, (_, i) => ({
+  const helyxUsps = Array.from({ length: USP_COUNT }, (_, i) => ({
     icon: USP_ICONS[i],
     title: t(`usps.${i}.title`),
     description: t(`usps.${i}.description`),
   }));
 
-  const modelBFeatures = Array.from({ length: FEATURE_COUNT }, (_, i) => ({
+  const helyxFeatures = Array.from({ length: FEATURE_COUNT }, (_, i) => ({
     icon: FEATURE_ICONS[i],
     title: t(`features.${i}.title`),
     body: t(`features.${i}.body`),
   }));
 
-  const modelBSpecs = Array.from({ length: SPEC_COUNT }, (_, i) => ({
+  const helyxSpecs = Array.from({ length: SPEC_COUNT }, (_, i) => ({
     label: t(`specs.${i}.label`),
     value: t(`specs.${i}.value`),
   }));
 
-  const modelBSteps = Array.from({ length: STEP_COUNT }, (_, i) => ({
+  const helyxSteps = Array.from({ length: STEP_COUNT }, (_, i) => ({
     name: t(`steps.${i}.name`),
     text: t(`steps.${i}.text`),
   }));
 
-  const modelBFaqs = Array.from({ length: FAQ_COUNT }, (_, i) => ({
+  const helyxFaqs = Array.from({ length: FAQ_COUNT }, (_, i) => ({
     question: t(`faqs.${i}.question`),
     answer: t(`faqs.${i}.answer`),
   }));
@@ -135,13 +143,13 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
   const manualVsRows = MANUAL_VS_ROW_KEYS.map((key) => ({
     criterion: t(`manualVsRobotic.${key}.criterion`),
     manual: t(`manualVsRobotic.${key}.manual`),
-    modelB: t(`manualVsRobotic.${key}.modelB`),
+    robot: t(`manualVsRobotic.${key}.robot`),
   }));
 
-  const modelBvsModelARows = MODEL_B_VS_A_ROW_KEYS.map((key) => ({
-    criterion: t(`modelBvsModelA.${key}.criterion`),
-    modelB: t(`modelBvsModelA.${key}.modelB`),
-    modelA: t(`modelBvsModelA.${key}.modelA`),
+  const helyxVsGlydeRows = HELYX_VS_GLYDE_ROW_KEYS.map((key) => ({
+    criterion: t(`helyxVsGlyde.${key}.criterion`),
+    helyx: t(`helyxVsGlyde.${key}.helyx`),
+    glyde: t(`helyxVsGlyde.${key}.glyde`),
   }));
 
   const certificationCards = CERT_CARD_KEYS.map((key) => ({
@@ -166,22 +174,22 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
       <ProductSchema
         name={t("schema.productName")}
         description={t("schema.productDescription")}
-        image={`${siteUrl}/tayprorobots/taypro-helyx-semi-automatic-solar-cleaning-robot.png`}
+        image={getProductImageUrl("helyx", siteUrl)}
         brand="Taypro"
-        sku="MODEL-B"
+        sku="HELYX"
         offers={{
           price: t("schema.offersPrice"),
           priceCurrency: "INR",
           availability: "https://schema.org/InStock",
         }}
       />
-      <FAQPageSchema faqs={modelBFaqs} />
+      <FAQPageSchema faqs={helyxFaqs} />
       <HowToSchema
         name={t("schema.howToName")}
         description={t("schema.howToDescription")}
-        steps={modelBSteps}
+        steps={helyxSteps}
         totalTime="PT2H"
-        image="/tayprorobots/taypro-helyx-semi-automatic-solar-cleaning-robot.png"
+        image={helyxImages.schema}
       />
 
       <div className="min-h-screen overflow-x-hidden">
@@ -194,8 +202,10 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
               {t("hero.subtitleAfter")}
             </>
           }
-          imgSrc="/tayprorobots/taypro-helyx-semi-automatic-solar-cleaning-robot.png"
+          imgSrc={helyxImages.hero}
           imgAlt={t("hero.imgAlt")}
+          imageAspectRatio={helyxHeroLayout.aspectRatio}
+          imagePresentation={helyxHeroLayout.presentation}
           ctaHref="/contact"
           ctaText={t("hero.ctaText")}
         />
@@ -246,14 +256,14 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
                     className="text-[#A8C117] hover:underline"
                   >
-                    {t("overview.linkModelA")}
+                    {t("overview.linkGlyde")}
                   </Link>
                   {t("overview.p4BetweenAT")}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
                     className="text-[#A8C117] hover:underline"
                   >
-                    {t("overview.linkModelT")}
+                    {t("overview.linkGlydeX")}
                   </Link>
                   {t("overview.p4Suffix")}
                 </div>
@@ -297,7 +307,7 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
             >
               <div className="w-full max-w-4xl">
                 <Product360Viewer
-                  imagePath="/360-degree-images/Model-B/0001-MB-2000-1224-"
+                  imagePath="/360-degree-images/helyx/0001-MB-2000-1224-"
                   imageCount={51}
                   imagePrefix=""
                   imageSuffix=".png"
@@ -310,7 +320,7 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
           </Container>
         </section>
 
-        {/* HOW DOES MODEL-B WORK */}
+        {/* HOW HELYX WORKS */}
         <section className="w-full bg-white py-20">
           <Container size="narrow">
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
@@ -326,7 +336,7 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
             </AnimateOnScroll>
 
             <ol className="space-y-6">
-              {modelBSteps.map((step, idx) => (
+              {helyxSteps.map((step, idx) => (
                 <AnimateOnScroll
                   key={step.name}
                   animation="fadeInUp"
@@ -362,7 +372,7 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
             </AnimateOnScroll>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-              {modelBUsps.map((usp) => {
+              {helyxUsps.map((usp) => {
                 const Icon = usp.icon;
                 return (
                   <AnimateOnScroll
@@ -402,7 +412,7 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
             </AnimateOnScroll>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
-              {modelBFeatures.map((f) => {
+              {helyxFeatures.map((f) => {
                 const Icon = f.icon;
                 return (
                   <AnimateOnScroll
@@ -543,7 +553,7 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
 
         {/* SPECIFICATIONS */}
         <section
-          id="model-b-specs"
+          id="helyx-specs"
           className="w-full bg-white pt-20 pb-10 scroll-mt-24"
         >
           <Container>
@@ -568,7 +578,7 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
                   </tr>
                 </thead>
                 <tbody className="text-[#052638]">
-                  {modelBSpecs.map((row) => (
+                  {helyxSpecs.map((row) => (
                     <tr key={row.label}>
                       <td className="py-3 px-6 border-t text-base font-medium">
                         {row.label}
@@ -613,7 +623,7 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
                       {t("manualVsRobotic.manual")}
                     </th>
                     <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#A8C117]">
-                      {t("manualVsRobotic.modelB")}
+                      {t("manualVsRobotic.robot")}
                     </th>
                   </tr>
                 </thead>
@@ -627,7 +637,7 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
                         {row.manual}
                       </td>
                       <td className="py-3 px-4 sm:px-6 border-t text-base align-top">
-                        {row.modelB}
+                        {row.robot}
                       </td>
                     </tr>
                   ))}
@@ -637,7 +647,7 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
           </Container>
         </section>
 
-        {/* MODEL-A vs MODEL-B COMPARISON */}
+        {/* HELYX vs GLYDE COMPARISON */}
         <section className="w-full bg-white py-20">
           <Container>
             <AnimateOnScroll
@@ -645,13 +655,13 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
               className="text-center mb-10 sm:mb-14"
             >
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                {t("modelBvsModelA.eyebrow")}
+                {t("helyxVsGlyde.eyebrow")}
               </div>
               <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight">
-                {t("modelBvsModelA.title")}
+                {t("helyxVsGlyde.title")}
               </h2>
               <div className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mt-6">
-                {t("modelBvsModelA.subtitle")}
+                {t("helyxVsGlyde.subtitle")}
               </div>
             </AnimateOnScroll>
 
@@ -660,27 +670,27 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
                 <thead>
                   <tr className="bg-[#f4f1e9]">
                     <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#052638]">
-                      {t("modelBvsModelA.criterion")}
+                      {t("helyxVsGlyde.criterion")}
                     </th>
                     <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#A8C117]">
-                      {t("modelBvsModelA.modelBHeader")}
+                      {t("helyxVsGlyde.helyxHeader")}
                     </th>
                     <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#052638]">
-                      {t("modelBvsModelA.modelAHeader")}
+                      {t("helyxVsGlyde.glydeHeader")}
                     </th>
                   </tr>
                 </thead>
                 <tbody className="text-[#052638]">
-                  {modelBvsModelARows.map((row) => (
+                  {helyxVsGlydeRows.map((row) => (
                     <tr key={row.criterion}>
                       <td className="py-3 px-4 sm:px-6 border-t text-base font-medium align-top">
                         {row.criterion}
                       </td>
                       <td className="py-3 px-4 sm:px-6 border-t text-base align-top">
-                        {row.modelB}
+                        {row.helyx}
                       </td>
                       <td className="py-3 px-4 sm:px-6 border-t text-base text-gray-600 align-top">
-                        {row.modelA}
+                        {row.glyde}
                       </td>
                     </tr>
                   ))}
@@ -690,21 +700,21 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
 
             <AnimateOnScroll animation="fadeInUp" className="text-center mt-10">
               <div className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto">
-                {t("modelBvsModelA.crossSellLead")}
+                {t("helyxVsGlyde.crossSellLead")}
                 <Link
                   href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
                   className="text-[#A8C117] hover:underline"
                 >
-                  {t("modelBvsModelA.linkModelT")}
+                  {t("helyxVsGlyde.linkGlydeX")}
                 </Link>
-                {t("modelBvsModelA.crossSellMid")}
+                {t("helyxVsGlyde.crossSellMid")}
                 <Link
                   href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
                   className="text-[#A8C117] hover:underline"
                 >
-                  {t("modelBvsModelA.linkOpex")}
+                  {t("helyxVsGlyde.linkOpex")}
                 </Link>
-                {t("modelBvsModelA.crossSellSuffix")}
+                {t("helyxVsGlyde.crossSellSuffix")}
               </div>
             </AnimateOnScroll>
           </Container>
@@ -767,14 +777,14 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
                   href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
                   className="text-[#A8C117] hover:underline"
                 >
-                  {t("indianConditions.linkModelA")}
+                  {t("indianConditions.linkGlyde")}
                 </Link>
                 {t("indianConditions.linkBetweenAT")}
                 <Link
                   href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
                   className="text-[#A8C117] hover:underline"
                 >
-                  {t("indianConditions.linkModelT")}
+                  {t("indianConditions.linkGlydeX")}
                 </Link>
                 {t("indianConditions.linkBetweenTOpex")}
                 <Link
@@ -783,12 +793,12 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
                 >
                   {t("indianConditions.linkOpex")}
                 </Link>
-                {t("indianConditions.linkBetweenOpexConsole")}
+                {t("indianConditions.linkBetweenOpexAndNectyr")}
                 <Link
                   href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                   className="text-[#A8C117] hover:underline"
                 >
-                  {t("indianConditions.linkConsole")}
+                  {t("indianConditions.linkNectyr")}
                 </Link>
                 {t("indianConditions.crossSellSuffix")}
               </div>
@@ -806,15 +816,15 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
         />
 
         <FaqSection
-          id="model-b-faq-heading"
+          id="helyx-faq-heading"
           title={t("faqSection.title")}
           subtitle={t("faqSection.subtitle")}
-          faqs={modelBFaqs}
+          faqs={helyxFaqs}
         />
 
         <ResourcesCard />
 
-        <ModelCards title={t("misc.modelCardsTitle")} cards={modelBCards} />
+        <ProductCards title={t("misc.productCardsTitle")} cards={helyxCards} />
 
         <RequestEstimateForm />
       </div>

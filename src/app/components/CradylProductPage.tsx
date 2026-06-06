@@ -27,13 +27,13 @@ import {
   HowToSchema,
 } from "@/app/components/StructuredData";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
-import ModelCards from "@/app/components/ModelCards";
+import ProductCards from "@/app/components/ProductCards";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import { projectFilterForPage } from "@/lib/cms/project-page-filters";
 import { FaqSection } from "@/app/components/FaqSection";
 import ResourcesCard from "@/app/components/ResourcesCard";
 import CallbackCard from "@/app/components/CallbackCard";
-import { modelBCards, tayproTrustedByStatsStrip } from "@/app/data";
+import { helyxCards, tayproTrustedByStatsStrip } from "@/app/data";
 import { cradylProductConfig } from "@/lib/product-cradyl";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 
@@ -262,7 +262,7 @@ export async function CradylProductPage({ locale }: CradylProductPageProps) {
                     href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                     className="text-[#A8C117] hover:underline"
                   >
-                    {t("overview.linkConsole")}
+                    {t("overview.linkNectyr")}
                   </Link>
                   {t("overview.p3Suffix")}
                 </p>
@@ -770,7 +770,7 @@ export async function CradylProductPage({ locale }: CradylProductPageProps) {
                   href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                   className="text-[#A8C117] hover:underline"
                 >
-                  {t("indianConditions.linkConsole")}
+                  {t("indianConditions.linkNectyr")}
                 </Link>
                 {t("indianConditions.crossSellSuffix")}
               </p>
@@ -819,7 +819,7 @@ export async function CradylProductPage({ locale }: CradylProductPageProps) {
 
         <ResourcesCard />
 
-        <ModelCards title={t("modelCardsTitle")} cards={modelBCards} />
+        <ProductCards title={t("productCardsTitle")} cards={helyxCards} />
 
         <RequestEstimateForm />
 

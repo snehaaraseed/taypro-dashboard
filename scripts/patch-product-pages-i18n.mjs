@@ -1,5 +1,5 @@
 /**
- * Patches model-t and cleaning-service page.tsx for i18n.
+ * Patches glyde-x and cleaning-service page.tsx for i18n.
  * Run: node scripts/patch-product-pages-i18n.mjs
  */
 import { readFileSync, writeFileSync } from "fs";
@@ -18,32 +18,32 @@ function patchModelT() {
     s = s.replace(
       `const FAQ_COUNT = 10;
 
-export default async function ModelTPage`,
+export default async function GlydeXPage`,
       `const FAQ_COUNT = 10;
 const MANUAL_VS_ROW_KEYS = [
   "row0", "row1", "row2", "row3", "row4", "row5", "row6", "row7",
 ] as const;
-const MODEL_T_VS_A_ROW_KEYS = [
+const GLYDE_X_VS_GLYDE_ROW_KEYS = [
   "row0", "row1", "row2", "row3", "row4", "row5", "row6", "row7",
 ] as const;
 const INDIAN_CARD_KEYS = ["card0", "card1", "card2", "card3"] as const;
 const CERT_CARD_KEYS = ["card0", "card1", "card2"] as const;
 const SERVICE_CARD_KEYS = ["card0", "card1", "card2"] as const;
 
-export default async function ModelTPage`
+export default async function GlydeXPage`
     );
   }
 
   if (!s.includes("manualVsRows")) {
     s = s.replace(
-      `  const modelTFaqs = Array.from({ length: FAQ_COUNT }, (_, i) => ({
+      `  const glydeXFaqs = Array.from({ length: FAQ_COUNT }, (_, i) => ({
     question: t(\`faqs.\${i}.question\`),
     answer:
       i === 9 ? t(\`faqs.\${i}.answer\`, { connectivity }) : t(\`faqs.\${i}.answer\`),
   }));
 
   return (`,
-      `  const modelTFaqs = Array.from({ length: FAQ_COUNT }, (_, i) => ({
+      `  const glydeXFaqs = Array.from({ length: FAQ_COUNT }, (_, i) => ({
     question: t(\`faqs.\${i}.question\`),
     answer:
       i === 9 ? t(\`faqs.\${i}.answer\`, { connectivity }) : t(\`faqs.\${i}.answer\`),
@@ -55,10 +55,10 @@ export default async function ModelTPage`
     modelT: t(\`manualVsRobotic.\${key}.modelT\`),
   }));
 
-  const modelTvsModelARows = MODEL_T_VS_A_ROW_KEYS.map((key) => ({
-    criterion: t(\`modelTvsModelA.\${key}.criterion\`),
-    modelT: t(\`modelTvsModelA.\${key}.modelT\`, { connectivity }),
-    modelA: t(\`modelTvsModelA.\${key}.modelA\`, { connectivity }),
+  const glydeXVsGlydeRows = GLYDE_X_VS_GLYDE_ROW_KEYS.map((key) => ({
+    criterion: t(\`glydeXVsGlyde.\${key}.criterion\`),
+    modelT: t(\`glydeXVsGlyde.\${key}.modelT\`, { connectivity }),
+    modelA: t(\`glydeXVsGlyde.\${key}.modelA\`, { connectivity }),
   }));
 
   const certificationCards = CERT_CARD_KEYS.map((key) => ({
@@ -134,14 +134,14 @@ export default async function ModelTPage`
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
                     className="text-[#A8C117] hover:underline"
                   >
-                    {t("overview.linkModelA")}
+                    {t("overview.linkGlyde")}
                   </Link>
                   {t("overview.p4Mid")}
                   <Link
                     href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
                     className="text-[#A8C117] hover:underline"
                   >
-                    {t("overview.linkModelB")}
+                    {t("overview.linkHelyx")}
                   </Link>
                   {t("overview.p4Suffix")}
                 </motion.div>
@@ -283,7 +283,7 @@ export default async function ModelTPage`
   }
 
   writeFileSync(path, s);
-  console.log("patched model-t (partial, review motion.div)");
+  console.log("patched glyde-x (partial, review motion.div)");
 }
 
 function patchCleaningService() {

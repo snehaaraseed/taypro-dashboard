@@ -65,7 +65,7 @@
           "tayproOpex": {
             "description": "Pay-per-panel-cleaned Opex, Taypro operates the cleaning robot fleet on your plant with no upfront CAPEX."
           },
-          "tayproConsole": {
+          "nectyr": {
             "description": "Fleet portal to schedule, monitor, and report on solar panel cleaning robots across your site."
           },
           "miny": {
@@ -201,10 +201,10 @@
       "p1": "Dust, agricultural residue and bird droppings can cut PV generation by 8–25% across Indian utility plants. Manual washing is expensive, water-hungry, and never consistent across rows or shifts. A purpose-built Solar Panel Cleaning Robot recovers that lost yield, cleans every panel the same way every night, and removes water from your O&M plan entirely.",
       "p2LinkAutomatic": "GLYDE automatic robot",
       "p2LinkNyuma": "NYUMA",
-      "p2LinkModelB": "HELYX",
-      "p2LinkModelT": "GLYDE-X",
+      "p2LinkHelyx": "HELYX",
+      "p2LinkGlydeX": "GLYDE-X",
       "p2LinkNyumaX": "NYUMA-X",
-      "p2LinkConsole": "NECTYR",
+      "p2LinkNectyr": "NECTYR",
       "p2LinkOpex": "Taypro OPEX",
       "p2LinkTechnology": "waterless cleaning technology",
       "p2BeforeLinks": "Taypro is a Made-in-India manufacturer of robotic cleaning systems. Our line spans the fully ",
@@ -213,8 +213,8 @@
       "p2BetweenHelyxTracker": " for scattered plants, tracker-ready ",
       "p2BetweenTrackers": " and ",
       "p2AfterTrackers": " for single-axis layouts. Learn how ",
-      "p2BeforeConsole": " works, then monitor every robot through ",
-      "p2AfterConsole": " and deploy as CAPEX or monthly ",
+      "p2BeforeNectyr": " works, then monitor every robot through ",
+      "p2AfterNectyr": " and deploy as CAPEX or monthly ",
       "p2AfterOpex": " service.",
       "p3BlogMaintenance": "solar panel maintenance guide",
       "p3BlogRobotDef": "what defines a solar panel cleaning robot",
@@ -267,7 +267,7 @@
           "bullet1": "Plant soiling study + 3–10 cycles per month",
           "bullet2": "Operated by TAYPRO Private Limited"
         },
-        "tayproConsole": {
+        "nectyr": {
           "eyebrow": "Software · Fleet Portal",
           "bullet0": "Site dashboards, schedules, logs & exports",
           "bullet1": "Gateway and robot health visibility",
@@ -674,7 +674,7 @@
       "imageAlt": "Solar Panel Cleaning Robot operating at a utility-scale solar farm in India, recovering generation lost to soiling",
       "imageTitle": "Solar Panel Cleaning Robot by Taypro at a utility-scale plant"
     },
-    "consoleBand": {
+    "nectyrBand": {
       "eyebrow": "NECTYR, fleet portal",
       "title": "One portal to monitor every Solar Panel Cleaning Robot in your plant",
       "body": "Site dashboards, weather context, block-wise schedules, cleaning logs, exports, gateway and robot health, and support tickets, all role-based and ready for utility-scale O&M governance.",

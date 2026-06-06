@@ -18,7 +18,7 @@ export type ComingSoonProductConfig = {
   heroImagePath: string;
   relatedHrefs: string[];
   /** When false, the page omits hardware model cards at the bottom (software products). */
-  showRobotModelCards?: boolean;
+  showRobotProductCards?: boolean;
 };
 
 export const comingSoonProducts: ComingSoonProductConfig[] = [
@@ -27,7 +27,7 @@ export const comingSoonProducts: ComingSoonProductConfig[] = [
     model: "MINY",
     path: MINY_PRODUCT_PATH,
     namespace: "MinyPage",
-    heroImagePath: "/tayprorobots/taypro-helyx-semi-automatic-solar-cleaning-robot.png",
+    heroImagePath: "/tayprorobots/helyx/hero.png",
     relatedHrefs: [
       "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
       "/solar-panel-cleaning-system",
@@ -38,8 +38,8 @@ export const comingSoonProducts: ComingSoonProductConfig[] = [
     model: "ORION",
     path: ORION_PRODUCT_PATH,
     namespace: "OrionPage",
-    heroImagePath: "/tayproasset/taypro-console.png",
-    showRobotModelCards: false,
+    heroImagePath: "/tayproasset/nectyr.png",
+    showRobotProductCards: false,
     relatedHrefs: [
       "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
       "/solar-panel-cleaning-system",

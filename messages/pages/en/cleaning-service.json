@@ -20,10 +20,10 @@
       "title": "Taypro OPEX, Robotic Solar Panel Cleaning Service",
       "subtitlePanels": "solar panels we clean each month",
       "subtitleCycles": "3–10 waterless dry cleaning cycles per month",
-      "modelA": "GLYDE",
-      "modelB": "HELYX",
-      "modelT": "GLYDE-X",
-      "console": "NECTYR",
+      "glyde": "GLYDE",
+      "helyx": "HELYX",
+      "glydeX": "GLYDE-X",
+      "nectyr": "NECTYR",
       "imgAlt": "Taypro OPEX solar panel cleaning service, robotic waterless cleaning at utility-scale solar plant",
       "ctaText": "Request a quote",
       "subtitleBefore": "Pay only for the",
@@ -148,7 +148,7 @@
       "5": "Dedicated operators + nationwide technical support"
     },
     "misc": {
-      "modelCardsTitle": "Looking for more solutions?",
+      "productCardsTitle": "Looking for more solutions?",
       "projectsHeader": "Our Projects",
       "faqTitle": "Frequently asked questions",
       "faqSubtitle": "Taypro OPEX service questions, plus broader Taypro programme FAQs below."
@@ -268,13 +268,13 @@
         "capex": "Asset depreciation, obsolescence, inventory risk"
       },
       "explorePrefix": "Explore hardware directly: ",
-      "linkModelA": "GLYDE",
+      "linkGlyde": "GLYDE",
       "linkBetweenAB": ", ",
-      "linkModelB": "HELYX",
+      "linkHelyx": "HELYX",
       "linkBetweenBT": ", ",
-      "linkModelT": "GLYDE-X",
-      "linkBetweenTConsole": ", or ",
-      "linkConsole": "NECTYR",
+      "linkGlydeX": "GLYDE-X",
+      "linkBetweenTAndNectyr": ", or ",
+      "linkNectyr": "NECTYR",
       "exploreSuffix": "."
     },
     "roiSection": {
@@ -334,7 +334,7 @@
       "titleLine2": "for optimal results",
       "body": "Taypro OPEX pairs soft, lab-validated contact materials with disciplined operator oversight, so panels stay clean, warranty exposure stays controlled, and your team always knows who is on site, why, and what was achieved each shift."
     },
-    "modelCardsTitle": "Looking for more solutions?",
+    "productCardsTitle": "Looking for more solutions?",
     "projectsHeader": "Our Projects"
   },
   "Common": {

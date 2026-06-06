@@ -12,9 +12,9 @@ const BAD = /BR[01]टोकन/g;
 const REPLACEMENTS = [
   [/"p2NexStrong": "BR[01]टोकन"/g, '"p2NexStrong": "NEXTracker"'],
   [/"p2GameStrong": "BR[01]टोकन"/g, '"p2GameStrong": "Gamechanger"'],
-  [/"linkModelA": "BR[01]टोकन"/g, '"linkModelA": "GLYDE"'],
-  [/"linkModelB": "BR[01]टोकन"/g, '"linkModelB": "HELYX"'],
-  [/"linkModelT": "BR[01]टोकन"/g, '"linkModelT": "GLYDE-X"'],
+  [/"linkGlyde": "BR[01]टोकन"/g, '"linkGlyde": "GLYDE"'],
+  [/"linkHelyx": "BR[01]टोकन"/g, '"linkHelyx": "HELYX"'],
+  [/"linkGlydeX": "BR[01]टोकन"/g, '"linkGlydeX": "GLYDE-X"'],
   [/"name": "BR[01]टोकन"/g, '"name": "NECTYR"'],
   [/"modelA": "BR[01]टोकन"/g, '"modelA": "GLYDE"'],
   [/"modelB": "BR[01]टोकन"/g, '"modelB": "HELYX"'],

@@ -14,11 +14,11 @@ import {
   Move,
   Compass,
 } from "lucide-react";
-import { modelTCards, tayproTrustedByStatsStrip } from "@/app/data";
+import { glydeXCards, tayproTrustedByStatsStrip } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import { projectFilterForPage } from "@/lib/cms/project-page-filters";
-import ModelCards from "@/app/components/ModelCards";
+import ProductCards from "@/app/components/ProductCards";
 import ClientsCard from "@/app/components/ClientsCard";
 import HeroSection from "@/app/components/Herosection";
 import EnergyResourceCard from "@/app/components/EnergyResourceCard";
@@ -36,8 +36,15 @@ import { Container } from "@/app/components/Container";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import { PerformanceMethodologyFootnote } from "@/app/components/PerformanceMethodologyLink";
 import { PerformanceMethodologyNotice } from "@/app/components/PerformanceMethodologyNotice";
+import {
+  getProductHeroLayout,
+  getProductImageUrl,
+  productPageImages,
+} from "@/lib/products/product-page-images";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const glydeXImages = productPageImages("glydeX");
+const glydeXHeroLayout = getProductHeroLayout("glydeX");
 
 const USP_ICONS = [
   Compass,
@@ -76,7 +83,7 @@ const MANUAL_VS_ROW_KEYS = [
   "row6",
   "row7",
 ] as const;
-const MODEL_T_VS_A_ROW_KEYS = [
+const GLYDE_X_VS_GLYDE_ROW_KEYS = [
   "row0",
   "row1",
   "row2",
@@ -90,13 +97,13 @@ const CERT_CARD_KEYS = ["card0", "card1", "card2"] as const;
 const SERVICE_CARD_KEYS = ["card0", "card1", "card2"] as const;
 const INDIAN_CARD_KEYS = ["card0", "card1", "card2", "card3"] as const;
 
-export default async function ModelTPage({
+export default async function GlydeXPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "ModelTPage" });
+  const t = await getTranslations({ locale, namespace: "GlydeXPage" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
   const connectivity = tCommon("connectivitySummary");
 
@@ -106,7 +113,7 @@ export default async function ModelTPage({
     { name: t("breadcrumbs.current"), href: "" },
   ];
 
-  const modelTUsps = Array.from({ length: USP_COUNT }, (_, i) => ({
+  const glydeXUsps = Array.from({ length: USP_COUNT }, (_, i) => ({
     icon: USP_ICONS[i],
     title: t(`usps.${i}.title`),
     description:
@@ -115,24 +122,24 @@ export default async function ModelTPage({
         : t(`usps.${i}.description`),
   }));
 
-  const modelTFeatures = Array.from({ length: FEATURE_COUNT }, (_, i) => ({
+  const glydeXFeatures = Array.from({ length: FEATURE_COUNT }, (_, i) => ({
     icon: FEATURE_ICONS[i],
     title: t(`features.${i}.title`),
     body: t(`features.${i}.body`),
   }));
 
-  const modelTSpecs = Array.from({ length: SPEC_COUNT }, (_, i) => ({
+  const glydeXSpecs = Array.from({ length: SPEC_COUNT }, (_, i) => ({
     label: t(`specs.${i}.label`),
     value: t(`specs.${i}.value`, { connectivity }),
   }));
 
-  const modelTSteps = Array.from({ length: STEP_COUNT }, (_, i) => ({
+  const glydeXSteps = Array.from({ length: STEP_COUNT }, (_, i) => ({
     name: t(`steps.${i}.name`),
     text:
       i === 5 ? t(`steps.${i}.text`, { connectivity }) : t(`steps.${i}.text`),
   }));
 
-  const modelTFaqs = Array.from({ length: FAQ_COUNT }, (_, i) => ({
+  const glydeXFaqs = Array.from({ length: FAQ_COUNT }, (_, i) => ({
     question: t(`faqs.${i}.question`),
     answer:
       i === 9 ? t(`faqs.${i}.answer`, { connectivity }) : t(`faqs.${i}.answer`),
@@ -141,19 +148,19 @@ export default async function ModelTPage({
   const manualVsRows = MANUAL_VS_ROW_KEYS.map((key) => ({
     criterion: t(`manualVsRobotic.${key}.criterion`),
     manual: t(`manualVsRobotic.${key}.manual`),
-    modelT: t(`manualVsRobotic.${key}.modelT`),
+    robot: t(`manualVsRobotic.${key}.robot`),
   }));
 
-  const modelTvsModelARows = MODEL_T_VS_A_ROW_KEYS.map((key) => ({
-    criterion: t(`modelTvsModelA.${key}.criterion`),
-    modelT:
+  const glydeXVsGlydeRows = GLYDE_X_VS_GLYDE_ROW_KEYS.map((key) => ({
+    criterion: t(`glydeXVsGlyde.${key}.criterion`),
+    glydeX:
       key === "row7"
-        ? t(`modelTvsModelA.${key}.modelT`, { connectivity })
-        : t(`modelTvsModelA.${key}.modelT`),
-    modelA:
+        ? t(`glydeXVsGlyde.${key}.glydeX`, { connectivity })
+        : t(`glydeXVsGlyde.${key}.glydeX`),
+    glyde:
       key === "row7"
-        ? t(`modelTvsModelA.${key}.modelA`, { connectivity })
-        : t(`modelTvsModelA.${key}.modelA`),
+        ? t(`glydeXVsGlyde.${key}.glyde`, { connectivity })
+        : t(`glydeXVsGlyde.${key}.glyde`),
   }));
 
   const certificationCards = CERT_CARD_KEYS.map((key) => ({
@@ -178,22 +185,22 @@ export default async function ModelTPage({
       <ProductSchema
         name={t("schema.productName")}
         description={t("schema.productDescription", { connectivity })}
-        image={`${siteUrl}/tayprorobots/taypro-modelT-img.png`}
+        image={getProductImageUrl("glydeX", siteUrl)}
         brand="Taypro"
-        sku="MODEL-T"
+        sku="GLYDE-X"
         offers={{
           price: t("schema.offersPrice"),
           priceCurrency: "INR",
           availability: "https://schema.org/InStock",
         }}
       />
-      <FAQPageSchema faqs={modelTFaqs} />
+      <FAQPageSchema faqs={glydeXFaqs} />
       <HowToSchema
         name={t("schema.howToName")}
         description={t("schema.howToDescription")}
-        steps={modelTSteps}
+        steps={glydeXSteps}
         totalTime="PT2H"
-        image="/tayprorobots/taypro-modelT-img.png"
+        image={glydeXImages.schema}
       />
 
       <div className="min-h-screen overflow-x-hidden">
@@ -206,8 +213,10 @@ export default async function ModelTPage({
               {t("hero.subtitleAfter")}
             </>
           }
-          imgSrc="/tayprorobots/taypro-modelT-img.png"
+          imgSrc={glydeXImages.hero}
           imgAlt={t("hero.imgAlt")}
+          imageAspectRatio={glydeXHeroLayout.aspectRatio}
+          imagePresentation={glydeXHeroLayout.presentation}
           ctaHref="/contact"
           ctaText={t("hero.ctaText")}
         />
@@ -262,14 +271,14 @@ export default async function ModelTPage({
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
                     className="text-[#A8C117] hover:underline"
                   >
-                    {t("overview.linkModelA")}
+                    {t("overview.linkGlyde")}
                   </Link>
                   {t("overview.p4Mid")}
                   <Link
                     href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
                     className="text-[#A8C117] hover:underline"
                   >
-                    {t("overview.linkModelB")}
+                    {t("overview.linkHelyx")}
                   </Link>
                   {t("overview.p4Suffix")}
                 </div>
@@ -326,7 +335,7 @@ export default async function ModelTPage({
                 </div>
                 <div className="w-full max-w-2xl mx-auto">
                   <Product360Viewer
-                    imagePath="/360-degree-images/Model-T/0001-MT-2000-1224-"
+                    imagePath="/360-degree-images/glyde-x/0001-MT-2000-1224-"
                     imageCount={51}
                     imagePrefix=""
                     imageSuffix=".png"
@@ -369,7 +378,7 @@ export default async function ModelTPage({
                   </div>
                   <div className="w-full max-w-2xl">
                     <Product360Viewer
-                      imagePath="/360-degree-images/Model-T/0001-MT-2000-1224-"
+                      imagePath="/360-degree-images/glyde-x/0001-MT-2000-1224-"
                       imageCount={51}
                       imagePrefix=""
                       imageSuffix=".png"
@@ -397,7 +406,7 @@ export default async function ModelTPage({
           </Container>
         </section>
 
-        {/* HOW DOES MODEL-T WORK */}
+        {/* HOW GLYDE-X WORKS */}
         <section className="w-full bg-white py-20">
           <Container size="narrow">
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
@@ -413,7 +422,7 @@ export default async function ModelTPage({
             </AnimateOnScroll>
 
             <ol className="space-y-6">
-              {modelTSteps.map((step, idx) => (
+              {glydeXSteps.map((step, idx) => (
                 <AnimateOnScroll
                   key={step.name}
                   animation="fadeInUp"
@@ -449,7 +458,7 @@ export default async function ModelTPage({
             </AnimateOnScroll>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-              {modelTUsps.map((usp) => {
+              {glydeXUsps.map((usp) => {
                 const Icon = usp.icon;
                 return (
                   <AnimateOnScroll
@@ -489,7 +498,7 @@ export default async function ModelTPage({
             </AnimateOnScroll>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
-              {modelTFeatures.map((f, featureIndex) => {
+              {glydeXFeatures.map((f, featureIndex) => {
                 const Icon = f.icon;
                 return (
                   <AnimateOnScroll
@@ -630,7 +639,7 @@ export default async function ModelTPage({
 
         {/* SPECIFICATIONS */}
         <section
-          id="model-t-specs"
+          id="glyde-x-specs"
           className="w-full bg-white pt-20 pb-10 scroll-mt-24"
         >
           <Container>
@@ -656,7 +665,7 @@ export default async function ModelTPage({
                   </tr>
                 </thead>
                 <tbody className="text-[#052638]">
-                  {modelTSpecs.map((row) => (
+                  {glydeXSpecs.map((row) => (
                     <tr key={row.label}>
                       <td className="py-3 px-6 border-t text-base font-medium">
                         {row.label}
@@ -701,7 +710,7 @@ export default async function ModelTPage({
                       {t("manualVsRobotic.manual")}
                     </th>
                     <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#A8C117]">
-                      {t("manualVsRobotic.modelT")}
+                      {t("manualVsRobotic.robot")}
                     </th>
                   </tr>
                 </thead>
@@ -715,7 +724,7 @@ export default async function ModelTPage({
                         {row.manual}
                       </td>
                       <td className="py-3 px-4 sm:px-6 border-t text-base align-top">
-                        {row.modelT}
+                        {row.robot}
                       </td>
                     </tr>
                   ))}
@@ -725,7 +734,7 @@ export default async function ModelTPage({
           </Container>
         </section>
 
-        {/* MODEL-T vs MODEL-A COMPARISON */}
+        {/* GLYDE-X vs GLYDE COMPARISON */}
         <section className="w-full bg-white py-20">
           <Container>
             <AnimateOnScroll
@@ -733,13 +742,13 @@ export default async function ModelTPage({
               className="text-center mb-10 sm:mb-14"
             >
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                {t("modelTvsModelA.eyebrow")}
+                {t("glydeXVsGlyde.eyebrow")}
               </div>
               <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight">
-                {t("modelTvsModelA.title")}
+                {t("glydeXVsGlyde.title")}
               </h2>
               <div className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mt-6">
-                {t("modelTvsModelA.subtitle")}
+                {t("glydeXVsGlyde.subtitle")}
               </div>
             </AnimateOnScroll>
 
@@ -748,27 +757,27 @@ export default async function ModelTPage({
                 <thead>
                   <tr className="bg-[#f4f1e9]">
                     <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#052638]">
-                      {t("modelTvsModelA.criterion")}
+                      {t("glydeXVsGlyde.criterion")}
                     </th>
                     <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#A8C117]">
-                      {t("modelTvsModelA.modelTHeader")}
+                      {t("glydeXVsGlyde.glydeXHeader")}
                     </th>
                     <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#052638]">
-                      {t("modelTvsModelA.modelAHeader")}
+                      {t("glydeXVsGlyde.glydeHeader")}
                     </th>
                   </tr>
                 </thead>
                 <tbody className="text-[#052638]">
-                  {modelTvsModelARows.map((row) => (
+                  {glydeXVsGlydeRows.map((row) => (
                     <tr key={row.criterion}>
                       <td className="py-3 px-4 sm:px-6 border-t text-base font-medium align-top">
                         {row.criterion}
                       </td>
                       <td className="py-3 px-4 sm:px-6 border-t text-base align-top">
-                        {row.modelT}
+                        {row.glydeX}
                       </td>
                       <td className="py-3 px-4 sm:px-6 border-t text-base text-gray-600 align-top">
-                        {row.modelA}
+                        {row.glyde}
                       </td>
                     </tr>
                   ))}
@@ -778,21 +787,21 @@ export default async function ModelTPage({
 
             <AnimateOnScroll animation="fadeInUp" className="text-center mt-10">
               <div className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto">
-                {t("modelTvsModelA.crossSellLead")}
+                {t("glydeXVsGlyde.crossSellLead")}
                 <Link
                   href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
                   className="text-[#A8C117] hover:underline"
                 >
-                  {t("modelTvsModelA.linkModelB")}
+                  {t("glydeXVsGlyde.linkHelyx")}
                 </Link>
-                {t("modelTvsModelA.crossSellMid")}
+                {t("glydeXVsGlyde.crossSellMid")}
                 <Link
                   href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
                   className="text-[#A8C117] hover:underline"
                 >
-                  {t("modelTvsModelA.linkOpex")}
+                  {t("glydeXVsGlyde.linkOpex")}
                 </Link>
-                {t("modelTvsModelA.crossSellSuffix")}
+                {t("glydeXVsGlyde.crossSellSuffix")}
               </div>
             </AnimateOnScroll>
           </Container>
@@ -855,14 +864,14 @@ export default async function ModelTPage({
                   href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
                   className="text-[#A8C117] hover:underline"
                 >
-                  {t("indianConditions.linkModelA")}
+                  {t("indianConditions.linkGlyde")}
                 </Link>
                 {t("indianConditions.linkBetweenAB")}
                 <Link
                   href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
                   className="text-[#A8C117] hover:underline"
                 >
-                  {t("indianConditions.linkModelB")}
+                  {t("indianConditions.linkHelyx")}
                 </Link>
                 {t("indianConditions.linkBetweenBOpex")}
                 <Link
@@ -871,12 +880,12 @@ export default async function ModelTPage({
                 >
                   {t("indianConditions.linkOpex")}
                 </Link>
-                {t("indianConditions.linkBetweenOpexConsole")}
+                {t("indianConditions.linkBetweenOpexAndNectyr")}
                 <Link
                   href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                   className="text-[#A8C117] hover:underline"
                 >
-                  {t("indianConditions.linkConsole")}
+                  {t("indianConditions.linkNectyr")}
                 </Link>
                 {t("indianConditions.crossSellSuffix")}
               </div>
@@ -895,15 +904,15 @@ export default async function ModelTPage({
         />
 
         <FaqSection
-          id="model-t-faq-heading"
+          id="glyde-x-faq-heading"
           title={t("faqSection.title")}
           subtitle={t("faqSection.subtitle")}
-          faqs={modelTFaqs}
+          faqs={glydeXFaqs}
         />
 
         <ClientsCard />
 
-        <ModelCards title={t("misc.modelCardsTitle")} cards={modelTCards} />
+        <ProductCards title={t("misc.productCardsTitle")} cards={glydeXCards} />
 
         <RequestEstimateForm />
       </div>

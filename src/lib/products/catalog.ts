@@ -2,6 +2,8 @@ import type { OgPresetKey } from "@/lib/seo/open-graph";
 
 export type ProductId = "helyx" | "glyde" | "glydeX" | "nyuma" | "nyumaX";
 
+/** Branded 360° frames: glyde/, helyx/, glyde-x/ under public/360-degree-images/. NYUMA / NYUMA-X: add when photography exists. */
+
 export type PlantType = "fixed_tilt" | "tracker" | "distributed";
 
 export type CleaningTechnology = "single_pass_pbt" | "dual_pass_microfiber";
@@ -10,12 +12,21 @@ export type AutonomyLevel = "semi_automatic" | "fully_automatic";
 
 export type ItemGroup = "Pick and Place Robots" | "Automatic Robot";
 
+export type ProductHeroDimensions = {
+  width: number;
+  height: number;
+};
+
 export type ProductCatalogEntry = {
   id: ProductId;
   itemName: string;
   itemGroup: ItemGroup;
   href: string;
   imagePath: string;
+  /** Native hero pixel dimensions — drives layout aspect ratio in UI. */
+  heroDimensions: ProductHeroDimensions;
+  /** Optional gallery/detail shots (e.g. GLYDE mechanism images). */
+  detailImages?: string[];
   i18nNamespace: string;
   ogPreset: OgPresetKey;
   plantType: PlantType;
@@ -43,8 +54,9 @@ export const PRODUCT_CATALOG: Record<ProductId, ProductCatalogEntry> = {
     itemName: "HELYX",
     itemGroup: "Pick and Place Robots",
     href: HELYX_PATH,
-    imagePath: "/tayprorobots/taypro-helyx-semi-automatic-solar-cleaning-robot.png",
-    i18nNamespace: "ModelBPage",
+    imagePath: "/tayprorobots/helyx/hero.webp",
+    heroDimensions: { width: 2440, height: 987 },
+    i18nNamespace: "HelyxPage",
     ogPreset: "helyx",
     plantType: "distributed",
     cleaningTechnology: "single_pass_pbt",
@@ -59,8 +71,13 @@ export const PRODUCT_CATALOG: Record<ProductId, ProductCatalogEntry> = {
     itemName: "GLYDE",
     itemGroup: "Automatic Robot",
     href: GLYDE_PATH,
-    imagePath: "/tayprorobots/glyde/glyde-tr150-top-view.png",
-    i18nNamespace: "ModelAPage",
+    imagePath: "/tayprorobots/glyde/hero.webp",
+    heroDimensions: { width: 1024, height: 724 },
+    detailImages: [
+      "/tayprorobots/glyde/dual-pass-mechanism.webp",
+      "/tayprorobots/glyde/docking-power-unit.webp",
+    ],
+    i18nNamespace: "GlydePage",
     ogPreset: "glyde",
     plantType: "fixed_tilt",
     cleaningTechnology: "dual_pass_microfiber",
@@ -75,8 +92,9 @@ export const PRODUCT_CATALOG: Record<ProductId, ProductCatalogEntry> = {
     itemName: "GLYDE-X",
     itemGroup: "Automatic Robot",
     href: GLYDE_X_PATH,
-    imagePath: "/tayprorobots/taypro-glyde-x-tracker-solar-cleaning-robot.png",
-    i18nNamespace: "ModelTPage",
+    imagePath: "/tayprorobots/glyde-x/hero.webp",
+    heroDimensions: { width: 1653, height: 702 },
+    i18nNamespace: "GlydeXPage",
     ogPreset: "glydeX",
     plantType: "tracker",
     cleaningTechnology: "dual_pass_microfiber",
@@ -91,7 +109,12 @@ export const PRODUCT_CATALOG: Record<ProductId, ProductCatalogEntry> = {
     itemName: "NYUMA",
     itemGroup: "Automatic Robot",
     href: NYUMA_PATH,
-    imagePath: "/tayprorobots/taypro-nyuma-automatic-solar-cleaning-robot.png",
+    imagePath: "/tayprorobots/nyuma/brush-detail.webp",
+    heroDimensions: { width: 1024, height: 1001 },
+    detailImages: [
+      "/tayprorobots/nyuma/top-view.webp",
+      "/tayprorobots/nyuma/product-render.webp",
+    ],
     i18nNamespace: "NyumaPage",
     ogPreset: "nyuma",
     plantType: "fixed_tilt",
@@ -107,7 +130,8 @@ export const PRODUCT_CATALOG: Record<ProductId, ProductCatalogEntry> = {
     itemName: "NYUMA-X",
     itemGroup: "Automatic Robot",
     href: NYUMA_X_PATH,
-    imagePath: "/tayprorobots/taypro-nyuma-x-tracker-solar-cleaning-robot.png",
+    imagePath: "/tayprorobots/nyuma-x/hero.webp",
+    heroDimensions: { width: 1536, height: 1024 },
     i18nNamespace: "NyumaXPage",
     ogPreset: "nyumaX",
     plantType: "tracker",
@@ -133,6 +157,16 @@ export function getProduct(id: ProductId): ProductCatalogEntry {
   return PRODUCT_CATALOG[id];
 }
 
+export function getProductHeroAspectRatio(id: ProductId): string {
+  const { width, height } = PRODUCT_CATALOG[id].heroDimensions;
+  return `${width} / ${height}`;
+}
+
+export function isWideHeroProduct(id: ProductId): boolean {
+  const { width, height } = PRODUCT_CATALOG[id].heroDimensions;
+  return width / height >= 1.9;
+}
+
 export function getRelatedProducts(id: ProductId): ProductCatalogEntry[] {
   return PRODUCT_CATALOG[id].relatedProductIds.map((pid) => PRODUCT_CATALOG[pid]);
 }
@@ -151,13 +185,12 @@ export function getRelatedProductCards(id: ProductId): RobotCardData[] {
   }));
 }
 
+const WIDE_PRODUCT_IDS: ProductId[] = ["helyx", "glydeX", "nyumaX"];
+
 export function productImagePresentation(
-  imagePath: string
+  id: ProductId
 ): "robot-standard" | "robot-wide" {
-  if (imagePath.includes("modelB") || imagePath.includes("modelT")) {
-    return "robot-wide";
-  }
-  return "robot-standard";
+  return WIDE_PRODUCT_IDS.includes(id) ? "robot-wide" : "robot-standard";
 }
 
 export function productAltText(itemName: string, marketingName?: string): string {

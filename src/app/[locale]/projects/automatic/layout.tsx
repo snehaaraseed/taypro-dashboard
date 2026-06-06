@@ -4,7 +4,7 @@ import { socialImagesFromPreset } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 
 const siteUrl = SITE_URL;
-const og = socialImagesFromPreset("modelA");
+const og = socialImagesFromPreset("glyde");
 
 export const generateMetadata = defineLocalizedMetadata("/projects/automatic", () => ({
   title: "Automatic Solar Panel Cleaning Robot Projects",

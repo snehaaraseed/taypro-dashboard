@@ -20,10 +20,10 @@
       "title": "Taypro OPEX, রোবোটিক সোলার প্যানেল ক্লিনিং সার্ভিস",
       "subtitlePanels": "সৌর প্যানেল আমরা প্রতি মাসে পরিষ্কার করি",
       "subtitleCycles": "প্রতি মাসে 3-10টি জলবিহীন শুকনো পরিষ্কারের চক্র",
-      "modelA": "GLYDE",
-      "modelB": "HELYX",
-      "modelT": "GLYDE-X",
-      "console": "NECTYR",
+      "glyde": "GLYDE",
+      "helyx": "HELYX",
+      "glydeX": "GLYDE-X",
+      "nectyr": "NECTYR",
       "imgAlt": "Taypro OPEX সোলার প্যানেল ক্লিনিং সার্ভিস - ইউটিলিটি-স্কেল সোলার প্ল্যান্টে রোবোটিক জলবিহীন ক্লিনিং",
       "ctaText": "একটি উদ্ধৃতি অনুরোধ",
       "subtitleBefore": "শুধুমাত্র জন্য অর্থ প্রদান",
@@ -148,7 +148,7 @@
       "5": "ডেডিকেটেড অপারেটর + দেশব্যাপী প্রযুক্তিগত সহায়তা"
     },
     "misc": {
-      "modelCardsTitle": "আরো সমাধান খুঁজছেন?",
+      "productCardsTitle": "আরো সমাধান খুঁজছেন?",
       "projectsHeader": "আমাদের প্রকল্প",
       "faqTitle": "প্রায়শই জিজ্ঞাসিত প্রশ্ন",
       "faqSubtitle": "Taypro OPEX পরিষেবার প্রশ্নগুলি, এছাড়াও নীচে বিস্তৃত Taypro প্রোগ্রামের প্রায়শই জিজ্ঞাসিত প্রশ্নগুলি।"
@@ -268,13 +268,13 @@
         "capex": "সম্পদের অবচয়, অপ্রচলিততা, জায় ঝুঁকি"
       },
       "explorePrefix": "সরাসরি হার্ডওয়্যার অন্বেষণ করুন:",
-      "linkModelA": "GLYDE",
+      "linkGlyde": "GLYDE",
       "linkBetweenAB": ", ",
-      "linkModelB": "HELYX",
+      "linkHelyx": "HELYX",
       "linkBetweenBT": ", ",
-      "linkModelT": "GLYDE-X",
-      "linkBetweenTConsole": ", বা",
-      "linkConsole": "NECTYR",
+      "linkGlydeX": "GLYDE-X",
+      "linkBetweenTAndNectyr": ", বা",
+      "linkNectyr": "NECTYR",
       "exploreSuffix": "."
     },
     "roiSection": {
@@ -334,7 +334,7 @@
       "titleLine2": "সর্বোত্তম ফলাফলের জন্য",
       "body": "Taypro OPEX সুশৃঙ্খল অপারেটর তদারকির সাথে নরম, ল্যাব-প্রমাণিত যোগাযোগের উপকরণগুলিকে জোড়া দেয়, যাতে প্যানেলগুলি পরিষ্কার থাকে, ওয়ারেন্টি এক্সপোজার নিয়ন্ত্রিত থাকে এবং আপনার টিম সর্বদা জানে কে সাইটে আছে, কেন, এবং প্রতিটি শিফটে কী অর্জন করা হয়েছে।"
     },
-    "modelCardsTitle": "আরো সমাধান খুঁজছেন?",
+    "productCardsTitle": "আরো সমাধান খুঁজছেন?",
     "projectsHeader": "আমাদের প্রকল্প",
     "common": {
       "breadcrumbHome": "হোম"

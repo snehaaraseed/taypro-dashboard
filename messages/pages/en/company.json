@@ -52,8 +52,8 @@
       "communityEyebrow": "Community",
       "communityHeading": "Sustainable energy is our corporate responsibility and obligation to society.",
       "communityBody": "We design for communities that depend on affordable power, and for the field teams who keep plants running through dust storms, monsoons, and peak summer loads.",
-      "modelTImageAlt": "Taypro Single-Axis Tracker Solar Panel Cleaning Robot GLYDE-X operating on solar panel array",
-      "modelTImageTitle": "Taypro Single-Axis Tracker Solar Panel Cleaning Robot GLYDE-X"
+      "glydeXImageAlt": "Taypro Single-Axis Tracker Solar Panel Cleaning Robot GLYDE-X operating on solar panel array",
+      "glydeXImageTitle": "Taypro Single-Axis Tracker Solar Panel Cleaning Robot GLYDE-X"
     },
     "investors": {
       "eyebrow": "Partners & investors",
@@ -103,20 +103,20 @@
       "viewRobot": "View {model} →",
       "robotImageAlt": "{model} - Taypro solar panel cleaning robot",
       "robots": {
-        "modelA": "Fully autonomous, waterless dry cleaning with dual-pass airflow and microfiber, AI scheduling for fixed and seasonal-tilt utility plants.",
-        "modelB": "Portable pick-and-place dry cleaning robot for scattered blocks and plants that need flexible crew-assisted coverage.",
-        "modelT": "Autonomous waterless robot for single-axis trackers, flexible bridge and 360° rotation across tracker brands.",
+        "glyde": "Fully autonomous, waterless dry cleaning with dual-pass airflow and microfiber, AI scheduling for fixed and seasonal-tilt utility plants.",
+        "helyx": "Portable pick-and-place dry cleaning robot for scattered blocks and plants that need flexible crew-assisted coverage.",
+        "glydeX": "Autonomous waterless robot for single-axis trackers, flexible bridge and 360° rotation across tracker brands.",
         "tayproOpex": "Pay-per-panel-cleaned Opex, Taypro operates the cleaning robot fleet on your plant with no upfront CAPEX.",
-        "tayproConsole": "Fleet portal to schedule, monitor, and report on solar panel cleaning robots across your site."
+        "nectyr": "Fleet portal to schedule, monitor, and report on solar panel cleaning robots across your site."
       }
     },
     "builtForSites": {
       "heading": "Built for real-world solar sites",
       "paragraph1": "Years of co-development with plant operators taught us that \"works in a lab\" is not enough. Taypro robots are engineered for uneven terrain, tracker curvature, RF-dark pockets, and the pace of utility-scale O&M, where every hour of downtime matters.",
-      "paragraph2BeforeModelA": "Patented dual-pass cleaning, AI-assisted scheduling, LTE/Wi-Fi/mesh connectivity, and predictive maintenance workflows come together in platforms such as",
-      "modelALink": "GLYDE",
+      "paragraph2BeforeGlyde": "Patented dual-pass cleaning, AI-assisted scheduling, LTE/Wi-Fi/mesh connectivity, and predictive maintenance workflows come together in platforms such as",
+      "glydeLink": "GLYDE",
       "paragraph2Middle": "and",
-      "modelTLink": "GLYDE-X",
+      "glydeXLink": "GLYDE-X",
       "paragraph2After": ", giving asset managers measurable control over soiling loss.",
       "aboutImageAlt": "Taypro autonomous solar panel cleaning robot operating on a utility-scale PV array",
       "aboutImageTitle": "Taypro Solar Panel Cleaning Robot Technology"
@@ -127,7 +127,7 @@
       "paragraph2Before": "That ecosystem mindset is how we scale to",
       "paragraph2Middle": "robots per month of manufacturing capacity, stock",
       "paragraph2AfterWarehouses": "warehouses across India, and honour commitments like same-day breakdown support for fleets monitored in",
-      "consoleLink": "NECTYR",
+      "nectyrLink": "NECTYR",
       "paragraph2End": ".",
       "about2ImageAlt": "Taypro engineering and manufacturing collaboration for solar panel cleaning robot production",
       "about2ImageTitle": "Taypro Solar Panel Cleaning Robot Collaborative Development"

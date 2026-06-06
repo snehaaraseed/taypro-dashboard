@@ -263,7 +263,7 @@
       }
     },
     "misc": {
-      "modelCardsTitle": "さらにソリューションをお探しですか?",
+      "productCardsTitle": "さらにソリューションをお探しですか?",
       "callbackLine1": "単軸トラッカー向けオンラインデモを予約",
       "callbackLine2": "ソーラーパネル清掃ロボット",
       "faqTitle": "よくある質問",
@@ -295,9 +295,9 @@
       "p3DetectStrong": "エッジ、障害物、角度の検出",
       "p3AfterDetect": "落下の危険なくパネルを安全に移動できます。各列に沿った経路と表面の起伏を継続的に追跡し、一貫した洗浄のために必要に応じてモーターのパフォーマンスを調整します。各クリーニング サイクルの後、GLYDE-X は安全で影のないドッキング ステーションに戻り、時速 180 km までの風に対して安全な状態でロックされます。",
       "p4Lead": "固定傾斜の実用規模のプラントを運転していますか?完全自律型を選択する",
-      "linkModelA": "BR0トークン",
+      "linkNyuma": "BR0トークン",
       "p4Mid": "。小さい植物や散らばった植物を掃除しますか?半自動ピックアンドプレイスを使用する",
-      "linkModelB": "BR0トークン",
+      "linkHelyx": "BR0トークン",
       "p4Suffix": "。",
       "p5Prefix": "さらに読む:",
       "linkBlogSeasonal": "トラッカーを多用するサイトの季節メンテナンス",
@@ -306,15 +306,15 @@
       "p5Suffix": "。"
     },
     "innovation360": {
-      "badge": "テイプロ モデル-T",
+      "badge": "TAYPRO NYUMA-X",
       "title": "単軸トラッカー設置用の自律型水なしソーラーパネル洗浄ロボット",
-      "tourEyebrow": "インタラクティブな製品ツアー",
-      "tourTitle": "GLYDE-Xの360°ビュー",
-      "tourSubtitleMobile": "左右にドラッグして回転させ、当社の単軸トラッカー ソーラー パネル クリーニング ロボットをあらゆる角度から探索してください。",
-      "tourSubtitleDesktop": "左または右にドラッグして回転し、単軸トラッカー ソーラー パネル クリーニング ロボットを探索します。",
-      "productLabel": "Taypro GLYDE-X, 単軸トラッカー用ソーラーパネル清掃ロボット",
-      "innovationTitle": "MODEL-Tの背後にあるイノベーション",
-      "innovationBody": "Taypro GLYDE-X は、単軸トラッカー設置におけるソーラー パネルのメンテナンスの課題に対処するために細心の注意を払って設計された最先端技術の相乗効果を表しています。高度なセンサーと機械学習機能を活用した GLYDE-X は、人間の介入を一切必要としない真の自律的な動作を実現します。クラウドベースの管理システムにより、リモート監視と制御が可能になり、いつでもどこからでも最適なパフォーマンスを確保できます。"
+      "tourEyebrow": "製品概要",
+      "tourTitle": "NYUMA-Xロボットを見る",
+      "tourSubtitleMobile": "単軸トラッカーテーブルとインドの粉塵環境向けに設計されたシングルパスPBT清掃ロボット。",
+      "tourSubtitleDesktop": "単軸トラッカーテーブルとインドの粉塵環境向けに設計されたシングルパスPBT清掃ロボット。",
+      "productLabel": "Taypro NYUMA-X, 単軸トラッカー用ソーラーパネル清掃ロボット",
+      "innovationTitle": "NYUMA-Xの背後にあるイノベーション",
+      "innovationBody": "Taypro NYUMA-Xは、単軸トラッカー設置におけるソーラーパネルメンテナンスの課題に対応するために設計された最先端技術の融合です。高度なセンサーと機械学習により、人的介入なしの真の自律運転を実現します。クラウドベースの管理システムで、どこからでも最適なパフォーマンスをリモート監視・制御できます。"
     },
     "howItWorks": {
       "eyebrow": "段階的な自律洗浄サイクル",
@@ -384,97 +384,97 @@
       "subtitle": "トラッカープラントでは、モジュールの移動、列の長さの拡大、列間の間隔の狭さなど、手動洗浄のあらゆる課題が複雑になります。ロボット掃除機は追跡者にとって特別な選択肢ではありません。それがピークパフォーマンス比を経済的に維持する唯一の方法です。",
       "criterion": "基準",
       "manual": "トラッカーの手動クリーニング",
-      "modelT": "BR1トークン BR0トークン",
+      "nyumaX": "Taypro NYUMA-X",
       "row0": {
         "criterion": "掃除の頻度",
         "manual": "毎週または隔週, トラッカーの生産スケジュールと労働時間枠によって制限されます",
-        "modelT": "毎日の自律サイクル、天候を認識した AI スケジューリング"
+        "nyumaX": "毎日の自律サイクル、天候を認識した AI スケジューリング"
       },
       "row1": {
         "criterion": "水の使用量",
         "manual": "洗浄ごとにモジュールごとに 1.5 ～ 3 リットルの水、およびタンカー物流",
-        "modelT": "ゼロ, 完全に水を使わないシングルパスPBTドライクリーニング"
+        "nyumaX": "ゼロ, 完全に水を使わないシングルパスPBTドライクリーニング"
       },
       "row2": {
         "criterion": "トラッカーの動きの互換性",
         "manual": "トラッカーは平らに駐車し、日中はアレイをオフラインにする必要があります",
-        "modelT": "ポストプロダクション時間をクリーンにします。 -52°～+52°の全傾斜範囲をサポート"
+        "nyumaX": "ポストプロダクション時間をクリーンにします。 -52°～+52°の全傾斜範囲をサポート"
       },
       "row3": {
         "criterion": "テーブル間角度許容差",
         "manual": "手作業による作業員は、小さなずれをゆっくりと一貫性なく修正します。",
-        "modelT": "ボディを±15°屈曲させてテーブル間の角度偏差を安全に乗り越えます"
+        "nyumaX": "ボディを±15°屈曲させてテーブル間の角度偏差を安全に乗り越えます"
       },
       "row4": {
         "criterion": "洗浄品質",
         "manual": "一貫性がなく、オペレータに依存する",
-        "modelT": "シングルパスPBTサイクル、クリーニング実行ごとに 99% 以上の塵を除去"
+        "nyumaX": "シングルパスPBTサイクル、クリーニング実行ごとに 99% 以上の塵を除去"
       },
       "row5": {
         "criterion": "労働と安全",
         "manual": "大人数の乗組員。トラッカー列の安全上のリスク。不均一な地上アクセスのリスク",
-        "modelT": "手動介入なし - インストール後に自律的に実行"
+        "nyumaX": "手動介入なし - インストール後に自律的に実行"
       },
       "row6": {
         "criterion": "パフォーマンス比率への影響",
         "manual": "洗濯ごとに 5 ～ 25% の汚れが蓄積します",
-        "modelT": "毎日の清掃により最高の PR が維持され、植物の収量が 4 ～ 8% 向上します"
+        "nyumaX": "毎日の清掃により最高の PR が維持され、植物の収量が 4 ～ 8% 向上します"
       },
       "row7": {
         "criterion": "総所有コスト",
         "manual": "定期的に発生する水、人件費、タンカー、ダウンタイム、トラッカーの駐車コスト",
-        "modelT": "1 回限りの設備投資、定期的な運用費用の置き換え、20 年の設計寿命"
+        "nyumaX": "1 回限りの設備投資、定期的な運用費用の置き換え、20 年の設計寿命"
       }
     },
-    "modelTvsModelA": {
+    "nyumaXVsNyuma": {
       "eyebrow": "適切な Taypro ロボットの選択",
       "title": "GLYDE-X vs GLYDE: どちらのロボットがあなたの太陽光発電所に適していますか?",
       "subtitle": "どちらのロボットも完全自律型で水を使わず、同じ NECTYR 上で実行されます。選択は、トラッカーか固定チルトかの取り付け構造によって決まります。",
       "criterion": "基準",
-      "modelTHeader": "GLYDE-X (トラッカー)",
-      "modelAHeader": "GLYDE (固定チルト)",
+      "nyumaXHeader": "GLYDE-X (トラッカー)",
+      "nyumaHeader": "GLYDE (固定チルト)",
       "row0": {
         "criterion": "取付構造",
-        "modelT": "単軸トラッカー (NEXTracker、Gamechanger および同等のもの)",
-        "modelA": "固定傾斜および季節傾斜の実用規模のプラント"
+        "nyumaX": "単軸トラッカー (NEXTracker、Gamechanger および同等のもの)",
+        "nyuma": "固定傾斜および季節傾斜の実用規模のプラント"
       },
       "row1": {
         "criterion": "モジュールの傾斜範囲",
-        "modelT": "-52° ～ +52° (トラッカーの全範囲)",
-        "modelA": "固定チルト範囲と季節チルト範囲向けに設計"
+        "nyumaX": "-52° ～ +52° (トラッカーの全範囲)",
+        "nyuma": "固定チルト範囲と季節チルト範囲向けに設計"
       },
       "row2": {
         "criterion": "テーブル間フレックス",
-        "modelT": "隣接するテーブル間の本体関節角度は ±15°",
-        "modelA": "必須ではありません - 固定傾斜列は同一平面上にあります"
+        "nyumaX": "隣接するテーブル間の本体関節角度は ±15°",
+        "nyuma": "必須ではありません - 固定傾斜列は同一平面上にあります"
       },
       "row3": {
         "criterion": "クリーニング機構",
-        "modelT": "水なしシングルパスPBT - PBTブラシまたは PBT ブラシ",
-        "modelA": "水なしシングルパスPBT, セルフクリーニングPBTブラシドラム"
+        "nyumaX": "水なしシングルパスPBT - PBTブラシまたは PBT ブラシ",
+        "nyuma": "水なしシングルパスPBT, セルフクリーニングPBTブラシドラム"
       },
       "row4": {
         "criterion": "1充電あたりの航続距離",
-        "modelT": "最大 2.2 km / ~3,600 モジュール",
-        "modelA": "1回の充電で最大3,600モジュール"
+        "nyumaX": "最大 2.2 km / ~3,600 モジュール",
+        "nyuma": "1回の充電で最大3,600モジュール"
       },
       "row5": {
         "criterion": "動作重量",
-        "modelT": "25kg（最もコンパクト）",
-        "modelA": "より重い, 固定傾斜ユーティリティスケール向けに設計"
+        "nyumaX": "25kg（最もコンパクト）",
+        "nyuma": "より重い, 固定傾斜ユーティリティスケール向けに設計"
       },
       "row6": {
         "criterion": "クリーニングモード",
-        "modelT": "完全自律型、AI によるスケジュール設定",
-        "modelA": "完全自律型、AI によるスケジュール設定"
+        "nyumaX": "完全自律型、AI によるスケジュール設定",
+        "nyuma": "完全自律型、AI によるスケジュール設定"
       },
       "row7": {
         "criterion": "クラウドモニタリング",
-        "modelT": "{connectivity}経由のNECTYR",
-        "modelA": "{connectivity}経由のNECTYR"
+        "nyumaX": "{connectivity}経由のNECTYR",
+        "nyuma": "{connectivity}経由のNECTYR"
       },
       "crossSellLead": "小さい植物や散らばった植物を掃除しますか?セミオートマチックを見てみよう",
-      "linkModelB": "BR0トークン",
+      "linkHelyx": "BR0トークン",
       "crossSellMid": "。清掃を完全に外注したいですか?を探索してください",
       "linkOpex": "Taypro OPEX クリーニング サービス",
       "crossSellSuffix": "。"
@@ -492,20 +492,20 @@
       "card3Title": "全インドサービスネットワーク",
       "card3Body": "地域の予備在庫と構造化された AMC プログラムに裏付けられた、NECTYR からの即時リモート診断により、インド全土で同日オンサイト故障を解決します。",
       "crossSellLead": "隣接する太陽光発電の O&M ニーズを検討していますか?を探索してください",
-      "linkModelA": "全自動GLYDEロボット",
+      "linkNyuma": "全自動GLYDEロボット",
       "linkBetweenAB": "、",
-      "linkModelB": "半自動HELYXロボット",
+      "linkHelyx": "半自動HELYXロボット",
       "linkBetweenBOpex": "、",
       "linkOpex": "Taypro OPEX クリーニング サービス",
-      "linkBetweenOpexConsole": "または",
-      "linkConsole": "NECTYR監視アプリ",
+      "linkBetweenOpexAndNectyr": "または",
+      "linkNectyr": "NECTYR監視アプリ",
       "crossSellSuffix": "。"
     },
     "faqSection": {
       "title": "よくある質問",
       "subtitle": "単軸トラッカー設置用の Taypro GLYDE-X ソーラー パネル クリーニング ロボットに関するよくある質問。"
     },
-    "modelCardsTitle": "さらにソリューションをお探しですか?",
+    "productCardsTitle": "さらにソリューションをお探しですか?",
     "roiBand": {
       "title": "トラッカー清掃ロボットのコストとROI",
       "bodyBeforeSpan": "サイトの",

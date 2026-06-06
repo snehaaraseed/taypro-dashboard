@@ -48,7 +48,7 @@
         "name": "How an Automatic Solar Panel Cleaning Robot cleans a utility-scale solar plant (Taypro NYUMA)",
         "description": "Step-by-step autonomous cleaning cycle of the Taypro NYUMA Automatic Solar Panel Cleaning Robot, from array assignment and AI scheduling through single-pass waterless cleaning, self-docking, and cloud telemetry.",
         "totalTime": "PT2H",
-        "imagePath": "/tayproasset/taypro-robotImage.png"
+        "imagePath": "/tayprorobots/nyuma/brush-detail.webp"
       }
     },
     "hero": {
@@ -126,13 +126,24 @@
       }
     },
     "product360": {
-      "eyebrow": "Interactive Product Tour",
-      "title": "360° View of NYUMA",
-      "subtitle": "Drag left or right to rotate and explore our Automatic Solar Panel Cleaning Robot from every angle",
+      "eyebrow": "Product Overview",
+      "title": "See the NYUMA Robot",
+      "subtitle": "Fully autonomous PBT cleaning robot engineered for fixed-tilt and seasonal-tilt utility-scale solar plants",
       "productLabel": "Taypro NYUMA, Automatic Solar Panel Cleaning Robot"
     },
+    "gallery": {
+      "eyebrow": "Product engineering",
+      "title": "NYUMA hardware at a glance",
+      "subtitle": "Single-pass PBT brush cleaning, integrated solar charging, and frame-mounted travel built for utility-scale fixed-tilt plants.",
+      "primaryAlt": "Taypro NYUMA automatic cleaning robot, plan view showing frame rails and PBT brush assembly",
+      "primaryCaption": "Top-down view of NYUMA on its travel frame with integrated solar panel and brush mechanism.",
+      "detailAlt": "Close-up of Taypro NYUMA PBT brush assembly, guide rails, and NYUMA branding on the end housing",
+      "detailCaption": "Brush head, guide rails, and end-cap branding engineered for daily autonomous cycles.",
+      "heroAlt": "Taypro NYUMA automatic solar panel cleaning robot, three-quarter product render",
+      "heroCaption": "NYUMA self-contained automatic robot with on-board solar panel and long-reach cleaning frame."
+    },
     "usps": {
-      "eyebrow": "MODEL A – Automatic Solar Panel Cleaning Robot",
+      "eyebrow": "NYUMA – Automatic Solar Panel Cleaning Robot",
       "title": "USPs",
       "items": {
         "item0": "Superior Cleaning Efficiency",
@@ -152,7 +163,7 @@
       "bodyAfterSpan": " can be and how much it can save your plant."
     },
     "projects": {
-      "headingLine1": "Projects with MODEL A – Automatic ",
+      "headingLine1": "Projects with NYUMA – Automatic ",
       "headingLine2": "Solar Panel Cleaning",
       "headingLine3": "Robot",
       "headingLine4": "Installations",
@@ -271,49 +282,49 @@
       "tableHeaders": {
         "criterion": "Criterion",
         "manual": "Manual Cleaning",
-        "modelA": "Taypro NYUMA"
+        "robot": "Taypro NYUMA"
       },
       "rows": {
         "row0": {
           "criterion": "Cleaning Frequency",
           "manual": "Weekly or fortnightly, weather-permitting",
-          "modelA": "Daily automated cycles, weather-aware scheduling"
+          "robot": "Daily automated cycles, weather-aware scheduling"
         },
         "row1": {
           "criterion": "Water Consumption",
           "manual": "High, 1.5 to 3 litres of water per module per wash",
-          "modelA": "Zero, fully waterless single-pass dry cleaning"
+          "robot": "Zero, fully waterless single-pass dry cleaning"
         },
         "row2": {
           "criterion": "Cleaning Quality",
           "manual": "Inconsistent, operator-dependent",
-          "modelA": "99%+ dust removal in a single automated run, every time"
+          "robot": "99%+ dust removal in a single automated run, every time"
         },
         "row3": {
           "criterion": "Labour & Safety",
           "manual": "High labour cost, panel damage risk, night-shift safety risk",
-          "modelA": "Autonomous after-hours operation, no manual intervention"
+          "robot": "Autonomous after-hours operation, no manual intervention"
         },
         "row4": {
           "criterion": "Performance Ratio Impact",
           "manual": "Soiling losses of 5–25% accumulate between washes",
-          "modelA": "Daily cleaning sustains peak PR, lifting plant yield 4–8%"
+          "robot": "Daily cleaning sustains peak PR, lifting plant yield 4–8%"
         },
         "row5": {
           "criterion": "Panel Safety",
           "manual": "Risk of micro-cracks, ARC abrasion and scratches",
-          "modelA": "Robot rides on the module frame, no load on glass or cells"
+          "robot": "Robot rides on the module frame, no load on glass or cells"
         },
         "row6": {
           "criterion": "Monitoring & Reporting",
           "manual": "No telemetry, no cleaning audit trail",
-          "modelAPrefix": "NECTYR via ",
-          "modelASuffix": "; full audit trail"
+          "nectyrPrefix": "NECTYR via ",
+          "nectyrSuffix": "; full audit trail"
         },
         "row7": {
           "criterion": "Total Cost of Ownership",
           "manual": "Recurring water, labour, equipment and downtime costs",
-          "modelA": "One-time investment, 12–18 month payback, 20-year design life"
+          "robot": "One-time investment, 12–18 month payback, 20-year design life"
         }
       }
     },
@@ -340,13 +351,13 @@
         }
       },
       "crossSellLead": "Looking at adjacent solar O&M needs? Explore the ",
-      "linkModelB": "Semi-Automatic Solar Cleaning Robot (HELYX)",
+      "linkHelyx": "Semi-Automatic Solar Cleaning Robot (HELYX)",
       "linkBetweenBAndT": ", the ",
-      "linkModelT": "Single-Axis Tracker Cleaning Robot (NYUMA-X)",
+      "linkNyumaX": "Single-Axis Tracker Cleaning Robot (NYUMA-X)",
       "linkBetweenTAndOpex": ", the ",
       "linkOpex": "Taypro OPEX cleaning service",
-      "linkBetweenOpexAndConsole": " or the ",
-      "linkConsole": "NECTYR monitoring app",
+      "linkBetweenOpexAndNectyr": " or the ",
+      "linkNectyr": "NECTYR monitoring app",
       "crossSellSuffix": "."
     },
     "specifications": {
@@ -480,7 +491,7 @@
         "s2": "⦿ The locomotion motor powers the movement and guides the robot along the solar panel frames",
         "s3": "⦿ The cleaning brush motor starts and enables the waterless single-pass cleaning technology with a PBT brush cloth",
         "s4": "⦿ The edge detection sensors continually scan the surroundings which prevents the robot from overshooting the panel edges",
-        "s5": "⦿ Users can adjust the cleaning speed and direction from the TAYPRO console",
+        "s5": "⦿ Users can adjust the cleaning speed and direction from the NECTYR",
         "s6": "⦿ Once the cleaning cycle is complete, the robot returns to its docking station, where it recharges using solar energy and remains idle until the next scheduled cycle.",
         "s7": "⦿ Advanced fault detection systems continuously analyse the robot parameters and if in case of any",
         "s8": "⦿ The system ensures safe and efficient operations with features like obstacle detection, self-cleaning PBT brush and adaptive navigation."
@@ -491,7 +502,7 @@
       "sharedFromData": {
         "item0": {
           "question": "Who looks after the Automatic Solar Panel Cleaning System after Installation?",
-          "answer": "After installation, the system can be remotely monitored and controlled through the TAYPRO console. The TAYPRO team provides technical support and troubleshooting issues."
+          "answer": "After installation, the system can be remotely monitored and controlled through the NECTYR. The TAYPRO team provides technical support and troubleshooting issues."
         },
         "item1": {
           "question": "Does the automatic solar module cleaning system require water for cleaning?",
@@ -518,7 +529,7 @@
           "answer": "The cleaning robots are managed through a remote monitoring portal which allows users to schedule cleaning cycles, adjust speed and monitor system performance."
         }
       },
-      "modelASpecific": {
+      "productSpecific": {
         "item0": {
           "question": "How much does an Automatic Solar Panel Cleaning Robot like NYUMA cost?",
           "answer": "Pricing for the Taypro NYUMA Automatic Solar Panel Cleaning Robot depends on plant size, panel layout, terrain and the level of integration with your existing monitoring stack. For most utility-scale projects, the robotic cleaning investment pays back inside 12–18 months through higher generation, lower water consumption and reduced manual labour costs. Request a quote from our team to receive a site-specific cost estimate and a detailed ROI calculation."
@@ -549,11 +560,11 @@
         }
       }
     },
-    "modelCards": {
+    "productCards": {
       "title": "Looking for more solutions?",
       "cardLabels": {
-        "modelB": "HELYX",
-        "modelT": "GLYDE-X"
+        "helyx": "HELYX",
+        "nyumaX": "NYUMA-X"
       },
       "cardTitleTemplate": "{label} Solar Panel Cleaning Robot"
     }

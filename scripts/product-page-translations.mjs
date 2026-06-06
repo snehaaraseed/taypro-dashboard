@@ -36,12 +36,12 @@ const sharedHi = {
       "घटना सूचना पर Taypro तत्काल दूरस्थ निदान और समस्या निवारण, अधिकांश मुद्दे भौतिक साइट विज़िट के बिना हल।",
     card2Title: "समान-दिवस ऑन-साइट हस्तक्षेप",
     card2Body:
-      "ऑन-साइट कार्य आवश्यक होने पर, Taypro समान-दिवस ब्रेकडाउन समाधान लक्ष्य रखता है, पूरे भारत में, Taypro Console से तत्काल दूरस्थ निदान के साथ।",
+      "ऑन-साइट कार्य आवश्यक होने पर, Taypro समान-दिवस ब्रेकडाउन समाधान लक्ष्य रखता है, पूरे भारत में, NECTYR से तत्काल दूरस्थ निदान के साथ।",
   },
   faqSection: {
     title: "अक्सर पूछे जाने वाले प्रश्न",
   },
-  modelCardsTitle: "और समाधान खोज रहे हैं?",
+  productCardsTitle: "और समाधान खोज रहे हैं?",
   callbackCard: {
     line1: "अर्ध-स्वचालित सोलर के लिए ऑनलाइन डेमो शेड्यूल करें",
     line2: "पैनल क्लीनिंग रोबोट",
@@ -54,8 +54,8 @@ const sharedHi = {
     criterion: "मानदंड",
     manual: "मैनुअल सफाई",
   },
-  modelBvsModelA: { criterion: "मानदंड" },
-  modelTvsModelA: { criterion: "मानदंड" },
+  helyxVsGlyde: { criterion: "मानदंड" },
+  glydeXVsGlyde: { criterion: "मानदंड" },
 };
 
 const sharedAr = {
@@ -94,10 +94,10 @@ const sharedAr = {
       "يوفر Taypro تشخيصاً واستكشاف أخطاء عن بُعد فورياً عند الإبلاغ, تُحل معظم المشكلات دون زيارة ميدانية.",
     card2Title: "تدخل ميداني في نفس اليوم",
     card2Body:
-      "عند الحاجة لميدانياً، يستهدف Taypro حل الأعطال في نفس اليوم، على مستوى الهند، مع تشخيص عن بُعد فوري من Taypro Console.",
+      "عند الحاجة لميدانياً، يستهدف Taypro حل الأعطال في نفس اليوم، على مستوى الهند، مع تشخيص عن بُعد فوري من NECTYR.",
   },
   faqSection: { title: "الأسئلة الشائعة" },
-  modelCardsTitle: "تبحث عن المزيد من الحلول؟",
+  productCardsTitle: "تبحث عن المزيد من الحلول؟",
   specifications: { specHeader: "المواصفة", valueHeader: "القيمة" },
   manualVsRobotic: { criterion: "المعيار", manual: "التنظيف اليدوي" },
 };
@@ -138,10 +138,10 @@ const sharedJa = {
       "インシデント通知後、Tayproは即時リモート診断, 多くの問題は現地訪問なしで解決。",
     card2Title: "当日オンサイト対応",
     card2Body:
-      "現地作業が必要な場合、Taypro Consoleによる即時リモート診断とともに、インド全土で当日 breakdown 解決を目標。",
+      "現地作業が必要な場合、NECTYRによる即時リモート診断とともに、インド全土で当日 breakdown 解決を目標。",
   },
   faqSection: { title: "よくある質問" },
-  modelCardsTitle: "他のソリューションをお探しですか？",
+  productCardsTitle: "他のソリューションをお探しですか？",
   specifications: { specHeader: "仕様", valueHeader: "値" },
   manualVsRobotic: { criterion: "基準", manual: "手動清掃" },
 };
@@ -182,10 +182,10 @@ const sharedBn = {
       "ঘটনা জানানোর পর Taypro তাৎক্ষণিক দূরবর্তী নির্ণয়, বেশিরভাগ সমস্যা সাইট ভিজিট ছাড়াই সমাধান।",
     card2Title: "একই দিনে অন-সাইট হস্তক্ষেপ",
     card2Body:
-      "অন-সাইট কাজ প্রয়োজন হলে, Taypro Console থেকে তাৎক্ষণিক দূরবর্তী নির্ণয়সহ সারা ভারতে একই দিনে সমাধান লক্ষ্য।",
+      "অন-সাইট কাজ প্রয়োজন হলে, NECTYR থেকে তাৎক্ষণিক দূরবর্তী নির্ণয়সহ সারা ভারতে একই দিনে সমাধান লক্ষ্য।",
   },
   faqSection: { title: "প্রায়শই জিজ্ঞাসিত প্রশ্ন" },
-  modelCardsTitle: "আরও সমাধান খুঁজছেন?",
+  productCardsTitle: "আরও সমাধান খুঁজছেন?",
   specifications: { specHeader: "বিশেষণ", valueHeader: "মান" },
   manualVsRobotic: { criterion: "মানদণ্ড", manual: "ম্যানুয়াল পরিষ্কার" },
 };
@@ -198,7 +198,7 @@ function withShared(loc, slug, specific) {
 export const localeTranslations = {
   hi: {
     common: sharedHi.common,
-    "model-b": {
+    "helyx": {
       overview: {
         eyebrow: "यूटिलिटी-स्केल संयंत्रों के लिए पिक-एंड-प्लेस सोलर क्लीनिंग रोबोट",
         title: "Taypro Model-B क्या है?",
@@ -228,9 +228,9 @@ export const localeTranslations = {
         p4TiltStrong: "फिक्स्ड-टिल्ट, सीज़नल-टिल्ट और हॉरिज़ॉन्टल सिंगल-एक्सिस ट्रैकर",
         p4Mid:
           " इंस्टॉलेशन के लिए उपयुक्त जहाँ प्रति-ऐरे स्वचालित रोबोट का capex उचित नहीं। पूर्ण स्वायत्त सफाई के लिए ",
-        linkModelA: "Model-A",
+        linkGlyde: "Model-A",
         p4BetweenAT: "; समर्पित सिंगल-एक्सिस ट्रैकर प्लांट के लिए ",
-        linkModelT: "Model-T",
+        linkGlydeX: "Model-T",
         p4Suffix: "।",
         p5Prefix: "अतिरिक्त पठन: ",
         linkBlogMethods: "सोलर पैनल सफाई के तरीके",
@@ -324,13 +324,13 @@ export const localeTranslations = {
         },
         ...sharedHi.manualVsRobotic,
       },
-      modelBvsModelA: {
+      helyxVsGlyde: {
         eyebrow: "सही Taypro रोबोट चुनें",
         title: "Model-B बनाम Model-A: आपके लिए कौन सा रोबोट?",
         subtitle:
-          "दोनों वॉटरलेस ड्राई क्लीनिंग और Taypro Console से प्रबंधित। चुनाव प्लांट आकार, श्रम और capex पर निर्भर।",
-        modelBHeader: "Model-B (अर्ध-स्वचालित)",
-        modelAHeader: "Model-A (पूर्ण स्वचालित)",
+          "दोनों वॉटरलेस ड्राई क्लीनिंग और NECTYR से प्रबंधित। चुनाव प्लांट आकार, श्रम और capex पर निर्भर।",
+        helyxHeader: "Model-B (अर्ध-स्वचालित)",
+        glydeHeader: "Model-A (पूर्ण स्वचालित)",
         row0: {
           criterion: "संचालन मोड",
           modelB: "अर्ध-स्वचालित, पिक-एंड-प्लेस (मैनुअल तैनाती)",
@@ -372,11 +372,11 @@ export const localeTranslations = {
           modelA: "यूटिलिटी-स्केल टिल्ट रेंज के लिए डिज़ाइन",
         },
         crossSellLead: "सिंगल-एक्सिस ट्रैकर प्लांट? देखें ",
-        linkModelT: "Model-T",
+        linkGlydeX: "Model-T",
         crossSellMid: "। सफाई आउटसोर्स? ",
         linkOpex: "Taypro OPEX क्लीनिंग सेवा",
         crossSellSuffix: " देखें।",
-        ...sharedHi.modelBvsModelA,
+        ...sharedHi.helyxVsGlyde,
       },
       indianConditions: {
         eyebrow: "भारतीय परिस्थितियों के लिए इंजीनियर",
@@ -394,15 +394,15 @@ export const localeTranslations = {
           "कई भारतीय फार्म जल-तनाव जिलों में। Model-B की वॉटरलेस सफाई टैंकर को O&M से हटाती है।",
         card3Title: "पैन-इंडिया सेवा नेटवर्क",
         card3Body:
-          "भारत भर में समान-दिवस ऑन-साइट समाधान, Taypro Console से तत्काल दूरस्थ निदान, क्षेत्रीय स्पेयर और AMC।",
+          "भारत भर में समान-दिवस ऑन-साइट समाधान, NECTYR से तत्काल दूरस्थ निदान, क्षेत्रीय स्पेयर और AMC।",
         crossSellLead: "समीपवर्ती सोलर O&M? देखें ",
-        linkModelA: "पूर्ण-स्वचालित Model-A रोबोट",
+        linkGlyde: "पूर्ण-स्वचालित Model-A रोबोट",
         linkBetweenAT: ", ",
-        linkModelT: "सिंगल-एक्सिस ट्रैकर Model-T",
+        linkGlydeX: "सिंगल-एक्सिस ट्रैकर Model-T",
         linkBetweenTOpex: ", ",
         linkOpex: "Taypro OPEX क्लीनिंग सेवा",
         linkBetweenOpexConsole: " या ",
-        linkConsole: "Taypro Console मॉनिटरिंग ऐप",
+        linkNectyr: "NECTYR मॉनिटरिंग ऐप",
         crossSellSuffix: "।",
       },
       faqSection: {
@@ -410,9 +410,9 @@ export const localeTranslations = {
         subtitle:
           "Taypro Model-B अर्ध-स्वचालित सोलर पैनल क्लीनिंग रोबोट के बारे में सामान्य प्रश्न।",
       },
-      modelCardsTitle: "और समाधान खोज रहे हैं?",
+      productCardsTitle: "और समाधान खोज रहे हैं?",
       misc: {
-        modelCardsTitle: "और समाधान खोज रहे हैं?",
+        productCardsTitle: "और समाधान खोज रहे हैं?",
         callbackLine1: "अर्ध-स्वचालित सोलर के लिए ऑनलाइन डेमो शेड्यूल करें",
         callbackLine2: "पैनल क्लीनिंग रोबोट",
         faqTitle: "अक्सर पूछे जाने वाले प्रश्न",
@@ -421,11 +421,11 @@ export const localeTranslations = {
         product360Label: "Taypro Model-B, अर्ध-स्वचालित सोलर पैनल क्लीनिंग रोबोट",
       },
     },
-    // model-t and cleaning-service live in fullPagePacks.
+    // glyde-x and cleaning-service live in fullPagePacks.
   },
   ar: {
     common: sharedAr.common,
-    "model-b": {
+    "helyx": {
       overview: {
         eyebrow: "روبوت تنظيف شمسي بالتقاط ووضع لمزارع على نيوية المرافق",
         title: "ما هو Taypro Model-B؟",
@@ -444,7 +444,7 @@ export const localeTranslations = {
       },
       ...sharedAr,
     },
-    "model-t": {
+    "glyde-x": {
       overview: {
         eyebrow: "روبوت تنظيف ألواح شمسية لمحطات المتعقب أحادي المحور",
         title: "ما هو Taypro Model-T؟",
@@ -473,7 +473,7 @@ export const localeTranslations = {
   },
   ja: {
     common: sharedJa.common,
-    "model-b": {
+    "helyx": {
       overview: {
         eyebrow: "ユーティリティ規模向けピック＆プレース太陽光清掃ロボット",
         title: "Taypro Model-Bとは？",
@@ -492,7 +492,7 @@ export const localeTranslations = {
       },
       ...sharedJa,
     },
-    "model-t": {
+    "glyde-x": {
       overview: {
         eyebrow: "単軸トラッカー向けソーラーパネル清掃ロボット",
         title: "Taypro Model-Tとは？",
@@ -521,7 +521,7 @@ export const localeTranslations = {
   },
   bn: {
     common: sharedBn.common,
-    "model-b": {
+    "helyx": {
       overview: {
         eyebrow: "ইউটিলিটি-স্কেল প্ল্যান্টের জন্য পিক-এন্ড-প্লেস সোলার পরিষ্কার রোবট",
         title: "Taypro Model-B কী?",
@@ -540,7 +540,7 @@ export const localeTranslations = {
       },
       ...sharedBn,
     },
-    "model-t": {
+    "glyde-x": {
       overview: {
         eyebrow: "সিঙ্গেল-অ্যাক্সিস ট্র্যাকার প্ল্যান্টের জন্য সোলার প্যানেল পরিষ্কার রোবট",
         title: "Taypro Model-T কী?",

@@ -20,10 +20,10 @@
       "title": "Taypro OPEX, خدمة تنظيف الألواح الشمسية الروبوتية",
       "subtitlePanels": "الألواح الشمسية نقوم بتنظيفها كل شهر",
       "subtitleCycles": "3-10 دورات تنظيف جاف بدون ماء شهريًا",
-      "modelA": "GLYDE",
-      "modelB": "HELYX",
-      "modelT": "GLYDE-X",
-      "console": "NECTYR",
+      "glyde": "GLYDE",
+      "helyx": "HELYX",
+      "glydeX": "GLYDE-X",
+      "nectyr": "NECTYR",
       "imgAlt": "خدمة تنظيف الألواح الشمسية Taypro OPEX - التنظيف الآلي بدون ماء في محطة الطاقة الشمسية على نطاق المرافق",
       "ctaText": "طلب عرض أسعار",
       "subtitleBefore": "ادفع فقط مقابل",
@@ -148,7 +148,7 @@
       "5": "مشغلين متخصصين + دعم فني على المستوى الوطني"
     },
     "misc": {
-      "modelCardsTitle": "هل تبحث عن المزيد من الحلول؟",
+      "productCardsTitle": "هل تبحث عن المزيد من الحلول؟",
       "projectsHeader": "مشاريعنا",
       "faqTitle": "الأسئلة المتداولة",
       "faqSubtitle": "أسئلة خدمة Taypro OPEX - بالإضافة إلى الأسئلة الشائعة الأوسع حول برنامج Taypro أدناه."
@@ -268,13 +268,13 @@
         "capex": "انخفاض قيمة الأصول، التقادم، مخاطر المخزون"
       },
       "explorePrefix": "استكشاف الأجهزة مباشرة:",
-      "linkModelA": "GLYDE",
+      "linkGlyde": "GLYDE",
       "linkBetweenAB": ", ",
-      "linkModelB": "HELYX",
+      "linkHelyx": "HELYX",
       "linkBetweenBT": ", ",
-      "linkModelT": "GLYDE-X",
-      "linkBetweenTConsole": "، أو",
-      "linkConsole": "NECTYR",
+      "linkGlydeX": "GLYDE-X",
+      "linkBetweenTAndNectyr": "، أو",
+      "linkNectyr": "NECTYR",
       "exploreSuffix": "."
     },
     "roiSection": {
@@ -334,7 +334,7 @@
       "titleLine2": "للحصول على النتائج المثلى",
       "body": "يجمع Taypro OPEX بين مواد اتصال ناعمة تم التحقق من صحتها معمليًا مع إشراف المشغل المنضبط - بحيث تظل اللوحات نظيفة، ويظل التعرض للضمان تحت السيطرة، ويعرف فريقك دائمًا من هو الموجود في الموقع ولماذا وما تم تحقيقه في كل نوبة."
     },
-    "modelCardsTitle": "هل تبحث عن المزيد من الحلول؟",
+    "productCardsTitle": "هل تبحث عن المزيد من الحلول؟",
     "projectsHeader": "مشاريعنا",
     "common": {
       "breadcrumbHome": "الرئيسية"

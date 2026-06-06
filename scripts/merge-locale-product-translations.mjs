@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Merge existing locale translations (model-b/t, packs) into model-a / nyuma pages
+ * Merge existing locale translations (helyx/t, packs) into glyde / nyuma pages
  * by matching JSON key paths, then rebrand legacy product names.
  */
 import { readFileSync, writeFileSync } from "fs";
@@ -43,7 +43,7 @@ function applyRebrand(text) {
       .replace(/Model-A\b/g, "GLYDE")
       .replace(/Model-B\b/g, "HELYX")
       .replace(/Model-T\b/g, "GLYDE-X")
-      .replace(/Taypro Console/g, "NECTYR")
+      .replace(/NECTYR/g, "NECTYR")
       .replace(/workflow on Console/g, "workflow on NECTYR")
       .replace(/via Console/g, "via NECTYR")
       .replace(/in Console/g, "in NECTYR")
@@ -96,7 +96,7 @@ function nyumaFromGlyde(text) {
 
 function processLocale(loc) {
   const enA = JSON.parse(
-    readFileSync(join(root, `messages/pages/en/model-a.json`), "utf8")
+    readFileSync(join(root, `messages/pages/en/glyde.json`), "utf8")
   );
   const enNyuma = JSON.parse(
     readFileSync(join(root, `messages/pages/en/nyuma.json`), "utf8")
@@ -106,28 +106,28 @@ function processLocale(loc) {
   );
 
   const locT = JSON.parse(
-    readFileSync(join(root, `messages/pages/${loc}/model-t.json`), "utf8")
+    readFileSync(join(root, `messages/pages/${loc}/glyde-x.json`), "utf8")
   );
   const locA = JSON.parse(
-    readFileSync(join(root, `messages/pages/${loc}/model-a.json`), "utf8")
+    readFileSync(join(root, `messages/pages/${loc}/glyde.json`), "utf8")
   );
 
   // GLYDE: merge translated strings from GLYDE-X page where keys align
   const glyde = JSON.parse(JSON.stringify(enA));
-  deepMergeStrings(glyde.ModelAPage, locT.ModelTPage);
+  deepMergeStrings(glyde.GlydePage, locT.GlydeXPage);
   if (locT.Common) deepMergeStrings(glyde.Common, locT.Common);
   walkRebrand(glyde);
   walkStrings(glyde, glydeFromTracker);
 
   writeFileSync(
-    join(root, `messages/pages/${loc}/model-a.json`),
+    join(root, `messages/pages/${loc}/glyde.json`),
     `${JSON.stringify(glyde, null, 2)}\n`
   );
-  console.log("merged", loc, "model-a (GLYDE)");
+  console.log("merged", loc, "glyde (GLYDE)");
 
   // NYUMA: merge from GLYDE + PBT terminology
   const nyuma = JSON.parse(JSON.stringify(enNyuma));
-  deepMergeStrings(nyuma.NyumaPage, glyde.ModelAPage);
+  deepMergeStrings(nyuma.NyumaPage, glyde.GlydePage);
   walkRebrand(nyuma);
   walkStrings(nyuma, (t) => nyumaFromGlyde(glydeFromTracker(t)));
 
@@ -139,7 +139,7 @@ function processLocale(loc) {
 
   // NYUMA-X: merge from GLYDE-X + PBT terminology
   const nyumaX = JSON.parse(JSON.stringify(enNyumaX));
-  deepMergeStrings(nyumaX.NyumaXPage, locT.ModelTPage);
+  deepMergeStrings(nyumaX.NyumaXPage, locT.GlydeXPage);
   if (locT.Common) deepMergeStrings(nyumaX.Common, locT.Common);
   walkRebrand(nyumaX);
   walkStrings(nyumaX, nyumaFromGlyde);
@@ -150,8 +150,8 @@ function processLocale(loc) {
   );
   console.log("merged", loc, "nyuma-x");
 
-  // Rebrand existing model-b, model-t, console
-  for (const file of ["model-b.json", "model-t.json", "taypro-console.json"]) {
+  // Rebrand existing helyx, glyde-x, console
+  for (const file of ["helyx.json", "glyde-x.json", "nectyr.json"]) {
     const p = join(root, `messages/pages/${loc}/${file}`);
     const data = JSON.parse(readFileSync(p, "utf8"));
     walkRebrand(data);

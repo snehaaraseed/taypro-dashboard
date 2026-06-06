@@ -66,7 +66,7 @@
       "p3Between": ", ",
       "linkGlyde": "GLYDE স্বয়ংক্রিয় রোবট",
       "p3After": ", এবং সামঞ্জস্য GLYDE ফ্লিট। গতি, চার্জ স্তর ও সেন্সর ডেটা ",
-      "linkConsole": "NECTYR",
+      "linkNectyr": "NECTYR",
       "p3Suffix": " ক্লাউড পোর্টালে আপনার বিদ্যমান রোবট সময়সূচির পাশাপাশি দৃশ্যমান।",
       "p4Prefix": "সম্পূর্ণ ",
       "linkHub": "Taypro রোবট লাইনআপ",
@@ -452,7 +452,7 @@
       "linkBetween": " বা ",
       "linkGlyde": "GLYDE",
       "linkMid": "-এর সাথে জোড়া দিন, ",
-      "linkConsole": "NECTYR",
+      "linkNectyr": "NECTYR",
       "crossSellSuffix": "-এ মনিটর করুন, অথবা সম্পূর্ণ রোবট হাব দেখুন।"
     },
     "faqSection": {
@@ -525,7 +525,7 @@
         }
       }
     },
-    "modelCardsTitle": "আরও Taypro সোলার পরিষ্কার সমাধান দেখুন",
+    "productCardsTitle": "আরও Taypro সোলার পরিষ্কার সমাধান দেখুন",
     "footerNote": "স্পেসিফিকেশন সাইট রেল ও রোবট মডেল অনুযায়ী ভিন্ন হতে পারে; ক্রয়ের আগে Taypro ইঞ্জিনিয়ারিংয়ের সাথে নিশ্চিত করুন।",
     "intro": {
       "eyebrow": "এক রোবট, অনেক সারি",

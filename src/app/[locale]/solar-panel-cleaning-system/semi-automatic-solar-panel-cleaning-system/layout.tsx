@@ -4,7 +4,7 @@ import { withHreflang } from "@/lib/seo/with-hreflang";
 import { socialImagesFromPreset } from "@/lib/seo/open-graph";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
-const modelBOg = socialImagesFromPreset("helyx");
+const helyxOg = socialImagesFromPreset("helyx");
 
 export async function generateMetadata({
   params,
@@ -12,7 +12,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "ModelBPage.meta" });
+  const t = await getTranslations({ locale, namespace: "HelyxPage.meta" });
   const keywords = t.raw("keywords") as string[];
 
   return withHreflang(
@@ -27,8 +27,8 @@ export async function generateMetadata({
         description: t("openGraphDescription"),
         url: `${siteUrl}/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system`,
         type: "website",
-        ...modelBOg.openGraph,
-        images: modelBOg.openGraph?.images?.map((img) =>
+        ...helyxOg.openGraph,
+        images: helyxOg.openGraph?.images?.map((img) =>
           typeof img === "object" && img !== null && "url" in img
             ? { ...img, alt: t("openGraphImageAlt") }
             : img
@@ -37,7 +37,7 @@ export async function generateMetadata({
       twitter: {
         title: t("title"),
         description: t("twitterDescription"),
-        ...modelBOg.twitter,
+        ...helyxOg.twitter,
       },
     }
   );

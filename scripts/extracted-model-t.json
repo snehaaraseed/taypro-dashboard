@@ -22,7 +22,7 @@
     },
     {
       "title": "Cloud-Connected Remote Monitoring",
-      "description": "Supported connectivity includes ${tayproRobotConnectivitySummary}, feeding real-time telemetry into the Taypro Console, schedule cleaning, adjust settings, track performance and receive weather alerts from any device."
+      "description": "Supported connectivity includes ${tayproRobotConnectivitySummary}, feeding real-time telemetry into the NECTYR, schedule cleaning, adjust settings, track performance and receive weather alerts from any device."
     },
     {
       "title": "Up to 2.2 km / 3,600 Modules Per Charge",
@@ -48,7 +48,7 @@
     },
     {
       "title": "Real-Time Weather-Aware Scheduling",
-      "body": "The Taypro Console pulls live weather data to optimise the cleaning schedule, push alerts for critical conditions and skip cycles when not needed. All schedule changes are reflected automatically on the portal, no manual intervention required at the plant."
+      "body": "The NECTYR pulls live weather data to optimise the cleaning schedule, push alerts for critical conditions and skip cycles when not needed. All schedule changes are reflected automatically on the portal, no manual intervention required at the plant."
     },
     {
       "title": "Self-Docking Charging Station",
@@ -133,7 +133,7 @@
       "value": "90°C"
     },
     {
-      "label": "Connectivity (Taypro Console)"
+      "label": "Connectivity (NECTYR)"
     }
   ],
   "modelTSteps": [
@@ -143,7 +143,7 @@
     },
     {
       "name": "AI scheduler selects the optimal cleaning window",
-      "text": "The Taypro Console pulls real-time weather data and tracker production schedules to automatically pick the best post-production cleaning window, typically at night or during low-irradiance periods, without disrupting energy generation."
+      "text": "The NECTYR pulls real-time weather data and tracker production schedules to automatically pick the best post-production cleaning window, typically at night or during low-irradiance periods, without disrupting energy generation."
     },
     {
       "name": "Self-deploys onto the tracker row",
@@ -169,7 +169,7 @@
     },
     {
       "question": "How is Model-T different from Model-A and Model-B?",
-      "answer": "Model-A is a fully autonomous robot for fixed-tilt utility-scale plants. Model-B is a semi-automatic pick-and-place robot for scattered, smaller or rooftop plants. Model-T is the only Taypro robot purpose-built for single-axis tracker plants, it supports module tilts from -52° to +52°, flexes ±15° between tables, and is engineered for NEXTracker / Gamechanger style trackers. All three are waterless, AI-driven and managed from the same Taypro Console portal."
+      "answer": "Model-A is a fully autonomous robot for fixed-tilt utility-scale plants. Model-B is a semi-automatic pick-and-place robot for scattered, smaller or rooftop plants. Model-T is the only Taypro robot purpose-built for single-axis tracker plants, it supports module tilts from -52° to +52°, flexes ±15° between tables, and is engineered for NEXTracker / Gamechanger style trackers. All three are waterless, AI-driven and managed from the same NECTYR portal."
     },
     {
       "question": "How many solar modules can Model-T clean on a single charge?",

@@ -16,7 +16,7 @@ import {
 } from "./legal.mjs";
 import { cleaningServicePack } from "./cleaning-service.mjs";
 import { projectsFilterPack } from "./projects-filter.mjs";
-import { tayproConsolePack } from "./taypro-console.mjs";
+import { nectyrPack } from "./nectyr.mjs";
 
 /** @type {{ slug: string; pack: object }[]} */
 export const pagePacks = [
@@ -33,7 +33,7 @@ export const pagePacks = [
   { slug: "cleaning-service", pack: cleaningServicePack },
   { slug: "cleaning-technology", pack: cleaningTechnologyPack },
   { slug: "projects-filter", pack: projectsFilterPack },
-  { slug: "taypro-console", pack: tayproConsolePack },
+  { slug: "nectyr", pack: nectyrPack },
   { slug: "privacy-policy", pack: privacyPolicyPack },
   { slug: "terms-of-service", pack: termsOfServicePack },
   { slug: "cookie-policy", pack: cookiePolicyPack },

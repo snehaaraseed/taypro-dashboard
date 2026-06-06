@@ -48,7 +48,7 @@
         "name": "كيف ينظف روبوت Taypro NYUMA أوتوماتيكياً محطة شمسية على نطاق المرافق؟",
         "description": "دورة تنظيف ذاتية لـ NYUMA, جدولة AI، تنظيف أحادي المرور PBT بدون ماء، إرساء ذاتي واتصال سحابي.",
         "totalTime": "PT2H",
-        "imagePath": "/tayproasset/taypro-robotImage.png"
+        "imagePath": "/tayprorobots/nyuma/brush-detail.webp"
       }
     },
     "hero": {
@@ -139,9 +139,9 @@
       }
     },
     "product360": {
-      "eyebrow": "جولة تفاعلية للمنتج",
-      "title": "عرض 360° لـ NYUMA",
-      "subtitle": "اسحب لليسار أو اليمين لاستكشاف روبوت التنظيف من كل زاوية",
+      "eyebrow": "نظرة عامة على المنتج",
+      "title": "تعرّف على روبوت NYUMA",
+      "subtitle": "روبوت تنظيف PBT مستقل بالكامل مصمم لمحطات الألواح الشمسية ذات الميل الثابت والميل الموسمي",
       "productLabel": "Taypro NYUMA, روبوت تنظيف ألواح شمسية أوتوماتيكي"
     },
     "usps": {
@@ -284,49 +284,49 @@
       "tableHeaders": {
         "criterion": "المعيار",
         "manual": "تنظيف يدوي",
-        "modelA": "Taypro NYUMA"
+        "robot": "Taypro NYUMA"
       },
       "rows": {
         "row0": {
           "criterion": "تكرار التنظيف",
           "manual": "أسبوعي/نصف شهري",
-          "modelA": "دورات يومية آلية"
+          "robot": "دورات يومية آلية"
         },
         "row1": {
           "criterion": "استهلاك الماء",
           "manual": "مرتفع",
-          "modelA": "صفر, ثنائي مرور جاف"
+          "robot": "صفر, ثنائي مرور جاف"
         },
         "row2": {
           "criterion": "جودة التنظيف",
           "manual": "غير متسقة",
-          "modelA": "99%+ غبار كل مرة"
+          "robot": "99%+ غبار كل مرة"
         },
         "row3": {
           "criterion": "العمالة والسلامة",
           "manual": "تكلفة عالية ومخاطر",
-          "modelA": "تشغيل ليلي ذاتي"
+          "robot": "تشغيل ليلي ذاتي"
         },
         "row4": {
           "criterion": "تأثير PR",
           "manual": "خسائر 5–25%",
-          "modelA": "PR مستقر، عائد 4–8%"
+          "robot": "PR مستقر، عائد 4–8%"
         },
         "row5": {
           "criterion": "سلامة الألواح",
           "manual": "خدوش وميكروكراك",
-          "modelA": "على الإطار فقط"
+          "robot": "على الإطار فقط"
         },
         "row6": {
           "criterion": "المراقبة",
           "manual": "لا تتبع",
-          "modelAPrefix": "NECTYR ",
-          "modelASuffix": "؛ سجل تدقيق كامل"
+          "nectyrPrefix": "NECTYR ",
+          "nectyrSuffix": "؛ سجل تدقيق كامل"
         },
         "row7": {
           "criterion": "تكلفة الملكية",
           "manual": "متكررة",
-          "modelA": "استرداد 12–18 شهراً، عمر 20 سنة"
+          "robot": "استرداد 12–18 شهراً، عمر 20 سنة"
         }
       }
     },
@@ -353,13 +353,13 @@
         }
       },
       "crossSellLead": "احتياجات O&M مجاورة؟ استكشف ",
-      "linkModelB": "روبوت تنظيف شبه أوتوماتيكي (HELYX)",
+      "linkHelyx": "روبوت تنظيف شبه أوتوماتيكي (HELYX)",
       "linkBetweenBAndT": "، ",
-      "linkModelT": "روبوت تتبع أحادي المحور (NYUMA)",
+      "linkNyumaX": "روبوت تتبع أحادي المحور (NYUMA)",
       "linkBetweenTAndOpex": "، ",
       "linkOpex": "خدمة تنظيف Taypro OPEX",
-      "linkBetweenOpexAndConsole": " أو ",
-      "linkConsole": "تطبيق مراقبة NECTYR",
+      "linkBetweenOpexAndNectyr": " أو ",
+      "linkNectyr": "تطبيق مراقبة NECTYR",
       "crossSellSuffix": "."
     },
     "specifications": {
@@ -532,7 +532,7 @@
           "answer": "بوابة NECTYR للجدولة والسرعة والأسطول."
         }
       },
-      "modelASpecific": {
+      "productSpecific": {
         "item0": {
           "question": "كم تكلفة روبوت مثل NYUMA؟",
           "answer": "يعتمد على الحجم والتخطيط والتضاريس. استرداد 12–18 شهراً غالباً. اطلب عرضاً."
@@ -563,11 +563,11 @@
         }
       }
     },
-    "modelCards": {
+    "productCards": {
       "title": "هل تبحث عن مزيد من الحلول؟",
       "cardLabels": {
-        "modelB": "HELYX",
-        "modelT": "NYUMA"
+        "helyx": "HELYX",
+        "nyumaX": "NYUMA-X"
       },
       "cardTitleTemplate": "روبوت تنظيف الألواح الشمسية {label}"
     }

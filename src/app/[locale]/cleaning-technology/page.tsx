@@ -58,7 +58,7 @@ const AUDIENCE_LINK_HREFS = [
 
 const DEEP_DIVE_CONFIG = [
   { id: "dual-pass", image: "/tayprosolarpanel/taypro-about1.jpg", reverse: false, key: "dualPass" as const },
-  { id: "ai-scheduling", image: "/tayproasset/taypro-console.png", reverse: true, key: "aiScheduling" as const },
+  { id: "ai-scheduling", image: "/tayproasset/nectyr.png", reverse: true, key: "aiScheduling" as const },
   { id: "connectivity", image: "/tayproasset/robots.png", reverse: false, key: "connectivity" as const },
   { id: "field-hardware", image: "/tayprosolarpanel/taypro-about2.webp", reverse: true, key: "fieldHardware" as const },
 ] as const;
@@ -248,7 +248,7 @@ export default async function CleaningTechnologyPage({
         t(`${base}.p0`), t(`${base}.p1`), t(`${base}.p2`),
         <>
           {t(`${base}.p3Before`)}{" "}
-          <Link href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app" className="text-[#5a8f00] font-medium underline-offset-4 hover:underline">{t(`${base}.consoleLink`)}</Link>
+          <Link href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app" className="text-[#5a8f00] font-medium underline-offset-4 hover:underline">{t(`${base}.nectyrLink`)}</Link>
           {t(`${base}.p3Mid`)}{" "}
           <Link href="/blog/how-ai-can-improve-solar-energy-output" className="text-[#5a8f00] font-medium underline-offset-4 hover:underline">{t(`${base}.aiBlogLink`)}</Link>{" "}
           {t(`${base}.p3After`)}
@@ -337,7 +337,7 @@ export default async function CleaningTechnologyPage({
                 href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                 className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
               >
-                {t("hero.consoleLink")}
+                {t("hero.nectyrLink")}
               </Link>{" "}
               {t("hero.bodyAfter")}
             </p>

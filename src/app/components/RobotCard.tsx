@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import { productAltText } from "@/lib/products/catalog";
+import { productAltText, productImagePresentation, type ProductId } from "@/lib/products/catalog";
 
 type Robot = {
   model: string;
@@ -12,9 +12,25 @@ type Robot = {
 
 type ImagePresentation = "robot-standard" | "robot-wide" | "photo" | "screenshot";
 
+const IMG_PATH_TO_PRODUCT_ID: Record<string, ProductId> = {
+  "/tayprorobots/helyx/": "helyx",
+  "/tayprorobots/glyde-x/": "glydeX",
+  "/tayprorobots/nyuma-x/": "nyumaX",
+  "/tayprorobots/glyde/": "glyde",
+  "/tayprorobots/nyuma/": "nyuma",
+};
+
+function resolveProductIdFromPath(imgPath: string): ProductId | null {
+  for (const [prefix, id] of Object.entries(IMG_PATH_TO_PRODUCT_ID)) {
+    if (imgPath.includes(prefix)) return id;
+  }
+  return null;
+}
+
 function getImagePresentation(imgPath: string): ImagePresentation {
-  if (imgPath.includes("modelB") || imgPath.includes("modelT")) {
-    return "robot-wide";
+  const productId = resolveProductIdFromPath(imgPath);
+  if (productId) {
+    return productImagePresentation(productId);
   }
   if (imgPath.includes("opex")) {
     return "photo";
@@ -83,7 +99,7 @@ export function RobotCard({
     <article
       className={`group flex flex-col h-full w-full rounded-2xl border border-gray-200/90 bg-white shadow-sm overflow-hidden hover:border-[#A8C117]/80 hover:shadow-md transition-all duration-300 ${className}`.trim()}
     >
-      {/* Fixed-height media frame, same footprint for every card */}
+      {/* Fixed-height media frame — same footprint on home and product hub cards */}
       <div
         className={`relative w-full h-[13.5rem] sm:h-[14.25rem] shrink-0 overflow-hidden ${media.bg}`}
       >

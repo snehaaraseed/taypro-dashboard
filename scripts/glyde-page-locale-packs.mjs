@@ -1,4 +1,4 @@
-/** Hand-authored GLYDE (model-a) locale packs, no external API. */
+/** Hand-authored GLYDE (glyde) locale packs, no external API. */
 export const GLYDE_LOCALE_PACKS = {
   hi: {
     product360: {
@@ -109,8 +109,8 @@ export const GLYDE_LOCALE_PACKS = {
         row6: {
           criterion: "मॉनिटरिंग और रिपोर्टिंग",
           manual: "कोई टेलीमेट्री नहीं",
-          modelAPrefix: "NECTYR ",
-          modelASuffix: " के माध्यम से; पूर्ण ऑडिट ट्रेल",
+          nectyrPrefix: "NECTYR ",
+          nectyrSuffix: " के माध्यम से; पूर्ण ऑडिट ट्रेल",
         },
         row7: {
           criterion: "कुल स्वामित्व लागत",
@@ -143,13 +143,13 @@ export const GLYDE_LOCALE_PACKS = {
         },
       },
       crossSellLead: "संलग्न सोलर O&M जरूरतें? देखें ",
-      linkModelB: "अर्ध-स्वचालित सफाई रोबोट (HELYX)",
+      linkHelyx: "अर्ध-स्वचालित सफाई रोबोट (HELYX)",
       linkBetweenBAndT: ", ",
-      linkModelT: "सिंगल-एक्सिस ट्रैकर रोबोट (GLYDE-X)",
+      linkGlydeX: "सिंगल-एक्सिस ट्रैकर रोबोट (GLYDE-X)",
       linkBetweenTAndOpex: ", ",
       linkOpex: "Taypro OPEX सफाई सेवा",
-      linkBetweenOpexAndConsole: " या ",
-      linkConsole: "NECTYR मॉनिटरिंग ऐप",
+      linkBetweenOpexAndNectyr: " या ",
+      linkNectyr: "NECTYR मॉनिटरिंग ऐप",
       crossSellSuffix: "।",
     },
     advantagesSection: {
@@ -189,7 +189,7 @@ export const GLYDE_LOCALE_PACKS = {
       roiCalculatorLink: "ROI कैलकुलेटर",
       p2AfterLink: " से अपनी साइट का अनुमान लगाएं।",
     },
-    modelCards: {
+    glydeCards: {
       title: "और समाधान चाहिए?",
       cardLabels: { modelB: "HELYX", modelT: "GLYDE-X" },
       cardTitleTemplate: "{label} सोलर पैनल सफाई रोबोट",
@@ -232,7 +232,7 @@ export const GLYDE_LOCALE_PACKS = {
             "NECTYR पोर्टल से चक्र शेड्यूल, गति समायोजन और फ्लीट प्रदर्शन ट्रैकिंग।",
         },
       },
-      modelASpecific: {
+      productSpecific: {
         item0: {
           question: "GLYDE जैसे स्वचालित रोबोट की लागत?",
           answer:
@@ -369,8 +369,8 @@ Object.assign(GLYDE_LOCALE_PACKS.ar, {
       row6: {
         criterion: "المراقبة",
         manual: "لا تتبع",
-        modelAPrefix: "NECTYR ",
-        modelASuffix: "؛ سجل تدقيق كامل",
+        nectyrPrefix: "NECTYR ",
+        nectyrSuffix: "؛ سجل تدقيق كامل",
       },
       row7: {
         criterion: "تكلفة الملكية",
@@ -391,7 +391,7 @@ Object.assign(GLYDE_LOCALE_PACKS.ar, {
         answer: "لا, تقنية بدون ماء وميكروفايبر دوار.",
       },
     },
-    modelASpecific: {
+    productSpecific: {
       item2: {
         question: "الفرق بين GLYDE وHELYX وGLYDE-X؟",
         answer:
@@ -465,8 +465,8 @@ Object.assign(GLYDE_LOCALE_PACKS.ja, {
       row6: {
         criterion: "監視",
         manual: "なし",
-        modelAPrefix: "NECTYR ",
-        modelASuffix: "で監査証跡",
+        nectyrPrefix: "NECTYR ",
+        nectyrSuffix: "で監査証跡",
       },
       row7: {
         criterion: "TCO",
@@ -538,8 +538,8 @@ Object.assign(GLYDE_LOCALE_PACKS.bn, {
       row6: {
         criterion: "মনিটরিং",
         manual: "নেই",
-        modelAPrefix: "NECTYR ",
-        modelASuffix: ", সম্পূর্ণ অডিট",
+        nectyrPrefix: "NECTYR ",
+        nectyrSuffix: ", সম্পূর্ণ অডিট",
       },
       row7: { criterion: "TCO", manual: "পুনরাবৃত্ত", modelA: "১২–১৮ মাস পেব্যাক" },
     },

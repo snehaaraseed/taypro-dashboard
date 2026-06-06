@@ -24,7 +24,7 @@ function toIndexed(arr, mapFn = (x) => x) {
 
 function buildModelB(extracted) {
   return {
-    ModelBPage: {
+    HelyxPage: {
       meta: {
         title:
           "Semi-Automatic Solar Panel Cleaning Robot, Taypro Model-B (Pick-and-Place)",
@@ -61,11 +61,11 @@ function buildModelB(extracted) {
           "Taypro Model-B, Semi-Automatic Solar Panel Cleaning Robot, pick-and-place waterless cleaner for utility-scale solar plants",
         ctaText: "Request a quote",
       },
-      usps: toIndexed(extracted.modelBUsps),
-      features: toIndexed(extracted.modelBFeatures),
-      specs: toIndexed(extracted.modelBSpecs),
-      steps: toIndexed(extracted.modelBSteps),
-      faqs: toIndexed(extracted.modelBFaqs),
+      usps: toIndexed(extracted.helyxUsps),
+      features: toIndexed(extracted.helyxFeatures),
+      specs: toIndexed(extracted.helyxSpecs),
+      steps: toIndexed(extracted.helyxSteps),
+      faqs: toIndexed(extracted.helyxFaqs),
     },
     Common: { breadcrumbHome: "Home" },
   };
@@ -77,9 +77,9 @@ for (const locale of locales) {
   mkdirSync(dir, { recursive: true });
 }
 
-const modelB = buildModelB(loadExtracted("model-b"));
+const modelB = buildModelB(loadExtracted("helyx"));
 writeFileSync(
-  join(root, "messages/pages/en/model-b.json"),
+  join(root, "messages/pages/en/helyx.json"),
   JSON.stringify(modelB, null, 2)
 );
-console.log("Wrote en/model-b.json");
+console.log("Wrote en/helyx.json");

@@ -3,8 +3,8 @@
 
 export const indexedTranslations = {
   "hi": {
-    "model-b": {
-      "ModelBPage": {
+    "helyx": {
+      "HelyxPage": {
         "schema": {
           "productName": "अर्ध-स्वचालित सौर पैनल सफाई रोबोट - Model-B",
           "productDescription": "Taypro Model-B एक 39 किलोग्राम पिक-एंड-प्लेस, अर्ध-स्वचालित सौर पैनल सफाई रोबोट है। काउंटर-रोटेटिंग UV-स्टेबल PBT ब्रश एक बार में 99%+ धूल हटाते हैं, 1 MW प्लांट को 2 घंटे से कम समय में साफ करते हैं, एक बार चार्ज करने पर 3 km तक चलते हैं, TÜV NORD प्रमाणित होते हैं, और निश्चित झुकाव, मौसमी झुकाव और क्षैतिज सिंगल-एक्सिस ट्रैकर प्लांट के लिए बनाए जाते हैं।",
@@ -224,8 +224,8 @@ export const indexedTranslations = {
         }
       }
     },
-    "model-t": {
-      "ModelTPage": {
+    "glyde-x": {
+      "GlydeXPage": {
         "schema": {
           "productName": "सिंगल-एक्सिस ट्रैकर्स के लिए सोलर पैनल क्लीनिंग रोबोट - Model-T",
           "productDescription": "Taypro Model-T एक AI- और ML-संचालित स्वायत्त, जलरहित सोलर पैनल क्लीनिंग रोबोट है, जिसे सिंगल-एक्सिस ट्रैकर इंस्टॉलेशन के लिए बनाया गया है। डुअल-पास ड्राई क्लीनिंग प्रति चक्र 99%+ धूल हटाती है, प्रति चार्ज 3,600 मॉड्यूल तक साफ करती है, टेबल के बीच ±15° फ्लेक्स करती है, {connectivity} के माध्यम से कनेक्ट होती है, NEXTracker और Gamechanger के साथ संगत है, -52° से +52° तक मॉड्यूल झुकाव का समर्थन करती है, TÜV NORD प्रमाणित है।",
@@ -539,8 +539,8 @@ export const indexedTranslations = {
         }
       }
     },
-    "taypro-console": {
-      "TayproConsolePage": {
+    "nectyr": {
+      "NectyrPage": {
         "intro": {
           "eyebrow": "रोबोटिक सौर सफाई के लिए फ़्लीट सॉफ़्टवेयर",
           "title": "Taypro कंसोल क्या है?",
@@ -687,8 +687,8 @@ export const indexedTranslations = {
     }
   },
   "ar": {
-    "model-b": {
-      "ModelBPage": {
+    "helyx": {
+      "HelyxPage": {
         "schema": {
           "productName": "روبوت تنظيف الألواح الشمسية شبه الأوتوماتيكي - Model-B",
           "productDescription": "Taypro Model-B هو روبوت تنظيف الألواح الشمسية شبه الأوتوماتيكي الذي يزن 39 كجم. تعمل فرش PBT الثابتة للأشعة فوق البنفسجية والتي تدور بشكل معاكس على إزالة 99%+ من الغبار في تمريرة واحدة، وتنظيف محطة MW واحدة في أقل من ساعتين، وتشغيل ما يصل إلى 3 km بشحنة واحدة، وهي معتمدة من TÜV NORD، ومصممة للإمالة الثابتة والإمالة الموسمية ومحطات التتبع الأفقية أحادية المحور.",
@@ -908,8 +908,8 @@ export const indexedTranslations = {
         }
       }
     },
-    "model-t": {
-      "ModelTPage": {
+    "glyde-x": {
+      "GlydeXPage": {
         "schema": {
           "productName": "روبوت تنظيف الألواح الشمسية لأجهزة التتبع أحادية المحور - Model-T",
           "productDescription": "Taypro Model-T هو روبوت تنظيف الألواح الشمسية المستقل بدون ماء والذي يعمل بالذكاء الاصطناعي والتعلم الآلي، وهو مصمم خصيصًا لتركيبات التعقب أحادية المحور. يزيل التنظيف الجاف ثنائي المسار ما يزيد عن 99% من الغبار في كل دورة، وينظف ما يصل إلى 3600 وحدة لكل شحنة، وينثني ±15 درجة بين الطاولات، ويتصل عبر {connectivity}، ومتوافق مع NEXTracker وGamechanger، ويدعم إمالة الوحدة من -52 درجة إلى +52 درجة، ومعتمد TÜV NORD.",
@@ -1223,8 +1223,8 @@ export const indexedTranslations = {
         }
       }
     },
-    "taypro-console": {
-      "TayproConsolePage": {
+    "nectyr": {
+      "NectyrPage": {
         "intro": {
           "eyebrow": "برنامج الأسطول للتنظيف الشمسي الآلي",
           "title": "ما هي وحدة التحكم Taypro؟",
@@ -1371,8 +1371,8 @@ export const indexedTranslations = {
     }
   },
   "ja": {
-    "model-b": {
-      "ModelBPage": {
+    "helyx": {
+      "HelyxPage": {
         "schema": {
           "productName": "半自動ソーラーパネル清掃ロボット - Model-B",
           "productDescription": "Taypro Model-B は、39 kg のピックアンドプレイス式の半自動ソーラー パネル クリーニング ロボットです。逆回転する UV 安定性 PBT ブラシは、1 回のパスで 99% 以上の塵を除去し、1 つの MW プラントを 2 時間以内に清掃し、1 回の充電で最大 3 つの km を実行し、TÜV NORD 認定を受けており、固定傾斜、季節傾斜、および水平単軸トラッカー プラント向けに構築されています。",
@@ -1592,8 +1592,8 @@ export const indexedTranslations = {
         }
       }
     },
-    "model-t": {
-      "ModelTPage": {
+    "glyde-x": {
+      "GlydeXPage": {
         "schema": {
           "productName": "単軸トラッカー用ソーラーパネル清掃ロボット - Model-T",
           "productDescription": "Taypro Model-T は、単軸トラッカー設置専用に設計された、AI および ML を利用した自律型、水を使わないソーラー パネル クリーニング ロボットです。デュアルパス ドライ クリーニングは 1 サイクルあたり 99% 以上の塵を除去し、1 回の充電で最大 3,600 個のモジュールを洗浄し、テーブル間で ±15° 屈曲し、{connectivity} 経由で接続し、NEXTracker および Gamechanger と互換性があり、-52° ～ +52° のモジュール傾斜をサポートし、TÜV NORD 認定されています。",
@@ -1907,8 +1907,8 @@ export const indexedTranslations = {
         }
       }
     },
-    "taypro-console": {
-      "TayproConsolePage": {
+    "nectyr": {
+      "NectyrPage": {
         "intro": {
           "eyebrow": "ロボット太陽清掃用のフリート ソフトウェア",
           "title": "Taypro コンソールとは何ですか?",
@@ -2055,8 +2055,8 @@ export const indexedTranslations = {
     }
   },
   "bn": {
-    "model-b": {
-      "ModelBPage": {
+    "helyx": {
+      "HelyxPage": {
         "schema": {
           "productName": "আধা-স্বয়ংক্রিয় সোলার প্যানেল পরিষ্কারের রোবট - Model-B",
           "productDescription": "Taypro Model-B হল একটি 39 কেজি পিক-এন্ড-প্লেস, আধা-স্বয়ংক্রিয় সোলার প্যানেল ক্লিনিং রোবট। পাল্টা-ঘূর্ণায়মান UV-স্থিতিশীল PBT ব্রাশ একটি একক পাসে 99%+ ধুলো অপসারণ করে, 2 ঘন্টার মধ্যে একটি 1 MW প্ল্যান্ট পরিষ্কার করে, একটি একক চার্জে 3 km পর্যন্ত চালায়, TÜV NORD প্রত্যয়িত, এবং স্থির কাত, মৌসুমী টিল্ট এবং সিঙ্গেল ট্র্যাক ট্র্যাকের জন্য নির্মিত।",
@@ -2276,8 +2276,8 @@ export const indexedTranslations = {
         }
       }
     },
-    "model-t": {
-      "ModelTPage": {
+    "glyde-x": {
+      "GlydeXPage": {
         "schema": {
           "productName": "একক-অক্ষ ট্র্যাকারদের জন্য সোলার প্যানেল পরিষ্কারের রোবট - Model-T",
           "productDescription": "Taypro Model-T হল একটি AI- এবং ML-চালিত স্বায়ত্তশাসিত, জলবিহীন সোলার প্যানেল ক্লিনিং রোবট যা একক-অক্ষ ট্র্যাকার ইনস্টলেশনের জন্য নির্মিত৷ ডুয়াল-পাস ড্রাই ক্লিনিং প্রতি চক্রে 99%+ ধুলো অপসারণ করে, প্রতি চার্জে 3,600 মডিউল পর্যন্ত পরিষ্কার করে, টেবিলের মধ্যে ±15° ফ্লেক্স করে, {connectivity} এর মাধ্যমে সংযোগ করে, NEXTracker এবং Gamechanger-এর সাথে সামঞ্জস্যপূর্ণ, মডিউল টিল্টকে -2°__t__° থেকে +52°, +52° থেকে cer করা সমর্থন করে",
@@ -2591,8 +2591,8 @@ export const indexedTranslations = {
         }
       }
     },
-    "taypro-console": {
-      "TayproConsolePage": {
+    "nectyr": {
+      "NectyrPage": {
         "intro": {
           "eyebrow": "রোবোটিক সৌর পরিষ্কারের জন্য ফ্লিট সফ্টওয়্যার",
           "title": "Taypro কনসোল কি?",

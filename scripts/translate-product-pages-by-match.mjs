@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Translate model-a / nyuma / nyuma-x locales by reusing strings already
- * translated on model-t / model-b (same English → same translation).
+ * Translate glyde / nyuma / nyuma-x locales by reusing strings already
+ * translated on glyde-x / helyx (same English → same translation).
  */
 import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
@@ -9,7 +9,7 @@ import { join } from "path";
 const root = join(import.meta.dirname, "..");
 const locales = ["hi", "ar", "ja", "bn"];
 
-/** Localized SEO meta (unique vs GLYDE-X / model-t). */
+/** Localized SEO meta (unique vs GLYDE-X / glyde-x). */
 const NYUMA_X_META_BY_LOCALE = {
   ar: {
     title: "روبوت تنظيف ألواح PBT لأجهزة التتبع أحادية المحور, Taypro NYUMA-X",
@@ -146,7 +146,7 @@ function applyMapToPage(page, translationMap) {
   );
 }
 
-/** Map NYUMA-X English copy to GLYDE-X English for reusing model-t translations. */
+/** Map NYUMA-X English copy to GLYDE-X English for reusing glyde-x translations. */
 function enToModelTEquivalent(text) {
   return text
     .replace(/Taypro NYUMA-X/g, "Taypro GLYDE-X")
@@ -175,7 +175,7 @@ function translateNyumaXPage(enNx, enT, trT, map, fixFn) {
 
   function walk(nx, et, tt) {
     if (typeof nx === "string" && typeof et === "string" && typeof tt === "string") {
-      // Reuse model-t locale copy at the same path, then rebrand to NYUMA-X / single-pass.
+      // Reuse glyde-x locale copy at the same path, then rebrand to NYUMA-X / single-pass.
       return fixFn(tt);
     }
     if (Array.isArray(nx) && Array.isArray(et) && Array.isArray(tt)) {
@@ -220,7 +220,7 @@ function rebrand(text) {
     .replace(/Model-A\b/g, "GLYDE")
     .replace(/Model-B\b/g, "HELYX")
     .replace(/Model-T\b/g, "GLYDE-X")
-    .replace(/Taypro Console/g, "NECTYR");
+    .replace(/NECTYR/g, "NECTYR");
 }
 
 function glydeFix(text) {
@@ -285,7 +285,7 @@ function nyumaXFix(text) {
     .replace(/microfiber/gi, "PBT brush")
     .replace(/माइक्रोफाइबर/g, "PBT ब्रश")
     .replace(/الألياف الدقيقة/g, "فرشاة PBT")
-    .replace(/Taypro Console/g, "NECTYR")
+    .replace(/NECTYR/g, "NECTYR")
     .replace(/NYUMA-X-X/g, "NYUMA-X");
 }
 
@@ -304,12 +304,12 @@ function walkPage(page, fixFn) {
 }
 
 for (const loc of locales) {
-  const enT = loadPage("en", "model-t.json", "ModelTPage");
-  const enB = loadPage("en", "model-b.json", "ModelBPage");
-  const enConsole = loadPage("en", "taypro-console.json", "TayproConsolePage");
-  const hiT = loadPage(loc, "model-t.json", "ModelTPage");
-  const hiB = loadPage(loc, "model-b.json", "ModelBPage");
-  const hiConsole = loadPage(loc, "taypro-console.json", "TayproConsolePage");
+  const enT = loadPage("en", "glyde-x.json", "GlydeXPage");
+  const enB = loadPage("en", "helyx.json", "HelyxPage");
+  const enConsole = loadPage("en", "nectyr.json", "NectyrPage");
+  const hiT = loadPage(loc, "glyde-x.json", "GlydeXPage");
+  const hiB = loadPage(loc, "helyx.json", "HelyxPage");
+  const hiConsole = loadPage(loc, "nectyr.json", "NectyrPage");
 
   const enToHi = new Map();
   function addPairs(enPage, trPage) {
@@ -357,11 +357,11 @@ for (const loc of locales) {
   pairWalk(enB, hiB, map);
   pairWalk(enConsole, hiConsole, map);
 
-  const enA = JSON.parse(readFileSync(join(root, "messages/pages/en/model-a.json"), "utf8"));
+  const enA = JSON.parse(readFileSync(join(root, "messages/pages/en/glyde.json"), "utf8"));
   const enNyuma = JSON.parse(readFileSync(join(root, "messages/pages/en/nyuma.json"), "utf8"));
   const enNyumaX = JSON.parse(readFileSync(join(root, "messages/pages/en/nyuma-x.json"), "utf8"));
 
-  let glydePage = applyMapToPage(enA.ModelAPage, map);
+  let glydePage = applyMapToPage(enA.GlydePage, map);
   glydePage = walkPage(glydePage, glydeFix);
 
   let nyumaPage = applyMapToPage(enNyuma.NyumaPage, map);
@@ -385,8 +385,8 @@ for (const loc of locales) {
     : { breadcrumbHome: map.get("Home") || "Home" };
 
   writeFileSync(
-    join(root, `messages/pages/${loc}/model-a.json`),
-    JSON.stringify({ ModelAPage: glydePage, Common: common }, null, 2) + "\n"
+    join(root, `messages/pages/${loc}/glyde.json`),
+    JSON.stringify({ GlydePage: glydePage, Common: common }, null, 2) + "\n"
   );
   writeFileSync(
     join(root, `messages/pages/${loc}/nyuma.json`),
@@ -401,15 +401,15 @@ for (const loc of locales) {
     ) + "\n"
   );
 
-  // Rebrand model-b/t/console from packs
-  for (const file of ["model-b.json", "model-t.json", "taypro-console.json"]) {
+  // Rebrand helyx/t/console from packs
+  for (const file of ["helyx.json", "glyde-x.json", "nectyr.json"]) {
     const data = JSON.parse(readFileSync(join(root, `messages/pages/${loc}/${file}`), "utf8"));
     const key = Object.keys(data).find((k) => k.endsWith("Page"));
     if (key) data[key] = walkPage(data[key], rebrand);
     writeFileSync(join(root, `messages/pages/${loc}/${file}`), JSON.stringify(data, null, 2) + "\n");
   }
 
-  console.log(loc, "model-a/nyuma/nyuma-x translated via string match");
+  console.log(loc, "glyde/nyuma/nyuma-x translated via string match");
 }
 
 console.log("translate-product-pages-by-match done");

@@ -158,7 +158,7 @@
     },
     {
       "question": "How is Model-B different from the Model-A Automatic Solar Panel Cleaning Robot?",
-      "answer": "Model-A is a fully autonomous robot that is permanently assigned to a specific array and runs daily cleaning cycles without any human intervention, ideal for large utility-scale plants where labour is the bottleneck. Model-B is a semi-automatic, pick-and-place robot operated by a small two-person team across multiple arrays, ideal for scattered, irregular, smaller or rooftop plants where the capex of a per-array robot isn't justified. Both robots are waterless, AI-driven and managed from the same Taypro Console portal."
+      "answer": "Model-A is a fully autonomous robot that is permanently assigned to a specific array and runs daily cleaning cycles without any human intervention, ideal for large utility-scale plants where labour is the bottleneck. Model-B is a semi-automatic, pick-and-place robot operated by a small two-person team across multiple arrays, ideal for scattered, irregular, smaller or rooftop plants where the capex of a per-array robot isn't justified. Both robots are waterless, AI-driven and managed from the same NECTYR portal."
     },
     {
       "question": "How big a solar plant can Model-B clean in a day?",

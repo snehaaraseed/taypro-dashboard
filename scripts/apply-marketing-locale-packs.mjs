@@ -19,12 +19,12 @@ const locales = ["hi", "ar", "ja", "bn"];
 const SKIP = new Set([]);
 
 const SHARED_BY_SLUG = {
-  "model-a": "ModelAPage",
-  "model-b": "ModelBPage",
-  "model-t": "ModelTPage",
+  "glyde": "GlydePage",
+  "helyx": "HelyxPage",
+  "glyde-x": "GlydeXPage",
   nyuma: "NyumaPage",
   "nyuma-x": "NyumaXPage",
-  "taypro-console": "TayproConsolePage",
+  "nectyr": "NectyrPage",
 };
 
 function applyPackToFile(loc, slug, pack) {

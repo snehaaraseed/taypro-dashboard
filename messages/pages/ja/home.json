@@ -136,8 +136,8 @@
     "whyTaypro": {
       "eyebrow": "大規模オペレーターがTayproを選ぶ理由",
       "heading": "リターンは運用で決まる, パネル設備費だけではない",
-      "bodyBeforeConsole": "ロボットからフリートソフトまで一つのパートナー, 発電回復、水・労務リスク低減、全ブロックを",
-      "consoleLink": "NECTYR",
+      "bodyBeforeNectyr": "ロボットからフリートソフトまで一つのパートナー, 発電回復、水・労務リスク低減、全ブロックを",
+      "nectyrLink": "NECTYR",
       "bodyBetween": "で監視できるフリートに。現場で",
       "cleaningTechLink": "デュアルパス乾式洗浄",
       "bodyAfter": "が機能するか。"

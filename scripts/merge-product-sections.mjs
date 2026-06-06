@@ -37,13 +37,13 @@ function deepMerge(target, source) {
 }
 
 const pageConfig = {
-  "model-b": {
-    pageKey: "ModelBPage",
+  "helyx": {
+    pageKey: "HelyxPage",
     sections: modelBSections,
     mergeMisc: true,
   },
-  "model-t": {
-    pageKey: "ModelTPage",
+  "glyde-x": {
+    pageKey: "GlydeXPage",
     sections: modelTSections,
     mergeMisc: true,
   },
@@ -64,7 +64,7 @@ for (const [slug, cfg] of Object.entries(pageConfig)) {
   if (cfg.mergeMisc) {
     page.misc = {
       ...page.misc,
-      modelCardsTitle: cfg.sections.modelCardsTitle,
+      productCardsTitle: cfg.sections.productCardsTitle,
       callbackLine1: cfg.sections.callbackCard?.line1,
       callbackLine2: cfg.sections.callbackCard?.line2,
       faqTitle: cfg.sections.faqSection?.title,
@@ -74,7 +74,7 @@ for (const [slug, cfg] of Object.entries(pageConfig)) {
   } else {
     page.misc = {
       ...page.misc,
-      modelCardsTitle: cfg.sections.modelCardsTitle,
+      productCardsTitle: cfg.sections.productCardsTitle,
       projectsHeader: cfg.sections.projectsHeader,
       faqTitle: cfg.sections.faqSection?.title,
       faqSubtitle: cfg.sections.faqSection?.subtitle,

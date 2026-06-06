@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Finish remaining hi/ar/ja/bn translations for model-a, orion, nyuma-x.
+ * Finish remaining hi/ar/ja/bn translations for glyde, orion, nyuma-x.
  */
 import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
@@ -193,7 +193,7 @@ const modelACertifications = {
   },
 };
 
-const modelAModelCards = {
+const modelAProductCards = {
   ar: {
     title: "هل تبحث عن المزيد من الحلول؟",
     cardTitleTemplate: "{label} روبوت تنظيف ألواح شمسية",
@@ -295,9 +295,9 @@ const nyumaXRoiBand = {
 };
 
 function patchModelA(loc) {
-  const path = join(root, `messages/pages/${loc}/model-a.json`);
+  const path = join(root, `messages/pages/${loc}/glyde.json`);
   const data = JSON.parse(readFileSync(path, "utf8"));
-  const page = data.ModelAPage;
+  const page = data.GlydePage;
 
   page.hero.title = modelAHeroTitle[loc];
   page.hero.h1Line1 = modelAH1Line1[loc];
@@ -315,8 +315,8 @@ function patchModelA(loc) {
       Object.assign(page.certifications.cards[card], vals);
     }
   }
-  if (modelAModelCards[loc]) {
-    Object.assign(page.modelCards, modelAModelCards[loc]);
+  if (modelAProductCards[loc]) {
+    Object.assign(page.glydeCards, modelAProductCards[loc]);
   }
   if (modelARoiAfterSpan[loc]) {
     page.roiBand.bodyAfterSpan = modelARoiAfterSpan[loc];

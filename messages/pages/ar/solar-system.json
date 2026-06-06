@@ -65,7 +65,7 @@
           "tayproOpex": {
             "description": "Opex بالدفع لكل لوحة منظفة, Taypro يشغّل أسطول الروبوتات دون CAPEX مقدم."
           },
-          "tayproConsole": {
+          "nectyr": {
             "description": "بوابة الأسطول لجدولة ومراقبة والتقارير عن روبوتات التنظيف في موقعك."
           },
           "miny": {
@@ -200,15 +200,15 @@
       "title": "الرائد في فئة روبوتات تنظيف الألواح الشمسية في الهند",
       "p1": "الغبار والمخلفات الزراعية وفضلات الطيور قد تخفض التوليد 8–25% في محطات الهند. الغسيل اليدوي مكلف ويستهلك الماء. الروبوت المخصص يستعيد الإنتاج وينظف بانتظام بدون ماء.",
       "p2LinkAutomatic": "روبوت GLYDE الأوتوماتيكي",
-      "p2LinkModelB": "HELYX",
-      "p2LinkModelT": "GLYDE-X",
-      "p2LinkConsole": "NECTYR",
+      "p2LinkHelyx": "HELYX",
+      "p2LinkGlydeX": "GLYDE-X",
+      "p2LinkNectyr": "NECTYR",
       "p2LinkOpex": "Taypro Opex",
       "p2BeforeLinks": "Taypro مصنع أنظمة تنظيف روبوتية Made in India. يشمل خطنا ",
       "p2BetweenAB": "، وشبه أوتوماتيكي ",
       "p2BetweenBT": " للمحطات المبعثرة، وجاهز للمتتبع ",
       "p2AfterT": " لتركيبات المحور الواحد. كل روبوت يُراقب عبر ",
-      "p2AfterConsole": " وانشر كـ CAPEX أو خدمة شهرية ",
+      "p2AfterNectyr": " وانشر كـ CAPEX أو خدمة شهرية ",
       "p2AfterOpex": ".",
       "p3BlogMaintenance": "دليل صيانة الألواح الشمسية",
       "p3BlogRobotDef": "ما يعرّف روبوت تنظيف الألواح الشمسية",
@@ -223,7 +223,7 @@
       "p2BetweenHelyxTracker": " للمحطات المبعثرة، جاهز للمتتبع ",
       "p2BetweenTrackers": " و ",
       "p2AfterTrackers": " لتركيبات المحور الواحد. تعرف على ",
-      "p2BeforeConsole": " وكيف يعمل، ثم راقب كل روبوت عبر "
+      "p2BeforeNectyr": " وكيف يعمل، ثم راقب كل روبوت عبر "
     },
     "productGrid": {
       "eyebrow": "خط روبوتاتنا",
@@ -270,7 +270,7 @@
           "bullet1": "دراسة تلوث + 3–10 دورات شهرياً",
           "bullet2": "تشغيل من TAYPRO Private Limited"
         },
-        "tayproConsole": {
+        "nectyr": {
           "eyebrow": "برمجيات · بوابة الأسطول",
           "bullet0": "لوحات وجداول وسجلات وتصدير",
           "bullet1": "رؤية صحة البوابة والروبوت",
@@ -528,7 +528,7 @@
       "imageAlt": "روبوت تنظيف في مزرعة شمسية هندية, استعادة الإنتاج المفقود",
       "imageTitle": "روبوت Taypro في محطة على نطاق المرافق"
     },
-    "consoleBand": {
+    "nectyrBand": {
       "eyebrow": "NECTYR, بوابة الأسطول",
       "title": "بوابة واحدة لمراقبة كل روبوتات التنظيف في محطتك",
       "body": "لوحات وطقس وجداول وسجلات وتصدير وصحة الروبوت والبوابة وتذاكر, وصول حسب الأدوار لحوكمة O&M.",

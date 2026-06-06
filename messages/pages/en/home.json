@@ -173,8 +173,8 @@
     "whyTaypro": {
       "eyebrow": "Why utility-scale operators choose Taypro",
       "heading": "Returns are won in operations, not panel capex alone",
-      "bodyBeforeConsole": "One accountable partner from robot to fleet software: recover generation, cut water and labour risk, and monitor every block on",
-      "consoleLink": "NECTYR",
+      "bodyBeforeNectyr": "One accountable partner from robot to fleet software: recover generation, cut water and labour risk, and monitor every block on",
+      "nectyrLink": "NECTYR",
       "bodyBetween": ". See how",
       "cleaningTechLink": "dual-pass dry cleaning",
       "bodyAfter": "works in the field."

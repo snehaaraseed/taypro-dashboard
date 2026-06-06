@@ -12,7 +12,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({
     locale,
-    namespace: "TayproConsolePage.meta",
+    namespace: "NectyrPage.meta",
   });
 
   return withHreflang(
@@ -64,7 +64,7 @@ export async function generateMetadata({
   );
 }
 
-export default function TayproConsoleLayout({
+export default function NectyrLayout({
   children,
 }: {
   children: React.ReactNode;

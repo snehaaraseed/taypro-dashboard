@@ -52,8 +52,8 @@
       "communityEyebrow": "コミュニティ",
       "communityHeading": "持続可能なエネルギーは、当社の企業責任であり社会への義務です。",
       "communityBody": "手頃な電力に依存するコミュニティのために、そして砂嵐・モンスーン・夏季ピーク負荷の中で発電所を稼働させる現場チームのために設計しています。",
-      "modelTImageAlt": "Taypro単軸トラッカー用ソーラーパネル洗浄ロボットGLYDE-Xがソーラーアレイ上で稼働",
-      "modelTImageTitle": "Taypro単軸トラッカー用ソーラーパネル洗浄ロボット GLYDE-X"
+      "glydeXImageAlt": "Taypro単軸トラッカー用ソーラーパネル洗浄ロボットGLYDE-Xがソーラーアレイ上で稼働",
+      "glydeXImageTitle": "Taypro単軸トラッカー用ソーラーパネル洗浄ロボット GLYDE-X"
     },
     "story": {
       "heading": "企業ストーリー、ビジョン、ミッション",
@@ -82,20 +82,20 @@
       "viewRobot": "{model}を見る →",
       "robotImageAlt": "{model}, Tayproソーラーパネル洗浄ロボット",
       "robots": {
-        "modelA": "完全自律の水なしドライ洗浄, デュアルパス気流とマイクロファイバー, 固定・季節傾斜ユーティリティ向けAIスケジューリング。",
-        "modelB": "散在ブロックや柔軟なクルー支援カバレッジが必要な発電所向けのポータブルピック＆プレースドライ洗浄ロボット。",
-        "modelT": "単軸トラッカー向け自律型水なしロボット, 柔軟なブリッジとトラッカーブランド間360°回転。",
+        "glyde": "完全自律の水なしドライ洗浄, デュアルパス気流とマイクロファイバー, 固定・季節傾斜ユーティリティ向けAIスケジューリング。",
+        "helyx": "散在ブロックや柔軟なクルー支援カバレッジが必要な発電所向けのポータブルピック＆プレースドライ洗浄ロボット。",
+        "glydeX": "単軸トラッカー向け自律型水なしロボット, 柔軟なブリッジとトラッカーブランド間360°回転。",
         "tayproOpex": "パネル清掃あたりのOpex, Tayproが前払いCAPEXなしで発電所の清掃ロボットフリートを運用。",
-        "tayproConsole": "サイト全体のソーラーパネル洗浄ロボットをスケジュール・監視・レポートするフリートポータル。"
+        "nectyr": "サイト全体のソーラーパネル洗浄ロボットをスケジュール・監視・レポートするフリートポータル。"
       }
     },
     "builtForSites": {
       "heading": "実際のソーラーサイト向けに構築",
       "paragraph1": "プラントオペレーターとの長年の共同開発で、「ラボで動く」だけでは不十分だと学びました。Tayproロボットは不均一な地形、トラッカー曲率、RF死角、ユーティリティ規模O&Mのペース向けに設計, ダウンタイム1時間が重要です。",
-      "paragraph2BeforeModelA": "特許デュアルパス洗浄、AI支援スケジューリング、LTE/Wi-Fi/mesh接続、予知保全ワークフローが",
-      "modelALink": "GLYDE",
+      "paragraph2BeforeGlyde": "特許デュアルパス洗浄、AI支援スケジューリング、LTE/Wi-Fi/mesh接続、予知保全ワークフローが",
+      "glydeLink": "GLYDE",
       "paragraph2Middle": "と",
-      "modelTLink": "GLYDE-X",
+      "glydeXLink": "GLYDE-X",
       "paragraph2After": "GLYDEやGLYDE-Xなどのプラットフォームで統合され、資産管理者に汚損損失の測定可能な制御を提供します。",
       "aboutImageAlt": "Taypro自律型ソーラーパネル洗浄ロボットがユーティリティ規模PVアレイ上で稼働",
       "aboutImageTitle": "Tayproソーラーパネル洗浄ロボット技術"
@@ -106,7 +106,7 @@
       "paragraph2Before": "そのエコシステム思考こそが、",
       "paragraph2Middle": "月間製造能力のロボット規模へ拡大し、India全土に",
       "paragraph2AfterWarehouses": "倉庫を確保し、",
-      "consoleLink": "NECTYR",
+      "nectyrLink": "NECTYR",
       "paragraph2End": "NECTYRで監視するフリート向けの同日故障対応などのコミットメントを守る方法です。",
       "about2ImageAlt": "Tayproソーラーパネル洗浄ロボット生産のためのエンジニアリング・製造協業",
       "about2ImageTitle": "Tayproソーラーパネル洗浄ロボット共同開発"

@@ -48,7 +48,7 @@
         "name": "自動ソーラーパネル清掃ロボットがユーティリティ規模プラントを清掃する方法（Taypro NYUMA）",
         "description": "NYUMAの自律清掃サイクル, AIスケジューリング、シングルパスPBT無水清掃、セルフドッキング、クラウドテレメトリ。",
         "totalTime": "PT2H",
-        "imagePath": "/tayproasset/taypro-robotImage.png"
+        "imagePath": "/tayprorobots/nyuma/brush-detail.webp"
       }
     },
     "hero": {
@@ -139,9 +139,9 @@
       }
     },
     "product360": {
-      "eyebrow": "インタラクティブ製品ツアー",
-      "title": "NYUMAの360°ビュー",
-      "subtitle": "左右にドラッグしてロボットをあらゆる角度から確認",
+      "eyebrow": "製品概要",
+      "title": "NYUMAロボットを見る",
+      "subtitle": "固定傾斜・季節傾斜の大規模ソーラー発電所向けに設計された完全自律PBT清掃ロボット",
       "productLabel": "Taypro NYUMA, 自動ソーラーパネル清掃ロボット"
     },
     "usps": {
@@ -284,49 +284,49 @@
       "tableHeaders": {
         "criterion": "基準",
         "manual": "手動",
-        "modelA": "Taypro NYUMA"
+        "robot": "Taypro NYUMA"
       },
       "rows": {
         "row0": {
           "criterion": "清掃頻度",
           "manual": "週次など",
-          "modelA": "毎日の自動サイクル"
+          "robot": "毎日の自動サイクル"
         },
         "row1": {
           "criterion": "水",
           "manual": "多い",
-          "modelA": "ゼロ・無水シングルパスPBT"
+          "robot": "ゼロ・無水シングルパスPBT"
         },
         "row2": {
           "criterion": "品質",
           "manual": "ばらつき",
-          "modelA": "毎回99%超"
+          "robot": "毎回99%超"
         },
         "row3": {
           "criterion": "労務・安全",
           "manual": "高コスト",
-          "modelA": "夜間自律"
+          "robot": "夜間自律"
         },
         "row4": {
           "criterion": "PR",
           "manual": "5–25%損失",
-          "modelA": "PR維持・4–8%向上"
+          "robot": "PR維持・4–8%向上"
         },
         "row5": {
           "criterion": "パネル安全",
           "manual": "リスク",
-          "modelA": "フレーム走行のみ"
+          "robot": "フレーム走行のみ"
         },
         "row6": {
           "criterion": "監視",
           "manual": "なし",
-          "modelAPrefix": "NECTYR ",
-          "modelASuffix": "で監査証跡"
+          "nectyrPrefix": "NECTYR ",
+          "nectyrSuffix": "で監査証跡"
         },
         "row7": {
           "criterion": "TCO",
           "manual": "繰り返し費用",
-          "modelA": "12–18ヶ月回収・20年設計"
+          "robot": "12–18ヶ月回収・20年設計"
         }
       }
     },
@@ -353,13 +353,13 @@
         }
       },
       "crossSellLead": "関連O&Mは ",
-      "linkModelB": "半自動清掃ロボット（HELYX）",
+      "linkHelyx": "半自動清掃ロボット（HELYX）",
       "linkBetweenBAndT": "、",
-      "linkModelT": "単軸トラッカーロボット（NYUMA）",
+      "linkNyumaX": "単軸トラッカーロボット（NYUMA）",
       "linkBetweenTAndOpex": "、",
       "linkOpex": "Taypro OPEX清掃サービス",
-      "linkBetweenOpexAndConsole": " または ",
-      "linkConsole": "NECTYR監視アプリ",
+      "linkBetweenOpexAndNectyr": " または ",
+      "linkNectyr": "NECTYR監視アプリ",
       "crossSellSuffix": "。"
     },
     "specifications": {
@@ -532,7 +532,7 @@
           "answer": "NECTYRポータルでスケジュール・速度・フリート。"
         }
       },
-      "modelASpecific": {
+      "productSpecific": {
         "item0": {
           "question": "NYUMAのようなロボットの価格は？",
           "answer": "規模・レイアウト・地形次第。多くは12–18ヶ月回収。見積を。"
@@ -563,11 +563,11 @@
         }
       }
     },
-    "modelCards": {
+    "productCards": {
       "title": "他のソリューションをお探しですか？",
       "cardLabels": {
-        "modelB": "HELYX",
-        "modelT": "NYUMA"
+        "helyx": "HELYX",
+        "nyumaX": "NYUMA-X"
       },
       "cardTitleTemplate": "{label} ソーラーパネル清掃ロボット"
     }

@@ -48,7 +48,7 @@
         "name": "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট ইউটিলিটি-স্কেল প্ল্যান্ট কীভাবে পরিষ্কার করে (Taypro NYUMA)",
         "description": "NYUMA-এর স্বায়ত্তশাসিত পরিষ্কার চক্র, AI শিডিউলিং, সিঙ্গল-পাস PBT জলবিহীন পরিষ্কার, সেল্ফ-ডকিং ও ক্লাউড টেলিমেট্রি।",
         "totalTime": "PT2H",
-        "imagePath": "/tayproasset/taypro-robotImage.png"
+        "imagePath": "/tayprorobots/nyuma/brush-detail.webp"
       }
     },
     "hero": {
@@ -139,9 +139,9 @@
       }
     },
     "product360": {
-      "eyebrow": "ইন্টারঅ্যাকটিভ পণ্য ট্যুর",
-      "title": "NYUMA-এর 360° ভিউ",
-      "subtitle": "বাম বা ডানে টেনে রোবটটি প্রতিটি কোণ থেকে দেখুন",
+      "eyebrow": "পণ্য সংক্ষিপ্ত বিবরণ",
+      "title": "NYUMA রোবট দেখুন",
+      "subtitle": "ফিক্সড-টিল্ট ও সিজনাল-টিল্ট ইউটিলিটি-স্কেল সোলার প্ল্যান্টের জন্য তৈরি সম্পূর্ণ স্বায়ত্তশাসিত PBT পরিষ্কার রোবট",
       "productLabel": "Taypro NYUMA, অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট"
     },
     "usps": {
@@ -284,49 +284,49 @@
       "tableHeaders": {
         "criterion": "মানদণ্ড",
         "manual": "ম্যানুয়াল",
-        "modelA": "Taypro NYUMA"
+        "robot": "Taypro NYUMA"
       },
       "rows": {
         "row0": {
           "criterion": "ফ্রিকোয়েন্সি",
           "manual": "সাপ্তাহিক",
-          "modelA": "দৈনিক অটো"
+          "robot": "দৈনিক অটো"
         },
         "row1": {
           "criterion": "জল",
           "manual": "উচ্চ",
-          "modelA": "শূন্য, জলবিহীন"
+          "robot": "শূন্য, জলবিহীন"
         },
         "row2": {
           "criterion": "মান",
           "manual": "অসঙ্গত",
-          "modelA": "৯৯%+ প্রতিবার"
+          "robot": "৯৯%+ প্রতিবার"
         },
         "row3": {
           "criterion": "শ্রম",
           "manual": "ব্যয়বহুল",
-          "modelA": "স্বায়ত্তশাসিত রাত"
+          "robot": "স্বায়ত্তশাসিত রাত"
         },
         "row4": {
           "criterion": "PR",
           "manual": "৫–২৫% ক্ষতি",
-          "modelA": "PR রক্ষা"
+          "robot": "PR রক্ষা"
         },
         "row5": {
           "criterion": "প্যানেল",
           "manual": "ঝুঁকি",
-          "modelA": "ফ্রেমে চলা"
+          "robot": "ফ্রেমে চলা"
         },
         "row6": {
           "criterion": "মনিটরিং",
           "manual": "নেই",
-          "modelAPrefix": "NECTYR ",
-          "modelASuffix": ", সম্পূর্ণ অডিট"
+          "nectyrPrefix": "NECTYR ",
+          "nectyrSuffix": ", সম্পূর্ণ অডিট"
         },
         "row7": {
           "criterion": "TCO",
           "manual": "পুনরাবৃত্ত",
-          "modelA": "১২–১৮ মাস পেব্যাক"
+          "robot": "১২–১৮ মাস পেব্যাক"
         }
       }
     },
@@ -353,13 +353,13 @@
         }
       },
       "crossSellLead": "সংলগ্ন O&M? দেখুন ",
-      "linkModelB": "অর্ধ-স্বয়ংক্রিয় রোবট (HELYX)",
+      "linkHelyx": "অর্ধ-স্বয়ংক্রিয় রোবট (HELYX)",
       "linkBetweenBAndT": ", ",
-      "linkModelT": "সিঙ্গল-অ্যাক্সিস ট্র্যাকার রোবট (NYUMA)",
+      "linkNyumaX": "সিঙ্গল-অ্যাক্সিস ট্র্যাকার রোবট (NYUMA)",
       "linkBetweenTAndOpex": ", ",
       "linkOpex": "Taypro OPEX পরিষ্কার সেবা",
-      "linkBetweenOpexAndConsole": " বা ",
-      "linkConsole": "NECTYR মনিটরিং অ্যাপ",
+      "linkBetweenOpexAndNectyr": " বা ",
+      "linkNectyr": "NECTYR মনিটরিং অ্যাপ",
       "crossSellSuffix": "।"
     },
     "specifications": {
@@ -532,7 +532,7 @@
           "answer": "NECTYR পোর্টালে চক্র, গতি ও ফ্লিট।"
         }
       },
-      "modelASpecific": {
+      "productSpecific": {
         "item0": {
           "question": "NYUMA-এর মতো রোবটের দাম?",
           "answer": "প্ল্যান্ট আকার, লেআউট, ভূখণ্ডে নির্ভর। ১২–১৮ মাস পেব্যাক। কোটেশন নিন।"
@@ -563,11 +563,11 @@
         }
       }
     },
-    "modelCards": {
+    "productCards": {
       "title": "আরও সমাধান খুঁজছেন?",
       "cardLabels": {
-        "modelB": "HELYX",
-        "modelT": "NYUMA"
+        "helyx": "HELYX",
+        "nyumaX": "NYUMA-X"
       },
       "cardTitleTemplate": "{label} সোলার প্যানেল ক্লিনিং রোবোট"
     }

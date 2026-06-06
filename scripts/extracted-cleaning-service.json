@@ -6,7 +6,7 @@
     },
     {
       "question": "How does billing work on Taypro OPEX?",
-      "answer": "Commercial terms are structured around verified panel-cleaning volume: you are charged for the number of panels cleaned in each monthly settlement cycle, aligned with Taypro Console telemetry and agreed reconciliation rules. This keeps your OPEX aligned directly to delivered cleaning outcomes rather than idle asset time."
+      "answer": "Commercial terms are structured around verified panel-cleaning volume: you are charged for the number of panels cleaned in each monthly settlement cycle, aligned with NECTYR telemetry and agreed reconciliation rules. This keeps your OPEX aligned directly to delivered cleaning outcomes rather than idle asset time."
     },
     {
       "question": "How do you decide how many cleaning cycles my plant needs each month?",
@@ -14,11 +14,11 @@
     },
     {
       "question": "What deliverables do I receive beyond the cleaning itself?",
-      "answer": "Every Taypro OPEX engagement includes a written cleaning plan and standard operating procedure: when robots move, which arrays and paths they follow, where they pause in idle conditions, and where dedicated robot parking and charging / rest zones are located on site. You also receive detailed cleaning reports, available for each run and summarised monthly, through the Taypro Console, including cycle completion, route coverage, exceptions, and fleet health data where connectivity is provided via LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, or LoRaWAN."
+      "answer": "Every Taypro OPEX engagement includes a written cleaning plan and standard operating procedure: when robots move, which arrays and paths they follow, where they pause in idle conditions, and where dedicated robot parking and charging / rest zones are located on site. You also receive detailed cleaning reports, available for each run and summarised monthly, through the NECTYR, including cycle completion, route coverage, exceptions, and fleet health data where connectivity is provided via LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, or LoRaWAN."
     },
     {
       "question": "Which robot models can Taypro deploy under OPEX?",
-      "answer": "We match the robot platform to your plant architecture and economics. Fixed-tilt and large utility blocks typically use the Automatic Solar Panel Cleaning Robot (Model-A). Scattered blocks or pick-and-place workflows may use Model-B. Single-axis tracker sites use Model-T. The same Taypro Console stack is used across models for scheduling, reporting, and service coordination."
+      "answer": "We match the robot platform to your plant architecture and economics. Fixed-tilt and large utility blocks typically use the Automatic Solar Panel Cleaning Robot (Model-A). Scattered blocks or pick-and-place workflows may use Model-B. Single-axis tracker sites use Model-T. The same NECTYR stack is used across models for scheduling, reporting, and service coordination."
     },
     {
       "question": "Is Taypro OPEX only for very large plants?",
@@ -40,7 +40,7 @@
     },
     {
       "name": "Mobilisation & operator deployment",
-      "text": "Dedicated trained operators are stationed or rotated to your site to run the fleet safely alongside your existing O&M rhythm. They execute the approved SOP, coordinate with your control room, and escalate anomalies through Taypro Console."
+      "text": "Dedicated trained operators are stationed or rotated to your site to run the fleet safely alongside your existing O&M rhythm. They execute the approved SOP, coordinate with your control room, and escalate anomalies through NECTYR."
     },
     {
       "name": "Execute scheduled waterless dry cleaning cycles",
@@ -48,7 +48,7 @@
     },
     {
       "name": "Reporting & monthly panel-cleaning reconciliation",
-      "text": "Each cycle produces structured telemetry and cleaning reports in Taypro Console (connectivity via LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, or LoRaWAN as designed for your site). At month-end, billable volume is reconciled against verified panels cleaned under the contract formula."
+      "text": "Each cycle produces structured telemetry and cleaning reports in NECTYR (connectivity via LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, or LoRaWAN as designed for your site). At month-end, billable volume is reconciled against verified panels cleaned under the contract formula."
     }
   ],
   "plantStudyFactors": [

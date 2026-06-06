@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * One-off: rebrand EN product message files (Model-A/B/T → GLYDE/HELYX/GLYDE-X).
- * Does not rename JSON keys (ModelAPage, modelA, etc.).
+ * Does not rename JSON keys (GlydePage, modelA, etc.).
  */
 import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
@@ -17,8 +17,8 @@ function apply(path, rules) {
   console.log("updated", path);
 }
 
-// GLYDE (was model-a)
-apply("messages/pages/en/model-a.json", [
+// GLYDE (was glyde)
+apply("messages/pages/en/glyde.json", [
   [/Taypro Model-A/g, "Taypro GLYDE"],
   [/Model-A(?= [a-z])/g, "GLYDE"],
   [/Model-A(?=\s)/g, "GLYDE"],
@@ -42,8 +42,8 @@ apply("messages/pages/en/model-a.json", [
   [/2-panel/gi, "fixed-tilt"],
 ]);
 
-// HELYX (was model-b)
-apply("messages/pages/en/model-b.json", [
+// HELYX (was helyx)
+apply("messages/pages/en/helyx.json", [
   [/Taypro Model-B/g, "Taypro HELYX"],
   [/Model-B\b/g, "HELYX"],
   [/Model-A\b/g, "GLYDE"],
@@ -54,8 +54,8 @@ apply("messages/pages/en/model-b.json", [
   [/2-panel/gi, "fixed-tilt"],
 ]);
 
-// GLYDE-X (was model-t)
-apply("messages/pages/en/model-t.json", [
+// GLYDE-X (was glyde-x)
+apply("messages/pages/en/glyde-x.json", [
   [/Taypro Model-T/g, "Taypro GLYDE-X"],
   [/Model-T\b/g, "GLYDE-X"],
   [/Model-A\b/g, "GLYDE"],

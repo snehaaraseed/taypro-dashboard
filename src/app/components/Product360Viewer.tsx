@@ -4,17 +4,17 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { publicAssetUrl } from "@/lib/public-asset-url";
 
 interface Product360ViewerProps {
-  imagePath: string; // Base path like "/360-degree-images/Model-A/MODEL-A"
-  imageCount: number; // Total number of images (61 for Model-A)
+  imagePath: string; // Base path like "/360-degree-images/glyde/glyde-"
+  imageCount: number; // Total number of images (61 for GLYDE)
   imagePrefix?: string; // Prefix before number, default: ""
   imageSuffix?: string; // Suffix after number, default: ".png"
-  startIndex?: number; // Starting index (e.g., 100 for MODEL-A-0100)
+  startIndex?: number; // Starting index (e.g., 100 for glyde-0100)
   width?: number;
   height?: number;
   className?: string;
   /**
    * Human-readable label used in the `alt` text for each rendered frame.
-   * Example: "Taypro Model-A, Automatic Solar Panel Cleaning Robot".
+   * Example: "Taypro GLYDE — Automatic Solar Panel Cleaning Robot".
    * Falls back to a generic "Taypro Solar Panel Cleaning Robot" label.
    */
   productLabel?: string;

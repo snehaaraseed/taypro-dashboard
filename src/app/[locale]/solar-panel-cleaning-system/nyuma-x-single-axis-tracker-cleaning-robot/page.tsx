@@ -18,7 +18,7 @@ import { nyumaXCards, tayproTrustedByStatsStrip } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import { projectFilterForPage } from "@/lib/cms/project-page-filters";
-import ModelCards from "@/app/components/ModelCards";
+import ProductCards from "@/app/components/ProductCards";
 import ClientsCard from "@/app/components/ClientsCard";
 import HeroSection from "@/app/components/Herosection";
 import EnergyResourceCard from "@/app/components/EnergyResourceCard";
@@ -26,7 +26,7 @@ import CallbackCard from "@/app/components/CallbackCard";
 import { FaqSection } from "@/app/components/FaqSection";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
-import Product360Viewer from "@/app/components/Product360Viewer";
+import ProductStaticShowcase from "@/app/components/ProductStaticShowcase";
 import {
   ProductSchema,
   FAQPageSchema,
@@ -36,8 +36,15 @@ import { Container } from "@/app/components/Container";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import { PerformanceMethodologyFootnote } from "@/app/components/PerformanceMethodologyLink";
 import { PerformanceMethodologyNotice } from "@/app/components/PerformanceMethodologyNotice";
+import {
+  getProductHeroLayout,
+  getProductImageUrl,
+  productPageImages,
+} from "@/lib/products/product-page-images";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const nyumaXImages = productPageImages("nyumaX");
+const nyumaXHeroLayout = getProductHeroLayout("nyumaX");
 
 const USP_ICONS = [
   Compass,
@@ -76,7 +83,7 @@ const MANUAL_VS_ROW_KEYS = [
   "row6",
   "row7",
 ] as const;
-const MODEL_T_VS_A_ROW_KEYS = [
+const NYUMA_X_VS_NYUMA_ROW_KEYS = [
   "row0",
   "row1",
   "row2",
@@ -106,7 +113,7 @@ export default async function NyumaXTrackerCleaningRobotPage({
     { name: t("breadcrumbs.current"), href: "" },
   ];
 
-  const modelTUsps = Array.from({ length: USP_COUNT }, (_, i) => ({
+  const nyumaXUsps = Array.from({ length: USP_COUNT }, (_, i) => ({
     icon: USP_ICONS[i],
     title: t(`usps.${i}.title`),
     description:
@@ -115,24 +122,24 @@ export default async function NyumaXTrackerCleaningRobotPage({
         : t(`usps.${i}.description`),
   }));
 
-  const modelTFeatures = Array.from({ length: FEATURE_COUNT }, (_, i) => ({
+  const nyumaXFeatures = Array.from({ length: FEATURE_COUNT }, (_, i) => ({
     icon: FEATURE_ICONS[i],
     title: t(`features.${i}.title`),
     body: t(`features.${i}.body`),
   }));
 
-  const modelTSpecs = Array.from({ length: SPEC_COUNT }, (_, i) => ({
+  const nyumaXSpecs = Array.from({ length: SPEC_COUNT }, (_, i) => ({
     label: t(`specs.${i}.label`),
     value: t(`specs.${i}.value`, { connectivity }),
   }));
 
-  const modelTSteps = Array.from({ length: STEP_COUNT }, (_, i) => ({
+  const nyumaXSteps = Array.from({ length: STEP_COUNT }, (_, i) => ({
     name: t(`steps.${i}.name`),
     text:
       i === 5 ? t(`steps.${i}.text`, { connectivity }) : t(`steps.${i}.text`),
   }));
 
-  const modelTFaqs = Array.from({ length: FAQ_COUNT }, (_, i) => ({
+  const nyumaXFaqs = Array.from({ length: FAQ_COUNT }, (_, i) => ({
     question: t(`faqs.${i}.question`),
     answer:
       i === 9 ? t(`faqs.${i}.answer`, { connectivity }) : t(`faqs.${i}.answer`),
@@ -141,19 +148,19 @@ export default async function NyumaXTrackerCleaningRobotPage({
   const manualVsRows = MANUAL_VS_ROW_KEYS.map((key) => ({
     criterion: t(`manualVsRobotic.${key}.criterion`),
     manual: t(`manualVsRobotic.${key}.manual`),
-    modelT: t(`manualVsRobotic.${key}.modelT`),
+    robot: t(`manualVsRobotic.${key}.robot`),
   }));
 
-  const modelTvsModelARows = MODEL_T_VS_A_ROW_KEYS.map((key) => ({
-    criterion: t(`modelTvsModelA.${key}.criterion`),
-    modelT:
+  const nyumaXVsNyumaRows = NYUMA_X_VS_NYUMA_ROW_KEYS.map((key) => ({
+    criterion: t(`nyumaXVsNyuma.${key}.criterion`),
+    nyumaX:
       key === "row7"
-        ? t(`modelTvsModelA.${key}.modelT`, { connectivity })
-        : t(`modelTvsModelA.${key}.modelT`),
-    modelA:
+        ? t(`nyumaXVsNyuma.${key}.nyumaX`, { connectivity })
+        : t(`nyumaXVsNyuma.${key}.nyumaX`),
+    nyuma:
       key === "row7"
-        ? t(`modelTvsModelA.${key}.modelA`, { connectivity })
-        : t(`modelTvsModelA.${key}.modelA`),
+        ? t(`nyumaXVsNyuma.${key}.nyuma`, { connectivity })
+        : t(`nyumaXVsNyuma.${key}.nyuma`),
   }));
 
   const certificationCards = CERT_CARD_KEYS.map((key) => ({
@@ -178,22 +185,22 @@ export default async function NyumaXTrackerCleaningRobotPage({
       <ProductSchema
         name={t("schema.productName")}
         description={t("schema.productDescription", { connectivity })}
-        image={`${siteUrl}/tayprorobots/taypro-modelT-img.png`}
+        image={getProductImageUrl("nyumaX", siteUrl)}
         brand="Taypro"
-        sku="MODEL-T"
+        sku="NYUMA-X"
         offers={{
           price: t("schema.offersPrice"),
           priceCurrency: "INR",
           availability: "https://schema.org/InStock",
         }}
       />
-      <FAQPageSchema faqs={modelTFaqs} />
+      <FAQPageSchema faqs={nyumaXFaqs} />
       <HowToSchema
         name={t("schema.howToName")}
         description={t("schema.howToDescription")}
-        steps={modelTSteps}
+        steps={nyumaXSteps}
         totalTime="PT2H"
-        image="/tayprorobots/taypro-modelT-img.png"
+        image={nyumaXImages.schema}
       />
 
       <div className="min-h-screen overflow-x-hidden">
@@ -206,8 +213,10 @@ export default async function NyumaXTrackerCleaningRobotPage({
               {t("hero.subtitleAfter")}
             </>
           }
-          imgSrc="/tayprorobots/taypro-modelT-img.png"
+          imgSrc={nyumaXImages.hero}
           imgAlt={t("hero.imgAlt")}
+          imageAspectRatio={nyumaXHeroLayout.aspectRatio}
+          imagePresentation={nyumaXHeroLayout.presentation}
           ctaHref="/contact"
           ctaText={t("hero.ctaText")}
         />
@@ -262,14 +271,14 @@ export default async function NyumaXTrackerCleaningRobotPage({
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
                     className="text-[#A8C117] hover:underline"
                   >
-                    {t("overview.linkModelA")}
+                    {t("overview.linkGlyde")}
                   </Link>
                   {t("overview.p4Mid")}
                   <Link
                     href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
                     className="text-[#A8C117] hover:underline"
                   >
-                    {t("overview.linkModelB")}
+                    {t("overview.linkHelyx")}
                   </Link>
                   {t("overview.p4Suffix")}
                 </div>
@@ -292,112 +301,24 @@ export default async function NyumaXTrackerCleaningRobotPage({
           </Container>
         </section>
 
-        {/* 360° + Innovation panel, preserved from old design */}
-        <section
-          className="w-full py-20 bg-white"
-          style={{
-            background: "url('/tayprobglayout/taypro-semi.png') repeat",
-            backgroundSize: "auto",
-          }}
-        >
-          <Container>
-            <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
-              <div className="text-[#A8C117] text-md font-medium mb-6">
-                {t("innovation360.badge")}
-              </div>
-              <h2 className="text-[#052638] font-semibold text-3xl md:text-4xl lg:text-5xl leading-tight max-w-4xl mx-auto">
-                {t("innovation360.title")}
-              </h2>
-            </AnimateOnScroll>
+        <ProductStaticShowcase
+          imageSrc={nyumaXImages.hero}
+          imageAlt={t("innovation360.productLabel")}
+          imageAspectRatio={nyumaXHeroLayout.aspectRatio}
+          eyebrow={t("innovation360.tourEyebrow")}
+          title={t("innovation360.tourTitle")}
+          subtitle={t("innovation360.tourSubtitleDesktop")}
+          tourEyebrow={t("innovation360.tourEyebrow")}
+          tourTitle={t("innovation360.tourTitle")}
+          tourSubtitleMobile={t("innovation360.tourSubtitleMobile")}
+          tourSubtitleDesktop={t("innovation360.tourSubtitleDesktop")}
+          sectionBadge={t("innovation360.badge")}
+          sectionTitle={t("innovation360.title")}
+          innovationTitle={t("innovation360.innovationTitle")}
+          innovationBody={t("innovation360.innovationBody")}
+        />
 
-            {/* Mobile Layout */}
-            <div className="block lg:hidden">
-              <AnimateOnScroll animation="fadeInUp" delay={100} className="mb-6">
-                <div className="text-center mb-8">
-                  <div className="text-[#A8C117] text-xl sm:text-2xl font-medium mb-2">
-                    {t("innovation360.tourEyebrow")}
-                  </div>
-                  <h3 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-4">
-                    {t("innovation360.tourTitle")}
-                  </h3>
-                  <div className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
-                    {t("innovation360.tourSubtitleMobile")}
-                  </div>
-                </div>
-                <div className="w-full max-w-2xl mx-auto">
-                  <Product360Viewer
-                    imagePath="/360-degree-images/Model-T/0001-MT-2000-1224-"
-                    imageCount={51}
-                    imagePrefix=""
-                    imageSuffix=".png"
-                    startIndex={100}
-                    className="mx-auto"
-                    productLabel={t("innovation360.productLabel")}
-                  />
-                </div>
-              </AnimateOnScroll>
-
-              <AnimateOnScroll
-                animation="fadeInUp"
-                delay={200}
-                className="bg-[#7da300] p-6"
-              >
-                <h3 className="text-white text-start text-xl sm:text-2xl mb-4">
-                  {t("innovation360.innovationTitle")}
-                </h3>
-                <div className="text-white text-start text-sm sm:text-base leading-relaxed">
-                  {t("innovation360.innovationBody")}
-                </div>
-              </AnimateOnScroll>
-            </div>
-
-            {/* Desktop Layout */}
-            <div className="hidden lg:block">
-              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
-                <AnimateOnScroll
-                  animation="fadeInLeft"
-                  delay={100}
-                  className="flex-1 flex flex-col"
-                >
-                  <div className="text-center mb-3">
-                    <h3 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl mb-2">
-                      {t("innovation360.tourTitle")}
-                    </h3>
-                    <div className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto mb-4">
-                      {t("innovation360.tourSubtitleDesktop")}
-                    </div>
-                  </div>
-                  <div className="w-full max-w-2xl">
-                    <Product360Viewer
-                      imagePath="/360-degree-images/Model-T/0001-MT-2000-1224-"
-                      imageCount={51}
-                      imagePrefix=""
-                      imageSuffix=".png"
-                      startIndex={100}
-                      className="mx-auto"
-                      productLabel={t("innovation360.productLabel")}
-                    />
-                  </div>
-                </AnimateOnScroll>
-
-                <AnimateOnScroll
-                  animation="fadeInRight"
-                  delay={200}
-                  className="flex-1 bg-[#7da300] p-6 max-w-lg h-fit self-center"
-                >
-                  <h3 className="text-white text-start text-2xl mb-4">
-                    {t("innovation360.innovationTitle")}
-                  </h3>
-                  <div className="text-white text-start text-md leading-relaxed">
-                    {t("innovation360.innovationBody")}
-                  </div>
-                </AnimateOnScroll>
-              </div>
-            </div>
-          </Container>
-        </section>
-
-        {/* HOW DOES MODEL-T WORK */}
+        {/* HOW GLYDE-X WORKS */}
         <section className="w-full bg-white py-20">
           <Container size="narrow">
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
@@ -413,7 +334,7 @@ export default async function NyumaXTrackerCleaningRobotPage({
             </AnimateOnScroll>
 
             <ol className="space-y-6">
-              {modelTSteps.map((step, idx) => (
+              {nyumaXSteps.map((step, idx) => (
                 <AnimateOnScroll
                   key={step.name}
                   animation="fadeInUp"
@@ -449,7 +370,7 @@ export default async function NyumaXTrackerCleaningRobotPage({
             </AnimateOnScroll>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-              {modelTUsps.map((usp) => {
+              {nyumaXUsps.map((usp) => {
                 const Icon = usp.icon;
                 return (
                   <AnimateOnScroll
@@ -489,7 +410,7 @@ export default async function NyumaXTrackerCleaningRobotPage({
             </AnimateOnScroll>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
-              {modelTFeatures.map((f, featureIndex) => {
+              {nyumaXFeatures.map((f, featureIndex) => {
                 const Icon = f.icon;
                 return (
                   <AnimateOnScroll
@@ -630,7 +551,7 @@ export default async function NyumaXTrackerCleaningRobotPage({
 
         {/* SPECIFICATIONS */}
         <section
-          id="model-t-specs"
+          id="nyuma-x-specs"
           className="w-full bg-white pt-20 pb-10 scroll-mt-24"
         >
           <Container>
@@ -656,7 +577,7 @@ export default async function NyumaXTrackerCleaningRobotPage({
                   </tr>
                 </thead>
                 <tbody className="text-[#052638]">
-                  {modelTSpecs.map((row) => (
+                  {nyumaXSpecs.map((row) => (
                     <tr key={row.label}>
                       <td className="py-3 px-6 border-t text-base font-medium">
                         {row.label}
@@ -701,7 +622,7 @@ export default async function NyumaXTrackerCleaningRobotPage({
                       {t("manualVsRobotic.manual")}
                     </th>
                     <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#A8C117]">
-                      {t("manualVsRobotic.modelT")}
+                      {t("manualVsRobotic.robot")}
                     </th>
                   </tr>
                 </thead>
@@ -715,7 +636,7 @@ export default async function NyumaXTrackerCleaningRobotPage({
                         {row.manual}
                       </td>
                       <td className="py-3 px-4 sm:px-6 border-t text-base align-top">
-                        {row.modelT}
+                        {row.robot}
                       </td>
                     </tr>
                   ))}
@@ -725,7 +646,7 @@ export default async function NyumaXTrackerCleaningRobotPage({
           </Container>
         </section>
 
-        {/* MODEL-T vs MODEL-A COMPARISON */}
+        {/* NYUMA-X vs NYUMA COMPARISON */}
         <section className="w-full bg-white py-20">
           <Container>
             <AnimateOnScroll
@@ -733,13 +654,13 @@ export default async function NyumaXTrackerCleaningRobotPage({
               className="text-center mb-10 sm:mb-14"
             >
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                {t("modelTvsModelA.eyebrow")}
+                {t("nyumaXVsNyuma.eyebrow")}
               </div>
               <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight">
-                {t("modelTvsModelA.title")}
+                {t("nyumaXVsNyuma.title")}
               </h2>
               <div className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mt-6">
-                {t("modelTvsModelA.subtitle")}
+                {t("nyumaXVsNyuma.subtitle")}
               </div>
             </AnimateOnScroll>
 
@@ -748,27 +669,27 @@ export default async function NyumaXTrackerCleaningRobotPage({
                 <thead>
                   <tr className="bg-[#f4f1e9]">
                     <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#052638]">
-                      {t("modelTvsModelA.criterion")}
+                      {t("nyumaXVsNyuma.criterion")}
                     </th>
                     <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#A8C117]">
-                      {t("modelTvsModelA.modelTHeader")}
+                      {t("nyumaXVsNyuma.nyumaXHeader")}
                     </th>
                     <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#052638]">
-                      {t("modelTvsModelA.modelAHeader")}
+                      {t("nyumaXVsNyuma.nyumaHeader")}
                     </th>
                   </tr>
                 </thead>
                 <tbody className="text-[#052638]">
-                  {modelTvsModelARows.map((row) => (
+                  {nyumaXVsNyumaRows.map((row) => (
                     <tr key={row.criterion}>
                       <td className="py-3 px-4 sm:px-6 border-t text-base font-medium align-top">
                         {row.criterion}
                       </td>
                       <td className="py-3 px-4 sm:px-6 border-t text-base align-top">
-                        {row.modelT}
+                        {row.nyumaX}
                       </td>
                       <td className="py-3 px-4 sm:px-6 border-t text-base text-gray-600 align-top">
-                        {row.modelA}
+                        {row.nyuma}
                       </td>
                     </tr>
                   ))}
@@ -778,21 +699,21 @@ export default async function NyumaXTrackerCleaningRobotPage({
 
             <AnimateOnScroll animation="fadeInUp" className="text-center mt-10">
               <div className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto">
-                {t("modelTvsModelA.crossSellLead")}
+                {t("nyumaXVsNyuma.crossSellLead")}
                 <Link
                   href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
                   className="text-[#A8C117] hover:underline"
                 >
-                  {t("modelTvsModelA.linkModelB")}
+                  {t("nyumaXVsNyuma.linkHelyx")}
                 </Link>
-                {t("modelTvsModelA.crossSellMid")}
+                {t("nyumaXVsNyuma.crossSellMid")}
                 <Link
                   href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
                   className="text-[#A8C117] hover:underline"
                 >
-                  {t("modelTvsModelA.linkOpex")}
+                  {t("nyumaXVsNyuma.linkOpex")}
                 </Link>
-                {t("modelTvsModelA.crossSellSuffix")}
+                {t("nyumaXVsNyuma.crossSellSuffix")}
               </div>
             </AnimateOnScroll>
           </Container>
@@ -855,14 +776,14 @@ export default async function NyumaXTrackerCleaningRobotPage({
                   href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
                   className="text-[#A8C117] hover:underline"
                 >
-                  {t("indianConditions.linkModelA")}
+                  {t("indianConditions.linkGlyde")}
                 </Link>
                 {t("indianConditions.linkBetweenAB")}
                 <Link
                   href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
                   className="text-[#A8C117] hover:underline"
                 >
-                  {t("indianConditions.linkModelB")}
+                  {t("indianConditions.linkHelyx")}
                 </Link>
                 {t("indianConditions.linkBetweenBOpex")}
                 <Link
@@ -871,12 +792,12 @@ export default async function NyumaXTrackerCleaningRobotPage({
                 >
                   {t("indianConditions.linkOpex")}
                 </Link>
-                {t("indianConditions.linkBetweenOpexConsole")}
+                {t("indianConditions.linkBetweenOpexAndNectyr")}
                 <Link
                   href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
                   className="text-[#A8C117] hover:underline"
                 >
-                  {t("indianConditions.linkConsole")}
+                  {t("indianConditions.linkNectyr")}
                 </Link>
                 {t("indianConditions.crossSellSuffix")}
               </div>
@@ -898,12 +819,12 @@ export default async function NyumaXTrackerCleaningRobotPage({
           id="nyuma-x-faq-heading"
           title={t("faqSection.title")}
           subtitle={t("faqSection.subtitle")}
-          faqs={modelTFaqs}
+          faqs={nyumaXFaqs}
         />
 
         <ClientsCard />
 
-        <ModelCards title={t("misc.modelCardsTitle")} cards={nyumaXCards} />
+        <ProductCards title={t("misc.productCardsTitle")} cards={nyumaXCards} />
 
         <RequestEstimateForm />
       </div>

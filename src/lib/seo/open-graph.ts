@@ -62,46 +62,31 @@ export const OG_PRESETS = {
     alt: "Taypro solar panel cleaning robot ROI calculator",
   },
   glyde: {
-    path: "/tayprorobots/glyde/glyde-tr150-top-view.png",
+    path: "/tayprorobots/glyde/hero.png",
     alt: "Taypro GLYDE TR-150 automatic solar panel cleaning robot",
   },
   helyx: {
-    path: "/tayprorobots/taypro-helyx-semi-automatic-solar-cleaning-robot.png",
+    path: "/tayprorobots/helyx/hero.png",
     alt: "Taypro HELYX semi-automatic solar panel cleaning robot",
   },
   glydeX: {
-    path: "/tayprorobots/taypro-glyde-x-tracker-solar-cleaning-robot.png",
+    path: "/tayprorobots/glyde-x/hero.png",
     alt: "Taypro GLYDE-X tracker solar panel cleaning robot",
   },
   nyuma: {
-    path: "/tayprorobots/taypro-nyuma-automatic-solar-cleaning-robot.png",
-    alt: "Taypro NYUMA automatic PBT solar panel cleaning robot",
+    path: "/tayprorobots/nyuma/brush-detail.png",
+    alt: "Taypro NYUMA automatic PBT solar panel cleaning robot, PBT brush detail",
   },
   nyumaX: {
-    path: "/tayprorobots/taypro-nyuma-x-tracker-solar-cleaning-robot.png",
+    path: "/tayprorobots/nyuma-x/hero.png",
     alt: "Taypro NYUMA-X tracker PBT solar panel cleaning robot",
-  },
-  /** @deprecated Use glyde */
-  modelA: {
-    path: "/tayprorobots/glyde/glyde-tr150-top-view.png",
-    alt: "Taypro GLYDE automatic solar panel cleaning robot",
-  },
-  /** @deprecated Use helyx */
-  modelB: {
-    path: "/tayprorobots/taypro-helyx-semi-automatic-solar-cleaning-robot.png",
-    alt: "Taypro HELYX semi-automatic solar panel cleaning robot",
-  },
-  /** @deprecated Use glydeX */
-  modelT: {
-    path: "/tayprorobots/taypro-glyde-x-tracker-solar-cleaning-robot.png",
-    alt: "Taypro GLYDE-X tracker solar panel cleaning robot",
   },
   opex: {
     path: "/tayprorobots/taypro-opex.jpg",
     alt: "Taypro robotic solar panel cleaning service (Opex)",
   },
   console: {
-    path: "/tayproasset/taypro-console.png",
+    path: "/tayproasset/nectyr.png",
     alt: "NECTYR fleet monitoring for cleaning robots",
   },
 } as const satisfies Record<string, OgImageSpec>;

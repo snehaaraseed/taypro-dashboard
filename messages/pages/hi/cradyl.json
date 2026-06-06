@@ -66,7 +66,7 @@
       "p3Between": ", ",
       "linkGlyde": "GLYDE स्वचालित रोबोट",
       "p3After": ", और संगत GLYDE फ्लीट शामिल हैं। गति, चार्ज स्तर और सेंसर डेटा ",
-      "linkConsole": "NECTYR",
+      "linkNectyr": "NECTYR",
       "p3Suffix": " क्लाउड पोर्टल में आपके मौजूदा रोबोट शेड्यूल के साथ दिखाई देते हैं।",
       "p4Prefix": "पूरा ",
       "linkHub": "Taypro रोबोट लाइनअप",
@@ -452,7 +452,7 @@
       "linkBetween": " या ",
       "linkGlyde": "GLYDE",
       "linkMid": " के साथ जोड़ें, ",
-      "linkConsole": "NECTYR",
+      "linkNectyr": "NECTYR",
       "crossSellSuffix": " पर मॉनिटर करें, या पूरा रोबोट हब देखें।"
     },
     "faqSection": {
@@ -525,7 +525,7 @@
         }
       }
     },
-    "modelCardsTitle": "अधिक Taypro सोलर सफाई समाधान देखें",
+    "productCardsTitle": "अधिक Taypro सोलर सफाई समाधान देखें",
     "footerNote": "स्पेसिफिकेशन साइट रेल लेआउट और रोबोट मॉडल के अनुसार भिन्न हो सकती हैं; खरीद से पहले Taypro इंजीनियरिंग से पुष्टि करें।",
     "intro": {
       "eyebrow": "एक रोबोट, कई पंक्तियाँ",

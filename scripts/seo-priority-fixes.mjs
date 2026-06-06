@@ -8,9 +8,9 @@ import { join } from "path";
 const root = join(import.meta.dirname, "..");
 const locales = ["hi", "ar", "ja", "bn"];
 const productFiles = [
-  "model-a.json",
-  "model-b.json",
-  "model-t.json",
+  "glyde.json",
+  "helyx.json",
+  "glyde-x.json",
   "nyuma.json",
   "nyuma-x.json",
 ];
@@ -26,7 +26,7 @@ function patch(path, rules) {
 }
 
 // ROI, GLYDE
-patch("messages/pages/en/model-a.json", [
+patch("messages/pages/en/glyde.json", [
   [
     /TAYPRO's Model A Automatic Solar Panel Cleaning Robot/g,
     "TAYPRO's GLYDE Automatic Solar Panel Cleaning Robot",
@@ -48,7 +48,7 @@ patch("messages/pages/en/nyuma.json", [
 ]);
 
 // GLYDE meta: dual-pass in title (flagship owns generic automatic + dual-pass)
-patch("messages/pages/en/model-a.json", [
+patch("messages/pages/en/glyde.json", [
   [
     /"title": "Automatic Solar Panel Cleaning Robot, Taypro GLYDE \(Waterless, AI\)"/,
     '"title": "Dual-Pass Automatic Solar Panel Cleaning Robot, Taypro GLYDE (Waterless, AI)"',
@@ -145,7 +145,7 @@ writeFileSync(
 console.log("patched messages/pages/en/nyuma-x.json (meta)");
 
 // GLYDE-X meta: dual-pass in title
-patch("messages/pages/en/model-t.json", [
+patch("messages/pages/en/glyde-x.json", [
   [
     /"title": "Solar Panel Cleaning Robot for Single-Axis Trackers, Taypro GLYDE-X"/,
     '"title": "Dual-Pass Tracker Solar Panel Cleaning Robot, Taypro GLYDE-X"',

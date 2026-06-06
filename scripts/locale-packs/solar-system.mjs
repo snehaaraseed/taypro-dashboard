@@ -226,7 +226,7 @@ export const solarSystemPack = {
               "প্যানেল-প্রতি-পরিষ্কার Opex, অগ্রিম CAPEX ছাড়াই Taypro আপনার প্ল্যান্টে রোবট ফ্লিট পরিচালনা করে।"
             ),
           },
-          tayproConsole: {
+          nectyr: {
             description: T(
               "आपकी साइट पर सोलर पैनल सफाई रोबोट शेड्यूल, मॉनिटर और रिपोर्ट करने के लिए फ्लीट पोर्टल।",
               "بوابة الأسطول لجدولة ومراقبة والتقارير عن روبوتات التنظيف في موقعك.",
@@ -862,7 +862,7 @@ export const solarSystemPack = {
             "TAYPRO Private Limited পরিচালিত"
           ),
         },
-        tayproConsole: {
+        nectyr: {
           eyebrow: T(
             "सॉफ़्टवेयर · फ्लीट पोर्टल",
             "برمجيات · بوابة الأسطول",

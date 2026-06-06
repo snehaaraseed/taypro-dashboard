@@ -45,8 +45,8 @@ export default function Header() {
       };
     }),
     {
-      label: t("tayproConsole"),
-      description: t("tayproConsoleDesc"),
+      label: t("nectyr"),
+      description: t("nectyrDesc"),
       href: "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
     },
     {

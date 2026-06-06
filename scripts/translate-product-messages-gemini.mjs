@@ -12,9 +12,9 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const root = join(import.meta.dirname, "..");
 
 const PRODUCTS = [
-  { file: "model-a.json", roots: ["ModelAPage", "Common"] },
-  { file: "model-b.json", roots: ["ModelBPage", "Common"] },
-  { file: "model-t.json", roots: ["ModelTPage", "Common"] },
+  { file: "glyde.json", roots: ["GlydePage", "Common"] },
+  { file: "helyx.json", roots: ["HelyxPage", "Common"] },
+  { file: "glyde-x.json", roots: ["GlydeXPage", "Common"] },
   { file: "nyuma.json", roots: ["NyumaPage", "Common"] },
   { file: "nyuma-x.json", roots: ["NyumaXPage", "Common"] },
 ];

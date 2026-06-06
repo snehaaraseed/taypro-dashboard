@@ -28,7 +28,7 @@ const PRODUCT_ORDER: ProductId[] = [
 const PRODUCT_TAG_RULES: { id: ProductId; patterns: string[] }[] = [
   {
     id: "glydeX",
-    patterns: ["glydexus", "glydex", "modelt", "model-t"],
+    patterns: ["glydexus", "glydex", "glyde-x", "glyde-x"],
   },
   {
     id: "nyumaX",
@@ -36,7 +36,7 @@ const PRODUCT_TAG_RULES: { id: ProductId; patterns: string[] }[] = [
   },
   {
     id: "glyde",
-    patterns: ["glyde", "modela", "model-a"],
+    patterns: ["glyde", "glyde", "glyde"],
   },
   {
     id: "nyuma",
@@ -44,7 +44,7 @@ const PRODUCT_TAG_RULES: { id: ProductId; patterns: string[] }[] = [
   },
   {
     id: "helyx",
-    patterns: ["helyx", "modelb", "model-b"],
+    patterns: ["helyx", "helyx", "helyx"],
   },
 ];
 

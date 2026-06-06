@@ -27,7 +27,7 @@ export function shouldUseProductLibraryImage(input: {
     /\bautomatic solar panel cleaning\b/,
     /\bsemi[- ]?automatic solar\b/,
     /\bwaterless\s+(cleaning\s+)?robot\b/,
-    /\bmodel-a\b|\bmodel-b\b|\bmodel-t\b/,
+    /\bglyde\b|\bhelyx\b|\bglyde-x\b/,
     /\brobotic cleaning service\b/,
     /\bopex\s+(service|cleaning)\b/,
     /\btaypro\s+console\b/,
