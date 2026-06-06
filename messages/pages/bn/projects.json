@@ -116,8 +116,8 @@
     }
   },
   "ProjectDetailPage": {
-    "notFoundTitle": "প্রকল্প পাওয়া যায়নি | Taypro",
-    "metaTitleSuffix": " - সোলার প্যানেল পরিষ্কার রোবট ইনস্টলেশন | Taypro",
+    "notFoundTitle": "প্রকল্প পাওয়া যায়নি",
+    "metaTitleSuffix": " - সোলার প্যানেল পরিষ্কার রোবট ইনস্টলেশন",
     "breadcrumbProjects": "প্রকল্প",
     "caseStudyLabel": "মোতায়েন কেস স্টাডি",
     "lastUpdated": "সর্বশেষ আপডেট {date}",

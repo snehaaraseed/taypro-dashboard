@@ -44,16 +44,46 @@
       "subtitle": "High-level capability areas, your Taypro onboarding pack and user guide explain each screen in the depth your operators need."
     },
     "capabilitiesCards": {
-      "0": { "title": "Site dashboards", "body": "At-a-glance view of weather context, block-wise cleaning coverage, gateway connectivity, and robot battery readiness so operators can plan shifts with confidence." },
-      "1": { "title": "Robot configuration & device layout", "body": "Structured visibility into deployed robots, block allocation, and permitted operating parameters, tuned by Taypro during commissioning, then monitored by your team." },
-      "2": { "title": "Automation schedules", "body": "Centralised view of block-wise timers and cleaning windows so night-time or post-production cycles stay aligned with plant rules and seasonal soiling patterns." },
-      "3": { "title": "Cleaning logs & exports", "body": "Historical cleaning activity, downloadable reports for selected dates, and tabbed views for completed runs, in-progress work, errors, and offline assets, built for audit-ready O&M." },
-      "4": { "title": "Statistics & trends", "body": "Charts for area cleaned, blocks serviced, execution mix, and efficiency indicators, filterable by site, time range, and (where licensed) robot or block." },
-      "5": { "title": "Controlled robot commands", "body": "A curated, permissioned command set for day-to-day operations, always confirmed, always logged. Deep engineering actions remain with Taypro service engineers." },
-      "6": { "title": "Fleet tracking context", "body": "Live and last-known robot positioning on site layouts where available, ideal for coordination with security, O&M convoys, and incident response." },
-      "7": { "title": "Gateway & field telemetry health", "body": "Visibility into gateway and field-device status so you can distinguish a true robot fault from a communications brownout before dispatching crews." },
-      "8": { "title": "Tickets & service history", "body": "Raise, comment on, and close Taypro service tickets with a full timeline, fewer ad-hoc email threads, more traceability for your internal governance." },
-      "9": { "title": "Users, roles & collaboration", "body": "Invite the right mix of plant, central engineering, and finance stakeholders with scoped access. Optional chat channels keep operational conversations next to the data." }
+      "0": {
+        "title": "Site dashboards",
+        "body": "At-a-glance view of weather context, block-wise cleaning coverage, gateway connectivity, and robot battery readiness so operators can plan shifts with confidence."
+      },
+      "1": {
+        "title": "Robot configuration & device layout",
+        "body": "Structured visibility into deployed robots, block allocation, and permitted operating parameters, tuned by Taypro during commissioning, then monitored by your team."
+      },
+      "2": {
+        "title": "Automation schedules",
+        "body": "Centralised view of block-wise timers and cleaning windows so night-time or post-production cycles stay aligned with plant rules and seasonal soiling patterns."
+      },
+      "3": {
+        "title": "Cleaning logs & exports",
+        "body": "Historical cleaning activity, downloadable reports for selected dates, and tabbed views for completed runs, in-progress work, errors, and offline assets, built for audit-ready O&M."
+      },
+      "4": {
+        "title": "Statistics & trends",
+        "body": "Charts for area cleaned, blocks serviced, execution mix, and efficiency indicators, filterable by site, time range, and (where licensed) robot or block."
+      },
+      "5": {
+        "title": "Controlled robot commands",
+        "body": "A curated, permissioned command set for day-to-day operations, always confirmed, always logged. Deep engineering actions remain with Taypro service engineers."
+      },
+      "6": {
+        "title": "Fleet tracking context",
+        "body": "Live and last-known robot positioning on site layouts where available, ideal for coordination with security, O&M convoys, and incident response."
+      },
+      "7": {
+        "title": "Gateway & field telemetry health",
+        "body": "Visibility into gateway and field-device status so you can distinguish a true robot fault from a communications brownout before dispatching crews."
+      },
+      "8": {
+        "title": "Tickets & service history",
+        "body": "Raise, comment on, and close Taypro service tickets with a full timeline, fewer ad-hoc email threads, more traceability for your internal governance."
+      },
+      "9": {
+        "title": "Users, roles & collaboration",
+        "body": "Invite the right mix of plant, central engineering, and finance stakeholders with scoped access. Optional chat channels keep operational conversations next to the data."
+      }
     },
     "security": {
       "eyebrow": "Enterprise-grade governance",

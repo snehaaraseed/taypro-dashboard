@@ -107,6 +107,14 @@ export function OrganizationSchema({
       "@type": "Country",
       name: "India",
     },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Chakan Industrial Area",
+      addressLocality: "Chakan, Pune",
+      addressRegion: "Maharashtra",
+      postalCode: "410501",
+      addressCountry: "IN",
+    },
     knowsAbout: [
       "Solar Panel Cleaning Robot",
       "Automatic Solar Panel Cleaning",
@@ -214,6 +222,11 @@ export function ProductSchema({
     brand: {
       "@type": "Brand",
       name: brand,
+    },
+    manufacturer: {
+      "@type": "Organization",
+      name: "Taypro",
+      url: siteUrl,
     },
     category: "Solar Panel Cleaning Robot",
   };

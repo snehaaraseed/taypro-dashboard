@@ -111,7 +111,7 @@ export const comingSoonRobotProducts = [
     marketingName: "Compact rooftop solar cleaning robot",
     description:
       "A compact cleaning robot for smaller rooftop plants, waterless, lightweight, and sized for distributed commercial rooftops.",
-    imgPath: "/tayprorobots/taypro-modelBcopy.png",
+    imgPath: "/tayprorobots/taypro-helyx-semi-automatic-solar-cleaning-robot.png",
     href: MINY_PRODUCT_PATH,
   },
   {
@@ -641,7 +641,7 @@ export const energyResourceCards: EnergyResourceCard[] = [
     title: "How Does A Solar Panel Cleaning Robot Work? ",
     imgSrc: "/blogs/taypro-energy-resource17.webp",
     date: "April 18, 2025",
-    href: "/blog/how-are-pv-panel-cleaning-robots-installed",
+    href: "/blog/how-does-a-solar-panel-cleaning-robot-work",
   },
   {
     title: "What is a Solar Panel Cleaning Robot?",

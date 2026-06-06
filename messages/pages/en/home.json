@@ -1,7 +1,7 @@
 {
   "Home": {
     "meta": {
-      "title": "Solar Panel Cleaning Robots | Taypro, Waterless India",
+      "title": "Solar Panel Cleaning Robots in India, Waterless & Autonomous",
       "description": "Waterless solar panel cleaning robots and autonomous operations for utility-scale plants in India, recover lost generation with GLYDE, NYUMA, NECTYR fleet software, and ORION plant intelligence. Dual-pass dry cleaning, pan-India service.",
       "ogTitle": "Solar Panel Cleaning Robots | Taypro, Autonomous Solar Operations",
       "ogDescription": "Waterless solar panel cleaning robots plus NECTYR fleet operations for Indian utility plants, recover generation, cut water use, and close the O&M loop.",
@@ -22,9 +22,8 @@
     },
     "hero": {
       "eyebrow": "Made in India · 5 GW+ deployed · Autonomous operations for utility solar",
-      "titleLine1": "Recover lost generation with the",
-      "titleHighlight": "autonomous operations layer",
-      "titleLine2": "for utility-scale solar, built on waterless solar panel cleaning robots.",
+      "title": "Solar Panel Cleaning Robot Manufacturer in India",
+      "subtitle": "Recover lost generation with the autonomous operations layer for utility-scale solar, built on waterless solar panel cleaning robots.",
       "lead": "SCADA tells you the kWh is gone. Taypro closes the loop with robots on every row, NECTYR fleet operations today, and ORION plant intelligence on the roadmap.",
       "bodyBeforeProjects": "Dual-pass waterless cleaning, AI scheduling, and pan-India uptime, fixed tilt, seasonal tilt, and single-axis trackers. Explore",
       "bodyProjectsLink": "live projects",
@@ -44,10 +43,18 @@
       "ctaRoi": "Price & ROI calculator"
     },
     "stats": {
-      "stat0": { "label": "Robot Capacity Deployed" },
-      "stat1": { "label": "Metric Tons Of CO2 Emission Reduced Annually" },
-      "stat2": { "label": "Additional Clean Solar Generation Annually" },
-      "stat3": { "label": "Liters of Water Saved Annually" }
+      "stat0": {
+        "label": "Robot Capacity Deployed"
+      },
+      "stat1": {
+        "label": "Metric Tons Of CO2 Emission Reduced Annually"
+      },
+      "stat2": {
+        "label": "Additional Clean Solar Generation Annually"
+      },
+      "stat3": {
+        "label": "Liters of Water Saved Annually"
+      }
     },
     "platform": {
       "eyebrow": "How Taypro works",
@@ -92,7 +99,7 @@
     },
     "robots": {
       "eyebrow": "Product lineup",
-      "heading": "Solar panel cleaning robots & services",
+      "heading": "Automatic solar panel cleaning system & robot lineup",
       "subheadingBefore": "GLYDE and GLYDE-X flagship cleaning robots, plus NYUMA, NYUMA-X, and HELYX, managed cleaning service and fleet software.",
       "compareLink": "Compare solar panel cleaning robots",
       "subheadingAfter": ".",

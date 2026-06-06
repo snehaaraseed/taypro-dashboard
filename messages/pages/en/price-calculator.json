@@ -51,10 +51,18 @@
     "stats": {
       "eyebrow": "Why operators model ROI",
       "heading": "Scale Taypro has already proven in the field",
-      "stat0": { "label": "Robot Capacity Deployed" },
-      "stat1": { "label": "Plant Installations" },
-      "stat2": { "label": "Liters of Water Saved Annually" },
-      "stat3": { "label": "Robots Manufacturing Capacity per Month" }
+      "stat0": {
+        "label": "Robot Capacity Deployed"
+      },
+      "stat1": {
+        "label": "Plant Installations"
+      },
+      "stat2": {
+        "label": "Liters of Water Saved Annually"
+      },
+      "stat3": {
+        "label": "Robots Manufacturing Capacity per Month"
+      }
     },
     "benefits": {
       "heading": "What this calculator estimates",

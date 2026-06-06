@@ -7,7 +7,7 @@ const siteUrl = SITE_URL;
 const og = socialImagesFromPreset("opex");
 
 export const generateMetadata = defineLocalizedMetadata("/projects/opex", () => ({
-  title: "Opex Solar Panel Cleaning Robot Projects | Taypro",
+  title: "Opex Solar Panel Cleaning Robot Projects",
   description:
     "Explore Taypro Opex Solar Panel Cleaning Robot projects. Operator-led cleaning as a service with pay-per-panel delivery, fleet ownership, and SLA-backed cycles on utility-scale plants.",
   keywords: [
@@ -20,7 +20,7 @@ export const generateMetadata = defineLocalizedMetadata("/projects/opex", () => 
     "solar cleaning service India",
   ],
   openGraph: {
-    title: "Opex Solar Panel Cleaning Robot Projects | Taypro",
+    title: "Opex Solar Panel Cleaning Robot Projects",
     description:
       "Taypro Opex model Solar Panel Cleaning Robot projects with operator-led cycles and service SLAs.",
     url: `${siteUrl}/projects/opex`,
@@ -28,7 +28,7 @@ export const generateMetadata = defineLocalizedMetadata("/projects/opex", () => 
     ...og.openGraph,
   },
   twitter: {
-    title: "Opex Solar Panel Cleaning Robot Projects | Taypro",
+    title: "Opex Solar Panel Cleaning Robot Projects",
     description:
       "Opex model Solar Panel Cleaning Robot projects with Taypro-operated fleets.",
     ...og.twitter,

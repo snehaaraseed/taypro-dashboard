@@ -66,34 +66,34 @@ export const OG_PRESETS = {
     alt: "Taypro GLYDE TR-150 automatic solar panel cleaning robot",
   },
   helyx: {
-    path: "/tayprorobots/taypro-modelBcopy.png",
+    path: "/tayprorobots/taypro-helyx-semi-automatic-solar-cleaning-robot.png",
     alt: "Taypro HELYX semi-automatic solar panel cleaning robot",
   },
   glydeX: {
-    path: "/tayprorobots/taypro-modelTcopy.png",
+    path: "/tayprorobots/taypro-glyde-x-tracker-solar-cleaning-robot.png",
     alt: "Taypro GLYDE-X tracker solar panel cleaning robot",
   },
   nyuma: {
-    path: "/tayprorobots/taypro-modelAcopy.png",
+    path: "/tayprorobots/taypro-nyuma-automatic-solar-cleaning-robot.png",
     alt: "Taypro NYUMA automatic PBT solar panel cleaning robot",
   },
   nyumaX: {
-    path: "/tayprorobots/taypro-modelTcopy.png",
+    path: "/tayprorobots/taypro-nyuma-x-tracker-solar-cleaning-robot.png",
     alt: "Taypro NYUMA-X tracker PBT solar panel cleaning robot",
   },
   /** @deprecated Use glyde */
   modelA: {
-    path: "/tayprorobots/taypro-modelAcopy.png",
+    path: "/tayprorobots/glyde/glyde-tr150-top-view.png",
     alt: "Taypro GLYDE automatic solar panel cleaning robot",
   },
   /** @deprecated Use helyx */
   modelB: {
-    path: "/tayprorobots/taypro-modelBcopy.png",
+    path: "/tayprorobots/taypro-helyx-semi-automatic-solar-cleaning-robot.png",
     alt: "Taypro HELYX semi-automatic solar panel cleaning robot",
   },
   /** @deprecated Use glydeX */
   modelT: {
-    path: "/tayprorobots/taypro-modelTcopy.png",
+    path: "/tayprorobots/taypro-glyde-x-tracker-solar-cleaning-robot.png",
     alt: "Taypro GLYDE-X tracker solar panel cleaning robot",
   },
   opex: {

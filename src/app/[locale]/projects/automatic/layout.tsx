@@ -7,7 +7,7 @@ const siteUrl = SITE_URL;
 const og = socialImagesFromPreset("modelA");
 
 export const generateMetadata = defineLocalizedMetadata("/projects/automatic", () => ({
-  title: "Automatic Solar Panel Cleaning Robot Projects | Taypro",
+  title: "Automatic Solar Panel Cleaning Robot Projects",
   description:
     "Explore Taypro automatic Solar Panel Cleaning Robot installations, autonomous waterless fleets on utility-scale plants in India, with site-dependent recovery of generation lost to soiling.",
   keywords: [
@@ -19,7 +19,7 @@ export const generateMetadata = defineLocalizedMetadata("/projects/automatic", (
     "Taypro automatic robot projects",
   ],
   openGraph: {
-    title: "Automatic Solar Panel Cleaning Robot Projects | Taypro",
+    title: "Automatic Solar Panel Cleaning Robot Projects",
     description:
       "Automatic Solar Panel Cleaning Robot installation projects. AI-enabled autonomous cleaning systems with highest ROI.",
     url: `${siteUrl}/projects/automatic`,
@@ -27,7 +27,7 @@ export const generateMetadata = defineLocalizedMetadata("/projects/automatic", (
     ...og.openGraph,
   },
   twitter: {
-    title: "Automatic Solar Panel Cleaning Robot Projects | Taypro",
+    title: "Automatic Solar Panel Cleaning Robot Projects",
     description: "Automatic Solar Panel Cleaning Robot installation projects with AI-powered systems.",
     ...og.twitter,
   }}));

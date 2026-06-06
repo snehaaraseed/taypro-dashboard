@@ -80,7 +80,7 @@ export async function generateMetadata({
     title: `${metadata.title}${t("metaTitleSuffix")}`,
     description: metadata.description,
     openGraph: {
-      title: `${metadata.title} | Taypro`,
+      title: `${metadata.title}${t("metaTitleSuffix")} | Taypro`,
       description: metadata.description,
       url,
       type: "website",

@@ -30,6 +30,7 @@ import {
   robotSolutions,
 } from "@/app/data";
 import { ComingSoonRobotCard } from "@/app/components/ComingSoonRobotCard";
+import { COMPARISON_PAGE_LIST } from "@/lib/seo/comparison-pages-config";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
@@ -907,6 +908,19 @@ export default async function SolarPanelCleaningRobot({
                   {t("comparison.ctaLink.label")}
                 </OpenLeadModalButton>
                 {t("comparison.ctaLineSuffix")}
+              </p>
+              <p className="text-gray-600 text-sm mt-4 flex flex-wrap justify-center gap-x-3 gap-y-1">
+                {COMPARISON_PAGE_LIST.map((page, idx) => (
+                  <span key={page.id} className="inline-flex items-center gap-3">
+                    {idx > 0 ? <span className="text-gray-300">·</span> : null}
+                    <Link
+                      href={page.path}
+                      className="text-[#5a8f00] font-medium hover:underline"
+                    >
+                      {t(`compareGuides.${page.id}`)}
+                    </Link>
+                  </span>
+                ))}
               </p>
             </AnimateOnScroll>
           </Container>

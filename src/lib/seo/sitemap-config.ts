@@ -148,6 +148,26 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
     priority: 0.5,
   },
   { path: "/site-map", changeFrequency: "monthly", priority: 0.5 },
+  {
+    path: "/compare/solar-panel-cleaning-robot-vs-manual-cleaning",
+    changeFrequency: "monthly",
+    priority: 0.75,
+  },
+  {
+    path: "/compare/taypro-vs-solabot",
+    changeFrequency: "monthly",
+    priority: 0.72,
+  },
+  {
+    path: "/compare/taypro-vs-skilancer",
+    changeFrequency: "monthly",
+    priority: 0.72,
+  },
+  {
+    path: "/compare/waterless-vs-water-based-solar-cleaning",
+    changeFrequency: "monthly",
+    priority: 0.75,
+  },
 ];
 
 export const CMS_SITEMAP_DEFAULTS = {

@@ -238,6 +238,50 @@ const nextConfig = {
           "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
         permanent: true,
       },
+      // Legacy WordPress / static HTML pages (SEO-045)
+      {
+        source: "/taypro-basic",
+        destination:
+          "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
+        permanent: true,
+      },
+      {
+        source: "/taypro-basic/",
+        destination:
+          "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
+        permanent: true,
+      },
+      {
+        source: "/industrial_solar_panel_cleaning_system.html",
+        destination: "/solar-panel-cleaning-system",
+        permanent: true,
+      },
+      {
+        source: "/industrial_solar_panel_cleaning_system",
+        destination: "/solar-panel-cleaning-system",
+        permanent: true,
+      },
+      {
+        source: "/news/:path*",
+        destination: "/blog/:path*",
+        permanent: true,
+      },
+      {
+        source: "/contact/",
+        destination: "/contact",
+        permanent: true,
+      },
+      // Blog slug collision: wrong slug pointed at "installed" post
+      {
+        source: "/blog/how-does-a-solar-panel-cleaning-robot-work-",
+        destination: "/blog/how-does-a-solar-panel-cleaning-robot-work",
+        permanent: true,
+      },
+      {
+        source: "/blog/how-does-a-solar-panel-cleaning-robot-work-/",
+        destination: "/blog/how-does-a-solar-panel-cleaning-robot-work",
+        permanent: true,
+      },
       // Common price URL variants → guide vs calculator split
       {
         source: "/solar-panel-cleaning-robot-cost-india",

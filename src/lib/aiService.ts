@@ -1226,7 +1226,7 @@ Format the output as clean HTML with proper paragraph tags (<p>), headings (<h2>
 Return the response in the following JSON format:
 {
   "title": "Blog post title (SEO-optimized, 50-60 characters)",
-  "description": "Meta description (150-160 characters, SEO-optimized)",
+  "description": "Meta description (150-160 characters, sentence case, one primary keyword naturally—never Title-Case keyword phrases mid-sentence)",
   "content": "<p>Full HTML content here...</p>",
   "faqs": [
     {

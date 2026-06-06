@@ -225,9 +225,18 @@ export function validateGeneratedBlog(
     issues.push(`Title length ${titleLen} chars (target 50–60, allow 35–72)`);
   }
 
-  const descLen = input.description.trim().length;
+  const desc = input.description.trim();
+  const descLen = desc.length;
   if (descLen < 120 || descLen > 170) {
     issues.push(`Meta description ${descLen} chars (target 150–160, allow 120–170)`);
+  }
+  if (descLen > 200) {
+    issues.push(`Meta description ${descLen} chars exceeds 200-char SERP limit`);
+  }
+  if (/[a-z]\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3}\s+(?:In|For|On)\s+[A-Z]/.test(desc)) {
+    issues.push(
+      "Meta description uses Title-Case keyword stuffing mid-sentence; rewrite in sentence case"
+    );
   }
 
   const h2s = extractH2Headings(input.content);

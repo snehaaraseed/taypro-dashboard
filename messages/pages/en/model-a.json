@@ -182,10 +182,22 @@
       "title": "Trusted by India's Leading Solar Operators",
       "subtitle": "Over the past decade, Taypro has driven performance-ratio improvement across more than 5,000 MW of solar power plant capacity for leading independent power producers and utility-scale plants across India.",
       "stats": {
-        "stat0": { "value": "5 GW+", "label": "Robot Capacity Deployed" },
-        "stat1": { "value": "100+", "label": "Plant Installations" },
-        "stat2": { "value": "875M+", "label": "Liters of Water Saved Annually" },
-        "stat3": { "value": "600+", "label": "Robots Manufacturing Capacity per Month" }
+        "stat0": {
+          "value": "5 GW+",
+          "label": "Robot Capacity Deployed"
+        },
+        "stat1": {
+          "value": "100+",
+          "label": "Plant Installations"
+        },
+        "stat2": {
+          "value": "875M+",
+          "label": "Liters of Water Saved Annually"
+        },
+        "stat3": {
+          "value": "600+",
+          "label": "Robots Manufacturing Capacity per Month"
+        }
       }
     },
     "servicePromise": {
@@ -363,25 +375,82 @@
         "details": "Details"
       },
       "rows": {
-        "dimensions": { "spec": "Dimensions", "details": "750 mm × 4800 mm" },
-        "cleaningMethod": { "spec": "Cleaning Method", "details": "Waterless" },
-        "cleaningType": { "spec": "Cleaning Type", "details": "Dual-Pass Cleaning" },
-        "cleaningMaterial": { "spec": "Cleaning Material", "details": "Microfiber Cloth" },
-        "cleaningSpeed": { "spec": "Cleaning Speed", "details": "10–15 Metres/Minute" },
-        "maxRunningLength": { "spec": "Max. Running Length", "details": "Up to 2.2 km" },
-        "recommendedRunningLength": { "spec": "Recommended Running Length", "details": "1.6 km" },
-        "windDocking": { "spec": "Wind Speed Resistance at Docking", "details": "180 km/hr" },
-        "windOperation": { "spec": "Wind Speed Resistance in Operation", "details": "40 km/hr" },
-        "maxTilt": { "spec": "Max. Module Tilt", "details": "45°" },
-        "maxTemp": { "spec": "Max. Operating Temperature", "details": "90°C" },
-        "maxSlope": { "spec": "Max. East-West Slope", "details": "15°" },
-        "maxUndulation": { "spec": "Max. Module Undulation", "details": "+20 mm" },
-        "ipRating": { "spec": "IP Rating", "details": "IP65" },
-        "corrosion": { "spec": "Corrosion Class", "details": "C3" },
-        "battery": { "spec": "Battery Type", "details": "Lithium-Ion" },
-        "connectivity": { "spec": "Connectivity (NECTYR)", "details": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN" },
-        "designLife": { "spec": "Design Life", "details": "20 Years" },
-        "weight": { "spec": "Weight", "details": "45 Kg" }
+        "dimensions": {
+          "spec": "Dimensions",
+          "details": "750 mm × 4800 mm"
+        },
+        "cleaningMethod": {
+          "spec": "Cleaning Method",
+          "details": "Waterless"
+        },
+        "cleaningType": {
+          "spec": "Cleaning Type",
+          "details": "Dual-Pass Cleaning"
+        },
+        "cleaningMaterial": {
+          "spec": "Cleaning Material",
+          "details": "Microfiber Cloth"
+        },
+        "cleaningSpeed": {
+          "spec": "Cleaning Speed",
+          "details": "10–15 Metres/Minute"
+        },
+        "maxRunningLength": {
+          "spec": "Max. Running Length",
+          "details": "Up to 2.2 km"
+        },
+        "recommendedRunningLength": {
+          "spec": "Recommended Running Length",
+          "details": "1.6 km"
+        },
+        "windDocking": {
+          "spec": "Wind Speed Resistance at Docking",
+          "details": "180 km/hr"
+        },
+        "windOperation": {
+          "spec": "Wind Speed Resistance in Operation",
+          "details": "40 km/hr"
+        },
+        "maxTilt": {
+          "spec": "Max. Module Tilt",
+          "details": "45°"
+        },
+        "maxTemp": {
+          "spec": "Max. Operating Temperature",
+          "details": "90°C"
+        },
+        "maxSlope": {
+          "spec": "Max. East-West Slope",
+          "details": "15°"
+        },
+        "maxUndulation": {
+          "spec": "Max. Module Undulation",
+          "details": "+20 mm"
+        },
+        "ipRating": {
+          "spec": "IP Rating",
+          "details": "IP65"
+        },
+        "corrosion": {
+          "spec": "Corrosion Class",
+          "details": "C3"
+        },
+        "battery": {
+          "spec": "Battery Type",
+          "details": "Lithium-Ion"
+        },
+        "connectivity": {
+          "spec": "Connectivity (NECTYR)",
+          "details": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN"
+        },
+        "designLife": {
+          "spec": "Design Life",
+          "details": "20 Years"
+        },
+        "weight": {
+          "spec": "Weight",
+          "details": "45 Kg"
+        }
       }
     },
     "advantagesSection": {

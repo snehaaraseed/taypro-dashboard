@@ -25,7 +25,7 @@ const defaultOg = buildOgImage(OG_PRESETS.default);
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Solar Panel Cleaning Robots | Taypro, Waterless India",
+    default: "Solar Panel Cleaning Robots in India, Waterless & Autonomous",
     template: "%s | Taypro",
   },
   description: ROOT_DEFAULT_DESCRIPTION,

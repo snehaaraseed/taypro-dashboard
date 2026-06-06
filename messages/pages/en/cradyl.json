@@ -211,10 +211,18 @@
     "trustStats": {
       "eyebrow": "Proven at scale",
       "title": "Trusted by India's leading solar operators",
-      "stat0": { "label": "Robot Capacity Deployed" },
-      "stat1": { "label": "CO₂ Reduced Annually" },
-      "stat2": { "label": "Liters of Water Saved Annually" },
-      "stat3": { "label": "Robots Manufacturing Capacity per Month" }
+      "stat0": {
+        "label": "Robot Capacity Deployed"
+      },
+      "stat1": {
+        "label": "CO₂ Reduced Annually"
+      },
+      "stat2": {
+        "label": "Liters of Water Saved Annually"
+      },
+      "stat3": {
+        "label": "Robots Manufacturing Capacity per Month"
+      }
     },
     "servicePromise": {
       "eyebrow": "Operating confidence",
@@ -238,22 +246,70 @@
       "valueHeader": "Value"
     },
     "specs": {
-      "0": { "label": "Product name", "value": "CRADYL" },
-      "1": { "label": "Footprint", "value": "1000 mm × 4000 mm" },
-      "2": { "label": "Weight", "value": "220 kg" },
-      "3": { "label": "Movement mechanism", "value": "Rail-based linear travel on end-row tracks" },
-      "4": { "label": "Energy source", "value": "Solar-powered battery charging" },
-      "5": { "label": "Battery type", "value": "Lithium-ion" },
-      "6": { "label": "Max. operating speed", "value": "5 metres / minute" },
-      "7": { "label": "Wind resistance (docked)", "value": "Up to 180 km/h" },
-      "8": { "label": "Wind resistance (in motion)", "value": "Up to 40 km/h" },
-      "9": { "label": "Max. operating temperature", "value": "90°C" },
-      "10": { "label": "Max. slope", "value": "18°" },
-      "11": { "label": "Communication", "value": "LTE / Wi-Fi (cloud-connected)" },
-      "12": { "label": "IP rating", "value": "IP65" },
-      "13": { "label": "Docking compatibility", "value": "Taypro Model-A and compatible cleaning robots" },
-      "14": { "label": "Installation", "value": "End-row rails on RCC or ballast columns; no panel modification" },
-      "15": { "label": "Monitoring", "value": "Remote portal: schedules, position, sensors, charge level" }
+      "0": {
+        "label": "Product name",
+        "value": "CRADYL"
+      },
+      "1": {
+        "label": "Footprint",
+        "value": "1000 mm × 4000 mm"
+      },
+      "2": {
+        "label": "Weight",
+        "value": "220 kg"
+      },
+      "3": {
+        "label": "Movement mechanism",
+        "value": "Rail-based linear travel on end-row tracks"
+      },
+      "4": {
+        "label": "Energy source",
+        "value": "Solar-powered battery charging"
+      },
+      "5": {
+        "label": "Battery type",
+        "value": "Lithium-ion"
+      },
+      "6": {
+        "label": "Max. operating speed",
+        "value": "5 metres / minute"
+      },
+      "7": {
+        "label": "Wind resistance (docked)",
+        "value": "Up to 180 km/h"
+      },
+      "8": {
+        "label": "Wind resistance (in motion)",
+        "value": "Up to 40 km/h"
+      },
+      "9": {
+        "label": "Max. operating temperature",
+        "value": "90°C"
+      },
+      "10": {
+        "label": "Max. slope",
+        "value": "18°"
+      },
+      "11": {
+        "label": "Communication",
+        "value": "LTE / Wi-Fi (cloud-connected)"
+      },
+      "12": {
+        "label": "IP rating",
+        "value": "IP65"
+      },
+      "13": {
+        "label": "Docking compatibility",
+        "value": "Taypro Model-A and compatible cleaning robots"
+      },
+      "14": {
+        "label": "Installation",
+        "value": "End-row rails on RCC or ballast columns; no panel modification"
+      },
+      "15": {
+        "label": "Monitoring",
+        "value": "Remote portal: schedules, position, sensors, charge level"
+      }
     },
     "manualVsCradyl": {
       "eyebrow": "Manual transfer vs CRADYL",

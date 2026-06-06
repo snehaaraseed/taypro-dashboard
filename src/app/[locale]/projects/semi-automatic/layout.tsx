@@ -7,7 +7,7 @@ const siteUrl = SITE_URL;
 const og = socialImagesFromPreset("modelB");
 
 export const generateMetadata = defineLocalizedMetadata("/projects/semi-automatic", () => ({
-  title: "Semi-Automatic Solar Panel Cleaning Robot Projects | Taypro",
+  title: "Semi-Automatic Solar Panel Cleaning Robot Projects",
   description:
     "Explore Taypro's semi-automatic Solar Panel Cleaning Robot installation projects. Cost-effective pick-and-place robotic cleaning systems with fastest ROI for solar farms.",
   keywords: [
@@ -19,7 +19,7 @@ export const generateMetadata = defineLocalizedMetadata("/projects/semi-automati
     "Model-B solar cleaning robot projects",
   ],
   openGraph: {
-    title: "Semi-Automatic Solar Panel Cleaning Robot Projects | Taypro",
+    title: "Semi-Automatic Solar Panel Cleaning Robot Projects",
     description:
       "Semi-automatic Solar Panel Cleaning Robot installation projects with pick-and-place robotic cleaning systems.",
     url: `${siteUrl}/projects/semi-automatic`,
@@ -27,7 +27,7 @@ export const generateMetadata = defineLocalizedMetadata("/projects/semi-automati
     ...og.openGraph,
   },
   twitter: {
-    title: "Semi-Automatic Solar Panel Cleaning Robot Projects | Taypro",
+    title: "Semi-Automatic Solar Panel Cleaning Robot Projects",
     description: "Semi-automatic Solar Panel Cleaning Robot installation projects.",
     ...og.twitter,
   }}));

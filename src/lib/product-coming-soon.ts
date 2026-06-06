@@ -27,7 +27,7 @@ export const comingSoonProducts: ComingSoonProductConfig[] = [
     model: "MINY",
     path: MINY_PRODUCT_PATH,
     namespace: "MinyPage",
-    heroImagePath: "/tayprorobots/taypro-modelBcopy.png",
+    heroImagePath: "/tayprorobots/taypro-helyx-semi-automatic-solar-cleaning-robot.png",
     relatedHrefs: [
       "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
       "/solar-panel-cleaning-system",

@@ -1,7 +1,7 @@
 {
   "SolarSystemPage": {
     "meta": {
-      "title": "ভারতে সোলার প্যানেল পরিষ্কার রোবট ও সিস্টেম, মেশিন ও মডেল | Taypro",
+      "title": "ভারতে সোলার প্যানেল পরিষ্কার রোবট ও সিস্টেম, মেশিন ও মডেল",
       "description": "সব Taypro সোলার প্যানেল পরিষ্কার রোবট তুলনা করুন: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, Taypro Opex ও NECTYR। জলবিহীন পরিষ্কার, AI শিডিউলিং, TÜV NORD সার্টিফাইড, সারা ভারতে সহায়তা।",
       "keywords": [
         "সোলার প্যানেল পরিষ্কার রোবট",
@@ -350,6 +350,12 @@
           "cta": "Taypro Opex দেখুন"
         }
       }
+    },
+    "compareGuides": {
+      "robotVsManual": "Robot vs manual cleaning guide",
+      "tayproVsSolabot": "Taypro vs Solabot",
+      "tayproVsSkilancer": "Taypro vs Skilancer",
+      "waterlessVsWater": "Waterless vs water-based cleaning"
     },
     "comparison": {
       "eyebrow": "পাশাপাশি",

@@ -142,15 +142,11 @@ export default async function HomePage() {
                   {t("hero.eyebrow")}
                 </p>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
-                  {t("hero.titleLine1")}{" "}
-                  <span className="text-[#A8C117]">{t("hero.titleHighlight")}</span>
-                  {t("hero.titleLine2") ? (
-                    <>
-                      {" "}
-                      {t("hero.titleLine2")}
-                    </>
-                  ) : null}
+                  {t("hero.title")}
                 </h1>
+                <p className="text-base sm:text-lg text-[#A8C117]/90 leading-relaxed max-w-xl font-medium">
+                  {t("hero.subtitle")}
+                </p>
                 <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl">
                   {t("hero.lead")}
                 </p>

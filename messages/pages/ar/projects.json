@@ -116,8 +116,8 @@
     }
   },
   "ProjectDetailPage": {
-    "notFoundTitle": "المشروع غير موجود | Taypro",
-    "metaTitleSuffix": " - تركيب روبوت تنظيف الألواح الشمسية | Taypro",
+    "notFoundTitle": "المشروع غير موجود",
+    "metaTitleSuffix": " - تركيب روبوت تنظيف الألواح الشمسية",
     "breadcrumbProjects": "المشاريع",
     "caseStudyLabel": "دراسة حالة النشر",
     "lastUpdated": "آخر تحديث {date}",

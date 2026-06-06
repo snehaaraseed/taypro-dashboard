@@ -1,7 +1,7 @@
 {
   "SolarSystemPage": {
     "meta": {
-      "title": "Solar Panel Cleaning Robot & System in India, Machines & Models | Taypro",
+      "title": "Solar Panel Cleaning Robot & System in India, Machines & Models",
       "description": "Compare every Taypro Solar Panel Cleaning Robot: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, plus Taypro OPEX and NECTYR. Waterless cleaning, AI scheduling, TÜV NORD certified, pan-India support.",
       "keywords": [
         "solar panel cleaning robot",
@@ -341,6 +341,12 @@
           "cta": "See Taypro OPEX"
         }
       }
+    },
+    "compareGuides": {
+      "robotVsManual": "Robot vs manual cleaning guide",
+      "tayproVsSolabot": "Taypro vs Solabot",
+      "tayproVsSkilancer": "Taypro vs Skilancer",
+      "waterlessVsWater": "Waterless vs water-based cleaning"
     },
     "comparison": {
       "eyebrow": "Side-by-side",

@@ -2,6 +2,7 @@ import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { energyResourceCards } from "@/app/data";
 import { getAllFileProjects } from "@/app/utils/projectFileUtils";
+import { COMPARISON_PAGE_LIST } from "@/lib/seo/comparison-pages-config";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { withHreflang } from "@/lib/seo/with-hreflang";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
@@ -65,6 +66,7 @@ export default async function SiteMapPage({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "SiteMapPage" });
+  const tCompare = await getTranslations({ locale, namespace: "ComparisonsPage" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
   const l = (key: string) => t(`links.${key}`);
   const portfolioProjects = await getAllFileProjects(locale);
@@ -445,6 +447,32 @@ export default async function SiteMapPage({
                   {l("cleaningTechnologyLabel")}
                 </Link>
               </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full pt-10 pb-10 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
+          <div className="text-start">
+            <h2 className="text-[#052638] text-3xl md:text-4xl font-semibold mb-3">
+              {t("sections.compare")}
+            </h2>
+            <p className="text-[#27415c] text-lg mb-8 max-w-3xl leading-relaxed">
+              {t("sections.compareIntro")}
+            </p>
+            <ul className="space-y-1 list-disc list-inside text-lg">
+              {COMPARISON_PAGE_LIST.map((page) => (
+                <li key={page.id}>
+                  <Link
+                    href={page.path}
+                    title={tCompare(`${page.id}.meta.title`)}
+                    className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                  >
+                    {tCompare(`${page.id}.hero.title`)}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

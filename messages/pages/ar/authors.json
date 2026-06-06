@@ -14,7 +14,9 @@
       "keyword3": "خبراء تشغيل وصيانة الطاقة الشمسية",
       "keyword4": "فريق هندسة Taypro"
     },
-    "breadcrumbs": { "authors": "المؤلفون" },
+    "breadcrumbs": {
+      "authors": "المؤلفون"
+    },
     "hero": {
       "eyebrow": "دليل المدونة",
       "title": "المؤلفون",
@@ -49,5 +51,7 @@
     "article": "مقال",
     "articles": "مقالات"
   },
-  "Common": { "breadcrumbHome": "الرئيسية" }
+  "Common": {
+    "breadcrumbHome": "الرئيسية"
+  }
 }

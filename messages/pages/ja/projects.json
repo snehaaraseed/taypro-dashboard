@@ -116,8 +116,8 @@
     }
   },
   "ProjectDetailPage": {
-    "notFoundTitle": "プロジェクトが見つかりません | Taypro",
-    "metaTitleSuffix": " - ソーラーパネル洗浄ロボット導入 | Taypro",
+    "notFoundTitle": "プロジェクトが見つかりません",
+    "metaTitleSuffix": " - ソーラーパネル洗浄ロボット導入",
     "breadcrumbProjects": "プロジェクト",
     "caseStudyLabel": "導入ケーススタディ",
     "lastUpdated": "最終更新 {date}",

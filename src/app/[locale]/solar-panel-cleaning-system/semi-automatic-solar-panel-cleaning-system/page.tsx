@@ -166,7 +166,7 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
       <ProductSchema
         name={t("schema.productName")}
         description={t("schema.productDescription")}
-        image={`${siteUrl}/tayprorobots/taypro-modelBcopy.png`}
+        image={`${siteUrl}/tayprorobots/taypro-helyx-semi-automatic-solar-cleaning-robot.png`}
         brand="Taypro"
         sku="MODEL-B"
         offers={{
@@ -181,7 +181,7 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
         description={t("schema.howToDescription")}
         steps={modelBSteps}
         totalTime="PT2H"
-        image="/tayprorobots/taypro-modelBcopy.png"
+        image="/tayprorobots/taypro-helyx-semi-automatic-solar-cleaning-robot.png"
       />
 
       <div className="min-h-screen overflow-x-hidden">
@@ -194,7 +194,7 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
               {t("hero.subtitleAfter")}
             </>
           }
-          imgSrc="/tayprorobots/taypro-modelBcopy.png"
+          imgSrc="/tayprorobots/taypro-helyx-semi-automatic-solar-cleaning-robot.png"
           imgAlt={t("hero.imgAlt")}
           ctaHref="/contact"
           ctaText={t("hero.ctaText")}

@@ -1,0 +1,114 @@
+{
+  "ComparisonsPage": {
+    "breadcrumbs": {
+      "compare": "Compare",
+      "hub": "Solar cleaning robots"
+    },
+    "cta": {
+      "heading": "Need a plant-specific recommendation?",
+      "body": "Share MW capacity, tilt or tracker layout, and soiling profile. Taypro engineers will map GLYDE, NYUMA, HELYX, or Taypro Opex to your asset.",
+      "quote": "Get a quote",
+      "calculator": "ROI calculator"
+    },
+    "robotVsManual": {
+      "meta": {
+        "title": "Solar Panel Cleaning Robot vs Manual Cleaning in India",
+        "description": "Compare robotic vs manual solar panel cleaning for Indian utility plants: water use, labour safety, cycle frequency, fleet data, and when each model fits."
+      },
+      "hero": {
+        "eyebrow": "Buyer guide",
+        "title": "Solar panel cleaning robot vs manual cleaning",
+        "lead": "Manual wet washing and robotic waterless cleaning both remove soiling, but they differ on water availability, labour risk, proof of completion, and long-run cost on MW-scale plants."
+      },
+      "intro": "Utility IPPs in Rajasthan, Gujarat, and Madhya Pradesh often start with manual crews or tractor-mounted brushes, then evaluate robots when soiling losses, water cost, or safety incidents rise. This page compares decision criteria—not a single winner for every site.",
+      "tableHeading": "Side-by-side comparison",
+      "rows": {
+        "0": { "factor": "Water use", "robot": "Waterless dry cleaning (Taypro GLYDE / NYUMA)", "manual": "Typically requires water; scarce on arid sites" },
+        "1": { "factor": "Labour & safety", "robot": "Fewer rooftop/row walks; scheduled autonomous cycles", "manual": "Higher crew hours; heat and height exposure" },
+        "2": { "factor": "Proof of cleaning", "robot": "NECTYR logs block-level completion", "manual": "Often photo/checklist based; harder to audit at scale" },
+        "3": { "factor": "Cycle frequency", "robot": "Higher frequency feasible without proportional labour", "manual": "Cost and crew limits reduce cadence" },
+        "4": { "factor": "Upfront cost", "robot": "CAPEX robots or Taypro Opex per-panel service", "manual": "Lower capex; recurring labour + water" },
+        "5": { "factor": "Best fit", "robot": "50 MW+ utility, water-stressed, audit-heavy O&M", "manual": "Small C&I, abundant water, very low soiling" }
+      },
+      "faq": {
+        "0": { "q": "When does a robot beat manual cleaning?", "a": "When soiling losses exceed labour+water cost, water is limited, or owners need logged cleaning coverage for lenders and O&M contracts. Run Taypro's ROI calculator with your PR data." },
+        "1": { "q": "Can robots and manual cleaning coexist?", "a": "Yes. Many plants use robots on bulk arrays and manual methods on switchyards, substations, or damaged tables until robots are deployed fleet-wide." }
+      }
+    },
+    "tayproVsSolabot": {
+      "meta": {
+        "title": "Taypro vs Solabot — Solar Cleaning Robot Comparison India",
+        "description": "Factual comparison of Taypro and Solabot Technologies for Indian utility solar: waterless robotics, tracker support, fleet software, and deployment scale."
+      },
+      "hero": {
+        "eyebrow": "Vendor comparison",
+        "title": "Taypro vs Solabot for utility solar cleaning",
+        "lead": "Both vendors supply waterless solar cleaning robots in India. Compare on plant fit, autonomy level, fleet data, and service model—not headline price alone."
+      },
+      "intro": "Solabot Technologies and Taypro both market robotic cleaning for Indian solar. Public materials from each company should be verified on your RFQ. Taypro publishes utility case studies, NECTYR fleet logs, and Made-in-India manufacturing from Chakan, Pune.",
+      "tableHeading": "Comparison snapshot",
+      "rows": {
+        "0": { "factor": "Core robots", "taypro": "GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX", "competitor": "Solabot waterless robot lineup (verify current models on vendor site)" },
+        "1": { "factor": "Cleaning technology", "taypro": "Dual-pass microfiber (GLYDE) and single-pass PBT (NYUMA)", "competitor": "Vendor-specified dry/waterless method—confirm brush vs airflow" },
+        "2": { "factor": "Fleet software", "taypro": "NECTYR portal with block-level reporting", "competitor": "Confirm monitoring portal scope on RFQ" },
+        "3": { "factor": "Commercial model", "taypro": "CAPEX robots + Taypro Opex pay-per-panel service", "competitor": "Confirm capex vs service options" },
+        "4": { "factor": "Manufacturing", "taypro": "Chakan, Pune; pan-India service network", "competitor": "Verify India assembly/service footprint" },
+        "5": { "factor": "Evaluation tip", "taypro": "Request Banda-scale case study data + breakdown SLA", "competitor": "Request like-for-like soiling trial on your module type" }
+      },
+      "faq": {
+        "0": { "q": "Should we run a head-to-head trial?", "a": "Yes—shortlist two vendors, run a 30–60 day soiling trial on representative blocks, and compare PR uplift, cycle time, and logged coverage." },
+        "1": { "q": "Does Taypro replace Solabot on existing plants?", "a": "Taypro deploys on greenfield and retrofit utility sites. Migration depends on dock compatibility and O&M contract terms—scope in technical due diligence." }
+      }
+    },
+    "tayproVsSkilancer": {
+      "meta": {
+        "title": "Taypro vs Skilancer — Solar Cleaning Robot Comparison India",
+        "description": "Compare Taypro and Skilancer Solar for Indian utility plants: robot types, tracker compatibility, waterless cleaning, fleet monitoring, and O&M proof."
+      },
+      "hero": {
+        "eyebrow": "Vendor comparison",
+        "title": "Taypro vs Skilancer for utility solar cleaning",
+        "lead": "Skilancer Solar and Taypro both position as Indian solar cleaning robot suppliers. Evaluate tracker fit, autonomy, and O&M data—not brochure claims."
+      },
+      "intro": "Skilancer is commonly cited on Indian utility RFQs alongside Taypro. Use this checklist during vendor shortlisting; confirm all competitor specs directly with Skilancer on your tender documents.",
+      "tableHeading": "Comparison snapshot",
+      "rows": {
+        "0": { "factor": "Positioning", "taypro": "Utility-scale waterless robots + NECTYR + optional Opex", "competitor": "Skilancer robotic cleaning for solar (verify current range)" },
+        "1": { "factor": "Tracker plants", "taypro": "GLYDE-X and NYUMA-X for single-axis trackers", "competitor": "Confirm tracker-native robot on RFQ" },
+        "2": { "factor": "Distributed blocks", "taypro": "HELYX semi-automatic pick-and-place", "competitor": "Confirm portable/semi-auto offering" },
+        "3": { "factor": "Field proof", "taypro": "150+ live sites; published MW case studies", "competitor": "Request reference plants in your state" },
+        "4": { "factor": "Service SLA", "taypro": "Pan-India spares; breakdown response in Opex contracts", "competitor": "Compare SLA and spare lead times" },
+        "5": { "factor": "Evaluation tip", "taypro": "Match robot class to tilt vs tracker tables first", "competitor": "Validate module clearance and row geometry" }
+      },
+      "faq": {
+        "0": { "q": "What should IPPs weight most?", "a": "Waterless fit for your dust chemistry, tracker compatibility, fleet audit logs, and India-local manufacturing with spare parts—not unit price alone." },
+        "1": { "q": "Where can I see Taypro deployments?", "a": "Browse CAPEX and Opex project filters and state guides on taypro.in/projects and regional landing pages." }
+      }
+    },
+    "waterlessVsWater": {
+      "meta": {
+        "title": "Waterless vs Water-Based Solar Panel Cleaning",
+        "description": "Compare waterless robotic and water-based manual solar cleaning: dust removal, module risk, water cost, environmental compliance, and Indian utility fit."
+      },
+      "hero": {
+        "eyebrow": "Technology comparison",
+        "title": "Waterless vs water-based solar panel cleaning",
+        "lead": "Water washing remains common on smaller sites; waterless robots dominate new Indian utility RFQs where water is scarce and audit cadence is high."
+      },
+      "intro": "Dust chemistry, module coating, and local water cost determine the right method. Taypro standardises on waterless dual-pass and PBT dry cleaning for utility arrays; water-based methods may still suit specific zones with reliable supply and low TDS.",
+      "tableHeading": "Method comparison",
+      "rows": {
+        "0": { "factor": "Water consumption", "waterless": "None on-row; major savings in arid states", "water": "Litres per wash × table count × cycles" },
+        "1": { "factor": "Labour", "waterless": "Autonomous or semi-auto robots", "water": "Crews or tractor systems" },
+        "2": { "factor": "Module risk", "waterless": "Dry brush/microfiber; vendor-specific", "water": "Pressure/nozzle risk if uncontrolled" },
+        "3": { "factor": "Environmental", "waterless": "No runoff; aligns with water-scarce site permits", "water": "Runoff and sourcing compliance" },
+        "4": { "factor": "Taypro products", "waterless": "GLYDE, NYUMA, GLYDE-X, NYUMA-X, HELYX", "water": "Not Taypro's primary utility offering" },
+        "5": { "factor": "When water wins", "waterless": "Utility MW plants, Rajasthan/Gujarat dust", "water": "Low soiling C&I with cheap water access" }
+      },
+      "faq": {
+        "0": { "q": "Does waterless cleaning damage coatings?", "a": "Taypro uses dry microfiber and PBT methods designed for utility glass—validate on a pilot block with your module OEM guidance." },
+        "1": { "q": "Can we switch from wet to waterless mid-life?", "a": "Yes. Retrofit robots on live plants; Taypro Opex can bridge until CAPEX approval." }
+      }
+    }
+  }
+}

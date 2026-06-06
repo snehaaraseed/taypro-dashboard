@@ -41,7 +41,8 @@ export const BLOG_AUTHORS: BlogAuthor[] = [
     name: "Taypro Team",
     slug: "taypro-team",
     role: "Solar Automation Specialists",
-    bio: "The Taypro editorial team writes about solar operations, robotic cleaning systems, plant efficiency, and maintenance best practices.",
+    bio: "The Taypro editorial team covers utility-scale solar O&M, waterless robotic cleaning, fleet software, and plant performance for IPPs and EPC teams across India. Our writers draw on field data from 150+ live robot deployments, 5 GW+ of monitored cleaning capacity, and Taypro's Made-in-India manufacturing in Chakan, Pune.",
+    expertiseTags: ["industry-trends", "robot-products"],
     avatarUrl:
       "https://ui-avatars.com/api/?name=Taypro+Team&background=052638&color=ffffff&size=256",
   },
@@ -49,8 +50,9 @@ export const BLOG_AUTHORS: BlogAuthor[] = [
     name: "Yogesh",
     slug: "yogesh",
     role: "Product & Growth",
-    bio: "Yogesh shares practical insights on solar technology adoption, product strategy, and performance optimization in utility-scale projects.",
+    bio: "Yogesh leads product and growth at Taypro, where he works with utility asset owners on robotic cleaning ROI, deployment planning, and fleet operations. He writes about waterless O&M, CAPEX vs Opex models, and how Indian MW-scale plants recover yield with GLYDE, NYUMA, and NECTYR.",
     expertiseTags: ["roi-cost", "robot-products", "industry-trends"],
+    linkedInUrl: "https://www.linkedin.com/company/taypro",
     avatarUrl:
       "https://ui-avatars.com/api/?name=Yogesh&background=0c3c57&color=ffffff&size=256",
   },

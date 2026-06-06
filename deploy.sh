@@ -291,6 +291,18 @@ EOF
 step_done
 echo ""
 
+# Step 2a2: Legacy WordPress 301s at nginx layer (before Next.js)
+step_start "Step 2a2: Nginx legacy SEO redirects"
+ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
+    set -e
+    cd /var/www/taypro-dashboard
+    chmod +x scripts/install-nginx-legacy-seo.sh scripts/install-nginx-portal-noindex.sh 2>/dev/null || true
+    ./scripts/install-nginx-legacy-seo.sh
+    ./scripts/install-nginx-portal-noindex.sh || true
+EOF
+step_done
+echo ""
+
 # Step 2b: GSC service account + production env (uploaded via scp; not in git/rsync)
 step_start "Step 2b: GSC secrets and env"
 if [ -f "$LOCAL_PATH/secrets/gsc-service-account.json" ]; then
@@ -561,6 +573,11 @@ echo -e "${GREEN}✅ Deployment completed successfully!${NC}"
 echo -e "${YELLOW}  Tip: use ./deploy.sh --fast for routine releases (same safety, less I/O).${NC}"
 echo ""
 echo "Website: https://taypro.in"
+echo ""
+echo -e "${YELLOW}SEO post-deploy (manual — SEO-046):${NC}"
+echo "  curl -I https://taypro.in/taypro-basic/  # expect 301 → HELYX"
+echo "  curl -I https://taypro.in/industrial_solar_panel_cleaning_system.html  # expect 301 → hub"
+echo "  GSC → URL Inspection on legacy URLs → request removal → resubmit sitemap.xml"
 echo "CMS database: $REMOTE_PATH/data/cms.sqlite"
 echo "Upload gallery: $REMOTE_PATH/public/uploads/"
 echo "Snapshots (max 3): $REMOTE_PATH/.deploy-snapshots/"

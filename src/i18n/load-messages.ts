@@ -42,7 +42,34 @@ function deepMerge(
   return out;
 }
 
-/** Load base locale JSON + all page modules from messages/pages/{locale}/*.json */
+async function mergePageModules(
+  messages: Record<string, unknown>,
+  pagesDir: string,
+  label: string
+): Promise<Record<string, unknown>> {
+  let merged = messages;
+  try {
+    const files = await readdir(pagesDir);
+    const jsonFiles = files.filter((f) => f.endsWith(".json")).sort();
+    for (const file of jsonFiles) {
+      try {
+        const pageRaw = await readFile(join(pagesDir, file), "utf8");
+        const pageMessages = JSON.parse(pageRaw) as Record<string, unknown>;
+        merged = deepMerge(merged, pageMessages);
+      } catch (err) {
+        console.error(
+          `[i18n] Skipping invalid page messages ${label}/${file}:`,
+          err instanceof Error ? err.message : err
+        );
+      }
+    }
+  } catch {
+    // Directory missing or unreadable
+  }
+  return merged;
+}
+
+/** Load base locale JSON + page modules; non-English locales fall back to en page files. */
 export async function loadMessages(
   locale: string
 ): Promise<Record<string, unknown>> {
@@ -51,25 +78,19 @@ export async function loadMessages(
   const baseRaw = await readFile(basePath, "utf8");
   let messages = JSON.parse(baseRaw) as Record<string, unknown>;
 
-  const pagesDir = join(root, "pages", locale);
-  try {
-    const files = await readdir(pagesDir);
-    const jsonFiles = files.filter((f) => f.endsWith(".json")).sort();
-    for (const file of jsonFiles) {
-      try {
-        const pageRaw = await readFile(join(pagesDir, file), "utf8");
-        const pageMessages = JSON.parse(pageRaw) as Record<string, unknown>;
-        messages = deepMerge(messages, pageMessages);
-      } catch (err) {
-        console.error(
-          `[i18n] Skipping invalid page messages ${locale}/${file}:`,
-          err instanceof Error ? err.message : err
-        );
-      }
-    }
-  } catch {
-    // No page overrides for this locale yet
+  if (locale !== "en") {
+    messages = await mergePageModules(
+      messages,
+      join(root, "pages", "en"),
+      "en"
+    );
   }
+
+  messages = await mergePageModules(
+    messages,
+    join(root, "pages", locale),
+    locale
+  );
 
   return messages;
 }

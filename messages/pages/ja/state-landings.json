@@ -51,7 +51,7 @@
     },
     "rajasthan": {
       "meta": {
-        "title": "Rajasthanの太陽光パネル清掃ロボット | 大規模発電所 | Taypro",
+        "title": "Rajasthanの太陽光パネル清掃ロボット | 大規模発電所",
         "description": "Rajasthanの大規模太陽光発電所向け乾式太陽光パネル清掃ロボット。砂嵐による汚れ対策、360 MW以上の導入実績、インド全土の保守サービス。GLYDE、NYUMA、およびTaypro Opexを展開。",
         "openGraphTitle": "Rajasthanの太陽光パネル清掃ロボット | Taypro",
         "openGraphDescription": "Rajasthanの太陽光発電所向けロボットによる乾式清掃 — 深刻な汚れや水不足地域、数百MW規模のフリートに対応。"
@@ -117,7 +117,7 @@
     },
     "gujarat": {
       "meta": {
-        "title": "Gujaratの太陽光パネル洗浄ロボット | 大規模発電所 | Taypro",
+        "title": "Gujaratの太陽光パネル洗浄ロボット | 大規模発電所",
         "description": "Gujaratの大規模太陽光発電所向け太陽光パネル洗浄ロボット。熱、工業用粉塵、水不足の問題を解決します。Tayproの非水洗浄GLYDEおよびNYUMAフリートとNECTYRモニタリングで、DVC規模の実績を実現。",
         "openGraphTitle": "Gujaratの太陽光パネル洗浄ロボット | Taypro",
         "openGraphDescription": "Gujaratの大規模太陽光発電所向けの非水洗浄ロボット。BachauにおけるDVC規模の導入実績と、インド全土をカバーするTayproのサービス体制。"
@@ -183,7 +183,7 @@
     },
     "madhyaPradesh": {
       "meta": {
-        "title": "Madhya Pradesh向け太陽光パネル清掃ロボット | メガソーラー発電所 | Taypro",
+        "title": "Madhya Pradesh向け太陽光パネル清掃ロボット | メガソーラー発電所",
         "description": "Madhya Pradeshのメガソーラー向け太陽光パネル清掃ロボット。Agar 250 MW発電所をはじめ、インド中央部のダストベルト全域でTayproのドライクリーニング技術（GLYDE, NYUMA, NECTYR）が稼働中。インド全土での迅速な保守サービスを提供します。",
         "openGraphTitle": "Madhya Pradesh向け太陽光パネル清掃ロボット | Taypro",
         "openGraphDescription": "Madhya Pradeshのメガソーラー向けロボットによるドライクリーニング。インド中央部の汚れ対策、大規模固定架台への導入、Tayproの運用実績。"
@@ -249,7 +249,7 @@
     },
     "karnataka": {
       "meta": {
-        "title": "Karnataka向け太陽光パネル清掃ロボット | 大規模発電所 | Taypro",
+        "title": "Karnataka向け太陽光パネル清掃ロボット | 大規模発電所",
         "description": "Karnatakaの大規模太陽光発電所向け太陽光パネル清掃ロボット。湿度と粉塵が混在する環境に対応する高密度ロボットプログラム。Yadgir 50 MWおよびKMFにおいて、水を使わないGLYDEとNYUMAを導入済み。",
         "openGraphTitle": "Karnataka向け太陽光パネル清掃ロボット | Taypro",
         "openGraphDescription": "Karnatakaの大規模太陽光発電所向け、水を使わないロボット清掃。Yadgirでの混合フリート運用や、インド全域をカバーするTayproのサービス。"
@@ -317,7 +317,7 @@
     },
     "andhraPradesh": {
       "meta": {
-        "title": "太陽光パネル清掃ロボット Andhra Pradesh | 大規模発電所 | Taypro",
+        "title": "太陽光パネル清掃ロボット Andhra Pradesh | 大規模発電所",
         "description": "Andhra PradeshおよびTelanganaの太陽光発電所向け太陽光パネル清掃ロボット。水を使用しないTayproのGLYDE、NYUMA、およびトラッカー対応ロボットを提供。NECTYRによるフリート管理データ、インド全土のサービス網、柔軟なTaypro Opexオプションをご利用いただけます。",
         "openGraphTitle": "太陽光パネル清掃ロボット Andhra Pradesh | Taypro",
         "openGraphDescription": "Andhra Pradesh/Telanganaの大規模太陽光発電所向け乾式ロボット清掃。沿岸部の汚れ対策、トラッカー導入、Tayproのインド全土サポート体制。"
@@ -383,7 +383,7 @@
     },
     "maharashtra": {
       "meta": {
-        "title": "マハラシュトラ州の太陽光パネル洗浄ロボット | メガソーラー発電所 | Taypro",
+        "title": "マハラシュトラ州の太陽光パネル洗浄ロボット | メガソーラー発電所",
         "description": "マハラシュトラ州のメガソーラー向け太陽光パネル洗浄ロボット。Soyegaon 100 MWをはじめ、Ahmadnagar、Yavatmal、Sangliなど、GLYDE + NYUMAの混合運用やNECTYR導入実績が多数。インド全土での保守サービスを提供。",
         "openGraphTitle": "マハラシュトラ州の太陽光パネル洗浄ロボット | Taypro",
         "openGraphDescription": "マハラシュトラ州のメガソーラー向け水なしロボット洗浄。農業由来の粉塵対策、混合フリート運用、Tayproの稼働実績について。"
@@ -449,7 +449,7 @@
     },
     "uttarPradesh": {
       "meta": {
-        "title": "Uttar Pradesh向け太陽光パネル清掃ロボット | メガソーラー発電所 | Taypro",
+        "title": "Uttar Pradesh向け太陽光パネル清掃ロボット | メガソーラー発電所",
         "description": "Uttar Pradeshのメガソーラー向け太陽光パネル清掃ロボット。Banda 70 MW、Prayagraj 50 MW、Deoriaでの導入実績 — Bundelkhandの砂塵、水不足、高密度混合フリート、インド全土のサービス。",
         "openGraphTitle": "Uttar Pradesh向け太陽光パネル清掃ロボット | Taypro",
         "openGraphDescription": "UPのメガソーラー向け非水洗浄ロボット清掃 — Banda規模の混合フリートとBundelkhandの汚れ対策。"
@@ -515,7 +515,7 @@
     },
     "tamilNadu": {
       "meta": {
-        "title": "Tamil Nadu向け太陽光パネル清掃ロボット | メガソーラー発電所 | Taypro",
+        "title": "Tamil Nadu向け太陽光パネル清掃ロボット | メガソーラー発電所",
         "description": "Tamil Naduのメガソーラー向け太陽光パネル清掃ロボット。NayveliとChennaiでの導入 — 沿岸湿度、GLYDE自動とNYUMA半自動の非水洗浄フリート、NECTYR、インド全土のサービス。",
         "openGraphTitle": "Tamil Nadu向け太陽光パネル清掃ロボット | Taypro",
         "openGraphDescription": "Tamil Naduのメガソーラー向け非水洗浄ロボット清掃 — 沿岸汚れと耐湿熱運用。"

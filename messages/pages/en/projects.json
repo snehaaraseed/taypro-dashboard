@@ -116,8 +116,8 @@
     }
   },
   "ProjectDetailPage": {
-    "notFoundTitle": "Project Not Found | Taypro",
-    "metaTitleSuffix": " - Solar Panel Cleaning Robot Installation | Taypro",
+    "notFoundTitle": "Project Not Found",
+    "metaTitleSuffix": " - Solar Panel Cleaning Robot Installation",
     "breadcrumbProjects": "Projects",
     "caseStudyLabel": "Deployment case study",
     "lastUpdated": "Last updated {date}",

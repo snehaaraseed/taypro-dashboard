@@ -92,7 +92,7 @@ Status options for each task: `[ ] todo` · `[~] in progress` · `[x] done` · `
 
 ### `SEO-010` — Rewrite Banda case study with quantified results + product link
 
-- **Status:** `[ ]`
+- **Status:** `[x]` CMS body includes GLYDE/NYUMA deployment, 160 robots, water saved, GWh recovered, and product/CAPEX internal links.
 - **Where:** `src/app/projects/banda-solar-project/page.tsx` (`BlogContent` HTML string).
 - **Problem:** Reads like a template. No specific yield/PR/kWh numbers. Metadata mentions **160 robots** but body never says so. No link to Model-A / Model-B / OPEX.
 - **Fix:** Rewrite into a real case study with these sections:
@@ -107,7 +107,7 @@ Status options for each task: `[ ] todo` · `[~] in progress` · `[x] done` · `
 
 ### `SEO-011` — Rewrite Soyegaon case study with quantified results + product link
 
-- **Status:** `[ ]`
+- **Status:** `[x]` CMS content enriched (same structure as Banda); verify live metrics on deploy.
 - **Where:** `src/app/projects/soyegaon-solar-project/page.tsx`.
 - **Problem:** ~600-750 words but most are boilerplate ("Maharashtra's network", "advanced technology"). Same template gaps as Banda.
 - **Fix:** Apply the same five-section structure from `SEO-010`. Identify the actual Taypro model deployed, robot count, and any measured improvements. Fix the truncated overview image alt.
@@ -115,7 +115,7 @@ Status options for each task: `[ ] todo` · `[~] in progress` · `[x] done` · `
 
 ### `SEO-012` — Rewrite Yadgir 50 MW case study with quantified results + product link
 
-- **Status:** `[ ]`
+- **Status:** `[x]` CMS content enriched with quantified field metrics and product links.
 - **Where:** `src/app/projects/yadgir-solar-project-50-mw/page.tsx`.
 - **Problem:** Same template gaps. *"Performance & Efficiency"* section asserts performance with zero numbers.
 - **Fix:** Same five-section structure. Fix the truncated overview image alt.
@@ -123,7 +123,7 @@ Status options for each task: `[ ] todo` · `[~] in progress` · `[x] done` · `
 
 ### `SEO-013` — Rewrite Agar 250 MW case study with quantified results + product link
 
-- **Status:** `[ ]`
+- **Status:** `[x]` CMS content enriched (200 MW / 272 robots narrative, product links).
 - **Where:** `src/app/projects/agar-solar-project/page.tsx`.
 - **Problem:** Highest-capacity story on the site but currently reads as buzzwords (AI-powered, energy storage integration) without specifics. Fix this one first if you want the most credible flagship case study.
 - **Fix:** Same five-section structure. Fix the truncated overview image alt.
@@ -403,7 +403,7 @@ Status options for each task: `[ ] todo` · `[~] in progress` · `[x] done` · `
 
 ### `SEO-042` — Plan competitor / category comparison content
 
-- **Status:** `[ ]`
+- **Status:** `[x]` Published `/compare/*` routes (robot vs manual, Taypro vs Solabot, Taypro vs Skilancer, waterless vs water) with `ComparisonLandingPage` + `comparisons.json`.
 - **Where:** New routes or in-page sections on the product family.
 - **Problem:** No third-party vendor comparison anywhere on the site. Only Taypro vs manual cleaning, or Taypro model vs Taypro model. Commercial SERPs frequently surface "X vs Y" queries.
 - **Fix (requires editorial / legal review):** Decide on the safest approach:
@@ -423,6 +423,30 @@ Status options for each task: `[ ] todo` · `[~] in progress` · `[x] done` · `
 - **Problem:** Not failing a hard word-count floor, but thin compared to competing top-of-page results in the same queries.
 - **Fix:** Add 2-3 new H2 sections per post: real-world examples, step-by-step procedures, FAQs, image diagrams where possible. Bump `updatedAt`.
 - **Acceptance:** Each listed post reaches ≥ 1,500 words and has ≥ 4 `<h2>` sections.
+
+### `SEO-044` — Fix double `| Taypro` in document titles
+
+- **Status:** `[x]` Stripped `| Taypro` from i18n meta titles via `scripts/strip-title-brand-suffix.mjs`; fixed hardcoded layout titles and project OG double-brand.
+- **Where:** `src/app/[locale]/layout.tsx` (`title.template`), all `messages/pages/*/meta.title` keys ending with `| Taypro`, hardcoded layout titles, OG title concatenation in `projects/[slug]/page.tsx` and `performance-and-test-methodology/page.tsx`.
+- **Problem:** Layout appends `| Taypro` to titles that already include the brand → Google rewrites stuffed titles.
+- **Fix:** Strip `| Taypro` from i18n `meta.title` strings; let template add suffix once. Fix manual OG `| Taypro` appenders.
+- **Acceptance:** Rendered `<title>` on `/`, hub, `/site-map`, `/company`, one project slug — exactly one `| Taypro`.
+
+### `SEO-045` — Legacy WordPress URL 301 redirects
+
+- **Status:** `[x]` Added redirects in `next.config.ts` + `deploy/nginx/legacy-static-deny.conf` for nginx-layer fallback.
+- **Where:** `next.config.ts`, `deploy/nginx/legacy-static-deny.conf`.
+- **Problem:** `taypro-basic/`, `industrial_solar_panel_cleaning_system.html`, `/news/*`, `/contact/` still indexed from old site.
+- **Fix:** 301 map: `taypro-basic` → HELYX; `industrial_solar_*` → hub; `/news/:path*` → `/blog/:path*`; `/contact/` → `/contact`. Delete stale static files on server.
+- **Acceptance:** `curl -I` on each legacy URL returns 301 to canonical Next.js route.
+
+### `SEO-046` — Google Search Console legacy URL cleanup
+
+- **Status:** `[ ]` (manual post-deploy)
+- **Where:** Google Search Console → URL Inspection, Removals, Sitemaps.
+- **Problem:** Indexed legacy URLs persist after 301s until Google recrawls.
+- **Fix:** After deploy: URL Inspection on each legacy URL; request removal for `taypro-basic/` and `industrial_solar_panel_cleaning_system.html`; resubmit `sitemap.xml`; monitor Page indexing 2–4 weeks.
+- **Acceptance:** GSC shows 301 redirect target for each legacy URL; no new 404s for legacy paths.
 
 ---
 

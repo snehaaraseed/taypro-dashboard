@@ -1,7 +1,7 @@
 {
   "SolarSystemPage": {
     "meta": {
-      "title": "روبوت ونظام تنظيف الألواح الشمسية في الهند, الآلات والطرازات | Taypro",
+      "title": "روبوت ونظام تنظيف الألواح الشمسية في الهند, الآلات والطرازات",
       "description": "قارن كل روبوتات Taypro لتنظيف الألواح الشمسية: GLYDE وGLYDE-X وNYUMA وNYUMA-X وHELYX، إضافةً إلى Taypro Opex وNECTYR. تنظيف بدون ماء، جدولة بالذكاء الاصطناعي، معتمد من TÜV NORD، دعم على مستوى الهند.",
       "keywords": [
         "روبوت تنظيف الألواح الشمسية",
@@ -350,6 +350,12 @@
           "cta": "اطلع على Taypro Opex"
         }
       }
+    },
+    "compareGuides": {
+      "robotVsManual": "Robot vs manual cleaning guide",
+      "tayproVsSolabot": "Taypro vs Solabot",
+      "tayproVsSkilancer": "Taypro vs Skilancer",
+      "waterlessVsWater": "Waterless vs water-based cleaning"
     },
     "comparison": {
       "eyebrow": "مقارنة جنباً إلى جنب",

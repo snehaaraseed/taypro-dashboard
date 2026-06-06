@@ -1,7 +1,7 @@
 {
   "SolarSystemPage": {
     "meta": {
-      "title": "भारत में सोलर पैनल सफाई रोबोट और सिस्टम, मशीनें और मॉडल | Taypro",
+      "title": "भारत में सोलर पैनल सफाई रोबोट और सिस्टम, मशीनें और मॉडल",
       "description": "हर Taypro सोलर पैनल सफाई रोबोट की तुलना करें: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, साथ ही Taypro Opex और NECTYR। वॉटरलेस सफाई, AI शेड्यूलिंग, TÜV NORD प्रमाणित, पैन-इंडिया सहायता।",
       "keywords": [
         "सोलर पैनल सफाई रोबोट",
@@ -350,6 +350,12 @@
           "cta": "Taypro Opex देखें"
         }
       }
+    },
+    "compareGuides": {
+      "robotVsManual": "Robot vs manual cleaning guide",
+      "tayproVsSolabot": "Taypro vs Solabot",
+      "tayproVsSkilancer": "Taypro vs Skilancer",
+      "waterlessVsWater": "Waterless vs water-based cleaning"
     },
     "comparison": {
       "eyebrow": "साइड-बाय-साइड",

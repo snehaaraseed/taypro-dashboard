@@ -1,7 +1,7 @@
 {
   "SolarSystemPage": {
     "meta": {
-      "title": "インドのソーラーパネル洗浄ロボット＆システム, 機種一覧 | Taypro",
+      "title": "インドのソーラーパネル洗浄ロボット＆システム, 機種一覧",
       "description": "Tayproのソーラーパネル洗浄ロボットを比較：GLYDE、GLYDE-X、NYUMA、NYUMA-X、HELYX、Taypro Opex、NECTYR。水なし洗浄、AIスケジューリング、TÜV NORD認証、インド全国サポート。",
       "keywords": [
         "ソーラーパネル洗浄ロボット",
@@ -350,6 +350,12 @@
           "cta": "Taypro Opexを見る"
         }
       }
+    },
+    "compareGuides": {
+      "robotVsManual": "Robot vs manual cleaning guide",
+      "tayproVsSolabot": "Taypro vs Solabot",
+      "tayproVsSkilancer": "Taypro vs Skilancer",
+      "waterlessVsWater": "Waterless vs water-based cleaning"
     },
     "comparison": {
       "eyebrow": "一覧比較",

@@ -134,11 +134,12 @@ export default function AboutUsPage() {
             <div className="text-[#A8C117] text-center text-[16px] mb-4 uppercase tracking-wide">
               {t("hero.eyebrow")}
             </div>
-            <h1 className="font-semibold text-[#052638] text-4xl md:text-5xl mb-6 text-center leading-tight">
-              {t("hero.titleLine1")}
-              <br />
-              {t("hero.titleLine2")}
+            <h1 className="font-semibold text-[#052638] text-4xl md:text-5xl mb-4 text-center leading-tight">
+              {t("hero.title")}
             </h1>
+            <p className="text-[#5a8f00] text-center text-lg md:text-xl font-medium mb-6">
+              {t("hero.subtitle")}
+            </p>
             <div className="text-[#22405a] text-center text-lg md:text-xl leading-relaxed">
               {t("hero.bodyBeforeLink")}{" "}
               <Link

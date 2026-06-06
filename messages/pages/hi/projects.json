@@ -116,8 +116,8 @@
     }
   },
   "ProjectDetailPage": {
-    "notFoundTitle": "प्रोजेक्ट नहीं मिला | Taypro",
-    "metaTitleSuffix": " - सोलर पैनल क्लीनिंग रोबोट स्थापना | Taypro",
+    "notFoundTitle": "प्रोजेक्ट नहीं मिला",
+    "metaTitleSuffix": " - सोलर पैनल क्लीनिंग रोबोट स्थापना",
     "breadcrumbProjects": "प्रोजेक्ट",
     "caseStudyLabel": "तैनाती केस स्टडी",
     "lastUpdated": "अंतिम अपडेट {date}",
