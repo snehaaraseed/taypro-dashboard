@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import ComparisonLandingPage from "@/app/components/ComparisonLandingPage";
+import CompetitorMarketComparisonPage from "@/app/components/CompetitorMarketComparisonPage";
 import {
   COMPARISON_PAGE_LIST,
   getComparisonBySlug,
@@ -43,6 +44,10 @@ export default async function CompareSlugPage({ params }: PageProps) {
   const { locale, slug } = await params;
   const config = getComparisonBySlug(slug);
   if (!config) notFound();
+
+  if (config.id === "indianCompetitors") {
+    return <CompetitorMarketComparisonPage locale={locale} />;
+  }
 
   return (
     <ComparisonLandingPage pageId={config.id} locale={locale} />

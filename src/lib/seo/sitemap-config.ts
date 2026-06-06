@@ -149,6 +149,11 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
   },
   { path: "/site-map", changeFrequency: "monthly", priority: 0.5 },
   {
+    path: "/compare/taypro-vs-indian-solar-cleaning-robot-companies",
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
     path: "/compare/solar-panel-cleaning-robot-vs-manual-cleaning",
     changeFrequency: "monthly",
     priority: 0.75,
@@ -160,6 +165,16 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
   },
   {
     path: "/compare/taypro-vs-skilancer",
+    changeFrequency: "monthly",
+    priority: 0.72,
+  },
+  {
+    path: "/compare/taypro-vs-aegeus",
+    changeFrequency: "monthly",
+    priority: 0.72,
+  },
+  {
+    path: "/compare/taypro-vs-vayu-solar",
     changeFrequency: "monthly",
     priority: 0.72,
   },

@@ -10,8 +10,31 @@ import {
   type ComparisonPageId,
 } from "@/lib/seo/comparison-pages-config";
 
-const ROW_KEYS = ["0", "1", "2", "3", "4", "5"] as const;
-const FAQ_KEYS = ["0", "1"] as const;
+const BASIC_ROW_KEYS = ["0", "1", "2", "3", "4", "5"] as const;
+
+const VENDOR_ROW_KEYS = [
+  "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+  "10", "11", "12", "13", "14", "15", "16", "17", "18",
+] as const;
+
+const ROW_KEYS_BY_PAGE: Record<ComparisonPageId, readonly string[]> = {
+  robotVsManual: BASIC_ROW_KEYS,
+  indianCompetitors: [],
+  tayproVsSolabot: VENDOR_ROW_KEYS,
+  tayproVsSkilancer: VENDOR_ROW_KEYS,
+  tayproVsAegeus: VENDOR_ROW_KEYS,
+  tayproVsVayu: VENDOR_ROW_KEYS,
+  waterlessVsWater: BASIC_ROW_KEYS,
+};
+
+const VENDOR_PAGE_IDS: ComparisonPageId[] = [
+  "tayproVsSolabot",
+  "tayproVsSkilancer",
+  "tayproVsAegeus",
+  "tayproVsVayu",
+];
+
+const STRENGTH_KEYS = ["0", "1", "2", "3"] as const;
 
 type ColumnKeys = {
   left: string;
@@ -27,6 +50,12 @@ const COLUMN_KEYS: Record<ComparisonPageId, ColumnKeys> = {
     leftLabel: "Robotic cleaning",
     rightLabel: "Manual cleaning",
   },
+  indianCompetitors: {
+    left: "taypro",
+    right: "competitor",
+    leftLabel: "Taypro",
+    rightLabel: "Competitor",
+  },
   tayproVsSolabot: {
     left: "taypro",
     right: "competitor",
@@ -38,6 +67,18 @@ const COLUMN_KEYS: Record<ComparisonPageId, ColumnKeys> = {
     right: "competitor",
     leftLabel: "Taypro",
     rightLabel: "Skilancer",
+  },
+  tayproVsAegeus: {
+    left: "taypro",
+    right: "competitor",
+    leftLabel: "Taypro",
+    rightLabel: "Aegeus",
+  },
+  tayproVsVayu: {
+    left: "taypro",
+    right: "competitor",
+    leftLabel: "Taypro",
+    rightLabel: "Vayu Solar",
   },
   waterlessVsWater: {
     left: "waterless",
@@ -60,10 +101,16 @@ export default async function ComparisonLandingPage({
   const tCommon = await getTranslations({ locale, namespace: "Common" });
   const ns = pageId;
   const columns = COLUMN_KEYS[pageId];
-  const faqs = FAQ_KEYS.map((key) => ({
+  const rowKeys = ROW_KEYS_BY_PAGE[pageId];
+  const isVendorPage = VENDOR_PAGE_IDS.includes(pageId);
+  const faqKeys = isVendorPage ? (["0", "1", "2"] as const) : (["0", "1"] as const);
+
+  const faqs = faqKeys.map((key) => ({
     question: t(`${ns}.faq.${key}.q`),
     answer: t(`${ns}.faq.${key}.a`),
   }));
+
+  const compareHubPath = "/compare/taypro-vs-indian-solar-cleaning-robot-companies";
 
   const breadcrumbs = [
     { name: tCommon("breadcrumbHome"), href: "/" },
@@ -71,7 +118,7 @@ export default async function ComparisonLandingPage({
       name: t("breadcrumbs.hub"),
       href: "/solar-panel-cleaning-system",
     },
-    { name: t("breadcrumbs.compare"), href: "/compare/solar-panel-cleaning-robot-vs-manual-cleaning" },
+    { name: t("breadcrumbs.compare"), href: compareHubPath },
     { name: t(`${ns}.hero.title`), href: "" },
   ];
 
@@ -100,9 +147,14 @@ export default async function ComparisonLandingPage({
 
       <section className="py-12 md:py-16">
         <Container>
-          <p className="text-[#27415c] text-base md:text-lg leading-relaxed max-w-4xl mb-10">
+          <p className="text-[#27415c] text-base md:text-lg leading-relaxed max-w-4xl mb-4">
             {t(`${ns}.intro`)}
           </p>
+          {isVendorPage && (
+            <p className="text-[#27415c]/80 text-sm md:text-base leading-relaxed max-w-4xl mb-10 italic">
+              {t(`${ns}.sourceNote`)}
+            </p>
+          )}
 
           <h2 className="text-2xl md:text-3xl font-semibold text-[#052638] mb-6">
             {t(`${ns}.tableHeading`)}
@@ -113,17 +165,19 @@ export default async function ComparisonLandingPage({
               <thead className="bg-[#f4f1e9] text-[#052638]">
                 <tr>
                   <th className="px-4 py-3 font-semibold">Factor</th>
-                  <th className="px-4 py-3 font-semibold">{columns.leftLabel}</th>
+                  <th className="px-4 py-3 font-semibold bg-[#e8efd4]">
+                    {columns.leftLabel}
+                  </th>
                   <th className="px-4 py-3 font-semibold">{columns.rightLabel}</th>
                 </tr>
               </thead>
               <tbody>
-                {ROW_KEYS.map((key) => (
+                {rowKeys.map((key) => (
                   <tr key={key} className="border-t border-gray-100">
                     <td className="px-4 py-3 font-medium text-[#052638]">
                       {t(`${ns}.rows.${key}.factor`)}
                     </td>
-                    <td className="px-4 py-3 text-[#27415c]">
+                    <td className="px-4 py-3 text-[#27415c] bg-[#f9fbf3] font-medium">
                       {t(`${ns}.rows.${key}.${columns.left}`)}
                     </td>
                     <td className="px-4 py-3 text-[#27415c]">
@@ -134,6 +188,17 @@ export default async function ComparisonLandingPage({
               </tbody>
             </table>
           </div>
+
+          {isVendorPage && (
+            <p className="mt-6 text-sm text-[#27415c]">
+              <Link
+                href={compareHubPath}
+                className="text-[#5a8f00] font-medium hover:underline"
+              >
+                {t("indianCompetitors.hero.title")}
+              </Link>
+            </p>
+          )}
 
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
@@ -149,16 +214,55 @@ export default async function ComparisonLandingPage({
             >
               {t("cta.calculator")}
             </Link>
-            <span className="text-gray-300">·</span>
-            <Link
-              href="/blog/taypro-wins-historic-patent-for-revolutionary-solar-panel-cleaning-system"
-              className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
-            >
-              Taypro patent news
-            </Link>
+            {!isVendorPage && (
+              <>
+                <span className="text-gray-300">·</span>
+                <Link
+                  href="/blog/taypro-wins-historic-patent-for-revolutionary-solar-panel-cleaning-system"
+                  className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
+                >
+                  Taypro patent news
+                </Link>
+              </>
+            )}
           </div>
         </Container>
       </section>
+
+      {isVendorPage && (
+        <>
+          <section className="py-12 md:py-16 bg-[#f9fafb]">
+            <Container>
+              <h2 className="text-2xl md:text-3xl font-semibold text-[#052638] mb-8">
+                {t(`${ns}.tayproStrengths.heading`)}
+              </h2>
+              <div className="space-y-6 max-w-4xl">
+                {STRENGTH_KEYS.map((key) => (
+                  <div key={key}>
+                    <h3 className="text-lg font-semibold text-[#052638] mb-2">
+                      {t(`${ns}.tayproStrengths.items.${key}.title`)}
+                    </h3>
+                    <p className="text-[#27415c] leading-relaxed">
+                      {t(`${ns}.tayproStrengths.items.${key}.body`)}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Container>
+          </section>
+
+          <section className="py-12 md:py-16">
+            <Container>
+              <h2 className="text-2xl md:text-3xl font-semibold text-[#052638] mb-4">
+                {t(`${ns}.competitorStrengths.heading`)}
+              </h2>
+              <p className="text-[#27415c] leading-relaxed max-w-4xl">
+                {t(`${ns}.competitorStrengths.body`)}
+              </p>
+            </Container>
+          </section>
+        </>
+      )}
 
       <FaqSection id="compare-faq" title="FAQ" faqs={faqs} tone="muted" />
 

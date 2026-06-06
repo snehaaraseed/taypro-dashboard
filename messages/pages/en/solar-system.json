@@ -343,9 +343,12 @@
       }
     },
     "compareGuides": {
+      "indianCompetitors": "Taypro vs Indian competitors",
       "robotVsManual": "Robot vs manual cleaning guide",
       "tayproVsSolabot": "Taypro vs Solabot",
       "tayproVsSkilancer": "Taypro vs Skilancer",
+      "tayproVsAegeus": "Taypro vs Aegeus",
+      "tayproVsVayu": "Taypro vs Vayu Solar",
       "waterlessVsWater": "Waterless vs water-based cleaning"
     },
     "comparison": {
