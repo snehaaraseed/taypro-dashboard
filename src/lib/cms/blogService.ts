@@ -37,6 +37,7 @@ function rowToMetadata(row: typeof blogs.$inferSelect): BlogMetadata {
     updatedAt: row.updatedAt ?? undefined,
     published: row.published,
     faqs: parseBlogFaqs(row.faqs),
+    seoKeyword: row.seoKeyword ?? undefined,
   };
 }
 
@@ -88,6 +89,30 @@ export async function listAllBlogs(
       (a, b) =>
         new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
     );
+}
+
+/** Normalized author names from recent English posts (for automation rotation). */
+export async function listRecentBlogAuthorNames(options?: {
+  withinDays?: number;
+  limit?: number;
+  locale?: string;
+}): Promise<Set<string>> {
+  const withinDays = options?.withinDays ?? 7;
+  const limit = options?.limit ?? 24;
+  const cutoffMs = Date.now() - withinDays * 24 * 60 * 60 * 1000;
+  const recent = await listAllBlogs(false, options?.locale);
+  const names = new Set<string>();
+
+  for (const blog of recent) {
+    if (names.size >= limit) break;
+    const when = blog.publishDate || blog.createdAt;
+    if (!when || Number.isNaN(new Date(when).getTime())) continue;
+    if (new Date(when).getTime() < cutoffMs) break;
+    const name = blog.author?.trim().toLowerCase();
+    if (name) names.add(name);
+  }
+
+  return names;
 }
 
 export async function listPublishedBlogSlugs(
@@ -198,6 +223,7 @@ export async function createBlog(
       author: blogData.author || "Taypro Team",
       content: blogData.content || "",
       faqs: serializeBlogFaqs(blogData.faqs),
+      seoKeyword: blogData.seoKeyword?.trim() || null,
       publishDate: blogData.publishDate || now,
       createdAt: now,
       updatedAt: now,
@@ -288,6 +314,10 @@ export async function updateBlog(
           blogData.faqs !== undefined
             ? serializeBlogFaqs(blogData.faqs)
             : existing.faqs,
+        seoKeyword:
+          blogData.seoKeyword !== undefined
+            ? blogData.seoKeyword?.trim() || null
+            : existing.seoKeyword,
         publishDate: blogData.publishDate || existing.publishDate,
         updatedAt: now,
         published,

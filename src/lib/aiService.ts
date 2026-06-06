@@ -1,12 +1,14 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { getRandomCategory, type TopicCategory } from "./topicCategories";
-import { buildBlogKnowledgeContext } from "@/lib/seo/blog-knowledge-context";
+import {
+  buildBlogKnowledgeContext,
+  findRelevantBlogExcerpts,
+} from "@/lib/seo/blog-knowledge-context";
 import { buildProjectKnowledgeContext } from "@/lib/seo/project-knowledge-context";
 import { createSlug } from "@/app/utils/blogFileUtils";
 import {
   AI_OVERVIEW_SNIPPET_RULES,
   ANTI_GENERIC_WRITING_RULES,
-  LONG_FORM_CONTENT_RULES,
   PUNCTUATION_RULES,
   SEO_AND_READER_RULES,
   isTooGenericDescription,
@@ -49,9 +51,31 @@ import {
 import {
   alignFirstFaqWithQuickAnswer,
   assertGeneratedBlogValid,
-  getBlogMinWordCount,
   validateGeneratedBlog,
 } from "@/lib/seo/blog-content-validator";
+import {
+  resolveBlogWordCountPolicy,
+  resolveBlogStructurePolicy,
+  formatLongFormWordCountRules,
+  type BlogWordCountPolicy,
+} from "@/lib/seo/blog-word-count-tier";
+import {
+  extractQualifyingInternalLinkPaths,
+  formatInternalLinkRulesForPrompt,
+  isInternalLinkOnlyFailure,
+  MIN_BLOG_POST_LINKS,
+  MIN_INTERNAL_LINKS,
+  type BlogLinkCandidate,
+} from "@/lib/seo/blog-pillar-links";
+import { isRobotPromotionRelevant } from "@/lib/seo/blog-robot-relevance";
+import {
+  buildBlogIntentContract,
+  formatBlogIntentPromptBlock,
+} from "@/lib/seo/blog-intent-contract";
+import {
+  isBodyHygieneOnlyFailure,
+  sanitizeGeneratedBlogBodyHtml,
+} from "@/lib/seo/blog-body-hygiene";
 import { stripHtmlToPlainText } from "@/lib/seo/blog-similarity";
 import { parseBlogContentPlanJson } from "@/lib/seo/blog-content-plan";
 import type { BlogContentPlan } from "@/lib/seo/blog-content-plan";
@@ -202,6 +226,8 @@ export type GeneratedTopic = {
   category: string;
   seoKeyword: string;
   seoBrief: SeoKeywordBrief | null;
+  /** Inferred from keyword angle seeds when coverage ledger is off. */
+  angleId?: string;
 };
 
 export type GenerateUniqueTopicPlan = {
@@ -401,7 +427,26 @@ export type GenerateBlogContentOptions = {
   forbiddenH2Themes?: string[];
   forbiddenAngles?: CorpusIndexEntry[];
   lockedDescription?: string;
+  /** Editorial angle from coverage ledger (drives word-count tier). */
+  angleId?: string;
+  volumeBucket?: number;
+  competitionIndex?: number;
 };
+
+function resolveGenerationWordCountPolicy(
+  primaryKeyword: string | undefined,
+  searchIntent: string | undefined,
+  seoBrief?: SeoKeywordBrief | null,
+  options?: GenerateBlogContentOptions
+): BlogWordCountPolicy {
+  return resolveBlogWordCountPolicy({
+    primaryKeyword: primaryKeyword ?? seoBrief?.primary,
+    angleId: options?.angleId,
+    searchIntent,
+    volumeBucket: options?.volumeBucket ?? seoBrief?.volumeBucket,
+    competitionIndex: options?.competitionIndex ?? seoBrief?.competitionIndex,
+  });
+}
 
 function buildResearchPromptBlock(options?: GenerateBlogContentOptions): string {
   const parts: string[] = [];
@@ -489,12 +534,14 @@ async function expandShortBlogDraft(
   draft: GeneratedBlogContent,
   topic: string,
   primaryKeyword: string | undefined,
+  wordPolicy: BlogWordCountPolicy,
   options?: GenerateTextOptions
 ): Promise<GeneratedBlogContent> {
   const wordCount = countPlainWords(draft.content);
-  const minWords = getBlogMinWordCount();
+  const minWords = wordPolicy.minWords;
   const wordsNeeded = Math.max(minWords - wordCount, 400);
-  const prompt = `You are expanding a SHORT utility-scale solar blog draft (${wordCount} words). Add at least ${wordsNeeded} more words so the total reaches ${minWords}–3,200.
+  const wordCountRules = formatLongFormWordCountRules(wordPolicy);
+  const prompt = `You are expanding a SHORT utility-scale solar blog draft (${wordCount} words). Add at least ${wordsNeeded} more words so the total reaches ${wordPolicy.targetMin}–${wordPolicy.targetMax}.
 
 Working title: ${topic}
 Current title: ${draft.title}
@@ -503,7 +550,7 @@ Primary SEO keyword: ${primaryKeyword?.trim() || "(none)"}
 CURRENT HTML (keep all H2 headings and structure; expand EVERY section with new India plant scenarios, numeric ranges, comparison tables, and O&M detail):
 ${draft.content}
 
-${LONG_FORM_CONTENT_RULES}
+${wordCountRules}
 ${AI_OVERVIEW_SNIPPET_RULES}
 ${PUNCTUATION_RULES}
 
@@ -516,7 +563,7 @@ Return ONLY valid JSON:
 }
 
 Rules:
-- content MUST be at least ${minWords} words (target 2,800–3,200). You need ~${wordsNeeded} more words than the draft above.
+- content MUST be at least ${minWords} words (target ${wordPolicy.targetMin}–${wordPolicy.targetMax}). You need ~${wordsNeeded} more words than the draft above.
 - Opening <p> must directly answer the title in 2-3 sentences.
 - Keep "Quick answer" H2 and one question-shaped H2.
 - No "Frequently asked questions" heading in HTML.
@@ -573,15 +620,113 @@ Return ONLY valid JSON with the full HTML in "content", same title/description/f
   return normalizeParsedBlog(parseBlogJsonFromText(text), draft.faqs);
 }
 
+async function repairBlogIntentAlignment(
+  draft: GeneratedBlogContent,
+  topic: string,
+  primaryKeyword: string | undefined,
+  searchIntent: string | undefined,
+  options?: GenerateTextOptions
+): Promise<GeneratedBlogContent> {
+  const intent = buildBlogIntentContract({
+    title: draft.title,
+    primaryKeyword,
+    searchIntent,
+  });
+  const intentBlock = formatBlogIntentPromptBlock(intent);
+
+  const prompt = `Rewrite the OPENING and QUICK ANSWER of this blog so it matches the title search intent. The body drifted off-topic.
+${intentBlock}
+
+Title: ${draft.title}
+Primary SEO keyword: ${primaryKeyword?.trim() || "(none)"}
+
+Rewrite ONLY:
+1) The first two <p> tags (direct answer to the title)
+2) The "Quick answer" / "Summary for plant managers" H2 and its <ul> bullets
+
+Keep ALL other H2 sections and content unchanged. Remove cleaning-robot sales pitch if the intent contract says robot pitch is OFF.
+
+HTML:
+${draft.content}
+
+Return ONLY valid JSON:
+{ "title": "...", "description": "...", "content": "...", "faqs": [ ... ] }`;
+
+  const text = await generateText(
+    prompt,
+    blogTextOptions({ ...options, purpose: "blog_repair" })
+  );
+  return normalizeParsedBlog(parseBlogJsonFromText(text), draft.faqs);
+}
+
+async function repairBlogInternalLinks(
+  draft: GeneratedBlogContent,
+  topic: string,
+  primaryKeyword: string | undefined,
+  linkCandidates: BlogLinkCandidate[],
+  robotPromotionRelevant: boolean,
+  options?: GenerateTextOptions
+): Promise<GeneratedBlogContent> {
+  const existing = extractQualifyingInternalLinkPaths(draft.content);
+  const blogSlugs = existing.filter((p) => p.startsWith("/blog/"));
+  const neededBlog = Math.max(MIN_BLOG_POST_LINKS - blogSlugs.length, 0);
+  const neededTotal = Math.max(MIN_INTERNAL_LINKS - existing.length, 1);
+  const keywordRule = primaryKeyword?.trim()
+    ? `- Primary SEO keyword: "${primaryKeyword}"\n`
+    : "";
+  const candidateLines =
+    linkCandidates.length > 0
+      ? linkCandidates
+          .slice(0, 6)
+          .map((b) => `  /blog/${b.slug} — "${b.title}"`)
+          .join("\n")
+      : "  (pick relevant /blog/slug paths from the editorial context)";
+
+  const prompt = `Add contextual internal links to this utility-scale solar blog HTML.
+${keywordRule}
+Rules:
+- Insert <a href="/blog/slug"> links into EXISTING paragraphs only (no new H2 sections, no restructure).
+- Add at least ${Math.max(neededBlog, 1)} links to related blog posts and enough total links to reach ${MIN_INTERNAL_LINKS}+.
+- Anchor text must be descriptive (≥3 chars; not "here", "click here", "read more").
+- Prefer these related posts (do not link to this article's own topic as a duplicate angle):
+${candidateLines}
+${
+  robotPromotionRelevant
+    ? "- You may add at most 1 pillar page link if the paragraph compares cleaning methods."
+    : "- Do NOT add product/calculator pillar links; use /blog/ posts only."
+}
+- Place new links BEFORE any "Key takeaways" or "What plant managers should do next" H2.
+- Keep all other HTML, title, description, and faqs unchanged.
+- Do NOT add an H1; use only H2/H3 in body.
+
+Topic: ${topic}
+Title: ${draft.title}
+Already linked: ${existing.length > 0 ? existing.join(", ") : "(none)"}
+
+HTML:
+${draft.content}
+
+Return ONLY valid JSON:
+{ "title": "...", "description": "...", "content": "...", "faqs": [ ... ] }`;
+
+  const text = await generateText(
+    prompt,
+    blogTextOptions({ ...options, purpose: "blog_repair" })
+  );
+  return normalizeParsedBlog(parseBlogJsonFromText(text), draft.faqs);
+}
+
 async function appendBlogSections(
   draft: GeneratedBlogContent,
   topic: string,
   primaryKeyword: string | undefined,
+  wordPolicy: BlogWordCountPolicy,
   options?: GenerateTextOptions
 ): Promise<GeneratedBlogContent> {
   const wordCount = countPlainWords(draft.content);
-  const minWords = getBlogMinWordCount();
+  const minWords = wordPolicy.minWords;
   const wordsNeeded = Math.max(minWords - wordCount, 300);
+  const wordCountRules = formatLongFormWordCountRules(wordPolicy);
 
   const prompt = `This utility-scale solar blog is ${wordCount} words but needs ${minWords}+ total. Add ${wordsNeeded}+ words as 2–3 NEW H2 sections (with H3 subsections and a comparison table or checklist if missing).
 
@@ -591,7 +736,7 @@ Primary keyword: ${primaryKeyword?.trim() || "(none)"}
 EXISTING HTML (keep unchanged; insert new sections BEFORE any "Key takeaways" / "What plant managers" H2):
 ${draft.content}
 
-${LONG_FORM_CONTENT_RULES}
+${wordCountRules}
 ${PUNCTUATION_RULES}
 
 Return ONLY valid JSON with the FULL merged HTML in "content" (original + new sections), same 4 faqs updated if needed, title 50-60 chars (max 72), description 150-160 chars.`;
@@ -617,6 +762,8 @@ async function generateBlogBodyFromPlan(
     primaryKeyword?: string;
     researchBlock?: string;
     contractBlock?: string;
+    wordCountRules?: string;
+    structurePolicy?: ReturnType<typeof resolveBlogStructurePolicy>;
   },
   options?: GenerateTextOptions
 ): Promise<{ content: string; faqs: BlogFaqItem[] }> {
@@ -631,6 +778,8 @@ async function generateBlogBodyFromPlan(
     primaryKeyword: ctx.primaryKeyword,
     researchBlock: ctx.researchBlock,
     contractBlock: ctx.contractBlock,
+    wordCountRules: ctx.wordCountRules,
+    structurePolicy: ctx.structurePolicy,
   };
 
   const chunks = chunkH2Outline(plan.h2Outline, 2);
@@ -737,8 +886,30 @@ export async function planBlogContent(
       ? `\nDo NOT mirror these rejected titles/angles:\n${options.excludeTitles.map((t) => `- ${t}`).join("\n")}\n`
       : "";
   const researchBlock = buildResearchPromptBlock(options);
+  const primaryKeyword =
+    options?.focusedKeywords?.[0]?.trim() || seoBrief?.primary;
+  const searchIntent =
+    seoBrief?.searchIntent ?? options?.searchIntent?.trim();
+  const wordPolicy = resolveGenerationWordCountPolicy(
+    primaryKeyword,
+    searchIntent,
+    seoBrief,
+    options
+  );
+  const wordCountRules = formatLongFormWordCountRules(wordPolicy);
+  const structurePolicy = resolveBlogStructurePolicy(wordPolicy.tier);
+  const intentContract = buildBlogIntentContract({
+    title: topic,
+    primaryKeyword,
+    searchIntent,
+    category: _category,
+    angleId: options?.angleId,
+  });
+  const intentBlock = formatBlogIntentPromptBlock(intentContract);
 
   const prompt = `You are a senior SEO editor for Taypro (utility-scale solar cleaning robots, India).
+
+${intentBlock}
 
 Plan a long-form blog outline for: ${topic}
 Category: ${_category}
@@ -750,18 +921,22 @@ ${excludeBlock}
 ${ANTI_GENERIC_WRITING_RULES}
 ${SEO_AND_READER_RULES}
 ${AI_OVERVIEW_SNIPPET_RULES}
-${LONG_FORM_CONTENT_RULES}
+${wordCountRules}
 
 Return ONLY valid JSON:
 {
   "description": "Meta description 150-160 chars, specific outcome for this exact title",
+  "readerQuestion": "One sentence: what the searcher wants answered for THIS title/keyword",
+  "mustCover": ["3-6 H2 themes that serve the title — not generic robot O&M"],
+  "avoidTopics": ["2-4 off-topic drifts to avoid for this keyword"],
   "h2Outline": ["Quick answer", "Question-shaped H2 here", "..."],
   "quickAnswerBullets": ["bullet 1 with specific range", "..."],
   "faqQuestions": ["primary keyword as question", "...", "...", "..."]
 }
 Rules:
+- readerQuestion, mustCover, and avoidTopics MUST match the INTENT CONTRACT above (not a generic Taypro robot article).
 - description must match THIS title angle (not a generic solar blog).
-- h2Outline: 6–10 items; first must be "Quick answer" or "Summary for plant managers"; include one People Also Ask style question H2.
+- h2Outline: ${structurePolicy.minH2}–${structurePolicy.maxH2Hint} items; first must be "Quick answer" or "Summary for plant managers"; include one People Also Ask style question H2.
 - If SERP RESEARCH is provided: cover serpGaps with at least 2 dedicated H2s; align FAQ questions with People Also Ask where natural.
 - If FACT RESEARCH is provided: weave verified stats into Quick answer bullets and relevant H2s; do not invent conflicting numbers.
 - quickAnswerBullets: 3–5 specific bullets (MW, %, days, INR ranges as industry-typical or from verified stats).
@@ -777,6 +952,9 @@ Rules:
 
   let parsed: {
     description?: string;
+    readerQuestion?: string;
+    mustCover?: unknown;
+    avoidTopics?: unknown;
     h2Outline?: unknown;
     quickAnswerBullets?: unknown;
     faqQuestions?: unknown;
@@ -803,9 +981,34 @@ Rules:
         .map((q) => (typeof q === "string" ? sanitizeEmDash(q.trim()) : ""))
         .filter(Boolean)
     : [];
+  const readerQuestion =
+    typeof parsed.readerQuestion === "string" && parsed.readerQuestion.trim()
+      ? sanitizeEmDash(parsed.readerQuestion.trim())
+      : intentContract.readerQuestion;
+  const mustCover = Array.isArray(parsed.mustCover)
+    ? parsed.mustCover
+        .map((m) => (typeof m === "string" ? sanitizeEmDash(m.trim()) : ""))
+        .filter(Boolean)
+    : [];
+  const avoidTopics = Array.isArray(parsed.avoidTopics)
+    ? parsed.avoidTopics
+        .map((a) => (typeof a === "string" ? sanitizeEmDash(a.trim()) : ""))
+        .filter(Boolean)
+    : [];
+  const mergedMustCover =
+    mustCover.length > 0 ? mustCover : intentContract.mustCover;
+  const mergedAvoidTopics =
+    avoidTopics.length > 0 ? avoidTopics : intentContract.avoidTopics;
 
-  if (h2Outline.length < 6) {
-    throw new Error(`Outline needs ≥6 H2 sections (found ${h2Outline.length})`);
+  if (h2Outline.length < structurePolicy.minH2) {
+    throw new Error(
+      `Outline needs ≥${structurePolicy.minH2} H2 sections for ${wordPolicy.tier} tier (found ${h2Outline.length})`
+    );
+  }
+  if (h2Outline.length > structurePolicy.maxH2Hint) {
+    throw new Error(
+      `Outline has too many H2 sections for ${wordPolicy.tier} tier (max ${structurePolicy.maxH2Hint}, found ${h2Outline.length})`
+    );
   }
   if (description.length < 120 || description.length > 170) {
     throw new Error(
@@ -816,6 +1019,9 @@ Rules:
   const outlineJson = JSON.stringify(
     {
       description,
+      readerQuestion,
+      mustCover: mergedMustCover,
+      avoidTopics: mergedAvoidTopics,
       h2Outline,
       quickAnswerBullets,
       faqQuestions,
@@ -830,6 +1036,9 @@ Rules:
     quickAnswerBullets,
     faqQuestions,
     outlineJson,
+    readerQuestion,
+    mustCover: mergedMustCover,
+    avoidTopics: mergedAvoidTopics,
   };
 }
 
@@ -861,6 +1070,14 @@ export async function generateBlogContent(
     options?.focusedKeywords?.[0]?.trim() || seoBrief?.primary;
   const searchIntent =
     seoBrief?.searchIntent ?? options?.searchIntent?.trim();
+  const wordPolicy = resolveGenerationWordCountPolicy(
+    primaryKeyword,
+    searchIntent,
+    seoBrief,
+    options
+  );
+  const wordCountRules = formatLongFormWordCountRules(wordPolicy);
+  const structurePolicy = resolveBlogStructurePolicy(wordPolicy.tier);
   const knowledgeContext = await buildBlogKnowledgeContext({
     topic,
     seoKeyword: primaryKeyword,
@@ -871,6 +1088,28 @@ export async function generateBlogContent(
     requiredDifferentiator: options?.requiredDifferentiator,
     forbiddenH2Themes: options?.forbiddenH2Themes,
   });
+  const linkCandidates = await findRelevantBlogExcerpts(
+    {
+      topic,
+      seoKeyword: primaryKeyword,
+      extraTerms: _category,
+      excludeSlugs: options?.excludeKnowledgeSlugs,
+    },
+    6
+  );
+  const robotPromotionRelevant = isRobotPromotionRelevant({
+    primaryKeyword,
+    title: topic,
+    angleId: options?.angleId,
+    category: _category,
+  });
+  const internalLinkBlock = formatInternalLinkRulesForPrompt({
+    blogCandidates: linkCandidates,
+    robotPromotionRelevant,
+  });
+  const robotToneBlock = robotPromotionRelevant
+    ? `- When the topic is cleaning/O&M, you may reference Taypro robots using PRODUCT KNOWLEDGE only; do not shoehorn robots into unrelated equipment specs sections.`
+    : `- Do NOT pitch Taypro cleaning robots, product model names (GLYDE, NYUMA, HELYX), NECTYR, or the price calculator. Write as an authoritative equipment/O&M research guide for the primary keyword.`;
   const seoBlock = seoBrief ? `\n${formatSeoPromptBlock(seoBrief)}\n` : "";
   const editorial =
     editorialContext ?? (await formatEditorialContextPrompt());
@@ -893,7 +1132,16 @@ ${userBrief}
       ? `\nDo NOT write about or reuse these rejected titles/angles:\n${options.excludeTitles.map((t) => `- ${t}`).join("\n")}\n`
       : "";
   const researchBlock = buildResearchPromptBlock(options);
+  const intentContract = buildBlogIntentContract({
+    title: topic,
+    primaryKeyword,
+    searchIntent,
+    category: _category,
+    angleId: options?.angleId,
+  });
+  const intentBlock = formatBlogIntentPromptBlock(intentContract);
   const contractBlock = [
+    intentBlock,
     options?.structuralPromise?.trim()
       ? `Structural promise (must follow): ${options.structuralPromise.trim()}`
       : "",
@@ -905,7 +1153,7 @@ ${userBrief}
       : "",
   ]
     .filter(Boolean)
-    .join("\n");
+    .join("\n\n");
 
   let outlineBlock = "";
   if (options?.preApprovedOutline?.trim()) {
@@ -931,7 +1179,9 @@ ${outlineJson}
     preferQualityModel: options?.preferQualityModel,
   });
 
-  const prompt = `You are an expert content writer specializing in solar panel cleaning robots and solar power plant operations & maintenance. Write a comprehensive, SEO-optimized blog post about: ${topic}
+  const prompt = `You are an expert content writer for utility-scale solar in India (equipment research, plant O&M, and panel cleaning when relevant). Write a comprehensive, SEO-optimized blog post about: ${topic}
+
+${intentBlock}
 
 ${editorial}
 ${authorBlock}
@@ -952,11 +1202,11 @@ ${ANTI_GENERIC_WRITING_RULES}
 ${PUNCTUATION_RULES}
 ${SEO_AND_READER_RULES}
 ${AI_OVERVIEW_SNIPPET_RULES}
-${LONG_FORM_CONTENT_RULES}
+${wordCountRules}
 - Use this exact working title: "${topic}"
 - The JSON "title" field MUST be "${topic}" or a tighter paraphrase under 72 chars (do not swap to a different article angle)
 - The full article must address the primary SEO keyword and working title; do NOT default to a generic "mistakes to avoid" listicle unless that is the working title
-- Word count: 2,800-3,200 words (minimum 2,600; do not pad with filler)
+- Word count: ${wordPolicy.targetMin}–${wordPolicy.targetMax} words (minimum ${wordPolicy.minWords}; ${wordPolicy.tier} tier; do not pad with filler)
 - Natural, conversational tone (avoid AI-sounding language)${options?.author ? "\n- Voice and examples must match the BYLINE AUTHOR block above" : ""}
 - Factual, accurate information about solar panel cleaning and solar plant O&M
 - For Taypro fleet/impact claims use PUBLIC PROOF POINTS from the knowledge pack only; for general industry data use verified stats from FACT RESEARCH when provided, otherwise typical ranges labeled as industry-typical
@@ -967,8 +1217,8 @@ ${LONG_FORM_CONTENT_RULES}
 - Original content (do not copy from other sources)
 - Include practical tips and actionable insights
 - Cover overall solar power plant operations and maintenance when relevant
-- Reference Taypro's solutions naturally where relevant, but ONLY use verified information
-- Include 3–5 internal links to Taypro pillar paths listed in the editorial strategy (use relative hrefs like href="/solar-panel-cleaning-system")
+${robotToneBlock}
+${internalLinkBlock}
 - Do NOT include a "Frequently asked questions" heading or FAQ list in the HTML; schema FAQs belong only in the "faqs" JSON array below.
 
 Format the output as clean HTML with proper paragraph tags (<p>), headings (<h2>, <h3>), lists (<ul>, <ol>), and <table> where required.
@@ -1011,6 +1261,8 @@ FAQ rules for the "faqs" array:
           primaryKeyword,
           researchBlock,
           contractBlock: contractBlock || undefined,
+          wordCountRules,
+          structurePolicy,
         },
         textGenOptions
       );
@@ -1070,7 +1322,7 @@ FAQ rules for the "faqs" array:
       );
     }
 
-    const minWords = getBlogMinWordCount();
+    const minWords = wordPolicy.minWords;
     const maxInPlacePasses = getBlogPipelineMaxInPlaceExpansions();
     for (let pass = 0; pass < maxInPlacePasses; pass++) {
       const wc = countPlainWords(result.content);
@@ -1078,20 +1330,22 @@ FAQ rules for the "faqs" array:
       const preferAppend = wc < minWords * 0.85;
       console.warn(
         preferAppend
-          ? `Blog draft too short (${wc} words), append pass ${pass + 1}/${maxInPlacePasses}`
-          : `Blog draft too short (${wc} words), expansion pass ${pass + 1}/${maxInPlacePasses}`
+          ? `Blog draft too short (${wc} words), append pass ${pass + 1}/${maxInPlacePasses} (${wordPolicy.tier} tier, min ${minWords})`
+          : `Blog draft too short (${wc} words), expansion pass ${pass + 1}/${maxInPlacePasses} (${wordPolicy.tier} tier, min ${minWords})`
       );
       result = preferAppend
         ? await appendBlogSections(
             result,
             topic,
             primaryKeyword,
+            wordPolicy,
             textGenOptions
           )
         : await expandShortBlogDraft(
             result,
             topic,
             primaryKeyword,
+            wordPolicy,
             textGenOptions
           );
       preserveLockedMetadata();
@@ -1108,6 +1362,7 @@ FAQ rules for the "faqs" array:
         result,
         topic,
         primaryKeyword,
+        wordPolicy,
         textGenOptions
       );
       const appendedWords = countPlainWords(appended.content);
@@ -1128,6 +1383,7 @@ FAQ rules for the "faqs" array:
         result,
         topic,
         primaryKeyword,
+        wordPolicy,
         textGenOptions
       );
       preserveLockedMetadata();
@@ -1142,6 +1398,7 @@ FAQ rules for the "faqs" array:
         result,
         topic,
         primaryKeyword,
+        wordPolicy,
         textGenOptions
       );
       preserveLockedMetadata();
@@ -1149,14 +1406,62 @@ FAQ rules for the "faqs" array:
 
     preserveLockedMetadata();
 
-    let validation = validateGeneratedBlog({
+    result = {
+      ...result,
+      content: sanitizeGeneratedBlogBodyHtml(result.content, {
+        title: result.title,
+        primaryKeyword,
+      }),
+    };
+
+    const validationInput = {
       title: result.title,
       description: result.description,
       content: result.content,
       faqs: result.faqs,
       primaryKeyword,
       searchIntent,
-    });
+      angleId: options?.angleId,
+      volumeBucket: options?.volumeBucket ?? seoBrief?.volumeBucket,
+      competitionIndex: options?.competitionIndex ?? seoBrief?.competitionIndex,
+    };
+
+    let validation = validateGeneratedBlog(validationInput);
+
+    if (
+      !validation.ok &&
+      validation.issues.some((issue) =>
+        issue.includes("Opening must reflect") ||
+        issue.includes("H2 sections must reflect") ||
+        issue.includes("Content drifts into cleaning-robot") ||
+        issue.includes("Primary keyword") ||
+        issue.includes("Opening paragraphs should directly address")
+      )
+    ) {
+      result = await repairBlogIntentAlignment(
+        result,
+        topic,
+        primaryKeyword,
+        searchIntent,
+        textGenOptions
+      );
+      preserveLockedMetadata();
+      result = {
+        ...result,
+        content: sanitizeGeneratedBlogBodyHtml(result.content, {
+          title: result.title,
+          primaryKeyword,
+        }),
+      };
+      validation = validateGeneratedBlog({
+        ...validationInput,
+        title: result.title,
+        description: result.description,
+        content: result.content,
+        faqs: result.faqs,
+      });
+    }
+
     if (
       !validation.ok &&
       validation.issues.length === 1 &&
@@ -1171,22 +1476,67 @@ FAQ rules for the "faqs" array:
       );
       preserveLockedMetadata();
       validation = validateGeneratedBlog({
+        ...validationInput,
         title: result.title,
         description: result.description,
         content: result.content,
         faqs: result.faqs,
+      });
+    }
+
+    if (
+      !validation.ok &&
+      isInternalLinkOnlyFailure(validation.issues)
+    ) {
+      result = await repairBlogInternalLinks(
+        result,
+        topic,
         primaryKeyword,
-        searchIntent,
+        linkCandidates,
+        robotPromotionRelevant,
+        textGenOptions
+      );
+      preserveLockedMetadata();
+      result = {
+        ...result,
+        content: sanitizeGeneratedBlogBodyHtml(result.content, {
+          title: result.title,
+          primaryKeyword,
+        }),
+      };
+      validation = validateGeneratedBlog({
+        ...validationInput,
+        title: result.title,
+        description: result.description,
+        content: result.content,
+        faqs: result.faqs,
+      });
+    }
+
+    if (!validation.ok && isBodyHygieneOnlyFailure(validation.issues)) {
+      result = {
+        ...result,
+        content: sanitizeGeneratedBlogBodyHtml(result.content, {
+          title: result.title,
+          primaryKeyword,
+        }),
+      };
+      preserveLockedMetadata();
+      validation = validateGeneratedBlog({
+        ...validationInput,
+        title: result.title,
+        description: result.description,
+        content: result.content,
+        faqs: result.faqs,
       });
     }
 
     assertGeneratedBlogValid({
+      ...validationInput,
       title: result.title,
       description: result.description,
       content: result.content,
       faqs: result.faqs,
-      primaryKeyword,
-      searchIntent,
     });
 
     return result;

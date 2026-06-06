@@ -13,8 +13,12 @@ import {
   blogPostMetadataDescription,
   blogPostMetadataTitle,
   blogPostOpenGraphTitle,
-  isRobotCleaningTopic,
+  buildBlogPostKeywords,
+  resolveBlogPrimaryKeyword,
 } from "@/lib/seo/blog-metadata";
+import { getPublishedTopicBySlug } from "@/lib/cms/topicService";
+import { parseSlotFromCategory } from "@/lib/seo/coverage-ledger";
+import { loadGscKeywordsForBlogSlug } from "@/lib/seo/gsc-blog-queries";
 import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
 import { socialImagesFromMedia } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
@@ -51,6 +55,7 @@ interface BlogData {
   publishDate: string;
   createdAt: string;
   updatedAt?: string;
+  seoKeyword?: string;
 }
 
 // Fetch all blogs for similar blogs section
@@ -164,29 +169,26 @@ export async function generateMetadata({
     };
   }
 
-  const robotTopic = isRobotCleaningTopic(blog.title, blog.description);
-  const blogKeywords = robotTopic
-    ? [
-        "Solar Panel Cleaning Robot",
-        "solar panel cleaning robot",
-        "automatic solar panel cleaning robot",
-        "solar panel cleaning",
-        "solar panel maintenance",
-        "solar energy",
-        "cleaning robots",
-        "Taypro",
-      ]
-    : [
-        "solar panel cleaning",
-        "Solar Panel Cleaning Robot",
-        "solar panel maintenance",
-        "solar energy",
-        "cleaning robots",
-        "Taypro",
-      ];
+  const fileBackedSlug = await getPublishedSlug(blog.slug);
+  const topicSlug = fileBackedSlug ?? blog.slug;
+  const publishedTopic = topicSlug
+    ? await getPublishedTopicBySlug(topicSlug)
+    : null;
+  const { keyword: publishedTopicKeyword } = parseSlotFromCategory(
+    publishedTopic?.category
+  );
+  const primaryKeyword = resolveBlogPrimaryKeyword({
+    seoKeyword: blog.seoKeyword,
+    publishedTopicKeyword,
+    gscKeywords: topicSlug ? loadGscKeywordsForBlogSlug(topicSlug) : [],
+  });
+  const blogKeywords = buildBlogPostKeywords({
+    title: blog.title,
+    description: blog.description,
+    primaryKeyword,
+  });
 
   const modifiedIso = blog.updatedAt || blog.publishDate;
-  const fileBackedSlug = await getPublishedSlug(blog.slug);
   const canonicalPath = fileBackedSlug
     ? `/blog/${fileBackedSlug}`
     : `/blog/db/${id}`;

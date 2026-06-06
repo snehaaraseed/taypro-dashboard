@@ -17,6 +17,7 @@ export interface BlogMetadata {
   updatedAt?: string;
   published?: boolean;
   faqs?: import("@/lib/cms/blog-faqs").BlogFaqItem[];
+  seoKeyword?: string;
 }
 
 export interface BlogData {
@@ -31,6 +32,7 @@ export interface BlogData {
   /** Default true when published; set false for automation (evening translation cron). */
   scheduleTranslations?: boolean;
   faqs?: import("@/lib/cms/blog-faqs").BlogFaqItem[];
+  seoKeyword?: string;
 }
 
 export {

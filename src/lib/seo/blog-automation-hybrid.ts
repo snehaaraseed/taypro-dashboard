@@ -22,7 +22,7 @@ import {
 } from "@/lib/seo/keyword-stats";
 import { findKeywordCorpusConflict } from "@/lib/seo/blog-plan-gates";
 import type { BlogSimilarityCorpusRow } from "@/lib/cms/blogService";
-import { listTopicAngleSeeds } from "@/lib/seo/blog-topic-angles";
+import { listTopicAngleSeeds, inferAngleIdFromTitle } from "@/lib/seo/blog-topic-angles";
 
 function parseJsonField<T>(text: string, field: string): T | null {
   try {
@@ -119,6 +119,11 @@ Return ONLY valid JSON:
   return candidates[0];
 }
 
+export type HybridTopicPick = {
+  title: string;
+  angleId?: string;
+};
+
 /**
  * Hybrid topic pick: code supplies unused angle seeds, Gemini picks or crafts a unique title.
  */
@@ -128,7 +133,7 @@ export async function pickTopicTitleHybrid(input: {
   author: BlogAuthor;
   editorialContext: string;
   rejectedTitles?: string[];
-}): Promise<string> {
+}): Promise<HybridTopicPick> {
   const rejected = input.rejectedTitles ?? [];
   const seeds = await listTopicAngleSeeds(input.seoBrief.primary, rejected, 5);
   const seoBlock = formatSeoPromptBlock(input.seoBrief);
@@ -175,12 +180,18 @@ Return ONLY valid JSON:
       maxOutputTokens: 1024,
     });
     const title = parseJsonField<string>(text, "title")?.trim();
+    const chosenSeed = parseJsonField<string>(text, "chosenSeed")?.trim();
     if (
       title &&
       !isTooGenericTitle(title, input.seoBrief.primary) &&
       !(await isTopicPublished(title, createSlug(title)))
     ) {
-      return title;
+      return {
+        title,
+        angleId: inferAngleIdFromTitle(input.seoBrief.primary, title, {
+          chosenSeed,
+        }),
+      };
     }
   } catch (error) {
     console.warn("Hybrid topic Gemini pick failed, using code seed:", error);
@@ -191,7 +202,10 @@ Return ONLY valid JSON:
       !isTooGenericTitle(seed, input.seoBrief.primary) &&
       !(await isTopicPublished(seed, createSlug(seed)))
     ) {
-      return seed;
+      return {
+        title: seed,
+        angleId: inferAngleIdFromTitle(input.seoBrief.primary, seed),
+      };
     }
   }
 

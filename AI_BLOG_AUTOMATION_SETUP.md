@@ -22,8 +22,11 @@ This system automatically generates unique, SEO-optimized blog posts daily about
    # GEMINI_BLOG_MODEL=gemini-3.1-flash-lite
    # GEMINI_BLOG_RETRY_MODEL=gemini-3.1-flash-lite-preview
    # GEMINI_TRANSLATION_MODEL=gemini-3.1-flash-lite
-   # Optional: minimum body word count (default 2600)
-   BLOG_MIN_WORD_COUNT=2600
+   # Optional: global minimum body word count (overrides tier floors — leave unset for tier-based defaults)
+   # BLOG_MIN_WORD_COUNT=1800
+   # Author byline: rotate (default hybrid), expertise, or random
+   # BLOG_AUTHOR_PICK=rotate
+   # BLOG_AUTHOR_ROTATE_DAYS=7
    # Images: default library (no paid Imagen). Paid AI heroes only if you opt in:
    # BLOG_IMAGE_MODE=hybrid
    # BLOG_IMAGE_ALLOW_PAID=true
@@ -47,6 +50,18 @@ curl http://localhost:3000/api/automation/generate-blog
 ### Automated daily schedule (production)
 
 **Blog writer** — max **1 published post per day**, at a **random time between 9:00 AM and 3:00 PM IST**. Each run: picks an **SEO keyword** (`data/seo-blog-queue.json` first, then `data/seo-gsc-boost.json`, then scored CSV pool) → **category** matched to that keyword → **CMS author** best matched to keyword + category via **expertise tags** (set in `/admin/authors`, or inferred from role/bio) → Gemini proposes **5 titles** (code picks one unique) → writes the post in that author’s voice → **structure validation** (Quick answer H2, PAA H2, word count, FAQs, comparison tables) with up to **3 attempts** (retry uses outline pass + alternate **free** model ID) → (`published: true`).
+
+**Word-count tiers** (automation; leave `BLOG_MIN_WORD_COUNT` unset on prod):
+
+| Tier | Min words | Target | When |
+|------|-----------|--------|------|
+| **pillar** | 1,800 | 2,000–2,400 | Comparison/cost/vendor angles, Tier B keywords (5k+ vol or brush/washing clusters) |
+| **standard** | 1,200 | 1,400–1,800 | Default O&M bridge posts |
+| **narrow** | 900 | 1,000–1,400 | Frequency guides, checklists, Tier C long-tail (50 vol bucket) |
+
+Tier is resolved from editorial `angleId`, GSC volume/competition, and keyword patterns. Verify with `npm run seo:test-word-count-tier`.
+
+**Author rotation (default):** `BLOG_AUTHOR_PICK=rotate` skips authors who bylined a post in the last `BLOG_AUTHOR_ROTATE_DAYS` (default 7) when an expertise match exists.
 
 **Models:** All text generation uses **Google AI Studio free tier** only (`gemini-3.1-flash-lite` / `gemini-3.1-flash-lite-preview`). Paid model IDs in env are ignored with a console warning.
 

@@ -1334,6 +1334,7 @@ export default async function SolarPanelCleaningRobot({
         </section>
 
         <DynamicProjectsRollup
+          locale={locale}
           eyebrow={t("dynamicProjectsRollup.eyebrow")}
           heading={t("dynamicProjectsRollup.heading")}
           subheading={t("dynamicProjectsRollup.subheading")}

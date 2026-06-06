@@ -283,6 +283,7 @@ export default async function HomePage() {
         />
 
         <DynamicProjectsRollup
+          locale={locale}
           eyebrow={t("projects.eyebrow")}
           heading={t("projects.heading")}
           subheading={t("projects.subheading")}

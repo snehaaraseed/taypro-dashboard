@@ -6,7 +6,7 @@ import {
   getAngleContractMeta,
   type AngleContractMeta,
 } from "@/lib/seo/blog-angle-contracts";
-import { titlesTooSimilar } from "@/lib/seo/blog-similarity";
+import { titlesTooSimilar, titleWordSimilarity } from "@/lib/seo/blog-similarity";
 import { buildFallbackTopicTitle } from "@/lib/seo/keyword-stats";
 
 export type TopicAngle = {
@@ -244,6 +244,13 @@ export async function pickRotatedTopicTitle(
  * Code-generated title seeds for hybrid Gemini topic selection.
  * Returns unused angles that pass publish checks (up to maxSeeds).
  */
+export function listTopicAngleEntries(keyword: string): { id: string; title: string }[] {
+  return anglesForKeyword(keyword).map((angle) => ({
+    id: angle.id,
+    title: angle.buildTitle(keyword).trim(),
+  }));
+}
+
 export async function listTopicAngleSeeds(
   keyword: string,
   rejectedTitles: string[] = [],
@@ -253,8 +260,7 @@ export async function listTopicAngleSeeds(
   const usedForKeyword = await publishedTitlesForKeyword(keyword);
   const seeds: string[] = [];
 
-  for (const angle of anglesForKeyword(keyword)) {
-    const title = angle.buildTitle(keyword).trim();
+  for (const { title } of listTopicAngleEntries(keyword)) {
     const lower = title.toLowerCase();
     if (isRejectedTitle(title, rejected)) continue;
     if (usedForKeyword.has(lower)) continue;
@@ -264,4 +270,42 @@ export async function listTopicAngleSeeds(
   }
 
   return seeds;
+}
+
+export type InferAngleIdOptions = {
+  chosenSeed?: string;
+};
+
+/** Match a picked title back to a keyword angle seed (hybrid automation tier resolution). */
+export function inferAngleIdFromTitle(
+  keyword: string,
+  title: string,
+  options?: InferAngleIdOptions
+): string | undefined {
+  const normalizedTitle = title.toLowerCase().trim();
+  if (!normalizedTitle) return undefined;
+
+  const entries = listTopicAngleEntries(keyword);
+
+  for (const { id, title: seedTitle } of entries) {
+    if (seedTitle.toLowerCase() === normalizedTitle) return id;
+  }
+
+  const chosenSeed = options?.chosenSeed?.trim();
+  if (chosenSeed) {
+    for (const { id, title: seedTitle } of entries) {
+      if (seedTitle.toLowerCase() === chosenSeed.toLowerCase()) return id;
+      if (titleWordSimilarity(seedTitle, chosenSeed) >= 0.85) return id;
+    }
+  }
+
+  let best: { id: string; score: number } | null = null;
+  for (const { id, title: seedTitle } of entries) {
+    const score = titleWordSimilarity(seedTitle, title);
+    if (score >= 0.35 && (!best || score > best.score)) {
+      best = { id, score };
+    }
+  }
+
+  return best?.id;
 }

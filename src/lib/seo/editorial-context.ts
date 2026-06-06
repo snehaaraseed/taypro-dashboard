@@ -10,6 +10,7 @@ import {
 } from "@/lib/seo/keyword-stats";
 import { loadGscEditorialHint } from "@/lib/seo/gsc-sync";
 import { loadSeoBlogQueueKeywords } from "@/lib/seo/seo-blog-queue";
+import { formatPillarLinkPathsForPrompt } from "@/lib/seo/blog-pillar-links";
 
 const RECENT_POST_LIMIT = 15;
 const AUTOMATION_HISTORY_LIMIT = 40;
@@ -25,20 +26,16 @@ function parseAutomationSeoKeyword(category?: string): string | null {
  * Kept in code so production prompts stay stable without parsing markdown at runtime.
  */
 const STRATEGY_CORE = `EDITORIAL STRATEGY (Taypro India):
-- Funnel: Rank for the full plant stack—panel prices, manufacturers, inverters, brushes, trackers, suppliers—because today's equipment buyer is tomorrow's O&M and cleaning-robot buyer. Taypro does NOT sell modules; bridge every post from capex research to utility operations (soiling, cleaning economics, robots).
+- Funnel: Rank for the full plant stack—panel prices, manufacturers, inverters, brushes, trackers, suppliers—because today's equipment buyer is tomorrow's O&M buyer. Taypro sells cleaning robots but NOT every post should pitch them.
 - Audience: Utility-scale asset owners, EPC, O&M (MW plants), plus high-intent researchers comparing panels/inverters/BOS who will operate or commission large sites in India.
 - Business: Taypro sells autonomous waterless solar panel cleaning robots and plant O&M solutions, NOT PV modules or panel resale.
-- Blog role (Tier B): Buyer guides, comparisons, how-to, soiling/PR, brush vs robot, cleaning frequency, equipment and price context—always tie back to post-commissioning O&M. Do not write a generic homepage.
-- Money pages to reference naturally (suggest 2–3 internal links using these paths only):
-  /solar-panel-cleaning-system
-  /solar-panel-cleaning-system/automatic-solar-panel-cleaning-system
-  /solar-panel-cleaning-system/solar-panel-cleaning-service
-  /solar-panel-cleaning-robot-price-calculator
-  /cleaning-technology
-- For panel price / manufacturer / inverter keywords: authoritative India utility & C&I buyer angle—specs, capex, warranty/O&M implications, then natural links to cleaning systems and robots.
-- Content gaps: robot vs brush TCO, cleaning frequency, dust/soiling and PR, waterless systems at scale, equipment buyer checklists including post-commissioning cleaning.
+- Blog role (Tier B): Buyer guides, comparisons, how-to, equipment and price context—answer the search keyword first. Bridge to cleaning/O&M only when the keyword is cleaning-, soiling-, or robot-relevant.
+- Internal links: include ≥2 links to related published posts (href="/blog/slug") plus optional pillar pages only when discussing cleaning methods. Suggested pillar paths when relevant:
+${formatPillarLinkPathsForPrompt()}
+- For panel price / manufacturer / inverter keywords: authoritative India utility & C&I buyer angle—specs, capex, warranty/O&M implications. Do NOT default the whole post to robotic cleaning.
+- Content gaps: robot vs brush TCO (cleaning keywords only), cleaning frequency, dust/soiling and PR, equipment buyer checklists.
 - Do NOT target: "near me" local spam, foreign (non-India) city names, residential DIY, unrelated trades (gutters), jobs/license spam, student PDF intent.
-- Ranking goal: link-worthy for operators and equipment researchers; specific long-tail; internal links to Tier A money pages.`;
+- Ranking goal: link-worthy for operators and equipment researchers; cross-link related blog topics; pillar links only when on-topic.`;
 
 const TIER_B_ANGLES = [
   "panel / inverter / tracker capex → lifetime O&M and cleaning",
@@ -142,6 +139,6 @@ ${staleLines.join("\n")}
 ${gscHint ? `\n${gscHint}\n` : ""}
 Rules for this draft:
 - Pick a NEW angle vs the recent list above; do not rehash the same headline theme.
-- Support Taypro pillars with 2–3 internal link mentions (paths above).
+- Support the reader's keyword intent first; link to 2–4 related /blog/ posts; mention Taypro robots only when the keyword is cleaning/O&M relevant.
 - Write for plant decision-makers, not consumers.`;
 }

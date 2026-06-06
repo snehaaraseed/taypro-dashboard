@@ -144,7 +144,21 @@
 - Student intent: robot project, pdf, ppt  
 - Residential DIY-only angles with no utility/O&M bridge  
 
-**Tier B funnel (blogs, not product H1):** solar panel price, manufacturers, inverters, brushes — content bridges to cleaning/O&M.  
+**Tier B funnel (blogs, not product H1):** solar panel price, manufacturers, inverters, brushes — content bridges to cleaning/O&M.
+
+### Automation word-count tiers
+
+Blog automation resolves a **word-count tier** from editorial `angleId`, GSC volume/competition, and keyword patterns (`src/lib/seo/blog-word-count-tier.ts`). Leave `BLOG_MIN_WORD_COUNT` unset on prod so tiers apply; setting it overrides all floors globally.
+
+| Planner tier | Example keywords | Automation tier | Min / target words |
+|--------------|------------------|-----------------|-------------------|
+| Tier B (high vol / comp) | brush, washing, equipment, panel price (500+ vol) | **pillar** | 1,800 / 2,000–2,400 |
+| Tier B bridge | general O&M, default-guide angles | **standard** | 1,200 / 1,400–1,800 |
+| Tier C long-tail | frequency, dust on solar, robot manufacturers in india | **narrow** | 900 / 1,000–1,400 |
+
+Verify tier resolution: `npm run seo:test-word-count-tier`. Preview next post tier: `GET /api/automation/generate-blog` → `nextEditorialContract.wordCount`.
+
+**On-page enforcement (automation):** before writing, `planBlogContent` and section writers receive an **intent contract** (`blog-intent-contract.ts`) derived from title + primary keyword — reader question, must-cover themes, and off-topic drifts (e.g. no robot brochure on equipment/price/roof keywords). Generated HTML is validated for intent alignment (opening/H2 reflect title, keyword in opening, robot pitch density when off-topic) with auto-repair of opening + Quick answer. Also validated: ≥3 internal links (≥2 must be `/blog/` cross-links to related posts; pillar product pages optional and only when cleaning/O&M is on-topic), descriptive anchor text, no `<h1>` in body, and descriptive `alt` on inline `<img>` tags. Robot/product pitches are prompt-gated by keyword relevance (`blog-robot-relevance.ts`). Verify: `npm run seo:test-onpage-seo`.
 
 ---
 

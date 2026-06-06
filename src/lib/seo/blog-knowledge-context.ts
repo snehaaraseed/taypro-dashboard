@@ -207,7 +207,7 @@ ${llmsSummary}`
 
   const excerptBlock =
     excerpts.length > 0
-      ? `RELATED PUBLISHED POSTS (for consistency only; do NOT copy sentences or structure; write a new angle):
+      ? `RELATED PUBLISHED POSTS (link to 2–4 where contextually relevant using href="/blog/slug"; do NOT copy sentences or structure):
 ${excerpts
   .map(
     (e, i) =>
@@ -238,7 +238,8 @@ KNOWLEDGE RULES:
 - Product specs and names: use PRODUCT KNOWLEDGE BASE only.
 - Company/fleet impact numbers: use PUBLIC PROOF POINTS only.
 - Competitor names, products, and market-share claims: use COMPETITOR LANDSCAPE only; cite source year if mentioning share figures.
-- For manufacturer / best-robot / comparison posts: include Taypro using PUBLIC PROOF + PRODUCT KNOWLEDGE; stay factual, not disparaging.
+- For manufacturer / equipment / price posts: stay neutral on cleaning robots unless the keyword is cleaning-related; link to related /blog/ posts instead of forcing product pages.
+- For cleaning / robot / soiling posts: you may include Taypro using PUBLIC PROOF + PRODUCT KNOWLEDGE; stay factual, not disparaging.
 - Do not invent statistics, client names, or model codes not listed above.
 `.trim();
 }

@@ -13,19 +13,9 @@ import {
 import { calculateBlogSimilarity } from "@/lib/seo/blog-similarity-scoring";
 import { SOURCE_LOCALE } from "@/lib/translation/config";
 
-export type StructuralArchetype =
-  | "mistakes_listicle"
-  | "manual_vs_robot"
-  | "frequency_guide"
-  | "cost_breakdown"
-  | "vendor_shortlist"
-  | "complete_guide"
-  | "weather_soiling"
-  | "robot_evaluation"
-  | "price_capex_bridge"
-  | "comparison_matrix"
-  | "checklist_playbook"
-  | "general_om";
+import type { StructuralArchetype } from "@/lib/seo/structural-archetypes";
+
+export type { StructuralArchetype } from "@/lib/seo/structural-archetypes";
 
 export type CorpusIndexEntry = {
   slug: string;

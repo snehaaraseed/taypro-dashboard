@@ -201,12 +201,36 @@ function scoreAuthorAgainstTags(
   return score;
 }
 
+function normalizeAuthorName(name: string): string {
+  return name.trim().toLowerCase();
+}
+
+function filterAuthorsByExclusion(
+  authors: BlogAuthor[],
+  excludeAuthorNames?: Set<string>
+): BlogAuthor[] {
+  if (!excludeAuthorNames || excludeAuthorNames.size === 0) {
+    return authors;
+  }
+  const filtered = authors.filter(
+    (author) => !excludeAuthorNames.has(normalizeAuthorName(author.name))
+  );
+  return filtered.length > 0 ? filtered : authors;
+}
+
+export type PickBestAuthorOptions = {
+  /** Lowercase display names to deprioritize (hybrid rotation). */
+  excludeAuthorNames?: Set<string>;
+};
+
 /**
  * Pick the best-matching eligible author; slight randomness among top ties.
+ * When excludeAuthorNames is set, prefers authors outside that set within the tier.
  */
 export function pickBestAuthorForTopicTags(
   pool: BlogAuthor[],
-  topicTags: Set<BlogAuthorExpertiseTag>
+  topicTags: Set<BlogAuthorExpertiseTag>,
+  options?: PickBestAuthorOptions
 ): BlogAuthor | null {
   if (pool.length === 0) return null;
 
@@ -222,8 +246,14 @@ export function pickBestAuthorForTopicTags(
       ? scored.filter((s) => s.score >= maxScore - 1)
       : scored;
 
-  const pick = tier[Math.floor(Math.random() * tier.length)];
-  return pick.author;
+  const tierAuthors = tier.map((s) => s.author);
+  const candidates = filterAuthorsByExclusion(
+    tierAuthors,
+    options?.excludeAuthorNames
+  );
+
+  const pick = candidates[Math.floor(Math.random() * candidates.length)];
+  return pick ?? null;
 }
 
 /** Rank categories for today's SEO keyword (best match first). */

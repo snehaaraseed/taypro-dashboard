@@ -2,7 +2,21 @@ import "server-only";
 
 import type { BlogFaqItem } from "@/lib/cms/blog-faqs";
 import { isComparisonSearchIntent } from "@/lib/seo/keyword-stats";
+import {
+  resolveBlogWordCountPolicy,
+  resolveBlogStructurePolicy,
+  type BlogWordCountPolicy,
+} from "@/lib/seo/blog-word-count-tier";
 import { extractH2Headings, stripHtmlToPlainText } from "@/lib/seo/blog-similarity";
+import {
+  countQualifyingInternalLinks,
+  extractBlogPostLinkSlugs,
+  findInternalLinkAnchorIssue,
+  MIN_BLOG_POST_LINKS,
+  MIN_INTERNAL_LINKS,
+} from "@/lib/seo/blog-pillar-links";
+import { findInlineImgAltIssue } from "@/lib/seo/blog-body-hygiene";
+import { findBlogIntentAlignmentIssues } from "@/lib/seo/blog-intent-contract";
 
 export class BlogContentValidationError extends Error {
   readonly issues: string[];
@@ -23,6 +37,9 @@ export type BlogContentValidationInput = {
   faqs: BlogFaqItem[];
   primaryKeyword?: string;
   searchIntent?: string;
+  angleId?: string;
+  volumeBucket?: number;
+  competitionIndex?: number;
 };
 
 export type BlogContentValidationResult =
@@ -35,15 +52,26 @@ const FAQ_HEADING_IN_BODY = /frequently asked questions/i;
 const QUESTION_H2 =
   /\b(how|what|which|when|why|is|are|can|should|does|do|worth)\b/i;
 
-function envInt(name: string, fallback: number): number {
-  const raw = process.env[name]?.trim();
-  if (!raw) return fallback;
-  const n = Number.parseInt(raw, 10);
-  return Number.isFinite(n) && n > 0 ? n : fallback;
+/** Env override or standard-tier floor (1200) when no topic context is available. */
+export function getBlogMinWordCount(): number {
+  const envOverride = process.env.BLOG_MIN_WORD_COUNT?.trim();
+  if (envOverride) {
+    const n = Number.parseInt(envOverride, 10);
+    if (Number.isFinite(n) && n > 0) return n;
+  }
+  return resolveBlogWordCountPolicy({}).minWords;
 }
 
-export function getBlogMinWordCount(): number {
-  return envInt("BLOG_MIN_WORD_COUNT", 2000);
+function resolveValidationWordCountPolicy(
+  input: BlogContentValidationInput
+): BlogWordCountPolicy {
+  return resolveBlogWordCountPolicy({
+    primaryKeyword: input.primaryKeyword,
+    angleId: input.angleId,
+    searchIntent: input.searchIntent,
+    volumeBucket: input.volumeBucket,
+    competitionIndex: input.competitionIndex,
+  });
 }
 
 function countWords(text: string): number {
@@ -182,10 +210,14 @@ export function validateGeneratedBlog(
   const issues: string[] = [];
   const plain = stripHtmlToPlainText(input.content);
   const wordCount = countWords(plain);
-  const minWords = getBlogMinWordCount();
+  const wordPolicy = resolveValidationWordCountPolicy(input);
+  const minWords = wordPolicy.minWords;
+  const structure = resolveBlogStructurePolicy(wordPolicy.tier);
 
   if (wordCount < minWords) {
-    issues.push(`Body too short (${wordCount} words; need ≥${minWords})`);
+    issues.push(
+      `Body too short (${wordCount} words; need ≥${minWords} for ${wordPolicy.tier} tier)`
+    );
   }
 
   const titleLen = input.title.trim().length;
@@ -199,8 +231,10 @@ export function validateGeneratedBlog(
   }
 
   const h2s = extractH2Headings(input.content);
-  if (h2s.length < 6) {
-    issues.push(`Need ≥6 H2 sections (found ${h2s.length})`);
+  if (h2s.length < structure.minH2) {
+    issues.push(
+      `Need ≥${structure.minH2} H2 sections for ${wordPolicy.tier} tier (found ${h2s.length})`
+    );
   }
 
   if (!h2s.some((h) => QUICK_ANSWER_H2.test(h))) {
@@ -208,8 +242,13 @@ export function validateGeneratedBlog(
   }
 
   const bullets = quickAnswerBulletCount(input.content);
-  if (bullets < 3 || bullets > 6) {
-    issues.push(`Quick answer needs 3–5 bullets (found ${bullets} <li> items)`);
+  if (
+    bullets < structure.quickAnswerBulletsMin ||
+    bullets > structure.quickAnswerBulletsMax
+  ) {
+    issues.push(
+      `Quick answer needs ${structure.quickAnswerBulletsMin}–${structure.quickAnswerBulletsMax} bullets (found ${bullets} <li> items)`
+    );
   }
 
   if (!h2s.some((h) => QUESTION_H2.test(h) && !QUICK_ANSWER_H2.test(h))) {
@@ -236,6 +275,34 @@ export function validateGeneratedBlog(
     issues.push("Comparison intent requires HTML <table> with <thead>");
   }
 
+  const internalLinkCount = countQualifyingInternalLinks(input.content);
+  if (internalLinkCount < MIN_INTERNAL_LINKS) {
+    issues.push(
+      `Need ≥${MIN_INTERNAL_LINKS} internal links (/blog/ posts and optional pillar pages; found ${internalLinkCount})`
+    );
+  }
+
+  const blogPostLinks = extractBlogPostLinkSlugs(input.content);
+  if (blogPostLinks.length < MIN_BLOG_POST_LINKS) {
+    issues.push(
+      `Need ≥${MIN_BLOG_POST_LINKS} links to related /blog/ posts (found ${blogPostLinks.length})`
+    );
+  }
+
+  const internalAnchorIssue = findInternalLinkAnchorIssue(input.content);
+  if (internalAnchorIssue) {
+    issues.push(internalAnchorIssue);
+  }
+
+  if (/<h1\b/i.test(input.content)) {
+    issues.push("Body must not contain <h1> (page template renders title as H1)");
+  }
+
+  const imgAltIssue = findInlineImgAltIssue(input.content);
+  if (imgAltIssue) {
+    issues.push(imgAltIssue);
+  }
+
   if (input.faqs.length < 4) {
     issues.push(`Need 4 FAQs in JSON (found ${input.faqs.length})`);
   }
@@ -256,6 +323,16 @@ export function validateGeneratedBlog(
   if (!openingAnswersTitle(input.title, input.content)) {
     issues.push("Opening paragraphs should directly address the title topic");
   }
+
+  issues.push(
+    ...findBlogIntentAlignmentIssues({
+      title: input.title,
+      content: input.content,
+      primaryKeyword: input.primaryKeyword,
+      searchIntent: input.searchIntent,
+      angleId: input.angleId,
+    })
+  );
 
   if (issues.length > 0) {
     return { ok: false, issues };
@@ -333,6 +410,36 @@ export function validateTranslatedBlog(
     if (srcPlaceholders > 0 && trPlaceholders !== srcPlaceholders) {
       issues.push("Translated content lost media placeholders");
     }
+  }
+
+  const descLen = input.translatedDescription.trim().length;
+  if (descLen < 60 || descLen > 220) {
+    issues.push(
+      `Translated meta description ${descLen} chars (allow 60–220 for locale copy)`
+    );
+  }
+
+  if (/<h1\b/i.test(input.translatedContent)) {
+    issues.push("Translated body must not contain <h1>");
+  }
+
+  const pillarCount = countQualifyingInternalLinks(input.translatedContent);
+  if (pillarCount < MIN_INTERNAL_LINKS) {
+    issues.push(
+      `Translated body needs ≥${MIN_INTERNAL_LINKS} internal links (found ${pillarCount})`
+    );
+  }
+
+  const blogLinks = extractBlogPostLinkSlugs(input.translatedContent);
+  if (blogLinks.length < MIN_BLOG_POST_LINKS) {
+    issues.push(
+      `Translated body needs ≥${MIN_BLOG_POST_LINKS} /blog/ links (found ${blogLinks.length})`
+    );
+  }
+
+  const imgAltIssue = findInlineImgAltIssue(input.translatedContent);
+  if (imgAltIssue) {
+    issues.push(`Translated ${imgAltIssue.toLowerCase()}`);
   }
 
   if (issues.length > 0) return { ok: false, issues };

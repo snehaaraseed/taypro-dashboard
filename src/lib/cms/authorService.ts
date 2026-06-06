@@ -10,6 +10,7 @@ import {
   normalizeLinkedInUrl,
 } from "@/app/data/blogAuthors";
 import { isEligibleBlogAuthor } from "@/lib/cms/blog-author-pool";
+import { listRecentBlogAuthorNames } from "@/lib/cms/blogService";
 import {
   inferExpertiseFromAuthor,
   mergeTopicTags,
@@ -151,6 +152,23 @@ function eligibleAuthorPool(all: BlogAuthor[]): BlogAuthor[] {
   return pool.length > 0 ? pool : all;
 }
 
+export type BlogAuthorPickMode = "rotate" | "expertise" | "random";
+
+/** Default `rotate`: expertise match + skip recent bylines (hybrid). */
+export function getBlogAuthorPickMode(): BlogAuthorPickMode {
+  const raw = process.env.BLOG_AUTHOR_PICK?.trim().toLowerCase();
+  if (raw === "random" || raw === "expertise" || raw === "rotate") {
+    return raw;
+  }
+  return "rotate";
+}
+
+export function getBlogAuthorRotateDays(): number {
+  const raw = process.env.BLOG_AUTHOR_ROTATE_DAYS?.trim();
+  const parsed = raw ? Number.parseInt(raw, 10) : 7;
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 7;
+}
+
 /** Random CMS author for automation (excludes Taypro Team, Suraj Kadam, etc.). */
 export async function pickRandomBlogAuthor(): Promise<BlogAuthor> {
   const all = await getStoredAuthors();
@@ -168,22 +186,37 @@ export async function pickRandomBlogAuthor(): Promise<BlogAuthor> {
   return pickFrom[Math.floor(Math.random() * pickFrom.length)];
 }
 
-/** Best-matching byline for today's keyword + category (falls back to random). */
+/** Best-matching byline for keyword + category; hybrid rotation by default. */
 export async function pickAuthorForBlogTopic(input: {
   seoKeyword: string;
   category: TopicCategory;
   searchIntent?: string;
 }): Promise<BlogAuthor> {
+  const mode = getBlogAuthorPickMode();
   const all = await getStoredAuthors();
   const pool = eligibleAuthorPool(all);
   if (pool.length === 0) return pickRandomBlogAuthor();
+
+  if (mode === "random") {
+    return pickRandomBlogAuthor();
+  }
 
   const topicTags = mergeTopicTags(
     input.seoKeyword,
     input.category,
     input.searchIntent
   );
-  const matched = pickBestAuthorForTopicTags(pool, topicTags);
+
+  const excludeAuthorNames =
+    mode === "rotate"
+      ? await listRecentBlogAuthorNames({
+          withinDays: getBlogAuthorRotateDays(),
+        })
+      : undefined;
+
+  const matched = pickBestAuthorForTopicTags(pool, topicTags, {
+    excludeAuthorNames,
+  });
   return matched ?? pickRandomBlogAuthor();
 }
 

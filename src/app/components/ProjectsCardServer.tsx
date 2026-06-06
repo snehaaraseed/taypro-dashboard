@@ -1,48 +1,45 @@
 import {
+  enrichProjectsForGrid,
   getFilteredFileProjects,
   getStateLandingProjects,
 } from "@/lib/cms/projectService";
 import type { ProjectListFilter } from "@/lib/cms/projectService";
 import ProjectsCard from "./ProjectsCard";
+import type { ProjectGridItem } from "@/lib/cms/project-card-display";
+import type { ProjectsGridLayout } from "@/lib/cms/project-card-display";
 import { projects } from "../data";
 
-interface ProjectItem {
-  img: string;
-  title: string;
-  details: string | string[];
-  href: string;
-}
-
-interface ProjectsCardProps {
+interface ProjectsCardServerProps extends ProjectsGridLayout {
   showHeader?: boolean;
   headerText?: React.ReactNode;
-  projects?: ProjectItem[];
+  projects?: ProjectGridItem[];
   useFileProjects?: boolean;
-  /** When set with `useFileProjects`, only matching CMS projects are shown (newest first). */
   filter?: ProjectListFilter;
-  /** Pin these slugs first; remaining slots filled from `filter`. */
   featuredSlugs?: string[];
-  /** Max cards to render; defaults to 6 for filtered file projects. */
   limit?: number;
   locale?: string;
+  backgroundClassName?: string;
 }
 
-function normalizeProjectsData(projectsData: typeof projects): ProjectItem[] {
-  return projectsData.map((p) => {
-    const detailsValue = p.details;
-    const detailsStr = typeof detailsValue === "string" 
-      ? detailsValue 
-      : Array.isArray(detailsValue) 
-        ? (detailsValue as string[]).join(", ") 
-        : String(detailsValue);
+function normalizeStaticProjects(projectsData: typeof projects): ProjectGridItem[] {
+  return projectsData.map((project) => {
+    const detailsValue = project.details;
+    const details = Array.isArray(detailsValue)
+      ? detailsValue
+      : typeof detailsValue === "string"
+        ? detailsValue.split(", ").filter(Boolean)
+        : [];
+
     return {
-      ...p,
-      details: detailsStr,
+      id: project.href.replace(/^\/projects\//, "") || project.title,
+      img: project.img,
+      title: project.title,
+      href: project.href,
+      details,
     };
   });
 }
 
-// Server component that can fetch file projects
 export default async function ProjectsCardServer({
   showHeader = false,
   headerText,
@@ -52,8 +49,11 @@ export default async function ProjectsCardServer({
   featuredSlugs,
   limit,
   locale,
-}: ProjectsCardProps) {
-  let displayProjects: ProjectItem[] = providedProjects || [];
+  featuredFirst = false,
+  columns = 2,
+  backgroundClassName,
+}: ProjectsCardServerProps) {
+  let displayProjects: ProjectGridItem[] = providedProjects || [];
 
   if (useFileProjects && !providedProjects) {
     const cardLimit = limit ?? (filter ? 6 : 6);
@@ -66,18 +66,19 @@ export default async function ProjectsCardServer({
             cardLimit
           )
         : await getFilteredFileProjects(filter ?? {}, locale, cardLimit);
-    displayProjects = fileProjects.map((p) => ({
-      img: p.img,
-      title: p.title,
-      details: p.details,
-      href: p.href,
-      description: p.description,
-      imageAlt: p.imageAlt,
-    }));
+    displayProjects = await enrichProjectsForGrid(fileProjects, locale);
   } else if (!providedProjects && !useFileProjects) {
-    displayProjects = normalizeProjectsData(projects);
+    displayProjects = normalizeStaticProjects(projects);
   }
 
-  return <ProjectsCard showHeader={showHeader} headerText={headerText} projects={displayProjects} />;
+  return (
+    <ProjectsCard
+      showHeader={showHeader}
+      headerText={headerText}
+      projects={displayProjects}
+      featuredFirst={featuredFirst}
+      columns={columns}
+      backgroundClassName={backgroundClassName}
+    />
+  );
 }
-

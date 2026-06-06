@@ -3,10 +3,17 @@ import "server-only";
 import fs from "fs";
 import path from "path";
 import { getDeploymentRoot } from "@/app/utils/deploymentRoot";
-import { fetchSearchAnalyticsQueries } from "@/lib/gsc/search-console-client";
+import {
+  fetchSearchAnalyticsPageQueries,
+  fetchSearchAnalyticsQueries,
+} from "@/lib/gsc/search-console-client";
 import { getGscSiteUrl } from "@/lib/gsc/google-service-account";
 import { getGscAuthMethod, isGscConfigured } from "@/lib/gsc/gsc-auth";
 import { invalidateGscBoostCache } from "@/lib/seo/gsc-keyword-boost";
+import {
+  invalidateGscBlogQueriesCache,
+  writeGscBlogQueriesFile,
+} from "@/lib/seo/gsc-blog-queries";
 import {
   invalidateKeywordCampaignCache,
   refreshKeywordCampaignsFromGsc,
@@ -36,6 +43,7 @@ export type GscSyncResult = {
   opportunities: GscOpportunity[];
   boostPath: string;
   reportPath: string;
+  blogQueriesPath?: string;
   authMethod: string;
 };
 
@@ -119,6 +127,7 @@ export async function syncGscBoostFromSearchConsole(): Promise<GscSyncResult> {
 
   const lookbackDays = envInt("GSC_LOOKBACK_DAYS", 28);
   const rows = await fetchSearchAnalyticsQueries({ lookbackDays });
+  const pageQueryRows = await fetchSearchAnalyticsPageQueries({ lookbackDays });
   const opportunities = pickOpportunities(rows);
   const keywords = opportunities.map((o) => o.query);
   const updatedAt = new Date().toISOString();
@@ -153,8 +162,14 @@ export async function syncGscBoostFromSearchConsole(): Promise<GscSyncResult> {
   fs.mkdirSync(path.dirname(boostPath), { recursive: true });
   fs.writeFileSync(boostPath, `${JSON.stringify(boostPayload, null, 2)}\n`, "utf8");
   fs.writeFileSync(reportPath, `${JSON.stringify(reportPayload, null, 2)}\n`, "utf8");
+  const blogQueriesPath = writeGscBlogQueriesFile({
+    siteUrl,
+    lookbackDays,
+    rows: pageQueryRows,
+  });
 
   invalidateGscBoostCache();
+  invalidateGscBlogQueriesCache();
   refreshKeywordCampaignsFromGsc(opportunities);
   invalidateKeywordCampaignCache();
 
@@ -168,6 +183,7 @@ export async function syncGscBoostFromSearchConsole(): Promise<GscSyncResult> {
     opportunities,
     boostPath,
     reportPath,
+    blogQueriesPath,
     authMethod: getGscAuthMethod(),
   };
 }

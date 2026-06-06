@@ -17,12 +17,14 @@ export interface PublishedTopic {
   category?: string;
   h2Outline?: string[];
   contentFingerprint?: string;
+  wordCountTier?: string;
   createdAt: string;
 }
 
 export type PublishedTopicMeta = {
   h2Outline?: string[];
   contentFingerprint?: string;
+  wordCountTier?: string;
 };
 
 function rowToTopic(row: typeof publishedTopics.$inferSelect): PublishedTopic {
@@ -33,6 +35,7 @@ function rowToTopic(row: typeof publishedTopics.$inferSelect): PublishedTopic {
     category: row.category ?? undefined,
     h2Outline: parseH2OutlineJson(row.h2Outline),
     contentFingerprint: row.contentFingerprint ?? undefined,
+    wordCountTier: row.wordCountTier ?? undefined,
     createdAt: row.createdAt,
   };
 }
@@ -44,6 +47,19 @@ export async function readPublishedTopics(): Promise<PublishedTopic[]> {
     .from(publishedTopics)
     .orderBy(desc(publishedTopics.publishDate));
   return rows.map(rowToTopic);
+}
+
+/** Single automation topic row by published blog slug (for metadata keywords). */
+export async function getPublishedTopicBySlug(
+  slug: string
+): Promise<PublishedTopic | null> {
+  const db = getDb();
+  const rows = await db
+    .select()
+    .from(publishedTopics)
+    .where(eq(publishedTopics.slug, slug))
+    .limit(1);
+  return rows[0] ? rowToTopic(rows[0]) : null;
 }
 
 function matchesExistingTopic(
@@ -137,6 +153,7 @@ export async function addPublishedTopic(
     category: category ?? null,
     h2Outline,
     contentFingerprint: meta?.contentFingerprint ?? null,
+    wordCountTier: meta?.wordCountTier ?? null,
     createdAt: now,
   });
 }

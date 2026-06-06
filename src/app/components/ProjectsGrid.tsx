@@ -1,22 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { AnimateOnScroll } from "./AnimateOnScroll";
 import { ProjectDetailChips } from "./ProjectDetailChips";
 import { getProjectHeroImageAlt } from "../utils/imageAlt";
+import {
+  prioritizeProjectCardDetails,
+  projectCardCategoryEyebrow,
+  projectCardExcerpt,
+  type ProjectGridItem,
+  type ProjectsGridLayout,
+} from "@/lib/cms/project-card-display";
 
-type Project = {
-  id: string;
-  title: string;
-  img: string;
-  href: string;
-  description?: string;
-  imageAlt?: string;
-  details?: string[];
-};
-
-function projectImageAlt(project: Project): string {
+function projectImageAlt(project: ProjectGridItem): string {
   return getProjectHeroImageAlt({
     title: project.title,
     imageAlt: project.imageAlt,
@@ -25,75 +23,126 @@ function projectImageAlt(project: Project): string {
   });
 }
 
-export default function ProjectsGrid({ projects }: { projects: Project[] }) {
+const columnClasses: Record<2 | 3, string> = {
+  2: "grid-cols-1 md:grid-cols-2",
+  3: "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+};
+
+export type ProjectsGridProps = ProjectsGridLayout & {
+  projects: ProjectGridItem[];
+  className?: string;
+};
+
+export default function ProjectsGrid({
+  projects,
+  featuredFirst = false,
+  columns = 2,
+  className = "",
+}: ProjectsGridProps) {
+  const t = useTranslations("ProjectsPage");
+
   if (projects.length === 0) {
     return (
-      <div className="text-center py-12 text-gray-500">
-        <p>No projects available at the moment.</p>
+      <div className="text-center py-16 text-[#27415c]">
+        <p>{t("projectCard.empty")}</p>
       </div>
     );
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-      {projects.map((project, idx) => (
-        <AnimateOnScroll key={project.id} animation="scaleIn" delay={idx * 150}>
-          <div className="relative z-0 w-full group overflow-hidden cursor-pointer min-h-[300px] sm:min-h-[400px] md:min-h-[600px]">
-            <div className="absolute inset-0">
-              <Image
-                src={project.img}
-                alt={projectImageAlt(project)}
-                title={project.title}
-                fill
-                className="object-cover transform group-hover:scale-105 transition duration-300"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
-              />
-            </div>
+    <div
+      className={`grid ${columnClasses[columns]} gap-x-10 gap-y-14 lg:gap-x-14 lg:gap-y-20 ${className}`.trim()}
+    >
+      {projects.map((project, idx) => {
+        const isFeatured = featuredFirst && idx === 0 && columns === 2;
+        const displayTags = prioritizeProjectCardDetails(
+          project.details,
+          project.title
+        );
+        const eyebrow =
+          projectCardCategoryEyebrow(project.details) ??
+          t("projectCard.defaultEyebrow");
+        const excerpt =
+          project.cardExcerpt || projectCardExcerpt(project.description);
 
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-transparent group-hover:bg-blue-900/30 transition duration-300 pointer-events-none" />
-
-            {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black/35 group-hover:bg-black/50 transition duration-300" />
-
-            <div className="absolute inset-0 border border-white transition duration-300 ease-out scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100" />
-
-            <div className="absolute inset-0 flex flex-col items-center justify-center z-10 text-center px-4">
-              <Link
-                href={project.href}
-                title="Solar Project"
-                className="text-white text-2xl sm:text-3xl mb-3 drop-shadow-md font-semibold hover:text-[#A8C117] transition-colors duration-300"
+        return (
+          <AnimateOnScroll
+            key={project.id}
+            animation="fadeInUp"
+            delay={Math.min(idx * 80, 400)}
+            className={isFeatured ? "md:col-span-2" : undefined}
+          >
+            <Link
+              href={project.href}
+              title={project.title}
+              className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] focus-visible:ring-offset-4 rounded-sm"
+            >
+              <div
+                className={`relative overflow-hidden bg-[#eef3f8] mb-5 ${
+                  isFeatured ? "aspect-[21/9] md:aspect-[2.4/1]" : "aspect-[4/3]"
+                }`}
               >
-                <h3>{project.title}</h3>
-              </Link>
+                <Image
+                  src={project.img}
+                  alt={projectImageAlt(project)}
+                  title={project.title}
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  sizes={
+                    isFeatured
+                      ? "(max-width: 768px) 100vw, 100vw"
+                      : columns === 3
+                        ? "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        : "(max-width: 768px) 100vw, 50vw"
+                  }
+                  priority={idx < 2}
+                />
+                <div className="absolute inset-0 bg-[#052638]/0 group-hover:bg-[#052638]/5 transition-colors duration-500" />
+              </div>
 
-              {project.details && project.details.length > 0 && (
-                <div
-                  className="
-      flex flex-wrap justify-center gap-3 text-[#A8C117]
-      text-sm sm:text-lg md:text-xl font-medium
-      opacity-100 translate-y-0
-      md:opacity-0 md:translate-y-4
-      md:group-hover:opacity-100 md:group-hover:translate-y-0
-      transition duration-300
-    "
-                  style={{
-                    transitionTimingFunction:
-                      "cubic-bezier(0.4,0.4,0.2,0.5)",
-                  }}
-                >
-                  <ProjectDetailChips
-                    items={project.details}
-                    linkClassName="hover:underline hover:text-[#c3d958] transition-colors duration-300"
-                  />
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+                <div className="min-w-0 flex-1">
+                  <p className="text-[#A8C117] text-xs font-medium uppercase tracking-[0.2em] mb-2">
+                    {eyebrow}
+                  </p>
+                  <h3 className="text-[#052638] font-semibold text-xl md:text-2xl leading-snug group-hover:text-[#5a8f00] transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  {excerpt ? (
+                    <p className="mt-3 text-[#27415c] text-sm md:text-base leading-relaxed line-clamp-2">
+                      {excerpt}
+                    </p>
+                  ) : null}
+                  {displayTags.length > 0 && (
+                    <div className="mt-3 flex flex-wrap items-center gap-y-1 text-sm text-[#27415c]">
+                      {displayTags.map((item, detailIdx) => (
+                        <span
+                          key={`${item}-${detailIdx}`}
+                          className="inline-flex items-center"
+                        >
+                          {detailIdx > 0 && (
+                            <span className="mx-2 text-[#27415c]/35" aria-hidden>
+                              ·
+                            </span>
+                          )}
+                          <ProjectDetailChips
+                            items={[item]}
+                            linkClassName="hover:text-[#5a8f00] transition-colors duration-300"
+                            spanClassName=""
+                          />
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-          </div>
-        </AnimateOnScroll>
-      ))}
+                <span className="shrink-0 text-[#5a8f00] text-sm font-medium mt-1 sm:mt-8 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                  {t("projectCard.viewLink")}
+                </span>
+              </div>
+            </Link>
+          </AnimateOnScroll>
+        );
+      })}
     </div>
   );
 }
-

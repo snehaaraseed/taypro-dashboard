@@ -7,13 +7,18 @@ import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
 import { pickBlogFeaturedImage } from "@/lib/seo/blog-image-picker";
 import { enrichBlogContentWithInlineImages } from "@/lib/seo/blog-inline-images";
 import {
+  buildSeoKeywordBrief,
+  findSeoKeywordRow,
   formatTopicCategory,
   inferSearchIntent,
+  listAvailableKeywordRows,
 } from "@/lib/seo/keyword-stats";
 import {
   buildContentFingerprint,
   extractH2Headings,
 } from "@/lib/seo/blog-similarity";
+import { inferAngleIdFromTitle } from "@/lib/seo/blog-topic-angles";
+import { formatWordCountPreview } from "@/lib/seo/blog-word-count-tier";
 import { assertBlogNotTooSimilar } from "@/lib/seo/blog-uniqueness";
 import { pickAuthorForBlogTopic } from "@/lib/cms/authorService";
 import { rankCategoriesForKeyword } from "@/lib/cms/blog-author-expertise";
@@ -82,6 +87,14 @@ export async function POST(request: NextRequest) {
       category,
     });
     const categoryName = category.name;
+    const keywordRow = findSeoKeywordRow(seoKeyword);
+    const availableRows = keywordRow ? await listAvailableKeywordRows() : [];
+    const seoBrief = keywordRow
+      ? buildSeoKeywordBrief(keywordRow, availableRows)
+      : null;
+    const searchIntent =
+      seoBrief?.searchIntent ?? inferSearchIntent(seoKeyword);
+    const angleId = inferAngleIdFromTitle(seoKeyword, topic);
     let lastError: unknown;
 
     for (let genAttempt = 0; genAttempt < MAX_GENERATION_ATTEMPTS; genAttempt++) {
@@ -89,7 +102,7 @@ export async function POST(request: NextRequest) {
         const blogData = await generateBlogContent(
           topic,
           categoryName,
-          null,
+          seoBrief,
           editorialContext,
           {
             userBrief: brief,
@@ -97,7 +110,10 @@ export async function POST(request: NextRequest) {
             author: bylineAuthor,
             useOutlinePass: genAttempt >= 1,
             preferQualityModel: genAttempt >= 1,
-            searchIntent: inferSearchIntent(seoKeyword),
+            searchIntent,
+            angleId,
+            volumeBucket: seoBrief?.volumeBucket,
+            competitionIndex: seoBrief?.competitionIndex,
           }
         );
 
@@ -164,6 +180,7 @@ export async function POST(request: NextRequest) {
             faqs: blogData.faqs,
             publishDate: new Date().toISOString(),
             published: false,
+            seoKeyword,
           },
           slug
         );
@@ -189,6 +206,13 @@ export async function POST(request: NextRequest) {
               blogData.description,
               contentWithImages
             ),
+            wordCountTier: formatWordCountPreview({
+              primaryKeyword: seoKeyword,
+              angleId,
+              searchIntent,
+              volumeBucket: seoBrief?.volumeBucket,
+              competitionIndex: seoBrief?.competitionIndex,
+            }).wordCountTier,
           }
         );
 

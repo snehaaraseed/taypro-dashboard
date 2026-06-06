@@ -30,7 +30,10 @@ import { findSimilarCorpusEntries } from "@/lib/seo/corpus-index";
 import {
   buildContentFingerprint,
   extractH2Headings,
+  stripHtmlToPlainText,
 } from "@/lib/seo/blog-similarity";
+import { formatWordCountPreview } from "@/lib/seo/blog-word-count-tier";
+import type { ResolveBlogWordCountInput } from "@/lib/seo/blog-word-count-tier";
 import {
   pickTopicTitleHybrid,
   planBlogAutomationHybrid,
@@ -79,6 +82,22 @@ const MAX_PIPELINE_ATTEMPTS = getBlogPipelineMaxOuterAttempts();
 /** Imagen + long Gemini runs; cron curl allows 900s — keep in sync. */
 export const maxDuration = 900;
 
+function buildWordCountInput(input: {
+  primaryKeyword?: string;
+  angleId?: string;
+  searchIntent?: string;
+  volumeBucket?: number;
+  competitionIndex?: number;
+}): ResolveBlogWordCountInput {
+  return {
+    primaryKeyword: input.primaryKeyword,
+    angleId: input.angleId,
+    searchIntent: input.searchIntent,
+    volumeBucket: input.volumeBucket,
+    competitionIndex: input.competitionIndex,
+  };
+}
+
 async function pickAutomationTopic(
   editorialContext: string,
   rejectedTitles: string[],
@@ -90,7 +109,7 @@ async function pickAutomationTopic(
     throw new Error("No SEO keyword available for topic selection");
   }
 
-  const title = await pickTopicTitleHybrid({
+  const picked = await pickTopicTitleHybrid({
     seoBrief,
     category,
     author,
@@ -99,10 +118,11 @@ async function pickAutomationTopic(
   });
 
   return {
-    title,
+    title: picked.title,
     category: category.name,
     seoKeyword: seoBrief.primary,
     seoBrief,
+    angleId: picked.angleId,
   };
 }
 
@@ -239,13 +259,14 @@ async function resolveTopicFromLedger(input: {
   );
 
   if (!title) {
-    title = await pickTopicTitleHybrid({
+    const fallback = await pickTopicTitleHybrid({
       seoBrief: contract.seoBrief,
       category,
       author: bylineAuthor,
       editorialContext: input.editorialContext,
       rejectedTitles: input.rejectedTitles,
     });
+    title = fallback.title;
   }
 
   if (!title) {
@@ -281,6 +302,7 @@ async function resolveTopicFromLedger(input: {
       category: category.name,
       seoKeyword: contract.keyword,
       seoBrief: contract.seoBrief,
+      angleId: contract.angleId,
     },
     contract,
     bylineAuthor,
@@ -431,12 +453,21 @@ export async function POST(request: NextRequest) {
           excludeTitles: rejectedTitles,
           serpBrief,
           factBrief,
+          angleId: editorialContract?.angleId ?? topic.angleId,
           structuralPromise: editorialContract?.structuralPromise,
           requiredDifferentiator: editorialContract?.requiredDifferentiator,
           forbiddenH2Themes: editorialContract?.forbiddenH2Themes,
           forbiddenAngles,
           lockedDescription: lockedDescription || undefined,
         };
+
+        const wordCountInput = buildWordCountInput({
+          primaryKeyword: topic.seoBrief?.primary ?? topic.seoKeyword,
+          angleId: writerOptions.angleId,
+          searchIntent: topic.seoBrief?.searchIntent,
+          volumeBucket: topic.seoBrief?.volumeBucket,
+          competitionIndex: topic.seoBrief?.competitionIndex,
+        });
 
         const contentPlan = await planBlogContent(
           topic.title,
@@ -530,6 +561,7 @@ export async function POST(request: NextRequest) {
             publishDate: new Date().toISOString(),
             published: true,
             scheduleTranslations: false,
+            seoKeyword: topic.seoKeyword || topic.seoBrief?.primary,
           },
           slug
         );
@@ -551,6 +583,11 @@ export async function POST(request: NextRequest) {
               ? formatTopicCategory(topic.category, topic.seoKeyword)
               : topic.category;
 
+        const actualWords = stripHtmlToPlainText(contentWithImages)
+          .split(/\s+/)
+          .filter(Boolean).length;
+        const wordCount = formatWordCountPreview(wordCountInput, actualWords);
+
         await addPublishedTopic(blogData.title, result.slug, categoryMeta, {
           h2Outline: extractH2Headings(contentWithImages),
           contentFingerprint: buildContentFingerprint(
@@ -558,6 +595,7 @@ export async function POST(request: NextRequest) {
             blogData.description,
             contentWithImages
           ),
+          wordCountTier: wordCount.wordCountTier,
         });
 
         if (editorialContract && ledgerEnabled) {
@@ -587,6 +625,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({
           success: true,
           message: "Blog generated and published (English live)",
+          wordCount,
           blog: {
             title: blogData.title,
             slug: result.slug,
@@ -743,6 +782,15 @@ export async function GET(request: NextRequest) {
             archetype: nextContract.archetype,
             seedTitle: nextContract.seedTitle,
             structuralPromise: nextContract.structuralPromise,
+            wordCount: formatWordCountPreview(
+              buildWordCountInput({
+                primaryKeyword: nextContract.keyword,
+                angleId: nextContract.angleId,
+                searchIntent: nextContract.seoBrief.searchIntent,
+                volumeBucket: nextContract.seoBrief.volumeBucket,
+                competitionIndex: nextContract.seoBrief.competitionIndex,
+              })
+            ),
           }
         : null,
       message: schedule.canGenerate

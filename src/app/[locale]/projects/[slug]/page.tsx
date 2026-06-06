@@ -12,7 +12,11 @@ import {
   getAllFileProjects,
   getRelatedFileProjects,
 } from "@/app/utils/projectFileUtils";
-import { getProjectBySlug, listAllProjects } from "@/lib/cms/projectService";
+import {
+  enrichProjectsForGrid,
+  getProjectBySlug,
+  listAllProjects,
+} from "@/lib/cms/projectService";
 import { getStoredAuthors } from "@/lib/cms/authorService";
 import { resolveAuthorSlug } from "@/app/data/blogAuthors";
 import { getProjectHeroImageAlt } from "@/app/utils/imageAlt";
@@ -105,6 +109,7 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
     locale,
     3
   );
+  const relatedGridProjects = await enrichProjectsForGrid(relatedProjects, locale);
 
   const breadcrumbs = [
     { name: tCommon("breadcrumbHome"), href: "/" },
@@ -208,8 +213,8 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
           </article>
         ) : null}
 
-        {relatedProjects.length > 0 ? (
-          <AllRelatedProjectsSection projects={relatedProjects} />
+        {relatedGridProjects.length > 0 ? (
+          <AllRelatedProjectsSection projects={relatedGridProjects} />
         ) : null}
 
         <CallbackCard headerText={tHub("callback.header")} />

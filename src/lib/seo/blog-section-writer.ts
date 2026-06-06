@@ -9,6 +9,7 @@ import {
   PUNCTUATION_RULES,
   SEO_AND_READER_RULES,
 } from "@/lib/seo/content-quality";
+import type { BlogStructurePolicy } from "@/lib/seo/blog-word-count-tier";
 
 export type SectionWriterContext = {
   topic: string;
@@ -22,6 +23,8 @@ export type SectionWriterContext = {
   primaryKeyword?: string;
   researchBlock?: string;
   contractBlock?: string;
+  wordCountRules?: string;
+  structurePolicy?: BlogStructurePolicy;
 };
 
 /** Split H2 outline into chunks of 2 for reliable ~400–900 word sections per call. */
@@ -46,13 +49,22 @@ export function buildSectionWriterPrompt(
 ): string {
   const h2List = sectionH2s.map((h) => `- ${h}`).join("\n");
   const fullOutline = plan.h2Outline.map((h, i) => `${i + 1}. ${h}`).join("\n");
+  const intentFromPlan =
+    plan.readerQuestion || plan.mustCover?.length || plan.avoidTopics?.length
+      ? `
+PLANNED INTENT (every section must serve this — do NOT drift to generic robot O&M):
+Reader question: ${plan.readerQuestion ?? "(answer the title directly)"}
+Must cover: ${(plan.mustCover ?? []).map((m) => `- ${m}`).join("\n") || "(see H2 outline)"}
+Avoid: ${(plan.avoidTopics ?? []).map((a) => `- ${a}`).join("\n") || "(off-topic sales pitch)"}
+`
+      : "";
   const bullets =
     options.isFirstChunk && plan.quickAnswerBullets.length > 0
       ? `\nQuick answer bullets to include under the Quick answer H2:\n${plan.quickAnswerBullets.map((b) => `- ${b}`).join("\n")}\n`
       : "";
 
   const introRule = options.isFirstChunk
-    ? `- Start with 1–2 intro <p> tags that directly answer the title, then write the section H2s below.\n`
+    ? `- Start with 1–2 intro <p> tags that directly answer the title and reader question, then write the section H2s below.\n`
     : `- Do NOT repeat the intro; continue seamlessly from the prior sections.\n`;
 
   const continuityBlock = options.previousSectionsHtml?.trim()
@@ -74,12 +86,13 @@ Title (locked): ${ctx.topic}
 Primary keyword: ${ctx.primaryKeyword?.trim() || "(none)"}
 Category: ${ctx.category}
 
+${ctx.contractBlock ? `${ctx.contractBlock}\n` : ""}
+${intentFromPlan}
 ${ctx.editorial}
 ${ctx.authorBlock}
 ${ctx.seoBlock}
 ${ctx.researchBlock ?? ""}
-${ctx.contractBlock ? `\nEDITORIAL CONTRACT:\n${ctx.contractBlock}\n` : ""}
-${ctx.excludeBlock}
+${ctx.excludeBlock ? `\n${ctx.excludeBlock}\n` : ""}
 
 ${continuityBlock}
 
@@ -93,10 +106,11 @@ ${introRule}
 ${PUNCTUATION_RULES}
 ${SEO_AND_READER_RULES}
 ${AI_OVERVIEW_SNIPPET_RULES}
-${LONG_FORM_CONTENT_RULES}
+${ctx.wordCountRules ?? LONG_FORM_CONTENT_RULES}
 
 Rules:
-- Target ${sectionH2s.length * 400}–${sectionH2s.length * 550} words for this chunk.
+- Every H2 in this chunk must advance the title intent; do not insert unrelated cleaning-robot sales sections.
+- Target ${sectionH2s.length * (ctx.structurePolicy?.wordsPerH2ChunkMin ?? 350)}–${sectionH2s.length * (ctx.structurePolicy?.wordsPerH2ChunkMax ?? 500)} words for this chunk.
 - Match voice, facts, and MW/%/INR ranges used in prior sections; do not contradict.
 - Use verified stats from FACT RESEARCH when provided; otherwise label ranges as industry-typical.
 - Return ONLY valid JSON: { "html": "<h2>...</h2><p>...</p>..." }
@@ -109,11 +123,14 @@ export function buildFaqWriterPrompt(
   plan: BlogContentPlan,
   contentPreview: string
 ): string {
+  const intentNote = plan.readerQuestion
+    ? `\nReader question (FAQs must support this): ${plan.readerQuestion}\n`
+    : "";
   return `Write exactly 4 FAQ items for this published utility-scale solar blog.
 
 Title: ${ctx.topic}
 Primary keyword: ${ctx.primaryKeyword?.trim() || "(none)"}
-
+${intentNote}
 Planned FAQ questions (use these or tighten them):
 ${plan.faqQuestions.map((q, i) => `${i + 1}. ${q}`).join("\n")}
 

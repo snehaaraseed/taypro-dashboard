@@ -59,3 +59,88 @@ export function blogPostMetadataDescription(
 export function blogPostOpenGraphTitle(postTitle: string): string {
   return `${postTitle} | Taypro Blog`;
 }
+
+const TITLE_KEYWORD_STOP = new Set([
+  "the",
+  "and",
+  "for",
+  "with",
+  "from",
+  "your",
+  "how",
+  "what",
+  "when",
+  "which",
+  "why",
+  "are",
+  "you",
+  "can",
+  "should",
+  "guide",
+  "blog",
+  "best",
+  "top",
+  "vs",
+  "india",
+]);
+
+function extractTitleKeywordTokens(title: string): string[] {
+  const tokens: string[] = [];
+  const seen = new Set<string>();
+  for (const raw of title.toLowerCase().split(/[^a-z0-9%]+/)) {
+    const t = raw.trim();
+    if (t.length < 2 || TITLE_KEYWORD_STOP.has(t)) continue;
+    if (seen.has(t)) continue;
+    seen.add(t);
+    tokens.push(t);
+    if (tokens.length >= 5) break;
+  }
+  return tokens;
+}
+
+/** Topic-aware meta keywords for blog post pages. */
+export function buildBlogPostKeywords(input: {
+  title: string;
+  description: string;
+  primaryKeyword?: string | null;
+}): string[] {
+  const keywords: string[] = [];
+  const add = (value: string) => {
+    const trimmed = value.trim();
+    if (!trimmed) return;
+    const lower = trimmed.toLowerCase();
+    if (keywords.some((k) => k.toLowerCase() === lower)) return;
+    keywords.push(trimmed);
+  };
+
+  const primary = input.primaryKeyword?.trim();
+  if (primary) {
+    add(primary);
+  }
+
+  for (const token of extractTitleKeywordTokens(input.title)) {
+    add(token);
+  }
+
+  add("solar panel cleaning");
+  if (isRobotCleaningTopic(input.title, input.description)) {
+    add("solar panel cleaning robot");
+  }
+  add("Taypro");
+
+  return keywords.slice(0, 12);
+}
+
+/** Prefer stored blog keyword, then automation topic, then GSC page queries. */
+export function resolveBlogPrimaryKeyword(input: {
+  seoKeyword?: string | null;
+  publishedTopicKeyword?: string | null;
+  gscKeywords?: string[];
+}): string | null {
+  return (
+    input.seoKeyword?.trim() ||
+    input.publishedTopicKeyword?.trim() ||
+    input.gscKeywords?.[0]?.trim() ||
+    null
+  );
+}

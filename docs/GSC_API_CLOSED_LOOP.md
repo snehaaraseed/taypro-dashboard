@@ -10,6 +10,7 @@ Blog automation can **read real Search Console performance** and refresh `data/s
 4. Writes:
    - `data/seo-gsc-boost.json` → `keywords[]` for `pickSeoKeywordBrief()`
    - `data/gsc-latest-report.json` → full snapshot for editorial prompts
+   - `data/gsc-blog-queries.json` → top queries per `/blog/[slug]` URL for metadata fallback
 5. Next blog runs: **queue → GSC boost → random pool**, and Gemini sees top GSC lines in `formatEditorialContextPrompt()`
 
 This is **closed-loop feedback** without paid SEO tools. It does **not** auto-rewrite old posts (only steers **new** topics).

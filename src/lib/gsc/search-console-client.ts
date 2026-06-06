@@ -83,3 +83,77 @@ export async function fetchSearchAnalyticsQueries(options?: {
     }))
     .filter((r) => r.query.length > 0);
 }
+
+export type GscPageQueryRow = {
+  page: string;
+  query: string;
+  clicks: number;
+  impressions: number;
+  ctr: number;
+  position: number;
+};
+
+/**
+ * Page + query rows for blog URLs (closed-loop metadata fallback).
+ */
+export async function fetchSearchAnalyticsPageQueries(options?: {
+  lookbackDays?: number;
+  rowLimit?: number;
+}): Promise<GscPageQueryRow[]> {
+  const lookbackDays = options?.lookbackDays ?? 28;
+  const rowLimit = options?.rowLimit ?? 2500;
+  const siteUrl = getGscSiteUrl();
+  const { token: accessToken } = await getSearchConsoleAccessToken();
+
+  const endDate = daysAgo(3);
+  const startDate = daysAgo(lookbackDays + 3);
+  const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(siteUrl)}/searchAnalytics/query`;
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      startDate: formatDate(startDate),
+      endDate: formatDate(endDate),
+      dimensions: ["page", "query"],
+      dimensionFilterGroups: [
+        {
+          filters: [
+            {
+              dimension: "page",
+              operator: "contains",
+              expression: "/blog/",
+            },
+          ],
+        },
+      ],
+      rowLimit,
+      dataState: "final",
+    }),
+  });
+
+  const payload = (await response.json()) as {
+    rows?: ApiRow[];
+    error?: { message?: string };
+  };
+
+  if (!response.ok) {
+    throw new Error(
+      `Search Console page query API error (${response.status}): ${payload.error?.message || response.statusText}`
+    );
+  }
+
+  return (payload.rows ?? [])
+    .map((row) => ({
+      page: (row.keys?.[0] ?? "").trim(),
+      query: (row.keys?.[1] ?? "").trim().toLowerCase(),
+      clicks: row.clicks ?? 0,
+      impressions: row.impressions ?? 0,
+      ctr: row.ctr ?? 0,
+      position: row.position ?? 0,
+    }))
+    .filter((r) => r.page.length > 0 && r.query.length > 0);
+}

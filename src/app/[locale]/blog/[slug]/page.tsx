@@ -27,8 +27,12 @@ import {
   blogPostMetadataDescription,
   blogPostMetadataTitle,
   blogPostOpenGraphTitle,
-  isRobotCleaningTopic,
+  buildBlogPostKeywords,
+  resolveBlogPrimaryKeyword,
 } from "@/lib/seo/blog-metadata";
+import { getPublishedTopicBySlug } from "@/lib/cms/topicService";
+import { parseSlotFromCategory } from "@/lib/seo/coverage-ledger";
+import { loadGscKeywordsForBlogSlug } from "@/lib/seo/gsc-blog-queries";
 import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
 import { socialImagesFromMedia } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
@@ -57,6 +61,7 @@ interface BlogData {
   updatedAt?: string;
   source?: "db";
   faqs?: { question: string; answer: string }[];
+  seoKeyword?: string;
 }
 
 interface TocItem {
@@ -166,26 +171,20 @@ export async function generateMetadata({
     };
   }
 
-  const robotTopic = isRobotCleaningTopic(blog.title, blog.description);
-  const blogKeywords = robotTopic
-    ? [
-        "Solar Panel Cleaning Robot",
-        "solar panel cleaning robot",
-        "automatic solar panel cleaning robot",
-        "solar panel cleaning",
-        "solar panel maintenance",
-        "solar energy",
-        "cleaning robots",
-        "taypro",
-      ]
-    : [
-        "solar panel cleaning",
-        "Solar Panel Cleaning Robot",
-        "solar panel maintenance",
-        "solar energy",
-        "cleaning robots",
-        "taypro",
-      ];
+  const publishedTopic = await getPublishedTopicBySlug(slug);
+  const { keyword: publishedTopicKeyword } = parseSlotFromCategory(
+    publishedTopic?.category
+  );
+  const primaryKeyword = resolveBlogPrimaryKeyword({
+    seoKeyword: blog.seoKeyword,
+    publishedTopicKeyword,
+    gscKeywords: loadGscKeywordsForBlogSlug(slug),
+  });
+  const blogKeywords = buildBlogPostKeywords({
+    title: blog.title,
+    description: blog.description,
+    primaryKeyword,
+  });
 
   const shareImages = socialImagesFromMedia(
     blog.featuredImage,

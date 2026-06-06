@@ -9,6 +9,7 @@ const steps = [
   "cms:sync-published-topics",
   "cms:reconcile-migrations",
   "cms:migrate-image-alt",
+  "cms:migrate-seo-keyword",
   "cms:fix-slug-locale-unique",
 ];
 

@@ -30,8 +30,8 @@
     },
     "hero": {
       "eyebrow": "Deployments across India",
-      "titleLine1": "Solar panel cleaning robot",
-      "titleLine2": "installation projects",
+      "titleLine1": "Field-proven robotic cleaning",
+      "titleLine2": "on India's largest solar plants",
       "bodyBeforeLink": "Taypro documents real utility-scale deployments where autonomous and semi-automatic",
       "bodyLink": "solar panel cleaning robots",
       "bodyAfterLink": "protect performance ratio, cut water use, and replace labour-intensive washing. Browse by deployment type or open a case study for capacity, location, and cleaning model details."
@@ -68,12 +68,20 @@
       }
     },
     "featured": {
-      "heading": "Featured installation case studies",
-      "bodyBeforeCleaningLink": "Select a plant to read commissioning context, robot models used, and operational outcomes. For technology background, see",
+      "heading": "Selected installation case studies",
+      "body": "Hand-picked references across automatic, semi-automatic, and CAPEX deployments. Each profile covers commissioning context, robot models, and operational outcomes on site.",
+      "countNote": "Showing {shown} selected references from {total} published plants.",
+      "browseAllIntro": "Explore the full portfolio by deployment model:",
+      "bodyBeforeCleaningLink": "For technology background, see",
       "cleaningLink": "how Taypro cleaning works",
       "bodyMiddle": "or estimate savings with the",
       "roiLink": "ROI calculator",
       "bodyAfter": "."
+    },
+    "projectCard": {
+      "empty": "No projects available at the moment.",
+      "defaultEyebrow": "Case study",
+      "viewLink": "View case study →"
     },
     "faq": {
       "heading": "Frequently asked questions",

@@ -1,8 +1,13 @@
 import "server-only";
 
-import { and, eq } from "drizzle-orm";
+import { and, eq, inArray } from "drizzle-orm";
 import { getDb } from "@/lib/db";
 import { projects } from "@/lib/db/schema";
+import {
+  excerptFromProjectContent,
+  projectCardExcerpt,
+  type ProjectGridItem,
+} from "@/lib/cms/project-card-display";
 import type {
   ProjectData,
   ProjectMetadata,
@@ -143,7 +148,7 @@ export async function getProjectsByCategory(
   category: ProjectCategoryFilter,
   locale?: string
 ): Promise<ProjectCard[]> {
-  return getFilteredFileProjects({ category }, locale);
+  return getFilteredFileProjects({ category }, locale, 0);
 }
 
 const DEFAULT_PROJECT_CARD_LIMIT = 6;
@@ -189,6 +194,55 @@ export async function getProjectsBySlugs(
     if (project) ordered.push(project);
   }
   return ordered;
+}
+
+/** Fetch HTML content for many slugs in one query (hub card excerpts). */
+export async function getProjectContentBySlugs(
+  slugs: string[],
+  locale?: string
+): Promise<Map<string, string>> {
+  if (slugs.length === 0) return new Map();
+
+  const loc = resolveLocale(locale);
+  const db = getDb();
+  const rows = await db
+    .select({ slug: projects.slug, content: projects.content })
+    .from(projects)
+    .where(
+      and(
+        inArray(projects.slug, slugs),
+        eq(projects.locale, loc),
+        eq(projects.published, true)
+      )
+    );
+
+  return new Map(rows.map((row) => [row.slug, row.content ?? ""]));
+}
+
+/** Attach card excerpts for editorial project grids (single content query). */
+export async function enrichProjectsForGrid(
+  projects: ProjectCard[],
+  locale?: string
+): Promise<ProjectGridItem[]> {
+  if (projects.length === 0) return [];
+
+  const contentBySlug = await getProjectContentBySlugs(
+    projects.map((project) => project.id),
+    locale
+  );
+
+  return projects.map((project) => ({
+    id: project.id,
+    title: project.title,
+    img: project.img,
+    href: project.href,
+    description: project.description,
+    imageAlt: project.imageAlt,
+    details: project.details,
+    cardExcerpt:
+      excerptFromProjectContent(contentBySlug.get(project.id)) ||
+      projectCardExcerpt(project.description),
+  }));
 }
 
 /** Featured slugs first (config order), then keyword-filter matches. */

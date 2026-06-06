@@ -148,6 +148,9 @@ export function inferSearchIntent(keyword: string): string {
   if (/how often|frequency|best way|when to/.test(k)) {
     return "Informational/decision, scheduling and O&M best practice for MW plants.";
   }
+  if (/\bpv panel roof\b|rooftop pv|roof.?mount|panel roof/.test(k)) {
+    return "Informational/comparison for rooftop or canopy PV—access, safety, cleaning/maintenance methods, and costs for roof-mounted arrays; do NOT rewrite as a ground-mount utility robot brochure.";
+  }
   if (/service|company/.test(k)) {
     return "Commercial, evaluating vendors/Opex; explain what to look for in robot cleaning partners.";
   }
@@ -195,6 +198,16 @@ export async function listAvailableKeywordRows(): Promise<SeoKeywordRow[]> {
   if (rows.length === 0) return [];
   const used = await getUsedSeoKeywords();
   return rows.filter((r) => !used.has(r.keyword));
+}
+
+/** Sync lookup for admin/manual generation tier resolution. */
+export function findSeoKeywordRow(primary: string): SeoKeywordRow | null {
+  const key = primary.toLowerCase().trim();
+  if (!key) return null;
+  return (
+    loadSeoKeywordRows().find((r) => r.keyword.toLowerCase().trim() === key) ??
+    null
+  );
 }
 
 /**

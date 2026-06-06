@@ -64,6 +64,20 @@
       "when": 1747845600000,
       "tag": "0009_author_expertise",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "6",
+      "when": 1747932000000,
+      "tag": "0010_published_topics_word_count_tier",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "6",
+      "when": 1748018400000,
+      "tag": "0011_blogs_seo_keyword",
+      "breakpoints": true
     }
   ]
 }

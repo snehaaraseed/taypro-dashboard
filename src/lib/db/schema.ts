@@ -27,6 +27,8 @@ export const blogs = sqliteTable(
     author: text("author").notNull().default("Taypro Team"),
     content: text("content").notNull().default(""),
     faqs: text("faqs").notNull().default("[]"),
+    /** Primary SEO target keyword (automation + metadata). */
+    seoKeyword: text("seo_keyword"),
     publishDate: text("publish_date").notNull(),
     createdAt: text("created_at").notNull(),
     updatedAt: text("updated_at"),
@@ -68,6 +70,7 @@ export const publishedTopics = sqliteTable("published_topics", {
   category: text("category"),
   h2Outline: text("h2_outline"),
   contentFingerprint: text("content_fingerprint"),
+  wordCountTier: text("word_count_tier"),
   createdAt: text("created_at").notNull(),
 });
 

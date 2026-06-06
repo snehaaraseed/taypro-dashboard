@@ -1,70 +1,27 @@
-"use client";
-import Link from "next/link";
-import Image from "next/image";
-import { useTranslations } from "next-intl";
-
-type Project = {
-  id: string | number;
-  href: string;
-  img: string;
-  title: string;
-  date: string;
-};
+import { getTranslations } from "next-intl/server";
+import { Container } from "./Container";
+import ProjectsGrid from "./ProjectsGrid";
+import type { ProjectGridItem } from "@/lib/cms/project-card-display";
 
 interface RelatedProjectsSectionProps {
-  projects: Project[];
+  projects: ProjectGridItem[];
 }
 
-function RelatedProjectsSection({
+export async function AllRelatedProjectsSection({
   projects,
 }: RelatedProjectsSectionProps) {
-  const t = useTranslations("ProjectDetailPage");
+  const t = await getTranslations("ProjectDetailPage");
 
   return (
-    <section className="w-full bg-white pb-16 sm:pb-20 lg:pb-30 overflow-x-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <h3 className="text-[#0c2f42] font-medium text-2xl sm:text-3xl mb-4 sm:mb-5">
+    <section className="w-full bg-white pb-16 sm:pb-20 lg:pb-24 overflow-x-hidden">
+      <Container>
+        <h3 className="text-[#052638] font-semibold text-2xl sm:text-3xl mb-10 md:mb-12">
           {t("relatedHeading")}
         </h3>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {projects.map((project) => (
-            <Link
-              key={project.id}
-              href={project.href}
-              title={t("relatedImageTitle")}
-              className="group block"
-            >
-              <div className="relative w-full h-[200px] sm:h-[240px] lg:h-[280px] mb-4 sm:mb-6 overflow-hidden">
-                <Image
-                  src={project.img}
-                  alt={t("relatedImageAlt", { title: project.title })}
-                  title={t("relatedImageTitleAttr", { title: project.title })}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-300"
-                  style={{
-                    background:
-                      "linear-gradient(to bottom, rgba(76, 223, 78, 0.5), rgba(121, 226, 80, 0.88))",
-                  }}
-                />
-              </div>
-              <h4 className="text-[#9cb01f] font-medium text-lg sm:text-xl lg:text-2xl leading-tight">
-                {project.title}
-              </h4>
-              <div className="text-gray-500 text-xs sm:text-sm">
-                {project.date}
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
+        <ProjectsGrid projects={projects} columns={3} />
+      </Container>
     </section>
   );
 }
 
-export default RelatedProjectsSection;
-export { RelatedProjectsSection as AllRelatedProjectsSection };
+export default AllRelatedProjectsSection;

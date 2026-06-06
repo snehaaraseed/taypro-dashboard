@@ -12,6 +12,7 @@ import {
   assertTranslatedBlogValid,
   BlogContentValidationError,
 } from "@/lib/seo/blog-content-validator";
+import { sanitizeGeneratedBlogBodyHtml } from "@/lib/seo/blog-body-hygiene";
 import {
   translateBlogFaqsWithGemini,
   translateFieldsWithGemini,
@@ -89,6 +90,7 @@ async function upsertBlogLocale(
     featuredImage: source.featuredImage,
     featuredImageAlt: translated.featuredImageAlt || source.featuredImageAlt,
     author: source.author,
+    seoKeyword: source.seoKeyword,
     publishDate: source.publishDate,
     published: source.published,
     updatedAt: now,
@@ -253,6 +255,11 @@ export async function translatePublishedBlog(
             },
             locale
           );
+
+          fields.content = sanitizeGeneratedBlogBodyHtml(fields.content, {
+            title: fields.title,
+            primaryKeyword: source.seoKeyword,
+          });
 
           const faqs = sourceFaqs.length
             ? await translateBlogFaqsWithGemini(sourceFaqs, locale)
