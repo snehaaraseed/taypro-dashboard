@@ -721,8 +721,8 @@ export default function EditBlogPage() {
             <>
               <p className="text-sm text-gray-600">
                 All languages are up to date with this English version. Saving
-                changes to a published post automatically queues translation
-                updates in the background.
+                changes to a published post will be picked up by the evening
+                translation cron.
               </p>
               <div className="rounded border border-green-200 bg-green-50/80 px-3 py-2 text-xs text-green-900">
                 Synced:{" "}
@@ -736,8 +736,8 @@ export default function EditBlogPage() {
             <>
               <p className="text-sm text-gray-600">
                 Uses the English version of this post and Gemini to fill or
-                update localized pages. Saving a published post also triggers
-                translation updates automatically.
+                update localized pages. The evening cron translates published
+                posts automatically; use the buttons below for immediate updates.
               </p>
               <div className="flex flex-wrap gap-2">
                 <button

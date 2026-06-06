@@ -1,57 +1,57 @@
 {
   "AuthorsPage": {
     "meta": {
-      "title": "Blog Authors | Taypro - Solar Panel Cleaning Robot Experts",
-      "description": "Meet the engineers, researchers and field experts writing the Taypro blog. Browse every contributor to our Solar Panel Cleaning Robot articles and field notes.",
-      "openGraphTitle": "Blog Authors | Taypro - Solar Panel Cleaning Robot Experts",
-      "openGraphDescription": "Meet the engineers and field experts behind Taypro's Solar Panel Cleaning Robot articles and field notes.",
-      "openGraphImageAlt": "Taypro blog authors",
-      "twitterTitle": "Blog Authors | Taypro",
-      "twitterDescription": "Engineers and field experts behind Taypro's Solar Panel Cleaning Robot blog.",
-      "keyword0": "Taypro authors",
-      "keyword1": "Solar Panel Cleaning Robot authors",
-      "keyword2": "Taypro blog contributors",
-      "keyword3": "solar O&M experts",
-      "keyword4": "Taypro engineering team"
+      "title": "ব্লগ লেখক | Taypro - সোলার প্যানেল পরিষ্কার রোবট বিশেষজ্ঞ",
+      "description": "Taypro ব্লগ লেখা ইঞ্জিনিয়ার, গবেষক ও ফিল্ড বিশেষজ্ঞদের সাথে পরিচিত হন। সোলার প্যানেল পরিষ্কার রোবট নিবন্ধ ও ফিল্ড নোটের সব অবদানকারী ব্রাউজ করুন।",
+      "openGraphTitle": "ব্লগ লেখক | Taypro - সোলার প্যানেল পরিষ্কার রোবট বিশেষজ্ঞ",
+      "openGraphDescription": "Taypro-এর সোলার প্যানেল পরিষ্কার রোবট নিবন্ধ ও ফিল্ড নোটের পেছনের ইঞ্জিনিয়ার ও ফিল্ড বিশেষজ্ঞদের সাথে পরিচিত হন।",
+      "openGraphImageAlt": "Taypro ব্লগ লেখক",
+      "twitterTitle": "ব্লগ লেখক | Taypro",
+      "twitterDescription": "Taypro-এর সোলার প্যানেল পরিষ্কার রোবট ব্লগের পেছনের ইঞ্জিনিয়ার ও ফিল্ড বিশেষজ্ঞ।",
+      "keyword0": "Taypro লেখক",
+      "keyword1": "সোলার প্যানেল পরিষ্কার রোবট লেখক",
+      "keyword2": "Taypro ব্লগ অবদানকারী",
+      "keyword3": "সোলার O&M বিশেষজ্ঞ",
+      "keyword4": "Taypro ইঞ্জিনিয়ারিং দল"
     },
     "breadcrumbs": {
-      "authors": "Authors"
+      "authors": "লেখক"
     },
     "hero": {
-      "eyebrow": "Blog Directory",
-      "title": "Authors",
-      "description": "Explore all blog contributors and read their published articles.",
-      "introP1": "The Taypro blog is written for solar developers, EPC teams, and O&M leads who run utility-scale PV in India. Articles cover soiling and performance ratio, dry robotic cleaning, plant economics, commissioning lessons, and field notes from real deployments.",
-      "introP2Before": "Every profile below links to that author's published posts. For the full article archive, visit the",
-      "introP2BlogLink": "Taypro blog",
-      "introP2Middle": "or estimate robot payback with the",
-      "introP2CalculatorLink": "ROI calculator",
-      "introP2After": "."
+      "eyebrow": "ব্লগ ডিরেক্টরি",
+      "title": "লেখক",
+      "description": "সব ব্লগ অবদানকারী অন্বেষণ করুন এবং তাদের প্রকাশিত নিবন্ধ পড়ুন।",
+      "introP1": "Taypro ব্লগ ভারতে ইউটিলিটি-স্কেল PV চালানো সোলার ডেভেলপার, EPC দল ও O&M লিডদের জন্য লেখা। নিবন্ধে সয়লিং ও পারফরম্যান্স রেশিও, শুষ্ক রোবোটিক পরিষ্কার, প্ল্যান্ট অর্থনীতি, কমিশনিং শিক্ষা ও বাস্তব মোতায়েন থেকে ফিল্ড নোট অন্তর্ভুক্ত।",
+      "introP2Before": "নিচের প্রতিটি প্রোফাইল সেই লেখকের প্রকাশিত পোস্টে লিঙ্ক করে। সম্পূর্ণ নিবন্ধ আর্কাইভের জন্য",
+      "introP2BlogLink": "Taypro ব্লগ",
+      "introP2Middle": "দেখুন অথবা",
+      "introP2CalculatorLink": "ROI ক্যালকুলেটর",
+      "introP2After": " দিয়ে রোবট পে-ব্যাক অনুমান করুন।"
     },
     "topics": {
-      "heading": "What our authors write about",
-      "intro": "Contributors include application engineers, robotics specialists, and O&M practitioners who work on GLYDE, HELYX, and fleet monitoring in the field.",
-      "t0": "Soiling loss, cleaning frequency, and performance ratio on dusty Indian sites.",
-      "t1": "Comparing dry robotic cleaning with manual washing and sprinkler logistics.",
-      "t2": "CAPEX vs Opex procurement and when to own robots vs outsource cycles.",
-      "t3": "Tracker vs fixed-tilt layouts, safety, and NECTYR scheduling practices."
+      "heading": "আমাদের লেখকরা কী নিয়ে লেখেন",
+      "intro": "অবদানকারীদের মধ্যে application ইঞ্জিনিয়ার, robotics বিশেষজ্ঞ ও O&M practitioners আছেন যারা ফিল্ডে GLYDE, HELYX ও ফ্লিট মনিটরিংয়ে কাজ করেন।",
+      "t0": "ধুলোময় ভারতীয় সাইটে সয়লিং ক্ষতি, পরিষ্কার ফ্রিকোয়েন্সি ও পারফরম্যান্স রেশিও।",
+      "t1": "শুষ্ক রোবোটিক পরিষ্কার বনাম ম্যানুয়াল ধোয়া ও sprinkler logistics তুলনা।",
+      "t2": "CAPEX vs Opex procurement ও রোবট মালিকানা vs চক্র outsource কখন নেবেন।",
+      "t3": "Tracker vs fixed-tilt layouts, নিরাপত্তা ও NECTYR শিডিউলিং practices।"
     },
     "faq": {
-      "heading": "Frequently asked questions",
-      "subheading": "About Taypro blog authorship and expertise.",
-      "q0": "Who writes the Taypro blog?",
-      "a0": "Posts are authored by Taypro engineers, application specialists, and field teams who commission and support solar panel cleaning robots on utility-scale plants. Named contributors are listed on this page; some articles are published under Taypro Team when multiple experts collaborate.",
-      "q1": "How do I read articles by a specific author?",
-      "a1": "Select an author card below to open their archive of published posts. Each card shows role, short bio, and article count so you can follow the voices most relevant to your plant type.",
-      "q2": "Can I suggest a topic or speak with an author?",
-      "a2": "Yes. Use the contact form or newsletter signup on this page to reach the editorial team. Share your MW, region, and question, O&M economics, robot selection, or soiling, and we will route it to the right specialist."
+      "heading": "প্রায়শই জিজ্ঞাসিত প্রশ্ন",
+      "subheading": "Taypro ব্লগ authorship ও দক্ষতা সম্পর্কে।",
+      "q0": "Taypro ব্লগ কে লেখে?",
+      "a0": "পোস্ট Taypro ইঞ্জিনিয়ার, application specialists ও ফিল্ড দল লেখেন যারা ইউটিলিটি-স্কেল প্ল্যান্টে সোলার প্যানেল পরিষ্কার রোবট কমিশন ও সাপোর্ট করেন। নামযুক্ত অবদানকারী এই পৃষ্ঠায় তালিকাভুক্ত; কয়েকজন বিশেষজ্ঞ সহযোগিতা করলে কিছু নিবন্ধ Taypro Team নামে প্রকাশিত হয়।",
+      "q1": "নির্দিষ্ট লেখকের নিবন্ধ কীভাবে পড়ব?",
+      "a1": "তাদের প্রকাশিত পোস্টের আর্কাইভ খুলতে নিচে লেখক কার্ড নির্বাচন করুন। প্রতিটি কার্ড role, সংক্ষিপ্ত bio ও নিবন্ধ সংখ্যা দেখায় যাতে আপনার প্ল্যান্ট ধরনের জন্য সবচেয়ে প্রাসঙ্গিক কণ্ঠ অনুসরণ করতে পারেন।",
+      "q2": "আমি কি বিষয় প্রস্তাব বা লেখকের সাথে কথা বলতে পারি?",
+      "a2": "হ্যাঁ। সম্পাদকীয় দলে পৌঁছাতে এই পৃষ্ঠায় contact form বা newsletter signup ব্যবহার করুন। আপনার MW, অঞ্চল ও প্রশ্ন (O&M economics, রোবট নির্বাচন, সয়লিং) শেয়ার করুন, আমরা সঠিক specialist-এর কাছে পাঠাব।"
     },
-    "defaultRole": "Contributing Author",
-    "defaultBio": "Read this author's blog posts and insights.",
-    "article": "article",
-    "articles": "articles"
+    "defaultRole": "অবদানকারী লেখক",
+    "defaultBio": "এই লেখকের ব্লগ পোস্ট ও insights পড়ুন।",
+    "article": "নিবন্ধ",
+    "articles": "নিবন্ধ"
   },
   "Common": {
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "হোম"
   }
 }

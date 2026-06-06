@@ -52,7 +52,8 @@
       }
     },
     "hero": {
-      "title": "NYUMA — Automatic Solar Panel Cleaning Robot for Fixed-Tilt Utility Plants",
+      "title": "NYUMA — Fully Automatic Solar Panel Cleaning Robot for Fixed-Tilt Plants",
+      "h1Line1": "自動ソーラーパネル清掃ロボット, ",
       "h1Line2": "Taypro NYUMA",
       "leadBeforeStrong": "Taypro NYUMAは",
       "leadStrong": "自動ソーラーパネル清掃ロボット",
@@ -68,6 +69,7 @@
       "heroImageTitle": "自動ソーラーパネル清掃ロボット NYUMA, Taypro"
     },
     "overview": {
+      "productImageAlt": "Top view of Taypro NYUMA automatic solar panel cleaning robot on parallel cleaning rails",
       "eyebrow": "ユーティリティ規模向け自動ソーラーパネル清掃ロボット",
       "title": "Taypro NYUMA自動清掃ロボットとは",
       "p1BeforeStrong": "",
@@ -82,17 +84,29 @@
       },
       "methodologyLinkText": "パフォーマンス・試験方法論",
       "methodologyLinkTitle": "パフォーマンス・試験方法論",
-      "p2BeforeStrong": "On a single charge, NYUMA cleans up to ",
-      "p2Strong": "2.2 km of running length, approximately 3,600 solar modules",
-      "p2AfterStrong": ". Cleaning cycles are best scheduled outside energy production hours and can be programmed remotely, ensuring zero impact on plant generation.",
-      "p3": "Advanced edge and obstacle detection allow NYUMA to traverse panels safely without risk of falling, while continuous surface-undulation tracking adjusts motor performance row-by-row for consistent cleaning quality. Real-time battery monitoring guarantees the robot only covers what it can complete and returns safely to its docking station, never stranded mid-array. Lightweight bridges enable seamless movement from one table to the next, keeping coverage uninterrupted across the entire site.",
+      "p2BeforeStrong": "1回の充電で、NYUMAは最大",
+      "p2Strong": "2.2 kmの走行長、約3,600枚のソーラーモジュール",
+      "p2AfterStrong": "を清掃します。清掃サイクルは発電時間外にスケジュールするのが最適で、NECTYRから遠隔プログラムでき、発電への影響はゼロです。",
+      "p3": "高度なエッジ・障害物検知によりNYUMAは安全にパネルを走行し、転落リスクを排除します。表面うねり追従が行ごとにモーター性能を調整し、一貫した清掃品質を維持。リアルタイムのバッテリー監視により、完了可能な距離のみ走行しドッキングステーションへ安全に復帰。軽量ブリッジでテーブル間をシームレスに移動し、サイト全体のカバレッジを継続します。",
       "p4Blog1": "モジュール上で自動清掃ロボットがどう動くか",
       "p4Blog2": "ユーティリティ規模でのロボット清掃のメリット",
       "p4Prefix": "関連記事: ",
       "p4Middle": " および ",
       "p4Suffix": "。"
     },
+    "gallery": {
+      "eyebrow": "Product engineering",
+      "title": "NYUMA hardware at a glance",
+      "subtitle": "Patented single-pass PBT cleaning on module-frame rails, autonomous docking, and fleet connectivity built for utility-scale fixed-tilt plants.",
+      "primaryAlt": "Taypro NYUMA TR-150 automatic cleaning robot, plan view showing rails and single-pass PBT cleaning elements",
+      "primaryCaption": "NYUMA TR-150 travels along the module frame with patented single-pass PBT PBT brush cleaning.",
+      "mechanismAlt": "Close-up of Taypro NYUMA single-pass PBT rotating PBT brush cleaning drum, wheels, and wireless antenna",
+      "mechanismCaption": "Rotating self-cleaning PBT brush drum, frame-mounted travel, and remote monitoring antenna.",
+      "dockingAlt": "Taypro NYUMA shadow-free docking station with integrated solar charging for autonomous daily cycles",
+      "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array."
+    },
     "howToSection": {
+      "dualPassStepImageAlt": "Taypro NYUMA single-pass PBT waterless cleaning mechanism with rotating PBT brush drum",
       "eyebrow": "自律清掃サイクル",
       "title": "自動ソーラーパネル清掃ロボットはどう動くか？",
       "subtitle": "NYUMAは列上でオペレーター不要のエンドツーエンド運転。以下はHowTo構造化データと現場の日常です。",
@@ -250,16 +264,16 @@
       "subtitle": "Taypro の洗浄ソリューションは、認定された太陽光発電分野の試験機関によって実施される、現実的な屋外条件下での毎日の洗浄サイクルをシミュレートする、厳格な現場検証および実験室検証を受けています。",
       "cards": {
         "card0": {
-          "title": "TÜV NORD Certified",
-          "body": "Independently tested and certified for IP55 protection and validated for extreme damp-heat and dry-heat performance by TÜV NORD."
+          "title": "TÜV NORD認証",
+          "body": "IP55保護についてTÜV NORDによる独立試験・認証。極端な湿熱・乾熱性能を検証済み。"
         },
         "card1": {
-          "title": "Sandstorm-Endurance Tested",
-          "body": "Validated under simulated outdoor cleaning cycles, including 12 sandstorm events per year at a sand loading of 10 g/m² per cycle."
+          "title": "砂嵐耐久試験済み",
+          "body": "屋外清掃サイクルを模擬した条件下で検証。年12回の砂嵐、サイクルあたり10 g/m²の砂負荷を含む。"
         },
         "card2": {
-          "title": "Panel-Safe Cleaning",
-          "body": "Testing covers micro-crack analysis, optical reflectance measurements, full electrical parameter evaluation and Anti-Reflective Coating (ARC) preservation."
+          "title": "パネル安全清掃",
+          "body": "マイクロクラック分析、光学反射率測定、電気パラメーター評価、ARC（反射防止コーティング）保護を試験。"
         }
       }
     },
@@ -409,7 +423,7 @@
           "details": "+20 mm"
         },
         "ipRating": {
-          "spec": "IP Rating",
+          "spec": "IP等級",
           "details": "IP65"
         },
         "corrosion": {
@@ -458,6 +472,7 @@
       }
     },
     "installSection": {
+      "dockingImageAlt": "Taypro NYUMA docking station with integrated solar panel for autonomous robot charging between cleaning cycles",
       "title": "自動ロボットの設置にはどのくらい？",
       "p1": "既存レイアウト変更不要。NYUMAはパネルフレーム上を走行。",
       "p2": "数時間から数日, ドック、キャリブレーション、統合。",
@@ -549,12 +564,12 @@
       }
     },
     "modelCards": {
-      "title": "Looking for more solutions?",
+      "title": "他のソリューションをお探しですか？",
       "cardLabels": {
         "modelB": "HELYX",
         "modelT": "NYUMA"
       },
-      "cardTitleTemplate": "{label} Solar Panel Cleaning Robot"
+      "cardTitleTemplate": "{label} ソーラーパネル清掃ロボット"
     }
   },
   "Common": {

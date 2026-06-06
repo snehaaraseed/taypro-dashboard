@@ -525,7 +525,7 @@ export default function NewProjectPage() {
               ))}
             </div>
             <p className="mt-2 text-xs text-gray-500">
-              Include at least one category tag (Automatic, Semi-Automatic, or Capex)
+              Include at least one category tag (Automatic, Semi-Automatic, Capex, or Opex)
               and a product tag when known (GLYDE, GLYDE-X, HELYX, NYUMA, NYUMA-X).
               Product tags control which product pages show this case study.
               Category and product tags stay in English on translated pages.

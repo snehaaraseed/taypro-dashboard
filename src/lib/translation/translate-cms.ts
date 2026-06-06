@@ -438,19 +438,6 @@ export async function translatePublishedProject(
   return { slug, type: "project", results };
 }
 
-/** Fire-and-forget translation after publish (logs errors). */
-export function scheduleBlogTranslations(slug: string): void {
-  void translatePublishedBlog(slug).catch((error) => {
-    console.error(`[translate] blog ${slug}:`, error);
-  });
-}
-
-export function scheduleProjectTranslations(slug: string): void {
-  void translatePublishedProject(slug).catch((error) => {
-    console.error(`[translate] project ${slug}:`, error);
-  });
-}
-
 export async function listEnglishBlogSlugs(): Promise<string[]> {
   const db = getDb();
   const rows = await db

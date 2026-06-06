@@ -30,15 +30,41 @@ export function geminiTranslationModel(): string {
  * Default for gemini-3.1-flash-lite free tier (500 RPD, 15 RPM with GEMINI_CALL_DELAY_MS).
  * ~80 translation calls/night + ~10 for blog automation leaves comfortable RPD headroom.
  */
-export const DEFAULT_BLOG_TRANSLATION_MAX_PER_DAY = 10;
+export const DEFAULT_DAILY_TRANSLATION_MAX_PER_DAY = 10;
+export const DEFAULT_DAILY_TRANSLATION_SPLIT_PER_TYPE = 5;
 
-/** Max published English blogs to translate (all target locales) per daily cron run. */
+function parsePositiveInt(
+  raw: string | undefined,
+  fallback: number
+): number {
+  const parsed = raw ? Number.parseInt(raw, 10) : fallback;
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
+}
+
+/** Max CMS items (blogs + projects) to translate per daily cron run. */
+export function getDailyTranslationMaxPerDay(): number {
+  const unified = process.env.CMS_TRANSLATION_MAX_PER_DAY?.trim();
+  if (unified) {
+    return parsePositiveInt(unified, DEFAULT_DAILY_TRANSLATION_MAX_PER_DAY);
+  }
+  return parsePositiveInt(
+    process.env.BLOG_TRANSLATION_MAX_PER_DAY?.trim(),
+    DEFAULT_DAILY_TRANSLATION_MAX_PER_DAY
+  );
+}
+
+/** @deprecated Use getDailyTranslationMaxPerDay */
 export function getBlogTranslationMaxPerDay(): number {
-  const raw = process.env.BLOG_TRANSLATION_MAX_PER_DAY?.trim();
-  const parsed = raw
-    ? Number.parseInt(raw, 10)
-    : DEFAULT_BLOG_TRANSLATION_MAX_PER_DAY;
-  return Number.isFinite(parsed) && parsed > 0
-    ? parsed
-    : DEFAULT_BLOG_TRANSLATION_MAX_PER_DAY;
+  return getDailyTranslationMaxPerDay();
+}
+
+/**
+ * When both blogs and projects need translation, each type gets this many slots
+ * (spare capacity shifts to the type with more backlog, up to max per day).
+ */
+export function getDailyTranslationSplitPerType(): number {
+  return parsePositiveInt(
+    process.env.CMS_TRANSLATION_SPLIT_PER_TYPE?.trim(),
+    DEFAULT_DAILY_TRANSLATION_SPLIT_PER_TYPE
+  );
 }

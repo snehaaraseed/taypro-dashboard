@@ -17,8 +17,8 @@
         "ট্র্যাকার স্বয়ংক্রিয় সোলার প্যানেল পরিষ্কার সিস্টেম",
         "Taypro GLYDE-X"
       ],
-      "openGraphTitle": "PBT Tracker Solar Panel Cleaning Robot, Taypro NYUMA-X",
-      "twitterTitle": "PBT Tracker Solar Panel Cleaning Robot, Taypro NYUMA-X"
+      "openGraphTitle": "PBT ট্র্যাকার সোলার প্যানেল পরিষ্কারের রোবট, Taypro NYUMA-X",
+      "twitterTitle": "PBT ট্র্যাকার সোলার প্যানেল পরিষ্কারের রোবট, Taypro NYUMA-X"
     },
     "breadcrumbs": {
       "robots": "সোলার প্যানেল ক্লিনিং রোবট",
@@ -37,7 +37,8 @@
       "subtitleStrong": "টেবিলের মধ্যে ±15° নমনীয়",
       "subtitleAfter": ", -52° থেকে +52° থেকে মডিউল টিল্ট সমর্থন করে এবং NEXTracker, Gamechanger এবং সমতুল্য ট্র্যাকারের সাথে সামঞ্জস্যপূর্ণ।",
       "imgAlt": "Taypro সিঙ্গেল-অ্যাক্সিস ট্র্যাকার সোলার প্যানেল ক্লিনিং রোবট GLYDE-X - সোলার প্যানেল ইনস্টলেশন ট্র্যাক করার জন্য স্বায়ত্তশাসিত রোবোটিক ক্লিনিং সিস্টেম",
-      "ctaText": "একটি উদ্ধৃতি অনুরোধ"
+      "ctaText": "একটি উদ্ধৃতি অনুরোধ",
+      "h1Line1": "একক-অক্ষ ট্র্যাকারদের জন্য সোলার প্যানেল পরিষ্কারের রোবট, "
     },
     "usps": {
       "0": {
@@ -506,10 +507,10 @@
     },
     "modelCardsTitle": "আরো সমাধান খুঁজছেন?",
     "roiBand": {
-      "title": "Tracker cleaning robot cost & ROI",
-      "bodyBeforeSpan": "Model ",
-      "bodySpan": "single-axis tracker solar panel cleaning",
-      "bodyAfterSpan": " economics for your site, use the calculator before a NYUMA-X quote."
+      "title": "ট্র্যাকার পরিষ্কার রোবট খরচ ও ROI",
+      "bodyBeforeSpan": "আপনার সাইটের ",
+      "bodySpan": "একক-অক্ষ ট্র্যাকার সোলার প্যানেল পরিষ্কার",
+      "bodyAfterSpan": " অর্থনীতি, NYUMA-X কোটেশনের আগে ক্যালকুলেটর চালান।"
     },
     "shared": {
       "connectivitySummary": "LTE, Wi-Fi, হাইব্রিড সেল্ফ-হিলিং RF মেশ, LoRa ও LoRaWAN"

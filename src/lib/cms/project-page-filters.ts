@@ -25,7 +25,7 @@ export const PROJECT_PAGE_FILTERS = {
     category: "automatic",
   },
   opex: {
-    category: "capex",
+    category: "opex",
   },
   console: {
     category: "automatic",

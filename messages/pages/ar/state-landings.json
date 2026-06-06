@@ -2,579 +2,579 @@
   "StateLandingsPage": {
     "shared": {
       "breadcrumbs": {
-        "home": "Home",
-        "hub": "Solar Panel Cleaning Robots"
+        "home": "الرئيسية",
+        "hub": "روبوتات تنظيف الألواح الشمسية"
       },
       "models": {
-        "eyebrow": "Robot models",
-        "heading": "Taypro robots for {state} utility plants",
-        "linkHub": "Compare all robot models"
+        "eyebrow": "نماذج الروبوتات",
+        "heading": "روبوتات Taypro لمحطات الطاقة الشمسية في {state}",
+        "linkHub": "مقارنة جميع نماذج الروبوتات"
       },
       "deployments": {
-        "eyebrow": "Proven deployments",
-        "linksHeading": "Featured case studies"
+        "eyebrow": "عمليات نشر مثبتة",
+        "linksHeading": "دراسات حالة مختارة"
       },
       "procurement": {
-        "eyebrow": "Commercial models"
+        "eyebrow": "النماذج التجارية"
       },
       "roiBand": {
-        "eyebrow": "Pricing & ROI"
+        "eyebrow": "التسعير والعائد على الاستثمار (ROI)"
       },
       "resources": {
-        "eyebrow": "Resources",
-        "heading": "Guides for {state} solar O&M teams"
+        "eyebrow": "الموارد",
+        "heading": "أدلة فرق التشغيل والصيانة (O&M) للطاقة الشمسية في {state}"
       },
       "cta": {
-        "priceGuide": "Robot price guide (India)",
-        "calculator": "ROI calculator",
-        "contact": "Request a quote",
-        "projects": "View all projects"
+        "priceGuide": "دليل أسعار الروبوتات (الهند)",
+        "calculator": "حاسبة العائد على الاستثمار (ROI)",
+        "contact": "طلب عرض سعر",
+        "projects": "عرض جميع المشاريع"
       },
       "projects": {
-        "eyebrow": "Live deployments",
-        "heading": "Taypro cleaning robots in {state}",
-        "subheading": "Utility-scale case studies and installations with Taypro waterless robots."
+        "eyebrow": "عمليات النشر الحالية",
+        "heading": "روبوتات التنظيف من Taypro في {state}",
+        "subheading": "دراسات حالة لمحطات الطاقة الشمسية واسعة النطاق وعمليات التركيب باستخدام روبوتات Taypro للتنظيف الجاف."
       },
       "faq": {
-        "heading": "Frequently asked questions",
-        "subheading": "Common questions about solar panel cleaning robots in {state}."
+        "heading": "الأسئلة الشائعة",
+        "subheading": "أسئلة شائعة حول روبوتات تنظيف الألواح الشمسية في {state}."
       },
       "siblings": {
-        "heading": "Other states",
-        "intro": "Taypro serves utility solar across India. Explore regional guides:"
+        "heading": "ولايات أخرى",
+        "intro": "تخدم Taypro مشاريع الطاقة الشمسية واسعة النطاق في جميع أنحاء الهند. استكشف الأدلة الإقليمية:"
       },
       "quoteForm": {
-        "topic": "Solar cleaning robot quote ({state})",
-        "title": "Request a quote for your {state} plant",
-        "subtitle": "Share MW capacity, fixed-tilt or tracker layout, and soiling context — our applications team will follow up with robot sizing and commercial options."
+        "topic": "عرض سعر روبوت تنظيف الطاقة الشمسية ({state})",
+        "title": "طلب عرض سعر لمحطتك في {state}",
+        "subtitle": "شاركنا سعة الميجاواط (MW)، وتصميم الألواح (ثابت أو متحرك)، وطبيعة الأتربة - وسيقوم فريق التطبيقات لدينا بالمتابعة معك لتحديد حجم الروبوت المناسب والخيارات التجارية."
       }
     },
     "rajasthan": {
       "meta": {
-        "title": "Solar Panel Cleaning Robot Rajasthan | Utility Plants | Taypro",
-        "description": "Waterless solar panel cleaning robots for utility-scale plants in Rajasthan. Dust-storm soiling, 360 MW+ deployments, pan-India service, GLYDE, NYUMA, and Taypro Opex.",
-        "openGraphTitle": "Solar Panel Cleaning Robot Rajasthan | Taypro",
-        "openGraphDescription": "Robotic dry cleaning for Rajasthan utility solar — high-soiling sites, water-scarce districts, and multi-hundred-MW fleets."
+        "title": "روبوتات تنظيف الألواح الشمسية في Rajasthan | محطات المرافق | Taypro",
+        "description": "روبوتات تنظيف الألواح الشمسية بدون ماء لمحطات المرافق في Rajasthan. حلول لتراكم الغبار، مشاريع بقدرة 360 MW+، خدمات في عموم الهند، GLYDE، NYUMA، و Taypro Opex.",
+        "openGraphTitle": "روبوتات تنظيف الألواح الشمسية في Rajasthan | Taypro",
+        "openGraphDescription": "تنظيف آلي جاف لمحطات الطاقة الشمسية في Rajasthan — مواقع ذات معدلات غبار عالية، مناطق تعاني من ندرة المياه، وأساطيل بقدرات مئات الـ MW."
       },
       "hero": {
-        "eyebrow": "Rajasthan · Utility solar",
-        "title": "Solar Panel Cleaning Robot in Rajasthan",
-        "subtitle": "Rajasthan hosts some of India's largest utility solar fleets — and the harshest dust-soiling regimes. Taypro waterless cleaning robots deliver scheduled dry cycles without tanker water, with same-day pan-India breakdown support and NECTYR fleet proof of coverage."
+        "eyebrow": "Rajasthan · طاقة شمسية للمرافق",
+        "title": "روبوتات تنظيف الألواح الشمسية في Rajasthan",
+        "subtitle": "تستضيف Rajasthan بعضاً من أكبر أساطيل الطاقة الشمسية في الهند، وتواجه أقسى ظروف تراكم الغبار. تقدم روبوتات التنظيف الجاف من Taypro دورات تنظيف مجدولة دون الحاجة لصهاريج المياه، مع دعم فني للأعطال في نفس اليوم عبر الهند، وإثبات تغطية عبر أسطول NECTYR."
       },
       "soiling": {
-        "eyebrow": "Regional context",
-        "heading": "Soiling, dust storms, and O&M in Rajasthan",
-        "p1": "Rajasthan's arid climate drives rapid module soiling from dust storms and fine particulates. Industry studies report up to 25% annual generation loss on poorly cleaned sites — calendar-based wet washing cannot keep pace at multi-hundred-MW scale.",
-        "p2": "Waterless robotic cleaning replaces crew-and-tanker logistics in water-scarce districts. Taypro GLYDE and NYUMA fleets run scheduled cycles with block-level reporting through NECTYR — critical for IPPs managing Bhadla, Phalodi, and Jaisalmer belt assets.",
-        "p3": "Taypro targets same-day on-site breakdown resolution across Rajasthan with regional spare inventory and remote diagnostics before crews roll."
+        "eyebrow": "السياق الإقليمي",
+        "heading": "تراكم الغبار، العواصف الرملية، والتشغيل والصيانة (O&M) في Rajasthan",
+        "p1": "يؤدي المناخ القاحل في Rajasthan إلى تراكم سريع للأتربة على الوحدات بسبب العواصف الرملية والجزيئات الدقيقة. تشير تقارير الصناعة إلى خسارة تصل إلى 25% من التوليد السنوي في المواقع التي لا يتم تنظيفها جيداً — ولا يمكن للغسيل الرطب المعتمد على التقويم مواكبة هذا على نطاق مئات الـ MW.",
+        "p2": "يحل التنظيف الآلي الجاف محل لوجستيات العمالة والناقلات في المناطق التي تعاني من ندرة المياه. تقوم أساطيل Taypro GLYDE و NYUMA بتنفيذ دورات مجدولة مع تقارير على مستوى القطاعات عبر NECTYR — وهو أمر حيوي لمنتجي الطاقة المستقلين (IPPs) الذين يديرون الأصول في أحزمة Bhadla، Phalodi، و Jaisalmer.",
+        "p3": "تستهدف Taypro حل أعطال الموقع في نفس اليوم في جميع أنحاء Rajasthan مع توفر قطع الغيار الإقليمية والتشخيص عن بُعد قبل إرسال فرق العمل."
       },
       "models": {
-        "body": "Rajasthan's Thar-edge and Bhadla-belt programmes mix mega-scale semi-automatic NYUMA portables with growing automatic GLYDE fleets. At Akhadana 360 MW, eighty NYUMA units (~0.22 robots/MW) prioritise high-return blocks with waterless brushing while civil layouts mature — a capital allocation pattern common where dust season outpaces wet-wash logistics.",
-        "recommended": "Typical Rajasthan utility RFQs start with NYUMA or GLYDE on fixed-tilt rows; GLYDE-X where tracker share is material. Scattered or irregular blocks may add HELYX semi-automatic gap-fillers alongside automatic anchors."
+        "body": "تمزج برامج Rajasthan في مناطق Thar-edge و Bhadla بين أساطيل NYUMA المحمولة شبه الآلية ذات النطاق الواسع وأساطيل GLYDE الآلية المتنامية. في مشروع Akhadana بقدرة 360 MW، تعطي ثمانون وحدة NYUMA (حوالي 0.22 روبوت/MW) الأولوية للقطاعات ذات العائد المرتفع مع التنظيف بالفرشاة الجافة بينما تنضج التصاميم المدنية — وهو نمط تخصيص رأسمالي شائع حيث يتجاوز موسم الغبار لوجستيات الغسيل الرطب.",
+        "recommended": "تبدأ طلبات عروض الأسعار (RFQ) المعتادة في Rajasthan بـ NYUMA أو GLYDE على الصفوف ثابتة الميل؛ و GLYDE-X حيث تكون حصة أجهزة التتبع كبيرة. قد تضيف القطاعات المبعثرة أو غير المنتظمة وحدات HELYX شبه الآلية لسد الفجوات إلى جانب المراسي الآلية."
       },
       "deployments": {
-        "heading": "Multi-hundred-MW robotic cleaning in Rajasthan",
-        "p1": "Taypro's Rajasthan portfolio spans 150 MW to 360 MW ground-mount programmes across the state's highest-soiling belts. Owners evaluate robotics when manual tanker convoys cannot match dust return, when water scarcity blocks wet wash, and when finance teams require block-level proof that cleaning happened.",
-        "p2": "At Akhadana 360 MW, Taypro deployed eighty NYUMA semi-automatic robots under CAPEX ownership. Site operations report roughly 50.4 million litres of water saved per year, about 13.5 GWh of attributed clean generation recovery, and improved cleaning cadence through pre-monsoon dust peaks — with weekly block plans and inspection sign-off.",
-        "p3": "Bhadla-class and Chhayan programmes show both automatic-first and semi-automatic density strategies on repeatable fixed-tilt rows. Browse the case studies below for fleet sizing, procurement lessons, and peer comparisons before your Rajasthan RFQ."
+        "heading": "تنظيف آلي بقدرة مئات الـ MW في Rajasthan",
+        "p1": "تتراوح محفظة مشاريع Taypro في Rajasthan من 150 MW إلى 360 MW في برامج التثبيت الأرضي عبر أحزمة الغبار الأكثر كثافة في الولاية. يقوم المالكون بتقييم الروبوتات عندما لا تستطيع قوافل الصهاريج اليدوية مواكبة عودة الغبار، وعندما تمنع ندرة المياه الغسيل الرطب، وعندما تطلب الفرق المالية إثباتاً على مستوى القطاع بأن التنظيف قد تم.",
+        "p2": "في مشروع Akhadana بقدرة 360 MW، نشرت Taypro ثمانين روبوت NYUMA شبه آلي بموجب نموذج ملكية CAPEX. تشير عمليات الموقع إلى توفير حوالي 50.4 مليون لتر من المياه سنوياً، واستعادة ما يقرب من 13.5 GWh من التوليد النظيف، وتحسين وتيرة التنظيف خلال ذروة غبار ما قبل الرياح الموسمية — مع خطط أسبوعية للقطاعات وتوقيع على عمليات الفحص.",
+        "p3": "تُظهر برامج Bhadla و Chhayan استراتيجيات كثافة آلية وشبه آلية في صفوف ثابتة الميل قابلة للتكرار. تصفح دراسات الحالة أدناه لمعرفة حجم الأسطول، ودروس المشتريات، والمقارنات قبل تقديم طلب عروض الأسعار (RFQ) الخاص بك في Rajasthan."
       },
       "procurement": {
-        "heading": "CAPEX vs Taypro Opex for Rajasthan plants",
-        "p1": "Most Rajasthan utility owners model robot purchase (CAPEX) with robots capitalised on the balance sheet, NECTYR fleet software, and Taypro commissioning plus AMC. CAPEX suits IPPs who want to control fleet configuration and amortise hardware over plant life.",
-        "p2": "Taypro Opex moves cleaning to a pay-per-panel-cleaned service — Taypro operates the fleet with block schedules and NECTYR reporting, with no upfront robot purchase. Many Rajasthan programmes evaluate both paths during dust-season pilot windows before full-table rollout."
+        "heading": "CAPEX مقابل Taypro Opex لمحطات Rajasthan",
+        "p1": "يقوم معظم مالكي محطات المرافق في Rajasthan بنمذجة شراء الروبوتات (CAPEX) مع رسملة الروبوتات في الميزانية العمومية، وبرامج أسطول NECTYR، وعمولات Taypro بالإضافة إلى AMC. يناسب CAPEX منتجي الطاقة المستقلين (IPPs) الذين يرغبون في التحكم في تكوين الأسطول واستهلاك الأجهزة على مدى عمر المحطة.",
+        "p2": "ينقل نموذج Taypro Opex التنظيف إلى خدمة الدفع مقابل كل لوح يتم تنظيفه — حيث تدير Taypro الأسطول بجداول زمنية للقطاعات وتقارير NECTYR، دون الحاجة لشراء الروبوتات مقدماً. تقوم العديد من برامج Rajasthan بتقييم كلا المسارين خلال فترات تجريبية لموسم الغبار قبل الطرح الكامل."
       },
       "roiBand": {
-        "heading": "Robot price and payback for Rajasthan utility solar",
-        "p1": "Robot CAPEX in Rajasthan scales with MW, robots-per-MW density, and automation level — semi-automatic programmes often land at lower per-MW capital than full automatic tables while still closing dust-season cadence gaps on priority blocks.",
-        "p2": "Use the India robot price guide for directional CAPEX bands, then the ROI calculator with your tariff and soiling assumptions. Formal quotes require row layout review by Taypro applications engineering."
+        "heading": "سعر الروبوت وفترة الاسترداد لمحطات الطاقة الشمسية في Rajasthan",
+        "p1": "تتناسب تكلفة CAPEX للروبوتات في Rajasthan مع الـ MW، وكثافة الروبوتات لكل MW، ومستوى الأتمتة — غالباً ما تصل تكلفة البرامج شبه الآلية إلى رأسمال أقل لكل MW مقارنة بالطاولات الآلية بالكامل مع الاستمرار في سد فجوات وتيرة موسم الغبار في القطاعات ذات الأولوية.",
+        "p2": "استخدم دليل أسعار الروبوتات في الهند للحصول على نطاقات CAPEX توجيهية، ثم حاسبة ROI مع فرضيات التعريفة وتراكم الغبار الخاصة بك. تتطلب العروض الرسمية مراجعة تصميم الصفوف من قبل هندسة تطبيقات Taypro."
       },
       "resources": {
-        "link0Title": "Solar panel cleaning across regions of India",
+        "link0Title": "تنظيف الألواح الشمسية عبر مناطق الهند",
         "link0Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india",
-        "link1Title": "Weather impact on module cleanliness in India",
+        "link1Title": "تأثير الطقس على نظافة الوحدات في الهند",
         "link1Href": "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india",
-        "link2Title": "Cost-benefit analysis of cleaning services in India",
+        "link2Title": "تحليل التكلفة والعائد لخدمات التنظيف في الهند",
         "link2Href": "/blog/cost-benefit-analysis-of-solar-panel-cleaning-services-in-india"
       },
       "faq": {
-        "q0": "Does Taypro supply solar panel cleaning robots in Rajasthan?",
-        "a0": "Yes. Taypro manufactures and services waterless utility-scale cleaning robots across Rajasthan, with live multi-hundred-MW deployments and pan-India breakdown SLAs. Contact Taypro with your plant location and MW for a site-specific fleet proposal.",
-        "q1": "Why use robots instead of manual cleaning in Rajasthan?",
-        "a1": "Manual crews struggle with dust-storm cadence, fuel cost, and water availability in Rajasthan's arid belts. Robotic dry cleaning enables 3–10 dry cycles per month that recover generation lost to soiling — without wet-wash water or linear night-crew scaling.",
-        "q2": "Which Taypro robot fits Rajasthan fixed-tilt plants?",
-        "a2": "GLYDE (dual-pass microfiber) and NYUMA (PBT single-pass) are the primary automatic options for fixed and seasonal-tilt utility rows. For single-axis trackers, GLYDE-X and NYUMA-X are purpose-built with validated bridge compatibility.",
-        "q3": "What does a solar cleaning robot cost in Rajasthan?",
-        "a3": "Robot price depends on MW, layout, and CAPEX vs Taypro Opex. See our India price guide for directional bands, then run the ROI calculator or request a formal quote with your row maps.",
-        "q4": "Can Taypro operate robots under an Opex contract in Rajasthan?",
-        "a4": "Yes. Taypro Opex is pay-per-panel-cleaned with Taypro operating the fleet — no upfront robot CAPEX. Many Rajasthan utility owners evaluate both purchase and service models during RFQ.",
-        "q5": "How often should Rajasthan plants run robotic cleaning cycles?",
-        "a5": "Cadence depends on dust season and block priority — Taypro utility programmes commonly align with roughly 3–10 dry-cleaning cycles per month on automatic fleets, often denser in March–June dust peaks. Semi-automatic programmes use published weekly block plans rather than nightly full-table coverage.",
-        "q6": "Does Taypro provide breakdown support in remote Rajasthan sites?",
-        "a6": "Yes. Taypro targets same-day on-site breakdown resolution across India, including Rajasthan, with NECTYR remote diagnostics, regional spare inventory, and structured AMC programmes.",
-        "q7": "Can I see proof of cleaning coverage for investor reporting?",
-        "a7": "Yes. NECTYR provides block schedules, cleaning logs, fleet health monitoring, and exports for O&M governance — the same audit trail used on Akhadana, Bhadla-class, and other Rajasthan deployments."
+        "q0": "هل توفر Taypro روبوتات تنظيف الألواح الشمسية في Rajasthan؟",
+        "a0": "نعم. تقوم Taypro بتصنيع وخدمة روبوتات التنظيف الجاف على مستوى المرافق في جميع أنحاء Rajasthan، مع مشاريع حية بقدرة مئات الـ MW واتفاقيات مستوى خدمة (SLAs) للأعطال في عموم الهند. اتصل بـ Taypro مع تحديد موقع محطتك وقدرة الـ MW للحصول على عرض أسطول مخصص للموقع.",
+        "q1": "لماذا نستخدم الروبوتات بدلاً من التنظيف اليدوي في Rajasthan؟",
+        "a1": "تواجه الفرق اليدوية صعوبات مع وتيرة العواصف الرملية، وتكاليف الوقود، وتوفر المياه في أحزمة Rajasthan القاحلة. يتيح التنظيف الآلي الجاف إجراء 3–10 دورات جافة شهرياً، مما يستعيد التوليد المفقود بسبب تراكم الغبار — دون الحاجة لمياه الغسيل أو زيادة أعداد العمالة الليلية.",
+        "q2": "أي روبوت من Taypro يناسب محطات Rajasthan ثابتة الميل؟",
+        "a2": "تعد GLYDE (بألياف دقيقة مزدوجة التمرير) و NYUMA (بتقنية PBT ذات التمريرة الواحدة) الخيارات الآلية الأساسية للصفوف الثابتة والميل الموسمي. بالنسبة لأجهزة التتبع أحادية المحور، تم تصميم GLYDE-X و NYUMA-X خصيصاً مع توافق مثبت للجسور.",
+        "q3": "ما تكلفة روبوت تنظيف الألواح الشمسية في Rajasthan؟",
+        "a3": "يعتمد سعر الروبوت على الـ MW، والتصميم، ونموذج CAPEX مقابل Taypro Opex. راجع دليل أسعار الهند للحصول على نطاقات توجيهية، ثم استخدم حاسبة ROI أو اطلب عرضاً رسمياً مع خرائط الصفوف الخاصة بك.",
+        "q4": "هل يمكن لـ Taypro تشغيل الروبوتات بموجب عقد Opex في Rajasthan؟",
+        "a4": "نعم. يعتمد Taypro Opex على الدفع مقابل كل لوح يتم تنظيفه مع قيام Taypro بتشغيل الأسطول — بدون دفع تكاليف CAPEX مقدماً للروبوتات. يقيم العديد من مالكي المرافق في Rajasthan كلاً من نماذج الشراء والخدمة أثناء عملية طلب عروض الأسعار (RFQ).",
+        "q5": "ما عدد المرات التي يجب أن تنفذ فيها محطات Rajasthan دورات التنظيف الآلي؟",
+        "a5": "تعتمد الوتيرة على موسم الغبار وأولوية القطاع — غالباً ما تتوافق برامج Taypro للمرافق مع حوالي 3–10 دورات تنظيف جاف شهرياً على الأساطيل الآلية، وعادة ما تكون أكثر كثافة خلال ذروة الغبار من مارس إلى يونيو. تستخدم البرامج شبه الآلية خططاً أسبوعية معلنة للقطاعات بدلاً من التغطية الليلية الكاملة للطاولة.",
+        "q6": "هل توفر Taypro دعماً للأعطال في المواقع النائية في Rajasthan؟",
+        "a6": "نعم. تستهدف Taypro حل أعطال الموقع في نفس اليوم في جميع أنحاء الهند، بما في ذلك Rajasthan، مع تشخيص NECTYR عن بُعد، ومخزون قطع الغيار الإقليمي، وبرامج AMC المهيكلة.",
+        "q7": "هل يمكنني الحصول على إثبات لتغطية التنظيف لتقارير المستثمرين؟",
+        "a7": "نعم. توفر NECTYR جداول زمنية للقطاعات، وسجلات تنظيف، ومراقبة لصحة الأسطول، وتقارير لإدارة عمليات الصيانة (O&M) — وهو نفس سجل التدقيق المستخدم في مشاريع Akhadana و Bhadla وغيرها من مشاريع Rajasthan."
       }
     },
     "gujarat": {
       "meta": {
-        "title": "Solar Panel Cleaning Robot Gujarat | Utility Plants | Taypro",
-        "description": "Solar panel cleaning robots for Gujarat utility plants — heat, industrial dust, and water stress. Taypro waterless GLYDE and NYUMA fleets with NECTYR monitoring and live DVC-scale deployments.",
-        "openGraphTitle": "Solar Panel Cleaning Robot Gujarat | Taypro",
-        "openGraphDescription": "Waterless robotic cleaning for Gujarat utility solar — Bachau DVC-scale deployments and pan-India Taypro service."
+        "title": "روبوتات تنظيف الألواح الشمسية في Gujarat | محطات الطاقة الكبرى | Taypro",
+        "description": "روبوتات تنظيف الألواح الشمسية لمحطات الطاقة في Gujarat — لمواجهة الحرارة والغبار الصناعي وشح المياه. أساطيل Taypro الجافة GLYDE و NYUMA مع نظام NECTYR للمراقبة ونشرها في مشاريع DVC.",
+        "openGraphTitle": "روبوت تنظيف الألواح الشمسية في Gujarat | Taypro",
+        "openGraphDescription": "تنظيف آلي جاف لمحطات الطاقة الشمسية في Gujarat — مشاريع DVC في Bachau وخدمات Taypro في جميع أنحاء الهند."
       },
       "hero": {
-        "eyebrow": "Gujarat · Utility solar",
-        "title": "Solar Panel Cleaning Robot in Gujarat",
-        "subtitle": "Gujarat combines high MW density with heat, coastal/industrial dust, and growing water stress. Taypro waterless robots maintain cleaning cadence without tanker logistics — with fleet telemetry through NECTYR and Made-in-India manufacturing."
+        "eyebrow": "Gujarat · الطاقة الشمسية للمرافق",
+        "title": "روبوت تنظيف الألواح الشمسية في Gujarat",
+        "subtitle": "تجمع Gujarat بين كثافة الميجاواط العالية والحرارة والغبار الساحلي/الصناعي وتزايد الإجهاد المائي. تحافظ روبوتات Taypro الجافة على وتيرة التنظيف دون الحاجة لخدمات الصهاريج — مع قياس بيانات الأسطول عبر NECTYR وتصنيع محلي في الهند."
       },
       "soiling": {
-        "eyebrow": "Regional context",
-        "heading": "Soiling and cleaning economics in Gujarat",
-        "p1": "Gujarat's utility belt sees rapid soiling from heat, dust, and industrial particulates — Bergin et al. and CEEW studies cite significant yield loss when cleaning stays calendar-based. SCADA shows the dip after MWh is already lost.",
-        "p2": "Taypro robots eliminate wet-wash water (140k+ litres per MW per year in stressed sites) while enabling 3–10 dry cycles per month. Live deployments include Bachau DVC and multi-MW SECI phases with GLYDE-class automatic fleets.",
-        "p3": "Developers comparing robot suppliers on Gujarat RFQs should evaluate waterless fit, tracker compatibility, NECTYR audit trails, and breakdown SLA — not sticker price alone."
+        "eyebrow": "السياق الإقليمي",
+        "heading": "اقتصاديات التلوث والتنظيف في Gujarat",
+        "p1": "تشهد حزام المرافق في Gujarat تلوثاً سريعاً بسبب الحرارة والغبار والجزيئات الصناعية — تشير دراسات Bergin وآخرين وCEEW إلى فقدان كبير في الإنتاجية عندما يقتصر التنظيف على التقويم السنوي. يظهر نظام SCADA الانخفاض بعد ضياع طاقة MWh.",
+        "p2": "تستغني روبوتات Taypro عن مياه الغسيل الرطب (أكثر من 140 ألف لتر لكل MW سنوياً في المواقع التي تعاني من إجهاد مائي) مع إتاحة 3–10 دورات تنظيف جاف شهرياً. تشمل المشاريع الحالية Bachau DVC ومراحل SECI متعددة الميجاواط مع أساطيل GLYDE الآلية.",
+        "p3": "يجب على المطورين الذين يقارنون موردي الروبوتات في عطاءات Gujarat تقييم ملاءمة التنظيف الجاف، والتوافق مع أجهزة التتبع، وسجلات تدقيق NECTYR، واتفاقية مستوى الخدمة (SLA) للأعطال — وليس السعر فقط."
       },
       "models": {
-        "body": "Gujarat's repeatable ground-mount rows favour automatic-first GLYDE fleets with NECTYR scheduling — Bachau DVC runs 172 GLYDE units (~0.57 robots/MW) on a 300 MW table with fully automatic waterless cycles. Tracker programmes such as Neneva deploy GLYDE-X with stow-aware scheduling; smaller SECI-phase tables often land at ~0.9–1.0 robots/MW when row maturity supports end-to-end autonomic paths.",
-        "recommended": "Fixed-tilt Gujarat RFQs typically shortlist GLYDE or NYUMA automatic robots; single-axis tracker farms require GLYDE-X or NYUMA-X with bridge validation against your tracker OEM."
+        "body": "تفضل صفوف التثبيت الأرضي المتكررة في Gujarat أساطيل GLYDE الآلية مع جدولة NECTYR — يدير Bachau DVC عدد 172 روبوتاً من طراز GLYDE (~0.57 روبوت/MW) على طاولة بقدرة 300 MW مع دورات تنظيف جاف آلية بالكامل. تستخدم برامج التتبع مثل Neneva روبوتات GLYDE-X مع جدولة مدركة لوضعية التخزين؛ وغالباً ما تصل الطاولات الأصغر في مشاريع SECI إلى ~0.9–1.0 روبوت/MW عندما تسمح طبيعة الصفوف بمسارات آلية من البداية للنهاية.",
+        "recommended": "عادةً ما تختار عطاءات Gujarat للمواقع ثابتة الميل روبوتات GLYDE أو NYUMA الآلية؛ بينما تتطلب مزارع التتبع أحادية المحور روبوتات GLYDE-X أو NYUMA-X مع التحقق من الجسر بما يتوافق مع الشركة المصنعة للمتتبع الخاص بك."
       },
       "deployments": {
-        "heading": "DVC-scale and SECI programme robots in Gujarat",
-        "p1": "Gujarat is one of Taypro's densest utility deployment regions — from 300 MW DVC assets to 75 MW SECI phases and 250 MW tracker-aware programmes. Owners adopt robotics when wet washing implies tanker convoys, runoff handling, and audit gaps that finance teams will not accept at tariff-sensitive MW.",
-        "p2": "At Bachau DVC 300 MW, Taypro commissioned 172 GLYDE automatic robots under CAPEX ownership with NECTYR fleet visibility. Operations report about 42 million litres of water avoided annually, roughly 11.25 GWh of attributed clean generation, and block-level cycle proof through scheduled post-sunset dry passes.",
-        "p3": "Neneva and Maya programmes illustrate tracker and mid-scale fixed-tilt patterns respectively — compare fleet density, semi-automatic gap-fill needs, and NECTYR scope in the case studies below before finalising your Gujarat robot count."
+        "heading": "روبوتات لمشاريع DVC وبرامج SECI في Gujarat",
+        "p1": "تعد Gujarat واحدة من أكثر مناطق انتشار مرافق Taypro — من أصول DVC بقدرة 300 MW إلى مراحل SECI بقدرة 75 MW وبرامج تتبع بقدرة 250 MW. يتبنى المالكون الروبوتات عندما يعني الغسيل الرطب الحاجة لقوافل صهاريج، ومعالجة مياه الصرف، وفجوات في التدقيق لا تقبلها الفرق المالية عند مستويات MW الحساسة للتعرفة.",
+        "p2": "في مشروع Bachau DVC بقدرة 300 MW، شغلت Taypro عدد 172 روبوتاً آلياً من طراز GLYDE بموجب ملكية CAPEX مع رؤية كاملة للأسطول عبر NECTYR. تشير العمليات إلى توفير حوالي 42 مليون لتر من المياه سنوياً، ونحو 11.25 GWh من توليد الطاقة النظيف المنسوب، وإثبات دورات التنظيف على مستوى الكتلة عبر تمريرات جافة مجدولة بعد غروب الشمس.",
+        "p3": "توضح برامج Neneva وMaya أنماط التتبع والأنظمة الثابتة متوسطة الحجم على التوالي — قارن كثافة الأسطول، واحتياجات التعبئة نصف الآلية، ونطاق NECTYR في دراسات الحالة أدناه قبل وضع اللمسات الأخيرة على عدد الروبوتات في Gujarat."
       },
       "procurement": {
-        "heading": "CAPEX purchase vs Taypro Opex in Gujarat",
-        "p1": "CAPEX procurement capitalises GLYDE, NYUMA, or tracker variants on the plant balance sheet with Taypro commissioning, training, spare planning sized for Gujarat abrasiveness, and AMC-backed breakdown response.",
-        "p2": "Taypro Opex converts cleaning to a managed O&M line item — pay per panel cleaned with Taypro operating schedules and NECTYR reporting. Developers with near-term commissioning deadlines often pilot Opex on a dust-season block before committing full-table CAPEX."
+        "heading": "شراء CAPEX مقابل Taypro Opex في Gujarat",
+        "p1": "يعمل شراء CAPEX على رسملة روبوتات GLYDE أو NYUMA أو طرازات التتبع في الميزانية العمومية للمحطة مع تكليف Taypro، والتدريب، وتخطيط قطع الغيار المصممة لتحمل ظروف Gujarat، واستجابة الأعطال المدعومة بـ AMC.",
+        "p2": "يحول Taypro Opex التنظيف إلى بند تشغيلي مدار — الدفع مقابل كل لوح يتم تنظيفه مع جداول تشغيل Taypro وتقارير NECTYR. غالباً ما يقوم المطورون ذوو المواعيد النهائية القريبة بتجربة Opex على كتلة واحدة خلال موسم الغبار قبل الالتزام بـ CAPEX للمحطة بالكامل."
       },
       "roiBand": {
-        "heading": "Estimate robot investment for Gujarat utility plants",
-        "p1": "Indicative CAPEX bands depend on MW, robots per MW, and automatic vs semi-automatic mix — Bachau's ~0.57 robots/MW automatic-first model differs materially from mixed 200 MW peers with portable gap-fillers.",
-        "p2": "Start with the India price guide for directional ₹/module framing, then model payback in the ROI calculator with your PPA tariff and soiling study."
+        "heading": "تقدير استثمار الروبوتات لمحطات Gujarat",
+        "p1": "تعتمد نطاقات CAPEX الاسترشادية على MW، وعدد الروبوتات لكل MW، والمزيج بين الآلي وشبه الآلي — نموذج Bachau الذي يبلغ ~0.57 روبوت/MW يعتمد على الروبوتات الآلية يختلف جوهرياً عن النماذج المختلطة بقدرة 200 MW التي تستخدم أجهزة محمولة.",
+        "p2": "ابدأ بدليل الأسعار في الهند للحصول على مؤشرات تكلفة الإطار لكل وحدة، ثم قم بنمذجة فترة استرداد رأس المال في حاسبة ROI مع تعرفة PPA الخاصة بك ودراسة التلوث."
       },
       "resources": {
-        "link0Title": "Innovations India's top solar farms use for cleaning",
+        "link0Title": "ابتكارات تستخدمها أفضل مزارع الطاقة الشمسية في الهند للتنظيف",
         "link0Href": "/blog/innovations-in-solar-cleaning-systems-what-indias-top-farms-are-using",
-        "link1Title": "Cost-benefit analysis of cleaning services in India",
+        "link1Title": "تحليل التكلفة والعائد لخدمات التنظيف في الهند",
         "link1Href": "/blog/cost-benefit-analysis-of-solar-panel-cleaning-services-in-india",
-        "link2Title": "How often to clean solar panels in India",
+        "link2Title": "كم مرة يجب تنظيف الألواح الشمسية في الهند",
         "link2Href": "/blog/how-often-should-you-clean-your-solar-panels-in-india"
       },
       "faq": {
-        "q0": "Does Taypro deploy cleaning robots in Gujarat?",
-        "a0": "Yes. Taypro has live utility-scale robotic cleaning deployments in Gujarat, including large DVC and SECI programme sites. Request a quote with your plant MW and layout for a tailored proposal.",
-        "q1": "Are Taypro robots waterless for Gujarat water-stressed sites?",
-        "a1": "Yes. All Taypro utility robots use dry cleaning — no module washing water. This removes tanker logistics in districts where wet wash is constrained by ESG or availability.",
-        "q2": "What robot models suit Gujarat fixed-tilt vs tracker plants?",
-        "a2": "Fixed-tilt and seasonal-tilt sites typically use GLYDE or NYUMA. Single-axis tracker farms use GLYDE-X or NYUMA-X with validated bridge and tilt-range compatibility.",
-        "q3": "How do I estimate robot price for a Gujarat plant?",
-        "a3": "Use the India robot price guide for directional CAPEX bands, then the ROI calculator for your MW and tariff. Formal quotes require row layout review by Taypro applications engineering.",
-        "q4": "Does Taypro offer Opex cleaning service in Gujarat?",
-        "a4": "Yes. Taypro Opex covers fleet operation on a pay-per-panel-cleaned basis — an alternative to CAPEX purchase for owners who want cleaning as a managed O&M line item.",
-        "q5": "What NECTYR data do Gujarat O&M teams receive?",
-        "a5": "NECTYR provides scheduled cycle status, fleet health alerts, wind and rain hold logs, and block completion maps — the operational backbone at Bachau DVC-scale assets where supervisors cannot rely on handwritten crew notes.",
-        "q6": "How does Taypro size robots per MW in Gujarat?",
-        "a6": "Robots per MW depends on row repeatability, block priority, and automatic vs semi-automatic mix — Bachau runs ~0.57 robots/MW automatic-first; other sites with irregular blocks may add NYUMA or HELYX gap-fillers. Taypro applications engineering sizes fleets from row maps, not MW alone.",
-        "q7": "Is Taypro hardware Made in India with field support in Gujarat?",
-        "a7": "Yes. Taypro Private Limited designs, manufactures, and services robots from India with TÜV NORD certified hardware and pan-India breakdown SLAs including Gujarat utility belts."
+        "q0": "هل تنشر Taypro روبوتات تنظيف في Gujarat؟",
+        "a0": "نعم. لدى Taypro عمليات تنظيف آلية قائمة على مستوى المرافق في Gujarat، بما في ذلك مواقع DVC الكبيرة وبرامج SECI. اطلب عرض سعر مع ذكر MW للمحطة والمخطط للحصول على عرض مخصص.",
+        "q1": "هل روبوتات Taypro جافة لمواقع Gujarat التي تعاني من شح المياه؟",
+        "a1": "نعم. تستخدم جميع روبوتات Taypro التنظيف الجاف — بدون مياه لغسيل الألواح. هذا يلغي الحاجة لخدمات الصهاريج في المناطق التي يتم تقييد الغسيل الرطب فيها بسبب معايير ESG أو توافر المياه.",
+        "q2": "ما هي طرازات الروبوتات المناسبة لمحطات Gujarat ثابتة الميل أو المعتمدة على التتبع؟",
+        "a2": "تستخدم المواقع ثابتة الميل والمواقع ذات الميل الموسمي عادةً GLYDE أو NYUMA. وتستخدم مزارع التتبع أحادية المحور روبوتات GLYDE-X أو NYUMA-X مع توافق مثبت للجسر ونطاق الميل.",
+        "q3": "كيف يمكنني تقدير سعر الروبوت لمحطة في Gujarat؟",
+        "a3": "استخدم دليل أسعار الروبوتات في الهند للحصول على نطاقات CAPEX استرشادية، ثم حاسبة ROI لـ MW والتعرفة الخاصة بك. تتطلب العروض الرسمية مراجعة تخطيط الصفوف بواسطة مهندسي تطبيقات Taypro.",
+        "q4": "هل تقدم Taypro خدمة تنظيف Opex في Gujarat؟",
+        "a4": "نعم. يغطي Taypro Opex تشغيل الأسطول على أساس الدفع مقابل كل لوح يتم تنظيفه — وهو بديل لشراء CAPEX للمالكين الذين يرغبون في اعتبار التنظيف بنداً تشغيلياً مداراً.",
+        "q5": "ما هي بيانات NECTYR التي تتلقاها فرق التشغيل والصيانة (O&M) في Gujarat؟",
+        "a5": "يوفر NECTYR حالة الدورات المجدولة، وتنبيهات صحة الأسطول، وسجلات التوقف بسبب الرياح والأمطار، وخرائط إتمام التنظيف للكتل — وهو العمود الفقري التشغيلي في أصول Bachau DVC حيث لا يمكن للمشرفين الاعتماد على ملاحظات الطاقم المكتوبة بخط اليد.",
+        "q6": "كيف تحدد Taypro عدد الروبوتات لكل MW في Gujarat؟",
+        "a6": "يعتمد عدد الروبوتات لكل MW على تكرار الصفوف، وأولوية الكتلة، والمزيج بين الآلي وشبه الآلي — يشغل Bachau حوالي ~0.57 روبوت/MW؛ بينما قد تضيف المواقع الأخرى ذات الكتل غير المنتظمة روبوتات NYUMA أو HELYX للعمل في الفجوات. تقوم هندسة تطبيقات Taypro بتحديد حجم الأساطيل من خرائط الصفوف، وليس MW فقط.",
+        "q7": "هل أجهزة Taypro مصنوعة في الهند مع دعم ميداني في Gujarat؟",
+        "a7": "نعم. تقوم شركة Taypro Private Limited بتصميم وتصنيع وخدمة الروبوتات من الهند بأجهزة حاصلة على شهادة TÜV NORD مع اتفاقيات مستوى خدمة للأعطال في جميع أنحاء الهند، بما في ذلك أحزمة مرافق Gujarat."
       }
     },
     "madhyaPradesh": {
       "meta": {
-        "title": "Solar Panel Cleaning Robot Madhya Pradesh | Utility Plants | Taypro",
-        "description": "Solar panel cleaning robots for Madhya Pradesh utility plants. Taypro waterless fleets at Agar 250 MW and across central India dust belts — GLYDE, NYUMA, NECTYR, pan-India service.",
-        "openGraphTitle": "Solar Panel Cleaning Robot Madhya Pradesh | Taypro",
-        "openGraphDescription": "Robotic dry cleaning for MP utility solar — central India soiling, large fixed-tilt fleets, Taypro deployments."
+        "title": "روبوتات تنظيف الألواح الشمسية في Madhya Pradesh | محطات المرافق | Taypro",
+        "description": "روبوتات تنظيف الألواح الشمسية لمحطات المرافق في Madhya Pradesh. أساطيل Taypro الجافة في مشروع Agar بقدرة 250 MW وأحزمة الغبار في الهند — تشمل GLYDE وNYUMA وNECTYR.",
+        "openGraphTitle": "روبوتات تنظيف الألواح الشمسية في Madhya Pradesh | Taypro",
+        "openGraphDescription": "تنظيف آلي جاف لمحطات الطاقة الشمسية في Madhya Pradesh — حلول الغبار في وسط الهند، أساطيل التثبيت الثابت، ونشر تقنيات Taypro."
       },
       "hero": {
-        "eyebrow": "Madhya Pradesh · Utility solar",
-        "title": "Solar Panel Cleaning Robot in Madhya Pradesh",
-        "subtitle": "Central India's dust belt demands consistent cleaning cadence on fixed-tilt utility rows. Taypro waterless robots — deployed at Agar 250 MW and beyond — recover soiling losses without wet-wash water or night crews alone."
+        "eyebrow": "Madhya Pradesh · الطاقة الشمسية للمرافق",
+        "title": "روبوت تنظيف الألواح الشمسية في Madhya Pradesh",
+        "subtitle": "يتطلب حزام الغبار في وسط الهند وتيرة تنظيف ثابتة لصفوف الألواح ذات التثبيت الثابت. روبوتات Taypro الجافة — المعتمدة في مشروع Agar بقدرة 250 MW — تستعيد فاقد الطاقة الناتج عن التلوث دون الحاجة لمياه أو طواقم ليلية."
       },
       "soiling": {
-        "eyebrow": "Regional context",
-        "heading": "Soiling and robotic cleaning in Madhya Pradesh",
-        "p1": "Madhya Pradesh utility plants face seasonal dust and agricultural particulates that suppress performance ratio when cleaning is infrequent. The 8–25% soiling loss band cited for Indian arid and semi-arid belts applies across MP portfolios.",
-        "p2": "Taypro's Agar deployment demonstrates large fixed-tilt automatic fleets with waterless dual-pass and PBT options. NECTYR provides block-wise proof of completion for O&M governance and investor reporting.",
-        "p3": "Same-day pan-India breakdown response and regional spares keep mean time to repair predictable as MP capacity continues to grow."
+        "eyebrow": "السياق الإقليمي",
+        "heading": "التلوث والتنظيف الآلي في Madhya Pradesh",
+        "p1": "تواجه محطات المرافق في Madhya Pradesh الغبار الموسمي والجزيئات الزراعية التي تؤدي إلى انخفاض نسبة الأداء عندما يكون التنظيف غير منتظم. ينطبق نطاق فاقد التلوث بنسبة 8–25% المسجل في أحزمة الهند القاحلة وشبه القاحلة على محافظ مشاريع MP.",
+        "p2": "يُظهر مشروع Taypro في Agar أساطيل آلية كبيرة للتثبيت الثابت مع خيارات التنظيف الجاف المزدوج وPBT. توفر NECTYR إثباتاً دورياً للإنجاز من أجل حوكمة التشغيل والصيانة (O&M) وتقارير المستثمرين.",
+        "p3": "تضمن استجابة Taypro للأعطال في نفس اليوم عبر الهند وقطع الغيار الإقليمية إمكانية التنبؤ بمتوسط وقت الإصلاح مع استمرار نمو القدرة الإنتاجية في MP."
       },
       "models": {
-        "body": "Central India fixed-tilt programmes at Agar and peer MP sites combine high-intensity mixed fleets — GLYDE automatic anchors on repeatable rows with NYUMA or HELYX semi-automatic units covering transitions and irregular tables. Agar's ~1.36 robots/MW mixed density reflects an owner decision to prioritise logged cycle frequency over minimising robot count on paper.",
-        "recommended": "MP utility RFQs should model both automatic coverage on mature rows and semi-automatic gap-fill on scattered blocks — Taypro applications engineering sizes fleets from row kilometres and soiling studies, not MW alone."
+        "body": "تجمع برامج التثبيت الثابت في وسط الهند بموقع Agar ومواقع MP المماثلة بين أساطيل مختلطة عالية الكثافة — مراسي GLYDE الآلية في صفوف متكررة مع وحدات NYUMA أو HELYX شبه الآلية التي تغطي التحويلات والجداول غير المنتظمة. تعكس كثافة Agar البالغة حوالي 1.36 روبوت/MW قرار المالك بإعطاء الأولوية لتكرار الدورات المسجلة بدلاً من تقليل عدد الروبوتات على الورق.",
+        "recommended": "يجب على طلبات عروض الأسعار (RFQs) لمرافق MP نمذجة التغطية الآلية في الصفوف المتطورة والتغطية شبه الآلية في الكتل المتناثرة — تقوم هندسة تطبيقات Taypro بتحديد أحجام الأساطيل بناءً على كيلومترات الصفوف ودراسات التلوث، وليس بناءً على MW فقط."
       },
       "deployments": {
-        "heading": "Agar 250 MW and central India utility robotics",
-        "p1": "Madhya Pradesh sits in India's central dust corridor where agricultural film, seasonal haze, and fine particulate suppress PR when cleaning stays calendar-based. Taypro's flagship MP deployment at Agar demonstrates how waterless robotics replace tanker logistics on large fixed-tilt tables.",
-        "p2": "At Agar Solar, Taypro deployed a high-intensity mixed fleet of GLYDE automatic and NYUMA semi-automatic robots with NECTYR monitoring. Site-reported outcomes include substantial water avoidance versus wet-wash baselines, attributed GWh recovery, and block-level cycle proof for O&M governance.",
-        "p3": "Owners benchmarking MP RFQs should compare Agar's robots-per-MW philosophy against semi-automatic-only peers in Rajasthan or automatic-first Gujarat tables — fleet design follows row repeatability and dust return, not a single national robots/MW rule."
+        "heading": "Agar 250 MW وروبوتات المرافق في وسط الهند",
+        "p1": "تقع Madhya Pradesh في ممر الغبار المركزي في الهند حيث تؤدي الأفلام الزراعية والضباب الموسمي والجزيئات الدقيقة إلى قمع نسبة الأداء عند الاعتماد على التنظيف وفقاً للتقويم. يُظهر مشروع Taypro الرائد في Agar كيف تحل الروبوتات الجافة محل لوجستيات الناقلات في جداول التثبيت الثابت الكبيرة.",
+        "p2": "في Agar Solar، نشرت Taypro أسطولاً مختلطاً عالي الكثافة من روبوتات GLYDE الآلية وNYUMA شبه الآلية مع مراقبة NECTYR. تشمل النتائج المبلغ عنها في الموقع تجنب استهلاك كميات كبيرة من المياه مقارنة بأساسيات الغسيل الرطب، واستعادة GWh، وإثبات دورة على مستوى الكتلة لحوكمة التشغيل والصيانة.",
+        "p3": "يجب على المالكين الذين يقومون بقياس أداء طلبات عروض أسعار MP مقارنة فلسفة عدد الروبوتات لكل MW في Agar بنظرائهم من أنظمة شبه آلية فقط في Rajasthan أو طاولات Gujarat الآلية — تصميم الأسطول يتبع قابلية تكرار الصفوف وعودة الغبار، وليس قاعدة وطنية واحدة للروبوتات لكل MW."
       },
       "procurement": {
-        "heading": "Procurement paths for MP utility owners",
-        "p1": "CAPEX purchase suits MP IPPs capitalising robots on the balance sheet with Taypro commissioning, AMC, and NECTYR software scope defined at handover — including spare thresholds for central India dust abrasiveness.",
-        "p2": "Taypro Opex offers pay-per-panel-cleaned service with Taypro operating schedules and reporting — useful when a new MP block must close dust-season cadence gaps before full CAPEX approval."
+        "heading": "مسارات الشراء لملاك المرافق في MP",
+        "p1": "تناسب عمليات الشراء عبر CAPEX شركات الطاقة المستقلة (IPPs) في MP التي ترغب في رسملة الروبوتات في الميزانية العمومية مع تحديد نطاق تشغيل Taypro وAMC وبرمجيات NECTYR عند التسليم — بما في ذلك عتبات قطع الغيار المطلوبة لمقاومة غبار وسط الهند.",
+        "p2": "تقدم Taypro Opex خدمة الدفع لكل لوح يتم تنظيفه مع جداول عمل وتقارير من Taypro — وهي مفيدة عندما يحتاج مشروع جديد في MP إلى سد فجوات وتيرة موسم الغبار قبل الحصول على موافقة كاملة لـ CAPEX."
       },
       "roiBand": {
-        "heading": "Robot economics for Madhya Pradesh plants",
-        "p1": "High robots/MW mixed fleets like Agar carry higher CAPEX than thin automatic-only programmes but can deliver more logged cycles on priority blocks — model both capital intensity and attributed MWh recovery in your business case.",
-        "p2": "Directional price bands and payback modelling are available via the India price guide and ROI calculator; formal quotes follow Taypro layout review."
+        "heading": "اقتصاديات الروبوتات لمحطات Madhya Pradesh",
+        "p1": "تتحمل الأساطيل المختلطة عالية الكثافة من حيث الروبوتات/MW مثل Agar نفقات CAPEX أعلى من برامج التشغيل الآلي البسيطة، ولكن يمكنها تقديم دورات مسجلة أكثر في الكتل ذات الأولوية — قم بنمذجة كل من كثافة رأس المال واسترداد MWh المنسوب في دراسة جدواك.",
+        "p2": "تتوفر نطاقات الأسعار التوجيهية ونمذجة الاسترداد عبر دليل أسعار الهند وحاسبة ROI؛ وتتبع عروض الأسعار الرسمية مراجعة تصميم Taypro للموقع."
       },
       "resources": {
-        "link0Title": "Solar panel cleaning across regions of India",
+        "link0Title": "تنظيف الألواح الشمسية عبر مناطق الهند",
         "link0Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india",
-        "link1Title": "How often to clean solar panels in India",
+        "link1Title": "كم مرة يجب تنظيف الألواح الشمسية في الهند",
         "link1Href": "/blog/how-often-should-you-clean-your-solar-panels-in-india",
-        "link2Title": "Cost-benefit analysis of cleaning services in India",
+        "link2Title": "تحليل التكلفة والعائد لخدمات التنظيف في الهند",
         "link2Href": "/blog/cost-benefit-analysis-of-solar-panel-cleaning-services-in-india"
       },
       "faq": {
-        "q0": "Does Taypro operate in Madhya Pradesh?",
-        "a0": "Yes. Taypro has utility-scale robotic cleaning live in Madhya Pradesh, including the Agar solar programme. Contact Taypro with your site details for fleet sizing.",
-        "q1": "Which robots are used on MP fixed-tilt plants?",
-        "a1": "GLYDE and NYUMA automatic robots are common on fixed-tilt utility rows; HELYX serves scattered blocks. Tracker sites use GLYDE-X or NYUMA-X.",
-        "q2": "How does robot cleaning compare to manual crews in MP?",
-        "a2": "Robotic dry cleaning scales cadence without linear labour and tanker cost growth — especially important as MP fleets expand beyond what night crews can cover.",
-        "q3": "What is the robot price for an MP utility plant?",
-        "a3": "Price scales with MW, robots per MW, and automation level. See the India price guide and ROI calculator, then request a layout-based quote.",
-        "q4": "Is Taypro a Made-in-India manufacturer?",
-        "a4": "Yes. Taypro Private Limited designs, manufactures, and services robots from India with TÜV NORD certified hardware and pan-India field support.",
-        "q5": "Why does Agar run a higher robots/MW density than some Gujarat peers?",
-        "a5": "Agar prioritises cycle frequency and logged coverage on its row map — robot count reflects dust return windows and block kilometres, not a universal robots/MW standard. Taypro sizes each MP site from layout review.",
-        "q6": "Can semi-automatic robots cover irregular MP blocks?",
-        "a6": "Yes. NYUMA and HELYX semi-automatic units cover transitions, irregular tables, and blocks still onboarding to full GLYDE paths — a common mixed-fleet pattern in central India.",
-        "q7": "What should MP lenders ask for in a robotics O&M review?",
-        "a7": "Require block-level cleaning proof (NECTYR logs or rigorous inspection protocols), wind hold policies, brush PM intervals, and Taypro breakdown SLA scope — standard inclusions on Taypro utility programmes."
+        "q0": "هل تعمل Taypro في Madhya Pradesh؟",
+        "a0": "نعم. لدى Taypro عمليات تنظيف روبوتية على نطاق المرافق في Madhya Pradesh، بما في ذلك برنامج Agar للطاقة الشمسية. اتصل بـ Taypro مع تفاصيل موقعك لتحديد حجم الأسطول.",
+        "q1": "ما هي الروبوتات المستخدمة في محطات التثبيت الثابت في MP؟",
+        "a1": "روبوتات GLYDE وNYUMA الآلية شائعة في صفوف التثبيت الثابت؛ بينما تخدم HELYX الكتل المتناثرة. تستخدم مواقع المتعقبات روبوتات GLYDE-X أو NYUMA-X.",
+        "q2": "كيف يقارن التنظيف بالروبوت بالطواقم اليدوية في MP؟",
+        "a2": "يعمل التنظيف الآلي الجاف على توسيع نطاق الوتيرة دون زيادة في تكاليف العمالة والناقلات — وهو أمر مهم بشكل خاص مع توسع أساطيل MP بما يتجاوز قدرة الطواقم الليلية.",
+        "q3": "ما هو سعر الروبوت لمحطة مرافق في MP؟",
+        "a3": "يتم قياس السعر بناءً على MW، وعدد الروبوتات لكل MW، ومستوى الأتمتة. راجع دليل أسعار الهند وحاسبة ROI، ثم اطلب عرض سعر بناءً على تخطيط الموقع.",
+        "q4": "هل Taypro شركة مصنعة في الهند؟",
+        "a4": "نعم. تقوم شركة Taypro Private Limited بتصميم وتصنيع وصيانة الروبوتات في الهند مع أجهزة معتمدة من TÜV NORD ودعم ميداني شامل في جميع أنحاء الهند.",
+        "q5": "لماذا يستخدم Agar كثافة روبوتات/MW أعلى من بعض نظيراتها في Gujarat؟",
+        "a5": "يعطي Agar الأولوية لتكرار الدورات والتغطية المسجلة على خريطة الصفوف الخاصة به — يعكس عدد الروبوتات نوافذ عودة الغبار وكيلومترات الكتل، وليس معياراً عالمياً للروبوتات لكل MW. تحدد Taypro أحجام الروبوتات لكل موقع في MP بناءً على مراجعة التخطيط.",
+        "q6": "هل يمكن للروبوتات شبه الآلية تغطية كتل MP غير المنتظمة؟",
+        "a6": "نعم. تغطي وحدات NYUMA وHELYX شبه الآلية التحويلات والطاولات غير المنتظمة والكتل التي لا تزال في طور الإعداد لمسارات GLYDE الكاملة — وهو نمط شائع للأساطيل المختلطة في وسط الهند.",
+        "q7": "ما الذي يجب على مقرضي MP طلبه في مراجعة تشغيل وصيانة الروبوتات؟",
+        "a7": "اطلب إثبات تنظيف على مستوى الكتلة (سجلات NECTYR أو بروتوكولات فحص صارمة)، وسياسات التوقف عند الرياح، وفترات صيانة الفرشاة PM، ونطاق اتفاقية مستوى الخدمة للأعطال من Taypro — وهي إضافات قياسية في برامج Taypro للمرافق."
       }
     },
     "karnataka": {
       "meta": {
-        "title": "Solar Panel Cleaning Robot Karnataka | Utility Plants | Taypro",
-        "description": "Solar panel cleaning robots for Karnataka utility plants — humidity, dust mix, and high robot-density programmes. Taypro at Yadgir 50 MW and KMF deployments with waterless GLYDE and NYUMA.",
-        "openGraphTitle": "Solar Panel Cleaning Robot Karnataka | Taypro",
-        "openGraphDescription": "Waterless robotic cleaning for Karnataka utility solar — Yadgir mixed fleets and pan-India Taypro service."
+        "title": "روبوت تنظيف الألواح الشمسية في Karnataka | محطات المرافق | Taypro",
+        "description": "روبوتات تنظيف الألواح الشمسية لمحطات الطاقة في Karnataka - حلول للرطوبة وتراكم الغبار وكثافة الروبوتات العالية. Taypro في مشاريع Yadgir بقدرة 50 MW و KMF باستخدام GLYDE و NYUMA الجاف.",
+        "openGraphTitle": "روبوت تنظيف الألواح الشمسية في Karnataka | Taypro",
+        "openGraphDescription": "تنظيف روبوتي جاف لمحطات الطاقة الشمسية في Karnataka - أساطيل مختلطة في Yadgir وخدمات Taypro في عموم الهند."
       },
       "hero": {
-        "eyebrow": "Karnataka · Utility solar",
-        "title": "Solar Panel Cleaning Robot in Karnataka",
-        "subtitle": "Karnataka combines humidity with dust — a soiling profile that rewards frequent dry cleaning without abrasive wet wash. Taypro robots at Yadgir and KMF run waterless cycles with fleet data through NECTYR."
+        "eyebrow": "Karnataka · الطاقة الشمسية للمرافق",
+        "title": "روبوت تنظيف الألواح الشمسية في Karnataka",
+        "subtitle": "تجمع Karnataka بين الرطوبة والغبار، مما يتطلب تنظيفاً جافاً متكرراً بدلاً من الغسل المبلل الكاشط. تعمل روبوتات Taypro في Yadgir و KMF بدورات جافة مع بيانات الأسطول عبر NECTYR."
       },
       "soiling": {
-        "eyebrow": "Regional context",
-        "heading": "Humidity, dust, and cleaning cadence in Karnataka",
-        "p1": "Karnataka utility plants see post-monsoon dust films and humidity-driven soiling patterns distinct from pure arid sites. Cleaning cadence must stay high through summer and monsoon transitions without damaging modules.",
-        "p2": "The Yadgir 50 MW programme — one of Taypro's highest robot-density fifty-megawatt mixed fleets — shows GLYDE automatic and NYUMA semi-automatic waterless coverage at scale. TÜV NORD validated hardware supports damp-heat operating conditions.",
-        "p3": "IPPs in Karnataka evaluating robots should model soiling recovery against tariff, not just CAPEX — the ROI calculator and price guide provide directional economics before formal RFQ."
+        "eyebrow": "السياق الإقليمي",
+        "heading": "الرطوبة والغبار وتواتر التنظيف في Karnataka",
+        "p1": "تشهد محطات الطاقة في Karnataka طبقات غبار بعد الرياح الموسمية وأنماط اتساخ مرتبطة بالرطوبة تختلف عن المواقع القاحلة تماماً. يجب الحفاظ على وتيرة تنظيف عالية خلال فترات الصيف والرياح الموسمية دون الإضرار بالألواح.",
+        "p2": "يُظهر مشروع Yadgir بقدرة 50 MW - وهو أحد أكبر أساطيل Taypro المختلطة ذات الكثافة العالية - تغطية شاملة بواسطة GLYDE الأوتوماتيكي و NYUMA نصف الأوتوماتيكي الجاف. تدعم الأجهزة المعتمدة من TÜV NORD ظروف التشغيل في بيئات الحرارة الرطبة.",
+        "p3": "يجب على منتجي الطاقة المستقلين (IPPs) في Karnataka تقييم استرداد كفاءة الألواح مقابل تعريفة التغذية، وليس فقط الـ CAPEX؛ توفر حاسبة الـ ROI ودليل الأسعار مؤشرات اقتصادية قبل تقديم طلبات عروض الأسعار (RFQ) الرسمية."
       },
       "models": {
-        "body": "Karnataka programmes span high-density mixed fleets at Yadgir 50 MW — GLYDE automatic rows plus NYUMA semi-automatic gap-fill — and automatic-first GLYDE deployments at KMF 75 MW (~1.13 robots/MW) with NECTYR from 2025 commissioning. Red-soil particulate in parts of the state can increase brush wear; PM intervals should be local.",
-        "recommended": "Karnataka RFQs should specify damp-heat operating validation, monsoon hold rules in NECTYR, and whether scattered blocks require HELYX or NYUMA semi-automatic coverage alongside GLYDE anchors."
+        "body": "تغطي مشاريع Karnataka أساطيل مختلطة عالية الكثافة في Yadgir بقدرة 50 MW - صفوف GLYDE أوتوماتيكية مع NYUMA نصف أوتوماتيكي - ونشر GLYDE أوتوماتيكي بشكل أساسي في KMF بقدرة 75 MW (~1.13 روبوت/MW) مع NECTYR منذ عام 2025. قد تزيد الجسيمات في التربة الحمراء في بعض أجزاء الولاية من تآكل الفرش؛ يجب أن تكون فترات الصيانة محلية.",
+        "recommended": "يجب أن تحدد طلبات عروض الأسعار في Karnataka متطلبات التحقق من التشغيل في الحرارة الرطبة، وقواعد التوقف أثناء الرياح الموسمية في NECTYR، وتحديد ما إذا كانت الكتل المتناثرة تتطلب تغطية HELYX أو NYUMA نصف الأوتوماتيكية بجانب روبوتات GLYDE الرئيسية."
       },
       "deployments": {
-        "heading": "Yadgir, KMF, and Karnataka utility robotics",
-        "p1": "Karnataka's soiling profile mixes dry-season dust with humidity-influenced films — a combination that punishes infrequent wet wash and rewards logged dry cycles. Taypro's Karnataka portfolio shows both high-intensity fifty-megawatt mixed design and automatic-first seventy-five-megawatt programmes.",
-        "p2": "Yadgir 50 MW carries one of Taypro's densest robot-per-MW mixed fleets for its nameplate class — GLYDE automatic units on repeatable rows with NYUMA semi-automatic coverage on priority blocks, waterless throughout, with fleet accountability through NECTYR or inspection protocols.",
-        "p3": "KMF 75 MW demonstrates automatic-first GLYDE deployment at ~1.13 robots/MW with NECTYR scheduling from 2025 commissioning — a contrast useful for Karnataka owners debating mixed vs automatic-only capital allocation."
+        "heading": "روبوتات المرافق في Yadgir و KMF و Karnataka",
+        "p1": "يمزج نمط الاتساخ في Karnataka بين غبار الموسم الجاف والأغشية المتأثرة بالرطوبة - وهي تركيبة تعاقب الغسل المبلل غير المنتظم وتكافئ الدورات الجافة المسجلة. تُظهر محفظة Taypro في Karnataka تصاميم مختلطة بقدرة 50 MW وبرامج أوتوماتيكية بقدرة 75 MW.",
+        "p2": "يحتوي مشروع Yadgir بقدرة 50 MW على أحد أكثر أساطيل Taypro كثافةً - وحدات GLYDE أوتوماتيكية في صفوف متكررة مع تغطية NYUMA نصف أوتوماتيكية للكتل ذات الأولوية، مع اعتماد التنظيف الجاف بالكامل، ومتابعة الأسطول عبر NECTYR أو بروتوكولات الفحص.",
+        "p3": "يُظهر مشروع KMF بقدرة 75 MW نشر GLYDE أوتوماتيكي بكثافة ~1.13 روبوت/MW مع جدولة NECTYR منذ تشغيله في 2025 - وهو تباين مفيد لمالكي المحطات في Karnataka الذين يقارنون بين التخصيص الرأسمالي للأنظمة المختلطة مقابل الأوتوماتيكية بالكامل."
       },
       "procurement": {
-        "heading": "CAPEX and Opex options for Karnataka plants",
-        "p1": "CAPEX suits Karnataka asset owners who want robots on the balance sheet with defined NECTYR scope, commissioning sign-off on monsoon hold policies, and AMC-backed spares for brush wear in red-soil exposure zones.",
-        "p2": "Taypro Opex provides pay-per-panel-cleaned service — Taypro operates robots and reports through NECTYR, useful when humidity-season cadence must improve before full-table CAPEX approval."
+        "heading": "خيارات CAPEX و OPEX لمحطات Karnataka",
+        "p1": "يناسب الـ CAPEX مالكي الأصول في Karnataka الذين يرغبون في إدراج الروبوتات ضمن الميزانية العمومية مع نطاق عمل محدد لـ NECTYR، واعتماد سياسات التوقف أثناء الرياح الموسمية، وقطع غيار مدعومة بـ AMC لتآكل الفرش في مناطق التربة الحمراء.",
+        "p2": "توفر خدمة Taypro Opex خيار الدفع مقابل كل لوح يتم تنظيفه - حيث تدير Taypro الروبوتات وتقدم التقارير عبر NECTYR، وهو خيار مفيد عندما يجب تحسين وتيرة التنظيف خلال موسم الرطوبة قبل الموافقة الكاملة على الـ CAPEX."
       },
       "roiBand": {
-        "heading": "Price and payback for Karnataka utility solar",
-        "p1": "Mixed high-density fleets like Yadgir carry different CAPEX intensity than automatic-first KMF — compare robots/MW, automation level, and attributed MWh recovery rather than a single ₹/MW rule.",
-        "p2": "Use the India price guide and ROI calculator with your tariff; formal quotes require Taypro layout review."
+        "heading": "السعر والاسترداد المالي للطاقة الشمسية في Karnataka",
+        "p1": "تتحمل الأساطيل المختلطة عالية الكثافة مثل Yadgir كثافة CAPEX مختلفة عن مشاريع KMF الأوتوماتيكية - قارن الروبوتات/MW، ومستوى الأتمتة، واسترداد الـ MWh المنسوب بدلاً من قاعدة سعر واحدة لكل MW.",
+        "p2": "استخدم دليل أسعار الهند وحاسبة الـ ROI مع تعريفة التغذية الخاصة بك؛ تتطلب عروض الأسعار الرسمية مراجعة تصميم الموقع من قبل Taypro."
       },
       "resources": {
-        "link0Title": "Weather impact on module cleanliness in India",
+        "link0Title": "تأثير الطقس على نظافة الألواح الشمسية في الهند",
         "link0Href": "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india",
-        "link1Title": "Solar panel cleaning across regions of India",
+        "link1Title": "تنظيف الألواح الشمسية عبر مناطق الهند",
         "link1Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india",
-        "link2Title": "Beyond cleaning: autonomous solar farms in India",
+        "link2Title": "ما وراء التنظيف: المزارع الشمسية ذاتية التشغيل في الهند",
         "link2Href": "/blog/beyond-cleaning-how-taypros-robots-are-paving-the-way-for-autonomous-solar-farms-in-india"
       },
       "faq": {
-        "q0": "Does Taypro deploy robots in Karnataka?",
-        "a0": "Yes. Taypro has live Karnataka utility deployments including Yadgir 50 MW and KMF 75 MW. Share your plant MW and layout for a site-specific proposal.",
-        "q1": "Can Taypro robots handle Karnataka humidity?",
-        "a1": "Taypro hardware is TÜV NORD certified for damp-heat and dry-heat conditions — designed for monsoon and post-monsoon cycles across Indian climates.",
-        "q2": "What is mixed automatic + semi-automatic coverage?",
-        "a2": "Some sites combine GLYDE automatic rows with HELYX or NYUMA semi-automatic units on scattered blocks — Yadgir is an example of high-intensity mixed fleet design.",
-        "q3": "How do I get robot pricing for a Karnataka plant?",
-        "a3": "Use the India price guide for directional CAPEX bands and the ROI calculator for payback. Formal quotes follow layout review.",
-        "q4": "Does Taypro offer fleet monitoring software?",
-        "a4": "Yes. NECTYR is Taypro's fleet portal — block schedules, cleaning logs, health monitoring, and exports for O&M governance.",
-        "q5": "How should Karnataka plants handle monsoon cleaning holds?",
-        "a5": "After effective rain, robots often stand down to avoid redundant passes; NECTYR logs weather holds separately from fleet faults. Post-monsoon weeks re-walk paths after vegetation or civil works before tightening cycle density.",
-        "q6": "Does red-soil exposure affect brush maintenance in Karnataka?",
-        "a6": "Red-soil particulate can increase brush wear versus pure sand — preventive maintenance intervals should be local. Taypro commissioning includes brush care training and spare thresholds sized for site abrasiveness.",
-        "q7": "What is the difference between Yadgir and KMF fleet design?",
-        "a7": "Yadgir uses a high-density mixed GLYDE + NYUMA fleet at 50 MW; KMF uses automatic-first GLYDE at ~1.13 robots/MW on repeatable rows. Both are waterless — the choice follows row repeatability and capital allocation, not climate alone."
+        "q0": "هل تنشر Taypro روبوتات في Karnataka؟",
+        "a0": "نعم، لدى Taypro مشاريع فعلية في Karnataka تشمل Yadgir بقدرة 50 MW و KMF بقدرة 75 MW. شاركنا بقدرة محطتك وتخطيطها للحصول على عرض مخصص للموقع.",
+        "q1": "هل يمكن لروبوتات Taypro التعامل مع رطوبة Karnataka؟",
+        "a1": "تم اعتماد أجهزة Taypro من قِبل TÜV NORD للعمل في ظروف الحرارة الرطبة والجافة - وهي مصممة لدورات الرياح الموسمية وما بعدها عبر المناخات الهندية.",
+        "q2": "ما هو نظام التغطية المختلط أوتوماتيكي + نصف أوتوماتيكي؟",
+        "a2": "تجمع بعض المواقع بين صفوف GLYDE الأوتوماتيكية ووحدات HELYX أو NYUMA نصف الأوتوماتيكية في الكتل المتناثرة - Yadgir مثال على تصميم الأسطول المختلط عالي الكثافة.",
+        "q3": "كيف أحصل على أسعار الروبوتات لمحطة في Karnataka؟",
+        "a3": "استخدم دليل أسعار الهند لنطاقات CAPEX الاسترشادية وحاسبة الـ ROI لمعرفة فترة الاسترداد. تأتي عروض الأسعار الرسمية بعد مراجعة تصميم الموقع.",
+        "q4": "هل تقدم Taypro برنامجاً لمراقبة الأسطول؟",
+        "a4": "نعم، NECTYR هي بوابة Taypro لإدارة الأسطول - توفر جداول الكتل، وسجلات التنظيف، ومراقبة الحالة، وتقارير لإدارة الصيانة والتشغيل.",
+        "q5": "كيف يجب أن تتعامل محطات Karnataka مع توقف التنظيف أثناء الرياح الموسمية؟",
+        "a5": "بعد هطول الأمطار الفعال، تتوقف الروبوتات غالباً لتجنب الدورات غير الضرورية؛ يسجل NECTYR حالات توقف الطقس بشكل منفصل عن أعطال الأسطول. بعد أسابيع الرياح الموسمية، يتم إعادة فحص المسارات بعد أعمال الغطاء النباتي أو الهندسة المدنية قبل زيادة كثافة الدورة.",
+        "q6": "هل يؤثر التعرض للتربة الحمراء على صيانة الفرش في Karnataka؟",
+        "a6": "يمكن أن تزيد جسيمات التربة الحمراء من تآكل الفرش مقارنة بالرمل النقي - يجب أن تكون فترات الصيانة الوقائية محلية. يتضمن التكليف من Taypro تدريباً على العناية بالفرش وعتبات استبدال مضبوطة حسب طبيعة تآكل الموقع.",
+        "q7": "ما الفرق بين تصميم أسطول Yadgir و KMF؟",
+        "a7": "يستخدم Yadgir أسطولاً مختلطاً عالي الكثافة من GLYDE + NYUMA بقدرة 50 MW؛ بينما يستخدم KMF نظام GLYDE أوتوماتيكياً بكثافة ~1.13 روبوت/MW في صفوف متكررة. كلاهما يعملان بالتنظيف الجاف - الاختيار يعتمد على تكرار الصفوف والتخصيص الرأسمالي، وليس على المناخ وحده."
       }
     },
     "andhraPradesh": {
       "meta": {
-        "title": "Solar Panel Cleaning Robot Andhra Pradesh | Utility Plants | Taypro",
-        "description": "Solar panel cleaning robots for Andhra Pradesh and Telangana utility solar. Waterless Taypro GLYDE, NYUMA, and tracker robots with pan-India service, NECTYR fleet data, and Opex options.",
-        "openGraphTitle": "Solar Panel Cleaning Robot Andhra Pradesh | Taypro",
-        "openGraphDescription": "Robotic dry cleaning for AP/Telangana utility solar — coastal soiling, tracker adoption, Taypro pan-India support."
+        "title": "روبوتات تنظيف الألواح الشمسية في Andhra Pradesh | محطات الطاقة الشمسية | Taypro",
+        "description": "روبوتات تنظيف الألواح الشمسية لمحطات الطاقة الشمسية في Andhra Pradesh و Telangana. تقنيات التنظيف الجاف من Taypro مع GLYDE و NYUMA وروبوتات أنظمة التعقب، وخدمات NECTYR وبيانات الأسطول وخيارات Taypro Opex.",
+        "openGraphTitle": "روبوتات تنظيف الألواح الشمسية في Andhra Pradesh | Taypro",
+        "openGraphDescription": "تنظيف آلي جاف لمحطات الطاقة الشمسية في AP و Telangana — حلول للغبار الساحلي وأنظمة التعقب مع دعم Taypro في جميع أنحاء الهند."
       },
       "hero": {
-        "eyebrow": "Andhra Pradesh · Utility solar",
-        "title": "Solar Panel Cleaning Robot in Andhra Pradesh",
-        "subtitle": "Andhra Pradesh and Telangana utility belts combine coastal soiling with growing tracker adoption. Taypro supplies waterless cleaning robots, NECTYR fleet operations, and pan-India breakdown SLAs — with southern utility proof points from live Karnataka and pan-India portfolios."
+        "eyebrow": "Andhra Pradesh · محطات الطاقة الشمسية",
+        "title": "روبوتات تنظيف الألواح الشمسية في Andhra Pradesh",
+        "subtitle": "تجمع محطات الطاقة في Andhra Pradesh و Telangana بين تحديات الغبار الساحلي وزيادة الاعتماد على أنظمة التعقب. توفر Taypro روبوتات تنظيف بدون ماء، وعمليات أسطول NECTYR، واتفاقيات مستوى الخدمة للإصلاحات في عموم الهند، مدعومة بنقاط نجاح من مشاريع في Karnataka ومحافظات الهند."
       },
       "soiling": {
-        "eyebrow": "Regional context",
-        "heading": "Coastal soiling and southern utility O&M",
-        "p1": "Southern utility plants face salt aerosol, humidity, and dust combinations that differ from Rajasthan arid profiles — cleaning technology must stay non-abrasive and cadence-high through seasonal transitions.",
-        "p2": "Taypro's pan-India manufacturing and service network supports AP and Telangana RFQs with the same GLYDE, NYUMA, GLYDE-X, and NYUMA-X portfolio used across Gujarat and Karnataka — plus optional Taypro Opex for pay-per-panel service.",
-        "p3": "Developers comparing suppliers should require block-level cleaning proof (NECTYR), tracker compatibility validation, and same-day breakdown response — standard Taypro utility programme inclusions."
+        "eyebrow": "السياق الإقليمي",
+        "heading": "الغبار الساحلي وعمليات الصيانة للمحطات الجنوبية",
+        "p1": "تواجه المحطات الجنوبية مزيجاً من رذاذ الملح، والرطوبة، والغبار، وهو ما يختلف عن الظروف القاحلة في Rajasthan؛ لذا يجب أن تكون تقنية التنظيف غير كاشطة وذات وتيرة عالية خلال التحولات الموسمية.",
+        "p2": "يدعم مصنع Taypro وشبكة خدماتها في الهند طلبات العروض في AP و Telangana بنفس مجموعة منتجات GLYDE و NYUMA و GLYDE-X و NYUMA-X المستخدمة في Gujarat و Karnataka، بالإضافة إلى خيار Taypro Opex لخدمة الدفع لكل لوح.",
+        "p3": "يجب على المطورين الذين يقارنون الموردين اشتراط إثبات تنظيف على مستوى الحقول (NECTYR)، والتحقق من توافق أنظمة التعقب، والاستجابة للأعطال في نفس اليوم — وهي معايير أساسية في برامج Taypro للمحطات الكبرى."
       },
       "models": {
-        "body": "Southern India tracker adoption makes GLYDE-X and NYUMA-X first-class RFQ items — bridge articulation, stow limits, and OEM validation matter as much as brush spec. Fixed-tilt AP and Telangana programmes use the same GLYDE and NYUMA waterless portfolio deployed at Yadgir and KMF in neighbouring Karnataka, with damp-heat hardware validation and monsoon hold rules in NECTYR.",
-        "recommended": "AP/Telangana RFQs should specify tracker brand early for GLYDE-X compatibility review, define NECTYR reporting scope for investor audits, and model both CAPEX and Taypro Opex paths before dust-season commissioning windows close."
+        "body": "يجعل الاعتماد على أنظمة التعقب في جنوب الهند كلاً من GLYDE-X و NYUMA-X خيارات أساسية في طلبات العروض — حيث إن مفاصل الجسور، وحدود الإيقاف، وشهادات الشركات المصنعة OEM لا تقل أهمية عن مواصفات الفرشاة. تستخدم محطات التثبيت الثابت في AP و Telangana نفس مجموعة تقنيات التنظيف الجاف GLYDE و NYUMA المستخدمة في مشاريع Yadgir و KMF في ولاية Karnataka المجاورة، مع التحقق من متانة الأجهزة في ظروف الرطوبة والحرارة وقواعد التوقف أثناء الرياح الموسمية عبر NECTYR.",
+        "recommended": "يجب أن تحدد طلبات العروض في AP/Telangana نوع نظام التعقب مبكراً لمراجعة التوافق مع GLYDE-X، وتحديد نطاق تقارير NECTYR لعمليات التدقيق الاستثماري، ونمذجة كل من CAPEX و Taypro Opex قبل إغلاق نوافذ بدء التشغيل لموسم الغبار."
       },
       "deployments": {
-        "heading": "Southern utility proof and pan-India Taypro support",
-        "p1": "Andhra Pradesh and Telangana utility capacity is expanding alongside single-axis tracker share — a profile where waterless robotic cleaning must coexist with stow rules, humidity-season holds, and finance-grade cycle proof. Taypro serves these markets from the same Made-in-India manufacturing and pan-India field network used on multi-hundred-MW western deployments.",
-        "p2": "While AP-specific case studies are expanding, Taypro's nearest southern utility proof includes Yadgir 50 MW and KMF 75 MW in Karnataka — high-density mixed and automatic-first programmes with waterless GLYDE and NYUMA fleets, NECTYR accountability, and TÜV NORD validated damp-heat operation relevant to coastal-influenced southern sites.",
-        "p3": "Owners in AP and Telangana should benchmark those southern peers for fleet density, procurement models, and O&M governance — then request Taypro layout review for site-specific robot counts, tracker compatibility, and commercial options."
+        "heading": "نجاحات المحطات الجنوبية ودعم Taypro في الهند",
+        "p1": "تتوسع القدرات الإنتاجية في Andhra Pradesh و Telangana بالتوازي مع حصة أنظمة التعقب أحادية المحور — وهو ملف تعريفي يجب أن يتوافق فيه التنظيف الروبوتي الجاف مع قواعد الإيقاف، والتوقف في مواسم الرطوبة، وإثباتات الدورة الاقتصادية.",
+        "p2": "بينما تتوسع دراسات الحالة الخاصة بـ AP، فإن أقرب مشاريع Taypro الناجحة تشمل محطات Yadgir بقدرة 50 MW و KMF بقدرة 75 MW في Karnataka — وهي برامج عالية الكثافة تستخدم أساطيل GLYDE و NYUMA الجافة، مع مساءلة NECTYR، وعمليات التحقق من TÜV NORD للظروف الرطبة والحارة المناسبة للمواقع الساحلية.",
+        "p3": "يجب على المالكين في AP و Telangana إجراء مقارنة مع نظرائهم في الجنوب فيما يخص كثافة الأسطول، ونماذج الشراء، وحوكمة الصيانة، ثم طلب مراجعة مخططات Taypro لتحديد أعداد الروبوتات وتوافق أنظمة التعقب والخيارات التجارية."
       },
       "procurement": {
-        "heading": "Commercial models for AP and Telangana RFQs",
-        "p1": "CAPEX purchase capitalises robots on the plant balance sheet with Taypro commissioning, tracker bridge validation where applicable, and AMC-backed breakdown SLAs across Taypro's pan-India service network.",
-        "p2": "Taypro Opex converts cleaning to pay-per-panel-cleaned service with NECTYR reporting — attractive when southern commissioning schedules require immediate dust-season cadence without waiting for full CAPEX committee approval."
+        "heading": "نماذج تجارية لطلبات العروض في AP و Telangana",
+        "p1": "تحول نماذج CAPEX الروبوتات إلى أصول في الميزانية العمومية للمحطة مع تكليف Taypro بالتشغيل، والتحقق من جسور أنظمة التعقب، واتفاقيات مستوى الخدمة (AMC) للأعطال عبر شبكة Taypro في الهند.",
+        "p2": "يحول Taypro Opex عملية التنظيف إلى خدمة دفع لكل لوح يتم تنظيفه مع تقارير عبر NECTYR — وهو أمر جذاب عندما تتطلب جداول التشغيل في الجنوب وتيرة تنظيف فورية لموسم الغبار دون انتظار موافقات لجنة CAPEX."
       },
       "roiBand": {
-        "heading": "Robot price guidance for southern utility solar",
-        "p1": "Tracker programmes often carry different CAPEX multipliers than fixed-tilt automatic fleets — GLYDE-X sizing depends on tracker row count, bridge spec, and stow-limited cleaning windows as much as MW nameplate.",
-        "p2": "Use the India price guide for directional fixed-tilt bands, then the ROI calculator with your tariff. Formal AP/Telangana quotes require Taypro applications review of layout and tracker OEM."
+        "heading": "توجيهات أسعار الروبوتات لمحطات الطاقة الشمسية الجنوبية",
+        "p1": "غالباً ما تحمل برامج أنظمة التعقب مضاعفات CAPEX مختلفة عن أساطيل التثبيت الثابت؛ ويعتمد حجم GLYDE-X على عدد صفوف التتبع، ومواصفات الجسور، ونوافذ التنظيف المحدودة بقدر ما يعتمد على القدرة الإنتاجية MW.",
+        "p2": "استخدم دليل أسعار الهند لنطاقات التثبيت الثابت، ثم حاسبة ROI مع تعريفة التعرفة الخاصة بك. تتطلب عروض الأسعار الرسمية لـ AP/Telangana مراجعة Taypro للمخططات ونظام التعقب من الشركة المصنعة OEM."
       },
       "resources": {
-        "link0Title": "Solar panel cleaning across regions of India",
+        "link0Title": "تنظيف الألواح الشمسية عبر مناطق الهند",
         "link0Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india",
-        "link1Title": "Weather impact on module cleanliness in India",
+        "link1Title": "تأثير الطقس على نظافة الألواح في الهند",
         "link1Href": "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india",
-        "link2Title": "How often to clean solar panels in India",
+        "link2Title": "كم مرة يجب تنظيف الألواح الشمسية في الهند",
         "link2Href": "/blog/how-often-should-you-clean-your-solar-panels-in-india"
       },
       "faq": {
-        "q0": "Does Taypro supply robots in Andhra Pradesh and Telangana?",
-        "a0": "Yes. Taypro serves utility solar across India including Andhra Pradesh and Telangana, with pan-India manufacturing, spares, and breakdown SLAs. Contact Taypro with your plant details.",
-        "q1": "Which robots fit tracker plants in southern India?",
-        "a1": "GLYDE-X and NYUMA-X are purpose-built for single-axis trackers with bridge articulation and tilt-range validation across leading tracker brands.",
-        "q2": "Why waterless cleaning on coastal sites?",
-        "a2": "Dry robotic cleaning avoids wet-wash water logistics and reduces module risk from improper washing — while enabling more frequent cycles than manual crews alone.",
-        "q3": "How is robot price determined for AP plants?",
-        "a3": "CAPEX scales with MW, layout, tracker share, and automation level. See the India price guide and ROI calculator; formal quotes require Taypro layout review.",
-        "q4": "Can Taypro operate robots under Opex in AP?",
-        "a4": "Yes. Taypro Opex is available for pay-per-panel-cleaned service — Taypro operates the fleet with reporting through NECTYR.",
-        "q5": "What southern deployments can AP owners benchmark today?",
-        "a5": "Yadgir 50 MW and KMF 75 MW in Karnataka provide nearby utility-scale proof for mixed and automatic-first waterless fleets — relevant for AP/Telangana RFQs while state-specific case studies expand.",
-        "q6": "How does Taypro validate tracker compatibility?",
-        "a6": "Taypro applications engineering reviews tracker OEM, stow angles, row geometry, and bridge requirements before quoting GLYDE-X or NYUMA-X — compatibility is validated per site, not assumed from MW alone.",
-        "q7": "Does Taypro support humidity and monsoon hold rules in the south?",
-        "a7": "Yes. NECTYR combines weather forecasts, rain probability, and wind limits; robots stand down after effective rain when configured. Taypro hardware is TÜV NORD certified for damp-heat operating conditions."
+        "q0": "هل توفر Taypro روبوتات في Andhra Pradesh و Telangana؟",
+        "a0": "نعم. تخدم Taypro محطات الطاقة الشمسية في جميع أنحاء الهند بما في ذلك Andhra Pradesh و Telangana، مع التصنيع وتوفير قطع الغيار واتفاقيات مستوى الخدمة في عموم الهند. اتصل بـ Taypro مع تفاصيل محطتك.",
+        "q1": "أي الروبوتات تناسب محطات التعقب في جنوب الهند؟",
+        "a1": "صُممت GLYDE-X و NYUMA-X خصيصاً لأنظمة التعقب أحادية المحور مع مفاصل جسرية والتحقق من نطاق الإمالة عبر العلامات التجارية الرائدة.",
+        "q2": "لماذا التنظيف الجاف في المواقع الساحلية؟",
+        "a2": "تتجنب الروبوتات الجافة خدمات توريد المياه الثقيلة وتقلل من مخاطر تلف الألواح الناتجة عن الغسيل غير السليم، مع السماح بدورات تنظيف أكثر تكراراً مما تقدمه الفرق اليدوية.",
+        "q3": "كيف يتم تحديد سعر الروبوت لمحطات AP؟",
+        "a3": "يتناسب CAPEX طردياً مع حجم MW، والمخطط، ونسبة أنظمة التعقب، ومستوى الأتمتة. راجع دليل أسعار الهند وحاسبة ROI؛ تتطلب العروض الرسمية مراجعة Taypro للمخطط.",
+        "q4": "هل يمكن لـ Taypro تشغيل الروبوتات تحت نموذج Opex في AP؟",
+        "a4": "نعم. تتوفر خدمة Taypro Opex للدفع لكل لوح — حيث تدير Taypro الأسطول مع إصدار تقارير عبر NECTYR.",
+        "q5": "ما هي المشاريع الجنوبية التي يمكن لأصحاب المحطات في AP الاسترشاد بها؟",
+        "a5": "توفر محطات Yadgir بقدرة 50 MW و KMF بقدرة 75 MW في Karnataka إثباتات تجارية قريبة للمحطات الهجينة والآلية بالكامل التي تستخدم أساطيل Taypro الجافة — وهي مرجع مناسب لطلبات العروض في AP/Telangana بينما تتوسع دراسات الحالة في الولاية.",
+        "q6": "كيف تتحقق Taypro من توافق نظام التعقب؟",
+        "a6": "يقوم مهندسو تطبيقات Taypro بمراجعة الشركة المصنعة للنظام (OEM)، وزوايا الإيقاف، وهندسة الصفوف، ومتطلبات الجسور قبل تقديم عرض GLYDE-X أو NYUMA-X — يتم التحقق من التوافق لكل موقع على حدة، ولا يتم افتراضه بناءً على حجم MW فقط.",
+        "q7": "هل تدعم Taypro قواعد التوقف بسبب الرطوبة والرياح الموسمية في الجنوب؟",
+        "a7": "نعم. تجمع NECTYR بين توقعات الطقس، واحتمالية الأمطار، وحدود الرياح؛ وتتوقف الروبوتات عن العمل بعد الأمطار المؤثرة عند ضبطها لذلك. أجهزة Taypro معتمدة من TÜV NORD للعمل في ظروف الرطوبة والحرارة العالية."
       }
     },
     "maharashtra": {
       "meta": {
-        "title": "Solar Panel Cleaning Robot Maharashtra | Utility Plants | Taypro",
-        "description": "Solar panel cleaning robots for Maharashtra utility plants. Taypro at Soyegaon 100 MW and across Ahmadnagar, Yavatmal, and Sangli — mixed GLYDE + NYUMA fleets, NECTYR, pan-India service.",
-        "openGraphTitle": "Solar Panel Cleaning Robot Maharashtra | Taypro",
-        "openGraphDescription": "Waterless robotic cleaning for Maharashtra utility solar — agricultural dust, mixed fleets, and live Taypro deployments."
+        "title": "روبوتات تنظيف الألواح الشمسية في Maharashtra | محطات الطاقة الكبيرة | Taypro",
+        "description": "روبوتات تنظيف الألواح الشمسية لمحطات الطاقة في Maharashtra. Taypro في محطة Soyegaon بقدرة 100 MW وعبر Ahmadnagar وYavatmal وSangli — أساطيل GLYDE + NYUMA مختلطة، NECTYR، وخدمات في جميع أنحاء الهند.",
+        "openGraphTitle": "روبوتات تنظيف الألواح الشمسية في Maharashtra | Taypro",
+        "openGraphDescription": "تنظيف روبوتي بدون ماء لمحطات الطاقة الشمسية في Maharashtra — الغبار الزراعي، الأساطيل المختلطة، ونشر Taypro الميداني."
       },
       "hero": {
-        "eyebrow": "Maharashtra · Utility solar",
-        "title": "Solar Panel Cleaning Robot in Maharashtra",
-        "subtitle": "Maharashtra combines agricultural dust, seasonal haze, and scattered utility blocks across Ahmadnagar, Yavatmal, and Sangli districts. Taypro waterless robots — live at Soyegaon 100 MW and dozens of Maharashtra sites — deliver logged dry cycles with NECTYR or inspection protocols and pan-India breakdown SLAs."
+        "eyebrow": "Maharashtra · الطاقة الشمسية للمرافق",
+        "title": "روبوت تنظيف الألواح الشمسية في Maharashtra",
+        "subtitle": "تجمع Maharashtra بين الغبار الزراعي، الضباب الموسمي، وكتل الألواح المتناثرة في مناطق Ahmadnagar وYavatmal وSangli. توفر روبوتات Taypro الجافة — العاملة في محطة Soyegaon بقدرة 100 MW وعشرات المواقع الأخرى في Maharashtra — دورات تنظيف جافة مسجلة مع نظام NECTYR أو بروتوكولات الفحص، بالإضافة إلى اتفاقيات مستوى الخدمة (SLA) للأعطال في جميع أنحاء الهند."
       },
       "soiling": {
-        "eyebrow": "Regional context",
-        "heading": "Agricultural dust, haze, and soiling in Maharashtra",
-        "p1": "Maharashtra utility plants face agricultural film, seasonal haze, and bird-droppings pockets that standard PR aggregates can hide. Semi-arid belts still see rapid dust return between monsoon and pre-summer peaks — calendar manual washing cannot keep pace across distributed MW.",
-        "p2": "Taypro's Maharashtra portfolio spans 100 MW mixed automatic + semi-automatic programmes down to five-megawatt blocks — a density of deployments unmatched in other states. Waterless GLYDE scheduled rows plus NYUMA portable gap-fill is the dominant pattern.",
-        "p3": "IPPs evaluating robots in Maharashtra should model soiling recovery against tariff on priority blocks first — not assume Rajasthan mega-plant robots/MW rules apply to Ahmadnagar-scale scattered tables."
+        "eyebrow": "السياق الإقليمي",
+        "heading": "الغبار الزراعي والضباب والتلوث في Maharashtra",
+        "p1": "تواجه محطات الطاقة في Maharashtra غشاءً زراعياً، وضباباً موسمياً، وتراكمات فضلات الطيور التي قد تخفيها حسابات أداء نسبة الأداء (PR) القياسية. لا تزال الأحزمة شبه القاحلة تشهد عودة سريعة للغبار بين الرياح الموسمية وذروة ما قبل الصيف — الغسيل اليدوي لا يمكنه مواكبة المتطلبات عبر محطات الميجاواط الموزعة.",
+        "p2": "تغطي محفظة Taypro في Maharashtra 100 MW من البرامج المختلطة (آلية + شبه آلية) وصولاً إلى كتل بقدرة خمسة ميجاواط — وهي كثافة انتشار لا مثيل لها في الولايات الأخرى. النمط السائد هو صفوف GLYDE الآلية بدون ماء مع وحدات NYUMA المحمولة لسد الثغرات.",
+        "p3": "يجب على منتجي الطاقة المستقلين (IPPs) الذين يقيمون الروبوتات في Maharashtra البدء بنمذجة استرداد التلوث مقابل التعريفة في الكتل ذات الأولوية أولاً — وعدم افتراض أن قواعد الروبوتات في مشاريع Rajasthan الضخمة تنطبق على الطاولات المتناثرة بمستوى Ahmadnagar."
       },
       "models": {
-        "body": "Maharashtra RFQs often combine GLYDE automatic anchors on repeatable rows with NYUMA or HELYX semi-automatic units on irregular tables — Soyegaon 100 MW runs fifty-four GLYDE plus thirty-six NYUMA (~0.90 robots/MW) with NECTYR on automatic blocks. Smaller five-to-ten-megawatt sites frequently run inspection-led NYUMA portable programmes.",
-        "recommended": "Lead with mixed-fleet sizing when row repeatability is uneven; automatic-only quotes suit mature tables like Soyegaon automatic zones. Define NECTYR scope for GLYDE blocks and inspection sign-off rules for semi-automatic coverage."
+        "body": "غالباً ما تجمع طلبات عروض الأسعار (RFQs) في Maharashtra بين وحدات GLYDE الآلية في الصفوف المتكررة، ووحدات NYUMA أو HELYX شبه الآلية على الطاولات غير المنتظمة — تشغل محطة Soyegaon بقدرة 100 MW أربعة وخمسين وحدة GLYDE بالإضافة إلى ست وثلاثين وحدة NYUMA (~0.90 روبوت/MW) مع نظام NECTYR في المناطق الآلية. المواقع الصغيرة التي تتراوح بين 5 إلى 10 ميجاواط غالباً ما تستخدم برامج NYUMA المحمولة المعتمدة على الفحص.",
+        "recommended": "اعتمد مبدأ قياس الأسطول المختلط عندما يكون تكرار الصفوف غير منتظم؛ عروض الأسعار الآلية فقط تناسب الطاولات المتطورة مثل مناطق Soyegaon الآلية. حدد نطاق NECTYR لكتل GLYDE وقواعد اعتماد الفحص للتغطية شبه الآلية."
       },
       "deployments": {
-        "heading": "Soyegaon and Maharashtra utility robotics",
-        "p1": "Maharashtra is Taypro's deepest state portfolio — from Soyegaon 100 MW mixed NECTYR programme to dozens of Ahmadnagar, Yavatmal, Nashik, and Sangli utility blocks. Owners adopt robotics when agricultural vicinities drive localized soiling that manual crews cannot audit block-by-block.",
-        "p2": "At Soyegaon, Taypro deployed fifty-four GLYDE automatic robots plus thirty-six NYUMA semi-automatic units under CAPEX ownership. Site operations report about fourteen million litres of water saved annually, roughly 3.75 GWh attributed clean generation, and block-level cycle proof through NECTYR plus portable inspection protocols.",
-        "p3": "Ten-to-fourteen-megawatt peers such as Yavatmal Kupti and Ahmadnagar Jalalpur show how semi-automatic density scales on smaller nameplates — browse the case studies below before copying robots/MW from western mega-plants."
+        "heading": "روبوتات الطاقة الشمسية في Soyegaon وMaharashtra",
+        "p1": "Maharashtra هي المحفظة الأكبر لـ Taypro — من برنامج NECTYR المختلط في Soyegaon بقدرة 100 MW إلى عشرات الكتل في Ahmadnagar وYavatmal وNashik وSangli. يعتمد الملاك الروبوتات عندما تؤدي البيئة الزراعية المحيطة إلى تلوث محلي لا يمكن للفرق اليدوية تدقيقه كتلة بكتلة.",
+        "p2": "في Soyegaon، نشرت Taypro أربعة وخمسين روبوتاً آلياً من نوع GLYDE بالإضافة إلى ست وثلاثين وحدة شبه آلية من نوع NYUMA ضمن نموذج CAPEX. تبلغ تقارير العمليات في الموقع عن توفير حوالي أربعة عشر مليون لتر من الماء سنوياً، و3.75 GWh تقريباً من الطاقة النظيفة المنسوبة، وإثبات دورة التنظيف على مستوى الكتلة من خلال NECTYR وبروتوكولات الفحص المحمولة.",
+        "p3": "تُظهر مشاريع 10-14 MW مثل Yavatmal Kupti وAhmadnagar Jalalpur كيفية توسيع نطاق الكثافة شبه الآلية في المحطات ذات القدرات الأصغر — تصفح دراسات الحالة أدناه قبل نسخ معدلات الروبوتات لكل ميجاواط من المشاريع الضخمة في الغرب."
       },
       "procurement": {
-        "heading": "CAPEX vs Taypro Opex in Maharashtra",
-        "p1": "CAPEX suits Maharashtra asset owners capitalising mixed or semi-automatic fleets with Taypro commissioning, brush PM sized for agricultural dust abrasiveness, and AMC-backed breakdown response across the state.",
-        "p2": "Taypro Opex converts cleaning to pay-per-panel-cleaned service — attractive when monsoon-transition cadence must improve on a new block before full-table CAPEX committee approval."
+        "heading": "CAPEX مقابل Taypro Opex في Maharashtra",
+        "p1": "يناسب نموذج CAPEX ملاك الأصول في Maharashtra الذين يستثمرون في أساطيل مختلطة أو شبه آلية مع تكليف Taypro، وصيانة الفرشاة المخصصة لكشط الغبار الزراعي، والاستجابة للأعطال المدعومة بـ AMC في جميع أنحاء الولاية.",
+        "p2": "يحول نموذج Taypro Opex عملية التنظيف إلى خدمة الدفع لكل لوح يتم تنظيفه — وهو أمر جذاب عندما يجب تحسين وتيرة الانتقال خلال الرياح الموسمية على كتلة جديدة قبل الحصول على موافقة لجنة CAPEX للطاولة الكاملة."
       },
       "roiBand": {
-        "heading": "Robot price and payback for Maharashtra plants",
-        "p1": "Mixed fleets like Soyegaon carry different CAPEX intensity than semi-automatic-only five-megawatt blocks — compare robots/MW, automation split, and attributed MWh on your row map, not MW nameplate alone.",
-        "p2": "Use the India price guide for directional bands, then the ROI calculator with your tariff. Formal quotes require Taypro layout review."
+        "heading": "سعر الروبوت وفترة الاسترداد لمحطات Maharashtra",
+        "p1": "تتحمل الأساطيل المختلطة مثل Soyegaon كثافة CAPEX مختلفة عن كتل الخمسة ميجاواط شبه الآلية فقط — قارن عدد الروبوتات لكل ميجاواط، وتقسيم الأتمتة، وMWh المنسوبة على خريطة صفوفك، وليس فقط تصنيف الميجاواط.",
+        "p2": "استخدم دليل أسعار الهند لنطاقات التوجيه، ثم حاسبة ROI مع التعريفة الخاصة بك. تتطلب العروض الرسمية مراجعة تخطيط الموقع من قبل Taypro."
       },
       "resources": {
-        "link0Title": "Solar panel cleaning across regions of India",
+        "link0Title": "تنظيف الألواح الشمسية عبر مناطق الهند",
         "link0Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india",
-        "link1Title": "Cost-benefit analysis of cleaning services in India",
+        "link1Title": "تحليل التكلفة والعائد لخدمات التنظيف في الهند",
         "link1Href": "/blog/cost-benefit-analysis-of-solar-panel-cleaning-services-in-india",
-        "link2Title": "How often to clean solar panels in India",
+        "link2Title": "كم مرة يجب تنظيف الألواح الشمسية في الهند",
         "link2Href": "/blog/how-often-should-you-clean-your-solar-panels-in-india"
       },
       "faq": {
-        "q0": "Does Taypro deploy cleaning robots in Maharashtra?",
-        "a0": "Yes. Taypro has live Maharashtra utility deployments including Soyegaon 100 MW and many Ahmadnagar, Yavatmal, and Sangli programmes. Contact Taypro with your plant MW and layout for a site-specific proposal.",
-        "q1": "Why mixed GLYDE + NYUMA fleets in Maharashtra?",
-        "a1": "Repeatable rows suit GLYDE automatic schedules with NECTYR; irregular tables and transitions often need NYUMA or HELYX semi-automatic gap-fill. Soyegaon is the reference mixed programme at 100 MW.",
-        "q2": "How does agricultural dust affect cleaning cadence?",
-        "a2": "Agricultural film and haze can localize PR loss on downwind strings — NECTYR block priorities and portable weekly plans should elevate those blocks when inverter trends flag loss, not rely on plant-wide averages alone.",
-        "q3": "What is robot price for a Maharashtra utility plant?",
-        "a3": "Price scales with MW, robots per MW, and automatic vs semi-automatic mix. See the India price guide and ROI calculator; formal quotes follow layout review.",
-        "q4": "Does Taypro offer Opex cleaning in Maharashtra?",
-        "a4": "Yes. Taypro Opex is pay-per-panel-cleaned with Taypro operating the fleet and reporting through NECTYR or agreed inspection protocols.",
-        "q5": "Can semi-automatic robots cover five-to-ten-megawatt blocks?",
-        "a5": "Yes. Many Maharashtra sites run NYUMA portable programmes with weekly block plans and inspection sign-off — common where automatic paths are not yet mature across the full table.",
-        "q6": "Does Taypro support bird-droppings and agricultural soiling?",
-        "a6": "Localized soiling pockets should be prioritized in block schedules — mixed fleets let GLYDE cover repeatable rows while portables address problem tables flagged by SCADA or IV trends.",
-        "q7": "Is breakdown support available across Maharashtra?",
-        "a7": "Yes. Taypro targets same-day pan-India breakdown resolution with regional spares and NECTYR remote diagnostics — standard on supported utility programmes."
+        "q0": "هل تنشر Taypro روبوتات تنظيف في Maharashtra؟",
+        "a0": "نعم. لدى Taypro عمليات نشر قائمة في محطات الطاقة في Maharashtra بما في ذلك Soyegaon بقدرة 100 MW والعديد من برامج Ahmadnagar وYavatmal وSangli. تواصل مع Taypro بخصوص قدرة محطتك وتخطيطها للحصول على عرض مخصص للموقع.",
+        "q1": "لماذا تستخدم أساطيل GLYDE + NYUMA المختلطة في Maharashtra؟",
+        "a1": "الصفوف المتكررة تناسب جداول GLYDE الآلية مع NECTYR؛ الطاولات غير المنتظمة والانتقالات غالباً ما تحتاج إلى NYUMA أو HELYX كحل شبه آلي لسد الثغرات. Soyegaon هو البرنامج المختلط المرجعي بقدرة 100 MW.",
+        "q2": "كيف يؤثر الغبار الزراعي على وتيرة التنظيف؟",
+        "a2": "يمكن أن يؤدي الغشاء الزراعي والضباب إلى فقدان محلي في أداء نسبة الأداء (PR) في السلاسل المواجهة للرياح — يجب أن تعطي أولويات كتل NECTYR والخطط الأسبوعية المحمولة الأولوية لتلك الكتل عندما تشير اتجاهات العاكس إلى فقدان، بدلاً من الاعتماد على متوسطات المحطة ككل.",
+        "q3": "ما هو سعر الروبوت لمحطة طاقة في Maharashtra؟",
+        "a3": "يختلف السعر حسب الميجاواط، وعدد الروبوتات لكل ميجاواط، والمزيج بين الآلي وشبه الآلي. راجع دليل أسعار الهند وحاسبة ROI؛ العروض الرسمية تتبع مراجعة التخطيط.",
+        "q4": "هل تقدم Taypro خدمة Opex للتنظيف في Maharashtra؟",
+        "a4": "نعم. نموذج Taypro Opex يعتمد على الدفع لكل لوح يتم تنظيفه مع تشغيل Taypro للأسطول وتقديم التقارير من خلال NECTYR أو بروتوكولات الفحص المتفق عليها.",
+        "q5": "هل يمكن للروبوتات شبه الآلية تغطية كتل من 5 إلى 10 ميجاواط؟",
+        "a5": "نعم. تدير العديد من مواقع Maharashtra برامج NYUMA المحمولة بخطط كتل أسبوعية واعتماد فحص — وهي شائعة حيث لا تكون المسارات الآلية متطورة بعد عبر الطاولة الكاملة.",
+        "q6": "هل تدعم Taypro إزالة فضلات الطيور والتلوث الزراعي؟",
+        "a6": "يجب إعطاء الأولوية لتراكمات التلوث المحلية في جداول الكتل — تتيح الأساطيل المختلطة لـ GLYDE تغطية الصفوف المتكررة بينما تعالج الوحدات المحمولة الجداول التي تحددها اتجاهات SCADA أو IV.",
+        "q7": "هل يتوفر دعم الأعطال في جميع أنحاء Maharashtra؟",
+        "a7": "نعم. تستهدف Taypro حل الأعطال في نفس اليوم في جميع أنحاء الهند مع قطع غيار إقليمية وتشخيصات عن بُعد عبر NECTYR — وهي ميزة قياسية في برامج الطاقة المدعومة."
       }
     },
     "uttarPradesh": {
       "meta": {
-        "title": "Solar Panel Cleaning Robot Uttar Pradesh | Utility Plants | Taypro",
-        "description": "Solar panel cleaning robots for Uttar Pradesh utility plants. Taypro at Banda 70 MW, Prayagraj 50 MW, and Deoria — Bundelkhand dust, water stress, high-intensity mixed fleets, pan-India service.",
-        "openGraphTitle": "Solar Panel Cleaning Robot Uttar Pradesh | Taypro",
-        "openGraphDescription": "Waterless robotic cleaning for UP utility solar — Banda-scale mixed fleets and Bundelkhand soiling."
+        "title": "روبوتات تنظيف الألواح الشمسية في Uttar Pradesh | محطات الطاقة الكبرى | Taypro",
+        "description": "روبوتات تنظيف الألواح الشمسية لمحطات الطاقة في Uttar Pradesh. Taypro في مشاريع Banda بقدرة 70 MW، وPrayagraj بقدرة 50 MW، وDeoria — حلول لغبار Bundelkhand ونقص المياه والأساطيل المختلطة.",
+        "openGraphTitle": "روبوتات تنظيف الألواح الشمسية في Uttar Pradesh | Taypro",
+        "openGraphDescription": "تنظيف آلي جاف لمحطات الطاقة الشمسية في UP — إدارة الأساطيل المختلطة في Banda ومعالجة تراكم الغبار في Bundelkhand."
       },
       "hero": {
-        "eyebrow": "Uttar Pradesh · Utility solar",
-        "title": "Solar Panel Cleaning Robot in Uttar Pradesh",
-        "subtitle": "Uttar Pradesh utility belts face Bundelkhand-class dust, acute water stress, and remote labour logistics. Taypro waterless robots — at Banda 70 MW with 160 machines and across Prayagraj and Deoria programmes — recover soiling losses with block-level proof through NECTYR and pan-India service."
+        "eyebrow": "Uttar Pradesh · الطاقة الشمسية للمرافق",
+        "title": "روبوت تنظيف الألواح الشمسية في Uttar Pradesh",
+        "subtitle": "تواجه أحزمة الطاقة الشمسية في Uttar Pradesh تحديات غبار Bundelkhand، ونقص حاد في المياه، ولوجستيات العمالة عن بُعد. توفر روبوتات Taypro للتنظيف الجاف — في مشروع Banda بقدرة 70 MW بـ 160 روبوت وعبر برامج Prayagraj وDeoria — استعادة فاقد الطاقة مع إثبات التنظيف على مستوى الكتلة عبر NECTYR ودعم فني على مستوى الهند."
       },
       "soiling": {
-        "eyebrow": "Regional context",
-        "heading": "Bundelkhand dust and water stress in Uttar Pradesh",
-        "p1": "Uttar Pradesh utility plants in Bundelkhand and adjacent belts see high dust return and water scarcity that makes wet-wash tanker programmes unsustainable at scale. The 8–25% soiling loss band cited for Indian arid belts applies strongly across UP portfolios.",
-        "p2": "Taypro's Banda deployment demonstrates that smaller nameplate can carry higher robots/MW when dust return windows and row kilometres demand logged cycle frequency — not because 70 MW mechanically requires 160 machines on every site.",
-        "p3": "Same-day pan-India breakdown response and regional spares keep mean time to repair predictable as UP utility capacity grows."
+        "eyebrow": "السياق الإقليمي",
+        "heading": "غبار Bundelkhand ونقص المياه في Uttar Pradesh",
+        "p1": "تشهد محطات الطاقة الشمسية في Uttar Pradesh ضمن منطقة Bundelkhand والمناطق المجاورة عودة سريعة للغبار وشحاً في المياه، مما يجعل برامج التنظيف الرطب باستخدام الصهاريج غير مستدامة على نطاق واسع. نسبة فاقد الإنتاج بسبب الغبار التي تتراوح بين 8–25% في المناطق القاحلة بالهند تنطبق بقوة على محافظات UP.",
+        "p2": "يُظهر مشروع Banda الخاص بـ Taypro أن القدرة المركبة الأصغر قد تتطلب عدد روبوتات/MW أكبر عندما تتطلب فترات تراكم الغبار وأطوال الصفوف دورات تنظيف متكررة، وليس لأن 70 MW تتطلب تقنياً 160 آلة في كل موقع.",
+        "p3": "تضمن الاستجابة السريعة للأعطال في جميع أنحاء الهند وتوافر قطع الغيار إقليمياً إمكانية التنبؤ بمتوسط زمن الإصلاح مع نمو قدرة الطاقة الشمسية في UP."
       },
       "models": {
-        "body": "Uttar Pradesh programmes combine GLYDE automatic anchors with NYUMA semi-automatic gap-fill — Banda runs 106 GLYDE plus 54 NYUMA (160 robots on 70 MW, ~2.29 robots/MW) under NECTYR with waterless cycles throughout. Prayagraj 50 MW uses automatic-first GLYDE at ~1.04 robots/MW on repeatable rows.",
-        "recommended": "UP RFQs should model tanker OPEX avoided versus robot CAPEX explicitly — Bundelkhand water stress makes dry cleaning an ESG and logistics unlock, not just a PR recovery tool."
+        "body": "تجمع برامج Uttar Pradesh بين أنظمة GLYDE الأوتوماتيكية وNYUMA شبه الأوتوماتيكية لسد الفجوات — يدير مشروع Banda 106 روبوت GLYDE بالإضافة إلى 54 روبوت NYUMA (إجمالي 160 روبوت على 70 MW، بمعدل ~2.29 روبوت/MW) تحت نظام NECTYR مع دورات تنظيف جاف بالكامل. يستخدم مشروع Prayagraj بقدرة 50 MW روبوتات GLYDE الأوتوماتيكية بمعدل ~1.04 روبوت/MW على صفوف قابلة للتكرار.",
+        "recommended": "يجب أن تُقيّم طلبات عروض الأسعار (RFQs) في UP تكاليف OPEX للصهاريج مقابل CAPEX للروبوتات بوضوح — فالتوتر المائي في Bundelkhand يجعل التنظيف الجاف خياراً استراتيجياً للحوكمة البيئية والاجتماعية (ESG) واللوجستيات، وليس مجرد أداة لاستعادة الإنتاجية."
       },
       "deployments": {
-        "heading": "Banda, Prayagraj, and UP utility robotics",
-        "p1": "Uttar Pradesh is a core Taypro proof region for high-intensity mixed fleets on water-stressed tables. Owners evaluate robotics when wet washing implies tanker convoys finance teams will not underwrite and when block-level cleaning proof is required for O&M governance.",
-        "p2": "At Banda 70 MW, Taypro deployed 106 GLYDE automatic units plus 54 NYUMA semi-automatic machines under CAPEX ownership with NECTYR scheduling. Site-reported outcomes include about 9.8 million litres of water avoided annually, roughly 2.63 GWh attributed clean generation, and enterprise-grade alert triage across 160 machines.",
-        "p3": "Prayagraj 50 MW and Deoria 60 MW illustrate automatic-first and semi-automatic programme alternatives at fifty-to-seventy-megawatt nameplate — compare fleet density and procurement models in the case studies below."
+        "heading": "روبوتات الطاقة الشمسية في Banda وPrayagraj وUP",
+        "p1": "تُعد Uttar Pradesh منطقة مرجعية أساسية لـ Taypro في تشغيل الأساطيل المختلطة عالية الكثافة على الأراضي التي تعاني من نقص المياه. يلجأ المالكون للحلول الروبوتية عندما يعني التنظيف الرطب استخدام قوافل صهاريج لا تقبلها الإدارة المالية، وعندما تكون هناك حاجة لإثبات التنظيف على مستوى الكتلة لحوكمة عمليات التشغيل والصيانة.",
+        "p2": "في مشروع Banda بقدرة 70 MW، نشرت Taypro عدد 106 وحدات GLYDE أوتوماتيكية و54 آلة NYUMA شبه أوتوماتيكية تحت نظام ملكية CAPEX مع جدولة عبر NECTYR. تشمل النتائج المُسجلة توفير حوالي 9.8 مليون لتر من المياه سنوياً، وتوليد طاقة نظيفة إضافية تقدر بـ 2.63 GWh، وتصنيف تنبيهات ذكي على مستوى 160 آلة.",
+        "p3": "يوضح مشروعا Prayagraj بقدرة 50 MW وDeoria بقدرة 60 MW بدائل البرامج الأوتوماتيكية وشبه الأوتوماتيكية بقدرات تتراوح بين 50 و70 ميجاوات — قارن بين كثافة الأسطول ونماذج الشراء في دراسات الحالة أدناه."
       },
       "procurement": {
-        "heading": "Procurement for UP utility owners",
-        "p1": "CAPEX purchase capitalises robots on the balance sheet with Taypro commissioning, spare thresholds sized for UP dust abrasiveness, and AMC-backed breakdown SLAs.",
-        "p2": "Taypro Opex offers pay-per-panel-cleaned service with NECTYR reporting — useful when dust-season cadence must start before full CAPEX approval on a new UP block."
+        "heading": "المشتريات لملاك محطات الطاقة في UP",
+        "p1": "يُدرج شراء CAPEX الروبوتات ضمن الأصول في الميزانية العمومية مع خدمات التكليف من Taypro، وتحديد مستويات قطع الغيار بناءً على طبيعة غبار UP، واتفاقيات مستوى الخدمة (SLA) للأعطال المدعومة بـ AMC.",
+        "p2": "يوفر برنامج Taypro Opex خدمة الدفع مقابل كل لوح تم تنظيفه مع تقارير NECTYR — وهو خيار مفيد عندما يجب أن يبدأ موسم التنظيف قبل الحصول على موافقة CAPEX الكاملة لمشروع جديد في UP."
       },
       "roiBand": {
-        "heading": "Robot economics for Uttar Pradesh plants",
-        "p1": "High robots/MW programmes like Banda carry higher CAPEX than thin automatic-only peers but can deliver more logged cycles — model water avoidance and attributed GWh together in hurdle-rate reviews.",
-        "p2": "Directional bands and payback modelling are available via the India price guide and ROI calculator; formal quotes follow Taypro layout review."
+        "heading": "اقتصاديات الروبوتات لمحطات Uttar Pradesh",
+        "p1": "البرامج التي تستخدم عدداً أكبر من الروبوتات/MW مثل Banda تتطلب CAPEX أعلى من النماذج الأوتوماتيكية البسيطة، ولكنها توفر دورات تنظيف أكثر — قم بنمذجة توفير المياه والطاقة (GWh) معاً في مراجعات العائد على الاستثمار.",
+        "p2": "تتوفر نطاقات التكلفة ونماذج استرداد رأس المال عبر دليل أسعار الهند وحاسبة العائد على الاستثمار (ROI)؛ تُقدم عروض الأسعار الرسمية بعد مراجعة تخطيط الموقع."
       },
       "resources": {
-        "link0Title": "Solar panel cleaning across regions of India",
+        "link0Title": "تنظيف الألواح الشمسية في مختلف مناطق الهند",
         "link0Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india",
-        "link1Title": "Weather impact on module cleanliness in India",
+        "link1Title": "تأثير الطقس على نظافة الوحدات في الهند",
         "link1Href": "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india",
-        "link2Title": "Cost-benefit analysis of cleaning services in India",
+        "link2Title": "تحليل التكلفة والعائد لخدمات التنظيف في الهند",
         "link2Href": "/blog/cost-benefit-analysis-of-solar-panel-cleaning-services-in-india"
       },
       "faq": {
-        "q0": "Does Taypro operate in Uttar Pradesh?",
-        "a0": "Yes. Taypro has live UP utility deployments including Banda 70 MW, Prayagraj 50 MW, and Deoria 60 MW. Share your site details for fleet sizing.",
-        "q1": "Why does Banda run 160 robots on 70 MW?",
-        "a1": "Banda prioritises cycle frequency and logged coverage on its row map — robot count reflects dust return and block kilometres, not a universal robots/MW standard. Taypro sizes each site from layout review.",
-        "q2": "Are Taypro robots waterless for UP water-stressed sites?",
-        "a2": "Yes. All Taypro utility robots use dry cleaning — critical in Bundelkhand where wet-wash tanker logistics are costly and ESG-sensitive.",
-        "q3": "What is robot price for a UP utility plant?",
-        "a3": "Price scales with MW, robots per MW, and automation level. See the India price guide and ROI calculator; formal quotes require layout review.",
-        "q4": "Does Taypro offer fleet monitoring at Banda scale?",
-        "a4": "Yes. NECTYR provides scheduled cycle status, fleet health alerts, and block completion maps — essential when managing 100+ machines on one table.",
-        "q5": "Can Taypro operate under Opex in UP?",
-        "a5": "Yes. Taypro Opex is pay-per-panel-cleaned with Taypro operating schedules and reporting — an alternative to CAPEX purchase.",
-        "q6": "How does UP compare to Rajasthan mega-plants?",
-        "a6": "Rajasthan mega-programmes often use different robots/MW and semi-automatic-first strategies — UP owners should benchmark Banda and Prayagraj peers with similar nameplate and water stress, not Bhadla-scale assumptions.",
-        "q7": "Is Taypro Made in India with UP field support?",
-        "a7": "Yes. Taypro Private Limited designs, manufactures, and services robots from India with TÜV NORD certified hardware and pan-India breakdown SLAs including Uttar Pradesh."
+        "q0": "هل تعمل Taypro في Uttar Pradesh؟",
+        "a0": "نعم، تمتلك Taypro مشاريع فعلية في UP تشمل Banda بقدرة 70 MW، وPrayagraj بقدرة 50 MW، وDeoria بقدرة 60 MW. شاركنا تفاصيل موقعك لتحديد حجم الأسطول المناسب.",
+        "q1": "لماذا يشغل موقع Banda 160 روبوت لـ 70 MW؟",
+        "a1": "يمنح مشروع Banda الأولوية لتكرار دورات التنظيف والتغطية المسجلة على خريطة الصفوف؛ يعكس عدد الروبوتات مدى تراكم الغبار وطول الصفوف، وليس معياراً ثابتاً للروبوتات لكل MW. تحدد Taypro حجم الأسطول لكل موقع بناءً على مراجعة التخطيط.",
+        "q2": "هل روبوتات Taypro جافة لمواقع UP التي تعاني من شح المياه؟",
+        "a2": "نعم، تستخدم جميع روبوتات Taypro للمرافق التنظيف الجاف، وهو أمر حيوي في Bundelkhand حيث تعتبر لوجستيات صهاريج التنظيف الرطب مكلفة وحساسة بيئياً.",
+        "q3": "ما هو سعر الروبوت لمحطة طاقة في UP؟",
+        "a3": "يعتمد السعر على سعة MW، وعدد الروبوتات لكل MW، ومستوى الأتمتة. راجع دليل أسعار الهند وحاسبة العائد على الاستثمار؛ تتطلب عروض الأسعار الرسمية مراجعة التخطيط.",
+        "q4": "هل توفر Taypro مراقبة الأسطول على نطاق مشروع Banda؟",
+        "a4": "نعم، توفر NECTYR حالة الدورات المجدولة، وتنبيهات صحة الأسطول، وخرائط إتمام التنظيف — وهي أمور أساسية عند إدارة أكثر من 100 آلة في موقع واحد.",
+        "q5": "هل يمكن لـ Taypro العمل بنظام Opex في UP؟",
+        "a5": "نعم، يوفر Taypro Opex خدمة الدفع مقابل كل لوح مع جداول تشغيل وتقارير من Taypro — وهو بديل لشراء CAPEX.",
+        "q6": "كيف تقارن UP بمشاريع Rajasthan العملاقة؟",
+        "a6": "غالباً ما تستخدم مشاريع Rajasthan الكبرى كثافة روبوتات/MW مختلفة واستراتيجيات شبه أوتوماتيكية؛ يجب على ملاك المشاريع في UP مقارنة الأداء بنظرائهم في Banda وPrayagraj الذين لديهم قدرات وتحديات مائية مماثلة، بدلاً من افتراضات مقياس Bhadla.",
+        "q7": "هل Taypro مصنوعة في الهند مع دعم ميداني في UP؟",
+        "a7": "نعم، تقوم شركة Taypro Private Limited بتصميم وتصنيع وصيانة الروبوتات من الهند مع أجهزة معتمدة من TÜV NORD واتفاقيات مستوى خدمة للأعطال على مستوى الهند، بما في ذلك Uttar Pradesh."
       }
     },
     "tamilNadu": {
       "meta": {
-        "title": "Solar Panel Cleaning Robot Tamil Nadu | Utility Plants | Taypro",
-        "description": "Solar panel cleaning robots for Tamil Nadu utility plants. Taypro at Nayveli and Chennai — coastal humidity, GLYDE automatic and NYUMA semi-automatic waterless fleets, NECTYR, pan-India service.",
-        "openGraphTitle": "Solar Panel Cleaning Robot Tamil Nadu | Taypro",
-        "openGraphDescription": "Waterless robotic cleaning for Tamil Nadu utility solar — coastal soiling and damp-heat operation."
+        "title": "روبوتات تنظيف الألواح الشمسية في Tamil Nadu | محطات الطاقة الشمسية | Taypro",
+        "description": "روبوتات تنظيف الألواح الشمسية لمحطات الطاقة في Tamil Nadu. خدمات Taypro في Nayveli و Chennai تغطي الرطوبة الساحلية، GLYDE و NYUMA، ونظام NECTYR.",
+        "openGraphTitle": "روبوتات تنظيف الألواح الشمسية في Tamil Nadu | Taypro",
+        "openGraphDescription": "تنظيف آلي جاف لمحطات الطاقة الشمسية في Tamil Nadu — حلول لمواجهة التلوث الساحلي وظروف الرطوبة والحرارة."
       },
       "hero": {
-        "eyebrow": "Tamil Nadu · Utility solar",
-        "title": "Solar Panel Cleaning Robot in Tamil Nadu",
-        "subtitle": "Tamil Nadu utility plants face coastal humidity, salt aerosol influence, and post-monsoon dust films — a soiling profile that rewards frequent non-abrasive dry cleaning. Taypro waterless robots at Nayveli and Chennai run GLYDE automatic and NYUMA semi-automatic programmes with TÜV NORD damp-heat validation."
+        "eyebrow": "Tamil Nadu · الطاقة الشمسية للمرافق",
+        "title": "روبوت تنظيف الألواح الشمسية في Tamil Nadu",
+        "subtitle": "تواجه محطات الطاقة في Tamil Nadu الرطوبة الساحلية، وتأثير الهباء الملحي، وطبقات الغبار بعد الرياح الموسمية — وهو نمط تلوث يتطلب تنظيفاً جافاً متكرراً وغير كاشط. تعمل روبوتات Taypro الجافة في Nayveli و Chennai باستخدام برامج GLYDE الأوتوماتيكية و NYUMA شبه الأوتوماتيكية، مع اعتماد TÜV NORD للعمل في ظروف الحرارة والرطوبة."
       },
       "soiling": {
-        "eyebrow": "Regional context",
-        "heading": "Coastal humidity and soiling in Tamil Nadu",
-        "p1": "Tamil Nadu combines humidity-driven films with industrial and agricultural particulate — distinct from pure arid western belts. Cleaning must stay non-abrasive and cadence-high through monsoon transitions without wet-wash water logistics.",
-        "p2": "Taypro's Tamil Nadu deployments include Nayveli 10 MW with GLYDE automatic NECTYR scheduling and Chennai 10 MW with NYUMA semi-automatic inspection-led programmes — proof that waterless robotics work at utility scale in damp-heat conditions.",
-        "p3": "Developers in Tamil Nadu should require damp-heat hardware validation, monsoon hold rules in NECTYR or inspection logs, and same-day breakdown SLAs — standard Taypro utility inclusions."
+        "eyebrow": "السياق الإقليمي",
+        "heading": "الرطوبة والتلوث الساحلي في Tamil Nadu",
+        "p1": "تجمع Tamil Nadu بين الرطوبة التي تشكل طبقات غبارية والجسيمات الصناعية والزراعية — وهو ما يختلف عن المناطق القاحلة في الغرب. يجب أن يكون التنظيف غير كاشط وذو وتيرة عالية خلال فترات الانتقال الموسمية دون الحاجة إلى لوجستيات المياه.",
+        "p2": "تشمل مشاريع Taypro في Tamil Nadu محطة بقدرة 10 MW في Nayveli باستخدام روبوتات GLYDE الأوتوماتيكية وجدولة NECTYR، ومحطة بقدرة 10 MW في Chennai باستخدام روبوتات NYUMA شبه الأوتوماتيكية القائمة على الفحص — مما يثبت فعالية الروبوتات الجافة في ظروف الحرارة والرطوبة.",
+        "p3": "يجب على المطورين في Tamil Nadu طلب التحقق من الأجهزة للحرارة والرطوبة، وقواعد التوقف أثناء الرياح الموسمية ضمن NECTYR أو سجلات الفحص، واتفاقيات مستوى الخدمة (SLAs) للأعطال في نفس اليوم — وهي معايير قياسية في خدمات Taypro للمرافق."
       },
       "models": {
-        "body": "Tamil Nadu ten-megawatt-class programmes illustrate two fleet paths: Nayveli runs three GLYDE automatic robots (~0.30 robots/MW) with NECTYR on repeatable rows; Chennai uses two NYUMA semi-automatic portables (~0.20 robots/MW) with weekly block plans. Larger southern RFQs may add GLYDE-X where tracker share grows.",
-        "recommended": "Tamil Nadu RFQs should specify monsoon hold policies, brush PM for humid-season operation, and whether automatic rows or portable gap-fill dominates your table before finalising robot counts."
+        "body": "توضح برامج الفئة 10 MW في Tamil Nadu مسارين للأسطول: Nayveli تشغل ثلاثة روبوتات أوتوماتيكية GLYDE (بمعدل ~0.30 روبوت/MW) مع NECTYR على الصفوف المتكررة؛ بينما تستخدم Chennai روبوتين شبه أوتوماتيكيين محمولين NYUMA (بمعدل ~0.20 روبوت/MW) مع خطط عمل أسبوعية. قد تضيف طلبات العروض الكبيرة في الجنوب روبوتات GLYDE-X حيث تزداد حصة أجهزة التتبع.",
+        "recommended": "يجب أن تحدد طلبات العروض في Tamil Nadu سياسات التوقف أثناء الرياح الموسمية، وجدولة صيانة الفرشاة للتشغيل في الموسم الرطب، وتحديد ما إذا كان الاعتماد على الصفوف الأوتوماتيكية أو الحلول المحمولة هو الأنسب قبل تحديد أعداد الروبوتات النهائية."
       },
       "deployments": {
-        "heading": "Nayveli, Chennai, and Tamil Nadu utility robotics",
-        "p1": "Tamil Nadu utility capacity sits in a coastal-influenced soiling regime where improper wet washing risks module damage and tanker logistics add OPEX. Taypro's live Tamil Nadu programmes show both automatic-first and semi-automatic portable models at ten-megawatt nameplate.",
-        "p2": "At Nayveli 10 MW, Taypro commissioned three GLYDE automatic robots with NECTYR scheduling under CAPEX ownership — site operations report about 1.4 million litres of water avoided annually and roughly 375 MWh attributed clean generation with scheduled post-sunset dry passes.",
-        "p3": "Chennai 10 MW runs two NYUMA semi-automatic portables with inspection-led weekly block coverage — a reference for owners with irregular tables or phased automatic rollout across the southern portfolio."
+        "heading": "روبوتات المرافق في Nayveli و Chennai و Tamil Nadu",
+        "p1": "تقع قدرة الطاقة الشمسية في Tamil Nadu ضمن نطاق تلوث متأثر بالمناطق الساحلية، حيث تخاطر عمليات التنظيف الرطب غير السليمة بإتلاف الألواح، كما تضيف لوجستيات الناقلات تكاليف OPEX. تظهر برامج Taypro الحالية في Tamil Nadu فعالية كل من الطرازات الأوتوماتيكية وشبه الأوتوماتيكية المحمولة في المحطات بقدرة 10 MW.",
+        "p2": "في Nayveli بقدرة 10 MW، قامت Taypro بتشغيل ثلاثة روبوتات أوتوماتيكية من نوع GLYDE مع جدولة NECTYR تحت نظام ملكية CAPEX — حيث تشير تقارير الموقع إلى توفير حوالي 1.4 مليون لتر من المياه سنوياً، وزيادة في توليد الطاقة النظيفة بنحو 375 MWh بفضل عمليات التنظيف الجاف المجدولة بعد غروب الشمس.",
+        "p3": "تدير محطة Chennai بقدرة 10 MW روبوتين محمولين من نوع NYUMA شبه الأوتوماتيكي مع تغطية أسبوعية تعتمد على الفحص — وهو مرجع لأصحاب المحطات ذات التوزيع غير المنتظم أو التي تعتمد طرحاً تدريجياً للأتمتة عبر المحفظة الجنوبية."
       },
       "procurement": {
-        "heading": "Commercial models for Tamil Nadu plants",
-        "p1": "CAPEX purchase capitalises GLYDE or NYUMA fleets with Taypro commissioning, damp-heat operating validation, and AMC-backed pan-India breakdown response.",
-        "p2": "Taypro Opex converts cleaning to pay-per-panel-cleaned service with reporting — useful when coastal commissioning windows require immediate cadence before full CAPEX committee sign-off."
+        "heading": "نماذج تجارية لمحطات الطاقة في Tamil Nadu",
+        "p1": "يسمح شراء CAPEX بتوفير أساطيل GLYDE أو NYUMA مع خدمات التكليف من Taypro، والتحقق من التشغيل في ظروف الحرارة والرطوبة، واستجابة للأعطال مدعومة بـ AMC على مستوى الهند.",
+        "p2": "يحول نموذج Taypro Opex التنظيف إلى خدمة تدفع مقابل كل لوح يتم تنظيفه مع التقارير — وهو مفيد عندما تتطلب نوافذ التكليف الساحلية وتيرة تنظيف فورية قبل الحصول على موافقة لجنة CAPEX الكاملة."
       },
       "roiBand": {
-        "heading": "Robot price guidance for Tamil Nadu utility solar",
-        "p1": "Ten-megawatt reference programmes carry different CAPEX intensity than fifty-megawatt southern peers — scale robot counts from row maps and automation level, not MW alone.",
-        "p2": "Use the India price guide for directional bands and the ROI calculator with your tariff; formal Tamil Nadu quotes require Taypro layout review."
+        "heading": "إرشادات أسعار الروبوتات لمحطات الطاقة في Tamil Nadu",
+        "p1": "تتحمل برامج الفئة 10 MW تكاليف CAPEX تختلف عن تلك الخاصة بالمشاريع الضخمة بقدرة 50 MW في الجنوب — يجب قياس أعداد الروبوتات بناءً على خرائط الصفوف ومستوى الأتمتة، وليس MW فقط.",
+        "p2": "استخدم دليل أسعار الهند للنطاقات التوجيهية وحاسبة ROI مع تعريفة الطاقة الخاصة بك؛ تتطلب عروض الأسعار الرسمية في Tamil Nadu مراجعة مخططات الموقع من قبل Taypro."
       },
       "resources": {
-        "link0Title": "Weather impact on module cleanliness in India",
+        "link0Title": "تأثير الطقس على نظافة الألواح الشمسية في الهند",
         "link0Href": "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india",
-        "link1Title": "Solar panel cleaning across regions of India",
+        "link1Title": "تنظيف الألواح الشمسية عبر مناطق الهند",
         "link1Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india",
-        "link2Title": "How often to clean solar panels in India",
+        "link2Title": "كم مرة يجب تنظيف الألواح الشمسية في الهند",
         "link2Href": "/blog/how-often-should-you-clean-your-solar-panels-in-india"
       },
       "faq": {
-        "q0": "Does Taypro deploy robots in Tamil Nadu?",
-        "a0": "Yes. Taypro has live Tamil Nadu utility deployments at Nayveli and Chennai. Contact Taypro with your plant MW and layout for a proposal.",
-        "q1": "Can Taypro robots handle Tamil Nadu humidity?",
-        "a1": "Taypro hardware is TÜV NORD certified for damp-heat and dry-heat conditions — designed for monsoon and post-monsoon cycles in coastal-influenced climates.",
-        "q2": "GLYDE automatic vs NYUMA semi-automatic in TN?",
-        "a2": "Repeatable rows suit GLYDE with NECTYR (Nayveli reference); irregular tables or phased rollout may use NYUMA portables with inspection protocols (Chennai reference).",
-        "q3": "How is robot price determined for Tamil Nadu plants?",
-        "a3": "CAPEX scales with MW, layout, and automation level. See the India price guide and ROI calculator; formal quotes require layout review.",
-        "q4": "Does Taypro offer Opex in Tamil Nadu?",
-        "a4": "Yes. Taypro Opex is available for pay-per-panel-cleaned service with Taypro operating the fleet and reporting through NECTYR or agreed inspection logs.",
-        "q5": "How should TN plants handle monsoon holds?",
-        "a5": "After effective rain, robots often stand down to avoid redundant passes; NECTYR logs weather holds separately from fleet faults. Post-monsoon weeks re-walk paths after vegetation or civil works.",
-        "q6": "Why waterless cleaning on coastal TN sites?",
-        "a6": "Dry robotic cleaning avoids wet-wash water logistics and reduces module risk from improper washing while enabling more frequent cycles than manual crews alone.",
-        "q7": "Can TN owners benchmark Karnataka peers?",
-        "a7": "Yes. Yadgir and KMF in neighbouring Karnataka provide larger-nameplate southern proof for mixed and automatic-first fleets — useful alongside Nayveli and Chennai for RFQ benchmarking."
+        "q0": "هل تنشر Taypro روبوتات في Tamil Nadu؟",
+        "a0": "نعم. لدى Taypro عمليات قائمة في محطات Tamil Nadu في Nayveli و Chennai. تواصل مع Taypro بخصوص قدرة المحطة (MW) والمخطط للحصول على عرض.",
+        "q1": "هل يمكن لروبوتات Taypro التعامل مع رطوبة Tamil Nadu؟",
+        "a1": "أجهزة Taypro حاصلة على شهادة TÜV NORD للعمل في ظروف الحرارة والرطوبة والجفاف — وهي مصممة لدورات الرياح الموسمية وما بعدها في المناخات الساحلية.",
+        "q2": "GLYDE الأوتوماتيكي مقابل NYUMA شبه الأوتوماتيكي في TN؟",
+        "a2": "الصفوف المتكررة تناسب GLYDE مع NECTYR (مرجع Nayveli)؛ بينما الجداول غير المنتظمة أو الطرح المرحلي قد يستخدم روبوتات NYUMA المحمولة مع بروتوكولات الفحص (مرجع Chennai).",
+        "q3": "كيف يتم تحديد سعر الروبوت لمحطات Tamil Nadu؟",
+        "a3": "يتناسب CAPEX مع MW وتصميم الموقع ومستوى الأتمتة. راجع دليل أسعار الهند وحاسبة ROI؛ تتطلب العروض الرسمية مراجعة المخططات.",
+        "q4": "هل تقدم Taypro خدمة Opex في Tamil Nadu؟",
+        "a4": "نعم. تتوفر خدمة Taypro Opex للعمل بنظام الدفع مقابل كل لوح، حيث تدير Taypro الأسطول وتقدم التقارير عبر NECTYR أو سجلات الفحص المتفق عليها.",
+        "q5": "كيف يجب أن تتعامل محطات TN مع فترات الرياح الموسمية؟",
+        "a5": "بعد الأمطار الغزيرة، تتوقف الروبوتات غالباً لتجنب التمريرات غير الضرورية؛ تسجل NECTYR حالات التوقف بسبب الطقس بشكل منفصل عن أعطال الأسطول. تعيد الأسابيع التالية للموسم فحص المسارات بعد أعمال الصيانة.",
+        "q6": "لماذا التنظيف الجاف في المواقع الساحلية في TN؟",
+        "a6": "يجنب التنظيف الآلي الجاف لوجستيات مياه الغسيل ويقلل مخاطر تلف الألواح الناتجة عن الغسيل غير السليم، مع تمكين دورات تنظيف أكثر تكراراً مما توفره الأطقم اليدوية.",
+        "q7": "هل يمكن لمالكي محطات TN قياس الأداء مع نظرائهم في Karnataka؟",
+        "a7": "نعم. توفر Yadgir و KMF في ولاية Karnataka المجاورة إثباتات لمشاريع أكبر باستخدام أساطيل مختلطة وأوتوماتيكية بالكامل — وهي مفيدة إلى جانب Nayveli و Chennai لعمليات المقارنة في طلبات العروض."
       }
     }
   }

@@ -14,6 +14,7 @@ const PROJECT_FILTER_SEGMENTS = new Set([
   "automatic",
   "semi-automatic",
   "capex",
+  "opex",
 ]);
 
 /**

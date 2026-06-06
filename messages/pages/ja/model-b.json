@@ -491,10 +491,11 @@
     },
     "modelCardsTitle": "さらにソリューションをお探しですか?",
     "roiBand": {
-      "title": "Semi-automatic cleaning robot cost & ROI",
-      "bodyBeforeSpan": "Estimate payback for a ",
-      "bodySpan": "semi-automatic solar panel cleaning robot",
-      "bodyAfterSpan": " on your plant before requesting a HELYX quote."
+      "title": "半自動清掃ロボットのコストとROI",
+      "bodyBeforeSpan": "HELYX見積依頼前に、",
+      "bodySpan": "半自動ソーラーパネル清掃ロボット",
+      "bodyAfterSpan": " の回収期間を発電所で試算してください。",
+      "breadcrumbRobots": "ソーラーパネル洗浄ロボット"
     },
     "common": {
       "breadcrumbHome": "ホーム"
@@ -506,6 +507,6 @@
   "Common": {
     "breadcrumbHome": "ホーム",
     "connectivitySummary": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN",
-    "breadcrumbRobots": "Solar Panel Cleaning Robots"
+    "breadcrumbRobots": "ソーラーパネル洗浄ロボット"
   }
 }

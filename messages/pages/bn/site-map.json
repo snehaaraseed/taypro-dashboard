@@ -19,15 +19,15 @@
       "sitemap": "সাইটম্যাপ"
     },
     "heading": "সাইটম্যাপ",
-    "intro": "Use this HTML sitemap to find every major Taypro page, solar panel cleaning robots, utility-scale project case studies, O&M guides, and company information. Links are grouped by content type so developers, EPC teams, and asset managers can reach the right section quickly.",
-    "introSecondary": "For search engines, our XML sitemap is also available at /sitemap.xml. This page is designed for human navigation and internal linking across the Taypro site.",
+    "intro": "এই HTML সাইটম্যাপ দিয়ে প্রতিটি প্রধান Taypro পেজ, সোলার প্যানেল পরিষ্কার রোবট, ইউটিলিটি-স্কেল প্রকল্পের কেস স্টাডি, O&M গাইড ও কোম্পানির তথ্য খুঁজুন। লিঙ্ক কন্টেন্ট ধরন অনুযায়ী গোষ্ঠীবদ্ধ — developer, EPC দল ও asset manager দ্রুত সঠিক বিভাগে পৌঁছাতে পারবেন।",
+    "introSecondary": "সার্চ ইঞ্জিনের জন্য XML sitemap /sitemap.xml-এ পাওয়া যায়। এই পেজ Taypro সাইটে মানব নেভিগেশন ও অভ্যন্তরীণ লিঙ্কিংয়ের জন্য তৈরি।",
     "sections": {
       "posts": "পোস্ট",
-      "postsIntro": "Energy resource articles and reference posts published on the Taypro blog and resource hub.",
+      "postsIntro": "Taypro ব্লগ ও রিসোর্স হাবে প্রকাশিত এনার্জি রিসোর্স নিবন্ধ ও রেফারেন্স পোস্ট।",
       "pages": "পেজ",
-      "pagesIntro": "Core marketing and product pages, including robot specifications, cleaning technology, ROI tools, legal policies, and contact.",
+      "pagesIntro": "মূল মার্কেটিং ও পণ্যের পেজ — রোবট স্পেসিফিকেশন, পরিষ্কার প্রযুক্তি, ROI টুল, আইনি নীতি ও যোগাযোগ সহ।",
       "portfolio": "পোর্টফোলিও",
-      "portfolioIntro": "Documented solar plant installations where Taypro robotic cleaning systems are deployed, browse case studies by project name."
+      "portfolioIntro": "Taypro রোবotic পরিষ্কার সিস্টেম মোতায়েনকৃত সোলার প্ল্যান্টের নথিভুক্ত ইনস্টলেশন — প্রকল্পের নামে কেস স্টাডি ব্রাউজ করুন।"
     },
     "posts": {
       "energyResourcesTitle": "শক্তি সম্পদ"
@@ -79,7 +79,33 @@
       "orionLabel": "ORION, প্ল্যান্ট ইন্টেলিজেন্স",
       "orionTitle": "ORION সোলার প্ল্যান্ট স্বাস্থ্য মনিটরিং প্ল্যাটফর্ম (শীঘ্রই)",
       "utilityOperationsLabel": "ইউটিলিটি সোলার অপারেশন",
-      "utilityOperationsTitle": "ইউটিলিটি-স্কেল সোলার অপারেশন ও সোলার প্যানেল পরিষ্কার রোবট"
+      "utilityOperationsTitle": "ইউটিলিটি-স্কেল সোলার অপারেশন ও সোলার প্যানেল পরিষ্কার রোবট",
+      "robotPriceGuideLabel": "সোলার প্যানেল পরিষ্কার রোবটের দাম (ভারত)",
+      "robotPriceGuideTitle": "ভারতের জন্য সোলার প্যানেল পরিষ্কার রোবট মূল্য গাইড",
+      "stateRajasthanLabel": "সোলার প্যানেল পরিষ্কার রোবট — Rajasthan",
+      "stateRajasthanTitle": "Rajasthan-এ সোলার প্যানেল পরিষ্কার রোবট",
+      "stateGujaratLabel": "সোলার প্যানেল পরিষ্কার রোবট — Gujarat",
+      "stateGujaratTitle": "Gujarat-এ সোলার প্যানেল পরিষ্কার রোবট",
+      "stateMadhyaPradeshLabel": "সোলার প্যানেল পরিষ্কার রোবট — Madhya Pradesh",
+      "stateMadhyaPradeshTitle": "Madhya Pradesh-এ সোলার প্যানেল পরিষ্কার রোবট",
+      "stateKarnatakaLabel": "সোলার প্যানেল পরিষ্কার রোবট — Karnataka",
+      "stateKarnatakaTitle": "Karnataka-এ সোলার প্যানেল পরিষ্কার রোবট",
+      "stateAndhraPradeshLabel": "সোলার প্যানেল পরিষ্কার রোবট — Andhra Pradesh",
+      "stateAndhraPradeshTitle": "Andhra Pradesh-এ সোলার প্যানেল পরিষ্কার রোবট",
+      "stateMaharashtraLabel": "সোলার প্যানেল পরিষ্কার রোবট — Maharashtra",
+      "stateMaharashtraTitle": "Maharashtra-এ সোলার প্যানেল পরিষ্কার রোবট",
+      "stateUttarPradeshLabel": "সোলার প্যানেল পরিষ্কার রোবট — Uttar Pradesh",
+      "stateUttarPradeshTitle": "Uttar Pradesh-এ সোলার প্যানেল পরিষ্কার রোবট",
+      "stateTamilNaduLabel": "সোলার প্যানেল পরিষ্কার রোবট — Tamil Nadu",
+      "stateTamilNaduTitle": "Tamil Nadu-এ সোলার প্যানেল পরিষ্কার রোবট",
+      "projectsAutomaticLabel": "স্বয়ংক্রিয় পরিষ্কার প্রকল্প",
+      "projectsAutomaticTitle": "স্বয়ংক্রিয় সোলার পরিষ্কার রোবট প্রকল্প",
+      "projectsSemiAutomaticLabel": "অর্ধ-স্বয়ংক্রিয় পরিষ্কার প্রকল্প",
+      "projectsSemiAutomaticTitle": "অর্ধ-স্বয়ংক্রিয় সোলার পরিষ্কার রোবট প্রকল্প",
+      "projectsCapexLabel": "CAPEX রোবট প্রকল্প",
+      "projectsCapexTitle": "CAPEX সোলার পরিষ্কার রোবট প্রকল্প",
+      "projectsOpexLabel": "Opex পরিষ্কার সেবা প্রকল্প",
+      "projectsOpexTitle": "Taypro Opex সোলার পরিষ্কার রোবট প্রকল্প"
     }
   },
   "Common": {

@@ -265,7 +265,7 @@
     },
     "misc": {
       "modelCardsTitle": "さらにソリューションをお探しですか?",
-      "callbackLine1": "Schedule Online Demo For Single-Axis Tracker",
+      "callbackLine1": "単軸トラッカー向けオンラインデモを予約",
       "callbackLine2": "ソーラーパネル清掃ロボット",
       "faqTitle": "よくある質問",
       "faqSubtitle": "単軸トラッカー設置用の Taypro GLYDE-X ソーラー パネル クリーニング ロボットに関するよくある質問。"
@@ -508,10 +508,11 @@
     },
     "modelCardsTitle": "さらにソリューションをお探しですか?",
     "roiBand": {
-      "title": "Tracker cleaning robot cost & ROI",
-      "bodyBeforeSpan": "Model ",
-      "bodySpan": "single-axis tracker solar panel cleaning",
-      "bodyAfterSpan": " economics for your site, use the calculator before a GLYDE-X quote."
+      "title": "トラッカー清掃ロボットのコストとROI",
+      "bodyBeforeSpan": "サイトの",
+      "bodySpan": "単軸トラッカー・ソーラーパネル清掃",
+      "bodyAfterSpan": "の経済性を試算するには、GLYDE-X見積前に計算機をご利用ください。",
+      "callbackLine1": "単軸トラッカー向けオンラインデモを予約"
     },
     "common": {
       "breadcrumbHome": "ホーム"

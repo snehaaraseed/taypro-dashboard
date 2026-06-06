@@ -15,12 +15,7 @@ const scripts = {
   bn: /[\u0980-\u09FF]/,
 };
 
-const SKIP_PAGES = new Set([
-  "blog.json",
-  "authors.json",
-  "projects.json",
-  "projects-filter.json",
-]);
+const SKIP_PAGES = new Set([]);
 
 const INTENTIONAL_EN = [
   /^https?:\/\//i,

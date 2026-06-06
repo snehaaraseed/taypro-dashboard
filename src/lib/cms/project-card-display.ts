@@ -1,4 +1,8 @@
-import { canonicalCategoryLabel } from "@/lib/cms/project-categories";
+import {
+  CANONICAL_CATEGORY_LABELS,
+  canonicalCategoryLabel,
+  listMatchedCategories,
+} from "@/lib/cms/project-categories";
 
 export type ProjectGridItem = {
   id: string;
@@ -148,18 +152,15 @@ export function projectCardCategoryEyebrow(details: string[] | undefined): strin
     if (category) return category;
   }
 
-  const joined = (details ?? []).join(" ").toLowerCase();
-  const autoCountMatch = joined.match(/(\d+)\s*auto\s*robots?/);
-  const semiCountMatch = joined.match(
-    /(\d+)\s*semi[-\s]?auto(?:matic)?\s*robots?/
-  );
-  const autoCount = autoCountMatch ? Number(autoCountMatch[1]) : 0;
-  const semiCount = semiCountMatch ? Number(semiCountMatch[1]) : 0;
+  const matched = listMatchedCategories(details ?? []);
+  const hasAutomatic = matched.includes("automatic");
+  const hasSemiAutomatic = matched.includes("semiAutomatic");
 
-  if (autoCount > 0 && semiCount > 0) return "Mixed deployment";
-  if (semiCount > 0) return "Semi-Automatic";
-  if (autoCount > 0) return "Automatic";
-  if (/\bcapex\b/.test(joined)) return "Capex";
+  if (hasAutomatic && hasSemiAutomatic) return "Mixed deployment";
+  if (hasSemiAutomatic) return CANONICAL_CATEGORY_LABELS.semiAutomatic;
+  if (hasAutomatic) return CANONICAL_CATEGORY_LABELS.automatic;
+  if (matched.includes("opex")) return CANONICAL_CATEGORY_LABELS.opex;
+  if (matched.includes("capex")) return CANONICAL_CATEGORY_LABELS.capex;
 
   return null;
 }

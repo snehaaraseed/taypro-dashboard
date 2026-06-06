@@ -15,7 +15,8 @@ import {
 
 const root = join(import.meta.dirname, "..");
 const locales = ["hi", "ar", "ja", "bn"];
-const SKIP = new Set(["blog.json", "authors.json", "projects.json"]);
+/** Hub/listing shells live in JSON; CMS post bodies use DB locale rows. */
+const SKIP = new Set([]);
 
 const SHARED_BY_SLUG = {
   "model-a": "ModelAPage",

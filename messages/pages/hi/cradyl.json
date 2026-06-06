@@ -1,464 +1,559 @@
 {
   "CradylPage": {
     "meta": {
-      "title": "Solar Panel Cleaning Robot Row-Transfer Docking Station, Taypro CRADYL",
-      "description": "Taypro CRADYL is a battery-powered movable docking station for utility-scale solar plants in India. Autonomous row-to-row transfer on end-mounted rail tracks lets one cleaning robot service multiple rows on scattered plants. IP65, solar-charged, cloud-connected.",
-      "openGraphTitle": "CRADYL Row-Transfer Docking for Solar Cleaning Robots | Taypro India",
-      "openGraphDescription": "Launched movable docking station: autonomous robot transfer between rows, rail-based travel, solar-charged lithium battery, LTE/Wi-Fi fleet integration with NECTYR.",
-      "openGraphImageAlt": "Taypro CRADYL row-transfer docking station on rail tracks at a utility-scale solar plant in India",
-      "twitterTitle": "CRADYL Solar Robot Docking Station | Taypro",
-      "twitterDescription": "Movable docking station for autonomous row-to-row solar cleaning robot transfer. Built for scattered utility plants in India.",
+      "title": "CRADYL, स्वायत्त पंक्ति-ट्रांसफ़र डॉकिंग स्टेशन | Taypro",
+      "description": "CRADYL Taypro का बैटरी-संचालित चलने योग्य डॉकिंग स्टेशन है जो रेल ट्रैक पर सोलर सफाई रोबोट को पंक्तियों के बीच स्वायत्त स्थानांतरित करता है।",
+      "openGraphTitle": "CRADYL, सोलर सफाई रोबोट के लिए पंक्ति-ट्रांसफ़र डॉकिंग | Taypro",
+      "openGraphDescription": "लॉन्च: रेल ट्रैक पर स्वायत्त पंक्ति-से-पंक्ति रोबोट ट्रांसफ़र, सोलर-चार्ज, IP65, क्लाउड-कनेक्टेड।",
+      "openGraphImageAlt": "यूटिलिटी सोलर प्लांट पर Taypro CRADYL डॉकिंग स्टेशन",
+      "twitterTitle": "CRADYL पंक्ति-ट्रांसफ़र डॉकिंग | Taypro",
+      "twitterDescription": "बिखरे सोलर प्लांटों पर स्वायत्त रोबोट पंक्ति ट्रांसफ़र के लिए चलने योग्य डॉकिंग स्टेशन।",
       "keywords": [
-        "solar panel cleaning robot docking station",
-        "row transfer solar cleaning robot",
-        "movable docking station solar robot",
-        "autonomous solar robot transfer",
-        "scattered solar plant cleaning robot",
-        "utility scale solar cleaning robot India",
-        "solar robot row transfer India",
+        "सोलर पैनल सफाई रोबोट डॉकिंग स्टेशन",
+        "पंक्ति ट्रांसफ़र सोलर सफाई रोबोट",
+        "चलने योग्य डॉकिंग स्टेशन सोलर रोबोट",
+        "स्वायत्त सोलर रोबोट ट्रांसफ़र",
+        "बिखरे सोलर प्लांट सफाई रोबोट",
+        "यूटिलिटी स्केल सोलर सफाई रोबोट भारत",
+        "सोलर रोबोट पंक्ति ट्रांसफ़र भारत",
         "Taypro CRADYL",
-        "Taypro CRADYL movable docking station",
-        "multi-row solar panel cleaning",
-        "solar cleaning robot manufacturer India",
-        "rail mounted solar robot docking"
+        "Taypro CRADYL चलने योग्य डॉकिंग स्टेशन",
+        "बहु-पंक्ति सोलर पैनल सफाई",
+        "सोलर सफाई रोबोट निर्माता भारत",
+        "रेल माउंटेड सोलर रोबोट डॉकिंग"
       ]
     },
     "breadcrumbs": {
-      "robots": "Solar Panel Cleaning Robots",
-      "current": "CRADYL Row-Transfer Docking"
+      "robots": "सोलर पैनल सफाई रोबोट",
+      "current": "CRADYL, पंक्ति-ट्रांसफ़र डॉकिंग"
     },
     "schema": {
-      "productName": "CRADYL, Autonomous Row-Transfer Docking Station for Solar Cleaning Robots",
-      "productDescription": "Taypro CRADYL is a battery-powered movable docking station that autonomously transfers solar panel cleaning robots between rows on end-mounted rail tracks, enabling multi-row coverage with a single robot on scattered Indian utility-scale plants.",
-      "offersPrice": "Contact for pricing",
-      "howToName": "How to transfer a solar cleaning robot between rows with Taypro CRADYL",
-      "howToDescription": "Step-by-step autonomous row transfer using the Taypro CRADYL movable docking station on end-row railing tracks, from robot return and docking through rail navigation, alignment, and redeployment on the next row."
+      "productName": "CRADYL, स्वायत्त पंक्ति-ट्रांसफ़र डॉकिंग स्टेशन",
+      "productDescription": "CRADYL एक चलने योग्य डॉकिंग स्टेशन है जो सोलर पैनल सफाई रोबोट को एक पंक्ति से दूसरी में स्वायत्त रूप से ले जाता है, बिखरे प्लांटों पर एक रोबोट से बहु-पंक्ति सफाई सक्षम करता है।",
+      "offersPrice": "कोट के लिए संपर्क करें",
+      "howToName": "Taypro CRADYL से सोलर क्लीनिंग रोबोट को पंक्तियों के बीच कैसे स्थानांतरित करें",
+      "howToDescription": "एंड-रो रेलिंग ट्रैक्स पर Taypro CRADYL मूवेबल डॉकिंग स्टेशन का उपयोग करके चरणबद्ध स्वायत्त पंक्ति ट्रांसफर, रोबोट वापसी और डॉकिंग से रेल नेविगेशन, संरेखण और अगली पंक्ति पर पुनः तैनाती तक।"
     },
     "hero": {
-      "launchedBadge": "Available now",
-      "title": "Solar Panel Cleaning Robot Row-Transfer Docking, CRADYL",
-      "subtitleBefore": "Taypro's battery-powered ",
-      "subtitleStrong": "movable docking station",
-      "subtitleAfter": " autonomously carries your solar cleaning robot from one row to the next on end-mounted rail tracks, so ",
-      "subtitleStrong2": "one robot can clean multiple rows",
-      "subtitleAfter2": " across scattered, non-contiguous utility-scale plants in India.",
-      "imgAlt": "Taypro CRADYL movable docking station on end-row rail tracks at a utility-scale solar plant",
-      "ctaText": "Request a quote"
+      "launchedBadge": "अभी उपलब्ध",
+      "title": "CRADYL, स्वायत्त पंक्ति-ट्रांसफ़र डॉकिंग",
+      "subtitleBefore": "Taypro का बैटरी-संचालित ",
+      "subtitleStrong": "मूवेबल डॉकिंग स्टेशन",
+      "subtitleAfter": " एंड-माउंटेड रेल ट्रैक्स पर आपके सोलर सफाई रोबोट को एक पंक्ति से दूसरी में स्वायत्त रूप से ले जाता है, ताकि ",
+      "subtitleStrong2": "एक रोबोट कई पंक्तियाँ साफ कर सके",
+      "subtitleAfter2": " भारत के बिखरे, गैर-सतत यूटिलिटी-स्केल प्लांटों में।",
+      "imgAlt": "यूटिलिटी सोलर प्लांट पर रेल ट्रैक पर Taypro CRADYL",
+      "ctaText": "कोट का अनुरोध करें",
+      "subtitle": "एक चलने योग्य डॉकिंग स्टेशन जो आपके सोलर पैनल सफाई रोबोट को एक पंक्ति से दूसरी में स्वायत्त रूप से ले जाता है, ताकि एक रोबोट बिखरे, गैर-सतत प्लांट लेआउट में कई पंक्तियाँ साफ कर सके।"
     },
     "overview": {
-      "eyebrow": "Row-transfer docking for scattered solar plants",
-      "title": "What is Taypro CRADYL?",
-      "p1Before": "Taypro CRADYL is an ",
-      "p1Strong": "autonomous mobility platform for solar panel cleaning robots",
-      "p1AfterStrong": ". It is installed on dedicated railing tracks at the end of solar panel rows and transfers a cleaning robot from one row to another without manual lift-and-shift, unlocking multi-row coverage with a single robot where buying one robot per block is not economical.",
-      "p2Before": "The docking station uses ",
-      "p2RailStrong": "rail-based linear travel",
-      "p2Mid": " along precision-aligned end-row tracks supported by RCC or ballast foundations. An integrated ",
-      "p2SolarStrong": "solar panel charges the lithium-ion battery",
-      "p2After": ", supporting continuous daily operations under standard daylight. ",
-      "p2SensorStrong": "Sensor-guided positioning",
-      "p2AfterSensor": " aligns CRADYL precisely with each target row before secure pick-up and drop-off of the cleaning robot.",
-      "p3Before": "CRADYL is ",
-      "p3LaunchedStrong": "shipping today across India",
-      "p3Mid": " and integrates with Taypro cleaning robots including ",
-      "linkHelyx": "HELYX semi-automatic robots",
+      "eyebrow": "बिखरे सोलर प्लांटों के लिए पंक्ति-ट्रांसफर डॉकिंग",
+      "title": "Taypro CRADYL क्या है?",
+      "p1Before": "Taypro CRADYL एक ",
+      "p1Strong": "सोलर पैनल सफाई रोबोट के लिए स्वायत्त मोबिलिटी प्लेटफ़ॉर्म",
+      "p1AfterStrong": " है। यह सोलर पैनल पंक्तियों के अंत में समर्पित रेलिंग ट्रैक्स पर स्थापित होता है और मैनुअल लिफ्ट-एंड-शिफ्ट के बिना सफाई रोबोट को एक पंक्ति से दूसरी में स्थानांतरित करता है, जहाँ प्रति ब्लॉक एक रोबोट खरीदना आर्थिक नहीं है वहाँ एक रोबोट से बहु-पंक्ति कवरेज सक्षम करता है।",
+      "p2Before": "डॉकिंग स्टेशन ",
+      "p2RailStrong": "रेल-आधारित रैखिक यात्रा",
+      "p2Mid": " का उपयोग करता है, जो RCC या बैलास्ट फाउंडेशन पर समर्थित सटीक-संरेखित एंड-रो ट्रैक्स के साथ। एकीकृत ",
+      "p2SolarStrong": "सोलर पैनल लिथियम-आयन बैटरी को चार्ज करता है",
+      "p2After": ", मानक दिन के प्रकाश में निरंतर दैनिक संचालन का समर्थन करता है। ",
+      "p2SensorStrong": "सेंसर-निर्देशित पोजिशनिंग",
+      "p2AfterSensor": " सफाई रोबोट के सुरक्षित पिक-अप और ड्रॉप-ऑफ से पहले CRADYL को प्रत्येक लक्ष्य पंक्ति के साथ सटीक रूप से संरेखित करती है।",
+      "p3Before": "CRADYL ",
+      "p3LaunchedStrong": "आज पूरे भारत में शिप हो रहा है",
+      "p3Mid": " और Taypro सफाई रोबोट के साथ एकीकृत है, जिनमें ",
+      "linkHelyx": "HELYX अर्ध-स्वचालित रोबोट",
       "p3Between": ", ",
-      "linkGlyde": "GLYDE automatic robots",
-      "p3After": ", and compatible Model-A fleets. Movement, charge level, and sensor data are visible in the ",
+      "linkGlyde": "GLYDE स्वचालित रोबोट",
+      "p3After": ", और संगत GLYDE फ्लीट शामिल हैं। गति, चार्ज स्तर और सेंसर डेटा ",
       "linkConsole": "NECTYR",
-      "p3Suffix": " cloud portal alongside your existing robot schedules.",
-      "p4Prefix": "Explore the full ",
-      "linkHub": "Taypro robot lineup",
-      "p4Mid": " or read about ",
-      "linkBlogMethods": "solar panel cleaning methods",
-      "p4Suffix": " on the Taypro blog."
+      "p3Suffix": " क्लाउड पोर्टल में आपके मौजूदा रोबोट शेड्यूल के साथ दिखाई देते हैं।",
+      "p4Prefix": "पूरा ",
+      "linkHub": "Taypro रोबोट लाइनअप",
+      "p4Mid": " देखें या Taypro ब्लॉग पर ",
+      "linkBlogMethods": "सोलर पैनल सफाई विधियों",
+      "p4Suffix": " के बारे में पढ़ें।"
     },
     "gallery": {
-      "eyebrow": "Field deployment",
-      "title": "CRADYL on live utility-scale plants",
-      "subtitle": "End-row rail installation with no modifications to solar modules, quick modular setup once columns and railing are aligned.",
-      "aerialAlt": "Aerial view of Taypro CRADYL docking station integrated on solar panel rows",
-      "caption": "CRADYL on end-row rail tracks."
+      "eyebrow": "फील्ड तैनाती",
+      "title": "लाइव यूटिलिटी-स्केल प्लांटों पर CRADYL",
+      "subtitle": "सोलर मॉड्यूल में कोई संशोधन नहीं, एंड-रो रेल स्थापना, कॉलम और रेलिंग संरेखित होने के बाद त्वरित मॉड्यूलर सेटअप।",
+      "aerialAlt": "सोलर पैनल पंक्तियों पर एकीकृत Taypro CRADYL डॉकिंग स्टेशन का हवाई दृश्य",
+      "caption": "एंड-रो रेल ट्रैक्स पर CRADYL।"
     },
     "howItWorks": {
-      "eyebrow": "Step-by-step row transfer",
-      "title": "How does CRADYL transfer a cleaning robot between rows?",
-      "subtitle": "Once railing is installed and aligned at row ends, CRADYL automates the full pick-up, transit, alignment, and redeployment cycle with no panel modifications required."
+      "eyebrow": "चरणबद्ध पंक्ति ट्रांसफर",
+      "title": "CRADYL सफाई रोबोट को पंक्तियों के बीच कैसे स्थानांतरित करता है?",
+      "subtitle": "पंक्ति के अंत में रेलिंग स्थापित और संरेखित होने के बाद, CRADYL पूर्ण पिक-अप, ट्रांज़िट, संरेखण और पुनः तैनाती चक्र को स्वचालित करता है, बिना पैनल संशोधन के।"
     },
     "steps": {
       "0": {
-        "name": "Robot completes cleaning and returns to CRADYL",
-        "text": "When a solar row cleaning cycle finishes, the Taypro cleaning robot returns to the CRADYL docking station at the end of the row and drives into the cradle for secure locking before transit."
+        "name": "रोबोट सफाई पूरी करके CRADYL पर लौटता है",
+        "text": "जब सोलर पंक्ति सफाई चक्र समाप्त होता है, Taypro सफाई रोबोट पंक्ति के अंत में CRADYL डॉकिंग स्टेशन पर लौटता है और ट्रांज़िट से पहले सुरक्षित लॉकिंग के लिए क्रेडल में प्रवेश करता है।"
       },
       "1": {
-        "name": "Docking and locking for transit",
-        "text": "CRADYL secures the robot in the docking cradle with sensor-verified locking, protecting the unit during rail travel and in high-wind conditions when stationary."
+        "name": "ट्रांज़िट के लिए डॉकिंग और लॉकिंग",
+        "text": "CRADYL सेंसर-सत्यापित लॉकिंग के साथ रोबोट को डॉकिंग क्रेडल में सुरक्षित करता है, रेल यात्रा और स्थिर अवस्था में तेज़ हवा की स्थिति में यूनिट की सुरक्षा करता है।"
       },
       "2": {
-        "name": "Rail navigation to the next row",
-        "text": "The self-propelled platform travels along end-row railing tracks at up to 5 metres per minute to the next designated row, with edge-detection sensors preventing derailment."
+        "name": "अगली पंक्ति तक रेल नेविगेशन",
+        "text": "स्व-चालित प्लेटफ़ॉर्म एंड-रो रेलिंग ट्रैक्स पर प्रति मिनट 5 मीटर तक की गति से अगली निर्धारित पंक्ति तक यात्रा करता है, एज-डिटेक्शन सेंसर डेरेलमेंट रोकते हैं।"
       },
       "3": {
-        "name": "Sensor-guided alignment with the target row",
-        "text": "Integrated sensors stop CRADYL precisely aligned with the new row endpoints so the cleaning robot can deploy onto the correct module line without operator adjustment."
+        "name": "लक्ष्य पंक्ति के साथ सेंसर-निर्देशित संरेखण",
+        "text": "एकीकृत सेंसर CRADYL को नई पंक्ति के एंडपॉइंट के साथ सटीक संरेखित होने पर रोकते हैं ताकि सफाई रोबोट ऑपरेटर समायोजन के बिना सही मॉड्यूल लाइन पर तैनात हो सके।"
       },
       "4": {
-        "name": "Undocking and redeployment on the new row",
-        "text": "The robot is released from the cradle to continue its waterless cleaning cycle on the new row while CRADYL waits for the next transfer or returns per your fleet schedule."
+        "name": "नई पंक्ति पर अनडॉकिंग और पुनः तैनाती",
+        "text": "रोबोट क्रेडल से मुक्त होकर नई पंक्ति पर अपना वॉटरलेस सफाई चक्र जारी रखता है, जबकि CRADYL अगले ट्रांसफर की प्रतीक्षा करता है या आपके फ्लीट शेड्यूल के अनुसार लौटता है।"
       },
       "5": {
-        "name": "Cloud scheduling and fleet visibility",
-        "text": "Movement, position, charge level, and fault diagnostics are scheduled and monitored through the remote portal with LTE and Wi-Fi connectivity, repeating per your plant cleaning programme."
+        "name": "क्लाउड शेड्यूलिंग और फ्लीट दृश्यता",
+        "text": "गति, स्थिति, चार्ज स्तर और फॉल्ट डायग्नोस्टिक्स LTE और Wi-Fi कनेक्टिविटी के साथ रिमोट पोर्टल के माध्यम से शेड्यूल और मॉनिटर किए जाते हैं, आपके प्लांट सफाई कार्यक्रम के अनुसार दोहराए जाते हैं।"
       }
     },
     "cycleSection": {
-      "eyebrow": "Operating cycle",
-      "title": "How a row transfer works"
+      "eyebrow": "संचालन चक्र",
+      "title": "पंक्ति ट्रांसफर कैसे काम करता है"
     },
     "cycle": {
-      "0": "When a row is cleaned, the robot returns to CRADYL and locks into the cradle for transit.",
-      "1": "CRADYL travels along the end-row railing to the next designated row.",
-      "2": "Sensor-guided positioning stops precisely aligned with the target row.",
-      "3": "The robot is released to continue cleaning on the new row.",
-      "4": "Movement and schedules repeat per your cleaning cycles via the cloud portal."
+      "0": "जब पंक्ति साफ हो जाती है, रोबोट CRADYL पर लौटता है और ट्रांज़िट के लिए क्रेडल में लॉक हो जाता है।",
+      "1": "CRADYL एंड-रो रेलिंग के साथ अगली निर्धारित पंक्ति तक यात्रा करता है।",
+      "2": "सेंसर-निर्देशित पोजिशनिंग लक्ष्य पंक्ति के साथ सटीक संरेखित होकर रुकती है।",
+      "3": "रोबोट मुक्त होकर नई पंक्ति पर सफाई जारी रखता है।",
+      "4": "क्लाउड पोर्टल के माध्यम से आपके सफाई चक्रों के अनुसार गति और शेड्यूल दोहराए जाते हैं।"
     },
     "uspSection": {
-      "eyebrow": "Why operators choose CRADYL",
-      "title": "Engineered for scattered-plant robot economics"
+      "eyebrow": "ऑपरेटर CRADYL क्यों चुनते हैं",
+      "title": "बिखरे-प्लांट रोबोट अर्थशास्त्र के लिए इंजीनियर किया गया"
     },
     "usps": {
       "0": {
-        "title": "Autonomous Row-to-Row Transfer",
-        "description": "Eliminates manual lift-and-shift between arrays, cutting labour hours and transfer downtime on multi-block Indian utility plants."
+        "title": "स्वायत्त पंक्ति-से-पंक्ति ट्रांसफर",
+        "description": "एरे के बीच मैनुअल लिफ्ट-एंड-शिफ्ट समाप्त करता है, बहु-ब्लॉक भारतीय यूटिलिटी प्लांटों पर श्रम घंटे और ट्रांसफर डाउनटाइम कम करता है।"
       },
       "1": {
-        "title": "Single Robot, Multiple Rows",
-        "description": "Stretch one cleaning robot across more rows per shift where capex for a robot per contiguous block is not justified."
+        "title": "एक रोबोट, कई पंक्तियाँ",
+        "description": "जहाँ प्रति सतत ब्लॉक रोबोट CAPEX उचित नहीं, एक शिफ्ट में एक सफाई रोबोट को अधिक पंक्तियों तक फैलाएँ।"
       },
       "2": {
-        "title": "End-Row Rail Travel",
-        "description": "Precision-aligned railing at row ends, no modifications to solar panels, modular installation on RCC or ballast foundations."
+        "title": "एंड-रो रेल यात्रा",
+        "description": "पंक्ति के अंत में सटीक-संरेखित रेलिंग, सोलर पैनल में कोई संशोधन नहीं, RCC या बैलास्ट फाउंडेशन पर मॉड्यूलर स्थापना।"
       },
       "3": {
-        "title": "Solar-Charged Battery Power",
-        "description": "Dedicated onboard solar panel charges the lithium-ion pack for self-sustaining daily operations under standard daylight."
+        "title": "सोलर-चार्ज्ड बैटरी पावर",
+        "description": "समर्पित ऑनबोर्ड सोलर पैनल मानक दिन के प्रकाश में स्व-पोषित दैनिक संचालन के लिए लिथियम-आयन पैक चार्ज करता है।"
       },
       "4": {
-        "title": "Sensor-Guided Docking",
-        "description": "Integrated sensors align pick-up and drop-off precisely with each row for secure robot transfer and redeployment."
+        "title": "सेंसर-निर्देशित डॉकिंग",
+        "description": "एकीकृत सेंसर सुरक्षित रोबोट ट्रांसफर और पुनः तैनाती के लिए प्रत्येक पंक्ति के साथ पिक-अप और ड्रॉप-ऑफ को सटीक संरेखित करते हैं।"
       },
       "5": {
-        "title": "High Wind Resistance",
-        "description": "Designed to hold and operate robots when docked in wind zones up to 180 km/h, and travel safely up to 40 km/h in motion."
+        "title": "उच्च हवा प्रतिरोध",
+        "description": "180 km/h तक की हवा क्षेत्रों में डॉक होने पर रोबोट को धारण और संचालित करने के लिए डिज़ाइन, गति में 40 km/h तक सुरक्षित यात्रा।"
       },
       "6": {
-        "title": "Cloud-Connected Fleet Ops",
-        "description": "LTE and Wi-Fi integration with NECTYR for movement scheduling, position tracking, charge visibility, and maintenance alerts."
+        "title": "क्लाउड-कनेक्टेड फ्लीट संचालन",
+        "description": "NECTYR के साथ LTE और Wi-Fi इंटीग्रेशन, गति शेड्यूलिंग, स्थिति ट्रैकिंग, चार्ज दृश्यता और रखरखाव अलर्ट के लिए।"
       },
       "7": {
-        "title": "IP65 Weather Protection",
-        "description": "Critical systems enclosed for dust, moisture, and harsh field conditions on Indian utility-scale sites up to 90°C operating temperature."
+        "title": "IP65 मौसम सुरक्षा",
+        "description": "90°C संचालन तापमान तक भारतीय यूटिलिटी-स्केल साइटों पर धूल, नमी और कठोर फील्ड स्थितियों के लिए महत्वपूर्ण सिस्टम संलग्न।"
       }
     },
     "featuresSection": {
-      "eyebrow": "Platform capabilities",
-      "title": "Inside the CRADYL movable docking station",
-      "subtitle": "Every subsystem, from rail drive to docking cradle to cloud telemetry, is built for reliable autonomous transfers on real-world scattered solar portfolios."
+      "eyebrow": "प्लेटफ़ॉर्म क्षमताएँ",
+      "title": "CRADYL मूवेबल डॉकिंग स्टेशन के अंदर",
+      "subtitle": "रेल ड्राइव से डॉकिंग क्रेडल से क्लाउड टेलीमेट्री तक, प्रत्येक सबसिस्टम वास्तविक बिखरे सोलर पोर्टफोलियो पर विश्वसनीय स्वायत्त ट्रांसफर के लिए निर्मित है।"
     },
     "features": {
       "0": {
-        "title": "Rail-Based Linear Mobility",
-        "body": "CRADYL travels on dedicated end-row railing tracks mounted on rigid ground columns, ensuring smooth, level transit between rows without crossing roads, drains, or buffer land that block continuous robot paths."
+        "title": "रेल-आधारित रैखिक मोबिलिटी",
+        "body": "CRADYL कठोर ग्राउंड कॉलम पर माउंटेड समर्पित एंड-रो रेलिंग ट्रैक्स पर यात्रा करता है, सड़क, नाली या बफ़र भूमि पार किए बिना पंक्तियों के बीच सुचारु, समतल ट्रांज़िट सुनिश्चित करता है जो निरंतर रोबोट पथ अवरुद्ध करते हैं।"
       },
       "1": {
-        "title": "Secure Robot Pick-Up and Drop-Off",
-        "body": "Automated docking and undocking with secure locking holds Taypro cleaning robots during transfer, reducing fall risk and protecting modules and equipment compared with ad-hoc manual moves."
+        "title": "सुरक्षित रोबोट पिक-अप और ड्रॉप-ऑफ",
+        "body": "सुरक्षित लॉकिंग के साथ स्वचालित डॉकिंग और अनडॉकिंग ट्रांसफर के दौरान Taypro सफाई रोबोट को धारण करती है, तदर्थ मैनुअल स्थानांतरण की तुलना में गिरने का जोखिम कम और मॉड्यूल व उपकरण की सुरक्षा।"
       },
       "2": {
-        "title": "Remote Monitoring and Control",
-        "body": "Fully integrated with Taypro's remote monitoring platform: schedule movements, track position, review sensor data and battery charge in the cloud portal alongside existing robot cleaning cycles."
+        "title": "रिमोट मॉनिटरिंग और नियंत्रण",
+        "body": "Taypro के रिमोट मॉनिटरिंग प्लेटफ़ॉर्म के साथ पूर्ण एकीकृत: गति शेड्यूल करें, स्थिति ट्रैक करें, मौजूदा रोबोट सफाई चक्रों के साथ क्लाउड पोर्टल में सेंसर डेटा और बैटरी चार्ज देखें।"
       },
       "3": {
-        "title": "Modular Site Installation",
-        "body": "No changes to solar panels themselves. After columns and railing are installed and aligned, the CRADYL unit is placed on the track and connected to the robot control system for rapid deployment."
+        "title": "मॉड्यूलर साइट स्थापना",
+        "body": "सोलर पैनल में कोई बदलाव नहीं। कॉलम और रेलिंग स्थापित और संरेखित होने के बाद, CRADYL यूनिट ट्रैक पर रखी जाती है और त्वरित तैनाती के लिए रोबोट नियंत्रण सिस्टम से जुड़ी जाती है।"
       },
       "4": {
-        "title": "Anti-Derailment Safety",
-        "body": "Edge-detection sensors prevent derailment during rail travel. Enclosed drive and control systems protect against dust ingress and environmental exposure in desert and coastal Indian conditions."
+        "title": "एंटी-डेरेलमेंट सुरक्षा",
+        "body": "एज-डिटेक्शन सेंसर रेल यात्रा के दौरान डेरेलमेंट रोकते हैं। संलग्न ड्राइव और नियंत्रण सिस्टम रेगिस्तानी और तटीय भारतीय स्थितियों में धूल प्रवेश और पर्यावरणीय जोखिम से बचाते हैं।"
       },
       "5": {
-        "title": "Scheduled Preventive Maintenance",
-        "body": "Maintenance activities are performed on a scheduled basis to eliminate breakdowns and sustain operational life, with fault diagnostics and alerts routed through the cloud system."
+        "title": "निर्धारित निवारक रखरखाव",
+        "body": "रखरखाव गतिविधियाँ निर्धारित आधार पर की जाती हैं ताकि ब्रेकडाउन समाप्त हों और परिचालन जीवन बना रहे, फॉल्ट डायग्नोस्टिक्स और अलर्ट क्लाउड सिस्टम के माध्यम से भेजे जाते हैं।"
       },
       "6": {
-        "title": "Broad Robot Compatibility",
-        "body": "Docking compatibility with Taypro Model-A and other Taypro cleaning robots in the field, including natural pairing with HELYX pick-and-place fleets and GLYDE autonomous rows."
+        "title": "व्यापक रोबोट संगतता",
+        "body": "Taypro GLYDE और मैदान में अन्य Taypro सफाई रोबोट के साथ डॉकिंग संगतता, HELYX पिक-एंड-प्लेस फ्लीट और GLYDE स्वायत्त पंक्तियों के साथ प्राकृतिक जोड़ सहित।"
       },
       "7": {
-        "title": "Slope and Temperature Tolerance",
-        "body": "Operates on sites with up to 18° slope and maximum operating temperatures up to 90°C, matching the demanding envelope of utility-scale solar plants across India."
+        "title": "ढलान और तापमान सहनशीलता",
+        "body": "18° तक ढलान और 90°C तक अधिकतम संचालन तापमान वाली साइटों पर संचालित, भारत भर के यूटिलिटी-स्केल सोलर प्लांटों की मांगपूर्ण सीमा से मेल खाता है।"
       }
     },
     "installation": {
-      "eyebrow": "Installation overview",
-      "title": "How CRADYL is installed on your plant",
-      "subtitle": "Typical deployment follows Taypro's movable docking station installation methodology used on live Indian utility sites.",
-      "item0": "End-row railing tracks are mounted on columns fixed to the ground with RCC foundations or ballast, depending on geotechnical conditions.",
-      "item1": "Column height and alignment are managed so rail travel remains smooth and level across the transfer path.",
-      "item2": "The CRADYL unit is placed on the aligned track and connected to the robot control and cloud monitoring system.",
-      "item3": "No modifications are required on solar modules, enabling quick, modular setup once civil and rail work is complete."
+      "eyebrow": "स्थापना अवलोकन",
+      "title": "आपके प्लांट पर CRADYL कैसे स्थापित होता है",
+      "subtitle": "सामान्य तैनाती लाइव भारतीय यूटिलिटी साइटों पर उपयोग की Taypro मूवेबल डॉकिंग स्टेशन स्थापना पद्धति का अनुसरण करती है।",
+      "item0": "एंड-रो रेलिंग ट्रैक्स जियोटेक्निकल स्थितियों के अनुसार RCC फाउंडेशन या बैलास्ट के साथ जमीन से जुड़े कॉलम पर माउंट किए जाते हैं।",
+      "item1": "कॉलम की ऊँचाई और संरेखण प्रबंधित किया जाता है ताकि ट्रांसफर पथ पर रेल यात्रा सुचारु और समतल रहे।",
+      "item2": "CRADYL यूनिट संरेखित ट्रैक पर रखी जाती है और रोबोट नियंत्रण और क्लाउड मॉनिटरिंग सिस्टम से जुड़ी जाती है।",
+      "item3": "सोलर मॉड्यूल में कोई संशोधन आवश्यक नहीं, सिविल और रेल कार्य पूर्ण होने के बाद त्वरित, मॉड्यूलर सेटअप सक्षम।"
     },
     "trustStats": {
-      "eyebrow": "Proven at scale",
-      "title": "Trusted by India's leading solar operators",
-      "stat0": { "label": "Robot Capacity Deployed" },
-      "stat1": { "label": "CO₂ Reduced Annually" },
-      "stat2": { "label": "Liters of Water Saved Annually" },
-      "stat3": { "label": "Robots Manufacturing Capacity per Month" }
+      "eyebrow": "स्केल पर सिद्ध",
+      "title": "भारत के अग्रणी सोलर ऑपरेटरों द्वारा विश्वसनीय",
+      "stat0": {
+        "label": "तैनात रोबोट क्षमता"
+      },
+      "stat1": {
+        "label": "वार्षिक CO₂ में कमी"
+      },
+      "stat2": {
+        "label": "वार्षिक बचाया गया पानी (लीटर)"
+      },
+      "stat3": {
+        "label": "प्रति माह रोबोट निर्माण क्षमता"
+      }
     },
     "servicePromise": {
-      "eyebrow": "Operating confidence",
-      "title": "Service and maintenance for CRADYL",
-      "subtitle": "CRADYL deployments follow the same Taypro pan-India support model as our cleaning robot fleet.",
-      "card0Title": "Scheduled preventive maintenance",
-      "card0Body": "Maintenance is planned to eliminate unplanned downtime and sustain best operational life across the docking station and rail infrastructure.",
-      "card1Title": "Immediate remote diagnostics",
-      "card1Body": "Cloud-connected fault diagnostics and charge monitoring through NECTYR, with most issues triaged before a site visit is required.",
-      "card2Title": "Same-day on-site support",
-      "card2Body": "When physical intervention is needed, Taypro targets same-day on-site resolution across India, backed by regional spares and AMC programmes."
+      "eyebrow": "संचालन विश्वास",
+      "title": "CRADYL के लिए सेवा और रखरखाव",
+      "subtitle": "CRADYL तैनाती हमारे सफाई रोबोट फ्लीट के समान Taypro पैन-इंडिया सहायता मॉडल का अनुसरण करती है।",
+      "card0Title": "निर्धारित निवारक रखरखाव",
+      "card0Body": "अनियोजित डाउनटाइम समाप्त करने और डॉकिंग स्टेशन व रेल इन्फ्रास्ट्रक्चर में सर्वोत्तम परिचालन जीवन बनाए रखने के लिए रखरखाव की योजना बनाई जाती है।",
+      "card1Title": "तत्काल रिमोट डायग्नोस्टिक्स",
+      "card1Body": "NECTYR के माध्यम से क्लाउड-कनेक्टेड फॉल्ट डायग्नोस्टिक्स और चार्ज मॉनिटरिंग, अधिकांश समस्याएँ साइट विज़िट से पहले ट्रायज की जाती हैं।",
+      "card2Title": "समान-दिवस ऑन-साइट सहायता",
+      "card2Body": "शारीरिक हस्तक्षेप आवश्यक होने पर, Taypro क्षेत्रीय स्पेयर और AMC कार्यक्रमों के साथ पूरे भारत में समान-दिवस ऑन-साइट समाधान का लक्ष्य रखता है।"
     },
     "callbackCard": {
-      "line1": "Schedule a CRADYL integration review",
-      "line2": "for your scattered solar plant layout"
+      "line1": "CRADYL इंटीग्रेशन समीक्षा शेड्यूल करें",
+      "line2": "अपने बिखरे सोलर प्लांट लेआउट के लिए"
     },
     "specifications": {
-      "titleLine1": "Row-transfer docking station",
-      "titleLine2": "CRADYL specifications",
-      "specHeader": "Specification",
-      "valueHeader": "Value"
+      "titleLine1": "पंक्ति-ट्रांसफर डॉकिंग स्टेशन",
+      "titleLine2": "CRADYL विनिर्देश",
+      "specHeader": "विनिर्देश",
+      "valueHeader": "मान"
     },
     "specs": {
-      "0": { "label": "Product name", "value": "CRADYL" },
-      "1": { "label": "Footprint", "value": "1000 mm × 4000 mm" },
-      "2": { "label": "Weight", "value": "220 kg" },
-      "3": { "label": "Movement mechanism", "value": "Rail-based linear travel on end-row tracks" },
-      "4": { "label": "Energy source", "value": "Solar-powered battery charging" },
-      "5": { "label": "Battery type", "value": "Lithium-ion" },
-      "6": { "label": "Max. operating speed", "value": "5 metres / minute" },
-      "7": { "label": "Wind resistance (docked)", "value": "Up to 180 km/h" },
-      "8": { "label": "Wind resistance (in motion)", "value": "Up to 40 km/h" },
-      "9": { "label": "Max. operating temperature", "value": "90°C" },
-      "10": { "label": "Max. slope", "value": "18°" },
-      "11": { "label": "Communication", "value": "LTE / Wi-Fi (cloud-connected)" },
-      "12": { "label": "IP rating", "value": "IP65" },
-      "13": { "label": "Docking compatibility", "value": "Taypro Model-A and compatible cleaning robots" },
-      "14": { "label": "Installation", "value": "End-row rails on RCC or ballast columns; no panel modification" },
-      "15": { "label": "Monitoring", "value": "Remote portal: schedules, position, sensors, charge level" }
+      "0": {
+        "label": "उत्पाद नाम",
+        "value": "CRADYL"
+      },
+      "1": {
+        "label": "फुटप्रिंट",
+        "value": "1000 mm × 4000 mm"
+      },
+      "2": {
+        "label": "वज़न",
+        "value": "220 kg"
+      },
+      "3": {
+        "label": "गति तंत्र",
+        "value": "एंड-रो ट्रैक्स पर रेल-आधारित रैखिक यात्रा"
+      },
+      "4": {
+        "label": "ऊर्जा स्रोत",
+        "value": "सोलर-संचालित बैटरी चार्जिंग"
+      },
+      "5": {
+        "label": "बैटरी प्रकार",
+        "value": "Lithium-ion"
+      },
+      "6": {
+        "label": "अधिकतम संचालन गति",
+        "value": "5 metres / minute"
+      },
+      "7": {
+        "label": "हवा प्रतिरोध (डॉक)",
+        "value": "180 km/h तक"
+      },
+      "8": {
+        "label": "हवा प्रतिरोध (गति में)",
+        "value": "40 km/h तक"
+      },
+      "9": {
+        "label": "अधिकतम संचालन तापमान",
+        "value": "90°C"
+      },
+      "10": {
+        "label": "अधिकतम ढलान",
+        "value": "18°"
+      },
+      "11": {
+        "label": "संचार",
+        "value": "LTE / Wi-Fi (क्लाउड-कनेक्टेड)"
+      },
+      "12": {
+        "label": "IP रेटिंग",
+        "value": "IP65"
+      },
+      "13": {
+        "label": "डॉकिंग संगतता",
+        "value": "Taypro GLYDE और संगत सफाई रोबोट"
+      },
+      "14": {
+        "label": "स्थापना",
+        "value": "RCC या बैलास्ट कॉलम पर एंड-रो रेल; पैनल संशोधन नहीं"
+      },
+      "15": {
+        "label": "मॉनिटरिंग",
+        "value": "रिमोट पोर्टल: शेड्यूल, स्थिति, सेंसर, चार्ज स्तर"
+      }
     },
     "manualVsCradyl": {
-      "eyebrow": "Manual transfer vs CRADYL",
-      "title": "Why automate row-to-row robot transfer?",
-      "subtitle": "Manual lift-and-shift between scattered blocks consumes crew time, slows cleaning cycles, and increases safety and damage risk compared with autonomous docking.",
-      "criterion": "Criterion",
-      "manual": "Manual row transfer",
+      "eyebrow": "मैनुअल ट्रांसफर बनाम CRADYL",
+      "title": "पंक्ति-से-पंक्ति रोबोट ट्रांसफर स्वचालित क्यों करें?",
+      "subtitle": "बिखरे ब्लॉक के बीच मैनुअल लिफ्ट-एंड-शिफ्ट क्रू समय लेता है, सफाई चक्र धीमा करता है और स्वायत्त डॉकिंग की तुलना में सुरक्षा व क्षति जोखिम बढ़ाता है।",
+      "criterion": "मानदंड",
+      "manual": "मैनुअल पंक्ति ट्रांसफर",
       "cradyl": "Taypro CRADYL",
       "row0": {
-        "criterion": "Labour per transfer",
-        "manual": "Crew lift-and-shift between rows or blocks",
-        "cradyl": "Hands-free autonomous docking and rail travel"
+        "criterion": "प्रति ट्रांसफर श्रम",
+        "manual": "पंक्तियों या ब्लॉक के बीच क्रू लिफ्ट-एंड-शिफ्ट",
+        "cradyl": "हैंड्स-फ्री स्वायत्त डॉकिंग और रेल यात्रा"
       },
       "row1": {
-        "criterion": "Transfer time",
-        "manual": "Variable; depends on crew availability and distance",
-        "cradyl": "Scheduled rail transit up to 5 m/min on aligned tracks"
+        "criterion": "ट्रांसफर समय",
+        "manual": "परिवर्तनशील; क्रू उपलब्धता और दूरी पर निर्भर",
+        "cradyl": "संरेखित ट्रैक्स पर 5 m/min तक निर्धारित रेल ट्रांज़िट"
       },
       "row2": {
-        "criterion": "Robot utilisation",
-        "manual": "Robot idle during moves; fewer rows per shift",
-        "cradyl": "One robot services more rows per shift"
+        "criterion": "रोबोट उपयोग",
+        "manual": "स्थानांतरण के दौरान रोबोट निष्क्रिय; प्रति शिफ्ट कम पंक्तियाँ",
+        "cradyl": "एक रोबोट प्रति शिफ्ट अधिक पंक्तियों की सेवा करता है"
       },
       "row3": {
-        "criterion": "Safety and damage risk",
-        "manual": "Higher drop, scratch, and handling risk",
-        "cradyl": "Secure cradle locking and sensor-guided alignment"
+        "criterion": "सुरक्षा और क्षति जोखिम",
+        "manual": "गिरने, खरोंच और हैंडलिंग का उच्च जोखिम",
+        "cradyl": "सुरक्षित क्रेडल लॉकिंग और सेंसर-निर्देशित संरेखण"
       },
       "row4": {
-        "criterion": "CAPEX strategy",
-        "manual": "Often leads to buying more robots per block",
-        "cradyl": "Extends one robot across scattered layouts"
+        "criterion": "CAPEX रणनीति",
+        "manual": "अक्सर प्रति ब्लॉक अधिक रोबोट खरीदने की ओर ले जाता है",
+        "cradyl": "एक रोबोट को बिखरे लेआउट में फैलाता है"
       },
       "row5": {
-        "criterion": "Fleet visibility",
-        "manual": "Little telemetry on inter-row moves",
-        "cradyl": "Position, charge, and faults in cloud portal"
+        "criterion": "फ्लीट दृश्यता",
+        "manual": "अंतर-पंक्ति स्थानांतरण पर कम टेलीमेट्री",
+        "cradyl": "क्लाउड पोर्टल में स्थिति, चार्ज और फॉल्ट"
       },
       "row6": {
-        "criterion": "Wind and weather",
-        "manual": "Ad-hoc handling in harsh conditions",
-        "cradyl": "IP65 enclosure; high wind rating when docked"
+        "criterion": "हवा और मौसम",
+        "manual": "कठोर स्थितियों में तदर्थ हैंडलिंग",
+        "cradyl": "IP65 एनक्लोज़र; डॉक पर उच्च हवा रेटिंग"
       },
       "row7": {
-        "criterion": "Scattered plant fit",
-        "manual": "Labour cost scales with blocks and roads",
-        "cradyl": "Purpose-built for gaps between non-contiguous arrays"
+        "criterion": "बिखरे प्लांट उपयुक्तता",
+        "manual": "श्रम लागत ब्लॉक और सड़कों के साथ बढ़ती है",
+        "cradyl": "गैर-सतत एरे के बीच अंतराल के लिए विशेष निर्माण"
       }
     },
     "cradylVsExtraRobot": {
-      "eyebrow": "Fleet economics",
-      "title": "CRADYL vs buying another cleaning robot",
-      "subtitle": "On scattered plants, transfer automation can defer an extra robot purchase while preserving multi-row coverage.",
-      "criterion": "Criterion",
-      "cradylHeader": "CRADYL docking",
-      "extraRobotHeader": "Additional cleaning robot",
+      "eyebrow": "फ्लीट अर्थशास्त्र",
+      "title": "CRADYL बनाम दूसरा सफाई रोबोट खरीदना",
+      "subtitle": "बिखरे प्लांटों पर, ट्रांसफर ऑटोमेशन बहु-पंक्ति कवरेज बनाए रखते हुए अतिरिक्त रोबोट खरीद स्थगित कर सकता है।",
+      "criterion": "मानदंड",
+      "cradylHeader": "CRADYL डॉकिंग",
+      "extraRobotHeader": "अतिरिक्त सफाई रोबोट",
       "row0": {
-        "criterion": "Upfront investment",
-        "cradyl": "Docking station + end-row rail civil works",
-        "extraRobot": "Full robot capex per block or row group"
+        "criterion": "प्रारंभिक निवेश",
+        "cradyl": "डॉकिंग स्टेशन + एंड-रो रेल सिविल कार्य",
+        "extraRobot": "प्रति ब्लॉक या पंक्ति समूह पूर्ण रोबोट CAPEX"
       },
       "row1": {
-        "criterion": "Rows covered per robot",
-        "cradyl": "Multi-row via autonomous transfer",
-        "extraRobot": "One contiguous row group per unit"
+        "criterion": "प्रति रोबोट कवर की गई पंक्तियाँ",
+        "cradyl": "स्वायत्त ट्रांसफर के माध्यम से बहु-पंक्ति",
+        "extraRobot": "प्रति यूनिट एक सतत पंक्ति समूह"
       },
       "row2": {
-        "criterion": "Labour for moves",
-        "cradyl": "Minimal; cloud-scheduled transfers",
-        "extraRobot": "Zero if fully automatic per array; high if semi-auto pick-and-place"
+        "criterion": "स्थानांतरण के लिए श्रम",
+        "cradyl": "न्यूनतम; क्लाउड-शेड्यूल्ड ट्रांसफर",
+        "extraRobot": "प्रति एरे पूर्ण स्वचालित होने पर शून्य; अर्ध-स्वचालित पिक-एंड-प्लेस पर उच्च"
       },
       "row3": {
-        "criterion": "Best plant type",
-        "cradyl": "Scattered blocks, roads, irregular spacing",
-        "extraRobot": "Contiguous arrays with dedicated assignment"
+        "criterion": "सर्वोत्तम प्लांट प्रकार",
+        "cradyl": "बिखरे ब्लॉक, सड़कें, अनियमित दूरी",
+        "extraRobot": "समर्पित असाइनमेंट के साथ सतत एरे"
       },
       "row4": {
-        "criterion": "Pairs with",
-        "cradyl": "HELYX, GLYDE, Model-A fleets",
-        "extraRobot": "Standalone cleaning per array"
+        "criterion": "जोड़ा जाता है",
+        "cradyl": "HELYX, GLYDE, GLYDE फ्लीट",
+        "extraRobot": "प्रति एरे स्वतंत्र सफाई"
       },
       "row5": {
-        "criterion": "Monitoring",
-        "cradyl": "Transfer status in NECTYR",
-        "extraRobot": "Standard robot cleaning telemetry"
+        "criterion": "मॉनिटरिंग",
+        "cradyl": "NECTYR में ट्रांसफर स्थिति",
+        "extraRobot": "मानक रोबोट सफाई टेलीमेट्री"
       },
       "row6": {
-        "criterion": "Payback driver",
-        "cradyl": "Avoided second robot + labour savings",
-        "extraRobot": "Extra MW cleaned per day on one block"
+        "criterion": "पेबैक चालक",
+        "cradyl": "बचा दूसरा रोबोट + श्रम बचत",
+        "extraRobot": "एक ब्लॉक पर प्रति दिन अतिरिक्त MW सफाई"
       },
       "row7": {
-        "criterion": "When to choose",
-        "cradyl": "Gaps between rows; one robot under-utilised across site",
-        "extraRobot": "Large contiguous plant; labour-free daily autonomy needed"
+        "criterion": "कब चुनें",
+        "cradyl": "पंक्तियों के बीच अंतराल; साइट पर एक रोबोट अंडर-यूटिलाइज़्ड",
+        "extraRobot": "बड़ा सतत प्लांट; श्रम-मुक्त दैनिक स्वायत्तता आवश्यक"
       },
-      "crossSellLead": "Need fully autonomous cleaning on contiguous rows? See ",
+      "crossSellLead": "सतत पंक्तियों पर पूर्ण स्वायत्त सफाई चाहिए? देखें ",
       "linkGlyde": "GLYDE",
-      "crossSellMid": ". Operating pick-and-place across blocks? See ",
+      "crossSellMid": "। ब्लॉक के बीच पिक-एंड-प्लेस संचालन? देखें ",
       "linkHelyx": "HELYX",
-      "crossSellSuffix": "."
+      "crossSellSuffix": "।"
     },
     "useCasesSection": {
-      "eyebrow": "Ideal deployments",
-      "title": "Where CRADYL fits best on Indian solar plants"
+      "eyebrow": "आदर्श तैनाती",
+      "title": "CRADYL सबसे अच्छा कहाँ फिट होता है"
     },
     "useCases": {
       "0": {
-        "title": "Scattered utility blocks",
-        "body": "Multi-block plants where rows are separated by roads, drainage, or buffer land and one robot cannot traverse continuously."
+        "title": "बिखरे यूटिलिटी ब्लॉक",
+        "body": "बहु-ब्लॉक प्लांट जहाँ पंक्तियाँ सड़क, जल निकासी या बफ़र भूमि से अलग हैं और एक रोबोट लगातार नहीं चल सकता।"
       },
       "1": {
-        "title": "Semi-automatic robot fleets",
-        "body": "Sites running HELYX or similar pick-and-place robots that need faster inter-row movement without adding headcount."
+        "title": "अर्ध-स्वचालित रोबोट फ्लीट",
+        "body": "HELYX या समान पिक-एंड-प्लेस रोबोट चलाने वाली साइटें जिन्हें हेडकाउंट बढ़ाए बिना तेज़ अंतर-पंक्ति गति चाहिए।"
       },
       "2": {
-        "title": "CAPEX optimisation programmes",
-        "body": "Owners who want autonomous cleaning coverage but need to defer buying additional robots until transfer automation proves ROI."
+        "title": "CAPEX अनुकूलन कार्यक्रम",
+        "body": "स्वायत्त सफाई कवरेज चाहने वाले मालिक जिन्हें ट्रांसफ़र ऑटोमेशन साबित होने तक अतिरिक्त रोबोट खरीद स्थगित करनी है।"
       },
       "3": {
-        "title": "Utility-scale retrofit programmes",
-        "body": "Existing Taypro robot deployments where end-row rail and CRADYL extend reach without replacing the cleaning robot fleet."
+        "title": "यूटिलिटी-स्केल रेट्रोफिट कार्यक्रम",
+        "body": "मौजूदा Taypro रोबोट तैनाती जहाँ एंड-रो रेल और CRADYL सफाई रोबोट फ्लीट बदले बिना पहुँच बढ़ाते हैं।"
       }
     },
     "indianConditions": {
-      "eyebrow": "Engineered for Indian conditions",
-      "title": "Built for Indian utility-scale scattered plants",
-      "subtitle": "Dust, heat, wind, and water-scarce O&M realities across Rajasthan, Gujarat, Karnataka, and Tamil Nadu portfolios where scattered blocks are common.",
-      "card0Title": "High-soiling scattered portfolios",
-      "card0Body": "When blocks cannot be cleaned as one continuous array, CRADYL keeps one robot productive across more rows per day instead of idling during manual moves.",
-      "card1Title": "Heat and dust tolerance",
-      "card1Body": "IP65 enclosure and 90°C operating rating with enclosed critical systems for dust storms and extreme summer field conditions.",
-      "card2Title": "Wind-exposed sites",
-      "card2Body": "High wind resistance when docked supports plants in exposed corridors where manual transfers are slowed or halted.",
-      "card3Title": "Pan-India Taypro support",
-      "card3Body": "Same-day on-site targets, NECTYR remote diagnostics, and AMC-backed maintenance aligned with Taypro's national robot service network.",
-      "crossSellLead": "Pair CRADYL with ",
+      "eyebrow": "भारतीय परिस्थितियों के लिए इंजीनियर किया गया",
+      "title": "भारतीय यूटिलिटी-स्केल बिखरे प्लांटों के लिए निर्मित",
+      "subtitle": "राजस्थान, गुजरात, कर्नाटक और तमिलनाडु पोर्टफोलियो में धूल, गर्मी, हवा और जल-कम O&M वास्तविकताएँ जहाँ बिखरे ब्लॉक सामान्य हैं।",
+      "card0Title": "उच्च-सोइलिंग बिखरे पोर्टफोलियो",
+      "card0Body": "जब ब्लॉक एक सतत एरे के रूप में साफ नहीं हो सकते, CRADYL मैनुअल स्थानांतरण के दौरान निष्क्रिय रहने के बजाय एक रोबोट को प्रति दिन अधिक पंक्तियों में उत्पादक रखता है।",
+      "card1Title": "गर्मी और धूल सहनशीलता",
+      "card1Body": "IP65 एनक्लोज़र और 90°C संचालन रेटिंग, धूल के तूफान और अत्यधिक गर्मी की फील्ड स्थितियों के लिए संलग्न महत्वपूर्ण सिस्टम।",
+      "card2Title": "हवा-प्रदर्शित साइटें",
+      "card2Body": "डॉक पर उच्च हवा प्रतिरोध उन एक्सपोज़्ड कॉरिडोर में प्लांटों का समर्थन करता है जहाँ मैनुअल ट्रांसफर धीमा या रुका रहता है।",
+      "card3Title": "पैन-इंडिया Taypro सहायता",
+      "card3Body": "समान-दिवस ऑन-साइट लक्ष्य, NECTYR रिमोट डायग्नोस्टिक्स, और Taypro के राष्ट्रीय रोबोट सेवा नेटवर्क के अनुरूप AMC-समर्थित रखरखाव।",
+      "crossSellLead": "CRADYL को ",
       "linkHelyx": "HELYX",
-      "linkBetween": " or ",
+      "linkBetween": " या ",
       "linkGlyde": "GLYDE",
-      "linkMid": ", monitor on ",
+      "linkMid": " के साथ जोड़ें, ",
       "linkConsole": "NECTYR",
-      "crossSellSuffix": ", or explore the full robot hub."
+      "crossSellSuffix": " पर मॉनिटर करें, या पूरा रोबोट हब देखें।"
     },
     "faqSection": {
-      "title": "Frequently asked questions",
-      "subtitle": "Common questions about Taypro CRADYL row-transfer docking for solar cleaning robots in India."
+      "title": "अक्सर पूछे जाने वाले प्रश्न",
+      "subtitle": "भारत में सोलर क्लीनिंग रोबोट के लिए Taypro CRADYL पंक्ति-ट्रांसफर डॉकिंग के बारे में सामान्य प्रश्न।"
     },
     "faqs": {
       "0": {
-        "question": "What is Taypro CRADYL?",
-        "answer": "CRADYL is Taypro's autonomous row-transfer movable docking station — a battery-powered platform on end-row rails that moves a solar cleaning robot between rows. It is the fleet-integrated platform name used on taypro.in today."
+        "question": "Taypro CRADYL क्या है?",
+        "answer": "CRADYL Taypro का स्वायत्त पंक्ति-ट्रांसफर मूवेबल डॉकिंग स्टेशन है — एंड-रो रेल्स पर बैटरी-संचालित प्लेटफ़ॉर्म जो सोलर सफाई रोबोट को पंक्तियों के बीच ले जाता है। यह taypro.in पर आज उपयोग किया जाने वाला फ्लीट-एकीकृत प्लेटफ़ॉर्म नाम है।"
       },
       "1": {
-        "question": "How does a solar panel cleaning robot row-transfer docking station work?",
-        "answer": "After a row is cleaned, the robot returns to CRADYL and locks into the cradle. CRADYL travels along end-row railing to the next row, aligns using integrated sensors, releases the robot to clean the new row, and repeats on schedule. Movement and status are visible in the cloud monitoring portal with LTE or Wi-Fi connectivity."
+        "question": "सोलर पैनल क्लीनिंग रोबोट रो-ट्रांसफर डॉकिंग स्टेशन कैसे काम करता है?",
+        "answer": "पंक्ति साफ होने के बाद, रोबोट CRADYL पर लौटता है और क्रेडल में लॉक हो जाता है। CRADYL एंड-रो रेलिंग के साथ अगली पंक्ति तक यात्रा करता है, एकीकृत सेंसर से संरेखित होता है, नई पंक्ति साफ करने के लिए रोबोट मुक्त करता है, और शेड्यूल पर दोहराता है। LTE या Wi-Fi कनेक्टिविटी के साथ गति और स्थिति क्लाउड मॉनिटरिंग पोर्टल में दिखाई देती है।"
       },
       "2": {
-        "question": "Which Taypro cleaning robots are compatible with CRADYL?",
-        "answer": "CRADYL is designed for Taypro Model-A and compatible Taypro cleaning robots, including fleets already using HELYX semi-automatic pick-and-place robots and GLYDE automatic robots on scattered or multi-block layouts. Confirm rail layout, row spacing, and robot model with Taypro engineering before procurement."
+        "question": "कौन से Taypro सफाई रोबोट CRADYL के साथ संगत हैं?",
+        "answer": "CRADYL Taypro GLYDE और संगत Taypro सफाई रोबोट के लिए डिज़ाइन किया गया है, जिनमें बिखरे या बहु-ब्लॉक लेआउट पर HELYX अर्ध-स्वचालित पिक-एंड-प्लेस और GLYDE स्वचालित रोबोट का उपयोग करने वाली फ्लीट शामिल हैं। खरीद से पहले Taypro इंजीनियरिंग के साथ रेल लेआउट, पंक्ति दूरी और रोबोट मॉडल की पुष्टि करें।"
       },
       "3": {
-        "question": "Does CRADYL require modifications to solar panels?",
-        "answer": "No modifications to solar modules are required. Installation uses dedicated end-row railing tracks on columns fixed with RCC foundations or ballast. Once rails are aligned, the CRADYL unit is placed on the track and connected to robot control and cloud systems."
+        "question": "क्या CRADYL को सोलर पैनल में संशोधन की आवश्यकता है?",
+        "answer": "सोलर मॉड्यूल में कोई संशोधन आवश्यक नहीं। स्थापना RCC फाउंडेशन या बैलास्ट के साथ जुड़े कॉलम पर समर्पित एंड-रो रेलिंग ट्रैक्स का उपयोग करती है। रेल संरेखित होने के बाद, CRADYL यूनिट ट्रैक पर रखी जाती है और रोबोट नियंत्रण और क्लाउड सिस्टम से जुड़ी जाती है।"
       },
       "4": {
-        "question": "Is CRADYL available in India now, or is it coming soon?",
-        "answer": "CRADYL is a launched Taypro product shipping for Indian utility-scale plants. It is not a roadmap or pilot-only offering. Contact Taypro with your plant layout for integration planning, compatibility confirmation, and commercial quotation."
+        "question": "क्या CRADYL भारत में अभी उपलब्ध है, या जल्द आ रहा है?",
+        "answer": "CRADYL एक लॉन्च किया गया Taypro उत्पाद है जो भारतीय यूटिलिटी-स्केल प्लांटों के लिए शिप हो रहा है। यह रोडमैप या केवल-पायलट ऑफर नहीं है। इंटीग्रेशन योजना, संगतता पुष्टि और वाणिज्यिक कोट के लिए अपना प्लांट लेआउट Taypro के साथ साझा करें।"
       },
       "5": {
-        "question": "What are the key specifications of the CRADYL docking station?",
-        "answer": "Representative specifications include a 1000 mm × 4000 mm footprint, 220 kg weight, rail-based travel up to 5 m/min, solar-charged lithium-ion battery, IP65 rating, LTE/Wi-Fi cloud connectivity, up to 180 km/h wind resistance when docked, 40 km/h in motion, 18° max slope, and 90°C max operating temperature. Site-specific rail design may adjust details."
+        "question": "CRADYL डॉकिंग स्टेशन के प्रमुख विनिर्देश क्या हैं?",
+        "answer": "प्रतिनिधि विनिर्देशों में 1000 mm × 4000 mm फुटप्रिंट, 220 kg वज़न, 5 m/min तक रेल-आधारित यात्रा, सोलर-चार्ज्ड लिथियम-आयन बैटरी, IP65 रेटिंग, LTE/Wi-Fi क्लाउड कनेक्टिविटी, डॉक पर 180 km/h तक हवा प्रतिरोध, गति में 40 km/h, 18° अधिकतम ढलान, और 90°C अधिकतम संचालन तापमान शामिल हैं। साइट-विशिष्ट रेल डिज़ाइन विवरण समायोजित कर सकता है।"
       },
       "6": {
-        "question": "When should I choose CRADYL instead of buying another cleaning robot?",
-        "answer": "CRADYL is strongest on scattered plants where one robot could clean more rows if transfers were automated, but buying a second robot for each non-contiguous block is uneconomical. If you have large contiguous arrays needing daily unattended cleaning, a fully automatic robot such as GLYDE may be the primary answer; CRADYL complements scattered layouts."
+        "question": "दूसरा सफाई रोबोट खरीदने के बजाय CRADYL कब चुनें?",
+        "answer": "CRADYL बिखरे प्लांटों पर सबसे मजबूत है जहाँ ट्रांसफर स्वचालित होने पर एक रोबोट अधिक पंक्तियाँ साफ कर सकता है, लेकिन प्रत्येक गैर-सतत ब्लॉक के लिए दूसरा रोबोट खरीदना आर्थिक नहीं। यदि आपके पास दैनिक अनअटेंडेड सफाई की आवश्यकता वाले बड़े सतत एरे हैं, तो GLYDE जैसा पूर्ण स्वचालित रोबोट प्राथमिक उत्तर हो सकता है; CRADYL बिखरे लेआउट को पूरक करता है।"
       },
       "7": {
-        "question": "How is CRADYL monitored and scheduled?",
-        "answer": "CRADYL integrates with Taypro's remote monitoring platform. Operators can schedule movement, track position, and review sensor data and battery charge levels in the cloud portal alongside existing robot cleaning schedules on NECTYR."
+        "question": "CRADYL की मॉनिटरिंग और शेड्यूलिंग कैसे होती है?",
+        "answer": "CRADYL Taypro के रिमोट मॉनिटरिंग प्लेटफ़ॉर्म के साथ एकीकृत है। ऑपरेटर NECTYR पर मौजूदा रोबोट सफाई शेड्यूल के साथ क्लाउड पोर्टल में गति शेड्यूल कर सकते हैं, स्थिति ट्रैक कर सकते हैं, और सेंसर डेटा व बैटरी चार्ज स्तर देख सकते हैं।"
       },
       "8": {
-        "question": "What maintenance and support does Taypro provide for CRADYL?",
-        "answer": "Taypro performs scheduled preventive maintenance on docking stations and rails, provides remote diagnostics through the cloud system, and targets same-day on-site intervention across India when physical service is required, consistent with Taypro's robot fleet AMC and support model."
+        "question": "Taypro CRADYL के लिए क्या रखरखाव और सहायता प्रदान करता है?",
+        "answer": "Taypro डॉकिंग स्टेशन और रेल पर निर्धारित निवारक रखरखाव करता है, क्लाउड सिस्टम के माध्यम से रिमोट डायग्नोस्टिक्स प्रदान करता है, और शारीरिक सेवा आवश्यक होने पर Taypro के रोबोट फ्लीट AMC और सहायता मॉडल के अनुरूप पूरे भारत में समान-दिवस ऑन-साइट हस्तक्षेप का लक्ष्य रखता है।"
       },
       "9": {
-        "question": "How do I get pricing for CRADYL at my solar plant?",
-        "answer": "Pricing depends on number of transfer paths, rail civil scope, robot models in use, and AMC coverage. Share MW capacity, row spacing, block layout, and current robot fleet with Taypro for a site-specific quote and deployment plan."
+        "question": "अपने सोलर प्लांट के लिए CRADYL की कीमत कैसे प्राप्त करें?",
+        "answer": "कीमत ट्रांसफर पथों की संख्या, रेल सिविल स्कोप, उपयोग में रोबोट मॉडल और AMC कवरेज पर निर्भर करती है। साइट-विशिष्ट कोट और तैनाती योजना के लिए Taypro के साथ MW क्षमता, पंक्ति दूरी, ब्लॉक लेआउट और वर्तमान रोबोट फ्लीट साझा करें।"
       }
     },
     "cta": {
-      "title": "Plan CRADYL for your plant",
-      "subtitle": "Share your plant layout, row spacing, and robot model. Our robotics team will follow up with rail integration notes, compatibility confirmation, and deployment planning.",
-      "formEyebrow": "Sales enquiry",
-      "formTitle": "Request CRADYL for your site",
-      "messageLabel": "Plant & fleet details",
-      "messagePlaceholder": "MW capacity, row spacing, robot model in use, blocks per plant…",
-      "submitLabel": "Send enquiry"
+      "title": "अपने प्लांट के लिए CRADYL की योजना बनाएं",
+      "subtitle": "प्लांट लेआउट, पंक्ति दूरी और रोबोट मॉडल साझा करें, हमारी टीम एकीकरण और तैनाती पर फॉलो-अप करेगी।",
+      "formEyebrow": "बिक्री पूछताछ",
+      "formTitle": "अपनी साइट के लिए CRADYL का अनुरोध करें",
+      "messageLabel": "प्लांट और फ्लीट विवरण",
+      "messagePlaceholder": "MW क्षमता, पंक्ति दूरी, उपयोग में रोबोट मॉडल, प्रति प्लांट ब्लॉक…",
+      "submitLabel": "पूछताछ भेजें"
     },
     "related": {
-      "eyebrow": "Compatible robots",
-      "title": "Pair CRADYL with Taypro cleaning robots",
-      "linkCta": "Learn more"
+      "eyebrow": "संगत रोबोट",
+      "title": "Taypro सफाई रोबोट के साथ CRADYL जोड़ें",
+      "linkCta": "और जानें",
+      "links": {
+        "0": {
+          "label": "HELYX, अर्ध-स्वचालित रोबोट",
+          "description": "बिखरे ब्लॉक के लिए पिक-एंड-प्लेस वॉटरलेस सफाई, CRADYL ट्रांसफ़र के लिए प्राकृतिक साथी।"
+        },
+        "1": {
+          "label": "GLYDE, स्वचालित रोबोट",
+          "description": "सतत फिक्स्ड-टिल्ट पंक्तियों के लिए पूर्ण स्वायत्त सफाई, CRADYL गैप के पार पहुँच बढ़ाता है।"
+        }
+      }
     },
-    "modelCardsTitle": "Explore more Taypro solar cleaning solutions",
-    "footerNote": "Specifications may vary by site rail layout and robot model; confirm with Taypro engineering before procurement."
+    "modelCardsTitle": "अधिक Taypro सोलर सफाई समाधान देखें",
+    "footerNote": "स्पेसिफिकेशन साइट रेल लेआउट और रोबोट मॉडल के अनुसार भिन्न हो सकती हैं; खरीद से पहले Taypro इंजीनियरिंग से पुष्टि करें।",
+    "intro": {
+      "eyebrow": "एक रोबोट, कई पंक्तियाँ",
+      "title": "रोबोट CAPEX बढ़ाए बिना बहु-पंक्ति कवरेज अनलॉक करें",
+      "p1": "बिखरे यूटिलिटी ब्लॉक और अनियमित पंक्ति दूरी ऑपरेटरों को चुनाव देती है: कई रोबोट तैनात करें या पंक्तियों के बीच मैनुअल ट्रांसफ़र स्वीकार करें। CRADYL उस अंतराल को स्वचालित करता है: स्व-चालित डॉकिंग प्लेटफ़ॉर्म सफाई रोबोट को प्राप्त करता है, अगली पंक्ति तक नेविगेट करता है, और इसे पुनः तैनात करता है, हाथों से मुक्त।",
+      "p2": "CRADYL मैदान में पहले से मौजूद Taypro सफाई रोबोट के साथ जोड़ने के लिए डिज़ाइन है। पायलट चर्चा और एकीकरण योजना के लिए अपना प्लांट लेआउट पंजीकृत करें।"
+    },
+    "highlightsSection": {
+      "eyebrow": "क्या उम्मीद करें",
+      "title": "CRADYL बिखरे-प्लांट अर्थशास्त्र कैसे बदलता है"
+    },
+    "highlights": {
+      "0": {
+        "title": "स्वायत्त पंक्ति-से-पंक्ति ट्रांसफ़र",
+        "body": "क्रू लिफ्ट-एंड-शिफ्ट के बिना एक सोलर पैनल सफाई रोबोट को पंक्तियों के बीच ले जाएँ, श्रम और ट्रांसफ़र डाउनटाइम कम करें।"
+      },
+      "1": {
+        "title": "एक रोबोट, बहु-पंक्ति कवरेज",
+        "body": "एक शिफ्ट में अधिक पंक्तियाँ कवर करें जहाँ प्रति सतत ब्लॉक एक रोबोट खरीदना आर्थिक नहीं है।"
+      },
+      "2": {
+        "title": "बिखरे लेआउट के लिए निर्मित",
+        "body": "गैप, सड़क, नाली या अनियमित पंक्ति दूरी वाले प्लांटों के लिए, भारतीय यूटिलिटी पोर्टफोलियो में सामान्य।"
+      },
+      "3": {
+        "title": "फ्लीट-तैयार एकीकरण",
+        "body": "NECTYR के साथ ट्रांसफ़र स्थिति, मार्ग योजना और सहायता वर्कफ़्लो, मौजूदा रोबोट के साथ।"
+      }
+    }
   }
 }

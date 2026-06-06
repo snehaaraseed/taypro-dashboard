@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Daily cron: translate up to BLOG_TRANSLATION_MAX_PER_DAY published EN blogs (default 10).
+# Daily cron: translate up to CMS_TRANSLATION_MAX_PER_DAY blogs + projects (default 10, split 5+5).
 set -euo pipefail
 
 ROOT="${TAYPRO_APP_ROOT:-/var/www/taypro-dashboard}"

@@ -8,7 +8,6 @@ import { parseBlogFaqs, serializeBlogFaqs } from "@/lib/cms/blog-faqs";
 import type { TayproLocale } from "@/i18n/markets";
 import { isActiveLocale } from "@/i18n/markets";
 import { SOURCE_LOCALE, TARGET_LOCALES } from "@/lib/translation/config";
-import { scheduleBlogTranslations } from "@/lib/translation/translate-cms";
 
 export function createSlug(title: string): string {
   return title
@@ -230,10 +229,6 @@ export async function createBlog(
       published,
     });
 
-    if (published && blogData.scheduleTranslations !== false) {
-      scheduleBlogTranslations(finalSlug);
-    }
-
     return { success: true, slug: finalSlug, updatedAt: now };
   } catch (error) {
     console.error("Error creating blog:", error);
@@ -325,10 +320,6 @@ export async function updateBlog(
       .where(
         and(eq(blogs.slug, finalSlug), eq(blogs.locale, SOURCE_LOCALE))
       );
-
-    if (published) {
-      scheduleBlogTranslations(finalSlug);
-    }
 
     return { success: true, slug: finalSlug, updatedAt: now };
   } catch (error) {

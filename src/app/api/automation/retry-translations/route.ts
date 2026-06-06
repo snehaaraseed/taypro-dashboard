@@ -1,14 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isAutomationAuthorized } from "@/lib/security";
-import { processDailyBlogTranslations } from "@/lib/translation/translation-queue";
+import { processDailyTranslations } from "@/lib/translation/translation-queue";
 
-/** Up to BLOG_TRANSLATION_MAX_PER_DAY blogs × 4 locales — can take 1–2+ hours with delays. */
+/** Up to CMS_TRANSLATION_MAX_PER_DAY items × 4 locales — can take 1–2+ hours with delays. */
 export const maxDuration = 900;
 
 /**
- * POST — daily blog translation cron (AUTOMATION_CRON_SECRET).
- * Translates up to BLOG_TRANSLATION_MAX_PER_DAY published EN blogs.
- * Stops for the rest of the run when Gemini quota is exceeded (retries next day).
+ * POST — daily CMS translation cron (AUTOMATION_CRON_SECRET).
+ * Translates blogs and projects dynamically (default 5+5 when both have backlog, up to 10/day).
+ * One item at a time; clears the retry queue when Gemini quota is exceeded (resumes next evening).
  */
 export async function POST(request: NextRequest) {
   if (!isAutomationAuthorized(request)) {
@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const dailyResult = await processDailyBlogTranslations();
+    const dailyResult = await processDailyTranslations();
 
     return NextResponse.json({
       success: true,
@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
         error:
           error instanceof Error
             ? error.message
-            : "Daily blog translation failed",
+            : "Daily CMS translation failed",
       },
       { status: 500 }
     );

@@ -1,145 +1,145 @@
 {
   "UtilityOperationsPage": {
     "meta": {
-      "title": "Solar O&M India | Soiling Loss, PR & Cleaning Robots | Taypro",
-      "description": "Solar O&M in India: soiling loss, performance ratio improvement, and waterless solar panel cleaning robots for utility plants. How Taypro closes the O&M loop with GLYDE, NECTYR, and pan-India service.",
-      "openGraphTitle": "Solar O&M India | Utility Solar Operations | Taypro",
-      "openGraphDescription": "Soiling losses, O&M gaps, and robotic cleaning for Indian utility solar — waterless fleets, NECTYR data, and plant intelligence."
+      "title": "सोलर पैनल सफाई रोबोट और यूटिलिटी सोलर संचालन | Taypro India",
+      "description": "भारत में यूटिलिटी-स्केल प्लांटों के लिए वॉटरलेस सोलर पैनल सफाई रोबोट और स्वायत्त संचालन।",
+      "openGraphTitle": "सोलर पैनल सफाई रोबोट और यूटिलिटी सोलर संचालन | Taypro",
+      "openGraphDescription": "SCADA अलार्म से आगे, वॉटरलेस रोबोट, NECTYR, ORION।"
     },
-    "breadcrumb": "Utility-scale solar operations",
+    "breadcrumb": "यूटिलिटी-स्केल सोलर संचालन",
     "hero": {
-      "eyebrow": "Industry context · India utility solar",
-      "titleLine1": "Utility-scale solar is a financial asset.",
-      "titleHighlight": "Operations are the unpriced tax",
-      "titleLine2": "on every gigawatt deployed.",
-      "subtitle": "Soiling, manual O&M limits, water stress, and blind plant data suppress output long before investors see it in quarterly reports. Waterless solar panel cleaning robots are the field execution layer, paired with fleet software and plant intelligence, that closes the loop.",
-      "ctaRobots": "Compare solar panel cleaning robots",
-      "ctaCompany": "Company & partners"
+      "eyebrow": "उद्योग संदर्भ · भारत यूटिलिटी सोलर",
+      "titleLine1": "यूटिलिटी-स्केल सोलर एक वित्तीय संपत्ति है।",
+      "titleHighlight": "संचालन एक अनमूल्य कर है",
+      "titleLine2": "हर GW पर।",
+      "subtitle": "वॉटरलेस सोलर पैनल सफाई रोबोट फील्ड परत हैं, NECTYR और ORION के साथ लूप बंद करते हैं।",
+      "ctaRobots": "सोलर पैनल सफाई रोबोट तुलना करें",
+      "ctaCompany": "कंपनी और भागीदार"
     },
     "problems": {
-      "eyebrow": "Four structural failures",
-      "heading": "Why returns are won in operations, not panel capex alone",
+      "eyebrow": "चार संरचनात्मक विफलताएँ",
+      "heading": "रिटर्न ऑपरेशंस में जीतते हैं, सिर्फ पैनल CAPEX में नहीं",
       "card0": {
-        "tag": "Revenue leak",
+        "tag": "राजस्व रिसाव",
         "stat": "8–25%",
-        "label": "Generation lost to soiling and component drift",
-        "body": "Dust films, tracker stalls, and inverter clipping stack on the same MW-year. Industry studies in arid belts report up to 25% annual loss even with periodic washing. SCADA shows the dip after the MWh is already gone."
+        "label": "धूल और कंपोनेंट ड्रिफ्ट से खोई जनरेशन",
+        "body": "धूल,film, ट्रैकर स्टॉल और इन्वर्टर क्लिपिंग एक ही MW-वर्ष पर जमा होते हैं। शुष्क क्षेत्रों में अध्ययन 25% तक वार्षिक नुकसान दर्शाते हैं — SCADA MWh खो जाने के बाद गिरावट दिखाता है।"
       },
       "card1": {
-        "tag": "Cost spiral",
+        "tag": "लागत सर्पिल",
         "stat": "Linear",
-        "label": "O&M cost grows with every MW commissioned",
-        "body": "Manual cleaning, labour, fuel, and water rise with fleet scale. Crew-based models cannot match the pace of utility solar build-out across Gujarat, Rajasthan, and Maharashtra."
+        "label": "हर MW कमीशन पर O&M लागत बढ़ती है",
+        "body": "मैनुअल सफाई, श्रम, ईंधन और पानी बेड़े के पैमाने पर बढ़ते हैं। Gujarat, Rajasthan और Maharashtra में क्रू-आधारित मॉडल यूटिलिटी सोलर विस्तार की गति से मेल नहीं खा सकते।"
       },
       "card2": {
-        "tag": "Water & ESG",
+        "tag": "जल और ESG",
         "stat": "140k+ L",
-        "label": "Wet-wash water per MW per year in stressed states",
-        "body": "The largest solar fleets sit where water is scarcest. Waterless solar panel cleaning robots remove tanker logistics and wet-wash constraints without sacrificing cleaning cadence."
+        "label": "तनावग्रस्त राज्यों में प्रति MW प्रति वर्ष गीली सफाई का पानी",
+        "body": "सबसे बड़े सोलर बेड़े वहीं हैं जहाँ पानी सबसे कम है। वाटरलेस सोलर पैनल सफाई रोबोट टैंकर लॉजिस्टिक्स और गीली सफाई की सीमाएँ हटाते हैं, सफाई cadence बनाए रखते हैं।"
       },
       "card3": {
-        "tag": "Black box",
+        "tag": "ब्लैक बॉक्स",
         "stat": "Blind",
-        "label": "No closed loop between dust, weather, faults, and action",
-        "body": "Cleaning stays calendar-based. Performance data sits in silos. There is no plant-level system tying weather, soiling, fleet coverage, and field response into one decision."
+        "label": "धूल, मौसम, फॉल्ट और कार्रवाई के बीच कोई बंद लूप नहीं",
+        "body": "सफाई कैलेंडर-आधारित रहती है। PR डेटा सिलो में है। मौसम, soiling, फ्लीट कवरेज और फील्ड प्रतिक्रिया को एक निर्णय में जोड़ने वाला प्लांट-स्तरीय सिस्टम नहीं है।"
       }
     },
     "soilingPr": {
-      "eyebrow": "Soiling & performance ratio",
-      "heading": "Solar panel soiling loss, soiling ratio, and PR improvement in India",
-      "p1": "Soiling ratio — the fraction of irradiance lost to dust on module glass — drives performance ratio (PR) drift on Indian utility plants. In Rajasthan, Gujarat, and MP, cumulative soiling can suppress 8–25% of annual generation when cleaning stays calendar-based rather than cadence-driven.",
-      "p2": "PR improvement from cleaning depends on baseline soiling, cycle frequency, and weather. Robotic dry cleaning enables 3–10 cycles per month without wet-wash water — the economical path to neutralise soiling loss on multi-MW fleets.",
-      "p3": "EPC and O&M teams should tie cleaning evidence to PR recovery: NECTYR block-level logs plus directional ROI from our price guide and calculator before committing CAPEX or Taypro Opex.",
-      "linkPriceGuide": "India robot price guide",
-      "linkCalculator": "ROI calculator"
+      "eyebrow": "Soiling और PR",
+      "heading": "सोलर पैनल soiling loss, soiling ratio और भारत में PR सुधार",
+      "p1": "Soiling ratio — मॉड्यूल ग्लास पर धूल से खोया irradiance — भारतीय यूटिलिटी प्लांट पर PR drift चलाता है। Rajasthan, Gujarat और MP में कैलेंडर-आधारित सफाई पर 8–25% वार्षिक जनरेशन suppression।",
+      "p2": "सफाई से PR सुधार baseline soiling, cycle frequency और मौसम पर निर्भर करता है। रोबोटिक ड्राई क्लीनिंग गीली सफाई के बिना महीने में 3–10 cycles सक्षम बनाती है — multi-MW बेड़ों पर soiling loss neutralise करने का किफायती रास्ता।",
+      "p3": "EPC और O&M टीमों को PR recovery सफाई साक्ष्य से जोड़ना चाहिए: NECTYR ब्लॉक-स्तरीय लॉग, CAPEX या Taypro Opex commit करने से पहले price guide और calculator से directional ROI।",
+      "linkPriceGuide": "भारत रोबोट मूल्य गाइड",
+      "linkCalculator": "ROI कैलकुलेटर"
     },
     "scada": {
-      "heading": "The operating gap",
-      "lead": "SCADA tells you the kWh is gone. It does not explain why before it is gone.",
-      "body": "Module health, tracker faults, inverter clipping, and soiling live in different logs. Winning plants need cause, action, and proof in one loop, not another alarm dashboard."
+      "heading": "ऑपरेटिंग गैप",
+      "lead": "SCADA बताता है kWh चला गया। यह बताने से पहले क्यों — नहीं।",
+      "body": "मॉड्यूल स्वास्थ्य, ट्रैकर फॉल्ट, इन्वर्टर क्लिपिंग और soiling अलग-अलग लॉग में हैं। जीतने वाले प्लांट को कारण, कार्रवाई और प्रमाण एक लूप में चाहिए — एक और अलार्म डैशबोर्ड नहीं।"
     },
     "solution": {
-      "eyebrow": "How Taypro closes the loop",
-      "heading": "Physical layer · Data layer · Intelligence layer",
+      "eyebrow": "Taypro लूप कैसे बंद करता है",
+      "heading": "भौतिक परत · डेटा परत · इंटेलिजेंस परत",
       "pillar0": {
-        "tag": "Physical layer",
-        "title": "Waterless cleaning robots",
-        "body": "GLYDE, GLYDE-X, NYUMA, NYUMA-X, and HELYX traverse rows, recover yield, and eliminate wet-wash water on Indian utility plants.",
-        "link": "Explore robots"
+        "tag": "भौतिक परत",
+        "title": "वाटरलेस सफाई रोबोट",
+        "body": "GLYDE, GLYDE-X, NYUMA, NYUMA-X और HELYX पंक्तियों पर traverse करते हैं, yield recover करते हैं, भारतीय यूटिलिटी प्लांट पर गीली सफाई का पानी हटाते हैं।",
+        "link": "रोबोट देखें"
       },
       "pillar1": {
-        "tag": "Data layer",
-        "title": "NECTYR fleet operations",
-        "body": "Schedule cycles, monitor blocks, manage AMC tickets, and audit coverage, labelled fleet telemetry from live deployments since 2022.",
-        "link": "Explore NECTYR"
+        "tag": "डेटा परत",
+        "title": "NECTYR फ्लीट ऑपरेशंस",
+        "body": "साइकिल शेड्यूल करें, ब्लॉक monitor करें, AMC tickets manage करें, coverage audit करें — 2022 से live deployments से fleet telemetry।",
+        "link": "NECTYR देखें"
       },
       "pillar2": {
-        "tag": "Intelligence layer",
-        "title": "ORION plant health",
-        "body": "Generation-aware monitoring that complements SCADA, designed to attach on renewal rails for fleets already on Taypro.",
-        "link": "ORION early access"
+        "tag": "इंटेलिजेंस परत",
+        "title": "ORION प्लांट स्वास्थ्य",
+        "body": "SCADA को complement करने वाली generation-aware monitoring — Taypro पर पहले से fleets के renewal rails पर attach होने के लिए designed।",
+        "link": "ORION प्रारंभिक पहुंच"
       }
     },
     "robotsSeo": {
-      "eyebrow": "Procurement & engineering",
-      "heading": "Solar panel cleaning robots for utility-scale plants in India",
-      "bodyBefore": "Taypro manufactures autonomous and semi-automatic waterless solar panel cleaning robots for fixed tilt, seasonal tilt, and single-axis tracker sites, with pan-India service, NECTYR fleet monitoring, and optional Taypro Opex for pay-per-panel cleaning. Compare",
-      "hubLink": "every Taypro robot model",
-      "bodyAfter": ", run the ROI calculator, or request a site-specific quote.",
-      "ctaHub": "Solar panel cleaning robot hub",
-      "ctaRoi": "ROI calculator",
-      "ctaPriceGuide": "India robot price guide"
+      "eyebrow": "खरीद और इंजीनियरिंग",
+      "heading": "भारत में यूटिलिटी-स्केल प्लांट के लिए सोलर पैनल सफाई रोबोट",
+      "bodyBefore": "Taypro भारत में fixed tilt, seasonal tilt और single-axis tracker sites के लिए autonomous और semi-automatic waterless robots manufacture करता है — pan-India service, NECTYR monitoring, optional Taypro Opex। तुलना करें",
+      "hubLink": "हर Taypro रोबोट मॉडल",
+      "bodyAfter": ", ROI calculator चलाएँ, या site-specific quote माँगें।",
+      "ctaHub": "सोलर पैनल सफाई रोबोट हब",
+      "ctaRoi": "ROI कैलकुलेटर",
+      "ctaPriceGuide": "भारत रोबोट मूल्य गाइड"
     },
     "sources": {
-      "heading": "Further reading",
-      "body": "Soiling and water-use figures reference published industry research. Plant-specific outcomes require site assessment.",
+      "heading": "आगे पढ़ें",
+      "body": "Soiling और water-use आंकड़े प्रकाशित industry research से। Plant-specific परिणाम site assessment चाहते हैं।",
       "link0Label": "Bergin et al. 2017, soiling in Gujarat",
       "link0Href": "https://pubs.acs.org/doi/10.1021/acs.estlett.7b00197",
-      "link1Label": "CEEW, water and solar in India",
+      "link1Label": "CEEW, भारत में जल और सोलर",
       "link1Href": "https://www.ceew.in/",
-      "link2Label": "Performance & test methodology",
+      "link2Label": "प्रदर्शन और परीक्षण पद्धति",
       "link2Href": "/performance-and-test-methodology"
     },
     "faq": {
-      "heading": "Frequently asked questions",
-      "subheading": "Utility solar operations and robotic cleaning in India.",
-      "q0": "What is a solar panel cleaning robot?",
-      "a0": "A solar panel cleaning robot autonomously or semi-autonomously removes dust and soiling from PV modules, typically without water. On Indian utility-scale plants, robotic dry cleaning helps recover yield with predictable cycles and lower O&M friction than manual crews alone.",
-      "q1": "Why do utility plants need robots instead of manual cleaning?",
-      "a1": "Manual washing does not scale linearly with MW commissioned, struggles in water-stressed states, and rarely produces auditable cycle logs. Waterless solar panel cleaning robots deliver repeatable cadence, fleet telemetry, and pan-India service SLAs that IPPs can contract against.",
-      "q2": "How does Taypro differ from SCADA alone?",
-      "a2": "SCADA reports output after loss. Taypro adds field execution (robots), fleet operations (NECTYR), and roadmap plant intelligence (ORION) so teams can schedule cleaning, prove coverage, and connect cycles to performance, not just react to alarms.",
-      "q3": "Can we buy robots or use a managed service?",
-      "a3": "Both. Purchase GLYDE, NYUMA, or HELYX with commissioning and AMC, or choose Taypro Opex for operator-led cleaning with pay-per-panel billing. NECTYR is included for fleet visibility on deployed robots.",
-      "q4": "Where are Taypro robots made and supported?",
-      "a4": "Taypro designs and manufactures in Chakan, Pune, with warehouses and field engineers across India for commissioning, spares, and same-day breakdown targets on supported fleets.",
-      "q5": "What is solar panel soiling loss on Indian utility plants?",
-      "a5": "Soiling loss is generation suppressed by dust films on modules. Industry and site studies in arid Indian belts cite up to 8–25% annual loss when cleaning cadence is insufficient. Robotic dry cleaning recovers tariff-valued MWh by increasing cycle frequency without wet-wash water.",
-      "q6": "How do cleaning robots improve solar plant performance ratio (PR)?",
-      "a6": "More consistent module cleanliness reduces soiling-related PR drift. Robots enable daily or near-daily cycles that manual crews cannot match at scale — with auditable coverage through NECTYR. PR improvement is site-dependent; Taypro quotes outcomes after soiling study and layout review.",
-      "q7": "What is solar O&M cleaning robot procurement in India?",
-      "a7": "Utility RFQs evaluate waterless robot fit, tracker compatibility, fleet software, breakdown SLA, and CAPEX vs managed Opex. Taypro supplies Made-in-India robots (GLYDE, NYUMA, HELYX, tracker variants) with NECTYR and optional Taypro Opex — see our India price guide and regional state pages for deployment context."
+      "heading": "अक्सर पूछे जाने वाले प्रश्न",
+      "subheading": "भारत में यूटिलिटी सोलर ऑपरेशंस और रोबोटिक सफाई।",
+      "q0": "सोलर पैनल सफाई रोबोट क्या है?",
+      "a0": "सोलर पैनल सफाई रोबोट स्वायत्त या अर्ध-स्वायत्त रूप से PV modules से धूल हटाता है, आमतौर पर बिना पानी के। भारतीय यूटिलिटी प्लांट पर robotic dry cleaning predictable cycles और कम O&M friction से yield recover करती है।",
+      "q1": "यूटिलिटी प्लांट को manual के बजाय robots क्यों चाहिए?",
+      "a1": "Manual washing MW commission के साथ linearly scale नहीं करता, water-stressed states में struggle करता है, auditable cycle logs rarely produce करता। Waterless robots repeatable cadence, fleet telemetry, pan-India SLA deliver करते हैं।",
+      "q2": "Taypro SCADA alone से कैसे अलग है?",
+      "a2": "SCADA loss के बाद output report करता है। Taypro field execution (robots), fleet operations (NECTYR), plant intelligence (ORION) add करता है — schedule, prove coverage, cycles को performance से connect।",
+      "q3": "क्या robots खरीद सकते हैं या managed service?",
+      "a3": "दोनों। GLYDE, NYUMA, HELYX commissioning और AMC के साथ purchase करें, या Taypro Opex pay-per-panel cleaning चुनें। Deployed robots पर NECTYR visibility included।",
+      "q4": "Taypro robots कहाँ बने और support कहाँ?",
+      "a4": "Taypro Chakan, Pune में design और manufacture करता है — warehouses और field engineers pan-India commissioning, spares, same-day breakdown targets।",
+      "q5": "भारतीय यूटिलिटी प्लांट पर solar panel soiling loss क्या है?",
+      "a5": "Soiling loss modules पर dust films से suppressed generation है। Arid Indian belts में 8–25% annual loss जब cleaning cadence insufficient। Robotic dry cleaning tariff-valued MWh recover करती है।",
+      "q6": "Cleaning robots solar plant PR (performance ratio) कैसे improve करते हैं?",
+      "a6": "Consistent module cleanliness soiling-related PR drift कम करती है। Robots daily/near-daily cycles enable — manual crews scale पर match नहीं — NECTYR auditable coverage। PR improvement site-dependent।",
+      "q7": "India में solar O&M cleaning robot procurement क्या है?",
+      "a7": "Utility RFQs waterless fit, tracker compatibility, fleet software, breakdown SLA, CAPEX vs Opex evaluate करते हैं। Taypro Made-in-India robots (GLYDE, NYUMA, HELYX, tracker variants) NECTYR और optional Taypro Opex — India price guide और state pages देखें।"
     },
     "cta": {
-      "heading": "Plan your plant's operations layer",
-      "body": "Share capacity, layout, and procurement preference, our team will recommend robots, Opex, or fleet software for your site.",
-      "quote": "Get a quote",
-      "company": "Partners & investors"
+      "heading": "अपने प्लांट की operations layer plan करें",
+      "body": "क्षमता, layout, procurement preference साझा करें — robots, Opex, या fleet software recommend करेंगे।",
+      "quote": "कोटेशन लें",
+      "company": "पार्टनर और निवेशक"
     },
     "related": {
-      "label": "Related:",
-      "cleaningTech": "Cleaning technology",
-      "projects": "Live projects",
-      "methodology": "Performance methodology",
-      "priceGuide": "India robot price guide",
-      "utilityOps": "Utility solar operations"
+      "label": "संबंधित:",
+      "cleaningTech": "सफाई तकनीक",
+      "projects": "live projects",
+      "methodology": "प्रदर्शन पद्धति",
+      "priceGuide": "भारत रोबोट मूल्य गाइड",
+      "utilityOps": "यूटिलिटी सोलर ऑपरेशंस"
     },
     "stateGuides": {
-      "heading": "Regional solar cleaning robot guides",
-      "intro": "Explore Taypro deployments, soiling context, and RFQ guidance by state — Rajasthan, Gujarat, Madhya Pradesh, Karnataka, Andhra Pradesh, Maharashtra, Uttar Pradesh, and Tamil Nadu."
+      "heading": "क्षेत्रीय सोलर cleaning robot guides",
+      "intro": "Rajasthan, Gujarat, Madhya Pradesh, Karnataka, Andhra Pradesh, Maharashtra, Uttar Pradesh, Tamil Nadu — deployments, soiling context, RFQ guidance।"
     }
   },
   "Common": {
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "होम"
   }
 }

@@ -11,7 +11,7 @@ export const TAYPRO_PUBLIC_PROOF = {
   cleaningEfficiency: "99%",
   warehouses: "8+",
   /** Current manufacturing throughput (public marketing figure). */
-  manufacturingPerMonth: "200+",
+  manufacturingPerMonth: "600+",
 } as const;
 
 export type TayproPublicProofStat = {

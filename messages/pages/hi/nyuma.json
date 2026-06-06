@@ -52,7 +52,8 @@
       }
     },
     "hero": {
-      "title": "NYUMA — Automatic Solar Panel Cleaning Robot for Fixed-Tilt Utility Plants",
+      "title": "NYUMA — Fully Automatic Solar Panel Cleaning Robot for Fixed-Tilt Plants",
+      "h1Line1": "स्वचालित सोलर पैनल सफाई रोबोट, ",
       "h1Line2": "Taypro NYUMA",
       "leadBeforeStrong": "Taypro NYUMA एक ",
       "leadStrong": "स्वचालित सोलर पैनल सफाई रोबोट",
@@ -68,6 +69,7 @@
       "heroImageTitle": "स्वचालित सोलर पैनल सफाई रोबोट NYUMA, Taypro"
     },
     "overview": {
+      "productImageAlt": "Top view of Taypro NYUMA automatic solar panel cleaning robot on parallel cleaning rails",
       "eyebrow": "यूटिलिटी-स्केल प्लांट के लिए स्वचालित सोलर पैनल सफाई रोबोट",
       "title": "Taypro NYUMA स्वचालित सोलर पैनल सफाई रोबोट क्या है?",
       "p1BeforeStrong": "",
@@ -92,7 +94,19 @@
       "p4Middle": " और ",
       "p4Suffix": "।"
     },
+    "gallery": {
+      "eyebrow": "Product engineering",
+      "title": "NYUMA hardware at a glance",
+      "subtitle": "Patented single-pass PBT cleaning on module-frame rails, autonomous docking, and fleet connectivity built for utility-scale fixed-tilt plants.",
+      "primaryAlt": "Taypro NYUMA TR-150 automatic cleaning robot, plan view showing rails and single-pass PBT cleaning elements",
+      "primaryCaption": "NYUMA TR-150 travels along the module frame with patented single-pass PBT PBT brush cleaning.",
+      "mechanismAlt": "Close-up of Taypro NYUMA single-pass PBT rotating PBT brush cleaning drum, wheels, and wireless antenna",
+      "mechanismCaption": "Rotating self-cleaning PBT brush drum, frame-mounted travel, and remote monitoring antenna.",
+      "dockingAlt": "Taypro NYUMA shadow-free docking station with integrated solar charging for autonomous daily cycles",
+      "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array."
+    },
     "howToSection": {
+      "dualPassStepImageAlt": "Taypro NYUMA single-pass PBT waterless cleaning mechanism with rotating PBT brush drum",
       "eyebrow": "स्वायत्त सफाई चक्र",
       "title": "स्वचालित सोलर पैनल सफाई रोबोट कैसे काम करता है?",
       "subtitle": "NYUMA पंक्ति पर ऑपरेटर के बिना अंत-से-अंत चलता है। नीचे वही वर्कफ़्लो है जो HowTo स्ट्रक्चर्ड डेटा और प्रत्येक तैनात प्लांट की दैनिक वास्तविकता में है।",
@@ -409,7 +423,7 @@
           "details": "+20 mm"
         },
         "ipRating": {
-          "spec": "IP Rating",
+          "spec": "IP रेटिंग",
           "details": "IP65"
         },
         "corrosion": {
@@ -458,6 +472,7 @@
       }
     },
     "installSection": {
+      "dockingImageAlt": "Taypro NYUMA docking station with integrated solar panel for autonomous robot charging between cleaning cycles",
       "title": "स्वचालित रोबोट की स्थापना में कितना समय?",
       "p1": "स्थापना में मौजूदा लेआउट में कोई संशोधन नहीं। NYUMA सीधे पैनल फ्रेम पर चलता है।",
       "p2": "कुछ घंटों से कुछ दिन, डॉकिंग, कैलिब्रेशन, सिस्टम इंटीग्रेशन।",

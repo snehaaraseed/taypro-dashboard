@@ -15,6 +15,7 @@ const layouts = [
   ["src/app/[locale]/projects/automatic/layout.tsx", "/projects/automatic"],
   ["src/app/[locale]/projects/semi-automatic/layout.tsx", "/projects/semi-automatic"],
   ["src/app/[locale]/projects/capex/layout.tsx", "/projects/capex"],
+  ["src/app/[locale]/projects/opex/layout.tsx", "/projects/opex"],
   ["src/app/[locale]/solar-panel-cleaning-system/layout.tsx", "/solar-panel-cleaning-system"],
   [
     "src/app/[locale]/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system/layout.tsx",

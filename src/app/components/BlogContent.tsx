@@ -8,10 +8,21 @@ interface BlogContentProps {
   className?: string;
 }
 
+function wrapCmsTables(html: string): string {
+  if (!/<table[\s>]/i.test(html)) return html;
+  return html.replace(
+    /<table[\s\S]*?<\/table>/gi,
+    (table) => `<div class="cms-table-wrap">${table}</div>`
+  );
+}
+
 export function BlogContent({ content, className = "" }: BlogContentProps) {
   const contentRef = useRef<HTMLDivElement>(null);
   const isMountedRef = useRef(false);
-  const safeHtml = useMemo(() => sanitizeBlogHtml(content), [content]);
+  const safeHtml = useMemo(
+    () => wrapCmsTables(sanitizeBlogHtml(content)),
+    [content]
+  );
 
   useEffect(() => {
     // Mark as mounted after first render

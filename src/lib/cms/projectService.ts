@@ -15,7 +15,6 @@ import type {
 import type { TayproLocale } from "@/i18n/markets";
 import { isActiveLocale } from "@/i18n/markets";
 import { SOURCE_LOCALE } from "@/lib/translation/config";
-import { scheduleProjectTranslations } from "@/lib/translation/translate-cms";
 import {
   canonicalizeCategoryDetailTags,
   projectMatchesCategory,
@@ -339,10 +338,6 @@ export async function createProjectFiles(
     published,
   });
 
-  if (published) {
-    scheduleProjectTranslations(slug);
-  }
-
   return { slug, updatedAt: now };
 }
 
@@ -411,10 +406,6 @@ export async function updateProjectFiles(
     .where(
       and(eq(projects.slug, finalSlug), eq(projects.locale, SOURCE_LOCALE))
     );
-
-  if (published) {
-    scheduleProjectTranslations(finalSlug);
-  }
 
   return { slug: finalSlug, updatedAt: now };
 }

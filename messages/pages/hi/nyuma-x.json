@@ -17,8 +17,8 @@
         "ट्रैकर स्वचालित सोलर पैनल सफाई सिस्टम",
         "Taypro GLYDE-X"
       ],
-      "openGraphTitle": "PBT Tracker Solar Panel Cleaning Robot, Taypro NYUMA-X",
-      "twitterTitle": "PBT Tracker Solar Panel Cleaning Robot, Taypro NYUMA-X"
+      "openGraphTitle": "PBT ट्रैकर सोलर पैनल सफाई रोबोट, Taypro NYUMA-X",
+      "twitterTitle": "PBT ट्रैकर सोलर पैनल सफाई रोबोट, Taypro NYUMA-X"
     },
     "breadcrumbs": {
       "robots": "सोलर पैनल सफाई करने वाले रोबोट",
@@ -37,7 +37,8 @@
       "subtitleStrong": "टेबलों के बीच ±15° फ्लेक्स होता है",
       "subtitleAfter": ", -52° से +52° तक मॉड्यूल झुकाव का समर्थन करता है, और NEXTracker, Gamechanger और समकक्ष ट्रैकर्स के साथ संगत है।",
       "imgAlt": "Taypro सिंगल-एक्सिस ट्रैकर सोलर पैनल क्लीनिंग रोबोट GLYDE-X - सोलर पैनल इंस्टॉलेशन पर नज़र रखने के लिए स्वायत्त रोबोटिक सफाई प्रणाली",
-      "ctaText": "एक उद्धरण का अनुरोध करें"
+      "ctaText": "एक उद्धरण का अनुरोध करें",
+      "h1Line1": "सिंगल-एक्सिस ट्रैकर्स के लिए सोलर पैनल सफाई रोबोट, "
     },
     "usps": {
       "0": {
@@ -506,10 +507,10 @@
     },
     "modelCardsTitle": "और अधिक समाधान खोज रहे हैं?",
     "roiBand": {
-      "title": "Tracker cleaning robot cost & ROI",
-      "bodyBeforeSpan": "Model ",
-      "bodySpan": "single-axis tracker solar panel cleaning",
-      "bodyAfterSpan": " economics for your site, use the calculator before a NYUMA-X quote."
+      "title": "ट्रैकर सफाई रोबोट लागत और ROI",
+      "bodyBeforeSpan": "अपनी साइट के लिए ",
+      "bodySpan": "सिंगल-एक्सिस ट्रैकर सोलर पैनल सफाई",
+      "bodyAfterSpan": " अर्थशास्त्र, NYUMA-X कोटेशन से पहले कैलकुलेटर चलाएं।"
     },
     "shared": {
       "connectivitySummary": "LTE, Wi-Fi, हाइब्रिड सेल्फ-हीलिंग RF मेश, LoRa और LoRaWAN"

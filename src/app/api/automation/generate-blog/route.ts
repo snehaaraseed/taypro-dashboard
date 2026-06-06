@@ -560,7 +560,6 @@ export async function POST(request: NextRequest) {
             faqs: blogData.faqs,
             publishDate: new Date().toISOString(),
             published: true,
-            scheduleTranslations: false,
             seoKeyword: topic.seoKeyword || topic.seoBrief?.primary,
           },
           slug

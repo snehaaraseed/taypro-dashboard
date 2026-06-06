@@ -1,33 +1,61 @@
 /** Matches CMS `details` tags to /projects category landing pages. */
-export type ProjectCategoryFilter = "automatic" | "semiAutomatic" | "capex";
+export type ProjectCategoryFilter =
+  | "automatic"
+  | "semiAutomatic"
+  | "capex"
+  | "opex";
 
 export const CANONICAL_CATEGORY_LABELS: Record<ProjectCategoryFilter, string> = {
   automatic: "Automatic",
   semiAutomatic: "Semi-Automatic",
   capex: "Capex",
+  opex: "Opex",
 };
 
 export const CATEGORY_PAGE_HREFS: Record<ProjectCategoryFilter, string> = {
   automatic: "/projects/automatic",
   semiAutomatic: "/projects/semi-automatic",
   capex: "/projects/capex",
+  opex: "/projects/opex",
 };
 
 const ALL_CATEGORIES: ProjectCategoryFilter[] = [
   "automatic",
   "semiAutomatic",
   "capex",
+  "opex",
 ];
 
 function normalizeDetailTag(tag: string): string {
   return tag.toLowerCase().replace(/[\s_-]+/g, "");
 }
 
+const SEMI_AUTO_ROBOT_TAG =
+  /(\d+)\s*semi[-\s]?auto(?:matic)?\s*robots?/i;
+const AUTO_ROBOT_TAG = /(\d+)\s*auto\s*robots?/i;
+
+function semiAutoRobotCount(tag: string): number {
+  const match = tag.trim().match(SEMI_AUTO_ROBOT_TAG);
+  return match ? Number(match[1]) : 0;
+}
+
+function autoRobotCount(tag: string): number {
+  if (/semi[-\s]?auto/i.test(tag)) return 0;
+  const match = tag.trim().match(AUTO_ROBOT_TAG);
+  return match ? Number(match[1]) : 0;
+}
+
 /** Resolve a detail chip to a category filter, if any. */
 export function getCategoryForDetailTag(tag: string): ProjectCategoryFilter | null {
-  const n = normalizeDetailTag(tag);
+  const trimmed = tag.trim();
+  if (!trimmed) return null;
+
+  const n = normalizeDetailTag(trimmed);
   if (n === "capex" || n.startsWith("capex")) {
     return "capex";
+  }
+  if (n === "opex" || n.startsWith("opex") || n === "tayproopex") {
+    return "opex";
   }
   if (
     n === "semiautomatic" ||
@@ -36,7 +64,13 @@ export function getCategoryForDetailTag(tag: string): ProjectCategoryFilter | nu
   ) {
     return "semiAutomatic";
   }
+  if (semiAutoRobotCount(trimmed) > 0) {
+    return "semiAutomatic";
+  }
   if (n === "automatic" || (n.startsWith("automatic") && !n.includes("semi"))) {
+    return "automatic";
+  }
+  if (autoRobotCount(trimmed) > 0) {
     return "automatic";
   }
   return null;
@@ -47,7 +81,13 @@ export function isProjectCategoryDetailTag(tag: string): boolean {
 }
 
 export function canonicalCategoryLabel(tag: string): string | null {
-  const category = getCategoryForDetailTag(tag);
+  const trimmed = tag.trim();
+  if (!trimmed) return null;
+  // Keep operational robot-count chips; only normalize explicit category synonyms.
+  if (semiAutoRobotCount(trimmed) > 0 || autoRobotCount(trimmed) > 0) {
+    return null;
+  }
+  const category = getCategoryForDetailTag(trimmed);
   return category ? CANONICAL_CATEGORY_LABELS[category] : null;
 }
 

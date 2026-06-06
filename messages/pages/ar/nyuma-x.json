@@ -17,8 +17,8 @@
         "نظام تنظيف أوتوماتيكي للمتتبعات",
         "Taypro GLYDE-X"
       ],
-      "openGraphTitle": "PBT Tracker Solar Panel Cleaning Robot, Taypro NYUMA-X",
-      "twitterTitle": "PBT Tracker Solar Panel Cleaning Robot, Taypro NYUMA-X"
+      "openGraphTitle": "روبوت تنظيف ألواح PBT لأجهزة التتبع أحادية المحور, Taypro NYUMA-X",
+      "twitterTitle": "روبوت تنظيف ألواح PBT لأجهزة التتبع أحادية المحور, Taypro NYUMA-X"
     },
     "breadcrumbs": {
       "robots": "روبوتات تنظيف الألواح الشمسية",
@@ -37,7 +37,8 @@
       "subtitleStrong": "ينثني ± 15 درجة بين الجداول",
       "subtitleAfter": "، يدعم إمالة الوحدة من -52 درجة إلى +52 درجة، وهو متوافق مع NEXTracker وGamechanger وأجهزة التتبع المكافئة.",
       "imgAlt": "روبوت تنظيف الألواح الشمسية ذو المحور الواحد Taypro GLYDE-X - نظام تنظيف آلي مستقل لتتبع تركيبات الألواح الشمسية",
-      "ctaText": "طلب عرض أسعار"
+      "ctaText": "طلب عرض أسعار",
+      "h1Line1": "روبوت تنظيف الألواح الشمسية لأجهزة التتبع أحادية المحور, "
     },
     "usps": {
       "0": {
@@ -506,10 +507,10 @@
     },
     "modelCardsTitle": "هل تبحث عن المزيد من الحلول؟",
     "roiBand": {
-      "title": "Tracker cleaning robot cost & ROI",
-      "bodyBeforeSpan": "Model ",
-      "bodySpan": "single-axis tracker solar panel cleaning",
-      "bodyAfterSpan": " economics for your site, use the calculator before a NYUMA-X quote."
+      "title": "تكلفة وعائد روبوت تنظيف المتتبع",
+      "bodyBeforeSpan": "اقتصاديات ",
+      "bodySpan": "تنظيف ألواح المتتبع أحادي المحور",
+      "bodyAfterSpan": " لموقعك, استخدم الحاسبة قبل عرض سعر NYUMA-X."
     },
     "shared": {
       "connectivitySummary": "LTE وWi-Fi وشبكة RF ذاتية الشفاء هجينة وLoRa وLoRaWAN"

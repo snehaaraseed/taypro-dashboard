@@ -508,10 +508,10 @@
     },
     "modelCardsTitle": "আরো সমাধান খুঁজছেন?",
     "roiBand": {
-      "title": "Tracker cleaning robot cost & ROI",
-      "bodyBeforeSpan": "Model ",
-      "bodySpan": "single-axis tracker solar panel cleaning",
-      "bodyAfterSpan": " economics for your site, use the calculator before a GLYDE-X quote."
+      "title": "ট্র্যাকার পরিষ্কার রোবটের খরচ ও ROI",
+      "bodyBeforeSpan": "আপনার সাইটে ",
+      "bodySpan": "একক-অক্ষ ট্র্যাকার সোলার প্যানেল পরিষ্কার",
+      "bodyAfterSpan": " এর অর্থনীতির জন্য GLYDE-X কোটের আগে ক্যালকুলেটর ব্যবহার করুন।"
     },
     "common": {
       "breadcrumbHome": "হোম"

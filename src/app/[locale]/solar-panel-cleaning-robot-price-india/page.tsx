@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, MapPin } from "lucide-react";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { Container } from "@/app/components/Container";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
@@ -17,6 +17,66 @@ import { UTILITY_SOLAR_OPERATIONS_PATH } from "@/lib/seo/utility-solar-operation
 const COST_DRIVER_KEYS = ["0", "1", "2", "3", "4"] as const;
 const MANUFACTURER_CHECK_KEYS = ["0", "1", "2", "3", "4"] as const;
 const FAQ_KEYS = ["0", "1", "2", "3", "4", "5", "6", "7"] as const;
+
+const EXPLORE_PRIMARY_LINKS = [
+  { labelKey: "explore.linkHub", href: "/solar-panel-cleaning-system" },
+  {
+    labelKey: "explore.linkGlyde",
+    href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
+  },
+  {
+    labelKey: "explore.linkService",
+    href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
+  },
+  { labelKey: "explore.linkUtilityOps", href: UTILITY_SOLAR_OPERATIONS_PATH },
+  {
+    labelKey: "explore.linkCalculator",
+    href: "/solar-panel-cleaning-robot-price-calculator",
+  },
+] as const;
+
+const EXPLORE_STATE_LINKS = [
+  {
+    labelKey: "explore.linkRajasthan",
+    state: "Rajasthan",
+    href: "/solar-panel-cleaning-robot-rajasthan",
+  },
+  {
+    labelKey: "explore.linkGujarat",
+    state: "Gujarat",
+    href: "/solar-panel-cleaning-robot-gujarat",
+  },
+  {
+    labelKey: "explore.linkMadhyaPradesh",
+    state: "Madhya Pradesh",
+    href: "/solar-panel-cleaning-robot-madhya-pradesh",
+  },
+  {
+    labelKey: "explore.linkKarnataka",
+    state: "Karnataka",
+    href: "/solar-panel-cleaning-robot-karnataka",
+  },
+  {
+    labelKey: "explore.linkAndhraPradesh",
+    state: "Andhra Pradesh",
+    href: "/solar-panel-cleaning-robot-andhra-pradesh",
+  },
+  {
+    labelKey: "explore.linkMaharashtra",
+    state: "Maharashtra",
+    href: "/solar-panel-cleaning-robot-maharashtra",
+  },
+  {
+    labelKey: "explore.linkUttarPradesh",
+    state: "Uttar Pradesh",
+    href: "/solar-panel-cleaning-robot-uttar-pradesh",
+  },
+  {
+    labelKey: "explore.linkTamilNadu",
+    state: "Tamil Nadu",
+    href: "/solar-panel-cleaning-robot-tamil-nadu",
+  },
+] as const;
 
 export default async function RobotPriceIndiaPage({
   params,
@@ -263,109 +323,52 @@ export default async function RobotPriceIndiaPage({
         tone="muted"
       />
 
-      <section className="py-10 bg-[#f4f7f9] px-4 sm:px-6 border-t border-gray-100">
-        <Container className="max-w-3xl">
-          <h2 className="text-[#052638] font-semibold text-xl mb-4">{t("explore.heading")}</h2>
-          <ul className="space-y-2 text-sm">
-            <li>
-              <Link href="/solar-panel-cleaning-system" className="text-[#5a8f00] font-medium hover:underline">
-                {t("explore.linkHub")}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
-                className="text-[#5a8f00] font-medium hover:underline"
-              >
-                {t("explore.linkGlyde")}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
-                className="text-[#5a8f00] font-medium hover:underline"
-              >
-                {t("explore.linkService")}
-              </Link>
-            </li>
-            <li>
-              <Link href={UTILITY_SOLAR_OPERATIONS_PATH} className="text-[#5a8f00] font-medium hover:underline">
-                {t("explore.linkUtilityOps")}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/solar-panel-cleaning-robot-price-calculator"
-                className="text-[#5a8f00] font-medium hover:underline"
-              >
-                {t("explore.linkCalculator")}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/solar-panel-cleaning-robot-rajasthan"
-                className="text-[#5a8f00] font-medium hover:underline"
-              >
-                {t("explore.linkRajasthan")}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/solar-panel-cleaning-robot-gujarat"
-                className="text-[#5a8f00] font-medium hover:underline"
-              >
-                {t("explore.linkGujarat")}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/solar-panel-cleaning-robot-madhya-pradesh"
-                className="text-[#5a8f00] font-medium hover:underline"
-              >
-                {t("explore.linkMadhyaPradesh")}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/solar-panel-cleaning-robot-karnataka"
-                className="text-[#5a8f00] font-medium hover:underline"
-              >
-                {t("explore.linkKarnataka")}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/solar-panel-cleaning-robot-andhra-pradesh"
-                className="text-[#5a8f00] font-medium hover:underline"
-              >
-                {t("explore.linkAndhraPradesh")}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/solar-panel-cleaning-robot-maharashtra"
-                className="text-[#5a8f00] font-medium hover:underline"
-              >
-                {t("explore.linkMaharashtra")}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/solar-panel-cleaning-robot-uttar-pradesh"
-                className="text-[#5a8f00] font-medium hover:underline"
-              >
-                {t("explore.linkUttarPradesh")}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/solar-panel-cleaning-robot-tamil-nadu"
-                className="text-[#5a8f00] font-medium hover:underline"
-              >
-                {t("explore.linkTamilNadu")}
-              </Link>
-            </li>
-          </ul>
+      <section className="py-14 md:py-16 bg-[#f4f7f9] px-4 sm:px-6 border-t border-gray-100">
+        <Container className="max-w-5xl">
+          <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
+            <h2 className="text-[#052638] font-semibold text-2xl md:text-3xl mb-3">
+              {t("explore.heading")}
+            </h2>
+            <p className="text-[#27415c] text-base md:text-lg max-w-2xl mx-auto">
+              {t("explore.subheading")}
+            </p>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll animation="fadeInUp" delay={50}>
+            <div className="flex flex-wrap justify-center gap-3 mb-10">
+              {EXPLORE_PRIMARY_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-[#052638] hover:border-[#A8C117] hover:text-[#5a8f00] shadow-sm transition"
+                >
+                  {t(link.labelKey)}
+                  <ArrowRight className="w-4 h-4 shrink-0" aria-hidden />
+                </Link>
+              ))}
+            </div>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll animation="fadeInUp" delay={100}>
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm">
+              <h3 className="text-[#052638] font-semibold text-lg md:text-xl text-center mb-6">
+                {t("explore.statesHeading")}
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                {EXPLORE_STATE_LINKS.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    aria-label={t(link.labelKey)}
+                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-100 bg-[#f8fafb] px-3 py-3 text-sm font-medium text-[#052638] hover:border-[#A8C117] hover:bg-white hover:text-[#5a8f00] transition text-center"
+                  >
+                    <MapPin className="w-4 h-4 shrink-0 text-[#A8C117]" aria-hidden />
+                    <span>{link.state}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </AnimateOnScroll>
         </Container>
       </section>
 

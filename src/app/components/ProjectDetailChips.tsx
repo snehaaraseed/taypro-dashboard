@@ -9,6 +9,8 @@ type ProjectDetailChipsProps = {
   linkClassName?: string;
   spanClassName?: string;
   linkTitle?: string;
+  /** When false, category tags render as text (use inside an outer card link). */
+  linkCategories?: boolean;
 };
 
 export function ProjectDetailChips({
@@ -17,11 +19,12 @@ export function ProjectDetailChips({
   linkClassName = "hover:underline hover:text-[#c3d958] transition-colors duration-300",
   spanClassName = "",
   linkTitle = "Solar Project",
+  linkCategories = true,
 }: ProjectDetailChipsProps) {
   return (
     <div className={className}>
       {items.map((item, index) => {
-        const href = getCategoryHrefForDetailTag(item);
+        const href = linkCategories ? getCategoryHrefForDetailTag(item) : null;
         if (href) {
           return (
             <Link

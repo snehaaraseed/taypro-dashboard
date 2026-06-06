@@ -225,6 +225,15 @@ export default async function SiteMapPage({
                       {l("projectsCapexLabel")}
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      href="/projects/opex"
+                      title={l("projectsOpexTitle")}
+                      className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                    >
+                      {l("projectsOpexLabel")}
+                    </Link>
+                  </li>
                 </ul>
               </li>
               <li>

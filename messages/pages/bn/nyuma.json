@@ -52,7 +52,8 @@
       }
     },
     "hero": {
-      "title": "NYUMA — Automatic Solar Panel Cleaning Robot for Fixed-Tilt Utility Plants",
+      "title": "NYUMA — Fully Automatic Solar Panel Cleaning Robot for Fixed-Tilt Plants",
+      "h1Line1": "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট, ",
       "h1Line2": "Taypro NYUMA",
       "leadBeforeStrong": "Taypro NYUMA হল একটি ",
       "leadStrong": "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট",
@@ -68,6 +69,7 @@
       "heroImageTitle": "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট NYUMA, Taypro"
     },
     "overview": {
+      "productImageAlt": "Top view of Taypro NYUMA automatic solar panel cleaning robot on parallel cleaning rails",
       "eyebrow": "ইউটিলিটি-স্কেল প্ল্যান্টের জন্য অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট",
       "title": "Taypro NYUMA অটোমেটিক রোবট কী?",
       "p1BeforeStrong": "",
@@ -82,17 +84,29 @@
       },
       "methodologyLinkText": "পারফরম্যান্স ও পরীক্ষা পদ্ধতি",
       "methodologyLinkTitle": "পারফরম্যান্স ও পরীক্ষা পদ্ধতি",
-      "p2BeforeStrong": "On a single charge, NYUMA cleans up to ",
-      "p2Strong": "2.2 km of running length, approximately 3,600 solar modules",
-      "p2AfterStrong": ". Cleaning cycles are best scheduled outside energy production hours and can be programmed remotely, ensuring zero impact on plant generation.",
-      "p3": "Advanced edge and obstacle detection allow NYUMA to traverse panels safely without risk of falling, while continuous surface-undulation tracking adjusts motor performance row-by-row for consistent cleaning quality. Real-time battery monitoring guarantees the robot only covers what it can complete and returns safely to its docking station, never stranded mid-array. Lightweight bridges enable seamless movement from one table to the next, keeping coverage uninterrupted across the entire site.",
+      "p2BeforeStrong": "একটি চার্জে NYUMA সর্বোচ্চ ",
+      "p2Strong": "2.2 km রানিং লেন্থ, প্রায় 3,600টি সোলার মডিউল",
+      "p2AfterStrong": " পরিষ্কার করে। পরিষ্কার চক্র শক্তি উৎপাদনের সময়ের বাইরে শিডিউল করা সবচেয়ে ভালো এবং দূর থেকে প্রোগ্রাম করা যায়, প্ল্যান্ট জেনারেশনে কোনো প্রভাব নেই।",
+      "p3": "উন্নত এজ ও বাধা শনাক্তকরণ NYUMA-কে নিরাপদে প্যানেল পার করতে দেয়, পতনের ঝুঁকি ছাড়াই। সারফেস ট্র্যাকিং সারি-দর-সারি মোটর পারফরম্যান্স সামঞ্জস্য করে সামঞ্জস্যপূর্ণ পরিষ্কারের গুণমান বজায় রাখে। রিয়েল-টাইম ব্যাটারি মনিটরিং নিশ্চিত করে রোবট শুধু সম্পন্নযোগ্য দূরত্ব কভার করে এবং ডকিং স্টেশনে নিরাপদে ফিরে আসে। হালকা ব্রিজ এক টেবিল থেকে অন্যটিতে নিরবিচ্ছিন্ন কভারেজ বজায় রাখে।",
       "p4Blog1": "মডিউলে অটোমেটিক পরিষ্কার রোবট কীভাবে কাজ করে",
       "p4Blog2": "ইউটিলিটি স্কেলে রোবোটিক পরিষ্কারের সুবিধা",
       "p4Prefix": "আরও পড়ুন: ",
       "p4Middle": " এবং ",
       "p4Suffix": "।"
     },
+    "gallery": {
+      "eyebrow": "Product engineering",
+      "title": "NYUMA hardware at a glance",
+      "subtitle": "Patented single-pass PBT cleaning on module-frame rails, autonomous docking, and fleet connectivity built for utility-scale fixed-tilt plants.",
+      "primaryAlt": "Taypro NYUMA TR-150 automatic cleaning robot, plan view showing rails and single-pass PBT cleaning elements",
+      "primaryCaption": "NYUMA TR-150 travels along the module frame with patented single-pass PBT PBT brush cleaning.",
+      "mechanismAlt": "Close-up of Taypro NYUMA single-pass PBT rotating PBT brush cleaning drum, wheels, and wireless antenna",
+      "mechanismCaption": "Rotating self-cleaning PBT brush drum, frame-mounted travel, and remote monitoring antenna.",
+      "dockingAlt": "Taypro NYUMA shadow-free docking station with integrated solar charging for autonomous daily cycles",
+      "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array."
+    },
     "howToSection": {
+      "dualPassStepImageAlt": "Taypro NYUMA single-pass PBT waterless cleaning mechanism with rotating PBT brush drum",
       "eyebrow": "স্বায়ত্তশাসিত পরিষ্কার চক্র",
       "title": "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট কীভাবে কাজ করে?",
       "subtitle": "NYUMA সারিতে অপারেটর ছাড়াই শেষ থেকে শেষ চলে। নিচে HowTo স্ট্রাকচার্ড ডেটা ও প্রতিটি সাইটের দৈনিক বাস্তবতা।",
@@ -250,16 +264,16 @@
       "subtitle": "Taypro-এর ক্লিনিং সলিউশনগুলি কঠোর ক্ষেত্র এবং পরীক্ষাগার যাচাইকরণের সাপেক্ষে, বাস্তবসম্মত বহিরঙ্গন পরিস্থিতিতে দৈনন্দিন পরিচ্ছন্নতার চক্র অনুকরণ করে, স্বীকৃত সোলার-সেক্টর টেস্টিং ল্যাবরেটরি দ্বারা পরিচালিত।",
       "cards": {
         "card0": {
-          "title": "TÜV NORD Certified",
-          "body": "Independently tested and certified for IP55 protection and validated for extreme damp-heat and dry-heat performance by TÜV NORD."
+          "title": "TÜV NORD সনদপ্রাপ্ত",
+          "body": "IP55 সুরক্ষার জন্য TÜV NORD দ্বারা স্বাধীন পরীক্ষা ও সনদ; চরম আর্দ্র-তাপ ও শুষ্ক-তাপ কর্মক্ষমতা যাচাইকৃত।"
         },
         "card1": {
-          "title": "Sandstorm-Endurance Tested",
-          "body": "Validated under simulated outdoor cleaning cycles, including 12 sandstorm events per year at a sand loading of 10 g/m² per cycle."
+          "title": "বালুকাঝড় সহনশীলতা পরীক্ষিত",
+          "body": "সিমুলেটেড আউটডোর ক্লিনিং চক্রে যাচাইকৃত, প্রতি বছর ১২ বালুকাঝড়, প্রতি চক্রে ১০ g/m² বালি লোডিং সহ।"
         },
         "card2": {
-          "title": "Panel-Safe Cleaning",
-          "body": "Testing covers micro-crack analysis, optical reflectance measurements, full electrical parameter evaluation and Anti-Reflective Coating (ARC) preservation."
+          "title": "প্যানেল-সুরক্ষিত পরিষ্কার",
+          "body": "মাইক্রো-ক্র্যাক বিশ্লেষণ, অপটিক্যাল প্রতিফলন, বৈদ্যুতিক প্যারামিটার ও ARC (Anti-Reflective Coating) সংরক্ষণ পরীক্ষা।"
         }
       }
     },
@@ -409,7 +423,7 @@
           "details": "+20 mm"
         },
         "ipRating": {
-          "spec": "IP Rating",
+          "spec": "IP রেটিং",
           "details": "IP65"
         },
         "corrosion": {
@@ -458,6 +472,7 @@
       }
     },
     "installSection": {
+      "dockingImageAlt": "Taypro NYUMA docking station with integrated solar panel for autonomous robot charging between cleaning cycles",
       "title": "অটোমেটিক রোবট ইনস্টলেশনে কত সময়?",
       "p1": "বিদ্যমান লেআউটে পরিবর্তন নেই। NYUMA সরাসরি ফ্রেমে চলে।",
       "p2": "কয়েক ঘণ্টা থেকে কয়েক দিন, ডকিং, ক্যালিব্রেশন, ইন্টিগ্রেশন।",
@@ -549,12 +564,12 @@
       }
     },
     "modelCards": {
-      "title": "Looking for more solutions?",
+      "title": "আরও সমাধান খুঁজছেন?",
       "cardLabels": {
         "modelB": "HELYX",
         "modelT": "NYUMA"
       },
-      "cardTitleTemplate": "{label} Solar Panel Cleaning Robot"
+      "cardTitleTemplate": "{label} সোলার প্যানেল ক্লিনিং রোবোট"
     }
   },
   "Common": {

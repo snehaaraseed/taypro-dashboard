@@ -53,12 +53,13 @@
         "name": "自動ソーラーパネル清掃ロボットがユーティリティ規模プラントを清掃する方法（Taypro GLYDE）",
         "description": "GLYDEの自律清掃サイクル, AIスケジューリング、デュアルパス無水清掃、セルフドッキング、クラウドテレメトリ。",
         "totalTime": "PT2H",
-        "imagePath": "/tayprorobots/glyde/glyde-tr150-top-view.png"
+        "imagePath": "/tayproasset/taypro-robotImage.png"
       }
     },
     "hero": {
-      "title": "GLYDE — Fully Automatic Solar Panel Cleaning Robot for Fixed-Tilt Plants",
-      "h1Line2": "Taypro GLYDE",
+      "title": "GLYDE — 固定傾斜プラント向け完全自動ソーラーパネル清掃ロボット",
+      "h1Line1": "GLYDE — 完全自動ソーラーパネル清掃ロボット, ",
+      "h1Line2": "固定傾斜プラント向け",
       "leadBeforeStrong": "Taypro GLYDEは",
       "leadStrong": "自動ソーラーパネル清掃ロボット",
       "leadAfterStrong": "で、ユーティリティ規模の太陽光発電所向け。自律無水デュアルパス清掃、AI/MLスケジューリング、1充電最大3,600モジュール、フリート接続 ",
@@ -73,6 +74,7 @@
       "heroImageTitle": "自動ソーラーパネル清掃ロボット GLYDE, Taypro"
     },
     "overview": {
+      "productImageAlt": "平行清掃レール上のTaypro GLYDE自動ソーラーパネル清掃ロボットの上面図",
       "eyebrow": "ユーティリティ規模向け自動ソーラーパネル清掃ロボット",
       "title": "Taypro GLYDE自動清掃ロボットとは",
       "p1BeforeStrong": "",
@@ -87,18 +89,29 @@
       },
       "methodologyLinkText": "パフォーマンス・試験方法論",
       "methodologyLinkTitle": "パフォーマンス・試験方法論",
-      "p2BeforeStrong": "On a single charge, GLYDE cleans up to ",
-      "p2Strong": "2.2 km of running length, approximately 3,600 solar modules",
-      "p2AfterStrong": ". Cleaning cycles are best scheduled outside energy production hours and can be programmed remotely, ensuring zero impact on plant generation.",
-      "p3": "Advanced edge and obstacle detection allow GLYDE to traverse panels safely without risk of falling, while continuous surface-undulation tracking adjusts motor performance row-by-row for consistent cleaning quality. Real-time battery monitoring guarantees the robot only covers what it can complete and returns safely to its docking station, never stranded mid-array. Lightweight bridges enable seamless movement from one table to the next, keeping coverage uninterrupted across the entire site.",
+      "p2BeforeStrong": "1充電でGLYDEは最大 ",
+      "p2Strong": "2.2 kmの走行長、約3,600ソーラーモジュール",
+      "p2AfterStrong": " を清掃。清掃サイクルは発電時間外にスケジュールするのが最適で、NECTYRから遠隔プログラム可能、発電への影響ゼロ。",
+      "p3": "高度なエッジ・障害物検知によりGLYDEは安全にパネルを走行。表面うねり追従で行ごとにモーター性能を調整し清掃品質を維持。リアルタイムバッテリー監視で完了可能な距離のみ走行しドックへ安全復帰。軽量ブリッジでテーブル間を途切れなくカバー。",
       "p4Blog1": "モジュール上で自動清掃ロボットがどう動くか",
       "p4Blog2": "ユーティリティ規模でのロボット清掃のメリット",
       "p4Prefix": "関連記事: ",
       "p4Middle": " および ",
-      "p4Suffix": "。",
-      "productImageAlt": "Top view of Taypro GLYDE automatic solar panel cleaning robot on parallel cleaning rails"
+      "p4Suffix": "。"
+    },
+    "gallery": {
+      "eyebrow": "製品エンジニアリング",
+      "title": "GLYDEハードウェア概要",
+      "subtitle": "モジュールフレームレール上の特許デュアルパス清掃、自律ドッキング、大規模固定傾斜向けフリート接続。",
+      "primaryAlt": "Taypro GLYDE TR-150自動清掃ロボット、レールとデュアルパス清掃要素の平面図",
+      "primaryCaption": "GLYDE TR-150は特許デュアルパスマイクロファイバー清掃でモジュールフレーム上を走行。",
+      "mechanismAlt": "Taypro GLYDEデュアルパス回転マイクロファイバー清掃ドラム、車輪、無線アンテナのクローズアップ",
+      "mechanismCaption": "回転自己洗浄マイクロファイバードラム、フレーム走行、遠隔監視アンテナ。",
+      "dockingAlt": "自律日次サイクル向け統合ソーラー充電付きTaypro GLYDE影のないドッキングステーション",
+      "dockingCaption": "ソーラー補助充電の自立ドック；アレイごとに外部電源不要。"
     },
     "howToSection": {
+      "dualPassStepImageAlt": "回転マイクロファイバードラム付きTaypro GLYDEデュアルパス無水清掃機構",
       "eyebrow": "自律清掃サイクル",
       "title": "自動ソーラーパネル清掃ロボットはどう動くか？",
       "subtitle": "GLYDEは列上でオペレーター不要のエンドツーエンド運転。以下はHowTo構造化データと現場の日常です。",
@@ -128,8 +141,7 @@
           "textBeforeConnectivity": "各サイクル後、バッテリー・充電・サイクル・フリート性能をNECTYRへ ",
           "textAfterConnectivity": ", サイトに最適なリンクを選択, 全ロボットの監査対応レポート。"
         }
-      },
-      "dualPassStepImageAlt": "Taypro GLYDE dual-pass waterless cleaning mechanism with rotating microfiber drum"
+      }
     },
     "product360": {
       "eyebrow": "インタラクティブ製品ツアー",
@@ -155,7 +167,7 @@
       "title": "自動清掃ロボットのコストとROI",
       "bodyBeforeSpan": "Taypro ",
       "bodySpan": "GLYDE",
-      "bodyAfterSpan": ", use the ROI calculator for your site."
+      "bodyAfterSpan": ", サイト用ROI計算機をご利用ください。"
     },
     "projects": {
       "headingLine1": "GLYDE, 自動",
@@ -257,16 +269,16 @@
       "subtitle": "Taypro の洗浄ソリューションは、認定された太陽光発電分野の試験機関によって実施される、現実的な屋外条件下での毎日の洗浄サイクルをシミュレートする、厳格な現場検証および実験室検証を受けています。",
       "cards": {
         "card0": {
-          "title": "TÜV NORD Certified",
-          "body": "Independently tested and certified for IP55 protection and validated for extreme damp-heat and dry-heat performance by TÜV NORD."
+          "title": "TÜV NORD認証",
+          "body": "IP55保護の独立試験・認証、TÜV NORDによる耐湿熱・耐乾熱性能の検証。"
         },
         "card1": {
-          "title": "Sandstorm-Endurance Tested",
-          "body": "Validated under simulated outdoor cleaning cycles, including 12 sandstorm events per year at a sand loading of 10 g/m² per cycle."
+          "title": "砂嵐耐久試験済み",
+          "body": "年12回の砂嵐イベント、1サイクルあたり10 g/m²の砂負荷を含む屋外清掃サイクル模擬で検証。"
         },
         "card2": {
-          "title": "Panel-Safe Cleaning",
-          "body": "Testing covers micro-crack analysis, optical reflectance measurements, full electrical parameter evaluation and Anti-Reflective Coating (ARC) preservation."
+          "title": "パネル安全清掃",
+          "body": "マイクロクラック分析、光学反射率、電気パラメータ評価、反射防止コーティング（ARC）保全を試験。"
         }
       }
     },
@@ -416,7 +428,7 @@
           "details": "+20 mm"
         },
         "ipRating": {
-          "spec": "IP Rating",
+          "spec": "IP等級",
           "details": "IP65"
         },
         "corrosion": {
@@ -465,12 +477,12 @@
       }
     },
     "installSection": {
+      "dockingImageAlt": "清掃サイクル間の自律充電用統合ソーラーパネル付きTaypro GLYDEドッキングステーション",
       "title": "自動ロボットの設置にはどのくらい？",
       "p1": "既存レイアウト変更不要。GLYDEはパネルフレーム上を走行。",
       "p2": "数時間から数日, ドック、キャリブレーション、統合。",
       "p3": "大規模は数日〜1週間。Tayproは当日故障対応。",
-      "p4": "GLYDEはTayproのスケーラブルで安全な導入ソリューション。",
-      "dockingImageAlt": "Taypro GLYDE docking station with integrated solar panel for autonomous robot charging between cleaning cycles"
+      "p4": "GLYDEはTayproのスケーラブルで安全な導入ソリューション。"
     },
     "roiSection": {
       "title": "Taypro GLYDE自動ロボットのROIは？",
@@ -557,23 +569,12 @@
       }
     },
     "modelCards": {
-      "title": "Looking for more solutions?",
+      "title": "他のソリューションをお探しですか？",
       "cardLabels": {
         "modelB": "HELYX",
         "modelT": "GLYDE-X"
       },
-      "cardTitleTemplate": "{label} Solar Panel Cleaning Robot"
-    },
-    "gallery": {
-      "eyebrow": "Product engineering",
-      "title": "GLYDE hardware at a glance",
-      "subtitle": "Patented dual-pass cleaning on module-frame rails, autonomous docking, and fleet connectivity built for utility-scale fixed-tilt plants.",
-      "primaryAlt": "Taypro GLYDE TR-150 automatic cleaning robot, plan view showing rails and dual-pass cleaning elements",
-      "primaryCaption": "GLYDE TR-150 travels along the module frame with patented dual-pass microfiber cleaning.",
-      "mechanismAlt": "Close-up of Taypro GLYDE dual-pass rotating microfiber cleaning drum, wheels, and wireless antenna",
-      "mechanismCaption": "Rotating self-cleaning microfiber drum, frame-mounted travel, and remote monitoring antenna.",
-      "dockingAlt": "Taypro GLYDE shadow-free docking station with integrated solar charging for autonomous daily cycles",
-      "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array."
+      "cardTitleTemplate": "{label} ソーラーパネル清掃ロボット"
     }
   },
   "Common": {

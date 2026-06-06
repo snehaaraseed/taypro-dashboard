@@ -1,154 +1,156 @@
 {
   "RobotPriceIndiaPage": {
     "meta": {
-      "title": "Solar Panel Cleaning Robot Price in India | Cost Guide & ROI | Taypro",
-      "description": "Understand solar panel cleaning robot price in India: what drives CAPEX, indicative cost bands by plant size, cost per panel framing, CAPEX vs Taypro Opex, and how to get a site-specific quote.",
-      "openGraphTitle": "Solar Panel Cleaning Robot Price in India | Taypro Cost Guide",
-      "openGraphDescription": "Directional price bands, cost drivers, and ROI context for utility-scale solar cleaning robots in India. Made-in-India manufacturer with pan-India service.",
-      "twitterTitle": "Solar Panel Cleaning Robot Price in India | Taypro",
-      "twitterDescription": "Cost drivers, indicative CAPEX bands, and ROI links for Taypro cleaning robots on Indian utility plants.",
+      "title": "インドのソーラーパネル清掃ロボット価格 | コストガイドとROI | Taypro",
+      "description": "インドにおけるソーラーパネル清掃ロボットの価格を理解する：CAPEXの決定要因、プラント規模別の目安コスト帯、パネルあたりコストの考え方、CAPEX対Taypro Opex、サイト別見積もりの取得方法。",
+      "openGraphTitle": "インドのソーラーパネル清掃ロボット価格 | Tayproコストガイド",
+      "openGraphDescription": "インドのユーティリティ規模ソーラー清掃ロボット向けの目安価格帯、コスト要因、ROIの文脈。Made-in-Indiaメーカー、インド全域のサービス。",
+      "twitterTitle": "インドのソーラーパネル清掃ロボット価格 | Taypro",
+      "twitterDescription": "インドのユーティリティプラント向けTaypro清掃ロボットのコスト要因、目安CAPEX帯、ROIリンク。",
       "keywords": [
-        "solar panel cleaning robot price India",
-        "solar cleaning robot price",
-        "solar panel cleaning robot cost",
-        "solar panel cleaning robot cost per panel",
-        "buy solar panel cleaning robot India",
-        "solar panel cleaning robot manufacturer India",
-        "solar cleaning robot supplier India",
-        "automatic solar panel cleaning robot price",
-        "utility scale solar cleaning robot price",
-        "solar panel cleaning robot price India 2025"
+        "インド ソーラーパネル清掃ロボット 価格",
+        "ソーラー清掃ロボット 価格",
+        "ソーラーパネル清掃ロボット コスト",
+        "ソーラーパネル清掃ロボット パネルあたりコスト",
+        "インド ソーラーパネル清掃ロボット 購入",
+        "インド ソーラーパネル清掃ロボット メーカー",
+        "インド ソーラー清掃ロボット サプライヤー",
+        "自動ソーラーパネル清掃ロボット 価格",
+        "ユーティリティ規模 ソーラー清掃ロボット 価格",
+        "インド ソーラーパネル清掃ロボット 価格 2025"
       ]
     },
     "breadcrumbs": {
-      "current": "Robot price in India"
+      "current": "インドのロボット価格"
     },
     "hero": {
-      "eyebrow": "Commercial guide · India utility solar",
-      "title": "Solar Panel Cleaning Robot Price in India",
-      "subtitle": "What drives robot cost, indicative CAPEX bands for utility plants, and how to compare purchase with Taypro Opex — then model payback with our free ROI calculator.",
-      "ctaCalculator": "Open ROI calculator",
-      "ctaQuote": "Request a quote"
+      "eyebrow": "商用ガイド · インド ユーティリティソーラー",
+      "title": "インドのソーラーパネル清掃ロボット価格",
+      "subtitle": "ロボットコストの決定要因、ユーティリティプラント向けの目安CAPEX帯、購入とTaypro Opexの比較方法 — 無料ROI計算機で回収期間をモデル化。",
+      "ctaCalculator": "ROI計算機を開く",
+      "ctaQuote": "見積もりを依頼"
     },
     "disclaimer": {
-      "label": "Important:",
-      "body": "Figures on this page are directional estimates based on typical Taypro deployment assumptions — not a binding price list or formal quote. Final robot price depends on row layout, tracker brand, soiling study, automation level, fleet software scope, and whether you choose CAPEX purchase or Taypro Opex."
+      "label": "重要：",
+      "body": "本ページの数値は、典型的なTaypro導入前提に基づく目安見積もりであり、拘束力のある価格表や正式見積もりではありません。最終的なロボット価格は、列レイアウト、トラッカーブランド、汚れ調査、自動化レベル、フリートソフトウェア範囲、CAPEX購入かTaypro Opexかによって異なります。"
     },
     "costDrivers": {
-      "eyebrow": "What drives price",
-      "heading": "What affects solar panel cleaning robot cost in India?",
-      "intro": "Robot price is not a single sticker number. On Indian utility-scale plants, procurement teams evaluate total installed cost across these factors:",
+      "eyebrow": "価格の決定要因",
+      "heading": "インドでソーラーパネル清掃ロボットのコストに影響する要因",
+      "intro": "ロボット価格は単一の定価ではありません。インドのユーティリティ規模プラントでは、調達チームが以下の要因にわたる総導入コストを評価します：",
       "item0": {
-        "title": "Plant capacity & robots per MW",
-        "body": "Larger sites spread fixed engineering and gateway costs, but robot count scales with row length, block layout, and cleaning cadence. A 50 MW fixed-tilt plant and a 50 MW tracker farm do not carry the same fleet size."
+        "title": "プラント容量とMWあたりのロボット数",
+        "body": "大規模サイトでは固定のエンジニアリングとゲートウェイコストが分散されますが、ロボット台数は列長、ブロックレイアウト、清掃頻度に応じて増加します。50 MW固定傾斜プラントと50 MWトラッカーファームでは、必要なフリート規模は同じではありません。"
       },
       "item1": {
-        "title": "Fixed tilt vs single-axis trackers",
-        "body": "Tracker-compatible robots (GLYDE-X, NYUMA-X) include bridge articulation, tilt-range validation, and commissioning complexity — typically a higher per-MW investment than fixed-tilt GLYDE or NYUMA fleets."
+        "title": "固定傾斜 vs 単軸トラッカー",
+        "body": "トラッカー対応ロボット（GLYDE-X, NYUMA-X）には、ブリッジ可動部、傾斜範囲検証、コミッショニングの複雑さが含まれます — 通常、固定傾斜のGLYDEまたはNYUMAフリートよりMWあたりの投資額が高くなります。"
       },
       "item2": {
-        "title": "Automation level",
-        "body": "Fully automatic fleets (GLYDE, GLYDE-X, NYUMA, NYUMA-X) command a higher CAPEX multiplier than semi-automatic HELYX pick-and-place units sized for scattered blocks or hybrid coverage."
+        "title": "自動化レベル",
+        "body": "完全自動フリート（GLYDE, GLYDE-X, NYUMA, NYUMA-X）は、分散ブロックやハイブリッドカバレッジ向けの半自動HELYXピックアンドプレースユニットより高いCAPEX倍率となります。"
       },
       "item3": {
-        "title": "Fleet software & service scope",
-        "body": "NECTYR fleet monitoring, AMC tier, spare-parts stocking, and same-day breakdown SLAs are part of the commercial envelope — especially for IPPs running multi-site portfolios across Rajasthan, Gujarat, and Karnataka."
+        "title": "フリートソフトウェアとサービス範囲",
+        "body": "NECTYRフリート監視、AMCティア、予備部品在庫、当日故障対応SLAは商業パッケージの一部です — 特にRajasthan、Gujarat、Karnatakaでマルチサイトポートフォリオを運営するIPP向け。"
       },
       "item4": {
-        "title": "CAPEX vs Taypro Opex",
-        "body": "Many developers capitalise robots on the balance sheet; others choose Taypro Opex — pay per panel cleaned with Taypro operating the fleet. The business case shifts from upfront CAPEX to a monthly O&M line item."
+        "title": "CAPEX 対 Taypro Opex",
+        "body": "多くのデベロッパーはロボットを貸借対照表に資本化します。他の企業はTaypro Opexを選択 — Tayproがフリートを運用し、清掃パネルあたりの支払い。ビジネスケースは前払いCAPEXから月次O&M項目へ移行します。"
       }
     },
     "capexBands": {
-      "eyebrow": "Indicative bands",
-      "heading": "Directional CAPEX bands for automatic robots (fixed tilt)",
-      "intro": "The table below uses the same ROI model as our public calculator: ground-mount utility plant, fixed tilt, fully automatic (GLYDE-class), ~₹3/kWh tariff, 540 Wp modules, and representative Taypro deployment economics. Your site may differ.",
+      "eyebrow": "目安の帯",
+      "heading": "自動ロボットの目安CAPEX帯（固定傾斜）",
+      "intro": "下表は公開計算機と同じROIモデルを使用：地上設置ユーティリティプラント、固定傾斜、完全自動（GLYDEクラス）、~₹3/kWhタリフ、540 Wpモジュール、代表的なTaypro導入経済性。サイトにより異なる場合があります。",
       "table": {
-        "colPlant": "Plant size",
-        "colInvestment": "Indicative CAPEX",
-        "colPayback": "Payback (years)",
-        "colSavings": "Annual savings",
-        "colPerModule": "₹/module (directional)",
+        "colPlant": "プラント規模",
+        "colInvestment": "目安CAPEX",
+        "colPayback": "回収期間（年）",
+        "colSavings": "年間削減額",
+        "colPerModule": "₹/モジュール（目安）",
         "tierMw": "{mw} MW"
       },
-      "footnote": "Tracker plants, semi-automatic HELYX fleets, and Opex contracts require a layout review. Use the calculator or contact Taypro for a formal proposal."
+      "footnote": "トラッカープラント、半自動HELYXフリート、Opex契約にはレイアウトレビューが必要です。計算機を使用するか、正式提案についてTayproにお問い合わせください。"
     },
     "costPerPanel": {
-      "eyebrow": "Cost per panel",
-      "heading": "How to think about solar panel cleaning robot cost per panel",
-      "p1": "Buyers often ask for a flat ₹/panel price. On utility plants, a more useful frame is total fleet investment divided by modules under robotic coverage — then compared against manual crew cost, wet-wash water, and generation recovered from better cleaning cadence.",
-      "p2": "On high-soiling sites in Rajasthan and Gujarat, daily or near-daily dry cleaning can recover 8–25% of generation otherwise lost to dust — so the relevant metric is cost per MWh recovered, not panel price alone.",
-      "linkOperations": "Read: utility solar operations & soiling in India"
+      "eyebrow": "パネルあたりコスト",
+      "heading": "ソーラーパネル清掃ロボットのパネルあたりコストの考え方",
+      "p1": "購入者はしばしば一律の₹/パネル価格を求めます。ユーティリティプラントでは、ロボットカバレッジ下のモジュール数で割った総フリート投資額を見る方が有用です — 手作業クルーのコスト、水洗い用水、より良い清掃頻度で回収される発電量と比較します。",
+      "p2": "RajasthanとGujaratの高汚染サイトでは、毎日または準毎日のドライ清掃により、粉塵で失われる発電量の8–25%を回収できます — 関連指標はパネル価格だけでなく、回収MWhあたりのコストです。",
+      "linkOperations": "読む：インドのユーティリティソーラー運用と汚れ"
     },
     "capexVsOpex": {
-      "eyebrow": "Procurement models",
-      "heading": "CAPEX robot purchase vs Taypro Opex service",
-      "capexBody": "CAPEX suits asset owners who want robots on the balance sheet, control fleet configuration, and amortise hardware over the plant life. Taypro supplies GLYDE, NYUMA, HELYX, and tracker variants with NECTYR fleet software and pan-India breakdown support.",
-      "opexBody": "Taypro Opex moves cleaning to a service contract — pay per panel cleaned, with Taypro operating robots, schedules, and reporting. No upfront robot CAPEX; ideal when waterless cadence must start quickly on a new commissioning.",
-      "capexCta": "Compare robot models",
-      "opexCta": "Explore Taypro Opex service"
+      "eyebrow": "調達モデル",
+      "heading": "CAPEXロボット購入 vs Taypro Opexサービス",
+      "capexBody": "CAPEXは、ロボットを貸借対照表に計上し、フリート構成を管理し、プラント寿命にわたってハードウェアを償却したい資産所有者に適しています。TayproはNECTYRフリートソフトウェアとインド全域の故障サポート付きでGLYDE、NYUMA、HELYX、トラッカー派生モデルを供給します。",
+      "opexBody": "Taypro Opexは清掃をサービス契約に移行 — 清掃パネルあたりの支払い、Tayproがロボット、スケジュール、レポートを運用。前払いロボットCAPEXなし。新規コミッショニングで水なし清掃頻度を迅速に開始する場合に最適。",
+      "capexCta": "ロボットモデルを比較",
+      "opexCta": "Taypro Opexサービスを見る"
     },
     "manufacturer": {
-      "eyebrow": "Manufacturer & supplier",
-      "heading": "Solar panel cleaning robot manufacturer in India",
-      "body": "Taypro Private Limited designs, manufactures, and services waterless solar panel cleaning robots from India — with 5 GW+ robotic capacity deployed across 150+ live sites, TÜV NORD certified hardware, patented dual-pass dry cleaning on GLYDE and GLYDE-X, and NECTYR fleet operations software.",
-      "checklistHeading": "RFQ checklist for Indian utility buyers",
-      "check0": "Waterless fit for your dust/soiling profile and water availability",
-      "check1": "Fixed-tilt vs single-axis tracker compatibility and bridge validation",
-      "check2": "CAPEX purchase vs Taypro Opex pay-per-panel model",
-      "check3": "Fleet software with block-level proof of completion (NECTYR)",
-      "check4": "India-local manufacturing, spares network, and breakdown SLA"
+      "eyebrow": "メーカーとサプライヤー",
+      "heading": "インドのソーラーパネル清掃ロボットメーカー",
+      "body": "Taypro Private Limitedはインドで水なしソーラーパネル清掃ロボットを設計・製造・サービス — 150以上の稼働サイトに5 GW+のロボット容量を展開、TÜV NORD認証ハードウェア、GLYDEとGLYDE-Xの特許二重パスドライ清掃、NECTYRフリート運用ソフトウェア。",
+      "checklistHeading": "インドユーティリティ購入者向けRFQチェックリスト",
+      "check0": "粉塵/汚れプロファイルと水の可用性に対する水なし適合性",
+      "check1": "固定傾斜 vs 単軸トラッカー互換性とブリッジ検証",
+      "check2": "CAPEX購入 vs Taypro Opexパネルあたり支払いモデル",
+      "check3": "ブロックレベル完了証明付きフリートソフトウェア（NECTYR）",
+      "check4": "インド国内製造、予備部品ネットワーク、故障SLA"
     },
     "roiSummary": {
-      "eyebrow": "ROI context",
-      "heading": "From robot price to payback",
-      "body": "Soiling suppresses performance ratio on Indian utility plants — especially in arid belts. Robotic dry cleaning replaces calendar-based wet washing with predictable cycles, cuts tanker water, and recovers tariff-valued generation. Model your plant with the calculator below, then request a tailored quote.",
-      "ctaCalculator": "Estimate price & ROI for your plant"
+      "eyebrow": "ROIの文脈",
+      "heading": "ロボット価格から回収期間へ",
+      "body": "汚れはインドのユーティリティプラント、特に乾燥地帯で性能比を低下させます。ロボットドライ清掃はカレンダーベースの水洗いを予測可能なサイクルに置き換え、タンカー水を削減し、タリフ換算の発電量を回収します。下の計算機でプラントをモデル化し、カスタム見積もりを依頼してください。",
+      "ctaCalculator": "プラントの価格とROIを試算"
     },
     "calculator": {
-      "heading": "Model your plant",
-      "subheading": "Enter capacity, tariff, and layout to see directional investment, payback, and savings — then export a PDF for internal review."
+      "heading": "プラントをモデル化",
+      "subheading": "容量、タリフ、レイアウトを入力して目安投資額、回収期間、削減額を確認 — 社内レビュー用にPDFをエクスポート。"
     },
     "explore": {
-      "heading": "Continue exploring",
-      "linkHub": "Solar panel cleaning robot hub",
-      "linkGlyde": "GLYDE automatic robot",
-      "linkService": "Taypro Opex service",
-      "linkUtilityOps": "Solar O&M & utility operations",
-      "linkCalculator": "Full ROI calculator page",
-      "linkRajasthan": "Solar cleaning robots in Rajasthan",
-      "linkGujarat": "Solar cleaning robots in Gujarat",
-      "linkMadhyaPradesh": "Solar cleaning robots in Madhya Pradesh",
-      "linkKarnataka": "Solar cleaning robots in Karnataka",
-      "linkAndhraPradesh": "Solar cleaning robots in Andhra Pradesh",
-      "linkMaharashtra": "Solar cleaning robots in Maharashtra",
-      "linkUttarPradesh": "Solar cleaning robots in Uttar Pradesh",
-      "linkTamilNadu": "Solar cleaning robots in Tamil Nadu"
+      "heading": "さらに探索",
+      "subheading": "インドユーティリティソーラー向けの製品、サービス、ROIツール、地域別導入ガイド。",
+      "statesHeading": "地域ガイド",
+      "linkHub": "ソーラーパネル清掃ロボットハブ",
+      "linkGlyde": "GLYDE自動ロボット",
+      "linkService": "Taypro Opexサービス",
+      "linkUtilityOps": "ソーラーO&Mとユーティリティ運用",
+      "linkCalculator": "完全版ROI計算機ページ",
+      "linkRajasthan": "Rajasthanのソーラー清掃ロボット",
+      "linkGujarat": "Gujaratのソーラー清掃ロボット",
+      "linkMadhyaPradesh": "Madhya Pradeshのソーラー清掃ロボット",
+      "linkKarnataka": "Karnatakaのソーラー清掃ロボット",
+      "linkAndhraPradesh": "Andhra Pradeshのソーラー清掃ロボット",
+      "linkMaharashtra": "Maharashtraのソーラー清掃ロボット",
+      "linkUttarPradesh": "Uttar Pradeshのソーラー清掃ロボット",
+      "linkTamilNadu": "Tamil Naduのソーラー清掃ロボット"
     },
     "faq": {
-      "heading": "Frequently asked questions",
-      "subheading": "Common questions about solar panel cleaning robot price in India.",
-      "q0": "What is the solar panel cleaning robot price in India?",
-      "a0": "There is no single list price. Robot cost depends on MW capacity, fixed tilt vs tracker layout, automation level (automatic vs semi-automatic), fleet software scope, and CAPEX vs Taypro Opex. This page shows directional CAPEX bands; use our ROI calculator or contact Taypro with your plant layout for a formal quote.",
-      "q1": "What is the solar panel cleaning robot cost per panel?",
-      "a1": "Directional ₹/module figures divide total fleet investment by modules under robotic coverage — useful for comparing against manual crew economics. Actual cost per panel varies with row density, cleaning cadence, and whether you choose CAPEX or Taypro Opex. The indicative bands table on this page illustrates the math for representative utility sizes.",
-      "q2": "Who are solar panel cleaning robot manufacturers in India?",
-      "a2": "Taypro is a Made-in-India manufacturer of utility-scale waterless cleaning robots (GLYDE, NYUMA, HELYX, tracker variants) with NECTYR fleet software and pan-India service. Utility RFQs in India also evaluate other domestic and global OEMs — compare on waterless fit, tracker compatibility, fleet data, and breakdown SLA, not unit price alone.",
-      "q3": "Should I buy robots (CAPEX) or use Taypro Opex?",
-      "a3": "CAPEX suits owners who want to capitalise robots and control fleet configuration. Taypro Opex is pay-per-panel-cleaned with Taypro operating the fleet — no upfront robot purchase. Many developers model both paths; mention your preference when requesting a quote.",
-      "q4": "How do I get a formal solar cleaning robot quote?",
-      "a4": "Share plant MW, fixed-tilt or tracker layout, location/state, soiling context, and preferred procurement model (CAPEX or Opex). Taypro applications engineering returns robot counts, commercial options, and SLA scope after layout review.",
-      "q5": "Is this page the same as the ROI calculator?",
-      "a5": "This page explains price drivers and indicative bands in readable form. The ROI calculator is an interactive tool for your specific inputs, PDF export, and payback modelling. Use both: read the guide, then run the calculator.",
-      "q6": "Do you supply solar panel cleaning robots in Rajasthan, Gujarat, and other states?",
-      "a6": "Yes. Taypro targets same-day pan-India breakdown response with regional spares and live deployments across Rajasthan, Gujarat, Madhya Pradesh, Karnataka, Maharashtra, and other utility solar states. See our state pages and project case studies for regional proof.",
-      "q7": "What about solar panel cleaning service price vs robot price?",
-      "a7": "Service (Opex) pricing is tied to panels cleaned per cycle and SLA scope — different from robot CAPEX. Visit our solar panel cleaning service page for Opex economics, or use this guide for purchase-oriented CAPEX bands."
+      "heading": "よくある質問",
+      "subheading": "インドのソーラーパネル清掃ロボット価格に関する一般的な質問。",
+      "q0": "インドのソーラーパネル清掃ロボットの価格は？",
+      "a0": "単一の定価はありません。ロボットコストはMW容量、固定傾斜 vs トラッカーレイアウト、自動化レベル（自動 vs 半自動）、フリートソフトウェア範囲、CAPEX vs Taypro Opexに依存します。本ページは目安CAPEX帯を示します。ROI計算機を使用するか、プラントレイアウトを添えてTayproに正式見積もりを依頼してください。",
+      "q1": "ソーラーパネル清掃ロボットのパネルあたりコストは？",
+      "a1": "目安の₹/モジュール数値は、総フリート投資額をロボットカバレッジ下のモジュール数で割ったもの — 手作業クルーの経済性との比較に有用です。実際のパネルあたりコストは列密度、清掃頻度、CAPEXかTaypro Opexかにより異なります。本ページの目安帯表は代表的なユーティリティ規模の計算例を示します。",
+      "q2": "インドのソーラーパネル清掃ロボットメーカーは？",
+      "a2": "Tayproはユーティリティ規模の水なし清掃ロボット（GLYDE, NYUMA, HELYX, トラッカー派生）のMade-in-Indiaメーカーで、NECTYRフリートソフトウェアとインド全域のサービスを提供。インドのユーティリティRFQは他の国内・グローバルOEMも評価 — 水なし適合性、トラッカー互換性、フリートデータ、故障SLAで比較し、単価だけで判断しないでください。",
+      "q3": "ロボットを購入（CAPEX）すべきかTaypro Opexを使うべきか？",
+      "a3": "CAPEXはロボットを資本化しフリート構成を管理したい所有者向け。Taypro Opexは清掃パネルあたりの支払いでTayproがフリートを運用 — 前払いロボット購入なし。多くのデベロッパーは両方のパスをモデル化。見積もり依頼時に希望をお知らせください。",
+      "q4": "正式なソーラー清掃ロボット見積もりはどう取得する？",
+      "a4": "プラントMW、固定傾斜またはトラッカーレイアウト、場所/州、汚れの文脈、希望調達モデル（CAPEXまたはOpex）を共有してください。Tayproアプリケーションエンジニアリングがレイアウトレビュー後にロボット台数、商業オプション、SLA範囲を返します。",
+      "q5": "このページはROI計算機と同じ？",
+      "a5": "本ページは価格要因と目安帯を読みやすい形式で説明します。ROI計算機は特定入力、PDFエクスポート、回収期間モデル化のためのインタラクティブツールです。両方を活用：ガイドを読み、計算機を実行。",
+      "q6": "Rajasthan、Gujarat、その他の州にソーラーパネル清掃ロボットを供給していますか？",
+      "a6": "はい。Tayproは地域別予備部品とRajasthan、Gujarat、Madhya Pradesh、Karnataka、Maharashtra、その他ユーティリティソーラー州での稼働展開により、インド全域で当日故障対応を目指しています。地域別実績は州ページとプロジェクト事例をご覧ください。",
+      "q7": "ソーラーパネル清掃サービス価格とロボット価格の違いは？",
+      "a7": "サービス（Opex）価格はサイクルあたりの清掃パネル数とSLA範囲に紐づき — ロボットCAPEXとは異なります。Opex経済性はソーラーパネル清掃サービスページを、購入向けCAPEX帯は本ガイドをご利用ください。"
     },
     "quoteForm": {
-      "topic": "Solar panel cleaning robot price (India guide)",
-      "title": "Get a tailored robot quote",
-      "subtitle": "Share your plant MW, state, and layout — our team will convert indicative bands into a site-specific commercial proposal."
+      "topic": "ソーラーパネル清掃ロボット価格（インドガイド）",
+      "title": "カスタムロボット見積もりを取得",
+      "subtitle": "プラントMW、州、レイアウトを共有 — 当社チームが目安帯をサイト別の商業提案に変換します。"
     }
   }
 }

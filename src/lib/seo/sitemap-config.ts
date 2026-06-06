@@ -138,6 +138,7 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
   { path: "/projects/automatic", changeFrequency: "monthly", priority: 0.8 },
   { path: "/projects/semi-automatic", changeFrequency: "monthly", priority: 0.8 },
   { path: "/projects/capex", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/projects/opex", changeFrequency: "monthly", priority: 0.8 },
   { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.5 },
   { path: "/terms-of-service", changeFrequency: "yearly", priority: 0.5 },
   { path: "/cookie-policy", changeFrequency: "yearly", priority: 0.5 },

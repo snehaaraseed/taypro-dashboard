@@ -52,7 +52,8 @@
       }
     },
     "hero": {
-      "title": "NYUMA — Automatic Solar Panel Cleaning Robot for Fixed-Tilt Utility Plants",
+      "title": "NYUMA — Fully Automatic Solar Panel Cleaning Robot for Fixed-Tilt Plants",
+      "h1Line1": "روبوت تنظيف ألواح شمسية أوتوماتيكي, ",
       "h1Line2": "NYUMA من Taypro",
       "leadBeforeStrong": "NYUMA من Taypro هو ",
       "leadStrong": "روبوت تنظيف ألواح شمسية أوتوماتيكي",
@@ -68,6 +69,7 @@
       "heroImageTitle": "روبوت تنظيف ألواح شمسية أوتوماتيكي NYUMA, Taypro"
     },
     "overview": {
+      "productImageAlt": "Top view of Taypro NYUMA automatic solar panel cleaning robot on parallel cleaning rails",
       "eyebrow": "روبوت تنظيف ألواح شمسية أوتوماتيكي لمحطات المرافق",
       "title": "ما هو روبوت Taypro NYUMA؟",
       "p1BeforeStrong": "",
@@ -82,17 +84,29 @@
       },
       "methodologyLinkText": "منهجية الأداء والاختبار",
       "methodologyLinkTitle": "منهجية الأداء والاختبار",
-      "p2BeforeStrong": "On a single charge, NYUMA cleans up to ",
-      "p2Strong": "2.2 km of running length, approximately 3,600 solar modules",
-      "p2AfterStrong": ". Cleaning cycles are best scheduled outside energy production hours and can be programmed remotely, ensuring zero impact on plant generation.",
-      "p3": "Advanced edge and obstacle detection allow NYUMA to traverse panels safely without risk of falling, while continuous surface-undulation tracking adjusts motor performance row-by-row for consistent cleaning quality. Real-time battery monitoring guarantees the robot only covers what it can complete and returns safely to its docking station, never stranded mid-array. Lightweight bridges enable seamless movement from one table to the next, keeping coverage uninterrupted across the entire site.",
+      "p2BeforeStrong": "في شحنة واحدة، يُنظف NYUMA حتى ",
+      "p2Strong": "2.2 كم من طول الجري، أي نحو 3,600 وحدة شمسية",
+      "p2AfterStrong": ". يُفضّل جدولة دورات التنظيف خارج ساعات إنتاج الطاقة ويمكن برمجتها عن بُعد، دون أي تأثير على إنتاج المحطة.",
+      "p3": "تتيح كشف الحواف والعوائق المتقدم لـ NYUMA عبور الألواح بأمان دون خطر السقوط، بينما يضبط تتبع تموج السطح أداء المحرك صفاً بصف لجودة تنظيف متسقة. يضمن مراقبة البطارية في الوقت الفعلي أن الروبوت يغطي المسافة التي يمكنه إكمالها ويعود بأمان إلى محطة الإرساء. الجسور الخفيفة تتيح حركة سلسة من جدول إلى آخر، مع تغطية متواصلة عبر الموقع بأكمله.",
       "p4Blog1": "كيف يعمل روبوت التنظيف التلقائي على الوحدات",
       "p4Blog2": "فوائد التنظيف الروبوتي على نطاق المرافق",
       "p4Prefix": "قراءة إضافية: ",
       "p4Middle": " و ",
       "p4Suffix": "."
     },
+    "gallery": {
+      "eyebrow": "Product engineering",
+      "title": "NYUMA hardware at a glance",
+      "subtitle": "Patented single-pass PBT cleaning on module-frame rails, autonomous docking, and fleet connectivity built for utility-scale fixed-tilt plants.",
+      "primaryAlt": "Taypro NYUMA TR-150 automatic cleaning robot, plan view showing rails and single-pass PBT cleaning elements",
+      "primaryCaption": "NYUMA TR-150 travels along the module frame with patented single-pass PBT PBT brush cleaning.",
+      "mechanismAlt": "Close-up of Taypro NYUMA single-pass PBT rotating PBT brush cleaning drum, wheels, and wireless antenna",
+      "mechanismCaption": "Rotating self-cleaning PBT brush drum, frame-mounted travel, and remote monitoring antenna.",
+      "dockingAlt": "Taypro NYUMA shadow-free docking station with integrated solar charging for autonomous daily cycles",
+      "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array."
+    },
     "howToSection": {
+      "dualPassStepImageAlt": "Taypro NYUMA single-pass PBT waterless cleaning mechanism with rotating PBT brush drum",
       "eyebrow": "دورة تنظيف ذاتية",
       "title": "كيف يعمل روبوت تنظيف الألواح الشمسية الأوتوماتيكي؟",
       "subtitle": "يعمل NYUMA من البداية للنهاية دون مشغلين على الصف. أدناه نفس سير العمل في بيانات HowTo والواقع اليومي في كل موقع.",
@@ -250,16 +264,16 @@
       "subtitle": "تخضع حلول التنظيف Taypro للتحقق الميداني والمختبري الصارم، ومحاكاة دورات التنظيف اليومية في ظل ظروف خارجية واقعية، والتي تجريها مختبرات اختبار قطاع الطاقة الشمسية المعتمدة.",
       "cards": {
         "card0": {
-          "title": "TÜV NORD Certified",
-          "body": "Independently tested and certified for IP55 protection and validated for extreme damp-heat and dry-heat performance by TÜV NORD."
+          "title": "معتمد من TÜV NORD",
+          "body": "اختبار مستقل واعتماد لحماية IP55؛ أداء الرطوبة-الحرارة والحرارة الجافة مُحقق من TÜV NORD."
         },
         "card1": {
-          "title": "Sandstorm-Endurance Tested",
-          "body": "Validated under simulated outdoor cleaning cycles, including 12 sandstorm events per year at a sand loading of 10 g/m² per cycle."
+          "title": "مُختبر لتحمل العواصف الرملية",
+          "body": "مُحقق تحت دورات تنظيف خارجية مُحاكاة، بما في ذلك 12 عاصفة رملية سنوياً، بتحميل رمل 10 g/m² لكل دورة."
         },
         "card2": {
-          "title": "Panel-Safe Cleaning",
-          "body": "Testing covers micro-crack analysis, optical reflectance measurements, full electrical parameter evaluation and Anti-Reflective Coating (ARC) preservation."
+          "title": "تنظيف آمن للألواح",
+          "body": "يغطي الاختبار تحليل الشقوق الدقيقة، قياسات الانعكاس الضوئي، تقييم المعاملات الكهربائية وحفظ طلاء ARC (Anti-Reflective Coating)."
         }
       }
     },
@@ -409,7 +423,7 @@
           "details": "+20 mm"
         },
         "ipRating": {
-          "spec": "IP Rating",
+          "spec": "تصنيف IP",
           "details": "IP65"
         },
         "corrosion": {
@@ -458,6 +472,7 @@
       }
     },
     "installSection": {
+      "dockingImageAlt": "Taypro NYUMA docking station with integrated solar panel for autonomous robot charging between cleaning cycles",
       "title": "كم يستغرق تركيب الروبوت الأوتوماتيكي؟",
       "p1": "لا تعديل على التخطيط الحالي. NYUMA يعمل على إطار اللوحة مباشرة.",
       "p2": "من ساعات إلى أيام, إرساء ومعايرة وتكامل.",
@@ -549,12 +564,12 @@
       }
     },
     "modelCards": {
-      "title": "Looking for more solutions?",
+      "title": "هل تبحث عن مزيد من الحلول؟",
       "cardLabels": {
         "modelB": "HELYX",
         "modelT": "NYUMA"
       },
-      "cardTitleTemplate": "{label} Solar Panel Cleaning Robot"
+      "cardTitleTemplate": "روبوت تنظيف الألواح الشمسية {label}"
     }
   },
   "Common": {

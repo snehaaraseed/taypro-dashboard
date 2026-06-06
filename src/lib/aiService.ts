@@ -862,7 +862,7 @@ const PROJECT_CASE_STUDY_RULES = `PROJECT CASE STUDY (not a blog article):
 - Structure: 4–7 H2 sections (e.g. Site overview, Challenge, Taypro solution, Implementation, Results, What this means for similar plants).
 - Include specific plant-scale signals: MW capacity, state/region in India, tracker/fixed-tilt if known from the brief, cleaning mode (automatic / semi-automatic / manual assist).
 - "details" array: 4–8 short overview chips (2–8 words each) shown on the project card.
-- REQUIRED category tags (use these EXACT English strings, one or more as applicable): "Automatic", "Semi-Automatic", "Capex". These control site navigation; do not substitute phrases like "Automatic cleaning".
+- REQUIRED category tags (use these EXACT English strings, one or more as applicable): "Automatic", "Semi-Automatic", "Capex", "Opex". These control site navigation; do not substitute phrases like "Automatic cleaning".
 - Also include factual chips: MW capacity, Indian state/region, array type (e.g. "Utility-scale", "Single-axis trackers") when known from the brief.
 - If the brief names a real location or capacity, use those exactly; otherwise use plausible utility-scale India ranges and label assumptions generically.
 - Internal links to Taypro product and project pages are auto-injected on the live site (same as blogs); focus on natural phrases that match GLYDE, HELYX, ROI calculator, cleaning technology, etc.
@@ -1663,7 +1663,7 @@ Return ONLY valid JSON:
     }
     if (!projectHasCategoryTag(details)) {
       throw new Error(
-        'AI response must include at least one category tag in details: "Automatic", "Semi-Automatic", or "Capex"'
+        'AI response must include at least one category tag in details: "Automatic", "Semi-Automatic", "Capex", or "Opex"'
       );
     }
 

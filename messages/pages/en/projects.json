@@ -24,7 +24,7 @@
     },
     "schema": {
       "collectionName": "Solar Panel Cleaning Robot Installation Projects",
-      "collectionDescription": "View Taypro's portfolio of solar panel cleaning robot installation projects across India, automatic, semi-automatic, and CAPEX deployments on utility-scale plants.",
+      "collectionDescription": "View Taypro's portfolio of solar panel cleaning robot installation projects across India, automatic, semi-automatic, CAPEX, and Opex deployments on utility-scale plants.",
       "itemListName": "Taypro solar panel cleaning robot installation projects",
       "itemListDescription": "Utility-scale solar plants where Taypro robotic cleaning systems are deployed across India."
     },
@@ -34,7 +34,9 @@
       "titleLine2": "on India's largest solar plants",
       "bodyBeforeLink": "Taypro documents real utility-scale deployments where autonomous and semi-automatic",
       "bodyLink": "solar panel cleaning robots",
-      "bodyAfterLink": "protect performance ratio, cut water use, and replace labour-intensive washing. Browse by deployment type or open a case study for capacity, location, and cleaning model details."
+      "bodyAfterLink": "protect performance ratio, cut water use, and replace labour-intensive washing. Browse by deployment type or open a case study for capacity, location, and cleaning model details.",
+      "countBadgeLabel": "Published",
+      "countBadgeUnit": "case studies"
     },
     "stats": {
       "eyebrow": "At a glance",
@@ -47,7 +49,7 @@
     },
     "categories": {
       "heading": "Browse by deployment type",
-      "intro": "Each category groups plants that share a similar procurement or operating model. Individual case studies below may span more than one tag, for example, a CAPEX purchase with automatic GLYDE robots on fixed-tilt arrays.",
+      "intro": "Each category groups plants that share a similar procurement or operating model. Individual case studies below may span more than one tag, for example, a CAPEX purchase with automatic GLYDE robots, or an Opex service contract on the same technology stack.",
       "automatic": {
         "title": "Automatic",
         "description": "Autonomous GLYDE and GLYDE-X deployments with AI scheduling, waterless dual-pass cleaning, and fleet monitoring via NECTYR.",
@@ -65,18 +67,31 @@
         "description": "Developer-owned robot purchases with Taypro commissioning, training, and pan-India spare support, documented ROI and uptime targets.",
         "cardTitle": "CAPEX projects",
         "viewLink": "View CAPEX case studies →"
+      },
+      "opex": {
+        "title": "Opex",
+        "description": "Taypro-owned fleets and operator-led cleaning cycles under service SLAs, pay-per-panel delivery without upfront robot capex on the owner balance sheet.",
+        "cardTitle": "Opex projects",
+        "viewLink": "View Opex case studies →"
       }
     },
     "featured": {
       "heading": "Selected installation case studies",
-      "body": "Hand-picked references across automatic, semi-automatic, and CAPEX deployments. Each profile covers commissioning context, robot models, and operational outcomes on site.",
+      "body": "Hand-picked references across automatic, semi-automatic, CAPEX, and Opex deployments. Each profile covers commissioning context, robot models, and operational outcomes on site.",
       "countNote": "Showing {shown} selected references from {total} published plants.",
+      "viewAllLink": "Browse all {count} case studies ↓",
       "browseAllIntro": "Explore the full portfolio by deployment model:",
       "bodyBeforeCleaningLink": "For technology background, see",
       "cleaningLink": "how Taypro cleaning works",
       "bodyMiddle": "or estimate savings with the",
       "roiLink": "ROI calculator",
       "bodyAfter": "."
+    },
+    "portfolio": {
+      "heading": "Full portfolio",
+      "title": "All published installation case studies",
+      "body": "Every published Taypro plant profile in one grid, newest first. Projects highlighted above remain our curated references; the rest of the portfolio is listed here without duplication. Prefer a narrower view? Use the deployment-model category pages.",
+      "countNote": "{count} published"
     },
     "projectCard": {
       "empty": "No projects available at the moment.",
@@ -89,8 +104,8 @@
       "cta": "Discuss your plant",
       "q0": "What types of solar plants does Taypro document in this portfolio?",
       "a0": "Our case studies cover utility-scale ground-mount sites, single-axis tracker arrays, and multi-block plants across India, typically 50 MW and above where soiling, water scarcity, or manual O&M costs justify robotic cleaning.",
-      "q1": "What is the difference between automatic, semi-automatic, and CAPEX project listings?",
-      "a1": "Automatic listings highlight fully autonomous robots (GLYDE, GLYDE-X). Semi-automatic listings feature HELYX portable systems. CAPEX listings describe plants where the developer purchased robots outright; the same site may also use Taypro Opex as an operator-led service, browse each category or the individual case study for the exact deployment model.",
+      "q1": "What is the difference between automatic, semi-automatic, CAPEX, and Opex project listings?",
+      "a1": "Automatic listings highlight fully autonomous robots (GLYDE, GLYDE-X). Semi-automatic listings feature HELYX portable systems. CAPEX listings describe plants where the developer purchased robots outright. Opex listings show Taypro-operated cleaning under a service contract. The same site may span more than one tag, browse each category or the individual case study for the exact deployment model.",
       "q2": "How do Taypro cleaning robots affect plant performance ratio?",
       "a2": "Consistent, weather-aware cleaning reduces soiling losses that can otherwise suppress performance ratio by several percentage points on dusty sites. Case studies note cleaning efficiency targets, cycle frequency, and how waterless methods avoid logistics tied to manual washing.",
       "q3": "How can I evaluate Taypro for my own solar project?",
@@ -104,13 +119,28 @@
     "notFoundTitle": "Project Not Found | Taypro",
     "metaTitleSuffix": " - Solar Panel Cleaning Robot Installation | Taypro",
     "breadcrumbProjects": "Projects",
+    "caseStudyLabel": "Deployment case study",
+    "lastUpdated": "Last updated {date}",
+    "minRead": "{minutes} min read",
+    "contents": "On this page",
+    "tocLabel": "Table of contents",
+    "backToProjects": "Back to all projects",
     "heroSubtitle": "Solar Panel Cleaning Robot Installation Project",
     "overviewHeading": "Overview",
     "leadTopic": "Let's work together",
     "leadTitle": "Let's work together",
     "leadSubtitle": "Tell us about your plant and our team will follow up with the right Solar Panel Cleaning Robot fit for your site.",
-    "leadCta": "Let's work together",
-    "relatedHeading": "Related Projects",
+    "leadCta": "Request a callback",
+    "sidebarEyebrow": "Discuss your plant",
+    "sidebarTitle": "Model your site with Taypro",
+    "sidebarBody": "Share your MW, layout, and cleaning goals — our team will recommend the right robot mix and commercial path.",
+    "sidebarToolsEyebrow": "ROI tools",
+    "sidebarToolsTitle": "Estimate payback",
+    "sidebarToolsBody": "Use directional CAPEX bands and savings for your capacity before a formal RFQ.",
+    "sidebarToolsCta": "Open ROI calculator",
+    "relatedEyebrow": "More deployments",
+    "relatedHeading": "Related projects",
+    "relatedSubheading": "Compare fleet size, procurement model, and regional context across similar Taypro installations.",
     "relatedImageTitle": "Solar Project",
     "relatedImageAlt": "{title} - Related Solar Panel Cleaning Robot Installation Project by Taypro",
     "relatedImageTitleAttr": "{title} Solar Project with Solar Panel Cleaning Robot"

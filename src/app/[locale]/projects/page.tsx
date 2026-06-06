@@ -13,6 +13,10 @@ import {
   FAQPageSchema,
   ItemListSchema,
 } from "@/app/components/StructuredData";
+import {
+  ProjectsPageHero,
+  ProjectsSectionLabel,
+} from "@/app/components/ProjectsPageHero";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
 import ProjectsGrid from "@/app/components/ProjectsGrid";
@@ -25,6 +29,7 @@ const PROJECT_CATEGORY_KEYS = [
   { key: "automatic" as const, href: "/projects/automatic" },
   { key: "semiAutomatic" as const, href: "/projects/semi-automatic" },
   { key: "capex" as const, href: "/projects/capex" },
+  { key: "opex" as const, href: "/projects/opex" },
 ];
 
 const STAT_LABEL_KEYS = [
@@ -35,39 +40,6 @@ const STAT_LABEL_KEYS = [
 ] as const;
 
 const FAQ_KEYS = ["q0", "q1", "q2", "q3"] as const;
-
-function SectionLabel({
-  label,
-  counter,
-  tone = "light",
-}: {
-  label: string;
-  counter?: string;
-  tone?: "light" | "dark";
-}) {
-  const textClass =
-    tone === "dark" ? "text-white/70" : "text-[#27415c]";
-  const counterClass =
-    tone === "dark" ? "text-white/40" : "text-[#27415c]/50";
-
-  return (
-    <p
-      className={`flex items-center gap-3 text-sm font-medium mb-5 ${textClass}`}
-    >
-      <span className="text-[#A8C117]" aria-hidden>
-        •
-      </span>
-      <span className="uppercase tracking-[0.18em]">{label}</span>
-      {counter ? (
-        <span
-          className={`${counterClass} tabular-nums tracking-normal normal-case`}
-        >
-          ({counter})
-        </span>
-      ) : null}
-    </p>
-  );
-}
 
 export default async function ProjectPage({
   params,
@@ -84,6 +56,10 @@ export default async function ProjectPage({
   ]);
 
   const featuredProjects = await enrichProjectsForGrid(featuredBase, locale);
+
+  const featuredSlugSet = new Set<string>(FEATURED_HUB_PROJECT_SLUGS);
+  const portfolioBase = allProjects.filter((p) => !featuredSlugSet.has(p.id));
+  const portfolioProjects = await enrichProjectsForGrid(portfolioBase, locale);
 
   const breadcrumbs = [
     { name: tCommon("breadcrumbHome"), href: "/" },
@@ -120,61 +96,72 @@ export default async function ProjectPage({
       <FAQPageSchema faqs={projectsFaqs} />
 
       <div className="min-h-screen overflow-x-hidden bg-white">
-        {/* Hero */}
-        <section className="relative border-b border-[#052638]/8">
-          <div
-            className="absolute inset-0 opacity-[0.04] bg-cover bg-center bg-no-repeat pointer-events-none"
-            style={{
-              backgroundImage: "url('/tayprobglayout/taypro-project.png')",
-            }}
-            aria-hidden
-          />
-          <Container className="relative py-16 md:py-24 lg:py-28">
-            <AnimateOnScroll animation="fadeInUp" eager className="max-w-4xl">
-              <SectionLabel label={t("hero.eyebrow")} />
-              <h1 className="font-semibold text-[#052638] text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] leading-[1.08] tracking-tight mb-8">
-                {t("hero.titleLine1")}
-                <br />
-                {t("hero.titleLine2")}
-              </h1>
-              <p className="text-[#27415c] text-lg md:text-xl leading-relaxed max-w-2xl">
-                {t("hero.bodyBeforeLink")}{" "}
-                <Link
-                  href="/solar-panel-cleaning-system"
-                  className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
+        <ProjectsPageHero
+          tone="hub"
+          eyebrow={t("hero.eyebrow")}
+          projectCount={allProjects.length}
+          countBadgeLabel={t("hero.countBadgeLabel")}
+          countBadgeUnit={t("hero.countBadgeUnit")}
+          title={
+            <>
+              {t("hero.titleLine1")}
+              <span className="mt-2 block text-[#A8C117]">{t("hero.titleLine2")}</span>
+            </>
+          }
+          lead={
+            <>
+              {t("hero.bodyBeforeLink")}{" "}
+              <Link href="/solar-panel-cleaning-system">{t("hero.bodyLink")}</Link>{" "}
+              {t("hero.bodyAfterLink")}
+            </>
+          }
+          footer={
+            <>
+              {portfolioProjects.length > 0 ? (
+                <a
+                  href="#all-projects"
+                  className="inline-flex min-h-[44px] items-center rounded-full bg-[#A8C117] px-5 py-2.5 text-sm font-semibold text-[#052638] transition hover:bg-[#b8d42a]"
                 >
-                  {t("hero.bodyLink")}
-                </Link>{" "}
-                {t("hero.bodyAfterLink")}
-              </p>
-            </AnimateOnScroll>
-          </Container>
-        </section>
+                  {t("featured.viewAllLink", { count: allProjects.length })}
+                </a>
+              ) : null}
+              <Link
+                href="/contact"
+                className="inline-flex min-h-[44px] items-center rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition hover:border-white/40 hover:bg-white/5"
+              >
+                {t("faq.cta")}
+              </Link>
+            </>
+          }
+        />
 
         {/* Stats */}
-        <section className="w-full bg-[#052638]" aria-labelledby="projects-stats-heading">
-          <Container className="py-12 md:py-14">
-            <AnimateOnScroll animation="fadeInUp" className="mb-10 md:mb-12">
-              <SectionLabel label={t("stats.eyebrow")} tone="dark" />
+        <section
+          className="relative z-10 -mt-6 border-b border-[#052638]/8 bg-[#f4f7f9] pb-4 pt-10 md:-mt-8 md:pb-6 md:pt-12"
+          aria-labelledby="projects-stats-heading"
+        >
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="mb-8 md:mb-10">
+              <ProjectsSectionLabel label={t("stats.eyebrow")} />
               <h2
                 id="projects-stats-heading"
-                className="text-white font-semibold text-2xl md:text-3xl max-w-2xl leading-snug"
+                className="max-w-2xl text-2xl font-semibold leading-snug text-[#052638] md:text-3xl"
               >
                 {t("stats.heading")}
               </h2>
             </AnimateOnScroll>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 lg:gap-y-0 lg:divide-x lg:divide-white/10">
+            <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
               {[...tayproTrustedByStatsStrip].map((stat, idx) => (
                 <AnimateOnScroll
                   key={stat.label}
                   animation="fadeInUp"
                   delay={idx * 80}
-                  className="lg:px-8 first:lg:pl-0 last:lg:pr-0"
+                  className="rounded-2xl border border-[#052638]/8 bg-white p-5 shadow-sm md:p-6"
                 >
-                  <div className="text-[#A8C117] font-semibold text-3xl sm:text-4xl md:text-[2.75rem] leading-none mb-3 tabular-nums">
+                  <div className="mb-2 text-3xl font-semibold tabular-nums leading-none text-[#A8C117] sm:text-4xl md:text-[2.5rem]">
                     {stat.value}
                   </div>
-                  <div className="text-white/75 text-sm sm:text-base leading-relaxed max-w-[14rem]">
+                  <div className="max-w-[14rem] text-sm leading-relaxed text-[#27415c] sm:text-base">
                     {t(`stats.${STAT_LABEL_KEYS[idx]}`)}
                   </div>
                 </AnimateOnScroll>
@@ -190,12 +177,12 @@ export default async function ProjectPage({
         >
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="mb-12 md:mb-16">
-              <SectionLabel label={t("categories.heading")} counter="01/01" />
+              <ProjectsSectionLabel label={t("categories.heading")} counter="01/04" />
               <p className="text-[#27415c] text-lg md:text-xl leading-relaxed max-w-2xl">
                 {t("categories.intro")}
               </p>
             </AnimateOnScroll>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#052638]/10">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-4">
               {PROJECT_CATEGORY_KEYS.map((cat, idx) => (
                 <AnimateOnScroll
                   key={cat.href}
@@ -204,7 +191,7 @@ export default async function ProjectPage({
                 >
                   <Link
                     href={cat.href}
-                    className="group flex flex-col h-full bg-white p-8 md:p-10 hover:bg-[#f4f7f9] transition-colors duration-300"
+                    className="group flex h-full flex-col rounded-2xl border border-[#052638]/10 bg-white p-8 shadow-sm transition-all duration-300 hover:border-[#A8C117]/40 hover:shadow-md md:p-9"
                   >
                     <span className="text-[#A8C117]/70 text-sm font-medium tabular-nums mb-6">
                       {String(idx + 1).padStart(2, "0")}
@@ -235,7 +222,7 @@ export default async function ProjectPage({
               animation="fadeInUp"
               className="mb-12 md:mb-16 max-w-2xl"
             >
-              <SectionLabel label={t("featured.heading")} counter="01/01" />
+              <ProjectsSectionLabel label={t("featured.heading")} counter="01/01" />
               <h2
                 id="featured-projects-heading"
                 className="sr-only"
@@ -250,6 +237,17 @@ export default async function ProjectPage({
                   shown: featuredProjects.length,
                   total: allProjects.length,
                 })}
+                {portfolioProjects.length > 0 ? (
+                  <>
+                    {" "}
+                    <a
+                      href="#all-projects"
+                      className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
+                    >
+                      {t("featured.viewAllLink", { count: allProjects.length })}
+                    </a>
+                  </>
+                ) : null}
               </p>
             </AnimateOnScroll>
             <ProjectsGrid projects={featuredProjects} featuredFirst />
@@ -288,6 +286,34 @@ export default async function ProjectPage({
             </AnimateOnScroll>
           </Container>
         </section>
+
+        {/* Full portfolio */}
+        {portfolioProjects.length > 0 ? (
+          <section
+            id="all-projects"
+            className="py-16 md:py-24 bg-white border-t border-[#052638]/8 scroll-mt-24"
+            aria-labelledby="all-projects-heading"
+          >
+            <Container>
+              <AnimateOnScroll animation="fadeInUp" className="mb-12 md:mb-16 max-w-2xl">
+                <ProjectsSectionLabel
+                  label={t("portfolio.heading")}
+                  counter={t("portfolio.countNote", { count: allProjects.length })}
+                />
+                <h2
+                  id="all-projects-heading"
+                  className="text-[#052638] font-semibold text-2xl md:text-3xl leading-snug mb-4"
+                >
+                  {t("portfolio.title")}
+                </h2>
+                <p className="text-[#27415c] text-lg md:text-xl leading-relaxed">
+                  {t("portfolio.body")}
+                </p>
+              </AnimateOnScroll>
+              <ProjectsGrid projects={portfolioProjects} columns={2} />
+            </Container>
+          </section>
+        ) : null}
 
         <FaqSection
           id="projects-faq-heading"

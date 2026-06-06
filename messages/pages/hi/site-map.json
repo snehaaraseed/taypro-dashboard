@@ -19,15 +19,15 @@
       "sitemap": "साइटमैप"
     },
     "heading": "साइटमैप",
-    "intro": "Use this HTML sitemap to find every major Taypro page, solar panel cleaning robots, utility-scale project case studies, O&M guides, and company information. Links are grouped by content type so developers, EPC teams, and asset managers can reach the right section quickly.",
-    "introSecondary": "For search engines, our XML sitemap is also available at /sitemap.xml. This page is designed for human navigation and internal linking across the Taypro site.",
+    "intro": "इस HTML साइटमैप का उपयोग हर प्रमुख Taypro पेज, सोलर पैनल सफाई रोबोट, यूटिलिटी-स्केल प्रोजेक्ट केस स्टडी, O&M गाइड और कंपनी जानकारी खोजने के लिए करें। लिंक सामग्री प्रकार के अनुसार समूहित हैं ताकि डेवलपर्स, EPC टीमें और एसेट मैनेजर सही अनुभाग तक जल्दी पहुँच सकें।",
+    "introSecondary": "सर्च इंजन के लिए, हमारी XML साइटमैप /sitemap.xml पर भी उपलब्ध है। यह पेज Taypro साइट पर मानव नेविगेशन और आंतरिक लिंकिंग के लिए डिज़ाइन किया गया है।",
     "sections": {
       "posts": "पोस्ट",
-      "postsIntro": "Energy resource articles and reference posts published on the Taypro blog and resource hub.",
+      "postsIntro": "Taypro ब्लॉग और रिसोर्स हब पर प्रकाशित ऊर्जा संसाधन लेख और संदर्भ पोस्ट।",
       "pages": "पेज",
-      "pagesIntro": "Core marketing and product pages, including robot specifications, cleaning technology, ROI tools, legal policies, and contact.",
+      "pagesIntro": "मुख्य मार्केटिंग और उत्पाद पेज, जिनमें रोबोट विनिर्देश, सफाई तकनीक, ROI टूल, कानूनी नीतियाँ और संपर्क शामिल हैं।",
       "portfolio": "पोर्टफोलियो",
-      "portfolioIntro": "Documented solar plant installations where Taypro robotic cleaning systems are deployed, browse case studies by project name."
+      "portfolioIntro": "दस्तावेज़ित सोलर प्लांट इंस्टॉलेशन जहाँ Taypro रोबोटिक सफाई सिस्टम तैनात हैं — प्रोजेक्ट नाम से केस स्टडी ब्राउज़ करें।"
     },
     "posts": {
       "energyResourcesTitle": "ऊर्जा संसाधन"
@@ -79,7 +79,33 @@
       "orionLabel": "ORION, प्लांट इंटेलिजेंस",
       "orionTitle": "ORION सोलर प्लांट स्वास्थ्य मॉनिटरिंग प्लेटफ़ॉर्म (जल्द आ रहा है)",
       "utilityOperationsLabel": "यूटिलिटी सोलर संचालन",
-      "utilityOperationsTitle": "यूटिलिटी-स्केल सोलर संचालन और सोलर पैनल सफाई रोबोट"
+      "utilityOperationsTitle": "यूटिलिटी-स्केल सोलर संचालन और सोलर पैनल सफाई रोबोट",
+      "robotPriceGuideLabel": "सोलर पैनल सफाई रोबोट की कीमत (भारत)",
+      "robotPriceGuideTitle": "भारत के लिए सोलर पैनल सफाई रोबोट मूल्य गाइड",
+      "stateRajasthanLabel": "सोलर पैनल सफाई रोबोट — राजस्थान",
+      "stateRajasthanTitle": "राजस्थान में सोलर पैनल सफाई रोबोट",
+      "stateGujaratLabel": "सोलर पैनल सफाई रोबोट — गुजरात",
+      "stateGujaratTitle": "गुजरात में सोलर पैनल सफाई रोबोट",
+      "stateMadhyaPradeshLabel": "सोलर पैनल सफाई रोबोट — मध्य प्रदेश",
+      "stateMadhyaPradeshTitle": "मध्य प्रदेश में सोलर पैनल सफाई रोबोट",
+      "stateKarnatakaLabel": "सोलर पैनल सफाई रोबोट — कर्नाटक",
+      "stateKarnatakaTitle": "कर्नाटक में सोलर पैनल सफाई रोबोट",
+      "stateAndhraPradeshLabel": "सोलर पैनल सफाई रोबोट — आंध्र प्रदेश",
+      "stateAndhraPradeshTitle": "आंध्र प्रदेश में सोलर पैनल सफाई रोबोट",
+      "stateMaharashtraLabel": "सोलर पैनल सफाई रोबोट — महाराष्ट्र",
+      "stateMaharashtraTitle": "महाराष्ट्र में सोलर पैनल सफाई रोबोट",
+      "stateUttarPradeshLabel": "सोलर पैनल सफाई रोबोट — उत्तर प्रदेश",
+      "stateUttarPradeshTitle": "उत्तर प्रदेश में सोलर पैनल सफाई रोबोट",
+      "stateTamilNaduLabel": "सोलर पैनल सफाई रोबोट — तमिल नाडु",
+      "stateTamilNaduTitle": "तमिल नाडु में सोलर पैनल सफाई रोबोट",
+      "projectsAutomaticLabel": "स्वचालित सफाई परियोजनाएं",
+      "projectsAutomaticTitle": "स्वचालित सोलर सफाई रोबोट परियोजनाएं",
+      "projectsSemiAutomaticLabel": "अर्ध-स्वचालित सफाई परियोजनाएं",
+      "projectsSemiAutomaticTitle": "अर्ध-स्वचालित सोलर सफाई रोबोट परियोजनाएं",
+      "projectsCapexLabel": "CAPEX रोबोट परियोजनाएं",
+      "projectsCapexTitle": "CAPEX सोलर सफाई रोबोट परियोजनाएं",
+      "projectsOpexLabel": "Opex सफाई सेवा परियोजनाएं",
+      "projectsOpexTitle": "Taypro Opex सोलर सफाई रोबोट परियोजनाएं"
     }
   },
   "Common": {

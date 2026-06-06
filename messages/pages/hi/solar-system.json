@@ -196,34 +196,34 @@
       }
     },
     "intro": {
-      "eyebrow": "Why robotic cleaning, why Taypro",
-      "title": "The category leader for Solar Panel Cleaning Robots in India",
-      "p1": "Dust, agricultural residue and bird droppings can cut PV generation by 8–25% across Indian utility plants. Manual washing is expensive, water-hungry, and never consistent across rows or shifts. A purpose-built Solar Panel Cleaning Robot recovers that lost yield, cleans every panel the same way every night, and removes water from your O&M plan entirely.",
-      "p2LinkAutomatic": "GLYDE automatic robot",
+      "eyebrow": "रोबोटिक सफाई क्यों, Taypro क्यों",
+      "title": "भारत में सोलर पैनल सफाई रोबोट की श्रेणी अग्रणी",
+      "p1": "धूल, कृषि अवशेष और पक्षी मल भारतीय यूटिलिटी प्लांटों में PV उत्पादन 8–25% तक घटा सकते हैं। मैनुअल धुलाई महंगी, पानीखोर और पंक्तियों में असंगत है। उद्देश्य-निर्मित सोलर पैनल सफाई रोबोट वह उपज वापस लाता है, हर रात समान सफाई देता है और पानी को O&M से हटाता है।",
+      "p2LinkAutomatic": "GLYDE स्वचालित रोबोट",
       "p2LinkModelB": "HELYX",
       "p2LinkModelT": "GLYDE-X",
       "p2LinkConsole": "NECTYR",
-      "p2LinkOpex": "Taypro OPEX",
-      "p2BeforeLinks": "Taypro is a Made-in-India manufacturer of robotic cleaning systems. Our line spans the fully ",
+      "p2LinkOpex": "Taypro Opex",
+      "p2BeforeLinks": "Taypro भारत में निर्मित रोबोटिक सफाई सिस्टम का निर्माता है। हमारी श्रृंखला में पूर्ण ",
       "p2BetweenAB": ", अर्ध-स्वचालित पिक-एंड-प्लेस ",
       "p2BetweenBT": " बिखरे प्लांटों के लिए, और ट्रैकर-तैयार ",
       "p2AfterT": " सिंगल-एक्सिस ट्रैकर लेआउट के लिए। हर रोबोट ",
-      "p2AfterConsole": " and deploy as CAPEX or monthly ",
-      "p2AfterOpex": " service.",
-      "p3BlogMaintenance": "solar panel maintenance guide",
-      "p3BlogRobotDef": "what defines a solar panel cleaning robot",
-      "p3Prefix": "Further reading: ",
-      "p3Between": " and ",
+      "p2AfterConsole": " के माध्यम से करें और CAPEX या मासिक ",
+      "p2AfterOpex": " सेवा के रूप में तैनात किया जा सकता है।",
+      "p3BlogMaintenance": "सोलर पैनल रखरखाव गाइड",
+      "p3BlogRobotDef": "सोलर पैनल सफाई रोबोट की परिभाषा",
+      "p3Prefix": "और पढ़ें: ",
+      "p3Between": " और ",
       "p3Suffix": ".",
       "p2LinkNyuma": "NYUMA",
       "p2LinkNyumaX": "NYUMA-X",
-      "p2LinkTechnology": "waterless cleaning technology",
-      "p2BetweenGlydeNyuma": ", the ",
-      "p2BetweenNyumaHelyx": " PBT automatic line, the semi-automatic pick-and-place ",
-      "p2BetweenHelyxTracker": " for scattered plants, tracker-ready ",
-      "p2BetweenTrackers": " and ",
-      "p2AfterTrackers": " for single-axis layouts. Learn how ",
-      "p2BeforeConsole": " works, then monitor every robot through "
+      "p2LinkTechnology": "जलरहित सफाई तकनीक",
+      "p2BetweenGlydeNyuma": ", ",
+      "p2BetweenNyumaHelyx": " PBT स्वचालित लाइन, अर्ध-स्वचालित पिक-एंड-प्लेस ",
+      "p2BetweenHelyxTracker": " बिखरे प्लांटों के लिए, ट्रैकर-तैयार ",
+      "p2BetweenTrackers": " और ",
+      "p2AfterTrackers": " सिंगल-एक्सिस लेआउट के लिए। जानें ",
+      "p2BeforeConsole": " कैसे काम करती है, फिर हर रोबोट की निगरानी "
     },
     "productGrid": {
       "eyebrow": "हमारी रोबोट श्रृंखला",
@@ -460,6 +460,18 @@
           "title": "समान-दिवस पैन-इंडिया ब्रेकडाउन प्रतिक्रिया",
           "body": "Taypro भारत भर में समान-दिवस ऑन-साइट ब्रेकडाउन समाधान लक्षित करता है, NECTYR के माध्यम से तत्काल रिमोट डायग्नोस्टिक्स, क्षेत्रीय स्पेयर इन्वेंटरी और संरचित AMC कार्यक्रमों के साथ।"
         }
+      },
+      "stateGuides": {
+        "heading": "क्षेत्रीय तैनाती गाइड",
+        "intro": "राज्य के अनुसार सोलर पैनल सफाई रोबोट देखें — सोइलिंग संदर्भ, लाइव प्रोजेक्ट और RFQ मार्गदर्शन:",
+        "rajasthan": "Rajasthan",
+        "gujarat": "Gujarat",
+        "madhyaPradesh": "Madhya Pradesh",
+        "karnataka": "Karnataka",
+        "andhraPradesh": "Andhra Pradesh",
+        "maharashtra": "Maharashtra",
+        "uttarPradesh": "Uttar Pradesh",
+        "tamilNadu": "Tamil Nadu"
       }
     },
     "whyTaypro": {
@@ -568,8 +580,8 @@
           "answer": "आवृत्ति धूल, कृषि अवशेष (जैसे पंजाब-हरियाणा में फसल जलाना), मानसून और PPA लक्ष्यों पर निर्भर करती है। अधिकांश यूटिलिटी प्लांटों को शुष्क महीनों में 1–3 दिनों में एक बार और धूल तूफान के बाद तेज़ चक्र लाभकारी हैं। Taypro हर परियोजना प्लांट सोइलिंग अध्ययन से शुरू करता है।"
         },
         "item10": {
-          "question": "Who are the main solar panel cleaning robot suppliers in India?",
-          "answer": "Shortlist vendors on five criteria: waterless fit for your dust and soiling, fixed-tilt vs single-axis tracker compatibility, CAPEX robot purchase vs managed Opex cleaning, fleet software with block-level proof of completion, and India-local manufacturing with spares and breakdown SLA. Taypro is a Made-in-India manufacturer with 5 GW+ robotic capacity deployed across 150+ live sites, patented dual-pass dry cleaning on GLYDE and GLYDE-X, single-pass PBT on NYUMA, NYUMA-X, and HELYX, the NECTYR fleet portal, and optional Taypro Opex pay-per-panel-cleaned service, with utility case studies linked from this hub. Other suppliers commonly evaluated on Indian utility RFQs include Indian OEMs such as Solabot Technologies, Aegeus Technologies, Skilancer Solar, and Vayu Solar; global and regional OEMs with India deployments such as Ecoppia, Airtouch Solar, and LEAPTING (Huzhou LEAPTING Technology); and equipment suppliers active in India such as Langfang Sol-Bright New Energy Technology. Rooftop-focused vendors such as Jetsons Robotics are more common on commercial and industrial sites than on 50 MW+ utility fields. Published market-share rankings differ by source and year, so validate row layout fit, service SLA, and deployment proof, not brochure robot counts alone, before final selection."
+          "question": "भारत में मुख्य सोलर पैनल सफाई रोबोट आपूर्तिकर्ता कौन हैं?",
+          "answer": "पाँच मानदंडों पर विक्रेताओं की शॉर्टलिस्ट बनाएं: आपकी धूल और सोइलिंग के लिए जलरहित फिट, फिक्स्ड-टिल्ट बनाम सिंगल-एक्सिस ट्रैकर संगतता, CAPEX रोबोट खरीद बनाम मैनेज्ड Opex सफाई, ब्लॉक-स्तर पूर्णता प्रमाण के साथ फ्लीट सॉफ़्टवेयर, और स्पेयर व ब्रेकडाउन SLA के साथ भारत-स्थानीय निर्माण। Taypro Made-in-India निर्माता है जिसने 150+ लाइव साइटों पर 5 GW+ रोबोटिक क्षमता तैनात की, GLYDE और GLYDE-X पर पेटेंटेड डुअल-पास शुष्क सफाई, NYUMA, NYUMA-X और HELYX पर सिंगल-पास PBT, NECTYR फ्लीट पोर्टल, और वैकल्पिक Taypro Opex पे-पर-पैनल-क्लीनड सेवा, इस हब से लिंक्ड यूटिलिटी केस स्टडी के साथ। भारतीय यूटिलिटी RFQ पर अन्य आपूर्तिकर्ता जिनका मूल्यांकन होता है: Solabot Technologies, Aegeus Technologies, Skilancer Solar, Vayu Solar जैसे भारतीय OEM; Ecoppia, Airtouch Solar, LEAPTING (Huzhou LEAPTING Technology) जैसे भारत में तैनाती वाले वैश्विक OEM; Langfang Sol-Bright New Energy Technology जैसे भारत में सक्रिय उपकरण आपूर्तिकर्ता। Jetsons Robotics जैसे छत-केंद्रित विक्रेता 50 MW+ यूटिलिटी फील्ड से अधिक C&I साइटों पर common हैं। प्रकाशित मार्केट-शेयर रैंकिंग स्रोत और वर्ष के अनुसार भिन्न होती हैं, इसलिए अंतिम चयन से पहले row layout fit, सेवा SLA और तैनाती प्रमाण सत्यापित करें, सिर्फ ब्रोशर रोबोट गिनती नहीं।"
         }
       }
     },
@@ -618,125 +630,125 @@
       "linkMethodology": "प्रदर्शन पद्धति"
     },
     "marketComparison": {
-      "eyebrow": "Choosing a cleaning approach",
-      "title": "How Taypro compares to other robotic cleaning approaches",
-      "subtitle": "Utility buyers weigh cleaning method, commercial model, fleet software, and India-local support—not robot brochures alone. Use this category view when evaluating Taypro against wet washing, import dry robots, or labour-only O&M.",
-      "intro": "Taypro is a Made-in-India OEM with 5 GW+ robotic capacity deployed, patented dual-pass dry cleaning on GLYDE and GLYDE-X, single-pass PBT on NYUMA, NYUMA-X, and HELYX, the NECTYR fleet portal, and optional Taypro Opex pay-per-panel-cleaned service. The table compares typical approaches in Indian RFQs so you can see where Taypro fits your plant—without vendor name-dropping.",
+      "eyebrow": "सफाई दृष्टिकोण चुनना",
+      "title": "Taypro अन्य रोबोटिक सफाई दृष्टिकोणों से कैसे तुलना करता है",
+      "subtitle": "यूटिलिटी खरीदार सफाई विधि, व्यावसायिक मॉडल, फ्लीट सॉफ़्टवेयर और भारत-स्थानीय सहायता तौलते हैं — सिर्फ रोबोट ब्रोशर नहीं। Taypro की तुलना गीली धुलाई, आयातित शुष्क रोबोट या केवल श्रम O&M से करते समय इस श्रेणी दृश्य का उपयोग करें।",
+      "intro": "Taypro Made-in-India OEM है जिसने 5 GW+ रोबोटिक क्षमता तैनात की है, GLYDE और GLYDE-X पर पेटेंटेड डुअल-पास शुष्क सफाई, NYUMA, NYUMA-X और HELYX पर सिंगल-पास PBT, NECTYR फ्लीट पोर्टल, और वैकल्पिक Taypro Opex पे-पर-पैनल-क्लीनड सेवा। तालिका भारतीय RFQ में सामान्य दृष्टिकोणों की तुलना करती है ताकि आप देख सकें Taypro आपके प्लांट में कहाँ फिट होता है — विक्रेता नाम के बिना।",
       "tableHeaders": {
-        "criteria": "What to evaluate",
-        "manualWet": "Manual wet wash crews",
-        "importDry": "Import dry robots (CAPEX hardware)",
+        "criteria": "क्या मूल्यांकन करें",
+        "manualWet": "मैनुअल गीली धुलाई क्रू",
+        "importDry": "आयातित शुष्क रोबोट (CAPEX हार्डवेयर)",
         "taypro": "Taypro"
       },
       "rows": {
         "row0": {
-          "criterion": "Cleaning method",
-          "manualWet": "Water, brushes, variable pass quality",
-          "importDry": "Often single-pass dry brush or airflow",
-          "taypro": "Waterless dual-pass microfiber (GLYDE / GLYDE-X) or single-pass PBT (NYUMA / HELYX)"
+          "criterion": "सफाई विधि",
+          "manualWet": "पानी, ब्रश, परिवर्तनीय पास गुणवत्ता",
+          "importDry": "अक्सर सिंगल-पास शुष्क ब्रश या एयरफ़्लो",
+          "taypro": "जलरहित डुअल-पास माइक्रोफाइबर (GLYDE / GLYDE-X) या सिंगल-पास PBT (NYUMA / HELYX)"
         },
         "row1": {
-          "criterion": "Typical plant fit",
-          "manualWet": "Small C&I or emergency washes only",
-          "importDry": "Utility fixed-tilt; tracker lines vary by OEM",
-          "taypro": "10 MW+ utility, fixed-tilt, single-axis tracker, scattered blocks"
+          "criterion": "विशिष्ट प्लांट फिट",
+          "manualWet": "केवल छोटे C&I या आपातकालीन धुलाई",
+          "importDry": "यूटिलिटी फिक्स्ड-टिल्ट; ट्रैकर लाइन OEM के अनुसार भिन्न",
+          "taypro": "10 MW+ यूटिलिटी, फिक्स्ड-टिल्ट, सिंगल-एक्सिस ट्रैकर, बिखरे ब्लॉक"
         },
         "row2": {
-          "criterion": "Commercial model",
-          "manualWet": "Recurring labour Opex",
-          "importDry": "CAPEX purchase; managed service optional",
-          "taypro": "CAPEX + AMC or Taypro Opex managed fleet"
+          "criterion": "व्यावसायिक मॉडल",
+          "manualWet": "आवर्ती श्रम Opex",
+          "importDry": "CAPEX खरीद; मैनेज्ड सेवा वैकल्पिक",
+          "taypro": "CAPEX + AMC या Taypro Opex मैनेज्ड फ्लीट"
         },
         "row3": {
-          "criterion": "Operations & audit proof",
-          "manualWet": "Paper logs; weak block-level proof",
-          "importDry": "Basic fleet telemetry on some platforms",
-          "taypro": "NECTYR scheduling, weather holds, completion maps, structured AMC"
+          "criterion": "संचालन और ऑडिट प्रमाण",
+          "manualWet": "कागज़ी लॉग; कमज़ोर ब्लॉक-स्तर प्रमाण",
+          "importDry": "कुछ प्लेटफ़ॉर्म पर बुनियादी फ्लीट टेलीमेट्री",
+          "taypro": "NECTYR शेड्यूलिंग, मौसम होल्ड, पूर्णता मानचित्र, संरचित AMC"
         },
         "row4": {
-          "criterion": "India manufacturing & SLA",
-          "manualWet": "Local crews; water and tanker logistics",
-          "importDry": "Import supply chain; local SLA varies",
-          "taypro": "Chakan Pune manufacturing; pan-India spares; same-day breakdown targets"
+          "criterion": "भारत निर्माण और SLA",
+          "manualWet": "स्थानीय क्रू; पानी और टैंकर लॉजिस्टिक्स",
+          "importDry": "आयात आपूर्ति श्रृंखला; स्थानीय SLA भिन्न",
+          "taypro": "Chakan Pune निर्माण; पैन-India स्पेयर; समान-दिवस ब्रेकडाउन लक्ष्य"
         }
       },
-      "tayproFitTitle": "When Taypro is usually the better fit",
-      "tayproFit0": "Utility-scale India plants that need waterless cleaning with local manufacturing and field support",
-      "tayproFit1": "Owners who want CAPEX robots or a fully managed Opex fleet with NECTYR diagnostics",
-      "tayproFit2": "Tracker farms needing GLYDE-X or NYUMA-X, or scattered blocks needing HELYX",
-      "tayproFit3": "Teams comparing robot vs manual brush TCO at 10 MW+ with auditable cleaning proof",
-      "featuredTitle": "Proof on live Indian utility plants",
-      "featuredSubtitle": "Flagship deployments with robot counts, water saved, and reported generation outcomes.",
+      "tayproFitTitle": "जब Taypro आमतौर पर बेहतर फिट होता है",
+      "tayproFit0": "भारतीय यूटिलिटी-स्केल प्लांट जिन्हें स्थानीय निर्माण और फील्ड सहायता के साथ जलरहित सफाई चाहिए",
+      "tayproFit1": "मालिक जो CAPEX रोबोट या NECTYR डायग्नोस्टिक्स के साथ पूर्ण मैनेज्ड Opex फ्लीट चाहते हैं",
+      "tayproFit2": "ट्रैकर फार्म जिन्हें GLYDE-X या NYUMA-X चाहिए, या बिखरे ब्लॉक जिन्हें HELYX चाहिए",
+      "tayproFit3": "10 MW+ पर रोबोट बनाम मैनुअल ब्रश TCO की तुलना करने वाली टीमें, ऑडिट योग्य सफाई प्रमाण के साथ",
+      "featuredTitle": "लाइव भारतीय यूटिलिटी प्लांटों पर प्रमाण",
+      "featuredSubtitle": "रोबोट संख्या, बचा पानी और रिपोर्ट किए गeneration परिणामों के साथ फ्लैगशिप तैनाती।",
       "featured": {
         "agar": {
           "title": "Agar, Madhya Pradesh",
           "stat": "200 MW · 272 robots · ~7.5 GWh / year reported",
-          "cta": "Read case study"
+          "cta": "केस स्टडी पढ़ें"
         },
         "banda": {
           "title": "Banda, Uttar Pradesh",
           "stat": "70 MW · 160 robots · ~2.63 GWh / year reported",
-          "cta": "Read case study"
+          "cta": "केस स्टडी पढ़ें"
         },
         "yadgir": {
           "title": "Yadgir, Karnataka",
           "stat": "50 MW · 115 robots · ~1.88 GWh / year reported",
-          "cta": "Read case study"
+          "cta": "केस स्टडी पढ़ें"
         },
         "bachau": {
           "title": "Bachau DVC, Gujarat",
           "stat": "300 MW · 172 GLYDE automatic · automatic-first reference",
-          "cta": "Read case study"
+          "cta": "केस स्टडी पढ़ें"
         }
       },
-      "ctaProjects": "Browse all projects",
-      "ctaTechnology": "How dual-pass cleaning works",
-      "ctaCalculator": "ROI & price calculator"
+      "ctaProjects": "सभी प्रोजेक्ट देखें",
+      "ctaTechnology": "डुअल-पास सफाई कैसे काम करती है",
+      "ctaCalculator": "ROI और मूल्य कैलकुलेटर"
     },
     "hubQuickLinks": {
-      "eyebrow": "Explore the Taypro stack",
-      "title": "Robots, service, software, and technology",
-      "subtitle": "Jump to the right page for your plant type, commercial model, or technical deep dive.",
+      "eyebrow": "Taypro स्टैक एक्सप्लोर करें",
+      "title": "रोबोट, सेवा, सॉफ़्टवेयर और तकनीक",
+      "subtitle": "अपने प्लांट प्रकार, व्यावसायिक मॉडल या तकनीकी गहराई के लिए सही पेज पर जाएं।",
       "links": {
         "glyde": {
           "label": "GLYDE",
-          "description": "Fixed-tilt automatic, dual-pass"
+          "description": "फिक्स्ड-टिल्ट स्वचालित, डुअल-पास"
         },
         "glydeX": {
           "label": "GLYDE-X",
-          "description": "Single-axis tracker, dual-pass"
+          "description": "सिंगल-एक्सिस ट्रैकर, डुअल-पास"
         },
         "nyuma": {
           "label": "NYUMA",
-          "description": "Fixed-tilt automatic, PBT single-pass"
+          "description": "फिक्स्ड-टिल्ट स्वचालित, PBT सिंगल-पास"
         },
         "nyumaX": {
           "label": "NYUMA-X",
-          "description": "Tracker automatic, PBT single-pass"
+          "description": "ट्रैकर स्वचालित, PBT सिंगल-पास"
         },
         "helyx": {
           "label": "HELYX",
-          "description": "Semi-automatic, scattered blocks"
+          "description": "अर्ध-स्वचालित, बिखरे ब्लॉक"
         },
         "opex": {
-          "label": "Taypro Opex service",
-          "description": "Pay-per-panel-cleaned managed fleet"
+          "label": "Taypro Opex सेवा",
+          "description": "पे-पर-पैनल-क्लीनड मैनेज्ड फ्लीट"
         },
         "nectyr": {
           "label": "NECTYR",
-          "description": "Fleet monitoring and scheduling"
+          "description": "फ्लीट मॉनिटरिंग और शेड्यूलिंग"
         },
         "technology": {
-          "label": "Cleaning technology",
-          "description": "Dual-pass vs PBT, waterless methods"
+          "label": "सफाई तकनीक",
+          "description": "डुअल-पास बनाम PBT, जलरहित विधियाँ"
         },
         "calculator": {
-          "label": "ROI calculator",
-          "description": "Payback and cost screen for your MW"
+          "label": "ROI कैलकुलेटर",
+          "description": "आपके MW के लिए पेबैक और लागत स्क्रीन"
         },
         "projects": {
-          "label": "All projects",
-          "description": "132+ utility case studies in India"
+          "label": "सभी प्रोजेक्ट",
+          "description": "भारत में 132+ यूटिलिटी केस स्टडी"
         }
       }
     }

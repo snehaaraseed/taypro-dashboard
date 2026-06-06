@@ -19,15 +19,15 @@
       "sitemap": "サイトマップ"
     },
     "heading": "サイトマップ",
-    "intro": "Use this HTML sitemap to find every major Taypro page, solar panel cleaning robots, utility-scale project case studies, O&M guides, and company information. Links are grouped by content type so developers, EPC teams, and asset managers can reach the right section quickly.",
-    "introSecondary": "For search engines, our XML sitemap is also available at /sitemap.xml. This page is designed for human navigation and internal linking across the Taypro site.",
+    "intro": "このHTMLサイトマップで、Tayproの主要ページ、ソーラーパネル洗浄ロボット、大規模プロジェクト事例、O&Mガイド、会社情報を探せます。リンクはコンテンツ種別ごとに整理され、開発者・EPC・資産管理者が目的のセクションに素早くアクセスできます。",
+    "introSecondary": "検索エンジン向けのXMLサイトマップは /sitemap.xml にもあります。このページはTayproサイト内の人的ナビゲーションと内部リンク用に設計されています。",
     "sections": {
       "posts": "投稿",
-      "postsIntro": "Energy resource articles and reference posts published on the Taypro blog and resource hub.",
+      "postsIntro": "Tayproブログとリソースハブに掲載のエネルギーリソース記事と参考投稿。",
       "pages": "ページ",
-      "pagesIntro": "Core marketing and product pages, including robot specifications, cleaning technology, ROI tools, legal policies, and contact.",
+      "pagesIntro": "ロボット仕様、清掃技術、ROIツール、法務ポリシー、お問い合わせなどのコアマーケティング・製品ページ。",
       "portfolio": "ポートフォリオ",
-      "portfolioIntro": "Documented solar plant installations where Taypro robotic cleaning systems are deployed, browse case studies by project name."
+      "portfolioIntro": "Tayproロボット清掃システムが導入されたソーラー発電所の事例 — プロジェクト名から事例を閲覧。"
     },
     "posts": {
       "energyResourcesTitle": "エネルギーリソース"
@@ -79,7 +79,33 @@
       "orionLabel": "ORION, プラントインテリジェンス",
       "orionTitle": "ORION太陽光プラント健全性監視プラットフォーム（近日公開）",
       "utilityOperationsLabel": "大規模ソーラー運用",
-      "utilityOperationsTitle": "大規模ソーラー運用とソーラーパネル洗浄ロボット"
+      "utilityOperationsTitle": "大規模ソーラー運用とソーラーパネル洗浄ロボット",
+      "robotPriceGuideLabel": "ソーラーパネル洗浄ロボット価格（インド）",
+      "robotPriceGuideTitle": "インド向けソーラーパネル洗浄ロボット価格ガイド",
+      "stateRajasthanLabel": "ソーラーパネル洗浄ロボット — Rajasthan",
+      "stateRajasthanTitle": "Rajasthanのソーラーパネル洗浄ロボット",
+      "stateGujaratLabel": "ソーラーパネル洗浄ロボット — Gujarat",
+      "stateGujaratTitle": "Gujaratのソーラーパネル洗浄ロボット",
+      "stateMadhyaPradeshLabel": "ソーラーパネル洗浄ロボット — Madhya Pradesh",
+      "stateMadhyaPradeshTitle": "Madhya Pradeshのソーラーパネル洗浄ロボット",
+      "stateKarnatakaLabel": "ソーラーパネル洗浄ロボット — Karnataka",
+      "stateKarnatakaTitle": "Karnatakaのソーラーパネル洗浄ロボット",
+      "stateAndhraPradeshLabel": "ソーラーパネル洗浄ロボット — Andhra Pradesh",
+      "stateAndhraPradeshTitle": "Andhra Pradeshのソーラーパネル洗浄ロボット",
+      "stateMaharashtraLabel": "ソーラーパネル洗浄ロボット — Maharashtra",
+      "stateMaharashtraTitle": "Maharashtraのソーラーパネル洗浄ロボット",
+      "stateUttarPradeshLabel": "ソーラーパネル洗浄ロボット — Uttar Pradesh",
+      "stateUttarPradeshTitle": "Uttar Pradeshのソーラーパネル洗浄ロボット",
+      "stateTamilNaduLabel": "ソーラーパネル洗浄ロボット — Tamil Nadu",
+      "stateTamilNaduTitle": "Tamil Naduのソーラーパネル洗浄ロボット",
+      "projectsAutomaticLabel": "自動清掃プロジェクト",
+      "projectsAutomaticTitle": "自動ソーラー洗浄ロボットプロジェクト",
+      "projectsSemiAutomaticLabel": "半自動清掃プロジェクト",
+      "projectsSemiAutomaticTitle": "半自動ソーラー洗浄ロボットプロジェクト",
+      "projectsCapexLabel": "CAPEXロボットプロジェクト",
+      "projectsCapexTitle": "CAPEXソーラー洗浄ロボットプロジェクト",
+      "projectsOpexLabel": "Opex清掃サービスプロジェクト",
+      "projectsOpexTitle": "Taypro Opexソーラー洗浄ロボットプロジェクト"
     }
   },
   "Common": {

@@ -59,9 +59,9 @@
     "cleaningService": "ソーラーパネル清掃サービス",
     "roiCalculator": "ROI・価格計算機",
     "robotPriceGuide": "ロボット価格ガイド (India)",
-    "regionalGuides": "Regional Robot Guides (India)",
+    "regionalGuides": "地域別ロボットガイド（インド）",
     "investors": "パートナー・投資家",
-    "copyright": "© Copyright {year} – TAYPRO PRIVATE LIMITED. All Rights Reserved."
+    "copyright": "© 著作権 {year} – TAYPRO PRIVATE LIMITED. 無断転載を禁じます。"
   },
   "NotFoundPage": {
     "meta": {

@@ -1,5 +1,7 @@
 {
   "ProjectsFilterPage": {
+    "countBadgeLabel": "منشور",
+    "countBadgeUnit": "دراسات حالة",
     "automatic": {
       "breadcrumb": "أوتوماتيكي",
       "eyebrow": "نشر على نطاق المرافق",
@@ -137,7 +139,52 @@
     },
     "projectLinkTitle": "مشروع شمسي",
     "breadcrumbProjects": "المشاريع",
-    "emptyGrid": "لا توجد دراسات حالة منشورة في هذه الفئة بعد. تصفح جميع المشاريع في مركز المشاريع أو تواصل مع Taypro لمراجع قريبة من نوع محطتك."
+    "emptyGrid": "لا توجد دراسات حالة منشورة في هذه الفئة بعد. تصفح جميع المشاريع في مركز المشاريع أو تواصل مع Taypro لمراجع قريبة من نوع محطتك.",
+    "opex": {
+      "breadcrumb": "Opex",
+      "eyebrow": "Operator-led cleaning service",
+      "title": "مشاريع روبوت تنظيف ألواح شمسية Opex",
+      "description": "استكشف نشر Taypro Opex لروبوت تنظيف الألواح. أساطيل مملوكة لـ Taypro ودورات pay-per-panel وعمليات مدعومة بـ SLA.",
+      "introP1Before": "Opex listings document plants where Taypro delivers",
+      "introP1Link": "robotic cleaning as a managed service",
+      "introP1After": ", Taypro retains fleet ownership, schedules cycles, and reports completion through NECTYR. Owners pay for cleaned panels rather than capitalizing robots on the balance sheet.",
+      "introP2": "Opex suits developers and IPPs that want predictable operating expenditure, fast ramp on new commissioning, or outsourced cycle execution without spare-parts logistics. Taypro sizes fleets for MW, soiling class, and array layout while the owner focuses on generation and grid compliance.",
+      "introP3Before": "Compare service economics with the",
+      "introP3CalculatorLink": "ROI calculator",
+      "introP3Middle": ", or return to the",
+      "introP3ProjectsLink": "main projects hub",
+      "introP3After": " to compare CAPEX ownership and automatic or semi-automatic references.",
+      "highlightsHeading": "What Opex Taypro projects document",
+      "highlights": {
+        "h0": "Taypro-owned GLYDE, GLYDE-X, HELYX, or NYUMA fleets operated under agreed cleaning SLAs.",
+        "h1": "Pay-per-panel or contract pricing instead of upfront robot capex on the owner balance sheet.",
+        "h2": "NECTYR reporting, cycle history, and operator accountability for O&M and asset-management teams.",
+        "h3": "Field evidence on ramp speed, water savings, and generation recovery when Taypro runs the cleaning programme."
+      },
+      "gridHeading": "Featured Opex installation case studies",
+      "gridIntro": "Select a plant to see how Taypro structured service delivery, fleet mix, and reporting for operator-led cleaning.",
+      "closingHeading": "Evaluating Opex vs CAPEX for your site?",
+      "closingBodyBeforeLink": "Read",
+      "closingProductLink": "Taypro Opex service scope",
+      "closingBodyMiddle": "alongside",
+      "closingContactLink": "contact Taypro",
+      "closingBodyAfter": " with plant MW, target cycle frequency, and whether you prefer owned fleets or managed service delivery.",
+      "schemaName": "مشاريع تركيب روبوت تنظيف ألواح شمسية Opex",
+      "schemaDescription": "محطات على نطاق المرافق حيث يقدم Taypro تنظيفًا روبوتيًا بقيادة المشغل بموجب نموذج خدمة Opex.",
+      "imageAltSuffix": "مشروع تركيب روبوت تنظيف ألواح شمسية Opex من Taypro",
+      "imageTitleSuffix": "مشروع روبوت تنظيف ألواح شمسية Opex",
+      "faq": {
+        "heading": "Frequently asked questions, Opex projects",
+        "subheading": "How asset owners compare Taypro-operated cleaning with CAPEX ownership.",
+        "cta": "Discuss your plant",
+        "q0": "What does Opex mean in Taypro project listings?",
+        "a0": "Taypro owns and operates the cleaning fleet under a service contract. The plant owner pays for delivered cleaning cycles, typically per panel or under an agreed SLA, rather than purchasing robots as capital equipment.",
+        "q1": "How is Opex different from CAPEX on the same technology?",
+        "a1": "CAPEX listings show owners who bought robots outright and operate them in-house or with contracted crews. Opex listings show Taypro retaining ownership and running cycles. The same GLYDE or HELYX technology can appear under either model depending on procurement choice.",
+        "q2": "Can we switch from Opex to CAPEX later?",
+        "a2": "Some owners start with Opex to prove cycle frequency and soiling recovery, then transition to owned fleets once layout and economics are validated. Share your roadmap with Taypro during proposal so fleet sizing and contract terms stay aligned."
+      }
+    }
   },
   "Common": {
     "breadcrumbHome": "الرئيسية"

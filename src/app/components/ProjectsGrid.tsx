@@ -127,6 +127,7 @@ export default function ProjectsGrid({
                           )}
                           <ProjectDetailChips
                             items={[item]}
+                            linkCategories={false}
                             linkClassName="hover:text-[#5a8f00] transition-colors duration-300"
                             spanClassName=""
                           />

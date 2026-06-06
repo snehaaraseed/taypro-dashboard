@@ -4,7 +4,12 @@ import { and, asc, eq, lte, sql } from "drizzle-orm";
 import type { TayproLocale } from "@/i18n/markets";
 import { getDb } from "@/lib/db";
 import { blogs, projects, translationQueue } from "@/lib/db/schema";
-import { getBlogTranslationMaxPerDay, SOURCE_LOCALE, TARGET_LOCALES } from "./config";
+import {
+  getDailyTranslationMaxPerDay,
+  getDailyTranslationSplitPerType,
+  SOURCE_LOCALE,
+  TARGET_LOCALES,
+} from "./config";
 import { isGeminiQuotaError } from "./quota";
 import type { BatchTranslationResult } from "./translate-cms";
 import {
@@ -174,26 +179,30 @@ async function isLocaleOutOfSync(
   return !target?.updatedAt || target.updatedAt < source.updatedAt;
 }
 
-/** Published EN blogs missing or stale in at least one target locale (FIFO backlog). */
-export async function listBlogSlugsNeedingTranslation(
-  limit: number
-): Promise<string[]> {
-  const db = getDb();
-  const slugs = await listEnglishBlogSlugs();
-  const candidates: { slug: string; missingLocales: number; sortKey: string }[] =
-    [];
+type TranslationCandidate = {
+  slug: string;
+  missingLocales: number;
+  sortKey: string;
+};
 
-  for (const slug of slugs) {
+async function listSlugsNeedingTranslation(
+  table: typeof blogs | typeof projects,
+  englishSlugs: string[]
+): Promise<TranslationCandidate[]> {
+  const db = getDb();
+  const candidates: TranslationCandidate[] = [];
+
+  for (const slug of englishSlugs) {
     let missingLocales = 0;
     for (const locale of TARGET_LOCALES) {
-      if (await isLocaleOutOfSync(blogs, slug, locale)) missingLocales += 1;
+      if (await isLocaleOutOfSync(table, slug, locale)) missingLocales += 1;
     }
     if (missingLocales === 0) continue;
 
     const [row] = await db
-      .select({ createdAt: blogs.createdAt, updatedAt: blogs.updatedAt })
-      .from(blogs)
-      .where(and(eq(blogs.slug, slug), eq(blogs.locale, SOURCE_LOCALE)))
+      .select({ createdAt: table.createdAt, updatedAt: table.updatedAt })
+      .from(table)
+      .where(and(eq(table.slug, slug), eq(table.locale, SOURCE_LOCALE)))
       .limit(1);
     const sortKey = row?.createdAt ?? row?.updatedAt ?? slug;
     candidates.push({ slug, missingLocales, sortKey });
@@ -206,84 +215,250 @@ export async function listBlogSlugsNeedingTranslation(
     return a.sortKey.localeCompare(b.sortKey);
   });
 
-  return candidates.slice(0, limit).map((c) => c.slug);
+  return candidates;
 }
 
-export type ProcessDailyBlogTranslationsResult = {
-  maxBlogs: number;
-  selected: string[];
+/** Published EN blogs missing or stale in at least one target locale (FIFO backlog). */
+export async function listBlogSlugsNeedingTranslation(
+  limit?: number
+): Promise<string[]> {
+  const candidates = await listSlugsNeedingTranslation(
+    blogs,
+    await listEnglishBlogSlugs()
+  );
+  const slugs = candidates.map((c) => c.slug);
+  return limit ? slugs.slice(0, limit) : slugs;
+}
+
+/** Published EN projects missing or stale in at least one target locale (FIFO backlog). */
+export async function listProjectSlugsNeedingTranslation(
+  limit?: number
+): Promise<string[]> {
+  const candidates = await listSlugsNeedingTranslation(
+    projects,
+    await listEnglishProjectSlugs()
+  );
+  const slugs = candidates.map((c) => c.slug);
+  return limit ? slugs.slice(0, limit) : slugs;
+}
+
+export type DailyTranslationQueueItem = {
+  contentType: TranslationContentType;
+  slug: string;
+};
+
+/** Split daily capacity between blogs and projects; spare slots shift to the larger backlog. */
+export function allocateDailyTranslationSlots(options: {
+  blogBacklog: number;
+  projectBacklog: number;
+  maxTotal: number;
+  splitPerType: number;
+}): { blogSlots: number; projectSlots: number } {
+  const { blogBacklog, projectBacklog, maxTotal, splitPerType } = options;
+
+  if (blogBacklog === 0 && projectBacklog === 0) {
+    return { blogSlots: 0, projectSlots: 0 };
+  }
+  if (blogBacklog === 0) {
+    return { blogSlots: 0, projectSlots: Math.min(maxTotal, projectBacklog) };
+  }
+  if (projectBacklog === 0) {
+    return { blogSlots: Math.min(maxTotal, blogBacklog), projectSlots: 0 };
+  }
+
+  let blogSlots = Math.min(splitPerType, blogBacklog);
+  let projectSlots = Math.min(splitPerType, projectBacklog);
+  let remaining = maxTotal - blogSlots - projectSlots;
+
+  while (remaining > 0) {
+    const canAddBlog = blogBacklog - blogSlots;
+    const canAddProject = projectBacklog - projectSlots;
+    if (canAddBlog === 0 && canAddProject === 0) break;
+
+    if (canAddProject >= canAddBlog && canAddProject > 0) {
+      projectSlots += 1;
+    } else if (canAddBlog > 0) {
+      blogSlots += 1;
+    } else {
+      projectSlots += 1;
+    }
+    remaining -= 1;
+  }
+
+  return { blogSlots, projectSlots };
+}
+
+/** Interleave blog and project slugs so both progress in the same daily run. */
+export function buildInterleavedDailyQueue(
+  blogSlugs: string[],
+  projectSlugs: string[]
+): DailyTranslationQueueItem[] {
+  const queue: DailyTranslationQueueItem[] = [];
+  const maxLen = Math.max(blogSlugs.length, projectSlugs.length);
+
+  for (let i = 0; i < maxLen; i += 1) {
+    if (i < blogSlugs.length) {
+      queue.push({ contentType: "blog", slug: blogSlugs[i] });
+    }
+    if (i < projectSlugs.length) {
+      queue.push({ contentType: "project", slug: projectSlugs[i] });
+    }
+  }
+
+  return queue;
+}
+
+export async function clearAllTranslationQueueRows(): Promise<number> {
+  const db = getDb();
+  const [row] = await db
+    .select({ count: sql<number>`count(*)` })
+    .from(translationQueue);
+  const pending = Number(row?.count ?? 0);
+  if (pending > 0) {
+    await db.delete(translationQueue);
+  }
+  return pending;
+}
+
+export type DailyTranslationItemResult = {
+  contentType: TranslationContentType;
+  slug: string;
+  status: "completed" | "partial" | "skipped_quota" | "failed";
+  results: BatchTranslationResult["results"];
+};
+
+export type ProcessDailyTranslationsResult = {
+  maxPerDay: number;
+  splitPerType: number;
+  blogBacklog: number;
+  projectBacklog: number;
+  blogSlots: number;
+  projectSlots: number;
+  queue: DailyTranslationQueueItem[];
   processed: number;
   completed: number;
   partial: number;
   skippedQuota: number;
-  /** True when Gemini quota was hit — remaining blogs wait until tomorrow's cron. */
+  /** True when Gemini quota was hit — queue cleared; resumes tomorrow evening. */
   quotaSkippedForDay: boolean;
-  blogs: {
-    slug: string;
-    status: "completed" | "partial" | "skipped_quota" | "failed";
-    results: BatchTranslationResult["results"];
-  }[];
+  clearedQueueRows: number;
+  items: DailyTranslationItemResult[];
 };
 
-/** Translate up to N published blogs into all missing target locales (daily cron). */
-export async function processDailyBlogTranslations(options?: {
-  maxBlogs?: number;
-}): Promise<ProcessDailyBlogTranslationsResult> {
-  const maxBlogs = options?.maxBlogs ?? getBlogTranslationMaxPerDay();
-  const selected = await listBlogSlugsNeedingTranslation(maxBlogs);
+/** @deprecated Use ProcessDailyTranslationsResult */
+export type ProcessDailyBlogTranslationsResult = ProcessDailyTranslationsResult & {
+  maxBlogs: number;
+  selected: string[];
+  blogs: DailyTranslationItemResult[];
+};
 
-  const result: ProcessDailyBlogTranslationsResult = {
-    maxBlogs,
-    selected,
+async function translateQueueItem(
+  item: DailyTranslationQueueItem
+): Promise<BatchTranslationResult> {
+  return item.contentType === "blog"
+    ? translatePublishedBlog(item.slug)
+    : translatePublishedProject(item.slug);
+}
+
+function classifyTranslationBatch(
+  batch: BatchTranslationResult
+): {
+  status: DailyTranslationItemResult["status"];
+  quotaFailure: boolean;
+} {
+  const failures = batch.results.filter((r) => !r.success);
+  const quotaFailure = failures.some((r) =>
+    isGeminiQuotaError(new Error(r.error ?? "quota"))
+  );
+
+  if (failures.length === 0) {
+    return { status: "completed", quotaFailure: false };
+  }
+  if (quotaFailure) {
+    return { status: "skipped_quota", quotaFailure: true };
+  }
+  return { status: "partial", quotaFailure: false };
+}
+
+/** Translate up to N blogs + projects per day (dynamic split, one item at a time). */
+export async function processDailyTranslations(options?: {
+  maxPerDay?: number;
+  splitPerType?: number;
+}): Promise<ProcessDailyTranslationsResult> {
+  const maxPerDay = options?.maxPerDay ?? getDailyTranslationMaxPerDay();
+  const splitPerType =
+    options?.splitPerType ?? getDailyTranslationSplitPerType();
+
+  const [allBlogSlugs, allProjectSlugs] = await Promise.all([
+    listBlogSlugsNeedingTranslation(),
+    listProjectSlugsNeedingTranslation(),
+  ]);
+
+  const blogBacklog = allBlogSlugs.length;
+  const projectBacklog = allProjectSlugs.length;
+  const { blogSlots, projectSlots } = allocateDailyTranslationSlots({
+    blogBacklog,
+    projectBacklog,
+    maxTotal: maxPerDay,
+    splitPerType,
+  });
+
+  const queue = buildInterleavedDailyQueue(
+    allBlogSlugs.slice(0, blogSlots),
+    allProjectSlugs.slice(0, projectSlots)
+  );
+
+  const result: ProcessDailyTranslationsResult = {
+    maxPerDay,
+    splitPerType,
+    blogBacklog,
+    projectBacklog,
+    blogSlots,
+    projectSlots,
+    queue,
     processed: 0,
     completed: 0,
     partial: 0,
     skippedQuota: 0,
     quotaSkippedForDay: false,
-    blogs: [],
+    clearedQueueRows: 0,
+    items: [],
   };
 
   let stopForQuota = false;
 
-  for (const slug of selected) {
+  for (const item of queue) {
     if (stopForQuota) break;
 
     result.processed += 1;
 
     try {
-      const batch = await translatePublishedBlog(slug);
-      const failures = batch.results.filter((r) => !r.success);
-      const quotaFailure = failures.some((r) =>
-        isGeminiQuotaError(new Error(r.error ?? "quota"))
-      );
+      const batch = await translateQueueItem(item);
+      const { status, quotaFailure } = classifyTranslationBatch(batch);
 
-      let status: ProcessDailyBlogTranslationsResult["blogs"][number]["status"];
-      if (failures.length === 0) {
-        status = "completed";
-        result.completed += 1;
-      } else if (quotaFailure) {
-        status = "skipped_quota";
-        result.skippedQuota += 1;
-        stopForQuota = true;
-      } else {
-        status = "partial";
-        result.partial += 1;
-      }
+      if (status === "completed") result.completed += 1;
+      else if (status === "skipped_quota") result.skippedQuota += 1;
+      else result.partial += 1;
 
-      result.blogs.push({ slug, status, results: batch.results });
+      result.items.push({ ...item, status, results: batch.results });
+
+      if (quotaFailure) stopForQuota = true;
     } catch (error) {
       const message =
         error instanceof Error ? error.message : String(error);
-      result.blogs.push({
-        slug,
-        status: isGeminiQuotaError(error) ? "skipped_quota" : "failed",
+      const quota = isGeminiQuotaError(error);
+
+      result.items.push({
+        ...item,
+        status: quota ? "skipped_quota" : "failed",
         results: TARGET_LOCALES.map((locale) => ({
           locale,
           success: false,
           error: message,
         })),
       });
-      if (isGeminiQuotaError(error)) {
+
+      if (quota) {
         result.skippedQuota += 1;
         stopForQuota = true;
       } else {
@@ -292,11 +467,32 @@ export async function processDailyBlogTranslations(options?: {
     }
   }
 
-  result.quotaSkippedForDay = stopForQuota;
+  if (stopForQuota) {
+    result.quotaSkippedForDay = true;
+    result.clearedQueueRows = await clearAllTranslationQueueRows();
+  }
+
   return result;
 }
 
-/** Enqueue published projects missing translations (blogs use daily batch instead). */
+/** @deprecated Use processDailyTranslations */
+export async function processDailyBlogTranslations(options?: {
+  maxBlogs?: number;
+}): Promise<ProcessDailyBlogTranslationsResult> {
+  const daily = await processDailyTranslations({
+    maxPerDay: options?.maxBlogs,
+  });
+  const blogs = daily.items.filter((item) => item.contentType === "blog");
+
+  return {
+    ...daily,
+    maxBlogs: daily.maxPerDay,
+    selected: blogs.map((item) => item.slug),
+    blogs,
+  };
+}
+
+/** Enqueue published blogs/projects missing translations (legacy retry queue). */
 export async function reconcileTranslationQueue(): Promise<{
   blogsEnqueued: number;
   projectsEnqueued: number;
@@ -304,7 +500,30 @@ export async function reconcileTranslationQueue(): Promise<{
   let blogsEnqueued = 0;
   let projectsEnqueued = 0;
 
-  for (const slug of await listEnglishProjectSlugs()) {
+  for (const slug of await listBlogSlugsNeedingTranslation()) {
+    for (const locale of TARGET_LOCALES) {
+      if (!(await isLocaleOutOfSync(blogs, slug, locale))) continue;
+      const db = getDb();
+      const existing = await db
+        .select({ id: translationQueue.id })
+        .from(translationQueue)
+        .where(
+          and(
+            eq(translationQueue.contentType, "blog"),
+            eq(translationQueue.slug, slug),
+            eq(translationQueue.locale, locale)
+          )
+        )
+        .limit(1);
+      if (existing.length > 0) continue;
+      await enqueueTranslationRetry("blog", slug, locale, undefined, {
+        immediate: true,
+      });
+      blogsEnqueued += 1;
+    }
+  }
+
+  for (const slug of await listProjectSlugsNeedingTranslation()) {
     for (const locale of TARGET_LOCALES) {
       if (!(await isLocaleOutOfSync(projects, slug, locale))) continue;
       const db = getDb();
@@ -465,6 +684,10 @@ export async function processTranslationQueue(options?: {
       });
       if (isGeminiQuotaError(error)) stopForQuota = true;
     }
+  }
+
+  if (stopForQuota) {
+    await clearAllTranslationQueueRows();
   }
 
   return result;

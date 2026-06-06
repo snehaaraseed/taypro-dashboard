@@ -53,13 +53,13 @@
         "name": "स्वचालित सोलर पैनल सफाई रोबोट यूटिलिटी प्लांट कैसे साफ करता है (Taypro GLYDE)",
         "description": "Taypro GLYDE का स्वायत्त सफाई चक्र, AI शेड्यूलिंग, डुअल-पास वॉटरलेस सफाई, सेल्फ-डॉकिंग और क्लाउड टेलीमेट्री।",
         "totalTime": "PT2H",
-        "imagePath": "/tayprorobots/glyde/glyde-tr150-top-view.png"
+        "imagePath": "/tayproasset/taypro-robotImage.png"
       }
     },
     "hero": {
-      "title": "GLYDE — Fully Automatic Solar Panel Cleaning Robot for Fixed-Tilt Plants",
-      "h1Line1": "स्वचालित सोलर पैनल सफाई रोबोट, ",
-      "h1Line2": "Taypro GLYDE",
+      "title": "GLYDE — फिक्स्ड-टिल्ट प्लांटों के लिए पूर्ण स्वचालित सोलर पैनल सफाई रोबोट",
+      "h1Line1": "GLYDE — पूर्ण स्वचालित सोलर पैनल सफाई रोबोट, ",
+      "h1Line2": "फिक्स्ड-टिल्ट प्लांटों के लिए",
       "leadBeforeStrong": "Taypro GLYDE एक ",
       "leadStrong": "स्वचालित सोलर पैनल सफाई रोबोट",
       "leadAfterStrong": " है जो यूटिलिटी-स्केल सोलर पावर प्लांटों के लिए बनाया गया: स्वायत्त, वॉटरलेस डुअल-पास सफाई, AI/ML शेड्यूलिंग, प्रति चार्ज 3,600 मॉड्यूल तक, फ्लीट कनेक्टिविटी ",
@@ -74,6 +74,7 @@
       "heroImageTitle": "स्वचालित सोलर पैनल सफाई रोबोट GLYDE, Taypro"
     },
     "overview": {
+      "productImageAlt": "समानांतर सफाई रेलों पर Taypro GLYDE स्वचालित सोलर पैनल सफाई रोबोट का ऊपरी दृश्य",
       "eyebrow": "यूटिलिटी-स्केल प्लांट के लिए स्वचालित सोलर पैनल सफाई रोबोट",
       "title": "Taypro GLYDE स्वचालित सोलर पैनल सफाई रोबोट क्या है?",
       "p1BeforeStrong": "",
@@ -96,10 +97,21 @@
       "p4Blog2": "यूटिलिटी स्केल पर रोबोटिक सफाई के लाभ",
       "p4Prefix": "आगे पढ़ें: ",
       "p4Middle": " और ",
-      "p4Suffix": "।",
-      "productImageAlt": "Top view of Taypro GLYDE automatic solar panel cleaning robot on parallel cleaning rails"
+      "p4Suffix": "।"
+    },
+    "gallery": {
+      "eyebrow": "उत्पाद इंजीनियरिंग",
+      "title": "एक नज़र में GLYDE हार्डवेयर",
+      "subtitle": "मॉड्यूल-फ्रेम रेलों पर पेटेंटेड डुअल-पास सफाई, स्वायत्त डॉकिंग और यूटिलिटी-स्केल फिक्स्ड-टिल्ट प्लांटों के लिए फ्लीट कनेक्टिविटी।",
+      "primaryAlt": "Taypro GLYDE TR-150 स्वचालित सफाई रोबोट, रेलों और डुअल-पास सफाई तत्वों का प्लान व्यू",
+      "primaryCaption": "GLYDE TR-150 पेटेंटेड डुअल-पास माइक्रोफाइबर सफाई के साथ मॉड्यूल फ्रेम पर चलता है।",
+      "mechanismAlt": "Taypro GLYDE डुअल-पास घूमता माइक्रोफाइबर सफाई ड्रम, पहिए और वायरलेस एंटीना का क्लोज-अप",
+      "mechanismCaption": "घूमता सेल्फ-क्लीनिंग माइक्रोफाइबर ड्रम, फ्रेम-माउंटेड यात्रा और रिमोट मॉनिटरिंग एंटीना।",
+      "dockingAlt": "स्वायत्त दैनिक चक्रों के लिए एकीकृत सोलर चार्जिंग वाला Taypro GLYDE छाया-मुक्त डॉकिंग स्टेशन",
+      "dockingCaption": "स्व-निहित डॉकिंग सोलर-सहायता चार्जिंग के साथ; प्रति एरे बाहरी बिजली कनेक्शन की आवश्यकता नहीं।"
     },
     "howToSection": {
+      "dualPassStepImageAlt": "घूमते माइक्रोफाइबर ड्रम के साथ Taypro GLYDE डुअल-पास वॉटरलेस सफाई तंत्र",
       "eyebrow": "स्वायत्त सफाई चक्र",
       "title": "स्वचालित सोलर पैनल सफाई रोबोट कैसे काम करता है?",
       "subtitle": "GLYDE पंक्ति पर ऑपरेटर के बिना अंत-से-अंत चलता है। नीचे वही वर्कफ़्लो है जो HowTo स्ट्रक्चर्ड डेटा और प्रत्येक तैनात प्लांट की दैनिक वास्तविकता में है।",
@@ -129,8 +141,7 @@
           "textBeforeConnectivity": "प्रत्येक चक्र के बाद बैटरी, चार्जिंग, चक्र टेलीमेट्री और फ्लीट प्रदर्शन NECTYR पर सिंक होता है ",
           "textAfterConnectivity": ", प्रत्येक साइट के लिए सर्वोत्तम लिंक चुनें, हर तैनात स्वचालित रोबोट के लिए ऑडिट-तैयार रिपोर्टिंग।"
         }
-      },
-      "dualPassStepImageAlt": "Taypro GLYDE dual-pass waterless cleaning mechanism with rotating microfiber drum"
+      }
     },
     "product360": {
       "eyebrow": "इंटरैक्टिव उत्पाद टूर",
@@ -417,7 +428,7 @@
           "details": "+20 mm"
         },
         "ipRating": {
-          "spec": "IP Rating",
+          "spec": "IP रेटिंग",
           "details": "IP65"
         },
         "corrosion": {
@@ -466,12 +477,12 @@
       }
     },
     "installSection": {
+      "dockingImageAlt": "सफाई चक्रों के बीच स्वायत्त रोबोट चार्जिंग के लिए एकीकृत सोलर पैनल वाला Taypro GLYDE डॉकिंग स्टेशन",
       "title": "स्वचालित रोबोट की स्थापना में कितना समय?",
       "p1": "स्थापना में मौजूदा लेआउट में कोई संशोधन नहीं। GLYDE सीधे पैनल फ्रेम पर चलता है।",
       "p2": "कुछ घंटों से कुछ दिन, डॉकिंग, कैलिब्रेशन, सिस्टम इंटीग्रेशन।",
       "p3": "बड़े प्लांट में कुछ दिन से एक सप्ताह। Taypro समान-दिवस ब्रेकडाउन समाधान देता है।",
-      "p4": "GLYDE स्केलेबल, सुरक्षित और आसान स्थापना वाला Taypro समाधान है।",
-      "dockingImageAlt": "Taypro GLYDE docking station with integrated solar panel for autonomous robot charging between cleaning cycles"
+      "p4": "GLYDE स्केलेबल, सुरक्षित और आसान स्थापना वाला Taypro समाधान है।"
     },
     "roiSection": {
       "title": "Taypro GLYDE स्वचालित रोबोट का ROI क्या है?",
@@ -564,17 +575,6 @@
         "modelT": "GLYDE-X"
       },
       "cardTitleTemplate": "{label} सोलर पैनल सफाई रोबोट"
-    },
-    "gallery": {
-      "eyebrow": "Product engineering",
-      "title": "GLYDE hardware at a glance",
-      "subtitle": "Patented dual-pass cleaning on module-frame rails, autonomous docking, and fleet connectivity built for utility-scale fixed-tilt plants.",
-      "primaryAlt": "Taypro GLYDE TR-150 automatic cleaning robot, plan view showing rails and dual-pass cleaning elements",
-      "primaryCaption": "GLYDE TR-150 travels along the module frame with patented dual-pass microfiber cleaning.",
-      "mechanismAlt": "Close-up of Taypro GLYDE dual-pass rotating microfiber cleaning drum, wheels, and wireless antenna",
-      "mechanismCaption": "Rotating self-cleaning microfiber drum, frame-mounted travel, and remote monitoring antenna.",
-      "dockingAlt": "Taypro GLYDE shadow-free docking station with integrated solar charging for autonomous daily cycles",
-      "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array."
     }
   },
   "Common": {
