@@ -2,7 +2,7 @@ import "server-only";
 
 /**
  * Product-focused posts use the Taypro asset library (real robots, projects, OG presets).
- * Educational / O&M / soiling posts without a product angle use Pollinations (free tier + daily pollen).
+ * Educational / O&M / soiling posts without a product angle use Pollinations for hero + inline.
  */
 export function shouldUseProductLibraryImage(input: {
   title: string;

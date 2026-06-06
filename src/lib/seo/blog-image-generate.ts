@@ -1,8 +1,12 @@
 import "server-only";
 
 import { generateBlogFeaturedImageImagen } from "@/lib/seo/blog-image-generate-imagen";
-import { generateBlogFeaturedImagePollinations } from "@/lib/seo/blog-image-generate-pollinations";
+import {
+  generateBlogFeaturedImagePollinations,
+  generateBlogInlineImagePollinations,
+} from "@/lib/seo/blog-image-generate-pollinations";
 import type { BlogFeaturedImagePick } from "@/lib/seo/blog-image-types";
+import type { BlogInlineImage } from "@/lib/seo/blog-image-types";
 
 export { isImagenQuotaError } from "@/lib/seo/blog-image-generate-imagen";
 export { isPollinationsPaymentError } from "@/lib/seo/blog-image-generate-pollinations";
@@ -43,4 +47,18 @@ export async function generateBlogFeaturedImage(input: {
     return generateBlogFeaturedImagePollinations(input);
   }
   return generateBlogFeaturedImageImagen(input);
+}
+
+/** Generate a mid-article inline image and save under public/uploads. */
+export async function generateBlogInlineImage(input: {
+  title: string;
+  description: string;
+  seoKeyword?: string;
+}): Promise<BlogInlineImage> {
+  const provider = getBlogImageProvider();
+  if (provider === "pollinations") {
+    return generateBlogInlineImagePollinations(input);
+  }
+  // Imagen inline not implemented — reuse hero generator path if needed later.
+  throw new Error("Inline AI images require POLLINATIONS_API_KEY (BLOG_IMAGE_PROVIDER=pollinations)");
 }

@@ -4,3 +4,9 @@ export type BlogFeaturedImagePick = {
   source: string;
   mode: "library" | "generated";
 };
+
+export type BlogInlineImage = {
+  url: string;
+  alt: string;
+  source: string;
+};

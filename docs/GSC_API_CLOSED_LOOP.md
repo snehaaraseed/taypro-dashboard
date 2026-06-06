@@ -14,6 +14,29 @@ Blog automation can **read real Search Console performance** and refresh `data/s
 
 This is **closed-loop feedback** without paid SEO tools. It does **not** auto-rewrite old posts (only steers **new** topics).
 
+## Keyword campaign scheduler (daily + cooldown)
+
+After each weekly GSC sync, `refreshKeywordCampaignsFromGsc()` updates `data/seo-keyword-campaigns.json` with position, score, and reason per keyword.
+
+Each daily blog run:
+
+1. `pickFocusKeywordForToday()` chooses the highest GSC-score **eligible** keyword (open coverage slots, not in 21-day cooldown)
+2. `pickNextEditorialContract({ focusKeyword })` writes only for that keyword
+3. On publish, `markCampaignPublished()` sets `nextReviewAfter` = today + 21 days
+
+**Env:**
+
+```bash
+SEO_CAMPAIGN_ENABLED=true
+SEO_CAMPAIGN_COOLDOWN_DAYS=21
+```
+
+**Backfill once:** `npm run seo:backfill-campaigns`
+
+**Preview:** `GET /api/automation/generate-blog` returns `focusKeyword`, `campaignPreview`, and `focusKeywordGscPosition`.
+
+Disable campaigns (legacy queue order only): `SEO_CAMPAIGN_ENABLED=false`.
+
 ## One-time setup
 
 ### 1. Google Cloud

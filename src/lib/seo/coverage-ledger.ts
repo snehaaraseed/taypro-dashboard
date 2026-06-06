@@ -34,6 +34,7 @@ import {
   loadCorpusIndex,
 } from "@/lib/seo/corpus-index";
 import {
+  EditorialPreflightError,
   formatPreFlightFailure,
   preFlightUniquenessProbe,
 } from "@/lib/seo/blog-preflight-gates";
@@ -229,6 +230,8 @@ export type PickCoverageSlotOptions = {
 
 export type PickEditorialContractOptions = PickCoverageSlotOptions & {
   uniquenessCtx?: BlogUniquenessContext;
+  /** When set, only pick contracts for this keyword (campaign focus day). */
+  focusKeyword?: string;
 };
 
 function buildForbiddenArchetypeSet(
@@ -261,8 +264,10 @@ export async function pickNextEditorialContract(
   const index = loadCorpusIndex();
   const ctx = options?.uniquenessCtx;
   const corpus = options?.corpus ?? [];
+  const focusKeyword = options?.focusKeyword?.toLowerCase().trim() || null;
 
   for (const slot of buildSlotCatalog()) {
+    if (focusKeyword && slot.keyword.toLowerCase() !== focusKeyword) continue;
     if (filled.has(slot.slotKey)) continue;
     if (failed.has(slot.slotKey)) continue;
     if (rejectedSlots.has(slot.slotKey)) continue;
@@ -494,7 +499,12 @@ export async function assertCheckpointB(
     corpus
   );
   if (match) {
-    throw new Error(formatPreFlightFailure(match));
+    throw new EditorialPreflightError(
+      match,
+      contract.slotKey,
+      contract.keyword,
+      title
+    );
   }
 }
 

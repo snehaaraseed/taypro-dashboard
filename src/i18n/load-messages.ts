@@ -56,9 +56,16 @@ export async function loadMessages(
     const files = await readdir(pagesDir);
     const jsonFiles = files.filter((f) => f.endsWith(".json")).sort();
     for (const file of jsonFiles) {
-      const pageRaw = await readFile(join(pagesDir, file), "utf8");
-      const pageMessages = JSON.parse(pageRaw) as Record<string, unknown>;
-      messages = deepMerge(messages, pageMessages);
+      try {
+        const pageRaw = await readFile(join(pagesDir, file), "utf8");
+        const pageMessages = JSON.parse(pageRaw) as Record<string, unknown>;
+        messages = deepMerge(messages, pageMessages);
+      } catch (err) {
+        console.error(
+          `[i18n] Skipping invalid page messages ${locale}/${file}:`,
+          err instanceof Error ? err.message : err
+        );
+      }
     }
   } catch {
     // No page overrides for this locale yet

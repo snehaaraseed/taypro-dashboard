@@ -22,6 +22,7 @@ import {
   loadBlogUniquenessContext,
 } from "@/lib/seo/blog-plan-gates";
 import {
+  EditorialPreflightError,
   formatPreFlightFailure,
   preFlightUniquenessProbe,
 } from "@/lib/seo/blog-preflight-gates";
@@ -64,6 +65,13 @@ import {
   saveCachedSerpBrief,
   type EditorialContract,
 } from "@/lib/seo/coverage-ledger";
+import {
+  getCampaignPreview,
+  getKeywordCampaignEntry,
+  isKeywordCampaignEnabled,
+  markCampaignPublished,
+  pickFocusKeywordForToday,
+} from "@/lib/seo/keyword-campaign";
 
 /** Outer contract attempts; in-place expansion retries happen inside generateBlogContent. */
 const MAX_PIPELINE_ATTEMPTS = getBlogPipelineMaxOuterAttempts();
@@ -154,6 +162,7 @@ async function resolveTopicFromLedger(input: {
   rejectedKeywords: string[];
   rejectedSlotKeys: string[];
   uniquenessCtx: Awaited<ReturnType<typeof loadBlogUniquenessContext>>;
+  focusKeyword?: string | null;
 }): Promise<{
   topic: GeneratedTopic;
   contract: EditorialContract;
@@ -164,13 +173,32 @@ async function resolveTopicFromLedger(input: {
   serpCalls: number;
   lockedDescription: string;
   forbiddenAngles: Awaited<ReturnType<typeof findSimilarCorpusEntries>>;
+  focusKeyword: string | null;
 }> {
-  const contract = await pickNextEditorialContract({
+  const focusKeyword =
+    input.focusKeyword?.toLowerCase().trim() ||
+    (isKeywordCampaignEnabled()
+      ? await pickFocusKeywordForToday({
+          excludeKeywords: input.rejectedKeywords,
+        })
+      : null);
+
+  let contract = await pickNextEditorialContract({
     excludeKeywords: input.rejectedKeywords,
     rejectedSlotKeys: input.rejectedSlotKeys,
     corpus: input.uniquenessCtx.corpus,
     uniquenessCtx: input.uniquenessCtx,
+    focusKeyword: focusKeyword ?? undefined,
   });
+
+  if (!contract && focusKeyword) {
+    contract = await pickNextEditorialContract({
+      excludeKeywords: input.rejectedKeywords,
+      rejectedSlotKeys: input.rejectedSlotKeys,
+      corpus: input.uniquenessCtx.corpus,
+      uniquenessCtx: input.uniquenessCtx,
+    });
+  }
 
   if (!contract) {
     throw new Error("No editorial contract available for blog automation");
@@ -262,6 +290,7 @@ async function resolveTopicFromLedger(input: {
     serpCalls,
     lockedDescription,
     forbiddenAngles,
+    focusKeyword,
   };
 }
 
@@ -309,6 +338,7 @@ export async function POST(request: NextRequest) {
       let lockedDescription = "";
       let forbiddenAngles: Awaited<ReturnType<typeof findSimilarCorpusEntries>> =
         [];
+      let campaignFocusKeyword: string | null = null;
 
       try {
         let topic: GeneratedTopic;
@@ -333,6 +363,7 @@ export async function POST(request: NextRequest) {
           serpCallsThisRun = ledgerResult.serpCalls;
           lockedDescription = ledgerResult.lockedDescription;
           forbiddenAngles = ledgerResult.forbiddenAngles;
+          campaignFocusKeyword = ledgerResult.focusKeyword;
           for (const entry of forbiddenAngles) {
             trackExcludedCorpusSlug(excludeKnowledgeSlugs, entry.slug);
           }
@@ -539,6 +570,13 @@ export async function POST(request: NextRequest) {
               factBrief,
             });
           }
+          const campaignKeyword =
+            campaignFocusKeyword ?? editorialContract.keyword;
+          const campaignEntry = getKeywordCampaignEntry(campaignKeyword);
+          markCampaignPublished(campaignKeyword, {
+            slug: result.slug,
+            positionAtPublish: campaignEntry?.lastPosition ?? null,
+          });
         }
 
         revalidatePath(`/blog/${result.slug}`);
@@ -560,6 +598,7 @@ export async function POST(request: NextRequest) {
             searchIntent: topic.seoBrief?.searchIntent,
             coverageSlot: editorialContract?.slotKey,
             editorialArchetype: editorialContract?.archetype,
+            campaignFocusKeyword: campaignFocusKeyword ?? undefined,
             serpCalls: serpCallsThisRun,
             featuredImage: featured.url,
             featuredImageAlt: featured.alt,
@@ -579,6 +618,11 @@ export async function POST(request: NextRequest) {
         });
       } catch (error) {
         lastError = error;
+        if (error instanceof EditorialPreflightError) {
+          attemptedSlotKey = error.slotKey;
+          attemptedKeyword = error.keyword;
+          attemptedTitle = error.title;
+        }
         const msg = error instanceof Error ? error.message : String(error);
         const failureKind = classifyGenerationFailure(error);
         if (attemptedTitle) {
@@ -611,6 +655,9 @@ export async function POST(request: NextRequest) {
             `Blog pipeline attempt ${pipelineAttempt + 1} rejected (${failureKind}), picking new contract:`,
             msg
           );
+          if (attemptedSlotKey && ledgerEnabled) {
+            markSlotFailed(attemptedSlotKey, msg);
+          }
           continue;
         }
 
@@ -655,16 +702,35 @@ export async function GET(request: NextRequest) {
   try {
     const schedule = await getBlogAutomationSchedule();
     const uniquenessCtx = await loadBlogUniquenessContext();
+    const campaignEnabled = isKeywordCampaignEnabled();
+    const focusKeyword = campaignEnabled
+      ? await pickFocusKeywordForToday()
+      : null;
+    const focusEntry = focusKeyword
+      ? getKeywordCampaignEntry(focusKeyword)
+      : null;
     const nextContract = isCoverageLedgerEnabled()
       ? await pickNextEditorialContract({
           corpus: uniquenessCtx.corpus,
           uniquenessCtx,
+          focusKeyword: focusKeyword ?? undefined,
+        }).then(async (contract) => {
+          if (contract || !focusKeyword) return contract;
+          return pickNextEditorialContract({
+            corpus: uniquenessCtx.corpus,
+            uniquenessCtx,
+          });
         })
       : null;
 
     return NextResponse.json({
       ...schedule,
       coverageLedgerEnabled: isCoverageLedgerEnabled(),
+      keywordCampaignEnabled: campaignEnabled,
+      focusKeyword,
+      focusKeywordNextReviewAfter: focusEntry?.nextReviewAfter ?? null,
+      focusKeywordGscPosition: focusEntry?.lastPosition ?? null,
+      campaignPreview: campaignEnabled ? getCampaignPreview() : null,
       serpMaxCallsPerBlog: getSerpMaxCallsPerBlog(),
       blogPipelineMaxOuterAttempts: MAX_PIPELINE_ATTEMPTS,
       geminiBudget: getGeminiDailyBudget(),

@@ -4,7 +4,18 @@ import {
   keywordFallbackImage,
   selectCandidatePoolForGemini,
 } from "@/lib/seo/blog-image-catalog";
-import type { BlogFeaturedImagePick } from "@/lib/seo/blog-image-types";
+import type {
+  BlogFeaturedImagePick,
+  BlogInlineImage,
+} from "@/lib/seo/blog-image-types";
+import {
+  generateBlogInlineImage,
+  isImageGenerationError,
+} from "@/lib/seo/blog-image-generate";
+import {
+  getBlogImageMode,
+  shouldUseProductLibraryImage,
+} from "@/lib/seo/blog-image-strategy";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
 import {
@@ -18,11 +29,7 @@ const PICKER_MODEL =
     DEFAULT_FREE_GEMINI_TEXT_MODEL
   );
 
-export type BlogInlineImage = {
-  url: string;
-  alt: string;
-  source: string;
-};
+export type { BlogInlineImage } from "@/lib/seo/blog-image-types";
 
 function getGenAI(): GoogleGenerativeAI {
   const key = process.env.GEMINI_API_KEY?.trim();
@@ -183,7 +190,8 @@ async function pickLibraryInlineImage(
 }
 
 /**
- * Pick one inline body image (library for product posts; library or generated for O&M).
+ * Pick one inline body image.
+ * Hybrid: Pollinations for O&M/educational posts, Taypro library for robot/product posts.
  */
 export async function pickBlogInlineImage(input: {
   title: string;
@@ -202,6 +210,38 @@ export async function pickBlogInlineImage(input: {
     ...(input.excludeUrls ?? []),
     input.featured.url,
   ].filter(Boolean);
+
+  const mode = getBlogImageMode();
+  const useLibrary =
+    mode === "library" ||
+    (mode === "hybrid" &&
+      shouldUseProductLibraryImage({
+        title: input.title,
+        description: input.description,
+        seoKeyword,
+        category: input.category,
+      }));
+
+  if (!useLibrary) {
+    console.info(
+      `Blog inline image: Pollinations (${process.env.POLLINATIONS_IMAGE_MODEL?.trim() || "flux"}) for non-product post`
+    );
+    try {
+      const generated = await generateBlogInlineImage({
+        title: input.title,
+        description: input.description,
+        seoKeyword,
+      });
+      if (generated.url && !excludeUrls.includes(generated.url)) {
+        return generated;
+      }
+    } catch (error) {
+      const label = isImageGenerationError(error)
+        ? "Inline image API limit or billing"
+        : "Inline image generation failed";
+      console.warn(`${label}, falling back to product library:`, error);
+    }
+  }
 
   return pickLibraryInlineImage(
     {

@@ -76,3 +76,23 @@ export async function preFlightUniquenessProbe(
 export function formatPreFlightFailure(match: SimilarBlogMatch): string {
   return `Pre-flight uniqueness failed (${match.reason}, score ${match.score.toFixed(2)}): "${match.title}" (${match.slug})`;
 }
+
+/** Thrown at checkpoint B so the pipeline can mark the slot failed and rotate. */
+export class EditorialPreflightError extends Error {
+  readonly slotKey: string;
+  readonly keyword: string;
+  readonly title: string;
+
+  constructor(
+    match: SimilarBlogMatch,
+    slotKey: string,
+    keyword: string,
+    title: string
+  ) {
+    super(formatPreFlightFailure(match));
+    this.name = "EditorialPreflightError";
+    this.slotKey = slotKey;
+    this.keyword = keyword;
+    this.title = title;
+  }
+}

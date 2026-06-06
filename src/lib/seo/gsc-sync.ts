@@ -7,6 +7,10 @@ import { fetchSearchAnalyticsQueries } from "@/lib/gsc/search-console-client";
 import { getGscSiteUrl } from "@/lib/gsc/google-service-account";
 import { getGscAuthMethod, isGscConfigured } from "@/lib/gsc/gsc-auth";
 import { invalidateGscBoostCache } from "@/lib/seo/gsc-keyword-boost";
+import {
+  invalidateKeywordCampaignCache,
+  refreshKeywordCampaignsFromGsc,
+} from "@/lib/seo/keyword-campaign";
 import { passesSeoKeywordFilters } from "@/lib/seo/keyword-filters";
 
 /** Branded queries are not blog targets. */
@@ -151,6 +155,8 @@ export async function syncGscBoostFromSearchConsole(): Promise<GscSyncResult> {
   fs.writeFileSync(reportPath, `${JSON.stringify(reportPayload, null, 2)}\n`, "utf8");
 
   invalidateGscBoostCache();
+  refreshKeywordCampaignsFromGsc(opportunities);
+  invalidateKeywordCampaignCache();
 
   return {
     ok: true,

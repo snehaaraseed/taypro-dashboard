@@ -20,6 +20,7 @@
     "seo:test-fact-grounding": "node scripts/test-fact-grounding.mjs",
     "seo:backfill-coverage": "node scripts/backfill-coverage-slots.mjs",
     "seo:build-corpus-index": "node scripts/build-corpus-index.mjs",
+    "seo:backfill-campaigns": "node scripts/backfill-keyword-campaigns.mjs",
     "ops:install-gsc-cron": "bash scripts/install-gsc-sync-cron.sh",
     "ops:deploy-cms-metrics": "node scripts/deploy-cms-metrics.mjs",
     "ops:install-logrotate": "bash scripts/install-logrotate-taypro.sh",

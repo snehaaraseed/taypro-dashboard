@@ -1,3 +1,4 @@
+import { PROJECT_HERO_IMAGE_PATH } from "@/lib/site-images";
 import type { Metadata } from "next";
 import { SITE_URL } from "./sitemap-config";
 
@@ -45,7 +46,7 @@ export const OG_PRESETS = {
     alt: "Taypro Blog, solar panel cleaning robot insights and O&M guides",
   },
   projects: {
-    path: "/tayproasset/taypro-project.png",
+    path: PROJECT_HERO_IMAGE_PATH,
     alt: "Taypro utility-scale solar projects with cleaning robots",
   },
   company: {

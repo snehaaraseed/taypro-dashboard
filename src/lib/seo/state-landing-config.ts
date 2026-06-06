@@ -1,3 +1,4 @@
+import { PROJECT_HERO_IMAGE_PATH } from "@/lib/site-images";
 import type { ProjectListFilter } from "@/lib/cms/project-products";
 
 export type StateLandingId =
@@ -54,7 +55,7 @@ export const STATE_LANDING_PAGES: Record<StateLandingId, StateLandingConfig> = {
       "maya-gujrat-50-mw",
     ],
     placeSchemaSlugs: ["bachau-dvc-gujrat-300-mw"],
-    heroImage: "/tayproasset/taypro-project.png",
+    heroImage: PROJECT_HERO_IMAGE_PATH,
   },
   madhyaPradesh: {
     id: "madhyaPradesh",
@@ -72,7 +73,7 @@ export const STATE_LANDING_PAGES: Record<StateLandingId, StateLandingConfig> = {
     projectFilter: { keywords: ["karnataka", "yadgir"] },
     featuredSlugs: ["yadgir-solar-project-50-mw", "kmf-karnataka-75-mw"],
     placeSchemaSlugs: ["yadgir-solar-project-50-mw", "kmf-karnataka-75-mw"],
-    heroImage: "/tayproasset/taypro-project.png",
+    heroImage: PROJECT_HERO_IMAGE_PATH,
   },
   andhraPradesh: {
     id: "andhraPradesh",
@@ -96,7 +97,7 @@ export const STATE_LANDING_PAGES: Record<StateLandingId, StateLandingConfig> = {
       "yavatmal-kupti-14-mw",
     ],
     placeSchemaSlugs: ["soyegaon-solar-project"],
-    heroImage: "/tayproasset/taypro-project.png",
+    heroImage: PROJECT_HERO_IMAGE_PATH,
   },
   uttarPradesh: {
     id: "uttarPradesh",
@@ -120,7 +121,7 @@ export const STATE_LANDING_PAGES: Record<StateLandingId, StateLandingConfig> = {
     projectFilter: { keywords: ["tamil nadu", "chennai", "nayveli"] },
     featuredSlugs: ["nayveli-10-mw", "chennai-10-mw"],
     placeSchemaSlugs: ["nayveli-10-mw", "chennai-10-mw"],
-    heroImage: "/tayproasset/taypro-project.png",
+    heroImage: PROJECT_HERO_IMAGE_PATH,
   },
 };
 

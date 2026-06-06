@@ -4,9 +4,11 @@ import { createSlug } from "@/app/utils/blogFileUtils";
 import { saveImageBuffer } from "@/lib/cms/saveImageBuffer";
 import {
   buildBlogHeroImagePrompt,
+  buildBlogInlineImagePrompt,
   buildGeneratedBlogImageAlt,
+  buildGeneratedBlogInlineImageAlt,
 } from "@/lib/seo/blog-image-prompt";
-import type { BlogFeaturedImagePick } from "@/lib/seo/blog-image-types";
+import type { BlogFeaturedImagePick, BlogInlineImage } from "@/lib/seo/blog-image-types";
 
 const POLLINATIONS_BASE = "https://gen.pollinations.ai";
 
@@ -28,6 +30,13 @@ function getPollinationsImageSize(): string {
   return process.env.POLLINATIONS_IMAGE_SIZE?.trim() || "1024x576";
 }
 
+function getPollinationsInlineImageSize(): string {
+  return (
+    process.env.POLLINATIONS_INLINE_IMAGE_SIZE?.trim() ||
+    getPollinationsImageSize()
+  );
+}
+
 export function isPollinationsPaymentError(error: unknown): boolean {
   const message = error instanceof Error ? error.message : String(error);
   return (
@@ -47,11 +56,56 @@ export async function generateBlogFeaturedImagePollinations(input: {
   seoKeyword?: string;
 }): Promise<BlogFeaturedImagePick> {
   const seoKeyword = input.seoKeyword?.trim() || "solar panel maintenance";
-  const prompt = buildBlogHeroImagePrompt(
-    input.title,
-    input.description,
-    seoKeyword
-  );
+  const model = getPollinationsImageModel();
+  const saved = await requestPollinationsImage({
+    prompt: buildBlogHeroImagePrompt(
+      input.title,
+      input.description,
+      seoKeyword
+    ),
+    size: getPollinationsImageSize(),
+    baseName: `blog-${createSlug(input.title).slice(0, 50) || "hero"}`,
+  });
+
+  return {
+    url: saved.url,
+    alt: buildGeneratedBlogImageAlt(input.title, seoKeyword),
+    source: `pollinations (${model})`,
+    mode: "generated",
+  };
+}
+
+/** Generate a mid-article inline figure via Pollinations. */
+export async function generateBlogInlineImagePollinations(input: {
+  title: string;
+  description: string;
+  seoKeyword?: string;
+}): Promise<BlogInlineImage> {
+  const seoKeyword = input.seoKeyword?.trim() || "solar panel maintenance";
+  const model = getPollinationsImageModel();
+  const slugBase = createSlug(input.title).slice(0, 44) || "inline";
+  const saved = await requestPollinationsImage({
+    prompt: buildBlogInlineImagePrompt(
+      input.title,
+      input.description,
+      seoKeyword
+    ),
+    size: getPollinationsInlineImageSize(),
+    baseName: `blog-inline-${slugBase}`,
+  });
+
+  return {
+    url: saved.url,
+    alt: buildGeneratedBlogInlineImageAlt(input.title, seoKeyword),
+    source: `pollinations (${model}, inline)`,
+  };
+}
+
+async function requestPollinationsImage(input: {
+  prompt: string;
+  size: string;
+  baseName: string;
+}): Promise<{ url: string }> {
   const model = getPollinationsImageModel();
 
   const response = await fetch(`${POLLINATIONS_BASE}/v1/images/generations`, {
@@ -61,9 +115,9 @@ export async function generateBlogFeaturedImagePollinations(input: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      prompt,
+      prompt: input.prompt,
       model,
-      size: getPollinationsImageSize(),
+      size: input.size,
       n: 1,
       response_format: "b64_json",
     }),
@@ -101,19 +155,11 @@ export async function generateBlogFeaturedImagePollinations(input: {
   }
 
   const mimeType = detectImageMimeType(buffer);
-  const slugBase = createSlug(input.title).slice(0, 50) || "blog-hero";
-  const saved = await saveImageBuffer({
+  return saveImageBuffer({
     buffer,
     mimeType,
-    baseName: `blog-${slugBase}`,
+    baseName: input.baseName,
   });
-
-  return {
-    url: saved.url,
-    alt: buildGeneratedBlogImageAlt(input.title, seoKeyword),
-    source: `pollinations (${model})`,
-    mode: "generated",
-  };
 }
 
 function detectImageMimeType(buffer: Buffer): "image/jpeg" | "image/png" {
