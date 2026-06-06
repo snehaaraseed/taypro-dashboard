@@ -178,10 +178,16 @@ const nextConfig = {
         destination: "/:path*",
         permanent: true,
       },
-      // Canonical price + ROI tool (Keyword Planner: cost, price, ROI)
+      // Legacy utility O&M path used in case-study HTML
+      {
+        source: "/utility-operations",
+        destination: "/utility-scale-solar-operations",
+        permanent: true,
+      },
+      // Price guide (informational) vs calculator (interactive tool)
       {
         source: "/solar-panel-cleaning-robot-price",
-        destination: "/solar-panel-cleaning-robot-price-calculator",
+        destination: "/solar-panel-cleaning-robot-price-india",
         permanent: true,
       },
       {
@@ -197,6 +203,50 @@ const nextConfig = {
       {
         source: "/roi-calculator",
         destination: "/solar-panel-cleaning-robot-price-calculator",
+        permanent: true,
+      },
+      // Semrush / legacy underscore URLs (SEO-STRATEGY §4.2)
+      {
+        source: "/solar_panel_cleaning_robot",
+        destination: "/solar-panel-cleaning-system",
+        permanent: true,
+      },
+      {
+        source: "/solar_panel_cleaning_system",
+        destination: "/solar-panel-cleaning-system",
+        permanent: true,
+      },
+      {
+        source: "/automatic_solar_panel_cleaning_machine",
+        destination:
+          "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
+        permanent: true,
+      },
+      {
+        source: "/battery_solar_cleaning_machine",
+        destination: "/solar-panel-cleaning-system",
+        permanent: true,
+      },
+      {
+        source: "/monocrystalline_solar_module_cleaning_robot",
+        destination: "/solar-panel-cleaning-system",
+        permanent: true,
+      },
+      {
+        source: "/taypro-automatic",
+        destination:
+          "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
+        permanent: true,
+      },
+      // Common price URL variants → guide vs calculator split
+      {
+        source: "/solar-panel-cleaning-robot-cost-india",
+        destination: "/solar-panel-cleaning-robot-price-india",
+        permanent: true,
+      },
+      {
+        source: "/solar-panel-cleaning-cost",
+        destination: "/solar-panel-cleaning-robot-price-india",
         permanent: true,
       },
       // CMS project slug aliases (duplicate imports → canonical URL)

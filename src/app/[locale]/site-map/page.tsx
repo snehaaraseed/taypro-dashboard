@@ -197,6 +197,44 @@ export default async function SiteMapPage({
                 >
                   {l("projectsLabel")}
                 </Link>
+                <ul className="mt-2 ml-6 space-y-2 list-circle list-inside text-base">
+                  <li>
+                    <Link
+                      href="/projects/automatic"
+                      title={l("projectsAutomaticTitle")}
+                      className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                    >
+                      {l("projectsAutomaticLabel")}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/projects/semi-automatic"
+                      title={l("projectsSemiAutomaticTitle")}
+                      className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                    >
+                      {l("projectsSemiAutomaticLabel")}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/projects/capex"
+                      title={l("projectsCapexTitle")}
+                      className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                    >
+                      {l("projectsCapexLabel")}
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <Link
+                  href="/solar-panel-cleaning-robot-price-india"
+                  title={l("robotPriceGuideTitle")}
+                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                >
+                  {l("robotPriceGuideLabel")}
+                </Link>
               </li>
               <li>
                 <Link
@@ -205,6 +243,78 @@ export default async function SiteMapPage({
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
                   {l("roiCalculatorLabel")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/solar-panel-cleaning-robot-rajasthan"
+                  title={l("stateRajasthanTitle")}
+                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                >
+                  {l("stateRajasthanLabel")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/solar-panel-cleaning-robot-gujarat"
+                  title={l("stateGujaratTitle")}
+                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                >
+                  {l("stateGujaratLabel")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/solar-panel-cleaning-robot-madhya-pradesh"
+                  title={l("stateMadhyaPradeshTitle")}
+                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                >
+                  {l("stateMadhyaPradeshLabel")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/solar-panel-cleaning-robot-karnataka"
+                  title={l("stateKarnatakaTitle")}
+                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                >
+                  {l("stateKarnatakaLabel")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/solar-panel-cleaning-robot-andhra-pradesh"
+                  title={l("stateAndhraPradeshTitle")}
+                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                >
+                  {l("stateAndhraPradeshLabel")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/solar-panel-cleaning-robot-maharashtra"
+                  title={l("stateMaharashtraTitle")}
+                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                >
+                  {l("stateMaharashtraLabel")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/solar-panel-cleaning-robot-uttar-pradesh"
+                  title={l("stateUttarPradeshTitle")}
+                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                >
+                  {l("stateUttarPradeshLabel")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/solar-panel-cleaning-robot-tamil-nadu"
+                  title={l("stateTamilNaduTitle")}
+                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                >
+                  {l("stateTamilNaduLabel")}
                 </Link>
               </li>
               <li>

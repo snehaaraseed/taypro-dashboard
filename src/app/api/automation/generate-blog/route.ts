@@ -6,7 +6,10 @@ import {
   planBlogContent,
   type GeneratedTopic,
 } from "@/lib/aiService";
-import { isRetryableGenerationError } from "@/lib/seo/content-quality";
+import {
+  classifyGenerationFailure,
+  getBlogPipelineMaxOuterAttempts,
+} from "@/lib/seo/content-quality";
 import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
 import { pickBlogFeaturedImage } from "@/lib/seo/blog-image-picker";
 import { enrichBlogContentWithInlineImages } from "@/lib/seo/blog-inline-images";
@@ -14,9 +17,15 @@ import { formatTopicCategory } from "@/lib/seo/keyword-stats";
 import {
   assertBlogDraftUnique,
   assertPlanUnique,
+  findKeywordCorpusConflict,
   findTitleConflict,
   loadBlogUniquenessContext,
 } from "@/lib/seo/blog-plan-gates";
+import {
+  formatPreFlightFailure,
+  preFlightUniquenessProbe,
+} from "@/lib/seo/blog-preflight-gates";
+import { findSimilarCorpusEntries } from "@/lib/seo/corpus-index";
 import {
   buildContentFingerprint,
   extractH2Headings,
@@ -25,6 +34,7 @@ import {
   pickTopicTitleHybrid,
   planBlogAutomationHybrid,
 } from "@/lib/seo/blog-automation-hybrid";
+import { pickCategoryForSeoBrief } from "@/lib/cms/blog-author-expertise";
 import { pickAuthorForBlogTopic } from "@/lib/cms/authorService";
 import { resolveAuthorExpertiseTags } from "@/lib/cms/blog-author-expertise";
 import { getBlogAutomationSchedule, addPublishedTopic } from "@/lib/topicTracker";
@@ -34,10 +44,29 @@ import {
   GeminiDailyBudgetError,
   getBlogPipelineMaxCalls,
   getGeminiDailyBudget,
+  getSerpMaxCallsPerBlog,
 } from "@/lib/gemini/daily-budget";
+import { runGroundedFactResearch } from "@/lib/gemini/grounded-fact-research";
+import { runGroundedSerpResearch } from "@/lib/gemini/grounded-serp-research";
+import type { FactResearchBrief } from "@/lib/gemini/grounded-fact-research";
+import type { SerpResearchBrief } from "@/lib/gemini/grounded-serp-research";
+import {
+  assertCheckpointB,
+  buildForbiddenTitles,
+  formatCoverageTopicCategory,
+  isCoverageLedgerEnabled,
+  loadCachedSerpBrief,
+  markSlotFailed,
+  markSlotFilled,
+  pickNextEditorialContract,
+  pickTitleFromSerpBrief,
+  persistBlogResearchBriefs,
+  saveCachedSerpBrief,
+  type EditorialContract,
+} from "@/lib/seo/coverage-ledger";
 
-/** One outer attempt ≈ topic + outline + body (not 5× full pipelines). */
-const MAX_PIPELINE_ATTEMPTS = 3;
+/** Outer contract attempts; in-place expansion retries happen inside generateBlogContent. */
+const MAX_PIPELINE_ATTEMPTS = getBlogPipelineMaxOuterAttempts();
 
 /** Imagen + long Gemini runs; cron curl allows 900s — keep in sync. */
 export const maxDuration = 900;
@@ -85,12 +114,164 @@ function trackRejectedFromError(rejectedTitles: string[], msg: string): void {
   }
 }
 
+function trackRejectedKeyword(rejectedKeywords: string[], keyword: string): void {
+  const trimmed = keyword.trim().toLowerCase();
+  if (!trimmed) return;
+  if (!rejectedKeywords.some((k) => k.toLowerCase() === trimmed)) {
+    rejectedKeywords.push(keyword.trim());
+  }
+}
+
+function trackRejectedSlot(rejectedSlotKeys: string[], slotKey: string): void {
+  const trimmed = slotKey.trim();
+  if (!trimmed) return;
+  if (!rejectedSlotKeys.includes(trimmed)) {
+    rejectedSlotKeys.push(trimmed);
+  }
+}
+
+/** Extract slug from similarity error tail: "... (slug-here)" */
+function extractSimilaritySlug(msg: string): string | null {
+  const match = msg.match(/\(([a-z0-9-]+)\)\s*$/i);
+  return match?.[1]?.toLowerCase() ?? null;
+}
+
+function shouldRejectKeyword(msg: string): boolean {
+  return msg.includes("already covered by existing post");
+}
+
+function trackExcludedCorpusSlug(excludeSlugs: string[], slug: string): void {
+  const trimmed = slug.trim().toLowerCase();
+  if (!trimmed) return;
+  if (!excludeSlugs.includes(trimmed)) {
+    excludeSlugs.push(trimmed);
+  }
+}
+
+async function resolveTopicFromLedger(input: {
+  editorialContext: string;
+  rejectedTitles: string[];
+  rejectedKeywords: string[];
+  rejectedSlotKeys: string[];
+  uniquenessCtx: Awaited<ReturnType<typeof loadBlogUniquenessContext>>;
+}): Promise<{
+  topic: GeneratedTopic;
+  contract: EditorialContract;
+  bylineAuthor: Awaited<ReturnType<typeof pickAuthorForBlogTopic>>;
+  categoryName: string;
+  serpBrief: SerpResearchBrief;
+  factBrief: FactResearchBrief;
+  serpCalls: number;
+  lockedDescription: string;
+  forbiddenAngles: Awaited<ReturnType<typeof findSimilarCorpusEntries>>;
+}> {
+  const contract = await pickNextEditorialContract({
+    excludeKeywords: input.rejectedKeywords,
+    rejectedSlotKeys: input.rejectedSlotKeys,
+    corpus: input.uniquenessCtx.corpus,
+    uniquenessCtx: input.uniquenessCtx,
+  });
+
+  if (!contract) {
+    throw new Error("No editorial contract available for blog automation");
+  }
+
+  const category = pickCategoryForSeoBrief(contract.seoBrief);
+  const bylineAuthor = await pickAuthorForBlogTopic({
+    seoKeyword: contract.keyword,
+    category,
+    searchIntent: contract.seoBrief.searchIntent,
+  });
+
+  const forbiddenTitles = buildForbiddenTitles(
+    input.uniquenessCtx.corpus,
+    input.rejectedTitles
+  );
+
+  let serpCalls = 0;
+  let serpBrief = loadCachedSerpBrief(contract.slotKey);
+  if (!serpBrief) {
+    serpBrief = await runGroundedSerpResearch({
+      keyword: contract.keyword,
+      angle: contract.angleLabel,
+      audience: contract.audience,
+      forbiddenTitles,
+      forbiddenArchetypes: contract.forbiddenArchetypes,
+      saturatedH2Themes: contract.forbiddenH2Themes,
+      serpCallsSoFar: serpCalls,
+    });
+    serpCalls += 1;
+    saveCachedSerpBrief(contract.slotKey, serpBrief);
+  }
+
+  let title = await pickTitleFromSerpBrief(
+    serpBrief,
+    contract,
+    forbiddenTitles
+  );
+
+  if (!title) {
+    title = await pickTopicTitleHybrid({
+      seoBrief: contract.seoBrief,
+      category,
+      author: bylineAuthor,
+      editorialContext: input.editorialContext,
+      rejectedTitles: input.rejectedTitles,
+    });
+  }
+
+  if (!title) {
+    title = contract.seedTitle;
+  }
+
+  const lockedDescription = contract.syntheticMetaDescription;
+  await assertCheckpointB(
+    contract,
+    title,
+    lockedDescription,
+    input.uniquenessCtx,
+    input.uniquenessCtx.corpus
+  );
+
+  const factBrief = await runGroundedFactResearch({
+    keyword: contract.keyword,
+    title,
+    commonH2Themes: serpBrief.commonH2Themes,
+    serpGaps: serpBrief.serpGaps,
+    serpCallsSoFar: serpCalls,
+  });
+  serpCalls += 1;
+
+  const forbiddenAngles = findSimilarCorpusEntries(
+    { title, description: lockedDescription, keyword: contract.keyword },
+    5
+  );
+
+  return {
+    topic: {
+      title,
+      category: category.name,
+      seoKeyword: contract.keyword,
+      seoBrief: contract.seoBrief,
+    },
+    contract,
+    bylineAuthor,
+    categoryName: category.name,
+    serpBrief,
+    factBrief,
+    serpCalls,
+    lockedDescription,
+    forbiddenAngles,
+  };
+}
+
 export async function POST(request: NextRequest) {
   if (!isAutomationAuthorized(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   const force = request.nextUrl.searchParams.get("force") === "true";
+  const ledgerEnabled = isCoverageLedgerEnabled();
 
   try {
     const schedule = await getBlogAutomationSchedule();
@@ -106,14 +287,12 @@ export async function POST(request: NextRequest) {
     }
 
     const editorialContext = await formatEditorialContextPrompt();
-    const automationPlan = await planBlogAutomationHybrid(
-      editorialContext,
-      pickAuthorForBlogTopic
-    );
-    const { author: bylineAuthor } = automationPlan;
     const uniquenessCtx = await loadBlogUniquenessContext();
     let lastError: unknown;
     const rejectedTitles: string[] = [];
+    const rejectedKeywords: string[] = [];
+    const rejectedSlotKeys: string[] = [];
+    const excludeKnowledgeSlugs: string[] = [];
 
     for (
       let pipelineAttempt = 0;
@@ -121,17 +300,90 @@ export async function POST(request: NextRequest) {
       pipelineAttempt++
     ) {
       let attemptedTitle = "";
+      let attemptedKeyword = "";
+      let attemptedSlotKey = "";
+      let serpCallsThisRun = 0;
+      let editorialContract: EditorialContract | null = null;
+      let serpBrief: SerpResearchBrief | undefined;
+      let factBrief: FactResearchBrief | undefined;
+      let lockedDescription = "";
+      let forbiddenAngles: Awaited<ReturnType<typeof findSimilarCorpusEntries>> =
+        [];
+
       try {
-        const topic = await pickAutomationTopic(
-          editorialContext,
-          rejectedTitles,
-          automationPlan
-        );
+        let topic: GeneratedTopic;
+        let bylineAuthor: Awaited<ReturnType<typeof pickAuthorForBlogTopic>>;
+        let plannedCategoryName: string;
+
+        if (ledgerEnabled) {
+          const ledgerResult = await resolveTopicFromLedger({
+            editorialContext,
+            rejectedTitles,
+            rejectedKeywords,
+            rejectedSlotKeys,
+            uniquenessCtx,
+          });
+          topic = ledgerResult.topic;
+          bylineAuthor = ledgerResult.bylineAuthor;
+          plannedCategoryName = ledgerResult.categoryName;
+          editorialContract = ledgerResult.contract;
+          attemptedSlotKey = ledgerResult.contract.slotKey;
+          serpBrief = ledgerResult.serpBrief;
+          factBrief = ledgerResult.factBrief;
+          serpCallsThisRun = ledgerResult.serpCalls;
+          lockedDescription = ledgerResult.lockedDescription;
+          forbiddenAngles = ledgerResult.forbiddenAngles;
+          for (const entry of forbiddenAngles) {
+            trackExcludedCorpusSlug(excludeKnowledgeSlugs, entry.slug);
+          }
+        } else {
+          const automationPlan = await planBlogAutomationHybrid(
+            editorialContext,
+            pickAuthorForBlogTopic,
+            {
+              excludeKeywords: rejectedKeywords,
+              corpus: uniquenessCtx.corpus,
+            }
+          );
+          bylineAuthor = automationPlan.author;
+          plannedCategoryName = automationPlan.category.name;
+
+          if (!automationPlan.seoBrief?.primary) {
+            throw new Error("No SEO keyword available for topic selection");
+          }
+
+          const keywordConflict = findKeywordCorpusConflict(
+            automationPlan.seoBrief.primary,
+            uniquenessCtx.corpus
+          );
+          if (keywordConflict) {
+            trackRejectedKeyword(
+              rejectedKeywords,
+              automationPlan.seoBrief.primary
+            );
+            trackExcludedCorpusSlug(excludeKnowledgeSlugs, keywordConflict.slug);
+            throw new Error(
+              `Keyword "${automationPlan.seoBrief.primary}" already covered by existing post (${keywordConflict.reason}, score ${keywordConflict.score.toFixed(2)}): "${keywordConflict.title}" (${keywordConflict.slug})`
+            );
+          }
+
+          topic = await pickAutomationTopic(
+            editorialContext,
+            rejectedTitles,
+            automationPlan
+          );
+        }
+
+        if (!topic.seoBrief?.primary) {
+          throw new Error("No SEO keyword available for topic selection");
+        }
+        attemptedKeyword = topic.seoKeyword;
+        attemptedTitle = topic.title;
 
         if (!topic.title) {
           throw new Error("Failed to generate a unique topic");
         }
-        attemptedTitle = topic.title;
+
         const slug = createSlug(topic.title);
 
         const titleConflict = await findTitleConflict(topic.title, slug);
@@ -142,27 +394,51 @@ export async function POST(request: NextRequest) {
           );
         }
 
+        const writerOptions = {
+          author: bylineAuthor,
+          preferQualityModel: pipelineAttempt >= 1,
+          excludeTitles: rejectedTitles,
+          serpBrief,
+          factBrief,
+          structuralPromise: editorialContract?.structuralPromise,
+          requiredDifferentiator: editorialContract?.requiredDifferentiator,
+          forbiddenH2Themes: editorialContract?.forbiddenH2Themes,
+          forbiddenAngles,
+          lockedDescription: lockedDescription || undefined,
+        };
+
         const contentPlan = await planBlogContent(
           topic.title,
           topic.category,
           topic.seoBrief,
           editorialContext,
-          {
-            author: bylineAuthor,
-            preferQualityModel: pipelineAttempt >= 1,
-            excludeTitles: rejectedTitles,
-          }
+          writerOptions
         );
 
         await assertPlanUnique(
           {
             title: topic.title,
-            description: contentPlan.description,
+            description: lockedDescription || contentPlan.description,
             h2Outline: contentPlan.h2Outline,
             slug,
           },
           uniquenessCtx
         );
+
+        const checkpointC = await preFlightUniquenessProbe(
+          {
+            title: topic.title,
+            description: lockedDescription || contentPlan.description,
+            h2Outline: contentPlan.h2Outline,
+            slug,
+            excludeSlugs: excludeKnowledgeSlugs,
+          },
+          uniquenessCtx,
+          uniquenessCtx.corpus
+        );
+        if (checkpointC) {
+          throw new Error(formatPreFlightFailure(checkpointC));
+        }
 
         const blogData = await generateBlogContent(
           topic.title,
@@ -170,12 +446,12 @@ export async function POST(request: NextRequest) {
           topic.seoBrief,
           editorialContext,
           {
-            author: bylineAuthor,
+            ...writerOptions,
             useOutlinePass: false,
             preApprovedOutline: contentPlan.outlineJson,
-            preferQualityModel: pipelineAttempt >= 1,
-            excludeTitles: rejectedTitles,
             lockedTitle: topic.title,
+            excludeKnowledgeSlugs,
+            plannedFaqQuestions: contentPlan.faqQuestions,
           }
         );
 
@@ -237,9 +513,13 @@ export async function POST(request: NextRequest) {
           );
         }
 
-        const categoryMeta = topic.seoKeyword
-          ? formatTopicCategory(topic.category, topic.seoKeyword)
-          : topic.category;
+        const categoryMeta =
+          editorialContract && ledgerEnabled
+            ? formatCoverageTopicCategory(plannedCategoryName, editorialContract)
+            : topic.seoKeyword
+              ? formatTopicCategory(topic.category, topic.seoKeyword)
+              : topic.category;
+
         await addPublishedTopic(blogData.title, result.slug, categoryMeta, {
           h2Outline: extractH2Headings(contentWithImages),
           contentFingerprint: buildContentFingerprint(
@@ -248,6 +528,18 @@ export async function POST(request: NextRequest) {
             contentWithImages
           ),
         });
+
+        if (editorialContract && ledgerEnabled) {
+          markSlotFilled(editorialContract.slotKey, result.slug);
+          if (serpBrief) {
+            persistBlogResearchBriefs({
+              slug: result.slug,
+              slot: editorialContract,
+              serpBrief,
+              factBrief,
+            });
+          }
+        }
 
         revalidatePath(`/blog/${result.slug}`);
         revalidatePath("/blog");
@@ -266,6 +558,9 @@ export async function POST(request: NextRequest) {
             category: topic.category,
             seoKeyword: topic.seoKeyword || undefined,
             searchIntent: topic.seoBrief?.searchIntent,
+            coverageSlot: editorialContract?.slotKey,
+            editorialArchetype: editorialContract?.archetype,
+            serpCalls: serpCallsThisRun,
             featuredImage: featured.url,
             featuredImageAlt: featured.alt,
             imageSource: featured.source,
@@ -276,29 +571,51 @@ export async function POST(request: NextRequest) {
             author: bylineAuthor.name,
             authorRole: bylineAuthor.role,
             authorExpertise: resolveAuthorExpertiseTags(bylineAuthor),
-            plannedCategory: automationPlan.category.name,
+            plannedCategory: plannedCategoryName,
             pipelineAttempt: pipelineAttempt + 1,
-          geminiBudget: getGeminiDailyBudget(),
+            geminiBudget: getGeminiDailyBudget(),
           },
           schedule: await getBlogAutomationSchedule(),
         });
       } catch (error) {
         lastError = error;
         const msg = error instanceof Error ? error.message : String(error);
+        const failureKind = classifyGenerationFailure(error);
         if (attemptedTitle) {
           trackRejectedTitle(rejectedTitles, attemptedTitle);
         }
+        if (attemptedKeyword && shouldRejectKeyword(msg)) {
+          trackRejectedKeyword(rejectedKeywords, attemptedKeyword);
+        }
+        if (attemptedSlotKey) {
+          trackRejectedSlot(rejectedSlotKeys, attemptedSlotKey);
+        }
         trackRejectedFromError(rejectedTitles, msg);
+        const similarSlug = extractSimilaritySlug(msg);
+        if (similarSlug) {
+          trackExcludedCorpusSlug(excludeKnowledgeSlugs, similarSlug);
+        }
+
+        if (failureKind === "quota") {
+          if (attemptedSlotKey && ledgerEnabled) {
+            markSlotFailed(attemptedSlotKey, msg);
+          }
+          throw error;
+        }
 
         if (
-          isRetryableGenerationError(error) &&
+          failureKind === "new_contract" &&
           pipelineAttempt < MAX_PIPELINE_ATTEMPTS - 1
         ) {
           console.warn(
-            `Blog pipeline attempt ${pipelineAttempt + 1} rejected, retrying with new angle:`,
+            `Blog pipeline attempt ${pipelineAttempt + 1} rejected (${failureKind}), picking new contract:`,
             msg
           );
           continue;
+        }
+
+        if (attemptedSlotKey && ledgerEnabled) {
+          markSlotFailed(attemptedSlotKey, msg);
         }
         throw error;
       }
@@ -337,10 +654,31 @@ export async function GET(request: NextRequest) {
 
   try {
     const schedule = await getBlogAutomationSchedule();
+    const uniquenessCtx = await loadBlogUniquenessContext();
+    const nextContract = isCoverageLedgerEnabled()
+      ? await pickNextEditorialContract({
+          corpus: uniquenessCtx.corpus,
+          uniquenessCtx,
+        })
+      : null;
+
     return NextResponse.json({
       ...schedule,
+      coverageLedgerEnabled: isCoverageLedgerEnabled(),
+      serpMaxCallsPerBlog: getSerpMaxCallsPerBlog(),
+      blogPipelineMaxOuterAttempts: MAX_PIPELINE_ATTEMPTS,
       geminiBudget: getGeminiDailyBudget(),
       blogPipelineMaxCalls: getBlogPipelineMaxCalls(),
+      nextEditorialContract: nextContract
+        ? {
+            slotKey: nextContract.slotKey,
+            keyword: nextContract.keyword,
+            angleId: nextContract.angleId,
+            archetype: nextContract.archetype,
+            seedTitle: nextContract.seedTitle,
+            structuralPromise: nextContract.structuralPromise,
+          }
+        : null,
       message: schedule.canGenerate
         ? "Ready to generate and publish a new post"
         : `Wait until ${schedule.nextEligibleAt} (max 1 post/day). POST with ?force=true to override.`,

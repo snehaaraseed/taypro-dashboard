@@ -32,7 +32,9 @@
       "titleLine2": "मूल्य और ROI कैलकुलेटर",
       "bodyBeforeLink": "अपने प्लांट के लिए संकेतात्मक रोबोट निवेश, पेबैक, वार्षिक बचत और बचे हुए पानी का अनुमान लगाएं, ",
       "bodyLink": "Taypro के स्वायत्त और अर्ध-स्वचालित सफाई रोबोट",
-      "bodyAfterLink": " के लिए, फिर साइट-विशिष्ट कोटेशन का अनुरोध करें।",
+      "bodyAfterLink": " के लिए, फिर साइट-विशिष्ट कोटेशन का अनुरोध करें — या पहले ",
+      "priceGuideLink": "India robot price guide",
+      "priceGuideAfter": " में दिशात्मक CAPEX बैंड पढ़ें।",
       "calculatorSrOnly": "सोलर पैनल सफाई रोबोट मूल्य और ROI कैलकुलेटर"
     },
     "opexBanner": {
@@ -160,6 +162,7 @@
     "explore": {
       "heading": "और जानें",
       "subheading": "तकनीक, तैनाती पर गहराई से जाएं, या हमारी टीम से बात करें।",
+      "link4": "India robot price guide",
       "link0": "सोलर सफाई रोबोट अवलोकन",
       "link1": "सफाई तकनीक और डुअल-पास",
       "link2": "इंस्टॉलेशन परियोजनाएं",
@@ -232,6 +235,13 @@
       "loadingAria": "कैलकुलेटर लोड हो रहा है",
       "disclaimerNote": "नोट:",
       "disclaimerBody": "निवेश और ROI आंकड़े प्रतिनिधि Taypro तैनाती मान्यताओं का उपयोग करते हैं। औपचारिक कोट और प्लांट-विशिष्ट मॉडल के लिए हमसे संपर्क करें।"
+    },
+    "exampleScenarios": {
+      "heading": "उदाहरण: सोलर पैनल सफाई रोबोट कीमत अनुमान",
+      "subheading": "Taypro स्वचालित fixed-tilt उपयोगिता प्लांट के लिए दिशात्मक CAPEX और ROI। अपनी साइट के लिए ऊपर कैलकुलेटर में इनपुट बदलें।",
+      "scenarioTitle": "{capacityMw} MW उपयोगिता प्लांट",
+      "assumptions": "{capacityMw} MW ground-mount, fixed tilt, स्वचालित waterless रोबोट, {moduleWp} Wp मॉड्यूल और {currency} {tariff}/kWh टैरिफ मान लिया गया।",
+      "disclaimer": "आंकड़े केवल संकेतात्मक हैं, औपचारिक Taypro कोट नहीं। वास्तविक निवेश, पेबैक और बचत लेआउट, मैल, चक्र और CAPEX vs Opex पर निर्भर करती है।"
     }
   },
   "Common": {

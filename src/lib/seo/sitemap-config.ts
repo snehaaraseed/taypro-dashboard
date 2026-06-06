@@ -80,6 +80,51 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
     priority: 0.85,
   },
   {
+    path: "/solar-panel-cleaning-robot-price-india",
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  {
+    path: "/solar-panel-cleaning-robot-rajasthan",
+    changeFrequency: "monthly",
+    priority: 0.75,
+  },
+  {
+    path: "/solar-panel-cleaning-robot-gujarat",
+    changeFrequency: "monthly",
+    priority: 0.75,
+  },
+  {
+    path: "/solar-panel-cleaning-robot-madhya-pradesh",
+    changeFrequency: "monthly",
+    priority: 0.75,
+  },
+  {
+    path: "/solar-panel-cleaning-robot-karnataka",
+    changeFrequency: "monthly",
+    priority: 0.75,
+  },
+  {
+    path: "/solar-panel-cleaning-robot-andhra-pradesh",
+    changeFrequency: "monthly",
+    priority: 0.75,
+  },
+  {
+    path: "/solar-panel-cleaning-robot-maharashtra",
+    changeFrequency: "monthly",
+    priority: 0.75,
+  },
+  {
+    path: "/solar-panel-cleaning-robot-uttar-pradesh",
+    changeFrequency: "monthly",
+    priority: 0.75,
+  },
+  {
+    path: "/solar-panel-cleaning-robot-tamil-nadu",
+    changeFrequency: "monthly",
+    priority: 0.75,
+  },
+  {
     path: "/solar-panel-cleaning-robot-price-calculator",
     changeFrequency: "monthly",
     priority: 0.8,

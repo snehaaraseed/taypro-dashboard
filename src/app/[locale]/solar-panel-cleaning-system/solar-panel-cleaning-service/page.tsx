@@ -38,6 +38,7 @@ import {
 } from "@/app/components/StructuredData";
 import { Container } from "@/app/components/Container";
 import { Link } from "@/i18n/navigation";
+import { PRICE_GUIDE_PATH } from "@/lib/seo/robot-price-guide";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { getTranslations } from "next-intl/server";
 
@@ -734,6 +735,12 @@ export default async function SolarPanelCleaningService({
                     className="inline-flex items-center bg-[#A8C117] text-[#052638] font-medium px-6 py-3 rounded-md hover:bg-[#b3cf3d] transition"
                   >
                     {t("cadenceRoi.roiCalculatorLink")}
+                  </Link>
+                  <Link
+                    href={PRICE_GUIDE_PATH}
+                    className="inline-flex items-center border border-[#052638] text-[#052638] font-medium px-6 py-3 rounded-md hover:bg-[#052638] hover:text-white transition"
+                  >
+                    {t("cadenceRoi.priceGuideLink")}
                   </Link>
                   <OpenLeadModalButton
                     topic={t("breadcrumbs.current")}

@@ -9,11 +9,14 @@ import { formatCompetitorKnowledgeBlock } from "@/lib/seo/competitor-knowledge";
 import { TAYPRO_PUBLIC_PROOF } from "@/lib/marketing/public-proof-stats";
 import { calculateBlogSimilarity } from "@/lib/seo/blog-similarity-scoring";
 import { stripHtmlToPlainText } from "@/lib/seo/blog-similarity";
+import type { CorpusIndexEntry } from "@/lib/seo/corpus-index";
 import { SOURCE_LOCALE } from "@/lib/translation/config";
 
 const LLMS_MAX_CHARS = 3_500;
 const EXCERPT_MAX_CHARS = 600;
 const MAX_RELATED_POSTS = 2;
+/** Do not surface posts this similar — they steer the model toward duplicate angles. */
+const EXCERPT_SIMILARITY_CEILING = 0.35;
 
 let cachedLlmsSummary: string | null = null;
 
@@ -24,6 +27,13 @@ export type BlogKnowledgeContextOptions = {
   seoKeyword?: string;
   /** Extra terms (e.g. category name) for matching related posts */
   extraTerms?: string;
+  /** Do not surface these posts as "related" excerpts (avoid copying a near-duplicate). */
+  excludeSlugs?: string[];
+  /** Similar corpus rows to forbid structurally (from pre-flight probe). */
+  forbiddenAngles?: CorpusIndexEntry[];
+  structuralPromise?: string;
+  requiredDifferentiator?: string;
+  forbiddenH2Themes?: string[];
 };
 
 export function formatPublicProofBlock(): string {
@@ -93,6 +103,10 @@ export async function findRelevantBlogExcerpts(
     description: options.seoKeyword ?? query,
   };
 
+  const excluded = new Set(
+    (options.excludeSlugs ?? []).map((slug) => slug.toLowerCase().trim()).filter(Boolean)
+  );
+
   const ranked = posts
     .map((post) => ({
       post,
@@ -101,8 +115,13 @@ export async function findRelevantBlogExcerpts(
         description: post.description,
       }),
     }))
-    .filter((item) => item.score > 0)
-    .sort((a, b) => b.score - a.score)
+    .filter(
+      (item) =>
+        item.score > 0 &&
+        item.score <= EXCERPT_SIMILARITY_CEILING &&
+        !excluded.has(item.post.slug.toLowerCase().trim())
+    )
+    .sort((a, b) => a.score - b.score)
     .slice(0, limit);
 
   const excerpts: { slug: string; title: string; excerpt: string }[] = [];
@@ -127,6 +146,43 @@ export async function findRelevantBlogExcerpts(
   return excerpts;
 }
 
+export function formatForbiddenAnglesBlock(
+  entries: CorpusIndexEntry[],
+  forbiddenH2Themes: string[] = []
+): string {
+  if (entries.length === 0 && forbiddenH2Themes.length === 0) return "";
+
+  const lines = [
+    "FORBIDDEN ANGLES (do NOT reuse these structures, H2 themes, or listicle shapes):",
+  ];
+  for (const entry of entries.slice(0, 5)) {
+    const h2 =
+      entry.h2Outline.length > 0
+        ? entry.h2Outline.slice(0, 4).join("; ")
+        : "(no H2 stored)";
+    lines.push(
+      `- "${entry.title}" [${entry.structuralArchetype}]: ${h2}`
+    );
+  }
+  if (forbiddenH2Themes.length) {
+    lines.push(`Avoid H2 themes already covered: ${forbiddenH2Themes.join("; ")}`);
+  }
+  return lines.join("\n");
+}
+
+function formatEditorialContractBlock(options: BlogKnowledgeContextOptions): string {
+  const parts: string[] = [];
+  if (options.structuralPromise?.trim()) {
+    parts.push(`Structural promise (must follow): ${options.structuralPromise.trim()}`);
+  }
+  if (options.requiredDifferentiator?.trim()) {
+    parts.push(`Required differentiator: ${options.requiredDifferentiator.trim()}`);
+  }
+  return parts.length
+    ? `EDITORIAL CONTRACT:\n${parts.join("\n")}`
+    : "";
+}
+
 /**
  * Phase 1 knowledge pack: product KB + live public proof + site map summary + related post excerpts.
  */
@@ -138,6 +194,11 @@ export async function buildBlogKnowledgeContext(
   const competitorBlock = formatCompetitorKnowledgeBlock();
   const llmsSummary = loadLlmsSiteSummary();
   const excerpts = await findRelevantBlogExcerpts(options);
+  const forbiddenBlock = formatForbiddenAnglesBlock(
+    options.forbiddenAngles ?? [],
+    options.forbiddenH2Themes
+  );
+  const contractBlock = formatEditorialContractBlock(options);
 
   const llmsBlock = llmsSummary
     ? `SITE POSITIONING & ROUTES (from live site map; align tone and product paths):
@@ -166,6 +227,10 @@ ${productKnowledge}
 ${proofBlock}
 
 ${competitorSection}${llmsBlock}
+
+${contractBlock}
+
+${forbiddenBlock}
 
 ${excerptBlock}
 

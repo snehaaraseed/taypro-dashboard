@@ -122,6 +122,106 @@ const staticPageLinks: InternalLink[] = [
     priority: 8,
   },
   {
+    keyword: "solar panel cleaning robot price",
+    url: "/solar-panel-cleaning-robot-price-india",
+    priority: 9,
+  },
+  {
+    keyword: "solar panel cleaning robot price India",
+    url: "/solar-panel-cleaning-robot-price-india",
+    priority: 9,
+  },
+  {
+    keyword: "solar cleaning robot price",
+    url: "/solar-panel-cleaning-robot-price-india",
+    priority: 8,
+  },
+  {
+    keyword: "buy solar panel cleaning robot India",
+    url: "/solar-panel-cleaning-robot-price-india",
+    priority: 8,
+  },
+  {
+    keyword: "solar panel cleaning robot manufacturer India",
+    url: "/solar-panel-cleaning-robot-price-india",
+    priority: 8,
+  },
+  {
+    keyword: "solar panel cleaning cost",
+    url: "/solar-panel-cleaning-robot-price-india",
+    priority: 7,
+  },
+  {
+    keyword: "solar panel cleaning robot supplier",
+    url: "/solar-panel-cleaning-robot-price-india",
+    priority: 7,
+  },
+  {
+    keyword: "utility scale solar operations",
+    url: "/utility-scale-solar-operations",
+    priority: 8,
+  },
+  {
+    keyword: "solar O&M India",
+    url: "/utility-scale-solar-operations",
+    priority: 8,
+  },
+  {
+    keyword: "solar plant soiling",
+    url: "/utility-scale-solar-operations",
+    priority: 7,
+  },
+  {
+    keyword: "solar panel cleaning robot Rajasthan",
+    url: "/solar-panel-cleaning-robot-rajasthan",
+    priority: 7,
+  },
+  {
+    keyword: "solar panel cleaning robot Gujarat",
+    url: "/solar-panel-cleaning-robot-gujarat",
+    priority: 7,
+  },
+  {
+    keyword: "solar panel cleaning robot Madhya Pradesh",
+    url: "/solar-panel-cleaning-robot-madhya-pradesh",
+    priority: 7,
+  },
+  {
+    keyword: "solar panel cleaning robot Karnataka",
+    url: "/solar-panel-cleaning-robot-karnataka",
+    priority: 7,
+  },
+  {
+    keyword: "solar panel cleaning robot Andhra Pradesh",
+    url: "/solar-panel-cleaning-robot-andhra-pradesh",
+    priority: 7,
+  },
+  {
+    keyword: "solar panel cleaning robot Maharashtra",
+    url: "/solar-panel-cleaning-robot-maharashtra",
+    priority: 7,
+  },
+  {
+    keyword: "solar panel cleaning robot Uttar Pradesh",
+    url: "/solar-panel-cleaning-robot-uttar-pradesh",
+    priority: 7,
+  },
+  {
+    keyword: "solar panel cleaning robot Tamil Nadu",
+    url: "/solar-panel-cleaning-robot-tamil-nadu",
+    priority: 7,
+  },
+  {
+    keyword: "solar panel cleaning robot price India",
+    url: "/solar-panel-cleaning-robot-price-india",
+    priority: 8,
+  },
+  {
+    keyword: "solar panel cleaning robot manufacturer India",
+    url: "/solar-panel-cleaning-robot-price-india",
+    priority: 7,
+  },
+  {
     keyword: "ROI",
     url: "/solar-panel-cleaning-robot-price-calculator#calculator",
     priority: 6,

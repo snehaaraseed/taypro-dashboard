@@ -1,0 +1,5 @@
+{
+  "description": "Filled and failed coverage ledger slots (keyword::angleId). Backfill via scripts/backfill-coverage-slots.mjs",
+  "filled": [],
+  "failed": []
+}

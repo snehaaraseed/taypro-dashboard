@@ -51,6 +51,14 @@ export default function Footer() {
       href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
     },
     {
+      name: t("robotPriceGuide"),
+      href: "/solar-panel-cleaning-robot-price-india",
+    },
+    {
+      name: t("regionalGuides"),
+      href: "/solar-panel-cleaning-system#state-guides",
+    },
+    {
       name: t("roiCalculator"),
       href: "/solar-panel-cleaning-robot-price-calculator#calculator",
     },

@@ -20,6 +20,8 @@ import {
   listAvailableKeywordRows,
   type SeoKeywordBrief,
 } from "@/lib/seo/keyword-stats";
+import { findKeywordCorpusConflict } from "@/lib/seo/blog-plan-gates";
+import type { BlogSimilarityCorpusRow } from "@/lib/cms/blogService";
 import { listTopicAngleSeeds } from "@/lib/seo/blog-topic-angles";
 
 function parseJsonField<T>(text: string, field: string): T | null {
@@ -39,13 +41,34 @@ function parseJsonField<T>(text: string, field: string): T | null {
  * Hybrid keyword pick: code builds ranked candidates (queue + GSC + CSV),
  * Gemini chooses the best one for today's editorial gap.
  */
+export type HybridKeywordPickOptions = {
+  excludeKeywords?: string[];
+  corpus?: BlogSimilarityCorpusRow[];
+};
+
 export async function pickSeoKeywordBriefHybrid(
-  editorialContext: string
+  editorialContext: string,
+  options?: HybridKeywordPickOptions
 ): Promise<SeoKeywordBrief | null> {
   const available = await listAvailableKeywordRows();
   if (available.length === 0) return null;
 
-  const candidates = buildKeywordCandidateBriefs(available, 12);
+  const excluded = new Set(
+    (options?.excludeKeywords ?? [])
+      .map((keyword) => keyword.toLowerCase().trim())
+      .filter(Boolean)
+  );
+
+  let candidates = buildKeywordCandidateBriefs(available, 20).filter((brief) => {
+    const primary = brief.primary.toLowerCase().trim();
+    if (excluded.has(primary)) return false;
+    if (options?.corpus?.length) {
+      const conflict = findKeywordCorpusConflict(brief.primary, options.corpus);
+      if (conflict) return false;
+    }
+    return true;
+  });
+
   if (candidates.length === 0) return null;
   if (candidates.length === 1) return candidates[0];
 
@@ -184,14 +207,18 @@ export async function planBlogAutomationHybrid(
     seoKeyword: string;
     category: TopicCategory;
     searchIntent?: string;
-  }) => Promise<BlogAuthor>
+  }) => Promise<BlogAuthor>,
+  keywordOptions?: HybridKeywordPickOptions
 ): Promise<{
   seoBrief: SeoKeywordBrief | null;
   category: TopicCategory;
   author: BlogAuthor;
   seoKeyword: string;
 }> {
-  const seoBrief = await pickSeoKeywordBriefHybrid(editorialContext);
+  const seoBrief = await pickSeoKeywordBriefHybrid(
+    editorialContext,
+    keywordOptions
+  );
   const category = pickCategoryForSeoBrief(seoBrief);
   const seoKeyword = seoBrief?.primary ?? "";
   const author = await pickAuthor({

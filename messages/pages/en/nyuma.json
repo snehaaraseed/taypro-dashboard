@@ -52,8 +52,9 @@
       }
     },
     "hero": {
-      "h1Line1": "Automatic Solar Panel Cleaning Robot, ",
-      "h1Line2": "NYUMA by Taypro",
+      "title": "NYUMA — Automatic Solar Panel Cleaning Robot for Fixed-Tilt Utility Plants",
+      "h1Line1": "NYUMA — Automatic Solar Panel Cleaning Robot for ",
+      "h1Line2": "Fixed-Tilt Utility Plants",
       "leadBeforeStrong": "The Taypro NYUMA is an ",
       "leadStrong": "Automatic Solar Panel Cleaning Robot",
       "leadAfterStrong": " for utility-scale solar power plants: autonomous, waterless single-pass cleaning, AI- and ML-driven scheduling, up to 3,600 modules per charge, with fleet connectivity via ",

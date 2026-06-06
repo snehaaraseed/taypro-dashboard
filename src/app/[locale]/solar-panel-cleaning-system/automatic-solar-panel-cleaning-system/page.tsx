@@ -236,13 +236,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
 
       <div className="min-h-screen overflow-x-hidden">
         <HeroSection
-          title={
-            <>
-              {t("hero.h1Line1")}
-              <br />
-              {t("hero.h1Line2")}
-            </>
-          }
+          title={t("hero.title")}
           subtitle={
             <>
               {t("hero.leadBeforeStrong")}

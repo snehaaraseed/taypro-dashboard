@@ -19,6 +19,8 @@ function getPollinationsApiKey(): string {
 }
 
 function getPollinationsImageModel(): string {
+  // flux (Flux Schnell): ~0.00175 pollen/image — best balance for blog heroes.
+  // gptimage: cheapest (~0.000006); zimage: alternative. Override via POLLINATIONS_IMAGE_MODEL.
   return process.env.POLLINATIONS_IMAGE_MODEL?.trim() || "flux";
 }
 

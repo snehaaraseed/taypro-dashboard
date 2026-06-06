@@ -32,7 +32,9 @@
       "titleLine2": "price & ROI calculator",
       "bodyBeforeLink": "Estimate indicative robot investment, payback, annual savings, and water avoided for",
       "bodyLink": "Taypro autonomous and semi-automatic cleaning robots",
-      "bodyAfterLink": "on your plant, then request a site-specific quote.",
+      "bodyAfterLink": "on your plant, then request a site-specific quote — or read the",
+      "priceGuideLink": "India robot price guide",
+      "priceGuideAfter": " for directional CAPEX bands first.",
       "calculatorSrOnly": "Solar panel cleaning robot price and ROI calculator"
     },
     "opexBanner": {
@@ -152,6 +154,7 @@
     "explore": {
       "heading": "Continue exploring",
       "subheading": "Deep-dive on technology, deployments, or speak with our team.",
+      "link4": "India robot price guide",
       "link0": "Solar cleaning robots overview",
       "link1": "Cleaning technology & dual-pass",
       "link2": "Installation projects",
@@ -224,6 +227,13 @@
       "loadingAria": "Loading calculator",
       "disclaimerNote": "Note:",
       "disclaimerBody": "Investment and ROI figures use representative Taypro deployment assumptions for your region (tariffs, labour, water, yield). Contact us for a formal quote and plant-specific model."
+    },
+    "exampleScenarios": {
+      "heading": "Example solar panel cleaning robot price estimates",
+      "subheading": "Directional CAPEX and ROI for utility-scale ground-mount plants using Taypro automatic fixed-tilt assumptions. Adjust inputs in the calculator above for your site.",
+      "scenarioTitle": "{capacityMw} MW utility plant",
+      "assumptions": "Assumes {capacityMw} MW ground-mount, fixed tilt, automatic waterless robots, {moduleWp} Wp modules, and {currency} {tariff}/kWh tariff.",
+      "disclaimer": "Figures are indicative only and not a formal Taypro quote. Actual investment, payback, and savings depend on layout, soiling, cycle cadence, and CAPEX vs Opex model."
     }
   },
   "Common": {

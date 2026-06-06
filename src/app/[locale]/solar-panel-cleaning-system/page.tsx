@@ -1231,6 +1231,68 @@ export default async function SolarPanelCleaningRobot({
                 );
               })}
             </div>
+
+            <div
+              id="state-guides"
+              className="mt-10 pt-8 border-t border-white/10 text-center scroll-mt-24"
+            >
+              <h3 className="text-white font-semibold text-lg mb-2">
+                {t("indianConditions.stateGuides.heading")}
+              </h3>
+              <p className="text-white/70 text-sm mb-4 max-w-2xl mx-auto">
+                {t("indianConditions.stateGuides.intro")}
+              </p>
+              <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm">
+                <Link
+                  href="/solar-panel-cleaning-robot-rajasthan"
+                  className="text-[#A8C117] font-medium hover:underline underline-offset-4"
+                >
+                  {t("indianConditions.stateGuides.rajasthan")}
+                </Link>
+                <Link
+                  href="/solar-panel-cleaning-robot-gujarat"
+                  className="text-[#A8C117] font-medium hover:underline underline-offset-4"
+                >
+                  {t("indianConditions.stateGuides.gujarat")}
+                </Link>
+                <Link
+                  href="/solar-panel-cleaning-robot-madhya-pradesh"
+                  className="text-[#A8C117] font-medium hover:underline underline-offset-4"
+                >
+                  {t("indianConditions.stateGuides.madhyaPradesh")}
+                </Link>
+                <Link
+                  href="/solar-panel-cleaning-robot-karnataka"
+                  className="text-[#A8C117] font-medium hover:underline underline-offset-4"
+                >
+                  {t("indianConditions.stateGuides.karnataka")}
+                </Link>
+                <Link
+                  href="/solar-panel-cleaning-robot-andhra-pradesh"
+                  className="text-[#A8C117] font-medium hover:underline underline-offset-4"
+                >
+                  {t("indianConditions.stateGuides.andhraPradesh")}
+                </Link>
+                <Link
+                  href="/solar-panel-cleaning-robot-maharashtra"
+                  className="text-[#A8C117] font-medium hover:underline underline-offset-4"
+                >
+                  {t("indianConditions.stateGuides.maharashtra")}
+                </Link>
+                <Link
+                  href="/solar-panel-cleaning-robot-uttar-pradesh"
+                  className="text-[#A8C117] font-medium hover:underline underline-offset-4"
+                >
+                  {t("indianConditions.stateGuides.uttarPradesh")}
+                </Link>
+                <Link
+                  href="/solar-panel-cleaning-robot-tamil-nadu"
+                  className="text-[#A8C117] font-medium hover:underline underline-offset-4"
+                >
+                  {t("indianConditions.stateGuides.tamilNadu")}
+                </Link>
+              </div>
+            </div>
           </Container>
         </section>
 

@@ -14,6 +14,8 @@ export type GeminiCallPurpose =
   | "blog_expand"
   | "blog_repair"
   | "blog_image"
+  | "serp_research"
+  | "serp_facts"
   | "translation"
   | "gsc"
   | "other";
@@ -42,6 +44,8 @@ const BLOG_PURPOSES = new Set<GeminiCallPurpose>([
   "blog_image",
 ]);
 
+const SERP_PURPOSES = new Set<GeminiCallPurpose>(["serp_research", "serp_facts"]);
+
 function envInt(name: string, fallback: number): number {
   const raw = process.env[name]?.trim();
   if (!raw) return fallback;
@@ -61,6 +65,30 @@ export function getBlogPipelineMaxCalls(): number {
 /** Calls reserved for evening blog translations (5–10 blogs × ~8 calls). */
 export function getTranslationReserveCalls(): number {
   return envInt("GEMINI_TRANSLATION_RESERVE", 100);
+}
+
+/** Max grounded SERP + fact calls per blog pipeline run. */
+export function getSerpMaxCallsPerBlog(): number {
+  return envInt("GEMINI_SERP_MAX_CALLS_PER_BLOG", 2);
+}
+
+/** Call before each grounded generateContent (SERP or facts). */
+export function assertSerpCallAllowed(
+  purpose: "serp_research" | "serp_facts",
+  callsSoFarThisRun: number
+): void {
+  if (!SERP_PURPOSES.has(purpose)) {
+    throw new Error(`Invalid SERP purpose: ${purpose}`);
+  }
+  const max = getSerpMaxCallsPerBlog();
+  if (callsSoFarThisRun >= max) {
+    const snapshot = getGeminiDailyBudget();
+    throw new GeminiDailyBudgetError(
+      `Grounded research cap reached for this blog (${callsSoFarThisRun}/${max} calls). Set GEMINI_SERP_MAX_CALLS_PER_BLOG to allow more.`,
+      snapshot
+    );
+  }
+  assertGeminiCallAllowed(purpose);
 }
 
 function budgetDir(): string {

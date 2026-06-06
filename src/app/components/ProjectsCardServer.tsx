@@ -1,4 +1,7 @@
-import { getFilteredFileProjects } from "@/lib/cms/projectService";
+import {
+  getFilteredFileProjects,
+  getStateLandingProjects,
+} from "@/lib/cms/projectService";
 import type { ProjectListFilter } from "@/lib/cms/projectService";
 import ProjectsCard from "./ProjectsCard";
 import { projects } from "../data";
@@ -17,6 +20,8 @@ interface ProjectsCardProps {
   useFileProjects?: boolean;
   /** When set with `useFileProjects`, only matching CMS projects are shown (newest first). */
   filter?: ProjectListFilter;
+  /** Pin these slugs first; remaining slots filled from `filter`. */
+  featuredSlugs?: string[];
   /** Max cards to render; defaults to 6 for filtered file projects. */
   limit?: number;
   locale?: string;
@@ -44,6 +49,7 @@ export default async function ProjectsCardServer({
   projects: providedProjects,
   useFileProjects = false,
   filter,
+  featuredSlugs,
   limit,
   locale,
 }: ProjectsCardProps) {
@@ -51,11 +57,15 @@ export default async function ProjectsCardServer({
 
   if (useFileProjects && !providedProjects) {
     const cardLimit = limit ?? (filter ? 6 : 6);
-    const fileProjects = await getFilteredFileProjects(
-      filter ?? {},
-      locale,
-      cardLimit
-    );
+    const fileProjects =
+      featuredSlugs && featuredSlugs.length > 0
+        ? await getStateLandingProjects(
+            featuredSlugs,
+            filter ?? {},
+            locale,
+            cardLimit
+          )
+        : await getFilteredFileProjects(filter ?? {}, locale, cardLimit);
     displayProjects = fileProjects.map((p) => ({
       img: p.img,
       title: p.title,

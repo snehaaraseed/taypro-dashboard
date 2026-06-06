@@ -57,8 +57,9 @@
       }
     },
     "hero": {
-      "h1Line1": "Automatic Solar Panel Cleaning Robot, ",
-      "h1Line2": "GLYDE by Taypro",
+      "title": "GLYDE — Fully Automatic Solar Panel Cleaning Robot for Fixed-Tilt Plants",
+      "h1Line1": "GLYDE — Fully Automatic Solar Panel Cleaning Robot for ",
+      "h1Line2": "Fixed-Tilt Plants",
       "leadBeforeStrong": "The Taypro GLYDE is an ",
       "leadStrong": "Automatic Solar Panel Cleaning Robot",
       "leadAfterStrong": " for utility-scale solar power plants: autonomous, waterless dual-pass cleaning, AI- and ML-driven scheduling, up to 3,600 modules per charge, with fleet connectivity via ",

@@ -4,9 +4,13 @@ import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { Container } from "@/app/components/Container";
 import { FaqSection } from "@/app/components/FaqSection";
 import { FAQPageSchema } from "@/app/components/StructuredData";
+import { UTILITY_SOLAR_OPERATIONS_PATH } from "@/lib/seo/utility-solar-operations";
 import {
-  UTILITY_SOLAR_OPERATIONS_PATH,
-} from "@/lib/seo/utility-solar-operations";
+  ALL_STATE_LANDING_IDS,
+  getStateLandingConfig,
+  statePathById,
+} from "@/lib/seo/state-landing-config";
+import { PRICE_GUIDE_PATH } from "@/lib/seo/robot-price-guide";
 import { withHreflang } from "@/lib/seo/with-hreflang";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 import { ORION_PRODUCT_PATH } from "@/lib/product-coming-soon";
@@ -15,7 +19,7 @@ import type { Metadata } from "next";
 const siteUrl = SITE_URL;
 const PROBLEM_KEYS = ["0", "1", "2", "3"] as const;
 const PILLAR_KEYS = ["0", "1", "2"] as const;
-const FAQ_KEYS = ["0", "1", "2", "3", "4"] as const;
+const FAQ_KEYS = ["0", "1", "2", "3", "4", "5", "6", "7"] as const;
 
 const PILLAR_HREFS = [
   "/solar-panel-cleaning-system",
@@ -146,6 +150,36 @@ export default async function UtilitySolarOperationsPage({
         </Container>
       </section>
 
+      <section className="py-14 md:py-20 bg-white px-4 sm:px-6">
+        <Container className="max-w-3xl">
+          <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-2">
+            {t("soilingPr.eyebrow")}
+          </p>
+          <h2 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-6">
+            {t("soilingPr.heading")}
+          </h2>
+          <div className="space-y-4 text-[#27415c] text-base leading-relaxed mb-6">
+            <p>{t("soilingPr.p1")}</p>
+            <p>{t("soilingPr.p2")}</p>
+            <p>{t("soilingPr.p3")}</p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Link
+              href={PRICE_GUIDE_PATH}
+              className="inline-flex justify-center px-6 py-3 rounded-lg bg-[#A8C117] text-[#052638] font-semibold hover:bg-[#b3cf3d] transition-colors"
+            >
+              {t("soilingPr.linkPriceGuide")}
+            </Link>
+            <Link
+              href="/solar-panel-cleaning-robot-price-calculator#calculator"
+              className="inline-flex justify-center px-6 py-3 rounded-lg border border-[#052638]/20 text-[#052638] font-medium hover:border-[#A8C117] transition-colors"
+            >
+              {t("soilingPr.linkCalculator")}
+            </Link>
+          </div>
+        </Container>
+      </section>
+
       <section className="py-12 md:py-16 bg-[#0a3a4a] px-4 sm:px-6">
         <Container className="max-w-3xl text-center">
           <h2 className="text-white font-semibold text-2xl md:text-3xl mb-4">
@@ -226,6 +260,12 @@ export default async function UtilitySolarOperationsPage({
             >
               {t("robotsSeo.ctaRoi")}
             </Link>
+            <Link
+              href={PRICE_GUIDE_PATH}
+              className="inline-flex justify-center px-6 py-3 rounded-lg border border-[#052638]/20 text-[#052638] font-medium hover:border-[#A8C117] transition-colors"
+            >
+              {t("robotsSeo.ctaPriceGuide")}
+            </Link>
           </div>
         </Container>
       </section>
@@ -277,6 +317,29 @@ export default async function UtilitySolarOperationsPage({
         tone="white"
       />
 
+      <section className="py-14 md:py-16 bg-[#f4f7f9] px-4 sm:px-6">
+        <Container className="max-w-3xl">
+          <h2 className="text-[#052638] font-semibold text-2xl md:text-3xl mb-3">
+            {t("stateGuides.heading")}
+          </h2>
+          <p className="text-[#27415c] text-base leading-relaxed mb-5">
+            {t("stateGuides.intro")}
+          </p>
+          <ul className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+            {ALL_STATE_LANDING_IDS.map((stateId) => (
+              <li key={stateId}>
+                <Link
+                  href={statePathById(stateId)}
+                  className="text-[#5a8f00] font-medium hover:underline underline-offset-4"
+                >
+                  {getStateLandingConfig(stateId).addressRegion}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
       <section className="py-14 md:py-16 bg-[#052638] px-4 sm:px-6">
         <Container className="max-w-3xl text-center">
           <h2 className="text-white font-semibold text-2xl md:text-3xl mb-4">
@@ -323,6 +386,13 @@ export default async function UtilitySolarOperationsPage({
               className="text-[#5a8f00] font-medium hover:underline underline-offset-4"
             >
               {t("related.methodology")}
+            </Link>
+            ,{" "}
+            <Link
+              href={PRICE_GUIDE_PATH}
+              className="text-[#5a8f00] font-medium hover:underline underline-offset-4"
+            >
+              {t("related.priceGuide")}
             </Link>
             .
           </p>

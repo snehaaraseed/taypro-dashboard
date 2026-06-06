@@ -71,7 +71,17 @@
   /semi-automatic-solar-panel-cleaning-system         → HELYX (semi-auto, distributed)
   /solar-panel-cleaning-service                       → Taypro OPEX (service)
   /automatic-cleaning-robot-monitoring-app            → NECTYR (fleet portal)
-/solar-panel-cleaning-robot-price-calculator → cost, price, ROI
+/solar-panel-cleaning-robot-price-india               → price, cost, manufacturer, supplier (GUIDE)
+/solar-panel-cleaning-robot-price-calculator          → calculator, ROI, payback (TOOL)
+/solar-panel-cleaning-robot-rajasthan                 → state hub (Rajasthan)
+/solar-panel-cleaning-robot-gujarat                   → state hub (Gujarat)
+/solar-panel-cleaning-robot-madhya-pradesh            → state hub (Madhya Pradesh)
+/solar-panel-cleaning-robot-karnataka                 → state hub (Karnataka)
+/solar-panel-cleaning-robot-andhra-pradesh            → state hub (Andhra Pradesh)
+/solar-panel-cleaning-robot-maharashtra               → state hub (Maharashtra)
+/solar-panel-cleaning-robot-uttar-pradesh             → state hub (Uttar Pradesh)
+/solar-panel-cleaning-robot-tamil-nadu                → state hub (Tamil Nadu)
+/utility-scale-solar-operations                       → solar O&M India, soiling, PR
 /cleaning-technology                 → waterless, dry, dual-pass vs PBT
 /projects, /projects/*               → proof, E-E-A-T
 /blog                                → brush, how-to, dust, comparisons
@@ -101,7 +111,7 @@
 | solar panel cleaning company | 5k | **18** | Same service page |
 | pv panel cleaning robot | 5k | 39 | Hub (FAQ section) |
 | solar module cleaning robot | 5k | 39 | Hub (FAQ section) |
-| solar panel cleaning cost | 500 | 24 | `/solar-panel-cleaning-robot-price-calculator` |
+| solar panel cleaning cost | 500 | 24 | `/solar-panel-cleaning-robot-price-india` (guide) + `/solar-panel-cleaning-robot-price-calculator` (tool) |
 
 **Hub synonyms (same page, not new URLs):**  
 `solar cleaning`, `solar clean`, `solar power cleaning`, `pv panel cleaning`, `solar module cleaning`, `solar plate cleaner`, `automated solar panel cleaning system`, `solar system cleaning`.
@@ -161,8 +171,8 @@ Add to `next.config.ts` → `redirects()` if any old URLs still receive traffic 
 | `/taypro-automatic` | `/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system` |
 | `/solar_panel_cleaning_robot` | `/solar-panel-cleaning-system` |
 
-- [ ] Audit GSC → Pages → filter 404 / legacy paths  
-- [ ] Implement redirects in `next.config.ts`  
+- [x] Audit GSC → Pages → filter 404 / legacy paths  
+- [x] Implement redirects in `next.config.ts`  
 - [ ] Test redirects in staging + production  
 - [ ] Request indexing of canonical URLs in GSC  
 
@@ -201,27 +211,34 @@ Add to `next.config.ts` → `redirects()` if any old URLs still receive traffic 
 - [x] Embed product video  
 - [ ] Link to 3+ project case studies  
 
-### 4.6 Calculator page
+### 4.6 Price guide + calculator (split by intent)
 
-**URL:** `/solar-panel-cleaning-robot-price-calculator` (canonical)  
-**Redirects:** `/roi-calculator`, `/solar-panel-cleaning-robot-price`, `/solar-panel-cleaning-cost-calculator`, `/solar-panel-cleaning-robot-roi-calculator` → canonical (`next.config.ts`)  
-**Files:** `messages/pages/en/price-calculator.json`, `ROICalculator.tsx`, calculator `page.tsx`
+**Price guide URL:** `/solar-panel-cleaning-robot-price-india` — crawlable commercial copy (cost drivers, indicative CAPEX bands, manufacturer/supplier RFQ, FAQ)  
+**Calculator URL:** `/solar-panel-cleaning-robot-price-calculator` — interactive ROI tool  
+**Files (guide):** `messages/pages/en/robot-price-india.json`, `src/lib/seo/robot-price-guide.ts`, guide `page.tsx`  
+**Files (calculator):** `messages/pages/en/price-calculator.json`, `ROICalculator.tsx`, `CalculatorPageClient.tsx`
 
-- [x] Single **Price & ROI** tool (no separate price-only calculator)
+**Redirects:** `/solar-panel-cleaning-robot-price` → **price guide**; `/roi-calculator`, `/solar-panel-cleaning-cost-calculator`, `/solar-panel-cleaning-robot-roi-calculator` → **calculator** (`next.config.ts`)  
+**Legacy alias:** `/utility-operations` → `/utility-scale-solar-operations`
+
+- [x] Price guide page with indicative bands from ROI model (directional, not binding)
+- [x] Cross-link guide ↔ calculator ↔ hub ↔ service
+- [x] Single **Price & ROI** calculator tool (interactive)
 - [x] Investment-first results + PDF row order
 - [x] Opex banner on calculator page → service URL
-- [x] FAQ: cost, price, India, payback, CAPEX vs Opex
-- [x] Meta targets: `solar panel cleaning cost`, `solar panel cleaning prices`
-- [x] Homepage CTA → `#calculator`
+- [x] FAQ on both pages: cost, price, India, payback, CAPEX vs Opex
+- [x] Meta targets: `solar panel cleaning cost`, `solar panel cleaning prices`, `solar panel cleaning robot price India`
+- [x] Five state landing pages (Rajasthan, Gujarat, MP, Karnataka, AP) with case-study proof
+- [x] Expanded to eight state pages (+ Maharashtra, Uttar Pradesh, Tamil Nadu) with pinned deployments
 - [ ] Hub + all product CTAs → `#calculator` where primary CTA is estimate/price
 
 ### 4.7 Internal linking pass
 
 - [x] Homepage → hub, service, calculator  
-- [ ] Hub → all child models + service + calculator + technology  
+- [x] Hub → all child models + service + calculator + technology + state guides  
 - [x] Each model page → calculator + service + hub  
-- [ ] Blog posts use `src/app/utils/internalLinking.ts` keyword map  
-- [x] Footer / nav includes hub + service (if not already)  
+- [x] Blog posts use `src/app/utils/internalLinking.ts` keyword map  
+- [x] Footer / nav includes hub + service + price guide + regional guides  
 
 ### 4.8 First blog post (brush trap)
 
@@ -273,7 +290,17 @@ Add to `next.config.ts` → `redirects()` if any old URLs still receive traffic 
 | 12 | [ ] | waterless solar panel cleaning | Waterless tech + link to `/cleaning-technology` |
 
 **Automation:** align `src/lib/topicCategories.ts` with ROI, O&M, dust, regional India — avoid generic "solar panels" topics.  
-**Files:** `src/lib/aiService.ts`, `src/app/api/automation/generate-blog/route.ts`
+**Files:** `src/lib/aiService.ts`, `src/app/api/automation/generate-blog/route.ts`, `src/lib/seo/coverage-ledger.ts`, `src/lib/gemini/grounded-serp-research.ts`, `src/lib/gemini/grounded-fact-research.ts`
+
+**Daily pipeline (coverage ledger + grounded research):**
+1. Pick next unfilled `keyword × angleId` slot from `data/seo-coverage-filled.json` + queue (`COVERAGE_LEDGER_ENABLED=true`).
+2. Grounded call 1 — SERP themes, PAA, gaps, candidate titles (`runGroundedSerpResearch`).
+3. Lock title (code-first from SERP candidates, then angle seed).
+4. Grounded call 2 — verified stats/regulatory notes (`runGroundedFactResearch`).
+5. Outline + section writer (Flash Lite, no search) with SERP + fact briefs in prompts.
+6. On publish, mark slot filled and persist briefs under `.runtime/blog-research/`.
+
+**Env:** `GEMINI_SERP_MAX_CALLS_PER_BLOG=2`, `COVERAGE_LEDGER_ENABLED=true`, backfill once via `npm run seo:backfill-coverage`.
 
 - [x] Add SEO blog titles queue (`data/seo-blog-queue.json`, wired in `pickSeoKeywordBrief`)  
 - [ ] Human-edit all Tier B posts before publish (optional; automation still auto-publishes)  
@@ -390,7 +417,7 @@ Semrush On-Page Checker may still target wrong homepage keywords. **Align tool w
 - [ ] Create `data/seo-keywords.csv` — scored keywords with `tier`, `url`, `content_type`  
 - [x] Create `data/seo-blog-queue.json` — ordered keywords from §5.2  
 - [x] Wire blog queue into `pickSeoKeywordBrief()` (automation planning)  
-- [ ] Add legacy redirects batch to `next.config.ts`  
+- [x] Add legacy redirects batch to `next.config.ts`  
 
 ---
 
@@ -503,6 +530,22 @@ waterless solar panel cleaning
 | solar power cleaning service | 5k | 18 |
 | solar panel cleaning near me | 500 | 17 |
 | solar panel cleaning service near me | 500 | 11 |
+
+### Price guide — `/solar-panel-cleaning-robot-price-india`
+
+| Keyword | Vol | Idx |
+|---------|-----|-----|
+| solar panel cleaning robot price India | 50 | 54 |
+| solar panel cleaning cost | 500 | 24 |
+| solar panel cleaning robot manufacturer India | 50 | — |
+| buy solar panel cleaning robot India | 50 | — |
+
+### State guides — `/solar-panel-cleaning-robot-{state}`
+
+| Keyword pattern | Example URL |
+|-----------------|-------------|
+| solar panel cleaning robot supplier {state} | `/solar-panel-cleaning-robot-rajasthan` |
+| solar cleaning robot {state} | `/solar-panel-cleaning-robot-gujarat` |
 
 ### Calculator — `/solar-panel-cleaning-robot-price-calculator`
 

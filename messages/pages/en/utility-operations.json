@@ -1,10 +1,10 @@
 {
   "UtilityOperationsPage": {
     "meta": {
-      "title": "Solar Panel Cleaning Robots & Utility Solar Operations | Taypro India",
-      "description": "Waterless solar panel cleaning robots and autonomous operations for utility-scale plants in India. Understand soiling losses, O&M gaps, and how Taypro closes the loop with GLYDE, NECTYR, and ORION.",
-      "openGraphTitle": "Solar Panel Cleaning Robots & Utility Solar Operations | Taypro",
-      "openGraphDescription": "Why utility solar needs more than SCADA alarms, and how waterless solar panel cleaning robots, NECTYR fleet software, and ORION plant intelligence fit together."
+      "title": "Solar O&M India | Soiling Loss, PR & Cleaning Robots | Taypro",
+      "description": "Solar O&M in India: soiling loss, performance ratio improvement, and waterless solar panel cleaning robots for utility plants. How Taypro closes the O&M loop with GLYDE, NECTYR, and pan-India service.",
+      "openGraphTitle": "Solar O&M India | Utility Solar Operations | Taypro",
+      "openGraphDescription": "Soiling losses, O&M gaps, and robotic cleaning for Indian utility solar — waterless fleets, NECTYR data, and plant intelligence."
     },
     "breadcrumb": "Utility-scale solar operations",
     "hero": {
@@ -44,6 +44,15 @@
         "body": "Cleaning stays calendar-based. Performance data sits in silos. There is no plant-level system tying weather, soiling, fleet coverage, and field response into one decision."
       }
     },
+    "soilingPr": {
+      "eyebrow": "Soiling & performance ratio",
+      "heading": "Solar panel soiling loss, soiling ratio, and PR improvement in India",
+      "p1": "Soiling ratio — the fraction of irradiance lost to dust on module glass — drives performance ratio (PR) drift on Indian utility plants. In Rajasthan, Gujarat, and MP, cumulative soiling can suppress 8–25% of annual generation when cleaning stays calendar-based rather than cadence-driven.",
+      "p2": "PR improvement from cleaning depends on baseline soiling, cycle frequency, and weather. Robotic dry cleaning enables 3–10 cycles per month without wet-wash water — the economical path to neutralise soiling loss on multi-MW fleets.",
+      "p3": "EPC and O&M teams should tie cleaning evidence to PR recovery: NECTYR block-level logs plus directional ROI from our price guide and calculator before committing CAPEX or Taypro Opex.",
+      "linkPriceGuide": "India robot price guide",
+      "linkCalculator": "ROI calculator"
+    },
     "scada": {
       "heading": "The operating gap",
       "lead": "SCADA tells you the kWh is gone. It does not explain why before it is gone.",
@@ -78,7 +87,8 @@
       "hubLink": "every Taypro robot model",
       "bodyAfter": ", run the ROI calculator, or request a site-specific quote.",
       "ctaHub": "Solar panel cleaning robot hub",
-      "ctaRoi": "ROI calculator"
+      "ctaRoi": "ROI calculator",
+      "ctaPriceGuide": "India robot price guide"
     },
     "sources": {
       "heading": "Further reading",
@@ -102,7 +112,13 @@
       "q3": "Can we buy robots or use a managed service?",
       "a3": "Both. Purchase GLYDE, NYUMA, or HELYX with commissioning and AMC, or choose Taypro Opex for operator-led cleaning with pay-per-panel billing. NECTYR is included for fleet visibility on deployed robots.",
       "q4": "Where are Taypro robots made and supported?",
-      "a4": "Taypro designs and manufactures in Chakan, Pune, with warehouses and field engineers across India for commissioning, spares, and same-day breakdown targets on supported fleets."
+      "a4": "Taypro designs and manufactures in Chakan, Pune, with warehouses and field engineers across India for commissioning, spares, and same-day breakdown targets on supported fleets.",
+      "q5": "What is solar panel soiling loss on Indian utility plants?",
+      "a5": "Soiling loss is generation suppressed by dust films on modules. Industry and site studies in arid Indian belts cite up to 8–25% annual loss when cleaning cadence is insufficient. Robotic dry cleaning recovers tariff-valued MWh by increasing cycle frequency without wet-wash water.",
+      "q6": "How do cleaning robots improve solar plant performance ratio (PR)?",
+      "a6": "More consistent module cleanliness reduces soiling-related PR drift. Robots enable daily or near-daily cycles that manual crews cannot match at scale — with auditable coverage through NECTYR. PR improvement is site-dependent; Taypro quotes outcomes after soiling study and layout review.",
+      "q7": "What is solar O&M cleaning robot procurement in India?",
+      "a7": "Utility RFQs evaluate waterless robot fit, tracker compatibility, fleet software, breakdown SLA, and CAPEX vs managed Opex. Taypro supplies Made-in-India robots (GLYDE, NYUMA, HELYX, tracker variants) with NECTYR and optional Taypro Opex — see our India price guide and regional state pages for deployment context."
     },
     "cta": {
       "heading": "Plan your plant's operations layer",
@@ -114,7 +130,13 @@
       "label": "Related:",
       "cleaningTech": "Cleaning technology",
       "projects": "Live projects",
-      "methodology": "Performance methodology"
+      "methodology": "Performance methodology",
+      "priceGuide": "India robot price guide",
+      "utilityOps": "Utility solar operations"
+    },
+    "stateGuides": {
+      "heading": "Regional solar cleaning robot guides",
+      "intro": "Explore Taypro deployments, soiling context, and RFQ guidance by state — Rajasthan, Gujarat, Madhya Pradesh, Karnataka, Andhra Pradesh, Maharashtra, Uttar Pradesh, and Tamil Nadu."
     }
   },
   "Common": {

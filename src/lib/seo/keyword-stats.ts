@@ -3,6 +3,8 @@ import "server-only";
 import fs from "fs";
 import path from "path";
 import { getDeploymentRoot } from "@/app/utils/deploymentRoot";
+import { loadExistingBlogCorpus } from "@/lib/seo/blog-uniqueness";
+import { findKeywordCorpusConflict } from "@/lib/seo/blog-plan-gates";
 import { readPublishedTopics } from "@/lib/cms/topicService";
 import { passesSeoKeywordFilters } from "@/lib/seo/keyword-filters";
 import { loadGscBoostKeywords } from "@/lib/seo/gsc-keyword-boost";
@@ -102,6 +104,14 @@ export async function getUsedSeoKeywords(): Promise<Set<string>> {
     const match = cat.match(/seo:([^|]+)/i);
     if (match?.[1]) used.add(match[1].trim().toLowerCase());
   }
+
+  const corpus = await loadExistingBlogCorpus();
+  for (const row of loadSeoKeywordRows()) {
+    if (findKeywordCorpusConflict(row.keyword, corpus)) {
+      used.add(row.keyword.toLowerCase());
+    }
+  }
+
   return used;
 }
 
@@ -147,7 +157,7 @@ export function inferSearchIntent(keyword: string): string {
   return "Informational, utility operator researching cleaning/soiling; give actionable technical guidance.";
 }
 
-function buildSeoKeywordBrief(
+export function buildSeoKeywordBrief(
   primary: SeoKeywordRow,
   available: SeoKeywordRow[]
 ): SeoKeywordBrief {

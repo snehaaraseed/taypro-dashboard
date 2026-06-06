@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 
 const ROITayproCalculator = dynamic(() => import("@/app/components/ROICalculator"), {
   loading: () => <ROICalculatorLoading />,
-  ssr: false,
 });
 
 function ROICalculatorLoading() {

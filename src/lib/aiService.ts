@@ -12,7 +12,9 @@ import {
   isTooGenericDescription,
   isTooGenericTitle,
   sanitizeEmDash,
+  getBlogPipelineMaxInPlaceExpansions,
 } from "@/lib/seo/content-quality";
+import type { CorpusIndexEntry } from "@/lib/seo/corpus-index";
 import { formatAuthorVoicePrompt } from "@/lib/seo/author-voice-context";
 import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
 import {
@@ -28,6 +30,7 @@ import {
 } from "@/lib/seo/keyword-stats";
 import { isTopicPublished } from "./topicTracker";
 import {
+  ensurePrimaryKeywordInFirstFaq,
   normalizeBlogFaqsInput,
   type BlogFaqItem,
 } from "@/lib/cms/blog-faqs";
@@ -39,12 +42,24 @@ import {
 } from "@/lib/gemini/daily-budget";
 import { freeGeminiTextModelCandidates } from "@/lib/gemini/free-tier-models";
 import {
+  geminiQuotaErrorMessage,
+  isGeminiQuotaError,
+  listGeminiApiKeys,
+} from "@/lib/gemini/api-keys";
+import {
+  alignFirstFaqWithQuickAnswer,
   assertGeneratedBlogValid,
   getBlogMinWordCount,
   validateGeneratedBlog,
 } from "@/lib/seo/blog-content-validator";
 import { stripHtmlToPlainText } from "@/lib/seo/blog-similarity";
 import { parseBlogContentPlanJson } from "@/lib/seo/blog-content-plan";
+import type { BlogContentPlan } from "@/lib/seo/blog-content-plan";
+export type { BlogContentPlan } from "@/lib/seo/blog-content-plan";
+import { formatFactBriefForPrompt } from "@/lib/gemini/grounded-fact-research";
+import type { FactResearchBrief } from "@/lib/gemini/grounded-fact-research";
+import { formatSerpBriefForPrompt } from "@/lib/gemini/grounded-serp-research";
+import type { SerpResearchBrief } from "@/lib/gemini/grounded-serp-research";
 import {
   assembleSectionHtml,
   buildFaqWriterPrompt,
@@ -54,25 +69,15 @@ import {
 } from "@/lib/seo/blog-section-writer";
 
 function getGenAI(): GoogleGenerativeAI {
-  const key = process.env.GEMINI_API_KEY?.trim();
-  if (!key) {
-    throw new Error("GEMINI_API_KEY is not set, add it to run AI features.");
-  }
-  return new GoogleGenerativeAI(key);
+  return new GoogleGenerativeAI(listGeminiApiKeys()[0]);
 }
 
 function isQuotaError(error: unknown): boolean {
-  const message = error instanceof Error ? error.message : String(error);
-  return message.includes("429") || message.toLowerCase().includes("quota");
+  return isGeminiQuotaError(error);
 }
 
 function quotaErrorMessage(error: unknown): string {
-  const base =
-    "Gemini API free-tier quota exceeded. Retry after the daily limit resets (Google AI Studio usage).";
-  if (error instanceof Error && error.message) {
-    return `${base} (${error.message.slice(0, 200)})`;
-  }
-  return base;
+  return geminiQuotaErrorMessage(error);
 }
 
 type GenerateTextOptions = {
@@ -127,36 +132,59 @@ async function generateText(
   prompt: string,
   options?: GenerateTextOptions
 ): Promise<string> {
-  const genAI = getGenAI();
+  const apiKeys = listGeminiApiKeys();
   let lastError: unknown;
+  let quotaExhaustedKeys = 0;
 
-  for (const modelName of blogModelCandidates(options)) {
-    try {
-      assertGeminiCallAllowed(options?.purpose ?? "other");
-      const generationConfig =
-        options?.maxOutputTokens && options.maxOutputTokens > 0
-          ? { maxOutputTokens: options.maxOutputTokens }
-          : undefined;
-      const model = genAI.getGenerativeModel({
-        model: modelName,
-        ...(generationConfig ? { generationConfig } : {}),
-      });
-      let text: string;
+  for (const apiKey of apiKeys) {
+    const genAI = new GoogleGenerativeAI(apiKey);
+    let keyHitQuota = false;
+
+    for (const modelName of blogModelCandidates(options)) {
       try {
-        const result = await model.generateContent(prompt);
-        text = result.response.text().trim();
-      } finally {
-        recordGeminiCall(options?.purpose ?? "other");
-        await pauseAfterGeminiCall();
+        assertGeminiCallAllowed(options?.purpose ?? "other");
+        const generationConfig =
+          options?.maxOutputTokens && options.maxOutputTokens > 0
+            ? { maxOutputTokens: options.maxOutputTokens }
+            : undefined;
+        const model = genAI.getGenerativeModel({
+          model: modelName,
+          ...(generationConfig ? { generationConfig } : {}),
+        });
+        let text: string;
+        try {
+          const result = await model.generateContent(prompt);
+          text = result.response.text().trim();
+        } finally {
+          recordGeminiCall(options?.purpose ?? "other");
+          await pauseAfterGeminiCall();
+        }
+        if (apiKey !== apiKeys[0]) {
+          console.warn("Gemini call succeeded on fallback API key (GEMINI_API_KEY_2).");
+        }
+        return text;
+      } catch (error) {
+        lastError = error;
+        if (isQuotaError(error)) {
+          keyHitQuota = true;
+          console.warn(
+            `Gemini quota exceeded on API key ending ...${apiKey.slice(-4)}, trying fallback key if configured.`
+          );
+          break;
+        }
+        console.warn(`Gemini model ${modelName} failed, trying next...`, error);
       }
-      return text;
-    } catch (error) {
-      lastError = error;
-      if (isQuotaError(error)) {
-        throw new Error(quotaErrorMessage(error));
-      }
-      console.warn(`Gemini model ${modelName} failed, trying next...`, error);
     }
+
+    if (keyHitQuota) {
+      quotaExhaustedKeys += 1;
+      continue;
+    }
+    break;
+  }
+
+  if (quotaExhaustedKeys >= apiKeys.length) {
+    throw new Error(quotaErrorMessage(lastError));
   }
 
   throw new Error(
@@ -360,10 +388,31 @@ export type GenerateBlogContentOptions = {
   lockedTitle?: string;
   /** Skip outline Gemini call; use this JSON from planBlogContent instead. */
   preApprovedOutline?: string;
+  /** Published posts to omit from related-post knowledge excerpts. */
+  excludeKnowledgeSlugs?: string[];
+  /** Planned FAQ questions from outline pass (for faqs[0] keyword repair). */
+  plannedFaqQuestions?: string[];
+  /** Grounded SERP research brief (automation pipeline). */
+  serpBrief?: SerpResearchBrief;
+  /** Grounded fact/stat research brief (automation pipeline). */
+  factBrief?: FactResearchBrief;
+  structuralPromise?: string;
+  requiredDifferentiator?: string;
+  forbiddenH2Themes?: string[];
+  forbiddenAngles?: CorpusIndexEntry[];
+  lockedDescription?: string;
 };
 
-import type { BlogContentPlan } from "@/lib/seo/blog-content-plan";
-export type { BlogContentPlan } from "@/lib/seo/blog-content-plan";
+function buildResearchPromptBlock(options?: GenerateBlogContentOptions): string {
+  const parts: string[] = [];
+  if (options?.serpBrief) {
+    parts.push(formatSerpBriefForPrompt(options.serpBrief));
+  }
+  if (options?.factBrief) {
+    parts.push(formatFactBriefForPrompt(options.factBrief));
+  }
+  return parts.length > 0 ? `\n${parts.join("\n\n")}\n` : "";
+}
 
 function countPlainWords(html: string): number {
   return stripHtmlToPlainText(html).split(/\s+/).filter(Boolean).length;
@@ -477,18 +526,39 @@ Rules:
     prompt,
     blogTextOptions({ ...options, purpose: "blog_expand" })
   );
-  return normalizeParsedBlog(parseBlogJsonFromText(text), draft.faqs);
+  const expanded = normalizeParsedBlog(parseBlogJsonFromText(text), draft.faqs);
+  return applyMonotonicContentExpansion(draft, expanded);
+}
+
+function applyMonotonicContentExpansion(
+  previous: GeneratedBlogContent,
+  candidate: GeneratedBlogContent
+): GeneratedBlogContent {
+  const prevWords = countPlainWords(previous.content);
+  const nextWords = countPlainWords(candidate.content);
+  if (nextWords < prevWords * 0.9) {
+    console.warn(
+      `Expansion shrank draft (${nextWords} vs ${prevWords} words); keeping previous content`
+    );
+    return previous;
+  }
+  return candidate;
 }
 
 async function repairBlogOpening(
   draft: GeneratedBlogContent,
   topic: string,
+  primaryKeyword: string | undefined,
   options?: GenerateTextOptions
 ): Promise<GeneratedBlogContent> {
+  const keywordRule = primaryKeyword?.trim()
+    ? `- Include the primary SEO keyword "${primaryKeyword}" naturally in the first ~100 words.\n`
+    : "";
   const prompt = `Fix the OPENING of this utility-scale solar blog so the first two <p> tags directly answer the title question (2-3 sentences, no filler).
-
+${keywordRule}
 Title: ${draft.title}
 Working topic: ${topic}
+Primary SEO keyword: ${primaryKeyword?.trim() || "(none)"}
 
 HTML (rewrite opening <p> tags only; keep all H2+ sections unchanged):
 ${draft.content}
@@ -530,7 +600,8 @@ Return ONLY valid JSON with the FULL merged HTML in "content" (original + new se
     prompt,
     blogTextOptions({ ...options, purpose: "blog_expand" })
   );
-  return normalizeParsedBlog(parseBlogJsonFromText(text), draft.faqs);
+  const appended = normalizeParsedBlog(parseBlogJsonFromText(text), draft.faqs);
+  return applyMonotonicContentExpansion(draft, appended);
 }
 
 async function generateBlogBodyFromPlan(
@@ -544,6 +615,8 @@ async function generateBlogBodyFromPlan(
     seoBlock: string;
     excludeBlock: string;
     primaryKeyword?: string;
+    researchBlock?: string;
+    contractBlock?: string;
   },
   options?: GenerateTextOptions
 ): Promise<{ content: string; faqs: BlogFaqItem[] }> {
@@ -556,6 +629,8 @@ async function generateBlogBodyFromPlan(
     seoBlock: ctx.seoBlock,
     excludeBlock: ctx.excludeBlock,
     primaryKeyword: ctx.primaryKeyword,
+    researchBlock: ctx.researchBlock,
+    contractBlock: ctx.contractBlock,
   };
 
   const chunks = chunkH2Outline(plan.h2Outline, 2);
@@ -600,7 +675,13 @@ async function generateBlogBodyFromPlan(
     throw new Error("FAQ writer must return at least 4 FAQs");
   }
 
-  return { content, faqs: faqs.slice(0, 5) };
+  const repairedFaqs = ensurePrimaryKeywordInFirstFaq(
+    faqs.slice(0, 5),
+    ctx.primaryKeyword,
+    plan.faqQuestions[0]
+  );
+
+  return { content, faqs: repairedFaqs };
 }
 
 function formatFocusedKeywordsBlock(
@@ -655,12 +736,14 @@ export async function planBlogContent(
     options?.excludeTitles && options.excludeTitles.length > 0
       ? `\nDo NOT mirror these rejected titles/angles:\n${options.excludeTitles.map((t) => `- ${t}`).join("\n")}\n`
       : "";
+  const researchBlock = buildResearchPromptBlock(options);
 
   const prompt = `You are a senior SEO editor for Taypro (utility-scale solar cleaning robots, India).
 
 Plan a long-form blog outline for: ${topic}
 Category: ${_category}
 ${seoBlock}
+${researchBlock}
 ${editorialContext}
 ${authorBlock}
 ${excludeBlock}
@@ -679,7 +762,9 @@ Return ONLY valid JSON:
 Rules:
 - description must match THIS title angle (not a generic solar blog).
 - h2Outline: 6–10 items; first must be "Quick answer" or "Summary for plant managers"; include one People Also Ask style question H2.
-- quickAnswerBullets: 3–5 specific bullets (MW, %, days, INR ranges as industry-typical).
+- If SERP RESEARCH is provided: cover serpGaps with at least 2 dedicated H2s; align FAQ questions with People Also Ask where natural.
+- If FACT RESEARCH is provided: weave verified stats into Quick answer bullets and relevant H2s; do not invent conflicting numbers.
+- quickAnswerBullets: 3–5 specific bullets (MW, %, days, INR ranges as industry-typical or from verified stats).
 - faqQuestions: exactly 4 natural search queries; first must use the primary SEO keyword when provided.`;
 
   const text = await generateText(
@@ -780,6 +865,11 @@ export async function generateBlogContent(
     topic,
     seoKeyword: primaryKeyword,
     extraTerms: _category,
+    excludeSlugs: options?.excludeKnowledgeSlugs,
+    forbiddenAngles: options?.forbiddenAngles,
+    structuralPromise: options?.structuralPromise,
+    requiredDifferentiator: options?.requiredDifferentiator,
+    forbiddenH2Themes: options?.forbiddenH2Themes,
   });
   const seoBlock = seoBrief ? `\n${formatSeoPromptBlock(seoBrief)}\n` : "";
   const editorial =
@@ -802,6 +892,20 @@ ${userBrief}
     options?.excludeTitles && options.excludeTitles.length > 0
       ? `\nDo NOT write about or reuse these rejected titles/angles:\n${options.excludeTitles.map((t) => `- ${t}`).join("\n")}\n`
       : "";
+  const researchBlock = buildResearchPromptBlock(options);
+  const contractBlock = [
+    options?.structuralPromise?.trim()
+      ? `Structural promise (must follow): ${options.structuralPromise.trim()}`
+      : "",
+    options?.requiredDifferentiator?.trim()
+      ? `Required differentiator: ${options.requiredDifferentiator.trim()}`
+      : "",
+    options?.forbiddenH2Themes?.length
+      ? `Do NOT reuse these H2 themes: ${options.forbiddenH2Themes.join("; ")}`
+      : "",
+  ]
+    .filter(Boolean)
+    .join("\n");
 
   let outlineBlock = "";
   if (options?.preApprovedOutline?.trim()) {
@@ -834,6 +938,7 @@ ${authorBlock}
 ${briefBlock}
 ${focusedKeywordBlock}
 ${seoBlock}
+${researchBlock}
 ${excludeBlock}
 ${outlineBlock}
 CRITICAL: Accuracy (product specs, public proof stats, site positioning)
@@ -854,7 +959,7 @@ ${LONG_FORM_CONTENT_RULES}
 - Word count: 2,800-3,200 words (minimum 2,600; do not pad with filler)
 - Natural, conversational tone (avoid AI-sounding language)${options?.author ? "\n- Voice and examples must match the BYLINE AUTHOR block above" : ""}
 - Factual, accurate information about solar panel cleaning and solar plant O&M
-- For Taypro fleet/impact claims use PUBLIC PROOF POINTS from the knowledge pack only; for general industry data use typical ranges and do not invent precise studies
+- For Taypro fleet/impact claims use PUBLIC PROOF POINTS from the knowledge pack only; for general industry data use verified stats from FACT RESEARCH when provided, otherwise typical ranges labeled as industry-typical
 - Use headings (H2, H3) for structure
 - Include bullet points and examples
 - Natural keyword integration (use the SEO target above when provided; also solar plant maintenance, solar O&M, etc.)
@@ -904,6 +1009,8 @@ FAQ rules for the "faqs" array:
           seoBlock,
           excludeBlock,
           primaryKeyword,
+          researchBlock,
+          contractBlock: contractBlock || undefined,
         },
         textGenOptions
       );
@@ -924,37 +1031,78 @@ FAQ rules for the "faqs" array:
     result = normalizeParsedBlog(parseBlogJsonFromText(text));
     }
 
+    const lockedTitle = options?.lockedTitle?.trim();
+    const lockedDescription =
+      options?.lockedDescription?.trim() || result.description;
+
+    const preserveLockedMetadata = () => {
+      if (lockedTitle) {
+        result = { ...result, title: enforceSeoTitleLength(lockedTitle) };
+      }
+      if (lockedDescription.trim()) {
+        result = { ...result, description: lockedDescription };
+      }
+      result = {
+        ...result,
+        faqs: alignFirstFaqWithQuickAnswer(
+          result.content,
+          ensurePrimaryKeywordInFirstFaq(
+            result.faqs,
+            primaryKeyword,
+            options?.plannedFaqQuestions?.[0]
+          )
+        ),
+      };
+    };
+
     if (
-      isTooGenericTitle(result.title, primaryKeyword) ||
-      isTooGenericDescription(result.description)
+      !lockedTitle &&
+      (isTooGenericTitle(result.title, primaryKeyword) ||
+        isTooGenericDescription(result.description))
     ) {
+      throw new Error(
+        "Generated title or meta description was too generic; retry automation"
+      );
+    }
+    if (lockedTitle && isTooGenericDescription(result.description)) {
       throw new Error(
         "Generated title or meta description was too generic; retry automation"
       );
     }
 
     const minWords = getBlogMinWordCount();
-    const maxExpansionPasses = options?.preApprovedOutline?.trim() ? 2 : 3;
-    for (let pass = 0; pass < maxExpansionPasses; pass++) {
+    const maxInPlacePasses = getBlogPipelineMaxInPlaceExpansions();
+    for (let pass = 0; pass < maxInPlacePasses; pass++) {
       const wc = countPlainWords(result.content);
       if (wc >= minWords) break;
+      const preferAppend = wc < minWords * 0.85;
       console.warn(
-        `Blog draft too short (${wc} words), expansion pass ${pass + 1}/${maxExpansionPasses}`
+        preferAppend
+          ? `Blog draft too short (${wc} words), append pass ${pass + 1}/${maxInPlacePasses}`
+          : `Blog draft too short (${wc} words), expansion pass ${pass + 1}/${maxInPlacePasses}`
       );
-      result = await expandShortBlogDraft(
-        result,
-        topic,
-        primaryKeyword,
-        textGenOptions
-      );
+      result = preferAppend
+        ? await appendBlogSections(
+            result,
+            topic,
+            primaryKeyword,
+            textGenOptions
+          )
+        : await expandShortBlogDraft(
+            result,
+            topic,
+            primaryKeyword,
+            textGenOptions
+          );
+      preserveLockedMetadata();
     }
 
     let afterExpansion = countPlainWords(result.content);
     for (let appendPass = 0; appendPass < 2; appendPass++) {
       if (afterExpansion >= minWords) break;
-      if (afterExpansion < minWords * 0.75) break;
+      if (afterExpansion >= minWords * 0.85) break;
       console.warn(
-        `Blog draft near target (${afterExpansion}/${minWords} words), appending sections (${appendPass + 1}/2)`
+        `Blog draft still short (${afterExpansion}/${minWords} words), append pass ${appendPass + 1}/2`
       );
       const appended = await appendBlogSections(
         result,
@@ -966,6 +1114,7 @@ FAQ rules for the "faqs" array:
       if (appendedWords > afterExpansion) {
         result = appended;
         afterExpansion = appendedWords;
+        preserveLockedMetadata();
       } else {
         break;
       }
@@ -981,7 +1130,24 @@ FAQ rules for the "faqs" array:
         primaryKeyword,
         textGenOptions
       );
+      preserveLockedMetadata();
     }
+
+    const wordsRemaining = minWords - countPlainWords(result.content);
+    if (wordsRemaining > 0 && wordsRemaining <= 50) {
+      console.warn(
+        `Blog draft micro top-up (${wordsRemaining} words below ${minWords})`
+      );
+      result = await expandShortBlogDraft(
+        result,
+        topic,
+        primaryKeyword,
+        textGenOptions
+      );
+      preserveLockedMetadata();
+    }
+
+    preserveLockedMetadata();
 
     let validation = validateGeneratedBlog({
       title: result.title,
@@ -994,9 +1160,16 @@ FAQ rules for the "faqs" array:
     if (
       !validation.ok &&
       validation.issues.length === 1 &&
-      validation.issues[0].includes("Opening paragraphs")
+      (validation.issues[0].includes("Opening paragraphs") ||
+        validation.issues[0].includes("missing from opening"))
     ) {
-      result = await repairBlogOpening(result, topic, textGenOptions);
+      result = await repairBlogOpening(
+        result,
+        topic,
+        primaryKeyword,
+        textGenOptions
+      );
+      preserveLockedMetadata();
       validation = validateGeneratedBlog({
         title: result.title,
         description: result.description,
@@ -1005,10 +1178,6 @@ FAQ rules for the "faqs" array:
         primaryKeyword,
         searchIntent,
       });
-    }
-
-    if (options?.lockedTitle?.trim()) {
-      result = { ...result, title: enforceSeoTitleLength(options.lockedTitle.trim()) };
     }
 
     assertGeneratedBlogValid({

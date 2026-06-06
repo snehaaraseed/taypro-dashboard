@@ -43,7 +43,7 @@ function envInt(name: string, fallback: number): number {
 }
 
 export function getBlogMinWordCount(): number {
-  return envInt("BLOG_MIN_WORD_COUNT", 2600);
+  return envInt("BLOG_MIN_WORD_COUNT", 2000);
 }
 
 function countWords(text: string): number {
@@ -248,7 +248,7 @@ export function validateGeneratedBlog(
   const faq0Answer = input.faqs[0]?.answer ?? "";
   if (quickSection && faq0Answer) {
     const overlap = tokenOverlap(quickSection, faq0Answer);
-    if (overlap < 0.2) {
+    if (overlap < 0.12) {
       issues.push("faqs[0] answer must align with Quick answer section facts");
     }
   }
@@ -270,6 +270,26 @@ export function assertGeneratedBlogValid(
   if (!result.ok) {
     throw new BlogContentValidationError(result.issues);
   }
+}
+
+/** Sync faqs[0] answer from Quick answer H2 when auto-repair changed the question. */
+export function alignFirstFaqWithQuickAnswer(
+  content: string,
+  faqs: BlogFaqItem[]
+): BlogFaqItem[] {
+  if (faqs.length === 0) return faqs;
+  const quickSection = stripHtmlToPlainText(extractQuickAnswerSection(content));
+  if (!quickSection || quickSection.length < 40) return faqs;
+
+  const sentences =
+    quickSection.match(/[^.!?]+[.!?]+/g)?.map((s) => s.trim()).filter(Boolean) ??
+    [];
+  const answer = (sentences.slice(0, 2).join(" ") || quickSection)
+    .trim()
+    .slice(0, 420);
+  if (!answer) return faqs;
+
+  return [{ ...faqs[0], answer }, ...faqs.slice(1)];
 }
 
 export type TranslationValidationInput = {

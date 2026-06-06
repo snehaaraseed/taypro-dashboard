@@ -206,11 +206,9 @@ export default function HomePageInteractive({
             </Link>
           </AnimateOnScroll>
 
-          <LazyWhenVisible minHeight={360}>
-            <AnimateOnScroll animation="fadeInUp" delay={100}>
-              <ROICalculatorEmbed />
-            </AnimateOnScroll>
-          </LazyWhenVisible>
+          <AnimateOnScroll animation="fadeInUp" delay={100}>
+            <ROICalculatorEmbed />
+          </AnimateOnScroll>
         </Container>
       </section>
 

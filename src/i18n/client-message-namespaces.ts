@@ -27,6 +27,8 @@ export const CLIENT_PAGE_NAMESPACES = [
   "CompanyPage",
   "ModuleManufacturerTrust",
   "PriceCalculatorPage",
+  "RobotPriceIndiaPage",
+  "StateLandingsPage",
   "BlogPage",
   "ProjectDetailPage",
   "ProjectsFilterPage",
@@ -53,6 +55,14 @@ export function clientNamespacesForPathname(pathname: string): string[] {
 
   if (path === "/solar-panel-cleaning-robot-price-calculator") {
     return ["PriceCalculatorPage", "Common"];
+  }
+
+  if (path === "/solar-panel-cleaning-robot-price-india") {
+    return ["RobotPriceIndiaPage", "PriceCalculatorPage", "Common"];
+  }
+
+  if (path.startsWith("/solar-panel-cleaning-robot-")) {
+    return ["StateLandingsPage", "PriceCalculatorPage", "Common"];
   }
 
   // ROICalculatorEmbed is used on hub, product, service, and Opex pages under this prefix.

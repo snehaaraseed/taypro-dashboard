@@ -20,6 +20,8 @@ export type SectionWriterContext = {
   seoBlock: string;
   excludeBlock: string;
   primaryKeyword?: string;
+  researchBlock?: string;
+  contractBlock?: string;
 };
 
 /** Split H2 outline into chunks of 2 for reliable ~400–900 word sections per call. */
@@ -75,6 +77,8 @@ Category: ${ctx.category}
 ${ctx.editorial}
 ${ctx.authorBlock}
 ${ctx.seoBlock}
+${ctx.researchBlock ?? ""}
+${ctx.contractBlock ? `\nEDITORIAL CONTRACT:\n${ctx.contractBlock}\n` : ""}
 ${ctx.excludeBlock}
 
 ${continuityBlock}
@@ -94,6 +98,7 @@ ${LONG_FORM_CONTENT_RULES}
 Rules:
 - Target ${sectionH2s.length * 400}–${sectionH2s.length * 550} words for this chunk.
 - Match voice, facts, and MW/%/INR ranges used in prior sections; do not contradict.
+- Use verified stats from FACT RESEARCH when provided; otherwise label ranges as industry-typical.
 - Return ONLY valid JSON: { "html": "<h2>...</h2><p>...</p>..." }
 - No outer <html> or markdown; HTML fragment only.
 - Use ONLY verified facts from the knowledge pack.`;

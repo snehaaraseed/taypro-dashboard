@@ -175,6 +175,37 @@ export async function getFilteredFileProjects(
   return limit > 0 ? matched.slice(0, limit) : matched;
 }
 
+/** Published projects in slug order; skips missing or draft slugs. */
+export async function getProjectsBySlugs(
+  slugs: string[],
+  locale?: string
+): Promise<ProjectCard[]> {
+  if (slugs.length === 0) return [];
+  const all = await getAllFileProjects(locale);
+  const bySlug = new Map(all.map((p) => [p.id, p]));
+  const ordered: ProjectCard[] = [];
+  for (const slug of slugs) {
+    const project = bySlug.get(slug);
+    if (project) ordered.push(project);
+  }
+  return ordered;
+}
+
+/** Featured slugs first (config order), then keyword-filter matches. */
+export async function getStateLandingProjects(
+  featuredSlugs: string[],
+  filter: ProjectListFilter,
+  locale?: string,
+  limit = DEFAULT_PROJECT_CARD_LIMIT
+): Promise<ProjectCard[]> {
+  const featured = await getProjectsBySlugs(featuredSlugs, locale);
+  const featuredIds = new Set(featured.map((p) => p.id));
+  const filtered = await getFilteredFileProjects(filter, locale, 0);
+  const rest = filtered.filter((p) => !featuredIds.has(p.id));
+  const combined = [...featured, ...rest];
+  return limit > 0 ? combined.slice(0, limit) : combined;
+}
+
 export async function getRelatedFileProjects(
   slug: string,
   details: string[],

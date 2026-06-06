@@ -14,6 +14,7 @@ import {
   getBlogSimilarityThreshold,
   h2OverlapScore,
   parseH2OutlineJson,
+  titleWordSimilarity,
   titlesTooSimilar,
 } from "@/lib/seo/blog-similarity";
 
@@ -109,7 +110,12 @@ export function findTooSimilarBlog(
     }
 
     const keywordScore = calculateBlogSimilarity(draft, existing);
-    if (keywordScore > keywordThreshold) {
+    const titleOverlap = titleWordSimilarity(draft.title, existing.title);
+    // Same niche shares keywords — reject only when titles also overlap, or score is very high.
+    const keywordCollision =
+      keywordScore > keywordThreshold &&
+      (titleOverlap > 0.35 || keywordScore > 0.72);
+    if (keywordCollision) {
       return {
         slug: existing.slug,
         title: existing.title,

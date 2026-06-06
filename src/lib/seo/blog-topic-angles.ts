@@ -2,6 +2,10 @@ import "server-only";
 
 import { createSlug } from "@/app/utils/blogFileUtils";
 import { isTopicPublished, readPublishedTopics } from "@/lib/cms/topicService";
+import {
+  getAngleContractMeta,
+  type AngleContractMeta,
+} from "@/lib/seo/blog-angle-contracts";
 import { titlesTooSimilar } from "@/lib/seo/blog-similarity";
 import { buildFallbackTopicTitle } from "@/lib/seo/keyword-stats";
 
@@ -9,6 +13,19 @@ export type TopicAngle = {
   id: string;
   buildTitle: (keyword: string) => string;
 };
+
+export type TopicAngleWithContract = TopicAngle & AngleContractMeta;
+
+/** Attach structural promise, archetype, and H2 template from angle contracts. */
+export function withAngleContract(angle: TopicAngle): TopicAngleWithContract {
+  return { ...angle, ...getAngleContractMeta(angle.id) };
+}
+
+export function anglesForKeywordWithContracts(
+  keyword: string
+): TopicAngleWithContract[] {
+  return anglesForKeyword(keyword).map(withAngleContract);
+}
 
 function titleCaseKeyword(keyword: string): string {
   return keyword.replace(/\b\w/g, (c) => c.toUpperCase());

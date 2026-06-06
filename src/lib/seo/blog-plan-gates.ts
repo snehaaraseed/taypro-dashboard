@@ -9,6 +9,7 @@ import {
   type SimilarBlogMatch,
 } from "@/lib/seo/blog-uniqueness";
 import {
+  calculateBlogSimilarity,
   descriptionsTooSimilar,
   extractH2Headings,
   getBlogH2OverlapThreshold,
@@ -27,6 +28,48 @@ export type BlogContentPlanInput = {
   h2Outline: string[];
   slug?: string;
 };
+
+/** Block keywords whose topic space already has a published post (title/meta overlap). */
+export function getKeywordCorpusBlockThreshold(): number {
+  const raw = process.env.KEYWORD_CORPUS_BLOCK_THRESHOLD?.trim();
+  const parsed = raw ? Number.parseFloat(raw) : 0.58;
+  return Number.isFinite(parsed) && parsed > 0 && parsed < 1 ? parsed : 0.58;
+}
+
+/**
+ * Free gate: skip keywords that would almost always collide with an existing post
+ * (e.g. "solar panel cleaning" vs "5 Costly Mistakes to Avoid in Solar Panel Cleaning").
+ */
+export function findKeywordCorpusConflict(
+  keyword: string,
+  corpus: BlogSimilarityCorpusRow[]
+): SimilarBlogMatch | null {
+  const threshold = getKeywordCorpusBlockThreshold();
+  const kw = keyword.toLowerCase().trim();
+  const probe = { title: keyword, description: keyword };
+
+  let best: SimilarBlogMatch | null = null;
+  for (const existing of corpus) {
+    const titleLower = existing.title.toLowerCase();
+    const phraseInTitle = kw.length >= 8 && titleLower.includes(kw);
+
+    const score = calculateBlogSimilarity(probe, {
+      title: existing.title,
+      description: existing.description,
+    });
+
+    const blocked = phraseInTitle || score >= threshold;
+    if (blocked && (!best || score > best.score)) {
+      best = {
+        slug: existing.slug,
+        title: existing.title,
+        reason: phraseInTitle ? "title" : "keywords",
+        score: phraseInTitle ? 1 : score,
+      };
+    }
+  }
+  return best;
+}
 
 export async function loadBlogUniquenessContext(): Promise<BlogUniquenessContext> {
   const corpus = await loadExistingBlogCorpus();

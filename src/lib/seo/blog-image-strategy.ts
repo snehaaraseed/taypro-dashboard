@@ -2,7 +2,7 @@ import "server-only";
 
 /**
  * Product-focused posts use the Taypro asset library (real robots, projects, OG presets).
- * Educational / O&M / soiling posts without a product angle use Pollinations or Imagen.
+ * Educational / O&M / soiling posts without a product angle use Pollinations (free tier + daily pollen).
  */
 export function shouldUseProductLibraryImage(input: {
   title: string;
@@ -55,15 +55,40 @@ export function shouldUseProductLibraryImage(input: {
   return false;
 }
 
+function pollinationsImageEnabled(): boolean {
+  return Boolean(process.env.POLLINATIONS_API_KEY?.trim());
+}
+
+function paidImagenEnabled(): boolean {
+  return process.env.BLOG_IMAGE_ALLOW_PAID?.trim() === "true";
+}
+
+function aiHeroGenerationAvailable(): boolean {
+  return pollinationsImageEnabled() || paidImagenEnabled();
+}
+
 /**
- * Default `library` (Taypro assets only) — no paid Imagen.
- * Set BLOG_IMAGE_MODE=hybrid|generate and BLOG_IMAGE_ALLOW_PAID=true to enable AI hero generation.
+ * Default: `library` when no AI credentials.
+ * With `POLLINATIONS_API_KEY`, defaults to `hybrid` (Pollinations for O&M posts, library for robot/product).
+ * Set `BLOG_IMAGE_MODE=library` to force Taypro assets only.
+ * Set `BLOG_IMAGE_MODE=generate` to AI-generate every hero (uses pollen on all posts).
+ * `BLOG_IMAGE_ALLOW_PAID=true` additionally enables Google Imagen when provider=imagen.
  */
 export function getBlogImageMode(): "hybrid" | "library" | "generate" {
-  const mode = process.env.BLOG_IMAGE_MODE?.trim().toLowerCase();
-  if (mode === "library" || mode === "generate") return mode;
-  if (mode === "hybrid" && process.env.BLOG_IMAGE_ALLOW_PAID?.trim() === "true") {
-    return "hybrid";
+  const explicit = process.env.BLOG_IMAGE_MODE?.trim().toLowerCase();
+
+  if (explicit === "library") return "library";
+
+  if (explicit === "generate") {
+    return aiHeroGenerationAvailable() ? "generate" : "library";
   }
+
+  if (explicit === "hybrid") {
+    return aiHeroGenerationAvailable() ? "hybrid" : "library";
+  }
+
+  // Unset BLOG_IMAGE_MODE: auto-hybrid when Pollinations key is configured.
+  if (pollinationsImageEnabled()) return "hybrid";
+
   return "library";
 }

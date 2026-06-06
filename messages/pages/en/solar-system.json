@@ -606,6 +606,18 @@
           "title": "Same-day pan-India breakdown response",
           "body": "Taypro targets same-day on-site breakdown resolution across India, with immediate remote diagnostics through NECTYR, regional spare inventory, and structured AMC programs so mean time to repair stays predictable."
         }
+      },
+      "stateGuides": {
+        "heading": "Regional deployment guides",
+        "intro": "Explore solar panel cleaning robots by state — soiling context, live projects, and RFQ guidance:",
+        "rajasthan": "Rajasthan",
+        "gujarat": "Gujarat",
+        "madhyaPradesh": "Madhya Pradesh",
+        "karnataka": "Karnataka",
+        "andhraPradesh": "Andhra Pradesh",
+        "maharashtra": "Maharashtra",
+        "uttarPradesh": "Uttar Pradesh",
+        "tamilNadu": "Tamil Nadu"
       }
     },
     "whyTaypro": {

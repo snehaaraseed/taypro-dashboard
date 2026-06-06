@@ -97,19 +97,67 @@ export function isGenericContentError(error: unknown): boolean {
   return msg.includes("too generic");
 }
 
-/** Retry automation when content is vague, invalid structure, or overlaps an existing post. */
-export function isRetryableGenerationError(error: unknown): boolean {
+export type GenerationFailureKind =
+  | "quota"
+  | "new_contract"
+  | "in_place"
+  | "fatal";
+
+export function isGeminiQuotaErrorMessage(error: unknown): boolean {
   const msg = error instanceof Error ? error.message : String(error);
   return (
-    isGenericContentError(error) ||
-    msg.includes("too similar") ||
+    msg.includes("quota exceeded") ||
+    msg.includes("429") ||
+    msg.includes("RESOURCE_EXHAUSTED") ||
+    msg.includes("free-tier quota")
+  );
+}
+
+export function classifyGenerationFailure(error: unknown): GenerationFailureKind {
+  if (isGeminiQuotaErrorMessage(error)) return "quota";
+  const msg = error instanceof Error ? error.message : String(error);
+
+  if (
+    msg.includes("Pre-flight uniqueness failed") ||
+    msg.includes("Outline too similar") ||
     msg.includes("Blog too similar") ||
+    msg.includes("too similar") ||
+    msg.includes("already covered by existing post") ||
+    msg.includes("Topic already published")
+  ) {
+    return "new_contract";
+  }
+
+  if (
+    msg.includes("Body too short") ||
     msg.includes("Blog structure validation failed") ||
     msg.includes("Could not parse JSON") ||
     msg.includes("JSON at position") ||
-    msg.includes("Outline too similar") ||
-    msg.includes("Topic already published") ||
-    msg.includes("Outline needs") ||
-    msg.includes("Outline meta description")
-  );
+    msg.includes("Could not parse section HTML") ||
+    msg.includes("Could not parse outline JSON")
+  ) {
+    return "in_place";
+  }
+
+  if (isGenericContentError(error)) return "new_contract";
+
+  return "fatal";
+}
+
+export function getBlogPipelineMaxOuterAttempts(): number {
+  const raw = process.env.BLOG_PIPELINE_MAX_OUTER_ATTEMPTS?.trim();
+  const parsed = raw ? Number.parseInt(raw, 10) : 1;
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
+}
+
+export function getBlogPipelineMaxInPlaceExpansions(): number {
+  const raw = process.env.BLOG_PIPELINE_MAX_INPLACE_EXPANSIONS?.trim();
+  const parsed = raw ? Number.parseInt(raw, 10) : 3;
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 3;
+}
+
+/** @deprecated Use classifyGenerationFailure for typed retries. */
+export function isRetryableGenerationError(error: unknown): boolean {
+  const kind = classifyGenerationFailure(error);
+  return kind === "new_contract" || kind === "in_place";
 }

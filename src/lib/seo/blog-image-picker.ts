@@ -181,6 +181,10 @@ export async function pickBlogFeaturedImage(input: {
     });
   }
 
+  console.info(
+    `Blog featured image: Pollinations (${process.env.POLLINATIONS_IMAGE_MODEL?.trim() || "flux"}) for non-product post`
+  );
+
   try {
     return await generateBlogFeaturedImage({
       title: input.title,

@@ -1,9 +1,13 @@
 "use client";
 import { useState, useEffect, useMemo, useRef } from "react";
-import jsPDF from "jspdf";
-import autoTable from "jspdf-autotable";
 import { useLocale, useTranslations } from "next-intl";
 import { calculateRoi } from "@/lib/roi-calculator/calculate-roi";
+import { buildDefaultInteractiveFormData } from "@/lib/roi-calculator/default-scenario";
+import {
+  formatRoiCurrency,
+  formatRoiCurrencyPlain,
+  formatRoiNumber,
+} from "@/lib/roi-calculator/format-roi";
 import {
   resolveRoiMarket,
   type RoiMarketProfile,
@@ -56,19 +60,6 @@ const AUTOMATION_OPTIONS: { value: AutomationLevel; labelKey: string }[] = [
   { value: "semiAutomatic", labelKey: "automationSemiAutomatic" },
 ];
 
-const NUMBER_LOCALE: Record<string, string> = {
-  en: "en-IN",
-  hi: "hi-IN",
-  ar: "ar",
-  ja: "ja-JP",
-  bn: "bn-IN",
-};
-
-function numberLocale(locale: string, market: RoiMarketProfile): string {
-  if (market.currency !== "INR") return market.formatLocale;
-  return NUMBER_LOCALE[locale] ?? "en-IN";
-}
-
 export default function ROITayproCalculator({
   hideTitle = false,
   className = "",
@@ -84,24 +75,12 @@ export default function ROITayproCalculator({
       ),
     [locale, visitorCountry]
   );
-  const fmtLocale = numberLocale(locale, market);
   const showMarketNote = market.id !== "india";
   const regionName = showMarketNote ? t(market.regionLabelKey) : "";
 
-  const doc = useRef<jsPDF | null>(null);
-  if (!doc.current) {
-    doc.current = new jsPDF({ unit: "pt", format: "a4" });
-  }
-
-  const [formData, setFormData] = useState(() => ({
-    plantType: "groundMount" as PlantType,
-    installationType: "fixedTilt" as InstallationType,
-    automationLevel: "automatic" as AutomationLevel,
-    plantCapacityMW: 200,
-    plantCapacityKW: 200,
-    electricityTariff: market.defaultTariffGround,
-    moduleCapacity: 545,
-  }));
+  const [formData, setFormData] = useState(() =>
+    buildDefaultInteractiveFormData(market)
+  );
 
   const [results, setResults] = useState<ROIResults>({
     annualCostLabourSaved: 0,
@@ -167,22 +146,12 @@ export default function ROITayproCalculator({
   };
 
   const formatCurrency = (amount: number) =>
-    new Intl.NumberFormat(fmtLocale, {
-      style: "currency",
-      currency: market.currency,
-      maximumFractionDigits: market.moneyMaxFractionDigits,
-    }).format(amount);
+    formatRoiCurrency(amount, market, locale);
 
   const pdfFormatCurrency = (amount: number) =>
-    new Intl.NumberFormat(fmtLocale, {
-      minimumFractionDigits: market.moneyMaxFractionDigits,
-      maximumFractionDigits: market.moneyMaxFractionDigits,
-    }).format(amount);
+    formatRoiCurrencyPlain(amount, market, locale);
 
-  const formatNumber = (v: number) =>
-    new Intl.NumberFormat(fmtLocale, {
-      maximumFractionDigits: 2,
-    }).format(v);
+  const formatNumber = (v: number) => formatRoiNumber(v, market, locale);
 
   const labelForPlantType = (value: PlantType) =>
     t(PLANT_TYPE_OPTIONS.find((o) => o.value === value)!.labelKey);
@@ -191,7 +160,13 @@ export default function ROITayproCalculator({
   const labelForAutomation = (value: AutomationLevel) =>
     t(AUTOMATION_OPTIONS.find((o) => o.value === value)!.labelKey);
 
-  const handleDownloadPdf = () => {
+  const handleDownloadPdf = async () => {
+    const [{ default: jsPDF }, autoTableModule] = await Promise.all([
+      import("jspdf"),
+      import("jspdf-autotable"),
+    ]);
+    const autoTable = autoTableModule.default;
+
     const {
       plantType,
       installationType,

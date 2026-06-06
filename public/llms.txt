@@ -57,7 +57,18 @@ Key benefits of our Solar Panel Cleaning Robot:
 /projects/capex - CAPEX model projects
 
 ## Tools & Calculators
+/solar-panel-cleaning-robot-price-india - India robot price guide: CAPEX bands, cost drivers, manufacturer/supplier keywords, CAPEX vs Taypro Opex
 /solar-panel-cleaning-robot-price-calculator - ROI calculator for Solar Panel Cleaning Robot investment and cost savings
+
+## State deployment guides (geo SEO)
+/solar-panel-cleaning-robot-rajasthan - Solar panel cleaning robots in Rajasthan utility solar
+/solar-panel-cleaning-robot-gujarat - Solar panel cleaning robots in Gujarat utility solar
+/solar-panel-cleaning-robot-madhya-pradesh - Solar panel cleaning robots in Madhya Pradesh
+/solar-panel-cleaning-robot-karnataka - Solar panel cleaning robots in Karnataka
+/solar-panel-cleaning-robot-andhra-pradesh - Solar panel cleaning robots in Andhra Pradesh and Telangana
+/solar-panel-cleaning-robot-maharashtra - Solar panel cleaning robots in Maharashtra utility solar
+/solar-panel-cleaning-robot-uttar-pradesh - Solar panel cleaning robots in Uttar Pradesh
+/solar-panel-cleaning-robot-tamil-nadu - Solar panel cleaning robots in Tamil Nadu
 
 ## Blog
 /blog - Blog listing page with all articles

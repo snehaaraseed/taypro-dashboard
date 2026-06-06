@@ -32,7 +32,9 @@
       "titleLine2": "価格・ROI計算機",
       "bodyBeforeLink": "プラント向けのロボット投資、回収、年間削減、節水の目安を試算, ",
       "bodyLink": "Taypro自律型・半自動清掃ロボット",
-      "bodyAfterLink": ", その後サイト別見積もりをご依頼ください。",
+      "bodyAfterLink": ", その後サイト別見積もりをご依頼ください — または先に ",
+      "priceGuideLink": "India robot price guide",
+      "priceGuideAfter": " で方向性のあるCAPEX帯を確認してください。",
       "calculatorSrOnly": "ソーラーパネル清掃ロボット価格・ROI計算機"
     },
     "opexBanner": {
@@ -160,6 +162,7 @@
     "explore": {
       "heading": "さらに探索",
       "subheading": "技術・導入を深掘りするか、チームにご相談ください。",
+      "link4": "India robot price guide",
       "link0": "ソーラー清掃ロボット概要",
       "link1": "清掃技術とデュアルパス",
       "link2": "導入プロジェクト",
@@ -232,6 +235,13 @@
       "loadingAria": "計算機を読み込み中",
       "disclaimerNote": "注：",
       "disclaimerBody": "投資・ROI数値は地域向けの代表前提（料金・人件費・水・発電量）を使用。正式見積・プラント別モデルはお問い合わせください。"
+    },
+    "exampleScenarios": {
+      "heading": "ソーラーパネル清掃ロボット価格の参考例",
+      "subheading": "Taypro自動固定傾斜の地上ユーティリティ向けの参考CAPEX・ROI。上の計算機でサイト条件に合わせて入力を変更してください。",
+      "scenarioTitle": "{capacityMw} MW ユーティリティプラント",
+      "assumptions": "{capacityMw} MW地上、固定傾斜、自動無水ロボット、{moduleWp} Wpモジュール、{currency} {tariff}/kWh料金を想定。",
+      "disclaimer": "数値は参考値であり正式見積ではありません。実際の投資・回収期間・節約額はレイアウト、汚れ、サイクル、CAPEX/Opexモデルにより異なります。"
     }
   },
   "Common": {
