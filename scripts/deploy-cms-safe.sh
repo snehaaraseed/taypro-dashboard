@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# INTERNAL: CMS helpers for ./deploy.sh only. Do not run this file directly.
+# INTERNAL: CMS helpers for ./deploy.sh (and legacy maintenance script). Do not run directly.
 set -euo pipefail
 
 ROOT="${TAYPRO_APP_ROOT:-/var/www/taypro-dashboard}"
@@ -291,7 +291,7 @@ case "${1:-}" in
   swap-standalone) cms_swap_standalone "$2" ;;
   rollback-standalone) cms_rollback_standalone ;;
   *)
-    echo "Usage: internal CMS helper — run ./deploy.sh or ./deploy-zero-downtime.sh from your machine instead."
+    echo "Usage: internal CMS helper — run ./deploy.sh from your machine instead."
     exit 1
     ;;
 esac

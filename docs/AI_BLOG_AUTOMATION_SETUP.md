@@ -124,23 +124,32 @@ cd /var/www/taypro-dashboard
 npm run ops:install-logrotate   # installs scripts/logrotate/taypro.conf → /etc/logrotate.d/taypro
 ```
 
-Keeps **8 weekly** compressed rotations (`copytruncate`, `su ubuntu ubuntu`).
+Keeps **7 daily** compressed rotations (`copytruncate`, `su ubuntu ubuntu`).
 
-### CMS blog translations (daily only, max 10 blogs)
+### CMS blog translations (daily only, max 10 items)
 
-Published English blogs are translated into **hi, ar, ja, bn** once per day:
+Published English blogs/projects are translated into **hi, ar, ja, bn** once per day:
 
-- **`BLOG_TRANSLATION_MAX_PER_DAY`** (default `10`) — max published EN blogs per run (safe for 500 RPD / 15 RPM free tier with `GEMINI_CALL_DELAY_MS=5000`)
-- Each selected blog is translated into **all missing** target locales in one pass
-- If **Gemini quota** is exceeded, the run **stops for the day**; remaining blogs are picked up on the next cron (no hourly retries)
+- **`CMS_TRANSLATION_MAX_PER_DAY`** / **`BLOG_TRANSLATION_MAX_PER_DAY`** (default `10`) — max items per run (safe for 500 RPD / 15 RPM free tier with `GEMINI_CALL_DELAY_MS=5000`)
+- Cron **fire-and-forgets** a background worker (`scripts/run-daily-cms-translations.ts`) — not limited by HTTP/curl timeouts
+- Each queue item retries until **all locales succeed**; the run advances to the next item only after completion (or a permanent source error)
+- The run **stops early only when Gemini quota is exceeded**; otherwise it processes the full daily queue (up to 10)
+- Structured JSON lines are appended to `$ROOT/logs/blog-translation-daily.log` (`worker_start`, `item_completed`, `item_quota_stop`, `worker_done`, …)
 
 From the app directory after deploy:
 
 ```bash
+# Same as cron — dispatches background worker
 npm run cms:translate-blogs-daily
+
+# Foreground (blocks until done; useful for debugging)
+CMS_TRANSLATION_FOREGROUND=1 npm run cms:translate-blogs-daily
+
+# Run worker directly
+npm run cms:translate-blogs-daily:worker
 ```
 
-**Manual trigger:**
+**Legacy HTTP trigger** (can time out on long runs — prefer worker above):
 
 ```bash
 curl -X POST "http://127.0.0.1:3000/api/automation/retry-translations" \
@@ -278,9 +287,10 @@ Topic titles bias toward People Also Ask patterns (X vs Y, how often, how much, 
 ### Translations Not Running (cron)
 
 1. Confirm crontab: `30 12 * * * .../cron-translate-blogs-daily.sh` (18:00 IST).
-2. Check log: `tail -50 /var/www/taypro-dashboard/logs/blog-translation-daily.log`
-3. If you see `Permission denied` on `/var/log/blog-translation-daily.log`, deploy the latest `cron-translate-blogs-daily.sh` (uses `logs/` under the app).
-4. Manual test: `npm run cms:translate-blogs-daily`
+2. Check log: `tail -100 /var/www/taypro-dashboard/logs/blog-translation-daily.log` — look for `DISPATCHED`, `worker_start`, `item_completed`, `worker_done`.
+3. If you see `skip` / `already_running`, a previous worker is still running (normal on long runs).
+4. If you see `curl: (52)` or `curl: (28)`, deploy the latest cron script (uses background worker, not HTTP).
+5. Foreground debug: `CMS_TRANSLATION_FOREGROUND=1 npm run cms:translate-blogs-daily`
 
 ### Blog Not Generating
 

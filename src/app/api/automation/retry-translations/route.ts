@@ -2,13 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { isAutomationAuthorized } from "@/lib/security";
 import { processDailyTranslations } from "@/lib/translation/translation-queue";
 
-/** Up to CMS_TRANSLATION_MAX_PER_DAY items × 4 locales — can take 1–2+ hours with delays. */
+/** Legacy HTTP trigger — prefer `npm run cms:translate-blogs-daily` (background worker). */
 export const maxDuration = 900;
 
 /**
- * POST — daily CMS translation cron (AUTOMATION_CRON_SECRET).
- * Translates blogs and projects dynamically (default 5+5 when both have backlog, up to 10/day).
- * One item at a time; clears the retry queue when Gemini quota is exceeded (resumes next evening).
+ * POST — manual CMS translation trigger (AUTOMATION_CRON_SECRET).
+ * Production cron uses `scripts/run-daily-cms-translations.ts` via fire-and-forget shell worker.
+ * Translates up to CMS_TRANSLATION_MAX_PER_DAY items; stops early only on Gemini quota.
  */
 export async function POST(request: NextRequest) {
   if (!isAutomationAuthorized(request)) {

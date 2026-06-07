@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import { preload } from "react-dom";
 import { Link } from "@/i18n/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
@@ -37,7 +36,6 @@ import { PERFORMANCE_METHODOLOGY_PATH } from "@/lib/seo/performance-methodology"
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 const HERO_VIDEO_ID = "y9iRhH2bLwY";
-const HERO_POSTER = "/tayproasset/taypro-robotFeature.jpg";
 
 const FEATURE_COUNT = 4;
 const OTHER_FEATURE_COUNT = 4;
@@ -86,8 +84,6 @@ function buildHomeFaqs(t: Awaited<ReturnType<typeof getTranslations>>) {
 }
 
 export default async function HomePage() {
-  preload(HERO_POSTER, { as: "image", fetchPriority: "high" });
-
   const locale = await getLocale();
   const t = await getTranslations({ locale, namespace: "Home" });
   const tHub = await getTranslations({ locale, namespace: "SolarSystemPage" });
@@ -147,20 +143,11 @@ export default async function HomePage() {
         <section className="relative px-4 sm:px-6 lg:px-8 py-10 md:py-14">
           <Container className="!px-0">
             <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-              <AnimateOnScroll
-                animation="fadeInLeft"
-                eager
-                className="order-1 lg:order-none flex justify-center lg:justify-end lg:col-start-2 lg:row-start-1"
-              >
-                <div className="relative w-full max-w-[720px] aspect-video rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/10">
-                  <HomeHeroVideo videoId={HERO_VIDEO_ID} title={videoTitle} />
-                </div>
-              </AnimateOnScroll>
-
+              {/* Mobile: copy first so LCP is the H1, not the hero poster */}
               <AnimateOnScroll
                 animation="fadeInRight"
                 eager
-                className="order-2 lg:order-none text-white space-y-5 lg:space-y-6 lg:col-start-1 lg:row-start-1"
+                className="order-1 lg:order-none text-white space-y-5 lg:space-y-6 lg:col-start-1 lg:row-start-1"
               >
                 <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide">
                   {t("hero.eyebrow")}
@@ -196,6 +183,16 @@ export default async function HomePage() {
                   {t("hero.bodyAfterBlog")}
                 </p>
                 <HomeHeroCTAs />
+              </AnimateOnScroll>
+
+              <AnimateOnScroll
+                animation="fadeInLeft"
+                eager
+                className="order-2 lg:order-none flex justify-center lg:justify-end lg:col-start-2 lg:row-start-1"
+              >
+                <div className="relative w-full max-w-[720px] aspect-video rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/10">
+                  <HomeHeroVideo videoId={HERO_VIDEO_ID} title={videoTitle} />
+                </div>
               </AnimateOnScroll>
             </div>
           </Container>

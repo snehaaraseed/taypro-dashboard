@@ -4,6 +4,7 @@ import { and, asc, eq, lte, sql } from "drizzle-orm";
 import type { TayproLocale } from "@/i18n/markets";
 import { getDb } from "@/lib/db";
 import { blogs, projects, translationQueue } from "@/lib/db/schema";
+import { getGeminiCallDelayMs } from "@/lib/gemini/call-delay";
 import {
   getDailyTranslationMaxPerDay,
   getDailyTranslationSplitPerType,
@@ -23,6 +24,15 @@ export type TranslationContentType = "blog" | "project";
 
 const MAX_JOBS_PER_RUN = 8;
 const MAX_ATTEMPTS = 96;
+/** Retries per queue item before giving up on non-quota transient errors. */
+const MAX_DAILY_ITEM_ATTEMPTS = 48;
+
+const PERMANENT_TRANSLATION_ERRORS = [
+  "English source post not found",
+  "Source post is not published",
+  "English source project not found",
+  "Source project is not published",
+] as const;
 
 /** Backoff for legacy translation_queue rows (admin / manual tooling only). */
 const INITIAL_QUOTA_RETRY_MS = 30 * 60 * 1000;
@@ -405,10 +415,32 @@ function classifyTranslationBatch(
   return { status: "partial", quotaFailure: false };
 }
 
+function isPermanentTranslationFailure(batch: BatchTranslationResult): boolean {
+  return batch.results.some((result) => {
+    if (result.success) return false;
+    const error = result.error ?? "";
+    return PERMANENT_TRANSLATION_ERRORS.some((msg) => error.includes(msg));
+  });
+}
+
+function dailyItemRetryDelayMs(): number {
+  return Math.max(60_000, getGeminiCallDelayMs() * 6);
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export type DailyTranslationLog = (
+  event: string,
+  detail?: Record<string, unknown>
+) => void;
+
 /** Translate up to N blogs + projects per day (dynamic split, one item at a time). */
 export async function processDailyTranslations(options?: {
   maxPerDay?: number;
   splitPerType?: number;
+  log?: DailyTranslationLog;
 }): Promise<ProcessDailyTranslationsResult> {
   const maxPerDay = options?.maxPerDay ?? getDailyTranslationMaxPerDay();
   const splitPerType =
@@ -450,47 +482,157 @@ export async function processDailyTranslations(options?: {
     items: [],
   };
 
+  const log = options?.log;
   let stopForQuota = false;
+
+  log?.("daily_run_start", {
+    maxPerDay,
+    splitPerType,
+    blogBacklog,
+    projectBacklog,
+    blogSlots,
+    projectSlots,
+    queueSize: queue.length,
+    queue: queue.map((entry) => `${entry.contentType}:${entry.slug}`),
+  });
 
   for (const item of queue) {
     if (stopForQuota) break;
 
-    result.processed += 1;
+    let attempt = 0;
+    let itemResult: DailyTranslationItemResult | null = null;
 
-    try {
-      const batch = await translateQueueItem(item);
-      const { status, quotaFailure } = classifyTranslationBatch(batch);
-
-      if (status === "completed") result.completed += 1;
-      else if (status === "skipped_quota") result.skippedQuota += 1;
-      else result.partial += 1;
-
-      result.items.push({ ...item, status, results: batch.results });
-
-      if (quotaFailure) stopForQuota = true;
-    } catch (error) {
-      const message =
-        error instanceof Error ? error.message : String(error);
-      const quota = isGeminiQuotaError(error);
-
-      result.items.push({
-        ...item,
-        status: quota ? "skipped_quota" : "failed",
-        results: TARGET_LOCALES.map((locale) => ({
-          locale,
-          success: false,
-          error: message,
-        })),
+    while (!stopForQuota) {
+      attempt += 1;
+      log?.("item_attempt", {
+        attempt,
+        contentType: item.contentType,
+        slug: item.slug,
       });
 
-      if (quota) {
-        result.skippedQuota += 1;
-        stopForQuota = true;
-      } else {
-        result.partial += 1;
+      try {
+        const batch = await translateQueueItem(item);
+        const { status, quotaFailure } = classifyTranslationBatch(batch);
+
+        if (quotaFailure) {
+          result.skippedQuota += 1;
+          itemResult = { ...item, status: "skipped_quota", results: batch.results };
+          stopForQuota = true;
+          log?.("item_quota_stop", {
+            contentType: item.contentType,
+            slug: item.slug,
+            attempt,
+            failures: batch.results.filter((r) => !r.success),
+          });
+          break;
+        }
+
+        if (status === "completed") {
+          result.completed += 1;
+          itemResult = { ...item, status: "completed", results: batch.results };
+          log?.("item_completed", {
+            contentType: item.contentType,
+            slug: item.slug,
+            attempt,
+          });
+          break;
+        }
+
+        const permanent = isPermanentTranslationFailure(batch);
+        if (permanent || attempt >= MAX_DAILY_ITEM_ATTEMPTS) {
+          result.partial += 1;
+          itemResult = {
+            ...item,
+            status: permanent ? "failed" : "partial",
+            results: batch.results,
+          };
+          log?.(permanent ? "item_failed_permanent" : "item_failed_max_attempts", {
+            contentType: item.contentType,
+            slug: item.slug,
+            attempt,
+            failures: batch.results.filter((r) => !r.success),
+          });
+          break;
+        }
+
+        const delayMs = dailyItemRetryDelayMs();
+        log?.("item_retry", {
+          contentType: item.contentType,
+          slug: item.slug,
+          attempt,
+          delayMs,
+          failures: batch.results.filter((r) => !r.success),
+        });
+        await sleep(delayMs);
+      } catch (error) {
+        const message =
+          error instanceof Error ? error.message : String(error);
+        const quota = isGeminiQuotaError(error);
+
+        if (quota) {
+          result.skippedQuota += 1;
+          itemResult = {
+            ...item,
+            status: "skipped_quota",
+            results: TARGET_LOCALES.map((locale) => ({
+              locale,
+              success: false,
+              error: message,
+            })),
+          };
+          stopForQuota = true;
+          log?.("item_quota_stop", {
+            contentType: item.contentType,
+            slug: item.slug,
+            attempt,
+            error: message,
+          });
+          break;
+        }
+
+        if (attempt >= MAX_DAILY_ITEM_ATTEMPTS) {
+          result.partial += 1;
+          itemResult = {
+            ...item,
+            status: "failed",
+            results: TARGET_LOCALES.map((locale) => ({
+              locale,
+              success: false,
+              error: message,
+            })),
+          };
+          log?.("item_failed_max_attempts", {
+            contentType: item.contentType,
+            slug: item.slug,
+            attempt,
+            error: message,
+          });
+          break;
+        }
+
+        const delayMs = dailyItemRetryDelayMs();
+        log?.("item_retry", {
+          contentType: item.contentType,
+          slug: item.slug,
+          attempt,
+          delayMs,
+          error: message,
+        });
+        await sleep(delayMs);
       }
     }
+
+    result.processed += 1;
+    if (itemResult) result.items.push(itemResult);
   }
+
+  log?.("daily_run_end", {
+    processed: result.processed,
+    completed: result.completed,
+    partial: result.partial,
+    skippedQuota: result.skippedQuota,
+    quotaSkippedForDay: stopForQuota,
+  });
 
   if (stopForQuota) {
     result.quotaSkippedForDay = true;

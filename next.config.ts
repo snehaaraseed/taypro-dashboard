@@ -392,6 +392,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/tayproasset/taypro-robotFeature.jpg",
+        destination: "/tayproasset/taypro-robotFeature.webp",
+        permanent: true,
+      },
+      {
         source: "/tayprorobots/taypro-opex.jpg",
         destination: "/tayprorobots/taypro-opex.webp",
         permanent: true,

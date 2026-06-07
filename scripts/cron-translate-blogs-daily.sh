@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-# Daily cron: translate up to CMS_TRANSLATION_MAX_PER_DAY blogs + projects (default 10, split 5+5).
+# Daily cron: fire-and-forget CMS translation worker (up to CMS_TRANSLATION_MAX_PER_DAY items).
+# Worker runs in background — not limited by HTTP/curl timeouts; logs to blog-translation-daily.log.
 set -euo pipefail
 
 ROOT="${TAYPRO_APP_ROOT:-/var/www/taypro-dashboard}"
-# Default under app dir — ubuntu cron cannot create new files in /var/log (Permission denied).
 LOG="${BLOG_TRANSLATION_LOG:-$ROOT/logs/blog-translation-daily.log}"
 ENV_FILE="$ROOT/.env.production"
+WORKER="scripts/run-daily-cms-translations.ts"
 
 mkdir -p "$(dirname "$LOG")"
 
@@ -19,18 +20,35 @@ set -a
 source "$ENV_FILE"
 set +a
 
-if [ -z "${AUTOMATION_CRON_SECRET:-}" ]; then
-  echo "$(date -Is) ERROR: AUTOMATION_CRON_SECRET not set" >> "$LOG"
+if [ -z "${GEMINI_API_KEY:-}" ] && [ -z "${GEMINI_API_KEY_2:-}" ]; then
+  echo "$(date -Is) ERROR: GEMINI_API_KEY not set" >> "$LOG"
   exit 1
 fi
 
-API_BASE="${CMS_CRON_API_BASE:-http://127.0.0.1:3000}"
-ENDPOINT="${API_BASE%/}/api/automation/retry-translations"
+cd "$ROOT"
 
-{
-  echo "$(date -Is) POST $ENDPOINT"
-  curl -sS -m 900 -X POST "$ENDPOINT" \
-    -H "Authorization: Bearer ${AUTOMATION_CRON_SECRET}" \
-    -H "Content-Type: application/json"
-  echo ""
-} >> "$LOG" 2>&1
+run_worker() {
+  npx tsx "$WORKER"
+}
+
+if [ "${CMS_TRANSLATION_FOREGROUND:-}" = "1" ]; then
+  {
+    echo "$(date -Is) FOREGROUND worker start"
+    run_worker
+    echo "$(date -Is) FOREGROUND worker exit=$?"
+  } >> "$LOG" 2>&1
+  exit 0
+fi
+
+nohup bash -c "
+  echo \"\$(date -Is) BACKGROUND worker start (ppid=$$)\"
+  cd \"$ROOT\"
+  set -a
+  # shellcheck disable=SC1090
+  source \"$ENV_FILE\"
+  set +a
+  npx tsx \"$WORKER\"
+  echo \"\$(date -Is) BACKGROUND worker exit=\$?\"
+" >> "$LOG" 2>&1 &
+
+echo "$(date -Is) DISPATCHED background translation worker (nohup pid=$!)" >> "$LOG"

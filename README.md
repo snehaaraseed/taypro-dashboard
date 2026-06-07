@@ -17,7 +17,7 @@ Open [http://localhost:3000](http://localhost:3000).
 |---------|---------|
 | `npm run validate` | i18n, image audit, ROI/SEO tests, TypeScript, lint |
 | `npm run build` | Production build |
-| `./deploy.sh` | Server deploy (see `docs/NEW_SERVER_DEPLOYMENT.md`) |
+| `./deploy.sh` | Production deploy — zero-downtime, CMS-safe (see `docs/DEPLOYMENT_CONTENT_PRESERVATION.md`) |
 | `npm run cms:deploy-prep` | Pre-deploy CMS checks |
 
 ## Documentation

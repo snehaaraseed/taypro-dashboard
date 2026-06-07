@@ -3,16 +3,16 @@
 import Image from "next/image";
 import { useState } from "react";
 
+export const HERO_VIDEO_POSTER = "/tayproasset/taypro-robotFeature.webp";
+
 interface HomeHeroVideoProps {
   videoId: string;
   title: string;
 }
 
-/** Click-to-play facade, avoids loading YouTube iframe until interaction (LCP). */
+/** Click-to-play facade; poster is lazy-loaded so mobile LCP stays on the H1. */
 export default function HomeHeroVideo({ videoId, title }: HomeHeroVideoProps) {
   const [active, setActive] = useState(false);
-  /** Local poster avoids third-party latency on LCP (YouTube loads only on play). */
-  const poster = "/tayproasset/taypro-robotFeature.jpg";
 
   if (active) {
     return (
@@ -34,14 +34,13 @@ export default function HomeHeroVideo({ videoId, title }: HomeHeroVideoProps) {
       aria-label={`Play video: ${title}`}
     >
       <Image
-        src={poster}
+        src={HERO_VIDEO_POSTER}
         alt={title}
         fill
         className="object-cover object-center transition group-hover:scale-[1.02]"
-        sizes="(max-width: 1024px) 100vw, 720px"
-        quality={80}
-        priority
-        fetchPriority="high"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 720px"
+        quality={75}
+        loading="lazy"
       />
       <span
         className="absolute inset-0 bg-[#052638]/25 transition group-hover:bg-[#052638]/15"

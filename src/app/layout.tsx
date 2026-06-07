@@ -9,7 +9,7 @@ const blinker = Blinker({
   subsets: ["latin"],
   weight: ["400", "600"],
   display: "swap",
-  preload: true,
+  preload: false,
   adjustFontFallback: true,
 });
 
@@ -36,9 +36,6 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning>
-      <head>
-        <link rel="dns-prefetch" href="https://img.youtube.com" />
-      </head>
       <body className={blinker.className} suppressHydrationWarning>
         {children}
       </body>

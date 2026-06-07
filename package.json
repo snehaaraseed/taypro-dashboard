@@ -14,6 +14,7 @@
     "cms:translate:blogs": "node scripts/translate-cms-content.mjs --blogs",
     "cms:translate:projects": "node scripts/translate-cms-content.mjs --projects-only",
     "cms:translate-blogs-daily": "bash scripts/cron-translate-blogs-daily.sh",
+    "cms:translate-blogs-daily:worker": "tsx scripts/run-daily-cms-translations.ts",
     "gsc:sync": "bash scripts/cron-sync-gsc-boost.sh",
     "seo:competitor-kb": "node scripts/seo-competitor-kb-summary.mjs",
     "seo:test-serp-grounding": "node scripts/test-serp-grounding.mjs",
