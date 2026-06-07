@@ -140,11 +140,12 @@ export default function Header() {
                 src="/tayproasset/taypro-logo.png"
                 alt="Taypro Logo - Solar Panel Cleaning Robot Manufacturer"
                 title="Taypro - Solar Panel Cleaning Robot Manufacturer Logo"
-                width={3696}
-                height={1002}
+                width={400}
+                height={108}
+                sizes="(max-width: 640px) 160px, 200px"
                 className="h-10 w-auto sm:h-12"
                 priority
-                quality={90}
+                quality={75}
               />
             </Link>
           </div>

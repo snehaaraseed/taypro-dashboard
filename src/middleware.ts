@@ -70,16 +70,17 @@ function applySecurityAndCacheHeaders(
     "Permissions-Policy",
     "camera=(), microphone=(), geolocation=(), interest-cohort=()"
   );
+  response.headers.set("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
   response.headers.set(
     "Content-Security-Policy",
     [
       "default-src 'self'",
-      // GTM, GA4, Microsoft Clarity (ClarityLoader), LinkedIn Insight (via GTM)
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://scripts.clarity.ms https://snap.licdn.com",
+      // GTM, GA4, Microsoft Clarity (ClarityLoader), LinkedIn Insight (via GTM), Cloudflare Web Analytics
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://scripts.clarity.ms https://snap.licdn.com https://static.cloudflareinsights.com",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https:",
       "font-src 'self' data:",
-      "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://console.taypro.in https://*.clarity.ms https://px.ads.linkedin.com",
+      "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://console.taypro.in https://*.clarity.ms https://px.ads.linkedin.com https://cloudflareinsights.com",
       "frame-src 'self' https://app.taypro.in https://www.youtube.com https://www.youtube-nocookie.com",
       "object-src 'none'",
       "base-uri 'self'",

@@ -26,13 +26,14 @@ function useIdleReady(timeoutMs = 4000) {
   return ready;
 }
 
-/** Analytics, lead UI, and consent, consent first; rest after idle. */
+/** Analytics, lead UI, and consent — both deferred so cookie banner cannot steal LCP. */
 export default function DeferredLayoutWidgets() {
-  const secondaryReady = useIdleReady(4000);
+  const consentReady = useIdleReady(4000);
+  const secondaryReady = useIdleReady(5000);
 
   return (
     <>
-      <CookieConsent />
+      {consentReady ? <CookieConsent /> : null}
       {secondaryReady ? <DeferredSecondaryWidgets /> : null}
     </>
   );

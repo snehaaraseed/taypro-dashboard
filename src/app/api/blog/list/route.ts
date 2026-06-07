@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { listAllBlogs } from "@/lib/cms/blogService";
 
+import type { TayproLocale } from "@/i18n/markets";
+
 export interface DynamicBlog {
   title: string;
   description: string;
@@ -13,6 +15,8 @@ export interface DynamicBlog {
   href: string;
   source: "db" | "console";
   id?: string;
+  /** Open in this locale when href is an English fallback (next-intl Link). */
+  linkLocale?: TayproLocale;
 }
 
 export async function GET(request: Request) {

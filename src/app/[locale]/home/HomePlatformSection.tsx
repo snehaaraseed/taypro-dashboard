@@ -46,7 +46,7 @@ export default async function HomePlatformSection() {
                 </p>
                 <Link
                   href={t(`pillars.${key}.href`)}
-                  className="text-[#A8C117] text-sm font-medium hover:underline underline-offset-4"
+                  className="brand-inline-link text-sm font-medium"
                 >
                   {t(`pillars.${key}.link`)}
                 </Link>

@@ -5,6 +5,7 @@ import {
 } from "@/i18n/markets";
 import {
   DEFAULT_FREE_GEMINI_TEXT_MODEL,
+  FREE_GEMINI_TEXT_MODEL_RETRY,
   resolveFreeGeminiTextModel,
 } from "@/lib/gemini/free-tier-models";
 
@@ -23,6 +24,52 @@ export function geminiTranslationModel(): string {
   return resolveFreeGeminiTextModel(
     process.env.GEMINI_TRANSLATION_MODEL?.trim(),
     DEFAULT_FREE_GEMINI_TEXT_MODEL
+  );
+}
+
+/** Ordered free-tier models for translation (primary → retry variant). */
+export function geminiTranslationModelCandidates(): string[] {
+  const primary = resolveFreeGeminiTextModel(
+    process.env.GEMINI_TRANSLATION_MODEL?.trim(),
+    DEFAULT_FREE_GEMINI_TEXT_MODEL
+  );
+  const retry = resolveFreeGeminiTextModel(
+    process.env.GEMINI_TRANSLATION_RETRY_MODEL?.trim(),
+    FREE_GEMINI_TEXT_MODEL_RETRY
+  );
+
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const model of [primary, retry, DEFAULT_FREE_GEMINI_TEXT_MODEL, FREE_GEMINI_TEXT_MODEL_RETRY]) {
+    const id = model.trim().toLowerCase();
+    if (!id || seen.has(id)) continue;
+    seen.add(id);
+    out.push(id);
+  }
+  return out.length > 0 ? out : [DEFAULT_FREE_GEMINI_TEXT_MODEL];
+}
+
+/** Split large HTML bodies into separate Gemini calls above this size (masked chars). */
+export function getTranslationContentChunkChars(): number {
+  return parsePositiveInt(
+    process.env.CMS_TRANSLATION_CONTENT_CHUNK_CHARS?.trim(),
+    10_000
+  );
+}
+
+/** Pause before retrying a queue item after transient 503 / high-demand errors. */
+export function getTranslationRetry503Ms(): number {
+  return parsePositiveInt(
+    process.env.CMS_TRANSLATION_RETRY_503_MS?.trim(),
+    5_000
+  );
+}
+
+/** Pause before retrying after JSON parse failures or other non-quota errors. */
+export function getTranslationRetryErrorMs(): number {
+  return parsePositiveInt(
+    process.env.CMS_TRANSLATION_RETRY_ERROR_MS?.trim(),
+    10_000
   );
 }
 

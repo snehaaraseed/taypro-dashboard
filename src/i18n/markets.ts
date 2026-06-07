@@ -34,8 +34,8 @@ export const LOCALE_LABELS: Record<
 
 /** Tier 1 + Japan, country ↔ locale mapping */
 export const EXPANSION_MARKETS: TayproMarket[] = [
-  // India (home)
-  { id: "in", country: "India", tier: "tier1", locale: "hi", regionCode: "IN", notes: "Also served in English (default URLs)" },
+  // India (home) — English first visit; Hindi at /hi/ via language switcher
+  { id: "in", country: "India", tier: "tier1", locale: "en", regionCode: "IN", notes: "B2B default English; Hindi content at /hi/" },
   // South Asia
   { id: "bd", country: "Bangladesh", tier: "tier1", locale: "bn", regionCode: "BD" },
   { id: "lk", country: "Sri Lanka", tier: "tier1", locale: "en", regionCode: "LK", notes: "B2B tenders typically English" },

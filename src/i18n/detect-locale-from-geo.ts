@@ -71,16 +71,23 @@ function hasLocalePreferenceCookie(request: NextRequest): boolean {
   return Boolean(value && isActiveLocale(value));
 }
 
+/** Countries that always get English on first visit (overrides browser hi-IN, etc.). */
+const FORCE_ENGLISH_COUNTRIES = new Set(["IN"]);
+
 /**
  * Infer locale from visitor country (IP geo headers). Returns null when
- * country is unknown or detection should defer to Accept-Language.
+ * country is unknown or should use natural Accept-Language / default English.
+ * India → English; GCC/Japan/Bangladesh → mapped locale; others → null.
  */
 export function detectLocaleFromGeo(
   request: NextRequest
 ): TayproLocale | null {
   const country = getCountryCodeFromRequest(request);
   if (!country) return null;
-  return getLocaleForCountryCode(country);
+  if (FORCE_ENGLISH_COUNTRIES.has(country)) return "en";
+  const locale = getLocaleForCountryCode(country);
+  if (!locale || locale === routing.defaultLocale) return null;
+  return locale;
 }
 
 /**
@@ -98,7 +105,10 @@ export function withGeoLocaleDetection(request: NextRequest): NextRequest {
   if (!geoLocale) return request;
 
   const headers = new Headers(request.headers);
-  headers.set("accept-language", ACCEPT_LANGUAGE_BY_LOCALE[geoLocale]);
+  headers.set(
+    "accept-language",
+    ACCEPT_LANGUAGE_BY_LOCALE[geoLocale] ?? ACCEPT_LANGUAGE_BY_LOCALE.en
+  );
 
   return new NextRequest(request.url, {
     headers,

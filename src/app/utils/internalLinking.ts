@@ -1,11 +1,14 @@
 import { DynamicBlog } from "../api/blog/list/route";
 
 /** Published project card / case study used for cross-links. */
+import type { TayproLocale } from "@/i18n/markets";
+
 export interface ProjectLinkSource {
   slug: string;
   title: string;
   href: string;
   description?: string;
+  linkLocale?: TayproLocale;
 }
 
 export interface InternalLink {

@@ -500,9 +500,20 @@ a.internal-link:hover {
   }
 }
 
+/* Inline brand links — always underlined so color is not the only cue (a11y) */
+.brand-inline-link {
+  color: #a8c117;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.brand-inline-link:hover {
+  text-decoration: none;
+}
+
 /* Scroll-reveal transitions (AnimateOnScroll) — avoids per-element inline transition styles */
 .aos-transition {
-  transition-property: all;
+  transition-property: opacity, transform;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   transition-duration: var(--aos-duration, 600ms);
   transition-delay: var(--aos-delay, 0ms);

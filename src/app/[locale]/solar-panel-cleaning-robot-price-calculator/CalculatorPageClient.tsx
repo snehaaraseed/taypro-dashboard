@@ -340,42 +340,42 @@ export default function CalculatorPageClient({
                   {t("methodology.paragraph1BeforeTech")}{" "}
                   <Link
                     href="/cleaning-technology"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("methodology.paragraph1TechLink")}
                   </Link>
                   {t("methodology.paragraph1Between")}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("methodology.paragraph1ModelA")}
                   </Link>
                   {t("methodology.paragraph1BetweenModels")}{" "}
                   <Link
                     href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("methodology.paragraph1ModelB")}
                   </Link>
                   {t("methodology.paragraph1Or")}{" "}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("methodology.paragraph1ModelT")}
                   </Link>
                   {t("methodology.paragraph1AfterModels")}{" "}
                   <Link
                     href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("methodology.paragraph1OpexLink")}
                   </Link>
                   {t("methodology.paragraph1AfterOpex")}{" "}
                   <Link
                     href="/solar-panel-cleaning-system"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("methodology.paragraph1OverviewLink")}
                   </Link>
@@ -385,12 +385,12 @@ export default function CalculatorPageClient({
                   {t("methodology.paragraph2BeforeNectyr")}{" "}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("methodology.paragraph2NectyrLink")}
                   </Link>
                   {t("methodology.paragraph2Between")}{" "}
-                  <Link href="/projects" className="text-[#A8C117] hover:underline">
+                  <Link href="/projects" className="brand-inline-link">
                     {t("methodology.paragraph2ProjectsLink")}
                   </Link>
                   {t("methodology.paragraph2End")}

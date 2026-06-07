@@ -129,21 +129,21 @@ export default async function NectyrPage({
                   portfolios, multi-block plants, and mixed fleets of{" "}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("intro.glyde")}
                   </Link>
                   ,{" "}
                   <Link
                     href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("intro.helyx")}
                   </Link>
                   , and{" "}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("intro.glydeX")}
                   </Link>{" "}
@@ -258,7 +258,7 @@ export default async function NectyrPage({
                   {t("workflow.p2Before")}{" "}
                   <Link
                     href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("workflow.opexLink")}
                   </Link>{" "}
@@ -268,7 +268,7 @@ export default async function NectyrPage({
                   {t("workflow.p3Before")}{" "}
                   <Link
                     href="/solar-panel-cleaning-system"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("workflow.categoryLink")}
                   </Link>{" "}
@@ -278,14 +278,14 @@ export default async function NectyrPage({
                   {t("workflow.p4Before")}{" "}
                   <Link
                     href="/blog/the-role-of-data-analytics-in-solar-panel-cleaning-improving-efficiency-with-taypro"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("workflow.blogAnalytics")}
                   </Link>{" "}
                   {t("workflow.p4Mid")}{" "}
                   <Link
                     href="/blog/beyond-cleaning-how-automated-systems-can-monitor-solar-panel-performance"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("workflow.blogMonitoring")}
                   </Link>
@@ -319,7 +319,7 @@ export default async function NectyrPage({
                   {t("scheduling.p2Before")}{" "}
                   <Link
                     href="/solar-panel-cleaning-robot-price-calculator#calculator"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("scheduling.roiLink")}
                   </Link>{" "}
@@ -406,7 +406,7 @@ export default async function NectyrPage({
                     {t("cta.bodyBefore")}{" "}
                     <ContactEmailLink
                       mailbox="service"
-                      className="text-[#A8C117] hover:underline font-medium"
+                      className="brand-inline-link font-medium"
                     >
                       {t("cta.emailServiceLink")}
                     </ContactEmailLink>

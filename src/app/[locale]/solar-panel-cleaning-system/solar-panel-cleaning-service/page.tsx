@@ -160,21 +160,21 @@ export default async function SolarPanelCleaningService({
               {t("hero.subtitleDeploy")}{" "}
               <Link
                 href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
-                className="text-[#A8C117] hover:underline"
+                className="brand-inline-link"
               >
                 {t("hero.glyde")}
               </Link>
               ,{" "}
               <Link
                 href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
-                className="text-[#A8C117] hover:underline"
+                className="brand-inline-link"
               >
                 {t("hero.helyx")}
               </Link>
               , {t("hero.subtitleOr")}{" "}
               <Link
                 href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
-                className="text-[#A8C117] hover:underline"
+                className="brand-inline-link"
               >
                 {t("hero.glydeX")}
               </Link>{" "}, {t("hero.subtitleProgramme")}{" "}
@@ -182,7 +182,7 @@ export default async function SolarPanelCleaningService({
               {t("hero.subtitleAfter")}{" "}
               <Link
                 href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
-                className="text-[#A8C117] hover:underline"
+                className="brand-inline-link"
               >
                 {t("hero.nectyr")}
               </Link>
@@ -235,14 +235,14 @@ export default async function SolarPanelCleaningService({
                   {t("overview.p4Prefix")}
                   <Link
                     href="/blog/cost-benefit-analysis-of-solar-panel-cleaning-services-in-india"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("overview.linkBlogCost")}
                   </Link>
                   {t("overview.p4Mid")}
                   <Link
                     href="/blog/why-solar-power-plants-need-robotic-cleaning-for-maximum-roi"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("overview.linkBlogRoi")}
                   </Link>
@@ -553,28 +553,28 @@ export default async function SolarPanelCleaningService({
               {t("opexVsCapex.explorePrefix")}
               <Link
                 href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
-                className="text-[#A8C117] hover:underline"
+                className="brand-inline-link"
               >
                 {t("opexVsCapex.linkGlyde")}
               </Link>
               {t("opexVsCapex.linkBetweenAB")}
               <Link
                 href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
-                className="text-[#A8C117] hover:underline"
+                className="brand-inline-link"
               >
                 {t("opexVsCapex.linkHelyx")}
               </Link>
               {t("opexVsCapex.linkBetweenBT")}
               <Link
                 href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
-                className="text-[#A8C117] hover:underline"
+                className="brand-inline-link"
               >
                 {t("opexVsCapex.linkGlydeX")}
               </Link>
               {t("opexVsCapex.linkBetweenTAndNectyr")}
               <Link
                 href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
-                className="text-[#A8C117] hover:underline"
+                className="brand-inline-link"
               >
                 {t("opexVsCapex.linkNectyr")}
               </Link>

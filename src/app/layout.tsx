@@ -9,7 +9,7 @@ const blinker = Blinker({
   subsets: ["latin"],
   weight: ["400", "600"],
   display: "swap",
-  preload: false,
+  preload: true,
   adjustFontFallback: true,
 });
 

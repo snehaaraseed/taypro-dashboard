@@ -23,6 +23,8 @@ import {
   tayproTrustedByStatsStrip,
 } from "@/app/data";
 import { listAllBlogs } from "@/lib/cms/blogService";
+import { cmsDetailLink } from "@/lib/cms/locale-fallback";
+import { SOURCE_LOCALE } from "@/lib/translation/config";
 import { getAllFileProjects } from "@/app/utils/projectFileUtils";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { RobotCard } from "@/app/components/RobotCard";
@@ -86,8 +88,8 @@ const PREFERRED_TECH_BLOG_SLUGS = [
   "cost-benefit-analysis-of-solar-panel-cleaning-services-in-india",
 ] as const;
 
-async function getLatestProjects(limit = 3) {
-  const projects = await getAllFileProjects();
+async function getLatestProjects(locale: string, limit = 3) {
+  const projects = await getAllFileProjects(locale);
   return [...projects]
     .sort((a, b) => new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime())
     .slice(0, limit);
@@ -102,29 +104,69 @@ function blogDateLocale(locale: string) {
 }
 
 async function getBlogPostsForTechPage(locale: string, limit = 6) {
-  const all = await listAllBlogs(false);
-  const bySlug = new Map(all.map((b) => [b.slug, b]));
-  const picked: (typeof all)[number][] = [];
+  const localeRows = await listAllBlogs(false, locale);
+  const localeBySlug = new Map(localeRows.map((b) => [b.slug, b]));
+  const englishRows =
+    locale === SOURCE_LOCALE
+      ? localeRows
+      : await listAllBlogs(false, SOURCE_LOCALE);
+  const englishBySlug = new Map(englishRows.map((b) => [b.slug, b]));
+
+  type Picked = {
+    post: (typeof localeRows)[number];
+    inLocale: boolean;
+  };
+
+  const resolvePost = (slug: string): Picked | null => {
+    const localized = localeBySlug.get(slug);
+    if (localized) return { post: localized, inLocale: true };
+    const english = englishBySlug.get(slug);
+    if (english) return { post: english, inLocale: false };
+    return null;
+  };
+
+  const picked: Picked[] = [];
   for (const slug of PREFERRED_TECH_BLOG_SLUGS) {
-    const post = bySlug.get(slug);
-    if (post) picked.push(post);
+    const resolved = resolvePost(slug);
+    if (resolved) picked.push(resolved);
     if (picked.length >= limit) break;
   }
-  for (const post of all) {
+  for (const post of localeRows) {
     if (picked.length >= limit) break;
-    if (!picked.some((p) => p.slug === post.slug)) picked.push(post);
+    if (!picked.some((p) => p.post.slug === post.slug)) {
+      picked.push({ post, inLocale: true });
+    }
   }
-  return picked.slice(0, limit).map((b) => ({
-    title: b.title,
-    description: b.description,
-    href: `/blog/${b.slug}`,
-    date: new Date(b.updatedAt || b.publishDate).toLocaleDateString(blogDateLocale(locale), {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    }),
-    image: b.featuredImage && b.featuredImage.trim() !== "" ? b.featuredImage : null,
-  }));
+  if (picked.length < limit && locale !== SOURCE_LOCALE) {
+    for (const post of englishRows) {
+      if (picked.length >= limit) break;
+      if (!picked.some((p) => p.post.slug === post.slug)) {
+        picked.push({ post, inLocale: false });
+      }
+    }
+  }
+
+  return picked.slice(0, limit).map(({ post, inLocale }) => {
+    const link = cmsDetailLink("blog", post.slug, locale, inLocale);
+    return {
+      title: post.title,
+      description: post.description,
+      href: link.href,
+      linkLocale: link.linkLocale,
+      date: new Date(post.updatedAt || post.publishDate).toLocaleDateString(
+        blogDateLocale(locale),
+        {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        }
+      ),
+      image:
+        post.featuredImage && post.featuredImage.trim() !== ""
+          ? post.featuredImage
+          : null,
+    };
+  });
 }
 
 export async function generateMetadata({
@@ -277,7 +319,7 @@ export default async function CleaningTechnologyPage({
   }));
 
   const [latestProjects, techBlogPosts] = await Promise.all([
-    getLatestProjects(3),
+    getLatestProjects(locale, 3),
     getBlogPostsForTechPage(locale, 6),
   ]);
 
@@ -456,7 +498,7 @@ export default async function CleaningTechnologyPage({
                         <li key={link.href}>
                           <Link
                             href={link.href}
-                            className="inline-flex items-center gap-1.5 text-sm font-medium text-[#A8C117] hover:underline"
+                            className="inline-flex items-center gap-1.5 text-sm font-medium brand-inline-link"
                           >
                             {link.label}
                             <ArrowRight className="w-3.5 h-3.5" aria-hidden />
@@ -730,7 +772,7 @@ export default async function CleaningTechnologyPage({
                 </p>
                 <Link
                   href="/projects"
-                  className="inline-flex items-center gap-2 text-[#A8C117] font-medium hover:underline"
+                  className="inline-flex items-center gap-2 brand-inline-link font-medium"
                 >
                   {t("waterless.caseStudiesLink")}
                   <ArrowRight className="w-4 h-4" aria-hidden />
@@ -931,6 +973,7 @@ export default async function CleaningTechnologyPage({
                   >
                     <Link
                       href={post.href}
+                      locale={post.linkLocale}
                       className="group flex flex-col h-full rounded-xl border border-gray-200 bg-[#f8fafb] overflow-hidden hover:border-[#A8C117] hover:shadow-sm transition"
                     >
                       <div className="relative aspect-[16/10] bg-[#eef3f8]">

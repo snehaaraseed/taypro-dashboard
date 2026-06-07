@@ -207,7 +207,7 @@ export default async function PrivacyPolicySection({
             </ul>
             <div className="text-[#0c2f42] text-lg mb-10">
               {t("s6.contactBefore")}{" "}
-              <ContactEmailLink className="text-[#A8C117] hover:underline">
+              <ContactEmailLink className="brand-inline-link">
                 {tCommon("emailLink")}
               </ContactEmailLink>
               {t("s6.contactAfter")}

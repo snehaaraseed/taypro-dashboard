@@ -12,8 +12,18 @@ type CookiePreferences = {
 const COOKIE_CONSENT_KEY = "cookie-consent";
 const COOKIE_PREFERENCES_KEY = "cookie-preferences";
 
+function deferUntilIdle(callback: () => void, timeoutMs = 3000): () => void {
+  if (typeof requestIdleCallback === "function") {
+    const id = requestIdleCallback(callback, { timeout: timeoutMs });
+    return () => cancelIdleCallback(id);
+  }
+  const timer = window.setTimeout(callback, timeoutMs);
+  return () => clearTimeout(timer);
+}
+
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
+  const [hasConsent, setHasConsent] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [preferences, setPreferences] = useState<CookiePreferences>({
     necessary: true, // Always true, cannot be disabled
@@ -32,12 +42,9 @@ export default function CookieConsent() {
   };
 
   useEffect(() => {
-    // Check if user has already given consent
     const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
-    if (!consent) {
-      setShowBanner(true);
-    } else {
-      // Load saved preferences
+    if (consent) {
+      setHasConsent(true);
       const savedPrefs = localStorage.getItem(COOKIE_PREFERENCES_KEY);
       if (savedPrefs) {
         try {
@@ -48,7 +55,18 @@ export default function CookieConsent() {
           console.error("Error loading cookie preferences:", e);
         }
       }
+      return;
     }
+
+    // Defer banner until after load + idle so hero H1 remains LCP
+    const scheduleBanner = () => deferUntilIdle(() => setShowBanner(true), 4000);
+
+    if (document.readyState === "complete") {
+      return scheduleBanner();
+    }
+
+    window.addEventListener("load", scheduleBanner, { once: true });
+    return () => window.removeEventListener("load", scheduleBanner);
   }, []);
 
   const handleAcceptAll = () => {
@@ -81,13 +99,12 @@ export default function CookieConsent() {
     localStorage.setItem(COOKIE_CONSENT_KEY, "true");
     localStorage.setItem(COOKIE_PREFERENCES_KEY, JSON.stringify(prefs));
     setPreferences(prefs);
+    setHasConsent(true);
     applyCookiePreferences(prefs);
   };
 
   if (!showBanner) {
-    // Show settings button if consent was given
-    const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
-    if (!consent) return null;
+    if (!hasConsent) return null;
 
     return (
       <button
@@ -133,7 +150,7 @@ export default function CookieConsent() {
                     your preferences or reject non-essential cookies.{" "}
                     <a
                       href="/cookie-policy"
-                      className="text-[#A8C117] hover:underline"
+                      className="brand-inline-link"
                     >
                       Read our cookie policy
                     </a>

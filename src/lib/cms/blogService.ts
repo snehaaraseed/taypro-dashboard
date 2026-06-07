@@ -126,6 +126,20 @@ export async function listPublishedBlogSlugs(
   return rows.map((r) => r.slug);
 }
 
+/** Locales with a published row for this slug (for hreflang). */
+export async function getPublishedBlogLocales(
+  slug: string
+): Promise<TayproLocale[]> {
+  const db = getDb();
+  const rows = await db
+    .select({ locale: blogs.locale })
+    .from(blogs)
+    .where(and(eq(blogs.slug, slug), eq(blogs.published, true)));
+  return rows
+    .map((r) => r.locale)
+    .filter(isActiveLocale) as TayproLocale[];
+}
+
 export type BlogSitemapEntry = {
   slug: string;
   locale: TayproLocale;

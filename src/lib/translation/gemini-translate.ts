@@ -1,22 +1,18 @@
 import "server-only";
 
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import type { TayproLocale } from "@/i18n/markets";
-import { geminiTranslationModel, localeDisplayName } from "./config";
+import {
+  getTranslationContentChunkChars,
+  localeDisplayName,
+} from "./config";
+import { generateTranslationJson } from "./gemini-call";
 import {
   maskMediaInHtml,
   repairTranslatedBlogHtml,
   unmaskMediaInHtml,
 } from "./preserve-html";
 import type { BlogFaqItem } from "@/lib/cms/blog-faqs";
-import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
-import {
-  assertGeminiCallAllowed,
-  recordGeminiCall,
-} from "@/lib/gemini/daily-budget";
 import { PUNCTUATION_RULES, sanitizeEmDash } from "@/lib/seo/content-quality";
-
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
 
 export type TranslatableFields = {
   title: string;
@@ -28,86 +24,176 @@ export type TranslatableFields = {
 
 export type TranslatedFields = TranslatableFields;
 
-function parseJsonObject<T>(text: string): T {
-  const trimmed = text.trim();
-  try {
-    return JSON.parse(trimmed) as T;
-  } catch {
-    const match = trimmed.match(/\{[\s\S]*\}/);
-    if (!match) throw new Error("Gemini response did not contain JSON");
-    return JSON.parse(match[0]) as T;
+const BRAND_RULES =
+  "Keep brand names (Taypro, GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, NECTYR, TÜV NORD) and standard units (MW, kWh) unless a well-known localized form exists.";
+
+function splitMaskedHtmlForTranslation(html: string, maxChunkSize: number): string[] {
+  if (html.length <= maxChunkSize) return [html];
+
+  const chunks: string[] = [];
+  let start = 0;
+
+  while (start < html.length) {
+    let end = Math.min(start + maxChunkSize, html.length);
+    if (end < html.length) {
+      const slice = html.slice(start, end);
+      const breakTags = [...slice.matchAll(/<\/(?:p|section|h[1-6]|div|li|table|ul|ol)>/gi)];
+      const last = breakTags[breakTags.length - 1];
+      if (last?.index !== undefined && last.index > maxChunkSize * 0.4) {
+        end = start + last.index + last[0].length;
+      }
+    }
+    chunks.push(html.slice(start, end));
+    start = end;
   }
+
+  return chunks;
 }
 
-/**
- * Translate CMS fields via Gemini while preserving masked media placeholders in HTML.
- */
-export async function translateFieldsWithGemini(
-  source: TranslatableFields,
+async function translateMetadataFields(
+  source: Pick<
+    TranslatableFields,
+    "title" | "description" | "featuredImageAlt" | "imageAlt"
+  >,
   targetLocale: TayproLocale
-): Promise<TranslatedFields> {
-  if (!process.env.GEMINI_API_KEY?.trim()) {
-    throw new Error("GEMINI_API_KEY is not set");
-  }
-
-  const { masked, fragments } = maskMediaInHtml(source.content);
+): Promise<{
+  title: string;
+  description: string;
+  featuredImageAlt?: string;
+  imageAlt?: string;
+}> {
   const language = localeDisplayName(targetLocale);
-
-  const model = genAI.getGenerativeModel({ model: geminiTranslationModel() });
+  const altKeys: string[] = [];
+  if (source.featuredImageAlt !== undefined) altKeys.push("featuredImageAlt");
+  if (source.imageAlt !== undefined) altKeys.push("imageAlt");
 
   const prompt = `You are an expert B2B translator for the solar energy and solar panel cleaning robot industry (Taypro).
 
-Translate the following content from English to ${language} (locale code: ${targetLocale}).
+Translate the following metadata from English to ${language} (locale code: ${targetLocale}).
 
 STRICT RULES:
-1. Return ONLY valid JSON with keys: title, description, content${source.featuredImageAlt !== undefined ? ", featuredImageAlt" : ""}${source.imageAlt !== undefined ? ", imageAlt" : ""}.
-2. In "content", preserve EVERY media placeholder exactly as written (e.g. ⟦M0⟧, ⟦M1⟧). Do NOT remove, translate, or renumber them.
-3. Preserve all HTML tags and attribute names in "content". Only translate human-readable text nodes.
-4. Do NOT change URLs, file paths, image src values, email addresses, or HTML attributes inside placeholders.
-5. Keep brand names (Taypro, GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, NECTYR, TÜV NORD) and standard units (MW, kWh) unless a well-known localized form exists.
-6. Use professional, natural ${language} suitable for utility-scale solar plant operators.
-7. Meta description: stay within ~160 characters where possible.
-8. Translate the FULL body — do NOT summarize, shorten, or omit sections. Output length should be similar to the English source.
-9. Preserve every <a href="/..."> internal link from the source (same href paths; translate anchor text only).
+1. Return ONLY valid JSON with keys: title, description${altKeys.length ? `, ${altKeys.join(", ")}` : ""}.
+2. ${BRAND_RULES}
+3. Meta description: stay within ~160 characters where possible.
+4. Do NOT include HTML body content — metadata only.
 ${PUNCTUATION_RULES}
 
 Source JSON:
 ${JSON.stringify({
     title: source.title,
     description: source.description,
-    content: masked,
     ...(source.featuredImageAlt !== undefined
       ? { featuredImageAlt: source.featuredImageAlt }
       : {}),
     ...(source.imageAlt !== undefined ? { imageAlt: source.imageAlt } : {}),
   })}`;
 
-  let raw: string;
-  try {
-    assertGeminiCallAllowed("translation");
-    const result = await model.generateContent(prompt);
-    raw = result.response.text();
-  } finally {
-    recordGeminiCall("translation");
-    await pauseAfterGeminiCall();
-  }
-  const parsed = parseJsonObject<TranslatedFields>(raw);
+  const parsed = await generateTranslationJson<{
+    title: string;
+    description: string;
+    featuredImageAlt?: string;
+    imageAlt?: string;
+  }>(prompt);
 
-  if (!parsed.title?.trim() || !parsed.description?.trim() || !parsed.content?.trim()) {
-    throw new Error(`Incomplete translation for locale ${targetLocale}`);
+  if (!parsed.title?.trim() || !parsed.description?.trim()) {
+    throw new Error(`Incomplete metadata translation for locale ${targetLocale}`);
   }
-
-  parsed.content = unmaskMediaInHtml(parsed.content, fragments);
-  parsed.content = repairTranslatedBlogHtml(source.content, parsed.content);
 
   return {
     title: sanitizeEmDash(parsed.title.trim()),
     description: sanitizeEmDash(parsed.description.trim()),
-    content: sanitizeEmDash(parsed.content.trim()),
     featuredImageAlt: parsed.featuredImageAlt
       ? sanitizeEmDash(parsed.featuredImageAlt.trim())
       : undefined,
     imageAlt: parsed.imageAlt ? sanitizeEmDash(parsed.imageAlt.trim()) : undefined,
+  };
+}
+
+async function translateContentFragment(
+  maskedFragment: string,
+  targetLocale: TayproLocale,
+  chunkIndex: number,
+  chunkCount: number
+): Promise<string> {
+  const language = localeDisplayName(targetLocale);
+  const chunkNote =
+    chunkCount > 1
+      ? `\n8. This is HTML fragment ${chunkIndex + 1} of ${chunkCount}. Translate the FULL fragment — do not summarize.`
+      : "\n8. Output length should be similar to the English source.";
+
+  const prompt = `You are an expert B2B translator for the solar energy and solar panel cleaning robot industry (Taypro).
+
+Translate ONLY the HTML body fragment from English to ${language} (locale code: ${targetLocale}).
+
+STRICT RULES:
+1. Return ONLY valid JSON with a single key: "content".
+2. Preserve EVERY media placeholder exactly as written (e.g. ⟦M0⟧, ⟦M1⟧). Do NOT remove, translate, or renumber them.
+3. Preserve all HTML tags and attribute names. Only translate human-readable text nodes.
+4. Do NOT change URLs, file paths, image src values, email addresses, or HTML attributes inside placeholders.
+5. ${BRAND_RULES}
+6. Use professional, natural ${language} suitable for utility-scale solar plant operators.
+7. Preserve every <a href="/..."> internal link from the source (same href paths; translate anchor text only).${chunkNote}
+${PUNCTUATION_RULES}
+
+Source JSON:
+${JSON.stringify({ content: maskedFragment })}`;
+
+  const parsed = await generateTranslationJson<{ content: string }>(prompt);
+  if (!parsed.content?.trim()) {
+    throw new Error(
+      `Incomplete content translation for locale ${targetLocale} (chunk ${chunkIndex + 1}/${chunkCount})`
+    );
+  }
+  return sanitizeEmDash(parsed.content.trim());
+}
+
+async function translateContentField(
+  masked: string,
+  fragments: Map<string, string>,
+  sourceContent: string,
+  targetLocale: TayproLocale
+): Promise<string> {
+  const chunks = splitMaskedHtmlForTranslation(
+    masked,
+    getTranslationContentChunkChars()
+  );
+  const translatedParts: string[] = [];
+
+  for (let i = 0; i < chunks.length; i += 1) {
+    translatedParts.push(
+      await translateContentFragment(chunks[i], targetLocale, i, chunks.length)
+    );
+  }
+
+  let content = translatedParts.join("");
+  content = unmaskMediaInHtml(content, fragments);
+  content = repairTranslatedBlogHtml(sourceContent, content);
+  return content;
+}
+
+/**
+ * Translate CMS fields via Gemini while preserving masked media placeholders in HTML.
+ * Metadata and body are separate API calls; large bodies are chunked.
+ */
+export async function translateFieldsWithGemini(
+  source: TranslatableFields,
+  targetLocale: TayproLocale
+): Promise<TranslatedFields> {
+  const { masked, fragments } = maskMediaInHtml(source.content);
+  const metadata = await translateMetadataFields(source, targetLocale);
+  const content = await translateContentField(
+    masked,
+    fragments,
+    source.content,
+    targetLocale
+  );
+
+  return {
+    title: metadata.title,
+    description: metadata.description,
+    content,
+    featuredImageAlt: metadata.featuredImageAlt,
+    imageAlt: metadata.imageAlt,
   };
 }
 
@@ -117,30 +203,15 @@ export async function translateStringListWithGemini(
   targetLocale: TayproLocale
 ): Promise<string[]> {
   if (!items.length) return [];
-  if (!process.env.GEMINI_API_KEY?.trim()) {
-    throw new Error("GEMINI_API_KEY is not set");
-  }
 
-  const model = genAI.getGenerativeModel({ model: geminiTranslationModel() });
   const language = localeDisplayName(targetLocale);
-
   const prompt = `Translate each string in this JSON array from English to ${language} (${targetLocale}).
 Return ONLY a JSON array of strings with the same length and order. Keep numbers and units accurate.
 ${PUNCTUATION_RULES}
 
 ${JSON.stringify(items)}`;
 
-  let responseText: string;
-  try {
-    assertGeminiCallAllowed("translation");
-    const result = await model.generateContent(prompt);
-    responseText = result.response.text();
-  } finally {
-    recordGeminiCall("translation");
-    await pauseAfterGeminiCall();
-  }
-  const parsed = parseJsonObject<string[]>(responseText);
-
+  const parsed = await generateTranslationJson<string[]>(prompt);
   if (!Array.isArray(parsed) || parsed.length !== items.length) {
     throw new Error(`Project details translation length mismatch for ${targetLocale}`);
   }
@@ -154,32 +225,17 @@ export async function translateBlogFaqsWithGemini(
   targetLocale: TayproLocale
 ): Promise<BlogFaqItem[]> {
   if (!faqs.length) return [];
-  if (!process.env.GEMINI_API_KEY?.trim()) {
-    throw new Error("GEMINI_API_KEY is not set");
-  }
 
-  const model = genAI.getGenerativeModel({ model: geminiTranslationModel() });
   const language = localeDisplayName(targetLocale);
-
   const prompt = `Translate each FAQ object in this JSON array from English to ${language} (${targetLocale}).
 Return ONLY a JSON array of objects with keys "question" and "answer", same length and order.
-Keep brand names (Taypro, GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, NECTYR) unchanged unless a well-known localized form exists.
+${BRAND_RULES}
 Use professional ${language} for utility-scale solar plant operators.
 ${PUNCTUATION_RULES}
 
 ${JSON.stringify(faqs)}`;
 
-  let responseText: string;
-  try {
-    assertGeminiCallAllowed("translation");
-    const result = await model.generateContent(prompt);
-    responseText = result.response.text();
-  } finally {
-    recordGeminiCall("translation");
-    await pauseAfterGeminiCall();
-  }
-  const parsed = parseJsonObject<BlogFaqItem[]>(responseText);
-
+  const parsed = await generateTranslationJson<BlogFaqItem[]>(prompt);
   if (!Array.isArray(parsed) || parsed.length !== faqs.length) {
     throw new Error(`FAQ translation length mismatch for ${targetLocale}`);
   }

@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
       linkedInUrl = undefined;
     }
 
-    const authors = await upsertAuthor({
+    const { authors, propagated } = await upsertAuthor({
       name,
       role,
       bio,
@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
       expertiseTags: Array.isArray(expertiseTags) ? expertiseTags : undefined,
     });
     revalidateSitemap();
-    return NextResponse.json({ success: true, authors });
+    return NextResponse.json({ success: true, authors, propagated });
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : "Unknown error" },

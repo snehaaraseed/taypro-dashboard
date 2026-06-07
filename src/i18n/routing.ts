@@ -7,8 +7,9 @@ export const routing = defineRouting({
   /** Keep indexed URLs: taypro.in/blog/... (no /en prefix) */
   localePrefix: "as-needed",
   /**
-   * Cookie + Accept-Language; middleware also biases Accept-Language from
-   * IP country headers (Vercel / Cloudflare / CloudFront) for Tier 1 + Japan.
+   * Cookie + Accept-Language; middleware biases Accept-Language from IP geo
+   * (Cloudflare cf-ipcountry, etc.) for non-India Tier 1 + Japan only.
+   * India and unmapped countries default to English.
    */
   localeDetection: true,
 });

@@ -398,7 +398,7 @@ export const resources = [
   },
   {
     title: "What Are The Different Types Of Solar Panels",
-    href: "/blog/what-are-the-different-types-of-solar-panels-2",
+    href: "/blog/what-are-the-different-types-of-solar-panels",
   },
   {
     title: "How to calculate Solar Plant ROI and PayBack Period",
@@ -566,7 +566,7 @@ export const energyResourceCards: EnergyResourceCard[] = [
     title: "What Are The Different Types Of Solar Panels",
     imgSrc: "/tayproenergyresource/taypro-energy-resource3.webp",
     date: "July 21, 2025",
-    href: "/blog/what-are-the-different-types-of-solar-panels-2",
+    href: "/blog/what-are-the-different-types-of-solar-panels",
   },
   {
     title: "How to calculate Solar Plant ROI and PayBack Period",
@@ -647,10 +647,10 @@ export const energyResourceCards: EnergyResourceCard[] = [
     href: "/blog/benefits-of-using-solar-panel-cleaning-robot-in-a-solar-plant",
   },
   {
-    title: "How Does A Solar Panel Cleaning Robot Work? ",
+    title: "How Are PV Panel Cleaning Robots Installed?",
     imgSrc: "/blogs/taypro-energy-resource17.webp",
     date: "April 18, 2025",
-    href: "/blog/how-does-a-solar-panel-cleaning-robot-work",
+    href: "/blog/how-are-pv-panel-cleaning-robots-installed",
   },
   {
     title: "What is a Solar Panel Cleaning Robot?",
@@ -687,7 +687,7 @@ export const energyResourceCards: EnergyResourceCard[] = [
       "What Is Solar Panel Cleaning? Why Is It Necessary To Clean Solar Panels?",
     imgSrc: "/blogs/taypro-energy-resource23.webp",
     date: "March 22, 2025",
-    href: "/blog/what-is-solar-panel-cleaning",
+    href: "/blog/what-is-solar-panel-cleaning-why-is-it-necessary-to-clean-solar-panels",
   },
   {
     title:
@@ -742,14 +742,14 @@ export const energyResourceCards: EnergyResourceCard[] = [
       "The Importance of Solar Panel Cleaning Across Different Regions of India: Tailoring Solutions for Diverse Climates",
     imgSrc: "/blogs/taypro-energy-resource31.webp",
     date: "March 6, 2025",
-    href: "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india",
+    href: "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates",
   },
   {
     title:
       "The Crucial Role of Regular Solar Panel Cleaning for Efficiency: Keeping Performance High in a Dusty World",
     imgSrc: "/blogs/taypro-energy-resource32.jpg",
     date: "March 5, 2025",
-    href: "/blog/the-importance-of-regular-solar-panel-cleaning-for-efficiency",
+    href: "/blog/the-crucial-role-of-regular-solar-panel-cleaning-for-efficiency-keeping-performance-high-in-a-dusty-world",
   },
   {
     title: "Cost-Benefit Analysis of Solar Panel Cleaning Services in India",
@@ -782,7 +782,7 @@ export const energyResourceCards: EnergyResourceCard[] = [
       "5 Signs Your Solar Plant Needs Automated Cleaning Before Revenue Starts Dropping",
     imgSrc: "/blogs/taypro-energy-resource37.jpg",
     date: "February 27, 2025",
-    href: "/blog/5-signs-your-solar-plant-needs-automated-cleaning-before-revenue-drops",
+    href: "/blog/5-signs-your-solar-plant-needs-automated-cleaning-before-revenue-starts-dropping",
   },
   {
     title:

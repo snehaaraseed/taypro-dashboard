@@ -31,7 +31,7 @@ export default function HomeHeroCTAs() {
       </Link>
       <Link
         href="/solar-panel-cleaning-robot-price-calculator#calculator"
-        className="inline-flex items-center justify-center min-h-[48px] text-[#A8C117] font-medium px-4 py-3 hover:underline text-center"
+        className="inline-flex items-center justify-center min-h-[48px] brand-inline-link font-medium px-4 py-3 text-center"
       >
         {t("ctaRoi")}
       </Link>

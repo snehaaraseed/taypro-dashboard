@@ -244,7 +244,7 @@ export default async function RobotPriceIndiaPage({
               <p className="text-gray-300 text-sm leading-relaxed">{t("capexVsOpex.capexBody")}</p>
               <Link
                 href="/solar-panel-cleaning-system"
-                className="inline-block mt-4 text-[#A8C117] text-sm font-medium hover:underline underline-offset-4"
+                className="inline-block mt-4 brand-inline-link text-sm font-medium"
               >
                 {t("capexVsOpex.capexCta")}
               </Link>
@@ -253,7 +253,7 @@ export default async function RobotPriceIndiaPage({
               <p className="text-gray-300 text-sm leading-relaxed">{t("capexVsOpex.opexBody")}</p>
               <Link
                 href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
-                className="inline-block mt-4 text-[#A8C117] text-sm font-medium hover:underline underline-offset-4"
+                className="inline-block mt-4 brand-inline-link text-sm font-medium"
               >
                 {t("capexVsOpex.opexCta")}
               </Link>

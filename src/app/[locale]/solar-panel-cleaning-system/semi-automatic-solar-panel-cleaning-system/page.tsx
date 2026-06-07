@@ -255,14 +255,14 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
                   {t("overview.p4Mid")}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("overview.linkGlyde")}
                   </Link>
                   {t("overview.p4BetweenAT")}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("overview.linkGlydeX")}
                   </Link>
@@ -272,12 +272,12 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
                   {t("overview.p5Prefix")}
                   <Link
                     href="/blog/what-are-the-different-methods-used-for-solar-panel-cleaning"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("overview.linkBlogMethods")}
                   </Link>
                   {t("overview.p5Mid")}
-                  <Link href="/blog" className="text-[#A8C117] hover:underline">
+                  <Link href="/blog" className="brand-inline-link">
                     {t("overview.linkBlog")}
                   </Link>
                   {t("overview.p5Suffix")}
@@ -712,14 +712,14 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
                 {t("helyxVsGlyde.crossSellLead")}
                 <Link
                   href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("helyxVsGlyde.linkGlydeX")}
                 </Link>
                 {t("helyxVsGlyde.crossSellMid")}
                 <Link
                   href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("helyxVsGlyde.linkOpex")}
                 </Link>
@@ -784,28 +784,28 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
                 {t("indianConditions.crossSellLead")}
                 <Link
                   href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("indianConditions.linkGlyde")}
                 </Link>
                 {t("indianConditions.linkBetweenAT")}
                 <Link
                   href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("indianConditions.linkGlydeX")}
                 </Link>
                 {t("indianConditions.linkBetweenTOpex")}
                 <Link
                   href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("indianConditions.linkOpex")}
                 </Link>
                 {t("indianConditions.linkBetweenOpexAndNectyr")}
                 <Link
                   href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("indianConditions.linkNectyr")}
                 </Link>

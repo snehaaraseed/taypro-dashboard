@@ -38,6 +38,8 @@ export function localizedUrl(
 export type LocaleAlternatesOptions = {
   /** When false, only default locale + x-default (e.g. untranslated blog posts). */
   includeAllLocales?: boolean;
+  /** When set, hreflang lists only these locales (e.g. CMS rows actually published). */
+  locales?: TayproLocale[];
   /** Appended to every locale URL (e.g. `?page=2` on blog index). */
   canonicalSuffix?: string;
 };
@@ -50,10 +52,17 @@ export function buildLocaleAlternates(
   const path = normalizeInternalPath(internalPath);
   const includeAll = options.includeAllLocales !== false;
   const suffix = options.canonicalSuffix ?? "";
+  const explicitLocales = options.locales?.filter((locale) =>
+    (routing.locales as readonly string[]).includes(locale)
+  );
 
   const languages: Record<string, string> = {};
 
-  if (includeAll) {
+  if (explicitLocales && explicitLocales.length > 0) {
+    for (const locale of explicitLocales) {
+      languages[locale] = localizedUrl(path, locale) + suffix;
+    }
+  } else if (includeAll) {
     for (const locale of routing.locales) {
       languages[locale] = localizedUrl(path, locale) + suffix;
     }
@@ -90,13 +99,21 @@ export function isTayproLocale(value: string): value is TayproLocale {
   return (ACTIVE_LOCALES as readonly string[]).includes(value);
 }
 
+/** Sitemap path for one locale (English has no `/en` prefix). */
+export function sitemapPathForLocale(
+  internalPath: string,
+  locale: TayproLocale
+): string {
+  const path = normalizeInternalPath(internalPath);
+  if (locale === routing.defaultLocale) {
+    return path;
+  }
+  return path === "/" ? `/${locale}` : `/${locale}${path}`;
+}
+
 /** Expand sitemap paths for every active locale. */
 export function sitemapPathsForAllLocales(internalPath: string): string[] {
-  const path = normalizeInternalPath(internalPath);
-  return routing.locales.map((locale) => {
-    if (locale === routing.defaultLocale) {
-      return path;
-    }
-    return path === "/" ? `/${locale}` : `/${locale}${path}`;
-  });
+  return routing.locales.map((locale) =>
+    sitemapPathForLocale(internalPath, locale)
+  );
 }

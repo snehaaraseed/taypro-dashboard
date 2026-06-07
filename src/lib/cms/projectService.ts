@@ -81,6 +81,20 @@ export async function listAllProjects(
     .map(rowToMetadata);
 }
 
+/** Locales with a published row for this slug (for hreflang). */
+export async function getPublishedProjectLocales(
+  slug: string
+): Promise<TayproLocale[]> {
+  const db = getDb();
+  const rows = await db
+    .select({ locale: projects.locale })
+    .from(projects)
+    .where(and(eq(projects.slug, slug), eq(projects.published, true)));
+  return rows
+    .map((r) => r.locale)
+    .filter(isActiveLocale) as TayproLocale[];
+}
+
 export type ProjectSitemapEntry = {
   slug: string;
   locale: TayproLocale;

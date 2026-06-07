@@ -176,35 +176,35 @@ export default async function AutomaticSolarPanelCleaningRobot({
       {t("indianConditions.crossSellLead")}
       <Link
         href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
-        className="text-[#A8C117] hover:underline"
+        className="brand-inline-link"
       >
         {t("indianConditions.linkHelyx")}
       </Link>
       {t("indianConditions.linkBetweenBAndT")}
       <Link
         href="/solar-panel-cleaning-system/nyuma-automatic-cleaning-robot"
-        className="text-[#A8C117] hover:underline"
+        className="brand-inline-link"
       >
         {t("indianConditions.linkNyuma")}
       </Link>
       {t("indianConditions.linkBetweenBAndT")}
       <Link
         href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
-        className="text-[#A8C117] hover:underline"
+        className="brand-inline-link"
       >
         {t("indianConditions.linkGlydeX")}
       </Link>
       {t("indianConditions.linkBetweenTAndOpex")}
       <Link
         href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
-        className="text-[#A8C117] hover:underline"
+        className="brand-inline-link"
       >
         {t("indianConditions.linkOpex")}
       </Link>
       {t("indianConditions.linkBetweenOpexAndNectyr")}
       <Link
         href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
-        className="text-[#A8C117] hover:underline"
+        className="brand-inline-link"
       >
         {t("indianConditions.linkNectyr")}
       </Link>
@@ -311,14 +311,14 @@ export default async function AutomaticSolarPanelCleaningRobot({
                 {t("overview.p4Prefix")}
                 <Link
                   href="/blog/what-is-a-solar-panel-cleaning-robot"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("overview.p4Blog1")}
                 </Link>
                 {t("overview.p4Middle")}
                 <Link
                   href="/blog/benefits-of-using-solar-panel-cleaning-robot-in-a-solar-plant"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("overview.p4Blog2")}
                 </Link>
@@ -799,14 +799,14 @@ export default async function AutomaticSolarPanelCleaningRobot({
               {t("glydeVsNyuma.crossSellLead")}
               <Link
                 href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
-                className="text-[#A8C117] hover:underline"
+                className="brand-inline-link"
               >
                 {t("glydeVsNyuma.linkHelyx")}
               </Link>
               {t("glydeVsNyuma.crossSellMid")}
               <Link
                 href="/compare/glyde-x-vs-nyuma-x"
-                className="text-[#A8C117] hover:underline"
+                className="brand-inline-link"
               >
                 {t("glydeVsNyuma.linkTracker")}
               </Link>

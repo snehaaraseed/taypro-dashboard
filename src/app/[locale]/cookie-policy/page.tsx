@@ -73,7 +73,7 @@ export default async function CookiePolicyPage({
               </div>
               <div className="text-[#0c2f42] text-lg font-normal leading-9">
                 {t("overview.introBefore")}{" "}
-                <Link href="/privacy-policy" className="text-[#A8C117] hover:underline">
+                <Link href="/privacy-policy" className="brand-inline-link">
                   {t("overview.privacyLink")}
                 </Link>
                 {t("overview.introAfter")}
@@ -212,7 +212,7 @@ export default async function CookiePolicyPage({
                     href={BROWSER_LINKS.chrome}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("s4.browserSettings.chrome")}
                   </a>
@@ -222,7 +222,7 @@ export default async function CookiePolicyPage({
                     href={BROWSER_LINKS.firefox}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("s4.browserSettings.firefox")}
                   </a>
@@ -232,7 +232,7 @@ export default async function CookiePolicyPage({
                     href={BROWSER_LINKS.safari}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("s4.browserSettings.safari")}
                   </a>
@@ -242,7 +242,7 @@ export default async function CookiePolicyPage({
                     href={BROWSER_LINKS.edge}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("s4.browserSettings.edge")}
                   </a>
@@ -294,7 +294,7 @@ export default async function CookiePolicyPage({
                   href={GOOGLE_PRIVACY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("s6.googlePrivacyLink")}
                 </a>
@@ -305,7 +305,7 @@ export default async function CookiePolicyPage({
                   href={GOOGLE_PRIVACY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("s6.googlePrivacyLink")}
                 </a>
@@ -316,7 +316,7 @@ export default async function CookiePolicyPage({
                   href={GOOGLE_PRIVACY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("s6.googlePrivacyLink")}
                 </a>

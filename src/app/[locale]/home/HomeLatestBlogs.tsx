@@ -15,7 +15,7 @@ const DATE_LOCALE: Record<string, string> = {
 };
 
 async function getLatestBlogs(limit = 3, locale: string) {
-  const rows = await listAllBlogs(false);
+  const rows = await listAllBlogs(false, locale);
   const dateLocale = DATE_LOCALE[locale] ?? "en-IN";
   return rows.slice(0, limit).map((b) => ({
     title: b.title,

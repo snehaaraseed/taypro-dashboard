@@ -12,10 +12,13 @@ import { SimilarBlogs } from "@/app/components/SimilarBlogs";
 import { NewsletterSubscribeCard } from "@/app/components/NewsletterSubscribeCard";
 import type { Metadata } from "next";
 import { DynamicBlog } from "@/app/api/blog/list/route";
+import { getPublishedBlogLocales } from "@/lib/cms/blogService";
 import {
-  getBlogBySlug,
-  listAllBlogs,
-} from "@/lib/cms/blogService";
+  hreflangLocalesOrAll,
+  listBlogsForInternalLinking,
+  redirectCmsDetailToEnglish,
+  resolvePublishedBlog,
+} from "@/lib/cms/locale-fallback";
 import { addInternalLinks } from "@/app/utils/internalLinking";
 import {
   getAuthorAvatarUrl,
@@ -119,8 +122,8 @@ function addHeadingIdsAndExtractToc(html: string): {
   return { contentWithIds, toc };
 }
 
-// Fetch all blogs for similar blogs section
-async function getAllBlogs(locale: string): Promise<DynamicBlog[]> {
+async function getLocaleBlogsForSimilar(locale: string): Promise<DynamicBlog[]> {
+  const { listAllBlogs } = await import("@/lib/cms/blogService");
   const rows = await listAllBlogs(false, locale);
   return rows.map((metadata) => ({
     ...metadata,
@@ -129,15 +132,13 @@ async function getAllBlogs(locale: string): Promise<DynamicBlog[]> {
   }));
 }
 
-async function getBlogData(
+function toBlogData(
   slug: string,
-  locale: string
-): Promise<BlogData | null> {
-  const post = await getBlogBySlug(slug, { locale });
-  if (!post) return null;
+  resolved: NonNullable<Awaited<ReturnType<typeof resolvePublishedBlog>>>
+): BlogData {
   return {
-    ...post.metadata,
-    content: post.content,
+    ...resolved.post.metadata,
+    content: resolved.post.content,
     slug,
     source: "db",
   };
@@ -158,14 +159,26 @@ export async function generateMetadata({
   params,
 }: BlogPostProps): Promise<Metadata> {
   const { slug, locale } = await params;
-  const blog = await getBlogData(slug, locale);
+  const resolved = await resolvePublishedBlog(slug, locale);
 
-  if (!blog) {
+  if (!resolved) {
     return {
       title: "Blog Post Not Found - Taypro",
       description: "The requested blog post could not be found.",
     };
   }
+
+  const blog = toBlogData(slug, resolved);
+  const storedAuthors = await getStoredAuthors();
+  const metadataAuthorName = blog.author || "Taypro Team";
+  const metadataAuthorSlug = resolveAuthorSlug(metadataAuthorName, storedAuthors);
+  const displayAuthorName =
+    storedAuthors.find((author) => author.slug === metadataAuthorSlug)?.name ??
+    metadataAuthorName;
+  const publishedLocales = hreflangLocalesOrAll(
+    await getPublishedBlogLocales(slug)
+  );
+  const canonicalLocale = resolved.usesEnglishFallback ? "en" : locale;
 
   const shareImages = socialImagesFromMedia(
     blog.featuredImage,
@@ -175,7 +188,7 @@ export async function generateMetadata({
 
   return withHreflang(
     `/blog/${slug}`,
-    locale,
+    canonicalLocale,
     {
       title: blogPostMetadataTitle(blog.title, blog.description),
       description: blogPostMetadataDescription(blog.title, blog.description),
@@ -187,7 +200,7 @@ export async function generateMetadata({
         ...shareImages.openGraph,
         publishedTime: blog.publishDate,
         modifiedTime: blog.updatedAt || blog.publishDate,
-        authors: [blog.author || "Taypro Team"],
+        authors: [displayAuthorName],
       },
       twitter: {
         title: blogPostOpenGraphTitle(blog.title),
@@ -195,7 +208,7 @@ export async function generateMetadata({
         ...shareImages.twitter,
       },
     },
-    { includeAllLocales: true }
+    { locales: publishedLocales }
   );
 }
 
@@ -204,14 +217,19 @@ export default async function BlogPost({ params }: BlogPostProps) {
   const t = await getTranslations({ locale, namespace: "BlogPage.post" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
 
-  const [blog, allBlogs] = await Promise.all([
-    getBlogData(slug, locale),
-    getAllBlogs(locale),
-  ]);
-
-  if (!blog) {
+  const resolved = await resolvePublishedBlog(slug, locale);
+  if (!resolved) {
     notFound();
   }
+  if (resolved.usesEnglishFallback) {
+    redirectCmsDetailToEnglish("blog", slug);
+  }
+
+  const blog = toBlogData(slug, resolved);
+  const [similarBlogs, linkableBlogs] = await Promise.all([
+    getLocaleBlogsForSimilar(locale),
+    listBlogsForInternalLinking(locale),
+  ]);
 
   const breadcrumbs = [
     { name: tCommon("breadcrumbHome"), href: "/" },
@@ -227,7 +245,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
   );
 
   const { contentWithIds, toc } = addHeadingIdsAndExtractToc(
-    addInternalLinks(blog.content, allBlogs, slug, 8)
+    addInternalLinks(blog.content, linkableBlogs, slug, 8)
   );
   const authors = await getStoredAuthors();
   const authorName = blog.author || "Taypro Team";
@@ -235,10 +253,15 @@ export default async function BlogPost({ params }: BlogPostProps) {
   const knownAuthor = authors.find(
     (author) => author.slug === authorSlug
   );
+  const displayAuthorName = knownAuthor?.name ?? authorName;
   const authorBio = knownAuthor?.bio ?? getAuthorBySlug(authorSlug)?.bio;
-  const authorAvatarUrl = knownAuthor?.avatarUrl || getAuthorAvatarUrl(blog.author || "Taypro Team");
-  const moreFromAuthor = allBlogs
-    .filter((post) => post.slug !== slug && post.author === blog.author)
+  const authorAvatarUrl = knownAuthor?.avatarUrl || getAuthorAvatarUrl(authorName);
+  const moreFromAuthor = similarBlogs
+    .filter(
+      (post) =>
+        post.slug !== slug &&
+        resolveAuthorSlug(post.author, authors) === authorSlug
+    )
     .slice(0, 3);
   const postFaqs = blog.faqs ?? [];
 
@@ -255,8 +278,8 @@ export default async function BlogPost({ params }: BlogPostProps) {
         datePublished={blog.publishDate}
         dateModified={lastUpdatedIso}
         author={{
-          name: blog.author || "Taypro Team",
-          url: blogAuthorProfileUrl(siteUrl, authorName, authorSlug),
+          name: displayAuthorName,
+          url: blogAuthorProfileUrl(siteUrl, displayAuthorName, authorSlug),
         }}
         publisher={{
           name: "Taypro",
@@ -280,7 +303,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
               <div className="flex flex-wrap items-center gap-3 text-sm text-slate-200 mb-5">
                 <Image
                   src={authorAvatarUrl}
-                  alt={blog.author}
+                  alt={displayAuthorName}
                   width={36}
                   height={36}
                   sizes="36px"
@@ -292,7 +315,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
                     href={`/blog/author/${authorSlug}`}
                     className="underline decoration-slate-300/60 underline-offset-2 hover:text-[#A8C117] transition-colors"
                   >
-                    {blog.author}
+                    {displayAuthorName}
                   </Link>
                   {knownAuthor?.role ? (
                     <span className="ml-2 font-normal text-slate-300">
@@ -494,7 +517,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
           {/* Similar Blogs Bottom Section */}
           <div className="mt-16">
-            <SimilarBlogs blogs={allBlogs} currentSlug={slug} layout="bottom" />
+            <SimilarBlogs blogs={similarBlogs} currentSlug={slug} layout="bottom" />
           </div>
         </div>
       </div>

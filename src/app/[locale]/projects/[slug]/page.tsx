@@ -17,9 +17,15 @@ import {
 } from "@/app/utils/projectFileUtils";
 import {
   enrichProjectsForGrid,
-  getProjectBySlug,
+  getPublishedProjectLocales,
   listAllProjects,
 } from "@/lib/cms/projectService";
+import {
+  hreflangLocalesOrAll,
+  listProjectsForInternalLinking,
+  redirectCmsDetailToEnglish,
+  resolvePublishedProject,
+} from "@/lib/cms/locale-fallback";
 import {
   extractProjectHeroStats,
   projectDetailTags,
@@ -60,14 +66,18 @@ export async function generateMetadata({
   params,
 }: ProjectPageProps): Promise<Metadata> {
   const { slug, locale } = await params;
-  const post = await getProjectBySlug(slug, { locale });
+  const resolved = await resolvePublishedProject(slug, locale);
   const t = await getTranslations({ locale, namespace: "ProjectDetailPage" });
 
-  if (!post) {
+  if (!resolved) {
     return { title: t("notFoundTitle") };
   }
 
-  const { metadata } = post;
+  const { metadata } = resolved.post;
+  const publishedLocales = hreflangLocalesOrAll(
+    await getPublishedProjectLocales(slug)
+  );
+  const canonicalLocale = resolved.usesEnglishFallback ? "en" : locale;
   const url = `${siteUrl}/projects/${slug}`;
   const internalPath = `/projects/${slug}`;
   const shareImages = socialImagesFromMedia(
@@ -76,7 +86,7 @@ export async function generateMetadata({
     "projects"
   );
 
-  return withHreflang(internalPath, locale, {
+  return withHreflang(internalPath, canonicalLocale, {
     title: `${metadata.title}${t("metaTitleSuffix")}`,
     description: metadata.description,
     openGraph: {
@@ -91,7 +101,7 @@ export async function generateMetadata({
       description: metadata.description,
       ...shareImages.twitter,
     },
-  });
+  }, { locales: publishedLocales });
 }
 
 export default async function DynamicProjectPage({ params }: ProjectPageProps) {
@@ -100,17 +110,21 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
   const tHub = await getTranslations({ locale, namespace: "ProjectsPage" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
 
-  const post = await getProjectBySlug(slug, { locale });
-  if (!post) {
+  const resolved = await resolvePublishedProject(slug, locale);
+  if (!resolved) {
     notFound();
   }
+  if (resolved.usesEnglishFallback) {
+    redirectCmsDetailToEnglish("project", slug);
+  }
 
-  const { metadata, content } = post;
+  const { metadata, content } = resolved.post;
   const authorName = metadata.author?.trim() || "Taypro Team";
   const authors = await getStoredAuthors();
   const authorSlug = resolveAuthorSlug(authorName, authors);
+  const knownAuthor = authors.find((author) => author.slug === authorSlug);
+  const displayAuthorName = knownAuthor?.name ?? authorName;
   const place = PROJECT_PLACE_BY_SLUG[slug];
-  const allProjects = await getAllFileProjects(locale);
   const relatedProjects = await getRelatedFileProjects(
     slug,
     metadata.details ?? [],
@@ -141,12 +155,7 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
       )
     : 0;
 
-  const projectLinkSources = allProjects.map((p) => ({
-    slug: p.id,
-    title: p.title,
-    href: p.href,
-    description: p.description,
-  }));
+  const projectLinkSources = await listProjectsForInternalLinking(locale);
 
   const contentWithInternalLinks = content
     ? addInternalLinksToProject(content, projectLinkSources, slug, 8)
@@ -175,7 +184,7 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
         datePublished={datePublished}
         dateModified={dateModified}
         author={{
-          name: authorName,
+          name: displayAuthorName,
           url: `${siteUrl}/authors/${authorSlug}`,
         }}
         siteUrl={siteUrl}

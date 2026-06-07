@@ -143,12 +143,8 @@ export default async function HomePage() {
         <section className="relative px-4 sm:px-6 lg:px-8 py-10 md:py-14">
           <Container className="!px-0">
             <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-              {/* Mobile: copy first so LCP is the H1, not the hero poster */}
-              <AnimateOnScroll
-                animation="fadeInRight"
-                eager
-                className="order-1 lg:order-none text-white space-y-5 lg:space-y-6 lg:col-start-1 lg:row-start-1"
-              >
+              {/* Server-rendered hero copy — no client wrapper so H1 paints for mobile LCP */}
+              <div className="order-1 lg:order-none text-white space-y-5 lg:space-y-6 lg:col-start-1 lg:row-start-1">
                 <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide">
                   {t("hero.eyebrow")}
                 </p>
@@ -165,35 +161,31 @@ export default async function HomePage() {
                   {t("hero.bodyBeforeProjects")}{" "}
                   <Link
                     href="/projects"
-                    className="text-[#A8C117] font-medium hover:underline"
+                    className="brand-inline-link font-medium"
                   >
                     {t("hero.bodyProjectsLink")}
                   </Link>
                   {t("hero.bodyAfterProjects")}{" "}
                   <Link
                     href="/utility-scale-solar-operations"
-                    className="text-[#A8C117] font-medium hover:underline"
+                    className="brand-inline-link font-medium"
                   >
                     {t("hero.bodyUtilityOpsLink")}
                   </Link>
                   {t("hero.bodyBeforeBlog")}{" "}
-                  <Link href="/blog" className="text-[#A8C117] font-medium hover:underline">
+                  <Link href="/blog" className="brand-inline-link font-medium">
                     {t("hero.bodyBlogLink")}
                   </Link>
                   {t("hero.bodyAfterBlog")}
                 </p>
                 <HomeHeroCTAs />
-              </AnimateOnScroll>
+              </div>
 
-              <AnimateOnScroll
-                animation="fadeInLeft"
-                eager
-                className="order-2 lg:order-none flex justify-center lg:justify-end lg:col-start-2 lg:row-start-1"
-              >
+              <div className="order-2 lg:order-none flex justify-center lg:justify-end lg:col-start-2 lg:row-start-1">
                 <div className="relative w-full max-w-[720px] aspect-video rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/10">
                   <HomeHeroVideo videoId={HERO_VIDEO_ID} title={videoTitle} />
                 </div>
-              </AnimateOnScroll>
+              </div>
             </div>
           </Container>
         </section>
@@ -219,7 +211,7 @@ export default async function HomePage() {
               {t("stats.methodologyBefore")}{" "}
               <Link
                 href={PERFORMANCE_METHODOLOGY_PATH}
-                className="text-[#A8C117] hover:underline"
+                className="brand-inline-link"
               >
                 {t("stats.methodologyLink")}
               </Link>{" "}
@@ -339,7 +331,7 @@ export default async function HomePage() {
                     <li key={id}>
                       <Link
                         href={COMPARISON_PAGES[id].path}
-                        className="text-[#A8C117] hover:underline text-sm md:text-base"
+                        className="brand-inline-link text-sm md:text-base"
                       >
                         {tHub(`compareGuides.${id}`)}
                       </Link>
@@ -363,7 +355,7 @@ export default async function HomePage() {
                     <li key={id}>
                       <Link
                         href={STATE_LANDING_PAGES[id].path}
-                        className="text-[#A8C117] hover:underline text-sm md:text-base"
+                        className="brand-inline-link text-sm md:text-base"
                       >
                         {tHub(`indianConditions.stateGuides.${id}`)}
                       </Link>
@@ -383,7 +375,7 @@ export default async function HomePage() {
                 <li>
                   <Link
                     href="/solar-panel-cleaning-machine"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("discover.machineLink")}
                   </Link>
@@ -391,7 +383,7 @@ export default async function HomePage() {
                 <li>
                   <Link
                     href="/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("discover.rooftopLink")}
                   </Link>

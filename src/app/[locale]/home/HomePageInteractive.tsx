@@ -138,7 +138,7 @@ export default function HomePageInteractive({
                 </h2>
                 <p className="text-white/80 mt-4 text-lg leading-relaxed">
                   {t("technology.bodyBefore")}{" "}
-                  <Link href="/projects" className="text-[#A8C117] hover:underline">
+                  <Link href="/projects" className="brand-inline-link">
                     {t("technology.deploymentsLink")}
                   </Link>
                   {t("technology.bodyAfter")}

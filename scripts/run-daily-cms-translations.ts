@@ -1,9 +1,9 @@
 /**
- * Standalone daily CMS translation worker (blogs + projects).
+ * Standalone CMS translation worker (blogs + projects).
  * Runs outside PM2/HTTP so long Gemini runs are not cut off by curl timeouts.
  *
- * Cron: scripts/cron-translate-blogs-daily.sh (fire-and-forget)
- * Foreground: CMS_TRANSLATION_FOREGROUND=1 npm run cms:translate-blogs-daily
+ * Daily cron: scripts/cron-translate-blogs-daily.sh (max 10/day)
+ * Catch-up:    scripts/run-cms-translation-catchup.sh (full backlog until quota or midnight)
  */
 import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from "fs";
 import path from "path";
@@ -12,7 +12,6 @@ import { processDailyTranslations } from "../src/lib/translation/translation-que
 
 const root = getDeploymentRoot();
 const lockDir = path.join(root, ".runtime/translation-cron");
-const lockPath = path.join(lockDir, "daily.lock");
 
 function loadEnvFile(name: string): void {
   const filePath = path.join(root, name);
@@ -43,13 +42,20 @@ function isProcessRunning(pid: number): boolean {
   }
 }
 
-function acquireLock(): boolean {
+function resolveLockPath(): string {
+  const catchup =
+    process.env.CMS_TRANSLATION_CATCHUP === "1" ||
+    process.argv.includes("--catchup");
+  return path.join(lockDir, catchup ? "catchup.lock" : "daily.lock");
+}
+
+function acquireLock(lockPath: string): boolean {
   mkdirSync(lockDir, { recursive: true });
   if (existsSync(lockPath)) {
     const raw = readFileSync(lockPath, "utf8").trim();
     const pid = Number.parseInt(raw, 10);
     if (Number.isFinite(pid) && pid > 0 && isProcessRunning(pid)) {
-      log("skip", { reason: "already_running", pid });
+      log("skip", { reason: "already_running", pid, lock: lockPath });
       return false;
     }
   }
@@ -57,7 +63,7 @@ function acquireLock(): boolean {
   return true;
 }
 
-function releaseLock(): void {
+function releaseLock(lockPath: string): void {
   try {
     if (!existsSync(lockPath)) return;
     const raw = readFileSync(lockPath, "utf8").trim();
@@ -77,15 +83,28 @@ function log(event: string, detail?: Record<string, unknown>): void {
   console.log(JSON.stringify(line));
 }
 
+function resolveShouldStop(): (() => boolean) | undefined {
+  const raw = process.env.CMS_TRANSLATION_STOP_AT_EPOCH?.trim();
+  if (!raw) return undefined;
+  const stopAtEpoch = Number.parseInt(raw, 10);
+  if (!Number.isFinite(stopAtEpoch) || stopAtEpoch <= 0) return undefined;
+  return () => Math.floor(Date.now() / 1000) >= stopAtEpoch;
+}
+
 async function main(): Promise<void> {
   loadEnvFile(".env.production");
   loadEnvFile(".env.local");
 
-  if (!acquireLock()) {
+  const catchup =
+    process.env.CMS_TRANSLATION_CATCHUP === "1" ||
+    process.argv.includes("--catchup");
+  const lockPath = resolveLockPath();
+
+  if (!acquireLock(lockPath)) {
     process.exit(0);
   }
 
-  const cleanup = () => releaseLock();
+  const cleanup = () => releaseLock(lockPath);
   process.on("exit", cleanup);
   process.on("SIGINT", () => {
     log("signal", { signal: "SIGINT" });
@@ -98,16 +117,25 @@ async function main(): Promise<void> {
     process.exit(143);
   });
 
-  log("worker_start", { root });
+  const shouldStop = resolveShouldStop();
+  log("worker_start", {
+    root,
+    catchup,
+    stopAtEpoch: process.env.CMS_TRANSLATION_STOP_AT_EPOCH ?? null,
+  });
 
   try {
     const result = await processDailyTranslations({
+      catchup,
+      shouldStop,
       log: (event, detail) => log(event, detail),
     });
 
     log("worker_done", {
       success: true,
+      catchup,
       quotaSkippedForDay: result.quotaSkippedForDay,
+      deadlineStopped: result.deadlineStopped ?? false,
       processed: result.processed,
       completed: result.completed,
       partial: result.partial,

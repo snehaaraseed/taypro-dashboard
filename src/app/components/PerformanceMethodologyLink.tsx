@@ -10,7 +10,7 @@ type PerformanceMethodologyLinkProps = {
 
 /** Inline link to the performance & test methodology page (for footnotes next to 99% claims). */
 export function PerformanceMethodologyLink({
-  className = "text-[#5a8f00] font-medium underline-offset-4 hover:underline",
+  className = "text-[#5a8f00] font-medium underline underline-offset-4 hover:no-underline",
   label,
   title,
 }: PerformanceMethodologyLinkProps) {
@@ -34,7 +34,7 @@ export async function PerformanceMethodologyFootnote({
       <Link
         href={PERFORMANCE_METHODOLOGY_PATH}
         title={t("linkTitle")}
-        className="text-[#5a8f00] hover:underline underline-offset-2"
+        className="text-[#5a8f00] underline underline-offset-2 hover:no-underline"
         aria-label={t("footnoteAriaLabel")}
       >
         *

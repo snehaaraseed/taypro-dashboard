@@ -61,9 +61,9 @@ interface AuthorStats {
   count: number;
 }
 
-async function getAuthorStats(): Promise<AuthorStats[]> {
+async function getAuthorStats(locale: string): Promise<AuthorStats[]> {
   const storedAuthors = await getStoredAuthors();
-  const blogs = await listAllBlogs(false);
+  const blogs = await listAllBlogs(false, locale);
   const counts = new Map<string, { name: string; count: number }>();
 
   for (const author of storedAuthors) {
@@ -94,7 +94,7 @@ export default async function AuthorsPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "AuthorsPage" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
-  const authorStats = await getAuthorStats();
+  const authorStats = await getAuthorStats(locale);
   const storedAuthors = await getStoredAuthors();
 
   const authorFaqs = ["q0", "q1", "q2"].map((qKey, i) => ({

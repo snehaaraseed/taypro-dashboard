@@ -95,6 +95,7 @@ export default function ProjectsGrid({
                         ? "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         : "(max-width: 768px) 100vw, 50vw"
                   }
+                  quality={idx < 2 ? 75 : 70}
                   priority={idx < 2}
                 />
                 <div className="absolute inset-0 bg-[#052638]/0 group-hover:bg-[#052638]/5 transition-colors duration-500" />

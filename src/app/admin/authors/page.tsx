@@ -153,7 +153,19 @@ export default function AdminAuthorsPage() {
       setAuthors(data.authors || []);
       setForm(EMPTY_FORM);
       setEditingSlug(null);
-      setMessage(editingSlug ? "Author updated." : "Author saved successfully.");
+      const propagated = data.propagated as
+        | { blogs: number; projects: number }
+        | null
+        | undefined;
+      const cascadeNote =
+        propagated && (propagated.blogs > 0 || propagated.projects > 0)
+          ? ` Updated ${propagated.blogs} blog(s) and ${propagated.projects} project(s) with the new name.`
+          : "";
+      setMessage(
+        editingSlug
+          ? `Author updated.${cascadeNote}`
+          : `Author saved successfully.${cascadeNote}`
+      );
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Failed to save author.");
     } finally {

@@ -27,7 +27,7 @@ const FALLBACK_RESOURCES = [
     title: "What Are The Different Types Of Solar Panels",
     imgSrc: "/tayproenergyresource/taypro-energy-resource3.webp",
     date: "July 21, 2025",
-    href: "/blog/what-are-the-different-types-of-solar-panels-2",
+    href: "/blog/what-are-the-different-types-of-solar-panels",
   },
 ];
 

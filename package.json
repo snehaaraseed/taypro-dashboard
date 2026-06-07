@@ -2,6 +2,12 @@
   "name": "taypro_project",
   "version": "0.1.0",
   "private": true,
+  "browserslist": [
+    "chrome >= 111",
+    "edge >= 111",
+    "firefox >= 111",
+    "safari >= 16.4"
+  ],
   "scripts": {
     "dev": "next dev",
     "dev:turbo": "next dev --turbopack",
@@ -14,7 +20,8 @@
     "cms:translate:blogs": "node scripts/translate-cms-content.mjs --blogs",
     "cms:translate:projects": "node scripts/translate-cms-content.mjs --projects-only",
     "cms:translate-blogs-daily": "bash scripts/cron-translate-blogs-daily.sh",
-    "cms:translate-blogs-daily:worker": "tsx scripts/run-daily-cms-translations.ts",
+    "cms:translate-blogs-daily:worker": "node --require ./scripts/preload-stub-server-only.cjs ./node_modules/tsx/dist/cli.mjs scripts/run-daily-cms-translations.ts",
+    "cms:translate-catchup": "bash scripts/run-cms-translation-catchup.sh",
     "gsc:sync": "bash scripts/cron-sync-gsc-boost.sh",
     "seo:competitor-kb": "node scripts/seo-competitor-kb-summary.mjs",
     "seo:test-serp-grounding": "node scripts/test-serp-grounding.mjs",

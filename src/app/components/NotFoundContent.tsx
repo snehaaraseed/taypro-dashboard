@@ -108,7 +108,7 @@ export default function NotFoundContent({ labels }: NotFoundContentProps) {
               mailbox="service"
               subject={labels.reportSubject}
               body={labels.reportBody}
-              className="inline-flex items-center justify-center min-h-[44px] text-[#A8C117] font-medium hover:underline"
+              className="inline-flex items-center justify-center min-h-[44px] brand-inline-link font-medium"
             >
               {labels.reportEmailLink}
             </ContactEmailLink>

@@ -214,7 +214,7 @@ export default async function CleaningMachinePage({
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-[#A8C117] hover:underline text-sm md:text-base"
+                  className="brand-inline-link text-sm md:text-base"
                 >
                   {t(link.labelKey)}
                 </Link>

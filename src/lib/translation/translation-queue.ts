@@ -4,15 +4,17 @@ import { and, asc, eq, lte, sql } from "drizzle-orm";
 import type { TayproLocale } from "@/i18n/markets";
 import { getDb } from "@/lib/db";
 import { blogs, projects, translationQueue } from "@/lib/db/schema";
-import { getGeminiCallDelayMs } from "@/lib/gemini/call-delay";
+import { isGemini503Error } from "./gemini-call";
 import {
   getDailyTranslationMaxPerDay,
   getDailyTranslationSplitPerType,
+  getTranslationRetry503Ms,
+  getTranslationRetryErrorMs,
   SOURCE_LOCALE,
   TARGET_LOCALES,
 } from "./config";
 import { isGeminiQuotaError } from "./quota";
-import type { BatchTranslationResult } from "./translate-cms";
+import type { BatchTranslationResult, TranslationResult } from "./translate-cms";
 import {
   listEnglishBlogSlugs,
   listEnglishProjectSlugs,
@@ -376,6 +378,9 @@ export type ProcessDailyTranslationsResult = {
   skippedQuota: number;
   /** True when Gemini quota was hit — queue cleared; resumes tomorrow evening. */
   quotaSkippedForDay: boolean;
+  /** True when an external deadline (e.g. midnight) stopped the run. */
+  deadlineStopped?: boolean;
+  catchup?: boolean;
   clearedQueueRows: number;
   items: DailyTranslationItemResult[];
 };
@@ -388,11 +393,62 @@ export type ProcessDailyBlogTranslationsResult = ProcessDailyTranslationsResult 
 };
 
 async function translateQueueItem(
-  item: DailyTranslationQueueItem
+  item: DailyTranslationQueueItem,
+  locales?: TayproLocale[]
 ): Promise<BatchTranslationResult> {
+  const options = locales?.length ? { locales } : undefined;
   return item.contentType === "blog"
-    ? translatePublishedBlog(item.slug)
-    : translatePublishedProject(item.slug);
+    ? translatePublishedBlog(item.slug, options)
+    : translatePublishedProject(item.slug, options);
+}
+
+function mergeTranslationResults(
+  accumulated: Map<TayproLocale, TranslationResult>,
+  batch: BatchTranslationResult
+): BatchTranslationResult {
+  for (const result of batch.results) {
+    accumulated.set(result.locale, result);
+  }
+  return {
+    slug: batch.slug,
+    type: batch.type,
+    results: TARGET_LOCALES.map(
+      (locale) =>
+        accumulated.get(locale) ?? {
+          locale,
+          success: false,
+          error: "Locale not attempted",
+        }
+    ),
+  };
+}
+
+function failedLocalesFromBatch(batch: BatchTranslationResult): TayproLocale[] {
+  return batch.results
+    .filter((result) => {
+      if (result.success) return false;
+      const error = result.error ?? "";
+      return !PERMANENT_TRANSLATION_ERRORS.some((msg) => error.includes(msg));
+    })
+    .map((result) => result.locale);
+}
+
+function dailyItemRetryDelayMs(batch: BatchTranslationResult): number {
+  const failures = batch.results.filter((result) => !result.success);
+  const only503 = failures.every((result) =>
+    isGemini503Error(new Error(result.error ?? ""))
+  );
+  if (only503 && failures.length > 0) {
+    return getTranslationRetry503Ms();
+  }
+  return getTranslationRetryErrorMs();
+}
+
+function errorRetryDelayMs(error: unknown): number {
+  if (isGemini503Error(error)) {
+    return getTranslationRetry503Ms();
+  }
+  return getTranslationRetryErrorMs();
 }
 
 function classifyTranslationBatch(
@@ -423,10 +479,6 @@ function isPermanentTranslationFailure(batch: BatchTranslationResult): boolean {
   });
 }
 
-function dailyItemRetryDelayMs(): number {
-  return Math.max(60_000, getGeminiCallDelayMs() * 6);
-}
-
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -441,10 +493,12 @@ export async function processDailyTranslations(options?: {
   maxPerDay?: number;
   splitPerType?: number;
   log?: DailyTranslationLog;
+  /** Process full backlog (no daily cap). */
+  catchup?: boolean;
+  /** Return true to stop after the current item (e.g. midnight deadline). */
+  shouldStop?: () => boolean;
 }): Promise<ProcessDailyTranslationsResult> {
-  const maxPerDay = options?.maxPerDay ?? getDailyTranslationMaxPerDay();
-  const splitPerType =
-    options?.splitPerType ?? getDailyTranslationSplitPerType();
+  const catchup = options?.catchup === true;
 
   const [allBlogSlugs, allProjectSlugs] = await Promise.all([
     listBlogSlugsNeedingTranslation(),
@@ -453,6 +507,14 @@ export async function processDailyTranslations(options?: {
 
   const blogBacklog = allBlogSlugs.length;
   const projectBacklog = allProjectSlugs.length;
+
+  const maxPerDay = catchup
+    ? blogBacklog + projectBacklog
+    : (options?.maxPerDay ?? getDailyTranslationMaxPerDay());
+  const splitPerType = catchup
+    ? Math.max(blogBacklog, projectBacklog, 1)
+    : (options?.splitPerType ?? getDailyTranslationSplitPerType());
+
   const { blogSlots, projectSlots } = allocateDailyTranslationSlots({
     blogBacklog,
     projectBacklog,
@@ -479,13 +541,17 @@ export async function processDailyTranslations(options?: {
     skippedQuota: 0,
     quotaSkippedForDay: false,
     clearedQueueRows: 0,
+    catchup,
     items: [],
   };
 
   const log = options?.log;
+  const shouldStop = options?.shouldStop;
   let stopForQuota = false;
+  let deadlineStopped = false;
 
   log?.("daily_run_start", {
+    catchup,
     maxPerDay,
     splitPerType,
     blogBacklog,
@@ -498,9 +564,19 @@ export async function processDailyTranslations(options?: {
 
   for (const item of queue) {
     if (stopForQuota) break;
+    if (shouldStop?.()) {
+      deadlineStopped = true;
+      log?.("deadline_stop", {
+        contentType: item.contentType,
+        slug: item.slug,
+      });
+      break;
+    }
 
     let attempt = 0;
     let itemResult: DailyTranslationItemResult | null = null;
+    const accumulatedResults = new Map<TayproLocale, TranslationResult>();
+    let retryLocales: TayproLocale[] | undefined;
 
     while (!stopForQuota) {
       attempt += 1;
@@ -508,10 +584,14 @@ export async function processDailyTranslations(options?: {
         attempt,
         contentType: item.contentType,
         slug: item.slug,
+        locales: retryLocales ?? TARGET_LOCALES,
       });
 
       try {
-        const batch = await translateQueueItem(item);
+        const batch = mergeTranslationResults(
+          accumulatedResults,
+          await translateQueueItem(item, retryLocales)
+        );
         const { status, quotaFailure } = classifyTranslationBatch(batch);
 
         if (quotaFailure) {
@@ -538,6 +618,8 @@ export async function processDailyTranslations(options?: {
           break;
         }
 
+        retryLocales = failedLocalesFromBatch(batch);
+
         const permanent = isPermanentTranslationFailure(batch);
         if (permanent || attempt >= MAX_DAILY_ITEM_ATTEMPTS) {
           result.partial += 1;
@@ -555,12 +637,25 @@ export async function processDailyTranslations(options?: {
           break;
         }
 
-        const delayMs = dailyItemRetryDelayMs();
+        if (retryLocales.length === 0) {
+          result.completed += 1;
+          itemResult = { ...item, status: "completed", results: batch.results };
+          log?.("item_completed", {
+            contentType: item.contentType,
+            slug: item.slug,
+            attempt,
+            note: "no_retryable_failures",
+          });
+          break;
+        }
+
+        const delayMs = dailyItemRetryDelayMs(batch);
         log?.("item_retry", {
           contentType: item.contentType,
           slug: item.slug,
           attempt,
           delayMs,
+          retryLocales,
           failures: batch.results.filter((r) => !r.success),
         });
         await sleep(delayMs);
@@ -610,7 +705,7 @@ export async function processDailyTranslations(options?: {
           break;
         }
 
-        const delayMs = dailyItemRetryDelayMs();
+        const delayMs = errorRetryDelayMs(error);
         log?.("item_retry", {
           contentType: item.contentType,
           slug: item.slug,
@@ -626,12 +721,15 @@ export async function processDailyTranslations(options?: {
     if (itemResult) result.items.push(itemResult);
   }
 
+  result.deadlineStopped = deadlineStopped;
+
   log?.("daily_run_end", {
     processed: result.processed,
     completed: result.completed,
     partial: result.partial,
     skippedQuota: result.skippedQuota,
     quotaSkippedForDay: stopForQuota,
+    deadlineStopped,
   });
 
   if (stopForQuota) {

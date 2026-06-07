@@ -37,8 +37,8 @@ interface AuthorBlog {
   author: string;
 }
 
-async function getAllPublishedBlogs(): Promise<AuthorBlog[]> {
-  const rows = await listAllBlogs(false);
+async function getAllPublishedBlogs(locale: string): Promise<AuthorBlog[]> {
+  const rows = await listAllBlogs(false, locale);
   return rows.map((metadata) => ({
     title: metadata.title,
     description: metadata.description,
@@ -52,7 +52,8 @@ async function getAllPublishedBlogs(): Promise<AuthorBlog[]> {
 }
 
 export async function generateStaticParams(): Promise<AuthorSlugParams[]> {
-  const blogs = await getAllPublishedBlogs();
+  const { SOURCE_LOCALE } = await import("@/lib/translation/config");
+  const blogs = await getAllPublishedBlogs(SOURCE_LOCALE);
   const storedAuthors = await getStoredAuthors();
   const slugs = new Set<string>(storedAuthors.map((author) => author.slug));
   for (const blog of blogs) {
@@ -67,7 +68,7 @@ export async function generateMetadata({
   const { authorSlug, locale } = await params;
   const t = await getTranslations({ locale, namespace: "BlogPage.author" });
   const [allBlogs, storedAuthors] = await Promise.all([
-    getAllPublishedBlogs(),
+    getAllPublishedBlogs(locale),
     getStoredAuthors(),
   ]);
   const authorBlogs = allBlogs.filter(
@@ -132,7 +133,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
   const t = await getTranslations({ locale, namespace: "BlogPage.author" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
 
-  const allBlogs = await getAllPublishedBlogs();
+  const allBlogs = await getAllPublishedBlogs(locale);
   const authors = await getStoredAuthors();
   const knownAuthor = authors.find((author) => author.slug === authorSlug);
   const authorBlogs = allBlogs.filter(

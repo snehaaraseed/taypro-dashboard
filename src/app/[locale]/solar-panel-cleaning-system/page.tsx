@@ -364,7 +364,7 @@ export default async function SolarPanelCleaningRobot({
                   {t("hero.leadHtmlSegments.afterBold4")}
                   <Link
                     href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
-                    className="text-[#A8C117] hover:underline font-medium"
+                    className="brand-inline-link font-medium"
                   >
                     {t("hero.payPerPanelServiceLinkText")}
                   </Link>
@@ -439,56 +439,56 @@ export default async function SolarPanelCleaningRobot({
                   {t("intro.p2BeforeLinks")}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("intro.p2LinkAutomatic")}
                   </Link>
                   {t("intro.p2BetweenGlydeNyuma")}
                   <Link
                     href="/solar-panel-cleaning-system/nyuma-automatic-cleaning-robot"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("intro.p2LinkNyuma")}
                   </Link>
                   {t("intro.p2BetweenNyumaHelyx")}
                   <Link
                     href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("intro.p2LinkHelyx")}
                   </Link>
                   {t("intro.p2BetweenHelyxTracker")}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("intro.p2LinkGlydeX")}
                   </Link>
                   {t("intro.p2BetweenTrackers")}
                   <Link
                     href="/solar-panel-cleaning-system/nyuma-x-single-axis-tracker-cleaning-robot"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("intro.p2LinkNyumaX")}
                   </Link>
                   {t("intro.p2AfterTrackers")}
                   <Link
                     href="/cleaning-technology"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("intro.p2LinkTechnology")}
                   </Link>
                   {t("intro.p2BeforeNectyr")}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("intro.p2LinkNectyr")}
                   </Link>
                   {t("intro.p2AfterNectyr")}
                   <Link
                     href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("intro.p2LinkOpex")}
                   </Link>
@@ -498,14 +498,14 @@ export default async function SolarPanelCleaningRobot({
                   {t("intro.p3Prefix")}
                   <Link
                     href="/blog/the-complete-guide-to-solar-panel-maintenance"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("intro.p3BlogMaintenance")}
                   </Link>
                   {t("intro.p3Between")}
                   <Link
                     href="/blog/what-is-a-solar-panel-cleaning-robot"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("intro.p3BlogRobotDef")}
                   </Link>
@@ -835,7 +835,7 @@ export default async function SolarPanelCleaningRobot({
                     </p>
                     <Link
                       href={item.href}
-                      className="mt-4 inline-flex items-center gap-1 text-[#A8C117] font-medium text-sm hover:underline"
+                      className="mt-4 inline-flex items-center gap-1 brand-inline-link font-medium text-sm"
                     >
                       {t(`${cardPath}.cta`)}
                       <ChevronRight className="w-4 h-4" />
@@ -906,7 +906,7 @@ export default async function SolarPanelCleaningRobot({
                 {t("comparison.ctaLine")}
                 <OpenLeadModalButton
                   topic={t("comparison.ctaLink.topic")}
-                  className="text-[#A8C117] hover:underline font-medium"
+                  className="brand-inline-link font-medium"
                 >
                   {t("comparison.ctaLink.label")}
                 </OpenLeadModalButton>
@@ -1292,49 +1292,49 @@ export default async function SolarPanelCleaningRobot({
               <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm">
                 <Link
                   href="/solar-panel-cleaning-robot-rajasthan"
-                  className="text-[#A8C117] font-medium hover:underline underline-offset-4"
+                  className="brand-inline-link font-medium"
                 >
                   {t("indianConditions.stateGuides.rajasthan")}
                 </Link>
                 <Link
                   href="/solar-panel-cleaning-robot-gujarat"
-                  className="text-[#A8C117] font-medium hover:underline underline-offset-4"
+                  className="brand-inline-link font-medium"
                 >
                   {t("indianConditions.stateGuides.gujarat")}
                 </Link>
                 <Link
                   href="/solar-panel-cleaning-robot-madhya-pradesh"
-                  className="text-[#A8C117] font-medium hover:underline underline-offset-4"
+                  className="brand-inline-link font-medium"
                 >
                   {t("indianConditions.stateGuides.madhyaPradesh")}
                 </Link>
                 <Link
                   href="/solar-panel-cleaning-robot-karnataka"
-                  className="text-[#A8C117] font-medium hover:underline underline-offset-4"
+                  className="brand-inline-link font-medium"
                 >
                   {t("indianConditions.stateGuides.karnataka")}
                 </Link>
                 <Link
                   href="/solar-panel-cleaning-robot-andhra-pradesh"
-                  className="text-[#A8C117] font-medium hover:underline underline-offset-4"
+                  className="brand-inline-link font-medium"
                 >
                   {t("indianConditions.stateGuides.andhraPradesh")}
                 </Link>
                 <Link
                   href="/solar-panel-cleaning-robot-maharashtra"
-                  className="text-[#A8C117] font-medium hover:underline underline-offset-4"
+                  className="brand-inline-link font-medium"
                 >
                   {t("indianConditions.stateGuides.maharashtra")}
                 </Link>
                 <Link
                   href="/solar-panel-cleaning-robot-uttar-pradesh"
-                  className="text-[#A8C117] font-medium hover:underline underline-offset-4"
+                  className="brand-inline-link font-medium"
                 >
                   {t("indianConditions.stateGuides.uttarPradesh")}
                 </Link>
                 <Link
                   href="/solar-panel-cleaning-robot-tamil-nadu"
-                  className="text-[#A8C117] font-medium hover:underline underline-offset-4"
+                  className="brand-inline-link font-medium"
                 >
                   {t("indianConditions.stateGuides.tamilNadu")}
                 </Link>
@@ -1607,7 +1607,7 @@ export default async function SolarPanelCleaningRobot({
               {t("faq.subtitleLead")}
               <OpenLeadModalButton
                 topic={t("faq.subtitleCta.topic")}
-                className="text-[#A8C117] hover:underline font-medium"
+                className="brand-inline-link font-medium"
               >
                 {t("faq.subtitleCta.label")}
               </OpenLeadModalButton>

@@ -246,21 +246,21 @@ export async function CradylProductPage({ locale }: CradylProductPageProps) {
                   {t("overview.p3Mid")}
                   <Link
                     href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("overview.linkHelyx")}
                   </Link>
                   {t("overview.p3Between")}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("overview.linkGlyde")}
                   </Link>
                   {t("overview.p3After")}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("overview.linkNectyr")}
                   </Link>
@@ -270,14 +270,14 @@ export async function CradylProductPage({ locale }: CradylProductPageProps) {
                   {t("overview.p4Prefix")}
                   <Link
                     href="/solar-panel-cleaning-system"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("overview.linkHub")}
                   </Link>
                   {t("overview.p4Mid")}
                   <Link
                     href="/blog/what-are-the-different-methods-used-for-solar-panel-cleaning"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("overview.linkBlogMethods")}
                   </Link>
@@ -671,14 +671,14 @@ export async function CradylProductPage({ locale }: CradylProductPageProps) {
                 {t("cradylVsExtraRobot.crossSellLead")}
                 <Link
                   href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("cradylVsExtraRobot.linkGlyde")}
                 </Link>
                 {t("cradylVsExtraRobot.crossSellMid")}
                 <Link
                   href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("cradylVsExtraRobot.linkHelyx")}
                 </Link>
@@ -754,21 +754,21 @@ export async function CradylProductPage({ locale }: CradylProductPageProps) {
                 {t("indianConditions.crossSellLead")}
                 <Link
                   href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("indianConditions.linkHelyx")}
                 </Link>
                 {t("indianConditions.linkBetween")}
                 <Link
                   href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("indianConditions.linkGlyde")}
                 </Link>
                 {t("indianConditions.linkMid")}
                 <Link
                   href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("indianConditions.linkNectyr")}
                 </Link>

@@ -20,7 +20,7 @@ export async function PerformanceMethodologyNotice({
 
   const linkClassName =
     variant === "dark"
-      ? "text-[#A8C117] font-medium underline-offset-4 hover:underline"
+      ? "brand-inline-link font-medium"
       : undefined;
 
   return (

@@ -1,13 +1,14 @@
 import "server-only";
 
-import { asc, eq } from "drizzle-orm";
+import { asc, eq, inArray } from "drizzle-orm";
 import { getDb } from "@/lib/db";
-import { authors } from "@/lib/db/schema";
+import { authors, blogs, projects } from "@/lib/db/schema";
 import {
   BLOG_AUTHORS,
   BlogAuthor,
   slugifyAuthorName,
   normalizeLinkedInUrl,
+  resolveAuthorSlug,
 } from "@/app/data/blogAuthors";
 import { isEligibleBlogAuthor } from "@/lib/cms/blog-author-pool";
 import { listRecentBlogAuthorNames } from "@/lib/cms/blogService";
@@ -76,12 +77,72 @@ function normalizeExpertiseInput(
   return serializeExpertiseTags(inferExpertiseFromAuthor(fallbackAuthor));
 }
 
+export type AuthorPropagationResult = {
+  blogs: number;
+  projects: number;
+};
+
+export type UpsertAuthorResult = {
+  authors: BlogAuthor[];
+  propagated: AuthorPropagationResult | null;
+};
+
+async function propagateAuthorNameToCmsContent(
+  slug: string,
+  oldName: string,
+  newName: string,
+  authorsBeforeRename: BlogAuthor[]
+): Promise<AuthorPropagationResult> {
+  if (oldName.trim().toLowerCase() === newName.trim().toLowerCase()) {
+    return { blogs: 0, projects: 0 };
+  }
+
+  const db = getDb();
+  const now = new Date().toISOString();
+  const oldNorm = oldName.trim().toLowerCase();
+
+  function matchesAuthorField(authorField: string): boolean {
+    const trimmed = authorField.trim();
+    if (!trimmed) return false;
+    if (trimmed.toLowerCase() === oldNorm) return true;
+    return resolveAuthorSlug(trimmed, authorsBeforeRename) === slug;
+  }
+
+  const blogRows = await db
+    .select({ id: blogs.id, author: blogs.author })
+    .from(blogs);
+  const blogIds = blogRows
+    .filter((row) => matchesAuthorField(row.author))
+    .map((row) => row.id);
+  if (blogIds.length > 0) {
+    await db
+      .update(blogs)
+      .set({ author: newName, updatedAt: now })
+      .where(inArray(blogs.id, blogIds));
+  }
+
+  const projectRows = await db
+    .select({ id: projects.id, author: projects.author })
+    .from(projects);
+  const projectIds = projectRows
+    .filter((row) => matchesAuthorField(row.author))
+    .map((row) => row.id);
+  if (projectIds.length > 0) {
+    await db
+      .update(projects)
+      .set({ author: newName, updatedAt: now })
+      .where(inArray(projects.id, projectIds));
+  }
+
+  return { blogs: blogIds.length, projects: projectIds.length };
+}
+
 export async function upsertAuthor(
   authorInput: Omit<BlogAuthor, "slug"> & {
     slug?: string;
     expertiseTags?: BlogAuthorExpertiseTag[];
   }
-): Promise<BlogAuthor[]> {
+): Promise<UpsertAuthorResult> {
   const db = getDb();
   await seedDefaultAuthorsIfEmpty();
 
@@ -122,7 +183,16 @@ export async function upsertAuthor(
     updatedAt: now,
   };
 
+  let propagated: AuthorPropagationResult | null = null;
+
   if (existing[0]) {
+    const authorsBeforeRename = allAuthors.map(rowToAuthor);
+    propagated = await propagateAuthorNameToCmsContent(
+      slug,
+      existing[0].name,
+      values.name,
+      authorsBeforeRename
+    );
     await db.update(authors).set(values).where(eq(authors.slug, slug));
   } else {
     await db.insert(authors).values({
@@ -131,7 +201,10 @@ export async function upsertAuthor(
     });
   }
 
-  return getStoredAuthors();
+  return {
+    authors: await getStoredAuthors(),
+    propagated,
+  };
 }
 
 export async function deleteAuthor(slug: string): Promise<BlogAuthor[]> {

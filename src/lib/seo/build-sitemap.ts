@@ -3,6 +3,8 @@ import "server-only";
 import type { MetadataRoute } from "next";
 import { resolveAuthorSlug } from "@/app/data/blogAuthors";
 import type { BlogAuthor } from "@/app/data/blogAuthors";
+import { routing } from "@/i18n/routing";
+import type { TayproLocale } from "@/i18n/markets";
 import { getStoredAuthors } from "@/lib/cms/authorService";
 import { listPublishedBlogsForSitemap } from "@/lib/cms/blogService";
 import { listPublishedProjectsForSitemap } from "@/lib/cms/projectService";
@@ -12,7 +14,10 @@ import {
   SITE_URL,
   STATIC_SITEMAP_ROUTES,
 } from "./sitemap-config";
-import { sitemapPathsForAllLocales } from "./locale-alternates";
+import {
+  sitemapPathForLocale,
+  sitemapPathsForAllLocales,
+} from "./locale-alternates";
 
 const INDEXABLE_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
@@ -103,6 +108,24 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
     }
   };
 
+  const addForLocale = (
+    internalPath: string,
+    locale: TayproLocale,
+    options: {
+      lastModified?: Date;
+      changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+      priority: number;
+    }
+  ) => {
+    add(
+      entry(sitemapPathForLocale(internalPath, locale), {
+        lastModified: options.lastModified,
+        changeFrequency: options.changeFrequency,
+        priority: options.priority,
+      })
+    );
+  };
+
   for (const route of STATIC_SITEMAP_ROUTES) {
     addLocalized(route.path, {
       changeFrequency: route.changeFrequency,
@@ -123,56 +146,63 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
       (p) => isIndexableSlug(p.slug) && p.locale
     );
 
-    const blogListByLocale = new Map<string, typeof indexableBlogs>();
+    const blogListByLocale = new Map<TayproLocale, typeof indexableBlogs>();
     for (const blog of indexableBlogs) {
-      const list = blogListByLocale.get(blog.locale) ?? [];
+      const locale = blog.locale as TayproLocale;
+      const list = blogListByLocale.get(locale) ?? [];
       list.push(blog);
-      blogListByLocale.set(blog.locale, list);
+      blogListByLocale.set(locale, list);
     }
 
     const storedAuthors = await getStoredAuthors();
-    const authorPaths = collectAuthorPaths(
-      blogListByLocale.get("en") ?? indexableBlogs.filter((b) => b.locale === "en"),
-      storedAuthors
-    );
-    const enBlogs =
-      blogListByLocale.get("en") ??
-      indexableBlogs.filter((b) => b.locale === "en");
-    const blogListLastModified = latestBlogModified(enBlogs);
 
     for (const blog of indexableBlogs) {
-      addLocalized(`/blog/${blog.slug}`, {
+      addForLocale(`/blog/${blog.slug}`, blog.locale as TayproLocale, {
         lastModified: parseLastModified(blog.updatedAt, blog.publishDate),
         changeFrequency: CMS_SITEMAP_DEFAULTS.blog.changeFrequency,
         priority: CMS_SITEMAP_DEFAULTS.blog.priority,
       });
     }
 
-    const totalBlogPages = Math.max(
-      1,
-      Math.ceil(indexableBlogs.length / BLOG_LIST_PAGE_SIZE)
-    );
-    for (let page = 2; page <= totalBlogPages; page++) {
-      addLocalized(`/blog?page=${page}`, {
-        lastModified: blogListLastModified,
-        changeFrequency: CMS_SITEMAP_DEFAULTS.blogPagination.changeFrequency,
-        priority: CMS_SITEMAP_DEFAULTS.blogPagination.priority,
-      });
+    for (const locale of routing.locales) {
+      const localeBlogs = blogListByLocale.get(locale) ?? [];
+      if (localeBlogs.length === 0) continue;
+
+      const totalBlogPages = Math.max(
+        1,
+        Math.ceil(localeBlogs.length / BLOG_LIST_PAGE_SIZE)
+      );
+      const blogListLastModified = latestBlogModified(localeBlogs);
+
+      for (let page = 2; page <= totalBlogPages; page += 1) {
+        addForLocale(`/blog?page=${page}`, locale, {
+          lastModified: blogListLastModified,
+          changeFrequency: CMS_SITEMAP_DEFAULTS.blogPagination.changeFrequency,
+          priority: CMS_SITEMAP_DEFAULTS.blogPagination.priority,
+        });
+      }
     }
+
     for (const project of indexableProjects) {
-      addLocalized(`/projects/${project.slug}`, {
+      addForLocale(`/projects/${project.slug}`, project.locale as TayproLocale, {
         lastModified: parseLastModified(project.updatedAt, project.date),
         changeFrequency: CMS_SITEMAP_DEFAULTS.project.changeFrequency,
         priority: CMS_SITEMAP_DEFAULTS.project.priority,
       });
     }
 
-    for (const [authorSlug, meta] of authorPaths) {
-      addLocalized(`/blog/author/${authorSlug}`, {
-        lastModified: meta.lastModified,
-        changeFrequency: CMS_SITEMAP_DEFAULTS.author.changeFrequency,
-        priority: CMS_SITEMAP_DEFAULTS.author.priority,
-      });
+    for (const locale of routing.locales) {
+      const localeBlogs = blogListByLocale.get(locale) ?? [];
+      if (localeBlogs.length === 0) continue;
+
+      const authorPaths = collectAuthorPaths(localeBlogs, storedAuthors);
+      for (const [authorSlug, meta] of authorPaths) {
+        addForLocale(`/blog/author/${authorSlug}`, locale, {
+          lastModified: meta.lastModified,
+          changeFrequency: CMS_SITEMAP_DEFAULTS.author.changeFrequency,
+          priority: CMS_SITEMAP_DEFAULTS.author.priority,
+        });
+      }
     }
 
     const skipped =
@@ -181,7 +211,7 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
       (projects.length - indexableProjects.length);
     if (skipped > 0) {
       console.warn(
-        `[sitemap] Skipped ${skipped} CMS URL(s) with invalid or unpublished slugs`
+        `[sitemap] Skipped ${skipped} CMS URL(s) with invalid slugs`
       );
     }
   } catch (error) {

@@ -276,14 +276,14 @@ export default async function NyumaXTrackerCleaningRobotPage({
                   {t("overview.p4Lead")}
                   <Link
                     href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("overview.linkNyuma")}
                   </Link>
                   {t("overview.p4Mid")}
                   <Link
                     href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("overview.linkHelyx")}
                   </Link>
@@ -293,12 +293,12 @@ export default async function NyumaXTrackerCleaningRobotPage({
                   {t("overview.p5Prefix")}
                   <Link
                     href="/blog/seasonal-solar-panel-maintenance-tips-a-comprehensive-guide"
-                    className="text-[#A8C117] hover:underline"
+                    className="brand-inline-link"
                   >
                     {t("overview.linkBlogSeasonal")}
                   </Link>
                   {t("overview.p5Mid")}
-                  <Link href="/blog" className="text-[#A8C117] hover:underline">
+                  <Link href="/blog" className="brand-inline-link">
                     {t("overview.linkBlog")}
                   </Link>
                   {t("overview.p5Suffix")}
@@ -709,14 +709,14 @@ export default async function NyumaXTrackerCleaningRobotPage({
                 {t("nyumaXVsNyuma.crossSellLead")}
                 <Link
                   href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("nyumaXVsNyuma.linkHelyx")}
                 </Link>
                 {t("nyumaXVsNyuma.crossSellMid")}
                 <Link
                   href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("nyumaXVsNyuma.linkOpex")}
                 </Link>
@@ -781,14 +781,14 @@ export default async function NyumaXTrackerCleaningRobotPage({
                 {t("glydeXVsNyumaX.crossSellLead")}
                 <Link
                   href="/compare/glyde-vs-nyuma"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("glydeXVsNyumaX.linkGlyde")}
                 </Link>
                 {t("glydeXVsNyumaX.crossSellMid")}
                 <Link
                   href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("glydeXVsNyumaX.linkHelyx")}
                 </Link>
@@ -853,28 +853,28 @@ export default async function NyumaXTrackerCleaningRobotPage({
                 {t("indianConditions.crossSellLead")}
                 <Link
                   href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("indianConditions.linkNyuma")}
                 </Link>
                 {t("indianConditions.linkBetweenAB")}
                 <Link
                   href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("indianConditions.linkHelyx")}
                 </Link>
                 {t("indianConditions.linkBetweenBOpex")}
                 <Link
                   href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("indianConditions.linkOpex")}
                 </Link>
                 {t("indianConditions.linkBetweenOpexAndNectyr")}
                 <Link
                   href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
-                  className="text-[#A8C117] hover:underline"
+                  className="brand-inline-link"
                 >
                   {t("indianConditions.linkNectyr")}
                 </Link>
