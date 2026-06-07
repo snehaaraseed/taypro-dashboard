@@ -41,18 +41,6 @@ export async function generateMetadata({
   return withHreflang(UTILITY_SOLAR_OPERATIONS_PATH, locale, {
     title: t("title"),
     description: t("description"),
-    keywords: [
-      "Solar Panel Cleaning Robot",
-      "solar panel cleaning robot India",
-      "utility scale solar operations",
-      "solar O&M India",
-      "waterless solar panel cleaning",
-      "autonomous solar operations",
-      "solar plant operations",
-      "robotic solar panel cleaning",
-      "NECTYR",
-      "ORION Taypro",
-    ],
     openGraph: {
       title: t("openGraphTitle"),
       description: t("openGraphDescription"),

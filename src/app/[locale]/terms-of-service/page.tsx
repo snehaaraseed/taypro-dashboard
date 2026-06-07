@@ -19,7 +19,6 @@ export async function generateMetadata({
   return withHreflang("/terms-of-service", locale, {
     title: t("title"),
     description: t("description"),
-    keywords: t("keywords"),
     openGraph: {
       title: t("openGraphTitle"),
       description: t("openGraphDescription"),

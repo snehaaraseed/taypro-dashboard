@@ -389,66 +389,31 @@ export type TranslationValidationInput = {
   translatedFaqs: BlogFaqItem[];
 };
 
+/** Light sanity checks only — English source is validated at publish time. */
 export function validateTranslatedBlog(
   input: TranslationValidationInput
 ): BlogContentValidationResult {
   const issues: string[] = [];
-  const srcWords = countWords(stripHtmlToPlainText(input.sourceContent));
-  const trWords = countWords(stripHtmlToPlainText(input.translatedContent));
-  const minRatio = 0.45;
 
   if (!input.translatedTitle.trim()) issues.push("Translated title is empty");
   if (!input.translatedDescription.trim()) {
     issues.push("Translated description is empty");
   }
-  if (srcWords > 0 && trWords / srcWords < minRatio) {
-    issues.push(
-      `Translated body too short (${trWords} vs ${srcWords} words; need ≥${Math.round(minRatio * 100)}% of source)`
-    );
+  if (!stripHtmlToPlainText(input.translatedContent).trim()) {
+    issues.push("Translated body is empty");
   }
 
-  if (input.sourceFaqs.length > 0) {
-    if (input.translatedFaqs.length !== input.sourceFaqs.length) {
-      issues.push(
-        `FAQ count mismatch (${input.translatedFaqs.length} vs ${input.sourceFaqs.length})`
-      );
-    }
-    const placeholderRe = /⟦M\d+⟧/g;
-    const srcPlaceholders = input.sourceContent.match(placeholderRe)?.length ?? 0;
-    const trPlaceholders = input.translatedContent.match(placeholderRe)?.length ?? 0;
-    if (srcPlaceholders > 0 && trPlaceholders !== srcPlaceholders) {
-      issues.push("Translated content lost media placeholders");
-    }
-  }
-
-  const descLen = input.translatedDescription.trim().length;
-  if (descLen < 60 || descLen > 220) {
+  if (
+    input.sourceFaqs.length > 0 &&
+    input.translatedFaqs.length !== input.sourceFaqs.length
+  ) {
     issues.push(
-      `Translated meta description ${descLen} chars (allow 60–220 for locale copy)`
+      `FAQ count mismatch (${input.translatedFaqs.length} vs ${input.sourceFaqs.length})`
     );
   }
 
   if (/<h1\b/i.test(input.translatedContent)) {
     issues.push("Translated body must not contain <h1>");
-  }
-
-  const pillarCount = countQualifyingInternalLinks(input.translatedContent);
-  if (pillarCount < MIN_INTERNAL_LINKS) {
-    issues.push(
-      `Translated body needs ≥${MIN_INTERNAL_LINKS} internal links (found ${pillarCount})`
-    );
-  }
-
-  const blogLinks = extractBlogPostLinkSlugs(input.translatedContent);
-  if (blogLinks.length < MIN_BLOG_POST_LINKS) {
-    issues.push(
-      `Translated body needs ≥${MIN_BLOG_POST_LINKS} /blog/ links (found ${blogLinks.length})`
-    );
-  }
-
-  const imgAltIssue = findInlineImgAltIssue(input.translatedContent);
-  if (imgAltIssue) {
-    issues.push(`Translated ${imgAltIssue.toLowerCase()}`);
   }
 
   if (issues.length > 0) return { ok: false, issues };

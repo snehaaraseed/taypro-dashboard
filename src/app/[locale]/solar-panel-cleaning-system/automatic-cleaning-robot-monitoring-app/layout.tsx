@@ -21,23 +21,6 @@ export async function generateMetadata({
     {
       title: t("title"),
       description: t("description"),
-      keywords: [
-        "solar cleaning robot fleet monitoring software",
-        "solar O&M portal",
-        "solar O&M cleaning reports",
-        "solar panel cleaning robot monitoring",
-        "solar cleaning robot fleet management",
-        "robotic solar cleaning dashboard",
-        "solar panel cleaning robot control portal",
-        "solar farm robot monitoring India",
-        "cleaning robot scheduling software",
-        "solar robot telemetry dashboard",
-        "autonomous solar cleaning monitoring",
-        "weather-aware solar cleaning scheduling",
-        "solar plant cleaning analytics",
-        "NECTYR",
-        "Taypro fleet portal",
-      ],
       openGraph: {
         siteName: "Taypro",
         title: t("title"),

@@ -13,7 +13,6 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "HelyxPage.meta" });
-  const keywords = t.raw("keywords") as string[];
 
   return withHreflang(
     "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
@@ -21,7 +20,6 @@ export async function generateMetadata({
     {
       title: t("title"),
       description: t("description"),
-      keywords,
       openGraph: {
         title: t("title"),
         description: t("openGraphDescription"),

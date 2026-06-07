@@ -1,12 +1,13 @@
 {
   "NectyrPage": {
     "meta": {
-      "title": "Solar Cleaning Robot Fleet Monitoring Software, NECTYR",
-      "description": "NECTYR is the secure web portal for monitoring and managing Taypro Solar Panel Cleaning Robot fleets: site dashboards, weather-aware scheduling, block-wise coverage, cleaning logs and exportable reports, gateway and robot health, statistics, support tickets, and role-based access, provisioned privately for each customer.",
+      "title": "Solar Robot Fleet Monitoring Software | NECTYR",
+      "description": "NECTYR portal for Taypro robot fleets: schedules, logs, reports, and health dashboards. Request access after onboarding.",
       "openGraphDescription": "Fleet dashboards, schedules, logs, statistics, tickets, and secure robot oversight for Taypro cleaning robots.",
       "openGraphImageAlt": "NECTYR, solar cleaning robot fleet monitoring",
-      "twitterTitle": "NECTYR, Solar Cleaning Robot Fleet Monitoring",
-      "twitterDescription": "Secure web portal for Taypro robot fleets: dashboards, schedules, reports, and support."
+      "twitterTitle": "Solar Robot Fleet Monitoring | NECTYR",
+      "twitterDescription": "Secure web portal for Taypro robot fleets: dashboards, schedules, reports, and support.",
+      "openGraphTitle": "Solar Robot Fleet Monitoring | NECTYR"
     },
     "breadcrumbs": {
       "robots": "Solar Panel Cleaning Robots",

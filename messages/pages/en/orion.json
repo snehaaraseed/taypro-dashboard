@@ -1,23 +1,13 @@
 {
   "OrionPage": {
     "meta": {
-      "title": "ORION, Solar Plant Intelligence Platform (Coming Soon)",
-      "description": "ORION is Taypro's upcoming SaaS for solar plant health monitoring, trained on generation and operational data, with optional field signals from Taypro cleaning robots. Register for early access and pilot programmes.",
-      "openGraphTitle": "ORION, Solar Plant Intelligence Platform | Taypro",
+      "title": "Solar Plant Intelligence Platform | ORION",
+      "description": "ORION SaaS for solar plant health monitoring, trained on generation data plus Taypro robot field signals. Register for early access.",
+      "openGraphTitle": "Solar Plant Intelligence | ORION",
       "openGraphDescription": "Coming soon: generation-aware plant health monitoring that complements SCADA and connects to Taypro's robotic field presence.",
       "openGraphImageAlt": "ORION, Taypro solar plant intelligence and health monitoring platform",
-      "twitterTitle": "ORION Plant Intelligence | Taypro",
-      "twitterDescription": "Solar plant health monitoring SaaS, generation-trained insights plus Taypro robot field data. Coming soon.",
-      "keywords": [
-        "solar plant monitoring software",
-        "solar asset management platform",
-        "solar plant health monitoring",
-        "performance ratio monitoring solar",
-        "solar O&M analytics India",
-        "ORION Taypro",
-        "solar SCADA analytics",
-        "utility scale solar monitoring"
-      ]
+      "twitterTitle": "Solar Plant Intelligence | ORION",
+      "twitterDescription": "Solar plant health monitoring SaaS, generation-trained insights plus Taypro robot field data. Coming soon."
     },
     "breadcrumbs": {
       "robots": "Solar solutions",

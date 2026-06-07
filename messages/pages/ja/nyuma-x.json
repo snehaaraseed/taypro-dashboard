@@ -1,28 +1,17 @@
 {
   "NyumaXPage": {
     "meta": {
-      "title": "単軸トラッカー用ソーラーパネル清掃ロボット, Taypro GLYDE-X",
-      "description": "Taypro GLYDE-X は、単軸トラッカー太陽光発電所専用に構築された、AI および ML を搭載した水を使わない自律型ソーラー パネル クリーニング ロボットです。シングルパスPBT実行ごとに 99% 以上の塵除去、充電ごとに最大 3,600 モジュール、テーブル間で ±15° のフレックス、NEXTracker および Gamechanger 互換 (-52° ～ +52° のモジュール傾斜)、TÜV NORD 認定。",
+      "title": "トラッカー用ソーラー洗浄ロボット | NYUMA-X",
+      "description": "トラッカー向けPBT NYUMA-X。99%+除塵、NECTYR、TÜV NORD。今すぐ見積もり。",
       "openGraphDescription": "単軸トラッカープラント向けの自律型 AI 搭載ソーラーパネル洗浄ロボット。 1 サイクルあたり 99% 以上の塵除去、1 回の充電で最大 3,600 モジュール、LTE/Wi-Fi/RF メッシュ/LoRa/LoRaWAN 経由の NECTYR、NEXTracker および Gamechanger 互換、TÜV NORD 認定。",
       "openGraphImageAlt": "Taypro 単軸トラッカー ソーラーパネル清掃ロボット GLYDE-X, AI 搭載、水を使わない",
       "twitterDescription": "トラッカープラント用の自律型ソーラーパネル洗浄ロボット。 1 回の充電で 3,600 モジュール、LTE/Wi-Fi/RF メッシュ/LoRa/LoRaWAN、NEXTracker および Gamechanger と互換性があります。",
-      "keywords": [
-        "単軸トラッカー ソーラーパネル洗浄",
-        "単軸トラッカー ソーラー洗浄ロボット",
-        "トラッカー ソーラーパネル洗浄ロボット",
-        "NEXTracker ソーラー洗浄ロボット",
-        "Gamechanger トラッカー洗浄ロボット",
-        "水平単軸トラッカー洗浄",
-        "ユーティリティ規模 ソーラーパネル洗浄ロボット",
-        "トラッカー向け自動ソーラーパネル洗浄システム",
-        "Taypro GLYDE-X"
-      ],
-      "openGraphTitle": "PBTトラッカー用ソーラーパネル清掃ロボット, Taypro NYUMA-X",
-      "twitterTitle": "PBTトラッカー用ソーラーパネル清掃ロボット, Taypro NYUMA-X"
+      "openGraphTitle": "トラッカー用ソーラー洗浄ロボット | NYUMA-X",
+      "twitterTitle": "トラッカー用ソーラー洗浄ロボット | NYUMA-X"
     },
     "breadcrumbs": {
       "robots": "ソーラーパネル清掃ロボット",
-      "current": "単軸トラッカー用ソーラーパネル清掃ロボット"
+      "current": "NYUMA-X — PBT Tracker Robot"
     },
     "schema": {
       "productName": "単軸トラッカー用ソーラーパネル清掃ロボット - GLYDE-X",
@@ -32,7 +21,7 @@
       "howToDescription": "単軸トラッカー設置用の Taypro GLYDE-X ソーラー パネル清掃ロボットの段階的な自律清掃サイクル - AI によるスケジュールされた展開からセルフドッキングとクラウド テレメトリ同期まで。"
     },
     "hero": {
-      "title": "単軸トラッカー用ソーラーパネル清掃ロボット, GLYDE-X",
+      "title": "NYUMA-X — PBTシングルパストラッカー清掃ロボット",
       "subtitleBefore": "AI および ML を活用した、水を使わない自律型ソーラー パネル クリーニング ロボットは、単軸トラッカー太陽光発電所専用に設計されています。 1 回の充電で最大 3,600 個のモジュールをクリーニングします。",
       "subtitleStrong": "テーブル間で±15°屈曲",
       "subtitleAfter": "、-52°から+52°までのモジュールの傾斜をサポートし、NEXTracker、Gamechanger、および同等のトラッカーと互換性があります。",
@@ -54,8 +43,8 @@
         "description": "朝の急な角度から正午の平らな位置、そして夕方の急な角度まで、単軸トラッカーの全動作傾斜範囲にわたってモジュールを洗浄します。"
       },
       "3": {
-        "title": "100%水なしシングルパスPBT洗浄",
-        "description": "2 パス ドライ クリーニングでは、PBTブラシまたは PBT を使用してモジュール表面から 99% 以上のほこりを除去します。水、洗剤、流出による汚染はありません。"
+        "title": "100% 無水シングルパスPBT清掃",
+        "description": "逆回転PBTで99%超の乾燥トラッカー塵を1パスで除去 — 水なし。"
       },
       "4": {
         "title": "AI および ML 主導の自律性",
@@ -334,12 +323,12 @@
       "eyebrow": "独立したテストおよび認定済み",
       "title": "認証と現場で検証されたテスト",
       "subtitle": "Taypro の洗浄ソリューションは、認定された太陽光発電分野の試験機関によって実施される、現実的な屋外条件下での毎日の洗浄サイクルをシミュレートする、厳格な現場検証および実験室検証を受けています。",
-      "card0Title": "TÜV NORD認定",
-      "card0Body": "TÜV NORD による IP55 保護の独立テストおよび認定を受けており、極端な湿熱および乾熱の性能条件下で検証されています。",
-      "card1Title": "模擬砂嵐試験",
-      "card1Body": "最も厳しい砂漠気候の清掃プロトコルである、1 サイクルあたり 10 g/m² の砂を負荷し、年間 12 回の砂嵐イベントの下で検証されています。",
-      "card2Title": "パネルセーフ検証済み",
-      "card2Body": "マイクロクラック解析、完全な電気パラメータ評価、光反射率、ARC (反射防止コーティング) 保護についてテスト済み。"
+      "card0Title": "TÜV NORD PBT Tracker Certification",
+      "card0Body": "IP55 enclosure tracker-field damp-heat, dry-heat, vibration profiles validated।",
+      "card1Title": "Desert Soiling Endurance",
+      "card1Body": "PBT brush life high-loading dust cycles Thar-edge tracker plants representative validated।",
+      "card2Title": "ARC-Safe PBT Contact",
+      "card2Body": "Single-pass PBT pressure micro-crack, optical reflectance, ARC preservation trackers tested।"
     },
     "trustStats": {
       "eyebrow": "大規模に実証済み",
@@ -450,7 +439,7 @@
       },
       "row3": {
         "criterion": "クリーニング機構",
-        "nyumaX": "水なしシングルパスPBT - PBTブラシまたは PBT ブラシ",
+        "nyumaX": "Waterless single-pass PBT brush drum",
         "nyuma": "水なしシングルパスPBT, セルフクリーニングPBTブラシドラム"
       },
       "row4": {
@@ -514,6 +503,59 @@
     },
     "shared": {
       "connectivitySummary": "LTE、Wi-Fi、ハイブリッド自己修復RFメッシュ、LoRa、LoRaWAN"
+    },
+    "glydeXVsNyumaX": {
+      "eyebrow": "トラッカーロボット比較",
+      "title": "GLYDE-X vs NYUMA-X：どのトラッカーロボットを指定する？",
+      "subtitle": "両ロボットともNEXTracker、Gamechanger、同等の単軸テーブルをテーブル間±15°の可動で走行。GLYDE-Xは特許デュアルパスマイクロファイバー、NYUMA-XはCAPEX重視のトラッカープログラム向けシングルパスPBT。",
+      "criterion": "比較項目",
+      "glydeXHeader": "GLYDE-X（デュアルパス）",
+      "nyumaXHeader": "NYUMA-X（シングルパスPBT）",
+      "row0": {
+        "criterion": "清掃機構",
+        "glydeX": "デュアルパスマイクロファイバー — 混合汚れ向け気流＋拭き",
+        "nyumaX": "シングルパスPBTブラシ — 乾燥トラッカー塵ベルト向け"
+      },
+      "row1": {
+        "criterion": "トラッカー互換",
+        "glydeX": "NEXTracker、Gamechanger、-52°〜+52°モジュール傾斜",
+        "nyumaX": "NEXTracker、Gamechanger、-52°〜+52°モジュール傾斜"
+      },
+      "row2": {
+        "criterion": "テーブル間可動",
+        "glydeX": "±15°ボディ可動、検証済みブリッジキット",
+        "nyumaX": "±15°ボディ可動、検証済みブリッジキット"
+      },
+      "row3": {
+        "criterion": "運用重量",
+        "glydeX": "25 kgコンパクトトラッカーシャシ",
+        "nyumaX": "25 kgコンパクトトラッカーシャシ"
+      },
+      "row4": {
+        "criterion": "1充電あたりの走行",
+        "glydeX": "最大2.2 km（約3,600モジュール）",
+        "nyumaX": "最大2.2 km（約3,600モジュール）"
+      },
+      "row5": {
+        "criterion": "選ばれる場面",
+        "glydeX": "夜間サイクルで最大除塵が必要なプレミアムトラッカー列",
+        "nyumaX": "PBTのCAPEXとブラシ保守経済性を優先する大規模トラッカーフリート"
+      },
+      "row6": {
+        "criterion": "自律性とスケジュール",
+        "glydeX": "完全自律、NECTYRのAI天候連動スケジュール",
+        "nyumaX": "完全自律、NECTYRのAI天候連動スケジュール"
+      },
+      "row7": {
+        "criterion": "固定式の代替",
+        "glydeX": "固定式デュアルパスはGLYDEを参照",
+        "nyumaX": "固定式PBTはNYUMAを参照"
+      },
+      "crossSellLead": "固定式ロボット比較：",
+      "linkGlyde": "GLYDE vs NYUMA",
+      "crossSellMid": "。半自動展開は ",
+      "linkHelyx": "HELYX",
+      "crossSellSuffix": " を参照。"
     }
   },
   "Common": {

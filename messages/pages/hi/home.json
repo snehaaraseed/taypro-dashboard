@@ -1,12 +1,12 @@
 {
   "Home": {
     "meta": {
-      "title": "सोलर पैनल सफाई रोबोट | Taypro, वॉटरलेस India",
-      "description": "भारत में यूटिलिटी-स्केल प्लांटों के लिए वॉटरलेस सोलर पैनल सफाई रोबोट। डुअल-पास शुष्क सफाई, फ्लीट मॉनिटरिंग, पैन-India Taypro सहायता, स्वचालित और अर्ध-स्वचालित।",
-      "ogTitle": "सोलर पैनल सफाई रोबोट | Taypro, वॉटरलेस India",
-      "ogDescription": "भारतीय यूटिलिटी प्लांटों के लिए वॉटरलेस सोलर सफाई रोबोट, डुअल-पास शुष्क सफाई, NECTYR फ्लीट मॉनिटरिंग, राष्ट्रव्यापी सेवा।",
-      "twitterTitle": "सोलर पैनल सफाई रोबोट | Taypro",
-      "twitterDescription": "भारत में यूटिलिटी-स्केल सोलर फार्मों के लिए स्वायत्त और अर्ध-स्वचालित वॉटरलेस सोलर पैनल सफाई रोबोट।"
+      "title": "सोलर पैनल सफाई रोबोट | वॉटरलेस और स्वायत्त",
+      "description": "भारत के अग्रणी वॉटरलेस सोलर पैनल सफाई रोबोट, यूटिलिटी-स्केल प्लांटों के लिए। GLYDE और NYUMA से खोई generation वापस पाएं। आज कोटेशन लें।",
+      "ogTitle": "सोलर पैनल सफाई रोबोट | वॉटरलेस और स्वायत्त",
+      "ogDescription": "भारतीय यूटिलिटी प्लांटों के लिए वॉटरलेस सोलर सफाई रोबोट। डुअल-पास शुष्क सफाई, NECTYR फ्लीट, पैन-India सेवा।",
+      "twitterTitle": "सोलर पैनल सफाई रोबोट | वॉटरलेस और स्वायत्त",
+      "twitterDescription": "भारत में यूटिलिटी-स्केल सोलर फार्मों के लिए स्वायत्त वॉटरलेस सोलर पैनल सफाई रोबोट।"
     },
     "schema": {
       "video": {
@@ -158,7 +158,8 @@
     "clients": {
       "heading": "हमारे प्रतिष्ठित ग्राहक",
       "logoAlt": "Taypro सोलर पैनल सफाई रोबोट ग्राहक {index}, Taypro रोबोटिक सफाई समाधान उपयोगकर्ता भागीदार",
-      "logoTitle": "Taypro सोलर पैनल सफाई रोबोट ग्राहक {index}"
+      "logoTitle": "Taypro सोलर पैनल सफाई रोबोट ग्राहक {index}",
+      "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India."
     },
     "faq": {
       "heading": "अक्सर पूछे जाने वाले प्रश्न",
@@ -187,6 +188,17 @@
       "submitLabel": "अनुरोध भेजें",
       "messageLabel": "प्लांट विवरण और आवश्यकताएँ",
       "messagePlaceholder": "उदा. Rajasthan में 100 MW फिक्स्ड टिल्ट, रोबोट बनाम मैनुअल O&M का मूल्यांकन…"
+    },
+    "discover": {
+      "eyebrow": "Research & compare",
+      "heading": "Guides for buyers and O&M teams",
+      "intro": "Compare Taypro against alternatives, cleaning methods, and regional deployment factors across India.",
+      "compareHeading": "Comparison guides",
+      "compareAll": "View all comparisons",
+      "statesHeading": "Regional guides",
+      "statesAll": "All state guides",
+      "machineLink": "Solar panel cleaning machine guide",
+      "rooftopLink": "Rooftop solar cleaning robot (MINY)"
     },
     "projects": {
       "eyebrow": "मैदान में सिद्ध",

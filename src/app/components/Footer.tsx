@@ -59,6 +59,18 @@ export default function Footer() {
       href: "/solar-panel-cleaning-system#state-guides",
     },
     {
+      name: t("robotVsManual"),
+      href: "/compare/solar-panel-cleaning-robot-vs-manual-cleaning",
+    },
+    {
+      name: t("cleaningMachine"),
+      href: "/solar-panel-cleaning-machine",
+    },
+    {
+      name: t("press"),
+      href: "/press",
+    },
+    {
       name: t("roiCalculator"),
       href: "/solar-panel-cleaning-robot-price-calculator#calculator",
     },
@@ -96,7 +108,7 @@ export default function Footer() {
           <div className="flex justify-between md:w-1/3">
             <div className="flex items-center gap-2">
           <a
-            href="https://www.facebook.com/taypro.official?_gl=1*1i9ka0l*_ga*MTU1NzYyODIyMi4xNzQyMzU5NjM5*_ga_7G1M6KFY3K*czE3NTg2OTkxNTUkbzMkZzAkdDE3NTg2OTkxNTUkajYwJGwwJGgw"
+            href="https://www.facebook.com/taypro.official"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Taypro on Facebook"
@@ -106,7 +118,7 @@ export default function Footer() {
             </div>
           </a>
           <a
-            href="https://x.com/taypro_official?_gl=1*1i9ka0l*_ga*MTU1NzYyODIyMi4xNzQyMzU5NjM5*_ga_7G1M6KFY3K*czE3NTg2OTkxNTUkbzMkZzAkdDE3NTg2OTkxNTUkajYwJGwwJGgw"
+            href="https://x.com/taypro_official"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Taypro on X"
@@ -116,7 +128,7 @@ export default function Footer() {
             </div>
           </a>
           <a
-            href="https://www.instagram.com/taypro_official/?_gl=1*1i9ka0l*_ga*MTU1NzYyODIyMi4xNzQyMzU5NjM5*_ga_7G1M6KFY3K*czE3NTg2OTkxNTUkbzMkZzAkdDE3NTg2OTkxNTUkajYwJGwwJGgw"
+            href="https://www.instagram.com/taypro_official/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Taypro on Instagram"
@@ -126,7 +138,7 @@ export default function Footer() {
             </div>
           </a>
           <a
-            href="https://www.linkedin.com/company/taypro?_gl=1*wpuod0*_ga*MTU1NzYyODIyMi4xNzQyMzU5NjM5*_ga_7G1M6KFY3K*czE3NTg2OTkxNTUkbzMkZzAkdDE3NTg2OTkxNTUkajYwJGwwJGgw"
+            href="https://www.linkedin.com/company/taypro"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Taypro on LinkedIn"

@@ -24,6 +24,7 @@ import ClientsCard from "@/app/components/ClientsCard";
 import ModuleManufacturerTrust from "@/app/components/ModuleManufacturerTrust";
 import { RobotCard } from "@/app/components/RobotCard";
 import {
+  clientPartners,
   comingSoonRobotProducts,
   fleetAccessoryProducts,
   robotProducts,
@@ -911,7 +912,10 @@ export default async function SolarPanelCleaningRobot({
                 </OpenLeadModalButton>
                 {t("comparison.ctaLineSuffix")}
               </p>
-              <p className="text-gray-600 text-sm mt-4 flex flex-wrap justify-center gap-x-3 gap-y-1">
+              <p
+                id="compare-guides"
+                className="text-gray-600 text-sm mt-4 flex flex-wrap justify-center gap-x-3 gap-y-1"
+              >
                 {COMPARISON_PAGE_LIST.map((page, idx) => (
                   <span key={page.id} className="inline-flex items-center gap-3">
                     {idx > 0 ? <span className="text-gray-300">·</span> : null}
@@ -923,6 +927,23 @@ export default async function SolarPanelCleaningRobot({
                     </Link>
                   </span>
                 ))}
+              </p>
+              <p className="text-gray-600 text-sm mt-3 flex flex-wrap justify-center gap-x-3 gap-y-1">
+                <Link
+                  href="/solar-panel-cleaning-machine"
+                  className="text-[#5a8f00] font-medium hover:underline"
+                >
+                  {t("hubLinks.cleaningMachine")}
+                </Link>
+                <span className="text-gray-300" aria-hidden>
+                  ·
+                </span>
+                <Link
+                  href="/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot"
+                  className="text-[#5a8f00] font-medium hover:underline"
+                >
+                  {t("hubLinks.rooftopRobot")}
+                </Link>
               </p>
             </AnimateOnScroll>
           </Container>
@@ -959,6 +980,16 @@ export default async function SolarPanelCleaningRobot({
                 <p className="text-gray-500 text-sm mt-3 text-center">
                   {t("brushComparison.videoCaption")}
                 </p>
+                <details className="mt-6 text-left rounded-lg border border-gray-200 bg-[#f8fafb] px-4 py-3">
+                  <summary className="cursor-pointer text-sm font-medium text-[#052638] select-none">
+                    {t("brushComparison.transcriptToggle")}
+                  </summary>
+                  <div className="mt-4 space-y-3 text-sm text-gray-600 leading-relaxed">
+                    <p>{t("brushComparison.transcriptP1")}</p>
+                    <p>{t("brushComparison.transcriptP2")}</p>
+                    <p>{t("brushComparison.transcriptP3")}</p>
+                  </div>
+                </details>
               </AnimateOnScroll>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <AnimateOnScroll animation="fadeInUp" className="bg-[#f4f1e9] p-6 rounded-lg">
@@ -1394,7 +1425,17 @@ export default async function SolarPanelCleaningRobot({
 
         <ModuleManufacturerTrust />
 
-        <ClientsCard />
+        <ClientsCard
+          heading={t("clients.heading")}
+          trustedByText={t("clients.trustedBy", {
+            names: clientPartners.map((partner) => partner.name).join(", "),
+          })}
+          logos={clientPartners.map((partner) => ({
+            logoSrc: partner.logoSrc,
+            alt: t("clients.logoAlt", { name: partner.name }),
+            title: t("clients.logoTitle", { name: partner.name }),
+          }))}
+        />
 
         <section className="py-16 sm:py-24 bg-white">
           <Container>

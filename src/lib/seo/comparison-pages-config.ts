@@ -5,7 +5,9 @@ export type ComparisonPageId =
   | "tayproVsSkilancer"
   | "tayproVsAegeus"
   | "tayproVsVayu"
-  | "waterlessVsWater";
+  | "waterlessVsWater"
+  | "glydeVsNyuma"
+  | "glydeXVsNyumaX";
 
 export type ComparisonPageConfig = {
   id: ComparisonPageId;
@@ -49,6 +51,16 @@ export const COMPARISON_PAGES: Record<ComparisonPageId, ComparisonPageConfig> =
       id: "waterlessVsWater",
       slug: "waterless-vs-water-based-solar-cleaning",
       path: "/compare/waterless-vs-water-based-solar-cleaning",
+    },
+    glydeVsNyuma: {
+      id: "glydeVsNyuma",
+      slug: "glyde-vs-nyuma",
+      path: "/compare/glyde-vs-nyuma",
+    },
+    glydeXVsNyumaX: {
+      id: "glydeXVsNyumaX",
+      slug: "glyde-x-vs-nyuma-x",
+      path: "/compare/glyde-x-vs-nyuma-x",
     },
   };
 

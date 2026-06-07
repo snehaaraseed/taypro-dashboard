@@ -14,23 +14,9 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ProjectsPage.meta" });
 
-  const keywords = [
-    t("keyword0"),
-    t("keyword1"),
-    t("keyword2"),
-    t("keyword3"),
-    t("keyword4"),
-    t("keyword5"),
-    t("keyword6"),
-    t("keyword7"),
-    t("keyword8"),
-    t("keyword9"),
-  ];
-
   return withHreflang(PROJECTS_PATH, locale, {
     title: t("title"),
     description: t("description"),
-    keywords,
     openGraph: {
       title: t("openGraphTitle"),
       description: t("openGraphDescription"),

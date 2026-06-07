@@ -14,7 +14,8 @@
     "contactUs": "お問い合わせ",
     "blogs": "ブログ",
     "solarRobots": "ソーラーロボット",
-    "solarRobotsMenu": "ソーラーパネル清掃ロボット",
+    "solutions": "ソリューション",
+    "solutionsTitle": "ソーラーパネル清掃ロボットソリューション",
     "callUs": "今すぐ電話",
     "openMenu": "メニューを開く",
     "closeMenu": "メニューを閉じる",
@@ -38,7 +39,22 @@
     "glydeX": "GLYDE-X",
     "glydeXDesc": "トラッカー · デュアルパス · マイクロファイバー",
     "nyumaX": "NYUMA-X",
-    "nyumaXDesc": "トラッカー · シングルパス · PBT"
+    "nyumaXDesc": "トラッカー · シングルパス · PBT",
+    "guides": "ガイド",
+    "guidesTitle": "ロボット比較と地域ガイド",
+    "compareSection": "比較ガイド",
+    "statesSection": "地域ガイド",
+    "viewAllCompare": "すべての比較ガイド",
+    "viewAllStates": "すべての地域ガイド",
+    "priceGuideNav": "ロボット価格ガイド (India)",
+    "compareTayproVsSolabot": "Taypro vs Solabot",
+    "compareIndianCompetitors": "Taypro vs インド競合",
+    "compareRobotVsManual": "ロボット vs 手動清掃",
+    "compareWaterlessVsWater": "水なし vs 水ベース",
+    "stateRajasthan": "Rajasthan",
+    "stateGujarat": "Gujarat",
+    "stateKarnataka": "Karnataka",
+    "stateMaharashtra": "Maharashtra"
   },
   "Footer": {
     "mail": "メール",
@@ -60,12 +76,15 @@
     "roiCalculator": "ROI・価格計算機",
     "robotPriceGuide": "ロボット価格ガイド (India)",
     "regionalGuides": "地域別ロボットガイド（インド）",
+    "compareGuides": "競合他社とのTaypro比較",
+    "tayproVsSolabot": "Taypro vs Solabot",
+    "robotVsManual": "ロボット vs 手動清掃",
     "investors": "パートナー・投資家",
     "copyright": "© 著作権 {year} – TAYPRO PRIVATE LIMITED. 無断転載を禁じます。"
   },
   "NotFoundPage": {
     "meta": {
-      "title": "ページが見つかりません | Taypro",
+      "title": "ページが見つかりません",
       "description": "このページは利用できません。Taypro.inは稼働中です。ソーラーパネル清掃ロボット、プロジェクト、ブログ、お問い合わせをご覧ください。"
     },
     "breadcrumbHome": "ホーム",

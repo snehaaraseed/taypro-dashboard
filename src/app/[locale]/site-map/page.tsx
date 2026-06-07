@@ -23,19 +23,9 @@ export async function generateMetadata({
     namespace: "SiteMapPage.meta",
   });
 
-  const keywords = [
-    t("keyword0"),
-    t("keyword1"),
-    t("keyword2"),
-    t("keyword3"),
-    t("keyword4"),
-    t("keyword5"),
-  ];
-
   return withHreflang(SITE_MAP_PATH, locale, {
     title: t("title"),
     description: t("description"),
-    keywords,
     openGraph: {
       title: t("openGraphTitle"),
       description: t("openGraphDescription"),
@@ -445,6 +435,24 @@ export default async function SiteMapPage({
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
                   {l("cleaningTechnologyLabel")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/solar-panel-cleaning-machine"
+                  title={l("cleaningMachineTitle")}
+                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                >
+                  {l("cleaningMachineLabel")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/press"
+                  title={l("pressTitle")}
+                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                >
+                  {l("pressLabel")}
                 </Link>
               </li>
             </ul>

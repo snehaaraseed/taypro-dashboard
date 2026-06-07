@@ -3,7 +3,11 @@ import "server-only";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import type { TayproLocale } from "@/i18n/markets";
 import { geminiTranslationModel, localeDisplayName } from "./config";
-import { maskMediaInHtml, unmaskMediaInHtml } from "./preserve-html";
+import {
+  maskMediaInHtml,
+  repairTranslatedBlogHtml,
+  unmaskMediaInHtml,
+} from "./preserve-html";
 import type { BlogFaqItem } from "@/lib/cms/blog-faqs";
 import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
 import {
@@ -63,6 +67,8 @@ STRICT RULES:
 5. Keep brand names (Taypro, GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, NECTYR, TÜV NORD) and standard units (MW, kWh) unless a well-known localized form exists.
 6. Use professional, natural ${language} suitable for utility-scale solar plant operators.
 7. Meta description: stay within ~160 characters where possible.
+8. Translate the FULL body — do NOT summarize, shorten, or omit sections. Output length should be similar to the English source.
+9. Preserve every <a href="/..."> internal link from the source (same href paths; translate anchor text only).
 ${PUNCTUATION_RULES}
 
 Source JSON:
@@ -92,6 +98,7 @@ ${JSON.stringify({
   }
 
   parsed.content = unmaskMediaInHtml(parsed.content, fragments);
+  parsed.content = repairTranslatedBlogHtml(source.content, parsed.content);
 
   return {
     title: sanitizeEmDash(parsed.title.trim()),

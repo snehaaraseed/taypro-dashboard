@@ -1,26 +1,17 @@
 {
   "GlydeXPage": {
     "meta": {
-      "title": "একক-অক্ষ ট্র্যাকারদের জন্য সোলার প্যানেল পরিষ্কারের রোবট, Taypro GLYDE-X",
-      "description": "Taypro GLYDE-X হল একটি AI- এবং ML-চালিত, জলবিহীন স্বায়ত্তশাসিত সোলার প্যানেল ক্লিনিং রোবট যা একক-অক্ষ ট্র্যাকার সৌর খামারগুলির জন্য নির্মিত৷ ডুয়াল-পাস রান প্রতি 99%+ ধুলো অপসারণ, প্রতি চার্জ 3,600 মডিউল পর্যন্ত, টেবিলের মধ্যে ±15° ফ্লেক্স, NEXTracker এবং Gamechanger সামঞ্জস্যপূর্ণ (-52° থেকে +52° মডিউল টিল্ট), TÜV NORD প্রত্যয়িত।",
+      "title": "ট্র্যাকার সোলার প্যানেল পরিষ্কার রোবট | GLYDE-X",
+      "description": "সিঙ্গল-অ্যাক্সিস ট্র্যাকারের জন্য GLYDE-X। ৯৯%+ ধুলো, NEXTracker সামঞ্জস্য। কোটেশন নিন।",
       "openGraphDescription": "একক-অক্ষ ট্র্যাকার প্ল্যান্টের জন্য স্বায়ত্তশাসিত AI-চালিত সোলার প্যানেল ক্লিনিং রোবট। প্রতি চক্রে 99%+ ধুলো অপসারণ, চার্জ প্রতি 3,600 মডিউল পর্যন্ত, LTE/Wi-Fi/RF জাল/LoRa/LoRaWAN এর মাধ্যমে NECTYR, NEXTracker এবং Gamechanger সামঞ্জস্যপূর্ণ, TÜV NORD প্রত্যয়িত৷",
       "openGraphImageAlt": "Taypro একক-অক্ষ ট্র্যাকার সোলার প্যানেল ক্লিনিং রোবট GLYDE-X, এআই-চালিত, জলহীন",
       "twitterDescription": "ট্র্যাকার উদ্ভিদের জন্য স্বায়ত্তশাসিত সৌর প্যানেল পরিষ্কারের রোবট। প্রতি চার্জ 3,600 মডিউল, LTE/Wi-Fi/RF জাল/LoRa/LoRaWAN, NEXTracker এবং Gamechanger সামঞ্জস্যপূর্ণ।",
-      "keywords": [
-        "সিঙ্গেল-অক্ষ ট্র্যাকার সোলার প্যানেল পরিষ্কার",
-        "সিঙ্গেল-অক্ষ ট্র্যাকার সোলার পরিষ্কার রোবট",
-        "ট্র্যাকার সোলার প্যানেল পরিষ্কার রোবট",
-        "NEXTracker সোলার পরিষ্কার রোবট",
-        "Gamechanger ট্র্যাকার পরিষ্কার রোবট",
-        "অনুভূমিক সিঙ্গেল-অক্ষ ট্র্যাকার পরিষ্কার",
-        "ইউটিলিটি স্কেল সোলার প্যানেল পরিষ্কার রোবট",
-        "ট্র্যাকার স্বয়ংক্রিয় সোলার প্যানেল পরিষ্কার সিস্টেম",
-        "Taypro GLYDE-X"
-      ]
+      "openGraphTitle": "ট্র্যাকার সোলার প্যানেল পরিষ্কার রোবট | GLYDE-X",
+      "twitterTitle": "ট্র্যাকার সোলার প্যানেল পরিষ্কার রোবট | GLYDE-X"
     },
     "breadcrumbs": {
       "robots": "সোলার প্যানেল ক্লিনিং রোবট",
-      "current": "একক-অক্ষ ট্র্যাকারদের জন্য সোলার প্যানেল পরিষ্কারের রোবট"
+      "current": "GLYDE-X — Dual-Pass Tracker Robot"
     },
     "schema": {
       "productName": "একক-অক্ষ ট্র্যাকারদের জন্য সোলার প্যানেল পরিষ্কারের রোবট - GLYDE-X",
@@ -30,7 +21,7 @@
       "howToDescription": "একক-অক্ষ ট্র্যাকার ইনস্টলেশনের জন্য Taypro GLYDE-X সোলার প্যানেল ক্লিনিং রোবটের ধাপে ধাপে স্বায়ত্তশাসিত পরিচ্ছন্নতা চক্র, স্ব-ডকিং এবং ক্লাউড টেলিমেট্রি সিঙ্কের মাধ্যমে এআই-নির্ধারিত স্থাপনা থেকে।"
     },
     "hero": {
-      "title": "একক-অক্ষ ট্র্যাকারদের জন্য সোলার প্যানেল পরিষ্কারের রোবট, GLYDE-X",
+      "title": "GLYDE-X — Dual-Pass Tracker Solar Panel Cleaning Robot",
       "subtitleBefore": "একটি AI- এবং ML-চালিত, জলবিহীন স্বায়ত্তশাসিত সোলার প্যানেল ক্লিনিং রোবট যা একক-অক্ষ ট্র্যাকার সৌর খামারের জন্য নির্মিত। প্রতি চার্জে 3,600 মডিউল পর্যন্ত পরিষ্কার করে,",
       "subtitleStrong": "টেবিলের মধ্যে ±15° নমনীয়",
       "subtitleAfter": ", -52° থেকে +52° থেকে মডিউল টিল্ট সমর্থন করে এবং NEXTracker, Gamechanger এবং সমতুল্য ট্র্যাকারের সাথে সামঞ্জস্যপূর্ণ।",
@@ -51,8 +42,8 @@
         "description": "একটি একক-অক্ষ ট্র্যাকারের সম্পূর্ণ অপারেশনাল টিল্ট রেঞ্জ জুড়ে মডিউলগুলি পরিষ্কার করে, খাড়া সকালের কোণ থেকে সমতল দুপুরের অবস্থান থেকে খাড়া সন্ধ্যার কোণ পর্যন্ত।"
       },
       "3": {
-        "title": "100% জলহীন ডুয়াল-পাস ক্লিনিং",
-        "description": "টু-পাস ড্রাই ক্লিনিং মাইক্রোফাইবার বা PBT ব্যবহার করে মডিউল পৃষ্ঠ থেকে 99% এর বেশি ধুলো উত্তোলন করে, কোনো জল নেই, কোনো ডিটারজেন্ট নেই, কোনো রান-অফ দূষণ নেই।"
+        "title": "100% Waterless Dual-Pass Cleaning",
+        "description": "পেটেন্টেড dual-pass microfiber 99%+ tracker dust lift — জল/run-off ছাড়াই।"
       },
       "4": {
         "title": "AI- এবং ML-চালিত স্বায়ত্তশাসন",
@@ -335,12 +326,12 @@
       "eyebrow": "স্বাধীনভাবে পরীক্ষিত এবং প্রত্যয়িত",
       "title": "সার্টিফিকেশন এবং ক্ষেত্র-প্রমাণিত পরীক্ষা",
       "subtitle": "Taypro-এর ক্লিনিং সলিউশনগুলি কঠোর ক্ষেত্র এবং পরীক্ষাগার যাচাইকরণের সাপেক্ষে, বাস্তবসম্মত বহিরঙ্গন পরিস্থিতিতে দৈনন্দিন পরিচ্ছন্নতার চক্র অনুকরণ করে, স্বীকৃত সোলার-সেক্টর টেস্টিং ল্যাবরেটরি দ্বারা পরিচালিত।",
-      "card0Title": "TÜV NORD সার্টিফাইড",
-      "card0Body": "IP55 সুরক্ষার জন্য TÜV NORD দ্বারা স্বাধীনভাবে পরীক্ষিত এবং প্রত্যয়িত এবং চরম স্যাঁতসেঁতে-তাপ এবং শুষ্ক-তাপ কার্যক্ষমতার অবস্থার অধীনে বৈধ।",
-      "card1Title": "সিমুলেটেড বালির ঝড় পরীক্ষা",
-      "card1Body": "প্রতি চক্রে 10 g/m² এর বালি লোডিং-এ প্রতি বছর 12টি বালুঝড় ইভেন্টের অধীনে যাচাই করা হয়েছে - সবচেয়ে কঠিন মরুভূমি-জলবায়ু পরিষ্কারের প্রোটোকল।",
-      "card2Title": "প্যানেল-নিরাপদ যাচাই করা হয়েছে",
-      "card2Body": "মাইক্রো-ক্র্যাক বিশ্লেষণ, সম্পূর্ণ বৈদ্যুতিক পরামিতি মূল্যায়ন, অপটিক্যাল প্রতিফলন এবং ARC (অ্যান্টি-রিফ্লেক্টিভ লেপ) সংরক্ষণের জন্য পরীক্ষা করা হয়েছে।"
+      "card0Title": "TÜV NORD Tracker Validation",
+      "card0Body": "IP55 protection tracker-specific damp-heat, dry-heat performance testing independently certified।",
+      "card1Title": "Sandstorm & Dust-Belt Testing",
+      "card1Body": "12 sandstorm events/year 10 g/m² loading simulated — Rajasthan/Gujarat tracker O&M conditions।",
+      "card2Title": "Panel-Safe Dual-Pass Contact",
+      "card2Body": "Micro-crack, reflectance, ARC preservation daily dual-pass tracker modules tested।"
     },
     "trustStats": {
       "eyebrow": "স্কেলে প্রমাণিত",
@@ -518,6 +509,59 @@
     },
     "shared": {
       "connectivitySummary": "LTE, Wi-Fi, হাইব্রিড সেল্ফ-হিলিং RF মেশ, LoRa ও LoRaWAN"
+    },
+    "glydeXVsNyumaX": {
+      "eyebrow": "ট্র্যাকার রোবট তুলনা",
+      "title": "GLYDE-X vs NYUMA-X: কোন ট্র্যাকার রোবট specify করবেন?",
+      "subtitle": "দুটি রোবটই NEXTracker, Gamechanger ও সমতুল্য single-axis টেবিল ±15° inter-table flex-এ অতিক্রম করে। GLYDE-X পেটেন্টেড dual-pass microfiber; NYUMA-X capex-sensitive tracker programmes-এর জন্য single-pass PBT।",
+      "criterion": "মানদণ্ড",
+      "glydeXHeader": "GLYDE-X (Dual-Pass)",
+      "nyumaXHeader": "NYUMA-X (Single-Pass PBT)",
+      "row0": {
+        "criterion": "পরিষ্কার প্রক্রিয়া",
+        "glydeX": "Dual-pass microfiber — mixed soiling-এ airflow + wipe",
+        "nyumaX": "Single-pass PBT brush — শুষ্ক tracker dust belts-এর জন্য"
+      },
+      "row1": {
+        "criterion": "Tracker সামঞ্জস্য",
+        "glydeX": "NEXTracker, Gamechanger, -52° থেকে +52° module tilt",
+        "nyumaX": "NEXTracker, Gamechanger, -52° থেকে +52° module tilt"
+      },
+      "row2": {
+        "criterion": "Inter-table flex",
+        "glydeX": "±15° body articulation, validated bridge kits",
+        "nyumaX": "±15° body articulation, validated bridge kits"
+      },
+      "row3": {
+        "criterion": "Operating weight",
+        "glydeX": "25 kg compact tracker chassis",
+        "nyumaX": "25 kg compact tracker chassis"
+      },
+      "row4": {
+        "criterion": "প্রতি charge রেঞ্জ",
+        "glydeX": "২.২ km পর্যন্ত (~৩,৬০০ মডিউল)",
+        "nyumaX": "২.২ km পর্যন্ত (~৩,৬০০ মডিউল)"
+      },
+      "row5": {
+        "criterion": "মালিক কখন বেছে নেন",
+        "glydeX": "Premium tracker সারি — রাতে maximum dust lift",
+        "nyumaX": "বড় tracker ফ্লিট — PBT capex ও brush service economics"
+      },
+      "row6": {
+        "criterion": "Autonomy & scheduling",
+        "glydeX": "Fully autonomous, NECTYR AI weather-aware scheduling",
+        "nyumaX": "Fully autonomous, NECTYR AI weather-aware scheduling"
+      },
+      "row7": {
+        "criterion": "Fixed-tilt বিকল্প",
+        "glydeX": "Fixed-tilt dual-pass-এর জন্য GLYDE দেখুন",
+        "nyumaX": "Fixed-tilt PBT-এর জন্য NYUMA দেখুন"
+      },
+      "crossSellLead": "Fixed-tilt রোবট তুলনা: ",
+      "linkGlyde": "GLYDE vs NYUMA",
+      "crossSellMid": "। Semi-automatic deployment? দেখুন ",
+      "linkHelyx": "HELYX",
+      "crossSellSuffix": "।"
     }
   },
   "Common": {

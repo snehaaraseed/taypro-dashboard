@@ -65,6 +65,7 @@ const DEEP_DIVE_CONFIG = [
 
 const COMPARISON_ROW_KEYS = ["row0", "row1", "row2", "row3", "row4", "row5"] as const;
 const FAQ_KEYS = ["q0", "q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9"] as const;
+const DUST_FAQ_KEYS = ["q0", "q1", "q2"] as const;
 const EXPLORE_HREFS = [
   "/solar-panel-cleaning-system",
   "/solar-panel-cleaning-robot-price-calculator",
@@ -133,22 +134,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "CleaningTechnologyPage.meta" });
-  const keywords = [
-    t("keyword0"),
-    t("keyword1"),
-    t("keyword2"),
-    t("keyword3"),
-    t("keyword4"),
-    t("keyword5"),
-    t("keyword6"),
-    t("keyword7"),
-    t("keyword8"),
-    t("keyword9"),
-  ];
   return withHreflang(CLEANING_TECH_PATH, locale, {
     title: t("title"),
     description: t("description"),
-    keywords,
     openGraph: {
       title: t("openGraphTitle"),
       description: t("openGraphDescription"),
@@ -215,6 +203,11 @@ export default async function CleaningTechnologyPage({
   const technologyFaqs = FAQ_KEYS.map((qKey, i) => ({
     question: t(`faq.${qKey}`),
     answer: t(`faq.a${i}`, { connectivity }),
+  }));
+
+  const dustSoilingFaqs = DUST_FAQ_KEYS.map((qKey, i) => ({
+    question: t(`dustSoiling.${qKey}`),
+    answer: t(`dustSoiling.a${i}`),
   }));
 
   const exploreLinks = EXPLORE_HREFS.map((href, i) => ({
@@ -290,7 +283,7 @@ export default async function CleaningTechnologyPage({
 
   return (
     <>
-      <FAQPageSchema faqs={technologyFaqs} />
+      <FAQPageSchema faqs={[...dustSoilingFaqs, ...technologyFaqs]} />
       <HowToSchema
         name={t("schema.howToName")}
         description={t("schema.howToDescription")}
@@ -1038,6 +1031,29 @@ export default async function CleaningTechnologyPage({
             </AnimateOnScroll>
           </Container>
         </div>
+
+        <section className="py-14 md:py-16 bg-[#f4f7f9] border-t border-gray-100">
+          <Container size="narrow">
+            <AnimateOnScroll animation="fadeInUp" className="mb-8">
+              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-2">
+                {t("dustSoiling.eyebrow")}
+              </p>
+              <h2 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4 leading-tight">
+                {t("dustSoiling.heading")}
+              </h2>
+              <div className="space-y-4 text-gray-600 text-base md:text-lg leading-relaxed">
+                <p>{t("dustSoiling.p1")}</p>
+                <p>{t("dustSoiling.p2")}</p>
+              </div>
+            </AnimateOnScroll>
+            <FaqSection
+              id="dust-soiling-faq"
+              title={t("dustSoiling.faqHeading")}
+              faqs={dustSoilingFaqs}
+              tone="muted"
+            />
+          </Container>
+        </section>
 
         <FaqSection
           id="tech-faq-heading"

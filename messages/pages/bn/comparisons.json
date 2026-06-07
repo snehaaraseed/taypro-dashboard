@@ -1,0 +1,142 @@
+{
+  "ComparisonsPage": {
+    "glydeVsNyuma": {
+      "meta": {
+        "title": "GLYDE vs NYUMA: আপনার প্ল্যান্টের জন্য কোন স্বয়ংক্রিয় রোবট?",
+        "description": "দুটি রোবটই সম্পূর্ণ স্বায়ত্তশাসিত, জলহীন এবং NECTYR থেকে পরিচালিত। GLYDE হল Taypro-র পেটেন্টেড dual-pass microfiber flagship; NYUMA capex-কার্যকর fixed-ti…"
+      },
+      "hero": {
+        "eyebrow": "সঠিক Taypro রোবট বেছে নিন",
+        "title": "GLYDE vs NYUMA: আপনার প্ল্যান্টের জন্য কোন স্বয়ংক্রিয় রোবট?",
+        "lead": "দুটি রোবটই সম্পূর্ণ স্বায়ত্তশাসিত, জলহীন এবং NECTYR থেকে পরিচালিত। GLYDE হল Taypro-র পেটেন্টেড dual-pass microfiber flagship; NYUMA capex-কার্যকর fixed-tilt ফ্লিটের জন্য PBT single-pass প্ল্যাটফর্ম।"
+      },
+      "intro": "দুটি রোবটই সম্পূর্ণ স্বায়ত্তশাসিত, জলহীন এবং NECTYR থেকে পরিচালিত। GLYDE হল Taypro-র পেটেন্টেড dual-pass microfiber flagship; NYUMA capex-কার্যকর fixed-tilt ফ্লিটের জন্য PBT single-pass প্ল্যাটফর্ম।",
+      "tableHeading": "GLYDE vs NYUMA — এক নজরে",
+      "columns": {
+        "leftLabel": "GLYDE (Dual-Pass Microfiber)",
+        "rightLabel": "NYUMA (Single-Pass PBT)"
+      },
+      "rows": {
+        "0": {
+          "factor": "পরিষ্কার প্রযুক্তি",
+          "glyde": "পেটেন্টেড dual-pass: airflow ধুলো ঢিলা করে, microfiber wipe সম্পন্ন করে",
+          "nyuma": "Single-pass counter-rotating PBT brush drum — কম consumables"
+        },
+        "1": {
+          "factor": "সবচেয়ে উপযুক্ত",
+          "glyde": "Flagship fixed-tilt সারি যেখানে প্রতি cycle সর্বোচ্চ dust lift অগ্রাধিকার",
+          "nyuma": "পুনরাবৃত্ত fixed-tilt ব্লক যেখানে PBT capex ও brush economics RFQ জয় করে"
+        },
+        "2": {
+          "factor": "আঠালো / সিমেন্টitious soiling",
+          "glyde": "Dual-pass মিশ্র শুষ্ক ও আঠালো ধুলোতে উৎকৃষ্ট",
+          "nyuma": "শুষ্ক মরুভূমির ধুলোর জন্য আদর্শ; ভারী সিমেন্টitious soiling হলে extra cycle"
+        },
+        "3": {
+          "factor": "Consumable প্রোফাইল",
+          "glyde": "Self-cleaning microfiber drum, extended service intervals",
+          "nyuma": "UV-stable PBT brush, field-replaceable bristle cartridges"
+        },
+        "4": {
+          "factor": "প্রতি charge রেঞ্জ",
+          "glyde": "২.২ km পর্যন্ত (~৩,৬০০ মডিউল)",
+          "nyuma": "২.২ km পর্যন্ত (~৩,৬০০ মডিউল)"
+        },
+        "5": {
+          "factor": "সাধারণ deployment",
+          "glyde": "Bachau DVC-স্কেল automatic-first fixed-tilt ফ্লিট",
+          "nyuma": "Akhadana-স্কেল ও mixed-fleet PBT automatic প্রোগ্রাম"
+        },
+        "6": {
+          "factor": "ইনস্টলের পর শ্রম",
+          "glyde": "শূন্য — সম্পূর্ণ স্বায়ত্তশাসিত দৈনিক cycle",
+          "nyuma": "শূন্য — সম্পূর্ণ স্বায়ত্তশাসিত দৈনিক cycle"
+        },
+        "7": {
+          "factor": "ফ্লিট মনিটরিং",
+          "glyde": "NECTYR — LTE, Wi-Fi, RF mesh, LoRa, বা LoRaWAN",
+          "nyuma": "NECTYR — LTE, Wi-Fi, RF mesh, LoRa, বা LoRaWAN"
+        }
+      },
+      "faq": {
+        "0": {
+          "q": "GLYDE ও NYUMA একই প্ল্যান্টে চলতে পারে?",
+          "a": "হ্যাঁ। mixed fleet সাধারণ — GLYDE high-soiling ব্লকে, NYUMA PBT-specified সারিতে। NECTYR এক পোর্টাল থেকে schedule করে।"
+        },
+        "1": {
+          "q": "Rajasthan ধুলোর জন্য কোনটি ভাল?",
+          "a": "দুটিই শুষ্ক মরুভূমির ধুলো সামলায়। আঠালো/mixed layer-এ GLYDE; PBT capex economics প্রাধান্য হলে NYUMA।"
+        }
+      }
+    },
+    "glydeXVsNyumaX": {
+      "meta": {
+        "title": "GLYDE-X vs NYUMA-X: কোন ট্র্যাকার রোবট specify করবেন?",
+        "description": "দুটি রোবটই NEXTracker, Gamechanger ও সমতুল্য single-axis টেবিল ±15° inter-table flex-এ অতিক্রম করে। GLYDE-X পেটেন্টেড dual-pass microfiber; NYUMA-X capex-s…"
+      },
+      "hero": {
+        "eyebrow": "ট্র্যাকার রোবট তুলনা",
+        "title": "GLYDE-X vs NYUMA-X: কোন ট্র্যাকার রোবট specify করবেন?",
+        "lead": "দুটি রোবটই NEXTracker, Gamechanger ও সমতুল্য single-axis টেবিল ±15° inter-table flex-এ অতিক্রম করে। GLYDE-X পেটেন্টেড dual-pass microfiber; NYUMA-X capex-sensitive tracker programmes-এর জন্য single-pass PBT।"
+      },
+      "intro": "দুটি রোবটই NEXTracker, Gamechanger ও সমতুল্য single-axis টেবিল ±15° inter-table flex-এ অতিক্রম করে। GLYDE-X পেটেন্টেড dual-pass microfiber; NYUMA-X capex-sensitive tracker programmes-এর জন্য single-pass PBT।",
+      "tableHeading": "GLYDE-X vs NYUMA-X — এক নজরে",
+      "columns": {
+        "leftLabel": "GLYDE-X (Dual-Pass)",
+        "rightLabel": "NYUMA-X (Single-Pass PBT)"
+      },
+      "rows": {
+        "0": {
+          "factor": "পরিষ্কার প্রক্রিয়া",
+          "glydeX": "Dual-pass microfiber — mixed soiling-এ airflow + wipe",
+          "nyumaX": "Single-pass PBT brush — শুষ্ক tracker dust belts-এর জন্য"
+        },
+        "1": {
+          "factor": "Tracker সামঞ্জস্য",
+          "glydeX": "NEXTracker, Gamechanger, -52° থেকে +52° module tilt",
+          "nyumaX": "NEXTracker, Gamechanger, -52° থেকে +52° module tilt"
+        },
+        "2": {
+          "factor": "Inter-table flex",
+          "glydeX": "±15° body articulation, validated bridge kits",
+          "nyumaX": "±15° body articulation, validated bridge kits"
+        },
+        "3": {
+          "factor": "Operating weight",
+          "glydeX": "25 kg compact tracker chassis",
+          "nyumaX": "25 kg compact tracker chassis"
+        },
+        "4": {
+          "factor": "প্রতি charge রেঞ্জ",
+          "glydeX": "২.২ km পর্যন্ত (~৩,৬০০ মডিউল)",
+          "nyumaX": "২.২ km পর্যন্ত (~৩,৬০০ মডিউল)"
+        },
+        "5": {
+          "factor": "মালিক কখন বেছে নেন",
+          "glydeX": "Premium tracker সারি — রাতে maximum dust lift",
+          "nyumaX": "বড় tracker ফ্লিট — PBT capex ও brush service economics"
+        },
+        "6": {
+          "factor": "Autonomy & scheduling",
+          "glydeX": "Fully autonomous, NECTYR AI weather-aware scheduling",
+          "nyumaX": "Fully autonomous, NECTYR AI weather-aware scheduling"
+        },
+        "7": {
+          "factor": "Fixed-tilt বিকল্প",
+          "glydeX": "Fixed-tilt dual-pass-এর জন্য GLYDE দেখুন",
+          "nyumaX": "Fixed-tilt PBT-এর জন্য NYUMA দেখুন"
+        }
+      },
+      "faq": {
+        "0": {
+          "q": "GLYDE-X ও NYUMA-X-এর arrays flat park করতে হয়?",
+          "a": "না। দুটিই -52° থেকে +52° tilt-এ clean করে এবং production hours-এর পর NECTYR tracker-aware routing-এ চলে।"
+        },
+        "1": {
+          "q": "কোন tracker রোবট fixed-tilt GLYDE বা NYUMA-র সাথে মেলে?",
+          "a": "GLYDE-X dual-pass microfiber tracker-এ extend করে; NYUMA-X PBT single-pass platform extend করে। fixed-tilt-এ GLYDE vs NYUMA দেখুন।"
+        }
+      }
+    }
+  }
+}

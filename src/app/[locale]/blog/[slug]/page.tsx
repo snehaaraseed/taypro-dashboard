@@ -19,6 +19,7 @@ import {
 import { addInternalLinks } from "@/app/utils/internalLinking";
 import {
   getAuthorAvatarUrl,
+  getAuthorBySlug,
   resolveAuthorSlug,
 } from "@/app/data/blogAuthors";
 import { getStoredAuthors } from "@/app/utils/blogAuthorsStore";
@@ -27,12 +28,7 @@ import {
   blogPostMetadataDescription,
   blogPostMetadataTitle,
   blogPostOpenGraphTitle,
-  buildBlogPostKeywords,
-  resolveBlogPrimaryKeyword,
 } from "@/lib/seo/blog-metadata";
-import { getPublishedTopicBySlug } from "@/lib/cms/topicService";
-import { parseSlotFromCategory } from "@/lib/seo/coverage-ledger";
-import { loadGscKeywordsForBlogSlug } from "@/lib/seo/gsc-blog-queries";
 import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
 import { socialImagesFromMedia } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
@@ -171,21 +167,6 @@ export async function generateMetadata({
     };
   }
 
-  const publishedTopic = await getPublishedTopicBySlug(slug);
-  const { keyword: publishedTopicKeyword } = parseSlotFromCategory(
-    publishedTopic?.category
-  );
-  const primaryKeyword = resolveBlogPrimaryKeyword({
-    seoKeyword: blog.seoKeyword,
-    publishedTopicKeyword,
-    gscKeywords: loadGscKeywordsForBlogSlug(slug),
-  });
-  const blogKeywords = buildBlogPostKeywords({
-    title: blog.title,
-    description: blog.description,
-    primaryKeyword,
-  });
-
   const shareImages = socialImagesFromMedia(
     blog.featuredImage,
     getBlogFeaturedImageAlt(blog),
@@ -198,7 +179,6 @@ export async function generateMetadata({
     {
       title: blogPostMetadataTitle(blog.title, blog.description),
       description: blogPostMetadataDescription(blog.title, blog.description),
-      keywords: blogKeywords,
       openGraph: {
         title: blogPostOpenGraphTitle(blog.title),
         description: blog.description,
@@ -255,6 +235,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
   const knownAuthor = authors.find(
     (author) => author.slug === authorSlug
   );
+  const authorBio = knownAuthor?.bio ?? getAuthorBySlug(authorSlug)?.bio;
   const authorAvatarUrl = knownAuthor?.avatarUrl || getAuthorAvatarUrl(blog.author || "Taypro Team");
   const moreFromAuthor = allBlogs
     .filter((post) => post.slug !== slug && post.author === blog.author)
@@ -326,6 +307,11 @@ export default async function BlogPost({ params }: BlogPostProps) {
                 <span aria-hidden="true">|</span>
                 <span>{t("minRead", { minutes: readingMinutes })}</span>
               </div>
+              {authorBio ? (
+                <p className="text-slate-300 text-sm mb-5 max-w-2xl leading-relaxed">
+                  {authorBio}
+                </p>
+              ) : null}
               <p className="text-lg text-slate-100 leading-relaxed">{blog.description}</p>
             </header>
           </section>

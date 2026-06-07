@@ -205,7 +205,6 @@ export async function generateMetadata({
     {
       title: blogPostMetadataTitle(blog.title, blog.description),
       description: blogPostMetadataDescription(blog.title, blog.description),
-      keywords: blogKeywords,
       openGraph: {
         title: blogPostOpenGraphTitle(blog.title),
         description: blog.description,

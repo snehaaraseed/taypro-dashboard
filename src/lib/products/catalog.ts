@@ -23,8 +23,12 @@ export type ProductCatalogEntry = {
   itemGroup: ItemGroup;
   href: string;
   imagePath: string;
+  /** Optional hub/cross-sell card art (defaults to imagePath). */
+  cardImagePath?: string;
   /** Native hero pixel dimensions — drives layout aspect ratio in UI. */
   heroDimensions: ProductHeroDimensions;
+  /** Dimensions for cardImagePath when it differs from hero art. */
+  cardDimensions?: ProductHeroDimensions;
   /** Optional gallery/detail shots (e.g. GLYDE mechanism images). */
   detailImages?: string[];
   i18nNamespace: string;
@@ -110,7 +114,9 @@ export const PRODUCT_CATALOG: Record<ProductId, ProductCatalogEntry> = {
     itemGroup: "Automatic Robot",
     href: NYUMA_PATH,
     imagePath: "/tayprorobots/nyuma/brush-detail.webp",
+    cardImagePath: "/tayprorobots/nyuma/card.png",
     heroDimensions: { width: 1024, height: 1001 },
+    cardDimensions: { width: 1024, height: 579 },
     detailImages: [
       "/tayprorobots/nyuma/top-view.webp",
       "/tayprorobots/nyuma/product-render.webp",
@@ -157,6 +163,11 @@ export function getProduct(id: ProductId): ProductCatalogEntry {
   return PRODUCT_CATALOG[id];
 }
 
+export function getProductCardImagePath(id: ProductId): string {
+  const product = PRODUCT_CATALOG[id];
+  return product.cardImagePath ?? product.imagePath;
+}
+
 export function getProductHeroAspectRatio(id: ProductId): string {
   const { width, height } = PRODUCT_CATALOG[id].heroDimensions;
   return `${width} / ${height}`;
@@ -180,7 +191,7 @@ export type RobotCardData = {
 export function getRelatedProductCards(id: ProductId): RobotCardData[] {
   return getRelatedProducts(id).map((p) => ({
     label: p.itemName,
-    image: p.imagePath,
+    image: getProductCardImagePath(p.id),
     href: p.href,
   }));
 }
@@ -192,6 +203,27 @@ export function productImagePresentation(
 ): "robot-standard" | "robot-wide" {
   return WIDE_PRODUCT_IDS.includes(id) ? "robot-wide" : "robot-standard";
 }
+
+const IMAGE_PATH_PREFIX_TO_ID: Record<string, ProductId> = {
+  "/tayprorobots/helyx/": "helyx",
+  "/tayprorobots/glyde-x/": "glydeX",
+  "/tayprorobots/nyuma-x/": "nyumaX",
+  "/tayprorobots/glyde/": "glyde",
+  "/tayprorobots/nyuma/": "nyuma",
+};
+
+export function resolveProductIdFromImagePath(
+  imagePath: string
+): ProductId | null {
+  for (const [prefix, id] of Object.entries(IMAGE_PATH_PREFIX_TO_ID)) {
+    if (imagePath.includes(prefix)) return id;
+  }
+  return null;
+}
+
+/** Hub/home robot cards: fill frame width, crop height, anchor left-center. */
+export const ROBOT_CARD_IMAGE_CLASS =
+  "h-full w-full object-cover object-left";
 
 export function productAltText(itemName: string, marketingName?: string): string {
   const name = marketingName?.trim() || itemName;

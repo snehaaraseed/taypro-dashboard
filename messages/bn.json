@@ -14,7 +14,8 @@
     "contactUs": "যোগাযোগ",
     "blogs": "ব্লগ",
     "solarRobots": "সোলার রোবট",
-    "solarRobotsMenu": "সোলার প্যানেল পরিষ্কার রোবট",
+    "solutions": "সমাধান",
+    "solutionsTitle": "সোলার প্যানেল পরিষ্কার রোবট সমাধান",
     "callUs": "এখনই কল করুন",
     "openMenu": "মেনু খুলুন",
     "closeMenu": "মেনু বন্ধ করুন",
@@ -38,7 +39,22 @@
     "glydeX": "GLYDE-X",
     "glydeXDesc": "ট্র্যাকার · ডুয়াল-পাস · মাইক্রোফাইবার",
     "nyumaX": "NYUMA-X",
-    "nyumaXDesc": "ট্র্যাকার · সিঙ্গল-পাস · PBT"
+    "nyumaXDesc": "ট্র্যাকার · সিঙ্গল-পাস · PBT",
+    "guides": "গাইড",
+    "guidesTitle": "রোবট তুলনা ও আঞ্চলিক গাইড",
+    "compareSection": "তুলনা গাইড",
+    "statesSection": "আঞ্চলিক গাইড",
+    "viewAllCompare": "সব তুলনা গাইড",
+    "viewAllStates": "সব আঞ্চলিক গাইড",
+    "priceGuideNav": "রোবট মূল্য গাইড (India)",
+    "compareTayproVsSolabot": "Taypro vs Solabot",
+    "compareIndianCompetitors": "Taypro vs ভারতীয় প্রতিযোগী",
+    "compareRobotVsManual": "রোবট বনাম ম্যানুয়াল পরিষ্কার",
+    "compareWaterlessVsWater": "জলবিহীন বনাম জলভিত্তিক",
+    "stateRajasthan": "Rajasthan",
+    "stateGujarat": "Gujarat",
+    "stateKarnataka": "Karnataka",
+    "stateMaharashtra": "Maharashtra"
   },
   "Footer": {
     "mail": "ইমেইল",
@@ -60,12 +76,15 @@
     "roiCalculator": "ROI ও মূল্য ক্যালকুলেটর",
     "robotPriceGuide": "রোবট মূল্য গাইড (India)",
     "regionalGuides": "আঞ্চলিক রোবট গাইড (ভারত)",
+    "compareGuides": "প্রতিযোগীদের সাথে Taypro তুলনা",
+    "tayproVsSolabot": "Taypro vs Solabot",
+    "robotVsManual": "রোবট বনাম ম্যানুয়াল পরিষ্কার",
     "investors": "অংশীদার ও বিনিয়োগকারী",
     "copyright": "© কপিরাইট {year} – TAYPRO PRIVATE LIMITED. সর্বস্বত্ব সংরক্ষিত।"
   },
   "NotFoundPage": {
     "meta": {
-      "title": "পেজ পাওয়া যায়নি | Taypro",
+      "title": "পেজ পাওয়া যায়নি",
       "description": "এই পেজ উপলব্ধ নয়। Taypro.in চালু আছে, সোলার প্যানেল পরিষ্কার রোবট, প্রকল্প, ব্লগ ও যোগাযোগের বিকল্প দেখুন।"
     },
     "breadcrumbHome": "হোম",

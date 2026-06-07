@@ -1,6 +1,10 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import { productAltText, productImagePresentation, type ProductId } from "@/lib/products/catalog";
+import {
+  productAltText,
+  resolveProductIdFromImagePath,
+  ROBOT_CARD_IMAGE_CLASS,
+} from "@/lib/products/catalog";
 
 type Robot = {
   model: string;
@@ -12,25 +16,12 @@ type Robot = {
 
 type ImagePresentation = "robot-standard" | "robot-wide" | "photo" | "screenshot";
 
-const IMG_PATH_TO_PRODUCT_ID: Record<string, ProductId> = {
-  "/tayprorobots/helyx/": "helyx",
-  "/tayprorobots/glyde-x/": "glydeX",
-  "/tayprorobots/nyuma-x/": "nyumaX",
-  "/tayprorobots/glyde/": "glyde",
-  "/tayprorobots/nyuma/": "nyuma",
-};
-
-function resolveProductIdFromPath(imgPath: string): ProductId | null {
-  for (const [prefix, id] of Object.entries(IMG_PATH_TO_PRODUCT_ID)) {
-    if (imgPath.includes(prefix)) return id;
-  }
-  return null;
-}
-
 function getImagePresentation(imgPath: string): ImagePresentation {
-  const productId = resolveProductIdFromPath(imgPath);
+  const productId = resolveProductIdFromImagePath(imgPath);
   if (productId) {
-    return productImagePresentation(productId);
+    return productId === "helyx" || productId === "glydeX" || productId === "nyumaX"
+      ? "robot-wide"
+      : "robot-standard";
   }
   if (imgPath.includes("opex")) {
     return "photo";
@@ -41,34 +32,11 @@ function getImagePresentation(imgPath: string): ImagePresentation {
   return "robot-standard";
 }
 
-const mediaStyles: Record<
-  ImagePresentation,
-  { bg: string; image: string; pad: string }
-> = {
-  "robot-standard": {
-    bg: "bg-[#0a2a38]",
-    pad: "p-5 sm:p-6",
-    image:
-      "object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]",
-  },
-  "robot-wide": {
-    bg: "bg-[#0a2a38]",
-    pad: "p-4 sm:p-5",
-    image:
-      "object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]",
-  },
-  photo: {
-    bg: "bg-[#0c3040]",
-    pad: "p-0",
-    image:
-      "object-cover object-center transition-transform duration-300 group-hover:scale-[1.03]",
-  },
-  screenshot: {
-    bg: "bg-[#e8eef4]",
-    pad: "p-4 sm:p-5",
-    image:
-      "object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]",
-  },
+const mediaStyles: Record<ImagePresentation, { bg: string }> = {
+  "robot-standard": { bg: "bg-[#0a2a38]" },
+  "robot-wide": { bg: "bg-[#0a2a38]" },
+  photo: { bg: "bg-[#0c3040]" },
+  screenshot: { bg: "bg-[#e8eef4]" },
 };
 
 export function RobotCard({
@@ -99,24 +67,19 @@ export function RobotCard({
     <article
       className={`group flex flex-col h-full w-full rounded-2xl border border-gray-200/90 bg-white shadow-sm overflow-hidden hover:border-[#A8C117]/80 hover:shadow-md transition-all duration-300 ${className}`.trim()}
     >
-      {/* Fixed-height media frame — same footprint on home and product hub cards */}
       <div
         className={`relative w-full h-[13.5rem] sm:h-[14.25rem] shrink-0 overflow-hidden ${media.bg}`}
       >
-        <div className={`absolute inset-0 ${media.pad}`}>
-          <div className="relative w-full h-full">
-            <Image
-              src={robot.imgPath}
-              alt={getAltText()}
-              title={`${cardTitle}, Taypro`}
-              fill
-              className={`transition-transform duration-300 ${media.image}`}
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px"
-              priority={priority}
-              loading={priority ? "eager" : "lazy"}
-            />
-          </div>
-        </div>
+        <Image
+          src={robot.imgPath}
+          alt={getAltText()}
+          title={`${cardTitle}, Taypro`}
+          fill
+          className={`${ROBOT_CARD_IMAGE_CLASS} transition-transform duration-300 group-hover:scale-[1.02]`}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px"
+          priority={priority}
+          loading={priority ? "eager" : "lazy"}
+        />
       </div>
 
       <div className="flex flex-col flex-1 bg-[#052638] p-5">

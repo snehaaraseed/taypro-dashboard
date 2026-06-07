@@ -12,12 +12,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "SolarSystemPage.meta" });
-  const keywords = t.raw("keywords") as string[];
 
   return withHreflang(SOLAR_SYSTEM_PATH, locale, {
     title: t("title"),
     description: t("description"),
-    keywords,
     openGraph: {
       siteName: t("openGraphSiteName"),
       title: t("openGraphTitle"),

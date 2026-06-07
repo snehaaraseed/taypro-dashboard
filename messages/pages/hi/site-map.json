@@ -27,7 +27,8 @@
       "pages": "पेज",
       "pagesIntro": "मुख्य मार्केटिंग और उत्पाद पेज, जिनमें रोबोट विनिर्देश, सफाई तकनीक, ROI टूल, कानूनी नीतियाँ और संपर्क शामिल हैं।",
       "portfolio": "पोर्टफोलियो",
-      "portfolioIntro": "दस्तावेज़ित सोलर प्लांट इंस्टॉलेशन जहाँ Taypro रोबोटिक सफाई सिस्टम तैनात हैं — प्रोजेक्ट नाम से केस स्टडी ब्राउज़ करें।"
+      "portfolioIntro": "दस्तावेज़ित सोलर प्लांट इंस्टॉलेशन जहाँ Taypro रोबोटिक सफाई सिस्टम तैनात हैं — प्रोजेक्ट नाम से केस स्टडी ब्राउज़ करें।",
+      "compareIntro": "GLYDE vs NYUMA, GLYDE-X vs NYUMA-X, robotic vs manual, Taypro vs Solabot, Aegeus, Skilancer, Vayu Solar, और waterless vs water-based comparison pages।"
     },
     "posts": {
       "energyResourcesTitle": "ऊर्जा संसाधन"
@@ -105,7 +106,11 @@
       "projectsCapexLabel": "CAPEX रोबोट परियोजनाएं",
       "projectsCapexTitle": "CAPEX सोलर सफाई रोबोट परियोजनाएं",
       "projectsOpexLabel": "Opex सफाई सेवा परियोजनाएं",
-      "projectsOpexTitle": "Taypro Opex सोलर सफाई रोबोट परियोजनाएं"
+      "projectsOpexTitle": "Taypro Opex सोलर सफाई रोबोट परियोजनाएं",
+      "cleaningMachineLabel": "Solar Panel Cleaning Machine (India)",
+      "cleaningMachineTitle": "Solar panel cleaning machine buyer guide",
+      "pressLabel": "Press & media coverage",
+      "pressTitle": "Taypro in the news"
     }
   },
   "Common": {

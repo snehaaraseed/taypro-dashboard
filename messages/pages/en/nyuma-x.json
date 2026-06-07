@@ -1,29 +1,17 @@
 {
   "NyumaXPage": {
     "meta": {
-      "title": "PBT Tracker Solar Panel Cleaning Robot, Taypro NYUMA-X",
-      "description": "Taypro NYUMA-X is a waterless PBT single-pass Solar Panel Cleaning Robot for single-axis tracker farms. 99%+ dust removal per run, up to 3,600 modules per charge, ±15° flex, NEXTracker and Gamechanger compatible, NECTYR fleet portal, TÜV NORD certified.",
+      "title": "Tracker Solar Panel Cleaning Robot | NYUMA-X",
+      "description": "PBT single-pass NYUMA-X for tracker plants. 99%+ dust removal, NECTYR fleet, TÜV NORD certified. Get a quote today.",
       "openGraphDescription": "NYUMA-X: PBT single-pass autonomous cleaning for single-axis trackers. 99%+ dust removal, NECTYR monitoring, NEXTracker & Gamechanger compatible.",
       "openGraphImageAlt": "Taypro NYUMA-X PBT tracker solar panel cleaning robot",
       "twitterDescription": "Taypro NYUMA-X: PBT single-pass tracker robot. 3,600 modules per charge, NECTYR fleet portal, NEXTracker & Gamechanger compatible.",
-      "keywords": [
-        "PBT tracker solar cleaning robot",
-        "single-pass tracker solar cleaning robot",
-        "single axis tracker solar panel cleaning",
-        "single-axis tracker solar cleaning robot",
-        "tracker solar panel cleaning robot",
-        "NEXTracker solar cleaning robot",
-        "Gamechanger tracker cleaning robot",
-        "PBT solar panel cleaning robot tracker",
-        "utility scale solar panel cleaning robot",
-        "Taypro NYUMA-X"
-      ],
-      "openGraphTitle": "PBT Tracker Solar Panel Cleaning Robot, Taypro NYUMA-X",
-      "twitterTitle": "PBT Tracker Solar Panel Cleaning Robot, Taypro NYUMA-X"
+      "openGraphTitle": "Tracker Solar Panel Cleaning Robot | NYUMA-X",
+      "twitterTitle": "Tracker Solar Panel Cleaning Robot | NYUMA-X"
     },
     "breadcrumbs": {
       "robots": "Solar Panel Cleaning Robots",
-      "current": "Solar Panel Cleaning Robot for Single-Axis Trackers"
+      "current": "NYUMA-X — PBT Tracker Robot"
     },
     "schema": {
       "productName": "Solar Panel Cleaning Robot for Single-Axis Trackers - NYUMA-X",
@@ -33,7 +21,7 @@
       "howToDescription": "Step-by-step autonomous cleaning cycle of the Taypro NYUMA-X solar panel cleaning robot for single-axis tracker installations, from AI-scheduled deployment through self-docking and cloud telemetry sync."
     },
     "hero": {
-      "title": "Solar Panel Cleaning Robot for Single-Axis Trackers, NYUMA-X",
+      "title": "NYUMA-X — PBT Single-Pass Tracker Cleaning Robot",
       "subtitleBefore": "An AI- and ML-powered, waterless autonomous Solar Panel Cleaning Robot purpose-built for single-axis tracker solar farms. Cleans up to 3,600 modules per charge,",
       "subtitleStrong": "flexes ±15° between tables",
       "subtitleAfter": ", supports module tilts from -52° to +52°, and is compatible with NEXTracker, Gamechanger and equivalent trackers.",
@@ -43,36 +31,36 @@
     },
     "usps": {
       "0": {
-        "title": "Purpose-Built for Single-Axis Trackers",
-        "description": "Engineered from the ground up for tracker-based solar farms, compatible with NEXTracker, Gamechanger and other leading single-axis tracker manufacturers."
+        "title": "Single-Pass PBT for Trackers",
+        "description": "Purpose-built for single-axis tracker farms — compatible with NEXTracker, Gamechanger, and peer OEM table geometries."
       },
       "1": {
-        "title": "Flexible ±15° Body Articulation",
-        "description": "Flexes its body up to 15° to accommodate angle differences between adjacent tables, ensuring safe and reliable movement over panels and inter-table bridges."
+        "title": "±15° Bridge & Table Flex",
+        "description": "Body articulates ±15° to traverse inter-table misalignment while maintaining brush contact on the module frame."
       },
       "2": {
-        "title": "Wide Module Tilt Range (-52° to +52°)",
-        "description": "Cleans modules across the full operational tilt range of a single-axis tracker, from steep morning angle through flat noon position to steep evening angle."
+        "title": "Steep Tilt Tracker Coverage",
+        "description": "Operational across -52° to +52° tracker tilt — cleans steep morning and evening angles without daytime array shutdown."
       },
       "3": {
-        "title": "100% Waterless single-pass Cleaning",
-        "description": "Two-pass dry cleaning lifts over 99% of dust from module surfaces using PBT brush or PBT, no water, no detergent, no run-off contamination."
+        "title": "100% Waterless Single-Pass PBT Cleaning",
+        "description": "Counter-rotating PBT bristles lift over 99% of dry tracker dust in one pass — no water, detergent, or run-off."
       },
       "4": {
-        "title": "AI- and ML-Driven Autonomy",
-        "description": "Advanced edge, obstacle and angle detection lets NYUMA-X move safely across panels without risk of falling, continuously tracking path and surface undulations along each row."
+        "title": "Stow-Aware Autonomous Routing",
+        "description": "AI edge and angle detection adapts to tracker stow positions and row undulation during autonomous night cycles."
       },
       "5": {
-        "title": "Cloud-Connected Remote Monitoring",
-        "description": "Supported connectivity includes {connectivity}, feeding real-time telemetry into the NECTYR, schedule cleaning, adjust settings, track performance and receive weather alerts from any device."
+        "title": "NECTYR PBT Fleet Telemetry",
+        "description": "Remote fleet control via {connectivity} through NECTYR — tracker-aware schedules and post-storm recovery runs."
       },
       "6": {
-        "title": "Up to 2.2 km / 3,600 Modules Per Charge",
-        "description": "A single NYUMA-X cleans up to 2.2 km of tracker run on a single charge, typically around 3,600 modules, before self-docking and recharging at its shadow-free dock."
+        "title": "Long-Range Tracker Battery Cycle",
+        "description": "Single charge covers up to 2.2 km of tracker run (~3,600 modules) before self-docking for solar-assisted recharge."
       },
       "7": {
-        "title": "TÜV NORD Certified Build",
-        "description": "Independently tested and certified by TÜV NORD for IP55 protection and validated under simulated sandstorm and damp-heat/dry-heat extremes."
+        "title": "TÜV NORD PBT Tracker Certification",
+        "description": "TÜV NORD certified with IP55 protection validated for abrasive tracker dust and Indian monsoon humidity."
       }
     },
     "features": {
@@ -335,12 +323,12 @@
       "eyebrow": "Independently Tested & Certified",
       "title": "Certifications & Field-Validated Testing",
       "subtitle": "Taypro's cleaning solutions are subjected to rigorous field and laboratory validation, simulating daily cleaning cycles under realistic outdoor conditions, conducted by accredited solar-sector testing laboratories.",
-      "card0Title": "TÜV NORD Certified",
-      "card0Body": "Independently tested and certified by TÜV NORD for IP55 protection and validated under extreme damp-heat and dry-heat performance conditions.",
-      "card1Title": "Simulated Sandstorm Testing",
-      "card1Body": "Validated under 12 sandstorm events per year at a sand loading of 10 g/m² per cycle, the toughest desert-climate cleaning protocol.",
-      "card2Title": "Panel-Safe Verified",
-      "card2Body": "Tested for micro-crack analysis, full electrical parameter evaluation, optical reflectance and ARC (Anti-Reflective Coating) preservation."
+      "card0Title": "TÜV NORD PBT Tracker Certification",
+      "card0Body": "IP55-rated enclosure validated for tracker-field damp-heat, dry-heat, and vibration profiles.",
+      "card1Title": "Desert Soiling Endurance",
+      "card1Body": "PBT brush life validated under repeated high-loading dust cycles representative of Thar-edge tracker plants.",
+      "card2Title": "ARC-Safe PBT Contact",
+      "card2Body": "Single-pass PBT pressure tested for micro-crack, optical reflectance, and anti-reflective coating preservation on trackers."
     },
     "trustStats": {
       "eyebrow": "Proven at Scale",
@@ -451,7 +439,7 @@
       },
       "row3": {
         "criterion": "Cleaning Mechanism",
-        "nyumaX": "Waterless single-pass, PBT brush or PBT brush",
+        "nyumaX": "Waterless single-pass PBT brush drum",
         "nyuma": "Waterless single-pass, self-cleaning PBT brush drum"
       },
       "row4": {
@@ -512,6 +500,59 @@
       "bodyBeforeSpan": "Model ",
       "bodySpan": "single-axis tracker solar panel cleaning",
       "bodyAfterSpan": " economics for your site, use the calculator before a NYUMA-X quote."
+    },
+    "glydeXVsNyumaX": {
+      "eyebrow": "Tracker Robot Comparison",
+      "title": "GLYDE-X vs NYUMA-X: Which Tracker Robot Should You Specify?",
+      "subtitle": "Both robots traverse NEXTracker, Gamechanger, and equivalent single-axis tables with ±15° inter-table flex. GLYDE-X uses patented dual-pass microfiber; NYUMA-X uses single-pass PBT for capex-sensitive tracker programmes.",
+      "criterion": "Criterion",
+      "glydeXHeader": "GLYDE-X (Dual-Pass)",
+      "nyumaXHeader": "NYUMA-X (Single-Pass PBT)",
+      "row0": {
+        "criterion": "Cleaning Mechanism",
+        "glydeX": "Dual-pass microfiber — airflow plus wipe for mixed soiling",
+        "nyumaX": "Single-pass PBT brush — optimised for dry tracker dust belts"
+      },
+      "row1": {
+        "criterion": "Tracker Compatibility",
+        "glydeX": "NEXTracker, Gamechanger, -52° to +52° module tilt",
+        "nyumaX": "NEXTracker, Gamechanger, -52° to +52° module tilt"
+      },
+      "row2": {
+        "criterion": "Inter-Table Flex",
+        "glydeX": "±15° body articulation with validated bridge kits",
+        "nyumaX": "±15° body articulation with validated bridge kits"
+      },
+      "row3": {
+        "criterion": "Operating Weight",
+        "glydeX": "25 kg compact tracker chassis",
+        "nyumaX": "25 kg compact tracker chassis"
+      },
+      "row4": {
+        "criterion": "Range Per Charge",
+        "glydeX": "Up to 2.2 km (~3,600 modules)",
+        "nyumaX": "Up to 2.2 km (~3,600 modules)"
+      },
+      "row5": {
+        "criterion": "When Owners Choose It",
+        "glydeX": "Premium tracker rows needing maximum dust lift per night cycle",
+        "nyumaX": "Large tracker fleets prioritising PBT capex and brush service economics"
+      },
+      "row6": {
+        "criterion": "Autonomy & Scheduling",
+        "glydeX": "Fully autonomous, AI weather-aware scheduling via NECTYR",
+        "nyumaX": "Fully autonomous, AI weather-aware scheduling via NECTYR"
+      },
+      "row7": {
+        "criterion": "Fixed-Tilt Alternative",
+        "glydeX": "See GLYDE for fixed-tilt dual-pass cleaning",
+        "nyumaX": "See NYUMA for fixed-tilt PBT cleaning"
+      },
+      "crossSellLead": "Compare fixed-tilt robots: ",
+      "linkGlyde": "GLYDE vs NYUMA",
+      "crossSellMid": ". Prefer semi-automatic deployment? See ",
+      "linkHelyx": "HELYX",
+      "crossSellSuffix": "."
     }
   },
   "Common": {

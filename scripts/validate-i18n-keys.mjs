@@ -31,9 +31,17 @@ for (const file of enFiles) {
     flatten(JSON.parse(await readFile(join(root, "en", file), "utf8")))
   );
   for (const loc of locales) {
-    const locKeys = new Set(
-      flatten(JSON.parse(await readFile(join(root, loc, file), "utf8")))
-    );
+    const locPath = join(root, loc, file);
+    let locRaw;
+    try {
+      locRaw = await readFile(locPath, "utf8");
+    } catch (err) {
+      if (err?.code === "ENOENT") {
+        continue;
+      }
+      throw err;
+    }
+    const locKeys = new Set(flatten(JSON.parse(locRaw)));
     for (const key of enKeys) {
       if (!locKeys.has(key)) {
         console.error(`MISSING ${loc}/${file}: ${key}`);

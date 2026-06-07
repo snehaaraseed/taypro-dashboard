@@ -74,11 +74,12 @@ function applySecurityAndCacheHeaders(
     "Content-Security-Policy",
     [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
+      // GTM, GA4, Microsoft Clarity (ClarityLoader), LinkedIn Insight (via GTM)
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://scripts.clarity.ms https://snap.licdn.com",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https:",
       "font-src 'self' data:",
-      "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://console.taypro.in",
+      "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://console.taypro.in https://*.clarity.ms https://px.ads.linkedin.com",
       "frame-src 'self' https://app.taypro.in https://www.youtube.com https://www.youtube-nocookie.com",
       "object-src 'none'",
       "base-uri 'self'",

@@ -10,14 +10,6 @@ export const generateMetadata = defineLocalizedMetadata("/projects/semi-automati
   title: "Semi-Automatic Solar Panel Cleaning Robot Projects",
   description:
     "Explore Taypro's semi-automatic Solar Panel Cleaning Robot installation projects. Cost-effective pick-and-place robotic cleaning systems with fastest ROI for solar farms.",
-  keywords: [
-    "Semi-Automatic Solar Panel Cleaning Robot projects",
-    "semi-automatic solar cleaning robot installations",
-    "pick-and-place solar panel cleaning robot",
-    "cost-effective solar cleaning robot",
-    "Taypro semi-automatic robot projects",
-    "HELYX solar cleaning robot projects",
-  ],
   openGraph: {
     title: "Semi-Automatic Solar Panel Cleaning Robot Projects",
     description:

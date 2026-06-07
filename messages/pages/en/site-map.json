@@ -1,12 +1,12 @@
 {
   "SiteMapPage": {
     "meta": {
-      "title": "Sitemap | Taypro – Complete Website Navigation",
-      "description": "Browse Taypro's sitemap to quickly access all website sections, including projects, services, and company information.",
-      "openGraphTitle": "Sitemap | Taypro – Complete Website Navigation",
+      "title": "Sitemap",
+      "description": "Browse all Taypro pages: solar cleaning robots, projects, compare guides, regional guides, and company info.",
+      "openGraphTitle": "Sitemap",
       "openGraphDescription": "Browse Taypro's sitemap to quickly access all website sections, including projects, services, and company information.",
       "openGraphImageAlt": "Taypro website sitemap",
-      "twitterTitle": "Sitemap | Taypro",
+      "twitterTitle": "Sitemap",
       "twitterDescription": "Browse Taypro's sitemap to quickly access all website sections.",
       "keyword0": "Taypro sitemap",
       "keyword1": "Solar Panel Cleaning Robot website navigation",
@@ -29,7 +29,7 @@
       "portfolio": "Portfolio",
       "portfolioIntro": "Documented solar plant installations where Taypro robotic cleaning systems are deployed, browse case studies by project name.",
       "compare": "Buyer guides & comparisons",
-      "compareIntro": "Comparison pages for robotic vs manual cleaning, Taypro vs Solabot, Aegeus, Skilancer, and Vayu Solar, plus waterless vs water-based methods."
+      "compareIntro": "Comparison pages for GLYDE vs NYUMA, GLYDE-X vs NYUMA-X, robotic vs manual cleaning, Taypro vs Solabot, Aegeus, Skilancer, and Vayu Solar, plus waterless vs water-based methods."
     },
     "posts": {
       "energyResourcesTitle": "Energy Resources"
@@ -107,7 +107,11 @@
       "orionLabel": "ORION, Plant Intelligence",
       "orionTitle": "ORION solar plant health monitoring platform (coming soon)",
       "cleaningTechnologyLabel": "The Technology Behind Taypro",
-      "cleaningTechnologyTitle": "Cleaning Technology"
+      "cleaningTechnologyTitle": "Cleaning Technology",
+      "cleaningMachineLabel": "Solar Panel Cleaning Machine (India)",
+      "cleaningMachineTitle": "Solar panel cleaning machine buyer guide",
+      "pressLabel": "Press & media coverage",
+      "pressTitle": "Taypro in the news"
     }
   },
   "Common": {

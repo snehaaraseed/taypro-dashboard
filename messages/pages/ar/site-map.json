@@ -27,7 +27,8 @@
       "pages": "صفحات",
       "pagesIntro": "صفحات التسويق والمنتج الأساسية، بما فيها مواصفات الروبوتات وتقنية التنظيف وأدوات العائد والسياسات القانونية والاتصال.",
       "portfolio": "محفظة",
-      "portfolioIntro": "تركيبات محطات شمسية موثقة حيث تُنشر أنظمة Taypro الروبوتية, تصفح دراسات الحالة باسم المشروع."
+      "portfolioIntro": "تركيبات محطات شمسية موثقة حيث تُنشر أنظمة Taypro الروبوتية, تصفح دراسات الحالة باسم المشروع.",
+      "compareIntro": "صفحات مقارنة GLYDE vs NYUMA و GLYDE-X vs NYUMA-X والروبوت vs اليدوي وTaypro vs Solabot وAegeus وSkilancer وVayu Solar وwaterless vs water-based."
     },
     "posts": {
       "energyResourcesTitle": "موارد الطاقة"
@@ -105,7 +106,11 @@
       "projectsCapexLabel": "مشاريع روبوت CAPEX",
       "projectsCapexTitle": "مشاريع روبوت تنظيف شمسي CAPEX",
       "projectsOpexLabel": "مشاريع خدمة تنظيف Opex",
-      "projectsOpexTitle": "مشاريع Taypro Opex لروبوت تنظيف شمسي"
+      "projectsOpexTitle": "مشاريع Taypro Opex لروبوت تنظيف شمسي",
+      "cleaningMachineLabel": "Solar Panel Cleaning Machine (India)",
+      "cleaningMachineTitle": "Solar panel cleaning machine buyer guide",
+      "pressLabel": "Press & media coverage",
+      "pressTitle": "Taypro in the news"
     }
   },
   "Common": {

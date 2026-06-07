@@ -1,26 +1,13 @@
 {
   "NyumaPage": {
     "meta": {
-      "title": "সিঙ্গল-পাস PBT অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট, Taypro NYUMA (জলবিহীন, AI)",
-      "description": "Taypro NYUMA সম্পূর্ণ স্বায়ত্তশাসিত, জলবিহীন অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট। AI/ML সিঙ্গল-পাস PBT ড্রাই ক্লিনিং প্রতি চক্রে ৯৯%+ ধূলো সরায়, প্রতি চার্জে ৩,৬০০ মডিউল পর্যন্ত, NECTYR-এর মাধ্যমে LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN, TÜV NORD সনদপ্রাপ্ত।",
-      "keywords": [
-        "PBT সোলার প্যানেল পরিষ্কার রোবট",
-        "PBT স্বয়ংক্রিয় সোলার প্যানেল পরিষ্কার রোবট",
-        "সিঙ্গেল-পাস সোলার প্যানেল পরিষ্কার রোবট",
-        "সিঙ্গেল-পাস স্বয়ংক্রিয় সোলার পরিষ্কার রোবট",
-        "জলবিহীন PBT সোলার পরিষ্কার রোবট",
-        "ফিক্সড টিল্ট PBT পরিষ্কার রোবট",
-        "স্বয়ংক্রিয় সোলার প্যানেল পরিষ্কার রোবট ভারত",
-        "স্বায়ত্তশাসিত সোলার প্যানেল পরিষ্কার রোবট",
-        "ইউটিলিটি স্কেল সোলার পরিষ্কার রোবট",
-        "TÜV NORD সার্টিফাইড সোলার পরিষ্কার রোবট",
-        "Taypro NYUMA"
-      ],
-      "openGraphTitle": "সিঙ্গল-পাস PBT অটোমেটিক রোবট, Taypro NYUMA",
+      "title": "স্বয়ংক্রিয় সোলার প্যানেল পরিষ্কার রোবট | NYUMA",
+      "description": "ফিক্সড-টিল্ট প্ল্যান্টের জন্য জলবিহীন PBT NYUMA। ৯৯%+ ধুলো, NECTYR ফ্লিট। কোটেশন নিন।",
+      "openGraphTitle": "স্বয়ংক্রিয় সোলার প্যানেল পরিষ্কার রোবট | NYUMA",
       "openGraphDescription": "পেটেন্টেড সিঙ্গল-পাস PBT PBT ব্রাশ। স্বায়ত্তশাসিত জলবিহীন পরিষ্কার, NECTYR।",
       "openGraphType": "website",
       "openGraphImageAlt": "Taypro NYUMA অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট",
-      "twitterTitle": "সিঙ্গল-পাস PBT অটোমেটিক রোবট, Taypro NYUMA",
+      "twitterTitle": "স্বয়ংক্রিয় সোলার প্যানেল পরিষ্কার রোবট | NYUMA",
       "twitterDescription": "NYUMA: স্বায়ত্তশাসিত জলবিহীন সিঙ্গল-পাস PBT, NECTYR।",
       "twitterCard": "summary_large_image"
     },
@@ -87,7 +74,7 @@
       "p2BeforeStrong": "একটি চার্জে NYUMA সর্বোচ্চ ",
       "p2Strong": "2.2 km রানিং লেন্থ, প্রায় 3,600টি সোলার মডিউল",
       "p2AfterStrong": " পরিষ্কার করে। পরিষ্কার চক্র শক্তি উৎপাদনের সময়ের বাইরে শিডিউল করা সবচেয়ে ভালো এবং দূর থেকে প্রোগ্রাম করা যায়, প্ল্যান্ট জেনারেশনে কোনো প্রভাব নেই।",
-      "p3": "উন্নত এজ ও বাধা শনাক্তকরণ NYUMA-কে নিরাপদে প্যানেল পার করতে দেয়, পতনের ঝুঁকি ছাড়াই। সারফেস ট্র্যাকিং সারি-দর-সারি মোটর পারফরম্যান্স সামঞ্জস্য করে সামঞ্জস্যপূর্ণ পরিষ্কারের গুণমান বজায় রাখে। রিয়েল-টাইম ব্যাটারি মনিটরিং নিশ্চিত করে রোবট শুধু সম্পন্নযোগ্য দূরত্ব কভার করে এবং ডকিং স্টেশনে নিরাপদে ফিরে আসে। হালকা ব্রিজ এক টেবিল থেকে অন্যটিতে নিরবিচ্ছিন্ন কভারেজ বজায় রাখে।",
+      "p3": "NYUMA-র counter-rotating PBT brush drum এক waterless pass-এ শুষ্ক ধুলো তোলে — airflow stage নেই, কম consumables। Edge detection contact frame-এ রাখে, glass-এ নয়। Battery-aware routing shadow-free dock-এ ফেরে — seasonal-tilt 45° পর্যন্ত।",
       "p4Blog1": "মডিউলে অটোমেটিক পরিষ্কার রোবট কীভাবে কাজ করে",
       "p4Blog2": "ইউটিলিটি স্কেলে রোবোটিক পরিষ্কারের সুবিধা",
       "p4Prefix": "আরও পড়ুন: ",
@@ -221,8 +208,8 @@
     "featuresLongForm": {
       "mainHeading": "Taypro NYUMA অটোমেটিক রোবটের বৈশিষ্ট্য",
       "aiCleaning": {
-        "title": "AI-সক্ষম জলবিহীন সিঙ্গল-পাস PBT পরিষ্কার",
-        "body": "NYUMA AI/ML ও পেটেন্টেড সিঙ্গল-পাস PBT, এক রানে ৯৯%+ ধূলো, জল ও ঘর্ষণ ছাড়াই।"
+        "title": "AI-Enabled Waterless Single-Pass Cleaning",
+        "body": "NYUMA single-pass PBT brush drum-এ AI/ML pressure/speed logic — এক continuous sweep 99%+ dry dust, zero water।"
       },
       "microfiber": {
         "title": "সেল্ফ-ক্লিনিং PBT ব্রাশ ড্রাম",
@@ -446,7 +433,9 @@
           "spec": "ওজন",
           "details": "৪৫ কেজি"
         }
-      }
+      },
+      "datasheetCta": "Request full datasheet",
+      "datasheetCtaTopic": "NYUMA datasheet request"
     },
     "advantagesSection": {
       "heading": "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবটের সুবিধা",
@@ -570,6 +559,59 @@
         "nyumaX": "NYUMA-X"
       },
       "cardTitleTemplate": "{label} সোলার প্যানেল ক্লিনিং রোবোট"
+    },
+    "glydeVsNyuma": {
+      "eyebrow": "সঠিক Taypro রোবট বেছে নিন",
+      "title": "GLYDE vs NYUMA: আপনার প্ল্যান্টের জন্য কোন স্বয়ংক্রিয় রোবট?",
+      "subtitle": "দুটি রোবটই সম্পূর্ণ স্বায়ত্তশাসিত, জলহীন এবং NECTYR থেকে পরিচালিত। GLYDE হল Taypro-র পেটেন্টেড dual-pass microfiber flagship; NYUMA capex-কার্যকর fixed-tilt ফ্লিটের জন্য PBT single-pass প্ল্যাটফর্ম।",
+      "criterion": "মানদণ্ড",
+      "glydeHeader": "GLYDE (Dual-Pass Microfiber)",
+      "nyumaHeader": "NYUMA (Single-Pass PBT)",
+      "row0": {
+        "criterion": "পরিষ্কার প্রযুক্তি",
+        "glyde": "পেটেন্টেড dual-pass: airflow ধুলো ঢিলা করে, microfiber wipe সম্পন্ন করে",
+        "nyuma": "Single-pass counter-rotating PBT brush drum — কম consumables"
+      },
+      "row1": {
+        "criterion": "সবচেয়ে উপযুক্ত",
+        "glyde": "Flagship fixed-tilt সারি যেখানে প্রতি cycle সর্বোচ্চ dust lift অগ্রাধিকার",
+        "nyuma": "পুনরাবৃত্ত fixed-tilt ব্লক যেখানে PBT capex ও brush economics RFQ জয় করে"
+      },
+      "row2": {
+        "criterion": "আঠালো / সিমেন্টitious soiling",
+        "glyde": "Dual-pass মিশ্র শুষ্ক ও আঠালো ধুলোতে উৎকৃষ্ট",
+        "nyuma": "শুষ্ক মরুভূমির ধুলোর জন্য আদর্শ; ভারী সিমেন্টitious soiling হলে extra cycle"
+      },
+      "row3": {
+        "criterion": "Consumable প্রোফাইল",
+        "glyde": "Self-cleaning microfiber drum, extended service intervals",
+        "nyuma": "UV-stable PBT brush, field-replaceable bristle cartridges"
+      },
+      "row4": {
+        "criterion": "প্রতি charge রেঞ্জ",
+        "glyde": "২.২ km পর্যন্ত (~৩,৬০০ মডিউল)",
+        "nyuma": "২.২ km পর্যন্ত (~৩,৬০০ মডিউল)"
+      },
+      "row5": {
+        "criterion": "সাধারণ deployment",
+        "glyde": "Bachau DVC-স্কেল automatic-first fixed-tilt ফ্লিট",
+        "nyuma": "Akhadana-স্কেল ও mixed-fleet PBT automatic প্রোগ্রাম"
+      },
+      "row6": {
+        "criterion": "ইনস্টলের পর শ্রম",
+        "glyde": "শূন্য — সম্পূর্ণ স্বায়ত্তশাসিত দৈনিক cycle",
+        "nyuma": "শূন্য — সম্পূর্ণ স্বায়ত্তশাসিত দৈনিক cycle"
+      },
+      "row7": {
+        "criterion": "ফ্লিট মনিটরিং",
+        "glyde": "NECTYR — LTE, Wi-Fi, RF mesh, LoRa, বা LoRaWAN",
+        "nyuma": "NECTYR — LTE, Wi-Fi, RF mesh, LoRa, বা LoRaWAN"
+      },
+      "crossSellLead": "ছড়িয়ে থাকা ব্লকের জন্য pick-and-place? দেখুন ",
+      "linkHelyx": "HELYX",
+      "crossSellMid": "। single-axis tracker? তুলনা করুন ",
+      "linkTracker": "GLYDE-X ও NYUMA-X",
+      "crossSellSuffix": "।"
     }
   },
   "Common": {

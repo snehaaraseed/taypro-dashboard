@@ -1,33 +1,20 @@
 {
   "NyumaPage": {
     "meta": {
-      "title": "सिंगल-पास PBT स्वचालित सोलर पैनल सफाई रोबोट, Taypro NYUMA (वॉटरलेस, AI)",
-      "description": "Taypro NYUMA एक पूर्ण स्वायत्त, वॉटरलेस स्वचालित सोलर पैनल सफाई रोबोट है। AI/ML सिंगल-पास PBT ड्राई क्लीनिंग प्रति चक्र 99%+ धूल हटाती है, प्रति चार्ज 3,600 मॉड्यूल तक, NECTYR के माध्यम से LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN, TÜV NORD प्रमाणित, पूरे भारत में समान-दिवस ब्रेकडाउन सहायता।",
-      "keywords": [
-        "PBT सोलर पैनल सफाई रोबोट",
-        "PBT स्वचालित सोलर पैनल सफाई रोबोट",
-        "सिंगल-पास सोलर पैनल सफाई रोबोट",
-        "सिंगल-पास स्वचालित सोलर सफाई रोबोट",
-        "वॉटरलेस PBT सोलर सफाई रोबोट",
-        "फिक्स्ड टिल्ट PBT सफाई रोबोट",
-        "स्वचालित सोलर पैनल सफाई रोबोट भारत",
-        "स्वायत्त सोलर पैनल सफाई रोबोट",
-        "यूटिलिटी स्केल सोलर सफाई रोबोट",
-        "TÜV NORD प्रमाणित सोलर सफाई रोबोट",
-        "Taypro NYUMA"
-      ],
-      "openGraphTitle": "सिंगल-पास PBT स्वचालित सोलर पैनल सफाई रोबोट, Taypro NYUMA",
+      "title": "स्वचालित सोलर पैनल सफाई रोबोट | NYUMA",
+      "description": "फिक्स्ड-टिल्ट यूटिलिटी प्लांटों के लिए वॉटरलेस PBT NYUMA। 99%+ धूल हटाना, NECTYR फ्लीट, TÜV NORD। कोटेशन लें।",
+      "openGraphTitle": "स्वचालित सोलर पैनल सफाई रोबोट | NYUMA",
       "openGraphDescription": "Taypro NYUMA: यूटिलिटी प्लांट के लिए पेटेंटेड सिंगल-पास PBT PBT ब्रश रोबोट। स्वायत्त वॉटरलेस सफाई, प्रति चक्र 99%+ धूल हटाना, NECTYR फ्लीट पोर्टल।",
       "openGraphType": "website",
       "openGraphImageAlt": "Taypro NYUMA स्वचालित सोलर पैनल सफाई रोबोट, वॉटरलेस, AI",
-      "twitterTitle": "सिंगल-पास PBT स्वचालित सोलर पैनल सफाई रोबोट, Taypro NYUMA",
+      "twitterTitle": "स्वचालित सोलर पैनल सफाई रोबोट | NYUMA",
       "twitterDescription": "Taypro NYUMA: स्वायत्त वॉटरलेस सिंगल-पास PBT सफाई, प्रति चार्ज 3,600 मॉड्यूल, NECTYR कनेक्टिविटी।",
       "twitterCard": "summary_large_image"
     },
     "breadcrumbs": {
       "home": "होम",
       "solarPanelCleaningRobots": "सोलर पैनल सफाई करने वाले रोबोट",
-      "automaticRobot": "स्वचालित सोलर पैनल सफाई रोबोट"
+      "automaticRobot": "NYUMA — PBT Automatic Robot"
     },
     "shared": {
       "connectivitySummary": "LTE, Wi-Fi, हाइब्रिड सेल्फ-हीलिंग RF मेश, LoRa और LoRaWAN"
@@ -87,7 +74,7 @@
       "p2BeforeStrong": "एक चार्ज पर NYUMA अधिकतम ",
       "p2Strong": "2.2 km रनिंग लंबाई, लगभग 3,600 सोलर मॉड्यूल",
       "p2AfterStrong": " साफ करता है। सफाई चक्र ऊर्जा उत्पादन घंटों के बाहर शेड्यूल करना सर्वोत्तम है और NECTYR से दूरस्थ प्रोग्राम किया जा सकता है।",
-      "p3": "एडवांस्ड एज और बाधा डिटेक्शन NYUMA को सुरक्षित पैनल पार करने देता है; सतह ट्रैकिंग पंक्ति-दर-पंक्ति मोटर प्रदर्शन समायोजित करती है। रियल-टाइम बैटरी मॉनिटरिंग सुनिश्चित करती है कि रोबोट केवल पूर्ण करने योग्य दूरी कवर करे और डॉकिंग स्टेशन पर लौटे। हल्के ब्रिज पूरे साइट पर निरंतर कवरेज देते हैं।",
+      "p3": "NYUMA का counter-rotating PBT brush drum single waterless pass में dry dust lift करता है — no airflow stage, कम consumables, field में straightforward brush replacement। Edge detection और surface-undulation tracking contact module frame पर, glass पर never। Battery-aware routing assigned row finish करके shadow-free dock return — seasonal-tilt tables 45° तक।",
       "p4Blog1": "मॉड्यूल पर स्वचालित सफाई रोबोट कैसे काम करता है",
       "p4Blog2": "यूटिलिटी स्केल पर रोबोटिक सफाई के लाभ",
       "p4Prefix": "आगे पढ़ें: ",
@@ -109,19 +96,19 @@
       "dualPassStepImageAlt": "Taypro NYUMA single-pass PBT waterless cleaning mechanism with rotating PBT brush drum",
       "eyebrow": "स्वायत्त सफाई चक्र",
       "title": "स्वचालित सोलर पैनल सफाई रोबोट कैसे काम करता है?",
-      "subtitle": "NYUMA पंक्ति पर ऑपरेटर के बिना अंत-से-अंत चलता है। नीचे वही वर्कफ़्लो है जो HowTo स्ट्रक्चर्ड डेटा और प्रत्येक तैनात प्लांट की दैनिक वास्तविकता में है।",
+      "subtitle": "NYUMA autonomous single-pass PBT cleaning row crews के बिना execute। Workflow HowTo structured data और NYUMA automatic fleets nightly cycle mirror।",
       "steps": {
         "step0": {
           "name": "प्रत्येक स्वचालित रोबोट को समर्पित एरे में असाइन करें",
-          "text": "प्रत्येक Taypro NYUMA एक विशिष्ट सोलर एरे के लिए स्थायी रूप से असाइन होता है और पंक्ति के बगल में छाया-मुक्त डॉकिंग स्टेशन से जुड़ा होता है। एकीकृत लिथियम-आयन चार्जिंग के लिए बाहरी बिजली की आवश्यकता नहीं, दैनिक स्वायत्त संचालन के लिए स्व-निहित।"
+          "text": "Each NYUMA unit one array dedicated dock, self-contained lithium-ion — PBT brush calibration, frame pairing commissioning once।"
         },
         "step1": {
           "name": "NECTYR से AI/ML-संचालित शेड्यूलिंग",
-          "text": "ऑपरेटर NECTYR ऐप से ऊर्जा उत्पादन घंटों के बाहर चक्र शेड्यूल करते हैं। AI/ML शेड्यूलिंग मौसम और PLD सिग्नल से आवृत्ति अनुकूलित करती है, बारिश में अनावश्यक रन छोड़ती है और गंभीर अलर्ट भेजती है।"
+          "text": "Operators NYUMA NECTYR through schedule। Weather-aware logic rain-washed skip, post-storm PBT runs dust rebound highest prioritize।"
         },
         "step2": {
           "name": "रोबोट स्व-तैनाती से मॉड्यूल पंक्ति पर",
-          "text": "निर्धारित समय पर रोबोट स्वायत्त रूप से अनडॉक करके मॉड्यूल फ्रेम पर पंक्ति में चलता है। एडवांस्ड एज/बाधा डिटेक्शन पथ मैप करता है ताकि ग्लास या सेल पर कोई भार न पड़े।"
+          "text": "NYUMA scheduled time module frame self-deploy — edge/obstacle mapping PBT drum frame पर, glass never।"
         },
         "step3": {
           "name": "सेल्फ-क्लीनिंग PBT ब्रश ड्रम से सिंगल-पास PBT वॉटरलेस सफाई",
@@ -129,11 +116,11 @@
         },
         "step4": {
           "name": "बैटरी-जागरूक डॉकिंग स्टेशन पर वापसी",
-          "text": "रियल-टाइम बैटरी मॉनिटरिंग सुनिश्चित करती है कि रोबोट केवल सुरक्षित दूरी ले, फिर स्वायत्त रूप से डॉक पर लौटकर लॉक हो, डॉक पर 180 km/hr तक की हवा में रेटेड।"
+          "text": "Real-time battery monitoring completable distance cap; NYUMA dock return 180 km/hr gusts lock next single-pass से पहले।"
         },
         "step5": {
           "name": "क्लाउड में टेलीमेट्री और फ्लीट स्वास्थ्य सिंक",
-          "textBeforeConnectivity": "प्रत्येक चक्र के बाद बैटरी, चार्जिंग, चक्र टेलीमेट्री और फ्लीट प्रदर्शन NECTYR पर सिंक होता है ",
+          "textBeforeConnectivity": "Single-pass cycle logs — brush hours, distance, charge — upload NECTYR over ",
           "textAfterConnectivity": ", प्रत्येक साइट के लिए सर्वोत्तम लिंक चुनें, हर तैनात स्वचालित रोबोट के लिए ऑडिट-तैयार रिपोर्टिंग।"
         }
       }
@@ -145,17 +132,17 @@
       "productLabel": "Taypro NYUMA, स्वचालित सोलर पैनल सफाई रोबोट"
     },
     "usps": {
-      "eyebrow": "NYUMA, स्वचालित सोलर पैनल सफाई रोबोट",
+      "eyebrow": "NYUMA — Single-Pass PBT Robot",
       "title": "मुख्य विशेषताएं",
       "items": {
-        "item0": "उत्कृष्ट सफाई दक्षता (सिंगल-पास PBT PBT ब्रश)",
-        "item1": "मजबूत और टिकाऊ डिज़ाइन",
-        "item2": "विस्तृत कवरेज, प्रति चार्ज ~3,600 मॉड्यूल",
-        "item3": "उच्च गति सफाई (10–15 m/min)",
-        "item4": "एडवांस्ड एज और बाधा डिटेक्शन",
-        "item5": "मल्टी-लिंक रिमोट मॉनिटरिंग (LTE / Wi-Fi / RF mesh / LoRa)",
-        "item6": "सेल्फ-क्लीनिंग PBT ब्रश तकनीक",
-        "item7": "कठोर परिस्थितियों के लिए प्रमाणित और परीक्षित"
+        "item0": "Single-Pass PBT Brush Cleaning",
+        "item1": "UV-Stable Bristle Cartridges",
+        "item2": "3,600 Modules Per Charge तक",
+        "item3": "10–15 m/min Row Speed",
+        "item4": "Frame-Mounted — Zero Glass Load",
+        "item5": "NECTYR Fleet Portal (LTE / Wi-Fi / RF / LoRa)",
+        "item6": "Capex-Efficient Automatic Fleet",
+        "item7": "TÜV NORD Field-Validated Build"
       }
     },
     "roiBand": {
@@ -169,13 +156,13 @@
       "headingLine2": "सोलर पैनल सफाई",
       "headingLine3": "रोबोट",
       "headingLine4": "स्थापनाएं",
-      "tagline": "हमने त्वरित स्थापना और समर्पित तकनीकी सहायता सुनिश्चित की है, समान-दिवस ब्रेकडाउन समाधान का वादा।",
+      "tagline": "NYUMA programmes PBT brush commissioning, NECTYR fleet onboarding, pan-India same-day support।",
       "recentProjectsHeader": "हमारी नवीनतम परियोजनाएं"
     },
     "trustStats": {
       "eyebrow": "सोलर प्लांट Taypro क्यों चुनते हैं",
       "title": "भारत के अग्रणी सोलर ऑपरेटरों द्वारा विश्वसनीय",
-      "subtitle": "पिछले दशक में Taypro ने भारत भर में 5,000 MW से अधिक सोलर क्षमता पर PR सुधार किया है, अग्रणी IPP और यूटिलिटी-स्केल प्लांटों के लिए।",
+      "subtitle": "NYUMA automatic fleets Akhadana-scale blocks, mixed-fleet programmes 5,000+ MW Taypro-managed Indian utility capacity।",
       "stats": {
         "stat0": {
           "value": "5 GW+",
@@ -202,15 +189,15 @@
       "cards": {
         "card0": {
           "title": "नियोजित निवारक रखरखाव",
-          "body": "सभी निवारक और सुधारात्मक गतिविधियां पूर्व-निर्धारित, अनियोजित डाउनटाइम समाप्त और जीवनचक्र भर शिखर प्रदर्शन।"
+          "body": "NYUMA AMC brush-hour tracking, scheduled PBT cartridge inspection, site dust loading aligned spare planning।"
         },
         "card1": {
           "title": "तत्काल रिमोट डायग्नोस्टिक्स",
-          "body": "घटना पर Taypro इंजीनियर NECTYR पोर्टल से तुरंत रिमोट डायग्नोस्टिक्स शुरू करते हैं, अधिकांश मुद्दे ओवर-द-एयर हल, साइट विज़िट बिना।"
+          "body": "Most NYUMA incidents NECTYR remote triage — firmware, schedule, telemetry over-the-air before truck roll।"
         },
         "card2": {
           "title": "समान-दिवस ऑन-साइट हस्तक्षेप",
-          "body": "भौतिक सहायता पर Taypro भारत भर में समान-दिवस ऑन-साइट ब्रेकडाउन लक्ष्य रखता है, NECTYR से तत्काल रिमोट डायग्नोस्टिक्स के साथ।"
+          "body": "Physical interventions same-day pan-India stocked PBT consumables, drivetrain spares।"
         }
       }
     },
@@ -221,12 +208,12 @@
     "featuresLongForm": {
       "mainHeading": "Taypro NYUMA स्वचालित सोलर पैनल सफाई रोबोट की विशेषताएं",
       "aiCleaning": {
-        "title": "AI-सक्षम वॉटरलेस सिंगल-पास PBT सफाई",
-        "body": "NYUMA AI/ML सफाई लॉजिक और पेटेंटेड सिंगल-पास PBT, पहला पास सूखी धूल ढीली करता है, दूसरा चिपचिपा अवशेष हटाता है। एक रन में 99%+ धूल, बिना पानी और घर्षण के।"
+        "title": "AI-Enabled Waterless Single-Pass Cleaning",
+        "body": "NYUMA AI/ML-driven pressure और speed logic single-pass PBT brush drum पर apply करता है — one continuous sweep 99%+ dry dust automated run में zero water, detergent, abrasive glass contact के साथ हटाता है।"
       },
       "microfiber": {
-        "title": "सेल्फ-क्लीनिंग PBT ब्रश ड्रम",
-        "body": "घूमता PBT ब्रश स्व-सफाई करता है; रोबोट फ्रेम पर चलता है, ग्लास/सेल पर भार नहीं।"
+        "title": "Self-Cleaning PBT Brush Drum",
+        "body": "UV-stable PBT bristles desert heat में stiffness maintain; self-cleaning drum embedded dust modules के बीच clear — consumable swaps field-serviceable robot row से हटाए बिना।"
       },
       "range": {
         "title": "विस्तृत सफाई रेंज",
@@ -238,7 +225,7 @@
       },
       "weather": {
         "title": "स्मार्ट मौसम अनुकूलन",
-        "body": "हवा, बारिश, आर्द्रता, धूल के विरुद्ध शेड्यूल; गंभीर अलर्ट NECTYR पर स्वतः।"
+        "body": "NYUMA scheduler rain-washed days skip और post-storm dust rebound detect होने पर extra runs add — PBT brush life optimize PR stable रखते हुए।"
       },
       "connectivity": {
         "title": "क्लाउड-कनेक्टेड रिमोट मॉनिटरिंग",
@@ -247,15 +234,15 @@
         "bodyBoldMesh": "हाइब्रिड सेल्फ-हीलिंग RF mesh",
         "bodyAfterMesh": ", या ",
         "bodyBoldLoRa": "LoRa / LoRaWAN",
-        "bodyAfterLoRa": ", NECTYR से फ्लीट प्रबंधन और रियल-टाइम डॉक टेलीमेट्री।"
+        "bodyAfterLoRa": " जहाँ remote blocks के लिए low-power links suit। Mixed NYUMA fleets NECTYR से — single-pass cycles schedule, brush-hour counters track, O&M audit logs download।"
       },
       "edge": {
         "title": "एज और बाधा डिटेक्शन",
-        "body": "उच्च-सटीक सेंसर; सतह उतार-चढ़ाव पंक्ति-दर-पंक्ति मोटर समायोजित करता है।"
+        "body": "Edge-mapping sensors और obstacle detection NYUMA को 10–15 m/min single-pass runs पर frame पर रखते हैं — uneven undulation seasonal-tilt tables पर essential।"
       },
       "build": {
         "title": "सील्ड, फ़ील्ड-हार्डनड बिल्ड",
-        "body": "सभी विद्युत घटक सील्ड बॉडी में, नमी, धूल और कठोर परिस्थितियों से सुरक्षा।"
+        "body": "Sealed IP65 electronics और C3 corrosion protection PBT drivetrain को abrasive dust ingress से shield — Indian damp-heat/dry-heat cycles validated।"
       }
     },
     "certifications": {
@@ -337,7 +324,7 @@
       "cards": {
         "card0": {
           "title": "उच्च-सोइलिंग क्षेत्र प्रदर्शन",
-          "body": "राजस्थान, गुजरात, MP, महाराष्ट्र में 8–25% सोइलिंग हानि के लिए दैनिक रोबोटिक सफाई व्यावहारिक है।"
+          "body": "NYUMA automatic fleets high-soiling belts — Akhadana-scale deployments PBT robots cadence sustain जब wet washing pace नहीं रख सकता।"
         },
         "card1": {
           "title": "तापमान और आर्द्रता सहनशीलता",
@@ -345,7 +332,7 @@
         },
         "card2": {
           "title": "वॉटरलेस, जल-संकट राज्यों में भी",
-          "body": "जल-तनाव जिलों में NYUMA पानी हटाकर टैंकर O&M समाप्त करता है।"
+          "body": "Single-pass dry cleaning tanker dependency eliminate — state water boards module washing restrict जहाँ critical।"
         },
         "card3": {
           "title": "पैन-इंडिया सेवा नेटवर्क",
@@ -360,7 +347,8 @@
       "linkOpex": "Taypro OPEX सफाई सेवा",
       "linkBetweenOpexAndNectyr": " या ",
       "linkNectyr": "NECTYR मॉनिटरिंग ऐप",
-      "crossSellSuffix": "।"
+      "crossSellSuffix": "।",
+      "linkGlyde": "dual-pass GLYDE robot"
     },
     "specifications": {
       "titleLine1": "स्वचालित सोलर पैनल सफाई रोबोट ",
@@ -446,37 +434,39 @@
           "spec": "वजन",
           "details": "45 किग्रा"
         }
-      }
+      },
+      "datasheetCta": "Request full datasheet",
+      "datasheetCtaTopic": "NYUMA datasheet request"
     },
     "advantagesSection": {
       "heading": "स्वचालित सोलर पैनल सफाई रोबोट के लाभ",
       "energy": {
         "title": "बढ़ी ऊर्जा दक्षता",
-        "body": "निरंतर धूल हटाने से जनरेशन में उल्लेखनीय सुधार।"
+        "body": "Consistent single-pass PBT cleaning manual washes के बीच common 5–25% soiling drift prevent — owners high-soiling sites पर 4–8% PR uplift model।"
       },
       "waterless": {
         "title": "वॉटरलेस सफाई",
-        "body": "NYUMA 99.5% तक धूल बिना पानी, जल-scarce क्षेत्रों के लिए आदर्श।"
+        "body": "NYUMA dry PBT brush से dust remove — zero litres/module, no tanker logistics, water-scarce districts में no discharge risk।"
       },
       "autonomous": {
         "title": "पूर्ण स्वायत्त और स्मार्ट संचालन",
-        "body": "एकीकृत AI-ML, मानव हस्तक्षेप की आवश्यकता नहीं।"
+        "body": "One-time dock install के बाद NYUMA autonomously deploy — operators NECTYR में cadence remotely, night crews row पर नहीं।"
       },
       "cost": {
         "title": "लागत-प्रभावी समाधान",
-        "body": "आवर्ती श्रम समाप्त; दीर्घकालिक बचत और अधिकतम ROI।"
+        "body": "Single-pass PBT economics dual-pass vs upfront consumable complexity reduce — predictable dry dust large fixed-tilt fleets attractive।"
       },
       "safe": {
         "title": "सुरक्षित और विश्वसनीय संचालन",
-        "body": "उच्च-सटीक एज सेंसर असमान सतह और खतरों का पता लगाते हैं।"
+        "body": "NYUMA module frame पर lab-validated PBT contact pressure — daily cycles micro-crack, reflectance, ARC integrity tested।"
       }
     },
     "installSection": {
       "dockingImageAlt": "Taypro NYUMA docking station with integrated solar panel for autonomous robot charging between cleaning cycles",
       "title": "स्वचालित रोबोट की स्थापना में कितना समय?",
       "p1": "स्थापना में मौजूदा लेआउट में कोई संशोधन नहीं। NYUMA सीधे पैनल फ्रेम पर चलता है।",
-      "p2": "कुछ घंटों से कुछ दिन, डॉकिंग, कैलिब्रेशन, सिस्टम इंटीग्रेशन।",
-      "p3": "बड़े प्लांट में कुछ दिन से एक सप्ताह। Taypro समान-दिवस ब्रेकडाउन समाधान देता है।",
+      "p2": "NYUMA commissioning: dock placement, PBT brush calibration, NECTYR onboarding — typically hours to two days/array, no structural changes।",
+      "p3": "Multi-block full-fleet rollout up to a week। Post-handover autonomous — Taypro same-day support, remote diagnostics।",
       "p4": "NYUMA स्केलेबल, सुरक्षित और आसान स्थापना वाला Taypro समाधान है।"
     },
     "roiSection": {
@@ -492,19 +482,19 @@
         "s0": "⦿ सक्रियण पर रोबोट सेंसर प्रारंभ करता है और केंद्रीय मॉनिटरिंग से कनेक्टिविटी जांचता है",
         "s1": "⦿ रिमोट पोर्टल से सफाई शेड्यूल पूर्व-सेट, पूर्ण स्वचालित संचालन",
         "s2": "⦿ लोकोमोशन मोटर गति शक्ति देता है और रोबोट को मॉड्यूल फ्रेम पर मार्गदर्शन करता है",
-        "s3": "⦿ सफाई ब्रश मोटर वॉटरलेस सिंगल-पास PBT PBT ब्रश तकनीक शुरू करता है",
+        "s3": "⦿ PBT brush drum single waterless pass — counter-rotating bristles 10–15 m/min dry dust lift, no water/detergent",
         "s4": "⦿ एज सेंसर लगातार परिवेश स्कैन करते हैं, पैनल किनारे से आगे नहीं",
         "s5": "⦿ NECTYR से सफाई गति और दिशा समायोजित करें",
         "s6": "⦿ चक्र पूर्ण होने पर रोबोट डॉक पर लौटकर रिचार्ज करता है और अगले शेड्यूल तक प्रतीक्षा",
-        "s7": "⦿ उन्नत फॉल्ट डिटेक्शन लगातार पैरामीटर विश्लेषण करता है",
-        "s8": "⦿ बाधा डिटेक्शन, सेल्फ-क्लीनिंग PBT ब्रश और अनुकूली नेविगेशन से सुरक्षित संचालन"
+        "s7": "⦿ Brush-load और battery telemetry fault detection — anomalies controlled stop और NECTYR notification",
+        "s8": "⦿ Self-cleaning brush action, adaptive row speed assigned array में single-pass quality uniform"
       }
     },
     "faq": {
       "title": "अक्सर पूछे जाने वाले प्रश्न",
       "sharedFromData": {
         "item0": {
-          "question": "स्थापना के बाद स्वचालित सिस्टम की देखभाल कौन करता है?",
+          "question": "Installation के बाद NYUMA monitoring?",
           "answer": "NECTYR के माध्यम से दूरस्थ मॉनिटरिंग। Taypro तकनीकी सहायता और समस्या निवारण प्रदान करता है।"
         },
         "item1": {
@@ -516,7 +506,7 @@
           "answer": "सेल्फ-क्लीनिंग PBT ब्रश और स्वचालित फॉल्ट डिटेक्शन के कारण न्यूनतम।"
         },
         "item3": {
-          "question": "सफाई शेड्यूल क्या है?",
+          "question": "Production के सापेक्ष NYUMA कब clean?",
           "answer": "ऊर्जा उत्पादन घंटों के बाद, पावर हानि से बचाव।"
         },
         "item4": {
@@ -542,8 +532,8 @@
           "answer": "धूल भरी साइटों पर PR 4–8% सुधार; 20 वर्ष डिज़ाइन जीवन पर चक्रवृद्धि लाभ।"
         },
         "item2": {
-          "question": "NYUMA, HELYX और NYUMA में अंतर?",
-          "answer": "NYUMA: फिक्स्ड/सीज़नल-टिल्ट पूर्ण स्वायत्त। HELYX: अर्ध-स्वचालित पोर्टेबल। NYUMA: सिंगल-एक्सिस ट्रैकर। सभी वॉटरलेस, NECTYR।"
+          "question": "NYUMA, GLYDE और NYUMA-X में अंतर?",
+          "answer": "NYUMA fixed-tilt utility plants single-pass PBT automatic। GLYDE same plant type dual-pass microfiber flagship। NYUMA-X PBT platform single-axis trackers extend। सभी NECTYR — mounting structure और brush technology preference से pick।"
         },
         "item3": {
           "question": "क्या रोबोटिक सफाई मॉड्यूल के लिए सुरक्षित है?",
@@ -570,6 +560,59 @@
         "nyumaX": "NYUMA-X"
       },
       "cardTitleTemplate": "{label} सोलर पैनल सफाई रोबोट"
+    },
+    "glydeVsNyuma": {
+      "eyebrow": "सही Taypro रोबोट चुनें",
+      "title": "GLYDE vs NYUMA: आपके प्लांट के लिए कौन-सा स्वचालित रोबोट?",
+      "subtitle": "दोनों रोबोट पूर्ण स्वायत्त, वॉटरलेस हैं और NECTYR से प्रबंधित होते हैं। GLYDE Taypro का पेटेंटेड डुअल-पास माइक्रोफाइबर फ्लैगशिप है; NYUMA capex-कुशल फिक्स्ड-टिल्ट फ्लीट के लिए PBT सिंगल-पास प्लेटफ़ॉर्म है।",
+      "criterion": "मानदंड",
+      "glydeHeader": "GLYDE (डुअल-पास माइक्रोफाइबर)",
+      "nyumaHeader": "NYUMA (सिंगल-पास PBT)",
+      "row0": {
+        "criterion": "सफाई तकनीक",
+        "glyde": "पेटेंटेड डुअल-पास: एयरफ़्लो धूल ढीली करता है, माइक्रोफाइबर वाइप पूरा करता है",
+        "nyuma": "सिंगल-पास काउंटर-रोटेटिंग PBT ब्रश ड्रम — कम चलने वाले consumables"
+      },
+      "row1": {
+        "criterion": "सबसे उपयुक्त",
+        "glyde": "फ्लैगशिप फिक्स्ड-टिल्ट पंक्तियाँ जहाँ प्रति चक्र अधिकतम धूल उठान प्राथमिकता है",
+        "nyuma": "दोहराए जाने वाले फिक्स्ड-टिल्ट ब्लॉक जहाँ PBT capex और ब्रश अर्थशास्त्र RFQ जीतते हैं"
+      },
+      "row2": {
+        "criterion": "चिपचिपी / सीमेंटitious सोइलिंग",
+        "glyde": "डुअल-पास मिश्रित शुष्क और चिपचिपी धूल की परतों पर उत्कृष्ट",
+        "nyuma": "शुष्क रेगिस्तानी धूल के लिए आदर्श; भारी सीमेंटitious सोइलिंग पर अतिरिक्त चक्र शेड्यूल करें"
+      },
+      "row3": {
+        "criterion": "Consumable प्रोफ़ाइल",
+        "glyde": "सेल्फ-क्लीनिंग माइक्रोफाइबर ड्रम, विस्तारित सेवा अंतराल",
+        "nyuma": "UV-स्थिर PBT ब्रश, फ़ील्ड-रिप्लेसेबल ब्रिसल कार्ट्रिज"
+      },
+      "row4": {
+        "criterion": "प्रति चार्ज रेंज",
+        "glyde": "2.2 km तक (~3,600 मॉड्यूल)",
+        "nyuma": "2.2 km तक (~3,600 मॉड्यूल)"
+      },
+      "row5": {
+        "criterion": "typical deployments",
+        "glyde": "Bachau DVC-स्केल automatic-first फिक्स्ड-टिल्ट फ्लीट",
+        "nyuma": "Akhadana-स्केल और mixed-fleet PBT automatic कार्यक्रम"
+      },
+      "row6": {
+        "criterion": "इंस्टॉल के बाद श्रम",
+        "glyde": "शून्य — पूर्ण स्वायत्त दैनिक चक्र",
+        "nyuma": "शून्य — पूर्ण स्वायत्त दैनिक चक्र"
+      },
+      "row7": {
+        "criterion": "फ्लीट मॉनिटरिंग",
+        "glyde": "NECTYR — LTE, Wi-Fi, RF mesh, LoRa, या LoRaWAN",
+        "nyuma": "NECTYR — LTE, Wi-Fi, RF mesh, LoRa, या LoRaWAN"
+      },
+      "crossSellLead": "बिखरे ब्लॉकों के लिए pick-and-place विकल्प? देखें ",
+      "linkHelyx": "HELYX",
+      "crossSellMid": "। सिंगल-अक्ष ट्रैकर? तुलना करें ",
+      "linkTracker": "GLYDE-X और NYUMA-X",
+      "crossSellSuffix": "।"
     }
   },
   "Common": {

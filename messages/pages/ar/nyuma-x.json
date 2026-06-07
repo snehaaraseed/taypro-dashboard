@@ -1,28 +1,17 @@
 {
   "NyumaXPage": {
     "meta": {
-      "title": "روبوت تنظيف الألواح الشمسية لأجهزة التتبع أحادية المحور, Taypro GLYDE-X",
-      "description": "Taypro GLYDE-X عبارة عن روبوت لتنظيف الألواح الشمسية مستقل بدون ماء يعمل بالذكاء الاصطناعي والتعلم الآلي، وقد تم تصميمه خصيصًا لمزارع الطاقة الشمسية ذات المحور الواحد. إزالة الغبار بنسبة 99%+ لكل تمريرة مزدوجة، وما يصل إلى 3600 وحدة لكل شحنة، ومرونة ±15 درجة بين الطاولات، ومتوافقة مع NEXTracker وGamechanger (إمالة الوحدة من -52 درجة إلى +52 درجة)، ومعتمدة من TÜV NORD.",
+      "title": "روبوت تنظيف متتبع | NYUMA-X",
+      "description": "NYUMA-X PBT للمتتبعات. إزالة 99%+ للغبار، NECTYR، TÜV NORD. اطلب عرض سعر اليوم.",
       "openGraphDescription": "روبوت تنظيف الألواح الشمسية المستقل الذي يعمل بالذكاء الاصطناعي لمحطات التتبع أحادية المحور. إزالة الغبار بنسبة 99%+ لكل دورة، وما يصل إلى 3600 وحدة لكل شحنة، NECTYR عبر LTE/Wi-Fi/RF شبكة/LoRa/LoRaWAN، متوافق مع NEXTracker وGamechanger، معتمد من TÜV NORD.",
       "openGraphImageAlt": "Taypro روبوت تنظيف الألواح الشمسية ذو المحور الواحد GLYDE-X - يعمل بالذكاء الاصطناعي، بدون ماء",
       "twitterDescription": "روبوت مستقل لتنظيف الألواح الشمسية لمحطات التتبع. 3600 وحدة لكل شحنة، متوافقة مع LTE/Wi-Fi/RF شبكة/LoRa/LoRaWAN، NEXTracker وGamechanger.",
-      "keywords": [
-        "تنظيف ألواح شمسية متتبع أحادي المحور",
-        "روبوت تنظيف متتبع أحادي المحور",
-        "روبوت تنظيف ألواح متتبعة",
-        "روبوت تنظيف NEXTracker",
-        "روبوت تنظيف Gamechanger للمتتبعات",
-        "تنظيف متتبع أفقي أحادي المحور",
-        "روبوت تنظيف ألواح على نطاق المرافق",
-        "نظام تنظيف أوتوماتيكي للمتتبعات",
-        "Taypro GLYDE-X"
-      ],
-      "openGraphTitle": "روبوت تنظيف ألواح PBT لأجهزة التتبع أحادية المحور, Taypro NYUMA-X",
-      "twitterTitle": "روبوت تنظيف ألواح PBT لأجهزة التتبع أحادية المحور, Taypro NYUMA-X"
+      "openGraphTitle": "روبوت تنظيف متتبع | NYUMA-X",
+      "twitterTitle": "روبوت تنظيف متتبع | NYUMA-X"
     },
     "breadcrumbs": {
       "robots": "روبوتات تنظيف الألواح الشمسية",
-      "current": "روبوت تنظيف الألواح الشمسية لأجهزة التتبع أحادية المحور"
+      "current": "NYUMA-X — PBT Tracker Robot"
     },
     "schema": {
       "productName": "روبوت تنظيف الألواح الشمسية لأجهزة التتبع أحادية المحور - GLYDE-X",
@@ -32,7 +21,7 @@
       "howToDescription": "دورة تنظيف مستقلة خطوة بخطوة لروبوت تنظيف الألواح الشمسية Taypro GLYDE-X لتركيبات التعقب أحادية المحور - بدءًا من النشر المجدول بواسطة الذكاء الاصطناعي وحتى الإرساء الذاتي ومزامنة القياس عن بعد السحابية."
     },
     "hero": {
-      "title": "روبوت تنظيف الألواح الشمسية لأجهزة التتبع أحادية المحور, GLYDE-X",
+      "title": "NYUMA-X — PBT Single-Pass Tracker Cleaning Robot",
       "subtitleBefore": "روبوت تنظيف الألواح الشمسية مستقل بدون ماء يعمل بالذكاء الاصطناعي والتعلم الآلي، مصمم خصيصًا لمزارع الطاقة الشمسية ذات المحور الواحد. ينظف ما يصل إلى 3600 وحدة لكل شحنة،",
       "subtitleStrong": "ينثني ± 15 درجة بين الجداول",
       "subtitleAfter": "، يدعم إمالة الوحدة من -52 درجة إلى +52 درجة، وهو متوافق مع NEXTracker وGamechanger وأجهزة التتبع المكافئة.",
@@ -54,8 +43,8 @@
         "description": "ينظف الوحدات عبر نطاق الإمالة التشغيلي الكامل لجهاز التعقب أحادي المحور - بدءًا من زاوية الصباح شديدة الانحدار وحتى موضع الظهيرة المسطح وحتى زاوية المساء شديدة الانحدار."
       },
       "3": {
-        "title": "تنظيف مزدوج بدون ماء بنسبة 100%",
-        "description": "يعمل التنظيف الجاف ثنائي المسار على إزالة ما يزيد عن 99% من الغبار من أسطح الوحدة باستخدام الألياف الدقيقة أو PBT - بدون ماء أو منظف أو تلوث بالجريان السطحي."
+        "title": "100% Waterless Single-Pass PBT Cleaning",
+        "description": "فرش PBT دوّارة single-pass يرفع 99%+ غبار tracker جاف — بدون ماء."
       },
       "4": {
         "title": "استقلالية تعتمد على الذكاء الاصطناعي والتعلم الآلي",
@@ -334,12 +323,12 @@
       "eyebrow": "تم اختباره واعتماده بشكل مستقل",
       "title": "الشهادات والاختبارات الميدانية",
       "subtitle": "تخضع حلول التنظيف Taypro للتحقق الميداني والمختبري الصارم، ومحاكاة دورات التنظيف اليومية في ظل ظروف خارجية واقعية، والتي تجريها مختبرات اختبار قطاع الطاقة الشمسية المعتمدة.",
-      "card0Title": "معتمد من TÜV NORD",
-      "card0Body": "تم اختباره واعتماده بشكل مستقل من قبل TÜV NORD لحماية IP55 وتم التحقق من صحته في ظل ظروف الأداء القاسية للحرارة الرطبة والحرارة الجافة.",
-      "card1Title": "محاكاة اختبار العاصفة الرملية",
-      "card1Body": "تم التحقق من صحته في ظل 12 حدث عاصفة رملية سنويًا عند تحميل رمل يبلغ 10 جم/م² لكل دورة - وهو أصعب بروتوكول لتنظيف المناخ الصحراوي.",
-      "card2Title": "تم التحقق من أمان اللوحة",
-      "card2Body": "تم اختباره لتحليل الشقوق الدقيقة وتقييم المعلمات الكهربائية الكاملة والانعكاس البصري والحفاظ على ARC (الطلاء المضاد للانعكاس)."
+      "card0Title": "TÜV NORD PBT Tracker Certification",
+      "card0Body": "IP55 enclosure tracker-field damp-heat, dry-heat, vibration profiles validated।",
+      "card1Title": "Desert Soiling Endurance",
+      "card1Body": "PBT brush life high-loading dust cycles Thar-edge tracker plants representative validated।",
+      "card2Title": "ARC-Safe PBT Contact",
+      "card2Body": "Single-pass PBT pressure micro-crack, optical reflectance, ARC preservation trackers tested।"
     },
     "trustStats": {
       "eyebrow": "ثبت على نطاق واسع",
@@ -450,7 +439,7 @@
       },
       "row3": {
         "criterion": "آلية التنظيف",
-        "nyumaX": "تمرير مزدوج بدون ماء - فرشاة من الألياف الدقيقة أو فرشاة PBT",
+        "nyumaX": "Waterless single-pass PBT brush drum",
         "nyuma": "ممر مزدوج بدون ماء - أسطوانة من الألياف الدقيقة ذاتية التنظيف"
       },
       "row4": {
@@ -514,6 +503,59 @@
     },
     "shared": {
       "connectivitySummary": "LTE وWi-Fi وشبكة RF ذاتية الشفاء هجينة وLoRa وLoRaWAN"
+    },
+    "glydeXVsNyumaX": {
+      "eyebrow": "مقارنة روبوتات التتبع",
+      "title": "GLYDE-X مقابل NYUMA-X: أي روبوت tracker تحدد؟",
+      "subtitle": "كلا الروبوتين يعبران NEXTracker وGamechanger وجداول single-axis المماثلة بمرونة ±15° بين الجداول. GLYDE-X يستخدم dual-pass microfiber patented؛ NYUMA-X PBT single-pass لبرامج tracker حساسة لـ CAPEX.",
+      "criterion": "المعيار",
+      "glydeXHeader": "GLYDE-X (Dual-Pass)",
+      "nyumaXHeader": "NYUMA-X (Single-Pass PBT)",
+      "row0": {
+        "criterion": "آلية التنظيف",
+        "glydeX": "Dual-pass microfiber — airflow + wipe للتلوث المختلط",
+        "nyumaX": "فرش PBT single-pass — محسّن لأحزمة غبار tracker الجافة"
+      },
+      "row1": {
+        "criterion": "توافق Tracker",
+        "glydeX": "NEXTracker, Gamechanger, ميل -52° إلى +52°",
+        "nyumaX": "NEXTracker, Gamechanger, ميل -52° إلى +52°"
+      },
+      "row2": {
+        "criterion": "مرونة بين الجداول",
+        "glydeX": "±15° articulation مع bridge kits معتمدة",
+        "nyumaX": "±15° articulation مع bridge kits معتمدة"
+      },
+      "row3": {
+        "criterion": "الوزن التشغيلي",
+        "glydeX": "25 kg هيكل tracker مدمج",
+        "nyumaX": "25 kg هيكل tracker مدمج"
+      },
+      "row4": {
+        "criterion": "المدى لكل شحنة",
+        "glydeX": "حتى 2.2 km (~3,600 وحدة)",
+        "nyumaX": "حتى 2.2 km (~3,600 وحدة)"
+      },
+      "row5": {
+        "criterion": "متى يختارها المالكون",
+        "glydeX": "صفوف tracker premium تحتاج أقصى رفع غبار لكل دورة ليلية",
+        "nyumaX": "أساطيل tracker كبيرة تفضّل اقتصاديات PBT وCAPEX"
+      },
+      "row6": {
+        "criterion": "الاستقلالية والجدولة",
+        "glydeX": "مستقل بالكامل، جدولة AI عبر NECTYR",
+        "nyumaX": "مستقل بالكامل، جدولة AI عبر NECTYR"
+      },
+      "row7": {
+        "criterion": "بديل fixed-tilt",
+        "glydeX": "راجع GLYDE لتنظيف fixed-tilt dual-pass",
+        "nyumaX": "راجع NYUMA لتنظيف fixed-tilt PBT"
+      },
+      "crossSellLead": "قارن روبوتات fixed-tilt: ",
+      "linkGlyde": "GLYDE vs NYUMA",
+      "crossSellMid": ". تفضّل نشر semi-automatic؟ راجع ",
+      "linkHelyx": "HELYX",
+      "crossSellSuffix": "."
     }
   },
   "Common": {

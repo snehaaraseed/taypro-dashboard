@@ -273,6 +273,8 @@ rsync -avz "${RSYNC_EXTRA[@]}" --delete \
     --exclude '.env*.local' \
     --exclude 'secrets/' \
     --exclude '.deploy-snapshots' \
+    --exclude '.runtime/' \
+    --exclude 'logs/*.log' \
     -e "ssh -i $SSH_KEY" \
     "$LOCAL_PATH/" \
     "$REMOTE_HOST:$REMOTE_PATH/"

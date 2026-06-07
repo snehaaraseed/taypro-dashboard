@@ -1,28 +1,11 @@
 {
   "HelyxPage": {
     "meta": {
-      "title": "半自動ソーラーパネル清掃ロボット, Taypro HELYX (ピックアンドプレイス)",
-      "description": "Taypro HELYX は、39 kg のピックアンドプレイス型の半自動ソーラー パネル クリーニング ロボットです。逆回転 PBT ブラシは、水なし 1 回のパスで 99% 以上の塵を除去し、1 MW プラントを 2 時間以内に清掃し、1 回の充電で最大 3 km 稼働します。TÜV NORD 認定済み - 固定傾斜プラントおよび季節傾斜プラント向けに構築されています。",
+      "title": "半自動ソーラーパネル洗浄ロボット | HELYX",
+      "description": "固定傾斜向け39kg HELYX。水なしPBT、99%+除塵、TÜV NORD。見積もり依頼。",
       "openGraphDescription": "ピックアンドプレイスソーラーパネル清掃ロボット。 39 kg、水なし、デュアル逆回転 PBT ブラシ、シングルパスで 99% 以上の塵除去、充電あたり 3 km、TÜV NORD 認定。",
       "openGraphImageAlt": "Taypro 半自動ソーラーパネル清掃ロボット HELYX, ピックアンドプレイス型、水を使わない",
-      "twitterDescription": "39kgのピックアンドプレイス型ソーラーパネル清掃ロボット。水なし、デュアル逆回転 PBT ブラシ、パスあたり 99% 以上の塵除去、TÜV NORD 認定。",
-      "keywords": [
-        "半自動ソーラーパネル洗浄ロボット",
-        "セミオートマチック ソーラーパネル洗浄ロボット",
-        "ピックアンドプレース ソーラー洗浄ロボット",
-        "リフトアンドシフト ソーラー洗浄ロボット",
-        "ポータブル ソーラーパネル洗浄ロボット",
-        "手動展開 ソーラー洗浄ロボット",
-        "屋根置き ソーラー洗浄ロボット",
-        "固定傾斜 ソーラーパネル洗浄",
-        "季節傾斜 ソーラーパネル洗浄",
-        "PBTブラシ ソーラー洗浄ロボット",
-        "カウンターローテーション ソーラー洗浄",
-        "乾式 ソーラーパネル洗浄ロボット",
-        "ユーティリティ規模 ソーラーパネル洗浄ロボット",
-        "Taypro HELYX",
-        "Taypro Loop"
-      ]
+      "twitterDescription": "39kgのピックアンドプレイス型ソーラーパネル清掃ロボット。水なし、デュアル逆回転 PBT ブラシ、パスあたり 99% 以上の塵除去、TÜV NORD 認定。"
     },
     "breadcrumbs": {
       "robots": "ソーラーパネル清掃ロボット",
@@ -360,7 +343,9 @@
       "titleLine1": "半自動ソーラーパネル清掃ロボット",
       "titleLine2": "HELYXの仕様",
       "specHeader": "仕様",
-      "valueHeader": "価値"
+      "valueHeader": "価値",
+      "datasheetCta": "Request full datasheet",
+      "datasheetCtaTopic": "HELYX datasheet request"
     },
     "manualVsRobotic": {
       "eyebrow": "ロボットによる太陽熱洗浄と手動による太陽熱洗浄",

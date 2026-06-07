@@ -1,28 +1,17 @@
 {
   "NyumaXPage": {
     "meta": {
-      "title": "PBT ट्रैकर सोलर पैनल सफाई रोबोट, Taypro NYUMA-X",
-      "description": "Taypro NYUMA-X सिंगल-एक्सिस ट्रैकर के लिए PBT सिंगल-पास रोबोट। प्रति रन 99%+ धूल हटाना, NECTYR, NEXTracker और Gamechanger संगत।",
+      "title": "ट्रैकर सोलर पैनल सफाई रोबोट | NYUMA-X",
+      "description": "ट्रैकर प्लांटों के लिए PBT NYUMA-X। 99%+ धूल, NECTYR, TÜV NORD। आज कोटेशन लें।",
       "openGraphDescription": "एकल-अक्ष ट्रैकर संयंत्रों के लिए स्वायत्त एआई-संचालित सौर पैनल सफाई रोबोट। प्रति चक्र 99%+ धूल हटाना, प्रति चार्ज 3,600 मॉड्यूल तक, एलटीई/वाई-फाई/आरएफ मेश/लोरा/लोरावन के माध्यम से NECTYR, NEXTracker और Gamechanger संगत, TÜV NORD प्रमाणित।",
       "openGraphImageAlt": "Taypro सिंगल-एक्सिस ट्रैकर सोलर पैनल क्लीनिंग रोबोट GLYDE-X - AI-पावर्ड, वॉटरलेस",
       "twitterDescription": "ट्रैकर संयंत्रों के लिए स्वायत्त सौर पैनल सफाई रोबोट। प्रति चार्ज 3,600 मॉड्यूल, LTE/Wi-Fi/RF मेश/LoRa/LoRaWAN, NEXTracker और Gamechanger संगत।",
-      "keywords": [
-        "सिंगल-अक्ष ट्रैकर सोलर पैनल सफाई",
-        "सिंगल-अक्ष ट्रैकर सोलर सफाई रोबोट",
-        "ट्रैकर सोलर पैनल सफाई रोबोट",
-        "NEXTracker सोलर सफाई रोबोट",
-        "Gamechanger ट्रैकर सफाई रोबोट",
-        "क्षैतिज सिंगल-अक्ष ट्रैकर सफाई",
-        "यूटिलिटी स्केल सोलर पैनल सफाई रोबोट",
-        "ट्रैकर स्वचालित सोलर पैनल सफाई सिस्टम",
-        "Taypro GLYDE-X"
-      ],
-      "openGraphTitle": "PBT ट्रैकर सोलर पैनल सफाई रोबोट, Taypro NYUMA-X",
-      "twitterTitle": "PBT ट्रैकर सोलर पैनल सफाई रोबोट, Taypro NYUMA-X"
+      "openGraphTitle": "ट्रैकर सोलर पैनल सफाई रोबोट | NYUMA-X",
+      "twitterTitle": "ट्रैकर सोलर पैनल सफाई रोबोट | NYUMA-X"
     },
     "breadcrumbs": {
       "robots": "सोलर पैनल सफाई करने वाले रोबोट",
-      "current": "सिंगल-एक्सिस ट्रैकर्स के लिए सोलर पैनल क्लीनिंग रोबोट"
+      "current": "NYUMA-X — PBT Tracker Robot"
     },
     "schema": {
       "productName": "सिंगल-एक्सिस ट्रैकर्स के लिए सोलर पैनल क्लीनिंग रोबोट - GLYDE-X",
@@ -32,7 +21,7 @@
       "howToDescription": "सिंगल-एक्सिस ट्रैकर इंस्टॉलेशन के लिए Taypro GLYDE-X सौर पैनल सफाई रोबोट का चरण-दर-चरण स्वायत्त सफाई चक्र - सेल्फ-डॉकिंग और क्लाउड टेलीमेट्री सिंक के माध्यम से एआई-अनुसूचित तैनाती से।"
     },
     "hero": {
-      "title": "सिंगल-एक्सिस ट्रैकर सोलर पैनल सफाई रोबोट, NYUMA-X",
+      "title": "NYUMA-X — PBT Single-Pass Tracker Cleaning Robot",
       "subtitleBefore": "एक एआई- और एमएल-संचालित, जल रहित स्वायत्त सौर पैनल सफाई रोबोट, जो एकल-अक्ष ट्रैकर सौर फार्मों के लिए बनाया गया है। प्रति चार्ज 3,600 मॉड्यूल तक साफ़ करता है,",
       "subtitleStrong": "टेबलों के बीच ±15° फ्लेक्स होता है",
       "subtitleAfter": ", -52° से +52° तक मॉड्यूल झुकाव का समर्थन करता है, और NEXTracker, Gamechanger और समकक्ष ट्रैकर्स के साथ संगत है।",
@@ -42,36 +31,36 @@
     },
     "usps": {
       "0": {
-        "title": "सिंगल-एक्सिस ट्रैकर्स के लिए उद्देश्य-निर्मित",
-        "description": "ट्रैकर-आधारित सौर फार्मों के लिए शुरू से ही इंजीनियर किया गया - NEXTracker, Gamechanger और अन्य प्रमुख सिंगल-एक्सिस ट्रैकर निर्माताओं के साथ संगत।"
+        "title": "Single-Pass PBT for Trackers",
+        "description": "Single-axis tracker farms purpose-built — NEXTracker, Gamechanger, peer OEM geometries compatible।"
       },
       "1": {
-        "title": "लचीला ±15° बॉडी आर्टिक्यूलेशन",
-        "description": "आसन्न टेबलों के बीच कोण के अंतर को समायोजित करने के लिए अपने शरीर को 15° तक मोड़ता है, जिससे पैनलों और इंटर-टेबल पुलों पर सुरक्षित और विश्वसनीय आवाजाही सुनिश्चित होती है।"
+        "title": "±15° Bridge & Table Flex",
+        "description": "Body ±15° inter-table misalignment traverse brush contact module frame maintain।"
       },
       "2": {
-        "title": "वाइड मॉड्यूल झुकाव रेंज (-52° से +52°)",
-        "description": "एकल-अक्ष ट्रैकर की पूर्ण परिचालन झुकाव सीमा में मॉड्यूल को साफ करता है - सुबह के तेज कोण से लेकर दोपहर की सपाट स्थिति से लेकर शाम के तेज कोण तक।"
+        "title": "Steep Tilt Tracker Coverage",
+        "description": "-52° to +52° tracker tilt — steep morning/evening angles daytime shutdown बिना clean।"
       },
       "3": {
-        "title": "100% जल रहित सिंगल-पास PBT सफाई",
-        "description": "दो-पास ड्राई क्लीनिंग PBT ब्रश या PBT का उपयोग करके मॉड्यूल सतहों से 99% से अधिक धूल हटा देती है - कोई पानी नहीं, कोई डिटर्जेंट नहीं, कोई अपवाह संदूषण नहीं।"
+        "title": "100% Waterless Single-Pass PBT Cleaning",
+        "description": "Counter-rotating PBT bristles 99%+ dry tracker dust one pass — no water, detergent, run-off।"
       },
       "4": {
-        "title": "एआई- और एमएल-संचालित स्वायत्तता",
-        "description": "उन्नत किनारा, बाधा और कोण का पता लगाने से GLYDE-X गिरने के जोखिम के बिना पैनलों में सुरक्षित रूप से आगे बढ़ सकता है - प्रत्येक पंक्ति के साथ पथ और सतह के उतार-चढ़ाव पर लगातार नज़र रखता है।"
+        "title": "Stow-Aware Autonomous Routing",
+        "description": "AI edge/angle detection tracker stow positions, row undulation autonomous night cycles adapt।"
       },
       "5": {
-        "title": "क्लाउड-कनेक्टेड रिमोट मॉनिटरिंग",
-        "description": "समर्थित कनेक्टिविटी में {connectivity}, NECTYR में वास्तविक समय टेलीमेट्री फीड करना शामिल है - सफाई शेड्यूल करना, सेटिंग्स समायोजित करना, प्रदर्शन को ट्रैक करना और किसी भी डिवाइस से मौसम अलर्ट प्राप्त करना।"
+        "title": "NECTYR PBT Fleet Telemetry",
+        "description": "Remote fleet {connectivity} NECTYR — tracker-aware schedules, post-storm recovery runs।"
       },
       "6": {
-        "title": "2.2 km / 3,600 मॉड्यूल प्रति चार्ज तक",
-        "description": "एक एकल GLYDE-X एक बार चार्ज करने पर चलने वाले ट्रैकर के 2.2 km तक को साफ़ करता है - आमतौर पर लगभग 3,600 मॉड्यूल - सेल्फ-डॉकिंग से पहले और अपने छाया-मुक्त डॉक पर रिचार्ज करने से पहले।"
+        "title": "Long-Range Tracker Battery Cycle",
+        "description": "Single charge 2.2 km tracker run (~3,600 modules) self-docking solar-assisted recharge।"
       },
       "7": {
-        "title": "TÜV NORD प्रमाणित निर्माण",
-        "description": "IP55 सुरक्षा के लिए TÜV NORD द्वारा स्वतंत्र रूप से परीक्षण और प्रमाणित किया गया और सिम्युलेटेड सैंडस्टॉर्म और नम-गर्मी/शुष्क-गर्मी चरम सीमा के तहत मान्य किया गया।"
+        "title": "TÜV NORD PBT Tracker Certification",
+        "description": "TÜV NORD IP55 abrasive tracker dust, Indian monsoon humidity validated।"
       }
     },
     "features": {
@@ -334,12 +323,12 @@
       "eyebrow": "स्वतंत्र रूप से परीक्षण और प्रमाणित",
       "title": "प्रमाणपत्र और फ़ील्ड-मान्य परीक्षण",
       "subtitle": "Taypro के सफाई समाधान कठोर क्षेत्र और प्रयोगशाला सत्यापन के अधीन हैं, जो मान्यता प्राप्त सौर-क्षेत्र परीक्षण प्रयोगशालाओं द्वारा यथार्थवादी बाहरी परिस्थितियों में दैनिक सफाई चक्रों का अनुकरण करते हैं।",
-      "card0Title": "TÜV NORD प्रमाणित",
-      "card0Body": "IP55 सुरक्षा के लिए TÜV NORD द्वारा स्वतंत्र रूप से परीक्षण और प्रमाणित किया गया और अत्यधिक नमी-गर्मी और शुष्क-गर्मी प्रदर्शन स्थितियों के तहत मान्य किया गया।",
-      "card1Title": "नकली रेतीला तूफ़ान परीक्षण",
-      "card1Body": "प्रति चक्र 10 ग्राम/वर्ग मीटर की रेत लोडिंग पर प्रति वर्ष 12 रेतीले तूफान की घटनाओं के तहत मान्य - सबसे कठिन रेगिस्तान-जलवायु सफाई प्रोटोकॉल।",
-      "card2Title": "पैनल-सुरक्षित सत्यापित",
-      "card2Body": "माइक्रो-क्रैक विश्लेषण, पूर्ण विद्युत पैरामीटर मूल्यांकन, ऑप्टिकल परावर्तन और एआरसी (एंटी-रिफ्लेक्टिव कोटिंग) संरक्षण के लिए परीक्षण किया गया।"
+      "card0Title": "TÜV NORD PBT Tracker Certification",
+      "card0Body": "IP55 enclosure tracker-field damp-heat, dry-heat, vibration profiles validated।",
+      "card1Title": "Desert Soiling Endurance",
+      "card1Body": "PBT brush life high-loading dust cycles Thar-edge tracker plants representative validated।",
+      "card2Title": "ARC-Safe PBT Contact",
+      "card2Body": "Single-pass PBT pressure micro-crack, optical reflectance, ARC preservation trackers tested।"
     },
     "trustStats": {
       "eyebrow": "पैमाने पर सिद्ध",
@@ -450,7 +439,7 @@
       },
       "row3": {
         "criterion": "सफाई तंत्र",
-        "nyumaX": "जल रहित सिंगल-पास PBT - माइक्रोफ़ाइबर या पीबीटी ब्रश",
+        "nyumaX": "Waterless single-pass PBT brush drum",
         "nyuma": "जल रहित सिंगल-पास PBT - स्व-सफाई PBT ब्रश ड्रम"
       },
       "row4": {
@@ -514,6 +503,59 @@
     },
     "shared": {
       "connectivitySummary": "LTE, Wi-Fi, हाइब्रिड सेल्फ-हीलिंग RF मेश, LoRa और LoRaWAN"
+    },
+    "glydeXVsNyumaX": {
+      "eyebrow": "ट्रैकर रोबोट तुलना",
+      "title": "GLYDE-X vs NYUMA-X: कौन-सा ट्रैकर रोबोट specify करें?",
+      "subtitle": "दोनों रोबोट NEXTracker, Gamechanger और समकक्ष single-axis टेबल ±15° inter-table flex के साथ पार करते हैं। GLYDE-X पेटेंटेड dual-pass microfiber; NYUMA-X capex-sensitive tracker programmes के लिए single-pass PBT।",
+      "criterion": "मानदंड",
+      "glydeXHeader": "GLYDE-X (Dual-Pass)",
+      "nyumaXHeader": "NYUMA-X (Single-Pass PBT)",
+      "row0": {
+        "criterion": "सफाई तंत्र",
+        "glydeX": "Dual-pass microfiber — mixed soiling के लिए airflow + wipe",
+        "nyumaX": "Single-pass PBT brush — शुष्क tracker dust belts के लिए"
+      },
+      "row1": {
+        "criterion": "Tracker संगतता",
+        "glydeX": "NEXTracker, Gamechanger, -52° से +52° module tilt",
+        "nyumaX": "NEXTracker, Gamechanger, -52° से +52° module tilt"
+      },
+      "row2": {
+        "criterion": "Inter-table flex",
+        "glydeX": "±15° body articulation, validated bridge kits",
+        "nyumaX": "±15° body articulation, validated bridge kits"
+      },
+      "row3": {
+        "criterion": "Operating weight",
+        "glydeX": "25 kg compact tracker chassis",
+        "nyumaX": "25 kg compact tracker chassis"
+      },
+      "row4": {
+        "criterion": "प्रति चार्ज रेंज",
+        "glydeX": "2.2 km तक (~3,600 modules)",
+        "nyumaX": "2.2 km तक (~3,600 modules)"
+      },
+      "row5": {
+        "criterion": "मालिक कब चुनते हैं",
+        "glydeX": "Premium tracker rows — रात में maximum dust lift",
+        "nyumaX": "बड़ी tracker fleets — PBT capex और brush service economics"
+      },
+      "row6": {
+        "criterion": "Autonomy & scheduling",
+        "glydeX": "Fully autonomous, NECTYR AI weather-aware scheduling",
+        "nyumaX": "Fully autonomous, NECTYR AI weather-aware scheduling"
+      },
+      "row7": {
+        "criterion": "Fixed-tilt विकल्प",
+        "glydeX": "Fixed-tilt dual-pass के लिए GLYDE देखें",
+        "nyumaX": "Fixed-tilt PBT के लिए NYUMA देखें"
+      },
+      "crossSellLead": "Fixed-tilt robots की तुलना: ",
+      "linkGlyde": "GLYDE vs NYUMA",
+      "crossSellMid": "। Semi-automatic deployment? देखें ",
+      "linkHelyx": "HELYX",
+      "crossSellSuffix": "।"
     }
   },
   "Common": {

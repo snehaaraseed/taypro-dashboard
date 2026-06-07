@@ -16,12 +16,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "NyumaPage.meta" });
-  const keywords = t.raw("keywords") as string[];
 
   return withHreflang(NYUMA_PATH, locale, {
     title: t("title"),
     description: t("description"),
-    keywords,
     openGraph: {
       title: t("openGraphTitle"),
       description: t("openGraphDescription"),

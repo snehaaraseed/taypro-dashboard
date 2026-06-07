@@ -1,21 +1,13 @@
 {
   "MinyPage": {
     "meta": {
-      "title": "MINY, コンパクト屋根ソーラー洗浄ロボット（近日公開）",
-      "description": "MINYはTayproの小型屋根向けコンパクト洗浄ロボット（近日公開）。水なし・軽量・分散型商用屋根向け。ローンチ情報は登録を。",
-      "openGraphTitle": "MINY, コンパクト屋根ソーラー洗浄ロボット | Taypro",
+      "title": "屋根用ソーラー洗浄ロボット India | MINY",
+      "description": "インドのC&I屋根向けコンパクト水なしロボット。MINY近日公開 — 登録はこちら。",
+      "openGraphTitle": "屋根用ソーラー洗浄ロボット | MINY",
       "openGraphDescription": "近日公開：インド各地の小規模屋根ソーラー向けコンパクトTaypro洗浄ロボット。",
       "openGraphImageAlt": "Taypro MINYコンパクト屋根ソーラーパネル洗浄ロボット, 近日公開",
-      "twitterTitle": "MINYコンパクト屋根洗浄ロボット | Taypro",
-      "twitterDescription": "小規模屋根向けコンパクトソーラー洗浄ロボット, Tayproから近日公開。",
-      "keywords": [
-        "屋根ソーラー洗浄ロボット",
-        "コンパクトソーラーパネル洗浄ロボット",
-        "小規模屋根ソーラー洗浄",
-        "商用屋根ソーラーO&M",
-        "MINY Taypro",
-        "ソーラーパネル洗浄ロボット India"
-      ]
+      "twitterTitle": "屋根用ソーラー洗浄ロボット | MINY",
+      "twitterDescription": "小規模屋根向けコンパクトソーラー洗浄ロボット, Tayproから近日公開。"
     },
     "breadcrumbs": {
       "robots": "ソーラーパネル洗浄ロボット",
@@ -28,7 +20,7 @@
     },
     "hero": {
       "comingSoonBadge": "近日公開",
-      "title": "MINY, コンパクト屋根洗浄ロボット",
+      "title": "Rooftop Solar Panel Cleaning Robot India",
       "subtitle": "小型屋根向けコンパクト洗浄ロボット, 軽量フットプリント、水なし洗浄、分散型商用屋根サイズのTaypro信頼性。",
       "imgAlt": "Taypro MINYコンパクト屋根ソーラーパネル洗浄ロボット, 近日公開",
       "ctaText": "関心登録"

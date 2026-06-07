@@ -14,7 +14,8 @@
     "contactUs": "Contact Us",
     "blogs": "Blogs",
     "solarRobots": "Solar Robots",
-    "solarRobotsMenu": "Solar Panel Cleaning Robots",
+    "solutions": "Solutions",
+    "solutionsTitle": "Solar panel cleaning robot solutions",
     "callUs": "Call us now",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
@@ -38,7 +39,23 @@
     "cradylDesc": "Row-transfer docking · Available now",
     "orion": "ORION",
     "orionDesc": "Plant intelligence SaaS · Coming soon",
-    "viewAllRobots": "View all robots"
+    "viewAllRobots": "View all robots",
+    "guides": "Guides",
+    "guidesTitle": "Compare robots and regional guides",
+    "compareSection": "Comparison guides",
+    "statesSection": "Regional guides",
+    "viewAllCompare": "All comparison guides",
+    "viewAllStates": "All regional guides",
+    "priceGuideNav": "Robot price guide (India)",
+    "cleaningMachineNav": "Solar panel cleaning machine",
+    "compareTayproVsSolabot": "Taypro vs Solabot",
+    "compareIndianCompetitors": "Taypro vs Indian competitors",
+    "compareRobotVsManual": "Robot vs manual cleaning",
+    "compareWaterlessVsWater": "Waterless vs water-based",
+    "stateRajasthan": "Rajasthan",
+    "stateGujarat": "Gujarat",
+    "stateKarnataka": "Karnataka",
+    "stateMaharashtra": "Maharashtra"
   },
   "Footer": {
     "mail": "Mail",
@@ -60,12 +77,17 @@
     "roiCalculator": "ROI & Price Calculator",
     "robotPriceGuide": "Robot Price Guide (India)",
     "regionalGuides": "Regional Robot Guides (India)",
+    "compareGuides": "Compare Taypro vs Competitors",
+    "tayproVsSolabot": "Taypro vs Solabot",
+    "robotVsManual": "Robot vs Manual Cleaning",
+    "cleaningMachine": "Solar Panel Cleaning Machine",
+    "press": "Press & Media",
     "investors": "Partners & Investors",
     "copyright": "© Copyright {year} – TAYPRO PRIVATE LIMITED. All Rights Reserved."
   },
   "NotFoundPage": {
     "meta": {
-      "title": "Page Not Found | Taypro",
+      "title": "Page Not Found",
       "description": "This page is not available. Taypro.in is online, explore solar panel cleaning robots, projects, blog, and contact options."
     },
     "breadcrumbHome": "Home",

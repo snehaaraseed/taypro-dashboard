@@ -15,19 +15,6 @@ export async function generateMetadata({
   return withHreflang("/company", locale, {
     title: t("title"),
     description: t("description"),
-    keywords: [
-      "About Taypro",
-      "Taypro Private Limited",
-      "Solar Panel Cleaning Robot manufacturer India",
-      "Made in India solar cleaning robot",
-      "autonomous solar panel cleaning",
-      "Taypro founders",
-      "Taypro team Chakan Pune",
-      "robotic solar cleaning company",
-      "utility-scale solar O&M",
-      "waterless solar panel cleaning",
-      "NECTYR",
-    ],
     openGraph: {
       title: t("title"),
       description: t("openGraphDescription"),

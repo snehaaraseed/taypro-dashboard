@@ -8,10 +8,7 @@ import { blogs, projects } from "@/lib/db/schema";
 import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { SOURCE_LOCALE, TARGET_LOCALES } from "./config";
 import { parseBlogFaqs, serializeBlogFaqs } from "@/lib/cms/blog-faqs";
-import {
-  assertTranslatedBlogValid,
-  BlogContentValidationError,
-} from "@/lib/seo/blog-content-validator";
+import { assertTranslatedBlogValid } from "@/lib/seo/blog-content-validator";
 import { sanitizeGeneratedBlogBodyHtml } from "@/lib/seo/blog-body-hygiene";
 import {
   translateBlogFaqsWithGemini,
@@ -237,73 +234,42 @@ export async function translatePublishedBlog(
 
       const sourceFaqs = parseBlogFaqs(source.faqs);
 
-      let translated: Awaited<
-        ReturnType<typeof translateFieldsWithGemini>
-      > | null = null;
-      let translatedFaqs: Awaited<ReturnType<typeof translateBlogFaqsWithGemini>> =
-        [];
-      const maxTranslationAttempts = 2;
+      const fields = await translateFieldsWithGemini(
+        {
+          title: source.title,
+          description: source.description,
+          content: source.content,
+          featuredImageAlt: source.featuredImageAlt,
+        },
+        locale
+      );
 
-      for (let attempt = 0; attempt < maxTranslationAttempts; attempt++) {
-        try {
-          const fields = await translateFieldsWithGemini(
-            {
-              title: source.title,
-              description: source.description,
-              content: source.content,
-              featuredImageAlt: source.featuredImageAlt,
-            },
-            locale
-          );
+      fields.content = sanitizeGeneratedBlogBodyHtml(fields.content, {
+        title: fields.title,
+        primaryKeyword: source.seoKeyword,
+      });
 
-          fields.content = sanitizeGeneratedBlogBodyHtml(fields.content, {
-            title: fields.title,
-            primaryKeyword: source.seoKeyword,
-          });
+      const faqs = sourceFaqs.length
+        ? await translateBlogFaqsWithGemini(sourceFaqs, locale)
+        : [];
 
-          const faqs = sourceFaqs.length
-            ? await translateBlogFaqsWithGemini(sourceFaqs, locale)
-            : [];
-
-          assertTranslatedBlogValid({
-            sourceTitle: source.title,
-            sourceDescription: source.description,
-            sourceContent: source.content,
-            sourceFaqs,
-            translatedTitle: fields.title,
-            translatedDescription: fields.description,
-            translatedContent: fields.content,
-            translatedFaqs: faqs,
-          });
-
-          translated = fields;
-          translatedFaqs = faqs;
-          break;
-        } catch (error) {
-          if (
-            attempt < maxTranslationAttempts - 1 &&
-            error instanceof BlogContentValidationError
-          ) {
-            console.warn(
-              `[translate] blog ${slug} (${locale}) validation failed, retrying:`,
-              error.message
-            );
-            continue;
-          }
-          throw error;
-        }
-      }
-
-      if (!translated) {
-        throw new Error(`Translation failed for ${slug} (${locale})`);
-      }
+      assertTranslatedBlogValid({
+        sourceTitle: source.title,
+        sourceDescription: source.description,
+        sourceContent: source.content,
+        sourceFaqs,
+        translatedTitle: fields.title,
+        translatedDescription: fields.description,
+        translatedContent: fields.content,
+        translatedFaqs: faqs,
+      });
 
       await upsertBlogLocale(slug, locale, source, {
-        title: translated.title,
-        description: translated.description,
-        content: translated.content,
-        featuredImageAlt: translated.featuredImageAlt || source.featuredImageAlt,
-        faqs: serializeBlogFaqs(translatedFaqs),
+        title: fields.title,
+        description: fields.description,
+        content: fields.content,
+        featuredImageAlt: fields.featuredImageAlt || source.featuredImageAlt,
+        faqs: serializeBlogFaqs(faqs),
       });
 
       results.push({ locale, success: true });

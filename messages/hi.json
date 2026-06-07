@@ -14,7 +14,8 @@
     "contactUs": "संपर्क",
     "blogs": "ब्लॉग",
     "solarRobots": "सोलर रोबोट",
-    "solarRobotsMenu": "सोलर पैनल क्लीनिंग रोबोट",
+    "solutions": "समाधान",
+    "solutionsTitle": "सोलर पैनल क्लीनिंग रोबोट समाधान",
     "callUs": "अभी कॉल करें",
     "openMenu": "मेनू खोलें",
     "closeMenu": "मेनू बंद करें",
@@ -38,7 +39,22 @@
     "glydeX": "GLYDE-X",
     "glydeXDesc": "ट्रैकर · डुअल-पास माइक्रोफाइबर",
     "nyumaX": "NYUMA-X",
-    "nyumaXDesc": "ट्रैकर · सिंगल-पास PBT"
+    "nyumaXDesc": "ट्रैकर · सिंगल-पास PBT",
+    "guides": "गाइड",
+    "guidesTitle": "रोबोट तुलना और क्षेत्रीय गाइड",
+    "compareSection": "तुलना गाइड",
+    "statesSection": "क्षेत्रीय गाइड",
+    "viewAllCompare": "सभी तुलना गाइड",
+    "viewAllStates": "सभी क्षेत्रीय गाइड",
+    "priceGuideNav": "रोबोट कीमत गाइड (India)",
+    "compareTayproVsSolabot": "Taypro vs Solabot",
+    "compareIndianCompetitors": "Taypro vs भारतीय प्रतिस्पर्धी",
+    "compareRobotVsManual": "रोबोट बनाम मैनुअल सफाई",
+    "compareWaterlessVsWater": "वॉटरलेस बनाम पानी आधारित",
+    "stateRajasthan": "Rajasthan",
+    "stateGujarat": "Gujarat",
+    "stateKarnataka": "Karnataka",
+    "stateMaharashtra": "Maharashtra"
   },
   "Footer": {
     "mail": "ईमेल",
@@ -60,12 +76,15 @@
     "roiCalculator": "ROI और कीमत कैलकुलेटर",
     "robotPriceGuide": "रोबोट कीमत गाइड (India)",
     "regionalGuides": "क्षेत्रीय रोबोट गाइड (भारत)",
+    "compareGuides": "Taypro की तुलना प्रतिस्पर्धियों से",
+    "tayproVsSolabot": "Taypro vs Solabot",
+    "robotVsManual": "रोबोट बनाम मैनुअल सफाई",
     "investors": "भागीदार और निवेशक",
     "copyright": "© कॉपीराइट {year} – TAYPRO PRIVATE LIMITED. सर्वाधिकार सुरक्षित।"
   },
   "NotFoundPage": {
     "meta": {
-      "title": "पेज नहीं मिला | Taypro",
+      "title": "Page Not Found",
       "description": "यह पेज उपलब्ध नहीं है। Taypro.in ऑनलाइन है, सोलर पैनल क्लीनिंग रोबोट, प्रोजेक्ट, ब्लॉग और संपर्क विकल्प देखें।"
     },
     "breadcrumbHome": "होम",

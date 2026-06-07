@@ -1,31 +1,13 @@
 {
   "GlydePage": {
     "meta": {
-      "title": "روبوت تنظيف ألواح شمسية أوتوماتيكي ثنائي المرور, Taypro GLYDE (بدون ماء، AI)",
-      "description": "Taypro GLYDE روبوت تنظيف ألواح شمسية أوتوماتيكي بالكامل وبدون مياه. تنظيف جاف ثنائي المرور بتقنية AI/ML يزيل أكثر من 99% من الغبار لكل دورة، حتى 3,600 وحدة لكل شحنة، NECTYR عبر LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN، معتمد TÜV NORD.",
-      "keywords": [
-        "روبوت تنظيف ألواح شمسية أوتوماتيكي",
-        "روبوت تنظيف ألواح شمسية أوتوماتيكي الهند",
-        "مصنع روبوت تنظيف ألواح شمسية أوتوماتيكي",
-        "سعر روبوت تنظيف ألواح شمسية أوتوماتيكي",
-        "تكلفة روبوت تنظيف ألواح شمسية أوتوماتيكي",
-        "شراء روبوت تنظيف ألواح شمسية أوتوماتيكي",
-        "أفضل روبوت تنظيف ألواح شمسية أوتوماتيكي",
-        "نظام تنظيف ألواح شمسية أوتوماتيكي",
-        "روبوت تنظيف ألواح شمسية أوتوماتيكي بالكامل",
-        "روبوت تنظيف ألواح شمسية مستقل",
-        "روبوت تنظيف جاف بدون ماء",
-        "روبوت تنظيف شمسي ثنائي المرور",
-        "روبوت تنظيف شمسي ميل ثابت",
-        "روبوت تنظيف شمسي بالذكاء الاصطناعي",
-        "روبوت تنظيف معتمد TÜV NORD",
-        "Taypro GLYDE"
-      ],
-      "openGraphTitle": "روبوت تنظيف ثنائي المرور, Taypro GLYDE",
+      "title": "روبوت تنظيف ألواح شمسية أوتوماتيكي | GLYDE",
+      "description": "روبوت GLYDE بدون ماء ثنائي المرور للمحطات. إزالة 99%+ للغبار، معتمد TÜV NORD، دعم على مستوى الهند. اطلب عرض سعر.",
+      "openGraphTitle": "روبوت تنظيف ألواح شمسية أوتوماتيكي | GLYDE",
       "openGraphDescription": "GLYDE: روبوت ألياف ميكروية ثنائي المرور لمحطات المرافق. تنظيف ذاتي بدون ماء ومراقبة NECTYR.",
       "openGraphType": "website",
       "openGraphImageAlt": "Taypro GLYDE روبوت تنظيف ألواح شمسية أوتوماتيكي",
-      "twitterTitle": "روبوت تنظيف ثنائي المرور, Taypro GLYDE",
+      "twitterTitle": "روبوت تنظيف ألواح شمسية أوتوماتيكي | GLYDE",
       "twitterDescription": "GLYDE: تنظيف ثنائي المرور ذاتي، حتى 3,600 وحدة لكل شحنة، NECTYR.",
       "twitterCard": "summary_large_image"
     },
@@ -92,7 +74,7 @@
       "p2BeforeStrong": "بشحنة واحدة، ينظف GLYDE حتى ",
       "p2Strong": "2.2 كم من طول الجري، حوالي 3,600 وحدة شمسية",
       "p2AfterStrong": ". يُفضّل جدولة دورات التنظيف خارج ساعات إنتاج الطاقة ويمكن برمجتها عن بُعد عبر NECTYR دون التأثير على توليد المحطة.",
-      "p3": "كشف الحواف والعوائق المتقدم يتيح لـ GLYDE عبور الألواح بأمان دون خطر السقوط، بينما يعدّل تتبع تموج السطح أداء المحرك صفاً بصف لجودة تنظيف متسقة. مراقبة البطارية في الوقت الفعلي تضمن أن الروبوت يغطي فقط المسافة التي يمكنه إكمالها ويعود بأمان إلى محطة الإرساء. الجسور الخفيفة تمكّن الحركة السلسة من طاولة إلى أخرى عبر الموقع.",
+      "p3": "يجمع GLYDE آلية dual-pass patented بين airflow عالي السرعة وأسطوانة microfiber self-cleaning — المرور الأول يرفع الغبار الجاف والثاني يكمل المسح بدون ماء. Edge/obstacle detection يرسم حدود كل panel؛ surface-undulation tracking يحافظ على ضغط ثابت. Battery-aware logic يضمن إكمال المصفوفة قبل self-dock — rated لعواصف 180 km/hr.",
       "p4Blog1": "كيف يعمل روبوت التنظيف التلقائي على الوحدات",
       "p4Blog2": "فوائد التنظيف الروبوتي على نطاق المرافق",
       "p4Prefix": "قراءة إضافية: ",
@@ -150,16 +132,16 @@
       "productLabel": "Taypro GLYDE, روبوت تنظيف ألواح شمسية أوتوماتيكي"
     },
     "usps": {
-      "eyebrow": "GLYDE, روبوت تنظيف ألواح شمسية أوتوماتيكي",
+      "eyebrow": "GLYDE — Dual-Pass Robot Patented",
       "title": "أبرز المزايا",
       "items": {
-        "item0": "كفاءة تنظيف فائقة (ثنائي المرور)",
-        "item1": "تصميم متين ومتين",
+        "item0": "Dual-Pass Dust Lift Patented",
+        "item1": "Microfiber Drum Self-Cleaning",
         "item2": "تغطية واسعة, حتى 3,600 وحدة/شحنة",
         "item3": "تنظيف عالي السرعة",
         "item4": "كشف الحواف والعوائق",
         "item5": "مراقبة عن بُعد متعددة الروابط",
-        "item6": "تقنية ميكروفايبر ذاتية التنظيف",
+        "item6": "جدولة AI حسب الطقس",
         "item7": "معتمد ومُختبر لظروف قاسية"
       }
     },
@@ -243,7 +225,7 @@
       },
       "weather": {
         "title": "تحسين ذكي للطقس",
-        "body": "جدولة مقابل الرياح والأمطار والرطوبة؛ تنبيهات حرجة إلى NECTYR."
+        "body": "جدول GLYDE يوزن الرياح والمطر والرطوبة وrebound الغبار قبل dual-pass — يتخطى runs بعد المطر وي prioritizes ليالي recovery بعد haboob."
       },
       "connectivity": {
         "title": "مراقبة عن بُعد عبر السحابة",
@@ -252,7 +234,7 @@
         "bodyBoldMesh": "شبكة RF ذاتية الإصلاح",
         "bodyAfterMesh": " أو ",
         "bodyBoldLoRa": "LoRa / LoRaWAN",
-        "bodyAfterLoRa": ", إدارة الأسطول وتتبع الإرساء من NECTYR."
+        "bodyAfterLoRa": " حيث تناسب روابط low-power remote blocks. جدولة dual-pass وfirmware وaudit من NECTYR — telemetry dock charge state وbrush wear وfault codes."
       },
       "edge": {
         "title": "كشف الحواف والعوائق",
@@ -451,7 +433,9 @@
           "spec": "الوزن",
           "details": "45 كغ"
         }
-      }
+      },
+      "datasheetCta": "Request full datasheet",
+      "datasheetCtaTopic": "GLYDE datasheet request"
     },
     "advantagesSection": {
       "heading": "مزايا روبوتات التنظيف الأوتوماتيكية",
@@ -575,6 +559,59 @@
         "glydeX": "GLYDE-X"
       },
       "cardTitleTemplate": "{label} روبوت تنظيف ألواح شمسية"
+    },
+    "glydeVsNyuma": {
+      "eyebrow": "اختيار روبوت Taypro المناسب",
+      "title": "GLYDE مقابل NYUMA: أي روبوت آلي يناسب محطتك؟",
+      "subtitle": "كلا الروبوتين مستقل بالكامل، بدون ماء، ويُداران من NECTYR. GLYDE هو flagship Taypro ببراءة dual-pass microfiber؛ NYUMA منصة PBT single-pass لأساطيل fixed-tilt فعّالة من حيث CAPEX.",
+      "criterion": "المعيار",
+      "glydeHeader": "GLYDE (Dual-Pass Microfiber)",
+      "nyumaHeader": "NYUMA (Single-Pass PBT)",
+      "row0": {
+        "criterion": "تقنية التنظيف",
+        "glyde": "Dual-pass patented: تيار هواء يفك الغبار، microfiber يكمل المسح",
+        "nyuma": "أسطوانة فرش PBT دوّارة single-pass — consumables أقل"
+      },
+      "row1": {
+        "criterion": "الأفضل لـ",
+        "glyde": "صفوف fixed-tilt flagship حيث أقصى رفع للغبار لكل دورة أولوية",
+        "nyuma": "كتل fixed-tilt متكررة حيث اقتصاديات PBT وCAPEX تفوز في RFQ"
+      },
+      "row2": {
+        "criterion": "التلوث اللزج / الإسمنتي",
+        "glyde": "Dual-pass ممتاز على طبقات غبار جافة ولزجة",
+        "nyuma": "مثالي للغبار الصحراوي الجاف؛ جدولة دورات إضافية عند تلوث إسمنتي شديد"
+      },
+      "row3": {
+        "criterion": "ملف الاستهلاكيات",
+        "glyde": "أسطوانة microfiber self-cleaning بفترات خدمة ممتدة",
+        "nyuma": "فرش PBT مقاومة UV مع cartridges قابلة للاستبدال ميدانياً"
+      },
+      "row4": {
+        "criterion": "المدى لكل شحنة",
+        "glyde": "حتى 2.2 km (~3,600 وحدة)",
+        "nyuma": "حتى 2.2 km (~3,600 وحدة)"
+      },
+      "row5": {
+        "criterion": "نشرات نموذجية",
+        "glyde": "أساطيل fixed-tilt automatic-first بحجم Bachau DVC",
+        "nyuma": "برامج PBT automatic بحجم Akhadana وأساطيل مختلطة"
+      },
+      "row6": {
+        "criterion": "العمالة بعد التركيب",
+        "glyde": "صفر — دورات يومية مستقلة بالكامل",
+        "nyuma": "صفر — دورات يومية مستقلة بالكامل"
+      },
+      "row7": {
+        "criterion": "مراقبة الأسطول",
+        "glyde": "NECTYR عبر LTE أو Wi-Fi أو RF mesh أو LoRa أو LoRaWAN",
+        "nyuma": "NECTYR عبر LTE أو Wi-Fi أو RF mesh أو LoRa أو LoRaWAN"
+      },
+      "crossSellLead": "تحتاج pick-and-place للكتل المتفرقة؟ راجع ",
+      "linkHelyx": "HELYX",
+      "crossSellMid": ". trackers أحادية المحور؟ قارن ",
+      "linkTracker": "GLYDE-X و NYUMA-X",
+      "crossSellSuffix": "."
     }
   },
   "Common": {

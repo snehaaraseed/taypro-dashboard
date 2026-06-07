@@ -14,12 +14,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "CradylPage.meta" });
-  const keywords = t.raw("keywords") as string[];
 
   return withHreflang(CRADYL_PRODUCT_PATH, locale, {
     title: t("title"),
     description: t("description"),
-    keywords,
     openGraph: {
       title: t("openGraphTitle"),
       description: t("openGraphDescription"),

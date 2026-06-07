@@ -14,7 +14,8 @@
     "contactUs": "اتصل بنا",
     "blogs": "المدونة",
     "solarRobots": "روبوتات الطاقة الشمسية",
-    "solarRobotsMenu": "روبوتات تنظيف الألواح الشمسية",
+    "solutions": "الحلول",
+    "solutionsTitle": "حلول روبوتات تنظيف الألواح الشمسية",
     "callUs": "اتصل الآن",
     "openMenu": "فتح القائمة",
     "closeMenu": "إغلاق القائمة",
@@ -38,7 +39,22 @@
     "glydeX": "GLYDE-X",
     "glydeXDesc": "متتبع · ثنائي المرور · ميكروفايبر",
     "nyumaX": "NYUMA-X",
-    "nyumaXDesc": "متتبع · أحادي المرور · PBT"
+    "nyumaXDesc": "متتبع · أحادي المرور · PBT",
+    "guides": "أدلة",
+    "guidesTitle": "مقارنة الروبوتات والأدلة الإقليمية",
+    "compareSection": "أدلة المقارنة",
+    "statesSection": "أدلة إقليمية",
+    "viewAllCompare": "جميع أدلة المقارنة",
+    "viewAllStates": "جميع الأدلة الإقليمية",
+    "priceGuideNav": "دليل أسعار الروبوت (India)",
+    "compareTayproVsSolabot": "Taypro vs Solabot",
+    "compareIndianCompetitors": "Taypro vs المنافسون الهنود",
+    "compareRobotVsManual": "الروبوت مقابل التنظيف اليدوي",
+    "compareWaterlessVsWater": "بدون ماء مقابل بالماء",
+    "stateRajasthan": "Rajasthan",
+    "stateGujarat": "Gujarat",
+    "stateKarnataka": "Karnataka",
+    "stateMaharashtra": "Maharashtra"
   },
   "Footer": {
     "mail": "البريد",
@@ -60,12 +76,15 @@
     "roiCalculator": "حاسبة العائد والسعر",
     "robotPriceGuide": "دليل أسعار الروبوت (India)",
     "regionalGuides": "أدلة الروبوتات الإقليمية (الهند)",
+    "compareGuides": "قارن Taypro مع المنافسين",
+    "tayproVsSolabot": "Taypro vs Solabot",
+    "robotVsManual": "الروبوت مقابل التنظيف اليدوي",
     "investors": "شركاء ومستثمرون",
     "copyright": "© حقوق النشر {year} – TAYPRO PRIVATE LIMITED. جميع الحقوق محفوظة."
   },
   "NotFoundPage": {
     "meta": {
-      "title": "الصفحة غير موجودة | Taypro",
+      "title": "الصفحة غير موجودة",
       "description": "هذه الصفحة غير متاحة. موقع Taypro.in يعمل, استكشف روبوتات تنظيف الألواح الشمسية والمشاريع والمدونة وخيارات الاتصال."
     },
     "breadcrumbHome": "الرئيسية",

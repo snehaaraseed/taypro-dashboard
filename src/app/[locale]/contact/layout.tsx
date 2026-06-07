@@ -15,16 +15,6 @@ export async function generateMetadata({
   return withHreflang("/contact", locale, {
     title: t("title"),
     description: t("description"),
-    keywords: [
-      "Solar Panel Cleaning Robot",
-      "contact Taypro",
-      "solar panel cleaning robot quote",
-      "automatic solar panel cleaning robot",
-      "semi-automatic solar panel cleaning robot",
-      "solar cleaning robot contact",
-      "taypro contact",
-      "solar panel cleaning service",
-    ],
     openGraph: {
       title: t("title"),
       description: t("description"),

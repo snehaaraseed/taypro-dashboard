@@ -298,6 +298,19 @@
     },
     "callback": {
       "header": "আপনার প্ল্যান্টের জন্য পরিষ্কার করার প্রযুক্তি নিয়ে আলোচনা করুন"
+    },
+    "dustSoiling": {
+      "eyebrow": "Dust & soiling in India",
+      "heading": "Solar panel dust cleaning and soiling loss",
+      "p1": "Fine dust, agricultural residue, and seasonal haze bond to module glass within days on many Indian utility sites — suppressing output before visible soiling is obvious in SCADA. Industry discussions often cite roughly 8–25% seasonal soiling loss when washing cadence is infrequent.",
+      "p2": "Robotic dry cleaning targets daily or near-daily cycles through dust season without tanker logistics. Taypro's dual-pass method lifts dry dust first, then microfiber-wipes the glass — recovering generation that manual brush crews struggle to sustain at MW scale.",
+      "faqHeading": "Solar panel dust cleaning FAQs (India)",
+      "q0": "How much generation does dust cost on Indian solar plants?",
+      "a0": "Soiling loss varies by region, tilt, and O&M cadence — often cited in the 8–25% range on utility plants when cleaning is infrequent. High-soiling blocks in Rajasthan and Gujarat typically show the fastest payback from tighter robotic schedules.",
+      "q1": "Is dry robotic dust cleaning better than manual brushing?",
+      "a1": "On 10 MW+ sites, manual brush or wet-wash crews scale poorly — labour, water, and inconsistent pass quality limit cadence. Taypro robots run waterless dual-pass cycles on a predictable schedule with NECTYR audit trails.",
+      "q2": "How often should panels be dust-cleaned in India?",
+      "a2": "Most utility plants benefit from daily or near-daily dry cleaning during dry months and faster cycles after dust storms. Taypro starts with a soiling study to recommend block-wise cadence rather than a one-size-fits-all interval."
     }
   },
   "Common": {

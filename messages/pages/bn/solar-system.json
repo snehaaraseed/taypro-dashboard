@@ -1,8 +1,8 @@
 {
   "SolarSystemPage": {
     "meta": {
-      "title": "ভারতে সোলার প্যানেল পরিষ্কার রোবট ও সিস্টেম, মেশিন ও মডেল",
-      "description": "সব Taypro সোলার প্যানেল পরিষ্কার রোবট তুলনা করুন: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, Taypro Opex ও NECTYR। জলবিহীন পরিষ্কার, AI শিডিউলিং, TÜV NORD সার্টিফাইড, সারা ভারতে সহায়তা।",
+      "title": "ভারতে সোলার প্যানেল পরিষ্কার রোবট ও সিস্টেম",
+      "description": "GLYDE, NYUMA, HELYX ও ট্র্যাকার রোবট তুলনা করুন। জলবিহীন পরিষ্কার, TÜV NORD সার্টিফাইড, সারা ভারতে সহায়তা। আজই মডেল বেছে নিন।",
       "keywords": [
         "সোলার প্যানেল পরিষ্কার রোবট",
         "সোলার প্যানেল পরিষ্কার রোবট ভারত",
@@ -24,13 +24,13 @@
         "সোলার প্যানেল পরিষ্কার"
       ],
       "openGraphSiteName": "Taypro",
-      "openGraphTitle": "সোলার প্যানেল পরিষ্কার রোবট | স্বয়ংক্রিয়, অর্ধ-স্বয়ংক্রিয় ও ট্র্যাকার মডেল, Taypro",
+      "openGraphTitle": "ভারতে সোলার প্যানেল পরিষ্কার রোবট ও সিস্টেম",
       "openGraphDescription": "আপনার প্ল্যান্টের জন্য সঠিক রোবট বেছে নিন, GLYDE ও GLYDE-X ডুয়াল-পাস, NYUMA ও NYUMA-X PBT, ছড়িয়ে পড়া প্ল্যান্টে HELYX, OPEX ও NECTYR।",
       "openGraphImageAlt": "Taypro সোলার প্যানেল পরিষ্কার রোবট, GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX",
       "openGraphLocale": "en_IN",
       "openGraphType": "website",
       "twitterCard": "summary_large_image",
-      "twitterTitle": "সোলার প্যানেল পরিষ্কার রোবট | Taypro, ভারতে তৈরি",
+      "twitterTitle": "ভারতে সোলার প্যানেল পরিষ্কার রোবট ও সিস্টেম",
       "twitterDescription": "ফিক্সড-টিল্ট ও ট্র্যাকার প্ল্যান্টের জন্য পাঁচটি Taypro রোবট, PBT সিঙ্গেল-পাস ও পেটেন্টেড ডুয়াল-পাস মাইক্রোফাইবার।"
     },
     "breadcrumbs": {
@@ -358,7 +358,9 @@
       "tayproVsSkilancer": "Taypro vs Skilancer",
       "tayproVsAegeus": "Taypro vs Aegeus",
       "tayproVsVayu": "Taypro vs Vayu Solar",
-      "waterlessVsWater": "Waterless vs water-based cleaning"
+      "waterlessVsWater": "Waterless vs water-based cleaning",
+      "glydeVsNyuma": "GLYDE vs NYUMA fixed-tilt রোবট",
+      "glydeXVsNyumaX": "GLYDE-X vs NYUMA-X tracker রোবট"
     },
     "comparison": {
       "eyebrow": "পাশাপাশি",
@@ -446,7 +448,11 @@
       "ctaService": "পরিষ্কার সেবা দেখুন",
       "ctaCalculator": "ROI ও খরচ ক্যালকুলেটর",
       "videoTitle": "ইউটিলিটি প্ল্যান্টে Taypro রোবট পরিষ্কার দেখুন",
-      "videoCaption": "ভারতীয় ইউটিলিটি-স্কেল সাইটে জলবিহীন স্বায়ত্তশাসিত সোলার প্যানেল পরিষ্কার রোবট।"
+      "videoCaption": "ভারতীয় ইউটিলিটি-স্কেল সাইটে জলবিহীন স্বায়ত্তশাসিত সোলার প্যানেল পরিষ্কার রোবট।",
+      "transcriptToggle": "Video transcript (for accessibility & search)",
+      "transcriptP1": "This overview shows Taypro autonomous solar panel cleaning robots operating on utility-scale arrays in India. Robots traverse fixed-tilt rows using waterless dual-pass cleaning — airflow lifts dry dust, then microfiber completes the wipe without water or detergents.",
+      "transcriptP2": "Fleet schedules and completion data feed into NECTYR, Taypro's monitoring portal, so O&M teams can audit block-wise cleaning history alongside inverter performance. Deployments combine GLYDE and NYUMA-class robots depending on row geometry and soiling class.",
+      "transcriptP3": "For procurement teams comparing cleaning machines and robots, Taypro offers CAPEX purchase with AMC or Taypro Opex pay-per-panel-cleaned service on the same hardware platforms shown in the field footage."
     },
     "indianConditions": {
       "eyebrow": "ভারতীয় সোলারের জন্য প্রকৌশল",
@@ -760,6 +766,16 @@
           "description": "ভারতে 132+ ইউটিলিটি কেস স্টাডি"
         }
       }
+    },
+    "hubLinks": {
+      "cleaningMachine": "Solar panel cleaning machine guide",
+      "rooftopRobot": "Rooftop solar cleaning robot (MINY)"
+    },
+    "clients": {
+      "heading": "Trusted by India's leading solar operators",
+      "trustedBy": "Trusted by {names} and other IPPs, EPCs, and C&I operators deploying Taypro cleaning robots across India.",
+      "logoAlt": "{name} — Taypro solar cleaning robot customer",
+      "logoTitle": "{name}"
     }
   }
 }

@@ -182,14 +182,44 @@ async function isLocaleOutOfSync(
 type TranslationCandidate = {
   slug: string;
   missingLocales: number;
+  /** ISO timestamp — newest English publish first. */
   sortKey: string;
 };
+
+async function englishSortKeyForSlug(
+  table: typeof blogs | typeof projects,
+  slug: string
+): Promise<string> {
+  const db = getDb();
+  if (table === blogs) {
+    const [row] = await db
+      .select({
+        publishDate: blogs.publishDate,
+        updatedAt: blogs.updatedAt,
+        createdAt: blogs.createdAt,
+      })
+      .from(blogs)
+      .where(and(eq(blogs.slug, slug), eq(blogs.locale, SOURCE_LOCALE)))
+      .limit(1);
+    return row?.publishDate ?? row?.updatedAt ?? row?.createdAt ?? slug;
+  }
+
+  const [row] = await db
+    .select({
+      date: projects.date,
+      updatedAt: projects.updatedAt,
+      createdAt: projects.createdAt,
+    })
+    .from(projects)
+    .where(and(eq(projects.slug, slug), eq(projects.locale, SOURCE_LOCALE)))
+    .limit(1);
+  return row?.date ?? row?.updatedAt ?? row?.createdAt ?? slug;
+}
 
 async function listSlugsNeedingTranslation(
   table: typeof blogs | typeof projects,
   englishSlugs: string[]
 ): Promise<TranslationCandidate[]> {
-  const db = getDb();
   const candidates: TranslationCandidate[] = [];
 
   for (const slug of englishSlugs) {
@@ -199,12 +229,7 @@ async function listSlugsNeedingTranslation(
     }
     if (missingLocales === 0) continue;
 
-    const [row] = await db
-      .select({ createdAt: table.createdAt, updatedAt: table.updatedAt })
-      .from(table)
-      .where(and(eq(table.slug, slug), eq(table.locale, SOURCE_LOCALE)))
-      .limit(1);
-    const sortKey = row?.createdAt ?? row?.updatedAt ?? slug;
+    const sortKey = await englishSortKeyForSlug(table, slug);
     candidates.push({ slug, missingLocales, sortKey });
   }
 
@@ -212,13 +237,13 @@ async function listSlugsNeedingTranslation(
     if (b.missingLocales !== a.missingLocales) {
       return b.missingLocales - a.missingLocales;
     }
-    return a.sortKey.localeCompare(b.sortKey);
+    return b.sortKey.localeCompare(a.sortKey);
   });
 
   return candidates;
 }
 
-/** Published EN blogs missing or stale in at least one target locale (FIFO backlog). */
+/** Published EN blogs missing or stale in at least one target locale (newest first). */
 export async function listBlogSlugsNeedingTranslation(
   limit?: number
 ): Promise<string[]> {

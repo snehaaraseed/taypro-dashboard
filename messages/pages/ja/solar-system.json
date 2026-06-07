@@ -1,8 +1,8 @@
 {
   "SolarSystemPage": {
     "meta": {
-      "title": "インドのソーラーパネル洗浄ロボット＆システム, 機種一覧",
-      "description": "Tayproのソーラーパネル洗浄ロボットを比較：GLYDE、GLYDE-X、NYUMA、NYUMA-X、HELYX、Taypro Opex、NECTYR。水なし洗浄、AIスケジューリング、TÜV NORD認証、インド全国サポート。",
+      "title": "インドのソーラーパネル洗浄ロボットとシステム",
+      "description": "GLYDE、NYUMA、HELYX、トラッカーロボットを比較。水なし洗浄、TÜV NORD認証、全国サポート。今すぐモデルを選ぶ。",
       "keywords": [
         "ソーラーパネル洗浄ロボット",
         "ソーラーパネル洗浄ロボット インド",
@@ -24,13 +24,13 @@
         "ソーラーパネル洗浄"
       ],
       "openGraphSiteName": "Taypro",
-      "openGraphTitle": "ソーラーパネル洗浄ロボット | 自動・半自動・トラッカー対応, Taypro",
+      "openGraphTitle": "インドのソーラーパネル洗浄ロボットとシステム",
       "openGraphDescription": "発電所に最適なロボットを選択, デュアルパス主力のGLYDE・GLYDE-X、PBTのNYUMA・NYUMA-X、分散向けHELYX、OPEXとNECTYR。",
       "openGraphImageAlt": "Tayproソーラーパネル洗浄ロボット, GLYDE、GLYDE-X、NYUMA、NYUMA-X、HELYX",
       "openGraphLocale": "en_IN",
       "openGraphType": "website",
       "twitterCard": "summary_large_image",
-      "twitterTitle": "ソーラーパネル洗浄ロボット | Taypro, Made in India",
+      "twitterTitle": "インドのソーラーパネル洗浄ロボットとシステム",
       "twitterDescription": "固定傾斜・トラッカー向け5機種, PBTシングルパスと特許デュアルパスマイクロファイバー。"
     },
     "breadcrumbs": {
@@ -358,7 +358,9 @@
       "tayproVsSkilancer": "Taypro vs Skilancer",
       "tayproVsAegeus": "Taypro vs Aegeus",
       "tayproVsVayu": "Taypro vs Vayu Solar",
-      "waterlessVsWater": "Waterless vs water-based cleaning"
+      "waterlessVsWater": "Waterless vs water-based cleaning",
+      "glydeVsNyuma": "GLYDE vs NYUMA 固定式ロボット",
+      "glydeXVsNyumaX": "GLYDE-X vs NYUMA-X トラッカーロボット"
     },
     "comparison": {
       "eyebrow": "一覧比較",
@@ -446,7 +448,11 @@
       "ctaService": "清掃サービスを見る",
       "ctaCalculator": "ROI・コスト計算",
       "videoTitle": "大規模発電所でのTaypro洗浄を見る",
-      "videoCaption": "インドの大規模サイトで稼働する水なし自律ソーラー洗浄ロボット。"
+      "videoCaption": "インドの大規模サイトで稼働する水なし自律ソーラー洗浄ロボット。",
+      "transcriptToggle": "Video transcript (for accessibility & search)",
+      "transcriptP1": "This overview shows Taypro autonomous solar panel cleaning robots operating on utility-scale arrays in India. Robots traverse fixed-tilt rows using waterless dual-pass cleaning — airflow lifts dry dust, then microfiber completes the wipe without water or detergents.",
+      "transcriptP2": "Fleet schedules and completion data feed into NECTYR, Taypro's monitoring portal, so O&M teams can audit block-wise cleaning history alongside inverter performance. Deployments combine GLYDE and NYUMA-class robots depending on row geometry and soiling class.",
+      "transcriptP3": "For procurement teams comparing cleaning machines and robots, Taypro offers CAPEX purchase with AMC or Taypro Opex pay-per-panel-cleaned service on the same hardware platforms shown in the field footage."
     },
     "indianConditions": {
       "eyebrow": "インドソーラー向け設計",
@@ -760,6 +766,16 @@
           "description": "インド132+ユーティリティ事例"
         }
       }
+    },
+    "hubLinks": {
+      "cleaningMachine": "Solar panel cleaning machine guide",
+      "rooftopRobot": "Rooftop solar cleaning robot (MINY)"
+    },
+    "clients": {
+      "heading": "Trusted by India's leading solar operators",
+      "trustedBy": "Trusted by {names} and other IPPs, EPCs, and C&I operators deploying Taypro cleaning robots across India.",
+      "logoAlt": "{name} — Taypro solar cleaning robot customer",
+      "logoTitle": "{name}"
     }
   }
 }

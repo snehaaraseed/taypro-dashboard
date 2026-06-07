@@ -1,0 +1,142 @@
+{
+  "ComparisonsPage": {
+    "glydeVsNyuma": {
+      "meta": {
+        "title": "GLYDE مقابل NYUMA: أي روبوت آلي يناسب محطتك؟",
+        "description": "كلا الروبوتين مستقل بالكامل، بدون ماء، ويُداران من NECTYR. GLYDE هو flagship Taypro ببراءة dual-pass microfiber؛ NYUMA منصة PBT single-pass لأساطيل fixed-t…"
+      },
+      "hero": {
+        "eyebrow": "اختيار روبوت Taypro المناسب",
+        "title": "GLYDE مقابل NYUMA: أي روبوت آلي يناسب محطتك؟",
+        "lead": "كلا الروبوتين مستقل بالكامل، بدون ماء، ويُداران من NECTYR. GLYDE هو flagship Taypro ببراءة dual-pass microfiber؛ NYUMA منصة PBT single-pass لأساطيل fixed-tilt فعّالة من حيث CAPEX."
+      },
+      "intro": "كلا الروبوتين مستقل بالكامل، بدون ماء، ويُداران من NECTYR. GLYDE هو flagship Taypro ببراءة dual-pass microfiber؛ NYUMA منصة PBT single-pass لأساطيل fixed-tilt فعّالة من حيث CAPEX.",
+      "tableHeading": "GLYDE vs NYUMA — نظرة عامة",
+      "columns": {
+        "leftLabel": "GLYDE (Dual-Pass Microfiber)",
+        "rightLabel": "NYUMA (Single-Pass PBT)"
+      },
+      "rows": {
+        "0": {
+          "factor": "تقنية التنظيف",
+          "glyde": "Dual-pass patented: تيار هواء يفك الغبار، microfiber يكمل المسح",
+          "nyuma": "أسطوانة فرش PBT دوّارة single-pass — consumables أقل"
+        },
+        "1": {
+          "factor": "الأفضل لـ",
+          "glyde": "صفوف fixed-tilt flagship حيث أقصى رفع للغبار لكل دورة أولوية",
+          "nyuma": "كتل fixed-tilt متكررة حيث اقتصاديات PBT وCAPEX تفوز في RFQ"
+        },
+        "2": {
+          "factor": "التلوث اللزج / الإسمنتي",
+          "glyde": "Dual-pass ممتاز على طبقات غبار جافة ولزجة",
+          "nyuma": "مثالي للغبار الصحراوي الجاف؛ جدولة دورات إضافية عند تلوث إسمنتي شديد"
+        },
+        "3": {
+          "factor": "ملف الاستهلاكيات",
+          "glyde": "أسطوانة microfiber self-cleaning بفترات خدمة ممتدة",
+          "nyuma": "فرش PBT مقاومة UV مع cartridges قابلة للاستبدال ميدانياً"
+        },
+        "4": {
+          "factor": "المدى لكل شحنة",
+          "glyde": "حتى 2.2 km (~3,600 وحدة)",
+          "nyuma": "حتى 2.2 km (~3,600 وحدة)"
+        },
+        "5": {
+          "factor": "نشرات نموذجية",
+          "glyde": "أساطيل fixed-tilt automatic-first بحجم Bachau DVC",
+          "nyuma": "برامج PBT automatic بحجم Akhadana وأساطيل مختلطة"
+        },
+        "6": {
+          "factor": "العمالة بعد التركيب",
+          "glyde": "صفر — دورات يومية مستقلة بالكامل",
+          "nyuma": "صفر — دورات يومية مستقلة بالكامل"
+        },
+        "7": {
+          "factor": "مراقبة الأسطول",
+          "glyde": "NECTYR عبر LTE أو Wi-Fi أو RF mesh أو LoRa أو LoRaWAN",
+          "nyuma": "NECTYR عبر LTE أو Wi-Fi أو RF mesh أو LoRa أو LoRaWAN"
+        }
+      },
+      "faq": {
+        "0": {
+          "q": "هل يمكن تشغيل GLYDE و NYUMA في نفس المحطة؟",
+          "a": "نعم. الأساطيل المختلطة شائعة — GLYDE على الكتل عالية التلوث، NYUMA على الصفوف المحددة PBT. NECTYR يجدول كليهما من بوابة واحدة."
+        },
+        "1": {
+          "q": "أيهما أفضل لغبار Rajasthan؟",
+          "a": "كلاهما يتعامل مع الغبار الصحراوي الجاف. اختر GLYDE عند طبقات لزجة/مختلطة؛ NYUMA عندما تسود اقتصاديات PBT."
+        }
+      }
+    },
+    "glydeXVsNyumaX": {
+      "meta": {
+        "title": "GLYDE-X مقابل NYUMA-X: أي روبوت tracker تحدد؟",
+        "description": "كلا الروبوتين يعبران NEXTracker وGamechanger وجداول single-axis المماثلة بمرونة ±15° بين الجداول. GLYDE-X يستخدم dual-pass microfiber patented؛ NYUMA-X PBT…"
+      },
+      "hero": {
+        "eyebrow": "مقارنة روبوتات التتبع",
+        "title": "GLYDE-X مقابل NYUMA-X: أي روبوت tracker تحدد؟",
+        "lead": "كلا الروبوتين يعبران NEXTracker وGamechanger وجداول single-axis المماثلة بمرونة ±15° بين الجداول. GLYDE-X يستخدم dual-pass microfiber patented؛ NYUMA-X PBT single-pass لبرامج tracker حساسة لـ CAPEX."
+      },
+      "intro": "كلا الروبوتين يعبران NEXTracker وGamechanger وجداول single-axis المماثلة بمرونة ±15° بين الجداول. GLYDE-X يستخدم dual-pass microfiber patented؛ NYUMA-X PBT single-pass لبرامج tracker حساسة لـ CAPEX.",
+      "tableHeading": "GLYDE-X vs NYUMA-X — نظرة عامة",
+      "columns": {
+        "leftLabel": "GLYDE-X (Dual-Pass)",
+        "rightLabel": "NYUMA-X (Single-Pass PBT)"
+      },
+      "rows": {
+        "0": {
+          "factor": "آلية التنظيف",
+          "glydeX": "Dual-pass microfiber — airflow + wipe للتلوث المختلط",
+          "nyumaX": "فرش PBT single-pass — محسّن لأحزمة غبار tracker الجافة"
+        },
+        "1": {
+          "factor": "توافق Tracker",
+          "glydeX": "NEXTracker, Gamechanger, ميل -52° إلى +52°",
+          "nyumaX": "NEXTracker, Gamechanger, ميل -52° إلى +52°"
+        },
+        "2": {
+          "factor": "مرونة بين الجداول",
+          "glydeX": "±15° articulation مع bridge kits معتمدة",
+          "nyumaX": "±15° articulation مع bridge kits معتمدة"
+        },
+        "3": {
+          "factor": "الوزن التشغيلي",
+          "glydeX": "25 kg هيكل tracker مدمج",
+          "nyumaX": "25 kg هيكل tracker مدمج"
+        },
+        "4": {
+          "factor": "المدى لكل شحنة",
+          "glydeX": "حتى 2.2 km (~3,600 وحدة)",
+          "nyumaX": "حتى 2.2 km (~3,600 وحدة)"
+        },
+        "5": {
+          "factor": "متى يختارها المالكون",
+          "glydeX": "صفوف tracker premium تحتاج أقصى رفع غبار لكل دورة ليلية",
+          "nyumaX": "أساطيل tracker كبيرة تفضّل اقتصاديات PBT وCAPEX"
+        },
+        "6": {
+          "factor": "الاستقلالية والجدولة",
+          "glydeX": "مستقل بالكامل، جدولة AI عبر NECTYR",
+          "nyumaX": "مستقل بالكامل، جدولة AI عبر NECTYR"
+        },
+        "7": {
+          "factor": "بديل fixed-tilt",
+          "glydeX": "راجع GLYDE لتنظيف fixed-tilt dual-pass",
+          "nyumaX": "راجع NYUMA لتنظيف fixed-tilt PBT"
+        }
+      },
+      "faq": {
+        "0": {
+          "q": "هل يحتاج GLYDE-X و NYUMA-X إلى ركن المصفوفات مسطحاً؟",
+          "a": "لا. كلاهما ينظف من ميل -52° إلى +52° ويعمل بعد ساعات الإنتاج بتوجيه tracker-aware في NECTYR."
+        },
+        "1": {
+          "q": "أي روبوت tracker يطابق GLYDE أو NYUMA fixed-tilt؟",
+          "a": "GLYDE-X يوسّع dual-pass microfiber للـ trackers؛ NYUMA-X يوسّع منصة PBT single-pass. راجع GLYDE vs NYUMA للـ fixed-tilt."
+        }
+      }
+    }
+  }
+}

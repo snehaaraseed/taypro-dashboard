@@ -1,12 +1,12 @@
 {
   "Home": {
     "meta": {
-      "title": "روبوتات تنظيف الألواح الشمسية | Taypro, بدون ماء India",
-      "description": "روبوتات تنظيف ألواح شمسية بدون ماء للمحطات على نطاق المرافق في India. تنظيف جاف ثنائي المرور ومراقبة الأسطول ودعم Taypro على مستوى India, أوتوماتيكي وشبه أوتوماتيكي.",
-      "ogTitle": "روبوتات تنظيف الألواح الشمسية | Taypro, بدون ماء India",
-      "ogDescription": "روبوتات تنظيف شمسية بدون ماء للمحطات الهندية, تنظيف جاف ثنائي المرور ومراقبة أسطول NECTYR وخدمة على مستوى India.",
-      "twitterTitle": "روبوت تنظيف الألواح الشمسية | Taypro",
-      "twitterDescription": "روبوتات تنظيف ألواح شمسية مستقلة وشبه مستقلة بدون ماء لمزارع الطاقة الشمسية على نطاق المرافق في India."
+      "title": "روبوتات تنظيف الألواح الشمسية | بدون ماء ومستقلة",
+      "description": "روبوتات تنظيف ألواح شمسية بدون ماء للمحطات على نطاق المرافق في الهند. استعد الإنتاج المفقود مع GLYDE وNYUMA. اطلب عرض سعر اليوم.",
+      "ogTitle": "روبوتات تنظيف الألواح الشمسية | بدون ماء ومستقلة",
+      "ogDescription": "روبوتات تنظيف شمسية بدون ماء للمحطات الهندية. تنظيف جاف ثنائي المرور، أسطول NECTYR، خدمة على مستوى الهند.",
+      "twitterTitle": "روبوتات تنظيف الألواح الشمسية | بدون ماء ومستقلة",
+      "twitterDescription": "روبوتات تنظيف ألواح شمسية مستقلة بدون ماء لمزارع الطاقة الشمسية على نطاق المرافق في الهند."
     },
     "schema": {
       "video": {
@@ -158,7 +158,8 @@
     "clients": {
       "heading": "عملاؤنا المميزون",
       "logoAlt": "عميل Taypro {index}, شريك يستخدم حلول التنظيف الروبوتية",
-      "logoTitle": "عميل Taypro {index}"
+      "logoTitle": "عميل Taypro {index}",
+      "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India."
     },
     "faq": {
       "heading": "الأسئلة الشائعة",
@@ -187,6 +188,17 @@
       "submitLabel": "إرسال الطلب",
       "messageLabel": "تفاصيل المحطة والمتطلبات",
       "messagePlaceholder": "مثال: 100 ميجاواط ميل ثابت في Rajasthan، تقييم روبوتات مقابل O&M يدوي…"
+    },
+    "discover": {
+      "eyebrow": "Research & compare",
+      "heading": "Guides for buyers and O&M teams",
+      "intro": "Compare Taypro against alternatives, cleaning methods, and regional deployment factors across India.",
+      "compareHeading": "Comparison guides",
+      "compareAll": "View all comparisons",
+      "statesHeading": "Regional guides",
+      "statesAll": "All state guides",
+      "machineLink": "Solar panel cleaning machine guide",
+      "rooftopLink": "Rooftop solar cleaning robot (MINY)"
     },
     "projects": {
       "eyebrow": "مثبت ميدانياً",

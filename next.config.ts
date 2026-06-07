@@ -212,6 +212,16 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/pv_panel_cleaning_robot",
+        destination: "/solar-panel-cleaning-system",
+        permanent: true,
+      },
+      {
+        source: "/pv_panel_cleaning_robot/",
+        destination: "/solar-panel-cleaning-system",
+        permanent: true,
+      },
+      {
         source: "/solar_panel_cleaning_system",
         destination: "/solar-panel-cleaning-system",
         permanent: true,
@@ -225,6 +235,12 @@ const nextConfig = {
       {
         source: "/battery_solar_cleaning_machine",
         destination: "/solar-panel-cleaning-system",
+        permanent: true,
+      },
+      {
+        source: "/rooftop-solar-panel-cleaning-robot",
+        destination:
+          "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
         permanent: true,
       },
       {

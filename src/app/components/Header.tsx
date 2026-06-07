@@ -172,12 +172,12 @@ export default function Header() {
               onMouseLeave={() => setDropdownOpen(false)}
             >
               <div
-                title="Solar Panel Cleaning Robot"
+                title={t("solutionsTitle")}
                 className={`text-white px-3 py-2 text-md font-medium cursor-pointer flex items-center transition-all duration-300 hover:underline underline-offset-8 hover:text-[#39D600] ${
                   isSolarActive() ? "underline" : ""
                 }`}
               >
-                {t("solarRobotsMenu")}
+                {t("solutions")}
                 <svg
                   className="ml-2 w-4 h-4"
                   fill="none"
@@ -330,7 +330,7 @@ export default function Header() {
                 isSolarActive() ? "underline underline-offset-8" : ""
               }`}
             >
-              <span>{t("solarRobotsMenu")}</span>
+              <span>{t("solutions")}</span>
               <svg
                 className={`h-4 w-4 shrink-0 transform transition-transform ${
                   isSolarMenuOpen ? "rotate-180" : "rotate-0"

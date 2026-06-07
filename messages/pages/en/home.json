@@ -1,12 +1,12 @@
 {
   "Home": {
     "meta": {
-      "title": "Solar Panel Cleaning Robots in India, Waterless & Autonomous",
-      "description": "Waterless solar panel cleaning robots and autonomous operations for utility-scale plants in India, recover lost generation with GLYDE, NYUMA, NECTYR fleet software, and ORION plant intelligence. Dual-pass dry cleaning, pan-India service.",
-      "ogTitle": "Solar Panel Cleaning Robots | Taypro, Autonomous Solar Operations",
-      "ogDescription": "Waterless solar panel cleaning robots plus NECTYR fleet operations for Indian utility plants, recover generation, cut water use, and close the O&M loop.",
-      "twitterTitle": "Solar Panel Cleaning Robot | Taypro",
-      "twitterDescription": "Autonomous and semi-automatic waterless solar panel cleaning robots for utility-scale solar farms in India."
+      "title": "Solar Panel Cleaning Robots | Waterless & Autonomous",
+      "description": "India's leading waterless solar panel cleaning robots for utility-scale plants. Recover lost generation with GLYDE & NYUMA. Request a quote today.",
+      "ogTitle": "Solar Panel Cleaning Robots | Waterless & Autonomous",
+      "ogDescription": "Waterless solar panel cleaning robots for Indian utility plants. Dual-pass dry cleaning, NECTYR fleet ops, pan-India service.",
+      "twitterTitle": "Solar Panel Cleaning Robots | Waterless & Autonomous",
+      "twitterDescription": "Autonomous waterless solar panel cleaning robots for utility-scale solar farms in India."
     },
     "schema": {
       "video": {
@@ -194,8 +194,9 @@
     },
     "clients": {
       "heading": "Our Esteemed Clients",
-      "logoAlt": "Taypro Solar Panel Cleaning Robot Client {index} - Partner using Taypro robotic cleaning solutions",
-      "logoTitle": "Taypro Solar Panel Cleaning Robot Client {index}"
+      "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India.",
+      "logoAlt": "{name} — Taypro solar cleaning robot customer",
+      "logoTitle": "{name}"
     },
     "faq": {
       "heading": "Frequently asked questions",
@@ -224,6 +225,17 @@
       "submitLabel": "Send request",
       "messageLabel": "Plant details & requirements",
       "messagePlaceholder": "e.g. 100 MW fixed tilt in Rajasthan, evaluating robots vs manual O&M…"
+    },
+    "discover": {
+      "eyebrow": "Research & compare",
+      "heading": "Guides for buyers and O&M teams",
+      "intro": "Compare Taypro against alternatives, cleaning methods, and regional deployment factors across India.",
+      "compareHeading": "Comparison guides",
+      "compareAll": "View all comparisons",
+      "statesHeading": "Regional guides",
+      "statesAll": "All state guides",
+      "machineLink": "Solar panel cleaning machine guide",
+      "rooftopLink": "Rooftop solar cleaning robot (MINY)"
     },
     "projects": {
       "eyebrow": "Proven in the field",

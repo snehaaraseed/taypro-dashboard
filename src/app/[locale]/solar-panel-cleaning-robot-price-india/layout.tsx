@@ -23,18 +23,6 @@ export async function generateMetadata({
   return withHreflang(PRICE_GUIDE_PATH, locale, {
     title: t("title"),
     description: t("description"),
-    keywords: [
-      t("keywords.0"),
-      t("keywords.1"),
-      t("keywords.2"),
-      t("keywords.3"),
-      t("keywords.4"),
-      t("keywords.5"),
-      t("keywords.6"),
-      t("keywords.7"),
-      t("keywords.8"),
-      t("keywords.9"),
-    ],
     openGraph: {
       title: t("openGraphTitle"),
       description: t("openGraphDescription"),

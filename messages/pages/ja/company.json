@@ -1,9 +1,9 @@
 {
   "CompanyPage": {
     "meta": {
-      "title": "Tayproについて | インドのソーラーパネル洗浄ロボットメーカー",
-      "description": "Taypro Private LimitedがMade-in-Indiaの自律型ソーラーパネル洗浄ロボット, GLYDE、HELYX、GLYDE-X、Taypro Opex、NECTYR, をユーティリティ規模・商用PV向けに設計する方法をご覧ください。Puneでの製造規模、ビジョン、リーダーシップ、全国サービス。",
-      "openGraphDescription": "Tayproの自律型・半自動ソーラー洗浄ロボット、デュアルパス水なし技術、インド全国展開サポートの背景にある企業ストーリー、ビジョン、リーダーシップ。",
+      "title": "会社概要 | ソーラーパネル洗浄ロボットメーカー",
+      "description": "PuneのMade-in-Indiaソーラーパネル洗浄ロボットメーカー。GLYDE、NYUMA、NECTYRフリート、全国サービス。経営チームをご紹介。",
+      "openGraphDescription": "TayproはChakan, Puneから自律型ソーラー洗浄ロボットを開発 — デュアルパス水なし技術と全国展開サポート。",
       "openGraphImageAlt": "Tayproについて, ソーラーパネル洗浄ロボットメーカー",
       "twitterDescription": "Made-in-Indiaソーラーパネル洗浄ロボット、全国倉庫、クラウドフリート監視, ユーティリティ規模の資産所有者とO&Mチーム向け。"
     },
@@ -176,7 +176,8 @@
       "link1": "大規模ソーラー運用",
       "link2": "洗浄技術",
       "link3": "すべてのロボットモデル",
-      "link4": "営業に問い合わせ"
+      "link4": "営業に問い合わせ",
+      "link5": "Press & media coverage"
     },
     "faq": {
       "heading": "よくある質問",

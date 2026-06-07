@@ -1,21 +1,13 @@
 {
   "MinyPage": {
     "meta": {
-      "title": "MINY, Compact Rooftop Solar Cleaning Robot (Coming Soon)",
-      "description": "MINY is Taypro's upcoming compact solar panel cleaning robot for smaller rooftop plants. Waterless, lightweight, and engineered for distributed commercial rooftops, register your interest for launch updates.",
-      "openGraphTitle": "MINY, Compact Rooftop Solar Cleaning Robot | Taypro",
+      "title": "Rooftop Solar Panel Cleaning Robot India | MINY",
+      "description": "Compact waterless rooftop cleaning robot for C&I plants in India. MINY coming soon — register interest for launch updates.",
+      "openGraphTitle": "Rooftop Solar Panel Cleaning Robot | MINY",
       "openGraphDescription": "Coming soon: a compact Taypro cleaning robot built for smaller rooftop solar plants across India.",
       "openGraphImageAlt": "Taypro MINY compact rooftop solar panel cleaning robot, coming soon",
-      "twitterTitle": "MINY Compact Rooftop Cleaning Robot | Taypro",
-      "twitterDescription": "Compact solar cleaning robot for smaller rooftop plants, coming soon from Taypro.",
-      "keywords": [
-        "rooftop solar cleaning robot",
-        "compact solar panel cleaning robot",
-        "small rooftop solar cleaning",
-        "commercial rooftop solar O&M",
-        "MINY Taypro",
-        "solar panel cleaning robot India"
-      ]
+      "twitterTitle": "Rooftop Solar Panel Cleaning Robot | MINY",
+      "twitterDescription": "Compact solar cleaning robot for smaller rooftop plants, coming soon from Taypro."
     },
     "breadcrumbs": {
       "robots": "Solar Panel Cleaning Robots",
@@ -28,8 +20,8 @@
     },
     "hero": {
       "comingSoonBadge": "Coming soon",
-      "title": "MINY, Compact Rooftop Cleaning Robot",
-      "subtitle": "A compact solar panel cleaning robot engineered for smaller rooftop plants, lighter footprint, waterless cleaning, and Taypro reliability in a package sized for distributed commercial rooftops.",
+      "title": "Rooftop Solar Panel Cleaning Robot India",
+      "subtitle": "MINY is Taypro's compact waterless robot for C&I and commercial rooftops — lighter footprint, register interest for launch updates and pilot availability.",
       "imgAlt": "Taypro MINY compact rooftop solar panel cleaning robot, coming soon",
       "ctaText": "Register interest"
     },

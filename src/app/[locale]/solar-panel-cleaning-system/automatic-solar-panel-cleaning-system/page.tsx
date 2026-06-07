@@ -23,6 +23,7 @@ import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import { projectFilterForPage } from "@/lib/cms/project-page-filters";
 import ProductCards from "@/app/components/ProductCards";
 import HeroSection from "@/app/components/Herosection";
+import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import { FaqSection } from "@/app/components/FaqSection";
@@ -116,6 +117,17 @@ const ADVANTAGE_KEYS = [
 
 const ADVANTAGE_ICONS = [Zap, Droplet, Brain, TrendingUp, ShieldCheck] as const;
 
+const GLYDE_VS_NYUMA_ROW_KEYS = [
+  "row0",
+  "row1",
+  "row2",
+  "row3",
+  "row4",
+  "row5",
+  "row6",
+  "row7",
+] as const;
+
 const CYCLE_STEP_COUNT = 9;
 
 export default async function AutomaticSolarPanelCleaningRobot({
@@ -170,6 +182,13 @@ export default async function AutomaticSolarPanelCleaningRobot({
       </Link>
       {t("indianConditions.linkBetweenBAndT")}
       <Link
+        href="/solar-panel-cleaning-system/nyuma-automatic-cleaning-robot"
+        className="text-[#A8C117] hover:underline"
+      >
+        {t("indianConditions.linkNyuma")}
+      </Link>
+      {t("indianConditions.linkBetweenBAndT")}
+      <Link
         href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
         className="text-[#A8C117] hover:underline"
       >
@@ -211,6 +230,12 @@ export default async function AutomaticSolarPanelCleaningRobot({
   const cycleSteps = Array.from({ length: CYCLE_STEP_COUNT }, (_, i) =>
     t(`cycleNarrative.steps.s${i}`).replace(/^⦿\s*/, ""),
   );
+
+  const glydeVsNyumaRows = GLYDE_VS_NYUMA_ROW_KEYS.map((key) => ({
+    criterion: t(`glydeVsNyuma.${key}.criterion`),
+    glyde: t(`glydeVsNyuma.${key}.glyde`),
+    nyuma: t(`glydeVsNyuma.${key}.nyuma`),
+  }));
 
   return (
     <>
@@ -496,8 +521,8 @@ export default async function AutomaticSolarPanelCleaningRobot({
           <AnimateOnScroll animation="fadeInUp" className="text-center">
             <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight max-w-4xl mx-auto">
               {t("projects.headingLine1")}
-              {t("projects.headingLine2")}
-              {t("projects.headingLine3")}
+              {t("projects.headingLine2")}{" "}
+              {t("projects.headingLine3")}{" "}
               {t("projects.headingLine4")}
             </h2>
             <div className="text-gray-600 my-6 text-base sm:text-xl italic">
@@ -722,6 +747,75 @@ export default async function AutomaticSolarPanelCleaningRobot({
         </Container>
       </section>
 
+      <section className="w-full bg-[#f4f1e9] py-20">
+        <Container>
+          <AnimateOnScroll animation="fadeInUp" className="text-center mb-10 sm:mb-14">
+            <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
+              {t("glydeVsNyuma.eyebrow")}
+            </div>
+            <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight">
+              {t("glydeVsNyuma.title")}
+            </h2>
+            <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mt-6">
+              {t("glydeVsNyuma.subtitle")}
+            </p>
+          </AnimateOnScroll>
+
+          <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm bg-white">
+            <table className="w-full text-left text-sm sm:text-base">
+              <thead>
+                <tr className="bg-[#f4f1e9]">
+                  <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#052638]">
+                    {t("glydeVsNyuma.criterion")}
+                  </th>
+                  <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#A8C117]">
+                    {t("glydeVsNyuma.glydeHeader")}
+                  </th>
+                  <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#052638]">
+                    {t("glydeVsNyuma.nyumaHeader")}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="text-[#052638]">
+                {glydeVsNyumaRows.map((row) => (
+                  <tr key={row.criterion}>
+                    <td className="py-3 px-4 sm:px-6 border-t text-base font-medium align-top">
+                      {row.criterion}
+                    </td>
+                    <td className="py-3 px-4 sm:px-6 border-t text-base align-top">
+                      {row.glyde}
+                    </td>
+                    <td className="py-3 px-4 sm:px-6 border-t text-base text-gray-600 align-top">
+                      {row.nyuma}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <AnimateOnScroll animation="fadeInUp" className="text-center mt-10">
+            <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto">
+              {t("glydeVsNyuma.crossSellLead")}
+              <Link
+                href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
+                className="text-[#A8C117] hover:underline"
+              >
+                {t("glydeVsNyuma.linkHelyx")}
+              </Link>
+              {t("glydeVsNyuma.crossSellMid")}
+              <Link
+                href="/compare/glyde-x-vs-nyuma-x"
+                className="text-[#A8C117] hover:underline"
+              >
+                {t("glydeVsNyuma.linkTracker")}
+              </Link>
+              {t("glydeVsNyuma.crossSellSuffix")}
+            </p>
+          </AnimateOnScroll>
+        </Container>
+      </section>
+
       <section className="w-full bg-[#052638] py-20">
         <Container>
           <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
@@ -767,6 +861,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl leading-tight max-w-3xl mx-auto">
               {t("specifications.titleLine1")}
+              <br />
               {t("specifications.titleLine2")}
             </h2>
           </AnimateOnScroll>
@@ -801,6 +896,14 @@ export default async function AutomaticSolarPanelCleaningRobot({
               </tbody>
             </table>
           </div>
+          <AnimateOnScroll animation="fadeInUp" className="text-center mt-8">
+            <OpenLeadModalButton
+              topic={t("specifications.datasheetCtaTopic")}
+              className="inline-flex items-center justify-center min-h-[48px] px-7 py-3 rounded-lg bg-[#A8C117] text-[#052638] font-semibold hover:bg-[#b3cf3d] transition-colors"
+            >
+              {t("specifications.datasheetCta")}
+            </OpenLeadModalButton>
+          </AnimateOnScroll>
         </Container>
       </section>
 

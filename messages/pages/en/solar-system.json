@@ -1,36 +1,16 @@
 {
   "SolarSystemPage": {
     "meta": {
-      "title": "Solar Panel Cleaning Robot & System in India, Machines & Models",
-      "description": "Compare every Taypro Solar Panel Cleaning Robot: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, plus Taypro OPEX and NECTYR. Waterless cleaning, AI scheduling, TÜV NORD certified, pan-India support.",
-      "keywords": [
-        "solar panel cleaning robot",
-        "solar panel cleaning robot India",
-        "solar panel cleaning robot manufacturer India",
-        "solar panel cleaning robot company India",
-        "buy solar panel cleaning robot",
-        "best solar panel cleaning robot",
-        "utility scale solar panel cleaning robot",
-        "robotic solar panel cleaning system",
-        "solar panel cleaning robot for solar farm",
-        "Taypro solar cleaning robot",
-        "Taypro GLYDE NYUMA HELYX robot lineup",
-        "CAPEX vs OPEX solar cleaning",
-        "solar panel cleaning system",
-        "solar cleaning system",
-        "solar panel cleaning machine",
-        "pv panel cleaning",
-        "automated solar panel cleaning system",
-        "solar panel cleaning"
-      ],
+      "title": "Solar Panel Cleaning Robots & Systems in India",
+      "description": "Compare GLYDE, NYUMA, HELYX and tracker robots. Waterless cleaning, TÜV NORD certified, pan-India support. Find your model today.",
       "openGraphSiteName": "Taypro",
-      "openGraphTitle": "Solar Panel Cleaning Robot | Automatic, Semi-Automatic & Tracker Models, Taypro",
-      "openGraphDescription": "Choose the right robot for your plant, GLYDE and GLYDE-X flagship dual-pass robots, NYUMA and NYUMA-X PBT platforms, HELYX for scattered plants, plus OPEX and NECTYR.",
+      "openGraphTitle": "Solar Panel Cleaning Robots & Systems in India",
+      "openGraphDescription": "GLYDE and GLYDE-X dual-pass robots, NYUMA and NYUMA-X PBT platforms, HELYX for scattered plants, plus OPEX and NECTYR.",
       "openGraphImageAlt": "Taypro Solar Panel Cleaning Robots, GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX",
       "openGraphLocale": "en_IN",
       "openGraphType": "website",
       "twitterCard": "summary_large_image",
-      "twitterTitle": "Solar Panel Cleaning Robot | Taypro, Made in India",
+      "twitterTitle": "Solar Panel Cleaning Robots & Systems in India",
       "twitterDescription": "Five Taypro cleaning robots for fixed-tilt and tracker plants, PBT single-pass and patented dual-pass microfiber options."
     },
     "breadcrumbs": {
@@ -349,7 +329,13 @@
       "tayproVsSkilancer": "Taypro vs Skilancer",
       "tayproVsAegeus": "Taypro vs Aegeus",
       "tayproVsVayu": "Taypro vs Vayu Solar",
-      "waterlessVsWater": "Waterless vs water-based cleaning"
+      "waterlessVsWater": "Waterless vs water-based cleaning",
+      "glydeVsNyuma": "GLYDE vs NYUMA fixed-tilt robots",
+      "glydeXVsNyumaX": "GLYDE-X vs NYUMA-X tracker robots"
+    },
+    "hubLinks": {
+      "cleaningMachine": "Solar panel cleaning machine guide",
+      "rooftopRobot": "Rooftop solar cleaning robot (MINY)"
     },
     "comparison": {
       "eyebrow": "Side-by-side",
@@ -437,7 +423,11 @@
       "ctaService": "Explore cleaning service",
       "ctaCalculator": "ROI & cost calculator",
       "videoTitle": "See Taypro robots cleaning a utility plant",
-      "videoCaption": "Waterless autonomous solar panel cleaning robots in operation on Indian utility-scale sites."
+      "videoCaption": "Waterless autonomous solar panel cleaning robots in operation on Indian utility-scale sites.",
+      "transcriptToggle": "Video transcript (for accessibility & search)",
+      "transcriptP1": "This overview shows Taypro autonomous solar panel cleaning robots operating on utility-scale arrays in India. Robots traverse fixed-tilt rows using waterless dual-pass cleaning — airflow lifts dry dust, then microfiber completes the wipe without water or detergents.",
+      "transcriptP2": "Fleet schedules and completion data feed into NECTYR, Taypro's monitoring portal, so O&M teams can audit block-wise cleaning history alongside inverter performance. Deployments combine GLYDE and NYUMA-class robots depending on row geometry and soiling class.",
+      "transcriptP3": "For procurement teams comparing cleaning machines and robots, Taypro offers CAPEX purchase with AMC or Taypro Opex pay-per-panel-cleaned service on the same hardware platforms shown in the field footage."
     },
     "marketComparison": {
       "eyebrow": "Choosing a cleaning approach",
@@ -739,6 +729,12 @@
           "answer": "Shortlist vendors on five criteria: waterless fit for your dust and soiling, fixed-tilt vs single-axis tracker compatibility, CAPEX robot purchase vs managed Opex cleaning, fleet software with block-level proof of completion, and India-local manufacturing with spares and breakdown SLA. Taypro is a Made-in-India manufacturer with 5 GW+ robotic capacity deployed across 150+ live sites, patented dual-pass dry cleaning on GLYDE and GLYDE-X, single-pass PBT on NYUMA, NYUMA-X, and HELYX, the NECTYR fleet portal, and optional Taypro Opex pay-per-panel-cleaned service, with utility case studies linked from this hub. Other suppliers commonly evaluated on Indian utility RFQs include Indian OEMs such as Solabot Technologies, Aegeus Technologies, Skilancer Solar, and Vayu Solar; global and regional OEMs with India deployments such as Ecoppia, Airtouch Solar, and LEAPTING (Huzhou LEAPTING Technology); and equipment suppliers active in India such as Langfang Sol-Bright New Energy Technology. Rooftop-focused vendors such as Jetsons Robotics are more common on commercial and industrial sites than on 50 MW+ utility fields. Published market-share rankings differ by source and year, so validate row layout fit, service SLA, and deployment proof, not brochure robot counts alone, before final selection."
         }
       }
+    },
+    "clients": {
+      "heading": "Trusted by India's leading solar operators",
+      "trustedBy": "Trusted by {names} and other IPPs, EPCs, and C&I operators deploying Taypro cleaning robots across India.",
+      "logoAlt": "{name} — Taypro solar cleaning robot customer",
+      "logoTitle": "{name}"
     },
     "finalCta": {
       "eyebrow": "Ready to deploy?",

@@ -29,18 +29,9 @@ export async function generateMetadata({
     namespace: "AuthorsPage.meta",
   });
 
-  const keywords = [
-    t("keyword0"),
-    t("keyword1"),
-    t("keyword2"),
-    t("keyword3"),
-    t("keyword4"),
-  ];
-
   return withHreflang(AUTHORS_PATH, locale, {
     title: t("title"),
     description: t("description"),
-    keywords,
     openGraph: {
       title: t("openGraphTitle"),
       description: t("openGraphDescription"),

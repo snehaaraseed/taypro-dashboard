@@ -1,8 +1,8 @@
 {
   "CleaningServicePage": {
     "meta": {
-      "title": "ロボットによるソーラーパネル洗浄サービス - パネルごとに支払い | Taypro OPEX",
-      "description": "Taypro OPEXはユーティリティ規模（通常50MW以上）向けの月次ロボット洗浄サービスです。GLYDE・HELYX・GLYDE-Xを展開し、月3–10回の乾式サイクルを推奨、清掃したパネル分のみ請求, SOP・経路・休憩エリア・NECTYR日次レポート付き。",
+      "title": "ソーラーパネル清掃サービス | Robotic OPEX",
+      "description": "10MW+向け月次ロボット清掃。パネル単位課金、NECTYRレポート。見積もり依頼。",
       "openGraphDescription": "毎月の水なしロボット洗浄: プラント固有の 3 ～ 10 サイクル、詳細な洗浄計画、日次レポート、洗浄されたパネルごとの請求。 GLYDE、B または T。",
       "openGraphImageAlt": "Taypro OPEX 実用規模の太陽光発電所におけるロボットソーラーパネル洗浄サービス",
       "twitterDescription": "清掃パネルごとの月額。プラント調査、月3–10乾式、SOP、経路、休憩、NECTYRレポート。"

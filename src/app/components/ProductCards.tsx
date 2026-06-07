@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { productAltText } from "@/lib/products/catalog";
+import { productAltText, ROBOT_CARD_IMAGE_CLASS } from "@/lib/products/catalog";
 
 type ProductCardItem = {
   label: string;
@@ -38,13 +38,13 @@ export default function ProductCards({ title, cards }: ProductCardsProps) {
               {item.label}
             </h3>
 
-            <div className="relative w-[40%] h-full transition-transform duration-300 transform hover:-translate-y-3 overflow-hidden">
+            <div className="relative w-[40%] h-full bg-[#0a2a38] overflow-hidden">
               <Image
                 src={item.image}
                 alt={getAltText(item.label)}
                 title={`${item.label} - Taypro Solar Panel Cleaning Robot`}
                 fill
-                className="object-cover"
+                className={ROBOT_CARD_IMAGE_CLASS}
                 sizes="(max-width: 768px) 100vw, 400px"
               />
             </div>

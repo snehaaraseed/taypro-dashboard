@@ -15,12 +15,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "MinyPage.meta" });
-  const keywords = t.raw("keywords") as string[];
 
   return withHreflang(MINY_PRODUCT_PATH, locale, {
     title: t("title"),
     description: t("description"),
-    keywords,
     openGraph: {
       title: t("openGraphTitle"),
       description: t("openGraphDescription"),

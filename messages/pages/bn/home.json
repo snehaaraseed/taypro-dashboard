@@ -1,12 +1,12 @@
 {
   "Home": {
     "meta": {
-      "title": "সোলার প্যানেল পরিষ্কার রোবট | Taypro, জলবিহীন India",
-      "description": "ভারতে ইউটিলিটি-স্কেল প্ল্যান্টের জন্য জলবিহীন সোলার প্যানেল পরিষ্কার রোবট। ডুয়াল-পাস শুষ্ক পরিষ্কার, ফ্লিট মনিটরিং, সারা ভারতে Taypro সহায়তা, স্বয়ংক্রিয় ও অর্ধ-স্বয়ংক্রিয়।",
-      "ogTitle": "সোলার প্যানেল পরিষ্কার রোবট | Taypro, জলবিহীন India",
-      "ogDescription": "ভারতীয় ইউটিলিটি প্ল্যান্টের জন্য জলবিহীন সোলার পরিষ্কার রোবট, ডুয়াল-পাস শুষ্ক পরিষ্কার, NECTYR ফ্লিট মনিটরিং, সারা ভারতে সেবা।",
-      "twitterTitle": "সোলার প্যানেল পরিষ্কার রোবট | Taypro",
-      "twitterDescription": "ভারতে ইউটিলিটি-স্কেল সোলার ফার্মের জন্য স্বায়ত্তশাসিত ও অর্ধ-স্বয়ংক্রিয় জলবিহীন সোলার প্যানেল পরিষ্কার রোবট।"
+      "title": "সোলার প্যানেল পরিষ্কার রোবট | জলবিহীন ও স্বায়ত্তশাসিত",
+      "description": "ভারতের শীর্ষ জলবিহীন সোলার প্যানেল পরিষ্কার রোবট, ইউটিলিটি-স্কেল প্ল্যান্টের জন্য। GLYDE ও NYUMA দিয়ে হারানো উৎপাদন ফিরে পান। আজই কোটেশন নিন।",
+      "ogTitle": "সোলার প্যানেল পরিষ্কার রোবট | জলবিহীন ও স্বায়ত্তশাসিত",
+      "ogDescription": "ভারতীয় ইউটিলিটি প্ল্যান্টের জন্য জলবিহীন সোলার পরিষ্কার রোবট। ডুয়াল-পাস শুষ্ক পরিষ্কার, NECTYR ফ্লিট, সারা ভারতে সেবা।",
+      "twitterTitle": "সোলার প্যানেল পরিষ্কার রোবট | জলবিহীন ও স্বায়ত্তশাসিত",
+      "twitterDescription": "ভারতে ইউটিলিটি-স্কেল সোলার ফার্মের জন্য স্বায়ত্তশাসিত জলবিহীন সোলার প্যানেল পরিষ্কার রোবট।"
     },
     "schema": {
       "video": {
@@ -158,7 +158,8 @@
     "clients": {
       "heading": "আমাদের সম্মানিত গ্রাহক",
       "logoAlt": "Taypro সোলার প্যানেল পরিষ্কার রোবট ক্লায়েন্ট {index}",
-      "logoTitle": "Taypro সোলার প্যানেল পরিষ্কার রোবট ক্লায়েন্ট {index}"
+      "logoTitle": "Taypro সোলার প্যানেল পরিষ্কার রোবট ক্লায়েন্ট {index}",
+      "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India."
     },
     "faq": {
       "heading": "প্রায়শই জিজ্ঞাসিত প্রশ্ন",
@@ -187,6 +188,17 @@
       "submitLabel": "অনুরোধ পাঠান",
       "messageLabel": "প্ল্যান্ট বিবরণ ও প্রয়োজনীয়তা",
       "messagePlaceholder": "যেমন: Rajasthan-এ ১০০ MW ফিক্সড টিল্ট, রোবট বনাম ম্যানুয়াল O&M মূল্যায়ন…"
+    },
+    "discover": {
+      "eyebrow": "Research & compare",
+      "heading": "Guides for buyers and O&M teams",
+      "intro": "Compare Taypro against alternatives, cleaning methods, and regional deployment factors across India.",
+      "compareHeading": "Comparison guides",
+      "compareAll": "View all comparisons",
+      "statesHeading": "Regional guides",
+      "statesAll": "All state guides",
+      "machineLink": "Solar panel cleaning machine guide",
+      "rooftopLink": "Rooftop solar cleaning robot (MINY)"
     },
     "projects": {
       "eyebrow": "মাঠে প্রমাণিত",

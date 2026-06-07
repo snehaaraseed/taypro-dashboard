@@ -1,26 +1,13 @@
 {
   "NyumaPage": {
     "meta": {
-      "title": "روبوت تنظيف ألواح شمسية أوتوماتيكي أحادي المرور PBT, Taypro NYUMA (بدون ماء، AI)",
-      "description": "Taypro NYUMA روبوت تنظيف ألواح شمسية أوتوماتيكي بالكامل وبدون مياه. تنظيف جاف أحادي المرور PBT بتقنية AI/ML يزيل أكثر من 99% من الغبار لكل دورة، حتى 3,600 وحدة لكل شحنة، NECTYR عبر LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN، معتمد TÜV NORD.",
-      "keywords": [
-        "روبوت تنظيف ألواح شمسية PBT",
-        "روبوت تنظيف ألواح شمسية أوتوماتيكي PBT",
-        "روبوت تنظيف ألواح أحادي المرور",
-        "روبوت تنظيف شمسي أوتوماتيكي أحادي المرور",
-        "روبوت تنظيف PBT جاف بدون ماء",
-        "روبوت تنظيف PBT ميل ثابت",
-        "روبوت تنظيف ألواح شمسية أوتوماتيكي الهند",
-        "روبوت تنظيف ألواح شمسية مستقل",
-        "روبوت تنظيف شمسي على نطاق المرافق",
-        "روبوت تنظيف معتمد TÜV NORD",
-        "Taypro NYUMA"
-      ],
-      "openGraphTitle": "روبوت تنظيف أحادي المرور PBT, Taypro NYUMA",
+      "title": "روبوت تنظيف ألواح شمسية أوتوماتيكي | NYUMA",
+      "description": "NYUMA PBT أحادي المرور بدون ماء للمحطات. إزالة 99%+ للغبار، أسطول NECTYR، TÜV NORD. اطلب عرض سعر.",
+      "openGraphTitle": "روبوت تنظيف ألواح شمسية أوتوماتيكي | NYUMA",
       "openGraphDescription": "NYUMA: روبوت ألياف ميكروية أحادي المرور PBT لمحطات المرافق. تنظيف ذاتي بدون ماء ومراقبة NECTYR.",
       "openGraphType": "website",
       "openGraphImageAlt": "Taypro NYUMA روبوت تنظيف ألواح شمسية أوتوماتيكي",
-      "twitterTitle": "روبوت تنظيف أحادي المرور PBT, Taypro NYUMA",
+      "twitterTitle": "روبوت تنظيف ألواح شمسية أوتوماتيكي | NYUMA",
       "twitterDescription": "NYUMA: تنظيف أحادي المرور PBT ذاتي، حتى 3,600 وحدة لكل شحنة، NECTYR.",
       "twitterCard": "summary_large_image"
     },
@@ -87,7 +74,7 @@
       "p2BeforeStrong": "في شحنة واحدة، يُنظف NYUMA حتى ",
       "p2Strong": "2.2 كم من طول الجري، أي نحو 3,600 وحدة شمسية",
       "p2AfterStrong": ". يُفضّل جدولة دورات التنظيف خارج ساعات إنتاج الطاقة ويمكن برمجتها عن بُعد، دون أي تأثير على إنتاج المحطة.",
-      "p3": "تتيح كشف الحواف والعوائق المتقدم لـ NYUMA عبور الألواح بأمان دون خطر السقوط، بينما يضبط تتبع تموج السطح أداء المحرك صفاً بصف لجودة تنظيف متسقة. يضمن مراقبة البطارية في الوقت الفعلي أن الروبوت يغطي المسافة التي يمكنه إكمالها ويعود بأمان إلى محطة الإرساء. الجسور الخفيفة تتيح حركة سلسة من جدول إلى آخر، مع تغطية متواصلة عبر الموقع بأكمله.",
+      "p3": "أسطوانة فرش PBT دوّارة في NYUMA ترفع الغبار الجاف في pass واحد بدون ماء — بدون مرحلة airflow وconsumables أقل. Edge detection يبقي الاتصال على frame وليس الزجاج. Battery-aware routing يعيد robot إلى dock shadow-free حتى 45° seasonal tilt.",
       "p4Blog1": "كيف يعمل روبوت التنظيف التلقائي على الوحدات",
       "p4Blog2": "فوائد التنظيف الروبوتي على نطاق المرافق",
       "p4Prefix": "قراءة إضافية: ",
@@ -221,8 +208,8 @@
     "featuresLongForm": {
       "mainHeading": "ميزات روبوت Taypro NYUMA للتنظيف الأوتوماتيكي",
       "aiCleaning": {
-        "title": "تنظيف أحادي المرور PBT بدون ماء بتقنية AI",
-        "body": "يستخدم NYUMA منطق AI/ML وآلية ثنائية المرور, يزيل أكثر من 99% غباراً دون ماء أو احتكاك على الخلايا."
+        "title": "تنظيف Single-Pass PBT بدون ماء مع AI",
+        "body": "NYUMA يطبق منطق AI/ML للضغط والسرعة على أسطوانة PBT single-pass — sweep واحد يزيل 99%+ غبار جاف بدون ماء أو detergent."
       },
       "microfiber": {
         "title": "أسطوانة فرشاة PBT ذاتية التنظيف",
@@ -446,7 +433,9 @@
           "spec": "الوزن",
           "details": "45 كغ"
         }
-      }
+      },
+      "datasheetCta": "Request full datasheet",
+      "datasheetCtaTopic": "NYUMA datasheet request"
     },
     "advantagesSection": {
       "heading": "مزايا روبوتات التنظيف الأوتوماتيكية",
@@ -570,6 +559,59 @@
         "nyumaX": "NYUMA-X"
       },
       "cardTitleTemplate": "روبوت تنظيف الألواح الشمسية {label}"
+    },
+    "glydeVsNyuma": {
+      "eyebrow": "اختيار روبوت Taypro المناسب",
+      "title": "GLYDE مقابل NYUMA: أي روبوت آلي يناسب محطتك؟",
+      "subtitle": "كلا الروبوتين مستقل بالكامل، بدون ماء، ويُداران من NECTYR. GLYDE هو flagship Taypro ببراءة dual-pass microfiber؛ NYUMA منصة PBT single-pass لأساطيل fixed-tilt فعّالة من حيث CAPEX.",
+      "criterion": "المعيار",
+      "glydeHeader": "GLYDE (Dual-Pass Microfiber)",
+      "nyumaHeader": "NYUMA (Single-Pass PBT)",
+      "row0": {
+        "criterion": "تقنية التنظيف",
+        "glyde": "Dual-pass patented: تيار هواء يفك الغبار، microfiber يكمل المسح",
+        "nyuma": "أسطوانة فرش PBT دوّارة single-pass — consumables أقل"
+      },
+      "row1": {
+        "criterion": "الأفضل لـ",
+        "glyde": "صفوف fixed-tilt flagship حيث أقصى رفع للغبار لكل دورة أولوية",
+        "nyuma": "كتل fixed-tilt متكررة حيث اقتصاديات PBT وCAPEX تفوز في RFQ"
+      },
+      "row2": {
+        "criterion": "التلوث اللزج / الإسمنتي",
+        "glyde": "Dual-pass ممتاز على طبقات غبار جافة ولزجة",
+        "nyuma": "مثالي للغبار الصحراوي الجاف؛ جدولة دورات إضافية عند تلوث إسمنتي شديد"
+      },
+      "row3": {
+        "criterion": "ملف الاستهلاكيات",
+        "glyde": "أسطوانة microfiber self-cleaning بفترات خدمة ممتدة",
+        "nyuma": "فرش PBT مقاومة UV مع cartridges قابلة للاستبدال ميدانياً"
+      },
+      "row4": {
+        "criterion": "المدى لكل شحنة",
+        "glyde": "حتى 2.2 km (~3,600 وحدة)",
+        "nyuma": "حتى 2.2 km (~3,600 وحدة)"
+      },
+      "row5": {
+        "criterion": "نشرات نموذجية",
+        "glyde": "أساطيل fixed-tilt automatic-first بحجم Bachau DVC",
+        "nyuma": "برامج PBT automatic بحجم Akhadana وأساطيل مختلطة"
+      },
+      "row6": {
+        "criterion": "العمالة بعد التركيب",
+        "glyde": "صفر — دورات يومية مستقلة بالكامل",
+        "nyuma": "صفر — دورات يومية مستقلة بالكامل"
+      },
+      "row7": {
+        "criterion": "مراقبة الأسطول",
+        "glyde": "NECTYR عبر LTE أو Wi-Fi أو RF mesh أو LoRa أو LoRaWAN",
+        "nyuma": "NECTYR عبر LTE أو Wi-Fi أو RF mesh أو LoRa أو LoRaWAN"
+      },
+      "crossSellLead": "تحتاج pick-and-place للكتل المتفرقة؟ راجع ",
+      "linkHelyx": "HELYX",
+      "crossSellMid": ". trackers أحادية المحور؟ قارن ",
+      "linkTracker": "GLYDE-X و NYUMA-X",
+      "crossSellSuffix": "."
     }
   },
   "Common": {

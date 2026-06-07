@@ -25,6 +25,14 @@ import {
   HARDWARE_ROBOTS_GRID_HOME,
   hardwareRobotsGridItemClass,
 } from "@/lib/products/robot-grid-layout";
+import {
+  COMPARISON_PAGES,
+  type ComparisonPageId,
+} from "@/lib/seo/comparison-pages-config";
+import {
+  STATE_LANDING_PAGES,
+  type StateLandingId,
+} from "@/lib/seo/state-landing-config";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 const HERO_VIDEO_ID = "y9iRhH2bLwY";
@@ -34,6 +42,20 @@ const FEATURE_COUNT = 4;
 const OTHER_FEATURE_COUNT = 4;
 const FAQ_COUNT = 7;
 const STAT_COUNT = 4;
+
+const HOME_COMPARE_IDS: ComparisonPageId[] = [
+  "tayproVsSolabot",
+  "indianCompetitors",
+  "robotVsManual",
+  "waterlessVsWater",
+];
+
+const HOME_STATE_IDS: StateLandingId[] = [
+  "rajasthan",
+  "gujarat",
+  "karnataka",
+  "maharashtra",
+];
 
 function buildTranslatedFeatures(
   t: Awaited<ReturnType<typeof getTranslations>>,
@@ -67,6 +89,7 @@ export default async function HomePage() {
 
   const locale = await getLocale();
   const t = await getTranslations({ locale, namespace: "Home" });
+  const tHub = await getTranslations({ locale, namespace: "SolarSystemPage" });
 
   const features = buildTranslatedFeatures(t, "features", FEATURE_COUNT);
   const otherFeatures = buildTranslatedFeatures(t, "otherFeatures", OTHER_FEATURE_COUNT);
@@ -277,6 +300,98 @@ export default async function HomePage() {
           otherFeatures={otherFeatures}
           homeFaqs={homeFaqs}
         />
+
+        <section
+          className="py-14 md:py-16 bg-[#0a3a4a] border-y border-white/10"
+          aria-labelledby="discover-heading"
+        >
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mb-10">
+              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-2">
+                {t("discover.eyebrow")}
+              </p>
+              <h2
+                id="discover-heading"
+                className="text-white font-semibold text-2xl md:text-3xl mb-3"
+              >
+                {t("discover.heading")}
+              </h2>
+              <p className="text-gray-300 text-base leading-relaxed">
+                {t("discover.intro")}
+              </p>
+            </AnimateOnScroll>
+
+            <div className="grid md:grid-cols-2 gap-10">
+              <AnimateOnScroll animation="fadeInUp" delay={80}>
+                <h3 className="text-white font-medium text-lg mb-4">
+                  {t("discover.compareHeading")}
+                </h3>
+                <ul className="space-y-2">
+                  {HOME_COMPARE_IDS.map((id) => (
+                    <li key={id}>
+                      <Link
+                        href={COMPARISON_PAGES[id].path}
+                        className="text-[#A8C117] hover:underline text-sm md:text-base"
+                      >
+                        {tHub(`compareGuides.${id}`)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/solar-panel-cleaning-system#compare-guides"
+                  className="inline-block mt-4 text-gray-400 hover:text-white text-sm transition-colors"
+                >
+                  {t("discover.compareAll")} →
+                </Link>
+              </AnimateOnScroll>
+
+              <AnimateOnScroll animation="fadeInUp" delay={120}>
+                <h3 className="text-white font-medium text-lg mb-4">
+                  {t("discover.statesHeading")}
+                </h3>
+                <ul className="space-y-2">
+                  {HOME_STATE_IDS.map((id) => (
+                    <li key={id}>
+                      <Link
+                        href={STATE_LANDING_PAGES[id].path}
+                        className="text-[#A8C117] hover:underline text-sm md:text-base"
+                      >
+                        {tHub(`indianConditions.stateGuides.${id}`)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/solar-panel-cleaning-system#state-guides"
+                  className="inline-block mt-4 text-gray-400 hover:text-white text-sm transition-colors"
+                >
+                  {t("discover.statesAll")} →
+                </Link>
+              </AnimateOnScroll>
+            </div>
+            <div className="mt-8 pt-6 border-t border-white/10">
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link
+                    href="/solar-panel-cleaning-machine"
+                    className="text-[#A8C117] hover:underline"
+                  >
+                    {t("discover.machineLink")}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot"
+                    className="text-[#A8C117] hover:underline"
+                  >
+                    {t("discover.rooftopLink")}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </Container>
+        </section>
 
         <DynamicProjectsRollup
           locale={locale}

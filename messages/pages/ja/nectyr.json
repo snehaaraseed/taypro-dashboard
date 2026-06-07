@@ -1,12 +1,13 @@
 {
   "NectyrPage": {
     "meta": {
-      "title": "ソーラー洗浄ロボット艦隊モニタリング, NECTYR",
-      "description": "NECTYR は、Taypro ソーラー パネル清掃ロボット フリートを監視および管理するための安全な Web ポータルです。サイト ダッシュボード、天候認識スケジュール、ブロック単位のカバレッジ、清掃ログとエクスポート可能なレポート、ゲートウェイとロボットの健全性、統計、サポート チケット、役割ベースのアクセスが各顧客にプライベートにプロビジョニングされます。",
+      "title": "ソーラーロボットフリート監視 | NECTYR",
+      "description": "Tayproフリート向けNECTYR：スケジュール、ログ、レポート。アクセスをリクエスト。",
       "openGraphDescription": "Taypro 清掃ロボットのフリート ダッシュボード、スケジュール、ログ、統計、チケット、安全なロボット監視。",
       "openGraphImageAlt": "NECTYR, 太陽光発電清掃ロボット群の監視",
-      "twitterTitle": "NECTYR, 太陽清掃ロボット群の監視",
-      "twitterDescription": "Taypro ロボット フリートの安全な Web ポータル: ダッシュボード、スケジュール、レポート、サポート。"
+      "twitterTitle": "フリート監視 | NECTYR",
+      "twitterDescription": "Taypro ロボット フリートの安全な Web ポータル: ダッシュボード、スケジュール、レポート、サポート。",
+      "openGraphTitle": "フリート監視 | NECTYR"
     },
     "breadcrumbs": {
       "robots": "ソーラーパネル清掃ロボット",

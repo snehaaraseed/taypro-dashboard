@@ -124,14 +124,15 @@ export function classifyGenerationFailure(error: unknown): GenerationFailureKind
     msg.includes("Blog too similar") ||
     msg.includes("too similar") ||
     msg.includes("already covered by existing post") ||
-    msg.includes("Topic already published")
+    msg.includes("Topic already published") ||
+    msg.includes("Blog structure validation failed") ||
+    msg.includes("Generated title or meta description was too generic")
   ) {
     return "new_contract";
   }
 
   if (
     msg.includes("Body too short") ||
-    msg.includes("Blog structure validation failed") ||
     msg.includes("Could not parse JSON") ||
     msg.includes("JSON at position") ||
     msg.includes("Could not parse section HTML") ||
@@ -147,14 +148,14 @@ export function classifyGenerationFailure(error: unknown): GenerationFailureKind
 
 export function getBlogPipelineMaxOuterAttempts(): number {
   const raw = process.env.BLOG_PIPELINE_MAX_OUTER_ATTEMPTS?.trim();
-  const parsed = raw ? Number.parseInt(raw, 10) : 1;
-  return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
+  const parsed = raw ? Number.parseInt(raw, 10) : 3;
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 3;
 }
 
 export function getBlogPipelineMaxInPlaceExpansions(): number {
   const raw = process.env.BLOG_PIPELINE_MAX_INPLACE_EXPANSIONS?.trim();
-  const parsed = raw ? Number.parseInt(raw, 10) : 3;
-  return Number.isFinite(parsed) && parsed > 0 ? parsed : 3;
+  const parsed = raw ? Number.parseInt(raw, 10) : 4;
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 4;
 }
 
 /** @deprecated Use classifyGenerationFailure for typed retries. */

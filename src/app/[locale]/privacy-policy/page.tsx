@@ -20,7 +20,6 @@ export async function generateMetadata({
   return withHreflang("/privacy-policy", locale, {
     title: t("title"),
     description: t("description"),
-    keywords: t("keywords"),
     openGraph: {
       title: t("title"),
       description: t("description"),

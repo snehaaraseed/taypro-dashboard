@@ -903,6 +903,144 @@
           "a": "Yes. Retrofit robots on live plants; Taypro Opex can bridge until CAPEX approval."
         }
       }
+    },
+    "glydeVsNyuma": {
+      "meta": {
+        "title": "GLYDE vs NYUMA — Fixed-Tilt Automatic Solar Cleaning Robots",
+        "description": "Compare Taypro GLYDE dual-pass microfiber and NYUMA single-pass PBT automatic robots: cleaning technology, soiling fit, consumables, range, deployments, and NECTYR fleet monitoring."
+      },
+      "hero": {
+        "eyebrow": "Taypro product comparison",
+        "title": "GLYDE vs NYUMA: Which automatic robot fits your plant?",
+        "lead": "Both robots are fully autonomous, waterless, and managed from NECTYR. GLYDE is Taypro's patented dual-pass microfiber flagship; NYUMA is the PBT single-pass platform for capex-efficient fixed-tilt fleets."
+      },
+      "intro": "Fixed-tilt utility owners often shortlist both robots on the same RFQ. GLYDE prioritises maximum dust lift per cycle on mixed soiling; NYUMA wins when PBT brush economics and simpler consumables drive procurement.",
+      "tableHeading": "GLYDE vs NYUMA at a glance",
+      "columns": {
+        "leftLabel": "GLYDE (Dual-Pass Microfiber)",
+        "rightLabel": "NYUMA (Single-Pass PBT)"
+      },
+      "rows": {
+        "0": {
+          "factor": "Cleaning technology",
+          "glyde": "Patented dual-pass: airflow loosens dust, microfiber completes the wipe",
+          "nyuma": "Single-pass counter-rotating PBT brush drum — fewer moving consumables"
+        },
+        "1": {
+          "factor": "Best for",
+          "glyde": "Flagship fixed-tilt rows where maximum dust lift per cycle is the priority",
+          "nyuma": "Repeatable fixed-tilt blocks where PBT capex and brush economics win RFQs"
+        },
+        "2": {
+          "factor": "Sticky / cementitious soiling",
+          "glyde": "Dual-pass excels on mixed dry and adhesive dust layers",
+          "nyuma": "Ideal for dry desert dust; schedule extra cycles if cementitious soiling is heavy"
+        },
+        "3": {
+          "factor": "Consumable profile",
+          "glyde": "Self-cleaning microfiber drum with extended service intervals",
+          "nyuma": "UV-stable PBT brush with field-replaceable bristle cartridges"
+        },
+        "4": {
+          "factor": "Range per charge",
+          "glyde": "Up to 2.2 km (~3,600 modules)",
+          "nyuma": "Up to 2.2 km (~3,600 modules)"
+        },
+        "5": {
+          "factor": "Typical deployments",
+          "glyde": "Bachau DVC-scale automatic-first fixed-tilt fleets",
+          "nyuma": "Akhadana-scale and mixed-fleet PBT automatic programmes"
+        },
+        "6": {
+          "factor": "Labour after install",
+          "glyde": "Zero — fully autonomous daily cycles",
+          "nyuma": "Zero — fully autonomous daily cycles"
+        },
+        "7": {
+          "factor": "Fleet monitoring",
+          "glyde": "NECTYR via LTE, Wi-Fi, RF mesh, LoRa, or LoRaWAN",
+          "nyuma": "NECTYR via LTE, Wi-Fi, RF mesh, LoRa, or LoRaWAN"
+        }
+      },
+      "faq": {
+        "0": {
+          "q": "Can GLYDE and NYUMA run in the same plant?",
+          "a": "Yes. Mixed fleets are common — GLYDE on high-soiling blocks, NYUMA on PBT-specified rows. NECTYR schedules both from one portal."
+        },
+        "1": {
+          "q": "Which robot is better for Rajasthan dust?",
+          "a": "Both handle dry desert dust. Choose GLYDE when adhesive or mixed layers need dual-pass lift; choose NYUMA when PBT capex and brush service economics dominate the RFQ."
+        }
+      }
+    },
+    "glydeXVsNyumaX": {
+      "meta": {
+        "title": "GLYDE-X vs NYUMA-X — Single-Axis Tracker Cleaning Robots",
+        "description": "Compare Taypro GLYDE-X dual-pass and NYUMA-X single-pass PBT tracker robots: cleaning mechanism, NEXTracker compatibility, inter-table flex, weight, range, and NECTYR scheduling."
+      },
+      "hero": {
+        "eyebrow": "Tracker robot comparison",
+        "title": "GLYDE-X vs NYUMA-X: Which tracker robot should you specify?",
+        "lead": "Both robots traverse NEXTracker, Gamechanger, and equivalent single-axis tables with ±15° inter-table flex. GLYDE-X uses patented dual-pass microfiber; NYUMA-X uses single-pass PBT for capex-sensitive tracker programmes."
+      },
+      "intro": "Tracker O&M teams specify GLYDE-X when premium dust lift per night cycle matters; NYUMA-X fits large tracker fleets prioritising PBT capex and brush service economics. Both share NECTYR fleet telemetry.",
+      "tableHeading": "GLYDE-X vs NYUMA-X at a glance",
+      "columns": {
+        "leftLabel": "GLYDE-X (Dual-Pass)",
+        "rightLabel": "NYUMA-X (Single-Pass PBT)"
+      },
+      "rows": {
+        "0": {
+          "factor": "Cleaning mechanism",
+          "glydeX": "Dual-pass microfiber — airflow plus wipe for mixed soiling",
+          "nyumaX": "Single-pass PBT brush — optimised for dry tracker dust belts"
+        },
+        "1": {
+          "factor": "Tracker compatibility",
+          "glydeX": "NEXTracker, Gamechanger, -52° to +52° module tilt",
+          "nyumaX": "NEXTracker, Gamechanger, -52° to +52° module tilt"
+        },
+        "2": {
+          "factor": "Inter-table flex",
+          "glydeX": "±15° body articulation with validated bridge kits",
+          "nyumaX": "±15° body articulation with validated bridge kits"
+        },
+        "3": {
+          "factor": "Operating weight",
+          "glydeX": "25 kg compact tracker chassis",
+          "nyumaX": "25 kg compact tracker chassis"
+        },
+        "4": {
+          "factor": "Range per charge",
+          "glydeX": "Up to 2.2 km (~3,600 modules)",
+          "nyumaX": "Up to 2.2 km (~3,600 modules)"
+        },
+        "5": {
+          "factor": "When owners choose it",
+          "glydeX": "Premium tracker rows needing maximum dust lift per night cycle",
+          "nyumaX": "Large tracker fleets prioritising PBT capex and brush service economics"
+        },
+        "6": {
+          "factor": "Autonomy & scheduling",
+          "glydeX": "Fully autonomous, AI weather-aware scheduling via NECTYR",
+          "nyumaX": "Fully autonomous, AI weather-aware scheduling via NECTYR"
+        },
+        "7": {
+          "factor": "Fixed-tilt alternative",
+          "glydeX": "See GLYDE for fixed-tilt dual-pass cleaning",
+          "nyumaX": "See NYUMA for fixed-tilt PBT cleaning"
+        }
+      },
+      "faq": {
+        "0": {
+          "q": "Do GLYDE-X and NYUMA-X need arrays parked flat?",
+          "a": "No. Both clean from -52° to +52° module tilt and run after production hours with tracker-aware routing in NECTYR."
+        },
+        "1": {
+          "q": "Which tracker robot matches fixed-tilt GLYDE or NYUMA?",
+          "a": "GLYDE-X extends dual-pass microfiber to trackers; NYUMA-X extends the PBT single-pass platform. Compare fixed-tilt options on our GLYDE vs NYUMA guide."
+        }
+      }
     }
   }
 }

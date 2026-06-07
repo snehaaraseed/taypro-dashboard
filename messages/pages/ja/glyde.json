@@ -1,31 +1,13 @@
 {
   "GlydePage": {
     "meta": {
-      "title": "デュアルパス自動ソーラーパネル清掃ロボット, Taypro GLYDE（無水・AI）",
-      "description": "Taypro GLYDEは完全自律・無水の自動ソーラーパネル清掃ロボットです。AI/MLデュアルパス乾式清掃でサイクルあたり99%超のホコリ除去、1充電で最大3,600モジュール、NECTYR経由のLTE/Wi-Fi/RF mesh/LoRa/LoRaWAN、TÜV NORD認証。",
-      "keywords": [
-        "自動ソーラーパネル洗浄ロボット",
-        "自動ソーラーパネル洗浄ロボット インド",
-        "自動ソーラーパネル洗浄ロボット メーカー",
-        "自動ソーラーパネル洗浄ロボット 価格",
-        "自動ソーラーパネル洗浄ロボット コスト",
-        "自動ソーラーパネル洗浄ロボット 購入",
-        "最高の自動ソーラーパネル洗浄ロボット",
-        "自動ソーラーパネル洗浄システム",
-        "完全自動ソーラーパネル洗浄ロボット",
-        "自律型ソーラーパネル洗浄ロボット",
-        "水なし自動ソーラーパネル洗浄ロボット",
-        "デュアルパス自動ソーラー洗浄ロボット",
-        "固定傾斜自動ソーラー洗浄ロボット",
-        "AI自動ソーラーパネル洗浄ロボット",
-        "TÜV NORD認証ソーラー洗浄ロボット",
-        "Taypro GLYDE"
-      ],
-      "openGraphTitle": "デュアルパス自動清掃ロボット, Taypro GLYDE",
+      "title": "自動ソーラーパネル洗浄ロボット | GLYDE",
+      "description": "大規模向け水なしデュアルパスGLYDE。99%+除塵、TÜV NORD認証、全国サポート。見積もりを依頼。",
+      "openGraphTitle": "自動ソーラーパネル洗浄ロボット | GLYDE",
       "openGraphDescription": "特許デュアルパスマイクロファイバー。自律無水清掃、NECTYRフリートポータル。",
       "openGraphType": "website",
       "openGraphImageAlt": "Taypro GLYDE 自動ソーラーパネル清掃ロボット",
-      "twitterTitle": "デュアルパス自動清掃ロボット, Taypro GLYDE",
+      "twitterTitle": "自動ソーラーパネル洗浄ロボット | GLYDE",
       "twitterDescription": "GLYDE：自律無水デュアルパス、1充電3,600モジュール、NECTYR。",
       "twitterCard": "summary_large_image"
     },
@@ -92,7 +74,7 @@
       "p2BeforeStrong": "1充電でGLYDEは最大 ",
       "p2Strong": "2.2 kmの走行長、約3,600ソーラーモジュール",
       "p2AfterStrong": " を清掃。清掃サイクルは発電時間外にスケジュールするのが最適で、NECTYRから遠隔プログラム可能、発電への影響ゼロ。",
-      "p3": "高度なエッジ・障害物検知によりGLYDEは安全にパネルを走行。表面うねり追従で行ごとにモーター性能を調整し清掃品質を維持。リアルタイムバッテリー監視で完了可能な距離のみ走行しドックへ安全復帰。軽量ブリッジでテーブル間を途切れなくカバー。",
+      "p3": "GLYDEの特許デュアルパスは高速気流とセルフクリーニングマイクロファイバードラムを組み合わせ、第1パスで乾燥塵を浮かせ第2パスで水なし拭き上げ。エッジ・障害物検知でパネル境界をマップし、表面うねり追従で列ごとにブラシ圧を一定に。バッテリー連動ロジックで割当アレイ完了後に自己ドック — 180 km/hr gusts対応。",
       "p4Blog1": "モジュール上で自動清掃ロボットがどう動くか",
       "p4Blog2": "ユーティリティ規模でのロボット清掃のメリット",
       "p4Prefix": "関連記事: ",
@@ -252,7 +234,7 @@
         "bodyBoldMesh": "自己修復RFメッシュ",
         "bodyAfterMesh": "、または",
         "bodyBoldLoRa": "LoRa / LoRaWAN",
-        "bodyAfterLoRa": ", NECTYRでフリート管理とドックテレメトリ。"
+        "bodyAfterLoRa": " で遠隔ブロック向け低電力長距離リンクに対応。NECTYRからデュアルパススケジュール、FW更新、監査 — ドックテレメトリで充電・ブラシ摩耗・故障コードをリアルタイム表示。"
       },
       "edge": {
         "title": "エッジ・障害物検知",
@@ -451,7 +433,9 @@
           "spec": "重量",
           "details": "45 kg"
         }
-      }
+      },
+      "datasheetCta": "Request full datasheet",
+      "datasheetCtaTopic": "GLYDE datasheet request"
     },
     "advantagesSection": {
       "heading": "自動清掃ロボットの利点",
@@ -575,6 +559,59 @@
         "glydeX": "GLYDE-X"
       },
       "cardTitleTemplate": "{label} ソーラーパネル清掃ロボット"
+    },
+    "glydeVsNyuma": {
+      "eyebrow": "最適なTayproロボットの選び方",
+      "title": "GLYDE vs NYUMA：固定式プラントに合う自動ロボットは？",
+      "subtitle": "両ロボットとも完全自律・無水で、NECTYRから管理します。GLYDEはTaypro特許のデュアルパスマイクロファイバーフラッグシップ、NYUMAはCAPEX効率の良い固定式フリート向けPBTシングルパスプラットフォームです。",
+      "criterion": "比較項目",
+      "glydeHeader": "GLYDE（デュアルパス・マイクロファイバー）",
+      "nyumaHeader": "NYUMA（シングルパスPBT）",
+      "row0": {
+        "criterion": "清掃技術",
+        "glyde": "特許デュアルパス：気流で塵を浮かせ、マイクロファイバーで拭き上げ",
+        "nyuma": "シングルパス逆回転PBTブラシドラム — 消耗品が少ない"
+      },
+      "row1": {
+        "criterion": "最適な用途",
+        "glyde": "サイクルあたり最大の除塵が優先される固定式フラッグシップ列",
+        "nyuma": "PBTのCAPEXとブラシ経済性がRFQで勝つ反復固定式ブロック"
+      },
+      "row2": {
+        "criterion": "付着性／セメント系汚れ",
+        "glyde": "乾燥と付着性の混合層でデュアルパスが優位",
+        "nyuma": "乾燥砂漠塵に最適；セメント系汚れが強い場合は追加サイクル"
+      },
+      "row3": {
+        "criterion": "消耗品プロファイル",
+        "glyde": "セルフクリーニングマイクロファイバードラム、長い保守間隔",
+        "nyuma": "UV安定PBTブラシ、現場交換可能なブラシカートリッジ"
+      },
+      "row4": {
+        "criterion": "1充電あたりの走行",
+        "glyde": "最大2.2 km（約3,600モジュール）",
+        "nyuma": "最大2.2 km（約3,600モジュール）"
+      },
+      "row5": {
+        "criterion": "代表的な導入例",
+        "glyde": "Bachau DVC規模の自動優先固定式フリート",
+        "nyuma": "Akhadana規模および混合PBT自動プログラム"
+      },
+      "row6": {
+        "criterion": "設置後の人員",
+        "glyde": "ゼロ — 完全自律の日次サイクル",
+        "nyuma": "ゼロ — 完全自律の日次サイクル"
+      },
+      "row7": {
+        "criterion": "フリート監視",
+        "glyde": "NECTYR（LTE / Wi-Fi / RF mesh / LoRa / LoRaWAN）",
+        "nyuma": "NECTYR（LTE / Wi-Fi / RF mesh / LoRa / LoRaWAN）"
+      },
+      "crossSellLead": "分散ブロック向けpick-and-placeは ",
+      "linkHelyx": "HELYX",
+      "crossSellMid": " を参照。単軸トラッカーは ",
+      "linkTracker": "GLYDE-XとNYUMA-X",
+      "crossSellSuffix": " を比較。"
     }
   },
   "Common": {

@@ -7,7 +7,17 @@ export const BLOG_PILLAR_LINK_PATHS = [
   "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
   "/solar-panel-cleaning-system/solar-panel-cleaning-service",
   "/solar-panel-cleaning-robot-price-calculator",
+  "/solar-panel-cleaning-robot-price-india",
   "/cleaning-technology",
+  "/compare/taypro-vs-solabot",
+  "/compare/taypro-vs-indian-solar-cleaning-robot-companies",
+  "/compare/solar-panel-cleaning-robot-vs-manual-cleaning",
+  "/compare/waterless-vs-water-based-solar-cleaning",
+  "/solar-panel-cleaning-robot-rajasthan",
+  "/solar-panel-cleaning-robot-gujarat",
+  "/solar-panel-cleaning-robot-karnataka",
+  "/solar-panel-cleaning-robot-maharashtra",
+  "/solar-panel-cleaning-machine",
 ] as const;
 
 /** @deprecated use MIN_INTERNAL_LINKS — kept for tests/docs */

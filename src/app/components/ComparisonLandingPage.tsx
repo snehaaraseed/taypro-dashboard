@@ -12,6 +12,10 @@ import {
 
 const BASIC_ROW_KEYS = ["0", "1", "2", "3", "4", "5"] as const;
 
+const PRODUCT_ROW_KEYS = [
+  "0", "1", "2", "3", "4", "5", "6", "7",
+] as const;
+
 const VENDOR_ROW_KEYS = [
   "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
   "10", "11", "12", "13", "14", "15", "16", "17",
@@ -25,6 +29,8 @@ const ROW_KEYS_BY_PAGE: Record<ComparisonPageId, readonly string[]> = {
   tayproVsAegeus: VENDOR_ROW_KEYS,
   tayproVsVayu: VENDOR_ROW_KEYS,
   waterlessVsWater: BASIC_ROW_KEYS,
+  glydeVsNyuma: PRODUCT_ROW_KEYS,
+  glydeXVsNyumaX: PRODUCT_ROW_KEYS,
 };
 
 const VENDOR_PAGE_IDS: ComparisonPageId[] = [
@@ -86,6 +92,18 @@ const COLUMN_KEYS: Record<ComparisonPageId, ColumnKeys> = {
     leftLabel: "Waterless robotic",
     rightLabel: "Water-based",
   },
+  glydeVsNyuma: {
+    left: "glyde",
+    right: "nyuma",
+    leftLabel: "GLYDE (Dual-Pass Microfiber)",
+    rightLabel: "NYUMA (Single-Pass PBT)",
+  },
+  glydeXVsNyumaX: {
+    left: "glydeX",
+    right: "nyumaX",
+    leftLabel: "GLYDE-X (Dual-Pass)",
+    rightLabel: "NYUMA-X (Single-Pass PBT)",
+  },
 };
 
 type ComparisonLandingPageProps = {
@@ -103,6 +121,14 @@ export default async function ComparisonLandingPage({
   const columns = COLUMN_KEYS[pageId];
   const rowKeys = ROW_KEYS_BY_PAGE[pageId];
   const isVendorPage = VENDOR_PAGE_IDS.includes(pageId);
+  const isProductCompare =
+    pageId === "glydeVsNyuma" || pageId === "glydeXVsNyumaX";
+  const leftHeader = isProductCompare
+    ? t(`${ns}.columns.leftLabel`)
+    : columns.leftLabel;
+  const rightHeader = isProductCompare
+    ? t(`${ns}.columns.rightLabel`)
+    : columns.rightLabel;
   const faqKeys = isVendorPage ? (["0", "1", "2"] as const) : (["0", "1"] as const);
 
   const faqs = faqKeys.map((key) => ({
@@ -166,9 +192,9 @@ export default async function ComparisonLandingPage({
                 <tr>
                   <th className="px-4 py-3 font-semibold">Factor</th>
                   <th className="px-4 py-3 font-semibold bg-[#e8efd4]">
-                    {columns.leftLabel}
+                    {leftHeader}
                   </th>
-                  <th className="px-4 py-3 font-semibold">{columns.rightLabel}</th>
+                  <th className="px-4 py-3 font-semibold">{rightHeader}</th>
                 </tr>
               </thead>
               <tbody>

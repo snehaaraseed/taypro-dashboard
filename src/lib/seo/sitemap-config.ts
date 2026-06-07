@@ -135,6 +135,12 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
     priority: 0.85,
   },
   { path: "/cleaning-technology", changeFrequency: "monthly", priority: 0.8 },
+  {
+    path: "/solar-panel-cleaning-machine",
+    changeFrequency: "monthly",
+    priority: 0.82,
+  },
+  { path: "/press", changeFrequency: "monthly", priority: 0.6 },
   { path: "/projects/automatic", changeFrequency: "monthly", priority: 0.8 },
   { path: "/projects/semi-automatic", changeFrequency: "monthly", priority: 0.8 },
   { path: "/projects/capex", changeFrequency: "monthly", priority: 0.8 },
@@ -182,6 +188,16 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
     path: "/compare/waterless-vs-water-based-solar-cleaning",
     changeFrequency: "monthly",
     priority: 0.75,
+  },
+  {
+    path: "/compare/glyde-vs-nyuma",
+    changeFrequency: "monthly",
+    priority: 0.78,
+  },
+  {
+    path: "/compare/glyde-x-vs-nyuma-x",
+    changeFrequency: "monthly",
+    priority: 0.78,
   },
 ];
 

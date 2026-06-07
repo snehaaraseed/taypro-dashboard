@@ -13,26 +13,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "BlogPage.meta" });
 
-  const keywords = [
-    t("keyword0"),
-    t("keyword1"),
-    t("keyword2"),
-    t("keyword3"),
-    t("keyword4"),
-    t("keyword5"),
-    t("keyword6"),
-    t("keyword7"),
-    t("keyword8"),
-    t("keyword9"),
-  ];
-
   return withHreflang(BLOG_PATH, locale, {
     title: {
       template: "%s",
       default: t("title"),
     },
     description: t("description"),
-    keywords,
     openGraph: {
       title: t("openGraphTitle"),
       description: t("openGraphDescription"),

@@ -83,6 +83,7 @@ const EXPLORE_LINKS = [
   { labelKey: "explore.link2", href: "/cleaning-technology" },
   { labelKey: "explore.link3", href: "/solar-panel-cleaning-system" },
   { labelKey: "explore.link4", href: "/contact" },
+  { labelKey: "explore.link5", href: "/press" },
 ] as const;
 
 export default function AboutUsPage() {

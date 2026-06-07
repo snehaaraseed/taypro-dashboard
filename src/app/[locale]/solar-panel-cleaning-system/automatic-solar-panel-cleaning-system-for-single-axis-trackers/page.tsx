@@ -93,6 +93,7 @@ const GLYDE_X_VS_GLYDE_ROW_KEYS = [
   "row6",
   "row7",
 ] as const;
+const GLYDE_X_VS_NYUMA_X_ROW_KEYS = GLYDE_X_VS_GLYDE_ROW_KEYS;
 const CERT_CARD_KEYS = ["card0", "card1", "card2"] as const;
 const SERVICE_CARD_KEYS = ["card0", "card1", "card2"] as const;
 const INDIAN_CARD_KEYS = ["card0", "card1", "card2", "card3"] as const;
@@ -161,6 +162,12 @@ export default async function GlydeXPage({
       key === "row7"
         ? t(`glydeXVsGlyde.${key}.glyde`, { connectivity })
         : t(`glydeXVsGlyde.${key}.glyde`),
+  }));
+
+  const glydeXVsNyumaXRows = GLYDE_X_VS_NYUMA_X_ROW_KEYS.map((key) => ({
+    criterion: t(`glydeXVsNyumaX.${key}.criterion`),
+    glydeX: t(`glydeXVsNyumaX.${key}.glydeX`),
+    nyumaX: t(`glydeXVsNyumaX.${key}.nyumaX`),
   }));
 
   const certificationCards = CERT_CARD_KEYS.map((key) => ({
@@ -802,6 +809,78 @@ export default async function GlydeXPage({
                   {t("glydeXVsGlyde.linkOpex")}
                 </Link>
                 {t("glydeXVsGlyde.crossSellSuffix")}
+              </div>
+            </AnimateOnScroll>
+          </Container>
+        </section>
+
+        <section className="w-full bg-[#f4f1e9] py-20">
+          <Container>
+            <AnimateOnScroll
+              animation="fadeInUp"
+              className="text-center mb-10 sm:mb-14"
+            >
+              <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
+                {t("glydeXVsNyumaX.eyebrow")}
+              </div>
+              <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight">
+                {t("glydeXVsNyumaX.title")}
+              </h2>
+              <div className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mt-6">
+                {t("glydeXVsNyumaX.subtitle")}
+              </div>
+            </AnimateOnScroll>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border border-gray-200 text-sm sm:text-base bg-white">
+                <thead>
+                  <tr className="bg-white">
+                    <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#052638]">
+                      {t("glydeXVsNyumaX.criterion")}
+                    </th>
+                    <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#A8C117]">
+                      {t("glydeXVsNyumaX.glydeXHeader")}
+                    </th>
+                    <th className="py-4 px-4 sm:px-6 font-semibold text-base md:text-lg text-[#052638]">
+                      {t("glydeXVsNyumaX.nyumaXHeader")}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="text-[#052638]">
+                  {glydeXVsNyumaXRows.map((row) => (
+                    <tr key={row.criterion}>
+                      <td className="py-3 px-4 sm:px-6 border-t text-base font-medium align-top">
+                        {row.criterion}
+                      </td>
+                      <td className="py-3 px-4 sm:px-6 border-t text-base align-top">
+                        {row.glydeX}
+                      </td>
+                      <td className="py-3 px-4 sm:px-6 border-t text-base text-gray-600 align-top">
+                        {row.nyumaX}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <AnimateOnScroll animation="fadeInUp" className="text-center mt-10">
+              <div className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto">
+                {t("glydeXVsNyumaX.crossSellLead")}
+                <Link
+                  href="/compare/glyde-vs-nyuma"
+                  className="text-[#A8C117] hover:underline"
+                >
+                  {t("glydeXVsNyumaX.linkGlyde")}
+                </Link>
+                {t("glydeXVsNyumaX.crossSellMid")}
+                <Link
+                  href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
+                  className="text-[#A8C117] hover:underline"
+                >
+                  {t("glydeXVsNyumaX.linkHelyx")}
+                </Link>
+                {t("glydeXVsNyumaX.crossSellSuffix")}
               </div>
             </AnimateOnScroll>
           </Container>

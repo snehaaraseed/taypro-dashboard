@@ -1,28 +1,11 @@
 {
   "HelyxPage": {
     "meta": {
-      "title": "Semi-Automatic Solar Panel Cleaning Robot, Taypro HELYX (Pick-and-Place)",
-      "description": "Taypro HELYX is a 39 kg pick-and-place, semi-automatic Solar Panel Cleaning Robot. Counter-rotating PBT brushes remove 99%+ dust in a single waterless pass, clean a 1 MW plant in under 2 hours, run up to 3 km on a single charge, TÜV NORD certified, built for fixed-tilt and seasonal-tilt plants.",
+      "title": "Semi-Automatic Solar Panel Cleaning Robot | HELYX",
+      "description": "39 kg pick-and-place HELYX for fixed-tilt plants. Waterless PBT, 99%+ dust per pass, TÜV NORD certified. Request a quote.",
       "openGraphDescription": "Pick-and-place Solar Panel Cleaning Robot. 39 kg, waterless, dual counter-rotating PBT brushes, 99%+ dust removal in a single pass, 3 km per charge, TÜV NORD certified.",
       "openGraphImageAlt": "Taypro Semi-Automatic Solar Panel Cleaning Robot HELYX, Pick-and-place type, waterless",
-      "twitterDescription": "39 kg pick-and-place Solar Panel Cleaning Robot. Waterless, dual counter-rotating PBT brushes, 99%+ dust removal per pass, TÜV NORD certified.",
-      "keywords": [
-        "semi-automatic solar panel cleaning robot",
-        "semi automatic solar panel cleaning robot",
-        "pick and place solar cleaning robot",
-        "lift and shift solar cleaning robot",
-        "portable solar panel cleaning robot",
-        "manual deployment solar cleaning robot",
-        "rooftop solar cleaning robot",
-        "fixed tilt solar panel cleaning",
-        "seasonal tilt solar panel cleaning",
-        "PBT brush solar cleaning robot",
-        "counter-rotating brush solar cleaning",
-        "dry solar panel cleaning robot",
-        "utility scale solar panel cleaning robot",
-        "Taypro HELYX",
-        "Taypro Loop"
-      ]
+      "twitterDescription": "39 kg pick-and-place Solar Panel Cleaning Robot. Waterless, dual counter-rotating PBT brushes, 99%+ dust removal per pass, TÜV NORD certified."
     },
     "breadcrumbs": {
       "robots": "Solar Panel Cleaning Robots",
@@ -360,7 +343,9 @@
       "titleLine1": "Semi-Automatic Solar Panel Cleaning Robot",
       "titleLine2": "HELYX Specifications",
       "specHeader": "Specification",
-      "valueHeader": "Value"
+      "valueHeader": "Value",
+      "datasheetCta": "Request full datasheet",
+      "datasheetCtaTopic": "HELYX datasheet request"
     },
     "manualVsRobotic": {
       "eyebrow": "Robotic vs Manual Solar Cleaning",

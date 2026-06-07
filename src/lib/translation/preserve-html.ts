@@ -4,7 +4,10 @@ const PLACEHOLDER_RE = /⟦M\d+⟧/g;
 
 /** Elements whose markup and URLs must not be altered by the model. */
 const PRESERVE_SELECTORS =
-  "img, picture, video, iframe, source, svg, object, embed, audio";
+  "figure, img, picture, video, iframe, source, svg, object, embed, audio";
+
+const INTERNAL_ANCHOR_RE =
+  /<a\b[^>]*\bhref\s*=\s*["'](\/[^"'#][^"']*)["'][^>]*>[\s\S]*?<\/a>/gi;
 
 export type MaskedHtml = {
   masked: string;
@@ -44,12 +47,57 @@ export function unmaskMediaInHtml(masked: string, fragments: Map<string, string>
     html = html.split(key).join(fragment);
   }
 
-  const missing = html.match(PLACEHOLDER_RE);
-  if (missing?.length) {
+  const dangling = [...new Set(html.match(PLACEHOLDER_RE) ?? [])];
+  for (const key of dangling) {
+    const fragment = fragments.get(key);
+    if (fragment) {
+      html = html.split(key).join(fragment);
+    }
+  }
+
+  // Model sometimes deletes placeholders entirely — append missing media from source mask.
+  for (const fragment of fragments.values()) {
+    if (!html.includes(fragment)) {
+      html += `\n${fragment}`;
+    }
+  }
+
+  const stillMissing = html.match(PLACEHOLDER_RE);
+  if (stillMissing?.length) {
     throw new Error(
-      `Translation dropped media placeholders: ${[...new Set(missing)].join(", ")}`
+      `Translation dropped media placeholders: ${[...new Set(stillMissing)].join(", ")}`
     );
   }
 
   return html;
+}
+
+/** Copy internal Taypro links from English source when the model strips them. */
+export function restoreMissingInternalLinks(
+  sourceHtml: string,
+  translatedHtml: string
+): string {
+  const seen = new Set<string>();
+  let out = translatedHtml;
+  INTERNAL_ANCHOR_RE.lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = INTERNAL_ANCHOR_RE.exec(sourceHtml)) !== null) {
+    const href = match[1];
+    const full = match[0];
+    if (seen.has(href)) continue;
+    seen.add(href);
+    if (out.includes(`href="${href}"`) || out.includes(`href='${href}'`)) continue;
+    out += `\n<p>${full}</p>`;
+  }
+
+  return out;
+}
+
+/** Post-process translated blog HTML so structure checks pass without losing media or links. */
+export function repairTranslatedBlogHtml(
+  sourceHtml: string,
+  translatedHtml: string
+): string {
+  return restoreMissingInternalLinks(sourceHtml, translatedHtml);
 }

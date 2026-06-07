@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Runs during 9:00–15:00 IST window (cron every 5 min). Picks one random minute per day,
-# then POSTs generate-blog once (max 1 published post/day via BLOG_AUTOMATION_MIN_DAYS=1).
+# then POSTs generate-blog once (max 1 published post per IST calendar day).
 set -euo pipefail
 
 ROOT="${TAYPRO_APP_ROOT:-/var/www/taypro-dashboard}"
@@ -29,7 +29,7 @@ DAY=$(date +%Y%m%d)
 SLOT_FILE="$RUNTIME_DIR/target-$DAY.epoch"
 DONE_FILE="$RUNTIME_DIR/done-$DAY"
 FAIL_POSTS_FILE="$RUNTIME_DIR/fail-posts-$DAY"
-MAX_FAIL_POSTS="${BLOG_CRON_MAX_FAIL_POSTS:-1}"
+MAX_FAIL_POSTS="${BLOG_CRON_MAX_FAIL_POSTS:-2}"
 
 if [ -f "$DONE_FILE" ]; then
   exit 0
@@ -77,7 +77,7 @@ if [ "$FAIL_POSTS" -ge "$MAX_FAIL_POSTS" ]; then
   exit 0
 fi
 
-# Already generated today (1/day cap)?
+# Already published today (IST calendar day)?
 SCHEDULE_JSON=$(curl -sS -m 30 -G "$API_BASE/api/automation/generate-blog" \
   -H "$AUTH_HEADER" || echo "{}")
 if node -e "
@@ -93,7 +93,7 @@ if node -e "
       process.stdout.write('n/a');
     }
   " "$SCHEDULE_JSON" 2>/dev/null || echo "n/a")
-  echo "$(date -Is) skip: cadence cap (canGenerate=false, last=$LAST_RUN)" >> "$LOG"
+  echo "$(date -Is) skip: already published today IST (last=$LAST_RUN)" >> "$LOG"
   touch "$DONE_FILE"
   exit 0
 fi

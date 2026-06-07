@@ -159,12 +159,82 @@ export async function addPublishedTopic(
 }
 
 const MS_PER_DAY = 86_400_000;
+const BLOG_AUTOMATION_TZ =
+  process.env.BLOG_CRON_TZ?.trim() || "Asia/Kolkata";
+/** Cron writer window start (local TZ); used for nextEligibleAt only. */
+const BLOG_CRON_WINDOW_START_HOUR = 9;
 
-/** Minimum days between automated drafts (default 1 = at most one draft per day). */
+export function getBlogAutomationTimezone(): string {
+  return BLOG_AUTOMATION_TZ;
+}
+
+/** Minimum calendar days between automated drafts (default 1 = at most one per IST day). */
 export function getBlogAutomationMinDays(): number {
   const raw = process.env.BLOG_AUTOMATION_MIN_DAYS?.trim();
   const parsed = raw ? Number.parseInt(raw, 10) : 1;
   return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
+}
+
+function ymdInAutomationTz(isoOrDate: string | Date): string {
+  const date = typeof isoOrDate === "string" ? new Date(isoOrDate) : isoOrDate;
+  return date.toLocaleDateString("en-CA", { timeZone: BLOG_AUTOMATION_TZ });
+}
+
+function addCalendarDaysYmd(ymd: string, days: number): string {
+  const [y, m, d] = ymd.split("-").map(Number);
+  return new Date(Date.UTC(y, m - 1, d + days)).toISOString().slice(0, 10);
+}
+
+function calendarDaysBetweenYmd(fromYmd: string, toYmd: string): number {
+  const [fy, fm, fd] = fromYmd.split("-").map(Number);
+  const [ty, tm, td] = toYmd.split("-").map(Number);
+  const fromMs = Date.UTC(fy, fm - 1, fd);
+  const toMs = Date.UTC(ty, tm - 1, td);
+  return Math.round((toMs - fromMs) / MS_PER_DAY);
+}
+
+/** Next cron-window start (09:00 automation TZ) on the given YYYY-MM-DD. */
+function cronWindowStartIso(ymd: string): string {
+  const [year, month, day] = ymd.split("-").map(Number);
+  let t = Date.UTC(year, month - 1, day, BLOG_CRON_WINDOW_START_HOUR, 0, 0);
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    timeZone: BLOG_AUTOMATION_TZ,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23",
+  });
+
+  for (let i = 0; i < 24; i++) {
+    const parts = Object.fromEntries(
+      formatter.formatToParts(new Date(t)).map((p) => [p.type, p.value])
+    ) as Record<string, string>;
+    const gotYmd = `${parts.year}-${parts.month}-${parts.day}`;
+    const gotH = Number(parts.hour);
+    const gotM = Number(parts.minute);
+    if (
+      gotYmd === ymd &&
+      gotH === BLOG_CRON_WINDOW_START_HOUR &&
+      gotM === 0
+    ) {
+      return new Date(t).toISOString();
+    }
+    t +=
+      Date.UTC(year, month - 1, day, BLOG_CRON_WINDOW_START_HOUR, 0, 0) -
+      Date.UTC(
+        Number(parts.year),
+        Number(parts.month) - 1,
+        Number(parts.day),
+        gotH,
+        gotM,
+        0
+      );
+  }
+
+  return new Date(t).toISOString();
 }
 
 export type BlogAutomationSchedule = {
@@ -190,18 +260,20 @@ export async function getBlogAutomationSchedule(): Promise<BlogAutomationSchedul
   }
 
   const lastRunAt = topics[0].publishDate;
-  const lastDate = new Date(lastRunAt);
-  const daysSinceLastRun =
-    (Date.now() - lastDate.getTime()) / MS_PER_DAY;
-  const canGenerate = daysSinceLastRun >= minDaysBetween;
+  const todayYmd = ymdInAutomationTz(new Date());
+  const lastRunYmd = ymdInAutomationTz(lastRunAt);
+  const calendarDaysSinceLastRun = calendarDaysBetweenYmd(lastRunYmd, todayYmd);
+  const canGenerate = calendarDaysSinceLastRun >= minDaysBetween;
   const nextEligibleAt = canGenerate
     ? null
-    : new Date(lastDate.getTime() + minDaysBetween * MS_PER_DAY).toISOString();
+    : cronWindowStartIso(
+        addCalendarDaysYmd(lastRunYmd, minDaysBetween)
+      );
 
   return {
     canGenerate,
     minDaysBetween,
-    daysSinceLastRun: Math.round(daysSinceLastRun * 10) / 10,
+    daysSinceLastRun: calendarDaysSinceLastRun,
     lastRunAt,
     nextEligibleAt,
   };

@@ -41,7 +41,11 @@ import {
 import { pickCategoryForSeoBrief } from "@/lib/cms/blog-author-expertise";
 import { pickAuthorForBlogTopic } from "@/lib/cms/authorService";
 import { resolveAuthorExpertiseTags } from "@/lib/cms/blog-author-expertise";
-import { getBlogAutomationSchedule, addPublishedTopic } from "@/lib/topicTracker";
+import {
+  getBlogAutomationSchedule,
+  addPublishedTopic,
+  getBlogAutomationTimezone,
+} from "@/lib/topicTracker";
 import { createBlogFiles, createSlug } from "@/app/utils/blogFileUtils";
 import { isAutomationAuthorized } from "@/lib/security";
 import {
@@ -330,7 +334,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          message: `Daily blog cap reached (1 post per ${schedule.minDaysBetween} day(s)). Next eligible run: ${schedule.nextEligibleAt}. Use ?force=true to override.`,
+          message: `Daily blog cap reached (already published today, ${getBlogAutomationTimezone()} calendar). Next eligible run: ${schedule.nextEligibleAt}. Use ?force=true to override.`,
           schedule,
         },
         { status: 200 }
@@ -686,7 +690,7 @@ export async function POST(request: NextRequest) {
         }
 
         if (
-          failureKind === "new_contract" &&
+          (failureKind === "new_contract" || failureKind === "in_place") &&
           pipelineAttempt < MAX_PIPELINE_ATTEMPTS - 1
         ) {
           console.warn(
@@ -794,7 +798,7 @@ export async function GET(request: NextRequest) {
         : null,
       message: schedule.canGenerate
         ? "Ready to generate and publish a new post"
-        : `Wait until ${schedule.nextEligibleAt} (max 1 post/day). POST with ?force=true to override.`,
+        : `Already published today (${getBlogAutomationTimezone()} calendar). Next run: ${schedule.nextEligibleAt}. POST with ?force=true to override.`,
     });
   } catch (error) {
     console.error("Error in GET /api/automation/generate-blog:", error);

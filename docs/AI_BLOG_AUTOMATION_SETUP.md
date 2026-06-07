@@ -49,7 +49,7 @@ curl http://localhost:3000/api/automation/generate-blog
 
 ### Automated daily schedule (production)
 
-**Blog writer** — max **1 published post per day**, at a **random time between 9:00 AM and 3:00 PM IST**. Each run: picks an **SEO keyword** (`data/seo-blog-queue.json` first, then `data/seo-gsc-boost.json`, then scored CSV pool) → **category** matched to that keyword → **CMS author** best matched to keyword + category via **expertise tags** (set in `/admin/authors`, or inferred from role/bio) → Gemini proposes **5 titles** (code picks one unique) → writes the post in that author’s voice → **structure validation** (Quick answer H2, PAA H2, word count, FAQs, comparison tables) with up to **3 attempts** (retry uses outline pass + alternate **free** model ID) → (`published: true`).
+**Blog writer** — max **1 published post per IST calendar day**, at a **random time between 9:00 AM and 3:00 PM IST**. Yesterday’s publish time does not block today’s run. Each run: picks an **SEO keyword** (`data/seo-blog-queue.json` first, then `data/seo-gsc-boost.json`, then scored CSV pool) → **category** matched to that keyword → **CMS author** best matched to keyword + category via **expertise tags** (set in `/admin/authors`, or inferred from role/bio) → Gemini proposes **5 titles** (code picks one unique) → writes the post in that author’s voice → **structure validation** (Quick answer H2, PAA H2, word count, FAQs, comparison tables) with up to **3 attempts** (retry uses outline pass + alternate **free** model ID) → (`published: true`).
 
 **Word-count tiers** (automation; leave `BLOG_MIN_WORD_COUNT` unset on prod):
 
@@ -67,7 +67,7 @@ Tier is resolved from editorial `angleId`, GSC volume/competition, and keyword p
 
 **GSC closed loop (recommended):** Weekly `POST /api/automation/sync-gsc` pulls Search Console query data and refreshes `data/seo-gsc-boost.json` + `data/gsc-latest-report.json`. Setup: `docs/GSC_API_CLOSED_LOOP.md`. On production after deploy: `npm run ops:install-gsc-cron` (or `bash scripts/install-gsc-sync-cron.sh`). Logs: `logs/gsc-sync.log`. Manual fallback: paste queries into `seo-gsc-boost.json` `keywords` array.
 
-**Translations** — run in the **evening** (after the writer window), up to 10 published blogs (hi/ar/ja/bn). New posts are not translated immediately on publish.
+**Translations** — run in the **evening** (after the writer window), up to 10 published blogs (hi/ar/ja/bn). Queue prioritizes **newest English posts first** (by `publishDate`). English posts are already structure-validated at publish; locale copies only get light sanity checks (non-empty fields, FAQ count).
 
 Set in `.env.production`:
 
@@ -78,6 +78,16 @@ GEMINI_CALL_DELAY_MS=5000
 ```
 
 **Rate limits:** Blog and translations use `gemini-3.1-flash-lite` by default. After every Gemini `generateContent` call the app waits **`GEMINI_CALL_DELAY_MS`** (default **5 seconds**) to stay under free-tier **15 RPM**. Set `GEMINI_CALL_DELAY_MS=0` to disable. A full evening run (10 blogs × 4 locales × 2 calls ≈ 80 API calls) adds on the order of **~7–8 minutes** of delay-only wait, plus API time (~1.5–2 h total cron time is normal).
+
+**Blog writer retries (validation / Gemini quality):**
+
+| Env | Default | Purpose |
+|-----|---------|---------|
+| `BLOG_PIPELINE_MAX_OUTER_ATTEMPTS` | `3` | New topic/contract tries when validation or uniqueness rejects a draft (production should keep ≥3) |
+| `BLOG_PIPELINE_MAX_INPLACE_EXPANSIONS` | `4` | In-place expand/append passes when the draft is too short before validation |
+| `BLOG_CRON_MAX_FAIL_POSTS` | `2` | Failed cron POSTs before giving up for the day |
+
+Structure validation failures (too short, missing H2s/links) now trigger a **new outer attempt** with a different editorial contract — not a single fail-and-stop.
 
 **Server crontab (host clock is UTC; use explicit UTC offsets — `CRON_TZ` in user crontab is ignored on some Ubuntu images):**
 

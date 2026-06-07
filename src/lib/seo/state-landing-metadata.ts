@@ -20,14 +20,6 @@ export async function generateStateLandingMetadata(
   return withHreflang(config.path, locale, {
     title: t(`${stateId}.meta.title`),
     description: t(`${stateId}.meta.description`),
-    keywords: [
-      `solar panel cleaning robot ${config.addressRegion}`,
-      `solar cleaning robot ${config.addressRegion}`,
-      `solar panel cleaning robot India ${config.addressRegion}`,
-      "solar O&M robot",
-      "waterless solar panel cleaning robot",
-      "Taypro",
-    ],
     openGraph: {
       title: t(`${stateId}.meta.openGraphTitle`),
       description: t(`${stateId}.meta.openGraphDescription`),

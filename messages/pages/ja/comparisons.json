@@ -1,0 +1,142 @@
+{
+  "ComparisonsPage": {
+    "glydeVsNyuma": {
+      "meta": {
+        "title": "GLYDE vs NYUMA：固定式プラントに合う自動ロボットは？",
+        "description": "両ロボットとも完全自律・無水で、NECTYRから管理します。GLYDEはTaypro特許のデュアルパスマイクロファイバーフラッグシップ、NYUMAはCAPEX効率の良い固定式フリート向けPBTシングルパスプラットフォームです。"
+      },
+      "hero": {
+        "eyebrow": "最適なTayproロボットの選び方",
+        "title": "GLYDE vs NYUMA：固定式プラントに合う自動ロボットは？",
+        "lead": "両ロボットとも完全自律・無水で、NECTYRから管理します。GLYDEはTaypro特許のデュアルパスマイクロファイバーフラッグシップ、NYUMAはCAPEX効率の良い固定式フリート向けPBTシングルパスプラットフォームです。"
+      },
+      "intro": "両ロボットとも完全自律・無水で、NECTYRから管理します。GLYDEはTaypro特許のデュアルパスマイクロファイバーフラッグシップ、NYUMAはCAPEX効率の良い固定式フリート向けPBTシングルパスプラットフォームです。",
+      "tableHeading": "GLYDE vs NYUMA — 一覧",
+      "columns": {
+        "leftLabel": "GLYDE（デュアルパス・マイクロファイバー）",
+        "rightLabel": "NYUMA（シングルパスPBT）"
+      },
+      "rows": {
+        "0": {
+          "factor": "清掃技術",
+          "glyde": "特許デュアルパス：気流で塵を浮かせ、マイクロファイバーで拭き上げ",
+          "nyuma": "シングルパス逆回転PBTブラシドラム — 消耗品が少ない"
+        },
+        "1": {
+          "factor": "最適な用途",
+          "glyde": "サイクルあたり最大の除塵が優先される固定式フラッグシップ列",
+          "nyuma": "PBTのCAPEXとブラシ経済性がRFQで勝つ反復固定式ブロック"
+        },
+        "2": {
+          "factor": "付着性／セメント系汚れ",
+          "glyde": "乾燥と付着性の混合層でデュアルパスが優位",
+          "nyuma": "乾燥砂漠塵に最適；セメント系汚れが強い場合は追加サイクル"
+        },
+        "3": {
+          "factor": "消耗品プロファイル",
+          "glyde": "セルフクリーニングマイクロファイバードラム、長い保守間隔",
+          "nyuma": "UV安定PBTブラシ、現場交換可能なブラシカートリッジ"
+        },
+        "4": {
+          "factor": "1充電あたりの走行",
+          "glyde": "最大2.2 km（約3,600モジュール）",
+          "nyuma": "最大2.2 km（約3,600モジュール）"
+        },
+        "5": {
+          "factor": "代表的な導入例",
+          "glyde": "Bachau DVC規模の自動優先固定式フリート",
+          "nyuma": "Akhadana規模および混合PBT自動プログラム"
+        },
+        "6": {
+          "factor": "設置後の人員",
+          "glyde": "ゼロ — 完全自律の日次サイクル",
+          "nyuma": "ゼロ — 完全自律の日次サイクル"
+        },
+        "7": {
+          "factor": "フリート監視",
+          "glyde": "NECTYR（LTE / Wi-Fi / RF mesh / LoRa / LoRaWAN）",
+          "nyuma": "NECTYR（LTE / Wi-Fi / RF mesh / LoRa / LoRaWAN）"
+        }
+      },
+      "faq": {
+        "0": {
+          "q": "GLYDEとNYUMAを同一プラントで運用できますか？",
+          "a": "はい。混在フリートは一般的です。高汚染ブロックにGLYDE、PBT指定列にNYUMA。NECTYRが一つのポータルから両方をスケジュールします。"
+        },
+        "1": {
+          "q": "Rajasthanの塵にはどちらが向く？",
+          "a": "両方とも乾燥砂漠塵に対応。付着性・混合層ならGLYDE、PBTのCAPEX経済性が優先ならNYUMA。"
+        }
+      }
+    },
+    "glydeXVsNyumaX": {
+      "meta": {
+        "title": "GLYDE-X vs NYUMA-X：どのトラッカーロボットを指定する？",
+        "description": "両ロボットともNEXTracker、Gamechanger、同等の単軸テーブルをテーブル間±15°の可動で走行。GLYDE-Xは特許デュアルパスマイクロファイバー、NYUMA-XはCAPEX重視のトラッカープログラム向けシングルパスPBT。"
+      },
+      "hero": {
+        "eyebrow": "トラッカーロボット比較",
+        "title": "GLYDE-X vs NYUMA-X：どのトラッカーロボットを指定する？",
+        "lead": "両ロボットともNEXTracker、Gamechanger、同等の単軸テーブルをテーブル間±15°の可動で走行。GLYDE-Xは特許デュアルパスマイクロファイバー、NYUMA-XはCAPEX重視のトラッカープログラム向けシングルパスPBT。"
+      },
+      "intro": "両ロボットともNEXTracker、Gamechanger、同等の単軸テーブルをテーブル間±15°の可動で走行。GLYDE-Xは特許デュアルパスマイクロファイバー、NYUMA-XはCAPEX重視のトラッカープログラム向けシングルパスPBT。",
+      "tableHeading": "GLYDE-X vs NYUMA-X — 一覧",
+      "columns": {
+        "leftLabel": "GLYDE-X（デュアルパス）",
+        "rightLabel": "NYUMA-X（シングルパスPBT）"
+      },
+      "rows": {
+        "0": {
+          "factor": "清掃機構",
+          "glydeX": "デュアルパスマイクロファイバー — 混合汚れ向け気流＋拭き",
+          "nyumaX": "シングルパスPBTブラシ — 乾燥トラッカー塵ベルト向け"
+        },
+        "1": {
+          "factor": "トラッカー互換",
+          "glydeX": "NEXTracker、Gamechanger、-52°〜+52°モジュール傾斜",
+          "nyumaX": "NEXTracker、Gamechanger、-52°〜+52°モジュール傾斜"
+        },
+        "2": {
+          "factor": "テーブル間可動",
+          "glydeX": "±15°ボディ可動、検証済みブリッジキット",
+          "nyumaX": "±15°ボディ可動、検証済みブリッジキット"
+        },
+        "3": {
+          "factor": "運用重量",
+          "glydeX": "25 kgコンパクトトラッカーシャシ",
+          "nyumaX": "25 kgコンパクトトラッカーシャシ"
+        },
+        "4": {
+          "factor": "1充電あたりの走行",
+          "glydeX": "最大2.2 km（約3,600モジュール）",
+          "nyumaX": "最大2.2 km（約3,600モジュール）"
+        },
+        "5": {
+          "factor": "選ばれる場面",
+          "glydeX": "夜間サイクルで最大除塵が必要なプレミアムトラッカー列",
+          "nyumaX": "PBTのCAPEXとブラシ保守経済性を優先する大規模トラッカーフリート"
+        },
+        "6": {
+          "factor": "自律性とスケジュール",
+          "glydeX": "完全自律、NECTYRのAI天候連動スケジュール",
+          "nyumaX": "完全自律、NECTYRのAI天候連動スケジュール"
+        },
+        "7": {
+          "factor": "固定式の代替",
+          "glydeX": "固定式デュアルパスはGLYDEを参照",
+          "nyumaX": "固定式PBTはNYUMAを参照"
+        }
+      },
+      "faq": {
+        "0": {
+          "q": "GLYDE-XとNYUMA-Xはアレイをフラットに停める必要がありますか？",
+          "a": "いいえ。両方とも-52°〜+52°の傾斜で清掃し、生産時間外にNECTYRのトラッカー連動ルーティングで稼働します。"
+        },
+        "1": {
+          "q": "固定式GLYDE/NYUMAに対応するトラッカーロボットは？",
+          "a": "GLYDE-Xはデュアルパスをトラッカーへ、NYUMA-XはPBTシングルパスを拡張。固定式はGLYDE vs NYUMAガイドを参照。"
+        }
+      }
+    }
+  }
+}

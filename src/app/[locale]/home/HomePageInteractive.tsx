@@ -11,6 +11,7 @@ import { FaqSection } from "@/app/components/FaqSection";
 
 import LazyWhenVisible from "@/app/components/LazyWhenVisible";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
+import { clientPartners } from "@/app/data";
 
 function FormLoading() {
   const t = useTranslations("Home.loading");
@@ -219,8 +220,14 @@ export default function HomePageInteractive({
       <LazyWhenVisible minHeight={420} rootMargin="320px 0px">
         <ClientsCard
           heading={t("clients.heading")}
-          resolveLogoAlt={(index) => t("clients.logoAlt", { index })}
-          resolveLogoTitle={(index) => t("clients.logoTitle", { index })}
+          trustedByText={t("clients.trustedBy", {
+            names: clientPartners.map((partner) => partner.name).join(", "),
+          })}
+          logos={clientPartners.map((partner) => ({
+            logoSrc: partner.logoSrc,
+            alt: t("clients.logoAlt", { name: partner.name }),
+            title: t("clients.logoTitle", { name: partner.name }),
+          }))}
         />
       </LazyWhenVisible>
 

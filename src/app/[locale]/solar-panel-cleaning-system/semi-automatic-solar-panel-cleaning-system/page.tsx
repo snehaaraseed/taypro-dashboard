@@ -24,6 +24,7 @@ import ProductCards from "@/app/components/ProductCards";
 import ResourcesCard from "@/app/components/ResourcesCard";
 import CallbackCard from "@/app/components/CallbackCard";
 import HeroSection from "@/app/components/Herosection";
+import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import Product360Viewer from "@/app/components/Product360Viewer";
@@ -591,6 +592,14 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
                 </tbody>
               </table>
             </div>
+            <AnimateOnScroll animation="fadeInUp" className="text-center mt-8">
+              <OpenLeadModalButton
+                topic={t("specifications.datasheetCtaTopic")}
+                className="inline-flex items-center justify-center min-h-[48px] px-7 py-3 rounded-lg bg-[#A8C117] text-[#052638] font-semibold hover:bg-[#b3cf3d] transition-colors"
+              >
+                {t("specifications.datasheetCta")}
+              </OpenLeadModalButton>
+            </AnimateOnScroll>
           </Container>
         </section>
 

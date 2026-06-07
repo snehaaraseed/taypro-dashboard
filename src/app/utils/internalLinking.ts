@@ -266,6 +266,66 @@ const staticPageLinks: InternalLink[] = [
     url: "/company",
     priority: 5,
   },
+  {
+    keyword: "Taypro vs Solabot",
+    url: "/compare/taypro-vs-solabot",
+    priority: 9,
+  },
+  {
+    keyword: "Solabot",
+    url: "/compare/taypro-vs-solabot",
+    priority: 8,
+  },
+  {
+    keyword: "robot vs manual cleaning",
+    url: "/compare/solar-panel-cleaning-robot-vs-manual-cleaning",
+    priority: 8,
+  },
+  {
+    keyword: "waterless vs water-based cleaning",
+    url: "/compare/waterless-vs-water-based-solar-cleaning",
+    priority: 7,
+  },
+  {
+    keyword: "Indian solar cleaning robot companies",
+    url: "/compare/taypro-vs-indian-solar-cleaning-robot-companies",
+    priority: 8,
+  },
+  {
+    keyword: "solar panel cleaning machine",
+    url: "/solar-panel-cleaning-machine",
+    priority: 9,
+  },
+  {
+    keyword: "cleaning machine",
+    url: "/solar-panel-cleaning-machine",
+    priority: 8,
+  },
+  {
+    keyword: "rooftop solar panel cleaning robot",
+    url: "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
+    priority: 8,
+  },
+  {
+    keyword: "rooftop solar cleaning",
+    url: "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
+    priority: 7,
+  },
+  {
+    keyword: "solar panel dust cleaning",
+    url: "/cleaning-technology",
+    priority: 8,
+  },
+  {
+    keyword: "dust cleaning solar panels",
+    url: "/cleaning-technology",
+    priority: 7,
+  },
+  {
+    keyword: "soiling loss solar",
+    url: "/cleaning-technology",
+    priority: 7,
+  },
 ];
 
 /**

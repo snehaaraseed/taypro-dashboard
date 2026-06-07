@@ -3,6 +3,7 @@ import { MINY_PRODUCT_PATH, ORION_PRODUCT_PATH } from "@/lib/product-coming-soon
 import { buildTayproMarketingImpactStats } from "@/lib/esg/format-fleet-marketing-impact";
 import { buildTayproPublicProofStats } from "@/lib/marketing/public-proof-stats";
 import {
+  getProductCardImagePath,
   getRelatedProductCards,
   HARDWARE_PRODUCT_IDS,
   PRODUCT_CATALOG,
@@ -61,7 +62,7 @@ function hardwareRobotFromCatalog(id: ProductId) {
     model: p.itemName,
     marketingName: p.marketingName,
     description: p.description,
-    imgPath: p.imagePath,
+    imgPath: getProductCardImagePath(id),
     href: p.href,
     productId: p.id,
   };
@@ -134,16 +135,24 @@ export const ourSolutions = HARDWARE_PRODUCT_IDS.map((id) => {
   };
 });
 
-export const clientLogos = [
-  "/tayproclients/taypro-client1.png",
-  "/tayproclients/taypro-client2.png",
-  "/tayproclients/taypro-client3.png",
-  "/tayproclients/taypro-client4.png",
-  "/tayproclients/taypro-client5.png",
-  "/tayproclients/taypro-client6.png",
-  "/tayproclients/taypro-client7.png",
-  "/tayproclients/taypro-client8.png",
+export interface ClientPartner {
+  name: string;
+  logoSrc: string;
+}
+
+export const clientPartners: ClientPartner[] = [
+  { name: "Tata Power Solar", logoSrc: "/tayproclients/taypro-client1.png" },
+  { name: "Avaada", logoSrc: "/tayproclients/taypro-client2.png" },
+  { name: "BluPine Energy", logoSrc: "/tayproclients/taypro-client3.png" },
+  { name: "Amplus Solar", logoSrc: "/tayproclients/taypro-client4.png" },
+  { name: "Hindustan Power", logoSrc: "/tayproclients/taypro-client5.png" },
+  { name: "First Energy", logoSrc: "/tayproclients/taypro-client6.png" },
+  { name: "Hindustan Petroleum", logoSrc: "/tayproclients/taypro-client7.png" },
+  { name: "NLC India", logoSrc: "/tayproclients/taypro-client8.png" },
 ];
+
+/** @deprecated use clientPartners */
+export const clientLogos = clientPartners.map((p) => p.logoSrc);
 
 export const features = [
   {

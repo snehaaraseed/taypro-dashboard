@@ -7,8 +7,6 @@ export const generateMetadata = defineLocalizedMetadata("/contact", () => ({
   title: "Thank You – We Appreciate Your Interest",
   description:
     "Thank you for reaching out to Taypro. Our team will get back to you shortly with details on our solar panel cleaning solutions that deliver high efficiency, maximum ROI, and sustainable energy performance.",
-  keywords:
-    "thank you taypro, taypro contact success, solar cleaning robots, taypro solar solutions, solar maintenance robots, sustainable solar cleaning",
   openGraph: {
     title: "Thank You – We Appreciate Your Interest",
     description:
