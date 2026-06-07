@@ -10,6 +10,10 @@ import {
   translateBlogAllLocales,
   translateBlogsBackfill,
 } from "@/app/admin/utils/translate-blog";
+import {
+  isBlogScheduledPending,
+  isFutureScheduledPublish,
+} from "@/lib/cms/blog-schedule";
 
 interface Blog {
   title: string;
@@ -21,6 +25,7 @@ interface Blog {
   createdAt: string;
   updatedAt?: string;
   published?: boolean;
+  scheduledPublishAt?: string | null;
   /** True when hi/ar/ja/bn rows match English updatedAt */
   translationsSynced?: boolean;
 }
@@ -274,13 +279,27 @@ export default function AdminBlogsPage() {
                     {blog.author}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    {blog.published === false ? (
-                      <span className="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full">
-                        Draft
-                      </span>
-                    ) : (
+                    {blog.published !== false ? (
                       <span className="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
                         Published
+                      </span>
+                    ) : isBlogScheduledPending(blog) ? (
+                      <span
+                        className="px-2 py-1 bg-sky-100 text-sky-900 text-xs font-medium rounded-full"
+                        title={new Date(
+                          blog.scheduledPublishAt!
+                        ).toLocaleString()}
+                      >
+                        Scheduled
+                      </span>
+                    ) : blog.scheduledPublishAt &&
+                      !isFutureScheduledPublish(blog.scheduledPublishAt) ? (
+                      <span className="px-2 py-1 bg-amber-100 text-amber-900 text-xs font-medium rounded-full">
+                        Due
+                      </span>
+                    ) : (
+                      <span className="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full">
+                        Draft
                       </span>
                     )}
                   </td>

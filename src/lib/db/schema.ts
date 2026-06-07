@@ -30,6 +30,8 @@ export const blogs = sqliteTable(
     /** Primary SEO target keyword (automation + metadata). */
     seoKeyword: text("seo_keyword"),
     publishDate: text("publish_date").notNull(),
+    /** When set, English draft auto-publishes at this UTC ISO time (cron). */
+    scheduledPublishAt: text("scheduled_publish_at"),
     createdAt: text("created_at").notNull(),
     updatedAt: text("updated_at"),
     published: integer("published", { mode: "boolean" }).notNull().default(true),

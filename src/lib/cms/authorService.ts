@@ -85,6 +85,7 @@ export type AuthorPropagationResult = {
 export type UpsertAuthorResult = {
   authors: BlogAuthor[];
   propagated: AuthorPropagationResult | null;
+  slugChange?: { from: string; to: string };
 };
 
 async function propagateAuthorNameToCmsContent(
@@ -140,13 +141,25 @@ async function propagateAuthorNameToCmsContent(
 export async function upsertAuthor(
   authorInput: Omit<BlogAuthor, "slug"> & {
     slug?: string;
+    /** When editing, the slug before save — used to rename the row if the name changes. */
+    previousSlug?: string;
     expertiseTags?: BlogAuthorExpertiseTag[];
   }
 ): Promise<UpsertAuthorResult> {
   const db = getDb();
   await seedDefaultAuthorsIfEmpty();
 
-  const slug = authorInput.slug?.trim() || slugifyAuthorName(authorInput.name);
+  const newSlug = slugifyAuthorName(authorInput.name);
+  if (!newSlug) {
+    throw new Error(
+      "Author name must contain at least one letter or number for the URL slug."
+    );
+  }
+
+  const lookupSlug =
+    authorInput.previousSlug?.trim() ||
+    authorInput.slug?.trim() ||
+    newSlug;
   const linkedIn = normalizeLinkedInUrl(authorInput.linkedInUrl);
   const now = new Date().toISOString();
   const normalizedName = authorInput.name.trim().toLowerCase();
@@ -154,7 +167,8 @@ export async function upsertAuthor(
   const allAuthors = await db.select().from(authors);
   const duplicateName = allAuthors.find(
     (row) =>
-      row.name.trim().toLowerCase() === normalizedName && row.slug !== slug
+      row.name.trim().toLowerCase() === normalizedName &&
+      row.slug !== lookupSlug
   );
   if (duplicateName) {
     throw new Error(
@@ -162,14 +176,23 @@ export async function upsertAuthor(
     );
   }
 
+  const duplicateSlug = allAuthors.find(
+    (row) => row.slug === newSlug && row.slug !== lookupSlug
+  );
+  if (duplicateSlug) {
+    throw new Error(
+      `An author with slug "${newSlug}" already exists (${duplicateSlug.name}). Choose a different name.`
+    );
+  }
+
   const existing = await db
     .select()
     .from(authors)
-    .where(eq(authors.slug, slug))
+    .where(eq(authors.slug, lookupSlug))
     .limit(1);
 
   const values = {
-    slug,
+    slug: newSlug,
     name: authorInput.name.trim(),
     role: authorInput.role.trim(),
     bio: authorInput.bio.trim(),
@@ -184,16 +207,20 @@ export async function upsertAuthor(
   };
 
   let propagated: AuthorPropagationResult | null = null;
+  let slugChange: { from: string; to: string } | undefined;
 
   if (existing[0]) {
     const authorsBeforeRename = allAuthors.map(rowToAuthor);
     propagated = await propagateAuthorNameToCmsContent(
-      slug,
+      lookupSlug,
       existing[0].name,
       values.name,
       authorsBeforeRename
     );
-    await db.update(authors).set(values).where(eq(authors.slug, slug));
+    if (lookupSlug !== newSlug) {
+      slugChange = { from: lookupSlug, to: newSlug };
+    }
+    await db.update(authors).set(values).where(eq(authors.slug, lookupSlug));
   } else {
     await db.insert(authors).values({
       ...values,
@@ -204,6 +231,7 @@ export async function upsertAuthor(
   return {
     authors: await getStoredAuthors(),
     propagated,
+    slugChange,
   };
 }
 

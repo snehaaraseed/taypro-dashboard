@@ -89,7 +89,7 @@ export default function Footer() {
             <div className="flex flex-col sm:flex-row items-start gap-4 text-white text-2xl">
               <span>
                 {t("mail")}:{" "}
-                <ContactEmailLink className="hover:text-[#A8C117] transition-colors">
+                <ContactEmailLink className="hover:text-[#A8C117]">
                   {t("emailLink")}
                 </ContactEmailLink>
               </span>
@@ -98,7 +98,7 @@ export default function Footer() {
                 {t("phone")}:{" "}
                 <a
                   href={TAYPRO_SALES_PHONE_TEL}
-                  className="hover:text-[#A8C117] transition-colors"
+                  className="hover:text-[#A8C117]"
                 >
                   {TAYPRO_SALES_PHONE_DISPLAY}
                 </a>

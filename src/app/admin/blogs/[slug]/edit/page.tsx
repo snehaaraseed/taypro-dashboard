@@ -8,7 +8,12 @@ import {
   translateBlogAllLocales,
 } from "@/app/admin/utils/translate-blog";
 import AdminRichTextEditor from "@/app/admin/components/AdminRichTextEditor";
+import BlogPublishControls from "@/app/admin/components/BlogPublishControls";
 import { BlogFaqEditor } from "@/app/admin/components/BlogFaqEditor";
+import {
+  isBlogScheduledPending,
+  isoToDateInputValue,
+} from "@/lib/cms/blog-schedule";
 import type { BlogFaqItem } from "@/lib/cms/blog-faqs";
 
 interface BlogData {
@@ -22,6 +27,7 @@ interface BlogData {
   content: string;
   faqs: BlogFaqItem[];
   published?: boolean;
+  scheduledPublishAt?: string | null;
   /** ISO; from metadata, refreshed after save */
   updatedAt?: string;
 }
@@ -47,6 +53,7 @@ export default function EditBlogPage() {
     content: "",
     faqs: [],
     published: true,
+    scheduledPublishAt: null,
   });
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
@@ -91,9 +98,15 @@ export default function EditBlogPage() {
   const [translateLoading, setTranslateLoading] = useState(false);
 
   const handleTranslateLocales = async (force: boolean) => {
-    if (formData.published === false) {
+    if (formData.published === false && !formData.scheduledPublishAt) {
       setMessage(
         "Publish the blog first. Translations are generated from the English published version."
+      );
+      return;
+    }
+    if (isBlogScheduledPending(formData)) {
+      setMessage(
+        "This post is scheduled. Translations run after it publishes (evening cron or Translate button)."
       );
       return;
     }
@@ -139,11 +152,10 @@ export default function EditBlogPage() {
           ...rest,
           slug: rest.slug || slug,
           faqs: Array.isArray(loadedFaqs) ? loadedFaqs : [],
-          publishDate: rest.publishDate
-            ? new Date(rest.publishDate).toISOString().split("T")[0]
-            : new Date().toISOString().split("T")[0],
+          publishDate: isoToDateInputValue(rest.publishDate),
           published:
             rest.published !== undefined ? rest.published : true,
+          scheduledPublishAt: rest.scheduledPublishAt ?? null,
         });
       } else {
         if (response.status === 401) {
@@ -328,6 +340,7 @@ export default function EditBlogPage() {
           content: formData.content,
           publishDate: publishDateISO,
           published: formData.published,
+          scheduledPublishAt: formData.scheduledPublishAt,
           newSlug: formData.slug.trim(),
           faqs: formData.faqs,
         }),
@@ -620,28 +633,21 @@ export default function EditBlogPage() {
           </div>
         </div>
 
-        <div>
-          <label className="flex items-center gap-3 cursor-pointer">
-            <input
-              type="checkbox"
-              checked={formData.published !== false}
-              onChange={(e) =>
-                setFormData({ ...formData, published: e.target.checked })
-              }
-              className="w-5 h-5 text-[#A8C117] border-gray-300 rounded focus:ring-[#A8C117]"
-            />
-            <div>
-              <span className="block text-sm font-medium text-gray-700">
-                Publish Blog
-              </span>
-              <span className="text-xs text-gray-500">
-                {formData.published !== false
-                  ? "This blog will be visible on the website"
-                  : "Save as draft - won't appear on the website"}
-              </span>
-            </div>
-          </label>
-        </div>
+        <BlogPublishControls
+          value={{
+            published: formData.published !== false,
+            scheduledPublishAt: formData.scheduledPublishAt ?? null,
+            publishDate: formData.publishDate,
+          }}
+          onChange={(next) =>
+            setFormData((prev) => ({
+              ...prev,
+              published: next.published,
+              scheduledPublishAt: next.scheduledPublishAt,
+              publishDate: next.publishDate,
+            }))
+          }
+        />
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -682,23 +688,6 @@ export default function EditBlogPage() {
               />
             )}
           </div>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Published date
-          </label>
-          <input
-            type="date"
-            value={formData.publishDate}
-            onChange={(e) =>
-              setFormData({ ...formData, publishDate: e.target.value })
-            }
-            className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <p className="mt-1 text-xs text-gray-500">
-            Original publication date (used for SEO and sorting). The public blog shows last updated only.
-          </p>
         </div>
 
         <div className="rounded-md border border-gray-200 bg-gray-50 px-4 py-3">

@@ -73,7 +73,7 @@ function normalizeAuthorName(name: string): string {
 
 /**
  * Maps a blog's free-text author field to the canonical author slug.
- * Prefer stored authors (by name) so profile URLs stay stable when slug !== slugify(name).
+ * Prefer stored authors (by name); slug is kept in sync when names are edited in admin.
  */
 export function resolveAuthorSlug(
   authorName: string,

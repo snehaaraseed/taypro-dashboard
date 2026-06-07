@@ -70,6 +70,7 @@
     "cms:assign-author-portraits": "node scripts/assign-author-portraits.mjs",
     "cms:migrate-image-alt": "node scripts/apply-image-alt-migration.mjs",
     "cms:migrate-seo-keyword": "node scripts/apply-seo-keyword-migration.mjs",
+    "cms:migrate-scheduled-publish": "node scripts/apply-scheduled-publish-migration.mjs",
     "cms:fix-slug-locale-unique": "node scripts/fix-cms-slug-locale-unique.mjs",
     "cms:reconcile-migrations": "node scripts/reconcile-drizzle-migrations.mjs",
     "cms:deploy-prep": "node scripts/cms-deploy-prep.mjs",

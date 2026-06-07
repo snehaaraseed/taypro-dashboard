@@ -137,13 +137,14 @@ export default function AdminAuthorsPage() {
     setIsSaving(true);
     setMessage("");
     try {
-      const slugForSave = editingSlug ?? slugifyAuthorName(form.name);
+      const slugFromName = slugifyAuthorName(form.name);
       const response = await fetch("/api/admin/authors", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...form,
-          slug: slugForSave,
+          slug: slugFromName,
+          previousSlug: editingSlug ?? undefined,
         }),
       });
       const data = await response.json();
@@ -152,18 +153,26 @@ export default function AdminAuthorsPage() {
       }
       setAuthors(data.authors || []);
       setForm(EMPTY_FORM);
+      const wasEditing = editingSlug;
       setEditingSlug(null);
       const propagated = data.propagated as
         | { blogs: number; projects: number }
+        | null
+        | undefined;
+      const slugChange = data.slugChange as
+        | { from: string; to: string }
         | null
         | undefined;
       const cascadeNote =
         propagated && (propagated.blogs > 0 || propagated.projects > 0)
           ? ` Updated ${propagated.blogs} blog(s) and ${propagated.projects} project(s) with the new name.`
           : "";
+      const slugNote = slugChange
+        ? ` Author URL slug is now "${slugChange.to}" (/blog/author/${slugChange.to}).`
+        : "";
       setMessage(
-        editingSlug
-          ? `Author updated.${cascadeNote}`
+        wasEditing
+          ? `Author updated.${cascadeNote}${slugNote}`
           : `Author saved successfully.${cascadeNote}`
       );
     } catch (error) {
@@ -222,13 +231,30 @@ export default function AdminAuthorsPage() {
           )}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <input
-            required
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            placeholder="Author name"
-            className="px-3 py-2 border border-gray-300 rounded-md"
-          />
+          <div>
+            <input
+              required
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              placeholder="Author name"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+            />
+            {form.name.trim() ? (
+              <p className="mt-1 text-xs text-gray-500">
+                URL slug:{" "}
+                <code className="text-gray-700">
+                  {slugifyAuthorName(form.name) || "—"}
+                </code>
+                {editingSlug &&
+                editingSlug !== slugifyAuthorName(form.name) ? (
+                  <span className="text-amber-700">
+                    {" "}
+                    (will change from {editingSlug} on save)
+                  </span>
+                ) : null}
+              </p>
+            ) : null}
+          </div>
           <input
             required
             value={form.role}

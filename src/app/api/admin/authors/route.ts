@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { requireAuth } from "../../../utils/auth";
 import { normalizeLinkedInUrl } from "../../../data/blogAuthors";
@@ -18,7 +19,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json();
-    const { name, role, bio, avatarUrl, slug, expertiseTags } = body;
+    const { name, role, bio, avatarUrl, slug, previousSlug, expertiseTags } = body;
     let { linkedInUrl } = body;
 
     if (!name || !role || !bio) {
@@ -46,17 +47,24 @@ export async function POST(request: NextRequest) {
       linkedInUrl = undefined;
     }
 
-    const { authors, propagated } = await upsertAuthor({
+    const { authors, propagated, slugChange } = await upsertAuthor({
       name,
       role,
       bio,
       avatarUrl,
       linkedInUrl,
       slug,
+      previousSlug:
+        typeof previousSlug === "string" ? previousSlug : undefined,
       expertiseTags: Array.isArray(expertiseTags) ? expertiseTags : undefined,
     });
     revalidateSitemap();
-    return NextResponse.json({ success: true, authors, propagated });
+    if (slugChange) {
+      revalidatePath(`/blog/author/${slugChange.from}`);
+      revalidatePath(`/blog/author/${slugChange.to}`);
+      revalidatePath("/authors");
+    }
+    return NextResponse.json({ success: true, authors, propagated, slugChange });
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : "Unknown error" },

@@ -16,6 +16,7 @@ export interface BlogMetadata {
   createdAt: string;
   updatedAt?: string;
   published?: boolean;
+  scheduledPublishAt?: string | null;
   faqs?: import("@/lib/cms/blog-faqs").BlogFaqItem[];
   seoKeyword?: string;
 }
@@ -29,6 +30,7 @@ export interface BlogData {
   content: string;
   publishDate?: string;
   published?: boolean;
+  scheduledPublishAt?: string | null;
   faqs?: import("@/lib/cms/blog-faqs").BlogFaqItem[];
   seoKeyword?: string;
 }

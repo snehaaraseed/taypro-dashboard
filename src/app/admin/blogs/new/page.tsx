@@ -4,7 +4,9 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import AdminRichTextEditor from "@/app/admin/components/AdminRichTextEditor";
+import BlogPublishControls from "@/app/admin/components/BlogPublishControls";
 import { BlogFaqEditor } from "@/app/admin/components/BlogFaqEditor";
+import { isoToDateInputValue } from "@/lib/cms/blog-schedule";
 import type { BlogFaqItem } from "@/lib/cms/blog-faqs";
 
 export default function NewBlogPage() {
@@ -19,6 +21,7 @@ export default function NewBlogPage() {
     faqs: [] as BlogFaqItem[],
     publishDate: new Date().toISOString().split("T")[0],
     published: true,
+    scheduledPublishAt: null as string | null,
   });
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -414,28 +417,21 @@ export default function NewBlogPage() {
           </div>
         </div>
 
-        <div>
-          <label className="flex items-center gap-3 cursor-pointer">
-            <input
-              type="checkbox"
-              checked={formData.published}
-              onChange={(e) =>
-                setFormData({ ...formData, published: e.target.checked })
-              }
-              className="w-5 h-5 text-[#A8C117] border-gray-300 rounded focus:ring-[#A8C117]"
-            />
-            <div>
-              <span className="block text-sm font-medium text-gray-700">
-                Publish Blog
-              </span>
-              <span className="text-xs text-gray-500">
-                {formData.published
-                  ? "This blog will be visible on the website"
-                  : "Save as draft - won't appear on the website"}
-              </span>
-            </div>
-          </label>
-        </div>
+        <BlogPublishControls
+          value={{
+            published: formData.published,
+            scheduledPublishAt: formData.scheduledPublishAt,
+            publishDate: formData.publishDate,
+          }}
+          onChange={(next) =>
+            setFormData((prev) => ({
+              ...prev,
+              published: next.published,
+              scheduledPublishAt: next.scheduledPublishAt,
+              publishDate: next.publishDate,
+            }))
+          }
+        />
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -476,20 +472,6 @@ export default function NewBlogPage() {
               />
             )}
           </div>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Publish Date
-          </label>
-          <input
-            type="date"
-            value={formData.publishDate}
-            onChange={(e) =>
-              setFormData({ ...formData, publishDate: e.target.value })
-            }
-            className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
         </div>
 
         <div>

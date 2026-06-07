@@ -13,6 +13,7 @@ import { normalizeBlogFaqsInput } from "@/lib/cms/blog-faqs";
 import { getBlogBySlug } from "@/lib/cms/blogService";
 import { SOURCE_LOCALE } from "@/lib/translation/config";
 import { getBlogTranslationSyncInfo } from "@/lib/cms/blogService";
+import { resolveBlogPublishFields } from "@/lib/cms/blog-schedule";
 
 interface RouteParams {
   params: Promise<{
@@ -86,6 +87,7 @@ export async function PUT(
       content,
       publishDate,
       published,
+      scheduledPublishAt,
       newSlug,
       faqs,
     } = await request.json();
@@ -112,6 +114,18 @@ export async function PUT(
       finalSlug = cleaned;
     }
 
+    const resolved = resolveBlogPublishFields({
+      published,
+      scheduledPublishAt:
+        scheduledPublishAt === undefined
+          ? undefined
+          : scheduledPublishAt || null,
+      publishDate,
+    });
+    if (!resolved.ok) {
+      return NextResponse.json({ error: resolved.error }, { status: 400 });
+    }
+
     // Update blog files
     const result = await updateBlogFiles(
       slug,
@@ -123,8 +137,9 @@ export async function PUT(
           typeof featuredImageAlt === "string" ? featuredImageAlt : "",
         author: author || "Taypro Team",
         content,
-        publishDate,
-        published: published !== undefined ? published : true,
+        publishDate: resolved.value.publishDate,
+        published: resolved.value.published,
+        scheduledPublishAt: resolved.value.scheduledPublishAt,
         faqs: normalizeBlogFaqsInput(faqs),
       },
       finalSlug !== slug ? finalSlug : undefined
@@ -137,14 +152,14 @@ export async function PUT(
       );
     }
 
-    // Revalidate the updated blog page and blog list page immediately
-    // If slug changed, revalidate both old and new paths
     if (finalSlug !== slug) {
       revalidatePath(`/blog/${slug}`);
     }
-    revalidatePath(`/blog/${result.slug}`);
-    revalidatePath("/blog");
-    revalidateSitemap();
+    if (resolved.value.published) {
+      revalidatePath(`/blog/${result.slug}`);
+      revalidatePath("/blog");
+      revalidateSitemap();
+    }
 
     const translationSync = await getBlogTranslationSyncInfo(result.slug);
 

@@ -1,6 +1,6 @@
 import "server-only";
 
-import { and, eq, inArray } from "drizzle-orm";
+import { and, eq, inArray, isNotNull, lte } from "drizzle-orm";
 import { getDb } from "@/lib/db";
 import { blogs } from "@/lib/db/schema";
 import type { BlogData, BlogMetadata } from "@/app/utils/blogFileUtils";
@@ -8,6 +8,7 @@ import { parseBlogFaqs, serializeBlogFaqs } from "@/lib/cms/blog-faqs";
 import type { TayproLocale } from "@/i18n/markets";
 import { isActiveLocale } from "@/i18n/markets";
 import { SOURCE_LOCALE, TARGET_LOCALES } from "@/lib/translation/config";
+import { resolveBlogPublishFields } from "@/lib/cms/blog-schedule";
 
 export function createSlug(title: string): string {
   return title
@@ -35,6 +36,7 @@ function rowToMetadata(row: typeof blogs.$inferSelect): BlogMetadata {
     createdAt: row.createdAt,
     updatedAt: row.updatedAt ?? undefined,
     published: row.published,
+    scheduledPublishAt: row.scheduledPublishAt ?? null,
     faqs: parseBlogFaqs(row.faqs),
     seoKeyword: row.seoKeyword ?? undefined,
   };
@@ -224,7 +226,22 @@ export async function createBlog(
     }
 
     const now = new Date().toISOString();
-    const published = blogData.published !== undefined ? blogData.published : true;
+    const resolved = resolveBlogPublishFields(
+      {
+        published: blogData.published,
+        scheduledPublishAt: blogData.scheduledPublishAt,
+        publishDate: blogData.publishDate,
+      },
+      undefined
+    );
+    if (!resolved.ok) {
+      return {
+        success: false,
+        slug: finalSlug,
+        error: resolved.error,
+      };
+    }
+    const { published, scheduledPublishAt, publishDate } = resolved.value;
 
     await db.insert(blogs).values({
       slug: finalSlug,
@@ -237,7 +254,8 @@ export async function createBlog(
       content: blogData.content || "",
       faqs: serializeBlogFaqs(blogData.faqs),
       seoKeyword: blogData.seoKeyword?.trim() || null,
-      publishDate: blogData.publishDate || now,
+      publishDate,
+      scheduledPublishAt,
       createdAt: now,
       updatedAt: now,
       published,
@@ -306,8 +324,26 @@ export async function updateBlog(
     }
 
     const now = new Date().toISOString();
-    const published =
-      blogData.published !== undefined ? blogData.published : existing.published;
+    const resolved = resolveBlogPublishFields(
+      {
+        published: blogData.published,
+        scheduledPublishAt: blogData.scheduledPublishAt,
+        publishDate: blogData.publishDate,
+      },
+      {
+        published: existing.published,
+        scheduledPublishAt: existing.scheduledPublishAt,
+        publishDate: existing.publishDate,
+      }
+    );
+    if (!resolved.ok) {
+      return {
+        success: false,
+        slug: oldSlug,
+        error: resolved.error,
+      };
+    }
+    const { published, scheduledPublishAt, publishDate } = resolved.value;
 
     await db
       .update(blogs)
@@ -327,7 +363,8 @@ export async function updateBlog(
           blogData.seoKeyword !== undefined
             ? blogData.seoKeyword?.trim() || null
             : existing.seoKeyword,
-        publishDate: blogData.publishDate || existing.publishDate,
+        publishDate,
+        scheduledPublishAt,
         updatedAt: now,
         published,
       })
@@ -482,6 +519,83 @@ export async function getBlogTranslationAllSyncedBatch(
     out[slug] = all;
   }
   return out;
+}
+
+export async function listDueScheduledBlogSlugs(
+  now = new Date()
+): Promise<string[]> {
+  const db = getDb();
+  const nowIso = now.toISOString();
+  const rows = await db
+    .select({ slug: blogs.slug })
+    .from(blogs)
+    .where(
+      and(
+        eq(blogs.locale, SOURCE_LOCALE),
+        eq(blogs.published, false),
+        isNotNull(blogs.scheduledPublishAt),
+        lte(blogs.scheduledPublishAt, nowIso)
+      )
+    );
+  return rows.map((r) => r.slug);
+}
+
+export async function publishScheduledBlogBySlug(
+  slug: string,
+  now = new Date()
+): Promise<{ success: boolean; error?: string }> {
+  const db = getDb();
+  const nowIso = now.toISOString();
+  const rows = await db
+    .select()
+    .from(blogs)
+    .where(and(eq(blogs.slug, slug), eq(blogs.locale, SOURCE_LOCALE)))
+    .limit(1);
+  const row = rows[0];
+  if (!row) {
+    return { success: false, error: `Blog "${slug}" not found` };
+  }
+  if (row.published) {
+    return { success: false, error: `Blog "${slug}" is already published` };
+  }
+  if (!row.scheduledPublishAt) {
+    return { success: false, error: `Blog "${slug}" is not scheduled` };
+  }
+  if (row.scheduledPublishAt > nowIso) {
+    return { success: false, error: `Blog "${slug}" is not due yet` };
+  }
+
+  await db
+    .update(blogs)
+    .set({
+      published: true,
+      publishDate: row.scheduledPublishAt,
+      scheduledPublishAt: null,
+      updatedAt: nowIso,
+    })
+    .where(and(eq(blogs.slug, slug), eq(blogs.locale, SOURCE_LOCALE)));
+
+  return { success: true };
+}
+
+export async function publishDueScheduledBlogs(): Promise<{
+  published: string[];
+  errors: { slug: string; error: string }[];
+}> {
+  const slugs = await listDueScheduledBlogSlugs();
+  const published: string[] = [];
+  const errors: { slug: string; error: string }[] = [];
+
+  for (const slug of slugs) {
+    const result = await publishScheduledBlogBySlug(slug);
+    if (result.success) {
+      published.push(slug);
+    } else if (result.error) {
+      errors.push({ slug, error: result.error });
+    }
+  }
+
+  return { published, errors };
 }
 
 export async function readBlogMetadata(

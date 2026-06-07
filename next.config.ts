@@ -481,6 +481,16 @@ const nextConfig = {
         ],
       },
       {
+        // Long-cache hashed Next.js assets (CSS/JS chunks)
+        source: "/_next/static/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
         // Crawlers must never hit a failing dynamic route for robots.txt
         source: "/robots.txt",
         headers: [

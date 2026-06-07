@@ -58,8 +58,8 @@ export default function CookieConsent() {
       return;
     }
 
-    // Defer banner until after load + idle so hero H1 remains LCP
-    const scheduleBanner = () => deferUntilIdle(() => setShowBanner(true), 4000);
+    // Defer banner well after hero LCP window (lab + real users)
+    const scheduleBanner = () => deferUntilIdle(() => setShowBanner(true), 12000);
 
     if (document.readyState === "complete") {
       return scheduleBanner();
@@ -143,7 +143,7 @@ export default function CookieConsent() {
                       Cookie Consent
                     </h3>
                   </div>
-                  <p className="text-[#052638] text-sm lg:text-base">
+                  <p className="text-[#052638] text-sm lg:text-base line-clamp-3 lg:line-clamp-none">
                     We use cookies to enhance your browsing experience, analyze
                     site traffic, and personalize content. By clicking "Accept
                     All", you consent to our use of cookies. You can customize

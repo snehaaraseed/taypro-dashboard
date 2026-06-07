@@ -4,6 +4,7 @@ import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { requireAuth } from "../../../../utils/auth";
 import { createBlogFiles } from "../../../../utils/blogFileUtils";
 import { normalizeBlogFaqsInput } from "@/lib/cms/blog-faqs";
+import { resolveBlogPublishFields } from "@/lib/cms/blog-schedule";
 
 export async function POST(request: NextRequest) {
   // Check authentication
@@ -22,6 +23,7 @@ export async function POST(request: NextRequest) {
       content,
       publishDate,
       published,
+      scheduledPublishAt,
       faqs,
     } = await request.json();
 
@@ -33,6 +35,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const resolved = resolveBlogPublishFields({
+      published,
+      scheduledPublishAt:
+        scheduledPublishAt === undefined
+          ? undefined
+          : scheduledPublishAt || null,
+      publishDate,
+    });
+    if (!resolved.ok) {
+      return NextResponse.json({ error: resolved.error }, { status: 400 });
+    }
+
     // Create blog files
     const result = await createBlogFiles({
       title,
@@ -42,8 +56,9 @@ export async function POST(request: NextRequest) {
         typeof featuredImageAlt === "string" ? featuredImageAlt : "",
       author: author || "Taypro Team",
       content,
-      publishDate,
-      published: published !== undefined ? published : true,
+      publishDate: resolved.value.publishDate,
+      published: resolved.value.published,
+      scheduledPublishAt: resolved.value.scheduledPublishAt,
       faqs: normalizeBlogFaqsInput(faqs),
     });
 
@@ -54,10 +69,11 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Revalidate the new blog page and blog list page immediately
-    revalidatePath(`/blog/${result.slug}`);
-    revalidatePath("/blog");
-    revalidateSitemap();
+    if (result.success && resolved.value.published) {
+      revalidatePath(`/blog/${result.slug}`);
+      revalidatePath("/blog");
+      revalidateSitemap();
+    }
 
     return NextResponse.json({
       success: true,

@@ -1,22 +1,19 @@
-"use client";
-
 import { Link } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
-import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
+import { getTranslations } from "next-intl/server";
+import HomeHeroQuoteButton from "./HomeHeroQuoteButton";
 
-export default function HomeHeroCTAs() {
-  const t = useTranslations("Home.hero");
+/** Server-rendered hero CTAs — only the quote button hydrates (lead modal). */
+export default async function HomeHeroCTAs() {
+  const t = await getTranslations("Home.hero");
 
   return (
     <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-2">
-      <OpenLeadModalButton
+      <HomeHeroQuoteButton
+        label={t("ctaQuote")}
         topic={t("ctaQuoteTopic")}
         title={t("ctaQuoteTitle")}
         subtitle={t("ctaQuoteSubtitle")}
-        className="inline-flex items-center justify-center min-h-[48px] bg-[#A8C117] text-[#052638] font-semibold px-7 py-3 rounded-lg hover:bg-[#b3cf3d] transition text-center"
-      >
-        {t("ctaQuote")}
-      </OpenLeadModalButton>
+      />
       <Link
         href="/solar-panel-cleaning-system"
         className="inline-flex items-center justify-center min-h-[48px] border-2 border-white/80 text-white font-medium px-7 py-3 rounded-lg hover:bg-white/10 transition text-center"

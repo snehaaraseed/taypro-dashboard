@@ -7,7 +7,7 @@ interface HomeHeroVideoPlayerProps {
   title: string;
 }
 
-/** Click-to-play overlay; poster images are server-rendered in HomeHeroVideo. */
+/** Click-to-play overlay; poster on desktop is server-rendered in HomeHeroVideo. */
 export default function HomeHeroVideoPlayer({
   videoId,
   title,
@@ -34,7 +34,7 @@ export default function HomeHeroVideoPlayer({
       aria-label={`Play video: ${title}`}
     >
       <span
-        className="absolute inset-0 bg-[#052638]/25 transition-opacity group-hover:bg-[#052638]/15"
+        className="absolute inset-0 bg-[#052638]/25 group-hover:bg-[#052638]/15"
         aria-hidden
       />
       <span className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#A8C117] text-[#052638] shadow-lg ring-4 ring-white/30 sm:h-[4.5rem] sm:w-[4.5rem]">
