@@ -499,3 +499,15 @@ a.internal-link:hover {
     animation: none;
   }
 }
+
+/* Scroll-reveal transitions (AnimateOnScroll) — avoids per-element inline transition styles */
+.aos-transition {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: var(--aos-duration, 600ms);
+  transition-delay: var(--aos-delay, 0ms);
+}
+
+.aos-pending {
+  will-change: transform, opacity;
+}

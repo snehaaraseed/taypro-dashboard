@@ -127,11 +127,21 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             }`}
           >
             <div
-              className="relative w-full max-w-full"
-              style={{
-                aspectRatio: imageAspectRatio ?? (isWideHero ? "2.2 / 1" : "4 / 3"),
-                maxHeight: isWideHero ? "min(42vw, 420px)" : "min(72vw, 600px)",
-              }}
+              className={`relative w-full max-w-full ${
+                imageAspectRatio
+                  ? ""
+                  : isWideHero
+                    ? "aspect-[2.2/1] max-h-[min(42vw,420px)]"
+                    : "aspect-[4/3] max-h-[min(72vw,600px)]"
+              }`}
+              style={
+                imageAspectRatio
+                  ? {
+                      aspectRatio: imageAspectRatio,
+                      maxHeight: isWideHero ? "min(42vw, 420px)" : "min(72vw, 600px)",
+                    }
+                  : undefined
+              }
             >
               <Image
                 alt={getAltText()}

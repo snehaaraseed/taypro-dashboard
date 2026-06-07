@@ -2,7 +2,7 @@
   "Home": {
     "meta": {
       "title": "Solar Panel Cleaning Robots | Waterless & Autonomous",
-      "description": "India's leading waterless solar panel cleaning robots for utility-scale plants. Recover lost generation with GLYDE & NYUMA. Request a quote today.",
+      "description": "India's leading waterless solar panel cleaning robots for utility-scale plants. Recover lost generation with dry cleaning, fleet monitoring, and nationwide Taypro deployment support. Request a quote.",
       "ogTitle": "Solar Panel Cleaning Robots | Waterless & Autonomous",
       "ogDescription": "Waterless solar panel cleaning robots for Indian utility plants. Dual-pass dry cleaning, NECTYR fleet ops, pan-India service.",
       "twitterTitle": "Solar Panel Cleaning Robots | Waterless & Autonomous",
@@ -43,6 +43,9 @@
       "ctaRoi": "Price & ROI calculator"
     },
     "stats": {
+      "methodologyBefore": "Fleet impact figures are modelled from live deployments. See our",
+      "methodologyLink": "performance & test methodology",
+      "methodologyAfter": "for assumptions and qualified claims.",
       "stat0": {
         "label": "Robot Capacity Deployed"
       },
@@ -190,6 +193,8 @@
     "roi": {
       "heading": "Estimate robot payback for your plant",
       "body": "Run a directional ROI on labour, water, and generation savings, or open the full calculator for PDF export and detailed assumptions.",
+      "methodology": "Estimates use site-specific soiling, tariff, and O&M inputs. Full assumptions, qualified performance claims, and test methodology are documented on our performance page.",
+      "methodologyLink": "View performance & test methodology",
       "link": "Open full ROI & price calculator"
     },
     "clients": {
@@ -240,7 +245,8 @@
     "projects": {
       "eyebrow": "Proven in the field",
       "heading": "Utility-scale cleaning robot deployments",
-      "subheading": "Browse case studies from Indian solar plants using Taypro autonomous and semi-automatic robots."
+      "subheading": "Browse case studies from Indian solar plants using Taypro autonomous and semi-automatic robots.",
+      "quote": "Utility operators report predictable dry-cleaning cycles, lower water logistics, and logged coverage through NECTYR across multi-MW blocks."
     },
     "blog": {
       "heading": "From the blog",

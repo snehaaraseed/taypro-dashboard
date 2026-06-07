@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState, ReactNode } from "react";
+import { useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 
 type AnimateOnScrollProps = {
   children: ReactNode;
@@ -111,15 +111,19 @@ export function AnimateOnScroll({
     scaleIn: isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95",
   };
 
+  const motionStyle =
+    delay > 0 || duration !== 600
+      ? ({
+          "--aos-delay": `${delay}ms`,
+          "--aos-duration": `${duration}ms`,
+        } as CSSProperties)
+      : undefined;
+
   return (
     <div
       ref={ref}
-      className={`transition-all ease-out ${animationClasses[animation]} ${className}`}
-      style={{
-        transitionDuration: `${duration}ms`,
-        transitionDelay: `${delay}ms`,
-        willChange: !isVisible ? 'transform, opacity' : 'auto',
-      }}
+      className={`aos-transition ease-out ${!isVisible ? "aos-pending" : ""} ${animationClasses[animation]} ${className}`}
+      style={motionStyle}
     >
       {children}
     </div>

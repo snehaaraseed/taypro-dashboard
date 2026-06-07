@@ -172,6 +172,95 @@ cms_push_to_standalone() {
   echo "  ✅ Synced checkpointed cms.sqlite → standalone"
 }
 
+# Install a built standalone tree from a staging directory (e.g. .release-build).
+cms_install_standalone_from() {
+  local source_root="$1"
+  local stand_src="$source_root/.next/standalone"
+  local static_src="$source_root/.next/static"
+
+  if [ ! -f "$stand_src/server.js" ]; then
+    echo "  ❌ Missing $stand_src/server.js"
+    return 1
+  fi
+
+  mkdir -p "$ROOT/.next"
+  cp -a "$stand_src" "$ROOT/.next/standalone"
+  if [ -d "$static_src" ]; then
+    mkdir -p "$ROOT/.next/standalone/.next"
+    rsync -a "$static_src/" "$ROOT/.next/standalone/.next/static/"
+  fi
+  if [ -f "$ROOT/.env.production" ]; then
+    cp -a "$ROOT/.env.production" "$ROOT/.next/standalone/.env.production"
+    chmod 600 "$ROOT/.next/standalone/.env.production" 2>/dev/null || true
+  fi
+  if [ -f "$ROOT/data/seo-keywords.csv" ]; then
+    mkdir -p "$ROOT/.next/standalone/data"
+    cp -a "$ROOT/data/seo-keywords.csv" "$ROOT/.next/standalone/data/"
+  fi
+  if [ -f "$ROOT/data/gsc-oauth-tokens.json" ]; then
+    mkdir -p "$ROOT/.next/standalone/data"
+    cp -a "$ROOT/data/gsc-oauth-tokens.json" "$ROOT/.next/standalone/data/"
+  fi
+  if [ -d "$ROOT/messages" ]; then
+    mkdir -p "$ROOT/.next/standalone/messages"
+    rsync -a "$ROOT/messages/" "$ROOT/.next/standalone/messages/"
+  fi
+  if [ -d "$ROOT/drizzle" ]; then
+    mkdir -p "$ROOT/.next/standalone/drizzle"
+    cp -a "$ROOT/drizzle/"* "$ROOT/.next/standalone/drizzle/" 2>/dev/null || true
+  fi
+
+  cd "$ROOT"
+  cms_push_to_standalone
+  cms_sync_public_safe "$ROOT"
+  echo "  ✅ Installed standalone from $source_root"
+}
+
+cms_rollback_standalone() {
+  if [ -d "$ROOT/.next/standalone.prev" ]; then
+    echo "  ↩️  Rolling back to previous standalone..."
+    rm -rf "$ROOT/.next/standalone"
+    mv "$ROOT/.next/standalone.prev" "$ROOT/.next/standalone"
+    cms_start_app
+    echo "  ✅ Rolled back to previous standalone"
+  else
+    echo "  ⚠️  No standalone.prev to roll back to"
+    cms_start_app
+  fi
+}
+
+# Brief PM2 stop → swap standalone → start (~3–5s). No nginx maintenance.
+cms_swap_standalone() {
+  local source_root="$1"
+  if [ -z "$source_root" ] || [ ! -d "$source_root/.next/standalone" ]; then
+    echo "  ❌ swap-standalone requires a staging path with .next/standalone"
+    exit 1
+  fi
+
+  local swap_start
+  swap_start=$(date +%s)
+
+  cms_stop_app
+
+  if [ -d "$ROOT/.next/standalone" ]; then
+    rm -rf "$ROOT/.next/standalone.prev"
+    mv "$ROOT/.next/standalone" "$ROOT/.next/standalone.prev"
+  fi
+
+  if ! cms_install_standalone_from "$source_root"; then
+    cms_rollback_standalone
+    exit 1
+  fi
+
+  cms_start_app
+
+  local swap_end
+  swap_end=$(date +%s)
+  echo "  ✅ Standalone swap complete ($((swap_end - swap_start))s downtime)"
+
+  rm -rf "$ROOT/.next/standalone.prev"
+}
+
 # Sync public/ → standalone without --delete on uploads (gallery must survive).
 cms_sync_public_safe() {
   local app_root="${1:-$ROOT}"
@@ -199,8 +288,10 @@ case "${1:-}" in
   sync-public) cms_sync_public_safe "${2:-$ROOT}" ;;
   save-metrics) cms_save_metrics "$2" "${3:-data/cms.sqlite}" ;;
   assert-unchanged) cms_assert_unchanged "$2" "$3" ;;
+  swap-standalone) cms_swap_standalone "$2" ;;
+  rollback-standalone) cms_rollback_standalone ;;
   *)
-    echo "Usage: internal CMS helper — run ./deploy.sh from your machine instead."
+    echo "Usage: internal CMS helper — run ./deploy.sh or ./deploy-zero-downtime.sh from your machine instead."
     exit 1
     ;;
 esac

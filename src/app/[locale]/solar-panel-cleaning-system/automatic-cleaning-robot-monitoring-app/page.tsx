@@ -351,7 +351,7 @@ export default async function NectyrPage({
               <AnimateOnScroll animation="fadeInUp" delay={100}>
                 <div className="relative w-full aspect-[16/10] overflow-hidden rounded-lg">
                   <Image
-                    src="/tayproasset/nectyr.png"
+                    src="/tayproasset/nectyr.webp"
                     alt={t("visual.imageAlt")}
                     title="NECTYR"
                     fill
@@ -372,7 +372,7 @@ export default async function NectyrPage({
 
             <div className="hidden lg:block relative w-full aspect-[16/9] overflow-hidden rounded-lg">
               <Image
-                src="/tayproasset/nectyr.png"
+                src="/tayproasset/nectyr.webp"
                 alt={t("visual.imageAlt")}
                 title="NECTYR"
                 fill

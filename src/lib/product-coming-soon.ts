@@ -38,7 +38,7 @@ export const comingSoonProducts: ComingSoonProductConfig[] = [
     model: "ORION",
     path: ORION_PRODUCT_PATH,
     namespace: "OrionPage",
-    heroImagePath: "/tayproasset/nectyr.png",
+    heroImagePath: "/tayproasset/nectyr.webp",
     showRobotProductCards: false,
     relatedHrefs: [
       "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",

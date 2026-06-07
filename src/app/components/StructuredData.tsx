@@ -76,19 +76,18 @@ interface VideoObjectSchemaProps {
   embedUrl?: string;
 }
 
-export function OrganizationSchema({
-  siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
-  logo = "https://taypro.in/tayproasset/taypro-logo.png",
+function buildOrganizationNode({
+  siteUrl,
+  logo,
   contactPoint,
-  sameAs = [
-    "https://www.linkedin.com/company/taypro",
-    "https://www.youtube.com/c/taypro",
-    "https://www.facebook.com/taypro",
-    "https://www.instagram.com/taypro",
-  ],
-}: OrganizationSchemaProps) {
-  const schema = {
-    "@context": "https://schema.org",
+  sameAs,
+}: {
+  siteUrl: string;
+  logo: string;
+  contactPoint?: OrganizationSchemaProps["contactPoint"];
+  sameAs: string[];
+}) {
+  return {
     "@type": "Organization",
     name: "Taypro",
     url: siteUrl,
@@ -122,6 +121,192 @@ export function OrganizationSchema({
       "Solar Farm Efficiency",
       "Waterless Solar Cleaning",
     ],
+  };
+}
+
+function buildLocalBusinessNode({
+  siteUrl,
+  logo,
+  contactPoint,
+  sameAs,
+}: {
+  siteUrl: string;
+  logo: string;
+  contactPoint?: OrganizationSchemaProps["contactPoint"];
+  sameAs: string[];
+}) {
+  const node: Record<string, unknown> = {
+    "@type": "LocalBusiness",
+    "@id": `${siteUrl}/#localbusiness`,
+    name: "Taypro",
+    url: siteUrl,
+    logo,
+    image: logo,
+    description:
+      "Taypro develops and manufactures autonomous solar panel cleaning robots for utility-scale solar plants in India. Headquarters in Chakan, Pune with pan-India sales and service.",
+    foundingDate: "2019-07-16",
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      url: `${siteUrl}/contact`,
+      ...contactPoint,
+    },
+    sameAs,
+    areaServed: {
+      "@type": "Country",
+      name: "India",
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Chakan Industrial Area",
+      addressLocality: "Chakan, Pune",
+      addressRegion: "Maharashtra",
+      postalCode: "410501",
+      addressCountry: "IN",
+    },
+  };
+
+  if (contactPoint?.telephone) {
+    node.telephone = contactPoint.telephone;
+  }
+
+  return node;
+}
+
+function buildWebSiteNode({
+  siteUrl,
+  searchAction,
+}: {
+  siteUrl: string;
+  searchAction?: WebSiteSchemaProps["searchAction"];
+}) {
+  const schema: Record<string, unknown> = {
+    "@type": "WebSite",
+    name: "Taypro",
+    url: siteUrl,
+    description:
+      "Taypro - Leading manufacturer of Solar Panel Cleaning Robots for solar farms in India",
+    publisher: {
+      "@type": "Organization",
+      name: "Taypro",
+    },
+  };
+
+  if (searchAction) {
+    schema.potentialAction = {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: searchAction.target,
+      },
+      "query-input": searchAction.queryInput,
+    };
+  }
+
+  return schema;
+}
+
+/** Screen-reader-only microdata for site identity (no JSON-LD script tag). */
+export function SiteIdentityMicrodata({
+  siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
+  logo = "https://taypro.in/tayproasset/taypro-logo.png",
+  contactPoint,
+  sameAs = [
+    "https://www.linkedin.com/company/taypro",
+    "https://www.youtube.com/c/taypro",
+    "https://www.facebook.com/taypro",
+    "https://www.instagram.com/taypro",
+  ],
+}: OrganizationSchemaProps) {
+  const description =
+    "Taypro develops and manufactures autonomous solar panel cleaning robots for utility-scale solar plants in India. Headquarters in Chakan, Pune with pan-India sales and service.";
+
+  return (
+    <p className="sr-only">
+      <span itemScope itemType="https://schema.org/LocalBusiness">
+        <span itemProp="name">Taypro</span>
+        <link itemProp="url" href={siteUrl} />
+        <link itemProp="logo" href={logo} />
+        <link itemProp="image" href={logo} />
+        <meta itemProp="description" content={description} />
+        <meta itemProp="foundingDate" content="2019-07-16" />
+        {contactPoint?.telephone ? (
+          <meta itemProp="telephone" content={contactPoint.telephone} />
+        ) : null}
+        <span itemProp="contactPoint" itemScope itemType="https://schema.org/ContactPoint">
+          <meta itemProp="contactType" content={contactPoint?.contactType ?? "customer service"} />
+          {contactPoint?.telephone ? (
+            <meta itemProp="telephone" content={contactPoint.telephone} />
+          ) : null}
+          <link itemProp="url" href={`${siteUrl}/contact`} />
+        </span>
+        {sameAs.map((url) => (
+          <link key={url} itemProp="sameAs" href={url} />
+        ))}
+        <span itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+          <meta itemProp="streetAddress" content="Chakan Industrial Area" />
+          <meta itemProp="addressLocality" content="Chakan, Pune" />
+          <meta itemProp="addressRegion" content="Maharashtra" />
+          <meta itemProp="postalCode" content="410501" />
+          <meta itemProp="addressCountry" content="IN" />
+        </span>
+        <meta itemProp="areaServed" content="India" />
+      </span>
+      <span itemScope itemType="https://schema.org/WebSite">
+        <meta itemProp="name" content="Taypro" />
+        <link itemProp="url" href={siteUrl} />
+        <span itemProp="publisher" itemScope itemType="https://schema.org/LocalBusiness">
+          <meta itemProp="name" content="Taypro" />
+        </span>
+      </span>
+    </p>
+  );
+}
+
+/** One JSON-LD script for site-wide LocalBusiness + WebSite (@graph). */
+export function SiteGraphSchema({
+  siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
+  logo = "https://taypro.in/tayproasset/taypro-logo.png",
+  contactPoint,
+  sameAs = [
+    "https://www.linkedin.com/company/taypro",
+    "https://www.youtube.com/c/taypro",
+    "https://www.facebook.com/taypro",
+    "https://www.instagram.com/taypro",
+  ],
+  searchAction,
+}: OrganizationSchemaProps & WebSiteSchemaProps) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      buildLocalBusinessNode({ siteUrl, logo, contactPoint, sameAs }),
+      buildWebSiteNode({ siteUrl, searchAction }),
+    ],
+  };
+
+  return (
+    <script
+      id="site-graph-schema"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+export function OrganizationSchema({
+  siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
+  logo = "https://taypro.in/tayproasset/taypro-logo.png",
+  contactPoint,
+  sameAs = [
+    "https://www.linkedin.com/company/taypro",
+    "https://www.youtube.com/c/taypro",
+    "https://www.facebook.com/taypro",
+    "https://www.instagram.com/taypro",
+  ],
+}: OrganizationSchemaProps) {
+  const schema = {
+    "@context": "https://schema.org",
+    ...buildOrganizationNode({ siteUrl, logo, contactPoint, sameAs }),
   };
 
   return (
@@ -370,29 +555,10 @@ export function WebSiteSchema({
   siteUrl,
   searchAction,
 }: WebSiteSchemaProps) {
-  const schema: any = {
+  const schema = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Taypro",
-    url: siteUrl,
-    description:
-      "Taypro - Leading manufacturer of Solar Panel Cleaning Robots for solar farms in India",
-    publisher: {
-      "@type": "Organization",
-      name: "Taypro",
-    },
+    ...buildWebSiteNode({ siteUrl, searchAction }),
   };
-
-  if (searchAction) {
-    schema.potentialAction = {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: searchAction.target,
-      },
-      "query-input": searchAction.queryInput,
-    };
-  }
 
   return (
     <script

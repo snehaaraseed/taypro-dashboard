@@ -75,7 +75,7 @@ export const robots = [
     marketingName: "Robotic solar panel cleaning service",
     description:
       "Pay-per-panel-cleaned Opex, Taypro operates the cleaning robot fleet on your plant with no upfront CAPEX.",
-    imgPath: "/tayprorobots/taypro-opex.jpg",
+    imgPath: "/tayprorobots/taypro-opex.webp",
     href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
   },
   {
@@ -83,7 +83,7 @@ export const robots = [
     marketingName: "Solar cleaning robot monitoring software",
     description:
       "Fleet portal to schedule, monitor, and report on solar panel cleaning robots across your site.",
-    imgPath: "/tayproasset/nectyr.png",
+    imgPath: "/tayproasset/nectyr.webp",
     href: "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
   },
 ];
@@ -120,7 +120,7 @@ export const comingSoonRobotProducts = [
     marketingName: "Solar plant intelligence platform",
     description:
       "Generation-trained plant health monitoring SaaS, SCADA-aware insights enriched by Taypro robot field data on site.",
-    imgPath: "/tayproasset/nectyr.png",
+    imgPath: "/tayproasset/nectyr.webp",
     href: ORION_PRODUCT_PATH,
   },
 ] as const;

@@ -64,10 +64,10 @@ export default function ClientsCard({
                 src={item.logoSrc}
                 alt={item.alt}
                 title={item.title}
-                width={200}
-                height={200}
-                sizes="(max-width: 640px) 50vw, 200px"
-                className="h-auto max-h-[120px] w-auto max-w-[80%] object-contain transition-transform duration-300 hover:scale-105"
+                width={160}
+                height={120}
+                sizes="(max-width: 640px) 50vw, 160px"
+                className="h-[120px] w-auto max-w-[80%] object-contain transition-transform duration-300 hover:scale-105"
                 loading="lazy"
               />
             </AnimateOnScroll>

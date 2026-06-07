@@ -1,6 +1,5 @@
 "use client";
 
-import Script from "next/script";
 import { BreadcrumbListSchema, FAQPageSchema } from "./StructuredData";
 
 interface BreadcrumbItem {

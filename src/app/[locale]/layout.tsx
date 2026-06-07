@@ -4,7 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { buildClientMessages } from "@/i18n/pick-messages";
-import { OrganizationSchema, WebSiteSchema } from "@/app/components/StructuredData";
+import { SiteGraphSchema } from "@/app/components/StructuredData";
 import { TAYPRO_SALES_PHONE_E164 } from "@/lib/contact";
 import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
@@ -95,14 +95,13 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider locale={locale} messages={clientMessages}>
-      <OrganizationSchema
+      <SiteGraphSchema
         siteUrl={siteUrl}
         contactPoint={{
           contactType: "customer service",
           telephone: TAYPRO_SALES_PHONE_E164,
         }}
       />
-      <WebSiteSchema siteUrl={siteUrl} />
       <LeadModalRoot>
         <div className="min-h-screen flex flex-col">
           <Header />

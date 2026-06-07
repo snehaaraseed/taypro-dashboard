@@ -12,6 +12,7 @@ import { FaqSection } from "@/app/components/FaqSection";
 import LazyWhenVisible from "@/app/components/LazyWhenVisible";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import { clientPartners } from "@/app/data";
+import { PERFORMANCE_METHODOLOGY_PATH } from "@/lib/seo/performance-methodology";
 
 function FormLoading() {
   const t = useTranslations("Home.loading");
@@ -198,6 +199,16 @@ export default function HomePageInteractive({
               {t("roi.heading")}
             </h2>
             <p className="text-[#27415c] text-lg leading-relaxed">{t("roi.body")}</p>
+            <p className="text-[#5a7a8f] text-sm leading-relaxed mt-4">
+              {t("roi.methodology")}{" "}
+              <Link
+                href={PERFORMANCE_METHODOLOGY_PATH}
+                className="text-[#5a8f00] font-medium hover:underline"
+              >
+                {t("roi.methodologyLink")}
+              </Link>
+              .
+            </p>
             <Link
               href="/solar-panel-cleaning-robot-price-calculator#calculator"
               className="inline-flex items-center gap-2 mt-4 text-[#5a8f00] font-semibold hover:underline"
@@ -213,11 +224,11 @@ export default function HomePageInteractive({
         </Container>
       </section>
 
-      <LazyWhenVisible minHeight={280} rootMargin="320px 0px">
+      <LazyWhenVisible placeholderClassName="min-h-[280px]" rootMargin="320px 0px">
         <ModuleManufacturerTrust />
       </LazyWhenVisible>
 
-      <LazyWhenVisible minHeight={420} rootMargin="320px 0px">
+      <LazyWhenVisible placeholderClassName="min-h-[420px]" rootMargin="320px 0px">
         <ClientsCard
           heading={t("clients.heading")}
           trustedByText={t("clients.trustedBy", {

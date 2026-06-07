@@ -82,11 +82,11 @@ export const OG_PRESETS = {
     alt: "Taypro NYUMA-X tracker PBT solar panel cleaning robot",
   },
   opex: {
-    path: "/tayprorobots/taypro-opex.jpg",
+    path: "/tayprorobots/taypro-opex.webp",
     alt: "Taypro robotic solar panel cleaning service (Opex)",
   },
   console: {
-    path: "/tayproasset/nectyr.png",
+    path: "/tayproasset/nectyr.webp",
     alt: "NECTYR fleet monitoring for cleaning robots",
   },
 } as const satisfies Record<string, OgImageSpec>;

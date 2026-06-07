@@ -11,6 +11,8 @@ interface DynamicProjectsRollupProps {
   eyebrow?: string;
   heading?: string;
   subheading?: string;
+  /** Optional operator quote for AI/SEO content depth */
+  quote?: string;
   limit?: number;
   background?: "white" | "cream";
   showViewAll?: boolean;
@@ -21,6 +23,7 @@ export default async function DynamicProjectsRollup({
   eyebrow = "Deployed at utility scale",
   heading = "Solar Panel Cleaning Robots already at work across India",
   subheading = "Taypro robots clean panels at multi-megawatt plants across India. A small sample of recent installations is below.",
+  quote,
   limit = 4,
   background = "cream",
   showViewAll = true,
@@ -59,6 +62,11 @@ export default async function DynamicProjectsRollup({
             <p className="text-[#27415c] text-base sm:text-lg leading-relaxed mt-5">
               {subheading}
             </p>
+          ) : null}
+          {quote ? (
+            <blockquote className="border-l-4 border-[#A8C117] pl-5 mt-6 text-[#27415c]/90 text-sm sm:text-base italic leading-relaxed">
+              {quote}
+            </blockquote>
           ) : null}
         </AnimateOnScroll>
 

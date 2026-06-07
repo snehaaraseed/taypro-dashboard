@@ -383,7 +383,17 @@ const nextConfig = {
       },
       {
         source: "/tayproasset/taypro-console.png",
-        destination: "/tayproasset/nectyr.png",
+        destination: "/tayproasset/nectyr.webp",
+        permanent: true,
+      },
+      {
+        source: "/tayproasset/nectyr.png",
+        destination: "/tayproasset/nectyr.webp",
+        permanent: true,
+      },
+      {
+        source: "/tayprorobots/taypro-opex.jpg",
+        destination: "/tayprorobots/taypro-opex.webp",
         permanent: true,
       },
       {

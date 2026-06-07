@@ -68,7 +68,7 @@ export function RobotCard({
       className={`group flex flex-col h-full w-full rounded-2xl border border-gray-200/90 bg-white shadow-sm overflow-hidden hover:border-[#A8C117]/80 hover:shadow-md transition-all duration-300 ${className}`.trim()}
     >
       <div
-        className={`relative w-full h-[13.5rem] sm:h-[14.25rem] shrink-0 overflow-hidden ${media.bg}`}
+        className={`relative w-full aspect-[16/10] shrink-0 overflow-hidden ${media.bg}`}
       >
         <Image
           src={robot.imgPath}

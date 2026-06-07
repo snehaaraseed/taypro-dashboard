@@ -41,7 +41,10 @@ for arg in "$@"; do
         -h|--help)
             echo "Usage: ./deploy.sh [--fast] [--resume] [--checksum]"
             echo ""
-            echo "  This is the only deploy entry point. Do not run other deploy-*.sh scripts."
+            echo "  Standard deploy (503 maintenance during build). For ~3–5s interruption only:"
+            echo "  ./deploy-zero-downtime.sh [--fast] [--skip-build] [--swap-only]"
+            echo ""
+            echo "  Do not run other deploy-*.sh scripts directly."
             echo "  --fast     Skip legacy backfill; skip npm install if lockfile unchanged"
             echo "  --resume   Server already has code + CMS; finish build + PM2 only"
             echo "  --checksum Use slow rsync checksum (default: size+mtime only)"

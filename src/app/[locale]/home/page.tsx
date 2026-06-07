@@ -33,6 +33,7 @@ import {
   STATE_LANDING_PAGES,
   type StateLandingId,
 } from "@/lib/seo/state-landing-config";
+import { PERFORMANCE_METHODOLOGY_PATH } from "@/lib/seo/performance-methodology";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 const HERO_VIDEO_ID = "y9iRhH2bLwY";
@@ -217,6 +218,16 @@ export default async function HomePage() {
                 </AnimateOnScroll>
               ))}
             </div>
+            <p className="mt-8 text-center text-white/60 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
+              {t("stats.methodologyBefore")}{" "}
+              <Link
+                href={PERFORMANCE_METHODOLOGY_PATH}
+                className="text-[#A8C117] hover:underline"
+              >
+                {t("stats.methodologyLink")}
+              </Link>{" "}
+              {t("stats.methodologyAfter")}
+            </p>
           </Container>
         </section>
 
@@ -398,6 +409,7 @@ export default async function HomePage() {
           eyebrow={t("projects.eyebrow")}
           heading={t("projects.heading")}
           subheading={t("projects.subheading")}
+          quote={t("projects.quote")}
           limit={4}
           background="white"
         />
