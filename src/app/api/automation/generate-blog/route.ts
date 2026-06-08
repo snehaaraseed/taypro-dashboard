@@ -48,12 +48,6 @@ import {
 } from "@/lib/topicTracker";
 import { createBlogFiles, createSlug } from "@/app/utils/blogFileUtils";
 import { isAutomationAuthorized } from "@/lib/security";
-import {
-  GeminiDailyBudgetError,
-  getBlogPipelineMaxCalls,
-  getGeminiDailyBudget,
-  getSerpMaxCallsPerBlog,
-} from "@/lib/gemini/daily-budget";
 import { runGroundedFactResearch } from "@/lib/gemini/grounded-fact-research";
 import { runGroundedSerpResearch } from "@/lib/gemini/grounded-serp-research";
 import type { FactResearchBrief } from "@/lib/gemini/grounded-fact-research";
@@ -654,7 +648,6 @@ export async function POST(request: NextRequest) {
             authorExpertise: resolveAuthorExpertiseTags(bylineAuthor),
             plannedCategory: plannedCategoryName,
             pipelineAttempt: pipelineAttempt + 1,
-            geminiBudget: getGeminiDailyBudget(),
           },
           schedule: await getBlogAutomationSchedule(),
         });
@@ -715,16 +708,6 @@ export async function POST(request: NextRequest) {
       : new Error("Blog generation failed");
   } catch (error) {
     console.error("Error in POST /api/automation/generate-blog:", error);
-    if (error instanceof GeminiDailyBudgetError) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: error.message,
-          geminiBudget: error.snapshot,
-        },
-        { status: 429 }
-      );
-    }
     return NextResponse.json(
       {
         success: false,
@@ -773,10 +756,7 @@ export async function GET(request: NextRequest) {
       focusKeywordNextReviewAfter: focusEntry?.nextReviewAfter ?? null,
       focusKeywordGscPosition: focusEntry?.lastPosition ?? null,
       campaignPreview: campaignEnabled ? getCampaignPreview() : null,
-      serpMaxCallsPerBlog: getSerpMaxCallsPerBlog(),
       blogPipelineMaxOuterAttempts: MAX_PIPELINE_ATTEMPTS,
-      geminiBudget: getGeminiDailyBudget(),
-      blogPipelineMaxCalls: getBlogPipelineMaxCalls(),
       nextEditorialContract: nextContract
         ? {
             slotKey: nextContract.slotKey,

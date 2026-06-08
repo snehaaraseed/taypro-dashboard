@@ -1,7 +1,12 @@
 "use client";
 
 import type { ButtonHTMLAttributes, MouseEvent } from "react";
-import { useLeadModal, type LeadModalOpenOptions } from "./LeadModalContext";
+import { useContext } from "react";
+import { Link } from "@/i18n/navigation";
+import {
+  LeadModalContext,
+  type LeadModalOpenOptions,
+} from "./LeadModalContext";
 
 interface OpenLeadModalButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
@@ -11,7 +16,8 @@ interface OpenLeadModalButtonProps
  * Drop-in replacement for `<Link href="/contact">` style CTAs that should
  * keep the user on the page. Opens the global lead modal on click.
  *
- * Pass through any standard button props (className, children, etc.).
+ * Falls back to `/contact` when rendered outside `LeadModalProvider` (e.g. root
+ * `not-found.tsx`, which is outside the locale layout).
  */
 export default function OpenLeadModalButton({
   topic,
@@ -21,9 +27,20 @@ export default function OpenLeadModalButton({
   type = "button",
   onClick,
   children,
+  className,
   ...rest
 }: OpenLeadModalButtonProps) {
-  const { openLeadModal } = useLeadModal();
+  const ctx = useContext(LeadModalContext);
+
+  if (!ctx) {
+    return (
+      <Link href="/contact" className={className}>
+        {children}
+      </Link>
+    );
+  }
+
+  const { openLeadModal } = ctx;
 
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     openLeadModal({ topic, source, title, subtitle });
@@ -31,7 +48,7 @@ export default function OpenLeadModalButton({
   };
 
   return (
-    <button type={type} onClick={handleClick} {...rest}>
+    <button type={type} onClick={handleClick} className={className} {...rest}>
       {children}
     </button>
   );

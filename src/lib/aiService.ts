@@ -37,11 +37,6 @@ import {
   type BlogFaqItem,
 } from "@/lib/cms/blog-faqs";
 import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
-import {
-  assertGeminiCallAllowed,
-  recordGeminiCall,
-  type GeminiCallPurpose,
-} from "@/lib/gemini/daily-budget";
 import { freeGeminiTextModelCandidates } from "@/lib/gemini/free-tier-models";
 import {
   geminiQuotaErrorMessage,
@@ -109,8 +104,8 @@ type GenerateTextOptions = {
   preferQualityModel?: boolean;
   /** Override output token cap (blog generation uses BLOG_MAX_OUTPUT_TOKENS). */
   maxOutputTokens?: number;
-  /** Daily RPD accounting bucket. */
-  purpose?: GeminiCallPurpose;
+  /** Optional call label for logs (blog_section, blog_topic, etc.). */
+  purpose?: string;
 };
 
 /** Long-form blog JSON needs a high output cap; default Gemini limits truncate ~800-word drafts. */
@@ -166,7 +161,6 @@ async function generateText(
 
     for (const modelName of blogModelCandidates(options)) {
       try {
-        assertGeminiCallAllowed(options?.purpose ?? "other");
         const generationConfig =
           options?.maxOutputTokens && options.maxOutputTokens > 0
             ? { maxOutputTokens: options.maxOutputTokens }
@@ -175,14 +169,9 @@ async function generateText(
           model: modelName,
           ...(generationConfig ? { generationConfig } : {}),
         });
-        let text: string;
-        try {
-          const result = await model.generateContent(prompt);
-          text = result.response.text().trim();
-        } finally {
-          recordGeminiCall(options?.purpose ?? "other");
-          await pauseAfterGeminiCall();
-        }
+        const result = await model.generateContent(prompt);
+        const text = result.response.text().trim();
+        await pauseAfterGeminiCall();
         if (apiKey !== apiKeys[0]) {
           console.warn("Gemini call succeeded on fallback API key (GEMINI_API_KEY_2).");
         }

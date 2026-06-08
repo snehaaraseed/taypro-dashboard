@@ -7,10 +7,6 @@ import {
   listGeminiApiKeys,
 } from "@/lib/gemini/api-keys";
 import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
-import {
-  assertSerpCallAllowed,
-  recordGeminiCall,
-} from "@/lib/gemini/daily-budget";
 
 /** Models that support `googleSearch` on the free tier (keep off flash-lite writer path). */
 const DEFAULT_SERP_GROUNDING_MODELS = [
@@ -235,7 +231,6 @@ export async function runGroundedSerpResearch(
   const apiKeys = listGeminiApiKeys();
   let lastError: unknown;
   let quotaExhaustedKeys = 0;
-  const callsSoFar = input.serpCallsSoFar ?? 0;
 
   for (const apiKey of apiKeys) {
     const ai = new GoogleGenAI({ apiKey });
@@ -243,7 +238,6 @@ export async function runGroundedSerpResearch(
 
     for (const model of models) {
       try {
-        assertSerpCallAllowed("serp_research", callsSoFar);
         const response = await ai.models.generateContent({
           model,
           contents: prompt,
@@ -259,7 +253,6 @@ export async function runGroundedSerpResearch(
         }
 
         const grounding = extractGroundingMeta(response);
-        recordGeminiCall("serp_research");
         await pauseAfterGeminiCall();
 
         return parseSerpBrief(text, input, {

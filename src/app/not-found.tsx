@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
 import NotFoundContent from "@/app/components/NotFoundContent";
+import LeadModalRoot from "@/app/components/LeadModalRoot";
 import { buildNotFoundLabels } from "@/lib/not-found-labels";
 import { loadMessages } from "@/i18n/load-messages";
 
@@ -22,5 +24,11 @@ export default async function RootNotFoundPage() {
     return typeof value === "string" ? value : key;
   });
 
-  return <NotFoundContent labels={labels} />;
+  return (
+    <NextIntlClientProvider locale="en" messages={messages}>
+      <LeadModalRoot>
+        <NotFoundContent labels={labels} />
+      </LeadModalRoot>
+    </NextIntlClientProvider>
+  );
 }

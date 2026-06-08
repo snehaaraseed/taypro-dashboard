@@ -29,7 +29,7 @@ interface LeadModalContextValue {
   closeLeadModal: () => void;
 }
 
-const LeadModalContext = createContext<LeadModalContextValue | null>(null);
+export const LeadModalContext = createContext<LeadModalContextValue | null>(null);
 
 export function LeadModalProvider({ children }: { children: React.ReactNode }) {
   const [state, setState] = useState<LeadModalState>({ isOpen: false });

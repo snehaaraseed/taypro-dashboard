@@ -7,10 +7,6 @@ import {
   listGeminiApiKeys,
 } from "@/lib/gemini/api-keys";
 import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
-import {
-  assertSerpCallAllowed,
-  recordGeminiCall,
-} from "@/lib/gemini/daily-budget";
 
 const DEFAULT_FACT_GROUNDING_MODELS = [
   "gemini-2.5-flash",
@@ -215,7 +211,6 @@ export async function runGroundedFactResearch(
   const apiKeys = listGeminiApiKeys();
   let lastError: unknown;
   let quotaExhaustedKeys = 0;
-  const callsSoFar = input.serpCallsSoFar ?? 0;
 
   for (const apiKey of apiKeys) {
     const ai = new GoogleGenAI({ apiKey });
@@ -223,7 +218,6 @@ export async function runGroundedFactResearch(
 
     for (const model of models) {
       try {
-        assertSerpCallAllowed("serp_facts", callsSoFar);
         const response = await ai.models.generateContent({
           model,
           contents: prompt,
@@ -239,7 +233,6 @@ export async function runGroundedFactResearch(
         }
 
         const grounding = extractGroundingMeta(response);
-        recordGeminiCall("serp_facts");
         await pauseAfterGeminiCall();
 
         return parseFactBrief(text, input, {

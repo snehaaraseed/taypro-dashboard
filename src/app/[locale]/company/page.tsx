@@ -10,15 +10,16 @@ import {
   tayproMarketingImpactStats,
   tayproTrustedByStatsStrip,
 } from "@/app/data";
-import { Linkedin } from "lucide-react";
+import { ArrowRight, Check, Linkedin } from "lucide-react";
 import CallbackCard from "@/app/components/CallbackCard";
+import { CompanyPageHero } from "@/app/components/CompanyPageHero";
 import ModuleManufacturerTrust from "@/app/components/ModuleManufacturerTrust";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
 import { FaqSection } from "@/app/components/FaqSection";
 import { FAQPageSchema } from "@/app/components/StructuredData";
-import { getProduct, getProductHeroAspectRatio } from "@/lib/products/catalog";
+import { getProduct } from "@/lib/products/catalog";
 
 const STAT_STRIP_LABEL_KEYS = [
   "statsStrip.robotCapacityDeployed",
@@ -111,226 +112,184 @@ export default function AboutUsPage() {
       <FAQPageSchema faqs={companyFaqs} />
       <Breadcrumbs items={breadcrumbs} />
       <div className="min-h-screen overflow-x-hidden">
-        <div className="relative min-h-[50vh] flex flex-col items-center justify-start overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: "url('/tayprobglayout/taypro-project.png')",
-            }}
-            aria-hidden
-          />
-          <div
-            className="absolute inset-0 bg-white/90 sm:bg-white/85"
-            aria-hidden
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/50 to-white/75"
-            aria-hidden
-          />
+        <CompanyPageHero
+          eyebrow={t("hero.eyebrow")}
+          title={t("hero.title")}
+          subtitle={t("hero.subtitle")}
+          bodyBeforeLink={t("hero.bodyBeforeLink")}
+          bodyLink={t("hero.bodyLink")}
+          bodyAfterLink={t("hero.bodyAfterLink")}
+          imageAlt={t("builtForSites.aboutImageAlt")}
+        />
 
-          <AnimateOnScroll
-            animation="fadeInUp"
-            eager
-            className="relative z-10 pt-10 px-4 max-w-4xl mx-auto pb-28"
-          >
-            <div className="text-[#A8C117] text-center text-[16px] mb-4 uppercase tracking-wide">
-              {t("hero.eyebrow")}
-            </div>
-            <h1 className="font-semibold text-[#052638] text-4xl md:text-5xl mb-4 text-center leading-tight">
-              {t("hero.title")}
-            </h1>
-            <p className="text-[#5a8f00] text-center text-lg md:text-xl font-medium mb-6">
-              {t("hero.subtitle")}
-            </p>
-            <div className="text-[#22405a] text-center text-lg md:text-xl leading-relaxed">
-              {t("hero.bodyBeforeLink")}{" "}
-              <Link
-                href="/solar-panel-cleaning-system"
-                className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
-              >
-                {t("hero.bodyLink")}
-              </Link>{" "}
-              {t("hero.bodyAfterLink")}
-            </div>
-          </AnimateOnScroll>
-
-          <div className="absolute bottom-0 left-0 right-0 z-20 overflow-hidden pointer-events-none">
-            <svg
-              className="w-full h-24 md:h-40"
-              viewBox="0 0 1440 320"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <path fill="#052638" d="M0,224L1440,96L1440,320L0,320Z" />
-            </svg>
-          </div>
-        </div>
-
-        <div className="w-full py-14 md:py-16 bg-[#052638]">
+        <section className="w-full py-12 md:py-16 bg-[#0a3a4a] border-y border-white/10">
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
-              <div className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-2">
+              <p className="mb-3 inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#A8C117]">
                 {t("statsStrip.eyebrow")}
-              </div>
+              </p>
               <h2 className="text-white font-semibold text-2xl md:text-3xl">
                 {t("statsStrip.heading")}
               </h2>
             </AnimateOnScroll>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10 text-center">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {[...tayproTrustedByStatsStrip].map((stat, idx) => (
                 <AnimateOnScroll
                   key={stat.label}
                   animation="fadeInUp"
                   delay={idx * 80}
-                  className="px-2"
                 >
-                  <div className="text-[#A8C117] font-semibold text-3xl sm:text-4xl mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-white/80 text-sm sm:text-base">
-                    {t(STAT_STRIP_LABEL_KEYS[idx])}
+                  <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-6 text-center backdrop-blur-sm transition hover:border-[#A8C117]/35 hover:bg-white/8">
+                    <p className="text-[#A8C117] font-semibold text-2xl sm:text-3xl md:text-4xl mb-2 tabular-nums">
+                      {stat.value}
+                    </p>
+                    <p className="text-white/75 text-xs sm:text-sm leading-snug">
+                      {t(STAT_STRIP_LABEL_KEYS[idx])}
+                    </p>
                   </div>
                 </AnimateOnScroll>
               ))}
             </div>
           </Container>
-        </div>
+        </section>
 
-        <div className="w-full py-16 bg-[#073448] flex justify-center">
-          <div className="max-w-6xl w-full mx-4 md:mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            <AnimateOnScroll
-              animation="fadeInLeft"
-              delay={0}
-              className="bg-white px-10 py-10 flex flex-col justify-between shadow-lg min-h-[600px]"
-            >
-              <div>
-                <h3 className="text-[#073448] font-semibold text-2xl mb-8">
-                  {t("brandValues.heading")}
-                </h3>
-                <div
-                  className="space-y-5 text-lg text-[#245165] mb-10"
-                  role="list"
-                >
-                  {BRAND_VALUE_KEYS.map((key) => (
-                    <div
-                      className="flex items-center gap-2"
-                      key={key}
-                      role="listitem"
-                    >
-                      <svg width="24" height="24" fill="none" aria-hidden="true">
-                        <path
-                          d="M20 6L9 17l-5-5"
-                          stroke="#7be117"
-                          strokeWidth="3"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                      {t(key)}
+        <section className="relative w-full py-16 md:py-24 bg-gradient-to-b from-[#052638] via-[#073448] to-[#052638] overflow-hidden">
+          <div
+            className="pointer-events-none absolute inset-0 opacity-20"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(168,193,23,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(168,193,23,0.06) 1px, transparent 1px)",
+              backgroundSize: "48px 48px",
+            }}
+            aria-hidden
+          />
+          <Container className="relative">
+            <div className="flex flex-col gap-6">
+              <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-start">
+                <AnimateOnScroll animation="fadeInLeft" delay={0}>
+                  <div className="rounded-2xl border border-white/10 bg-white p-6 md:p-8 shadow-xl shadow-black/10">
+                    <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#A8C117]">
+                      {t("brandValues.heading")}
+                    </p>
+                    <div className="space-y-3" role="list">
+                      {BRAND_VALUE_KEYS.map((key) => (
+                        <div
+                          className="flex items-center gap-3 text-[#245165]"
+                          key={key}
+                          role="listitem"
+                        >
+                          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#A8C117]/15">
+                            <Check className="h-4 w-4 text-[#5a8f00]" strokeWidth={3} />
+                          </span>
+                          <span className="text-base">{t(key)}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
-              <Link
-                href="/solar-panel-cleaning-system"
-                title={t("brandValues.ctaTitle")}
-              >
-                <div className="bg-[#96DB00] text-[#073448] text-lg font-medium p-4 rounded-md hover:bg-[#91bc00] hover:text-white transition mt-4 cursor-pointer text-center">
-                  {t("brandValues.cta")}
-                </div>
-              </Link>
-            </AnimateOnScroll>
-
-            <AnimateOnScroll
-              animation="fadeInUp"
-              delay={100}
-              className="bg-[#75AA00] px-8 py-10 flex flex-col justify-center text-white min-h-[600px]"
-            >
-              <div className="mb-12">
-                <h3 className="mb-3 text-2xl flex leading-relaxed">
-                  {t("sustainability.titleLine1")}
-                  <br />
-                  {t("sustainability.titleLine2")}
-                  <br />
-                  {t("sustainability.titleLine3")}
-                </h3>
-                <div className="text-white/95 text-base leading-relaxed mb-4">
-                  {t("sustainability.body")}
-                </div>
-                <Link href="/projects" title={t("sustainability.exploreProjectsTitle")}>
-                  <div className="hover:text-[#caed7f] text-lg underline underline-offset-4 mb-2 cursor-pointer">
-                    {t("sustainability.exploreProjects")}
+                    <Link
+                      href="/solar-panel-cleaning-system"
+                      title={t("brandValues.ctaTitle")}
+                      className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-[#A8C117] px-5 py-3 text-sm font-semibold text-[#052638] transition hover:bg-[#b3cf3d]"
+                    >
+                      {t("brandValues.cta")}
+                      <ArrowRight className="h-4 w-4" aria-hidden />
+                    </Link>
                   </div>
-                </Link>
-              </div>
-              <div className="mt-4 mb-6">
-                <div className="text-6xl font-semibold mb-2">
-                  {tayproMarketingImpactStats.waterSavedAnnually.value}
-                </div>
-                <div className="text-lg">
-                  {t("sustainability.waterSavedLabel")}
-                </div>
-              </div>
-              <div className="mb-6">
-                <div className="text-5xl font-semibold mb-2">
-                  {tayproMarketingImpactStats.extraCleanEnergyAnnually.value}
-                </div>
-                <div className="text-lg">
-                  {t("sustainability.extraGenerationLabel")}
-                </div>
-              </div>
-              <div>
-                <div className="text-5xl font-semibold mb-2">
-                  {tayproMarketingImpactStats.co2ReducedAnnually.value}
-                </div>
-                <div className="text-lg">
-                  {t("sustainability.co2ReducedLabel")}
-                </div>
-              </div>
-            </AnimateOnScroll>
+                </AnimateOnScroll>
 
-            <AnimateOnScroll
-              animation="fadeInRight"
-              delay={200}
-              className="bg-white flex flex-col shadow-lg min-h-[600px] overflow-hidden"
-            >
-              <div
-                className="relative w-full bg-[#0a2a38] px-6 py-8"
-                style={{ aspectRatio: getProductHeroAspectRatio("glydeX") }}
-              >
-                <Image
-                  src={getProduct("glydeX").imagePath}
-                  alt={t("sustainability.glydeXImageAlt")}
-                  title={t("sustainability.glydeXImageTitle")}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+                <AnimateOnScroll animation="fadeInRight" delay={100}>
+                  <div className="overflow-hidden rounded-2xl border border-white/10 bg-white shadow-xl shadow-black/10">
+                    <div className="relative h-48 w-full bg-[#0a2a38] sm:h-52">
+                      <Image
+                        src={getProduct("glydeX").imagePath}
+                        alt={t("sustainability.glydeXImageAlt")}
+                        title={t("sustainability.glydeXImageTitle")}
+                        fill
+                        className="object-contain p-4"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                      />
+                    </div>
+                    <div className="p-6 md:p-8">
+                      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#5a8f00]">
+                        {t("sustainability.communityEyebrow")}
+                      </p>
+                      <h3 className="text-[#052638] text-lg font-semibold leading-snug">
+                        {t("sustainability.communityHeading")}
+                      </h3>
+                      <p className="mt-3 text-[#27415c] text-sm md:text-base leading-relaxed">
+                        {t("sustainability.communityBody")}
+                      </p>
+                    </div>
+                  </div>
+                </AnimateOnScroll>
               </div>
-              <div className="px-10 py-10 flex flex-col justify-start flex-grow">
-                <div className="text-[#75AA00] font-semibold text-lg mb-2">
-                  {t("sustainability.communityEyebrow")}
-                </div>
-                <h3 className="text-[#073448] text-xl font-medium leading-relaxed">
-                  {t("sustainability.communityHeading")}
-                </h3>
-                <div className="mt-4 text-[#245165] text-base leading-relaxed">
-                  {t("sustainability.communityBody")}
-                </div>
-              </div>
-            </AnimateOnScroll>
-          </div>
-        </div>
 
-        <div
+              <AnimateOnScroll animation="fadeInUp" delay={150}>
+                <div className="rounded-2xl border border-[#A8C117]/25 bg-gradient-to-br from-[#5a8f00] via-[#75AA00] to-[#4a7a00] p-6 md:p-8 text-white shadow-xl shadow-black/20 lg:grid lg:grid-cols-2 lg:gap-10 lg:items-center">
+                  <div>
+                    <h3 className="mb-3 text-xl md:text-2xl font-semibold leading-snug">
+                      {t("sustainability.titleLine1")}{" "}
+                      {t("sustainability.titleLine2")}{" "}
+                      {t("sustainability.titleLine3")}
+                    </h3>
+                    <p className="mb-4 text-sm md:text-base leading-relaxed text-white/90">
+                      {t("sustainability.body")}
+                    </p>
+                    <Link
+                      href="/projects"
+                      title={t("sustainability.exploreProjectsTitle")}
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-white underline underline-offset-4 hover:no-underline"
+                    >
+                      {t("sustainability.exploreProjects")}
+                      <ArrowRight className="h-4 w-4" aria-hidden />
+                    </Link>
+                  </div>
+                  <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3 lg:mt-0">
+                    {[
+                      {
+                        value: tayproMarketingImpactStats.waterSavedAnnually.value,
+                        label: t("sustainability.waterSavedLabel"),
+                      },
+                      {
+                        value:
+                          tayproMarketingImpactStats.extraCleanEnergyAnnually.value,
+                        label: t("sustainability.extraGenerationLabel"),
+                      },
+                      {
+                        value: tayproMarketingImpactStats.co2ReducedAnnually.value,
+                        label: t("sustainability.co2ReducedLabel"),
+                      },
+                    ].map((item) => (
+                      <div
+                        key={item.label}
+                        className="rounded-xl border border-white/15 bg-white/10 px-4 py-3 backdrop-blur-sm"
+                      >
+                        <p className="text-2xl font-semibold tabular-nums">
+                          {item.value}
+                        </p>
+                        <p className="mt-1.5 text-xs text-white/85 leading-snug">
+                          {item.label}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            </div>
+          </Container>
+        </section>
+
+        <section
           id="investors"
-          className="w-full py-16 md:py-20 bg-[#052638] px-4 sm:px-6 lg:px-8 scroll-mt-24"
+          className="relative w-full py-16 md:py-20 bg-[#052638] scroll-mt-24 overflow-hidden"
           aria-labelledby="company-investors-heading"
         >
-          <Container>
+          <div
+            className="pointer-events-none absolute -right-20 top-0 h-64 w-64 rounded-full bg-[#A8C117]/10 blur-3xl"
+            aria-hidden
+          />
+          <Container className="relative">
             <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mx-auto text-center mb-10">
-              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
+              <p className="mb-4 inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#A8C117]">
                 {t("investors.eyebrow")}
               </p>
               <h2
@@ -339,15 +298,18 @@ export default function AboutUsPage() {
               >
                 {t("investors.heading")}
               </h2>
-              <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+              <p className="text-white/75 text-base md:text-lg leading-relaxed">
                 {t("investors.body")}
               </p>
             </AnimateOnScroll>
-            <ul className="max-w-2xl mx-auto space-y-4 mb-10 text-gray-300 text-sm md:text-base leading-relaxed">
+            <ul className="mx-auto mb-10 grid max-w-3xl gap-4 sm:grid-cols-1">
               {(["bullet0", "bullet1", "bullet2"] as const).map((key) => (
-                <li key={key} className="flex gap-3">
-                  <span className="text-[#A8C117] font-bold shrink-0" aria-hidden>
-                    ✓
+                <li
+                  key={key}
+                  className="flex gap-4 rounded-xl border border-white/10 bg-white/5 px-5 py-4 text-sm md:text-base leading-relaxed text-white/85"
+                >
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#A8C117]/20 text-[#A8C117]">
+                    <Check className="h-3.5 w-3.5" strokeWidth={3} aria-hidden />
                   </span>
                   {t(`investors.${key}`)}
                 </li>
@@ -356,27 +318,28 @@ export default function AboutUsPage() {
             <div className="flex flex-col sm:flex-row justify-center gap-3">
               <Link
                 href="/contact"
-                className="inline-flex justify-center px-6 py-3 rounded-lg bg-[#A8C117] text-[#052638] font-semibold hover:bg-[#b3cf3d] transition-colors"
+                className="inline-flex justify-center items-center gap-2 px-6 py-3 rounded-xl bg-[#A8C117] text-[#052638] font-semibold hover:bg-[#b3cf3d] transition-colors"
               >
                 {t("investors.ctaContact")}
+                <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
               <Link
                 href="/solar-panel-cleaning-system/orion-plant-intelligence-platform"
-                className="inline-flex justify-center px-6 py-3 rounded-lg border border-white/30 text-white font-medium hover:border-[#A8C117] hover:text-[#A8C117] transition-colors"
+                className="inline-flex justify-center px-6 py-3 rounded-xl border border-white/25 text-white font-medium hover:border-[#A8C117] hover:text-[#A8C117] transition-colors"
               >
                 {t("investors.ctaOrion")}
               </Link>
             </div>
           </Container>
-        </div>
+        </section>
 
-        <div
-          className="w-full py-12 md:py-16 bg-[#f4f7f9] border-y border-gray-200 px-4 sm:px-6 lg:px-8"
+        <section
+          className="w-full py-14 md:py-20 bg-[#f4f7f9] border-y border-gray-200/80"
           aria-labelledby="company-credibility-heading"
         >
           <Container>
-            <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mx-auto text-center mb-8">
-              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
+            <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mx-auto text-center mb-10">
+              <p className="mb-3 inline-flex items-center rounded-full border border-[#A8C117]/25 bg-[#A8C117]/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#5a8f00]">
                 {t("credibility.eyebrow")}
               </p>
               <h2
@@ -386,78 +349,94 @@ export default function AboutUsPage() {
                 {t("credibility.heading")}
               </h2>
             </AnimateOnScroll>
-            <ul className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-[#27415c] text-sm md:text-base">
+            <ul className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               {(["item0", "item1", "item2", "item3"] as const).map((key) => (
-                <li key={key} className="flex gap-3 rounded-xl bg-white border border-gray-100 px-4 py-3 shadow-sm">
-                  <span className="text-[#A8C117] font-bold shrink-0" aria-hidden>
-                    ✓
+                <li
+                  key={key}
+                  className="flex gap-3 rounded-2xl bg-white border border-gray-100 px-5 py-4 shadow-sm text-[#27415c] text-sm md:text-base transition hover:border-[#A8C117]/40 hover:shadow-md"
+                >
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#A8C117]/15">
+                    <Check className="h-3.5 w-3.5 text-[#5a8f00]" strokeWidth={3} aria-hidden />
                   </span>
                   {t(`credibility.${key}`)}
                 </li>
               ))}
             </ul>
-            <AnimateOnScroll animation="fadeInUp" className="max-w-xl mx-auto text-center">
-              <p className="text-[#052638] font-semibold text-lg mb-1">
-                {t("credibility.awardTitle")}
-              </p>
-              <p className="text-[#27415c] text-sm md:text-base mb-3">
-                {t("credibility.awardBody")}
-              </p>
-              <Link
-                href="/blog/mint-tech4good-awards-2024-taypros-green-ai-solutions-win-big-in-mumbai-india"
-                className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
-              >
-                {t("credibility.awardLink")}
-              </Link>
+            <AnimateOnScroll animation="fadeInUp" className="max-w-2xl mx-auto">
+              <div className="rounded-2xl border border-[#A8C117]/30 bg-gradient-to-br from-white to-[#f8fbe8] px-6 py-6 text-center shadow-sm md:px-8 md:py-8">
+                <p className="text-[#052638] font-semibold text-xl md:text-2xl mb-2">
+                  {t("credibility.awardTitle")}
+                </p>
+                <p className="text-[#27415c] text-sm md:text-base mb-4">
+                  {t("credibility.awardBody")}
+                </p>
+                <Link
+                  href="/blog/mint-tech4good-awards-2024-taypros-green-ai-solutions-win-big-in-mumbai-india"
+                  className="inline-flex items-center gap-1.5 text-[#5a8f00] font-semibold underline underline-offset-4 hover:no-underline"
+                >
+                  {t("credibility.awardLink")}
+                  <ArrowRight className="h-4 w-4" aria-hidden />
+                </Link>
+              </div>
             </AnimateOnScroll>
           </Container>
-        </div>
+        </section>
 
-        <div
-          className="w-full py-16 md:py-24 bg-white px-4 sm:px-6 lg:px-0 overflow-x-hidden"
+        <section
+          className="w-full py-16 md:py-24 bg-white overflow-x-hidden"
           aria-labelledby="company-story-heading"
         >
-          <div className="max-w-6xl mx-auto px-4 sm:px-0">
-            <AnimateOnScroll animation="fadeInUp" className="mb-12 md:mb-16">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="mb-12 md:mb-16 max-w-3xl">
+              <div
+                className="mb-5 h-1 w-14 rounded-full bg-gradient-to-r from-[#A8C117] to-[#7be117]/60"
+                aria-hidden
+              />
               <h2
                 id="company-story-heading"
-                className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3"
+                className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
               >
                 {t("story.heading")}
               </h2>
-              <div className="text-[#27415c] text-lg max-w-3xl leading-relaxed">
+              <p className="text-[#27415c] text-lg leading-relaxed">
                 {t("story.intro")}
-              </div>
+              </p>
             </AnimateOnScroll>
-            {STORY_KEYS.map((key, idx) => (
-              <AnimateOnScroll
-                key={key}
-                animation="fadeInUp"
-                delay={idx * 100}
-                className={`grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-6 items-start mb-10 ${
-                  idx !== STORY_KEYS.length - 1
-                    ? "border-b border-gray-200 pb-10"
-                    : ""
-                }`}
-              >
-                <div className="md:col-span-1 text-[#b2cb19] text-xl font-medium pt-1 md:pt-3">
-                  {t(`story.${key}.label`)}
-                </div>
-                <div className="md:col-span-4">
-                  <h3 className="text-[#052638] font-semibold text-2xl sm:text-3xl md:text-4xl leading-tight">
+            <div className="relative max-w-4xl">
+              <div
+                className="absolute left-[11px] top-3 bottom-3 w-px bg-gradient-to-b from-[#A8C117] via-[#A8C117]/40 to-transparent md:left-[15px]"
+                aria-hidden
+              />
+              {STORY_KEYS.map((key, idx) => (
+                <AnimateOnScroll
+                  key={key}
+                  animation="fadeInUp"
+                  delay={idx * 100}
+                  className="relative pl-10 md:pl-12 pb-12 last:pb-0"
+                >
+                  <span
+                    className="absolute left-0 top-1.5 flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full border-2 border-[#A8C117] bg-white text-[10px] md:text-xs font-bold text-[#5a8f00]"
+                    aria-hidden
+                  >
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#5a8f00]">
+                    {t(`story.${key}.label`)}
+                  </p>
+                  <h3 className="text-[#052638] font-semibold text-xl sm:text-2xl md:text-3xl leading-tight">
                     {t(`story.${key}.heading`)}
                   </h3>
-                  <div className="mt-4 text-[#27415c] text-base md:text-lg leading-relaxed">
+                  <p className="mt-4 text-[#27415c] text-base md:text-lg leading-relaxed">
                     {t(`story.${key}.body`)}
-                  </div>
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
-        </div>
+                  </p>
+                </AnimateOnScroll>
+              ))}
+            </div>
+          </Container>
+        </section>
 
-        <div
-          className="w-full py-16 md:py-20 bg-[#f4f7f9] px-4 sm:px-6"
+        <section
+          className="w-full py-16 md:py-20 bg-[#f4f7f9]"
           aria-labelledby="company-solutions-heading"
         >
           <Container>
@@ -468,16 +447,13 @@ export default function AboutUsPage() {
               >
                 {t("solutions.heading")}
               </h2>
-              <div className="text-[#27415c] text-lg leading-relaxed">
+              <p className="text-[#27415c] text-lg leading-relaxed">
                 {t("solutions.bodyBeforeLink")}{" "}
-                <Link
-                  href="/cleaning-technology"
-                  className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
-                >
+                <Link href="/cleaning-technology" className="brand-inline-link font-medium">
                   {t("solutions.bodyLink")}
                 </Link>
                 {t("solutions.bodyAfterLink")}
-              </div>
+              </p>
             </AnimateOnScroll>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {robots.map((robot, idx) => {
@@ -490,28 +466,29 @@ export default function AboutUsPage() {
                   >
                     <Link
                       href={robot.href}
-                      className="group flex flex-col h-full rounded-lg border border-gray-200 bg-white overflow-hidden shadow-sm hover:border-[#A8C117] hover:shadow-md transition"
+                      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200/90 bg-white shadow-sm transition-all duration-300 hover:border-[#A8C117]/80 hover:shadow-lg"
                     >
-                      <div className="relative h-44 w-full bg-[#f0f4f6]">
+                      <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-[#0a2a38]">
                         <Image
                           src={robot.imgPath}
                           alt={t("solutions.robotImageAlt", { model: robot.model })}
                           fill
-                          className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                          className="object-contain p-4 transition-transform duration-300 group-hover:scale-[1.03]"
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         />
                       </div>
-                      <div className="p-5 flex flex-col flex-1">
-                        <h3 className="text-[#052638] font-semibold text-lg mb-2 group-hover:text-[#5a8f00] transition-colors">
+                      <div className="flex flex-1 flex-col bg-[#052638] p-5">
+                        <h3 className="mb-2 text-base font-semibold text-white leading-snug group-hover:text-[#c3e052] transition-colors">
                           {robot.model}
                         </h3>
-                        <div className="text-[#27415c] text-sm leading-relaxed flex-1">
+                        <p className="mb-4 flex-1 text-sm leading-relaxed text-white/85 line-clamp-3">
                           {descKey
                             ? t(`solutions.robots.${descKey}`)
                             : robot.description}
-                        </div>
-                        <span className="mt-4 text-[#5a8f00] font-medium text-sm group-hover:underline">
+                        </p>
+                        <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#A8C117] group-hover:underline">
                           {t("solutions.viewRobot", { model: robot.model })}
+                          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden />
                         </span>
                       </div>
                     </Link>
@@ -520,108 +497,118 @@ export default function AboutUsPage() {
               })}
             </div>
           </Container>
-        </div>
+        </section>
 
-        <div className="w-full py-30 bg-white px-4 sm:px-6 lg:px-0 overflow-x-hidden">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <AnimateOnScroll
-              animation="fadeInLeft"
-              delay={100}
-              className="flex justify-center items-center"
-            >
-              <div className="w-[520px] h-[460px] relative overflow-hidden shadow-md">
-                <Image
-                  src="/tayprosolarpanel/taypro-about1.jpg"
-                  alt={t("builtForSites.aboutImageAlt")}
-                  title={t("builtForSites.aboutImageTitle")}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 520px"
-                  className="object-cover"
-                  priority
-                />
-              </div>
-            </AnimateOnScroll>
-            <AnimateOnScroll
-              animation="fadeInRight"
-              delay={100}
-              className="flex flex-col justify-center items-center md:items-start text-center md:text-left"
-            >
-              <h2 className="text-[#b2cb19] text-2xl font-medium mb-4">
-                {t("builtForSites.heading")}
-              </h2>
-              <div className="text-[#27415c] text-lg max-w-xl leading-relaxed mb-4">
-                {t("builtForSites.paragraph1")}
-              </div>
-              <div className="text-[#27415c] text-lg max-w-xl leading-relaxed">
-                {t("builtForSites.paragraph2BeforeGlyde")}{" "}
-                <Link
-                  href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
-                  className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
-                >
-                  {t("builtForSites.glydeLink")}
-                </Link>{" "}
-                {t("builtForSites.paragraph2Middle")}{" "}
-                <Link
-                  href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
-                  className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
-                >
-                  {t("builtForSites.glydeXLink")}
-                </Link>
-                {t("builtForSites.paragraph2After")}
-              </div>
-            </AnimateOnScroll>
-          </div>
-        </div>
+        <section className="w-full py-16 md:py-24 bg-white overflow-x-hidden">
+          <Container>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
+              <AnimateOnScroll
+                animation="fadeInLeft"
+                delay={100}
+                className="flex justify-center"
+              >
+                <div className="relative w-full max-w-[520px] aspect-[5/4] overflow-hidden rounded-2xl shadow-2xl ring-1 ring-[#052638]/10">
+                  <Image
+                    src="/tayprosolarpanel/taypro-about1.jpg"
+                    alt={t("builtForSites.aboutImageAlt")}
+                    title={t("builtForSites.aboutImageTitle")}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 520px"
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#052638]/25 via-transparent to-transparent" />
+                </div>
+              </AnimateOnScroll>
+              <AnimateOnScroll
+                animation="fadeInRight"
+                delay={100}
+                className="flex flex-col justify-center text-center md:text-left"
+              >
+                <h2 className="text-[#052638] text-2xl md:text-3xl font-semibold mb-4">
+                  {t("builtForSites.heading")}
+                </h2>
+                <p className="text-[#27415c] text-lg max-w-xl leading-relaxed mb-4">
+                  {t("builtForSites.paragraph1")}
+                </p>
+                <p className="text-[#27415c] text-lg max-w-xl leading-relaxed">
+                  {t("builtForSites.paragraph2BeforeGlyde")}{" "}
+                  <Link
+                    href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
+                    className="brand-inline-link font-medium"
+                  >
+                    {t("builtForSites.glydeLink")}
+                  </Link>{" "}
+                  {t("builtForSites.paragraph2Middle")}{" "}
+                  <Link
+                    href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
+                    className="brand-inline-link font-medium"
+                  >
+                    {t("builtForSites.glydeXLink")}
+                  </Link>
+                  {t("builtForSites.paragraph2After")}
+                </p>
+              </AnimateOnScroll>
+            </div>
+          </Container>
+        </section>
 
         <ModuleManufacturerTrust />
 
-        <div className="w-full py-30 bg-white px-4 sm:px-6 lg:px-0 overflow-x-hidden">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <AnimateOnScroll
-              animation="fadeInLeft"
-              delay={100}
-              className="flex flex-col justify-center items-center md:items-start text-center md:text-left order-2 md:order-1"
-            >
-              <h2 className="text-[#b2cb19] text-2xl font-medium mb-4">
-                {t("collaboration.heading")}
-              </h2>
-              <div className="text-[#27415c] text-lg max-w-xl leading-relaxed mb-4">
-                {t("collaboration.paragraph1")}
-              </div>
-              <div className="text-[#27415c] text-lg max-w-xl leading-relaxed">
-                {t("collaboration.paragraph2Before")}{" "}
-                <span className="whitespace-nowrap">{metrics[1].value}</span>{" "}
-                {t("collaboration.paragraph2Middle")}{" "}
-                <span className="whitespace-nowrap">{metrics[2].value}</span>{" "}
-                {t("collaboration.paragraph2AfterWarehouses")}{" "}
-                <Link
-                  href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
-                  className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
-                >
-                  {t("collaboration.nectyrLink")}
-                </Link>
-                {t("collaboration.paragraph2End")}
-              </div>
-            </AnimateOnScroll>
-            <AnimateOnScroll
-              animation="fadeInRight"
-              delay={100}
-              className="flex justify-center items-center order-1 md:order-2"
-            >
-              <div className="w-[520px] h-[460px] relative overflow-hidden shadow-md">
-                <Image
-                  src="/tayprosolarpanel/taypro-about2.webp"
-                  alt={t("collaboration.about2ImageAlt")}
-                  title={t("collaboration.about2ImageTitle")}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 520px"
-                  className="object-cover"
-                  priority
-                />
-              </div>
-            </AnimateOnScroll>
-          </div>
-        </div>
+        <section className="w-full py-16 md:py-24 bg-[#f4f7f9] overflow-x-hidden">
+          <Container>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
+              <AnimateOnScroll
+                animation="fadeInLeft"
+                delay={100}
+                className="flex flex-col justify-center text-center md:text-left order-2 md:order-1"
+              >
+                <h2 className="text-[#052638] text-2xl md:text-3xl font-semibold mb-4">
+                  {t("collaboration.heading")}
+                </h2>
+                <p className="text-[#27415c] text-lg max-w-xl leading-relaxed mb-4">
+                  {t("collaboration.paragraph1")}
+                </p>
+                <p className="text-[#27415c] text-lg max-w-xl leading-relaxed">
+                  {t("collaboration.paragraph2Before")}{" "}
+                  <span className="font-semibold text-[#052638] whitespace-nowrap">
+                    {metrics[1].value}
+                  </span>{" "}
+                  {t("collaboration.paragraph2Middle")}{" "}
+                  <span className="font-semibold text-[#052638] whitespace-nowrap">
+                    {metrics[2].value}
+                  </span>{" "}
+                  {t("collaboration.paragraph2AfterWarehouses")}{" "}
+                  <Link
+                    href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
+                    className="brand-inline-link font-medium"
+                  >
+                    {t("collaboration.nectyrLink")}
+                  </Link>
+                  {t("collaboration.paragraph2End")}
+                </p>
+              </AnimateOnScroll>
+              <AnimateOnScroll
+                animation="fadeInRight"
+                delay={100}
+                className="flex justify-center order-1 md:order-2"
+              >
+                <div className="relative w-full max-w-[520px] aspect-[5/4] overflow-hidden rounded-2xl shadow-2xl ring-1 ring-[#052638]/10">
+                  <Image
+                    src="/tayprosolarpanel/taypro-about2.webp"
+                    alt={t("collaboration.about2ImageAlt")}
+                    title={t("collaboration.about2ImageTitle")}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 520px"
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#052638]/25 via-transparent to-transparent" />
+                </div>
+              </AnimateOnScroll>
+            </div>
+          </Container>
+        </section>
 
         <div
           className="w-full py-16 md:py-20 bg-[#052638] px-4 sm:px-6"
@@ -652,16 +639,16 @@ export default function AboutUsPage() {
                   animation="fadeInUp"
                   delay={idx * 100}
                 >
-                  <div className="rounded-lg border border-white/15 bg-white/5 p-6 md:p-8 h-full">
-                    <span className="text-[#A8C117] font-semibold text-2xl mb-3 block">
+                  <div className="group relative h-full overflow-hidden rounded-2xl border border-white/12 bg-white/5 p-6 md:p-8 transition hover:border-[#A8C117]/35 hover:bg-white/8">
+                    <span className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#A8C117]/40 bg-[#A8C117]/10 text-sm font-bold text-[#A8C117]">
                       {step.step}
                     </span>
                     <h3 className="text-white font-semibold text-xl mb-3">
                       {step.title}
                     </h3>
-                    <div className="text-white/80 leading-relaxed">
+                    <p className="text-white/78 leading-relaxed">
                       {step.description}
-                    </div>
+                    </p>
                   </div>
                 </AnimateOnScroll>
               ))}
@@ -687,43 +674,59 @@ export default function AboutUsPage() {
           </Container>
         </div>
 
-        <div className="w-full py-16 md:py-24 bg-white px-4 sm:px-6 lg:px-0 overflow-x-hidden">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3">
-              {t("scale.heading")}
-            </h2>
-            <div className="text-[#27415c] text-lg leading-relaxed">
-              {t("scale.body")}
+        <section className="w-full py-16 md:py-24 bg-white overflow-x-hidden">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mx-auto text-center mb-12">
+              <h2 className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4">
+                {t("scale.heading")}
+              </h2>
+              <p className="text-[#27415c] text-lg leading-relaxed">
+                {t("scale.body")}
+              </p>
+            </AnimateOnScroll>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {metrics.map((stat, idx) => (
+                <AnimateOnScroll
+                  key={stat.label}
+                  animation="scaleIn"
+                  delay={idx * 150}
+                >
+                  <div className="rounded-2xl border border-[#A8C117]/20 bg-gradient-to-br from-[#f8fbe8] to-white px-6 py-8 text-center shadow-sm">
+                    <p className="text-[#5a8f00] font-semibold text-4xl md:text-5xl mb-2 tabular-nums">
+                      {stat.value}
+                    </p>
+                    <p className="text-[#27415c] text-sm md:text-base font-medium">
+                      {t(METRIC_LABEL_KEYS[idx])}
+                    </p>
+                  </div>
+                </AnimateOnScroll>
+              ))}
             </div>
-          </div>
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 text-center">
-            {metrics.map((stat, idx) => (
-              <AnimateOnScroll
-                key={stat.label}
-                animation="scaleIn"
-                delay={idx * 150}
-                className="flex flex-col items-center"
-              >
-                <span className="text-[#b2cb19] font-semibold text-6xl mb-2">
-                  {stat.value}
-                </span>
-                <span className="text-[#b2cb19] text-lg">
-                  {t(METRIC_LABEL_KEYS[idx])}
-                </span>
-              </AnimateOnScroll>
-            ))}
-          </div>
-        </div>
+          </Container>
+        </section>
 
-        <div className="w-full py-30 px-4 sm:px-6 lg:px-0 overflow-x-hidden bg-[#073448]">
-          <div className="max-w-7xl mx-auto">
-            <AnimateOnScroll animation="fadeInUp" className="text-white mb-8">
-              <h2 className="font-semibold text-4xl mb-3">
+        <section className="relative w-full py-16 md:py-24 overflow-x-hidden bg-gradient-to-b from-[#073448] to-[#052638]">
+          <div
+            className="pointer-events-none absolute inset-0 opacity-20"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(168,193,23,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(168,193,23,0.06) 1px, transparent 1px)",
+              backgroundSize: "48px 48px",
+            }}
+            aria-hidden
+          />
+          <Container className="relative">
+            <AnimateOnScroll animation="fadeInUp" className="text-white mb-10 md:mb-12">
+              <div
+                className="mb-5 h-1 w-14 rounded-full bg-gradient-to-r from-[#A8C117] to-[#7be117]/60"
+                aria-hidden
+              />
+              <h2 className="font-semibold text-3xl md:text-4xl mb-4">
                 {t("leadership.heading")}
               </h2>
-              <div className="text-white/90 text-lg max-w-3xl font-normal leading-relaxed">
+              <p className="text-white/85 text-lg max-w-3xl leading-relaxed">
                 {t("leadership.body")}
-              </div>
+              </p>
             </AnimateOnScroll>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 team-cards-container">
               {founders.map((f, idx) => {
@@ -756,7 +759,7 @@ export default function AboutUsPage() {
                             "cubic-bezier(0.4, 0, 0.2, 1)",
                         }}
                       />
-                      <div className="relative h-[280px] w-full flex justify-center items-center overflow-hidden bg-gradient-to-b from-gray-50 to-white">
+                      <div className="relative h-[280px] w-full overflow-hidden bg-gradient-to-b from-gray-50 to-white">
                         <Image
                           src={f.img}
                           alt={t("leadership.founderImageAlt", {
@@ -767,8 +770,8 @@ export default function AboutUsPage() {
                             name: f.name,
                             role,
                           })}
-                          height={280}
-                          width={220}
+                          fill
+                          sizes="220px"
                           className="object-cover object-center transition-transform group-hover:scale-110 relative z-0"
                           style={{
                             willChange: "transform",
@@ -862,46 +865,58 @@ export default function AboutUsPage() {
                 );
               })}
             </div>
-          </div>
-        </div>
+          </Container>
+        </section>
 
-        <div className="w-full py-16 bg-white overflow-x-hidden">
-          <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row justify-between items-start gap-10">
-            <AnimateOnScroll
-              animation="fadeInLeft"
-              delay={0}
-              className="flex flex-col w-full lg:w-2/5"
-            >
-              <h2 className="text-[#052638] font-semibold text-4xl sm:text-5xl mb-5">
+        <section className="w-full py-16 md:py-20 bg-white overflow-x-hidden">
+          <Container>
+            <AnimateOnScroll animation="fadeInLeft" eager>
+              <h2 className="text-[#052638] font-semibold text-4xl sm:text-5xl lg:hidden">
                 {t("resources.heading")}
               </h2>
-              <div className="text-[#22405a] text-lg sm:text-xl mt-4 leading-relaxed">
-                {t("resources.body")}
-              </div>
-              <Link href="/blog" title={t("resources.viewAllTitle")}>
-                <div className="mt-6 inline-block w-full sm:w-auto bg-[#b2cb19] text-[#22405a] text-xl text-center py-2 px-4 rounded-lg hover:bg-lime-500 transition cursor-pointer">
-                  {t("resources.viewAll")}
-                </div>
-              </Link>
             </AnimateOnScroll>
-            <div className="w-full lg:w-3/5">
-              <div className="flex flex-col md:flex-row gap-8">
-                {RESOURCE_ITEMS.map((r, idx) => {
-                  const title = t(`resources.${r.key}.title`);
-                  const date = t(`resources.${r.key}.date`);
-                  return (
-                    <AnimateOnScroll
-                      key={r.key}
-                      animation="fadeInRight"
-                      delay={idx * 200}
-                    >
-                      <div className="flex-1 border-2 border-gray-300 bg-white rounded-sm overflow-hidden shadow-sm min-w-[320px] max-w-[400px] transition hover:shadow-xl">
+
+            <div className="mt-6 flex flex-col gap-8 lg:mt-0 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
+              <AnimateOnScroll
+                animation="fadeInLeft"
+                delay={50}
+                className="hidden lg:flex lg:w-2/5 flex-col gap-6"
+              >
+                <h2 className="text-[#052638] font-semibold text-4xl sm:text-5xl">
+                  {t("resources.heading")}
+                </h2>
+                <p className="text-[#22405a] text-lg sm:text-xl leading-relaxed">
+                  {t("resources.body")}
+                </p>
+                <Link
+                  href="/blog"
+                  title={t("resources.viewAllTitle")}
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-xl bg-[#A8C117] text-[#052638] text-base font-semibold py-3 px-6 hover:bg-[#b3cf3d] transition"
+                >
+                  {t("resources.viewAll")}
+                  <ArrowRight className="h-4 w-4" aria-hidden />
+                </Link>
+              </AnimateOnScroll>
+
+              <div className="w-full lg:w-3/5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {RESOURCE_ITEMS.map((r) => {
+                    const title = t(`resources.${r.key}.title`);
+                    const date = t(`resources.${r.key}.date`);
+                    return (
+                      <article
+                        key={r.key}
+                        className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:border-[#A8C117]/50 hover:shadow-lg"
+                      >
                         <Link
                           title={t("resources.cardLinkTitle")}
                           href={r.href}
-                          className="block w-full h-full p-0 overflow-hidden group relative"
+                          className="group block"
                         >
-                          <div className="relative w-full h-[360px]">
+                          <div
+                            className="relative aspect-[4/3] w-full overflow-hidden"
+                            style={{ aspectRatio: "4 / 3" }}
+                          >
                             <Image
                               src={r.imgSrc}
                               alt={t("resources.resourceImageAlt", { title })}
@@ -909,28 +924,46 @@ export default function AboutUsPage() {
                                 title,
                               })}
                               fill
-                              sizes="(max-width: 768px) 100vw, 33vw"
-                              className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-105"
-                              priority
+                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px"
+                              className="object-cover transition-transform duration-500 group-hover:scale-105"
                             />
-                            <h3 className="absolute bottom-4 left-4 text-white text-sm font-semibold bg-opacity-30 px-3 py-1 transition-transform duration-300 transform translate-y-4 group-hover:translate-y-0">
+                          </div>
+                          <div className="border-t border-gray-100 bg-white p-4 sm:p-5">
+                            <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#A8C117]">
+                              {date}
+                            </p>
+                            <h3 className="text-sm font-semibold leading-snug text-[#052638] transition-colors group-hover:text-[#5a8f00] sm:text-base">
                               {title}
                             </h3>
                           </div>
-                          <div className="absolute bottom-4 right-4 text-white text-xs bg-black bg-opacity-30 px-2 py-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            {date}
-                          </div>
                         </Link>
-                      </div>
-                    </AnimateOnScroll>
-                  );
-                })}
+                      </article>
+                    );
+                  })}
+                </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div className="w-full py-12 bg-white px-4 sm:px-6 border-t border-gray-100">
+            <AnimateOnScroll animation="fadeInLeft" delay={50} className="mt-6 lg:hidden">
+              <p className="text-[#22405a] text-lg sm:text-xl leading-relaxed">
+                {t("resources.body")}
+              </p>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll animation="fadeInLeft" delay={100} className="mt-6 lg:hidden">
+              <Link
+                href="/blog"
+                title={t("resources.viewAllTitle")}
+                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-xl bg-[#A8C117] text-[#052638] text-base font-semibold py-3 px-6 hover:bg-[#b3cf3d] transition"
+              >
+                {t("resources.viewAll")}
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </Link>
+            </AnimateOnScroll>
+          </Container>
+        </section>
+
+        <section className="w-full py-14 md:py-16 bg-[#f4f7f9] border-t border-gray-100">
           <Container>
             <AnimateOnScroll
               animation="fadeInUp"
@@ -939,15 +972,15 @@ export default function AboutUsPage() {
               <h2 className="text-[#052638] font-semibold text-2xl md:text-3xl mb-4">
                 {t("explore.heading")}
               </h2>
-              <div className="text-[#27415c] text-lg leading-relaxed mb-8">
+              <p className="text-[#27415c] text-lg leading-relaxed mb-8">
                 {t("explore.body")}
-              </div>
+              </p>
               <div className="flex flex-wrap justify-center gap-3">
                 {EXPLORE_LINKS.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="inline-flex items-center justify-center min-h-[44px] px-5 rounded-lg border border-[#052638] text-[#052638] font-medium hover:bg-[#052638] hover:text-white transition"
+                    className="inline-flex items-center justify-center min-h-[44px] px-5 rounded-full border border-[#052638]/20 bg-white text-[#052638] text-sm font-medium shadow-sm hover:border-[#052638] hover:bg-[#052638] hover:text-white transition"
                   >
                     {t(link.labelKey)}
                   </Link>
@@ -955,7 +988,7 @@ export default function AboutUsPage() {
               </div>
             </AnimateOnScroll>
           </Container>
-        </div>
+        </section>
 
         <FaqSection
           id="company-faq-heading"

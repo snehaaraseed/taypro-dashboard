@@ -22,8 +22,8 @@ export function AnimateOnScroll({
   threshold = 0.1,
   eager = false,
 }: AnimateOnScrollProps) {
-  /** Start visible so SSR/first paint count toward LCP; hide below-fold before paint. */
-  const [isVisible, setIsVisible] = useState(true);
+  /** Eager blocks stay visible for LCP; others start hidden so SSR matches the client. */
+  const [isVisible, setIsVisible] = useState(eager);
   const ref = useRef<HTMLDivElement>(null);
   const hasBeenVisible = useRef(eager);
 

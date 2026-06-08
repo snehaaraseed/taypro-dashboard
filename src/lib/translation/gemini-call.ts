@@ -7,10 +7,6 @@ import {
   listGeminiApiKeys,
 } from "@/lib/gemini/api-keys";
 import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
-import {
-  assertGeminiCallAllowed,
-  recordGeminiCall,
-} from "@/lib/gemini/daily-budget";
 import { geminiTranslationModelCandidates } from "./config";
 
 export function isGemini503Error(error: unknown): boolean {
@@ -61,21 +57,15 @@ export async function generateTranslationText(prompt: string): Promise<string> {
 
     for (const modelName of geminiTranslationModelCandidates()) {
       try {
-        assertGeminiCallAllowed("translation");
         const model = genAI.getGenerativeModel({
           model: modelName,
           generationConfig: {
             responseMimeType: "application/json",
           },
         });
-        let text: string;
-        try {
-          const result = await model.generateContent(prompt);
-          text = result.response.text().trim();
-        } finally {
-          recordGeminiCall("translation");
-          await pauseAfterGeminiCall();
-        }
+        const result = await model.generateContent(prompt);
+        const text = result.response.text().trim();
+        await pauseAfterGeminiCall();
         if (apiKey !== apiKeys[0]) {
           console.warn(
             "[translate] Gemini call succeeded on fallback API key (GEMINI_API_KEY_2)."
