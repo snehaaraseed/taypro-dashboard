@@ -69,6 +69,10 @@ Key benefits of our Solar Panel Cleaning Robot:
 /solar-panel-cleaning-robot-maharashtra - Solar panel cleaning robots in Maharashtra utility solar
 /solar-panel-cleaning-robot-uttar-pradesh - Solar panel cleaning robots in Uttar Pradesh
 /solar-panel-cleaning-robot-tamil-nadu - Solar panel cleaning robots in Tamil Nadu
+/solar-panel-cleaning-robot-haryana - Solar panel cleaning robots in Haryana utility and C&I solar
+/solar-panel-cleaning-robot-delhi - Solar panel cleaning robots in Delhi institutional and rooftop solar
+/solar-panel-cleaning-robot-west-bengal - Solar panel cleaning robots in West Bengal utility solar
+/solar-panel-cleaning-robot-chhattisgarh - Solar panel cleaning robots in Chhattisgarh utility solar
 
 ## Blog
 /blog - Blog listing page with all articles

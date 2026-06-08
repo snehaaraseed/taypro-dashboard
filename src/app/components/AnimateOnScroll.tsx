@@ -22,14 +22,17 @@ export function AnimateOnScroll({
   threshold = 0.1,
   eager = false,
 }: AnimateOnScrollProps) {
-  /** Eager blocks stay visible for LCP; others start hidden so SSR matches the client. */
   const [isVisible, setIsVisible] = useState(eager);
+  /** Gate concealment until after mount so SSR/hydration both render the visible state. */
+  const [ready, setReady] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const hasBeenVisible = useRef(eager);
 
   useLayoutEffect(() => {
     if (eager) {
       hasBeenVisible.current = true;
+      setIsVisible(true);
+      setReady(true);
       return;
     }
 
@@ -50,6 +53,8 @@ export function AnimateOnScroll({
       }
       return false;
     };
+
+    setReady(true);
 
     if (checkInitialVisibility()) {
       return;
@@ -102,13 +107,15 @@ export function AnimateOnScroll({
     };
   }, [threshold, eager]);
 
+  const concealed = ready && !isVisible;
+
   const animationClasses = {
-    fadeIn: isVisible ? "opacity-100" : "opacity-0",
-    fadeInUp: isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
-    fadeInDown: isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8",
-    fadeInLeft: isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8",
-    fadeInRight: isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8",
-    scaleIn: isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95",
+    fadeIn: concealed ? "opacity-0" : "opacity-100",
+    fadeInUp: concealed ? "opacity-0 translate-y-8" : "opacity-100 translate-y-0",
+    fadeInDown: concealed ? "opacity-0 -translate-y-8" : "opacity-100 translate-y-0",
+    fadeInLeft: concealed ? "opacity-0 -translate-x-8" : "opacity-100 translate-x-0",
+    fadeInRight: concealed ? "opacity-0 translate-x-8" : "opacity-100 translate-x-0",
+    scaleIn: concealed ? "opacity-0 scale-95" : "opacity-100 scale-100",
   };
 
   const motionStyle =
@@ -122,7 +129,7 @@ export function AnimateOnScroll({
   return (
     <div
       ref={ref}
-      className={`aos-transition ease-out ${!isVisible ? "aos-pending" : ""} ${animationClasses[animation]} ${className}`}
+      className={`aos-transition ease-out ${concealed ? "aos-pending" : ""} ${animationClasses[animation]} ${className}`}
       style={motionStyle}
     >
       {children}

@@ -1,11 +1,11 @@
 {
   "NectyrPage": {
     "meta": {
-      "title": "ソーラーロボットフリート監視 | NECTYR",
-      "description": "Tayproフリート向けNECTYR：スケジュール、ログ、レポート。アクセスをリクエスト。",
+      "title": "ソーラー洗浄ロボット艦隊モニタリング, NECTYR",
+      "description": "NECTYR は、Taypro ソーラー パネル清掃ロボット フリートを監視および管理するための安全な Web ポータルです。サイト ダッシュボード、天候認識スケジュール、ブロック単位のカバレッジ、清掃ログとエクスポート可能なレポート、ゲートウェイとロボットの健全性、統計、サポート チケット、役割ベースのアクセスが各顧客にプライベートにプロビジョニングされます。",
       "openGraphDescription": "Taypro 清掃ロボットのフリート ダッシュボード、スケジュール、ログ、統計、チケット、安全なロボット監視。",
       "openGraphImageAlt": "NECTYR, 太陽光発電清掃ロボット群の監視",
-      "twitterTitle": "フリート監視 | NECTYR",
+      "twitterTitle": "NECTYR, 太陽清掃ロボット群の監視",
       "twitterDescription": "Taypro ロボット フリートの安全な Web ポータル: ダッシュボード、スケジュール、レポート、サポート。",
       "openGraphTitle": "フリート監視 | NECTYR"
     },
@@ -37,7 +37,10 @@
       "glydeX": "GLYDE-X",
       "p2Mid": "ロボット。詳細なクリック パス、セキュリティ ポリシー、構成制限については、",
       "p2GuideStrong": "顧客ユーザーガイド",
-      "p2End": ", このページは製品ストーリー レベルに留まるため、競争力は保護され続けます。"
+      "p2End": ", このページは製品ストーリー レベルに留まるため、競争力は保護され続けます。",
+      "modelA": "GLYDE",
+      "modelB": "HELYX",
+      "modelT": "GLYDE-X"
     },
     "capabilities": {
       "eyebrow": "ポータル内",
@@ -170,10 +173,25 @@
     },
     "misc": {
       "projectsHeader": "最新のプロジェクト",
-      "productCardsTitle": "さらにソリューションをお探しですか?"
+      "productCardsTitle": "他のソリューションをお探しですか？",
+      "modelCardsTitle": "さらにソリューションをお探しですか?"
     },
     "shared": {
       "connectivitySummary": "LTE、Wi-Fi、ハイブリッド自己修復RFメッシュ、LoRa、LoRaWAN"
+    },
+    "intelligenceCapabilities": {
+      "eyebrow": "フリートインテリジェンス",
+      "title": "NECTYRが汎用監視では得られない情報",
+      "subtitle": "インド最大のロボット太陽光洗浄フリートのラベル付きサイクルデータに基づくライブ運用インテリジェンス。"
+    },
+    "intelligenceStat": {
+      "label": "2022年以降NECTYR上のフリート運用",
+      "body": "2022年以降5 GW+のフリート運用にわたるラベル付き清掃テレメトリ — インド最大の清掃インテリジェンスデータセット。"
+    },
+    "energyResources": {
+      "title": "エネルギーリソース",
+      "subtitle": "NECTYRはTayproのライブフリートインテリジェンスポータル — 全ロボットを単一ダッシュボードに接続する運用層。スケジュール、バッテリー監視、故障検知、サイクル監査ログで、固定傾斜・トラッカー・分散ブロックをコントロールルームから可視化。",
+      "ctaLabel": "すべてのリソースを見る"
     }
   },
   "Common": {

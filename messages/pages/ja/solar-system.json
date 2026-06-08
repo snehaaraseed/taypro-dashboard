@@ -1,8 +1,8 @@
 {
   "SolarSystemPage": {
     "meta": {
-      "title": "インドのソーラーパネル洗浄ロボットとシステム",
-      "description": "GLYDE、NYUMA、HELYX、トラッカーロボットを比較。水なし洗浄、TÜV NORD認証、全国サポート。今すぐモデルを選ぶ。",
+      "title": "インドのソーラーパネル洗浄ロボット＆システム, 機種一覧 | Taypro",
+      "description": "Tayproのソーラーパネル洗浄ロボットを比較：GLYDE、GLYDE-X、NYUMA、NYUMA-X、HELYX、Taypro Opex、NECTYR。水なし洗浄、AIスケジューリング、TÜV NORD認証、インド全国サポート。",
       "keywords": [
         "ソーラーパネル洗浄ロボット",
         "ソーラーパネル洗浄ロボット インド",
@@ -24,13 +24,13 @@
         "ソーラーパネル洗浄"
       ],
       "openGraphSiteName": "Taypro",
-      "openGraphTitle": "インドのソーラーパネル洗浄ロボットとシステム",
+      "openGraphTitle": "ソーラーパネル洗浄ロボット | 自動・半自動・トラッカー対応, Taypro",
       "openGraphDescription": "発電所に最適なロボットを選択, デュアルパス主力のGLYDE・GLYDE-X、PBTのNYUMA・NYUMA-X、分散向けHELYX、OPEXとNECTYR。",
       "openGraphImageAlt": "Tayproソーラーパネル洗浄ロボット, GLYDE、GLYDE-X、NYUMA、NYUMA-X、HELYX",
       "openGraphLocale": "en_IN",
       "openGraphType": "website",
       "twitterCard": "summary_large_image",
-      "twitterTitle": "インドのソーラーパネル洗浄ロボットとシステム",
+      "twitterTitle": "ソーラーパネル洗浄ロボット | Taypro, Made in India",
       "twitterDescription": "固定傾斜・トラッカー向け5機種, PBTシングルパスと特許デュアルパスマイクロファイバー。"
     },
     "breadcrumbs": {
@@ -223,7 +223,11 @@
       "p2BetweenHelyxTracker": " 分散プラント向け、トラッカー対応 ",
       "p2BetweenTrackers": " と ",
       "p2AfterTrackers": " 単軸レイアウト向け。",
-      "p2BeforeNectyr": " の仕組みを確認し、全ロボットを "
+      "p2BeforeNectyr": " の仕組みを確認し、全ロボットを ",
+      "p2LinkModelB": "HELYX",
+      "p2LinkModelT": "GLYDE-X",
+      "p2LinkConsole": "NECTYR",
+      "p2AfterConsole": " フリートポータルで監視され、CAPEXまたは月額"
     },
     "productGrid": {
       "eyebrow": "ロボットラインナップ",
@@ -486,7 +490,11 @@
         "andhraPradesh": "Andhra Pradesh",
         "maharashtra": "Maharashtra",
         "uttarPradesh": "Uttar Pradesh",
-        "tamilNadu": "Tamil Nadu"
+        "tamilNadu": "Tamil Nadu",
+        "haryana": "Haryana",
+        "delhi": "Delhi",
+        "westBengal": "West Bengal",
+        "chhattisgarh": "Chhattisgarh"
       }
     },
     "whyTaypro": {
@@ -776,6 +784,12 @@
       "trustedBy": "Trusted by {names} and other IPPs, EPCs, and C&I operators deploying Taypro cleaning robots across India.",
       "logoAlt": "{name} — Taypro solar cleaning robot customer",
       "logoTitle": "{name}"
+    },
+    "consoleBand": {
+      "eyebrow": "NECTYR, フリートポータル",
+      "title": "発電所の全洗浄ロボットを監視する一つのポータル",
+      "body": "サイトダッシュボード、天候、ブロック別スケジュール、ログ、エクスポート、ヘルス、チケット, ロールベースで大規模O&M向け。",
+      "cta": "NECTYRを見る"
     }
   }
 }

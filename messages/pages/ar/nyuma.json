@@ -1,15 +1,28 @@
 {
   "NyumaPage": {
     "meta": {
-      "title": "روبوت تنظيف ألواح شمسية أوتوماتيكي | NYUMA",
-      "description": "NYUMA PBT أحادي المرور بدون ماء للمحطات. إزالة 99%+ للغبار، أسطول NECTYR، TÜV NORD. اطلب عرض سعر.",
-      "openGraphTitle": "روبوت تنظيف ألواح شمسية أوتوماتيكي | NYUMA",
+      "title": "روبوت تنظيف ألواح شمسية أوتوماتيكي أحادي المرور PBT, Taypro NYUMA (بدون ماء، AI)",
+      "description": "Taypro NYUMA روبوت تنظيف ألواح شمسية أوتوماتيكي بالكامل وبدون مياه. تنظيف جاف أحادي المرور PBT بتقنية AI/ML يزيل أكثر من 99% من الغبار لكل دورة، حتى 3,600 وحدة لكل شحنة، NECTYR عبر LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN، معتمد TÜV NORD.",
+      "openGraphTitle": "روبوت تنظيف أحادي المرور PBT, Taypro NYUMA",
       "openGraphDescription": "NYUMA: روبوت ألياف ميكروية أحادي المرور PBT لمحطات المرافق. تنظيف ذاتي بدون ماء ومراقبة NECTYR.",
       "openGraphType": "website",
       "openGraphImageAlt": "Taypro NYUMA روبوت تنظيف ألواح شمسية أوتوماتيكي",
-      "twitterTitle": "روبوت تنظيف ألواح شمسية أوتوماتيكي | NYUMA",
+      "twitterTitle": "روبوت تنظيف أحادي المرور PBT, Taypro NYUMA",
       "twitterDescription": "NYUMA: تنظيف أحادي المرور PBT ذاتي، حتى 3,600 وحدة لكل شحنة، NECTYR.",
-      "twitterCard": "summary_large_image"
+      "twitterCard": "summary_large_image",
+      "keywords": [
+        "روبوت تنظيف ألواح شمسية PBT",
+        "روبوت تنظيف ألواح شمسية أوتوماتيكي PBT",
+        "روبوت تنظيف ألواح أحادي المرور",
+        "روبوت تنظيف شمسي أوتوماتيكي أحادي المرور",
+        "روبوت تنظيف PBT جاف بدون ماء",
+        "روبوت تنظيف PBT ميل ثابت",
+        "روبوت تنظيف ألواح شمسية أوتوماتيكي الهند",
+        "روبوت تنظيف ألواح شمسية مستقل",
+        "روبوت تنظيف شمسي على نطاق المرافق",
+        "روبوت تنظيف معتمد TÜV NORD",
+        "Taypro NYUMA"
+      ]
     },
     "breadcrumbs": {
       "home": "الرئيسية",
@@ -35,7 +48,7 @@
         "name": "كيف ينظف روبوت Taypro NYUMA أوتوماتيكياً محطة شمسية على نطاق المرافق؟",
         "description": "دورة تنظيف ذاتية لـ NYUMA, جدولة AI، تنظيف أحادي المرور PBT بدون ماء، إرساء ذاتي واتصال سحابي.",
         "totalTime": "PT2H",
-        "imagePath": "/tayprorobots/nyuma/brush-detail.webp"
+        "imagePath": "/tayproasset/taypro-robotImage.png"
       }
     },
     "hero": {
@@ -71,10 +84,10 @@
       },
       "methodologyLinkText": "منهجية الأداء والاختبار",
       "methodologyLinkTitle": "منهجية الأداء والاختبار",
-      "p2BeforeStrong": "في شحنة واحدة، يُنظف NYUMA حتى ",
-      "p2Strong": "2.2 كم من طول الجري، أي نحو 3,600 وحدة شمسية",
-      "p2AfterStrong": ". يُفضّل جدولة دورات التنظيف خارج ساعات إنتاج الطاقة ويمكن برمجتها عن بُعد، دون أي تأثير على إنتاج المحطة.",
-      "p3": "أسطوانة فرش PBT دوّارة في NYUMA ترفع الغبار الجاف في pass واحد بدون ماء — بدون مرحلة airflow وconsumables أقل. Edge detection يبقي الاتصال على frame وليس الزجاج. Battery-aware routing يعيد robot إلى dock shadow-free حتى 45° seasonal tilt.",
+      "p2BeforeStrong": "On a single charge, NYUMA cleans up to ",
+      "p2Strong": "2.2 km of running length, approximately 3,600 solar modules",
+      "p2AfterStrong": ". Cleaning cycles are best scheduled outside energy production hours and can be programmed remotely, ensuring zero impact on plant generation.",
+      "p3": "NYUMA's patented single-pass PBT mechanism combines high-speed airflow with a self-cleaning PBT brush drum — the first pass lifts dry dust, the second completes the wipe without water or detergent. Edge and obstacle detection maps every panel boundary while surface-undulation tracking keeps brush pressure consistent row-by-row. Battery-aware logic ensures each assigned array is cleaned completely before the robot self-docks — rated for 180 km/hr gusts while locked at the station.",
       "p4Blog1": "كيف يعمل روبوت التنظيف التلقائي على الوحدات",
       "p4Blog2": "فوائد التنظيف الروبوتي على نطاق المرافق",
       "p4Prefix": "قراءة إضافية: ",
@@ -126,9 +139,9 @@
       }
     },
     "product360": {
-      "eyebrow": "نظرة عامة على المنتج",
-      "title": "تعرّف على روبوت NYUMA",
-      "subtitle": "روبوت تنظيف PBT مستقل بالكامل مصمم لمحطات الألواح الشمسية ذات الميل الثابت والميل الموسمي",
+      "eyebrow": "جولة تفاعلية للمنتج",
+      "title": "عرض 360° لـ NYUMA",
+      "subtitle": "اسحب لليسار أو اليمين لاستكشاف روبوت التنظيف من كل زاوية",
       "productLabel": "Taypro NYUMA, روبوت تنظيف ألواح شمسية أوتوماتيكي"
     },
     "usps": {
@@ -169,8 +182,8 @@
           "label": "سعة روبوتات منشورة"
         },
         "stat1": {
-          "value": "100+",
-          "label": "تركيبات محطات"
+          "value": "11B+",
+          "label": "الألواح المنظفة سنوياً"
         },
         "stat2": {
           "value": "875M+",
@@ -208,8 +221,8 @@
     "featuresLongForm": {
       "mainHeading": "ميزات روبوت Taypro NYUMA للتنظيف الأوتوماتيكي",
       "aiCleaning": {
-        "title": "تنظيف Single-Pass PBT بدون ماء مع AI",
-        "body": "NYUMA يطبق منطق AI/ML للضغط والسرعة على أسطوانة PBT single-pass — sweep واحد يزيل 99%+ غبار جاف بدون ماء أو detergent."
+        "title": "تنظيف أحادي المرور PBT بدون ماء بتقنية AI",
+        "body": "يستخدم NYUMA منطق AI/ML وآلية ثنائية المرور, يزيل أكثر من 99% غباراً دون ماء أو احتكاك على الخلايا."
       },
       "microfiber": {
         "title": "أسطوانة فرشاة PBT ذاتية التنظيف",
@@ -246,21 +259,21 @@
       }
     },
     "certifications": {
-      "eyebrow": "تم اختباره واعتماده بشكل مستقل",
-      "title": "الشهادات والاختبارات الميدانية",
-      "subtitle": "تخضع حلول التنظيف Taypro للتحقق الميداني والمختبري الصارم، ومحاكاة دورات التنظيف اليومية في ظل ظروف خارجية واقعية، والتي تجريها مختبرات اختبار قطاع الطاقة الشمسية المعتمدة.",
+      "eyebrow": "مختبر ومُعتمد بشكل مستقل",
+      "title": "الشهادات والاختبار المُثبت ميدانياً",
+      "subtitle": "تخضع حلول تنظيف Taypro لتحقق ميداني ومختبري صارم، محاكياً دورات التنظيف اليومية في ظروف خارجية واقعية، من مختبرات اختبار معتمدة في قطاع الطاقة الشمسية.",
       "cards": {
         "card0": {
-          "title": "معتمد من TÜV NORD",
-          "body": "اختبار مستقل واعتماد لحماية IP55؛ أداء الرطوبة-الحرارة والحرارة الجافة مُحقق من TÜV NORD."
+          "title": "TÜV NORD Certified",
+          "body": "Independently tested and certified for IP55 protection and validated for extreme damp-heat and dry-heat performance by TÜV NORD."
         },
         "card1": {
-          "title": "مُختبر لتحمل العواصف الرملية",
-          "body": "مُحقق تحت دورات تنظيف خارجية مُحاكاة، بما في ذلك 12 عاصفة رملية سنوياً، بتحميل رمل 10 g/m² لكل دورة."
+          "title": "Sandstorm-Endurance Tested",
+          "body": "Validated under simulated outdoor cleaning cycles, including 12 sandstorm events per year at a sand loading of 10 g/m² per cycle."
         },
         "card2": {
-          "title": "تنظيف آمن للألواح",
-          "body": "يغطي الاختبار تحليل الشقوق الدقيقة، قياسات الانعكاس الضوئي، تقييم المعاملات الكهربائية وحفظ طلاء ARC (Anti-Reflective Coating)."
+          "title": "Panel-Safe Cleaning",
+          "body": "Testing covers micro-crack analysis, optical reflectance measurements, full electrical parameter evaluation and Anti-Reflective Coating (ARC) preservation."
         }
       }
     },
@@ -271,38 +284,45 @@
       "tableHeaders": {
         "criterion": "المعيار",
         "manual": "تنظيف يدوي",
-        "robot": "Taypro NYUMA"
+        "robot": "Taypro NYUMA",
+        "modelA": "Taypro NYUMA"
       },
       "rows": {
         "row0": {
           "criterion": "تكرار التنظيف",
           "manual": "أسبوعي/نصف شهري",
-          "robot": "دورات يومية آلية"
+          "robot": "Daily automated cycles, weather-aware scheduling",
+          "modelA": "دورات يومية آلية"
         },
         "row1": {
           "criterion": "استهلاك الماء",
           "manual": "مرتفع",
-          "robot": "صفر, ثنائي مرور جاف"
+          "robot": "Zero, fully waterless single-pass PBT dry cleaning",
+          "modelA": "صفر, ثنائي مرور جاف"
         },
         "row2": {
           "criterion": "جودة التنظيف",
           "manual": "غير متسقة",
-          "robot": "99%+ غبار كل مرة"
+          "robot": "99%+ dust removal in a single automated run, every time",
+          "modelA": "99%+ غبار كل مرة"
         },
         "row3": {
           "criterion": "العمالة والسلامة",
           "manual": "تكلفة عالية ومخاطر",
-          "robot": "تشغيل ليلي ذاتي"
+          "robot": "Autonomous after-hours operation, no manual intervention",
+          "modelA": "تشغيل ليلي ذاتي"
         },
         "row4": {
           "criterion": "تأثير PR",
           "manual": "خسائر 5–25%",
-          "robot": "PR مستقر، عائد 4–8%"
+          "robot": "Daily cleaning sustains peak PR, lifting plant yield 4–8%",
+          "modelA": "PR مستقر، عائد 4–8%"
         },
         "row5": {
           "criterion": "سلامة الألواح",
           "manual": "خدوش وميكروكراك",
-          "robot": "على الإطار فقط"
+          "robot": "Robot rides on the module frame, no load on glass or cells",
+          "modelA": "على الإطار فقط"
         },
         "row6": {
           "criterion": "المراقبة",
@@ -313,7 +333,8 @@
         "row7": {
           "criterion": "تكلفة الملكية",
           "manual": "متكررة",
-          "robot": "استرداد 12–18 شهراً، عمر 20 سنة"
+          "robot": "One-time investment, 12–18 month payback, 20-year design life",
+          "modelA": "استرداد 12–18 شهراً، عمر 20 سنة"
         }
       }
     },
@@ -342,12 +363,13 @@
       "crossSellLead": "احتياجات O&M مجاورة؟ استكشف ",
       "linkHelyx": "روبوت تنظيف شبه أوتوماتيكي (HELYX)",
       "linkBetweenBAndT": "، ",
-      "linkNyumaX": "روبوت تتبع أحادي المحور (NYUMA)",
+      "linkGlydeX": "روبوت تتبع أحادي المحور (NYUMA)",
       "linkBetweenTAndOpex": "، ",
       "linkOpex": "خدمة تنظيف Taypro OPEX",
       "linkBetweenOpexAndNectyr": " أو ",
       "linkNectyr": "تطبيق مراقبة NECTYR",
-      "crossSellSuffix": "."
+      "crossSellSuffix": ".",
+      "linkNyuma": "PBT automatic NYUMA robot"
     },
     "specifications": {
       "titleLine1": "روبوت تنظيف ألواح شمسية أوتوماتيكي ",
@@ -410,7 +432,7 @@
           "details": "+20 mm"
         },
         "ipRating": {
-          "spec": "تصنيف IP",
+          "spec": "IP Rating",
           "details": "IP65"
         },
         "corrosion": {
@@ -431,7 +453,7 @@
         },
         "weight": {
           "spec": "الوزن",
-          "details": "45 كغ"
+          "details": "38 كغ"
         }
       },
       "datasheetCta": "Request full datasheet",
@@ -553,64 +575,64 @@
       }
     },
     "productCards": {
-      "title": "هل تبحث عن مزيد من الحلول؟",
+      "title": "Looking for more solutions?",
       "cardLabels": {
         "helyx": "HELYX",
-        "nyumaX": "NYUMA-X"
+        "glydeX": "NYUMA"
       },
-      "cardTitleTemplate": "روبوت تنظيف الألواح الشمسية {label}"
+      "cardTitleTemplate": "{label} Solar Panel Cleaning Robot"
     },
     "glydeVsNyuma": {
-      "eyebrow": "اختيار روبوت Taypro المناسب",
-      "title": "GLYDE مقابل NYUMA: أي روبوت آلي يناسب محطتك؟",
-      "subtitle": "كلا الروبوتين مستقل بالكامل، بدون ماء، ويُداران من NECTYR. GLYDE هو flagship Taypro ببراءة dual-pass microfiber؛ NYUMA منصة PBT single-pass لأساطيل fixed-tilt فعّالة من حيث CAPEX.",
-      "criterion": "المعيار",
-      "glydeHeader": "GLYDE (Dual-Pass Microfiber)",
+      "eyebrow": "Choosing the Right Taypro Robot",
+      "title": "NYUMA vs NYUMA: Which Automatic Robot Fits Your Plant?",
+      "subtitle": "Both robots are fully autonomous, waterless, and managed from NECTYR. NYUMA is Taypro's patented single-pass PBT PBT brush flagship; NYUMA is the PBT single-pass platform for capex-efficient fixed-tilt fleets.",
+      "criterion": "Criterion",
+      "glydeHeader": "NYUMA (single-pass PBT PBT brush)",
       "nyumaHeader": "NYUMA (Single-Pass PBT)",
       "row0": {
-        "criterion": "تقنية التنظيف",
-        "glyde": "Dual-pass patented: تيار هواء يفك الغبار، microfiber يكمل المسح",
-        "nyuma": "أسطوانة فرش PBT دوّارة single-pass — consumables أقل"
+        "criterion": "Cleaning Technology",
+        "glyde": "Patented single-pass PBT: airflow loosens dust, PBT brush completes the wipe",
+        "nyuma": "Single-pass counter-rotating PBT brush drum — fewer moving consumables"
       },
       "row1": {
-        "criterion": "الأفضل لـ",
-        "glyde": "صفوف fixed-tilt flagship حيث أقصى رفع للغبار لكل دورة أولوية",
-        "nyuma": "كتل fixed-tilt متكررة حيث اقتصاديات PBT وCAPEX تفوز في RFQ"
+        "criterion": "Best For",
+        "glyde": "Flagship fixed-tilt rows where maximum dust lift per cycle is the priority",
+        "nyuma": "Repeatable fixed-tilt blocks where PBT capex and brush economics win RFQs"
       },
       "row2": {
-        "criterion": "التلوث اللزج / الإسمنتي",
-        "glyde": "Dual-pass ممتاز على طبقات غبار جافة ولزجة",
-        "nyuma": "مثالي للغبار الصحراوي الجاف؛ جدولة دورات إضافية عند تلوث إسمنتي شديد"
+        "criterion": "Sticky / Cementitious Soiling",
+        "glyde": "single-pass PBT excels on mixed dry and adhesive dust layers",
+        "nyuma": "Ideal for dry desert dust; schedule extra cycles if cementitious soiling is heavy"
       },
       "row3": {
-        "criterion": "ملف الاستهلاكيات",
-        "glyde": "أسطوانة microfiber self-cleaning بفترات خدمة ممتدة",
-        "nyuma": "فرش PBT مقاومة UV مع cartridges قابلة للاستبدال ميدانياً"
+        "criterion": "Consumable Profile",
+        "glyde": "Self-cleaning PBT brush drum with extended service intervals",
+        "nyuma": "UV-stable PBT brush with field-replaceable bristle cartridges"
       },
       "row4": {
-        "criterion": "المدى لكل شحنة",
-        "glyde": "حتى 2.2 km (~3,600 وحدة)",
-        "nyuma": "حتى 2.2 km (~3,600 وحدة)"
+        "criterion": "Range Per Charge",
+        "glyde": "Up to 2.2 km (~3,600 modules)",
+        "nyuma": "Up to 2.2 km (~3,600 modules)"
       },
       "row5": {
-        "criterion": "نشرات نموذجية",
-        "glyde": "أساطيل fixed-tilt automatic-first بحجم Bachau DVC",
-        "nyuma": "برامج PBT automatic بحجم Akhadana وأساطيل مختلطة"
+        "criterion": "Typical Deployments",
+        "glyde": "Bachau DVC-scale automatic-first fixed-tilt fleets",
+        "nyuma": "Akhadana-scale and mixed-fleet PBT automatic programmes"
       },
       "row6": {
-        "criterion": "العمالة بعد التركيب",
-        "glyde": "صفر — دورات يومية مستقلة بالكامل",
-        "nyuma": "صفر — دورات يومية مستقلة بالكامل"
+        "criterion": "Labour After Install",
+        "glyde": "Zero — fully autonomous daily cycles",
+        "nyuma": "Zero — fully autonomous daily cycles"
       },
       "row7": {
-        "criterion": "مراقبة الأسطول",
-        "glyde": "NECTYR عبر LTE أو Wi-Fi أو RF mesh أو LoRa أو LoRaWAN",
-        "nyuma": "NECTYR عبر LTE أو Wi-Fi أو RF mesh أو LoRa أو LoRaWAN"
+        "criterion": "Fleet Monitoring",
+        "glyde": "NECTYR via LTE, Wi-Fi, RF mesh, LoRa, or LoRaWAN",
+        "nyuma": "NECTYR via LTE, Wi-Fi, RF mesh, LoRa, or LoRaWAN"
       },
-      "crossSellLead": "تحتاج pick-and-place للكتل المتفرقة؟ راجع ",
+      "crossSellLead": "Need a pick-and-place option for scattered blocks? See ",
       "linkHelyx": "HELYX",
-      "crossSellMid": ". trackers أحادية المحور؟ قارن ",
-      "linkTracker": "GLYDE-X و NYUMA-X",
+      "crossSellMid": ". Running single-axis trackers? Compare ",
+      "linkTracker": "NYUMA and NYUMA-X",
       "crossSellSuffix": "."
     }
   },

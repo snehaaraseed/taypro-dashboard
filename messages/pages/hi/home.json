@@ -1,12 +1,12 @@
 {
   "Home": {
     "meta": {
-      "title": "सोलर पैनल सफाई रोबोट | वॉटरलेस और स्वायत्त",
-      "description": "भारत के अग्रणी वॉटरलेस सोलर पैनल सफाई रोबोट, यूटिलिटी-स्केल प्लांटों के लिए। GLYDE और NYUMA से खोई generation वापस पाएं। आज कोटेशन लें।",
-      "ogTitle": "सोलर पैनल सफाई रोबोट | वॉटरलेस और स्वायत्त",
-      "ogDescription": "भारतीय यूटिलिटी प्लांटों के लिए वॉटरलेस सोलर सफाई रोबोट। डुअल-पास शुष्क सफाई, NECTYR फ्लीट, पैन-India सेवा।",
-      "twitterTitle": "सोलर पैनल सफाई रोबोट | वॉटरलेस और स्वायत्त",
-      "twitterDescription": "भारत में यूटिलिटी-स्केल सोलर फार्मों के लिए स्वायत्त वॉटरलेस सोलर पैनल सफाई रोबोट।"
+      "title": "सोलर पैनल सफाई रोबोट | Taypro, वॉटरलेस India",
+      "description": "भारत में यूटिलिटी-स्केल प्लांटों के लिए वॉटरलेस सोलर पैनल सफाई रोबोट। डुअल-पास शुष्क सफाई, फ्लीट मॉनिटरिंग, पैन-India Taypro सहायता, स्वचालित और अर्ध-स्वचालित।",
+      "ogTitle": "सोलर पैनल सफाई रोबोट | Taypro, वॉटरलेस India",
+      "ogDescription": "भारतीय यूटिलिटी प्लांटों के लिए वॉटरलेस सोलर सफाई रोबोट, डुअल-पास शुष्क सफाई, NECTYR फ्लीट मॉनिटरिंग, राष्ट्रव्यापी सेवा।",
+      "twitterTitle": "सोलर पैनल सफाई रोबोट | Taypro",
+      "twitterDescription": "भारत में यूटिलिटी-स्केल सोलर फार्मों के लिए स्वायत्त और अर्ध-स्वचालित वॉटरलेस सोलर पैनल सफाई रोबोट।"
     },
     "schema": {
       "video": {
@@ -22,12 +22,14 @@
     },
     "hero": {
       "eyebrow": "Made in India · 5 GW+ तैनात · यूटिलिटी सोलर के लिए स्वायत्त संचालन",
-      "titleBefore": "स्वायत्त",
-      "titleHighlight": "स्वायत्त संचालन परत",
-      "titleAfter": "यूटिलिटी-स्केल प्लांटों के लिए",
+      "title": "Solar Panel Cleaning Robot Manufacturer in India",
+      "subtitle": "Recover lost generation with the autonomous operations layer for utility-scale solar, built on waterless solar panel cleaning robots.",
+      "lead": "SCADA बताता है kWh चला गया। Taypro हर पंक्ति पर रोबोट, आज NECTYR फ्लीट संचालन, और ORION प्लांट इंटेलिजेंस के साथ लूप बंद करता है।",
       "bodyBeforeProjects": "डुअल-पास वॉटरलेस सफाई, AI शेड्यूलिंग, पैन-India अपटाइम, फिक्स्ड टिल्ट, सीज़नल टिल्ट, ट्रैकर्स। देखें",
       "bodyProjectsLink": "लाइव प्रोजेक्ट",
-      "bodyBetweenLinks": "या हमारे",
+      "bodyAfterProjects": ", के बारे में जानें",
+      "bodyUtilityOpsLink": "यूटिलिटी सोलर संचालन",
+      "bodyBeforeBlog": ", या हमारे",
       "bodyBlogLink": "ब्लॉग",
       "bodyAfterBlog": " पर अंतर्दृष्टि पढ़ें।",
       "videoTitle": "Taypro स्वायत्त सोलर पैनल सफाई रोबोट, यूटिलिटी-स्केल वॉटरलेस सफाई",
@@ -39,25 +41,68 @@
       "ctaExplore": "रोबोट देखें",
       "ctaService": "सफाई सेवा",
       "ctaRoi": "मूल्य और ROI कैलकुलेटर",
-      "title": "भारत में सोलर पैनल सफाई रोबोट निर्माता",
-      "subtitle": "यूटिलिटी-स्केल सोलर के लिए स्वायत्त संचालन परत पर निर्मित वॉटरलेस सोलर पैनल सफाई रोबोट के साथ खोई हुई उत्पादन पुनर्प्राप्त करें।",
-      "lead": "SCADA बताता है kWh चला गया। Taypro हर पंक्ति पर रोबोट, आज NECTYR फ्लीट संचालन, और ORION प्लांट इंटेलिजेंस के साथ लूप बंद करता है।",
-      "bodyAfterProjects": ", के बारे में जानें",
-      "bodyUtilityOpsLink": "यूटिलिटी सोलर संचालन",
-      "bodyBeforeBlog": ", या हमारे"
+      "titleLine1": "खोई हुई उत्पादन पुनर्प्राप्त करें, ",
+      "titleHighlight": "स्वायत्त संचालन परत",
+      "titleLine2": "यूटिलिटी-स्केल सोलर के लिए, वॉटरलेस सोलर पैनल सफाई रोबोट पर निर्मित।"
     },
     "stats": {
+      "methodologyBefore": "Fleet impact figures are modelled from live deployments. See our",
+      "methodologyLink": "performance & test methodology",
+      "methodologyAfter": "for assumptions and qualified claims.",
       "stat0": {
-        "label": "तैनात रोबोट क्षमता"
+        "label": "प्रतिदिन साफ किए गए सोलर एसेट",
+        "sublabel": "भारत के सबसे बड़े रोबोटिक सोलर सफाई फ्लीट में दैनिक परिचालन थ्रूपुट"
       },
       "stat1": {
-        "label": "वार्षिक CO2 उत्सर्जन में कमी (मीट्रिक टन)"
+        "label": "वार्षिक साफ किए गए पैनल"
       },
       "stat2": {
-        "label": "वार्षिक अतिरिक्त स्वच्छ सोलर उत्पादन"
+        "label": "वार्षिक CO2 उत्सर्जन में कमी (मीट्रिक टन)"
       },
       "stat3": {
         "label": "सालाना बचाए गए पानी के लीटर"
+      }
+    },
+    "platform": {
+      "eyebrow": "Taypro कैसे काम करता है",
+      "heading": "रोबोट, फ्लीट सॉफ़्टवेयर, और प्लांट इंटेलिजेंस, एक बंद लूप",
+      "subtitle": "फील्ड रोबोट डेटा और निष्पादन अवसंरचना हैं। NECTYR आज की परत है; ORION उसी रेल पर स्वास्थ्य बढ़ाता है।",
+      "loopClosing": "सेंस → शेड्यूल → साफ → लॉग → सीखें, हर चक्र।",
+      "investorEyebrow": "भागीदार और निवेशक",
+      "investorTitle": "भारत के यूटिलिटी सोलर के लिए स्वायत्त संचालन परत",
+      "investorBody": "NECTYR में 5 GW+ लाइव फ्लीट डेटा, नियमित AMC संबंध, ORION नवीनीकरण रेल पर। कंपनी कहानी और निवेशक संपर्क देखें।",
+      "investorCtaAi": "AI intelligence layer",
+      "investorCtaCompany": "कंपनी और पैमाना",
+      "investorCtaOrion": "ORION प्रारंभिक पहुँच",
+      "pillars": {
+        "0": {
+          "tag": "आज · फील्ड",
+          "title": "वॉटरलेस सफाई रोबोट",
+          "body": "GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, हर पंक्ति पर स्वायत्त सिस्टम।",
+          "link": "रोबोट तुलना करें",
+          "href": "/solar-panel-cleaning-system"
+        },
+        "1": {
+          "tag": "आज · फ्लीट",
+          "title": "NECTYR संचालन पोर्टल",
+          "body": "चक्र शेड्यूल, ब्लॉक मॉनिटर, AMC, 2022 से लेबल्ड टेलीमेट्री।",
+          "link": "NECTYR देखें",
+          "href": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
+        },
+        "2": {
+          "tag": "रोडमैप · इंटेलिजेंस",
+          "title": "ORION स्वास्थ्य परत",
+          "body": "उत्पादन-जागरूक निगरानी, SCADA आउटपुट बताता है; ORION पहले कार्रवाई करने में मदद करता है।",
+          "link": "ORION के लिए पंजीकरण",
+          "href": "/solar-panel-cleaning-system/orion-plant-intelligence-platform"
+        }
+      },
+      "loopSteps": {
+        "0": "सेंस",
+        "1": "शेड्यूल",
+        "2": "साफ",
+        "3": "लॉग",
+        "4": "सीखें"
       }
     },
     "robots": {
@@ -131,16 +176,26 @@
       "feature3": {
         "title": "Made in India",
         "description": "हमारे Chakan, Pune केंद्र में डिज़ाइन और निर्माण, TÜV NORD प्रमाणित हार्डवेयर और मुख्य सफाई सिस्टम पर पेटेंट।"
+      },
+      "feature4": {
+        "title": "Self-learning fleet AI",
+        "description": "AI that improves cleaning decisions with each cycle across the full fleet — soiling prediction, timing, and routing compound with every site added."
+      },
+      "feature5": {
+        "title": "Wet microfiber detection",
+        "description": "Sensors detect when cleaning elements are wet from dew or humidity and postpone cycles automatically — protecting module glass from smear damage."
       }
     },
     "whyTaypro": {
       "eyebrow": "यूटिलिटी-स्केल ऑपरेटर Taypro क्यों चुनते हैं",
       "heading": "रिटर्न संचालन में जीतते हैं, केवल पैनल capex में नहीं",
-      "bodyBeforeNectyr": "रोबोट से फ्लीट सॉफ़्टवेयर तक एक जिम्मेदार भागीदार, उत्पादन पुनर्प्राप्ति, पानी और श्रम जोखिम कम, हर ब्लॉक पर नज़र",
+      "bodyBeforeNectyr": "One accountable partner from robot to fleet software: recover generation, cut water and labour risk, and monitor every block on",
       "nectyrLink": "NECTYR",
       "bodyBetween": " पर मॉनिटर कर सकें। देखें कैसे",
       "cleaningTechLink": "डुअल-पास शुष्क सफाई",
-      "bodyAfter": " फील्ड में काम करती है।"
+      "bodyAfter": " फील्ड में काम करती है।",
+      "bodyBeforeConsole": "रोबोट से फ्लीट सॉफ़्टवेयर तक एक जिम्मेदार भागीदार, उत्पादन पुनर्प्राप्ति, पानी और श्रम जोखिम कम, हर ब्लॉक पर नज़र",
+      "consoleLink": "NECTYR"
     },
     "technology": {
       "heading": "उन्नत सोलर पैनल सफाई रोबोट तकनीक",
@@ -153,13 +208,15 @@
     "roi": {
       "heading": "अपने प्लांट के लिए रोबोट पेबैक अनुमानित करें",
       "body": "श्रम, पानी और उत्पादन बचत पर दिशात्मक ROI चलाएँ, या PDF निर्यात और विस्तृत मान्यताओं के लिए पूर्ण कैलकुलेटर खोलें।",
+      "methodology": "Estimates use site-specific soiling, tariff, and O&M inputs. Full assumptions, qualified performance claims, and test methodology are documented on our performance page.",
+      "methodologyLink": "View performance & test methodology",
       "link": "पूर्ण ROI और मूल्य कैलकुलेटर खोलें"
     },
     "clients": {
       "heading": "हमारे प्रतिष्ठित ग्राहक",
+      "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India.",
       "logoAlt": "Taypro सोलर पैनल सफाई रोबोट ग्राहक {index}, Taypro रोबोटिक सफाई समाधान उपयोगकर्ता भागीदार",
-      "logoTitle": "Taypro सोलर पैनल सफाई रोबोट ग्राहक {index}",
-      "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India."
+      "logoTitle": "Taypro सोलर पैनल सफाई रोबोट ग्राहक {index}"
     },
     "faq": {
       "heading": "अक्सर पूछे जाने वाले प्रश्न",
@@ -203,7 +260,8 @@
     "projects": {
       "eyebrow": "मैदान में सिद्ध",
       "heading": "यूटिलिटी-स्केल सफाई रोबोट तैनाती",
-      "subheading": "भारतीय सोलर प्लांटों से केस स्टडी ब्राउज़ करें जो Taypro स्वायत्त और अर्ध-स्वचालित रोबोट उपयोग करते हैं।"
+      "subheading": "भारतीय सोलर प्लांटों से केस स्टडी ब्राउज़ करें जो Taypro स्वायत्त और अर्ध-स्वचालित रोबोट उपयोग करते हैं।",
+      "quote": "Utility operators report predictable dry-cleaning cycles, lower water logistics, and logged coverage through NECTYR across multi-MW blocks."
     },
     "blog": {
       "heading": "ब्लॉग से",
@@ -213,47 +271,6 @@
     "loading": {
       "form": "फ़ॉर्म लोड हो रहा है…",
       "clients": "ग्राहक लोड हो रहे हैं…"
-    },
-    "platform": {
-      "eyebrow": "Taypro कैसे काम करता है",
-      "heading": "रोबोट, फ्लीट सॉफ़्टवेयर, और प्लांट इंटेलिजेंस, एक बंद लूप",
-      "subtitle": "फील्ड रोबोट डेटा और निष्पादन अवसंरचना हैं। NECTYR आज की परत है; ORION उसी रेल पर स्वास्थ्य बढ़ाता है।",
-      "loopClosing": "सेंस → शेड्यूल → साफ → लॉग → सीखें, हर चक्र।",
-      "investorEyebrow": "भागीदार और निवेशक",
-      "investorTitle": "भारत के यूटिलिटी सोलर के लिए स्वायत्त संचालन परत",
-      "investorBody": "NECTYR में 5 GW+ लाइव फ्लीट डेटा, नियमित AMC संबंध, ORION नवीनीकरण रेल पर। कंपनी कहानी और निवेशक संपर्क देखें।",
-      "investorCtaCompany": "कंपनी और पैमाना",
-      "investorCtaOrion": "ORION प्रारंभिक पहुँच",
-      "pillars": {
-        "0": {
-          "tag": "आज · फील्ड",
-          "title": "वॉटरलेस सफाई रोबोट",
-          "body": "GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, हर पंक्ति पर स्वायत्त सिस्टम।",
-          "link": "रोबोट तुलना करें",
-          "href": "/solar-panel-cleaning-system"
-        },
-        "1": {
-          "tag": "आज · फ्लीट",
-          "title": "NECTYR संचालन पोर्टल",
-          "body": "चक्र शेड्यूल, ब्लॉक मॉनिटर, AMC, 2022 से लेबल्ड टेलीमेट्री।",
-          "link": "NECTYR देखें",
-          "href": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
-        },
-        "2": {
-          "tag": "रोडमैप · इंटेलिजेंस",
-          "title": "ORION स्वास्थ्य परत",
-          "body": "उत्पादन-जागरूक निगरानी, SCADA आउटपुट बताता है; ORION पहले कार्रवाई करने में मदद करता है।",
-          "link": "ORION के लिए पंजीकरण",
-          "href": "/solar-panel-cleaning-system/orion-plant-intelligence-platform"
-        }
-      },
-      "loopSteps": {
-        "0": "सेंस",
-        "1": "शेड्यूल",
-        "2": "साफ",
-        "3": "लॉग",
-        "4": "सीखें"
-      }
     }
   },
   "Common": {

@@ -1,0 +1,240 @@
+{
+  "AiIntelligencePage": {
+    "meta": {
+      "title": "NECTYR Fleet AI & Solar O&M Intelligence | Taypro",
+      "description": "NECTYR fleet AI for utility solar: labelled telemetry from 5 GW+ daily throughput, autonomous scheduling, ML route optimisation, predictive maintenance alerts, and the data flywheel behind India's largest robotic cleaning operations software layer.",
+      "openGraphTitle": "NECTYR Fleet AI & Solar O&M Intelligence | Taypro",
+      "openGraphDescription": "Fleet operations intelligence in NECTYR — self-learning models, autonomous cycle initiation, and labelled field data from 11 billion+ annual panel passes.",
+      "twitterTitle": "NECTYR Fleet AI | Taypro",
+      "twitterDescription": "Solar fleet AI and NECTYR operations intelligence: scheduling, routing, diagnostics, and compounding field data at 5 GW+ scale."
+    },
+    "breadcrumb": "AI intelligence",
+    "hero": {
+      "eyebrow": "NECTYR · Fleet operations intelligence",
+      "title": "Solar fleet AI and NECTYR operations intelligence",
+      "body": "This page covers Taypro's software intelligence layer — the models and NECTYR workflows that turn nightly robot telemetry into scheduling, routing, and O&M decisions. Self-learning systems trained on 11 billion+ annual panel passes across 150+ plants refine soiling prediction, battery routing, and weather timing with every labelled cycle.",
+      "lead": "Plants commissioned today inherit years of prior fleet intelligence. NECTYR autonomously initiates, postpones, or accelerates cleaning based on weather models, soiling risk, battery state, and robot health — without waiting for an operator to rewrite the schedule after every dust storm.",
+      "ctaNectyr": "Explore NECTYR",
+      "ctaTechnology": "Cleaning technology"
+    },
+    "fleetProof": {
+      "dailyLabel": "Solar assets cleaned daily",
+      "panelsLabel": "Panels cleaned annually",
+      "sitesLabel": "Live plant installations",
+      "deployedLabel": "Robot capacity deployed",
+      "footnoteBefore": "Fleet impact figures are modelled from live deployments. See our",
+      "methodologyLink": "performance & test methodology",
+      "footnoteAfter": "for assumptions."
+    },
+    "whyScale": {
+      "eyebrow": "Why scale matters",
+      "heading": "Why AI at 5 GW scale is different",
+      "body": "Utility-scale robotic cleaning generates structured telemetry at a volume single-site pilots cannot match. Across 5 GW+ of daily operational throughput, every cycle labels soiling response by geography, season, array type, and weather window — building a dataset that improves routing, scheduling, and fault prediction for the entire fleet.",
+      "pillar0": {
+        "title": "Labelled field telemetry at fleet volume",
+        "body": "Each completed block logs timing, coverage, battery draw, and environmental context. At 5 GW+ daily throughput, those labels accumulate faster than any lab simulation — giving models real-world variance across Rajasthan dust, monsoon shoulders, and tracker undulation profiles."
+      },
+      "pillar1": {
+        "title": "Cross-site learning compounds",
+        "body": "A plant commissioned this quarter inherits scheduling intelligence from hundreds of prior deployments. Monsoon-shoulder timing learned in Maharashtra informs Rajasthan cadence; GLYDE-X tracker routing benefits from array maps built across prior single-axis sites."
+      },
+      "pillar2": {
+        "title": "The moat deepens with every site",
+        "body": "More plants mean more labelled cycles, sharper soiling models, and tighter O&M predictability. Taypro's intelligence layer is designed so each new deployment makes the entire fleet smarter — not just the robots on that row."
+      }
+    },
+    "platformStack": {
+      "eyebrow": "Three-layer platform",
+      "heading": "Robots execute. NECTYR decides. ORION extends.",
+      "intro": "Taypro is architected as a closed loop — field hardware generates data, fleet software turns data into nightly decisions, and the roadmap layer ties cleaning intelligence to full plant health.",
+      "layer0": {
+        "tag": "Today · Field",
+        "title": "Autonomous cleaning robots",
+        "body": "GLYDE, GLYDE-X, NYUMA, and NYUMA-X robots carry sensors, self-powered drives, and on-board safety interlocks. Every pass produces labelled telemetry: row coverage, battery draw, brush torque, wet-element state, and fault signatures."
+      },
+      "layer1": {
+        "tag": "Today · Fleet",
+        "title": "NECTYR operations intelligence",
+        "body": "The secure web portal where fleet AI runs live: autonomous scheduling, live robot tracking on plant layout, root-cause fault classification, predictive maintenance alerts, and exportable cycle audit logs for PR and AMC evidence."
+      },
+      "layer2": {
+        "tag": "Roadmap · Plant",
+        "title": "ORION plant health layer",
+        "body": "Generation-aware monitoring that extends the same intelligence rails from cleaning operations to full asset health — so owners can act before the MWh is gone, not after SCADA shows the dip."
+      }
+    },
+    "flywheel": {
+      "eyebrow": "The data flywheel",
+      "heading": "How daily fleet cycles feed AI that improves itself",
+      "body": "Every cleaning cycle across Taypro's 5 GW+ deployed fleet generates structured data — soiling rates by geography and season, weather correlation, battery performance, and fault patterns. Models ingest this telemetry continuously: a plant in Rajasthan benefits from monsoon-shoulder timing learned in Maharashtra; a new GLYDE-X tracker site inherits routing intelligence from hundreds of prior array maps.",
+      "closing": "The dataset compounds with each site added. Sense → Schedule → Clean → Log → Learn — every night across the fleet.",
+      "step0": "Sense",
+      "step1": "Schedule",
+      "step2": "Clean",
+      "step3": "Log",
+      "step4": "Learn"
+    },
+    "dataSignals": {
+      "eyebrow": "What each cycle captures",
+      "heading": "Structured data labels that train fleet AI",
+      "intro": "Generic uptime monitoring tells you a robot is online. Taypro's intelligence layer labels what happened, why it mattered, and how the next cycle should change.",
+      "signal0": {
+        "title": "Soiling rate by block",
+        "body": "Post-clean performance response correlated with geography, season, and array type — building regional dust libraries across India's hardest environments."
+      },
+      "signal1": {
+        "title": "Weather correlation",
+        "body": "Windspeed, rain probability, humidity, pollen, and dew context tied to each cycle decision — not binary rain sensors alone."
+      },
+      "signal2": {
+        "title": "Battery per row topology",
+        "body": "Charge and discharge curves mapped to row length, gap geometry, and undulation — feeding ML route optimisation models."
+      },
+      "signal3": {
+        "title": "Fault precursors",
+        "body": "Motor current, brush torque, and sensor deviation signatures that precede bearing wear, brush saturation, or controller degradation."
+      },
+      "signal4": {
+        "title": "Wet-element state",
+        "body": "Microfiber moisture detection labels cycles postponed for module protection — preventing smear damage on dusty glass."
+      },
+      "signal5": {
+        "title": "Coverage audit trail",
+        "body": "Block-wise timestamps, progress percentage, and exportable records for O&M governance, AMC reconciliation, and asset-owner reporting."
+      }
+    },
+    "capabilities": {
+      "eyebrow": "Six decision-layer capabilities",
+      "heading": "Fleet AI models running in NECTYR today",
+      "intro": "Software capabilities that ingest labelled telemetry and output scheduling, routing, and protection decisions — without operators rewriting calendars after every weather event.",
+      "hardwareCrossBefore": "How robots physically execute cleans — dual-pass dry cleaning, platform weights, and field hardware — is documented on",
+      "hardwareCrossLink": "cleaning technology",
+      "hardwareCrossAfter": "."
+    },
+    "capability0": {
+      "title": "Cross-site model transfer",
+      "body": "Fleet models retrain on labelled cycles from 5 GW+ daily throughput, then deploy to newly commissioned plants on day one. Seasonality libraries, regional dust signatures, and post-storm recovery timing travel with the model — not just the robots on that row."
+    },
+    "capability1": {
+      "title": "Persistent site graph & route optimisation",
+      "body": "NECTYR stores a persistent array map — row geometry, gaps, undulation — built from first-deployment telemetry. Nightly route graphs draw from this model to maximise cleaned area per charge, typically ~2× versus unmapped traversal, and inherit tracker routing patterns from prior GLYDE-X sites."
+    },
+    "capability2": {
+      "title": "Charge-aware block prioritisation",
+      "body": "When irradiance limits recharge, the orchestration layer calculates cleanable capacity from live state-of-charge, ranks blocks by soiling risk, and sequences partial cycles that still recover meaningful generation — logged in NECTYR with block-level audit context."
+    },
+    "capability3": {
+      "title": "Multi-parameter weather orchestration",
+      "body": "NECTYR ingests windspeed, rain probability, humidity, pollen, and local environmental feeds — not binary rain flags alone — to propose, postpone, or accelerate cycles. Field-verified 95% scheduling accuracy reduces wasted runs and stabilises O&M budgeting."
+    },
+    "capability4": {
+      "title": "Wet-element protection logic",
+      "body": "Element-moisture telemetry triggers automatic cycle postponement when dew, humidity, or residual rain saturates cleaning media. NECTYR surfaces the alert and reason code so operators see why a block deferred — protecting modules from smear risk without a 4 a.m. phone call."
+    },
+    "capability5": {
+      "title": "Autonomous fleet orchestration",
+      "body": "Fleet rules and model outputs initiate, pause, or tighten cadence when soiling risk, weather windows, and robot health align. Dust events tighten schedules; rain or wet-element states stand fleets down. Every decision writes to block-level audit trails for governance and AMC evidence."
+    },
+    "deepDive": {
+      "eyebrow": "How it works in the field",
+      "heading": "Three capabilities that change nightly O&M",
+      "dive0": {
+        "title": "Site graph persistence in NECTYR",
+        "body": "First-deployment traversal builds a stored site graph — panel dimensions, gaps, row lengths, undulations, end conditions — that NECTYR reuses every night. Route solvers read this graph instead of re-discovering geometry, cutting dead travel and raising cleaned area per charge by roughly 2× versus greedy unmapped paths.",
+        "detail": "Tracker portfolios inherit routing heuristics from hundreds of prior single-axis graphs. Operators see coverage plans and execution logs against the same map — one source of truth for O&M and model training."
+      },
+      "dive1": {
+        "title": "Autonomous scheduling without operator rewrites",
+        "body": "Fixed-schedule robots pause for rain and resume on a calendar. Taypro's fleet AI ingests multi-parameter weather models, soiling forecasts, battery state, and fleet health to initiate, postpone, or accelerate cycles — without waiting for an operator to edit timers after every dust storm.",
+        "detail": "95% field-verified scheduling accuracy means fewer wasted runs after ineffective conditions and better alignment with generation windows. Wet-element detection adds a second safety layer beyond forecast data alone."
+      },
+      "dive2": {
+        "title": "Root-cause diagnostics before dispatch",
+        "body": "When a robot stops, NECTYR identifies where it stopped and the probable cause: misaligned panel edge, physical obstacle, motor fault, brush saturation, battery threshold, or communication drop. Field teams dispatch with the right spares instead of exploratory truck rolls.",
+        "detail": "Per-robot health profiles built from motor current, charge curves, and brush torque flag deviation signatures before breakdown manifests — hardware predictive maintenance informed by fleet-wide pattern recognition."
+      }
+    },
+    "nectyrLive": {
+      "eyebrow": "NECTYR live intelligence",
+      "heading": "What operators see in the field",
+      "intro": "Fleet software turns robot telemetry into decisions plant teams actually use — not a generic SCADA viewer, but an active intelligence layer for robotic cleaning.",
+      "item0": "Live robot position tracking on plant layout map",
+      "item1": "Root-cause fault identification — where and why a robot stopped",
+      "item2": "Battery state monitoring and charge curve analysis per robot",
+      "item3": "Wet microfiber detection alerts and automatic cycle protection",
+      "item4": "Predictive maintenance alerts from fleet-wide deviation signatures",
+      "item5": "Cycle audit logs and exportable reports for PR and AMC evidence",
+      "trackingTitle": "Live cleaning visualisation",
+      "trackingBody": "NECTYR overlays real-time robot position on the plant layout map. Operators see which row is being cleaned, progress percentage, and fleet state at any moment — not a last-seen timestamp from hours ago.",
+      "predictiveTitle": "Per-robot health profiles",
+      "predictiveBody": "Motor current draw, battery charge and discharge curves, brush rotation torque, and sensor signal patterns build a health profile for each robot. Deviation signatures that precede bearing wear or brush end-of-life are flagged before the fault becomes a breakdown.",
+      "autonomousTitle": "Autonomous fleet orchestration",
+      "autonomousBody": "Cleaning cycles are initiated, paused, and accelerated by fleet AI based on weather models, soiling forecasts, battery state, and robot health. Block-level audit trails document every decision for O&M review and asset-owner reporting.",
+      "nectyrLink": "Explore NECTYR"
+    },
+    "forWhom": {
+      "eyebrow": "Built for utility O&M",
+      "heading": "Who benefits from fleet intelligence",
+      "intro": "The intelligence layer serves different stakeholders across the same nightly data — from block-level operators to portfolio asset owners.",
+      "segment0": {
+        "title": "Plant O&M teams",
+        "body": "Confirm last night's block-wise coverage before the morning shift. Compare planned vs. actual cycles against the monthly cleaning strategy. Dispatch field crews with root-cause context instead of guesswork.",
+        "link": "Explore NECTYR",
+        "href": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
+      },
+      "segment1": {
+        "title": "Central engineering & IPPs",
+        "body": "Spot soiling trends across multi-site portfolios. Export audit-ready cleaning evidence for AMC reconciliation and performance ratio discussions. Inherit fleet-learning models on day one at newly commissioned plants.",
+        "link": "Live projects",
+        "href": "/projects"
+      },
+      "segment2": {
+        "title": "Partners & investors",
+        "body": "Understand why field data at 5 GW+ daily throughput compounds into a deepening technology advantage. NECTYR is live today; ORION extends plant health on the same rails at AMC renewal.",
+        "link": "Company & scale",
+        "href": "/company#investors"
+      }
+    },
+    "orion": {
+      "eyebrow": "Roadmap",
+      "heading": "ORION — plant intelligence on the same rails",
+      "body": "ORION extends the intelligence layer from cleaning operations to full plant health — generation-aware monitoring that ties cleaning, weather, and performance so asset owners can act before the MWh is gone. ORION attaches at AMC renewal on NECTYR rails already live across IPP portfolios. Early access is open for select asset owners.",
+      "cta": "ORION early access"
+    },
+    "dataMoat": {
+      "eyebrow": "For investors & enterprise buyers",
+      "heading": "Software moat: labelled O&M data at fleet scale",
+      "body": "The intelligence layer's advantage is cumulative software data — not a single algorithm release. Every labelled cycle across 5 GW+ daily throughput retrains models that NECTYR deploys fleet-wide. Years of utility-scale telemetry deepen scheduling, routing, and diagnostic accuracy with each new site commissioned.",
+      "bullet0": "11 billion+ annual panel passes across 150+ plants in desert, agricultural, and coastal zones",
+      "bullet1": "Labelled cleaning telemetry on NECTYR since 2022 — the largest cleaning intelligence dataset in India",
+      "bullet2": "Cross-site model transfer: new plants inherit scheduling and routing intelligence on day one",
+      "bullet3": "Compounding gap: each cleaning season adds regional dust libraries, fault precursors, and weather correlation depth"
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "subtitle": "Product-level answers about Taypro's AI intelligence layer and NECTYR fleet operations.",
+      "q0": "What is Taypro's AI intelligence layer?",
+      "a0": "It is the self-learning software stack behind Taypro's robotic cleaning fleet — models trained on labelled field telemetry from 5 GW+ of daily operational throughput that improve soiling prediction, battery routing, weather scheduling, and fault detection with every cycle. NECTYR is the live operations portal where this intelligence runs today.",
+      "q1": "Is fleet AI live today or on the roadmap?",
+      "a1": "Core capabilities are live across the active fleet in NECTYR: self-learning soiling models, ML array mapping, battery-aware routing, 95% accuracy weather scheduling, wet microfiber detection, and autonomous cycle initiation. ORION — extending intelligence to full plant health — is on the roadmap with early access for select asset owners.",
+      "q2": "How does a new plant benefit from prior fleet data?",
+      "a2": "Models trained on the live fleet are applied at commissioning. A plant going live this quarter inherits scheduling intelligence from hundreds of prior deployments — monsoon-shoulder timing, regional dust signatures, tracker routing maps, and fault precursor libraries accumulated since 2022.",
+      "q3": "How is this different from plant SCADA?",
+      "a3": "SCADA tells you generation dropped. Taypro's intelligence layer tells you why cleaning may have been missed, which blocks need priority, whether robots are healthy, and whether conditions were right to clean. NECTYR complements SCADA and CMMS — it is specialised for robotic solar cleaning operations.",
+      "q4": "What data does each cleaning cycle generate?",
+      "a4": "Structured labels including soiling rate by block, weather correlation, battery consumption per row topology, coverage audit trails, wet-element state, and fault precursor signatures. This data feeds models that improve routing and scheduling fleet-wide — not just at the originating plant.",
+      "q5": "Where can I see the full hardware and cleaning technology stack?",
+      "a5": "The cleaning technology page covers dual-pass dry cleaning, platform weights, live operations intelligence, and the full AI capability breakdown. NECTYR has a dedicated product page for fleet portal features, security, and O&M workflows."
+    },
+    "cta": {
+      "heading": "See the full technology stack",
+      "cleaningTech": "Cleaning technology",
+      "contact": "Contact Taypro",
+      "nectyr": "Explore NECTYR",
+      "projects": "Live projects"
+    }
+  },
+  "Common": {
+    "breadcrumbHome": "Home"
+  }
+}

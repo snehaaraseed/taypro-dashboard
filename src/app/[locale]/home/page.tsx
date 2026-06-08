@@ -38,12 +38,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 const HERO_VIDEO_ID = "y9iRhH2bLwY";
 
 const FEATURE_COUNT = 4;
-const OTHER_FEATURE_COUNT = 4;
+const OTHER_FEATURE_COUNT = 6;
 const FAQ_COUNT = 7;
 const STAT_COUNT = 4;
 
 const HOME_COMPARE_IDS: ComparisonPageId[] = [
-  "tayproVsSolabot",
   "indianCompetitors",
   "robotVsManual",
   "waterlessVsWater",
@@ -55,6 +54,12 @@ const HOME_STATE_IDS: StateLandingId[] = [
   "karnataka",
   "maharashtra",
 ];
+
+const DISCOVER_LINK_CLASS =
+  "text-[#A8C117] hover:text-[#c5d94a] text-sm md:text-base font-medium underline underline-offset-2 decoration-[#A8C117]/50 hover:decoration-[#c5d94a] transition-colors";
+
+const DISCOVER_MORE_CLASS =
+  "inline-block mt-4 text-[#A8C117] hover:text-[#c5d94a] text-sm font-semibold transition-colors";
 
 function buildTranslatedFeatures(
   t: Awaited<ReturnType<typeof getTranslations>>,
@@ -130,11 +135,7 @@ export default async function HomePage() {
         image={`${siteUrl}/tayproasset/taypro-robotImage.png`}
         brand={t("schema.product.brand")}
         sku="SOLAR-PANEL-CLEANING-ROBOT"
-        offers={{
-          price: t("schema.product.offersPrice"),
-          priceCurrency: "INR",
-          availability: "https://schema.org/InStock",
-        }}
+        offerPriceKey="home"
         siteUrl={siteUrl}
       />
       <FAQPageSchema faqs={homeFaqs} />
@@ -190,28 +191,36 @@ export default async function HomePage() {
           </Container>
         </section>
 
-        <section className="w-full py-10 md:py-12 bg-[#0a3a4a] border-y border-white/10">
+        <section className="w-full py-10 md:py-14 bg-[#f4f7f9] border-y border-gray-200/80">
           <Container>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10 text-center">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {stats.map((stat, idx) => (
                 <AnimateOnScroll
                   key={stat.label}
                   animation="fadeInUp"
                   delay={idx * 80}
-                  className="px-2"
                 >
-                  <p className="text-[#A8C117] font-semibold text-2xl sm:text-3xl md:text-4xl mb-1">
-                    {stat.value}
-                  </p>
-                  <p className="text-white/80 text-xs sm:text-sm">{stat.label}</p>
+                  <div className="rounded-2xl border border-gray-100 bg-white px-4 py-6 text-center shadow-sm transition hover:border-[#A8C117]/40 hover:shadow-md">
+                    <p className="text-[#5a8f00] font-semibold text-2xl sm:text-3xl md:text-4xl mb-2 tabular-nums">
+                      {stat.value}
+                    </p>
+                    <p className="text-[#27415c] text-xs sm:text-sm leading-snug">
+                      {stat.label}
+                    </p>
+                    {t.has(`stats.stat${idx}.sublabel`) ? (
+                      <p className="text-[#5a7a8f] text-[10px] sm:text-xs leading-snug mt-1">
+                        {t(`stats.stat${idx}.sublabel`)}
+                      </p>
+                    ) : null}
+                  </div>
                 </AnimateOnScroll>
               ))}
             </div>
-            <p className="mt-8 text-center text-white/60 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-8 text-center text-[#5a7a8f] text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
               {t("stats.methodologyBefore")}{" "}
               <Link
                 href={PERFORMANCE_METHODOLOGY_PATH}
-                className="brand-inline-link"
+                className="text-[#5a8f00] font-medium hover:underline"
               >
                 {t("stats.methodologyLink")}
               </Link>{" "}
@@ -302,7 +311,7 @@ export default async function HomePage() {
         />
 
         <section
-          className="py-14 md:py-16 bg-[#0a3a4a] border-y border-white/10"
+          className="py-14 md:py-16 bg-[#052638] border-y border-white/10"
           aria-labelledby="discover-heading"
         >
           <Container>
@@ -329,10 +338,7 @@ export default async function HomePage() {
                 <ul className="space-y-2">
                   {HOME_COMPARE_IDS.map((id) => (
                     <li key={id}>
-                      <Link
-                        href={COMPARISON_PAGES[id].path}
-                        className="brand-inline-link text-sm md:text-base"
-                      >
+                      <Link href={COMPARISON_PAGES[id].path} className={DISCOVER_LINK_CLASS}>
                         {tHub(`compareGuides.${id}`)}
                       </Link>
                     </li>
@@ -340,7 +346,7 @@ export default async function HomePage() {
                 </ul>
                 <Link
                   href="/solar-panel-cleaning-system#compare-guides"
-                  className="inline-block mt-4 text-gray-400 hover:text-white text-sm transition-colors"
+                  className={DISCOVER_MORE_CLASS}
                 >
                   {t("discover.compareAll")} →
                 </Link>
@@ -353,37 +359,28 @@ export default async function HomePage() {
                 <ul className="space-y-2">
                   {HOME_STATE_IDS.map((id) => (
                     <li key={id}>
-                      <Link
-                        href={STATE_LANDING_PAGES[id].path}
-                        className="brand-inline-link text-sm md:text-base"
-                      >
+                      <Link href={STATE_LANDING_PAGES[id].path} className={DISCOVER_LINK_CLASS}>
                         {tHub(`indianConditions.stateGuides.${id}`)}
                       </Link>
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/solar-panel-cleaning-system#state-guides"
-                  className="inline-block mt-4 text-gray-400 hover:text-white text-sm transition-colors"
-                >
+                <Link href="/solar-panel-cleaning-system#state-guides" className={DISCOVER_MORE_CLASS}>
                   {t("discover.statesAll")} →
                 </Link>
               </AnimateOnScroll>
             </div>
             <div className="mt-8 pt-6 border-t border-white/10">
-              <ul className="space-y-2 text-sm">
+              <ul className="space-y-2">
                 <li>
-                  <Link
-                    href="/solar-panel-cleaning-machine"
-                    className="brand-inline-link"
-                  >
+                  <Link href="/solar-panel-cleaning-machine" className={DISCOVER_LINK_CLASS}>
                     {t("discover.machineLink")}
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot"
-                    className="brand-inline-link"
+                    className={DISCOVER_LINK_CLASS}
                   >
                     {t("discover.rooftopLink")}
                   </Link>

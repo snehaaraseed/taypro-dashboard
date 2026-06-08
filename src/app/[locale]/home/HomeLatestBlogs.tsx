@@ -91,6 +91,7 @@ export default async function HomeLatestBlogs() {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 768px) 100vw, 33vw"
+                      loading="lazy"
                       unoptimized={
                         post.image.startsWith("http") ||
                         post.image.startsWith("//")

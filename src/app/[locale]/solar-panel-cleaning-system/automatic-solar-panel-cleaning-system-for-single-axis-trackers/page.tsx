@@ -195,11 +195,7 @@ export default async function GlydeXPage({
         image={getProductImageUrl("glydeX", siteUrl)}
         brand="Taypro"
         sku="GLYDE-X"
-        offers={{
-          price: t("schema.offersPrice"),
-          priceCurrency: "INR",
-          availability: "https://schema.org/InStock",
-        }}
+        offerPriceKey="glydeX"
       />
       <FAQPageSchema faqs={glydeXFaqs} />
       <HowToSchema

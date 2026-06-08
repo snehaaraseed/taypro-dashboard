@@ -9,7 +9,7 @@
     "safari >= 16.4"
   ],
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "dev:turbo": "next dev --turbopack",
     "build": "next build --webpack",
     "start": "next start",
@@ -32,6 +32,9 @@
     "seo:backfill-blog-seo-keywords": "node scripts/backfill-blog-seo-keywords.mjs",
     "seo:backfill-coverage": "node scripts/backfill-coverage-slots.mjs",
     "seo:build-corpus-index": "node scripts/build-corpus-index.mjs",
+    "cms:pull-production": "bash scripts/pull-cms-from-production.sh",
+    "cms:pull-production:full": "bash scripts/pull-cms-from-production.sh --uploads",
+    "cms:check-links": "node scripts/check-cms-link-slugs.mjs",
     "seo:backfill-campaigns": "node scripts/backfill-keyword-campaigns.mjs",
     "ops:install-gsc-cron": "bash scripts/install-gsc-sync-cron.sh",
     "ops:deploy-cms-metrics": "node scripts/deploy-cms-metrics.mjs",

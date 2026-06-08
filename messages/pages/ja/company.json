@@ -1,9 +1,9 @@
 {
   "CompanyPage": {
     "meta": {
-      "title": "会社概要 | ソーラーパネル洗浄ロボットメーカー",
-      "description": "PuneのMade-in-Indiaソーラーパネル洗浄ロボットメーカー。GLYDE、NYUMA、NECTYRフリート、全国サービス。経営チームをご紹介。",
-      "openGraphDescription": "TayproはChakan, Puneから自律型ソーラー洗浄ロボットを開発 — デュアルパス水なし技術と全国展開サポート。",
+      "title": "Tayproについて | インドのソーラーパネル洗浄ロボットメーカー",
+      "description": "Taypro Private LimitedがMade-in-Indiaの自律型ソーラーパネル洗浄ロボット, GLYDE、HELYX、GLYDE-X、Taypro Opex、NECTYR, をユーティリティ規模・商用PV向けに設計する方法をご覧ください。Puneでの製造規模、ビジョン、リーダーシップ、全国サービス。",
+      "openGraphDescription": "Tayproの自律型・半自動ソーラー洗浄ロボット、デュアルパス水なし技術、インド全国展開サポートの背景にある企業ストーリー、ビジョン、リーダーシップ。",
       "openGraphImageAlt": "Tayproについて, ソーラーパネル洗浄ロボットメーカー",
       "twitterDescription": "Made-in-Indiaソーラーパネル洗浄ロボット、全国倉庫、クラウドフリート監視, ユーティリティ規模の資産所有者とO&Mチーム向け。"
     },
@@ -16,7 +16,9 @@
       "subtitle": "持続可能な未来のエンジニア — チャカン・プネから自律ソーラー運用を設計・製造。",
       "bodyBeforeLink": "Taypro Private LimitedはMade-in-Indiaの自律型・半自動",
       "bodyLink": "ソーラーパネル洗浄ロボット",
-      "bodyAfterLink": "をユーティリティ規模・商用・屋根置きPV向けに製造しています。Chakan, Puneの製造拠点から、水なしデュアルパスシステム、India全土のスペア物流、NECTYRフリートダッシュボードを出荷, 開発者とO&Mチームが稼働率を損なうことなく、発電量・安全・水資源を守れるように。"
+      "bodyAfterLink": "をユーティリティ規模・商用・屋根置きPV向けに製造しています。Chakan, Puneの製造拠点から、水なしデュアルパスシステム、India全土のスペア物流、NECTYRフリートダッシュボードを出荷, 開発者とO&Mチームが稼働率を損なうことなく、発電量・安全・水資源を守れるように。",
+      "titleLine1": "持続可能な",
+      "titleLine2": "未来のエンジニア"
     },
     "statsStrip": {
       "eyebrow": "概要",
@@ -25,7 +27,8 @@
       "plantInstallations": "稼働サイト",
       "waterSavedAnnually": "年間節水リットル数",
       "robotsManufacturedPerMonth": "月間ロボット製造能力",
-      "co2ReducedAnnually": "年間CO2排出削減量（メトリックトン）"
+      "co2ReducedAnnually": "年間CO2排出削減量（メトリックトン）",
+      "panelsCleanedAnnually": "年間洗浄パネル数"
     },
     "brandValues": {
       "heading": "ブランドバリュー",
@@ -86,7 +89,10 @@
         "helyx": "散在ブロックや柔軟なクルー支援カバレッジが必要な発電所向けのポータブルピック＆プレースドライ洗浄ロボット。",
         "glydeX": "単軸トラッカー向け自律型水なしロボット, 柔軟なブリッジとトラッカーブランド間360°回転。",
         "tayproOpex": "パネル清掃あたりのOpex, Tayproが前払いCAPEXなしで発電所の清掃ロボットフリートを運用。",
-        "nectyr": "サイト全体のソーラーパネル洗浄ロボットをスケジュール・監視・レポートするフリートポータル。"
+        "nectyr": "サイト全体のソーラーパネル洗浄ロボットをスケジュール・監視・レポートするフリートポータル。",
+        "modelA": "完全自律の水なしドライ洗浄, デュアルパス気流とマイクロファイバー, 固定・季節傾斜ユーティリティ向けAIスケジューリング。",
+        "modelB": "散在ブロックや柔軟なクルー支援カバレッジが必要な発電所向けのポータブルピック＆プレースドライ洗浄ロボット。",
+        "modelT": "単軸トラッカー向け自律型水なしロボット, 柔軟なブリッジとトラッカーブランド間360°回転。"
       }
     },
     "builtForSites": {
@@ -109,7 +115,8 @@
       "nectyrLink": "NECTYR",
       "paragraph2End": "NECTYRで監視するフリート向けの同日故障対応などのコミットメントを守る方法です。",
       "about2ImageAlt": "Tayproソーラーパネル洗浄ロボット生産のためのエンジニアリング・製造協業",
-      "about2ImageTitle": "Tayproソーラーパネル洗浄ロボット共同開発"
+      "about2ImageTitle": "Tayproソーラーパネル洗浄ロボット共同開発",
+      "consoleLink": "NECTYR"
     },
     "partnerJourney": {
       "eyebrow": "協業の進め方",

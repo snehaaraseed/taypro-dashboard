@@ -501,13 +501,16 @@ a.internal-link:hover {
 }
 
 /* Inline brand links — always underlined so color is not the only cue (a11y) */
+a.brand-inline-link,
 .brand-inline-link {
   color: #a8c117;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
+a.brand-inline-link:hover,
 .brand-inline-link:hover {
+  color: #c5d94a;
   text-decoration: none;
 }
 

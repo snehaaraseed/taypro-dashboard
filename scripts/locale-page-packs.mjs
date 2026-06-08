@@ -464,7 +464,7 @@ export const localePagePacks = {
         },
         "row5": {
           "criterion": "संचालन वजन",
-          "modelT": "25 kg (सबसे कॉम्पैक्ट)",
+          "modelT": "26 kg (सबसे कॉम्पैक्ट)",
           "modelA": "भारी, यूटिलिटी-स्केल फिक्स्ड-टिल्ट के लिए डिज़ाइन"
         },
         "row6": {
@@ -2442,7 +2442,7 @@ export const localePagePacks = {
         },
         "row5": {
           "criterion": "運転重量",
-          "modelT": "25 kg（最もコンパクト）",
+          "modelT": "26 kg（最もコンパクト）",
           "modelA": "より重量級, 大規模固定傾斜向け"
         },
         "row6": {

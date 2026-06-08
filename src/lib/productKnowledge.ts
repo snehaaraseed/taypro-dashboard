@@ -63,7 +63,7 @@ export const helyx = specFromCatalog("helyx", {
 export const nyuma = specFromCatalog("nyuma", {
   specifications: {
     dimensions: "690 mm × 4800 mm",
-    weight: "45 kg",
+    weight: "38 kg",
     speed: "10–15 metres per minute",
     range: "Up to 2.2 km per charge (~3,600 modules)",
     recommendedRange: "1.6 km",
@@ -86,6 +86,7 @@ export const nyuma = specFromCatalog("nyuma", {
 
 export const glyde = specFromCatalog("glyde", {
   specifications: {
+    weight: "38 kg",
     range: "Up to 2.2 km per charge (~3,600 modules)",
     speed: "10–15 metres per minute",
     cleaningMethod: "Patented dual-pass (airflow + microfiber)",
@@ -102,6 +103,7 @@ export const glyde = specFromCatalog("glyde", {
 
 export const nyumaX = specFromCatalog("nyumaX", {
   specifications: {
+    weight: "26 kg",
     cleaningMaterial: "UV-stable PBT brush (single-pass)",
     bodyArticulation: "Flexible body for tracker tables",
     moduleTiltRange: "-52° to +52° (typical tracker range)",
@@ -118,6 +120,7 @@ export const nyumaX = specFromCatalog("nyumaX", {
 
 export const glydeX = specFromCatalog("glydeX", {
   specifications: {
+    weight: "26 kg",
     cleaningMethod: "Patented dual-pass (airflow + microfiber)",
     bodyArticulation: "Flexible body; 360° rotational bridge",
     moduleTiltRange: "-52° to +52°",

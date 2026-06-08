@@ -1,7 +1,89 @@
 {
-  "builtAt": "2026-06-05T18:13:06.234Z",
+  "builtAt": "2026-06-08T07:20:50.129Z",
   "locale": "en",
   "entries": [
+    {
+      "slug": "calculating-roi-when-to-upgrade-to-an-automatic-solar-panel-cleaning-system",
+      "title": "Calculating ROI: When to Upgrade to an Automatic Solar Panel Cleaning System",
+      "description": "",
+      "primaryKeyword": "automatic solar panel cleaning system",
+      "structuralArchetype": "general_om",
+      "h2Outline": [],
+      "fingerprint": "36ad418c6879f7279ab7c85bb08b44307bd614e574a51c292d32f383a43c85c4"
+    },
+    {
+      "slug": "managing-performance-ratio-losses-why-a-solar-panel-cleaning-robot-beats-manual-labor",
+      "title": "Managing Performance Ratio Losses: Why a Solar Panel Cleaning Robot Beats Manual Labor",
+      "description": "",
+      "primaryKeyword": "solar panel cleaning robot",
+      "structuralArchetype": "weather_soiling",
+      "h2Outline": [],
+      "fingerprint": "68ae7757572fc6abf265340e021d1baca9d820733f6a348b8f73c2430efaad3b"
+    },
+    {
+      "slug": "optimizing-best-pv-panels-commissioning-robot-integration-checklists",
+      "title": "Optimizing Best PV Panels Commissioning: Robot Integration Checklists",
+      "description": "",
+      "primaryKeyword": "best pv panels",
+      "structuralArchetype": "manual_vs_robot",
+      "h2Outline": [
+        "commissioning best pv panels: why initial cleaning strategy matters",
+        "the commissioning checklist: preparing for autonomous operations",
+        "dust, soiling, and performance ratio (pr) impacts",
+        "robot vs. manual brush: tco analysis for asset owners"
+      ],
+      "fingerprint": "118302293001e75d7c82ccd243a5d78816fa6e41a315b8c1d8bb574a9bca3c78"
+    },
+    {
+      "slug": "choosing-a-reliable-solar-panel-cleaning-service-for-50mw-projects",
+      "title": "Choosing a Reliable Solar Panel Cleaning Service for 50MW+ Projects",
+      "description": "",
+      "primaryKeyword": "solar panel cleaning service",
+      "structuralArchetype": "cost_breakdown",
+      "h2Outline": [
+        "the operational reality of cleaning 50mw+ utility projects",
+        "assessing soiling impact and performance ratio (pr)",
+        "manual labor vs. autonomous robotics: the tco perspective",
+        "criteria for evaluating a solar cleaning company",
+        "the role of ai and data in scheduling",
+        "strategic logistics for large-scale deployment",
+        "key takeaways: optimizing your o&amp;m strategy"
+      ],
+      "fingerprint": "5cd54b77ac7284c71e5689d28fbd98a1443123fa2edb62e6d0b387264643e74e"
+    },
+    {
+      "slug": "evaluating-solar-power-cleaning-service-roi-manual-vs-robot",
+      "title": "Evaluating Solar Power Cleaning Service ROI: Manual vs Robot",
+      "description": "",
+      "primaryKeyword": "solar power cleaning service",
+      "structuralArchetype": "manual_vs_robot",
+      "h2Outline": [
+        "the economic reality of solar plant maintenance",
+        "manual labor vs. autonomous robot deployment: the cost breakdown",
+        "impact on performance ratio (pr) and soiling losses",
+        "evaluating scalability for mw-scale plants",
+        "strategic selection: which technology fits your plant?",
+        "key takeaways for asset owners"
+      ],
+      "fingerprint": "99e52a3bd7a9158162a4d2f19301b7c8e1d038ec769464f345383ef5306e3717"
+    },
+    {
+      "slug": "site-preparation-for-automatic-solar-panel-cleaning-on-trackers",
+      "title": "Site Preparation for Automatic Solar Panel Cleaning on Trackers",
+      "description": "",
+      "primaryKeyword": "solar panel cleaning system",
+      "structuralArchetype": "frequency_guide",
+      "h2Outline": [
+        "optimizing tracker farms for autonomous cleaning integration",
+        "1. assessing mechanical compatibility: trackers and bridge clearance",
+        "2. managing terrain and incline for tracker performance",
+        "3. connectivity infrastructure: the nectyr advantage",
+        "4. powering the fleet: self-docking and charging logic",
+        "5. addressing soiling trends and cleaning frequency",
+        "key takeaways for plant managers"
+      ],
+      "fingerprint": "2971a06a5ee795acfa50cd5be69be0b33a6e08511d3be3676e2327e2549dd428"
+    },
     {
       "slug": "5-costly-mistakes-to-avoid-in-solar-panel-cleaning",
       "title": "5 Costly Mistakes to Avoid in Solar Panel Cleaning",
@@ -28,6 +110,7 @@
       "primaryKeyword": null,
       "structuralArchetype": "weather_soiling",
       "h2Outline": [
+        "the importance of solar panel maintenance",
         "understanding the impact of dust and debris on solar output",
         "sign 1: noticeable decrease in energy production",
         "sign 2: uneven cleaning patterns observed",
@@ -47,6 +130,7 @@
       "primaryKeyword": null,
       "structuralArchetype": "frequency_guide",
       "h2Outline": [
+        "introduction to solar panel cleaning",
         "understanding traditional solar panel cleaning methods",
         "the limitations of water-based cleaning",
         "taypro’s autonomous waterless robots explained",
@@ -65,16 +149,24 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "what is a solar panel cleaning robot?&nbsp;",
+        "the need for solar panel cleaning robots",
+        "application of solar panel cleaning robots in a power plant",
+        "what are the advantages of solar power cleaning robots in a solar power plant?&nbsp;",
+        "efficient solar cleaning solutions by taypro’s automated solar cleaning robots",
+        "faqs"
+      ],
       "fingerprint": "a7000b3d46ad4edbfd45c7adbe9bc7e08634966c0da32d57154c29472469b8a3"
     },
     {
       "slug": "beyond-cleaning-how-automated-systems-can-monitor-solar-panel-performance",
-      "title": "Beyond Cleaning: How Automated Systems Can Monitor Solar Panel Performance",
+      "title": "How Automated Systems Can Monitor Solar Panel Performance",
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
       "h2Outline": [
+        "introduction to automated solar panel cleaning robots",
         "the role of sensors in performance monitoring",
         "data collection and analysis",
         "implementing predictive maintenance",
@@ -82,7 +174,7 @@
         "environmental and economic benefits",
         "future trends and technological advancements"
       ],
-      "fingerprint": "93600dbb8234d0c5d1dcb96543e56717202520dc765d07df8cfcaf167ec473ae"
+      "fingerprint": "ea7a6e9671dd207d8000e8ce84caae46a4365e7067fe6b33ce6c77b1b7eaf56f"
     },
     {
       "slug": "beyond-cleaning-how-taypros-robots-are-paving-the-way-for-autonomous-solar-farms-in-india",
@@ -108,8 +200,18 @@
       "title": "Cost-Benefit Analysis of Solar Panel Cleaning Services in India",
       "description": "",
       "primaryKeyword": null,
-      "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "structuralArchetype": "comparison_matrix",
+      "h2Outline": [
+        "introduction to india’s solar energy sector",
+        "the impact of dust accumulation on solar panels",
+        "traditional cleaning methods: challenges and limitations",
+        "introduction to automated solar cleaning technology",
+        "case study: 200 mw ground-mounted solar plant in india",
+        "cost-benefit analysis of automation vs. traditional methods",
+        "environmental benefits of waterless solar cleaning",
+        "future prospects for automated cleaning in india",
+        "embracing automation for sustainable solar energy"
+      ],
       "fingerprint": "2a348c37a566a251e962ab5c0df458ec5fe3d9dfce33a8463d171dcbf3fb8fb3"
     },
     {
@@ -118,7 +220,11 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "overview of ai’s role in renewable energy &nbsp;&nbsp;",
+        "importance of enhancing solar energy output &nbsp;&nbsp;",
+        "faqs"
+      ],
       "fingerprint": "cd93636e2484eac763c144cc0d1ae2dcae08fa8eb5bb0aef97b18bc79ccd1c72"
     },
     {
@@ -127,7 +233,16 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "understanding dust storms and their impact on solar panels",
+        "the role of ai and machine learning in predictive maintenance",
+        "taypro’s smart solar panel cleaning system",
+        "data collection and analysis techniques",
+        "case studies: success stories with ai-driven cleaning systems",
+        "future implications of ai in solar maintenance",
+        "environmental and economic benefits",
+        "redefining solar energy maintenance"
+      ],
       "fingerprint": "517b08f7215d354f77d4f1f7b412b330c9a5c99d0c7c191e2d5c98dbb869a4f1"
     },
     {
@@ -136,11 +251,17 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "understanding solar panel cleaning robots",
+        "components of solar cleaning robots",
+        "what is the process of installing solar module cleaning robots in a power plant? &nbsp;",
+        "what are the advantages of installing solar power cleaning robots?&nbsp;",
+        "faqs"
+      ],
       "fingerprint": "9857cdc5db98c0a9f8f835a83b07bf3235183bbfda0e17a2dc114848c0dd46e4"
     },
     {
-      "slug": "how-does-a-solar-panel-cleaning-robot-work",
+      "slug": "how-does-a-solar-panel-cleaning-robot-work-",
       "title": "How Does A Solar Panel Cleaning Robot Work? ",
       "description": "",
       "primaryKeyword": null,
@@ -154,7 +275,13 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "impact of uncleaned solar panels on energy efficiency",
+        "how proper cleaning enhances efficiency of the solar panels",
+        "key aspects to consider to enhance solar panel efficiency",
+        "effective methods of cleaning solar panels for maximum efficiency",
+        "faqs"
+      ],
       "fingerprint": "fef3c251cf2a3422fa48aab1d5606f4c9b75e5011f008c8a18671a0504ad8b1f"
     },
     {
@@ -164,6 +291,7 @@
       "primaryKeyword": null,
       "structuralArchetype": "frequency_guide",
       "h2Outline": [
+        "introduction to solar panel maintenance",
         "why cleaning solar panels matters",
         "what influences cleaning frequency?",
         "different cleaning methods for solar panels",
@@ -180,7 +308,14 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "weather_soiling",
-      "h2Outline": [],
+      "h2Outline": [
+        "what is performance ratio or pr?&nbsp;",
+        "what is the manual method of calculating performance ratio?&nbsp;",
+        "what are the steps for manual calculation of performance ratio?",
+        "comparison of manual and automatic method of performance ratio calculation",
+        "what are the factors affecting performance ratio? &nbsp;",
+        "faqs"
+      ],
       "fingerprint": "cc90d2c9403e4d802e451aa3225b9c56909554fdffd81cce395b2ca7ace83e8a"
     },
     {
@@ -189,7 +324,19 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "why roi and payback period matter before investing in solar",
+        "key factors that affect solar plant roi",
+        "how to calculate solar payback period",
+        "how to calculate solar plant roi",
+        "solar roi formula (with example)",
+        "solar roi and payback period: example scenarios",
+        "what impacts solar plant roi the most?",
+        "how solar panel maintenance affects roi",
+        "how to improve solar plant roi and reduce payback time",
+        "key takeaways",
+        "faqs"
+      ],
       "fingerprint": "63664e5ab2f54aed0de47b7df7908701ec3744341ebec1351943c8508a7f983c"
     },
     {
@@ -198,7 +345,15 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "optimising panel placement",
+        "keeping panels clean",
+        "selecting the right technology",
+        "efficient energy conversion",
+        "monitoring and making improvements",
+        "advanced boosting tips",
+        "conclusion"
+      ],
       "fingerprint": "4817db45ebf36a1b7cb7fdf616fa0f6bdf7355a5e728789b19bbb8c519f87e3a"
     },
     {
@@ -207,17 +362,27 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "importance of keeping solar panels clean",
+        "what are the benefits of solar panel cleaning? &nbsp;",
+        "how to clean solar panels",
+        "how frequent should be solar panel cleaned",
+        "faqs"
+      ],
       "fingerprint": "97156bf800c72f468a0e1dea8f4c7cbe3e7296b061ac386e30bdea0d5c6c1044"
     },
     {
       "slug": "indias-solar-energy-boom-in-2024-what-it-means-for-you-and-the-planet",
-      "title": "India’s Solar Energy Boom in 2024: What It Means for You and the Planet",
+      "title": "India’s Solar Energy Boom in 2025: What It Means for You and the Planet",
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
-      "fingerprint": "c0bb93d1656be23eba2511e792f40da0945c76fcaeceafec71257328a7a6c16e"
+      "h2Outline": [
+        "solar's big wins: deserts to rooftops",
+        "why solar beat wind, hydro, and coal",
+        "what's next? solar's future after 2024"
+      ],
+      "fingerprint": "32df94eb1863f7d57aa620e98343d41cca72395ebd38e2a2acb6bf3c17005cf5"
     },
     {
       "slug": "innovations-in-solar-cleaning-systems-what-indias-top-farms-are-using",
@@ -226,6 +391,7 @@
       "primaryKeyword": null,
       "structuralArchetype": "comparison_matrix",
       "h2Outline": [
+        "introduction to solar cleaning systems",
         "the state of solar energy in india",
         "traditional cleaning methods vs. innovative solutions",
         "drones: a cutting-edge but underutilized technology",
@@ -239,11 +405,12 @@
     },
     {
       "slug": "leveraging-carbon-pricing-for-environmental-and-economic-sustainability",
-      "title": "Leveraging Carbon Pricing for Environmental and Economic Sustainability",
+      "title": "What is Carbon Pricing for Environmental and Economic Sustainability?",
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
       "h2Outline": [
+        "introduction to carbon pricing",
         "understanding carbon credits",
         "the mechanisms of carbon pricing",
         "environmental benefits of carbon pricing",
@@ -253,7 +420,7 @@
         "future of carbon pricing and carbon credits",
         "the way forward for a sustainable future"
       ],
-      "fingerprint": "6cfccacb39f923fe59e91c1d943960de46d15914d269d483957e82ad4910b13a"
+      "fingerprint": "a3bb3433cc708ae4a9e2524c71dfedfe766fdfc3c713673c40b07b706db007a6"
     },
     {
       "slug": "microfiber-vs-traditional-brushes-why-taypros-patented-dual-pass-solar-panel-cleaning-system-outperforms",
@@ -261,7 +428,15 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "comparison_matrix",
-      "h2Outline": [],
+      "h2Outline": [
+        "the role of cleaning in solar panel efficiency",
+        "traditional cleaning methods: the limitations of stiff-bristle brushes",
+        "introducing taypro’s patented dual pass cleaning system",
+        "the science behind microfiber: why it outperforms traditional brushes",
+        "benefits of taypro’s dual pass system for solar panel longevity",
+        "comparative analysis: taypro vs. other cleaning solutions",
+        "setting a new standard in solar panel cleaning"
+      ],
       "fingerprint": "edeb319426c0ea52653af0fe0302dfc4e08fb3310b2dd738821b6b30220b3d57"
     },
     {
@@ -270,17 +445,34 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "overview of taypro and its mission",
+        "the rise of green ai solutions",
+        "taypro’s creative solutions awarded",
+        "awards ceremony highlights",
+        "future of sustainable technology in india",
+        "influential insights on green technology"
+      ],
       "fingerprint": "414bd165b89889cc6e132568860e13897413731ad84d511f579b72833a4e6968"
     },
     {
       "slug": "new-solar-panel-technologies-2025",
-      "title": "New Solar Panel Technologies 2025",
+      "title": "New Solar Panel Technologies 2026 ",
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
-      "fingerprint": "6d31fa4cdccf69e5dade4502c34201a297f5e37066bab4d4ea90f2ebd605e156"
+      "h2Outline": [
+        "what are the new solar panel technologies in 2026?",
+        "topcon solar panels: the new commercial standard",
+        "heterojunction technology (hjt): high performance at a premium",
+        "perovskite and tandem cells: the efficiency frontier",
+        "bifacial modules: performance gains and maintenance implications",
+        "important trends in solar technology",
+        "revolutionary concepts in solar industry",
+        "key highlights",
+        "faqs"
+      ],
+      "fingerprint": "5e1498d5b46827fb21f232cb56b6681b3044d843ce38660fb02f30d225ce1449"
     },
     {
       "slug": "rf-communication-in-solar-farms-how-taypro-ensures-real-time-robot-to-control-room-connectivity-using-mesh-networks",
@@ -288,7 +480,17 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "introduction to solar farms and the need for communication",
+        "the role of cleaning robots in solar farms",
+        "challenges in maintaining connectivity in solar farms",
+        "introduction to rf communication technology",
+        "understanding mesh networks and their benefits",
+        "how taypro implements rf mesh communication",
+        "real-world applications and case studies",
+        "future trends in rf communication for solar farms",
+        "the impact of robust communication solutions"
+      ],
       "fingerprint": "38eef48648e3c302e9cc76c15a9296e24d63737981cef770494eab044b3eb8d4"
     },
     {
@@ -296,8 +498,16 @@
       "title": "Seasonal Solar Panel Maintenance Tips: A Comprehensive Guide",
       "description": "",
       "primaryKeyword": null,
-      "structuralArchetype": "complete_guide",
-      "h2Outline": [],
+      "structuralArchetype": "weather_soiling",
+      "h2Outline": [
+        "understanding the impact of seasons on solar panel efficiency",
+        "summer maintenance tips for solar panels",
+        "monsoon preparedness for solar panels",
+        "winter care for solar panels",
+        "performing routine inspections and repairs",
+        "the role of professional maintenance services",
+        "frequently asked questions about solar panel maintenance"
+      ],
       "fingerprint": "04ee4d25b36268aeb356bed68495c061d8ad707e6aeb511dd853e3f796611533"
     },
     {
@@ -305,43 +515,63 @@
       "title": "Solar Panel Installation Cost For Utility Scale In India",
       "description": "",
       "primaryKeyword": null,
-      "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "structuralArchetype": "cost_breakdown",
+      "h2Outline": [
+        "what is utility scale solar installation?&nbsp;",
+        "what aspects determine the solar installation costs?&nbsp;",
+        "cost breakdown in utility-scale solar installations",
+        "how does the government incentivise utility scale solar installation?&nbsp;",
+        "returns on investment in utility scale solar installation? &nbsp;",
+        "faqs"
+      ],
       "fingerprint": "4708176e010f3bd60f58d4e1891ccb67523c7402f7227bdf1309f1585da23620"
     },
     {
       "slug": "solar-panel-maintenance-checklist-2025",
-      "title": "Solar Panel Maintenance Checklist 2025",
+      "title": "Solar Panel Maintenance Checklist 2026",
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "robot_evaluation",
-      "h2Outline": [],
-      "fingerprint": "3d5fcad0f601edd51753e424376c81e82ecc355dfb7c16ea95e9789b7ac28c6b"
+      "h2Outline": [
+        "solar panel maintenance checklist 2026",
+        "signs your solar panels need immediate maintenance",
+        "faqs"
+      ],
+      "fingerprint": "1343ef6d631bfefb3d18e9aa50001a7e0adc2be7116c00114c6495ee6a33baa7"
     },
     {
       "slug": "taypro-wins-historic-patent-for-revolutionary-solar-panel-cleaning-system",
-      "title": "TAYPRO Wins Historic Patent for Revolutionary Solar Panel Cleaning System",
+      "title": "Taypro Wins 4 Patents for Its Solar Panel Cleaning System — What the \"Dual Pass\" Technology Actually Does",
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
       "h2Outline": [
-        "inside the patent: how the “dual pass” system works",
-        "why this patent is a game-changer",
-        "industry responses: acclaim from the frontlines",
-        "lab to field: how the 5-year process brought the patent",
-        "though promising, technology scaling poses challenges:",
-        "the roadmap: what’s next for taypro?",
-        "a sustainable vision: it’s not just cleaning panels"
+        "the problem the patents solve",
+        "inside the dual pass system: what the patents cover",
+        "this technology is already running in the field",
+        "the ai scheduling layer",
+        "fleet connectivity: how nectyr ties it together",
+        "what the patents mean for indian solar o&amp;m"
       ],
-      "fingerprint": "087a97f7e986dabeda11871d5df444d777a822bcb61126454f6ce052e0d31414"
+      "fingerprint": "0a75aa1a846dedeb480c923f0692aaebe85c1698ada105a8e72f7f802d16ebd9"
     },
     {
       "slug": "the-complete-guide-to-solar-panel-maintenance",
       "title": "The Complete Guide to Solar Panel Maintenance",
       "description": "",
       "primaryKeyword": null,
-      "structuralArchetype": "complete_guide",
-      "h2Outline": [],
+      "structuralArchetype": "robot_evaluation",
+      "h2Outline": [
+        "why solar panel maintenance matters",
+        "what affects solar panel performance?",
+        "how to build an effective utility-scale solar o&amp;m programme",
+        "solar panel maintenance checklist",
+        "visual inspection checklist for solar panels",
+        "signs your solar panels need immediate maintenance",
+        "when to consider professional solar cleaning services",
+        "key takeaways",
+        "faqs"
+      ],
       "fingerprint": "f76164778511b5880d4735906b66f21072a5ada7417dac652d614fda1da0f7ca"
     },
     {
@@ -350,7 +580,16 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "understanding solar panel efficiency",
+        "the impact of dust accumulation",
+        "quantifying the financial consequences",
+        "best practices for regular cleaning",
+        "smart technology in solar panel maintenance",
+        "case studies: success stories of regular cleaning",
+        "challenges and considerations",
+        "environmental implications of efficient solar plants"
+      ],
       "fingerprint": "83319d8087cc0c75aeba6a233996d17395cfe3937fe15006a9f5ea10a7d9f7a8"
     },
     {
@@ -359,7 +598,13 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "the significance of daily cleaning",
+        "ancient cleaning techniques: risks and constraints",
+        "the roots of microfiber technology",
+        "how microfiber cleaning brushes work",
+        "comparative analysis: microfiber brushes and traditional brushes"
+      ],
       "fingerprint": "ebaca27c987044040140972e0c97ec5f6bfee01802e9243fc7a28aa028665b4f"
     },
     {
@@ -368,7 +613,16 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "weather_soiling",
-      "h2Outline": [],
+      "h2Outline": [
+        "understanding the indian climate",
+        "the effects of dust accumulation",
+        "rain and humidity: a double-edged sword",
+        "pollution and its detrimental effects",
+        "quantifying the impact on energy output",
+        "tips for maintaining clean solar panels",
+        "technological innovations for cleaning",
+        "ensuring optimal performance"
+      ],
       "fingerprint": "14bbfd2575c229c08b21fdf14423613a174fce4d8966e1b402e25403b95805f4"
     },
     {
@@ -377,7 +631,17 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "introduction to india’s solar energy landscape",
+        "understanding the impact of local climate on solar panels",
+        "regional challenges: desert climates of rajasthan",
+        "tackling humidity: the coasts of tamil nadu",
+        "urban pollution: challenges in metro areas",
+        "identifying the role of wildlife: bird droppings and other issues",
+        "adopting regional best practices for solar panel cleaning",
+        "technological innovations in solar panel maintenance",
+        "the future of solar energy maintenance in india"
+      ],
       "fingerprint": "ccc581130591ee91f9aee18bf86a05159871f9a32a973ccb54a724cd1f6a9647"
     },
     {
@@ -386,7 +650,16 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "introduction to solar energy and its significance",
+        "the silent adversary: dust and debris",
+        "the science behind cleaner solar panels",
+        "traditional cleaning methods: limitations and risks",
+        "introducing taypro’s innovative cleaning technology",
+        "ai and iot: enhancing cleaning efficiency",
+        "scalability and adaptability of taypro’s solutions",
+        "beyond cleaning: environmental and economic benefits"
+      ],
       "fingerprint": "8577d647aab276fa1143a47ca375fb416a20a00d7019034cf5d77e2903af1b5d"
     },
     {
@@ -396,12 +669,14 @@
       "primaryKeyword": null,
       "structuralArchetype": "frequency_guide",
       "h2Outline": [
+        "introduction to data analytics in solar energy",
         "challenges in solar panel cleaning",
         "introduction to taypro’s cleaning robots",
         "the role of data collection in solar panel maintenance",
         "data analysis for optimizing cleaning schedules",
         "case studies: improved efficiency with taypro",
         "future prospects: ai and machine learning in solar panel cleaning",
+        "solar panel cleaning system",
         "maximizing solar energy efficiency in india"
       ],
       "fingerprint": "e2af9d584afed25b0b8a3fabf1bbf16f3effbb5c290ea789f1083a80c4d07565"
@@ -413,11 +688,13 @@
       "primaryKeyword": null,
       "structuralArchetype": "comparison_matrix",
       "h2Outline": [
+        "introduction to solar module cleaning",
         "understanding traditional solar module cleaning systems",
         "the rise of modern solar module cleaning technologies",
         "the role of ai in solar module cleaning: taypro’s approach",
         "machine learning algorithms: an in-depth look",
         "benefits of predictive cleaning systems",
+        "a technical comparison of traditional and modern approaches in solar cleaning robots",
         "challenges and limitations of modern cleaning systems",
         "future trends in solar module cleaning"
       ],
@@ -429,7 +706,14 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "complete_guide",
-      "h2Outline": [],
+      "h2Outline": [
+        "site selection and feasibility study",
+        "project planning and design",
+        "key calculations &amp; assessment:",
+        "budgetary &amp; environmental analysis:",
+        "solar cleaning robot setup",
+        "faqs"
+      ],
       "fingerprint": "ce509819ec9310f1b3e0c9259669352c6824d03d933c4fb911477171b30a305f"
     },
     {
@@ -438,7 +722,25 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "overview of solar energy growth in india",
+        "bhadla solar park, rajasthan",
+        "pavagada solar park, karnataka",
+        "kurnool ultra mega solar park, andhra pradesh",
+        "np kunta solar park, andhra pradesh",
+        "charanka solar park, gujarat",
+        "kamuthi solar power project, tamil nadu",
+        "ananthapuramu solar park, andhra pradesh",
+        "kadapa ultra mega solar park, andhra pradesh",
+        "mandsaur solar farm, madhya pradesh",
+        "chayan solar park, rajasthan",
+        "agar solar park, madhya pradesh &nbsp;",
+        "adani khavda solar park, gujarat",
+        "nokh solar park. rajasthan",
+        "radhanesda solar park, gujarat&nbsp;",
+        "key points to remember",
+        "faqs"
+      ],
       "fingerprint": "3a1f233947f306d834ff5efb9fc356a313b99c92fa256e377f50941a40472b9f"
     },
     {
@@ -447,7 +749,18 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "understanding types of solar panels",
+        "monocrystalline solar panels",
+        "polycrystalline solar panels",
+        "thin-film solar panels",
+        "cost considerations",
+        "efficiency &amp; performance",
+        "materials and construction &nbsp;",
+        "how to choose the right panel for you?",
+        "conclusion",
+        "faqs"
+      ],
       "fingerprint": "16a836cb5631ac58b019cbca9388398f1678320a885f9d5808b5d0c682a15870"
     },
     {
@@ -474,7 +787,14 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "importance of solar panel cleaning",
+        "impact of taypro’s solar panel cleaning service at the prayagraj plant:",
+        "benefits of solar panel cleaning",
+        "reduced operational and maintenance costs",
+        "methods of solar panel cleaning",
+        "faqs"
+      ],
       "fingerprint": "224a54bb39d534fbbb88014be079c34559f8a2c2feb5f4e82e8d092ef3677704"
     },
     {
@@ -483,7 +803,14 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "why is solar cleaning necessary?&nbsp;",
+        "how frequently should solar panels be cleaned?&nbsp;",
+        "best methods to clean solar panels",
+        "precautions to take while cleaning solar panels",
+        "how does location impact the cleaning cycle of solar panels?&nbsp;",
+        "faqs"
+      ],
       "fingerprint": "dce606b94253a484ea21abfa40f87e877cd2c5557b7bbaea7cb781c91c4c6e5f"
     },
     {
@@ -492,7 +819,14 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "methods used for solar panel cleaning",
+        "1. manual solar cleaning &nbsp;",
+        "2. automated solar panel cleaning robots",
+        "3. nanoparticle coatings",
+        "4. pipe and nozzle module cleaning system (mcs)",
+        "faqs"
+      ],
       "fingerprint": "bcd87bce92f4c9b48ef9cd5e443989bf43fe9292daf7af08b7db7f6ba8d3f2c5"
     },
     {
@@ -500,8 +834,20 @@
       "title": "What Are The Different Types Of Solar Panels",
       "description": "",
       "primaryKeyword": null,
-      "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "structuralArchetype": "comparison_matrix",
+      "h2Outline": [
+        "what are the different types of solar panels",
+        "what is solar panel and what are the types of solar panels?",
+        "monocrystalline solar panels",
+        "polycrystalline solar panels",
+        "thin-film solar panel&nbsp;",
+        "bifacial solar panel",
+        "concentrated photovoltaic solar panels",
+        "monocrystalline vs polycrystalline solar panels",
+        "comparison of different types of solar panels",
+        "how to choose the right solar panel type?",
+        "faqs"
+      ],
       "fingerprint": "daf33df91642f4f34648449127f5614768fba9203ecdba329016a9a5877cbd86"
     },
     {
@@ -510,7 +856,13 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "why do solar panels need cleaning?",
+        "overview: what is a solar panel cleaning robot?&nbsp;",
+        "types of solar panel cleaning robots",
+        "conclusion",
+        "faqs"
+      ],
       "fingerprint": "4c49ce43760d313169fd6683f88dbdf64f848e47a63b5949bd0b6d02e25296f1"
     },
     {
@@ -518,8 +870,19 @@
       "title": "What Is Solar Panel Cleaning? Why Is It Necessary To Clean Solar Panels?",
       "description": "",
       "primaryKeyword": null,
-      "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "structuralArchetype": "frequency_guide",
+      "h2Outline": [
+        "what is solar panel cleaning?&nbsp;",
+        "why is it necessary to clean solar panels?&nbsp;",
+        "methods of solar panel cleaning",
+        "automated solar panel cleaning robots",
+        "nanoparticle coatings",
+        "pipe and nozzle module cleaning system",
+        "what should be the frequency of solar panel cleaning?&nbsp;",
+        "advantages of solar panel cleaning",
+        "safety precautions to take while solar panel cleaning",
+        "faqs"
+      ],
       "fingerprint": "3cee907efcc062b9954020be954cf4b77dd869ff5aa79091257ce5d2369ad88b"
     },
     {
@@ -528,17 +891,35 @@
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
+      "h2Outline": [
+        "importance of efficiency in solar energy:",
+        "understanding solar efficiency",
+        "factors influencing solar efficiency",
+        "enhancing efficiency through maintenance",
+        "best ways for solar panel cleaning",
+        "points to remember:",
+        "faqs"
+      ],
       "fingerprint": "a8c493e7f971ec3d12aa62b61410305bd99083c0405d77fea82f4d49f2d14eda"
     },
     {
       "slug": "what-is-the-solar-panel-efficiency-in-2025",
-      "title": "What is the Solar Panel Efficiency in 2025?",
+      "title": "What is the Solar Panel Efficiency in 2026?",
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
-      "h2Outline": [],
-      "fingerprint": "a4bfb2c4b7f41e59a104722a614010e9568d8e572efa52d90a59f1f1c711d0f7"
+      "h2Outline": [
+        "current state of commercial solar panels (2026)",
+        "latest solar panel technologies",
+        "multi-junction solar cells",
+        "advanced cell designs",
+        "topcon (tunnel oxide passivated contact) solar cells",
+        "tandem solar cells",
+        "impact of dust and debris on efficiency",
+        "conclusion",
+        "faqs"
+      ],
+      "fingerprint": "92e38eb957211deec4932515a0b1f85648f892940c2ce307e0d13fb10ce9f64e"
     },
     {
       "slug": "why-modern-solar-farms-need-autonomous-solar-panel-cleaning-systems",
@@ -547,10 +928,11 @@
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
       "h2Outline": [
+        "the limitations of traditional solar panel cleaning methods",
         "water waste: the hidden cost of cleaning solar panels",
         "labor costs: the burden of manual cleaning",
         "the inefficiency of current cleaning practices",
-        "introducing taypro’s autonomous waterless robots",
+        "introducing taypro's autonomous waterless robots",
         "dual-pass cleaning technology: a game changer",
         "return on investment (roi) for solar farms",
         "environmental benefits of waterless cleaning"
@@ -564,78 +946,324 @@
       "primaryKeyword": null,
       "structuralArchetype": "general_om",
       "h2Outline": [
+        "introduction to solar power and its importance",
         "understanding the impact of dust on solar panels",
         "the role of robotic cleaning in solar power plants",
         "the efficiency of microfiber technology in dust removal",
         "maximizing roi through robotic cleaning",
         "success stories",
-        "how taypro’s tech pays for itself in 18 months",
         "challenges and considerations in robotic cleaning",
         "future of solar power and robotic solutions"
       ],
       "fingerprint": "076f2b32ec67db2559584855bccee42a96e93c30216c28f418c58c88fba2b4bf"
     },
     {
-      "slug": "roi-of-automatic-solar-panel-cleaning-for-50mw-plants",
-      "title": "ROI of Automatic Solar Panel Cleaning for 50MW+ Plants",
-      "description": "",
-      "primaryKeyword": null,
-      "structuralArchetype": "general_om",
-      "h2Outline": [
-        "calculating the roi of an automatic solar panel cleaning system for 50mw+ plants",
-        "the hidden cost of manual cleaning at scale",
-        "defining the roi components",
-        "robotic solutions for every plant configuration",
-        "faq: is the investment worth the scale?",
-        "conclusion"
-      ],
-      "fingerprint": "d1ee82571c23e9ce3a6e1d378323cd44d78954231c17de39656941088adcb2c2"
-    },
-    {
-      "slug": "solar-cleaning-brush-vs-autonomous-robots-efficiency-loss",
-      "title": "Solar Cleaning Brush vs Autonomous Robots: Efficiency Loss",
-      "description": "",
-      "primaryKeyword": null,
-      "structuralArchetype": "manual_vs_robot",
-      "h2Outline": [
-        "why india’s utility-scale solar plants are moving beyond the solar cleaning brush",
-        "the hidden efficiency loss: manual brush vs. autonomous systems",
-        "evaluating tco: is a robot worth the investment?",
-        "faq: optimizing your cleaning strategy",
-        "final thoughts: moving toward autonomous o&m"
-      ],
-      "fingerprint": "e56d7ebae2c030045a1ddf465c22317ea67405c2556cc4c40528c6ac57bd2d67"
-    },
-    {
-      "slug": "evaluating-the-roi-of-a-professional-solar-power-cleaning-service",
-      "title": "Evaluating the ROI of a Professional Solar Power Cleaning Service",
+      "slug": "how-to-choose-best-solar-panels-in-india",
+      "title": "How to Choose Best Solar Panels In India",
       "description": "",
       "primaryKeyword": null,
       "structuralArchetype": "weather_soiling",
       "h2Outline": [
-        "the economics of solar power cleaning service at scale",
-        "soiling, pr loss, and the revenue trap",
-        "the roi pivot: manual brush vs. autonomous robots",
-        "is a professional solar cleaning service worth the investment?",
-        "final considerations for o&m managers"
+        "efficiency and performance ratio (pr)",
+        "degradation rate and warranty",
+        "temperature coefficient",
+        "build quality and certifications"
       ],
-      "fingerprint": "e4d67a5a7cc7e8af3cfe1750374a7dc4979ac01248d9c16d0f599923b53c8549"
+      "fingerprint": "40f431d6a1e3db640e99f47bb4c86e521697f6698521d4796fb76ae92990f47d"
     },
     {
-      "slug": "top-10-solar-panel-cleaning-robot-manufacturers-in-india-2026",
-      "title": "Top 10 Solar Panel Cleaning Robot Manufacturers in India (2026)",
+      "slug": "how-to-choose-the-best-solar-cleaning-system-for-power-plants",
+      "title": "How to Choose the Best Solar Cleaning System for Power Plants",
       "description": "",
       "primaryKeyword": null,
-      "structuralArchetype": "vendor_shortlist",
+      "structuralArchetype": "frequency_guide",
       "h2Outline": [
-        "the shift toward robotic solar cleaning in india’s utility-scale sector",
-        "top 10 solar panel cleaning robot manufacturers in india",
-        "comparing technologies: autonomous vs. semi-autonomous",
-        "the impact of soiling on performance ratio (pr)",
-        "future trends in solar o&m automation",
-        "key takeaways for plant managers"
+        "soiling type &amp; frequency",
+        "plant layout &amp; topography",
+        "conclusion-&nbsp;"
       ],
-      "fingerprint": "3a3f66a2a484a839f8fab887c73a82ccc3d457c47d9f96c7d26deb15dbb0a394"
+      "fingerprint": "a26b28eef9074a7af971cc6f42d11f78dcd2220dec60315b1cbeb86b8b88863a"
+    },
+    {
+      "slug": "solar-tracker-maintenance-complete-guide",
+      "title": "Solar Tracker Maintenance: Complete Guide",
+      "description": "",
+      "primaryKeyword": null,
+      "structuralArchetype": "complete_guide",
+      "h2Outline": [
+        "why solar tracker maintenance is critical",
+        "common solar tracker maintenance issues",
+        "strategies for efficient maintenance of solar trackers",
+        "maintain a strategic spare parts inventory",
+        "schedule regular inspections"
+      ],
+      "fingerprint": "ea51bc3c1afc1b9f9bd3faa39037808415011868c09347741350c23b920dd107"
+    },
+    {
+      "slug": "top-solar-panel-cleaning-robots-of-2026-the-complete-guide-for-utility-scale-plants",
+      "title": "Top Solar Panel Cleaning Robots of 2026: The Complete Guide for Utility-Scale Plants",
+      "description": "",
+      "primaryKeyword": null,
+      "structuralArchetype": "robot_evaluation",
+      "h2Outline": [
+        "why solar panel cleaning robots matter in 2026",
+        "how to evaluate a solar panel cleaning robot in 2026",
+        "top 7 solar panel cleaning robots of 2026",
+        "side-by-side comparison: top solar panel cleaning robots 2026",
+        "choosing a solar panel cleaning robot for india's utility solar market",
+        "roi &amp; payback: what the numbers actually say",
+        "cleaning technology deep-dive: dry vs. wet",
+        "why fleet software is now non-negotiable",
+        "conclusion &amp; final recommendations"
+      ],
+      "fingerprint": "7e44f9ac65569f3f61bf9278bc7e83c961bfb82c9072e19539b7a4bb3db4fdae"
+    },
+    {
+      "slug": "photovoltaic-panels-price-per-mw-budget-lines-indian-asset-owners-use",
+      "title": "Photovoltaic Panels Price: Per-MW Budget Lines Indian Asset Owners Use",
+      "description": "",
+      "primaryKeyword": "photovoltaic panels price",
+      "structuralArchetype": "manual_vs_robot",
+      "h2Outline": [
+        "quick answer: budgeting for utility-scale solar",
+        "current trends in photovoltaic panels price and capex breakdown",
+        "how does soiling loss impact your o&amp;m budget per mw?",
+        "is a robotic cleaning system worth the investment for a 50mw+ site?",
+        "operational trade-offs: manual labor vs. automated waterless cleaning",
+        "integrating cleaning infrastructure into the initial epc scope",
+        "key takeaways for plant managers and asset owners",
+        "quick answer: budgeting for utility-scale solar",
+        "current trends in photovoltaic panels price and capex breakdown",
+        "how does soiling loss impact your o&amp;m budget per mw?",
+        "is a robotic cleaning system worth the investment for a 50mw+ site?",
+        "operational trade-offs: manual labor vs. automated waterless cleaning",
+        "key takeaways for plant managers and asset owners"
+      ],
+      "fingerprint": "179c39e77995df230872f75c97a663e82ad3ebdfbe1a11a1a5c3d2da6cf1f9dd"
+    },
+    {
+      "slug": "shortlisting-pv-panel-suppliers-specs-that-impact-om-and-cleaning",
+      "title": "Shortlisting PV Panel Suppliers: Specs That Impact O&M and Cleaning",
+      "description": "",
+      "primaryKeyword": "pv panel suppliers",
+      "structuralArchetype": "frequency_guide",
+      "h2Outline": [
+        "quick answer: why module specs dictate your o&amp;m and cleaning strategy",
+        "how does the choice of pv panel suppliers influence long-term o&amp;m costs?",
+        "navigating the almm and supply chain: impact on plant uptime",
+        "technical specs that dictate cleaning compatibility",
+        "comparison of cleaning approaches for utility-scale solar",
+        "how often should cleaning cycles be triggered for high-efficiency modules?",
+        "key takeaways for asset owners",
+        "summary for plant managers: balancing supplier specs and o&amp;m",
+        "how does the choice of pv panel suppliers influence long-term o&amp;m costs?",
+        "technical specs that dictate cleaning compatibility",
+        "key takeaways for asset owners"
+      ],
+      "fingerprint": "e58fba1b6195154c41eccd8882b37b8f90c1ffe55bea662264275ebf3fc591cd"
+    },
+    {
+      "slug": "pv-module-selection-for-indias-mw-plants-robotic-om-impact",
+      "title": "PV Module Selection for India's MW Plants: Robotic O&M Impact",
+      "description": "",
+      "primaryKeyword": "pv module manufacturers in india",
+      "structuralArchetype": "cost_breakdown",
+      "h2Outline": [
+        "quick answer: why module specs dictate robotic o&m",
+        "how do pv module manufacturers in india influence your o&m strategy?",
+        "impact of module design on robotic cleaning compatibility",
+        "comparative analysis of robotic cleaning approaches for utility-scale solar",
+        "financial trade-offs: capex of premium modules vs. opex of robotic o&m",
+        "integrating robotics with local module technology for 100mw+ projects",
+        "what plant managers should do next",
+        "what o&m leads should prioritize during the procurement phase"
+      ],
+      "fingerprint": "32a4efd3a826484e83171aceaa7e75fd30d17dbfc5f586e5293bbda95f27f0e3"
+    },
+    {
+      "slug": "pv-panel-roof-methods-costs-and-robot-options-compared",
+      "title": "Pv Panel Roof: Methods, Costs, and Robot Options Compared",
+      "description": "",
+      "primaryKeyword": "pv panel roof",
+      "structuralArchetype": "weather_soiling",
+      "h2Outline": [
+        "quick answer: balancing o&m costs for utility-scale pv",
+        "how does the choice of cleaning technology impact the roi of a pv panel roof installation?",
+        "manual vs. robotic cleaning: a technical cost-benefit comparison",
+        "impact of soiling on pv module degradation and warranty compliance",
+        "strategic planning: integrating automated cleaning into your o&m budget",
+        "logistics and safety: scaling cleaning operations for 50mw+ sites",
+        "key takeaways for plant asset managers"
+      ],
+      "fingerprint": "d26efa3ed85e14df9deba3433e21c82cdefe8af639335585f5b1c641306701ef"
+    },
+    {
+      "slug": "solar-machine-what-indian-utility-om-teams-should-evaluate",
+      "title": "Solar Machine: What Indian Utility O&M Teams Should Evaluate",
+      "description": "",
+      "primaryKeyword": "solar machine",
+      "structuralArchetype": "robot_evaluation",
+      "h2Outline": [
+        "quick answer: evaluating a solar machine for utility-scale sites",
+        "what criteria should indian o&m teams use to evaluate a solar machine?",
+        "how does a robotic solar machine compare to manual cleaning on 5mw+ sites?",
+        "managing the logistics of solar machine deployment on single-axis trackers",
+        "assessing machine reliability in india's diverse dust-belt climates",
+        "technical integration: linking your cleaning machine to plant intelligence",
+        "key takeaways for o&m procurement"
+      ],
+      "fingerprint": "49e157c601d9379562bfc081e935626f197c480d7c8977198728a358b3a3010f"
+    },
+    {
+      "slug": "pv-panel-roof-everything-you-need-to-know",
+      "title": "PV Panel Roof: Everything You Need to Know Before, During & After Installation",
+      "description": "",
+      "primaryKeyword": null,
+      "structuralArchetype": "complete_guide",
+      "h2Outline": [
+        "why your pv panel roof is losing money every day it goes uncleaned",
+        "what is a pv panel roof?",
+        "how does a rooftop pv system work?",
+        "is your roof suitable for solar pv?",
+        "pv roof installation: step-by-step",
+        "cost &amp; government subsidies for pv roofs in india",
+        "which solar panel type is right for your roof?",
+        "maintenance &amp; cleaning: the most overlooked factor in pv roof performance"
+      ],
+      "fingerprint": "bda3871b072e0c7d7d7afc013f40e38d84fed70122cbcf473804be10b0cd7d40"
+    },
+    {
+      "slug": "average-soiling-losses-in-high-dust-regions-of-india-rajasthan-gujarat",
+      "title": "Average soiling losses in high-dust regions of India (Rajasthan & Gujarat)",
+      "description": "",
+      "primaryKeyword": null,
+      "structuralArchetype": "weather_soiling",
+      "h2Outline": [
+        "what are the average soiling losses for solar panels in rajasthan and gujarat?",
+        "why rajasthan and gujarat have india's worst soiling problem",
+        "soiling loss numbers: what the data actually shows",
+        "what makes rajasthan different from gujarat",
+        "the role of rain: why monsoon is not a free cleaning cycle",
+        "how taypro quantifies and addresses soiling in these regions",
+        "key takeaways for o&amp;m teams and asset managers",
+        "related resources",
+        "related reading"
+      ],
+      "fingerprint": "f911aef7408095a08b9e933979bb83491883ca997250c70ede7c53295c3cf25d"
+    },
+    {
+      "slug": "seasonal-variation-in-soiling-rates-and-energy-yield-loss-in-india",
+      "title": "Seasonal variation in soiling rates and energy yield loss in India",
+      "description": "",
+      "primaryKeyword": null,
+      "structuralArchetype": "weather_soiling",
+      "h2Outline": [
+        "how seasonal variation in india affects soiling rates and energy yield loss in utility-scale solar plants",
+        "india's four soiling seasons — and what each one does to your plant",
+        "seasonal soiling rate summary table",
+        "how soiling rate translates to energy yield loss by plant location",
+        "what this means for o&amp;m scheduling",
+        "how taypro's nectyr platform manages seasonal variation",
+        "related resources",
+        "related reading"
+      ],
+      "fingerprint": "f38706d108b61979048c560f167537577ccf2644958e15d94517768012ff8a13"
+    },
+    {
+      "slug": "waterless-robotic-vs-manual-cleaning-cost-comparison-for-10-mw-plant-india",
+      "title": "Waterless robotic vs manual cleaning cost comparison for 10 MW plant India",
+      "description": "",
+      "primaryKeyword": null,
+      "structuralArchetype": "manual_vs_robot",
+      "h2Outline": [
+        "waterless robotic cleaning vs manual labor: total cost comparison for a 10 mw solar plant in india",
+        "assumptions for this comparison",
+        "manual wet cleaning: full cost breakdown",
+        "waterless robotic cleaning: full cost breakdown",
+        "head-to-head: 5-year cost comparison (10 mw plant, rajasthan)",
+        "the water saving argument is secondary — but real",
+        "when does manual cleaning still make sense?",
+        "related resources",
+        "related reading"
+      ],
+      "fingerprint": "72792d1ce773fb75e825c0262598521411e07b0b528761906801519660459ef9"
+    },
+    {
+      "slug": "annual-water-and-operational-cost-savings-from-switching-to-waterless-robotic-cleaning",
+      "title": "Annual water and operational cost savings from switching to waterless robotic cleaning",
+      "description": "",
+      "primaryKeyword": null,
+      "structuralArchetype": "general_om",
+      "h2Outline": [
+        "how much water and operational cost can you save by switching to waterless robotic cleaning in arid india?",
+        "the water problem in arid solar zones",
+        "water savings: plant-size breakdown",
+        "operational cost savings: the full calculation",
+        "combined annual savings summary",
+        "payback period for robotic cleaning investment",
+        "how taypro's gujarat case validates these numbers",
+        "related resources",
+        "related reading"
+      ],
+      "fingerprint": "cdd42c77b43134ffc021b6beb88c2393bc94439dc5df42910ccec3943f908351"
+    },
+    {
+      "slug": "robotic-cleaning-systems-for-single-axis-trackers-operational-challenges-vs-fixed-tilt",
+      "title": "Robotic cleaning systems for single-axis trackers + operational challenges vs fixed-tilt",
+      "description": "",
+      "primaryKeyword": null,
+      "structuralArchetype": "robot_evaluation",
+      "h2Outline": [
+        "robotic cleaning systems designed for single-axis solar trackers: compatibility, challenges, and what to look for",
+        "why fixed-tilt robots don't work on single-axis trackers",
+        "key design requirements for tracker-compatible cleaning robots",
+        "robotic systems specifically designed for single-axis trackers",
+        "key operational challenges: tracker vs fixed-tilt",
+        "what to evaluate before deploying a cleaning robot on your tracker plant",
+        "frequently asked questions",
+        "related resources",
+        "related reading"
+      ],
+      "fingerprint": "1326031e351f58ae9039750a950ec4be06eb0fe8982a994b744a4f83d5b21624"
+    },
+    {
+      "slug": "opex-vs-capex-for-solar-om-contracts-india-combined-with-which-model-suits-ipps",
+      "title": "OPEX vs CAPEX for solar O&M contracts India — combined with which model suits IPPs",
+      "description": "",
+      "primaryKeyword": null,
+      "structuralArchetype": "cost_breakdown",
+      "h2Outline": [
+        "opex vs capex for solar o&amp;m contracts in india: key differences and which model suits independent power producers",
+        "defining capex and opex in solar o&amp;m context",
+        "key differences between opex and capex o&amp;m models",
+        "financial analysis: what opex vs capex means for indian ipp economics",
+        "which model suits indian ipps better?",
+        "opex for solar cleaning: what a good contract must include",
+        "related resources",
+        "related reading"
+      ],
+      "fingerprint": "e52d1d57264381676684af17bd17496291f585b37c1af77cbebba91a88c994a7"
+    },
+    {
+      "slug": "improving-performance-ratio-in-utility-scale-solar-plants-india-inverter-efficiency-optimization",
+      "title": "Improving performance ratio in utility-scale solar plants India + inverter efficiency optimization",
+      "description": "",
+      "primaryKeyword": null,
+      "structuralArchetype": "weather_soiling",
+      "h2Outline": [
+        "how to improve the performance ratio of a utility-scale solar plant in india: operational strategies that work",
+        "what performance ratio measures (and what hides inside it)",
+        "pr loss breakdown: where your 15–25% goes",
+        "strategy 1: soiling management — the fastest pr lever",
+        "strategy 2: inverter efficiency optimisation",
+        "strategy 3: vegetation and shading management",
+        "strategy 4: string-level monitoring and fault response",
+        "strategy 5: tracker calibration (for tracker plants)",
+        "implementation priority: ranked by roi",
+        "related resources",
+        "related reading"
+      ],
+      "fingerprint": "4ee35c611d65f0d2c37c0a18a560351cb2d14111016d8956e3c006512ecc0115"
     }
   ]
 }

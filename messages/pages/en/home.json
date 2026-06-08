@@ -17,11 +17,11 @@
         "name": "Taypro Solar Panel Cleaning Robot",
         "description": "Autonomous and semi-automatic waterless solar panel cleaning robots with dual-pass dry cleaning, NECTYR fleet operations, and utility-scale plant monitoring for solar farms in India.",
         "brand": "Taypro",
-        "offersPrice": "Contact for pricing"
+        "offersPrice": "90000"
       }
     },
     "hero": {
-      "eyebrow": "Made in India · 5 GW+ deployed · Autonomous operations for utility solar",
+      "eyebrow": "Made in India · 5 GW+ deployed · 11B+ panels cleaned annually",
       "title": "Solar Panel Cleaning Robot Manufacturer in India",
       "subtitle": "Recover lost generation with the autonomous operations layer for utility-scale solar, built on waterless solar panel cleaning robots.",
       "lead": "SCADA tells you the kWh is gone. Taypro closes the loop with robots on every row, NECTYR fleet operations today, and ORION plant intelligence on the roadmap.",
@@ -47,13 +47,14 @@
       "methodologyLink": "performance & test methodology",
       "methodologyAfter": "for assumptions and qualified claims.",
       "stat0": {
-        "label": "Robot Capacity Deployed"
+        "label": "Solar Assets Cleaned Daily",
+        "sublabel": "Daily operational throughput across India's largest robotic solar cleaning fleet"
       },
       "stat1": {
-        "label": "Metric Tons Of CO2 Emission Reduced Annually"
+        "label": "Panels Cleaned Annually"
       },
       "stat2": {
-        "label": "Additional Clean Solar Generation Annually"
+        "label": "Metric Tons Of CO2 Emission Reduced Annually"
       },
       "stat3": {
         "label": "Liters of Water Saved Annually"
@@ -66,7 +67,8 @@
       "loopClosing": "Sense → Schedule → Clean → Log → Learn, every cycle across your fleet.",
       "investorEyebrow": "For partners & investors",
       "investorTitle": "Building India's autonomous operations layer for utility-scale solar",
-      "investorBody": "5 GW+ of live fleet data in NECTYR, recurring AMC relationships across deployed robots, and ORION designed to attach on renewal rails we already operate. See scale, leadership, and how we compound operations data site by site.",
+      "investorBody": "5 GW+ of live fleet capacity, 11 billion+ panel cleaning passes each year feeding fleet AI, recurring AMC relationships across deployed robots, and ORION designed to attach on renewal rails we already operate. TAYPRO's AI learns from every cleaning cycle across the active fleet — a data corpus no competitor can replicate without equivalent field presence at utility scale. See scale, leadership, and how we compound operations data site by site.",
+      "investorCtaAi": "AI intelligence layer",
       "investorCtaCompany": "Company & scale story",
       "investorCtaOrion": "ORION early access",
       "pillars": {
@@ -80,7 +82,7 @@
         "1": {
           "tag": "Today · Fleet moat",
           "title": "NECTYR operations portal",
-          "body": "Schedule cycles, monitor blocks, manage AMC tickets, and audit cleaning coverage, labelled fleet telemetry since 2022 across 150+ live sites.",
+          "body": "Schedule cycles, monitor blocks, manage AMC tickets, and audit cleaning coverage, labelled fleet telemetry since 2022 across 150+ live sites and 11 billion+ annual panel passes.",
           "link": "Explore NECTYR",
           "href": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
         },
@@ -93,11 +95,26 @@
         }
       },
       "loopSteps": {
-        "0": "Sense",
-        "1": "Schedule",
-        "2": "Clean",
-        "3": "Log",
-        "4": "Learn"
+        "0": {
+          "title": "Sense",
+          "description": "Weather, humidity, pollen, battery state, and microfiber moisture — 40+ live data inputs per robot"
+        },
+        "1": {
+          "title": "Schedule",
+          "description": "95% accuracy weather rescheduling across 5 GW+ of active fleet"
+        },
+        "2": {
+          "title": "Clean",
+          "description": "Dual-pass airflow + microfiber; battery-optimised route from ML array map"
+        },
+        "3": {
+          "title": "Log",
+          "description": "Every cycle timestamped in NECTYR with root-cause fault data"
+        },
+        "4": {
+          "title": "Learn",
+          "description": "AI model improves with each cycle across the full fleet — your plant benefits from every other site's data"
+        }
       }
     },
     "robots": {
@@ -171,6 +188,14 @@
       "feature3": {
         "title": "Made in India",
         "description": "Designed and manufactured at our Chakan, Pune hub with TÜV NORD certified hardware and patents on core cleaning systems."
+      },
+      "feature4": {
+        "title": "Self-learning fleet AI",
+        "description": "AI that improves cleaning decisions with each cycle across the full fleet — soiling prediction, timing, and routing compound with every site added."
+      },
+      "feature5": {
+        "title": "Wet microfiber detection",
+        "description": "Sensors detect when cleaning elements are wet from dew or humidity and postpone cycles automatically — protecting module glass from smear damage."
       }
     },
     "whyTaypro": {

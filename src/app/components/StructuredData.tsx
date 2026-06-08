@@ -1,3 +1,10 @@
+import {
+  getProductSchemaOfferPrice,
+  type ProductSchemaPriceKey,
+} from "@/lib/seo/product-schema-prices";
+
+export { STANDARD_PRODUCT_OFFER_PRICE_INR } from "@/lib/seo/product-schema-prices";
+
 interface BreadcrumbItem {
   name: string;
   href: string;
@@ -19,23 +26,39 @@ interface OrganizationSchemaProps {
   sameAs?: string[];
 }
 
+interface SchemaOfferProps {
+  price?: string;
+  priceCurrency?: string;
+  availability?: string;
+}
+
 interface ProductSchemaProps {
   name: string;
   description: string;
   image?: string;
   brand?: string;
   sku?: string;
-  offers?: {
-    price?: string;
-    priceCurrency?: string;
-    availability?: string;
-  };
+  /** Preferred: lookup from product-schema-prices.ts */
+  offerPriceKey?: ProductSchemaPriceKey;
+  offers?: SchemaOfferProps;
 }
 
-/** Google Product/Offer: price must be a numeric string (e.g. "99.99"), not marketing copy. Omit offers when absent. */
-function isValidOfferPrice(price: string | undefined): boolean {
-  if (!price?.trim()) return false;
-  return /^\d+(\.\d{1,2})?$/.test(price.trim());
+function buildSchemaOffer({
+  offerPriceKey,
+  offers,
+  siteUrl,
+}: {
+  offerPriceKey?: ProductSchemaPriceKey;
+  offers?: SchemaOfferProps;
+  siteUrl: string;
+}) {
+  return {
+    "@type": "Offer",
+    price: getProductSchemaOfferPrice(offerPriceKey, offers?.price),
+    priceCurrency: offers?.priceCurrency || "INR",
+    availability: offers?.availability || "https://schema.org/InStock",
+    url: `${siteUrl}/contact`,
+  };
 }
 
 interface WebSiteSchemaProps {
@@ -396,6 +419,7 @@ export function ProductSchema({
   image,
   brand = "Taypro",
   sku,
+  offerPriceKey,
   offers,
   siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
 }: ProductSchemaProps & { siteUrl?: string }) {
@@ -424,14 +448,8 @@ export function ProductSchema({
     schema.sku = sku;
   }
 
-  if (offers && isValidOfferPrice(offers.price)) {
-    schema.offers = {
-      "@type": "Offer",
-      price: offers.price!.trim(),
-      priceCurrency: offers.priceCurrency || "INR",
-      availability: offers.availability || "https://schema.org/InStock",
-      url: `${siteUrl}/contact`,
-    };
+  if (offerPriceKey || offers) {
+    schema.offers = buildSchemaOffer({ offerPriceKey, offers, siteUrl });
   }
 
   return (
@@ -451,6 +469,8 @@ interface ServiceSchemaProps {
   serviceType?: string;
   areaServed?: string;
   url?: string;
+  offerPriceKey?: ProductSchemaPriceKey;
+  offers?: SchemaOfferProps;
 }
 
 export function ServiceSchema({
@@ -461,6 +481,8 @@ export function ServiceSchema({
   serviceType = "Solar Panel Cleaning Service",
   areaServed = "India",
   url,
+  offerPriceKey,
+  offers,
   siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
 }: ServiceSchemaProps & { siteUrl?: string }) {
   const schema: any = {
@@ -488,6 +510,10 @@ export function ServiceSchema({
     schema.url = url.startsWith("http") ? url : `${siteUrl}${url}`;
   }
 
+  if (offerPriceKey || offers) {
+    schema.offers = buildSchemaOffer({ offerPriceKey, offers, siteUrl });
+  }
+
   return (
     <script
       id="service-schema"
@@ -504,6 +530,8 @@ interface SoftwareApplicationSchemaProps {
   applicationCategory?: string;
   operatingSystem?: string;
   url?: string;
+  offerPriceKey?: ProductSchemaPriceKey;
+  offers?: SchemaOfferProps;
 }
 
 export function SoftwareApplicationSchema({
@@ -513,6 +541,8 @@ export function SoftwareApplicationSchema({
   applicationCategory = "BusinessApplication",
   operatingSystem = "Web, iOS, Android",
   url,
+  offerPriceKey,
+  offers,
   siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
 }: SoftwareApplicationSchemaProps & { siteUrl?: string }) {
   const schema: any = {
@@ -522,11 +552,7 @@ export function SoftwareApplicationSchema({
     description: description,
     applicationCategory: applicationCategory,
     operatingSystem: operatingSystem,
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "INR",
-    },
+    offers: buildSchemaOffer({ offerPriceKey, offers, siteUrl }),
     publisher: {
       "@type": "Organization",
       name: "Taypro",

@@ -38,14 +38,15 @@
       "bodyStrong": "सौर पैनल सफाई रोबोट",
       "bodyMid": "भारत में धूल भरे यूटिलिटी-स्केल साइट्स के लिए, पेटेंटेड ड्यूल-पास ड्राई क्लीनिंग, इंटेलिजेंट शेड्यूल और",
       "nectyrLink": "NECTYR",
-      "bodyAfter": "ताकि O&M टीमें पानी के लॉजिस्टिक्स के बिना बिजली उत्पादन वापस पा सकें।"
+      "bodyAfter": "ताकि O&M टीमें पानी के लॉजिस्टिक्स के बिना बिजली उत्पादन वापस पा सकें।",
+      "consoleLink": "NECTYR"
     },
     "stats": {
-      "ariaLabel": "Taypro प्रौद्योगिकी का प्रभाव",
-      "label0": "तैनात रोबोट क्षमता",
-      "label1": "प्लांट इंस्टॉलेशन",
-      "label2": "सालाना बचाए गए पानी के लीटर",
-      "label3": "प्रति माह रोबोट निर्माण क्षमता"
+      "ariaLabel": "Taypro प्रौद्योगिकी स्केल",
+      "label0": "प्रतिदिन साफ किए गए सोलर एसेट",
+      "label1": "वार्षिक साफ किए गए पैनल",
+      "label2": "प्लांट इंस्टॉलेशन",
+      "label3": "तैनात रोबोट क्षमता"
     },
     "pillars": {
       "eyebrow": "प्लेटफॉर्म का अवलोकन",
@@ -179,7 +180,8 @@
         "bullet0": "मौसम-जागरूक रोकने और फिर से शुरू करने का तर्क",
         "bullet1": "PR और वारंटी चर्चाओं के लिए चक्र इतिहास",
         "bullet2": "पूरे भारत में सेवा और स्पेयर पार्ट्स नेटवर्क के साथ एकीकरण",
-        "imageAlt": "सौर पैनल सफाई रोबोट के लिए NECTYR फ्लीट निगरानी"
+        "imageAlt": "सौर पैनल सफाई रोबोट के लिए NECTYR फ्लीट निगरानी",
+        "consoleLink": "NECTYR"
       },
       "connectivity": {
         "eyebrow": "फ्लीट संचालन",
@@ -218,10 +220,10 @@
       "p1After": "ग्राहक बेड़े में, जबकि समर्थन करते हुए",
       "p1End": "क्षेत्र में रोबोट क्षमता की।",
       "caseStudiesLink": "फील्ड केस स्टडीज ब्राउज़ करें",
-      "stat0Label": "परिनियोजित रोबोट क्षमता",
-      "stat1Label": "संयंत्र स्थापनाएँ",
-      "stat2Label": "CO₂ वार्षिक रूप से कम हुआ",
-      "stat3Label": "मासिक विनिर्माण क्षमता"
+      "stat0Label": "तैनात रोबोट क्षमता",
+      "stat1Label": "वार्षिक साफ किए गए पैनल",
+      "stat2Label": "प्लांट इंस्टॉलेशन",
+      "stat3Label": "सालाना बचाए गए पानी के लीटर"
     },
     "snapshot": {
       "eyebrow": "एक नज़र में",
@@ -290,11 +292,12 @@
     },
     "explore": {
       "heading": "आगे जानें",
-      "intro": "आपके प्लांट के लिए कोटेशन, ROI और प्रोजेक्ट प्रूफ पॉइंट।",
+      "intro": "हार्डवेयर, फ्लीट AI सॉफ़्टवेयर, ROI और प्रोजेक्ट प्रूफ।",
       "link0": "सोलर क्लीनिंग रोबोट",
       "link1": "ROI कैलकुलेटर",
       "link2": "लाइव प्रोजेक्ट",
-      "link3": "Taypro से संपर्क करें"
+      "link3": "AI इंटेलिजेंस परत",
+      "link4": "Taypro से संपर्क करें"
     },
     "callback": {
       "header": "अपने प्लांट के लिए सफाई तकनीक पर चर्चा करें"
@@ -311,6 +314,62 @@
       "a1": "On 10 MW+ sites, manual brush or wet-wash crews scale poorly — labour, water, and inconsistent pass quality limit cadence. Taypro robots run waterless dual-pass cycles on a predictable schedule with NECTYR audit trails.",
       "q2": "How often should panels be dust-cleaned in India?",
       "a2": "Most utility plants benefit from daily or near-daily dry cleaning during dry months and faster cycles after dust storms. Taypro starts with a soiling study to recommend block-wise cadence rather than a one-size-fits-all interval."
+    },
+    "fleetScale": {
+      "eyebrow": "परिचालन पैमाना",
+      "heading": "हर दिन 5 GW+ सोलर एसेट साफ",
+      "capacityLabel": "तैनात रोबोट क्षमता",
+      "panelsLabel": "वार्षिक साफ किए गए पैनल",
+      "sitesLabel": "लाइव प्लांट इंस्टॉलेशन",
+      "dailyLabel": "प्रतिदिन साफ किए गए सोलर एसेट",
+      "deployedLabel": "तैनात रोबोट क्षमता"
+    },
+    "dataMoat": {
+      "eyebrow": "बढ़ता फायदा",
+      "heading": "हर सफाई के साथ बढ़ता फील्ड डेटा फायदा"
+    },
+    "aiLearning": {
+      "eyebrow": "बुद्धिमान स्वचालन",
+      "heading": "हर सफाई के साथ सीखने वाला AI — मैनुअल शेड्यूलिंग के बिना",
+      "cta": "NECTYR फ्लीट ऑपरेशंस देखें",
+      "intelligenceBefore": "NECTYR पोर्टल, लेबल्ड टेलीमेट्री और डेटा फ्लाईव्हील के लिए देखें",
+      "intelligenceLink": "AI इंटेलिजेंस परत",
+      "intelligenceAfter": "."
+    },
+    "techStack": {
+      "eyebrow": "आर्किटेक्चर",
+      "heading": "Taypro सफाई तकनीक स्टैक"
+    },
+    "liveOps": {
+      "eyebrow": "लाइव ऑपरेशंस",
+      "heading": "NECTYR में लाइव ऑपरेशंस इंटेलिजेंस",
+      "autonomousTitle": "स्वायत्त सफाई शुरुआत और फ्लीट ऑर्केस्ट्रेशन",
+      "nectyrLink": "NECTYR देखें",
+      "aiLink": "AI लर्निंग सेक्शन"
+    },
+    "dualPassMechanism": {
+      "eyebrow": "सफाई विज्ञान",
+      "heading": "ड्यूल-पास सिंगल-स्टेज ड्राई क्लीनिंग से बेहतर क्यों",
+      "comparisonHeading": "ड्राई क्लीनिंग तंत्र तुलना",
+      "colMethod": "विधि",
+      "colContact": "संपर्क मॉडल",
+      "colDustLift": "धूल उठाना",
+      "colResidue": "चिपका अवशेष",
+      "colWear": "मॉड्यूल घिसाव जोखिम"
+    },
+    "trackerTech": {
+      "eyebrow": "ट्रैकर इंजीनियरिंग",
+      "heading": "फिक्स्ड क्रॉस-टेबल इन्फ्रा के बिना सिंगल-एक्सिस ट्रैकर सफाई"
+    },
+    "selfAlignment": {
+      "eyebrow": "फिक्स्ड-टिल्ट इंजीनियरिंग",
+      "heading": "अनियमित इलाके पर सेल्फ-अलाइनमेंट"
+    },
+    "deploymentScope": {
+      "eyebrow": "डिप्लॉयमेंट स्कोप",
+      "heading": "यूटिलिटी-स्केल कोर, रूफटॉप-सक्षम",
+      "utilityTitle": "यूटिलिटी-स्केल — जहाँ डेटा मोAT बनता है",
+      "rooftopTitle": "C&I और रूफटॉप इंस्टॉलेशन"
     }
   },
   "Common": {

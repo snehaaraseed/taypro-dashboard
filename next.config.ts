@@ -287,6 +287,20 @@ const nextConfig = {
         destination: "/contact",
         permanent: true,
       },
+      // Truncated state-landing resource slugs → canonical CMS slugs
+      {
+        source: "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india",
+        destination:
+          "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india-tips-for-optimal-performance",
+        permanent: true,
+      },
+      {
+        source:
+          "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india",
+        destination:
+          "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates",
+        permanent: true,
+      },
       // Blog slug collision: wrong slug pointed at "installed" post
       {
         source: "/blog/how-does-a-solar-panel-cleaning-robot-work-",
@@ -454,41 +468,16 @@ const nextConfig = {
       });
     }
 
-    return [
+    const productionAssetCache = "public, max-age=31536000, immutable";
+
+    const rules: {
+      source: string;
+      headers: { key: string; value: string }[];
+    }[] = [
       {
         // Apply caching headers to static assets
         source: "/:path*",
         headers: globalHeaders,
-      },
-      {
-        // Cache fonts aggressively
-        source: "/:all*(font|woff|woff2|ttf|eot)",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-      {
-        // Cache images aggressively
-        source: "/:all*(png|jpg|jpeg|webp|avif|svg|ico)",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-      {
-        // Long-cache hashed Next.js assets (CSS/JS chunks)
-        source: "/_next/static/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
       },
       {
         // Crawlers must never hit a failing dynamic route for robots.txt
@@ -501,6 +490,27 @@ const nextConfig = {
         ],
       },
     ];
+
+    // Aggressive caching is production-only — in dev, Turbopack renames chunks on
+    // every rebuild; immutable headers cause 404s for stale node_modules_*.js hashes.
+    if (process.env.NODE_ENV === "production") {
+      rules.push(
+        {
+          source: "/:all*(font|woff|woff2|ttf|eot)",
+          headers: [{ key: "Cache-Control", value: productionAssetCache }],
+        },
+        {
+          source: "/:all*(png|jpg|jpeg|webp|avif|svg|ico)",
+          headers: [{ key: "Cache-Control", value: productionAssetCache }],
+        },
+        {
+          source: "/_next/static/:path*",
+          headers: [{ key: "Cache-Control", value: productionAssetCache }],
+        }
+      );
+    }
+
+    return rules;
   },
 };
 

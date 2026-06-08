@@ -1,13 +1,19 @@
 {
   "OrionPage": {
     "meta": {
-      "title": "सोलर प्लांट इंटेलिजेंस प्लेटफ़ॉर्म | ORION",
-      "description": "ORION: जनरेशन डेटा + Taypro रोबोट सिग्नल पर plant health monitoring। Early access के लिए रजिस्टर करें।",
-      "openGraphTitle": "सोलर प्लांट इंटेलिजेंस | ORION",
+      "title": "ORION, सोलर प्लांट इंटेलिजेंस प्लेटफ़ॉर्म (जल्द आ रहा है) | Taypro",
+      "description": "ORION Taypro का आगामी SaaS है, जनरेशन और परिचालन डेटा पर प्रशिक्षित प्लांट स्वास्थ्य मॉनिटरिंग, Taypro सफाई रोबोट से वैकल्पिक फील्ड संकेतों के साथ। प्रारंभिक पहुँच के लिए रुचि दर्ज करें।",
+      "openGraphTitle": "ORION, सोलर प्लांट इंटेलिजेंस | Taypro",
       "openGraphDescription": "जल्द आ रहा है: SCADA के पूरक जनरेशन-जागरूक प्लांट स्वास्थ्य मॉनिटरिंग, Taypro की रोबोटिक फील्ड उपस्थिति से जुड़ी।",
       "openGraphImageAlt": "ORION, Taypro सोलर प्लांट इंटेलिजेंस प्लेटफ़ॉर्म",
-      "twitterTitle": "सोलर प्लांट इंटेलिजेंस | ORION",
-      "twitterDescription": "सोलर प्लांट स्वास्थ्य मॉनिटरिंग SaaS, जनरेशन अंतर्दृष्टि और Taypro रोबोट डेटा। जल्द आ रहा है।"
+      "twitterTitle": "ORION प्लांट इंटेलिजेंस | Taypro",
+      "twitterDescription": "सोलर प्लांट स्वास्थ्य मॉनिटरिंग SaaS, जनरेशन अंतर्दृष्टि और Taypro रोबोट डेटा। जल्द आ रहा है।",
+      "keywords": [
+        "solar plant monitoring software",
+        "solar asset management platform",
+        "solar plant health monitoring",
+        "ORION Taypro"
+      ]
     },
     "breadcrumbs": {
       "robots": "सोलर समाधान",

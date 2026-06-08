@@ -43,17 +43,25 @@ export const tayproMarketingImpactStats = buildTayproMarketingImpactStats();
 /** Trusted-by stat row on product marketing pages (four tiles). */
 export const tayproTrustedByStatsStrip = [
   tayproMarketingImpactStats.robotCapacityDeployed,
-  tayproMarketingImpactStats.co2ReducedAnnually,
+  tayproMarketingImpactStats.panelsCleanedAnnually,
   tayproMarketingImpactStats.waterSavedAnnually,
   tayproMarketingImpactStats.robotsManufacturedPerMonth,
 ] as const;
 
-/** Homepage stat strip, public proof order (capacity → CO₂ → generation → water). */
+/** Homepage stat strip, public proof order (capacity → panels → CO₂ → water). */
 export const tayproHomeStatsStrip = [
-  tayproMarketingImpactStats.robotCapacityDeployed,
+  tayproMarketingImpactStats.dailyCleaningCapacityGw,
+  tayproMarketingImpactStats.panelsCleanedAnnually,
   tayproMarketingImpactStats.co2ReducedAnnually,
-  tayproMarketingImpactStats.extraCleanEnergyAnnually,
   tayproMarketingImpactStats.waterSavedAnnually,
+] as const;
+
+/** Cleaning-technology page stat strip (daily throughput → annual panels → sites → deployed capacity). */
+export const tayproCleaningTechStatsStrip = [
+  tayproMarketingImpactStats.dailyCleaningCapacityGw,
+  tayproMarketingImpactStats.panelsCleanedAnnually,
+  tayproMarketingImpactStats.plantInstallations,
+  tayproMarketingImpactStats.robotCapacityDeployed,
 ] as const;
 
 function hardwareRobotFromCatalog(id: ProductId) {

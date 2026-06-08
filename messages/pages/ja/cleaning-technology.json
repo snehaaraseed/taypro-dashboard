@@ -38,14 +38,15 @@
       "bodyStrong": "ソーラーパネル清掃ロボット",
       "bodyMid": "インドの埃っぽい大規模ユーティリティサイト向け, 特許取得済みのデュアルパスドライクリーニング、インテリジェントなスケジュール、および",
       "nectyrLink": "NECTYR",
-      "bodyAfter": "これにより、O&Mチームは水の物流なしで発電量を回復できます。"
+      "bodyAfter": "これにより、O&Mチームは水の物流なしで発電量を回復できます。",
+      "consoleLink": "NECTYR"
     },
     "stats": {
-      "ariaLabel": "Taypro テクノロジーの影響",
-      "label0": "展開されたロボット容量",
-      "label1": "プラント設置数",
-      "label2": "年間節水リットル数",
-      "label3": "月間ロボット製造能力"
+      "ariaLabel": "Taypro テクノロジースケール",
+      "label0": "日次洗浄ソーラー資産",
+      "label1": "年間洗浄パネル数",
+      "label2": "プラント設置数",
+      "label3": "展開ロボット容量"
     },
     "pillars": {
       "eyebrow": "プラットフォーム概要",
@@ -179,7 +180,8 @@
         "bullet0": "天候認識の一時停止と再開ロジック",
         "bullet1": "PRおよび保証に関する議論のためのサイクル履歴",
         "bullet2": "パンインドサービスおよびスペアパーツネットワークとの統合",
-        "imageAlt": "ソーラーパネル清掃ロボット向けNECTYRフリート監視"
+        "imageAlt": "ソーラーパネル清掃ロボット向けNECTYRフリート監視",
+        "consoleLink": "NECTYR"
       },
       "connectivity": {
         "eyebrow": "フリート運用",
@@ -218,10 +220,10 @@
       "p1After": "顧客フリート全体で, 同時にサポートしています",
       "p1End": "現場でのロボット容量の。",
       "caseStudiesLink": "現場のケーススタディを見る",
-      "stat0Label": "展開されたロボット容量",
-      "stat1Label": "プラント設置数",
-      "stat2Label": "CO₂ 年間削減量",
-      "stat3Label": "月間製造能力"
+      "stat0Label": "展開ロボット容量",
+      "stat1Label": "年間洗浄パネル数",
+      "stat2Label": "プラント設置数",
+      "stat3Label": "年間節水リットル数"
     },
     "snapshot": {
       "eyebrow": "概要",
@@ -290,11 +292,12 @@
     },
     "explore": {
       "heading": "次を探索",
-      "intro": "あなたのプラントのための見積もり、ROI、およびプロジェクトの証明点。",
+      "intro": "ハードウェア、フリートAI、ROI、プロジェクト実績。",
       "link0": "ソーラー洗浄ロボット",
       "link1": "ROI計算機",
       "link2": "ライブプロジェクト",
-      "link3": "Tayproへのお問い合わせ"
+      "link3": "AIインテリジェンス層",
+      "link4": "Tayproへのお問い合わせ"
     },
     "callback": {
       "header": "御社のプラント向け洗浄技術についてご相談ください"
@@ -311,6 +314,62 @@
       "a1": "On 10 MW+ sites, manual brush or wet-wash crews scale poorly — labour, water, and inconsistent pass quality limit cadence. Taypro robots run waterless dual-pass cycles on a predictable schedule with NECTYR audit trails.",
       "q2": "How often should panels be dust-cleaned in India?",
       "a2": "Most utility plants benefit from daily or near-daily dry cleaning during dry months and faster cycles after dust storms. Taypro starts with a soiling study to recommend block-wise cadence rather than a one-size-fits-all interval."
+    },
+    "fleetScale": {
+      "eyebrow": "運用規模",
+      "heading": "毎日5GW超のソーラー資産を洗浄",
+      "capacityLabel": "展開ロボット容量",
+      "panelsLabel": "年間洗浄パネル数",
+      "sitesLabel": "稼働プラント設置",
+      "dailyLabel": "日次洗浄ソーラー資産",
+      "deployedLabel": "展開ロボット容量"
+    },
+    "dataMoat": {
+      "eyebrow": "複合的優位",
+      "heading": "清掃のたびに複合するフィールドデータ優位"
+    },
+    "aiLearning": {
+      "eyebrow": "インテリジェント自動化",
+      "heading": "清掃のたびに学ぶAI — 手動スケジュール不要",
+      "cta": "NECTYR フリート運用を見る",
+      "intelligenceBefore": "NECTYRポータルとデータフライホイールは",
+      "intelligenceLink": "AIインテリジェンス層",
+      "intelligenceAfter": "をご覧ください。"
+    },
+    "techStack": {
+      "eyebrow": "アーキテクチャ",
+      "heading": "Taypro 洗浄技術スタック"
+    },
+    "liveOps": {
+      "eyebrow": "ライブ運用",
+      "heading": "NECTYR のライブ運用インテリジェンス",
+      "autonomousTitle": "自律清掃開始とフリートオーケストレーション",
+      "nectyrLink": "NECTYR を見る",
+      "aiLink": "AI学習セクション"
+    },
+    "dualPassMechanism": {
+      "eyebrow": "洗浄科学",
+      "heading": "デュアルパスが単段ドライ洗浄を上回る理由",
+      "comparisonHeading": "ドライ洗浄メカニズム比較",
+      "colMethod": "方式",
+      "colContact": "接触モデル",
+      "colDustLift": "粉塵除去",
+      "colResidue": "付着残留物",
+      "colWear": "モジュール摩耗リスク"
+    },
+    "trackerTech": {
+      "eyebrow": "トラッカー工学",
+      "heading": "固定クロステーブル基盤なしの単軸トラッカー洗浄"
+    },
+    "selfAlignment": {
+      "eyebrow": "固定傾斜工学",
+      "heading": "起伏地形での自己位置合わせ"
+    },
+    "deploymentScope": {
+      "eyebrow": "展開範囲",
+      "heading": "ユーティリティ規模コア、屋根対応",
+      "utilityTitle": "ユーティリティ規模 — データ堀が築かれる場所",
+      "rooftopTitle": "C&Iおよび屋根設置"
     }
   },
   "Common": {

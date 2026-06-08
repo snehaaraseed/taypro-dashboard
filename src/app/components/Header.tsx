@@ -50,6 +50,11 @@ export default function Header() {
       href: "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
     },
     {
+      label: t("aiIntelligence"),
+      description: t("aiIntelligenceDesc"),
+      href: "/technology/ai-intelligence",
+    },
+    {
       label: t("tayproOpex"),
       description: t("tayproOpexDesc"),
       href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",

@@ -1,12 +1,12 @@
 {
   "Home": {
     "meta": {
-      "title": "সোলার প্যানেল পরিষ্কার রোবট | জলবিহীন ও স্বায়ত্তশাসিত",
-      "description": "ভারতের শীর্ষ জলবিহীন সোলার প্যানেল পরিষ্কার রোবট, ইউটিলিটি-স্কেল প্ল্যান্টের জন্য। GLYDE ও NYUMA দিয়ে হারানো উৎপাদন ফিরে পান। আজই কোটেশন নিন।",
-      "ogTitle": "সোলার প্যানেল পরিষ্কার রোবট | জলবিহীন ও স্বায়ত্তশাসিত",
-      "ogDescription": "ভারতীয় ইউটিলিটি প্ল্যান্টের জন্য জলবিহীন সোলার পরিষ্কার রোবট। ডুয়াল-পাস শুষ্ক পরিষ্কার, NECTYR ফ্লিট, সারা ভারতে সেবা।",
-      "twitterTitle": "সোলার প্যানেল পরিষ্কার রোবট | জলবিহীন ও স্বায়ত্তশাসিত",
-      "twitterDescription": "ভারতে ইউটিলিটি-স্কেল সোলার ফার্মের জন্য স্বায়ত্তশাসিত জলবিহীন সোলার প্যানেল পরিষ্কার রোবট।"
+      "title": "সোলার প্যানেল পরিষ্কার রোবট | Taypro, জলবিহীন India",
+      "description": "ভারতে ইউটিলিটি-স্কেল প্ল্যান্টের জন্য জলবিহীন সোলার প্যানেল পরিষ্কার রোবট। ডুয়াল-পাস শুষ্ক পরিষ্কার, ফ্লিট মনিটরিং, সারা ভারতে Taypro সহায়তা, স্বয়ংক্রিয় ও অর্ধ-স্বয়ংক্রিয়।",
+      "ogTitle": "সোলার প্যানেল পরিষ্কার রোবট | Taypro, জলবিহীন India",
+      "ogDescription": "ভারতীয় ইউটিলিটি প্ল্যান্টের জন্য জলবিহীন সোলার পরিষ্কার রোবট, ডুয়াল-পাস শুষ্ক পরিষ্কার, NECTYR ফ্লিট মনিটরিং, সারা ভারতে সেবা।",
+      "twitterTitle": "সোলার প্যানেল পরিষ্কার রোবট | Taypro",
+      "twitterDescription": "ভারতে ইউটিলিটি-স্কেল সোলার ফার্মের জন্য স্বায়ত্তশাসিত ও অর্ধ-স্বয়ংক্রিয় জলবিহীন সোলার প্যানেল পরিষ্কার রোবট।"
     },
     "schema": {
       "video": {
@@ -22,12 +22,14 @@
     },
     "hero": {
       "eyebrow": "Made in India · ৫ GW+ · ইউটিলিটি সোলারের জন্য স্বায়ত্তশাসিত অপারেশন",
-      "titleBefore": "স্বায়ত্তশাসিত",
-      "titleHighlight": "স্বায়ত্তশাসিত অপারেশন স্তর",
-      "titleAfter": "ইউটিলিটি-স্কেল প্ল্যান্টের জন্য",
+      "title": "Solar Panel Cleaning Robot Manufacturer in India",
+      "subtitle": "Recover lost generation with the autonomous operations layer for utility-scale solar, built on waterless solar panel cleaning robots.",
+      "lead": "SCADA বলে kWh চলে গেছে। Taypro প্রতি সারিতে রোবট, আজ NECTYR, এবং ORION দিয়ে লুপ বন্ধ করে।",
       "bodyBeforeProjects": "ডুয়াল-পাস জলবিহীন পরিষ্কার, AI শিডিউলিং, সারা India আপটাইম। দেখুন",
       "bodyProjectsLink": "লাইভ প্রোজেক্ট",
-      "bodyBetweenLinks": "অথবা আমাদের",
+      "bodyAfterProjects": ", সম্পর্কে জানুন",
+      "bodyUtilityOpsLink": "ইউটিলিটি সোলার অপারেশন",
+      "bodyBeforeBlog": ", অথবা আমাদের",
       "bodyBlogLink": "ব্লগ",
       "bodyAfterBlog": " এ অন্তর্দৃষ্টি পড়ুন।",
       "videoTitle": "Taypro স্বায়ত্তশাসিত সোলার প্যানেল পরিষ্কার রোবট, ইউটিলিটি-স্কেল জলবিহীন পরিষ্কার",
@@ -39,25 +41,68 @@
       "ctaExplore": "রোবট দেখুন",
       "ctaService": "পরিষ্কার সেবা",
       "ctaRoi": "মূল্য ও ROI ক্যালকুলেটর",
-      "title": "ভারতে সোলার প্যানেল পরিষ্কার রোবট প্রস্তুতকারক",
-      "subtitle": "ইউটিলিটি-স্কেল সোলারের জন্য স্বায়ত্তশাসিত অপারেশন স্তরে নির্মিত জলবিহীন সোলার প্যানেল পরিষ্কার রোবট দিয়ে হারানো উৎপাদন ফেরান।",
-      "lead": "SCADA বলে kWh চলে গেছে। Taypro প্রতি সারিতে রোবট, আজ NECTYR, এবং ORION দিয়ে লুপ বন্ধ করে।",
-      "bodyAfterProjects": ", সম্পর্কে জানুন",
-      "bodyUtilityOpsLink": "ইউটিলিটি সোলার অপারেশন",
-      "bodyBeforeBlog": ", অথবা আমাদের"
+      "titleLine1": "হারানো উৎপাদন ফেরান, ",
+      "titleHighlight": "স্বায়ত্তশাসিত অপারেশন স্তর",
+      "titleLine2": "ইউটিলিটি-স্কেল সোলারের জন্য, জলবিহীন সোলার প্যানেল পরিষ্কার রোবটের উপর নির্মিত।"
     },
     "stats": {
+      "methodologyBefore": "Fleet impact figures are modelled from live deployments. See our",
+      "methodologyLink": "performance & test methodology",
+      "methodologyAfter": "for assumptions and qualified claims.",
       "stat0": {
-        "label": "স্থাপিত রোবট সক্ষমতা"
+        "label": "প্রতিদিন পরিষ্কার করা সোলার অ্যাসেট",
+        "sublabel": "ভারতের বৃহত্তম রোবোটিক সোলার পরিষ্কার ফ্লিটে দৈনিক অপারেশনাল থ্রুপুট"
       },
       "stat1": {
-        "label": "বার্ষিক CO2 নিঃসরণ হ্রাস (মেট্রিক টন)"
+        "label": "বার্ষিক পরিষ্কার করা প্যানেল"
       },
       "stat2": {
-        "label": "বার্ষিক অতিরিক্ত পরিষ্কার সোলার উৎপাদন"
+        "label": "বার্ষিক CO2 নিঃসরণ হ্রাস (মেট্রিক টন)"
       },
       "stat3": {
         "label": "প্রতি বছর বাঁচানো জলের লিটার"
+      }
+    },
+    "platform": {
+      "eyebrow": "Taypro কীভাবে কাজ করে",
+      "heading": "রোবট, ফ্লিট সফটওয়্যার ও প্ল্যান্ট ইন্টেলিজেন্স, একটি বদ্ধ লুপ",
+      "subtitle": "মাঠের রোবট ডেটা ও এক্সিকিউশন অবকাঠামো। NECTYR আজকের স্তর; ORION একই রেলে স্বাস্থ্য প্রসারিত করে।",
+      "loopClosing": "সেন্স → শিডিউল → পরিষ্কার → লগ → শিখুন, প্রতি চক্র।",
+      "investorEyebrow": "অংশীদার ও বিনিয়োগকারী",
+      "investorTitle": "ভারতের ইউটিলিটি সোলারের জন্য স্বায়ত্তশাসিত অপারেশন স্তর",
+      "investorBody": "NECTYR-এ ৫ GW+ লাইভ ফ্লিট ডেটা, পুনরাবৃত্ত AMC, নবায়ন রেলে ORION। কোম্পানি ও বিনিয়োগকারী যোগাযোগ।",
+      "investorCtaAi": "AI intelligence layer",
+      "investorCtaCompany": "কোম্পানি ও স্কেল",
+      "investorCtaOrion": "ORION প্রাথমিক অ্যাক্সেস",
+      "pillars": {
+        "0": {
+          "tag": "আজ · মাঠ",
+          "title": "জলবিহীন পরিষ্কার রোবট",
+          "body": "GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, প্রতি সারিতে স্বায়ত্তশাসিত।",
+          "link": "রোবট তুলনা",
+          "href": "/solar-panel-cleaning-system"
+        },
+        "1": {
+          "tag": "আজ · ফ্লিট",
+          "title": "NECTYR অপারেশন পোর্টাল",
+          "body": "চক্র, ব্লক মনিটর, AMC, ২০২২ থেকে লেবেলড টেলিমেট্রি।",
+          "link": "NECTYR দেখুন",
+          "href": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
+        },
+        "2": {
+          "tag": "রোডম্যাপ · ইন্টেল",
+          "title": "ORION স্বাস্থ্য স্তর",
+          "body": "উৎপাদন-সচেতন মনিটরিং, SCADA পড়ে; ORION MWh হারানোর আগে।",
+          "link": "ORION নিবন্ধন",
+          "href": "/solar-panel-cleaning-system/orion-plant-intelligence-platform"
+        }
+      },
+      "loopSteps": {
+        "0": "সেন্স",
+        "1": "শিডিউল",
+        "2": "পরিষ্কার",
+        "3": "লগ",
+        "4": "শিখুন"
       }
     },
     "robots": {
@@ -131,16 +176,26 @@
       "feature3": {
         "title": "Made in India",
         "description": "Chakan, Pune-এ ডিজাইন ও উৎপাদন, TÜV NORD সার্টিফাইড হার্ডওয়্যার ও মূল পরিষ্কার সিস্টেমে পেটেন্ট।"
+      },
+      "feature4": {
+        "title": "Self-learning fleet AI",
+        "description": "AI that improves cleaning decisions with each cycle across the full fleet — soiling prediction, timing, and routing compound with every site added."
+      },
+      "feature5": {
+        "title": "Wet microfiber detection",
+        "description": "Sensors detect when cleaning elements are wet from dew or humidity and postpone cycles automatically — protecting module glass from smear damage."
       }
     },
     "whyTaypro": {
       "eyebrow": "ইউটিলিটি-স্কেল অপারেটররা কেন Taypro বেছে নেন",
       "heading": "রিটার্ন অপারেশনে জিতে, প্যানেল কেপেক্সে নয়",
-      "bodyBeforeNectyr": "রোবট থেকে ফ্লিট সফটওয়্যার পর্যন্ত এক দায়ী অংশীদার, উৎপাদন ফেরান, জল ও শ্রম ঝুঁকি কমান, প্রতি ব্লক",
+      "bodyBeforeNectyr": "One accountable partner from robot to fleet software: recover generation, cut water and labour risk, and monitor every block on",
       "nectyrLink": "NECTYR",
       "bodyBetween": "-এ মনিটর করতে পারেন। দেখুন কীভাবে",
       "cleaningTechLink": "ডুয়াল-পাস শুষ্ক পরিষ্কার",
-      "bodyAfter": " মাঠে কাজ করে।"
+      "bodyAfter": " মাঠে কাজ করে।",
+      "bodyBeforeConsole": "রোবট থেকে ফ্লিট সফটওয়্যার পর্যন্ত এক দায়ী অংশীদার, উৎপাদন ফেরান, জল ও শ্রম ঝুঁকি কমান, প্রতি ব্লক",
+      "consoleLink": "NECTYR"
     },
     "technology": {
       "heading": "উন্নত সোলার প্যানেল পরিষ্কার রোবট প্রযুক্তি",
@@ -153,13 +208,15 @@
     "roi": {
       "heading": "আপনার প্ল্যান্টের রোবট পেব্যাক অনুমান করুন",
       "body": "শ্রম, জল ও উৎপাদন সঞ্চয়ে দিকনির্দেশমূলক ROI চালান, অথবা PDF এক্সপোর্ট ও বিস্তারিত অনুমানের জন্য পূর্ণ ক্যালকুলেটর খুলুন।",
+      "methodology": "Estimates use site-specific soiling, tariff, and O&M inputs. Full assumptions, qualified performance claims, and test methodology are documented on our performance page.",
+      "methodologyLink": "View performance & test methodology",
       "link": "পূর্ণ ROI ও মূল্য ক্যালকুলেটর খুলুন"
     },
     "clients": {
       "heading": "আমাদের সম্মানিত গ্রাহক",
+      "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India.",
       "logoAlt": "Taypro সোলার প্যানেল পরিষ্কার রোবট ক্লায়েন্ট {index}",
-      "logoTitle": "Taypro সোলার প্যানেল পরিষ্কার রোবট ক্লায়েন্ট {index}",
-      "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India."
+      "logoTitle": "Taypro সোলার প্যানেল পরিষ্কার রোবট ক্লায়েন্ট {index}"
     },
     "faq": {
       "heading": "প্রায়শই জিজ্ঞাসিত প্রশ্ন",
@@ -203,7 +260,8 @@
     "projects": {
       "eyebrow": "মাঠে প্রমাণিত",
       "heading": "ইউটিলিটি-স্কেল পরিষ্কার রোবট স্থাপনা",
-      "subheading": "ভারতীয় সোলার প্ল্যান্টের কেস স্টাডি ব্রাউজ করুন যেখানে Taypro স্বায়ত্তশাসিত ও অর্ধ-স্বয়ংক্রিয় রোবট ব্যবহৃত হয়।"
+      "subheading": "ভারতীয় সোলার প্ল্যান্টের কেস স্টাডি ব্রাউজ করুন যেখানে Taypro স্বায়ত্তশাসিত ও অর্ধ-স্বয়ংক্রিয় রোবট ব্যবহৃত হয়।",
+      "quote": "Utility operators report predictable dry-cleaning cycles, lower water logistics, and logged coverage through NECTYR across multi-MW blocks."
     },
     "blog": {
       "heading": "ব্লগ থেকে",
@@ -213,47 +271,6 @@
     "loading": {
       "form": "ফর্ম লোড হচ্ছে…",
       "clients": "ক্লায়েন্ট লোড হচ্ছে…"
-    },
-    "platform": {
-      "eyebrow": "Taypro কীভাবে কাজ করে",
-      "heading": "রোবট, ফ্লিট সফটওয়্যার ও প্ল্যান্ট ইন্টেলিজেন্স, একটি বদ্ধ লুপ",
-      "subtitle": "মাঠের রোবট ডেটা ও এক্সিকিউশন অবকাঠামো। NECTYR আজকের স্তর; ORION একই রেলে স্বাস্থ্য প্রসারিত করে।",
-      "loopClosing": "সেন্স → শিডিউল → পরিষ্কার → লগ → শিখুন, প্রতি চক্র।",
-      "investorEyebrow": "অংশীদার ও বিনিয়োগকারী",
-      "investorTitle": "ভারতের ইউটিলিটি সোলারের জন্য স্বায়ত্তশাসিত অপারেশন স্তর",
-      "investorBody": "NECTYR-এ ৫ GW+ লাইভ ফ্লিট ডেটা, পুনরাবৃত্ত AMC, নবায়ন রেলে ORION। কোম্পানি ও বিনিয়োগকারী যোগাযোগ।",
-      "investorCtaCompany": "কোম্পানি ও স্কেল",
-      "investorCtaOrion": "ORION প্রাথমিক অ্যাক্সেস",
-      "pillars": {
-        "0": {
-          "tag": "আজ · মাঠ",
-          "title": "জলবিহীন পরিষ্কার রোবট",
-          "body": "GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, প্রতি সারিতে স্বায়ত্তশাসিত।",
-          "link": "রোবট তুলনা",
-          "href": "/solar-panel-cleaning-system"
-        },
-        "1": {
-          "tag": "আজ · ফ্লিট",
-          "title": "NECTYR অপারেশন পোর্টাল",
-          "body": "চক্র, ব্লক মনিটর, AMC, ২০২২ থেকে লেবেলড টেলিমেট্রি।",
-          "link": "NECTYR দেখুন",
-          "href": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
-        },
-        "2": {
-          "tag": "রোডম্যাপ · ইন্টেল",
-          "title": "ORION স্বাস্থ্য স্তর",
-          "body": "উৎপাদন-সচেতন মনিটরিং, SCADA পড়ে; ORION MWh হারানোর আগে।",
-          "link": "ORION নিবন্ধন",
-          "href": "/solar-panel-cleaning-system/orion-plant-intelligence-platform"
-        }
-      },
-      "loopSteps": {
-        "0": "সেন্স",
-        "1": "শিডিউল",
-        "2": "পরিষ্কার",
-        "3": "লগ",
-        "4": "শিখুন"
-      }
     }
   },
   "Common": {

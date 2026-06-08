@@ -23,7 +23,7 @@ import { getProduct } from "@/lib/products/catalog";
 
 const STAT_STRIP_LABEL_KEYS = [
   "statsStrip.robotCapacityDeployed",
-  "statsStrip.co2ReducedAnnually",
+  "statsStrip.panelsCleanedAnnually",
   "statsStrip.waterSavedAnnually",
   "statsStrip.robotsManufacturedPerMonth",
 ] as const;
@@ -119,16 +119,15 @@ export default function AboutUsPage() {
           bodyBeforeLink={t("hero.bodyBeforeLink")}
           bodyLink={t("hero.bodyLink")}
           bodyAfterLink={t("hero.bodyAfterLink")}
-          imageAlt={t("builtForSites.aboutImageAlt")}
         />
 
-        <section className="w-full py-12 md:py-16 bg-[#0a3a4a] border-y border-white/10">
+        <section className="w-full py-14 md:py-20 bg-[#f4f7f9]">
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
-              <p className="mb-3 inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#A8C117]">
+              <p className="mb-3 inline-flex items-center rounded-full border border-[#A8C117]/25 bg-[#A8C117]/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#5a8f00]">
                 {t("statsStrip.eyebrow")}
               </p>
-              <h2 className="text-white font-semibold text-2xl md:text-3xl">
+              <h2 className="text-[#052638] font-semibold text-2xl md:text-3xl">
                 {t("statsStrip.heading")}
               </h2>
             </AnimateOnScroll>
@@ -139,11 +138,11 @@ export default function AboutUsPage() {
                   animation="fadeInUp"
                   delay={idx * 80}
                 >
-                  <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-6 text-center backdrop-blur-sm transition hover:border-[#A8C117]/35 hover:bg-white/8">
-                    <p className="text-[#A8C117] font-semibold text-2xl sm:text-3xl md:text-4xl mb-2 tabular-nums">
+                  <div className="rounded-2xl border border-gray-100 bg-white px-4 py-6 text-center shadow-sm transition hover:border-[#A8C117]/40 hover:shadow-md">
+                    <p className="text-[#5a8f00] font-semibold text-2xl sm:text-3xl md:text-4xl mb-2 tabular-nums">
                       {stat.value}
                     </p>
-                    <p className="text-white/75 text-xs sm:text-sm leading-snug">
+                    <p className="text-[#27415c] text-xs sm:text-sm leading-snug">
                       {t(STAT_STRIP_LABEL_KEYS[idx])}
                     </p>
                   </div>
@@ -280,25 +279,21 @@ export default function AboutUsPage() {
 
         <section
           id="investors"
-          className="relative w-full py-16 md:py-20 bg-[#052638] scroll-mt-24 overflow-hidden"
+          className="w-full py-14 md:py-20 bg-[#f4f7f9] scroll-mt-24"
           aria-labelledby="company-investors-heading"
         >
-          <div
-            className="pointer-events-none absolute -right-20 top-0 h-64 w-64 rounded-full bg-[#A8C117]/10 blur-3xl"
-            aria-hidden
-          />
-          <Container className="relative">
+          <Container>
             <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mx-auto text-center mb-10">
-              <p className="mb-4 inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#A8C117]">
+              <p className="mb-3 inline-flex items-center rounded-full border border-[#A8C117]/25 bg-[#A8C117]/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#5a8f00]">
                 {t("investors.eyebrow")}
               </p>
               <h2
                 id="company-investors-heading"
-                className="text-white font-semibold text-3xl md:text-4xl mb-4"
+                className="text-[#052638] font-semibold text-2xl md:text-3xl mb-4"
               >
                 {t("investors.heading")}
               </h2>
-              <p className="text-white/75 text-base md:text-lg leading-relaxed">
+              <p className="text-[#27415c] text-base md:text-lg leading-relaxed">
                 {t("investors.body")}
               </p>
             </AnimateOnScroll>
@@ -306,10 +301,10 @@ export default function AboutUsPage() {
               {(["bullet0", "bullet1", "bullet2"] as const).map((key) => (
                 <li
                   key={key}
-                  className="flex gap-4 rounded-xl border border-white/10 bg-white/5 px-5 py-4 text-sm md:text-base leading-relaxed text-white/85"
+                  className="flex gap-4 rounded-2xl border border-gray-100 bg-white px-5 py-4 text-sm md:text-base leading-relaxed text-[#27415c] shadow-sm transition hover:border-[#A8C117]/40 hover:shadow-md"
                 >
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#A8C117]/20 text-[#A8C117]">
-                    <Check className="h-3.5 w-3.5" strokeWidth={3} aria-hidden />
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#A8C117]/15">
+                    <Check className="h-3.5 w-3.5 text-[#5a8f00]" strokeWidth={3} aria-hidden />
                   </span>
                   {t(`investors.${key}`)}
                 </li>
@@ -324,8 +319,14 @@ export default function AboutUsPage() {
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
               <Link
+                href="/technology/ai-intelligence"
+                className="inline-flex justify-center px-6 py-3 rounded-xl border border-gray-200 bg-white text-[#052638] font-medium hover:border-[#A8C117] hover:text-[#5a8f00] transition-colors"
+              >
+                {t("investors.ctaAi")}
+              </Link>
+              <Link
                 href="/solar-panel-cleaning-system/orion-plant-intelligence-platform"
-                className="inline-flex justify-center px-6 py-3 rounded-xl border border-white/25 text-white font-medium hover:border-[#A8C117] hover:text-[#A8C117] transition-colors"
+                className="inline-flex justify-center px-6 py-3 rounded-xl border border-gray-200 bg-white text-[#052638] font-medium hover:border-[#A8C117] hover:text-[#5a8f00] transition-colors"
               >
                 {t("investors.ctaOrion")}
               </Link>
@@ -350,7 +351,7 @@ export default function AboutUsPage() {
               </h2>
             </AnimateOnScroll>
             <ul className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-              {(["item0", "item1", "item2", "item3"] as const).map((key) => (
+              {(["item0", "item1", "item2", "item3", "item4", "item5"] as const).map((key) => (
                 <li
                   key={key}
                   className="flex gap-3 rounded-2xl bg-white border border-gray-100 px-5 py-4 shadow-sm text-[#27415c] text-sm md:text-base transition hover:border-[#A8C117]/40 hover:shadow-md"
@@ -759,7 +760,10 @@ export default function AboutUsPage() {
                             "cubic-bezier(0.4, 0, 0.2, 1)",
                         }}
                       />
-                      <div className="relative h-[280px] w-full overflow-hidden bg-gradient-to-b from-gray-50 to-white">
+                      <div
+                        className="relative aspect-[4/5] w-full overflow-hidden bg-gradient-to-b from-gray-50 to-white"
+                        style={{ aspectRatio: "4 / 5" }}
+                      >
                         <Image
                           src={f.img}
                           alt={t("leadership.founderImageAlt", {
@@ -771,8 +775,8 @@ export default function AboutUsPage() {
                             role,
                           })}
                           fill
-                          sizes="220px"
-                          className="object-cover object-center transition-transform group-hover:scale-110 relative z-0"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                          className="object-contain object-bottom transition-transform group-hover:scale-[1.03] relative z-0"
                           style={{
                             willChange: "transform",
                             transitionDuration: "600ms",

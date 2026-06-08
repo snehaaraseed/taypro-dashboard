@@ -70,7 +70,7 @@
       "pillar1": {
         "tag": "Data layer",
         "title": "NECTYR fleet operations",
-        "body": "Schedule cycles, monitor blocks, manage AMC tickets, and audit coverage, labelled fleet telemetry from live deployments since 2022.",
+        "body": "Schedule cycles, monitor blocks, manage AMC tickets, and audit coverage, labelled fleet telemetry from live deployments since 2022 and 11 billion+ annual panel cleaning passes.",
         "link": "Explore NECTYR"
       },
       "pillar2": {
@@ -136,7 +136,7 @@
     },
     "stateGuides": {
       "heading": "Regional solar cleaning robot guides",
-      "intro": "Explore Taypro deployments, soiling context, and RFQ guidance by state — Rajasthan, Gujarat, Madhya Pradesh, Karnataka, Andhra Pradesh, Maharashtra, Uttar Pradesh, and Tamil Nadu."
+      "intro": "Explore Taypro deployments, soiling context, and RFQ guidance by state — regional guides cover Rajasthan, Gujarat, Madhya Pradesh, Karnataka, Maharashtra, Uttar Pradesh, Tamil Nadu, Haryana, Delhi, West Bengal, Chhattisgarh, and Andhra Pradesh."
     }
   },
   "Common": {

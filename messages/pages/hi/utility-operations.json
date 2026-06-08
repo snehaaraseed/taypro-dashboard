@@ -77,7 +77,7 @@
         "tag": "इंटेलिजेंस परत",
         "title": "ORION प्लांट स्वास्थ्य",
         "body": "SCADA को complement करने वाली generation-aware monitoring — Taypro पर पहले से fleets के renewal rails पर attach होने के लिए designed।",
-        "link": "ORION प्रारंभिक पहुंच"
+        "link": "ORION early access"
       }
     },
     "robotsSeo": {
@@ -95,7 +95,7 @@
       "body": "Soiling और water-use आंकड़े प्रकाशित industry research से। Plant-specific परिणाम site assessment चाहते हैं।",
       "link0Label": "Bergin et al. 2017, soiling in Gujarat",
       "link0Href": "https://pubs.acs.org/doi/10.1021/acs.estlett.7b00197",
-      "link1Label": "CEEW, भारत में जल और सोलर",
+      "link1Label": "CEEW, water and solar in India",
       "link1Href": "https://www.ceew.in/",
       "link2Label": "प्रदर्शन और परीक्षण पद्धति",
       "link2Href": "/performance-and-test-methodology"

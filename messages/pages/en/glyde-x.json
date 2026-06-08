@@ -131,7 +131,7 @@
       },
       "8": {
         "label": "Operating Weight",
-        "value": "25 kg"
+        "value": "26 kg"
       },
       "9": {
         "label": "Design Life",
@@ -336,7 +336,7 @@
         "label": "Robot Capacity Deployed"
       },
       "stat1": {
-        "label": "Plant Installations"
+        "label": "Panels Cleaned Annually"
       },
       "stat2": {
         "label": "Liters of Water Saved Annually"
@@ -449,7 +449,7 @@
       "row5": {
         "criterion": "Operating Weight",
         "glyde": "Heavier, designed for fixed-tilt utility-scale",
-        "glydeX": "25 kg (most compact)"
+        "glydeX": "26 kg (most compact)"
       },
       "row6": {
         "criterion": "Cleaning Mode",
@@ -524,8 +524,8 @@
       },
       "row3": {
         "criterion": "Operating Weight",
-        "glydeX": "25 kg compact tracker chassis",
-        "nyumaX": "25 kg compact tracker chassis"
+        "glydeX": "26 kg compact tracker chassis",
+        "nyumaX": "26 kg compact tracker chassis"
       },
       "row4": {
         "criterion": "Range Per Charge",

@@ -140,6 +140,7 @@ export default async function SolarPanelCleaningService({
         url={`${siteUrl}/solar-panel-cleaning-system/solar-panel-cleaning-service`}
         provider="TAYPRO Private Limited"
         serviceType={t("schema.serviceType")}
+        offerPriceKey="opexService"
       />
       <FAQPageSchema faqs={allFaqs} />
       <HowToSchema

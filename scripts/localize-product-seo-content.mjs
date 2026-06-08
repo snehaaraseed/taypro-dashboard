@@ -284,8 +284,8 @@ const glydeXVsNyumaX = {
     },
     row3: {
       criterion: "Operating weight",
-      glydeX: "25 kg compact tracker chassis",
-      nyumaX: "25 kg compact tracker chassis",
+      glydeX: "26 kg compact tracker chassis",
+      nyumaX: "26 kg compact tracker chassis",
     },
     row4: {
       criterion: "प्रति चार्ज रेंज",
@@ -338,8 +338,8 @@ const glydeXVsNyumaX = {
     },
     row3: {
       criterion: "الوزن التشغيلي",
-      glydeX: "25 kg هيكل tracker مدمج",
-      nyumaX: "25 kg هيكل tracker مدمج",
+      glydeX: "26 kg هيكل tracker مدمج",
+      nyumaX: "26 kg هيكل tracker مدمج",
     },
     row4: {
       criterion: "المدى لكل شحنة",
@@ -392,8 +392,8 @@ const glydeXVsNyumaX = {
     },
     row3: {
       criterion: "Operating weight",
-      glydeX: "25 kg compact tracker chassis",
-      nyumaX: "25 kg compact tracker chassis",
+      glydeX: "26 kg compact tracker chassis",
+      nyumaX: "26 kg compact tracker chassis",
     },
     row4: {
       criterion: "প্রতি charge রেঞ্জ",
@@ -446,8 +446,8 @@ const glydeXVsNyumaX = {
     },
     row3: {
       criterion: "運用重量",
-      glydeX: "25 kgコンパクトトラッカーシャシ",
-      nyumaX: "25 kgコンパクトトラッカーシャシ",
+      glydeX: "26 kgコンパクトトラッカーシャシ",
+      nyumaX: "26 kgコンパクトトラッカーシャシ",
     },
     row4: {
       criterion: "1充電あたりの走行",

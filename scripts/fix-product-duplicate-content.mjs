@@ -101,8 +101,8 @@ const glydeXVsNyumaXEn = {
   },
   row3: {
     criterion: "Operating Weight",
-    glydeX: "25 kg compact tracker chassis",
-    nyumaX: "25 kg compact tracker chassis",
+    glydeX: "26 kg compact tracker chassis",
+    nyumaX: "26 kg compact tracker chassis",
   },
   row4: {
     criterion: "Range Per Charge",

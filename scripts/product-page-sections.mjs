@@ -473,7 +473,7 @@ export const modelTSections = {
     },
     row5: {
       criterion: "Operating Weight",
-      modelT: "25 kg (most compact)",
+      modelT: "26 kg (most compact)",
       modelA: "Heavier, designed for fixed-tilt utility-scale",
     },
     row6: {

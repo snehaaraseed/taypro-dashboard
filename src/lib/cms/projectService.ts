@@ -258,7 +258,7 @@ export async function enrichProjectsForGrid(
   }));
 }
 
-/** Featured slugs first (config order), then keyword-filter matches. */
+/** Featured slugs first (config order), then keyword-filter matches; portfolio fallback when none. */
 export async function getStateLandingProjects(
   featuredSlugs: string[],
   filter: ProjectListFilter,
@@ -269,7 +269,13 @@ export async function getStateLandingProjects(
   const featuredIds = new Set(featured.map((p) => p.id));
   const filtered = await getFilteredFileProjects(filter, locale, 0);
   const rest = filtered.filter((p) => !featuredIds.has(p.id));
-  const combined = [...featured, ...rest];
+  let combined = [...featured, ...rest];
+
+  if (combined.length === 0) {
+    const all = await getAllFileProjects(locale);
+    combined = sortProjectsByDate(all);
+  }
+
   return limit > 0 ? combined.slice(0, limit) : combined;
 }
 

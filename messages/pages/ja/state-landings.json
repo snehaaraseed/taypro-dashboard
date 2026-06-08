@@ -22,7 +22,10 @@
       },
       "resources": {
         "eyebrow": "リソース",
-        "heading": "{state}の太陽光発電O&Mチーム向けガイド"
+        "heading": "{state}の太陽光発電O&Mチーム向けガイド",
+        "subheading": "汚れ、気象、清掃頻度、経済性を深掘りした記事 — ユーティリティO&M担当者向け。",
+        "readGuide": "ガイドを読む",
+        "viewAll": "すべてのリソースを見る"
       },
       "cta": {
         "priceGuide": "ロボット価格ガイド（インド）",
@@ -90,9 +93,9 @@
       },
       "resources": {
         "link0Title": "インド各地域における太陽光パネル清掃",
-        "link0Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india",
+        "link0Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates",
         "link1Title": "インドにおける天候がモジュール清掃に与える影響",
-        "link1Href": "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india",
+        "link1Href": "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india-tips-for-optimal-performance",
         "link2Title": "インドにおける清掃サービスの費用対効果分析",
         "link2Href": "/blog/cost-benefit-analysis-of-solar-panel-cleaning-services-in-india"
       },
@@ -222,7 +225,7 @@
       },
       "resources": {
         "link0Title": "インド各地域における太陽光パネル清掃",
-        "link0Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india",
+        "link0Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates",
         "link1Title": "インドで太陽光パネルを清掃すべき頻度",
         "link1Href": "/blog/how-often-should-you-clean-your-solar-panels-in-india",
         "link2Title": "インドにおける清掃サービスの費用対効果分析",
@@ -288,9 +291,9 @@
       },
       "resources": {
         "link0Title": "インドにおける天候がパネル清掃に与える影響",
-        "link0Href": "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india",
+        "link0Href": "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india-tips-for-optimal-performance",
         "link1Title": "インド各地域における太陽光パネル清掃",
-        "link1Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india",
+        "link1Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates",
         "link2Title": "清掃のその先へ：インドにおける自律型太陽光発電所",
         "link2Href": "/blog/beyond-cleaning-how-taypros-robots-are-paving-the-way-for-autonomous-solar-farms-in-india"
       },
@@ -356,9 +359,9 @@
       },
       "resources": {
         "link0Title": "インド各地域における太陽光パネル清掃",
-        "link0Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india",
+        "link0Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates",
         "link1Title": "インドにおける天候がモジュール汚れに与える影響",
-        "link1Href": "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india",
+        "link1Href": "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india-tips-for-optimal-performance",
         "link2Title": "インドにおける太陽光パネルの清掃頻度",
         "link2Href": "/blog/how-often-should-you-clean-your-solar-panels-in-india"
       },
@@ -422,7 +425,7 @@
       },
       "resources": {
         "link0Title": "インド各地域における太陽光パネル洗浄の重要性",
-        "link0Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india",
+        "link0Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates",
         "link1Title": "インドにおける洗浄サービスの費用対効果分析",
         "link1Href": "/blog/cost-benefit-analysis-of-solar-panel-cleaning-services-in-india",
         "link2Title": "インドにおける太陽光パネル洗浄の推奨頻度",
@@ -488,9 +491,9 @@
       },
       "resources": {
         "link0Title": "インド各地域における太陽光パネル清掃",
-        "link0Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india",
+        "link0Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates",
         "link1Title": "インドにおけるモジュール清浄度への気象影響",
-        "link1Href": "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india",
+        "link1Href": "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india-tips-for-optimal-performance",
         "link2Title": "インドにおける清掃サービスの費用対効果分析",
         "link2Href": "/blog/cost-benefit-analysis-of-solar-panel-cleaning-services-in-india"
       },
@@ -554,9 +557,9 @@
       },
       "resources": {
         "link0Title": "インドにおけるモジュール清浄度への気象影響",
-        "link0Href": "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india",
+        "link0Href": "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india-tips-for-optimal-performance",
         "link1Title": "インド各地域における太陽光パネル清掃",
-        "link1Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india",
+        "link1Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates",
         "link2Title": "インドで太陽光パネルを清掃すべき頻度",
         "link2Href": "/blog/how-often-should-you-clean-your-solar-panels-in-india"
       },
@@ -577,6 +580,270 @@
         "a6": "乾式ロボット清掃は水洗浄水物流を回避し、不適切洗浄によるモジュールリスクを低減しながら、手作業クルー単独より頻繁なサイクルを可能にします。",
         "q7": "TNオーナーはKarnataka同業をベンチマークできますか？",
         "a7": "はい。隣接KarnatakaのYadgirとKMFは混合・自動優先フリートの大定格南部実証を提供 — RFQベンチマークでNayveliとChennaiと併用して有用です。"
+      }
+    },
+    "haryana": {
+      "meta": {
+        "title": "Haryana向け太陽光パネル清掃ロボット | メガソーラー・産業用",
+        "description": "Haryanaのメガソーラー・産業用プラント向け非水洗浄ロボット。14.9 MW Haryana、Shri Ganesh Industries、Suresh Cotton、ThakkarサイトでTaypro — NYUMA半自動とGLYDEフリート。",
+        "openGraphTitle": "Haryana向け太陽光パネル清掃ロボット | Taypro",
+        "openGraphDescription": "Haryana向け乾式ロボット清掃 — NCR周辺の粉塵、産業用屋根、半自動CAPEXプログラム。"
+      },
+      "hero": {
+        "eyebrow": "Haryana · メガソーラー・産業用",
+        "title": "Haryana向け太陽光パネル清掃ロボット",
+        "subtitle": "HaryanaはNCR周辺の粉塵負荷と急成長するC&I・地上設置容量を併せ持ちます。Taypro非水洗浄ロボットは数MW級ユーティリティブロックと繊維工場屋根に対応 — NYUMA半自動ポータブルと反復可能列のGLYDE、インド全土故障SLA付き。"
+      },
+      "soiling": {
+        "eyebrow": "地域的背景",
+        "heading": "Haryanaにおける粉塵・産業粒子とO&M",
+        "p1": "Haryanaのソーラーベルトはデリー北の高交通量粉塵回廊に位置 — 道路・農業・工業の微粒子がモジュールに急速に付着し、特に分散したC&I屋根では暦ベースの水洗浄クルーでは追いつきません。",
+        "p2": "TayproのHaryanaポートフォリオは14.9 MW地上設置プログラムと、検査主導ブロック計画のNYUMA半自動ポータブルを使う複数の1 MW級産業屋根をカバー — 給水車物流なしの非水洗浄ブラッシング。",
+        "p3": "Haryanaのオーナーはブロック単位の清掃証明、研磨粉塵向けブラシPM間隔、当日故障対応を要求すべき — Tayproユーティリティ・C&Iの標準項目です。"
+      },
+      "models": {
+        "body": "Haryana展開は優先ブロックのユーティリティ規模半自動NYUMAと、反復可能な屋根テーブルのGLYDEを組み合わせます。14.9 MWプログラムは半自動密度；Shri Ganesh Industries、Suresh Cotton、Thakkar Chemical/CottonサイトはCAPEX所有下で屋根配列にNYUMAまたはGLYDEを運用。",
+        "recommended": "HaryanaのRFQは地上設置列の反復性と不規則な産業屋根を分離すべき — 経路が固定なら自動GLYDE、テーブルが可変または段階展開ならNYUMAポータブル。"
+      },
+      "deployments": {
+        "heading": "Haryanaの稼働中Tayproロボット",
+        "p1": "Taypro公開のHaryana事例には14.9 MW半自動地上設置プログラムと複数のサブMW産業屋根があり — 西部砂漠メガサイト以外でも非水洗浄ロボットが機能する証明です。",
+        "p2": "Haryana 14.9 MWでは、Tayproは週次ブロックカバレッジとCAPEX調達でNYUMA半自動ロボットを展開 — NCR粉塵帯でロボット密度と手作業クルーコストを比較するオーナーの参考です。",
+        "p3": "Shri Ganesh Industries（0.3 MW）、Suresh Cotton、Thakkar Chemical/Cotton（各1 MW）はNYUMAとGLYDEの屋根半自動パターンを示し — 繊維・プロセス産業RFQのベンチマークとして有用です。"
+      },
+      "procurement": {
+        "heading": "HaryanaにおけるCAPEX対Taypro Opex",
+        "p1": "多くのHaryana C&IオーナーはTayproコミッショニングとAMC付きCAPEXでNYUMAまたはGLYDEを購入 — ロボットを資産計上し清掃を夜間クルー人件費から切り離します。",
+        "p2": "Taypro Opexはレポート付きパネル清掃課金サービスとして利用可能 — ロボット購入の資本委員会承認前に即時清掃頻度が必要な産業サイト向けの選択肢です。"
+      },
+      "roiBand": {
+        "heading": "Haryanaソーラーのロボット価格と回収",
+        "p1": "HaryanaのロボットCAPEXはMW、屋根対地上レイアウト、半自動対自動の組み合わせで変動 — 産業屋根はユーティリティテーブルより低いMW当たり台数になることが多いです。",
+        "p2": "方向性の価格帯はインド価格ガイド、タリフはROI計算機を使用。正式Haryana見積もりはTayproアプリケーションエンジニアリングによるレイアウト確認が必要です。"
+      },
+      "resources": {
+        "link0Title": "インド各地域における太陽光パネル清掃",
+        "link0Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates",
+        "link1Title": "インドにおけるモジュール清浄度への気象影響",
+        "link1Href": "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india-tips-for-optimal-performance",
+        "link2Title": "インドにおけるパネル洗浄サービスの費用対効果分析",
+        "link2Href": "/blog/cost-benefit-analysis-of-solar-panel-cleaning-services-in-india"
+      },
+      "faq": {
+        "q0": "TayproはHaryanaに清掃ロボットを展開していますか？",
+        "a0": "はい。Tayproは14.9 MW地上設置プログラムとShri Ganesh Industries、Suresh Cotton、Thakkarサイトの産業屋根で稼働中です。MWとレイアウトを添えてTayproにお問い合わせください。",
+        "q1": "Haryanaの産業屋根に適したロボットは？",
+        "a1": "NYUMA半自動ポータブルとGLYDE自動ユニットがほとんどの屋根テーブルをカバー — 経路反復性と、夜間自動パスか検査主導週次ブロックかにより選択します。",
+        "q2": "Haryanaで非水洗浄の理由は？",
+        "a2": "乾式ロボット清掃は給水車と水洗浄モジュールリスクを回避し、手作業クルーより頻繁なサイクルを可能に — NCR周辺粉塵回廊では重要です。",
+        "q3": "Haryanaプラントのロボット価格は？",
+        "a3": "MW、レイアウト、自動化レベルにより異なります。インド価格ガイドとROI計算機を参照；正式見積もりはレイアウト確認後です。",
+        "q4": "TayproはHaryanaでOpexを提供しますか？",
+        "a4": "はい。Taypro Opexはパネル清掃課金で、Tayproがフリートを運用しNECTYRまたは合意検査ログでレポートします。",
+        "q5": "Haryanaサイトの清掃頻度は？",
+        "a5": "頻度は粉塵シーズンとブロック優先度に依存 — 半自動は週次ブロック計画、自動列は収穫後・モンスーン前に高密度化することがあります。",
+        "q6": "Haryanaで故障サポートはありますか？",
+        "a6": "はい。TayproはNECTYR遠隔診断と地域スペア在庫でインド全土当日オンサイト故障解決を目標とします。",
+        "q7": "RajasthanやUPとベンチマークできますか？",
+        "a7": "はい。Rajasthanの数百MWとUttar Pradeshユーティリティプログラムはフリートサイジングの大定格参考 — Haryana C&I屋根と同じRFQで有用です。"
+      }
+    },
+    "delhi": {
+      "meta": {
+        "title": "Delhi向け太陽光パネル清掃ロボット | 屋根・公共施設",
+        "description": "Delhiの太陽光パネル清掃ロボット — Parliament Delhi 0.7 MW屋根でGLYDE自動とNYUMA半自動の非水洗浄フリート。都市粉塵、厳しい物流、インド全土サービス。",
+        "openGraphTitle": "Delhi向け太陽光パネル清掃ロボット | Taypro",
+        "openGraphDescription": "Delhi向け非水洗浄ロボット清掃 — 公共施設屋根と都市汚れ、水洗浄物流なし。"
+      },
+      "hero": {
+        "eyebrow": "Delhi · 公共施設・屋根ソーラー",
+        "title": "Delhi向け太陽光パネル清掃ロボット",
+        "subtitle": "Delhiの都市ソーラー資産は道路粉塵、建設粒子、厳しい屋根物流に直面。Parliament DelhiのTaypro非水洗浄ロボットは旗艦0.7 MW屋根でGLYDE自動とNYUMA半自動清掃を実証 — インド全土故障SLAとNECTYRフリートガバナンス付き。"
+      },
+      "soiling": {
+        "eyebrow": "地域的背景",
+        "heading": "Delhiにおける都市汚れと屋根O&M",
+        "p1": "Delhiのモジュールは微細な都市粉塵と断続的な建設粒子を蓄積 — 警備キャンパスに洗浄水を運ばず頻繁な非研磨乾式清掃が有効な汚れプロファイルです。",
+        "p2": "TayproのParliament Delhi展開は0.7 MW屋根で2台のGLYDE自動ロボットとNYUMA半自動サポートを運用 — 首都で監査対応清掃証明が必要な公共オーナーの参考です。",
+        "p3": "DelhiのRFQは屋根アクセス時間帯、警備調整、当日故障対応を明記すべき — NCR隣接プログラムのTaypro標準項目です。"
+      },
+      "models": {
+        "body": "反復可能経路のDelhi屋根はGLYDE自動夜間パスに適合；不規則テーブルや警備制限時間帯は検査プロトコル付きNYUMA半自動ポータブル — Parliament Delhiは1キャンパスで両方を示します。",
+        "recommended": "首都圏RFQは自動対半自動台数を確定する前に列反復性とアクセス時間をマッピングすべきです。"
+      },
+      "deployments": {
+        "heading": "Parliament Delhiと首都圏ロボット",
+        "p1": "TayproのDelhiポートフォリオはParliament Delhi 0.7 MW屋根を中心に — 高セキュリティ都市環境での非水洗浄ロボット清掃の公共参考です。",
+        "p2": "サイトはCAPEX所有下でNYUMA半自動ギャップフィル付きGLYDE自動ロボットを運用 — 乾式ブラッシングが水洗浄タンカーなしでガバナンスとモジュールケア要件を満たすことを示します。",
+        "p3": "NCRベルトのオーナーは自社の首都圏RFQ前に、屋根フリート設計・調達・O&MレポートのベンチマークとしてParliament Delhiを参照できます。"
+      },
+      "procurement": {
+        "heading": "Delhi屋根向け商業モデル",
+        "p1": "TayproコミッショニングとAMC付きCAPEX購入がDelhi公共屋根の典型 — NECTYRによるブロック単位レポートでロボットを資産計上。",
+        "p2": "Taypro Opexはコミッショニングや段階的屋根拡張中に即時頻度が必要な場合、清掃をパネル清掃課金サービスに変換します。"
+      },
+      "roiBand": {
+        "heading": "Delhiソーラーのロボット価格ガイダンス",
+        "p1": "サブMW都市屋根はユーティリティ砂漠とはCAPEX強度が異なり — 台数はMWだけでなく経路キロとアクセス制約に従います。",
+        "p2": "インド価格ガイドとROI計算機を使用；正式Delhi見積もりはTayproレイアウト・アクセス確認が必要です。"
+      },
+      "resources": {
+        "link0Title": "インド各地域における太陽光パネル清掃",
+        "link0Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates",
+        "link1Title": "インドにおけるモジュール清浄度への気象影響",
+        "link1Href": "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india-tips-for-optimal-performance",
+        "link2Title": "インドにおけるパネル洗浄サービスの費用対効果分析",
+        "link2Href": "/blog/cost-benefit-analysis-of-solar-panel-cleaning-services-in-india"
+      },
+      "faq": {
+        "q0": "TayproはDelhiにロボットを展開していますか？",
+        "a0": "はい。Parliament Delhi 0.7 MW屋根で稼働中です。首都圏提案のためサイト詳細をTayproにご連絡ください。",
+        "q1": "警備された公共屋根をロボットで清掃できますか？",
+        "a1": "はい。Parliament Delhiは旗艦警備屋根でのTaypro非水洗浄ロボットを実証 — アクセス時間帯と検査プロトコルをキャンパス警備と調整します。",
+        "q2": "Delhi屋根でのGLYDE対NYUMA？",
+        "a2": "反復可能経路はGLYDE自動パス；不規則テーブルや限定アクセスはNYUMA半自動ポータブル — Parliament Delhiは両方を使用。",
+        "q3": "Delhiで非水洗浄の理由は？",
+        "a3": "乾式ロボット清掃は都市キャンパスでの水洗浄水物流を回避し、高粉塵シーズンに手作業クルーより頻繁なサイクルを可能にします。",
+        "q4": "Delhi屋根のロボット価格は？",
+        "a4": "レイアウト、アクセス、自動化ミックスで変動。インド価格ガイドを参照；正式見積もりはサイト確認後。",
+        "q5": "DelhiでOpexはありますか？",
+        "a5": "はい。Taypro OpexはTayproがフリートを運用するパネル清掃課金サービスとして利用可能です。",
+        "q6": "清掃証明はどう報告されますか？",
+        "a6": "NECTYRがスケジュール、清掃ログ、フリートヘルス監視を提供 — Parliament Delhiと同じガバナンス層です。",
+        "q7": "Delhi外のNCRオーナーも参考にできますか？",
+        "a7": "はい。TayproポートフォリオのHaryanaとUttar PradeshプログラムがNCRベルトRFQベンチマークを補完します。"
+      }
+    },
+    "westBengal": {
+      "meta": {
+        "title": "West Bengal向け太陽光パネル清掃ロボット | メガソーラー",
+        "description": "West Bengal向け太陽光パネル清掃ロボット。Sonar Bangla 1.4 MW — 東部湿潤汚れ、NYUMA半自動非水洗浄、インド全土サービス。",
+        "openGraphTitle": "West Bengal向け太陽光パネル清掃ロボット | Taypro",
+        "openGraphDescription": "West Bengal向け非水洗浄ロボット清掃 — 東部湿度と農業粒子、水洗浄物流なし。"
+      },
+      "hero": {
+        "eyebrow": "West Bengal · メガソーラー",
+        "title": "West Bengal向け太陽光パネル清掃ロボット",
+        "subtitle": "West Bengalは湿潤シーズンの膜と農業・工業粒子を併せ持つ汚れプロファイル — 頻繁な非研磨乾式清掃が有効です。TayproのSonar Bangla 1.4 MWは検査主導ブロックカバレッジのNYUMA半自動非水洗浄ロボットを運用。"
+      },
+      "soiling": {
+        "eyebrow": "地域的背景",
+        "heading": "West Bengalにおける湿度・粒子とO&M",
+        "p1": "東インドの湿度は粉塵と花粉をモジュール上の頑固な膜に結合 — 西部乾燥帯とは異なります。清掃は水洗浄水物流なしにモンスーン移行期を通じて非研磨を維持する必要があります。",
+        "p2": "Sonar Bangla 1.4 MWでは、Tayproは週次ブロック計画のCAPEX下でNYUMA半自動ロボットを展開 — West Bengalの湿潤運用環境で非水洗浄ロボットが機能する証明です。",
+        "p3": "West Bengalの開発者は耐湿熱ハードウェア検証、モンスーンホールドポリシー、当日故障SLAを要求すべき — Tayproユーティリティ標準項目です。"
+      },
+      "models": {
+        "body": "Sonar Bangla規模のWest Bengalプログラムは通常、地上設置ブロックでNYUMA半自動ポータブルから開始 — 反復可能列への自動密度化前に資本効率と検査主導カバレッジのバランスを取ります。",
+        "recommended": "東部RFQは湿潤シーズン運用のブラシPMと、週次半自動ブロックか夜間自動パスかをO&Mモデルで明確にすべきです。"
+      },
+      "deployments": {
+        "heading": "Sonar BanglaとWest Bengalロボット",
+        "p1": "Taypro公開のWest Bengal事例はSonar Bangla 1.4 MW — 東部湿度と農業粉塵の半自動地上設置参考です。",
+        "p2": "サイトはCAPEX調達と構造化ブロックカバレッジでNYUMA半自動ロボットを運用 — Bengalの運用気候でロボット頻度と手作業クルーコストを比較するオーナーに有用です。",
+        "p3": "West Bengal RFQ前に下記事例でフリートサイジングと調達の教訓をご確認ください。"
+      },
+      "procurement": {
+        "heading": "West Bengal向け商業モデル",
+        "p1": "TayproコミッショニングとAMC付きCAPEX購入がSonar Banglaクラスの典型 — 検査またはNECTYRレポートでロボットを資産計上。",
+        "p2": "Taypro Opexは完全CAPEX承認前に東部コミッショニング窓で即時頻度が必要な場合のパネル清掃課金サービスです。"
+      },
+      "roiBand": {
+        "heading": "West Bengalソーラーのロボット価格ガイダンス",
+        "p1": "5 MW未満の東部プログラムは西部メガサイトとMW当たりロボット経済が異なり — MWだけでなく列マップからサイズしてください。",
+        "p2": "インド価格ガイドとROI計算機を使用；正式West Bengal見積もりはTayproレイアウト確認が必要です。"
+      },
+      "resources": {
+        "link0Title": "インド各地域における太陽光パネル清掃",
+        "link0Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates",
+        "link1Title": "インドにおけるモジュール清浄度への気象影響",
+        "link1Href": "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india-tips-for-optimal-performance",
+        "link2Title": "インドにおけるパネル洗浄サービスの費用対効果分析",
+        "link2Href": "/blog/cost-benefit-analysis-of-solar-panel-cleaning-services-in-india"
+      },
+      "faq": {
+        "q0": "TayproはWest Bengalにロボットを展開していますか？",
+        "a0": "はい。Sonar Bangla 1.4 MWで稼働中です。MWとレイアウトを添えてTayproにお問い合わせください。",
+        "q1": "West Bengalの湿度に対応できますか？",
+        "a1": "TayproハードウェアはTÜV NORD耐湿熱・耐乾熱認証 — 湿潤東部気候のモンスーンとモンスーン後サイクル向けに設計。",
+        "q2": "West Bengal地上設置に適したロボットは？",
+        "a2": "Sonar Banglaの主参考はNYUMA半自動ポータブル；プログラム拡大で反復可能列にGLYDE自動密度を追加可能。",
+        "q3": "West Bengalで非水洗浄の理由は？",
+        "a3": "乾式ロボット清掃は水洗浄物流を回避しモジュールリスクを低減、手作業クルーより頻繁なサイクルを可能にします。",
+        "q4": "Bengalプラントのロボット価格は？",
+        "a4": "CAPEXはMW、レイアウト、自動化レベルでスケール。インド価格ガイドを参照；正式見積もりはレイアウト確認後。",
+        "q5": "West BengalでOpexはありますか？",
+        "a5": "はい。Taypro OpexはTayproがフリートを運用するパネル清掃課金サービスとして利用可能です。",
+        "q6": "モンスーンホールドはどう扱う？",
+        "a6": "有効な降雨後は冗長パスを避けるため待機；モンスーン後は植生や土木作業後に経路を再確認します。",
+        "q7": "東部同業とベンチマークできますか？",
+        "a7": "はい。Tamil Nadu沿岸プログラムとOdisha隣接東部ベルトがSonar Banglaと併せて湿潤気候参考になります。"
+      }
+    },
+    "chhattisgarh": {
+      "meta": {
+        "title": "Chhattisgarh向け太陽光パネル清掃ロボット | メガソーラー",
+        "description": "Chhattisgarh向け太陽光パネル清掃ロボット。Sungazing 2.5 MW — 中央インド粉塵、NYUMAとGLYDE半自動非水洗浄フリート、インド全土サービス。",
+        "openGraphTitle": "Chhattisgarh向け太陽光パネル清掃ロボット | Taypro",
+        "openGraphDescription": "Chhattisgarh向け非水洗浄ロボット清掃 — 中央インドの汚れ、水洗浄物流なし。"
+      },
+      "hero": {
+        "eyebrow": "Chhattisgarh · メガソーラー",
+        "title": "Chhattisgarh向け太陽光パネル清掃ロボット",
+        "subtitle": "Chhattisgarhの中央インドソーラーベルトは隣接MPと同様の粉塵回帰パターン — 収穫後の微粒子と乾季ピーク。Sungazing 2.5 MWのTaypro非水洗浄ロボットはブロック単位CAPEXプログラムでNYUMAとGLYDE半自動フリートを運用。"
+      },
+      "soiling": {
+        "eyebrow": "地域的背景",
+        "heading": "Chhattisgarhにおける中央インド粉塵とO&M",
+        "p1": "Chhattisgarhのモジュールは農業粉塵、道路粒子、季節ピークに直面 — 特に小規模ユーティリティブロックでは給水車物流がOPEXを増やします。",
+        "p2": "Sungazing 2.5 MWでは、TayproはCAPEX下で5台のNYUMA半自動ロボットとGLYDEサポートを展開 — 地上設置列の中央インド半自動密度の参考です。",
+        "p3": "Chhattisgarhのオーナーはブロック単位清掃証明、研磨粉塵向けブラシPM、インド全土故障SLAを要求すべき — Tayproユーティリティ標準項目です。"
+      },
+      "models": {
+        "body": "Sungazing規模のChhattisgarhプログラムは柔軟なブロックカバレッジのNYUMA半自動ポータブルと、反復可能経路のGLYDEを組み合わせ — 粉塵シーズン頻度目標に資本効率を合わせます。",
+        "recommended": "中央インドRFQは半自動対自動台数を確定する前に列反復性と粉塵シーズン優先ブロックをマッピングすべきです。"
+      },
+      "deployments": {
+        "heading": "SungazingとChhattisgarhロボット",
+        "p1": "Taypro公開のChhattisgarh事例はSungazing 2.5 MW — 中央インド粉塵とCAPEX調達の半自動地上設置参考です。",
+        "p2": "サイトはフリートミックスに5台のNYUMA半自動ロボットとGLYDEを運用 — Chhattisgarh運用気候でロボット密度と手作業クルーコストを比較するオーナーに有用です。",
+        "p3": "下記事例を参照し、中央インドRFQではMadhya PradeshのAgarなどとベンチマークしてください。"
+      },
+      "procurement": {
+        "heading": "ChhattisgarhにおけるCAPEX対Taypro Opex",
+        "p1": "TayproコミッショニングとAMC付きCAPEX購入がSungazingクラスの典型 — ブロックスケジュールと検査またはNECTYRレポートで資産計上。",
+        "p2": "Taypro Opexはロボット購入の資本委員会承認前に即時頻度が必要な場合のパネル清掃課金サービスです。"
+      },
+      "roiBand": {
+        "heading": "Chhattisgarhソーラーのロボット価格ガイダンス",
+        "p1": "2〜5 MW中央インドプログラムは西部メガサイトとMW当たりロボット経済が異なり — 列マップと自動化ミックスからサイズしてください。",
+        "p2": "インド価格ガイドとROI計算機を使用；正式Chhattisgarh見積もりはTayproレイアウト確認が必要です。"
+      },
+      "resources": {
+        "link0Title": "インド各地域における太陽光パネル清掃",
+        "link0Href": "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates",
+        "link1Title": "インドにおけるモジュール清浄度への気象影響",
+        "link1Href": "/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india-tips-for-optimal-performance",
+        "link2Title": "インドにおけるパネル洗浄サービスの費用対効果分析",
+        "link2Href": "/blog/cost-benefit-analysis-of-solar-panel-cleaning-services-in-india"
+      },
+      "faq": {
+        "q0": "TayproはChhattisgarhにロボットを展開していますか？",
+        "a0": "はい。Sungazing 2.5 MWで稼働中です。MWとレイアウトを添えてTayproにお問い合わせください。",
+        "q1": "Chhattisgarh地上設置に適したロボットは？",
+        "a1": "Sungazingの主参考はNYUMA半自動ポータブル；GLYDEは反復可能列をサポート — MP Agarはより大きな自動同業ベンチマークです。",
+        "q2": "Chhattisgarhで非水洗浄の理由は？",
+        "a2": "乾式ロボット清掃は給水車と水洗浄リスクを回避し、粉塵シーズンピークでより頻繁なサイクルを可能にします。",
+        "q3": "Chhattisgarhプラントのロボット価格は？",
+        "a3": "MW、レイアウト、自動化レベルにより異なります。インド価格ガイドを参照；正式見積もりはレイアウト確認後。",
+        "q4": "ChhattisgarhでOpexはありますか？",
+        "a4": "はい。Taypro Opexはパネル清掃課金で、Tayproがフリートを運用しNECTYRまたは合意検査ログでレポートします。",
+        "q5": "清掃頻度は？",
+        "a5": "頻度は粉塵シーズンに依存 — 半自動は週次ブロック計画；自動列はモンスーン前に高密度化することがあります。",
+        "q6": "故障サポートはありますか？",
+        "a6": "はい。Tayproは地域スペア在庫とNECTYR遠隔診断でインド全土当日オンサイト故障解決を目標とします。",
+        "q7": "MPプログラムとベンチマークできますか？",
+        "a7": "はい。Agar 200 MWとその他Madhya Pradesh展開がSungazingと併せて中央インドの大定格参考になります。"
       }
     }
   }

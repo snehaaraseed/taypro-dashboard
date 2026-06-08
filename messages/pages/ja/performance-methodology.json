@@ -1,7 +1,7 @@
 {
   "PerformanceMethodologyPage": {
     "meta": {
-      "title": "性能・試験方法",
+      "title": "性能・試験方法 | Taypro",
       "description": "Tayproが99%+粉塵除去の主張、汚損による発電回復、インド向け洗浄ロボットのプラットフォーム別性能をどう定義・試験・報告するか。"
     },
     "breadcrumb": "性能・試験方法",
@@ -45,7 +45,10 @@
       "helyxMethod": "逆回転PBTブラシ；行ごとのオペレータ配置",
       "glydeX": "GLYDE-X（トラッカー）",
       "glydeXMetric": "トラッカーテーブルでデュアルパスサイクルあたり99%+粉塵",
-      "glydeXMethod": "柔軟ブリッジ付きデュアルパス乾式洗浄；現地評価でトラッカー適合"
+      "glydeXMethod": "柔軟ブリッジ付きデュアルパス乾式洗浄；現地評価でトラッカー適合",
+      "modelA": "GLYDE（自動）",
+      "modelB": "HELYX（半自動）",
+      "modelT": "GLYDE-X（トラッカー）"
     },
     "uptime": {
       "heading": "稼働率とサービスコミットメント",

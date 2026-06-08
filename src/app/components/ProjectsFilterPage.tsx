@@ -101,18 +101,16 @@ export default async function ProjectsFilterPage({
               {t(`${v}.introP1After`)}
             </>
           }
-          footer={
+        />
+
+        <section className="border-b border-gray-200/80 bg-[#f4f7f9] py-10 md:py-14">
+          <Container>
             <ProjectsCategoryNav
               active={v}
               getLabel={categoryLabel}
               hubLabel={t("breadcrumbProjects")}
             />
-          }
-        />
-
-        <section className="border-b border-[#052638]/8 bg-[#f4f7f9] py-12 md:py-16">
-          <Container>
-            <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+            <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:gap-14">
               <AnimateOnScroll animation="fadeInUp" className="lg:col-span-7">
                 <p className="text-[#27415c] text-lg leading-relaxed md:text-xl">
                   {t(`${v}.introP2`)}

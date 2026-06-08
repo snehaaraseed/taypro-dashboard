@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { AnimateOnScroll } from "./AnimateOnScroll";
@@ -43,7 +44,7 @@ export default function ProjectsGrid({
 
   if (projects.length === 0) {
     return (
-      <div className="text-center py-16 text-[#27415c]">
+      <div className="py-16 text-center text-[#27415c]">
         <p>{t("projectCard.empty")}</p>
       </div>
     );
@@ -51,7 +52,7 @@ export default function ProjectsGrid({
 
   return (
     <div
-      className={`grid ${columnClasses[columns]} gap-x-10 gap-y-14 lg:gap-x-14 lg:gap-y-20 ${className}`.trim()}
+      className={`grid ${columnClasses[columns]} gap-6 lg:gap-8 ${className}`.trim()}
     >
       {projects.map((project, idx) => {
         const isFeatured = featuredFirst && idx === 0 && columns === 2;
@@ -75,10 +76,10 @@ export default function ProjectsGrid({
             <Link
               href={project.href}
               title={project.title}
-              className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] focus-visible:ring-offset-4 rounded-sm"
+              className="group block h-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:border-[#A8C117]/50 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] focus-visible:ring-offset-4"
             >
               <div
-                className={`relative overflow-hidden bg-[#eef3f8] mb-5 ${
+                className={`relative overflow-hidden bg-[#eef3f8] ${
                   isFeatured ? "aspect-[21/9] md:aspect-[2.4/1]" : "aspect-[4/3]"
                 }`}
               >
@@ -97,20 +98,21 @@ export default function ProjectsGrid({
                   }
                   quality={idx < 2 ? 75 : 70}
                   priority={idx < 2}
+                  loading={idx < 2 ? "eager" : "lazy"}
                 />
-                <div className="absolute inset-0 bg-[#052638]/0 group-hover:bg-[#052638]/5 transition-colors duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#052638]/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               </div>
 
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+              <div className="flex flex-col gap-4 p-5 md:p-6">
                 <div className="min-w-0 flex-1">
-                  <p className="text-[#A8C117] text-xs font-medium uppercase tracking-[0.2em] mb-2">
+                  <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#A8C117]">
                     {eyebrow}
                   </p>
-                  <h3 className="text-[#052638] font-semibold text-xl md:text-2xl leading-snug group-hover:text-[#5a8f00] transition-colors duration-300">
+                  <h3 className="text-xl font-semibold leading-snug text-[#052638] transition-colors duration-300 group-hover:text-[#5a8f00] md:text-2xl">
                     {project.title}
                   </h3>
                   {excerpt ? (
-                    <p className="mt-3 text-[#27415c] text-sm md:text-base leading-relaxed line-clamp-2">
+                    <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-[#27415c] md:text-base">
                       {excerpt}
                     </p>
                   ) : null}
@@ -137,8 +139,9 @@ export default function ProjectsGrid({
                     </div>
                   )}
                 </div>
-                <span className="shrink-0 text-[#5a8f00] text-sm font-medium mt-1 sm:mt-8 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-[#5a8f00] transition-all duration-300 group-hover:gap-2.5">
                   {t("projectCard.viewLink")}
+                  <ArrowRight className="h-4 w-4" aria-hidden />
                 </span>
               </div>
             </Link>

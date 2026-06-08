@@ -26,8 +26,10 @@ const enProjects = new Set(
 
 const LINK_RE = /["'`](\/blog\/[^"'`?#\s]+|\/projects\/[^"'`?#\s]+)/g;
 const SKIP = new Set(["node_modules", ".next", ".git", "admin"]);
+const BLOG_PLACEHOLDER_SLUGS = new Set(["slug", "list", "create", "scrape", "page"]);
 
 function walk(dir, files = []) {
+  if (!fs.existsSync(dir)) return files;
   for (const n of fs.readdirSync(dir)) {
     if (SKIP.has(n)) continue;
     const f = path.join(dir, n);
@@ -46,8 +48,11 @@ const PROJECT_HUB = new Set([
   "/projects/opex",
 ]);
 
+const SCAN_ROOTS = ["src", "messages"].map((d) => path.join(ROOT, d));
+
 const missing = { blog: new Map(), project: new Map() };
-for (const file of walk(path.join(ROOT, "src"))) {
+for (const root of SCAN_ROOTS) {
+  for (const file of walk(root)) {
   const text = fs.readFileSync(file, "utf8");
   let m;
   LINK_RE.lastIndex = 0;
@@ -58,6 +63,7 @@ for (const file of walk(path.join(ROOT, "src"))) {
     if (p === "/blog" || PROJECT_HUB.has(p)) continue;
     if (p.startsWith("/blog/")) {
       const slug = p.slice(6);
+      if (BLOG_PLACEHOLDER_SLUGS.has(slug)) continue;
       if (!enBlogs.has(slug)) {
         if (!missing.blog.has(slug)) missing.blog.set(slug, []);
         if (missing.blog.get(slug).length < 2)
@@ -70,6 +76,20 @@ for (const file of walk(path.join(ROOT, "src"))) {
         if (missing.project.get(slug).length < 2)
           missing.project.get(slug).push(path.relative(ROOT, file));
       }
+    }
+  }
+  }
+}
+
+// data.ts blog cards
+const dataTs = path.join(ROOT, "src/app/data.ts");
+if (fs.existsSync(dataTs)) {
+  const text = fs.readFileSync(dataTs, "utf8");
+  for (const m of text.matchAll(/href: "\/blog\/([^"]+)"/g)) {
+    const slug = m[1];
+    if (!enBlogs.has(slug)) {
+      if (!missing.blog.has(slug)) missing.blog.set(slug, []);
+      missing.blog.get(slug).push("src/app/data.ts");
     }
   }
 }

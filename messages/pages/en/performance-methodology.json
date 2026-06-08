@@ -53,7 +53,7 @@
     },
     "publicProof": {
       "heading": "Fleet impact figures on taypro.in",
-      "body": "Hero and company stats such as 5 GW+ capacity, 150+ live sites, 188 GWh+ additional clean generation, 700M+ litres of water saved annually, and 93k+ metric tons of CO₂ avoided use approved public marketing assumptions for India utility-scale fleets. Water-savings estimates follow CEEW-class wet-wash benchmarks (~7,000 L per MW per cycle × ~20 cycles per year vs. waterless robotic cleaning). Generation recovery figures compare waterless robotic cadence to typical wet-wash baselines, not nameplate module efficiency. Directional ESG model outputs may differ slightly from rounded public tiles; plant-specific outcomes require site assessment."
+      "body": "Hero and company stats such as 5 GW+ capacity, 11 billion+ panels cleaned annually (11,00,00,00,000 panel passes per year, fleet aggregate), 150+ live sites, 188 GWh+ additional clean generation, 700M+ litres of water saved annually, and 93k+ metric tons of CO₂ avoided use approved public marketing assumptions for India utility-scale fleets. The annual panel-cleaning figure aggregates completed cleaning passes across deployed automatic and semi-automatic fleets. Water-savings estimates follow CEEW-class wet-wash benchmarks (~7,000 L per MW per cycle × ~20 cycles per year vs. waterless robotic cleaning). Generation recovery figures compare waterless robotic cadence to typical wet-wash baselines, not nameplate module efficiency. Directional ESG model outputs may differ slightly from rounded public tiles; plant-specific outcomes require site assessment."
     },
     "documentation": {
       "heading": "Plant-specific documentation",

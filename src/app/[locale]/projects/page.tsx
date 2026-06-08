@@ -34,7 +34,7 @@ const PROJECT_CATEGORY_KEYS = [
 
 const STAT_LABEL_KEYS = [
   "robotCapacityLabel",
-  "co2ReducedLabel",
+  "panelsCleanedAnnuallyLabel",
   "waterSavedLabel",
   "robotsManufacturedLabel",
 ] as const;
@@ -105,7 +105,7 @@ export default async function ProjectPage({
           title={
             <>
               {t("hero.titleLine1")}
-              <span className="mt-2 block text-[#A8C117]">{t("hero.titleLine2")}</span>
+              <span className="mt-2 block">{t("hero.titleLine2")}</span>
             </>
           }
           lead={
@@ -120,14 +120,14 @@ export default async function ProjectPage({
               {portfolioProjects.length > 0 ? (
                 <a
                   href="#all-projects"
-                  className="inline-flex min-h-[44px] items-center rounded-full bg-[#A8C117] px-5 py-2.5 text-sm font-semibold text-[#052638] transition hover:bg-[#b8d42a]"
+                  className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-[#A8C117] px-6 py-3 text-sm font-semibold text-[#052638] transition hover:bg-[#b3cf3d]"
                 >
                   {t("featured.viewAllLink", { count: allProjects.length })}
                 </a>
               ) : null}
               <Link
                 href="/contact"
-                className="inline-flex min-h-[44px] items-center rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition hover:border-white/40 hover:bg-white/5"
+                className="inline-flex min-h-[44px] items-center rounded-xl border border-gray-200 bg-white px-6 py-3 text-sm font-medium text-[#052638] transition hover:border-[#A8C117] hover:text-[#5a8f00]"
               >
                 {t("faq.cta")}
               </Link>
@@ -137,15 +137,15 @@ export default async function ProjectPage({
 
         {/* Stats */}
         <section
-          className="relative z-10 -mt-6 border-b border-[#052638]/8 bg-[#f4f7f9] pb-4 pt-10 md:-mt-8 md:pb-6 md:pt-12"
+          className="bg-[#f4f7f9] py-14 md:py-20"
           aria-labelledby="projects-stats-heading"
         >
           <Container>
-            <AnimateOnScroll animation="fadeInUp" className="mb-8 md:mb-10">
+            <AnimateOnScroll animation="fadeInUp" className="mb-10 text-center md:mb-12">
               <ProjectsSectionLabel label={t("stats.eyebrow")} />
               <h2
                 id="projects-stats-heading"
-                className="max-w-2xl text-2xl font-semibold leading-snug text-[#052638] md:text-3xl"
+                className="mx-auto max-w-2xl text-2xl font-semibold leading-snug text-[#052638] md:text-3xl"
               >
                 {t("stats.heading")}
               </h2>
@@ -156,13 +156,14 @@ export default async function ProjectPage({
                   key={stat.label}
                   animation="fadeInUp"
                   delay={idx * 80}
-                  className="rounded-2xl border border-[#052638]/8 bg-white p-5 shadow-sm md:p-6"
                 >
-                  <div className="mb-2 text-3xl font-semibold tabular-nums leading-none text-[#A8C117] sm:text-4xl md:text-[2.5rem]">
-                    {stat.value}
-                  </div>
-                  <div className="max-w-[14rem] text-sm leading-relaxed text-[#27415c] sm:text-base">
-                    {t(`stats.${STAT_LABEL_KEYS[idx]}`)}
+                  <div className="rounded-2xl border border-gray-100 bg-white px-4 py-6 text-center shadow-sm transition hover:border-[#A8C117]/40 hover:shadow-md md:px-5 md:py-7">
+                    <div className="mb-2 text-2xl font-semibold tabular-nums leading-none text-[#5a8f00] sm:text-3xl md:text-4xl">
+                      {stat.value}
+                    </div>
+                    <div className="mx-auto max-w-[14rem] text-xs leading-relaxed text-[#27415c] sm:text-sm">
+                      {t(`stats.${STAT_LABEL_KEYS[idx]}`)}
+                    </div>
                   </div>
                 </AnimateOnScroll>
               ))}
@@ -172,17 +173,20 @@ export default async function ProjectPage({
 
         {/* Categories */}
         <section
-          className="w-full py-16 md:py-24 border-b border-[#052638]/8"
+          className="w-full border-b border-gray-200/80 bg-white py-16 md:py-24"
           aria-labelledby="browse-by-type-heading"
         >
           <Container>
-            <AnimateOnScroll animation="fadeInUp" className="mb-12 md:mb-16">
+            <AnimateOnScroll animation="fadeInUp" className="mb-12 md:mb-16 max-w-2xl">
               <ProjectsSectionLabel label={t("categories.heading")} counter="01/04" />
-              <p className="text-[#27415c] text-lg md:text-xl leading-relaxed max-w-2xl">
+              <h2 id="browse-by-type-heading" className="sr-only">
+                {t("categories.heading")}
+              </h2>
+              <p className="text-[#27415c] text-lg leading-relaxed md:text-xl">
                 {t("categories.intro")}
               </p>
             </AnimateOnScroll>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
               {PROJECT_CATEGORY_KEYS.map((cat, idx) => (
                 <AnimateOnScroll
                   key={cat.href}
@@ -191,20 +195,24 @@ export default async function ProjectPage({
                 >
                   <Link
                     href={cat.href}
-                    className="group flex h-full flex-col rounded-2xl border border-[#052638]/10 bg-white p-8 shadow-sm transition-all duration-300 hover:border-[#A8C117]/40 hover:shadow-md md:p-9"
+                    className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-[#f4f7f9] shadow-sm transition-all duration-300 hover:border-[#A8C117]/50 hover:shadow-lg"
                   >
-                    <span className="text-[#A8C117]/70 text-sm font-medium tabular-nums mb-6">
-                      {String(idx + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="text-[#052638] font-semibold text-xl md:text-2xl mb-4 group-hover:text-[#5a8f00] transition-colors duration-300">
-                      {t(`categories.${cat.key}.cardTitle`)}
-                    </h3>
-                    <p className="text-[#27415c] text-base leading-relaxed flex-1">
-                      {t(`categories.${cat.key}.description`)}
-                    </p>
-                    <span className="mt-8 inline-flex items-center gap-2 text-[#5a8f00] font-medium text-sm group-hover:gap-3 transition-all duration-300">
-                      {t(`categories.${cat.key}.viewLink`)}
-                    </span>
+                    <div className="border-b border-gray-100 bg-white px-6 py-5 md:px-7">
+                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#A8C117]/15 text-sm font-semibold tabular-nums text-[#5a8f00]">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <div className="flex flex-1 flex-col p-6 md:p-7">
+                      <h3 className="mb-3 text-xl font-semibold text-[#052638] transition-colors duration-300 group-hover:text-[#5a8f00] md:text-2xl">
+                        {t(`categories.${cat.key}.cardTitle`)}
+                      </h3>
+                      <p className="flex-1 text-base leading-relaxed text-[#27415c]">
+                        {t(`categories.${cat.key}.description`)}
+                      </p>
+                      <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#5a8f00] transition-all duration-300 group-hover:gap-3">
+                        {t(`categories.${cat.key}.viewLink`)}
+                      </span>
+                    </div>
                   </Link>
                 </AnimateOnScroll>
               ))}
@@ -214,7 +222,7 @@ export default async function ProjectPage({
 
         {/* Featured projects */}
         <section
-          className="py-16 md:py-24 bg-[#f4f7f9] overflow-x-hidden"
+          className="overflow-x-hidden bg-[#f4f7f9] py-16 md:py-24"
           aria-labelledby="featured-projects-heading"
         >
           <Container>
@@ -251,8 +259,11 @@ export default async function ProjectPage({
               </p>
             </AnimateOnScroll>
             <ProjectsGrid projects={featuredProjects} featuredFirst />
-            <AnimateOnScroll animation="fadeInUp" className="mt-16 pt-10 border-t border-[#052638]/10">
-              <p className="text-[#27415c] text-base md:text-lg mb-6">
+            <AnimateOnScroll
+              animation="fadeInUp"
+              className="mt-16 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-8"
+            >
+              <p className="mb-6 text-base text-[#27415c] md:text-lg">
                 {t("featured.browseAllIntro")}
               </p>
               <div className="flex flex-wrap gap-3">
@@ -260,7 +271,7 @@ export default async function ProjectPage({
                   <Link
                     key={cat.href}
                     href={cat.href}
-                    className="inline-flex items-center min-h-[44px] rounded-full border border-[#052638]/15 bg-white px-5 py-2 text-sm font-medium text-[#052638] hover:border-[#A8C117] hover:text-[#5a8f00] transition-colors duration-300"
+                    className="inline-flex min-h-[44px] items-center rounded-full border border-gray-200 bg-[#f4f7f9] px-5 py-2 text-sm font-medium text-[#052638] transition-colors duration-300 hover:border-[#A8C117] hover:bg-white hover:text-[#5a8f00]"
                   >
                     {t(`categories.${cat.key}.cardTitle`)}
                   </Link>

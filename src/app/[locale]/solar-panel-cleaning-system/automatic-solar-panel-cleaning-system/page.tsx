@@ -246,11 +246,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
         image={getProductImageUrl("glyde", siteUrl)}
         brand={t("schema.product.brand")}
         sku={t("schema.product.sku")}
-        offers={{
-          price: t("schema.product.offers.price"),
-          priceCurrency: t("schema.product.offers.priceCurrency"),
-          availability: t("schema.product.offers.availabilitySchemaUrl"),
-        }}
+        offerPriceKey="glyde"
       />
       <FAQPageSchema faqs={allFaqEntries} />
       <HowToSchema

@@ -38,14 +38,15 @@
       "bodyStrong": "روبوتات تنظيف الألواح الشمسية",
       "bodyMid": "لمواقع المرافق واسعة النطاق المتربة في الهند - يجمع بين التنظيف الجاف ذو المرور المزدوج الحاصل على براءة اختراع، والجداول الزمنية الذكية، و",
       "nectyrLink": "NECTYR",
-      "bodyAfter": "حتى تستعيد فرق O&M الإنتاج دون الحاجة إلى لوجستيات المياه."
+      "bodyAfter": "حتى تستعيد فرق O&M الإنتاج دون الحاجة إلى لوجستيات المياه.",
+      "consoleLink": "NECTYR"
     },
     "stats": {
-      "ariaLabel": "تأثير تقنية Taypro",
-      "label0": "سعة الروبوتات المنشورة",
-      "label1": "منشآت المصانع",
-      "label2": "لترات المياه المحفوظة سنويًا",
-      "label3": "سعة تصنيع الروبوتات شهريًا"
+      "ariaLabel": "مقياس تقنية Taypro",
+      "label0": "أصول شمسية منظفة يومياً",
+      "label1": "الألواح المنظفة سنوياً",
+      "label2": "منشآت المصانع",
+      "label3": "سعة الروبوتات المنشورة"
     },
     "pillars": {
       "eyebrow": "نظرة عامة على المنصة",
@@ -179,7 +180,8 @@
         "bullet0": "منطق الإيقاف والاستئناف المراعي للطقس",
         "bullet1": "سجل الدورات لمناقشات PR والضمان",
         "bullet2": "الدمج مع شبكة الخدمة وقطع الغيار على مستوى الهند",
-        "imageAlt": "مراقبة أسطول NECTYR لروبوتات تنظيف الألواح الشمسية"
+        "imageAlt": "مراقبة أسطول NECTYR لروبوتات تنظيف الألواح الشمسية",
+        "consoleLink": "NECTYR"
       },
       "connectivity": {
         "eyebrow": "عمليات الأسطول",
@@ -218,10 +220,10 @@
       "p1After": "عبر أساطيل العملاء, مع دعم",
       "p1End": "من سعة الروبوتات في الميدان.",
       "caseStudiesLink": "تصفح دراسات الحالة الميدانية",
-      "stat0Label": "قدرة الروبوتات المنشورة",
-      "stat1Label": "منشآت المحطات",
-      "stat2Label": "CO₂ المخفض سنويًا",
-      "stat3Label": "القدرة التصنيعية الشهرية"
+      "stat0Label": "سعة الروبوتات المنشورة",
+      "stat1Label": "الألواح المنظفة سنوياً",
+      "stat2Label": "منشآت المصانع",
+      "stat3Label": "لترات المياه المحفوظة سنويًا"
     },
     "snapshot": {
       "eyebrow": "لمحة سريعة",
@@ -290,11 +292,12 @@
     },
     "explore": {
       "heading": "استكشف التالي",
-      "intro": "عروض الأسعار، عائد الاستثمار، ونقاط إثبات المشروع لمحطتك.",
+      "intro": "أجهزة، برمجيات ذكاء الأسطول، عائد الاستثمار، وإثبات المشاريع.",
       "link0": "روبوتات التنظيف الشمسي",
       "link1": "حاسبة العائد على الاستثمار",
       "link2": "مشاريع مباشرة",
-      "link3": "اتصل بـ Taypro"
+      "link3": "طبقة ذكاء اصطناعي",
+      "link4": "اتصل بـ Taypro"
     },
     "callback": {
       "header": "ناقش تكنولوجيا التنظيف لمحطتك"
@@ -311,6 +314,62 @@
       "a1": "On 10 MW+ sites, manual brush or wet-wash crews scale poorly — labour, water, and inconsistent pass quality limit cadence. Taypro robots run waterless dual-pass cycles on a predictable schedule with NECTYR audit trails.",
       "q2": "How often should panels be dust-cleaned in India?",
       "a2": "Most utility plants benefit from daily or near-daily dry cleaning during dry months and faster cycles after dust storms. Taypro starts with a soiling study to recommend block-wise cadence rather than a one-size-fits-all interval."
+    },
+    "fleetScale": {
+      "eyebrow": "نطاق التشغيل",
+      "heading": "أكثر من 5 جيجاواط من الأصول الشمسية تُنظف يومياً",
+      "capacityLabel": "سعة الروبوتات المنشورة",
+      "panelsLabel": "الألواح المنظفة سنوياً",
+      "sitesLabel": "منشآت نشطة",
+      "dailyLabel": "أصول شمسية منظفة يومياً",
+      "deployedLabel": "سعة الروبوتات المنشورة"
+    },
+    "dataMoat": {
+      "eyebrow": "ميزة متزايدة",
+      "heading": "ميزة بيانات ميدانية تتزايد مع كل تنظيف"
+    },
+    "aiLearning": {
+      "eyebrow": "أتمتة ذكية",
+      "heading": "ذكاء اصطناعي يتعلم مع كل تنظيف — دون جدولة يدوية",
+      "cta": "استكشف عمليات أسطول NECTYR",
+      "intelligenceBefore": "لعمق بوابة NECTYR والبيانات الموسومة، راجع",
+      "intelligenceLink": "طبقة الذكاء الاصطناعي",
+      "intelligenceAfter": "."
+    },
+    "techStack": {
+      "eyebrow": "البنية",
+      "heading": "حزمة تقنية تنظيف Taypro"
+    },
+    "liveOps": {
+      "eyebrow": "عمليات مباشرة",
+      "heading": "ذكاء العمليات المباشرة في NECTYR",
+      "autonomousTitle": "بدء تنظيف مستقل وتنسيق الأسطول",
+      "nectyrLink": "استكشف NECTYR",
+      "aiLink": "قسم تعلم AI"
+    },
+    "dualPassMechanism": {
+      "eyebrow": "علم التنظيف",
+      "heading": "لماذا يتفوق التمرير المزدوج على التنظيف الجاف أحادي المرحلة",
+      "comparisonHeading": "مقارنة آليات التنظيف الجاف",
+      "colMethod": "الطريقة",
+      "colContact": "نموذج التلامس",
+      "colDustLift": "رفع الغبار",
+      "colResidue": "البقايا الملتصقة",
+      "colWear": "خطر تآكل الوحدة"
+    },
+    "trackerTech": {
+      "eyebrow": "هندسة المتتبعات",
+      "heading": "تنظيف متتبع أحادي المحور دون بنية تحتية ثابتة عبر الطاولات"
+    },
+    "selfAlignment": {
+      "eyebrow": "هندسة الميل الثابت",
+      "heading": "محاذاة ذاتية على تضاريس متموجة"
+    },
+    "deploymentScope": {
+      "eyebrow": "نطاق النشر",
+      "heading": "جوهر على نطاق المرافق، قادر على الأسطح",
+      "utilityTitle": "نطاق المرافق — حيث يُبنى خندق البيانات",
+      "rooftopTitle": "تركيبات C&I والأسطح"
     }
   },
   "Common": {

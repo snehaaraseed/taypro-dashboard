@@ -81,7 +81,8 @@ export default function BlogList({ blogs }: BlogListProps) {
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    priority={idx < 3}
+                    priority={idx === 0}
+                    loading={idx === 0 ? "eager" : "lazy"}
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center text-[#5c6f82] text-sm">

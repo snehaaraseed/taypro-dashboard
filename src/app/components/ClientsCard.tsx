@@ -60,16 +60,17 @@ export default function ClientsCard({
               delay={idx * 80}
               className="flex items-center justify-center border border-[#1c201f] bg-white h-[140px] sm:h-[210px] px-4 transition-all duration-300 hover:shadow-lg hover:border-[#39D600] transform hover:-translate-y-1"
             >
-              <Image
-                src={item.logoSrc}
-                alt={item.alt}
-                title={item.title}
-                width={160}
-                height={120}
-                sizes="(max-width: 640px) 50vw, 160px"
-                className="h-[120px] w-auto max-w-[80%] object-contain transition-transform duration-300 hover:scale-105"
-                loading="lazy"
-              />
+              <div className="relative h-[120px] w-full max-w-[80%]">
+                <Image
+                  src={item.logoSrc}
+                  alt={item.alt}
+                  title={item.title}
+                  fill
+                  sizes="(max-width: 640px) 50vw, 160px"
+                  className="object-contain transition-transform duration-300 hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
             </AnimateOnScroll>
           ))}
         </div>

@@ -31,6 +31,7 @@ export default function Footer() {
     { name: t("contact"), href: "/contact" },
     { name: t("sitemap"), href: "/site-map" },
     { name: t("ourTechnology"), href: "/cleaning-technology" },
+    { name: t("aiIntelligence"), href: "/technology/ai-intelligence" },
     { name: t("privacyPolicy"), href: "/privacy-policy" },
     { name: t("cookiePolicy"), href: "/cookie-policy" },
     { name: t("termsOfService"), href: "/terms-of-service" },

@@ -1,0 +1,128 @@
+{
+  "AiIntelligencePage": {
+    "meta": {
+      "title": "NECTYRフリートAI・ソーラーO&Mインテリジェンス | Taypro",
+      "description": "大規模ソーラー向けNECTYRフリートAI：ラベル付きテレメトリ、自律スケジュール、MLルーティング、予知保全アラート。",
+      "openGraphTitle": "AI Intelligence Layer | Taypro Solar Cleaning",
+      "openGraphDescription": "Self-learning fleet AI trained on 11 billion+ annual panel passes across India's largest robotic cleaning fleet.",
+      "twitterTitle": "AI Intelligence Layer | Taypro",
+      "twitterDescription": "Fleet-learning AI, NECTYR live intelligence, and the data flywheel behind 5 GW+ of deployed cleaning robots."
+    },
+    "breadcrumb": "AIインテリジェンス",
+    "hero": {
+      "eyebrow": "NECTYR · フリート運用インテリジェンス",
+      "title": "ソーラーフリートAIとNECTYR運用インテリジェンス",
+      "body": "TAYPRO's competitive advantage is not the robot alone — it is what the intelligence layer knows. Self-learning models trained on 11 billion+ annual panel passes across 150+ plants refine soiling prediction, battery routing, and weather scheduling with every cycle. Plants commissioned today inherit years of prior fleet intelligence.",
+      "ctaNectyr": "NECTYRを見る",
+      "ctaTechnology": "洗浄技術"
+    },
+    "flywheel": {
+      "eyebrow": "The data flywheel",
+      "heading": "How daily fleet cycles feed AI that improves itself",
+      "body": "Every cleaning cycle across Taypro's 5 GW+ deployed fleet generates structured data — soiling rates by geography and season, weather correlation, battery performance, and fault patterns. Models ingest this telemetry continuously: a plant in Rajasthan benefits from monsoon-shoulder timing learned in Maharashtra; a new GLYDE-X tracker site inherits routing intelligence from hundreds of prior array maps. The dataset compounds with each site added. Competitors entering today would need years of equivalent utility-scale deployments to replicate it."
+    },
+    "capabilities": {
+      "eyebrow": "6つのAI機能",
+      "heading": "自己学習フリートインテリジェンス — 本日NECTYRで稼働",
+      "intro": "These are not roadmap features. They run across Taypro's active fleet every night.",
+      "hardwareCrossLink": "洗浄技術"
+    },
+    "capability0": {
+      "title": "Self-learning fleet intelligence",
+      "body": "Taypro's AI model improves soiling prediction, timing optimisation, and routing decisions with every cleaning cycle executed across the 5 GW+ fleet. A plant commissioned today inherits intelligence built from years of prior operations — seasonality patterns, regional dust signatures, and post-storm recovery timing that no new entrant can replicate from scratch."
+    },
+    "capability1": {
+      "title": "Battery-optimised cleaning via ML array mapping",
+      "body": "On first deployment, ML maps the full panel array — row lengths, gaps, tilt variations, undulation profiles — and builds a persistent site model. Route planning draws from this map to maximise panels cleaned per charge. The result: approximately 2× cleaning coverage per charge compared to unoptimised traversal, reducing robot weight requirements and structural load on panels and frames over the asset life."
+    },
+    "capability2": {
+      "title": "Battery-aware intelligence in low-generation conditions",
+      "body": "In cloudy or partial-generation periods, available battery capacity is lower. Rather than attempting full-array traversal and leaving incomplete cycles, the system analyses real-time battery state against the site map and prioritises highest-soiling blocks first — completing meaningful cleaning within available energy rather than aborting mid-fleet."
+    },
+    "capability3": {
+      "title": "95% accuracy weather scheduling",
+      "body": "NECTYR ingests windspeed, rain probability, humidity, airborne pollen levels, and local environmental data — not just binary rain detection — to schedule cleaning cycles at optimal windows. Verified 95% scheduling accuracy in field conditions means fewer wasted cycles, better generation alignment, and more predictable O&M budgeting."
+    },
+    "capability4": {
+      "title": "Wet microfiber detection",
+      "body": "Taypro robots carry sensors detecting whether the microfiber has absorbed moisture from dew, overnight humidity, or residual rain. If wet, the system postpones the cleaning cycle automatically. A wet microfiber on a dusty panel smears particulates and risks glass micro-abrasion — no human intervention required."
+    },
+    "nectyrLive": {
+      "eyebrow": "NECTYR live intelligence",
+      "heading": "What operators see in the field",
+      "intro": "Fleet software turns robot telemetry into decisions plant teams actually use.",
+      "item0": "Live robot position tracking on plant layout map",
+      "item1": "Root-cause fault identification — where and why a robot stopped",
+      "item2": "Battery state monitoring and charge curve analysis per robot",
+      "item3": "Wet microfiber detection alerts and automatic cycle protection",
+      "item4": "Predictive maintenance alerts from fleet-wide deviation signatures",
+      "item5": "Cycle audit logs and exportable reports for PR and AMC evidence",
+      "nectyrLink": "Explore NECTYR"
+    },
+    "orion": {
+      "eyebrow": "Roadmap",
+      "heading": "ORION — plant intelligence on the same rails",
+      "body": "ORION extends the intelligence layer from cleaning operations to full plant health — generation-aware monitoring that ties cleaning, weather, and performance so asset owners can act before the MWh is gone. ORION attaches at AMC renewal on NECTYR rails already live across IPP portfolios. Early access is open for select asset owners.",
+      "cta": "ORION early access"
+    },
+    "dataMoat": {
+      "eyebrow": "For investors & enterprise buyers",
+      "heading": "フリート規模の複利データの堀",
+      "body": "Every cleaning cycle across Taypro's 5 GW+ operational fleet generates structured data that trains AI models improving continuously. A competitor entering the market today would need years of equivalent deployments to replicate this dataset. Taypro's technology advantage compounds with scale — and every new site makes the model smarter for the entire fleet."
+    },
+    "cta": {
+      "heading": "See the full technology stack",
+      "cleaningTech": "Cleaning technology",
+      "contact": "Contact Taypro",
+      "nectyr": "Explore NECTYR",
+      "projects": "稼働中プロジェクト"
+    },
+    "whyScale": {
+      "eyebrow": "スケールが重要な理由",
+      "heading": "5 GWスケールでAIが異なる理由",
+      "body": "大規模ロボット洗浄は単一サイトの試験では得られない構造化テレメトリを生成。5 GW+の日次スループットで各サイクルが地域・季節・アレイ種別で汚損応答をラベル付け。",
+      "pillar0": {
+        "title": "フリート規模のラベル付き現場テレメトリ",
+        "body": "完了ブロックごとに時間・カバレッジ・バッテリー消費・環境コンテキストを記録。5 GW+日次でラベルが急速に蓄積。"
+      },
+      "pillar1": {
+        "title": "サイト横断学習が複利で効く",
+        "body": "今四半期に稼働した発電所は数百の先行導入からスケジュール知見を継承。"
+      },
+      "pillar2": {
+        "title": "各サイトでデータの堀が深まる",
+        "body": "発電所が増えるほどラベル付きサイクルと汚損モデルが精緻化しO&M予測が向上。"
+      }
+    },
+    "fleetProof": {
+      "dailyLabel": "日次清掃ソーラー資産",
+      "panelsLabel": "年間洗浄パネル数",
+      "sitesLabel": "稼働中の発電所",
+      "deployedLabel": "展開ロボット容量",
+      "methodologyLink": "性能・試験方法論"
+    },
+    "platformStack": {
+      "eyebrow": "三層プラットフォーム",
+      "heading": "ロボットが実行。NECTYRが判断。ORIONが拡張。"
+    },
+    "dataSignals": {
+      "eyebrow": "各サイクルが記録するデータ",
+      "heading": "フリートAIを訓練するデータラベル"
+    },
+    "deepDive": {
+      "eyebrow": "現場での仕組み",
+      "heading": "夜間O&Mを変える3つの機能"
+    },
+    "forWhom": {
+      "eyebrow": "大規模O&M向け",
+      "heading": "フリートインテリジェンスの受益者"
+    },
+    "faq": {
+      "title": "よくある質問",
+      "subtitle": "Taypro AIインテリジェンス層とNECTYRに関する回答。"
+    }
+  },
+  "Common": {
+    "breadcrumbHome": "Home"
+  }
+}

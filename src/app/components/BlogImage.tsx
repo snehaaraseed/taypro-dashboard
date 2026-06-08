@@ -41,6 +41,7 @@ export function BlogImage({
       className={className}
       sizes={sizes}
       priority={priority}
+      loading={priority ? "eager" : "lazy"}
       onError={() => setError(true)}
       {...(isExternal ? { unoptimized: true } : {})}
     />

@@ -9,7 +9,11 @@ export type StateLandingId =
   | "andhraPradesh"
   | "maharashtra"
   | "uttarPradesh"
-  | "tamilNadu";
+  | "tamilNadu"
+  | "haryana"
+  | "delhi"
+  | "westBengal"
+  | "chhattisgarh";
 
 export type StateLandingConfig = {
   id: StateLandingId;
@@ -79,9 +83,9 @@ export const STATE_LANDING_PAGES: Record<StateLandingId, StateLandingConfig> = {
     id: "andhraPradesh",
     path: "/solar-panel-cleaning-robot-andhra-pradesh",
     addressRegion: "Andhra Pradesh",
-    projectFilter: { keywords: ["karnataka", "yadgir", "tracker"] },
-    featuredSlugs: ["yadgir-solar-project-50-mw", "kmf-karnataka-75-mw"],
-    placeSchemaSlugs: ["yadgir-solar-project-50-mw"],
+    projectFilter: { keywords: ["andhra pradesh", "andhra"] },
+    featuredSlugs: [],
+    placeSchemaSlugs: [],
     heroImage: "/tayprosolarpanel/solar-panel.jpg",
   },
   maharashtra: {
@@ -123,6 +127,52 @@ export const STATE_LANDING_PAGES: Record<StateLandingId, StateLandingConfig> = {
     placeSchemaSlugs: ["nayveli-10-mw", "chennai-10-mw"],
     heroImage: PROJECT_HERO_IMAGE_PATH,
   },
+  haryana: {
+    id: "haryana",
+    path: "/solar-panel-cleaning-robot-haryana",
+    addressRegion: "Haryana",
+    projectFilter: {
+      keywords: ["haryana", "ganesh", "thakkar", "suresh cotton", "suresh-cotton"],
+    },
+    featuredSlugs: [
+      "haryana-149-mw",
+      "shri-ganesh-industries-03-mw",
+      "suresh-cotton-1-mw",
+    ],
+    placeSchemaSlugs: ["haryana-149-mw"],
+    heroImage: PROJECT_HERO_IMAGE_PATH,
+  },
+  delhi: {
+    id: "delhi",
+    path: "/solar-panel-cleaning-robot-delhi",
+    addressRegion: "Delhi",
+    projectFilter: { keywords: ["delhi", "parliament"] },
+    featuredSlugs: ["parliament-delhi-07-mw"],
+    placeSchemaSlugs: ["parliament-delhi-07-mw"],
+    heroImage: PROJECT_HERO_IMAGE_PATH,
+  },
+  westBengal: {
+    id: "westBengal",
+    path: "/solar-panel-cleaning-robot-west-bengal",
+    addressRegion: "West Bengal",
+    projectFilter: {
+      keywords: ["west bengal", "sonar bangla", "sonar-bangla"],
+    },
+    featuredSlugs: ["sonar-bangla-14-mw"],
+    placeSchemaSlugs: ["sonar-bangla-14-mw"],
+    heroImage: "/tayprosolarpanel/solar-panel.jpg",
+  },
+  chhattisgarh: {
+    id: "chhattisgarh",
+    path: "/solar-panel-cleaning-robot-chhattisgarh",
+    addressRegion: "Chhattisgarh",
+    projectFilter: {
+      keywords: ["chhattisgarh", "chattisgarh", "sungazing"],
+    },
+    featuredSlugs: ["sungazing-25-mw"],
+    placeSchemaSlugs: ["sungazing-25-mw"],
+    heroImage: PROJECT_HERO_IMAGE_PATH,
+  },
 };
 
 export const ALL_STATE_LANDING_IDS = Object.keys(
@@ -139,4 +189,13 @@ export function statePathById(id: StateLandingId): string {
 
 export function getSiblingStateIds(id: StateLandingId): StateLandingId[] {
   return ALL_STATE_LANDING_IDS.filter((stateId) => stateId !== id);
+}
+
+/** Translation keys under SiteMapPage.links (e.g. stateRajasthanLabel). */
+export function stateLandingSiteMapLabelKey(id: StateLandingId): string {
+  return `state${id.charAt(0).toUpperCase()}${id.slice(1)}Label`;
+}
+
+export function stateLandingSiteMapTitleKey(id: StateLandingId): string {
+  return `state${id.charAt(0).toUpperCase()}${id.slice(1)}Title`;
 }

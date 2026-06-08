@@ -182,11 +182,7 @@ export async function CradylProductPage({ locale }: CradylProductPageProps) {
         image={`${siteUrl}${product.heroImagePath}`}
         brand="Taypro"
         sku={product.model}
-        offers={{
-          price: t("schema.offersPrice"),
-          priceCurrency: "INR",
-          availability: "https://schema.org/InStock",
-        }}
+        offerPriceKey="cradyl"
       />
       <FAQPageSchema faqs={faqs} />
       <HowToSchema

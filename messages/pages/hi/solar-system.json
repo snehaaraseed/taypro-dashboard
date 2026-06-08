@@ -1,8 +1,8 @@
 {
   "SolarSystemPage": {
     "meta": {
-      "title": "भारत में सोलर पैनल सफाई रोबोट और सिस्टम",
-      "description": "GLYDE, NYUMA, HELYX और ट्रैकर रोबोट की तुलना करें। वॉटरलेस सफाई, TÜV NORD प्रमाणित, पैन-India सहायता। आज अपना मॉडल चुनें।",
+      "title": "भारत में सोलर पैनल सफाई रोबोट और सिस्टम, मशीनें और मॉडल | Taypro",
+      "description": "हर Taypro सोलर पैनल सफाई रोबोट की तुलना करें: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, साथ ही Taypro Opex और NECTYR। वॉटरलेस सफाई, AI शेड्यूलिंग, TÜV NORD प्रमाणित, पैन-इंडिया सहायता।",
       "keywords": [
         "सोलर पैनल सफाई रोबोट",
         "सोलर पैनल सफाई रोबोट भारत",
@@ -24,13 +24,13 @@
         "सोलर पैनल सफाई"
       ],
       "openGraphSiteName": "Taypro",
-      "openGraphTitle": "भारत में सोलर पैनल सफाई रोबोट और सिस्टम",
+      "openGraphTitle": "सोलर पैनल सफाई रोबोट | स्वचालित, अर्ध-स्वचालित और ट्रैकर मॉडल, Taypro",
       "openGraphDescription": "अपने प्लांट के लिए सही रोबोट चुनें, GLYDE और GLYDE-X फ्लैगशिप डुअल-पास रोबोट, NYUMA और NYUMA-X PBT प्लेटफ़ॉर्म, बिखरे प्लांटों के लिए HELYX, साथ OPEX और NECTYR।",
       "openGraphImageAlt": "Taypro सोलर पैनल सफाई रोबोट, GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX",
       "openGraphLocale": "en_IN",
       "openGraphType": "website",
       "twitterCard": "summary_large_image",
-      "twitterTitle": "भारत में सोलर पैनल सफाई रोबोट और सिस्टम",
+      "twitterTitle": "सोलर पैनल सफाई रोबोट | Taypro, भारत में निर्मित",
       "twitterDescription": "फिक्स्ड-टिल्ट और ट्रैकर प्लांटों के लिए पाँच Taypro सफाई रोबोट, PBT सिंगल-पास और पेटेंटेड डुअल-पास माइक्रोफाइबर विकल्प।"
     },
     "breadcrumbs": {
@@ -223,7 +223,11 @@
       "p2BetweenHelyxTracker": " बिखरे प्लांटों के लिए, ट्रैकर-तैयार ",
       "p2BetweenTrackers": " और ",
       "p2AfterTrackers": " सिंगल-एक्सिस लेआउट के लिए। जानें ",
-      "p2BeforeNectyr": " कैसे काम करती है, फिर हर रोबोट की निगरानी "
+      "p2BeforeNectyr": " कैसे काम करती है, फिर हर रोबोट की निगरानी ",
+      "p2LinkModelB": "HELYX",
+      "p2LinkModelT": "GLYDE-X",
+      "p2LinkConsole": "NECTYR",
+      "p2AfterConsole": " फ्लीट पोर्टल के माध्यम से मॉनिटर होता है और CAPEX या मासिक "
     },
     "productGrid": {
       "eyebrow": "हमारी रोबोट श्रृंखला",
@@ -486,7 +490,11 @@
         "andhraPradesh": "Andhra Pradesh",
         "maharashtra": "Maharashtra",
         "uttarPradesh": "Uttar Pradesh",
-        "tamilNadu": "Tamil Nadu"
+        "tamilNadu": "Tamil Nadu",
+        "haryana": "हरियाणा",
+        "delhi": "दिल्ली",
+        "westBengal": "पश्चिम बंगाल",
+        "chhattisgarh": "छत्तीसगढ़"
       }
     },
     "whyTaypro": {
@@ -776,6 +784,12 @@
       "trustedBy": "Trusted by {names} and other IPPs, EPCs, and C&I operators deploying Taypro cleaning robots across India.",
       "logoAlt": "{name} — Taypro solar cleaning robot customer",
       "logoTitle": "{name}"
+    },
+    "consoleBand": {
+      "eyebrow": "NECTYR, फ्लीट पोर्टल",
+      "title": "आपके प्लांट के हर सोलर पैनल सफाई रोबोट को मॉनिटर करने के लिए एक पोर्टल",
+      "body": "साइट डैशबोर्ड, मौसम संदर्भ, ब्लॉक-वार शेड्यूल, सफाई लॉग, निर्यात, गेटवे और रोबोट स्वास्थ्य, सपोर्ट टिकट, सभी भूमिका-आधारित और यूटिलिटी O&M शासन के लिए तैयार।",
+      "cta": "NECTYR देखें"
     }
   }
 }

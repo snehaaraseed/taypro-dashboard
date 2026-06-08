@@ -46,7 +46,7 @@ export default async function HomePlatformSection() {
                 </p>
                 <Link
                   href={t(`pillars.${key}.href`)}
-                  className="brand-inline-link text-sm font-medium"
+                  className="inline-flex items-center justify-center px-4 py-2 rounded-lg border border-[#A8C117]/50 text-[#A8C117] text-sm font-semibold hover:bg-[#A8C117]/10 hover:border-[#A8C117] transition-colors"
                 >
                   {t(`pillars.${key}.link`)}
                 </Link>
@@ -65,8 +65,11 @@ export default async function HomePlatformSection() {
                 <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#A8C117]/20 text-[#A8C117] text-sm font-semibold shrink-0">
                   {String(idx + 1).padStart(2, "0")}
                 </span>
-                <span className="text-white/90 text-sm font-medium">
-                  {t(`loopSteps.${key}`)}
+                <span className="text-white font-medium text-sm">
+                  {t(`loopSteps.${key}.title`)}
+                </span>
+                <span className="text-gray-400 text-xs leading-snug max-w-[11rem] sm:mt-1 hidden sm:block">
+                  {t(`loopSteps.${key}.description`)}
                 </span>
                 {idx < LOOP_STEP_KEYS.length - 1 && (
                   <span
@@ -84,27 +87,33 @@ export default async function HomePlatformSection() {
 
         <AnimateOnScroll
           animation="fadeInUp"
-          className="max-w-4xl mx-auto rounded-2xl border border-[#A8C117]/30 bg-[#0a3a4a]/80 p-6 md:p-8"
+          className="max-w-4xl mx-auto rounded-2xl border border-gray-200/80 bg-[#f4f7f9] p-6 md:p-8 shadow-sm"
         >
-          <p className="text-[#A8C117] text-xs font-semibold uppercase tracking-wider mb-2">
+          <p className="mb-3 inline-flex items-center rounded-full border border-[#A8C117]/25 bg-[#A8C117]/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#5a8f00]">
             {t("investorEyebrow")}
           </p>
-          <h3 className="text-white font-semibold text-xl md:text-2xl mb-3">
+          <h3 className="text-[#052638] font-semibold text-xl md:text-2xl mb-3">
             {t("investorTitle")}
           </h3>
-          <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-5">
+          <p className="text-[#27415c] text-sm md:text-base leading-relaxed mb-5">
             {t("investorBody")}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Link
               href="/company#investors"
-              className="inline-flex justify-center items-center px-5 py-2.5 rounded-lg bg-[#A8C117] text-[#052638] text-sm font-semibold hover:bg-[#b3cf3d] transition-colors"
+              className="inline-flex justify-center items-center px-5 py-2.5 rounded-xl bg-[#A8C117] text-[#052638] text-sm font-semibold hover:bg-[#b3cf3d] transition-colors"
             >
               {t("investorCtaCompany")}
             </Link>
             <Link
+              href="/technology/ai-intelligence"
+              className="inline-flex justify-center items-center px-5 py-2.5 rounded-xl border border-gray-200 bg-white text-[#052638] text-sm font-medium hover:border-[#A8C117] hover:text-[#5a8f00] transition-colors"
+            >
+              {t("investorCtaAi")}
+            </Link>
+            <Link
               href={ORION_PRODUCT_PATH}
-              className="inline-flex justify-center items-center px-5 py-2.5 rounded-lg border border-white/30 text-white text-sm font-medium hover:border-[#A8C117] hover:text-[#A8C117] transition-colors"
+              className="inline-flex justify-center items-center px-5 py-2.5 rounded-xl border border-gray-200 bg-white text-[#052638] text-sm font-medium hover:border-[#A8C117] hover:text-[#5a8f00] transition-colors"
             >
               {t("investorCtaOrion")}
             </Link>

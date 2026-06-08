@@ -24,12 +24,12 @@ export function ProjectsCategoryNav({
 }: ProjectsCategoryNavProps) {
   return (
     <nav
-      className="flex flex-wrap gap-2"
+      className="flex flex-wrap justify-center gap-2"
       aria-label="Project deployment categories"
     >
       <Link
         href="/projects"
-        className="inline-flex min-h-[40px] items-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white/75 transition-colors hover:border-white/30 hover:text-white"
+        className="inline-flex min-h-[40px] items-center rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-[#052638] transition-colors hover:border-[#A8C117] hover:text-[#5a8f00]"
       >
         {hubLabel}
       </Link>
@@ -43,7 +43,7 @@ export function ProjectsCategoryNav({
             className={`inline-flex min-h-[40px] items-center rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
               isActive
                 ? "border-[#A8C117] bg-[#A8C117] text-[#052638]"
-                : "border-white/15 bg-white/5 text-white/75 hover:border-white/30 hover:text-white"
+                : "border-gray-200 bg-white text-[#052638] hover:border-[#A8C117] hover:text-[#5a8f00]"
             }`}
           >
             {getLabel(key)}

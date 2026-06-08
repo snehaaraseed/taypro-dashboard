@@ -41,7 +41,7 @@ export const BLOG_AUTHORS: BlogAuthor[] = [
     name: "Taypro Team",
     slug: "taypro-team",
     role: "Solar Automation Specialists",
-    bio: "The Taypro editorial team covers utility-scale solar O&M, waterless robotic cleaning, fleet software, and plant performance for IPPs and EPC teams across India. Our writers draw on field data from 150+ live robot deployments, 5 GW+ of monitored cleaning capacity, and Taypro's Made-in-India manufacturing in Chakan, Pune.",
+    bio: "The Taypro editorial team covers utility-scale solar O&M, waterless robotic cleaning, fleet software, and plant performance for IPPs and EPC teams across India. Our writers draw on field data from 150+ live robot deployments, 5 GW+ of monitored cleaning capacity, 11 billion+ annual panel cleaning passes, and Taypro's Made-in-India manufacturing in Chakan, Pune.",
     expertiseTags: ["industry-trends", "robot-products"],
     avatarUrl:
       "https://ui-avatars.com/api/?name=Taypro+Team&background=052638&color=ffffff&size=256",

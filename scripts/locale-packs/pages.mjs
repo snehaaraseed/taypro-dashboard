@@ -17,6 +17,7 @@ import {
 import { cleaningServicePack } from "./cleaning-service.mjs";
 import { projectsFilterPack } from "./projects-filter.mjs";
 import { nectyrPack } from "./nectyr.mjs";
+import { aiIntelligencePack } from "./ai-intelligence.mjs";
 
 /** @type {{ slug: string; pack: object }[]} */
 export const pagePacks = [
@@ -34,6 +35,7 @@ export const pagePacks = [
   { slug: "cleaning-technology", pack: cleaningTechnologyPack },
   { slug: "projects-filter", pack: projectsFilterPack },
   { slug: "nectyr", pack: nectyrPack },
+  { slug: "ai-intelligence", pack: aiIntelligencePack },
   { slug: "privacy-policy", pack: privacyPolicyPack },
   { slug: "terms-of-service", pack: termsOfServicePack },
   { slug: "cookie-policy", pack: cookiePolicyPack },

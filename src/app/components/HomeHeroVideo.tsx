@@ -22,6 +22,7 @@ export default function HomeHeroVideo({ videoId, title }: HomeHeroVideoProps) {
         className="hidden lg:block object-cover object-center"
         sizes="(max-width: 1024px) 90vw, 720px"
         quality={75}
+        priority
         loading="eager"
         fetchPriority="high"
       />

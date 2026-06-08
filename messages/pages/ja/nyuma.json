@@ -1,15 +1,28 @@
 {
   "NyumaPage": {
     "meta": {
-      "title": "自動ソーラーパネル洗浄ロボット | NYUMA",
-      "description": "固定傾斜向け水なしPBT NYUMA。99%+除塵、NECTYRフリート、TÜV NORD。見積もり依頼。",
-      "openGraphTitle": "自動ソーラーパネル洗浄ロボット | NYUMA",
+      "title": "シングルパスPBT自動ソーラーパネル清掃ロボット, Taypro NYUMA（無水・AI）",
+      "description": "Taypro NYUMAは完全自律・無水の自動ソーラーパネル清掃ロボットです。AI/MLシングルパスPBT乾式清掃でサイクルあたり99%超のホコリ除去、1充電で最大3,600モジュール、NECTYR経由のLTE/Wi-Fi/RF mesh/LoRa/LoRaWAN、TÜV NORD認証。",
+      "openGraphTitle": "シングルパスPBT自動清掃ロボット, Taypro NYUMA",
       "openGraphDescription": "特許シングルパスPBTPBTブラシ。自律無水清掃、NECTYRフリートポータル。",
       "openGraphType": "website",
       "openGraphImageAlt": "Taypro NYUMA 自動ソーラーパネル清掃ロボット",
-      "twitterTitle": "自動ソーラーパネル洗浄ロボット | NYUMA",
+      "twitterTitle": "シングルパスPBT自動清掃ロボット, Taypro NYUMA",
       "twitterDescription": "NYUMA：自律無水シングルパスPBT、1充電3,600モジュール、NECTYR。",
-      "twitterCard": "summary_large_image"
+      "twitterCard": "summary_large_image",
+      "keywords": [
+        "PBTソーラーパネル洗浄ロボット",
+        "PBT自動ソーラーパネル洗浄ロボット",
+        "シングルパスソーラーパネル洗浄ロボット",
+        "シングルパス自動ソーラー洗浄ロボット",
+        "水なしPBTソーラー洗浄ロボット",
+        "固定傾斜PBT洗浄ロボット",
+        "自動ソーラーパネル洗浄ロボット インド",
+        "自律型ソーラーパネル洗浄ロボット",
+        "ユーティリティ規模ソーラー洗浄ロボット",
+        "TÜV NORD認証ソーラー洗浄ロボット",
+        "Taypro NYUMA"
+      ]
     },
     "breadcrumbs": {
       "home": "ホーム",
@@ -35,7 +48,7 @@
         "name": "自動ソーラーパネル清掃ロボットがユーティリティ規模プラントを清掃する方法（Taypro NYUMA）",
         "description": "NYUMAの自律清掃サイクル, AIスケジューリング、シングルパスPBT無水清掃、セルフドッキング、クラウドテレメトリ。",
         "totalTime": "PT2H",
-        "imagePath": "/tayprorobots/nyuma/brush-detail.webp"
+        "imagePath": "/tayproasset/taypro-robotImage.png"
       }
     },
     "hero": {
@@ -71,10 +84,10 @@
       },
       "methodologyLinkText": "パフォーマンス・試験方法論",
       "methodologyLinkTitle": "パフォーマンス・試験方法論",
-      "p2BeforeStrong": "1回の充電で、NYUMAは最大",
-      "p2Strong": "2.2 kmの走行長、約3,600枚のソーラーモジュール",
-      "p2AfterStrong": "を清掃します。清掃サイクルは発電時間外にスケジュールするのが最適で、NECTYRから遠隔プログラムでき、発電への影響はゼロです。",
-      "p3": "NYUMAの逆回転PBTブラシドラムは1回の無水パスで乾燥塵を除去 — 気流段なし、消耗品が少ない。エッジ検知でフレーム接触を維持しガラスには載せない。バッテリー連動で割当列完了後シャドウフリードックへ — 季節傾斜45°まで。",
+      "p2BeforeStrong": "On a single charge, NYUMA cleans up to ",
+      "p2Strong": "2.2 km of running length, approximately 3,600 solar modules",
+      "p2AfterStrong": ". Cleaning cycles are best scheduled outside energy production hours and can be programmed remotely, ensuring zero impact on plant generation.",
+      "p3": "NYUMA's patented single-pass PBT mechanism combines high-speed airflow with a self-cleaning PBT brush drum — the first pass lifts dry dust, the second completes the wipe without water or detergent. Edge and obstacle detection maps every panel boundary while surface-undulation tracking keeps brush pressure consistent row-by-row. Battery-aware logic ensures each assigned array is cleaned completely before the robot self-docks — rated for 180 km/hr gusts while locked at the station.",
       "p4Blog1": "モジュール上で自動清掃ロボットがどう動くか",
       "p4Blog2": "ユーティリティ規模でのロボット清掃のメリット",
       "p4Prefix": "関連記事: ",
@@ -126,9 +139,9 @@
       }
     },
     "product360": {
-      "eyebrow": "製品概要",
-      "title": "NYUMAロボットを見る",
-      "subtitle": "固定傾斜・季節傾斜の大規模ソーラー発電所向けに設計された完全自律PBT清掃ロボット",
+      "eyebrow": "インタラクティブ製品ツアー",
+      "title": "NYUMAの360°ビュー",
+      "subtitle": "左右にドラッグしてロボットをあらゆる角度から確認",
       "productLabel": "Taypro NYUMA, 自動ソーラーパネル清掃ロボット"
     },
     "usps": {
@@ -169,8 +182,8 @@
           "label": "導入ロボット容量"
         },
         "stat1": {
-          "value": "100+",
-          "label": "プラント導入"
+          "value": "11B+",
+          "label": "年間洗浄パネル数"
         },
         "stat2": {
           "value": "875M+",
@@ -208,8 +221,8 @@
     "featuresLongForm": {
       "mainHeading": "Taypro NYUMA自動清掃ロボットの特長",
       "aiCleaning": {
-        "title": "AI対応無水シングルパス清掃",
-        "body": "NYUMAはAI/MLの圧力・速度ロジックをシングルパスPBTドラムに適用 — 1回の連続スweepで99%超の乾燥塵を水なしで除去。"
+        "title": "AI対応・無水シングルパスPBT清掃",
+        "body": "NYUMAはAI/MLと特許シングルパスPBT, 1走行で99%超、水不要・研磨なし。"
       },
       "microfiber": {
         "title": "自己洗浄PBTブラシドラム",
@@ -246,21 +259,21 @@
       }
     },
     "certifications": {
-      "eyebrow": "独立したテストおよび認定済み",
-      "title": "認証と現場で検証されたテスト",
-      "subtitle": "Taypro の洗浄ソリューションは、認定された太陽光発電分野の試験機関によって実施される、現実的な屋外条件下での毎日の洗浄サイクルをシミュレートする、厳格な現場検証および実験室検証を受けています。",
+      "eyebrow": "独立試験・認証済み",
+      "title": "認証とフィールド検証試験",
+      "subtitle": "Tayproの清掃ソリューションは、認定されたソーラー試験機関により、現実的な屋外条件での日次清掃サイクルをシミュレートした厳格なフィールド・ラボ検証を受けています。",
       "cards": {
         "card0": {
-          "title": "TÜV NORD認証",
-          "body": "IP55保護についてTÜV NORDによる独立試験・認証。極端な湿熱・乾熱性能を検証済み。"
+          "title": "TÜV NORD Certified",
+          "body": "Independently tested and certified for IP55 protection and validated for extreme damp-heat and dry-heat performance by TÜV NORD."
         },
         "card1": {
-          "title": "砂嵐耐久試験済み",
-          "body": "屋外清掃サイクルを模擬した条件下で検証。年12回の砂嵐、サイクルあたり10 g/m²の砂負荷を含む。"
+          "title": "Sandstorm-Endurance Tested",
+          "body": "Validated under simulated outdoor cleaning cycles, including 12 sandstorm events per year at a sand loading of 10 g/m² per cycle."
         },
         "card2": {
-          "title": "パネル安全清掃",
-          "body": "マイクロクラック分析、光学反射率測定、電気パラメーター評価、ARC（反射防止コーティング）保護を試験。"
+          "title": "Panel-Safe Cleaning",
+          "body": "Testing covers micro-crack analysis, optical reflectance measurements, full electrical parameter evaluation and Anti-Reflective Coating (ARC) preservation."
         }
       }
     },
@@ -271,38 +284,45 @@
       "tableHeaders": {
         "criterion": "基準",
         "manual": "手動",
-        "robot": "Taypro NYUMA"
+        "robot": "Taypro NYUMA",
+        "modelA": "Taypro NYUMA"
       },
       "rows": {
         "row0": {
           "criterion": "清掃頻度",
           "manual": "週次など",
-          "robot": "毎日の自動サイクル"
+          "robot": "Daily automated cycles, weather-aware scheduling",
+          "modelA": "毎日の自動サイクル"
         },
         "row1": {
           "criterion": "水",
           "manual": "多い",
-          "robot": "ゼロ・無水シングルパスPBT"
+          "robot": "Zero, fully waterless single-pass PBT dry cleaning",
+          "modelA": "ゼロ・無水シングルパスPBT"
         },
         "row2": {
           "criterion": "品質",
           "manual": "ばらつき",
-          "robot": "毎回99%超"
+          "robot": "99%+ dust removal in a single automated run, every time",
+          "modelA": "毎回99%超"
         },
         "row3": {
           "criterion": "労務・安全",
           "manual": "高コスト",
-          "robot": "夜間自律"
+          "robot": "Autonomous after-hours operation, no manual intervention",
+          "modelA": "夜間自律"
         },
         "row4": {
           "criterion": "PR",
           "manual": "5–25%損失",
-          "robot": "PR維持・4–8%向上"
+          "robot": "Daily cleaning sustains peak PR, lifting plant yield 4–8%",
+          "modelA": "PR維持・4–8%向上"
         },
         "row5": {
           "criterion": "パネル安全",
           "manual": "リスク",
-          "robot": "フレーム走行のみ"
+          "robot": "Robot rides on the module frame, no load on glass or cells",
+          "modelA": "フレーム走行のみ"
         },
         "row6": {
           "criterion": "監視",
@@ -313,7 +333,8 @@
         "row7": {
           "criterion": "TCO",
           "manual": "繰り返し費用",
-          "robot": "12–18ヶ月回収・20年設計"
+          "robot": "One-time investment, 12–18 month payback, 20-year design life",
+          "modelA": "12–18ヶ月回収・20年設計"
         }
       }
     },
@@ -342,12 +363,13 @@
       "crossSellLead": "関連O&Mは ",
       "linkHelyx": "半自動清掃ロボット（HELYX）",
       "linkBetweenBAndT": "、",
-      "linkNyumaX": "単軸トラッカーロボット（NYUMA）",
+      "linkGlydeX": "単軸トラッカーロボット（NYUMA）",
       "linkBetweenTAndOpex": "、",
       "linkOpex": "Taypro OPEX清掃サービス",
       "linkBetweenOpexAndNectyr": " または ",
       "linkNectyr": "NECTYR監視アプリ",
-      "crossSellSuffix": "。"
+      "crossSellSuffix": "。",
+      "linkNyuma": "PBT automatic NYUMA robot"
     },
     "specifications": {
       "titleLine1": "自動ソーラーパネル清掃ロボット ",
@@ -410,7 +432,7 @@
           "details": "+20 mm"
         },
         "ipRating": {
-          "spec": "IP等級",
+          "spec": "IP Rating",
           "details": "IP65"
         },
         "corrosion": {
@@ -431,7 +453,7 @@
         },
         "weight": {
           "spec": "重量",
-          "details": "45 kg"
+          "details": "38 kg"
         }
       },
       "datasheetCta": "Request full datasheet",
@@ -553,65 +575,65 @@
       }
     },
     "productCards": {
-      "title": "他のソリューションをお探しですか？",
+      "title": "Looking for more solutions?",
       "cardLabels": {
         "helyx": "HELYX",
-        "nyumaX": "NYUMA-X"
+        "glydeX": "NYUMA"
       },
-      "cardTitleTemplate": "{label} ソーラーパネル清掃ロボット"
+      "cardTitleTemplate": "{label} Solar Panel Cleaning Robot"
     },
     "glydeVsNyuma": {
-      "eyebrow": "最適なTayproロボットの選び方",
-      "title": "GLYDE vs NYUMA：固定式プラントに合う自動ロボットは？",
-      "subtitle": "両ロボットとも完全自律・無水で、NECTYRから管理します。GLYDEはTaypro特許のデュアルパスマイクロファイバーフラッグシップ、NYUMAはCAPEX効率の良い固定式フリート向けPBTシングルパスプラットフォームです。",
-      "criterion": "比較項目",
-      "glydeHeader": "GLYDE（デュアルパス・マイクロファイバー）",
-      "nyumaHeader": "NYUMA（シングルパスPBT）",
+      "eyebrow": "Choosing the Right Taypro Robot",
+      "title": "NYUMA vs NYUMA: Which Automatic Robot Fits Your Plant?",
+      "subtitle": "Both robots are fully autonomous, waterless, and managed from NECTYR. NYUMA is Taypro's patented single-pass PBT PBT brush flagship; NYUMA is the PBT single-pass platform for capex-efficient fixed-tilt fleets.",
+      "criterion": "Criterion",
+      "glydeHeader": "NYUMA (single-pass PBT PBT brush)",
+      "nyumaHeader": "NYUMA (Single-Pass PBT)",
       "row0": {
-        "criterion": "清掃技術",
-        "glyde": "特許デュアルパス：気流で塵を浮かせ、マイクロファイバーで拭き上げ",
-        "nyuma": "シングルパス逆回転PBTブラシドラム — 消耗品が少ない"
+        "criterion": "Cleaning Technology",
+        "glyde": "Patented single-pass PBT: airflow loosens dust, PBT brush completes the wipe",
+        "nyuma": "Single-pass counter-rotating PBT brush drum — fewer moving consumables"
       },
       "row1": {
-        "criterion": "最適な用途",
-        "glyde": "サイクルあたり最大の除塵が優先される固定式フラッグシップ列",
-        "nyuma": "PBTのCAPEXとブラシ経済性がRFQで勝つ反復固定式ブロック"
+        "criterion": "Best For",
+        "glyde": "Flagship fixed-tilt rows where maximum dust lift per cycle is the priority",
+        "nyuma": "Repeatable fixed-tilt blocks where PBT capex and brush economics win RFQs"
       },
       "row2": {
-        "criterion": "付着性／セメント系汚れ",
-        "glyde": "乾燥と付着性の混合層でデュアルパスが優位",
-        "nyuma": "乾燥砂漠塵に最適；セメント系汚れが強い場合は追加サイクル"
+        "criterion": "Sticky / Cementitious Soiling",
+        "glyde": "single-pass PBT excels on mixed dry and adhesive dust layers",
+        "nyuma": "Ideal for dry desert dust; schedule extra cycles if cementitious soiling is heavy"
       },
       "row3": {
-        "criterion": "消耗品プロファイル",
-        "glyde": "セルフクリーニングマイクロファイバードラム、長い保守間隔",
-        "nyuma": "UV安定PBTブラシ、現場交換可能なブラシカートリッジ"
+        "criterion": "Consumable Profile",
+        "glyde": "Self-cleaning PBT brush drum with extended service intervals",
+        "nyuma": "UV-stable PBT brush with field-replaceable bristle cartridges"
       },
       "row4": {
-        "criterion": "1充電あたりの走行",
-        "glyde": "最大2.2 km（約3,600モジュール）",
-        "nyuma": "最大2.2 km（約3,600モジュール）"
+        "criterion": "Range Per Charge",
+        "glyde": "Up to 2.2 km (~3,600 modules)",
+        "nyuma": "Up to 2.2 km (~3,600 modules)"
       },
       "row5": {
-        "criterion": "代表的な導入例",
-        "glyde": "Bachau DVC規模の自動優先固定式フリート",
-        "nyuma": "Akhadana規模および混合PBT自動プログラム"
+        "criterion": "Typical Deployments",
+        "glyde": "Bachau DVC-scale automatic-first fixed-tilt fleets",
+        "nyuma": "Akhadana-scale and mixed-fleet PBT automatic programmes"
       },
       "row6": {
-        "criterion": "設置後の人員",
-        "glyde": "ゼロ — 完全自律の日次サイクル",
-        "nyuma": "ゼロ — 完全自律の日次サイクル"
+        "criterion": "Labour After Install",
+        "glyde": "Zero — fully autonomous daily cycles",
+        "nyuma": "Zero — fully autonomous daily cycles"
       },
       "row7": {
-        "criterion": "フリート監視",
-        "glyde": "NECTYR（LTE / Wi-Fi / RF mesh / LoRa / LoRaWAN）",
-        "nyuma": "NECTYR（LTE / Wi-Fi / RF mesh / LoRa / LoRaWAN）"
+        "criterion": "Fleet Monitoring",
+        "glyde": "NECTYR via LTE, Wi-Fi, RF mesh, LoRa, or LoRaWAN",
+        "nyuma": "NECTYR via LTE, Wi-Fi, RF mesh, LoRa, or LoRaWAN"
       },
-      "crossSellLead": "分散ブロック向けpick-and-placeは ",
+      "crossSellLead": "Need a pick-and-place option for scattered blocks? See ",
       "linkHelyx": "HELYX",
-      "crossSellMid": " を参照。単軸トラッカーは ",
-      "linkTracker": "GLYDE-XとNYUMA-X",
-      "crossSellSuffix": " を比較。"
+      "crossSellMid": ". Running single-axis trackers? Compare ",
+      "linkTracker": "NYUMA and NYUMA-X",
+      "crossSellSuffix": "."
     }
   },
   "Common": {

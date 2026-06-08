@@ -543,8 +543,8 @@
             "body": "Taypro holds 4 Indian patents on dual-pass cleaning and RF mesh communications, with hardware validated across TÜV NORD, NISE, UL, Karandikar Labs, and Elca Labs for module safety (30-year-equivalent cleaning cycles), IP65, static discharge, vibration, and damp-heat/dry-heat. Skilancer does not publish equivalent patent or certification detail."
           },
           "2": {
-            "title": "NECTYR fleet software and 5 GW+ deployed",
-            "body": "NECTYR provides block-wise cleaning logs, five connectivity protocols, and investor-grade exports across 5 GW+ of deployed capacity. Skilancer offers cloud monitoring without published protocol or audit feature depth."
+            "title": "NECTYR fleet software and 11B+ annual panel cleans",
+            "body": "NECTYR provides block-wise cleaning logs, five connectivity protocols, and investor-grade exports across 5 GW+ of deployed capacity and 11 billion+ panel cleaning passes annually. Skilancer offers cloud monitoring without published protocol or audit feature depth."
           },
           "3": {
             "title": "OPEX managed service with named commercial structure",
@@ -1007,8 +1007,8 @@
         },
         "3": {
           "factor": "Operating weight",
-          "glydeX": "25 kg compact tracker chassis",
-          "nyumaX": "25 kg compact tracker chassis"
+          "glydeX": "26 kg compact tracker chassis",
+          "nyumaX": "26 kg compact tracker chassis"
         },
         "4": {
           "factor": "Range per charge",

@@ -195,11 +195,7 @@ export default async function NyumaXTrackerCleaningRobotPage({
         image={getProductImageUrl("nyumaX", siteUrl)}
         brand="Taypro"
         sku="NYUMA-X"
-        offers={{
-          price: t("schema.offersPrice"),
-          priceCurrency: "INR",
-          availability: "https://schema.org/InStock",
-        }}
+        offerPriceKey="nyumaX"
       />
       <FAQPageSchema faqs={nyumaXFaqs} />
       <HowToSchema

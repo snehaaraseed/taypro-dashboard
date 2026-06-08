@@ -132,7 +132,7 @@
       },
       "8": {
         "label": "Operating Weight",
-        "value": "25 kg"
+        "value": "26 kg"
       },
       "9": {
         "label": "Design Life",
@@ -449,7 +449,7 @@
       },
       "row5": {
         "criterion": "Operating Weight",
-        "nyumaX": "25 kg (most compact)",
+        "nyumaX": "26 kg (most compact)",
         "nyuma": "Heavier, designed for fixed-tilt utility-scale"
       },
       "row6": {
@@ -525,8 +525,8 @@
       },
       "row3": {
         "criterion": "Operating Weight",
-        "glydeX": "25 kg compact tracker chassis",
-        "nyumaX": "25 kg compact tracker chassis"
+        "glydeX": "26 kg compact tracker chassis",
+        "nyumaX": "26 kg compact tracker chassis"
       },
       "row4": {
         "criterion": "Range Per Charge",

@@ -32,6 +32,10 @@ import {
 } from "@/app/data";
 import { ComingSoonRobotCard } from "@/app/components/ComingSoonRobotCard";
 import { COMPARISON_PAGE_LIST } from "@/lib/seo/comparison-pages-config";
+import {
+  ALL_STATE_LANDING_IDS,
+  STATE_LANDING_PAGES,
+} from "@/lib/seo/state-landing-config";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
@@ -1278,68 +1282,36 @@ export default async function SolarPanelCleaningRobot({
                 );
               })}
             </div>
+          </Container>
+        </section>
 
-            <div
-              id="state-guides"
-              className="mt-10 pt-8 border-t border-white/10 text-center scroll-mt-24"
-            >
-              <h3 className="text-white font-semibold text-lg mb-2">
+        <section
+          id="state-guides"
+          className="scroll-mt-24 bg-[#f4f7f9] py-14 sm:py-16"
+        >
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="text-center">
+              <p className="mb-3 inline-flex items-center rounded-full border border-[#A8C117]/25 bg-[#A8C117]/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#5a8f00]">
+                {t("indianConditions.eyebrow")}
+              </p>
+              <h2 className="text-[#052638] font-semibold text-2xl sm:text-3xl mb-3">
                 {t("indianConditions.stateGuides.heading")}
-              </h3>
-              <p className="text-white/70 text-sm mb-4 max-w-2xl mx-auto">
+              </h2>
+              <p className="text-[#27415c] text-base sm:text-lg mb-8 max-w-2xl mx-auto">
                 {t("indianConditions.stateGuides.intro")}
               </p>
-              <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm">
-                <Link
-                  href="/solar-panel-cleaning-robot-rajasthan"
-                  className="brand-inline-link font-medium"
-                >
-                  {t("indianConditions.stateGuides.rajasthan")}
-                </Link>
-                <Link
-                  href="/solar-panel-cleaning-robot-gujarat"
-                  className="brand-inline-link font-medium"
-                >
-                  {t("indianConditions.stateGuides.gujarat")}
-                </Link>
-                <Link
-                  href="/solar-panel-cleaning-robot-madhya-pradesh"
-                  className="brand-inline-link font-medium"
-                >
-                  {t("indianConditions.stateGuides.madhyaPradesh")}
-                </Link>
-                <Link
-                  href="/solar-panel-cleaning-robot-karnataka"
-                  className="brand-inline-link font-medium"
-                >
-                  {t("indianConditions.stateGuides.karnataka")}
-                </Link>
-                <Link
-                  href="/solar-panel-cleaning-robot-andhra-pradesh"
-                  className="brand-inline-link font-medium"
-                >
-                  {t("indianConditions.stateGuides.andhraPradesh")}
-                </Link>
-                <Link
-                  href="/solar-panel-cleaning-robot-maharashtra"
-                  className="brand-inline-link font-medium"
-                >
-                  {t("indianConditions.stateGuides.maharashtra")}
-                </Link>
-                <Link
-                  href="/solar-panel-cleaning-robot-uttar-pradesh"
-                  className="brand-inline-link font-medium"
-                >
-                  {t("indianConditions.stateGuides.uttarPradesh")}
-                </Link>
-                <Link
-                  href="/solar-panel-cleaning-robot-tamil-nadu"
-                  className="brand-inline-link font-medium"
-                >
-                  {t("indianConditions.stateGuides.tamilNadu")}
-                </Link>
+              <div className="flex flex-wrap justify-center gap-3">
+                {ALL_STATE_LANDING_IDS.map((stateId) => (
+                  <Link
+                    key={stateId}
+                    href={STATE_LANDING_PAGES[stateId].path}
+                    className="inline-flex items-center rounded-full border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-[#052638] shadow-sm transition hover:border-[#A8C117] hover:text-[#5a8f00]"
+                  >
+                    {t(`indianConditions.stateGuides.${stateId}`)}
+                  </Link>
+                ))}
               </div>
-            </div>
+            </AnimateOnScroll>
           </Container>
         </section>
 

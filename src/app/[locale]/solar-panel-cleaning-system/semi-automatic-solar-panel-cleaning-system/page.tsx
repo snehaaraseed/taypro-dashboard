@@ -178,11 +178,7 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
         image={getProductImageUrl("helyx", siteUrl)}
         brand="Taypro"
         sku="HELYX"
-        offers={{
-          price: t("schema.offersPrice"),
-          priceCurrency: "INR",
-          availability: "https://schema.org/InStock",
-        }}
+        offerPriceKey="helyx"
       />
       <FAQPageSchema faqs={helyxFaqs} />
       <HowToSchema

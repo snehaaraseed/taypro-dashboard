@@ -1,8 +1,8 @@
 {
   "SolarSystemPage": {
     "meta": {
-      "title": "ভারতে সোলার প্যানেল পরিষ্কার রোবট ও সিস্টেম",
-      "description": "GLYDE, NYUMA, HELYX ও ট্র্যাকার রোবট তুলনা করুন। জলবিহীন পরিষ্কার, TÜV NORD সার্টিফাইড, সারা ভারতে সহায়তা। আজই মডেল বেছে নিন।",
+      "title": "ভারতে সোলার প্যানেল পরিষ্কার রোবট ও সিস্টেম, মেশিন ও মডেল | Taypro",
+      "description": "সব Taypro সোলার প্যানেল পরিষ্কার রোবট তুলনা করুন: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, Taypro Opex ও NECTYR। জলবিহীন পরিষ্কার, AI শিডিউলিং, TÜV NORD সার্টিফাইড, সারা ভারতে সহায়তা।",
       "keywords": [
         "সোলার প্যানেল পরিষ্কার রোবট",
         "সোলার প্যানেল পরিষ্কার রোবট ভারত",
@@ -24,13 +24,13 @@
         "সোলার প্যানেল পরিষ্কার"
       ],
       "openGraphSiteName": "Taypro",
-      "openGraphTitle": "ভারতে সোলার প্যানেল পরিষ্কার রোবট ও সিস্টেম",
+      "openGraphTitle": "সোলার প্যানেল পরিষ্কার রোবট | স্বয়ংক্রিয়, অর্ধ-স্বয়ংক্রিয় ও ট্র্যাকার মডেল, Taypro",
       "openGraphDescription": "আপনার প্ল্যান্টের জন্য সঠিক রোবট বেছে নিন, GLYDE ও GLYDE-X ডুয়াল-পাস, NYUMA ও NYUMA-X PBT, ছড়িয়ে পড়া প্ল্যান্টে HELYX, OPEX ও NECTYR।",
       "openGraphImageAlt": "Taypro সোলার প্যানেল পরিষ্কার রোবট, GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX",
       "openGraphLocale": "en_IN",
       "openGraphType": "website",
       "twitterCard": "summary_large_image",
-      "twitterTitle": "ভারতে সোলার প্যানেল পরিষ্কার রোবট ও সিস্টেম",
+      "twitterTitle": "সোলার প্যানেল পরিষ্কার রোবট | Taypro, ভারতে তৈরি",
       "twitterDescription": "ফিক্সড-টিল্ট ও ট্র্যাকার প্ল্যান্টের জন্য পাঁচটি Taypro রোবট, PBT সিঙ্গেল-পাস ও পেটেন্টেড ডুয়াল-পাস মাইক্রোফাইবার।"
     },
     "breadcrumbs": {
@@ -223,7 +223,11 @@
       "p2BetweenHelyxTracker": " ছড়িয়ে পড়া প্ল্যান্টের জন্য, ট্র্যাকার-প্রস্তুত ",
       "p2BetweenTrackers": " এবং ",
       "p2AfterTrackers": " সিঙ্গেল-অ্যাক্সিস লেআউটের জন্য। জানুন ",
-      "p2BeforeNectyr": " কীভাবে কাজ করে, তারপর প্রতিটি রোবট "
+      "p2BeforeNectyr": " কীভাবে কাজ করে, তারপর প্রতিটি রোবট ",
+      "p2LinkModelB": "HELYX",
+      "p2LinkModelT": "GLYDE-X",
+      "p2LinkConsole": "NECTYR",
+      "p2AfterConsole": " ফ্লিট পোর্টালে মনিটর হয় এবং CAPEX বা মাসিক "
     },
     "productGrid": {
       "eyebrow": "আমাদের রোবট লাইনআপ",
@@ -486,7 +490,11 @@
         "andhraPradesh": "Andhra Pradesh",
         "maharashtra": "Maharashtra",
         "uttarPradesh": "Uttar Pradesh",
-        "tamilNadu": "Tamil Nadu"
+        "tamilNadu": "Tamil Nadu",
+        "haryana": "হরিয়ানা",
+        "delhi": "দিল্লি",
+        "westBengal": "পশ্চিমবঙ্গ",
+        "chhattisgarh": "ছত্তীসগড়"
       }
     },
     "whyTaypro": {
@@ -776,6 +784,12 @@
       "trustedBy": "Trusted by {names} and other IPPs, EPCs, and C&I operators deploying Taypro cleaning robots across India.",
       "logoAlt": "{name} — Taypro solar cleaning robot customer",
       "logoTitle": "{name}"
+    },
+    "consoleBand": {
+      "eyebrow": "NECTYR, ফ্লিট পোর্টাল",
+      "title": "আপনার প্ল্যান্টের প্রতিটি রোবট মনিটর করার এক পোর্টাল",
+      "body": "সাইট ড্যাশবোর্ড, আবহাওয়া, ব্লক-ভিত্তিক শিডিউল, লগ, এক্সপোর্ট, গেটওয়ে ও রোবট হেলথ, টিকেট, ভূমিকা-ভিত্তিক ইউটিলিটি O&M-এর জন্য।",
+      "cta": "NECTYR দেখুন"
     }
   }
 }

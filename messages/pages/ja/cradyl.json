@@ -1,13 +1,21 @@
 {
   "CradylPage": {
     "meta": {
-      "title": "ソーラーロボットドッキング | CRADYL",
-      "description": "分散型向けCRADYL可動ドック。IP65、ソーラー充電、NECTYR。見積もり依頼。",
-      "openGraphTitle": "ソーラーロボットドッキング | CRADYL",
+      "title": "CRADYL, 自律行間移動ドッキングステーション | Taypro",
+      "description": "CRADYLはレール上で洗浄ロボットを行間自律移動させるTayproの可動ドッキングステーション。",
+      "openGraphTitle": "CRADYL, ソーラー洗浄ロボット向け行間移動ドッキング | Taypro",
       "openGraphDescription": "提供中：レール上の自律行間移動、ソーラー充電、IP65、クラウド連携。",
       "openGraphImageAlt": "大規模ソーラー発電所のTaypro CRADYL",
-      "twitterTitle": "ソーラーロボットドッキング | CRADYL",
-      "twitterDescription": "分散ソーラー向け可動ドッキング。"
+      "twitterTitle": "CRADYL行間移動ドッキング | Taypro",
+      "twitterDescription": "分散ソーラー向け可動ドッキング。",
+      "keywords": [
+        "ソーラーロボットドッキングステーション",
+        "行間移動ソーラー洗浄ロボット",
+        "分散ソーラー発電所洗浄",
+        "自律ソーラーロボット移動",
+        "CRADYL Taypro",
+        "複数行ソーラーパネル洗浄"
+      ]
     },
     "breadcrumbs": {
       "robots": "ソーラーパネル洗浄ロボット",

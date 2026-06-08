@@ -39,6 +39,54 @@
       "p2GuideStrong": "customer user guide",
       "p2End": ", this page stays at the product-story level so your competitive edge stays protected."
     },
+    "intelligenceStat": {
+      "value": "5 GW+",
+      "label": "fleet operations on NECTYR since 2022",
+      "body": "Labelled cleaning telemetry across 5 GW+ of fleet operations since 2022 — the largest cleaning intelligence dataset in India."
+    },
+    "intelligenceCapabilities": {
+      "eyebrow": "Fleet intelligence",
+      "title": "What NECTYR knows that generic monitoring cannot",
+      "subtitle": "Live operational intelligence built from labelled cleaning cycles across India's largest robotic solar cleaning fleet."
+    },
+    "intelligenceCards": {
+      "0": {
+        "title": "Live robot position on plant layout",
+        "body": "Real-time robot position overlaid on your plant map — see which row each robot is cleaning and at what progress, at any moment."
+      },
+      "1": {
+        "title": "Root-cause fault identification",
+        "body": "When a robot stops, NECTYR flags where it stopped and the probable cause — misaligned panel edge, obstacle, motor fault, or communication drop — before a technician is dispatched."
+      },
+      "2": {
+        "title": "Battery state monitoring per robot",
+        "body": "Per-robot charge, discharge curves, and readiness indicators so operators and Taypro service can plan cycles and spares with full battery context."
+      },
+      "3": {
+        "title": "Wet microfiber detection alerts",
+        "body": "Automatic alerts when cleaning elements are wet from dew, humidity, or residual rain — cycles postpone until conditions are optimal, protecting module glass from smear damage."
+      },
+      "4": {
+        "title": "95% accuracy weather-driven scheduling",
+        "body": "Windspeed, rain probability, humidity, and pollen inputs — not just binary rain detection — drive reschedule decisions with 95% field-verified accuracy."
+      },
+      "5": {
+        "title": "Cycle audit logs for PR and AMC reporting",
+        "body": "Timestamped block-wise cleaning records, exportable reports, and audit-ready evidence for performance ratio discussions and AMC reconciliation."
+      },
+      "6": {
+        "title": "Predictive maintenance alerts",
+        "body": "Motor current, brush torque, and sensor deviation signatures that precede bearing wear, brush saturation, or controller degradation — flagged before downtime manifests."
+      },
+      "7": {
+        "title": "Multi-connectivity telemetry",
+        "body": "Fleet data over LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN — sized per site so large multi-block plants stay responsive."
+      },
+      "8": {
+        "title": "Fleet-wide health dashboard",
+        "body": "Portfolio-level view across multi-plant accounts — gateway health, robot availability, block coverage, and seasonal cadence in one command centre."
+      }
+    },
     "capabilities": {
       "eyebrow": "Inside the portal",
       "title": "What your teams can do in NECTYR",
@@ -167,6 +215,11 @@
       "a6": "NECTYR includes structured ticketing so your site administrators can raise issues, attach evidence, and track resolution with Taypro's service team. For urgent operational events, your contract may also include direct escalation channels outside the portal.",
       "q7": "Is NECTYR a replacement for our plant SCADA?",
       "a7": "No. NECTYR is specialised for robotic solar cleaning, schedules, cleaning logs, robot health, and fleet analytics. It complements your existing energy SCADA and work-management tools; Taypro can advise on read-only integrations or export workflows where required."
+    },
+    "energyResources": {
+      "title": "Energy Resources",
+      "subtitle": "NECTYR is Taypro's live fleet intelligence portal — the operational layer connecting every robot on your plant to a single dashboard. From scheduling and battery monitoring to fault detection and cycle audit logs, NECTYR gives O&M teams complete visibility across fixed-tilt, tracker, and distributed blocks without leaving the control room.",
+      "ctaLabel": "View all resources"
     },
     "misc": {
       "projectsHeader": "Our Most Recent Projects",

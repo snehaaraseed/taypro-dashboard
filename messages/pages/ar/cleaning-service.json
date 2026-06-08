@@ -1,8 +1,8 @@
 {
   "CleaningServicePage": {
     "meta": {
-      "title": "خدمة تنظيف الألواح الشمسية | OPEX",
-      "description": "تنظيف روبوتي شهري للمحطات 10+ MW. الدفع لكل لوحة، تقارير NECTYR. اطلب عرض سعر.",
+      "title": "خدمة تنظيف الألواح الشمسية الروبوتية, الدفع لكل لوحة | Taypro OPEX",
+      "description": "Taypro OPEX خدمة تنظيف شهرية للألواح الشمسية على نطاق المرافق (عادة 50 ميجاواط+). ننشر GLYDE أو HELYX أو GLYDE-X، نوصي بـ 3–10 دورات جافة شهرياً، والفوترة لكل لوح مُنظَّف, مع SOP والمسارات ومناطق الراحة وتقارير يومية عبر NECTYR.",
       "openGraphDescription": "التنظيف الآلي الشهري بدون ماء: 3-10 دورات خاصة بالنبات، وخطط تنظيف مفصلة، ​​وتقارير يومية، وفواتير لكل لوحة يتم تنظيفها. GLYDE، B أو T.",
       "openGraphImageAlt": "Taypro OPEX خدمة تنظيف الألواح الشمسية الروبوتية في محطة الطاقة الشمسية على نطاق المرافق",
       "twitterDescription": "دفع شهري لكل لوح مُنظَّف. دراسة المحطة، 3–10 دورات جافة، SOP، مسارات، مناطق راحة، تقارير NECTYR."
@@ -30,7 +30,11 @@
       "subtitleDeploy": "نحن ننشر",
       "subtitleOr": "أو",
       "subtitleProgramme": "تحت إدارتها",
-      "subtitleAfter": "برنامج مع"
+      "subtitleAfter": "برنامج مع",
+      "modelA": "GLYDE",
+      "modelB": "HELYX",
+      "modelT": "GLYDE-X",
+      "console": "NECTYR"
     },
     "faqs": {
       "0": {
@@ -148,10 +152,11 @@
       "5": "مشغلين متخصصين + دعم فني على المستوى الوطني"
     },
     "misc": {
-      "productCardsTitle": "هل تبحث عن المزيد من الحلول؟",
+      "productCardsTitle": "تبحث عن المزيد من الحلول؟",
       "projectsHeader": "مشاريعنا",
       "faqTitle": "الأسئلة المتداولة",
-      "faqSubtitle": "أسئلة خدمة Taypro OPEX - بالإضافة إلى الأسئلة الشائعة الأوسع حول برنامج Taypro أدناه."
+      "faqSubtitle": "أسئلة خدمة Taypro OPEX - بالإضافة إلى الأسئلة الشائعة الأوسع حول برنامج Taypro أدناه.",
+      "modelCardsTitle": "هل تبحث عن المزيد من الحلول؟"
     },
     "overview": {
       "eyebrow": "تنظيف التشغيل والصيانة بالطاقة الشمسية بنظام الدفع لكل نتيجة",
@@ -275,7 +280,12 @@
       "linkGlydeX": "GLYDE-X",
       "linkBetweenTAndNectyr": "، أو",
       "linkNectyr": "NECTYR",
-      "exploreSuffix": "."
+      "exploreSuffix": ".",
+      "linkBetweenTConsole": "، أو",
+      "linkModelA": "GLYDE",
+      "linkModelB": "HELYX",
+      "linkModelT": "GLYDE-X",
+      "linkConsole": "NECTYR"
     },
     "roiSection": {
       "title": "احسب عائد الاستثمار والمدخرات على Taypro Opex",
@@ -334,7 +344,7 @@
       "titleLine2": "للحصول على النتائج المثلى",
       "body": "يجمع Taypro OPEX بين مواد اتصال ناعمة تم التحقق من صحتها معمليًا مع إشراف المشغل المنضبط - بحيث تظل اللوحات نظيفة، ويظل التعرض للضمان تحت السيطرة، ويعرف فريقك دائمًا من هو الموجود في الموقع ولماذا وما تم تحقيقه في كل نوبة."
     },
-    "productCardsTitle": "هل تبحث عن المزيد من الحلول؟",
+    "productCardsTitle": "تبحث عن المزيد من الحلول؟",
     "projectsHeader": "مشاريعنا",
     "common": {
       "breadcrumbHome": "الرئيسية"
@@ -383,7 +393,8 @@
     "manualVsRobotic": {
       "criterion": "المعيار",
       "manual": "التنظيف اليدوي"
-    }
+    },
+    "modelCardsTitle": "هل تبحث عن المزيد من الحلول؟"
   },
   "Common": {
     "breadcrumbHome": "الرئيسية",

@@ -3,6 +3,12 @@ import { getTranslations } from "next-intl/server";
 import { energyResourceCards } from "@/app/data";
 import { getAllFileProjects } from "@/app/utils/projectFileUtils";
 import { COMPARISON_PAGE_LIST } from "@/lib/seo/comparison-pages-config";
+import {
+  ALL_STATE_LANDING_IDS,
+  STATE_LANDING_PAGES,
+  stateLandingSiteMapLabelKey,
+  stateLandingSiteMapTitleKey,
+} from "@/lib/seo/state-landing-config";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { withHreflang } from "@/lib/seo/with-hreflang";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
@@ -246,78 +252,17 @@ export default async function SiteMapPage({
                   {l("roiCalculatorLabel")}
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/solar-panel-cleaning-robot-rajasthan"
-                  title={l("stateRajasthanTitle")}
-                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
-                >
-                  {l("stateRajasthanLabel")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/solar-panel-cleaning-robot-gujarat"
-                  title={l("stateGujaratTitle")}
-                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
-                >
-                  {l("stateGujaratLabel")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/solar-panel-cleaning-robot-madhya-pradesh"
-                  title={l("stateMadhyaPradeshTitle")}
-                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
-                >
-                  {l("stateMadhyaPradeshLabel")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/solar-panel-cleaning-robot-karnataka"
-                  title={l("stateKarnatakaTitle")}
-                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
-                >
-                  {l("stateKarnatakaLabel")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/solar-panel-cleaning-robot-andhra-pradesh"
-                  title={l("stateAndhraPradeshTitle")}
-                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
-                >
-                  {l("stateAndhraPradeshLabel")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/solar-panel-cleaning-robot-maharashtra"
-                  title={l("stateMaharashtraTitle")}
-                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
-                >
-                  {l("stateMaharashtraLabel")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/solar-panel-cleaning-robot-uttar-pradesh"
-                  title={l("stateUttarPradeshTitle")}
-                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
-                >
-                  {l("stateUttarPradeshLabel")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/solar-panel-cleaning-robot-tamil-nadu"
-                  title={l("stateTamilNaduTitle")}
-                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
-                >
-                  {l("stateTamilNaduLabel")}
-                </Link>
-              </li>
+              {ALL_STATE_LANDING_IDS.map((stateId) => (
+                <li key={stateId}>
+                  <Link
+                    href={STATE_LANDING_PAGES[stateId].path}
+                    title={l(stateLandingSiteMapTitleKey(stateId))}
+                    className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                  >
+                    {l(stateLandingSiteMapLabelKey(stateId))}
+                  </Link>
+                </li>
+              ))}
               <li>
                 <Link
                   href="/site-map"
@@ -435,6 +380,15 @@ export default async function SiteMapPage({
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
                   {l("cleaningTechnologyLabel")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/technology/ai-intelligence"
+                  title={l("aiIntelligenceTitle")}
+                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                >
+                  {l("aiIntelligenceLabel")}
                 </Link>
               </li>
               <li>

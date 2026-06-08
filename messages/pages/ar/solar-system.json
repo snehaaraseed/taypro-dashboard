@@ -1,8 +1,8 @@
 {
   "SolarSystemPage": {
     "meta": {
-      "title": "روبوتات وأنظمة تنظيف الألواح الشمسية في الهند",
-      "description": "قارن GLYDE وNYUMA وHELYX وروبوتات التتبع. تنظيف بدون ماء، معتمد TÜV NORD، دعم على مستوى الهند. اختر طرازك اليوم.",
+      "title": "روبوت ونظام تنظيف الألواح الشمسية في الهند, الآلات والطرازات | Taypro",
+      "description": "قارن كل روبوتات Taypro لتنظيف الألواح الشمسية: GLYDE وGLYDE-X وNYUMA وNYUMA-X وHELYX، إضافةً إلى Taypro Opex وNECTYR. تنظيف بدون ماء، جدولة بالذكاء الاصطناعي، معتمد من TÜV NORD، دعم على مستوى الهند.",
       "keywords": [
         "روبوت تنظيف الألواح الشمسية",
         "روبوت تنظيف الألواح الشمسية الهند",
@@ -24,13 +24,13 @@
         "تنظيف الألواح الشمسية"
       ],
       "openGraphSiteName": "Taypro",
-      "openGraphTitle": "روبوتات وأنظمة تنظيف الألواح الشمسية في الهند",
+      "openGraphTitle": "روبوت تنظيف الألواح الشمسية | طرازات أوتوماتيكية وشبه أوتوماتيكية وتتبع, Taypro",
       "openGraphDescription": "اختر الروبوت المناسب لمحطتك, GLYDE وGLYDE-X ثنائي المرور، منصات NYUMA وNYUMA-X بـ PBT، HELYX للمحطات المبعثرة، إضافة OPEX وNECTYR.",
       "openGraphImageAlt": "روبوتات Taypro لتنظيف الألواح الشمسية, GLYDE وGLYDE-X وNYUMA وNYUMA-X وHELYX",
       "openGraphLocale": "en_IN",
       "openGraphType": "website",
       "twitterCard": "summary_large_image",
-      "twitterTitle": "روبوتات وأنظمة تنظيف الألواح الشمسية في الهند",
+      "twitterTitle": "روبوت تنظيف الألواح الشمسية | Taypro, صُنع في الهند",
       "twitterDescription": "خمسة روبوتات Taypro للمحطات الثابتة والمتتبعة, خيارات PBT أحادي المرور وثنائي المرور بميكروفايبر."
     },
     "breadcrumbs": {
@@ -223,7 +223,11 @@
       "p2BetweenHelyxTracker": " للمحطات المبعثرة، جاهز للمتتبع ",
       "p2BetweenTrackers": " و ",
       "p2AfterTrackers": " لتركيبات المحور الواحد. تعرف على ",
-      "p2BeforeNectyr": " وكيف يعمل، ثم راقب كل روبوت عبر "
+      "p2BeforeNectyr": " وكيف يعمل، ثم راقب كل روبوت عبر ",
+      "p2LinkModelB": "HELYX",
+      "p2LinkModelT": "GLYDE-X",
+      "p2LinkConsole": "NECTYR",
+      "p2AfterConsole": " بوابة الأسطول ويُنشر كـ CAPEX أو خدمة شهرية "
     },
     "productGrid": {
       "eyebrow": "خط روبوتاتنا",
@@ -486,7 +490,11 @@
         "andhraPradesh": "Andhra Pradesh",
         "maharashtra": "Maharashtra",
         "uttarPradesh": "Uttar Pradesh",
-        "tamilNadu": "Tamil Nadu"
+        "tamilNadu": "Tamil Nadu",
+        "haryana": "هاريانا",
+        "delhi": "دلهي",
+        "westBengal": "البنغال الغربية",
+        "chhattisgarh": "تشاتيسغار"
       }
     },
     "whyTaypro": {
@@ -776,6 +784,12 @@
       "trustedBy": "Trusted by {names} and other IPPs, EPCs, and C&I operators deploying Taypro cleaning robots across India.",
       "logoAlt": "{name} — Taypro solar cleaning robot customer",
       "logoTitle": "{name}"
+    },
+    "consoleBand": {
+      "eyebrow": "NECTYR, بوابة الأسطول",
+      "title": "بوابة واحدة لمراقبة كل روبوتات التنظيف في محطتك",
+      "body": "لوحات وطقس وجداول وسجلات وتصدير وصحة الروبوت والبوابة وتذاكر, وصول حسب الأدوار لحوكمة O&M.",
+      "cta": "استكشف NECTYR"
     }
   }
 }

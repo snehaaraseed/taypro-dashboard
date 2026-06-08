@@ -125,6 +125,26 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
     priority: 0.75,
   },
   {
+    path: "/solar-panel-cleaning-robot-haryana",
+    changeFrequency: "monthly",
+    priority: 0.75,
+  },
+  {
+    path: "/solar-panel-cleaning-robot-delhi",
+    changeFrequency: "monthly",
+    priority: 0.75,
+  },
+  {
+    path: "/solar-panel-cleaning-robot-west-bengal",
+    changeFrequency: "monthly",
+    priority: 0.75,
+  },
+  {
+    path: "/solar-panel-cleaning-robot-chhattisgarh",
+    changeFrequency: "monthly",
+    priority: 0.75,
+  },
+  {
     path: "/solar-panel-cleaning-robot-price-calculator",
     changeFrequency: "monthly",
     priority: 0.8,
@@ -135,6 +155,11 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
     priority: 0.85,
   },
   { path: "/cleaning-technology", changeFrequency: "monthly", priority: 0.8 },
+  {
+    path: "/technology/ai-intelligence",
+    changeFrequency: "monthly",
+    priority: 0.78,
+  },
   {
     path: "/solar-panel-cleaning-machine",
     changeFrequency: "monthly",

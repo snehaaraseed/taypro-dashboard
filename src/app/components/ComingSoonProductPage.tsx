@@ -15,6 +15,7 @@ import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import ProductCards from "@/app/components/ProductCards";
 import { Link } from "@/i18n/navigation";
 import type { ComingSoonProductConfig } from "@/lib/product-coming-soon";
+import type { ProductSchemaPriceKey } from "@/lib/seo/product-schema-prices";
 import { helyxCards } from "@/app/data";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 
@@ -76,9 +77,8 @@ export async function ComingSoonProductPage({
         description={t("schema.productDescription")}
         image={`${siteUrl}${product.heroImagePath}`}
         sku={product.model}
+        offerPriceKey={product.id as ProductSchemaPriceKey}
         offers={{
-          price: t("schema.offersPrice"),
-          priceCurrency: "INR",
           availability: "https://schema.org/PreOrder",
         }}
       />

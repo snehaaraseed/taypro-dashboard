@@ -4,7 +4,12 @@
  */
 export const TAYPRO_PUBLIC_PROOF = {
   capacityGw: "5 GW+",
+  /** Solar assets cleaned daily across the live fleet (operational throughput). */
+  dailyCleaningCapacityGw: "5 GW+",
   sitesLive: "150+",
+  /** 11,00,00,00,000 panels cleaned per year (public marketing figure). */
+  panelsCleanedAnnually: "11B+",
+  panelsCleanedAnnuallyRaw: 11_000_000_000,
   generationRecoveredGwh: "188 GWh+",
   waterSavedLitres: "700M+",
   co2ReducedTons: "93k+",
@@ -27,9 +32,17 @@ export function buildTayproPublicProofStats() {
       value: p.capacityGw,
       label: "Robot Capacity Deployed",
     },
+    dailyCleaningCapacityGw: {
+      value: p.dailyCleaningCapacityGw,
+      label: "Solar Assets Cleaned Daily",
+    },
     plantInstallations: {
       value: p.sitesLive,
       label: "Sites Live",
+    },
+    panelsCleanedAnnually: {
+      value: p.panelsCleanedAnnually,
+      label: "Panels Cleaned Annually",
     },
     waterSavedAnnually: {
       value: p.waterSavedLitres,

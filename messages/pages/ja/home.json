@@ -1,12 +1,12 @@
 {
   "Home": {
     "meta": {
-      "title": "ソーラーパネル洗浄ロボット | 水なし・自律型",
-      "description": "インドの大規模発電所向け水なしソーラーパネル洗浄ロボット。GLYDEとNYUMAで失われた発電量を回復。今すぐ見積もりを依頼。",
-      "ogTitle": "ソーラーパネル洗浄ロボット | 水なし・自律型",
-      "ogDescription": "インドの大規模向け水なしソーラー洗浄。デュアルパス乾式洗浄、NECTYRフリート、全国サービス。",
-      "twitterTitle": "ソーラーパネル洗浄ロボット | 水なし・自律型",
-      "twitterDescription": "インドの大規模ソーラーファーム向け自律型水なしソーラーパネル洗浄ロボット。"
+      "title": "ソーラーパネル洗浄ロボット | Taypro, 水なし India",
+      "description": "インドの大規模発電所向け水なしソーラーパネル洗浄ロボット。デュアルパス乾式洗浄、フリート監視、全国Tayproサポート, 自動・半自動。",
+      "ogTitle": "ソーラーパネル洗浄ロボット | Taypro, 水なし India",
+      "ogDescription": "インド大規模向け水なしソーラー洗浄, デュアルパス乾式、NECTYRフリート監視、全国サービス。",
+      "twitterTitle": "ソーラーパネル洗浄ロボット | Taypro",
+      "twitterDescription": "インド大規模ソーラーファーム向け自律・半自動の水なしソーラーパネル洗浄ロボット。"
     },
     "schema": {
       "video": {
@@ -22,12 +22,14 @@
     },
     "hero": {
       "eyebrow": "Made in India · 5 GW+ 導入 · 大規模ソーラー向け自律オペレーション",
-      "titleBefore": "自律型",
-      "titleHighlight": "自律オペレーション層",
-      "titleAfter": "大規模発電所向け",
+      "title": "Solar Panel Cleaning Robot Manufacturer in India",
+      "subtitle": "Recover lost generation with the autonomous operations layer for utility-scale solar, built on waterless solar panel cleaning robots.",
+      "lead": "SCADAはkWhが失われたと示す。Tayproは各行のロボット、本日のNECTYR、ORIONでループを閉じる。",
       "bodyBeforeProjects": "デュアルパス水なし、AIスケジュール、全国稼働率, 固定・季節傾斜・トラッカー。",
       "bodyProjectsLink": "稼働中プロジェクト",
-      "bodyBetweenLinks": "または",
+      "bodyAfterProjects": "について",
+      "bodyUtilityOpsLink": "大規模ソーラー運用",
+      "bodyBeforeBlog": "、または",
       "bodyBlogLink": "ブログ",
       "bodyAfterBlog": "で洞察を読む。",
       "videoTitle": "Taypro自律ソーラーパネル洗浄ロボット, 大規模水なし洗浄",
@@ -39,25 +41,68 @@
       "ctaExplore": "ロボットを見る",
       "ctaService": "清掃サービス",
       "ctaRoi": "価格・ROI計算",
-      "title": "インドのソーラーパネル洗浄ロボットメーカー",
-      "subtitle": "大規模ソーラー向け自律運用レイヤーと水なしソーラーパネル洗浄ロボットで失われた発電を回復。",
-      "lead": "SCADAはkWhが失われたと示す。Tayproは各行のロボット、本日のNECTYR、ORIONでループを閉じる。",
-      "bodyAfterProjects": "について",
-      "bodyUtilityOpsLink": "大規模ソーラー運用",
-      "bodyBeforeBlog": "、または"
+      "titleLine1": "失われた発電を回復, ",
+      "titleHighlight": "自律オペレーション層",
+      "titleLine2": "大規模ソーラー向け, 水なしソーラーパネル洗浄ロボット上に構築。"
     },
     "stats": {
+      "methodologyBefore": "Fleet impact figures are modelled from live deployments. See our",
+      "methodologyLink": "performance & test methodology",
+      "methodologyAfter": "for assumptions and qualified claims.",
       "stat0": {
-        "label": "展開ロボット容量"
+        "label": "日次清掃ソーラー資産",
+        "sublabel": "インド最大のロボットソーラー洗浄フリートの日次運用スループット"
       },
       "stat1": {
-        "label": "年間CO2排出削減量（メトリックトン）"
+        "label": "年間洗浄パネル数"
       },
       "stat2": {
-        "label": "年間追加クリーン発電量"
+        "label": "年間CO2排出削減量（メトリックトン）"
       },
       "stat3": {
         "label": "年間節水リットル"
+      }
+    },
+    "platform": {
+      "eyebrow": "Tayproの仕組み",
+      "heading": "ロボット・フリートソフト・プラントインテリジェンス, 一つの閉ループ",
+      "subtitle": "現場ロボットはデータと実行基盤。NECTYRが本日の層、ORIONが同じレールでプラント健全性を拡張。",
+      "loopClosing": "Sense → Schedule → Clean → Log → Learn, 全サイクル。",
+      "investorEyebrow": "パートナー・投資家向け",
+      "investorTitle": "インド大規模ソーラー向け自律オペレーション層",
+      "investorBody": "NECTYRに5GW+のライブフリートデータ、継続AMC、更新レール上のORION。会社概要と投資家向け連絡先。",
+      "investorCtaAi": "AI intelligence layer",
+      "investorCtaCompany": "会社・規模",
+      "investorCtaOrion": "ORION早期アクセス",
+      "pillars": {
+        "0": {
+          "tag": "本日・現場",
+          "title": "水なし洗浄ロボット",
+          "body": "GLYDE・GLYDE-X・NYUMA・NYUMA-X・HELYX, 各行を走る自律システム。",
+          "link": "ロボット比較",
+          "href": "/solar-panel-cleaning-system"
+        },
+        "1": {
+          "tag": "本日・フリート",
+          "title": "NECTYRオペレーションポータル",
+          "body": "サイクル・ブロック監視・AMC, 2022年からのラベル付きテレメトリ。",
+          "link": "NECTYRを見る",
+          "href": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
+        },
+        "2": {
+          "tag": "ロードマップ・インテリ",
+          "title": "ORIONヘルス層",
+          "body": "発電を意識した監視, SCADAは低下を示す、ORIONはMWh消失前に行動。",
+          "link": "ORION登録",
+          "href": "/solar-panel-cleaning-system/orion-plant-intelligence-platform"
+        }
+      },
+      "loopSteps": {
+        "0": "Sense",
+        "1": "Schedule",
+        "2": "Clean",
+        "3": "Log",
+        "4": "Learn"
       }
     },
     "robots": {
@@ -131,16 +176,26 @@
       "feature3": {
         "title": "Made in India",
         "description": "Chakan, Puneで設計・製造, TÜV NORD認証ハードウェアとコア洗浄システムの特許。"
+      },
+      "feature4": {
+        "title": "Self-learning fleet AI",
+        "description": "AI that improves cleaning decisions with each cycle across the full fleet — soiling prediction, timing, and routing compound with every site added."
+      },
+      "feature5": {
+        "title": "Wet microfiber detection",
+        "description": "Sensors detect when cleaning elements are wet from dew or humidity and postpone cycles automatically — protecting module glass from smear damage."
       }
     },
     "whyTaypro": {
       "eyebrow": "大規模オペレーターがTayproを選ぶ理由",
       "heading": "リターンは運用で決まる, パネル設備費だけではない",
-      "bodyBeforeNectyr": "ロボットからフリートソフトまで一つのパートナー, 発電回復、水・労務リスク低減、全ブロックを",
+      "bodyBeforeNectyr": "One accountable partner from robot to fleet software: recover generation, cut water and labour risk, and monitor every block on",
       "nectyrLink": "NECTYR",
       "bodyBetween": "で監視できるフリートに。現場で",
       "cleaningTechLink": "デュアルパス乾式洗浄",
-      "bodyAfter": "が機能するか。"
+      "bodyAfter": "が機能するか。",
+      "bodyBeforeConsole": "ロボットからフリートソフトまで一つのパートナー, 発電回復、水・労務リスク低減、全ブロックを",
+      "consoleLink": "NECTYR"
     },
     "technology": {
       "heading": "高度なソーラーパネル洗浄ロボット技術",
@@ -153,13 +208,15 @@
     "roi": {
       "heading": "発電所のロボット回収期間を試算",
       "body": "人件費・水・発電の節約で方向性ROIを試算, またはPDF出力用のフル計算機を開く。",
+      "methodology": "Estimates use site-specific soiling, tariff, and O&M inputs. Full assumptions, qualified performance claims, and test methodology are documented on our performance page.",
+      "methodologyLink": "View performance & test methodology",
       "link": "フルROI・価格計算を開く"
     },
     "clients": {
       "heading": "主要クライアント",
+      "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India.",
       "logoAlt": "Tayproソーラー洗浄ロボットクライアント {index}",
-      "logoTitle": "Tayproソーラー洗浄ロボットクライアント {index}",
-      "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India."
+      "logoTitle": "Tayproソーラー洗浄ロボットクライアント {index}"
     },
     "faq": {
       "heading": "よくある質問",
@@ -203,7 +260,8 @@
     "projects": {
       "eyebrow": "現場で実証",
       "heading": "大規模洗浄ロボット導入",
-      "subheading": "Taypro自律・半自動ロボットを使うインドのソーラー発電所事例をご覧ください。"
+      "subheading": "Taypro自律・半自動ロボットを使うインドのソーラー発電所事例をご覧ください。",
+      "quote": "Utility operators report predictable dry-cleaning cycles, lower water logistics, and logged coverage through NECTYR across multi-MW blocks."
     },
     "blog": {
       "heading": "ブログより",
@@ -213,47 +271,6 @@
     "loading": {
       "form": "フォームを読み込み中…",
       "clients": "クライアントを読み込み中…"
-    },
-    "platform": {
-      "eyebrow": "Tayproの仕組み",
-      "heading": "ロボット・フリートソフト・プラントインテリジェンス, 一つの閉ループ",
-      "subtitle": "現場ロボットはデータと実行基盤。NECTYRが本日の層、ORIONが同じレールでプラント健全性を拡張。",
-      "loopClosing": "Sense → Schedule → Clean → Log → Learn, 全サイクル。",
-      "investorEyebrow": "パートナー・投資家向け",
-      "investorTitle": "インド大規模ソーラー向け自律オペレーション層",
-      "investorBody": "NECTYRに5GW+のライブフリートデータ、継続AMC、更新レール上のORION。会社概要と投資家向け連絡先。",
-      "investorCtaCompany": "会社・規模",
-      "investorCtaOrion": "ORION早期アクセス",
-      "pillars": {
-        "0": {
-          "tag": "本日・現場",
-          "title": "水なし洗浄ロボット",
-          "body": "GLYDE・GLYDE-X・NYUMA・NYUMA-X・HELYX, 各行を走る自律システム。",
-          "link": "ロボット比較",
-          "href": "/solar-panel-cleaning-system"
-        },
-        "1": {
-          "tag": "本日・フリート",
-          "title": "NECTYRオペレーションポータル",
-          "body": "サイクル・ブロック監視・AMC, 2022年からのラベル付きテレメトリ。",
-          "link": "NECTYRを見る",
-          "href": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
-        },
-        "2": {
-          "tag": "ロードマップ・インテリ",
-          "title": "ORIONヘルス層",
-          "body": "発電を意識した監視, SCADAは低下を示す、ORIONはMWh消失前に行動。",
-          "link": "ORION登録",
-          "href": "/solar-panel-cleaning-system/orion-plant-intelligence-platform"
-        }
-      },
-      "loopSteps": {
-        "0": "Sense",
-        "1": "Schedule",
-        "2": "Clean",
-        "3": "Log",
-        "4": "Learn"
-      }
     }
   },
   "Common": {

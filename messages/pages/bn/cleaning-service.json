@@ -1,8 +1,8 @@
 {
   "CleaningServicePage": {
     "meta": {
-      "title": "সোলার প্যানেল পরিষ্কার সেবা | Robotic OPEX",
-      "description": "১০ MW+ প্ল্যান্টের মাসিক রোবটিক পরিষ্কার। প্যানেল প্রতি পেমেন্ট, NECTYR রিপোর্ট। কোটেশন নিন।",
+      "title": "রোবোটিক সোলার প্যানেল ক্লিনিং সার্ভিস - প্রতি প্যানেল পে করুন | Taypro OPEX",
+      "description": "Taypro OPEX ইউটিলিটি-স্কেল প্ল্যান্টের (সাধারণত 50 MW+) মাসিক রোবোটিক সোলার প্যানেল পরিষ্কার সেবা। GLYDE, HELYX বা GLYDE-X মোতায়েন, মাসে 3–10 শুষ্ক চক্র, শুধু পরিষ্কার প্যানেল বিল, SOP, রুট, বিশ্রাম এলাকা ও NECTYR দৈনিক রিপোর্ট সহ।",
       "openGraphDescription": "মাসিক জলহীন রোবোটিক পরিস্কার: উদ্ভিদ-নির্দিষ্ট 3-10 চক্র, বিশদ পরিচ্ছন্নতার পরিকল্পনা, দৈনিক রিপোর্ট, প্রতি প্যানেল পরিষ্কার করা বিলিং। GLYDE, B বা T.",
       "openGraphImageAlt": "ইউটিলিটি-স্কেল সোলার প্ল্যান্টে Taypro OPEX রোবোটিক সোলার প্যানেল পরিষ্কারের পরিষেবা",
       "twitterDescription": "পরিষ্কার প্যানেল প্রতি মাসিক পেমেন্ট। প্ল্যান্ট স্টাডি, 3–10 শুষ্ক চক্র, SOP, রুট, বিশ্রাম, NECTYR রিপোর্ট।"
@@ -30,7 +30,11 @@
       "subtitleDeploy": "আমরা মোতায়েন",
       "subtitleOr": "বা",
       "subtitleProgramme": "একটি পরিচালিত অধীনে",
-      "subtitleAfter": "সঙ্গে প্রোগ্রাম"
+      "subtitleAfter": "সঙ্গে প্রোগ্রাম",
+      "modelA": "GLYDE",
+      "modelB": "HELYX",
+      "modelT": "GLYDE-X",
+      "console": "NECTYR"
     },
     "faqs": {
       "0": {
@@ -148,10 +152,11 @@
       "5": "ডেডিকেটেড অপারেটর + দেশব্যাপী প্রযুক্তিগত সহায়তা"
     },
     "misc": {
-      "productCardsTitle": "আরো সমাধান খুঁজছেন?",
+      "productCardsTitle": "আরও সমাধান খুঁজছেন?",
       "projectsHeader": "আমাদের প্রকল্প",
       "faqTitle": "প্রায়শই জিজ্ঞাসিত প্রশ্ন",
-      "faqSubtitle": "Taypro OPEX পরিষেবার প্রশ্নগুলি, এছাড়াও নীচে বিস্তৃত Taypro প্রোগ্রামের প্রায়শই জিজ্ঞাসিত প্রশ্নগুলি।"
+      "faqSubtitle": "Taypro OPEX পরিষেবার প্রশ্নগুলি, এছাড়াও নীচে বিস্তৃত Taypro প্রোগ্রামের প্রায়শই জিজ্ঞাসিত প্রশ্নগুলি।",
+      "modelCardsTitle": "আরো সমাধান খুঁজছেন?"
     },
     "overview": {
       "eyebrow": "পে-প্রতি-ফলাফল সৌর O&M পরিষ্কার করা",
@@ -275,7 +280,12 @@
       "linkGlydeX": "GLYDE-X",
       "linkBetweenTAndNectyr": ", বা",
       "linkNectyr": "NECTYR",
-      "exploreSuffix": "."
+      "exploreSuffix": ".",
+      "linkBetweenTConsole": ", বা",
+      "linkModelA": "GLYDE",
+      "linkModelB": "HELYX",
+      "linkModelT": "GLYDE-X",
+      "linkConsole": "NECTYR"
     },
     "roiSection": {
       "title": "Taypro Opex-এ ROI এবং সঞ্চয় গণনা করুন",
@@ -334,7 +344,7 @@
       "titleLine2": "সর্বোত্তম ফলাফলের জন্য",
       "body": "Taypro OPEX সুশৃঙ্খল অপারেটর তদারকির সাথে নরম, ল্যাব-প্রমাণিত যোগাযোগের উপকরণগুলিকে জোড়া দেয়, যাতে প্যানেলগুলি পরিষ্কার থাকে, ওয়ারেন্টি এক্সপোজার নিয়ন্ত্রিত থাকে এবং আপনার টিম সর্বদা জানে কে সাইটে আছে, কেন, এবং প্রতিটি শিফটে কী অর্জন করা হয়েছে।"
     },
-    "productCardsTitle": "আরো সমাধান খুঁজছেন?",
+    "productCardsTitle": "আরও সমাধান খুঁজছেন?",
     "projectsHeader": "আমাদের প্রকল্প",
     "common": {
       "breadcrumbHome": "হোম"
@@ -383,7 +393,8 @@
     "manualVsRobotic": {
       "criterion": "মানদণ্ড",
       "manual": "ম্যানুয়াল পরিষ্কার"
-    }
+    },
+    "modelCardsTitle": "আরো সমাধান খুঁজছেন?"
   },
   "Common": {
     "breadcrumbHome": "হোম",

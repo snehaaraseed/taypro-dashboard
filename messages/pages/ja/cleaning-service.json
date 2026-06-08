@@ -1,8 +1,8 @@
 {
   "CleaningServicePage": {
     "meta": {
-      "title": "ソーラーパネル清掃サービス | Robotic OPEX",
-      "description": "10MW+向け月次ロボット清掃。パネル単位課金、NECTYRレポート。見積もり依頼。",
+      "title": "ロボットによるソーラーパネル洗浄サービス - パネルごとに支払い | Taypro OPEX",
+      "description": "Taypro OPEXはユーティリティ規模（通常50MW以上）向けの月次ロボット洗浄サービスです。GLYDE・HELYX・GLYDE-Xを展開し、月3–10回の乾式サイクルを推奨、清掃したパネル分のみ請求, SOP・経路・休憩エリア・NECTYR日次レポート付き。",
       "openGraphDescription": "毎月の水なしロボット洗浄: プラント固有の 3 ～ 10 サイクル、詳細な洗浄計画、日次レポート、洗浄されたパネルごとの請求。 GLYDE、B または T。",
       "openGraphImageAlt": "Taypro OPEX 実用規模の太陽光発電所におけるロボットソーラーパネル洗浄サービス",
       "twitterDescription": "清掃パネルごとの月額。プラント調査、月3–10乾式、SOP、経路、休憩、NECTYRレポート。"
@@ -30,7 +30,11 @@
       "subtitleDeploy": "導入します",
       "subtitleOr": "または",
       "subtitleProgramme": "管理下にある",
-      "subtitleAfter": "プログラム"
+      "subtitleAfter": "プログラム",
+      "modelA": "GLYDE",
+      "modelB": "HELYX",
+      "modelT": "GLYDE-X",
+      "console": "NECTYR"
     },
     "faqs": {
       "0": {
@@ -148,10 +152,11 @@
       "5": "専任オペレーター + 全国規模の技術サポート"
     },
     "misc": {
-      "productCardsTitle": "さらにソリューションをお探しですか?",
+      "productCardsTitle": "他のソリューションをお探しですか？",
       "projectsHeader": "私たちのプロジェクト",
       "faqTitle": "よくある質問",
-      "faqSubtitle": "Taypro OPEX サービスに関する質問, 加えて、以下の広範な Taypro プログラムに関する FAQ。"
+      "faqSubtitle": "Taypro OPEX サービスに関する質問, 加えて、以下の広範な Taypro プログラムに関する FAQ。",
+      "modelCardsTitle": "さらにソリューションをお探しですか?"
     },
     "overview": {
       "eyebrow": "成果報酬型の太陽光発電 O&M クリーニング",
@@ -268,14 +273,19 @@
         "capex": "資産の減価償却、陳腐化、在庫リスク"
       },
       "explorePrefix": "ハードウェアを直接探索します。",
-      "linkGlyde": "BR0トークン",
+      "linkGlyde": "GLYDE",
       "linkBetweenAB": "、",
-      "linkHelyx": "BR0トークン",
+      "linkHelyx": "HELYX",
       "linkBetweenBT": "、",
-      "linkGlydeX": "BR0トークン",
+      "linkGlydeX": "GLYDE-X",
       "linkBetweenTAndNectyr": "、 または",
-      "linkNectyr": "BR0トークン",
-      "exploreSuffix": "。"
+      "linkNectyr": "NECTYR",
+      "exploreSuffix": "。",
+      "linkBetweenTConsole": "、 または",
+      "linkModelA": "BR0トークン",
+      "linkModelB": "BR0トークン",
+      "linkModelT": "BR0トークン",
+      "linkConsole": "BR0トークン"
     },
     "roiSection": {
       "title": "Taypro Opex の ROI と節約額を計算する",
@@ -334,7 +344,7 @@
       "titleLine2": "最適な結果を得るために",
       "body": "Taypro OPEX は、実験室で検証された柔らかいコンタクト素材と規律あるオペレーターの監視を組み合わせています。そのため、パネルはきれいな状態に保たれ、保証のエクスポージャーは管理された状態に保たれ、チームは常に誰が現場にいるのか、なぜ、そして各シフトで何が達成されたのかを把握できます。"
     },
-    "productCardsTitle": "さらにソリューションをお探しですか?",
+    "productCardsTitle": "他のソリューションをお探しですか？",
     "projectsHeader": "私たちのプロジェクト",
     "common": {
       "breadcrumbHome": "ホーム"
@@ -383,7 +393,8 @@
     "manualVsRobotic": {
       "criterion": "基準",
       "manual": "手動清掃"
-    }
+    },
+    "modelCardsTitle": "さらにソリューションをお探しですか?"
   },
   "Common": {
     "breadcrumbHome": "ホーム",

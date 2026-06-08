@@ -18,9 +18,9 @@ import {
 import {
   robotProducts,
   robotSolutions,
+  tayproCleaningTechStatsStrip,
   tayproMarketingImpactStats,
   tayproRobotConnectivitySummary,
-  tayproTrustedByStatsStrip,
 } from "@/app/data";
 import { listAllBlogs } from "@/lib/cms/blogService";
 import { cmsDetailLink } from "@/lib/cms/locale-fallback";
@@ -66,16 +66,31 @@ const DEEP_DIVE_CONFIG = [
 ] as const;
 
 const COMPARISON_ROW_KEYS = ["row0", "row1", "row2", "row3", "row4", "row5"] as const;
-const FAQ_KEYS = ["q0", "q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9"] as const;
+const FAQ_KEYS = [
+  "q0", "q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9",
+  "q10", "q11", "q12", "q13", "q14", "q15", "q16", "q17", "q18", "q19",
+] as const;
+const AI_LEARNING_FEATURE_KEYS = [
+  "feature0", "feature1", "feature2", "feature3", "feature4", "feature5",
+] as const;
+const TECH_STACK_LAYER_KEYS = ["layer0", "layer1", "layer2", "layer3"] as const;
+const TECH_STACK_ICONS = [Wind, Radio, Cpu, Shield] as const;
+const MECHANISM_COMPARISON_ROW_KEYS = ["mechRow0", "mechRow1", "mechRow2"] as const;
+const TRACKER_BULLET_KEYS = ["bullet0", "bullet1", "bullet2", "bullet3"] as const;
+const PLATFORM_WEIGHT_ROW_KEYS = ["row0", "row1", "row2", "row3"] as const;
 const DUST_FAQ_KEYS = ["q0", "q1", "q2"] as const;
 const EXPLORE_HREFS = [
   "/solar-panel-cleaning-system",
   "/solar-panel-cleaning-robot-price-calculator",
   "/projects",
+  "/technology/ai-intelligence",
   "/contact",
 ] as const;
 const STAT_LABEL_KEYS = ["label0", "label1", "label2", "label3"] as const;
-const SNAPSHOT_ROW_KEYS = ["row0", "row1", "row2", "row3", "row4", "row5", "row6", "row7"] as const;
+const SNAPSHOT_ROW_KEYS = [
+  "row0", "row1", "row2", "row3", "row4", "row5", "row6", "row7", "row8", "row9", "row10",
+  "row11", "row12", "row13", "row14", "row15", "row16",
+] as const;
 
 const PREFERRED_TECH_BLOG_SLUGS = [
   "what-is-a-solar-panel-cleaning-robot",
@@ -239,8 +254,24 @@ export default async function CleaningTechnologyPage({
 
   const technicalSnapshot = SNAPSHOT_ROW_KEYS.map((rowKey) => ({
     label: t(`snapshot.${rowKey}Label`),
-    value: rowKey === "row4" ? connectivity : t(`snapshot.${rowKey}Value`),
+    value: rowKey === "row5" ? connectivity : t(`snapshot.${rowKey}Value`),
   }));
+
+  const techStackLayers = TECH_STACK_LAYER_KEYS.map((key, i) => ({
+    icon: TECH_STACK_ICONS[i],
+    title: t(`techStack.${key}.title`),
+    body: t(`techStack.${key}.body`),
+  }));
+
+  const mechanismComparisonRows = MECHANISM_COMPARISON_ROW_KEYS.map((prefix) => ({
+    method: t(`dualPassMechanism.${prefix}Method`),
+    contact: t(`dualPassMechanism.${prefix}Contact`),
+    dustLift: t(`dualPassMechanism.${prefix}DustLift`),
+    residue: t(`dualPassMechanism.${prefix}Residue`),
+    wear: t(`dualPassMechanism.${prefix}Wear`),
+  }));
+
+  const trackerBullets = TRACKER_BULLET_KEYS.map((key) => t(`trackerTech.${key}`));
 
   const technologyFaqs = FAQ_KEYS.map((qKey, i) => ({
     question: t(`faq.${qKey}`),
@@ -257,12 +288,15 @@ export default async function CleaningTechnologyPage({
     href,
   }));
 
-  const waterlessStats = [
-    tayproMarketingImpactStats.robotCapacityDeployed,
-    tayproMarketingImpactStats.plantInstallations,
-    tayproMarketingImpactStats.co2ReducedAnnually,
-    tayproMarketingImpactStats.robotsManufacturedPerMonth,
-  ].map((stat, i) => ({ value: stat.value, label: t(`waterless.stat${i}Label`) }));
+  const waterlessStats = tayproCleaningTechStatsStrip.map((stat, i) => ({
+    value: stat.value,
+    label: t(`waterless.stat${i}Label`),
+  }));
+
+  const aiLearningFeatures = AI_LEARNING_FEATURE_KEYS.map((key) => ({
+    title: t(`aiLearning.${key}.title`),
+    body: t(`aiLearning.${key}.body`),
+  }));
 
   function buildDeepDiveParagraphs(key: (typeof DEEP_DIVE_CONFIG)[number]["key"]): ReactNode[] {
     const base = `deepDive.${key}`;
@@ -283,8 +317,10 @@ export default async function CleaningTechnologyPage({
         t(`${base}.p0`), t(`${base}.p1`), t(`${base}.p2`),
         <>
           {t(`${base}.p3Before`)}{" "}
-          <Link href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app" className="text-[#5a8f00] font-medium underline-offset-4 hover:underline">{t(`${base}.nectyrLink`)}</Link>
+          <a href="#ai-learning" className="text-[#5a8f00] font-medium underline-offset-4 hover:underline">{t(`${base}.aiLearningLink`)}</a>
           {t(`${base}.p3Mid`)}{" "}
+          <Link href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app" className="text-[#5a8f00] font-medium underline-offset-4 hover:underline">{t(`${base}.nectyrLink`)}</Link>
+          {t(`${base}.p3Mid2`)}{" "}
           <Link href="/blog/how-ai-can-improve-solar-energy-output" className="text-[#5a8f00] font-medium underline-offset-4 hover:underline">{t(`${base}.aiBlogLink`)}</Link>{" "}
           {t(`${base}.p3After`)}
         </>,
@@ -303,6 +339,9 @@ export default async function CleaningTechnologyPage({
           {t(`${base}.p3After`)}
         </>,
       ];
+    }
+    if (key === "fieldHardware") {
+      return [t(`${base}.p0`), t(`${base}.p1`), t(`${base}.p2`), t(`${base}.p3`)];
     }
     return [t(`${base}.p0`), t(`${base}.p1`), t(`${base}.p2`)];
   }
@@ -386,7 +425,7 @@ export default async function CleaningTechnologyPage({
         >
           <Container>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
-              {[...tayproTrustedByStatsStrip].map((stat, idx) => (
+              {[...tayproCleaningTechStatsStrip].map((stat, idx) => (
                 <AnimateOnScroll
                   key={stat.label}
                   animation="fadeInUp"
@@ -400,6 +439,85 @@ export default async function CleaningTechnologyPage({
                 </AnimateOnScroll>
               ))}
             </div>
+          </Container>
+        </div>
+
+        {/* Technology stack */}
+        <div className="py-14 md:py-20 bg-white" aria-labelledby="tech-stack-heading">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mx-auto text-center mb-12">
+              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
+                {t("techStack.eyebrow")}
+              </p>
+              <h2 id="tech-stack-heading" className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4">
+                {t("techStack.heading")}
+              </h2>
+              <p className="text-[#27415c] text-lg leading-relaxed">{t("techStack.intro")}</p>
+            </AnimateOnScroll>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              {techStackLayers.map((layer, idx) => (
+                <AnimateOnScroll key={layer.title} animation="fadeInUp" delay={idx * 70}>
+                  <article className="h-full rounded-2xl border border-gray-200 bg-[#f8fafb] p-6 md:p-7">
+                    <layer.icon className="w-8 h-8 text-[#5a8f00] mb-4" aria-hidden />
+                    <h3 className="text-[#052638] font-semibold text-lg mb-3 leading-snug">{layer.title}</h3>
+                    <p className="text-[#27415c] text-sm leading-relaxed">{layer.body}</p>
+                  </article>
+                </AnimateOnScroll>
+              ))}
+            </div>
+          </Container>
+        </div>
+
+        {/* Fleet scale + data moat */}
+        <div className="py-14 md:py-20 bg-[#052638]" aria-labelledby="fleet-scale-heading">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mx-auto text-center mb-10">
+              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
+                {t("fleetScale.eyebrow")}
+              </p>
+              <h2 id="fleet-scale-heading" className="text-white font-semibold text-3xl md:text-4xl mb-4">
+                {t("fleetScale.heading")}
+              </h2>
+              <p className="text-white/85 text-lg leading-relaxed">{t("fleetScale.body")}</p>
+            </AnimateOnScroll>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto mb-10">
+              {[
+                {
+                  value: tayproMarketingImpactStats.dailyCleaningCapacityGw.value,
+                  label: t("fleetScale.dailyLabel"),
+                },
+                {
+                  value: tayproMarketingImpactStats.panelsCleanedAnnually.value,
+                  label: t("fleetScale.panelsLabel"),
+                },
+                {
+                  value: tayproMarketingImpactStats.plantInstallations.value,
+                  label: t("fleetScale.sitesLabel"),
+                },
+                {
+                  value: tayproMarketingImpactStats.robotCapacityDeployed.value,
+                  label: t("fleetScale.deployedLabel"),
+                },
+              ].map((item, idx) => (
+                <AnimateOnScroll key={item.label} animation="fadeInUp" delay={idx * 70}>
+                  <div className="rounded-2xl border border-white/15 bg-white/5 px-6 py-5 text-center">
+                    <p className="text-[#A8C117] font-semibold text-2xl sm:text-3xl mb-1">{item.value}</p>
+                    <p className="text-white/75 text-sm">{item.label}</p>
+                  </div>
+                </AnimateOnScroll>
+              ))}
+            </div>
+            <AnimateOnScroll animation="fadeInUp" delay={120}>
+              <article className="max-w-4xl mx-auto rounded-2xl border border-[#A8C117]/30 bg-white/5 p-6 md:p-8">
+                <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-2">
+                  {t("dataMoat.eyebrow")}
+                </p>
+                <h3 className="text-white font-semibold text-xl md:text-2xl mb-3">
+                  {t("dataMoat.heading")}
+                </h3>
+                <p className="text-white/85 text-base leading-relaxed">{t("dataMoat.body")}</p>
+              </article>
+            </AnimateOnScroll>
           </Container>
         </div>
 
@@ -452,7 +570,196 @@ export default async function CleaningTechnologyPage({
           </Container>
         </div>
 
-        {/* {t("audience.eyebrow")} */}
+        {/* AI That Learns With Every Clean */}
+        <div
+          id="ai-learning"
+          className="py-14 md:py-20 bg-[#f4f7f9]"
+          aria-labelledby="ai-learning-heading"
+        >
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mx-auto text-center mb-10">
+              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
+                {t("aiLearning.eyebrow")}
+              </p>
+              <h2 id="ai-learning-heading" className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4">
+                {t("aiLearning.heading")}
+              </h2>
+              <p className="text-[#27415c] text-lg leading-relaxed mb-4">{t("aiLearning.intro")}</p>
+              <p className="text-[#27415c] text-base leading-relaxed">
+                {t("aiLearning.intelligenceBefore")}{" "}
+                <Link
+                  href="/technology/ai-intelligence"
+                  className="text-[#5a8f00] font-medium hover:underline"
+                >
+                  {t("aiLearning.intelligenceLink")}
+                </Link>
+                {t("aiLearning.intelligenceAfter")}
+              </p>
+            </AnimateOnScroll>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {aiLearningFeatures.map((feature, idx) => (
+                <AnimateOnScroll key={feature.title} animation="fadeInUp" delay={idx * 70}>
+                  <article className="h-full rounded-2xl border border-gray-200 bg-white p-6 hover:border-[#A8C117]/60 hover:shadow-sm transition">
+                    <Cpu className="w-7 h-7 text-[#5a8f00] mb-3" aria-hidden />
+                    <h3 className="text-[#052638] font-semibold text-lg mb-2 leading-snug">
+                      {feature.title}
+                    </h3>
+                    <p className="text-[#27415c] text-sm leading-relaxed">{feature.body}</p>
+                  </article>
+                </AnimateOnScroll>
+              ))}
+            </div>
+            <AnimateOnScroll animation="fadeInUp" delay={120} className="text-center mt-10">
+              <Link
+                href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#A8C117] text-[#052638] text-sm font-semibold hover:bg-[#b3cf3d] transition-colors"
+              >
+                {t("aiLearning.cta")}
+                <ArrowRight className="w-4 h-4" aria-hidden />
+              </Link>
+            </AnimateOnScroll>
+          </Container>
+        </div>
+
+        {/* Live Operations Intelligence */}
+        <div
+          id="live-operations"
+          className="py-14 md:py-20 bg-[#052638]"
+          aria-labelledby="live-ops-heading"
+        >
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mx-auto text-center mb-10">
+              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
+                {t("liveOps.eyebrow")}
+              </p>
+              <h2 id="live-ops-heading" className="text-white font-semibold text-3xl md:text-4xl mb-4">
+                {t("liveOps.heading")}
+              </h2>
+              <p className="text-white/85 text-lg leading-relaxed">{t("liveOps.intro")}</p>
+            </AnimateOnScroll>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-8">
+              {[
+                { title: t("liveOps.trackingTitle"), body: t("liveOps.trackingBody"), delay: 60 },
+                { title: t("liveOps.predictiveTitle"), body: t("liveOps.predictiveBody"), delay: 100 },
+                { title: t("liveOps.autonomousTitle"), body: t("liveOps.autonomousBody"), delay: 140 },
+              ].map((card) => (
+                <AnimateOnScroll key={card.title} animation="fadeInUp" delay={card.delay}>
+                  <article className="h-full rounded-2xl border border-white/15 bg-white/5 p-6 md:p-8">
+                    <h3 className="text-white font-semibold text-lg mb-3 leading-snug">{card.title}</h3>
+                    <p className="text-white/80 text-sm leading-relaxed">{card.body}</p>
+                  </article>
+                </AnimateOnScroll>
+              ))}
+            </div>
+            <AnimateOnScroll animation="fadeInUp" delay={160} className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link
+                href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
+                className="inline-flex justify-center items-center gap-2 px-5 py-2.5 rounded-xl bg-[#A8C117] text-[#052638] text-sm font-semibold hover:bg-[#b3cf3d] transition-colors"
+              >
+                {t("liveOps.nectyrLink")}
+                <ArrowRight className="w-4 h-4" aria-hidden />
+              </Link>
+              <a
+                href="#ai-learning"
+                className="inline-flex justify-center items-center gap-2 px-5 py-2.5 rounded-xl border border-white/25 text-white text-sm font-medium hover:border-[#A8C117] hover:text-[#A8C117] transition-colors"
+              >
+                {t("liveOps.aiLink")}
+                <ArrowRight className="w-4 h-4" aria-hidden />
+              </a>
+            </AnimateOnScroll>
+          </Container>
+        </div>
+
+        {/* Tracker engineering */}
+        <div
+          id="tracker-engineering"
+          className="py-14 md:py-20 bg-white"
+          aria-labelledby="tracker-tech-heading"
+        >
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mb-10">
+              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
+                {t("trackerTech.eyebrow")}
+              </p>
+              <h2 id="tracker-tech-heading" className="text-[#052638] font-semibold text-3xl md:text-4xl mb-6">
+                {t("trackerTech.heading")}
+              </h2>
+              <div className="space-y-4 text-[#27415c] text-base leading-relaxed">
+                <p>{t("trackerTech.p0")}</p>
+                <p>{t("trackerTech.p1")}</p>
+                <p>{t("trackerTech.p2")}</p>
+              </div>
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fadeInUp" delay={80}>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl">
+                {trackerBullets.map((bullet) => (
+                  <li
+                    key={bullet}
+                    className="flex gap-3 rounded-xl border border-gray-200 bg-[#f8fafb] px-4 py-3 text-sm text-[#27415c]"
+                  >
+                    <Check className="w-5 h-5 shrink-0 text-[#5a8f00] mt-0.5" aria-hidden />
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            </AnimateOnScroll>
+          </Container>
+        </div>
+
+        {/* Self-alignment */}
+        <div
+          id="self-alignment"
+          className="py-14 md:py-20 bg-[#f4f7f9]"
+          aria-labelledby="self-alignment-heading"
+        >
+          <Container size="narrow">
+            <AnimateOnScroll animation="fadeInUp">
+              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
+                {t("selfAlignment.eyebrow")}
+              </p>
+              <h2 id="self-alignment-heading" className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4">
+                {t("selfAlignment.heading")}
+              </h2>
+              <p className="text-[#27415c] text-base md:text-lg leading-relaxed">{t("selfAlignment.body")}</p>
+            </AnimateOnScroll>
+          </Container>
+        </div>
+
+        {/* Deployment scope */}
+        <div
+          id="deployment-scope"
+          className="py-14 md:py-20 bg-white"
+          aria-labelledby="deployment-scope-heading"
+        >
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mx-auto text-center mb-10">
+              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
+                {t("deploymentScope.eyebrow")}
+              </p>
+              <h2 id="deployment-scope-heading" className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4">
+                {t("deploymentScope.heading")}
+              </h2>
+            </AnimateOnScroll>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              <AnimateOnScroll animation="fadeInUp" delay={60}>
+                <article className="h-full rounded-2xl border border-gray-200 bg-[#f8fafb] p-6 md:p-8">
+                  <Building2 className="w-8 h-8 text-[#5a8f00] mb-4" aria-hidden />
+                  <h3 className="text-[#052638] font-semibold text-xl mb-3">{t("deploymentScope.utilityTitle")}</h3>
+                  <p className="text-[#27415c] text-sm leading-relaxed">{t("deploymentScope.utilityBody")}</p>
+                </article>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fadeInUp" delay={120}>
+                <article className="h-full rounded-2xl border border-gray-200 bg-[#f8fafb] p-6 md:p-8">
+                  <HardHat className="w-8 h-8 text-[#5a8f00] mb-4" aria-hidden />
+                  <h3 className="text-[#052638] font-semibold text-xl mb-3">{t("deploymentScope.rooftopTitle")}</h3>
+                  <p className="text-[#27415c] text-sm leading-relaxed">{t("deploymentScope.rooftopBody")}</p>
+                </article>
+              </AnimateOnScroll>
+            </div>
+          </Container>
+        </div>
+
+        {/* Audience */}
         <div
           className="py-14 md:py-20 bg-[#052638]"
           aria-labelledby="audience-heading"
@@ -544,10 +851,85 @@ export default async function CleaningTechnologyPage({
           </Container>
         </div>
 
+        {/* Dual-pass mechanism science */}
+        <div
+          id="dual-pass-mechanism"
+          className="py-14 md:py-20 bg-white"
+          aria-labelledby="dual-pass-mechanism-heading"
+        >
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mx-auto text-center mb-10">
+              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
+                {t("dualPassMechanism.eyebrow")}
+              </p>
+              <h2
+                id="dual-pass-mechanism-heading"
+                className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
+              >
+                {t("dualPassMechanism.heading")}
+              </h2>
+              <p className="text-[#27415c] text-lg leading-relaxed">{t("dualPassMechanism.intro")}</p>
+            </AnimateOnScroll>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-8">
+              <AnimateOnScroll animation="fadeInUp" delay={60}>
+                <article className="h-full rounded-2xl border border-[#A8C117]/40 bg-[#f8fafb] p-6 md:p-8">
+                  <Wind className="w-8 h-8 text-[#5a8f00] mb-4" aria-hidden />
+                  <h3 className="text-[#052638] font-semibold text-lg mb-3">{t("dualPassMechanism.pass0Title")}</h3>
+                  <p className="text-[#27415c] text-sm leading-relaxed">{t("dualPassMechanism.pass0Body")}</p>
+                </article>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fadeInUp" delay={120}>
+                <article className="h-full rounded-2xl border border-gray-200 bg-white p-6 md:p-8">
+                  <Droplets className="w-8 h-8 text-[#5a8f00] mb-4" aria-hidden />
+                  <h3 className="text-[#052638] font-semibold text-lg mb-3">{t("dualPassMechanism.pass1Title")}</h3>
+                  <p className="text-[#27415c] text-sm leading-relaxed">{t("dualPassMechanism.pass1Body")}</p>
+                </article>
+              </AnimateOnScroll>
+            </div>
+            <AnimateOnScroll animation="fadeInUp" delay={140} className="max-w-4xl mx-auto mb-10">
+              <p className="text-center text-[#27415c] text-base md:text-lg leading-relaxed font-medium">
+                {t("dualPassMechanism.resultBody")}
+              </p>
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fadeInUp" delay={160}>
+              <h3 className="text-[#052638] font-semibold text-xl md:text-2xl text-center mb-6">
+                {t("dualPassMechanism.comparisonHeading")}
+              </h3>
+              <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
+                <table className="w-full min-w-[720px] text-left text-sm">
+                  <thead>
+                    <tr className="bg-[#052638] text-white">
+                      <th className="px-4 py-3 font-semibold">{t("dualPassMechanism.colMethod")}</th>
+                      <th className="px-4 py-3 font-semibold">{t("dualPassMechanism.colContact")}</th>
+                      <th className="px-4 py-3 font-semibold">{t("dualPassMechanism.colDustLift")}</th>
+                      <th className="px-4 py-3 font-semibold">{t("dualPassMechanism.colResidue")}</th>
+                      <th className="px-4 py-3 font-semibold">{t("dualPassMechanism.colWear")}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {mechanismComparisonRows.map((row, idx) => (
+                      <tr
+                        key={row.method}
+                        className={idx === mechanismComparisonRows.length - 1 ? "bg-[#f0f7e6]" : idx % 2 === 0 ? "bg-white" : "bg-[#f8fafb]"}
+                      >
+                        <td className="px-4 py-3 font-medium text-[#052638]">{row.method}</td>
+                        <td className="px-4 py-3 text-[#27415c]">{row.contact}</td>
+                        <td className="px-4 py-3 text-[#27415c]">{row.dustLift}</td>
+                        <td className="px-4 py-3 text-[#27415c]">{row.residue}</td>
+                        <td className="px-4 py-3 text-[#27415c]">{row.wear}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </AnimateOnScroll>
+          </Container>
+        </div>
+
         {/* How dual-pass works */}
         <div
           id="how-dual-pass-works"
-          className="py-14 md:py-20 bg-white"
+          className="py-14 md:py-20 bg-[#f4f7f9]"
           aria-labelledby="how-dual-pass-heading"
         >
           <Container>
@@ -728,6 +1110,54 @@ export default async function CleaningTechnologyPage({
                         ))}
                       </ul>
                     ) : null}
+                    {section.id === "field-hardware" ? (
+                      <div className="space-y-6 pt-4">
+                        <div>
+                          <h3 className="text-[#052638] font-semibold text-lg mb-2">
+                            {t("platformWeights.heading")}
+                          </h3>
+                          <p className="text-[#27415c] text-sm mb-3">{t("platformWeights.intro")}</p>
+                          <div className="overflow-x-auto rounded-xl border border-gray-200">
+                            <table className="w-full min-w-[420px] text-left text-sm">
+                              <thead>
+                                <tr className="bg-[#f4f7f9] text-[#052638]">
+                                  <th className="px-4 py-3 font-semibold">{t("platformWeights.colPlatform")}</th>
+                                  <th className="px-4 py-3 font-semibold">{t("platformWeights.colWeight")}</th>
+                                  <th className="px-4 py-3 font-semibold">{t("platformWeights.colNotes")}</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-gray-100">
+                                {PLATFORM_WEIGHT_ROW_KEYS.map((rowKey) => (
+                                  <tr key={rowKey} className="text-[#27415c]">
+                                    <td className="px-4 py-3 font-medium">{t(`platformWeights.${rowKey}Platform`)}</td>
+                                    <td className="px-4 py-3">{t(`platformWeights.${rowKey}Weight`)}</td>
+                                    <td className="px-4 py-3">{t(`platformWeights.${rowKey}Notes`)}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          <article className="rounded-xl border border-[#A8C117]/30 bg-[#f8fafb] p-5">
+                            <h3 className="text-[#052638] font-semibold text-base mb-2">
+                              {t("hardwareHighlights.selfPoweredTitle")}
+                            </h3>
+                            <p className="text-[#27415c] text-sm leading-relaxed">
+                              {t("hardwareHighlights.selfPoweredBody")}
+                            </p>
+                          </article>
+                          <article className="rounded-xl border border-[#A8C117]/30 bg-[#f8fafb] p-5">
+                            <h3 className="text-[#052638] font-semibold text-base mb-2">
+                              {t("hardwareHighlights.warrantyTitle")}
+                            </h3>
+                            <p className="text-[#27415c] text-sm leading-relaxed">
+                              {t("hardwareHighlights.warrantyBody")}
+                            </p>
+                          </article>
+                        </div>
+                      </div>
+                    ) : null}
                   </div>
                 </AnimateOnScroll>
               </div>
@@ -762,9 +1192,9 @@ export default async function CleaningTechnologyPage({
                   {t("waterless.p1Before")}{" "}
                   <strong className="text-[#A8C117] font-semibold">
                     {tayproMarketingImpactStats.waterSavedAnnually.value}{" "}
-                    {t(`stats.${STAT_LABEL_KEYS[2]}`).toLowerCase()}
+                    {t("waterless.p1WaterLabel")}
                   </strong>{" "}
-                  {t("waterless.p1After")}{" "}
+                  {t("waterless.p1Mid")}{" "}
                   <strong className="text-white font-semibold">
                     {tayproMarketingImpactStats.robotCapacityDeployed.value}
                   </strong>{" "}

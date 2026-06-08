@@ -2,8 +2,11 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import {
+  Activity,
   BarChart3,
+  Battery,
   CloudSun,
+  Droplets,
   FileDown,
   Gauge,
   Headphones,
@@ -53,6 +56,19 @@ const CAPABILITY_ICONS = [
 
 const FAQ_KEYS = ["0", "1", "2", "3", "4", "5", "6", "7"] as const;
 const CAPABILITY_KEYS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
+const INTELLIGENCE_KEYS = ["0", "1", "2", "3", "4", "5", "6", "7", "8"] as const;
+
+const INTELLIGENCE_ICONS = [
+  MapPin,
+  Gauge,
+  Battery,
+  Droplets,
+  CloudSun,
+  FileDown,
+  Activity,
+  Radio,
+  LayoutDashboard,
+] as const;
 
 export default async function NectyrPage({
   params,
@@ -85,6 +101,12 @@ export default async function NectyrPage({
     body: t(`capabilitiesCards.${i}.body`),
   }));
 
+  const intelligenceCards = INTELLIGENCE_KEYS.map((i, idx) => ({
+    icon: INTELLIGENCE_ICONS[idx],
+    title: t(`intelligenceCards.${i}.title`),
+    body: t(`intelligenceCards.${i}.body`),
+  }));
+
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
@@ -95,6 +117,7 @@ export default async function NectyrPage({
         url={nectyrPageUrl}
         applicationCategory="WebApplication"
         operatingSystem="Web browser"
+        offerPriceKey="nectyr"
       />
       <FAQPageSchema faqs={nectyrFaqs} />
 
@@ -153,6 +176,66 @@ export default async function NectyrPage({
                 </div>
               </div>
             </AnimateOnScroll>
+          </Container>
+        </section>
+
+        <section
+          className="w-full py-16 sm:py-20 bg-[#052638]"
+          aria-labelledby="nectyr-intelligence-heading"
+        >
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
+              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-3">
+                {t("intelligenceCapabilities.eyebrow")}
+              </p>
+              <h2
+                id="nectyr-intelligence-heading"
+                className="text-white font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight max-w-4xl mx-auto"
+              >
+                {t("intelligenceCapabilities.title")}
+              </h2>
+              <p className="text-white/80 text-base sm:text-lg max-w-3xl mx-auto mt-6 leading-relaxed">
+                {t("intelligenceCapabilities.subtitle")}
+              </p>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll animation="fadeInUp" delay={80} className="mb-12">
+              <article className="max-w-3xl mx-auto rounded-2xl border border-[#A8C117]/30 bg-white/5 px-6 py-8 text-center">
+                <p className="text-[#A8C117] font-semibold text-3xl sm:text-4xl mb-2 tabular-nums">
+                  {t("intelligenceStat.value")}
+                </p>
+                <p className="text-white/70 text-sm uppercase tracking-wide mb-4">
+                  {t("intelligenceStat.label")}
+                </p>
+                <p className="text-white/85 text-base leading-relaxed">
+                  {t("intelligenceStat.body")}
+                </p>
+              </article>
+            </AnimateOnScroll>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {intelligenceCards.map((card, idx) => {
+                const Icon = card.icon;
+                return (
+                  <AnimateOnScroll
+                    key={card.title}
+                    animation="fadeInUp"
+                    delay={idx * 60}
+                    className="bg-white/5 border border-white/10 p-6 sm:p-7 rounded-lg flex flex-col items-start h-full hover:border-[#A8C117]/40 transition-colors"
+                  >
+                    <div className="w-12 h-12 flex items-center justify-center bg-[#A8C117]/15 rounded-md mb-4">
+                      <Icon className="text-[#A8C117] w-6 h-6" aria-hidden />
+                    </div>
+                    <h3 className="text-white font-semibold text-lg mb-2">
+                      {card.title}
+                    </h3>
+                    <p className="text-white/75 text-sm sm:text-base leading-relaxed">
+                      {card.body}
+                    </p>
+                  </AnimateOnScroll>
+                );
+              })}
+            </div>
           </Container>
         </section>
 
@@ -442,7 +525,11 @@ export default async function NectyrPage({
           faqs={nectyrFaqs}
         />
 
-        <EnergyResourceCard />
+        <EnergyResourceCard
+          title={t("energyResources.title")}
+          subtitle={t("energyResources.subtitle")}
+          ctaLabel={t("energyResources.ctaLabel")}
+        />
 
         <ProjectsCardServer
           useFileProjects

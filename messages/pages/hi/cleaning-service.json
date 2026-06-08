@@ -1,8 +1,8 @@
 {
   "CleaningServicePage": {
     "meta": {
-      "title": "सोलर पैनल सफाई सेवा | Robotic OPEX",
-      "description": "10 MW+ यूटिलिटी प्लांटों के लिए मासिक रोबोटिक सफाई। प्रति पैनल भुगतान, NECTYR रिपोर्ट। कोटेशन लें।",
+      "title": "रोबोटिक सौर पैनल सफाई सेवा - प्रति पैनल भुगतान | NECTYR ओपेक्स",
+      "description": "Taypro OPEX उपयोगिता पैमाने के संयंत्रों (आमतौर पर 50 MW+) के लिए मासिक रोबोटिक सौर पैनल सफाई सेवा है। हम GLYDE, HELYX या GLYDE-X तैनात करते हैं, प्रति माह 3–10 जल रहित शुष्क चक्र सुझाते हैं, और केवल साफ किए गए पैनलों के लिए बिल करते हैं, सफाई SOP, रोबोट पथ, विश्राम क्षेत्र और NECTYR के माध्यम से दैनिक रिपोर्ट सहित।",
       "openGraphDescription": "मासिक जल रहित रोबोटिक सफाई: संयंत्र-विशिष्ट 3-10 चक्र, विस्तृत सफाई योजनाएं, दैनिक रिपोर्ट, साफ किए गए प्रति पैनल बिलिंग। NECTYR, बी या टी।",
       "openGraphImageAlt": "यूटिलिटी-स्केल सौर संयंत्र में Taypro OPEX रोबोटिक सौर पैनल सफाई सेवा",
       "twitterDescription": "मासिक भुगतान प्रति साफ पैनल। प्लांट अध्ययन, 3–10 शुष्क चक्र, SOP, पथ, विश्राम क्षेत्र, NECTYR रिपोर्ट।"
@@ -30,7 +30,11 @@
       "subtitleDeploy": "हम तैनात करते हैं",
       "subtitleOr": "या",
       "subtitleProgramme": "एक प्रबंधित के तहत",
-      "subtitleAfter": "के साथ कार्यक्रम"
+      "subtitleAfter": "के साथ कार्यक्रम",
+      "modelA": "GLYDE",
+      "modelB": "HELYX",
+      "modelT": "GLYDE-X",
+      "console": "NECTYR"
     },
     "faqs": {
       "0": {
@@ -148,10 +152,11 @@
       "5": "समर्पित ऑपरेटर + राष्ट्रव्यापी तकनीकी सहायता"
     },
     "misc": {
-      "productCardsTitle": "और अधिक समाधान खोज रहे हैं?",
+      "productCardsTitle": "और समाधान खोज रहे हैं?",
       "projectsHeader": "हमारी परियोजना",
       "faqTitle": "अक्सर पूछे जाने वाले प्रश्नों",
-      "faqSubtitle": "Taypro OPEX सेवा प्रश्न - साथ ही नीचे व्यापक Taypro कार्यक्रम FAQ।"
+      "faqSubtitle": "Taypro OPEX सेवा प्रश्न - साथ ही नीचे व्यापक Taypro कार्यक्रम FAQ।",
+      "modelCardsTitle": "और अधिक समाधान खोज रहे हैं?"
     },
     "overview": {
       "eyebrow": "भुगतान-प्रति-परिणाम सौर ओ एंड एम सफाई",
@@ -275,7 +280,12 @@
       "linkGlydeX": "GLYDE-X",
       "linkBetweenTAndNectyr": ", या",
       "linkNectyr": "NECTYR",
-      "exploreSuffix": "."
+      "exploreSuffix": ".",
+      "linkBetweenTConsole": ", या",
+      "linkModelA": "NECTYR",
+      "linkModelB": "NECTYR",
+      "linkModelT": "NECTYR",
+      "linkConsole": "NECTYR"
     },
     "roiSection": {
       "title": "Taypro Opex पर ROI और बचत की गणना करें",
@@ -334,8 +344,9 @@
       "titleLine2": "सर्वोत्तम परिणामों के लिए",
       "body": "Taypro OPEX नरम, लैब-मान्य संपर्क सामग्रियों को अनुशासित ऑपरेटर निरीक्षण के साथ जोड़ता है - ताकि पैनल साफ रहें, वारंटी एक्सपोज़र नियंत्रित रहे, और आपकी टीम को हमेशा पता चले कि साइट पर कौन है, क्यों है, और प्रत्येक शिफ्ट में क्या हासिल हुआ।"
     },
-    "productCardsTitle": "और अधिक समाधान खोज रहे हैं?",
-    "projectsHeader": "हमारी परियोजना"
+    "productCardsTitle": "और समाधान खोज रहे हैं?",
+    "projectsHeader": "हमारी परियोजना",
+    "modelCardsTitle": "और अधिक समाधान खोज रहे हैं?"
   },
   "Common": {
     "breadcrumbHome": "होम",
