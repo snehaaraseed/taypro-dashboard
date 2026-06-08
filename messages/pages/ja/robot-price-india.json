@@ -66,6 +66,7 @@
       "table": {
         "colPlant": "プラント規模",
         "colInvestment": "目安CAPEX",
+        "colPerMw": "₹/MW（参考）",
         "colPayback": "回収期間（年）",
         "colSavings": "年間削減額",
         "colPerModule": "₹/モジュール（目安）",

@@ -181,11 +181,12 @@ export default async function RobotPriceIndiaPage({
             {t("capexBands.intro")}
           </p>
           <div className="overflow-x-auto rounded-2xl border border-gray-200 bg-white shadow-sm">
-            <table className="w-full min-w-[640px] text-left text-sm">
+            <table className="w-full min-w-[760px] text-left text-sm">
               <thead>
                 <tr className="bg-[#052638] text-white">
                   <th className="px-4 py-3 font-semibold">{t("capexBands.table.colPlant")}</th>
                   <th className="px-4 py-3 font-semibold">{t("capexBands.table.colInvestment")}</th>
+                  <th className="px-4 py-3 font-semibold">{t("capexBands.table.colPerMw")}</th>
                   <th className="px-4 py-3 font-semibold">{t("capexBands.table.colPayback")}</th>
                   <th className="px-4 py-3 font-semibold">{t("capexBands.table.colSavings")}</th>
                   <th className="px-4 py-3 font-semibold">{t("capexBands.table.colPerModule")}</th>
@@ -198,6 +199,7 @@ export default async function RobotPriceIndiaPage({
                       {t("capexBands.table.tierMw", { mw: tier.mw })}
                     </td>
                     <td className="px-4 py-3 text-[#27415c]">{formatInr(tier.investmentInr)}</td>
+                    <td className="px-4 py-3 text-[#27415c]">{formatInr(tier.investmentPerMwInr)}</td>
                     <td className="px-4 py-3 text-[#27415c]">{tier.paybackYears}</td>
                     <td className="px-4 py-3 text-[#27415c]">{formatInr(tier.annualSavingsInr)}</td>
                     <td className="px-4 py-3 text-[#27415c]">

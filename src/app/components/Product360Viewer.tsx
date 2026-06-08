@@ -33,15 +33,46 @@ export default function Product360Viewer({
 }: Product360ViewerProps) {
   const [currentFrame, setCurrentFrame] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [imagesLoaded, setImagesLoaded] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const framePositionRef = useRef<number>(0); // Use decimal position for smooth transitions
   const animationFrameRef = useRef<number | null>(null);
   const isDraggingRef = useRef<boolean>(false); // Ref to track dragging state for animation loop
+  const startXRef = useRef<number>(0);
   const hasAutoRotatedRef = useRef<boolean>(false); // Track if auto-rotation has been triggered
   const autoRotateAnimationRef = useRef<number | null>(null);
+
+  const cancelAutoRotate = useCallback(() => {
+    if (autoRotateAnimationRef.current !== null) {
+      cancelAnimationFrame(autoRotateAnimationRef.current);
+      autoRotateAnimationRef.current = null;
+    }
+  }, []);
+
+  const beginDrag = useCallback(
+    (clientX: number, pointerId?: number) => {
+      cancelAutoRotate();
+      isDraggingRef.current = true;
+      setIsDragging(true);
+      startXRef.current = clientX;
+      if (pointerId !== undefined && containerRef.current) {
+        containerRef.current.setPointerCapture(pointerId);
+      }
+    },
+    [cancelAutoRotate]
+  );
+
+  const endDrag = useCallback((pointerId?: number) => {
+    isDraggingRef.current = false;
+    setIsDragging(false);
+    if (
+      pointerId !== undefined &&
+      containerRef.current?.hasPointerCapture(pointerId)
+    ) {
+      containerRef.current.releasePointerCapture(pointerId);
+    }
+  }, []);
 
   const buildFramePath = useCallback(
     (frameIndex: number) => {
@@ -84,19 +115,6 @@ export default function Product360Viewer({
     loadImages();
   }, [imageCount, getImageUrl]);
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    // Cancel auto-rotation if active
-    if (autoRotateAnimationRef.current !== null) {
-      cancelAnimationFrame(autoRotateAnimationRef.current);
-      autoRotateAnimationRef.current = null;
-    }
-
-    setIsDragging(true);
-    setStartX(e.clientX);
-    // Ensure framePositionRef is synced with currentFrame
-    framePositionRef.current = currentFrame;
-  };
-
   const updateFrame = useCallback(() => {
     // Normalize frame position to be within [0, imageCount)
     while (framePositionRef.current < 0) {
@@ -120,109 +138,63 @@ export default function Product360Viewer({
     });
   }, [imageCount]);
 
+  const handleMove = useCallback(
+    (clientX: number) => {
+      if (!isDraggingRef.current) return;
+
+      const deltaX = clientX - startXRef.current;
+      const sensitivity = 0.1;
+
+      framePositionRef.current += deltaX * sensitivity;
+      updateFrame();
+      startXRef.current = clientX;
+    },
+    [updateFrame]
+  );
+
+  const handlePointerDown = (e: React.PointerEvent) => {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+
+    e.preventDefault();
+    beginDrag(e.clientX, e.pointerId);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!isDraggingRef.current) return;
+
+    e.preventDefault();
+    handleMove(e.clientX);
+  };
+
+  const handlePointerUp = (e: React.PointerEvent) => {
+    if (!isDraggingRef.current) return;
+
+    endDrag(e.pointerId);
+  };
+
+  const handlePointerCancel = (e: React.PointerEvent) => {
+    endDrag(e.pointerId);
+  };
+
   // Continuous update loop during dragging for smoother animation
   useEffect(() => {
-    if (isDragging) {
-      isDraggingRef.current = true;
-      const updateLoop = () => {
-        if (isDraggingRef.current) {
-          updateFrame();
-          animationFrameRef.current = requestAnimationFrame(updateLoop);
-        }
-      };
-      animationFrameRef.current = requestAnimationFrame(updateLoop);
+    if (!isDragging) return;
 
-      return () => {
-        isDraggingRef.current = false;
-        if (animationFrameRef.current !== null) {
-          cancelAnimationFrame(animationFrameRef.current);
-          animationFrameRef.current = null;
-        }
-      };
-    } else {
-      isDraggingRef.current = false;
-    }
+    const updateLoop = () => {
+      if (isDraggingRef.current) {
+        updateFrame();
+        animationFrameRef.current = requestAnimationFrame(updateLoop);
+      }
+    };
+    animationFrameRef.current = requestAnimationFrame(updateLoop);
+
+    return () => {
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current);
+        animationFrameRef.current = null;
+      }
+    };
   }, [isDragging, updateFrame]);
-
-  const handleMouseMove = useCallback(
-    (e: MouseEvent) => {
-      if (!isDraggingRef.current) return;
-
-      const deltaX = e.clientX - startX;
-      const sensitivity = 0.1; // Reduced sensitivity for smoother rotation
-
-      // Update decimal position for smooth transitions
-      framePositionRef.current += deltaX * sensitivity;
-
-      // Immediately update frame for responsive feedback
-      updateFrame();
-
-      setStartX(e.clientX);
-    },
-    [startX, updateFrame]
-  );
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  // Touch handlers
-  const handleTouchStart = (e: React.TouchEvent) => {
-    // Cancel auto-rotation if active
-    if (autoRotateAnimationRef.current !== null) {
-      cancelAnimationFrame(autoRotateAnimationRef.current);
-      autoRotateAnimationRef.current = null;
-    }
-
-    setIsDragging(true);
-    setStartX(e.touches[0].clientX);
-    // Ensure framePositionRef is synced with currentFrame
-    framePositionRef.current = currentFrame;
-  };
-
-  const handleTouchMove = useCallback(
-    (e: TouchEvent) => {
-      if (!isDraggingRef.current) return;
-
-      const deltaX = e.touches[0].clientX - startX;
-      const sensitivity = 0.1; // Reduced sensitivity for smoother rotation
-
-      // Update decimal position for smooth transitions
-      framePositionRef.current += deltaX * sensitivity;
-
-      // Immediately update frame for responsive feedback
-      updateFrame();
-
-      setStartX(e.touches[0].clientX);
-    },
-    [startX, updateFrame]
-  );
-
-  const handleTouchEnd = () => {
-    setIsDragging(false);
-  };
-
-  useEffect(() => {
-    if (isDragging) {
-      window.addEventListener("mousemove", handleMouseMove);
-      window.addEventListener("mouseup", handleMouseUp);
-      window.addEventListener("touchmove", handleTouchMove);
-      window.addEventListener("touchend", handleTouchEnd);
-
-      return () => {
-        window.removeEventListener("mousemove", handleMouseMove);
-        window.removeEventListener("mouseup", handleMouseUp);
-        window.removeEventListener("touchmove", handleTouchMove);
-        window.removeEventListener("touchend", handleTouchEnd);
-
-        // Cancel any pending animation frame
-        if (animationFrameRef.current !== null) {
-          cancelAnimationFrame(animationFrameRef.current);
-          animationFrameRef.current = null;
-        }
-      };
-    }
-  }, [isDragging, handleMouseMove, handleTouchMove]);
 
   // Auto-rotate once when scrolled into view
   useEffect(() => {
@@ -345,9 +317,12 @@ export default function Product360Viewer({
           height: "auto",
           aspectRatio: `${width} / ${height}`,
           maxWidth: "100%",
+          touchAction: "none",
         }}
-        onMouseDown={handleMouseDown}
-        onTouchStart={handleTouchStart}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerCancel}
       >
         <img
           src={getImageUrl(currentFrame)}
@@ -356,7 +331,7 @@ export default function Product360Viewer({
           height={height}
           className="w-full h-auto max-w-full object-contain transition-opacity duration-100"
           draggable={false}
-          style={{ display: "block" }}
+          style={{ display: "block", pointerEvents: "none" }}
           key={currentFrame} // Force re-render for smooth transitions
         />
       </div>

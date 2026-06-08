@@ -1,14 +1,52 @@
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
+import type { LucideIcon } from "lucide-react";
+import {
+  ArrowRight,
+  Brain,
+  CalendarClock,
+  ClipboardList,
+  Radar,
+  Sparkles,
+} from "lucide-react";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
 import { ORION_PRODUCT_PATH } from "@/lib/product-coming-soon";
 
 const PILLAR_KEYS = ["0", "1", "2"] as const;
 const LOOP_STEP_KEYS = ["0", "1", "2", "3", "4"] as const;
+const LOOP_STEP_ICONS: LucideIcon[] = [Radar, CalendarClock, Sparkles, ClipboardList, Brain];
+
+type LoopStepContent = { title: string; description: string };
+
+function getLoopStepContent(
+  raw: string | LoopStepContent | undefined
+): LoopStepContent {
+  if (!raw) return { title: "", description: "" };
+  if (typeof raw === "string") return { title: raw, description: "" };
+  return {
+    title: raw.title,
+    description: raw.description ?? "",
+  };
+}
+
+function getLoopClosingTagline(closing: string): string {
+  const commaIndex = closing.indexOf(",");
+  return commaIndex >= 0 ? closing.slice(commaIndex + 1).trim() : closing;
+}
 
 export default async function HomePlatformSection() {
   const t = await getTranslations("Home.platform");
+  const loopSteps = LOOP_STEP_KEYS.map((key, idx) => ({
+    key,
+    idx,
+    icon: LOOP_STEP_ICONS[idx],
+    ...getLoopStepContent(
+      t.raw(`loopSteps.${key}`) as string | LoopStepContent | undefined
+    ),
+  }));
+  const loopClosing = t("loopClosing");
+  const loopClosingTagline = getLoopClosingTagline(loopClosing);
 
   return (
     <section
@@ -55,34 +93,70 @@ export default async function HomePlatformSection() {
           ))}
         </div>
 
-        <AnimateOnScroll animation="fadeInUp" className="max-w-4xl mx-auto mb-12">
-          <ol className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-2 text-center">
-            {LOOP_STEP_KEYS.map((key, idx) => (
-              <li
-                key={key}
-                className="flex items-center gap-2 sm:flex-col sm:min-w-[4.5rem]"
-              >
-                <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#A8C117]/20 text-[#A8C117] text-sm font-semibold shrink-0">
-                  {String(idx + 1).padStart(2, "0")}
-                </span>
-                <span className="text-white font-medium text-sm">
-                  {t(`loopSteps.${key}.title`)}
-                </span>
-                <span className="text-gray-400 text-xs leading-snug max-w-[11rem] sm:mt-1 hidden sm:block">
-                  {t(`loopSteps.${key}.description`)}
-                </span>
-                {idx < LOOP_STEP_KEYS.length - 1 && (
-                  <span
-                    className="hidden sm:inline text-[#A8C117]/60 text-lg mx-1 last:hidden"
-                    aria-hidden
-                  >
-                    →
+        <AnimateOnScroll animation="fadeInUp" className="max-w-6xl mx-auto mb-12">
+          <div className="relative rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.07] to-white/[0.02] p-6 md:p-8 lg:p-10">
+            <div
+              className="pointer-events-none absolute left-8 top-0 bottom-8 w-px bg-gradient-to-b from-[#A8C117]/50 via-[#A8C117]/20 to-transparent lg:hidden"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute left-[10%] right-[10%] top-[3.75rem] hidden h-px bg-gradient-to-r from-transparent via-[#A8C117]/35 to-transparent lg:block"
+              aria-hidden
+            />
+
+            <ol className="grid grid-cols-1 gap-5 pl-6 md:grid-cols-2 md:gap-6 md:pl-0 xl:grid-cols-5 xl:gap-4">
+              {loopSteps.map((step) => {
+                const Icon = step.icon;
+                return (
+                  <li key={step.key} className="relative">
+                    <article className="group flex h-full flex-col rounded-xl border border-white/10 bg-white/[0.04] p-5 transition-colors hover:border-[#A8C117]/35 hover:bg-white/[0.06] lg:pt-14">
+                      <div className="absolute -left-[1.125rem] top-7 hidden h-2.5 w-2.5 rounded-full border-2 border-[#052638] bg-[#A8C117] lg:hidden" />
+                      <div className="mb-4 flex items-center gap-3 lg:absolute lg:left-1/2 lg:top-0 lg:mb-0 lg:-translate-x-1/2 lg:-translate-y-1/2">
+                        <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#A8C117]/30 bg-[#052638] shadow-[0_0_0_4px_rgba(5,38,56,0.85)] ring-1 ring-[#A8C117]/20">
+                          <Icon className="h-5 w-5 text-[#A8C117]" aria-hidden />
+                        </span>
+                        <span className="text-[#A8C117]/90 text-xs font-bold tracking-[0.22em] lg:hidden">
+                          {String(step.idx + 1).padStart(2, "0")}
+                        </span>
+                      </div>
+                      <p className="mb-1 hidden text-[#A8C117]/70 text-[0.65rem] font-bold tracking-[0.24em] lg:block">
+                        {String(step.idx + 1).padStart(2, "0")}
+                      </p>
+                      <h3 className="text-white font-semibold text-lg leading-tight mb-2">
+                        {step.title}
+                      </h3>
+                      {step.description ? (
+                        <p className="text-gray-400 text-sm leading-relaxed">{step.description}</p>
+                      ) : null}
+                    </article>
+                  </li>
+                );
+              })}
+            </ol>
+
+            <div className="mt-8 border-t border-white/10 pt-8 text-center md:mt-10 md:pt-10">
+              <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2">
+                {loopSteps.map((step, idx) => (
+                  <span key={step.key} className="inline-flex items-center gap-2">
+                    <span className="rounded-full border border-[#A8C117]/25 bg-[#A8C117]/10 px-3 py-1 text-[#A8C117] text-xs font-semibold uppercase tracking-wider">
+                      {step.title}
+                    </span>
+                    {idx < loopSteps.length - 1 ? (
+                      <ArrowRight
+                        className="h-3.5 w-3.5 shrink-0 text-white/35"
+                        aria-hidden
+                      />
+                    ) : null}
                   </span>
-                )}
-              </li>
-            ))}
-          </ol>
-          <p className="text-center text-gray-400 text-sm mt-6">{t("loopClosing")}</p>
+                ))}
+              </div>
+              {loopClosingTagline ? (
+                <p className="text-gray-400 text-sm md:text-base mt-4 max-w-2xl mx-auto leading-relaxed">
+                  {loopClosingTagline}
+                </p>
+              ) : null}
+            </div>
+          </div>
         </AnimateOnScroll>
 
         <AnimateOnScroll

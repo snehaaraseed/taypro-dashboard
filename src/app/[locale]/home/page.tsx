@@ -2,12 +2,9 @@ import { Suspense } from "react";
 import { Link } from "@/i18n/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
-import {
-  robotProducts,
-  robotSolutions,
-  tayproHomeStatsStrip,
-} from "@/app/data";
+import { robotProducts, robotSolutions } from "@/app/data";
 import HomePlatformSection from "./HomePlatformSection";
+import HomeStatsSection from "./HomeStatsSection";
 import { RobotCard } from "@/app/components/RobotCard";
 import { Container } from "@/app/components/Container";
 import {
@@ -32,7 +29,6 @@ import {
   STATE_LANDING_PAGES,
   type StateLandingId,
 } from "@/lib/seo/state-landing-config";
-import { PERFORMANCE_METHODOLOGY_PATH } from "@/lib/seo/performance-methodology";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 const HERO_VIDEO_ID = "y9iRhH2bLwY";
@@ -40,8 +36,6 @@ const HERO_VIDEO_ID = "y9iRhH2bLwY";
 const FEATURE_COUNT = 4;
 const OTHER_FEATURE_COUNT = 6;
 const FAQ_COUNT = 7;
-const STAT_COUNT = 4;
-
 const HOME_COMPARE_IDS: ComparisonPageId[] = [
   "indianCompetitors",
   "robotVsManual",
@@ -111,11 +105,6 @@ export default async function HomePage() {
       description: t(`robots.robot${msgIdx}.description`),
     };
   });
-
-  const stats = tayproHomeStatsStrip.map((stat, i) => ({
-    value: stat.value,
-    label: t(`stats.stat${i}.label`),
-  }));
 
   const videoTitle = t("hero.videoTitle");
 
@@ -191,43 +180,7 @@ export default async function HomePage() {
           </Container>
         </section>
 
-        <section className="w-full py-10 md:py-14 bg-[#f4f7f9] border-y border-gray-200/80">
-          <Container>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-              {stats.map((stat, idx) => (
-                <AnimateOnScroll
-                  key={stat.label}
-                  animation="fadeInUp"
-                  delay={idx * 80}
-                >
-                  <div className="rounded-2xl border border-gray-100 bg-white px-4 py-6 text-center shadow-sm transition hover:border-[#A8C117]/40 hover:shadow-md">
-                    <p className="text-[#5a8f00] font-semibold text-2xl sm:text-3xl md:text-4xl mb-2 tabular-nums">
-                      {stat.value}
-                    </p>
-                    <p className="text-[#27415c] text-xs sm:text-sm leading-snug">
-                      {stat.label}
-                    </p>
-                    {t.has(`stats.stat${idx}.sublabel`) ? (
-                      <p className="text-[#5a7a8f] text-[10px] sm:text-xs leading-snug mt-1">
-                        {t(`stats.stat${idx}.sublabel`)}
-                      </p>
-                    ) : null}
-                  </div>
-                </AnimateOnScroll>
-              ))}
-            </div>
-            <p className="mt-8 text-center text-[#5a7a8f] text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
-              {t("stats.methodologyBefore")}{" "}
-              <Link
-                href={PERFORMANCE_METHODOLOGY_PATH}
-                className="text-[#5a8f00] font-medium hover:underline"
-              >
-                {t("stats.methodologyLink")}
-              </Link>{" "}
-              {t("stats.methodologyAfter")}
-            </p>
-          </Container>
-        </section>
+        <HomeStatsSection />
 
         <HomePlatformSection />
 

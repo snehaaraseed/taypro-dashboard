@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 
@@ -7,7 +8,10 @@ type CompanyPageHeroProps = {
   subtitle?: string;
   bodyBeforeLink: string;
   bodyLink: string;
+  bodyLinkHref?: string;
   bodyAfterLink: string;
+  /** Optional content below the body paragraph (e.g. metadata chips). */
+  footer?: ReactNode;
   /** SVG wave fill — should match the section directly below the hero. */
   waveFill?: string;
 };
@@ -18,7 +22,9 @@ export function CompanyPageHero({
   subtitle,
   bodyBeforeLink,
   bodyLink,
+  bodyLinkHref = "/solar-panel-cleaning-system",
   bodyAfterLink,
+  footer,
   waveFill = "#f4f7f9",
 }: CompanyPageHeroProps) {
   return (
@@ -58,13 +64,14 @@ export function CompanyPageHero({
         <p className="text-[#22405a] text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
           {bodyBeforeLink}{" "}
           <Link
-            href="/solar-panel-cleaning-system"
+            href={bodyLinkHref}
             className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
           >
             {bodyLink}
           </Link>{" "}
           {bodyAfterLink}
         </p>
+        {footer ? <div className="mt-8">{footer}</div> : null}
       </AnimateOnScroll>
 
       <div className="absolute bottom-0 left-0 right-0 z-20 overflow-hidden pointer-events-none">

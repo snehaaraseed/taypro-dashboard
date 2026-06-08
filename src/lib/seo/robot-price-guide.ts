@@ -16,6 +16,8 @@ export type IndicativeCapexTier = {
   moduleCount: number;
   /** Investment divided by module count (directional ₹/module) */
   investmentPerModuleInr: number;
+  /** Investment divided by plant MW (directional ₹/MW) */
+  investmentPerMwInr: number;
 };
 
 const INDIA = ROI_MARKET_PROFILES.india;
@@ -52,6 +54,7 @@ export function getIndicativeCapexBands(): IndicativeCapexTier[] {
         modules > 0
           ? Math.round(result.totalInvestmentRequired / modules)
           : 0,
+      investmentPerMwInr: Math.round(result.totalInvestmentRequired / mw),
     };
   });
 }

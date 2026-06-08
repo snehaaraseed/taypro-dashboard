@@ -1,7 +1,8 @@
 /**
  * Seed three positioning blog posts (English) into cms.sqlite.
  *
- *   node scripts/seed-positioning-blog-posts.mjs
+ *   node scripts/seed-positioning-blog-posts.mjs              # draft (default)
+ *   node scripts/seed-positioning-blog-posts.mjs --publish      # published
  *   CMS_SQLITE=/path/cms.sqlite node scripts/seed-positioning-blog-posts.mjs
  *   node scripts/seed-positioning-blog-posts.mjs --dry-run
  */
@@ -13,6 +14,8 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const dryRun = process.argv.includes("--dry-run");
+const publish = process.argv.includes("--publish");
+const asDraft = !publish;
 const dbPath = process.env.CMS_SQLITE || path.join(root, "data", "cms.sqlite");
 
 if (!fs.existsSync(dbPath)) {
@@ -141,7 +144,7 @@ const insertStmt = db.prepare(`
   ) VALUES (
     @slug, 'en', @title, @description, @featuredImage, @featuredImageAlt,
     @author, @content, '[]', @seoKeyword, @publishDate, NULL,
-    @createdAt, @updatedAt, 1
+    @createdAt, @updatedAt, @published
   )
 `);
 
@@ -156,7 +159,9 @@ for (const post of POSTS) {
     continue;
   }
   if (dryRun) {
-    console.log(`[dry-run] would create: ${post.slug}`);
+    console.log(
+      `[dry-run] would create (${asDraft ? "draft" : "published"}): ${post.slug}`
+    );
     created++;
     continue;
   }
@@ -172,12 +177,13 @@ for (const post of POSTS) {
     publishDate,
     createdAt: now,
     updatedAt: now,
+    published: asDraft ? 0 : 1,
   });
-  console.log(`created: ${post.slug}`);
+  console.log(`created (${asDraft ? "draft" : "published"}): ${post.slug}`);
   created++;
 }
 
 db.close();
 console.log(
-  `\n${dryRun ? "Dry run" : "Done"}: ${created} created, ${skipped} skipped.`
+  `\n${dryRun ? "Dry run" : "Done"}: ${created} created, ${skipped} skipped (${asDraft ? "draft mode" : "publish mode"}).`
 );

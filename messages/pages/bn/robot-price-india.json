@@ -66,6 +66,7 @@
       "table": {
         "colPlant": "প্ল্যান্টের আকার",
         "colInvestment": "আনুমানিক CAPEX",
+        "colPerMw": "₹/MW (দিকনির্দেশক)",
         "colPayback": "পে-ব্যাক (বছর)",
         "colSavings": "বার্ষিক সঞ্চয়",
         "colPerModule": "₹/মডিউল (দিকনির্দেশক)",

@@ -6,65 +6,174 @@
     },
     "breadcrumb": "Performance & Test Methodology",
     "lastUpdated": "Last updated: {date}",
+    "hero": {
+      "eyebrow": "Transparency for technical buyers",
+      "title": "How Taypro defines, tests, and reports performance",
+      "subtitle": "Qualified claims for 99%+ dust removal, generation recovery, fleet impact figures, and platform-specific cleaning metrics.",
+      "bodyBeforeLink": "Written for asset owners, EPC teams, and O&M leads evaluating robotic dry cleaning at utility scale in India. See",
+      "bodyLink": "cleaning technology",
+      "bodyAfterLink": "for how robots execute each cycle, then scroll for definitions, test methods, and public-stat assumptions.",
+      "audience0": "Asset owners & IPPs",
+      "audience1": "EPC & procurement",
+      "audience2": "O&M & technical diligence"
+    },
+    "statsStrip": {
+      "eyebrow": "Reference figures",
+      "heading": "Fleet metrics documented on this page"
+    },
+    "quickNav": {
+      "label": "On this page",
+      "dustRemoval": "Dust removal",
+      "generation": "Generation recovery",
+      "testing": "Testing & validation",
+      "platforms": "Platforms",
+      "fleetProof": "Fleet figures",
+      "faq": "FAQ"
+    },
     "purpose": {
-      "heading": "Purpose",
+      "heading": "Purpose of this page",
       "body": "This page explains how Taypro Private Limited defines, measures, and communicates performance figures on taypro.in, including \"99%+\" dust-removal statements and references to generation or performance ratio recovery. It is intended for asset owners, EPC teams, and O&M leads evaluating robotic dry cleaning for utility-scale PV in India."
+    },
+    "principles": {
+      "heading": "Three principles behind every public claim",
+      "intro": "Marketing numbers on taypro.in are never standalone slogans. Each ties back to a defined measurement, a platform context, and a scope boundary.",
+      "item0": {
+        "title": "Per pass or per cycle — not nameplate efficiency",
+        "body": "Dust-removal figures describe loose particulate removed from module glass in one completed pass or automated cycle. They do not describe panel conversion efficiency or guaranteed plant-wide MWh uplift."
+      },
+      "item1": {
+        "title": "Platform-specific mechanics",
+        "body": "Brush-based semi-automatic paths (HELYX) and dual-pass autonomous paths (GLYDE, GLYDE-X) use different cleaning mechanics. Metrics are quoted per pass or per cycle accordingly — never blended into one universal number."
+      },
+      "item2": {
+        "title": "Site assessment for outcomes",
+        "body": "Generation recovery, water savings, and CO₂ figures depend on your soiling baseline, cleaning cadence, tariff, and weather. Plant-specific diligence requires site data — not homepage aggregates alone."
+      }
     },
     "dustRemoval": {
       "heading": "What \"99%+ dust removal\" means",
-      "li0": "Dust removal is the fraction of loose surface particulate removed from the module glass in one completed cleaning pass (HELYX) or automated dual-pass cycle (GLYDE, GLYDE-X), under defined test or field conditions.",
-      "li1": "It does not mean the solar panel converts 99% of sunlight to electricity, nor that the plant will gain 99% more energy output.",
-      "li2": "Figures are platform-dependent: brush-based semi-automatic paths (HELYX) and dual-pass autonomous paths (GLYDE / GLYDE-X) use different mechanics and are quoted per pass or per cycle accordingly."
+      "intro": "This is the most common figure on product pages and case studies. Here is the precise definition Taypro uses in technical review.",
+      "meansHeading": "What it means",
+      "means0": "Dust removal is the fraction of loose surface particulate removed from the module glass in one completed cleaning pass (HELYX) or automated dual-pass cycle (GLYDE, GLYDE-X), under defined test or field conditions.",
+      "means1": "Figures are platform-dependent: brush-based semi-automatic paths and dual-pass autonomous paths use different mechanics and are quoted per pass or per cycle accordingly.",
+      "notHeading": "What it does not mean",
+      "not0": "It does not mean the solar panel converts 99% of sunlight to electricity.",
+      "not1": "It does not mean the plant will gain 99% more energy output from a single cleaning event.",
+      "not2": "It does not guarantee that every module on site reaches the same dust-removal result in every weather or dust-load condition."
     },
     "generation": {
       "heading": "Generation recovery vs. module efficiency",
-      "p0": "Soiling on Indian utility plants can suppress usable output when washing is infrequent, industry discussions often cite roughly 8–25% seasonal soiling loss depending on region, tilt, and O&M practice. Robotic dry cleaning aims to recover energy that would otherwise be lost to dust, not to raise nameplate module efficiency.",
+      "p0": "Soiling on Indian utility plants can suppress usable output when washing is infrequent. Industry discussions often cite roughly 8–25% seasonal soiling loss depending on region, tilt, and O&M practice. Robotic dry cleaning aims to recover energy that would otherwise be lost to dust — not to raise nameplate module efficiency.",
+      "calloutTitle": "No universal efficiency uplift %",
       "p1Before": "Actual MWh recovered depends on your baseline soiling, cleaning cadence, tariff, and weather. Taypro does not publish a single universal \"efficiency increase %\" for all sites. Use the",
       "roiLink": "ROI calculator",
       "p1After": "for directional economics, then request a plant-specific assessment from our applications team."
     },
     "testing": {
       "heading": "How we test and validate",
-      "intro": "Taypro validates cleaning performance through a combination of:",
-      "li0": "Controlled bench and field trials on representative module types, using standardised artificial and natural dust loads where applicable.",
-      "li1": "Visual and gravimetric checks (before/after surface condition and mass of removed dust) on deployed platforms.",
-      "li2": "Operational data from live fleets, cycle completion, route coverage, and performance ratio trends where customers share SCADA or IV data under NDA.",
-      "li3": "Third-party review, selected platforms are TÜV NORD certified; certification scope is stated on product datasheets and proposals.",
+      "intro": "Taypro validates cleaning performance through a combination of controlled trials, deployed fleet evidence, and third-party certification — not a single lab snapshot.",
+      "step0": {
+        "title": "Bench & field trials",
+        "body": "Controlled trials on representative module types, using standardised artificial and natural dust loads where applicable."
+      },
+      "step1": {
+        "title": "Visual & gravimetric checks",
+        "body": "Before/after surface condition and mass of removed dust on deployed platforms in live field conditions."
+      },
+      "step2": {
+        "title": "Fleet operational data",
+        "body": "Cycle completion, route coverage, and performance ratio trends where customers share SCADA or IV data under NDA."
+      },
+      "step3": {
+        "title": "Third-party certification",
+        "body": "Selected platforms are TÜV NORD certified. Certification scope is stated on product datasheets and customer proposals."
+      },
       "note": "Results vary with dust type (agricultural film, sand, pollen, post-storm mix), module tilt, tracker motion, and whether one or two passes are completed in a cycle."
     },
     "platform": {
       "heading": "Platform summary",
+      "intro": "Each Taypro platform is quoted on its own cleaning mechanic. Compare paths below — then review product datasheets for your layout.",
       "colPlatform": "Platform",
       "colMetric": "Typical quoted metric",
       "colMethod": "Method",
       "glyde": "GLYDE (automatic)",
+      "glydeTag": "Fixed-tilt · autonomous",
       "glydeMetric": "99%+ dust per automated dual-pass cycle",
       "glydeMethod": "Airflow + microfiber drum; autonomous row run",
+      "glydeHref": "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
       "helyx": "HELYX (semi-automatic)",
+      "helyxTag": "Semi-automatic · brush",
       "helyxMetric": "99%+ dust per single forward pass",
       "helyxMethod": "Counter-rotating PBT brushes; operator placement per row",
+      "helyxHref": "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
       "glydeX": "GLYDE-X (trackers)",
+      "glydeXTag": "Single-axis trackers",
       "glydeXMetric": "99%+ dust per dual-pass cycle on tracker tables",
-      "glydeXMethod": "Dual-pass dry cleaning with flexible bridge; tracker compatibility per site assessment"
+      "glydeXMethod": "Dual-pass dry cleaning with flexible bridge; tracker compatibility per site assessment",
+      "glydeXHref": "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
     },
     "uptime": {
       "heading": "Uptime and service commitments",
-      "body": "Marketing references to \"highest uptime\" or \"same-day breakdown\" response describe Taypro service targets backed by pan-India spares, NECTYR remote diagnostics, and AMC programs. Contractual SLAs are defined in customer agreements, not on this page."
+      "body": "Marketing references to \"highest uptime\" or \"same-day breakdown\" response describe Taypro service targets backed by pan-India spares, NECTYR remote diagnostics, and AMC programs. Contractual SLAs are defined in customer agreements — not on this page."
     },
     "publicProof": {
       "heading": "Fleet impact figures on taypro.in",
-      "body": "Hero and company stats such as 5 GW+ capacity, 11 billion+ panels cleaned annually (11,00,00,00,000 panel passes per year, fleet aggregate), 150+ live sites, 188 GWh+ additional clean generation, 700M+ litres of water saved annually, and 93k+ metric tons of CO₂ avoided use approved public marketing assumptions for India utility-scale fleets. The annual panel-cleaning figure aggregates completed cleaning passes across deployed automatic and semi-automatic fleets. Water-savings estimates follow CEEW-class wet-wash benchmarks (~7,000 L per MW per cycle × ~20 cycles per year vs. waterless robotic cleaning). Generation recovery figures compare waterless robotic cadence to typical wet-wash baselines, not nameplate module efficiency. Directional ESG model outputs may differ slightly from rounded public tiles; plant-specific outcomes require site assessment."
+      "intro": "Hero, company, and product pages cite aggregate fleet figures. Each uses approved public marketing assumptions for India utility-scale deployments. Rounded tiles may differ slightly from plant-specific models.",
+      "item0": {
+        "label": "5 GW+ solar assets cleaned daily",
+        "body": "Daily operational throughput across the live robotic cleaning fleet — capacity under active cleaning programmes, not nameplate DC installed industry-wide."
+      },
+      "item1": {
+        "label": "11 billion+ panels cleaned annually",
+        "body": "Aggregates completed cleaning passes across deployed automatic and semi-automatic fleets (11,00,00,00,000 panel passes per year, fleet aggregate)."
+      },
+      "item2": {
+        "label": "150+ live sites",
+        "body": "Operational deployments with active Taypro cleaning programmes and fleet telemetry on NECTYR where applicable."
+      },
+      "item3": {
+        "label": "188 GWh+ additional clean generation",
+        "body": "Compares waterless robotic cleaning cadence to typical wet-wash baselines — recovered output from reduced soiling, not nameplate module efficiency gains."
+      },
+      "item4": {
+        "label": "700M+ litres of water saved annually",
+        "body": "Uses CEEW-class wet-wash benchmarks (~7,000 L per MW per cycle × ~20 cycles per year vs. waterless robotic cleaning across the fleet model)."
+      },
+      "item5": {
+        "label": "93k+ metric tons of CO₂ avoided",
+        "body": "Directional ESG model output from generation recovery assumptions and grid-emission factors. Plant-specific outcomes require site assessment and local tariff validation."
+      },
+      "footnote": "Directional ESG model outputs may differ slightly from rounded public tiles. Validate reported water, generation, and carbon statistics with local SCADA and tariffs before lender or board packs."
     },
     "documentation": {
       "heading": "Plant-specific documentation",
-      "bodyBefore": "For tenders, lender diligence, or internal technical review, Taypro can provide site-specific cleaning plans, cycle assumptions, and, where available, anonymised field outcomes from comparable deployments.",
+      "bodyBefore": "For tenders, lender diligence, or internal technical review, Taypro can provide site-specific cleaning plans, cycle assumptions, and — where available — anonymised field outcomes from comparable deployments.",
       "contactLink": "Contact our applications team",
-      "bodyAfter": "with plant capacity, layout, and location."
+      "bodyAfter": "with plant capacity, layout, and location.",
+      "ctaRoi": "Run ROI calculator",
+      "ctaTechnology": "Explore cleaning technology"
+    },
+    "faq": {
+      "heading": "Frequently asked questions",
+      "subtitle": "Quick answers for procurement and technical diligence teams.",
+      "q0": "Does 99%+ dust removal mean my plant will generate 99% more energy?",
+      "a0": "No. It describes loose surface dust removed from module glass in one completed pass or dual-pass cycle under defined conditions — not a guaranteed MWh uplift percentage for your entire plant.",
+      "q1": "How often should robots clean a utility-scale plant?",
+      "a1": "Cadence depends on soiling rate, season, and O&M policy. Many Indian utility programmes run roughly 3–10 dry cycles per month on automatic fleets, weather permitting — not daily plant-wide washing of every module.",
+      "q2": "Are Rajasthan sand loads and agricultural film soiling treated the same?",
+      "a2": "No. Dust type, module tilt, tracker motion, and whether one or two passes complete in a cycle all affect outcomes. Field trials and gravimetric checks account for these differences; universal guarantees do not.",
+      "q3": "How are homepage fleet stats like 5 GW+ and 11B+ panels calculated?",
+      "a3": "They use approved public marketing assumptions aggregated across live deployments — daily throughput, completed panel passes, and fleet-scale models. They are not substitutes for plant-specific SCADA validation.",
+      "q4": "What is the difference between GLYDE and HELYX performance quotes?",
+      "a4": "GLYDE and GLYDE-X quote 99%+ dust removal per automated dual-pass cycle (airflow + microfiber). HELYX quotes 99%+ per single forward brush pass with operator placement per row.",
+      "q5": "Can Taypro share data for tender or lender diligence?",
+      "a5": "Yes. Contact our applications team with plant capacity, layout, and location. We can provide site-specific cleaning plans, cycle assumptions, and anonymised comparable outcomes where available."
     },
     "related": {
-      "label": "Related:",
+      "label": "Related",
       "cleaningTech": "Cleaning technology",
       "systems": "Solar panel cleaning systems",
+      "aiIntelligence": "AI intelligence layer",
       "terms": "Terms of Service"
     }
   },

@@ -66,6 +66,7 @@
       "table": {
         "colPlant": "प्लांट का आकार",
         "colInvestment": "सांकेतिक CAPEX",
+        "colPerMw": "₹/MW (दिशात्मक)",
         "colPayback": "पेबैक (वर्ष)",
         "colSavings": "वार्षिक बचत",
         "colPerModule": "₹/मॉड्यूल (दिशात्मक)",

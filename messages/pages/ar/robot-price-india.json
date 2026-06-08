@@ -66,6 +66,7 @@
       "table": {
         "colPlant": "حجم المحطة",
         "colInvestment": "CAPEX تقديري",
+        "colPerMw": "₹/MW (تقديري)",
         "colPayback": "فترة الاسترداد (سنوات)",
         "colSavings": "التوفير السنوي",
         "colPerModule": "₹/وحدة (تقديري)",

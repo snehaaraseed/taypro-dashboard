@@ -69,6 +69,30 @@
     "publicProof": {
       "heading": "公開マーケティング実績数値",
       "body": "5 GW+、150+サイト、188 GWh+、700M+リットル節水、93k+トンCO2削減等はインド大規模フリート向け承認済み公開マーケティング前提に基づきます。"
+    },
+    "hero": {
+      "eyebrow": "技術バイヤー向けの透明性",
+      "title": "Tayproが性能をどう定義・試験・報告するか",
+      "subtitle": "99%+粉塵除去・発電回復・フリート実績・プラットフォーム別清掃指標の適切な主張。",
+      "audience0": "資産所有者・IPP",
+      "audience1": "EPC・調達",
+      "audience2": "O&M・技術デューデリ",
+      "bodyBeforeLink": "インドの大規模PV向けロボット乾式洗浄を評価する資産所有者・EPC・O&M向け。",
+      "bodyLink": "洗浄技術",
+      "bodyAfterLink": "ロボットのサイクル実行のあと、定義・試験方法・公開数値の前提をご覧ください。"
+    },
+    "quickNav": {
+      "label": "このページ",
+      "dustRemoval": "粉塵除去",
+      "generation": "発電回復",
+      "testing": "試験と検証",
+      "platforms": "プラットフォーム",
+      "fleetProof": "フリート数値",
+      "faq": "FAQ"
+    },
+    "statsStrip": {
+      "eyebrow": "参考数値",
+      "heading": "本ページで説明するフリート指標"
     }
   },
   "Common": {
