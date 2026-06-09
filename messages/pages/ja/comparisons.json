@@ -67,6 +67,10 @@
           "q": "Rajasthanの塵にはどちらが向く？",
           "a": "両方とも乾燥砂漠塵に対応。付着性・混合層ならGLYDE、PBTのCAPEX経済性が優先ならNYUMA。"
         }
+      },
+      "productLinks": {
+        "glyde": "GLYDE product page",
+        "nyuma": "NYUMA product page"
       }
     },
     "glydeXVsNyumaX": {
@@ -136,6 +140,10 @@
           "q": "固定式GLYDE/NYUMAに対応するトラッカーロボットは？",
           "a": "GLYDE-Xはデュアルパスをトラッカーへ、NYUMA-XはPBTシングルパスを拡張。固定式はGLYDE vs NYUMAガイドを参照。"
         }
+      },
+      "productLinks": {
+        "glydeX": "GLYDE-X product page",
+        "nyumaX": "NYUMA-X product page"
       }
     }
   }

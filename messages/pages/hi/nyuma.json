@@ -4,7 +4,7 @@
       "title": "सिंगल-पास PBT स्वचालित सोलर पैनल सफाई रोबोट, Taypro NYUMA (वॉटरलेस, AI)",
       "description": "Taypro NYUMA एक पूर्ण स्वायत्त, वॉटरलेस स्वचालित सोलर पैनल सफाई रोबोट है। AI/ML सिंगल-पास PBT ड्राई क्लीनिंग प्रति चक्र 99%+ धूल हटाती है, प्रति चार्ज 3,600 मॉड्यूल तक, NECTYR के माध्यम से LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN, TÜV NORD प्रमाणित, पूरे भारत में समान-दिवस ब्रेकडाउन सहायता।",
       "openGraphTitle": "सिंगल-पास PBT स्वचालित सोलर पैनल सफाई रोबोट, Taypro NYUMA",
-      "openGraphDescription": "Taypro NYUMA: यूटिलिटी प्लांट के लिए पेटेंटेड सिंगल-पास PBT PBT ब्रश रोबोट। स्वायत्त वॉटरलेस सफाई, प्रति चक्र 99%+ धूल हटाना, NECTYR फ्लीट पोर्टल।",
+      "openGraphDescription": "Taypro NYUMA: यूटिलिटी प्लांट के लिए पेटेंटेड सिंगल-पास PBT ब्रश रोबोट। स्वायत्त वॉटरलेस सफाई, प्रति चक्र 99%+ धूल हटाना, NECTYR फ्लीट पोर्टल।",
       "openGraphType": "website",
       "openGraphImageAlt": "Taypro NYUMA स्वचालित सोलर पैनल सफाई रोबोट, वॉटरलेस, AI",
       "twitterTitle": "सिंगल-पास PBT स्वचालित सोलर पैनल सफाई रोबोट, Taypro NYUMA",
@@ -99,7 +99,7 @@
       "title": "NYUMA hardware at a glance",
       "subtitle": "Patented single-pass PBT cleaning on module-frame rails, autonomous docking, and fleet connectivity built for utility-scale fixed-tilt plants.",
       "primaryAlt": "Taypro NYUMA TR-150 automatic cleaning robot, plan view showing rails and single-pass PBT cleaning elements",
-      "primaryCaption": "NYUMA TR-150 travels along the module frame with patented single-pass PBT PBT brush cleaning.",
+      "primaryCaption": "NYUMA TR-150 travels along the module frame with patented single-pass PBT brush cleaning.",
       "mechanismAlt": "Close-up of Taypro NYUMA single-pass PBT rotating PBT brush cleaning drum, wheels, and wireless antenna",
       "mechanismCaption": "Rotating self-cleaning PBT brush drum, frame-mounted travel, and remote monitoring antenna.",
       "dockingAlt": "Taypro NYUMA shadow-free docking station with integrated solar charging for autonomous daily cycles",
@@ -148,7 +148,7 @@
       "eyebrow": "NYUMA, स्वचालित सोलर पैनल सफाई रोबोट",
       "title": "मुख्य विशेषताएं",
       "items": {
-        "item0": "उत्कृष्ट सफाई दक्षता (सिंगल-पास PBT PBT ब्रश)",
+        "item0": "उत्कृष्ट सफाई दक्षता (सिंगल-पास PBT ब्रश)",
         "item1": "मजबूत और टिकाऊ डिज़ाइन",
         "item2": "विस्तृत कवरेज, प्रति चार्ज ~3,600 मॉड्यूल",
         "item3": "उच्च गति सफाई (10–15 m/min)",
@@ -503,7 +503,7 @@
         "s0": "⦿ सक्रियण पर रोबोट सेंसर प्रारंभ करता है और केंद्रीय मॉनिटरिंग से कनेक्टिविटी जांचता है",
         "s1": "⦿ रिमोट पोर्टल से सफाई शेड्यूल पूर्व-सेट, पूर्ण स्वचालित संचालन",
         "s2": "⦿ लोकोमोशन मोटर गति शक्ति देता है और रोबोट को मॉड्यूल फ्रेम पर मार्गदर्शन करता है",
-        "s3": "⦿ सफाई ब्रश मोटर वॉटरलेस सिंगल-पास PBT PBT ब्रश तकनीक शुरू करता है",
+        "s3": "⦿ सफाई ब्रश मोटर वॉटरलेस सिंगल-पास PBT ब्रश तकनीक शुरू करता है",
         "s4": "⦿ एज सेंसर लगातार परिवेश स्कैन करते हैं, पैनल किनारे से आगे नहीं",
         "s5": "⦿ NECTYR से सफाई गति और दिशा समायोजित करें",
         "s6": "⦿ चक्र पूर्ण होने पर रोबोट डॉक पर लौटकर रिचार्ज करता है और अगले शेड्यूल तक प्रतीक्षा",
@@ -584,14 +584,14 @@
     },
     "glydeVsNyuma": {
       "eyebrow": "Choosing the Right Taypro Robot",
-      "title": "NYUMA vs NYUMA: Which Automatic Robot Fits Your Plant?",
-      "subtitle": "Both robots are fully autonomous, waterless, and managed from NECTYR. NYUMA is Taypro's patented single-pass PBT PBT brush flagship; NYUMA is the PBT single-pass platform for capex-efficient fixed-tilt fleets.",
+      "title": "GLYDE vs NYUMA: Which Automatic Robot Fits Your Plant?",
+      "subtitle": "Both robots are fully autonomous, waterless, and managed from NECTYR. GLYDE is Taypro's patented dual-pass microfiber flagship; NYUMA is the PBT single-pass platform for capex-efficient fixed-tilt fleets.",
       "criterion": "Criterion",
-      "glydeHeader": "NYUMA (single-pass PBT PBT brush)",
+      "glydeHeader": "GLYDE (Dual-Pass Microfiber)",
       "nyumaHeader": "NYUMA (Single-Pass PBT)",
       "row0": {
         "criterion": "Cleaning Technology",
-        "glyde": "Patented single-pass PBT: airflow loosens dust, PBT brush completes the wipe",
+        "glyde": "Patented dual-pass: airflow loosens dust, microfiber completes the wipe",
         "nyuma": "Single-pass counter-rotating PBT brush drum — fewer moving consumables"
       },
       "row1": {
@@ -601,12 +601,12 @@
       },
       "row2": {
         "criterion": "Sticky / Cementitious Soiling",
-        "glyde": "single-pass PBT excels on mixed dry and adhesive dust layers",
+        "glyde": "Dual-pass excels on mixed dry and adhesive dust layers",
         "nyuma": "Ideal for dry desert dust; schedule extra cycles if cementitious soiling is heavy"
       },
       "row3": {
         "criterion": "Consumable Profile",
-        "glyde": "Self-cleaning PBT brush drum with extended service intervals",
+        "glyde": "Self-cleaning microfiber drum with extended service intervals",
         "nyuma": "UV-stable PBT brush with field-replaceable bristle cartridges"
       },
       "row4": {
@@ -632,7 +632,7 @@
       "crossSellLead": "Need a pick-and-place option for scattered blocks? See ",
       "linkHelyx": "HELYX",
       "crossSellMid": ". Running single-axis trackers? Compare ",
-      "linkTracker": "NYUMA and NYUMA-X",
+      "linkTracker": "GLYDE-X and NYUMA-X",
       "crossSellSuffix": "."
     },
     "glydeCards": {

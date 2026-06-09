@@ -67,6 +67,10 @@
           "q": "Rajasthan ধুলোর জন্য কোনটি ভাল?",
           "a": "দুটিই শুষ্ক মরুভূমির ধুলো সামলায়। আঠালো/mixed layer-এ GLYDE; PBT capex economics প্রাধান্য হলে NYUMA।"
         }
+      },
+      "productLinks": {
+        "glyde": "GLYDE product page",
+        "nyuma": "NYUMA product page"
       }
     },
     "glydeXVsNyumaX": {
@@ -136,6 +140,10 @@
           "q": "কোন tracker রোবট fixed-tilt GLYDE বা NYUMA-র সাথে মেলে?",
           "a": "GLYDE-X dual-pass microfiber tracker-এ extend করে; NYUMA-X PBT single-pass platform extend করে। fixed-tilt-এ GLYDE vs NYUMA দেখুন।"
         }
+      },
+      "productLinks": {
+        "glydeX": "GLYDE-X product page",
+        "nyumaX": "NYUMA-X product page"
       }
     }
   }

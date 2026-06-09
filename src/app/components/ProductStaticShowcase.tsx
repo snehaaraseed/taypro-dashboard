@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { AnimateOnScroll } from "./AnimateOnScroll";
 import { Container } from "./Container";
+import YouTubeEmbed from "./YouTubeEmbed";
 
 type ProductStaticShowcaseProps = {
   imageSrc: string;
@@ -22,6 +23,8 @@ type ProductStaticShowcaseProps = {
   sectionTitle?: string;
   /** Native width/height ratio, e.g. "2440 / 987". */
   imageAspectRatio?: string;
+  /** Optional YouTube product video; replaces the image gallery when set. */
+  youtubeVideoId?: string;
 };
 
 export default function ProductStaticShowcase({
@@ -40,6 +43,7 @@ export default function ProductStaticShowcase({
   sectionBadge,
   sectionTitle,
   imageAspectRatio = "4 / 3",
+  youtubeVideoId,
 }: ProductStaticShowcaseProps) {
   const hasInnovationPanel = Boolean(innovationTitle && innovationBody);
   const displayEyebrow = tourEyebrow ?? eyebrow;
@@ -49,7 +53,17 @@ export default function ProductStaticShowcase({
 
   const galleryImages = [imageSrc, ...(detailImages ?? [])];
 
-  const imageBlock = (
+  const mediaBlock = youtubeVideoId ? (
+    <div className="w-full max-w-2xl mx-auto">
+      <div className="rounded-2xl bg-white p-4 sm:p-6 shadow-lg ring-1 ring-black/5">
+        <YouTubeEmbed
+          videoId={youtubeVideoId}
+          title={imageAlt}
+          className="w-full rounded-lg overflow-hidden"
+        />
+      </div>
+    </div>
+  ) : (
     <div className="w-full max-w-2xl mx-auto space-y-4">
       {galleryImages.map((src, index) => (
         <div
@@ -96,7 +110,7 @@ export default function ProductStaticShowcase({
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll animation="fadeInUp" delay={100} className="flex justify-center">
-            <div className="w-full max-w-4xl">{imageBlock}</div>
+            <div className="w-full max-w-4xl">{mediaBlock}</div>
           </AnimateOnScroll>
         </Container>
       </section>
@@ -138,7 +152,7 @@ export default function ProductStaticShowcase({
                 {displaySubtitleMobile}
               </div>
             </div>
-            {imageBlock}
+            {mediaBlock}
           </AnimateOnScroll>
 
           <AnimateOnScroll animation="fadeInUp" delay={200} className="bg-[#7da300] p-6">
@@ -166,7 +180,7 @@ export default function ProductStaticShowcase({
                   {displaySubtitleDesktop}
                 </div>
               </div>
-              {imageBlock}
+              {mediaBlock}
             </AnimateOnScroll>
 
             <AnimateOnScroll

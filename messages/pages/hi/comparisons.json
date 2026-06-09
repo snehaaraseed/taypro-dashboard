@@ -67,6 +67,10 @@
           "q": "Rajasthan dust के लिए कौन बेहतर?",
           "a": "दोनों शुष्क desert dust handle करते हैं। adhesive/mixed layers पर GLYDE चुनें; PBT capex economics dominate करें तो NYUMA।"
         }
+      },
+      "productLinks": {
+        "glyde": "GLYDE product page",
+        "nyuma": "NYUMA product page"
       }
     },
     "glydeXVsNyumaX": {
@@ -136,6 +140,10 @@
           "q": "कौन-सा tracker robot fixed-tilt GLYDE या NYUMA से match करता है?",
           "a": "GLYDE-X dual-pass microfiber को trackers पर extend करता है; NYUMA-X PBT single-pass platform extend करता है। fixed-tilt guide पर GLYDE vs NYUMA देखें।"
         }
+      },
+      "productLinks": {
+        "glydeX": "GLYDE-X product page",
+        "nyumaX": "NYUMA-X product page"
       }
     }
   }

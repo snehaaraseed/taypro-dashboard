@@ -77,8 +77,8 @@
         "body": "On-board sensors continuously detect module edges, surface obstacles and inter-table angle changes. Motor performance is adjusted in real time as the robot tracks path and surface undulations, preserving consistent cleaning quality and preventing accidental falls."
       },
       "3": {
-        "title": "single-pass Cleaning, PBT brush or PBT",
-        "body": "A single-pass cleaning cycle lifts over 99% of accumulated dust from the module surface. Cleaning material can be specified as either rotating PBT brush (best for fine-dust regions) or UV-stable PBT brush (best for high-particulate sand and arid sites) depending on plant location."
+        "title": "Single-Pass PBT Cleaning",
+        "body": "A single-pass cleaning cycle lifts over 99% of accumulated dust from the module surface using a counter-rotating UV-stable PBT brush drum — purpose-built for dry tracker dust belts without water or detergent."
       },
       "4": {
         "title": "Real-Time Weather-Aware Scheduling",
@@ -104,7 +104,7 @@
       },
       "1": {
         "label": "Cleaning Material",
-        "value": "PBT brush or PBT"
+        "value": "UV-stable PBT brush drum"
       },
       "2": {
         "label": "Cleaning Speed",
@@ -197,8 +197,8 @@
         "text": "At the scheduled time, NYUMA-X undocks autonomously and moves onto the tracker row. Edge, obstacle and angle-detection sensors continuously map the path and surface undulations ahead of the robot."
       },
       "3": {
-        "name": "single-pass waterless cleaning across the row",
-        "text": "Counter-rotating PBT brush or UV-stable PBT cleaning heads execute a single-pass cleaning cycle, lifting over 99% of accumulated dust at 10–15 metres per minute. The flexible body articulates up to ±15° to safely cross inter-table angle deviations on NEXTracker, Gamechanger and equivalent trackers."
+        "name": "Single-pass waterless cleaning across the row",
+        "text": "Counter-rotating UV-stable PBT bristles execute a single-pass cleaning cycle, lifting over 99% of accumulated dust at 10–15 metres per minute. The flexible body articulates up to ±15° to safely cross inter-table angle deviations on NEXTracker, Gamechanger and equivalent trackers."
       },
       "4": {
         "name": "Battery-aware return to docking station",

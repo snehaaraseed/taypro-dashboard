@@ -545,57 +545,57 @@
       "connectivitySummary": "LTE, Wi-Fi, हाइब्रिड सेल्फ-हीलिंग RF मेश, LoRa और LoRaWAN"
     },
     "glydeXVsNyumaX": {
-      "eyebrow": "ट्रैकर रोबोट तुलना",
-      "title": "GLYDE-X vs NYUMA-X: कौन-सा ट्रैकर रोबोट specify करें?",
-      "subtitle": "दोनों रोबोट NEXTracker, Gamechanger और समकक्ष single-axis टेबल ±15° inter-table flex के साथ पार करते हैं। GLYDE-X पेटेंटेड dual-pass microfiber; NYUMA-X capex-sensitive tracker programmes के लिए single-pass PBT।",
-      "criterion": "मानदंड",
+      "eyebrow": "Tracker Robot Comparison",
+      "title": "GLYDE-X vs NYUMA-X: Which Tracker Robot Should You Specify?",
+      "subtitle": "Both robots traverse NEXTracker, Gamechanger, and equivalent single-axis tables with ±15° inter-table flex. GLYDE-X uses patented dual-pass microfiber; NYUMA-X uses single-pass PBT for capex-sensitive tracker programmes.",
+      "criterion": "Criterion",
       "glydeXHeader": "GLYDE-X (Dual-Pass)",
       "nyumaXHeader": "NYUMA-X (Single-Pass PBT)",
       "row0": {
-        "criterion": "सफाई तंत्र",
-        "glydeX": "Dual-pass microfiber — mixed soiling के लिए airflow + wipe",
-        "nyumaX": "Single-pass PBT brush — शुष्क tracker dust belts के लिए"
+        "criterion": "Cleaning Mechanism",
+        "glydeX": "Dual-pass microfiber — airflow plus wipe for mixed soiling",
+        "nyumaX": "Single-pass PBT brush — optimised for dry tracker dust belts"
       },
       "row1": {
-        "criterion": "Tracker संगतता",
-        "glydeX": "NEXTracker, Gamechanger, -52° से +52° module tilt",
-        "nyumaX": "NEXTracker, Gamechanger, -52° से +52° module tilt"
+        "criterion": "Tracker Compatibility",
+        "glydeX": "NEXTracker, Gamechanger, -52° to +52° module tilt",
+        "nyumaX": "NEXTracker, Gamechanger, -52° to +52° module tilt"
       },
       "row2": {
-        "criterion": "Inter-table flex",
-        "glydeX": "±15° body articulation, validated bridge kits",
-        "nyumaX": "±15° body articulation, validated bridge kits"
+        "criterion": "Inter-Table Flex",
+        "glydeX": "±15° body articulation with validated bridge kits",
+        "nyumaX": "±15° body articulation with validated bridge kits"
       },
       "row3": {
-        "criterion": "Operating weight",
+        "criterion": "Operating Weight",
         "glydeX": "26 kg compact tracker chassis",
         "nyumaX": "26 kg compact tracker chassis"
       },
       "row4": {
-        "criterion": "प्रति चार्ज रेंज",
-        "glydeX": "2.2 km तक (~3,600 modules)",
-        "nyumaX": "2.2 km तक (~3,600 modules)"
+        "criterion": "Range Per Charge",
+        "glydeX": "Up to 2.2 km (~3,600 modules)",
+        "nyumaX": "Up to 2.2 km (~3,600 modules)"
       },
       "row5": {
-        "criterion": "मालिक कब चुनते हैं",
-        "glydeX": "Premium tracker rows — रात में maximum dust lift",
-        "nyumaX": "बड़ी tracker fleets — PBT capex और brush service economics"
+        "criterion": "When Owners Choose It",
+        "glydeX": "Premium tracker rows needing maximum dust lift per night cycle",
+        "nyumaX": "Large tracker fleets prioritising PBT capex and brush service economics"
       },
       "row6": {
-        "criterion": "Autonomy & scheduling",
-        "glydeX": "Fully autonomous, NECTYR AI weather-aware scheduling",
-        "nyumaX": "Fully autonomous, NECTYR AI weather-aware scheduling"
+        "criterion": "Autonomy & Scheduling",
+        "glydeX": "Fully autonomous, AI weather-aware scheduling via NECTYR",
+        "nyumaX": "Fully autonomous, AI weather-aware scheduling via NECTYR"
       },
       "row7": {
-        "criterion": "Fixed-tilt विकल्प",
-        "glydeX": "Fixed-tilt dual-pass के लिए GLYDE देखें",
-        "nyumaX": "Fixed-tilt PBT के लिए NYUMA देखें"
+        "criterion": "Fixed-Tilt Alternative",
+        "glydeX": "See GLYDE for fixed-tilt dual-pass cleaning",
+        "nyumaX": "See NYUMA for fixed-tilt PBT cleaning"
       },
-      "crossSellLead": "Fixed-tilt robots की तुलना: ",
+      "crossSellLead": "Compare fixed-tilt robots: ",
       "linkGlyde": "GLYDE vs NYUMA",
-      "crossSellMid": "। Semi-automatic deployment? देखें ",
+      "crossSellMid": ". Prefer semi-automatic deployment? See ",
       "linkHelyx": "HELYX",
-      "crossSellSuffix": "।"
+      "crossSellSuffix": "."
     }
   },
   "Common": {

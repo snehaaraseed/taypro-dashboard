@@ -67,6 +67,10 @@
           "q": "أيهما أفضل لغبار Rajasthan؟",
           "a": "كلاهما يتعامل مع الغبار الصحراوي الجاف. اختر GLYDE عند طبقات لزجة/مختلطة؛ NYUMA عندما تسود اقتصاديات PBT."
         }
+      },
+      "productLinks": {
+        "glyde": "GLYDE product page",
+        "nyuma": "NYUMA product page"
       }
     },
     "glydeXVsNyumaX": {
@@ -136,6 +140,10 @@
           "q": "أي روبوت tracker يطابق GLYDE أو NYUMA fixed-tilt؟",
           "a": "GLYDE-X يوسّع dual-pass microfiber للـ trackers؛ NYUMA-X يوسّع منصة PBT single-pass. راجع GLYDE vs NYUMA للـ fixed-tilt."
         }
+      },
+      "productLinks": {
+        "glydeX": "GLYDE-X product page",
+        "nyumaX": "NYUMA-X product page"
       }
     }
   }

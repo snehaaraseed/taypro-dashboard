@@ -9,6 +9,7 @@ import {
   COMPARISON_PAGE_LIST,
   type ComparisonPageId,
 } from "@/lib/seo/comparison-pages-config";
+import { PRODUCT_CATALOG } from "@/lib/products/catalog";
 
 const BASIC_ROW_KEYS = ["0", "1", "2", "3", "4", "5"] as const;
 
@@ -240,7 +241,43 @@ export default async function ComparisonLandingPage({
             >
               {t("cta.calculator")}
             </Link>
-            {!isVendorPage && (
+            {pageId === "glydeXVsNyumaX" && (
+              <>
+                <span className="text-gray-300">·</span>
+                <Link
+                  href={PRODUCT_CATALOG.glydeX.href}
+                  className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
+                >
+                  {t("glydeXVsNyumaX.productLinks.glydeX")}
+                </Link>
+                <span className="text-gray-300">·</span>
+                <Link
+                  href={PRODUCT_CATALOG.nyumaX.href}
+                  className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
+                >
+                  {t("glydeXVsNyumaX.productLinks.nyumaX")}
+                </Link>
+              </>
+            )}
+            {pageId === "glydeVsNyuma" && (
+              <>
+                <span className="text-gray-300">·</span>
+                <Link
+                  href={PRODUCT_CATALOG.glyde.href}
+                  className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
+                >
+                  {t("glydeVsNyuma.productLinks.glyde")}
+                </Link>
+                <span className="text-gray-300">·</span>
+                <Link
+                  href={PRODUCT_CATALOG.nyuma.href}
+                  className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
+                >
+                  {t("glydeVsNyuma.productLinks.nyuma")}
+                </Link>
+              </>
+            )}
+            {!isVendorPage && pageId !== "glydeXVsNyumaX" && pageId !== "glydeVsNyuma" && (
               <>
                 <span className="text-gray-300">·</span>
                 <Link

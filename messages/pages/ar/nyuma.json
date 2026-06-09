@@ -99,7 +99,7 @@
       "title": "NYUMA hardware at a glance",
       "subtitle": "Patented single-pass PBT cleaning on module-frame rails, autonomous docking, and fleet connectivity built for utility-scale fixed-tilt plants.",
       "primaryAlt": "Taypro NYUMA TR-150 automatic cleaning robot, plan view showing rails and single-pass PBT cleaning elements",
-      "primaryCaption": "NYUMA TR-150 travels along the module frame with patented single-pass PBT PBT brush cleaning.",
+      "primaryCaption": "NYUMA TR-150 travels along the module frame with patented single-pass PBT brush cleaning.",
       "mechanismAlt": "Close-up of Taypro NYUMA single-pass PBT rotating PBT brush cleaning drum, wheels, and wireless antenna",
       "mechanismCaption": "Rotating self-cleaning PBT brush drum, frame-mounted travel, and remote monitoring antenna.",
       "dockingAlt": "Taypro NYUMA shadow-free docking station with integrated solar charging for autonomous daily cycles",
@@ -584,14 +584,14 @@
     },
     "glydeVsNyuma": {
       "eyebrow": "Choosing the Right Taypro Robot",
-      "title": "NYUMA vs NYUMA: Which Automatic Robot Fits Your Plant?",
-      "subtitle": "Both robots are fully autonomous, waterless, and managed from NECTYR. NYUMA is Taypro's patented single-pass PBT PBT brush flagship; NYUMA is the PBT single-pass platform for capex-efficient fixed-tilt fleets.",
+      "title": "GLYDE vs NYUMA: Which Automatic Robot Fits Your Plant?",
+      "subtitle": "Both robots are fully autonomous, waterless, and managed from NECTYR. GLYDE is Taypro's patented dual-pass microfiber flagship; NYUMA is the PBT single-pass platform for capex-efficient fixed-tilt fleets.",
       "criterion": "Criterion",
-      "glydeHeader": "NYUMA (single-pass PBT PBT brush)",
+      "glydeHeader": "GLYDE (Dual-Pass Microfiber)",
       "nyumaHeader": "NYUMA (Single-Pass PBT)",
       "row0": {
         "criterion": "Cleaning Technology",
-        "glyde": "Patented single-pass PBT: airflow loosens dust, PBT brush completes the wipe",
+        "glyde": "Patented dual-pass: airflow loosens dust, microfiber completes the wipe",
         "nyuma": "Single-pass counter-rotating PBT brush drum — fewer moving consumables"
       },
       "row1": {
@@ -601,12 +601,12 @@
       },
       "row2": {
         "criterion": "Sticky / Cementitious Soiling",
-        "glyde": "single-pass PBT excels on mixed dry and adhesive dust layers",
+        "glyde": "Dual-pass excels on mixed dry and adhesive dust layers",
         "nyuma": "Ideal for dry desert dust; schedule extra cycles if cementitious soiling is heavy"
       },
       "row3": {
         "criterion": "Consumable Profile",
-        "glyde": "Self-cleaning PBT brush drum with extended service intervals",
+        "glyde": "Self-cleaning microfiber drum with extended service intervals",
         "nyuma": "UV-stable PBT brush with field-replaceable bristle cartridges"
       },
       "row4": {
@@ -632,7 +632,7 @@
       "crossSellLead": "Need a pick-and-place option for scattered blocks? See ",
       "linkHelyx": "HELYX",
       "crossSellMid": ". Running single-axis trackers? Compare ",
-      "linkTracker": "NYUMA and NYUMA-X",
+      "linkTracker": "GLYDE-X and NYUMA-X",
       "crossSellSuffix": "."
     }
   },

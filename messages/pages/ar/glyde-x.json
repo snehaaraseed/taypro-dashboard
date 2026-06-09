@@ -548,55 +548,55 @@
       "connectivitySummary": "LTE وWi-Fi وشبكة RF ذاتية الشفاء هجينة وLoRa وLoRaWAN"
     },
     "glydeXVsNyumaX": {
-      "eyebrow": "مقارنة روبوتات التتبع",
-      "title": "GLYDE-X مقابل NYUMA-X: أي روبوت tracker تحدد؟",
-      "subtitle": "كلا الروبوتين يعبران NEXTracker وGamechanger وجداول single-axis المماثلة بمرونة ±15° بين الجداول. GLYDE-X يستخدم dual-pass microfiber patented؛ NYUMA-X PBT single-pass لبرامج tracker حساسة لـ CAPEX.",
-      "criterion": "المعيار",
+      "eyebrow": "Tracker Robot Comparison",
+      "title": "GLYDE-X vs NYUMA-X: Which Tracker Robot Should You Specify?",
+      "subtitle": "Both robots traverse NEXTracker, Gamechanger, and equivalent single-axis tables with ±15° inter-table flex. GLYDE-X uses patented dual-pass microfiber; NYUMA-X uses single-pass PBT for capex-sensitive tracker programmes.",
+      "criterion": "Criterion",
       "glydeXHeader": "GLYDE-X (Dual-Pass)",
       "nyumaXHeader": "NYUMA-X (Single-Pass PBT)",
       "row0": {
-        "criterion": "آلية التنظيف",
-        "glydeX": "Dual-pass microfiber — airflow + wipe للتلوث المختلط",
-        "nyumaX": "فرش PBT single-pass — محسّن لأحزمة غبار tracker الجافة"
+        "criterion": "Cleaning Mechanism",
+        "glydeX": "Dual-pass microfiber — airflow plus wipe for mixed soiling",
+        "nyumaX": "Single-pass PBT brush — optimised for dry tracker dust belts"
       },
       "row1": {
-        "criterion": "توافق Tracker",
-        "glydeX": "NEXTracker, Gamechanger, ميل -52° إلى +52°",
-        "nyumaX": "NEXTracker, Gamechanger, ميل -52° إلى +52°"
+        "criterion": "Tracker Compatibility",
+        "glydeX": "NEXTracker, Gamechanger, -52° to +52° module tilt",
+        "nyumaX": "NEXTracker, Gamechanger, -52° to +52° module tilt"
       },
       "row2": {
-        "criterion": "مرونة بين الجداول",
-        "glydeX": "±15° articulation مع bridge kits معتمدة",
-        "nyumaX": "±15° articulation مع bridge kits معتمدة"
+        "criterion": "Inter-Table Flex",
+        "glydeX": "±15° body articulation with validated bridge kits",
+        "nyumaX": "±15° body articulation with validated bridge kits"
       },
       "row3": {
-        "criterion": "الوزن التشغيلي",
-        "glydeX": "26 kg هيكل tracker مدمج",
-        "nyumaX": "26 kg هيكل tracker مدمج"
+        "criterion": "Operating Weight",
+        "glydeX": "26 kg compact tracker chassis",
+        "nyumaX": "26 kg compact tracker chassis"
       },
       "row4": {
-        "criterion": "المدى لكل شحنة",
-        "glydeX": "حتى 2.2 km (~3,600 وحدة)",
-        "nyumaX": "حتى 2.2 km (~3,600 وحدة)"
+        "criterion": "Range Per Charge",
+        "glydeX": "Up to 2.2 km (~3,600 modules)",
+        "nyumaX": "Up to 2.2 km (~3,600 modules)"
       },
       "row5": {
-        "criterion": "متى يختارها المالكون",
-        "glydeX": "صفوف tracker premium تحتاج أقصى رفع غبار لكل دورة ليلية",
-        "nyumaX": "أساطيل tracker كبيرة تفضّل اقتصاديات PBT وCAPEX"
+        "criterion": "When Owners Choose It",
+        "glydeX": "Premium tracker rows needing maximum dust lift per night cycle",
+        "nyumaX": "Large tracker fleets prioritising PBT capex and brush service economics"
       },
       "row6": {
-        "criterion": "الاستقلالية والجدولة",
-        "glydeX": "مستقل بالكامل، جدولة AI عبر NECTYR",
-        "nyumaX": "مستقل بالكامل، جدولة AI عبر NECTYR"
+        "criterion": "Autonomy & Scheduling",
+        "glydeX": "Fully autonomous, AI weather-aware scheduling via NECTYR",
+        "nyumaX": "Fully autonomous, AI weather-aware scheduling via NECTYR"
       },
       "row7": {
-        "criterion": "بديل fixed-tilt",
-        "glydeX": "راجع GLYDE لتنظيف fixed-tilt dual-pass",
-        "nyumaX": "راجع NYUMA لتنظيف fixed-tilt PBT"
+        "criterion": "Fixed-Tilt Alternative",
+        "glydeX": "See GLYDE for fixed-tilt dual-pass cleaning",
+        "nyumaX": "See NYUMA for fixed-tilt PBT cleaning"
       },
-      "crossSellLead": "قارن روبوتات fixed-tilt: ",
+      "crossSellLead": "Compare fixed-tilt robots: ",
       "linkGlyde": "GLYDE vs NYUMA",
-      "crossSellMid": ". تفضّل نشر semi-automatic؟ راجع ",
+      "crossSellMid": ". Prefer semi-automatic deployment? See ",
       "linkHelyx": "HELYX",
       "crossSellSuffix": "."
     }

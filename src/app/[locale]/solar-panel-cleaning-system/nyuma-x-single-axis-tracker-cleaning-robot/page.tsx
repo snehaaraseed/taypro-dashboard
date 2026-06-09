@@ -31,6 +31,7 @@ import {
   ProductSchema,
   FAQPageSchema,
   HowToSchema,
+  VideoObjectSchema,
 } from "@/app/components/StructuredData";
 import { Container } from "@/app/components/Container";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
@@ -43,6 +44,7 @@ import {
 } from "@/lib/products/product-page-images";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const NYUMA_X_SHOWCASE_VIDEO_ID = "kBGdE6ikoQ0";
 const nyumaXImages = productPageImages("nyumaX");
 const nyumaXHeroLayout = getProductHeroLayout("nyumaX");
 
@@ -205,6 +207,14 @@ export default async function NyumaXTrackerCleaningRobotPage({
         totalTime="PT2H"
         image={nyumaXImages.schema}
       />
+      <VideoObjectSchema
+        name={t("innovation360.tourTitle")}
+        description={t("innovation360.tourSubtitleDesktop")}
+        thumbnailUrl={`https://img.youtube.com/vi/${NYUMA_X_SHOWCASE_VIDEO_ID}/maxresdefault.jpg`}
+        uploadDate="2026-01-12"
+        embedUrl={`https://www.youtube.com/embed/${NYUMA_X_SHOWCASE_VIDEO_ID}`}
+        contentUrl={`https://www.youtube.com/watch?v=${NYUMA_X_SHOWCASE_VIDEO_ID}`}
+      />
 
       <div className="min-h-screen overflow-x-hidden">
         <HeroSection
@@ -308,6 +318,7 @@ export default async function NyumaXTrackerCleaningRobotPage({
           imageSrc={nyumaXImages.hero}
           imageAlt={t("innovation360.productLabel")}
           imageAspectRatio={nyumaXHeroLayout.aspectRatio}
+          youtubeVideoId={NYUMA_X_SHOWCASE_VIDEO_ID}
           eyebrow={t("innovation360.tourEyebrow")}
           title={t("innovation360.tourTitle")}
           subtitle={t("innovation360.tourSubtitleDesktop")}

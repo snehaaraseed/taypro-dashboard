@@ -549,57 +549,57 @@
       "connectivitySummary": "LTE、Wi-Fi、ハイブリッド自己修復RFメッシュ、LoRa、LoRaWAN"
     },
     "glydeXVsNyumaX": {
-      "eyebrow": "トラッカーロボット比較",
-      "title": "GLYDE-X vs NYUMA-X：どのトラッカーロボットを指定する？",
-      "subtitle": "両ロボットともNEXTracker、Gamechanger、同等の単軸テーブルをテーブル間±15°の可動で走行。GLYDE-Xは特許デュアルパスマイクロファイバー、NYUMA-XはCAPEX重視のトラッカープログラム向けシングルパスPBT。",
-      "criterion": "比較項目",
-      "glydeXHeader": "GLYDE-X（デュアルパス）",
-      "nyumaXHeader": "NYUMA-X（シングルパスPBT）",
+      "eyebrow": "Tracker Robot Comparison",
+      "title": "GLYDE-X vs NYUMA-X: Which Tracker Robot Should You Specify?",
+      "subtitle": "Both robots traverse NEXTracker, Gamechanger, and equivalent single-axis tables with ±15° inter-table flex. GLYDE-X uses patented dual-pass microfiber; NYUMA-X uses single-pass PBT for capex-sensitive tracker programmes.",
+      "criterion": "Criterion",
+      "glydeXHeader": "GLYDE-X (Dual-Pass)",
+      "nyumaXHeader": "NYUMA-X (Single-Pass PBT)",
       "row0": {
-        "criterion": "清掃機構",
-        "glydeX": "デュアルパスマイクロファイバー — 混合汚れ向け気流＋拭き",
-        "nyumaX": "シングルパスPBTブラシ — 乾燥トラッカー塵ベルト向け"
+        "criterion": "Cleaning Mechanism",
+        "glydeX": "Dual-pass microfiber — airflow plus wipe for mixed soiling",
+        "nyumaX": "Single-pass PBT brush — optimised for dry tracker dust belts"
       },
       "row1": {
-        "criterion": "トラッカー互換",
-        "glydeX": "NEXTracker、Gamechanger、-52°〜+52°モジュール傾斜",
-        "nyumaX": "NEXTracker、Gamechanger、-52°〜+52°モジュール傾斜"
+        "criterion": "Tracker Compatibility",
+        "glydeX": "NEXTracker, Gamechanger, -52° to +52° module tilt",
+        "nyumaX": "NEXTracker, Gamechanger, -52° to +52° module tilt"
       },
       "row2": {
-        "criterion": "テーブル間可動",
-        "glydeX": "±15°ボディ可動、検証済みブリッジキット",
-        "nyumaX": "±15°ボディ可動、検証済みブリッジキット"
+        "criterion": "Inter-Table Flex",
+        "glydeX": "±15° body articulation with validated bridge kits",
+        "nyumaX": "±15° body articulation with validated bridge kits"
       },
       "row3": {
-        "criterion": "運用重量",
-        "glydeX": "26 kgコンパクトトラッカーシャシ",
-        "nyumaX": "26 kgコンパクトトラッカーシャシ"
+        "criterion": "Operating Weight",
+        "glydeX": "26 kg compact tracker chassis",
+        "nyumaX": "26 kg compact tracker chassis"
       },
       "row4": {
-        "criterion": "1充電あたりの走行",
-        "glydeX": "最大2.2 km（約3,600モジュール）",
-        "nyumaX": "最大2.2 km（約3,600モジュール）"
+        "criterion": "Range Per Charge",
+        "glydeX": "Up to 2.2 km (~3,600 modules)",
+        "nyumaX": "Up to 2.2 km (~3,600 modules)"
       },
       "row5": {
-        "criterion": "選ばれる場面",
-        "glydeX": "夜間サイクルで最大除塵が必要なプレミアムトラッカー列",
-        "nyumaX": "PBTのCAPEXとブラシ保守経済性を優先する大規模トラッカーフリート"
+        "criterion": "When Owners Choose It",
+        "glydeX": "Premium tracker rows needing maximum dust lift per night cycle",
+        "nyumaX": "Large tracker fleets prioritising PBT capex and brush service economics"
       },
       "row6": {
-        "criterion": "自律性とスケジュール",
-        "glydeX": "完全自律、NECTYRのAI天候連動スケジュール",
-        "nyumaX": "完全自律、NECTYRのAI天候連動スケジュール"
+        "criterion": "Autonomy & Scheduling",
+        "glydeX": "Fully autonomous, AI weather-aware scheduling via NECTYR",
+        "nyumaX": "Fully autonomous, AI weather-aware scheduling via NECTYR"
       },
       "row7": {
-        "criterion": "固定式の代替",
-        "glydeX": "固定式デュアルパスはGLYDEを参照",
-        "nyumaX": "固定式PBTはNYUMAを参照"
+        "criterion": "Fixed-Tilt Alternative",
+        "glydeX": "See GLYDE for fixed-tilt dual-pass cleaning",
+        "nyumaX": "See NYUMA for fixed-tilt PBT cleaning"
       },
-      "crossSellLead": "固定式ロボット比較：",
+      "crossSellLead": "Compare fixed-tilt robots: ",
       "linkGlyde": "GLYDE vs NYUMA",
-      "crossSellMid": "。半自動展開は ",
+      "crossSellMid": ". Prefer semi-automatic deployment? See ",
       "linkHelyx": "HELYX",
-      "crossSellSuffix": " を参照。"
+      "crossSellSuffix": "."
     }
   },
   "Common": {

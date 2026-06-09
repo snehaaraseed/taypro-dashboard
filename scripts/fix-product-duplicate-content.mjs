@@ -131,6 +131,118 @@ const glydeXVsNyumaXEn = {
   crossSellSuffix: ".",
 };
 
+const nyumaXVsNyumaEn = {
+  eyebrow: "Choosing the Right Taypro Robot",
+  title: "NYUMA-X vs NYUMA: Which Robot Suits Your Solar Plant?",
+  subtitle:
+    "Both robots are fully autonomous and waterless, both run on the same NECTYR. The choice is dictated by your mounting structure, tracker vs fixed-tilt.",
+  criterion: "Criterion",
+  nyumaXHeader: "NYUMA-X (Tracker)",
+  nyumaHeader: "NYUMA (Fixed-Tilt)",
+  row0: {
+    criterion: "Mounting Structure",
+    nyumaX: "Single-axis trackers (NEXTracker, Gamechanger and equivalent)",
+    nyuma: "Fixed-tilt and seasonal-tilt utility-scale plants",
+  },
+  row1: {
+    criterion: "Module Tilt Range",
+    nyumaX: "-52° to +52° (full tracker range)",
+    nyuma: "Designed for fixed-tilt and seasonal-tilt range",
+  },
+  row2: {
+    criterion: "Inter-Table Flex",
+    nyumaX: "±15° body articulation between adjacent tables",
+    nyuma: "Not required, fixed-tilt rows are co-planar",
+  },
+  row3: {
+    criterion: "Cleaning Mechanism",
+    nyumaX: "Waterless single-pass PBT brush drum",
+    nyuma: "Waterless single-pass, self-cleaning PBT brush drum",
+  },
+  row4: {
+    criterion: "Range Per Charge",
+    nyumaX: "Up to 2.2 km / ~3,600 modules",
+    nyuma: "Up to 3,600 modules per charge",
+  },
+  row5: {
+    criterion: "Operating Weight",
+    nyumaX: "26 kg (most compact)",
+    nyuma: "Heavier, designed for fixed-tilt utility-scale",
+  },
+  row6: {
+    criterion: "Cleaning Mode",
+    nyumaX: "Fully autonomous, AI-scheduled",
+    nyuma: "Fully autonomous, AI-scheduled",
+  },
+  row7: {
+    criterion: "Cloud Monitoring",
+    nyumaX: "NECTYR via {connectivity}",
+    nyuma: "NECTYR via {connectivity}",
+  },
+  crossSellLead: "Cleaning smaller or scattered plants? Look at the semi-automatic ",
+  linkHelyx: "HELYX",
+  crossSellMid: ". Prefer outsourcing cleaning entirely? Explore the ",
+  linkOpex: "Taypro OPEX cleaning service",
+  crossSellSuffix: ".",
+};
+
+function replaceInStrings(node, replacers) {
+  if (typeof node === "string") {
+    let s = node;
+    for (const [from, to] of replacers) s = s.replace(from, to);
+    return s;
+  }
+  if (Array.isArray(node)) {
+    return node.map((v) => replaceInStrings(v, replacers));
+  }
+  if (node && typeof node === "object") {
+    const out = {};
+    for (const [k, v] of Object.entries(node)) {
+      out[k] = replaceInStrings(v, replacers);
+    }
+    return out;
+  }
+  return node;
+}
+
+function isCorruptedNyumaXString(s) {
+  if (typeof s !== "string") return false;
+  return (
+    /GLYDE-X/i.test(s) ||
+    /NYUMA-X vs NYUMA-X/i.test(s) ||
+    /Taypro GLYDE-X/i.test(s) ||
+    /single-pass PBT PBT/i.test(s) ||
+    /\bdual-pass\b/i.test(s) ||
+    /\bmicrofiber\b/i.test(s) ||
+    /NYUMA-X \(Fixed-Tilt\)/i.test(s)
+  );
+}
+
+/** Prefer locale translation when clean; otherwise fall back to English source. */
+function mergeNyumaXFromEn(enPage, localePage) {
+  function walk(enNode, locNode) {
+    if (typeof enNode === "string") {
+      return typeof locNode === "string" &&
+        locNode !== enNode &&
+        !isCorruptedNyumaXString(locNode)
+        ? locNode
+        : enNode;
+    }
+    if (Array.isArray(enNode)) {
+      return enNode.map((v, i) => walk(v, locNode?.[i]));
+    }
+    if (enNode && typeof enNode === "object") {
+      const out = {};
+      for (const k of Object.keys(enNode)) {
+        out[k] = walk(enNode[k], locNode?.[k]);
+      }
+      return out;
+    }
+    return enNode;
+  }
+  return walk(enPage, localePage);
+}
+
 function patchGlydeEn(page) {
   page.breadcrumbs.automaticRobot = "GLYDE — Dual-Pass Automatic Robot";
   page.usps.eyebrow = "GLYDE — Patented Dual-Pass Robot";
@@ -380,6 +492,14 @@ function patchNyumaXEn(page) {
     "Single-pass PBT pressure tested for micro-crack, optical reflectance, and anti-reflective coating preservation on trackers.";
   page.nyumaXVsNyuma.row3.nyumaX =
     "Waterless single-pass PBT brush drum";
+  page.features["3"].title = "Single-Pass PBT Cleaning";
+  page.features["3"].body =
+    "A single-pass cleaning cycle lifts over 99% of accumulated dust from the module surface using a counter-rotating UV-stable PBT brush drum — purpose-built for dry tracker dust belts without water or detergent.";
+  page.specs["1"].value = "UV-stable PBT brush drum";
+  page.steps["3"].name = "Single-pass waterless cleaning across the row";
+  page.steps["3"].text =
+    "Counter-rotating UV-stable PBT bristles execute a single-pass cleaning cycle, lifting over 99% of accumulated dust at 10–15 metres per minute. The flexible body articulates up to ±15° to safely cross inter-table angle deviations on NEXTracker, Gamechanger and equivalent trackers.";
+  page.nyumaXVsNyuma = nyumaXVsNyumaEn;
   page.glydeXVsNyumaX = glydeXVsNyumaXEn;
 }
 
@@ -400,12 +520,14 @@ const nyumaXEn = loadJson("messages/pages/en/nyuma-x.json");
 patchNyumaXEn(nyumaXEn.NyumaXPage);
 saveJson("messages/pages/en/nyuma-x.json", nyumaXEn);
 
+const enNyumaXPage = nyumaXEn.NyumaXPage;
+
 /** Minimal cross-locale fixes: comparison keys + copy-paste error repair (preserve translations). */
 function patchLocaleMinimal(locale) {
   const nyumaRel = `messages/pages/${locale}/nyuma.json`;
   if (fs.existsSync(path.join(ROOT, nyumaRel))) {
     const data = loadJson(nyumaRel);
-    const page = data.NyumaPage;
+    let page = data.NyumaPage;
     if (page?.featuresLongForm?.aiCleaning?.body?.includes("second sweeps")) {
       page.featuresLongForm.aiCleaning.body =
         locale === "en"
@@ -414,23 +536,27 @@ function patchLocaleMinimal(locale) {
               .replace(/first pass.*?second sweeps away sticky residue\.?/i, "a single PBT brush pass removes accumulated dry dust")
               .replace(/, the first pass loosens dry dust while the second sweeps away sticky residue/i, "");
     }
+    page = replaceInStrings(page, [
+      [/PBT PBT/g, "PBT"],
+      [/single-pass PBT PBT/gi, "single-pass PBT"],
+    ]);
     page.glydeVsNyuma = glydeVsNyumaEn;
+    data.NyumaPage = page;
     saveJson(nyumaRel, data);
   }
 
   const nyumaXRel = `messages/pages/${locale}/nyuma-x.json`;
   if (fs.existsSync(path.join(ROOT, nyumaXRel))) {
     const data = loadJson(nyumaXRel);
-    const page = data.NyumaXPage;
-    if (page?.usps?.["3"]?.description?.includes("Two-pass")) {
-      page.usps["3"].title =
-        locale === "en"
-          ? page.usps["3"].title
-          : page.usps["3"].title.replace(/two-pass/i, "single-pass");
-      page.usps["3"].description =
-        "Counter-rotating PBT bristles lift over 99% of dry tracker dust in one pass — no water, detergent, or run-off.";
-    }
+    let page = mergeNyumaXFromEn(enNyumaXPage, data.NyumaXPage);
+    page = replaceInStrings(page, [
+      [/PBT PBT/g, "PBT"],
+      [/single-pass PBT PBT/gi, "single-pass PBT"],
+      [/fully-automatic NYUMA-X robot/g, "fully-automatic NYUMA robot"],
+    ]);
+    page.nyumaXVsNyuma = nyumaXVsNyumaEn;
     page.glydeXVsNyumaX = glydeXVsNyumaXEn;
+    data.NyumaXPage = page;
     saveJson(nyumaXRel, data);
   }
 
@@ -449,8 +575,32 @@ function patchLocaleMinimal(locale) {
   }
 }
 
+const comparisonProductLinks = {
+  glydeVsNyuma: {
+    glyde: "GLYDE product page",
+    nyuma: "NYUMA product page",
+  },
+  glydeXVsNyumaX: {
+    glydeX: "GLYDE-X product page",
+    nyumaX: "NYUMA-X product page",
+  },
+};
+
 for (const locale of LOCALES) {
   if (locale !== "en") patchLocaleMinimal(locale);
+
+  const comparisonsRel = `messages/pages/${locale}/comparisons.json`;
+  if (fs.existsSync(path.join(ROOT, comparisonsRel))) {
+    const data = loadJson(comparisonsRel);
+    const page = data.ComparisonsPage;
+    if (page?.glydeVsNyuma) {
+      page.glydeVsNyuma.productLinks = comparisonProductLinks.glydeVsNyuma;
+    }
+    if (page?.glydeXVsNyumaX) {
+      page.glydeXVsNyumaX.productLinks = comparisonProductLinks.glydeXVsNyumaX;
+    }
+    saveJson(comparisonsRel, data);
+  }
 }
 
 console.log("Product duplicate-content fixes applied (full: en, minimal: other locales)");
