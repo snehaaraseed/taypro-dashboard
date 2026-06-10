@@ -9,6 +9,10 @@ module.exports = {
       colors: {
         taypro: "#A8C117", // custom brand color
       },
+      fontFamily: {
+        sans: ["var(--font-montserrat)", "ui-sans-serif", "system-ui", "sans-serif"],
+        heading: ["var(--font-blinker)", "ui-sans-serif", "system-ui", "sans-serif"],
+      },
     },
   },
   plugins: [],

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
+import { lockPageScroll } from "@/lib/scroll-lock";
 import RequestEstimateForm from "./RequestEstimateForm";
 import { useLeadModal } from "./LeadModalContext";
 
@@ -25,11 +26,10 @@ export default function LeadModal() {
       if (e.key === "Escape") closeLeadModal();
     };
     window.addEventListener("keydown", onKey);
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const unlockScroll = lockPageScroll();
     return () => {
       window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prevOverflow;
+      unlockScroll();
     };
   }, [isOpen, closeLeadModal]);
 

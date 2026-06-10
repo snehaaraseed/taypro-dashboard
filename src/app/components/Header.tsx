@@ -131,10 +131,10 @@ export default function Header() {
           : "sticky top-0"
       }`}
     >
-      <div className="p-4 shrink-0">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
+      <div className="shrink-0 px-3 py-3 sm:px-4 sm:py-4">
+        <div className="flex h-14 min-w-0 flex-nowrap items-center justify-between gap-2 sm:gap-3 lg:grid lg:h-16 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-center lg:gap-3 xl:gap-4">
+          {/* Logo — left */}
+          <div className="shrink-0 justify-self-start">
             <Link href={"/"} onClick={closeMobileMenu} aria-label="Taypro home">
               <Image
                 src="/tayproasset/taypro-logo.png"
@@ -143,15 +143,18 @@ export default function Header() {
                 width={400}
                 height={108}
                 sizes="(max-width: 640px) 160px, 200px"
-                className="h-10 w-auto sm:h-12"
+                className="h-9 w-auto sm:h-10 lg:h-10 xl:h-11 2xl:h-12"
                 priority
                 quality={75}
               />
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex space-x-8 relative z-50">
+          {/* Desktop navigation — centered */}
+          <nav
+            className="relative z-50 hidden min-w-0 flex-nowrap items-center justify-center gap-0.5 justify-self-center lg:flex lg:gap-1 2xl:gap-2"
+            aria-label="Main navigation"
+          >
             {navItems
               .filter((item) => item.href === "/")
               .map((item) => (
@@ -159,7 +162,7 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   title="Nav Item"
-                  className={`text-white px-3 py-2 text-md font-medium transition-all duration-300 hover:underline underline-offset-8 hover:text-[#39D600] ${
+                  className={`whitespace-nowrap px-2 py-2 text-sm font-medium text-white transition-all duration-300 hover:text-[#39D600] hover:underline underline-offset-8 2xl:px-3 2xl:text-base ${
                     isActive(item.href) ? "underline" : ""
                   }`}
                 >
@@ -168,19 +171,19 @@ export default function Header() {
               ))}
 
             <div
-              className="relative"
+              className="relative shrink-0"
               onMouseEnter={() => setDropdownOpen(true)}
               onMouseLeave={() => setDropdownOpen(false)}
             >
               <div
                 title={t("solutionsTitle")}
-                className={`text-white px-3 py-2 text-md font-medium cursor-pointer flex items-center transition-all duration-300 hover:underline underline-offset-8 hover:text-[#39D600] ${
+                className={`flex cursor-pointer items-center whitespace-nowrap px-2 py-2 text-sm font-medium text-white transition-all duration-300 hover:text-[#39D600] hover:underline underline-offset-8 2xl:px-3 2xl:text-base ${
                   isSolarActive() ? "underline" : ""
                 }`}
               >
                 {t("solutions")}
                 <svg
-                  className="ml-2 w-4 h-4"
+                  className="ml-1 h-4 w-4 shrink-0 2xl:ml-2"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -194,34 +197,36 @@ export default function Header() {
                 </svg>
               </div>
               {dropdownOpen && (
-                <div className="absolute left-0 top-full pt-2 w-[22rem] max-w-[calc(100vw-2rem)] bg-white rounded-md shadow-xl ring-1 ring-black/5 z-50 p-2">
-                  {solarMenu.map((item) => (
-                    <Link
-                      href={item.href}
-                      key={item.label}
-                      title={item.label}
-                      className={
-                        item.isButton
-                          ? "block bg-[#A8C117] text-[#052638] font-medium hover:bg-[#39D600] text-center mx-auto mt-2 mb-1 px-4 py-2 text-sm rounded-md transition-all duration-200 w-fit"
-                          : "block px-4 py-2.5 rounded-md text-[#052638] hover:bg-[#39D600]/15 transition-colors duration-200 group"
-                      }
-                    >
-                      {item.isButton ? (
-                        item.label
-                      ) : (
-                        <span className="flex flex-col">
-                          <span className="text-base font-semibold leading-snug group-hover:text-[#052638]">
-                            {item.label}
-                          </span>
-                          {item.description && (
-                            <span className="text-xs text-gray-500 leading-snug mt-0.5">
-                              {item.description}
+                <div className="absolute left-1/2 top-full z-50 w-[22rem] max-w-[calc(100vw-2rem)] -translate-x-1/2 pt-2">
+                  <div className="rounded-md bg-white p-2 shadow-xl ring-1 ring-black/5">
+                    {solarMenu.map((item) => (
+                      <Link
+                        href={item.href}
+                        key={item.label}
+                        title={item.label}
+                        className={
+                          item.isButton
+                            ? "mx-auto mb-1 mt-2 block w-fit rounded-md bg-[#A8C117] px-4 py-2 text-center text-sm font-medium text-[#052638] transition-all duration-200 hover:bg-[#39D600]"
+                            : "group block rounded-md px-4 py-2.5 text-[#052638] transition-colors duration-200 hover:bg-[#39D600]/15"
+                        }
+                      >
+                        {item.isButton ? (
+                          item.label
+                        ) : (
+                          <span className="flex flex-col">
+                            <span className="text-base font-semibold leading-snug group-hover:text-[#052638]">
+                              {item.label}
                             </span>
-                          )}
-                        </span>
-                      )}
-                    </Link>
-                  ))}
+                            {item.description && (
+                              <span className="mt-0.5 text-xs leading-snug text-gray-500">
+                                {item.description}
+                              </span>
+                            )}
+                          </span>
+                        )}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -233,7 +238,7 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   title="Nav Item"
-                  className={`text-white px-3 py-2 text-md font-medium transition-all duration-300 hover:underline underline-offset-8 hover:text-[#39D600] ${
+                  className={`whitespace-nowrap px-2 py-2 text-sm font-medium text-white transition-all duration-300 hover:text-[#39D600] hover:underline underline-offset-8 2xl:px-3 2xl:text-base ${
                     isActive(item.href) ? "underline" : ""
                   }`}
                 >
@@ -242,25 +247,13 @@ export default function Header() {
               ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* Language + Call us (+ mobile menu) — right */}
+          <div className="flex shrink-0 items-center justify-end gap-2 justify-self-end sm:gap-3">
             <LocaleSwitcher />
             <Link
               href={TAYPRO_SALES_PHONE_TEL}
               title={t("callUs")}
-              className="bg-[#A8C117] text-black px-7 py-3 rounded-md font-medium hover:bg-[#39D600] transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-            >
-              {t("callUs")}
-            </Link>
-          </div>
-
-          {/* Mobile menu button and Call us now */}
-          <div className="lg:hidden flex items-center gap-2 sm:gap-3">
-            <LocaleSwitcher />
-            <Link
-              href={TAYPRO_SALES_PHONE_TEL}
-              title={t("callUs")}
-              className="bg-[#A8C117] text-black px-3 sm:px-4 py-2 rounded-md font-medium text-sm hover:bg-[#39D600] transition-all duration-300"
+              className="whitespace-nowrap rounded-md bg-[#A8C117] px-3 py-2 text-sm font-medium text-black transition-all duration-300 hover:bg-[#39D600] sm:px-4 lg:hover:scale-105 lg:hover:shadow-lg 2xl:px-6 2xl:py-2.5 2xl:text-base"
             >
               {t("callUs")}
             </Link>
@@ -270,7 +263,7 @@ export default function Header() {
               aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
               aria-expanded={isMenuOpen}
               aria-controls="mobile-nav"
-              className="text-white hover:text-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] rounded-md p-2 min-w-11 min-h-11 flex items-center justify-center shrink-0"
+              className="flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-md p-2 text-white hover:text-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] lg:hidden"
             >
               <svg
                 className="h-6 w-6"
@@ -304,7 +297,7 @@ export default function Header() {
       {isMenuOpen && (
         <nav
           id="mobile-nav"
-          className="lg:hidden flex-1 min-h-0 overflow-y-auto overscroll-contain bg-[#052638] border-t border-gray-700 [-webkit-overflow-scrolling:touch]"
+          className="flex-1 min-h-0 overflow-y-auto overscroll-contain border-t border-gray-700 bg-[#052638] [-webkit-overflow-scrolling:touch] lg:hidden"
           aria-label="Mobile navigation"
         >
           <div className="px-4 pt-4 pb-6 space-y-1">

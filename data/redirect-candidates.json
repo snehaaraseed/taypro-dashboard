@@ -1,0 +1,9 @@
+{
+  "description": "404 redirect candidates from runtime logs + GSC not-found sync. Promote autoPromote rows to next.config.ts.",
+  "updatedAt": "2026-06-10T19:25:19.570Z",
+  "minRuntimeHits": 5,
+  "minGscImpressions": 3,
+  "gscFeedLoaded": true,
+  "candidateCount": 0,
+  "candidates": []
+}

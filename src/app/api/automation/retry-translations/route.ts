@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isAutomationAuthorized } from "@/lib/security";
+import { getNextMidnightStopAtEpoch } from "@/lib/translation/config";
 import { processDailyTranslations } from "@/lib/translation/translation-queue";
 import { appendTranslationRunLog } from "@/lib/translation/translation-run-logger";
 
@@ -8,6 +9,8 @@ export const maxDuration = 900;
 
 type TranslationRequestBody = {
   catchup?: boolean;
+  /** Full backlog until quota or midnight IST (same as post-writer worker). */
+  postWriter?: boolean;
   stopAtEpoch?: number;
   /** When true, wait for completion (manual debugging). */
   sync?: boolean;
@@ -27,8 +30,8 @@ function isRunInFlight(): boolean {
 
 /**
  * POST — CMS translation (AUTOMATION_CRON_SECRET).
- * Default: fire-and-forget background run inside PM2 (no curl timeout).
- * catchup=true: full backlog until quota or stopAtEpoch (midnight IST).
+ * postWriter=true or catchup=true: full backlog until both Gemini keys hit quota
+ * or stopAtEpoch (defaults to midnight IST). Legacy daily cap only when both are false.
  */
 export async function POST(request: NextRequest) {
   if (!isAutomationAuthorized(request)) {
@@ -36,12 +39,15 @@ export async function POST(request: NextRequest) {
   }
 
   const body = (await request.json().catch(() => ({}))) as TranslationRequestBody;
-  const catchup = body.catchup === true;
+  const postWriter = body.postWriter === true;
+  const catchup = body.catchup === true || postWriter;
   const sync = body.sync === true;
   const stopAtEpoch =
     typeof body.stopAtEpoch === "number" && body.stopAtEpoch > 0
       ? body.stopAtEpoch
-      : undefined;
+      : catchup
+        ? getNextMidnightStopAtEpoch()
+        : undefined;
 
   if (isRunInFlight()) {
     return NextResponse.json(
@@ -51,7 +57,9 @@ export async function POST(request: NextRequest) {
   }
 
   const logFile = catchup
-    ? "blog-translation-catchup.log"
+    ? postWriter
+      ? "blog-translation-post-writer.log"
+      : "blog-translation-catchup.log"
     : "blog-translation-daily.log";
   const log = (event: string, detail?: Record<string, unknown>) =>
     appendTranslationRunLog(logFile, event, detail);
@@ -93,6 +101,7 @@ export async function POST(request: NextRequest) {
 
   log("worker_start", {
     catchup,
+    postWriter,
     stopAtEpoch: stopAtEpoch ?? null,
     sync,
   });
@@ -104,8 +113,8 @@ export async function POST(request: NextRequest) {
       const result = await run;
       return NextResponse.json({
         success: true,
-        mode: catchup ? "catchup" : "daily",
-        quotaSkippedForDay: result.quotaSkippedForDay,
+      mode: postWriter ? "post-writer" : catchup ? "catchup" : "daily",
+      quotaSkippedForDay: result.quotaSkippedForDay,
         deadlineStopped: result.deadlineStopped ?? false,
         result,
       });
@@ -128,7 +137,7 @@ export async function POST(request: NextRequest) {
   return NextResponse.json(
     {
       started: true,
-      mode: catchup ? "catchup" : "daily",
+      mode: postWriter ? "post-writer" : catchup ? "catchup" : "daily",
       stopAtEpoch: stopAtEpoch ?? null,
       logFile: `logs/${logFile}`,
     },

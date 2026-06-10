@@ -111,7 +111,10 @@
     "ctaQuote": "見積もりを依頼",
     "ctaQuoteTopic": "404ページ, 見積依頼",
     "ctaQuoteTitle": "ソーラー清掃ロボットの見積もり",
-    "ctaQuoteSubtitle": "プラントの詳細を共有いただければ、最適なTayproソリューションをご提案します。"
+    "ctaQuoteSubtitle": "プラントの詳細を共有いただければ、最適なTayproソリューションをご提案します。",
+    "didYouMeanHeading": "このページのことですか？",
+    "didYouMeanCta": "候補のページを開く",
+    "similarBlogsHeading": "関連する記事"
   },
   "PerformanceMethodology": {
     "noticeAriaLabel": "パフォーマンス数値に関する注記",

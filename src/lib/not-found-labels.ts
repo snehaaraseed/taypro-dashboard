@@ -26,5 +26,8 @@ export function buildNotFoundLabels(t: NotFoundTranslator): NotFoundContentLabel
     ctaQuoteTopic: t("ctaQuoteTopic"),
     ctaQuoteTitle: t("ctaQuoteTitle"),
     ctaQuoteSubtitle: t("ctaQuoteSubtitle"),
+    didYouMeanHeading: t("didYouMeanHeading"),
+    didYouMeanCta: t("didYouMeanCta"),
+    similarBlogsHeading: t("similarBlogsHeading"),
   };
 }

@@ -40,6 +40,8 @@ export type RequestEstimateFormProps = {
   thankYouMessage?: string;
   /** Hide the "Send another request" link in the inline thank-you state. */
   hideResetAfterSuccess?: boolean;
+  /** Slide-in on phones: hide company + message so the form fits one screen. */
+  slideInMobile?: boolean;
 };
 
 const INITIAL_FORM = {
@@ -69,6 +71,7 @@ export default function RequestEstimateForm({
   thankYouTitle,
   thankYouMessage,
   hideResetAfterSuccess = false,
+  slideInMobile = false,
 }: RequestEstimateFormProps = {}) {
   const t = useTranslations("Forms");
   const router = useRouter();
@@ -161,24 +164,34 @@ export default function RequestEstimateForm({
 
   const gridClass =
     variant === "embedded" && stackedEmbedded
-      ? compactEmbedded
-        ? "grid grid-cols-1 gap-y-2.5 mb-3"
-        : "grid grid-cols-1 gap-y-4 mb-5"
+      ? slideInMobile
+        ? "grid grid-cols-1 gap-y-1.5 mb-1.5 max-sm:gap-y-1 max-sm:mb-1"
+        : compactEmbedded
+          ? "grid grid-cols-1 gap-y-2.5 mb-3"
+          : "grid grid-cols-1 gap-y-4 mb-5"
       : "grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-6 md:gap-x-10 mb-6 md:mb-8";
 
-  const labelClass = compactEmbedded
-    ? "block text-[#052638] mb-0.5 text-xs"
-    : "block text-[#052638] mb-1 text-sm sm:text-base";
+  const labelClass =
+    slideInMobile || compactEmbedded
+      ? "block text-[#052638] mb-0.5 text-xs"
+      : "block text-[#052638] mb-1 text-sm sm:text-base";
 
-  const fieldClass = compactEmbedded
-    ? "w-full border-b border-[#D4DADA] focus:border-[#A8C117] outline-none py-1.5 text-sm text-[#052638] placeholder:text-[#C4CFD3] font-normal bg-transparent"
-    : "w-full border-b border-[#D4DADA] focus:border-[#A8C117] outline-none py-2 text-[#052638] placeholder:text-[#C4CFD3] font-normal bg-transparent";
+  const fieldClass =
+    slideInMobile || compactEmbedded
+      ? `w-full border-b border-[#D4DADA] focus:border-[#A8C117] outline-none text-sm text-[#052638] placeholder:text-[#C4CFD3] font-normal bg-transparent ${
+          slideInMobile ? "py-1 max-sm:py-0.5" : "py-1.5"
+        }`
+      : "w-full border-b border-[#D4DADA] focus:border-[#A8C117] outline-none py-2 text-[#052638] placeholder:text-[#C4CFD3] font-normal bg-transparent";
+
+  const mobileOnlyHidden = slideInMobile ? "hidden sm:block" : "";
 
   const thankYouPanel = (
     <div
       role="status"
       aria-live="polite"
-      className="rounded-xl border border-[#A8C117]/40 bg-[#f7faea] p-6 sm:p-8 text-center thank-you-panel-enter"
+      className={`rounded-xl border border-[#A8C117]/40 bg-[#f7faea] text-center thank-you-panel-enter ${
+        slideInMobile ? "p-4 sm:p-8" : "p-6 sm:p-8"
+      }`}
     >
       <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#A8C117] text-[#052638] thank-you-icon-pop">
         <CheckCircle2 className="h-6 w-6" aria-hidden />
@@ -241,7 +254,7 @@ export default function RequestEstimateForm({
                 className={fieldClass}
               />
             </div>
-            <div>
+            <div className={mobileOnlyHidden}>
               <label className={labelClass}>{t("companyName")}</label>
               <input
                 type="text"
@@ -280,13 +293,13 @@ export default function RequestEstimateForm({
           </div>
 
           <div
-            className={
+            className={`${
               compactEmbedded
                 ? "mb-2.5"
                 : stackedEmbedded
                   ? "mb-4"
                   : "mb-6 md:mb-8"
-            }
+            } ${mobileOnlyHidden}`}
           >
             <label className={labelClass}>{resolvedMessageLabel}</label>
             <textarea
@@ -314,7 +327,9 @@ export default function RequestEstimateForm({
             type="submit"
             disabled={loading}
             className={
-              compactEmbedded
+              slideInMobile
+                ? "w-full mt-1 max-sm:mt-0.5 bg-[#A8C117] hover:bg-[#B8CC31] text-[#052638] font-semibold text-sm rounded-md py-2 max-sm:py-1.5 transition-colors cursor-pointer disabled:opacity-50"
+                : compactEmbedded
                 ? "w-full mt-2 bg-[#A8C117] hover:bg-[#B8CC31] text-[#052638] font-semibold text-sm rounded-md py-2.5 transition-colors cursor-pointer disabled:opacity-50"
                 : stackedEmbedded
                   ? "w-full mt-4 sm:mt-5 rounded-xl bg-[#A8C117] py-3.5 text-center text-base sm:text-lg font-semibold text-[#052638] shadow-md transition hover:bg-[#b8cf3d] hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#052638] focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"

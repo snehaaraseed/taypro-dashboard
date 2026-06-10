@@ -111,7 +111,10 @@
     "ctaQuote": "কোটেশন চান",
     "ctaQuoteTopic": "404 পেজ, কোটেশন অনুরোধ",
     "ctaQuoteTitle": "সোলার ক্লিনিং রোবট কোটেশন",
-    "ctaQuoteSubtitle": "আপনার প্ল্যান্টের বিবরণ দিন, আমরা সঠিক Taypro সমাধান সুপারিশ করব।"
+    "ctaQuoteSubtitle": "আপনার প্ল্যান্টের বিবরণ দিন, আমরা সঠিক Taypro সমাধান সুপারিশ করব।",
+    "didYouMeanHeading": "আপনি কি এই পেজটি বোঝাতে চেয়েছিলেন?",
+    "didYouMeanCta": "প্রস্তাবিত পেজ খুলুন",
+    "similarBlogsHeading": "সম্পর্কিত নিবন্ধ"
   },
   "PerformanceMethodology": {
     "noticeAriaLabel": "পারফরম্যান্স দাবি প্রকাশ",

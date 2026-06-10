@@ -111,7 +111,10 @@
     "ctaQuote": "कोटेशन मांगें",
     "ctaQuoteTopic": "404 पेज, कोटेशन अनुरोध",
     "ctaQuoteTitle": "सोलर क्लीनिंग रोबोट कोटेशन",
-    "ctaQuoteSubtitle": "अपने प्लांट का विवरण साझा करें, हम सही Taypro समाधान सुझाएंगे।"
+    "ctaQuoteSubtitle": "अपने प्लांट का विवरण साझा करें, हम सही Taypro समाधान सुझाएंगे।",
+    "didYouMeanHeading": "क्या आपका मतलब यह पेज था?",
+    "didYouMeanCta": "सुझाया गया पेज खोलें",
+    "similarBlogsHeading": "संबंधित लेख जो आपको पसंद आ सकते हैं"
   },
   "PerformanceMethodology": {
     "noticeAriaLabel": "प्रदर्शन दावा प्रकटीकरण",

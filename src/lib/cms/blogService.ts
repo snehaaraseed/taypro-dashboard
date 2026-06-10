@@ -565,15 +565,17 @@ export async function publishScheduledBlogBySlug(
     return { success: false, error: `Blog "${slug}" is not due yet` };
   }
 
+  const publishAt = row.scheduledPublishAt;
+
   await db
     .update(blogs)
     .set({
       published: true,
-      publishDate: row.scheduledPublishAt,
+      publishDate: publishAt,
       scheduledPublishAt: null,
       updatedAt: nowIso,
     })
-    .where(and(eq(blogs.slug, slug), eq(blogs.locale, SOURCE_LOCALE)));
+    .where(eq(blogs.slug, slug));
 
   return { success: true };
 }

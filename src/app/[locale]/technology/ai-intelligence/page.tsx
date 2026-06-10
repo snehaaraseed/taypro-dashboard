@@ -45,7 +45,7 @@ const DEEP_DIVE_KEYS = ["dive0", "dive1", "dive2"] as const;
 const DEEP_DIVE_IMAGES = [
   "/tayproasset/taypro-robotFeature.webp",
   "/tayproasset/nectyr.webp",
-  "/tayproasset/nectyr.png",
+  "/tayproasset/nectyr.webp",
 ] as const;
 const AUDIENCE_KEYS = ["segment0", "segment1", "segment2"] as const;
 const AUDIENCE_ICONS = [Wrench, Building2, TrendingUp] as const;

@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+@theme {
+  --font-family-heading: var(--font-blinker), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  :is(h1, h2, h3, h4, h5, h6),
+  .prose :is(h1, h2, h3, h4, h5, h6),
+  .ProseMirror :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-blinker), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+  }
+}
+
+/* Headings often use font-semibold; keep Blinker bold (700) for titles */
+:is(h1, h2, h3, h4, h5, h6):is(.font-medium, .font-semibold, .font-bold) {
+  font-weight: 700;
+}
+
 :root {
   /* --primary: #6c71fd; */
   --primary: #052638;
@@ -449,13 +467,135 @@ a.internal-link:hover {
   animation: taypro-lead-fade 0.35s ease-out both;
 }
 
+.taypro-lead-slidein-root {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  overflow: hidden;
+  overscroll-behavior: none;
+  height: 100dvh;
+  max-height: 100dvh;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.taypro-lead-slidein-panel {
+  position: absolute;
+  z-index: 10;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  max-height: calc(100dvh - 1.5rem - env(safe-area-inset-bottom, 0px));
+  width: auto;
+  max-width: 26rem;
+  margin-inline: auto;
+  overflow: hidden;
+  animation: taypro-lead-pop 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
+}
+
+@media (min-width: 640px) {
+  .taypro-lead-slidein-panel {
+    left: auto;
+    right: 1.5rem;
+    bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
+    margin-inline: 0;
+    max-height: calc(100dvh - 3rem - env(safe-area-inset-bottom, 0px));
+  }
+}
+
+.taypro-lead-slidein-scroll {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Mobile: fit popup on one screen — no internal scroll */
+@media (max-width: 639px) {
+  .taypro-lead-slidein-scroll {
+    flex: 0 0 auto;
+    overflow: hidden;
+  }
+
+  .taypro-lead-slidein-hero {
+    min-height: 5.25rem;
+  }
+
+  .taypro-lead-slidein-title {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .taypro-lead-slidein-intro {
+    display: none;
+  }
+
+  .taypro-lead-slidein-perk-detail {
+    display: none;
+  }
+
+  .taypro-lead-slidein-perk-item {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    gap: 0.5rem;
+    padding: 0.125rem 0;
+  }
+
+  .taypro-lead-slidein-form-header-desc {
+    display: none;
+  }
+
+  .taypro-lead-slidein-later {
+    display: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .taypro-lead-slidein-intro-mobile {
+    display: none;
+  }
+}
+
 .taypro-lead-panel {
   animation: taypro-lead-pop 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
 }
 
+@media (max-height: 720px) {
+  .taypro-lead-slidein-hero {
+    min-height: 7rem;
+  }
+
+  .taypro-lead-slidein-title {
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  .taypro-lead-slidein-perk-detail {
+    display: none;
+  }
+}
+
+@media (max-height: 560px) {
+  .taypro-lead-slidein-hero {
+    min-height: 6.5rem;
+  }
+
+  .taypro-lead-slidein-intro {
+    font-size: 0.875rem;
+    line-height: 1.45;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .taypro-lead-backdrop,
-  .taypro-lead-panel {
+  .taypro-lead-panel,
+  .taypro-lead-slidein-panel {
     animation: none;
   }
 }

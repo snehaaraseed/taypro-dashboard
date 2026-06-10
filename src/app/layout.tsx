@@ -1,16 +1,26 @@
 import type { Metadata } from "next";
-import { Blinker } from "next/font/google";
+import { Blinker, Montserrat } from "next/font/google";
 import { headers } from "next/headers";
 import { localeFromPathname } from "@/i18n/locale-from-pathname";
 import { LOCALE_LABELS, type TayproLocale } from "@/i18n/markets";
 import "@/app/globals.css";
 
-const blinker = Blinker({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "600"],
+  weight: ["400", "500", "600"],
   display: "swap",
   preload: true,
   adjustFontFallback: true,
+  variable: "--font-montserrat",
+});
+
+const blinker = Blinker({
+  subsets: ["latin"],
+  weight: ["700"],
+  display: "swap",
+  preload: true,
+  adjustFontFallback: true,
+  variable: "--font-blinker",
 });
 
 /** Minimal root metadata; locale routes add richer metadata in [locale]/layout. */
@@ -36,7 +46,10 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning>
-      <body className={blinker.className} suppressHydrationWarning>
+      <body
+        className={`${montserrat.className} ${montserrat.variable} ${blinker.variable}`}
+        suppressHydrationWarning
+      >
         {children}
       </body>
     </html>

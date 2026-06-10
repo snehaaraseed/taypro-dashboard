@@ -73,9 +73,66 @@ export function getTranslationRetryErrorMs(): number {
   );
 }
 
+/** CMS translation deadline timezone (midnight stop for post-writer runs). */
+export function getTranslationTimezone(): string {
+  return process.env.CMS_TRANSLATION_TZ?.trim() || "Asia/Kolkata";
+}
+
+function ymdInTranslationTz(date: Date): string {
+  return date.toLocaleDateString("en-CA", { timeZone: getTranslationTimezone() });
+}
+
+function addCalendarDaysYmd(ymd: string, days: number): string {
+  const [y, m, d] = ymd.split("-").map(Number);
+  return new Date(Date.UTC(y, m - 1, d + days)).toISOString().slice(0, 10);
+}
+
+/** Unix epoch (seconds) for 00:00:00 on the next calendar day in CMS_TRANSLATION_TZ. */
+export function getNextMidnightStopAtEpoch(now = new Date()): number {
+  const tz = getTranslationTimezone();
+  const tomorrowYmd = addCalendarDaysYmd(ymdInTranslationTz(now), 1);
+  const [year, month, day] = tomorrowYmd.split("-").map(Number);
+  let t = Date.UTC(year, month - 1, day, 0, 0, 0);
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    timeZone: tz,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23",
+  });
+
+  for (let i = 0; i < 48; i++) {
+    const parts = Object.fromEntries(
+      formatter.formatToParts(new Date(t)).map((p) => [p.type, p.value])
+    ) as Record<string, string>;
+    const gotYmd = `${parts.year}-${parts.month}-${parts.day}`;
+    const gotH = Number(parts.hour);
+    const gotM = Number(parts.minute);
+    const gotS = Number(parts.second);
+    if (gotYmd === tomorrowYmd && gotH === 0 && gotM === 0 && gotS === 0) {
+      return Math.floor(t / 1000);
+    }
+    t +=
+      Date.UTC(year, month - 1, day, 0, 0, 0) -
+      Date.UTC(
+        Number(parts.year),
+        Number(parts.month) - 1,
+        Number(parts.day),
+        gotH,
+        gotM,
+        gotS
+      );
+  }
+
+  return Math.floor((now.getTime() + 86_400_000) / 1000);
+}
+
 /**
- * Default for gemini-3.1-flash-lite free tier (500 RPD, 15 RPM with GEMINI_CALL_DELAY_MS).
- * ~80 translation calls/night + ~10 for blog automation leaves comfortable RPD headroom.
+ * Legacy cap for manual/debug runs only. Post-writer automation uses full backlog
+ * until both Gemini keys hit quota or midnight IST.
  */
 export const DEFAULT_DAILY_TRANSLATION_MAX_PER_DAY = 10;
 export const DEFAULT_DAILY_TRANSLATION_SPLIT_PER_TYPE = 5;

@@ -9,6 +9,7 @@ import {
 import {
   classifyGenerationFailure,
   getBlogPipelineMaxOuterAttempts,
+  isGeminiQuotaErrorMessage,
 } from "@/lib/seo/content-quality";
 import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
 import { pickBlogFeaturedImage } from "@/lib/seo/blog-image-picker";
@@ -46,6 +47,13 @@ import {
   addPublishedTopic,
   getBlogAutomationTimezone,
 } from "@/lib/topicTracker";
+import { pickAutomationScheduledPublishAt } from "@/lib/cms/blog-schedule";
+import {
+  formatGeminiQuotaSoftStartInIst,
+  formatNextGeminiQuotaResetInIst,
+  isPastGeminiQuotaSoftStart,
+} from "@/lib/gemini/quota-schedule";
+import { dispatchPostWriterTranslationWorker } from "@/lib/translation/dispatch-post-writer-worker";
 import { createBlogFiles, createSlug } from "@/app/utils/blogFileUtils";
 import { isAutomationAuthorized } from "@/lib/security";
 import { runGroundedFactResearch } from "@/lib/gemini/grounded-fact-research";
@@ -74,8 +82,8 @@ import {
   pickFocusKeywordForToday,
 } from "@/lib/seo/keyword-campaign";
 
-/** Outer contract attempts; in-place expansion retries happen inside generateBlogContent. */
-const MAX_PIPELINE_ATTEMPTS = getBlogPipelineMaxOuterAttempts();
+/** Optional safety cap (env only). Default: retry with new topics until Gemini quota. */
+const PIPELINE_ATTEMPT_CAP = getBlogPipelineMaxOuterAttempts();
 
 /** Imagen + long Gemini runs; cron curl allows 900s — keep in sync. */
 export const maxDuration = 900;
@@ -324,11 +332,24 @@ export async function POST(request: NextRequest) {
 
   try {
     const schedule = await getBlogAutomationSchedule();
+    if (!force && !isPastGeminiQuotaSoftStart()) {
+      return NextResponse.json(
+        {
+          success: false,
+          quotaWaiting: true,
+          message: `Gemini daily quota soft start not reached yet (automation starts 00:30 Pacific; ≈ ${formatGeminiQuotaSoftStartInIst()} IST today).`,
+          nextGeminiQuotaSoftStartIst: formatGeminiQuotaSoftStartInIst(),
+          schedule,
+        },
+        { status: 200 }
+      );
+    }
     if (!force && !schedule.canGenerate) {
       return NextResponse.json(
         {
           success: false,
-          message: `Daily blog cap reached (already published today, ${getBlogAutomationTimezone()} calendar). Next eligible run: ${schedule.nextEligibleAt}. Use ?force=true to override.`,
+          jobComplete: true,
+          message: `Daily blog write already complete this ${getBlogAutomationTimezone()} calendar day (last write ${schedule.lastRunAt ?? "unknown"}). Next eligible run: ${schedule.nextEligibleAt}. Use ?force=true to override.`,
           schedule,
         },
         { status: 200 }
@@ -343,11 +364,13 @@ export async function POST(request: NextRequest) {
     const rejectedSlotKeys: string[] = [];
     const excludeKnowledgeSlugs: string[] = [];
 
-    for (
-      let pipelineAttempt = 0;
-      pipelineAttempt < MAX_PIPELINE_ATTEMPTS;
-      pipelineAttempt++
-    ) {
+    for (let pipelineAttempt = 0; ; pipelineAttempt++) {
+      if (
+        PIPELINE_ATTEMPT_CAP !== null &&
+        pipelineAttempt >= PIPELINE_ATTEMPT_CAP
+      ) {
+        break;
+      }
       let attemptedTitle = "";
       let attemptedKeyword = "";
       let attemptedSlotKey = "";
@@ -547,6 +570,8 @@ export async function POST(request: NextRequest) {
             featured,
           });
 
+        const scheduledPublishAt = pickAutomationScheduledPublishAt();
+
         const result = await createBlogFiles(
           {
             title: blogData.title,
@@ -556,8 +581,9 @@ export async function POST(request: NextRequest) {
             author: bylineAuthor.name,
             content: contentWithImages,
             faqs: blogData.faqs,
-            publishDate: new Date().toISOString(),
-            published: true,
+            publishDate: scheduledPublishAt,
+            published: false,
+            scheduledPublishAt,
             seoKeyword: topic.seoKeyword || topic.seoBrief?.primary,
           },
           slug
@@ -614,21 +640,21 @@ export async function POST(request: NextRequest) {
           });
         }
 
-        revalidatePath(`/blog/${result.slug}`);
-        revalidatePath("/blog");
         revalidatePath("/admin/blogs");
-        revalidateSitemap();
+
+        dispatchPostWriterTranslationWorker();
 
         return NextResponse.json({
           success: true,
-          message: "Blog generated and published (English live)",
+          message: `Blog generated and scheduled for publish at ${scheduledPublishAt}`,
           wordCount,
           blog: {
             title: blogData.title,
             slug: result.slug,
             url: `/blog/${result.slug}`,
             adminUrl: `/admin/blogs`,
-            status: "published",
+            status: "scheduled",
+            scheduledPublishAt,
             category: topic.category,
             seoKeyword: topic.seoKeyword || undefined,
             searchIntent: topic.seoBrief?.searchIntent,
@@ -682,24 +708,14 @@ export async function POST(request: NextRequest) {
           throw error;
         }
 
-        if (
-          (failureKind === "new_contract" || failureKind === "in_place") &&
-          pipelineAttempt < MAX_PIPELINE_ATTEMPTS - 1
-        ) {
-          console.warn(
-            `Blog pipeline attempt ${pipelineAttempt + 1} rejected (${failureKind}), picking new contract:`,
-            msg
-          );
-          if (attemptedSlotKey && ledgerEnabled) {
-            markSlotFailed(attemptedSlotKey, msg);
-          }
-          continue;
-        }
-
+        console.warn(
+          `Blog pipeline attempt ${pipelineAttempt + 1} failed (${failureKind}), picking new topic:`,
+          msg
+        );
         if (attemptedSlotKey && ledgerEnabled) {
           markSlotFailed(attemptedSlotKey, msg);
         }
-        throw error;
+        continue;
       }
     }
 
@@ -708,13 +724,19 @@ export async function POST(request: NextRequest) {
       : new Error("Blog generation failed");
   } catch (error) {
     console.error("Error in POST /api/automation/generate-blog:", error);
+    const quotaExhausted = isGeminiQuotaErrorMessage(error);
     return NextResponse.json(
       {
         success: false,
+        quotaExhausted,
         error:
           error instanceof Error ? error.message : "Unknown error occurred",
+        schedule: await getBlogAutomationSchedule(),
+        nextGeminiQuotaResetIst: quotaExhausted
+          ? formatNextGeminiQuotaResetInIst()
+          : undefined,
       },
-      { status: 500 }
+      { status: quotaExhausted ? 200 : 500 }
     );
   }
 }
@@ -756,7 +778,7 @@ export async function GET(request: NextRequest) {
       focusKeywordNextReviewAfter: focusEntry?.nextReviewAfter ?? null,
       focusKeywordGscPosition: focusEntry?.lastPosition ?? null,
       campaignPreview: campaignEnabled ? getCampaignPreview() : null,
-      blogPipelineMaxOuterAttempts: MAX_PIPELINE_ATTEMPTS,
+      blogPipelineMaxOuterAttempts: PIPELINE_ATTEMPT_CAP,
       nextEditorialContract: nextContract
         ? {
             slotKey: nextContract.slotKey,

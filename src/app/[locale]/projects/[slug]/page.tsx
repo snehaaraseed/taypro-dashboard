@@ -38,6 +38,13 @@ import { addHeadingIdsAndExtractToc } from "@/lib/seo/html-toc";
 import { socialImagesFromMedia } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 import { withHreflang } from "@/lib/seo/with-hreflang";
+import { renderRecoveryNotFound } from "@/app/components/renderRecoveryNotFound";
+import {
+  applyRecovery,
+  log404Hit,
+  recoverProjectSlug,
+  shouldShowRecoveryNotFound,
+} from "@/lib/url-recovery";
 
 const siteUrl = SITE_URL;
 
@@ -112,6 +119,21 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
 
   const resolved = await resolvePublishedProject(slug, locale);
   if (!resolved) {
+    const publishedSlugs = (await listAllProjects(false, locale)).map(
+      (row) => row.slug
+    );
+    const recovery = recoverProjectSlug(slug, publishedSlugs);
+    applyRecovery(recovery);
+    const recoveryContext = {
+      suggestion: recovery.kind !== "none" ? recovery : undefined,
+    };
+    void log404Hit(
+      `/projects/${slug}`,
+      recovery.kind !== "none" ? recovery.destination : undefined
+    );
+    if (shouldShowRecoveryNotFound(recoveryContext)) {
+      return renderRecoveryNotFound(locale, recoveryContext);
+    }
     notFound();
   }
   if (resolved.usesEnglishFallback) {

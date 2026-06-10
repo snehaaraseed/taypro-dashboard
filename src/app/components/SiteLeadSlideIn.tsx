@@ -7,6 +7,7 @@ import { ArrowLeft } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { usePathname } from "next/navigation";
+import { lockPageScroll } from "@/lib/scroll-lock";
 
 const STORAGE_DISMISS_SLOT = "taypro_lead_slidein_dismiss_slot";
 
@@ -151,11 +152,10 @@ export default function SiteLeadSlideIn() {
       if (e.key === "Escape") handleDismiss();
     };
     window.addEventListener("keydown", onKey);
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const unlockScroll = lockPageScroll();
     return () => {
       window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prevOverflow;
+      unlockScroll();
     };
   }, [open, handleDismiss]);
 
@@ -167,7 +167,7 @@ export default function SiteLeadSlideIn() {
   const titleId = stage === "teaser" ? "taypro-slidein-title" : "taypro-slidein-form-title";
 
   const panel = (
-    <div className="fixed inset-0 z-[9998] flex items-end justify-center sm:items-end sm:justify-end pointer-events-auto p-4 pb-24 sm:pb-6 sm:p-6">
+    <div className="taypro-lead-slidein-root pointer-events-auto">
       <button
         type="button"
         className="taypro-lead-backdrop absolute inset-0 bg-[#052638]/55 backdrop-blur-[3px]"
@@ -178,12 +178,12 @@ export default function SiteLeadSlideIn() {
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="taypro-lead-panel relative z-10 flex w-full max-w-[26rem] max-h-[calc(100dvh-7rem)] flex-col overflow-hidden rounded-2xl border border-white/10 shadow-[0_24px_80px_-12px_rgba(5,38,56,0.45)] sm:max-h-[min(92vh,calc(100dvh-3rem))]"
+        className="taypro-lead-slidein-panel rounded-2xl border border-white/10 bg-white shadow-[0_24px_80px_-12px_rgba(5,38,56,0.45)]"
         onClick={(e) => e.stopPropagation()}
       >
         {stage === "teaser" ? (
           <>
-            <div className="relative h-40 shrink-0 overflow-hidden bg-gradient-to-br from-[#021a24] via-[#052638] to-[#0a4a66] sm:h-44">
+            <div className="taypro-lead-slidein-hero relative flex min-h-[5.25rem] shrink-0 flex-col justify-end overflow-hidden bg-gradient-to-br from-[#021a24] via-[#052638] to-[#0a4a66] sm:min-h-[8.5rem]">
               <Image
                 src="/tayproasset/taypro-robotImage.png"
                 alt="Taypro solar panel cleaning robot"
@@ -192,37 +192,40 @@ export default function SiteLeadSlideIn() {
                 sizes="416px"
                 priority={false}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#052638] via-transparent to-transparent" />
-              <div className="absolute top-3 right-3 flex items-center gap-2 sm:top-4 sm:right-4">
-                <span className="rounded-full bg-[#A8C117]/20 px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#d4e884] ring-1 ring-[#A8C117]/40 sm:text-sm sm:px-3.5 sm:py-1.5">
-                  Free, about 1 minute
+              <div className="absolute inset-0 bg-gradient-to-t from-[#052638] via-[#052638]/80 via-40% to-transparent" />
+              <button
+                type="button"
+                onClick={handleDismiss}
+                className="absolute right-2 top-2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/25 text-white backdrop-blur-sm transition hover:bg-black/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] sm:right-3 sm:top-3 sm:h-10 sm:w-10"
+                aria-label="Close"
+              >
+                <span className="text-xl leading-none" aria-hidden="true">
+                  ×
                 </span>
-                <button
-                  type="button"
-                  onClick={handleDismiss}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-black/25 text-white backdrop-blur-sm transition hover:bg-black/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] sm:h-11 sm:w-11"
-                  aria-label="Close"
-                >
-                  <span className="text-xl leading-none sm:text-2xl" aria-hidden="true">
-                    ×
+              </button>
+              <div className="relative z-10 px-3 pb-2.5 pt-9 sm:px-5 sm:pb-4 sm:pt-12">
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 pr-10">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A8C117] sm:text-sm">
+                    Taypro plant check
+                  </p>
+                  <span className="rounded-full bg-[#A8C117]/20 px-2.5 py-0.5 text-[0.6875rem] font-bold uppercase tracking-wide text-[#d4e884] ring-1 ring-[#A8C117]/40 sm:text-xs sm:px-3 sm:py-1">
+                    Free · 1 min
                   </span>
-                </button>
-              </div>
-              <div className="absolute bottom-3 left-4 right-4 sm:bottom-4 sm:left-5 sm:right-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A8C117] sm:text-sm">
-                  Taypro plant check
-                </p>
+                </div>
                 <h2
                   id="taypro-slidein-title"
-                  className="mt-1.5 text-xl font-semibold leading-snug text-white sm:text-2xl md:text-[1.65rem] md:leading-tight"
+                  className="taypro-lead-slidein-title mt-1 text-lg font-semibold leading-snug text-white sm:mt-1.5 sm:text-xl"
                 >
                   Turn soiling losses into a clear next step
                 </h2>
               </div>
             </div>
 
-            <div className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain bg-gradient-to-b from-white to-[#f4f7f8] px-5 pb-5 pt-5 sm:px-6 sm:pb-6 sm:pt-6">
-              <p className="text-base leading-relaxed text-[#22405a] sm:text-lg">
+            <div className="taypro-lead-slidein-scroll flex flex-col bg-gradient-to-b from-white to-[#f4f7f8] px-3 pb-3 pt-2.5 sm:px-5 sm:pb-5 sm:pt-4">
+              <p className="taypro-lead-slidein-intro-mobile text-xs leading-snug text-[#22405a]">
+                Quick, no-pressure fit check — model, layout &amp; economics for your MW.
+              </p>
+              <p className="taypro-lead-slidein-intro text-sm leading-relaxed text-[#22405a] sm:text-base">
                 You&apos;ve already shown you care about the details. Here&apos;s a{" "}
                 <span className="font-semibold text-[#052638]">no-pressure fit check</span>. We connect what
                 you&apos;re browsing to{" "}
@@ -230,18 +233,20 @@ export default function SiteLeadSlideIn() {
                 your MW. Then you decide if a deeper conversation makes sense.
               </p>
 
-              <ul className="mt-5 space-y-3 sm:mt-6">
+              <ul className="mt-2 space-y-1 sm:mt-4 sm:space-y-2">
                 {PLANT_CHECK_PERKS.map(({ icon: Icon, title, text }) => (
                   <li
                     key={title}
-                    className="flex gap-3 rounded-xl border border-[#e2e8ec] bg-white/90 px-3 py-3 shadow-sm sm:gap-3.5 sm:px-4 sm:py-3.5"
+                    className="taypro-lead-slidein-perk-item flex gap-2 rounded-xl border border-[#e2e8ec] bg-white/90 px-2.5 py-2 shadow-sm sm:gap-3 sm:px-3.5 sm:py-3"
                   >
-                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#052638] text-[#A8C117] sm:h-10 sm:w-10">
-                      <Icon className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2} aria-hidden />
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#052638] text-[#A8C117] sm:mt-0.5 sm:h-9 sm:w-9">
+                      <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={2} aria-hidden />
                     </span>
-                    <span>
-                      <span className="block text-sm font-semibold text-[#052638] sm:text-base">{title}</span>
-                      <span className="mt-1 block text-sm leading-snug text-[#4a6574] sm:text-[0.9375rem] sm:leading-relaxed">
+                    <span className="min-w-0">
+                      <span className="block text-xs font-semibold leading-snug text-[#052638] sm:text-sm">
+                        {title}
+                      </span>
+                      <span className="taypro-lead-slidein-perk-detail mt-0.5 block text-sm leading-snug text-[#4a6574]">
                         {text}
                       </span>
                     </span>
@@ -249,19 +254,18 @@ export default function SiteLeadSlideIn() {
                 ))}
               </ul>
 
-
-              <div className="mt-6 flex flex-col gap-2 sm:mt-7">
+              <div className="mt-2.5 flex shrink-0 flex-col gap-1 sm:mt-5 sm:gap-1.5">
                 <button
                   type="button"
                   onClick={() => setStage("form")}
-                  className="w-full rounded-xl bg-[#A8C117] py-3.5 text-center text-lg font-semibold text-[#052638] shadow-md transition hover:bg-[#b8cf3d] hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#052638] focus-visible:ring-offset-2 sm:py-4 sm:text-xl"
+                  className="w-full rounded-xl bg-[#A8C117] py-2.5 text-center text-sm font-semibold text-[#052638] shadow-md transition hover:bg-[#b8cf3d] hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#052638] focus-visible:ring-offset-2 sm:py-3.5 sm:text-lg"
                 >
                   Yes, show me my fit check
                 </button>
                 <button
                   type="button"
                   onClick={handleDismiss}
-                  className="py-2 text-center text-base font-medium text-[#5c7582] underline-offset-2 hover:text-[#052638] hover:underline sm:text-lg"
+                  className="taypro-lead-slidein-later py-1 text-center text-sm font-medium text-[#5c7582] underline-offset-2 hover:text-[#052638] hover:underline sm:py-1.5 sm:text-base"
                 >
                   Show me later
                 </button>
@@ -270,20 +274,20 @@ export default function SiteLeadSlideIn() {
           </>
         ) : (
           <div className="flex min-h-0 flex-1 flex-col overflow-hidden bg-white">
-            <div className="shrink-0 border-b border-[#e8eef1] bg-gradient-to-r from-[#052638] to-[#0a3d52] px-5 py-4 sm:px-6 sm:py-5">
+            <div className="shrink-0 border-b border-[#e8eef1] bg-gradient-to-r from-[#052638] to-[#0a3d52] px-3 py-2 sm:px-5 sm:py-3">
               <div className="flex items-start justify-between gap-2">
                 <button
                   type="button"
                   onClick={() => setStage("teaser")}
-                  className="inline-flex items-center gap-2 rounded-lg py-1 text-base font-medium text-white/90 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117]"
+                  className="inline-flex items-center gap-1.5 rounded-lg py-0.5 text-sm font-medium text-white/90 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] sm:gap-2 sm:py-1 sm:text-base"
                 >
-                  <ArrowLeft className="h-5 w-5" aria-hidden />
+                  <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
                   Back
                 </button>
                 <button
                   type="button"
                   onClick={handleDismiss}
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white/80 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] sm:h-11 sm:w-11"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white/80 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] sm:h-11 sm:w-11"
                   aria-label="Close"
                 >
                   <span className="text-xl leading-none sm:text-2xl" aria-hidden="true">
@@ -293,19 +297,21 @@ export default function SiteLeadSlideIn() {
               </div>
               <h2
                 id="taypro-slidein-form-title"
-                className="mt-3 text-xl font-semibold leading-snug text-white sm:text-2xl"
+                className="mt-1 text-base font-semibold leading-snug text-white sm:mt-2 sm:text-xl"
               >
                 Where should we send your fit check?
               </h2>
-              <p className="mt-2 text-sm leading-relaxed text-[#b8d4e0] sm:text-base">
+              <p className="taypro-lead-slidein-form-header-desc mt-1.5 text-sm leading-relaxed text-[#b8d4e0]">
                 A few fields. Then our team can reply with model direction and questions worth answering on a call.
               </p>
             </div>
-            <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-5 sm:px-6 sm:py-6">
+            <div className="taypro-lead-slidein-scroll px-3 py-2 sm:px-5 sm:py-4">
               <RequestEstimateForm
                 variant="embedded"
                 showEmbeddedHeading={false}
                 stackedEmbedded
+                compactEmbedded
+                slideInMobile
                 messageRows={2}
                 messageLabel="What should we know about your plant?"
                 messagePlaceholder="MW, fixed-tilt or trackers, soiling or water limits, how you clean today, and what you want to improve."

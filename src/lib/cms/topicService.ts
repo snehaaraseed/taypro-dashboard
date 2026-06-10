@@ -241,15 +241,27 @@ export type BlogAutomationSchedule = {
   canGenerate: boolean;
   minDaysBetween: number;
   daysSinceLastRun: number | null;
+  /** ISO timestamp of the last automation write (published_topics.created_at). */
   lastRunAt: string | null;
   nextEligibleAt: string | null;
 };
 
+/** When automation last generated a topic row — not publish/schedule dates. */
+async function getLastAutomationWriteAt(): Promise<string | null> {
+  const db = getDb();
+  const [row] = await db
+    .select({ createdAt: publishedTopics.createdAt })
+    .from(publishedTopics)
+    .orderBy(desc(publishedTopics.createdAt))
+    .limit(1);
+  return row?.createdAt ?? null;
+}
+
 export async function getBlogAutomationSchedule(): Promise<BlogAutomationSchedule> {
   const minDaysBetween = getBlogAutomationMinDays();
-  const topics = await readPublishedTopics();
+  const lastRunAt = await getLastAutomationWriteAt();
 
-  if (topics.length === 0) {
+  if (!lastRunAt) {
     return {
       canGenerate: true,
       minDaysBetween,
@@ -259,7 +271,6 @@ export async function getBlogAutomationSchedule(): Promise<BlogAutomationSchedul
     };
   }
 
-  const lastRunAt = topics[0].publishDate;
   const todayYmd = ymdInAutomationTz(new Date());
   const lastRunYmd = ymdInAutomationTz(lastRunAt);
   const calendarDaysSinceLastRun = calendarDaysBetweenYmd(lastRunYmd, todayYmd);

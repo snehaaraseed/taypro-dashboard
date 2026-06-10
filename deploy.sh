@@ -164,6 +164,9 @@ EOF
         --exclude 'data/gsc-oauth-tokens.json' \
         --exclude 'data/seo-gsc-boost.json' \
         --exclude 'data/gsc-latest-report.json' \
+        --exclude 'data/gsc-not-found-pages.json' \
+        --exclude 'data/404-hits.json' \
+        --exclude 'data/redirect-candidates.json' \
         --exclude 'data/import-projects-report.json' \
         --exclude 'public/uploads' \
         --exclude '.env.production' \
@@ -216,7 +219,11 @@ EOF
     scp -q -i "$SSH_KEY" \
         "$LOCAL_PATH/scripts/patch-production-gsc-env.sh" \
         "$LOCAL_PATH/scripts/cron-sync-gsc-boost.sh" \
+        "$LOCAL_PATH/scripts/cron-merge-404-candidates.sh" \
         "$LOCAL_PATH/scripts/install-gsc-sync-cron.sh" \
+        "$LOCAL_PATH/scripts/install-url-recovery-cron.sh" \
+        "$LOCAL_PATH/scripts/install-blog-automation-cron.sh" \
+        "$LOCAL_PATH/scripts/install-scheduled-publish-cron.sh" \
         "$REMOTE_HOST:$REMOTE_PATH/scripts/"
 
     GSC_OAUTH_ENV_SNIP=""
@@ -260,7 +267,11 @@ EOF
             ./scripts/patch-production-gsc-env.sh /var/www/taypro-dashboard
         fi
         chmod +x scripts/cron-sync-gsc-boost.sh scripts/install-gsc-sync-cron.sh 2>/dev/null || true
+        chmod +x scripts/cron-merge-404-candidates.sh scripts/install-url-recovery-cron.sh 2>/dev/null || true
+        chmod +x scripts/install-blog-automation-cron.sh scripts/install-scheduled-publish-cron.sh 2>/dev/null || true
         ./scripts/install-gsc-sync-cron.sh
+        ./scripts/install-url-recovery-cron.sh
+        ./scripts/install-blog-automation-cron.sh
 EOF
     step_done
     echo ""

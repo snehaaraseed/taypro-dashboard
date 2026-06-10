@@ -36,6 +36,15 @@ import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
 import { socialImagesFromMedia } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 import { withHreflang } from "@/lib/seo/with-hreflang";
+import { renderRecoveryNotFound } from "@/app/components/renderRecoveryNotFound";
+import {
+  applyRecovery,
+  findSimilarBlogsForMissingSlug,
+  log404Hit,
+  recoverBlogSlug,
+  shouldShowRecoveryNotFound,
+} from "@/lib/url-recovery";
+import { listAllBlogs } from "@/lib/cms/blogService";
 
 const siteUrl = SITE_URL;
 
@@ -219,6 +228,27 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
   const resolved = await resolvePublishedBlog(slug, locale);
   if (!resolved) {
+    const blogRows = await listAllBlogs(false, locale);
+    const publishedSlugs = blogRows.map((row) => row.slug);
+    const recovery = recoverBlogSlug(slug, publishedSlugs);
+    applyRecovery(recovery);
+    const dynamicBlogs = blogRows.map((metadata) => ({
+      ...metadata,
+      href: `/blog/${metadata.slug}`,
+      source: "db" as const,
+    }));
+    const recoveryContext = {
+      suggestion: recovery.kind !== "none" ? recovery : undefined,
+      similarBlogs: findSimilarBlogsForMissingSlug(slug, dynamicBlogs),
+      currentBlogSlug: slug,
+    };
+    void log404Hit(
+      `/blog/${slug}`,
+      recovery.kind !== "none" ? recovery.destination : undefined
+    );
+    if (shouldShowRecoveryNotFound(recoveryContext)) {
+      return renderRecoveryNotFound(locale, recoveryContext);
+    }
     notFound();
   }
   if (resolved.usesEnglishFallback) {

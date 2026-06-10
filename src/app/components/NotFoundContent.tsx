@@ -1,8 +1,10 @@
 import { Link } from "@/i18n/navigation";
+import type { DynamicBlog } from "@/app/api/blog/list/route";
 import { ContactEmailLink } from "@/app/components/ContactEmailLink";
 import { Container } from "@/app/components/Container";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import NotFoundCTAs from "@/app/components/NotFoundCTAs";
+import { SimilarBlogs } from "@/app/components/SimilarBlogs";
 
 export type NotFoundContentLabels = {
   breadcrumbHome: string;
@@ -27,16 +29,27 @@ export type NotFoundContentLabels = {
   ctaQuoteTopic: string;
   ctaQuoteTitle: string;
   ctaQuoteSubtitle: string;
+  didYouMeanHeading: string;
+  didYouMeanCta: string;
+  similarBlogsHeading: string;
 };
 
 type NotFoundContentProps = {
   labels: NotFoundContentLabels;
+  didYouMeanHref?: string;
+  similarBlogs?: DynamicBlog[];
+  currentBlogSlug?: string;
 };
 
 const linkCardClass =
   "flex items-center justify-between gap-3 rounded-xl border border-gray-200 bg-white px-5 py-4 text-[#052638] font-medium shadow-sm hover:border-[#A8C117]/60 hover:shadow-md transition";
 
-export default function NotFoundContent({ labels }: NotFoundContentProps) {
+export default function NotFoundContent({
+  labels,
+  didYouMeanHref,
+  similarBlogs,
+  currentBlogSlug,
+}: NotFoundContentProps) {
   const breadcrumbs = [
     { name: labels.breadcrumbHome, href: "/" },
     { name: labels.breadcrumbNotFound, href: "" },
@@ -72,6 +85,20 @@ export default function NotFoundContent({ labels }: NotFoundContentProps) {
             <p className="text-gray-500 text-sm sm:text-base leading-relaxed mb-8">
               {labels.reassurance}
             </p>
+            {didYouMeanHref ? (
+              <div className="mb-8 rounded-2xl border border-[#A8C117]/40 bg-[#f8fbe8] px-6 py-5 text-left">
+                <p className="text-[#052638] font-semibold mb-2">
+                  {labels.didYouMeanHeading}
+                </p>
+                <Link
+                  href={didYouMeanHref}
+                  className="inline-flex items-center gap-2 text-[#5a8f00] font-medium underline decoration-[#A8C117]/60 underline-offset-4 hover:text-[#052638] transition"
+                >
+                  {labels.didYouMeanCta}
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+            ) : null}
             <NotFoundCTAs
               quoteLabel={labels.ctaQuote}
               quoteTopic={labels.ctaQuoteTopic}
@@ -100,6 +127,19 @@ export default function NotFoundContent({ labels }: NotFoundContentProps) {
               </li>
             ))}
           </ul>
+
+          {similarBlogs && similarBlogs.length > 0 ? (
+            <div className="mt-10 text-left">
+              <h2 className="text-[#052638] text-xl sm:text-2xl font-semibold mb-6 text-center">
+                {labels.similarBlogsHeading}
+              </h2>
+              <SimilarBlogs
+                blogs={similarBlogs}
+                currentSlug={currentBlogSlug}
+                layout="bottom"
+              />
+            </div>
+          ) : null}
 
           <div className="mt-10 rounded-2xl border border-dashed border-gray-300 bg-white px-6 py-6 text-center">
             <p className="text-[#052638] font-medium mb-2">{labels.reportLabel}</p>

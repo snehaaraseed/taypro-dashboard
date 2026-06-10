@@ -16,15 +16,11 @@ mkdir -p "$ROOT/logs"
 touch "$ROOT/logs/gsc-sync.log"
 
 current="$(crontab -l 2>/dev/null || true)"
-if echo "$current" | grep -qF "$MARKER"; then
-  echo "GSC sync cron already installed:"
-  echo "$current" | grep -F "$MARKER" || true
-  exit 0
-fi
+filtered="$(echo "$current" | grep -vF "$MARKER" || true)"
 
 {
-  if [ -n "$current" ]; then
-    printf '%s\n' "$current"
+  if [ -n "$filtered" ]; then
+    printf '%s\n' "$filtered"
   fi
   printf '%s\n' "$CRON_LINE"
 } | crontab -

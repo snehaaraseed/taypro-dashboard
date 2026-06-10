@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Runs during 9:00–15:00 IST window (cron every 5 min). Picks one random minute per day,
-# then POSTs generate-blog once (max 1 published post per IST calendar day).
+# Every 5 min: after 00:30 Pacific (Gemini RPD resets at midnight PT), write one blog,
+# schedule publish 09:00–17:00 IST, then start translation until quota or midnight IST.
 set -euo pipefail
 
 ROOT="${TAYPRO_APP_ROOT:-/var/www/taypro-dashboard}"
@@ -26,101 +26,84 @@ fi
 
 mkdir -p "$RUNTIME_DIR"
 DAY=$(date +%Y%m%d)
-SLOT_FILE="$RUNTIME_DIR/target-$DAY.epoch"
 DONE_FILE="$RUNTIME_DIR/done-$DAY"
-FAIL_POSTS_FILE="$RUNTIME_DIR/fail-posts-$DAY"
-MAX_FAIL_POSTS="${BLOG_CRON_MAX_FAIL_POSTS:-2}"
 
 if [ -f "$DONE_FILE" ]; then
   exit 0
 fi
 
-HOUR=$(date +%H)
-if [ "$HOUR" -lt 9 ] || [ "$HOUR" -gt 15 ]; then
-  exit 0
-fi
-if [ "$HOUR" -eq 15 ] && [ "$(date +%M)" -gt 0 ]; then
+GEMINI_TZ="${GEMINI_QUOTA_RESET_TZ:-America/Los_Angeles}"
+SOFT_START_MIN="${GEMINI_QUOTA_SOFT_START_MINUTES:-30}"
+PT_HOUR=$(TZ="$GEMINI_TZ" date +%H)
+PT_MIN=$(TZ="$GEMINI_TZ" date +%M)
+PT_MINUTES=$((10#$PT_HOUR * 60 + 10#$PT_MIN))
+if [ "$PT_MINUTES" -lt "$SOFT_START_MIN" ]; then
   exit 0
 fi
 
 API_BASE="${CMS_CRON_API_BASE:-http://127.0.0.1:3000}"
 AUTH_HEADER="Authorization: Bearer ${AUTOMATION_CRON_SECRET}"
 
-now_epoch() {
-  date +%s
+start_post_writer_translations() {
+  if [ -x "$ROOT/scripts/start-post-writer-translations.sh" ]; then
+    "$ROOT/scripts/start-post-writer-translations.sh" || true
+  else
+    echo "$(date -Is) WARN: missing start-post-writer-translations.sh" >> "$LOG"
+  fi
 }
 
-if [ ! -f "$SLOT_FILE" ]; then
-  START=$(date -d "today 09:00:00" +%s)
-  END=$(date -d "today 15:00:00" +%s)
-  RANGE=$((END - START))
-  OFFSET=$((RANDOM % (RANGE + 1)))
-  TARGET=$((START + OFFSET))
-  echo "$TARGET" > "$SLOT_FILE"
-  echo "$(date -Is) scheduled random run at $(date -d "@$TARGET" -Is) (9:00–15:00 window)" >> "$LOG"
-fi
-
-TARGET=$(cat "$SLOT_FILE")
-NOW=$(now_epoch)
-
-if [ "$NOW" -lt "$TARGET" ]; then
-  exit 0
-fi
-
-FAIL_POSTS=0
-if [ -f "$FAIL_POSTS_FILE" ]; then
-  FAIL_POSTS=$(cat "$FAIL_POSTS_FILE" 2>/dev/null || echo 0)
-fi
-if [ "$FAIL_POSTS" -ge "$MAX_FAIL_POSTS" ]; then
-  echo "$(date -Is) skip: $FAIL_POSTS failed POST attempt(s) today (max $MAX_FAIL_POSTS)" >> "$LOG"
+finish_blog_cron_day() {
   touch "$DONE_FILE"
-  exit 0
-fi
+}
 
-# Already published today (IST calendar day)?
-SCHEDULE_JSON=$(curl -sS -m 30 -G "$API_BASE/api/automation/generate-blog" \
-  -H "$AUTH_HEADER" || echo "{}")
-if node -e "
-  const s = JSON.parse(process.argv[1]);
-  if (s.canGenerate === false) process.exit(0);
-  process.exit(1);
-" "$SCHEDULE_JSON" 2>/dev/null; then
-  LAST_RUN=$(node -e "
-    try {
-      const s = JSON.parse(process.argv[1]);
-      process.stdout.write(s.lastRunAt || 'n/a');
-    } catch {
-      process.stdout.write('n/a');
-    }
-  " "$SCHEDULE_JSON" 2>/dev/null || echo "n/a")
-  echo "$(date -Is) skip: already published today IST (last=$LAST_RUN)" >> "$LOG"
-  touch "$DONE_FILE"
-  exit 0
-fi
+finish_blog_cron_day_and_translate() {
+  finish_blog_cron_day
+  start_post_writer_translations
+}
 
 ENDPOINT="${API_BASE%/}/api/automation/generate-blog"
 {
-  echo "$(date -Is) POST $ENDPOINT (target was $(date -d "@$TARGET" -Is))"
+  echo "$(date -Is) POST $ENDPOINT"
   BODY=$(curl -sS -m 900 -X POST "$ENDPOINT" \
     -H "$AUTH_HEADER" \
     -H "Content-Type: application/json")
   echo "$BODY"
-  if node -e "
+  node -e "
     const b = JSON.parse(process.argv[1]);
-    process.exit(b.success === true ? 0 : 1);
-  " "$BODY" 2>/dev/null; then
-    touch "$DONE_FILE"
-  elif node -e "
-    const b = JSON.parse(process.argv[1]);
-    process.exit(b.schedule && b.schedule.canGenerate === false ? 0 : 1);
-  " "$BODY" 2>/dev/null; then
-    touch "$DONE_FILE"
-  else
-    NEXT_FAIL=$((FAIL_POSTS + 1))
-    echo "$NEXT_FAIL" > "$FAIL_POSTS_FILE"
-    if [ "$NEXT_FAIL" -ge "$MAX_FAIL_POSTS" ]; then
-      echo "$(date -Is) giving up for $DAY after $NEXT_FAIL failed POST attempt(s)" >> "$LOG"
-      touch "$DONE_FILE"
-    fi
-  fi
+    if (b.success === true) {
+      process.exit(10);
+    }
+    if (b.quotaExhausted === true) {
+      process.exit(20);
+    }
+    if (b.jobComplete === true || (b.schedule && b.schedule.canGenerate === false)) {
+      process.exit(30);
+    }
+    process.exit(1);
+  " "$BODY" 2>/dev/null
+  EXIT=$?
+  case "$EXIT" in
+    10)
+      echo "$(date -Is) blog scheduled (translation dispatched by API)" >> "$LOG"
+      finish_blog_cron_day
+      ;;
+    20)
+      RESET=$(node -e "
+        try {
+          const b = JSON.parse(process.argv[1]);
+          process.stdout.write(b.nextGeminiQuotaResetIst || 'midnight Pacific (see quota-schedule)');
+        } catch {
+          process.stdout.write('midnight Pacific');
+        }
+      " "$BODY" 2>/dev/null || echo "midnight Pacific")
+      echo "$(date -Is) Gemini quota exhausted; retry after reset (~$RESET)" >> "$LOG"
+      ;;
+    30)
+      echo "$(date -Is) today's automation write already complete; starting translation worker" >> "$LOG"
+      finish_blog_cron_day_and_translate
+      ;;
+    *)
+      echo "$(date -Is) generate-blog failed; will retry on next cron tick" >> "$LOG"
+      ;;
+  esac
 } >> "$LOG" 2>&1

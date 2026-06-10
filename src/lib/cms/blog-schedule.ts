@@ -125,3 +125,113 @@ export function isoToDateInputValue(iso: string | null | undefined): string {
   if (Number.isNaN(d.getTime())) return new Date().toISOString().split("T")[0];
   return d.toISOString().split("T")[0];
 }
+
+const AUTOMATION_PUBLISH_START_HOUR = 9;
+/** Inclusive end: 17:00 is the last publish minute (5 PM). */
+const AUTOMATION_PUBLISH_END_HOUR = 17;
+
+function automationPublishTz(): string {
+  if (typeof process !== "undefined" && process.env.BLOG_CRON_TZ?.trim()) {
+    return process.env.BLOG_CRON_TZ.trim();
+  }
+  return "Asia/Kolkata";
+}
+
+function ymdInAutomationTz(date: Date): string {
+  return date.toLocaleDateString("en-CA", { timeZone: automationPublishTz() });
+}
+
+function addCalendarDaysYmd(ymd: string, days: number): string {
+  const [y, m, d] = ymd.split("-").map(Number);
+  return new Date(Date.UTC(y, m - 1, d + days)).toISOString().slice(0, 10);
+}
+
+function minutesSinceMidnightInTz(date: Date, timeZone: string): number {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).formatToParts(date);
+  const hour = Number(parts.find((p) => p.type === "hour")?.value ?? 0);
+  const minute = Number(parts.find((p) => p.type === "minute")?.value ?? 0);
+  return hour * 60 + minute;
+}
+
+function isoAtYmdAndMinute(ymd: string, minuteOfDay: number): string {
+  const [year, month, day] = ymd.split("-").map(Number);
+  const hour = Math.floor(minuteOfDay / 60);
+  const minute = minuteOfDay % 60;
+  let t = Date.UTC(year, month - 1, day, hour, minute, 0);
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    timeZone: automationPublishTz(),
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23",
+  });
+
+  for (let i = 0; i < 48; i++) {
+    const parts = Object.fromEntries(
+      formatter.formatToParts(new Date(t)).map((p) => [p.type, p.value])
+    ) as Record<string, string>;
+    const gotYmd = `${parts.year}-${parts.month}-${parts.day}`;
+    const gotH = Number(parts.hour);
+    const gotM = Number(parts.minute);
+    if (gotYmd === ymd && gotH === hour && gotM === minute) {
+      return new Date(t).toISOString();
+    }
+    t +=
+      Date.UTC(year, month - 1, day, hour, minute, 0) -
+      Date.UTC(
+        Number(parts.year),
+        Number(parts.month) - 1,
+        Number(parts.day),
+        gotH,
+        gotM,
+        0
+      );
+  }
+
+  return new Date(t).toISOString();
+}
+
+/**
+ * Random publish time between 09:00 and 17:00 in BLOG_CRON_TZ (default IST).
+ * If called after 17:00, schedules the next calendar day in that window.
+ */
+export function pickAutomationScheduledPublishAt(now = new Date()): string {
+  const tz = automationPublishTz();
+  const startMinute = AUTOMATION_PUBLISH_START_HOUR * 60;
+  const endMinute = AUTOMATION_PUBLISH_END_HOUR * 60;
+  const nowMinute = minutesSinceMidnightInTz(now, tz);
+  let targetYmd = ymdInAutomationTz(now);
+
+  let windowStart = startMinute;
+  let windowEnd = endMinute;
+
+  if (nowMinute >= endMinute) {
+    targetYmd = addCalendarDaysYmd(targetYmd, 1);
+  } else if (nowMinute >= startMinute) {
+    windowStart = Math.min(nowMinute + 1, endMinute);
+  }
+
+  const span = Math.max(1, windowEnd - windowStart + 1);
+  const pickedMinute = windowStart + Math.floor(Math.random() * span);
+  return isoAtYmdAndMinute(targetYmd, pickedMinute);
+}
+
+export function getAutomationPublishTimezone(): string {
+  return automationPublishTz();
+}
+
+/** English automation draft that is scheduled but not yet live. */
+export function isScheduledAutomationSource(meta: {
+  published?: boolean;
+  scheduledPublishAt?: string | null;
+}): boolean {
+  return isBlogScheduledPending(meta);
+}

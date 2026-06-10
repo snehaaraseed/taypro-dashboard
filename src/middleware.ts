@@ -9,6 +9,7 @@ import { VISITOR_COUNTRY_COOKIE } from "./lib/roi-calculator/market-profiles";
 import { pathnameWithoutLocale } from "./i18n/pathname-without-locale";
 import { routing } from "./i18n/routing";
 import { verifyToken } from "./app/utils/jwt";
+import { resolveMiddlewareAliasRedirect } from "./lib/url-recovery/middleware-redirect";
 
 const COOKIE_NAME = "admin-auth";
 const handleI18nRouting = createIntlMiddleware(routing);
@@ -282,6 +283,16 @@ export async function middleware(request: NextRequest) {
     const blogRedirect = NextResponse.redirect(blogUrl);
     applyHstsIfHttps(request, blogRedirect);
     return blogRedirect;
+  }
+
+  const aliasDestination = resolveMiddlewareAliasRedirect(pathname);
+  if (aliasDestination) {
+    const aliasRedirect = NextResponse.redirect(
+      new URL(aliasDestination, request.url),
+      301
+    );
+    applyHstsIfHttps(request, aliasRedirect);
+    return aliasRedirect;
   }
 
   // Static files in /public (360° frames, brand assets, etc.)

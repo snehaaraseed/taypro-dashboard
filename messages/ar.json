@@ -111,7 +111,10 @@
     "ctaQuote": "طلب عرض سعر",
     "ctaQuoteTopic": "صفحة 404, طلب عرض",
     "ctaQuoteTitle": "طلب عرض لروبوت تنظيف شمسي",
-    "ctaQuoteSubtitle": "شارك تفاصيل محطتك وسنوصي بحل Taypro المناسب."
+    "ctaQuoteSubtitle": "شارك تفاصيل محطتك وسنوصي بحل Taypro المناسب.",
+    "didYouMeanHeading": "هل تقصد هذه الصفحة؟",
+    "didYouMeanCta": "فتح الصفحة المقترحة",
+    "similarBlogsHeading": "مقالات ذات صلة قد تهمك"
   },
   "PerformanceMethodology": {
     "noticeAriaLabel": "إفصاح عن ادعاءات الأداء",

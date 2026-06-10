@@ -35,6 +35,11 @@ set_kv "GSC_SERVICE_ACCOUNT_PATH" "$GSC_KEY"
 set_kv "GSC_LOOKBACK_DAYS" "28"
 set_kv "GSC_MIN_IMPRESSIONS" "15"
 set_kv "GSC_BOOST_MAX_KEYWORDS" "15"
+set_kv "GSC_PROBE_BASE_URL" "http://127.0.0.1:3000"
+set_kv "GSC_NOT_FOUND_MAX_PROBES" "120"
+set_kv "GSC_NOT_FOUND_MAX_INSPECTIONS" "40"
+set_kv "URL_RECOVERY_MIN_HITS" "5"
+set_kv "URL_RECOVERY_MIN_GSC_IMPRESSIONS" "3"
 set_kv "TAYPRO_CMS_ROOT" "$ROOT"
 
 # Optional: OAuth lines from deploy-uploaded file (secrets/gsc-oauth-production.env)

@@ -1,7 +1,8 @@
 import "server-only";
 
 import { revalidatePath } from "next/cache";
-import { and, eq } from "drizzle-orm";
+import { and, eq, gt, isNotNull, or } from "drizzle-orm";
+import { isScheduledAutomationSource } from "@/lib/cms/blog-schedule";
 import type { TayproLocale } from "@/i18n/markets";
 import { getDb } from "@/lib/db";
 import { blogs, projects } from "@/lib/db/schema";
@@ -90,6 +91,7 @@ async function upsertBlogLocale(
     seoKeyword: source.seoKeyword,
     publishDate: source.publishDate,
     published: source.published,
+    scheduledPublishAt: source.scheduledPublishAt,
     updatedAt: now,
   };
 
@@ -104,6 +106,19 @@ async function upsertBlogLocale(
       createdAt: source.createdAt || now,
     });
   }
+}
+
+function isEnglishBlogTranslatableSource(
+  source: Pick<
+    typeof blogs.$inferSelect,
+    "published" | "scheduledPublishAt"
+  >
+): boolean {
+  if (source.published) return true;
+  return isScheduledAutomationSource({
+    published: source.published,
+    scheduledPublishAt: source.scheduledPublishAt,
+  });
 }
 
 async function upsertProjectLocale(
@@ -154,7 +169,8 @@ async function upsertProjectLocale(
   }
 }
 
-function revalidateBlogPaths(slug: string): void {
+function revalidateBlogPaths(slug: string, published: boolean): void {
+  if (!published) return;
   for (const locale of [SOURCE_LOCALE, ...TARGET_LOCALES]) {
     revalidatePath(`/${locale}/blog/${slug}`);
   }
@@ -197,14 +213,14 @@ export async function translatePublishedBlog(
     };
   }
 
-  if (!source.published) {
+  if (!isEnglishBlogTranslatableSource(source)) {
     return {
       slug,
       type: "blog",
       results: TARGET_LOCALES.map((locale) => ({
         locale,
         success: false,
-        error: "Source post is not published",
+        error: "Source post is not published or scheduled for translation",
       })),
     };
   }
@@ -284,7 +300,7 @@ export async function translatePublishedBlog(
     }
   }
 
-  revalidateBlogPaths(slug);
+  revalidateBlogPaths(slug, source.published);
   return { slug, type: "blog", results };
 }
 
@@ -406,10 +422,23 @@ export async function translatePublishedProject(
 
 export async function listEnglishBlogSlugs(): Promise<string[]> {
   const db = getDb();
+  const nowIso = new Date().toISOString();
   const rows = await db
     .select({ slug: blogs.slug })
     .from(blogs)
-    .where(and(eq(blogs.locale, SOURCE_LOCALE), eq(blogs.published, true)));
+    .where(
+      and(
+        eq(blogs.locale, SOURCE_LOCALE),
+        or(
+          eq(blogs.published, true),
+          and(
+            eq(blogs.published, false),
+            isNotNull(blogs.scheduledPublishAt),
+            gt(blogs.scheduledPublishAt, nowIso)
+          )
+        )
+      )
+    );
   return rows.map((r) => r.slug);
 }
 

@@ -146,10 +146,12 @@ export function classifyGenerationFailure(error: unknown): GenerationFailureKind
   return "fatal";
 }
 
-export function getBlogPipelineMaxOuterAttempts(): number {
+/** Optional dev/staging safety cap. Unset = retry with new topics until Gemini quota. */
+export function getBlogPipelineMaxOuterAttempts(): number | null {
   const raw = process.env.BLOG_PIPELINE_MAX_OUTER_ATTEMPTS?.trim();
-  const parsed = raw ? Number.parseInt(raw, 10) : 3;
-  return Number.isFinite(parsed) && parsed > 0 ? parsed : 3;
+  if (!raw) return null;
+  const parsed = Number.parseInt(raw, 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : null;
 }
 
 export function getBlogPipelineMaxInPlaceExpansions(): number {

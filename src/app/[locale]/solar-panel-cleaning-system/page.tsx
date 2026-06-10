@@ -1444,7 +1444,7 @@ export default async function SolarPanelCleaningRobot({
               </div>
               <AnimateOnScroll animation="fadeInRight" delay={100}>
                 <Image
-                  src="/tayproasset/taypro-robotFeature.jpg"
+                  src="/tayproasset/taypro-robotFeature.webp"
                   alt={t("featuresSection.imageAlt")}
                   title={t("featuresSection.imageTitle")}
                   width={800}

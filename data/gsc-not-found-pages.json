@@ -1,0 +1,13 @@
+{
+  "description": "GSC + runtime 404 signals for redirect-candidate merge (npm run seo:merge-404-candidates). Populated by weekly GSC sync.",
+  "updatedAt": "2026-06-11T00:00:00.000Z",
+  "siteUrl": "sc-domain:taypro.in",
+  "lookbackDays": 28,
+  "summary": {
+    "analyticsPagesFetched": 0,
+    "pagesChecked": 0,
+    "inspectionsRun": 0,
+    "notFoundCount": 0
+  },
+  "pages": []
+}

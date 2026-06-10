@@ -1,36 +1,12 @@
 #!/usr/bin/env bash
-# Daily cron: fire-and-forget CMS translation (max CMS_TRANSLATION_MAX_PER_DAY items).
+# Deprecated: translations now start automatically after the daily blog writer
+# (scripts/cron-generate-blog.sh → start-post-writer-translations.sh).
+# Safe to remove this line from crontab: 30 12 * * * .../cron-translate-blogs-daily.sh
 set -euo pipefail
 
 ROOT="${TAYPRO_APP_ROOT:-/var/www/taypro-dashboard}"
-LOG="${BLOG_TRANSLATION_LOG:-$ROOT/logs/blog-translation-daily.log}"
-ENV_FILE="$ROOT/.env.production"
-API_BASE="${CMS_CRON_API_BASE:-http://127.0.0.1:3000}"
+LOG="${BLOG_TRANSLATION_LOG:-$ROOT/logs/blog-translation-post-writer.log}"
 
 mkdir -p "$(dirname "$LOG")"
-
-if [ ! -f "$ENV_FILE" ]; then
-  echo "$(date -Is) ERROR: missing $ENV_FILE" >> "$LOG"
-  exit 1
-fi
-
-set -a
-# shellcheck disable=SC1090
-source "$ENV_FILE"
-set +a
-
-if [ -z "${AUTOMATION_CRON_SECRET:-}" ]; then
-  echo "$(date -Is) ERROR: AUTOMATION_CRON_SECRET not set" >> "$LOG"
-  exit 1
-fi
-
-ENDPOINT="${API_BASE%/}/api/automation/retry-translations"
-
-{
-  echo "$(date -Is) POST $ENDPOINT (daily)"
-  curl -sS -m 60 -X POST "$ENDPOINT" \
-    -H "Authorization: Bearer ${AUTOMATION_CRON_SECRET}" \
-    -H "Content-Type: application/json" \
-    -d '{}'
-  echo ""
-} >> "$LOG" 2>&1
+echo "$(date -Is) skip: evening translation cron is deprecated; use post-writer flow" >> "$LOG"
+exit 0

@@ -31,7 +31,7 @@ const MAX_DAILY_ITEM_ATTEMPTS = 48;
 
 const PERMANENT_TRANSLATION_ERRORS = [
   "English source post not found",
-  "Source post is not published",
+  "Source post is not published or scheduled for translation",
   "English source project not found",
   "Source project is not published",
 ] as const;
@@ -376,7 +376,7 @@ export type ProcessDailyTranslationsResult = {
   completed: number;
   partial: number;
   skippedQuota: number;
-  /** True when Gemini quota was hit — queue cleared; resumes tomorrow evening. */
+  /** True when all Gemini API keys hit quota — resumes after tomorrow's blog writer. */
   quotaSkippedForDay: boolean;
   /** True when an external deadline (e.g. midnight) stopped the run. */
   deadlineStopped?: boolean;
@@ -488,14 +488,18 @@ export type DailyTranslationLog = (
   detail?: Record<string, unknown>
 ) => void;
 
-/** Translate up to N blogs + projects per day (dynamic split, one item at a time). */
+/**
+ * Translate CMS blogs/projects (interleaved, one item at a time).
+ * Post-writer mode: catchup=true + shouldStop at midnight IST (no daily cap).
+ * Legacy mode: maxPerDay cap (manual/debug only).
+ */
 export async function processDailyTranslations(options?: {
   maxPerDay?: number;
   splitPerType?: number;
   log?: DailyTranslationLog;
   /** Process full backlog (no daily cap). */
   catchup?: boolean;
-  /** Return true to stop after the current item (e.g. midnight deadline). */
+  /** Return true to stop after the current item (e.g. midnight IST). */
   shouldStop?: () => boolean;
 }): Promise<ProcessDailyTranslationsResult> {
   const catchup = options?.catchup === true;

@@ -114,7 +114,10 @@
     "ctaQuote": "Request a quote",
     "ctaQuoteTopic": "404 page, quote request",
     "ctaQuoteTitle": "Request a solar cleaning robot quote",
-    "ctaQuoteSubtitle": "Share your plant details and our team will recommend the right Taypro solution."
+    "ctaQuoteSubtitle": "Share your plant details and our team will recommend the right Taypro solution.",
+    "didYouMeanHeading": "Did you mean this page?",
+    "didYouMeanCta": "Open the suggested page",
+    "similarBlogsHeading": "Related articles you may want"
   },
   "PerformanceMethodology": {
     "noticeAriaLabel": "Performance claim disclosure",

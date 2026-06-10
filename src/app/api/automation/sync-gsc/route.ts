@@ -3,7 +3,7 @@ import { getGscAuthMethod, isGscConfigured } from "@/lib/gsc/gsc-auth";
 import { syncGscBoostFromSearchConsole } from "@/lib/seo/gsc-sync";
 import { isAutomationAuthorized } from "@/lib/security";
 
-export const maxDuration = 120;
+export const maxDuration = 600;
 
 export async function POST(request: NextRequest) {
   if (!isAutomationAuthorized(request)) {

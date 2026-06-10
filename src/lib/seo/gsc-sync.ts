@@ -7,6 +7,7 @@ import {
   fetchSearchAnalyticsPageQueries,
   fetchSearchAnalyticsQueries,
 } from "@/lib/gsc/search-console-client";
+import { syncGscNotFoundPages } from "@/lib/gsc/gsc-not-found-sync";
 import { getGscSiteUrl } from "@/lib/gsc/google-service-account";
 import { getGscAuthMethod, isGscConfigured } from "@/lib/gsc/gsc-auth";
 import { invalidateGscBoostCache } from "@/lib/seo/gsc-keyword-boost";
@@ -44,6 +45,8 @@ export type GscSyncResult = {
   boostPath: string;
   reportPath: string;
   blogQueriesPath?: string;
+  notFoundPagesPath?: string;
+  notFoundPagesCount?: number;
   authMethod: string;
 };
 
@@ -173,6 +176,19 @@ export async function syncGscBoostFromSearchConsole(): Promise<GscSyncResult> {
   refreshKeywordCampaignsFromGsc(opportunities);
   invalidateKeywordCampaignCache();
 
+  let notFoundPagesPath: string | undefined;
+  let notFoundPagesCount: number | undefined;
+  try {
+    const notFoundSync = await syncGscNotFoundPages();
+    notFoundPagesPath = notFoundSync.outputPath;
+    notFoundPagesCount = notFoundSync.notFoundCount;
+  } catch (error) {
+    console.warn(
+      "[gsc] Not-found page sync skipped:",
+      error instanceof Error ? error.message : error
+    );
+  }
+
   return {
     ok: true,
     updatedAt,
@@ -184,6 +200,8 @@ export async function syncGscBoostFromSearchConsole(): Promise<GscSyncResult> {
     boostPath,
     reportPath,
     blogQueriesPath,
+    notFoundPagesPath,
+    notFoundPagesCount,
     authMethod: getGscAuthMethod(),
   };
 }

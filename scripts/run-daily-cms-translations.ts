@@ -2,8 +2,9 @@
  * Standalone CMS translation worker (blogs + projects).
  * Runs outside PM2/HTTP so long Gemini runs are not cut off by curl timeouts.
  *
- * Daily cron: scripts/cron-translate-blogs-daily.sh (max 10/day)
- * Catch-up:    scripts/run-cms-translation-catchup.sh (full backlog until quota or midnight)
+ * Post-writer: scripts/start-post-writer-translations.sh (full backlog until
+ * both Gemini keys hit quota or midnight IST)
+ * Manual catch-up: scripts/run-cms-translation-catchup.sh
  */
 import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from "fs";
 import path from "path";
