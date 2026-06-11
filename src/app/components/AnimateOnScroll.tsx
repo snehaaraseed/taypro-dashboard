@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 
 type AnimateOnScrollProps = {
   children: ReactNode;
@@ -23,12 +23,11 @@ export function AnimateOnScroll({
   eager = false,
 }: AnimateOnScrollProps) {
   const [isVisible, setIsVisible] = useState(eager);
-  /** Gate concealment until after mount so SSR/hydration both render the visible state. */
-  const [ready, setReady] = useState(false);
+  const [ready, setReady] = useState(eager);
   const ref = useRef<HTMLDivElement>(null);
   const hasBeenVisible = useRef(eager);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (eager) {
       hasBeenVisible.current = true;
       setIsVisible(true);
@@ -36,75 +35,31 @@ export function AnimateOnScroll({
       return;
     }
 
-    const checkInitialVisibility = () => {
-      if (ref.current && !hasBeenVisible.current) {
-        const rect = ref.current.getBoundingClientRect();
-        const isInViewport =
-          rect.top < window.innerHeight &&
-          rect.bottom > 0 &&
-          rect.left < window.innerWidth &&
-          rect.right > 0;
-
-        if (isInViewport) {
-          setIsVisible(true);
-          hasBeenVisible.current = true;
-          return true;
-        }
-      }
-      return false;
-    };
-
-    setReady(true);
-
-    if (checkInitialVisibility()) {
+    const node = ref.current;
+    if (!node) {
+      setReady(true);
       return;
     }
-
-    setIsVisible(false);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasBeenVisible.current) {
-          setIsVisible(true);
           hasBeenVisible.current = true;
-          // Keep observer active for re-entry scenarios
+          setIsVisible(true);
+        }
+        setReady(true);
+        if (!entry.isIntersecting && !hasBeenVisible.current) {
+          setIsVisible(false);
         }
       },
-      { 
+      {
         threshold,
-        // Use rootMargin to trigger earlier (200px before element enters viewport)
-        rootMargin: "200px 0px 200px 0px"
+        rootMargin: "200px 0px 200px 0px",
       }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    // Also check on scroll events as a fallback for very fast scrolling
-    let scrollTimeout: NodeJS.Timeout;
-    const handleScroll = () => {
-      if (hasBeenVisible.current) return;
-      
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        checkInitialVisibility();
-      }, 100);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    // Also check on resize
-    window.addEventListener("resize", handleScroll, { passive: true });
-
-    return () => {
-      clearTimeout(scrollTimeout);
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-      observer.disconnect();
-    };
+    observer.observe(node);
+    return () => observer.disconnect();
   }, [threshold, eager]);
 
   const concealed = ready && !isVisible;
@@ -136,4 +91,3 @@ export function AnimateOnScroll({
     </div>
   );
 }
-

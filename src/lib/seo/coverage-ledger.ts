@@ -11,6 +11,7 @@ import {
 } from "@/lib/seo/content-quality";
 import { findKeywordCorpusConflict, findTitleConflict } from "@/lib/seo/blog-plan-gates";
 import { anglesForKeyword } from "@/lib/seo/blog-topic-angles";
+import { isCompetitorPrimaryKeyword } from "@/lib/seo/competitor-keyword-guard";
 import { titlesTooSimilar } from "@/lib/seo/blog-similarity";
 import type { SerpResearchBrief } from "@/lib/gemini/grounded-serp-research";
 import { loadGscBoostKeywords } from "@/lib/seo/gsc-keyword-boost";
@@ -272,6 +273,7 @@ export async function pickNextEditorialContract(
     if (failed.has(slot.slotKey)) continue;
     if (rejectedSlots.has(slot.slotKey)) continue;
     if (excludedKeywords.has(slot.keyword)) continue;
+    if (isCompetitorPrimaryKeyword(slot.keyword)) continue;
 
     const row = byKeyword.get(slot.keyword);
     if (!row) continue;

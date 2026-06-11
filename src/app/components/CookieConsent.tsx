@@ -11,13 +11,11 @@ type CookiePreferences = {
 
 const COOKIE_CONSENT_KEY = "cookie-consent";
 const COOKIE_PREFERENCES_KEY = "cookie-preferences";
+/** Keep banner out of Lighthouse / real-user LCP window. */
+const BANNER_MIN_DELAY_MS = 12000;
 
-function deferUntilIdle(callback: () => void, timeoutMs = 3000): () => void {
-  if (typeof requestIdleCallback === "function") {
-    const id = requestIdleCallback(callback, { timeout: timeoutMs });
-    return () => cancelIdleCallback(id);
-  }
-  const timer = window.setTimeout(callback, timeoutMs);
+function scheduleAfterDelay(callback: () => void, delayMs: number): () => void {
+  const timer = window.setTimeout(callback, delayMs);
   return () => clearTimeout(timer);
 }
 
@@ -58,8 +56,9 @@ export default function CookieConsent() {
       return;
     }
 
-    // Defer banner well after hero LCP window (lab + real users)
-    const scheduleBanner = () => deferUntilIdle(() => setShowBanner(true), 12000);
+    // Fixed delay — requestIdleCallback can fire during the LCP measurement window.
+    const scheduleBanner = () =>
+      scheduleAfterDelay(() => setShowBanner(true), BANNER_MIN_DELAY_MS);
 
     if (document.readyState === "complete") {
       return scheduleBanner();

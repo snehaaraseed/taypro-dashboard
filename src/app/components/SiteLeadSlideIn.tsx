@@ -178,33 +178,39 @@ export default function SiteLeadSlideIn() {
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="taypro-lead-slidein-panel rounded-2xl border border-white/10 bg-white shadow-[0_24px_80px_-12px_rgba(5,38,56,0.45)]"
+        className="taypro-lead-slidein-panel relative z-10 rounded-2xl border border-white/10 bg-white shadow-[0_24px_80px_-12px_rgba(5,38,56,0.45)]"
         onClick={(e) => e.stopPropagation()}
       >
         {stage === "teaser" ? (
           <>
-            <div className="taypro-lead-slidein-hero relative flex min-h-[5.25rem] shrink-0 flex-col justify-end overflow-hidden bg-gradient-to-br from-[#021a24] via-[#052638] to-[#0a4a66] sm:min-h-[8.5rem]">
+            <div className="taypro-lead-slidein-hero relative flex min-h-0 shrink-0 flex-col overflow-hidden bg-gradient-to-br from-[#021a24] via-[#052638] to-[#0a4a66]">
               <Image
                 src="/tayproasset/taypro-robotImage.png"
-                alt="Taypro solar panel cleaning robot"
+                alt=""
                 fill
-                className="object-cover object-center opacity-35 mix-blend-luminosity scale-105"
+                className="pointer-events-none object-cover object-center opacity-35 mix-blend-luminosity scale-105"
                 sizes="416px"
                 priority={false}
+                aria-hidden
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#052638] via-[#052638]/80 via-40% to-transparent" />
-              <button
-                type="button"
-                onClick={handleDismiss}
-                className="absolute right-2 top-2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/25 text-white backdrop-blur-sm transition hover:bg-black/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] sm:right-3 sm:top-3 sm:h-10 sm:w-10"
-                aria-label="Close"
-              >
-                <span className="text-xl leading-none" aria-hidden="true">
-                  ×
-                </span>
-              </button>
-              <div className="relative z-10 px-3 pb-2.5 pt-9 sm:px-5 sm:pb-4 sm:pt-12">
-                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 pr-10">
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#052638] via-[#052638]/80 via-40% to-transparent" />
+              <div className="relative z-20 flex shrink-0 items-center justify-end px-2 pt-2 sm:px-3 sm:pt-3">
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDismiss();
+                  }}
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-black/35 text-white backdrop-blur-sm transition hover:bg-black/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] sm:h-10 sm:w-10"
+                  aria-label="Close"
+                >
+                  <span className="text-xl leading-none" aria-hidden="true">
+                    ×
+                  </span>
+                </button>
+              </div>
+              <div className="relative z-10 px-3 pb-2.5 pt-0 sm:px-5 sm:pb-4">
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A8C117] sm:text-sm">
                     Taypro plant check
                   </p>
@@ -286,8 +292,11 @@ export default function SiteLeadSlideIn() {
                 </button>
                 <button
                   type="button"
-                  onClick={handleDismiss}
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white/80 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] sm:h-11 sm:w-11"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDismiss();
+                  }}
+                  className="relative z-20 flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white/80 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] sm:h-11 sm:w-11"
                   aria-label="Close"
                 >
                   <span className="text-xl leading-none sm:text-2xl" aria-hidden="true">

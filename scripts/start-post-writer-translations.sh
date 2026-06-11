@@ -1,15 +1,12 @@
 #!/usr/bin/env bash
-# Fire-and-forget: translate full CMS backlog after the daily blog writer finishes.
-# Stops when both Gemini API keys hit quota or at midnight IST (new calendar day).
+# Start post-writer translation via PM2 HTTP API (avoids standalone tsx server-only issues).
 set -euo pipefail
 
 ROOT="${TAYPRO_APP_ROOT:-/var/www/taypro-dashboard}"
 LOG="${BLOG_TRANSLATION_LOG:-$ROOT/logs/blog-translation-post-writer.log}"
 ENV_FILE="$ROOT/.env.production"
-TZ="${CMS_TRANSLATION_TZ:-Asia/Kolkata}"
 
 mkdir -p "$(dirname "$LOG")"
-mkdir -p "$ROOT/.runtime/translation-cron"
 
 if [ ! -f "$ENV_FILE" ]; then
   echo "$(date -Is) ERROR: missing $ENV_FILE" >> "$LOG"
@@ -21,15 +18,30 @@ set -a
 source "$ENV_FILE"
 set +a
 
-STOP_AT_EPOCH=$(TZ="$TZ" date -d "tomorrow 00:00:00" +%s 2>/dev/null || TZ="$TZ" date -v0H -v0M -v0S -v+1d +%s)
+if [ -z "${AUTOMATION_CRON_SECRET:-}" ]; then
+  echo "$(date -Is) ERROR: AUTOMATION_CRON_SECRET not set" >> "$LOG"
+  exit 1
+fi
+
+API_BASE="${CMS_CRON_API_BASE:-http://127.0.0.1:3000}"
+ENDPOINT="${API_BASE%/}/api/automation/retry-translations"
+AUTH_HEADER="Authorization: Bearer ${AUTOMATION_CRON_SECRET}"
 
 {
-  echo "$(date -Is) dispatch post-writer translation worker (stop_at_epoch=$STOP_AT_EPOCH tz=$TZ)"
-  CMS_TRANSLATION_CATCHUP=1 \
-  CMS_TRANSLATION_STOP_AT_EPOCH="$STOP_AT_EPOCH" \
-  nohup node --require "$ROOT/scripts/preload-stub-server-only.cjs" \
-    "$ROOT/node_modules/tsx/dist/cli.mjs" \
-    "$ROOT/scripts/run-daily-cms-translations.ts" --catchup \
-    >> "$LOG" 2>&1 &
-  echo "$(date -Is) worker_pid=$!"
+  echo "$(date -Is) POST $ENDPOINT (postWriter)"
+  BODY=$(curl -sS -m 60 -X POST "$ENDPOINT" \
+    -H "$AUTH_HEADER" \
+    -H "Content-Type: application/json" \
+    -d '{"postWriter":true}')
+  echo "$BODY"
+  node -e "
+    const b = JSON.parse(process.argv[1]);
+    if (b.started === true) process.exit(0);
+    if (b.error && String(b.error).includes('already in progress')) process.exit(0);
+    process.exit(1);
+  " "$BODY" 2>/dev/null || {
+    echo "$(date -Is) WARN: retry-translations did not start"
+    exit 1
+  }
+  echo "$(date -Is) translation worker accepted"
 } >> "$LOG" 2>&1

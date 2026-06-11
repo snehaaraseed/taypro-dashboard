@@ -20,6 +20,8 @@ export type ProjectsGridLayout = {
   featuredFirst?: boolean;
   /** Column count from md breakpoint upward */
   columns?: 2 | 3;
+  /** Preload first two card images (projects listing hero only — keep false on homepage rollup). */
+  eagerImages?: boolean;
 };
 
 const INDIAN_STATE_NAMES = [

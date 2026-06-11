@@ -2,10 +2,11 @@ import { Suspense } from "react";
 import { Link } from "@/i18n/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
+import LazyWhenVisible from "@/app/components/LazyWhenVisible";
 import { robotProducts, robotSolutions } from "@/app/data";
 import HomePlatformSection from "./HomePlatformSection";
 import HomeStatsSection from "./HomeStatsSection";
-import { RobotCard } from "@/app/components/RobotCard";
+import HomeRobotLineup, { type HomeLineupRobot } from "./HomeRobotLineup";
 import { Container } from "@/app/components/Container";
 import {
   VideoObjectSchema,
@@ -14,13 +15,9 @@ import {
 } from "@/app/components/StructuredData";
 import DynamicProjectsRollup from "@/app/components/DynamicProjectsRollup";
 import HomePageInteractive from "./HomePageInteractive";
-import HomeHeroCTAs from "./HomeHeroCTAs";
-import HomeHeroVideo from "@/app/components/HomeHeroVideo";
+import HomeHero from "./HomeHero";
 import HomeLatestBlogs from "./HomeLatestBlogs";
-import {
-  HARDWARE_ROBOTS_GRID_HOME,
-  hardwareRobotsGridItemClass,
-} from "@/lib/products/robot-grid-layout";
+import { PRODUCT_CATALOG } from "@/lib/products/catalog";
 import {
   COMPARISON_PAGES,
   type ComparisonPageId,
@@ -91,22 +88,43 @@ export default async function HomePage() {
   const otherFeatures = buildTranslatedFeatures(t, "otherFeatures", OTHER_FEATURE_COUNT);
   const homeFaqs = buildHomeFaqs(t);
 
-  const translatedHardware = robotProducts.map((robot, i) => ({
-    ...robot,
-    marketingName: t(`robots.robot${i}.marketingName`),
-    description: t(`robots.robot${i}.description`),
-  }));
+  const plantTypeToFilter = {
+    fixed_tilt: ["fixed_tilt"],
+    tracker: ["tracker"],
+    distributed: ["distributed"],
+  } as const;
 
-  const translatedSolutions = robotSolutions.map((robot, i) => {
+  const translatedHardware: HomeLineupRobot[] = robotProducts.map((robot, i) => {
+    const productId = "productId" in robot ? robot.productId : undefined;
+    const plantType = productId ? PRODUCT_CATALOG[productId].plantType : undefined;
+    const filterTags = plantType
+      ? [...plantTypeToFilter[plantType as keyof typeof plantTypeToFilter]]
+      : [];
+
+    return {
+      ...robot,
+      marketingName: t(`robots.robot${i}.marketingName`),
+      description: t(`robots.robot${i}.description`),
+      filterTags,
+    };
+  });
+
+  const translatedSolutions: HomeLineupRobot[] = robotSolutions.map((robot, i) => {
     const msgIdx = robotProducts.length + i;
+    const filterTags =
+      robot.model === "Taypro Opex"
+        ? (["service"] as const)
+        : robot.model === "NECTYR"
+          ? (["software"] as const)
+          : [];
+
     return {
       ...robot,
       marketingName: t(`robots.robot${msgIdx}.marketingName`),
       description: t(`robots.robot${msgIdx}.description`),
+      filterTags: [...filterTags],
     };
   });
-
-  const videoTitle = t("hero.videoTitle");
 
   return (
     <>
@@ -130,138 +148,30 @@ export default async function HomePage() {
       <FAQPageSchema faqs={homeFaqs} />
 
       <div className="min-h-screen overflow-x-hidden">
-        <section className="relative px-4 sm:px-6 lg:px-8 py-10 md:py-14">
-          <Container className="!px-0">
-            <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-              {/* Server-rendered hero copy — no client wrapper so H1 paints for mobile LCP */}
-              <div className="order-1 lg:order-none text-white space-y-5 lg:space-y-6 lg:col-start-1 lg:row-start-1">
-                <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide">
-                  {t("hero.eyebrow")}
-                </p>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
-                  {t("hero.title")}
-                </h1>
-                <p className="text-base sm:text-lg text-[#A8C117]/90 leading-relaxed max-w-xl font-medium">
-                  {t("hero.subtitle")}
-                </p>
-                <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl">
-                  {t("hero.lead")}
-                </p>
-                <p className="text-sm text-gray-400 leading-relaxed max-w-xl">
-                  {t("hero.bodyBeforeProjects")}{" "}
-                  <Link
-                    href="/projects"
-                    className="brand-inline-link font-medium"
-                  >
-                    {t("hero.bodyProjectsLink")}
-                  </Link>
-                  {t("hero.bodyAfterProjects")}{" "}
-                  <Link
-                    href="/utility-scale-solar-operations"
-                    className="brand-inline-link font-medium"
-                  >
-                    {t("hero.bodyUtilityOpsLink")}
-                  </Link>
-                  {t("hero.bodyBeforeBlog")}{" "}
-                  <Link href="/blog" className="brand-inline-link font-medium">
-                    {t("hero.bodyBlogLink")}
-                  </Link>
-                  {t("hero.bodyAfterBlog")}
-                </p>
-                <HomeHeroCTAs />
-              </div>
+        <HomeHero />
 
-              <div className="order-2 lg:order-none flex justify-center lg:justify-end lg:col-start-2 lg:row-start-1">
-                <div className="relative w-full max-w-[720px] aspect-video rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/10">
-                  <HomeHeroVideo videoId={HERO_VIDEO_ID} title={videoTitle} />
-                </div>
-              </div>
-            </div>
-          </Container>
-        </section>
+        <LazyWhenVisible placeholderClassName="min-h-[320px]">
+          <HomeStatsSection />
+        </LazyWhenVisible>
 
-        <HomeStatsSection />
+        <LazyWhenVisible placeholderClassName="min-h-[520px]">
+          <HomePlatformSection />
+        </LazyWhenVisible>
 
-        <HomePlatformSection />
+        <LazyWhenVisible placeholderClassName="min-h-[640px]">
+          <HomeRobotLineup
+            hardwareRobots={translatedHardware}
+            solutionRobots={translatedSolutions}
+          />
+        </LazyWhenVisible>
 
-        <section
-          className="py-14 md:py-20 bg-white"
-          aria-labelledby="robots-heading"
-        >
-          <Container>
-            <AnimateOnScroll animation="fadeInUp" className="text-center max-w-3xl mx-auto mb-8">
-              <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-2">
-                {t("robots.eyebrow")}
-              </p>
-              <h2
-                id="robots-heading"
-                className="text-[#052638] font-semibold text-3xl md:text-4xl mb-3"
-              >
-                {t("robots.heading")}
-              </h2>
-              <p className="text-[#27415c] text-base md:text-lg leading-relaxed">
-                {t("robots.subheadingBefore")}{" "}
-                <Link
-                  href="/solar-panel-cleaning-system"
-                  className="text-[#5a8f00] font-medium hover:underline"
-                >
-                  {t("robots.compareLink")}
-                </Link>
-                {t("robots.subheadingAfter")}
-              </p>
-            </AnimateOnScroll>
-
-            <div className="space-y-12">
-              <div>
-                <p className="text-[#5a7a8f] font-medium text-xs uppercase tracking-wider mb-5 text-center">
-                  {t("robots.waterlessEyebrow")}
-                </p>
-                <div className={HARDWARE_ROBOTS_GRID_HOME}>
-                  {translatedHardware.map((robot, idx) => (
-                    <AnimateOnScroll
-                      key={robot.model}
-                      animation="fadeInUp"
-                      delay={idx * 70}
-                      className={hardwareRobotsGridItemClass(idx, "home")}
-                    >
-                      <RobotCard
-                        robot={robot}
-                        priority={idx === 0}
-                        preferGenericTitle
-                      />
-                    </AnimateOnScroll>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <p className="text-[#5a7a8f] font-medium text-xs uppercase tracking-wider mb-5 text-center">
-                  {t("robots.serviceEyebrow")}
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 items-stretch lg:grid-cols-6">
-                  {translatedSolutions.map((robot, idx) => (
-                    <AnimateOnScroll
-                      key={robot.model}
-                      animation="fadeInUp"
-                      delay={idx * 70}
-                      className={`h-full lg:col-span-2 ${
-                        idx === 0 ? "lg:col-start-2" : "lg:col-start-4"
-                      }`}
-                    >
-                      <RobotCard robot={robot} preferGenericTitle />
-                    </AnimateOnScroll>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </Container>
-        </section>
-
-        <HomePageInteractive
-          features={features}
-          otherFeatures={otherFeatures}
-          homeFaqs={homeFaqs}
-        />
+        <LazyWhenVisible placeholderClassName="min-h-[720px]">
+          <HomePageInteractive
+            features={features}
+            otherFeatures={otherFeatures}
+            homeFaqs={homeFaqs}
+          />
+        </LazyWhenVisible>
 
         <section
           className="py-14 md:py-16 bg-[#052638] border-y border-white/10"
@@ -343,19 +253,23 @@ export default async function HomePage() {
           </Container>
         </section>
 
-        <DynamicProjectsRollup
-          locale={locale}
-          eyebrow={t("projects.eyebrow")}
-          heading={t("projects.heading")}
-          subheading={t("projects.subheading")}
-          quote={t("projects.quote")}
-          limit={4}
-          background="white"
-        />
+        <LazyWhenVisible placeholderClassName="min-h-[520px]">
+          <DynamicProjectsRollup
+            locale={locale}
+            eyebrow={t("projects.eyebrow")}
+            heading={t("projects.heading")}
+            subheading={t("projects.subheading")}
+            quote={t("projects.quote")}
+            limit={4}
+            background="white"
+          />
+        </LazyWhenVisible>
 
-        <Suspense fallback={null}>
-          <HomeLatestBlogs />
-        </Suspense>
+        <LazyWhenVisible placeholderClassName="min-h-[400px]">
+          <Suspense fallback={null}>
+            <HomeLatestBlogs />
+          </Suspense>
+        </LazyWhenVisible>
       </div>
     </>
   );

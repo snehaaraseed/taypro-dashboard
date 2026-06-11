@@ -38,6 +38,7 @@ export default function ProjectsGrid({
   projects,
   featuredFirst = false,
   columns = 2,
+  eagerImages = false,
   className = "",
 }: ProjectsGridProps) {
   const t = useTranslations("ProjectsPage");
@@ -91,14 +92,14 @@ export default function ProjectsGrid({
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   sizes={
                     isFeatured
-                      ? "(max-width: 768px) 100vw, 100vw"
+                      ? "(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 900px"
                       : columns === 3
-                        ? "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        : "(max-width: 768px) 100vw, 50vw"
+                        ? "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
+                        : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                   }
-                  quality={idx < 2 ? 75 : 70}
-                  priority={idx < 2}
-                  loading={idx < 2 ? "eager" : "lazy"}
+                  quality={eagerImages && idx < 2 ? 70 : 65}
+                  priority={eagerImages && idx < 2}
+                  loading={eagerImages && idx < 2 ? "eager" : "lazy"}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#052638]/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               </div>

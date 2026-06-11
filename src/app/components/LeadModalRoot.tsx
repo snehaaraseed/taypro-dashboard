@@ -1,13 +1,21 @@
 "use client";
 
-import { LeadModalProvider } from "./LeadModalContext";
-import LeadModal from "./LeadModal";
+import dynamic from "next/dynamic";
+import { LeadModalProvider, useLeadModal } from "./LeadModalContext";
+
+const LeadModal = dynamic(() => import("./LeadModal"), { ssr: false });
+
+function LeadModalWhenOpen() {
+  const { state } = useLeadModal();
+  if (!state.isOpen) return null;
+  return <LeadModal />;
+}
 
 /**
  * Mounts the global lead-capture modal and provides the context that any
  * client component can use via `useLeadModal()` / `<OpenLeadModalButton>`.
  *
- * Wraps the entire app once from the root layout.
+ * Modal chunk loads only on first open to keep homepage TBT low.
  */
 export default function LeadModalRoot({
   children,
@@ -17,7 +25,7 @@ export default function LeadModalRoot({
   return (
     <LeadModalProvider>
       {children}
-      <LeadModal />
+      <LeadModalWhenOpen />
     </LeadModalProvider>
   );
 }

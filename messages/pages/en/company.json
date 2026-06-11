@@ -59,8 +59,11 @@
     "investors": {
       "eyebrow": "Partners & investors",
       "heading": "Autonomous operations layer for utility-scale solar",
-      "body": "Taypro is building the health-monitoring and operations layer for India's utility solar fleet, using deployed cleaning robots as field data and execution infrastructure. Today: 5 GW+ capacity on NECTYR, 11 billion+ panel cleaning passes annually, 150+ live sites, recurring AMC relationships, and labelled cleaning telemetry since 2022. TAYPRO's AI model learns from every cleaning cycle across the active fleet — the operational dataset compounds with each site added and cannot be replicated by any competitor without equivalent field presence at utility scale. ORION plant intelligence is designed to attach at AMC renewal on rails we already operate.",
-      "bullet0": "Hardware + NECTYR are live across IPP and utility portfolios, with fleet operations teams use every day.",
+      "bodyLead": "Taypro is building the health-monitoring and operations layer for India's utility solar fleet, using deployed cleaning robots as field data and execution infrastructure.",
+      "bodyMoat": "TAYPRO's AI model learns from every cleaning cycle across the active fleet — the operational dataset compounds with each site added and cannot be replicated by any competitor without equivalent field presence at utility scale.",
+      "bodyOrion": "ORION plant intelligence is designed to attach at AMC renewal on rails we already operate.",
+      "statFootnote": "150+ live utility sites on NECTYR, recurring AMC relationships, and labelled cleaning telemetry since 2022.",
+      "bullet0": "Hardware + NECTYR are live across IPP and utility portfolios that fleet operations teams use every day.",
       "bullet1": "Self-learning fleet AI compounds a data moat competitors cannot replicate without utility-scale field presence — each clean refines soiling, timing, and routing models.",
       "bullet2": "ORION early access is open for select asset owners under NDA, contact us for investor or strategic conversations.",
       "ctaContact": "Contact for investor conversations",

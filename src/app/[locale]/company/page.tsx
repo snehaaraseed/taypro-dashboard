@@ -279,58 +279,74 @@ export default function AboutUsPage() {
 
         <section
           id="investors"
-          className="w-full py-14 md:py-20 bg-[#f4f7f9] scroll-mt-24"
+          className="w-full py-14 md:py-20 bg-white scroll-mt-24 border-y border-gray-200/80"
           aria-labelledby="company-investors-heading"
         >
           <Container>
-            <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mx-auto text-center mb-10">
-              <p className="mb-3 inline-flex items-center rounded-full border border-[#A8C117]/25 bg-[#A8C117]/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#5a8f00]">
-                {t("investors.eyebrow")}
-              </p>
-              <h2
-                id="company-investors-heading"
-                className="text-[#052638] font-semibold text-2xl md:text-3xl mb-4"
-              >
-                {t("investors.heading")}
-              </h2>
-              <p className="text-[#27415c] text-base md:text-lg leading-relaxed">
-                {t("investors.body")}
-              </p>
+            <AnimateOnScroll animation="fadeInUp">
+              <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-gray-200/90 bg-[#f8fafb] shadow-sm">
+                <div className="p-8 md:p-10 lg:p-12">
+                  <p className="mb-3 inline-flex items-center rounded-full border border-[#A8C117]/25 bg-[#A8C117]/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#5a8f00]">
+                    {t("investors.eyebrow")}
+                  </p>
+                  <h2
+                    id="company-investors-heading"
+                    className="text-[#052638] font-semibold text-2xl md:text-3xl lg:text-4xl mb-6 leading-tight max-w-3xl"
+                  >
+                    {t("investors.heading")}
+                  </h2>
+                  <div className="space-y-4 text-[#27415c] text-base md:text-lg leading-relaxed max-w-4xl">
+                    <p>{t("investors.bodyLead")}</p>
+                    <p>{t("investors.bodyMoat")}</p>
+                    <p>{t("investors.bodyOrion")}</p>
+                  </div>
+                  <p className="mt-6 rounded-xl border border-[#A8C117]/20 bg-white px-5 py-4 text-sm md:text-base text-[#27415c] leading-relaxed">
+                    {t("investors.statFootnote")}
+                  </p>
+                </div>
+
+                <div className="border-t border-gray-200/80 px-8 md:px-10 lg:px-12 py-8 md:py-10">
+                  <ul className="grid gap-4 md:grid-cols-3">
+                    {(["bullet0", "bullet1", "bullet2"] as const).map((key) => (
+                      <li
+                        key={key}
+                        className="flex gap-3 rounded-xl border border-gray-100 bg-white px-5 py-4 text-sm md:text-base leading-relaxed text-[#27415c] shadow-sm"
+                      >
+                        <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#A8C117]/15">
+                          <Check
+                            className="h-3.5 w-3.5 text-[#5a8f00]"
+                            strokeWidth={3}
+                            aria-hidden
+                          />
+                        </span>
+                        {t(`investors.${key}`)}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
+                    <Link
+                      href="/contact"
+                      className="inline-flex justify-center items-center gap-2 px-6 py-3 rounded-xl bg-[#A8C117] text-[#052638] font-semibold hover:bg-[#b3cf3d] transition-colors"
+                    >
+                      {t("investors.ctaContact")}
+                      <ArrowRight className="h-4 w-4" aria-hidden />
+                    </Link>
+                    <Link
+                      href="/technology/ai-intelligence"
+                      className="inline-flex justify-center px-6 py-3 rounded-xl border border-gray-200 bg-white text-[#052638] font-medium hover:border-[#A8C117] hover:text-[#5a8f00] transition-colors"
+                    >
+                      {t("investors.ctaAi")}
+                    </Link>
+                    <Link
+                      href="/solar-panel-cleaning-system/orion-plant-intelligence-platform"
+                      className="inline-flex justify-center px-6 py-3 rounded-xl border border-gray-200 bg-white text-[#052638] font-medium hover:border-[#A8C117] hover:text-[#5a8f00] transition-colors"
+                    >
+                      {t("investors.ctaOrion")}
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </AnimateOnScroll>
-            <ul className="mx-auto mb-10 grid max-w-3xl gap-4 sm:grid-cols-1">
-              {(["bullet0", "bullet1", "bullet2"] as const).map((key) => (
-                <li
-                  key={key}
-                  className="flex gap-4 rounded-2xl border border-gray-100 bg-white px-5 py-4 text-sm md:text-base leading-relaxed text-[#27415c] shadow-sm transition hover:border-[#A8C117]/40 hover:shadow-md"
-                >
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#A8C117]/15">
-                    <Check className="h-3.5 w-3.5 text-[#5a8f00]" strokeWidth={3} aria-hidden />
-                  </span>
-                  {t(`investors.${key}`)}
-                </li>
-              ))}
-            </ul>
-            <div className="flex flex-col sm:flex-row justify-center gap-3">
-              <Link
-                href="/contact"
-                className="inline-flex justify-center items-center gap-2 px-6 py-3 rounded-xl bg-[#A8C117] text-[#052638] font-semibold hover:bg-[#b3cf3d] transition-colors"
-              >
-                {t("investors.ctaContact")}
-                <ArrowRight className="h-4 w-4" aria-hidden />
-              </Link>
-              <Link
-                href="/technology/ai-intelligence"
-                className="inline-flex justify-center px-6 py-3 rounded-xl border border-gray-200 bg-white text-[#052638] font-medium hover:border-[#A8C117] hover:text-[#5a8f00] transition-colors"
-              >
-                {t("investors.ctaAi")}
-              </Link>
-              <Link
-                href="/solar-panel-cleaning-system/orion-plant-intelligence-platform"
-                className="inline-flex justify-center px-6 py-3 rounded-xl border border-gray-200 bg-white text-[#052638] font-medium hover:border-[#A8C117] hover:text-[#5a8f00] transition-colors"
-              >
-                {t("investors.ctaOrion")}
-              </Link>
-            </div>
           </Container>
         </section>
 

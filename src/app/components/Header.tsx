@@ -11,12 +11,17 @@ import {
   PRODUCT_CATALOG,
 } from "@/lib/products/catalog";
 
+const HOME_HERO_DARK_NAV_OFFSET = 64;
+
 export default function Header() {
   const t = useTranslations("Navigation");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isSolarMenuOpen, setIsSolarMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+  const isHomePage = pathname === "/";
+  const isHomeHeroTransparent = isHomePage && !isScrolled && !isMenuOpen;
 
   const navItems = [
     { name: t("home"), href: "/" },
@@ -99,6 +104,21 @@ export default function Header() {
   }, [pathname]);
 
   useEffect(() => {
+    if (!isHomePage) {
+      setIsScrolled(false);
+      return;
+    }
+
+    const updateScroll = () => {
+      setIsScrolled(window.scrollY > HOME_HERO_DARK_NAV_OFFSET);
+    };
+
+    updateScroll();
+    window.addEventListener("scroll", updateScroll, { passive: true });
+    return () => window.removeEventListener("scroll", updateScroll);
+  }, [isHomePage]);
+
+  useEffect(() => {
     if (!isMenuOpen) return;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -123,12 +143,16 @@ export default function Header() {
     return () => cancelAnimationFrame(frame);
   }, [isMenuOpen, isSolarMenuOpen]);
 
+  const headerPositionClass = isMenuOpen
+    ? "fixed inset-0 flex flex-col overflow-hidden lg:sticky lg:inset-auto lg:overflow-visible"
+    : isHomePage
+      ? "fixed inset-x-0 top-0"
+      : "sticky top-0";
+
   return (
     <header
-      className={`z-50 bg-[#052638] ${
-        isMenuOpen
-          ? "fixed inset-0 flex flex-col overflow-hidden lg:sticky lg:inset-auto lg:overflow-visible"
-          : "sticky top-0"
+      className={`z-50 transition-colors duration-300 ${headerPositionClass} ${
+        isHomeHeroTransparent ? "bg-transparent" : "bg-[#052638]"
       }`}
     >
       <div className="shrink-0 px-3 py-3 sm:px-4 sm:py-4">
@@ -137,14 +161,16 @@ export default function Header() {
           <div className="shrink-0 justify-self-start">
             <Link href={"/"} onClick={closeMobileMenu} aria-label="Taypro home">
               <Image
-                src="/tayproasset/taypro-logo.png"
+                src="/tayproasset/taypro-logo.webp"
                 alt="Taypro Logo - Solar Panel Cleaning Robot Manufacturer"
                 title="Taypro - Solar Panel Cleaning Robot Manufacturer Logo"
                 width={400}
                 height={108}
                 sizes="(max-width: 640px) 160px, 200px"
                 className="h-9 w-auto sm:h-10 lg:h-10 xl:h-11 2xl:h-12"
-                priority
+                priority={!isHomePage}
+                fetchPriority={isHomePage ? "low" : undefined}
+                loading={isHomePage ? "lazy" : undefined}
                 quality={75}
               />
             </Link>
@@ -247,7 +273,7 @@ export default function Header() {
               ))}
           </nav>
 
-          {/* Language + Call us (+ mobile menu) — right */}
+          {/* Language + Talk to Expert (+ mobile menu) — right */}
           <div className="flex shrink-0 items-center justify-end gap-2 justify-self-end sm:gap-3">
             <LocaleSwitcher />
             <Link

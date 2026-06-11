@@ -7,6 +7,7 @@ export const TAYPRO_PUBLIC_PROOF = {
   /** Solar assets cleaned daily across the live fleet (operational throughput). */
   dailyCleaningCapacityGw: "5 GW+",
   sitesLive: "150+",
+  systemsDeployed: "2,500+",
   /** 11,00,00,00,000 panels cleaned per year (public marketing figure). */
   panelsCleanedAnnually: "11B+",
   panelsCleanedAnnuallyRaw: 11_000_000_000,
@@ -39,6 +40,10 @@ export function buildTayproPublicProofStats() {
     plantInstallations: {
       value: p.sitesLive,
       label: "Sites Live",
+    },
+    systemsDeployed: {
+      value: p.systemsDeployed,
+      label: "Systems Deployed",
     },
     panelsCleanedAnnually: {
       value: p.panelsCleanedAnnually,

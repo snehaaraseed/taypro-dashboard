@@ -49,6 +49,11 @@ import {
 } from "@/lib/topicTracker";
 import { pickAutomationScheduledPublishAt } from "@/lib/cms/blog-schedule";
 import {
+  competitorPrimaryKeywordReason,
+  isCompetitorLedTitle,
+  isCompetitorPrimaryKeyword,
+} from "@/lib/seo/competitor-keyword-guard";
+import {
   formatGeminiQuotaSoftStartInIst,
   formatNextGeminiQuotaResetInIst,
   isPastGeminiQuotaSoftStart,
@@ -456,6 +461,19 @@ export async function POST(request: NextRequest) {
 
         if (!topic.title) {
           throw new Error("Failed to generate a unique topic");
+        }
+
+        if (
+          isCompetitorPrimaryKeyword(topic.seoKeyword || topic.seoBrief?.primary || "") ||
+          isCompetitorLedTitle(topic.title)
+        ) {
+          const blockedKeyword =
+            topic.seoKeyword || topic.seoBrief?.primary || topic.title;
+          trackRejectedKeyword(rejectedKeywords, blockedKeyword);
+          if (attemptedSlotKey) {
+            trackRejectedSlot(rejectedSlotKeys, attemptedSlotKey);
+          }
+          throw new Error(competitorPrimaryKeywordReason(blockedKeyword));
         }
 
         const slug = createSlug(topic.title);

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Every 5 min: after 00:30 Pacific (Gemini RPD resets at midnight PT), write one blog,
 # schedule publish 09:00–17:00 IST, then start translation until quota or midnight IST.
+# If today's writer is done (done-YYYYMMDD), still recover translation every 5 min when
+# the worker is down and blogs/projects remain in the backlog.
 set -euo pipefail
 
 ROOT="${TAYPRO_APP_ROOT:-/var/www/taypro-dashboard}"
@@ -28,7 +30,30 @@ mkdir -p "$RUNTIME_DIR"
 DAY=$(date +%Y%m%d)
 DONE_FILE="$RUNTIME_DIR/done-$DAY"
 
+start_post_writer_translations() {
+  if [ -x "$ROOT/scripts/start-post-writer-translations.sh" ]; then
+    "$ROOT/scripts/start-post-writer-translations.sh" || true
+  else
+    echo "$(date -Is) WARN: missing start-post-writer-translations.sh" >> "$LOG"
+  fi
+}
+
+maybe_recover_translation() {
+  local status_json status_exit
+  set +e
+  status_json="$(
+    node "$ROOT/scripts/translation-recovery-status.mjs" 2>/dev/null
+  )"
+  status_exit=$?
+  set -e
+  if [ "$status_exit" -eq 10 ]; then
+    echo "$(date -Is) translation recovery: worker down with pending backlog — ${status_json:-unknown}" >> "$LOG"
+    start_post_writer_translations
+  fi
+}
+
 if [ -f "$DONE_FILE" ]; then
+  maybe_recover_translation
   exit 0
 fi
 
@@ -43,14 +68,6 @@ fi
 
 API_BASE="${CMS_CRON_API_BASE:-http://127.0.0.1:3000}"
 AUTH_HEADER="Authorization: Bearer ${AUTOMATION_CRON_SECRET}"
-
-start_post_writer_translations() {
-  if [ -x "$ROOT/scripts/start-post-writer-translations.sh" ]; then
-    "$ROOT/scripts/start-post-writer-translations.sh" || true
-  else
-    echo "$(date -Is) WARN: missing start-post-writer-translations.sh" >> "$LOG"
-  fi
-}
 
 finish_blog_cron_day() {
   touch "$DONE_FILE"

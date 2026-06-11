@@ -1,3 +1,7 @@
+import {
+  isCompetitorPrimaryKeyword,
+} from "@/lib/seo/competitor-keyword-guard";
+
 /**
  * Shared keyword gates for CSV import, GSC sync, and blog automation.
  *
@@ -23,5 +27,9 @@ export function isExcludedSeoKeyword(keyword: string): boolean {
 }
 
 export function passesSeoKeywordFilters(keyword: string): boolean {
-  return isRelevantSeoKeyword(keyword) && !isExcludedSeoKeyword(keyword);
+  return (
+    isRelevantSeoKeyword(keyword) &&
+    !isExcludedSeoKeyword(keyword) &&
+    !isCompetitorPrimaryKeyword(keyword)
+  );
 }

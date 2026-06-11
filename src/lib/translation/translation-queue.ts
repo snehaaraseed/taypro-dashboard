@@ -16,6 +16,10 @@ import {
 import { isGeminiQuotaError } from "./quota";
 import type { BatchTranslationResult, TranslationResult } from "./translate-cms";
 import {
+  acquireCatchupWorkerLock,
+  releaseCatchupWorkerLock,
+} from "./catchup-worker-lock";
+import {
   listEnglishBlogSlugs,
   listEnglishProjectSlugs,
   translatePublishedBlog,
@@ -493,6 +497,26 @@ export type DailyTranslationLog = (
  * Post-writer mode: catchup=true + shouldStop at midnight IST (no daily cap).
  * Legacy mode: maxPerDay cap (manual/debug only).
  */
+function emptyCatchupTranslationResult(): ProcessDailyTranslationsResult {
+  return {
+    maxPerDay: 0,
+    splitPerType: 0,
+    blogBacklog: 0,
+    projectBacklog: 0,
+    blogSlots: 0,
+    projectSlots: 0,
+    queue: [],
+    processed: 0,
+    completed: 0,
+    partial: 0,
+    skippedQuota: 0,
+    quotaSkippedForDay: false,
+    clearedQueueRows: 0,
+    catchup: true,
+    items: [],
+  };
+}
+
 export async function processDailyTranslations(options?: {
   maxPerDay?: number;
   splitPerType?: number;
@@ -503,7 +527,28 @@ export async function processDailyTranslations(options?: {
   shouldStop?: () => boolean;
 }): Promise<ProcessDailyTranslationsResult> {
   const catchup = options?.catchup === true;
+  const log = options?.log;
+  let catchupLockHeld = false;
 
+  if (catchup) {
+    if (!acquireCatchupWorkerLock()) {
+      log?.("skip", { reason: "already_running" });
+      return emptyCatchupTranslationResult();
+    }
+    catchupLockHeld = true;
+  }
+
+  try {
+    return await runDailyTranslationsBody(options, catchup);
+  } finally {
+    if (catchupLockHeld) releaseCatchupWorkerLock();
+  }
+}
+
+async function runDailyTranslationsBody(
+  options: Parameters<typeof processDailyTranslations>[0],
+  catchup: boolean
+): Promise<ProcessDailyTranslationsResult> {
   const [allBlogSlugs, allProjectSlugs] = await Promise.all([
     listBlogSlugsNeedingTranslation(),
     listProjectSlugsNeedingTranslation(),

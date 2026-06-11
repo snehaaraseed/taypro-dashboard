@@ -11,7 +11,6 @@ import {
 } from "lucide-react";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
-import { ORION_PRODUCT_PATH } from "@/lib/product-coming-soon";
 
 const PILLAR_KEYS = ["0", "1", "2"] as const;
 const LOOP_STEP_KEYS = ["0", "1", "2", "3", "4"] as const;
@@ -159,40 +158,6 @@ export default async function HomePlatformSection() {
           </div>
         </AnimateOnScroll>
 
-        <AnimateOnScroll
-          animation="fadeInUp"
-          className="max-w-4xl mx-auto rounded-2xl border border-gray-200/80 bg-[#f4f7f9] p-6 md:p-8 shadow-sm"
-        >
-          <p className="mb-3 inline-flex items-center rounded-full border border-[#A8C117]/25 bg-[#A8C117]/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#5a8f00]">
-            {t("investorEyebrow")}
-          </p>
-          <h3 className="text-[#052638] font-semibold text-xl md:text-2xl mb-3">
-            {t("investorTitle")}
-          </h3>
-          <p className="text-[#27415c] text-sm md:text-base leading-relaxed mb-5">
-            {t("investorBody")}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-            <Link
-              href="/company#investors"
-              className="inline-flex justify-center items-center px-5 py-2.5 rounded-xl bg-[#A8C117] text-[#052638] text-sm font-semibold hover:bg-[#b3cf3d] transition-colors"
-            >
-              {t("investorCtaCompany")}
-            </Link>
-            <Link
-              href="/technology/ai-intelligence"
-              className="inline-flex justify-center items-center px-5 py-2.5 rounded-xl border border-gray-200 bg-white text-[#052638] text-sm font-medium hover:border-[#A8C117] hover:text-[#5a8f00] transition-colors"
-            >
-              {t("investorCtaAi")}
-            </Link>
-            <Link
-              href={ORION_PRODUCT_PATH}
-              className="inline-flex justify-center items-center px-5 py-2.5 rounded-xl border border-gray-200 bg-white text-[#052638] text-sm font-medium hover:border-[#A8C117] hover:text-[#5a8f00] transition-colors"
-            >
-              {t("investorCtaOrion")}
-            </Link>
-          </div>
-        </AnimateOnScroll>
       </Container>
     </section>
   );

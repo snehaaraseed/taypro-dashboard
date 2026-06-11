@@ -21,6 +21,7 @@ import {
   type SeoKeywordBrief,
 } from "@/lib/seo/keyword-stats";
 import { findKeywordCorpusConflict } from "@/lib/seo/blog-plan-gates";
+import { isCompetitorPrimaryKeyword } from "@/lib/seo/competitor-keyword-guard";
 import type { BlogSimilarityCorpusRow } from "@/lib/cms/blogService";
 import { listTopicAngleSeeds, inferAngleIdFromTitle } from "@/lib/seo/blog-topic-angles";
 
@@ -62,6 +63,7 @@ export async function pickSeoKeywordBriefHybrid(
   let candidates = buildKeywordCandidateBriefs(available, 20).filter((brief) => {
     const primary = brief.primary.toLowerCase().trim();
     if (excluded.has(primary)) return false;
+    if (isCompetitorPrimaryKeyword(primary)) return false;
     if (options?.corpus?.length) {
       const conflict = findKeywordCorpusConflict(brief.primary, options.corpus);
       if (conflict) return false;

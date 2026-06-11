@@ -258,7 +258,7 @@ export default async function ProjectPage({
                 ) : null}
               </p>
             </AnimateOnScroll>
-            <ProjectsGrid projects={featuredProjects} featuredFirst />
+            <ProjectsGrid projects={featuredProjects} featuredFirst eagerImages />
             <AnimateOnScroll
               animation="fadeInUp"
               className="mt-16 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-8"

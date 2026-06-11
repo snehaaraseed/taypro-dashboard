@@ -12,6 +12,7 @@ if [ ! -x "$WRITER_SCRIPT" ]; then
   chmod +x "$WRITER_SCRIPT"
 fi
 chmod +x "$ROOT/scripts/start-post-writer-translations.sh" 2>/dev/null || true
+chmod +x "$ROOT/scripts/translation-recovery-status.mjs" 2>/dev/null || true
 chmod +x "$ROOT/scripts/cron-translate-blogs-daily.sh" 2>/dev/null || true
 
 mkdir -p "$ROOT/logs"

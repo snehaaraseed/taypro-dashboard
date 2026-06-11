@@ -100,12 +100,15 @@ async function main(): Promise<void> {
     process.env.CMS_TRANSLATION_CATCHUP === "1" ||
     process.argv.includes("--catchup");
   const lockPath = resolveLockPath();
+  const useScriptLock = !catchup;
 
-  if (!acquireLock(lockPath)) {
+  if (useScriptLock && !acquireLock(lockPath)) {
     process.exit(0);
   }
 
-  const cleanup = () => releaseLock(lockPath);
+  const cleanup = () => {
+    if (useScriptLock) releaseLock(lockPath);
+  };
   process.on("exit", cleanup);
   process.on("SIGINT", () => {
     log("signal", { signal: "SIGINT" });

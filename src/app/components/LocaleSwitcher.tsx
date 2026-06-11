@@ -52,7 +52,7 @@ export default function LocaleSwitcher() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        aria-label={t("label")}
+        aria-label={`${t("label")}, ${localeCode(locale)}`}
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-controls={listId}

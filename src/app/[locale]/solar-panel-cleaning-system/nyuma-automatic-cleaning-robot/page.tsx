@@ -54,6 +54,7 @@ const NYUMA_GALLERY = {
   productRender: "/tayprorobots/nyuma/product-render.png",
   topView: "/tayprorobots/nyuma/top-view.png",
   brushDetail: "/tayprorobots/nyuma/brush-detail.png",
+  fieldOperation: "/tayprorobots/nyuma/field-operation.jpg",
   heroDark: "/tayprorobots/nyuma/hero-dark.png",
   topViewDark: "/tayprorobots/nyuma/top-view-dark.png",
 } as const;
@@ -394,6 +395,21 @@ export default async function NyumaAutomaticCleaningRobotPage({
             </h2>
             <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto">
               {t("gallery.subtitle")}
+            </p>
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fadeInUp" delay={30} className="max-w-5xl mx-auto mb-8 sm:mb-10">
+            <div className="relative aspect-[1024/748] w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+              <Image
+                src={NYUMA_GALLERY.fieldOperation}
+                alt={t("gallery.fieldAlt")}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 1024px"
+                priority
+              />
+            </div>
+            <p className="text-center text-gray-500 text-sm mt-3">
+              {t("gallery.fieldCaption")}
             </p>
           </AnimateOnScroll>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">

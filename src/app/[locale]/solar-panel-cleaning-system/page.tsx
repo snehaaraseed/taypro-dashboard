@@ -398,7 +398,7 @@ export default async function SolarPanelCleaningRobot({
                 className="relative min-h-[280px] sm:min-h-[360px] lg:min-h-[480px]"
               >
                 <Image
-                  src="/tayproasset/taypro-robotImage.png"
+                  src={PRODUCT_CATALOG.glyde.imagePath}
                   alt={t("hero.heroImageAlt")}
                   title={t("hero.heroImageTitle")}
                   fill
