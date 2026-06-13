@@ -44,10 +44,7 @@
       "ctaQuoteSubtitle": "अपने प्लांट के बारे में बताएँ, हम GLYDE, HELYX, या GLYDE-X सुझाएंगे।",
       "ctaExplore": "रोबोट देखें",
       "ctaService": "सफाई सेवा",
-      "ctaRoi": "मूल्य और ROI कैलकुलेटर",
-      "titleLine1": "खोई हुई उत्पादन पुनर्प्राप्त करें, ",
-      "titleHighlight": "स्वायत्त संचालन परत",
-      "titleLine2": "यूटिलिटी-स्केल सोलर के लिए, वॉटरलेस सोलर पैनल सफाई रोबोट पर निर्मित।"
+      "ctaRoi": "मूल्य और ROI कैलकुलेटर"
     },
     "stats": {
       "methodologyBefore": "Fleet impact figures are modelled from live deployments. See our",
@@ -230,8 +227,8 @@
     "clients": {
       "heading": "हमारे प्रतिष्ठित ग्राहक",
       "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India.",
-      "logoAlt": "Taypro सोलर पैनल सफाई रोबोट ग्राहक {index}, Taypro रोबोटिक सफाई समाधान उपयोगकर्ता भागीदार",
-      "logoTitle": "Taypro सोलर पैनल सफाई रोबोट ग्राहक {index}"
+      "logoAlt": "{name} — Taypro सोलर पैनल सफाई रोबोट ग्राहक",
+      "logoTitle": "{name}"
     },
     "faq": {
       "heading": "अक्सर पूछे जाने वाले प्रश्न",

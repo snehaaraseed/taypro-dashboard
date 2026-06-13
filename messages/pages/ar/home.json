@@ -44,10 +44,7 @@
       "ctaQuoteSubtitle": "أخبرنا عن محطتك, سنقترح GLYDE أو HELYX أو GLYDE-X.",
       "ctaExplore": "استكشف الروبوتات",
       "ctaService": "خدمة التنظيف",
-      "ctaRoi": "حاسبة السعر والعائد",
-      "titleLine1": "استعد الإنتاج المفقود مع",
-      "titleHighlight": "طبقة العمليات المستقلة",
-      "titleLine2": "للطاقة الشمسية على نطاق المرافق, مبنية على روبوتات تنظيف ألواح شمسية بدون ماء."
+      "ctaRoi": "حاسبة السعر والعائد"
     },
     "stats": {
       "methodologyBefore": "Fleet impact figures are modelled from live deployments. See our",
@@ -230,8 +227,8 @@
     "clients": {
       "heading": "عملاؤنا المميزون",
       "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India.",
-      "logoAlt": "عميل Taypro {index}, شريك يستخدم حلول التنظيف الروبوتية",
-      "logoTitle": "عميل Taypro {index}"
+      "logoAlt": "{name} — عميل Taypro لروبوت تنظيف الألواح الشمسية",
+      "logoTitle": "{name}"
     },
     "faq": {
       "heading": "الأسئلة الشائعة",

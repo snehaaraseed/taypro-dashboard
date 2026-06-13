@@ -52,3 +52,26 @@ export function computeHeroFitCqi(
 export function longestLineLength(...lines: string[]): number {
   return Math.max(0, ...lines.map((line) => line.length));
 }
+
+/** CJK / full-width glyphs render ~1em wide vs ~0.55em for Latin in Montserrat. */
+function isWideScriptChar(char: string): boolean {
+  const code = char.codePointAt(0) ?? 0;
+  return (
+    (code >= 0x3000 && code <= 0x9fff) ||
+    (code >= 0xff00 && code <= 0xffef) ||
+    (code >= 0x3040 && code <= 0x30ff)
+  );
+}
+
+/** Line length in Latin-equivalent units for fit-to-width clamp. */
+export function weightedLongestLineLength(...lines: string[]): number {
+  const wideToLatin = 1 / CHAR_WIDTH_EM;
+  const weights = lines.map((line) => {
+    let units = 0;
+    for (const char of line) {
+      units += isWideScriptChar(char) ? wideToLatin : 1;
+    }
+    return units;
+  });
+  return Math.max(0, ...weights);
+}

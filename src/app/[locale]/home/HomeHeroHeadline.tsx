@@ -3,7 +3,7 @@ import {
   computeHeroFitClamp,
   HERO_HEADLINE_FONT,
   HERO_HEADLINE_MOBILE_CLAMP,
-  longestLineLength,
+  weightedLongestLineLength,
 } from "./home-hero-typography";
 
 type HomeHeroHeadlineProps = {
@@ -18,7 +18,7 @@ export default function HomeHeroHeadline({
   titleMobileLines,
 }: HomeHeroHeadlineProps) {
   const desktopFontSize = computeHeroFitClamp(
-    longestLineLength(titleLine1, titleLine2),
+    weightedLongestLineLength(titleLine1, titleLine2),
     HERO_HEADLINE_FONT
   );
 

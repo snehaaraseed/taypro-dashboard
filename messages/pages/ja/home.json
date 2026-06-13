@@ -26,8 +26,8 @@
       "titleLine2": "それでも各プラントは年間少なくとも15%の発電を失う。",
       "titleMobileLine1": "インドでは18時間ごとに",
       "titleMobileLine2": "新しいソーラープラントが増える。",
-      "titleMobileLine3": "それでも各プラントは",
-      "titleMobileLine4": "年間少なくとも15%の発電を失う。",
+      "titleMobileLine3": "それでも各プラントは年間",
+      "titleMobileLine4": "少なくとも15%の発電を失う。",
       "subtitleLine1": "TAYPROは失われたエネルギーを回復する大規模ソーラー向け自律オペレーション層です",
       "subtitleLine2": "水なし、人手なし、運用制限なしで。",
       "statSystems": "導入システム数",
@@ -44,10 +44,7 @@
       "ctaQuoteSubtitle": "発電所情報を共有ください, GLYDE、HELYX、GLYDE-Xをご提案します。",
       "ctaExplore": "ロボットを見る",
       "ctaService": "清掃サービス",
-      "ctaRoi": "価格・ROI計算",
-      "titleLine1": "失われた発電を回復, ",
-      "titleHighlight": "自律オペレーション層",
-      "titleLine2": "大規模ソーラー向け, 水なしソーラーパネル洗浄ロボット上に構築。"
+      "ctaRoi": "価格・ROI計算"
     },
     "stats": {
       "methodologyBefore": "Fleet impact figures are modelled from live deployments. See our",
@@ -230,8 +227,8 @@
     "clients": {
       "heading": "主要クライアント",
       "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India.",
-      "logoAlt": "Tayproソーラー洗浄ロボットクライアント {index}",
-      "logoTitle": "Tayproソーラー洗浄ロボットクライアント {index}"
+      "logoAlt": "{name} — Tayproソーラー洗浄ロボットの導入クライアント",
+      "logoTitle": "{name}"
     },
     "faq": {
       "heading": "よくある質問",

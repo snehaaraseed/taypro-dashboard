@@ -3,7 +3,7 @@ import {
   computeHeroFitCqi,
   HERO_SUBHEAD_FONT,
   HERO_SUBHEAD_MOBILE_CLAMP,
-  longestLineLength,
+  weightedLongestLineLength,
 } from "./home-hero-typography";
 
 type HomeHeroSubheadlineProps = {
@@ -16,7 +16,7 @@ export default function HomeHeroSubheadline({
   subtitleLine2,
 }: HomeHeroSubheadlineProps) {
   const desktopFontSize = computeHeroFitCqi(
-    longestLineLength(subtitleLine1, subtitleLine2),
+    weightedLongestLineLength(subtitleLine1, subtitleLine2),
     HERO_SUBHEAD_FONT
   );
 

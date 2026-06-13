@@ -44,10 +44,7 @@
       "ctaQuoteSubtitle": "প্ল্যান্ট সম্পর্কে জানান, আমরা GLYDE, HELYX, বা GLYDE-X সুপারিশ করব।",
       "ctaExplore": "রোবট দেখুন",
       "ctaService": "পরিষ্কার সেবা",
-      "ctaRoi": "মূল্য ও ROI ক্যালকুলেটর",
-      "titleLine1": "হারানো উৎপাদন ফেরান, ",
-      "titleHighlight": "স্বায়ত্তশাসিত অপারেশন স্তর",
-      "titleLine2": "ইউটিলিটি-স্কেল সোলারের জন্য, জলবিহীন সোলার প্যানেল পরিষ্কার রোবটের উপর নির্মিত।"
+      "ctaRoi": "মূল্য ও ROI ক্যালকুলেটর"
     },
     "stats": {
       "methodologyBefore": "Fleet impact figures are modelled from live deployments. See our",
@@ -230,8 +227,8 @@
     "clients": {
       "heading": "আমাদের সম্মানিত গ্রাহক",
       "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India.",
-      "logoAlt": "Taypro সোলার প্যানেল পরিষ্কার রোবট ক্লায়েন্ট {index}",
-      "logoTitle": "Taypro সোলার প্যানেল পরিষ্কার রোবট ক্লায়েন্ট {index}"
+      "logoAlt": "{name} — Taypro সোলার প্যানেল পরিষ্কার রোবট ক্লায়েন্ট",
+      "logoTitle": "{name}"
     },
     "faq": {
       "heading": "প্রায়শই জিজ্ঞাসিত প্রশ্ন",
