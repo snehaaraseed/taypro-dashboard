@@ -19,6 +19,9 @@ const translationLogPath = path.join(
   "blog-translation-post-writer.log"
 );
 const TARGET_LOCALES = ["hi", "ar", "ja", "bn"];
+/** No JSON log lines for this long → treat worker as dead (e.g. PM2 restart). */
+const STALE_ACTIVITY_MS = 15 * 60 * 1000;
+/** Hard cap for an open worker_start without worker_done. */
 const MAX_OPEN_RUN_MS = 4 * 60 * 60 * 1000;
 
 function isProcessRunning(pid) {
@@ -30,24 +33,24 @@ function isProcessRunning(pid) {
   }
 }
 
-function isCatchupTranslationWorkerRunning() {
-  if (existsSync(lockPath)) {
-    const pid = Number.parseInt(readFileSync(lockPath, "utf8").trim(), 10);
-    if (Number.isFinite(pid) && pid > 0 && isProcessRunning(pid)) {
-      return true;
-    }
+function parseTranslationLogState() {
+  if (!existsSync(translationLogPath)) {
+    return { workerRunning: false, reason: "no_log" };
   }
-  return isTranslationRunOpenInLog();
-}
 
-function isTranslationRunOpenInLog() {
-  if (!existsSync(translationLogPath)) return false;
-  const lines = readFileSync(translationLogPath, "utf8").trim().split("\n").slice(-300);
+  const lines = readFileSync(translationLogPath, "utf8")
+    .trim()
+    .split("\n")
+    .slice(-500);
   let openStartTs = null;
+  let lastActivityTs = null;
+
   for (const line of lines) {
     try {
       const entry = JSON.parse(line);
-      if (entry.event === "worker_start") openStartTs = entry.ts ?? null;
+      if (!entry.event) continue;
+      if (entry.ts) lastActivityTs = entry.ts;
+      if (entry.event === "worker_start") openStartTs = entry.ts ?? openStartTs;
       if (entry.event === "worker_done" || entry.event === "worker_error") {
         openStartTs = null;
       }
@@ -55,10 +58,56 @@ function isTranslationRunOpenInLog() {
       // ignore shell log lines from start-post-writer-translations.sh
     }
   }
-  if (!openStartTs) return false;
+
+  if (!openStartTs) {
+    return {
+      workerRunning: false,
+      reason: "no_open_run",
+      lastActivityTs,
+    };
+  }
+
   const startedAt = new Date(openStartTs).getTime();
-  if (!Number.isFinite(startedAt)) return false;
-  return Date.now() - startedAt < MAX_OPEN_RUN_MS;
+  const lastAt = new Date(lastActivityTs ?? openStartTs).getTime();
+  const now = Date.now();
+
+  if (!Number.isFinite(startedAt) || !Number.isFinite(lastAt)) {
+    return { workerRunning: false, reason: "invalid_timestamps", openStartTs };
+  }
+  if (now - startedAt > MAX_OPEN_RUN_MS) {
+    return {
+      workerRunning: false,
+      reason: "max_run_exceeded",
+      openStartTs,
+      lastActivityTs,
+    };
+  }
+  if (now - lastAt > STALE_ACTIVITY_MS) {
+    return {
+      workerRunning: false,
+      reason: "stale_activity",
+      openStartTs,
+      lastActivityTs,
+      staleMinutes: Math.round((now - lastAt) / 60000),
+    };
+  }
+
+  return {
+    workerRunning: true,
+    reason: "active",
+    openStartTs,
+    lastActivityTs,
+  };
+}
+
+function isCatchupTranslationWorkerRunning() {
+  if (existsSync(lockPath)) {
+    const pid = Number.parseInt(readFileSync(lockPath, "utf8").trim(), 10);
+    if (Number.isFinite(pid) && pid > 0 && isProcessRunning(pid)) {
+      return { workerRunning: true, reason: "lock_pid", lockPid: pid };
+    }
+  }
+  return parseTranslationLogState();
 }
 
 function countSlugsNeedingTranslation(db, table) {
@@ -105,7 +154,8 @@ function main() {
     process.exit(0);
   }
 
-  const workerRunning = isCatchupTranslationWorkerRunning();
+  const runState = isCatchupTranslationWorkerRunning();
+  const workerRunning = runState.workerRunning === true;
   const db = new Database(dbPath, { readonly: true });
 
   let blogBacklog = 0;
@@ -123,6 +173,9 @@ function main() {
   console.log(
     JSON.stringify({
       workerRunning,
+      workerReason: runState.reason ?? null,
+      staleMinutes: runState.staleMinutes ?? null,
+      lastActivityTs: runState.lastActivityTs ?? null,
       blogBacklog,
       projectBacklog,
       pendingTotal,

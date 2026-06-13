@@ -36,7 +36,6 @@ import {
 } from "@/lib/seo/corpus-index";
 import {
   EditorialPreflightError,
-  formatPreFlightFailure,
   preFlightUniquenessProbe,
 } from "@/lib/seo/blog-preflight-gates";
 import type { BlogUniquenessContext } from "@/lib/seo/blog-plan-gates";
@@ -77,6 +76,21 @@ export function isCoverageLedgerEnabled(): boolean {
   const raw = process.env.COVERAGE_LEDGER_ENABLED?.trim().toLowerCase();
   if (raw === "false" || raw === "0") return false;
   return true;
+}
+
+const PREFLIGHT_FAILURE_PREFIX = "Pre-flight uniqueness failed";
+
+/** Seed-title probes are not final failures — drop stale preflight blocks from the ledger. */
+export function prunePreflightFailedSlots(): number {
+  const ledger = readLedgerFile();
+  const before = ledger.failed.length;
+  ledger.failed = ledger.failed.filter(
+    (row) => !row.reason.startsWith(PREFLIGHT_FAILURE_PREFIX)
+  );
+  if (ledger.failed.length < before) {
+    writeLedgerFile(ledger);
+  }
+  return before - ledger.failed.length;
 }
 
 export function buildSlotKey(keyword: string, angleId: string): string {
@@ -235,6 +249,16 @@ export type PickEditorialContractOptions = PickCoverageSlotOptions & {
   focusKeyword?: string;
 };
 
+type PickRelaxation = {
+  /** Omit or set undefined to scan all keywords (no campaign focus filter). */
+  focusKeyword?: string;
+  clearFocusKeyword?: boolean;
+  skipKeywordCorpusBlock?: boolean;
+  skipPreflight?: boolean;
+  skipArchetypeExhaustion?: boolean;
+  skipSeedArchetypeTitleMatch?: boolean;
+};
+
 function buildForbiddenArchetypeSet(
   keyword: string,
   angleMeta: AngleContractMeta
@@ -249,23 +273,29 @@ function buildForbiddenArchetypeSet(
   ];
 }
 
-export async function pickNextEditorialContract(
-  options?: PickEditorialContractOptions
+async function scanForEditorialContract(
+  options: PickEditorialContractOptions & PickRelaxation
 ): Promise<EditorialContract | null> {
   const filled = await loadFilledSlotKeys();
   const failed =
-    options?.skipFailed === false ? new Set<string>() : await loadFailedSlotKeys();
+    options.skipFailed === false
+      ? new Set<string>()
+      : await loadFailedSlotKeys();
   const excludedKeywords = new Set(
-    (options?.excludeKeywords ?? []).map((k) => k.toLowerCase().trim()).filter(Boolean)
+    (options.excludeKeywords ?? [])
+      .map((k) => k.toLowerCase().trim())
+      .filter(Boolean)
   );
-  const rejectedSlots = new Set(options?.rejectedSlotKeys ?? []);
+  const rejectedSlots = new Set(options.rejectedSlotKeys ?? []);
   const rows = loadSeoKeywordRows();
   const available = rows.filter(Boolean);
   const byKeyword = new Map(available.map((r) => [r.keyword, r]));
   const index = loadCorpusIndex();
-  const ctx = options?.uniquenessCtx;
-  const corpus = options?.corpus ?? [];
-  const focusKeyword = options?.focusKeyword?.toLowerCase().trim() || null;
+  const ctx = options.uniquenessCtx;
+  const corpus = options.corpus ?? [];
+  const focusKeyword = options.clearFocusKeyword
+    ? null
+    : options.focusKeyword?.toLowerCase().trim() || null;
 
   for (const slot of buildSlotCatalog()) {
     if (focusKeyword && slot.keyword.toLowerCase() !== focusKeyword) continue;
@@ -278,7 +308,7 @@ export async function pickNextEditorialContract(
     const row = byKeyword.get(slot.keyword);
     if (!row) continue;
 
-    if (corpus.length) {
+    if (corpus.length && !options.skipKeywordCorpusBlock) {
       const conflict = findKeywordCorpusConflict(slot.keyword, corpus);
       if (conflict) continue;
     }
@@ -288,11 +318,19 @@ export async function pickNextEditorialContract(
       slot.keyword,
       angleMeta
     );
-    if (exhaustedArchetypesForKeywordCluster(slot.keyword, index).has(angleMeta.archetype)) {
+    if (
+      !options.skipArchetypeExhaustion &&
+      exhaustedArchetypesForKeywordCluster(slot.keyword, index).has(
+        angleMeta.archetype
+      )
+    ) {
       continue;
     }
 
-    if (titleMatchesForbiddenArchetype(slot.seedTitle, forbiddenArchetypes)) {
+    if (
+      !options.skipSeedArchetypeTitleMatch &&
+      titleMatchesForbiddenArchetype(slot.seedTitle, forbiddenArchetypes)
+    ) {
       continue;
     }
 
@@ -301,7 +339,7 @@ export async function pickNextEditorialContract(
       angleMeta
     );
 
-    if (ctx && corpus.length) {
+    if (ctx && corpus.length && !options.skipPreflight) {
       const probe = await preFlightUniquenessProbe(
         {
           title: slot.seedTitle,
@@ -313,10 +351,6 @@ export async function pickNextEditorialContract(
         corpus
       );
       if (probe) {
-        markSlotFailed(
-          slot.slotKey,
-          formatPreFlightFailure(probe)
-        );
         continue;
       }
     }
@@ -337,6 +371,80 @@ export async function pickNextEditorialContract(
   }
 
   return null;
+}
+
+/** Strict pick for status previews — returns null when no slot passes default guards. */
+export async function pickNextEditorialContract(
+  options?: PickEditorialContractOptions
+): Promise<EditorialContract | null> {
+  return scanForEditorialContract({
+    ...options,
+    focusKeyword: options?.focusKeyword,
+  });
+}
+
+/**
+ * Ledger-only pick: walks progressively relaxed tiers until a keyword×angle contract is found.
+ * Same keyword with a different angle is allowed once strict keyword-level blocking is relaxed.
+ */
+export async function pickNextEditorialContractAlways(
+  options?: PickEditorialContractOptions
+): Promise<EditorialContract> {
+  const campaignFocus = options?.focusKeyword?.toLowerCase().trim() || null;
+  const tiers: Array<{
+    label: string;
+    relaxation: PickRelaxation & Pick<PickEditorialContractOptions, "skipFailed">;
+  }> = [
+    {
+      label: "campaign-focus",
+      relaxation: { focusKeyword: campaignFocus || undefined },
+    },
+    { label: "catalog-wide", relaxation: { clearFocusKeyword: true } },
+    {
+      label: "keyword-angle-reuse",
+      relaxation: { clearFocusKeyword: true, skipKeywordCorpusBlock: true },
+    },
+    {
+      label: "retry-failed-slots",
+      relaxation: {
+        clearFocusKeyword: true,
+        skipKeywordCorpusBlock: true,
+        skipFailed: false,
+      },
+    },
+    {
+      label: "minimal-guards",
+      relaxation: {
+        clearFocusKeyword: true,
+        skipKeywordCorpusBlock: true,
+        skipFailed: false,
+        skipPreflight: true,
+        skipArchetypeExhaustion: true,
+        skipSeedArchetypeTitleMatch: true,
+      },
+    },
+  ];
+
+  for (const tier of tiers) {
+    if (tier.label === "campaign-focus" && !campaignFocus) continue;
+
+    const contract = await scanForEditorialContract({
+      ...options,
+      ...tier.relaxation,
+    });
+    if (contract) {
+      if (tier.label !== "campaign-focus") {
+        console.info(
+          `Coverage ledger: picked via ${tier.label} → ${contract.slotKey}`
+        );
+      }
+      return contract;
+    }
+  }
+
+  throw new Error(
+    "Coverage ledger exhausted: no open keyword×angle slot remains in the catalog"
+  );
 }
 
 export async function pickNextCoverageSlot(
@@ -405,22 +513,45 @@ function isForbiddenTitle(
   return false;
 }
 
+export type TitleCheckpointContext = {
+  contract: EditorialContract;
+  description: string;
+  ctx: BlogUniquenessContext;
+  corpus: BlogSimilarityCorpusRow[];
+};
+
 export async function validateTitleCandidate(
   title: string,
   seoKeyword: string,
-  forbiddenTitles: string[]
+  forbiddenTitles: string[],
+  checkpoint?: TitleCheckpointContext
 ): Promise<boolean> {
   if (isForbiddenTitle(title, forbiddenTitles, seoKeyword)) return false;
   const slug = createSlug(title);
   const conflict = await findTitleConflict(title, slug);
-  return !conflict;
+  if (conflict) return false;
+  if (checkpoint) {
+    const match = await preFlightUniquenessProbe(
+      {
+        title,
+        description: checkpoint.description,
+        h2Outline: checkpoint.contract.h2Template,
+        slug,
+      },
+      checkpoint.ctx,
+      checkpoint.corpus
+    );
+    if (match) return false;
+  }
+  return true;
 }
 
 /** Code-first title pick from grounded SERP brief, then slot seed. */
 export async function pickTitleFromSerpBrief(
   brief: SerpResearchBrief,
   contract: EditorialContract,
-  forbiddenTitles: string[]
+  forbiddenTitles: string[],
+  checkpoint?: TitleCheckpointContext
 ): Promise<string | null> {
   const forbidden = [...forbiddenTitles];
   for (const r of brief.rankingTitles) {
@@ -431,14 +562,26 @@ export async function pickTitleFromSerpBrief(
     if (titleMatchesForbiddenArchetype(candidate, contract.forbiddenArchetypes)) {
       continue;
     }
-    if (await validateTitleCandidate(candidate, contract.keyword, forbidden)) {
+    if (
+      await validateTitleCandidate(
+        candidate,
+        contract.keyword,
+        forbidden,
+        checkpoint
+      )
+    ) {
       return candidate.trim();
     }
   }
 
   if (
     !titleMatchesForbiddenArchetype(contract.seedTitle, contract.forbiddenArchetypes) &&
-    (await validateTitleCandidate(contract.seedTitle, contract.keyword, forbidden))
+    (await validateTitleCandidate(
+      contract.seedTitle,
+      contract.keyword,
+      forbidden,
+      checkpoint
+    ))
   ) {
     return contract.seedTitle;
   }

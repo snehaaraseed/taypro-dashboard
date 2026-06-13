@@ -188,9 +188,21 @@ function parseSlotKeyKeyword(slotKey) {
   return idx > 0 ? slotKey.slice(0, idx) : null;
 }
 
+function prunePreflightFailed(failed) {
+  const kept = (failed ?? []).filter(
+    (row) => !String(row.reason ?? "").startsWith("Pre-flight uniqueness failed")
+  );
+  const removed = (failed ?? []).length - kept.length;
+  if (removed > 0) {
+    console.log(`Pruned ${removed} preflight-only failed slot(s)`);
+  }
+  return kept;
+}
+
 function main() {
   const ledgerPath = join(root, "data", "seo-coverage-filled.json");
   const ledger = loadJson(ledgerPath) ?? { filled: [], failed: [] };
+  ledger.failed = prunePreflightFailed(ledger.failed);
   const existing = new Set((ledger.filled ?? []).map((r) => r.slotKey));
   const filled = [...(ledger.filled ?? [])];
 

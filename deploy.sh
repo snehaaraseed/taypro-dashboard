@@ -161,6 +161,7 @@ EOF
         --exclude '.git' \
         --exclude 'data/cms.sqlite' \
         --exclude 'data/cms.sqlite-*' \
+        --exclude 'data/seo-coverage-filled.json' \
         --exclude 'data/gsc-oauth-tokens.json' \
         --exclude 'data/seo-gsc-boost.json' \
         --exclude 'data/gsc-latest-report.json' \

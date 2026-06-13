@@ -18,7 +18,6 @@ import { formatTopicCategory } from "@/lib/seo/keyword-stats";
 import {
   assertBlogDraftUnique,
   assertPlanUnique,
-  findKeywordCorpusConflict,
   findTitleConflict,
   loadBlogUniquenessContext,
 } from "@/lib/seo/blog-plan-gates";
@@ -35,10 +34,7 @@ import {
 } from "@/lib/seo/blog-similarity";
 import { formatWordCountPreview } from "@/lib/seo/blog-word-count-tier";
 import type { ResolveBlogWordCountInput } from "@/lib/seo/blog-word-count-tier";
-import {
-  pickTopicTitleHybrid,
-  planBlogAutomationHybrid,
-} from "@/lib/seo/blog-automation-hybrid";
+import { pickTopicTitleHybrid } from "@/lib/seo/blog-automation-hybrid";
 import { pickCategoryForSeoBrief } from "@/lib/cms/blog-author-expertise";
 import { pickAuthorForBlogTopic } from "@/lib/cms/authorService";
 import { resolveAuthorExpertiseTags } from "@/lib/cms/blog-author-expertise";
@@ -73,10 +69,11 @@ import {
   loadCachedSerpBrief,
   markSlotFailed,
   markSlotFilled,
-  pickNextEditorialContract,
+  pickNextEditorialContractAlways,
   pickTitleFromSerpBrief,
   persistBlogResearchBriefs,
   saveCachedSerpBrief,
+  validateTitleCandidate,
   type EditorialContract,
 } from "@/lib/seo/coverage-ledger";
 import {
@@ -106,34 +103,6 @@ function buildWordCountInput(input: {
     searchIntent: input.searchIntent,
     volumeBucket: input.volumeBucket,
     competitionIndex: input.competitionIndex,
-  };
-}
-
-async function pickAutomationTopic(
-  editorialContext: string,
-  rejectedTitles: string[],
-  automationPlan: Awaited<ReturnType<typeof planBlogAutomationHybrid>>
-): Promise<GeneratedTopic> {
-  const { author, category, seoBrief } = automationPlan;
-
-  if (!seoBrief?.primary) {
-    throw new Error("No SEO keyword available for topic selection");
-  }
-
-  const picked = await pickTopicTitleHybrid({
-    seoBrief,
-    category,
-    author,
-    editorialContext,
-    rejectedTitles,
-  });
-
-  return {
-    title: picked.title,
-    category: category.name,
-    seoKeyword: seoBrief.primary,
-    seoBrief,
-    angleId: picked.angleId,
   };
 }
 
@@ -214,26 +183,13 @@ async function resolveTopicFromLedger(input: {
         })
       : null);
 
-  let contract = await pickNextEditorialContract({
+  const contract = await pickNextEditorialContractAlways({
     excludeKeywords: input.rejectedKeywords,
     rejectedSlotKeys: input.rejectedSlotKeys,
     corpus: input.uniquenessCtx.corpus,
     uniquenessCtx: input.uniquenessCtx,
     focusKeyword: focusKeyword ?? undefined,
   });
-
-  if (!contract && focusKeyword) {
-    contract = await pickNextEditorialContract({
-      excludeKeywords: input.rejectedKeywords,
-      rejectedSlotKeys: input.rejectedSlotKeys,
-      corpus: input.uniquenessCtx.corpus,
-      uniquenessCtx: input.uniquenessCtx,
-    });
-  }
-
-  if (!contract) {
-    throw new Error("No editorial contract available for blog automation");
-  }
 
   const category = pickCategoryForSeoBrief(contract.seoBrief);
   const bylineAuthor = await pickAuthorForBlogTopic({
@@ -248,26 +204,51 @@ async function resolveTopicFromLedger(input: {
   );
 
   let serpCalls = 0;
+  const serpResearchInput = {
+    keyword: contract.keyword,
+    angle: contract.angleLabel,
+    audience: contract.audience,
+    forbiddenTitles,
+    forbiddenArchetypes: contract.forbiddenArchetypes,
+    saturatedH2Themes: contract.forbiddenH2Themes,
+    serpCallsSoFar: serpCalls,
+  };
   let serpBrief = loadCachedSerpBrief(contract.slotKey);
   if (!serpBrief) {
-    serpBrief = await runGroundedSerpResearch({
-      keyword: contract.keyword,
-      angle: contract.angleLabel,
-      audience: contract.audience,
-      forbiddenTitles,
-      forbiddenArchetypes: contract.forbiddenArchetypes,
-      saturatedH2Themes: contract.forbiddenH2Themes,
-      serpCallsSoFar: serpCalls,
-    });
+    serpBrief = await runGroundedSerpResearch(serpResearchInput);
     serpCalls += 1;
     saveCachedSerpBrief(contract.slotKey, serpBrief);
   }
 
+  const lockedDescription = contract.syntheticMetaDescription;
+  const titleCheckpoint = {
+    contract,
+    description: lockedDescription,
+    ctx: input.uniquenessCtx,
+    corpus: input.uniquenessCtx.corpus,
+  };
+
   let title = await pickTitleFromSerpBrief(
     serpBrief,
     contract,
-    forbiddenTitles
+    forbiddenTitles,
+    titleCheckpoint
   );
+
+  if (!title && loadCachedSerpBrief(contract.slotKey)) {
+    serpBrief = await runGroundedSerpResearch({
+      ...serpResearchInput,
+      serpCallsSoFar: serpCalls,
+    });
+    serpCalls += 1;
+    saveCachedSerpBrief(contract.slotKey, serpBrief);
+    title = await pickTitleFromSerpBrief(
+      serpBrief,
+      contract,
+      forbiddenTitles,
+      titleCheckpoint
+    );
+  }
 
   if (!title) {
     const fallback = await pickTopicTitleHybrid({
@@ -277,14 +258,35 @@ async function resolveTopicFromLedger(input: {
       editorialContext: input.editorialContext,
       rejectedTitles: input.rejectedTitles,
     });
-    title = fallback.title;
+    if (
+      fallback.title &&
+      (await validateTitleCandidate(
+        fallback.title,
+        contract.keyword,
+        forbiddenTitles,
+        titleCheckpoint
+      ))
+    ) {
+      title = fallback.title;
+    }
   }
 
-  if (!title) {
+  if (
+    !title &&
+    (await validateTitleCandidate(
+      contract.seedTitle,
+      contract.keyword,
+      forbiddenTitles,
+      titleCheckpoint
+    ))
+  ) {
     title = contract.seedTitle;
   }
 
-  const lockedDescription = contract.syntheticMetaDescription;
+  if (!title) {
+    throw new Error(`No unique title for coverage slot ${contract.slotKey}`);
+  }
+
   await assertCheckpointB(
     contract,
     title,
@@ -393,64 +395,33 @@ export async function POST(request: NextRequest) {
         let bylineAuthor: Awaited<ReturnType<typeof pickAuthorForBlogTopic>>;
         let plannedCategoryName: string;
 
-        if (ledgerEnabled) {
-          const ledgerResult = await resolveTopicFromLedger({
-            editorialContext,
-            rejectedTitles,
-            rejectedKeywords,
-            rejectedSlotKeys,
-            uniquenessCtx,
-          });
-          topic = ledgerResult.topic;
-          bylineAuthor = ledgerResult.bylineAuthor;
-          plannedCategoryName = ledgerResult.categoryName;
-          editorialContract = ledgerResult.contract;
-          attemptedSlotKey = ledgerResult.contract.slotKey;
-          serpBrief = ledgerResult.serpBrief;
-          factBrief = ledgerResult.factBrief;
-          serpCallsThisRun = ledgerResult.serpCalls;
-          lockedDescription = ledgerResult.lockedDescription;
-          forbiddenAngles = ledgerResult.forbiddenAngles;
-          campaignFocusKeyword = ledgerResult.focusKeyword;
-          for (const entry of forbiddenAngles) {
-            trackExcludedCorpusSlug(excludeKnowledgeSlugs, entry.slug);
-          }
-        } else {
-          const automationPlan = await planBlogAutomationHybrid(
-            editorialContext,
-            pickAuthorForBlogTopic,
-            {
-              excludeKeywords: rejectedKeywords,
-              corpus: uniquenessCtx.corpus,
-            }
+        if (!ledgerEnabled) {
+          console.warn(
+            "COVERAGE_LEDGER_ENABLED=false — blog automation still uses the coverage ledger pipeline"
           );
-          bylineAuthor = automationPlan.author;
-          plannedCategoryName = automationPlan.category.name;
+        }
 
-          if (!automationPlan.seoBrief?.primary) {
-            throw new Error("No SEO keyword available for topic selection");
-          }
+        const ledgerResult = await resolveTopicFromLedger({
+          editorialContext,
+          rejectedTitles,
+          rejectedKeywords,
+          rejectedSlotKeys,
+          uniquenessCtx,
+        });
 
-          const keywordConflict = findKeywordCorpusConflict(
-            automationPlan.seoBrief.primary,
-            uniquenessCtx.corpus
-          );
-          if (keywordConflict) {
-            trackRejectedKeyword(
-              rejectedKeywords,
-              automationPlan.seoBrief.primary
-            );
-            trackExcludedCorpusSlug(excludeKnowledgeSlugs, keywordConflict.slug);
-            throw new Error(
-              `Keyword "${automationPlan.seoBrief.primary}" already covered by existing post (${keywordConflict.reason}, score ${keywordConflict.score.toFixed(2)}): "${keywordConflict.title}" (${keywordConflict.slug})`
-            );
-          }
-
-          topic = await pickAutomationTopic(
-            editorialContext,
-            rejectedTitles,
-            automationPlan
-          );
+        topic = ledgerResult.topic;
+        bylineAuthor = ledgerResult.bylineAuthor;
+        plannedCategoryName = ledgerResult.categoryName;
+        editorialContract = ledgerResult.contract;
+        attemptedSlotKey = ledgerResult.contract.slotKey;
+        serpBrief = ledgerResult.serpBrief;
+        factBrief = ledgerResult.factBrief;
+        serpCallsThisRun = ledgerResult.serpCalls;
+        lockedDescription = ledgerResult.lockedDescription;
+        forbiddenAngles = ledgerResult.forbiddenAngles;
+        campaignFocusKeyword = ledgerResult.focusKeyword;
+        for (const entry of forbiddenAngles) {
+          trackExcludedCorpusSlug(excludeKnowledgeSlugs, entry.slug);
         }
 
         if (!topic.seoBrief?.primary) {
@@ -730,7 +701,11 @@ export async function POST(request: NextRequest) {
           `Blog pipeline attempt ${pipelineAttempt + 1} failed (${failureKind}), picking new topic:`,
           msg
         );
-        if (attemptedSlotKey && ledgerEnabled) {
+        if (
+          attemptedSlotKey &&
+          ledgerEnabled &&
+          !(error instanceof EditorialPreflightError)
+        ) {
           markSlotFailed(attemptedSlotKey, msg);
         }
         continue;
@@ -774,19 +749,11 @@ export async function GET(request: NextRequest) {
     const focusEntry = focusKeyword
       ? getKeywordCampaignEntry(focusKeyword)
       : null;
-    const nextContract = isCoverageLedgerEnabled()
-      ? await pickNextEditorialContract({
-          corpus: uniquenessCtx.corpus,
-          uniquenessCtx,
-          focusKeyword: focusKeyword ?? undefined,
-        }).then(async (contract) => {
-          if (contract || !focusKeyword) return contract;
-          return pickNextEditorialContract({
-            corpus: uniquenessCtx.corpus,
-            uniquenessCtx,
-          });
-        })
-      : null;
+    const nextContract = await pickNextEditorialContractAlways({
+      corpus: uniquenessCtx.corpus,
+      uniquenessCtx,
+      focusKeyword: focusKeyword ?? undefined,
+    }).catch(() => null);
 
     return NextResponse.json({
       ...schedule,

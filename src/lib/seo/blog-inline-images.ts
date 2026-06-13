@@ -12,6 +12,7 @@ import {
   generateBlogInlineImage,
   isImageGenerationError,
 } from "@/lib/seo/blog-image-generate";
+import { getPollinationsImageModel } from "@/lib/seo/blog-image-generate-pollinations";
 import {
   getBlogImageMode,
   shouldUseProductLibraryImage,
@@ -224,7 +225,7 @@ export async function pickBlogInlineImage(input: {
 
   if (!useLibrary) {
     console.info(
-      `Blog inline image: Pollinations (${process.env.POLLINATIONS_IMAGE_MODEL?.trim() || "flux"}) for non-product post`
+      `Blog inline image: Pollinations (${getPollinationsImageModel()}) for non-product post`
     );
     try {
       const generated = await generateBlogInlineImage({

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Every 5 min: after 00:30 Pacific (Gemini RPD resets at midnight PT), write one blog,
 # schedule publish 09:00–17:00 IST, then start translation until quota or midnight IST.
-# If today's writer is done (done-YYYYMMDD), still recover translation every 5 min when
-# the worker is down and blogs/projects remain in the backlog.
+# Every tick: recover translation when backlog exists and worker is down (even without
+# done-YYYYMMDD — e.g. after PM2 restart). Writer only runs when done-* is missing.
 set -euo pipefail
 
 ROOT="${TAYPRO_APP_ROOT:-/var/www/taypro-dashboard}"
@@ -52,8 +52,9 @@ maybe_recover_translation() {
   fi
 }
 
+maybe_recover_translation
+
 if [ -f "$DONE_FILE" ]; then
-  maybe_recover_translation
   exit 0
 fi
 
@@ -121,6 +122,7 @@ ENDPOINT="${API_BASE%/}/api/automation/generate-blog"
       ;;
     *)
       echo "$(date -Is) generate-blog failed; will retry on next cron tick" >> "$LOG"
+      maybe_recover_translation
       ;;
   esac
 } >> "$LOG" 2>&1

@@ -87,8 +87,8 @@ async function generatePollinationsHero(input) {
   const key = process.env.POLLINATIONS_API_KEY?.trim();
   if (!key) throw new Error("POLLINATIONS_API_KEY is not set");
 
-  const model = process.env.POLLINATIONS_IMAGE_MODEL?.trim() || "flux";
-  const size = process.env.POLLINATIONS_IMAGE_SIZE?.trim() || "1024x576";
+  const model = process.env.POLLINATIONS_IMAGE_MODEL?.trim() || "grok-imagine-pro";
+  const size = process.env.POLLINATIONS_IMAGE_SIZE?.trim() || "1280x720";
   const prompt = buildPrompt(input.title, input.description, input.seoKeyword);
 
   const response = await fetch("https://gen.pollinations.ai/v1/images/generations", {
