@@ -89,22 +89,31 @@ GEMINI_CALL_DELAY_MS=5000
 
 Structure validation failures (too short, missing H2s/links) now trigger a **new outer attempt** with a different editorial contract — not a single fail-and-stop.
 
-**Server crontab (host clock is UTC; use explicit UTC offsets — `CRON_TZ` in user crontab is ignored on some Ubuntu images):**
+**Blog writer schedule**
+
+| Setting | Default | Purpose |
+|---------|---------|---------|
+| `GEMINI_QUOTA_SOFT_START_MINUTES` | `30` | Writer starts at **00:30 Pacific** (~**1:00 PM IST**) after RPD reset at midnight PT (~12:30 IST) |
+| `GEMINI_GROUNDING_MODEL` | `gemini-2.5-flash` | Search grounding only (SERP + facts); ~20 RPD free tier |
+| `GEMINI_BLOG_MODEL` | `gemini-3.1-flash-lite` | Topic, title, plan, body — ~500 RPD |
+| `GEMINI_SERP_MAX_CALLS_PER_BLOG` | `2` | Max grounding calls per blog (1 SERP + 1 fact) |
+
+When **2.5 Flash grounding** RPD is hit, the blog **continues on 3.1 Flash Lite** without live SERP/facts. Cron `quotaExhausted` hold applies only when **3.1 text-model** quota is exhausted.
+
+**Server crontab:**
 
 ```bash
-# Blog writer: random 9:00–15:00 IST (IST = UTC+5:30)
-30,35,40,45,50,55 3 * * * /var/www/taypro-dashboard/scripts/cron-generate-blog.sh
-*/5 4-8 * * * /var/www/taypro-dashboard/scripts/cron-generate-blog.sh
-0,5,10,15,20,25,30 9 * * * /var/www/taypro-dashboard/scripts/cron-generate-blog.sh
+# Blog writer + translation recovery (00:30 Pacific soft start in cron-generate-blog.sh)
+*/5 * * * * /var/www/taypro-dashboard/scripts/cron-generate-blog.sh
 
-# Translations: 18:00 IST = 12:30 UTC
-30 12 * * * /var/www/taypro-dashboard/scripts/cron-translate-blogs-daily.sh
+# Scheduled publish (separate installer)
+# ... install-scheduled-publish-cron.sh
 
 # GSC boost refresh: Monday 06:30 IST = 01:00 UTC
 0 1 * * 1 /var/www/taypro-dashboard/scripts/cron-sync-gsc-boost.sh
 ```
 
-The bash script still sets `TZ=Asia/Kolkata` for the random 9:00–15:00 window and daily cap checks.
+Re-install after deploy: `bash scripts/install-blog-automation-cron.sh`
 
 After deploy, run once if needed: `npm run cms:sync-published-topics` (adds `published_topics.h2_outline` / `content_fingerprint`).
 

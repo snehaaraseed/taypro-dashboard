@@ -85,11 +85,13 @@
       "eyebrow": "Product engineering",
       "title": "GLYDE hardware at a glance",
       "subtitle": "Patented dual-pass cleaning on module-frame rails, autonomous docking, and fleet connectivity built for utility-scale fixed-tilt plants.",
-      "primaryAlt": "Taypro GLYDE TR-150 automatic cleaning robot, plan view showing rails and dual-pass cleaning elements",
-      "primaryCaption": "GLYDE TR-150 travels along the module frame with patented dual-pass microfiber cleaning.",
-      "mechanismAlt": "Close-up of Taypro GLYDE dual-pass rotating microfiber cleaning drum, wheels, and wireless antenna",
-      "mechanismCaption": "Rotating self-cleaning microfiber drum, frame-mounted travel, and remote monitoring antenna.",
-      "dockingAlt": "Taypro GLYDE shadow-free docking station with integrated solar charging for autonomous daily cycles",
+      "primaryAlt": "Taypro GLYDE automatic cleaning robot, top-down view showing integrated solar panel and dual-pass cleaning frame",
+      "primaryCaption": "Top-down view of GLYDE on its travel frame with on-board solar charging and dual-pass cleaning assembly.",
+      "sideAlt": "Taypro GLYDE side profile showing module-frame rails, travel mechanism, and end housings",
+      "sideCaption": "Side profile of the GLYDE rail system engineered for long-reach fixed-tilt rows.",
+      "modularAlt": "Taypro GLYDE modular exploded view showing rails, wheels, and GLYDE drive unit",
+      "modularCaption": "Modular rail, wheel, and drive-unit layout — each array ships as a field-assembled GLYDE system.",
+      "dockingAlt": "Taypro GLYDE shadow-free docking power unit with integrated solar charging for autonomous daily cycles",
       "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array."
     },
     "howToSection": {

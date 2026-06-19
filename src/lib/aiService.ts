@@ -70,8 +70,9 @@ import {
 import {
   isBodyHygieneOnlyFailure,
   sanitizeGeneratedBlogBodyHtml,
+  stripPriorH2Sections,
 } from "@/lib/seo/blog-body-hygiene";
-import { stripHtmlToPlainText } from "@/lib/seo/blog-similarity";
+import { extractH2Headings, stripHtmlToPlainText } from "@/lib/seo/blog-similarity";
 import { parseBlogContentPlanJson } from "@/lib/seo/blog-content-plan";
 import type { BlogContentPlan } from "@/lib/seo/blog-content-plan";
 export type { BlogContentPlan } from "@/lib/seo/blog-content-plan";
@@ -84,8 +85,10 @@ import {
   buildFaqWriterPrompt,
   buildSectionWriterPrompt,
   chunkH2Outline,
+  missingH2OutlineSections,
   type SectionWriterContext,
 } from "@/lib/seo/blog-section-writer";
+import { parseGeminiJsonObject } from "@/lib/gemini/parse-json-response";
 
 function getGenAI(): GoogleGenerativeAI {
   return new GoogleGenerativeAI(listGeminiApiKeys()[0]);
@@ -472,15 +475,7 @@ function parseBlogJsonFromText(text: string): {
   content: string;
   faqs?: unknown;
 } {
-  try {
-    return JSON.parse(text);
-  } catch {
-    const jsonMatch = text.match(/\{[\s\S]*\}/);
-    if (jsonMatch) {
-      return JSON.parse(jsonMatch[0]);
-    }
-    throw new Error("Could not parse JSON from AI response");
-  }
+  return parseGeminiJsonObject(text);
 }
 
 function normalizeParsedBlog(
@@ -553,6 +548,7 @@ Return ONLY valid JSON:
 
 Rules:
 - content MUST be at least ${minWords} words (target ${wordPolicy.targetMin}–${wordPolicy.targetMax}). You need ~${wordsNeeded} more words than the draft above.
+- Expand EXISTING sections in place; do NOT repeat or duplicate H2 headings.
 - Opening <p> must directly answer the title in 2-3 sentences.
 - Keep "Quick answer" H2 and one question-shaped H2.
 - No "Frequently asked questions" heading in HTML.
@@ -728,7 +724,11 @@ ${draft.content}
 ${wordCountRules}
 ${PUNCTUATION_RULES}
 
-Return ONLY valid JSON with the FULL merged HTML in "content" (original + new sections), same 4 faqs updated if needed, title 50-60 chars (max 72), description 150-160 chars.`;
+Return ONLY valid JSON with the FULL merged HTML in "content" (original + new sections), same 4 faqs updated if needed, title 50-60 chars (max 72), description 150-160 chars.
+
+Rules:
+- Do NOT duplicate any existing H2 heading from EXISTING HTML; add only NEW H2 sections not already present.
+- Insert new sections BEFORE any "Key takeaways" / "What plant managers" H2.`;
 
   const text = await generateText(
     prompt,
@@ -773,32 +773,84 @@ async function generateBlogBodyFromPlan(
 
   const chunks = chunkH2Outline(plan.h2Outline, 2);
   const htmlParts: string[] = [];
+  const priorH2Keys = new Set<string>();
 
-  for (let i = 0; i < chunks.length; i++) {
-    const previousSectionsHtml = assembleSectionHtml(htmlParts);
-    const prompt = buildSectionWriterPrompt(sectionCtx, plan, chunks[i], {
-      isFirstChunk: i === 0,
-      sectionIndex: i,
-      totalSections: chunks.length,
-      previousSectionsHtml: i > 0 ? previousSectionsHtml : undefined,
-    });
-    const text = await generateText(
-      prompt,
-      blogSectionTextOptions({ ...options, purpose: "blog_section" })
-    );
-    let html: string;
-    try {
-      html = JSON.parse(text.match(/\{[\s\S]*\}/)?.[0] ?? text).html;
-    } catch {
-      throw new Error("Could not parse section HTML from AI response");
+  async function ingestSectionHtml(
+    rawHtml: string,
+    chunkIndex: number,
+    chunkTotal: number
+  ): Promise<boolean> {
+    let sectionHtml = sanitizeEmDash(String(rawHtml).trim());
+    if (!sectionHtml) return false;
+    sectionHtml = stripPriorH2Sections(sectionHtml, priorH2Keys);
+    if (!sectionHtml.trim()) {
+      console.warn(
+        `Section writer chunk ${chunkIndex + 1}/${chunkTotal} only repeated prior H2s; will retry missing sections`
+      );
+      return false;
     }
-    if (!html?.trim()) {
-      throw new Error("Section writer returned empty HTML");
+    for (const key of extractH2Headings(sectionHtml)) {
+      priorH2Keys.add(key);
     }
-    htmlParts.push(sanitizeEmDash(String(html).trim()));
+    htmlParts.push(sectionHtml);
+    return true;
   }
 
-  const content = assembleSectionHtml(htmlParts);
+  async function writeSectionChunk(
+    sectionH2s: string[],
+    chunkIndex: number,
+    chunkTotal: number,
+    maxRetries = 2
+  ): Promise<void> {
+    for (let retry = 0; retry < maxRetries; retry++) {
+      const previousSectionsHtml = assembleSectionHtml(htmlParts);
+      const prompt = buildSectionWriterPrompt(sectionCtx, plan, sectionH2s, {
+        isFirstChunk: htmlParts.length === 0,
+        sectionIndex: chunkIndex,
+        totalSections: chunkTotal,
+        previousSectionsHtml:
+          previousSectionsHtml.trim().length > 0 ? previousSectionsHtml : undefined,
+      });
+      const text = await generateText(
+        prompt,
+        blogSectionTextOptions({ ...options, purpose: "blog_section" })
+      );
+      const parsed = parseGeminiJsonObject<{ html?: string }>(text);
+      const html = parsed.html;
+      if (!html?.trim()) {
+        continue;
+      }
+      if (await ingestSectionHtml(html, chunkIndex, chunkTotal)) {
+        return;
+      }
+    }
+  }
+
+  for (let i = 0; i < chunks.length; i++) {
+    await writeSectionChunk(chunks[i], i, chunks.length);
+  }
+
+  const missingH2s = missingH2OutlineSections(plan.h2Outline, priorH2Keys);
+  if (missingH2s.length > 0) {
+    console.warn(
+      `Section writer missing ${missingH2s.length} planned H2(s); writing individually`
+    );
+    for (let i = 0; i < missingH2s.length; i++) {
+      await writeSectionChunk([missingH2s[i]], chunks.length + i, chunks.length + missingH2s.length, 3);
+    }
+  }
+
+  const stillMissing = missingH2OutlineSections(plan.h2Outline, priorH2Keys);
+  if (stillMissing.length > 0) {
+    throw new Error(
+      `Section writer produced incomplete article (missing H2s: ${stillMissing.slice(0, 4).join("; ")})`
+    );
+  }
+
+  const content = sanitizeGeneratedBlogBodyHtml(assembleSectionHtml(htmlParts), {
+    title: topic,
+    primaryKeyword: ctx.primaryKeyword,
+  });
   const faqPrompt = buildFaqWriterPrompt(sectionCtx, plan, content);
   let faqs: BlogFaqItem[] = [];
   for (let attempt = 0; attempt < 2 && faqs.length < 4; attempt++) {
@@ -949,7 +1001,7 @@ Rules:
     faqQuestions?: unknown;
   };
   try {
-    parsed = JSON.parse(text.match(/\{[\s\S]*\}/)?.[0] ?? text);
+    parsed = parseGeminiJsonObject(text);
   } catch {
     throw new Error("Could not parse outline JSON from AI response");
   }

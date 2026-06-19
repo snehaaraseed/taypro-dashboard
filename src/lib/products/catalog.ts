@@ -76,9 +76,11 @@ export const PRODUCT_CATALOG: Record<ProductId, ProductCatalogEntry> = {
     itemGroup: "Automatic Robot",
     href: GLYDE_PATH,
     imagePath: "/tayprorobots/glyde/hero.webp",
-    heroDimensions: { width: 1024, height: 724 },
+    heroDimensions: { width: 1024, height: 683 },
     detailImages: [
-      "/tayprorobots/glyde/dual-pass-mechanism.webp",
+      "/tayprorobots/glyde/top-view.webp",
+      "/tayprorobots/glyde/side-view.webp",
+      "/tayprorobots/glyde/modular.webp",
       "/tayprorobots/glyde/docking-power-unit.webp",
     ],
     i18nNamespace: "GlydePage",

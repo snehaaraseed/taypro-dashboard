@@ -292,7 +292,7 @@ export function buildSyntheticMetaDescription(
   keyword: string,
   contract: AngleContractMeta
 ): string {
-  const kw = keyword.replace(/\b\w/g, (c) => c.toUpperCase());
+  const kw = keyword.trim().toLowerCase();
   const base = `${contract.structuralPromise} for ${kw} on Indian MW plants: ${contract.requiredDifferentiator}.`;
   const trimmed = base.slice(0, 160).trim();
   if (trimmed.length >= 120) return trimmed;

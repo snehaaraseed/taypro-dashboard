@@ -63,7 +63,7 @@ export const OG_PRESETS = {
   },
   glyde: {
     path: "/tayprorobots/glyde/hero.png",
-    alt: "Taypro GLYDE TR-150 automatic solar panel cleaning robot",
+    alt: "Taypro GLYDE automatic solar panel cleaning robot operating on a utility-scale solar array",
   },
   helyx: {
     path: "/tayprorobots/helyx/hero.png",

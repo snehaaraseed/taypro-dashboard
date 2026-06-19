@@ -109,6 +109,8 @@ ${AI_OVERVIEW_SNIPPET_RULES}
 ${ctx.wordCountRules ?? LONG_FORM_CONTENT_RULES}
 
 Rules:
+- Output HTML for ONLY the H2 sections listed in "Write ONLY these H2 sections" above.
+- Do NOT repeat or rewrite any H2 from ARTICLE SO FAR — continue after the last paragraph only.
 - Every H2 in this chunk must advance the title intent; do not insert unrelated cleaning-robot sales sections.
 - Target ${sectionH2s.length * (ctx.structurePolicy?.wordsPerH2ChunkMin ?? 350)}–${sectionH2s.length * (ctx.structurePolicy?.wordsPerH2ChunkMax ?? 500)} words for this chunk.
 - Match voice, facts, and MW/%/INR ranges used in prior sections; do not contradict.
@@ -156,4 +158,38 @@ Rules:
 
 export function assembleSectionHtml(parts: string[]): string {
   return parts.map((p) => p.trim()).filter(Boolean).join("\n\n");
+}
+
+function normalizeOutlineH2Key(text: string): string {
+  return text
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+/** Whether a planned outline H2 is already represented in written sections. */
+export function h2OutlineCovered(
+  plannedH2: string,
+  writtenH2Keys: Set<string>
+): boolean {
+  const planned = normalizeOutlineH2Key(plannedH2);
+  if (!planned) return true;
+  for (const written of writtenH2Keys) {
+    if (written === planned || written.includes(planned) || planned.includes(written)) {
+      return true;
+    }
+    const plannedWords = planned.split(/\s+/).filter((w) => w.length > 3);
+    if (plannedWords.length === 0) continue;
+    const hits = plannedWords.filter((w) => written.includes(w)).length;
+    if (hits >= Math.ceil(plannedWords.length * 0.5)) return true;
+  }
+  return false;
+}
+
+export function missingH2OutlineSections(
+  h2Outline: string[],
+  writtenH2Keys: Set<string>
+): string[] {
+  return h2Outline.filter((h2) => !h2OutlineCovered(h2, writtenH2Keys));
 }

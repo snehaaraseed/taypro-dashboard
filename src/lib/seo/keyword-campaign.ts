@@ -6,6 +6,7 @@ import { getDeploymentRoot } from "@/app/utils/deploymentRoot";
 import {
   buildSlotCatalog,
   loadFilledSlotKeys,
+  loadPermanentFailedSlotKeys,
 } from "@/lib/seo/coverage-ledger";
 import type { GscOpportunity } from "@/lib/seo/gsc-sync";
 import {
@@ -162,9 +163,11 @@ function queueOrderIndex(keyword: string): number {
 
 async function keywordsWithOpenSlots(): Promise<Set<string>> {
   const filled = await loadFilledSlotKeys();
+  const permanentFailed = await loadPermanentFailedSlotKeys();
   const open = new Set<string>();
   for (const slot of buildSlotCatalog()) {
     if (filled.has(slot.slotKey)) continue;
+    if (permanentFailed.has(slot.slotKey)) continue;
     open.add(slot.keyword.toLowerCase().trim());
   }
   return open;

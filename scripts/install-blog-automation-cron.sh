@@ -4,13 +4,14 @@ set -euo pipefail
 
 ROOT="${TAYPRO_APP_ROOT:-/var/www/taypro-dashboard}"
 WRITER_SCRIPT="$ROOT/scripts/cron-generate-blog.sh"
-WRITER_LINE="*/5 * * * * $WRITER_SCRIPT # taypro-blog-writer"
+WRITER_LINE="*/5 * * * * $WRITER_SCRIPT # taypro-blog-writer (00:30 PT soft start in script)"
 WRITER_MARKER="taypro-blog-writer"
 DEPRECATED_TRANSLATION_MARKER="taypro-blog-translations"
 
 if [ ! -x "$WRITER_SCRIPT" ]; then
   chmod +x "$WRITER_SCRIPT"
 fi
+chmod +x "$ROOT/scripts/blog-writer-cron-gate.mjs" 2>/dev/null || true
 chmod +x "$ROOT/scripts/start-post-writer-translations.sh" 2>/dev/null || true
 chmod +x "$ROOT/scripts/translation-recovery-status.mjs" 2>/dev/null || true
 chmod +x "$ROOT/scripts/cron-translate-blogs-daily.sh" 2>/dev/null || true

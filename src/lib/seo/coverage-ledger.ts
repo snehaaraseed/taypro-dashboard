@@ -39,6 +39,9 @@ import {
   preFlightUniquenessProbe,
 } from "@/lib/seo/blog-preflight-gates";
 import type { BlogUniquenessContext } from "@/lib/seo/blog-plan-gates";
+import { pickTopicTitleHybrid } from "@/lib/seo/blog-automation-hybrid";
+import type { BlogAuthor } from "@/app/data/blogAuthors";
+import type { TopicCategory } from "@/lib/topicCategories";
 
 export type EditorialContract = CoverageSlot &
   AngleContractMeta & {
@@ -79,6 +82,44 @@ export function isCoverageLedgerEnabled(): boolean {
 }
 
 const PREFLIGHT_FAILURE_PREFIX = "Pre-flight uniqueness failed";
+
+/** Failures that must never be retried by retry-failed-slots / minimal-guards tiers. */
+export const PERMANENT_SLOT_FAILURE_MARKERS = [
+  "No unique title for coverage slot",
+  PREFLIGHT_FAILURE_PREFIX,
+  "Topic already published",
+  "already covered by existing post",
+] as const;
+
+export function isPermanentSlotFailure(reason: string): boolean {
+  return PERMANENT_SLOT_FAILURE_MARKERS.some((marker) =>
+    reason.includes(marker)
+  );
+}
+
+/** Thrown when every title candidate for a slot is blocked — slot must not be retried. */
+export class SlotTitleExhaustedError extends Error {
+  readonly slotKey: string;
+  readonly keyword: string;
+
+  constructor(slotKey: string, keyword: string) {
+    super(`No unique title for coverage slot ${slotKey}`);
+    this.name = "SlotTitleExhaustedError";
+    this.slotKey = slotKey;
+    this.keyword = keyword;
+  }
+}
+
+export async function loadPermanentFailedSlotKeys(): Promise<Set<string>> {
+  const permanent = new Set<string>();
+  const ledger = readLedgerFile();
+  for (const row of ledger.failed) {
+    if (row.slotKey && isPermanentSlotFailure(row.reason)) {
+      permanent.add(row.slotKey);
+    }
+  }
+  return permanent;
+}
 
 /** Seed-title probes are not final failures — drop stale preflight blocks from the ledger. */
 export function prunePreflightFailedSlots(): number {
@@ -236,6 +277,14 @@ export function buildSlotCatalog(): Omit<CoverageSlot, "seoBrief">[] {
   return slots;
 }
 
+/** Rotate catalog scan order by UTC day so cron does not always hit the same keywords first. */
+export function rotatedSlotCatalog(): Omit<CoverageSlot, "seoBrief">[] {
+  const slots = buildSlotCatalog();
+  if (slots.length <= 1) return slots;
+  const dayOffset = Math.floor(Date.now() / 86_400_000) % slots.length;
+  return [...slots.slice(dayOffset), ...slots.slice(0, dayOffset)];
+}
+
 export type PickCoverageSlotOptions = {
   excludeKeywords?: string[];
   rejectedSlotKeys?: string[];
@@ -277,10 +326,11 @@ async function scanForEditorialContract(
   options: PickEditorialContractOptions & PickRelaxation
 ): Promise<EditorialContract | null> {
   const filled = await loadFilledSlotKeys();
-  const failed =
-    options.skipFailed === false
-      ? new Set<string>()
-      : await loadFailedSlotKeys();
+  const permanentFailed = await loadPermanentFailedSlotKeys();
+  const allFailed = await loadFailedSlotKeys();
+  /** retry-failed-slots may retry transient failures only — never permanent blocks. */
+  const failedToSkip =
+    options.skipFailed === false ? permanentFailed : allFailed;
   const excludedKeywords = new Set(
     (options.excludeKeywords ?? [])
       .map((k) => k.toLowerCase().trim())
@@ -297,10 +347,11 @@ async function scanForEditorialContract(
     ? null
     : options.focusKeyword?.toLowerCase().trim() || null;
 
-  for (const slot of buildSlotCatalog()) {
+  for (const slot of rotatedSlotCatalog()) {
     if (focusKeyword && slot.keyword.toLowerCase() !== focusKeyword) continue;
     if (filled.has(slot.slotKey)) continue;
-    if (failed.has(slot.slotKey)) continue;
+    if (permanentFailed.has(slot.slotKey)) continue;
+    if (failedToSkip.has(slot.slotKey)) continue;
     if (rejectedSlots.has(slot.slotKey)) continue;
     if (excludedKeywords.has(slot.keyword)) continue;
     if (isCompetitorPrimaryKeyword(slot.keyword)) continue;
@@ -405,14 +456,6 @@ export async function pickNextEditorialContractAlways(
       relaxation: { clearFocusKeyword: true, skipKeywordCorpusBlock: true },
     },
     {
-      label: "retry-failed-slots",
-      relaxation: {
-        clearFocusKeyword: true,
-        skipKeywordCorpusBlock: true,
-        skipFailed: false,
-      },
-    },
-    {
       label: "minimal-guards",
       relaxation: {
         clearFocusKeyword: true,
@@ -478,7 +521,7 @@ export function markSlotFilled(slotKey: string, slug: string): void {
 
 export function markSlotFailed(slotKey: string, reason: string): void {
   const ledger = readLedgerFile();
-  if (ledger.failed.some((row) => row.slotKey === slotKey)) return;
+  ledger.failed = ledger.failed.filter((row) => row.slotKey !== slotKey);
   ledger.failed.push({
     slotKey,
     reason: reason.slice(0, 500),
@@ -544,6 +587,138 @@ export async function validateTitleCandidate(
     if (match) return false;
   }
   return true;
+}
+
+/** Slug/title collision check only — skips pre-flight corpus probe (last-resort path). */
+export async function validateTitleCandidateLoose(
+  title: string,
+  seoKeyword: string,
+  forbiddenTitles: string[]
+): Promise<boolean> {
+  if (isForbiddenTitle(title, forbiddenTitles, seoKeyword)) return false;
+  const slug = createSlug(title);
+  const conflict = await findTitleConflict(title, slug);
+  return !conflict;
+}
+
+/** Deterministic unique title when SERP/hybrid candidates are saturated. */
+export function buildLastResortTitle(contract: EditorialContract): string {
+  const year = new Date().getFullYear();
+  const angle = contract.angleLabel.replace(/\b\w/g, (c) => c.toUpperCase());
+  const diff =
+    contract.requiredDifferentiator?.trim() ||
+    contract.structuralPromise?.trim() ||
+    angle;
+  let title = `${diff} for ${contract.keyword} in India (${year})`;
+  if (title.length > 72) {
+    title = `${contract.keyword}: ${angle} (${year})`;
+  }
+  return title.length > 72 ? title.slice(0, 72).trim() : title;
+}
+
+export type ResolveTitleResult = {
+  title: string;
+  /** When true, skip checkpoint B pre-flight (looser uniqueness path). */
+  skipCheckpointB: boolean;
+};
+
+/** SERP → multi hybrid → seed → last-resort title with escalating relaxation. */
+export async function resolveTitleForEditorialContract(input: {
+  serpBrief: SerpResearchBrief;
+  contract: EditorialContract;
+  forbiddenTitles: string[];
+  rejectedTitles: string[];
+  titleCheckpoint: TitleCheckpointContext;
+  category: TopicCategory;
+  bylineAuthor: BlogAuthor;
+  editorialContext: string;
+}): Promise<ResolveTitleResult> {
+  const { contract, serpBrief, forbiddenTitles, titleCheckpoint } = input;
+  const hybridRejected = [...input.rejectedTitles];
+
+  let title = await pickTitleFromSerpBrief(
+    serpBrief,
+    contract,
+    forbiddenTitles,
+    titleCheckpoint
+  );
+  if (title) return { title, skipCheckpointB: false };
+
+  title = await pickTitleFromSerpBrief(
+    serpBrief,
+    contract,
+    forbiddenTitles
+  );
+  if (title) return { title, skipCheckpointB: true };
+
+  const attemptsRaw = process.env.BLOG_TITLE_HYBRID_ATTEMPTS?.trim();
+  const hybridAttempts = attemptsRaw
+    ? Number.parseInt(attemptsRaw, 10)
+    : 8;
+  const maxHybrid =
+    Number.isFinite(hybridAttempts) && hybridAttempts > 0 ? hybridAttempts : 8;
+
+  for (let i = 0; i < maxHybrid; i++) {
+    try {
+      const fallback = await pickTopicTitleHybrid({
+        seoBrief: contract.seoBrief,
+        category: input.category,
+        author: input.bylineAuthor,
+        editorialContext: input.editorialContext,
+        rejectedTitles: hybridRejected,
+      });
+      if (!fallback.title) continue;
+      hybridRejected.push(fallback.title);
+      if (
+        await validateTitleCandidate(
+          fallback.title,
+          contract.keyword,
+          forbiddenTitles,
+          titleCheckpoint
+        )
+      ) {
+        return { title: fallback.title, skipCheckpointB: false };
+      }
+      if (
+        await validateTitleCandidateLoose(
+          fallback.title,
+          contract.keyword,
+          forbiddenTitles
+        )
+      ) {
+        return { title: fallback.title, skipCheckpointB: true };
+      }
+    } catch {
+      break;
+    }
+  }
+
+  if (
+    await validateTitleCandidate(
+      contract.seedTitle,
+      contract.keyword,
+      forbiddenTitles,
+      titleCheckpoint
+    )
+  ) {
+    return { title: contract.seedTitle, skipCheckpointB: false };
+  }
+
+  const lastResort = buildLastResortTitle(contract);
+  if (
+    await validateTitleCandidateLoose(
+      lastResort,
+      contract.keyword,
+      forbiddenTitles
+    )
+  ) {
+    console.warn(
+      `Coverage ledger: last-resort title for ${contract.slotKey}: ${lastResort}`
+    );
+    return { title: lastResort, skipCheckpointB: true };
+  }
+
+  throw new SlotTitleExhaustedError(contract.slotKey, contract.keyword);
 }
 
 /** Code-first title pick from grounded SERP brief, then slot seed. */

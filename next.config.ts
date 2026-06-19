@@ -382,7 +382,12 @@ const nextConfig = {
       },
       {
         source: "/tayprorobots/glyde/glyde-dual-pass-mechanism.png",
-        destination: "/tayprorobots/glyde/dual-pass-mechanism.png",
+        destination: "/tayprorobots/glyde/side-view.png",
+        permanent: true,
+      },
+      {
+        source: "/tayprorobots/glyde/dual-pass-mechanism.png",
+        destination: "/tayprorobots/glyde/side-view.png",
         permanent: true,
       },
       {

@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-# Every 5 min: after 00:30 Pacific (Gemini RPD resets at midnight PT), write one blog,
-# schedule publish 09:00–17:00 IST, then start translation until quota or midnight IST.
-# Every tick: recover translation when backlog exists and worker is down (even without
-# done-YYYYMMDD — e.g. after PM2 restart). Writer only runs when done-* is missing.
+# Every 5 min: recover translation when backlog exists; write one blog after 00:30 Pacific
+# (Gemini RPD resets at midnight PT ≈ 12:30 IST). On text-model quota exhaustion, hold until
+# the next 00:30 PT instead of retrying every 5 min. Writer only runs when done-* is missing.
 set -euo pipefail
 
 ROOT="${TAYPRO_APP_ROOT:-/var/www/taypro-dashboard}"
@@ -58,12 +57,22 @@ if [ -f "$DONE_FILE" ]; then
   exit 0
 fi
 
-GEMINI_TZ="${GEMINI_QUOTA_RESET_TZ:-America/Los_Angeles}"
-SOFT_START_MIN="${GEMINI_QUOTA_SOFT_START_MINUTES:-30}"
-PT_HOUR=$(TZ="$GEMINI_TZ" date +%H)
-PT_MIN=$(TZ="$GEMINI_TZ" date +%M)
-PT_MINUTES=$((10#$PT_HOUR * 60 + 10#$PT_MIN))
-if [ "$PT_MINUTES" -lt "$SOFT_START_MIN" ]; then
+GATE_SCRIPT="$ROOT/scripts/blog-writer-cron-gate.mjs"
+QUOTA_HOLD_FILE="$RUNTIME_DIR/quota-hold-until"
+
+if [ ! -f "$GATE_SCRIPT" ]; then
+  echo "$(date -Is) ERROR: missing $GATE_SCRIPT" >> "$LOG"
+  exit 1
+fi
+
+if [ -f "$QUOTA_HOLD_FILE" ]; then
+  if node "$GATE_SCRIPT" check-hold "$QUOTA_HOLD_FILE" 2>/dev/null; then
+    exit 0
+  fi
+  rm -f "$QUOTA_HOLD_FILE"
+fi
+
+if ! node "$GATE_SCRIPT" past-soft-start 2>/dev/null; then
   exit 0
 fi
 
@@ -82,10 +91,11 @@ finish_blog_cron_day_and_translate() {
 ENDPOINT="${API_BASE%/}/api/automation/generate-blog"
 {
   echo "$(date -Is) POST $ENDPOINT"
-  BODY=$(curl -sS -m 900 -X POST "$ENDPOINT" \
+  BODY=$(curl -sS -m 1800 -X POST "$ENDPOINT" \
     -H "$AUTH_HEADER" \
     -H "Content-Type: application/json")
   echo "$BODY"
+  set +e
   node -e "
     const b = JSON.parse(process.argv[1]);
     if (b.success === true) {
@@ -94,27 +104,26 @@ ENDPOINT="${API_BASE%/}/api/automation/generate-blog"
     if (b.quotaExhausted === true) {
       process.exit(20);
     }
+    if (b.outsideWriterWindow === true || b.quotaWaiting === true) {
+      process.exit(40);
+    }
     if (b.jobComplete === true || (b.schedule && b.schedule.canGenerate === false)) {
       process.exit(30);
     }
     process.exit(1);
   " "$BODY" 2>/dev/null
   EXIT=$?
+  set -e
   case "$EXIT" in
     10)
       echo "$(date -Is) blog scheduled (translation dispatched by API)" >> "$LOG"
       finish_blog_cron_day
       ;;
     20)
-      RESET=$(node -e "
-        try {
-          const b = JSON.parse(process.argv[1]);
-          process.stdout.write(b.nextGeminiQuotaResetIst || 'midnight Pacific (see quota-schedule)');
-        } catch {
-          process.stdout.write('midnight Pacific');
-        }
-      " "$BODY" 2>/dev/null || echo "midnight Pacific")
-      echo "$(date -Is) Gemini quota exhausted; retry after reset (~$RESET)" >> "$LOG"
+      HOLD_UNTIL=$(node "$GATE_SCRIPT" write-hold "$QUOTA_HOLD_FILE" 2>/dev/null || echo "next writer start")
+      echo "$(date -Is) Gemini text-model quota exhausted; writer on hold until ~$HOLD_UNTIL IST" >> "$LOG"
+      ;;
+    40)
       ;;
     30)
       echo "$(date -Is) today's automation write already complete; starting translation worker" >> "$LOG"

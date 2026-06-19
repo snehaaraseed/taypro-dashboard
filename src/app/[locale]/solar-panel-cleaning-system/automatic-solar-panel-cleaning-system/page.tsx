@@ -39,14 +39,21 @@ import Product360Viewer from "@/app/components/Product360Viewer";
 import { Container } from "@/app/components/Container";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { getProductImageUrl } from "@/lib/products/product-page-images";
+import {
+  getProductHeroLayout,
+  getProductImageUrl,
+  productPageImages,
+} from "@/lib/products/product-page-images";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const glydeImages = productPageImages("glyde");
+const glydeHeroLayout = getProductHeroLayout("glyde");
 
-/** Engineering gallery uses PNG detail shots (sharp close-ups); schema/OG use catalog paths. */
+/** White-background PNGs for gallery; catalog/OG use WebP heroes. Each path is unique on this page. */
 const GLYDE_GALLERY = {
-  hero: "/tayprorobots/glyde/hero.png",
-  mechanism: "/tayprorobots/glyde/dual-pass-mechanism.png",
+  topView: "/tayprorobots/glyde/top-view.png",
+  sideView: "/tayprorobots/glyde/side-view.png",
+  modular: "/tayprorobots/glyde/modular.png",
   docking: "/tayprorobots/glyde/docking-power-unit.png",
 } as const;
 
@@ -269,8 +276,10 @@ export default async function AutomaticSolarPanelCleaningRobot({
               {t("hero.leadAfterConnectivity")}
             </>
           }
-          imgSrc="/tayprosolarpanel/solar-panel.jpg"
+          imgSrc={glydeImages.hero}
           imgAlt={t("hero.heroImageAlt")}
+          imageAspectRatio={glydeHeroLayout.aspectRatio}
+          imagePresentation={glydeHeroLayout.presentation}
           ctaHref="/contact"
           ctaText={t("hero.primaryCta.label")}
           ctaTopic={t("hero.primaryCta.topic")}
@@ -415,7 +424,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
             <AnimateOnScroll animation="fadeInUp" delay={60}>
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
                 <Image
-                  src={GLYDE_GALLERY.hero}
+                  src={GLYDE_GALLERY.topView}
                   alt={t("gallery.primaryAlt")}
                   fill
                   className="object-contain p-4"
@@ -429,18 +438,32 @@ export default async function AutomaticSolarPanelCleaningRobot({
             <AnimateOnScroll animation="fadeInUp" delay={120}>
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
                 <Image
-                  src={GLYDE_GALLERY.mechanism}
-                  alt={t("gallery.mechanismAlt")}
+                  src={GLYDE_GALLERY.sideView}
+                  alt={t("gallery.sideAlt")}
                   fill
                   className="object-contain p-4"
                   sizes="(max-width: 768px) 100vw, 480px"
                 />
               </div>
               <p className="text-center text-gray-500 text-sm mt-3">
-                {t("gallery.mechanismCaption")}
+                {t("gallery.sideCaption")}
               </p>
             </AnimateOnScroll>
           </div>
+          <AnimateOnScroll animation="fadeInUp" delay={150} className="max-w-5xl mx-auto mt-8 sm:mt-10">
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+              <Image
+                src={GLYDE_GALLERY.modular}
+                alt={t("gallery.modularAlt")}
+                fill
+                className="object-contain p-4"
+                sizes="(max-width: 768px) 100vw, 1024px"
+              />
+            </div>
+            <p className="text-center text-gray-500 text-sm mt-3">
+              {t("gallery.modularCaption")}
+            </p>
+          </AnimateOnScroll>
           <AnimateOnScroll animation="fadeInUp" delay={180} className="max-w-md mx-auto mt-8 sm:mt-10">
             <div className="relative aspect-[3/5] max-h-[420px] w-full mx-auto overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
               <Image

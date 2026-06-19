@@ -104,7 +104,10 @@ export type GenerationFailureKind =
   | "in_place"
   | "fatal";
 
+import { isGroundingQuotaError } from "@/lib/gemini/grounding-config";
+
 export function isGeminiQuotaErrorMessage(error: unknown): boolean {
+  if (isGroundingQuotaError(error)) return false;
   const msg = error instanceof Error ? error.message : String(error);
   return (
     msg.includes("quota exceeded") ||
@@ -119,6 +122,7 @@ export function classifyGenerationFailure(error: unknown): GenerationFailureKind
   const msg = error instanceof Error ? error.message : String(error);
 
   if (
+    msg.includes("No unique title for coverage slot") ||
     msg.includes("Pre-flight uniqueness failed") ||
     msg.includes("Outline too similar") ||
     msg.includes("Blog too similar") ||
@@ -136,7 +140,9 @@ export function classifyGenerationFailure(error: unknown): GenerationFailureKind
     msg.includes("Could not parse JSON") ||
     msg.includes("JSON at position") ||
     msg.includes("Could not parse section HTML") ||
-    msg.includes("Could not parse outline JSON")
+    msg.includes("Could not parse outline JSON") ||
+    msg.includes("Section writer produced incomplete article") ||
+    msg.includes("Bad control character")
   ) {
     return "in_place";
   }

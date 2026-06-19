@@ -240,6 +240,12 @@ export function validateGeneratedBlog(
   }
 
   const h2s = extractH2Headings(input.content);
+  const uniqueH2Count = new Set(h2s).size;
+  if (uniqueH2Count < h2s.length) {
+    issues.push(
+      `Duplicate H2 sections detected (${h2s.length} H2 tags, ${uniqueH2Count} unique headings)`
+    );
+  }
   if (h2s.length < structure.minH2) {
     issues.push(
       `Need ≥${structure.minH2} H2 sections for ${wordPolicy.tier} tier (found ${h2s.length})`

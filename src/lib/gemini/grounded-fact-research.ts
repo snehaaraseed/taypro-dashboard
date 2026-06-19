@@ -2,17 +2,13 @@ import "server-only";
 
 import { GoogleGenAI } from "@google/genai";
 import {
-  geminiQuotaErrorMessage,
-  isGeminiQuotaError,
-  listGeminiApiKeys,
-} from "@/lib/gemini/api-keys";
+  assertGroundingCallBudget,
+  GroundingQuotaExceededError,
+  resolveGroundingModel,
+} from "@/lib/gemini/grounding-config";
+import { isGeminiQuotaError, listGeminiApiKeys } from "@/lib/gemini/api-keys";
 import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
-
-const DEFAULT_FACT_GROUNDING_MODELS = [
-  "gemini-2.5-flash",
-  "gemini-2.5-flash-lite",
-  "gemini-2.0-flash",
-] as const;
+import { parseGeminiJsonObject } from "@/lib/gemini/parse-json-response";
 
 export type VerifiedStat = {
   claim: string;
@@ -45,9 +41,11 @@ export type GroundedFactResearchInput = {
 };
 
 function resolveFactModels(): string[] {
-  const env = process.env.GEMINI_SERP_MODEL?.trim();
+  const env =
+    process.env.GEMINI_FACT_MODEL?.trim() ||
+    process.env.GEMINI_SERP_MODEL?.trim();
   if (env) return [env];
-  return [...DEFAULT_FACT_GROUNDING_MODELS];
+  return [resolveGroundingModel()];
 }
 
 function buildFactResearchPrompt(input: GroundedFactResearchInput): string {
@@ -96,11 +94,9 @@ Rules:
 
 function parseJsonFromText(text: string): Record<string, unknown> {
   try {
-    return JSON.parse(text) as Record<string, unknown>;
+    return parseGeminiJsonObject(text);
   } catch {
-    const match = text.match(/\{[\s\S]*\}/);
-    if (!match) throw new Error("Grounded fact response did not contain JSON");
-    return JSON.parse(match[0]) as Record<string, unknown>;
+    throw new Error("Grounded fact response did not contain JSON");
   }
 }
 
@@ -206,68 +202,61 @@ function parseFactBrief(
 export async function runGroundedFactResearch(
   input: GroundedFactResearchInput
 ): Promise<FactResearchBrief> {
+  assertGroundingCallBudget(input.serpCallsSoFar ?? 0);
+
   const prompt = buildFactResearchPrompt(input);
-  const models = resolveFactModels();
+  const model = resolveFactModels()[0]!;
   const apiKeys = listGeminiApiKeys();
   let lastError: unknown;
-  let quotaExhaustedKeys = 0;
+  let quotaKeys = 0;
 
   for (const apiKey of apiKeys) {
     const ai = new GoogleGenAI({ apiKey });
-    let keyHitQuota = false;
+    try {
+      const response = await ai.models.generateContent({
+        model,
+        contents: prompt,
+        config: {
+          tools: [{ googleSearch: {} }],
+          maxOutputTokens: 4096,
+        },
+      });
 
-    for (const model of models) {
-      try {
-        const response = await ai.models.generateContent({
-          model,
-          contents: prompt,
-          config: {
-            tools: [{ googleSearch: {} }],
-            maxOutputTokens: 4096,
-          },
-        });
-
-        const text = (response.text ?? "").trim();
-        if (!text) {
-          throw new Error("Grounded fact response was empty");
-        }
-
-        const grounding = extractGroundingMeta(response);
-        await pauseAfterGeminiCall();
-
-        return parseFactBrief(text, input, {
-          model,
-          apiKeySuffix: apiKey.slice(-4),
-          ...grounding,
-        });
-      } catch (error) {
-        lastError = error;
-        if (isGeminiQuotaError(error)) {
-          keyHitQuota = true;
-          console.warn(
-            `[facts] Quota on key ...${apiKey.slice(-4)} model ${model}, trying next.`
-          );
-          break;
-        }
-        console.warn(`[facts] Model ${model} failed:`, error);
+      const text = (response.text ?? "").trim();
+      if (!text) {
+        throw new Error("Grounded fact response was empty");
       }
-    }
 
-    if (keyHitQuota) {
-      quotaExhaustedKeys += 1;
-      continue;
+      const grounding = extractGroundingMeta(response);
+      await pauseAfterGeminiCall();
+
+      return parseFactBrief(text, input, {
+        model,
+        apiKeySuffix: apiKey.slice(-4),
+        ...grounding,
+      });
+    } catch (error) {
+      lastError = error;
+      if (isGeminiQuotaError(error)) {
+        quotaKeys += 1;
+        console.warn(
+          `[facts] Grounding quota on key ...${apiKey.slice(-4)} model ${model}`
+        );
+        continue;
+      }
+      console.warn(`[facts] Model ${model} failed:`, error);
+      throw error instanceof Error ? error : new Error(String(error));
     }
-    break;
   }
 
-  if (quotaExhaustedKeys >= apiKeys.length) {
-    throw new Error(geminiQuotaErrorMessage(lastError));
+  if (quotaKeys >= apiKeys.length) {
+    throw new GroundingQuotaExceededError(model, lastError);
   }
 
   throw new Error(
     lastError instanceof Error
       ? lastError.message
-      : "Grounded fact research failed on all models"
+      : "Grounded fact research failed"
   );
 }
 
