@@ -75,6 +75,9 @@ import {
 import { extractH2Headings, stripHtmlToPlainText } from "@/lib/seo/blog-similarity";
 import { parseBlogContentPlanJson } from "@/lib/seo/blog-content-plan";
 import type { BlogContentPlan } from "@/lib/seo/blog-content-plan";
+import { resolveStoredIntentFamily } from "@/lib/seo/keyword-intent-registry";
+import { formatIntentFamilyIdsForPrompt } from "@/lib/seo/keyword-intent-taxonomy";
+import type { SearchIntentFamily } from "@/lib/seo/keyword-intent-taxonomy";
 export type { BlogContentPlan } from "@/lib/seo/blog-content-plan";
 import { formatFactBriefForPrompt } from "@/lib/gemini/grounded-fact-research";
 import type { FactResearchBrief } from "@/lib/gemini/grounded-fact-research";
@@ -220,6 +223,8 @@ export type GeneratedTopic = {
   seoBrief: SeoKeywordBrief | null;
   /** Inferred from keyword angle seeds when coverage ledger is off. */
   angleId?: string;
+  /** AI-declared cluster intent (hybrid title pick or outline plan). */
+  intentFamily?: SearchIntentFamily;
 };
 
 export type GenerateUniqueTopicPlan = {
@@ -423,6 +428,8 @@ export type GenerateBlogContentOptions = {
   angleId?: string;
   volumeBucket?: number;
   competitionIndex?: number;
+  /** Per-keyword intent cluster guide (covered intents + recommended next intent). */
+  keywordIntentClusterPrompt?: string;
 };
 
 function resolveGenerationWordCountPolicy(
@@ -947,11 +954,14 @@ export async function planBlogContent(
     angleId: options?.angleId,
   });
   const intentBlock = formatBlogIntentPromptBlock(intentContract);
+  const clusterBlock = options?.keywordIntentClusterPrompt?.trim()
+    ? `\n${options.keywordIntentClusterPrompt.trim()}\n`
+    : "";
 
   const prompt = `You are a senior SEO editor for Taypro (utility-scale solar cleaning robots, India).
 
 ${intentBlock}
-
+${clusterBlock}
 Plan a long-form blog outline for: ${topic}
 Category: ${_category}
 ${seoBlock}
@@ -967,6 +977,8 @@ ${wordCountRules}
 Return ONLY valid JSON:
 {
   "description": "Meta description 150-160 chars, specific outcome for this exact title",
+  "intentFamily": "one of: ${formatIntentFamilyIdsForPrompt()}",
+  "intentReason": "one sentence: why this intent fits the title and is not cannibalizing covered intents",
   "readerQuestion": "One sentence: what the searcher wants answered for THIS title/keyword",
   "mustCover": ["3-6 H2 themes that serve the title — not generic robot O&M"],
   "avoidTopics": ["2-4 off-topic drifts to avoid for this keyword"],
@@ -975,6 +987,8 @@ Return ONLY valid JSON:
   "faqQuestions": ["primary keyword as question", "...", "...", "..."]
 }
 Rules:
+- intentFamily MUST match RECOMMENDED INTENT above when provided; otherwise pick the best uncovered cluster intent for this keyword.
+- intentFamily must be an exact ID from the list (not a label).
 - readerQuestion, mustCover, and avoidTopics MUST match the INTENT CONTRACT above (not a generic Taypro robot article).
 - description must match THIS title angle (not a generic solar blog).
 - h2Outline: ${structurePolicy.minH2}–${structurePolicy.maxH2Hint} items; first must be "Quick answer" or "Summary for plant managers"; include one People Also Ask style question H2.
@@ -993,6 +1007,8 @@ Rules:
 
   let parsed: {
     description?: string;
+    intentFamily?: unknown;
+    intentReason?: unknown;
     readerQuestion?: string;
     mustCover?: unknown;
     avoidTopics?: unknown;
@@ -1041,6 +1057,28 @@ Rules:
   const mergedAvoidTopics =
     avoidTopics.length > 0 ? avoidTopics : intentContract.avoidTopics;
 
+  const intentReason =
+    typeof parsed.intentReason === "string" && parsed.intentReason.trim()
+      ? sanitizeEmDash(parsed.intentReason.trim())
+      : undefined;
+  const resolvedIntent = primaryKeyword
+    ? resolveStoredIntentFamily({
+        keyword: primaryKeyword,
+        aiIntent: parsed.intentFamily,
+        angleId: options?.angleId,
+        title: topic,
+      })
+    : null;
+  if (
+    resolvedIntent?.source === "code" &&
+    parsed.intentFamily &&
+    primaryKeyword
+  ) {
+    console.warn(
+      `[planBlogContent] AI intent "${String(parsed.intentFamily)}" rejected for "${primaryKeyword}" — using ${resolvedIntent.intentFamily}`
+    );
+  }
+
   if (h2Outline.length < structurePolicy.minH2) {
     throw new Error(
       `Outline needs ≥${structurePolicy.minH2} H2 sections for ${wordPolicy.tier} tier (found ${h2Outline.length})`
@@ -1060,6 +1098,8 @@ Rules:
   const outlineJson = JSON.stringify(
     {
       description,
+      intentFamily: resolvedIntent?.intentFamily,
+      intentReason,
       readerQuestion,
       mustCover: mergedMustCover,
       avoidTopics: mergedAvoidTopics,
@@ -1080,6 +1120,8 @@ Rules:
     readerQuestion,
     mustCover: mergedMustCover,
     avoidTopics: mergedAvoidTopics,
+    intentFamily: resolvedIntent?.intentFamily,
+    intentReason,
   };
 }
 
@@ -1181,8 +1223,12 @@ ${userBrief}
     angleId: options?.angleId,
   });
   const intentBlock = formatBlogIntentPromptBlock(intentContract);
+  const clusterBlock = options?.keywordIntentClusterPrompt?.trim()
+    ? options.keywordIntentClusterPrompt.trim()
+    : "";
   const contractBlock = [
     intentBlock,
+    clusterBlock,
     options?.structuralPromise?.trim()
       ? `Structural promise (must follow): ${options.structuralPromise.trim()}`
       : "",

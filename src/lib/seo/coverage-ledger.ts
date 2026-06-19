@@ -11,6 +11,11 @@ import {
 } from "@/lib/seo/content-quality";
 import { findKeywordCorpusConflict, findTitleConflict } from "@/lib/seo/blog-plan-gates";
 import { anglesForKeyword } from "@/lib/seo/blog-topic-angles";
+import { inferIntentFamily } from "@/lib/seo/keyword-intent-taxonomy";
+import {
+  getCoveredIntentFamilySet,
+  sortAngleIdsByIntentGap,
+} from "@/lib/seo/keyword-intent-registry";
 import { isCompetitorPrimaryKeyword } from "@/lib/seo/competitor-keyword-guard";
 import { titlesTooSimilar } from "@/lib/seo/blog-similarity";
 import type { SerpResearchBrief } from "@/lib/gemini/grounded-serp-research";
@@ -260,7 +265,15 @@ export function buildSlotCatalog(): Omit<CoverageSlot, "seoBrief">[] {
 
   for (const keyword of orderedKeywords()) {
     if (!byKeyword.has(keyword)) continue;
-    for (const angle of anglesForKeyword(keyword)) {
+    const angles = anglesForKeyword(keyword);
+    const sortedIds = sortAngleIdsByIntentGap(
+      keyword,
+      angles.map((a) => a.id)
+    );
+    const angleById = new Map(angles.map((a) => [a.id, a]));
+    for (const angleId of sortedIds) {
+      const angle = angleById.get(angleId);
+      if (!angle) continue;
       const seedTitle = angle.buildTitle(keyword).trim();
       slots.push({
         slotKey: buildSlotKey(keyword, angle.id),
@@ -365,6 +378,31 @@ async function scanForEditorialContract(
     }
 
     const angleMeta = getAngleContractMeta(slot.angleId);
+    if (!options.skipPreflight) {
+      const coveredFamilies = getCoveredIntentFamilySet(slot.keyword);
+      const slotIntent = inferIntentFamily({
+        angleId: slot.angleId,
+        archetype: angleMeta.archetype,
+        title: slot.seedTitle,
+      });
+      if (coveredFamilies.has(slotIntent)) {
+        const hasUncoveredSibling = rotatedSlotCatalog().some((sibling) => {
+          if (sibling.keyword !== slot.keyword) return false;
+          if (sibling.slotKey === slot.slotKey) return false;
+          if (filled.has(sibling.slotKey) || permanentFailed.has(sibling.slotKey)) {
+            return false;
+          }
+          const siblingMeta = getAngleContractMeta(sibling.angleId);
+          const siblingIntent = inferIntentFamily({
+            angleId: sibling.angleId,
+            archetype: siblingMeta.archetype,
+            title: sibling.seedTitle,
+          });
+          return !coveredFamilies.has(siblingIntent);
+        });
+        if (hasUncoveredSibling) continue;
+      }
+    }
     const forbiddenArchetypes = buildForbiddenArchetypeSet(
       slot.keyword,
       angleMeta

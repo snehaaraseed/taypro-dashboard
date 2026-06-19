@@ -40,6 +40,7 @@
     "cms:pull-production:full": "bash scripts/pull-cms-from-production.sh --uploads",
     "cms:check-links": "node scripts/check-cms-link-slugs.mjs",
     "seo:backfill-campaigns": "node scripts/backfill-keyword-campaigns.mjs",
+    "seo:generate-keyword-expansion": "node scripts/generate-seo-keyword-expansion.mjs",
     "ops:install-gsc-cron": "bash scripts/install-gsc-sync-cron.sh",
     "ops:install-blog-cron": "bash scripts/install-blog-automation-cron.sh",
     "ops:deploy-cms-metrics": "node scripts/deploy-cms-metrics.mjs",

@@ -221,10 +221,43 @@ function filterAuthorsByExclusion(
 export type PickBestAuthorOptions = {
   /** Lowercase display names to deprioritize (hybrid rotation). */
   excludeAuthorNames?: Set<string>;
+  /** Normalized author display names → published English post count. */
+  blogCountByAuthorName?: Map<string, number>;
 };
 
+function authorPublishedBlogCount(
+  author: BlogAuthor,
+  blogCountByAuthorName?: Map<string, number>
+): number {
+  if (!blogCountByAuthorName) return 0;
+  return blogCountByAuthorName.get(normalizeAuthorName(author.name)) ?? 0;
+}
+
+/** Prefer authors with the fewest published posts; random tie-break within that tier. */
+export function pickLeastUsedBlogAuthor(
+  pool: BlogAuthor[],
+  blogCountByAuthorName?: Map<string, number>
+): BlogAuthor | null {
+  if (pool.length === 0) return null;
+  if (!blogCountByAuthorName || blogCountByAuthorName.size === 0) {
+    return pool[Math.floor(Math.random() * pool.length)] ?? null;
+  }
+
+  let minCount = Infinity;
+  for (const author of pool) {
+    const count = authorPublishedBlogCount(author, blogCountByAuthorName);
+    if (count < minCount) minCount = count;
+  }
+
+  const leastUsed = pool.filter(
+    (author) =>
+      authorPublishedBlogCount(author, blogCountByAuthorName) === minCount
+  );
+  return leastUsed[Math.floor(Math.random() * leastUsed.length)] ?? null;
+}
+
 /**
- * Pick the best-matching eligible author; slight randomness among top ties.
+ * Pick the best-matching eligible author; among ties, prefer fewest published posts.
  * When excludeAuthorNames is set, prefers authors outside that set within the tier.
  */
 export function pickBestAuthorForTopicTags(
@@ -252,8 +285,7 @@ export function pickBestAuthorForTopicTags(
     options?.excludeAuthorNames
   );
 
-  const pick = candidates[Math.floor(Math.random() * candidates.length)];
-  return pick ?? null;
+  return pickLeastUsedBlogAuthor(candidates, options?.blogCountByAuthorName);
 }
 
 /** Rank categories for today's SEO keyword (best match first). */

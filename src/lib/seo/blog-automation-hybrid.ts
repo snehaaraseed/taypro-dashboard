@@ -24,6 +24,17 @@ import { findKeywordCorpusConflict } from "@/lib/seo/blog-plan-gates";
 import { isCompetitorPrimaryKeyword } from "@/lib/seo/competitor-keyword-guard";
 import type { BlogSimilarityCorpusRow } from "@/lib/cms/blogService";
 import { listTopicAngleSeeds, inferAngleIdFromTitle } from "@/lib/seo/blog-topic-angles";
+import {
+  formatKeywordIntentClusterPrompt,
+  getCoveredIntentsForKeyword,
+  recommendNextIntentFamily,
+  resolveStoredIntentFamily,
+} from "@/lib/seo/keyword-intent-registry";
+import {
+  formatIntentSelectionGuideBlock,
+  formatIntentFamilyIdsForPrompt,
+} from "@/lib/seo/keyword-intent-taxonomy";
+import type { SearchIntentFamily } from "@/lib/seo/keyword-intent-taxonomy";
 
 function parseJsonField<T>(text: string, field: string): T | null {
   try {
@@ -76,16 +87,23 @@ export async function pickSeoKeywordBriefHybrid(
 
   const gscHint = loadGscEditorialHint();
   const candidateLines = candidates
-    .map(
-      (c, i) =>
-        `${i + 1}. "${c.primary}" | intent: ${c.searchIntent} | volume bucket: ${c.volumeBucket} | related: ${c.related.slice(0, 4).join(", ")}`
-    )
+    .map((c, i) => {
+      const covered = getCoveredIntentsForKeyword(c.primary);
+      const coveredFamilies =
+        covered.length > 0
+          ? covered.map((r) => r.intentFamily).join(", ")
+          : "none";
+      const nextIntent = recommendNextIntentFamily(c.primary);
+      return `${i + 1}. "${c.primary}" | CSV intent: ${c.searchIntent} | covered intent families: ${coveredFamilies} | suggested next intent: ${nextIntent} | volume bucket: ${c.volumeBucket} | related: ${c.related.slice(0, 4).join(", ")}`;
+    })
     .join("\n");
 
   const prompt = `You are Taypro's SEO strategist for utility-scale solar cleaning robots in India.
 
 ${editorialContext}
 ${gscHint ? `\n${gscHint}\n` : ""}
+
+${formatIntentSelectionGuideBlock()}
 
 CANDIDATE KEYWORDS (code-ranked from editorial queue, GSC boost, and Keyword Planner — pick ONE):
 ${candidateLines}
@@ -94,6 +112,7 @@ ${SEO_AND_READER_RULES}
 
 Rules:
 - Pick the keyword that best fills a content gap today (GSC opportunity + editorial queue priority + commercial fit for Taypro).
+- Prefer keywords where suggested next intent is still uncovered (cluster growth without cannibalization).
 - Return the EXACT "primary" phrase from the list (no new keywords).
 - Prefer queue/GSC-aligned terms when GSC data suggests rising queries.
 
@@ -124,6 +143,7 @@ Return ONLY valid JSON:
 export type HybridTopicPick = {
   title: string;
   angleId?: string;
+  intentFamily?: SearchIntentFamily;
 };
 
 /**
@@ -150,11 +170,17 @@ export async function pickTopicTitleHybrid(input: {
       ? seeds.map((s) => `- ${s}`).join("\n")
       : `- (no code seeds — craft a fresh specific title for "${input.seoBrief.primary}")`;
 
+  const clusterBlock = formatKeywordIntentClusterPrompt({
+    keyword: input.seoBrief.primary,
+    recommendedIntent: recommendNextIntentFamily(input.seoBrief.primary),
+  });
+
   const prompt = `You are Taypro's content strategist. Pick today's blog title for utility-scale solar O&M in India.
 
 ${input.editorialContext}
 ${authorBlock}
 ${seoBlock}
+${clusterBlock}
 ${excludeBlock}
 
 CODE-SUGGESTED ANGLES (unused; pick ONE exactly OR write a tighter unique variant under 72 chars):
@@ -172,9 +198,11 @@ Rules:
 - 50–68 characters preferred; never exceed 72.
 - Must be a post this author would credibly write.
 - No generic listicles unless the angle is genuinely new vs existing Taypro blogs.
+- Pick intentFamily for the cluster gap: one of ${formatIntentFamilyIdsForPrompt()} (exact ID, not label).
+- intentFamily must NOT duplicate COVERED INTENTS unless all five families are already covered.
 
 Return ONLY valid JSON:
-{ "title": "specific SEO title", "chosenSeed": "optional seed you based it on" }`;
+{ "title": "specific SEO title", "intentFamily": "technical_howto|financial_roi|...", "intentReason": "one sentence", "chosenSeed": "optional seed you based it on" }`;
 
   try {
     const text = await generateGeminiPrompt(prompt, {
@@ -183,16 +211,30 @@ Return ONLY valid JSON:
     });
     const title = parseJsonField<string>(text, "title")?.trim();
     const chosenSeed = parseJsonField<string>(text, "chosenSeed")?.trim();
+    const rawIntent = parseJsonField<string>(text, "intentFamily");
     if (
       title &&
       !isTooGenericTitle(title, input.seoBrief.primary) &&
       !(await isTopicPublished(title, createSlug(title)))
     ) {
+      const angleId = inferAngleIdFromTitle(input.seoBrief.primary, title, {
+        chosenSeed,
+      });
+      const resolved = resolveStoredIntentFamily({
+        keyword: input.seoBrief.primary,
+        aiIntent: rawIntent,
+        angleId,
+        title,
+      });
+      if (rawIntent && resolved.source === "code") {
+        console.warn(
+          `[pickTopicTitleHybrid] AI intent "${rawIntent}" rejected for "${input.seoBrief.primary}" — using ${resolved.intentFamily}`
+        );
+      }
       return {
         title,
-        angleId: inferAngleIdFromTitle(input.seoBrief.primary, title, {
-          chosenSeed,
-        }),
+        angleId,
+        intentFamily: resolved.intentFamily,
       };
     }
   } catch (error) {
@@ -207,6 +249,11 @@ Return ONLY valid JSON:
       return {
         title: seed,
         angleId: inferAngleIdFromTitle(input.seoBrief.primary, seed),
+        intentFamily: resolveStoredIntentFamily({
+          keyword: input.seoBrief.primary,
+          angleId: inferAngleIdFromTitle(input.seoBrief.primary, seed),
+          title: seed,
+        }).intentFamily,
       };
     }
   }

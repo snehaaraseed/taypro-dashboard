@@ -7,6 +7,7 @@ import { loadExistingBlogCorpus } from "@/lib/seo/blog-uniqueness";
 import { findKeywordCorpusConflict } from "@/lib/seo/blog-plan-gates";
 import { readPublishedTopics } from "@/lib/cms/topicService";
 import { passesSeoKeywordFilters } from "@/lib/seo/keyword-filters";
+import { loadSeoKeywordExpansion } from "@/lib/seo/keyword-expansion";
 import { loadGscBoostKeywords } from "@/lib/seo/gsc-keyword-boost";
 import { loadSeoBlogQueueKeywords } from "@/lib/seo/seo-blog-queue";
 
@@ -88,6 +89,18 @@ export function loadSeoKeywordRows(): SeoKeywordRow[] {
       competitionIndex: Number.isFinite(competitionIndex)
         ? competitionIndex
         : 50,
+    });
+  }
+
+  const seen = new Set(rows.map((r) => r.keyword));
+  for (const expansion of loadSeoKeywordExpansion()) {
+    if (seen.has(expansion.keyword)) continue;
+    seen.add(expansion.keyword);
+    rows.push({
+      keyword: expansion.keyword,
+      volumeBucket: expansion.volumeBucket,
+      competition: expansion.competition,
+      competitionIndex: expansion.competitionIndex,
     });
   }
 

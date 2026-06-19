@@ -11,12 +11,16 @@ import {
   resolveAuthorSlug,
 } from "@/app/data/blogAuthors";
 import { isEligibleBlogAuthor } from "@/lib/cms/blog-author-pool";
-import { listRecentBlogAuthorNames } from "@/lib/cms/blogService";
+import {
+  getPublishedBlogCountsByAuthorName,
+  listRecentBlogAuthorNames,
+} from "@/lib/cms/blogService";
 import {
   inferExpertiseFromAuthor,
   mergeTopicTags,
   parseExpertiseTags,
   pickBestAuthorForTopicTags,
+  pickLeastUsedBlogAuthor,
   serializeExpertiseTags,
 } from "@/lib/cms/blog-author-expertise";
 import type { BlogAuthorExpertiseTag } from "@/lib/cms/blog-author-expertise-ids";
@@ -298,8 +302,13 @@ export async function pickAuthorForBlogTopic(input: {
   const pool = eligibleAuthorPool(all);
   if (pool.length === 0) return pickRandomBlogAuthor();
 
+  const blogCountByAuthorName = await getPublishedBlogCountsByAuthorName();
+
   if (mode === "random") {
-    return pickRandomBlogAuthor();
+    return (
+      pickLeastUsedBlogAuthor(pool, blogCountByAuthorName) ??
+      pickRandomBlogAuthor()
+    );
   }
 
   const topicTags = mergeTopicTags(
@@ -317,8 +326,13 @@ export async function pickAuthorForBlogTopic(input: {
 
   const matched = pickBestAuthorForTopicTags(pool, topicTags, {
     excludeAuthorNames,
+    blogCountByAuthorName,
   });
-  return matched ?? pickRandomBlogAuthor();
+  return (
+    matched ??
+    pickLeastUsedBlogAuthor(pool, blogCountByAuthorName) ??
+    pickRandomBlogAuthor()
+  );
 }
 
 export async function pickRandomBlogAuthorName(): Promise<string> {

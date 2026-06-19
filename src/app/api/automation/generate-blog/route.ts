@@ -35,6 +35,14 @@ import {
 import { formatWordCountPreview } from "@/lib/seo/blog-word-count-tier";
 import type { ResolveBlogWordCountInput } from "@/lib/seo/blog-word-count-tier";
 import { pickTopicTitleHybrid, pickSeoKeywordBriefHybrid } from "@/lib/seo/blog-automation-hybrid";
+import {
+  formatKeywordIntentClusterPrompt,
+  recordKeywordIntentWritten,
+  recommendIntentForContract,
+  resolveStoredIntentFamily,
+  syncKeywordIntentRegistryFromPublishedTopics,
+} from "@/lib/seo/keyword-intent-registry";
+import type { SearchIntentFamily } from "@/lib/seo/keyword-intent-taxonomy";
 import { pickCategoryForSeoBrief } from "@/lib/cms/blog-author-expertise";
 import { pickAuthorForBlogTopic } from "@/lib/cms/authorService";
 import { resolveAuthorExpertiseTags } from "@/lib/cms/blog-author-expertise";
@@ -279,6 +287,7 @@ async function resolveTopicHybridFallback(input: {
   const hybridRejected = [...input.rejectedTitles];
   let title = "";
   let angleId = "default-guide";
+  let topicIntentFamily: SearchIntentFamily | undefined;
   for (let i = 0; i < 10; i++) {
     const picked = await pickTopicTitleHybrid({
       seoBrief,
@@ -295,6 +304,7 @@ async function resolveTopicHybridFallback(input: {
     }
     title = picked.title;
     angleId = picked.angleId ?? angleId;
+    topicIntentFamily = picked.intentFamily;
     break;
   }
   if (!title) {
@@ -361,6 +371,7 @@ async function resolveTopicHybridFallback(input: {
       seoKeyword: contract.keyword,
       seoBrief: contract.seoBrief,
       angleId: contract.angleId,
+      intentFamily: topicIntentFamily,
     },
     contract,
     bylineAuthor,
@@ -594,6 +605,12 @@ export async function POST(request: NextRequest) {
     }
 
     const editorialContext = await formatEditorialContextPrompt();
+    const intentBackfill = await syncKeywordIntentRegistryFromPublishedTopics();
+    if (intentBackfill.added > 0) {
+      console.info(
+        `[generate-blog] Backfilled ${intentBackfill.added} keyword intent record(s)`
+      );
+    }
     const uniquenessCtx = await loadBlogUniquenessContext();
     if (ledgerEnabled) {
       const pruned = prunePreflightFailedSlots();
@@ -711,6 +728,21 @@ export async function POST(request: NextRequest) {
           );
         }
 
+        const clusterKeyword =
+          topic.seoBrief?.primary ??
+          topic.seoKeyword ??
+          editorialContract?.keyword;
+        const keywordIntentClusterPrompt = clusterKeyword
+          ? formatKeywordIntentClusterPrompt({
+              keyword: clusterKeyword,
+              recommendedIntent: editorialContract
+                ? recommendIntentForContract(editorialContract)
+                : undefined,
+              title: topic.title,
+              angleId: editorialContract?.angleId ?? topic.angleId,
+            })
+          : undefined;
+
         const writerOptions = {
           author: bylineAuthor,
           preferQualityModel: pipelineAttempt >= 1,
@@ -723,6 +755,7 @@ export async function POST(request: NextRequest) {
           forbiddenH2Themes: editorialContract?.forbiddenH2Themes,
           forbiddenAngles,
           lockedDescription: lockedDescription || undefined,
+          keywordIntentClusterPrompt,
         };
 
         const wordCountInput = buildWordCountInput({
@@ -863,6 +896,27 @@ export async function POST(request: NextRequest) {
           ),
           wordCountTier: wordCount.wordCountTier,
         });
+
+        if (clusterKeyword) {
+          const storedIntent = resolveStoredIntentFamily({
+            keyword: clusterKeyword,
+            aiIntent:
+              contentPlan.intentFamily ?? topic.intentFamily,
+            angleId: editorialContract?.angleId ?? topic.angleId,
+            archetype: editorialContract?.archetype,
+            title: blogData.title,
+          });
+          recordKeywordIntentWritten({
+            keyword: clusterKeyword,
+            title: blogData.title,
+            slug: result.slug,
+            angleId: editorialContract?.angleId ?? topic.angleId,
+            archetype: editorialContract?.archetype,
+            slotKey: editorialContract?.slotKey,
+            intentFamily: storedIntent.intentFamily,
+            source: "automation",
+          });
+        }
 
         if (editorialContract && ledgerEnabled) {
           if (!isHybridFallbackSlot(editorialContract.slotKey)) {

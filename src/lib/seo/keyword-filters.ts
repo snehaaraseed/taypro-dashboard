@@ -12,7 +12,7 @@ import {
 
 /** Terms that indicate solar plant / equipment / O&M intent (broad funnel). */
 export const SEO_KEYWORD_RELEVANT =
-  /solar|photovoltaic|\bpv\b|panel|module|inverter|string combiner|tracker|racking|mount|brush|clean|robot|maintenance|soil|wash|sprinkler|waterless|automatic|plant|farm|utility|commercial|performance ratio|om\b|o&m|price|cost|manufacturer|supplier|wholesal|equipment|system|power|energy|dry clean|solar washing|module clean|mw\b|bifacial|monocrystalline|polycrystalline/i;
+  /solar|photovoltaic|\bpv\b|panel|module|inverter|string combiner|tracker|racking|mount|brush|clean|robot|maintenance|soil|wash|sprinkler|waterless|automatic|plant|farm|utility|commercial|rooftop|residential|canopy|carport|warehouse|performance ratio|om\b|o&m|price|cost|manufacturer|supplier|wholesal|equipment|system|power|energy|dry clean|solar washing|module clean|mw\b|bifacial|monocrystalline|polycrystalline|opex|capex|scada|soiling|fleet/i;
 
 /** Spam, wrong geo, or non-commercial intent — not upstream equipment buyers. */
 export const SEO_KEYWORD_EXCLUDE =

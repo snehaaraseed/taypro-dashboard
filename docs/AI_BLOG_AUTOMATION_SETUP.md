@@ -61,7 +61,7 @@ curl http://localhost:3000/api/automation/generate-blog
 
 Tier is resolved from editorial `angleId`, GSC volume/competition, and keyword patterns. Verify with `npm run seo:test-word-count-tier`.
 
-**Author rotation (default):** `BLOG_AUTHOR_PICK=rotate` skips authors who bylined a post in the last `BLOG_AUTHOR_ROTATE_DAYS` (default 7) when an expertise match exists.
+**Author rotation (default):** `BLOG_AUTHOR_PICK=rotate` skips authors who bylined a post in the last `BLOG_AUTHOR_ROTATE_DAYS` (default 7) when an expertise match exists. Among equally qualified authors (same expertise tier), automation prefers whoever has the **fewest published English posts** so bylines stay balanced over time.
 
 **Models:** All text generation uses **Google AI Studio free tier** only (`gemini-3.1-flash-lite` / `gemini-3.1-flash-lite-preview`). Paid model IDs in env are ignored with a console warning.
 

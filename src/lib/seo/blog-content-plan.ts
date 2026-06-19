@@ -1,3 +1,6 @@
+import type { SearchIntentFamily } from "@/lib/seo/keyword-intent-taxonomy";
+import { parseSearchIntentFamily } from "@/lib/seo/keyword-intent-taxonomy";
+
 /** Structured outline from planBlogContent (phase 2) before full body write. */
 export type BlogContentPlan = {
   description: string;
@@ -8,6 +11,9 @@ export type BlogContentPlan = {
   readerQuestion?: string;
   mustCover?: string[];
   avoidTopics?: string[];
+  /** AI-declared cluster intent (validated in planBlogContent). */
+  intentFamily?: SearchIntentFamily;
+  intentReason?: string;
 };
 
 export function parseBlogContentPlanJson(raw: string): BlogContentPlan {
@@ -19,6 +25,8 @@ export function parseBlogContentPlanJson(raw: string): BlogContentPlan {
     readerQuestion?: string;
     mustCover?: unknown;
     avoidTopics?: unknown;
+    intentFamily?: unknown;
+    intentReason?: unknown;
   };
   const h2Outline = Array.isArray(parsed.h2Outline)
     ? parsed.h2Outline.filter((h): h is string => typeof h === "string")
@@ -37,6 +45,9 @@ export function parseBlogContentPlanJson(raw: string): BlogContentPlan {
   const avoidTopics = Array.isArray(parsed.avoidTopics)
     ? parsed.avoidTopics.filter((x): x is string => typeof x === "string")
     : undefined;
+  const intentFamily = parseSearchIntentFamily(parsed.intentFamily) ?? undefined;
+  const intentReason =
+    typeof parsed.intentReason === "string" ? parsed.intentReason.trim() : undefined;
   return {
     description: String(parsed.description ?? "").trim(),
     h2Outline,
@@ -46,5 +57,7 @@ export function parseBlogContentPlanJson(raw: string): BlogContentPlan {
     readerQuestion,
     mustCover,
     avoidTopics,
+    intentFamily,
+    intentReason,
   };
 }

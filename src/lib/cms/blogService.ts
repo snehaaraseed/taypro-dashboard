@@ -116,6 +116,26 @@ export async function listRecentBlogAuthorNames(options?: {
   return names;
 }
 
+/** Published post counts keyed by normalized author display name (lowercase trim). */
+export async function getPublishedBlogCountsByAuthorName(options?: {
+  locale?: string;
+}): Promise<Map<string, number>> {
+  const loc = resolveLocale(options?.locale);
+  const db = getDb();
+  const rows = await db
+    .select({ author: blogs.author })
+    .from(blogs)
+    .where(and(eq(blogs.published, true), eq(blogs.locale, loc)));
+
+  const counts = new Map<string, number>();
+  for (const row of rows) {
+    const name = row.author?.trim().toLowerCase();
+    if (!name) continue;
+    counts.set(name, (counts.get(name) ?? 0) + 1);
+  }
+  return counts;
+}
+
 export async function listPublishedBlogSlugs(
   locale?: string
 ): Promise<string[]> {

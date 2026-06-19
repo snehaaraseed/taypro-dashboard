@@ -1,0 +1,5 @@
+{
+  "description": "Per-keyword search intent coverage for blog clusters (prevents cannibalization). Auto-updated on each automated blog write; backfilled from published_topics on cron start.",
+  "updatedAt": "2026-06-16T00:00:00.000Z",
+  "byKeyword": {}
+}
