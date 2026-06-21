@@ -11,6 +11,7 @@ import { syncGscNotFoundPages } from "@/lib/gsc/gsc-not-found-sync";
 import { getGscSiteUrl } from "@/lib/gsc/google-service-account";
 import { getGscAuthMethod, isGscConfigured } from "@/lib/gsc/gsc-auth";
 import { invalidateGscBoostCache } from "@/lib/seo/gsc-keyword-boost";
+import { invalidateGscIntentGapsCache } from "@/lib/seo/gsc-intent-opportunities";
 import {
   invalidateGscBlogQueriesCache,
   writeGscBlogQueriesFile,
@@ -172,6 +173,7 @@ export async function syncGscBoostFromSearchConsole(): Promise<GscSyncResult> {
   });
 
   invalidateGscBoostCache();
+  invalidateGscIntentGapsCache();
   invalidateGscBlogQueriesCache();
   refreshKeywordCampaignsFromGsc(opportunities);
   invalidateKeywordCampaignCache();

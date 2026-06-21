@@ -37,9 +37,10 @@ import type { ResolveBlogWordCountInput } from "@/lib/seo/blog-word-count-tier";
 import { pickTopicTitleHybrid, pickSeoKeywordBriefHybrid } from "@/lib/seo/blog-automation-hybrid";
 import {
   formatKeywordIntentClusterPrompt,
+  formatIntentCategorySuffix,
   recordKeywordIntentWritten,
   recommendIntentForContract,
-  resolveStoredIntentFamily,
+  resolveStoredIntentCluster,
   syncKeywordIntentRegistryFromPublishedTopics,
 } from "@/lib/seo/keyword-intent-registry";
 import type { SearchIntentFamily } from "@/lib/seo/keyword-intent-taxonomy";
@@ -92,6 +93,7 @@ import {
   markSlotFailed,
   markSlotFilled,
   parseSlotKey,
+  pickNextEditorialContract,
   pickNextEditorialContractAlways,
   prunePreflightFailedSlots,
   persistBlogResearchBriefs,
@@ -288,6 +290,7 @@ async function resolveTopicHybridFallback(input: {
   let title = "";
   let angleId = "default-guide";
   let topicIntentFamily: SearchIntentFamily | undefined;
+  let topicSubAngle: string | undefined;
   for (let i = 0; i < 10; i++) {
     const picked = await pickTopicTitleHybrid({
       seoBrief,
@@ -305,6 +308,7 @@ async function resolveTopicHybridFallback(input: {
     title = picked.title;
     angleId = picked.angleId ?? angleId;
     topicIntentFamily = picked.intentFamily;
+    topicSubAngle = picked.subAngle;
     break;
   }
   if (!title) {
@@ -372,6 +376,7 @@ async function resolveTopicHybridFallback(input: {
       seoBrief: contract.seoBrief,
       angleId: contract.angleId,
       intentFamily: topicIntentFamily,
+      subAngle: topicSubAngle,
     },
     contract,
     bylineAuthor,
@@ -512,6 +517,8 @@ async function resolveTopicFromLedger(input: {
   });
   title = resolvedTitle.title;
   skipCheckpointB = resolvedTitle.skipCheckpointB;
+  const titleIntentFamily = resolvedTitle.intentFamily;
+  const titleSubAngle = resolvedTitle.subAngle;
 
   if (!skipCheckpointB) {
     await assertCheckpointB(
@@ -557,6 +564,8 @@ async function resolveTopicFromLedger(input: {
       seoKeyword: contract.keyword,
       seoBrief: contract.seoBrief,
       angleId: contract.angleId,
+      intentFamily: titleIntentFamily,
+      subAngle: titleSubAngle,
     },
     contract,
     bylineAuthor,
@@ -579,6 +588,13 @@ export async function POST(request: NextRequest) {
   const ledgerEnabled = isCoverageLedgerEnabled();
 
   try {
+    const intentBackfill = await syncKeywordIntentRegistryFromPublishedTopics();
+    if (intentBackfill.added > 0) {
+      console.info(
+        `[generate-blog] Backfilled ${intentBackfill.added} keyword intent record(s)`
+      );
+    }
+
     const schedule = await getBlogAutomationSchedule();
     if (!force && !isPastGeminiQuotaSoftStart()) {
       return NextResponse.json(
@@ -605,12 +621,6 @@ export async function POST(request: NextRequest) {
     }
 
     const editorialContext = await formatEditorialContextPrompt();
-    const intentBackfill = await syncKeywordIntentRegistryFromPublishedTopics();
-    if (intentBackfill.added > 0) {
-      console.info(
-        `[generate-blog] Backfilled ${intentBackfill.added} keyword intent record(s)`
-      );
-    }
     const uniquenessCtx = await loadBlogUniquenessContext();
     if (ledgerEnabled) {
       const pruned = prunePreflightFailedSlots();
@@ -875,11 +885,38 @@ export async function POST(request: NextRequest) {
           );
         }
 
+        const resolvedCluster = clusterKeyword
+          ? resolveStoredIntentCluster({
+              keyword: clusterKeyword,
+              aiIntent: contentPlan.intentFamily ?? topic.intentFamily,
+              aiSubAngle: contentPlan.subAngle ?? topic.subAngle,
+              angleId: editorialContract?.angleId ?? topic.angleId,
+              archetype: editorialContract?.archetype,
+              title: blogData.title,
+            })
+          : null;
+
         const categoryMeta =
           editorialContract && ledgerEnabled
-            ? formatCoverageTopicCategory(plannedCategoryName, editorialContract)
+            ? formatCoverageTopicCategory(
+                plannedCategoryName,
+                editorialContract,
+                resolvedCluster
+                  ? {
+                      intentFamily: resolvedCluster.intentFamily,
+                      subAngle: resolvedCluster.subAngle,
+                    }
+                  : undefined
+              )
             : topic.seoKeyword
-              ? formatTopicCategory(topic.category, topic.seoKeyword)
+              ? `${formatTopicCategory(topic.category, topic.seoKeyword)}${
+                  resolvedCluster
+                    ? `|${formatIntentCategorySuffix(
+                        resolvedCluster.intentFamily,
+                        resolvedCluster.subAngle
+                      )}`
+                    : ""
+                }`
               : topic.category;
 
         const actualWords = stripHtmlToPlainText(contentWithImages)
@@ -897,15 +934,7 @@ export async function POST(request: NextRequest) {
           wordCountTier: wordCount.wordCountTier,
         });
 
-        if (clusterKeyword) {
-          const storedIntent = resolveStoredIntentFamily({
-            keyword: clusterKeyword,
-            aiIntent:
-              contentPlan.intentFamily ?? topic.intentFamily,
-            angleId: editorialContract?.angleId ?? topic.angleId,
-            archetype: editorialContract?.archetype,
-            title: blogData.title,
-          });
+        if (clusterKeyword && resolvedCluster) {
           recordKeywordIntentWritten({
             keyword: clusterKeyword,
             title: blogData.title,
@@ -913,7 +942,8 @@ export async function POST(request: NextRequest) {
             angleId: editorialContract?.angleId ?? topic.angleId,
             archetype: editorialContract?.archetype,
             slotKey: editorialContract?.slotKey,
-            intentFamily: storedIntent.intentFamily,
+            intentFamily: resolvedCluster.intentFamily,
+            subAngle: resolvedCluster.subAngle,
             source: "automation",
           });
         }
@@ -1075,29 +1105,47 @@ export async function GET(request: NextRequest) {
   }
 
   try {
+    const intentBackfill = await syncKeywordIntentRegistryFromPublishedTopics();
     const schedule = await getBlogAutomationSchedule();
-    const uniquenessCtx = await loadBlogUniquenessContext();
-    const campaignEnabled = isKeywordCampaignEnabled();
-    const focusKeyword = campaignEnabled
-      ? await pickFocusKeywordForToday()
+    const previewContract =
+      request.nextUrl.searchParams.get("preview") === "contract";
+    const uniquenessCtx = previewContract
+      ? await loadBlogUniquenessContext()
       : null;
+    const campaignEnabled = isKeywordCampaignEnabled();
+    const focusKeyword =
+      previewContract && campaignEnabled
+        ? await pickFocusKeywordForToday()
+        : null;
     const focusEntry = focusKeyword
       ? getKeywordCampaignEntry(focusKeyword)
       : null;
-    const nextContract = await pickNextEditorialContractAlways({
-      corpus: uniquenessCtx.corpus,
-      uniquenessCtx,
-      focusKeyword: focusKeyword ?? undefined,
-    }).catch(() => null);
+    const nextContract =
+      previewContract && uniquenessCtx
+        ? await pickNextEditorialContract({
+            corpus: uniquenessCtx.corpus,
+            uniquenessCtx,
+            focusKeyword: focusKeyword ?? undefined,
+          })
+        : null;
 
     return NextResponse.json({
       ...schedule,
+      intentRegistry: {
+        keywordCount: intentBackfill.totalKeywords,
+        lastSyncAdded: intentBackfill.added,
+      },
       coverageLedgerEnabled: isCoverageLedgerEnabled(),
       keywordCampaignEnabled: campaignEnabled,
-      focusKeyword,
-      focusKeywordNextReviewAfter: focusEntry?.nextReviewAfter ?? null,
-      focusKeywordGscPosition: focusEntry?.lastPosition ?? null,
-      campaignPreview: campaignEnabled ? getCampaignPreview() : null,
+      focusKeyword: previewContract ? focusKeyword : undefined,
+      focusKeywordNextReviewAfter: previewContract
+        ? (focusEntry?.nextReviewAfter ?? null)
+        : undefined,
+      focusKeywordGscPosition: previewContract
+        ? (focusEntry?.lastPosition ?? null)
+        : undefined,
+      campaignPreview:
+        previewContract && campaignEnabled ? getCampaignPreview() : undefined,
       blogPipelineMaxOuterAttempts: PIPELINE_ATTEMPT_CAP,
       nextEditorialContract: nextContract
         ? {
@@ -1121,6 +1169,9 @@ export async function GET(request: NextRequest) {
       message: schedule.canGenerate
         ? "Ready to generate and publish a new post"
         : `Already published today (${getBlogAutomationTimezone()} calendar). Next run: ${schedule.nextEligibleAt}. POST with ?force=true to override.`,
+      hint: previewContract
+        ? undefined
+        : "Add ?preview=contract for next slot scan (slower).",
     });
   } catch (error) {
     console.error("Error in GET /api/automation/generate-blog:", error);

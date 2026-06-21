@@ -10,6 +10,8 @@ import { passesSeoKeywordFilters } from "@/lib/seo/keyword-filters";
 import { loadSeoKeywordExpansion } from "@/lib/seo/keyword-expansion";
 import { loadGscBoostKeywords } from "@/lib/seo/gsc-keyword-boost";
 import { loadSeoBlogQueueKeywords } from "@/lib/seo/seo-blog-queue";
+import { getClusterGapScore } from "@/lib/seo/keyword-intent-registry";
+import { getGscIntentGapScoreBoost } from "@/lib/seo/gsc-intent-opportunities";
 
 export type SeoKeywordRow = {
   keyword: string;
@@ -141,6 +143,8 @@ function scoreKeywordRow(row: SeoKeywordRow): number {
   if (/panel price|pv panel price|inverter|manufacturer|supplier|equipment/.test(row.keyword)) {
     score += 180;
   }
+  score += getClusterGapScore(row.keyword) * 350;
+  score += getGscIntentGapScoreBoost(row.keyword);
   return score;
 }
 
@@ -242,7 +246,10 @@ export function buildKeywordCandidateBriefs(
 
   const byKeyword = new Map(available.map((r) => [r.keyword, r]));
 
-  for (const kw of loadSeoBlogQueueKeywords()) {
+  const queueSorted = [...loadSeoBlogQueueKeywords()].sort(
+    (a, b) => getClusterGapScore(b) - getClusterGapScore(a)
+  );
+  for (const kw of queueSorted) {
     addRow(byKeyword.get(kw.toLowerCase().trim()));
   }
   for (const kw of loadGscBoostKeywords()) {

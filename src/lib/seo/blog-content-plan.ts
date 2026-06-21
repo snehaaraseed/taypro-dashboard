@@ -14,6 +14,7 @@ export type BlogContentPlan = {
   /** AI-declared cluster intent (validated in planBlogContent). */
   intentFamily?: SearchIntentFamily;
   intentReason?: string;
+  subAngle?: string;
 };
 
 export function parseBlogContentPlanJson(raw: string): BlogContentPlan {
@@ -27,6 +28,7 @@ export function parseBlogContentPlanJson(raw: string): BlogContentPlan {
     avoidTopics?: unknown;
     intentFamily?: unknown;
     intentReason?: unknown;
+    subAngle?: unknown;
   };
   const h2Outline = Array.isArray(parsed.h2Outline)
     ? parsed.h2Outline.filter((h): h is string => typeof h === "string")
@@ -48,6 +50,8 @@ export function parseBlogContentPlanJson(raw: string): BlogContentPlan {
   const intentFamily = parseSearchIntentFamily(parsed.intentFamily) ?? undefined;
   const intentReason =
     typeof parsed.intentReason === "string" ? parsed.intentReason.trim() : undefined;
+  const subAngle =
+    typeof parsed.subAngle === "string" ? parsed.subAngle.trim() : undefined;
   return {
     description: String(parsed.description ?? "").trim(),
     h2Outline,
@@ -59,5 +63,6 @@ export function parseBlogContentPlanJson(raw: string): BlogContentPlan {
     avoidTopics,
     intentFamily,
     intentReason,
+    subAngle,
   };
 }

@@ -75,7 +75,7 @@ import {
 import { extractH2Headings, stripHtmlToPlainText } from "@/lib/seo/blog-similarity";
 import { parseBlogContentPlanJson } from "@/lib/seo/blog-content-plan";
 import type { BlogContentPlan } from "@/lib/seo/blog-content-plan";
-import { resolveStoredIntentFamily } from "@/lib/seo/keyword-intent-registry";
+import { resolveStoredIntentCluster } from "@/lib/seo/keyword-intent-registry";
 import { formatIntentFamilyIdsForPrompt } from "@/lib/seo/keyword-intent-taxonomy";
 import type { SearchIntentFamily } from "@/lib/seo/keyword-intent-taxonomy";
 export type { BlogContentPlan } from "@/lib/seo/blog-content-plan";
@@ -225,6 +225,7 @@ export type GeneratedTopic = {
   angleId?: string;
   /** AI-declared cluster intent (hybrid title pick or outline plan). */
   intentFamily?: SearchIntentFamily;
+  subAngle?: string;
 };
 
 export type GenerateUniqueTopicPlan = {
@@ -979,6 +980,7 @@ Return ONLY valid JSON:
   "description": "Meta description 150-160 chars, specific outcome for this exact title",
   "intentFamily": "one of: ${formatIntentFamilyIdsForPrompt()}",
   "intentReason": "one sentence: why this intent fits the title and is not cannibalizing covered intents",
+  "subAngle": "short_slug for sub-angle within intent (e.g. vs_fixed_tilt, payback_period, fleet_alignment)",
   "readerQuestion": "One sentence: what the searcher wants answered for THIS title/keyword",
   "mustCover": ["3-6 H2 themes that serve the title — not generic robot O&M"],
   "avoidTopics": ["2-4 off-topic drifts to avoid for this keyword"],
@@ -1009,6 +1011,7 @@ Rules:
     description?: string;
     intentFamily?: unknown;
     intentReason?: unknown;
+    subAngle?: unknown;
     readerQuestion?: string;
     mustCover?: unknown;
     avoidTopics?: unknown;
@@ -1062,9 +1065,10 @@ Rules:
       ? sanitizeEmDash(parsed.intentReason.trim())
       : undefined;
   const resolvedIntent = primaryKeyword
-    ? resolveStoredIntentFamily({
+    ? resolveStoredIntentCluster({
         keyword: primaryKeyword,
         aiIntent: parsed.intentFamily,
+        aiSubAngle: parsed.subAngle,
         angleId: options?.angleId,
         title: topic,
       })
@@ -1100,6 +1104,7 @@ Rules:
       description,
       intentFamily: resolvedIntent?.intentFamily,
       intentReason,
+      subAngle: resolvedIntent?.subAngle,
       readerQuestion,
       mustCover: mergedMustCover,
       avoidTopics: mergedAvoidTopics,
@@ -1122,6 +1127,7 @@ Rules:
     avoidTopics: mergedAvoidTopics,
     intentFamily: resolvedIntent?.intentFamily,
     intentReason,
+    subAngle: resolvedIntent?.subAngle,
   };
 }
 

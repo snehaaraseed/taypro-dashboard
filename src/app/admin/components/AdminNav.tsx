@@ -52,6 +52,16 @@ export default function AdminNav() {
                 Projects
               </Link>
               <Link
+                href="/admin/seo/intents"
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  pathname?.startsWith("/admin/seo")
+                    ? "bg-blue-100 text-blue-700"
+                    : "text-gray-600 hover:text-[#052638] hover:bg-gray-100"
+                }`}
+              >
+                Intent clusters
+              </Link>
+              <Link
                 href="/admin/gsc"
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   pathname?.startsWith("/admin/gsc")

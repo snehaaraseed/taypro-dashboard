@@ -1,5 +1,3 @@
-import "server-only";
-
 import type { StructuralArchetype } from "@/lib/seo/structural-archetypes";
 
 /**

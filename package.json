@@ -35,6 +35,8 @@
     "seo:test-onpage-seo": "tsx scripts/test-blog-onpage-seo.ts",
     "seo:backfill-blog-seo-keywords": "node scripts/backfill-blog-seo-keywords.mjs",
     "seo:backfill-coverage": "node scripts/backfill-coverage-slots.mjs",
+    "seo:backfill-intent-registry": "node scripts/backfill-keyword-intent-registry.mjs",
+    "seo:test-keyword-intent": "npx tsx scripts/test-keyword-intent.ts",
     "seo:build-corpus-index": "node scripts/build-corpus-index.mjs",
     "cms:pull-production": "bash scripts/pull-cms-from-production.sh",
     "cms:pull-production:full": "bash scripts/pull-cms-from-production.sh --uploads",

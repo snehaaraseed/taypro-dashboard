@@ -26,6 +26,11 @@ import type { TopicCategory } from "@/lib/topicCategories";
 import { addPublishedTopic } from "@/lib/topicTracker";
 import { createBlogFiles, createSlug } from "@/app/utils/blogFileUtils";
 import { requireAuth } from "@/app/utils/auth";
+import {
+  formatIntentCategorySuffix,
+  recordKeywordIntentWritten,
+  resolveStoredIntentCluster,
+} from "@/lib/seo/keyword-intent-registry";
 
 const MAX_GENERATION_ATTEMPTS = 3;
 
@@ -195,10 +200,23 @@ export async function POST(request: NextRequest) {
           );
         }
 
+        const manualCluster = seoKeyword
+          ? resolveStoredIntentCluster({
+              keyword: seoKeyword,
+              angleId,
+              title: blogData.title,
+            })
+          : null;
+
         await addPublishedTopic(
           blogData.title,
           result.slug,
-          formatTopicCategory(categoryName, seoKeyword),
+          seoKeyword && manualCluster
+            ? `${formatTopicCategory(categoryName, seoKeyword)}|${formatIntentCategorySuffix(
+                manualCluster.intentFamily,
+                manualCluster.subAngle
+              )}`
+            : formatTopicCategory(categoryName, seoKeyword),
           {
             h2Outline: extractH2Headings(contentWithImages),
             contentFingerprint: buildContentFingerprint(
@@ -215,6 +233,18 @@ export async function POST(request: NextRequest) {
             }).wordCountTier,
           }
         );
+
+        if (seoKeyword && manualCluster) {
+          recordKeywordIntentWritten({
+            keyword: seoKeyword,
+            title: blogData.title,
+            slug: result.slug,
+            angleId,
+            intentFamily: manualCluster.intentFamily,
+            subAngle: manualCluster.subAngle,
+            source: "manual",
+          });
+        }
 
         revalidatePath(`/blog/${result.slug}`);
         revalidatePath("/blog");

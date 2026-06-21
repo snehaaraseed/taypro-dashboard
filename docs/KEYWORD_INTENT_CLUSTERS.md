@@ -18,6 +18,11 @@ One target keyword can support **multiple blogs** only when each post serves a *
 - **On each automated publish:** `{ keyword, intentFamily, angleId, title, slug, writtenAt }` is appended.
 - **Intent selection (hybrid):** AI declares `intentFamily` in the outline plan and hybrid title pick; code validates it against covered intents and falls back to angle/title inference when AI would cannibalize.
 - **On cron start:** existing `published_topics` rows are backfilled if missing from the registry.
+- **Category metadata:** `published_topics.category` includes `intent:family|subang:slug` for SQL/reporting.
+- **Admin UI:** `/admin/seo/intents` — read-only cluster view + sync from published topics.
+- **Sub-angle dedup:** within one intent family, `subAngle` (e.g. `vs_fixed_tilt`) prevents duplicate comparison axes.
+- **GSC intent gaps:** `gsc-latest-report.json` boosts keywords/intents with impressions but no post.
+- **Pillar/sibling links:** cluster prompt injects pillar URL + sibling blog links for internal linking.
 - **On keyword pick:** coverage ledger prefers angles whose intent family is not yet covered for that keyword.
 - **On outline/write:** Gemini receives `COVERED INTENTS` + `RECOMMENDED INTENT` in the prompt (`keyword-intent-registry.ts`).
 

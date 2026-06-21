@@ -28,8 +28,9 @@ import {
   formatKeywordIntentClusterPrompt,
   getCoveredIntentsForKeyword,
   recommendNextIntentFamily,
-  resolveStoredIntentFamily,
+  resolveStoredIntentCluster,
 } from "@/lib/seo/keyword-intent-registry";
+import { formatGscIntentGapsForPrompt } from "@/lib/seo/gsc-intent-opportunities";
 import {
   formatIntentSelectionGuideBlock,
   formatIntentFamilyIdsForPrompt,
@@ -105,6 +106,8 @@ ${gscHint ? `\n${gscHint}\n` : ""}
 
 ${formatIntentSelectionGuideBlock()}
 
+${formatGscIntentGapsForPrompt(6)}
+
 CANDIDATE KEYWORDS (code-ranked from editorial queue, GSC boost, and Keyword Planner — pick ONE):
 ${candidateLines}
 
@@ -144,6 +147,7 @@ export type HybridTopicPick = {
   title: string;
   angleId?: string;
   intentFamily?: SearchIntentFamily;
+  subAngle?: string;
 };
 
 /**
@@ -202,7 +206,7 @@ Rules:
 - intentFamily must NOT duplicate COVERED INTENTS unless all five families are already covered.
 
 Return ONLY valid JSON:
-{ "title": "specific SEO title", "intentFamily": "technical_howto|financial_roi|...", "intentReason": "one sentence", "chosenSeed": "optional seed you based it on" }`;
+{ "title": "specific SEO title", "intentFamily": "technical_howto|financial_roi|...", "subAngle": "vs_manual_labor", "intentReason": "one sentence", "chosenSeed": "optional seed you based it on" }`;
 
   try {
     const text = await generateGeminiPrompt(prompt, {
@@ -212,6 +216,7 @@ Return ONLY valid JSON:
     const title = parseJsonField<string>(text, "title")?.trim();
     const chosenSeed = parseJsonField<string>(text, "chosenSeed")?.trim();
     const rawIntent = parseJsonField<string>(text, "intentFamily");
+    const rawSubAngle = parseJsonField<string>(text, "subAngle");
     if (
       title &&
       !isTooGenericTitle(title, input.seoBrief.primary) &&
@@ -220,21 +225,23 @@ Return ONLY valid JSON:
       const angleId = inferAngleIdFromTitle(input.seoBrief.primary, title, {
         chosenSeed,
       });
-      const resolved = resolveStoredIntentFamily({
+      const resolved = resolveStoredIntentCluster({
         keyword: input.seoBrief.primary,
         aiIntent: rawIntent,
+        aiSubAngle: rawSubAngle,
         angleId,
         title,
       });
       if (rawIntent && resolved.source === "code") {
         console.warn(
-          `[pickTopicTitleHybrid] AI intent "${rawIntent}" rejected for "${input.seoBrief.primary}" — using ${resolved.intentFamily}`
+          `[pickTopicTitleHybrid] AI intent "${rawIntent}" rejected for "${input.seoBrief.primary}" — using ${resolved.intentFamily}/${resolved.subAngle}`
         );
       }
       return {
         title,
         angleId,
         intentFamily: resolved.intentFamily,
+        subAngle: resolved.subAngle,
       };
     }
   } catch (error) {
@@ -246,14 +253,17 @@ Return ONLY valid JSON:
       !isTooGenericTitle(seed, input.seoBrief.primary) &&
       !(await isTopicPublished(seed, createSlug(seed)))
     ) {
+      const angleId = inferAngleIdFromTitle(input.seoBrief.primary, seed);
+      const resolved = resolveStoredIntentCluster({
+        keyword: input.seoBrief.primary,
+        angleId,
+        title: seed,
+      });
       return {
         title: seed,
-        angleId: inferAngleIdFromTitle(input.seoBrief.primary, seed),
-        intentFamily: resolveStoredIntentFamily({
-          keyword: input.seoBrief.primary,
-          angleId: inferAngleIdFromTitle(input.seoBrief.primary, seed),
-          title: seed,
-        }).intentFamily,
+        angleId,
+        intentFamily: resolved.intentFamily,
+        subAngle: resolved.subAngle,
       };
     }
   }

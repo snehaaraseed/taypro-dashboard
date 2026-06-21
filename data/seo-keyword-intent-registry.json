@@ -1,5 +1,149 @@
 {
   "description": "Per-keyword search intent coverage for blog clusters (prevents cannibalization). Auto-updated on each automated blog write; backfilled from published_topics on cron start.",
-  "updatedAt": "2026-06-16T00:00:00.000Z",
-  "byKeyword": {}
+  "updatedAt": "2026-06-19T20:12:33.863Z",
+  "byKeyword": {
+    "automatic solar panel cleaning system": [
+      {
+        "intentFamily": "financial_roi",
+        "subAngle": "payback_roi",
+        "angleId": null,
+        "archetype": null,
+        "title": "Calculating ROI: When to Upgrade to an Automatic Solar Panel Cleaning System",
+        "slug": "calculating-roi-when-to-upgrade-to-an-automatic-solar-panel-cleaning-system",
+        "slotKey": null,
+        "writtenAt": "2026-05-18T06:56:56.583Z",
+        "source": "backfill"
+      }
+    ],
+    "solar panel cleaning robot": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "technical_howto_angle",
+        "angleId": null,
+        "archetype": null,
+        "title": "Managing Performance Ratio Losses: Why a Solar Panel Cleaning Robot Beats Manual Labor",
+        "slug": "managing-performance-ratio-losses-why-a-solar-panel-cleaning-robot-beats-manual-labor",
+        "slotKey": null,
+        "writtenAt": "2026-05-18T07:01:58.066Z",
+        "source": "backfill"
+      }
+    ],
+    "best pv panels": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "technical_howto_angle",
+        "angleId": null,
+        "archetype": null,
+        "title": "Optimizing Best PV Panels Commissioning: Robot Integration Checklists",
+        "slug": "optimizing-best-pv-panels-commissioning-robot-integration-checklists",
+        "slotKey": null,
+        "writtenAt": "2026-05-18T08:52:34.807Z",
+        "source": "backfill"
+      }
+    ],
+    "solar panel cleaning service": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "technical_howto_angle",
+        "angleId": null,
+        "archetype": null,
+        "title": "Choosing a Reliable Solar Panel Cleaning Service for 50MW+ Projects",
+        "slug": "choosing-a-reliable-solar-panel-cleaning-service-for-50mw-projects",
+        "slotKey": null,
+        "writtenAt": "2026-05-23T09:00:34.009Z",
+        "source": "backfill"
+      }
+    ],
+    "solar power cleaning service": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "vs_robot",
+        "angleId": null,
+        "archetype": null,
+        "title": "Evaluating Solar Power Cleaning Service ROI: Manual vs Robot",
+        "slug": "evaluating-solar-power-cleaning-service-roi-manual-vs-robot",
+        "slotKey": null,
+        "writtenAt": "2026-05-27T09:00:31.099Z",
+        "source": "backfill"
+      }
+    ],
+    "solar panel cleaning system": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "technical_howto_angle",
+        "angleId": null,
+        "archetype": null,
+        "title": "Site Preparation for Automatic Solar Panel Cleaning on Trackers",
+        "slug": "site-preparation-for-automatic-solar-panel-cleaning-on-trackers",
+        "slotKey": null,
+        "writtenAt": "2026-05-31T09:00:30.791Z",
+        "source": "backfill"
+      }
+    ],
+    "photovoltaic panels price": [
+      {
+        "intentFamily": "financial_roi",
+        "subAngle": "cost_per_mw",
+        "angleId": "cost-per-mw",
+        "archetype": "cost_breakdown",
+        "title": "Photovoltaic Panels Price: Per-MW Budget Lines Indian Asset Owners Use",
+        "slug": "photovoltaic-panels-price-per-mw-budget-lines-indian-asset-owners-use",
+        "slotKey": "photovoltaic panels price::cost-per-mw",
+        "writtenAt": "2026-06-05T18:39:32.361Z",
+        "source": "backfill"
+      }
+    ],
+    "pv panel suppliers": [
+      {
+        "intentFamily": "risk_compliance",
+        "subAngle": "mfg_om_bridge",
+        "angleId": "mfg-om-bridge",
+        "archetype": "vendor_shortlist",
+        "title": "Shortlisting PV Panel Suppliers: Specs That Impact O&M and Cleaning",
+        "slug": "shortlisting-pv-panel-suppliers-specs-that-impact-om-and-cleaning",
+        "slotKey": "pv panel suppliers::mfg-om-bridge",
+        "writtenAt": "2026-06-06T06:12:40.892Z",
+        "source": "backfill"
+      }
+    ],
+    "pv module manufacturers in india": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "mfg_vendor_vs_robot",
+        "angleId": "mfg-vendor-vs-robot",
+        "archetype": "comparison_matrix",
+        "title": "PV Module Selection for India's MW Plants: Robotic O&M Impact",
+        "slug": "pv-module-selection-for-indias-mw-plants-robotic-om-impact",
+        "slotKey": "pv module manufacturers in india::mfg-vendor-vs-robot",
+        "writtenAt": "2026-06-06T06:15:59.415Z",
+        "source": "backfill"
+      }
+    ],
+    "pv panel roof": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "default_compare",
+        "angleId": "default-compare",
+        "archetype": "comparison_matrix",
+        "title": "Pv Panel Roof: Methods, Costs, and Robot Options Compared",
+        "slug": "pv-panel-roof-methods-costs-and-robot-options-compared",
+        "slotKey": "pv panel roof::default-compare",
+        "writtenAt": "2026-06-06T08:26:54.175Z",
+        "source": "backfill"
+      }
+    ],
+    "solar machine": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "robot_eval",
+        "angleId": "robot-eval",
+        "archetype": "robot_evaluation",
+        "title": "Solar Machine: What Indian Utility O&M Teams Should Evaluate",
+        "slug": "solar-machine-what-indian-utility-om-teams-should-evaluate",
+        "slotKey": "solar machine::robot-eval",
+        "writtenAt": "2026-06-06T08:48:24.590Z",
+        "source": "backfill"
+      }
+    ]
+  }
 }

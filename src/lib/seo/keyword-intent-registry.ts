@@ -17,9 +17,21 @@ import {
   type SearchIntentFamily,
 } from "@/lib/seo/keyword-intent-taxonomy";
 import type { StructuralArchetype } from "@/lib/seo/structural-archetypes";
+import {
+  formatGscIntentGapsForPrompt,
+  gscSuggestedIntentForKeyword,
+} from "@/lib/seo/gsc-intent-opportunities";
+import { formatClusterInternalLinksPrompt } from "@/lib/seo/keyword-cluster-pillars";
+import {
+  inferSubAngle,
+  normalizeSubAngle,
+  parseSubAngle,
+} from "@/lib/seo/keyword-sub-angle";
 
 export type KeywordIntentRecord = {
   intentFamily: SearchIntentFamily;
+  /** Sub-angle within the intent family (comparison axis, failure mode, etc.). */
+  subAngle?: string | null;
   angleId?: string | null;
   archetype?: StructuralArchetype | null;
   title: string;
@@ -95,8 +107,91 @@ function parseArchetypeFromCategory(category?: string): StructuralArchetype | nu
   return (raw as StructuralArchetype) ?? null;
 }
 
+function parseIntentFromCategory(category?: string): SearchIntentFamily | null {
+  const match = (category ?? "").match(/intent:([^|]+)/i);
+  return parseSearchIntentFamily(match?.[1]);
+}
+
+function parseSubAngleFromCategory(category?: string): string | null {
+  const match = (category ?? "").match(/subang:([^|]+)/i);
+  return match?.[1]?.trim() ? normalizeSubAngle(match[1]) : null;
+}
+
+export function formatIntentCategorySuffix(
+  intentFamily: SearchIntentFamily,
+  subAngle?: string | null
+): string {
+  const parts = [`intent:${intentFamily}`];
+  if (subAngle?.trim()) parts.push(`subang:${normalizeSubAngle(subAngle)}`);
+  return parts.join("|");
+}
+
+export function getClusterGapScore(keyword: string): number {
+  const covered = getCoveredIntentFamilySet(keyword);
+  return INTENT_FAMILY_ORDER.filter((f) => !covered.has(f)).length;
+}
+
+export function isSubAngleCovered(
+  keyword: string,
+  intentFamily: SearchIntentFamily,
+  subAngle: string
+): boolean {
+  const normalized = normalizeSubAngle(subAngle);
+  return getCoveredIntentsForKeyword(keyword).some(
+    (r) =>
+      r.intentFamily === intentFamily &&
+      normalizeSubAngle(r.subAngle ?? r.angleId ?? "") === normalized
+  );
+}
+
+export function validateAiSubAngle(
+  keyword: string,
+  intentFamily: SearchIntentFamily,
+  aiSubAngle: unknown
+): string | null {
+  const parsed = parseSubAngle(aiSubAngle);
+  if (!parsed) return null;
+  if (isSubAngleCovered(keyword, intentFamily, parsed)) return null;
+  return parsed;
+}
+
+export type ResolvedIntentCluster = ResolvedIntentFamily & {
+  subAngle: string;
+};
+
+/** AI proposes intent + sub-angle; code validates both. */
+export function resolveStoredIntentCluster(input: {
+  keyword: string;
+  aiIntent?: unknown;
+  aiSubAngle?: unknown;
+  angleId?: string | null;
+  archetype?: StructuralArchetype | null;
+  title?: string | null;
+}): ResolvedIntentCluster {
+  const intent = resolveStoredIntentFamily(input);
+  const codeSub = inferSubAngle({
+    title: input.title ?? "",
+    intentFamily: intent.intentFamily,
+    angleId: input.angleId,
+  });
+  const validatedSub = validateAiSubAngle(
+    input.keyword,
+    intent.intentFamily,
+    input.aiSubAngle
+  );
+  if (validatedSub) {
+    return { ...intent, subAngle: validatedSub };
+  }
+  let subAngle = codeSub;
+  if (isSubAngleCovered(input.keyword, intent.intentFamily, subAngle)) {
+    const titleSlug = normalizeSubAngle((input.title ?? "").slice(0, 40));
+    subAngle = titleSlug.length >= 3 ? titleSlug : `${codeSub}_alt`;
+  }
+  return { ...intent, subAngle };
+}
+
 function recordKey(row: KeywordIntentRecord): string {
-  return `${row.intentFamily}::${row.slug}`;
+  return `${row.intentFamily}::${row.subAngle ?? ""}::${row.slug}`;
 }
 
 export function getCoveredIntentsForKeyword(
@@ -119,6 +214,9 @@ export function recommendNextIntentFamily(
   registry?: KeywordIntentRegistryFile
 ): SearchIntentFamily {
   const covered = getCoveredIntentFamilySet(keyword);
+  const gscIntent = gscSuggestedIntentForKeyword(keyword);
+  if (gscIntent && !covered.has(gscIntent)) return gscIntent;
+
   for (const family of INTENT_FAMILY_ORDER) {
     if (!covered.has(family)) return family;
   }
@@ -193,13 +291,16 @@ export function resolveStoredIntentFamily(input: {
 export function recommendIntentForContract(
   contract: Pick<EditorialContract, "keyword" | "angleId" | "archetype" | "seedTitle">
 ): SearchIntentFamily {
+  const gscIntent = gscSuggestedIntentForKeyword(contract.keyword);
+  const covered = getCoveredIntentFamilySet(contract.keyword);
+  if (gscIntent && !covered.has(gscIntent)) return gscIntent;
+
   const recommended = recommendNextIntentFamily(contract.keyword);
   const fromAngle = inferIntentFamily({
     angleId: contract.angleId,
     archetype: contract.archetype,
     title: contract.seedTitle,
   });
-  const covered = getCoveredIntentFamilySet(contract.keyword);
   if (!covered.has(fromAngle)) return fromAngle;
   if (!covered.has(recommended)) return recommended;
   return fromAngle;
@@ -213,24 +314,26 @@ export function recordKeywordIntentWritten(input: {
   archetype?: StructuralArchetype | null;
   slotKey?: string | null;
   intentFamily?: SearchIntentFamily;
+  subAngle?: string | null;
   source?: KeywordIntentRecord["source"];
 }): void {
   const kw = keywordKey(input.keyword);
   if (!kw) return;
 
-  const intentFamily =
-    input.intentFamily ??
-    resolveStoredIntentFamily({
-      keyword: kw,
-      angleId: input.angleId,
-      archetype: input.archetype,
-      title: input.title,
-    }).intentFamily;
+  const cluster = resolveStoredIntentCluster({
+    keyword: kw,
+    aiIntent: input.intentFamily,
+    aiSubAngle: input.subAngle,
+    angleId: input.angleId,
+    archetype: input.archetype,
+    title: input.title,
+  });
 
   const file = readRegistryFile();
   const list = file.byKeyword[kw] ?? [];
   const row: KeywordIntentRecord = {
-    intentFamily,
+    intentFamily: cluster.intentFamily,
+    subAngle: cluster.subAngle,
     angleId: input.angleId ?? null,
     archetype: input.archetype ?? null,
     title: input.title.trim(),
@@ -272,14 +375,26 @@ export async function syncKeywordIntentRegistryFromPublishedTopics(): Promise<{
     if (!keyword) continue;
 
     const kw = keywordKey(keyword);
-    const intentFamily = inferIntentFamily({
-      angleId: parsed.angleId,
-      archetype: parseArchetypeFromCategory(topic.category),
-      title: topic.title,
-    });
+    const storedIntent = parseIntentFromCategory(topic.category);
+    const storedSubAngle = parseSubAngleFromCategory(topic.category);
+    const intentFamily =
+      storedIntent ??
+      inferIntentFamily({
+        angleId: parsed.angleId,
+        archetype: parseArchetypeFromCategory(topic.category),
+        title: topic.title,
+      });
+    const subAngle =
+      storedSubAngle ??
+      inferSubAngle({
+        title: topic.title,
+        intentFamily,
+        angleId: parsed.angleId,
+      });
 
     const row: KeywordIntentRecord = {
       intentFamily,
+      subAngle,
       angleId: parsed.angleId,
       archetype: parseArchetypeFromCategory(topic.category),
       title: topic.title,
@@ -321,9 +436,16 @@ export function formatKeywordIntentClusterPrompt(input: {
 ${covered
   .map(
     (r) =>
-      `- ${r.intentFamily}: "${r.title}" (/blog/${r.slug})${r.angleId ? ` [angle: ${r.angleId}]` : ""}`
+      `- ${r.intentFamily}${r.subAngle ? `/${r.subAngle}` : ""}: "${r.title}" (/blog/${r.slug})${r.angleId ? ` [angle: ${r.angleId}]` : ""}`
   )
   .join("\n")}`;
+
+  const clusterLinks = formatClusterInternalLinksPrompt({
+    keyword: kw,
+    siblings: covered,
+  });
+
+  const gscBlock = formatGscIntentGapsForPrompt(5);
 
   const recommendBlock = meta
     ? `RECOMMENDED INTENT FOR THIS POST: ${recommended} (${meta.label})
@@ -342,7 +464,31 @@ PRIMARY KEYWORD CLUSTER: "${kw}"
 ${coveredBlock}
 
 ${recommendBlock}
-${titleLine}`;
+${gscBlock ? `\n${gscBlock}\n` : ""}${clusterLinks ? `\n${clusterLinks}\n` : ""}${titleLine}`;
+}
+
+export type IntentRegistryKeywordSummary = {
+  keyword: string;
+  coveredFamilies: SearchIntentFamily[];
+  gapScore: number;
+  postCount: number;
+  records: KeywordIntentRecord[];
+};
+
+export function buildIntentRegistryAdminSummary(): IntentRegistryKeywordSummary[] {
+  const file = readRegistryFile();
+  return Object.entries(file.byKeyword)
+    .map(([keyword, records]) => ({
+      keyword,
+      coveredFamilies: [...getCoveredIntentFamilySet(keyword)],
+      gapScore: getClusterGapScore(keyword),
+      postCount: records.length,
+      records: [...records].sort(
+        (a, b) =>
+          new Date(b.writtenAt).getTime() - new Date(a.writtenAt).getTime()
+      ),
+    }))
+    .sort((a, b) => b.gapScore - a.gapScore || b.postCount - a.postCount);
 }
 
 export function sortAngleIdsByIntentGap(

@@ -13,9 +13,12 @@ import { findKeywordCorpusConflict, findTitleConflict } from "@/lib/seo/blog-pla
 import { anglesForKeyword } from "@/lib/seo/blog-topic-angles";
 import { inferIntentFamily } from "@/lib/seo/keyword-intent-taxonomy";
 import {
+  formatIntentCategorySuffix,
   getCoveredIntentFamilySet,
+  resolveStoredIntentCluster,
   sortAngleIdsByIntentGap,
 } from "@/lib/seo/keyword-intent-registry";
+import type { SearchIntentFamily } from "@/lib/seo/keyword-intent-taxonomy";
 import { isCompetitorPrimaryKeyword } from "@/lib/seo/competitor-keyword-guard";
 import { titlesTooSimilar } from "@/lib/seo/blog-similarity";
 import type { SerpResearchBrief } from "@/lib/gemini/grounded-serp-research";
@@ -158,17 +161,23 @@ export function parseSlotFromCategory(category?: string): {
   angleId: string | null;
   audience: string | null;
   plantContext: string | null;
+  intentFamily: string | null;
+  subAngle: string | null;
 } {
   const cat = category ?? "";
   const seoMatch = cat.match(/seo:([^|]+)/i);
   const slotMatch = cat.match(/slot:([^|]+)/i);
   const audMatch = cat.match(/aud:([^|]+)/i);
   const ctxMatch = cat.match(/ctx:([^|]+)/i);
+  const intentMatch = cat.match(/intent:([^|]+)/i);
+  const subangMatch = cat.match(/subang:([^|]+)/i);
   return {
     keyword: seoMatch?.[1]?.trim().toLowerCase() ?? null,
     angleId: slotMatch?.[1]?.trim() ?? null,
     audience: audMatch?.[1]?.trim() ?? null,
     plantContext: ctxMatch?.[1]?.trim() ?? null,
+    intentFamily: intentMatch?.[1]?.trim().toLowerCase() ?? null,
+    subAngle: subangMatch?.[1]?.trim() ?? null,
   };
 }
 
@@ -537,12 +546,17 @@ export async function pickNextCoverageSlot(
 
 export function formatCoverageTopicCategory(
   categoryName: string,
-  contract: EditorialContract | CoverageSlot
+  contract: EditorialContract | CoverageSlot,
+  intent?: { intentFamily?: SearchIntentFamily; subAngle?: string | null }
 ): string {
   const base = formatTopicCategory(categoryName, contract.keyword);
   const archetype =
     "archetype" in contract ? contract.archetype : "general_om";
-  return `${base}|slot:${contract.angleId}|arch:${archetype}|aud:${contract.audience}|ctx:${contract.plantContext}`;
+  const intentSuffix =
+    intent?.intentFamily != null
+      ? `|${formatIntentCategorySuffix(intent.intentFamily, intent.subAngle)}`
+      : "";
+  return `${base}|slot:${contract.angleId}|arch:${archetype}|aud:${contract.audience}|ctx:${contract.plantContext}${intentSuffix}`;
 }
 
 export function markSlotFilled(slotKey: string, slug: string): void {
@@ -658,7 +672,31 @@ export type ResolveTitleResult = {
   title: string;
   /** When true, skip checkpoint B pre-flight (looser uniqueness path). */
   skipCheckpointB: boolean;
+  intentFamily?: SearchIntentFamily;
+  subAngle?: string;
 };
+
+function buildTitleIntentResult(
+  contract: EditorialContract,
+  title: string,
+  skipCheckpointB: boolean,
+  hybrid?: { intentFamily?: SearchIntentFamily; subAngle?: string }
+): ResolveTitleResult {
+  const cluster = resolveStoredIntentCluster({
+    keyword: contract.keyword,
+    aiIntent: hybrid?.intentFamily,
+    aiSubAngle: hybrid?.subAngle,
+    angleId: contract.angleId,
+    archetype: contract.archetype,
+    title,
+  });
+  return {
+    title,
+    skipCheckpointB,
+    intentFamily: cluster.intentFamily,
+    subAngle: cluster.subAngle,
+  };
+}
 
 /** SERP → multi hybrid → seed → last-resort title with escalating relaxation. */
 export async function resolveTitleForEditorialContract(input: {
@@ -680,14 +718,14 @@ export async function resolveTitleForEditorialContract(input: {
     forbiddenTitles,
     titleCheckpoint
   );
-  if (title) return { title, skipCheckpointB: false };
+  if (title) return buildTitleIntentResult(contract, title, false);
 
   title = await pickTitleFromSerpBrief(
     serpBrief,
     contract,
     forbiddenTitles
   );
-  if (title) return { title, skipCheckpointB: true };
+  if (title) return buildTitleIntentResult(contract, title, true);
 
   const attemptsRaw = process.env.BLOG_TITLE_HYBRID_ATTEMPTS?.trim();
   const hybridAttempts = attemptsRaw
@@ -715,7 +753,10 @@ export async function resolveTitleForEditorialContract(input: {
           titleCheckpoint
         )
       ) {
-        return { title: fallback.title, skipCheckpointB: false };
+        return buildTitleIntentResult(contract, fallback.title, false, {
+          intentFamily: fallback.intentFamily,
+          subAngle: fallback.subAngle,
+        });
       }
       if (
         await validateTitleCandidateLoose(
@@ -724,7 +765,10 @@ export async function resolveTitleForEditorialContract(input: {
           forbiddenTitles
         )
       ) {
-        return { title: fallback.title, skipCheckpointB: true };
+        return buildTitleIntentResult(contract, fallback.title, true, {
+          intentFamily: fallback.intentFamily,
+          subAngle: fallback.subAngle,
+        });
       }
     } catch {
       break;
@@ -739,7 +783,7 @@ export async function resolveTitleForEditorialContract(input: {
       titleCheckpoint
     )
   ) {
-    return { title: contract.seedTitle, skipCheckpointB: false };
+    return buildTitleIntentResult(contract, contract.seedTitle, false);
   }
 
   const lastResort = buildLastResortTitle(contract);
@@ -753,7 +797,7 @@ export async function resolveTitleForEditorialContract(input: {
     console.warn(
       `Coverage ledger: last-resort title for ${contract.slotKey}: ${lastResort}`
     );
-    return { title: lastResort, skipCheckpointB: true };
+    return buildTitleIntentResult(contract, lastResort, true);
   }
 
   throw new SlotTitleExhaustedError(contract.slotKey, contract.keyword);
