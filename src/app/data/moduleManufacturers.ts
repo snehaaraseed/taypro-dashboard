@@ -6,4 +6,5 @@ export const approvedModuleManufacturers = [
   "RenewSys",
   "Satvik",
   "Trina Solar",
+  "Future Solar",
 ] as const;

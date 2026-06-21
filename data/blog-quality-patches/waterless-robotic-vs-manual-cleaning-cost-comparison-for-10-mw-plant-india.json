@@ -1,0 +1,27 @@
+{
+  "slug": "waterless-robotic-vs-manual-cleaning-cost-comparison-for-10-mw-plant-india",
+  "prependContent": "<h2>Quick answer</h2>\n<ul>\n<li><strong>Manual wet</strong> on 10 MW arid sites: roughly ₹45–80 lakh/year all-in (labour, water, mobilization).</li>\n<li><strong>Waterless robots</strong>: higher capex but often lower water and labour at scale; five-year TCO depends on uptime.</li>\n<li>Compare on <strong>₹ per recovered MWh</strong>, not one cleaning invoice.</li>\n<li>Rajasthan/Gujarat dust makes frequent cleans material to PR.</li>\n<li>Use site PR data in the <a href=\"/solar-panel-cleaning-robot-price-calculator\">ROI calculator</a>.</li>\n</ul>\n\n<h2>Which method wins on a 10 MW Rajasthan plant?</h2>\n<p>When manual full-plant cycles slip beyond your economic soiling window after dust storms, robots often clear hurdle rates at roughly 85%+ fleet uptime. If manual passes stay on schedule with cheap water, wet methods may remain optimal until scale grows.</p>",
+  "faqs": [
+    {
+      "question": "What is the cost comparison between waterless robots and manual cleaning on a 10 MW plant in India?",
+      "answer": "Manual wet programs typically show higher recurring labour and water opex on arid 10 MW blocks. Waterless robots add capex or lease cost but can reduce litres per MW and improve pass frequency. Compare five-year loaded cost against recovered MWh at your PPA tariff."
+    },
+    {
+      "question": "How much water does manual wet cleaning use on a 10 MW plant?",
+      "answer": "Industry-typical ranges cite roughly 2–5 litres per module per wet pass, scaling to lakhs of litres per full-plant round. Waterless robotic methods target near-zero routine withdrawal."
+    },
+    {
+      "question": "When does manual cleaning still make sense at 10 MW?",
+      "answer": "When soiling is mild, water is cheap and reliable, and crews complete full-plant passes within your PR recovery window. Fixed-tilt sites with good roads often stay manual longer than tracker deserts."
+    },
+    {
+      "question": "What assumptions should a 10 MW cost model include?",
+      "answer": "Include storm surge weeks, tanker demurrage, robot uptime sensitivity, downtime during day wet cleans, and soiling MWh valued at ₹/kWh. Stress-test robot uptime at 75% and 90%."
+    },
+    {
+      "question": "How do you verify savings after choosing a method?",
+      "answer": "Run reference-block PR for 14 days before and 7 days after cleans. Log water litres, labour hours, or robot pass maps. Extrapolate to annual ₹ and MWh before portfolio rollout."
+    }
+  ],
+  "seoKeyword": "waterless vs manual solar cleaning cost 10 MW India"
+}

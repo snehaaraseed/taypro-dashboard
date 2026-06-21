@@ -1,0 +1,28 @@
+{
+  "slug": "taypro-wins-historic-patent-for-revolutionary-solar-panel-cleaning-system",
+  "seoKeyword": "dual pass solar panel cleaning system",
+  "description": "Four Taypro patents on dual-pass waterless cleaning: airflow plus microfiber wipe. What they protect on utility robots and why Indian O&M teams should care.",
+  "prependContent": "<h2>Quick answer</h2>\n<ul>\n<li>Taypro holds <strong>four patents</strong> on its dual-pass waterless solar panel cleaning system.</li>\n<li><strong>Pass 1</strong> uses calibrated airflow to lift loose dust before any brush contact.</li>\n<li><strong>Pass 2</strong> uses a self-cleaning microfiber drum for sticky residue without scratching glass.</li>\n<li>Field robots (GLYDE, GLYDE-X) already run this sequence on Indian utility plants.</li>\n<li>Patents protect the <strong>system combination</strong>, not generic brushing alone.</li>\n</ul>\n\n<h2>What does Taypro's dual pass solar panel cleaning patent cover?</h2>\n<p>It covers the sequenced combination of contactless dust dislodgement followed by a panel-safe microfiber wipe, plus the self-cleaning drum design that prevents cross-contamination across long utility runs. The patents do not claim every dry brush or every airflow device; they protect Taypro's specific dual-pass architecture deployed on waterless utility robots.</p>",
+  "faqs": [
+    {
+      "question": "What is a dual pass solar panel cleaning system?",
+      "answer": "It is a two-stage clean: first, high-speed airflow dislodges loose dust and sand without touching the glass; second, an ultra-soft rotating microfiber drum removes sticky residue. Sequencing matters because wiping abrasive loose dust first can scratch anti-reflective coatings on utility modules."
+    },
+    {
+      "question": "How many patents did Taypro receive for its cleaning technology?",
+      "answer": "Taypro has been granted four patents for its System for Cleaning Solar Panels. They cover the dual-pass mechanism, microfiber drum design, and related system architecture used on GLYDE and GLYDE-X robots across Indian utility fleets."
+    },
+    {
+      "question": "Why is the airflow pass important before microfiber contact?",
+      "answer": "After dust storms, much particulate sits loosely on the surface. Physical contact without dislodgement drags abrasive silica across the glass. The first pass lifts that layer so the microfiber pass handles only adhered material, reducing scratch risk at scale."
+    },
+    {
+      "question": "Does the patent mean Taypro robots are waterless only?",
+      "answer": "The patented system is designed for waterless utility-scale cleaning, which addresses water scarcity and thermal shock risks from wet washing hot modules in Indian desert belts. Water-based methods are not what these patents optimize for."
+    },
+    {
+      "question": "What should Indian solar O&M teams take from these patents?",
+      "answer": "Patents signal that cleaning method affects both soiling recovery and module life. On 50 to 100 MW assets, inconsistent manual crews or stiff brushes can cost crores in lost generation and warranty risk. Dual-pass waterless automation targets both throughput and contact safety."
+    }
+  ]
+}

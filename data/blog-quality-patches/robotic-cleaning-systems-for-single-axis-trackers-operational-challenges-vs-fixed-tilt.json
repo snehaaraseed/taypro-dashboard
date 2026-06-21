@@ -1,0 +1,29 @@
+{
+  "slug": "robotic-cleaning-systems-for-single-axis-trackers-operational-challenges-vs-fixed-tilt",
+  "seoKeyword": "single axis tracker cleaning robot",
+  "title": "Single-Axis Tracker Cleaning Robots vs Fixed-Tilt: Operational Challenges on Indian Utility Plants",
+  "description": "Why fixed-tilt robots fail on trackers, GLYDE-X design requirements, inter-row transfer, and O&M checks before deploying cleaning robots on 50 MW+ tracker plants.",
+  "prependContent": "<h2>Quick answer</h2>\n<ul>\n<li>Tracker panels rotate <strong>roughly -55° to +55°</strong>; fixed-tilt robots assume static geometry.</li>\n<li>Tracker robots need <strong>parking integration</strong>, angle tolerance, and inter-row transfer (7 to 10 m gaps).</li>\n<li>Cleaning runs at <strong>dawn/dusk</strong>; parking loss is ~0.1 to 0.2% of daily output vs 3 to 5% soiling.</li>\n<li><strong>GLYDE-X</strong> class robots are engineered for single-axis rows; GLYDE for fixed-tilt.</li>\n<li>Evaluate weight limits on torque tubes before fleet orders.</li>\n</ul>",
+  "faqs": [
+    {
+      "question": "Can a single axis tracker cleaning robot use the same design as fixed-tilt robots?",
+      "answer": "Generally no. Fixed-tilt robots assume constant panel angle for docking, brush pressure, and end-of-row transfer. Single-axis trackers rotate through the day and change inter-row clearance. Tracker-specific robots park rows at a cleaning angle or use adaptive mounting, plus autonomous inter-row crossing."
+    },
+    {
+      "question": "Does parking a tracker for cleaning significantly reduce energy generation?",
+      "answer": "No. Cleans schedule at dawn, dusk, or low-irradiance windows. For a 100 MW tracker plant, a 30 to 45 minute parking window costs roughly 0.1 to 0.2 percent of daily output, far less than the 3 to 5 percent daily soiling accumulation cleaning prevents in arid zones."
+    },
+    {
+      "question": "What is the cleaning frequency for robots on single-axis tracker plants?",
+      "answer": "Frequency follows the same soiling-rate economics as fixed-tilt: daily or every-other-day in Rajasthan and Gujarat pre-monsoon, every 3 to 5 days in milder seasons. Tracker parking only changes the daily time window, not the optimal interval between passes."
+    },
+    {
+      "question": "What should O&M teams evaluate before deploying tracker cleaning robots?",
+      "answer": "Confirm tracker controller integration for stow commands, inter-row bridge or transfer design, robot weight against torque tube ratings, and pilot coverage on longest rows. Review abort logs for wind and obstacle rates during a full dust-season week before portfolio rollout."
+    },
+    {
+      "question": "What operational challenges differ between tracker and fixed-tilt cleaning?",
+      "answer": "Trackers add parking coordination, variable brush engagement angle, and wider inter-row gaps. Fixed-tilt sites simplify routing but may still need longer nightly hours for the same MW. Labor-based manual cleaning on trackers also faces access issues when rows are not parked, which robots solve with programmed stow."
+    }
+  ]
+}

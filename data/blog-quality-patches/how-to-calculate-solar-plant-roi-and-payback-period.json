@@ -1,0 +1,28 @@
+{
+  "slug": "how-to-calculate-solar-plant-roi-and-payback-period",
+  "seoKeyword": "solar plant ROI payback period",
+  "description": "Formulas and 2026 India benchmarks for solar plant payback period and ROI on rooftop, C&I, and utility assets: tariffs, O&M, and cleaning effects on returns.",
+  "prependContent": "<h2>Quick answer</h2>\n<ul>\n<li><strong>Payback period</strong> = initial investment divided by annual savings (break-even years).</li>\n<li><strong>ROI</strong> = (lifetime savings minus cost) divided by cost, expressed as a percentage.</li>\n<li>Indian C&amp;I payback often lands at <strong>3 to 5 years</strong> when grid tariffs exceed ₹8/kWh (2026 typical).</li>\n<li>Utility-scale EPC runs roughly <strong>₹34 to 38 lakh/MW</strong>; soiling and O&amp;M move ROI by whole points.</li>\n<li>Always model <strong>maintenance and cleaning</strong> in savings, not just capex and tariff.</li>\n</ul>\n\n<h2>How do you calculate solar plant ROI and payback period?</h2>\n<p>Payback divides upfront cost by annual electricity savings until cumulative savings equal investment. ROI compares total net savings over project life to initial cost. For a 1 MW industrial plant saving ₹80 lakh per year on ₹4 crore capex, simple payback is five years; 25-year ROI depends on tariff escalation, degradation, and O&amp;M including cleaning.</p>",
+  "faqs": [
+    {
+      "question": "How do you calculate solar plant ROI and payback period?",
+      "answer": "Payback period equals total project cost divided by annual savings (cost divided by yearly bill offset). ROI equals (total lifetime savings minus initial investment) divided by initial investment, times 100. Use consistent 25-year life, degradation, and O&M assumptions for India utility and C&I models."
+    },
+    {
+      "question": "What is a typical payback period for solar in India in 2026?",
+      "answer": "Commercial and industrial rooftop systems in high-tariff states often pay back in 3 to 5 years when grid rates reach ₹8 to 12 per unit and generation cost stays near ₹3 to 4 per unit. Utility-scale projects may show 5 to 7 year payback depending on PPA tariff, EPC cost near ₹34 to 38 lakh per MW, and availability."
+    },
+    {
+      "question": "Which variables affect solar plant ROI the most?",
+      "answer": "Grid tariff or PPA rate is the largest lever: each rupee per kWh changes annual savings directly. System cost, capacity utilization factor, inverter availability, and soiling losses on the generation side matter equally on operating plants. Financing cost and accelerated depreciation affect investor ROI but not simple payback."
+    },
+    {
+      "question": "How does solar panel cleaning affect ROI?",
+      "answer": "Soiling can suppress output 3 to 8 percent between cleans on dusty Indian sites, which reduces savings and lengthens payback. Cleaning spends should enter O&M models; when recovered MWh value exceeds clean cost, ROI improves. Ignoring soiling overstates both payback speed and lifetime returns."
+    },
+    {
+      "question": "What ROI formula should asset managers use for utility solar?",
+      "answer": "Use net present value or IRR for lender-grade analysis; simple ROI for board summaries. Annual ROI approximates (year savings minus O&M) divided by remaining book value early in life. Include cleaning, tracker maintenance, and insurance in O&M, not just inverter spares."
+    }
+  ]
+}

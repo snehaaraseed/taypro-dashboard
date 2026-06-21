@@ -209,6 +209,7 @@ export type IntentAlignmentInput = {
   searchIntent?: string | null;
   category?: string | null;
   angleId?: string | null;
+  slug?: string | null;
 };
 
 function countRegexMatches(text: string, re: RegExp): number {
@@ -279,7 +280,40 @@ export function findBlogIntentAlignmentIssues(
     }
   }
 
+  const slugKwIssue = findKeywordSlugMismatch(input);
+  if (slugKwIssue) issues.push(slugKwIssue);
+
   return issues;
+}
+
+/** Reject generic cleaning keyword on non-cleaning slugs (metadata drift). */
+export function findKeywordSlugMismatch(input: IntentAlignmentInput): string | null {
+  const kw = (input.primaryKeyword ?? "").toLowerCase().trim();
+  const slugHint = (input.slug ?? "").toLowerCase();
+  if (!kw || !slugHint) return null;
+
+  const cleaningKw =
+    kw === "solar panel cleaning" ||
+    /^solar panel cleaning\b/.test(kw);
+
+  const slugIsCleaning =
+    /clean|soil|dust|robot|brush|wash|wet|waterless|microfiber|soiling/.test(slugHint);
+
+  if (cleaningKw && !slugIsCleaning) {
+    return `Primary keyword "${input.primaryKeyword}" conflicts with slug topic — use an intent-aligned keyword`;
+  }
+
+  if (/installation.?cost|installation-cost/.test(slugHint) && !/install|cost|capex|epc|per mw|utility scale/.test(kw)) {
+    return `Installation-cost slug requires capex/EPC keyword, not "${input.primaryKeyword}"`;
+  }
+
+  if (/choose-best-solar-panel|types-of-solar-panel|module-efficiency|panel-efficiency/.test(slugHint)) {
+    if (/cleaning robot|waterless clean/.test(kw) && !/module|panel|efficiency|topcon|perc/.test(kw)) {
+      return `Module slug should not use cleaning-only keyword "${input.primaryKeyword}"`;
+    }
+  }
+
+  return null;
 }
 
 export function isIntentAlignmentIssue(issue: string): boolean {

@@ -35,6 +35,7 @@ export type BlogContentValidationInput = {
   description: string;
   content: string;
   faqs: BlogFaqItem[];
+  slug?: string;
   primaryKeyword?: string;
   searchIntent?: string;
   angleId?: string;
@@ -346,6 +347,7 @@ export function validateGeneratedBlog(
       primaryKeyword: input.primaryKeyword,
       searchIntent: input.searchIntent,
       angleId: input.angleId,
+      slug: input.slug,
     })
   );
 

@@ -1,5 +1,927 @@
 {
   "description": "Filled and failed coverage ledger slots (keyword::angleId). Backfill via scripts/backfill-coverage-slots.mjs",
-  "filled": [],
-  "failed": []
+  "filled": [
+    {
+      "slotKey": "automatic solar panel cleaning system::robot-eval",
+      "slug": "calculating-roi-when-to-upgrade-to-an-automatic-solar-panel-cleaning-system",
+      "filledAt": "2026-06-11T12:42:14.828Z"
+    },
+    {
+      "slotKey": "solar panel cleaning robot::robot-eval",
+      "slug": "managing-performance-ratio-losses-why-a-solar-panel-cleaning-robot-beats-manual-labor",
+      "filledAt": "2026-06-11T12:42:14.837Z"
+    },
+    {
+      "slotKey": "best pv panels::default-guide",
+      "slug": "optimizing-best-pv-panels-commissioning-robot-integration-checklists",
+      "filledAt": "2026-06-11T12:42:14.838Z"
+    },
+    {
+      "slotKey": "solar panel cleaning service::default-guide",
+      "slug": "choosing-a-reliable-solar-panel-cleaning-service-for-50mw-projects",
+      "filledAt": "2026-06-11T12:42:14.838Z"
+    },
+    {
+      "slotKey": "solar power cleaning service::default-guide",
+      "slug": "evaluating-solar-power-cleaning-service-roi-manual-vs-robot",
+      "filledAt": "2026-06-11T12:42:14.838Z"
+    },
+    {
+      "slotKey": "solar panel cleaning system::robot-eval",
+      "slug": "site-preparation-for-automatic-solar-panel-cleaning-on-trackers",
+      "filledAt": "2026-06-11T12:42:14.838Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::default-guide",
+      "slug": "5-costly-mistakes-to-avoid-in-solar-panel-cleaning",
+      "filledAt": "2026-06-11T12:42:14.839Z"
+    },
+    {
+      "slotKey": "solar panel cleaning brush::brush-vs-robot",
+      "slug": "the-evolution-of-solar-panel-cleaning-brushes-why-microfiber-is-the-new-standard",
+      "filledAt": "2026-06-11T12:42:14.847Z"
+    },
+    {
+      "slotKey": "photovoltaic panels price::cost-per-mw",
+      "slug": "photovoltaic-panels-price-per-mw-budget-lines-indian-asset-owners-use",
+      "filledAt": "2026-06-11T12:42:14.848Z"
+    },
+    {
+      "slotKey": "pv panel suppliers::mfg-om-bridge",
+      "slug": "shortlisting-pv-panel-suppliers-specs-that-impact-om-and-cleaning",
+      "filledAt": "2026-06-11T12:42:14.848Z"
+    },
+    {
+      "slotKey": "pv module manufacturers in india::mfg-vendor-vs-robot",
+      "slug": "pv-module-selection-for-indias-mw-plants-robotic-om-impact",
+      "filledAt": "2026-06-11T12:42:14.848Z"
+    },
+    {
+      "slotKey": "pv panel roof::default-compare",
+      "slug": "pv-panel-roof-methods-costs-and-robot-options-compared",
+      "filledAt": "2026-06-11T12:42:14.848Z"
+    },
+    {
+      "slotKey": "solar machine::robot-eval",
+      "slug": "solar-machine-what-indian-utility-om-teams-should-evaluate",
+      "filledAt": "2026-06-11T12:42:14.849Z"
+    },
+    {
+      "slotKey": "pv modules::default-compare",
+      "slug": "pv-modules-methods-costs-and-robot-options-compared",
+      "filledAt": "2026-06-11T12:42:14.849Z"
+    },
+    {
+      "slotKey": "pv panel price::price-capex-om",
+      "slug": "pv-panel-price-in-india-capex-context-and-om-after-you-buy",
+      "filledAt": "2026-06-11T12:42:14.850Z"
+    },
+    {
+      "slotKey": "module cleaning system::robot-capex-opex",
+      "slug": "module-cleaning-system-capex-vs-opex-models-for-25100-mw-portfolios",
+      "filledAt": "2026-06-12T13:27:27.189Z"
+    },
+    {
+      "slotKey": "module cleaning brush::brush-tracker",
+      "slug": "manual-brush-cleaning-on-tracker-arrays-limits-at-50-mw-scale",
+      "filledAt": "2026-06-12T18:33:17.433Z"
+    },
+    {
+      "slotKey": "pv panel price::price-per-watt-cleaning",
+      "slug": "pv-panel-price-in-india-managing-long-term-om-and-soiling-costs",
+      "filledAt": "2026-06-13T18:38:28.499Z"
+    },
+    {
+      "slotKey": "sunlight panels::default-guide",
+      "slug": "sunlight-panels-om-strategies-and-soiling-mitigation-in-india",
+      "filledAt": "2026-06-18T21:09:23.286Z"
+    },
+    {
+      "slotKey": "photovoltaic manufacturers::mfg-shortlist",
+      "slug": "photovoltaic-manufacturers-aligning-module-specs-with-om-strategy",
+      "filledAt": "2026-06-19T18:51:00.750Z"
+    },
+    {
+      "slotKey": "pv panel system::robot-tracker-fit",
+      "slug": "integrating-a-pv-panel-system-om-strategy-for-50mw-plants",
+      "filledAt": "2026-06-19T20:23:47.590Z"
+    },
+    {
+      "slotKey": "taypro helyx robot::robot-tracker-fit",
+      "slug": "deploying-the-taypro-helyx-robot-a-technical-guide-for-mw-sites",
+      "filledAt": "2026-06-20T19:11:34.108Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::robot-eval",
+      "slug": "5-costly-mistakes-to-avoid-in-solar-panel-cleaning",
+      "filledAt": "2025-10-17T10:20:32.771Z"
+    },
+    {
+      "slotKey": "solar plant::default-guide",
+      "slug": "5-signs-your-solar-plant-needs-automated-cleaning-before-revenue-starts-dropping",
+      "filledAt": "2025-10-17T10:09:56.301Z"
+    },
+    {
+      "slotKey": "solar panel cleaning methods::robot-eval",
+      "slug": "a-comparative-analysis-of-traditional-solar-panel-cleaning-methods-vs-taypros-autonomous-waterless-robots",
+      "filledAt": "2025-10-17T10:22:21.966Z"
+    },
+    {
+      "slotKey": "solar panel cleaning robot::legacy-benefits_of_using_solar_panel_cl",
+      "slug": "benefits-of-using-solar-panel-cleaning-robot-in-a-solar-plant",
+      "filledAt": "2025-10-16T11:33:14.223Z"
+    },
+    {
+      "slotKey": "solar panel performance monitoring utility scale::default-guide",
+      "slug": "beyond-cleaning-how-automated-systems-can-monitor-solar-panel-performance",
+      "filledAt": "2025-10-17T10:24:42.440Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-beyond_cleaning_how_taypros_robo",
+      "slug": "beyond-cleaning-how-taypros-robots-are-paving-the-way-for-autonomous-solar-farms-in-india",
+      "filledAt": "2025-10-17T10:05:28.690Z"
+    },
+    {
+      "slotKey": "solar panel cleaning service::robot-eval",
+      "slug": "cost-benefit-analysis-of-solar-panel-cleaning-services-in-india",
+      "filledAt": "2025-10-16T12:52:22.503Z"
+    },
+    {
+      "slotKey": "ai solar plant performance india::default-guide",
+      "slug": "how-ai-can-improve-solar-energy-output",
+      "filledAt": "2025-10-16T11:17:35.393Z"
+    },
+    {
+      "slotKey": "dust storm solar panel cleaning india::robot-eval",
+      "slug": "how-ai-predicts-dust-storms-the-science-behind-taypros-smart-solar-panel-cleaning-system",
+      "filledAt": "2025-10-16T12:42:58.472Z"
+    },
+    {
+      "slotKey": "pv panel cleaning robot::robot-eval",
+      "slug": "how-are-pv-panel-cleaning-robots-installed",
+      "filledAt": "2025-10-16T11:26:24.476Z"
+    },
+    {
+      "slotKey": "solar panel cleaning robot::legacy-how_does_a_solar_panel_cleaning_",
+      "slug": "how-does-a-solar-panel-cleaning-robot-work-",
+      "filledAt": "2025-10-16T11:34:51.130Z"
+    },
+    {
+      "slotKey": "a solar panel::default-guide",
+      "slug": "how-does-cleaning-a-solar-panel-increase-efficiency",
+      "filledAt": "2025-10-16T11:44:26.115Z"
+    },
+    {
+      "slotKey": "solar panels in::default-guide",
+      "slug": "how-often-should-you-clean-your-solar-panels-in-india",
+      "filledAt": "2025-10-17T10:28:21.080Z"
+    },
+    {
+      "slotKey": "solar plant::legacy-how_to_calculate_a_performance_r",
+      "slug": "how-to-calculate-a-performance-ratio-of-a-solar-plant",
+      "filledAt": "2025-10-16T11:14:38.395Z"
+    },
+    {
+      "slotKey": "solar plant::legacy-how_to_calculate_solar_plant_roi",
+      "slug": "how-to-calculate-solar-plant-roi-and-payback-period",
+      "filledAt": "2025-10-16T11:09:47.563Z"
+    },
+    {
+      "slotKey": "make solar panels::default-guide",
+      "slug": "how-to-make-solar-panels-more-efficient",
+      "filledAt": "2025-10-16T11:25:08.455Z"
+    },
+    {
+      "slotKey": "importance of solar panel cleaning utility scale::robot-eval",
+      "slug": "importance-of-keeping-your-solar-panels-clean",
+      "filledAt": "2025-10-16T11:41:33.672Z"
+    },
+    {
+      "slotKey": "solar panel maintenance::default-guide",
+      "slug": "indias-solar-energy-boom-in-2024-what-it-means-for-you-and-the-planet",
+      "filledAt": "2025-10-16T11:53:42.535Z"
+    },
+    {
+      "slotKey": "solar cleaning system::robot-eval",
+      "slug": "innovations-in-solar-cleaning-systems-what-indias-top-farms-are-using",
+      "filledAt": "2025-10-17T10:13:59.729Z"
+    },
+    {
+      "slotKey": "solar soiling carbon emissions india::default-guide",
+      "slug": "leveraging-carbon-pricing-for-environmental-and-economic-sustainability",
+      "filledAt": "2025-10-17T10:25:37.950Z"
+    },
+    {
+      "slotKey": "solar panel cleaning system::legacy-microfiber_vs_traditional_brushe",
+      "slug": "microfiber-vs-traditional-brushes-why-taypros-patented-dual-pass-solar-panel-cleaning-system-outperforms",
+      "filledAt": "2025-10-16T12:39:23.910Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-mint_tech4good_awards_2024_taypr",
+      "slug": "mint-tech4good-awards-2024-taypros-green-ai-solutions-win-big-in-mumbai-india",
+      "filledAt": "2025-10-17T10:29:10.208Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-new_solar_panel_technologies_202",
+      "slug": "new-solar-panel-technologies-2025",
+      "filledAt": "2025-10-16T10:57:02.855Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-rf_communication_in_solar_farms_",
+      "slug": "rf-communication-in-solar-farms-how-taypro-ensures-real-time-robot-to-control-room-connectivity-using-mesh-networks",
+      "filledAt": "2025-10-16T12:04:47.738Z"
+    },
+    {
+      "slotKey": "seasonal solar panel maintenance india utility::freq-50mw",
+      "slug": "seasonal-solar-panel-maintenance-tips-a-comprehensive-guide",
+      "filledAt": "2025-10-16T12:56:09.069Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-solar_panel_installation_cost_fo",
+      "slug": "solar-panel-installation-cost-for-utility-scale-in-india",
+      "filledAt": "2025-10-16T11:23:40.985Z"
+    },
+    {
+      "slotKey": "solar panel maintenance checklist utility scale::default-guide",
+      "slug": "solar-panel-maintenance-checklist-2025",
+      "filledAt": "2025-10-16T11:11:25.172Z"
+    },
+    {
+      "slotKey": "solar panel cleaning system::legacy-taypro_wins_historic_patent_for_",
+      "slug": "taypro-wins-historic-patent-for-revolutionary-solar-panel-cleaning-system",
+      "filledAt": "2025-10-17T10:30:32.282Z"
+    },
+    {
+      "slotKey": "solar panel maintenance::legacy-the_complete_guide_to_solar_pane",
+      "slug": "the-complete-guide-to-solar-panel-maintenance",
+      "filledAt": "2025-10-16T10:48:04.547Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-the_crucial_role_of_regular_sola",
+      "slug": "the-crucial-role-of-regular-solar-panel-cleaning-for-efficiency-keeping-performance-high-in-a-dusty-world",
+      "filledAt": "2025-10-16T12:48:08.968Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-the_impact_of_weather_on_solar_p",
+      "slug": "the-impact-of-weather-on-solar-panel-cleanliness-in-india-tips-for-optimal-performance",
+      "filledAt": "2025-10-16T12:24:46.040Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-the_importance_of_solar_panel_cl",
+      "slug": "the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates",
+      "filledAt": "2025-10-16T12:45:25.029Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-the_role_of_data_analytics_in_so",
+      "slug": "the-role-of-data-analytics-in-solar-panel-cleaning-improving-efficiency-with-taypro",
+      "filledAt": "2025-10-17T10:23:56.202Z"
+    },
+    {
+      "slotKey": "solar module cleaning system::robot-eval",
+      "slug": "the-science-behind-effective-solar-module-cleaning-systems-a-technical-comparison-of-traditional-and-modern-approaches",
+      "filledAt": "2025-10-17T10:21:27.534Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-the_ultimate_guide_to_designing_",
+      "slug": "the-ultimate-guide-to-designing-a-solar-power-plant",
+      "filledAt": "2025-10-16T11:18:47.378Z"
+    },
+    {
+      "slotKey": "largest solar plants india o&m cleaning::robot-eval",
+      "slug": "top-15-solar-power-plants-in-india",
+      "filledAt": "2025-10-16T11:16:16.083Z"
+    },
+    {
+      "slotKey": "types of solar panels utility scale india::default-guide",
+      "slug": "understanding-different-types-of-solar-panels",
+      "filledAt": "2025-10-16T11:13:04.322Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-understanding_esg_a_definitive_e",
+      "slug": "understanding-esg-a-definitive-exploration-into-environmental-social-and-governance-principles",
+      "filledAt": "2025-10-17T10:26:22.838Z"
+    },
+    {
+      "slotKey": "benefits of cleaning solar panels::robot-eval",
+      "slug": "what-are-the-benefits-of-cleaning-solar-panels-regularly",
+      "filledAt": "2025-10-16T11:46:21.674Z"
+    },
+    {
+      "slotKey": "solar panels::default-guide",
+      "slug": "what-are-the-best-practices-of-cleaning-solar-panels",
+      "filledAt": "2025-10-16T11:42:43.909Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-what_are_the_different_methods_u",
+      "slug": "what-are-the-different-methods-used-for-solar-panel-cleaning",
+      "filledAt": "2025-10-16T12:01:07.749Z"
+    },
+    {
+      "slotKey": "solar panels::legacy-what_are_the_different_types_of_",
+      "slug": "what-are-the-different-types-of-solar-panels",
+      "filledAt": "2025-10-16T10:58:55.625Z"
+    },
+    {
+      "slotKey": "solar panel cleaning robot::legacy-what_is_a_solar_panel_cleaning_r",
+      "slug": "what-is-a-solar-panel-cleaning-robot",
+      "filledAt": "2025-10-16T11:38:16.616Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-what_is_solar_panel_cleaning_why",
+      "slug": "what-is-solar-panel-cleaning-why-is-it-necessary-to-clean-solar-panels",
+      "filledAt": "2025-10-16T11:49:35.752Z"
+    },
+    {
+      "slotKey": "solar panel efficiency utility scale::default-guide",
+      "slug": "what-is-solar-panel-efficiency",
+      "filledAt": "2025-10-16T11:20:32.129Z"
+    },
+    {
+      "slotKey": "solar panel efficiency 2026 india::default-guide",
+      "slug": "what-is-the-solar-panel-efficiency-in-2025",
+      "filledAt": "2025-10-16T11:21:46.545Z"
+    },
+    {
+      "slotKey": "solar panel cleaning system::legacy-why_modern_solar_farms_need_auto",
+      "slug": "why-modern-solar-farms-need-autonomous-solar-panel-cleaning-systems",
+      "filledAt": "2025-10-17T10:23:10.473Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-why_solar_power_plants_need_robo",
+      "slug": "why-solar-power-plants-need-robotic-cleaning-for-maximum-roi",
+      "filledAt": "2025-10-17T10:15:48.258Z"
+    },
+    {
+      "slotKey": "solar panel cleaning service::legacy-choosing_a_reliable_solar_panel_",
+      "slug": "choosing-a-reliable-solar-panel-cleaning-service-for-50mw-projects",
+      "filledAt": "2026-05-23T09:00:34.009Z"
+    },
+    {
+      "slotKey": "best solar panels in india::default-guide",
+      "slug": "how-to-choose-best-solar-panels-in-india",
+      "filledAt": "2026-05-25T08:06:27.002Z"
+    },
+    {
+      "slotKey": "solar cleaning system::legacy-how_to_choose_the_best_solar_cle",
+      "slug": "how-to-choose-the-best-solar-cleaning-system-for-power-plants",
+      "filledAt": "2026-05-25T08:11:25.292Z"
+    },
+    {
+      "slotKey": "solar panel maintenance::legacy-solar_tracker_maintenance_comple",
+      "slug": "solar-tracker-maintenance-complete-guide",
+      "filledAt": "2026-05-25T09:19:09.510Z"
+    },
+    {
+      "slotKey": "solar power cleaning service::robot-eval",
+      "slug": "evaluating-solar-power-cleaning-service-roi-manual-vs-robot",
+      "filledAt": "2026-05-27T09:00:31.099Z"
+    },
+    {
+      "slotKey": "solar panel cleaning robot::legacy-top_solar_panel_cleaning_robots_",
+      "slug": "top-solar-panel-cleaning-robots-of-2026-the-complete-guide-for-utility-scale-plants",
+      "filledAt": "2026-06-04T21:45:09.230Z"
+    },
+    {
+      "slotKey": "pv panel roof::default-guide",
+      "slug": "pv-panel-roof-everything-you-need-to-know",
+      "filledAt": "2026-06-06T08:26:54.171Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-average_soiling_losses_in_high_d",
+      "slug": "average-soiling-losses-in-high-dust-regions-of-india-rajasthan-gujarat",
+      "filledAt": "2026-06-07T18:47:38.282Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-seasonal_variation_in_soiling_ra",
+      "slug": "seasonal-variation-in-soiling-rates-and-energy-yield-loss-in-india",
+      "filledAt": "2026-06-07T18:50:50.192Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-waterless_robotic_vs_manual_clea",
+      "slug": "waterless-robotic-vs-manual-cleaning-cost-comparison-for-10-mw-plant-india",
+      "filledAt": "2026-06-07T18:53:47.889Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-annual_water_and_operational_cos",
+      "slug": "annual-water-and-operational-cost-savings-from-switching-to-waterless-robotic-cleaning",
+      "filledAt": "2026-06-07T18:58:36.138Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-robotic_cleaning_systems_for_sin",
+      "slug": "robotic-cleaning-systems-for-single-axis-trackers-operational-challenges-vs-fixed-tilt",
+      "filledAt": "2026-06-07T19:01:58.035Z"
+    },
+    {
+      "slotKey": "solar panel maintenance::legacy-opex_vs_capex_for_solar_om_contr",
+      "slug": "opex-vs-capex-for-solar-om-contracts-india-combined-with-which-model-suits-ipps",
+      "filledAt": "2026-06-07T19:05:01.401Z"
+    },
+    {
+      "slotKey": "solar plant::legacy-improving_performance_ratio_in_u",
+      "slug": "improving-performance-ratio-in-utility-scale-solar-plants-india-inverter-efficiency-optimization",
+      "filledAt": "2026-06-07T19:08:14.857Z"
+    },
+    {
+      "slotKey": "solar cleaning fleet intelligence::robot-eval",
+      "slug": "why-5gw-daily-cleaning-creates-a-data-advantage-at-utility-scale",
+      "filledAt": "2026-06-08T16:13:49.281Z"
+    },
+    {
+      "slotKey": "solar robot battery optimisation::robot-eval",
+      "slug": "how-taypros-battery-optimisation-algorithm-delivers-2x-cleaning-coverage",
+      "filledAt": "2026-06-08T16:13:49.281Z"
+    },
+    {
+      "slotKey": "wet microfiber solar cleaning::robot-eval",
+      "slug": "wet-microfiber-detection-why-postponing-a-cleaning-cycle-protects-your-modules",
+      "filledAt": "2026-06-08T16:13:49.281Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-solar_has_a_trillion_dollar_prob",
+      "slug": "solar-has-a-trillion-dollar-problem-no-one-is-talking-about",
+      "filledAt": "2026-06-15T07:23:38.315Z"
+    },
+    {
+      "slotKey": "solar panel maintenance::legacy-from_predictive_maintenance_to_p",
+      "slug": "from-predictive-maintenance-to-predictive-generation-how-ai-is-changing-solar-operations-in-india",
+      "filledAt": "2026-06-15T07:27:31.248Z"
+    },
+    {
+      "slotKey": "solar panel cleaning::legacy-the_robot_that_cleans_itself_off",
+      "slug": "the-robot-that-cleans-itself-off-your-to-do-list",
+      "filledAt": "2026-06-15T07:31:06.517Z"
+    },
+    {
+      "slotKey": "best pv modules::default-guide",
+      "slug": "best-pv-modules-maintenance-and-om-logistics-for-indian-mw-plants",
+      "filledAt": "2026-06-19T13:10:22.438Z"
+    }
+  ],
+  "failed": [
+    {
+      "slotKey": "pv panel price::price-utility-tco",
+      "reason": "No unique title for coverage slot pv panel price::price-utility-tco",
+      "failedAt": "2026-06-16T08:53:13.523Z"
+    },
+    {
+      "slotKey": "pv panel price::price-soiling-roi",
+      "reason": "No unique title for coverage slot pv panel price::price-soiling-roi",
+      "failedAt": "2026-06-17T06:31:41.767Z"
+    },
+    {
+      "slotKey": "photovoltaic panels price::cost-manual-robot",
+      "reason": "No unique title for coverage slot photovoltaic panels price::cost-manual-robot",
+      "failedAt": "2026-06-17T06:36:17.215Z"
+    },
+    {
+      "slotKey": "photovoltaic panels price::cost-water",
+      "reason": "No unique title for coverage slot photovoltaic panels price::cost-water",
+      "failedAt": "2026-06-18T20:48:12.333Z"
+    },
+    {
+      "slotKey": "pv panel installation::default-guide",
+      "reason": "No unique title for coverage slot pv panel installation::default-guide",
+      "failedAt": "2026-06-18T20:48:26.166Z"
+    },
+    {
+      "slotKey": "pv panel installation::default-om",
+      "reason": "No unique title for coverage slot pv panel installation::default-om",
+      "failedAt": "2026-06-18T20:48:40.084Z"
+    },
+    {
+      "slotKey": "pv panel installation::default-compare",
+      "reason": "No unique title for coverage slot pv panel installation::default-compare",
+      "failedAt": "2026-06-18T20:48:53.846Z"
+    },
+    {
+      "slotKey": "photovoltaic panel installation::default-guide",
+      "reason": "No unique title for coverage slot photovoltaic panel installation::default-guide",
+      "failedAt": "2026-06-18T20:49:07.459Z"
+    },
+    {
+      "slotKey": "photovoltaic panel installation::default-om",
+      "reason": "No unique title for coverage slot photovoltaic panel installation::default-om",
+      "failedAt": "2026-06-18T20:49:21.188Z"
+    },
+    {
+      "slotKey": "photovoltaic panel installation::default-compare",
+      "reason": "No unique title for coverage slot photovoltaic panel installation::default-compare",
+      "failedAt": "2026-06-18T20:49:36.114Z"
+    },
+    {
+      "slotKey": "pv panel suppliers::mfg-shortlist",
+      "reason": "No unique title for coverage slot pv panel suppliers::mfg-shortlist",
+      "failedAt": "2026-06-18T20:49:50.187Z"
+    },
+    {
+      "slotKey": "pv panel suppliers::mfg-vendor-vs-robot",
+      "reason": "No unique title for coverage slot pv panel suppliers::mfg-vendor-vs-robot",
+      "failedAt": "2026-06-18T20:50:23.134Z"
+    },
+    {
+      "slotKey": "pv panel manufacturers::mfg-shortlist",
+      "reason": "No unique title for coverage slot pv panel manufacturers::mfg-shortlist",
+      "failedAt": "2026-06-18T20:50:44.014Z"
+    },
+    {
+      "slotKey": "pv panel manufacturers::mfg-om-bridge",
+      "reason": "No unique title for coverage slot pv panel manufacturers::mfg-om-bridge",
+      "failedAt": "2026-06-18T20:50:51.209Z"
+    },
+    {
+      "slotKey": "pv panel manufacturers::mfg-vendor-vs-robot",
+      "reason": "No unique title for coverage slot pv panel manufacturers::mfg-vendor-vs-robot",
+      "failedAt": "2026-06-18T20:51:12.157Z"
+    },
+    {
+      "slotKey": "photovoltaic panel manufacturers::mfg-om-bridge",
+      "reason": "No unique title for coverage slot photovoltaic panel manufacturers::mfg-om-bridge",
+      "failedAt": "2026-06-18T20:51:18.709Z"
+    },
+    {
+      "slotKey": "photovoltaic panel manufacturers::mfg-shortlist",
+      "reason": "No unique title for coverage slot photovoltaic panel manufacturers::mfg-shortlist",
+      "failedAt": "2026-06-18T20:51:32.639Z"
+    },
+    {
+      "slotKey": "photovoltaic panel manufacturers::mfg-vendor-vs-robot",
+      "reason": "No unique title for coverage slot photovoltaic panel manufacturers::mfg-vendor-vs-robot",
+      "failedAt": "2026-06-18T20:51:45.852Z"
+    },
+    {
+      "slotKey": "pv module manufacturers in india::mfg-om-bridge",
+      "reason": "No unique title for coverage slot pv module manufacturers in india::mfg-om-bridge",
+      "failedAt": "2026-06-18T20:51:59.384Z"
+    },
+    {
+      "slotKey": "pv module manufacturers in india::mfg-shortlist",
+      "reason": "No unique title for coverage slot pv module manufacturers in india::mfg-shortlist",
+      "failedAt": "2026-06-18T20:52:12.575Z"
+    },
+    {
+      "slotKey": "pv panels::default-guide",
+      "reason": "No unique title for coverage slot pv panels::default-guide",
+      "failedAt": "2026-06-18T20:52:25.910Z"
+    },
+    {
+      "slotKey": "pv panels::default-om",
+      "reason": "No unique title for coverage slot pv panels::default-om",
+      "failedAt": "2026-06-18T20:52:38.809Z"
+    },
+    {
+      "slotKey": "pv panels::default-compare",
+      "reason": "No unique title for coverage slot pv panels::default-compare",
+      "failedAt": "2026-06-18T20:52:51.683Z"
+    },
+    {
+      "slotKey": "photovoltaic panels::default-guide",
+      "reason": "No unique title for coverage slot photovoltaic panels::default-guide",
+      "failedAt": "2026-06-18T20:53:04.906Z"
+    },
+    {
+      "slotKey": "photovoltaic panels::default-om",
+      "reason": "No unique title for coverage slot photovoltaic panels::default-om",
+      "failedAt": "2026-06-18T20:55:14.947Z"
+    },
+    {
+      "slotKey": "photovoltaic panels::default-compare",
+      "reason": "No unique title for coverage slot photovoltaic panels::default-compare",
+      "failedAt": "2026-06-18T20:55:28.273Z"
+    },
+    {
+      "slotKey": "pv modules::default-guide",
+      "reason": "No unique title for coverage slot pv modules::default-guide",
+      "failedAt": "2026-06-18T20:55:41.728Z"
+    },
+    {
+      "slotKey": "pv modules::default-om",
+      "reason": "No unique title for coverage slot pv modules::default-om",
+      "failedAt": "2026-06-18T20:55:56.286Z"
+    },
+    {
+      "slotKey": "pv panel roof::default-guide",
+      "reason": "No unique title for coverage slot pv panel roof::default-guide",
+      "failedAt": "2026-06-18T20:56:09.134Z"
+    },
+    {
+      "slotKey": "pv panel roof::default-om",
+      "reason": "No unique title for coverage slot pv panel roof::default-om",
+      "failedAt": "2026-06-18T20:56:21.971Z"
+    },
+    {
+      "slotKey": "pv panel cleaning robot::robot-eval",
+      "reason": "No unique title for coverage slot pv panel cleaning robot::robot-eval",
+      "failedAt": "2026-06-18T20:56:35.133Z"
+    },
+    {
+      "slotKey": "pv panel cleaning robot::robot-tracker-fit",
+      "reason": "No unique title for coverage slot pv panel cleaning robot::robot-tracker-fit",
+      "failedAt": "2026-06-18T20:56:47.587Z"
+    },
+    {
+      "slotKey": "pv panel cleaning robot::robot-capex-opex",
+      "reason": "No unique title for coverage slot pv panel cleaning robot::robot-capex-opex",
+      "failedAt": "2026-06-18T20:57:00.755Z"
+    },
+    {
+      "slotKey": "best pv panels::default-om",
+      "reason": "No unique title for coverage slot best pv panels::default-om",
+      "failedAt": "2026-06-18T20:57:14.205Z"
+    },
+    {
+      "slotKey": "best pv panels::default-compare",
+      "reason": "No unique title for coverage slot best pv panels::default-compare",
+      "failedAt": "2026-06-18T20:57:26.937Z"
+    },
+    {
+      "slotKey": "best pv modules::default-guide",
+      "reason": "No unique title for coverage slot best pv modules::default-guide",
+      "failedAt": "2026-06-18T20:57:39.747Z"
+    },
+    {
+      "slotKey": "best pv modules::default-om",
+      "reason": "No unique title for coverage slot best pv modules::default-om",
+      "failedAt": "2026-06-18T21:00:19.875Z"
+    },
+    {
+      "slotKey": "best pv modules::default-compare",
+      "reason": "No unique title for coverage slot best pv modules::default-compare",
+      "failedAt": "2026-06-18T21:00:35.618Z"
+    },
+    {
+      "slotKey": "panels price::cost-manual-robot",
+      "reason": "No unique title for coverage slot panels price::cost-manual-robot",
+      "failedAt": "2026-06-18T21:00:51.846Z"
+    },
+    {
+      "slotKey": "panels price::cost-per-mw",
+      "reason": "No unique title for coverage slot panels price::cost-per-mw",
+      "failedAt": "2026-06-18T21:01:07.790Z"
+    },
+    {
+      "slotKey": "panels price::cost-water",
+      "reason": "No unique title for coverage slot panels price::cost-water",
+      "failedAt": "2026-06-18T21:01:24.459Z"
+    },
+    {
+      "slotKey": "pv panel cleaning::default-guide",
+      "reason": "No unique title for coverage slot pv panel cleaning::default-guide",
+      "failedAt": "2026-06-18T21:01:40.277Z"
+    },
+    {
+      "slotKey": "pv panel cleaning::default-om",
+      "reason": "No unique title for coverage slot pv panel cleaning::default-om",
+      "failedAt": "2026-06-18T21:01:56.147Z"
+    },
+    {
+      "slotKey": "pv panel cleaning::default-compare",
+      "reason": "No unique title for coverage slot pv panel cleaning::default-compare",
+      "failedAt": "2026-06-18T21:02:12.299Z"
+    },
+    {
+      "slotKey": "cleaning photovoltaic panels::default-guide",
+      "reason": "No unique title for coverage slot cleaning photovoltaic panels::default-guide",
+      "failedAt": "2026-06-18T21:02:28.110Z"
+    },
+    {
+      "slotKey": "cleaning photovoltaic panels::default-om",
+      "reason": "No unique title for coverage slot cleaning photovoltaic panels::default-om",
+      "failedAt": "2026-06-18T21:02:44.704Z"
+    },
+    {
+      "slotKey": "cleaning photovoltaic panels::default-compare",
+      "reason": "No unique title for coverage slot cleaning photovoltaic panels::default-compare",
+      "failedAt": "2026-06-18T21:03:00.902Z"
+    },
+    {
+      "slotKey": "pv module manufacturer::mfg-om-bridge",
+      "reason": "No unique title for coverage slot pv module manufacturer::mfg-om-bridge",
+      "failedAt": "2026-06-18T21:03:16.568Z"
+    },
+    {
+      "slotKey": "best panels::default-compare",
+      "reason": "Outline too similar to existing post (description, score 1.00): \"Pv Modules: Methods, Costs, and Robot Options Compared\" (pv-modules-methods-costs-and-robot-options-compared)",
+      "failedAt": "2026-06-18T21:08:07.258Z"
+    },
+    {
+      "slotKey": "photovoltaic manufacturers::mfg-vendor-vs-robot",
+      "reason": "Outline too similar to existing post (description, score 1.00): \"PV Module Selection for India's MW Plants: Robotic O&M Impact\" (pv-module-selection-for-indias-mw-plants-robotic-om-impact)",
+      "failedAt": "2026-06-19T13:05:52.237Z"
+    },
+    {
+      "slotKey": "pv manufacturers::mfg-om-bridge",
+      "reason": "Outline too similar to existing post (description, score 1.00): \"Shortlisting PV Panel Suppliers: Specs That Impact O&M and Cleaning\" (shortlisting-pv-panel-suppliers-specs-that-impact-om-and-cleaning)",
+      "failedAt": "2026-06-19T13:06:04.910Z"
+    },
+    {
+      "slotKey": "module manufacturers::mfg-shortlist",
+      "reason": "Keyword \"module manufacturers\" is competitor-led.",
+      "failedAt": "2026-06-19T18:47:14.460Z"
+    },
+    {
+      "slotKey": "pv cleaning robot::robot-capex-opex",
+      "reason": "Keyword \"pv cleaning robot\" is competitor-led.",
+      "failedAt": "2026-06-19T18:48:34.110Z"
+    },
+    {
+      "slotKey": "panel cleaning::default-om",
+      "reason": "Blog too similar to existing post (keywords, score 0.99): \"Cost-Benefit Analysis of Solar Panel Cleaning Services in India\" (cost-benefit-analysis-of-solar-panel-cleaning-services-in-india)",
+      "failedAt": "2026-06-19T18:48:38.356Z"
+    },
+    {
+      "slotKey": "panel cleaning::default-compare",
+      "reason": "Outline too similar to existing post (description, score 1.00): \"Pv Modules: Methods, Costs, and Robot Options Compared\" (pv-modules-methods-costs-and-robot-options-compared)",
+      "failedAt": "2026-06-19T18:48:55.683Z"
+    },
+    {
+      "slotKey": "panel cleaning brush::brush-vs-robot",
+      "reason": "Keyword \"panel cleaning brush\" is competitor-led.",
+      "failedAt": "2026-06-19T18:48:58.635Z"
+    },
+    {
+      "slotKey": "module cleaning system::robot-tracker-fit",
+      "reason": "Blog too similar to existing post (keywords, score 0.99): \"The Science Behind Effective Solar Module Cleaning Systems: A Technical Comparison of Traditional and Modern Approaches\" (the-science-behind-effective-solar-module-cleaning-systems-a-technical-comparison-of-traditional-and-modern-approaches)",
+      "failedAt": "2026-06-19T18:49:24.249Z"
+    },
+    {
+      "slotKey": "module cleaning robot::robot-eval",
+      "reason": "Blog too similar to existing post (keywords, score 0.98): \"Benefits Of Using Solar Panel Cleaning Robot In A Solar Plant\" (benefits-of-using-solar-panel-cleaning-robot-in-a-solar-plant)",
+      "failedAt": "2026-06-19T18:49:42.387Z"
+    },
+    {
+      "slotKey": "module cleaning robot::robot-capex-opex",
+      "reason": "Outline too similar to existing post (description, score 1.00): \"Module Cleaning System: Capex vs Opex Models for 25–100 MW Portfolios\" (module-cleaning-system-capex-vs-opex-models-for-25100-mw-portfolios)",
+      "failedAt": "2026-06-19T18:49:53.320Z"
+    },
+    {
+      "slotKey": "buy photovoltaic panels::default-om",
+      "reason": "Blog structure validation failed: Body too short (327 words; need ≥1200 for standard tier); Need ≥6 H2 sections for standard tier (found 1); Missing People Also Ask style H2 (how/what/which/is/worth…); Need ≥3 internal links (/blog/ posts and optional pillar pages; found 0); Need ≥2 links to related /blog/ posts (found 0); H2 sections must reflect the title topic (distinctive title terms in headings: 0/3)",
+      "failedAt": "2026-06-19T18:50:20.417Z"
+    },
+    {
+      "slotKey": "top pv panels::default-guide",
+      "reason": "Blog structure validation failed: Body too short (241 words; need ≥1200 for standard tier); Need ≥6 H2 sections for standard tier (found 1); Missing People Also Ask style H2 (how/what/which/is/worth…); Need ≥3 internal links (/blog/ posts and optional pillar pages; found 0); Need ≥2 links to related /blog/ posts (found 0); H2 sections must reflect the title topic (distinctive title terms in headings: 0/3) (+1 more)",
+      "failedAt": "2026-06-19T18:50:37.897Z"
+    },
+    {
+      "slotKey": "pv module manufacturer::mfg-shortlist",
+      "reason": "Blog too similar to existing post: title or slug overlaps \"Shortlisting PV Module Manufacturer: O&M and Cleaning Compatibility\"",
+      "failedAt": "2026-06-19T18:51:07.738Z"
+    },
+    {
+      "slotKey": "photovoltaic manufacturers::mfg-om-bridge",
+      "reason": "Blog too similar to existing post (keywords, score 1.60): \"Shortlisting PV Panel Suppliers: Specs That Impact O&M and Cleaning\" (shortlisting-pv-panel-suppliers-specs-that-impact-om-and-cleaning)",
+      "failedAt": "2026-06-19T18:51:16.131Z"
+    },
+    {
+      "slotKey": "buy photovoltaic panels::default-compare",
+      "reason": "Blog too similar to existing post (keywords, score 2.23): \"Pv Modules: Methods, Costs, and Robot Options Compared\" (pv-modules-methods-costs-and-robot-options-compared)",
+      "failedAt": "2026-06-19T18:51:18.350Z"
+    },
+    {
+      "slotKey": "pv module manufacturer::mfg-vendor-vs-robot",
+      "reason": "Outline too similar to existing post (description, score 1.00): \"PV Module Selection for India's MW Plants: Robotic O&M Impact\" (pv-module-selection-for-indias-mw-plants-robotic-om-impact)",
+      "failedAt": "2026-06-19T18:51:29.148Z"
+    },
+    {
+      "slotKey": "module cleaning robot::robot-tracker-fit",
+      "reason": "Gemini API free-tier quota exceeded on all configured keys. Retry after the daily limit resets (Google AI Studio usage). ([GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent: [429 Too Many Requests] You exceeded your current)",
+      "failedAt": "2026-06-19T18:51:33.989Z"
+    },
+    {
+      "slotKey": "best panels::default-guide",
+      "reason": "Outline too similar to existing post (description, score 1.00): \"Best PV Modules: Maintenance and O&M Logistics for Indian MW Plants\" (best-pv-modules-maintenance-and-om-logistics-for-indian-mw-plants)",
+      "failedAt": "2026-06-19T18:51:40.476Z"
+    },
+    {
+      "slotKey": "best panels::default-om",
+      "reason": "Keyword \"best panels\" is competitor-led.",
+      "failedAt": "2026-06-19T18:51:44.190Z"
+    },
+    {
+      "slotKey": "top pv panels::default-om",
+      "reason": "Blog structure validation failed: Body too short (305 words; need ≥1200 for standard tier); Need ≥6 H2 sections for standard tier (found 1); Missing People Also Ask style H2 (how/what/which/is/worth…); Need ≥3 internal links (/blog/ posts and optional pillar pages; found 0); Need ≥2 links to related /blog/ posts (found 0); Opening must reflect the title topic (need ≥2 distinctive title terms in first ~900 chars; found 1) (+1 more)",
+      "failedAt": "2026-06-19T18:51:48.136Z"
+    },
+    {
+      "slotKey": "top pv panels::default-compare",
+      "reason": "Outline too similar to existing post (description, score 1.00): \"Pv Modules: Methods, Costs, and Robot Options Compared\" (pv-modules-methods-costs-and-robot-options-compared)",
+      "failedAt": "2026-06-19T18:51:59.517Z"
+    },
+    {
+      "slotKey": "sunlight panels::default-compare",
+      "reason": "Outline too similar to existing post (description, score 1.00): \"Pv Modules: Methods, Costs, and Robot Options Compared\" (pv-modules-methods-costs-and-robot-options-compared)",
+      "failedAt": "2026-06-19T18:52:09.626Z"
+    },
+    {
+      "slotKey": "module cleaning system::robot-eval",
+      "reason": "Gemini API free-tier quota exceeded on all configured keys. Retry after the daily limit resets (Google AI Studio usage). ([GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent: [429 Too Many Requests] You exceeded your current)",
+      "failedAt": "2026-06-19T18:52:21.632Z"
+    },
+    {
+      "slotKey": "module manufacturers::mfg-om-bridge",
+      "reason": "Gemini API free-tier quota exceeded on all configured keys. Retry after the daily limit resets (Google AI Studio usage). ([GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent: [429 Too Many Requests] You exceeded your current)",
+      "failedAt": "2026-06-19T18:52:27.785Z"
+    },
+    {
+      "slotKey": "pv cleaning robot::robot-eval",
+      "reason": "Blog too similar to existing post (keywords, score 0.75): \"Evaluating Solar Power Cleaning Service ROI: Manual vs Robot\" (evaluating-solar-power-cleaning-service-roi-manual-vs-robot)",
+      "failedAt": "2026-06-19T18:52:29.218Z"
+    },
+    {
+      "slotKey": "pv cleaning robot::robot-tracker-fit",
+      "reason": "Gemini API free-tier quota exceeded on all configured keys. Retry after the daily limit resets (Google AI Studio usage). ([GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent: [429 Too Many Requests] You exceeded your current)",
+      "failedAt": "2026-06-19T18:52:34.029Z"
+    },
+    {
+      "slotKey": "module cleaning::default-compare",
+      "reason": "Outline too similar to existing post (description, score 1.00): \"Pv Modules: Methods, Costs, and Robot Options Compared\" (pv-modules-methods-costs-and-robot-options-compared)",
+      "failedAt": "2026-06-20T19:08:59.624Z"
+    },
+    {
+      "slotKey": "photovoltaic panel system::robot-tracker-fit",
+      "reason": "Outline too similar to existing post (description, score 1.00): \"Integrating a PV Panel System: O&M Strategy for 50MW+ Plants\" (integrating-a-pv-panel-system-om-strategy-for-50mw-plants)",
+      "failedAt": "2026-06-20T19:10:20.416Z"
+    },
+    {
+      "slotKey": "pv maintenance::default-compare",
+      "reason": "Outline too similar to existing post (description, score 1.00): \"Pv Modules: Methods, Costs, and Robot Options Compared\" (pv-modules-methods-costs-and-robot-options-compared)",
+      "failedAt": "2026-06-20T19:10:28.843Z"
+    },
+    {
+      "slotKey": "photovoltaic panel system::robot-capex-opex",
+      "reason": "Pre-flight uniqueness failed (keywords, score 2.23): \"Module Cleaning System: Capex vs Opex Models for 25–100 MW Portfolios\" (module-cleaning-system-capex-vs-opex-models-for-25100-mw-portfolios)",
+      "failedAt": "2026-06-20T19:10:59.538Z"
+    },
+    {
+      "slotKey": "module cleaning::default-guide",
+      "reason": "Pre-flight uniqueness failed (keywords, score 0.97): \"A Comparative Analysis of Traditional Solar Panel Cleaning Methods vs Taypro’s Autonomous Waterless Robots\" (a-comparative-analysis-of-traditional-solar-panel-cleaning-methods-vs-taypros-autonomous-waterless-robots)",
+      "failedAt": "2026-06-20T19:11:07.922Z"
+    },
+    {
+      "slotKey": "panel washing::default-guide",
+      "reason": "Blog too similar to existing post (keywords, score 0.99): \"Seasonal Solar Panel Maintenance Tips: A Comprehensive Guide\" (seasonal-solar-panel-maintenance-tips-a-comprehensive-guide)",
+      "failedAt": "2026-06-20T19:11:56.888Z"
+    },
+    {
+      "slotKey": "panel washing::default-om",
+      "reason": "Keyword \"panel washing\" is competitor-led.",
+      "failedAt": "2026-06-20T19:12:06.161Z"
+    },
+    {
+      "slotKey": "module cleaning::default-om",
+      "reason": "Gemini API free-tier quota exceeded on all configured keys. Retry after the daily limit resets (Google AI Studio usage). ([GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent: [429 Too Many Requests] You exceeded your current)",
+      "failedAt": "2026-06-20T19:12:15.002Z"
+    },
+    {
+      "slotKey": "photovoltaic panel system::robot-eval",
+      "reason": "Gemini API free-tier quota exceeded on all configured keys. Retry after the daily limit resets (Google AI Studio usage). ([GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent: [429 Too Many Requests] You exceeded your current)",
+      "failedAt": "2026-06-20T19:12:15.799Z"
+    },
+    {
+      "slotKey": "taypro glyde robot::robot-eval",
+      "reason": "Blog structure validation failed: Need ≥3 internal links (/blog/ posts and optional pillar pages; found 2); Content drifts into cleaning-robot pitch (9 product/robot mentions in opening third) but keyword intent is equipment/topic research — refocus on title",
+      "failedAt": "2026-06-20T19:13:18.024Z"
+    },
+    {
+      "slotKey": "taypro helyx robot::robot-tracker-fit",
+      "reason": "Blog too similar to existing post: title or slug overlaps \"ROI of the Taypro Helyx Robot: Managing CAPEX vs OPEX in India\"",
+      "failedAt": "2026-06-20T19:13:32.541Z"
+    },
+    {
+      "slotKey": "taypro glyde robot::robot-tracker-fit",
+      "reason": "Generated title or meta description was too generic; retry automation",
+      "failedAt": "2026-06-20T19:15:17.833Z"
+    },
+    {
+      "slotKey": "taypro helyx robot::robot-capex-opex",
+      "reason": "Blog structure validation failed: Content drifts into cleaning-robot pitch (6 product/robot mentions in opening third) but keyword intent is equipment/topic research — refocus on title",
+      "failedAt": "2026-06-20T19:16:36.051Z"
+    },
+    {
+      "slotKey": "taypro glyde robot::robot-capex-opex",
+      "reason": "Could not parse JSON from AI response: Expected ',' or '}' after property value in JSON at position 1590",
+      "failedAt": "2026-06-20T19:17:40.321Z"
+    },
+    {
+      "slotKey": "taypro nyuma robot::robot-capex-opex",
+      "reason": "Gemini API free-tier quota exceeded on all configured keys. Retry after the daily limit resets (Google AI Studio usage). ([GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent: [429 Too Many Requests] You exceeded your current)",
+      "failedAt": "2026-06-20T19:18:45.555Z"
+    },
+    {
+      "slotKey": "taypro nyuma robot::robot-eval",
+      "reason": "Gemini API free-tier quota exceeded on all configured keys. Retry after the daily limit resets (Google AI Studio usage). ([GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent: [429 Too Many Requests] You exceeded your current)",
+      "failedAt": "2026-06-20T19:18:47.806Z"
+    },
+    {
+      "slotKey": "taypro helyx robot::robot-eval",
+      "reason": "Gemini API free-tier quota exceeded on all configured keys. Retry after the daily limit resets (Google AI Studio usage). ([GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent: [429 Too Many Requests] You exceeded your current)",
+      "failedAt": "2026-06-20T19:18:56.244Z"
+    },
+    {
+      "slotKey": "taypro nyuma robot::robot-tracker-fit",
+      "reason": "Gemini API free-tier quota exceeded on all configured keys. Retry after the daily limit resets (Google AI Studio usage). ([GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent: [429 Too Many Requests] You exceeded your current)",
+      "failedAt": "2026-06-20T19:19:02.831Z"
+    }
+  ]
 }

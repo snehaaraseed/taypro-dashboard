@@ -1,0 +1,28 @@
+{
+  "slug": "the-role-of-data-analytics-in-solar-panel-cleaning-improving-efficiency-with-taypro",
+  "seoKeyword": "solar panel cleaning data analytics",
+  "description": "SCADA PR, soiling sensors, and robot pass logs: how data analytics sets cleaning schedules, ranks blocks by rupee loss, and improves utility O&M efficiency.",
+  "prependContent": "<h2>Quick answer</h2>\n<ul>\n<li>Analytics turn <strong>PR trends and soiling data</strong> into cleaning work orders.</li>\n<li>Reference modules and SCADA show <strong>which blocks lose MWh</strong> first.</li>\n<li>Robot logs prove <strong>coverage</strong>; gaps explain persistent PR dips.</li>\n<li>Economic thresholds beat fixed calendars on 50 MW+ plants.</li>\n<li>NECTYR-style dashboards unify fleet, weather, and performance data.</li>\n</ul>\n\n<h2>How does data analytics improve solar panel cleaning efficiency?</h2>\n<p>Analytics link soiling loss estimates to cleaning cost and dispatch robots or crews to highest-value blocks. Instead of plant-wide schedules, operators clean when PR drops 2 to 3 points below baseline or reference modules show 3 to 5 percent soiling. Pass completion data closes the loop by confirming whether production recovered.</p>",
+  "faqs": [
+    {
+      "question": "How does data analytics improve solar panel cleaning efficiency?",
+      "answer": "Analytics rank blocks by estimated rupee loss, trigger cleans when soiling exceeds economic thresholds, and verify recovery after work completes. That reduces wasted cleans on low-loss zones and speeds response on dusty blocks. Fleet logs show whether robots missed rows that SCADA still flags as underperforming."
+    },
+    {
+      "question": "What data sources matter most for cleaning decisions?",
+      "answer": "Inverter SCADA with quality-checked irradiance, clean versus soiled reference modules, and historical cleaning dates form the core stack. Robot pass logs, weather forecasts, and tracker availability add context. Satellite soiling models help forecast but need on-site calibration in Indian dust belts."
+    },
+    {
+      "question": "What PR threshold should trigger a clean on utility plants?",
+      "answer": "Many Indian asset owners act at 1.5 to 2.5 percent PR below a rolling clean baseline, or when reference modules show 3 to 5 percent soiling, whichever comes first. Thresholds should reflect tariff and clean cost, not a universal percentage."
+    },
+    {
+      "question": "How do Taypro robots contribute analytics beyond brushing?",
+      "answer": "Utility robots log rows completed, abort reasons, and time since last pass per block. That operational data feeds platforms like NECTYR alongside SCADA so shift engineers see cleaning status next to PR. Missing coverage after a storm explains delayed recovery better than guessing soiling alone."
+    },
+    {
+      "question": "Can analytics replace manual site inspections?",
+      "answer": "No, but they prioritize where inspectors and crews go first. Drones or spot checks validate analytics flags on worst blocks. The goal is fewer blind plant-wide cleans and faster ticket closure on blocks with confirmed loss."
+    }
+  ]
+}

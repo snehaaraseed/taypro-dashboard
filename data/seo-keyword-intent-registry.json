@@ -1,82 +1,812 @@
 {
   "description": "Per-keyword search intent coverage for blog clusters (prevents cannibalization). Auto-updated on each automated blog write; backfilled from published_topics on cron start.",
-  "updatedAt": "2026-06-19T20:12:33.863Z",
+  "updatedAt": "2026-06-21T11:41:04.785Z",
   "byKeyword": {
-    "automatic solar panel cleaning system": [
+    "solar panel cleaning": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "robot_eval",
+        "angleId": "robot-eval",
+        "archetype": null,
+        "title": "5 Costly Mistakes to Avoid in Solar Panel Cleaning",
+        "slug": "5-costly-mistakes-to-avoid-in-solar-panel-cleaning",
+        "slotKey": "solar panel cleaning::robot-eval",
+        "writtenAt": "2025-10-17T10:20:32.771Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_beyond_cleaning_how_taypros_robo",
+        "angleId": "legacy-beyond_cleaning_how_taypros_robo",
+        "archetype": null,
+        "title": "Beyond Cleaning: How Taypro’s Robots are Paving the Way for Autonomous Solar Farms in India",
+        "slug": "beyond-cleaning-how-taypros-robots-are-paving-the-way-for-autonomous-solar-farms-in-india",
+        "slotKey": "solar panel cleaning::legacy-beyond_cleaning_how_taypros_robo",
+        "writtenAt": "2025-10-17T10:05:28.690Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_mint_tech4good_awards_2024_taypr",
+        "angleId": "legacy-mint_tech4good_awards_2024_taypr",
+        "archetype": null,
+        "title": "Mint Tech4Good Awards 2024: Taypro’s Green AI Solutions Win Big in Mumbai, India",
+        "slug": "mint-tech4good-awards-2024-taypros-green-ai-solutions-win-big-in-mumbai-india",
+        "slotKey": "solar panel cleaning::legacy-mint_tech4good_awards_2024_taypr",
+        "writtenAt": "2025-10-17T10:29:10.208Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_new_solar_panel_technologies_202",
+        "angleId": "legacy-new_solar_panel_technologies_202",
+        "archetype": null,
+        "title": "New Solar Panel Technologies 2026 ",
+        "slug": "new-solar-panel-technologies-2025",
+        "slotKey": "solar panel cleaning::legacy-new_solar_panel_technologies_202",
+        "writtenAt": "2025-10-16T10:57:02.855Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_rf_communication_in_solar_farms",
+        "angleId": "legacy-rf_communication_in_solar_farms_",
+        "archetype": null,
+        "title": "RF Communication in Solar Farms: How Taypro Ensures Real-Time Robot-to-Control Room Connectivity Using Mesh Networks",
+        "slug": "rf-communication-in-solar-farms-how-taypro-ensures-real-time-robot-to-control-room-connectivity-using-mesh-networks",
+        "slotKey": "solar panel cleaning::legacy-rf_communication_in_solar_farms_",
+        "writtenAt": "2025-10-16T12:04:47.738Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_solar_panel_installation_cost_fo",
+        "angleId": "legacy-solar_panel_installation_cost_fo",
+        "archetype": null,
+        "title": "Solar Panel Installation Cost For Utility Scale In India",
+        "slug": "solar-panel-installation-cost-for-utility-scale-in-india",
+        "slotKey": "solar panel cleaning::legacy-solar_panel_installation_cost_fo",
+        "writtenAt": "2025-10-16T11:23:40.985Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_the_crucial_role_of_regular_sola",
+        "angleId": "legacy-the_crucial_role_of_regular_sola",
+        "archetype": null,
+        "title": "The Crucial Role of Regular Solar Panel Cleaning for Efficiency: Keeping Performance High in a Dusty World",
+        "slug": "the-crucial-role-of-regular-solar-panel-cleaning-for-efficiency-keeping-performance-high-in-a-dusty-world",
+        "slotKey": "solar panel cleaning::legacy-the_crucial_role_of_regular_sola",
+        "writtenAt": "2025-10-16T12:48:08.968Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_the_impact_of_weather_on_solar_p",
+        "angleId": "legacy-the_impact_of_weather_on_solar_p",
+        "archetype": null,
+        "title": "The Impact of Weather on Solar Panel Cleanliness in India: Tips for Optimal Performance",
+        "slug": "the-impact-of-weather-on-solar-panel-cleanliness-in-india-tips-for-optimal-performance",
+        "slotKey": "solar panel cleaning::legacy-the_impact_of_weather_on_solar_p",
+        "writtenAt": "2025-10-16T12:24:46.040Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_the_importance_of_solar_panel_cl",
+        "angleId": "legacy-the_importance_of_solar_panel_cl",
+        "archetype": null,
+        "title": "The Importance of Solar Panel Cleaning Across Different Regions of India: Tailoring Solutions for Diverse Climates",
+        "slug": "the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates",
+        "slotKey": "solar panel cleaning::legacy-the_importance_of_solar_panel_cl",
+        "writtenAt": "2025-10-16T12:45:25.029Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_the_importance_of_solar_panel_cl_1",
+        "angleId": "legacy-the_importance_of_solar_panel_cl",
+        "archetype": null,
+        "title": "The Importance of Solar Panel Cleaning: Maximizing Efficiency and Energy Production",
+        "slug": "the-importance-of-solar-panel-cleaning-maximizing-efficiency-and-energy-production",
+        "slotKey": "solar panel cleaning::legacy-the_importance_of_solar_panel_cl",
+        "writtenAt": "2025-10-16T13:01:58.188Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_the_role_of_data_analytics_in_so",
+        "angleId": "legacy-the_role_of_data_analytics_in_so",
+        "archetype": null,
+        "title": "The Role of Data Analytics in Solar Panel Cleaning: Improving Efficiency with Taypro",
+        "slug": "the-role-of-data-analytics-in-solar-panel-cleaning-improving-efficiency-with-taypro",
+        "slotKey": "solar panel cleaning::legacy-the_role_of_data_analytics_in_so",
+        "writtenAt": "2025-10-17T10:23:56.202Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_the_ultimate_guide_to_designing",
+        "angleId": "legacy-the_ultimate_guide_to_designing_",
+        "archetype": null,
+        "title": "The Ultimate Guide to Designing a Solar Power Plant",
+        "slug": "the-ultimate-guide-to-designing-a-solar-power-plant",
+        "slotKey": "solar panel cleaning::legacy-the_ultimate_guide_to_designing_",
+        "writtenAt": "2025-10-16T11:18:47.378Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_understanding_esg_a_definitive_e",
+        "angleId": "legacy-understanding_esg_a_definitive_e",
+        "archetype": null,
+        "title": "Understanding ESG: A Definitive Exploration into Environmental, Social, and Governance Principles",
+        "slug": "understanding-esg-a-definitive-exploration-into-environmental-social-and-governance-principles",
+        "slotKey": "solar panel cleaning::legacy-understanding_esg_a_definitive_e",
+        "writtenAt": "2025-10-17T10:26:22.838Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_what_are_the_different_methods_u",
+        "angleId": "legacy-what_are_the_different_methods_u",
+        "archetype": null,
+        "title": "What Are The Different Methods Used For Solar Panel Cleaning?",
+        "slug": "what-are-the-different-methods-used-for-solar-panel-cleaning",
+        "slotKey": "solar panel cleaning::legacy-what_are_the_different_methods_u",
+        "writtenAt": "2025-10-16T12:01:07.749Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_what_is_solar_panel_cleaning_why",
+        "angleId": "legacy-what_is_solar_panel_cleaning_why",
+        "archetype": null,
+        "title": "What Is Solar Panel Cleaning? Why Is It Necessary To Clean Solar Panels?",
+        "slug": "what-is-solar-panel-cleaning-why-is-it-necessary-to-clean-solar-panels",
+        "slotKey": "solar panel cleaning::legacy-what_is_solar_panel_cleaning_why",
+        "writtenAt": "2025-10-16T11:49:35.752Z",
+        "source": "backfill"
+      },
       {
         "intentFamily": "financial_roi",
-        "subAngle": "payback_roi",
-        "angleId": null,
+        "subAngle": "legacy_why_solar_power_plants_need_robo",
+        "angleId": "legacy-why_solar_power_plants_need_robo",
         "archetype": null,
-        "title": "Calculating ROI: When to Upgrade to an Automatic Solar Panel Cleaning System",
-        "slug": "calculating-roi-when-to-upgrade-to-an-automatic-solar-panel-cleaning-system",
-        "slotKey": null,
-        "writtenAt": "2026-05-18T06:56:56.583Z",
+        "title": "Why Solar Power Plants Need Robotic Cleaning for Maximum ROI",
+        "slug": "why-solar-power-plants-need-robotic-cleaning-for-maximum-roi",
+        "slotKey": "solar panel cleaning::legacy-why_solar_power_plants_need_robo",
+        "writtenAt": "2025-10-17T10:15:48.258Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_average_soiling_losses_in_high_d",
+        "angleId": "legacy-average_soiling_losses_in_high_d",
+        "archetype": null,
+        "title": "Average soiling losses in high-dust regions of India (Rajasthan & Gujarat)",
+        "slug": "average-soiling-losses-in-high-dust-regions-of-india-rajasthan-gujarat",
+        "slotKey": "solar panel cleaning::legacy-average_soiling_losses_in_high_d",
+        "writtenAt": "2026-06-07T18:47:38.282Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_seasonal_variation_in_soiling_ra",
+        "angleId": "legacy-seasonal_variation_in_soiling_ra",
+        "archetype": null,
+        "title": "Seasonal variation in soiling rates and energy yield loss in India",
+        "slug": "seasonal-variation-in-soiling-rates-and-energy-yield-loss-in-india",
+        "slotKey": "solar panel cleaning::legacy-seasonal_variation_in_soiling_ra",
+        "writtenAt": "2026-06-07T18:50:50.192Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "legacy_waterless_robotic_vs_manual_clea",
+        "angleId": "legacy-waterless_robotic_vs_manual_clea",
+        "archetype": null,
+        "title": "Waterless robotic vs manual cleaning cost comparison for 10 MW plant India",
+        "slug": "waterless-robotic-vs-manual-cleaning-cost-comparison-for-10-mw-plant-india",
+        "slotKey": "solar panel cleaning::legacy-waterless_robotic_vs_manual_clea",
+        "writtenAt": "2026-06-07T18:53:47.889Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_annual_water_and_operational_cos",
+        "angleId": "legacy-annual_water_and_operational_cos",
+        "archetype": null,
+        "title": "Annual water and operational cost savings from switching to waterless robotic cleaning",
+        "slug": "annual-water-and-operational-cost-savings-from-switching-to-waterless-robotic-cleaning",
+        "slotKey": "solar panel cleaning::legacy-annual_water_and_operational_cos",
+        "writtenAt": "2026-06-07T18:58:36.138Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "legacy_robotic_cleaning_systems_for_sin",
+        "angleId": "legacy-robotic_cleaning_systems_for_sin",
+        "archetype": null,
+        "title": "Robotic cleaning systems for single-axis trackers: operational challenges vs fixed-tilt",
+        "slug": "robotic-cleaning-systems-for-single-axis-trackers-operational-challenges-vs-fixed-tilt",
+        "slotKey": "solar panel cleaning::legacy-robotic_cleaning_systems_for_sin",
+        "writtenAt": "2026-06-07T19:01:58.035Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "troubleshooting_problem",
+        "subAngle": "legacy_solar_has_a_trillion_dollar_prob",
+        "angleId": "legacy-solar_has_a_trillion_dollar_prob",
+        "archetype": null,
+        "title": "Solar Has a Trillion-Dollar Problem No One Is Talking About",
+        "slug": "solar-has-a-trillion-dollar-problem-no-one-is-talking-about",
+        "slotKey": "solar panel cleaning::legacy-solar_has_a_trillion_dollar_prob",
+        "writtenAt": "2026-06-15T07:23:38.315Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_the_robot_that_cleans_itself_off",
+        "angleId": "legacy-the_robot_that_cleans_itself_off",
+        "archetype": null,
+        "title": "The Robot That Cleans Itself Off Your To-Do List",
+        "slug": "the-robot-that-cleans-itself-off-your-to-do-list",
+        "slotKey": "solar panel cleaning::legacy-the_robot_that_cleans_itself_off",
+        "writtenAt": "2026-06-15T07:31:06.517Z",
+        "source": "backfill"
+      }
+    ],
+    "solar plant": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "default_guide",
+        "angleId": "default-guide",
+        "archetype": null,
+        "title": "5 Signs Your Solar Plant Needs Automated Cleaning Before Revenue Starts Dropping",
+        "slug": "5-signs-your-solar-plant-needs-automated-cleaning-before-revenue-starts-dropping",
+        "slotKey": "solar plant::default-guide",
+        "writtenAt": "2025-10-17T10:09:56.301Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_how_to_calculate_a_performance_r",
+        "angleId": "legacy-how_to_calculate_a_performance_r",
+        "archetype": null,
+        "title": "How To Calculate A Performance Ratio Of A Solar Plant?",
+        "slug": "how-to-calculate-a-performance-ratio-of-a-solar-plant",
+        "slotKey": "solar plant::legacy-how_to_calculate_a_performance_r",
+        "writtenAt": "2025-10-16T11:14:38.395Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "financial_roi",
+        "subAngle": "legacy_how_to_calculate_solar_plant_roi",
+        "angleId": "legacy-how_to_calculate_solar_plant_roi",
+        "archetype": null,
+        "title": "How to calculate Solar Plant ROI and PayBack Period",
+        "slug": "how-to-calculate-solar-plant-roi-and-payback-period",
+        "slotKey": "solar plant::legacy-how_to_calculate_solar_plant_roi",
+        "writtenAt": "2025-10-16T11:09:47.563Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_improving_performance_ratio_in_u",
+        "angleId": "legacy-improving_performance_ratio_in_u",
+        "archetype": null,
+        "title": "Improving performance ratio in utility-scale solar plants India: inverter efficiency optimization",
+        "slug": "improving-performance-ratio-in-utility-scale-solar-plants-india-inverter-efficiency-optimization",
+        "slotKey": "solar plant::legacy-improving_performance_ratio_in_u",
+        "writtenAt": "2026-06-07T19:08:14.857Z",
+        "source": "backfill"
+      }
+    ],
+    "solar panel cleaning methods": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "robot_eval",
+        "angleId": "robot-eval",
+        "archetype": null,
+        "title": "A Comparative Analysis of Traditional Solar Panel Cleaning Methods vs Taypro’s Autonomous Waterless Robots",
+        "slug": "a-comparative-analysis-of-traditional-solar-panel-cleaning-methods-vs-taypros-autonomous-waterless-robots",
+        "slotKey": "solar panel cleaning methods::robot-eval",
+        "writtenAt": "2025-10-17T10:22:21.966Z",
         "source": "backfill"
       }
     ],
     "solar panel cleaning robot": [
       {
         "intentFamily": "technical_howto",
-        "subAngle": "technical_howto_angle",
-        "angleId": null,
+        "subAngle": "legacy_benefits_of_using_solar_panel_cl",
+        "angleId": "legacy-benefits_of_using_solar_panel_cl",
         "archetype": null,
-        "title": "Managing Performance Ratio Losses: Why a Solar Panel Cleaning Robot Beats Manual Labor",
-        "slug": "managing-performance-ratio-losses-why-a-solar-panel-cleaning-robot-beats-manual-labor",
-        "slotKey": null,
-        "writtenAt": "2026-05-18T07:01:58.066Z",
+        "title": "Benefits Of Using Solar Panel Cleaning Robot In A Solar Plant",
+        "slug": "benefits-of-using-solar-panel-cleaning-robot-in-a-solar-plant",
+        "slotKey": "solar panel cleaning robot::legacy-benefits_of_using_solar_panel_cl",
+        "writtenAt": "2025-10-16T11:33:14.223Z",
         "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_how_does_a_solar_panel_cleaning",
+        "angleId": "legacy-how_does_a_solar_panel_cleaning_",
+        "archetype": null,
+        "title": "How Does A Solar Panel Cleaning Robot Work? ",
+        "slug": "how-does-a-solar-panel-cleaning-robot-work-",
+        "slotKey": "solar panel cleaning robot::legacy-how_does_a_solar_panel_cleaning_",
+        "writtenAt": "2025-10-16T11:34:51.130Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_what_is_a_solar_panel_cleaning_r",
+        "angleId": "legacy-what_is_a_solar_panel_cleaning_r",
+        "archetype": null,
+        "title": "What is a Solar Panel Cleaning Robot?",
+        "slug": "what-is-a-solar-panel-cleaning-robot",
+        "slotKey": "solar panel cleaning robot::legacy-what_is_a_solar_panel_cleaning_r",
+        "writtenAt": "2025-10-16T11:38:16.616Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_top_solar_panel_cleaning_robots",
+        "angleId": "legacy-top_solar_panel_cleaning_robots_",
+        "archetype": null,
+        "title": "Top Solar Panel Cleaning Robots of 2026: The Complete Guide for Utility-Scale Plants",
+        "slug": "top-solar-panel-cleaning-robots-of-2026-the-complete-guide-for-utility-scale-plants",
+        "slotKey": "solar panel cleaning robot::legacy-top_solar_panel_cleaning_robots_",
+        "writtenAt": "2026-06-04T21:45:09.230Z",
+        "source": "backfill"
+      }
+    ],
+    "solar panel performance monitoring utility scale": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "default_guide",
+        "angleId": "default-guide",
+        "archetype": null,
+        "title": "How Automated Systems Monitor Solar Panel Performance at Utility Scale",
+        "slug": "beyond-cleaning-how-automated-systems-can-monitor-solar-panel-performance",
+        "slotKey": "solar panel performance monitoring utility scale::default-guide",
+        "writtenAt": "2025-10-17T10:24:42.440Z",
+        "source": "manual"
+      }
+    ],
+    "solar panel cleaning service": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "robot_eval",
+        "angleId": "robot-eval",
+        "archetype": null,
+        "title": "Cost-Benefit Analysis of Solar Panel Cleaning Services in India",
+        "slug": "cost-benefit-analysis-of-solar-panel-cleaning-services-in-india",
+        "slotKey": "solar panel cleaning service::robot-eval",
+        "writtenAt": "2025-10-16T12:52:22.503Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_choosing_a_reliable_solar_panel",
+        "angleId": "legacy-choosing_a_reliable_solar_panel_",
+        "archetype": null,
+        "title": "Choosing a Reliable Solar Panel Cleaning Service for 50MW+ Projects",
+        "slug": "choosing-a-reliable-solar-panel-cleaning-service-for-50mw-projects",
+        "slotKey": "solar panel cleaning service::legacy-choosing_a_reliable_solar_panel_",
+        "writtenAt": "2026-05-23T09:00:34.009Z",
+        "source": "backfill"
+      }
+    ],
+    "ai solar plant performance india": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "default_guide",
+        "angleId": "default-guide",
+        "archetype": null,
+        "title": "How AI Improves Energy Output at Utility-Scale Solar Plants in India",
+        "slug": "how-ai-can-improve-solar-energy-output",
+        "slotKey": "ai solar plant performance india::default-guide",
+        "writtenAt": "2025-10-16T11:17:35.393Z",
+        "source": "manual"
+      }
+    ],
+    "dust storm solar panel cleaning india": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "robot_eval",
+        "angleId": "robot-eval",
+        "archetype": null,
+        "title": "How Dust-Storm Forecasting Improves Solar Cleaning Schedules in India",
+        "slug": "how-ai-predicts-dust-storms-the-science-behind-taypros-smart-solar-panel-cleaning-system",
+        "slotKey": "dust storm solar panel cleaning india::robot-eval",
+        "writtenAt": "2025-10-16T12:42:58.472Z",
+        "source": "manual"
+      }
+    ],
+    "pv panel cleaning robot": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "robot_eval",
+        "angleId": "robot-eval",
+        "archetype": null,
+        "title": "How Are PV Panel Cleaning Robots Installed?",
+        "slug": "how-are-pv-panel-cleaning-robots-installed",
+        "slotKey": "pv panel cleaning robot::robot-eval",
+        "writtenAt": "2025-10-16T11:26:24.476Z",
+        "source": "backfill"
+      }
+    ],
+    "a solar panel": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "default_guide",
+        "angleId": "default-guide",
+        "archetype": null,
+        "title": "How Does Cleaning A Solar Panel Increase Efficiency?",
+        "slug": "how-does-cleaning-a-solar-panel-increase-efficiency",
+        "slotKey": "a solar panel::default-guide",
+        "writtenAt": "2025-10-16T11:44:26.115Z",
+        "source": "backfill"
+      }
+    ],
+    "solar panels in": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "default_guide",
+        "angleId": "default-guide",
+        "archetype": null,
+        "title": "How Often Should You Clean Your Solar Panels in India?",
+        "slug": "how-often-should-you-clean-your-solar-panels-in-india",
+        "slotKey": "solar panels in::default-guide",
+        "writtenAt": "2025-10-17T10:28:21.080Z",
+        "source": "backfill"
+      }
+    ],
+    "make solar panels": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "default_guide",
+        "angleId": "default-guide",
+        "archetype": null,
+        "title": "How to Make Solar Panels More Efficient?",
+        "slug": "how-to-make-solar-panels-more-efficient",
+        "slotKey": "make solar panels::default-guide",
+        "writtenAt": "2025-10-16T11:25:08.455Z",
+        "source": "backfill"
+      }
+    ],
+    "importance of solar panel cleaning utility scale": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "robot_eval",
+        "angleId": "robot-eval",
+        "archetype": null,
+        "title": "Why Clean Solar Panels Matter on Utility-Scale Plants in India",
+        "slug": "importance-of-keeping-your-solar-panels-clean",
+        "slotKey": "importance of solar panel cleaning utility scale::robot-eval",
+        "writtenAt": "2025-10-16T11:41:33.672Z",
+        "source": "manual"
+      }
+    ],
+    "solar panel maintenance": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "default_guide",
+        "angleId": "default-guide",
+        "archetype": null,
+        "title": "India’s Solar Energy Boom in 2025: What It Means for You and the Planet",
+        "slug": "indias-solar-energy-boom-in-2024-what-it-means-for-you-and-the-planet",
+        "slotKey": "solar panel maintenance::default-guide",
+        "writtenAt": "2025-10-16T11:53:42.535Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_the_complete_guide_to_solar_pane",
+        "angleId": "legacy-the_complete_guide_to_solar_pane",
+        "archetype": null,
+        "title": "The Complete Guide to Solar Panel Maintenance",
+        "slug": "the-complete-guide-to-solar-panel-maintenance",
+        "slotKey": "solar panel maintenance::legacy-the_complete_guide_to_solar_pane",
+        "writtenAt": "2025-10-16T10:48:04.547Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_solar_tracker_maintenance_comple",
+        "angleId": "legacy-solar_tracker_maintenance_comple",
+        "archetype": null,
+        "title": "Solar Tracker Maintenance: Complete Guide",
+        "slug": "solar-tracker-maintenance-complete-guide",
+        "slotKey": "solar panel maintenance::legacy-solar_tracker_maintenance_comple",
+        "writtenAt": "2026-05-25T09:19:09.510Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "legacy_opex_vs_capex_for_solar_om_contr",
+        "angleId": "legacy-opex_vs_capex_for_solar_om_contr",
+        "archetype": null,
+        "title": "OPEX vs CAPEX for solar O&M contracts India — combined with which model suits IPPs",
+        "slug": "opex-vs-capex-for-solar-om-contracts-india-combined-with-which-model-suits-ipps",
+        "slotKey": "solar panel maintenance::legacy-opex_vs_capex_for_solar_om_contr",
+        "writtenAt": "2026-06-07T19:05:01.401Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_from_predictive_maintenance_to_p",
+        "angleId": "legacy-from_predictive_maintenance_to_p",
+        "archetype": null,
+        "title": "From Predictive Maintenance to Predictive Generation: How AI is Changing Solar Operations in India",
+        "slug": "from-predictive-maintenance-to-predictive-generation-how-ai-is-changing-solar-operations-in-india",
+        "slotKey": "solar panel maintenance::legacy-from_predictive_maintenance_to_p",
+        "writtenAt": "2026-06-15T07:27:31.248Z",
+        "source": "backfill"
+      }
+    ],
+    "solar cleaning system": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "robot_eval",
+        "angleId": "robot-eval",
+        "archetype": null,
+        "title": "Innovations in Solar Cleaning Systems: What India’s Top Farms Are Using",
+        "slug": "innovations-in-solar-cleaning-systems-what-indias-top-farms-are-using",
+        "slotKey": "solar cleaning system::robot-eval",
+        "writtenAt": "2025-10-17T10:13:59.729Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_how_to_choose_the_best_solar_cle",
+        "angleId": "legacy-how_to_choose_the_best_solar_cle",
+        "archetype": null,
+        "title": "How to Choose the Best Solar Cleaning System for Power Plants",
+        "slug": "how-to-choose-the-best-solar-cleaning-system-for-power-plants",
+        "slotKey": "solar cleaning system::legacy-how_to_choose_the_best_solar_cle",
+        "writtenAt": "2026-05-25T08:11:25.292Z",
+        "source": "backfill"
+      }
+    ],
+    "solar soiling carbon emissions india": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "default_guide",
+        "angleId": "default-guide",
+        "archetype": null,
+        "title": "Carbon Value of Lost Solar Energy from Soiling on Indian Utility Plants",
+        "slug": "leveraging-carbon-pricing-for-environmental-and-economic-sustainability",
+        "slotKey": "solar soiling carbon emissions india::default-guide",
+        "writtenAt": "2025-10-17T10:25:37.950Z",
+        "source": "manual"
+      }
+    ],
+    "solar panel cleaning system": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "legacy_microfiber_vs_traditional_brushe",
+        "angleId": "legacy-microfiber_vs_traditional_brushe",
+        "archetype": null,
+        "title": "Microfiber vs. Traditional Brushes: Why Taypro’s Patented Dual Pass Solar Panel Cleaning System Outperforms",
+        "slug": "microfiber-vs-traditional-brushes-why-taypros-patented-dual-pass-solar-panel-cleaning-system-outperforms",
+        "slotKey": "solar panel cleaning system::legacy-microfiber_vs_traditional_brushe",
+        "writtenAt": "2025-10-16T12:39:23.910Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_taypro_wins_historic_patent_for",
+        "angleId": "legacy-taypro_wins_historic_patent_for_",
+        "archetype": null,
+        "title": "Taypro Wins 4 Patents for Its Solar Panel Cleaning System — What the \"Dual Pass\" Technology Actually Does",
+        "slug": "taypro-wins-historic-patent-for-revolutionary-solar-panel-cleaning-system",
+        "slotKey": "solar panel cleaning system::legacy-taypro_wins_historic_patent_for_",
+        "writtenAt": "2025-10-17T10:30:32.282Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_why_modern_solar_farms_need_auto",
+        "angleId": "legacy-why_modern_solar_farms_need_auto",
+        "archetype": null,
+        "title": "Why Modern Solar Farms Need Autonomous Solar Panel Cleaning Systems",
+        "slug": "why-modern-solar-farms-need-autonomous-solar-panel-cleaning-systems",
+        "slotKey": "solar panel cleaning system::legacy-why_modern_solar_farms_need_auto",
+        "writtenAt": "2025-10-17T10:23:10.473Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "robot_eval",
+        "angleId": "robot-eval",
+        "archetype": null,
+        "title": "Site Preparation for Automatic Solar Panel Cleaning on Trackers",
+        "slug": "site-preparation-for-automatic-solar-panel-cleaning-on-trackers",
+        "slotKey": "solar panel cleaning system::robot-eval",
+        "writtenAt": "2026-05-31T09:00:30.791Z",
+        "source": "backfill"
+      }
+    ],
+    "seasonal solar panel maintenance india utility": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "freq_50mw",
+        "angleId": "freq-50mw",
+        "archetype": null,
+        "title": "Seasonal Solar O&M Guide for Utility Plants in India",
+        "slug": "seasonal-solar-panel-maintenance-tips-a-comprehensive-guide",
+        "slotKey": "seasonal solar panel maintenance india utility::freq-50mw",
+        "writtenAt": "2025-10-16T12:56:09.069Z",
+        "source": "manual"
+      }
+    ],
+    "solar panel maintenance checklist utility scale": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "default_guide",
+        "angleId": "default-guide",
+        "archetype": null,
+        "title": "Solar Panel Maintenance Checklist for Utility-Scale Plants in India (2026)",
+        "slug": "solar-panel-maintenance-checklist-2025",
+        "slotKey": "solar panel maintenance checklist utility scale::default-guide",
+        "writtenAt": "2025-10-16T11:11:25.172Z",
+        "source": "manual"
+      }
+    ],
+    "solar panel cleaning brush": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "brush_vs_robot",
+        "angleId": "brush-vs-robot",
+        "archetype": null,
+        "title": "The Evolution of Solar Panel Cleaning Brushes: Why Microfiber is the New Standard",
+        "slug": "the-evolution-of-solar-panel-cleaning-brushes-why-microfiber-is-the-new-standard",
+        "slotKey": "solar panel cleaning brush::brush-vs-robot",
+        "writtenAt": "2025-10-16T12:32:30.953Z",
+        "source": "backfill"
+      }
+    ],
+    "solar module cleaning system": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "robot_eval",
+        "angleId": "robot-eval",
+        "archetype": null,
+        "title": "The Science Behind Effective Solar Module Cleaning Systems: A Technical Comparison of Traditional and Modern Approaches",
+        "slug": "the-science-behind-effective-solar-module-cleaning-systems-a-technical-comparison-of-traditional-and-modern-approaches",
+        "slotKey": "solar module cleaning system::robot-eval",
+        "writtenAt": "2025-10-17T10:21:27.534Z",
+        "source": "backfill"
+      }
+    ],
+    "largest solar plants india o&m cleaning": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "robot_eval",
+        "angleId": "robot-eval",
+        "archetype": null,
+        "title": "Lessons from India's Largest Solar Plants for O&M and Cleaning",
+        "slug": "top-15-solar-power-plants-in-india",
+        "slotKey": "largest solar plants india o&m cleaning::robot-eval",
+        "writtenAt": "2025-10-16T11:16:16.083Z",
+        "source": "manual"
+      }
+    ],
+    "types of solar panels utility scale india": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "default_guide",
+        "angleId": "default-guide",
+        "archetype": null,
+        "title": "Solar Module Types for Utility Buyers: O&M and Cleaning Implications",
+        "slug": "understanding-different-types-of-solar-panels",
+        "slotKey": "types of solar panels utility scale india::default-guide",
+        "writtenAt": "2025-10-16T11:13:04.322Z",
+        "source": "manual"
+      }
+    ],
+    "benefits of cleaning solar panels": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "robot_eval",
+        "angleId": "robot-eval",
+        "archetype": null,
+        "title": "What Are The Benefits Of Cleaning Solar Panels Regularly?",
+        "slug": "what-are-the-benefits-of-cleaning-solar-panels-regularly",
+        "slotKey": "benefits of cleaning solar panels::robot-eval",
+        "writtenAt": "2025-10-16T11:46:21.674Z",
+        "source": "backfill"
+      }
+    ],
+    "solar panels": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "default_guide",
+        "angleId": "default-guide",
+        "archetype": null,
+        "title": "What Are The Best Practices Of Cleaning Solar Panels?",
+        "slug": "what-are-the-best-practices-of-cleaning-solar-panels",
+        "slotKey": "solar panels::default-guide",
+        "writtenAt": "2025-10-16T11:42:43.909Z",
+        "source": "backfill"
+      },
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "legacy_what_are_the_different_types_of",
+        "angleId": "legacy-what_are_the_different_types_of_",
+        "archetype": null,
+        "title": "What Are The Different Types Of Solar Panels",
+        "slug": "what-are-the-different-types-of-solar-panels",
+        "slotKey": "solar panels::legacy-what_are_the_different_types_of_",
+        "writtenAt": "2025-10-16T10:58:55.625Z",
+        "source": "backfill"
+      }
+    ],
+    "solar panel efficiency utility scale": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "default_guide",
+        "angleId": "default-guide",
+        "archetype": null,
+        "title": "What Is Solar Panel Efficiency for Utility-Scale Plant Owners?",
+        "slug": "what-is-solar-panel-efficiency",
+        "slotKey": "solar panel efficiency utility scale::default-guide",
+        "writtenAt": "2025-10-16T11:20:32.129Z",
+        "source": "manual"
+      }
+    ],
+    "solar panel efficiency 2026 india": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "default_guide",
+        "angleId": "default-guide",
+        "archetype": null,
+        "title": "Solar Panel Efficiency Benchmarks for Indian MW Plants in 2026",
+        "slug": "what-is-the-solar-panel-efficiency-in-2025",
+        "slotKey": "solar panel efficiency 2026 india::default-guide",
+        "writtenAt": "2025-10-16T11:21:46.545Z",
+        "source": "manual"
       }
     ],
     "best pv panels": [
       {
         "intentFamily": "technical_howto",
-        "subAngle": "technical_howto_angle",
-        "angleId": null,
+        "subAngle": "default_guide",
+        "angleId": "default-guide",
         "archetype": null,
         "title": "Optimizing Best PV Panels Commissioning: Robot Integration Checklists",
         "slug": "optimizing-best-pv-panels-commissioning-robot-integration-checklists",
-        "slotKey": null,
+        "slotKey": "best pv panels::default-guide",
         "writtenAt": "2026-05-18T08:52:34.807Z",
         "source": "backfill"
       }
     ],
-    "solar panel cleaning service": [
+    "best solar panels in india": [
       {
         "intentFamily": "technical_howto",
-        "subAngle": "technical_howto_angle",
-        "angleId": null,
+        "subAngle": "default_guide",
+        "angleId": "default-guide",
         "archetype": null,
-        "title": "Choosing a Reliable Solar Panel Cleaning Service for 50MW+ Projects",
-        "slug": "choosing-a-reliable-solar-panel-cleaning-service-for-50mw-projects",
-        "slotKey": null,
-        "writtenAt": "2026-05-23T09:00:34.009Z",
+        "title": "How to Choose Best Solar Panels In India",
+        "slug": "how-to-choose-best-solar-panels-in-india",
+        "slotKey": "best solar panels in india::default-guide",
+        "writtenAt": "2026-05-25T08:06:27.002Z",
         "source": "backfill"
       }
     ],
     "solar power cleaning service": [
       {
         "intentFamily": "comparison_alternative",
-        "subAngle": "vs_robot",
-        "angleId": null,
+        "subAngle": "robot_eval",
+        "angleId": "robot-eval",
         "archetype": null,
         "title": "Evaluating Solar Power Cleaning Service ROI: Manual vs Robot",
         "slug": "evaluating-solar-power-cleaning-service-roi-manual-vs-robot",
-        "slotKey": null,
+        "slotKey": "solar power cleaning service::robot-eval",
         "writtenAt": "2026-05-27T09:00:31.099Z",
-        "source": "backfill"
-      }
-    ],
-    "solar panel cleaning system": [
-      {
-        "intentFamily": "technical_howto",
-        "subAngle": "technical_howto_angle",
-        "angleId": null,
-        "archetype": null,
-        "title": "Site Preparation for Automatic Solar Panel Cleaning on Trackers",
-        "slug": "site-preparation-for-automatic-solar-panel-cleaning-on-trackers",
-        "slotKey": null,
-        "writtenAt": "2026-05-31T09:00:30.791Z",
         "source": "backfill"
       }
     ],
@@ -121,14 +851,14 @@
     ],
     "pv panel roof": [
       {
-        "intentFamily": "comparison_alternative",
-        "subAngle": "default_compare",
-        "angleId": "default-compare",
-        "archetype": "comparison_matrix",
-        "title": "Pv Panel Roof: Methods, Costs, and Robot Options Compared",
-        "slug": "pv-panel-roof-methods-costs-and-robot-options-compared",
-        "slotKey": "pv panel roof::default-compare",
-        "writtenAt": "2026-06-06T08:26:54.175Z",
+        "intentFamily": "technical_howto",
+        "subAngle": "default_guide",
+        "angleId": "default-guide",
+        "archetype": null,
+        "title": "PV Panel Roof: Everything You Need to Know Before, During & After Installation",
+        "slug": "pv-panel-roof-everything-you-need-to-know",
+        "slotKey": "pv panel roof::default-guide",
+        "writtenAt": "2026-06-06T08:26:54.171Z",
         "source": "backfill"
       }
     ],
@@ -142,6 +872,149 @@
         "slug": "solar-machine-what-indian-utility-om-teams-should-evaluate",
         "slotKey": "solar machine::robot-eval",
         "writtenAt": "2026-06-06T08:48:24.590Z",
+        "source": "backfill"
+      }
+    ],
+    "solar cleaning fleet intelligence": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "robot_eval",
+        "angleId": "robot-eval",
+        "archetype": null,
+        "title": "Why 5 GW+ Daily Cleaning Creates a Data Advantage at Utility Scale",
+        "slug": "why-5gw-daily-cleaning-creates-a-data-advantage-at-utility-scale",
+        "slotKey": "solar cleaning fleet intelligence::robot-eval",
+        "writtenAt": "2026-06-08T16:13:49.281Z",
+        "source": "backfill"
+      }
+    ],
+    "solar robot battery optimisation": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "robot_eval",
+        "angleId": "robot-eval",
+        "archetype": null,
+        "title": "How Taypro's Battery Optimisation Algorithm Delivers 2× Cleaning Coverage",
+        "slug": "how-taypros-battery-optimisation-algorithm-delivers-2x-cleaning-coverage",
+        "slotKey": "solar robot battery optimisation::robot-eval",
+        "writtenAt": "2026-06-08T16:13:49.281Z",
+        "source": "backfill"
+      }
+    ],
+    "wet microfiber solar cleaning": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "robot_eval",
+        "angleId": "robot-eval",
+        "archetype": null,
+        "title": "Wet Microfiber Detection: Why Postponing a Cleaning Cycle Protects Your Modules",
+        "slug": "wet-microfiber-detection-why-postponing-a-cleaning-cycle-protects-your-modules",
+        "slotKey": "wet microfiber solar cleaning::robot-eval",
+        "writtenAt": "2026-06-08T16:13:49.281Z",
+        "source": "backfill"
+      }
+    ],
+    "pv modules": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "default_compare",
+        "angleId": "default-compare",
+        "archetype": "comparison_matrix",
+        "title": "Pv Modules: Methods, Costs, and Robot Options Compared",
+        "slug": "pv-modules-methods-costs-and-robot-options-compared",
+        "slotKey": "pv modules::default-compare",
+        "writtenAt": "2026-06-09T13:12:17.195Z",
+        "source": "backfill"
+      }
+    ],
+    "module cleaning system": [
+      {
+        "intentFamily": "financial_roi",
+        "subAngle": "robot_capex_opex",
+        "angleId": "robot-capex-opex",
+        "archetype": "cost_breakdown",
+        "title": "Module Cleaning System: Capex vs Opex Models for 25–100 MW Portfolios",
+        "slug": "module-cleaning-system-capex-vs-opex-models-for-25100-mw-portfolios",
+        "slotKey": "module cleaning system::robot-capex-opex",
+        "writtenAt": "2026-06-12T13:27:27.188Z",
+        "source": "backfill"
+      }
+    ],
+    "module cleaning brush": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "brush_tracker",
+        "angleId": "brush-tracker",
+        "archetype": "manual_vs_robot",
+        "title": "Manual Brush Cleaning on Tracker Arrays: Limits at 50 MW+ Scale",
+        "slug": "manual-brush-cleaning-on-tracker-arrays-limits-at-50-mw-scale",
+        "slotKey": "module cleaning brush::brush-tracker",
+        "writtenAt": "2026-06-12T18:33:17.432Z",
+        "source": "backfill"
+      }
+    ],
+    "pv panel price": [
+      {
+        "intentFamily": "financial_roi",
+        "subAngle": "price_per_watt_cleaning",
+        "angleId": "price-per-watt-cleaning",
+        "archetype": "price_capex_bridge",
+        "title": "PV Panel Price in India: Managing Long-Term O&M and Soiling Costs",
+        "slug": "pv-panel-price-in-india-managing-long-term-om-and-soiling-costs",
+        "slotKey": "pv panel price::price-per-watt-cleaning",
+        "writtenAt": "2026-06-13T18:38:28.498Z",
+        "source": "backfill"
+      }
+    ],
+    "sunlight panels": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "default_guide",
+        "angleId": "default-guide",
+        "archetype": "general_om",
+        "title": "Sunlight Panels: O&M Strategies and Soiling Mitigation in India",
+        "slug": "sunlight-panels-om-strategies-and-soiling-mitigation-in-india",
+        "slotKey": "sunlight panels::default-guide",
+        "writtenAt": "2026-06-18T21:09:23.285Z",
+        "source": "backfill"
+      }
+    ],
+    "best pv modules": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "default_guide",
+        "angleId": "default-guide",
+        "archetype": "general_om",
+        "title": "Best PV Modules: Maintenance and O&M Logistics for Indian MW Plants",
+        "slug": "best-pv-modules-maintenance-and-om-logistics-for-indian-mw-plants",
+        "slotKey": "best pv modules::default-guide",
+        "writtenAt": "2026-06-19T13:10:22.438Z",
+        "source": "backfill"
+      }
+    ],
+    "photovoltaic manufacturers": [
+      {
+        "intentFamily": "comparison_alternative",
+        "subAngle": "mfg_shortlist",
+        "angleId": "mfg-shortlist",
+        "archetype": "vendor_shortlist",
+        "title": "Photovoltaic Manufacturers: Aligning Module Specs with O&M Strategy",
+        "slug": "photovoltaic-manufacturers-aligning-module-specs-with-om-strategy",
+        "slotKey": "photovoltaic manufacturers::mfg-shortlist",
+        "writtenAt": "2026-06-19T18:51:00.745Z",
+        "source": "backfill"
+      }
+    ],
+    "pv panel system": [
+      {
+        "intentFamily": "technical_howto",
+        "subAngle": "technical_integration_strategy",
+        "angleId": "robot-tracker-fit",
+        "archetype": "robot_evaluation",
+        "title": "Integrating a PV Panel System: O&M Strategy for 50MW+ Plants",
+        "slug": "integrating-a-pv-panel-system-om-strategy-for-50mw-plants",
+        "slotKey": "pv panel system::robot-tracker-fit",
+        "writtenAt": "2026-06-19T20:23:47.588Z",
         "source": "backfill"
       }
     ]

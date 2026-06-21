@@ -1,0 +1,28 @@
+{
+  "slug": "the-importance-of-solar-panel-cleaning-maximizing-efficiency-and-energy-production",
+  "seoKeyword": "solar panel cleaning energy production",
+  "description": "Soiling steals MWh on Indian utility plants; how cleaning restores energy production, when it pays back, and why waterless robots scale where manual teams cannot.",
+  "prependContent": "<h2>Quick answer</h2>\n<ul>\n<li>Dirty modules produce less energy because less light reaches cells.</li>\n<li>Utility plants in India often lose <strong>3 to 8%</strong> between cleans; more without schedules.</li>\n<li>Cleaning pays when recovered <strong>₹/MWh</strong> exceeds fully loaded clean cost.</li>\n<li>Waterless robots raise <strong>cleaning frequency</strong> without scaling tanker labor.</li>\n<li>Track PR against a clean baseline, not annual average alone.</li>\n</ul>\n\n<h2>How does solar panel cleaning increase energy production?</h2>\n<p>Cleaning removes the optical layer blocking irradiance, restoring current and power output toward the clean-module baseline. On MW assets, small percentage gains multiply into lakh rupees daily. Frequency and method determine whether production stays near nameplate yield through dust season or drifts down until the next manual campaign.</p>",
+  "faqs": [
+    {
+      "question": "How does solar panel cleaning increase energy production?",
+      "answer": "Dust and grime reduce transmittance through the glass, lowering the irradiance that cells convert to electricity. Removing that layer restores output toward the plant's clean performance baseline. On a 50 MW site, recovering even 4 percent generation can mean thousands of extra MWh annually."
+    },
+    {
+      "question": "How much energy do dirty solar panels lose in India?",
+      "answer": "Typical operating plants see 3 to 8 percent loss between scheduled cleans in dry regions. Uncleaned desert-belt assets can accumulate 15 to 30 percent annual loss without systematic maintenance. Daily soiling rates near 0.4 percent compound quickly during pre-monsoon months."
+    },
+    {
+      "question": "When is solar panel cleaning worth the cost for energy production?",
+      "answer": "Compare rupee value of recovered energy to fully loaded cleaning cost including labor, water, robot O&M, and downtime. When tariff or PPA rate is high and soiling rate is fast, frequent cleaning is usually net positive. Low-soiling sites with cheap grid backup may tolerate longer intervals."
+    },
+    {
+      "question": "Why use robotic cleaning to maximize energy production?",
+      "answer": "Manual crews hit throughput limits on long rows and dust weeks. Waterless robots run night passes at scale with logged coverage, keeping frequency aligned to soiling curves. That consistency prevents the PR dips that appear when cleans are weeks apart on 100 MW plants."
+    },
+    {
+      "question": "How should plant managers measure cleaning impact on production?",
+      "answer": "Use reference modules or block-level PR normalized for irradiance before and after cleans. Compare seven-day rolling PR to a documented clean baseline. Energy production gains should appear within days on dusty blocks when cleaning scope was complete."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "average-soiling-losses-in-high-dust-regions-of-india-rajasthan-gujarat",
+  "seoKeyword": "solar soiling losses Rajasthan Gujarat",
+  "title": "Solar Soiling Losses in Rajasthan and Gujarat: Field Data for Utility Plants",
+  "description": "Daily soiling rates 0.3 to 0.5%, annual losses to 30% without cleaning, and regional differences between Thar dust and Gujarat coastal cementation.",
+  "prependContent": "<h2>Quick answer</h2>\n<ul>\n<li><strong>Daily soiling:</strong> 0.3 to 0.5% typical in west India dry season; up to 0.5% in storm months.</li>\n<li><strong>7 days uncleaned:</strong> roughly 3 to 5% generation loss; <strong>90 days:</strong> 15 to 25%.</li>\n<li><strong>Annual without systematic cleaning:</strong> 15 to 30% in Rajasthan desert belt; global average is 5 to 10%.</li>\n<li><strong>Rajasthan:</strong> loose silica, good for dry-brush removal; <strong>Gujarat:</strong> mixed dust, salt, industrial cementation.</li>\n<li>Rain is not a reliable cleaning strategy on utility arrays in either state.</li>\n</ul>",
+  "faqs": [
+    {
+      "question": "What are average solar soiling losses in Rajasthan and Gujarat?",
+      "answer": "Field data in Gujarat dry season shows daily soiling near 0.45 percent per day at Gandhinagar-class sites. Sixty dry days without cleaning can cost 23 to 25 percent of rated output. Rajasthan desert plants without systematic cleaning often see 15 to 30 percent annual loss; weekly cleaning can hold residual loss to 3 to 6 percent."
+    },
+    {
+      "question": "What is the average annual soiling loss for a solar plant in Rajasthan?",
+      "answer": "In Barmer, Jodhpur, and Jaisalmer desert belts, annual losses without systematic cleaning commonly range 15 to 30 percent of rated generation. With weekly cleaning, residual losses typically fall to 3 to 6 percent annually. Daily or near-daily robotic cleaning can keep residual loss below 2 percent in optimized programs."
+    },
+    {
+      "question": "Is Gujarat's soiling problem the same as Rajasthan's?",
+      "answer": "Not exactly. Rajasthan is dominated by loose fine silica from the Thar Desert, which responds well to dry brushing. Gujarat mixes desert dust with coastal salt aerosols and industrial particulate, producing harder cemented films after humidity cycles, especially post-monsoon. Cleaning timing matters more on Gujarat coastal-influenced sites."
+    },
+    {
+      "question": "Can rain replace mechanical cleaning in Rajasthan and Gujarat?",
+      "answer": "No for utility operations. Rajasthan desert rainfall averages below 300 mm annually, insufficient to rinse GW-scale arrays. Gujarat monsoon rain can reduce coarse dust but increases fine PM2.5 deposition and cementation on modules. Neither state should rely on rainfall as a primary cleaning mechanism."
+    },
+    {
+      "question": "How do you choose the right cleaning frequency for high-dust Indian sites?",
+      "answer": "Model daily soiling rate, electricity tariff, and per-cycle clean cost. At roughly 0.45 percent per day soiling and ₹3.50 per kWh, daily or every-other-day cleaning is often economic above 10 MW. Use reference modules or soiling stations to calibrate rather than fixed calendar dates alone."
+    }
+  ]
+}

@@ -146,7 +146,7 @@
         },
         "14": {
           "factor": "Module OEM approvals",
-          "taypro": "LONGi, Solex, Premier Energies, RenewSys, Satvik, Trina Solar",
+          "taypro": "LONGi, Solex, Premier Energies, RenewSys, Satvik, Trina Solar, Future Solar",
           "solabot": "Claims 16 Tier 1 manufacturers (names not listed)",
           "aegeus": "\"Major module manufacturers\" (not named)",
           "skilancer": "Not stated",
@@ -198,7 +198,7 @@
           },
           "4": {
             "title": "Named module OEM approvals",
-            "body": "Taypro publicly names its approved module manufacturers: LONGi, Solex, Premier Energies, RenewSys, Satvik, and Trina Solar. Solabot claims 16 Tier 1 approvals but does not name them. Other competitors make general claims. Named approvals matter for warranty compliance on large IPP portfolios."
+            "body": "Taypro publicly names its approved module manufacturers: LONGi, Solex, Premier Energies, RenewSys, Satvik, Trina Solar, and Future Solar. Solabot claims 16 Tier 1 approvals but does not name them. Other competitors make general claims. Named approvals matter for warranty compliance on large IPP portfolios."
           },
           "5": {
             "title": "Largest single-deployment scale on record",
@@ -371,7 +371,7 @@
         },
         "14": {
           "factor": "Module OEM approvals",
-          "taypro": "LONGi, Solex, Premier Energies, RenewSys, Satvik, Trina Solar",
+          "taypro": "LONGi, Solex, Premier Energies, RenewSys, Satvik, Trina Solar, Future Solar",
           "competitor": "Claims 16 Tier 1 manufacturers (names not listed)"
         },
         "15": {
@@ -512,7 +512,7 @@
         },
         "14": {
           "factor": "Module OEM approvals",
-          "taypro": "LONGi, Solex, Premier Energies, RenewSys, Satvik, Trina Solar",
+          "taypro": "LONGi, Solex, Premier Energies, RenewSys, Satvik, Trina Solar, Future Solar",
           "competitor": "Not stated"
         },
         "15": {
@@ -653,7 +653,7 @@
         },
         "14": {
           "factor": "Module OEM approvals",
-          "taypro": "LONGi, Solex, Premier Energies, RenewSys, Satvik, Trina Solar",
+          "taypro": "LONGi, Solex, Premier Energies, RenewSys, Satvik, Trina Solar, Future Solar",
           "competitor": "\"Major module manufacturers\" (not named)"
         },
         "15": {
@@ -794,7 +794,7 @@
         },
         "14": {
           "factor": "Module OEM approvals",
-          "taypro": "LONGi, Solex, Premier Energies, RenewSys, Satvik, Trina Solar",
+          "taypro": "LONGi, Solex, Premier Energies, RenewSys, Satvik, Trina Solar, Future Solar",
           "competitor": "\"India's largest panel manufacturers\" (not named)"
         },
         "15": {
