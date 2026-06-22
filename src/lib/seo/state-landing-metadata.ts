@@ -6,7 +6,6 @@ import {
   getStateLandingConfig,
   type StateLandingId,
 } from "@/lib/seo/state-landing-config";
-import { SITE_URL } from "@/lib/seo/sitemap-config";
 
 const og = socialImagesFromPreset("projects");
 
@@ -23,9 +22,13 @@ export async function generateStateLandingMetadata(
     openGraph: {
       title: t(`${stateId}.meta.openGraphTitle`),
       description: t(`${stateId}.meta.openGraphDescription`),
-      url: `${SITE_URL}${config.path}`,
       type: "website",
       ...og.openGraph,
+    },
+    twitter: {
+      title: t(`${stateId}.meta.openGraphTitle`),
+      description: t(`${stateId}.meta.openGraphDescription`),
+      ...og.twitter,
     },
   });
 }

@@ -4,6 +4,7 @@ import { useTransition, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
+import { trackBlogClick } from "@/lib/analytics/track-event";
 
 export interface BlogItem {
   title: string;
@@ -24,7 +25,8 @@ export default function BlogList({ blogs }: BlogListProps) {
   const [isPending, startTransition] = useTransition();
   const [loadingSlug, setLoadingSlug] = useState<string | null>(null);
 
-  function handleClick(href: string, slug: string) {
+  function handleClick(href: string, slug: string, title: string) {
+    trackBlogClick({ slug, title, location: "blog_list" });
     setLoadingSlug(slug);
     startTransition(() => {
       router.push(href);
@@ -55,11 +57,11 @@ export default function BlogList({ blogs }: BlogListProps) {
             delay={Math.min(idx * 60, 300)}
           >
             <article
-              onClick={() => handleClick(blog.href, blog.slug)}
+              onClick={() => handleClick(blog.href, blog.slug, blog.title)}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
-                  handleClick(blog.href, blog.slug);
+                  handleClick(blog.href, blog.slug, blog.title);
                 }
               }}
               role="link"

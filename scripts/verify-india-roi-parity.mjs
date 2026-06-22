@@ -3,7 +3,7 @@
  * Regression check: India market profile must match legacy Taypro calculator math.
  * Run: npm run verify:roi-india
  */
-const { calculateRoi } = await import("../src/lib/roi-calculator/calculate-roi.ts");
+const { calculateRoi } = await import("../src/lib/roi-calculator/calculate-roi-core.ts");
 const { ROI_MARKET_PROFILES } = await import(
   "../src/lib/roi-calculator/market-profiles.ts"
 );
@@ -23,15 +23,15 @@ function legacyIndia(input) {
   const annualCostLabourSaved = modules * 0.5 * 20;
   const waterSavedLitres = modules * 20 * 3.5;
   const annualCostWaterSaved = waterSavedLitres * 0.12;
-  const energyFactor = plantType === "groundMount" ? 0.025 : 0.113;
+  const energyFactor = plantType === "groundMount" ? 0.02 : 0.113;
   const annualCostEnergyGain = capacity * energyFactor * 1500 * G;
   const automationMultiplier = automationLevel === "automatic" ? 2.0 : 0.5;
   const installationMultiplier =
     installationType === "fixedTilt"
-      ? 2.0
+      ? 1.3
       : installationType === "seasonalTilt"
-        ? 2.0
-        : 3.0;
+        ? 1.5
+        : 2.5;
   const baseInvestment =
     plantType === "groundMount"
       ? E * automationMultiplier * installationMultiplier

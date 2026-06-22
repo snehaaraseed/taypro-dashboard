@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { usePathname } from "@/i18n/navigation";
 import { CheckCircle2 } from "lucide-react";
+import { trackGenerateLead } from "@/lib/analytics/track-event";
 
 export type RequestEstimateFormProps = {
   variant?: "fullPage" | "embedded";
@@ -27,12 +28,6 @@ export type RequestEstimateFormProps = {
   messagePlaceholder?: string;
   /** Focus first name field on mount (e.g. after opening a slide-in form step). */
   autoFocus?: boolean;
-  /**
-   * When true, redirect to /contact/thank-you after a successful submission.
-   * Default is `false`, the form shows an inline thank-you state so the
-   * user stays on the same page / inside the same modal.
-   */
-  redirectOnSuccess?: boolean;
   onSuccess?: () => void;
   /** Override the inline thank-you panel heading. */
   thankYouTitle?: string;
@@ -42,6 +37,12 @@ export type RequestEstimateFormProps = {
   hideResetAfterSuccess?: boolean;
   /** Slide-in on phones: hide company + message so the form fits one screen. */
   slideInMobile?: boolean;
+  /** GA4 `form_type` for the generate_lead event. */
+  analyticsFormType?: string;
+  /** Optional CTA source string (e.g. hero, product page). */
+  analyticsSource?: string;
+  /** Optional CTA topic string from lead modal. */
+  analyticsTopic?: string;
 };
 
 const INITIAL_FORM = {
@@ -66,15 +67,17 @@ export default function RequestEstimateForm({
   messageLabel,
   messagePlaceholder,
   autoFocus = false,
-  redirectOnSuccess = false,
   onSuccess,
   thankYouTitle,
   thankYouMessage,
   hideResetAfterSuccess = false,
   slideInMobile = false,
+  analyticsFormType,
+  analyticsSource,
+  analyticsTopic,
 }: RequestEstimateFormProps = {}) {
   const t = useTranslations("Forms");
-  const router = useRouter();
+  const pathname = usePathname();
   const [formData, setFormData] = useState(INITIAL_FORM);
 
   const [loading, setLoading] = useState(false);
@@ -133,10 +136,18 @@ export default function RequestEstimateForm({
       }
 
       onSuccess?.();
-      if (redirectOnSuccess) {
-        router.push("/contact/thank-you");
-        return;
-      }
+      trackGenerateLead({
+        formType:
+          analyticsFormType ??
+          (slideInMobile
+            ? "slide_in_estimate"
+            : variant === "embedded"
+              ? "embedded_estimate"
+              : "full_page_estimate"),
+        pagePath: pathname,
+        source: analyticsSource,
+        topic: analyticsTopic,
+      });
       setSubmitted(true);
       setFormData(INITIAL_FORM);
     } catch (error) {

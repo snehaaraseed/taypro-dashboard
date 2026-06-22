@@ -5,6 +5,10 @@ import {
   buildTayproMailtoHref,
   type TayproEmailMailbox,
 } from "@/lib/contact";
+import {
+  trackEmailClick,
+  type AnalyticsLocation,
+} from "@/lib/analytics/track-event";
 
 type ContactEmailLinkProps = {
   mailbox?: TayproEmailMailbox;
@@ -12,6 +16,7 @@ type ContactEmailLinkProps = {
   body?: string;
   children: ReactNode;
   className?: string;
+  location?: AnalyticsLocation;
 };
 
 /**
@@ -24,6 +29,7 @@ export function ContactEmailLink({
   body,
   children,
   className,
+  location = "unknown",
 }: ContactEmailLinkProps) {
   const [href, setHref] = useState<string | undefined>();
 
@@ -36,7 +42,11 @@ export function ContactEmailLink({
       href={href}
       className={className}
       onClick={(event) => {
-        if (!href) event.preventDefault();
+        if (!href) {
+          event.preventDefault();
+          return;
+        }
+        trackEmailClick(location, mailbox);
       }}
     >
       {children}

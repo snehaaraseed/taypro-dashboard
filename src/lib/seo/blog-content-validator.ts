@@ -424,6 +424,11 @@ export function validateTranslatedBlog(
     issues.push("Translated body must not contain <h1>");
   }
 
+  const imgAltIssue = findInlineImgAltIssue(input.translatedContent);
+  if (imgAltIssue) {
+    issues.push(imgAltIssue);
+  }
+
   if (issues.length > 0) return { ok: false, issues };
   return { ok: true };
 }

@@ -229,63 +229,6 @@ function buildWebSiteNode({
   return schema;
 }
 
-/** Screen-reader-only microdata for site identity (no JSON-LD script tag). */
-export function SiteIdentityMicrodata({
-  siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
-  logo = "https://taypro.in/tayproasset/taypro-logo.png",
-  contactPoint,
-  sameAs = [
-    "https://www.linkedin.com/company/taypro",
-    "https://www.youtube.com/c/taypro",
-    "https://www.facebook.com/taypro",
-    "https://www.instagram.com/taypro",
-  ],
-}: OrganizationSchemaProps) {
-  const description =
-    "Taypro develops and manufactures autonomous solar panel cleaning robots for utility-scale solar plants in India. Headquarters in Chakan, Pune with pan-India sales and service.";
-
-  return (
-    <p className="sr-only">
-      <span itemScope itemType="https://schema.org/LocalBusiness">
-        <span itemProp="name">Taypro</span>
-        <link itemProp="url" href={siteUrl} />
-        <link itemProp="logo" href={logo} />
-        <link itemProp="image" href={logo} />
-        <meta itemProp="description" content={description} />
-        <meta itemProp="foundingDate" content="2019-07-16" />
-        {contactPoint?.telephone ? (
-          <meta itemProp="telephone" content={contactPoint.telephone} />
-        ) : null}
-        <span itemProp="contactPoint" itemScope itemType="https://schema.org/ContactPoint">
-          <meta itemProp="contactType" content={contactPoint?.contactType ?? "customer service"} />
-          {contactPoint?.telephone ? (
-            <meta itemProp="telephone" content={contactPoint.telephone} />
-          ) : null}
-          <link itemProp="url" href={`${siteUrl}/contact`} />
-        </span>
-        {sameAs.map((url) => (
-          <link key={url} itemProp="sameAs" href={url} />
-        ))}
-        <span itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-          <meta itemProp="streetAddress" content="Chakan Industrial Area" />
-          <meta itemProp="addressLocality" content="Chakan, Pune" />
-          <meta itemProp="addressRegion" content="Maharashtra" />
-          <meta itemProp="postalCode" content="410501" />
-          <meta itemProp="addressCountry" content="IN" />
-        </span>
-        <meta itemProp="areaServed" content="India" />
-      </span>
-      <span itemScope itemType="https://schema.org/WebSite">
-        <meta itemProp="name" content="Taypro" />
-        <link itemProp="url" href={siteUrl} />
-        <span itemProp="publisher" itemScope itemType="https://schema.org/LocalBusiness">
-          <meta itemProp="name" content="Taypro" />
-        </span>
-      </span>
-    </p>
-  );
-}
-
 /** One JSON-LD script for site-wide LocalBusiness + WebSite (@graph). */
 export function SiteGraphSchema({
   siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",

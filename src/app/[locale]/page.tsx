@@ -1,4 +1,4 @@
-import HomePage from "./home/page";
+import HomePageContent from "./home/HomePageContent";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { withHreflang } from "@/lib/seo/with-hreflang";
@@ -35,5 +35,5 @@ export async function generateMetadata({
 }
 
 export default function Home() {
-  return <HomePage />;
+  return <HomePageContent />;
 }

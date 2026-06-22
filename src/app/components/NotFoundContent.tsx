@@ -1,10 +1,10 @@
-import { Link } from "@/i18n/navigation";
 import type { DynamicBlog } from "@/app/api/blog/list/route";
 import { ContactEmailLink } from "@/app/components/ContactEmailLink";
 import { Container } from "@/app/components/Container";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import NotFoundCTAs from "@/app/components/NotFoundCTAs";
 import { SimilarBlogs } from "@/app/components/SimilarBlogs";
+import TrackedLink from "@/app/components/TrackedLink";
 
 export type NotFoundContentLabels = {
   breadcrumbHome: string;
@@ -90,13 +90,15 @@ export default function NotFoundContent({
                 <p className="text-[#052638] font-semibold mb-2">
                   {labels.didYouMeanHeading}
                 </p>
-                <Link
+                <TrackedLink
                   href={didYouMeanHref}
+                  recoveryType="did_you_mean"
+                  trackTitle={labels.didYouMeanCta}
                   className="inline-flex items-center gap-2 text-[#5a8f00] font-medium underline decoration-[#A8C117]/60 underline-offset-4 hover:text-[#052638] transition"
                 >
                   {labels.didYouMeanCta}
                   <span aria-hidden="true">→</span>
-                </Link>
+                </TrackedLink>
               </div>
             ) : null}
             <NotFoundCTAs
@@ -118,12 +120,17 @@ export default function NotFoundContent({
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {quickLinks.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className={linkCardClass}>
+                <TrackedLink
+                  href={item.href}
+                  recoveryType="quick_link"
+                  trackTitle={item.label}
+                  className={linkCardClass}
+                >
                   <span>{item.label}</span>
                   <span className="text-[#A8C117] shrink-0" aria-hidden="true">
                     →
                   </span>
-                </Link>
+                </TrackedLink>
               </li>
             ))}
           </ul>
@@ -148,6 +155,7 @@ export default function NotFoundContent({
               mailbox="service"
               subject={labels.reportSubject}
               body={labels.reportBody}
+              location="not_found"
               className="inline-flex items-center justify-center min-h-[44px] brand-inline-link font-medium"
             >
               {labels.reportEmailLink}

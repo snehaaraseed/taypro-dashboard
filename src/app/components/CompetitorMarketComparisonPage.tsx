@@ -5,6 +5,7 @@ import { Container } from "@/app/components/Container";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { FaqSection } from "@/app/components/FaqSection";
 import { FAQPageSchema } from "@/app/components/StructuredData";
+import TrackedLink from "@/app/components/TrackedLink";
 import {
   COMPARISON_PAGE_LIST,
   type ComparisonPageId,
@@ -215,12 +216,15 @@ export default async function CompetitorMarketComparisonPage({
           <ul className="space-y-2">
             {PAIR_PAGE_IDS.map((id) => (
               <li key={id}>
-                <Link
+                <TrackedLink
                   href={COMPARISON_PAGE_LIST.find((p) => p.id === id)!.path}
+                  trackType="compare"
+                  trackTitle={t(`${id}.hero.title`)}
+                  trackLocation="compare_page"
                   className="text-[#5a8f00] font-medium hover:underline"
                 >
                   {t(`${id}.hero.title`)}
-                </Link>
+                </TrackedLink>
               </li>
             ))}
           </ul>
@@ -237,12 +241,15 @@ export default async function CompetitorMarketComparisonPage({
           <ul className="space-y-2">
             {siblingLinks.map((link) => (
               <li key={link.id}>
-                <Link
+                <TrackedLink
                   href={link.path}
+                  trackType="compare"
+                  trackTitle={t(`${link.id}.hero.title`)}
+                  trackLocation="compare_page"
                   className="text-[#5a8f00] font-medium hover:underline"
                 >
                   {t(`${link.id}.hero.title`)}
-                </Link>
+                </TrackedLink>
               </li>
             ))}
           </ul>
@@ -254,18 +261,24 @@ export default async function CompetitorMarketComparisonPage({
           <h2 className="text-2xl font-semibold mb-3">{t("cta.heading")}</h2>
           <p className="text-gray-300 max-w-2xl mb-6">{t("cta.body")}</p>
           <div className="flex flex-wrap gap-4">
-            <Link
+            <TrackedLink
               href="/contact"
+              trackType="internal"
+              trackTitle={t("cta.quote")}
+              trackLocation="compare_page"
               className="inline-flex items-center justify-center min-h-[48px] bg-[#A8C117] text-[#052638] font-semibold px-6 py-3 rounded-md hover:bg-[#b8d12a] transition"
             >
               {t("cta.quote")}
-            </Link>
-            <Link
+            </TrackedLink>
+            <TrackedLink
               href="/solar-panel-cleaning-robot-price-calculator#calculator"
+              trackType="calculator"
+              trackTitle={t("cta.calculator")}
+              trackLocation="compare_page"
               className="inline-flex items-center justify-center min-h-[48px] border-2 border-white/70 text-white font-medium px-6 py-3 rounded-md hover:bg-white/10 transition"
             >
               {t("cta.calculator")}
-            </Link>
+            </TrackedLink>
           </div>
         </Container>
       </section>

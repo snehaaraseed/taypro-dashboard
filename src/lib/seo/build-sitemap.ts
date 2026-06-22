@@ -16,8 +16,8 @@ import {
 } from "./sitemap-config";
 import {
   sitemapPathForLocale,
-  sitemapPathsForAllLocales,
 } from "./locale-alternates";
+import { getSitemapLocalesForPath } from "./sitemap-locales";
 
 const INDEXABLE_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
@@ -97,14 +97,8 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
       priority: number;
     }
   ) => {
-    for (const path of sitemapPathsForAllLocales(internalPath)) {
-      add(
-        entry(path, {
-          lastModified: options.lastModified,
-          changeFrequency: options.changeFrequency,
-          priority: options.priority,
-        })
-      );
+    for (const locale of getSitemapLocalesForPath(internalPath)) {
+      addForLocale(internalPath, locale, options);
     }
   };
 

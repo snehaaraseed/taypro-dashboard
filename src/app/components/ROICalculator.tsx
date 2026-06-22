@@ -1,12 +1,19 @@
 "use client";
 import { useState, useEffect, useMemo, useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { calculateRoi } from "@/lib/roi-calculator/calculate-roi";
+import { usePathname } from "@/i18n/navigation";
+import type {
+  RoiCalculatorPublicResult,
+  RoiProjectionSeries,
+} from "@/lib/roi-calculator/roi-types";
 import { buildDefaultInteractiveFormData } from "@/lib/roi-calculator/default-scenario";
 import {
   formatRoiCurrency,
-  formatRoiCurrencyPlain,
+  formatRoiMoneyCompact,
   formatRoiNumber,
+  formatRoiPaybackDuration,
+  formatRoiPdfMoney,
+  type PaybackDurationLabels,
 } from "@/lib/roi-calculator/format-roi";
 import {
   resolveRoiMarket,
@@ -14,19 +21,30 @@ import {
 } from "@/lib/roi-calculator/market-profiles";
 import { useVisitorCountry } from "@/lib/roi-calculator/use-visitor-country";
 import { isActiveLocale } from "@/i18n/markets";
+import {
+  trackRoiCalculatorPdf,
+  trackRoiCalculatorRun,
+} from "@/lib/analytics/track-event";
+import { buildRoiPdfDocument } from "@/lib/roi-calculator/build-roi-pdf";
+import { registerRoiPdfFonts } from "@/lib/roi-calculator/pdf-fonts";
+import { loadTayproLetterheadsForPdf } from "@/lib/roi-calculator/pdf-letterhead";
+import {
+  getTayproEmailAddress,
+  TAYPRO_SALES_PHONE_DISPLAY,
+} from "@/lib/contact";
+import { RoiProjectionChart } from "@/app/components/RoiProjectionChart";
+import {
+  RoiSavingsBreakdownChart,
+  ROI_SAVINGS_SEGMENT_COLORS,
+} from "@/app/components/RoiSavingsBreakdownChart";
+import { RoiPaybackHorizonBar } from "@/app/components/RoiPaybackHorizonBar";
+import { RoiEnvironmentalCards } from "@/app/components/RoiEnvironmentalCards";
+import { RoiNetPositionChart } from "@/app/components/RoiNetPositionChart";
+import { RoiYear20Snapshot } from "@/app/components/RoiYear20Snapshot";
 
-export interface ROIResults {
-  annualCostLabourSaved: number;
-  annualCostWaterSaved: number;
-  annualCostEnergyGain: number;
-  totalMoneySavedAnnually: number;
-  totalInvestmentRequired: number;
-  roiTimeline: number;
-  annualisedROI: number;
-  roi20Years: number;
-  waterSavedAnnually: number;
-  annualCarbonSavings: number;
-}
+import { SITE_URL } from "@/lib/seo/sitemap-config";
+
+export type ROIResults = RoiCalculatorPublicResult;
 
 type PlantType = "groundMount" | "rooftop";
 type InstallationType = "fixedTilt" | "seasonalTilt" | "singleAxisTracker";
@@ -66,6 +84,7 @@ export default function ROITayproCalculator({
 }: ROICalculatorProps) {
   const t = useTranslations("PriceCalculatorPage.calculator");
   const locale = useLocale();
+  const pathname = usePathname();
   const visitorCountry = useVisitorCountry();
   const market = useMemo(
     () =>
@@ -88,12 +107,17 @@ export default function ROITayproCalculator({
     annualCostEnergyGain: 0,
     totalMoneySavedAnnually: 0,
     totalInvestmentRequired: 0,
+    totalAmc20Years: 0,
+    net20YearSavings: 0,
     roiTimeline: 0,
     annualisedROI: 0,
     roi20Years: 0,
     waterSavedAnnually: 0,
     annualCarbonSavings: 0,
   });
+  const [projection, setProjection] = useState<RoiProjectionSeries | null>(null);
+  const [calculating, setCalculating] = useState(false);
+  const [calcError, setCalcError] = useState<string | null>(null);
 
   const [showResults, setShowResults] = useState(false);
   const tariffTouchedRef = useRef(false);
@@ -123,21 +147,52 @@ export default function ROITayproCalculator({
     }));
   }, [market.id, market.defaultTariffGround, market.defaultTariffRooftop]);
 
-  const runCalculation = () => {
-    const next = calculateRoi(
-      {
+  const runCalculation = async () => {
+    setCalculating(true);
+    setCalcError(null);
+    try {
+      const response = await fetch("/api/roi/calculate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          locale,
+          visitorCountry,
+          plantType: formData.plantType,
+          installationType: formData.installationType,
+          automationLevel: formData.automationLevel,
+          plantCapacityMW: formData.plantCapacityMW,
+          plantCapacityKW: formData.plantCapacityKW,
+          electricityTariff: formData.electricityTariff,
+          moduleCapacityWp: formData.moduleCapacity,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Calculation failed");
+      }
+
+      const data = (await response.json()) as {
+        results: ROIResults;
+        projection: RoiProjectionSeries;
+      };
+
+      setResults(data.results);
+      setProjection(data.projection);
+      setShowResults(true);
+      trackRoiCalculatorRun({
         plantType: formData.plantType,
         installationType: formData.installationType,
         automationLevel: formData.automationLevel,
-        plantCapacityMW: formData.plantCapacityMW,
-        plantCapacityKW: formData.plantCapacityKW,
-        electricityTariff: formData.electricityTariff,
-        moduleCapacityWp: formData.moduleCapacity,
-      },
-      market
-    );
-    setResults(next);
-    setShowResults(true);
+        plantCapacityMw: formData.plantCapacityMW,
+        marketId: market.id,
+        roiTimelineYears: data.results.roiTimeline,
+        pagePath: pathname,
+      });
+    } catch {
+      setCalcError(t("calculationError"));
+    } finally {
+      setCalculating(false);
+    }
   };
 
   const handleInput = (field: keyof typeof formData, value: unknown) => {
@@ -148,10 +203,35 @@ export default function ROITayproCalculator({
   const formatCurrency = (amount: number) =>
     formatRoiCurrency(amount, market, locale);
 
-  const pdfFormatCurrency = (amount: number) =>
-    formatRoiCurrencyPlain(amount, market, locale);
-
   const formatNumber = (v: number) => formatRoiNumber(v, market, locale);
+
+  const formatMoneyCompact = (amount: number) =>
+    formatRoiMoneyCompact(amount, market, locale);
+
+  const paybackDurationLabels: PaybackDurationLabels = {
+    year: t("durationYear"),
+    years: t("yearsUnit"),
+    month: t("durationMonth"),
+    months: t("durationMonths"),
+  };
+
+  const formatPaybackDuration = (years: number) =>
+    formatRoiPaybackDuration(years, paybackDurationLabels);
+
+  const net20YearSavings = results.net20YearSavings;
+
+  const reportPlantName = () => {
+    const trimmed = formData.plantName.trim();
+    if (trimmed) return trimmed;
+    if (formData.plantType === "groundMount") {
+      return t("pdfDefaultPlantNameMw", {
+        capacity: formatNumber(formData.plantCapacityMW),
+      });
+    }
+    return t("pdfDefaultPlantNameKw", {
+      capacity: formatNumber(formData.plantCapacityKW),
+    });
+  };
 
   const labelForPlantType = (value: PlantType) =>
     t(PLANT_TYPE_OPTIONS.find((o) => o.value === value)!.labelKey);
@@ -161,6 +241,11 @@ export default function ROITayproCalculator({
     t(AUTOMATION_OPTIONS.find((o) => o.value === value)!.labelKey);
 
   const handleDownloadPdf = async () => {
+    trackRoiCalculatorPdf({
+      plantType: formData.plantType,
+      marketId: market.id,
+      pagePath: pathname,
+    });
     const [{ default: jsPDF }, autoTableModule] = await Promise.all([
       import("jspdf"),
       import("jspdf-autotable"),
@@ -175,104 +260,167 @@ export default function ROITayproCalculator({
       plantCapacityKW,
       electricityTariff,
       moduleCapacity,
+      plantName,
     } = formData;
 
     const pdf = new jsPDF({ unit: "pt", format: "a4" });
-
-    pdf.addImage(
-      "/tayproasset/taypro-logoforwhitebg.png",
-      "PNG",
-      40,
-      30,
-      80,
-      40
-    );
-    pdf.setFontSize(18);
-    pdf.setTextColor("#052638");
-    pdf.text(t("pdfTitle"), 140, 55);
-
-    let y = 100;
-
-    pdf.setFontSize(14);
-    pdf.text(t("pdfInputs"), 40, y);
-    y += 10;
-
-    const inputRows: (string | number)[][] = [
-      [t("plantType"), labelForPlantType(plantType)],
-      ...(plantType === "groundMount"
-        ? [[t("installationType"), labelForInstallation(installationType)]]
-        : []),
-      [t("automationLevel"), labelForAutomation(automationLevel)],
-      [
-        plantType === "groundMount"
-          ? t("pdfPlantCapacityMw")
-          : t("pdfPlantCapacityKw"),
-        plantType === "groundMount" ? plantCapacityMW : plantCapacityKW,
-      ],
-      [
-        `${t("pdfElectricityTariff")} (${market.currency}/kWh)`,
-        electricityTariff,
-      ],
-      [t("pdfModuleCapacity"), moduleCapacity],
-    ];
-
-    autoTable(pdf, {
-      startY: y + 10,
-      head: [[t("pdfParameter"), t("pdfValue")]],
-      body: inputRows,
-      theme: "grid",
-      headStyles: {
-        fillColor: [5, 38, 56],
-        textColor: 255,
-        halign: "center",
-      },
-      styles: { fontSize: 11, cellPadding: 5 },
-    });
-
+    const [letterheads] = await Promise.all([
+      loadTayproLetterheadsForPdf(),
+      registerRoiPdfFonts(pdf),
+    ]);
     const pdfMoney = (amount: number) =>
-      `${market.currency} ${pdfFormatCurrency(amount)}`;
+      formatRoiPdfMoney(amount, market, locale);
+    const pdfNet20YearSavings = formatRoiPdfMoney(
+      results.net20YearSavings,
+      market,
+      locale
+    );
+    const capacityKw =
+      plantType === "groundMount"
+        ? plantCapacityMW * 1000
+        : plantCapacityKW;
+    const moduleCount = Math.round(capacityKw / (moduleCapacity / 1000));
+    const generatedOn = new Intl.DateTimeFormat(market.formatLocale, {
+      dateStyle: "long",
+      timeStyle: "short",
+    }).format(new Date());
+    const reportRegion = t(market.regionLabelKey);
+    const plantLabel = reportPlantName();
+    const trimmedPlantName = plantName.trim();
+    const plantCapacityLine =
+      plantType === "groundMount"
+        ? `${formatNumber(plantCapacityMW)} MW`
+        : `${formatNumber(plantCapacityKW)} kW`;
+    const plantDetail = trimmedPlantName
+      ? `${labelForPlantType(plantType)} · ${plantCapacityLine}`
+      : "";
 
-    const resultsRows = [
-      [t("resultInvestment"), pdfMoney(results.totalInvestmentRequired)],
-      [
-        t("resultRoiTimeline"),
-        `${formatNumber(results.roiTimeline)} ${t("yearsCapitalized")}`,
-      ],
-      [
-        t("resultAnnualisedRoi"),
-        `${formatNumber(results.annualisedROI)} %`,
-      ],
-      [
-        t("resultRoi20Years"),
-        `${formatNumber(results.roi20Years)} %`,
-      ],
-      [t("resultTotalSaved"), pdfMoney(results.totalMoneySavedAnnually)],
-      [t("resultLabourSaved"), pdfMoney(results.annualCostLabourSaved)],
-      [t("resultWaterSaved"), pdfMoney(results.annualCostWaterSaved)],
-      [t("resultEnergyGain"), pdfMoney(results.annualCostEnergyGain)],
-      [
-        t("resultWaterLiters"),
-        `${formatNumber(results.waterSavedAnnually)} L`,
-      ],
-      [
-        t("resultCarbon"),
-        `${formatNumber(results.annualCarbonSavings)} ${t("pdfCarbonUnit")}`,
-      ],
-    ];
-
-    autoTable(pdf, {
-      head: [[t("pdfParameter"), t("pdfValue")]],
-      body: resultsRows,
-      theme: "grid",
-      headStyles: {
-        fillColor: [5, 38, 56],
-        textColor: 255,
-        halign: "center",
+    buildRoiPdfDocument({
+      pdf,
+      autoTable,
+      letterheads,
+      market,
+      results,
+      moduleCount,
+      formatMoney: pdfMoney,
+      formatNumber: (value, maximumFractionDigits) =>
+        formatRoiNumber(value, market, locale, maximumFractionDigits),
+      labels: {
+        title: t("pdfTitle"),
+        generatedOn: t("pdfGeneratedOn", { date: generatedOn }),
+        generatedFor: t("pdfGeneratedFor", { name: plantLabel }),
+        plantName: plantLabel,
+        plantDetail,
+        region: t("pdfRegion"),
+        regionName: reportRegion,
+        disclaimerShort: t("pdfDisclaimerShort"),
+        summaryNarrative: t("pdfSummaryNarrative", {
+          paybackDuration: formatPaybackDuration(results.roiTimeline),
+          annualSavings: pdfMoney(results.totalMoneySavedAnnually),
+          investment: pdfMoney(results.totalInvestmentRequired),
+          net20YearSavings: pdfNet20YearSavings,
+        }),
+        inputs: t("pdfInputs"),
+        assumptions: t("pdfAssumptions"),
+        environmentalImpact: t("pdfEnvironmentalImpact"),
+        disclaimerHeading: t("pdfDisclaimerHeading"),
+        disclaimerBody: t("pdfDisclaimerBody"),
+        nextSteps: t("pdfNextSteps"),
+        nextStepsBody: t("pdfNextStepsBody"),
+        contactHeading: t("pdfContactHeading"),
+        contactWebsite: t("pdfContactWebsite"),
+        contactEmail: t("pdfContactEmail"),
+        contactPhone: t("pdfContactPhone"),
+        websiteUrl: SITE_URL.replace(/^https?:\/\//, ""),
+        salesEmail: getTayproEmailAddress("sales"),
+        salesPhone: TAYPRO_SALES_PHONE_DISPLAY,
+        parameter: t("pdfParameter"),
+        value: t("pdfValue"),
+        highlightInvestment: t("highlightInvestment"),
+        paybackTimeline: t("paybackTimeline"),
+        annualSavings: t("annualSavings"),
+        yearsUnit: t("yearsUnit"),
+        result20YearNetSavings: t("result20YearNetSavings"),
+        result20YearAmc: t("result20YearAmc"),
+        net20YearSavingsAmcNote: t("net20YearSavingsAmcNote"),
+        pdfCarbonUnit: t("pdfCarbonUnit"),
+        litersUnit: t("litersUnit"),
+        assumptionModuleCount: t("pdfAssumptionModuleCount"),
+        assumptionCleaningCycles: t("pdfAssumptionCleaningCycles"),
+        assumptionWaterPerModule: t("pdfAssumptionWaterPerModule"),
+        assumptionSpecificYield: t("pdfAssumptionSpecificYield"),
+        net20YearSavingsFormatted: pdfNet20YearSavings,
+        pdfChartSavingsTitle: t("pdfChartSavingsTitle"),
+        pdfChartPaybackTitle: t("pdfChartPaybackTitle"),
+        pdfChartLabourShort: t("pdfChartLabourShort"),
+        pdfChartWaterShort: t("pdfChartWaterShort"),
+        pdfChartEnergyShort: t("pdfChartEnergyShort"),
+        pdfChartPaybackLabel: t("pdfChartPaybackLabel"),
+        pdfChartHorizonLabel: t("pdfChartHorizonLabel"),
+        pdfEnvWaterShort: t("pdfEnvWaterShort"),
+        pdfEnvCarbonShort: t("pdfEnvCarbonShort"),
+        pdfEnvWaterDetail: t("pdfEnvWaterDetail"),
+        pdfEnvCarbonDetail: t("pdfEnvCarbonDetail"),
+        pdfResultsHeading: t("resultsHeading"),
+        resultInvestment: t("resultInvestment"),
+        resultRoiTimeline: t("resultRoiTimeline"),
+        resultAnnualisedRoi: t("resultAnnualisedRoi"),
+        resultTotalSaved: t("resultTotalSaved"),
+        resultLabourSaved: t("resultLabourSaved"),
+        resultWaterSaved: t("resultWaterSaved"),
+        resultEnergyGain: t("resultEnergyGain"),
+        resultWaterLiters: t("resultWaterLiters"),
+        resultCarbon: t("resultCarbon"),
+        projectionChartHeading: t("projectionChartHeading"),
+        projectionChartSavings: t("projectionChartSavings"),
+        projectionChartInvestment: t("projectionChartInvestment"),
+        projectionChartPayback: t("projectionChartPayback"),
+        projectionChartYear: t("projectionChartYear"),
       },
-      styles: { fontSize: 11, cellPadding: 5 },
+      inputRows: [
+        { label: t("plantName"), value: plantLabel },
+        { label: t("plantType"), value: labelForPlantType(plantType) },
+        ...(plantType === "groundMount"
+          ? [
+              {
+                label: t("installationType"),
+                value: labelForInstallation(installationType),
+              },
+            ]
+          : []),
+        {
+          label: t("automationLevel"),
+          value: labelForAutomation(automationLevel),
+        },
+        {
+          label:
+            plantType === "groundMount"
+              ? t("pdfPlantCapacityMw")
+              : t("pdfPlantCapacityKw"),
+          value: String(
+            plantType === "groundMount" ? plantCapacityMW : plantCapacityKW
+          ),
+        },
+        {
+          label: `${t("pdfElectricityTariff")} (${market.currency}/kWh)`,
+          value: String(electricityTariff),
+        },
+        { label: t("pdfModuleCapacity"), value: String(moduleCapacity) },
+      ],
+      projection,
+      formatPaybackDuration,
     });
 
-    pdf.save("ROI-Report.pdf");
+    const fileSlug =
+      plantName
+        .trim()
+        .replace(/[^a-zA-Z0-9]+/g, "-")
+        .replace(/^-|-$/g, "")
+        .slice(0, 40) ||
+      (plantType === "groundMount"
+        ? `${plantCapacityMW}MW`
+        : `${plantCapacityKW}KW`);
+    pdf.save(`Taypro-ROI-Report-${fileSlug}.pdf`);
   };
 
   return (
@@ -282,6 +430,23 @@ export default function ROITayproCalculator({
           <h2 className="text-white text-2xl font-semibold mb-4">{t("title")}</h2>
         )}
         <div className="grid gap-6 sm:grid-cols-2">
+          <div className="sm:col-span-2">
+            <label
+              htmlFor="roi-plant-name"
+              className="text-white/90 text-sm font-medium mb-1.5 block"
+            >
+              {t("plantName")}
+            </label>
+            <input
+              id="roi-plant-name"
+              type="text"
+              value={formData.plantName}
+              onChange={(e) => handleInput("plantName", e.target.value)}
+              placeholder={t("plantNamePlaceholder")}
+              maxLength={120}
+              className={inputClassName}
+            />
+          </div>
           <div>
             <label
               htmlFor="roi-plant-type"
@@ -473,9 +638,19 @@ export default function ROITayproCalculator({
           </div>
         </div>
 
-        <button type="button" onClick={runCalculation} className={primaryButtonClassName}>
-          {t("calculateButton")}
+        <button
+          type="button"
+          onClick={runCalculation}
+          disabled={calculating}
+          className={primaryButtonClassName}
+        >
+          {calculating ? t("calculatingButton") : t("calculateButton")}
         </button>
+        {calcError ? (
+          <p className="mt-3 text-sm text-red-300" role="alert">
+            {calcError}
+          </p>
+        ) : null}
       </div>
 
       {showResults && (
@@ -493,11 +668,14 @@ export default function ROITayproCalculator({
               {t("hideResults")}
             </button>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-            <div className="rounded-lg bg-[#0f4a5c] border-2 border-[#A8C117] p-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
+            <div className="rounded-lg bg-[#0f4a5c] border-2 border-[#A8C117] p-4 min-w-0 sm:col-span-2 xl:col-span-1">
               <p className="text-white/70 text-sm mb-1">{t("highlightInvestment")}</p>
-              <p className="text-[#A8C117] text-2xl sm:text-3xl font-semibold">
-                {formatCurrency(results.totalInvestmentRequired)}
+              <p
+                className="text-[#A8C117] text-xl sm:text-2xl font-semibold tabular-nums leading-tight"
+                title={formatCurrency(results.totalInvestmentRequired)}
+              >
+                {formatMoneyCompact(results.totalInvestmentRequired)}
               </p>
               <p className="text-white/55 text-xs mt-2">{t("investmentDisclaimer")}</p>
               {showMarketNote ? (
@@ -509,30 +687,91 @@ export default function ROITayproCalculator({
                 </p>
               ) : null}
             </div>
-            <div className="rounded-lg bg-[#0f4a5c] border border-[#A8C117]/30 p-4">
+            <div className="rounded-lg bg-[#0f4a5c] border border-[#A8C117]/30 p-4 min-w-0">
               <p className="text-white/70 text-sm mb-1">{t("paybackTimeline")}</p>
-              <p className="text-[#A8C117] text-2xl font-semibold">
-                {formatNumber(results.roiTimeline)} {t("yearsUnit")}
+              <p className="text-[#A8C117] text-xl sm:text-2xl font-semibold tabular-nums leading-tight">
+                {formatPaybackDuration(results.roiTimeline)}
               </p>
             </div>
-            <div className="rounded-lg bg-[#0f4a5c] border border-[#A8C117]/30 p-4">
+            <div className="rounded-lg bg-[#0f4a5c] border border-[#A8C117]/30 p-4 min-w-0">
               <p className="text-white/70 text-sm mb-1">{t("annualSavings")}</p>
-              <p className="text-[#A8C117] text-2xl font-semibold">
-                {formatCurrency(results.totalMoneySavedAnnually)}
+              <p
+                className="text-[#A8C117] text-xl sm:text-2xl font-semibold tabular-nums leading-tight"
+                title={formatCurrency(results.totalMoneySavedAnnually)}
+              >
+                {formatMoneyCompact(results.totalMoneySavedAnnually)}
+              </p>
+            </div>
+            <div className="rounded-lg bg-[#0f4a5c] border border-[#A8C117]/30 p-4 min-w-0 sm:col-span-2 xl:col-span-1">
+              <p className="text-white/70 text-sm mb-1">{t("result20YearNetSavings")}</p>
+              <p
+                className="text-[#A8C117] text-xl sm:text-2xl font-semibold tabular-nums leading-tight"
+                title={formatCurrency(net20YearSavings)}
+              >
+                {formatMoneyCompact(net20YearSavings)}
+              </p>
+              <p className="text-white/45 text-xs mt-2 leading-snug">
+                {t("net20YearSavingsAmcNote")}
               </p>
             </div>
           </div>
-          <div className="divide-y divide-white/10 text-white">
-            <div className="flex justify-between py-2">
+
+          <div className="grid gap-4 mb-6 md:grid-cols-2">
+            <RoiSavingsBreakdownChart
+              title={t("pdfChartSavingsTitle")}
+              total={results.totalMoneySavedAnnually}
+              formatMoney={formatMoneyCompact}
+              segments={[
+                {
+                  label: t("pdfChartLabourShort"),
+                  amount: results.annualCostLabourSaved,
+                  color: ROI_SAVINGS_SEGMENT_COLORS.labour,
+                },
+                {
+                  label: t("pdfChartWaterShort"),
+                  amount: results.annualCostWaterSaved,
+                  color: ROI_SAVINGS_SEGMENT_COLORS.water,
+                },
+                {
+                  label: t("pdfChartEnergyShort"),
+                  amount: results.annualCostEnergyGain,
+                  color: ROI_SAVINGS_SEGMENT_COLORS.energy,
+                },
+              ]}
+            />
+            <RoiPaybackHorizonBar
+              title={t("pdfChartPaybackTitle")}
+              paybackLabel={t("pdfChartPaybackLabel")}
+              horizonLabel={t("pdfChartHorizonLabel")}
+              yearsUnit={t("yearsUnit")}
+              paybackYears={results.roiTimeline}
+              formatPaybackDuration={formatPaybackDuration}
+            />
+          </div>
+
+          <div className="divide-y divide-white/10 text-white mb-2">
+            <div className="flex justify-between gap-4 py-2">
               <span>{t("resultInvestment")}</span>
-              <span className="font-semibold text-[#A8C117]">
-                {formatCurrency(results.totalInvestmentRequired)}
+              <span
+                className="font-semibold text-[#A8C117] text-right tabular-nums shrink-0"
+                title={formatCurrency(results.totalInvestmentRequired)}
+              >
+                {formatMoneyCompact(results.totalInvestmentRequired)}
+              </span>
+            </div>
+            <div className="flex justify-between gap-4 py-2">
+              <span>{t("result20YearAmc")}</span>
+              <span
+                className="font-semibold text-right tabular-nums shrink-0"
+                title={formatCurrency(results.totalAmc20Years)}
+              >
+                {formatMoneyCompact(results.totalAmc20Years)}
               </span>
             </div>
             <div className="flex justify-between py-2">
               <span>{t("resultRoiTimeline")}</span>
               <span className="font-semibold">
-                {formatNumber(results.roiTimeline)} {t("yearsCapitalized")}
+                {formatPaybackDuration(results.roiTimeline)}
               </span>
             </div>
             <div className="flex justify-between py-2">
@@ -542,39 +781,54 @@ export default function ROITayproCalculator({
               </span>
             </div>
             <div className="flex justify-between py-2">
-              <span>{t("resultRoi20Years")}</span>
+              <span>{t("result20YearRoi")}</span>
               <span className="font-semibold">
                 {formatNumber(results.roi20Years)} %
               </span>
             </div>
-            <div className="flex justify-between py-2">
+            <div className="flex justify-between gap-4 py-2">
+              <span>{t("result20YearNetSavings")}</span>
+              <span
+                className="font-semibold text-[#A8C117] text-right tabular-nums shrink-0"
+                title={formatCurrency(net20YearSavings)}
+              >
+                {formatMoneyCompact(net20YearSavings)}
+              </span>
+            </div>
+            <div className="flex justify-between gap-4 py-2">
               <span>{t("resultTotalSaved")}</span>
-              <span className="font-semibold">
-                {formatCurrency(results.totalMoneySavedAnnually)}
+              <span
+                className="font-semibold text-right tabular-nums shrink-0"
+                title={formatCurrency(results.totalMoneySavedAnnually)}
+              >
+                {formatMoneyCompact(results.totalMoneySavedAnnually)}
               </span>
             </div>
-            <div className="flex justify-between py-2">
+            <div className="flex justify-between gap-4 py-2">
               <span>{t("resultLabourSaved")}</span>
-              <span className="font-semibold">
-                {formatCurrency(results.annualCostLabourSaved)}
+              <span
+                className="font-semibold text-right tabular-nums shrink-0"
+                title={formatCurrency(results.annualCostLabourSaved)}
+              >
+                {formatMoneyCompact(results.annualCostLabourSaved)}
               </span>
             </div>
-            <div className="flex justify-between py-1">
+            <div className="flex justify-between gap-4 py-1">
               <span>{t("resultWaterSaved")}</span>
-              <span className="font-semibold">
-                {formatCurrency(results.annualCostWaterSaved)}
+              <span
+                className="font-semibold text-right tabular-nums shrink-0"
+                title={formatCurrency(results.annualCostWaterSaved)}
+              >
+                {formatMoneyCompact(results.annualCostWaterSaved)}
               </span>
             </div>
-            <div className="flex justify-between py-2">
+            <div className="flex justify-between gap-4 py-2">
               <span>{t("resultEnergyGain")}</span>
-              <span className="font-semibold">
-                {formatCurrency(results.annualCostEnergyGain)}
-              </span>
-            </div>
-            <div className="flex justify-between py-2">
-              <span>{t("resultWaterLiters")}</span>
-              <span className="font-semibold">
-                {formatNumber(results.waterSavedAnnually)} {t("litersUnit")}
+              <span
+                className="font-semibold text-right tabular-nums shrink-0"
+                title={formatCurrency(results.annualCostEnergyGain)}
+              >
+                {formatMoneyCompact(results.annualCostEnergyGain)}
               </span>
             </div>
             <div className="flex justify-between py-2">
@@ -584,6 +838,61 @@ export default function ROITayproCalculator({
               </span>
             </div>
           </div>
+
+          <RoiEnvironmentalCards
+            heading={t("pdfEnvironmentalImpact")}
+            cards={[
+              {
+                shortLabel: t("pdfEnvWaterShort"),
+                value: `${formatNumber(results.waterSavedAnnually)} ${t("litersUnit")}`,
+                detail: t("pdfEnvWaterDetail"),
+              },
+              {
+                shortLabel: t("pdfEnvCarbonShort"),
+                value: `${formatNumber(results.annualCarbonSavings)} ${t("pdfCarbonUnit")}`,
+                detail: t("pdfEnvCarbonDetail"),
+              },
+            ]}
+          />
+
+          {projection ? (
+            <>
+              <RoiProjectionChart
+                projection={projection}
+                formatMoney={formatMoneyCompact}
+                formatNumber={(value, digits) => formatNumber(value)}
+                formatPaybackDuration={formatPaybackDuration}
+                labels={{
+                  heading: t("projectionChartHeading"),
+                  savings: t("projectionChartSavings"),
+                  investment: t("projectionChartInvestment"),
+                  payback: t("projectionChartPayback"),
+                  year: t("projectionChartYear"),
+                }}
+              />
+              <RoiNetPositionChart
+                projection={projection}
+                formatMoney={formatMoneyCompact}
+                formatPaybackDuration={formatPaybackDuration}
+                labels={{
+                  heading: t("netPositionChartHeading"),
+                  netPosition: t("netPositionChartLabel"),
+                  breakEven: t("netPositionBreakEven"),
+                  year: t("projectionChartYear"),
+                }}
+              />
+              <RoiYear20Snapshot
+                projection={projection}
+                formatMoney={formatMoneyCompact}
+                labels={{
+                  heading: t("year20SnapshotHeading"),
+                  netPosition: t("netPositionChartLabel"),
+                  cumulativeSavings: t("projectionChartSavings"),
+                  cumulativeInvestment: t("projectionChartInvestment"),
+                }}
+              />
+            </>
+          ) : null}
 
           <button
             type="button"

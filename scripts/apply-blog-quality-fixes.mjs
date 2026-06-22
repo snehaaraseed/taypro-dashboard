@@ -50,6 +50,23 @@ const patchBlog = db.prepare(
                     updated_at = datetime('now') WHERE id = ?`
 );
 
+function syncPublishedTopic(slug, title, seoKeyword) {
+  if (!seoKeyword?.trim()) return;
+  const cat = `seo:${seoKeyword.trim()}|quality-fix`;
+  const existing = db.prepare("SELECT slug FROM published_topics WHERE slug = ?").get(slug);
+  if (existing) {
+    db.prepare("UPDATE published_topics SET title = ?, category = ? WHERE slug = ?").run(
+      title,
+      cat,
+      slug
+    );
+  } else {
+    db.prepare(
+      "INSERT INTO published_topics (slug, title, category, created_at) VALUES (?, ?, ?, datetime('now'))"
+    ).run(slug, title, cat);
+  }
+}
+
 let fullCount = 0;
 let patchCount = 0;
 
@@ -69,6 +86,7 @@ for (const data of loadJsonDir(fullDir)) {
       data.seoKeyword,
       row.id
     );
+    syncPublishedTopic(data.slug, data.title, data.seoKeyword);
   }
   fullCount++;
 }
@@ -96,6 +114,7 @@ for (const patch of loadJsonDir(patchDir)) {
   console.log(`${apply ? "patch" : "dry-patch"} ${patch.slug}`);
   if (apply) {
     patchBlog.run(title, description, content, faqs, seoKeyword, row.id);
+    syncPublishedTopic(patch.slug, title, seoKeyword);
   }
   patchCount++;
 }

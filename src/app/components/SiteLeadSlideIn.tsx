@@ -4,10 +4,12 @@ import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { PLANT_CHECK_PERKS } from "@/app/components/plantCheckPerks";
 import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/navigation";
 import { lockPageScroll } from "@/lib/scroll-lock";
+import { trackSlideInOpen } from "@/lib/analytics/track-event";
+import { LeadModalContext } from "./LeadModalContext";
 
 const STORAGE_DISMISS_SLOT = "taypro_lead_slidein_dismiss_slot";
 
@@ -30,6 +32,13 @@ function shouldSuppressPath(pathname: string) {
   if (pathname.startsWith("/admin")) return true;
   if (pathname === "/contact" || pathname.startsWith("/contact/")) return true;
   if (pathname.startsWith("/auth")) return true;
+  // Interactive tool pages — CTAs open the lead modal; avoid stacking auto slide-in.
+  if (
+    pathname === "/solar-panel-cleaning-robot-price-calculator" ||
+    pathname.startsWith("/solar-panel-cleaning-robot-price-calculator/")
+  ) {
+    return true;
+  }
   return false;
 }
 
@@ -54,12 +63,21 @@ function readDismissedThisHour(): boolean {
 
 export default function SiteLeadSlideIn() {
   const pathname = usePathname();
+  const leadModalCtx = useContext(LeadModalContext);
+  const leadModalOpen = leadModalCtx?.state.isOpen ?? false;
   const [open, setOpen] = useState(false);
   const [stage, setStage] = useState<Stage>("teaser");
   const [eligible, setEligible] = useState(false);
   const [mounted, setMounted] = useState(false);
   const dwellDone = useRef(false);
   const scrollDone = useRef(false);
+  const slideInTracked = useRef(false);
+  const leadModalOpenRef = useRef(leadModalOpen);
+  const prevLeadModalOpenRef = useRef(leadModalOpen);
+
+  useEffect(() => {
+    leadModalOpenRef.current = leadModalOpen;
+  }, [leadModalOpen]);
 
   useEffect(() => {
     setMounted(true);
@@ -68,10 +86,15 @@ export default function SiteLeadSlideIn() {
   const tryOpen = useCallback(() => {
     if (typeof window === "undefined") return;
     if (!eligible) return;
+    if (leadModalOpenRef.current) return;
     if (readDismissedThisHour()) return;
     if (!dwellDone.current || !scrollDone.current) return;
+    if (!slideInTracked.current) {
+      slideInTracked.current = true;
+      trackSlideInOpen({ pagePath: pathname });
+    }
     setOpen(true);
-  }, [eligible]);
+  }, [eligible, pathname]);
 
   const handleDismiss = useCallback(() => {
     try {
@@ -146,8 +169,19 @@ export default function SiteLeadSlideIn() {
     if (open) setStage("teaser");
   }, [open]);
 
+  // Lead modal takes priority — hide slide-in so closing the modal does not leave a second popup.
   useEffect(() => {
-    if (!open) return;
+    const wasOpen = prevLeadModalOpenRef.current;
+    if (leadModalOpen) {
+      setOpen(false);
+    } else if (wasOpen) {
+      setOpen(false);
+    }
+    prevLeadModalOpenRef.current = leadModalOpen;
+  }, [leadModalOpen]);
+
+  useEffect(() => {
+    if (!open || leadModalOpen) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") handleDismiss();
     };
@@ -157,10 +191,11 @@ export default function SiteLeadSlideIn() {
       window.removeEventListener("keydown", onKey);
       unlockScroll();
     };
-  }, [open, handleDismiss]);
+  }, [open, leadModalOpen, handleDismiss]);
 
   if (shouldSuppressPath(pathname)) return null;
   if (!eligible) return null;
+  if (leadModalOpen) return null;
   if (!open) return null;
   if (!mounted) return null;
 
@@ -321,12 +356,12 @@ export default function SiteLeadSlideIn() {
                 stackedEmbedded
                 compactEmbedded
                 slideInMobile
+                analyticsFormType="slide_in"
                 messageRows={2}
                 messageLabel="What should we know about your plant?"
                 messagePlaceholder="MW, fixed-tilt or trackers, soiling or water limits, how you clean today, and what you want to improve."
                 submitLabel="Send my fit check"
                 autoFocus
-                redirectOnSuccess={false}
                 hideResetAfterSuccess
                 thankYouTitle="Got it, your fit check is on the way"
                 thankYouMessage="Our applications team will follow up shortly with the right Solar Panel Cleaning Robot direction for your plant."

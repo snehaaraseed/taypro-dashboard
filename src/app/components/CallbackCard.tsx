@@ -1,7 +1,9 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import { usePathname } from "@/i18n/navigation";
 import { CheckCircle2 } from "lucide-react";
+import { trackGenerateLead } from "@/lib/analytics/track-event";
 
 interface DemoSectionProps {
   headerText: React.ReactNode;
@@ -14,6 +16,7 @@ const INITIAL_FORM = {
 };
 
 export default function CallbackCard({ headerText }: DemoSectionProps) {
+  const pathname = usePathname();
   const [formData, setFormData] = useState(INITIAL_FORM);
 
   const [loading, setLoading] = useState(false);
@@ -57,6 +60,7 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
       }
 
       setSubmitted(true);
+      trackGenerateLead({ formType: "callback", pagePath: pathname });
       setFormData(INITIAL_FORM);
     } catch (error) {
       if (error instanceof Error) {

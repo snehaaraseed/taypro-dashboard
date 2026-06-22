@@ -36,13 +36,11 @@ import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
 import { socialImagesFromMedia } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 import { withHreflang } from "@/lib/seo/with-hreflang";
-import { renderRecoveryNotFound } from "@/app/components/renderRecoveryNotFound";
+import { recoveryNotFoundMetadata } from "@/lib/seo/recovery-not-found-metadata";
 import {
   applyRecovery,
-  findSimilarBlogsForMissingSlug,
   log404Hit,
   recoverBlogSlug,
-  shouldShowRecoveryNotFound,
 } from "@/lib/url-recovery";
 import { listAllBlogs } from "@/lib/cms/blogService";
 
@@ -171,10 +169,10 @@ export async function generateMetadata({
   const resolved = await resolvePublishedBlog(slug, locale);
 
   if (!resolved) {
-    return {
+    return recoveryNotFoundMetadata({
       title: "Blog Post Not Found - Taypro",
       description: "The requested blog post could not be found.",
-    };
+    });
   }
 
   const blog = toBlogData(slug, resolved);
@@ -232,23 +230,10 @@ export default async function BlogPost({ params }: BlogPostProps) {
     const publishedSlugs = blogRows.map((row) => row.slug);
     const recovery = recoverBlogSlug(slug, publishedSlugs);
     applyRecovery(recovery);
-    const dynamicBlogs = blogRows.map((metadata) => ({
-      ...metadata,
-      href: `/blog/${metadata.slug}`,
-      source: "db" as const,
-    }));
-    const recoveryContext = {
-      suggestion: recovery.kind !== "none" ? recovery : undefined,
-      similarBlogs: findSimilarBlogsForMissingSlug(slug, dynamicBlogs),
-      currentBlogSlug: slug,
-    };
     void log404Hit(
       `/blog/${slug}`,
       recovery.kind !== "none" ? recovery.destination : undefined
     );
-    if (shouldShowRecoveryNotFound(recoveryContext)) {
-      return renderRecoveryNotFound(locale, recoveryContext);
-    }
     notFound();
   }
   if (resolved.usesEnglishFallback) {
@@ -421,6 +406,10 @@ export default async function BlogPost({ params }: BlogPostProps) {
               <article suppressHydrationWarning>
                 <BlogContent
                   content={contentWithIds}
+                  imageAltContext={{
+                    title: blog.title,
+                    primaryKeyword: blog.seoKeyword,
+                  }}
                   className="prose prose-lg max-w-none space-y-5
                    prose-headings:text-[#052638]
                    prose-headings:font-semibold

@@ -59,6 +59,7 @@ export default function ProductStaticShowcase({
         <YouTubeEmbed
           videoId={youtubeVideoId}
           title={imageAlt}
+          location="product_page"
           className="w-full rounded-lg overflow-hidden"
         />
       </div>

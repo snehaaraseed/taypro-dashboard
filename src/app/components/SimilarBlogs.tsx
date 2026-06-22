@@ -7,6 +7,7 @@ import { formatLocaleDate } from "@/i18n/format-date";
 import { getBlogFeaturedImageAlt } from "../utils/imageAlt";
 import { DynamicBlog } from "../api/blog/list/route";
 import { calculateBlogSimilarity } from "@/lib/seo/blog-similarity-scoring";
+import { trackBlogClick } from "@/lib/analytics/track-event";
 
 interface SimilarBlogsProps {
   blogs: DynamicBlog[];
@@ -97,6 +98,13 @@ export function SimilarBlogs({
               key={similarBlog.slug}
               href={similarBlog.href}
               className="block group"
+              onClick={() =>
+                trackBlogClick({
+                  slug: similarBlog.slug,
+                  title: similarBlog.title,
+                  location: "blog_similar",
+                })
+              }
             >
               <div className="h-full border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-white">
                 <div className="relative w-full h-52 overflow-hidden">
@@ -141,6 +149,13 @@ export function SimilarBlogs({
               key={similarBlog.slug}
               href={similarBlog.href}
               className="block group"
+              onClick={() =>
+                trackBlogClick({
+                  slug: similarBlog.slug,
+                  title: similarBlog.title,
+                  location: "blog_similar",
+                })
+              }
             >
               <div className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="relative w-full h-48 overflow-hidden">

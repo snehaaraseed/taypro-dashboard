@@ -14,6 +14,7 @@ import {
   type ProjectGridItem,
   type ProjectsGridLayout,
 } from "@/lib/cms/project-card-display";
+import { trackProjectClick } from "@/lib/analytics/track-event";
 
 function projectImageAlt(project: ProjectGridItem): string {
   return getProjectHeroImageAlt({
@@ -77,6 +78,13 @@ export default function ProjectsGrid({
             <Link
               href={project.href}
               title={project.title}
+              onClick={() =>
+                trackProjectClick({
+                  projectSlug:
+                    project.href.replace(/^\/projects\//, "") || project.id,
+                  projectTitle: project.title,
+                })
+              }
               className="group block h-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:border-[#A8C117]/50 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] focus-visible:ring-offset-4"
             >
               <div

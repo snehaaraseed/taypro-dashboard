@@ -6,6 +6,7 @@ import React from "react";
 import { AnimateOnScroll } from "./AnimateOnScroll";
 import { Container } from "./Container";
 import OpenLeadModalButton from "./OpenLeadModalButton";
+import { trackCtaClick } from "@/lib/analytics/track-event";
 
 interface HeroSectionProps {
   title: React.ReactNode;
@@ -101,11 +102,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               <OpenLeadModalButton
                 className={ctaClass}
                 topic={ctaTopic ?? ctaText}
+                source="hero"
               >
                 {ctaText}
               </OpenLeadModalButton>
             ) : isInternal ? (
-              <Link href={ctaHref} className={ctaClass}>
+              <Link
+                href={ctaHref}
+                className={ctaClass}
+                onClick={() =>
+                  trackCtaClick({
+                    ctaName: ctaText,
+                    location: "hero",
+                    destination: ctaHref,
+                  })
+                }
+              >
                 {ctaText}
               </Link>
             ) : (

@@ -9,6 +9,27 @@ import type { TayproLocale } from "@/i18n/markets";
 import { isActiveLocale } from "@/i18n/markets";
 import { SOURCE_LOCALE, TARGET_LOCALES } from "@/lib/translation/config";
 import { resolveBlogPublishFields } from "@/lib/cms/blog-schedule";
+import {
+  demoteBodyH1ToH2,
+  findInlineImgAltIssue,
+  repairInlineImgAlts,
+} from "@/lib/seo/blog-body-hygiene";
+
+function prepareBlogContentForStorage(
+  content: string,
+  title: string,
+  seoKeyword?: string | null
+): { content: string; error?: string } {
+  const sanitized = repairInlineImgAlts(demoteBodyH1ToH2(content), {
+    title,
+    primaryKeyword: seoKeyword,
+  });
+  const altIssue = findInlineImgAltIssue(sanitized);
+  if (altIssue) {
+    return { content: sanitized, error: altIssue };
+  }
+  return { content: sanitized };
+}
 
 export function createSlug(title: string): string {
   return title
@@ -263,6 +284,19 @@ export async function createBlog(
     }
     const { published, scheduledPublishAt, publishDate } = resolved.value;
 
+    const preparedContent = prepareBlogContentForStorage(
+      blogData.content || "",
+      blogData.title,
+      blogData.seoKeyword
+    );
+    if (preparedContent.error) {
+      return {
+        success: false,
+        slug: finalSlug,
+        error: preparedContent.error,
+      };
+    }
+
     await db.insert(blogs).values({
       slug: finalSlug,
       locale: SOURCE_LOCALE,
@@ -271,7 +305,7 @@ export async function createBlog(
       featuredImage: blogData.featuredImage || "",
       featuredImageAlt: blogData.featuredImageAlt?.trim() || "",
       author: blogData.author || "Taypro Team",
-      content: blogData.content || "",
+      content: preparedContent.content,
       faqs: serializeBlogFaqs(blogData.faqs),
       seoKeyword: blogData.seoKeyword?.trim() || null,
       publishDate,
@@ -365,6 +399,19 @@ export async function updateBlog(
     }
     const { published, scheduledPublishAt, publishDate } = resolved.value;
 
+    const preparedContent = prepareBlogContentForStorage(
+      blogData.content || "",
+      blogData.title,
+      blogData.seoKeyword ?? existing.seoKeyword
+    );
+    if (preparedContent.error) {
+      return {
+        success: false,
+        slug: oldSlug,
+        error: preparedContent.error,
+      };
+    }
+
     await db
       .update(blogs)
       .set({
@@ -374,7 +421,7 @@ export async function updateBlog(
         featuredImageAlt:
           blogData.featuredImageAlt?.trim() ?? existing.featuredImageAlt,
         author: blogData.author || "Taypro Team",
-        content: blogData.content || "",
+        content: preparedContent.content,
         faqs:
           blogData.faqs !== undefined
             ? serializeBlogFaqs(blogData.faqs)

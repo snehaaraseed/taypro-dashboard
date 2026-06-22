@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { ContactEmailLink } from "@/app/components/ContactEmailLink";
+import { ContactPhoneLink } from "@/app/components/ContactPhoneLink";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
@@ -228,10 +229,18 @@ export default function ContactUsPage() {
                         {"emailMailbox" in channel ? (
                           <ContactEmailLink
                             mailbox={channel.emailMailbox}
+                            location="contact_page"
                             className="block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] rounded-xl"
                           >
                             {inner}
                           </ContactEmailLink>
+                        ) : channel.href && !("external" in channel && channel.external) ? (
+                          <ContactPhoneLink
+                            location="contact_page"
+                            className="block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] rounded-xl"
+                          >
+                            {inner}
+                          </ContactPhoneLink>
                         ) : channel.href ? (
                           <a
                             href={channel.href}
@@ -268,6 +277,7 @@ export default function ContactUsPage() {
                     submitLabel={t("form.submit")}
                     thankYouTitle={t("form.thankYouTitle")}
                     thankYouMessage={t("form.thankYouMessage")}
+                    analyticsFormType="contact_form"
                     className="!shadow-none !rounded-none !p-0"
                     embeddedFlush
                   />

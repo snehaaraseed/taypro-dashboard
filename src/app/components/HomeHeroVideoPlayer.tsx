@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackVideoPlay } from "@/lib/analytics/track-event";
 
 interface HomeHeroVideoPlayerProps {
   videoId: string;
@@ -13,6 +14,11 @@ export default function HomeHeroVideoPlayer({
   title,
 }: HomeHeroVideoPlayerProps) {
   const [active, setActive] = useState(false);
+
+  const handlePlay = () => {
+    trackVideoPlay({ videoId, title, location: "hero" });
+    setActive(true);
+  };
 
   if (active) {
     return (
@@ -29,7 +35,7 @@ export default function HomeHeroVideoPlayer({
   return (
     <button
       type="button"
-      onClick={() => setActive(true)}
+      onClick={handlePlay}
       className="group absolute inset-0 z-10 cursor-pointer bg-transparent"
       aria-label={`Play video: ${title}`}
     >

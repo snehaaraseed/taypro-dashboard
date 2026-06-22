@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import LocaleSwitcher from "@/app/components/LocaleSwitcher";
 import { TAYPRO_SALES_PHONE_TEL } from "@/lib/contact";
+import { trackNavigationClick, trackPhoneClick } from "@/lib/analytics/track-event";
 import {
   HARDWARE_PRODUCT_IDS,
   PRODUCT_CATALOG,
@@ -22,6 +23,10 @@ export default function Header() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const isHomeHeroTransparent = isHomePage && !isScrolled && !isMenuOpen;
+
+  const trackNav = (label: string, href: string, location = "header") => {
+    trackNavigationClick({ label, href, location });
+  };
 
   const navItems = [
     { name: t("home"), href: "/" },
@@ -188,6 +193,7 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   title="Nav Item"
+                  onClick={() => trackNav(item.name, item.href)}
                   className={`whitespace-nowrap px-2 py-2 text-sm font-medium text-white transition-all duration-300 hover:text-[#39D600] hover:underline underline-offset-8 2xl:px-3 2xl:text-base ${
                     isActive(item.href) ? "underline" : ""
                   }`}
@@ -230,6 +236,7 @@ export default function Header() {
                         href={item.href}
                         key={item.label}
                         title={item.label}
+                        onClick={() => trackNav(item.label, item.href, "header_solutions")}
                         className={
                           item.isButton
                             ? "mx-auto mb-1 mt-2 block w-fit rounded-md bg-[#A8C117] px-4 py-2 text-center text-sm font-medium text-[#052638] transition-all duration-200 hover:bg-[#39D600]"
@@ -264,6 +271,7 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   title="Nav Item"
+                  onClick={() => trackNav(item.name, item.href)}
                   className={`whitespace-nowrap px-2 py-2 text-sm font-medium text-white transition-all duration-300 hover:text-[#39D600] hover:underline underline-offset-8 2xl:px-3 2xl:text-base ${
                     isActive(item.href) ? "underline" : ""
                   }`}
@@ -279,6 +287,7 @@ export default function Header() {
             <Link
               href={TAYPRO_SALES_PHONE_TEL}
               title={t("callUs")}
+              onClick={() => trackPhoneClick("header")}
               className="whitespace-nowrap rounded-md bg-[#A8C117] px-3 py-2 text-sm font-medium text-black transition-all duration-300 hover:bg-[#39D600] sm:px-4 lg:hover:scale-105 lg:hover:shadow-lg 2xl:px-6 2xl:py-2.5 2xl:text-base"
             >
               {t("callUs")}
@@ -332,10 +341,13 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 title="Nav Item"
+                onClick={() => {
+                  trackNav(item.name, item.href, "mobile_nav");
+                  closeMobileMenu();
+                }}
                 className={`text-white hover:text-gray-300 block px-3 py-2.5 text-base font-medium min-h-10 flex items-center ${
                   isActive(item.href) ? "underline underline-offset-8" : ""
                 }`}
-                onClick={closeMobileMenu}
               >
                 {item.name}
               </Link>
@@ -380,7 +392,10 @@ export default function Header() {
                         ? "block bg-[#A8C117] text-[#052638] px-4 py-3 rounded-md font-medium text-center hover:bg-[#39D600] transition-all duration-200 mx-3 my-2 text-sm w-fit min-h-11"
                         : "ml-3 text-white hover:text-gray-300 block px-3 py-3 min-h-11"
                     }
-                    onClick={closeMobileMenu}
+                    onClick={() => {
+                      trackNav(item.label, item.href, "mobile_solutions");
+                      closeMobileMenu();
+                    }}
                   >
                     {item.isButton ? (
                       item.label

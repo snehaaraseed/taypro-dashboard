@@ -1,4 +1,4 @@
-import { calculateRoi } from "@/lib/roi-calculator/calculate-roi";
+import { calculateRoi } from "@/lib/roi-calculator/calculate-roi-core";
 import { ROI_MARKET_PROFILES } from "@/lib/roi-calculator/market-profiles";
 
 export const PRICE_GUIDE_PATH = "/solar-panel-cleaning-robot-price-india";

@@ -151,13 +151,13 @@ export default async function TermsOfServicePage({
               <br />
               <span>
                 {t("s9.mailLabel")}{" "}
-                <ContactEmailLink className="hover:text-[#A8C117] transition-colors">
+                <ContactEmailLink className="hover:text-[#A8C117] transition-colors" location="legal_page">
                   {tCommon("emailLink")}
                 </ContactEmailLink>
               </span>
               <span className="hidden sm:block mx-2"></span>
               <span>
-                {t("s9.phoneLabel")} <ContactPhoneLink />
+                {t("s9.phoneLabel")} <ContactPhoneLink location="legal_page" />
               </span>
             </div>
           </div>

@@ -13,16 +13,12 @@ import {
   blogPostMetadataDescription,
   blogPostMetadataTitle,
   blogPostOpenGraphTitle,
-  buildBlogPostKeywords,
-  resolveBlogPrimaryKeyword,
 } from "@/lib/seo/blog-metadata";
-import { getPublishedTopicBySlug } from "@/lib/cms/topicService";
-import { parseSlotFromCategory } from "@/lib/seo/coverage-ledger";
-import { loadGscKeywordsForBlogSlug } from "@/lib/seo/gsc-blog-queries";
 import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
 import { socialImagesFromMedia } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 import { withHreflang } from "@/lib/seo/with-hreflang";
+import { recoveryNotFoundMetadata } from "@/lib/seo/recovery-not-found-metadata";
 
 /**
  * Returns the canonical /blog/[slug] path when this post is also published as
@@ -163,31 +159,13 @@ export async function generateMetadata({
   const blog = await getBlogData(id);
 
   if (!blog) {
-    return {
+    return recoveryNotFoundMetadata({
       title: "Blog Post Not Found - Taypro",
       description: "The requested blog post could not be found.",
-    };
+    });
   }
 
   const fileBackedSlug = await getPublishedSlug(blog.slug);
-  const topicSlug = fileBackedSlug ?? blog.slug;
-  const publishedTopic = topicSlug
-    ? await getPublishedTopicBySlug(topicSlug)
-    : null;
-  const { keyword: publishedTopicKeyword } = parseSlotFromCategory(
-    publishedTopic?.category
-  );
-  const primaryKeyword = resolveBlogPrimaryKeyword({
-    seoKeyword: blog.seoKeyword,
-    publishedTopicKeyword,
-    gscKeywords: topicSlug ? loadGscKeywordsForBlogSlug(topicSlug) : [],
-  });
-  const blogKeywords = buildBlogPostKeywords({
-    title: blog.title,
-    description: blog.description,
-    primaryKeyword,
-  });
-
   const modifiedIso = blog.updatedAt || blog.publishDate;
   const canonicalPath = fileBackedSlug
     ? `/blog/${fileBackedSlug}`
@@ -205,6 +183,7 @@ export async function generateMetadata({
     {
       title: blogPostMetadataTitle(blog.title, blog.description),
       description: blogPostMetadataDescription(blog.title, blog.description),
+      robots: { index: false, follow: true },
       openGraph: {
         title: blogPostOpenGraphTitle(blog.title),
         description: blog.description,
@@ -330,9 +309,13 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
               {/* Main Content */}
               <article>
-                <BlogContent
-                  content={blog.content}
-                  className="prose prose-lg max-w-none space-y-5
+                  <BlogContent
+                    content={blog.content}
+                    imageAltContext={{
+                      title: blog.title,
+                      primaryKeyword: blog.seoKeyword,
+                    }}
+                    className="prose prose-lg max-w-none space-y-5
                    prose-headings:text-[#052638]
                    prose-headings:font-semibold
                    prose-p:text-gray-700

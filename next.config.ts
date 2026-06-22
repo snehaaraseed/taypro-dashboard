@@ -158,6 +158,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/:locale(hi|ar|ja|bn)/home",
+        destination: "/:locale",
+        permanent: true,
+      },
+      {
         // app/sitemap.ts serves /sitemap.xml; human-readable map lives at /site-map.
         source: "/sitemap",
         destination: "/site-map",

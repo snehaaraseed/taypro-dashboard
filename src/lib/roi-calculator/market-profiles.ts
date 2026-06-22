@@ -69,6 +69,9 @@ export interface RoiMarketProfile {
 /** Cookie set by middleware from CDN geo headers. */
 export const VISITOR_COUNTRY_COOKIE = "taypro-geo-country";
 
+/** Fixed share of annual yield value recovered on ground-mount plants from better cleaning. */
+export const GROUND_MOUNT_SOILING_RECOVERY_FACTOR = 0.02;
+
 const INDIA_REGION_CODES = new Set(["IN", "BT", "NP"]);
 const GCC_USD_COUNTRIES = new Set(["OM", "QA", "BH", "JO"]);
 const MENA_USD_COUNTRIES = new Set(["EG", "MA", "TN", "DZ"]);
@@ -96,7 +99,7 @@ export const ROI_MARKET_PROFILES: Record<RoiMarketId, RoiMarketProfile> = {
       litresPerModulePerCycle: 3.5,
       waterCostPerLitre: 0.12,
       specificYieldKwhPerKw: 1500,
-      soilingRecoveryFactorGround: 0.025,
+      soilingRecoveryFactorGround: GROUND_MOUNT_SOILING_RECOVERY_FACTOR,
       soilingRecoveryFactorRooftop: 0.113,
       investmentUnitMin: 42_000,
       investmentUnitMax: 114_000,
@@ -122,7 +125,7 @@ export const ROI_MARKET_PROFILES: Record<RoiMarketId, RoiMarketProfile> = {
       litresPerModulePerCycle: 3,
       waterCostPerLitre: 0.22,
       specificYieldKwhPerKw: 1450,
-      soilingRecoveryFactorGround: 0.028,
+      soilingRecoveryFactorGround: GROUND_MOUNT_SOILING_RECOVERY_FACTOR,
       soilingRecoveryFactorRooftop: 0.105,
       investmentUnitMin: 61_000,
       investmentUnitMax: 165_000,
@@ -148,7 +151,7 @@ export const ROI_MARKET_PROFILES: Record<RoiMarketId, RoiMarketProfile> = {
       litresPerModulePerCycle: 4,
       waterCostPerLitre: 0.006,
       specificYieldKwhPerKw: 1900,
-      soilingRecoveryFactorGround: 0.038,
+      soilingRecoveryFactorGround: GROUND_MOUNT_SOILING_RECOVERY_FACTOR,
       soilingRecoveryFactorRooftop: 0.12,
       investmentUnitMin: 520,
       investmentUnitMax: 1_400,
@@ -173,7 +176,7 @@ export const ROI_MARKET_PROFILES: Record<RoiMarketId, RoiMarketProfile> = {
       litresPerModulePerCycle: 4,
       waterCostPerLitre: 0.022,
       specificYieldKwhPerKw: 1950,
-      soilingRecoveryFactorGround: 0.038,
+      soilingRecoveryFactorGround: GROUND_MOUNT_SOILING_RECOVERY_FACTOR,
       soilingRecoveryFactorRooftop: 0.12,
       investmentUnitMin: 1_900,
       investmentUnitMax: 5_150,
@@ -198,7 +201,7 @@ export const ROI_MARKET_PROFILES: Record<RoiMarketId, RoiMarketProfile> = {
       litresPerModulePerCycle: 4,
       waterCostPerLitre: 0.021,
       specificYieldKwhPerKw: 1920,
-      soilingRecoveryFactorGround: 0.037,
+      soilingRecoveryFactorGround: GROUND_MOUNT_SOILING_RECOVERY_FACTOR,
       soilingRecoveryFactorRooftop: 0.118,
       investmentUnitMin: 1_950,
       investmentUnitMax: 5_280,
@@ -223,7 +226,7 @@ export const ROI_MARKET_PROFILES: Record<RoiMarketId, RoiMarketProfile> = {
       litresPerModulePerCycle: 3,
       waterCostPerLitre: 0.004,
       specificYieldKwhPerKw: 1750,
-      soilingRecoveryFactorGround: 0.032,
+      soilingRecoveryFactorGround: GROUND_MOUNT_SOILING_RECOVERY_FACTOR,
       soilingRecoveryFactorRooftop: 0.11,
       investmentUnitMin: 480,
       investmentUnitMax: 1_300,
@@ -248,7 +251,7 @@ export const ROI_MARKET_PROFILES: Record<RoiMarketId, RoiMarketProfile> = {
       litresPerModulePerCycle: 2.5,
       waterCostPerLitre: 4,
       specificYieldKwhPerKw: 1180,
-      soilingRecoveryFactorGround: 0.018,
+      soilingRecoveryFactorGround: GROUND_MOUNT_SOILING_RECOVERY_FACTOR,
       soilingRecoveryFactorRooftop: 0.075,
       investmentUnitMin: 77_000,
       investmentUnitMax: 209_000,
@@ -273,7 +276,7 @@ export const ROI_MARKET_PROFILES: Record<RoiMarketId, RoiMarketProfile> = {
       litresPerModulePerCycle: 2.5,
       waterCostPerLitre: 0.0035,
       specificYieldKwhPerKw: 1680,
-      soilingRecoveryFactorGround: 0.022,
+      soilingRecoveryFactorGround: GROUND_MOUNT_SOILING_RECOVERY_FACTOR,
       soilingRecoveryFactorRooftop: 0.09,
       investmentUnitMin: 780,
       investmentUnitMax: 2_110,

@@ -7,6 +7,7 @@ import {
   useMemo,
   useState,
 } from "react";
+import { trackLeadModalOpen } from "@/lib/analytics/track-event";
 
 export interface LeadModalOpenOptions {
   /** Short label shown as an eyebrow chip on the modal (e.g. "Request a quote"). */
@@ -35,6 +36,7 @@ export function LeadModalProvider({ children }: { children: React.ReactNode }) {
   const [state, setState] = useState<LeadModalState>({ isOpen: false });
 
   const openLeadModal = useCallback((opts?: LeadModalOpenOptions) => {
+    trackLeadModalOpen({ source: opts?.source, topic: opts?.topic });
     setState({
       isOpen: true,
       topic: opts?.topic,

@@ -207,7 +207,7 @@ export default async function PrivacyPolicySection({
             </ul>
             <div className="text-[#0c2f42] text-lg mb-10">
               {t("s6.contactBefore")}{" "}
-              <ContactEmailLink className="brand-inline-link">
+              <ContactEmailLink className="brand-inline-link" location="legal_page">
                 {tCommon("emailLink")}
               </ContactEmailLink>
               {t("s6.contactAfter")}
@@ -267,13 +267,13 @@ export default async function PrivacyPolicySection({
               <br />
               <span>
                 {t("s11.mailLabel")}{" "}
-                <ContactEmailLink className="hover:text-[#A8C117] transition-colors">
+                <ContactEmailLink className="hover:text-[#A8C117] transition-colors" location="legal_page">
                   {tCommon("emailLink")}
                 </ContactEmailLink>
               </span>
               <span className="hidden sm:block mx-2"></span>
               <span>
-                {t("s11.phoneLabel")} <ContactPhoneLink />
+                {t("s11.phoneLabel")} <ContactPhoneLink location="legal_page" />
               </span>
             </div>
           </div>

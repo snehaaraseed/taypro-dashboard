@@ -345,13 +345,13 @@ export default async function CookiePolicyPage({
               <br />
               <span>
                 {t("s8.mailLabel")}{" "}
-                <ContactEmailLink className="hover:text-[#A8C117] transition-colors">
+                <ContactEmailLink className="hover:text-[#A8C117] transition-colors" location="legal_page">
                   {tCommon("emailLink")}
                 </ContactEmailLink>
               </span>
               <span className="hidden sm:block mx-2"></span>
               <span>
-                {t("s8.phoneLabel")} <ContactPhoneLink />
+                {t("s8.phoneLabel")} <ContactPhoneLink location="legal_page" />
               </span>
             </div>
           </div>

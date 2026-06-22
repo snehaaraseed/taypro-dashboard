@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import ComparisonLandingPage from "@/app/components/ComparisonLandingPage";
 import CompetitorMarketComparisonPage from "@/app/components/CompetitorMarketComparisonPage";
+import { socialImagesFromPreset } from "@/lib/seo/open-graph";
+import { withHreflang } from "@/lib/seo/with-hreflang";
+import { recoveryNotFoundMetadata } from "@/lib/seo/recovery-not-found-metadata";
 import {
   COMPARISON_PAGE_LIST,
   getComparisonBySlug,
@@ -12,7 +15,8 @@ import {
 export function generateStaticParams() {
   return COMPARISON_PAGE_LIST.map((page) => ({ slug: page.slug }));
 }
-import { withHreflang } from "@/lib/seo/with-hreflang";
+
+const compareOg = socialImagesFromPreset("default");
 
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -21,7 +25,9 @@ type PageProps = {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale, slug } = await params;
   const config = getComparisonBySlug(slug);
-  if (!config) return { title: "Compare" };
+  if (!config) {
+    return recoveryNotFoundMetadata({ title: "Compare" });
+  }
 
   const t = await getTranslations({
     locale,
@@ -36,6 +42,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: `${t(`${pageId}.meta.title`)} | Taypro`,
       description: t(`${pageId}.meta.description`),
+      type: "website",
+      ...compareOg.openGraph,
+    },
+    twitter: {
+      title: `${t(`${pageId}.meta.title`)} | Taypro`,
+      description: t(`${pageId}.meta.description`),
+      ...compareOg.twitter,
     },
   });
 }

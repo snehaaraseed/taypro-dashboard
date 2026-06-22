@@ -13,7 +13,7 @@ const DEFAULT_SUBTITLE =
 
 export default function LeadModal() {
   const { state, closeLeadModal } = useLeadModal();
-  const { isOpen, topic, title, subtitle } = state;
+  const { isOpen, topic, title, subtitle, source } = state;
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -59,18 +59,21 @@ export default function LeadModal() {
             src="/tayproasset/taypro-robotImage.png"
             alt="Taypro solar panel cleaning robot"
             fill
-            className="scale-105 object-cover object-center opacity-35 mix-blend-luminosity"
+            className="pointer-events-none scale-105 object-cover object-center opacity-35 mix-blend-luminosity"
             sizes="(max-width: 640px) 100vw, 36rem"
             priority={false}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#052638] via-transparent to-transparent" />
-          <div className="absolute right-3 top-3 flex items-center gap-2 sm:right-4 sm:top-4">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#052638] via-transparent to-transparent" />
+          <div className="absolute right-3 top-3 z-20 flex items-center gap-2 sm:right-4 sm:top-4">
             <span className="rounded-full bg-[#A8C117]/20 px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#d4e884] ring-1 ring-[#A8C117]/40 sm:px-3.5 sm:py-1.5 sm:text-sm">
               Free, about 1 minute
             </span>
             <button
               type="button"
-              onClick={closeLeadModal}
+              onClick={(e) => {
+                e.stopPropagation();
+                closeLeadModal();
+              }}
               className="flex h-10 w-10 items-center justify-center rounded-full bg-black/25 text-white backdrop-blur-sm transition hover:bg-black/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] sm:h-11 sm:w-11"
               aria-label="Close"
             >
@@ -109,10 +112,12 @@ export default function LeadModal() {
               messagePlaceholder="MW, fixed-tilt or trackers, soiling or water limits, how you clean today, and what you want to improve."
               submitLabel="Send my fit check"
               autoFocus
-              redirectOnSuccess={false}
               hideResetAfterSuccess
               thankYouTitle="Got it, your fit check is on the way"
               thankYouMessage="Our applications team will follow up shortly with the right Solar Panel Cleaning Robot direction for your plant."
+              analyticsFormType="lead_modal"
+              analyticsSource={source}
+              analyticsTopic={topic}
               onSuccess={() => {
                 window.setTimeout(closeLeadModal, 2800);
               }}

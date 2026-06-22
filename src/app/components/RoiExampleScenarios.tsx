@@ -1,8 +1,10 @@
 import { getTranslations } from "next-intl/server";
-import { computeExampleScenarios } from "@/lib/roi-calculator/default-scenario";
+import { computeExampleScenarios } from "@/lib/roi-calculator/example-scenarios";
 import {
   formatRoiCurrency,
+  formatRoiMoneyCompact,
   formatRoiNumber,
+  formatRoiPaybackDuration,
 } from "@/lib/roi-calculator/format-roi";
 
 type RoiExampleScenariosProps = {
@@ -47,8 +49,15 @@ export async function RoiExampleScenarios({ locale }: RoiExampleScenariosProps) 
             <dl className="space-y-3 text-sm">
               <div className="flex justify-between gap-4 border-b border-gray-200 pb-2">
                 <dt className="text-[#27415c]">{tCalc("highlightInvestment")}</dt>
-                <dd className="text-[#052638] font-semibold text-right">
-                  {formatRoiCurrency(
+                <dd
+                  className="text-[#052638] font-semibold text-right tabular-nums shrink-0"
+                  title={formatRoiCurrency(
+                    scenario.result.totalInvestmentRequired,
+                    market,
+                    locale
+                  )}
+                >
+                  {formatRoiMoneyCompact(
                     scenario.result.totalInvestmentRequired,
                     market,
                     locale
@@ -58,14 +67,25 @@ export async function RoiExampleScenarios({ locale }: RoiExampleScenariosProps) 
               <div className="flex justify-between gap-4 border-b border-gray-200 pb-2">
                 <dt className="text-[#27415c]">{tCalc("paybackTimeline")}</dt>
                 <dd className="text-[#052638] font-semibold text-right">
-                  {formatRoiNumber(scenario.result.roiTimeline, market, locale)}{" "}
-                  {tCalc("yearsUnit")}
+                  {formatRoiPaybackDuration(scenario.result.roiTimeline, {
+                    year: tCalc("durationYear"),
+                    years: tCalc("yearsUnit"),
+                    month: tCalc("durationMonth"),
+                    months: tCalc("durationMonths"),
+                  })}
                 </dd>
               </div>
               <div className="flex justify-between gap-4 border-b border-gray-200 pb-2">
                 <dt className="text-[#27415c]">{tCalc("annualSavings")}</dt>
-                <dd className="text-[#052638] font-semibold text-right">
-                  {formatRoiCurrency(
+                <dd
+                  className="text-[#052638] font-semibold text-right tabular-nums shrink-0"
+                  title={formatRoiCurrency(
+                    scenario.result.totalMoneySavedAnnually,
+                    market,
+                    locale
+                  )}
+                >
+                  {formatRoiMoneyCompact(
                     scenario.result.totalMoneySavedAnnually,
                     market,
                     locale

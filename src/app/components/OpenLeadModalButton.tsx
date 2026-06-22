@@ -7,6 +7,7 @@ import {
   LeadModalContext,
   type LeadModalOpenOptions,
 } from "./LeadModalContext";
+import { trackCtaClick } from "@/lib/analytics/track-event";
 
 interface OpenLeadModalButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
@@ -34,7 +35,17 @@ export default function OpenLeadModalButton({
 
   if (!ctx) {
     return (
-      <Link href="/contact" className={className}>
+      <Link
+        href="/contact"
+        className={className}
+        onClick={() =>
+          trackCtaClick({
+            ctaName: source ?? topic ?? "contact_fallback",
+            location: "unknown",
+            destination: "/contact",
+          })
+        }
+      >
         {children}
       </Link>
     );
@@ -43,6 +54,11 @@ export default function OpenLeadModalButton({
   const { openLeadModal } = ctx;
 
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+    trackCtaClick({
+      ctaName: source ?? topic ?? "lead_modal",
+      location: "modal",
+      destination: "/contact",
+    });
     openLeadModal({ topic, source, title, subtitle });
     onClick?.(event);
   };

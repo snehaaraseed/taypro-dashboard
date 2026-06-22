@@ -38,12 +38,11 @@ import { addHeadingIdsAndExtractToc } from "@/lib/seo/html-toc";
 import { socialImagesFromMedia } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 import { withHreflang } from "@/lib/seo/with-hreflang";
-import { renderRecoveryNotFound } from "@/app/components/renderRecoveryNotFound";
+import { recoveryNotFoundMetadata } from "@/lib/seo/recovery-not-found-metadata";
 import {
   applyRecovery,
   log404Hit,
   recoverProjectSlug,
-  shouldShowRecoveryNotFound,
 } from "@/lib/url-recovery";
 
 const siteUrl = SITE_URL;
@@ -77,7 +76,9 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "ProjectDetailPage" });
 
   if (!resolved) {
-    return { title: t("notFoundTitle") };
+    return recoveryNotFoundMetadata({
+      title: t("notFoundTitle"),
+    });
   }
 
   const { metadata } = resolved.post;
@@ -124,16 +125,10 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
     );
     const recovery = recoverProjectSlug(slug, publishedSlugs);
     applyRecovery(recovery);
-    const recoveryContext = {
-      suggestion: recovery.kind !== "none" ? recovery : undefined,
-    };
     void log404Hit(
       `/projects/${slug}`,
       recovery.kind !== "none" ? recovery.destination : undefined
     );
-    if (shouldShowRecoveryNotFound(recoveryContext)) {
-      return renderRecoveryNotFound(locale, recoveryContext);
-    }
     notFound();
   }
   if (resolved.usesEnglishFallback) {
@@ -353,7 +348,11 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
 
               {contentWithIds ? (
                 <article suppressHydrationWarning>
-                  <BlogContent content={contentWithIds} className={proseClassName} />
+                  <BlogContent
+                    content={contentWithIds}
+                    imageAltContext={{ title: metadata.title }}
+                    className={proseClassName}
+                  />
                 </article>
               ) : (
                 <p className="text-[#27415c] text-base leading-relaxed">

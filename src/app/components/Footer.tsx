@@ -3,10 +3,8 @@ import { Facebook, Instagram, Linkedin, Youtube, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { ContactEmailLink } from "@/app/components/ContactEmailLink";
-import {
-  TAYPRO_SALES_PHONE_DISPLAY,
-  TAYPRO_SALES_PHONE_TEL,
-} from "@/lib/contact";
+import { ContactPhoneLink } from "@/app/components/ContactPhoneLink";
+import { trackOutboundClick } from "@/lib/analytics/track-event";
 import { useState, useEffect } from "react";
 
 export default function Footer() {
@@ -90,19 +88,14 @@ export default function Footer() {
             <div className="flex flex-col sm:flex-row items-start gap-4 text-white text-2xl">
               <span>
                 {t("mail")}:{" "}
-                <ContactEmailLink className="hover:text-[#A8C117]">
+                <ContactEmailLink className="hover:text-[#A8C117]" location="footer">
                   {t("emailLink")}
                 </ContactEmailLink>
               </span>
               <span className="hidden sm:block mx-2"></span>
               <span>
                 {t("phone")}:{" "}
-                <a
-                  href={TAYPRO_SALES_PHONE_TEL}
-                  className="hover:text-[#A8C117]"
-                >
-                  {TAYPRO_SALES_PHONE_DISPLAY}
-                </a>
+                <ContactPhoneLink location="footer" className="hover:text-[#A8C117]" />
               </span>
             </div>
           </div>
@@ -113,6 +106,13 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Taypro on Facebook"
+            onClick={() =>
+              trackOutboundClick({
+                url: "https://www.facebook.com/taypro.official",
+                platform: "facebook",
+                location: "footer",
+              })
+            }
           >
             <div className="bg-[#F1EFE6] p-2 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
               <Facebook className="text-[#052638] w-6 h-6" />
@@ -123,6 +123,13 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Taypro on X"
+            onClick={() =>
+              trackOutboundClick({
+                url: "https://x.com/taypro_official",
+                platform: "x",
+                location: "footer",
+              })
+            }
           >
             <div className="bg-[#F1EFE6] p-2 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
               <X className="text-[#052638] w-6 h-6" />
@@ -133,6 +140,13 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Taypro on Instagram"
+            onClick={() =>
+              trackOutboundClick({
+                url: "https://www.instagram.com/taypro_official/",
+                platform: "instagram",
+                location: "footer",
+              })
+            }
           >
             <div className="bg-[#F1EFE6] p-2 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
               <Instagram className="text-[#052638] w-6 h-6" />
@@ -143,6 +157,13 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Taypro on LinkedIn"
+            onClick={() =>
+              trackOutboundClick({
+                url: "https://www.linkedin.com/company/taypro",
+                platform: "linkedin",
+                location: "footer",
+              })
+            }
           >
             <div className="bg-[#F1EFE6] p-2 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
               <Linkedin className="text-[#052638] w-6 h-6" />
@@ -153,6 +174,13 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Taypro on YouTube"
+            onClick={() =>
+              trackOutboundClick({
+                url: "https://www.youtube.com/c/taypro",
+                platform: "youtube",
+                location: "footer",
+              })
+            }
           >
             <div className="bg-[#F1EFE6] p-2 rounded-md flex items-center justify-center hover:bg-[#e6e8F1] transition-colors">
               <Youtube className="text-[#052638] w-6 h-6" />

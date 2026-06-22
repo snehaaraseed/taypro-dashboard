@@ -1,23 +1,9 @@
 "use client";
 
 import { useEffect } from "react";
-
-/** Must match `COOKIE_PREFERENCES_KEY` in `CookieConsent.tsx`. */
-const COOKIE_PREFERENCES_KEY = "cookie-preferences";
+import { readAnalyticsConsent } from "@/lib/analytics/consent";
 
 const GTM_CONTAINER_ID = "GTM-N5DH4N38";
-
-function readAnalyticsPreference(): boolean {
-  if (typeof window === "undefined") return false;
-  try {
-    const raw = localStorage.getItem(COOKIE_PREFERENCES_KEY);
-    if (!raw) return false;
-    const prefs = JSON.parse(raw) as { analytics?: boolean };
-    return Boolean(prefs.analytics);
-  } catch {
-    return false;
-  }
-}
 
 /**
  * Loads the GTM web container only after analytics cookies are accepted.
@@ -83,7 +69,7 @@ export default function GoogleTagManagerLoader() {
       }
     };
 
-    sync(readAnalyticsPreference());
+    sync(readAnalyticsConsent());
 
     const onConsent = (e: Event) => {
       const prefs = (e as CustomEvent<{ analytics?: boolean }>).detail;

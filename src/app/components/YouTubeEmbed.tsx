@@ -1,13 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Youtube, Play } from "lucide-react";
+import {
+  trackVideoPlay,
+  type AnalyticsLocation,
+} from "@/lib/analytics/track-event";
 
 interface YouTubeEmbedProps {
   videoId: string;
   title?: string;
   className?: string;
   thumbnailUrl?: string;
+  location?: AnalyticsLocation;
 }
 
 export default function YouTubeEmbed({
@@ -15,12 +20,25 @@ export default function YouTubeEmbed({
   title = "YouTube Video",
   className = "",
   thumbnailUrl,
+  location = "unknown",
 }: YouTubeEmbedProps) {
   const [hasConsent, setHasConsent] = useState(false);
   const [showPlaceholder, setShowPlaceholder] = useState(true);
+  const playTracked = useRef(false);
+
+  const recordPlay = () => {
+    if (playTracked.current) return;
+    playTracked.current = true;
+    trackVideoPlay({ videoId, title, location });
+  };
 
   useEffect(() => {
-    // Check for cookie consent
+    if (hasConsent && !showPlaceholder) {
+      recordPlay();
+    }
+  }, [hasConsent, showPlaceholder]);
+
+  useEffect(() => {
     const checkConsent = () => {
       if (typeof window !== "undefined") {
         const consent = localStorage.getItem("cookie-consent");
@@ -64,6 +82,7 @@ export default function YouTubeEmbed({
   }, []);
 
   const handleLoadVideo = () => {
+    recordPlay();
     setHasConsent(true);
     setShowPlaceholder(false);
   };

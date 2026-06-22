@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {
   mergePageAlternates,
+  openGraphLocaleForSite,
   type LocaleAlternatesOptions,
 } from "./locale-alternates";
 
@@ -26,13 +27,28 @@ export function withHreflang(
   metadata: Metadata,
   options?: LocaleAlternatesOptions
 ): Metadata {
+  const alternates = mergePageAlternates(
+    internalPath,
+    locale,
+    metadata.alternates,
+    options
+  );
+  const canonicalUrl =
+    typeof alternates?.canonical === "string" ? alternates.canonical : undefined;
+
+  const openGraph =
+    metadata.openGraph && canonicalUrl
+      ? {
+          ...metadata.openGraph,
+          url: canonicalUrl,
+          locale:
+            metadata.openGraph.locale ?? openGraphLocaleForSite(locale),
+        }
+      : metadata.openGraph;
+
   return {
     ...metadata,
-    alternates: mergePageAlternates(
-      internalPath,
-      locale,
-      metadata.alternates,
-      options
-    ),
+    alternates,
+    openGraph,
   };
 }

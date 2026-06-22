@@ -60,14 +60,16 @@ export function buildLocaleAlternates(
 
   if (explicitLocales && explicitLocales.length > 0) {
     for (const locale of explicitLocales) {
-      languages[locale] = localizedUrl(path, locale) + suffix;
+      languages[hreflangTagForLocale(locale)] =
+        localizedUrl(path, locale) + suffix;
     }
   } else if (includeAll) {
     for (const locale of routing.locales) {
-      languages[locale] = localizedUrl(path, locale) + suffix;
+      languages[hreflangTagForLocale(locale)] =
+        localizedUrl(path, locale) + suffix;
     }
   } else {
-    languages[routing.defaultLocale] = localizedUrl(
+    languages[hreflangTagForLocale(routing.defaultLocale)] = localizedUrl(
       path,
       routing.defaultLocale
     );
@@ -97,6 +99,38 @@ export function mergePageAlternates(
 
 export function isTayproLocale(value: string): value is TayproLocale {
   return (ACTIVE_LOCALES as readonly string[]).includes(value);
+}
+
+/** Open Graph locale tags aligned with Taypro site locales. */
+export function openGraphLocaleForSite(locale: string): string {
+  switch (locale) {
+    case "hi":
+      return "hi_IN";
+    case "ar":
+      return "ar_AE";
+    case "ja":
+      return "ja_JP";
+    case "bn":
+      return "bn_BD";
+    default:
+      return "en_IN";
+  }
+}
+
+/** Hreflang attribute values (language-REGION). */
+export function hreflangTagForLocale(locale: string): string {
+  switch (locale) {
+    case "hi":
+      return "hi-IN";
+    case "ar":
+      return "ar-AE";
+    case "ja":
+      return "ja-JP";
+    case "bn":
+      return "bn-BD";
+    default:
+      return "en-IN";
+  }
 }
 
 /** Sitemap path for one locale (English has no `/en` prefix). */

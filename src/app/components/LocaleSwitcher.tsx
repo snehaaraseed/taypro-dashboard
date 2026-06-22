@@ -6,6 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { LOCALE_LABELS, type TayproLocale } from "@/i18n/markets";
 import { routing } from "@/i18n/routing";
+import { trackLocaleChange } from "@/lib/analytics/track-event";
 
 function localeCode(locale: TayproLocale): string {
   return locale.toUpperCase();
@@ -43,6 +44,11 @@ export default function LocaleSwitcher() {
       setOpen(false);
       return;
     }
+    trackLocaleChange({
+      fromLocale: locale,
+      toLocale: next,
+      pagePath: pathname,
+    });
     router.replace(pathname, { locale: next });
     setOpen(false);
   }
