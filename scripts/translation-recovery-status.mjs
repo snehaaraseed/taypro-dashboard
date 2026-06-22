@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Exit 10 when catchup translation worker should be (re)started:
- * worker not running and blogs/projects still need translation.
+ * worker not running, today's English blog is done, and backlog remains.
  * Prints one JSON line to stdout. No server-only / tsx imports.
  */
 import Database from "better-sqlite3";
@@ -12,6 +12,16 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = process.env.TAYPRO_APP_ROOT ?? path.resolve(__dirname, "..");
 const dbPath = path.join(root, "data", "cms.sqlite");
+const runtimeDir = path.join(root, ".runtime", "blog-cron");
+
+function blogDoneTodayIst() {
+  const ymd = new Date().toLocaleDateString("en-CA", {
+    timeZone: "Asia/Kolkata",
+  });
+  const compact = ymd.replace(/-/g, "");
+  return existsSync(path.join(runtimeDir, `done-${compact}`));
+}
+
 const lockPath = path.join(root, ".runtime", "translation-cron", "catchup.lock");
 const translationLogPath = path.join(
   root,
@@ -168,7 +178,9 @@ function main() {
   }
 
   const pendingTotal = blogBacklog + projectBacklog;
-  const shouldRestart = !workerRunning && pendingTotal > 0;
+  const blogDoneToday = blogDoneTodayIst();
+  const shouldRestart =
+    blogDoneToday && !workerRunning && pendingTotal > 0;
 
   console.log(
     JSON.stringify({
@@ -176,6 +188,7 @@ function main() {
       workerReason: runState.reason ?? null,
       staleMinutes: runState.staleMinutes ?? null,
       lastActivityTs: runState.lastActivityTs ?? null,
+      blogDoneToday,
       blogBacklog,
       projectBacklog,
       pendingTotal,

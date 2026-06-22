@@ -72,7 +72,7 @@ import {
   isGroundingCallBudgetError,
   isGroundingQuotaError,
 } from "@/lib/gemini/grounding-config";
-import { dispatchPostWriterTranslationWorker } from "@/lib/translation/dispatch-post-writer-worker";
+
 import { createBlogFiles, createSlug } from "@/app/utils/blogFileUtils";
 import { isAutomationAuthorized } from "@/lib/security";
 import { runGroundedFactResearch } from "@/lib/gemini/grounded-fact-research";
@@ -110,15 +110,15 @@ import {
   pickFocusKeywordForToday,
 } from "@/lib/seo/keyword-campaign";
 
-/** Per cron POST: try many slots before giving up (prod env may set a low cap). */
+/** Per cron POST: outer attempt cap from env (optional floor via BLOG_AUTOMATION_MIN_OUTER_ATTEMPTS). */
 function getAutomationOuterAttemptCap(): number | null {
   const envCap = getBlogPipelineMaxOuterAttempts();
-  const minRaw = process.env.BLOG_AUTOMATION_MIN_OUTER_ATTEMPTS?.trim();
-  const parsedMin = minRaw ? Number.parseInt(minRaw, 10) : 30;
-  const floor =
-    Number.isFinite(parsedMin) && parsedMin > 0 ? parsedMin : 30;
   if (envCap === null) return null;
-  return Math.max(envCap, floor);
+  const minRaw = process.env.BLOG_AUTOMATION_MIN_OUTER_ATTEMPTS?.trim();
+  if (!minRaw) return envCap;
+  const parsedMin = Number.parseInt(minRaw, 10);
+  if (!Number.isFinite(parsedMin) || parsedMin <= 0) return envCap;
+  return Math.max(envCap, parsedMin);
 }
 
 const PIPELINE_ATTEMPT_CAP = getAutomationOuterAttemptCap();
@@ -970,8 +970,6 @@ export async function POST(request: NextRequest) {
         }
 
         revalidatePath("/admin/blogs");
-
-        dispatchPostWriterTranslationWorker();
 
         return NextResponse.json({
           success: true,

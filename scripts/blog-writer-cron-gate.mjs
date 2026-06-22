@@ -3,7 +3,8 @@
  * Cron helpers: Pacific soft-start gate + text-model quota hold file.
  * Keep in sync with src/lib/gemini/quota-schedule.ts
  */
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import path from "node:path";
 
 const PT = "America/Los_Angeles";
 const DEFAULT_SOFT_START_MIN = 30;
@@ -96,10 +97,42 @@ function formatNextStartIst(epoch) {
   });
 }
 
+const IST = "Asia/Kolkata";
+const DEFAULT_RUNTIME_DIR = ".runtime/blog-cron";
+
+function resolveRuntimeDir() {
+  const root = process.env.TAYPRO_APP_ROOT ?? process.cwd();
+  return process.env.BLOG_CRON_RUNTIME_DIR?.trim()
+    ? process.env.BLOG_CRON_RUNTIME_DIR.trim()
+    : path.join(root, DEFAULT_RUNTIME_DIR);
+}
+
+function istYmdCompact(now = new Date()) {
+  return now.toLocaleDateString("en-CA", { timeZone: IST }).replace(/-/g, "");
+}
+
+function isBlogDoneTodayIst(now = new Date()) {
+  return existsSync(path.join(resolveRuntimeDir(), `done-${istYmdCompact(now)}`));
+}
+
 const cmd = process.argv[2];
 
 if (cmd === "past-soft-start") {
   process.exit(isPastGeminiQuotaSoftStart() ? 0 : 1);
+}
+
+if (cmd === "next-soft-start-epoch") {
+  console.log(String(getNextGeminiQuotaSoftStartEpoch()));
+  process.exit(0);
+}
+
+if (cmd === "format-next-soft-start-ist") {
+  console.log(formatNextStartIst(getNextGeminiQuotaSoftStartEpoch()));
+  process.exit(0);
+}
+
+if (cmd === "blog-done-today") {
+  process.exit(isBlogDoneTodayIst() ? 0 : 1);
 }
 
 if (cmd === "check-hold") {
@@ -120,6 +153,6 @@ if (cmd === "write-hold") {
 }
 
 console.error(
-  "Usage: blog-writer-cron-gate.mjs past-soft-start | check-hold <file> | write-hold <file>"
+  "Usage: blog-writer-cron-gate.mjs past-soft-start | next-soft-start-epoch | format-next-soft-start-ist | blog-done-today | check-hold <file> | write-hold <file>"
 );
 process.exit(2);

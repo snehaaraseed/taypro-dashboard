@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getNextGeminiQuotaSoftStartEpoch } from "@/lib/gemini/quota-schedule";
 import { isAutomationAuthorized } from "@/lib/security";
 import { getNextMidnightStopAtEpoch } from "@/lib/translation/config";
 import { processDailyTranslations } from "@/lib/translation/translation-queue";
@@ -31,7 +32,7 @@ function isRunInFlight(): boolean {
 /**
  * POST — CMS translation (AUTOMATION_CRON_SECRET).
  * postWriter=true or catchup=true: full backlog until both Gemini keys hit quota
- * or stopAtEpoch (defaults to midnight IST). Legacy daily cap only when both are false.
+ * or stopAtEpoch (post-writer defaults to next 00:30 Pacific soft start ≈ 1:00 PM IST).
  */
 export async function POST(request: NextRequest) {
   if (!isAutomationAuthorized(request)) {
@@ -46,7 +47,9 @@ export async function POST(request: NextRequest) {
     typeof body.stopAtEpoch === "number" && body.stopAtEpoch > 0
       ? body.stopAtEpoch
       : catchup
-        ? getNextMidnightStopAtEpoch()
+        ? postWriter
+          ? getNextGeminiQuotaSoftStartEpoch()
+          : getNextMidnightStopAtEpoch()
         : undefined;
 
   if (isRunInFlight()) {

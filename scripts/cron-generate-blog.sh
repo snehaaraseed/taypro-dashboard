@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Every 5 min: recover translation when backlog exists; write one blog after 00:30 Pacific
-# (Gemini RPD resets at midnight PT ≈ 12:30 IST). On text-model quota exhaustion, hold until
-# the next 00:30 PT instead of retrying every 5 min. Writer only runs when done-* is missing.
+# Every 5 min: after 00:30 Pacific (~1:00 PM IST) write one English blog, then start
+# translation catchup until quota or the next soft start. Translation never runs before
+# today's blog is done. Writer uses flock so only one generate-blog runs at a time.
 set -euo pipefail
 
 ROOT="${TAYPRO_APP_ROOT:-/var/www/taypro-dashboard}"
@@ -28,6 +28,9 @@ fi
 mkdir -p "$RUNTIME_DIR"
 DAY=$(date +%Y%m%d)
 DONE_FILE="$RUNTIME_DIR/done-$DAY"
+GATE_SCRIPT="$ROOT/scripts/blog-writer-cron-gate.mjs"
+QUOTA_HOLD_FILE="$RUNTIME_DIR/quota-hold-until"
+WRITER_LOCK="$RUNTIME_DIR/writer.lock"
 
 start_post_writer_translations() {
   if [ -x "$ROOT/scripts/start-post-writer-translations.sh" ]; then
@@ -38,6 +41,10 @@ start_post_writer_translations() {
 }
 
 maybe_recover_translation() {
+  if [ ! -f "$DONE_FILE" ]; then
+    return 0
+  fi
+
   local status_json status_exit
   set +e
   status_json="$(
@@ -51,14 +58,20 @@ maybe_recover_translation() {
   fi
 }
 
-maybe_recover_translation
+finish_blog_cron_day() {
+  touch "$DONE_FILE"
+}
 
+finish_blog_cron_day_and_translate() {
+  finish_blog_cron_day
+  start_post_writer_translations
+}
+
+# Blog-first: translation recovery only after today's English write is done.
 if [ -f "$DONE_FILE" ]; then
+  maybe_recover_translation
   exit 0
 fi
-
-GATE_SCRIPT="$ROOT/scripts/blog-writer-cron-gate.mjs"
-QUOTA_HOLD_FILE="$RUNTIME_DIR/quota-hold-until"
 
 if [ ! -f "$GATE_SCRIPT" ]; then
   echo "$(date -Is) ERROR: missing $GATE_SCRIPT" >> "$LOG"
@@ -78,17 +91,13 @@ fi
 
 API_BASE="${CMS_CRON_API_BASE:-http://127.0.0.1:3000}"
 AUTH_HEADER="Authorization: Bearer ${AUTOMATION_CRON_SECRET}"
-
-finish_blog_cron_day() {
-  touch "$DONE_FILE"
-}
-
-finish_blog_cron_day_and_translate() {
-  finish_blog_cron_day
-  start_post_writer_translations
-}
-
 ENDPOINT="${API_BASE%/}/api/automation/generate-blog"
+
+exec 9>"$WRITER_LOCK"
+if ! flock -n 9; then
+  exit 0
+fi
+
 {
   echo "$(date -Is) POST $ENDPOINT"
   BODY=$(curl -sS -m 1800 -X POST "$ENDPOINT" \
@@ -116,8 +125,8 @@ ENDPOINT="${API_BASE%/}/api/automation/generate-blog"
   set -e
   case "$EXIT" in
     10)
-      echo "$(date -Is) blog scheduled (translation dispatched by API)" >> "$LOG"
-      finish_blog_cron_day
+      echo "$(date -Is) blog written; starting translation after successful write" >> "$LOG"
+      finish_blog_cron_day_and_translate
       ;;
     20)
       HOLD_UNTIL=$(node "$GATE_SCRIPT" write-hold "$QUOTA_HOLD_FILE" 2>/dev/null || echo "next writer start")
@@ -130,8 +139,7 @@ ENDPOINT="${API_BASE%/}/api/automation/generate-blog"
       finish_blog_cron_day_and_translate
       ;;
     *)
-      echo "$(date -Is) generate-blog failed; will retry on next cron tick" >> "$LOG"
-      maybe_recover_translation
+      echo "$(date -Is) generate-blog failed; will retry on next cron tick (translation deferred)" >> "$LOG"
       ;;
   esac
 } >> "$LOG" 2>&1

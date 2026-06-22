@@ -3,7 +3,7 @@
  * Runs outside PM2/HTTP so long Gemini runs are not cut off by curl timeouts.
  *
  * Post-writer: scripts/start-post-writer-translations.sh (full backlog until
- * both Gemini keys hit quota or midnight IST)
+ * quota or next 00:30 Pacific soft start ≈ 1:00 PM IST)
  * Manual catch-up: scripts/run-cms-translation-catchup.sh
  */
 import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from "fs";

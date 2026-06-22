@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 # Start post-writer translation via PM2 HTTP API (avoids standalone tsx server-only issues).
+# Runs until quota exhaustion or the next Gemini soft start (~1:00 PM IST).
 set -euo pipefail
 
 ROOT="${TAYPRO_APP_ROOT:-/var/www/taypro-dashboard}"
 LOG="${BLOG_TRANSLATION_LOG:-$ROOT/logs/blog-translation-post-writer.log}"
 ENV_FILE="$ROOT/.env.production"
+GATE_SCRIPT="$ROOT/scripts/blog-writer-cron-gate.mjs"
 
 mkdir -p "$(dirname "$LOG")"
 
@@ -23,16 +25,35 @@ if [ -z "${AUTOMATION_CRON_SECRET:-}" ]; then
   exit 1
 fi
 
+export TZ="${BLOG_CRON_TZ:-Asia/Kolkata}"
+DONE_FILE="$ROOT/.runtime/blog-cron/done-$(date +%Y%m%d)"
+
+if [ ! -f "$DONE_FILE" ]; then
+  echo "$(date -Is) skip: today's English blog not done yet (translation deferred)" >> "$LOG"
+  exit 0
+fi
+
 API_BASE="${CMS_CRON_API_BASE:-http://127.0.0.1:3000}"
 ENDPOINT="${API_BASE%/}/api/automation/retry-translations"
 AUTH_HEADER="Authorization: Bearer ${AUTOMATION_CRON_SECRET}"
 
+STOP_AT_EPOCH=""
+if [ -f "$GATE_SCRIPT" ]; then
+  STOP_AT_EPOCH=$(node "$GATE_SCRIPT" next-soft-start-epoch 2>/dev/null || true)
+fi
+
+if [ -n "$STOP_AT_EPOCH" ]; then
+  PAYLOAD=$(printf '{"postWriter":true,"stopAtEpoch":%s}' "$STOP_AT_EPOCH")
+else
+  PAYLOAD='{"postWriter":true}'
+fi
+
 {
-  echo "$(date -Is) POST $ENDPOINT (postWriter)"
+  echo "$(date -Is) POST $ENDPOINT (postWriter stopAtEpoch=${STOP_AT_EPOCH:-auto})"
   BODY=$(curl -sS -m 60 -X POST "$ENDPOINT" \
     -H "$AUTH_HEADER" \
     -H "Content-Type: application/json" \
-    -d '{"postWriter":true}')
+    -d "$PAYLOAD")
   echo "$BODY"
   node -e "
     const b = JSON.parse(process.argv[1]);
