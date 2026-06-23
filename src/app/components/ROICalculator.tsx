@@ -411,7 +411,6 @@ export default function ROITayproCalculator({
         resultInvestment: t("resultInvestment"),
         resultMonthlyOpex: t("resultMonthlyOpex"),
         resultAnnualOpex: t("resultAnnualOpex"),
-        resultRatePerModule: t("resultRatePerModule"),
         resultNetAnnualBenefit: t("resultNetAnnualBenefit"),
         resultOpexServiceModel: t("resultOpexServiceModel"),
         resultOpexServiceModelValue: t("resultOpexServiceModelValue"),
@@ -971,12 +970,6 @@ export default function ROITayproCalculator({
                     title={formatOpexMoney(opexDetails.annualOpex)}
                   >
                     {formatOpexMoneyCompact(opexDetails.annualOpex)}
-                  </span>
-                </div>
-                <div className="flex justify-between gap-4 py-2">
-                  <span>{t("resultRatePerModule")}</span>
-                  <span className="font-semibold text-right tabular-nums shrink-0">
-                    {formatOpexMoney(opexDetails.ratePerModulePerCycle)}
                   </span>
                 </div>
                 <div className="flex justify-between gap-4 py-2">

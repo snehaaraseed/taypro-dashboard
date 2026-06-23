@@ -87,7 +87,6 @@ export interface RoiPdfLabels {
   resultInvestment: string;
   resultMonthlyOpex?: string;
   resultAnnualOpex?: string;
-  resultRatePerModule?: string;
   resultNetAnnualBenefit?: string;
   resultOpexServiceModel?: string;
   resultOpexServiceModelValue?: string;
@@ -266,10 +265,6 @@ function buildFinancialPage(
     ? [
         [labels.resultMonthlyOpex ?? "", money(results.opex!.monthlyOpex)],
         [labels.resultAnnualOpex ?? "", money(results.opex!.annualOpex)],
-        [
-          labels.resultRatePerModule ?? "",
-          money(results.opex!.ratePerModulePerCycle),
-        ],
         [
           labels.resultOpexServiceModel ?? "",
           labels.resultOpexServiceModelValue ?? "",
