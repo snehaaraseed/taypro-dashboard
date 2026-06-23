@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { generateProjectContent } from "@/lib/aiService";
-import { isGenericContentError } from "@/lib/seo/content-quality";
+import { isRetryableGenerationError } from "@/lib/seo/content-quality";
 import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
 import { pickBlogFeaturedImage } from "@/lib/seo/blog-image-picker";
 import { enrichBlogContentWithInlineImages } from "@/lib/seo/blog-inline-images";
@@ -12,11 +12,12 @@ import {
   readProjectMetadata,
 } from "@/lib/cms/projectService";
 import { pickRandomBlogAuthor } from "@/lib/cms/authorService";
+import { assertProjectDraftUnique } from "@/lib/seo/project-uniqueness";
 import { requireAuth } from "@/app/utils/auth";
 
 const MAX_GENERATION_ATTEMPTS = 3;
 
-export const maxDuration = 180;
+export const maxDuration = 600;
 
 function parseFocusedKeywords(input: unknown): string[] {
   if (Array.isArray(input)) {
@@ -72,7 +73,12 @@ export async function POST(request: NextRequest) {
         const projectData = await generateProjectContent(
           topic,
           editorialContext,
-          { userBrief: brief, focusedKeywords, author: bylineAuthor }
+          {
+            userBrief: brief,
+            focusedKeywords,
+            author: bylineAuthor,
+            preferQualityModel: genAttempt >= 1,
+          }
         );
 
         if (
@@ -89,6 +95,12 @@ export async function POST(request: NextRequest) {
             "Generated title overlaps an existing project. Adjust the topic or brief and try again."
           );
         }
+
+        await assertProjectDraftUnique({
+          title: projectData.title,
+          description: projectData.description,
+          slug,
+        });
 
         const featured = await pickBlogFeaturedImage({
           title: projectData.title,
@@ -161,9 +173,13 @@ export async function POST(request: NextRequest) {
         });
       } catch (error) {
         lastError = error;
-        if (isGenericContentError(error) && genAttempt < MAX_GENERATION_ATTEMPTS - 1) {
+        if (
+          isRetryableGenerationError(error) &&
+          genAttempt < MAX_GENERATION_ATTEMPTS - 1
+        ) {
           console.warn(
-            `Admin project generation attempt ${genAttempt + 1} too generic, retrying...`
+            `Admin project generation attempt ${genAttempt + 1} rejected, retrying:`,
+            error instanceof Error ? error.message : error
           );
           continue;
         }

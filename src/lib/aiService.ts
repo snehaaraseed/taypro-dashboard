@@ -48,6 +48,7 @@ import {
   assertGeneratedBlogValid,
   validateGeneratedBlog,
 } from "@/lib/seo/blog-content-validator";
+import { assertGeneratedProjectValid } from "@/lib/seo/project-content-validator";
 import {
   resolveBlogWordCountPolicy,
   resolveBlogStructurePolicy,
@@ -431,6 +432,8 @@ export type GenerateBlogContentOptions = {
   competitionIndex?: number;
   /** Per-keyword intent cluster guide (covered intents + recommended next intent). */
   keywordIntentClusterPrompt?: string;
+  /** Slug for keyword/slug intent alignment checks at validation. */
+  slug?: string;
 };
 
 function resolveGenerationWordCountPolicy(
@@ -1512,6 +1515,7 @@ FAQ rules for the "faqs" array:
       description: result.description,
       content: result.content,
       faqs: result.faqs,
+      slug: options?.slug,
       primaryKeyword,
       searchIntent,
       angleId: options?.angleId,
@@ -1653,6 +1657,7 @@ export type GenerateProjectContentOptions = {
   focusedKeywords?: string[];
   /** Byline author — bio/role steer case study voice (automation picks randomly) */
   author?: BlogAuthor;
+  preferQualityModel?: boolean;
 };
 
 function normalizeProjectDetails(input: unknown): string[] {
@@ -1721,7 +1726,10 @@ Return ONLY valid JSON:
 }`;
 
   try {
-    const text = await generateText(prompt);
+    const text = await generateText(
+      prompt,
+      blogTextOptions({ preferQualityModel: options?.preferQualityModel })
+    );
 
     let projectData: {
       title: string;
@@ -1769,12 +1777,21 @@ Return ONLY valid JSON:
       );
     }
 
-    return {
+    const normalized = {
       title: sanitizeEmDash(projectData.title.trim()),
       description: sanitizeEmDash(projectData.description.trim()),
       details: details.map((d) => sanitizeEmDash(d)),
       content: sanitizeEmDash(projectData.content.trim()),
     };
+
+    assertGeneratedProjectValid({
+      title: normalized.title,
+      description: normalized.description,
+      content: normalized.content,
+      details: normalized.details,
+    });
+
+    return normalized;
   } catch (error) {
     console.error("Error generating project content:", error);
     throw new Error(

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
-import { generateBlogContent } from "@/lib/aiService";
+import { generateBlogContent, planBlogContent } from "@/lib/aiService";
 import { isRetryableGenerationError } from "@/lib/seo/content-quality";
 import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
 import { pickBlogFeaturedImage } from "@/lib/seo/blog-image-picker";
@@ -19,7 +19,12 @@ import {
 } from "@/lib/seo/blog-similarity";
 import { inferAngleIdFromTitle } from "@/lib/seo/blog-topic-angles";
 import { formatWordCountPreview } from "@/lib/seo/blog-word-count-tier";
-import { assertBlogNotTooSimilar } from "@/lib/seo/blog-uniqueness";
+import { loadBlogUniquenessContext } from "@/lib/seo/blog-plan-gates";
+import {
+  assertAdminBlogDraftGates,
+  assertAdminBlogPlanGates,
+  assertAdminBlogTopicGates,
+} from "@/lib/seo/admin-generate-gates";
 import { pickAuthorForBlogTopic } from "@/lib/cms/authorService";
 import { rankCategoriesForKeyword } from "@/lib/cms/blog-author-expertise";
 import type { TopicCategory } from "@/lib/topicCategories";
@@ -28,14 +33,15 @@ import { createBlogFiles, createSlug } from "@/app/utils/blogFileUtils";
 import { requireAuth } from "@/app/utils/auth";
 import {
   formatIntentCategorySuffix,
+  formatKeywordIntentClusterPrompt,
   recordKeywordIntentWritten,
   resolveStoredIntentCluster,
 } from "@/lib/seo/keyword-intent-registry";
 
 const MAX_GENERATION_ATTEMPTS = 3;
 
-/** Imagen + long Gemini runs can exceed default route timeout. */
-export const maxDuration = 180;
+/** Plan + full write + validation (matches automation depth). */
+export const maxDuration = 600;
 
 function parseFocusedKeywords(input: unknown): string[] {
   if (Array.isArray(input)) {
@@ -82,6 +88,7 @@ export async function POST(request: NextRequest) {
     }
 
     const editorialContext = await formatEditorialContextPrompt();
+    const uniquenessCtx = await loadBlogUniquenessContext();
     const category: TopicCategory = rankCategoriesForKeyword(seoKeyword)[0] ?? {
       name: "Custom",
       description: "Admin-authored post",
@@ -100,10 +107,50 @@ export async function POST(request: NextRequest) {
     const searchIntent =
       seoBrief?.searchIntent ?? inferSearchIntent(seoKeyword);
     const angleId = inferAngleIdFromTitle(seoKeyword, topic);
+    const keywordIntentClusterPrompt = formatKeywordIntentClusterPrompt({
+      keyword: seoKeyword,
+      title: topic,
+      angleId,
+    });
     let lastError: unknown;
 
     for (let genAttempt = 0; genAttempt < MAX_GENERATION_ATTEMPTS; genAttempt++) {
       try {
+        const slug = await assertAdminBlogTopicGates({
+          title: topic,
+          seoKeyword,
+          ctx: uniquenessCtx,
+        });
+
+        const writerOptions = {
+          author: bylineAuthor,
+          preferQualityModel: genAttempt >= 1,
+          focusedKeywords,
+          searchIntent,
+          angleId,
+          volumeBucket: seoBrief?.volumeBucket,
+          competitionIndex: seoBrief?.competitionIndex,
+          keywordIntentClusterPrompt,
+        };
+
+        const contentPlan = await planBlogContent(
+          topic,
+          categoryName,
+          seoBrief,
+          editorialContext,
+          writerOptions
+        );
+
+        await assertAdminBlogPlanGates(
+          {
+            title: topic,
+            description: contentPlan.description,
+            h2Outline: contentPlan.h2Outline,
+            slug,
+          },
+          uniquenessCtx
+        );
+
         const blogData = await generateBlogContent(
           topic,
           categoryName,
@@ -111,14 +158,12 @@ export async function POST(request: NextRequest) {
           editorialContext,
           {
             userBrief: brief,
-            focusedKeywords,
-            author: bylineAuthor,
-            useOutlinePass: genAttempt >= 1,
-            preferQualityModel: genAttempt >= 1,
-            searchIntent,
-            angleId,
-            volumeBucket: seoBrief?.volumeBucket,
-            competitionIndex: seoBrief?.competitionIndex,
+            ...writerOptions,
+            preApprovedOutline: contentPlan.outlineJson,
+            lockedTitle: topic,
+            lockedDescription: contentPlan.description,
+            plannedFaqQuestions: contentPlan.faqQuestions,
+            slug,
           }
         );
 
@@ -126,14 +171,15 @@ export async function POST(request: NextRequest) {
           throw new Error("Failed to generate complete blog content");
         }
 
-        const slug = createSlug(blogData.title);
-
-        await assertBlogNotTooSimilar({
-          title: blogData.title,
-          description: blogData.description,
-          content: blogData.content,
-          slug,
-        });
+        await assertAdminBlogDraftGates(
+          {
+            title: blogData.title,
+            description: blogData.description,
+            content: blogData.content,
+            slug,
+          },
+          uniquenessCtx
+        );
 
         const featured = await pickBlogFeaturedImage({
           title: blogData.title,
@@ -203,6 +249,8 @@ export async function POST(request: NextRequest) {
         const manualCluster = seoKeyword
           ? resolveStoredIntentCluster({
               keyword: seoKeyword,
+              aiIntent: contentPlan.intentFamily,
+              aiSubAngle: contentPlan.subAngle,
               angleId,
               title: blogData.title,
             })

@@ -130,6 +130,10 @@ export function classifyGenerationFailure(error: unknown): GenerationFailureKind
     msg.includes("already covered by existing post") ||
     msg.includes("Topic already published") ||
     msg.includes("Blog structure validation failed") ||
+    msg.includes("Project structure validation failed") ||
+    msg.includes("Project too similar") ||
+    msg.includes("Keyword \"") ||
+    msg.includes("competitor-led") ||
     msg.includes("Generated title or meta description was too generic")
   ) {
     return "new_contract";
@@ -137,6 +141,7 @@ export function classifyGenerationFailure(error: unknown): GenerationFailureKind
 
   if (
     msg.includes("Body too short") ||
+    msg.includes("Case study body too short") ||
     msg.includes("Could not parse JSON") ||
     msg.includes("JSON at position") ||
     msg.includes("Could not parse section HTML") ||
