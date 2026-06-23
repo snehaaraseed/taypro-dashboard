@@ -70,6 +70,10 @@ export default function Footer() {
       href: "/press",
     },
     {
+      name: t("careers"),
+      href: "/careers",
+    },
+    {
       name: t("roiCalculator"),
       href: "/solar-panel-cleaning-robot-price-calculator#calculator",
     },

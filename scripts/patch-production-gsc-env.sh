@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Idempotent: ensure GSC + paths exist in .env.production (run on server during deploy).
+# Idempotent: ensure GSC, ERPNext, and path vars exist in .env.production (run on server during deploy).
 set -euo pipefail
 
 ROOT="${1:-/var/www/taypro-dashboard}"
@@ -60,6 +60,26 @@ if [ -n "$OAUTH_ENV_FILE" ] && [ -f "$OAUTH_ENV_FILE" ]; then
   done < "$OAUTH_ENV_FILE"
   chmod 600 "$OAUTH_ENV_FILE" 2>/dev/null || true
   echo "  ✅ GSC OAuth client vars applied from $(basename "$OAUTH_ENV_FILE")"
+fi
+
+# Optional: ERPNext API credentials from deploy-uploaded file (secrets/erpnext-production.env)
+ERPNEXT_ENV_FILE="$SECRETS_DIR/erpnext-production.env"
+if [ -f "$ERPNEXT_ENV_FILE" ]; then
+  while IFS= read -r line || [ -n "$line" ]; do
+    line="${line%%#*}"
+    line="${line%"${line##*[![:space:]]}"}"
+    [ -z "$line" ] && continue
+    key="${line%%=*}"
+    val="${line#*=}"
+    [ -z "$key" ] || [ -z "$val" ] && continue
+    case "$key" in
+      ERPNEXT_API_URL|ERPNEXT_API_KEY|ERPNEXT_API_SECRET)
+        set_kv "$key" "$val"
+        ;;
+    esac
+  done < "$ERPNEXT_ENV_FILE"
+  chmod 600 "$ERPNEXT_ENV_FILE" 2>/dev/null || true
+  echo "  ✅ ERPNext API vars applied from $(basename "$ERPNEXT_ENV_FILE")"
 fi
 
 if [ ! -f "$GSC_KEY" ]; then

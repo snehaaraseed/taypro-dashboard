@@ -1,0 +1,188 @@
+{
+  "CareersPage": {
+    "meta": {
+      "title": "Careers at Taypro | Build Solar Robotics & Plant Intelligence",
+      "description": "Join Taypro in Pune and across India — engineering, manufacturing, field service, software, and operations roles on waterless solar cleaning robots and NECTYR fleet software.",
+      "openGraphTitle": "Careers at Taypro — Solar Robotics & O&M",
+      "openGraphDescription": "Help scale autonomous solar operations across India. Explore engineering, software, field, and business roles at Taypro.",
+      "twitterTitle": "Careers at Taypro",
+      "twitterDescription": "Build waterless cleaning robots, NECTYR fleet software, and utility-scale solar O&M — hiring in Pune and pan-India field roles."
+    },
+    "breadcrumbs": {
+      "current": "Careers"
+    },
+    "hero": {
+      "eyebrow": "Work with us",
+      "title": "Build the operating system for utility-scale solar",
+      "subtitle": "Taypro designs, manufactures, and deploys waterless cleaning robots and fleet intelligence across 150+ live sites and 5+ GW of supported capacity. If you want hard engineering problems, field impact, and a team that ships — you belong here.",
+      "cta": "View open positions",
+      "ctaSecondary": "Learn about Taypro",
+      "ctaSecondaryTitle": "About Taypro"
+    },
+    "statsStrip": {
+      "eyebrow": "Scale you will work on",
+      "heading": "Real deployments, not slide decks",
+      "robotCapacityDeployed": "Robot capacity deployed",
+      "panelsCleanedAnnually": "Panels cleaned annually",
+      "waterSavedAnnually": "Litres of water saved annually",
+      "robotsManufacturedPerMonth": "Robots manufacturing capacity per month"
+    },
+    "whyJoin": {
+      "eyebrow": "Why Taypro",
+      "heading": "Work where hardware, software, and field ops meet",
+      "body": "We are a Made-in-India manufacturer in Chakan, Pune, with pan-India service and a growing software layer on top of every cleaning cycle. You will see your work on live utility plants — not buried in a backlog.",
+      "impact": {
+        "title": "Measurable climate impact",
+        "body": "Every robot you help build avoids hundreds of millions of litres of wet-wash water and recovers gigawatt-hours of clean generation across India's solar fleet."
+      },
+      "technology": {
+        "title": "Full-stack solar robotics",
+        "body": "Mechanical design, embedded systems, connectivity, fleet AI, and plant intelligence — from GLYDE and tracker robots to NECTYR and ORION."
+      },
+      "growth": {
+        "title": "Fast-moving, founder-led culture",
+        "body": "Small teams, direct access to leadership, and room to own outcomes from day one. We hire people who prefer building over meetings."
+      },
+      "ownership": {
+        "title": "End-to-end accountability",
+        "body": "Engineers join site commissioning. Software ships to operators in the field. Manufacturing and QA sit beside R&D — one loop, one company."
+      }
+    },
+    "teams": {
+      "eyebrow": "Teams we are building",
+      "heading": "Find your lane",
+      "body": "We hire across the stack. Open roles change with growth — if your profile fits one of these areas, we want to hear from you.",
+      "engineering": {
+        "title": "R&D & mechanical engineering",
+        "body": "Robotics kinematics, structures, pneumatics, brush systems, tracker interfaces, and reliability testing for harsh desert and monsoon conditions."
+      },
+      "software": {
+        "title": "Software & data",
+        "body": "NECTYR fleet portal, scheduling, telemetry pipelines, connectivity (LTE, mesh, LoRa), and plant-intelligence models trained on live cleaning data."
+      },
+      "manufacturing": {
+        "title": "Manufacturing & quality",
+        "body": "Production planning, assembly, supplier quality, and ISO-aligned processes at our Chakan hub — scaling output without compromising field reliability."
+      },
+      "field": {
+        "title": "Field engineering & service",
+        "body": "Commissioning, breakdown response, AMC programs, and customer training across utility sites — often with same-day on-site resolution targets."
+      },
+      "operations": {
+        "title": "Operations & supply chain",
+        "body": "Spare logistics, warehouse network, Opex fleet operations, and the systems that keep robots running when dust storms hit peak season."
+      },
+      "business": {
+        "title": "Sales, marketing & partnerships",
+        "body": "Utility and IPP relationships, technical presales, content, and channel partnerships for India's fastest-growing solar O&M category."
+      }
+    },
+    "life": {
+      "eyebrow": "Life at Taypro",
+      "heading": "What we offer",
+      "body": "We compete for talent who care about craft and impact. Packages are discussed individually based on role, experience, and location.",
+      "imageAlt": "Taypro solar cleaning robot deployed on a utility-scale solar plant in India",
+      "benefits": {
+        "impact": {
+          "title": "Mission with proof points",
+          "body": "TÜV NORD certified hardware, NISE validation, Mint Tech4Good recognition — and customers who depend on your work every day."
+        },
+        "learning": {
+          "title": "Steep learning curve",
+          "body": "Exposure to full product lifecycle: design reviews, factory builds, site commissioning, and operator feedback loops."
+        },
+        "ownership": {
+          "title": "Ownership & trust",
+          "body": "Lean teams mean real responsibility early. We reward people who unblock problems and document what they learn."
+        },
+        "travel": {
+          "title": "Pan-India field exposure",
+          "body": "Engineering and service roles regularly visit live plants — Rajasthan deserts to Karnataka trackers — with structured travel support."
+        },
+        "manufacturing": {
+          "title": "Make-it-here culture",
+          "body": "Work beside manufacturing in Chakan. See how design choices survive welding bays, test rigs, and monsoon soak tests."
+        },
+        "team": {
+          "title": "Collaborative, direct culture",
+          "body": "Founders and functional leads stay close to product and customers. Feedback is candid; bureaucracy is not our default."
+        }
+      }
+    },
+    "process": {
+      "eyebrow": "How we hire",
+      "heading": "A straightforward process",
+      "body": "We respect your time. Typical timelines are two to four weeks from application to offer, depending on role seniority.",
+      "apply": {
+        "title": "Apply online",
+        "body": "Submit your resume and a short note on why Taypro. PDF or DOC, max 5 MB."
+      },
+      "review": {
+        "title": "Profile review",
+        "body": "Our HR and hiring manager review fit for the role, team, and stage of company growth."
+      },
+      "interviews": {
+        "title": "Interviews",
+        "body": "Usually two to three conversations — technical depth, problem-solving, and culture fit with the people you would work with daily."
+      },
+      "offer": {
+        "title": "Offer & onboarding",
+        "body": "Clear role scope, compensation, and start date. Onboarding pairs you with a buddy and site or product context from week one."
+      }
+    },
+    "listHeading": "Open positions",
+    "listIntro": "Browse current openings below. Each listing includes the full job description and an online application form.",
+    "emptyTitle": "No open positions right now",
+    "emptyBody": "We are not hiring for published roles at the moment. You can still reach out — we keep strong profiles on file for upcoming teams.",
+    "contactCta": "Send a general application",
+    "viewRole": "View role",
+    "postedOn": "Posted {date}",
+    "generalCta": {
+      "eyebrow": "Don't see your role?",
+      "heading": "Tell us how you can help Taypro scale",
+      "body": "We often hire ahead of published listings for exceptional engineers, field leaders, and operators. Share your resume and area of interest — our team reviews every thoughtful application.",
+      "button": "Contact us",
+      "buttonTitle": "Contact Taypro careers"
+    },
+    "faq": {
+      "heading": "Hiring FAQs",
+      "subtitle": "Common questions from candidates exploring Taypro.",
+      "q0": "Where are Taypro roles based?",
+      "a0": "Core R&D, manufacturing, and most business roles are based in Pune — headquarters at Kohinoor World Towers, Pimpri, and manufacturing in Chakan. Field engineering, service, and Opex operations hire across India near active utility sites.",
+      "q1": "Do you hire fresh graduates?",
+      "a1": "Yes, for select engineering and operations tracks where we can pair you with senior mentors. We look for strong fundamentals, hands-on project work, and curiosity about robotics or solar O&M — not only CGPA.",
+      "q2": "Is remote work an option?",
+      "a2": "Hardware, manufacturing, and field roles require on-site presence. Some software and business functions offer hybrid arrangements from Pune after an initial onboarding period — decided per role.",
+      "q3": "How long until I hear back?",
+      "a3": "We aim to acknowledge applications within five business days. If your profile is shortlisted, HR will schedule next steps within two weeks. During high-volume periods we may take slightly longer — you can follow up via our contact page.",
+      "q4": "What should I include in my application?",
+      "a4": "A clear resume, links to GitHub or portfolio if relevant, and a short cover note on why Taypro and this problem space. For field roles, mention regions you can travel to and any solar or industrial equipment experience.",
+      "q5": "What is the interview process like?",
+      "a5": "Practical and role-specific — we discuss real problems we face in robotics, reliability, or fleet operations rather than abstract puzzles. Expect conversations with your future manager and cross-functional peers."
+    },
+    "detail": {
+      "applySection": "Apply for this role",
+      "backToCareers": "All open positions",
+      "metaDescriptionFallback": "Apply for {title} at Taypro."
+    },
+    "apply": {
+      "title": "Submit your application",
+      "subtitle": "Applying for {job}",
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone",
+      "resume": "Resume",
+      "resumeHint": "PDF, DOC, or DOCX — max 5 MB",
+      "coverLetter": "Cover letter (optional)",
+      "coverLetterPlaceholder": "Brief note on your experience and interest in this role…",
+      "submit": "Submit application",
+      "submitting": "Submitting…",
+      "requiredError": "Please fill in all required fields and attach your resume.",
+      "resumeRequired": "Please attach your resume.",
+      "genericError": "Something went wrong. Please try again.",
+      "thankYouTitle": "Application received",
+      "thankYouMessage": "Thank you for applying. Our HR team will review your profile and contact you if there is a match.",
+      "submitAnother": "Submit another application"
+    }
+  }
+}

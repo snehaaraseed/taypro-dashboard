@@ -1,6 +1,6 @@
 {
   "description": "Aggregated 404 paths for redirect-candidate review (see scripts/merge-404-redirect-candidates.mjs).",
-  "updatedAt": "2026-06-10T21:53:20.701Z",
+  "updatedAt": "2026-06-23T08:01:54.518Z",
   "hits": {
     "/static/webpack/fae1ef3a14c6a20a.webpack.hot-update.json": {
       "path": "/static/webpack/fae1ef3a14c6a20a.webpack.hot-update.json",
@@ -13,6 +13,12 @@
       "count": 1,
       "firstSeen": "2026-06-10T21:53:20.701Z",
       "lastSeen": "2026-06-10T21:53:20.701Z"
+    },
+    "/careers/jobs/taypro-private-limited/accountant": {
+      "path": "/careers/jobs/taypro-private-limited/accountant",
+      "count": 82,
+      "firstSeen": "2026-06-23T08:01:19.717Z",
+      "lastSeen": "2026-06-23T08:01:54.518Z"
     }
   }
 }

@@ -52,6 +52,7 @@ const ROUTE_MESSAGE_MODULE: Record<string, string> = {
   "/technology/ai-intelligence": "ai-intelligence",
   "/solar-panel-cleaning-machine": "cleaning-machine",
   "/press": "press",
+  "/careers": "careers",
   "/projects/automatic": "projects-filter",
   "/projects/semi-automatic": "projects-filter",
   "/projects/capex": "projects-filter",

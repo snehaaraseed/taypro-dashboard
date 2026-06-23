@@ -34,6 +34,7 @@ export const CLIENT_PAGE_NAMESPACES = [
   "ProjectsPage",
   "ProjectDetailPage",
   "ProjectsFilterPage",
+  "CareersPage",
 ] as const;
 
 /**
@@ -78,6 +79,10 @@ export function clientNamespacesForPathname(pathname: string): string[] {
 
   if (path === "/projects") {
     return ["ProjectsPage", "Common"];
+  }
+
+  if (path === "/careers" || path.startsWith("/careers/")) {
+    return ["CareersPage", "Common"];
   }
 
   if (path.startsWith("/projects/")) {

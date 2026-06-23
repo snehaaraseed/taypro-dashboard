@@ -52,6 +52,7 @@ for arg in "$@"; do
             echo "  - Never rsync data/cms.sqlite or public/uploads from laptop"
             echo "  - Metrics assert before/after swap"
             echo "  - DEPLOY_UPLOAD_GSC_FROM_LOCAL=1  optional GSC JSON upload from laptop"
+            echo "  - ERPNEXT_API_URL/KEY/SECRET copied from .env.local when present"
             exit 0
             ;;
     esac
@@ -205,7 +206,7 @@ EOF
     step_done
     echo ""
 
-    step_start "Step 2c: GSC secrets and env"
+    step_start "Step 2c: Production secrets and env"
     if [ -f "$LOCAL_PATH/secrets/gsc-service-account.json" ]; then
         ssh -i "$SSH_KEY" "$REMOTE_HOST" "mkdir -p $REMOTE_PATH/secrets"
         scp -q -i "$SSH_KEY" \
@@ -237,6 +238,21 @@ EOF
             "$REMOTE_HOST:$REMOTE_PATH/secrets/gsc-oauth-production.env"
         rm -f "$GSC_OAUTH_ENV_SNIP"
         echo -e "${GREEN}  ✅ Uploaded GSC OAuth env${NC}"
+
+        ERPNEXT_ENV_SNIP=$(mktemp)
+        grep -E '^ERPNEXT_API_URL=|^ERPNEXT_API_KEY=|^ERPNEXT_API_SECRET=' "$LOCAL_PATH/.env.local" >> "$ERPNEXT_ENV_SNIP" || true
+        if [ -s "$ERPNEXT_ENV_SNIP" ]; then
+            ssh -i "$SSH_KEY" "$REMOTE_HOST" "mkdir -p $REMOTE_PATH/secrets"
+            scp -q -i "$SSH_KEY" \
+                "$ERPNEXT_ENV_SNIP" \
+                "$REMOTE_HOST:$REMOTE_PATH/secrets/erpnext-production.env"
+            ssh -i "$SSH_KEY" "$REMOTE_HOST" \
+                "chmod 600 $REMOTE_PATH/secrets/erpnext-production.env 2>/dev/null || true"
+            echo -e "${GREEN}  ✅ Uploaded ERPNext API env${NC}"
+        else
+            echo -e "${YELLOW}  ⚠️  No ERPNEXT_API_* vars in .env.local — skip ERPNext upload${NC}"
+        fi
+        rm -f "$ERPNEXT_ENV_SNIP"
     fi
 
     if [ "${DEPLOY_UPLOAD_GSC_FROM_LOCAL:-0}" = "1" ]; then

@@ -36,6 +36,7 @@ export default function Header() {
       href: "/solar-panel-cleaning-robot-price-calculator#calculator",
     },
     { name: t("aboutUs"), href: "/company" },
+    { name: t("careers"), href: "/careers" },
     { name: t("contactUs"), href: "/contact" },
     { name: t("blogs"), href: "/blog" },
   ];

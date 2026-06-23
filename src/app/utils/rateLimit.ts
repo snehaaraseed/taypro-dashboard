@@ -16,6 +16,7 @@ const LOGIN_WINDOW_MS = 15 * 60 * 1000;
 
 const API_LIMITS: Record<string, { max: number; windowMs: number }> = {
   saleslead: { max: 10, windowMs: 60 * 60 * 1000 },
+  careers: { max: 5, windowMs: 60 * 60 * 1000 },
 };
 
 function pruneStore(now: number): void {

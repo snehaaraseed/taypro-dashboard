@@ -11,6 +11,7 @@
     "projects": "プロジェクト",
     "roiCalculator": "ROI計算機",
     "aboutUs": "会社概要",
+    "careers": "採用情報",
     "investors": "パートナー・投資家",
     "contactUs": "お問い合わせ",
     "blogs": "ブログ",
@@ -85,6 +86,7 @@
     "robotVsManual": "ロボット vs 手動清掃",
     "cleaningMachine": "ソーラーパネル清掃マシン",
     "press": "プレス・メディア",
+    "careers": "採用情報",
     "investors": "パートナー・投資家",
     "copyright": "© 著作権 {year} – TAYPRO PRIVATE LIMITED. 無断転載を禁じます。"
   },

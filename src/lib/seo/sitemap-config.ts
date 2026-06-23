@@ -166,6 +166,7 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
     priority: 0.82,
   },
   { path: "/press", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/careers", changeFrequency: "weekly", priority: 0.7 },
   { path: "/projects/automatic", changeFrequency: "monthly", priority: 0.8 },
   { path: "/projects/semi-automatic", changeFrequency: "monthly", priority: 0.8 },
   { path: "/projects/capex", changeFrequency: "monthly", priority: 0.8 },
