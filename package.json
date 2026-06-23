@@ -58,6 +58,7 @@
     "ops:deploy-cms-metrics": "node scripts/deploy-cms-metrics.mjs",
     "ops:install-logrotate": "bash scripts/install-logrotate-taypro.sh",
     "verify:roi-india": "tsx scripts/verify-india-roi-parity.mjs",
+    "verify:opex-pricing": "tsx scripts/verify-opex-pricing.mjs",
     "verify:fleet-esg": "tsx scripts/verify-fleet-esg.mjs",
     "audit:product-images": "node scripts/audit-product-image-paths.mjs",
     "assets:migrate-360": "node scripts/migrate-360-branded-folders.mjs",

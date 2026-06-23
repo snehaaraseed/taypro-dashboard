@@ -3,6 +3,7 @@ import { useState, useEffect, useMemo, useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
 import type {
+  ProcurementModel,
   RoiCalculatorPublicResult,
   RoiProjectionSeries,
 } from "@/lib/roi-calculator/roi-types";
@@ -17,6 +18,7 @@ import {
 } from "@/lib/roi-calculator/format-roi";
 import {
   resolveRoiMarket,
+  ROI_MARKET_PROFILES,
   type RoiMarketProfile,
 } from "@/lib/roi-calculator/market-profiles";
 import { useVisitorCountry } from "@/lib/roi-calculator/use-visitor-country";
@@ -49,6 +51,11 @@ export type ROIResults = RoiCalculatorPublicResult;
 type PlantType = "groundMount" | "rooftop";
 type InstallationType = "fixedTilt" | "seasonalTilt" | "singleAxisTracker";
 type AutomationLevel = "automatic" | "semiAutomatic";
+
+const PROCUREMENT_OPTIONS: { value: ProcurementModel; labelKey: string }[] = [
+  { value: "capex", labelKey: "procurementCapex" },
+  { value: "opex", labelKey: "procurementOpex" },
+];
 
 type ROICalculatorProps = {
   /** Hide the internal card title when the host page provides its own heading */
@@ -96,10 +103,15 @@ export default function ROITayproCalculator({
   );
   const showMarketNote = market.id !== "india";
   const regionName = showMarketNote ? t(market.regionLabelKey) : "";
+  const opexMarket = ROI_MARKET_PROFILES.india;
 
   const [formData, setFormData] = useState(() =>
     buildDefaultInteractiveFormData(market)
   );
+
+  const isOpexMode =
+    formData.plantType === "groundMount" && formData.procurementModel === "opex";
+  const showOpexInrNote = isOpexMode && market.id !== "india";
 
   const [results, setResults] = useState<ROIResults>({
     annualCostLabourSaved: 0,
@@ -114,8 +126,11 @@ export default function ROITayproCalculator({
     roi20Years: 0,
     waterSavedAnnually: 0,
     annualCarbonSavings: 0,
+    procurementModel: "capex",
   });
   const [projection, setProjection] = useState<RoiProjectionSeries | null>(null);
+  const [activeProcurementModel, setActiveProcurementModel] =
+    useState<ProcurementModel>("capex");
   const [calculating, setCalculating] = useState(false);
   const [calcError, setCalcError] = useState<string | null>(null);
 
@@ -133,6 +148,7 @@ export default function ROITayproCalculator({
     setFormData((prev) => ({
       ...prev,
       electricityTariff: defaultTariffForPlant(prev.plantType),
+      ...(prev.plantType === "rooftop" ? { procurementModel: "capex" as const } : {}),
     }));
     // Only re-run when the user switches ground ↔ rooftop.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -164,6 +180,8 @@ export default function ROITayproCalculator({
           plantCapacityKW: formData.plantCapacityKW,
           electricityTariff: formData.electricityTariff,
           moduleCapacityWp: formData.moduleCapacity,
+          procurementModel: formData.procurementModel,
+          cleaningCyclesPerMonth: formData.cleaningCyclesPerMonth,
         }),
       });
 
@@ -174,10 +192,12 @@ export default function ROITayproCalculator({
       const data = (await response.json()) as {
         results: ROIResults;
         projection: RoiProjectionSeries;
+        procurementModel: ProcurementModel;
       };
 
       setResults(data.results);
       setProjection(data.projection);
+      setActiveProcurementModel(data.procurementModel);
       setShowResults(true);
       trackRoiCalculatorRun({
         plantType: formData.plantType,
@@ -187,6 +207,7 @@ export default function ROITayproCalculator({
         marketId: market.id,
         roiTimelineYears: data.results.roiTimeline,
         pagePath: pathname,
+        procurementModel: data.procurementModel,
       });
     } catch {
       setCalcError(t("calculationError"));
@@ -202,6 +223,12 @@ export default function ROITayproCalculator({
 
   const formatCurrency = (amount: number) =>
     formatRoiCurrency(amount, market, locale);
+
+  const formatOpexMoney = (amount: number) =>
+    formatRoiCurrency(amount, opexMarket, locale);
+
+  const formatOpexMoneyCompact = (amount: number) =>
+    formatRoiMoneyCompact(amount, opexMarket, locale);
 
   const formatNumber = (v: number) => formatRoiNumber(v, market, locale);
 
@@ -219,6 +246,8 @@ export default function ROITayproCalculator({
     formatRoiPaybackDuration(years, paybackDurationLabels);
 
   const net20YearSavings = results.net20YearSavings;
+  const resultsAreOpex = activeProcurementModel === "opex" && results.opex;
+  const opexDetails = results.opex;
 
   const reportPlantName = () => {
     const trimmed = formData.plantName.trim();
@@ -270,11 +299,14 @@ export default function ROITayproCalculator({
     ]);
     const pdfMoney = (amount: number) =>
       formatRoiPdfMoney(amount, market, locale);
+    const pdfOpexMoney = (amount: number) =>
+      formatRoiPdfMoney(amount, opexMarket, locale);
     const pdfNet20YearSavings = formatRoiPdfMoney(
       results.net20YearSavings,
       market,
       locale
     );
+    const pdfIsOpex = resultsAreOpex && opexDetails;
     const capacityKw =
       plantType === "groundMount"
         ? plantCapacityMW * 1000
@@ -303,6 +335,7 @@ export default function ROITayproCalculator({
       results,
       moduleCount,
       formatMoney: pdfMoney,
+      formatOpexMoney: pdfOpexMoney,
       formatNumber: (value, maximumFractionDigits) =>
         formatRoiNumber(value, market, locale, maximumFractionDigits),
       labels: {
@@ -314,12 +347,21 @@ export default function ROITayproCalculator({
         region: t("pdfRegion"),
         regionName: reportRegion,
         disclaimerShort: t("pdfDisclaimerShort"),
-        summaryNarrative: t("pdfSummaryNarrative", {
-          paybackDuration: formatPaybackDuration(results.roiTimeline),
-          annualSavings: pdfMoney(results.totalMoneySavedAnnually),
-          investment: pdfMoney(results.totalInvestmentRequired),
-          net20YearSavings: pdfNet20YearSavings,
-        }),
+        summaryNarrative: pdfIsOpex
+          ? t("pdfOpexSummaryNarrative", {
+              annualSavings: pdfMoney(results.totalMoneySavedAnnually),
+              annualOpex: pdfOpexMoney(opexDetails!.annualOpex),
+              monthlyOpex: pdfOpexMoney(opexDetails!.monthlyOpex),
+              cycles: String(opexDetails!.cleaningCyclesPerMonth),
+              netAnnualBenefit: pdfMoney(opexDetails!.netAnnualBenefit),
+              net20YearSavings: pdfNet20YearSavings,
+            })
+          : t("pdfSummaryNarrative", {
+              paybackDuration: formatPaybackDuration(results.roiTimeline),
+              annualSavings: pdfMoney(results.totalMoneySavedAnnually),
+              investment: pdfMoney(results.totalInvestmentRequired),
+              net20YearSavings: pdfNet20YearSavings,
+            }),
         inputs: t("pdfInputs"),
         assumptions: t("pdfAssumptions"),
         environmentalImpact: t("pdfEnvironmentalImpact"),
@@ -337,16 +379,20 @@ export default function ROITayproCalculator({
         parameter: t("pdfParameter"),
         value: t("pdfValue"),
         highlightInvestment: t("highlightInvestment"),
+        highlightMonthlyOpex: t("highlightMonthlyOpex"),
+        highlightNetAnnualBenefit: t("highlightNetAnnualBenefit"),
         paybackTimeline: t("paybackTimeline"),
         annualSavings: t("annualSavings"),
         yearsUnit: t("yearsUnit"),
         result20YearNetSavings: t("result20YearNetSavings"),
         result20YearAmc: t("result20YearAmc"),
         net20YearSavingsAmcNote: t("net20YearSavingsAmcNote"),
+        net20YearSavingsOpexNote: t("net20YearSavingsOpexNote"),
         pdfCarbonUnit: t("pdfCarbonUnit"),
         litersUnit: t("litersUnit"),
         assumptionModuleCount: t("pdfAssumptionModuleCount"),
         assumptionCleaningCycles: t("pdfAssumptionCleaningCycles"),
+        assumptionOpexCycles: t("pdfAssumptionOpexCycles"),
         assumptionWaterPerModule: t("pdfAssumptionWaterPerModule"),
         assumptionSpecificYield: t("pdfAssumptionSpecificYield"),
         net20YearSavingsFormatted: pdfNet20YearSavings,
@@ -363,6 +409,12 @@ export default function ROITayproCalculator({
         pdfEnvCarbonDetail: t("pdfEnvCarbonDetail"),
         pdfResultsHeading: t("resultsHeading"),
         resultInvestment: t("resultInvestment"),
+        resultMonthlyOpex: t("resultMonthlyOpex"),
+        resultAnnualOpex: t("resultAnnualOpex"),
+        resultRatePerModule: t("resultRatePerModule"),
+        resultNetAnnualBenefit: t("resultNetAnnualBenefit"),
+        resultOpexServiceModel: t("resultOpexServiceModel"),
+        resultOpexServiceModelValue: t("resultOpexServiceModelValue"),
         resultRoiTimeline: t("resultRoiTimeline"),
         resultAnnualisedRoi: t("resultAnnualisedRoi"),
         resultTotalSaved: t("resultTotalSaved"),
@@ -374,6 +426,7 @@ export default function ROITayproCalculator({
         projectionChartHeading: t("projectionChartHeading"),
         projectionChartSavings: t("projectionChartSavings"),
         projectionChartInvestment: t("projectionChartInvestment"),
+        projectionChartOpexCost: t("projectionChartOpexCost"),
         projectionChartPayback: t("projectionChartPayback"),
         projectionChartYear: t("projectionChartYear"),
       },
@@ -383,15 +436,36 @@ export default function ROITayproCalculator({
         ...(plantType === "groundMount"
           ? [
               {
+                label: t("procurementModel"),
+                value: t(
+                  formData.procurementModel === "opex"
+                    ? "procurementOpex"
+                    : "procurementCapex"
+                ),
+              },
+              {
                 label: t("installationType"),
                 value: labelForInstallation(installationType),
               },
             ]
           : []),
-        {
-          label: t("automationLevel"),
-          value: labelForAutomation(automationLevel),
-        },
+        ...(pdfIsOpex
+          ? [
+              {
+                label: t("cleaningCyclesPerMonth"),
+                value: String(formData.cleaningCyclesPerMonth),
+              },
+              {
+                label: t("resultOpexServiceModel"),
+                value: t("resultOpexServiceModelValue"),
+              },
+            ]
+          : [
+              {
+                label: t("automationLevel"),
+                value: labelForAutomation(automationLevel),
+              },
+            ]),
         {
           label:
             plantType === "groundMount"
@@ -420,7 +494,9 @@ export default function ROITayproCalculator({
       (plantType === "groundMount"
         ? `${plantCapacityMW}MW`
         : `${plantCapacityKW}KW`);
-    pdf.save(`Taypro-ROI-Report-${fileSlug}.pdf`);
+    pdf.save(
+      `Taypro-${pdfIsOpex ? "OPEX" : "ROI"}-Report-${fileSlug}.pdf`
+    );
   };
 
   return (
@@ -473,6 +549,43 @@ export default function ROITayproCalculator({
           {formData.plantType === "groundMount" && (
             <div>
               <label
+                htmlFor="roi-procurement-model"
+                className="text-white/90 text-sm font-medium mb-1.5 block"
+              >
+                {t("procurementModel")}
+              </label>
+              <select
+                id="roi-procurement-model"
+                value={formData.procurementModel}
+                onChange={(e) =>
+                  handleInput(
+                    "procurementModel",
+                    e.target.value as ProcurementModel
+                  )
+                }
+                className={inputClassName}
+              >
+                {PROCUREMENT_OPTIONS.map((o) => (
+                  <option key={o.value} value={o.value}>
+                    {t(o.labelKey)}
+                  </option>
+                ))}
+              </select>
+              {isOpexMode ? (
+                <p className="text-gray-400 text-xs mt-1">{t("opexServiceNote")}</p>
+              ) : null}
+            </div>
+          )}
+
+          {formData.plantType === "rooftop" ? (
+            <p className="text-gray-400 text-sm sm:col-span-2">
+              {t("opexRooftopUnavailable")}
+            </p>
+          ) : null}
+
+          {formData.plantType === "groundMount" && (
+            <div>
+              <label
                 htmlFor="roi-installation-type"
                 className="text-white mb-1 block"
               >
@@ -498,28 +611,62 @@ export default function ROITayproCalculator({
             </div>
           )}
 
-          <div>
-            <label
-              htmlFor="roi-automation-level"
-              className="text-white mb-1 block"
-            >
-              {t("automationLevel")}
-            </label>
-            <select
-              id="roi-automation-level"
-              value={formData.automationLevel}
-              onChange={(e) =>
-                handleInput("automationLevel", e.target.value as AutomationLevel)
-              }
-              className={inputClassName}
-            >
-              {AUTOMATION_OPTIONS.map((o) => (
-                <option key={o.value} value={o.value}>
-                  {t(o.labelKey)}
-                </option>
-              ))}
-            </select>
-          </div>
+          {!isOpexMode ? (
+            <div>
+              <label
+                htmlFor="roi-automation-level"
+                className="text-white mb-1 block"
+              >
+                {t("automationLevel")}
+              </label>
+              <select
+                id="roi-automation-level"
+                value={formData.automationLevel}
+                onChange={(e) =>
+                  handleInput(
+                    "automationLevel",
+                    e.target.value as AutomationLevel
+                  )
+                }
+                className={inputClassName}
+              >
+                {AUTOMATION_OPTIONS.map((o) => (
+                  <option key={o.value} value={o.value}>
+                    {t(o.labelKey)}
+                  </option>
+                ))}
+              </select>
+            </div>
+          ) : null}
+
+          {isOpexMode ? (
+            <div>
+              <label
+                htmlFor="roi-cleaning-cycles"
+                className="text-white mb-1 block"
+              >
+                {t("cleaningCyclesPerMonth")}
+              </label>
+              <input
+                id="roi-cleaning-cycles"
+                type="number"
+                value={formData.cleaningCyclesPerMonth}
+                onChange={(e) =>
+                  handleInput(
+                    "cleaningCyclesPerMonth",
+                    Math.max(3, Math.min(10, parseInt(e.target.value, 10) || 3))
+                  )
+                }
+                min={3}
+                max={10}
+                step={1}
+                className={inputClassName}
+              />
+              <div className="text-gray-400 text-xs">
+                {t("cleaningCyclesPerMonthHint")}
+              </div>
+            </div>
+          ) : null}
 
           {formData.plantType === "groundMount" ? (
             <div>
@@ -669,30 +816,76 @@ export default function ROITayproCalculator({
             </button>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
-            <div className="rounded-lg bg-[#0f4a5c] border-2 border-[#A8C117] p-4 min-w-0 sm:col-span-2 xl:col-span-1">
-              <p className="text-white/70 text-sm mb-1">{t("highlightInvestment")}</p>
-              <p
-                className="text-[#A8C117] text-xl sm:text-2xl font-semibold tabular-nums leading-tight"
-                title={formatCurrency(results.totalInvestmentRequired)}
-              >
-                {formatMoneyCompact(results.totalInvestmentRequired)}
-              </p>
-              <p className="text-white/55 text-xs mt-2">{t("investmentDisclaimer")}</p>
-              {showMarketNote ? (
-                <p className="text-white/45 text-xs mt-1">
-                  {t("marketAssumptionsNote", {
-                    region: regionName,
-                    currency: market.currency,
-                  })}
+            {resultsAreOpex && opexDetails ? (
+              <>
+                <div className="rounded-lg bg-[#0f4a5c] border-2 border-[#A8C117] p-4 min-w-0 sm:col-span-2 xl:col-span-1">
+                  <p className="text-white/70 text-sm mb-1">
+                    {t("highlightMonthlyOpex")}
+                  </p>
+                  <p
+                    className="text-[#A8C117] text-xl sm:text-2xl font-semibold tabular-nums leading-tight"
+                    title={formatOpexMoney(opexDetails.monthlyOpex)}
+                  >
+                    {formatOpexMoneyCompact(opexDetails.monthlyOpex)}
+                  </p>
+                  <p className="text-white/55 text-xs mt-2">
+                    {t("opexMonthlyDisclaimer")}
+                  </p>
+                  {opexDetails.minimumApplied ? (
+                    <p className="text-white/45 text-xs mt-1">
+                      {t("opexMinimumNote")}
+                    </p>
+                  ) : null}
+                  {showOpexInrNote ? (
+                    <p className="text-white/45 text-xs mt-1">
+                      {t("opexPricingInrNote")}
+                    </p>
+                  ) : null}
+                </div>
+                <div className="rounded-lg bg-[#0f4a5c] border border-[#A8C117]/30 p-4 min-w-0">
+                  <p className="text-white/70 text-sm mb-1">
+                    {t("highlightNetAnnualBenefit")}
+                  </p>
+                  <p
+                    className={`text-xl sm:text-2xl font-semibold tabular-nums leading-tight ${
+                      opexDetails.netAnnualBenefit >= 0
+                        ? "text-[#A8C117]"
+                        : "text-red-300"
+                    }`}
+                    title={formatCurrency(opexDetails.netAnnualBenefit)}
+                  >
+                    {formatMoneyCompact(opexDetails.netAnnualBenefit)}
+                  </p>
+                </div>
+              </>
+            ) : (
+              <div className="rounded-lg bg-[#0f4a5c] border-2 border-[#A8C117] p-4 min-w-0 sm:col-span-2 xl:col-span-1">
+                <p className="text-white/70 text-sm mb-1">{t("highlightInvestment")}</p>
+                <p
+                  className="text-[#A8C117] text-xl sm:text-2xl font-semibold tabular-nums leading-tight"
+                  title={formatCurrency(results.totalInvestmentRequired)}
+                >
+                  {formatMoneyCompact(results.totalInvestmentRequired)}
                 </p>
-              ) : null}
-            </div>
-            <div className="rounded-lg bg-[#0f4a5c] border border-[#A8C117]/30 p-4 min-w-0">
-              <p className="text-white/70 text-sm mb-1">{t("paybackTimeline")}</p>
-              <p className="text-[#A8C117] text-xl sm:text-2xl font-semibold tabular-nums leading-tight">
-                {formatPaybackDuration(results.roiTimeline)}
-              </p>
-            </div>
+                <p className="text-white/55 text-xs mt-2">{t("investmentDisclaimer")}</p>
+                {showMarketNote ? (
+                  <p className="text-white/45 text-xs mt-1">
+                    {t("marketAssumptionsNote", {
+                      region: regionName,
+                      currency: market.currency,
+                    })}
+                  </p>
+                ) : null}
+              </div>
+            )}
+            {!resultsAreOpex ? (
+              <div className="rounded-lg bg-[#0f4a5c] border border-[#A8C117]/30 p-4 min-w-0">
+                <p className="text-white/70 text-sm mb-1">{t("paybackTimeline")}</p>
+                <p className="text-[#A8C117] text-xl sm:text-2xl font-semibold tabular-nums leading-tight">
+                  {formatPaybackDuration(results.roiTimeline)}
+                </p>
+              </div>
+            ) : null}
             <div className="rounded-lg bg-[#0f4a5c] border border-[#A8C117]/30 p-4 min-w-0">
               <p className="text-white/70 text-sm mb-1">{t("annualSavings")}</p>
               <p
@@ -711,7 +904,9 @@ export default function ROITayproCalculator({
                 {formatMoneyCompact(net20YearSavings)}
               </p>
               <p className="text-white/45 text-xs mt-2 leading-snug">
-                {t("net20YearSavingsAmcNote")}
+                {resultsAreOpex
+                  ? t("net20YearSavingsOpexNote")
+                  : t("net20YearSavingsAmcNote")}
               </p>
             </div>
           </div>
@@ -744,48 +939,106 @@ export default function ROITayproCalculator({
               paybackLabel={t("pdfChartPaybackLabel")}
               horizonLabel={t("pdfChartHorizonLabel")}
               yearsUnit={t("yearsUnit")}
-              paybackYears={results.roiTimeline}
-              formatPaybackDuration={formatPaybackDuration}
+              paybackYears={
+                resultsAreOpex
+                  ? projection?.paybackYear ?? results.roiTimeline
+                  : results.roiTimeline
+              }
+              formatPaybackDuration={
+                resultsAreOpex
+                  ? () => t("opexImmediateBenefit")
+                  : formatPaybackDuration
+              }
             />
           </div>
 
           <div className="divide-y divide-white/10 text-white mb-2">
-            <div className="flex justify-between gap-4 py-2">
-              <span>{t("resultInvestment")}</span>
-              <span
-                className="font-semibold text-[#A8C117] text-right tabular-nums shrink-0"
-                title={formatCurrency(results.totalInvestmentRequired)}
-              >
-                {formatMoneyCompact(results.totalInvestmentRequired)}
-              </span>
-            </div>
-            <div className="flex justify-between gap-4 py-2">
-              <span>{t("result20YearAmc")}</span>
-              <span
-                className="font-semibold text-right tabular-nums shrink-0"
-                title={formatCurrency(results.totalAmc20Years)}
-              >
-                {formatMoneyCompact(results.totalAmc20Years)}
-              </span>
-            </div>
-            <div className="flex justify-between py-2">
-              <span>{t("resultRoiTimeline")}</span>
-              <span className="font-semibold">
-                {formatPaybackDuration(results.roiTimeline)}
-              </span>
-            </div>
-            <div className="flex justify-between py-2">
-              <span>{t("resultAnnualisedRoi")}</span>
-              <span className="font-semibold">
-                {formatNumber(results.annualisedROI)} %
-              </span>
-            </div>
-            <div className="flex justify-between py-2">
-              <span>{t("result20YearRoi")}</span>
-              <span className="font-semibold">
-                {formatNumber(results.roi20Years)} %
-              </span>
-            </div>
+            {resultsAreOpex && opexDetails ? (
+              <>
+                <div className="flex justify-between gap-4 py-2">
+                  <span>{t("resultMonthlyOpex")}</span>
+                  <span
+                    className="font-semibold text-[#A8C117] text-right tabular-nums shrink-0"
+                    title={formatOpexMoney(opexDetails.monthlyOpex)}
+                  >
+                    {formatOpexMoneyCompact(opexDetails.monthlyOpex)}
+                  </span>
+                </div>
+                <div className="flex justify-between gap-4 py-2">
+                  <span>{t("resultAnnualOpex")}</span>
+                  <span
+                    className="font-semibold text-right tabular-nums shrink-0"
+                    title={formatOpexMoney(opexDetails.annualOpex)}
+                  >
+                    {formatOpexMoneyCompact(opexDetails.annualOpex)}
+                  </span>
+                </div>
+                <div className="flex justify-between gap-4 py-2">
+                  <span>{t("resultRatePerModule")}</span>
+                  <span className="font-semibold text-right tabular-nums shrink-0">
+                    {formatOpexMoney(opexDetails.ratePerModulePerCycle)}
+                  </span>
+                </div>
+                <div className="flex justify-between gap-4 py-2">
+                  <span>{t("resultOpexServiceModel")}</span>
+                  <span className="font-semibold text-right shrink-0">
+                    {t("resultOpexServiceModelValue")}
+                  </span>
+                </div>
+                <div className="flex justify-between gap-4 py-2">
+                  <span>{t("resultNetAnnualBenefit")}</span>
+                  <span
+                    className={`font-semibold text-right tabular-nums shrink-0 ${
+                      opexDetails.netAnnualBenefit >= 0
+                        ? "text-[#A8C117]"
+                        : "text-red-300"
+                    }`}
+                    title={formatCurrency(opexDetails.netAnnualBenefit)}
+                  >
+                    {formatMoneyCompact(opexDetails.netAnnualBenefit)}
+                  </span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="flex justify-between gap-4 py-2">
+                  <span>{t("resultInvestment")}</span>
+                  <span
+                    className="font-semibold text-[#A8C117] text-right tabular-nums shrink-0"
+                    title={formatCurrency(results.totalInvestmentRequired)}
+                  >
+                    {formatMoneyCompact(results.totalInvestmentRequired)}
+                  </span>
+                </div>
+                <div className="flex justify-between gap-4 py-2">
+                  <span>{t("result20YearAmc")}</span>
+                  <span
+                    className="font-semibold text-right tabular-nums shrink-0"
+                    title={formatCurrency(results.totalAmc20Years)}
+                  >
+                    {formatMoneyCompact(results.totalAmc20Years)}
+                  </span>
+                </div>
+                <div className="flex justify-between py-2">
+                  <span>{t("resultRoiTimeline")}</span>
+                  <span className="font-semibold">
+                    {formatPaybackDuration(results.roiTimeline)}
+                  </span>
+                </div>
+                <div className="flex justify-between py-2">
+                  <span>{t("resultAnnualisedRoi")}</span>
+                  <span className="font-semibold">
+                    {formatNumber(results.annualisedROI)} %
+                  </span>
+                </div>
+                <div className="flex justify-between py-2">
+                  <span>{t("result20YearRoi")}</span>
+                  <span className="font-semibold">
+                    {formatNumber(results.roi20Years)} %
+                  </span>
+                </div>
+              </>
+            )}
             <div className="flex justify-between gap-4 py-2">
               <span>{t("result20YearNetSavings")}</span>
               <span
@@ -865,7 +1118,9 @@ export default function ROITayproCalculator({
                 labels={{
                   heading: t("projectionChartHeading"),
                   savings: t("projectionChartSavings"),
-                  investment: t("projectionChartInvestment"),
+                  investment: resultsAreOpex
+                    ? t("projectionChartOpexCost")
+                    : t("projectionChartInvestment"),
                   payback: t("projectionChartPayback"),
                   year: t("projectionChartYear"),
                 }}
@@ -888,7 +1143,9 @@ export default function ROITayproCalculator({
                   heading: t("year20SnapshotHeading"),
                   netPosition: t("netPositionChartLabel"),
                   cumulativeSavings: t("projectionChartSavings"),
-                  cumulativeInvestment: t("projectionChartInvestment"),
+                  cumulativeInvestment: resultsAreOpex
+                    ? t("projectionChartOpexCost")
+                    : t("projectionChartInvestment"),
                 }}
               />
             </>

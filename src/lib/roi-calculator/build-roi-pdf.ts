@@ -55,16 +55,20 @@ export interface RoiPdfLabels {
   parameter: string;
   value: string;
   highlightInvestment: string;
+  highlightMonthlyOpex?: string;
+  highlightNetAnnualBenefit?: string;
   paybackTimeline: string;
   annualSavings: string;
   yearsUnit: string;
   result20YearNetSavings: string;
   result20YearAmc: string;
   net20YearSavingsAmcNote: string;
+  net20YearSavingsOpexNote?: string;
   pdfCarbonUnit: string;
   litersUnit: string;
   assumptionModuleCount: string;
   assumptionCleaningCycles: string;
+  assumptionOpexCycles?: string;
   assumptionWaterPerModule: string;
   assumptionSpecificYield: string;
   net20YearSavingsFormatted: string;
@@ -81,6 +85,12 @@ export interface RoiPdfLabels {
   pdfEnvCarbonDetail: string;
   pdfResultsHeading: string;
   resultInvestment: string;
+  resultMonthlyOpex?: string;
+  resultAnnualOpex?: string;
+  resultRatePerModule?: string;
+  resultNetAnnualBenefit?: string;
+  resultOpexServiceModel?: string;
+  resultOpexServiceModelValue?: string;
   resultRoiTimeline: string;
   resultAnnualisedRoi: string;
   resultTotalSaved: string;
@@ -92,6 +102,7 @@ export interface RoiPdfLabels {
   projectionChartHeading: string;
   projectionChartSavings: string;
   projectionChartInvestment: string;
+  projectionChartOpexCost?: string;
   projectionChartPayback: string;
   projectionChartYear: string;
 }
@@ -109,10 +120,14 @@ function buildCoverPage(
   results: RoiCalculatorPublicResult,
   formatMoney: (n: number) => string,
   formatNumber: (n: number, d?: number) => string,
-  formatPaybackDuration: (years: number) => string
+  formatPaybackDuration: (years: number) => string,
+  formatOpexMoney?: (n: number) => string
 ): void {
   pdf.setPage(1);
   paintCoverPage(pdf, labels.title);
+
+  const isOpex = results.procurementModel === "opex" && results.opex;
+  const money = formatOpexMoney ?? formatMoney;
 
   let y = drawPlantHeader(
     pdf,
@@ -123,15 +138,43 @@ function buildCoverPage(
   );
   y = drawNotice(pdf, labels.disclaimerShort, y);
   y += SECTION_GAP;
-  y = drawKpiRow(pdf, y, [
-    { label: labels.highlightInvestment, value: formatMoney(results.totalInvestmentRequired) },
-    {
-      label: labels.paybackTimeline,
-      value: formatPaybackDuration(results.roiTimeline),
-    },
-    { label: labels.annualSavings, value: formatMoney(results.totalMoneySavedAnnually) },
-    { label: labels.result20YearNetSavings, value: labels.net20YearSavingsFormatted },
-  ]);
+  y = drawKpiRow(pdf, y, isOpex
+    ? [
+        {
+          label: labels.highlightMonthlyOpex ?? labels.highlightInvestment,
+          value: money(results.opex!.monthlyOpex),
+        },
+        {
+          label: labels.highlightNetAnnualBenefit ?? labels.paybackTimeline,
+          value: formatMoney(results.opex!.netAnnualBenefit),
+        },
+        {
+          label: labels.annualSavings,
+          value: formatMoney(results.totalMoneySavedAnnually),
+        },
+        {
+          label: labels.result20YearNetSavings,
+          value: labels.net20YearSavingsFormatted,
+        },
+      ]
+    : [
+        {
+          label: labels.highlightInvestment,
+          value: formatMoney(results.totalInvestmentRequired),
+        },
+        {
+          label: labels.paybackTimeline,
+          value: formatPaybackDuration(results.roiTimeline),
+        },
+        {
+          label: labels.annualSavings,
+          value: formatMoney(results.totalMoneySavedAnnually),
+        },
+        {
+          label: labels.result20YearNetSavings,
+          value: labels.net20YearSavingsFormatted,
+        },
+      ]);
   y = drawSummaryBox(pdf, labels.summaryNarrative, y);
   y += SECTION_GAP;
   y = drawPaybackBlock(
@@ -194,12 +237,16 @@ function buildFinancialPage(
   projection: RoiProjectionSeries | null,
   formatMoney: (n: number) => string,
   formatNumber: (n: number, d?: number) => string,
-  formatPaybackDuration: (years: number) => string
+  formatPaybackDuration: (years: number) => string,
+  formatOpexMoney?: (n: number) => string
 ): void {
   pdf.addPage();
   let page = pdf.getNumberOfPages();
   pdf.setPage(page);
   paintInnerPage(pdf, labels.title);
+
+  const isOpex = results.procurementModel === "opex" && results.opex;
+  const money = formatOpexMoney ?? formatMoney;
 
   const tableOpts = {
     startPage: page,
@@ -215,40 +262,81 @@ function buildFinancialPage(
 
   let y = BODY_TOP_INNER;
   y = drawSectionTitle(pdf, labels.pdfResultsHeading, y);
+  const resultRows: [string, string][] = isOpex
+    ? [
+        [labels.resultMonthlyOpex ?? "", money(results.opex!.monthlyOpex)],
+        [labels.resultAnnualOpex ?? "", money(results.opex!.annualOpex)],
+        [
+          labels.resultRatePerModule ?? "",
+          money(results.opex!.ratePerModulePerCycle),
+        ],
+        [
+          labels.resultOpexServiceModel ?? "",
+          labels.resultOpexServiceModelValue ?? "",
+        ],
+        [
+          labels.resultNetAnnualBenefit ?? "",
+          formatMoney(results.opex!.netAnnualBenefit),
+        ],
+        [labels.result20YearNetSavings, labels.net20YearSavingsFormatted],
+        [labels.resultTotalSaved, formatMoney(results.totalMoneySavedAnnually)],
+        [labels.resultLabourSaved, formatMoney(results.annualCostLabourSaved)],
+        [labels.resultWaterSaved, formatMoney(results.annualCostWaterSaved)],
+        [labels.resultEnergyGain, formatMoney(results.annualCostEnergyGain)],
+        [
+          labels.resultWaterLiters,
+          `${formatNumber(results.waterSavedAnnually)} ${labels.litersUnit}`,
+        ],
+        [
+          labels.resultCarbon,
+          `${formatNumber(results.annualCarbonSavings)} ${labels.pdfCarbonUnit}`,
+        ],
+      ]
+    : [
+        [labels.resultInvestment, formatMoney(results.totalInvestmentRequired)],
+        [labels.result20YearAmc, formatMoney(results.totalAmc20Years)],
+        [labels.resultRoiTimeline, formatPaybackDuration(results.roiTimeline)],
+        [
+          labels.resultAnnualisedRoi,
+          `${formatNumber(results.annualisedROI)} %`,
+        ],
+        [labels.result20YearNetSavings, labels.net20YearSavingsFormatted],
+        [labels.resultTotalSaved, formatMoney(results.totalMoneySavedAnnually)],
+        [labels.resultLabourSaved, formatMoney(results.annualCostLabourSaved)],
+        [labels.resultWaterSaved, formatMoney(results.annualCostWaterSaved)],
+        [labels.resultEnergyGain, formatMoney(results.annualCostEnergyGain)],
+        [
+          labels.resultWaterLiters,
+          `${formatNumber(results.waterSavedAnnually)} ${labels.litersUnit}`,
+        ],
+        [
+          labels.resultCarbon,
+          `${formatNumber(results.annualCarbonSavings)} ${labels.pdfCarbonUnit}`,
+        ],
+      ];
   ({ y, page } = drawKeyValueTable(
     pdf,
     y,
     [labels.parameter, labels.value],
-    [
-      [labels.resultInvestment, formatMoney(results.totalInvestmentRequired)],
-      [labels.result20YearAmc, formatMoney(results.totalAmc20Years)],
-      [labels.resultRoiTimeline, formatPaybackDuration(results.roiTimeline)],
-      [
-        labels.resultAnnualisedRoi,
-        `${formatNumber(results.annualisedROI)} %`,
-      ],
-      [labels.result20YearNetSavings, labels.net20YearSavingsFormatted],
-      [labels.resultTotalSaved, formatMoney(results.totalMoneySavedAnnually)],
-      [labels.resultLabourSaved, formatMoney(results.annualCostLabourSaved)],
-      [labels.resultWaterSaved, formatMoney(results.annualCostWaterSaved)],
-      [labels.resultEnergyGain, formatMoney(results.annualCostEnergyGain)],
-      [
-        labels.resultWaterLiters,
-        `${formatNumber(results.waterSavedAnnually)} ${labels.litersUnit}`,
-      ],
-      [
-        labels.resultCarbon,
-        `${formatNumber(results.annualCarbonSavings)} ${labels.pdfCarbonUnit}`,
-      ],
-    ],
+    resultRows,
     { ...tableOpts, startPage: page }
   ));
 
   pdf.setPage(page);
-  y = drawWrapped(pdf, labels.net20YearSavingsAmcNote, MARGIN, y, CONTENT_W, 7, {
-    color: [92, 107, 120],
-    gap: 12,
-  });
+  y = drawWrapped(
+    pdf,
+    isOpex
+      ? (labels.net20YearSavingsOpexNote ?? labels.net20YearSavingsAmcNote)
+      : labels.net20YearSavingsAmcNote,
+    MARGIN,
+    y,
+    CONTENT_W,
+    7,
+    {
+      color: [92, 107, 120],
+      gap: 12,
+    }
+  );
 
   if (!projection || projection.years.length === 0) {
     return;
@@ -271,7 +359,9 @@ function buildFinancialPage(
     title: labels.projectionChartHeading,
     paybackLabel: labels.projectionChartPayback,
     savingsLabel: labels.projectionChartSavings,
-    investmentLabel: labels.projectionChartInvestment,
+    investmentLabel: isOpex
+      ? (labels.projectionChartOpexCost ?? labels.projectionChartInvestment)
+      : labels.projectionChartInvestment,
     yearLabel: labels.projectionChartYear,
     formatMoney,
     formatPaybackDuration,
@@ -284,7 +374,8 @@ function buildDetailsPage(
   market: RoiMarketProfile,
   inputRows: RoiPdfInputRow[],
   moduleCount: number,
-  formatNumber: (n: number, d?: number) => string
+  formatNumber: (n: number, d?: number) => string,
+  opexCyclesPerMonth?: number
 ): void {
   pdf.addPage();
   const detailsPage = pdf.getNumberOfPages();
@@ -320,23 +411,36 @@ function buildDetailsPage(
     topGap: DETAILS_SECTION_GAP,
   });
   const econ = market.economics;
+  const assumptionRows: [string, string][] = [
+    [labels.region, labels.regionName],
+    [labels.assumptionModuleCount, formatNumber(moduleCount, 0)],
+    ...(opexCyclesPerMonth != null && labels.assumptionOpexCycles
+      ? [
+          [
+            labels.assumptionOpexCycles,
+            formatNumber(opexCyclesPerMonth, 0),
+          ] as [string, string],
+        ]
+      : [
+          [
+            labels.assumptionCleaningCycles,
+            formatNumber(econ.cleaningCyclesPerYear, 0),
+          ] as [string, string],
+        ]),
+    [
+      labels.assumptionWaterPerModule,
+      `${formatNumber(econ.litresPerModulePerCycle)} L`,
+    ],
+    [
+      labels.assumptionSpecificYield,
+      `${formatNumber(econ.specificYieldKwhPerKw, 0)} kWh/kW`,
+    ],
+  ];
   ({ y, page } = drawKeyValueTable(
     pdf,
     y,
     [labels.parameter, labels.value],
-    [
-      [labels.region, labels.regionName],
-      [labels.assumptionModuleCount, formatNumber(moduleCount, 0)],
-      [labels.assumptionCleaningCycles, formatNumber(econ.cleaningCyclesPerYear, 0)],
-      [
-        labels.assumptionWaterPerModule,
-        `${formatNumber(econ.litresPerModulePerCycle)} L`,
-      ],
-      [
-        labels.assumptionSpecificYield,
-        `${formatNumber(econ.specificYieldKwhPerKw, 0)} kWh/kW`,
-      ],
-    ],
+    assumptionRows,
     { ...tableOpts, startPage: page }
   ));
 
@@ -376,6 +480,7 @@ export function buildRoiPdfDocument(options: {
   projection: RoiProjectionSeries | null;
   moduleCount: number;
   formatMoney: (amount: number) => string;
+  formatOpexMoney?: (amount: number) => string;
   formatNumber: (value: number, maximumFractionDigits?: number) => string;
   formatPaybackDuration: (years: number) => string;
 }): void {
@@ -401,7 +506,8 @@ export function buildRoiPdfDocument(options: {
     results,
     formatMoney,
     formatNumber,
-    formatPaybackDuration
+    formatPaybackDuration,
+    options.formatOpexMoney
   );
   buildFinancialPage(
     pdf,
@@ -410,7 +516,8 @@ export function buildRoiPdfDocument(options: {
     projection,
     formatMoney,
     formatNumber,
-    formatPaybackDuration
+    formatPaybackDuration,
+    options.formatOpexMoney
   );
   buildDetailsPage(
     pdf,
@@ -418,7 +525,8 @@ export function buildRoiPdfDocument(options: {
     market,
     inputRows,
     moduleCount,
-    formatNumber
+    formatNumber,
+    results.opex?.cleaningCyclesPerMonth
   );
 
   const total = pdf.getNumberOfPages();

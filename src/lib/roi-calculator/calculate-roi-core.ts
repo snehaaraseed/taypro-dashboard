@@ -1,9 +1,11 @@
+import { calculateOpexCost } from "@/lib/roi-calculator/calculate-opex-core";
 import {
   GROUND_MOUNT_SOILING_RECOVERY_FACTOR,
   type RoiMarketProfile,
 } from "@/lib/roi-calculator/market-profiles";
 import type {
   InstallationType,
+  ProcurementModel,
   RoiCalculationInput,
   RoiCalculationResult,
   RoiCalculatorPublicResult,
@@ -167,12 +169,153 @@ export function calculateRoi(
     roi20Years,
     waterSavedAnnually,
     annualCarbonSavings,
+    procurementModel: "capex",
   };
+}
+
+const DEFAULT_OPEX_CYCLES_PER_MONTH = 5;
+
+export function calculateOpexRoi(
+  input: RoiCalculationInput,
+  market: RoiMarketProfile
+): RoiCalculationResult {
+  const savingsBase = calculateRoi(
+    {
+      ...input,
+      plantType: "groundMount",
+      automationLevel: "semiAutomatic",
+      procurementModel: "opex",
+    },
+    market
+  );
+
+  const opexCost = calculateOpexCost({
+    plantCapacityMW: input.plantCapacityMW,
+    moduleCapacityWp: input.moduleCapacityWp,
+    installationType: input.installationType,
+    cleaningCyclesPerMonth:
+      input.cleaningCyclesPerMonth ?? DEFAULT_OPEX_CYCLES_PER_MONTH,
+  });
+
+  const netAnnualBenefit =
+    savingsBase.totalMoneySavedAnnually - opexCost.annualOpex;
+  const totalGrossSavings20 =
+    savingsBase.totalMoneySavedAnnually * HORIZON_YEARS * SAVINGS_RETENTION_20Y;
+  const totalOpex20Years = opexCost.annualOpex * HORIZON_YEARS;
+  const net20YearSavings = totalGrossSavings20 - totalOpex20Years;
+
+  const roiTimeline = netAnnualBenefit > 0 ? 0 : 0;
+  const annualisedROI =
+    opexCost.annualOpex > 0
+      ? (netAnnualBenefit / opexCost.annualOpex) * 100
+      : 0;
+  const roi20Years =
+    totalOpex20Years > 0 ? (net20YearSavings / totalOpex20Years) * 100 : 0;
+
+  const amcByYear = Array.from({ length: HORIZON_YEARS }, () => 0);
+
+  return {
+    ...savingsBase,
+    totalInvestmentRequired: 0,
+    annualAmcYear2: 0,
+    totalAmc20Years: 0,
+    amcByYear,
+    net20YearSavings,
+    roiTimeline,
+    annualisedROI,
+    roi20Years,
+    procurementModel: "opex",
+    opex: {
+      monthlyOpex: opexCost.monthlyOpex,
+      annualOpex: opexCost.annualOpex,
+      ratePerModulePerCycle: opexCost.ratePerModulePerCycle,
+      moduleCount: opexCost.moduleCount,
+      cleaningCyclesPerMonth: opexCost.cleaningCyclesPerMonth,
+      minimumApplied: opexCost.minimumApplied,
+      netAnnualBenefit,
+      installationMultiplier: opexCost.installationMultiplier,
+    },
+  };
+}
+
+export function resolveRoiCalculation(
+  input: RoiCalculationInput,
+  market: RoiMarketProfile
+): RoiCalculationResult {
+  if (input.procurementModel === "opex") {
+    return calculateOpexRoi(input, market);
+  }
+  return calculateRoi(input, market);
+}
+
+export function resolveProcurementModel(
+  input: RoiCalculationInput
+): ProcurementModel {
+  if (input.plantType === "rooftop") return "capex";
+  return input.procurementModel ?? "capex";
+}
+
+export function buildOpexProjectionSeries(
+  result: RoiCalculationResult
+): RoiProjectionSeries {
+  const annualOpex = result.opex?.annualOpex ?? 0;
+  const years: RoiProjectionYearPoint[] = [];
+  let cumulativeSavings = 0;
+  let cumulativeCost = 0;
+  let cumulativeWaterLiters = 0;
+  let cumulativeCarbonKg = 0;
+  let paybackYear: number | null = null;
+
+  years.push({
+    year: 0,
+    cumulativeSavings: 0,
+    cumulativeCost: 0,
+    cumulativeWaterLiters: 0,
+    cumulativeCarbonKg: 0,
+  });
+
+  for (let index = 0; index < HORIZON_YEARS; index += 1) {
+    const prevSavings = cumulativeSavings;
+    const prevCost = cumulativeCost;
+
+    cumulativeSavings += result.totalMoneySavedAnnually;
+    cumulativeCost += annualOpex;
+    cumulativeWaterLiters += result.waterSavedAnnually;
+    cumulativeCarbonKg += result.annualCarbonSavings;
+
+    const year = index + 1;
+
+    if (
+      paybackYear === null &&
+      cumulativeSavings >= cumulativeCost &&
+      cumulativeSavings > prevSavings
+    ) {
+      const savingsStep = cumulativeSavings - prevSavings;
+      const gapBefore = prevCost - prevSavings;
+      const fraction =
+        savingsStep > 0 ? Math.min(1, Math.max(0, gapBefore / savingsStep)) : 1;
+      paybackYear = year - 1 + fraction;
+    }
+
+    years.push({
+      year,
+      cumulativeSavings,
+      cumulativeCost,
+      cumulativeWaterLiters,
+      cumulativeCarbonKg,
+    });
+  }
+
+  return { years, paybackYear };
 }
 
 export function buildRoiProjectionSeries(
   result: RoiCalculationResult
 ): RoiProjectionSeries {
+  if (result.procurementModel === "opex") {
+    return buildOpexProjectionSeries(result);
+  }
+
   const years: RoiProjectionYearPoint[] = [];
   let cumulativeSavings = 0;
   let cumulativeCost = result.totalInvestmentRequired;
@@ -226,7 +369,16 @@ export function buildRoiProjectionSeries(
 export function toPublicRoiResult(
   result: RoiCalculationResult
 ): RoiCalculatorPublicResult {
-  const { amcByYear: _amcByYear, annualAmcYear2: _annualAmcYear2, ...publicResult } =
-    result;
+  const {
+    amcByYear: _amcByYear,
+    annualAmcYear2: _annualAmcYear2,
+    ...publicResult
+  } = result;
   return publicResult;
+}
+
+export function buildProjectionForResult(
+  result: RoiCalculationResult
+): RoiProjectionSeries {
+  return buildRoiProjectionSeries(result);
 }

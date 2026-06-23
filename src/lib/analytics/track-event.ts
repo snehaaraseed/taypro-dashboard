@@ -230,6 +230,7 @@ export function trackRoiCalculatorRun(options: {
   plantCapacityMw: number;
   marketId: string;
   roiTimelineYears: number;
+  procurementModel?: string;
   pagePath?: string;
 }): void {
   trackEvent("roi_calculator_run", {
@@ -239,6 +240,7 @@ export function trackRoiCalculatorRun(options: {
     plant_capacity_mw: options.plantCapacityMw,
     market_id: options.marketId,
     roi_timeline_years: options.roiTimelineYears,
+    procurement_model: options.procurementModel,
     page_path: options.pagePath,
   });
 }

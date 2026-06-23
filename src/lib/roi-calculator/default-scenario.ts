@@ -1,4 +1,4 @@
-import type { RoiCalculationInput } from "@/lib/roi-calculator/roi-types";
+import type { RoiCalculationInput, ProcurementModel } from "@/lib/roi-calculator/roi-types";
 import type { RoiMarketProfile } from "@/lib/roi-calculator/market-profiles";
 
 export const DEFAULT_MODULE_CAPACITY_WP = 545;
@@ -34,5 +34,7 @@ export function buildDefaultInteractiveFormData(market: RoiMarketProfile) {
     plantCapacityKW: input.plantCapacityKW,
     electricityTariff: input.electricityTariff,
     moduleCapacity: input.moduleCapacityWp,
+    procurementModel: "capex" as ProcurementModel,
+    cleaningCyclesPerMonth: 5,
   };
 }
