@@ -62,6 +62,7 @@
     "verify:fleet-esg": "tsx scripts/verify-fleet-esg.mjs",
     "audit:product-images": "node scripts/audit-product-image-paths.mjs",
     "assets:migrate-360": "node scripts/migrate-360-branded-folders.mjs",
+    "assets:optimize-pdf-letterheads": "node scripts/optimize-pdf-letterheads.mjs",
     "assets:cleanup-legacy": "node scripts/cleanup-legacy-product-images.mjs",
     "repo:cleanup": "node scripts/repo-cleanup.mjs",
     "validate": "npm run validate:i18n && npm run audit:product-images && npm run verify:roi-india && npm run seo:test-word-count-tier && npm run seo:test-onpage-seo && tsc --noEmit && npm run lint",

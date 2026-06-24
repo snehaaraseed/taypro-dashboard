@@ -1,8 +1,8 @@
-/** ERP letterheads — same assets as Sales Invoice / Quotation print templates. */
+/** ERP letterheads — PDF uses downscaled JPEGs; PNG masters stay for print templates. */
 export const LETTERHEAD_UNIVERSAL_SRC =
-  "/tayproasset/pdf-letterhead/letterhead_universal.png";
+  "/tayproasset/pdf-letterhead/letterhead_universal-pdf.jpg";
 export const LETTERHEAD_MINIMAL_SRC =
-  "/tayproasset/pdf-letterhead/LetterHead.png";
+  "/tayproasset/pdf-letterhead/LetterHead-pdf.jpg";
 
 export type TayproPdfLetterheadSet = {
   universal: string;
@@ -12,7 +12,7 @@ export type TayproPdfLetterheadSet = {
 let letterheadLoadPromise: Promise<TayproPdfLetterheadSet> | null = null;
 
 /** Bust in-browser letterhead cache when assets change. */
-const LETTERHEAD_CACHE_VERSION = "20250622-inner";
+const LETTERHEAD_CACHE_VERSION = "20250624-pdf-jpeg";
 
 async function fetchLetterheadDataUrl(path: string): Promise<string> {
   const response = await fetch(`${path}?v=${LETTERHEAD_CACHE_VERSION}`);

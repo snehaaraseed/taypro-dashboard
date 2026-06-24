@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
+import { headers } from "next/headers";
 import { notFound } from "next/navigation";
-import { buildLayoutClientMessages } from "@/i18n/pick-messages";
+import { buildClientMessages } from "@/i18n/pick-messages";
 import { HtmlLocaleAttributes } from "@/app/components/HtmlLocaleAttributes";
 import { SiteGraphSchema } from "@/app/components/StructuredData";
 import { TAYPRO_SALES_PHONE_E164 } from "@/lib/contact";
@@ -89,7 +90,12 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
   const messages = await getMessages();
-  const clientMessages = buildLayoutClientMessages(messages);
+  const headersList = await headers();
+  const pathname =
+    headersList.get("x-pathname") ??
+    headersList.get("x-logical-pathname") ??
+    `/${locale}`;
+  const clientMessages = buildClientMessages(messages, pathname);
 
   return (
     <NextIntlClientProvider locale={locale} messages={clientMessages}>

@@ -132,4 +132,71 @@ assert.equal(
   "Blog posts must self-canonical, not /blog hub"
 );
 
+import { readFileSync, readdirSync } from "node:fs";
+import { join } from "node:path";
+import {
+  buildClientMessages,
+  buildLayoutClientMessages,
+} from "../src/i18n/pick-messages";
+import { pickSimilarBlogs } from "../src/lib/seo/pick-similar-blogs";
+import { parseProjectsHubPage, projectsHubPagePath } from "../src/lib/cms/projects-hub-pagination";
+
+const messagesRoot = join(process.cwd(), "messages");
+const hiMessages = JSON.parse(
+  readFileSync(join(messagesRoot, "hi.json"), "utf8")
+) as Record<string, unknown>;
+const hiPagesDir = join(messagesRoot, "pages", "hi");
+for (const file of readdirSync(hiPagesDir).filter((f) => f.endsWith(".json"))) {
+  Object.assign(
+    hiMessages,
+    JSON.parse(readFileSync(join(hiPagesDir, file), "utf8"))
+  );
+}
+
+const legacyBundle = JSON.stringify(buildLayoutClientMessages(hiMessages));
+const blogBundle = JSON.stringify(
+  buildClientMessages(hiMessages, "/hi/blog/example-slug")
+);
+assert.ok(
+  blogBundle.length < legacyBundle.length * 0.75,
+  `pathname-scoped hi blog messages should be smaller than full layout bundle (${blogBundle.length} vs ${legacyBundle.length})`
+);
+
+const similar = pickSimilarBlogs(
+  {
+    slug: "a",
+    title: "Solar panel cleaning robots India",
+    description: "Utility-scale robotic cleaning",
+  },
+  [
+    {
+      slug: "b",
+      title: "Solar panel cleaning cost India",
+      description: "Opex pricing for robots",
+      featuredImage: "/x.jpg",
+      author: "Taypro",
+      publishDate: "2026-01-01",
+      href: "/blog/b",
+      source: "db",
+    },
+    {
+      slug: "c",
+      title: "Unrelated topic",
+      description: "Something else",
+      featuredImage: "/y.jpg",
+      author: "Taypro",
+      publishDate: "2025-01-01",
+      href: "/blog/c",
+      source: "db",
+    },
+  ],
+  1
+);
+assert.equal(similar.length, 1);
+assert.equal(similar[0]?.slug, "b");
+
+assert.equal(parseProjectsHubPage(undefined), 1);
+assert.equal(parseProjectsHubPage("2"), 2);
+assert.equal(projectsHubPagePath(2), "/projects?page=2");
+
 console.log("test-seo-fixes: ok");

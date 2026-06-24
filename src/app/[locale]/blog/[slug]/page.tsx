@@ -43,6 +43,7 @@ import {
   recoverBlogSlug,
 } from "@/lib/url-recovery";
 import { listAllBlogs } from "@/lib/cms/blogService";
+import { pickSimilarBlogs } from "@/lib/seo/pick-similar-blogs";
 
 const siteUrl = SITE_URL;
 
@@ -129,7 +130,7 @@ function addHeadingIdsAndExtractToc(html: string): {
   return { contentWithIds, toc };
 }
 
-async function getLocaleBlogsForSimilar(locale: string): Promise<DynamicBlog[]> {
+async function getLocaleBlogMetadata(locale: string): Promise<DynamicBlog[]> {
   const { listAllBlogs } = await import("@/lib/cms/blogService");
   const rows = await listAllBlogs(false, locale);
   return rows.map((metadata) => ({
@@ -241,10 +242,20 @@ export default async function BlogPost({ params }: BlogPostProps) {
   }
 
   const blog = toBlogData(slug, resolved);
-  const [similarBlogs, linkableBlogs] = await Promise.all([
-    getLocaleBlogsForSimilar(locale),
+  const [localeBlogMetadata, linkableBlogs] = await Promise.all([
+    getLocaleBlogMetadata(locale),
     listBlogsForInternalLinking(locale),
   ]);
+
+  const similarBlogs = pickSimilarBlogs(
+    {
+      slug,
+      title: blog.title,
+      description: blog.description,
+    },
+    localeBlogMetadata,
+    5
+  );
 
   const breadcrumbs = [
     { name: tCommon("breadcrumbHome"), href: "/" },
@@ -271,7 +282,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
   const displayAuthorName = knownAuthor?.name ?? authorName;
   const authorBio = knownAuthor?.bio ?? getAuthorBySlug(authorSlug)?.bio;
   const authorAvatarUrl = knownAuthor?.avatarUrl || getAuthorAvatarUrl(authorName);
-  const moreFromAuthor = similarBlogs
+  const moreFromAuthor = localeBlogMetadata
     .filter(
       (post) =>
         post.slug !== slug &&
@@ -536,7 +547,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
           {/* Similar Blogs Bottom Section */}
           <div className="mt-16">
-            <SimilarBlogs blogs={similarBlogs} currentSlug={slug} layout="bottom" />
+            <SimilarBlogs blogs={similarBlogs} layout="bottom" />
           </div>
         </div>
       </div>

@@ -140,11 +140,7 @@ export default function NotFoundContent({
               <h2 className="text-[#052638] text-xl sm:text-2xl font-semibold mb-6 text-center">
                 {labels.similarBlogsHeading}
               </h2>
-              <SimilarBlogs
-                blogs={similarBlogs}
-                currentSlug={currentBlogSlug}
-                layout="bottom"
-              />
+              <SimilarBlogs blogs={similarBlogs} layout="bottom" />
             </div>
           ) : null}
 

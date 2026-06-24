@@ -17,6 +17,22 @@ const PROJECT_FILTER_SEGMENTS = new Set([
   "opex",
 ]);
 
+/** One namespace per buyer-intent route (avoid shipping all landing copy on every page). */
+const BUYER_INTENT_NAMESPACE: Record<string, string> = {
+  "/solar-panel-cleaning-service-india": "ServiceIndiaPage",
+  "/solar-om-services": "SolarOmServicesPage",
+  "/solar-cleaning-opex-pricing": "SolarCleaningOpexPricingPage",
+  "/solar-panel-cleaning-robot-for-rooftop": "RooftopCleaningPage",
+  "/solar-panel-cleaning-robot-for-trackers": "TrackerCleaningPage",
+  "/solar-fleet-monitoring-software": "FleetMonitoringPage",
+  "/large-scale-solar-panel-cleaning": "LargeScaleCleaningPage",
+  "/solar-cleaning-capex-vs-opex": "SolarCleaningCapexVsOpexPage",
+  "/solar-panel-soiling-loss-calculator": "SoilingLossCalculatorPage",
+  "/solar-cleaning-robot-manufacturer-india": "ManufacturerIndiaPage",
+  "/solar-plant-data-intelligence": "PlantDataIntelligencePage",
+  "/enterprise-solar-cleaning-partnership": "EnterprisePartnershipPage",
+};
+
 /**
  * Namespaces used by full "use client" pages and shared client widgets.
  * Always included in the client bundle so client-side navigation does not
@@ -76,37 +92,9 @@ export function clientNamespacesForPathname(pathname: string): string[] {
     return ["RobotPriceIndiaPage", "PriceCalculatorPage", "Common"];
   }
 
-  const buyerIntentPaths = new Set([
-    "/solar-panel-cleaning-service-india",
-    "/solar-om-services",
-    "/solar-cleaning-opex-pricing",
-    "/solar-panel-cleaning-robot-for-rooftop",
-    "/solar-panel-cleaning-robot-for-trackers",
-    "/solar-fleet-monitoring-software",
-    "/large-scale-solar-panel-cleaning",
-    "/solar-cleaning-capex-vs-opex",
-    "/solar-panel-soiling-loss-calculator",
-    "/solar-cleaning-robot-manufacturer-india",
-    "/solar-plant-data-intelligence",
-    "/enterprise-solar-cleaning-partnership",
-  ]);
-  if (buyerIntentPaths.has(path)) {
-    return [
-      "ServiceIndiaPage",
-      "SolarOmServicesPage",
-      "SolarCleaningOpexPricingPage",
-      "RooftopCleaningPage",
-      "TrackerCleaningPage",
-      "FleetMonitoringPage",
-      "LargeScaleCleaningPage",
-      "SolarCleaningCapexVsOpexPage",
-      "SoilingLossCalculatorPage",
-      "ManufacturerIndiaPage",
-      "PlantDataIntelligencePage",
-      "EnterprisePartnershipPage",
-      "PriceCalculatorPage",
-      "Common",
-    ];
+  const buyerNamespace = BUYER_INTENT_NAMESPACE[path];
+  if (buyerNamespace) {
+    return [buyerNamespace, "PriceCalculatorPage", "Common"];
   }
 
   if (path.startsWith("/solar-panel-cleaning-robot-")) {
@@ -143,13 +131,8 @@ export function clientNamespacesForPathname(pathname: string): string[] {
   return [];
 }
 
+/** Layout chrome + route-specific client namespaces (not the full CLIENT_PAGE_NAMESPACES list). */
 export function clientNamespacesForRequest(pathname: string): string[] {
   const routeNamespaces = clientNamespacesForPathname(pathname);
-  return [
-    ...new Set([
-      ...LAYOUT_CLIENT_NAMESPACES,
-      ...CLIENT_PAGE_NAMESPACES,
-      ...routeNamespaces,
-    ]),
-  ];
+  return [...new Set([...LAYOUT_CLIENT_NAMESPACES, ...routeNamespaces])];
 }

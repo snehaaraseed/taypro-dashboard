@@ -71,12 +71,19 @@ function requireLetterheads(): TayproPdfLetterheadSet {
   return letterheads;
 }
 
+const LETTERHEAD_IMAGE_ALIASES = {
+  universal: "taypro-lh-universal",
+  minimal: "taypro-lh-minimal",
+} as const;
+
 function paintBackground(pdf: jsPDF, variant: "universal" | "minimal"): void {
   const src =
     variant === "universal"
       ? requireLetterheads().universal
       : requireLetterheads().minimal;
-  pdf.addImage(src, "PNG", 0, 0, PAGE_W, PAGE_H, undefined, "NONE");
+  const alias = LETTERHEAD_IMAGE_ALIASES[variant];
+  const format = src.startsWith("data:image/png") ? "PNG" : "JPEG";
+  pdf.addImage(src, format, 0, 0, PAGE_W, PAGE_H, alias, "MEDIUM");
 }
 
 export function paintGradientTitle(pdf: jsPDF, title: string): void {

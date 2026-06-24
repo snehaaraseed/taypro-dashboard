@@ -19,6 +19,7 @@ import { socialImagesFromMedia } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 import { withHreflang } from "@/lib/seo/with-hreflang";
 import { recoveryNotFoundMetadata } from "@/lib/seo/recovery-not-found-metadata";
+import { pickSimilarBlogs } from "@/lib/seo/pick-similar-blogs";
 
 /**
  * Returns the canonical /blog/[slug] path when this post is also published as
@@ -217,6 +218,16 @@ export default async function BlogPost({ params }: BlogPostProps) {
     notFound();
   }
 
+  const similarBlogs = pickSimilarBlogs(
+    {
+      slug: blog.slug,
+      title: blog.title,
+      description: blog.description,
+    },
+    allBlogs,
+    5
+  );
+
   // SEO: if this post is also published as a file-backed blog, the canonical
   // home is /blog/[slug]. 301-redirect so external links to /blog/db/[id]
   // converge on the single indexable URL.
@@ -362,7 +373,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
             </div>
 
             {/* Similar Blogs Sidebar - Full Height */}
-            <SimilarBlogs blogs={allBlogs} currentSlug={blog.slug} />
+            <SimilarBlogs blogs={similarBlogs} />
           </div>
         </div>
       </div>

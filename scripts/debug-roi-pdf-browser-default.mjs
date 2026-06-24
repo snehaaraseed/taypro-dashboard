@@ -17,8 +17,8 @@ globalThis.fetch = async (input) => {
   };
 };
 
-const toDataUrl = (f) =>
-  `data:image/png;base64,${fs.readFileSync(f).toString("base64")}`;
+const toJpegDataUrl = (f) =>
+  `data:image/jpeg;base64,${fs.readFileSync(f).toString("base64")}`;
 
 async function main() {
   const { registerRoiPdfFonts } = await import("../src/lib/roi-calculator/pdf-fonts.ts");
@@ -51,12 +51,18 @@ async function main() {
   const pdf = new jsPDF({ unit: "pt", format: "a4" });
   await registerRoiPdfFonts(pdf);
 
+  const toDataUrl = (file, mime) =>
+    `data:${mime};base64,${fs.readFileSync(file).toString("base64")}`;
+
   buildRoiPdfDocument({
     pdf,
     autoTable,
     letterheads: {
-      universal: toDataUrl(path.join(letterheadDir, "letterhead_universal.png")),
-      minimal: toDataUrl(path.join(letterheadDir, "LetterHead.png")),
+      universal: toDataUrl(
+        path.join(letterheadDir, "letterhead_universal-pdf.jpg"),
+        "image/jpeg"
+      ),
+      minimal: toDataUrl(path.join(letterheadDir, "LetterHead-pdf.jpg"), "image/jpeg"),
     },
     market,
     results,
@@ -70,6 +76,11 @@ async function main() {
   });
 
   console.log("Browser-default pages:", pdf.getNumberOfPages());
+  const outPath = path.join(root, "tmp/roi-pdf-size-check.pdf");
+  fs.mkdirSync(path.dirname(outPath), { recursive: true });
+  fs.writeFileSync(outPath, Buffer.from(pdf.output("arraybuffer")));
+  const sizeKb = fs.statSync(outPath).size / 1024;
+  console.log("PDF size:", sizeKb < 1024 ? `${sizeKb.toFixed(0)} KB` : `${(sizeKb / 1024).toFixed(2)} MB`);
 }
 
 main();

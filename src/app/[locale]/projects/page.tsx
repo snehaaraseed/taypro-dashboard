@@ -3,6 +3,11 @@ import { getTranslations } from "next-intl/server";
 import { getAllFileProjects } from "@/app/utils/projectFileUtils";
 import { FEATURED_HUB_PROJECT_SLUGS } from "@/lib/cms/projects-hub-config";
 import {
+  PROJECTS_HUB_PORTFOLIO_PAGE_SIZE,
+  parseProjectsHubPage,
+  projectsHubPagePath,
+} from "@/lib/cms/projects-hub-pagination";
+import {
   enrichProjectsForGrid,
   getProjectsBySlugs,
 } from "@/lib/cms/projectService";
@@ -24,6 +29,7 @@ import CallbackCard from "@/app/components/CallbackCard";
 import { FaqSection } from "@/app/components/FaqSection";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const PORTFOLIO_PAGE_SIZE = PROJECTS_HUB_PORTFOLIO_PAGE_SIZE;
 
 const PROJECT_CATEGORY_KEYS = [
   { key: "automatic" as const, href: "/projects/automatic" },
@@ -41,12 +47,19 @@ const STAT_LABEL_KEYS = [
 
 const FAQ_KEYS = ["q0", "q1", "q2", "q3"] as const;
 
+type ProjectPageProps = {
+  params: Promise<{ locale: string }>;
+  searchParams?: Promise<{ page?: string | string[] }>;
+};
+
 export default async function ProjectPage({
   params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+  searchParams,
+}: ProjectPageProps) {
   const { locale } = await params;
+  const sp = (await searchParams) ?? {};
+  const requestedPage = parseProjectsHubPage(sp.page);
+
   const t = await getTranslations({ locale, namespace: "ProjectsPage" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
 
@@ -59,7 +72,17 @@ export default async function ProjectPage({
 
   const featuredSlugSet = new Set<string>(FEATURED_HUB_PROJECT_SLUGS);
   const portfolioBase = allProjects.filter((p) => !featuredSlugSet.has(p.id));
-  const portfolioProjects = await enrichProjectsForGrid(portfolioBase, locale);
+  const totalPortfolioPages = Math.max(
+    1,
+    Math.ceil(portfolioBase.length / PORTFOLIO_PAGE_SIZE)
+  );
+  const portfolioPage = Math.min(requestedPage, totalPortfolioPages);
+  const portfolioOffset = (portfolioPage - 1) * PORTFOLIO_PAGE_SIZE;
+  const portfolioSlice = portfolioBase.slice(
+    portfolioOffset,
+    portfolioOffset + PORTFOLIO_PAGE_SIZE
+  );
+  const portfolioProjects = await enrichProjectsForGrid(portfolioSlice, locale);
 
   const breadcrumbs = [
     { name: tCommon("breadcrumbHome"), href: "/" },
@@ -71,7 +94,12 @@ export default async function ProjectPage({
     answer: t(`faq.a${i}`),
   }));
 
-  const itemListEntries = allProjects.map((p) => ({
+  const schemaProjects =
+    portfolioPage <= 1
+      ? [...featuredProjects, ...portfolioProjects]
+      : portfolioProjects;
+
+  const itemListEntries = schemaProjects.map((p) => ({
     name: p.title,
     url: p.href,
     image: p.img.startsWith("http") ? p.img : p.img,
@@ -117,7 +145,7 @@ export default async function ProjectPage({
           }
           footer={
             <>
-              {portfolioProjects.length > 0 ? (
+              {portfolioBase.length > 0 ? (
                 <a
                   href="#all-projects"
                   className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-[#A8C117] px-6 py-3 text-sm font-semibold text-[#052638] transition hover:bg-[#b3cf3d]"
@@ -245,7 +273,7 @@ export default async function ProjectPage({
                   shown: featuredProjects.length,
                   total: allProjects.length,
                 })}
-                {portfolioProjects.length > 0 ? (
+                {portfolioBase.length > 0 ? (
                   <>
                     {" "}
                     <a
@@ -298,8 +326,8 @@ export default async function ProjectPage({
           </Container>
         </section>
 
-        {/* Full portfolio */}
-        {portfolioProjects.length > 0 ? (
+        {/* Full portfolio (paginated) */}
+        {portfolioBase.length > 0 ? (
           <section
             id="all-projects"
             className="py-16 md:py-24 bg-white border-t border-[#052638]/8 scroll-mt-24"
@@ -322,6 +350,43 @@ export default async function ProjectPage({
                 </p>
               </AnimateOnScroll>
               <ProjectsGrid projects={portfolioProjects} columns={2} />
+              {totalPortfolioPages > 1 ? (
+                <nav
+                  className="mt-12 flex flex-wrap items-center justify-center gap-4"
+                  aria-label={t("portfolio.paginationLabel")}
+                >
+                  {portfolioPage > 1 ? (
+                    <Link
+                      href={projectsHubPagePath(portfolioPage - 1)}
+                      className="inline-flex min-h-[44px] items-center rounded-xl border border-gray-200 bg-white px-5 py-2 text-sm font-medium text-[#052638] transition hover:border-[#A8C117]"
+                    >
+                      {t("portfolio.paginationPrevious")}
+                    </Link>
+                  ) : (
+                    <span className="inline-flex min-h-[44px] items-center rounded-xl border border-gray-100 px-5 py-2 text-sm text-gray-400">
+                      {t("portfolio.paginationPrevious")}
+                    </span>
+                  )}
+                  <span className="text-sm text-[#27415c] tabular-nums">
+                    {t("portfolio.paginationPageOf", {
+                      page: portfolioPage,
+                      totalPages: totalPortfolioPages,
+                    })}
+                  </span>
+                  {portfolioPage < totalPortfolioPages ? (
+                    <Link
+                      href={projectsHubPagePath(portfolioPage + 1)}
+                      className="inline-flex min-h-[44px] items-center rounded-xl border border-gray-200 bg-white px-5 py-2 text-sm font-medium text-[#052638] transition hover:border-[#A8C117]"
+                    >
+                      {t("portfolio.paginationNext")}
+                    </Link>
+                  ) : (
+                    <span className="inline-flex min-h-[44px] items-center rounded-xl border border-gray-100 px-5 py-2 text-sm text-gray-400">
+                      {t("portfolio.paginationNext")}
+                    </span>
+                  )}
+                </nav>
+              ) : null}
             </Container>
           </section>
         ) : null}

@@ -6,12 +6,11 @@ import { useLocale, useTranslations } from "next-intl";
 import { formatLocaleDate } from "@/i18n/format-date";
 import { getBlogFeaturedImageAlt } from "../utils/imageAlt";
 import { DynamicBlog } from "../api/blog/list/route";
-import { calculateBlogSimilarity } from "@/lib/seo/blog-similarity-scoring";
 import { trackBlogClick } from "@/lib/analytics/track-event";
 
 interface SimilarBlogsProps {
+  /** Pre-selected similar posts (server should pass at most 5). */
   blogs: DynamicBlog[];
-  currentSlug?: string;
   layout?: "sidebar" | "bottom";
 }
 
@@ -20,69 +19,14 @@ function lastUpdatedDisplayString(blog: DynamicBlog, locale: string): string {
   return formatLocaleDate(locale, iso);
 }
 
-// Get similar blogs based on keyword matching
-function getSimilarBlogs(
-  allBlogs: DynamicBlog[],
-  currentSlug?: string
-): DynamicBlog[] {
-  if (!currentSlug) {
-    // If no current slug, return most recent blogs
-    return allBlogs.slice(0, 5);
-  }
-
-  // Find current blog
-  const currentBlog = allBlogs.find((b) => b.slug === currentSlug);
-  if (!currentBlog) {
-    return allBlogs.filter((b) => b.slug !== currentSlug).slice(0, 5);
-  }
-
-  // Calculate similarity scores for all other blogs
-  const blogsWithScores = allBlogs
-    .filter((b) => b.slug !== currentSlug)
-    .map((blog) => ({
-      blog,
-      score: calculateBlogSimilarity(currentBlog, blog),
-      publishDate: new Date(blog.publishDate).getTime(), // For deterministic sorting
-    }))
-    .sort((a, b) => {
-      // Primary sort: by similarity score (highest first)
-      if (b.score !== a.score) {
-        return b.score - a.score;
-      }
-      // Secondary sort: by publish date (most recent first) for deterministic ordering
-      return b.publishDate - a.publishDate;
-    })
-    .slice(0, 5) // Take top 5
-    .map((item) => item.blog); // Extract just the blog objects
-
-  // If we don't have enough similar blogs (score > 0), fall back to most recent
-  if (blogsWithScores.length < 5) {
-    const recentBlogs = allBlogs
-      .filter((b) => b.slug !== currentSlug && !blogsWithScores.some((sb) => sb.slug === b.slug))
-      .map((blog) => ({
-        blog,
-        publishDate: new Date(blog.publishDate).getTime(),
-      }))
-      .sort((a, b) => b.publishDate - a.publishDate)
-      .slice(0, 5 - blogsWithScores.length)
-      .map((item) => item.blog);
-
-    return [...blogsWithScores, ...recentBlogs].slice(0, 5);
-  }
-
-  return blogsWithScores;
-}
-
 export function SimilarBlogs({
   blogs,
-  currentSlug,
   layout = "sidebar",
 }: SimilarBlogsProps) {
   const t = useTranslations("BlogPage.similar");
   const locale = useLocale();
-  const similarBlogs = getSimilarBlogs(blogs, currentSlug);
 
-  if (similarBlogs.length === 0) {
+  if (blogs.length === 0) {
     return null;
   }
 
@@ -93,7 +37,7 @@ export function SimilarBlogs({
           {t("heading")}
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {similarBlogs.map((similarBlog) => (
+          {blogs.map((similarBlog) => (
             <Link
               key={similarBlog.slug}
               href={similarBlog.href}
@@ -144,7 +88,7 @@ export function SimilarBlogs({
           {t("heading")}
         </h3>
         <div className="space-y-6">
-          {similarBlogs.map((similarBlog) => (
+          {blogs.map((similarBlog) => (
             <Link
               key={similarBlog.slug}
               href={similarBlog.href}
@@ -188,4 +132,3 @@ export function SimilarBlogs({
     </aside>
   );
 }
-

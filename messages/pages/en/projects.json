@@ -92,7 +92,11 @@
       "heading": "Full portfolio",
       "title": "All published installation case studies",
       "body": "Every published Taypro plant profile in one grid, newest first. Projects highlighted above remain our curated references; the rest of the portfolio is listed here without duplication. Prefer a narrower view? Use the deployment-model category pages.",
-      "countNote": "{count} published"
+      "countNote": "{count} published",
+      "paginationLabel": "Projects pagination",
+      "paginationPrevious": "Previous",
+      "paginationNext": "Next",
+      "paginationPageOf": "Page {page} of {totalPages}"
     },
     "projectCard": {
       "empty": "No projects available at the moment.",
