@@ -9,6 +9,10 @@ import {
   seasonalCalendarHtml,
 } from "./lib/handwritten-site-config.mjs";
 import { TIER3_SITES } from "./lib/handwritten-tier3-site-config.mjs";
+import {
+  PERFORMANCE_METHODOLOGY_HREF,
+  projectPeerHref,
+} from "./lib/handwritten-link-helpers.mjs";
 import { buildTier3DeepEditorial } from "./lib/tier3-editorial-deep.mjs";
 import { TIER3_LONGFORM } from "./lib/tier3-longform.mjs";
 
@@ -41,7 +45,7 @@ function closingBrief(s) {
   return `
 <h2>Technical committee closing brief for ${name}</h2>
 <p>Attach row maps, ${s.nectyr ? "NECTYR samples" : "inspection samples"}, and conservative <strong>${s.energyUplift || `${s.gwh} GWh`}</strong> / <strong>${s.co2}&nbsp;tCO₂e</strong> stress tests. <strong>${s.water} litres</strong> water avoided should use the same assumptions as generation slides.</p>
-<p>Scheduled cycles and weather-aware holds—roughly <strong>3–10 dry cycles per month</strong> on automatic peers, weather permitting—not daily plant-wide washing. Read <a href="/cleaning-technology">cleaning technology</a> and <a href="/performance-methodology">performance methodology</a>.</p>
+<p>Scheduled cycles and weather-aware holds—roughly <strong>3–10 dry cycles per month</strong> on automatic peers, weather permitting—not daily plant-wide washing. Read <a href="/cleaning-technology">cleaning technology</a> and <a href="${PERFORMANCE_METHODOLOGY_HREF}">performance methodology</a>.</p>
 <p>Compare peers linked above; request layout review via <a href="/contact">contact</a> when row maps are preliminary.</p>
 
 <h2>Finance workshop agenda</h2>
@@ -53,7 +57,7 @@ function buildHtml(slug, s) {
   const peers = s.peers
     .map(
       ([ps, label, note]) =>
-        `<p><strong> Versus <a href="/projects/${ps}">${label}</a>:</strong> ${note}.</p>`
+        `<p><strong> Versus <a href="${projectPeerHref(ps)}">${label}</a>:</strong> ${note}.</p>`
     )
     .join("\n");
   const cadence = s.nectyr ? nectyrCadenceGroundHtml : semiCadenceHtml;

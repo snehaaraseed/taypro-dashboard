@@ -2,6 +2,7 @@ import "server-only";
 
 import { createSlug } from "@/app/utils/blogFileUtils";
 import { saveImageBuffer } from "@/lib/cms/saveImageBuffer";
+import type { UploadContext } from "@/lib/cms/imageUploadTypes";
 import {
   buildBlogHeroImagePrompt,
   buildBlogInlineImagePrompt,
@@ -91,7 +92,8 @@ export async function generateBlogFeaturedImagePollinations(input: {
       seoKeyword
     ),
     size: getPollinationsImageSize(),
-    baseName: `blog-${createSlug(input.title).slice(0, 50) || "hero"}`,
+    context: "blog-generated-hero",
+    label: createSlug(input.title).slice(0, 50) || "hero",
   });
 
   return {
@@ -117,7 +119,8 @@ export async function generateBlogInlineImagePollinations(input: {
       seoKeyword
     ),
     size: getPollinationsInlineImageSize(),
-    baseName: `blog-inline-${slugBase}`,
+    context: "blog-generated-inline",
+    label: slugBase,
   });
 
   return {
@@ -130,7 +133,8 @@ export async function generateBlogInlineImagePollinations(input: {
 async function requestPollinationsImage(input: {
   prompt: string;
   size: string;
-  baseName: string;
+  context: UploadContext;
+  label: string;
 }): Promise<{ url: string; model: string }> {
   const models = getPollinationsModelChain();
   const retryWaitMs = getPollenRetryWaitMs();
@@ -157,7 +161,7 @@ async function requestPollinationsImage(input: {
 }
 
 async function requestPollinationsImageWithModel(
-  input: { prompt: string; size: string; baseName: string },
+  input: { prompt: string; size: string; context: UploadContext; label: string },
   model: string,
   retryWaitMs: number
 ): Promise<{ url: string; model: string }> {
@@ -181,7 +185,7 @@ async function requestPollinationsImageWithModel(
 }
 
 async function requestPollinationsImageOnce(
-  input: { prompt: string; size: string; baseName: string },
+  input: { prompt: string; size: string; context: UploadContext; label: string },
   model: string
 ): Promise<{ url: string }> {
   const response = await fetch(`${POLLINATIONS_BASE}/v1/images/generations`, {
@@ -231,11 +235,13 @@ async function requestPollinationsImageOnce(
   }
 
   const mimeType = detectImageMimeType(buffer);
-  return saveImageBuffer({
+  const saved = await saveImageBuffer({
     buffer,
     mimeType,
-    baseName: input.baseName,
+    context: input.context,
+    label: input.label,
   });
+  return { url: saved.url };
 }
 
 function detectImageMimeType(buffer: Buffer): "image/jpeg" | "image/png" {

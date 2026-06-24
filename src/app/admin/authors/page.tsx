@@ -8,6 +8,7 @@ import {
   BLOG_AUTHOR_EXPERTISE_TAGS,
   type BlogAuthorExpertiseTag,
 } from "@/lib/cms/blog-author-expertise-ids";
+import { appendImageUploadMeta } from "@/lib/cms/imageUploadForm";
 
 interface Author {
   name: string;
@@ -82,6 +83,11 @@ export default function AdminAuthorsPage() {
       }
       const fd = new FormData();
       fd.append("file", fileToUpload);
+      appendImageUploadMeta(
+        fd,
+        "author-avatar",
+        editingSlug || slugifyAuthorName(form.name) || "author"
+      );
       const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
       const data = await res.json();
       if (!res.ok || !data.url) {

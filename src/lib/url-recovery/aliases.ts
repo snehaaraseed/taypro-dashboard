@@ -1,8 +1,10 @@
 import { STATIC_SITEMAP_ROUTES } from "@/lib/seo/sitemap-config";
+import { buildLegacyAliasMap } from "@/lib/seo/legacy-path-redirects";
 import { normalizePath } from "@/lib/url-recovery/normalize";
 
 /** Hand-curated aliases — safe, deterministic 301 targets. */
 export const MANUAL_ALIASES: Record<string, string> = {
+  ...buildLegacyAliasMap(),
   "/contacts": "/contact",
   "/contact-us": "/contact",
   "/contactus": "/contact",

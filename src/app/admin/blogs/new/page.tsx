@@ -8,6 +8,8 @@ import BlogPublishControls from "@/app/admin/components/BlogPublishControls";
 import { BlogFaqEditor } from "@/app/admin/components/BlogFaqEditor";
 import { isoToDateInputValue } from "@/lib/cms/blog-schedule";
 import type { BlogFaqItem } from "@/lib/cms/blog-faqs";
+import { appendImageUploadMeta } from "@/lib/cms/imageUploadForm";
+import { slugFromTitle } from "@/lib/cms/imageUploadTypes";
 
 export default function NewBlogPage() {
   const router = useRouter();
@@ -131,6 +133,11 @@ export default function NewBlogPage() {
     try {
       const uploadFormData = new FormData();
       uploadFormData.append("file", file);
+      appendImageUploadMeta(
+        uploadFormData,
+        "blog-featured",
+        slugFromTitle(formData.title) || "draft"
+      );
 
       const response = await fetch("/api/admin/upload", {
         method: "POST",
@@ -484,6 +491,8 @@ export default function NewBlogPage() {
                 setFormData({ ...formData, content })
               }
               initialContent={formData.content}
+              uploadContext="blog-inline"
+              uploadLabel={slugFromTitle(formData.title) || "draft"}
             />
           </div>
         </div>

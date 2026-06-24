@@ -9,6 +9,10 @@ import {
   semiCadenceHtml,
   seasonalCalendarHtml,
 } from "./lib/handwritten-site-config.mjs";
+import {
+  PERFORMANCE_METHODOLOGY_HREF,
+  projectPeerHref,
+} from "./lib/handwritten-link-helpers.mjs";
 import { TIER2_LONGFORM } from "./lib/tier2-longform.mjs";
 import { buildTier2DeepEditorial } from "./lib/tier2-editorial-deep.mjs";
 import { remediationPass2 } from "./lib/handwritten-remediation-pass2.mjs";
@@ -60,7 +64,7 @@ function tier2ClosingBrief(s) {
 <p>Brush and drive consumables belong in ten-year CAPEX models alongside hardware. ${s.year ? `Commissioning in ${s.year} ` : ""}should have established hold policies before the first March dust peak. Spare batches arriving late idle machines silently across hundreds of hectares.</p>
 <p>Compare peer deployments linked in this case study before copying robot density. ${s.state} logistics, row repeatability, and dust return windows differ from Rajasthan mega plants and Madhya Pradesh mixed fleets alike. Model with <a href="/solar-panel-cleaning-robot-price-calculator#calculator">calculator</a> inputs only after local PR baselines and curtailment history are agreed.</p>
 <p>Insurers and lenders increasingly ask for night traffic plans, training attendance, and cleaning evidence—not crew sign-in sheets alone. ${s.nectyr ? "NECTYR exports" : "Inspection discipline"} answers that question when block IDs match finance workshops.</p>
-<p>Finally, treat scheduled cycles and weather-aware holds as the operating definition of “clean”: roughly <strong>3–10 dry cycles per month</strong> on automatic peers, weather permitting—not daily flooding of every module. Read <a href="/cleaning-technology">cleaning technology</a> before writing acceptance criteria; read <a href="/performance-methodology">performance methodology</a> before claiming MWh uplift per pass.</p>
+<p>Finally, treat scheduled cycles and weather-aware holds as the operating definition of “clean”: roughly <strong>3–10 dry cycles per month</strong> on automatic peers, weather permitting—not daily flooding of every module. Read <a href="/cleaning-technology">cleaning technology</a> before writing acceptance criteria; read <a href="${PERFORMANCE_METHODOLOGY_HREF}">performance methodology</a> before claiming MWh uplift per pass.</p>
 
 <h2>Finance workshop agenda (suggested)</h2>
 <p>Agenda item one: validate manual baseline year—tanker litres, wet-wash crew headcount, emergency wash calls. Agenda item two: agree PR and curtailment normalization for <strong>${s.gwh}&nbsp;GWh</strong> attribution bands. Agenda item three: review ${s.nectyr ? "NECTYR hold frequency and completion maps" : "inspection cadence and signed block plans"} for the last dust-season month. Agenda item four: align ESG water and carbon slides on one assumption set.</p>
@@ -73,7 +77,7 @@ function buildHtml(slug, s) {
   const peers = s.peers
     .map(
       ([ps, label, note]) =>
-        `<p><strong> Versus <a href="/projects/${ps}">${label}</a>:</strong> ${note}.</p>`
+        `<p><strong> Versus <a href="${projectPeerHref(ps)}">${label}</a>:</strong> ${note}.</p>`
     )
     .join("\n");
   const cadence = s.nectyr ? nectyrCadenceGroundHtml : semiCadenceHtml;
@@ -86,7 +90,7 @@ function buildHtml(slug, s) {
 
   return `<h2>Executive summary</h2>
 ${execSummary(slug, s)}
-<p>Operations report roughly <strong>${s.water} litres of water saved per year</strong>, about <strong>${s.gwh}&nbsp;GWh of additional clean generation</strong>, and <strong>${s.co2}&nbsp;metric tons CO₂ equivalent</strong> (site-reported; validate with your SCADA). This case study links to Taypro products, <a href="/performance-methodology">performance methodology</a>, and peer deployments for owners sizing mid-scale programmes.</p>
+<p>Operations report roughly <strong>${s.water} litres of water saved per year</strong>, about <strong>${s.gwh}&nbsp;GWh of additional clean generation</strong>, and <strong>${s.co2}&nbsp;metric tons CO₂ equivalent</strong> (site-reported; validate with your SCADA). This case study links to Taypro products, <a href="${PERFORMANCE_METHODOLOGY_HREF}">performance methodology</a>, and peer deployments for owners sizing mid-scale programmes.</p>
 <p>Robotic cleaning here means <strong>scheduled cycles and weather-aware holds</strong>—not flooding modules on a daily wash calendar. Read the cadence section before modelling robots/MW from brochures alone.</p>
 
 <h2>Site statistics at a glance</h2>

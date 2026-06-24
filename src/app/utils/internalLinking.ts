@@ -1,4 +1,5 @@
 import { DynamicBlog } from "../api/blog/list/route";
+import { isDraftProjectSlug } from "@/lib/seo/draft-project-slugs";
 
 /** Published project card / case study used for cross-links. */
 import type { TayproLocale } from "@/i18n/markets";
@@ -424,6 +425,7 @@ function findRelevantProjects(
 
   for (const project of allProjects) {
     if (project.slug === currentSlug) continue;
+    if (isDraftProjectSlug(project.slug)) continue;
 
     let score = 0;
     const titleLower = project.title.toLowerCase();

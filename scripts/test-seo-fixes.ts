@@ -199,4 +199,42 @@ assert.equal(parseProjectsHubPage(undefined), 1);
 assert.equal(parseProjectsHubPage("2"), 2);
 assert.equal(projectsHubPagePath(2), "/projects?page=2");
 
+import { getLegacyPathRedirects, buildLegacyAliasMap } from "../src/lib/seo/legacy-path-redirects";
+import { DRAFT_PROJECT_PEER_SLUGS } from "../src/lib/seo/draft-project-slugs";
+
+const legacyAliases = buildLegacyAliasMap();
+assert.equal(
+  legacyAliases["/performance-methodology"],
+  "/performance-and-test-methodology"
+);
+assert.equal(
+  legacyAliases["/solar-panel-cleaning-service"],
+  "/solar-panel-cleaning-system/solar-panel-cleaning-service"
+);
+assert.equal(
+  legacyAliases["/blog/solar-panel-cleaning-robot-price-calculator"],
+  "/solar-panel-cleaning-robot-price-calculator"
+);
+
+const legacyRedirects = getLegacyPathRedirects();
+assert.ok(
+  legacyRedirects.some(
+    (r) =>
+      r.source === "/performance-methodology" &&
+      r.destination === "/performance-and-test-methodology"
+  ),
+  "performance-methodology redirect"
+);
+assert.ok(
+  legacyRedirects.some(
+    (r) =>
+      r.source ===
+        "/solar-panel-cleaning-system/solar-panel-cleaning-system-for-single-axis-trackers" &&
+      r.destination ===
+        "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
+  ),
+  "tracker GLYDE path redirect"
+);
+assert.equal(DRAFT_PROJECT_PEER_SLUGS.size, 17);
+
 console.log("test-seo-fixes: ok");

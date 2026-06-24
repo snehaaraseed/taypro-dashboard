@@ -3,6 +3,7 @@
 import { useEffect, useRef, useMemo } from "react";
 import { repairInlineImgAlts } from "@/lib/seo/blog-inline-img-alt";
 import { sanitizeBlogHtml } from "@/lib/security/sanitize-html";
+import { nextImageUrl } from "@/lib/images/nextImageUrl";
 
 interface BlogContentProps {
   content: string;
@@ -42,6 +43,15 @@ export function BlogContent({
 
     const images = contentRef.current.querySelectorAll("img");
     images.forEach((img) => {
+      const src = img.getAttribute("src");
+      if (src?.startsWith("/") && !src.startsWith("//")) {
+        const optimized = nextImageUrl(src, 1400, 75);
+        if (img.getAttribute("src") !== optimized) {
+          img.setAttribute("src", optimized);
+          img.setAttribute("srcset", "");
+        }
+      }
+
       if (!img.hasAttribute("data-error-handler")) {
         img.setAttribute("data-error-handler", "true");
         img.addEventListener("error", function () {

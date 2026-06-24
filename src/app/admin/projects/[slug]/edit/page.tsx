@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter, useParams } from "next/navigation";
 import AdminRichTextEditor from "@/app/admin/components/AdminRichTextEditor";
+import { appendImageUploadMeta } from "@/lib/cms/imageUploadForm";
+import { slugFromTitle } from "@/lib/cms/imageUploadTypes";
 
 interface ProjectData {
   title: string;
@@ -215,6 +217,11 @@ export default function EditProjectPage() {
 
       const uploadFormData = new FormData();
       uploadFormData.append("file", fileToUpload);
+      appendImageUploadMeta(
+        uploadFormData,
+        "project-hero",
+        formData.slug || slugFromTitle(formData.title) || slug
+      );
 
       const response = await fetch("/api/admin/upload", {
         method: "POST",
@@ -764,6 +771,8 @@ export default function EditProjectPage() {
                 onContentChange={(html) =>
                   setFormData((prev) => ({ ...prev, content: html }))
                 }
+                uploadContext="project-inline"
+                uploadLabel={formData.slug || slug}
               />
             </div>
           </div>

@@ -48,6 +48,20 @@ const PROJECT_HUB = new Set([
   "/projects/opex",
 ]);
 
+const urlAliases = JSON.parse(
+  fs.readFileSync(path.join(ROOT, "data/url-aliases.json"), "utf8")
+).aliases;
+const REDIRECT_PROJECT_SLUGS = new Set(
+  Object.keys(urlAliases)
+    .filter((p) => p.startsWith("/projects/"))
+    .map((p) => p.slice("/projects/".length))
+);
+const REDIRECT_BLOG_SLUGS = new Set(
+  Object.keys(urlAliases)
+    .filter((p) => p.startsWith("/blog/"))
+    .map((p) => p.slice("/blog/".length))
+);
+
 const SCAN_ROOTS = ["src", "messages"].map((d) => path.join(ROOT, d));
 
 const missing = { blog: new Map(), project: new Map() };
@@ -64,6 +78,7 @@ for (const root of SCAN_ROOTS) {
     if (p.startsWith("/blog/")) {
       const slug = p.slice(6);
       if (BLOG_PLACEHOLDER_SLUGS.has(slug)) continue;
+      if (REDIRECT_BLOG_SLUGS.has(slug)) continue;
       if (!enBlogs.has(slug)) {
         if (!missing.blog.has(slug)) missing.blog.set(slug, []);
         if (missing.blog.get(slug).length < 2)
@@ -71,6 +86,7 @@ for (const root of SCAN_ROOTS) {
       }
     } else if (p.startsWith("/projects/")) {
       const slug = p.slice(10);
+      if (REDIRECT_PROJECT_SLUGS.has(slug)) continue;
       if (!enProjects.has(slug)) {
         if (!missing.project.has(slug)) missing.project.set(slug, []);
         if (missing.project.get(slug).length < 2)

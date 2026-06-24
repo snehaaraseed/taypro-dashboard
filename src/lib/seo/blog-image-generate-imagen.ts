@@ -71,7 +71,8 @@ export async function generateBlogFeaturedImageImagen(input: {
   const saved = await saveImageBuffer({
     buffer,
     mimeType: "image/jpeg",
-    baseName: `blog-${slugBase}`,
+    context: "blog-generated-hero",
+    label: slugBase,
   });
 
   return {

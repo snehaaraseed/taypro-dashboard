@@ -1,5 +1,6 @@
 const path = require("path");
 const createNextIntlPlugin = require("next-intl/plugin");
+import { getLegacyPathRedirects } from "./src/lib/seo/legacy-path-redirects";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
@@ -564,6 +565,7 @@ const nextConfig = {
         destination: "/360-degree-images/glyde-x/:path*",
         permanent: true,
       },
+      ...getLegacyPathRedirects(),
     ];
   },
   // Add headers for better caching and performance

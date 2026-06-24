@@ -2,10 +2,13 @@
 
 import dynamic from "next/dynamic";
 import { Component, type ReactNode } from "react";
+import type { UploadContext } from "@/lib/cms/imageUploadTypes";
 
 type AdminRichTextEditorProps = {
   onContentChange: (content: string) => void;
   initialContent?: string;
+  uploadContext?: UploadContext;
+  uploadLabel?: string;
 };
 
 function EditorLoadingShell() {

@@ -16,15 +16,21 @@ import { TableCell } from "@tiptap/extension-table-cell";
 import { TableHeader } from "@tiptap/extension-table-header";
 import { useState, useEffect } from "react";
 import { List, ListOrdered } from "lucide-react";
+import { appendImageUploadMeta } from "@/lib/cms/imageUploadForm";
+import type { UploadContext } from "@/lib/cms/imageUploadTypes";
 
 interface BlogEditorProps {
   onContentChange: (content: string) => void;
   initialContent?: string;
+  uploadContext?: UploadContext;
+  uploadLabel?: string;
 }
 
 export default function BlogEditor({
   onContentChange,
   initialContent = "",
+  uploadContext = "blog-inline",
+  uploadLabel = "draft",
 }: BlogEditorProps) {
   const [imageUrl, setImageUrl] = useState("");
   const [imageUrlError, setImageUrlError] = useState<string | null>(null);
@@ -295,6 +301,7 @@ export default function BlogEditor({
 
       const formData = new FormData();
       formData.append("file", fileToUpload);
+      appendImageUploadMeta(formData, uploadContext, uploadLabel);
 
       const response = await fetch("/api/admin/upload", {
         method: "POST",

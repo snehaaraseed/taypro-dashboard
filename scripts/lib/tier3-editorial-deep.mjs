@@ -41,7 +41,7 @@ export function buildTier3DeepEditorial(slug, s) {
 <li>Manual baseline year for water and labour.</li>
 <li>Block-level completion proof requirement in contracts.</li>
 <li>Phase commissioning on highest-soiling blocks first.</li>
-<li>Read <a href="/cleaning-technology">cleaning technology</a> and <a href="/performance-methodology">performance methodology</a>.</li>
+<li>Read <a href="/cleaning-technology">cleaning technology</a> and <a href="/performance-and-test-methodology">performance methodology</a>.</li>
 </ul>
 
 <h3>Who should benchmark ${name}?</h3>

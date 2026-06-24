@@ -15,6 +15,8 @@ import {
   isoToDateInputValue,
 } from "@/lib/cms/blog-schedule";
 import type { BlogFaqItem } from "@/lib/cms/blog-faqs";
+import { appendImageUploadMeta } from "@/lib/cms/imageUploadForm";
+import { slugFromTitle } from "@/lib/cms/imageUploadTypes";
 
 interface BlogData {
   title: string;
@@ -265,6 +267,11 @@ export default function EditBlogPage() {
 
       const uploadFormData = new FormData();
       uploadFormData.append("file", fileToUpload);
+      appendImageUploadMeta(
+        uploadFormData,
+        "blog-featured",
+        formData.slug || slugFromTitle(formData.title) || slug
+      );
 
       const response = await fetch("/api/admin/upload", {
         method: "POST",
@@ -778,6 +785,8 @@ export default function EditBlogPage() {
                 setFormData((prev) => ({ ...prev, content }))
               }
               initialContent={formData.content}
+              uploadContext="blog-inline"
+              uploadLabel={formData.slug || slug}
             />
           </div>
         </div>

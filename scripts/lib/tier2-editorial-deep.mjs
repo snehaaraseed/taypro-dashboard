@@ -40,7 +40,7 @@ export function buildTier2DeepEditorial(slug, s) {
 <p>Commissioning should have sequenced high-soiling blocks first, validated geometry, and placed docking or staging to limit deadhead time—especially when ${s.mw}&nbsp;MW compresses cleaning windows during curtailment.</p>
 
 <h2>Technology, safety, and warranty alignment</h2>
-<p>Respect OEM cleaning guidance on brush materials and speeds. Safety covers night traffic near inverter yards and lockout coordination—cleaning windows stay outside energized maintenance on the same block. Read <a href="/cleaning-technology">cleaning technology</a> and <a href="/performance-methodology">performance methodology</a> before acceptance tests.</p>
+<p>Respect OEM cleaning guidance on brush materials and speeds. Safety covers night traffic near inverter yards and lockout coordination—cleaning windows stay outside energized maintenance on the same block. Read <a href="/cleaning-technology">cleaning technology</a> and <a href="/performance-and-test-methodology">performance methodology</a> before acceptance tests.</p>
 
 <h2>Procurement checklist for ${s.mw}&nbsp;MW ${s.state} bids</h2>
 <ul>
@@ -63,7 +63,7 @@ export function buildTier2DeepEditorial(slug, s) {
 
 <h2>Root-cause discipline when PR and cleaning logs diverge</h2>
 <p>When a block shows clean in ${mon} but inverter trends remain soft, supervisors run structured root-cause: brush wear, partial path coverage, tracker or inverter fault, curtailment, or weather—not a default “soiling anyway” close. Document outcomes in O&amp;M minutes so annual robotics budget reviews see engineering rigor, not anecdotes.</p>
-<p>At ${s.mw}&nbsp;MW, one mis-diagnosed block group can hide hundreds of MWh over a season. Pair <a href="/performance-methodology">performance methodology</a> dust-removal claims per completed cycle with SCADA—not nameplate efficiency marketing.</p>
+<p>At ${s.mw}&nbsp;MW, one mis-diagnosed block group can hide hundreds of MWh over a season. Pair <a href="/performance-and-test-methodology">performance methodology</a> dust-removal claims per completed cycle with SCADA—not nameplate efficiency marketing.</p>
 
 <h2>Long-horizon O&amp;M planning</h2>
 <p>Ten-year models should include brush and drive refresh, training churn, and map-update labour after civil works—not only year-one hardware. ${name} owners who treat robotics as capital without consumable and supervision lines underestimate lifecycle cost.</p>

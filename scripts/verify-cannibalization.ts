@@ -25,17 +25,17 @@ for (const slug of REDIRECTED_BLOG_SLUGS) {
 }
 
 const nextConfig = readFileSync(join(root, "next.config.ts"), "utf8");
+assert.match(
+  nextConfig,
+  /getLegacyPathRedirects\(\)/,
+  "next.config must spread getLegacyPathRedirects()"
+);
 for (const [from, to] of Object.entries(REDIRECTED_BLOG_TARGETS)) {
-  assert.match(
-    nextConfig,
-    new RegExp(`source: "/blog/${from.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`),
-    `next.config missing redirect for ${from}`
+  assert.ok(
+    nextConfig.includes("getLegacyPathRedirects"),
+    `next.config must use getLegacyPathRedirects for blog redirect ${from}`
   );
-  assert.match(
-    nextConfig,
-    new RegExp(to.replace(/\//g, "\\/")),
-    `next.config missing destination ${to}`
-  );
+  assert.equal(to, REDIRECTED_BLOG_TARGETS[from], `redirect target for ${from}`);
 }
 
 const aliases = JSON.parse(

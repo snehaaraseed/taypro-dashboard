@@ -9,7 +9,7 @@ export const extrasPass2 = {
 
 <h2>Upgrading from inspection-led ops to fleet dashboards</h2>
 <p>Owners reading this case study in 2026 may upgrade Akhadana with <a href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app">NECTYR</a> without replacing NYUMA hardware. The upgrade path is easier when inspection sheets already list block IDs consistently—dashboards amplify discipline that exists; they do not create discipline from chaos.</p>
-<p>When comparing upgrade ROI, model supervisor hours saved and faster root-cause meetings, not only “digital transformation” language. Pair upgrades with <a href="/performance-methodology">performance methodology</a> acceptance tests on a pilot block before plant-wide rollout.</p>
+<p>When comparing upgrade ROI, model supervisor hours saved and faster root-cause meetings, not only “digital transformation” language. Pair upgrades with <a href="/performance-and-test-methodology">performance methodology</a> acceptance tests on a pilot block before plant-wide rollout.</p>
 
 <h2>Lender diligence questions unique to 360&nbsp;MW semi-automatic</h2>
 <p>Lenders ask how eighty machines cover 360&nbsp;MW without pretending every module is touched nightly. Akhadana’s answer is prioritised coverage with signed evidence—not robot count alone. Provide cycle schedules, inspection samples, and SCADA charts showing PR recovery on downwind blocks after cycles complete.</p>
@@ -130,7 +130,7 @@ export const extras = {
 
 <h2>Inspection-led accountability without fleet telematics as the primary layer</h2>
 <p>Manual cycle scheduling and periodic inspection reports are not weaknesses if they are executed with rigor. Akhadana’s weekly plan is visible to day and night teams; missed blocks trigger reschedules before month-end SCADA surprises. When finance asks “did cleaning happen?”, supervisors produce inspection evidence and cycle logs—not verbal assurance.</p>
-<p>Owners planning NECTYR later should treat Akhadana as a baseline: block-level proof is the requirement; dashboards are an upgrade path. Explore <a href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app">NECTYR</a> alongside <a href="/performance-methodology">performance methodology</a> when upgrading monitoring.</p>
+<p>Owners planning NECTYR later should treat Akhadana as a baseline: block-level proof is the requirement; dashboards are an upgrade path. Explore <a href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app">NECTYR</a> alongside <a href="/performance-and-test-methodology">performance methodology</a> when upgrading monitoring.</p>
 
 <h2>Water, energy, and carbon at mega-scale</h2>
 <p>Reported <strong>50.4&nbsp;million litres of water avoided per year</strong> matters because wet washing at 360&nbsp;MW would imply a tanker programme the site cannot sustain. <strong>13.50&nbsp;GWh</strong> and <strong>6,696&nbsp;metric tons CO₂ equivalent</strong> should be stress-tested at 50% and 75% attribution in investment models—if robotics still clears hurdle rate, the case is robust.</p>
@@ -195,7 +195,7 @@ export const extras = {
 <p><a href="/projects/agar-solar-project">Agar</a> runs a heavier automatic majority (265 automatic, seven semi-automatic). SECI-2 runs a nearer balance (103/76). Both report ~<strong>28&nbsp;million litres</strong> water saved and ~<strong>7.5&nbsp;GWh</strong>—statistics are not interchangeable templates; they are site-reported outcomes that must be validated locally. The lesson is mixed-mode economics on irregular tables, not copying robot counts.</p>
 
 <h2>Water, labour, and audit failures SECI-2 closed</h2>
-<p>Before robotics, wet washes consumed water and labour without block logs. Finance could not tie generation variance to missed paths. Robotics closed frequency, water, and audit gaps without flooding modules—see <a href="/solar-panel-cleaning-system">systems overview</a> and <a href="/performance-methodology">methodology</a>.</p>
+<p>Before robotics, wet washes consumed water and labour without block logs. Finance could not tie generation variance to missed paths. Robotics closed frequency, water, and audit gaps without flooding modules—see <a href="/solar-panel-cleaning-system">systems overview</a> and <a href="/performance-and-test-methodology">methodology</a>.</p>
 
 <h2>Operating calendar and curtailment</h2>
 <p>March–June prioritises downwind blocks; curtailment nights document grid-limited skips separately from wind holds. Training rotates technicians across automatic supervision and semi-automatic portable coverage so the fleet does not split into siloed teams.</p>
