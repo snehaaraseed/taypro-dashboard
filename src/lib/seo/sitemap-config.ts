@@ -65,17 +65,7 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
     priority: 0.9,
   },
   {
-    path: "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
-    changeFrequency: "weekly",
-    priority: 0.85,
-  },
-  {
     path: "/solar-panel-cleaning-system/cradyl-row-transfer-docking-station",
-    changeFrequency: "weekly",
-    priority: 0.85,
-  },
-  {
-    path: "/solar-panel-cleaning-system/orion-plant-intelligence-platform",
     changeFrequency: "weekly",
     priority: 0.85,
   },
@@ -157,17 +147,17 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
   {
     path: "/solar-panel-cleaning-service-india",
     changeFrequency: "weekly",
-    priority: 0.9,
+    priority: 0.68,
   },
   {
     path: "/solar-om-services",
     changeFrequency: "weekly",
-    priority: 0.88,
+    priority: 0.68,
   },
   {
     path: "/solar-cleaning-opex-pricing",
     changeFrequency: "monthly",
-    priority: 0.88,
+    priority: 0.78,
   },
   {
     path: "/solar-panel-cleaning-robot-for-rooftop",
@@ -182,12 +172,12 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
   {
     path: "/solar-fleet-monitoring-software",
     changeFrequency: "monthly",
-    priority: 0.86,
+    priority: 0.68,
   },
   {
     path: "/large-scale-solar-panel-cleaning",
     changeFrequency: "monthly",
-    priority: 0.87,
+    priority: 0.68,
   },
   {
     path: "/solar-cleaning-capex-vs-opex",
@@ -223,7 +213,7 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
   {
     path: "/solar-panel-cleaning-machine",
     changeFrequency: "monthly",
-    priority: 0.82,
+    priority: 0.65,
   },
   { path: "/press", changeFrequency: "monthly", priority: 0.6 },
   { path: "/careers", changeFrequency: "weekly", priority: 0.7 },

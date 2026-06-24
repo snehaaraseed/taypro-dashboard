@@ -8,6 +8,8 @@ import Image from "next/image";
 interface Project {
   slug: string;
   title: string;
+  codename?: string | null;
+  displayTitle?: string;
   image: string;
   details: string[];
   date: string;
@@ -60,9 +62,14 @@ export default function AdminProjectsPage() {
     }
   };
 
-  const filteredProjects = projects.filter((project) =>
-    project.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredProjects = projects.filter((project) => {
+    const q = searchQuery.toLowerCase();
+    return (
+      project.title.toLowerCase().includes(q) ||
+      project.displayTitle?.toLowerCase().includes(q) ||
+      project.codename?.toLowerCase().includes(q)
+    );
+  });
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
@@ -125,9 +132,16 @@ export default function AdminProjectsPage() {
                 </div>
                 <div className="p-4">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      {project.title}
-                    </h3>
+                    <div>
+                      {project.codename ? (
+                        <p className="text-xs font-semibold uppercase tracking-wide text-[#5a8f00] mb-1">
+                          Project {project.codename}
+                        </p>
+                      ) : null}
+                      <h3 className="text-lg font-semibold text-gray-900">
+                        {project.displayTitle || project.title}
+                      </h3>
+                    </div>
                     {project.published === false ? (
                       <span className="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full">
                         Draft

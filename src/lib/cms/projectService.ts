@@ -25,6 +25,10 @@ import {
   relatedProjectsFilterFromDetails,
   type ProjectListFilter,
 } from "@/lib/cms/project-products";
+import {
+  allocateProjectCodename,
+  formatProjectDisplayTitle,
+} from "@/lib/cms/project-codename";
 
 export type { ProjectCategoryFilter } from "@/lib/cms/project-categories";
 export type { ProjectListFilter } from "@/lib/cms/project-products";
@@ -53,6 +57,8 @@ function rowToMetadata(row: typeof projects.$inferSelect): ProjectMetadata {
   }
   return {
     title: row.title,
+    codename: row.codename ?? null,
+    displayTitle: formatProjectDisplayTitle(row.codename, row.title),
     description: row.description,
     image: row.image,
     imageAlt: row.imageAlt,
@@ -146,7 +152,9 @@ export async function getAllFileProjects(
   return metadataList.map((metadata) => ({
     id: metadata.slug,
     img: metadata.image,
-    title: metadata.title,
+    title: metadata.displayTitle,
+    siteTitle: metadata.title,
+    codename: metadata.codename ?? undefined,
     description: metadata.description,
     imageAlt: metadata.imageAlt,
     details: metadata.details,
@@ -322,7 +330,7 @@ export async function readProjectContent(slug: string): Promise<string> {
 
 export async function createProjectFiles(
   projectData: ProjectData
-): Promise<{ slug: string; updatedAt: string }> {
+): Promise<{ slug: string; updatedAt: string; codename: string }> {
   const slug = createSlug(projectData.title);
   const db = getDb();
   const existing = await db
@@ -340,10 +348,13 @@ export async function createProjectFiles(
   const published =
     projectData.published !== undefined ? projectData.published : true;
 
+  const codename = await allocateProjectCodename();
+
   await db.insert(projects).values({
     slug,
     locale: SOURCE_LOCALE,
     title: projectData.title,
+    codename,
     description: projectData.description,
     image: projectData.image,
     imageAlt: projectData.imageAlt?.trim() || "",
@@ -358,7 +369,7 @@ export async function createProjectFiles(
     published,
   });
 
-  return { slug, updatedAt: now };
+  return { slug, updatedAt: now, codename };
 }
 
 export async function updateProjectFiles(

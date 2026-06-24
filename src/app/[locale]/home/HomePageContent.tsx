@@ -16,6 +16,8 @@ import {
 import DynamicProjectsRollup from "@/app/components/DynamicProjectsRollup";
 import HomePageInteractive from "./HomePageInteractive";
 import HomeHero from "./HomeHero";
+import HomeSeoProse from "./HomeSeoProse";
+import HomeFaqServer from "./HomeFaqServer";
 import HomeLatestBlogs from "./HomeLatestBlogs";
 import { PRODUCT_CATALOG } from "@/lib/products/catalog";
 import {
@@ -150,28 +152,23 @@ export default async function HomePage() {
       <div className="min-h-screen overflow-x-hidden">
         <HomeHero />
 
-        <LazyWhenVisible placeholderClassName="min-h-[320px]">
-          <HomeStatsSection />
-        </LazyWhenVisible>
+        <HomeSeoProse />
 
-        <LazyWhenVisible placeholderClassName="min-h-[520px]">
-          <HomePlatformSection />
-        </LazyWhenVisible>
+        <HomeStatsSection />
 
-        <LazyWhenVisible placeholderClassName="min-h-[640px]">
-          <HomeRobotLineup
-            hardwareRobots={translatedHardware}
-            solutionRobots={translatedSolutions}
-          />
-        </LazyWhenVisible>
+        <HomePlatformSection />
 
-        <LazyWhenVisible placeholderClassName="min-h-[720px]">
-          <HomePageInteractive
-            features={features}
-            otherFeatures={otherFeatures}
-            homeFaqs={homeFaqs}
-          />
-        </LazyWhenVisible>
+        <HomeRobotLineup
+          hardwareRobots={translatedHardware}
+          solutionRobots={translatedSolutions}
+        />
+
+        <HomePageInteractive
+          features={features}
+          otherFeatures={otherFeatures}
+        />
+
+        <HomeFaqServer faqs={homeFaqs} />
 
         <section
           className="py-14 md:py-16 bg-[#052638] border-y border-white/10"

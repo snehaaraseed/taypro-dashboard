@@ -156,6 +156,8 @@ export async function POST(request: NextRequest) {
           published: false,
         });
 
+        const savedMetadata = await readProjectMetadata(savedSlug);
+
         revalidatePath(`/projects/${savedSlug}`);
         revalidatePath("/projects");
         revalidatePath("/admin/projects");
@@ -167,6 +169,8 @@ export async function POST(request: NextRequest) {
           project: {
             ...generated,
             slug: savedSlug,
+            codename: savedMetadata?.codename ?? null,
+            displayTitle: savedMetadata?.displayTitle,
             adminUrl: `/admin/projects/${savedSlug}/edit`,
             status: "draft",
           },

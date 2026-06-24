@@ -632,6 +632,13 @@
       "linkOperations": "Utility solar operations guide",
       "linkMethodology": "Performance methodology"
     },
+    "serviceCallout": {
+      "eyebrow": "Primary service page",
+      "title": "Taypro OPEX robotic cleaning service",
+      "body": "Procurement teams evaluating solar panel cleaning service should start with our product OPEX page — scope, SOPs, billing model, and NECTYR reporting — before regional coverage or MW-scale deployment guides.",
+      "cta": "View OPEX service page",
+      "href": "/solar-panel-cleaning-system/solar-panel-cleaning-service"
+    },
     "indianConditions": {
       "eyebrow": "Engineered for Indian solar",
       "title": "Built for Indian utility-scale conditions",

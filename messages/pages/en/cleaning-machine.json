@@ -1,8 +1,8 @@
 {
   "CleaningMachinePage": {
     "meta": {
-      "title": "Solar Panel Cleaning Machine India | Robots",
-      "description": "Solar panel cleaning machines for utility and rooftop plants in India. Compare GLYDE, NYUMA, HELYX robots, pricing, and Taypro Opex service. Get a quote.",
+      "title": "Solar Panel Cleaning Machine vs Robot | India Buyer Guide",
+      "description": "Solar panel cleaning machine vs robot on Indian utility plants. Short disambiguation guide — full model comparison on the robots hub.",
       "openGraphTitle": "Solar Panel Cleaning Machine India | Taypro Robots",
       "openGraphDescription": "Guide to solar panel cleaning machines and robots for Indian utility and rooftop sites — models, pricing, and managed service options.",
       "twitterTitle": "Solar Panel Cleaning Machine India",
@@ -13,15 +13,15 @@
     },
     "hero": {
       "eyebrow": "Buyer guide · India",
-      "title": "Solar Panel Cleaning Machine in India",
-      "subtitle": "Utility buyers search for cleaning machines — on MW-scale plants that means autonomous robots (GLYDE, NYUMA, HELYX) or Taypro Opex managed fleets. Rooftop and C&I sites can register interest for MINY.",
+      "title": "Solar Panel Cleaning Machine vs Robot — India Buyer Guide",
+      "subtitle": "Utility RFQs often say cleaning machine when they mean autonomous row robots. This short guide clarifies terminology — for GLYDE, NYUMA, HELYX, and tracker models, use the solar panel cleaning robots hub as the primary comparison page.",
       "ctaHub": "Compare robot models",
       "ctaQuote": "Request a quote"
     },
     "intro": {
       "eyebrow": "What buyers mean",
       "heading": "Cleaning machine vs cleaning robot on solar plants",
-      "p1": "In Indian RFQs, solar panel cleaning machine often describes the same category as a solar panel cleaning robot — an automated platform that runs on module rows without manual brush crews. At 10 MW and above, waterless robots with fleet software (NECTYR) replace episodic wet washing.",
+      "p1": "In Indian RFQs, solar panel cleaning machine often describes the same category as a solar panel cleaning robot — an automated platform that runs on module rows without manual brush crews. At 10 MW and above, waterless robots with fleet software (NECTYR) replace episodic wet washing. Start model selection on the solar panel cleaning robots hub — this page is a synonym bridge, not the primary product catalogue.",
       "p2": "Taypro manufactures GLYDE and NYUMA for fixed-tilt utility arrays, GLYDE-X and NYUMA-X for single-axis trackers, and HELYX for semi-automatic scattered blocks. Taypro Opex delivers the same hardware as a pay-per-panel-cleaned service when you prefer not to capitalise robots."
     },
     "models": {

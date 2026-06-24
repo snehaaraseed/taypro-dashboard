@@ -7,8 +7,6 @@ import { ArrowRight, Check } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
-import { FaqSection } from "@/app/components/FaqSection";
-
 import LazyWhenVisible from "@/app/components/LazyWhenVisible";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import { clientPartners } from "@/app/data";
@@ -49,13 +47,11 @@ const ModuleManufacturerTrust = dynamic(
 interface HomePageInteractiveProps {
   features: Array<{ title: string; description: string }>;
   otherFeatures: Array<{ title: string; description: string }>;
-  homeFaqs: Array<{ question: string; answer: string }>;
 }
 
 export default function HomePageInteractive({
   features,
   otherFeatures,
-  homeFaqs,
 }: HomePageInteractiveProps) {
   const t = useTranslations("Home");
 
@@ -241,13 +237,6 @@ export default function HomePageInteractive({
           }))}
         />
       </LazyWhenVisible>
-
-      <FaqSection
-        id="home-faq-heading"
-        title={t("faq.heading")}
-        subtitle={t("faq.subheading")}
-        faqs={homeFaqs}
-      />
 
       <section
         id="request-quote"

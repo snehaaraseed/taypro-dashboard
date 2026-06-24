@@ -1,7 +1,7 @@
 {
   "SolarSystemPage": {
     "meta": {
-      "title": "भारत में सोलर पैनल सफाई रोबोट और सिस्टम, मशीनें और मॉडल | Taypro",
+      "title": "भारत में सोलर पैनल सफाई रोबोट और सिस्टम",
       "description": "हर Taypro सोलर पैनल सफाई रोबोट की तुलना करें: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, साथ ही Taypro Opex और NECTYR। वॉटरलेस सफाई, AI शेड्यूलिंग, TÜV NORD प्रमाणित, पैन-इंडिया सहायता।",
       "keywords": [
         "सोलर पैनल सफाई रोबोट",
@@ -644,6 +644,13 @@
         "title": "NECTYR आज · ORION रोडमैप",
         "body": "तैनात रोबोट पर लाइव फ्लीट पोर्टल; ORION प्लांट इंटेलिजेंस नवीनीकरण पर मौजूदा Taypro फ्लीट के लिए डिज़ाइन।"
       }
+    },
+    "serviceCallout": {
+      "eyebrow": "प्राथमिक सेवा पेज",
+      "title": "Taypro OPEX रोबोटिक सफाई सेवा",
+      "body": "सोलर पैनल सफाई सेवा का मूल्यांकन करने वाली खरीद टीमों को हमारे OPEX उत्पाद पेज से शुरू करना चाहिए — दायरा, SOP, बिलिंग मॉडल और NECTYR रिपोर्टिंग।",
+      "cta": "OPEX सेवा पेज देखें",
+      "href": "/solar-panel-cleaning-system/solar-panel-cleaning-service"
     },
     "ippPositioning": {
       "eyebrow": "IPPs Taypro क्यों चुनते हैं",

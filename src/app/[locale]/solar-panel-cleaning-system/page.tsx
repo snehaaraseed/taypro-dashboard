@@ -443,6 +443,26 @@ export default async function SolarPanelCleaningRobot({
                 </div>
               ))}
             </div>
+
+            <div className="mt-8 sm:mt-10 rounded-lg border border-[#A8C117]/40 bg-[#f4f7f0] px-5 sm:px-8 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div className="max-w-2xl">
+                <p className="text-[#5a8f00] text-sm font-medium uppercase tracking-wide mb-1">
+                  {t("serviceCallout.eyebrow")}
+                </p>
+                <h2 className="text-[#052638] font-semibold text-xl sm:text-2xl mb-2">
+                  {t("serviceCallout.title")}
+                </h2>
+                <p className="text-[#27415c] text-sm sm:text-base leading-relaxed">
+                  {t("serviceCallout.body")}
+                </p>
+              </div>
+              <Link
+                href={t("serviceCallout.href")}
+                className="inline-flex shrink-0 items-center justify-center min-h-[44px] bg-[#A8C117] text-[#052638] font-semibold px-6 py-3 rounded-md hover:bg-[#b3cf3d] transition"
+              >
+                {t("serviceCallout.cta")}
+              </Link>
+            </div>
           </Container>
         </section>
 

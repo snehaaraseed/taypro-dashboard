@@ -1,8 +1,8 @@
 {
   "SolarOmServicesPage": {
     "meta": {
-      "title": "Solar O&M Services India | Plant Operation & Maintenance",
-      "description": "Solar plant O&M contractor India: robotic cleaning, NECTYR fleet monitoring, ORION intelligence, SLA-backed response. Utility-scale O&M for IPPs and asset managers.",
+      "title": "Solar O&M Services India | Commercial Plant Maintenance",
+      "description": "Commercial solar O&M services: robotic cleaning SLAs, NECTYR fleet monitoring, operator deployment. For soiling education, see the utility operations guide.",
       "openGraphTitle": "Solar O&M Company India | Taypro",
       "openGraphDescription": "Solar plant operation and maintenance: waterless robotic cleaning, fleet software, predictive scheduling, and pan-India service for 50–500 MW plants."
     },
@@ -17,8 +17,8 @@
     },
     "hero": {
       "eyebrow": "O&M procurement · India utility solar",
-      "title": "Solar O&M services for utility plants — cleaning, monitoring, intelligence",
-      "subtitle": "Taypro closes the O&M loop that manual crews and basic SCADA cannot: waterless robotic cleaning at scale, NECTYR fleet operations, and ORION plant intelligence — with SLA-backed field response across India.",
+      "title": "Commercial solar O&M services — cleaning, monitoring, field SLAs",
+      "subtitle": "Taypro delivers the cleaning and fleet data layer for utility O&M contracts: waterless robotic execution, NECTYR operations, and SLA-backed field response. For the operations education narrative (soiling, PR, SCADA gaps), read the utility-scale solar operations guide — then return here for commercial scope.",
       "ctaPrimary": "Request O&M proposal",
       "ctaPrimaryHref": "/contact",
       "ctaSecondary": "Explore cleaning robots",
@@ -105,13 +105,13 @@
     "prose": {
       "eyebrow": "SLA & response",
       "heading": "How Taypro structures O&M SLAs for utility-scale plants",
-      "p1": "O&M procurement teams need more than a robot brochure — they need defined cycle completion, coverage reconciliation, breakdown response times, and audit-ready reporting. Taypro programmes include written cleaning SOPs, NECTYR block logs, and monthly settlement aligned to panels cleaned.",
+      "p1": "O&M procurement teams need defined cycle completion, coverage reconciliation, breakdown response times, and audit-ready reporting. Taypro programmes include written cleaning SOPs, NECTYR block logs, and monthly settlement aligned to panels cleaned. For the soiling and PR education layer, start with the utility-scale solar operations guide; for robotic cleaning scope and billing, use the Taypro OPEX service page.",
       "p2": "For plants from 50 MW to 500 MW, Taypro deploys dedicated operators, regional spares, and remote diagnostics. Fleet uptime targets and escalation paths are agreed during commercial onboarding — not left to informal crew scheduling.",
       "p3": "Compare Taypro's field execution layer with your existing SCADA and electrical O&M contract. The gap is usually cleaning cadence and cause-to-action data — not another alarm dashboard.",
-      "linkPrimary": "Large-scale cleaning capability",
-      "linkPrimaryHref": "/large-scale-solar-panel-cleaning",
-      "linkSecondary": "Utility operations context",
-      "linkSecondaryHref": "/utility-scale-solar-operations",
+      "linkPrimary": "Utility operations guide",
+      "linkPrimaryHref": "/utility-scale-solar-operations",
+      "linkSecondary": "Taypro OPEX cleaning service",
+      "linkSecondaryHref": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
       "p4": "Indian utility solar O&M contracts increasingly separate electrical maintenance from module cleaning — because soiling is the largest controllable yield leak, yet the least instrumented. Taypro's solar plant O&M layer fills that gap with robotic execution and fleet software, not another inverter alarm dashboard.",
       "p5": "For SECI, state discom, and IPP tenders that specify cleaning frequency, coverage evidence, or water-use restrictions, Taypro programmes include written SOPs, NECTYR exports, and monthly panel-volume reconciliation suitable for auditor review."
     },

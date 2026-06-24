@@ -131,7 +131,13 @@ export default async function ComparisonLandingPage({
   const rightHeader = isProductCompare
     ? t(`${ns}.columns.rightLabel`)
     : columns.rightLabel;
-  const faqKeys = isVendorPage ? (["0", "1", "2"] as const) : (["0", "1"] as const);
+  const faqKeys = (() => {
+    const keys: string[] = [];
+    for (let i = 0; i < 6; i += 1) {
+      if (t.has(`${ns}.faq.${i}.q`)) keys.push(String(i));
+    }
+    return keys.length > 0 ? keys : isVendorPage ? ["0", "1", "2"] : ["0", "1"];
+  })();
 
   const faqs = faqKeys.map((key) => ({
     question: t(`${ns}.faq.${key}.q`),
@@ -178,6 +184,26 @@ export default async function ComparisonLandingPage({
           <p className="text-[#27415c] text-base md:text-lg leading-relaxed max-w-4xl mb-4">
             {t(`${ns}.intro`)}
           </p>
+          {t.has(`${ns}.deepDive.heading`) ? (
+            <div className="max-w-4xl mb-10 space-y-4">
+              <h2 className="text-xl md:text-2xl font-semibold text-[#052638]">
+                {t(`${ns}.deepDive.heading`)}
+              </h2>
+              <p className="text-[#27415c] text-base leading-relaxed">
+                {t(`${ns}.deepDive.p1`)}
+              </p>
+              {t.has(`${ns}.deepDive.p2`) ? (
+                <p className="text-[#27415c] text-base leading-relaxed">
+                  {t(`${ns}.deepDive.p2`)}
+                </p>
+              ) : null}
+              {t.has(`${ns}.deepDive.p3`) ? (
+                <p className="text-[#27415c] text-base leading-relaxed">
+                  {t(`${ns}.deepDive.p3`)}
+                </p>
+              ) : null}
+            </div>
+          ) : null}
           {isVendorPage && (
             <p className="text-[#27415c]/80 text-sm md:text-base leading-relaxed max-w-4xl mb-10 italic">
               {t(`${ns}.sourceNote`)}

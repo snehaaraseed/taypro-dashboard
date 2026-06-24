@@ -4,6 +4,7 @@ import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { requireAuth } from "../../../../utils/auth";
 import {
   createProjectFiles,
+  readProjectMetadata,
   ProjectData,
 } from "../../../../utils/projectFileUtils";
 
@@ -35,9 +36,13 @@ export async function POST(request: NextRequest) {
     revalidatePath("/projects");
     revalidateSitemap();
 
+    const metadata = await readProjectMetadata(slug);
+
     return NextResponse.json({
       success: true,
       slug,
+      codename: metadata?.codename ?? null,
+      displayTitle: metadata?.displayTitle,
       message: "Project created successfully",
     });
   } catch (error) {

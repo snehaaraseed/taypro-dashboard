@@ -1,14 +1,14 @@
 {
   "ServiceIndiaPage": {
     "meta": {
-      "title": "Solar Panel Cleaning Service India | Taypro O&M Company",
-      "description": "India's leading robotic solar panel cleaning service for utility and C&I plants. 9 GW+ cleaned, pay-per-panel OPEX or CAPEX robots, pan-India coverage. Request a quote.",
-      "openGraphTitle": "Solar Panel Cleaning Service India | Taypro",
-      "openGraphDescription": "Robotic solar cleaning company India: managed OPEX service, GLYDE fleet, NECTYR reporting, coverage across Gujarat, Rajasthan, Maharashtra and more."
+      "title": "Pan-India Solar Cleaning Fleet Coverage",
+      "description": "Proof of Taypro's pan-India robotic cleaning fleet: 9 GW+ monthly throughput, state deployments, and coverage map. Primary service details on the OPEX product page.",
+      "openGraphTitle": "Pan-India Solar Cleaning Fleet Coverage | Taypro",
+      "openGraphDescription": "National deployment proof for Taypro waterless robotic cleaning — Rajasthan, Gujarat, Maharashtra, Karnataka, and expanding."
     },
     "breadcrumbHub": "Solar panel cleaning robots",
     "breadcrumbHubHref": "/solar-panel-cleaning-system",
-    "breadcrumb": "Solar panel cleaning service India",
+    "breadcrumb": "Pan-India fleet coverage",
     "schema": {
       "name": "Taypro Solar Panel Cleaning Service India",
       "description": "Pan-India robotic solar panel cleaning service for utility-scale IPPs, CPSUs, and commercial plants. Managed OPEX and CAPEX robot supply with NECTYR fleet reporting.",
@@ -16,11 +16,11 @@
       "areaServed": "India"
     },
     "hero": {
-      "eyebrow": "National service · India",
-      "title": "Solar panel cleaning service India — robotic fleet, pan-India coverage",
-      "subtitle": "Taypro is India's largest deployed robotic solar cleaning company: 9 GW+ of panels cleaned monthly across utility and commercial plants, waterless dry cycles, and pay-per-panel OPEX or robot CAPEX for IPPs, CPSUs, SECI-tendered projects, and C&I asset owners. One accountable solar panel cleaning company India — robots, operators, spares, and NECTYR fleet software.",
-      "ctaPrimary": "Request service quote",
-      "ctaPrimaryHref": "/contact",
+      "eyebrow": "National coverage · India",
+      "title": "Pan-India solar cleaning fleet — where Taypro operates",
+      "subtitle": "This page documents Taypro's national robotic cleaning footprint: 9 GW+ of panels cleaned monthly, active deployments across high-soiling states, and mobilisation proof for IPPs and asset managers. For commercial scope, SOPs, and OPEX billing, see the primary Taypro OPEX service page.",
+      "ctaPrimary": "Primary OPEX service page",
+      "ctaPrimaryHref": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
       "ctaSecondary": "How OPEX pricing works",
       "ctaSecondaryHref": "/solar-cleaning-opex-pricing"
     },
@@ -173,14 +173,14 @@
       "placeholder": "Plant capacity (MW), state, installation type (fixed tilt / tracker), current cleaning method, and target go-live date."
     },
     "prose": {
-      "eyebrow": "Why India needs a national cleaning partner",
-      "heading": "Solar panel cleaning service India — beyond local brush crews",
-      "p1": "India's utility solar fleet now exceeds 100 GW, concentrated in Rajasthan, Gujarat, Maharashtra, Karnataka, and Madhya Pradesh — the same states where soiling losses reach 8–25% annually when cleaning stays calendar-based. A solar panel cleaning company India buyers trust must operate at production scale: multi-robot fleets, pan-India spares, and audit-ready reporting — not ad-hoc labour contracts.",
+      "eyebrow": "National footprint",
+      "heading": "Pan-India fleet coverage — not a local crew vendor",
+      "p1": "India's utility solar fleet exceeds 100 GW across Rajasthan, Gujarat, Maharashtra, Karnataka, and Madhya Pradesh. Taypro documents live robotic deployments, spares hubs, and mobilisation timelines on this page. For service scope, cycle SOPs, and OPEX billing, start with the Taypro OPEX robotic cleaning service product page — that is the primary commercial URL for procurement teams.",
       "p2": "Taypro manufactures waterless cleaning robots in Pune and deploys them under two commercial models. CAPEX: purchase GLYDE, GLYDE-X, NYUMA, NYUMA-X, or HELYX with structured AMC. OPEX: Taypro owns the fleet, deploys operators, and bills monthly for panels actually cleaned — reconciled through NECTYR telemetry.",
       "p3": "Whether you procure through an IPP asset manager, state discom, or EPC handover team, Taypro provides a single vendor for field execution and fleet data. Electrical O&M, inverter repair, and tracker mechanical work remain with your existing contractor — we own the cleaning layer that directly moves performance ratio.",
       "p4": "Procurement teams evaluating solar cleaning service India vendors should compare fleet scale, state coverage, billing transparency, and integration with plant monitoring — not just robot brochures. Taypro publishes indicative OPEX pricing, an ROI calculator, and 132+ project references for due diligence.",
-      "linkPrimary": "Request service quote",
-      "linkPrimaryHref": "/contact",
+      "linkPrimary": "Taypro OPEX service (primary)",
+      "linkPrimaryHref": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
       "linkSecondary": "Compare OPEX vs CAPEX pricing",
       "linkSecondaryHref": "/solar-cleaning-opex-pricing"
     },

@@ -1,7 +1,4 @@
-import {
-  getProductSchemaOfferPrice,
-  type ProductSchemaPriceKey,
-} from "@/lib/seo/product-schema-prices";
+import type { ProductSchemaPriceKey } from "@/lib/seo/product-schema-prices";
 
 export { STANDARD_PRODUCT_OFFER_PRICE_INR } from "@/lib/seo/product-schema-prices";
 
@@ -44,9 +41,8 @@ interface ProductSchemaProps {
 }
 
 function buildSchemaOffer({
-  offerPriceKey,
-  offers,
   siteUrl,
+  offers,
 }: {
   offerPriceKey?: ProductSchemaPriceKey;
   offers?: SchemaOfferProps;
@@ -54,10 +50,10 @@ function buildSchemaOffer({
 }) {
   return {
     "@type": "Offer",
-    price: getProductSchemaOfferPrice(offerPriceKey, offers?.price),
     priceCurrency: offers?.priceCurrency || "INR",
     availability: offers?.availability || "https://schema.org/InStock",
     url: `${siteUrl}/contact`,
+    description: "Contact Taypro for a site-specific quote",
   };
 }
 

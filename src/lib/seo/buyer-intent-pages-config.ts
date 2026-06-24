@@ -82,8 +82,8 @@ export const BUYER_INTENT_PAGES: Record<
       "related",
     ],
     pillarHrefs: [
-      "/solar-panel-cleaning-system",
       "/solar-panel-cleaning-system/solar-panel-cleaning-service",
+      "/solar-panel-cleaning-system",
       "/solar-cleaning-opex-pricing",
     ],
   },
@@ -109,6 +109,7 @@ export const BUYER_INTENT_PAGES: Record<
       "related",
     ],
     pillarHrefs: [
+      "/utility-scale-solar-operations",
       "/solar-panel-cleaning-system/solar-panel-cleaning-service",
       "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
       ORION_PRODUCT_PATH,

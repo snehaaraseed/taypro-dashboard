@@ -17,7 +17,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "Home.meta" });
 
   return withHreflang("/", locale, {
-    title: t("title"),
+    title: { absolute: t("title") },
     description: t("description"),
     openGraph: {
       title: t("ogTitle"),

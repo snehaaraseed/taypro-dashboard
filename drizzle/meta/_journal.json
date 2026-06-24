@@ -78,6 +78,13 @@
       "when": 1748018400000,
       "tag": "0011_blogs_seo_keyword",
       "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "6",
+      "when": 1748104800000,
+      "tag": "0012_project_codename",
+      "breakpoints": true
     }
   ]
 }

@@ -95,17 +95,17 @@ export async function generateMetadata({
   );
 
   return withHreflang(internalPath, canonicalLocale, {
-    title: `${metadata.title}${t("metaTitleSuffix")}`,
+    title: `${metadata.displayTitle}${t("metaTitleSuffix")}`,
     description: metadata.description,
     openGraph: {
-      title: `${metadata.title}${t("metaTitleSuffix")} | Taypro`,
+      title: `${metadata.displayTitle}${t("metaTitleSuffix")} | Taypro`,
       description: metadata.description,
       url,
       type: "website",
       ...shareImages.openGraph,
     },
     twitter: {
-      title: metadata.title,
+      title: metadata.displayTitle,
       description: metadata.description,
       ...shareImages.twitter,
     },
@@ -153,7 +153,7 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
   const breadcrumbs = [
     { name: tCommon("breadcrumbHome"), href: "/" },
     { name: t("breadcrumbProjects"), href: "/projects" },
-    { name: metadata.title, href: "" },
+    { name: metadata.displayTitle, href: "" },
   ];
 
   const datePublished = metadata.date || new Date().toISOString().split("T")[0];
@@ -183,7 +183,7 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
   );
 
   const heroAlt = getProjectHeroImageAlt({
-    title: metadata.title,
+    title: metadata.displayTitle,
     imageAlt: metadata.imageAlt,
     description: metadata.description,
     details: metadata.details,
@@ -194,7 +194,7 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
       <Breadcrumbs items={breadcrumbs} />
       <ArticleSchema
         scriptId={`article-schema-${slug}`}
-        headline={metadata.title}
+        headline={metadata.displayTitle}
         description={metadata.description}
         image={metadata.image}
         url={`${siteUrl}/projects/${slug}`}
@@ -225,7 +225,7 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
               {t("caseStudyLabel")}
             </p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight mb-4">
-              {metadata.title}
+              {metadata.displayTitle}
             </h1>
             <div className="flex flex-wrap items-center gap-3 text-sm text-slate-200 mb-5">
               <span>{t("lastUpdated", { date: lastUpdatedDisplay })}</span>

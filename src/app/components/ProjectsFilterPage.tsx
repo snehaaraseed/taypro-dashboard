@@ -136,6 +136,11 @@ export default async function ProjectsFilterPage({
                   </Link>
                   {t(`${v}.introP3After`)}
                 </p>
+                {t.has(`${v}.introP4`) ? (
+                  <p className="mt-5 text-[#27415c]/90 text-base leading-relaxed md:text-lg">
+                    {t(`${v}.introP4`)}
+                  </p>
+                ) : null}
               </AnimateOnScroll>
 
               <AnimateOnScroll

@@ -14,6 +14,8 @@ export async function GET(request: NextRequest) {
       .map((metadata) => ({
         slug: metadata.slug,
         title: metadata.title,
+        codename: metadata.codename ?? null,
+        displayTitle: metadata.displayTitle,
         image: metadata.image,
         details: metadata.details,
         date: metadata.date,

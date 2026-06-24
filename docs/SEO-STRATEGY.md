@@ -61,6 +61,8 @@
 
 **Rule:** One **primary keyword** per URL. Synonyms go in H2, body, FAQ — not separate pages.
 
+**Keyword ownership (2026 remediation):** Supporting URLs must link to a single primary owner — `/solar-panel-cleaning-system/solar-panel-cleaning-service` (OPEX service), `/utility-scale-solar-operations` (O&M education), `/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app` (NECTYR product), `/solar-panel-cleaning-system` (hub). Supporting pages: `/solar-panel-cleaning-service-india`, `/solar-om-services`, `/solar-fleet-monitoring-software`, `/large-scale-solar-panel-cleaning`, `/solar-panel-cleaning-machine`.
+
 ```
 /                                    → Brand + robots India (NOT generic "solar panels")
 /solar-panel-cleaning-system         → robot, system, cleaning, machine (HUB)
@@ -612,6 +614,19 @@ Blogs published: ___
 Leads from organic (calculator + contact): ___
 Next month priority (1–3 tasks from this doc): ___
 ```
+
+---
+
+## Post-deploy SEO validation checklist
+
+After each SEO remediation deploy:
+
+1. Run `npx tsx scripts/test-seo-fixes.ts`
+2. Run `node scripts/audit-locale-sitemap.mjs`
+3. Run `node scripts/audit-live-seo.mjs` against production
+4. Google Search Console URL Inspection: `/`, hub, OPEX service, GLYDE, price calculator
+5. View rendered HTML source — confirm homepage FAQ + robot lineup in initial HTML
+6. Monitor GSC for 4 weeks: duplicate canonical warnings, Product rich-result errors, cannibalization queries (`solar panel cleaning service`, `solar panel cleaning robot`)
 
 ---
 

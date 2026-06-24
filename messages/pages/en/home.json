@@ -1,11 +1,11 @@
 {
   "Home": {
     "meta": {
-      "title": "Solar Panel Cleaning Robots | Waterless & Autonomous",
-      "description": "India's leading waterless solar panel cleaning robots for utility-scale plants. Recover lost generation with dry cleaning, fleet monitoring, and nationwide Taypro deployment support. Request a quote.",
-      "ogTitle": "Solar Panel Cleaning Robots | Waterless & Autonomous",
+      "title": "Taypro | Waterless Solar Panel Cleaning Robots India",
+      "description": "Waterless solar panel cleaning robots for utility-scale plants in India. Dry cleaning, NECTYR fleet monitoring, pan-India Taypro support. Request a quote.",
+      "ogTitle": "Taypro | Waterless Solar Panel Cleaning Robots India",
       "ogDescription": "Waterless solar panel cleaning robots for Indian utility plants. Dual-pass dry cleaning, NECTYR fleet ops, pan-India service.",
-      "twitterTitle": "Solar Panel Cleaning Robots | Waterless & Autonomous",
+      "twitterTitle": "Taypro | Waterless Solar Panel Cleaning Robots India",
       "twitterDescription": "Autonomous waterless solar panel cleaning robots for utility-scale solar farms in India."
     },
     "schema": {
@@ -28,7 +28,7 @@
       "titleMobileLine2": "every 18 hours.",
       "titleMobileLine3": "Yet every solar plant loses",
       "titleMobileLine4": "at least 15% of energy generation.",
-      "subtitleLine1": "TAYPRO is the autonomous operations layer for utility-scale solar for recovering the lost energy",
+      "subtitleLine1": "TAYPRO is the autonomous operations layer for utility-scale solar, built to recover lost energy",
       "subtitleLine2": "Without water, without labour, without operational limits.",
       "statSystems": "Systems deployed",
       "statWater": "Liters water saved annually",
@@ -45,6 +45,16 @@
       "ctaExplore": "Explore robots",
       "ctaService": "Cleaning service",
       "ctaRoi": "Price & ROI calculator"
+    },
+    "seoProse": {
+      "heading": "Waterless solar panel cleaning robots for utility-scale India",
+      "bodyBeforeHub": "Taypro designs, manufactures, and services autonomous solar panel cleaning robots for India's largest utility-scale PV plants — GLYDE, NYUMA, HELYX, and tracker-ready GLYDE-X and NYUMA-X. Compare models on our",
+      "hubLink": "solar panel cleaning robots hub",
+      "bodyBetweenHubService": ", explore",
+      "serviceLink": "Taypro OPEX robotic cleaning service",
+      "bodyBetweenServiceCalculator": ", or estimate payback with our",
+      "calculatorLink": "solar cleaning ROI calculator",
+      "bodyAfterCalculator": ". Made in Pune with pan-India deployment and same-day breakdown support."
     },
     "stats": {
       "methodologyBefore": "Fleet impact figures are modelled from live deployments. See our",

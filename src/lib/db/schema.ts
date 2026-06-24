@@ -54,6 +54,8 @@ export const projects = sqliteTable(
     details: text("details").notNull().default("[]"),
     content: text("content").notNull().default(""),
     author: text("author").notNull().default("Taypro Team"),
+    /** Immutable star codename (English row is canonical; copied to locale rows). */
+    codename: text("codename"),
     date: text("date").notNull(),
     createdAt: text("created_at").notNull(),
     updatedAt: text("updated_at"),

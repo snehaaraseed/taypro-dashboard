@@ -4,8 +4,66 @@ import {
   openGraphLocaleForSite,
   type LocaleAlternatesOptions,
 } from "./locale-alternates";
+import { formatBrandTitle, normalizePageTitle } from "./page-title";
+import { trimSerpDescription } from "./serp-description";
 
 type LocaleParams = { params: Promise<{ locale: string }> };
+
+function resolveTitle(metadata: Metadata): Metadata["title"] {
+  const { title } = metadata;
+  if (!title) return title;
+  if (typeof title === "string") {
+    return { absolute: formatBrandTitle(title) };
+  }
+  if ("absolute" in title && title.absolute) {
+    return title;
+  }
+  if ("default" in title && title.default) {
+    return { absolute: formatBrandTitle(title.default) };
+  }
+  return title;
+}
+
+function resolveDescription(description: Metadata["description"]): Metadata["description"] {
+  if (typeof description === "string") {
+    return trimSerpDescription(description);
+  }
+  return description;
+}
+
+function resolveOpenGraph(
+  openGraph: Metadata["openGraph"],
+  canonicalUrl?: string,
+  locale?: string
+): Metadata["openGraph"] {
+  if (!openGraph) return openGraph;
+  const og = typeof openGraph === "object" ? { ...openGraph } : openGraph;
+  if (typeof og !== "object" || og === null) return openGraph;
+
+  if (typeof og.title === "string") {
+    og.title = formatBrandTitle(og.title);
+  }
+  if (typeof og.description === "string") {
+    og.description = trimSerpDescription(og.description);
+  }
+  if (canonicalUrl) {
+    og.url = canonicalUrl;
+    og.locale = og.locale ?? (locale ? openGraphLocaleForSite(locale) : undefined);
+  }
+  return og;
+}
+
+function resolveTwitter(twitter: Metadata["twitter"]): Metadata["twitter"] {
+  if (!twitter || typeof twitter !== "object") return twitter;
+  const tw = { ...twitter };
+  if (typeof tw.title === "string") {
+    tw.title = formatBrandTitle(tw.title);
+  }
+  if (typeof tw.description === "string") {
+    tw.description = trimSerpDescription(tw.description);
+  }
+  return tw;
+}
 
 /** Build generateMetadata for layouts/pages with hreflang from a fixed internal path. */
 export function defineLocalizedMetadata(
@@ -36,19 +94,14 @@ export function withHreflang(
   const canonicalUrl =
     typeof alternates?.canonical === "string" ? alternates.canonical : undefined;
 
-  const openGraph =
-    metadata.openGraph && canonicalUrl
-      ? {
-          ...metadata.openGraph,
-          url: canonicalUrl,
-          locale:
-            metadata.openGraph.locale ?? openGraphLocaleForSite(locale),
-        }
-      : metadata.openGraph;
-
   return {
     ...metadata,
+    title: resolveTitle(metadata),
+    description: resolveDescription(metadata.description),
     alternates,
-    openGraph,
+    openGraph: resolveOpenGraph(metadata.openGraph, canonicalUrl, locale),
+    twitter: resolveTwitter(metadata.twitter),
   };
 }
+
+export { normalizePageTitle, formatBrandTitle };

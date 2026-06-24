@@ -4,6 +4,11 @@ import {
   localizedUrl,
   openGraphLocaleForSite,
 } from "../src/lib/seo/locale-alternates";
+import { formatBrandTitle, normalizePageTitle } from "../src/lib/seo/page-title";
+import {
+  SERP_DESCRIPTION_MAX,
+  trimSerpDescription,
+} from "../src/lib/seo/serp-description";
 import { withHreflang } from "../src/lib/seo/with-hreflang";
 import { recoveryNotFoundMetadata } from "../src/lib/seo/recovery-not-found-metadata";
 import { getSitemapLocalesForPath } from "../src/lib/seo/sitemap-locales";
@@ -16,6 +21,28 @@ assert.equal(openGraphLocaleForSite("ar"), "ar_AE");
 assert.equal(openGraphLocaleForSite("ja"), "ja_JP");
 assert.equal(openGraphLocaleForSite("bn"), "bn_BD");
 assert.equal(openGraphLocaleForSite("en"), "en_IN");
+
+assert.equal(normalizePageTitle("Press & Media Coverage | Taypro"), "Press & Media Coverage");
+assert.equal(
+  formatBrandTitle("GLYDE Automatic Solar Panel Cleaning Robot"),
+  "GLYDE Automatic Solar Panel Cleaning Robot | Taypro"
+);
+assert.equal(
+  formatBrandTitle("Press & Media Coverage | Taypro"),
+  "Press & Media Coverage | Taypro"
+);
+assert.ok(trimSerpDescription("x".repeat(200)).length <= SERP_DESCRIPTION_MAX + 1);
+
+const pressMeta = withHreflang("/press", "en", {
+  title: "Press & Media Coverage | Taypro",
+  description: "Desc",
+});
+assert.equal(
+  typeof pressMeta.title === "object" && pressMeta.title && "absolute" in pressMeta.title
+    ? pressMeta.title.absolute
+    : "",
+  "Press & Media Coverage | Taypro"
+);
 
 const hiBlogMeta = withHreflang("/blog/test-slug", "hi", {
   title: "Test",
