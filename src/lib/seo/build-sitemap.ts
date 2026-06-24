@@ -18,6 +18,12 @@ import {
   sitemapPathForLocale,
 } from "./locale-alternates";
 import { getSitemapLocalesForPath } from "./sitemap-locales";
+import { isRedirectedBlogSlug } from "./redirected-blog-slugs";
+import {
+  careersJobPath,
+  jobOpeningSlug,
+  listOpenJobOpenings,
+} from "@/lib/erpnext/job-openings";
 
 const INDEXABLE_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
@@ -134,7 +140,10 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
     ]);
 
     const indexableBlogs = blogs.filter(
-      (b) => isIndexableSlug(b.slug) && b.locale
+      (b) =>
+        isIndexableSlug(b.slug) &&
+        b.locale &&
+        !isRedirectedBlogSlug(b.slug)
     );
     const indexableProjects = projects.filter(
       (p) => isIndexableSlug(p.slug) && p.locale
@@ -211,6 +220,27 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
   } catch (error) {
     console.error(
       "[sitemap] CMS lookup failed; serving static routes only:",
+      error
+    );
+  }
+
+  try {
+    const jobs = await listOpenJobOpenings();
+    const careersLocale = routing.defaultLocale as TayproLocale;
+
+    for (const job of jobs) {
+      const slug = jobOpeningSlug(job);
+      if (!slug) continue;
+
+      addForLocale(careersJobPath(job), careersLocale, {
+        lastModified: parseLastModified(job.posted_on),
+        changeFrequency: CMS_SITEMAP_DEFAULTS.jobOpening.changeFrequency,
+        priority: CMS_SITEMAP_DEFAULTS.jobOpening.priority,
+      });
+    }
+  } catch (error) {
+    console.error(
+      "[sitemap] ERPNext job openings lookup failed; omitting job URLs:",
       error
     );
   }

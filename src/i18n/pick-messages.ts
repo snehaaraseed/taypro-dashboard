@@ -1,4 +1,8 @@
-import { clientNamespacesForRequest } from "@/i18n/client-message-namespaces";
+import {
+  CLIENT_PAGE_NAMESPACES,
+  LAYOUT_CLIENT_NAMESPACES,
+  clientNamespacesForRequest,
+} from "@/i18n/client-message-namespaces";
 import { pathnameWithoutLocale } from "@/i18n/pathname-without-locale";
 
 /** Always ship these to the client when present (layout chrome + lead forms). */
@@ -16,6 +20,21 @@ export function pickMessages(
     }
   }
   return picked;
+}
+
+/**
+ * Client bundle for locale layout — pathname-independent so layouts can be static/ISR.
+ * Admin publish routes call revalidatePath when CMS content changes.
+ */
+export function buildLayoutClientMessages(
+  messages: Record<string, unknown>
+): Record<string, unknown> {
+  const namespaceSet = new Set<string>([
+    ...LAYOUT_CLIENT_NAMESPACES,
+    ...CLIENT_PAGE_NAMESPACES,
+    ...GLOBAL_CLIENT_NAMESPACES,
+  ]);
+  return pickMessages(messages, [...namespaceSet]);
 }
 
 /**

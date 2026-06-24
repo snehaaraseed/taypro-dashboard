@@ -1,7 +1,7 @@
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
-import { energyResourceCards } from "@/app/data";
 import { getAllFileProjects } from "@/app/utils/projectFileUtils";
+import { listPublishedBlogLinkSummaries } from "@/lib/cms/blogService";
 import { COMPARISON_PAGE_LIST } from "@/lib/seo/comparison-pages-config";
 import {
   ALL_STATE_LANDING_IDS,
@@ -66,6 +66,7 @@ export default async function SiteMapPage({
   const tCommon = await getTranslations({ locale, namespace: "Common" });
   const l = (key: string) => t(`links.${key}`);
   const portfolioProjects = await getAllFileProjects(locale);
+  const blogLinks = await listPublishedBlogLinkSummaries(locale);
 
   const breadcrumbs = [
     { name: tCommon("breadcrumbHome"), href: "/" },
@@ -96,14 +97,14 @@ export default async function SiteMapPage({
             </p>
 
             <ul className="space-y-1 list-disc list-inside">
-              {energyResourceCards.map((card, idx) => (
-                <li key={idx} className="text-lg">
+              {blogLinks.map((blog) => (
+                <li key={blog.slug} className="text-lg">
                   <Link
-                    href={card.href}
-                    title={t("posts.energyResourcesTitle")}
+                    href={`/blog/${blog.slug}`}
+                    title={blog.title}
                     className="text-[#7CB342] hover:text-[#689F38] transition-colors duration-200 font-medium"
                   >
-                    {card.title}
+                    {blog.title}
                   </Link>
                 </li>
               ))}

@@ -20,6 +20,7 @@ export type AnalyticsLocation =
   | "blog_similar"
   | "home_blog"
   | "compare_page"
+  | "buyer_intent_page"
   | "not_found"
   | "calculator_page"
   | "navigation"

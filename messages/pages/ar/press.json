@@ -1,0 +1,33 @@
+{
+  "PressPage": {
+    "meta": {
+      "title": "التغطية الصحفية والإعلامية | Taypro",
+      "description": "Taypro في الأخبار - Mercom India، EPC World، Energetica India، Saur Energy، TimesTech، T&D India، IPF Online، Live Mint Tech4Good، Renewable Watch، وأكثر من 20 مقالة تم التحقق منها لجهات خارجية حول روبوتات التنظيف بالطاقة الشمسية.",
+      "openGraphTitle": "Taypro التغطية الصحفية والإعلامية",
+      "openGraphDescription": "المقابلات والجوائز والتغطية الصناعية لروبوتات تنظيف الألواح الشمسية بدون ماء Taypro في جميع أنحاء الهند.",
+      "twitterTitle": "Taypro الصحافة والإعلام",
+      "twitterDescription": "تغطية صحفية للصناعة لـ Taypro تنظيف الألواح الشمسية الروبوتية في الهند."
+    },
+    "breadcrumbs": {
+      "current": "Press"
+    },
+    "hero": {
+      "eyebrow": "في الأخبار",
+      "title": "التغطية الصحفية والإعلامية",
+      "subtitle": "الأخبار والمقابلات ووسائل الإعلام الصناعية التي تغطي روبوتات تنظيف الألواح الشمسية بدون ماء الخاصة بـ Taypro وعمليات النشر على نطاق المرافق في جميع أنحاء الهند."
+    },
+    "listHeading": "News, interviews & industry media",
+    "listIntro": "Links open the original publisher site in a new tab.",
+    "sectionInterviews": "Interviews & opinion",
+    "sectionMarket": "Market leadership",
+    "sectionAwards": "Awards",
+    "sectionNews": "Product & company news",
+    "sectionIndex": "Publisher indexes",
+    "readArticle": "Read on {outlet}",
+    "companyCta": "About Taypro",
+    "contactCta": "Contact media team"
+  },
+  "Common": {
+    "breadcrumbHome": "Home"
+  }
+}

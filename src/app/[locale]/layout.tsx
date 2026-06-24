@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { buildClientMessages } from "@/i18n/pick-messages";
+import { buildLayoutClientMessages } from "@/i18n/pick-messages";
+import { HtmlLocaleAttributes } from "@/app/components/HtmlLocaleAttributes";
 import { SiteGraphSchema } from "@/app/components/StructuredData";
 import { TAYPRO_SALES_PHONE_E164 } from "@/lib/contact";
 import Footer from "@/app/components/Footer";
@@ -69,6 +69,9 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+/** ISR default for marketing pages; careers/blog/projects override when needed. */
+export const revalidate = 3600;
+
 type LocaleLayoutProps = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
@@ -86,15 +89,11 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
   const messages = await getMessages();
-  const headerList = await headers();
-  const pathname =
-    headerList.get("x-logical-pathname") ??
-    headerList.get("x-pathname") ??
-    "/";
-  const clientMessages = buildClientMessages(messages, pathname);
+  const clientMessages = buildLayoutClientMessages(messages);
 
   return (
     <NextIntlClientProvider locale={locale} messages={clientMessages}>
+      <HtmlLocaleAttributes />
       <SiteGraphSchema
         siteUrl={siteUrl}
         contactPoint={{

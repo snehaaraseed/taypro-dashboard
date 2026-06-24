@@ -13,6 +13,10 @@ export function recoveryNotFoundMetadata(
     title: "Page Not Found - Taypro",
     description: "The requested page could not be found.",
     robots: RECOVERY_NOT_FOUND_ROBOTS,
+    alternates: {
+      canonical: undefined,
+      languages: undefined,
+    },
     ...overrides,
   };
 }

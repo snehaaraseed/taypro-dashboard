@@ -1,0 +1,79 @@
+{
+  "CleaningMachinePage": {
+    "meta": {
+      "title": "सोलर पैनल क्लीनिंग मशीन भारत | रोबोटों",
+      "description": "भारत में उपयोगिता और छत संयंत्रों के लिए सौर पैनल सफाई मशीनें। GLYDE, NYUMA, HELYX रोबोट, मूल्य निर्धारण और Taypro ओपेक्स सेवा की तुलना करें। एक कहावत कहना।",
+      "openGraphTitle": "सोलर पैनल क्लीनिंग मशीन भारत | Taypro रोबोट",
+      "openGraphDescription": "भारतीय उपयोगिता और छत साइटों के लिए सौर पैनल सफाई मशीनों और रोबोटों के लिए गाइड - मॉडल, मूल्य निर्धारण और प्रबंधित सेवा विकल्प।",
+      "twitterTitle": "सोलर पैनल क्लीनिंग मशीन भारत",
+      "twitterDescription": "भारत में यूटिलिटी-स्केल और रूफटॉप सोलर के लिए Taypro सफाई मशीनों और रोबोटों की तुलना करें।"
+    },
+    "breadcrumbs": {
+      "current": "Solar panel cleaning machine"
+    },
+    "hero": {
+      "eyebrow": "क्रेता गाइड · भारत",
+      "title": "भारत में सोलर पैनल सफाई मशीन",
+      "subtitle": "उपयोगिता खरीदार सफाई मशीनों की खोज करते हैं - MW-स्केल संयंत्रों पर जिसका अर्थ है स्वायत्त रोबोट (GLYDE, NYUMA, HELYX) या Taypro ओपेक्स प्रबंधित बेड़े। रूफटॉप और C&I साइटें MINY के लिए रुचि दर्ज कर सकती हैं।",
+      "ctaHub": "रोबोट मॉडल की तुलना करें",
+      "ctaQuote": "एक उद्धरण का अनुरोध करें"
+    },
+    "intro": {
+      "eyebrow": "What buyers mean",
+      "heading": "Cleaning machine vs cleaning robot on solar plants",
+      "p1": "In Indian RFQs, solar panel cleaning machine often describes the same category as a solar panel cleaning robot — an automated platform that runs on module rows without manual brush crews. At 10 MW and above, waterless robots with fleet software (NECTYR) replace episodic wet washing.",
+      "p2": "Taypro manufactures GLYDE and NYUMA for fixed-tilt utility arrays, GLYDE-X and NYUMA-X for single-axis trackers, and HELYX for semi-automatic scattered blocks. Taypro Opex delivers the same hardware as a pay-per-panel-cleaned service when you prefer not to capitalise robots."
+    },
+    "models": {
+      "eyebrow": "Machine types",
+      "heading": "Which Taypro cleaning machine fits your site?",
+      "intro": "Match array geometry and procurement model — then validate robot count with our ROI calculator or a layout review.",
+      "glydeTitle": "GLYDE — automatic dual-pass (fixed tilt)",
+      "glydeBody": "Waterless airflow plus microfiber for daily utility cadence on fixed and seasonal-tilt rows.",
+      "nyumaTitle": "NYUMA — automatic single-pass PBT",
+      "nyumaBody": "Single-pass PBT brush drum for high-throughput fixed-tilt fleets with AI-driven pressure logic.",
+      "helyxTitle": "HELYX — semi-automatic portable",
+      "helyxBody": "Crew-assisted pick-and-place robot for scattered blocks or hybrid coverage on large sites.",
+      "rooftopTitle": "MINY — compact rooftop robot (coming soon)",
+      "rooftopBody": "Register interest for Taypro's compact rooftop solar panel cleaning robot for C&I and residential portfolios.",
+      "ctaGlyde": "GLYDE product page",
+      "ctaNyuma": "NYUMA product page",
+      "ctaHelyx": "HELYX product page",
+      "ctaRooftop": "MINY rooftop robot",
+      "ctaHub": "Full solutions hub"
+    },
+    "pricing": {
+      "eyebrow": "Commercial",
+      "heading": "Solar panel cleaning machine price in India",
+      "body": "Machine price depends on MW capacity, row layout, tracker vs fixed tilt, automation level, and CAPEX vs Taypro Opex. Use our public price guide and ROI calculator for directional bands — then contact Taypro for a site-specific fleet quote.",
+      "ctaPrice": "Robot price guide (India)",
+      "ctaCalculator": "ROI calculator",
+      "ctaService": "Taypro Opex cleaning service"
+    },
+    "faq": {
+      "heading": "सौर पैनल सफाई मशीन अक्सर पूछे जाने वाले प्रश्न",
+      "intro": "मशीनों और रोबोटों की तुलना करने वाले ईपीसी और संपत्ति मालिकों के सामान्य प्रश्न।",
+      "q0": "क्या सोलर पैनल सफाई मशीन एक सफाई रोबोट के समान है?",
+      "a0": "उपयोगिता पैमाने के भारतीय संयंत्रों में, हाँ - खरीदार स्वायत्त पंक्ति क्लीनर के लिए दोनों शब्दों का उपयोग करते हैं। Taypro GLYDE, NYUMA, और ट्रैकर वेरिएंट दैनिक शुष्क चक्रों के लिए इंजीनियर किए गए रोबोट हैं, हैंडहेल्ड प्रेशर वॉशर नहीं।",
+      "q1": "क्या Taypro सफाई मशीनें पानी का उपयोग करती हैं?",
+      "a1": "नंबर Taypro प्लेटफ़ॉर्म पेटेंटेड वॉटरलेस डुअल-पास (GLYDE) या सिंगल-पास PBT (NYUMA) ड्राई क्लीनिंग का उपयोग करते हैं - शुष्क क्षेत्रों में गीली धुलाई से टैंकर लॉजिस्टिक्स और थर्मल शॉक से बचते हैं।",
+      "q2": "क्या मैं मशीन खरीद सकता हूँ या प्रबंधित सेवा का उपयोग कर सकता हूँ?",
+      "a2": "दोनों। CAPEX के अंतर्गत AMC के साथ GLYDE, NYUMA, या HELYX खरीदें, या Taypro Opex चुनें जहां Taypro बेड़े का संचालन करता है और आप साफ किए गए प्रति पैनल के लिए भुगतान करते हैं।",
+      "q3": "क्या छत की सफ़ाई करने की कोई मशीन है?",
+      "a3": "MINY Taypro का कॉम्पैक्ट रूफटॉप सोलर पैनल क्लीनिंग रोबोट है - वर्तमान में C&I और रूफटॉप पोर्टफ़ोलियो के लिए रजिस्टर-इंटरेस्ट चरण में है। उपयोगिता खरीदारों को ग्राउंड-माउंट साइटों पर GLYDE या NYUMA का मूल्यांकन करना चाहिए।",
+      "q4": "मैं Taypro की तुलना अन्य आपूर्तिकर्ताओं से कैसे करूँ?",
+      "a4": "रोबोटिक बनाम मैन्युअल सफाई, जलरहित बनाम जल-आधारित तरीकों और Taypro बनाम सोलाबोट या अन्य भारतीय रोबोट ओईएम के लिए हमारी तुलना गाइड से शुरुआत करें - फिर लेआउट-आधारित उद्धरण का अनुरोध करें।"
+    },
+    "explore": {
+      "heading": "Explore next",
+      "linkHub": "Solar cleaning robots hub",
+      "linkTechnology": "Cleaning technology",
+      "linkPrice": "Robot price guide",
+      "linkCompareManual": "Robot vs manual cleaning",
+      "linkCompareSolabot": "Taypro vs Solabot"
+    }
+  },
+  "Common": {
+    "breadcrumbHome": "Home"
+  }
+}

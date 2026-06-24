@@ -1,0 +1,242 @@
+{
+  "ServiceIndiaPage": {
+    "meta": {
+      "title": "インドのソーラーパネル清掃サービス | Taypro",
+      "description": "インド最大級のロボット清掃サービス。月9GW超、OPEX/CAPEX、全国対応。",
+      "openGraphTitle": "ソーラー清掃サービス インド | Taypro",
+      "openGraphDescription": "ロボット清掃・OPEX・NECTYRレポート。"
+    },
+    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHubHref": "/solar-panel-cleaning-system",
+    "breadcrumb": "ソーラー清掃サービス インド",
+    "schema": {
+      "name": "Taypro Solar Panel Cleaning Service India",
+      "description": "Pan-India robotic solar panel cleaning service for utility-scale IPPs, CPSUs, and commercial plants. Managed OPEX and CAPEX robot supply with NECTYR fleet reporting.",
+      "serviceType": "Solar panel cleaning service",
+      "areaServed": "India"
+    },
+    "hero": {
+      "eyebrow": "国家奉仕 · インド",
+      "title": "インドのソーラーパネル清掃サービス — 全国ロボットフリート",
+      "subtitle": "Taypro は、インド最大のロボット太陽熱洗浄会社です。IPP、CPSU、SECI 入札プロジェクト、および C&I 資産所有者向けに、公益事業および商業プラント全体で毎月 9 GW+ 枚のパネルを洗浄し、水を使わないドライ サイクル、パネルごとに支払う OPEX またはロボット CAPEX を使用しています。責任あるソーラー パネル洗浄会社インド - ロボット、オペレーター、予備品、NECTYR フリート ソフトウェア。",
+      "ctaPrimary": "見積依頼",
+      "ctaPrimaryHref": "/contact",
+      "ctaSecondary": "OPEX の価格設定の仕組み",
+      "ctaSecondaryHref": "/solar-cleaning-opex-pricing"
+    },
+    "stats": {
+      "eyebrow": "フリートプルーフ",
+      "heading": "インドで調達チームが太陽光発電の清掃に Taypro を選択する理由",
+      "card0": {
+        "tag": "規模",
+        "stat": "9 GW+",
+        "label": "パネルは毎月清掃されます",
+        "body": "インドの太陽光発電施設に配備されている最大規模のロボット掃除機群の 1 つであり、パイロット ベンダーではなく、本番 O&M パートナーです。"
+      },
+      "card1": {
+        "tag": "カバレッジ",
+        "stat": "汎インド",
+        "label": "汚れの多い州全体でのサービス",
+        "body": "ラジャスタン州、グジャラート州、マハラシュトラ州、カルナータカ州、MP、アーンドラ プラデーシュ州、タミル ナードゥ州で積極的な展開とサービス ハブを展開し、拡大しています。"
+      },
+      "card2": {
+        "tag": "クライアント",
+        "stat": "IPP · CPSU · C&I",
+        "label": "機関投資家の資産所有者向けに構築",
+        "body": "SECI、state discoms、IPPs、および産業用屋上 - ロボット、オペレーター、予備品、およびフリート ソフトウェアのベンダーの 1 つです。"
+      },
+      "card3": {
+        "tag": "モデル",
+        "stat": "CAPEX + OPEX",
+        "label": "ロボットを購入するか、清掃されたパネルごとに支払います",
+        "body": "AMC または Taypro OPEX でロボットを購入することを選択してください。当社がフリートを所有し、毎月清掃された検証済みパネルの料金を請求します。"
+      }
+    },
+    "cards": {
+      "eyebrow": "サービス範囲",
+      "heading": "Taypro のインド清掃サービスの内容",
+      "card0": {
+        "title": "植物特有の汚れの研究",
+        "body": "エンジニアは、粉塵の発生源、季節パターン、列の形状を評価してから、月に 3 ～ 10 回の水なし乾燥サイクルを推奨します。"
+      },
+      "card1": {
+        "title": "ロボットの導入とオペレーター",
+        "body": "お客様のプラントに適合する GLYDE、GLYDE-X、NYUMA、NYUMA-X、または HELYX を、訓練を受けたオンサイト オペレーターとスペアパーツとともに提供します。"
+      },
+      "card2": {
+        "title": "NECTYR 日次レポート",
+        "body": "ブロックレベルのクリーニングログ、ルートカバレッジ、例外、およびフリートの健全性 — O&M および貸し手のレビューの監査に対応します。"
+      },
+      "card3": {
+        "title": "SLA によるフィールド応答",
+        "body": "地域のサービス チーム、故障ターゲット、および NECTYR を介したリモート診断により、複数の MW サイトでのフリートの稼働時間を実現します。"
+      },
+      "card4": {
+        "title": "水のいらないドライクリーニング - タンカーによる物流は不要",
+        "body": "水ストレスの多い太陽熱帯では、湿式洗浄により、MW あたり年間 140,000 リットル以上が消費されます。 Taypro のロボット ドライ クリーニングは、タンカーへの依存を排除​​し、月あたり 3 ～ 10 サイクルのサイクルを可能にします。これは、ラジャスタン州とグジャラート州のダストベルトの汚れを中和するのに必要な頻度です。"
+      },
+      "card5": {
+        "title": "プラントパフォーマンスデータとの統合",
+        "body": "NECTYR ブロックレベルのクリーニング ログは、各サイクルを配列のカバレッジと例外に結び付けます。資産管理者は、清掃イベントと PR の回復を関連付け、SCADA アラームと現場のアクションの間のギャップを埋めます。"
+      }
+    },
+    "models": {
+      "eyebrow": "Commercial models",
+      "heading": "CAPEX robots or Taypro OPEX — same fleet, different balance sheet",
+      "capex": {
+        "title": "Robot CAPEX + AMC",
+        "body": "Purchase GLYDE, GLYDE-X, NYUMA, or HELYX. Taypro commissions, trains operators, and maintains the fleet under structured AMC.",
+        "href": "/solar-panel-cleaning-robot-price-india",
+        "link": "India robot price guide"
+      },
+      "opex": {
+        "title": "Taypro OPEX service",
+        "body": "No upfront robot purchase. Pay monthly for panels actually cleaned — ideal for IPPs that want predictable O&M opex and fast mobilisation.",
+        "href": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
+        "link": "OPEX service details"
+      }
+    },
+    "pillars": {
+      "eyebrow": "Full stack",
+      "heading": "Robots, managed service, and fleet software — one partner",
+      "pillar0": {
+        "tag": "Hardware",
+        "title": "Waterless cleaning robots",
+        "body": "GLYDE dual-pass for fixed tilt, GLYDE-X and NYUMA-X for single-axis trackers, HELYX for scattered blocks.",
+        "link": "Compare robot models"
+      },
+      "pillar1": {
+        "tag": "Service",
+        "title": "Managed cleaning programme",
+        "body": "SOPs, cycle scheduling, operator deployment, and billing tied to verified panel-cleaning volume.",
+        "link": "OPEX service page"
+      },
+      "pillar2": {
+        "tag": "Software",
+        "title": "NECTYR fleet portal",
+        "body": "Schedule cycles, monitor coverage, manage AMC tickets, and export cleaning evidence for PR recovery analysis.",
+        "link": "OPEX pricing guide"
+      }
+    },
+    "stateGrid": {
+      "heading": "Solar panel cleaning service by state",
+      "intro": "Taypro deploys robotic cleaning fleets across India's highest-soiling solar belts. Explore state-specific guides for Rajasthan, Gujarat, Maharashtra, and more."
+    },
+    "faq": {
+      "heading": "インドのソーラークリーニングサービス — よくある質問",
+      "subheading": "ロボット清掃パートナーを評価する IPP、EPC、O&M チームからのよくある質問。",
+      "q0": "Taypro はインド全土でソーラー パネルのクリーニング サービスを提供していますか?",
+      "a0": "はい。 Taypro は、ラジャスタン州、グジャラート州、マハラシュトラ州、カルナータカ州、マディヤ プラデーシュ州、アーンドラ プラデーシュ州、タミル ナードゥ州、ウッタル プラデーシュ州、ハリヤナ州、デリー NCR、西ベンガル州、チャッティースガル州を含むインドの主要な太陽州全体にロボット清掃部隊と管理された OPEX プログラムを展開しています。特定のサイトでの動員スケジュールについては、お問い合わせください。",
+      "q1": "Taypro OPEX と掃除ロボットの購入の違いは何ですか?",
+      "a1": "CAPEX を使用すると、ロボットを購入し、独自の減価償却を行うことができます。 Taypro OPEX では、Taypro がフリートの所有権を保持し、NECTYR テレメトリに合わせて実際に清掃されたパネルの料金を毎月支払います。多くの IPP は、貸借対照表を維持し、単一の責任あるベンダーで運用結果を固定するために OPEX を選択します。",
+      "q2": "Taypro の清掃サービスの対象となる植物のサイズはどれですか?",
+      "a2": "Taypro OPEX は、約 10 MW 以上の実用規模のプラント向けに設計されており、多くのプログラムは 50 ～ 300 MW です。小規模な C&I および屋上のサイトは、実現可能性の審査の後、ロボット CAPEX または HELYX プログラムの対象となる可能性があります。",
+      "q3": "Taypro では月に何回の清掃サイクルを推奨していますか?",
+      "a3": "現場の汚れ調査後、Taypro は通常、粉塵の負荷、季節の風のパターン、トラッカーと固定傾斜のジオメトリ、および PR の回復目標に応じて、月に 3 ～ 10 回の水なしドライ クリーニング サイクルを推奨します。",
+      "q4": "Taypro は太陽光発電 O&M 会社ですか、それとも単なるロボット メーカーですか?",
+      "a4": "両方。 Taypro は、インドで水を使わない掃除ロボットを製造し、展開されている最大規模のロボット掃除機群の 1 つを運用しています。当社のサービスには、清掃の実行、車両の状態、オペレーターの配置、NECTYR レポートが含まれており、EPC または電気 O&M 請負業者を補完します。",
+      "q5": "Taypro はインドの清掃サービスにどのようなロボットを導入していますか?",
+      "a5": "固定傾斜ユーティリティ ブロックは GLYDE または NYUMA を使用します。単軸トラッカー サイトでは、GLYDE-X または NYUMA-X を使用します。分散ブロックとピック アンド プレイス ワークフローでは HELYX を使用する場合があります。同じ NECTYR スタックがモデル全体に​​適用されます。",
+      "q6": "Taypro OPEX では請求はどのように構成されていますか?",
+      "a6": "商業条件は、請求サイクルごとに検証されたパネル清掃量に関連付けられ、NECTYR ログおよび合意された SOP と照合されます。これにより、OPEX が提供された洗浄結果に直接一致します。",
+      "q7": "インドでソーラーパネル洗浄サービスの見積もりを取得するにはどうすればよいですか?",
+      "a7": "プラントの能力、場所、設置タイプ (固定傾斜またはトラッカー)、および現在の清掃方法を共有します。 Taypro エンジニアは、サイクル数、ロボット モデル、および CAPEX または OPEX の商業条件を提案します。",
+      "q8": "Taypro はインドの他の太陽光発電クリーニング会社とどう違うのですか?",
+      "a8": "フリートの規模 (Taypro が毎月 9 件の GW+ を清掃)、製品の幅 (固定傾斜、トラッカー、屋上、半自動)、NECTYR レポート、汎インド サービス、および CAPEX と OPEX の両方のモデルを評価します。 Taypro とインドの競合他社の比較ページが当社のサイトで利用可能です。",
+      "q9": "Taypro は単軸トラッカー プラントを洗浄しますか?",
+      "a9": "はい。 GLYDE-X および NYUMA-X は、CRADYL 行転送ドッキングを備えた単軸トラッカー向けに設計されています。技術的な調達については、トラッカー清掃ロボットのガイドをご覧ください。",
+      "q10": "100 MW プラントの一般的な動員スケジュールはどのくらいですか?",
+      "a10": "段階的展開: サイトマッピング、フリートの動員、オペレーターのトレーニング、NECTYR のオンボーディング。スケジュールは行数とアクセスによって異なります。商業契約中に提案されますが、確立されたソーラーパークでは通常、数か月ではなく数週間です。",
+      "q11": "Taypro は州をまたがるマルチサイト ポートフォリオをサポートできますか?",
+      "a11": "はい。 NECTYR は、ポートフォリオ レベルのスケジューリングとレポートを提供します。 Taypro は、ラジャスタン州、グジャラート州、マハーラーシュトラ州、カルナータカ州、MP、アーンドラ プラデーシュ州、タミル ナードゥ州、ウッタル プラデーシュ州、ハリヤーナー州、デリー NCR、西ベンガル州、チャッティースガル州で事業を展開しています。"
+    },
+    "cta": {
+      "heading": "Request a solar cleaning service quote for your plant",
+      "body": "Tell us your MW capacity, state, and installation type. Taypro will respond with a site-specific cleaning programme and commercial proposal.",
+      "primary": "Contact Taypro",
+      "primaryHref": "/contact",
+      "secondary": "Run ROI calculator",
+      "secondaryHref": "/solar-panel-cleaning-robot-price-calculator#calculator"
+    },
+    "related": {
+      "label": "Related:",
+      "link0": "OPEX pricing bands",
+      "link0Href": "/solar-cleaning-opex-pricing",
+      "link1": "OPEX contract & SOP details",
+      "link1Href": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
+      "link2": "Utility-scale O&M hub",
+      "link2Href": "/utility-scale-solar-operations"
+    },
+    "quoteForm": {
+      "eyebrow": "Service inquiry",
+      "title": "Request a solar cleaning service quote",
+      "placeholder": "Plant capacity (MW), state, installation type (fixed tilt / tracker), current cleaning method, and target go-live date."
+    },
+    "prose": {
+      "eyebrow": "インドに国家清掃パートナーが必要な理由",
+      "heading": "インドのソーラーパネル洗浄サービス - 地元の清掃員を超えて",
+      "p1": "インドの太陽光発電設備は現在 100 GW を超えており、ラジャスタン州、グジャラート州、マハラシュトラ州、カルナータカ州、マディヤ プラデーシュ州に集中しています。これらの州では、清掃がカレンダーに基づいている場合、汚れによる損失が年間 8 ～ 25% に達します。インドのバイヤーが信頼するソーラーパネル洗浄会社は、その場限りの労働契約ではなく、複数のロボット車両、全インドの予備品、監査対応のレポートなど、生産規模で運営する必要があります。",
+      "p2": "Taypro はプネーで水を使わない掃除ロボットを製造し、2 つの商用モデルで展開しています。 CAPEX: GLYDE、GLYDE-X、NYUMA、NYUMA-X、または HELYX を構造化 AMC とともに購入します。 OPEX: Taypro はフリートを所有し、オペレーターを配置し、実際に清掃されたパネルの料金を毎月請求します (NECTYR テレメトリによって調整されます)。",
+      "p3": "IPP 資産マネージャー、州のディスコム、または EPC 引き継ぎチームのいずれを通じて調達する場合でも、Taypro は現場での実行とフリート データの単一ベンダーを提供します。電気 O&M、インバーターの修理、およびトラッカーの機械的作業は、既存の請負業者に残ります。パフォーマンス比を直接左右するクリーニング層は当社が所有します。",
+      "p4": "太陽光発電清掃サービスを評価する調達チーム インドのベンダーは、ロボットのパンフレットだけでなく、車両の規模、州のカバー範囲、請求の透明性、プラント監視との統合を比較する必要があります。 Taypro は、OPEX 価格の目安、ROI 計算ツール、およびデュー デリジェンス用の 132 以上のプロジェクト参照を公開しています。",
+      "linkPrimary": "サービス見積もりをリクエストする",
+      "linkPrimaryHref": "/contact",
+      "linkSecondary": "OPEX と CAPEX の料金を比較する",
+      "linkSecondaryHref": "/solar-cleaning-opex-pricing"
+    },
+    "steps": {
+      "eyebrow": "How mobilisation works",
+      "heading": "From RFQ to first cleaning cycle on your plant",
+      "subheading": "A structured onboarding path used on 50–360 MW utility deployments across India.",
+      "step0Title": "Share plant profile & current cleaning method",
+      "step0Body": "Provide MW capacity, state, installation type (fixed tilt, seasonal tilt, or single-axis tracker), module wattage, current manual or robotic cleaning spend, and target PR or soiling assumptions. Taypro assigns an engineering lead within one business day.",
+      "step1Title": "Site soiling study & cycle recommendation",
+      "step1Body": "Engineers assess dust sources, wind patterns, row geometry, tracker behaviour, and seasonal rain probability. Output: recommended 3–10 waterless dry cycles per month and robot model selection (GLYDE, GLYDE-X, NYUMA, NYUMA-X, or HELYX).",
+      "step2Title": "Commercial proposal — CAPEX or OPEX",
+      "step2Body": "Receive robot fleet sizing, indicative pricing (per-panel OPEX rates or CAPEX bands), SLA framework, and mobilisation timeline. Finance teams can run parallel scenarios in the ROI calculator.",
+      "step3Title": "Fleet deployment & NECTYR onboarding",
+      "step3Body": "Operators mobilise with robots, connectivity (LTE, mesh, or LoRa as designed), cleaning SOPs, path maps, and rest zones. NECTYR portal activated for scheduling, coverage audits, and monthly settlement.",
+      "step4Title": "Monthly reconciliation & programme review",
+      "step4Body": "Billing aligns to verified panels cleaned per NECTYR logs. Quarterly reviews adjust cycle count for monsoon, harvest dust, or construction activity nearby."
+    },
+    "eligibility": {
+      "eyebrow": "Fit assessment",
+      "title": "Who Taypro's India cleaning service is built for",
+      "forTitle": "Ideal fit",
+      "for0": "Utility ground-mount and solar park plants from ~10 MW upward (many programmes at 50–300 MW)",
+      "for1": "IPPs, CPSUs, SECI projects, and asset managers seeking pay-per-panel-cleaned OPEX or robot CAPEX with AMC",
+      "for2": "Sites in Rajasthan, Gujarat, MP, Maharashtra, Karnataka, or Andhra Pradesh with recurring soiling and PR drift",
+      "for3": "Procurement teams that need NECTYR audit trails for lenders, SECI, or internal O&M governance",
+      "notForTitle": "Typically not a fit",
+      "not0": "Single-home residential rooftop arrays (see our rooftop robot guide for C&I)",
+      "not1": "One-off manual pressure-washing without a recurring robotic programme",
+      "not2": "Full-plant EPC maintenance scope (inverters, HV, tracker mechanical) — we partner on cleaning only"
+    },
+    "highlight": {
+      "heading": "The procurement question",
+      "lead": "Can your cleaning vendor prove which panels were cleaned last night?",
+      "body": "Manual crew contracts rarely provide block-level coverage evidence. Taypro OPEX bills against NECTYR telemetry — panels cleaned, routes completed, exceptions logged. That is what IPPs and lenders ask for at 100 MW scale."
+    },
+    "proseSecondary": {
+      "eyebrow": "地域的な汚れの状況",
+      "heading": "州ごとの太陽光発電の需要 — 全インドサービスが重要な理由",
+      "p1": "ラジャスタン州とグジャラート州は、インドの太陽光発電容量の最大のシェアを占めており、記録されている汚れ率が最も高く、累積的な塵の膜により、ケイデンスによる清掃なしで年間発電量の 8 ～ 25% が抑制されます。マハラシュトラ州とカルナータカ州では、乾燥地帯の物理学とは異なる海岸の湿度と農業用粉塵パターンが追加されます。",
+      "p2": "太陽光パネルの清掃サービスを提供するインドのパートナーは、故障ごとに 1 つの州から作業員を派遣するのではなく、地域的に動員する必要があります。 Taypro は、以下にリンクされている 12 州の展開ガイドにわたって、サービス ハブ、スペアパーツ在庫、およびオペレーター プールを維持しています。",
+      "p3": "サイクル数と商業モデルを最終決定する前に、ラジャスタン州、グジャラート州、マハラシュトラ州、および工場の所在地の各州固有のロボット清掃の状況を調査します。",
+      "linkPrimary": "太陽光発電 O&M サービスの範囲",
+      "linkPrimaryHref": "/solar-om-services",
+      "linkSecondary": "大規模な MW 展開",
+      "linkSecondaryHref": "/large-scale-solar-panel-cleaning"
+    },
+    "resources": {
+      "eyebrow": "Further reading",
+      "heading": "Guides for solar cleaning procurement in India",
+      "link0Title": "Solar panel cleaning cost per MW",
+      "link0Href": "/solar-cleaning-opex-pricing",
+      "link1Title": "Robotic vs manual cleaning comparison",
+      "link1Href": "/compare/solar-panel-cleaning-robot-vs-manual-cleaning",
+      "link2Title": "Utility-scale solar operations context",
+      "link2Href": "/utility-scale-solar-operations"
+    }
+  }
+}

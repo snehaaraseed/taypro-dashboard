@@ -7,6 +7,7 @@ import {
 import { withHreflang } from "../src/lib/seo/with-hreflang";
 import { recoveryNotFoundMetadata } from "../src/lib/seo/recovery-not-found-metadata";
 import { getSitemapLocalesForPath } from "../src/lib/seo/sitemap-locales";
+import { isLocalePageSubstantivelyTranslated } from "../src/lib/seo/locale-page-quality";
 
 assert.equal(localizedUrl("/blog/test", "en"), "https://taypro.in/blog/test");
 assert.equal(localizedUrl("/blog/test", "hi"), "https://taypro.in/hi/blog/test");
@@ -40,6 +41,7 @@ assert.equal(hiBlogMeta.openGraph?.locale, "hi_IN");
 const recoveryMeta = recoveryNotFoundMetadata({
   title: "Blog Post Not Found - Taypro",
 });
+assert.equal(recoveryMeta.alternates?.canonical, undefined);
 assert.equal(
   typeof recoveryMeta.robots === "object" &&
     recoveryMeta.robots !== null &&
@@ -53,7 +55,54 @@ const alternates = buildLocaleAlternates("/compare/foo", "ja");
 assert.equal(alternates.canonical, "https://taypro.in/ja/compare/foo");
 assert.equal(alternates.languages?.["ja-JP"], "https://taypro.in/ja/compare/foo");
 assert.equal(alternates.languages?.["hi-IN"], "https://taypro.in/hi/compare/foo");
-assert.deepEqual(getSitemapLocalesForPath("/press"), ["en"]);
+const pressLocales = getSitemapLocalesForPath("/press");
+assert.ok(pressLocales.includes("en"));
+assert.equal(
+  pressLocales.includes("hi"),
+  isLocalePageSubstantivelyTranslated("press", "hi")
+);
 assert.ok(getSitemapLocalesForPath("/").includes("hi"));
+
+const untranslatedHiCapex = withHreflang(
+  "/solar-cleaning-capex-vs-opex",
+  "hi",
+  { title: "Test", description: "Desc" },
+  isLocalePageSubstantivelyTranslated("solar-cleaning-capex-vs-opex", "hi")
+    ? undefined
+    : {
+        canonicalLocale: "en",
+        locales: ["en"],
+      }
+);
+assert.equal(
+  untranslatedHiCapex.alternates?.canonical,
+  isLocalePageSubstantivelyTranslated("solar-cleaning-capex-vs-opex", "hi")
+    ? "https://taypro.in/hi/solar-cleaning-capex-vs-opex"
+    : "https://taypro.in/solar-cleaning-capex-vs-opex"
+);
+
+const hiCapexSitemapLocales = getSitemapLocalesForPath(
+  "/solar-cleaning-capex-vs-opex"
+);
+assert.ok(
+  hiCapexSitemapLocales.includes("en"),
+  "English always in sitemap locales"
+);
+assert.equal(
+  hiCapexSitemapLocales.includes("hi"),
+  isLocalePageSubstantivelyTranslated("solar-cleaning-capex-vs-opex", "hi"),
+  "hi sitemap inclusion follows translation quality"
+);
+
+const blogCanonicalCheck = withHreflang(
+  "/blog/top-15-solar-power-plants-in-india",
+  "en",
+  { title: "Test", description: "Desc" }
+);
+assert.equal(
+  blogCanonicalCheck.alternates?.canonical,
+  "https://taypro.in/blog/top-15-solar-power-plants-in-india",
+  "Blog posts must self-canonical, not /blog hub"
+);
 
 console.log("test-seo-fixes: ok");

@@ -1,0 +1,200 @@
+{
+  "ManufacturerIndiaPage": {
+    "meta": {
+      "title": "सोलर क्लीनिंग रोबोट निर्माता भारत | Taypro पुणे ओईएम",
+      "description": "मेड-इन-इंडिया सोलर क्लीनिंग रोबोट निर्माता के रूप में Taypro का मूल्यांकन करें: चाकन पुणे फैक्ट्री, GLYDE/NYUMA/HELYX लाइन, TÜV NORD, अखिल भारतीय AMC, NECTYR फ्लीट सॉफ्टवेयर।",
+      "openGraphTitle": "सोलर क्लीनिंग रोबोट निर्माता भारत | Taypro",
+      "openGraphDescription": "जलरहित उपयोगिता सफाई रोबोट के लिए भारतीय ओईएम - एक जवाबदेह विक्रेता से विनिर्माण, तैनाती और सेवा।"
+    },
+    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHubHref": "/solar-panel-cleaning-system",
+    "breadcrumb": "Robot manufacturer India",
+    "schema": {
+      "name": "Taypro Solar Cleaning Robot Manufacturer India",
+      "description": "Made-in-India manufacturer of autonomous and semi-automatic waterless solar cleaning robots for utility-scale PV."
+    },
+    "hero": {
+      "eyebrow": "भारत में निर्मित · पुणे",
+      "title": "सौर सफाई रोबोट निर्माता भारत - OEM, आयातक नहीं",
+      "subtitle": "Taypro चाकन, पुणे में जल रहित सफाई रोबोटों का डिज़ाइन और निर्माण करता है - GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, और MINY। अखिल भारतीय सेवा, NECTYR सॉफ़्टवेयर और CAPEX और OPEX दोनों वाणिज्यिक मॉडल के साथ भारत के सबसे बड़े तैनात रोबोटिक सफाई बेड़े में से एक।",
+      "ctaPrimary": "विक्रेता से अनुरोध करें RFQ",
+      "ctaPrimaryHref": "/contact",
+      "ctaSecondary": "रोबोट मूल्य मार्गदर्शिका",
+      "ctaSecondaryHref": "/solar-panel-cleaning-robot-price-india"
+    },
+    "stats": {
+      "eyebrow": "निर्माता प्रमाण",
+      "heading": "क्यों खरीद टीमें Taypro को भारतीय OEM के रूप में शॉर्टलिस्ट करती हैं",
+      "card0": {
+        "tag": "उत्पादन",
+        "stat": "चाकन",
+        "label": "पुणे उत्पादन केंद्र",
+        "body": "महाराष्ट्र में डिज़ाइन, संयोजन और परीक्षण - आयातित रोबोटों का पुनर्विक्रेता नहीं।"
+      },
+      "card1": {
+        "tag": "बेड़े का पैमाना",
+        "stat": "5 GW+",
+        "label": "तैनात रोबोटिक क्षमता",
+        "body": "भारतीय उपयोगिता और C&I संयंत्रों में उत्पादन-पैमाने का बेड़ा।"
+      },
+      "card2": {
+        "tag": "साइटों",
+        "stat": "150+",
+        "label": "लाइव उपयोगिता परिनियोजन",
+        "body": "उचित परिश्रम के लिए SECI, DVC, और IPP परियोजनाओं पर MW संदर्भ नामित किए गए।"
+      },
+      "card3": {
+        "tag": "प्रमाणन",
+        "stat": "TÜV NORD",
+        "label": "फ़ील्ड-मान्य रोबोट",
+        "body": "तृतीय-पक्ष प्रमाणीकरण और आईएसओ-संरेखित विनिर्माण प्रक्रियाएं।"
+      }
+    },
+    "prose": {
+      "eyebrow": "विक्रेता मूल्यांकन",
+      "heading": "सोलर क्लीनिंग रोबोट निर्माता RFQ में क्या सत्यापित करें",
+      "p1": "भारत में सौर सफाई रोबोट निर्माता की खोज करने वाली खरीद टीमों को एक ब्रोशर से अधिक की आवश्यकता है: विनिर्माण स्थान, ट्रैकर-विशिष्ट SKU, स्पेयर पार्ट्स लॉजिस्टिक्स, फ्लीट सॉफ़्टवेयर और फ़ील्ड सेवा घनत्व को मान्य करें - न कि केवल डेटाशीट पर धूल हटाने के दावे।",
+      "p2": "Taypro चाकन, पुणे में विनिर्माण करता है और रोबोट CAPEX + AMC या Taypro OPEX प्रबंधित सेवा के तहत समान रोबोट तैनात करता है। आपको एक जवाबदेह विक्रेता से हार्डवेयर, ऑपरेटर, स्पेयर और NECTYR फ्लीट पोर्टल मिलता है।",
+      "p3": "उत्पाद मैट्रिक्स में निश्चित झुकाव (GLYDE डुअल-पास माइक्रोफाइबर, NYUMA PBT सिंगल-पास), सिंगल-एक्सिस ट्रैकर्स (GLYDE-X, NYUMA-X, CRADYL ट्रांसफर), अर्ध-स्वचालित बिखरे हुए ब्लॉक (HELYX), और कॉम्पैक्ट C&I रूफटॉप्स (MINY) शामिल हैं।",
+      "p4": "भारतीय पेटेंट Taypro डुअल-पास वॉटरलेस तकनीक की रक्षा करते हैं। लंबे अतिरिक्त लीड समय के साथ आयात विकल्पों का मूल्यांकन करते समय ब्रश दर्शन, कनेक्टिविटी (LTE, मेश, LoRa), और NECTYR ऑडिट ट्रेल्स की तुलना करें।",
+      "p5": "समिति के हस्ताक्षर से पहले MW संदर्भ, रोबोट-प्रति-MW मॉडलिंग, और AMC SLA का अनुरोध करें। Taypro वित्त समीक्षा के लिए 132+ परियोजना संदर्भ और सांकेतिक मूल्य निर्धारण उपकरण प्रकाशित करता है।",
+      "p6": "निर्माता मूल्यांकन में साइट विजिट या उत्पादन, फील्ड सर्विस हब और NECTYR डेमो शामिल होना चाहिए - विशेष रूप से 50 MW+ कार्यक्रमों के लिए।",
+      "linkPrimary": "Taypro के बारे में",
+      "linkPrimaryHref": "/company",
+      "linkSecondary": "सफाई तकनीक",
+      "linkSecondaryHref": "/cleaning-technology"
+    },
+    "pillars": {
+      "eyebrow": "Full stack OEM",
+      "heading": "Manufacturing plus field operations",
+      "pillar0": {
+        "title": "In-house R&D & production",
+        "body": "Robots engineered for Indian dust, heat, and monsoon — assembled and tested in Pune before field deployment."
+      },
+      "pillar1": {
+        "title": "Pan-India service network",
+        "body": "Regional spares, same-day breakdown targets, and remote diagnostics through NECTYR on multi-MW fleets."
+      },
+      "pillar2": {
+        "title": "NECTYR fleet software included",
+        "body": "Scheduling, coverage audits, and AMC tickets — standard on CAPEX and OPEX programmes, not a separate licence."
+      }
+    },
+    "products": {
+      "eyebrow": "Product line",
+      "heading": "Taypro robot models by plant type",
+      "subheading": "Select fixed tilt, tracker, rooftop, or semi-automatic based on row geometry.",
+      "product0": {
+        "title": "GLYDE — dual-pass fixed tilt",
+        "body": "Patented waterless microfiber flagship for utility fixed-tilt plants. Highest dust removal per cycle on sticky films.",
+        "link": "GLYDE product page"
+      },
+      "product1": {
+        "title": "GLYDE-X / NYUMA-X — trackers",
+        "body": "Single-axis tracker robots with CRADYL row transfer. Validated on 250–300 MW Gujarat references.",
+        "link": "Tracker cleaning robots"
+      },
+      "product2": {
+        "title": "HELYX & MINY",
+        "body": "Semi-automatic for scattered blocks; MINY compact for commercial C&I rooftops.",
+        "link": "HELYX semi-automatic"
+      }
+    },
+    "eligibility": {
+      "eyebrow": "Fit assessment",
+      "title": "When Taypro as manufacturer is the right vendor",
+      "forTitle": "Strong fit",
+      "for0": "Utility ground-mount or tracker plants from ~10 MW with recurring soiling",
+      "for1": "Buyers who want Indian OEM with local spares and AMC — not import-only supply",
+      "for2": "Procurement requiring NECTYR audit trails and named MW references",
+      "for3": "CAPEX purchase or OPEX managed service from the same manufacturer",
+      "notForTitle": "Typically not a fit",
+      "not0": "Residential single-home rooftops without C&I scale",
+      "not1": "Buyers seeking only generic pressure-washing without robotic programme",
+      "not2": "Full-plant EPC scope (HV, inverters) — Taypro partners on cleaning layer only"
+    },
+    "highlight": {
+      "heading": "The vendor question",
+      "lead": "Can your manufacturer prove field scale — not just factory photos?",
+      "body": "Taypro cites 150+ live sites, 300–360 MW single-plant references, and NECTYR telemetry on deployed fleets. Ask every vendor for named MW, robots-per-MW, and coverage audit samples."
+    },
+    "proseSecondary": {
+      "eyebrow": "आयात बनाम भारतीय ओईएम",
+      "heading": "स्थानीय विनिर्माण MW पैमाने पर क्यों मायने रखता है",
+      "p1": "आयातित रोबोटों को अतिरिक्त विलंबता, ट्रैकर सत्यापन अंतराल और AMC नेटवर्क का सामना करना पड़ता है जो टियर-वन शहरों से आगे कम हो जाते हैं। भारतीय OEM उत्पादन ट्रक-रोल समय को कम करता है और स्थानीय धूल रसायन विज्ञान के साथ सफाई SOPs को संरेखित करता है।",
+      "p2": "Taypro डुअल-पास माइक्रोफाइबर (GLYDE) गुजरात के औद्योगिक क्षेत्रों में आम तौर पर चिपचिपी सीमेंटयुक्त फिल्मों को लक्षित करता है। पीबीटी सिंगल-पास (NYUMA) कैपेक्स-कुशल फिक्स्ड-टिल्ट बेड़े के लिए उपयुक्त है। ब्रश तकनीक को मिट्टी के अध्ययन से मिलाएं - सामान्य रेगिस्तानी धारणाओं से नहीं।",
+      "p3": "मिंट टेक4गुड 2024 मान्यता वाटरलेस रोबोटिक्स प्लस डेटा प्लेटफ़ॉर्म कार्य के क्षेत्र प्रभाव को दर्शाती है - अपने स्वयं के पायलट PR डेटा के साथ मान्य करें, अकेले पुरस्कारों से नहीं।",
+      "linkPrimary": "भारतीय रोबोट कंपनियों की तुलना करें",
+      "linkPrimaryHref": "/compare/taypro-vs-indian-solar-cleaning-robot-companies",
+      "linkSecondary": "बड़े पैमाने पर तैनाती",
+      "linkSecondaryHref": "/large-scale-solar-panel-cleaning"
+    },
+    "resources": {
+      "eyebrow": "Due diligence",
+      "heading": "Manufacturer research",
+      "link0Title": "Robot price guide India",
+      "link0Href": "/solar-panel-cleaning-robot-price-india",
+      "link1Title": "Performance & test methodology",
+      "link1Href": "/performance-and-test-methodology",
+      "link2Title": "Automatic project references",
+      "link2Href": "/projects/automatic"
+    },
+    "faq": {
+      "heading": "सौर सफाई रोबोट निर्माता भारत - अक्सर पूछे जाने वाले प्रश्न",
+      "subheading": "खरीद टीमों के लिए विक्रेता परिश्रम प्रश्न।",
+      "q0": "Taypro रोबोट का निर्माण कहाँ करता है?",
+      "a0": "चाकन, पुणे, महाराष्ट्र - उपयोगिता पैमाने पर जलरहित सफाई रोबोटों के लिए डिजाइन, संयोजन और परीक्षण।",
+      "q1": "क्या Taypro एक आयातक या OEM है?",
+      "a1": "Taypro एक मेड-इन-इंडिया निर्माता है। हम पुणे में GLYDE, NYUMA, HELYX और संबंधित मॉडल डिज़ाइन और निर्माण करते हैं।",
+      "q2": "कौन से प्रमाणपत्र लागू होते हैं?",
+      "a2": "TÜV NORD फ़ील्ड सत्यापन, आईएसओ-संरेखित विनिर्माण, तैनात प्लेटफार्मों पर IP65 पर्यावरण रेटिंग।",
+      "q3": "सिंगल-एक्सिस ट्रैकर्स के लिए कौन सा रोबोट?",
+      "a3": "GLYDE-X या NYUMA-X CRADYL पंक्ति-स्थानांतरण के साथ जहां आवश्यक हो - 250-300 MW गुजरात ट्रैकर संदर्भों पर मान्य।",
+      "q4": "क्या NECTYR रोबोट खरीद में शामिल है?",
+      "a4": "हाँ। शेड्यूलिंग, कवरेज और AMC के लिए फ्लीट पोर्टल मानक उपयोगिता CAPEX और OPEX कार्यक्रमों में शामिल है।",
+      "q5": "क्या हम बिना सेवा के ही रोबोट खरीद सकते हैं?",
+      "a5": "रोबोट CAPEX में कमीशनिंग समर्थन शामिल है; उपयोगिता अपटाइम के लिए AMC की पुरजोर अनुशंसा की जाती है। OPEX पूर्णतः प्रबंधित विकल्प है।",
+      "q6": "Taypro की तुलना आयातित रोबोट से कैसे की जाती है?",
+      "a6": "अतिरिक्त लीड समय, ट्रैकर SKU, भारत फ़ील्ड घनत्व और NECTYR ऑडिट साक्ष्य का मूल्यांकन करें - अकेले ब्रोशर धूल-हटाने वाले% का नहीं।",
+      "q7": "कौन से MW संदर्भ मौजूद हैं?",
+      "a7": "नामित तैनाती में अखादाना 360 MW, बचाऊ DVC 300 MW, और नेनेवा 250 MW शामिल हैं - इस पृष्ठ पर परियोजना अनुभाग देखें।",
+      "q8": "क्या Taypro निर्माता के रूप में OPEX की पेशकश करता है?",
+      "a8": "हाँ। Taypro OPEX के तहत वही रोबोट तैनात किए गए हैं - निर्माता के पास साफ किए गए प्रति पैनल के बेड़े और बिल हैं।",
+      "q9": "छत पर लगे पौधों के बारे में क्या?",
+      "a9": "MINY वाणिज्यिक C&I छतों के लिए कॉम्पैक्ट रोबोट। उपयोगिता RFQ फोकस ग्राउंड-माउंट और ट्रैकर है।",
+      "q10": "फ़ैक्टरी या साइट विज़िट का अनुरोध कैसे करें?",
+      "a10": "MW, राज्य और खरीद समयसीमा के साथ Taypro से संपर्क करें। उद्यम RFQs के लिए इंजीनियरिंग और नेतृत्व दौरे उपलब्ध हैं।",
+      "q11": "मूल्य निर्धारण कहाँ प्रकाशित किया जाता है?",
+      "a11": "रोबोट मूल्य मार्गदर्शिका और ROI कैलकुलेटर में दिशात्मक CAPEX बैंड। बाइंडिंग उद्धरण साइट मूल्यांकन का अनुसरण करते हैं।"
+    },
+    "quoteForm": {
+      "eyebrow": "Vendor RFQ",
+      "title": "Request manufacturer proposal",
+      "placeholder": "Plant MW, state, installation type, CAPEX vs OPEX preference, and tender timeline."
+    },
+    "cta": {
+      "heading": "Evaluate Taypro as your Indian robot OEM",
+      "body": "Share your RFQ checklist — we'll respond with product fit, references, and commercial options.",
+      "primary": "Request RFQ",
+      "primaryHref": "/contact",
+      "secondary": "View products",
+      "secondaryHref": "/solar-panel-cleaning-system"
+    },
+    "related": {
+      "label": "Related:",
+      "link0": "Company",
+      "link0Href": "/company",
+      "link1": "Robot price India",
+      "link1Href": "/solar-panel-cleaning-robot-price-india",
+      "link2": "CAPEX vs OPEX",
+      "link2Href": "/solar-cleaning-capex-vs-opex",
+      "link3": "Large-scale cleaning",
+      "link3Href": "/large-scale-solar-panel-cleaning"
+    },
+    "projects": {
+      "eyebrow": "MW-स्तरीय संदर्भ",
+      "heading": "भारत में Taypro-निर्मित रोबोट तैनाती",
+      "subheading": "भारतीय OEM से GLYDE और ट्रैकर बेड़े वाली नामित उपयोगिता परियोजनाएँ।"
+    }
+  }
+}

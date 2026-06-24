@@ -15,7 +15,6 @@ const SECTION_ORDER: PressCoverageKind[] = [
   "market",
   "award",
   "news",
-  "index",
 ];
 
 const SECTION_LABEL_KEYS: Record<PressCoverageKind, string> = {
@@ -23,7 +22,6 @@ const SECTION_LABEL_KEYS: Record<PressCoverageKind, string> = {
   market: "sectionMarket",
   award: "sectionAwards",
   news: "sectionNews",
-  index: "sectionIndex",
 };
 
 function groupCoverage(items: PressCoverageItem[]) {

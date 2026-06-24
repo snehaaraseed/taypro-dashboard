@@ -261,7 +261,7 @@
       "fingerprint": "125055633a5b3bee1d2aede93b2910a323ca682355ee024dc509a75e98df7b28"
     },
     {
-      "slug": "how-does-a-solar-panel-cleaning-robot-work-",
+      "slug": "how-does-a-solar-panel-cleaning-robot-work",
       "title": "How Solar Panel Cleaning Robots Work on Utility Plants in India",
       "description": "",
       "primaryKeyword": "how solar panel cleaning robot works",
@@ -830,27 +830,6 @@
       "fingerprint": "35b16ae1edfe142ba1b94b82f59e6ecf1ad0d2991d559ea830d8c625a7b2d697"
     },
     {
-      "slug": "what-are-the-different-types-of-solar-panels",
-      "title": "What Are The Different Types Of Solar Panels",
-      "description": "",
-      "primaryKeyword": "solar panels",
-      "structuralArchetype": "comparison_matrix",
-      "h2Outline": [
-        "what are the different types of solar panels",
-        "what is solar panel and what are the types of solar panels?",
-        "monocrystalline solar panels",
-        "polycrystalline solar panels",
-        "thin-film solar panel&nbsp;",
-        "bifacial solar panel",
-        "concentrated photovoltaic solar panels",
-        "monocrystalline vs polycrystalline solar panels",
-        "comparison of different types of solar panels",
-        "how to choose the right solar panel type?",
-        "faqs"
-      ],
-      "fingerprint": "daf33df91642f4f34648449127f5614768fba9203ecdba329016a9a5877cbd86"
-    },
-    {
       "slug": "what-is-a-solar-panel-cleaning-robot",
       "title": "What Is a Solar Panel Cleaning Robot for Utility Plants?",
       "description": "",
@@ -901,25 +880,6 @@
         "faqs"
       ],
       "fingerprint": "8308b6ad8726bbf10af958f62a56aba08d9d690d63b6b20ee24e09477a826d53"
-    },
-    {
-      "slug": "what-is-the-solar-panel-efficiency-in-2025",
-      "title": "Solar Panel Efficiency Benchmarks for Indian MW Plants in 2026",
-      "description": "",
-      "primaryKeyword": "solar panel efficiency 2026 india",
-      "structuralArchetype": "general_om",
-      "h2Outline": [
-        "current state of commercial solar panels (2026)",
-        "latest solar panel technologies",
-        "multi-junction solar cells",
-        "advanced cell designs",
-        "topcon (tunnel oxide passivated contact) solar cells",
-        "tandem solar cells",
-        "impact of dust and debris on efficiency",
-        "conclusion",
-        "faqs"
-      ],
-      "fingerprint": "0fd886dda9b23503124c5c8210e14f5cca4df7ce87c9a2527781d07b84b973ca"
     },
     {
       "slug": "why-modern-solar-farms-need-autonomous-solar-panel-cleaning-systems",

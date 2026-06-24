@@ -60,6 +60,20 @@ Key benefits of our Solar Panel Cleaning Robot:
 /solar-panel-cleaning-robot-price-india - India robot price guide: CAPEX bands, cost drivers, manufacturer/supplier keywords, CAPEX vs Taypro Opex
 /solar-panel-cleaning-robot-price-calculator - ROI calculator for Solar Panel Cleaning Robot investment and cost savings
 
+## Buyer-intent landing pages (service, O&M, segment, software)
+/solar-panel-cleaning-service-india - National solar panel cleaning service India: OPEX/CAPEX, 9 GW+ fleet, pan-India coverage
+/solar-om-services - Solar plant O&M services: robotic cleaning, NECTYR monitoring, ORION intelligence, SLA framework
+/solar-cleaning-opex-pricing - Solar panel cleaning cost per MW: OPEX pricing structure, manual vs robotic comparison
+/solar-panel-cleaning-robot-for-rooftop - Rooftop solar cleaning robot buyer guide: MINY for commercial C&I
+/solar-panel-cleaning-robot-for-trackers - Tracker-compatible cleaning robots: GLYDE-X, NYUMA-X, CRADYL
+/solar-fleet-monitoring-software - Solar fleet monitoring software: NECTYR operations portal and ORION plant intelligence
+/large-scale-solar-panel-cleaning - Large-scale and MW-scale solar cleaning: 50-500 MW deployment capability
+/solar-cleaning-capex-vs-opex - Solar cleaning CAPEX vs OPEX decision guide for Indian utility IPPs
+/solar-panel-soiling-loss-calculator - Solar panel soiling loss calculator: MWh and revenue impact estimator
+/solar-cleaning-robot-manufacturer-india - Solar cleaning robot manufacturer India: Pune OEM evaluation guide
+/solar-plant-data-intelligence - Solar plant data intelligence: NECTYR telemetry and ORION plant health roadmap
+/enterprise-solar-cleaning-partnership - Enterprise solar cleaning partnership for multi-site IPP and CPSU portfolios
+
 ## State deployment guides (geo SEO)
 /solar-panel-cleaning-robot-rajasthan - Solar panel cleaning robots in Rajasthan utility solar
 /solar-panel-cleaning-robot-gujarat - Solar panel cleaning robots in Gujarat utility solar

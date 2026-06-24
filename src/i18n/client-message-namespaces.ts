@@ -35,6 +35,18 @@ export const CLIENT_PAGE_NAMESPACES = [
   "ProjectDetailPage",
   "ProjectsFilterPage",
   "CareersPage",
+  "ServiceIndiaPage",
+  "SolarOmServicesPage",
+  "SolarCleaningOpexPricingPage",
+  "RooftopCleaningPage",
+  "TrackerCleaningPage",
+  "FleetMonitoringPage",
+  "LargeScaleCleaningPage",
+  "SolarCleaningCapexVsOpexPage",
+  "SoilingLossCalculatorPage",
+  "ManufacturerIndiaPage",
+  "PlantDataIntelligencePage",
+  "EnterprisePartnershipPage",
 ] as const;
 
 /**
@@ -62,6 +74,39 @@ export function clientNamespacesForPathname(pathname: string): string[] {
 
   if (path === "/solar-panel-cleaning-robot-price-india") {
     return ["RobotPriceIndiaPage", "PriceCalculatorPage", "Common"];
+  }
+
+  const buyerIntentPaths = new Set([
+    "/solar-panel-cleaning-service-india",
+    "/solar-om-services",
+    "/solar-cleaning-opex-pricing",
+    "/solar-panel-cleaning-robot-for-rooftop",
+    "/solar-panel-cleaning-robot-for-trackers",
+    "/solar-fleet-monitoring-software",
+    "/large-scale-solar-panel-cleaning",
+    "/solar-cleaning-capex-vs-opex",
+    "/solar-panel-soiling-loss-calculator",
+    "/solar-cleaning-robot-manufacturer-india",
+    "/solar-plant-data-intelligence",
+    "/enterprise-solar-cleaning-partnership",
+  ]);
+  if (buyerIntentPaths.has(path)) {
+    return [
+      "ServiceIndiaPage",
+      "SolarOmServicesPage",
+      "SolarCleaningOpexPricingPage",
+      "RooftopCleaningPage",
+      "TrackerCleaningPage",
+      "FleetMonitoringPage",
+      "LargeScaleCleaningPage",
+      "SolarCleaningCapexVsOpexPage",
+      "SoilingLossCalculatorPage",
+      "ManufacturerIndiaPage",
+      "PlantDataIntelligencePage",
+      "EnterprisePartnershipPage",
+      "PriceCalculatorPage",
+      "Common",
+    ];
   }
 
   if (path.startsWith("/solar-panel-cleaning-robot-")) {

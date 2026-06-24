@@ -204,7 +204,7 @@ Status options for each task: `[ ] todo` · `[~] in progress` · `[x] done` · `
 
 ### `SEO-020` — Resolve blog cannibalisation pairs
 
-- **Status:** `[ ]`
+- **Status:** `[x]` 301 losers → winners; unpublish losers; merge 2026 benchmarks into evergreen efficiency post; update internal links and registry.
 - **Where:**
   - `src/app/blog/what-are-the-different-types-of-solar-panels/metadata.json` + `content.html`
   - `src/app/blog/understanding-different-types-of-solar-panels/metadata.json` + `content.html`

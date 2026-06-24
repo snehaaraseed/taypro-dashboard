@@ -1,0 +1,209 @@
+{
+  "TrackerCleaningPage": {
+    "meta": {
+      "title": "सिंगल-एक्सिस ट्रैकर सोलर सफाई रोबोट | GLYDE-X और NYUMA-X",
+      "description": "ट्रैकर-संगत सोलर सफाई रोबोट: GLYDE-X, NYUMA-X, CRADYL रो ट्रांसफर।",
+      "openGraphTitle": "ट्रैकर सोलर सफाई रोबोट | Taypro",
+      "openGraphDescription": "सिंगल-एक्सिस ट्रैकर के लिए स्वचालित वॉटरलेस सफाई।"
+    },
+    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHubHref": "/solar-panel-cleaning-system",
+    "breadcrumb": "ट्रैकर सोलर सफाई रोबोट",
+    "schema": {
+      "name": "Taypro Tracker Solar Cleaning Robots",
+      "description": "GLYDE-X and NYUMA-X automatic solar panel cleaning robots for single-axis tracker installations in India, with CRADYL row-transfer docking.",
+      "sku": "GLYDE-X-NYUMA-X"
+    },
+    "hero": {
+      "eyebrow": "एकल-अक्ष ट्रैकर खंड",
+      "title": "सिंगल-एक्सिस ट्रैकर के लिए सोलर सफाई रोबोट — भारतीय यूटिलिटी स्केल",
+      "subtitle": "गुजरात, राजस्थान और कर्नाटक में ट्रैकर अपनाने में तेजी आ रही है - लेकिन मैनुअल ब्रश क्रू पंक्ति की लंबाई और स्टो कोणों के साथ तालमेल नहीं रख सकते हैं। Taypro GLYDE-X और NYUMA-X ट्रैवर्स ट्रैकर टेबल 50-300 MW बेड़े के लिए CRADYL रो-ट्रांसफर डॉकिंग के साथ।",
+      "ctaPrimary": "GLYDE-X vs NYUMA-X तुलना",
+      "ctaPrimaryHref": "/compare/glyde-x-vs-nyuma-x",
+      "ctaSecondary": "ट्रैकर साइट मूल्यांकन का अनुरोध करें",
+      "ctaSecondaryHref": "/contact"
+    },
+    "cards": {
+      "eyebrow": "ट्रैकर-विशिष्ट चुनौतियाँ",
+      "heading": "ट्रैकर पौधों को एक अलग सफाई रोबोट की आवश्यकता क्यों है?",
+      "subheading": "ट्रैकर पंक्ति की लंबाई और MW स्केल बढ़ने के कारण फिक्स्ड-टिल्ट रोबोट और मैनुअल क्रू सीमा पर पहुंच जाते हैं।",
+      "card0": {
+        "title": "पंक्ति की लंबाई और स्थानांतरण",
+        "body": "एकल-अक्ष पंक्तियाँ 100 मॉड्यूल से अधिक हैं। रोबोटों को स्वायत्त पंक्ति-अंत स्थानांतरण की आवश्यकता होती है - CRADYL डॉकिंग स्टेशन बिना मैन्युअल कैरी के पंक्तियों के बीच बेड़े को ले जाते हैं।"
+      },
+      "card1": {
+        "title": "स्टोव कोण अनुकूलता",
+        "body": "सफाई को मॉड्यूल या ड्राइव सिस्टम को नुकसान पहुंचाए बिना ट्रैकर स्टो पोजीशन और मौसमी झुकाव रेंज में काम करना चाहिए।"
+      },
+      "card2": {
+        "title": "रात्रि-चक्र थ्रूपुट",
+        "body": "100 MW ट्रैकर साइटों को प्रति माह 3-10 शुष्क चक्रों की आवश्यकता होती है। मैनुअल क्रू उपलब्ध सफ़ाई विंडो में पूर्ण ब्लॉक ज्यामिति को कवर नहीं कर सकते।"
+      },
+      "card3": {
+        "title": "बेड़ा घनत्व अर्थशास्त्र",
+        "body": "रोबोट-प्रति-MW योजना को पंक्ति गणना, स्थानांतरण बिंदु और बैटरी स्वैप रणनीति से मेल खाना चाहिए - सामान्य निश्चित-झुकाव मान्यताओं से नहीं।"
+      },
+      "card4": {
+        "title": "ट्रैकर विक्रेता अनुकूलता",
+        "body": "GLYDE-X और NYUMA-X को भारत में प्रमुख ट्रैकर ब्रांडों में तैनात किया गया है। साइट मूल्यांकन बेड़े के आकार से पहले स्टोव कोण, पंक्ति की लंबाई और ग्राउंड क्लीयरेंस को दर्शाता है।"
+      },
+      "card5": {
+        "title": "नाइट-विंडो थ्रूपुट मॉडलिंग",
+        "body": "इंजीनियरिंग मॉडल उपलब्ध सफाई घंटे बनाम पंक्ति गणना 3-10 मासिक चक्र तक पहुंचते हैं - उच्च-गंदगी वाले ट्रैकर बेल्ट के लिए न्यूनतम।"
+      }
+    },
+    "products": {
+      "eyebrow": "Tracker robot lineup",
+      "heading": "Taypro robots for single-axis tracker arrays",
+      "product0": {
+        "title": "GLYDE-X — dual-pass tracker robot",
+        "body": "Flagship dual-pass microfiber cleaning for single-axis trackers. Highest cleaning quality per pass for premium PR recovery on utility fleets.",
+        "link": "GLYDE-X specifications"
+      },
+      "product1": {
+        "title": "NYUMA-X — PBT single-pass tracker robot",
+        "body": "Polymer brush technology single-pass robot for tracker sites prioritising cycle speed and capex efficiency.",
+        "link": "NYUMA-X specifications"
+      },
+      "product2": {
+        "title": "CRADYL — row transfer docking",
+        "body": "Autonomous docking station for robot transfer between tracker rows — essential for multi-row blocks without operator carry.",
+        "link": "CRADYL docking station"
+      }
+    },
+    "prose": {
+      "eyebrow": "तैनाती का अनुभव",
+      "heading": "भारत में 50-300 MW पर ट्रैकर सफाई रोबोट तैनात किए गए",
+      "p1": "Taypro ने SECI और गुजरात और राजस्थान में राज्य डिस्कॉम परियोजनाओं पर ट्रैकर-संगत सफाई बेड़े चालू किए हैं - जिसमें 100 MW+ एकल-साइट संदर्भ शामिल हैं। परिनियोजन में साइट मैपिंग, CRADYL प्लेसमेंट योजना, ऑपरेटर प्रशिक्षण, और NECTYR ऑनबोर्डिंग शामिल है।",
+      "p2": "GLYDE-X बनाम NYUMA-X चुनना आपके PR पुनर्प्राप्ति लक्ष्य, धूल रसायन, और कैपेक्स बनाम चक्र-स्पीड ट्रेड-ऑफ पर निर्भर करता है। हमारी आमने-सामने तुलना का उपयोग करें या अपने पंक्ति लेआउट के लिए रोबोट-प्रति-MW को मॉडल करने के लिए Taypro इंजीनियरिंग का अनुरोध करें।",
+      "p3": "ट्रैकर प्लांट भी Taypro OPEX के लिए अर्हता प्राप्त करते हैं - अपफ्रंट रोबोट के बिना साफ किए गए प्रति पैनल भुगतान CAPEX।",
+      "linkPrimary": "GLYDE-X बनाम NYUMA-X तुलना",
+      "linkPrimaryHref": "/compare/glyde-x-vs-nyuma-x",
+      "linkSecondary": "बड़े पैमाने पर सफाई की क्षमता",
+      "linkSecondaryHref": "/large-scale-solar-panel-cleaning"
+    },
+    "projects": {
+      "eyebrow": "Tracker references",
+      "heading": "Tracker cleaning robot project references",
+      "subheading": "Automatic robotic cleaning on tracker and utility-scale plants in Gujarat and India."
+    },
+    "faq": {
+      "heading": "ट्रैकर सौर सफाई रोबोट - अक्सर पूछे जाने वाले प्रश्न",
+      "subheading": "एकल-अक्ष ट्रैकर संयंत्रों के लिए तकनीकी और खरीद संबंधी प्रश्न।",
+      "q0": "कौन सा Taypro रोबोट सिंगल-एक्सिस ट्रैकर्स पर काम करता है?",
+      "a0": "GLYDE-X (डुअल-पास माइक्रोफाइबर) और NYUMA-X (PBT सिंगल-पास) को सिंगल-एक्सिस ट्रैकर ऐरे के लिए इंजीनियर किया गया है। ट्रैकर इंस्टॉलेशन के लिए फिक्स्ड-टिल्ट GLYDE और NYUMA की अनुशंसा नहीं की जाती है।",
+      "q1": "CRADYL क्या है और ट्रैकर साइटों को इसकी आवश्यकता क्यों है?",
+      "a1": "CRADYL Taypro का रो-ट्रांसफर डॉकिंग स्टेशन है। यह स्वचालित रूप से पंक्ति के अंत में ट्रैकर पंक्तियों के बीच सफाई रोबोटों को ले जाता है - लंबी एकल-अक्ष तालिकाओं पर मैन्युअल कैरी को समाप्त करता है।",
+      "q2": "एक ट्रैकर प्लांट पर प्रति MW कितने रोबोट?",
+      "a2": "रोबोट-प्रति-MW पंक्ति गणना, पंक्ति लंबाई, स्थानांतरण बिंदु लेआउट और प्रति माह लक्ष्य चक्र पर निर्भर करता है। Taypro इंजीनियर साइट मूल्यांकन के दौरान बेड़े का आकार मॉडल करते हैं - आमतौर पर निश्चित-झुकाव अनुपात से भिन्न।",
+      "q3": "ट्रैकर्स के लिए GLYDE-X बनाम NYUMA-X - मुझे किसे चुनना चाहिए?",
+      "a3": "GLYDE-X प्रति पास उच्च सफाई गुणवत्ता प्रदान करता है (डुअल-पास माइक्रोफाइबर)। NYUMA-X तेज़ सिंगल-पास कवरेज और कैपेक्स दक्षता को प्राथमिकता देता है। हमारे प्रत्यक्ष पृष्ठ पर विशिष्टताओं की तुलना करें या Taypro इंजीनियरिंग इनपुट का अनुरोध करें।",
+      "q4": "क्या मैन्युअल ब्रश सफ़ाई 50 MW+ पर ट्रैकर सरणियों पर काम कर सकती है?",
+      "a4": "मैनुअल क्रू ट्रैकर पंक्ति की लंबाई, नाइट-विंडो थ्रूपुट और उपयोगिता पैमाने पर लगातार कवरेज के साथ संघर्ष करते हैं। 50 MW+ ट्रैकर बेड़े पर प्रति माह 3-10 चक्रों के लिए रोबोटिक ड्राई क्लीनिंग किफायती मार्ग है।",
+      "q5": "क्या Taypro ट्रैकर संयंत्रों पर OPEX की पेशकश करता है?",
+      "a5": "हाँ। Taypro OPEX प्रति पैनल साफ किए गए ऑपरेटरों और बिलों के साथ GLYDE-X या NYUMA-X तैनात करता है। ट्रैकर इंस्टॉलेशन में OPEX दर गुणक बनाम निश्चित झुकाव होता है।",
+      "q6": "ट्रैकर रोबोट के लिए कमीशनिंग की समयसीमा क्या है?",
+      "a6": "विशिष्ट जुटाव में साइट मैपिंग, CRADYL प्लेसमेंट, कनेक्टिविटी सेटअप, ऑपरेटर प्रशिक्षण और NECTYR ऑनबोर्डिंग शामिल हैं। समयरेखा पौधे के आकार और पंक्ति की ज्यामिति पर निर्भर करती है - Taypro प्रस्ताव के दौरान एक शेड्यूल प्रदान करता है।",
+      "q7": "मैं ट्रैकर साइट मूल्यांकन का अनुरोध कैसे करूँ?",
+      "a7": "प्लांट MW, ट्रैकर विक्रेता, पंक्ति ज्यामिति, स्थान और वर्तमान सफाई विधि साझा करें। Taypro रोबोट मॉडल, बेड़े का आकार और CAPEX या OPEX वाणिज्यिक शर्तों की अनुशंसा करेगा।",
+      "q8": "किस ट्रैकर ब्रांड पर Taypro तैनात किया गया है?",
+      "a8": "Taypro ट्रैकर रोबोट गुजरात और राजस्थान में कई सिंगल-एक्सिस ट्रैकर इंस्टॉलेशन में काम करते हैं। अनुकूलता की पुष्टि के लिए मूल्यांकन के दौरान अपने ट्रैकर विक्रेता को साझा करें।",
+      "q9": "क्या रोबोटिक सफाई ट्रैकर ड्राइव सिस्टम को नुकसान पहुंचाती है?",
+      "a9": "ट्रैकर मैकेनिकल ड्राइव को लोड किए बिना रोबोट मॉड्यूल सतहों को पार करते हैं। सफ़ाई कार्यक्रम साइट SOPs में परिभाषित स्टोव स्थितियों का सम्मान करते हैं।",
+      "q10": "ट्रैकर पौधों पर कौन सा OPEX गुणक लागू होता है?",
+      "a10": "ज्यामिति और स्थानांतरण जटिलता के कारण ट्रैकर इंस्टॉलेशन लगभग 1.8× निश्चित-झुकाव प्रति-पैनल दर का उपयोग करते हैं। OPEX मूल्य निर्धारण मार्गदर्शिका देखें।",
+      "q11": "क्या ट्रैकर स्टो के दौरान रोबोट सफाई कर सकते हैं?",
+      "a11": "सफाई कार्यक्रम सहमत स्टोव कोणों और रात की खिड़कियों के लिए निर्धारित हैं - जुटाव के दौरान संयंत्र-विशिष्ट सफाई SOP में परिभाषित।"
+    },
+    "cta": {
+      "heading": "Model tracker cleaning robots for your plant",
+      "body": "Share your tracker layout and MW capacity. Taypro will recommend GLYDE-X, NYUMA-X, and fleet deployment plan.",
+      "primary": "Contact engineering",
+      "primaryHref": "/contact",
+      "secondary": "Compare tracker robots",
+      "secondaryHref": "/compare/glyde-x-vs-nyuma-x"
+    },
+    "related": {
+      "label": "Related:",
+      "link0": "GLYDE-X product page",
+      "link0Href": "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
+      "link1": "NYUMA-X product page",
+      "link1Href": "/solar-panel-cleaning-system/nyuma-x-single-axis-tracker-cleaning-robot",
+      "link2": "OPEX pricing",
+      "link2Href": "/solar-cleaning-opex-pricing"
+    },
+    "quoteForm": {
+      "eyebrow": "Tracker inquiry",
+      "title": "Request tracker cleaning robot assessment",
+      "placeholder": "Plant MW, tracker type/vendor, row count, state, current cleaning method, and target cycles/month."
+    },
+    "stats": {
+      "eyebrow": "ट्रैकर बाज़ार",
+      "heading": "भारत में सिंगल-एक्सिस ट्रैकर क्लीनिंग रोबोट की मांग",
+      "card0": {
+        "tag": "विकास",
+        "stat": "बढ़ रहा है",
+        "label": "नई उपयोगिता का ट्रैकर शेयर MW",
+        "body": "गुजरात, राजस्थान और कर्नाटक ट्रैकर अपनाने में अग्रणी हैं - मैनुअल क्रू 50 MW+ पैमाने पर पंक्ति की लंबाई से मेल नहीं खा सकते हैं।"
+      },
+      "card1": {
+        "tag": "उत्पादों",
+        "stat": "2 रोबोट",
+        "label": "GLYDE-X और NYUMA-X",
+        "body": "डुअल-पास माइक्रोफ़ाइबर बनाम पीबीटी सिंगल-पास - PR लक्ष्य और कैपेक्स दक्षता के आधार पर चुनें।"
+      },
+      "card2": {
+        "tag": "स्थानांतरण",
+        "stat": "CRADYL",
+        "label": "स्वायत्त पंक्ति-दर-पंक्ति डॉकिंग",
+        "body": "टेबलों के बीच मैन्युअल रोबोट ले जाने के बिना बहु-पंक्ति ट्रैकर ब्लॉक के लिए आवश्यक।"
+      },
+      "card3": {
+        "tag": "पैमाना",
+        "stat": "50-300 MW",
+        "label": "सिद्ध परिनियोजन सीमा",
+        "body": "SECI और ट्रैकर-संगत Taypro बेड़े के साथ राज्य डिस्कॉम संदर्भ।"
+      }
+    },
+    "steps": {
+      "eyebrow": "Tracker deployment",
+      "heading": "Commissioning tracker cleaning robots on your plant",
+      "step0Title": "Tracker layout & vendor data",
+      "step0Body": "Share MW, tracker type, row count, module dimensions, stow range, and current cleaning method. Taypro models robots-per-MW.",
+      "step1Title": "GLYDE-X vs NYUMA-X selection",
+      "step1Body": "Dual-pass quality (GLYDE-X) vs single-pass speed and capex (NYUMA-X). Head-to-head comparison available or engineering recommendation.",
+      "step2Title": "CRADYL placement plan",
+      "step2Body": "Row-end docking stations positioned for autonomous transfer — minimising operator carry on 100+ module rows.",
+      "step3Title": "Fleet mobilisation & NECTYR mapping",
+      "step3Body": "Robots mapped to blocks, operators trained on tracker-specific SOPs, connectivity commissioned.",
+      "step4Title": "Cycle execution & PR correlation",
+      "step4Body": "3–10 dry cycles monthly with NECTYR coverage logs correlated against block PR trends."
+    },
+    "highlight": {
+      "heading": "Manual brush cleaning breaks at tracker scale.",
+      "lead": "100-module rows need autonomous transfer — not crews carrying brushes at row ends.",
+      "body": "Taypro GLYDE-X and NYUMA-X with CRADYL row-transfer docking are engineered for Indian single-axis tracker plants from 50 MW to 300 MW."
+    },
+    "proseSecondary": {
+      "eyebrow": "GLYDE-X बनाम NYUMA-X",
+      "heading": "अपने PR लक्ष्यों के लिए ट्रैकर-संगत सफाई रोबोट चुनना",
+      "p1": "GLYDE-X Taypro के पेटेंट किए गए दोहरे-पास माइक्रोफाइबर सिस्टम का उपयोग करता है - प्रति पास उच्चतम धूल हटाने वाला, आदर्श जब मिट्टी का रसायन चिपचिपा या सीमेंटयुक्त होता है और PR प्रति चक्र पुनर्प्राप्ति प्राथमिकता होती है।",
+      "p2": "NYUMA-X पीबीटी सिंगल-पास ब्रश तकनीक का उपयोग करता है - प्रति रात की खिड़की में तेज कवरेज और कम कैपेक्स, जो तब उपयुक्त होता है जब धूल मुख्य रूप से सूखी होती है और चक्र थ्रूपुट बाधा होती है।",
+      "p3": "दोनों पंक्ति स्थानांतरण के लिए CRADYL और बेड़े शेड्यूलिंग के लिए NECTYR के साथ एकीकृत होते हैं। अपने ट्रैकर लेआउट के लिए इंजीनियरिंग मॉडलिंग का अनुरोध करें।",
+      "linkPrimary": "GLYDE-X बनाम NYUMA-X तुलना",
+      "linkPrimaryHref": "/compare/glyde-x-vs-nyuma-x",
+      "linkSecondary": "ट्रैकर OPEX मूल्य निर्धारण",
+      "linkSecondaryHref": "/solar-cleaning-opex-pricing"
+    },
+    "resources": {
+      "eyebrow": "Tracker resources",
+      "heading": "Technical guides",
+      "link0Title": "CRADYL row-transfer docking",
+      "link0Href": "/solar-panel-cleaning-system/cradyl-row-transfer-docking-station",
+      "link1Title": "Large-scale MW cleaning",
+      "link1Href": "/large-scale-solar-panel-cleaning",
+      "link2Title": "Manual vs robotic on trackers (blog context)",
+      "link2Href": "/blog/manual-brush-cleaning-on-tracker-arrays-limits-at-50-mw-scale"
+    }
+  }
+}

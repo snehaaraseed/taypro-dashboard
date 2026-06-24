@@ -169,6 +169,34 @@ export async function listPublishedBlogSlugs(
   return rows.map((r) => r.slug);
 }
 
+/** Lightweight rows for sitemap / link lists (no HTML body). */
+export async function listPublishedBlogLinkSummaries(locale?: string): Promise<
+  Array<{
+    slug: string;
+    title: string;
+    publishDate: string;
+    updatedAt: string | null;
+  }>
+> {
+  const loc = resolveLocale(locale);
+  const db = getDb();
+  const rows = await db
+    .select({
+      slug: blogs.slug,
+      title: blogs.title,
+      publishDate: blogs.publishDate,
+      updatedAt: blogs.updatedAt,
+    })
+    .from(blogs)
+    .where(and(eq(blogs.published, true), eq(blogs.locale, loc)));
+
+  return rows.sort(
+    (a, b) =>
+      new Date(b.publishDate || b.updatedAt || 0).getTime() -
+      new Date(a.publishDate || a.updatedAt || 0).getTime()
+  );
+}
+
 /** Locales with a published row for this slug (for hreflang). */
 export async function getPublishedBlogLocales(
   slug: string

@@ -58,8 +58,8 @@ interface ProjectPageProps {
   params: Promise<{ locale: string; slug: string }>;
 }
 
-/** Newly published slugs must render on demand (layout uses headers()). */
-export const dynamic = "force-dynamic";
+/** ISR with on-demand revalidate from admin project APIs. */
+export const revalidate = 3600;
 
 export async function generateStaticParams(): Promise<ProjectSlugParams[]> {
   const { listAllProjects } = await import("@/lib/cms/projectService");

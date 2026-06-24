@@ -24,10 +24,10 @@ const FALLBACK_RESOURCES = [
     href: "/blog/new-solar-panel-technologies-2025",
   },
   {
-    title: "What Are The Different Types Of Solar Panels",
+    title: "Solar Module Types for Utility Buyers",
     imgSrc: "/tayproenergyresource/taypro-energy-resource3.webp",
     date: "July 21, 2025",
-    href: "/blog/what-are-the-different-types-of-solar-panels",
+    href: "/blog/understanding-different-types-of-solar-panels",
   },
 ];
 

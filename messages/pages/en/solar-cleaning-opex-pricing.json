@@ -1,0 +1,238 @@
+{
+  "SolarCleaningOpexPricingPage": {
+    "meta": {
+      "title": "Solar Panel Cleaning Cost India | OPEX Pricing per MW",
+      "description": "Solar panel cleaning cost per MW in India: manual vs robotic comparison, Taypro OPEX pricing structure (₹0.45–0.70 per panel per cycle), indicative monthly bands for 25–300 MW plants.",
+      "openGraphTitle": "Solar Cleaning OPEX Pricing India | Taypro",
+      "openGraphDescription": "How much does solar panel cleaning cost? OPEX model pricing, per-MW monthly bands, and ROI calculator for utility plants."
+    },
+    "breadcrumbHub": "Robot price guide",
+    "breadcrumbHubHref": "/solar-panel-cleaning-robot-price-india",
+    "breadcrumb": "Solar cleaning OPEX pricing",
+    "schema": {
+      "name": "Taypro Solar Cleaning OPEX Pricing",
+      "description": "Indicative OPEX pricing for robotic solar panel cleaning in India: per-panel-per-cycle rates, monthly bands by plant size, and pay-per-panel-cleaned billing model.",
+      "serviceType": "Solar panel cleaning pricing",
+      "areaServed": "India"
+    },
+    "hero": {
+      "eyebrow": "Pricing · India utility solar",
+      "title": "Solar panel cleaning cost per MW — OPEX pricing structure",
+      "subtitle": "How much does solar panel cleaning cost in India? Compare manual crew economics with Taypro OPEX: pay per panel cleaned, ₹0.45–0.70 per module per cycle, and indicative monthly bands for 25–300 MW plants.",
+      "ctaPrimary": "Run full ROI calculator",
+      "ctaPrimaryHref": "/solar-panel-cleaning-robot-price-calculator#calculator",
+      "ctaSecondary": "Request custom quote",
+      "ctaSecondaryHref": "/contact"
+    },
+    "prose": {
+      "eyebrow": "Billing model",
+      "heading": "How Taypro OPEX pricing works",
+      "p1": "Under Taypro OPEX, you pay monthly for panels actually cleaned — rates from ₹0.70 per panel per cycle (under 10 MW) down to ₹0.45 on 100 MW+ fleets. Contract terms, SOPs, and programme design are on the OPEX service product page.",
+      "p2": "A minimum monthly programme fee applies on smaller sites. Tracker plants carry a multiplier versus fixed tilt because of row geometry and cycle complexity. All settlements reconcile against NECTYR telemetry and agreed SOPs.",
+      "p3": "Use the indicative table below for budgetary planning, then run the ROI calculator with your specific MW, soiling rate, and tariff for a directional payback estimate.",
+      "linkPrimary": "OPEX service details",
+      "linkPrimaryHref": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
+      "linkSecondary": "Robot CAPEX price guide",
+      "linkSecondaryHref": "/solar-panel-cleaning-robot-price-india"
+    },
+    "costComparison": {
+      "eyebrow": "Manual vs robotic",
+      "heading": "Solar panel cleaning cost: manual crews vs robotic OPEX",
+      "intro": "Manual cleaning costs rise linearly with fleet scale — labour, water tankers, fuel, and inconsistent coverage. Robotic OPEX converts cleaning to a predictable per-panel variable cost with verified NECTYR logs.",
+      "colFactor": "Cost factor",
+      "colManual": "Manual cleaning",
+      "colRobotic": "Taypro robotic OPEX",
+      "row0": {
+        "factor": "Labour & supervision",
+        "manual": "Crew scaling per MW; high turnover in remote sites",
+        "robotic": "Fixed operator team per fleet; remote NECTYR oversight"
+      },
+      "row1": {
+        "factor": "Water & logistics",
+        "manual": "140k+ litres/MW/year wet-wash in stressed states",
+        "robotic": "Waterless dry cleaning — zero tanker dependency"
+      },
+      "row2": {
+        "factor": "Billing transparency",
+        "manual": "Lump-sum contracts; hard to audit panel-level coverage",
+        "robotic": "Pay per panel cleaned; NECTYR block-level reconciliation"
+      },
+      "row3": {
+        "factor": "Cycle frequency",
+        "manual": "1–2 wet washes/month — labour and water limit throughput",
+        "robotic": "3–10 dry cycles/month without water constraint"
+      },
+      "row4": {
+        "factor": "PR recovery speed",
+        "manual": "Delayed response after dust events; coverage gaps on long rows",
+        "robotic": "Scheduled cadence; block-level NECTYR proof of coverage"
+      },
+      "row5": {
+        "factor": "20-year TCO at 100 MW",
+        "manual": "Rising labour, fuel, water; contract renegotiation risk",
+        "robotic": "Predictable per-panel opex or defined CAPEX+AMC alternative"
+      }
+    },
+    "opexTable": {
+      "eyebrow": "Indicative bands",
+      "heading": "OPEX monthly cost by plant size (fixed tilt, 6 cycles/month)",
+      "intro": "Directional estimates for budgetary planning. Actual pricing depends on soiling study, installation type, cycle count, and site access. Request a site-specific quote for binding commercial terms.",
+      "colPlant": "Plant size",
+      "colModules": "Modules (540 Wp)",
+      "colRate": "Rate/panel/cycle",
+      "colMonthly": "Est. monthly OPEX",
+      "colPerMw": "Per MW/month",
+      "plant25": "25 MW",
+      "plant50": "50 MW",
+      "plant100": "100 MW",
+      "plant300": "300 MW",
+      "minimumNote": "Minimum monthly fee applied",
+      "footnote": "Rates span ₹{minRate}–₹{maxRate} per panel per cycle depending on plant size and {cycles} cycles/month (range {minCycles}–{maxCycles}). Table assumes {moduleWp} Wp modules, fixed tilt. Tracker sites use higher multipliers."
+    },
+    "calculator": {
+      "eyebrow": "Interactive tool",
+      "heading": "Calculate cleaning ROI for your plant",
+      "subheading": "Enter your MW capacity, soiling rate, tariff, and procurement model (CAPEX or OPEX) for a directional payback estimate."
+    },
+    "howTo": {
+      "name": "How to estimate solar cleaning OPEX cost",
+      "description": "Steps to calculate indicative monthly robotic cleaning cost for an Indian utility solar plant.",
+      "step0Name": "Determine module count",
+      "step0Text": "Divide plant capacity (kW) by module wattage (e.g. 540 Wp) to get total panel count.",
+      "step1Name": "Select cycle frequency",
+      "step1Text": "After a soiling study, choose 3–10 dry cleaning cycles per month based on dust load and PR targets.",
+      "step2Name": "Apply per-panel rate",
+      "step2Text": "Multiply modules × cycles × rate (₹0.45–0.70 per panel per cycle depending on plant size).",
+      "step3Name": "Adjust for installation type",
+      "step3Text": "Apply tracker or seasonal-tilt multipliers. Compare against manual crew cost and energy gain in the ROI calculator."
+    },
+    "faq": {
+      "heading": "Solar cleaning cost FAQ",
+      "subheading": "Common pricing questions from O&M and finance teams.",
+      "q0": "How much does solar panel cleaning cost per MW in India?",
+      "a0": "Indicative Taypro OPEX ranges from roughly ₹1.5–4 lakh per MW per month depending on plant size, cycle count (3–10/month), and installation type. Smaller plants may hit a minimum monthly programme fee. Use our table and calculator for directional estimates.",
+      "q1": "What is the per-panel cleaning rate on Taypro OPEX?",
+      "a1": "Rates range from ₹0.45 to ₹0.70 per panel per cleaning cycle. Larger utility fleets (100 MW+) receive lower per-panel rates. Tracker installations carry a multiplier versus fixed tilt.",
+      "q2": "Is OPEX cheaper than buying cleaning robots (CAPEX)?",
+      "a2": "OPEX avoids upfront robot purchase and depreciation — ideal for fast mobilisation and balance-sheet efficiency. CAPEX may have lower lifetime cost on very large fleets with long hold periods. Run both scenarios in the ROI calculator.",
+      "q3": "Does pricing include operators and spares?",
+      "a3": "Yes. Taypro OPEX is fully managed: robots, operators, spare parts for cleaning fleet, NECTYR reporting, and cleaning SOPs. You pay for panels cleaned, not separate line items.",
+      "q4": "How is monthly billing reconciled?",
+      "a4": "Billing aligns to NECTYR telemetry — panels cleaned per block, per cycle — with agreed reconciliation rules and monthly settlement reports.",
+      "q5": "What is the minimum plant size for OPEX pricing?",
+      "a5": "Taypro OPEX is designed for utility plants from about 10 MW upward. A minimum monthly programme fee may apply below certain capacity thresholds.",
+      "q6": "Can I get a binding quote?",
+      "a6": "Yes. Share plant capacity, location, installation type, and current cleaning method. Taypro engineers will conduct a soiling study and provide site-specific commercial terms.",
+      "q7": "How does robotic cleaning cost compare to manual brush cleaning?",
+      "a7": "Manual costs include labour, water, fuel, and supervision that scale linearly with MW. Robotic OPEX provides predictable per-panel economics, higher cycle frequency, and audit-ready coverage logs — often recovering the cost through PR improvement within months in high-soiling regions.",
+      "q8": "What drives the difference between ₹0.45 and ₹0.70 per panel?",
+      "a8": "Plant size (module count), cleaning frequency, and installation type. Larger fleets above 100 MW with higher cycle counts approach the lower band. Small plants and complex tracker geometry approach the upper band.",
+      "q9": "Is GST included in indicative pricing?",
+      "a9": "Commercial quotes specify tax treatment. Use contact form for binding proposals with current GST applicability.",
+      "q10": "How does OPEX pricing compare to manual cleaning contracts per MW?",
+      "a10": "Manual contracts often appear cheaper on paper but lack cycle frequency, water cost, coverage audit, and PR recovery speed. Run both scenarios in the ROI calculator with your tariff and soiling assumptions.",
+      "q11": "Can I switch from OPEX to CAPEX later?",
+      "a11": "Many IPPs start OPEX for fast mobilisation then transition to owned fleets at contract renewal. Taypro supports both models on the same plant with NECTYR continuity."
+    },
+    "cta": {
+      "heading": "Get site-specific OPEX pricing",
+      "body": "Indicative bands are a starting point. Request a binding quote with your plant details.",
+      "primary": "Request quote",
+      "primaryHref": "/contact",
+      "secondary": "India cleaning service",
+      "secondaryHref": "/solar-panel-cleaning-service-india"
+    },
+    "related": {
+      "label": "Related:",
+      "link0": "Robot CAPEX price guide",
+      "link0Href": "/solar-panel-cleaning-robot-price-india",
+      "link1": "OPEX contract & SOP details",
+      "link1Href": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
+      "link2": "CAPEX vs OPEX decision guide",
+      "link2Href": "/solar-cleaning-capex-vs-opex",
+      "link3": "ROI calculator",
+      "link3Href": "/solar-panel-cleaning-robot-price-calculator"
+    },
+    "quoteForm": {
+      "eyebrow": "Pricing inquiry",
+      "title": "Request OPEX pricing for your plant",
+      "placeholder": "Plant MW, state, fixed tilt or tracker, desired cycles/month, and current cleaning spend if known."
+    },
+    "stats": {
+      "eyebrow": "Pricing anchors",
+      "heading": "Solar panel cleaning cost benchmarks in India",
+      "card0": {
+        "tag": "Per panel",
+        "stat": "₹0.45–0.70",
+        "label": "OPEX rate per panel per cycle",
+        "body": "Volume-discounted on large utility fleets. Smaller plants under 10 MW start at the upper band."
+      },
+      "card1": {
+        "tag": "Per MW",
+        "stat": "₹1.5–4L",
+        "label": "Indicative monthly OPEX per MW",
+        "body": "Depends on cycle count (3–10/month), installation type, and module count. Use the table below for directional planning."
+      },
+      "card2": {
+        "tag": "Included",
+        "stat": "All-in",
+        "label": "Operators, spares, NECTYR, SOPs",
+        "body": "No separate line items for labour or robot depreciation on OPEX — you pay for panels cleaned."
+      },
+      "card3": {
+        "tag": "Minimum",
+        "stat": "₹1L+",
+        "label": "Monthly programme floor on smaller sites",
+        "body": "Applies when calculated volume falls below minimum monthly fee thresholds."
+      }
+    },
+    "steps": {
+      "eyebrow": "Pricing workflow",
+      "heading": "How to get accurate solar cleaning cost for your plant",
+      "step0Title": "Gather plant inputs",
+      "step0Body": "MW capacity, module wattage (e.g. 540 Wp), fixed tilt vs tracker, state/soiling context, and current annual cleaning spend if known.",
+      "step1Title": "Estimate module count and cycles",
+      "step1Body": "Divide kW by module Wp. Choose 3–10 cycles/month based on soiling study or regional benchmarks (higher in Rajasthan/Gujarat).",
+      "step2Title": "Apply Taypro OPEX rate band",
+      "step2Body": "Multiply modules × cycles × rate (₹0.45–0.70). Apply tracker multiplier (1.8×) or seasonal tilt (1.5×) if applicable. Compare table above for sanity check.",
+      "step3Title": "Run ROI calculator for payback",
+      "step3Body": "Enter soiling loss %, tariff, and procurement model. Calculator estimates energy gain vs cleaning cost for CAPEX and OPEX scenarios.",
+      "step4Title": "Request binding site quote",
+      "step4Body": "Taypro engineers validate assumptions with a soiling study and issue commercial terms reconciled to NECTYR measurement rules."
+    },
+    "eligibility": {
+      "eyebrow": "OPEX fit",
+      "title": "When pay-per-panel OPEX pricing makes sense",
+      "forTitle": "OPEX is often best when",
+      "for0": "You want fast mobilisation without robot CAPEX on the balance sheet",
+      "for1": "You prefer opex aligned to verified panels cleaned, not lump-sum crew contracts",
+      "for2": "Your plant is 10 MW+ utility scale with 3+ cycles/month economics",
+      "for3": "Finance team needs predictable monthly cleaning line item for models",
+      "notForTitle": "Consider CAPEX instead when",
+      "not0": "Very long hold period (15+ years) with capacity to own fleet depreciation",
+      "not1": "Smaller C&I sites where minimum monthly fee dominates unit economics",
+      "not2": "You already own robots and only need AMC + NECTYR"
+    },
+    "proseSecondary": {
+      "eyebrow": "Regional cost drivers",
+      "heading": "Why solar panel cleaning cost varies by state in India",
+      "p1": "Soiling rate drives cycle count — the primary cost multiplier. A 100 MW plant in Rajasthan may need 8–10 dry cycles monthly during pre-monsoon dust season; a similar plant in eastern India may run 4–6. More cycles × more panels = higher monthly OPEX, but also higher PR recovery.",
+      "p2": "Tracker installations add 1.8× rate multiplier versus fixed tilt due to row geometry, stow angles, and CRADYL transfer complexity. Seasonal tilt sits at 1.5×.",
+      "p3": "Manual cleaning cost benchmarks rise linearly with MW — crew count, water tankers, supervision, and night-shift premiums. Robotic OPEX converts this to a measurable per-panel variable with audit trail.",
+      "linkPrimary": "India cleaning service overview",
+      "linkPrimaryHref": "/solar-panel-cleaning-service-india",
+      "linkSecondary": "Robot CAPEX price guide",
+      "linkSecondaryHref": "/solar-panel-cleaning-robot-price-india"
+    },
+    "resources": {
+      "eyebrow": "Cost research",
+      "heading": "Related pricing & ROI tools",
+      "link0Title": "Interactive ROI calculator",
+      "link0Href": "/solar-panel-cleaning-robot-price-calculator",
+      "link1Title": "Taypro OPEX service details",
+      "link1Href": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
+      "link2Title": "Robotic vs manual cost comparison",
+      "link2Href": "/compare/solar-panel-cleaning-robot-vs-manual-cleaning"
+    }
+  }
+}

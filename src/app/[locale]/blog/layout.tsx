@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { withHreflang } from "@/lib/seo/with-hreflang";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 const BLOG_PATH = "/blog";
 
+/**
+ * Blog layout metadata is intentionally minimal: no canonical or hreflang here.
+ * `/blog`, `/blog/[slug]`, and `/blog/author/*` each set their own alternates so
+ * posts never inherit the hub canonical (Ahrefs non-canonical organic traffic).
+ */
 export async function generateMetadata({
   params,
 }: {
@@ -13,7 +17,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "BlogPage.meta" });
 
-  return withHreflang(BLOG_PATH, locale, {
+  return {
     title: {
       template: "%s",
       default: t("title"),
@@ -39,7 +43,7 @@ export async function generateMetadata({
       description: t("twitterDescription"),
       images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
     },
-  });
+  };
 }
 
 export default function TayproBlog({

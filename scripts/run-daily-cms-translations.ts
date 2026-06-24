@@ -9,6 +9,7 @@
 import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from "fs";
 import path from "path";
 import { getDeploymentRoot } from "../src/app/utils/deploymentRoot";
+import { isCmsTranslationDisabled } from "../src/lib/translation/config";
 import { processDailyTranslations } from "../src/lib/translation/translation-queue";
 
 const root = getDeploymentRoot();
@@ -95,6 +96,11 @@ function resolveShouldStop(): (() => boolean) | undefined {
 async function main(): Promise<void> {
   loadEnvFile(".env.production");
   loadEnvFile(".env.local");
+
+  if (isCmsTranslationDisabled()) {
+    log("skip", { reason: "cms_translation_disabled" });
+    process.exit(0);
+  }
 
   const catchup =
     process.env.CMS_TRANSLATION_CATCHUP === "1" ||

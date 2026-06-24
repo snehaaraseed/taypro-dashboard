@@ -71,8 +71,12 @@ export default async function ProjectsFilterPage({
     answer: t(`${v}.faq.a${i}`),
   }));
 
-  const categoryLabel = (key: ProjectCategoryFilter) =>
-    tHub(`categories.${key}.cardTitle`);
+  const categoryLabels: Record<ProjectCategoryFilter, string> = {
+    automatic: tHub("categories.automatic.cardTitle"),
+    semiAutomatic: tHub("categories.semiAutomatic.cardTitle"),
+    capex: tHub("categories.capex.cardTitle"),
+    opex: tHub("categories.opex.cardTitle"),
+  };
 
   return (
     <>
@@ -107,7 +111,7 @@ export default async function ProjectsFilterPage({
           <Container>
             <ProjectsCategoryNav
               active={v}
-              getLabel={categoryLabel}
+              labels={categoryLabels}
               hubLabel={t("breadcrumbProjects")}
             />
             <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:gap-14">

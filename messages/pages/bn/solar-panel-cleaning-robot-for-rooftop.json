@@ -1,0 +1,217 @@
+{
+  "RooftopCleaningPage": {
+    "meta": {
+      "title": "ছাদ সোলার পরিষ্কার রোবোট ভারত | MINY",
+      "description": "বাণিজ্যিক ছাদের জন্য কমপ্যাক্ট MINY রোবোট।",
+      "openGraphTitle": "ছাদ সোলার রোবোট | Taypro",
+      "openGraphDescription": "জলহীন ছাদ পরিষ্কার রোবোট।"
+    },
+    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHubHref": "/solar-panel-cleaning-system",
+    "breadcrumb": "ছাদ সোলার পরিষ্কার রোবোট",
+    "schema": {
+      "name": "Taypro MINY Rooftop Solar Cleaning Robot",
+      "description": "Compact waterless solar panel cleaning robot for commercial and industrial rooftop arrays in India.",
+      "sku": "MINY"
+    },
+    "hero": {
+      "eyebrow": "ছাদ এবং C&I সেগমেন্ট",
+      "title": "ছাদের জন্য সোলার পরিষ্কার রোবোট",
+      "subtitle": "ইউটিলিটি-স্কেল রোবট গুদামের ছাদ এবং কারখানার টেরেসের সাথে খাপ খায় না। Taypro MINY হল একটি কমপ্যাক্ট জলবিহীন ক্লিনিং রোবট যা বাণিজ্যিক ছাদে সোলারের জন্য তৈরি করা হয়েছে — সীমিত অ্যাক্সেস, ছোট অ্যারে এবং C&I অর্থনীতি।",
+      "ctaPrimary": "MINY দেখুন",
+      "ctaPrimaryHref": "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
+      "ctaSecondary": "ছাদের মূল্যায়নের জন্য অনুরোধ করুন",
+      "ctaSecondaryHref": "/contact"
+    },
+    "cards": {
+      "eyebrow": "ছাদের চ্যালেঞ্জ",
+      "heading": "কেন স্ট্যান্ডার্ড ইউটিলিটি রোবট বাণিজ্যিক ছাদে ব্যর্থ হয়",
+      "subheading": "ছাদের ক্রেতারা 100 MW IPPs থেকে ভিন্নভাবে অনুসন্ধান করে। এই সীমাবদ্ধতাগুলি পণ্য নির্বাচনকে চালিত করে।",
+      "card0": {
+        "title": "সীমিত ছাদে অ্যাক্সেস",
+        "body": "সরু সিঁড়ি, মালবাহী লিফ্ট, এবং ক্রেন অ্যাক্সেস না থাকার অর্থ হল পূর্ণ-আকারের GLYDE-শ্রেণীর রোবটগুলি বেশিরভাগ C&I সাইটে জড়ো হতে পারে না৷"
+      },
+      "card1": {
+        "title": "ছোট অ্যারের পায়ের ছাপ",
+        "body": "1–5 MW ছাদের পোর্টফোলিওর জন্য ছোট সারি এবং অনিয়মিত লেআউটের জন্য একটি রোবট আকারের প্রয়োজন - 300 MW ব্লক জ্যামিতি নয়।"
+      },
+      "card2": {
+        "title": "বিল্ডিং অপারেশন দ্বন্দ্ব",
+        "body": "গুদাম সরবরাহ, এইচভিএসি গ্রহণ, বা দিনের সময় বিল্ডিং ট্র্যাফিক ব্যাহত না করে পরিষ্কার করা আবশ্যক।"
+      },
+      "card3": {
+        "title": "জল সীমাবদ্ধতা",
+        "body": "অনেক বাণিজ্যিক ছাদ ওয়েট-ওয়াশ রানঅফ নিষিদ্ধ করে। জলহীন শুষ্ক পরিস্কার ট্যাঙ্কারের রসদ সম্পূর্ণরূপে সরিয়ে দেয়।"
+      },
+      "card4": {
+        "title": "নিরাপত্তা এবং বিল্ডিং অপারেশন",
+        "body": "দিনের সময় গুদাম ট্রাফিক বিরোধ ছাড়াই নির্ধারিত রাতের জানালায় রোবোটিক পরিষ্কার করা হয়। অপারেটররা বিল্ডিং সুরক্ষা প্রোটোকল এবং সম্ভাব্যতার সময় মূল্যায়ন করা ছাদের লোড সীমা অনুসরণ করে।"
+      },
+      "card5": {
+        "title": "শহুরে ছাদে নোংরা",
+        "body": "শহুরে কণা, পাখির বিষ্ঠা এবং শিল্প নির্গমন মরুভূমির উপযোগী উদ্ভিদের চেয়ে ভিন্ন মাটির রসায়ন তৈরি করে — চক্র পরিকল্পনা অবশ্যই স্থানীয় ধূলিকণার সাথে মেলে, সাধারণ মরুভূমি অনুমান নয়।"
+      }
+    },
+    "products": {
+      "eyebrow": "Recommended solutions",
+      "heading": "Taypro robots for rooftop and distributed solar",
+      "product0": {
+        "title": "MINY — compact rooftop robot",
+        "body": "Purpose-built for commercial and industrial rooftops. Compact form factor, waterless dry cleaning, autonomous row traversal for C&I arrays.",
+        "link": "MINY product page"
+      },
+      "product1": {
+        "title": "HELYX — semi-automatic for scattered blocks",
+        "body": "Pick-and-place semi-automatic robot for distributed portfolios with multiple small blocks where full autonomy is not economical.",
+        "link": "HELYX product page"
+      },
+      "product2": {
+        "title": "NECTYR monitoring",
+        "body": "Fleet scheduling and cleaning reports for multi-site C&I portfolios — even when robots move between blocks.",
+        "link": "NECTYR app"
+      }
+    },
+    "prose": {
+      "eyebrow": "আদর্শ গ্রাহক",
+      "heading": "কে একটি ছাদ সৌর পরিষ্কার রোবট মূল্যায়ন করা উচিত?",
+      "p1": "500 kW–5 MW রুফটপ অ্যারে সহ বাণিজ্যিক ভবন মালিক, গুদাম অপারেটর, ম্যানুফ্যাকচারিং প্ল্যান্ট এবং C&I সোলার ডেভেলপাররা হল MINY-শ্রেণীর রোবটের প্রাথমিক ক্রেতা। আপনার পোর্টফোলিও যদি গ্রাউন্ড-মাউন্ট ইউটিলিটি স্কেল হয়, তাহলে GLYDE বা GLYDE-X সবচেয়ে উপযুক্ত।",
+      "p2": "Taypro MINY বনাম HELYX বনাম পরিচালিত পরিচ্ছন্নতার পরিষেবা সুপারিশ করার আগে ছাদের লোড, অ্যাক্সেসের পথ, সারির দৈর্ঘ্য এবং নিরাপত্তার সীমাবদ্ধতাগুলি মূল্যায়ন করে৷ প্রতিটি ছাদ স্বায়ত্তশাসিত রোবটের জন্য যোগ্য নয় — সাইট পর্যালোচনা করার পরে আমরা আপনাকে সততার সাথে বলব।",
+      "p3": "MINY স্পেসিফিকেশন তুলনা করুন এবং Taypro এর ইঞ্জিনিয়ারিং টিমের কাছ থেকে একটি ছাদের সম্ভাব্যতা মূল্যায়নের অনুরোধ করুন।",
+      "linkPrimary": "MINY রোবট স্পেসিফিকেশন",
+      "linkPrimaryHref": "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
+      "linkSecondary": "ইন্ডিয়া ক্লিনিং সার্ভিস (ইউটিলিটি)",
+      "linkSecondaryHref": "/solar-panel-cleaning-service-india"
+    },
+    "faq": {
+      "heading": "ছাদে সোলার ক্লিনিং রোবট — প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী",
+      "subheading": "C&I সোলার মালিক এবং সুবিধা পরিচালকদের থেকে প্রশ্ন।",
+      "q0": "ছাদ ইনস্টলেশনের জন্য সেরা সৌর পরিষ্কার রোবট কি?",
+      "a0": "Taypro MINY বিশেষভাবে বাণিজ্যিক এবং শিল্পের ছাদের জন্য ডিজাইন করা হয়েছে — কমপ্যাক্ট, জলহীন, এবং স্বায়ত্তশাসিত৷ বিক্ষিপ্ত মাল্টি-ব্লক C&I পোর্টফোলিওর জন্য, HELYX আধা-স্বয়ংক্রিয় আরও লাভজনক হতে পারে।",
+      "q1": "GLYDE বা NYUMA ছাদের সোলার প্যানেল পরিষ্কার করতে পারে?",
+      "a1": "GLYDE এবং NYUMA গ্রাউন্ড-মাউন্ট ইউটিলিটি সারিগুলির জন্য ইঞ্জিনিয়ার করা হয়েছে৷ এগুলি সাধারণত সাধারণ বাণিজ্যিক ছাদে অ্যাক্সেসের জন্য খুব বড়। MINY হল প্রস্তাবিত Taypro পণ্যটি ছাদের ক্রেতার অভিপ্রায়ের জন্য৷",
+      "q2": "কোন ছাদের মাপ MINY এর জন্য যোগ্য?",
+      "a2": "MINY সারি জ্যামিতি এবং অ্যাক্সেসের উপর নির্ভর করে মোটামুটি 500 kW থেকে 5 MW বাণিজ্যিক ছাদের লক্ষ্য করে। একটি সাইট-নির্দিষ্ট সম্ভাব্যতা পর্যালোচনার জন্য Taypro এ যোগাযোগ করুন।",
+      "q3": "ছাদের রোবটিক পরিষ্কারের জন্য কি পানি ব্যবহার করা হয়?",
+      "a3": "নং Taypro রোবটগুলি জলবিহীন শুষ্ক পরিচ্ছন্নতা ব্যবহার করে — জলপ্রবাহের সীমাবদ্ধতা এবং জল-অপ্রতুল অবস্থান সহ ভবনগুলির জন্য গুরুত্বপূর্ণ৷",
+      "q4": "MINY কি এখন ভারতে উপলব্ধ?",
+      "a4": "MINY Taypro-এর পণ্যের রোডম্যাপে প্রারম্ভিক-অ্যাক্সেস স্থাপনের সাথে রয়েছে৷ আপনার অঞ্চলে বাণিজ্যিক উপলব্ধতার জন্য MINY পণ্য পৃষ্ঠায় আগ্রহ নিবন্ধন করুন৷",
+      "q5": "ছাদ পরিষ্কার করার রোবটের দাম কত?",
+      "a5": "রুফটপ রোবট ইকোনমিক্স ইউটিলিটি CAPEX ব্যান্ড থেকে আলাদা। আপনার অ্যারের আকার এবং অবস্থান সহ MINY পণ্য পৃষ্ঠা বা যোগাযোগ ফর্মের মাধ্যমে একটি উদ্ধৃতি অনুরোধ করুন৷",
+      "q6": "Taypro কি ছাদে পরিচ্ছন্নতার ব্যবস্থা করতে পারে?",
+      "a6": "Taypro OPEX প্রাথমিকভাবে ইউটিলিটি-স্কেল গ্রাউন্ড-মাউন্ট প্ল্যান্টের জন্য ইঞ্জিনিয়ার করা হয়েছে। সম্ভাব্যতা পর্যালোচনার পরে ছোট C&I সাইটগুলি রোবট CAPEX বা HELYX প্রোগ্রামের জন্য যোগ্যতা অর্জন করতে পারে।",
+      "q7": "আমি কিভাবে শুরু করব?",
+      "a7": "ছাদের ক্ষমতা, বিল্ডিং টাইপ, অ্যাক্সেসের সীমাবদ্ধতা এবং অ্যারের লেআউটের ফটো শেয়ার করুন। Taypro সুপারিশ করবে MINY, HELYX, বা বিকল্প পদ্ধতির।",
+      "q8": "ভারতে কোন ধরনের বিল্ডিং ছাদ পরিষ্কার করার রোবট ব্যবহার করে?",
+      "a8": "গুদাম, লজিস্টিক পার্ক, উৎপাদন সুবিধা, শপিং মল এবং 500 কিলোওয়াট+ রুফটপ অ্যারে সহ প্রাতিষ্ঠানিক ক্যাম্পাস প্রাথমিক গ্রহণকারী।",
+      "q9": "MINY কি ছাদের চারপাশের বাধা পরিষ্কার করতে পারে?",
+      "a9": "সম্ভাব্যতা নির্ভর করে সারি লেআউট, ফাঁক প্রস্থ এবং নিরাপত্তা অঞ্চলের উপর। সাইট মূল্যায়নের সময় Taypro ম্যাপ পাথ — অনিয়মিত অ্যারেগুলির পরিবর্তে HELYX পিক-এন্ড-প্লেসের প্রয়োজন হতে পারে।",
+      "q10": "ভেজা পরিষ্কার করা কি কখনো ছাদে ব্যবহার করা হয়?",
+      "a10": "Taypro রোবটগুলি ডিজাইনের দ্বারা জলবিহীন — চাপ ধোয়ার সাথে সাধারণ জলাবদ্ধতা, লোড সংযোজন এবং বিল্ডিং কোডের সমস্যাগুলি এড়ানো।",
+      "q11": "কিভাবে ছাদ রোবট ROI ম্যানুয়াল পরিষ্কারের সাথে তুলনা করে?",
+      "a11": "ম্যানুয়াল ছাদ পরিষ্কারের জন্য নিরাপত্তা জোতা ক্রু, বীমা, এবং বিল্ডিং অ্যাক্সেস সমন্বয় প্রয়োজন — প্রায়ই গ্রাউন্ড-মাউন্ট ম্যানুয়াল থেকে প্রতি কিলোওয়াট বেশি ব্যয়বহুল। ROI ক্যালকুলেটর চালান আপনার ট্যারিফ এবং সোয়লিং রেট সহ।"
+    },
+    "cta": {
+      "heading": "Assess your rooftop for robotic cleaning",
+      "body": "Tell us about your commercial rooftop array. Taypro will recommend the right compact robot or alternative approach.",
+      "primary": "MINY product page",
+      "primaryHref": "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
+      "secondary": "Contact Taypro",
+      "secondaryHref": "/contact"
+    },
+    "related": {
+      "label": "Related:",
+      "link0": "HELYX semi-automatic robot",
+      "link0Href": "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
+      "link1": "Utility cleaning service",
+      "link1Href": "/solar-panel-cleaning-service-india",
+      "link2": "Robot hub",
+      "link2Href": "/solar-panel-cleaning-system"
+    },
+    "quoteForm": {
+      "eyebrow": "Rooftop inquiry",
+      "title": "Request rooftop cleaning robot assessment",
+      "placeholder": "Rooftop capacity (kW/MW), building type, city, access constraints (lift size, stairs), and array layout."
+    },
+    "stats": {
+      "eyebrow": "ছাদের অংশ",
+      "heading": "বাণিজ্যিক ছাদ সৌর পরিষ্কার - বাজারের প্রসঙ্গ",
+      "card0": {
+        "tag": "সেগমেন্ট",
+        "stat": "C&I",
+        "label": "গুদাম, কারখানা, মল",
+        "body": "ভারতের C&I ছাদের সৌর 20 GW ছাড়িয়ে গেছে — বেশিরভাগ অ্যারে 500 কিলোওয়াট থেকে 5 MW যেখানে কমপ্যাক্ট রোবট ইউটিলিটি-স্কেল মেশিনকে হারায়।"
+      },
+      "card1": {
+        "tag": "অ্যাক্সেস",
+        "stat": "কমপ্যাক্ট",
+        "label": "MINY ফর্ম ফ্যাক্টর",
+        "body": "মালবাহী লিফট এবং সরু ছাদের হ্যাচের জন্য ডিজাইন করা হয়েছে — GLYDE-শ্রেণীর রোবটগুলি সাধারণ বাণিজ্যিক ছাদে জড়ো হতে পারে না।"
+      },
+      "card2": {
+        "tag": "জল",
+        "stat": "শূন্য",
+        "label": "জলহীন শুষ্ক পরিষ্কার",
+        "body": "বিল্ডিং কোড এবং রানঅফ বিধিনিষেধ প্রায়ই শিল্পের ছাদে ভেজা ধোয়া নিষিদ্ধ করে।"
+      },
+      "card3": {
+        "tag": "বিকল্প",
+        "stat": "HELYX",
+        "label": "মাল্টি-ব্লক C&I পোর্টফোলিও",
+        "body": "বিক্ষিপ্ত ব্লকের জন্য আধা-স্বয়ংক্রিয় বাছাই এবং স্থান যেখানে সম্পূর্ণ স্বায়ত্তশাসন লাভজনক নয়।"
+      }
+    },
+    "steps": {
+      "eyebrow": "Rooftop assessment",
+      "heading": "How to evaluate a rooftop solar cleaning robot",
+      "step0Title": "Document array layout and access",
+      "step0Body": "Share kW/MW capacity, row length, tilt, lift dimensions, stair access, and photos. Taypro determines MINY vs HELYX feasibility.",
+      "step1Title": "Roof load and safety review",
+      "step1Body": "Structural and safety constraints verified before robot deployment. Not every rooftop qualifies — Taypro advises honestly.",
+      "step2Title": "Robot specification and quote",
+      "step2Body": "MINY compact robot for autonomous rows, or HELYX for pick-and-place scattered blocks. NECTYR optional for multi-site portfolios.",
+      "step3Title": "Commissioning and operator training",
+      "step3Body": "On-site training for building facilities team or Taypro operator placement depending on commercial model.",
+      "step4Title": "Scheduled cleaning cycles",
+      "step4Body": "Typically 2–6 dry cycles monthly for urban C&I soiling — adjusted after first month PR observation."
+    },
+    "eligibility": {
+      "eyebrow": "Fit guide",
+      "title": "Is a rooftop cleaning robot right for your building?",
+      "forTitle": "Good fit",
+      "for0": "Commercial/industrial rooftops 500 kW–5 MW with regular row geometry",
+      "for1": "Warehouses, manufacturing plants, logistics parks with night cleaning windows",
+      "for2": "Buildings prohibiting wet-wash runoff or water tanker access",
+      "for3": "C&I developers managing multi-site portfolios needing NECTYR reporting",
+      "notForTitle": "Not ideal",
+      "not0": "Ground-mount utility plants (use GLYDE, GLYDE-X, or NYUMA instead)",
+      "not1": "Roofs failing structural or access feasibility review",
+      "not2": "Single small arrays where manual cleaning cost is already negligible"
+    },
+    "highlight": {
+      "heading": "Utility robots do not fit warehouse roofs.",
+      "lead": "Rooftop buyer intent needs a compact solar cleaning robot — not a repackaged ground-mount GLYDE.",
+      "body": "Taypro MINY is purpose-built for commercial rooftop solar in India. HELYX covers scattered multi-block C&I where pick-and-place beats full autonomy."
+    },
+    "proseSecondary": {
+      "eyebrow": "বাণিজ্যিক ব্যবহারের ক্ষেত্রে",
+      "heading": "বাণিজ্যিক ছাদে সোলার ক্লিনিং — গুদাম, কারখানা এবং শিল্প পার্ক",
+      "p1": "1-3 MW সমতল ছাদ সহ গুদাম অপারেটররা ইউটিলিটি প্ল্যান্টের মতো একই মাটির ক্ষতির সম্মুখীন হয় — কিন্তু মালবাহী লিফটের মাধ্যমে 300 কেজি গ্রাউন্ড-মাউন্ট রোবট স্থাপন করতে পারে না। MINY-শ্রেণির কমপ্যাক্ট রোবট অ্যাড্রেস অ্যাক্সেস, সারির দৈর্ঘ্য এবং জলহীন সীমাবদ্ধতা একই সাথে।",
+      "p2": "আংশিক শেডিং, এইচভিএসি নিষ্কাশন এবং পাখির কার্যকলাপ সহ উত্পাদনকারী উদ্ভিদের জন্য বার্ষিক ম্যানুয়াল ওয়াশের চেয়ে বেশি পরিচ্ছন্নতার ক্যাডেন্স প্রয়োজন। স্বায়ত্তশাসিত রাতের চক্রগুলি দিনের রসদ ব্যাহত না করে PR বজায় রাখে।",
+      "p3": "মাল্টি-বিল্ডিং C&I পোর্টফোলিওর জন্য, NECTYR সাইট জুড়ে রোবট নির্ধারণ করে এবং স্থায়িত্ব প্রতিবেদন এবং O&M নিরীক্ষার জন্য পরিষ্কার প্রমাণ রপ্তানি করে।",
+      "linkPrimary": "MINY রোবট স্পেসিফিকেশন",
+      "linkPrimaryHref": "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
+      "linkSecondary": "ইউটিলিটি-স্কেল পরিচ্ছন্নতার পরিষেবা",
+      "linkSecondaryHref": "/solar-panel-cleaning-service-india"
+    },
+    "resources": {
+      "eyebrow": "Rooftop guides",
+      "heading": "Related resources",
+      "link0Title": "HELYX semi-automatic robot",
+      "link0Href": "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
+      "link1Title": "Robot price guide India",
+      "link1Href": "/solar-panel-cleaning-robot-price-india",
+      "link2Title": "ROI calculator",
+      "link2Href": "/solar-panel-cleaning-robot-price-calculator"
+    }
+  }
+}

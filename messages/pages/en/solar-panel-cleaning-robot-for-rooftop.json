@@ -1,0 +1,217 @@
+{
+  "RooftopCleaningPage": {
+    "meta": {
+      "title": "Rooftop Solar Panel Cleaning Robot India | Commercial C&I",
+      "description": "Rooftop solar cleaning robot for commercial buildings, warehouses, and industrial rooftops. Taypro MINY compact robot — waterless, autonomous, built for limited access and smaller arrays.",
+      "openGraphTitle": "Solar Cleaning Robot for Rooftop | Taypro MINY",
+      "openGraphDescription": "Commercial rooftop solar cleaning robot: compact MINY for warehouses and industrial rooftops, HELYX for scattered blocks."
+    },
+    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHubHref": "/solar-panel-cleaning-system",
+    "breadcrumb": "Rooftop solar cleaning robot",
+    "schema": {
+      "name": "Taypro MINY Rooftop Solar Cleaning Robot",
+      "description": "Compact waterless solar panel cleaning robot for commercial and industrial rooftop arrays in India.",
+      "sku": "MINY"
+    },
+    "hero": {
+      "eyebrow": "Rooftop & C&I segment",
+      "title": "Solar panel cleaning robot for rooftop — commercial & industrial",
+      "subtitle": "Utility-scale robots do not fit warehouse roofs and factory terraces. Taypro MINY is a compact waterless cleaning robot built for commercial rooftop solar — limited access, smaller arrays, and C&I economics.",
+      "ctaPrimary": "Explore MINY robot",
+      "ctaPrimaryHref": "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
+      "ctaSecondary": "Request rooftop assessment",
+      "ctaSecondaryHref": "/contact"
+    },
+    "cards": {
+      "eyebrow": "Rooftop challenges",
+      "heading": "Why standard utility robots fail on commercial rooftops",
+      "subheading": "Rooftop buyers search differently from 100 MW IPPs. These constraints drive product selection.",
+      "card0": {
+        "title": "Limited roof access",
+        "body": "Narrow stairwells, freight lifts, and no crane access mean full-size GLYDE-class robots cannot mobilise on most C&I sites."
+      },
+      "card1": {
+        "title": "Smaller array footprints",
+        "body": "1–5 MW rooftop portfolios need a robot sized for shorter rows and irregular layouts — not 300 MW block geometry."
+      },
+      "card2": {
+        "title": "Building operations conflict",
+        "body": "Cleaning must run without disrupting warehouse logistics, HVAC intakes, or daytime building traffic."
+      },
+      "card3": {
+        "title": "Water restrictions",
+        "body": "Many commercial rooftops prohibit wet-wash runoff. Waterless dry cleaning removes tanker logistics entirely."
+      },
+      "card4": {
+        "title": "Safety and building operations",
+        "body": "Robotic cleaning runs on scheduled night windows without daytime warehouse traffic conflict. Operators follow building safety protocols and roof load limits assessed during feasibility."
+      },
+      "card5": {
+        "title": "Soiling on urban rooftops",
+        "body": "Urban particulate, bird droppings, and industrial emissions create different soiling chemistry than desert utility plants — cycle planning must match local dust, not generic desert assumptions."
+      }
+    },
+    "products": {
+      "eyebrow": "Recommended solutions",
+      "heading": "Taypro robots for rooftop and distributed solar",
+      "product0": {
+        "title": "MINY — compact rooftop robot",
+        "body": "Purpose-built for commercial and industrial rooftops. Compact form factor, waterless dry cleaning, autonomous row traversal for C&I arrays.",
+        "link": "MINY product page"
+      },
+      "product1": {
+        "title": "HELYX — semi-automatic for scattered blocks",
+        "body": "Pick-and-place semi-automatic robot for distributed portfolios with multiple small blocks where full autonomy is not economical.",
+        "link": "HELYX product page"
+      },
+      "product2": {
+        "title": "NECTYR monitoring",
+        "body": "Fleet scheduling and cleaning reports for multi-site C&I portfolios — even when robots move between blocks.",
+        "link": "NECTYR app"
+      }
+    },
+    "prose": {
+      "eyebrow": "Ideal customers",
+      "heading": "Who should evaluate a rooftop solar cleaning robot?",
+      "p1": "Commercial building owners, warehouse operators, manufacturing plants, and C&I solar developers with 500 kW–5 MW rooftop arrays are the primary buyers for MINY-class robots. If your portfolio is ground-mount utility scale, GLYDE or GLYDE-X is the better fit.",
+      "p2": "Taypro assesses roof load, access path, row length, and safety constraints before recommending MINY vs HELYX vs managed cleaning service. Not every rooftop qualifies for autonomous robots — we will tell you honestly after site review.",
+      "p3": "Compare MINY specifications and request a rooftop feasibility assessment from Taypro's engineering team.",
+      "linkPrimary": "MINY robot specifications",
+      "linkPrimaryHref": "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
+      "linkSecondary": "India cleaning service (utility)",
+      "linkSecondaryHref": "/solar-panel-cleaning-service-india"
+    },
+    "faq": {
+      "heading": "Rooftop solar cleaning robot — FAQ",
+      "subheading": "Questions from C&I solar owners and facility managers.",
+      "q0": "What is the best solar cleaning robot for rooftop installations?",
+      "a0": "Taypro MINY is designed specifically for commercial and industrial rooftops — compact, waterless, and autonomous. For scattered multi-block C&I portfolios, HELYX semi-automatic may be more economical.",
+      "q1": "Can GLYDE or NYUMA clean rooftop solar panels?",
+      "a1": "GLYDE and NYUMA are engineered for ground-mount utility rows. They are typically too large for standard commercial rooftop access. MINY is the recommended Taypro product for rooftop buyer intent.",
+      "q2": "What rooftop sizes qualify for MINY?",
+      "a2": "MINY targets commercial rooftops from roughly 500 kW to 5 MW depending on row geometry and access. Contact Taypro for a site-specific feasibility review.",
+      "q3": "Does rooftop robotic cleaning use water?",
+      "a3": "No. Taypro robots use waterless dry cleaning — important for buildings with runoff restrictions and water-scarce locations.",
+      "q4": "Is MINY available in India now?",
+      "a4": "MINY is on Taypro's product roadmap with early-access deployments. Register interest on the MINY product page for commercial availability in your region.",
+      "q5": "How much does a rooftop cleaning robot cost?",
+      "a5": "Rooftop robot economics differ from utility CAPEX bands. Request a quote through the MINY product page or contact form with your array size and location.",
+      "q6": "Can Taypro provide managed cleaning on rooftops?",
+      "a6": "Taypro OPEX is primarily engineered for utility-scale ground-mount plants. Smaller C&I sites may qualify for robot CAPEX or HELYX programmes after feasibility review.",
+      "q7": "How do I get started?",
+      "a7": "Share rooftop capacity, building type, access constraints, and photos of the array layout. Taypro will recommend MINY, HELYX, or alternative approaches.",
+      "q8": "What building types use rooftop cleaning robots in India?",
+      "a8": "Warehouses, logistics parks, manufacturing facilities, shopping malls, and institutional campuses with 500 kW+ rooftop arrays are primary adopters.",
+      "q9": "Can MINY clean around rooftop obstacles?",
+      "a9": "Feasibility depends on row layout, gap widths, and safety zones. Taypro maps paths during site assessment — irregular arrays may need HELYX pick-and-place instead.",
+      "q10": "Is wet cleaning ever used on rooftops?",
+      "a10": "Taypro robots are waterless by design — avoiding runoff, load addition, and building code issues common with pressure washing.",
+      "q11": "How does rooftop robot ROI compare to manual cleaning?",
+      "a11": "Manual rooftop cleaning requires safety harness crews, insurance, and building access coordination — often more expensive per kW than ground-mount manual. Run the ROI calculator with your tariff and soiling rate."
+    },
+    "cta": {
+      "heading": "Assess your rooftop for robotic cleaning",
+      "body": "Tell us about your commercial rooftop array. Taypro will recommend the right compact robot or alternative approach.",
+      "primary": "MINY product page",
+      "primaryHref": "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
+      "secondary": "Contact Taypro",
+      "secondaryHref": "/contact"
+    },
+    "related": {
+      "label": "Related:",
+      "link0": "HELYX semi-automatic robot",
+      "link0Href": "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
+      "link1": "Utility cleaning service",
+      "link1Href": "/solar-panel-cleaning-service-india",
+      "link2": "Robot hub",
+      "link2Href": "/solar-panel-cleaning-system"
+    },
+    "quoteForm": {
+      "eyebrow": "Rooftop inquiry",
+      "title": "Request rooftop cleaning robot assessment",
+      "placeholder": "Rooftop capacity (kW/MW), building type, city, access constraints (lift size, stairs), and array layout."
+    },
+    "stats": {
+      "eyebrow": "Rooftop segment",
+      "heading": "Commercial rooftop solar cleaning — market context",
+      "card0": {
+        "tag": "Segment",
+        "stat": "C&I",
+        "label": "Warehouses, factories, malls",
+        "body": "India's C&I rooftop solar exceeds 20 GW — most arrays are 500 kW to 5 MW where compact robots beat utility-scale machines."
+      },
+      "card1": {
+        "tag": "Access",
+        "stat": "Compact",
+        "label": "MINY form factor",
+        "body": "Designed for freight lifts and narrow roof hatches — GLYDE-class robots cannot mobilise on typical commercial rooftops."
+      },
+      "card2": {
+        "tag": "Water",
+        "stat": "Zero",
+        "label": "Waterless dry cleaning",
+        "body": "Building codes and runoff restrictions often prohibit wet-wash on industrial rooftops."
+      },
+      "card3": {
+        "tag": "Alternative",
+        "stat": "HELYX",
+        "label": "Multi-block C&I portfolios",
+        "body": "Semi-automatic pick-and-place for scattered blocks where full autonomy is not economical."
+      }
+    },
+    "steps": {
+      "eyebrow": "Rooftop assessment",
+      "heading": "How to evaluate a rooftop solar cleaning robot",
+      "step0Title": "Document array layout and access",
+      "step0Body": "Share kW/MW capacity, row length, tilt, lift dimensions, stair access, and photos. Taypro determines MINY vs HELYX feasibility.",
+      "step1Title": "Roof load and safety review",
+      "step1Body": "Structural and safety constraints verified before robot deployment. Not every rooftop qualifies — Taypro advises honestly.",
+      "step2Title": "Robot specification and quote",
+      "step2Body": "MINY compact robot for autonomous rows, or HELYX for pick-and-place scattered blocks. NECTYR optional for multi-site portfolios.",
+      "step3Title": "Commissioning and operator training",
+      "step3Body": "On-site training for building facilities team or Taypro operator placement depending on commercial model.",
+      "step4Title": "Scheduled cleaning cycles",
+      "step4Body": "Typically 2–6 dry cycles monthly for urban C&I soiling — adjusted after first month PR observation."
+    },
+    "eligibility": {
+      "eyebrow": "Fit guide",
+      "title": "Is a rooftop cleaning robot right for your building?",
+      "forTitle": "Good fit",
+      "for0": "Commercial/industrial rooftops 500 kW–5 MW with regular row geometry",
+      "for1": "Warehouses, manufacturing plants, logistics parks with night cleaning windows",
+      "for2": "Buildings prohibiting wet-wash runoff or water tanker access",
+      "for3": "C&I developers managing multi-site portfolios needing NECTYR reporting",
+      "notForTitle": "Not ideal",
+      "not0": "Ground-mount utility plants (use GLYDE, GLYDE-X, or NYUMA instead)",
+      "not1": "Roofs failing structural or access feasibility review",
+      "not2": "Single small arrays where manual cleaning cost is already negligible"
+    },
+    "highlight": {
+      "heading": "Utility robots do not fit warehouse roofs.",
+      "lead": "Rooftop buyer intent needs a compact solar cleaning robot — not a repackaged ground-mount GLYDE.",
+      "body": "Taypro MINY is purpose-built for commercial rooftop solar in India. HELYX covers scattered multi-block C&I where pick-and-place beats full autonomy."
+    },
+    "proseSecondary": {
+      "eyebrow": "Commercial use cases",
+      "heading": "Commercial rooftop solar cleaning — warehouses, factories, and industrial parks",
+      "p1": "Warehouse operators with 1–3 MW flat roofs face the same soiling losses as utility plants — but cannot deploy 300 kg ground-mount robots through a freight lift. MINY-class compact robots address access, row length, and waterless constraints simultaneously.",
+      "p2": "Manufacturing plants with partial shading, HVAC exhaust, and bird activity need higher cleaning cadence than annual manual washes. Autonomous night cycles maintain PR without disrupting daytime logistics.",
+      "p3": "For multi-building C&I portfolios, NECTYR schedules robots across sites and exports cleaning evidence for sustainability reporting and O&M audits.",
+      "linkPrimary": "MINY robot specifications",
+      "linkPrimaryHref": "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
+      "linkSecondary": "Utility-scale cleaning service",
+      "linkSecondaryHref": "/solar-panel-cleaning-service-india"
+    },
+    "resources": {
+      "eyebrow": "Rooftop guides",
+      "heading": "Related resources",
+      "link0Title": "HELYX semi-automatic robot",
+      "link0Href": "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
+      "link1Title": "Robot price guide India",
+      "link1Href": "/solar-panel-cleaning-robot-price-india",
+      "link2Title": "ROI calculator",
+      "link2Href": "/solar-panel-cleaning-robot-price-calculator"
+    }
+  }
+}

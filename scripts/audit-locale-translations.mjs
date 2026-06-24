@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Thorough locale translation audit vs English.
- * Usage: node scripts/audit-locale-translations.mjs
+ * Threshold matches {@link LOCALE_TRANSLATION_STRICT_PCT} in locale-page-quality.ts (weighted hero/prose/meta paths).
  */
 import { readFileSync, readdirSync, existsSync } from "fs";
 import { join } from "path";

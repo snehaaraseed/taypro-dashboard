@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { checkApiRateLimit } from "@/app/utils/rateLimit";
 import { createJobApplicant, uploadResume } from "@/lib/erpnext/job-applicant";
 import { ErpNextError } from "@/lib/erpnext/client";
+import { getJobOpeningByName } from "@/lib/erpnext/job-openings";
 import { validateResumeFile } from "@/lib/erpnext/resume-validation";
 
 const MAX_FIELD_LENGTH = 200;
@@ -54,6 +55,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const openJob = await getJobOpeningByName(jobOpening, true);
+    if (!openJob) {
+      return NextResponse.json(
+        {
+          success: false,
+          message:
+            "This position is no longer accepting applications. Browse open roles on our careers page.",
+        },
+        { status: 410 }
+      );
+    }
+
     if (!(resume instanceof File)) {
       return NextResponse.json(
         { success: false, message: "Please attach your resume." },
@@ -71,7 +84,7 @@ export async function POST(request: NextRequest) {
 
     const resumeUrl = await uploadResume(resume, resume.name);
     const applicantId = await createJobApplicant({
-      jobOpeningName: jobOpening,
+      jobOpeningName: openJob.name,
       name,
       email,
       phone,

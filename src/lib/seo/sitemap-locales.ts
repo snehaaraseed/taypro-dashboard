@@ -3,6 +3,7 @@ import { join } from "path";
 import { ACTIVE_LOCALES, type TayproLocale } from "@/i18n/markets";
 import { routing } from "@/i18n/routing";
 import { normalizeInternalPath } from "./locale-alternates";
+import { getTranslatedLocalesForModule } from "./locale-page-quality";
 
 function resolveMessagesPagesRoot(): string {
   const candidates = [
@@ -48,6 +49,22 @@ const ROUTE_MESSAGE_MODULE: Record<string, string> = {
   "/solar-panel-cleaning-robot-price-india": "robot-price-india",
   "/solar-panel-cleaning-robot-price-calculator": "price-calculator",
   "/utility-scale-solar-operations": "utility-operations",
+  "/solar-panel-cleaning-service-india": "solar-panel-cleaning-service-india",
+  "/solar-om-services": "solar-om-services",
+  "/solar-cleaning-opex-pricing": "solar-cleaning-opex-pricing",
+  "/solar-panel-cleaning-robot-for-rooftop":
+    "solar-panel-cleaning-robot-for-rooftop",
+  "/solar-panel-cleaning-robot-for-trackers":
+    "solar-panel-cleaning-robot-for-trackers",
+  "/solar-fleet-monitoring-software": "solar-fleet-monitoring-software",
+  "/large-scale-solar-panel-cleaning": "large-scale-solar-panel-cleaning",
+  "/solar-cleaning-capex-vs-opex": "solar-cleaning-capex-vs-opex",
+  "/solar-panel-soiling-loss-calculator": "solar-panel-soiling-loss-calculator",
+  "/solar-cleaning-robot-manufacturer-india":
+    "solar-cleaning-robot-manufacturer-india",
+  "/solar-plant-data-intelligence": "solar-plant-data-intelligence",
+  "/enterprise-solar-cleaning-partnership":
+    "enterprise-solar-cleaning-partnership",
   "/cleaning-technology": "cleaning-technology",
   "/technology/ai-intelligence": "ai-intelligence",
   "/solar-panel-cleaning-machine": "cleaning-machine",
@@ -76,7 +93,7 @@ function hasDedicatedPageMessages(
   locale: TayproLocale,
   module: string
 ): boolean {
-  return existsSync(join(MESSAGES_PAGES_ROOT, locale, `${module}.json`));
+  return getTranslatedLocalesForModule(module).includes(locale);
 }
 
 const dedicatedLocalesCache = new Map<string, TayproLocale[]>();

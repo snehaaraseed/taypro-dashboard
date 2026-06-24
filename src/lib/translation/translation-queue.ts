@@ -10,6 +10,7 @@ import {
   getDailyTranslationSplitPerType,
   getTranslationRetry503Ms,
   getTranslationRetryErrorMs,
+  isCmsTranslationDisabled,
   SOURCE_LOCALE,
   TARGET_LOCALES,
 } from "./config";
@@ -528,6 +529,12 @@ export async function processDailyTranslations(options?: {
 }): Promise<ProcessDailyTranslationsResult> {
   const catchup = options?.catchup === true;
   const log = options?.log;
+
+  if (isCmsTranslationDisabled()) {
+    log?.("skip", { reason: "cms_translation_disabled" });
+    return emptyCatchupTranslationResult();
+  }
+
   let catchupLockHeld = false;
 
   if (catchup) {

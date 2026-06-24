@@ -22,10 +22,20 @@ const OPEN_FILTERS: [string, string, string | number][] = [
   ["status", "=", "Open"],
 ];
 
-function buildListQuery(extraFilters: [string, string, string | number][] = []) {
-  const filters = JSON.stringify([...OPEN_FILTERS, ...extraFilters]);
+function buildListQuery(
+  extraFilters: [string, string, string | number][] = [],
+  options?: { openOnly?: boolean }
+) {
+  const openOnly = options?.openOnly !== false;
+  const filters = JSON.stringify(
+    openOnly ? [...OPEN_FILTERS, ...extraFilters] : extraFilters
+  );
   const fields = JSON.stringify([...JOB_OPENING_FIELDS]);
   return `/api/resource/Job Opening?filters=${encodeURIComponent(filters)}&fields=${encodeURIComponent(fields)}&limit_page_length=100&order_by=posted_on desc`;
+}
+
+export function isJobOpeningOpen(job: JobOpening): boolean {
+  return job.status?.trim().toLowerCase() === "open";
 }
 
 const fetchOptions = {
@@ -40,21 +50,51 @@ export async function listOpenJobOpenings(): Promise<JobOpening[]> {
   return result.data ?? [];
 }
 
-export async function getJobOpeningByRoute(route: string): Promise<JobOpening | null> {
+async function fetchJobOpeningByRouteKey(
+  route: string,
+  openOnly: boolean
+): Promise<JobOpening | null> {
   const normalized = route.trim();
   if (!normalized) return null;
 
+  const queryOptions = { openOnly };
+
   const byRoute = await erpnextFetch<FrappeListResponse<JobOpening>>(
-    buildListQuery([["route", "=", normalized]]),
+    buildListQuery([["route", "=", normalized]], queryOptions),
     fetchOptions
   );
   if (byRoute.data?.[0]) return byRoute.data[0];
 
   const byName = await erpnextFetch<FrappeListResponse<JobOpening>>(
-    buildListQuery([["name", "=", normalized]]),
+    buildListQuery([["name", "=", normalized]], queryOptions),
     fetchOptions
   );
   return byName.data?.[0] ?? null;
+}
+
+export async function getJobOpeningByRoute(route: string): Promise<JobOpening | null> {
+  return fetchJobOpeningByRouteKey(route, true);
+}
+
+/** Includes filled/closed roles — used for redirects off stale job URLs. */
+export async function getJobOpeningByRouteAnyStatus(
+  route: string
+): Promise<JobOpening | null> {
+  return fetchJobOpeningByRouteKey(route, false);
+}
+
+export async function getJobOpeningByName(
+  name: string,
+  openOnly = true
+): Promise<JobOpening | null> {
+  const normalized = name.trim();
+  if (!normalized) return null;
+
+  const result = await erpnextFetch<FrappeListResponse<JobOpening>>(
+    buildListQuery([["name", "=", normalized]], { openOnly }),
+    fetchOptions
+  );
+  return result.data?.[0] ?? null;
 }
 
 export function jobOpeningSlug(job: JobOpening): string {

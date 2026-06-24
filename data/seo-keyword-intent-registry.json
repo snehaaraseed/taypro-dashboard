@@ -334,7 +334,7 @@
         "angleId": "legacy-how_does_a_solar_panel_cleaning_",
         "archetype": null,
         "title": "How Does A Solar Panel Cleaning Robot Work? ",
-        "slug": "how-does-a-solar-panel-cleaning-robot-work-",
+        "slug": "how-does-a-solar-panel-cleaning-robot-work",
         "slotKey": "solar panel cleaning robot::legacy-how_does_a_solar_panel_cleaning_",
         "writtenAt": "2025-10-16T11:34:51.130Z",
         "source": "backfill"
@@ -732,17 +732,6 @@
         "slotKey": "solar panels::default-guide",
         "writtenAt": "2025-10-16T11:42:43.909Z",
         "source": "backfill"
-      },
-      {
-        "intentFamily": "technical_howto",
-        "subAngle": "legacy_what_are_the_different_types_of",
-        "angleId": "legacy-what_are_the_different_types_of_",
-        "archetype": null,
-        "title": "What Are The Different Types Of Solar Panels",
-        "slug": "what-are-the-different-types-of-solar-panels",
-        "slotKey": "solar panels::legacy-what_are_the_different_types_of_",
-        "writtenAt": "2025-10-16T10:58:55.625Z",
-        "source": "backfill"
       }
     ],
     "solar panel efficiency utility scale": [
@@ -755,19 +744,6 @@
         "slug": "what-is-solar-panel-efficiency",
         "slotKey": "solar panel efficiency utility scale::default-guide",
         "writtenAt": "2025-10-16T11:20:32.129Z",
-        "source": "manual"
-      }
-    ],
-    "solar panel efficiency 2026 india": [
-      {
-        "intentFamily": "technical_howto",
-        "subAngle": "default_guide",
-        "angleId": "default-guide",
-        "archetype": null,
-        "title": "Solar Panel Efficiency Benchmarks for Indian MW Plants in 2026",
-        "slug": "what-is-the-solar-panel-efficiency-in-2025",
-        "slotKey": "solar panel efficiency 2026 india::default-guide",
-        "writtenAt": "2025-10-16T11:21:46.545Z",
         "source": "manual"
       }
     ],

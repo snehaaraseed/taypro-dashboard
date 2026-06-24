@@ -41,7 +41,7 @@ const TOPIC_CLOSINGS = {
     "<p>Validate dust forecasts against your on-site reference modules each season. Regional models improve when local soiling data feeds back into scheduling rules.</p>",
   "how-are-pv-panel-cleaning-robots-installed":
     "<p>Freeze as-built robot routes in the handover pack before warranty period ends on the install contract. Route drift after vegetation growth is a common year-two failure mode.</p>",
-  "how-does-a-solar-panel-cleaning-robot-work-":
+  "how-does-a-solar-panel-cleaning-robot-work":
     "<p>Walk one full row with operators during night commissioning. Understanding abort codes on site prevents silent partial coverage after the vendor leaves.</p>",
   "how-does-cleaning-a-solar-panel-increase-efficiency":
     "<p>Separate cell efficiency from soiling loss in every board report. Cleaning recovers transmission; it does not change module nameplate efficiency.</p>",

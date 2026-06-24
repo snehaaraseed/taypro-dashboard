@@ -772,6 +772,54 @@
         "projects": {
           "label": "全プロジェクト",
           "description": "インド132+ユーティリティ事例"
+        },
+        "serviceIndia": {
+          "label": "清掃サービス インド",
+          "description": "全国OPEX/CAPEX、9GW超"
+        },
+        "omServices": {
+          "label": "ソーラーO&M",
+          "description": "清掃+NECTYR+ORION"
+        },
+        "opexPricing": {
+          "label": "OPEX価格",
+          "description": "MW当たりコスト"
+        },
+        "rooftopGuide": {
+          "label": "屋根清掃ロボット",
+          "description": "C&I向けMINY"
+        },
+        "trackerGuide": {
+          "label": "トラッカー清掃ロボット",
+          "description": "GLYDE-X・NYUMA-X"
+        },
+        "fleetSoftware": {
+          "label": "フリート監視ソフト",
+          "description": "NECTYR+ORION"
+        },
+        "largeScale": {
+          "label": "大規模清掃",
+          "description": "50–500MW展開"
+        },
+        "capexVsOpex": {
+          "label": "CAPEX vs OPEX",
+          "description": "ロボット購入 vs 管理サービス"
+        },
+        "soilingCalculator": {
+          "label": "汚損損失計算機",
+          "description": "MWhと収益損失の見積もり"
+        },
+        "manufacturerIndia": {
+          "label": "インド製ロボットメーカー",
+          "description": "Made-in-India OEM評価"
+        },
+        "plantData": {
+          "label": "プラントデータインテリジェンス",
+          "description": "NECTYR + ORION"
+        },
+        "enterprisePartnership": {
+          "label": "エンタープライズパートナーシップ",
+          "description": "複数サイトIPP契約"
         }
       }
     },

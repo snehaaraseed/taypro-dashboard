@@ -145,6 +145,12 @@ function parsePositiveInt(
   return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
 }
 
+/** Pause all automated CMS translation (cron / post-writer). Set CMS_TRANSLATION_DISABLED=1. */
+export function isCmsTranslationDisabled(): boolean {
+  const raw = process.env.CMS_TRANSLATION_DISABLED?.trim().toLowerCase();
+  return raw === "1" || raw === "true" || raw === "yes";
+}
+
 /** Max CMS items (blogs + projects) to translate per daily cron run. */
 export function getDailyTranslationMaxPerDay(): number {
   const unified = process.env.CMS_TRANSLATION_MAX_PER_DAY?.trim();

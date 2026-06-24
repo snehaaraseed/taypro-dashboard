@@ -306,7 +306,48 @@ const nextConfig = {
           "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates",
         permanent: true,
       },
-      // Blog slug collision: wrong slug pointed at "installed" post
+      {
+        source: "/solar-panel-cleaning-system/",
+        destination: "/solar-panel-cleaning-system",
+        permanent: true,
+      },
+      // Legacy WordPress / truncated blog slugs → canonical CMS slugs
+      {
+        source: "/renewable-energy/:path*",
+        destination: "/blog/:path*",
+        permanent: true,
+      },
+      {
+        source: "/blog/what-is-solar-panel-cleaning",
+        destination:
+          "/blog/what-is-solar-panel-cleaning-why-is-it-necessary-to-clean-solar-panels",
+        permanent: true,
+      },
+      {
+        source:
+          "/blog/the-importance-of-regular-solar-panel-cleaning-for-efficiency",
+        destination:
+          "/blog/the-crucial-role-of-regular-solar-panel-cleaning-for-efficiency-keeping-performance-high-in-a-dusty-world",
+        permanent: true,
+      },
+      {
+        source:
+          "/blog/5-signs-your-solar-plant-needs-automated-cleaning-before-revenue-drops",
+        destination:
+          "/blog/5-signs-your-solar-plant-needs-automated-cleaning-before-revenue-starts-dropping",
+        permanent: true,
+      },
+      {
+        source: "/blog/what-are-the-different-types-of-solar-panels-2",
+        destination: "/blog/what-are-the-different-types-of-solar-panels",
+        permanent: true,
+      },
+      {
+        source: "/blog/what-are-the-best-practices-of-cleaning-solar-pane",
+        destination: "/blog/what-are-the-best-practices-of-cleaning-solar-panels",
+        permanent: true,
+      },
+      // Trailing-dash legacy slug (CMS canonical is without dash)
       {
         source: "/blog/how-does-a-solar-panel-cleaning-robot-work-",
         destination: "/blog/how-does-a-solar-panel-cleaning-robot-work",
@@ -317,6 +358,12 @@ const nextConfig = {
         destination: "/blog/how-does-a-solar-panel-cleaning-robot-work",
         permanent: true,
       },
+      // SEO-020: blog cannibalization pairs → canonical winners
+      {
+        source: "/blog/what-is-the-solar-panel-efficiency-in-2025",
+        destination: "/blog/what-is-solar-panel-efficiency",
+        permanent: true,
+      },
       // Common price URL variants → guide vs calculator split
       {
         source: "/solar-panel-cleaning-robot-cost-india",
@@ -325,7 +372,63 @@ const nextConfig = {
       },
       {
         source: "/solar-panel-cleaning-cost",
-        destination: "/solar-panel-cleaning-robot-price-india",
+        destination: "/solar-cleaning-opex-pricing",
+        permanent: true,
+      },
+      // Buyer-intent landing page aliases (Tier 1 SEO)
+      {
+        source: "/solar-plant-om-company-india",
+        destination: "/solar-om-services",
+        permanent: true,
+      },
+      {
+        source: "/solar-panel-cleaning-service-cost",
+        destination: "/solar-cleaning-opex-pricing",
+        permanent: true,
+      },
+      {
+        source: "/solar-plant-performance-monitoring",
+        destination: "/solar-fleet-monitoring-software",
+        permanent: true,
+      },
+      {
+        source: "/mw-scale-solar-cleaning-robot",
+        destination: "/large-scale-solar-panel-cleaning",
+        permanent: true,
+      },
+      {
+        source: "/solar-cleaning-opex-pricings",
+        destination: "/solar-cleaning-opex-pricing",
+        permanent: true,
+      },
+      {
+        source: "/soiling-loss-calculator",
+        destination: "/solar-panel-soiling-loss-calculator",
+        permanent: true,
+      },
+      {
+        source: "/solar-panel-soiling-calculator",
+        destination: "/solar-panel-soiling-loss-calculator",
+        permanent: true,
+      },
+      {
+        source: "/solar-cleaning-capex-opex",
+        destination: "/solar-cleaning-capex-vs-opex",
+        permanent: true,
+      },
+      {
+        source: "/solar-cleaning-robot-manufacturer",
+        destination: "/solar-cleaning-robot-manufacturer-india",
+        permanent: true,
+      },
+      {
+        source: "/solar-plant-intelligence",
+        destination: "/solar-plant-data-intelligence",
+        permanent: true,
+      },
+      {
+        source: "/enterprise-solar-partnership",
+        destination: "/enterprise-solar-cleaning-partnership",
         permanent: true,
       },
       // CMS project slug aliases (duplicate imports → canonical URL)

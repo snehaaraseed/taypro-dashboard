@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
@@ -9,10 +9,13 @@ import CareersApplyForm from "@/app/components/CareersApplyForm";
 import {
   careersJobPath,
   getJobOpeningByRoute,
+  getJobOpeningByRouteAnyStatus,
+  isJobOpeningOpen,
   jobDisplayTitle,
   joinCareerSlugSegments,
 } from "@/lib/erpnext/job-openings";
 import { ErpNextError } from "@/lib/erpnext/client";
+import { JobPostingSchema } from "@/lib/seo/job-posting-schema";
 import { sanitizeBlogHtml } from "@/lib/security/sanitize-html";
 import { withHreflang } from "@/lib/seo/with-hreflang";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
@@ -28,6 +31,20 @@ function stripHtml(html: string): string {
   return html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 }
 
+async function resolveJobForRoute(routeKey: string) {
+  const openJob = await getJobOpeningByRoute(routeKey);
+  if (openJob) {
+    return { job: openJob, isOpen: true as const };
+  }
+
+  const anyStatusJob = await getJobOpeningByRouteAnyStatus(routeKey);
+  if (anyStatusJob && !isJobOpeningOpen(anyStatusJob)) {
+    return { job: anyStatusJob, isOpen: false as const };
+  }
+
+  return { job: null, isOpen: false as const };
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -38,8 +55,13 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "CareersPage.detail" });
 
   try {
-    const job = await getJobOpeningByRoute(routeKey);
+    const { job, isOpen } = await resolveJobForRoute(routeKey);
     if (!job) return {};
+    if (!isOpen) {
+      return {
+        robots: { index: false, follow: true },
+      };
+    }
 
     const title = jobDisplayTitle(job);
     const description =
@@ -73,10 +95,10 @@ export default async function CareersDetailPage({
   const t = await getTranslations({ locale, namespace: "CareersPage" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
 
-  let job: Awaited<ReturnType<typeof getJobOpeningByRoute>> = null;
+  let resolved: Awaited<ReturnType<typeof resolveJobForRoute>>;
 
   try {
-    job = await getJobOpeningByRoute(routeKey);
+    resolved = await resolveJobForRoute(routeKey);
   } catch (error) {
     if (error instanceof ErpNextError) {
       console.error("Careers detail ERPNext error:", error.message);
@@ -86,10 +108,15 @@ export default async function CareersDetailPage({
     notFound();
   }
 
-  if (!job) {
+  if (!resolved.job) {
     notFound();
   }
 
+  if (!resolved.isOpen) {
+    permanentRedirect("/careers");
+  }
+
+  const job = resolved.job;
   const title = jobDisplayTitle(job);
   const meta = [job.department, job.location, job.employment_type, job.company]
     .filter(Boolean)
@@ -104,9 +131,19 @@ export default async function CareersDetailPage({
   const descriptionHtml = job.description
     ? sanitizeBlogHtml(job.description)
     : "";
+  const plainDescription =
+    (job.description ? stripHtml(job.description) : null) ||
+    t("detail.metaDescriptionFallback", { title });
+  const jobUrl = `${SITE_URL}${careersJobPath(job)}`;
 
   return (
     <>
+      <JobPostingSchema
+        job={job}
+        description={plainDescription}
+        url={jobUrl}
+        siteUrl={SITE_URL}
+      />
       <Breadcrumbs items={breadcrumbs} />
 
       <section className="bg-[#052638] px-4 py-14 text-white sm:px-6 md:py-16">

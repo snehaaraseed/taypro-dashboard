@@ -1,0 +1,179 @@
+{
+  "SoilingLossCalculatorPage": {
+    "meta": {
+      "title": "ソーラーパネルの汚れによる損失の計算 インド | MWh と収益への影響",
+      "description": "インドの発電所向けの無料の太陽光汚れ損失計算ツール: 年間 MWh と MW までの粉塵による ₹ の損失、汚れの割合、料金を推定します。ラジャスタン州、グジャラート州、および典型的なインドの地域プリセット。",
+      "openGraphTitle": "太陽光による汚れ損失の計算 | Taypro",
+      "openGraphDescription": "清掃プログラムを選択する前に、パネルの汚れによって失われるエネルギーと収益を定量化します。これは、IPP および O&M チーム向けの指示ツールです。"
+    },
+    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHubHref": "/solar-panel-cleaning-system",
+    "breadcrumb": "Soiling loss calculator",
+    "schema": {
+      "name": "Taypro Solar Panel Soiling Loss Calculator",
+      "description": "Web calculator estimating annual MWh and revenue loss from solar panel soiling on Indian utility-scale plants.",
+      "applicationCategory": "BusinessApplication"
+    },
+    "hero": {
+      "eyebrow": "ツール・汚れの経済学",
+      "title": "ソーラーパネルの汚れによる損失の計算 - どのくらいのエネルギーを失っていますか?",
+      "subtitle": "ロボット CAPEX または OPEX を比較する前に、MWh と ₹ を定量化してください。プラント MW、汚れ損失 %、料金を入力します。インド固有の収量仮定 (1,500 kWh/kW 年 P50) を使用します。サイト固有の結果には汚れの調査が必要です。",
+      "ctaPrimary": "以下の計算機を使用してください",
+      "ctaPrimaryHref": "#soiling-calculator",
+      "ctaSecondary": "完全な ROI 計算機",
+      "ctaSecondaryHref": "/solar-panel-cleaning-robot-price-calculator#calculator"
+    },
+    "prose": {
+      "eyebrow": "なぜ最初に汚れを定量化するのか",
+      "heading": "汚れによる損失は、インドの発電所で制御可能な最大の収量漏洩である",
+      "p1": "洗濯がカレンダーに基づいている場合、汚れは使用可能な生産量を抑制します。業界の議論では、清掃が頻繁に行われない場合、ラジャスタン州、グジャラート州、およびその他の粉塵の多い地帯にある公益施設の発電所では、季節的に汚れがおよそ 8 ～ 25% 損失することが挙げられています。",
+      "p2": "西インドの乾季では、1 日あたり 0.3 ～ 0.5% の汚れ率が記録されています。 7 日間掃除をしなかった場合、3 ～ 5% の出力損失が発生する可能性があります。体系的な清掃を 90 日間行わないと、砂漠地帯では 15 ～ 25% に達する可能性があります。",
+      "p3": "この計算ツールは、MW 容量での年間発電量を推定し、汚れによる損失の仮定を適用し、料金を使用して損失 MWh を ₹ に変換します。これは清掃による回収をモデル化したものではありません。ロボット プログラムの回収には ROI 計算ツールを使用してください。",
+      "p4": "実際の損失は、傾き、トラッカーの動作、降水確率、塵の化学的性質によって異なります。 Taypro は、商業上の決定を拘束する前に、現場の汚れ調査を推奨しています。世代回復要求の定義方法については、パフォーマンス方法論を参照してください。",
+      "linkPrimary": "パフォーマンス方法論",
+      "linkPrimaryHref": "/performance-and-test-methodology",
+      "linkSecondary": "ラジャスタン州とグジャラート州の平均的な汚れ",
+      "linkSecondaryHref": "/blog/average-soiling-losses-in-high-dust-regions-of-india-rajasthan-gujarat"
+    },
+    "stats": {
+      "eyebrow": "インドのベンチマーク",
+      "heading": "汚れ損失参考値",
+      "card0": {
+        "tag": "日割り料金",
+        "stat": "0.3～0.5%",
+        "label": "西インドの乾季",
+        "body": "乾燥した施設の毎日の汚れを記録 - 砂嵐の後はさらに汚れが増える。"
+      },
+      "card1": {
+        "tag": "季節限定",
+        "stat": "8～25%",
+        "label": "体系的な清掃を行わないと",
+        "body": "洗浄頻度が低い場合のユーティリティ プラントの業界範囲。"
+      },
+      "card2": {
+        "tag": "例",
+        "stat": "21.6 GWh",
+        "label": "100 MW (12% 損失)",
+        "body": "年間発電量 1,500 kWh/kW で ~180 GWh、汚れ 12% = 21.6 GWh が回避されます。"
+      },
+      "card3": {
+        "tag": "収益",
+        "stat": "¥7.6クロム",
+        "label": "₹3.50/kWh",
+        "body": "上記の例では、100 MW / 12% の年間収益損失を示しています。"
+      }
+    },
+    "soilingCalculator": {
+      "eyebrow": "Interactive tool",
+      "heading": "Estimate your annual soiling loss",
+      "subheading": "Directional only — not a guarantee of recoverable MWh. Defaults use India market yield (1,500 kWh/kW-year).",
+      "disclaimer": "Results are illustrative. Site-specific soiling studies, PR baselines, and weather normalization are required for investment-grade models. See performance methodology."
+    },
+    "soilingTool": {
+      "capacityLabel": "Plant capacity (MW)",
+      "soilingLabel": "Annual soiling loss (%)",
+      "soilingHint": "share of annual generation lost to dust",
+      "tariffLabel": "Electricity tariff (₹/kWh)",
+      "tariffHint": "PPA, merchant, or blended portfolio rate",
+      "presetLow": "Low dust",
+      "presetTypical": "Typical India",
+      "presetHigh": "Rajasthan/Gujarat",
+      "resultsHeading": "Estimated annual impact",
+      "annualGeneration": "Annual generation",
+      "annualLoss": "Energy lost to soiling",
+      "annualRevenueLoss": "Revenue foregone",
+      "monthlyRevenueLoss": "Monthly revenue foregone",
+      "disclaimer": "Directional estimate only. Does not include cleaning recovery, inverter clipping, or curtailment.",
+      "ctaRoi": "Model cleaning payback",
+      "ctaStudy": "Request soiling study"
+    },
+    "steps": {
+      "eyebrow": "How to use results",
+      "heading": "From soiling estimate to cleaning decision",
+      "subheading": "Four steps O&M teams take after quantifying dust loss.",
+      "step0Title": "Set realistic soiling %",
+      "step0Body": "Use regional presets or PR data. High-dust Rajasthan/Gujarat sites often model 15–25%; milder regions 5–12%.",
+      "step1Title": "Convert MWh to ₹ at your tariff",
+      "step1Body": "Apply PPA, merchant, or blended ₹/kWh. This is the annual value at risk from dust — not yet net of cleaning cost.",
+      "step2Title": "Compare cleaning programme cost",
+      "step2Body": "Run the ROI calculator with CAPEX or OPEX. Compare recovered MWh value vs cleaning TCO over 5 years.",
+      "step3Title": "Validate with site study",
+      "step3Body": "Taypro engineers assess dust sources, cycle count, and robot model before binding commercial terms.",
+      "step4Title": "Track PR recovery in NECTYR",
+      "step4Body": "Correlate cleaning cycles with block-level PR trends — closing the SCADA blind spot on field action."
+    },
+    "highlight": {
+      "heading": "The O&M question",
+      "lead": "Do you know your annual ₹ at risk from dust?",
+      "body": "Many plants model inverter availability but not soiling loss in ₹. This calculator gives a directional starting point before RFQ and ROI modelling."
+    },
+    "proseSecondary": {
+      "eyebrow": "地域的背景",
+      "heading": "汚れの化学的性質はインドの州によって異なります",
+      "p1": "ラジャスタン州とグジャラート州では、ルースシリカとセメント質のフィルムが見られます。ドライブラシによるロボット清掃が適しています。タミル・ナドゥ州とアーンドラ・プラデーシュ州の沿岸部では、塩分エアロゾルが発生します。メトロに隣接する工場は、付着力の異なるすすや PM2.5 に直面しています。",
+      "p2": "農業に隣接する場所では、10 月から 11 月にかけて収穫粉塵が急増します。モンスーンの雨はモジュールをリセットする可能性がありますが、モンスーン前の砂塵の季節は年間損失が最も大きくなることがよくあります。",
+      "p3": "毎週手作業で清掃すると、年間 3 ～ 6% の損失が残る可能性があります。最適化された毎日のロボット プログラムは、現場での議論で 2% 未満を目標としていますが、常に現場に依存します。",
+      "linkPrimary": "インドにおける季節による汚れの変化",
+      "linkPrimaryHref": "/blog/seasonal-variation-in-soiling-rates-and-energy-yield-loss-in-india",
+      "linkSecondary": "洗浄技術ガイド",
+      "linkSecondaryHref": "/cleaning-technology"
+    },
+    "resources": {
+      "eyebrow": "Research",
+      "heading": "Soiling loss articles and tools",
+      "link0Title": "Soiling losses in Rajasthan & Gujarat",
+      "link0Href": "/blog/average-soiling-losses-in-high-dust-regions-of-india-rajasthan-gujarat",
+      "link1Title": "Seasonal soiling variation in India",
+      "link1Href": "/blog/seasonal-variation-in-soiling-rates-and-energy-yield-loss-in-india",
+      "link2Title": "Carbon value of lost solar energy from soiling",
+      "link2Href": "/blog/leveraging-carbon-pricing-for-environmental-and-economic-sustainability"
+    },
+    "faq": {
+      "heading": "太陽光による汚れ損失計算ツール — FAQ",
+      "subheading": "結果を解釈する方法と次のステップ。",
+      "q0": "年間発電量はどのように計算されますか?",
+      "a0": "プラント MW × 1,000 kW × 特定発電量 (インド P50 のデフォルトは 1,500 kWh/kW 年)。料金を調整する。サイト固有の調査を要求しない限り、収量は一定に保たれます。",
+      "q1": "どのくらいの汚れ率を使用すればよいですか?",
+      "a1": "PR の履歴または地域のベンチマークを使用します: 5 ～ 8% 軽度、8 ～ 15% の典型的な公共事業インド、15 ～ 25% 粉塵の多いラジャスタン/グジャラート州 (頻繁な清掃なし)。",
+      "q2": "これは洗浄後にエネルギーを回収できることを示していますか?",
+      "a2": "いいえ。粉塵による損失のみを推定しています。 ROI 計算ツールを使用して、洗浄コストと回収された MWh をモデル化します。",
+      "q3": "これはロボット価格計算機と同じですか?",
+      "a3": "いいえ。このツールは汚れの損失を定量化します。価格計算ツールは、ロボット CAPEX/OPEX の 20 年間の投資回収をモデル化します。",
+      "q4": "汚れはPRとどのように関係しますか?",
+      "a4": "汚れはPRを抑制します。 SCADA は損失後の kWh を示します。この計算機は、想定される汚れ % を MWh と ₹ のリスクに変換します。",
+      "q5": "掃除が経済的ではないのはどのような場合ですか?",
+      "a5": "汚れの損失が約 1.5 ～ 2% 未満で、洗浄コストが回収 PPA 値を超える場合 - 穏やかな場所や大雨の季節によく見られます。",
+      "q6": "どの料金表を入力すればよいですか?",
+      "a6": "有効な ₹/kWh を使用します: PPA レート、加盟店獲得率、または混合ポートフォリオの平均。",
+      "q7": "屋上植物でも使用できますか？",
+      "a7": "はい、ただし、屋上では収量の想定が異なります。ユーティリティの地上設置のデフォルトは、~1 MW 以上で最も正確です。",
+      "q8": "ラジャスタン州でモジュールを清掃する頻度はどれくらいですか?",
+      "a8": "多くのユーティリティ プログラムは、乾季に毎月 3 ～ 10 回の乾燥サイクルを実行します。汚れの調査により、適切な頻度が設定されます。",
+      "q9": "方法論の免責事項はどこにありますか?",
+      "a9": "Taypro で塵の除去と生成の回復に関する主張がどのように定義されているかについては、/performance-and-test-methodology を参照してください。",
+      "q10": "Taypro は私の仮定を検証できますか?",
+      "a10": "はい。清掃契約を結ぶ前に、現場の汚れ調査と技術レビューを依頼してください。",
+      "q11": "汚れは炭素報告に影響しますか?",
+      "a11": "汚れによるMWhの損失により、回避可能な排出量が減少します。ポートフォリオの枠組みについては、炭素/汚れに関するブログをご覧ください。"
+    },
+    "cta": {
+      "heading": "Know your loss — then model the fix",
+      "body": "Use the ROI calculator to compare cleaning programme economics, or contact Taypro for a site soiling study.",
+      "primary": "ROI calculator",
+      "primaryHref": "/solar-panel-cleaning-robot-price-calculator#calculator",
+      "secondary": "Request soiling study",
+      "secondaryHref": "/contact"
+    },
+    "related": {
+      "label": "Related:",
+      "link0": "CAPEX vs OPEX guide",
+      "link0Href": "/solar-cleaning-capex-vs-opex",
+      "link1": "OPEX pricing",
+      "link1Href": "/solar-cleaning-opex-pricing",
+      "link2": "ROI calculator",
+      "link2Href": "/solar-panel-cleaning-robot-price-calculator",
+      "link3": "Utility operations guide",
+      "link3Href": "/utility-scale-solar-operations"
+    }
+  }
+}

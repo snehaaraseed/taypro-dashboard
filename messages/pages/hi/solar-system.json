@@ -772,6 +772,54 @@
         "projects": {
           "label": "सभी प्रोजेक्ट",
           "description": "भारत में 132+ यूटिलिटी केस स्टडी"
+        },
+        "serviceIndia": {
+          "label": "सफाई सेवा भारत",
+          "description": "राष्ट्रीय OPEX/CAPEX, 9 GW+ फ्लीट"
+        },
+        "omServices": {
+          "label": "सोलर O&M सेवाएँ",
+          "description": "सफाई + NECTYR + ORION"
+        },
+        "opexPricing": {
+          "label": "OPEX मूल्य",
+          "description": "प्रति MW और प्रति पैनल दरें"
+        },
+        "rooftopGuide": {
+          "label": "छत सफाई रोबोट",
+          "description": "C&I छतों के लिए MINY"
+        },
+        "trackerGuide": {
+          "label": "ट्रैकर सफाई रोबोट",
+          "description": "GLYDE-X, NYUMA-X, CRADYL"
+        },
+        "fleetSoftware": {
+          "label": "फ्लीट मॉनिटरिंग सॉफ्टवेयर",
+          "description": "NECTYR + ORION"
+        },
+        "largeScale": {
+          "label": "बड़े पैमाने पर सफाई",
+          "description": "50–500 MW तैनाती"
+        },
+        "capexVsOpex": {
+          "label": "CAPEX vs OPEX गाइड",
+          "description": "रोबोट खरीद vs प्रबंधित सेवा"
+        },
+        "soilingCalculator": {
+          "label": "सोइलिंग लॉस कैलकुलेटर",
+          "description": "धूल से MWh और ₹ हानि अनुमान"
+        },
+        "manufacturerIndia": {
+          "label": "रोबोट निर्माता भारत",
+          "description": "Made-in-India OEM मूल्यांकन"
+        },
+        "plantData": {
+          "label": "प्लांट डेटा इंटेलिजेंस",
+          "description": "NECTYR + ORION रोडमैप"
+        },
+        "enterprisePartnership": {
+          "label": "एंटरप्राइज़ साझेदारी",
+          "description": "बहु-साइट IPP अनुबंध"
         }
       }
     },

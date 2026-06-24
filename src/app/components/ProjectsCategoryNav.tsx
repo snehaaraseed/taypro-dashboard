@@ -16,13 +16,13 @@ const CATEGORY_LINKS: {
 
 type ProjectsCategoryNavProps = {
   active: ProjectCategoryFilter;
-  getLabel: (key: ProjectCategoryFilter) => string;
+  labels: Record<ProjectCategoryFilter, string>;
   hubLabel?: string;
 };
 
 export function ProjectsCategoryNav({
   active,
-  getLabel,
+  labels,
   hubLabel = "All projects",
 }: ProjectsCategoryNavProps) {
   const trackNav = (label: string, href: string) => {
@@ -47,7 +47,7 @@ export function ProjectsCategoryNav({
       </Link>
       {CATEGORY_LINKS.map(({ key, href }) => {
         const isActive = key === active;
-        const label = getLabel(key);
+        const label = labels[key];
         return (
           <Link
             key={key}

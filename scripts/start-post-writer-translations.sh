@@ -20,6 +20,11 @@ set -a
 source "$ENV_FILE"
 set +a
 
+if [ "${CMS_TRANSLATION_DISABLED:-}" = "1" ] || [ "${CMS_TRANSLATION_DISABLED:-}" = "true" ]; then
+  echo "$(date -Is) skip: CMS_TRANSLATION_DISABLED is set" >> "$LOG"
+  exit 0
+fi
+
 if [ -z "${AUTOMATION_CRON_SECRET:-}" ]; then
   echo "$(date -Is) ERROR: AUTOMATION_CRON_SECRET not set" >> "$LOG"
   exit 1

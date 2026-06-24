@@ -2,8 +2,7 @@ export type PressCoverageKind =
   | "interview"
   | "news"
   | "market"
-  | "award"
-  | "index";
+  | "award";
 
 export type PressCoverageItem = {
   title: string;
@@ -123,6 +122,26 @@ export const PRESS_COVERAGE: PressCoverageItem[] = [
   },
   {
     kind: "news",
+    title:
+      "Union Budget 2026-27 Unveils INR 20,000 Cr CCUS Plan, Customs Relief for Solar and Storage",
+    outlet: "Energetica India",
+    url: "https://www.energetica-india.net/news/union-budget-2026-27-unveils-inr-20000-cr-ccus-plan-customs-relief-for-solar-and-storage",
+    date: "2026-02",
+    summary:
+      "Post-budget industry reactions — Yogesh Kudale (Co-Founder & CEO, Taypro) on PFC/REC restructuring, the Infrastructure Risk Guarantee Fund, and transmission and green corridor investments.",
+  },
+  {
+    kind: "news",
+    title:
+      "Union Budget 2026: Industry Seeks Stronger Fiscal Support on Renewables, Storage and Domestic RE Manufacturing",
+    outlet: "Energetica India",
+    url: "https://www.energetica-india.net/news/union-budget-2026-industry-seeks-stronger-fiscal-support-on-renewables-storage-and-domestic-re-manufacturing",
+    date: "2026-01",
+    summary:
+      "Pre-budget roundup quoting Yogesh Kudale (Co-Founder & CEO, Taypro) on fiscal support needed to reach India's 500 GW renewable energy target.",
+  },
+  {
+    kind: "news",
     title: "Taypro Launches Movable Docking Station for Solar Cleaning Robots",
     outlet: "Energetica India",
     url: "https://www.energetica-india.net/news/taypro-launches-movable-docking-station-for-solar-cleaning-robots",
@@ -197,40 +216,6 @@ export const PRESS_COVERAGE: PressCoverageItem[] = [
     date: "2024-03",
     summary:
       "Company profile of Taypro and its waterless solar cleaning robots; founders Yogesh Kudale, Tejas Memane, Akshay Auti, and Abhishek Masurkar.",
-  },
-  {
-    kind: "index",
-    title: "Taypro — Mercom India tag",
-    outlet: "Mercom India",
-    url: "https://www.mercomindia.com/tag/taypro",
-    date: "",
-    summary: "Index of Mercom India articles mentioning Taypro and robotic solar cleaning.",
-  },
-  {
-    kind: "index",
-    title: "Robotic Cleaning of Solar Panels — Saur Energy tag",
-    outlet: "Saur Energy",
-    url: "https://www.saurenergy.com/tags/robotic-cleaning-of-solar-panels",
-    date: "",
-    summary:
-      "Saur Energy coverage tag linking to Taypro and robotic solar panel cleaning stories.",
-  },
-  {
-    kind: "index",
-    title: "TAYPRO — Energetica India keyword index",
-    outlet: "Energetica India",
-    url: "https://www.energetica-india.net/keyword/taypro",
-    date: "",
-    summary: "Energetica India articles indexed under the Taypro keyword.",
-  },
-  {
-    kind: "index",
-    title: "Energy — EPC World category",
-    outlet: "EPC World",
-    url: "https://www.epcworld.in/category/energy/",
-    date: "",
-    summary:
-      "EPC World energy section listing Taypro CEO coverage and solar O&M industry interviews.",
   },
 ];
 

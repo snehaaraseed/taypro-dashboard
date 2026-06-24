@@ -772,6 +772,54 @@
         "projects": {
           "label": "সব প্রকল্প",
           "description": "ভারতে 132+ ইউটিলিটি কেস স্টাডি"
+        },
+        "serviceIndia": {
+          "label": "পরিষ্কার সেবা ভারত",
+          "description": "জাতীয় OPEX/CAPEX, ৯ GW+"
+        },
+        "omServices": {
+          "label": "সোলার O&M সেবা",
+          "description": "পরিষ্কার + NECTYR + ORION"
+        },
+        "opexPricing": {
+          "label": "OPEX মূল্য",
+          "description": "প্রতি MW খরচ"
+        },
+        "rooftopGuide": {
+          "label": "ছাদ পরিষ্কার রোবোট",
+          "description": "C&I ছাদের জন্য MINY"
+        },
+        "trackerGuide": {
+          "label": "ট্র্যাকার পরিষ্কার রোবোট",
+          "description": "GLYDE-X, NYUMA-X"
+        },
+        "fleetSoftware": {
+          "label": "ফ্লিট মনিটরিং সফটওয়্যার",
+          "description": "NECTYR + ORION"
+        },
+        "largeScale": {
+          "label": "বৃহৎ আকারের পরিষ্কার",
+          "description": "৫০–৫০০ MW মোতায়েন"
+        },
+        "capexVsOpex": {
+          "label": "CAPEX vs OPEX গাইড",
+          "description": "রোবট ক্রয় বনাম পরিচালিত সেবা"
+        },
+        "soilingCalculator": {
+          "label": "সোইলিং লস ক্যালকুলেটর",
+          "description": "ধূলো থেকে MWh ও ₹ ক্ষতি"
+        },
+        "manufacturerIndia": {
+          "label": "রোবট প্রস্তুতকারক ভারত",
+          "description": "Made-in-India OEM মূল্যায়ন"
+        },
+        "plantData": {
+          "label": "প্ল্যান্ট ডেটা ইন্টেলিজেন্স",
+          "description": "NECTYR + ORION"
+        },
+        "enterprisePartnership": {
+          "label": "এন্টারপ্রাইজ পার্টনারশিপ",
+          "description": "বহু-সাইট IPP চুক্তি"
         }
       }
     },

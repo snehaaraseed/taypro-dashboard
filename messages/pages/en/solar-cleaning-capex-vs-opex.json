@@ -1,0 +1,234 @@
+{
+  "SolarCleaningCapexVsOpexPage": {
+    "meta": {
+      "title": "Solar Cleaning CAPEX vs OPEX India | Robot Buy vs Managed Service",
+      "description": "CAPEX vs OPEX for solar panel cleaning in India: when IPPs buy robots vs contract Taypro OPEX, 25–100 MW portfolio framing, TCO comparison, and ROI calculator.",
+      "openGraphTitle": "Solar Cleaning CAPEX vs OPEX | Taypro India",
+      "openGraphDescription": "Decision guide for utility solar: robot CAPEX + AMC vs pay-per-panel OPEX — balance sheet, mobilisation, audit, and 20-year TCO."
+    },
+    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHubHref": "/solar-panel-cleaning-system",
+    "breadcrumb": "Solar cleaning CAPEX vs OPEX",
+    "schema": {
+      "name": "Taypro Solar Cleaning CAPEX vs OPEX Guide",
+      "description": "Procurement guide comparing robot CAPEX purchase with AMC versus Taypro managed OPEX cleaning for Indian utility solar plants.",
+      "serviceType": "Solar cleaning procurement advisory",
+      "areaServed": "India"
+    },
+    "hero": {
+      "eyebrow": "Procurement · CAPEX vs OPEX",
+      "title": "Solar cleaning CAPEX vs OPEX — which model fits your plant?",
+      "subtitle": "IPP and CPSU teams evaluate robot purchase (CAPEX + AMC) against Taypro OPEX (pay per panel cleaned). This page compares balance-sheet impact, mobilisation speed, audit trails, and 5-year TCO — not just sticker robot price.",
+      "ctaPrimary": "Run ROI calculator",
+      "ctaPrimaryHref": "/solar-panel-cleaning-robot-price-calculator#calculator",
+      "ctaSecondary": "OPEX pricing bands",
+      "ctaSecondaryHref": "/solar-cleaning-opex-pricing"
+    },
+    "stats": {
+      "eyebrow": "Decision anchors",
+      "heading": "CAPEX vs OPEX at a glance for Indian utility solar",
+      "card0": {
+        "tag": "OPEX rate",
+        "stat": "₹0.45–0.70",
+        "label": "Per panel per cycle",
+        "body": "Volume-discounted on 10–100 MW+ fleets. See OPEX pricing page for indicative monthly bands."
+      },
+      "card1": {
+        "tag": "Manual baseline",
+        "stat": "₹45–80L",
+        "label": "10 MW wet-wash / year",
+        "body": "Industry benchmark for manual crew + water on arid utility sites — rises linearly with MW."
+      },
+      "card2": {
+        "tag": "Portfolio",
+        "stat": "25–100 MW",
+        "label": "Common IPP decision band",
+        "body": "Finance teams model both CAPEX depreciation and OPEX line items across multi-plant portfolios."
+      },
+      "card3": {
+        "tag": "Both live",
+        "stat": "CAPEX + OPEX",
+        "label": "Same Taypro fleet",
+        "body": "50–500 MW references use robot purchase or managed OPEX — same GLYDE/NECTYR stack."
+      }
+    },
+    "prose": {
+      "eyebrow": "Quick answer",
+      "heading": "When to choose robot CAPEX vs Taypro OPEX",
+      "p1": "Robot CAPEX means you purchase GLYDE, GLYDE-X, NYUMA, NYUMA-X, or HELYX, depreciate the fleet on your balance sheet, and contract structured AMC for uptime. Taypro OPEX means Taypro retains fleet ownership — you pay monthly for panels actually cleaned, reconciled through NECTYR telemetry.",
+      "p2": "Many Indian IPPs start with OPEX to mobilise quickly without capital approval, then transition to owned fleets on long-hold assets after 3–5 years of proven PR recovery. CPSU and SECI-tendered plants often model both scenarios in parallel using the same soiling and tariff assumptions.",
+      "p3": "Compare on ₹ per recovered MWh over 5–20 years — not robot unit price alone. Manual wet washing on a 10 MW arid site typically runs ₹45–80 lakh per year all-in; robotic programmes convert cleaning to measurable per-panel economics with 3–10 dry cycles monthly.",
+      "p4": "Both commercial models include NECTYR block-level cleaning logs — the audit layer lenders and internal O&M governance ask for at 50 MW scale. Electrical O&M, inverters, and tracker mechanical work stay with your existing contractor; Taypro owns the cleaning execution layer.",
+      "p5": "Discount rates of 10–14% are common in Indian utility finance models when comparing 5-year TCO. Use the ROI calculator below with your MW, tariff, and installation type, then request a site-specific soiling study for binding terms.",
+      "linkPrimary": "Indicative OPEX pricing",
+      "linkPrimaryHref": "/solar-cleaning-opex-pricing",
+      "linkSecondary": "Robot CAPEX price guide",
+      "linkSecondaryHref": "/solar-panel-cleaning-robot-price-india"
+    },
+    "models": {
+      "eyebrow": "Commercial models",
+      "heading": "Robot CAPEX + AMC vs Taypro OPEX",
+      "capex": {
+        "title": "Robot CAPEX + AMC",
+        "body": "Purchase the fleet. Own depreciation, residual value, and spare inventory policy. Taypro commissions, trains operators, and maintains robots under structured AMC with NECTYR included.",
+        "href": "/solar-panel-cleaning-robot-price-india",
+        "link": "India robot CAPEX bands"
+      },
+      "opex": {
+        "title": "Taypro OPEX service",
+        "body": "No upfront robot purchase. Pay monthly for verified panels cleaned — ideal when balance-sheet efficiency and fast mobilisation matter more than asset ownership.",
+        "href": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
+        "link": "OPEX service details"
+      }
+    },
+    "procurementComparison": {
+      "eyebrow": "Decision matrix",
+      "heading": "CAPEX vs OPEX procurement comparison",
+      "intro": "Use this matrix in RFQ and investment committee packs. Rates and CAPEX bands are directional — binding terms follow a site soiling study.",
+      "colFactor": "Factor",
+      "colCapex": "Robot CAPEX + AMC",
+      "colOpex": "Taypro OPEX",
+      "row0": {
+        "factor": "Balance sheet",
+        "capex": "Capitalise fleet; depreciate over plant life",
+        "opex": "Operating expense; no robot asset on books"
+      },
+      "row1": {
+        "factor": "Mobilisation",
+        "capex": "Commissioning + operator hire; capex approval cycle",
+        "opex": "Faster — Taypro owns and deploys fleet"
+      },
+      "row2": {
+        "factor": "Cost predictability",
+        "capex": "AMC escalation; spare parts ownership",
+        "opex": "Per-panel rate (₹0.45–0.70/cycle) × verified volume"
+      },
+      "row3": {
+        "factor": "Cycle frequency",
+        "capex": "You schedule; uptime and spare risk",
+        "opex": "Contractual 3–10 dry cycles/month typical"
+      },
+      "row4": {
+        "factor": "Lender / audit",
+        "capex": "NECTYR logs + owned asset register",
+        "opex": "Monthly panel-volume reconciliation in NECTYR"
+      },
+      "row5": {
+        "factor": "Best hold period",
+        "capex": "15+ years on very large fleets",
+        "opex": "3–10 year IPP holds; balance-sheet sensitive sponsors"
+      }
+    },
+    "steps": {
+      "eyebrow": "Procurement workflow",
+      "heading": "How to model CAPEX vs OPEX for your plant",
+      "subheading": "Five steps finance and O&M teams use before signing a cleaning contract.",
+      "step0Title": "Gather plant and finance inputs",
+      "step0Body": "MW capacity, state, fixed tilt vs tracker, module Wp, PPA or merchant tariff, hold period, and current annual cleaning spend.",
+      "step1Title": "Estimate soiling and cycle count",
+      "step1Body": "Use regional benchmarks (8–25% seasonal loss without systematic cleaning) or a Taypro soiling study. Choose 3–10 cycles/month for dry robotic programmes.",
+      "step2Title": "Run parallel CAPEX and OPEX scenarios",
+      "step2Body": "Use the ROI calculator with both procurement models. Compare 5-year TCO at your discount rate (10–14% illustrative).",
+      "step3Title": "Review audit and SLA requirements",
+      "step3Body": "Confirm NECTYR reporting meets lender or SECI technical due diligence. Define breakdown response and coverage evidence.",
+      "step4Title": "Request binding commercial terms",
+      "step4Body": "Taypro engineers issue fleet sizing, indicative pricing, and mobilisation timeline — CAPEX bands or OPEX rates reconciled to site geometry."
+    },
+    "highlight": {
+      "heading": "The finance question",
+      "lead": "Are you optimising for balance sheet or for speed to PR recovery?",
+      "body": "OPEX preserves gearing and mobilises in weeks. CAPEX suits long-hold owners who amortise robots over 15–20 years. Many portfolios use both — OPEX on new acquisitions, CAPEX on core assets."
+    },
+    "eligibility": {
+      "eyebrow": "Model fit",
+      "title": "CAPEX vs OPEX — quick fit guide",
+      "forTitle": "OPEX often wins when",
+      "for0": "You need fast mobilisation without capex committee approval",
+      "for1": "Hold period is under 10 years or balance-sheet gearing is constrained",
+      "for2": "You want opex tied to verified panels cleaned, not lump-sum crew contracts",
+      "for3": "Portfolio has mixed MW sizes and you want one accountable vendor",
+      "notForTitle": "CAPEX often wins when",
+      "not0": "Hold period exceeds 15 years on 50 MW+ core assets",
+      "not1": "You have in-house O&M capacity to own spares and fleet depreciation",
+      "not2": "You already own robots and only need AMC + NECTYR upgrade"
+    },
+    "proseSecondary": {
+      "eyebrow": "Hybrid paths",
+      "heading": "OPEX first, CAPEX later — a common IPP pattern",
+      "p1": "Several Indian IPPs contract Taypro OPEX for the first operating seasons to prove PR recovery and NECTYR audit trails, then transition to owned fleets on assets they plan to hold 20+ years.",
+      "p2": "SECI and state discom tenders increasingly ask for evidence of cleaning coverage — not just a line item for manual washing. Both CAPEX and OPEX models deliver NECTYR block-level logs; the difference is who owns the robot asset.",
+      "p3": "Tracker plants carry higher per-panel economics (1.8× OPEX multiplier vs fixed tilt). Model this in both scenarios before committee sign-off.",
+      "linkPrimary": "Blog: CAPEX vs OPEX for 25–100 MW portfolios",
+      "linkPrimaryHref": "/blog/module-cleaning-system-capex-vs-opex-models-for-25100-mw-portfolios",
+      "linkSecondary": "National cleaning service",
+      "linkSecondaryHref": "/solar-panel-cleaning-service-india"
+    },
+    "calculator": {
+      "eyebrow": "ROI modelling",
+      "heading": "Compare CAPEX and OPEX payback side by side",
+      "subheading": "Enter your MW, tariff, installation type, and procurement model for a directional 20-year economics view."
+    },
+    "resources": {
+      "eyebrow": "Further reading",
+      "heading": "CAPEX vs OPEX research and tools",
+      "link0Title": "Module cleaning: CAPEX vs OPEX for 25–100 MW portfolios",
+      "link0Href": "/blog/module-cleaning-system-capex-vs-opex-models-for-25100-mw-portfolios",
+      "link1Title": "OPEX vs CAPEX for solar O&M contracts (IPP guide)",
+      "link1Href": "/blog/opex-vs-capex-for-solar-om-contracts-india-combined-with-which-model-suits-ipps",
+      "link2Title": "Cost-benefit analysis of cleaning services in India",
+      "link2Href": "/blog/cost-benefit-analysis-of-solar-panel-cleaning-services-in-india"
+    },
+    "faq": {
+      "heading": "Solar cleaning CAPEX vs OPEX — FAQ",
+      "subheading": "Common questions from IPP finance and O&M procurement teams.",
+      "q0": "What is the difference between CAPEX and OPEX for solar cleaning?",
+      "a0": "CAPEX means purchasing robots and owning depreciation plus AMC. OPEX means Taypro owns the fleet and you pay monthly for panels cleaned, verified in NECTYR.",
+      "q1": "When does OPEX beat CAPEX for a 50 MW plant?",
+      "a1": "When hold period is shorter, capex approval is slow, or you want opex aligned to verified cleaning volume. Run both scenarios in the ROI calculator with your tariff.",
+      "q2": "Can we switch from OPEX to CAPEX mid-contract?",
+      "a2": "Hybrid transitions are common after 3–5 years of proven performance. Discuss fleet purchase options during commercial engagement.",
+      "q3": "Does OPEX include operators and spares?",
+      "a3": "Yes. Taypro OPEX is all-in for operators, robots, spares, SOPs, and NECTYR — you pay for panels cleaned, not idle hours.",
+      "q4": "How do lenders view robotic cleaning OPEX?",
+      "a4": "Many prefer auditable per-panel billing with NECTYR coverage logs over opaque manual crew contracts.",
+      "q5": "What discount rate should we use for TCO?",
+      "a5": "Indian utility models often use 10–14% illustrative. Your treasury team should set the rate for investment committee packs.",
+      "q6": "Is manual cleaning cheaper than robots?",
+      "a6": "Manual wet costs on 10 MW arid sites often run ₹45–80 lakh/year and scale linearly with MW. Compare on ₹ per recovered MWh over 5 years.",
+      "q7": "Do tracker plants change the CAPEX vs OPEX decision?",
+      "a7": "Tracker geometry adds cost per cycle (1.8× OPEX multiplier). Both models remain viable — model tracker-specific inputs in the calculator.",
+      "q8": "What is the minimum plant size for Taypro OPEX?",
+      "a8": "OPEX programmes typically start around 10 MW utility scale. Smaller sites may face minimum monthly programme fees.",
+      "q9": "Does CAPEX include NECTYR?",
+      "a9": "Yes. Robot CAPEX programmes include NECTYR fleet portal for scheduling, coverage audits, and AMC ticketing.",
+      "q10": "How do SECI tenders treat cleaning commercial models?",
+      "a10": "Tenders increasingly require documented cleaning coverage. Both models can meet technical diligence with NECTYR evidence — choose based on balance-sheet preference.",
+      "q11": "Where do I get binding pricing?",
+      "a11": "This page is a decision guide. Request a site quote after a soiling study — OPEX rates or CAPEX bands are issued per plant geometry."
+    },
+    "quoteForm": {
+      "eyebrow": "Commercial inquiry",
+      "title": "Request CAPEX and OPEX scenarios for your plant",
+      "placeholder": "Plant MW, state, fixed tilt or tracker, hold period, and whether you model CAPEX, OPEX, or both."
+    },
+    "cta": {
+      "heading": "Model both scenarios before you sign",
+      "body": "Run the ROI calculator, then share your plant profile for parallel CAPEX and OPEX commercial terms.",
+      "primary": "Run ROI calculator",
+      "primaryHref": "/solar-panel-cleaning-robot-price-calculator#calculator",
+      "secondary": "Request quote",
+      "secondaryHref": "/contact"
+    },
+    "related": {
+      "label": "Related:",
+      "link0": "OPEX pricing bands",
+      "link0Href": "/solar-cleaning-opex-pricing",
+      "link1": "Robot price India",
+      "link1Href": "/solar-panel-cleaning-robot-price-india",
+      "link2": "Cleaning service India",
+      "link2Href": "/solar-panel-cleaning-service-india",
+      "link3": "Soiling loss calculator",
+      "link3Href": "/solar-panel-soiling-loss-calculator"
+    }
+  }
+}

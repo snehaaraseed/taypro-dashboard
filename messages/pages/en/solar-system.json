@@ -549,6 +549,54 @@
         "projects": {
           "label": "All projects",
           "description": "132+ utility case studies in India"
+        },
+        "serviceIndia": {
+          "label": "Cleaning service India",
+          "description": "National OPEX/CAPEX service, 9 GW+ fleet"
+        },
+        "omServices": {
+          "label": "Solar O&M services",
+          "description": "Cleaning + NECTYR + ORION procurement"
+        },
+        "opexPricing": {
+          "label": "OPEX pricing",
+          "description": "Cost per MW and per-panel rates"
+        },
+        "rooftopGuide": {
+          "label": "Rooftop cleaning robot",
+          "description": "MINY for commercial C&I rooftops"
+        },
+        "trackerGuide": {
+          "label": "Tracker cleaning robot",
+          "description": "GLYDE-X, NYUMA-X, CRADYL"
+        },
+        "fleetSoftware": {
+          "label": "Fleet monitoring software",
+          "description": "NECTYR + ORION platform"
+        },
+        "largeScale": {
+          "label": "Large-scale cleaning",
+          "description": "50–500 MW deployment capability"
+        },
+        "capexVsOpex": {
+          "label": "CAPEX vs OPEX guide",
+          "description": "Robot buy vs managed cleaning contract"
+        },
+        "soilingCalculator": {
+          "label": "Soiling loss calculator",
+          "description": "Estimate MWh and ₹ lost to dust"
+        },
+        "manufacturerIndia": {
+          "label": "Robot manufacturer India",
+          "description": "Made-in-India OEM vendor evaluation"
+        },
+        "plantData": {
+          "label": "Plant data intelligence",
+          "description": "NECTYR data + ORION roadmap"
+        },
+        "enterprisePartnership": {
+          "label": "Enterprise partnership",
+          "description": "Multi-site IPP & CPSU contracting"
         }
       }
     },

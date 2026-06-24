@@ -74,6 +74,10 @@ export function loadGscIntentGaps(): GscIntentGap[] {
     return cachedGaps;
   }
 
+  // Reentrancy guard: loadSeoKeywordRows() scores rows via getGscIntentGapScoreBoost()
+  // which calls back into this function before the first load finishes.
+  cachedGaps = [];
+
   try {
     const raw = JSON.parse(fs.readFileSync(filePath, "utf8")) as {
       topOpportunities?: GscReportRow[];

@@ -1,0 +1,207 @@
+{
+  "LargeScaleCleaningPage": {
+    "meta": {
+      "title": "বৃহৎ আকারের সোলার পরিষ্কার ভারত | ৫০–৫০০ MW",
+      "description": "MW-স্কেল রোবোটিক ফ্লিট মোতায়েন।",
+      "openGraphTitle": "বৃহৎ সোলার পরিষ্কার | Taypro",
+      "openGraphDescription": "১০০MW+ পরিষ্কার সমাধান।"
+    },
+    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHubHref": "/solar-panel-cleaning-system",
+    "breadcrumb": "বৃহৎ আকারের সোলার পরিষ্কার",
+    "schema": {
+      "name": "Taypro Large-Scale Solar Panel Cleaning",
+      "description": "Robotic solar panel cleaning for 50–500 MW utility plants in India — fleet deployment, commissioning, and managed OPEX or CAPEX programmes.",
+      "serviceType": "Large-scale solar panel cleaning",
+      "areaServed": "India"
+    },
+    "hero": {
+      "eyebrow": "50-500 MW ইউটিলিটি সোলার",
+      "title": "বৃহৎ আকারের সোলার পরিষ্কার — MW স্কেল",
+      "subtitle": "100 MW একটি পাইলট নয় - এটি একটি উত্পাদন O&M চ্যালেঞ্জ৷ Taypro 50 MW থেকে 360 MW একক সাইটের মধ্যে SECI, DVC, এবং IPP প্রকল্পগুলিতে বহু-রোবট ফ্লিট স্থাপন করে, সংজ্ঞায়িত রোবট-প্রতি-MW সহ, প্লেবুক চালু করা, এবং __TERM এর বেশি।",
+      "ctaPrimary": "এন্টারপ্রাইজ কোটেশন",
+      "ctaPrimaryHref": "/contact",
+      "ctaSecondary": "স্বয়ংক্রিয় প্রকল্প দেখুন",
+      "ctaSecondaryHref": "/projects/automatic"
+    },
+    "stats": {
+      "eyebrow": "MW-স্কেল ক্ষমতা",
+      "heading": "কিভাবে Taypro ইউটিলিটি স্কেলে পরিষ্কারের রোবট স্থাপন করে",
+      "card0": {
+        "tag": "তথ্যসূত্র",
+        "stat": "360 MW",
+        "label": "সবচেয়ে বড় একক-সাইট স্বয়ংক্রিয় স্থাপনা",
+        "body": "রাজস্থান এবং গুজরাট ইউটিলিটি প্ল্যান্টে মাল্টি-রোবট GLYDE বহর - প্রদর্শন ইউনিট নয়।"
+      },
+      "card1": {
+        "tag": "ফ্লিট মডেল",
+        "stat": "বহু-রোবট",
+        "label": "রোবট-প্রতি-MW প্রতি সারি জ্যামিতি পরিকল্পিত",
+        "body": "সাইট ম্যাপিং, CRADYL স্থানান্তর পয়েন্ট, ব্যাটারি অদলবদল কৌশল, এবং অপারেটর দলগুলি গণনা ব্লক করার জন্য স্কেল করা হয়েছে।"
+      },
+      "card2": {
+        "tag": "সচলতা",
+        "stat": "সপ্তাহ",
+        "label": "স্ট্রাকচার্ড কমিশনিং প্লেবুক",
+        "body": "সাইট মূল্যায়ন, রোবট ম্যাপিং, সংযোগ (LTE/mesh), অপারেটর প্রশিক্ষণ, এবং NECTYR অনবোর্ডিং।"
+      },
+      "card3": {
+        "tag": "বাণিজ্যিক",
+        "stat": "CAPEX + OPEX",
+        "label": "ফ্লিট কিনুন বা প্যানেল প্রতি পরিশোধ পরিষ্কার",
+        "body": "50-500 MW পোর্টফোলিওতে ব্যালেন্স-শীট দক্ষতার জন্য IPPরা AMC বা Taypro OPEX সহ রোবট CAPEX বেছে নেয়।"
+      }
+    },
+    "cards": {
+      "eyebrow": "এন্টারপ্রাইজের প্রয়োজনীয়তা",
+      "heading": "100 MW+ সংগ্রহকারী দলগুলি একটি পরিচ্ছন্নতা বিক্রেতার কাছ থেকে যা প্রয়োজন",
+      "card0": {
+        "title": "প্রমাণিত বহু-MW রেফারেন্স",
+        "body": "SECI, স্টেট ডিসকম, এবং IPP কেস স্টাডিস যার নাম MW ক্ষমতা আছে — স্থাপনার প্রমাণ ছাড়া বিপণনের দাবি নয়।"
+      },
+      "card1": {
+        "title": "ফ্লিট ঘনত্ব এবং থ্রুপুট মডেলিং",
+        "body": "রোবট-প্রতি-MW, নাইট-উইন্ডো কভারেজ, এবং PR পুনরুদ্ধারের লক্ষ্যে সাইকেল গণনা করার জন্য ইঞ্জিনিয়ারিং মডেল।"
+      },
+      "card2": {
+        "title": "প্যান-ইন্ডিয়া পরিষেবা এবং খুচরা জিনিসপত্র",
+        "body": "আঞ্চলিক ভাঙ্গন প্রতিক্রিয়া, খুচরা যন্ত্রাংশ ইনভেন্টরি, এবং দূরবর্তী সৌর পার্কে অপারেটিং বহরগুলির জন্য দূরবর্তী ডায়াগনস্টিকস।"
+      },
+      "card3": {
+        "title": "অডিট-প্রস্তুত প্রতিবেদন",
+        "body": "NECTYR ব্লক-লেভেল ক্লিনিং লগ এবং ঋণদাতার জন্য মাসিক নিষ্পত্তি, SECI, এবং অভ্যন্তরীণ O&M অডিট।"
+      },
+      "card4": {
+        "title": "পর্যায়ক্রমে মোবিলাইজেশন প্লেবুক",
+        "body": "200টি MW+ সাইটে জোন-বাই-জোন রোবট স্থাপন অপারেশনাল ব্যাঘাত কমিয়ে দেয়। চালু করা প্লেবুকের মধ্যে রয়েছে ম্যাপিং, সংযোগ, অপারেটর প্রশিক্ষণ, এবং সমান্তরাল O&M সমন্বয়।"
+      },
+      "card5": {
+        "title": "SECI এবং CPSU সম্মতি প্রান্তিককরণ",
+        "body": "SOPs, NECTYR লগ পরিষ্কার করা এবং ইউটিলিটি টেন্ডার সম্মতি এবং ঋণদাতার কারিগরি যথাযথ পরিশ্রমের জন্য কাঠামোবদ্ধ মাসিক পুনর্মিলন।"
+      }
+    },
+    "prose": {
+      "eyebrow": "স্থাপনার মডেল",
+      "heading": "প্রতি MW বড় পরিসরে কতজন পরিচ্ছন্নতা রোবট?",
+      "p1": "কোনো সার্বজনীন রোবট-প্রতি-MW অনুপাত নেই — এটি স্থির টিল্ট বনাম ট্র্যাকার, সারির দৈর্ঘ্য, স্থানান্তর পয়েন্ট, প্রতি মাসে লক্ষ্য চক্র এবং ব্যাটারি অদলবদল কৌশলের উপর নির্ভর করে। Taypro প্রকৌশলী সঞ্চিত সারি জ্যামিতি এবং থ্রুপুট লক্ষ্যগুলি ব্যবহার করে সাইট মূল্যায়নের সময় মডেল ফ্লিট আকার।",
+      "p2": "100টি MW+ ট্র্যাকার প্ল্যান্টে, GLYDE-X বা NYUMA-X ফ্লিট সহ CRADYL সারি স্থানান্তর মানসম্মত। 200-360 MW-এ স্থির-টিল্ট ব্লকগুলি জোন জুড়ে সমন্বিত NECTYR সময়সূচীর সাথে দশটি GLYDE ইউনিট স্থাপন করতে পারে।",
+      "p3": "Taypro এর স্বয়ংক্রিয় প্রজেক্ট রেফারেন্স ব্রাউজ করুন বা আপনার নির্দিষ্ট প্ল্যান্ট লেআউটের জন্য একটি ফ্লিট মডেলের অনুরোধ করুন।",
+      "linkPrimary": "স্বয়ংক্রিয় পরিস্কার প্রকল্প",
+      "linkPrimaryHref": "/projects/automatic",
+      "linkSecondary": "ট্র্যাকার পরিষ্কার রোবট",
+      "linkSecondaryHref": "/solar-panel-cleaning-robot-for-trackers"
+    },
+    "projects": {
+      "eyebrow": "MW-scale references",
+      "heading": "Large-scale solar cleaning project references",
+      "subheading": "50–360 MW robotic cleaning deployments across India."
+    },
+    "stateGrid": {
+      "heading": "Large-scale cleaning by state",
+      "intro": "India's largest utility solar parks sit in Rajasthan, Gujarat, Maharashtra, Karnataka, and Madhya Pradesh. Explore state-specific robotic cleaning guides."
+    },
+    "faq": {
+      "heading": "বড় মাপের সৌর পরিষ্কার — FAQ",
+      "subheading": "50-500 MW উদ্ভিদের জন্য এন্টারপ্রাইজ সংগ্রহের প্রশ্ন।",
+      "q0": "Taypro কি 100 MW সৌর উদ্ভিদ পরিষ্কার করতে পারে?",
+      "a0": "হ্যাঁ। স্বয়ংক্রিয় GLYDE ফ্লিট সহ Taypro এর একাধিক 100 MW+ রেফারেন্স এবং 360 MW পর্যন্ত একক-সাইট স্থাপনা রয়েছে। নৌবহরের আকার এবং গতিশীলতার টাইমলাইন সাইট প্রতি মডেল করা হয়।",
+      "q1": "MW প্রতি কতটি রোবট প্রয়োজন?",
+      "a1": "রোবট-প্রতি-MW ইনস্টলেশনের ধরন, সারি জ্যামিতি, এবং চক্র গণনা দ্বারা পরিবর্তিত হয়। Taypro প্রকৌশল মূল্যায়নের সময় একটি সাইট-নির্দিষ্ট ফ্লিট মডেল প্রদান করে — একটি জেনেরিক ব্রোশার নম্বর নয়।",
+      "q2": "একটি 200 MW নৌবহরের কমিশনিং টাইমলাইন কী?",
+      "a2": "পর্যায়ক্রমে মোবিলাইজেশন সাধারণত: সাইট ম্যাপিং, জোন-বাই-জোন রোবট স্থাপন, অপারেটর প্রশিক্ষণ, এবং NECTYR অনবোর্ডিং। টাইমলাইন সারি গণনা এবং অ্যাক্সেসের উপর নির্ভর করে — বাণিজ্যিক ব্যস্ততার সময় প্রস্তাবিত।",
+      "q3": "Taypro কি SECI এবং CPSU প্রকল্পগুলিকে পরিবেশন করে?",
+      "a3": "হ্যাঁ। Taypro-এর SECI-টেন্ডার করা এবং রাষ্ট্রীয় ডিসকম ইউটিলিটি প্ল্যান্টের সাথে রোবোটিক ক্লিনিং ফ্লিট এবং পরিচালিত OPEX প্রোগ্রামগুলির অভিজ্ঞতা রয়েছে৷",
+      "q4": "100 MW+ গাছের জন্য CAPEX বা OPEX?",
+      "a4": "উভয় মডেল স্কেলে ব্যবহৃত হয়. CAPEX দীর্ঘ হোল্ড পিরিয়ড এবং ব্যালেন্স-শীট ক্ষমতার জন্য উপযুক্ত। OPEX দ্রুত গতিশীলতা এবং অনুমানযোগ্য প্রতি-প্যানেল ওপেক্সের জন্য উপযুক্ত। অনেক IPP আমাদের ROI ক্যালকুলেটর ব্যবহার করে পোর্টফোলিও-স্তরের বিশ্লেষণ চালায়।",
+      "q5": "কিভাবে বৃহৎ মাপের পরিচ্ছন্নতা ইউটিলিটি অপারেশন প্রসঙ্গ থেকে পৃথক?",
+      "a5": "এই পৃষ্ঠাটি MW-স্কেল ফ্লিট স্থাপনের ক্ষমতা এবং রেফারেন্সের উপর ফোকাস করে। আমাদের ইউটিলিটি অপারেশন পৃষ্ঠাটি শিল্পের প্রেক্ষাপটকে কভার করে — সোয়লিং, PR, এবং O&M ফাঁক। আমাদের O&M পরিষেবা পৃষ্ঠা সংগ্রহের সুযোগ এবং SLAগুলি কভার করে৷",
+      "q6": "MW স্কেলে কোন রোবট ব্যবহার করা হয়?",
+      "a6": "স্থির কাত করার জন্য GLYDE, ট্র্যাকারদের জন্য GLYDE-X এবং NYUMA-X, দীর্ঘ ট্র্যাকার টেবিলে CRADYL সারি স্থানান্তর সহ। বড় সাইটের মধ্যে বিক্ষিপ্ত ব্লকের জন্য HELYX।",
+      "q7": "আমি কিভাবে একটি এন্টারপ্রাইজ তদন্ত শুরু করব?",
+      "a7": "শেয়ার প্ল্যান্ট MW, অবস্থান, ইনস্টলেশনের ধরন, SECI/IPP প্রসঙ্গ, টার্গেট গো-লাইভ, এবং পছন্দের বাণিজ্যিক মডেল। Taypro ইঞ্জিনিয়ারিং বরাদ্দ করবে এবং ফ্লিট প্ল্যান এবং মূল্য প্রস্তাব করবে।",
+      "q8": "সবচেয়ে বড় একক-সাইট স্থাপনা কি Taypro পরিষ্কার করেছে?",
+      "a8": "360 MW স্বয়ংক্রিয় GLYDE রাজস্থানে স্থাপনা (আখাদানা রেফারেন্স)। আপনার MW স্কেলের সাথে মেলে বর্তমান ফ্লিট রেফারেন্সের জন্য Taypro এ যোগাযোগ করুন।",
+      "q9": "একটি 200 MW পরিচ্ছন্নতা বহরের জন্য কতক্ষণ কাজ করতে হবে?",
+      "a9": "জোন গণনা, অ্যাক্সেস এবং সারি জ্যামিতির উপর নির্ভর করে কয়েক সপ্তাহ ধরে পর্যায়ক্রমে সংহতকরণ। বাণিজ্যিক ব্যস্ততার সময় প্রস্তাবিত বিস্তারিত সময়সূচী।",
+      "q10": "Taypro কি এক সাইটে বিভিন্ন ধরনের ইনস্টলেশন সহ একাধিক ব্লক পরিষ্কার করতে পারে?",
+      "a10": "হ্যাঁ। বড় সোলার পার্কের মধ্যে মিশ্র ফিক্সড-টিল্ট এবং ট্র্যাকার ব্লকগুলি সাধারণ। ফ্লিট মডেল একীভূত NECTYR তত্ত্বাবধান সহ ব্লক প্রতি GLYDE, GLYDE-X, বা NYUMA-X বরাদ্দ করে।",
+      "q11": "ঋণদাতারা রোবোটিক ক্লিনিং প্রোগ্রামের জন্য কোন ডকুমেন্টেশনের অনুরোধ করে?",
+      "a11": "NECTYR চক্র লগ, কভারেজ মানচিত্র, মাসিক প্যানেল-ভলিউম পুনর্মিলন, এবং পরিষ্কার করা SOPs। Taypro প্রোগ্রামগুলি ইউটিলিটি সোলার ফাইন্যান্সের কারিগরি যথাযথ পরিশ্রমের জন্য গঠন করা হয়।"
+    },
+    "cta": {
+      "heading": "Enterprise inquiry for MW-scale cleaning",
+      "body": "50 MW to 500 MW — share your plant details for a fleet deployment proposal.",
+      "primary": "Contact Taypro",
+      "primaryHref": "/contact",
+      "secondary": "Solar O&M services",
+      "secondaryHref": "/solar-om-services"
+    },
+    "related": {
+      "label": "Related:",
+      "link0": "Utility-scale O&M hub",
+      "link0Href": "/utility-scale-solar-operations",
+      "link1": "National cleaning service India",
+      "link1Href": "/solar-panel-cleaning-service-india",
+      "link2": "OPEX pricing bands",
+      "link2Href": "/solar-cleaning-opex-pricing"
+    },
+    "quoteForm": {
+      "eyebrow": "Enterprise inquiry",
+      "title": "Request MW-scale cleaning proposal",
+      "placeholder": "Plant MW, state, installation type, SECI/IPP context, target mobilisation date, and CAPEX vs OPEX preference."
+    },
+    "steps": {
+      "eyebrow": "Enterprise deployment",
+      "heading": "MW-scale solar cleaning robot mobilisation process",
+      "step0Title": "Enterprise RFQ & portfolio scoping",
+      "step0Body": "Share single-site MW or multi-site portfolio, installation mix, SECI/IPP context, and commercial model preference (CAPEX vs OPEX).",
+      "step1Title": "Engineering & fleet density model",
+      "step1Body": "Robots-per-MW calculated from row geometry, tracker vs fixed tilt, cycle targets, and CRADYL placement. Not generic industry ratios.",
+      "step2Title": "Commercial & SLA framework",
+      "step2Body": "Pricing, breakdown response, reporting cadence, and escalation matrix scaled to plant size. OPEX or CAPEX terms issued.",
+      "step3Title": "Phased fleet deployment",
+      "step3Body": "Zone-by-zone mobilisation on large sites. Operators, spares, and NECTYR onboarding per phase.",
+      "step4Title": "Production cleaning & governance",
+      "step4Body": "3–10 cycles monthly with monthly panel-volume reconciliation and quarterly programme reviews."
+    },
+    "eligibility": {
+      "eyebrow": "Scale fit",
+      "title": "Large-scale solar panel cleaning — when Taypro fits",
+      "forTitle": "Built for",
+      "for0": "Utility solar plants 50 MW to 500 MW single site or portfolio",
+      "for1": "SECI, state discom, CPSU, and IPP assets with documented MW references",
+      "for2": "Fixed-tilt and single-axis tracker plants requiring multi-robot fleets",
+      "for3": "Procurement teams needing enterprise SLA, NECTYR audit trail, and pan-India service",
+      "notForTitle": "Below typical scale",
+      "not0": "Sub-10 MW ground-mount without feasibility exception",
+      "not1": "Residential or small C&I rooftop (see rooftop guide)",
+      "not2": "Plants seeking one annual manual wash only"
+    },
+    "highlight": {
+      "heading": "100 MW is not a pilot.",
+      "lead": "Large-scale solar panel cleaning requires production fleet operations — not a handful of demo robots.",
+      "body": "Taypro deploys tens of robots on 200–360 MW sites with NECTYR fleet oversight, regional spares, and dedicated operators. That is the bar for MW-scale cleaning procurement in India."
+    },
+    "proseSecondary": {
+      "eyebrow": "তথ্যসূত্র",
+      "heading": "100MW সৌর পরিষ্কার এবং তার পরেও — Taypro স্থাপনার প্রমাণ",
+      "p1": "আখাদানা রাজস্থান 360 MW, বাচাউ DVC গুজরাট 300 MW, এবং নেনেভা গুজরাট 250 MW স্বয়ংক্রিয়-প্রথম Taypro GLYDE বহর ভারতীয় ইউটিলিটি স্কেলের উপরের প্রান্তে উপস্থাপন করে। এগুলি হল প্রোডাকশন ডিপ্লয়মেন্ট - ডেমোনস্ট্রেশন অ্যারে নয়।",
+      "p2": "100 MW ট্র্যাকার প্ল্যান্টে ফ্লিট সাইজিং সাধারণত GLYDE-X বা NYUMA-X এর সাথে CRADYL স্থানান্তর স্টেশনগুলি সারি প্রান্তে জড়িত থাকে। ফিক্সড-টিল্ট 200 MW ব্লকগুলি সমন্বিত মাল্টি-জোন GLYDE ফ্লিট চালাতে পারে NECTYR অঞ্চল জুড়ে সময়সূচী সহ।",
+      "p3": "প্ল্যান্ট লেআউট সহ এন্টারপ্রাইজ প্রস্তাবের অনুরোধ করুন, অথবা MW ক্ষমতা দ্বারা ফিল্টার করা স্বয়ংক্রিয় প্রকল্প কেস স্টাডি ব্রাউজ করুন।",
+      "linkPrimary": "স্বয়ংক্রিয় প্রকল্পের উল্লেখ",
+      "linkPrimaryHref": "/projects/automatic",
+      "linkSecondary": "সোলার O&M পরিষেবা",
+      "linkSecondaryHref": "/solar-om-services"
+    },
+    "resources": {
+      "eyebrow": "Enterprise guides",
+      "heading": "MW-scale procurement resources",
+      "link0Title": "Tracker cleaning robots",
+      "link0Href": "/solar-panel-cleaning-robot-for-trackers",
+      "link1Title": "OPEX pricing per MW",
+      "link1Href": "/solar-cleaning-opex-pricing",
+      "link2Title": "India cleaning service",
+      "link2Href": "/solar-panel-cleaning-service-india"
+    }
+  }
+}

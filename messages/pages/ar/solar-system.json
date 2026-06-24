@@ -772,6 +772,54 @@
         "projects": {
           "label": "جميع المشاريع",
           "description": "132+ دراسة حالة مرافق في الهند"
+        },
+        "serviceIndia": {
+          "label": "خدمة التنظيف الهند",
+          "description": "OPEX/CAPEX وطنية، أسطول 9+ جيجاوات"
+        },
+        "omServices": {
+          "label": "خدمات O&M الشمسية",
+          "description": "تنظيف + NECTYR + ORION"
+        },
+        "opexPricing": {
+          "label": "تسعير OPEX",
+          "description": "التكلفة لكل ميجاوات"
+        },
+        "rooftopGuide": {
+          "label": "روبوت تنظيف الأسطح",
+          "description": "MINY للأسطح التجارية"
+        },
+        "trackerGuide": {
+          "label": "روبوت تنظيف المتتبعات",
+          "description": "GLYDE-X وNYUMA-X وCRADYL"
+        },
+        "fleetSoftware": {
+          "label": "برنامج مراقبة الأسطول",
+          "description": "NECTYR + ORION"
+        },
+        "largeScale": {
+          "label": "تنظيف واسع النطاق",
+          "description": "نشر 50–500 ميجاوات"
+        },
+        "capexVsOpex": {
+          "label": "CAPEX vs OPEX",
+          "description": "شراء الروبوت مقابل خدمة مُدارة"
+        },
+        "soilingCalculator": {
+          "label": "حاسبة فقدان التلوث",
+          "description": "تقدير MWh والإيرادات المفقودة"
+        },
+        "manufacturerIndia": {
+          "label": "مصنع روبوتات الهند",
+          "description": "OEM صنع في الهند"
+        },
+        "plantData": {
+          "label": "ذكاء بيانات المحطة",
+          "description": "NECTYR + ORION"
+        },
+        "enterprisePartnership": {
+          "label": "شراكة مؤسسية",
+          "description": "عقود IPP متعددة المواقع"
         }
       }
     },

@@ -1,0 +1,228 @@
+{
+  "SolarOmServicesPage": {
+    "meta": {
+      "title": "خدمات O&M للطاقة الشمسية الهند | Taypro",
+      "description": "تشغيل وصيانة المحطات: تنظيف روبوتي وNECTYR وORION.",
+      "openGraphTitle": "شركة O&M شمسية الهند | Taypro",
+      "openGraphDescription": "خدمات تشغيل وصيانة للمحطات 50–500 ميجاوات."
+    },
+    "breadcrumbHub": "Utility solar operations",
+    "breadcrumbHubHref": "/utility-scale-solar-operations",
+    "breadcrumb": "خدمات O&M الشمسية",
+    "schema": {
+      "name": "Taypro Solar Plant O&M Services India",
+      "description": "Solar plant operation and maintenance services combining robotic module cleaning, NECTYR fleet monitoring, and ORION plant intelligence for Indian utility-scale assets.",
+      "serviceType": "Solar plant operation and maintenance",
+      "areaServed": "India"
+    },
+    "hero": {
+      "eyebrow": "O&M المشتريات · مرافق الطاقة الشمسية في الهند",
+      "title": "خدمات O&M للمحطات الشمسية — تنظيف ومراقبة وذكاء",
+      "subtitle": "Taypro يغلق حلقة O&M التي لا تستطيع أطقم العمل اليدوية وSCADA الأساسية القيام بها: التنظيف الآلي بدون ماء على نطاق واسع، NECTYR عمليات الأسطول، وORION استخبارات المصنع - مع استجابة ميدانية مدعومة بـ SLA في جميع أنحاء الهند.",
+      "ctaPrimary": "طلب مقترح O&M",
+      "ctaPrimaryHref": "/contact",
+      "ctaSecondary": "اكتشف روبوتات التنظيف",
+      "ctaSecondaryHref": "/solar-panel-cleaning-system"
+    },
+    "stats": {
+      "eyebrow": "O&M بيانات الاعتماد",
+      "heading": "ما الذي تقيمه فرق المشتريات في مقاول الطاقة الشمسية O&M",
+      "card0": {
+        "tag": "التنفيذ الميداني",
+        "stat": "9 GW+",
+        "label": "قدرة التنظيف الآلي الشهرية",
+        "body": "أسطول على نطاق الإنتاج - وليس وحدات العرض. يقوم Taypro بتشغيل الروبوتات يوميًا على محافظ SECI وdiscom وIPP."
+      },
+      "card1": {
+        "tag": "الجهوزية",
+        "stat": "<24 ساعة",
+        "label": "هدف الاستجابة للانهيار الإقليمي",
+        "body": "شبكة قطع الغيار في جميع أنحاء الهند، والتشخيص عن بعد عبر NECTYR، والمشغلين المخصصين في مواقع MW المتعددة."
+      },
+      "card2": {
+        "tag": "بيانات",
+        "stat": "NECTYR",
+        "label": "بوابة عمليات الأسطول منذ عام 2022",
+        "body": "سجلات التنظيف على مستوى الكتلة، وإصدار التذاكر AMC، وعمليات تدقيق التغطية، والأدلة القابلة للتصدير لتحليل استرداد PR."
+      },
+      "card3": {
+        "tag": "خريطة الطريق",
+        "stat": "ORION",
+        "label": "طبقة الذكاء النباتي",
+        "body": "تم تصميم المراقبة المدركة للجيل لتكملة SCADA — جدولة التنظيف التنبؤية والتنبؤ بالإنتاجية لأساطيل Taypro."
+      }
+    },
+    "cards": {
+      "eyebrow": "O&M النطاق",
+      "heading": "ما يغطيه Taypro الطاقة الشمسية O&M — وما يبقى مع EPC الخاص بك",
+      "card0": {
+        "title": "تنظيف الوحدة وإدارة الاتساخ",
+        "body": "يرتبط التنظيف الجاف الآلي، وجدولة الدورة، ودراسات الاتساخ، وPR بأدلة التنظيف التي تم التحقق منها - وهي أكبر تكلفة متكررة O&M في محطات المرافق الهندية."
+      },
+      "card1": {
+        "title": "مراقبة الأسطول و AMC",
+        "body": "NECTYR الجدولة وتغطية المسار وقطع الغيار ونشر المشغل والصيانة السنوية المنظمة لتنظيف أساطيل الروبوتات."
+      },
+      "card2": {
+        "title": "تحليلات الأداء",
+        "body": "ارتباط التنظيف بـ PR واتجاهات الإنتاجية على مستوى الكتلة وخريطة طريق ORION للتنبؤ بالعواصف الترابية والصيانة التنبؤية."
+      },
+      "card3": {
+        "title": "ليس في النطاق",
+        "body": "تبقى الأعمال الكهربائية ذات الجهد العالي O&M وإصلاح العاكس والأعمال الميكانيكية للمتعقب واستبدال الوحدة مع مقاول EPC أو المقاول الكهربائي O&M. يمتلك Taypro طبقة بيانات التنظيف والأسطول."
+      },
+      "card4": {
+        "title": "Multi-MW إدارة المحفظة",
+        "body": "يحتاج مديرو الأصول الذين يقومون بتشغيل 500 MW+ عبر الولايات إلى بائع تنظيف واحد بتنسيق تقارير متسق، وSLA مسارات تصعيد، ولوحات معلومات NECTYR على مستوى المحفظة - وليس مقاولين مختلفين من الطاقم لكل موقع."
+      },
+      "card5": {
+        "title": "مسار التجديد وORION للترقية",
+        "body": "يمكن لأساطيل الروبوتات الموجودة بالفعل في Taypro إرفاق معلومات المصنع ORION عند تجديد العقد - جداول التنظيف التنبؤية وتنبيهات أحداث الغبار دون استبدال الأجهزة."
+      }
+    },
+    "pillars": {
+      "eyebrow": "Three layers",
+      "heading": "Physical cleaning · Fleet data · Plant intelligence",
+      "pillar0": {
+        "tag": "Execution",
+        "title": "Robotic cleaning service",
+        "body": "GLYDE, GLYDE-X, NYUMA, NYUMA-X under managed OPEX or CAPEX+AMC — waterless cycles without tanker logistics.",
+        "link": "OPEX cleaning service"
+      },
+      "pillar1": {
+        "tag": "Operations",
+        "title": "NECTYR fleet portal",
+        "body": "Live fleet telemetry, cleaning SOPs, ticket management, and monthly settlement reports for O&M auditors.",
+        "link": "Explore NECTYR"
+      },
+      "pillar2": {
+        "tag": "Intelligence",
+        "title": "ORION plant health",
+        "body": "AI-driven scheduling, dust event prediction, and yield forecasting for fleets already on Taypro robots.",
+        "link": "ORION early access"
+      }
+    },
+    "prose": {
+      "eyebrow": "SLA والرد",
+      "heading": "كيف يقوم Taypro بتركيب O&M SLAs للمحطات على نطاق المرافق",
+      "p1": "O&M تحتاج فرق المشتريات إلى أكثر من مجرد كتيب روبوتي - فهي تحتاج إلى إكمال دورة محددة، وتسوية التغطية، وأوقات الاستجابة للأعطال، وإعداد تقارير جاهزة للتدقيق. تتضمن برامج Taypro التنظيف الكتابي SOPs وسجلات الكتلة NECTYR والتسوية الشهرية المتوافقة مع اللوحات التي تم تنظيفها.",
+      "p2": "بالنسبة للمحطات من 50 MW إلى 500 MW، ينشر Taypro مشغلين مخصصين وقطع غيار إقليمية وتشخيصات عن بعد. يتم الاتفاق على أهداف وقت تشغيل الأسطول ومسارات التصعيد أثناء الإعداد التجاري - ولا يتم تركها لجدولة الطاقم غير الرسمية.",
+      "p3": "قارن طبقة التنفيذ الميداني لـ Taypro مع عقد SCADA والعقد الكهربائي O&M الحالي. عادةً ما تكون الفجوة عبارة عن تنظيف بيانات الإيقاع والسبب للإجراء، وليس لوحة معلومات إنذار أخرى.",
+      "linkPrimary": "القدرة على التنظيف على نطاق واسع",
+      "linkPrimaryHref": "/large-scale-solar-panel-cleaning",
+      "linkSecondary": "سياق عمليات المرافق",
+      "linkSecondaryHref": "/utility-scale-solar-operations",
+      "p4": "تعمل عقود الطاقة الشمسية الهندية O&M على فصل الصيانة الكهربائية بشكل متزايد عن تنظيف الوحدة - لأن التلوث هو أكبر تسرب يمكن التحكم فيه، ولكنه الأقل استخدامًا. تعمل طبقة Taypro للطاقة الشمسية O&M على سد هذه الفجوة من خلال التنفيذ الآلي وبرامج الأسطول، وليس لوحة معلومات إنذار عاكسة أخرى.",
+      "p5": "بالنسبة لعطاءات SECI وdiscom وIPP التي تحدد تكرار التنظيف أو دليل التغطية أو قيود استخدام المياه، تشتمل برامج Taypro على SOPs المكتوبة وصادرات NECTYR وتسوية شهرية لحجم اللوحة المناسبة لمراجعة المدقق."
+    },
+    "projects": {
+      "eyebrow": "Reference deployments",
+      "heading": "Solar O&M case studies by plant size",
+      "subheading": "Automatic robotic cleaning on 50–360 MW utility plants across Gujarat, Rajasthan, and India."
+    },
+    "faq": {
+      "heading": "خدمات الطاقة الشمسية O&M - الأسئلة الشائعة",
+      "subheading": "أسئلة من مديري الأصول وفرق المشتريات O&M في الهند.",
+      "q0": "هل Taypro شركة تعمل بالطاقة الشمسية O&M؟",
+      "a0": "Taypro متخصص في التنظيف الآلي وطبقة ذكاء الأسطول للطاقة الشمسية O&M — تنفيذ تنظيف الوحدة، وبرامج الأسطول، وتحليلات المصنع. عادةً ما تظل الأجهزة الكهربائية والعاكسة وأجهزة التتبع الميكانيكية O&M مع مقاول EPC أو مقاول O&M المخصص.",
+      "q1": "ما الذي يتضمنه عرض محطة الطاقة الشمسية Taypro O&M؟",
+      "a1": "تنظيف الوحدة الآلية (CAPEX أو OPEX)، ونشر المشغل، وقطع الغيار لتنظيف الروبوتات، NECTYR مراقبة الأسطول، والتنظيف SOPs، وجدولة الدورة، وإعداد التقارير الشهرية. ORION معلومات المصنع متاحة في خريطة الطريق لأساطيل Taypro الحالية.",
+      "q2": "كيف يتكامل NECTYR مع SCADA الموجود لدينا؟",
+      "a2": "NECTYR عبارة عن بوابة لعمليات الأسطول لتنظيف الروبوتات - الجدولة والتغطية والتذاكر وأدلة التنظيف. إنه يكمل SCADA عن طريق إغلاق الحلقة بين الاتساخ وإجراءات التنظيف والأداء على مستوى الكتلة. تتوفر عمليات تكامل واجهة برمجة التطبيقات (API) لعمليات نشر المؤسسات.",
+      "q3": "ما هي أوقات الاستجابة SLA التي يقدمها Taypro؟",
+      "a3": "يتم الاتفاق على أهداف الاستجابة للأعطال الإقليمية لكل عقد بناءً على حجم المصنع وموقعه. غالبًا ما تعمل التشخيصات عن بعد عبر NECTYR على حل المشكلات قبل الحاجة إلى زيارة الموقع. يتم اقتراح شروط SLA محددة أثناء الإعداد التجاري.",
+      "q4": "هل يمكن Taypro O&M القياس من 50 MW إلى 500 MW؟",
+      "a4": "نعم. يحتوي Taypro على مراجع نشطة من 50 MW إلى 360 MW عمليات نشر لموقع واحد ومحافظ متعددة المواقع. تعمل نماذج نشر الأسطول على قياس الروبوتات لكل MW استنادًا إلى هندسة الصفوف وعدد الدورات.",
+      "q5": "OPEX مقابل CAPEX لعقود الطاقة الشمسية O&M - ما الذي يقدمه Taypro؟",
+      "a5": "كلاهما. CAPEX: شراء الروبوتات باستخدام AMC. OPEX: Taypro تمتلك الأسطول وتتحمل فواتير كل لوحة يتم تنظيفها شهريًا. يختار العديد من IPPs OPEX للتحرك بسرعة ومواءمة إنفاق O&M مع النتائج المحققة.",
+      "q6": "هل يوفر Taypro خدمة تنظيف الألواح الشمسية لمشروعي CPSU وSECI؟",
+      "a6": "نعم. يخدم Taypro محطات المرافق المركزية PSU وdiscom الحكومية وSECI مع أساطيل التنظيف الآلية وبرامج الخدمة المُدارة.",
+      "q7": "كيف يمكنني الحصول على خدمات Taypro O&M؟",
+      "a7": "شارك سعة المصنع والموقع ونوع التثبيت والفجوات الحالية في O&M والنموذج التجاري المستهدف (CAPEX أو OPEX). سيقترح Taypro عدد الدورات وحجم الأسطول وشروط SLA والتسعير.",
+      "q8": "ما الفرق بين Taypro O&M وعقد EPC O&M الكامل؟",
+      "a8": "يغطي EPC الكامل O&M الأعمال الكهربائية والعاكسة وجهاز التتبع الميكانيكي والوحدة النمطية. Taypro متخصص في طبقة تنفيذ التنظيف الآلي، وبرامج الأسطول، وتحليلات التنظيف إلى PR. تستخدم معظم المحطات Taypro جنبًا إلى جنب مع مقاول كهربائي O&M.",
+      "q9": "هل يمكن Taypro دمج بيانات التنظيف مع نظام إدارة الأصول الخاص بنا؟",
+      "a9": "تدعم عمليات نشر المؤسسات NECTYR عمليات تصدير البيانات ومناقشات واجهة برمجة التطبيقات (API) أثناء الإعداد. يمكن أن تقوم أدلة التنظيف بتغذية لوحات معلومات المحفظة جنبًا إلى جنب مع بيانات إنشاء SCADA.",
+      "q10": "كيف يمكنك التعامل مع تعديلات دورة موسم الرياح الموسمية؟",
+      "a10": "تعمل مراجعات البرامج ربع السنوية على تقليل الدورات أو إيقافها مؤقتًا عندما يوفر المطر الطبيعي تنظيفًا كافيًا، ثم تتزايد قبل أحداث الغبار التي تلي الرياح الموسمية. عدد الدورات تعاقدي ولكن يتم تعديله موسميا مع الأدلة.",
+      "q11": "هل يقوم Taypro بتقديم العطاءات على SECI O&M للمناقصات؟",
+      "a11": "Taypro يخدم SECI-محطات المرافق التابعة للدولة. اتصل بنا لتزويدنا بمواصفات العطاء لتعيين الامتثال مقابل مخرجات برنامج Taypro."
+    },
+    "cta": {
+      "heading": "Request a solar O&M proposal",
+      "body": "Tell us your portfolio size and current cleaning gaps. Taypro will respond with scope, SLA framework, and commercial terms.",
+      "primary": "Contact Taypro",
+      "primaryHref": "/contact",
+      "secondary": "India cleaning service",
+      "secondaryHref": "/solar-panel-cleaning-service-india"
+    },
+    "related": {
+      "label": "Related:",
+      "link0": "Utility-scale O&M hub",
+      "link0Href": "/utility-scale-solar-operations",
+      "link1": "National cleaning service India",
+      "link1Href": "/solar-panel-cleaning-service-india",
+      "link2": "Fleet monitoring software",
+      "link2Href": "/solar-fleet-monitoring-software"
+    },
+    "quoteForm": {
+      "eyebrow": "O&M inquiry",
+      "title": "Request solar plant O&M proposal",
+      "placeholder": "Portfolio MW, plant locations, current O&M contractor, cleaning method, and whether you prefer CAPEX or OPEX."
+    },
+    "steps": {
+      "eyebrow": "O&M procurement path",
+      "heading": "How to procure Taypro solar O&M services",
+      "subheading": "A framework asset managers use in RFQs and vendor shortlists.",
+      "step0Title": "Define cleaning scope in your O&M tender",
+      "step0Body": "Specify module cleaning frequency targets, water-use constraints, coverage evidence requirements, and whether you prefer CAPEX robot purchase or managed OPEX. Taypro responds to both models.",
+      "step1Title": "Technical site assessment",
+      "step1Body": "Engineering reviews row geometry, tracker vs fixed tilt, soiling drivers, and current PR trends. Output: robot model, fleet size, cycle count, and NECTYR integration plan.",
+      "step2Title": "SLA and commercial terms",
+      "step2Body": "Agree breakdown response targets, reporting cadence, reconciliation rules for panel-volume billing, and escalation matrix. Terms scale with plant MW and portfolio size.",
+      "step3Title": "Mobilisation and operator placement",
+      "step3Body": "Dedicated operators, regional spares, connectivity, and cleaning SOPs deployed. NECTYR activated for scheduling, tickets, and monthly settlement.",
+      "step4Title": "Quarterly O&M programme review",
+      "step4Body": "Review soiling trends, adjust cycles for season, correlate cleaning with PR recovery, and plan ORION intelligence upgrades where applicable."
+    },
+    "eligibility": {
+      "eyebrow": "Vendor fit",
+      "title": "When Taypro is the right solar O&M partner",
+      "forTitle": "Strong fit",
+      "for0": "Utility plants 50 MW+ with recurring soiling and manual O&M cost pressure",
+      "for1": "IPPs and asset managers that need cleaning evidence for lenders or SECI compliance",
+      "for2": "Plants adopting or expanding single-axis trackers needing GLYDE-X or NYUMA-X fleets",
+      "for3": "O&M teams seeking to complement SCADA with fleet execution and cleaning-to-PR data",
+      "notForTitle": "Outside core scope",
+      "not0": "Standalone inverter or transformer maintenance contracts",
+      "not1": "Residential rooftop O&M without robotic cleaning feasibility",
+      "not2": "Plants seeking only occasional manual washing without structured programme"
+    },
+    "highlight": {
+      "heading": "SCADA shows the dip. Taypro shows the cause.",
+      "lead": "Solar plant O&M procurement should close the soiling-to-action loop.",
+      "body": "Inverter alarms tell you generation dropped. NECTYR tells you which blocks were cleaned, which robots completed routes, and where coverage gaps remain. ORION roadmap adds predictive scheduling before dust storms hit PR."
+    },
+    "proseSecondary": {
+      "eyebrow": "حسب حجم النبات",
+      "heading": "تم تعديل خدمات الطاقة الشمسية O&M من 50 MW إلى 500 MW",
+      "p1": "عند 50 MW، قد يكفي فريق مشغل من منطقة واحدة يضم 2-4 روبوتات لمدة 3-6 دورات شهريًا. عند 200 MW+، تصبح نمذجة كثافة الأسطول والجدولة NECTYR المستندة إلى المنطقة والتعبئة المرحلية أمرًا بالغ الأهمية - Taypro لها مراجع تصل إلى 360 MW عملية نشر تلقائية لموقع واحد.",
+      "p2": "تحتاج المحافظ التي يهيمن عليها المتتبع إلى تخطيط نقل الصف CRADYL ونسب روبوتات أعلى لكل MW مقارنة بالكتل ذات الإمالة الثابتة. Taypro يقوم المهندسون بوضع نموذج للإنتاجية أثناء التقييم — وليس أرقام الكتيبات العامة.",
+      "p3": "تصفح دراسات حالة المشروع التلقائية أو اطلب اقتراحًا على مستوى المحفظة O&M.",
+      "linkPrimary": "القدرة على التنظيف على نطاق واسع",
+      "linkPrimaryHref": "/large-scale-solar-panel-cleaning",
+      "linkSecondary": "برنامج مراقبة الأسطول",
+      "linkSecondaryHref": "/solar-fleet-monitoring-software"
+    },
+    "resources": {
+      "eyebrow": "Procurement resources",
+      "heading": "O&M buyer guides",
+      "link0Title": "India solar cleaning service",
+      "link0Href": "/solar-panel-cleaning-service-india",
+      "link1Title": "Cleaning cost & OPEX pricing",
+      "link1Href": "/solar-cleaning-opex-pricing",
+      "link2Title": "Compare robotic vs manual cleaning",
+      "link2Href": "/compare/solar-panel-cleaning-robot-vs-manual-cleaning"
+    }
+  }
+}

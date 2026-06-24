@@ -201,6 +201,24 @@ const HUB_QUICK_LINKS = [
     href: "/solar-panel-cleaning-robot-price-calculator#calculator",
   },
   { key: "projects", href: "/projects" },
+  { key: "serviceIndia", href: "/solar-panel-cleaning-service-india" },
+  { key: "omServices", href: "/solar-om-services" },
+  { key: "opexPricing", href: "/solar-cleaning-opex-pricing" },
+  { key: "rooftopGuide", href: "/solar-panel-cleaning-robot-for-rooftop" },
+  { key: "trackerGuide", href: "/solar-panel-cleaning-robot-for-trackers" },
+  { key: "fleetSoftware", href: "/solar-fleet-monitoring-software" },
+  { key: "largeScale", href: "/large-scale-solar-panel-cleaning" },
+  { key: "capexVsOpex", href: "/solar-cleaning-capex-vs-opex" },
+  { key: "soilingCalculator", href: "/solar-panel-soiling-loss-calculator" },
+  {
+    key: "manufacturerIndia",
+    href: "/solar-cleaning-robot-manufacturer-india",
+  },
+  { key: "plantData", href: "/solar-plant-data-intelligence" },
+  {
+    key: "enterprisePartnership",
+    href: "/enterprise-solar-cleaning-partnership",
+  },
 ] as const;
 
 const COMMERCIAL_MODEL_LINKS = [

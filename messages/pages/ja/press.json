@@ -1,0 +1,33 @@
+{
+  "PressPage": {
+    "meta": {
+      "title": "プレス&メディア掲載 | Taypro",
+      "description": "ニュースの Taypro — Mercom India、EPC World、Energetica India、Saur Energy、TimesTech、T&D India、IPF Online、Live Mint Tech4Good、Renewable Watch、および太陽熱掃除ロボットに関する 20 以上の検証済みサードパーティ記事。",
+      "openGraphTitle": "Taypro 報道とメディアの報道",
+      "openGraphDescription": "インド全土のTaypro無水ソーラーパネル清掃ロボットに関するインタビュー、受賞歴、業界報道。",
+      "twitterTitle": "Taypro 報道とメディア",
+      "twitterDescription": "インドにおけるTayproロボットによるソーラーパネル清掃に関する業界報道。"
+    },
+    "breadcrumbs": {
+      "current": "Press"
+    },
+    "hero": {
+      "eyebrow": "ニュースで",
+      "title": "報道とメディアの報道",
+      "subtitle": "Taypro の水のないソーラー パネル クリーニング ロボットと、インド全土での実用規模の展開を取り上げたニュース、インタビュー、業界メディア。"
+    },
+    "listHeading": "News, interviews & industry media",
+    "listIntro": "Links open the original publisher site in a new tab.",
+    "sectionInterviews": "Interviews & opinion",
+    "sectionMarket": "Market leadership",
+    "sectionAwards": "Awards",
+    "sectionNews": "Product & company news",
+    "sectionIndex": "Publisher indexes",
+    "readArticle": "Read on {outlet}",
+    "companyCta": "About Taypro",
+    "contactCta": "Contact media team"
+  },
+  "Common": {
+    "breadcrumbHome": "Home"
+  }
+}

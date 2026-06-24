@@ -1,0 +1,220 @@
+{
+  "FleetMonitoringPage": {
+    "meta": {
+      "title": "Solar Fleet Monitoring Software India | NECTYR & ORION",
+      "description": "Solar plant monitoring software for cleaning fleets: NECTYR operations portal and ORION plant intelligence. SCADA complement, API integrations, predictive cleaning scheduling.",
+      "openGraphTitle": "Solar Fleet Monitoring Platform | Taypro",
+      "openGraphDescription": "Solar plant performance monitoring and fleet analytics — scheduling, coverage audits, AMC tickets, and AI-driven plant intelligence for Indian utility solar."
+    },
+    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHubHref": "/solar-panel-cleaning-system",
+    "breadcrumb": "Solar fleet monitoring software",
+    "schema": {
+      "name": "Taypro NECTYR Solar Fleet Monitoring Software",
+      "description": "Fleet monitoring and plant operations software for solar cleaning robots in India — scheduling, telemetry, coverage audits, and ORION plant intelligence roadmap.",
+      "applicationCategory": "BusinessApplication"
+    },
+    "hero": {
+      "eyebrow": "Software · Fleet & plant intelligence",
+      "title": "Solar fleet monitoring software — beyond basic SCADA",
+      "subtitle": "Procurement teams search for solar plant monitoring software — not product codenames. NECTYR is Taypro's live fleet operations portal. ORION is the plant intelligence layer that ties cleaning, weather, and yield into one decision loop.",
+      "ctaPrimary": "Explore NECTYR",
+      "ctaPrimaryHref": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
+      "ctaSecondary": "Request platform demo",
+      "ctaSecondaryHref": "/contact"
+    },
+    "cards": {
+      "eyebrow": "Platform capabilities",
+      "heading": "What solar fleet monitoring software should deliver",
+      "subheading": "Basic SCADA shows kWh after the loss. Fleet software should explain why — and trigger action.",
+      "card0": {
+        "title": "Cleaning schedule & coverage",
+        "body": "Plan cycles, assign blocks, track route completion, and audit which panels were cleaned each night — block-level evidence for O&M and lenders."
+      },
+      "card1": {
+        "title": "Fleet health & AMC tickets",
+        "body": "Robot telemetry, battery status, fault alerts, and structured ticket workflow for regional service teams."
+      },
+      "card2": {
+        "title": "Performance correlation",
+        "body": "Tie cleaning events to PR recovery trends. ORION roadmap adds dust-storm prediction and yield forecasting on top of NECTYR data."
+      },
+      "card3": {
+        "title": "Enterprise integrations",
+        "body": "API exports and integrations for asset managers running multi-site portfolios — complementing existing SCADA, not replacing it."
+      },
+      "card4": {
+        "title": "Mobile & web access",
+        "body": "O&M managers schedule cycles, approve tickets, and review coverage from web or mobile — not just control-room SCADA terminals."
+      },
+      "card5": {
+        "title": "AMC workflow automation",
+        "body": "Fault alerts create structured tickets routed to regional service teams with remote diagnostics before truck rolls."
+      }
+    },
+    "pillars": {
+      "eyebrow": "Two-layer platform",
+      "heading": "NECTYR today · ORION intelligence roadmap",
+      "pillar0": {
+        "tag": "Live today",
+        "title": "NECTYR fleet portal",
+        "body": "Web and mobile app for scheduling, monitoring, reporting, and AMC on deployed Taypro cleaning robots since 2022.",
+        "link": "NECTYR product page"
+      },
+      "pillar1": {
+        "tag": "Coming soon",
+        "title": "ORION plant intelligence",
+        "body": "AI-driven plant health monitoring — predictive cleaning schedules, dust event alerts, and yield analytics for Taypro fleets.",
+        "link": "Plant data intelligence"
+      },
+      "pillar2": {
+        "tag": "Strategy",
+        "title": "AI & data advantage",
+        "body": "11 billion+ annual panel cleaning passes generate labelled operational data — the foundation for predictive O&M beyond generic SCADA.",
+        "link": "AI intelligence hub"
+      }
+    },
+    "prose": {
+      "eyebrow": "SCADA alternative?",
+      "heading": "How Taypro monitoring differs from SCADA and generic solar software",
+      "p1": "SCADA monitors inverters and meters — it tells you generation dropped. It does not schedule cleaning, prove which blocks were cleaned, or predict dust events before PR drifts. NECTYR closes the execution gap for cleaning fleets.",
+      "p2": "ORION extends fleet logs into plant intelligence — predictive cleaning, dust alerts, and yield correlation. See the plant data intelligence page for procurement framing and roadmap detail.",
+      "p3": "NECTYR ships with every Taypro robot deployment. Request a demo to review scheduling, coverage reports, and integration options for your SCADA stack.",
+      "linkPrimary": "NECTYR specifications",
+      "linkPrimaryHref": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
+      "linkSecondary": "Plant data intelligence",
+      "linkSecondaryHref": "/solar-plant-data-intelligence"
+    },
+    "faq": {
+      "heading": "Solar monitoring software — FAQ",
+      "subheading": "Questions from asset managers evaluating fleet and plant monitoring platforms.",
+      "q0": "What is NECTYR?",
+      "a0": "NECTYR is Taypro's fleet operations software for solar cleaning robots — scheduling, block-level coverage logs, AMC ticketing, and monthly settlement reports. It is included with Taypro robot deployments and OPEX programmes.",
+      "q1": "Is NECTYR a SCADA replacement?",
+      "a1": "No. NECTYR complements SCADA by managing cleaning fleet execution and evidence. SCADA remains essential for inverter and electrical monitoring. Together they close the soiling-to-action loop.",
+      "q2": "What is ORION plant intelligence?",
+      "a2": "ORION is Taypro's roadmap platform for AI-driven plant health — predictive cleaning scheduling, dust-storm alerts, and yield forecasting built on data from deployed Taypro fleets.",
+      "q3": "Can I use NECTYR without Taypro robots?",
+      "a3": "NECTYR is designed for Taypro cleaning robot fleets. Contact Taypro for enterprise discussions if you operate a mixed-vendor portfolio.",
+      "q4": "Does the platform support API integrations?",
+      "a4": "Enterprise deployments can integrate NECTYR data exports with asset management systems. Discuss API requirements during commercial onboarding.",
+      "q5": "What data does fleet monitoring capture?",
+      "a5": "Cycle completion, route coverage, block-level panels cleaned, robot health, battery status, fault events, and operator actions — exportable for O&M audits and PR analysis.",
+      "q6": "How does monitoring improve solar plant performance?",
+      "a6": "By tying cleaning cadence to soiling and PR recovery with auditable evidence — enabling more cycles where needed and avoiding wasted passes where not. ORION adds predictive scheduling on top.",
+      "q7": "How do I request a demo?",
+      "a7": "Share your plant capacity, current monitoring stack, and whether you have or plan Taypro robots. Taypro will arrange a NECTYR walkthrough and ORION roadmap briefing.",
+      "q8": "Is NECTYR included with robot purchase or OPEX?",
+      "a8": "Yes. NECTYR fleet monitoring is part of Taypro robot deployments and managed OPEX programmes — not a separate software licence for standard utility deployments.",
+      "q9": "What is the difference between NECTYR and ORION?",
+      "a9": "NECTYR is live fleet operations — scheduling, coverage, tickets, billing. ORION is the intelligence layer — predictive scheduling, dust alerts, yield analytics — on roadmap for Taypro fleet customers.",
+      "q10": "Can NECTYR data export to Excel or BI tools?",
+      "a10": "Coverage and cycle reports export for monthly governance. Enterprise API integrations discussed during onboarding.",
+      "q11": "Does fleet monitoring work on tracker and fixed-tilt mixed plants?",
+      "a11": "Yes. NECTYR maps heterogeneous fleets — GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX — within one plant or portfolio view."
+    },
+    "cta": {
+      "heading": "See NECTYR fleet monitoring in action",
+      "body": "Request a demo for your plant or portfolio. Taypro will show scheduling, coverage reports, and ORION roadmap.",
+      "primary": "NECTYR product page",
+      "primaryHref": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
+      "secondary": "Contact for demo",
+      "secondaryHref": "/contact"
+    },
+    "related": {
+      "label": "Related:",
+      "link0": "Plant data intelligence",
+      "link0Href": "/solar-plant-data-intelligence",
+      "link1": "NECTYR product portal",
+      "link1Href": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
+      "link2": "Utility-scale O&M hub",
+      "link2Href": "/utility-scale-solar-operations"
+    },
+    "quoteForm": {
+      "eyebrow": "Platform demo",
+      "title": "Request fleet monitoring demo",
+      "placeholder": "Plant/portfolio MW, number of sites, current SCADA vendor, and whether you use Taypro robots today."
+    },
+    "stats": {
+      "eyebrow": "Platform scale",
+      "heading": "Solar fleet monitoring software — by the numbers",
+      "card0": {
+        "tag": "Live",
+        "stat": "2022+",
+        "label": "NECTYR in production",
+        "body": "Fleet portal deployed on Taypro robots across Indian utility plants since 2022."
+      },
+      "card1": {
+        "tag": "Data",
+        "stat": "11B+",
+        "label": "Annual panel passes",
+        "body": "Labelled operational data feeding cleaning-to-PR analytics and ORION roadmap."
+      },
+      "card2": {
+        "tag": "Coverage",
+        "stat": "Block-level",
+        "label": "Cleaning evidence",
+        "body": "Route completion, panels cleaned, exceptions — exportable for O&M and lender audits."
+      },
+      "card3": {
+        "tag": "Roadmap",
+        "stat": "ORION",
+        "label": "Plant intelligence layer",
+        "body": "Predictive scheduling, dust alerts, yield forecasting for Taypro fleets."
+      }
+    },
+    "steps": {
+      "eyebrow": "Platform adoption",
+      "heading": "How solar fleet monitoring software deploys on your plant",
+      "step0Title": "Robot fleet commissioning",
+      "step0Body": "NECTYR activates when Taypro robots mobilise — robots mapped to blocks, rows, and zones in the plant model.",
+      "step1Title": "Schedule & SOP configuration",
+      "step1Body": "Cleaning cycles, paths, rest zones, and idle rules configured per plant security and O&M requirements.",
+      "step2Title": "Telemetry & connectivity",
+      "step2Body": "LTE, Wi-Fi, mesh, or LoRaWAN as designed. Fleet health, battery, and route data stream to NECTYR dashboard.",
+      "step3Title": "Reporting & reconciliation",
+      "step3Body": "Monthly panel-volume reports for OPEX billing. Exportable logs for asset managers and auditors.",
+      "step4Title": "ORION intelligence upgrade (optional)",
+      "step4Body": "Attach plant intelligence layer at renewal — predictive cleaning and dust-event correlation on existing fleet data."
+    },
+    "eligibility": {
+      "eyebrow": "Buyer fit",
+      "title": "Who needs solar plant monitoring software beyond SCADA?",
+      "forTitle": "Ideal users",
+      "for0": "Asset managers with Taypro cleaning robots needing coverage evidence and AMC workflow",
+      "for1": "O&M teams correlating cleaning cadence with PR recovery across blocks",
+      "for2": "Multi-site portfolios requiring consistent reporting format across states",
+      "for3": "Procurement teams evaluating SCADA complement for cleaning execution",
+      "notForTitle": "Not designed for",
+      "not0": "Standalone SCADA replacement for inverter/HV electrical monitoring",
+      "not1": "Non-Taypro robot fleets without enterprise integration discussion",
+      "not2": "Plants with no robotic cleaning programme (no fleet to monitor)"
+    },
+    "highlight": {
+      "heading": "People search solar plant performance monitoring software.",
+      "lead": "They need execution proof — not another generation chart after the MWh is lost.",
+      "body": "NECTYR is Taypro's solar fleet monitoring platform: scheduling, coverage, tickets, and settlement. ORION adds predictive plant intelligence on the same data layer."
+    },
+    "proseSecondary": {
+      "eyebrow": "Feature depth",
+      "heading": "Solar plant performance analytics — what NECTYR captures vs SCADA",
+      "p1": "SCADA aggregates inverter and meter data at 15-minute intervals. NECTYR logs which robot cleaned which block, route completion percentage, battery state, fault codes, and operator actions — at cleaning-event granularity.",
+      "p2": "Asset managers use this to answer: Did we clean before the dust storm? Which blocks were skipped? Is the cleaning vendor billing matches telemetry? SCADA cannot answer these questions.",
+      "p3": "ORION roadmap layers weather feeds, soiling models, and yield forecasting — moving from reactive cleaning to predictive O&M for Taypro fleet customers.",
+      "linkPrimary": "Solar O&M services",
+      "linkPrimaryHref": "/solar-om-services",
+      "linkSecondary": "AI intelligence hub",
+      "linkSecondaryHref": "/technology/ai-intelligence"
+    },
+    "resources": {
+      "eyebrow": "Platform resources",
+      "heading": "Learn more",
+      "link0Title": "NECTYR product page",
+      "link0Href": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app",
+      "link1Title": "ORION plant intelligence",
+      "link1Href": "/solar-panel-cleaning-system/orion-plant-intelligence-platform",
+      "link2Title": "India cleaning service",
+      "link2Href": "/solar-panel-cleaning-service-india"
+    }
+  }
+}

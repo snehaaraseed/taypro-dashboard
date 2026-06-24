@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import { Blinker, Montserrat } from "next/font/google";
-import { headers } from "next/headers";
-import { localeFromPathname } from "@/i18n/locale-from-pathname";
-import { LOCALE_LABELS, type TayproLocale } from "@/i18n/markets";
 import "@/app/globals.css";
 
 const montserrat = Montserrat({
@@ -34,18 +31,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const headerList = await headers();
-  const pathname = headerList.get("x-pathname") ?? "/";
-  const locale = localeFromPathname(pathname);
-  const dir = LOCALE_LABELS[locale].dir;
-
   return (
-    <html lang={locale} dir={dir} suppressHydrationWarning>
+    <html lang="en" dir="ltr" suppressHydrationWarning>
       <body
         className={`${montserrat.className} ${montserrat.variable} ${blinker.variable}`}
         suppressHydrationWarning

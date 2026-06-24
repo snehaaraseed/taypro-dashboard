@@ -163,7 +163,7 @@
     },
     {
       "slotKey": "solar panel cleaning robot::legacy-how_does_a_solar_panel_cleaning_",
-      "slug": "how-does-a-solar-panel-cleaning-robot-work-",
+      "slug": "how-does-a-solar-panel-cleaning-robot-work",
       "filledAt": "2025-10-16T11:34:51.130Z"
     },
     {
@@ -317,11 +317,6 @@
       "filledAt": "2025-10-16T12:01:07.749Z"
     },
     {
-      "slotKey": "solar panels::legacy-what_are_the_different_types_of_",
-      "slug": "what-are-the-different-types-of-solar-panels",
-      "filledAt": "2025-10-16T10:58:55.625Z"
-    },
-    {
       "slotKey": "solar panel cleaning robot::legacy-what_is_a_solar_panel_cleaning_r",
       "slug": "what-is-a-solar-panel-cleaning-robot",
       "filledAt": "2025-10-16T11:38:16.616Z"
@@ -335,11 +330,6 @@
       "slotKey": "solar panel efficiency utility scale::default-guide",
       "slug": "what-is-solar-panel-efficiency",
       "filledAt": "2025-10-16T11:20:32.129Z"
-    },
-    {
-      "slotKey": "solar panel efficiency 2026 india::default-guide",
-      "slug": "what-is-the-solar-panel-efficiency-in-2025",
-      "filledAt": "2025-10-16T11:21:46.545Z"
     },
     {
       "slotKey": "solar panel cleaning system::legacy-why_modern_solar_farms_need_auto",

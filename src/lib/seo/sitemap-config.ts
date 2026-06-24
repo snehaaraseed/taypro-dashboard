@@ -154,6 +154,66 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
     changeFrequency: "weekly",
     priority: 0.85,
   },
+  {
+    path: "/solar-panel-cleaning-service-india",
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    path: "/solar-om-services",
+    changeFrequency: "weekly",
+    priority: 0.88,
+  },
+  {
+    path: "/solar-cleaning-opex-pricing",
+    changeFrequency: "monthly",
+    priority: 0.88,
+  },
+  {
+    path: "/solar-panel-cleaning-robot-for-rooftop",
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  {
+    path: "/solar-panel-cleaning-robot-for-trackers",
+    changeFrequency: "monthly",
+    priority: 0.87,
+  },
+  {
+    path: "/solar-fleet-monitoring-software",
+    changeFrequency: "monthly",
+    priority: 0.86,
+  },
+  {
+    path: "/large-scale-solar-panel-cleaning",
+    changeFrequency: "monthly",
+    priority: 0.87,
+  },
+  {
+    path: "/solar-cleaning-capex-vs-opex",
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  {
+    path: "/solar-panel-soiling-loss-calculator",
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  {
+    path: "/solar-cleaning-robot-manufacturer-india",
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
+    path: "/solar-plant-data-intelligence",
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
+    path: "/enterprise-solar-cleaning-partnership",
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
   { path: "/cleaning-technology", changeFrequency: "monthly", priority: 0.8 },
   {
     path: "/technology/ai-intelligence",
@@ -243,5 +303,9 @@ export const CMS_SITEMAP_DEFAULTS = {
   blogPagination: {
     changeFrequency: "weekly" as ChangeFrequency,
     priority: 0.65,
+  },
+  jobOpening: {
+    changeFrequency: "weekly" as ChangeFrequency,
+    priority: 0.75,
   },
 } as const;

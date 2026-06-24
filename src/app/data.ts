@@ -406,7 +406,7 @@ export const resources = [
   },
   {
     title: "What Are The Different Types Of Solar Panels",
-    href: "/blog/what-are-the-different-types-of-solar-panels",
+    href: "/blog/understanding-different-types-of-solar-panels",
   },
   {
     title: "How to calculate Solar Plant ROI and PayBack Period",
@@ -574,7 +574,7 @@ export const energyResourceCards: EnergyResourceCard[] = [
     title: "What Are The Different Types Of Solar Panels",
     imgSrc: "/tayproenergyresource/taypro-energy-resource3.webp",
     date: "July 21, 2025",
-    href: "/blog/what-are-the-different-types-of-solar-panels",
+    href: "/blog/understanding-different-types-of-solar-panels",
   },
   {
     title: "How to calculate Solar Plant ROI and PayBack Period",
@@ -592,7 +592,7 @@ export const energyResourceCards: EnergyResourceCard[] = [
     title: "What are the different types of Solar Panels?",
     imgSrc: "/blogs/taypro-energy-resource6.webp",
     date: "June 29, 2025",
-    href: "/blog/what-are-the-different-types-of-solar-panels",
+    href: "/blog/understanding-different-types-of-solar-panels",
   },
   {
     title: "How To Calculate A Performance Ratio Of A Solar Plant?",
@@ -628,7 +628,7 @@ export const energyResourceCards: EnergyResourceCard[] = [
     title: "What is the Solar Panel Efficiency in 2025?",
     imgSrc: "/blogs/taypro-energy-resource12.webp",
     date: "May 21, 2025",
-    href: "/blog/what-is-the-solar-panel-efficiency-in-2025",
+    href: "/blog/what-is-solar-panel-efficiency",
   },
   {
     title: "Solar Panel Installation Cost For Utility Scale In India",

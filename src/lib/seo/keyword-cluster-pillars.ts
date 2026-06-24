@@ -4,6 +4,43 @@ import type { KeywordIntentRecord } from "@/lib/seo/keyword-intent-registry";
 
 const KEYWORD_PILLAR_RULES: { pattern: RegExp; pillarPath: string; label: string }[] = [
   {
+    pattern:
+      /cleaning cost|panel cleaning cost|cost per mw|opex pricing|opex rate|pay per panel|cleaning price india/,
+    pillarPath: "/solar-cleaning-opex-pricing",
+    label: "OPEX cleaning pricing",
+  },
+  {
+    pattern: /capex vs opex|buy vs service|procurement model|robot buy vs/,
+    pillarPath: "/solar-cleaning-capex-vs-opex",
+    label: "CAPEX vs OPEX guide",
+  },
+  {
+    pattern: /robot price|capex price|purchase robot|buy robot|robot cost india/,
+    pillarPath: "/solar-panel-cleaning-robot-price-india",
+    label: "Robot CAPEX price guide",
+  },
+  {
+    pattern: /roi calculator|payback calculator|price calculator/,
+    pillarPath: "/solar-panel-cleaning-robot-price-calculator",
+    label: "Cleaning ROI calculator",
+  },
+  {
+    pattern:
+      /cleaning service india|national cleaning|pan-india cleaning|cleaning company india/,
+    pillarPath: "/solar-panel-cleaning-service-india",
+    label: "National cleaning service",
+  },
+  {
+    pattern: /fleet monitoring|plant monitoring software|scada complement/,
+    pillarPath: "/solar-fleet-monitoring-software",
+    label: "Fleet monitoring evaluation",
+  },
+  {
+    pattern: /plant intelligence|plant data|orion/,
+    pillarPath: "/solar-plant-data-intelligence",
+    label: "Plant data intelligence",
+  },
+  {
     pattern: /cleaning robot|panel cleaning robot|solar robot|waterless robot/,
     pillarPath: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
     label: "Automatic cleaning robots",
@@ -12,11 +49,6 @@ const KEYWORD_PILLAR_RULES: { pattern: RegExp; pillarPath: string; label: string
     pattern: /cleaning system|automatic cleaning|waterless cleaning/,
     pillarPath: "/solar-panel-cleaning-system",
     label: "Solar cleaning systems hub",
-  },
-  {
-    pattern: /price|cost|roi|calculator|payback|opex|capex/,
-    pillarPath: "/solar-panel-cleaning-robot-price-calculator",
-    label: "Cleaning robot price calculator",
   },
   {
     pattern: /tracker|single.?axis/,
@@ -34,9 +66,14 @@ const KEYWORD_PILLAR_RULES: { pattern: RegExp; pillarPath: string; label: string
     label: "Waterless vs water-based",
   },
   {
-    pattern: /service|vendor|supplier/,
+    pattern: /managed service|opex service|robotic cleaning service/,
     pillarPath: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
-    label: "Cleaning service",
+    label: "OPEX cleaning service",
+  },
+  {
+    pattern: /price|cost|roi|payback|opex|capex/,
+    pillarPath: "/solar-cleaning-opex-pricing",
+    label: "Cleaning pricing (fallback)",
   },
 ];
 

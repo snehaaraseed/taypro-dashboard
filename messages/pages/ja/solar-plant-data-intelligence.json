@@ -1,0 +1,211 @@
+{
+  "PlantDataIntelligencePage": {
+    "meta": {
+      "title": "太陽光発電所のデータ インテリジェンス インド | ORION および NECTYR",
+      "description": "SCADA を超える太陽光発電所のデータ インテリジェンス: Taypro NECTYR 今日のテレメトリの清掃、ORION プラントの健全性ロードマップ — PR ドリフト、汚れの相関関係、インドの公共施設向けの収量分析。",
+      "openGraphTitle": "太陽光発電所のデータインテリジェンス | Taypro",
+      "openGraphDescription": "ラベル付きの洗浄データと Taypro 車両顧客向けの ORION プラント インテリジェンスを使用して、汚れから行動までのループを閉じます。"
+    },
+    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHubHref": "/solar-panel-cleaning-system",
+    "breadcrumb": "Solar plant data intelligence",
+    "schema": {
+      "name": "Taypro ORION Plant Data Intelligence",
+      "description": "Plant intelligence layer correlating cleaning, weather, and yield for utility solar — ORION roadmap on NECTYR fleet data.",
+      "applicationCategory": "BusinessApplication"
+    },
+    "hero": {
+      "eyebrow": "データ・プラントインテリジェンス",
+      "title": "太陽光発電所のデータ インテリジェンス — SCADA アラームから清掃アクションまで",
+      "subtitle": "SCADA は損失後の kWh を示します。 Taypro のスタックには、ラベル付きの清掃テレメトリ (NECTYR、ライブ) と ORION プラント インテリジェンス (ロードマップ) が追加され、公益事業資産所有者向けに汚れ、天候、収量を相関させます。",
+      "ctaPrimary": "ORION を探索する",
+      "ctaPrimaryHref": "/solar-panel-cleaning-system/orion-plant-intelligence-platform",
+      "ctaSecondary": "NECTYR フリート ポータル",
+      "ctaSecondaryHref": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
+    },
+    "cards": {
+      "eyebrow": "3層スタック",
+      "heading": "物理ロボット、運用データ、プラント インテリジェンス",
+      "subheading": "データ インテリジェンスは実行の証明から始まり、次に予測 O&M に移行します。",
+      "card0": {
+        "title": "ロボットが掃除を実行",
+        "body": "GLYDE、NYUMA、HELYX フリートは、サイクルごとにブロックレベルのパス ログを生成します。生のイベント SCADA はキャプチャしません。"
+      },
+      "card1": {
+        "title": "NECTYR — ライブ運用データ",
+        "body": "スケジュール、対象範囲マップ、AMC チケット、および毎月の OPEX 決済。 2022 年から 150 以上のユーティリティ サイトで公開されています。"
+      },
+      "card2": {
+        "title": "ORION — プラント インテリジェンスのロードマップ",
+        "body": "天候によって正規化された PR ドリフト、砂嵐の誘発、収量予測。 NDA に基づく一部の IPP の早期アクセス。"
+      },
+      "card3": {
+        "title": "SCADA 置換ではなく補完",
+        "body": "インバーターとメーターのデータは SCADA に残ります。 Taypro は、洗浄と汚れのアクション レイヤーを追加します。"
+      },
+      "card4": {
+        "title": "ラベル付きテレメトリ モート",
+        "body": "年間 110 億件以上のパネルパスフィードモデル - 一般的な気象フィードだけではなく、アレイブロックに関連付けられた清掃イベント。"
+      },
+      "card5": {
+        "title": "AMC 更新時に添付",
+        "body": "ORION は、すでに運用されているレール上の既存の Taypro フリートをアップグレードするように設計されており、コールドスタート ソフトウェアの販売ではありません。"
+      }
+    },
+    "stats": {
+      "eyebrow": "データスケール",
+      "heading": "Taypro のデータ層が一般的な監視と異なる理由",
+      "card0": {
+        "tag": "テレメトリー",
+        "stat": "110億以上",
+        "label": "パネルは毎年パスします",
+        "body": "導入されたインドの公共事業車両全体でのラベル付き清掃イベント。"
+      },
+      "card1": {
+        "tag": "ライブサイト",
+        "stat": "150+",
+        "label": "NECTYR の展開",
+        "body": "2022 年以降、毎日の運用データを生成する繰り返しの AMC 関係。"
+      },
+      "card2": {
+        "tag": "気象AI",
+        "stat": "95%",
+        "label": "再スケジュールの精度",
+        "body": "NECTYR での現場検証済みの天候を考慮したスケジューリング — 雨に洗われた日をスキップします。"
+      },
+      "card3": {
+        "tag": "ORION",
+        "stat": "早期アクセス",
+        "label": "ユーティリティ IPP パイロット",
+        "body": "プラント インテリジェンス ロードマップ — NDA パイロットに関するディスカッションに関するお問い合わせ。"
+      }
+    },
+    "pillars": {
+      "eyebrow": "Capabilities",
+      "heading": "What plant data intelligence should deliver",
+      "pillar0": {
+        "title": "Block-level cleaning proof",
+        "body": "Which panels were cleaned last night — evidence lenders and O&M governance require at 100 MW scale.",
+        "tag": "実行証跡",
+        "link": "ORIONプラットフォーム"
+      },
+      "pillar1": {
+        "title": "PR correlation",
+        "body": "Tie cleaning cadence to performance ratio recovery trends — not just calendar washing.",
+        "tag": "本日稼働中",
+        "link": "NECTYR製品ページ"
+      },
+      "pillar2": {
+        "title": "Predictive scheduling (ORION)",
+        "body": "Dust-storm triggers and yield shortfall alerts — moving from reactive to predictive O&M on Taypro fleets.",
+        "tag": "予測型O&M",
+        "link": "AIインテリジェンス"
+      }
+    },
+    "prose": {
+      "eyebrow": "SCADA を超えて",
+      "heading": "公益事業プラントに清掃を意識したデータ インテリジェンスが必要な理由",
+      "p1": "ほとんどのプラント監視スタックは、汚れ損失の定量化や洗浄範囲の監査のためではなく、インバータの可用性を目的として構築されています。 PR がドリフトすると、ブロックレベルの清掃の証拠がないまま、オペレーターは問題が汚れなのか、削減なのか、設備なのかを議論します。",
+      "p2": "NECTYR は、ルートの完了、例外、ロボットの健全性、および OPEX 請求の毎月のパネル ボリューム調整などの実行ギャップを埋めます。資産管理者は、盲目的なスタッフの訪問を派遣する代わりに、清掃イベントと PR の回収を関連付けます。",
+      "p3": "ORION は、これをプラント インテリジェンスに拡張します。気象フィード、汚れモデル、Taypro 車両顧客向けに設計された収量分析などです。 ORION は、一部の資産所有者向けに早期アクセスできるロードマップにあります。現在、Taypro 以外のフリート向けの個別の製品ではありません。",
+      "p4": "年間 110 億件以上のパネルパスにより、競合他社は同等のフィールドがなければ複製できないラベル付きデータセットが作成されます。ただし、賞やスループットの主張には、独自のパイロット PR 検証が必要です。",
+      "linkPrimary": "フリート監視ソフトウェア ガイド",
+      "linkPrimaryHref": "/solar-fleet-monitoring-software",
+      "linkSecondary": "AIとインテリジェンス技術",
+      "linkSecondaryHref": "/technology/ai-intelligence"
+    },
+    "steps": {
+      "eyebrow": "Adoption path",
+      "heading": "How plant data intelligence rolls out on Taypro fleets",
+      "subheading": "From robot deployment to ORION early access.",
+      "step0Title": "Deploy robots + NECTYR",
+      "step0Body": "Cleaning execution generates block-level telemetry — foundation for all analytics.",
+      "step1Title": "Establish PR baselines",
+      "step1Body": "Correlate cleaning cycles with SCADA PR trends per block or feeder.",
+      "step2Title": "Optimise cadence with weather AI",
+      "step2Body": "NECTYR reschedules around rain and dust storms — reducing wasted passes.",
+      "step3Title": "Portfolio governance reviews",
+      "step3Body": "Monthly reconciliation and quarterly cycle adjustments for multi-site IPPs.",
+      "step4Title": "ORION early access at renewal",
+      "step4Body": "Plant intelligence pilots for qualifying Taypro AMC customers — NDA required."
+    },
+    "highlight": {
+      "heading": "The data question",
+      "lead": "Can you prove which blocks were cleaned before PR recovered?",
+      "body": "Generic dashboards show energy after the fact. Taypro ties labelled cleaning events to array geography — the prerequisite for credible plant data intelligence."
+    },
+    "proseSecondary": {
+      "eyebrow": "ORION ステータス",
+      "heading": "今日のライブとロードマップ",
+      "p1": "NECTYR は、展開されたフリート上の運用ソフトウェアです (スケジュール、チケット、カバレッジのエクスポート、OPEX 決済)。 Taypro CAPEX および OPEX プログラムで今すぐ使用してください。",
+      "p2": "taypro.in で説明されている ORION 機能 (予測スケジューリング、強化された歩留まり分析、オプションのセンシング) は現在、積極的に開発中です。 NDA に基づいて、選択したユーティリティ IPPs への早期アクセスが提供されます。",
+      "p3": "このページを製品データシートの代わりに使用しないでください。現在のパイロットの範囲と統合要件については、ORION のブリーフィングをリクエストしてください。",
+      "linkPrimary": "ORION 製品ページ",
+      "linkPrimaryHref": "/solar-panel-cleaning-system/orion-plant-intelligence-platform",
+      "linkSecondary": "ユーティリティ操作コンテキスト",
+      "linkSecondaryHref": "/utility-scale-solar-operations"
+    },
+    "resources": {
+      "eyebrow": "Research",
+      "heading": "Plant data & O&M articles",
+      "link0Title": "Fleet monitoring vs plant intelligence",
+      "link0Href": "/solar-fleet-monitoring-software",
+      "link1Title": "Utility-scale solar operations",
+      "link1Href": "/utility-scale-solar-operations",
+      "link2Title": "AI intelligence at Taypro",
+      "link2Href": "/technology/ai-intelligence"
+    },
+    "faq": {
+      "heading": "太陽光発電所のデータインテリジェンス — FAQ",
+      "subheading": "NECTYR のライブ機能と ORION のロードマップ。",
+      "q0": "NECTYR と ORION の違いは何ですか?",
+      "a0": "NECTYR は、ライブ フリート運用ソフトウェアです。 ORION は、ロードマップ上のプラント インテリジェンス レイヤーです。PR 分析、予測スケジューリング、収量予測です。",
+      "q1": "ORION は SCADA に置き換わりますか?",
+      "a1": "いいえ。ORION は SCADA と CMMS を補完します。電気的な監視は既存のスタックに残ります。",
+      "q2": "ORION は今日利用可能ですか?",
+      "a2": "ORION は現在開発中であり、一部の Taypro フリート顧客向けに早期アクセスが可能です。 NECTYR は 150 以上のサイトで公開されています。",
+      "q3": "Taypro ロボットなしで ORION を購入できますか?",
+      "a3": "ORION は、Taypro テレメトリのクリーニング用に設計されています。混合フリートについては、エンタープライズ ディスカッションが適用される場合があります。お問い合わせください。",
+      "q4": "NECTYR はどのようなデータをキャプチャしますか?",
+      "a4": "清掃ルート、対応範囲、ロボットの状態、障害、天候の再スケジュール、OPEX 請求の月ごとのパネル数。",
+      "q5": "これは車両監視ソフトウェアとどのように関係しますか?",
+      "a5": "フリート監視ページでは、NECTYR ops キーワードに焦点を当てています。このページでは、プラント インテリジェンスと収量分析の位置づけに焦点を当てます。",
+      "q6": "110 億パスという数字は何ですか?",
+      "a6": "導入されたフリート全体の年間清掃パスの累積量 - 分析ロードマップにフィードされたラベル付きイベント。",
+      "q7": "IPP は ORION をどのようにパイロットしますか?",
+      "a7": "条件を満たした AMC 顧客向けの NDA に基づく早期アクセス (通常は既存の Taypro フリートの更新時)。",
+      "q8": "データ インテリジェンスは SECI コンプライアンスに役立ちますか?",
+      "a8": "文書化された洗浄範囲は、技術的なデューデリジェンスをサポートし、入札の証拠要件と一致します。",
+      "q9": "ポートフォリオ システム用の API はありますか?",
+      "a9": "エンタープライズ統合に関するディスカッションが利用可能 — 範囲は展開モデルによって異なります。",
+      "q10": "気象 AI はどのように検証されますか?",
+      "a10": "NECTYR では、95% の現場で検証された再スケジュール精度を挙げています。要求の定義については、パフォーマンス方法論を参照してください。",
+      "q11": "どこから始めればよいでしょうか?",
+      "a11": "NECTYR を使用してロボットを導入し、PR ベースラインを確立してから、AMC 更新時に ORION について話し合います。"
+    },
+    "quoteForm": {
+      "eyebrow": "Platform inquiry",
+      "title": "Request NECTYR demo or ORION briefing",
+      "placeholder": "Portfolio MW, Taypro fleet status, SCADA vendor, and interest in NECTYR vs ORION."
+    },
+    "cta": {
+      "heading": "Start with execution data — grow into intelligence",
+      "body": "NECTYR is live on Taypro fleets today. Ask about ORION early access for your portfolio.",
+      "primary": "Contact platform team",
+      "primaryHref": "/contact",
+      "secondary": "Explore NECTYR",
+      "secondaryHref": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
+    },
+    "related": {
+      "label": "Related:",
+      "link0": "Fleet monitoring software",
+      "link0Href": "/solar-fleet-monitoring-software",
+      "link1": "ORION platform",
+      "link1Href": "/solar-panel-cleaning-system/orion-plant-intelligence-platform",
+      "link2": "Solar O&M services",
+      "link2Href": "/solar-om-services",
+      "link3": "AI intelligence",
+      "link3Href": "/technology/ai-intelligence"
+    }
+  }
+}

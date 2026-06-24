@@ -18,6 +18,10 @@ const dbPath =
   process.env.CMS_SQLITE?.trim() ||
   path.join(root, "data", "cms.sqlite");
 const apply = process.argv.includes("--apply");
+const slugFilter = process.argv
+  .find((a) => a.startsWith("--slug="))
+  ?.slice("--slug=".length)
+  .trim();
 
 if (!fs.existsSync(dir)) {
   console.error(`Missing directory: ${dir}`);
@@ -46,6 +50,7 @@ console.log(`  files: ${files.length}\n`);
 
 for (const file of files.sort()) {
   const data = JSON.parse(fs.readFileSync(path.join(dir, file), "utf8"));
+  if (slugFilter && data.slug !== slugFilter) continue;
   const row = selectBlog.get(data.slug);
   if (!row) {
     console.log(`  skip missing: ${data.slug}`);

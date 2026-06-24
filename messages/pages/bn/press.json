@@ -1,0 +1,33 @@
+{
+  "PressPage": {
+    "meta": {
+      "title": "প্রেস ও মিডিয়া কভারেজ | Taypro",
+      "description": "Taypro খবরে — Mercom India, EPC World, Energetica India, Saur Energy, TimesTech, T&D India, IPF অনলাইন, Live Mint Tech4Good, Renewable Watch, এবং 20+ যাচাইকৃত তৃতীয় পক্ষের সৌর পরিষ্কার রোবট নিবন্ধ।",
+      "openGraphTitle": "Taypro প্রেস এবং মিডিয়া কভারেজ",
+      "openGraphDescription": "ভারত জুড়ে Taypro জলবিহীন সৌর প্যানেল পরিষ্কারকারী রোবটের সাক্ষাৎকার, পুরস্কার এবং শিল্প কভারেজ।",
+      "twitterTitle": "Taypro প্রেস এবং মিডিয়া",
+      "twitterDescription": "ভারতে Taypro রোবোটিক সোলার প্যানেল পরিষ্কারের ইন্ডাস্ট্রি প্রেস কভারেজ।"
+    },
+    "breadcrumbs": {
+      "current": "Press"
+    },
+    "hero": {
+      "eyebrow": "খবরে",
+      "title": "প্রেস এবং মিডিয়া কভারেজ",
+      "subtitle": "সংবাদ, সাক্ষাত্কার, এবং শিল্প মিডিয়া Taypro-এর জলবিহীন সোলার প্যানেল পরিষ্কারের রোবট, এবং ভারত জুড়ে ইউটিলিটি-স্কেল স্থাপনাগুলি কভার করে৷"
+    },
+    "listHeading": "News, interviews & industry media",
+    "listIntro": "Links open the original publisher site in a new tab.",
+    "sectionInterviews": "Interviews & opinion",
+    "sectionMarket": "Market leadership",
+    "sectionAwards": "Awards",
+    "sectionNews": "Product & company news",
+    "sectionIndex": "Publisher indexes",
+    "readArticle": "Read on {outlet}",
+    "companyCta": "About Taypro",
+    "contactCta": "Contact media team"
+  },
+  "Common": {
+    "breadcrumbHome": "Home"
+  }
+}

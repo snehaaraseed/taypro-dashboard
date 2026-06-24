@@ -106,9 +106,10 @@ export function loadSeoKeywordRows(): SeoKeywordRow[] {
     });
   }
 
-  rows.sort((a, b) => scoreKeywordRow(b) - scoreKeywordRow(a));
+  // Cache before sort: scoreKeywordRow() may call loadGscIntentGaps() → loadSeoKeywordRows().
   cachedRows = rows;
-  return rows;
+  rows.sort((a, b) => scoreKeywordRow(b) - scoreKeywordRow(a));
+  return cachedRows;
 }
 
 export async function getUsedSeoKeywords(): Promise<Set<string>> {

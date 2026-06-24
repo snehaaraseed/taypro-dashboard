@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getNextGeminiQuotaSoftStartEpoch } from "@/lib/gemini/quota-schedule";
 import { isAutomationAuthorized } from "@/lib/security";
-import { getNextMidnightStopAtEpoch } from "@/lib/translation/config";
+import { getNextMidnightStopAtEpoch, isCmsTranslationDisabled } from "@/lib/translation/config";
 import { processDailyTranslations } from "@/lib/translation/translation-queue";
 import { appendTranslationRunLog } from "@/lib/translation/translation-run-logger";
 
@@ -37,6 +37,17 @@ function isRunInFlight(): boolean {
 export async function POST(request: NextRequest) {
   if (!isAutomationAuthorized(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  if (isCmsTranslationDisabled()) {
+    return NextResponse.json(
+      {
+        started: false,
+        skipped: true,
+        reason: "CMS_TRANSLATION_DISABLED",
+      },
+      { status: 200 }
+    );
   }
 
   const body = (await request.json().catch(() => ({}))) as TranslationRequestBody;

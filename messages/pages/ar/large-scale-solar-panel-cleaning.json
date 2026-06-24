@@ -1,0 +1,207 @@
+{
+  "LargeScaleCleaningPage": {
+    "meta": {
+      "title": "تنظيف ألواح شمسية واسع النطاق الهند | 50–500 ميجاوات",
+      "description": "نشر أسطول روبوتي على نطاق الميجاوات مع مراجع SECI/DVC.",
+      "openGraphTitle": "تنظيف شمسي واسع النطاق | Taypro",
+      "openGraphDescription": "حلول تنظيف 100 ميجاوات+ في الهند."
+    },
+    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHubHref": "/solar-panel-cleaning-system",
+    "breadcrumb": "تنظيف ألواح شمسية واسع النطاق",
+    "schema": {
+      "name": "Taypro Large-Scale Solar Panel Cleaning",
+      "description": "Robotic solar panel cleaning for 50–500 MW utility plants in India — fleet deployment, commissioning, and managed OPEX or CAPEX programmes.",
+      "serviceType": "Large-scale solar panel cleaning",
+      "areaServed": "India"
+    },
+    "hero": {
+      "eyebrow": "50-500 MW الطاقة الشمسية",
+      "title": "تنظيف واسع النطاق — نشر أسطول روبوتي بالميجاوات",
+      "subtitle": "100 MW ليس إصدارًا تجريبيًا — بل هو تحدٍ إنتاجي O&M. ينشر Taypro أساطيل متعددة الروبوتات في SECI، وDVC، وIPP من 50 موقعًا MW إلى 360 MW موقعًا فرديًا، مع روبوتات محددة لكل MW، وقواعد التشغيل، ومراقبة الأسطول NECTYR.",
+      "ctaPrimary": "طلب عرض مؤسسي",
+      "ctaPrimaryHref": "/contact",
+      "ctaSecondary": "عرض المشاريع التلقائية",
+      "ctaSecondaryHref": "/projects/automatic"
+    },
+    "stats": {
+      "eyebrow": "MW-قدرة النطاق",
+      "heading": "كيف ينشر Taypro روبوتات التنظيف على نطاق واسع",
+      "card0": {
+        "tag": "مراجع",
+        "stat": "360 MW",
+        "label": "أكبر نشر تلقائي لموقع واحد",
+        "body": "أساطيل GLYDE متعددة الروبوتات في محطات المرافق في راجاستان وغوجارات - وليست وحدات توضيحية."
+      },
+      "card1": {
+        "tag": "نموذج الأسطول",
+        "stat": "متعدد الروبوتات",
+        "label": "الروبوتات لكل MW المخطط لها لكل هندسة صف",
+        "body": "تعيين الموقع، ونقاط النقل CRADYL، وإستراتيجية تبديل البطارية، وفرق المشغلين تم قياسها لتعداد الكتل."
+      },
+      "card2": {
+        "tag": "التعبئة",
+        "stat": "أسابيع",
+        "label": "كتاب اللعب المنظم للتكليف",
+        "body": "تقييم الموقع، ورسم خرائط الروبوت، والاتصال (LTE/mesh)، وتدريب المشغلين، وNECTYR الإعداد."
+      },
+      "card3": {
+        "tag": "تجاري",
+        "stat": "CAPEX + OPEX",
+        "label": "قم بشراء أسطول أو ادفع مقابل كل لوحة يتم تنظيفها",
+        "body": "IPPs اختر الروبوت CAPEX مع AMC أو Taypro OPEX لكفاءة الميزانية العمومية في 50-500 محفظة MW."
+      }
+    },
+    "cards": {
+      "eyebrow": "متطلبات المؤسسة",
+      "heading": "ما يطلبه 100 فريق مشتريات MW+ من بائع التنظيف",
+      "card0": {
+        "title": "تم إثبات وجود مراجع متعددة MW",
+        "body": "SECI، وdiscom الحالة، ودراسات الحالة IPP بسعة MW المسماة - وليست مطالبات تسويقية بدون دليل نشر."
+      },
+      "card1": {
+        "title": "كثافة الأسطول ونمذجة الإنتاجية",
+        "body": "النماذج الهندسية للروبوتات لكل MW، وتغطية النوافذ الليلية، وعدد الدورات لتحقيق أهداف الاسترداد PR."
+      },
+      "card2": {
+        "title": "خدمة عموم الهند وقطع الغيار",
+        "body": "الاستجابة الإقليمية للأعطال، ومخزون قطع الغيار، والتشخيص عن بعد للأساطيل العاملة في مجمعات الطاقة الشمسية النائية."
+      },
+      "card3": {
+        "title": "تقارير جاهزة للتدقيق",
+        "body": "NECTYR سجلات التنظيف على مستوى الكتلة والتسوية الشهرية للمقرض، SECI وعمليات التدقيق الداخلية O&M."
+      },
+      "card4": {
+        "title": "كتاب اللعب للتعبئة المرحلية",
+        "body": "يؤدي نشر الروبوتات منطقة تلو الأخرى على 200 موقع MW+ إلى تقليل التعطيل التشغيلي. يتضمن دليل التشغيل رسم الخرائط والاتصال وتدريب المشغلين والتنسيق الموازي O&M."
+      },
+      "card5": {
+        "title": "SECI وCPSU محاذاة الامتثال",
+        "body": "تنظيف SOPs وسجلات NECTYR والتسوية الشهرية المنظمة للامتثال لمناقصة المرافق والعناية الفنية الواجبة للمقرض."
+      }
+    },
+    "prose": {
+      "eyebrow": "نموذج النشر",
+      "heading": "كم عدد روبوتات التنظيف لكل MW على نطاق واسع؟",
+      "p1": "لا توجد نسبة عالمية للروبوتات لكل MW — فهي تعتمد على الإمالة الثابتة مقابل المتعقب، وطول الصف، ونقاط النقل، والدورات المستهدفة شهريًا، واستراتيجية تبديل البطارية. Taypro يقوم المهندسون بوضع نموذج لحجم الأسطول أثناء تقييم الموقع باستخدام هندسة الصف المخزنة وأهداف الإنتاجية.",
+      "p2": "في 100 محطة تعقب MW+، تكون أساطيل GLYDE-X أو NYUMA-X مع نقل الصفوف CRADYL قياسية. يمكن للكتل ذات الميل الثابت عند 200-360 MW نشر عشرات من الوحدات GLYDE مع جدولة NECTYR منسقة عبر المناطق.",
+      "p3": "تصفح مراجع مشروع Taypro التلقائية أو اطلب نموذج أسطول لتخطيط مصنعك المحدد.",
+      "linkPrimary": "مشاريع التنظيف التلقائي",
+      "linkPrimaryHref": "/projects/automatic",
+      "linkSecondary": "روبوتات التنظيف المتعقبة",
+      "linkSecondaryHref": "/solar-panel-cleaning-robot-for-trackers"
+    },
+    "projects": {
+      "eyebrow": "MW-scale references",
+      "heading": "Large-scale solar cleaning project references",
+      "subheading": "50–360 MW robotic cleaning deployments across India."
+    },
+    "stateGrid": {
+      "heading": "Large-scale cleaning by state",
+      "intro": "India's largest utility solar parks sit in Rajasthan, Gujarat, Maharashtra, Karnataka, and Madhya Pradesh. Explore state-specific robotic cleaning guides."
+    },
+    "faq": {
+      "heading": "التنظيف الشمسي على نطاق واسع – الأسئلة الشائعة",
+      "subheading": "أسئلة مشتريات المؤسسة لعدد 50-500 MW من النباتات.",
+      "q0": "هل يمكن Taypro تنظيف محطة طاقة شمسية 100 MW؟",
+      "a0": "نعم. يحتوي Taypro على أكثر من 100 مرجع MW+ وعمليات نشر لموقع واحد تصل إلى 360 MW مع أساطيل GLYDE التلقائية. يتم تصميم حجم الأسطول والجدول الزمني للتعبئة لكل موقع.",
+      "q1": "ما هو عدد الروبوتات المطلوبة لكل MW؟",
+      "a1": "يختلف عدد الروبوتات لكل MW حسب نوع التثبيت وهندسة الصفوف وعدد الدورات. يوفر Taypro نموذج أسطول خاصًا بالموقع أثناء التقييم الهندسي — وليس رقم كتيب عام.",
+      "q2": "ما هو الجدول الزمني للتشغيل لأسطول 200 MW؟",
+      "a2": "تعد التعبئة المرحلية أمرًا نموذجيًا: رسم خرائط الموقع، ونشر الروبوت في كل منطقة على حدة، وتدريب المشغلين، وNECTYR الإعداد. يعتمد المخطط الزمني على عدد الصفوف والوصول إليها - وهو ما يتم اقتراحه أثناء المشاركة التجارية.",
+      "q3": "هل يخدم Taypro مشروعي SECI وCPSU؟",
+      "a3": "نعم. يتمتع Taypro بخبرة في SECI-محطات المرافق العامة التابعة للدولة والتي تحتوي على أساطيل تنظيف آلية وبرامج OPEX المُدارة.",
+      "q4": "CAPEX أو OPEX لـ 100 نبات MW+؟",
+      "a4": "يتم استخدام كلا النموذجين على نطاق واسع. CAPEX يناسب فترات الانتظار الطويلة وقدرة الميزانية العمومية. OPEX يناسب التعبئة السريعة والنفقات المتوقعة لكل لوحة. يقوم العديد من IPP بإجراء تحليل على مستوى المحفظة باستخدام حاسبة ROI الخاصة بنا.",
+      "q5": "كيف يختلف التنظيف واسع النطاق عن سياق عمليات المرافق؟",
+      "a5": "تركز هذه الصفحة على MW إمكانية نشر الأسطول والمراجع على نطاق واسع. تغطي صفحة عمليات المرافق الخاصة بنا سياق الصناعة - الاتساخ والفجوات PR وO&M. تغطي صفحة خدمات O&M نطاق الشراء وSLAs.",
+      "q6": "ما هي الروبوتات المستخدمة بمقياس MW؟",
+      "a6": "GLYDE للإمالة الثابتة، GLYDE-X وNYUMA-X لأجهزة التتبع، مع نقل الصف CRADYL على جداول التعقب الطويلة. HELYX للكتل المتفرقة داخل المواقع الكبيرة.",
+      "q7": "كيف أبدأ استعلامًا مؤسسيًا؟",
+      "a7": "مشاركة المصنع MW، والموقع، ونوع التثبيت، SECI/IPP السياق، والبدء المباشر المستهدف، والنموذج التجاري المفضل. سيقوم Taypro بتعيين الهندسة واقتراح خطة الأسطول وتسعيره.",
+      "q8": "ما هو أكبر عملية نشر لموقع واحد تم تنظيفها Taypro؟",
+      "a8": "360 MW النشر التلقائي GLYDE في راجاستان (مرجع أخادانا). اتصل بـ Taypro للحصول على مراجع الأسطول الحالية المطابقة لمقياس MW الخاص بك.",
+      "q9": "ما هي المدة اللازمة لتعبئة أسطول تنظيف مكون من 200 MW؟",
+      "a9": "التعبئة المرحلية على مدار أسابيع اعتمادًا على عدد المناطق والوصول إليها وهندسة الصفوف. الجدول الزمني التفصيلي المقترح خلال المشاركة التجارية.",
+      "q10": "هل يمكن Taypro تنظيف كتل متعددة بأنواع تثبيت مختلفة على موقع واحد؟",
+      "a10": "نعم. تعد الكتل المختلطة ذات الميل الثابت والتتبع داخل مجمعات الطاقة الشمسية الكبيرة شائعة. يقوم نموذج الأسطول بتعيين GLYDE أو GLYDE-X أو NYUMA-X لكل كتلة مع إشراف NECTYR موحد.",
+      "q11": "ما هي الوثائق التي يطلبها المقرضون لبرامج التنظيف الآلي؟",
+      "a11": "NECTYR سجلات الدورة، وخرائط التغطية، وتسوية حجم اللوحة الشهرية، وتنظيف SOPs. تم تصميم برامج Taypro للعناية الفنية الواجبة بشأن تمويل الطاقة الشمسية."
+    },
+    "cta": {
+      "heading": "Enterprise inquiry for MW-scale cleaning",
+      "body": "50 MW to 500 MW — share your plant details for a fleet deployment proposal.",
+      "primary": "Contact Taypro",
+      "primaryHref": "/contact",
+      "secondary": "Solar O&M services",
+      "secondaryHref": "/solar-om-services"
+    },
+    "related": {
+      "label": "Related:",
+      "link0": "Utility-scale O&M hub",
+      "link0Href": "/utility-scale-solar-operations",
+      "link1": "National cleaning service India",
+      "link1Href": "/solar-panel-cleaning-service-india",
+      "link2": "OPEX pricing bands",
+      "link2Href": "/solar-cleaning-opex-pricing"
+    },
+    "quoteForm": {
+      "eyebrow": "Enterprise inquiry",
+      "title": "Request MW-scale cleaning proposal",
+      "placeholder": "Plant MW, state, installation type, SECI/IPP context, target mobilisation date, and CAPEX vs OPEX preference."
+    },
+    "steps": {
+      "eyebrow": "Enterprise deployment",
+      "heading": "MW-scale solar cleaning robot mobilisation process",
+      "step0Title": "Enterprise RFQ & portfolio scoping",
+      "step0Body": "Share single-site MW or multi-site portfolio, installation mix, SECI/IPP context, and commercial model preference (CAPEX vs OPEX).",
+      "step1Title": "Engineering & fleet density model",
+      "step1Body": "Robots-per-MW calculated from row geometry, tracker vs fixed tilt, cycle targets, and CRADYL placement. Not generic industry ratios.",
+      "step2Title": "Commercial & SLA framework",
+      "step2Body": "Pricing, breakdown response, reporting cadence, and escalation matrix scaled to plant size. OPEX or CAPEX terms issued.",
+      "step3Title": "Phased fleet deployment",
+      "step3Body": "Zone-by-zone mobilisation on large sites. Operators, spares, and NECTYR onboarding per phase.",
+      "step4Title": "Production cleaning & governance",
+      "step4Body": "3–10 cycles monthly with monthly panel-volume reconciliation and quarterly programme reviews."
+    },
+    "eligibility": {
+      "eyebrow": "Scale fit",
+      "title": "Large-scale solar panel cleaning — when Taypro fits",
+      "forTitle": "Built for",
+      "for0": "Utility solar plants 50 MW to 500 MW single site or portfolio",
+      "for1": "SECI, state discom, CPSU, and IPP assets with documented MW references",
+      "for2": "Fixed-tilt and single-axis tracker plants requiring multi-robot fleets",
+      "for3": "Procurement teams needing enterprise SLA, NECTYR audit trail, and pan-India service",
+      "notForTitle": "Below typical scale",
+      "not0": "Sub-10 MW ground-mount without feasibility exception",
+      "not1": "Residential or small C&I rooftop (see rooftop guide)",
+      "not2": "Plants seeking one annual manual wash only"
+    },
+    "highlight": {
+      "heading": "100 MW is not a pilot.",
+      "lead": "Large-scale solar panel cleaning requires production fleet operations — not a handful of demo robots.",
+      "body": "Taypro deploys tens of robots on 200–360 MW sites with NECTYR fleet oversight, regional spares, and dedicated operators. That is the bar for MW-scale cleaning procurement in India."
+    },
+    "proseSecondary": {
+      "eyebrow": "مراجع",
+      "heading": "100MW التنظيف بالطاقة الشمسية وما بعده — Taypro دليل النشر",
+      "p1": "تمثل Akhadana Rajasthan 360 MW، وBachau DVC Gujarat 300 MW، وNeneva Gujarat 250 MW الأساطيل الأوتوماتيكية الأولى Taypro GLYDE في الطرف العلوي من مقياس المرافق الهندي. هذه عمليات نشر إنتاجية - وليست صفائف توضيحية.",
+      "p2": "يتضمن تحديد حجم الأسطول في 100 محطة تعقب MW عادةً GLYDE-X أو NYUMA-X مع محطات نقل CRADYL في نهايات الصفوف. قد تقوم كتل 200 MW ذات الإمالة الثابتة بتشغيل أساطيل منسقة متعددة المناطق GLYDE مع جدولة NECTYR عبر المناطق.",
+      "p3": "اطلب مقترح مؤسسة مع تخطيط المصنع، أو تصفح دراسات حالة المشروع التلقائية التي تمت تصفيتها حسب سعة MW.",
+      "linkPrimary": "مراجع المشروع التلقائية",
+      "linkPrimaryHref": "/projects/automatic",
+      "linkSecondary": "خدمات الطاقة الشمسية O&M",
+      "linkSecondaryHref": "/solar-om-services"
+    },
+    "resources": {
+      "eyebrow": "Enterprise guides",
+      "heading": "MW-scale procurement resources",
+      "link0Title": "Tracker cleaning robots",
+      "link0Href": "/solar-panel-cleaning-robot-for-trackers",
+      "link1Title": "OPEX pricing per MW",
+      "link1Href": "/solar-cleaning-opex-pricing",
+      "link2Title": "India cleaning service",
+      "link2Href": "/solar-panel-cleaning-service-india"
+    }
+  }
+}
