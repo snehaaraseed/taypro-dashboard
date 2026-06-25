@@ -33,6 +33,7 @@ function isRunInFlight(): boolean {
  * POST — CMS translation (AUTOMATION_CRON_SECRET).
  * postWriter=true or catchup=true: full backlog until both Gemini keys hit quota
  * or stopAtEpoch (post-writer defaults to next 00:30 Pacific soft start ≈ 1:00 PM IST).
+ * When translation backlog is empty, rewrites legacy English projects until quota/deadline.
  */
 export async function POST(request: NextRequest) {
   if (!isAutomationAuthorized(request)) {
@@ -96,6 +97,15 @@ export async function POST(request: NextRequest) {
         completed: result.completed,
         partial: result.partial,
         skippedQuota: result.skippedQuota,
+        projectImprove: result.projectImprove
+          ? {
+              backlog: result.projectImprove.backlog,
+              processed: result.projectImprove.processed,
+              completed: result.projectImprove.completed,
+              failed: result.projectImprove.failed,
+              quotaStopped: result.projectImprove.quotaStopped,
+            }
+          : null,
         summary: result.items.map((item) => ({
           type: item.contentType,
           slug: item.slug,

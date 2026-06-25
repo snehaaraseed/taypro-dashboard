@@ -49,12 +49,17 @@ function entry(
     priority: number;
   }
 ): MetadataRoute.Sitemap[number] {
-  return {
+  const item: MetadataRoute.Sitemap[number] = {
     url: `${SITE_URL}${path}`,
-    lastModified: options.lastModified ?? new Date(),
     changeFrequency: options.changeFrequency,
     priority: options.priority,
   };
+
+  if (options.lastModified) {
+    item.lastModified = options.lastModified;
+  }
+
+  return item;
 }
 
 function collectAuthorPaths(

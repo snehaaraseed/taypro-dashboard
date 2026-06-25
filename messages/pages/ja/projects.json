@@ -1,8 +1,10 @@
 {
   "ProjectsPage": {
     "meta": {
-      "title": "Tayproソーラープロジェクト - ソーラーパネル洗浄ロボット導入事例",
+      "title": "Tayproソーラープロジェクト | 洗浄ロボット導入事例",
       "description": "インド全土の自律型・半自動洗浄ロボットを備えたTayproユーティリティスケールソーラープロジェクトを探索。サイト依存の汚れ回復とO&M成果を伴う現場導入事例。",
+      "metaTitlePaged": "Tayproソーラープロジェクト, {page}ページ目 | 導入事例",
+      "metaDescriptionPaged": "インドのTayproソーラー洗浄ロボット導入事例の{page}ページ目をご覧ください。",
       "openGraphTitle": "Tayproソーラープロジェクト - ソーラーパネル洗浄ロボット導入事例",
       "openGraphDescription": "ロボット乾式洗浄によるTayproソーラープロジェクト、インドのユーティリティスケール導入と測定可能なO&M成果（サイト依存）。",
       "openGraphImageAlt": "ソーラーパネル洗浄ロボットによるTayproソーラープロジェクト",

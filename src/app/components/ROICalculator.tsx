@@ -802,9 +802,9 @@ export default function ROITayproCalculator({
       {showResults && (
         <div className="bg-[#052638] rounded-xl p-6 sm:p-8">
           <div className="flex justify-between items-center mb-6">
-            <h3 className="text-white text-2xl font-semibold">
+            <h2 className="text-white text-2xl font-semibold">
               {t("resultsHeading")}
-            </h3>
+            </h2>
             <button
               type="button"
               className="text-white/80 text-sm hover:text-[#A8C117] transition"

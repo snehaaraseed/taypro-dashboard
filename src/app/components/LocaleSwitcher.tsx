@@ -70,13 +70,15 @@ export default function LocaleSwitcher() {
         </span>
       </button>
 
-      {open ? (
-        <ul
-          id={listId}
-          role="listbox"
-          aria-label={t("label")}
-          className="absolute right-0 z-[60] mt-1.5 min-w-[9.5rem] overflow-hidden rounded-lg border border-white/15 bg-[#052638] py-1 shadow-lg shadow-black/30"
-        >
+      <ul
+        id={listId}
+        role="listbox"
+        aria-label={t("label")}
+        hidden={!open}
+        className={`absolute right-0 z-[60] mt-1.5 min-w-[9.5rem] overflow-hidden rounded-lg border border-white/15 bg-[#052638] py-1 shadow-lg shadow-black/30 ${
+          open ? "" : "hidden"
+        }`}
+      >
           {routing.locales.map((code) => {
             const loc = code as TayproLocale;
             const { native } = LOCALE_LABELS[loc];
@@ -106,7 +108,6 @@ export default function LocaleSwitcher() {
             );
           })}
         </ul>
-      ) : null}
     </div>
   );
 }

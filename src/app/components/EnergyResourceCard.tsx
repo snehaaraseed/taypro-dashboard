@@ -81,9 +81,9 @@ export default async function EnergyResourceCard({
   return (
     <section className="w-full pt-40 pb-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <h3 className="text-[#052638] font-semibold text-3xl sm:text-4xl mb-4">
+        <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl mb-4">
           {title}
-        </h3>
+        </h2>
         {subtitle && (
           <p className="text-[#475569] text-base sm:text-lg max-w-3xl mx-auto mb-12">
             {subtitle}
@@ -108,9 +108,9 @@ export default async function EnergyResourceCard({
                   className="object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105 group-hover:translate-x-3"
                 />
                 <div className="absolute bottom-4 left-4 right-4 text-white flex flex-col transition-all duration-300 text-left">
-                  <h4 className="text-sm font-semibold bg-opacity-10 px-3 transition-transform duration-300 group-hover:-translate-y-3 line-clamp-2">
+                  <h3 className="text-sm font-semibold bg-opacity-10 px-3 transition-transform duration-300 group-hover:-translate-y-3 line-clamp-2">
                     {card.title}
-                  </h4>
+                  </h3>
                   <div className="text-xs bg-opacity-60 px-3 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300">
                     {card.date}
                   </div>

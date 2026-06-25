@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { getAllFileProjects } from "@/app/utils/projectFileUtils";
@@ -6,6 +7,8 @@ import {
   PROJECTS_HUB_PORTFOLIO_PAGE_SIZE,
   parseProjectsHubPage,
   projectsHubPagePath,
+  projectsHubPageUrl,
+  projectsHubPaginationLinks,
 } from "@/lib/cms/projects-hub-pagination";
 import {
   enrichProjectsForGrid,
@@ -27,6 +30,7 @@ import { Container } from "@/app/components/Container";
 import ProjectsGrid from "@/app/components/ProjectsGrid";
 import CallbackCard from "@/app/components/CallbackCard";
 import { FaqSection } from "@/app/components/FaqSection";
+import { withHreflang } from "@/lib/seo/with-hreflang";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 const PORTFOLIO_PAGE_SIZE = PROJECTS_HUB_PORTFOLIO_PAGE_SIZE;
@@ -51,6 +55,64 @@ type ProjectPageProps = {
   params: Promise<{ locale: string }>;
   searchParams?: Promise<{ page?: string | string[] }>;
 };
+
+async function getPortfolioPageCount(locale: string): Promise<number> {
+  const allProjects = await getAllFileProjects(locale);
+  const featuredSlugSet = new Set<string>(FEATURED_HUB_PROJECT_SLUGS);
+  const portfolioCount = allProjects.filter(
+    (p) => !featuredSlugSet.has(p.id)
+  ).length;
+  return Math.max(1, Math.ceil(portfolioCount / PORTFOLIO_PAGE_SIZE));
+}
+
+export async function generateMetadata({
+  params,
+  searchParams,
+}: ProjectPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const sp = (await searchParams) ?? {};
+  const requestedPage = parseProjectsHubPage(sp.page);
+  const totalPages = await getPortfolioPageCount(locale);
+  const page = Math.min(requestedPage, totalPages);
+  const t = await getTranslations({ locale, namespace: "ProjectsPage.meta" });
+
+  const canonical = projectsHubPageUrl(siteUrl, page);
+  const pagination = projectsHubPaginationLinks(siteUrl, page, totalPages);
+
+  const title =
+    page <= 1 ? t("title") : t("metaTitlePaged", { page });
+  const description =
+    page <= 1 ? t("description") : t("metaDescriptionPaged", { page });
+
+  const listPath = projectsHubPagePath(page);
+  const querySuffix = listPath.includes("?")
+    ? listPath.slice(listPath.indexOf("?"))
+    : "";
+
+  return withHreflang(
+    "/projects",
+    locale,
+    {
+      title: { absolute: title },
+      description,
+      ...(pagination.previous || pagination.next
+        ? {
+            pagination: {
+              ...(pagination.previous ? { previous: pagination.previous } : {}),
+              ...(pagination.next ? { next: pagination.next } : {}),
+            },
+          }
+        : {}),
+      openGraph: {
+        title,
+        description,
+        url: canonical,
+        type: "website",
+      },
+    },
+    { canonicalSuffix: querySuffix }
+  );
+}
 
 export default async function ProjectPage({
   params,
@@ -112,7 +174,7 @@ export default async function ProjectPage({
         name={t("schema.collectionName")}
         description={t("schema.collectionDescription")}
         siteUrl={siteUrl}
-        url={`${siteUrl}/projects`}
+        url={projectsHubPageUrl(siteUrl, portfolioPage)}
       />
       <ItemListSchema
         scriptId="item-list-schema-projects-hub"

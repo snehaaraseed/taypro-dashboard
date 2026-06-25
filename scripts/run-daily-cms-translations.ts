@@ -151,6 +151,7 @@ async function main(): Promise<void> {
       partial: result.partial,
       skippedQuota: result.skippedQuota,
       clearedQueueRows: result.clearedQueueRows,
+      projectImprove: result.projectImprove ?? null,
       summary: result.items.map((item) => ({
         type: item.contentType,
         slug: item.slug,

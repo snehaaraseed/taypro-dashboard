@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useId } from "react";
 import { useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
 import { CheckCircle2 } from "lucide-react";
@@ -78,6 +78,8 @@ export default function RequestEstimateForm({
 }: RequestEstimateFormProps = {}) {
   const t = useTranslations("Forms");
   const pathname = usePathname();
+  const formInstanceId = useId();
+  const fieldId = (name: string) => `${formInstanceId}-${name}`;
   const [formData, setFormData] = useState(INITIAL_FORM);
 
   const [loading, setLoading] = useState(false);
@@ -253,8 +255,11 @@ export default function RequestEstimateForm({
         <form onSubmit={handleSubmit}>
           <div className={gridClass}>
             <div>
-              <label className={labelClass}>{t("firstName")}</label>
+              <label htmlFor={fieldId("firstName")} className={labelClass}>
+                {t("firstName")}
+              </label>
               <input
+                id={fieldId("firstName")}
                 type="text"
                 name="firstName"
                 placeholder={t("firstNamePlaceholder")}
@@ -266,8 +271,11 @@ export default function RequestEstimateForm({
               />
             </div>
             <div className={mobileOnlyHidden}>
-              <label className={labelClass}>{t("companyName")}</label>
+              <label htmlFor={fieldId("companyName")} className={labelClass}>
+                {t("companyName")}
+              </label>
               <input
+                id={fieldId("companyName")}
                 type="text"
                 name="companyName"
                 placeholder={t("companyPlaceholder")}
@@ -278,8 +286,11 @@ export default function RequestEstimateForm({
               />
             </div>
             <div>
-              <label className={labelClass}>{t("email")}</label>
+              <label htmlFor={fieldId("email")} className={labelClass}>
+                {t("email")}
+              </label>
               <input
+                id={fieldId("email")}
                 type="email"
                 name="email"
                 placeholder={t("emailPlaceholder")}
@@ -290,8 +301,11 @@ export default function RequestEstimateForm({
               />
             </div>
             <div>
-              <label className={labelClass}>{t("phone")}</label>
+              <label htmlFor={fieldId("phone")} className={labelClass}>
+                {t("phone")}
+              </label>
               <input
+                id={fieldId("phone")}
                 type="tel"
                 name="phone"
                 placeholder={t("phonePlaceholder")}
@@ -312,8 +326,11 @@ export default function RequestEstimateForm({
                   : "mb-6 md:mb-8"
             } ${mobileOnlyHidden}`}
           >
-            <label className={labelClass}>{resolvedMessageLabel}</label>
+            <label htmlFor={fieldId("message")} className={labelClass}>
+              {resolvedMessageLabel}
+            </label>
             <textarea
+              id={fieldId("message")}
               rows={messageRows}
               name="message"
               value={formData.message}

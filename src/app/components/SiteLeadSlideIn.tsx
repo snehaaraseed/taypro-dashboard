@@ -8,6 +8,7 @@ import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { usePathname } from "@/i18n/navigation";
 import { lockPageScroll } from "@/lib/scroll-lock";
+import { getOverlayPortalRoot } from "@/lib/overlay-portal";
 import { trackSlideInOpen } from "@/lib/analytics/track-event";
 import { LeadModalContext } from "./LeadModalContext";
 
@@ -202,19 +203,17 @@ export default function SiteLeadSlideIn() {
   const titleId = stage === "teaser" ? "taypro-slidein-title" : "taypro-slidein-form-title";
 
   const panel = (
-    <div className="taypro-lead-slidein-root pointer-events-auto">
-      <button
-        type="button"
+    <div className="taypro-lead-slidein-root">
+      <div
         className="taypro-lead-backdrop absolute inset-0 bg-[#052638]/55 backdrop-blur-[3px]"
-        aria-label="Close"
+        aria-hidden="true"
         onClick={handleDismiss}
       />
       <div
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="taypro-lead-slidein-panel relative z-10 rounded-2xl border border-white/10 bg-white shadow-[0_24px_80px_-12px_rgba(5,38,56,0.45)]"
-        onClick={(e) => e.stopPropagation()}
+        className="taypro-lead-slidein-panel rounded-2xl border border-white/10 bg-white shadow-[0_24px_80px_-12px_rgba(5,38,56,0.45)]"
       >
         {stage === "teaser" ? (
           <>
@@ -374,5 +373,5 @@ export default function SiteLeadSlideIn() {
     </div>
   );
 
-  return createPortal(panel, document.body);
+  return createPortal(panel, getOverlayPortalRoot());
 }

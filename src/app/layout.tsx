@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Blinker, Montserrat } from "next/font/google";
+import { headers } from "next/headers";
+import { LOCALE_LABELS, isActiveLocale, type TayproLocale } from "@/i18n/markets";
 import "@/app/globals.css";
 
 const montserrat = Montserrat({
@@ -31,13 +33,31 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+function resolveHtmlLocale(
+  localeHeader: string | null,
+  dirHeader: string | null
+): { locale: TayproLocale; dir: "ltr" | "rtl" } {
+  const locale = localeHeader && isActiveLocale(localeHeader)
+    ? localeHeader
+    : "en";
+  const fallbackDir = LOCALE_LABELS[locale]?.dir ?? "ltr";
+  const dir = dirHeader === "rtl" || dirHeader === "ltr" ? dirHeader : fallbackDir;
+  return { locale, dir };
+}
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const headersList = await headers();
+  const { locale, dir } = resolveHtmlLocale(
+    headersList.get("x-taypro-locale"),
+    headersList.get("x-taypro-dir")
+  );
+
   return (
-    <html lang="en" dir="ltr" suppressHydrationWarning>
+    <html lang={locale} dir={dir} suppressHydrationWarning>
       <body
         className={`${montserrat.className} ${montserrat.variable} ${blinker.variable}`}
         suppressHydrationWarning

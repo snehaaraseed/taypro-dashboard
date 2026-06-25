@@ -257,9 +257,9 @@ export default async function PerformanceAndTestMethodologyPage({
                       <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[#A8C117]/12 mb-4">
                         <Icon className="h-5 w-5 text-[#5a8f00]" aria-hidden />
                       </span>
-                      <h4 className="text-[#052638] font-semibold text-base mb-2 leading-snug">
+                      <h3 className="text-[#052638] font-semibold text-base mb-2 leading-snug">
                         {item.title}
-                      </h4>
+                      </h3>
                       <p className="text-[#27415c] text-sm leading-relaxed">{item.body}</p>
                     </article>
                   );

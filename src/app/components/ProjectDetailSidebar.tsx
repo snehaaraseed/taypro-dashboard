@@ -13,9 +13,9 @@ export function ProjectDetailSidebar() {
         <p className="text-xs uppercase tracking-wider text-[#A8C117] mb-2">
           {t("sidebarEyebrow")}
         </p>
-        <h3 className="text-xl font-semibold leading-tight mb-3">
+        <h2 className="text-xl font-semibold leading-tight mb-3">
           {t("sidebarTitle")}
-        </h3>
+        </h2>
         <p className="text-sm text-slate-100 mb-5 leading-relaxed">
           {t("sidebarBody")}
         </p>
@@ -33,9 +33,9 @@ export function ProjectDetailSidebar() {
         <p className="text-xs uppercase tracking-wider text-[#A8C117] mb-2">
           {t("sidebarToolsEyebrow")}
         </p>
-        <h3 className="text-base font-semibold text-[#052638] mb-2">
+        <h2 className="text-base font-semibold text-[#052638] mb-2">
           {t("sidebarToolsTitle")}
-        </h3>
+        </h2>
         <p className="text-sm text-[#27415c] mb-4 leading-relaxed">
           {t("sidebarToolsBody")}
         </p>

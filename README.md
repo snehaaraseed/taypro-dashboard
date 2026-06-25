@@ -19,7 +19,16 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm run build` | Production build |
 | `./deploy.sh` | Production deploy — zero-downtime, CMS-safe (see `docs/DEPLOYMENT_CONTENT_PRESERVATION.md`) |
 | `npm run cms:deploy-prep` | Pre-deploy CMS checks |
-
+| `npm run cms:deploy-prep` | Pre-deploy CMS checks |
+|cd /tmp/siteone-crawler && ./siteone-crawler \
+  --url=https://taypro.in/ \
+  --extra-columns='Title(60),Description(80),Keywords(40)' \
+  --show-inline-criticals \
+  --show-inline-warnings \
+  --result-storage=file \
+  --output-html-report='/Users/yogesh/TayproWebsite/taypro-dashboard/seo-audit-inputs/siteone-full-report.html' \
+  --output-json-file='/Users/yogesh/TayproWebsite/taypro-dashboard/seo-audit-inputs/siteone-full-report.json' \
+  --output-text-file='/Users/yogesh/TayproWebsite/taypro-dashboard/seo-audit-inputs/siteone-full-report.txt' |  ``` SiteOne SEO audit command |
 ## Documentation
 
 See **[docs/README.md](./docs/README.md)** for SEO, deploy, GSC, blog automation, and CMS guides.

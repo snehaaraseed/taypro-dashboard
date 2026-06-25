@@ -37,9 +37,9 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({
         {/* Right side: Benefit box */}
         <AnimateOnScroll animation="fadeInRight" delay={100} className="md:w-1/2 flex justify-center">
           <div className="bg-[#75AA00] px-12 py-10 w-full max-w-md">
-            <h4 className="text-white text-2xl font-medium mb-8">
+            <h3 className="text-white text-2xl font-medium mb-8">
               The Benefits
-            </h4>
+            </h3>
             <ul className="space-y-7">
               {benefits.map((benefit, i) => (
                 <AnimateOnScroll key={i} animation="fadeInRight" delay={i * 100}>

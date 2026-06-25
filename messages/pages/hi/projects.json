@@ -1,8 +1,10 @@
 {
   "ProjectsPage": {
     "meta": {
-      "title": "Taypro सोलर प्रोजेक्ट - सोलर पैनल क्लीनिंग रोबोट स्थापनाएं",
+      "title": "Taypro सोलर प्रोजेक्ट | क्लीनिंग रोबोट स्थापनाएं",
       "description": "भारत भर में स्वायत्त और अर्ध-स्वचालित क्लीनिंग रोबोट के साथ Taypro यूटिलिटी-स्केल सोलर प्रोजेक्ट देखें, साइट-निर्भर सोइलिंग रिकवरी और O&M परिणामों के साथ फील्ड तैनाती।",
+      "metaTitlePaged": "Taypro सोलर प्रोजेक्ट, पृष्ठ {page} | स्थापनाएं",
+      "metaDescriptionPaged": "भारत में Taypro सोलर क्लीनिंग रोबोट स्थापना केस स्टडी का पृष्ठ {page} देखें।",
       "openGraphTitle": "Taypro सोलर प्रोजेक्ट - सोलर पैनल क्लीनिंग रोबोट स्थापनाएं",
       "openGraphDescription": "Taypro सोलर प्रोजेक्ट रोबोटिक ड्राई क्लीनिंग के साथ, भारत में यूटिलिटी-स्केल स्थापनाएं मापनीय O&M परिणामों के साथ (साइट-निर्भर)।",
       "openGraphImageAlt": "सोलर पैनल क्लीनिंग रोबोट के साथ Taypro सोलर प्रोजेक्ट",
@@ -122,6 +124,16 @@
     "caseStudyLabel": "तैनाती केस स्टडी",
     "lastUpdated": "अंतिम अपडेट {date}",
     "minRead": "{minutes} मिनट पढ़ना",
+    "heroStatsAriaLabel": "मुख्य प्रोजेक्ट मेट्रिक्स",
+    "statCapacity": "क्षमता",
+    "statFleet": "फ्लीट",
+    "statLocation": "स्थान",
+    "statDeployment": "तैनाती",
+    "statsEyebrow": "साइट तथ्य",
+    "statsHeading": "एक नज़र में साइट आंकड़े",
+    "statsTableMetric": "मेट्रिक",
+    "statsTableValue": "रिपोर्ट किया गया मान",
+    "statsTableDisclaimer": "आंकड़े साइट-रिपोर्टेड हैं। निवेश समिति उपयोग से पहले अपने SCADA, curtailment और प्रकटीकरण methodology के साथ सत्यापित करें।",
     "contents": "इस पृष्ठ पर",
     "tocLabel": "विषय सूची",
     "backToProjects": "सभी प्रोजेक्ट पर वापस",

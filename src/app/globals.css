@@ -465,13 +465,31 @@ a.internal-link:hover {
 
 .taypro-lead-backdrop {
   z-index: 0;
+  cursor: pointer;
+  touch-action: manipulation;
   animation: taypro-lead-fade 0.35s ease-out both;
 }
 
-.taypro-lead-slidein-root {
+#taypro-overlay-root {
   position: fixed;
   inset: 0;
-  z-index: 9998;
+  z-index: 10000;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+#taypro-overlay-root > * {
+  pointer-events: auto;
+}
+
+.taypro-lead-slidein-root,
+.taypro-lead-modal-root {
+  position: fixed;
+  inset: 0;
+  pointer-events: auto;
+}
+
+.taypro-lead-slidein-root {
   overflow: hidden;
   overscroll-behavior: none;
   height: 100dvh;
@@ -482,7 +500,8 @@ a.internal-link:hover {
 
 .taypro-lead-slidein-panel {
   position: absolute;
-  z-index: 10;
+  z-index: 2;
+  pointer-events: auto;
   left: 0.75rem;
   right: 0.75rem;
   bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
@@ -548,9 +567,6 @@ a.internal-link:hover {
     display: none;
   }
 
-  .taypro-lead-slidein-later {
-    display: none;
-  }
 }
 
 @media (min-width: 640px) {

@@ -9,7 +9,7 @@ export function buildTier2DeepEditorial(slug, s) {
 
   return `
 <h2>What ${name} teaches procurement teams</h2>
-<p>${s.unique} Use the <a href="/solar-panel-cleaning-robot-price-calculator#calculator">ROI calculator</a> with conservative GWh attribution, then request plant-specific cycle assumptions from Taypro applications—see <a href="/utility-operations">utility operations</a> framing.</p>
+<p>${s.unique} Use the <a href="/solar-panel-cleaning-robot-price-calculator#calculator">ROI calculator</a> with conservative GWh attribution, then request plant-specific cycle assumptions from Taypro applications—see <a href="/utility-scale-solar-operations">utility operations</a> framing.</p>
 <p>Lenders should ask for block-level proof: ${mon}. Insurers should see night traffic plans and training records alongside water and carbon statistics.</p>
 
 <h2>Regional soiling mechanics at ${s.mw}&nbsp;MW</h2>

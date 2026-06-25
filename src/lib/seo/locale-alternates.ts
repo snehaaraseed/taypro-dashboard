@@ -78,7 +78,14 @@ export function buildLocaleAlternates(
     );
   }
 
-  languages["x-default"] = localizedUrl(path, routing.defaultLocale) + suffix;
+  const xDefaultLocale =
+    explicitLocales && explicitLocales.length > 0
+      ? explicitLocales.includes(routing.defaultLocale as TayproLocale)
+        ? routing.defaultLocale
+        : explicitLocales[0]
+      : routing.defaultLocale;
+
+  languages["x-default"] = localizedUrl(path, xDefaultLocale) + suffix;
 
   return {
     canonical: localizedUrl(path, canonicalLocale) + suffix,

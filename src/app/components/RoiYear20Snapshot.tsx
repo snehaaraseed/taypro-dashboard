@@ -28,7 +28,7 @@ export function RoiYear20Snapshot({
 
   return (
     <section className="mt-4 rounded-lg border border-[#A8C117]/25 bg-[#0f4a5c]/80 p-4">
-      <h4 className="text-white/80 text-sm font-semibold mb-3">{labels.heading}</h4>
+      <h3 className="text-white/80 text-sm font-semibold mb-3">{labels.heading}</h3>
       <dl className="grid gap-3 sm:grid-cols-3 text-sm">
         <div>
           <dt className="text-white/55 text-xs mb-1">{labels.netPosition}</dt>

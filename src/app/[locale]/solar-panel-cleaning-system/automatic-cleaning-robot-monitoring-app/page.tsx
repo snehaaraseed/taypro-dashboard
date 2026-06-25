@@ -28,7 +28,6 @@ import ClientsCard from "@/app/components/ClientsCard";
 import EnergyResourceCard from "@/app/components/EnergyResourceCard";
 import HeroSection from "@/app/components/Herosection";
 import { FaqSection } from "@/app/components/FaqSection";
-import { ContactEmailLink } from "@/app/components/ContactEmailLink";
 import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import {
@@ -487,12 +486,9 @@ export default async function NectyrPage({
                   </h2>
                   <div className="text-white/80 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
                     {t("cta.bodyBefore")}{" "}
-                    <ContactEmailLink
-                      mailbox="service"
-                      className="brand-inline-link font-medium"
-                    >
+                    <Link href="/contact" className="brand-inline-link font-medium">
                       {t("cta.emailServiceLink")}
-                    </ContactEmailLink>
+                    </Link>
                     {t("cta.bodyAfter")}
                   </div>
                 </div>
@@ -505,13 +501,12 @@ export default async function NectyrPage({
                   >
                     {t("cta.requestAccess")}
                   </OpenLeadModalButton>
-                  <ContactEmailLink
-                    mailbox="service"
-                    subject="NECTYR access / support"
+                  <Link
+                    href="/contact"
                     className="inline-flex items-center justify-center min-h-[48px] w-full sm:w-auto sm:min-w-[220px] border-2 border-white text-white font-medium px-8 py-3.5 rounded-md hover:bg-white/10 transition text-center"
                   >
                     {t("cta.emailService")}
-                  </ContactEmailLink>
+                  </Link>
                 </div>
               </div>
             </AnimateOnScroll>

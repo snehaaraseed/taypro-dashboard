@@ -47,14 +47,22 @@
       "ctaRoi": "Price & ROI calculator"
     },
     "seoProse": {
+      "eyebrow": "Utility-scale robotic cleaning",
       "heading": "Waterless solar panel cleaning robots for utility-scale India",
-      "bodyBeforeHub": "Taypro designs, manufactures, and services autonomous solar panel cleaning robots for India's largest utility-scale PV plants — GLYDE, NYUMA, HELYX, and tracker-ready GLYDE-X and NYUMA-X. Compare models on our",
+      "intro": "Taypro designs, manufactures, and services autonomous solar panel cleaning robots for India's largest utility-scale PV plants.",
+      "productsEyebrow": "Robot lineup",
+      "hubCardTitle": "Compare robot models",
+      "hubCardDescription": "GLYDE, NYUMA, HELYX, and tracker-ready variants — specs, fit, and deployment guides on our product hub.",
       "hubLink": "solar panel cleaning robots hub",
-      "bodyBetweenHubService": ", explore",
+      "serviceCardTitle": "OPEX cleaning service",
+      "serviceCardDescription": "Fully managed fleet — we deploy, operate, and maintain robots on your plant.",
       "serviceLink": "Taypro OPEX robotic cleaning service",
-      "bodyBetweenServiceCalculator": ", or estimate payback with our",
+      "calculatorCardTitle": "ROI calculator",
+      "calculatorCardDescription": "Estimate payback from recovered generation and reduced manual O&M.",
       "calculatorLink": "solar cleaning ROI calculator",
-      "bodyAfterCalculator": ". Made in Pune with pan-India deployment and same-day breakdown support."
+      "trustMadeIn": "Made in Pune",
+      "trustDeployment": "Pan-India deployment",
+      "trustSupport": "Same-day breakdown support"
     },
     "stats": {
       "methodologyBefore": "Fleet impact figures are modelled from live deployments. See our",

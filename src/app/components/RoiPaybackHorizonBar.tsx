@@ -24,7 +24,7 @@ export function RoiPaybackHorizonBar({
 
   return (
     <section className="rounded-lg border border-white/15 bg-[#0a3a4a]/70 p-4 sm:p-5 h-full">
-      <h4 className="text-white font-semibold text-sm sm:text-base mb-4">{title}</h4>
+      <h3 className="text-white font-semibold text-sm sm:text-base mb-4">{title}</h3>
 
       <div className="h-3 w-full overflow-hidden rounded-full bg-white/10">
         <div

@@ -38,8 +38,8 @@ export function buildLayoutClientMessages(
 }
 
 /**
- * Build the client message bundle for a request pathname.
- * Ensures global namespaces and home-only namespaces are never dropped.
+ * Pathname-scoped client bundle (e.g. nested section layouts).
+ * Do not use for the root locale layout — it does not re-run on client navigation.
  */
 export function buildClientMessages(
   messages: Record<string, unknown>,

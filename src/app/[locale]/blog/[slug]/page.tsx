@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { formatLocaleDate } from "@/i18n/format-date";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
@@ -19,7 +19,10 @@ import {
   redirectCmsDetailToEnglish,
   resolvePublishedBlog,
 } from "@/lib/cms/locale-fallback";
-import { addInternalLinks } from "@/app/utils/internalLinking";
+import {
+  isRedirectedBlogSlug,
+  redirectedBlogTarget,
+} from "@/lib/seo/redirected-blog-slugs";
 import {
   getAuthorAvatarUrl,
   getAuthorBySlug,
@@ -44,6 +47,11 @@ import {
 } from "@/lib/url-recovery";
 import { listAllBlogs } from "@/lib/cms/blogService";
 import { pickSimilarBlogs } from "@/lib/seo/pick-similar-blogs";
+import {
+  addHeadingIdsAndExtractToc,
+  normalizeHeadingLevels,
+} from "@/lib/seo/html-toc";
+import { addInternalLinks } from "@/app/utils/internalLinking";
 
 const siteUrl = SITE_URL;
 
@@ -69,65 +77,6 @@ interface BlogData {
   source?: "db";
   faqs?: { question: string; answer: string }[];
   seoKeyword?: string;
-}
-
-interface TocItem {
-  id: string;
-  text: string;
-  level: 2 | 3;
-}
-
-function slugifyHeading(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/&amp;/g, "and")
-    .replace(/[^a-z0-9\s-]/g, "")
-    .trim()
-    .replace(/\s+/g, "-")
-    .replace(/-+/g, "-");
-}
-
-function addHeadingIdsAndExtractToc(html: string): {
-  contentWithIds: string;
-  toc: TocItem[];
-} {
-  if (!html) {
-    return { contentWithIds: html, toc: [] };
-  }
-
-  const toc: TocItem[] = [];
-  const usedIds = new Set<string>();
-
-  const contentWithIds = html.replace(
-    /<h([23])([^>]*)>([\s\S]*?)<\/h\1>/gi,
-    (match, levelStr, attrs, innerHtml) => {
-      const plainText = innerHtml
-        .replace(/<[^>]+>/g, "")
-        .replace(/&nbsp;/g, " ")
-        .trim();
-
-      if (!plainText) return match;
-
-      const level = Number(levelStr) as 2 | 3;
-      let id = slugifyHeading(plainText) || `section-${toc.length + 1}`;
-      let suffix = 2;
-      while (usedIds.has(id)) {
-        id = `${id}-${suffix}`;
-        suffix += 1;
-      }
-      usedIds.add(id);
-
-      toc.push({ id, text: plainText, level });
-
-      if (/id\s*=\s*["'][^"']+["']/i.test(attrs)) {
-        return `<h${level}${attrs}>${innerHtml}</h${level}>`;
-      }
-
-      return `<h${level}${attrs} id="${id}">${innerHtml}</h${level}>`;
-    }
-  );
-
-  return { contentWithIds, toc };
 }
 
 async function getLocaleBlogMetadata(locale: string): Promise<DynamicBlog[]> {
@@ -167,6 +116,10 @@ export async function generateMetadata({
   params,
 }: BlogPostProps): Promise<Metadata> {
   const { slug, locale } = await params;
+  if (isRedirectedBlogSlug(slug)) {
+    const target = redirectedBlogTarget(slug);
+    if (target) permanentRedirect(target);
+  }
   const resolved = await resolvePublishedBlog(slug, locale);
 
   if (!resolved) {
@@ -222,6 +175,10 @@ export async function generateMetadata({
 
 export default async function BlogPost({ params }: BlogPostProps) {
   const { slug, locale } = await params;
+  if (isRedirectedBlogSlug(slug)) {
+    const target = redirectedBlogTarget(slug);
+    if (target) permanentRedirect(target);
+  }
   const t = await getTranslations({ locale, namespace: "BlogPage.post" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
 
@@ -271,7 +228,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
   );
 
   const { contentWithIds, toc } = addHeadingIdsAndExtractToc(
-    addInternalLinks(blog.content, linkableBlogs, slug, 8)
+    normalizeHeadingLevels(addInternalLinks(blog.content, linkableBlogs, slug, 8))
   );
   const authors = await getStoredAuthors();
   const authorName = blog.author || "Taypro Team";
@@ -370,9 +327,9 @@ export default async function BlogPost({ params }: BlogPostProps) {
             <aside className="hidden xl:block">
               {toc.length > 0 && (
                 <div className="sticky top-24 border border-gray-200 rounded-xl p-5 bg-white">
-                  <h3 className="text-sm font-semibold uppercase tracking-wide text-[#052638] mb-4">
+                  <p className="text-sm font-semibold uppercase tracking-wide text-[#052638] mb-4">
                     {t("contents")}
-                  </h3>
+                  </p>
                   <nav aria-label={t("tocLabel")}>
                     <ul className="space-y-2">
                       {toc.map((item) => (
@@ -483,9 +440,9 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
               {moreFromAuthor.length > 0 && (
                 <section className="mt-12 border-t border-gray-200 pt-10">
-                  <h3 className="text-2xl font-semibold text-[#052638] mb-6">
+                  <h2 className="text-2xl font-semibold text-[#052638] mb-6">
                     {t("moreFromAuthor")}
-                  </h3>
+                  </h2>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                     {moreFromAuthor.map((post) => (
                       <Link
@@ -505,9 +462,9 @@ export default async function BlogPost({ params }: BlogPostProps) {
                           ) : null}
                         </div>
                         <div className="p-4">
-                          <h4 className="text-base font-semibold text-[#052638] line-clamp-2 mb-2">
+                          <h3 className="text-base font-semibold text-[#052638] line-clamp-2 mb-2">
                             {post.title}
-                          </h4>
+                          </h3>
                           <p className="text-sm text-gray-600 line-clamp-2">
                             {post.description}
                           </p>
@@ -526,9 +483,9 @@ export default async function BlogPost({ params }: BlogPostProps) {
                   <p className="text-xs uppercase tracking-wider text-[#A8C117] mb-2">
                     {t("sidebarProduct")}
                   </p>
-                  <h3 className="text-2xl font-semibold leading-tight mb-3">
+                  <h2 className="text-2xl font-semibold leading-tight mb-3">
                     {t("sidebarTitle")}
-                  </h3>
+                  </h2>
                   <p className="text-sm text-slate-100 mb-5">
                     {t("sidebarBody")}
                   </p>

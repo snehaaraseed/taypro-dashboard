@@ -9,6 +9,7 @@ import type { TayproLocale } from "@/i18n/markets";
 import { isActiveLocale } from "@/i18n/markets";
 import { SOURCE_LOCALE, TARGET_LOCALES } from "@/lib/translation/config";
 import { resolveBlogPublishFields } from "@/lib/cms/blog-schedule";
+import { isRedirectedBlogSlug } from "@/lib/seo/redirected-blog-slugs";
 import {
   demoteBodyH1ToH2,
   findInlineImgAltIssue,
@@ -190,11 +191,13 @@ export async function listPublishedBlogLinkSummaries(locale?: string): Promise<
     .from(blogs)
     .where(and(eq(blogs.published, true), eq(blogs.locale, loc)));
 
-  return rows.sort(
-    (a, b) =>
-      new Date(b.publishDate || b.updatedAt || 0).getTime() -
-      new Date(a.publishDate || a.updatedAt || 0).getTime()
-  );
+  return rows
+    .filter((r) => !isRedirectedBlogSlug(r.slug))
+    .sort(
+      (a, b) =>
+        new Date(b.publishDate || b.updatedAt || 0).getTime() -
+        new Date(a.publishDate || a.updatedAt || 0).getTime()
+    );
 }
 
 /** Locales with a published row for this slug (for hreflang). */
@@ -234,6 +237,7 @@ export async function listPublishedBlogsForSitemap(): Promise<BlogSitemapEntry[]
 
   return rows
     .filter((r) => isActiveLocale(r.locale))
+    .filter((r) => !isRedirectedBlogSlug(r.slug))
     .map((r) => ({
       slug: r.slug,
       locale: r.locale as TayproLocale,

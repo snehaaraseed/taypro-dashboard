@@ -19,3 +19,14 @@ export function parseProjectsHubPage(
   if (!Number.isFinite(parsed) || parsed < 1) return 1;
   return parsed;
 }
+
+export function projectsHubPaginationLinks(
+  siteUrl: string,
+  page: number,
+  totalPages: number
+): { previous?: string; next?: string } {
+  const links: { previous?: string; next?: string } = {};
+  if (page > 1) links.previous = projectsHubPageUrl(siteUrl, page - 1);
+  if (page < totalPages) links.next = projectsHubPageUrl(siteUrl, page + 1);
+  return links;
+}

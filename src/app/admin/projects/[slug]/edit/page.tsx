@@ -4,6 +4,16 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter, useParams } from "next/navigation";
 import AdminRichTextEditor from "@/app/admin/components/AdminRichTextEditor";
+import {
+  ProjectEditorTabs,
+  type ProjectEditorState,
+} from "@/app/admin/components/ProjectEditorTabs";
+import type {
+  ProjectEditorialStatus,
+  ProjectFactsJson,
+  ProjectSectionsJson,
+} from "@/lib/cms/project-facts-types";
+import { createEmptySectionsJson } from "@/lib/seo/project-content-outline";
 import { appendImageUploadMeta } from "@/lib/cms/imageUploadForm";
 import { slugFromTitle } from "@/lib/cms/imageUploadTypes";
 
@@ -23,6 +33,10 @@ interface ProjectData {
   published?: boolean;
   /** ISO from metadata; refreshed after save */
   updatedAt?: string;
+  editorialStatus?: ProjectEditorialStatus;
+  seoKeyword?: string;
+  facts?: ProjectFactsJson;
+  sections?: ProjectSectionsJson;
 }
 
 export default function EditProjectPage() {
@@ -49,6 +63,7 @@ export default function EditProjectPage() {
   const [detailInput, setDetailInput] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
+  const [aiBusy, setAiBusy] = useState(false);
   const [message, setMessage] = useState("");
   const [imageError, setImageError] = useState(false);
   const [imageLoading, setImageLoading] = useState(false);
@@ -112,6 +127,12 @@ export default function EditProjectPage() {
             slug: data.project.slug || slug,
             updatedAt: data.project.updatedAt,
             published: data.project.published !== undefined ? data.project.published : true,
+            editorialStatus: data.project.editorialStatus ?? "legacy",
+            seoKeyword: data.project.seoKeyword ?? "",
+            facts: data.project.facts ?? { location: data.project.title },
+            sections:
+              data.project.sections ??
+              createEmptySectionsJson({ location: data.project.title }),
           });
         }
       } else {
@@ -284,6 +305,76 @@ export default function EditProjectPage() {
     }));
   };
 
+  const editorState: ProjectEditorState = {
+    title: formData.title,
+    slug: formData.slug,
+    description: formData.description,
+    image: formData.image,
+    imageAlt: formData.imageAlt ?? "",
+    details: formData.details,
+    date: formData.date,
+    content: formData.content,
+    author: formData.author,
+    published: formData.published ?? true,
+    facts: formData.facts ?? { location: formData.title },
+    sections:
+      formData.sections ??
+      createEmptySectionsJson({ location: formData.title }),
+    editorialStatus: formData.editorialStatus ?? "legacy",
+    seoKeyword: formData.seoKeyword ?? "",
+  };
+
+  const patchEditor = (patch: Partial<ProjectEditorState>) => {
+    setFormData((prev) => ({
+      ...prev,
+      ...patch,
+      facts: patch.facts ?? prev.facts,
+      sections: patch.sections ?? prev.sections,
+    }));
+  };
+
+  const handleInferFacts = async () => {
+    setAiBusy(true);
+    try {
+      const res = await fetch(`/api/admin/project/${slug}/infer-facts`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ facts: formData.facts }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Infer failed");
+      setFormData((prev) => ({ ...prev, facts: data.facts }));
+      setMessage("Regional facts inferred.");
+    } catch (e) {
+      setMessage(`Error: ${e instanceof Error ? e.message : "Infer failed"}`);
+    } finally {
+      setAiBusy(false);
+    }
+  };
+
+  const runImprove = async (sectionIds?: string[]) => {
+    setAiBusy(true);
+    setMessage("");
+    try {
+      const res = await fetch(`/api/admin/project/${slug}/improve`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          sectionIds,
+          retranslate: formData.published,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Improve failed");
+      await fetchProject();
+      setMessage("Content improved with AI.");
+    } catch (e) {
+      setMessage(`Error: ${e instanceof Error ? e.message : "Improve failed"}`);
+    } finally {
+      setAiBusy(false);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSaving(true);
@@ -305,6 +396,10 @@ export default function EditProjectPage() {
         body: JSON.stringify({
           ...fields,
           newSlug: urlSlug.trim(),
+          facts: formData.facts,
+          sections: formData.sections,
+          editorialStatus: formData.editorialStatus,
+          seoKeyword: formData.seoKeyword || null,
         }),
       });
 
@@ -394,6 +489,16 @@ export default function EditProjectPage() {
               ) : null}
             </div>
           ) : null}
+
+          <ProjectEditorTabs
+            state={editorState}
+            onChange={patchEditor}
+            slug={slug}
+            onInferFacts={handleInferFacts}
+            onImproveSection={(id) => runImprove([id])}
+            onImproveAll={() => runImprove()}
+            busy={aiBusy}
+          />
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">

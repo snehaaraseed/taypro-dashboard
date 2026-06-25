@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 interface NewsletterSubscribeCardProps {
   className?: string;
@@ -19,7 +20,7 @@ export function NewsletterSubscribeCard({
 
   return (
     <div className={`${wrapperClass} ${className}`.trim()}>
-      <div className="rounded-lg bg-gradient-to-r from-[#f5f8fb] to-[#eef3f8] border border-gray-100 px-3 py-2.5 mb-2">
+      <div className="rounded-lg bg-gradient-to-r from-[#f5f8fb] to-[#eef3f8] border border-gray-100 px-3 py-2.5 mb-3">
         <div className="flex items-center gap-2">
           <span className="inline-flex h-5 items-center rounded-full bg-[#052638] px-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-white">
             {t("badge")}
@@ -34,22 +35,12 @@ export function NewsletterSubscribeCard({
         <p className="text-xs text-gray-600 mt-1">{t("description")}</p>
       </div>
 
-      <div
-        className={`w-full rounded-lg overflow-hidden bg-white border border-gray-100 ${
-          compact ? "h-[240px]" : "h-[255px]"
-        }`}
+      <Link
+        href="/contact"
+        className="inline-flex w-full items-center justify-center rounded-md bg-[#052638] px-4 py-3 text-sm font-medium text-white transition hover:bg-[#0c3d56]"
       >
-        <iframe
-          src="https://app.taypro.in/newsletter"
-          title={t("iframeTitle")}
-          className="w-full h-full"
-          style={{
-            border: "none",
-            marginTop: "-28px",
-            height: "calc(100% + 28px)",
-          }}
-        />
-      </div>
+        {t("cta")}
+      </Link>
     </div>
   );
 }

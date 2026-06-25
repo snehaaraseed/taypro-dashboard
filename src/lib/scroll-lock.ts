@@ -1,4 +1,4 @@
-/** Lock page scroll while a modal/slide-in is open (works with zoom + mobile Safari). */
+/** Lock page scroll while a modal/slide-in is open. */
 let lockCount = 0;
 let savedScrollY = 0;
 let savedStyles: {
@@ -9,6 +9,16 @@ let savedStyles: {
   bodyWidth: string;
   bodyPaddingRight: string;
 } | null = null;
+
+/** iOS Safari needs the fixed-body trick; desktop breaks portaled overlay clicks with it. */
+function needsFixedBodyScrollLock(): boolean {
+  if (typeof window === "undefined") return false;
+  const ua = navigator.userAgent;
+  const isIOS =
+    /iPad|iPhone|iPod/.test(ua) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  return isIOS;
+}
 
 export function lockPageScroll(): () => void {
   const html = document.documentElement;
@@ -29,10 +39,15 @@ export function lockPageScroll(): () => void {
 
     html.style.overflow = "hidden";
     body.style.overflow = "hidden";
-    body.style.position = "fixed";
-    body.style.top = `-${savedScrollY}px`;
-    body.style.width = "100%";
-    if (scrollbarWidth > 0) {
+
+    if (needsFixedBodyScrollLock()) {
+      body.style.position = "fixed";
+      body.style.top = `-${savedScrollY}px`;
+      body.style.width = "100%";
+      if (scrollbarWidth > 0) {
+        body.style.paddingRight = `${scrollbarWidth}px`;
+      }
+    } else if (scrollbarWidth > 0) {
       body.style.paddingRight = `${scrollbarWidth}px`;
     }
   }

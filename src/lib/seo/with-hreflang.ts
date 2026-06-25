@@ -4,10 +4,25 @@ import {
   openGraphLocaleForSite,
   type LocaleAlternatesOptions,
 } from "./locale-alternates";
-import { formatBrandTitle, normalizePageTitle } from "./page-title";
+import {
+  formatBrandTitle,
+  hasBrandSuffix,
+  normalizePageTitle,
+  SERP_TITLE_MAX,
+  trimSerpTitle,
+} from "./page-title";
 import { trimSerpDescription } from "./serp-description";
 
 type LocaleParams = { params: Promise<{ locale: string }> };
+
+function trimAbsoluteTitle(absolute: string): string {
+  const trimmed = absolute.trim();
+  if (trimmed.length <= SERP_TITLE_MAX) return trimmed;
+  return trimSerpTitle(trimmed, {
+    includeBrand: hasBrandSuffix(trimmed),
+    max: SERP_TITLE_MAX,
+  });
+}
 
 function resolveTitle(metadata: Metadata): Metadata["title"] {
   const { title } = metadata;
@@ -16,7 +31,7 @@ function resolveTitle(metadata: Metadata): Metadata["title"] {
     return { absolute: formatBrandTitle(title) };
   }
   if ("absolute" in title && title.absolute) {
-    return title;
+    return { absolute: trimAbsoluteTitle(title.absolute) };
   }
   if ("default" in title && title.default) {
     return { absolute: formatBrandTitle(title.default) };

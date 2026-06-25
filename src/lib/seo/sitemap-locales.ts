@@ -91,26 +91,26 @@ function messageModuleForPath(internalPath: string): string | null {
 
 function hasDedicatedPageMessages(
   locale: TayproLocale,
-  module: string
+  messageModule: string
 ): boolean {
-  return getTranslatedLocalesForModule(module).includes(locale);
+  return getTranslatedLocalesForModule(messageModule).includes(locale);
 }
 
 const dedicatedLocalesCache = new Map<string, TayproLocale[]>();
 
 /** Locales with dedicated page JSON (not English-only fallback). */
 export function getSitemapLocalesForPath(internalPath: string): TayproLocale[] {
-  const module = messageModuleForPath(internalPath);
-  if (!module) return [...ACTIVE_LOCALES];
+  const messageModule = messageModuleForPath(internalPath);
+  if (!messageModule) return [...ACTIVE_LOCALES];
 
-  const cacheKey = module;
+  const cacheKey = messageModule;
   const cached = dedicatedLocalesCache.get(cacheKey);
   if (cached) return cached;
 
   const locales: TayproLocale[] = [routing.defaultLocale as TayproLocale];
   for (const locale of ACTIVE_LOCALES) {
     if (locale === routing.defaultLocale) continue;
-    if (hasDedicatedPageMessages(locale, module)) {
+    if (hasDedicatedPageMessages(locale, messageModule)) {
       locales.push(locale);
     }
   }

@@ -183,7 +183,7 @@ export const extras = {
 <p>Acceptance includes stow interlocks, tracker manufacturer cleaning guidance, and night traffic plans near inverter yards. Training covers tracker-specific fault trees—not only ground-mount habits ported from other sites.</p>
 
 <h2>Finance and ESG reviewers</h2>
-<p>Stress-test GWh at half attribution; include consumables and training in CAPEX models. Link <a href="/utility-operations">utility operations</a> calendars so tracker O&amp;M and cleaning do not collide during export-limited nights.</p>
+<p>Stress-test GWh at half attribution; include consumables and training in CAPEX models. Link <a href="/utility-scale-solar-operations">utility operations</a> calendars so tracker O&amp;M and cleaning do not collide during export-limited nights.</p>
 `,
 
   "seci-2-200-mw": `
@@ -221,6 +221,6 @@ export const extras = {
 <p>Owners expanding from 150&nbsp;MW toward 250–300&nbsp;MW should study when to add semi-automatic portables (<a href="/projects/seci-2-200-mw">SECI-2 mixed</a>) versus pushing automatic density (<a href="/projects/bachau-dvc-gujrat-300-mw">Bachau</a>). Chhayan is the clean automatic baseline at mid-scale.</p>
 
 <h2>Safety, vegetation, and ten-year planning</h2>
-<p>Night-first culture, path governance after vegetation cuts, and refresh planning for brushes and drives belong in the O&amp;M handbook—not only vendor handover slides. See <a href="/company">company</a> and <a href="/utility-operations">utility operations</a> context for programme governance.</p>
+<p>Night-first culture, path governance after vegetation cuts, and refresh planning for brushes and drives belong in the O&amp;M handbook—not only vendor handover slides. See <a href="/company">company</a> and <a href="/utility-scale-solar-operations">utility operations</a> context for programme governance.</p>
 `,
 };

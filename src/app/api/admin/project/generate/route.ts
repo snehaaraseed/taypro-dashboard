@@ -14,6 +14,10 @@ import {
 import { pickRandomBlogAuthor } from "@/lib/cms/authorService";
 import { assertProjectDraftUnique } from "@/lib/seo/project-uniqueness";
 import { requireAuth } from "@/app/utils/auth";
+import { runProjectImprove } from "@/lib/cms/run-project-improve";
+import { enrichFactsWithRegionalContext } from "@/lib/cms/project-regional-context";
+import { createEmptySectionsJson } from "@/lib/seo/project-content-outline";
+import type { ProjectFactsJson } from "@/lib/cms/project-facts-types";
 
 const MAX_GENERATION_ATTEMPTS = 3;
 
@@ -34,6 +38,11 @@ function parseFocusedKeywords(input: unknown): string[] {
   return [];
 }
 
+function parseStructuredFacts(input: unknown): ProjectFactsJson | null {
+  if (!input || typeof input !== "object") return null;
+  return input as ProjectFactsJson;
+}
+
 export async function POST(request: NextRequest) {
   const authResponse = await requireAuth(request);
   if (authResponse) return authResponse;
@@ -47,6 +56,7 @@ export async function POST(request: NextRequest) {
         : typeof body.description === "string"
           ? body.description.trim()
           : "";
+    const structuredFacts = parseStructuredFacts(body.structuredFacts);
     const saveAsDraft = body.saveAsDraft !== false;
     const focusedKeywords = parseFocusedKeywords(
       body.focusedKeywords ?? body.keywords
@@ -56,11 +66,86 @@ export async function POST(request: NextRequest) {
     if (!topic) {
       return NextResponse.json({ error: "Topic is required" }, { status: 400 });
     }
-    if (!brief) {
+    if (!brief && !structuredFacts) {
       return NextResponse.json(
-        { error: "Description or brief is required" },
+        { error: "Description/brief or structuredFacts is required" },
         { status: 400 }
       );
+    }
+
+    if (structuredFacts) {
+      const bylineAuthor = await pickRandomBlogAuthor();
+      const facts = enrichFactsWithRegionalContext({
+        ...structuredFacts,
+        primaryKeyword: seoKeyword,
+      });
+      const sections = createEmptySectionsJson(facts);
+      const draftSlug = createSlug(topic);
+
+      const improved = await runProjectImprove({
+        slug: draftSlug,
+        title: topic,
+        description: brief || topic,
+        content: "",
+        details: [],
+        image: "",
+        imageAlt: "",
+        published: false,
+        facts,
+        sections,
+        editorialStatus: "ai_draft",
+        seoKeyword,
+      });
+
+      if (await readProjectMetadata(draftSlug)) {
+        throw new Error(
+          "Generated title overlaps an existing project. Adjust the topic and try again."
+        );
+      }
+
+      await assertProjectDraftUnique({
+        title: improved.title,
+        description: improved.description,
+        slug: draftSlug,
+      });
+
+      const featured = await pickBlogFeaturedImage({
+        title: improved.title,
+        description: improved.description,
+        seoKeyword,
+        category: "Project case study",
+      });
+
+      const { slug: savedSlug } = await createProjectFiles({
+        title: improved.title,
+        description: improved.description,
+        image: featured.url,
+        imageAlt: featured.alt,
+        details: improved.details,
+        content: improved.content,
+        facts: improved.facts,
+        sections: improved.sections,
+        editorialStatus: "ai_draft",
+        seoKeyword,
+        author: bylineAuthor.name,
+        date: new Date().toISOString().split("T")[0],
+        published: false,
+      });
+
+      revalidatePath(`/projects/${savedSlug}`);
+      revalidatePath("/projects");
+      revalidatePath("/admin/projects");
+      revalidateSitemap();
+
+      return NextResponse.json({
+        success: true,
+        message: "Project generated from structured facts",
+        project: {
+          slug: savedSlug,
+          adminUrl: `/admin/projects/${savedSlug}/edit`,
+          status: "draft",
+        },
+      });
     }
 
     const editorialContext = await formatEditorialContextPrompt();

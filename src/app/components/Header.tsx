@@ -329,13 +329,15 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile navigation */}
-      {isMenuOpen && (
-        <nav
-          id="mobile-nav"
-          className="flex-1 min-h-0 overflow-y-auto overscroll-contain border-t border-gray-700 bg-[#052638] [-webkit-overflow-scrolling:touch] lg:hidden"
-          aria-label="Mobile navigation"
-        >
+      {/* Mobile navigation — always in DOM so aria-controls stays valid when closed */}
+      <nav
+        id="mobile-nav"
+        hidden={!isMenuOpen}
+        className={`flex-1 min-h-0 overflow-y-auto overscroll-contain border-t border-gray-700 bg-[#052638] [-webkit-overflow-scrolling:touch] lg:hidden ${
+          isMenuOpen ? "" : "hidden"
+        }`}
+        aria-label="Mobile navigation"
+      >
           <div className="px-4 pt-4 pb-6 space-y-1">
             {navItems.map((item) => (
               <Link
@@ -419,7 +421,6 @@ export default function Header() {
             </div>
           </div>
         </nav>
-      )}
     </header>
   );
 }

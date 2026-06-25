@@ -1,8 +1,10 @@
 {
   "ProjectsPage": {
     "meta": {
-      "title": "Taypro Solar Projects - Solar Panel Cleaning Robot Installations",
+      "title": "Taypro Solar Projects | Cleaning Robot Installations",
       "description": "Explore Taypro utility-scale solar projects with autonomous and semi-automatic cleaning robots across India, field deployments with site-dependent soiling recovery and O&M outcomes.",
+      "metaTitlePaged": "Taypro Solar Projects, Page {page} | Installations",
+      "metaDescriptionPaged": "Browse page {page} of Taypro utility-scale solar cleaning robot installation case studies across India.",
       "openGraphTitle": "Taypro Solar Projects - Solar Panel Cleaning Robot Installations",
       "openGraphDescription": "Taypro solar projects with robotic dry cleaning, utility-scale installations across India with measurable O&M outcomes (site-dependent).",
       "openGraphImageAlt": "Taypro Solar Projects with Solar Panel Cleaning Robot",
@@ -127,6 +129,16 @@
     "caseStudyLabel": "Deployment case study",
     "lastUpdated": "Last updated {date}",
     "minRead": "{minutes} min read",
+    "heroStatsAriaLabel": "Key project metrics",
+    "statCapacity": "Capacity",
+    "statFleet": "Fleet",
+    "statLocation": "Location",
+    "statDeployment": "Deployment",
+    "statsEyebrow": "Site facts",
+    "statsHeading": "Site statistics at a glance",
+    "statsTableMetric": "Metric",
+    "statsTableValue": "Reported value",
+    "statsTableDisclaimer": "Figures are site-reported. Validate against your SCADA, curtailment, and disclosure methodology before investment committee use.",
     "contents": "On this page",
     "tocLabel": "Table of contents",
     "backToProjects": "Back to all projects",

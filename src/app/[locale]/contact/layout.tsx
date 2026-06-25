@@ -13,7 +13,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "ContactPage.meta" });
 
   return withHreflang("/contact", locale, {
-    title: t("title"),
+    title: { absolute: t("title") },
     description: t("description"),
     openGraph: {
       title: t("title"),

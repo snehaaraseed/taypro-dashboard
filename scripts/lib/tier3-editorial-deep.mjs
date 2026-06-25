@@ -13,7 +13,7 @@ export function buildTier3DeepEditorial(slug, s) {
 
   return `
 <h2>What ${name} teaches owners at ${s.mw}&nbsp;MW</h2>
-<p>${s.unique} Use the <a href="/solar-panel-cleaning-robot-price-calculator#calculator">ROI calculator</a> with conservative GWh attribution and <a href="/utility-operations">utility operations</a> framing.</p>
+<p>${s.unique} Use the <a href="/solar-panel-cleaning-robot-price-calculator#calculator">ROI calculator</a> with conservative GWh attribution and <a href="/utility-scale-solar-operations">utility operations</a> framing.</p>
 <p>Lenders should request block-level proof: ${mon}. Pair <strong>${s.water} litres</strong>, <strong>${s.energyUplift || `${s.gwh} GWh`}</strong>, and <strong>${s.co2}&nbsp;tCO₂e</strong> on one assumption set.</p>
 
 <h2>Regional soiling at ${s.mw}&nbsp;MW</h2>

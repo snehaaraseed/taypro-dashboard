@@ -1,6 +1,6 @@
 "use client";
 
-import { useTransition, useState } from "react";
+import { useTransition, useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
@@ -25,6 +25,27 @@ export default function BlogList({ blogs }: BlogListProps) {
   const [isPending, startTransition] = useTransition();
   const [loadingSlug, setLoadingSlug] = useState<string | null>(null);
 
+  const clearLoading = useCallback(() => setLoadingSlug(null), []);
+
+  useEffect(() => {
+    if (!isPending) clearLoading();
+  }, [isPending, clearLoading]);
+
+  useEffect(() => {
+    if (!loadingSlug) return;
+    const timer = window.setTimeout(clearLoading, 12_000);
+    return () => window.clearTimeout(timer);
+  }, [loadingSlug, clearLoading]);
+
+  useEffect(() => {
+    if (!loadingSlug) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") clearLoading();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [loadingSlug, clearLoading]);
+
   function handleClick(href: string, slug: string, title: string) {
     trackBlogClick({ slug, title, location: "blog_list" });
     setLoadingSlug(slug);
@@ -40,6 +61,11 @@ export default function BlogList({ blogs }: BlogListProps) {
           className="fixed inset-0 bg-white/80 flex items-center justify-center z-50"
           aria-live="polite"
           aria-busy="true"
+          onClick={clearLoading}
+          onKeyDown={(e) => {
+            if (e.key === "Escape") clearLoading();
+          }}
+          role="presentation"
         >
           <div className="flex space-x-2">
             <span className="w-3 h-3 bg-[#052638] rounded-full animate-bounce" />

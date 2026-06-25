@@ -7,6 +7,7 @@ import {
   resolveBlogStructurePolicy,
   type BlogWordCountPolicy,
 } from "@/lib/seo/blog-word-count-tier";
+import { SERP_DESCRIPTION_MAX } from "@/lib/seo/serp-description";
 import { extractH2Headings, stripHtmlToPlainText } from "@/lib/seo/blog-similarity";
 import {
   countQualifyingInternalLinks,
@@ -228,10 +229,12 @@ export function validateGeneratedBlog(
 
   const desc = input.description.trim();
   const descLen = desc.length;
-  if (descLen < 120 || descLen > 170) {
-    issues.push(`Meta description ${descLen} chars (target 150–160, allow 120–170)`);
+  if (descLen < 120 || descLen > SERP_DESCRIPTION_MAX) {
+    issues.push(
+      `Meta description ${descLen} chars (target 150–155, allow 120–${SERP_DESCRIPTION_MAX})`
+    );
   }
-  if (descLen > 200) {
+  if (descLen > SERP_DESCRIPTION_MAX + 45) {
     issues.push(`Meta description ${descLen} chars exceeds 200-char SERP limit`);
   }
   if (/[a-z]\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3}\s+(?:In|For|On)\s+[A-Z]/.test(desc)) {

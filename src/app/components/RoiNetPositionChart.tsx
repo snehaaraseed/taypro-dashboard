@@ -102,9 +102,9 @@ export function RoiNetPositionChart({
 
   return (
     <section className="mt-6 rounded-lg border border-white/15 bg-[#0a3a4a]/70 p-4 sm:p-5">
-      <h4 className="text-white font-semibold text-base sm:text-lg mb-1">
+      <h3 className="text-white font-semibold text-base sm:text-lg mb-1">
         {labels.heading}
-      </h4>
+      </h3>
       {paybackYear != null ? (
         <p className="text-white/55 text-xs mb-4">
           {labels.breakEven}: {formatPaybackDuration(paybackYear)}

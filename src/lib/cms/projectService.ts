@@ -25,13 +25,34 @@ import {
   relatedProjectsFilterFromDetails,
   type ProjectListFilter,
 } from "@/lib/cms/project-products";
+import type {
+  ProjectEditorialStatus,
+  ProjectFactsJson,
+  ProjectSectionsJson,
+} from "@/lib/cms/project-facts-types";
+import {
+  buildDetailsFromFacts,
+  parseFactsJson,
+  parseSectionsJson,
+} from "@/lib/cms/project-facts";
+import {
+  composeProjectContent,
+  extractInlineImagesFromHtml,
+} from "@/lib/cms/compose-project-content";
 import {
   allocateProjectCodename,
   formatProjectDisplayTitle,
 } from "@/lib/cms/project-codename";
+import { isDraftProjectSlug } from "@/lib/seo/draft-project-slugs";
 
 export type { ProjectCategoryFilter } from "@/lib/cms/project-categories";
 export type { ProjectListFilter } from "@/lib/cms/project-products";
+
+export type ProjectFullRecord = ProjectMetadata & {
+  content: string;
+  facts: ProjectFactsJson | null;
+  sections: ProjectSectionsJson | null;
+};
 
 function resolveLocale(locale?: string): TayproLocale {
   if (locale && isActiveLocale(locale)) return locale;
@@ -69,7 +90,31 @@ function rowToMetadata(row: typeof projects.$inferSelect): ProjectMetadata {
     updatedAt: row.updatedAt ?? undefined,
     published: row.published,
     author: row.author ?? "Taypro Team",
+    editorialStatus: (row.editorialStatus as ProjectEditorialStatus) ?? "legacy",
+    seoKeyword: row.seoKeyword ?? null,
+    factsJson: row.factsJson ?? null,
+    sectionsJson: row.sectionsJson ?? null,
   };
+}
+
+function composeContentOnSave(
+  projectData: ProjectData,
+  existingContent?: string
+): string {
+  if (projectData.content?.trim() && !projectData.sections) {
+    return projectData.content;
+  }
+  const facts = projectData.facts ?? null;
+  const sections = projectData.sections ?? null;
+  if (!facts || !sections) {
+    return projectData.content || existingContent || "";
+  }
+  const preserved = existingContent
+    ? extractInlineImagesFromHtml(existingContent)
+    : [];
+  return composeProjectContent(facts, sections, {
+    preservedInlineImages: preserved,
+  });
 }
 
 export async function listAllProjects(
@@ -84,6 +129,7 @@ export async function listAllProjects(
     .where(eq(projects.locale, loc));
   return rows
     .filter((r) => includeDrafts || r.published !== false)
+    .filter((r) => includeDrafts || !isDraftProjectSlug(r.slug))
     .map(rowToMetadata);
 }
 
@@ -98,7 +144,8 @@ export async function getPublishedProjectLocales(
     .where(and(eq(projects.slug, slug), eq(projects.published, true)));
   return rows
     .map((r) => r.locale)
-    .filter(isActiveLocale) as TayproLocale[];
+    .filter(isActiveLocale)
+    .filter((locale) => !isDraftProjectSlug(slug)) as TayproLocale[];
 }
 
 export type ProjectSitemapEntry = {
@@ -125,6 +172,7 @@ export async function listPublishedProjectsForSitemap(): Promise<
 
   return rows
     .filter((r) => isActiveLocale(r.locale))
+    .filter((r) => !isDraftProjectSlug(r.slug))
     .map((r) => ({
       slug: r.slug,
       locale: r.locale as TayproLocale,
@@ -359,9 +407,21 @@ export async function createProjectFiles(
     image: projectData.image,
     imageAlt: projectData.imageAlt?.trim() || "",
     details: JSON.stringify(
-      canonicalizeCategoryDetailTags(projectData.details || [])
+      canonicalizeCategoryDetailTags(
+        projectData.details?.length
+          ? projectData.details
+          : projectData.facts
+            ? buildDetailsFromFacts(projectData.facts)
+            : []
+      )
     ),
-    content: projectData.content || "",
+    content: composeContentOnSave(projectData),
+    factsJson: projectData.facts ? JSON.stringify(projectData.facts) : null,
+    sectionsJson: projectData.sections
+      ? JSON.stringify(projectData.sections)
+      : null,
+    editorialStatus: projectData.editorialStatus ?? "ai_draft",
+    seoKeyword: projectData.seoKeyword?.trim() || null,
     author: projectData.author?.trim() || "Taypro Team",
     date: projectData.date || new Date().toISOString().split("T")[0],
     createdAt: now,
@@ -425,9 +485,33 @@ export async function updateProjectFiles(
       image: projectData.image,
       imageAlt: projectData.imageAlt?.trim() ?? existing.imageAlt,
       details: JSON.stringify(
-        canonicalizeCategoryDetailTags(projectData.details || [])
+        canonicalizeCategoryDetailTags(
+          projectData.details?.length
+            ? projectData.details
+            : projectData.facts
+              ? buildDetailsFromFacts(projectData.facts)
+              : JSON.parse(existing.details || "[]")
+        )
       ),
-      content: projectData.content || "",
+      content: composeContentOnSave(projectData, existing.content),
+      factsJson:
+        projectData.facts !== undefined
+          ? projectData.facts
+            ? JSON.stringify(projectData.facts)
+            : null
+          : existing.factsJson,
+      sectionsJson:
+        projectData.sections !== undefined
+          ? projectData.sections
+            ? JSON.stringify(projectData.sections)
+            : null
+          : existing.sectionsJson,
+      editorialStatus:
+        projectData.editorialStatus ?? existing.editorialStatus ?? "legacy",
+      seoKeyword:
+        projectData.seoKeyword !== undefined
+          ? projectData.seoKeyword?.trim() || null
+          : existing.seoKeyword,
       author:
         projectData.author?.trim() || existing.author || "Taypro Team",
       date: projectData.date || existing.date,
@@ -454,6 +538,54 @@ export async function deleteProjectFiles(slug: string): Promise<void> {
   await db.delete(projects).where(eq(projects.slug, slug));
 }
 
+export async function readProjectFull(
+  slug: string
+): Promise<ProjectFullRecord | null> {
+  const db = getDb();
+  const rows = await db
+    .select()
+    .from(projects)
+    .where(
+      and(eq(projects.slug, slug), eq(projects.locale, SOURCE_LOCALE))
+    )
+    .limit(1);
+  const row = rows[0];
+  if (!row) return null;
+  return {
+    ...rowToMetadata(row),
+    content: row.content ?? "",
+    facts: parseFactsJson(row.factsJson),
+    sections: parseSectionsJson(row.sectionsJson),
+  };
+}
+
+export async function listProjectsAdmin(
+  filters?: { editorialStatus?: ProjectEditorialStatus; published?: boolean }
+): Promise<ProjectMetadata[]> {
+  const db = getDb();
+  const rows = await db
+    .select()
+    .from(projects)
+    .where(eq(projects.locale, SOURCE_LOCALE));
+  return rows
+    .filter((r) => {
+      if (
+        filters?.editorialStatus &&
+        r.editorialStatus !== filters.editorialStatus
+      ) {
+        return false;
+      }
+      if (
+        filters?.published !== undefined &&
+        r.published !== filters.published
+      ) {
+        return false;
+      }
+      return true;
+    })
+    .map(rowToMetadata);
+}
+
 export async function getProjectBySlug(
   slug: string,
   options?: { includeDraft?: boolean; locale?: string }
@@ -467,6 +599,7 @@ export async function getProjectBySlug(
     .limit(1);
   const row = rows[0];
   if (!row) return null;
+  if (!options?.includeDraft && isDraftProjectSlug(slug)) return null;
   if (!options?.includeDraft && row.published === false) return null;
   return {
     metadata: rowToMetadata(row),

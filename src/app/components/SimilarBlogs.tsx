@@ -33,9 +33,9 @@ export function SimilarBlogs({
   if (layout === "bottom") {
     return (
       <section>
-        <h3 className="text-3xl font-semibold text-[#052638] mb-8">
+        <h2 className="text-3xl font-semibold text-[#052638] mb-8">
           {t("heading")}
-        </h3>
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {blogs.map((similarBlog) => (
             <Link
@@ -61,9 +61,9 @@ export function SimilarBlogs({
                   />
                 </div>
                 <div className="p-5">
-                  <h4 className="text-xl font-semibold text-[#052638] mb-2 line-clamp-2 group-hover:text-[#A8C117] transition-colors">
+                  <h3 className="text-xl font-semibold text-[#052638] mb-2 line-clamp-2 group-hover:text-[#A8C117] transition-colors">
                     {similarBlog.title}
-                  </h4>
+                  </h3>
                   <p className="text-sm text-gray-600 line-clamp-3 mb-3">
                     {similarBlog.description}
                   </p>
@@ -84,9 +84,9 @@ export function SimilarBlogs({
   return (
     <aside className="lg:w-80 flex-shrink-0">
       <div className="sticky top-24">
-        <h3 className="text-2xl font-semibold text-[#052638] mb-6">
+        <h2 className="text-2xl font-semibold text-[#052638] mb-6">
           {t("heading")}
-        </h3>
+        </h2>
         <div className="space-y-6">
           {blogs.map((similarBlog) => (
             <Link
@@ -112,9 +112,9 @@ export function SimilarBlogs({
                   />
                 </div>
                 <div className="p-4">
-                  <h4 className="text-lg font-semibold text-[#052638] mb-2 line-clamp-2 group-hover:text-[#A8C117] transition-colors">
+                  <h3 className="text-lg font-semibold text-[#052638] mb-2 line-clamp-2 group-hover:text-[#A8C117] transition-colors">
                     {similarBlog.title}
-                  </h4>
+                  </h3>
                   <p className="text-sm text-gray-600 line-clamp-2 mb-2">
                     {similarBlog.description}
                   </p>

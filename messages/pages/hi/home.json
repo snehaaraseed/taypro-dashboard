@@ -47,14 +47,22 @@
       "ctaRoi": "मूल्य और ROI कैलकुलेटर"
     },
     "seoProse": {
+      "eyebrow": "यूटिलिटी-स्केल रोबोटिक सफाई",
       "heading": "यूटिलिटी-स्केल भारत के लिए वॉटरलेस सोलर पैनल सफाई रोबोट",
-      "bodyBeforeHub": "Taypro भारत के सबसे बड़े यूटिलिटी-स्केल PV प्लांटों के लिए स्वायत्त सोलर पैनल सफाई रोबोट — GLYDE, NYUMA, HELYX और ट्रैकर-तैयार GLYDE-X, NYUMA-X — डिज़ाइन, निर्माण और सेवा करता है। मॉडल तुलना करें हमारे",
+      "intro": "Taypro भारत के सबसे बड़े यूटिलिटी-स्केल PV प्लांटों के लिए स्वायत्त सोलर पैनल सफाई रोबोट डिज़ाइन, निर्माण और सेवा करता है।",
+      "productsEyebrow": "रोबोट लाइनअप",
+      "hubCardTitle": "रोबोट मॉडल तुलना करें",
+      "hubCardDescription": "GLYDE, NYUMA, HELYX और ट्रैकर-तैयार वेरिएंट — स्पेक, फिट और तैनाती गाइड।",
       "hubLink": "सोलर पैनल सफाई रोबोट हब",
-      "bodyBetweenHubService": " पर, देखें",
+      "serviceCardTitle": "OPEX सफाई सेवा",
+      "serviceCardDescription": "पूर्ण प्रबंधित फ्लीट — हम आपके प्लांट पर रोबोट तैनात, संचालित और रखरखाव करते हैं।",
       "serviceLink": "Taypro OPEX रोबोटिक सफाई सेवा",
-      "bodyBetweenServiceCalculator": ", या अनुमान लगाएँ",
+      "calculatorCardTitle": "ROI कैलकुलेटर",
+      "calculatorCardDescription": "पुनर्प्राप्त जनरेशन और कम मैनुअल O&M से पेबैक का अनुमान लगाएँ।",
       "calculatorLink": "सोलर सफाई ROI कैलकुलेटर",
-      "bodyAfterCalculator": " से। पुणे में निर्मित, पैन-India तैनाती और समान-दिवस ब्रेकडाउन सहायता के साथ।"
+      "trustMadeIn": "पुणे में निर्मित",
+      "trustDeployment": "पैन-India तैनाती",
+      "trustSupport": "समान-दिवस ब्रेकडाउन सहायता"
     },
     "stats": {
       "methodologyBefore": "Fleet impact figures are modelled from live deployments. See our",

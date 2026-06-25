@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Every 5 min: after 00:30 Pacific (~1:00 PM IST) write one English blog, then start
-# translation catchup until quota or the next soft start. Translation never runs before
+# translation catchup until quota or the next soft start. When translations are done,
+# legacy project rewrites run in the same worker until quota. Translation never runs before
 # today's blog is done. Writer uses flock so only one generate-blog runs at a time.
 set -euo pipefail
 

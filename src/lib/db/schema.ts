@@ -56,6 +56,12 @@ export const projects = sqliteTable(
     author: text("author").notNull().default("Taypro Team"),
     /** Immutable star codename (English row is canonical; copied to locale rows). */
     codename: text("codename"),
+    /** Authoritative site facts JSON for stats table and AI prompts. */
+    factsJson: text("facts_json"),
+    /** Narrative sections JSON (executive summary + H2 bodies). */
+    sectionsJson: text("sections_json"),
+    editorialStatus: text("editorial_status").notNull().default("legacy"),
+    seoKeyword: text("seo_keyword"),
     date: text("date").notNull(),
     createdAt: text("created_at").notNull(),
     updatedAt: text("updated_at"),

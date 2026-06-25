@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useId, useState } from "react";
 import { usePathname } from "@/i18n/navigation";
 import { CheckCircle2 } from "lucide-react";
 import { trackGenerateLead } from "@/lib/analytics/track-event";
@@ -17,6 +17,8 @@ const INITIAL_FORM = {
 
 export default function CallbackCard({ headerText }: DemoSectionProps) {
   const pathname = usePathname();
+  const formInstanceId = useId();
+  const fieldId = (name: string) => `${formInstanceId}-${name}`;
   const [formData, setFormData] = useState(INITIAL_FORM);
 
   const [loading, setLoading] = useState(false);
@@ -85,9 +87,9 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
         paddingTop: "7.5rem",
       }}
     >
-      <h3 className="font-semibold text-[#052638] text-center text-3xl sm:text-4xl md:text-5xl mb-10 [&_*]:text-[#052638]">
+      <h2 className="font-semibold text-[#052638] text-center text-3xl sm:text-4xl md:text-5xl mb-10 [&_*]:text-[#052638]">
         {headerText}
-      </h3>
+      </h2>
 
       <div className="max-w-5xl mx-auto w-full h-full flex flex-col md:flex-row shadow-lg bg-transparent relative">
         {/* Left: Form */}
@@ -126,13 +128,16 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
             </div>
           ) : (
             <>
-              <h2 className="text-white font-semibold text-3xl mt-3 mb-6">
+              <p className="text-white font-semibold text-3xl mt-3 mb-6">
                 Let us help you
-              </h2>
+              </p>
               <form onSubmit={handleSubmit} className="space-y-7">
                 <div>
-                  <label className="text-white text-base">Full Name*</label>
+                  <label htmlFor={fieldId("firstName")} className="text-white text-base">
+                    Full Name*
+                  </label>
                   <input
+                    id={fieldId("firstName")}
                     type="text"
                     name="firstName"
                     placeholder="Praveen"
@@ -144,10 +149,11 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
                 </div>
                 <div className="flex flex-row gap-6">
                   <div className="w-1/2">
-                    <label className="text-white text-base">
+                    <label htmlFor={fieldId("email")} className="text-white text-base">
                       Email Address*
                     </label>
                     <input
+                      id={fieldId("email")}
                       type="email"
                       name="email"
                       placeholder="info@company.com"
@@ -158,13 +164,14 @@ export default function CallbackCard({ headerText }: DemoSectionProps) {
                     />
                   </div>
                   <div className="w-1/2">
-                    <label className="text-white text-base">
+                    <label htmlFor={fieldId("phone")} className="text-white text-base">
                       Phone Number*
                     </label>
                     <input
+                      id={fieldId("phone")}
                       type="tel"
                       name="phone"
-                      placeholder="+123-456-7890"
+                      placeholder="10-digit mobile"
                       value={formData.phone}
                       onChange={handleChange}
                       suppressHydrationWarning

@@ -30,7 +30,7 @@ export const tier1RemediationBulk = {
 `,
   "neneva-gujrat-250-mw": `
 <h2>Export-limited nights and tracker O&amp;M</h2>
-<p>Link <a href="/utility-operations">utility operations</a> calendars so tracker O&amp;M, stow events, and cleaning windows do not collide during export-limited nights. Document curtailment skips separately from wind and stow holds.</p>
+<p>Link <a href="/utility-scale-solar-operations">utility operations</a> calendars so tracker O&amp;M, stow events, and cleaning windows do not collide during export-limited nights. Document curtailment skips separately from wind and stow holds.</p>
 
 <h2>Tracker warranty and cleaning acceptance</h2>
 <p>Co-sign acceptance criteria with tracker OEM on brush materials, speeds, and stow positions. GLYDE-X programmes fail audits when only the robot vendor signs warranty language.</p>

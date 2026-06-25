@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { lockPageScroll } from "@/lib/scroll-lock";
+import { getOverlayPortalRoot } from "@/lib/overlay-portal";
 import RequestEstimateForm from "./RequestEstimateForm";
 import { useLeadModal } from "./LeadModalContext";
 
@@ -40,19 +41,17 @@ export default function LeadModal() {
   const heroEyebrow = topic?.trim() || "Taypro plant check";
 
   const panel = (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6">
-      <button
-        type="button"
-        aria-label="Close"
-        onClick={closeLeadModal}
+    <div className="taypro-lead-modal-root fixed inset-0 flex items-center justify-center p-4 sm:p-6">
+      <div
         className="taypro-lead-backdrop absolute inset-0 bg-[#031b29]/90 backdrop-blur-md"
+        aria-hidden="true"
+        onClick={closeLeadModal}
       />
       <div
         role="dialog"
         aria-modal="true"
         aria-labelledby="lead-modal-title"
-        className="taypro-lead-panel relative z-10 flex max-h-[92vh] w-full max-w-[33.8rem] flex-col overflow-hidden rounded-2xl border border-white/10 shadow-[0_24px_80px_-12px_rgba(5,38,56,0.45)] sm:max-w-[36.4rem]"
-        onClick={(e) => e.stopPropagation()}
+        className="taypro-lead-panel relative z-[2] flex max-h-[92vh] w-full max-w-[33.8rem] flex-col overflow-hidden rounded-2xl border border-white/10 shadow-[0_24px_80px_-12px_rgba(5,38,56,0.45)] sm:max-w-[36.4rem]"
       >
         <div className="relative h-40 shrink-0 overflow-hidden bg-gradient-to-br from-[#021a24] via-[#052638] to-[#0a4a66] sm:h-44">
           <Image
@@ -128,5 +127,5 @@ export default function LeadModal() {
     </div>
   );
 
-  return createPortal(panel, document.body);
+  return createPortal(panel, getOverlayPortalRoot());
 }

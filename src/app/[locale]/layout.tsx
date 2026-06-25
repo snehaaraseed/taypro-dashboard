@@ -3,7 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
-import { buildClientMessages } from "@/i18n/pick-messages";
+import { buildLayoutClientMessages } from "@/i18n/pick-messages";
 import { HtmlLocaleAttributes } from "@/app/components/HtmlLocaleAttributes";
 import { SiteGraphSchema } from "@/app/components/StructuredData";
 import { TAYPRO_SALES_PHONE_E164 } from "@/lib/contact";
@@ -19,6 +19,7 @@ import {
   ROOT_DEFAULT_OG_DESCRIPTION,
   ROOT_DEFAULT_TWITTER_DESCRIPTION,
 } from "@/lib/seo/performance-methodology";
+import { VisitorGeoProvider } from "@/lib/roi-calculator/visitor-geo-context";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 const defaultOg = buildOgImage(OG_PRESETS.default);
@@ -90,15 +91,15 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
   const messages = await getMessages();
-  const headersList = await headers();
-  const pathname =
-    headersList.get("x-pathname") ??
-    headersList.get("x-logical-pathname") ??
-    `/${locale}`;
-  const clientMessages = buildClientMessages(messages, pathname);
+  const clientMessages = buildLayoutClientMessages(messages);
+  const headerList = await headers();
+  const rawCountry = headerList.get("x-visitor-country")?.trim().toUpperCase();
+  const visitorCountry =
+    rawCountry && /^[A-Z]{2}$/.test(rawCountry) ? rawCountry : null;
 
   return (
     <NextIntlClientProvider locale={locale} messages={clientMessages}>
+      <VisitorGeoProvider country={visitorCountry}>
       <HtmlLocaleAttributes />
       <SiteGraphSchema
         siteUrl={siteUrl}
@@ -115,6 +116,7 @@ export default async function LocaleLayout({
           <DeferredLayoutWidgets />
         </div>
       </LeadModalRoot>
+      </VisitorGeoProvider>
     </NextIntlClientProvider>
   );
 }

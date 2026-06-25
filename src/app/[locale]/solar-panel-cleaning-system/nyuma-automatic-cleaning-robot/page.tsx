@@ -490,11 +490,11 @@ export default async function NyumaAutomaticCleaningRobotPage({
         </Container>
       </section>
 
-      <section className="py-14 md:py-20 bg-[#f4f7f9]" aria-labelledby="glyde-roi-heading">
+      <section className="py-14 md:py-20 bg-[#f4f7f9]" aria-labelledby="nyuma-roi-heading">
         <Container>
           <AnimateOnScroll animation="fadeInUp" className="text-center max-w-3xl mx-auto mb-8">
             <h2
-              id="glyde-roi-heading"
+              id="nyuma-roi-heading"
               className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
             >
               {t("roiBand.title")}

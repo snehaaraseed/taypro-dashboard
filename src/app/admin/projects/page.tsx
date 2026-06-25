@@ -16,6 +16,7 @@ interface Project {
   updatedAt?: string;
   href: string;
   published?: boolean;
+  editorialStatus?: string;
 }
 
 export default function AdminProjectsPage() {
@@ -23,6 +24,7 @@ export default function AdminProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
+  const [statusFilter, setStatusFilter] = useState<string>("all");
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
 
   useEffect(() => {
@@ -64,11 +66,14 @@ export default function AdminProjectsPage() {
 
   const filteredProjects = projects.filter((project) => {
     const q = searchQuery.toLowerCase();
-    return (
+    const matchesSearch =
       project.title.toLowerCase().includes(q) ||
       project.displayTitle?.toLowerCase().includes(q) ||
-      project.codename?.toLowerCase().includes(q)
-    );
+      project.codename?.toLowerCase().includes(q);
+    const matchesStatus =
+      statusFilter === "all" ||
+      (project.editorialStatus ?? "legacy") === statusFilter;
+    return matchesSearch && matchesStatus;
   });
 
   return (
@@ -93,15 +98,25 @@ export default function AdminProjectsPage() {
           </div>
         </div>
 
-        {/* Search */}
-        <div className="mb-6">
+        <div className="mb-6 flex flex-wrap gap-3">
           <input
             type="text"
             placeholder="Search projects..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full max-w-md px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 min-w-[200px] max-w-md px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
+          <select
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+            className="px-3 py-2 border border-gray-300 rounded-md text-sm"
+          >
+            <option value="all">All editorial status</option>
+            <option value="legacy">Legacy</option>
+            <option value="ai_draft">AI draft</option>
+            <option value="editorial_v2">Editorial v2</option>
+            <option value="flagship">Flagship</option>
+          </select>
         </div>
 
         {isLoading ? (

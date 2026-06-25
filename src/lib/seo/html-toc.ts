@@ -14,6 +14,38 @@ function slugifyHeading(text: string): string {
     .replace(/-+/g, "-");
 }
 
+/**
+ * Demote in-content h1 tags and close skipped heading levels (e.g. h2 → h4).
+ * Assumes the page shell already exposes a single h1.
+ */
+export function normalizeHeadingLevels(html: string): string {
+  if (!html) return html;
+
+  let out = html;
+  let prev = "";
+
+  while (out !== prev) {
+    prev = out;
+    let lastLevel = 1;
+    out = out.replace(
+      /<h([1-6])([^>]*)>([\s\S]*?)<\/h\1>/gi,
+      (match, levelStr, attrs, innerHtml) => {
+        let level = Number(levelStr);
+        if (level === 1) {
+          level = 2;
+        }
+        if (level > lastLevel + 1) {
+          level = lastLevel + 1;
+        }
+        lastLevel = level;
+        return `<h${level}${attrs}>${innerHtml}</h${level}>`;
+      }
+    );
+  }
+
+  return out;
+}
+
 export function addHeadingIdsAndExtractToc(html: string): {
   contentWithIds: string;
   toc: TocItem[];

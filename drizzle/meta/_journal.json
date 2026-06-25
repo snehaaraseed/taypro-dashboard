@@ -85,6 +85,13 @@
       "when": 1748104800000,
       "tag": "0012_project_codename",
       "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "6",
+      "when": 1748191200000,
+      "tag": "0013_project_facts_editorial",
+      "breakpoints": true
     }
   ]
 }

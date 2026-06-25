@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { slugifyAuthorName } from "@/app/data/blogAuthors";
+import { trimSerpTitle } from "@/lib/seo/page-title";
 
 const PRIMARY_KEYWORD = "Solar Panel Cleaning Robot";
 
@@ -46,7 +47,9 @@ export function blogPostMetadataTitle(
   const absolute = isRobotCleaningTopic(postTitle, description)
     ? `${postTitle} · ${PRIMARY_KEYWORD} | Taypro Blog`
     : base;
-  return { absolute };
+  return {
+    absolute: trimSerpTitle(absolute, { includeBrand: false }),
+  };
 }
 
 export function blogPostMetadataDescription(

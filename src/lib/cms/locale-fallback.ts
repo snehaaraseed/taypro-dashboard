@@ -12,6 +12,7 @@ import {
   getAllFileProjects,
   getProjectBySlug,
 } from "@/lib/cms/projectService";
+import { isDraftProjectSlug } from "@/lib/seo/draft-project-slugs";
 
 export type CmsDetailKind = "blog" | "project";
 
@@ -85,6 +86,7 @@ export async function resolvePublishedProject(
   slug: string,
   requestedLocale?: string
 ): Promise<ResolvedCmsPost<ProjectPost> | null> {
+  if (isDraftProjectSlug(slug)) return null;
   const loc = resolveRequestLocale(requestedLocale);
   const localized = await getProjectBySlug(slug, { locale: loc });
   if (localized) {

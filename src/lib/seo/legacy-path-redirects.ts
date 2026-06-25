@@ -15,6 +15,8 @@ export const LEGACY_STATIC_PATH_REDIRECTS: Record<string, string> = {
   // Renamed / typo project slugs (published under a different slug)
   "/projects/bu-bhandari-nashik-3-mw": "/projects/bu-bhandari-satana-nashik-3-mw",
   "/projects/panshina-gujrat-250-mw": "/projects/panshina-gujrat-75-mw",
+  "/projects/bachau-dvc-gujrat-300-dw": "/projects/bachau-dvc-gujrat-300-mw",
+  "/projects/yavatmal-undarni-7-mw": "/projects",
 };
 
 function blogRedirectEntries(): [string, string][] {

@@ -26,6 +26,11 @@ import {
   translatePublishedBlog,
   translatePublishedProject,
 } from "./translate-cms";
+import {
+  isCmsProjectImproveDisabled,
+  processProjectImproveBacklog,
+  type ProcessProjectImproveBacklogResult,
+} from "@/lib/cms/project-improve-queue";
 
 export type TranslationContentType = "blog" | "project";
 
@@ -388,6 +393,8 @@ export type ProcessDailyTranslationsResult = {
   catchup?: boolean;
   clearedQueueRows: number;
   items: DailyTranslationItemResult[];
+  /** Post-writer legacy project rewrites after translation backlog is drained. */
+  projectImprove?: ProcessProjectImproveBacklogResult | null;
 };
 
 /** @deprecated Use ProcessDailyTranslationsResult */
@@ -515,6 +522,7 @@ function emptyCatchupTranslationResult(): ProcessDailyTranslationsResult {
     clearedQueueRows: 0,
     catchup: true,
     items: [],
+    projectImprove: null,
   };
 }
 
@@ -599,6 +607,7 @@ async function runDailyTranslationsBody(
     clearedQueueRows: 0,
     catchup,
     items: [],
+    projectImprove: null,
   };
 
   const log = options?.log;
@@ -791,6 +800,38 @@ async function runDailyTranslationsBody(
   if (stopForQuota) {
     result.quotaSkippedForDay = true;
     result.clearedQueueRows = await clearAllTranslationQueueRows();
+  }
+
+  if (
+    catchup &&
+    !stopForQuota &&
+    !deadlineStopped &&
+    !isCmsProjectImproveDisabled()
+  ) {
+    const [blogNeed, projectNeed] = await Promise.all([
+      listBlogSlugsNeedingTranslation(),
+      listProjectSlugsNeedingTranslation(),
+    ]);
+
+    if (blogNeed.length === 0 && projectNeed.length === 0) {
+      const improveResult = await processProjectImproveBacklog({
+        shouldStop,
+        log,
+      });
+      result.projectImprove = improveResult;
+      if (improveResult.quotaStopped) {
+        result.quotaSkippedForDay = true;
+      }
+      if (improveResult.deadlineStopped) {
+        result.deadlineStopped = true;
+      }
+    } else {
+      log?.("project_improve_phase_skip", {
+        reason: "translation_backlog_remaining",
+        blogs: blogNeed.length,
+        projects: projectNeed.length,
+      });
+    }
   }
 
   return result;

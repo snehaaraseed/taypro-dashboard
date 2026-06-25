@@ -17,6 +17,10 @@ export interface ProjectMetadata {
   updatedAt?: string;
   published?: boolean;
   author?: string;
+  editorialStatus?: import("@/lib/cms/project-facts-types").ProjectEditorialStatus;
+  seoKeyword?: string | null;
+  factsJson?: string | null;
+  sectionsJson?: string | null;
 }
 
 export interface ProjectData {
@@ -29,6 +33,10 @@ export interface ProjectData {
   content?: string;
   published?: boolean;
   author?: string;
+  facts?: import("@/lib/cms/project-facts-types").ProjectFactsJson | null;
+  sections?: import("@/lib/cms/project-facts-types").ProjectSectionsJson | null;
+  editorialStatus?: import("@/lib/cms/project-facts-types").ProjectEditorialStatus;
+  seoKeyword?: string | null;
 }
 
 export {
@@ -41,4 +49,6 @@ export {
   getRelatedFileProjects,
   readProjectMetadata,
   readProjectContent,
+  readProjectFull,
+  listProjectsAdmin,
 } from "@/lib/cms/projectService";

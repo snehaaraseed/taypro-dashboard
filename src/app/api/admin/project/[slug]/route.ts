@@ -5,6 +5,7 @@ import { requireAuth } from "../../../../utils/auth";
 import {
   readProjectMetadata,
   readProjectContent,
+  readProjectFull,
   updateProjectFiles,
   deleteProjectFiles,
   createSlug,
@@ -23,18 +24,18 @@ export async function GET(
 
   try {
     const { slug } = await params;
-    const metadata = await readProjectMetadata(slug);
-    const content = await readProjectContent(slug);
+    const full = await readProjectFull(slug);
 
-    if (!metadata) {
+    if (!full) {
       return NextResponse.json({ error: "Project not found" }, { status: 404 });
     }
 
     return NextResponse.json({
       success: true,
       project: {
-        ...metadata,
-        content,
+        ...full,
+        facts: full.facts,
+        sections: full.sections,
       },
     });
   } catch (error) {
@@ -61,7 +62,13 @@ export async function PUT(
 
   try {
     const { slug } = await params;
-    const body = (await request.json()) as ProjectData & { newSlug?: string };
+    const body = (await request.json()) as ProjectData & {
+      newSlug?: string;
+      facts?: ProjectData["facts"];
+      sections?: ProjectData["sections"];
+      editorialStatus?: ProjectData["editorialStatus"];
+      seoKeyword?: string | null;
+    };
     const { newSlug: rawNewSlug, ...projectFields } = body;
 
     // Validate required fields

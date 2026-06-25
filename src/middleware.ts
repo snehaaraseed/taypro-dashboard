@@ -1,13 +1,13 @@
 import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import { NextRequest } from "next/server";
 import createIntlMiddleware from "next-intl/middleware";
 import {
   getCountryCodeFromRequest,
   withGeoLocaleDetection,
 } from "./i18n/detect-locale-from-geo";
-import { VISITOR_COUNTRY_COOKIE } from "./lib/roi-calculator/market-profiles";
 import { pathnameWithoutLocale } from "./i18n/pathname-without-locale";
 import { routing } from "./i18n/routing";
+import { LOCALE_LABELS, isActiveLocale, type TayproLocale } from "./i18n/markets";
 import { verifyToken } from "./app/utils/jwt";
 import { resolveMiddlewareAliasRedirect } from "./lib/url-recovery/middleware-redirect";
 
@@ -36,6 +36,25 @@ function isPublicAssetPath(pathname: string): boolean {
   return PUBLIC_ASSET_ROOTS.some(
     (root) => pathname === `/${root}` || pathname.startsWith(`/${root}/`)
   );
+}
+
+function localeFromPathname(pathname: string): TayproLocale {
+  const segment = pathname.split("/")[1];
+  return segment && isActiveLocale(segment)
+    ? segment
+    : (routing.defaultLocale as TayproLocale);
+}
+
+function withHtmlLocaleHeaders(request: NextRequest): NextRequest {
+  const locale = localeFromPathname(request.nextUrl.pathname);
+  const headers = new Headers(request.headers);
+  headers.set("x-taypro-locale", locale);
+  headers.set("x-taypro-dir", LOCALE_LABELS[locale]?.dir ?? "ltr");
+
+  return new NextRequest(request.url, {
+    headers,
+    method: request.method,
+  });
 }
 
 const HSTS_VALUE = "max-age=31536000; includeSubDomains";
@@ -144,12 +163,6 @@ function applySecurityAndCacheHeaders(
   const visitorCountry = getCountryCodeFromRequest(request);
   if (visitorCountry) {
     response.headers.set("x-visitor-country", visitorCountry);
-    response.cookies.set(VISITOR_COUNTRY_COOKIE, visitorCountry, {
-      path: "/",
-      maxAge: 60 * 60 * 24 * 30,
-      sameSite: "lax",
-      secure: process.env.NODE_ENV === "production",
-    });
   }
 
   return response;
@@ -304,7 +317,8 @@ export async function middleware(request: NextRequest) {
     );
   }
 
-  const intlResponse = handleI18nRouting(withGeoLocaleDetection(request));
+  const intlRequest = withHtmlLocaleHeaders(withGeoLocaleDetection(request));
+  const intlResponse = handleI18nRouting(intlRequest);
   if (intlResponse.status >= 300 && intlResponse.status < 400) {
     applyHstsIfHttps(request, intlResponse);
     return intlResponse;

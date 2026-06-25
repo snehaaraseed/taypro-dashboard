@@ -17,9 +17,9 @@ export function RoiEnvironmentalCards({
 }: RoiEnvironmentalCardsProps) {
   return (
     <section className="mt-6">
-      <h4 className="text-white font-semibold text-base sm:text-lg mb-3">
+      <h3 className="text-white font-semibold text-base sm:text-lg mb-3">
         {heading}
-      </h4>
+      </h3>
       <div className="grid gap-4 sm:grid-cols-2">
         {cards.map((card) => (
           <article

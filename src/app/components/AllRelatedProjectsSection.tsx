@@ -20,9 +20,9 @@ export async function AllRelatedProjectsSection({
           <p className="text-[#A8C117] text-sm font-medium uppercase tracking-wide mb-2">
             {t("relatedEyebrow")}
           </p>
-          <h3 className="text-[#052638] font-semibold text-2xl sm:text-3xl mb-3">
+          <h2 className="text-[#052638] font-semibold text-2xl sm:text-3xl mb-3">
             {t("relatedHeading")}
-          </h3>
+          </h2>
           <p className="text-[#27415c] text-base">{t("relatedSubheading")}</p>
         </AnimateOnScroll>
         <ProjectsGrid projects={projects} columns={3} />

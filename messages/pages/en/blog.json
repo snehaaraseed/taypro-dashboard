@@ -124,7 +124,8 @@
       "frequency": "Weekly",
       "title": "Subscribe for blog updates",
       "description": "New insights on solar performance and maintenance.",
-      "iframeTitle": "Newsletter Subscription"
+      "iframeTitle": "Newsletter Subscription",
+      "cta": "Get updates via contact"
     }
   },
   "Common": {

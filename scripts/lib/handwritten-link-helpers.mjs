@@ -1,6 +1,7 @@
 /** Shared href helpers for handwritten case-study generators (keep in sync with draft-project-slugs.ts). */
 
 export const PERFORMANCE_METHODOLOGY_HREF = "/performance-and-test-methodology";
+export const UTILITY_OPERATIONS_HREF = "/utility-scale-solar-operations";
 
 const DRAFT_PEER_SLUGS = new Set([
   "ahmadnagar-masale-10-mw",

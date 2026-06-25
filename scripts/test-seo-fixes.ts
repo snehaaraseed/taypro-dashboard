@@ -4,7 +4,7 @@ import {
   localizedUrl,
   openGraphLocaleForSite,
 } from "../src/lib/seo/locale-alternates";
-import { formatBrandTitle, normalizePageTitle } from "../src/lib/seo/page-title";
+import { formatBrandTitle, normalizePageTitle, trimSerpTitle, SERP_TITLE_MAX } from "../src/lib/seo/page-title";
 import {
   SERP_DESCRIPTION_MAX,
   trimSerpDescription,
@@ -13,6 +13,8 @@ import { withHreflang } from "../src/lib/seo/with-hreflang";
 import { recoveryNotFoundMetadata } from "../src/lib/seo/recovery-not-found-metadata";
 import { getSitemapLocalesForPath } from "../src/lib/seo/sitemap-locales";
 import { isLocalePageSubstantivelyTranslated } from "../src/lib/seo/locale-page-quality";
+import { normalizeHeadingLevels } from "../src/lib/seo/html-toc";
+import { isDraftProjectSlug } from "../src/lib/seo/draft-project-slugs";
 
 assert.equal(localizedUrl("/blog/test", "en"), "https://taypro.in/blog/test");
 assert.equal(localizedUrl("/blog/test", "hi"), "https://taypro.in/hi/blog/test");
@@ -32,6 +34,43 @@ assert.equal(
   "Press & Media Coverage | Taypro"
 );
 assert.ok(trimSerpDescription("x".repeat(200)).length <= SERP_DESCRIPTION_MAX + 1);
+
+assert.ok(
+  formatBrandTitle("x".repeat(80)).length <= SERP_TITLE_MAX + 1,
+  "formatBrandTitle respects SERP_TITLE_MAX"
+);
+assert.ok(trimSerpTitle("Short title").length <= SERP_TITLE_MAX);
+
+const publishedLocalesAlternates = buildLocaleAlternates(
+  "/projects/yavatmal-undarni-7-mw",
+  "ja",
+  { locales: ["ja", "hi"], canonicalLocale: "ja" }
+);
+assert.equal(
+  publishedLocalesAlternates.languages?.["x-default"],
+  "https://taypro.in/ja/projects/yavatmal-undarni-7-mw",
+  "x-default follows first published locale when English is absent"
+);
+
+const projectsHubCanonical = withHreflang(
+  "/projects",
+  "en",
+  { title: { absolute: "Taypro Solar Projects" }, description: "Desc" },
+  { canonicalSuffix: "?page=2" }
+);
+assert.equal(
+  projectsHubCanonical.alternates?.canonical,
+  "https://taypro.in/projects?page=2",
+  "Projects hub paginated canonical"
+);
+assert.equal(
+  projectsHubPaginationLinks("https://taypro.in", 2, 4).previous,
+  "https://taypro.in/projects"
+);
+assert.equal(
+  projectsHubPaginationLinks("https://taypro.in", 2, 4).next,
+  "https://taypro.in/projects?page=3"
+);
 
 const pressMeta = withHreflang("/press", "en", {
   title: "Press & Media Coverage | Taypro",
@@ -134,12 +173,9 @@ assert.equal(
 
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import {
-  buildClientMessages,
-  buildLayoutClientMessages,
-} from "../src/i18n/pick-messages";
+import { buildLayoutClientMessages } from "../src/i18n/pick-messages";
 import { pickSimilarBlogs } from "../src/lib/seo/pick-similar-blogs";
-import { parseProjectsHubPage, projectsHubPagePath } from "../src/lib/cms/projects-hub-pagination";
+import { parseProjectsHubPage, projectsHubPagePath, projectsHubPaginationLinks } from "../src/lib/cms/projects-hub-pagination";
 
 const messagesRoot = join(process.cwd(), "messages");
 const hiMessages = JSON.parse(
@@ -153,14 +189,20 @@ for (const file of readdirSync(hiPagesDir).filter((f) => f.endsWith(".json"))) {
   );
 }
 
-const legacyBundle = JSON.stringify(buildLayoutClientMessages(hiMessages));
-const blogBundle = JSON.stringify(
-  buildClientMessages(hiMessages, "/hi/blog/example-slug")
-);
-assert.ok(
-  blogBundle.length < legacyBundle.length * 0.75,
-  `pathname-scoped hi blog messages should be smaller than full layout bundle (${blogBundle.length} vs ${legacyBundle.length})`
-);
+const layoutClientMessages = buildLayoutClientMessages(hiMessages);
+for (const ns of [
+  "ContactPage",
+  "Home",
+  "BlogPage",
+  "ProjectsPage",
+  "Navigation",
+  "Common",
+]) {
+  assert.ok(
+    ns in layoutClientMessages,
+    `layout client bundle must include ${ns} for client-side navigation`
+  );
+}
 
 const similar = pickSimilarBlogs(
   {
@@ -236,5 +278,9 @@ assert.ok(
   "tracker GLYDE path redirect"
 );
 assert.equal(DRAFT_PROJECT_PEER_SLUGS.size, 17);
+
+assert.ok(isDraftProjectSlug("yavatmal-undarni-7-mw"));
+const normalized = normalizeHeadingLevels("<h2>A</h2><h4>B</h4>");
+assert.match(normalized, /<h3>B<\/h3>/);
 
 console.log("test-seo-fixes: ok");

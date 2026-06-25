@@ -6,9 +6,10 @@ export const routing = defineRouting({
   defaultLocale: "en",
   /** Keep indexed URLs: taypro.in/blog/... (no /en prefix) */
   localePrefix: "as-needed",
+  /** Avoid NEXT_LOCALE on every HTML response (SiteOne security / cookie hardening). */
+  localeCookie: false,
   /**
-   * Cookie + Accept-Language; middleware biases Accept-Language from IP geo
-   * (Cloudflare cf-ipcountry, etc.) for non-India Tier 1 + Japan only.
+   * Accept-Language + middleware IP geo bias (Cloudflare cf-ipcountry, etc.).
    * India and unmapped countries default to English.
    */
   localeDetection: true,

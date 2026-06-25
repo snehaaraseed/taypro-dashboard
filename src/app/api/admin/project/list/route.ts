@@ -22,6 +22,8 @@ export async function GET(request: NextRequest) {
         updatedAt: metadata.updatedAt,
         href: `/projects/${metadata.slug}`,
         published: metadata.published !== undefined ? metadata.published : true,
+        editorialStatus: metadata.editorialStatus ?? "legacy",
+        seoKeyword: metadata.seoKeyword ?? null,
       }))
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
