@@ -133,8 +133,8 @@
       "row3": {
         "factor": "استعادة الأداء من التلوث",
         "manual": "متغير حسب الطاقم والموسم",
-        "semiAuto": "أكثر من 99% غبار في كل تمريرة (HELYX)",
-        "autonomous": "أكثر من 99% غبار في كل دورة (GLYDE/T)"
+        "semiAuto": "95%+ غبار في كل تمريرة (HELYX)",
+        "autonomous": "99%+ غبار لكل دورة (GLYDE/GLYDE-X) · 98%+ (NYUMA/NYUMA-X)"
       },
       "row4": {
         "factor": "رؤية الأسطول",

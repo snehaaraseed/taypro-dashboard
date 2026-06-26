@@ -133,8 +133,8 @@
       "row3": {
         "factor": "汚染からの回復",
         "manual": "作業員と季節により変動",
-        "semiAuto": "1パスあたり99%以上の粉塵（HELYX）",
-        "autonomous": "1サイクルあたり99%以上の粉塵（GLYDE/T）"
+        "semiAuto": "1パスあたり95%以上の粉塵（HELYX）",
+        "autonomous": "1サイクルあたり99%以上の粉塵（GLYDE/GLYDE-X）· 98%以上（NYUMA/NYUMA-X）"
       },
       "row4": {
         "factor": "フリートの可視性",

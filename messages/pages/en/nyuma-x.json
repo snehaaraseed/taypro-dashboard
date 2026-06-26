@@ -2,8 +2,8 @@
   "NyumaXPage": {
     "meta": {
       "title": "NYUMA-X Tracker Solar Panel Cleaning Robot",
-      "description": "PBT single-pass NYUMA-X for tracker plants. 99%+ dust removal, NECTYR fleet, TÜV NORD certified. Get a quote today.",
-      "openGraphDescription": "NYUMA-X: PBT single-pass autonomous cleaning for single-axis trackers. 99%+ dust removal, NECTYR monitoring, NEXTracker & Gamechanger compatible.",
+      "description": "PBT single-pass NYUMA-X for tracker plants. 98%+ dust removal, NECTYR fleet, TÜV NORD certified. Get a quote today.",
+      "openGraphDescription": "NYUMA-X: PBT single-pass autonomous cleaning for single-axis trackers. 98%+ dust removal, NECTYR monitoring, NEXTracker & Gamechanger compatible.",
       "openGraphImageAlt": "Taypro NYUMA-X PBT tracker solar panel cleaning robot",
       "twitterDescription": "Taypro NYUMA-X: PBT single-pass tracker robot. 3,600 modules per charge, NECTYR fleet portal, NEXTracker & Gamechanger compatible.",
       "openGraphTitle": "Tracker Solar Panel Cleaning Robot | NYUMA-X",
@@ -15,7 +15,7 @@
     },
     "schema": {
       "productName": "Solar Panel Cleaning Robot for Single-Axis Trackers - NYUMA-X",
-      "productDescription": "Taypro NYUMA-X is an AI- and ML-powered autonomous, waterless Solar Panel Cleaning Robot purpose-built for single-axis tracker installations. single-pass dry cleaning removes 99%+ dust per cycle, cleans up to 3,600 modules per charge, flexes ±15° between tables, connects via {connectivity}, is compatible with NEXTracker and Gamechanger, supports module tilts from -52° to +52°, TÜV NORD certified.",
+      "productDescription": "Taypro NYUMA-X is an AI- and ML-powered autonomous, waterless Solar Panel Cleaning Robot purpose-built for single-axis tracker installations. single-pass dry cleaning removes 98%+ dust per cycle, cleans up to 3,600 modules per charge, flexes ±15° between tables, connects via {connectivity}, is compatible with NEXTracker and Gamechanger, supports module tilts from -52° to +52°, TÜV NORD certified.",
       "offersPrice": "Contact for pricing",
       "howToName": "How does the Taypro NYUMA-X Single-Axis Tracker Solar Panel Cleaning Robot clean tracker plants?",
       "howToDescription": "Step-by-step autonomous cleaning cycle of the Taypro NYUMA-X solar panel cleaning robot for single-axis tracker installations, from AI-scheduled deployment through self-docking and cloud telemetry sync."
@@ -50,7 +50,7 @@
       },
       "3": {
         "title": "100% Waterless Single-Pass PBT Cleaning",
-        "description": "Counter-rotating PBT bristles lift over 99% of dry tracker dust in one pass — no water, detergent, or run-off."
+        "description": "Counter-rotating PBT bristles lift over 98% of dry tracker dust in one pass — no water, detergent, or run-off."
       },
       "4": {
         "title": "Stow-Aware Autonomous Routing",
@@ -84,7 +84,7 @@
       },
       "3": {
         "title": "Single-Pass PBT Cleaning",
-        "body": "A single-pass cleaning cycle lifts over 99% of accumulated dust from the module surface using a counter-rotating UV-stable PBT brush drum — purpose-built for dry tracker dust belts without water or detergent."
+        "body": "A single-pass cleaning cycle lifts over 98% of accumulated dust from the module surface using a counter-rotating UV-stable PBT brush drum — purpose-built for dry tracker dust belts without water or detergent."
       },
       "4": {
         "title": "Real-Time Weather-Aware Scheduling",
@@ -204,7 +204,7 @@
       },
       "3": {
         "name": "Single-pass waterless cleaning across the row",
-        "text": "Counter-rotating UV-stable PBT bristles execute a single-pass cleaning cycle, lifting over 99% of accumulated dust at 10–15 metres per minute. The flexible body articulates up to ±15° to safely cross inter-table angle deviations on NEXTracker, Gamechanger and equivalent trackers."
+        "text": "Counter-rotating UV-stable PBT bristles execute a single-pass cleaning cycle, lifting over 98% of accumulated dust at 10–15 metres per minute. The flexible body articulates up to ±15° to safely cross inter-table angle deviations on NEXTracker, Gamechanger and equivalent trackers."
       },
       "4": {
         "name": "Battery-aware return to docking station",
@@ -234,7 +234,7 @@
       },
       "4": {
         "question": "Does NYUMA-X require water or external power to clean tracker panels?",
-        "answer": "No. NYUMA-X is 100% waterless, a single-pass cleaning cycle lifts over 99% of dust using rotating PBT brush or UV-stable PBT cleaning heads without any water, detergent or run-off. The docking station is fitted with an integrated lithium-ion charging system and does not require any external power source."
+        "answer": "No. NYUMA-X is 100% waterless, a single-pass cleaning cycle lifts over 98% of dust using rotating PBT brush or UV-stable PBT cleaning heads without any water, detergent or run-off. The docking station is fitted with an integrated lithium-ion charging system and does not require any external power source."
       },
       "5": {
         "question": "Is the NYUMA-X cleaning cycle safe for solar modules and ARC?",
@@ -272,7 +272,7 @@
       "p1After": " purpose-built for daily cleaning of ",
       "p1TrackerStrong": "single-axis tracker solar power plants",
       "p1Mid": ". The robot removes over ",
-      "p1DustStrong": "99% of dust in a single automated run",
+      "p1DustStrong": "98% of dust in a single automated run",
       "p1AfterDust": ", covering up to ",
       "p1RangeStrong": "2.2 km, around 3,600 modules, on a single charge",
       "p1AfterRange": ". Cleaning is best scheduled after energy production hours and is managed end-to-end through the NECTYR remote monitoring app. Supported fleet links are ",
@@ -403,7 +403,7 @@
       "row4": {
         "criterion": "Cleaning Quality",
         "manual": "Inconsistent, operator-dependent",
-        "nyumaX": "99%+ dust removal per single-pass cycle, every cleaning run"
+        "nyumaX": "98%+ dust removal per single-pass cycle, every cleaning run"
       },
       "row5": {
         "criterion": "Labour & Safety",

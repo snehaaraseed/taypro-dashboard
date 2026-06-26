@@ -133,8 +133,8 @@
       "row3": {
         "factor": "मृदा पुनरुत्थान",
         "manual": "दल और मौसम के अनुसार परिवर्तनीय",
-        "semiAuto": "प्रति पास 99%+ धूल (HELYX)",
-        "autonomous": "प्रति चक्र 99%+ धूल (GLYDE/T)"
+        "semiAuto": "प्रति पास 95%+ धूल (HELYX)",
+        "autonomous": "प्रति चक्र 99%+ धूल (GLYDE/GLYDE-X) · 98%+ (NYUMA/NYUMA-X)"
       },
       "row4": {
         "factor": "बेड़े की दृश्यता",

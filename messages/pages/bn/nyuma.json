@@ -105,13 +105,7 @@
       "modularAlt": "Taypro NYUMA modular exploded view showing rails, wheels, and NYUMA drive unit",
       "modularCaption": "Modular rail, wheel, and drive-unit layout — each array ships as a field-assembled NYUMA system.",
       "dockingAlt": "Taypro NYUMA shadow-free docking power unit with integrated solar charging for autonomous daily cycles",
-      "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array.",
-      "detailAlt": "শেষ আবাসনে Taypro NYUMA PBT ব্রাশ সমাবেশ, গাইড রেল এবং NYUMA ব্র্যান্ডিং এর ক্লোজ-আপ",
-      "detailCaption": "প্রতিদিনের স্বায়ত্তশাসিত চক্রের জন্য ব্রাশ হেড, গাইড রেল এবং এন্ড-ক্যাপ ব্র্যান্ডিং ইঞ্জিনিয়ারড।",
-      "heroAlt": "Taypro NYUMA স্বয়ংক্রিয় সৌর প্যানেল পরিষ্কারের রোবট, তিন-চতুর্থাংশ পণ্য রেন্ডার",
-      "heroCaption": "NYUMA অন-বোর্ড সোলার প্যানেল এবং লং-রিচ ক্লিনিং ফ্রেম সহ স্বয়ংক্রিয় রোবট।",
-      "fieldAlt": "Taypro NYUMA স্বয়ংক্রিয় সৌর প্যানেল পরিষ্কার করার রোবট পরিষ্কার আকাশের নিচে একটি ইউটিলিটি-স্কেল ফিক্সড-টিল্ট সোলার অ্যারেতে কাজ করে",
-      "fieldCaption": "NYUMA সাইটে — একক-পাস PBT একটি লাইভ ইউটিলিটি-স্কেল সোলার প্ল্যান্ট জুড়ে ব্রাশ পরিষ্কার করা।"
+      "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array."
     },
     "howToSection": {
       "dualPassStepImageAlt": "Taypro NYUMA single-pass PBT waterless cleaning mechanism with rotating PBT brush drum",
@@ -311,7 +305,7 @@
         "row2": {
           "criterion": "মান",
           "manual": "অসঙ্গত",
-          "robot": "99%+ dust removal in a single automated run, every time",
+          "robot": "98%+ dust removal in a single automated run, every time",
           "modelA": "৯৯%+ প্রতিবার"
         },
         "row3": {
@@ -377,9 +371,7 @@
       "linkBetweenOpexAndNectyr": " বা ",
       "linkNectyr": "NECTYR মনিটরিং অ্যাপ",
       "crossSellSuffix": "।",
-      "linkNyuma": "PBT automatic NYUMA robot",
-      "linkNyumaX": "একক-অক্ষ ট্র্যাকার ক্লিনিং রোবট (NYUMA-X)",
-      "linkGlyde": "ডুয়াল-পাস GLYDE রোবট"
+      "linkNyuma": "PBT automatic NYUMA robot"
     },
     "specifications": {
       "titleLine1": "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবট ",
@@ -590,8 +582,7 @@
       "title": "Looking for more solutions?",
       "cardLabels": {
         "helyx": "HELYX",
-        "glydeX": "NYUMA",
-        "nyumaX": "NYUMA-X"
+        "glydeX": "NYUMA"
       },
       "cardTitleTemplate": "{label} Solar Panel Cleaning Robot"
     },

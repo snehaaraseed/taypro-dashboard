@@ -133,8 +133,8 @@
       "row3": {
         "factor": "মাটি পুনরুদ্ধার",
         "manual": "কর্মী এবং ঋতু অনুসারে পরিবর্তনশীল",
-        "semiAuto": "প্রতি পাসে 99%+ ধুলো (HELYX)",
-        "autonomous": "প্রতি সাইকেলে 99%+ ধুলো (GLYDE/T)"
+        "semiAuto": "প্রতি পাসে 95%+ ধুলো (HELYX)",
+        "autonomous": "প্রতি সাইকেলে 99%+ ধুলো (GLYDE/GLYDE-X) · 98%+ (NYUMA/NYUMA-X)"
       },
       "row4": {
         "factor": "ফ্লিট দৃশ্যমানতা",

@@ -2,13 +2,13 @@
   "NyumaPage": {
     "meta": {
       "title": "NYUMA Automatic Solar Panel Cleaning Robot",
-      "description": "Waterless PBT single-pass NYUMA for fixed-tilt utility plants. 99%+ dust removal, NECTYR fleet, TÜV NORD certified. Get a quote.",
+      "description": "Waterless PBT single-pass NYUMA for fixed-tilt utility plants. 98%+ dust removal, NECTYR fleet, TÜV NORD certified. Get a quote.",
       "openGraphTitle": "Automatic Solar Panel Cleaning Robot | NYUMA",
-      "openGraphDescription": "Taypro NYUMA: PBT single-pass automatic cleaning for utility fixed-tilt plants. 99%+ dust removal per cycle, up to 3,600 modules per charge, NECTYR fleet monitoring, TÜV NORD certified.",
+      "openGraphDescription": "Taypro NYUMA: PBT single-pass automatic cleaning for utility fixed-tilt plants. 98%+ dust removal per cycle, up to 3,600 modules per charge, NECTYR fleet monitoring, TÜV NORD certified.",
       "openGraphType": "website",
       "openGraphImageAlt": "Taypro NYUMA PBT automatic solar panel cleaning robot",
       "twitterTitle": "Automatic Solar Panel Cleaning Robot | NYUMA",
-      "twitterDescription": "Taypro NYUMA: autonomous waterless PBT single-pass cleaning, 99%+ dust removal per cycle, NECTYR-connected fleet portal.",
+      "twitterDescription": "Taypro NYUMA: autonomous waterless PBT single-pass cleaning, 98%+ dust removal per cycle, NECTYR-connected fleet portal.",
       "twitterCard": "summary_large_image"
     },
     "breadcrumbs": {
@@ -22,7 +22,7 @@
     "schema": {
       "product": {
         "name": "Automatic Solar Panel Cleaning Robot, NYUMA (Taypro)",
-        "description": "Taypro NYUMA is a fully autonomous Automatic Solar Panel Cleaning Robot for utility-scale solar power plants. Waterless AI- and ML-driven single-pass dry cleaning removes over 99% of dust per cycle, cleans up to 3,600 modules on a single charge, connects to NECTYR via LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN, and is field-validated and TÜV NORD certified.",
+        "description": "Taypro NYUMA is a fully autonomous Automatic Solar Panel Cleaning Robot for utility-scale solar power plants. Waterless AI- and ML-driven single-pass dry cleaning removes over 98% of dust per cycle, cleans up to 3,600 modules on a single charge, connects to NECTYR via LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN, and is field-validated and TÜV NORD certified.",
         "brand": "Taypro",
         "sku": "NYUMA",
         "offers": {
@@ -61,12 +61,12 @@
       "p1BeforeStrong": "The ",
       "p1StrongCategory": "Automatic Solar Panel Cleaning Robot",
       "p1AfterCategory": " category describes fully autonomous, waterless robots that clean solar modules without tankers or night crews. Taypro NYUMA is a fully autonomous unit engineered for reliable daily cleaning of utility-scale solar power plants. A single automated run removes over ",
-      "p1DustClaimStrong": "99% of dust",
+      "p1DustClaimStrong": "98% of dust",
       "p1AfterDustClaim": " from the module surface using a rotating, self-cleaning PBT brush drum, driving consistent performance ratio gains across the plant (site-dependent).",
       "methodologyFootnoteAriaSuffix": " (footnote)",
       "methodologyNotice": {
         "strong": "About performance figures:",
-        "body": "References to \"99%+\" on this site describe dust removed from the module surface per automated pass or cycle, not a guarantee of panel conversion efficiency or total plant output. Recovery of energy lost to soiling depends on baseline soiling, cleaning cadence, weather, and plant design. See our performance & test methodology for how Taypro validates and quotes results."
+        "body": "References to \"98%+\" on this site describe dust removed from the module surface per automated pass or cycle, not a guarantee of panel conversion efficiency or total plant output. Recovery of energy lost to soiling depends on baseline soiling, cleaning cadence, weather, and plant design. See our performance & test methodology for how Taypro validates and quotes results."
       },
       "methodologyLinkText": "performance & test methodology",
       "methodologyLinkTitle": "Performance & Test Methodology",
@@ -99,7 +99,7 @@
         },
         "step3": {
           "name": "single-pass waterless cleaning with a self-cleaning PBT brush drum",
-          "text": "A rotating, self-cleaning PBT brush drum executes a single-pass dry cleaning cycle that removes over 99% of accumulated dust per automated run at 10–15 metres per minute, with zero water, detergent or manual labour."
+          "text": "A rotating, self-cleaning PBT brush drum executes a single-pass dry cleaning cycle that removes over 98% of accumulated dust per automated run at 10–15 metres per minute, with zero water, detergent or manual labour."
         },
         "step4": {
           "name": "Battery-aware return to the docking station",
@@ -209,7 +209,7 @@
       "mainHeading": "Features of Taypro's Automatic Solar Panel Cleaning Robots: NYUMA",
       "aiCleaning": {
         "title": "AI-Enabled Waterless Single-Pass Cleaning",
-        "body": "NYUMA applies AI- and ML-driven pressure and speed logic to a single-pass PBT brush drum — one continuous contact sweep removes over 99% of dry dust per automated run without water, detergent, or abrasive glass contact."
+        "body": "NYUMA applies AI- and ML-driven pressure and speed logic to a single-pass PBT brush drum — one continuous contact sweep removes over 98% of dry dust per automated run without water, detergent, or abrasive glass contact."
       },
       "microfiber": {
         "title": "Self-Cleaning PBT Brush Drum",
@@ -287,7 +287,7 @@
         "row2": {
           "criterion": "Cleaning Quality",
           "manual": "Inconsistent, operator-dependent",
-          "robot": "99%+ dust removal in a single automated run, every time"
+          "robot": "98%+ dust removal in a single automated run, every time"
         },
         "row3": {
           "criterion": "Labour & Safety",

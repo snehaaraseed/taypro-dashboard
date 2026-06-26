@@ -2,7 +2,7 @@
   "NyumaPage": {
     "meta": {
       "title": "روبوت تنظيف ألواح شمسية أوتوماتيكي أحادي المرور PBT, Taypro NYUMA (بدون ماء، AI)",
-      "description": "Taypro NYUMA روبوت تنظيف ألواح شمسية أوتوماتيكي بالكامل وبدون مياه. تنظيف جاف أحادي المرور PBT بتقنية AI/ML يزيل أكثر من 99% من الغبار لكل دورة، حتى 3,600 وحدة لكل شحنة، NECTYR عبر LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN، معتمد TÜV NORD.",
+      "description": "Taypro NYUMA روبوت تنظيف ألواح شمسية أوتوماتيكي بالكامل وبدون مياه. تنظيف جاف أحادي المرور PBT بتقنية AI/ML يزيل أكثر من 98% من الغبار لكل دورة، حتى 3,600 وحدة لكل شحنة، NECTYR عبر LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN، معتمد TÜV NORD.",
       "openGraphTitle": "روبوت تنظيف أحادي المرور PBT, Taypro NYUMA",
       "openGraphDescription": "NYUMA: روبوت ألياف ميكروية أحادي المرور PBT لمحطات المرافق. تنظيف ذاتي بدون ماء ومراقبة NECTYR.",
       "openGraphType": "website",
@@ -35,7 +35,7 @@
     "schema": {
       "product": {
         "name": "روبوت تنظيف ألواح شمسية أوتوماتيكي, NYUMA (Taypro)",
-        "description": "Taypro NYUMA روبوت تنظيف ألواح شمسية أوتوماتيكي بالكامل وبدون مياه. تنظيف جاف أحادي المرور PBT بتقنية AI/ML يزيل أكثر من 99% من الغبار لكل دورة، حتى 3,600 وحدة لكل شحنة، NECTYR عبر LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN، معتمد TÜV NORD.",
+        "description": "Taypro NYUMA روبوت تنظيف ألواح شمسية أوتوماتيكي بالكامل وبدون مياه. تنظيف جاف أحادي المرور PBT بتقنية AI/ML يزيل أكثر من 98% من الغبار لكل دورة، حتى 3,600 وحدة لكل شحنة، NECTYR عبر LTE/Wi-Fi/RF mesh/LoRa/LoRaWAN، معتمد TÜV NORD.",
         "brand": "Taypro",
         "sku": "NYUMA",
         "offers": {
@@ -75,12 +75,12 @@
       "p1BeforeStrong": "",
       "p1StrongCategory": "روبوت تنظيف ألواح شمسية أوتوماتيكي",
       "p1AfterCategory": " يصف روبوتات مستقلة بالكامل بدون ماء. NYUMA مصمم للتنظيف اليومي الموثوق. تشغيلة واحدة تزيل أكثر من ",
-      "p1DustClaimStrong": "99% من الغبار",
+      "p1DustClaimStrong": "98% من الغبار",
       "p1AfterDustClaim": " بأسطوانة فرشاة PBT ذاتية التنظيف.",
       "methodologyFootnoteAriaSuffix": " (حاشية)",
       "methodologyNotice": {
         "strong": "حول أرقام الأداء:",
-        "body": "إشارات \"99%+\" على هذا الموقع تصف الغبار المُزال من سطح الوحدة لكل مرور أو دورة, وليست ضماناً لكفاءة التحويل أو إجمالي الإنتاج. يعتمد استرداد الطاقة على التلوث الأساسي والتكرار والطقس والتصميم. راجع منهجية Taypro."
+        "body": "إشارات \"98%+\" على هذا الموقع تصف الغبار المُزال من سطح الوحدة لكل مرور أو دورة, وليست ضماناً لكفاءة التحويل أو إجمالي الإنتاج. يعتمد استرداد الطاقة على التلوث الأساسي والتكرار والطقس والتصميم. راجع منهجية Taypro."
       },
       "methodologyLinkText": "منهجية الأداء والاختبار",
       "methodologyLinkTitle": "منهجية الأداء والاختبار",
@@ -105,13 +105,7 @@
       "modularAlt": "Taypro NYUMA modular exploded view showing rails, wheels, and NYUMA drive unit",
       "modularCaption": "Modular rail, wheel, and drive-unit layout — each array ships as a field-assembled NYUMA system.",
       "dockingAlt": "Taypro NYUMA shadow-free docking power unit with integrated solar charging for autonomous daily cycles",
-      "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array.",
-      "detailAlt": "لقطة مقربة لـ Taypro NYUMA PBT مجموعة الفرشاة، وقضبان التوجيه، والعلامة التجارية NYUMA على مبيت الطرف",
-      "detailCaption": "تم تصميم رأس الفرشاة، وقضبان التوجيه، والعلامة التجارية للغطاء النهائي للدورات المستقلة اليومية.",
-      "heroAlt": "Taypro NYUMA روبوت تنظيف الألواح الشمسية الأوتوماتيكي، تقديم ثلاثة أرباع المنتج",
-      "heroCaption": "NYUMA روبوت آلي مستقل مزود بلوحة شمسية مدمجة وإطار تنظيف بعيد المدى.",
-      "fieldAlt": "Taypro NYUMA روبوت آلي لتنظيف الألواح الشمسية يعمل على مصفوفة شمسية ذات إمالة ثابتة على نطاق المرافق تحت سماء صافية",
-      "fieldCaption": "NYUMA في الموقع - تنظيف الفرشاة بممر واحد PBT عبر محطة طاقة شمسية حية على نطاق المرافق."
+      "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array."
     },
     "howToSection": {
       "dualPassStepImageAlt": "Taypro NYUMA single-pass PBT waterless cleaning mechanism with rotating PBT brush drum",
@@ -133,7 +127,7 @@
         },
         "step3": {
           "name": "تنظيف أحادي المرور PBT بدون ماء بأسطوانة فرشاة PBT",
-          "text": "أسطوانة فرشاة PBT دوارة ثنائية المرور تزيل أكثر من 99% من الغبار بسرعة 10–15 م/دقيقة, دون ماء أو منظفات أو عمالة."
+          "text": "أسطوانة فرشاة PBT دوارة ثنائية المرور تزيل أكثر من 98% من الغبار بسرعة 10–15 م/دقيقة, دون ماء أو منظفات أو عمالة."
         },
         "step4": {
           "name": "عودة واعية بالبطارية إلى الإرساء",
@@ -230,7 +224,7 @@
       "mainHeading": "ميزات روبوت Taypro NYUMA للتنظيف الأوتوماتيكي",
       "aiCleaning": {
         "title": "تنظيف أحادي المرور PBT بدون ماء بتقنية AI",
-        "body": "يستخدم NYUMA منطق AI/ML وآلية ثنائية المرور, يزيل أكثر من 99% غباراً دون ماء أو احتكاك على الخلايا."
+        "body": "يستخدم NYUMA منطق AI/ML وآلية ثنائية المرور, يزيل أكثر من 98% غباراً دون ماء أو احتكاك على الخلايا."
       },
       "microfiber": {
         "title": "أسطوانة فرشاة PBT ذاتية التنظيف",
@@ -311,8 +305,8 @@
         "row2": {
           "criterion": "جودة التنظيف",
           "manual": "غير متسقة",
-          "robot": "99%+ dust removal in a single automated run, every time",
-          "modelA": "99%+ غبار كل مرة"
+          "robot": "98%+ dust removal in a single automated run, every time",
+          "modelA": "98%+ غبار كل مرة"
         },
         "row3": {
           "criterion": "العمالة والسلامة",
@@ -377,9 +371,7 @@
       "linkBetweenOpexAndNectyr": " أو ",
       "linkNectyr": "تطبيق مراقبة NECTYR",
       "crossSellSuffix": ".",
-      "linkNyuma": "PBT automatic NYUMA robot",
-      "linkNyumaX": "روبوت التنظيف المتعقب أحادي المحور (NYUMA-X)",
-      "linkGlyde": "روبوت ثنائي التمرير GLYDE"
+      "linkNyuma": "PBT automatic NYUMA robot"
     },
     "specifications": {
       "titleLine1": "روبوت تنظيف ألواح شمسية أوتوماتيكي ",
@@ -590,8 +582,7 @@
       "title": "Looking for more solutions?",
       "cardLabels": {
         "helyx": "HELYX",
-        "glydeX": "NYUMA",
-        "nyumaX": "NYUMA-X"
+        "glydeX": "NYUMA"
       },
       "cardTitleTemplate": "{label} Solar Panel Cleaning Robot"
     },
