@@ -7,6 +7,7 @@ import { formatLocaleDate } from "@/i18n/format-date";
 import { getBlogFeaturedImageAlt } from "../utils/imageAlt";
 import { DynamicBlog } from "../api/blog/list/route";
 import { trackBlogClick } from "@/lib/analytics/track-event";
+import { shouldServeImageUnoptimized } from "@/lib/site-images";
 
 interface SimilarBlogsProps {
   /** Pre-selected similar posts (server should pass at most 5). */
@@ -58,6 +59,7 @@ export function SimilarBlogs({
                     fill
                     sizes="(max-width: 1024px) 100vw, 33vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    unoptimized={shouldServeImageUnoptimized(similarBlog.featuredImage)}
                   />
                 </div>
                 <div className="p-5">
@@ -109,6 +111,7 @@ export function SimilarBlogs({
                     fill
                     sizes="(max-width: 1024px) 100vw, 320px"
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    unoptimized={shouldServeImageUnoptimized(similarBlog.featuredImage)}
                   />
                 </div>
                 <div className="p-4">

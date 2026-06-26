@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { trackBlogClick } from "@/lib/analytics/track-event";
+import { shouldServeImageUnoptimized } from "@/lib/site-images";
 
 export interface BlogItem {
   title: string;
@@ -111,6 +112,7 @@ export default function BlogList({ blogs }: BlogListProps) {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     priority={idx === 0}
                     loading={idx === 0 ? "eager" : "lazy"}
+                    unoptimized={shouldServeImageUnoptimized(blog.imgSrc)}
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center text-[#5c6f82] text-sm">

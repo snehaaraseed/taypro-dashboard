@@ -103,7 +103,7 @@
       "glydeHref": "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
       "helyx": "HELYX (semi-automatic)",
       "helyxTag": "Semi-automatic · brush",
-      "helyxMetric": "99%+ dust per single forward pass",
+      "helyxMetric": "95%+ dust per single forward pass",
       "helyxMethod": "Counter-rotating PBT brushes; operator placement per row",
       "helyxHref": "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
       "glydeX": "GLYDE-X (trackers)",
@@ -165,7 +165,7 @@
       "q3": "How are homepage fleet stats like 5 GW+ and 11B+ panels calculated?",
       "a3": "They use approved public marketing assumptions aggregated across live deployments — daily throughput, completed panel passes, and fleet-scale models. They are not substitutes for plant-specific SCADA validation.",
       "q4": "What is the difference between GLYDE and HELYX performance quotes?",
-      "a4": "GLYDE and GLYDE-X quote 99%+ dust removal per automated dual-pass cycle (airflow + microfiber). HELYX quotes 99%+ per single forward brush pass with operator placement per row.",
+      "a4": "GLYDE and GLYDE-X quote 99%+ dust removal per automated dual-pass cycle (airflow + microfiber). NYUMA and NYUMA-X quote 98%+ per single-pass PBT cycle. HELYX quotes 95%+ per single forward brush pass with operator placement per row.",
       "q5": "Can Taypro share data for tender or lender diligence?",
       "a5": "Yes. Contact our applications team with plant capacity, layout, and location. We can provide site-specific cleaning plans, cycle assumptions, and anonymised comparable outcomes where available."
     },

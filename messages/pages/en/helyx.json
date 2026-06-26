@@ -2,10 +2,10 @@
   "HelyxPage": {
     "meta": {
       "title": "HELYX Semi-Automatic Solar Panel Cleaning Robot",
-      "description": "39 kg pick-and-place HELYX for fixed-tilt plants. Waterless PBT, 99%+ dust per pass, TÜV NORD certified. Request a quote.",
-      "openGraphDescription": "Pick-and-place Solar Panel Cleaning Robot. 39 kg, waterless, dual counter-rotating PBT brushes, 99%+ dust removal in a single pass, 3 km per charge, TÜV NORD certified.",
+      "description": "39 kg pick-and-place HELYX for fixed-tilt plants. Waterless PBT, 95%+ dust per pass, TÜV NORD certified. Request a quote.",
+      "openGraphDescription": "Pick-and-place Solar Panel Cleaning Robot. 39 kg, waterless, dual counter-rotating PBT brushes, 95%+ dust removal in a single pass, 3 km per charge, TÜV NORD certified.",
       "openGraphImageAlt": "Taypro Semi-Automatic Solar Panel Cleaning Robot HELYX, Pick-and-place type, waterless",
-      "twitterDescription": "39 kg pick-and-place Solar Panel Cleaning Robot. Waterless, dual counter-rotating PBT brushes, 99%+ dust removal per pass, TÜV NORD certified."
+      "twitterDescription": "39 kg pick-and-place Solar Panel Cleaning Robot. Waterless, dual counter-rotating PBT brushes, 95%+ dust removal per pass, TÜV NORD certified."
     },
     "breadcrumbs": {
       "robots": "Solar Panel Cleaning Robots",
@@ -13,7 +13,7 @@
     },
     "schema": {
       "productName": "Semi-Automatic Solar Panel Cleaning Robot - HELYX",
-      "productDescription": "Taypro HELYX is a 39 kg pick-and-place, semi-automatic Solar Panel Cleaning Robot. Counter-rotating UV-stable PBT brushes remove 99%+ dust in a single pass, clean a 1 MW plant in under 2 hours, run up to 3 km on a single charge, TÜV NORD certified, and built for fixed tilt, seasonal tilt and single-axis tracker plants (see GLYDE-X or NYUMA-X).",
+      "productDescription": "Taypro HELYX is a 39 kg pick-and-place, semi-automatic Solar Panel Cleaning Robot. Counter-rotating UV-stable PBT brushes remove 95%+ dust in a single pass, clean a 1 MW plant in under 2 hours, run up to 3 km on a single charge, TÜV NORD certified, and built for fixed tilt, seasonal tilt and single-axis tracker plants (see GLYDE-X or NYUMA-X).",
       "offersPrice": "Contact for pricing",
       "howToName": "How to clean solar panels with the Taypro HELYX Semi-Automatic Solar Panel Cleaning Robot",
       "howToDescription": "Step-by-step deployment of the Taypro HELYX pick-and-place semi-automatic solar panel cleaning robot, from lifting the robot onto the first row through recharging at the docking station."
@@ -39,7 +39,7 @@
       },
       "1": {
         "title": "100% Waterless Single-Pass Cleaning",
-        "description": "Dual counter-rotating PBT brushes lift over 99% of accumulated dust in a single pass, no water, no detergent, no run-off."
+        "description": "Dual counter-rotating PBT brushes lift over 95% of accumulated dust in a single pass, no water, no detergent, no run-off."
       },
       "2": {
         "title": "UV-Stable PBT Brush System",
@@ -69,7 +69,7 @@
     "features": {
       "0": {
         "title": "Counter-Rotating PBT Brush System",
-        "body": "Two counter-rotating UV-stable PBT brushes work in opposing directions to lift loose dust upward while sweeping fine particulates outward, eliminating over 99% of soiling in a single forward pass. The PBT bristles are non-abrasive, panel-safe and engineered for long life under continuous outdoor cleaning."
+        "body": "Two counter-rotating UV-stable PBT brushes work in opposing directions to lift loose dust upward while sweeping fine particulates outward, eliminating over 95% of soiling in a single forward pass. The PBT bristles are non-abrasive, panel-safe and engineered for long life under continuous outdoor cleaning."
       },
       "1": {
         "title": "Cleans a 1 MW Plant in Under 2 Hours",
@@ -185,7 +185,7 @@
       },
       "2": {
         "name": "Counter-rotating PBT brushes lift dust waterless",
-        "text": "Two counter-rotating UV-stable PBT brushes engage the module surface, lifting and sweeping over 99% of accumulated dust in a single dry pass at a cleaning speed of 10–15 metres per minute, without water, detergent or operator supervision."
+        "text": "Two counter-rotating UV-stable PBT brushes engage the module surface, lifting and sweeping over 95% of accumulated dust in a single dry pass at a cleaning speed of 10–15 metres per minute, without water, detergent or operator supervision."
       },
       "3": {
         "name": "Edge-detection prevents falls at row ends",
@@ -203,7 +203,7 @@
     "faqs": {
       "0": {
         "question": "What is a Semi-Automatic Solar Panel Cleaning Robot, and how does Taypro HELYX work?",
-        "answer": "A semi-automatic Solar Panel Cleaning Robot is a portable robotic cleaner that is manually deployed by an operator onto a row of solar panels, after which it cleans autonomously along that row. Taypro HELYX is a pick-and-place, lift-and-shift type robot: the operator places it on the first row using factory-fitted handles, starts the cleaning cycle via onboard controls, and the robot uses two counter-rotating UV-stable PBT brushes to sweep over 99% of dust off the module surface in a single pass. Once the row is complete, the operator moves the robot to the next row using Taypro's bridge kits or by lift-and-shift."
+        "answer": "A semi-automatic Solar Panel Cleaning Robot is a portable robotic cleaner that is manually deployed by an operator onto a row of solar panels, after which it cleans autonomously along that row. Taypro HELYX is a pick-and-place, lift-and-shift type robot: the operator places it on the first row using factory-fitted handles, starts the cleaning cycle via onboard controls, and the robot uses two counter-rotating UV-stable PBT brushes to sweep over 95% of dust off the module surface in a single pass. Once the row is complete, the operator moves the robot to the next row using Taypro's bridge kits or by lift-and-shift."
       },
       "1": {
         "question": "How is HELYX different from the GLYDE Automatic Solar Panel Cleaning Robot?",
@@ -375,7 +375,7 @@
       "row2": {
         "criterion": "Cleaning Quality",
         "manual": "Inconsistent, operator-dependent",
-        "robot": "99%+ dust removal in a single automated pass, every cycle"
+        "robot": "95%+ dust removal in a single automated pass, every cycle"
       },
       "row3": {
         "criterion": "Speed",

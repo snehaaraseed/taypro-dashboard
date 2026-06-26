@@ -294,8 +294,8 @@
       "row3": {
         "factor": "Soiling recovery",
         "manual": "Variable by crew & season",
-        "semiAuto": "99%+ dust per pass (HELYX)",
-        "autonomous": "99%+ dust per cycle (GLYDE/T)"
+        "semiAuto": "95%+ dust per pass (HELYX)",
+        "autonomous": "99%+ dust per cycle (GLYDE/GLYDE-X) · 98%+ (NYUMA/NYUMA-X)"
       },
       "row4": {
         "factor": "Fleet visibility",

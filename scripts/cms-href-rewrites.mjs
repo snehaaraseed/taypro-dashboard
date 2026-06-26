@@ -14,34 +14,10 @@ export const SITE = "https://taypro.in";
 
 export function loadHrefRewrites() {
   const raw = execSync(
-    `npx tsx -e "
-import { REDIRECTED_BLOG_TARGETS } from './src/lib/seo/redirected-blog-slugs.ts';
-import { LEGACY_STATIC_PATH_REDIRECTS } from './src/lib/seo/legacy-path-redirects.ts';
-const pairs = [
-  ...Object.entries(REDIRECTED_BLOG_TARGETS).map(([from, to]) => ['/blog/' + from, to]),
-  ...Object.entries(LEGACY_STATIC_PATH_REDIRECTS),
-  ['/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india', '/blog/the-impact-of-weather-on-solar-panel-cleanliness-in-india-tips-for-optimal-performance'],
-  ['/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india', '/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates'],
-  ['/projects/yavatmal-undarni-7-mw', '/projects'],
-  ['/company/', '/company'],
-  ['/cleaning-technology/', '/cleaning-technology'],
-  ['/solar-panel-cleaning-system/', '/solar-panel-cleaning-system'],
-  ['/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system/', '/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers'],
-  ['/solar-panel-cleaning-system/solar-panel-cleaning-service/', '/solar-panel-cleaning-system/solar-panel-cleaning-service'],
-  ['/utility-operations', '/utility-scale-solar-operations'],
-  ['/blog/how-to-calculate-a-performance-ratio-of-%20a-solar-plant', '/blog/how-to-calculate-a-performance-ratio-of-a-solar-plant'],
-  ['/blog/how-to-choose-best-solar-panels', '/blog/how-to-choose-best-solar-panels-in-india'],
-];
-console.log(JSON.stringify(pairs));
-"`,
+    `npx tsx -e "import { buildCmsHrefRewritePairs } from './src/lib/seo/cms-href-rewrites.ts'; console.log(JSON.stringify(buildCmsHrefRewritePairs()));"`,
     { cwd: root, encoding: "utf8" }
   );
-  return JSON.parse(raw)
-    .flatMap(([from, to]) => [
-      [from, to],
-      [`${from}/`, to],
-    ])
-    .sort((a, b) => b[0].length - a[0].length);
+  return JSON.parse(raw);
 }
 
 export function rewriteText(text, pairs) {

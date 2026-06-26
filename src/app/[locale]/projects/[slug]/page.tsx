@@ -38,6 +38,7 @@ import { getStoredAuthors } from "@/lib/cms/authorService";
 import { resolveAuthorSlug } from "@/app/data/blogAuthors";
 import { getProjectHeroImageAlt } from "@/app/utils/imageAlt";
 import { addInternalLinksToProject } from "@/app/utils/internalLinking";
+import { rewriteCmsHrefs } from "@/lib/seo/cms-href-rewrites";
 import { addHeadingIdsAndExtractToc, normalizeHeadingLevels } from "@/lib/seo/html-toc";
 import { socialImagesFromMedia } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
@@ -184,7 +185,12 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
   const projectLinkSources = await listProjectsForInternalLinking(locale);
 
   const contentWithInternalLinks = content
-    ? addInternalLinksToProject(content, projectLinkSources, slug, 8)
+    ? addInternalLinksToProject(
+        rewriteCmsHrefs(content),
+        projectLinkSources,
+        slug,
+        8
+      )
     : "";
 
   const contentForDisplay = projectFacts

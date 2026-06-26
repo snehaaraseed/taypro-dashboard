@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { shouldServeImageUnoptimized } from "@/lib/site-images";
 
 interface BlogImageProps {
   src: string;
@@ -31,8 +32,6 @@ export function BlogImage({
     );
   }
 
-  const isExternal = imgSrc?.startsWith("http") || imgSrc?.startsWith("//");
-
   return (
     <Image
       src={imgSrc}
@@ -43,7 +42,7 @@ export function BlogImage({
       priority={priority}
       loading={priority ? "eager" : "lazy"}
       onError={() => setError(true)}
-      {...(isExternal ? { unoptimized: true } : {})}
+      unoptimized={shouldServeImageUnoptimized(imgSrc)}
     />
   );
 }

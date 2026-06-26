@@ -50,6 +50,7 @@ import {
   normalizeHeadingLevels,
 } from "@/lib/seo/html-toc";
 import { addInternalLinks } from "@/app/utils/internalLinking";
+import { rewriteCmsHrefs } from "@/lib/seo/cms-href-rewrites";
 
 const siteUrl = SITE_URL;
 
@@ -226,7 +227,14 @@ export default async function BlogPost({ params }: BlogPostProps) {
   );
 
   const { contentWithIds, toc } = addHeadingIdsAndExtractToc(
-    normalizeHeadingLevels(addInternalLinks(blog.content, linkableBlogs, slug, 8))
+    normalizeHeadingLevels(
+      addInternalLinks(
+        rewriteCmsHrefs(blog.content),
+        linkableBlogs,
+        slug,
+        8
+      )
+    )
   );
   const authors = await getStoredAuthors();
   const authorName = blog.author || "Taypro Team";

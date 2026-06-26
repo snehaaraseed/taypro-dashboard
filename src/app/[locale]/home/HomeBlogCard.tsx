@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import TrackedLink from "@/app/components/TrackedLink";
+import { shouldServeImageUnoptimized } from "@/lib/site-images";
 
 type HomeBlogCardProps = {
   href: string;
@@ -37,7 +38,7 @@ export function HomeBlogCard({
             className="object-cover group-hover:scale-105 transition-transform duration-300"
             sizes="(max-width: 768px) 100vw, 33vw"
             loading="lazy"
-            unoptimized={image.startsWith("http") || image.startsWith("//")}
+            unoptimized={shouldServeImageUnoptimized(image)}
           />
         ) : null}
       </div>

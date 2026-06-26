@@ -12,6 +12,7 @@ const steps = [
   "cms:migrate-seo-keyword",
   "cms:migrate-scheduled-publish",
   "cms:fix-slug-locale-unique",
+  "seo:fix-cms-legacy-links",
 ];
 
 for (const step of steps) {

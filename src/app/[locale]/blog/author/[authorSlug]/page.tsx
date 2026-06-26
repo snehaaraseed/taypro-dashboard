@@ -14,6 +14,7 @@ import {
 } from "@/app/data/blogAuthors";
 import { getStoredAuthors } from "@/app/utils/blogAuthorsStore";
 import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
+import { shouldServeImageUnoptimized } from "@/lib/site-images";
 import { withHreflang } from "@/lib/seo/with-hreflang";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
@@ -250,6 +251,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 1024px) 100vw, 33vw"
+                      unoptimized={shouldServeImageUnoptimized(blog.featuredImage)}
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-gray-400">

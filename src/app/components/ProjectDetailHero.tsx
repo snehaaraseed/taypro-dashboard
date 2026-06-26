@@ -4,6 +4,7 @@ import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { ProjectDetailChips } from "@/app/components/ProjectDetailChips";
 import { ProjectHeroStats } from "@/app/components/ProjectHeroStats";
 import type { ProjectHeroStat } from "@/lib/cms/project-detail-display";
+import { shouldServeImageUnoptimized } from "@/lib/site-images";
 
 const FALLBACK_HERO_IMAGE = "/tayprobglayout/taypro-project.png";
 
@@ -55,6 +56,7 @@ export function ProjectDetailHero({
           priority
           className="object-cover object-center"
           sizes="100vw"
+          unoptimized={shouldServeImageUnoptimized(heroImage)}
         />
         <div
           className="absolute inset-0"

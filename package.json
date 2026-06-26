@@ -58,6 +58,7 @@
     "seo:build-corpus-index": "node scripts/build-corpus-index.mjs",
     "cms:pull-production": "bash scripts/pull-cms-from-production.sh",
     "cms:pull-production:full": "bash scripts/pull-cms-from-production.sh --uploads",
+    "cms:push-production": "bash scripts/push-cms-to-production.sh",
     "cms:check-links": "node scripts/check-cms-link-slugs.mjs",
     "cms:fix-broken-internal-links": "node scripts/fix-cms-broken-internal-links.mjs",
     "seo:backfill-campaigns": "node scripts/backfill-keyword-campaigns.mjs",
