@@ -29,6 +29,7 @@ import EnergyResourceCard from "@/app/components/EnergyResourceCard";
 import HeroSection from "@/app/components/Herosection";
 import { FaqSection } from "@/app/components/FaqSection";
 import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
+import { ContactLeadInlineLink } from "@/app/components/ContactLeadInlineLink";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import {
   SoftwareApplicationSchema,
@@ -127,7 +128,10 @@ export default async function NectyrPage({
           imgSrc="/tayproasset/taypro-dashboard.png"
           imgAlt={t("hero.imgAlt")}
           ctaHref="/contact"
-          ctaText={t("hero.ctaText")}
+          ctaText={t("hero.primaryCta.label")}
+          ctaTopic={t("hero.primaryCta.topic")}
+          ctaTitle={t("hero.primaryCta.title")}
+          ctaSubtitle={t("hero.primaryCta.subtitle")}
         />
 
         <section className="bg-white pt-12 sm:pt-20 pb-8">
@@ -486,9 +490,22 @@ export default async function NectyrPage({
                   </h2>
                   <div className="text-white/80 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
                     {t("cta.bodyBefore")}{" "}
-                    <Link href="/contact" className="brand-inline-link font-medium">
+                    <ContactLeadInlineLink
+                      source="nectyr_support_inline"
+                      topic={t("cta.supportLeadTopic")}
+                      title={t("cta.supportLeadTitle")}
+                      subtitle={t("cta.supportLeadSubtitle")}
+                      leadIntent={t("cta.supportLeadTopic")}
+                      formPrompt={t("cta.supportLeadFormPrompt")}
+                      showMessageField
+                      messageLabel={t("cta.supportLeadMessageLabel")}
+                      messagePlaceholder={t("cta.supportLeadMessagePlaceholder")}
+                      submitLabel={t("cta.supportLeadSubmitLabel")}
+                      analyticsFormType="nectyr_support"
+                      className="brand-inline-link font-medium"
+                    >
                       {t("cta.emailServiceLink")}
-                    </Link>
+                    </ContactLeadInlineLink>
                     {t("cta.bodyAfter")}
                   </div>
                 </div>
@@ -497,16 +514,31 @@ export default async function NectyrPage({
                     topic={t("cta.leadTopic")}
                     title={t("cta.leadTitle")}
                     subtitle={t("cta.leadSubtitle")}
+                    leadIntent={t("cta.leadTopic")}
+                    formPrompt={t("cta.leadFormPrompt")}
+                    submitLabel={t("cta.requestAccess")}
+                    source="nectyr_page"
+                    analyticsFormType="nectyr_access"
                     className="inline-flex items-center justify-center min-h-[48px] w-full sm:w-auto sm:min-w-[220px] bg-[#A8C117] text-[#052638] font-medium px-8 py-3.5 rounded-md hover:bg-[#b3cf3d] transition text-center"
                   >
                     {t("cta.requestAccess")}
                   </OpenLeadModalButton>
-                  <Link
-                    href="/contact"
+                  <OpenLeadModalButton
+                    topic={t("cta.supportLeadTopic")}
+                    title={t("cta.supportLeadTitle")}
+                    subtitle={t("cta.supportLeadSubtitle")}
+                    leadIntent={t("cta.supportLeadTopic")}
+                    formPrompt={t("cta.supportLeadFormPrompt")}
+                    showMessageField
+                    messageLabel={t("cta.supportLeadMessageLabel")}
+                    messagePlaceholder={t("cta.supportLeadMessagePlaceholder")}
+                    submitLabel={t("cta.supportLeadSubmitLabel")}
+                    source="nectyr_support"
+                    analyticsFormType="nectyr_support"
                     className="inline-flex items-center justify-center min-h-[48px] w-full sm:w-auto sm:min-w-[220px] border-2 border-white text-white font-medium px-8 py-3.5 rounded-md hover:bg-white/10 transition text-center"
                   >
                     {t("cta.emailService")}
-                  </Link>
+                  </OpenLeadModalButton>
                 </div>
               </div>
             </AnimateOnScroll>

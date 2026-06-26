@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Regression check: Taypro OPEX pricing model.
+ * Regression check: OPEX pricing model.
  * Run: node scripts/verify-opex-pricing.mjs
  */
 const { calculateOpexCost } = await import(

@@ -220,7 +220,7 @@ export const modelBSections = {
     crossSellLead: "Cleaning a single-axis tracker plant? Look at ",
     linkGlydeX: "Model-T",
     crossSellMid: ". Prefer outsourcing cleaning entirely? Explore the ",
-    linkOpex: "Taypro OPEX cleaning service",
+    linkOpex: "OPEX cleaning service",
     crossSellSuffix: ".",
   },
   indianConditions: {
@@ -245,7 +245,7 @@ export const modelBSections = {
     linkBetweenAT: ", the ",
     linkGlydeX: "Model-T robot for single-axis trackers",
     linkBetweenTOpex: ", the ",
-    linkOpex: "Taypro OPEX cleaning service",
+    linkOpex: "OPEX cleaning service",
     linkBetweenOpexConsole: " or the ",
     linkNectyr: "NECTYR monitoring app",
     crossSellSuffix: ".",
@@ -489,7 +489,7 @@ export const modelTSections = {
     crossSellLead: "Cleaning smaller or scattered plants? Look at the semi-automatic ",
     linkHelyx: "Model-B",
     crossSellMid: ". Prefer outsourcing cleaning entirely? Explore the ",
-    linkOpex: "Taypro OPEX cleaning service",
+    linkOpex: "OPEX cleaning service",
     crossSellSuffix: ".",
   },
   indianConditions: {
@@ -514,7 +514,7 @@ export const modelTSections = {
     linkBetweenAB: ", the ",
     linkHelyx: "semi-automatic Model-B robot",
     linkBetweenBOpex: ", the ",
-    linkOpex: "Taypro OPEX cleaning service",
+    linkOpex: "OPEX cleaning service",
     linkBetweenOpexConsole: " or the ",
     linkNectyr: "NECTYR monitoring app",
     crossSellSuffix: ".",
@@ -530,11 +530,11 @@ export const modelTSections = {
 export const cleaningServiceSections = {
   overview: {
     eyebrow: "Pay-per-outcome solar O&M cleaning",
-    title: "What is Taypro OPEX?",
-    p1Before: "Taypro OPEX is how large solar plants consume ",
+    title: "What is OPEX?",
+    p1Before: "OPEX is how large solar plants consume ",
     p1Strong: "robotic solar panel cleaning as a service",
     p1After:
-      " instead of buying and maintaining their own fleet. Under a Taypro OPEX contract, TAYPRO Private Limited supplies the robots, spare parts philosophy, trained operators, remote monitoring, and continuous optimisation, while you pay in line with ",
+      " instead of buying and maintaining their own fleet. Under a OPEX contract, TAYPRO Private Limited supplies the robots, spare parts philosophy, trained operators, remote monitoring, and continuous optimisation, while you pay in line with ",
     p1BillingStrong: "verified panels cleaned each month",
     p1Suffix: ", not unused machine hours.",
     p2Before: "Every engagement begins with a disciplined ",
@@ -573,7 +573,7 @@ export const cleaningServiceSections = {
   },
   plantStudySection: {
     eyebrow: "Engineering-first programme design",
-    title: "What goes into the Taypro OPEX plant study?",
+    title: "What goes into the OPEX plant study?",
     subtitle:
       "We do not guess cycle counts from a brochure. Each proposal is built from structured field and desk analytics so your cleaning calendar matches real soiling physics and commercial risk.",
   },
@@ -604,7 +604,7 @@ export const cleaningServiceSections = {
     p1Suffix:
       " plants where even a single percentage point of performance ratio shows up immediately in your revenue line.",
     p2Before: "",
-    p2OpexStrong: "Taypro OPEX",
+    p2OpexStrong: "OPEX",
     p2Mid: " is our dedicated monthly cleaning service built around that reality: a recommended schedule of ",
     p2CyclesStrong: "custom three to ten waterless dry cleaning cycles",
     p2AfterCycles:
@@ -615,8 +615,8 @@ export const cleaningServiceSections = {
   },
   featuresSection: {
     headlineLine1: "Why plants choose",
-    headlineLine2: "Taypro OPEX",
-    descriptionBefore: "Taypro OPEX combines the same ",
+    headlineLine2: "OPEX",
+    descriptionBefore: "OPEX combines the same ",
     descriptionStrong: "waterless, AI- and ML-driven",
     descriptionAfter:
       " robotics trusted on gigawatts of Indian solar with a service wrapper: you get outcomes and transparency, we carry fleet risk, manpower scheduling, and continuous programme tuning.",
@@ -638,13 +638,13 @@ export const cleaningServiceSections = {
     card3Body:
       "Patented dual-pass waterless cleaning removes loose dust then tackles adhered film without water chemistry, preserving anti-reflective coatings and keeping discharge compliance simple.",
   },
-  callbackHeader: "Schedule a Taypro OPEX solar panel cleaning consultation",
+  callbackHeader: "Schedule a OPEX solar panel cleaning consultation",
   opexVsCapex: {
-    title: "Taypro OPEX vs buying robots (capex)",
+    title: "OPEX vs buying robots (capex)",
     subtitle:
       "Both routes use the same Taypro hardware DNA, the question is who carries asset risk and how you want to recognise cost.",
     topic: "Topic",
-    opex: "Taypro OPEX",
+    opex: "OPEX",
     capex: "Robot purchase (capex)",
     row0: {
       t: "Capital outlay",
@@ -677,18 +677,18 @@ export const cleaningServiceSections = {
     exploreSuffix: ".",
   },
   roiSection: {
-    title: "Calculate ROI & savings on Taypro Opex",
+    title: "Calculate ROI & savings on Opex",
     body:
       "Model how much additional generation and avoided manual cost you unlock when soiling is removed systematically instead of episodically.",
   },
   faqSection: {
     title: "Frequently asked questions",
     subtitle:
-      "Taypro OPEX service questions, plus broader Taypro programme FAQs below.",
+      "OPEX service questions, plus broader Taypro programme FAQs below.",
   },
   advantages: {
-    eyebrow: "Why solar plants choose Taypro OPEX",
-    title: "Advantages of Taypro OPEX solar cleaning",
+    eyebrow: "Why solar plants choose OPEX",
+    title: "Advantages of OPEX solar cleaning",
     subtitle:
       "Outcome-based cleaning with robotics, transparency, and no surprise asset ownership.",
     card0Title: "Expert handling for best results",
@@ -713,13 +713,13 @@ export const cleaningServiceSections = {
   cadenceRoi: {
     eyebrow: "The economics & cadence",
     title: "Cleaning cadence & return on investment",
-    cycleTitle: "How long does a Taypro OPEX cleaning cycle take?",
+    cycleTitle: "How long does a OPEX cleaning cycle take?",
     cycleBodyBefore: "Robotic passes typically run at ",
     cycleSpeedStrong: "10–15 metres per minute",
     cycleMid: " with a maximum autonomous range of up to ",
     cycleRangeStrong: "2.2 km",
     cycleAfterRange:
-      " per charge, depending on the deployed model. Under Taypro OPEX, the ",
+      " per charge, depending on the deployed model. Under OPEX, the ",
     cycleProgramStrong: "monthly programme",
     cycleMid2: " is not a single visit, it is the agreed ",
     cycleCountStrong: "3–10 dry cleaning cycles",
@@ -731,11 +731,11 @@ export const cleaningServiceSections = {
     stat1Label: "per charge",
     stat2Value: "3–10",
     stat2Label: "cycles / month",
-    roiTitle: "What is the ROI of Taypro OPEX?",
+    roiTitle: "What is the ROI of OPEX?",
     roiBodyBefore: "Soiling can erode ",
     roiLossStrong: "10–25% of practical output",
     roiAfterLoss:
-      " on aggressive sites. Taypro OPEX converts that hidden loss into a managed service line item with measurable before / after performance ratio lift, letting you compare a clean, contracted O&M cost against unpredictable manual washing or under-cleaned baseline scenarios.",
+      " on aggressive sites. OPEX converts that hidden loss into a managed service line item with measurable before / after performance ratio lift, letting you compare a clean, contracted O&M cost against unpredictable manual washing or under-cleaned baseline scenarios.",
     roiCalculatorLink: "Open the ROI calculator",
     roiCtaLabel: "Talk to OPEX team",
   },
@@ -743,7 +743,7 @@ export const cleaningServiceSections = {
     titleLine1: "Skillful operation",
     titleLine2: "for optimal results",
     body:
-      "Taypro OPEX pairs soft, lab-validated contact materials with disciplined operator oversight, so panels stay clean, warranty exposure stays controlled, and your team always knows who is on site, why, and what was achieved each shift.",
+      "OPEX pairs soft, lab-validated contact materials with disciplined operator oversight, so panels stay clean, warranty exposure stays controlled, and your team always knows who is on site, why, and what was achieved each shift.",
   },
   hero: {
     subtitleBefore:

@@ -17,7 +17,7 @@
       "titleLine2": "ソーラーパネル洗浄ロボット",
       "bodyBeforeLink": "見積依頼、技術打合せ、Chakan製造拠点の見学をご予約ください。開発者、IPP、O&Mチームに",
       "bodyLink": "GLYDE、HELYX、GLYDE-X",
-      "bodyAfterLink": "ロボット, およびTaypro OpexやNECTYR, を発電所レイアウトと調達モデルに合わせます。"
+      "bodyAfterLink": "ロボット, およびOpexやNECTYR, を発電所レイアウトと調達モデルに合わせます。"
     },
     "main": {
       "heading": "アプリケーションチームへ",
@@ -49,7 +49,7 @@
       "tip0": "DC容量（MW）と発電所の州・地域",
       "tip1": "アレイ種別：固定傾斜、季節傾斜、屋根置き、単軸トラッカー",
       "tip2": "汚損プロファイル、水の可否、現在の清掃方法",
-      "tip3": "CAPEX購入かTaypro Opexマネージドサービスを検討しているか",
+      "tip3": "CAPEX購入かOpexマネージドサービスを検討しているか",
       "viewProjects": "プロジェクトを見る",
       "aboutTaypro": "Tayproについて",
       "tip4": "パートナー・投資家の方はメッセージに「Partners & investors」と記載ください"
@@ -90,13 +90,40 @@
     "phonePlaceholder": "+91 98765 43210",
     "message": "メッセージ",
     "messagePlaceholder": "発電所容量、所在地、アレイ種別、制約…",
+    "plantDetailsLabel": "発電所の状況、制約、出力への課題",
+    "plantDetailsPlaceholder": "例：MW容量、固定傾斜またはトラッカー、汚れや粉塵、水の制限、現在の清掃方法、改善したい点。",
+    "callback": {
+      "panelTitle": "お手伝いします",
+      "fullName": "氏名*",
+      "fullNamePlaceholder": "Praveen",
+      "email": "メールアドレス*",
+      "emailPlaceholder": "you@company.com",
+      "phone": "電話番号*",
+      "phonePlaceholder": "+91 98765 43210",
+      "submit": "コールバックを依頼",
+      "submitting": "送信中...",
+      "thankYouTitle": "ありがとうございます",
+      "thankYouMessage": "担当チームがまもなくご連絡します。引き続きサイトをご覧ください。",
+      "sendAnother": "別のコールバックを依頼"
+    },
     "submit": "送信",
     "submitting": "送信中…",
     "requiredError": "必須項目を入力してください",
     "genericError": "問題が発生しました。もう一度お試しください。",
     "thankYouDefaultTitle": "ありがとうございます, リクエストを受け付けました。",
     "thankYouDefaultMessage": "アプリケーションチームが最適なソーラーパネル洗浄ロボットをご提案します。引き続きサイトをご覧ください。",
-    "sendAnother": "別のリクエストを送信"
+    "sendAnother": "別のリクエストを送信",
+    "leadModal": {
+      "topic": "Taypro に連絡してください",
+      "title": "連絡する",
+      "subtitle": "いくつかの詳細を共有していただければ、当社のアプリケーション チームが 1 営業日以内に返答いたします。",
+      "formPrompt": "どうすれば助けられるでしょうか？",
+      "messageLabel": "あなたのメッセージ",
+      "messagePlaceholder": "プラントの能力、場所、アレイのタイプ、スケジュール、またはご質問など…",
+      "submitLabel": "お問い合わせを送信する",
+      "thankYouTitle": "ありがとうございます、お問い合わせを受け付けました",
+      "thankYouMessage": "当社のアプリケーション チームは 1 営業日以内に返答いたします。"
+    }
   },
   "Common": {
     "breadcrumbHome": "ホーム"

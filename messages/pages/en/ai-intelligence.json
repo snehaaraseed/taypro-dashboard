@@ -231,7 +231,19 @@
       "cleaningTech": "Cleaning technology",
       "contact": "Contact Taypro",
       "nectyr": "Explore NECTYR",
-      "projects": "Live projects"
+      "projects": "Live projects",
+      "leadModal": {
+        "topic": "AI intelligence enquiry",
+        "title": "Talk to Taypro about fleet intelligence",
+        "subtitle": "For plant O&M teams, IPPs, or enterprise buyers exploring NECTYR, ORION, or the data flywheel behind Taypro's fleet AI.",
+        "formPrompt": "Where should we reach you?",
+        "messageLabel": "Your message",
+        "messagePlaceholder": "Organisation, plant portfolio MW, SCADA setup, robots on site, and what you want to explore…",
+        "submitLabel": "Send enquiry",
+        "thankYouTitle": "Thank you — we've received your message",
+        "thankYouMessage": "Our team will follow up on your intelligence-layer enquiry shortly.",
+        "ctaLabel": "Contact Taypro"
+      }
     }
   },
   "Common": {

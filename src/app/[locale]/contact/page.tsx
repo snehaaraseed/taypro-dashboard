@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import dynamic from "next/dynamic";
 import {
   ArrowRight,
@@ -16,6 +16,7 @@ import { ContactEmailLink } from "@/app/components/ContactEmailLink";
 import { ContactPhoneLink } from "@/app/components/ContactPhoneLink";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
+import TrackedLink from "@/app/components/TrackedLink";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
 import { FaqSection } from "@/app/components/FaqSection";
@@ -28,6 +29,7 @@ import {
   TAYPRO_SALES_PHONE_E164,
   TAYPRO_SALES_PHONE_TEL,
 } from "@/lib/contact";
+import { trackOutboundClick } from "@/lib/analytics/track-event";
 
 const Map = dynamic(() => import("@/app/components/Map"), { ssr: false });
 
@@ -40,7 +42,9 @@ const MFG_MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=18.735204,73.8519138";
 
 export default function ContactUsPage() {
+  const pathname = usePathname();
   const t = useTranslations("ContactPage");
+  const tForms = useTranslations("Forms");
   const tCommon = useTranslations("Common");
 
   const breadcrumbs = [
@@ -278,6 +282,10 @@ export default function ContactUsPage() {
                     thankYouTitle={t("form.thankYouTitle")}
                     thankYouMessage={t("form.thankYouMessage")}
                     analyticsFormType="contact_form"
+                    leadIntent="Contact page enquiry"
+                    showMessageField
+                    messageLabel={tForms("message")}
+                    messagePlaceholder={tForms("messagePlaceholder")}
                     className="!shadow-none !rounded-none !p-0"
                     embeddedFlush
                   />
@@ -300,13 +308,16 @@ export default function ContactUsPage() {
                       {t("tips.heading")}
                     </h3>
                   </div>
-                  <Link
+                  <TrackedLink
                     href="/solar-panel-cleaning-robot-price-calculator#calculator"
+                    trackTitle="ROI calculator"
+                    trackLocation="contact_page"
+                    trackType="calculator"
                     className="inline-flex items-center gap-2 brand-inline-link font-medium text-sm shrink-0"
                   >
                     {t("tips.roiLink")}
                     <ArrowRight className="h-4 w-4" aria-hidden />
-                  </Link>
+                  </TrackedLink>
                 </div>
 
                 <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
@@ -328,18 +339,23 @@ export default function ContactUsPage() {
                 </ul>
 
                 <div className="mt-6 md:mt-8 pt-6 border-t border-white/10 flex flex-wrap gap-3">
-                  <Link
+                  <TrackedLink
                     href="/projects"
+                    trackTitle={t("tips.viewProjects")}
+                    trackLocation="contact_page"
+                    trackType="project"
                     className="inline-flex items-center justify-center min-h-[44px] px-5 rounded-lg border border-white/30 text-white font-medium text-sm hover:bg-white/10 transition"
                   >
                     {t("tips.viewProjects")}
-                  </Link>
-                  <Link
+                  </TrackedLink>
+                  <TrackedLink
                     href="/company"
+                    trackTitle={t("tips.aboutTaypro")}
+                    trackLocation="contact_page"
                     className="inline-flex items-center justify-center min-h-[44px] px-5 rounded-lg border border-white/30 text-white font-medium text-sm hover:bg-white/10 transition"
                   >
                     {t("tips.aboutTaypro")}
-                  </Link>
+                  </TrackedLink>
                 </div>
               </div>
             </AnimateOnScroll>
@@ -380,6 +396,13 @@ export default function ContactUsPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-4 inline-flex items-center gap-2 text-[#5a8f00] font-medium hover:underline text-sm"
+                    onClick={() =>
+                      trackOutboundClick({
+                        url: HEADQUARTERS_MAPS_URL,
+                        platform: "google_maps",
+                        location: "contact_page",
+                      })
+                    }
                   >
                     {t("locations.hqMaps")}
                     <ArrowRight className="h-4 w-4" aria-hidden />
@@ -406,6 +429,13 @@ export default function ContactUsPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-4 inline-flex items-center gap-2 text-[#5a8f00] font-medium hover:underline text-sm"
+                    onClick={() =>
+                      trackOutboundClick({
+                        url: MFG_MAPS_URL,
+                        platform: "google_maps",
+                        location: "contact_page",
+                      })
+                    }
                   >
                     {t("locations.mfgMaps")}
                     <ArrowRight className="h-4 w-4" aria-hidden />
@@ -420,7 +450,7 @@ export default function ContactUsPage() {
 
             <AnimateOnScroll animation="fadeInUp" delay={100}>
               <div className="relative w-full h-[320px] sm:h-[400px] md:h-[440px] rounded-2xl overflow-hidden border border-gray-200 shadow-md ring-1 ring-black/5">
-                <Map />
+                <Map key={pathname} />
               </div>
             </AnimateOnScroll>
           </Container>

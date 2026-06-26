@@ -2,7 +2,7 @@
   "SolarSystemPage": {
     "meta": {
       "title": "インドのソーラーパネル洗浄ロボット＆システム, 機種一覧 | Taypro",
-      "description": "Tayproのソーラーパネル洗浄ロボットを比較：GLYDE、GLYDE-X、NYUMA、NYUMA-X、HELYX、Taypro Opex、NECTYR。水なし洗浄、AIスケジューリング、TÜV NORD認証、インド全国サポート。",
+      "description": "Tayproのソーラーパネル洗浄ロボットを比較：GLYDE、GLYDE-X、NYUMA、NYUMA-X、HELYX、Opex、NECTYR。水なし洗浄、AIスケジューリング、TÜV NORD認証、インド全国サポート。",
       "keywords": [
         "ソーラーパネル洗浄ロボット",
         "ソーラーパネル洗浄ロボット インド",
@@ -203,7 +203,7 @@
       "p2LinkHelyx": "HELYX",
       "p2LinkGlydeX": "GLYDE-X",
       "p2LinkNectyr": "NECTYR",
-      "p2LinkOpex": "Taypro Opex",
+      "p2LinkOpex": "Opex",
       "p2BeforeLinks": "TayproはMade in Indiaのロボット洗浄メーカー。ラインナップは完全",
       "p2BetweenAB": "、半自動ピック＆プレース",
       "p2BetweenBT": " 分散向け、トラッカー対応",
@@ -350,8 +350,8 @@
         },
         "card5": {
           "title": "資産より成果重視？",
-          "body": "Taypro Opexは月額サービスで洗浄し、NECTYRで報告。",
-          "cta": "Taypro Opexを見る"
+          "body": "Opexは月額サービスで洗浄し、NECTYRで報告。",
+          "cta": "Opexを見る"
         }
       }
     },
@@ -431,7 +431,9 @@
       "ctaLine": "どのプラットフォームか不明？発電所情報を共有ください, 汚れ調査後に最適構成を提案します。 ",
       "ctaLink": {
         "topic": "Tayproに相談",
-        "label": "Tayproに相談"
+        "label": "Tayproに相談",
+        "title": "あなたのプラントに最適なロボットの組み合わせを見つけてください",
+        "subtitle": "植物の詳細を共有していただければ、当社チームが土壌とレイアウトを簡単に確認した後、適切な GLYDE、NYUMA、HELYX、またはトラッカー プラットフォームを推奨します。"
       },
       "ctaLineSuffix": "。"
     },
@@ -448,7 +450,7 @@
       "robot0": "水なしデュアルパス, 月次で予測可能なサイクル",
       "robot1": "NECTYRでテレメトリとレポート",
       "robot2": "大規模行長・トラッカーテーブル向け設計",
-      "robot3": "CAPEX購入またはTaypro Opex従量",
+      "robot3": "CAPEX購入またはOpex従量",
       "ctaService": "清掃サービスを見る",
       "ctaCalculator": "ROI・コスト計算",
       "videoTitle": "大規模発電所でのTaypro洗浄を見る",
@@ -456,7 +458,7 @@
       "transcriptToggle": "Video transcript (for accessibility & search)",
       "transcriptP1": "This overview shows Taypro autonomous solar panel cleaning robots operating on utility-scale arrays in India. Robots traverse fixed-tilt rows using waterless dual-pass cleaning — airflow lifts dry dust, then microfiber completes the wipe without water or detergents.",
       "transcriptP2": "Fleet schedules and completion data feed into NECTYR, Taypro's monitoring portal, so O&M teams can audit block-wise cleaning history alongside inverter performance. Deployments combine GLYDE and NYUMA-class robots depending on row geometry and soiling class.",
-      "transcriptP3": "For procurement teams comparing cleaning machines and robots, Taypro offers CAPEX purchase with AMC or Taypro Opex pay-per-panel-cleaned service on the same hardware platforms shown in the field footage."
+      "transcriptP3": "For procurement teams comparing cleaning machines and robots, Taypro offers CAPEX purchase with AMC or Opex pay-per-panel-cleaned service on the same hardware platforms shown in the field footage."
     },
     "indianConditions": {
       "eyebrow": "インドソーラー向け設計",
@@ -558,7 +560,9 @@
       "subtitleLead": "発電所オーナー・EPCがよく聞く質問への回答。サイト別の推奨は",
       "subtitleCta": {
         "topic": "Tayproにお問い合わせ",
-        "label": "Tayproにお問い合わせ"
+        "label": "Tayproにお問い合わせ",
+        "title": "工場について Taypro に質問してください",
+        "subtitle": "レイアウトや汚れのプロファイルに合わせて、ロボット、Opex サービス、またはフリート ソフトウェアに関するサイト固有の推奨事項を取得します。"
       },
       "subtitleSuffix": "。",
       "items": {
@@ -584,7 +588,7 @@
         },
         "item5": {
           "question": "CAPEXではなくサービスで導入できるか？",
-          "answer": "はい。Taypro Opexはパネル従量の月額サービス（通常50MW以上）。GLYDE/HELYX/GLYDE-Xを展開し月3–10サイクル、洗浄パネル課金。ハードウェア不要でNECTYRに全記録。"
+          "answer": "はい。Opexはパネル従量の月額サービス（通常50MW以上）。GLYDE/HELYX/GLYDE-Xを展開し月3–10サイクル、洗浄パネル課金。ハードウェア不要でNECTYRに全記録。"
         },
         "item6": {
           "question": "設置後の監視は？",
@@ -604,7 +608,7 @@
         },
         "item10": {
           "question": "インドの主要ソーラーパネル洗浄ロボットサプライヤーは？",
-          "answer": "5基準で短リスト：汚れに対する水なし適合、固定傾斜vs単軸トラッカー、CAPEX購入vsマネージドOpex、ブロック単位完了証跡のフリートソフト、インド現地製造とスペア・故障SLA。TayproはMade in Indiaメーカーで150+稼働サイトに5GW超展開、GLYDE/GLYDE-X特許デュアルパス乾式、NYUMA/NYUMA-X/HELYXシングルパスPBT、NECTYR、任意Taypro Opex従量サービス、本ハブから事例リンク。他社：Solabot、Aegeus、Skilancer、Vayu Solar；Ecoppia、Airtouch、LEAPTING；Langfang Sol-Bright。Jetsons Roboticsは50MW+よりC&I向け。最終選定前にレイアウト適合、SLA、導入実績を確認。"
+          "answer": "5基準で短リスト：汚れに対する水なし適合、固定傾斜vs単軸トラッカー、CAPEX購入vsマネージドOpex、ブロック単位完了証跡のフリートソフト、インド現地製造とスペア・故障SLA。TayproはMade in Indiaメーカーで150+稼働サイトに5GW超展開、GLYDE/GLYDE-X特許デュアルパス乾式、NYUMA/NYUMA-X/HELYXシングルパスPBT、NECTYR、任意Opex従量サービス、本ハブから事例リンク。他社：Solabot、Aegeus、Skilancer、Vayu Solar；Ecoppia、Airtouch、LEAPTING；Langfang Sol-Bright。Jetsons Roboticsは50MW+よりC&I向け。最終選定前にレイアウト適合、SLA、導入実績を確認。"
         }
       }
     },
@@ -637,7 +641,7 @@
         "body": "年次AMC、地域スペア、同日故障目標、NECTYR遠隔診断。"
       },
       "line3": {
-        "title": "Taypro Opex",
+        "title": "Opex",
         "body": "パネル単位課金のマネージド清掃, Tayproがフリート運用、前払いCAPEX不要。"
       },
       "line4": {
@@ -656,7 +660,7 @@
       "eyebrow": "清掃アプローチの選び方",
       "title": "Tayproと他のロボット清掃アプローチの比較",
       "subtitle": "ユーティリティバイヤーは清掃方式、商業モデル、フリートソフト、インド現地サポートを重視します。湿式洗浄、輸入乾式ロボット、人件費O&Mとの比較にご利用ください。",
-      "intro": "TayproはMade in India OEMで5GW超のロボット能力を展開。GLYDE/GLYDE-Xの特許デュアルパス乾式、NYUMA/NYUMA-X/HELYXのシングルパスPBT、NECTYR、任意のTaypro Opex従量サービス。インドRFQの典型アプローチをベンダー名なしで比較します。",
+      "intro": "TayproはMade in India OEMで5GW超のロボット能力を展開。GLYDE/GLYDE-Xの特許デュアルパス乾式、NYUMA/NYUMA-X/HELYXのシングルパスPBT、NECTYR、任意のOpex従量サービス。インドRFQの典型アプローチをベンダー名なしで比較します。",
       "tableHeaders": {
         "criteria": "評価項目",
         "manualWet": "手洗い湿式クルー",
@@ -680,7 +684,7 @@
           "criterion": "商業モデル",
           "manualWet": "継続的人件費Opex",
           "importDry": "CAPEX購入；マネージドサービス任意",
-          "taypro": "CAPEX+AMCまたはTaypro Opexマネージドフリート"
+          "taypro": "CAPEX+AMCまたはOpexマネージドフリート"
         },
         "row3": {
           "criterion": "運用・監査証跡",
@@ -754,7 +758,7 @@
           "description": "半自動、分散ブロック"
         },
         "opex": {
-          "label": "Taypro Opexサービス",
+          "label": "Opexサービス",
           "description": "パネル従量マネージドフリート"
         },
         "nectyr": {
@@ -838,6 +842,13 @@
       "title": "発電所の全洗浄ロボットを監視する一つのポータル",
       "body": "サイトダッシュボード、天候、ブロック別スケジュール、ログ、エクスポート、ヘルス、チケット, ロールベースで大規模O&M向け。",
       "cta": "NECTYRを見る"
+    },
+    "serviceCallout": {
+      "eyebrow": "主要サービスページ",
+      "title": "OPEX ロボット清掃サービス",
+      "body": "ソーラー パネルのクリーニング サービスを評価する調達チームは、地域の対応範囲や MW 規模の展開ガイドの前に、製品の OPEX ページ (範囲、SOP、請求モデル、および NECTYR レポート) から始める必要があります。",
+      "cta": "OPEX サービス ページを表示する",
+      "href": "/solar-panel-cleaning-system/solar-panel-cleaning-service"
     }
   }
 }

@@ -372,7 +372,7 @@
       "linkBetweenBAndT": ", ",
       "linkGlydeX": "সিঙ্গল-অ্যাক্সিস ট্র্যাকার রোবট (GLYDE-X)",
       "linkBetweenTAndOpex": ", ",
-      "linkOpex": "Taypro OPEX পরিষ্কার সেবা",
+      "linkOpex": "OPEX পরিষ্কার সেবা",
       "linkBetweenOpexAndNectyr": " বা ",
       "linkNectyr": "NECTYR মনিটরিং অ্যাপ",
       "crossSellSuffix": "।",
@@ -464,7 +464,9 @@
         }
       },
       "datasheetCta": "Request full datasheet",
-      "datasheetCtaTopic": "GLYDE datasheet request"
+      "datasheetCtaTopic": "GLYDE datasheet request",
+      "datasheetCtaTitle": "Get the GLYDE technical datasheet",
+      "datasheetCtaSubtitle": "Share your details and we'll send the full GLYDE datasheet, then follow up on sizing or configuration questions for your plant."
     },
     "advantagesSection": {
       "heading": "অটোমেটিক সোলার প্যানেল পরিষ্কার রোবটের সুবিধা",

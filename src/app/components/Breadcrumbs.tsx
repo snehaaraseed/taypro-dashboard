@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { BreadcrumbListSchema } from "./StructuredData";
+import TrackedLink from "./TrackedLink";
 
 export function Breadcrumbs({
   items,
@@ -15,23 +15,25 @@ export function Breadcrumbs({
       >
         <div className="max-w-7xl mx-auto px-6">
           <ol className="flex items-center justify-start gap-2 text-slate-200 text-sm">
-          {items.map((item, i) => (
-            <li key={`${item.href}-${i}`} className="flex items-center">
-              <Link
-                href={item.href || "#"}
-                title={`Breadcrumb: ${item.name}`}
-                className="hover:underline hover:text-white transition-colors"
-              >
-                {item.name}
-              </Link>
-              {i < items.length - 1 && (
-                <span className="mx-2" aria-hidden="true">
-                  &raquo;
-                </span>
-              )}
-            </li>
-          ))}
-        </ol>
+            {items.map((item, i) => (
+              <li key={`${item.href}-${i}`} className="flex items-center">
+                <TrackedLink
+                  href={item.href || "#"}
+                  title={`Breadcrumb: ${item.name}`}
+                  trackTitle={item.name}
+                  trackLocation="breadcrumb"
+                  className="hover:underline hover:text-white transition-colors"
+                >
+                  {item.name}
+                </TrackedLink>
+                {i < items.length - 1 && (
+                  <span className="mx-2" aria-hidden="true">
+                    &raquo;
+                  </span>
+                )}
+              </li>
+            ))}
+          </ol>
         </div>
       </nav>
     </>

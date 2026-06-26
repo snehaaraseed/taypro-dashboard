@@ -2,7 +2,7 @@
   "SolarCleaningCapexVsOpexPage": {
     "meta": {
       "title": "ソーラークリーニング CAPEX vs OPEX インド |ロボット購入 vs マネージドサービス",
-      "description": "インドでのソーラー パネルの清掃に関する CAPEX と OPEX の比較: IPP がロボットを購入する場合と、Taypro OPEX を契約する場合、25 ～ 100 の MW ポートフォリオの枠組み、TCO の比較、および ROI 計算ツール。",
+      "description": "インドでのソーラー パネルの清掃に関する CAPEX と OPEX の比較: IPP がロボットを購入する場合と、OPEX を契約する場合、25 ～ 100 の MW ポートフォリオの枠組み、TCO の比較、および ROI 計算ツール。",
       "openGraphTitle": "ソーラークリーニング CAPEX vs OPEX | Taypro インド",
       "openGraphDescription": "太陽光発電事業の意思決定ガイド: ロボット CAPEX + AMC 対パネルごとの支払い OPEX — 貸借対照表、動員、監査、および 20 年間の TCO。"
     },
@@ -18,7 +18,7 @@
     "hero": {
       "eyebrow": "調達 · CAPEX 対 OPEX",
       "title": "ソーラークリーニング CAPEX と OPEX — どちらのモデルがあなたのプラントに適合しますか?",
-      "subtitle": "IPP チームと CPSU チームは、ロボットの購入 (CAPEX + AMC) を Taypro OPEX (清掃されたパネルごとに支払い) と比較して評価します。このページでは、ステッカー ロボットの価格だけでなく、バ​​ランスシートへの影響、動員速度、監査証跡、および 5 年間の TCO を比較します。",
+      "subtitle": "IPP チームと CPSU チームは、ロボットの購入 (CAPEX + AMC) を OPEX (清掃されたパネルごとに支払い) と比較して評価します。このページでは、ステッカー ロボットの価格だけでなく、バ​​ランスシートへの影響、動員速度、監査証跡、および 5 年間の TCO を比較します。",
       "ctaPrimary": "ROI 計算機を実行する",
       "ctaPrimaryHref": "/solar-panel-cleaning-robot-price-calculator#calculator",
       "ctaSecondary": "OPEX 価格帯",
@@ -54,8 +54,8 @@
     },
     "prose": {
       "eyebrow": "簡単な回答",
-      "heading": "ロボット CAPEX と Taypro OPEX を選択する場合",
-      "p1": "ロボット CAPEX は、GLYDE、GLYDE-X、NYUMA、NYUMA-X、または HELYX を購入し、貸借対照表上のフリートを減価償却し、稼働時間に関して構造化された AMC を契約することを意味します。 Taypro OPEX は、Taypro がフリートの所有権を保持することを意味します。実際に清掃され、NECTYR テレメトリを通じて調整されたパネルに対して月々支払います。",
+      "heading": "ロボット CAPEX と OPEX を選択する場合",
+      "p1": "ロボット CAPEX は、GLYDE、GLYDE-X、NYUMA、NYUMA-X、または HELYX を購入し、貸借対照表上のフリートを減価償却し、稼働時間に関して構造化された AMC を契約することを意味します。 OPEX は、Taypro がフリートの所有権を保持することを意味します。実際に清掃され、NECTYR テレメトリを通じて調整されたパネルに対して月々支払います。",
       "p2": "インドの IPP の多くは、資本の承認なしで迅速に動員するために OPEX から開始し、3 ～ 5 年間の実証済みの PR 回収後に長期保有資産の所有フリートに移行します。 CPSU および SECI で入札されたプラントは、多くの場合、同じ汚れと関税の仮定を使用して両方のシナリオを並行してモデル化します。",
       "p3": "ロボット単体の価格だけではなく、5 ～ 20 年間にわたって回収された MWh あたり ₹ で比較します。面積 10 MW の乾燥地での手作業による湿式洗浄は、通常、合計で年間 ₹45 ～ 800 万ルピーになります。ロボット プログラムにより、毎月 3 ～ 10 回の乾燥サイクルで清掃をパネルごとの測定可能な経済性に変換します。",
       "p4": "どちらの商用モデルにも、NECTYR ブロックレベルのクリーニング ログが含まれています。監査層の貸し手と内部の O&M ガバナンスは、50 MW 規模で要求します。電気 O&M、インバーター、トラッカーの機械工事は既存の請負業者に任せます。 Taypro はクリーニング実行レイヤーを所有します。",
@@ -67,7 +67,7 @@
     },
     "models": {
       "eyebrow": "Commercial models",
-      "heading": "Robot CAPEX + AMC vs Taypro OPEX",
+      "heading": "Robot CAPEX + AMC vs OPEX",
       "capex": {
         "title": "Robot CAPEX + AMC",
         "body": "Purchase the fleet. Own depreciation, residual value, and spare inventory policy. Taypro commissions, trains operators, and maintains robots under structured AMC with NECTYR included.",
@@ -75,7 +75,7 @@
         "link": "India robot CAPEX bands"
       },
       "opex": {
-        "title": "Taypro OPEX service",
+        "title": "OPEX service",
         "body": "No upfront robot purchase. Pay monthly for verified panels cleaned — ideal when balance-sheet efficiency and fast mobilisation matter more than asset ownership.",
         "href": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
         "link": "OPEX service details"
@@ -87,7 +87,7 @@
       "intro": "Use this matrix in RFQ and investment committee packs. Rates and CAPEX bands are directional — binding terms follow a site soiling study.",
       "colFactor": "Factor",
       "colCapex": "Robot CAPEX + AMC",
-      "colOpex": "Taypro OPEX",
+      "colOpex": "OPEX",
       "row0": {
         "factor": "Balance sheet",
         "capex": "Capitalise fleet; depreciate over plant life",
@@ -155,7 +155,7 @@
     "proseSecondary": {
       "eyebrow": "ハイブリッドパス",
       "heading": "最初に OPEX、その後 CAPEX を実行 - 一般的な IPP パターン",
-      "p1": "インドの IPP 社の数社は、PR の回収と NECTYR の監査証跡を証明するために、最初の運用シーズンは Taypro OPEX と契約し、その後、20 年以上保有する予定の資産を所有するフリートに移行します。",
+      "p1": "インドの IPP 社の数社は、PR の回収と NECTYR の監査証跡を証明するために、最初の運用シーズンは OPEX と契約し、その後、20 年以上保有する予定の資産を所有するフリートに移行します。",
       "p2": "SECI および州の反対入札者は、手動洗浄の項目だけでなく、洗浄範囲の証拠をますます求めています。 CAPEX モデルと OPEX モデルはどちらも NECTYR ブロックレベルのログを提供します。違いは、ロボット資産を誰が所有するかです。",
       "p3": "トラッカー プラントは、パネルあたりの経済性が高くなります (固定チルトに対して OPEX 乗数が 1.8 倍)。委員会の承認前に、両方のシナリオでこれをモデル化します。",
       "linkPrimary": "ブログ: 25 ～ 100 の MW ポートフォリオの CAPEX 対 OPEX",
@@ -188,7 +188,7 @@
       "q2": "契約途中で OPEX から CAPEX に切り替えることはできますか?",
       "a2": "3 ～ 5 年間実績が証明された後は、ハイブリッド移行が一般的です。商用契約中にフリート購入オプションについて話し合います。",
       "q3": "OPEX にはオペレーターとスペアが含まれますか?",
-      "a3": "はい。 Taypro OPEX は、オペレーター、ロボット、予備品、SOP、NECTYR をすべて含んでいます。料金はアイドル時間ではなく、清掃されたパネルに対してお支払いいただきます。",
+      "a3": "はい。 OPEX は、オペレーター、ロボット、予備品、SOP、NECTYR をすべて含んでいます。料金はアイドル時間ではなく、清掃されたパネルに対してお支払いいただきます。",
       "q4": "貸し手はロボット清掃 OPEX をどのように見ていますか?",
       "a4": "多くの人は、不透明な手動の乗務員契約よりも、NECTYR カバレッジ ログによる監査可能なパネルごとの請求を好みます。",
       "q5": "TCO にはどの割引率を使用する必要がありますか?",
@@ -197,7 +197,7 @@
       "a6": "MW の 10 か所の乾燥現場での手動ウェットコストは、多くの場合、年間 4,500 ～ 800 万ルピーに達し、MW に比例して増加します。 5 年間で回収された MWh あたり ₹ で比較します。",
       "q7": "トラッカー プラントは CAPEX 対 OPEX の決定を変更しますか?",
       "a7": "トラッカー ジオメトリにより、サイクルあたりのコストが追加されます (1.8 × OPEX 乗数)。どちらのモデルも引き続き実行可能です。計算機でのモデル トラッカー固有の入力です。",
-      "q8": "Taypro OPEX の最小植物サイズはどれくらいですか?",
+      "q8": "OPEX の最小植物サイズはどれくらいですか?",
       "a8": "OPEX プログラムは通常、約 10 MW ユーティリティ スケールから始まります。小規模なサイトでは、最低月額プログラム料金が課される場合があります。",
       "q9": "CAPEX には NECTYR が含まれますか?",
       "a9": "はい。ロボット CAPEX プログラムには、スケジュール設定、カバレッジ監査、AMC 発券用の NECTYR フリート ポータルが含まれています。",

@@ -49,7 +49,7 @@
       "heading": "सोलर पैनल soiling loss, soiling ratio और भारत में PR सुधार",
       "p1": "Soiling ratio — मॉड्यूल ग्लास पर धूल से खोया irradiance — भारतीय यूटिलिटी प्लांट पर PR drift चलाता है। Rajasthan, Gujarat और MP में कैलेंडर-आधारित सफाई पर 8–25% वार्षिक जनरेशन suppression।",
       "p2": "सफाई से PR सुधार baseline soiling, cycle frequency और मौसम पर निर्भर करता है। रोबोटिक ड्राई क्लीनिंग गीली सफाई के बिना महीने में 3–10 cycles सक्षम बनाती है — multi-MW बेड़ों पर soiling loss neutralise करने का किफायती रास्ता।",
-      "p3": "EPC और O&M टीमों को PR recovery सफाई साक्ष्य से जोड़ना चाहिए: NECTYR ब्लॉक-स्तरीय लॉग, CAPEX या Taypro Opex commit करने से पहले price guide और calculator से directional ROI।",
+      "p3": "EPC और O&M टीमों को PR recovery सफाई साक्ष्य से जोड़ना चाहिए: NECTYR ब्लॉक-स्तरीय लॉग, CAPEX या Opex commit करने से पहले price guide और calculator से directional ROI।",
       "linkPriceGuide": "भारत रोबोट मूल्य गाइड",
       "linkCalculator": "ROI कैलकुलेटर"
     },
@@ -83,7 +83,7 @@
     "robotsSeo": {
       "eyebrow": "खरीद और इंजीनियरिंग",
       "heading": "भारत में यूटिलिटी-स्केल प्लांट के लिए सोलर पैनल सफाई रोबोट",
-      "bodyBefore": "Taypro भारत में fixed tilt, seasonal tilt और single-axis tracker sites के लिए autonomous और semi-automatic waterless robots manufacture करता है — pan-India service, NECTYR monitoring, optional Taypro Opex। तुलना करें",
+      "bodyBefore": "Taypro भारत में fixed tilt, seasonal tilt और single-axis tracker sites के लिए autonomous और semi-automatic waterless robots manufacture करता है — pan-India service, NECTYR monitoring, optional Opex। तुलना करें",
       "hubLink": "हर Taypro रोबोट मॉडल",
       "bodyAfter": ", ROI calculator चलाएँ, या site-specific quote माँगें।",
       "ctaHub": "सोलर पैनल सफाई रोबोट हब",
@@ -110,7 +110,7 @@
       "q2": "Taypro SCADA alone से कैसे अलग है?",
       "a2": "SCADA loss के बाद output report करता है। Taypro field execution (robots), fleet operations (NECTYR), plant intelligence (ORION) add करता है — schedule, prove coverage, cycles को performance से connect।",
       "q3": "क्या robots खरीद सकते हैं या managed service?",
-      "a3": "दोनों। GLYDE, NYUMA, HELYX commissioning और AMC के साथ purchase करें, या Taypro Opex pay-per-panel cleaning चुनें। Deployed robots पर NECTYR visibility included।",
+      "a3": "दोनों। GLYDE, NYUMA, HELYX commissioning और AMC के साथ purchase करें, या Opex pay-per-panel cleaning चुनें। Deployed robots पर NECTYR visibility included।",
       "q4": "Taypro robots कहाँ बने और support कहाँ?",
       "a4": "Taypro Chakan, Pune में design और manufacture करता है — warehouses और field engineers pan-India commissioning, spares, same-day breakdown targets।",
       "q5": "भारतीय यूटिलिटी प्लांट पर solar panel soiling loss क्या है?",
@@ -118,13 +118,17 @@
       "q6": "Cleaning robots solar plant PR (performance ratio) कैसे improve करते हैं?",
       "a6": "Consistent module cleanliness soiling-related PR drift कम करती है। Robots daily/near-daily cycles enable — manual crews scale पर match नहीं — NECTYR auditable coverage। PR improvement site-dependent।",
       "q7": "India में solar O&M cleaning robot procurement क्या है?",
-      "a7": "Utility RFQs waterless fit, tracker compatibility, fleet software, breakdown SLA, CAPEX vs Opex evaluate करते हैं। Taypro Made-in-India robots (GLYDE, NYUMA, HELYX, tracker variants) NECTYR और optional Taypro Opex — India price guide और state pages देखें।"
+      "a7": "Utility RFQs waterless fit, tracker compatibility, fleet software, breakdown SLA, CAPEX vs Opex evaluate करते हैं। Taypro Made-in-India robots (GLYDE, NYUMA, HELYX, tracker variants) NECTYR और optional Opex — India price guide और state pages देखें।"
     },
     "cta": {
       "heading": "अपने प्लांट की operations layer plan करें",
       "body": "क्षमता, layout, procurement preference साझा करें — robots, Opex, या fleet software recommend करेंगे।",
       "quote": "कोटेशन लें",
-      "company": "पार्टनर और निवेशक"
+      "company": "पार्टनर और निवेशक",
+      "quoteTopic": "उपयोगिता संचालन उद्धरण",
+      "quoteTitle": "अपने पौधे के लिए कोटेशन प्राप्त करें",
+      "quoteSubtitle": "Tell us about your MW capacity, array type, region, and whether you are evaluating CAPEX robots, Taypro Opex, or NECTYR fleet software.",
+      "quoteFormPrompt": "हमें आपका प्रस्ताव कहां भेजना चाहिए?"
     },
     "related": {
       "label": "संबंधित:",

@@ -13,7 +13,7 @@ export interface RoiCalculationInput {
   electricityTariff: number;
   moduleCapacityWp: number;
   procurementModel?: ProcurementModel;
-  /** Taypro OPEX: dry cleaning cycles per month (3–10). Ground-mount only. */
+  /** OPEX: dry cleaning cycles per month (3–10). Ground-mount only. */
   cleaningCyclesPerMonth?: number;
 }
 

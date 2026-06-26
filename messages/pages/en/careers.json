@@ -135,6 +135,17 @@
     "emptyTitle": "No open positions right now",
     "emptyBody": "We are not hiring for published roles at the moment. You can still reach out — we keep strong profiles on file for upcoming teams.",
     "contactCta": "Send a general application",
+    "leadModal": {
+      "topic": "Careers at Taypro",
+      "title": "Send a general application",
+      "subtitle": "No matching role listed? Share your background, area of interest, and a link to your resume — we review every thoughtful application.",
+      "formPrompt": "Where should we reach you?",
+      "messageLabel": "About you",
+      "messagePlaceholder": "Role interest, years of experience, location preference, LinkedIn or resume link…",
+      "submitLabel": "Send application",
+      "thankYouTitle": "Thanks for reaching out",
+      "thankYouMessage": "Our people team will review your note and get back if there is a fit."
+    },
     "viewRole": "View role",
     "postedOn": "Posted {date}",
     "generalCta": {

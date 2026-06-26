@@ -66,11 +66,21 @@
         "1": {
           "q": "Rajasthanの塵にはどちらが向く？",
           "a": "両方とも乾燥砂漠塵に対応。付着性・混合層ならGLYDE、PBTのCAPEX経済性が優先ならNYUMA。"
+        },
+        "2": {
+          "q": "調達チームは同じ RFQ をどのように決定しますか?",
+          "a": "汚れのクラスごとにブロックを分割します。接着剤が付着しやすいテーブルではデュアルパス GLYDE、乾燥した高スループット行では NYUMA を使用します。 NECTYR は、統合レポートを使用して 1 つのポータルから両方のモデルをスケジュールします。"
         }
       },
       "productLinks": {
         "glyde": "GLYDE product page",
         "nyuma": "NYUMA product page"
+      },
+      "deepDive": {
+        "heading": "デシジョン ツリー: 固定傾斜ユーティリティ プラントの GLYDE 対 NYUMA",
+        "p1": "Start with soiling chemistry: dry desert dust favours either robot; cementitious or pollen-heavy layers tilt toward GLYDE dual-pass. Next, compare capex per MW and brush versus microfiber service intervals in your O&M budget.",
+        "p2": "EPC が入札で PBT を指定した場合、NYUMA が適切です。入札でサイクルごとの最大塵埃除去またはデュアルパス特許が要求される場合、GLYDE が主力製品となります。両方のロボットは、NECTYR、汎インド サービス、および水を使わない操作を共有しています。この分割は、ソフトウェアの機能ではなく、テクノロジーの経済性によるものです。",
+        "p3": "最終決定する前に、Taypro レイアウト エンジニアと MW ごとのロボット数を検証します。行の長さ、ギャップ幅、ブロック数によって、これら 2 つのプラットフォーム間のブランドの選択よりもフリート サイズが決まります。"
       }
     },
     "glydeXVsNyumaX": {
@@ -139,11 +149,953 @@
         "1": {
           "q": "固定式GLYDE/NYUMAに対応するトラッカーロボットは？",
           "a": "GLYDE-Xはデュアルパスをトラッカーへ、NYUMA-XはPBTシングルパスを拡張。固定式はGLYDE vs NYUMAガイドを参照。"
+        },
+        "2": {
+          "q": "CRADYL 行転送は選択に影響しますか?",
+          "a": "広い列ギャップでは、CRADYL はいずれかのトラッカー ロボットとドッキング ペアになります。レイアウト レビュー中に転送ポイントを指定するため、フリート数にはテーブル ロボットだけでなくドッキング ステーションも含まれます。"
         }
       },
       "productLinks": {
         "glydeX": "GLYDE-X product page",
         "nyumaX": "NYUMA-X product page"
+      },
+      "deepDive": {
+        "heading": "トラッカー RFQ 意思決定ガイド",
+        "p1": "Single-axis plants add tilt-angle routing, inter-table flex, and night-window scheduling constraints. GLYDE-X targets premium dust lift where adhesive layers follow dust storms; NYUMA-X fits capex-sensitive tracker portfolios that already standardised on PBT for fixed-tilt blocks.",
+        "p2": "どちらのロボットも、±15° のテーブル間フレックスを備えた NEXTracker および Gamechanger 互換性を公開しています。収納角度と列ピッチを検証します。トラッカーのジオメトリは、固定傾斜の再現性以上に変化します。 NECTYR は、Taypro フリート全体で共有される気象ホールド ロジックを使用して両方のモデルをスケジュールします。",
+        "p3": "混合フリートが一般的です。汚れの多いトラッカー ブロックでは GLYDE-X、PBT 指定のテーブルでは NYUMA-X、非トラッカー セクションでは固定傾斜 GLYDE または NYUMA が使用されます。 1 つの NECTYR ポータルは、資産管理者のレポート用に統合されたフリートをカバーします。"
+      }
+    },
+    "breadcrumbs": {
+      "compare": "比較する",
+      "hub": "太陽清掃ロボット"
+    },
+    "cta": {
+      "heading": "植物固有の推奨事項が必要ですか?",
+      "body": "MW の容量、傾斜またはトラッカーのレイアウト、汚れのプロファイルを共有します。 Taypro エンジニアは、GLYDE、NYUMA、HELYX、または Opex を資産にマッピングします。",
+      "quote": "見積もりを取得する",
+      "calculator": "ROI 計算機"
+    },
+    "indianCompetitors": {
+      "meta": {
+        "title": "Taypro vs インドの太陽光発電清掃ロボット会社 — 完全比較",
+        "description": "洗浄テクノロジー、フリート規模、トラッカー サポート、ソフトウェア、OPEX モデル、認定などの観点から、Taypro を Solabot、Aegeus、Skilancer、Vayu Solar と比較します。公式ウェブサイトからのデータ、2026 年 6 月。"
+      },
+      "hero": {
+        "eyebrow": "市場比較",
+        "title": "Taypro とインドの他のソーラーパネル清掃ロボット会社との比較",
+        "lead": "インドのソーラーパネル洗浄ロボット市場は急速に成長しており、数十社のメーカーが実用規模のO&M契約を争っている。このページでは、プラント オペレータおよび EPC チームにとって重要な基準に基づいて、Taypro を Solabot テクノロジー、Aegeus テクノロジー、Skilancer ソーラー、および Vayu Solar と比較します。"
+      },
+      "intro": "以下のデータは各社公式サイトより引用しています。競合他社が数値を公表していない場合は、非開示としてマークされます。",
+      "sourceNote": "数値は、2026 年 6 月時点で公開されている情報を反映しています。調達を決定する前に、RFQ で現在の仕様を確認してください。",
+      "tableHeading": "概要: Taypro と競合他社",
+      "columns": {
+        "criteria": "基準",
+        "taypro": "Taypro",
+        "solabot": "Solabot",
+        "aegeus": "Aegeus",
+        "skilancer": "Skilancer",
+        "vayu": "Vayu Solar"
+      },
+      "rows": {
+        "0": {
+          "factor": "洗浄技術",
+          "taypro": "特許取得済みのデュアルパス: エアフローファーストパス + セルフクリーニングマイクロファイバードラム",
+          "solabot": "シングルパス PBT ブラシ (ドライ)",
+          "aegeus": "エアウォッシュ: 制御された気流 + マイクロファイバー (重力補助)",
+          "skilancer": "PBT ブラシ + マイクロファイバー + エアフロー + 重力",
+          "vayu": "ドライブラシ、水なし"
+        },
+        "1": {
+          "factor": "特許",
+          "taypro": "4 Indian patents on dual-pass cleaning system and RF mesh communications",
+          "solabot": "非開示",
+          "aegeus": "特許取得済みのデザイン (UL India 認定)",
+          "skilancer": "特許下のコンポーネントを選択してください",
+          "vayu": "非開示"
+        },
+        "2": {
+          "factor": "自律型（全自動）ロボット",
+          "taypro": "GLYDE、GLYDE-X、NYUMA、NYUMA-X",
+          "solabot": "SB-01、SB-04T",
+          "aegeus": "ユニコーンスマート",
+          "skilancer": "自動ロボット（名前なし）",
+          "vayu": "全自動 (名前なし)"
+        },
+        "3": {
+          "factor": "半自動ロボット",
+          "taypro": "HELYX (ピックアンドプレイス、PBT)",
+          "solabot": "SB-03",
+          "aegeus": "ユニコーンR2R",
+          "skilancer": "半自動ロボット",
+          "vayu": "セミオートマチック（リフト＆シフト）"
+        },
+        "4": {
+          "factor": "トラッカー対応ロボット",
+          "taypro": "はい - GLYDE-X (デュアルパス) および NYUMA-X (PBT)、単軸トラッカー専用",
+          "solabot": "はい — SB-04T",
+          "aegeus": "ウェブサイトでは未確認",
+          "skilancer": "ウェブサイトでは未確認",
+          "vayu": "ウェブサイトでは未確認"
+        },
+        "5": {
+          "factor": "屋上ロボット",
+          "taypro": "MINY (近日公開予定)",
+          "solabot": "はい — SB-RT",
+          "aegeus": "はい — シュリーム",
+          "skilancer": "記載なし",
+          "vayu": "記載なし"
+        },
+        "6": {
+          "factor": "充電ごとの補償範囲",
+          "taypro": "最大 3,600 モジュール / 2.2 km (GLYDE)",
+          "solabot": "非公開",
+          "aegeus": "非公開",
+          "skilancer": "~200 kW / ~1 km (古い仕様)",
+          "vayu": "1 MW / 2 km 以上"
+        },
+        "7": {
+          "factor": "フリート監視ソフトウェア",
+          "taypro": "NECTYR — スケジュール、ブロック単位のクリーニング ログ、SCADA、AMC チケット、エクスポート レポート",
+          "solabot": "SB-SCADA — SCADA 集中管理",
+          "aegeus": "LoRaWAN-based remote monitoring and diagnostics",
+          "skilancer": "クラウドベースのPC/モバイルインターフェース",
+          "vayu": "無線遠隔監視（基本）"
+        },
+        "8": {
+          "factor": "接続オプション",
+          "taypro": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, LoRaWAN",
+          "solabot": "SCADA (接続プロトコルが指定されていません)",
+          "aegeus": "LoRaWAN",
+          "skilancer": "クラウドベース（プロトコル指定なし）",
+          "vayu": "無線（プロトコル指定なし）"
+        },
+        "9": {
+          "factor": "OPEX / マネージド サービス",
+          "taypro": "はい — OPEX: パネルごとに料金を払って清掃され、Taypro がフリートを操作します",
+          "solabot": "ウェブサイトには記載されていない",
+          "aegeus": "はい — MCaaS (Machine Cleaning as a Service)",
+          "skilancer": "明確に言及されていない",
+          "vayu": "明確に言及されていない"
+        },
+        "10": {
+          "factor": "導入された容量",
+          "taypro": "5 GW+",
+          "solabot": "GW には記載されていません",
+          "aegeus": "GW には記載されていません",
+          "skilancer": "GW には記載されていません",
+          "vayu": "GW には記載されていません"
+        },
+        "11": {
+          "factor": "ロボットの導入",
+          "taypro": "単一のフリート番号としては公開されていません (Agar 200 MW だけで 272 台のロボット)",
+          "solabot": "12,422台以上のロボットが設置されています（ホームページで公開）",
+          "aegeus": "非開示",
+          "skilancer": "非開示",
+          "vayu": "非開示"
+        },
+        "12": {
+          "factor": "ライブサイト/プロジェクト",
+          "taypro": "150以上のライブサイト",
+          "solabot": "152 以上のプロジェクト、14 以上の州",
+          "aegeus": "非開示",
+          "skilancer": "300以上のプロジェクト",
+          "vayu": "非開示"
+        },
+        "13": {
+          "factor": "ハードウェア認定",
+          "taypro": "TÜV NORD、NISE、UL、Karandikar Labs & Elca Labs — 30 年相当のモジュール安全性、IP65、静電気放電、振動、湿熱および乾熱 (安全限度内)",
+          "solabot": "記載なし",
+          "aegeus": "ULインド認定",
+          "skilancer": "記載なし",
+          "vayu": "記載なし"
+        },
+        "14": {
+          "factor": "モジュールのOEM承認",
+          "taypro": "LONGi、Solex、Premier Energies、RenewSys、Satvik、Trina Solar、Future Solar",
+          "solabot": "16 社の Tier 1 メーカーが主張 (名前は記載されていない)",
+          "aegeus": "「主要モジュールメーカー」（名前なし）",
+          "skilancer": "記載なし",
+          "vayu": "「インド最大のパネルメーカー」（名前は不明）"
+        },
+        "15": {
+          "factor": "即日故障対応",
+          "taypro": "はい — インド全土、NECTYR リモート診断 + フィールド エンジニア",
+          "solabot": "8 つの州のサービス エンジニア",
+          "aegeus": "指定されていない",
+          "skilancer": "指定されていない",
+          "vayu": "指定されていない"
+        },
+        "16": {
+          "factor": "製造場所",
+          "taypro": "プネ、チャカン (600 台以上のロボット/月の生産能力)",
+          "solabot": "ユタ州ガーズィヤーバード (38,000 平方フィートの施設)",
+          "aegeus": "バンガロール",
+          "skilancer": "ハリヤナ州ファリーダーバード",
+          "vayu": "明確に記載されていない"
+        },
+        "17": {
+          "factor": "プラントインテリジェンス / ロードマップ",
+          "taypro": "ORION プラント インテリジェンス プラットフォーム (早期アクセス)、CRADYL 自律列転送ドッキング",
+          "solabot": "非開示",
+          "aegeus": "非開示",
+          "skilancer": "非開示",
+          "vayu": "非開示"
+        }
+      },
+      "tayproLeads": {
+        "heading": "Taypro が導く場所",
+        "items": {
+          "0": {
+            "title": "インドで唯一特許を取得したデュアルパス洗浄システム",
+            "body": "Taypro は、デュアルパス機構をカバーする 4 件のインド特許を取得しています。気流の最初のパスで表面に接触することなく遊離微粒子を除去し、その後回転する自動洗浄マイクロファイバー ドラムで完全に拭き取ります。自動洗浄ドラムは実用規模での実際的な要件です。充電ごとに 3,600 個のモジュールを洗浄するロボットは、蓄積した粉塵を洗浄済みのパネルに戻すことができません。同等の特許取得済みデュアルパス システムを発表しているインドのメーカーは他にありません。"
+          },
+          "1": {
+            "title": "2 つの洗浄技術にわたる専用の追跡ロボットを保有する唯一の企業",
+            "body": "Taypro は、デュアルパス マイクロファイバー用の <glydeX>GLYDE-X</glydeX> と PBT 用の <nyumaX>NYUMA-X</nyumaX> の両方の洗浄テクノロジーでトラッカー互換ロボットを提供します。どちらも、柔軟なボディと 360° ブリッジ アーティキュレーションを備えた単軸トラッカー プラント向けに設計されています。 Solabot はトラッカー用の SB-04T を提供します。 Aegeus、Skilancer、および Vayu は、Web サイトでトラッカーのサポートを確認していません。"
+          },
+          "2": {
+            "title": "最も包括的なフリート ソフトウェア",
+            "body": "NECTYR supports LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN — five connectivity options sized per site by Taypro engineers during commissioning. Competitors offer single-protocol solutions: Aegeus uses LoRaWAN, Solabot uses SCADA (protocol unspecified). NECTYR also includes block-wise scheduling, cleaning logs, AMC ticketing, and investor-grade report exports — features not published by any competitor."
+          },
+          "3": {
+            "title": "マルチラボのハードウェアおよびモジュールの安全性認証",
+            "body": "Taypro ロボットは、TÜV NORD、国立太陽エネルギー研究所 (NISE)、UL、Karandikar Labs、および Elca Labs によって独立して検証されています。加速試験では、モジュールの安全性を確認するために 30 年間の毎日の洗浄サイクルをシミュレートし、IP65 雨や塵からの保護、静電気放電試験、ロボットの動作によるモジュール応力の振動試験、砂漠や沿岸の植物の湿熱および乾熱調整などをすべて安全限度内で実施します。 Aegeus は、Unicorn ロボットに関して UL India の認定を取得しています。 Solabot、Skilancer、または Vayu によって発行された同等の認定スタックはありません。"
+          },
+          "4": {
+            "title": "名前付きモジュールの OEM 承認",
+            "body": "Taypro は、承認されたモジュール メーカーとして、LONGi、Solex、Premier Energies、RenewSys、Satvik、Trina Solar、Future Solar の名前を公表しています。 Solabot は 16 件の Tier 1 承認を主張していますが、その名前は明らかにしていません。他の競合他社も一般的な主張を行っています。名前付き承認は、大規模な IPP ポートフォリオの保証準拠にとって重要です。"
+          },
+          "5": {
+            "title": "単一導入規模としては史上最大",
+            "body": "Taypro の 272 台のロボットによる Agar 200 MW の展開は、検証済みのデータで公的に文書化されたインドの単一プラントのロボット清掃フリートとしては最大です。265 台の GLYDE 自動ユニット、7 台の半自動が 2024 年に稼働し、追加で 7.50 GW 時間/年を生成し、年間 2,800 万リットルの水を節約します。ロボットの数と測定された結果を含む同等のプラントレベルのデータを公開している競合他社はありません。"
+          },
+          "6": {
+            "title": "OPEX 名前付き商業構造を持つマネージド サービス",
+            "body": "Opex は、Taypro が工場内でフリートを運用する、パネルごとに料金を支払うマネージド サービスです。価格設定の透明性、定義された洗浄サイクル (汚れの調査に基づいて月に 3 ～ 10 回)、および完全な NECTYR レポートが提供されます。 Aegeus は、MCaaS をサービス モデルとして提供します。 Solabot、Skilancer、および Vayu は、Web サイト上で同等のマネージド サービスを明確に公開していません。"
+          }
+        }
+      },
+      "howToRead": {
+        "heading": "この比較をどう読むか",
+        "body": "ロボットの数とプロジェクトの数は市場の浸透度を測定します。 GW 保護および洗浄テクノロジーの深さは、大規模な運用能力を測定します。ロボット パートナーを評価する 50 ～ 250 台の MW ユーティリティ プラントの場合、重要な質問は次のとおりです。洗浄テクノロジーによってモジュールの保証が保護されるか、フリート ソフトウェアによって監査対応の O&M データが提供されるか、パートナーはインド全土での即日故障をサポートできるか、貴社の貸借対照表に適合する商用モデルはあるか、ということです。これらの各基準について、Taypro は具体的で検証可能な回答を公開しています。そのため、この比較は公式 Web サイトのソースのみから引用しています。",
+        "ctaLine": "貴社のプラント向けの Taypro のロボットを評価するには、<contact>見積もりをリクエスト</contact>するか、<calculator>ROI 計算機</calculator> で方向性のある投資回収見積もりを実行してください。個々のロボット モデルを比較するには、<ハブ>完全な製品ハブ</hub>をご覧ください。"
+      },
+      "faq": {
+        "0": {
+          "q": "最も多くのロボットを導入しているインドの競合企業はどこですか?",
+          "a": "Solabot は、ホームページに設置された 12,422 台以上のロボットを公開しています。これは、インドの競合他社の中で最大の公開ロボット数です。 Taypro には、200 台の MW プラントに 5 GW+ の展開能力と 272 台のロボットが記載されています。"
+        },
+        "1": {
+          "q": "IPPs はこのテーブルでベンダーをどのように評価する必要がありますか?",
+          "a": "重量洗浄テクノロジー、トラッカーの適合性、フリート ソフトウェア監査機能、即日故障サポート、プラントの MW 規模と汚れプロファイルに対する商用モデル — ヘッドライン ロボットやプロジェクトの数だけではありません。"
+        },
+        "2": {
+          "q": "直接裁判を行うべきでしょうか?",
+          "a": "はい。最終的な調達前に 2 つのベンダーを候補リストに挙げ、代表的なブロックで 30 ～ 60 日間の汚れ試験を実行し、PR の上昇、サイクル タイム、記録されたカバレッジ、故障時の対応を比較します。"
+        }
+      }
+    },
+    "robotVsManual": {
+      "meta": {
+        "title": "インドにおけるソーラーパネル清掃ロボットと手動清掃",
+        "description": "インドの公益事業所におけるロボットによるソーラーパネル洗浄と手動によるソーラーパネル洗浄を比較します。水の使用量、労働の安全性、サイクル頻度、フリートデータ、各モデルが適合する時期などです。"
+      },
+      "hero": {
+        "eyebrow": "バイヤーガイド",
+        "title": "ソーラーパネル清掃ロボット vs 手動清掃",
+        "lead": "手動による湿式洗浄とロボットによる水なし洗浄はどちらも汚れを除去しますが、MW 規模のプラントでは、水の利用可能性、労働リスク、完了証明、および長期的なコストが異なります。"
+      },
+      "intro": "ラジャスタン州、グジャラート州、マディヤ プラデーシュ州の公共施設 IPP は、多くの場合、手動の作業員またはトラクターに取り付けられたブラシから始まり、汚損、水コスト、または安全上のインシデントが増加した場合にロボットを評価します。このページでは、すべてのサイトで単一の勝者が決まるわけではなく、決定基準を比較します。",
+      "tableHeading": "並べて比較",
+      "rows": {
+        "0": {
+          "factor": "水の使用",
+          "robot": "水なしドライクリーニング (Taypro GLYDE / NYUMA)",
+          "manual": "通常は水が必要です。乾燥した場所では稀少"
+        },
+        "1": {
+          "factor": "労働力と安全性",
+          "robot": "屋上や列の散歩が減ります。スケジュールされた自律サイクル",
+          "manual": "乗務員の労働時間の増加。熱と高所への曝露"
+        },
+        "2": {
+          "factor": "クリーニングの証拠",
+          "robot": "NECTYR はブロックレベルの完了をログに記録します",
+          "manual": "多くの場合、写真やチェックリストに基づいています。大規模な監査は困難"
+        },
+        "3": {
+          "factor": "サイクル周波数",
+          "robot": "比例労働なしでより高い周波数が実現可能",
+          "manual": "コストと乗務員の制限によりケイデンスが低下する"
+        },
+        "4": {
+          "factor": "初期費用",
+          "robot": "CAPEX robots or Opex per-panel service",
+          "manual": "Lower capex; recurring labour + water"
+        },
+        "5": {
+          "factor": "ベストフィット",
+          "robot": "50 MW+ 公共事業、水ストレス、監査の多さ O&M",
+          "manual": "小さい C&I、豊富な水、非常に少ない汚れ"
+        }
+      },
+      "faq": {
+        "0": {
+          "q": "ロボットが手動掃除に勝てるのはいつでしょうか?",
+          "a": "汚れによる損失が人件費と水のコストを超える場合、水が限られている場合、または所有者が貸し手とO&M契約に対して記録された清掃補償を必要とする場合。 PR データを使用して Taypro の ROI 計算ツールを実行します。"
+        },
+        "1": {
+          "q": "ロボットと手動清掃は共存できるのでしょうか?",
+          "a": "はい。多くの工場では、ロボットが全車両に配備されるまで、バルクアレイではロボットを使用し、開閉所、変電所、または破損したテーブルでは手動による方法を使用しています。"
+        },
+        "2": {
+          "q": "100 MW スケールでの手動クリーニングのコストはいくらですか?",
+          "a": "手動の経済性は直線的に拡張されます。ブロックが増えると、乗組員、タンカー、監視の数も増えます。ロボット OPEX は、リモート NECTYR の監視によって反復可能な行を 1 つのフリートでカバーするため、追加サイクルあたりの限界コストを平坦化します。"
+        },
+        "3": {
+          "q": "安全チームと保険チームは手動清掃とロボット清掃をどのように考えていますか?",
+          "a": "熱と粉塵の中の人力漕ぎ歩行は、乗組員を高所と熱ストレスのリスクにさらします。自律型ロボットはテーブルでの作業時間を削減します。これは、SECI に関する EHS レビューと州の入札の不和の要因です。"
+        }
+      },
+      "deepDive": {
+        "heading": "MW規模のコストと監査の比較",
+        "p1": "Manual programmes hide cost in variable labour and water — easy to under-budget in year one, expensive when dust season demands weekly washes. Robots front-load CAPEX or convert to OPEX per panel cleaned, with block-level logs exportable for PR recovery analysis.",
+        "p2": "パフォーマンス保証を受けている資産管理者は、清掃が予定通りに行われたという証拠が必要です。 NECTYR はルート、例外、バッテリー交換のタイムスタンプを記録します。手動プログラムは多くの場合、200 以上のブロックにまたがらない写真や承認シートに依存しています。",
+        "p3": "損益分岐点は、ロボットのパンフレットの価格だけではなく、汚れの損失、料金、サイクル頻度によって決まります。ソーラー パネルのクリーニング ROI 計算ツールでプラントをモデル化し、Taypro レイアウト レビューで検証します。"
+      }
+    },
+    "tayproVsSolabot": {
+      "meta": {
+        "title": "Taypro vs Solabot — ソーラー清掃ロボットの比較 インド",
+        "description": "Taypro と Solabot テクノロジーの検証済みの比較: デュアルパス対 PBT 洗浄、トラッカー ロボット、NECTYR 対 SCADA、マルチラボ認証、OPEX モデル。公式ウェブサイトからのデータ、2026 年 6 月。"
+      },
+      "hero": {
+        "eyebrow": "ベンダー比較",
+        "title": "公共施設の太陽熱洗浄における Taypro と Solabot の比較",
+        "lead": "両ベンダーはインドで水を使わない太陽熱洗浄ロボットを供給している。主要なロボット数だけではなく、清掃技術の深さ、フリート ソフトウェア、トラッカー サポート、商用モデルを比較してください。"
+      },
+      "intro": "Solabot Technologies と Taypro は、公共事業 RFQ で最も引用されているインドの太陽光発電清掃ロボット ベンダーの 2 社です。このページでは、2026年6月時点で各社公式サイトに掲載されているデータのみを使用しています。",
+      "sourceNote": "数値は、2026 年 6 月時点で公開されている情報を反映しています。調達を決定する前に、RFQ で現在の仕様を確認してください。",
+      "tableHeading": "並べて比較",
+      "rows": {
+        "0": {
+          "factor": "洗浄技術",
+          "taypro": "特許取得済みのデュアルパス: エアフローファーストパス + セルフクリーニングマイクロファイバードラム",
+          "competitor": "シングルパス PBT ブラシ (ドライ)"
+        },
+        "1": {
+          "factor": "特許",
+          "taypro": "4 Indian patents on dual-pass cleaning system and RF mesh communications",
+          "competitor": "非開示"
+        },
+        "2": {
+          "factor": "自律型（全自動）ロボット",
+          "taypro": "GLYDE、GLYDE-X、NYUMA、NYUMA-X",
+          "competitor": "SB-01、SB-04T"
+        },
+        "3": {
+          "factor": "半自動ロボット",
+          "taypro": "HELYX (ピックアンドプレイス、PBT)",
+          "competitor": "SB-03"
+        },
+        "4": {
+          "factor": "トラッカー対応ロボット",
+          "taypro": "はい - GLYDE-X (デュアルパス) および NYUMA-X (PBT)、単軸トラッカー専用",
+          "competitor": "はい — SB-04T"
+        },
+        "5": {
+          "factor": "屋上ロボット",
+          "taypro": "MINY (近日公開予定)",
+          "competitor": "はい — SB-RT"
+        },
+        "6": {
+          "factor": "充電ごとの補償範囲",
+          "taypro": "最大 3,600 モジュール / 2.2 km (GLYDE)",
+          "competitor": "非公開"
+        },
+        "7": {
+          "factor": "フリート監視ソフトウェア",
+          "taypro": "NECTYR — スケジュール、ブロック単位のクリーニング ログ、SCADA、AMC チケット、エクスポート レポート",
+          "competitor": "SB-SCADA — SCADA 集中管理"
+        },
+        "8": {
+          "factor": "接続オプション",
+          "taypro": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, LoRaWAN",
+          "competitor": "SCADA (接続プロトコルが指定されていません)"
+        },
+        "9": {
+          "factor": "OPEX / マネージド サービス",
+          "taypro": "はい — OPEX: パネルごとに料金を払って清掃され、Taypro がフリートを操作します",
+          "competitor": "ウェブサイトには記載されていない"
+        },
+        "10": {
+          "factor": "導入された容量",
+          "taypro": "5 GW+",
+          "competitor": "GW には記載されていません"
+        },
+        "11": {
+          "factor": "ロボットの導入",
+          "taypro": "単一のフリート番号としては公開されていません (Agar 200 MW だけで 272 台のロボット)",
+          "competitor": "12,422台以上のロボットが設置されています（ホームページで公開）"
+        },
+        "12": {
+          "factor": "ライブサイト/プロジェクト",
+          "taypro": "150以上のライブサイト",
+          "competitor": "152 以上のプロジェクト、14 以上の州"
+        },
+        "13": {
+          "factor": "ハードウェア認定",
+          "taypro": "TÜV NORD、NISE、UL、Karandikar Labs & Elca Labs — 30 年相当のモジュール安全性、IP65、静電気放電、振動、湿熱および乾熱 (安全限度内)",
+          "competitor": "記載なし"
+        },
+        "14": {
+          "factor": "モジュールのOEM承認",
+          "taypro": "LONGi、Solex、Premier Energies、RenewSys、Satvik、Trina Solar、Future Solar",
+          "competitor": "16 社の Tier 1 メーカーが主張 (名前は記載されていない)"
+        },
+        "15": {
+          "factor": "即日故障対応",
+          "taypro": "はい — インド全土、NECTYR リモート診断 + フィールド エンジニア",
+          "competitor": "8 つの州のサービス エンジニア"
+        },
+        "16": {
+          "factor": "製造場所",
+          "taypro": "プネ、チャカン (600 台以上のロボット/月の生産能力)",
+          "competitor": "ユタ州ガーズィヤーバード (38,000 平方フィートの施設)"
+        },
+        "17": {
+          "factor": "プラントインテリジェンス / ロードマップ",
+          "taypro": "ORION プラント インテリジェンス プラットフォーム (早期アクセス)、CRADYL 自律列転送ドッキング",
+          "competitor": "非開示"
+        }
+      },
+      "tayproStrengths": {
+        "heading": "Taypro と Solabot の比較",
+        "items": {
+          "0": {
+            "title": "特許取得済みのデュアルパス洗浄技術",
+            "body": "Taypro のエアフロー ファーストパスと自動洗浄マイクロファイバー ドラムは特許を取得しており、洗浄されたパネルに汚れを再付着させることなく実用規模の塵埃を除去できるように設計されています。 Solabot は、公開されたデュアルパス特許なしでシングルパス PBT ブラシを使用します。"
+          },
+          "1": {
+            "title": "NECTYR マルチプロトコル フリート ソフトウェア",
+            "body": "NECTYR offers five connectivity options (LTE, Wi-Fi, RF mesh, LoRa, LoRaWAN) with block-wise logs, AMC ticketing, and investor-grade exports. Solabot's SB-SCADA does not publish equivalent feature depth."
+          },
+          "2": {
+            "title": "複数の研究機関による認証と指定された OEM の承認",
+            "body": "Taypro は、TÜV NORD、NISE、UL、Karandikar Labs、および Elca Labs によって検証されており、30 年相当のモジュール洗浄サイクル テスト、IP65、静電気放電、振動、および安全限度内の湿熱/乾熱テストが含まれており、承認されたモジュール メーカー 6 社が挙げられています。 Solabot は 16 件の Tier 1 承認を取得していると主張していますが、メーカー名は公表していません。"
+          },
+          "3": {
+            "title": "OPEX マネージド サービスと最大規模の単一プラント展開",
+            "body": "Opex では、NECTYR レポートを使用して、パネルごとに料金を支払う管理された清掃を提供します。 Taypro の Agar 200 MW 展開 (ロボット 272 台、+7.50 GWh/年) は、測定された成果を記録した最大の単一プラント フリートです。"
+          }
+        }
+      },
+      "faq": {
+        "0": {
+          "q": "直接裁判を行うべきでしょうか?",
+          "a": "はい - 2 つのベンダーを候補リストに挙げ、代表的なブロックで 30 ～ 60 日間の汚れ試験を実行し、PR の隆起、サイクル タイム、および記録されたカバレッジを比較します。"
+        },
+        "1": {
+          "q": "Taypro は既存のプラントの Solabot を置き換えますか?",
+          "a": "Taypro は、グリーンフィールドおよび改修ユーティリティ サイトに展開されます。移行はドックの互換性と O&M 契約条件 (技術的デュー デリジェンスの範囲) によって決まります。"
+        },
+        "2": {
+          "q": "Solabot が Taypro よりも多くのロボットを公開しているのはなぜですか?",
+          "a": "Solabot は出荷された合計ユニット数をカウントします。 Taypro は、GW の導入およびプラントレベルのケーススタディを公開します。ユニット合計だけではなく、プラントのテクノロジー適合性、ソフトウェア監査のニーズ、サービス SLA を比較してください。"
+        }
+      }
+    },
+    "tayproVsSkilancer": {
+      "meta": {
+        "title": "Taypro vs Skilancer — ソーラー清掃ロボットの比較 インド",
+        "description": "Taypro と Skilancer 太陽光発電の検証済み比較: デュアルパス特許、トラッカー ロボット、NECTYR フリート ソフトウェア、GW 規模とプロジェクト数、OPEX モデル。公式ウェブサイトからのデータ、2026 年 6 月。"
+      },
+      "hero": {
+        "eyebrow": "ベンダー比較",
+        "title": "公共施設の太陽熱洗浄における Taypro と Skilancer の比較",
+        "lead": "Skilancer Solar と Taypro はどちらもインドの太陽光発電清掃ロボットのサプライヤーとして位置付けられています。プロジェクト数だけではなく、トラッカー サポート、クリーニング テクノロジー、フリート データ、導入証明を比較してください。"
+      },
+      "intro": "Skilancer は、インドの電力会社 RFQs で Taypro と並んでよく引用されています。このページでは、2026年6月時点で各社公式サイトに掲載されているデータのみを使用しています。",
+      "sourceNote": "数値は、2026 年 6 月時点で公開されている情報を反映しています。調達を決定する前に、RFQ で現在の仕様を確認してください。",
+      "tableHeading": "並べて比較",
+      "rows": {
+        "0": {
+          "factor": "洗浄技術",
+          "taypro": "特許取得済みのデュアルパス: エアフローファーストパス + セルフクリーニングマイクロファイバードラム",
+          "competitor": "PBT ブラシ + マイクロファイバー + エアフロー + 重力"
+        },
+        "1": {
+          "factor": "特許",
+          "taypro": "4 Indian patents on dual-pass cleaning system and RF mesh communications",
+          "competitor": "特許下のコンポーネントを選択してください"
+        },
+        "2": {
+          "factor": "自律型（全自動）ロボット",
+          "taypro": "GLYDE、GLYDE-X、NYUMA、NYUMA-X",
+          "competitor": "自動ロボット（ウェブサイトでは名前なし）"
+        },
+        "3": {
+          "factor": "半自動ロボット",
+          "taypro": "HELYX (ピックアンドプレイス、PBT)",
+          "competitor": "半自動ロボット"
+        },
+        "4": {
+          "factor": "トラッカー対応ロボット",
+          "taypro": "はい - GLYDE-X (デュアルパス) および NYUMA-X (PBT)、単軸トラッカー専用",
+          "competitor": "ウェブサイトでは未確認"
+        },
+        "5": {
+          "factor": "屋上ロボット",
+          "taypro": "MINY (近日公開予定)",
+          "competitor": "記載なし"
+        },
+        "6": {
+          "factor": "充電ごとの補償範囲",
+          "taypro": "最大 3,600 モジュール / 2.2 km (GLYDE)",
+          "competitor": "~200 kW / ~1 km (古い公表仕様)"
+        },
+        "7": {
+          "factor": "フリート監視ソフトウェア",
+          "taypro": "NECTYR — スケジュール、ブロック単位のクリーニング ログ、SCADA、AMC チケット、エクスポート レポート",
+          "competitor": "クラウドベースの遠隔監視、PC/モバイルインターフェース"
+        },
+        "8": {
+          "factor": "接続オプション",
+          "taypro": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, LoRaWAN",
+          "competitor": "クラウドベース（プロトコル指定なし）"
+        },
+        "9": {
+          "factor": "OPEX / マネージド サービス",
+          "taypro": "はい — OPEX: パネルごとに料金を払って清掃され、Taypro がフリートを操作します",
+          "competitor": "ウェブサイトに明確に記載されていない"
+        },
+        "10": {
+          "factor": "導入された容量",
+          "taypro": "5 GW+",
+          "competitor": "GW には記載されていません"
+        },
+        "11": {
+          "factor": "ロボットの導入",
+          "taypro": "単一のフリート番号としては公開されていません (Agar 200 MW だけで 272 台のロボット)",
+          "competitor": "非開示"
+        },
+        "12": {
+          "factor": "ライブサイト/プロジェクト",
+          "taypro": "150以上のライブサイト",
+          "competitor": "300以上のプロジェクト"
+        },
+        "13": {
+          "factor": "ハードウェア認定",
+          "taypro": "TÜV NORD、NISE、UL、Karandikar Labs & Elca Labs — 30 年相当のモジュール安全性、IP65、静電気放電、振動、湿熱および乾熱 (安全限度内)",
+          "competitor": "記載なし"
+        },
+        "14": {
+          "factor": "モジュールのOEM承認",
+          "taypro": "LONGi、Solex、Premier Energies、RenewSys、Satvik、Trina Solar、Future Solar",
+          "competitor": "記載なし"
+        },
+        "15": {
+          "factor": "即日故障対応",
+          "taypro": "はい — インド全土、NECTYR リモート診断 + フィールド エンジニア",
+          "competitor": "指定されていない"
+        },
+        "16": {
+          "factor": "製造場所",
+          "taypro": "プネ、チャカン (600 台以上のロボット/月の生産能力)",
+          "competitor": "ハリヤナ州ファリーダーバード"
+        },
+        "17": {
+          "factor": "プラントインテリジェンス / ロードマップ",
+          "taypro": "ORION プラント インテリジェンス プラットフォーム (早期アクセス)、CRADYL 自律列転送ドッキング",
+          "competitor": "非開示"
+        }
+      },
+      "tayproStrengths": {
+        "heading": "Taypro と Skilancer の比較",
+        "items": {
+          "0": {
+            "title": "2つの技術で追跡ロボットを確認",
+            "body": "Taypro は、専用の単軸トラッカー ロボットとして GLYDE-X および NYUMA-X を公開しています。 Skilancer は Web サイトでトラッカーのサポートを確認していません。これはトラッカー ファーム RFQ にとって重大なギャップです。"
+          },
+          "1": {
+            "title": "特許取得済みのデュアルパス システムと複数の研究機関による認証",
+            "body": "Taypro holds 4 Indian patents on dual-pass cleaning and RF mesh communications, with hardware validated across TÜV NORD, NISE, UL, Karandikar Labs, and Elca Labs for module safety (30-year-equivalent cleaning cycles), IP65, static discharge, vibration, and damp-heat/dry-heat. Skilancer does not publish equivalent patent or certification detail."
+          },
+          "2": {
+            "title": "NECTYR フリート ソフトウェアと年間 110 億回以上のパネル清掃",
+            "body": "NECTYR は、ブロック単位のクリーニング ログ、5 つの接続プロトコル、および 5 GW+ の導入容量と年間 110 億以上のパネル クリーニング パスにわたる投資家レベルのエクスポートを提供します。 Skilancer は、公開されたプロトコルや監査機能の深さなしでクラウド監視を提供します。"
+          },
+          "3": {
+            "title": "OPEX 名前付き商業構造を持つマネージド サービス",
+            "body": "Opex は、定義された清掃サイクルと完全な NECTYR レポートを備えた、パネルごとに料金を払って清掃されるマネージド サービスです。 Skilancer は、同等のマネージド OPEX モデルを明確に公開していません。"
+          }
+        }
+      },
+      "faq": {
+        "0": {
+          "q": "IPP で最も重視すべき点は何ですか?",
+          "a": "ウォーターレスは、単価やプロジェクト数だけではなく、粉塵の化学的性質、トラッカーの互換性、フリート監査ログ、およびスペアパーツを含むインドでの現地製造に適合します。"
+        },
+        "1": {
+          "q": "Taypro のデプロイメントはどこで確認できますか?",
+          "a": "Browse CAPEX and Opex project filters and state guides on taypro.in/projects and regional landing pages."
+        },
+        "2": {
+          "q": "Skilancer はトラッカー プラントをサポートしていますか?",
+          "a": "Skilancer の Web サイトでは、トラッカー ネイティブ ロボットは確認されていません。単軸ファームの Skilancer を評価する場合は、RFQ でトラッカー ジオメトリの検証を直接リクエストします。"
+        }
+      }
+    },
+    "tayproVsAegeus": {
+      "meta": {
+        "title": "Taypro vs Aegeus — ソーラー清掃ロボットの比較 インド",
+        "description": "Verified comparison of Taypro and Aegeus Technologies: dual-pass vs Airwash cleaning, tracker robots, NECTYR vs LoRaWAN, multi-laboratory Taypro certifications, and OPEX vs MCaaS. Data from official websites, June 2026."
+      },
+      "hero": {
+        "eyebrow": "ベンダー比較",
+        "title": "公共施設の太陽熱洗浄における Taypro と Aegeus の比較",
+        "lead": "Aegeus Technologies と Taypro はどちらもインド製の太陽光発電清掃ロボットを販売しています。洗浄テクノロジー、トラッカー サポート、フリート ソフトウェア、認定、商用モデルを比較します。"
+      },
+      "intro": "Aegeus Technologies と Taypro はどちらも、実用規模のプラント向けにインド製の太陽光発電清掃ロボットを販売しています。このページでは、2026年6月時点で各社公式サイトに掲載されているデータのみを使用しています。",
+      "sourceNote": "数値は、2026 年 6 月時点で公開されている情報を反映しています。調達を決定する前に、RFQ で現在の仕様を確認してください。",
+      "tableHeading": "並べて比較",
+      "rows": {
+        "0": {
+          "factor": "洗浄技術",
+          "taypro": "特許取得済みのデュアルパス: エアフローファーストパス + セルフクリーニングマイクロファイバードラム",
+          "competitor": "エアウォッシュ: 制御された気流 + マイクロファイバー (重力補助)"
+        },
+        "1": {
+          "factor": "特許",
+          "taypro": "4 Indian patents on dual-pass cleaning system and RF mesh communications",
+          "competitor": "特許取得済みのデザイン (UL India 認定)"
+        },
+        "2": {
+          "factor": "自律型（全自動）ロボット",
+          "taypro": "GLYDE、GLYDE-X、NYUMA、NYUMA-X",
+          "competitor": "ユニコーンスマート"
+        },
+        "3": {
+          "factor": "半自動ロボット",
+          "taypro": "HELYX (ピックアンドプレイス、PBT)",
+          "competitor": "ユニコーンR2R"
+        },
+        "4": {
+          "factor": "トラッカー対応ロボット",
+          "taypro": "はい - GLYDE-X (デュアルパス) および NYUMA-X (PBT)、単軸トラッカー専用",
+          "competitor": "ウェブサイトでは未確認"
+        },
+        "5": {
+          "factor": "屋上ロボット",
+          "taypro": "MINY (近日公開予定)",
+          "competitor": "はい — シュリーム"
+        },
+        "6": {
+          "factor": "充電ごとの補償範囲",
+          "taypro": "最大 3,600 モジュール / 2.2 km (GLYDE)",
+          "competitor": "非公開"
+        },
+        "7": {
+          "factor": "フリート監視ソフトウェア",
+          "taypro": "NECTYR — スケジュール、ブロック単位のクリーニング ログ、SCADA、AMC チケット、エクスポート レポート",
+          "competitor": "LoRaWAN-based remote monitoring and diagnostics"
+        },
+        "8": {
+          "factor": "接続オプション",
+          "taypro": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, LoRaWAN",
+          "competitor": "LoRaWAN"
+        },
+        "9": {
+          "factor": "OPEX / マネージド サービス",
+          "taypro": "はい — OPEX: パネルごとに料金を払って清掃され、Taypro がフリートを操作します",
+          "competitor": "はい — MCaaS (Machine Cleaning as a Service)"
+        },
+        "10": {
+          "factor": "導入された容量",
+          "taypro": "5 GW+",
+          "competitor": "GW には記載されていません"
+        },
+        "11": {
+          "factor": "ロボットの導入",
+          "taypro": "単一のフリート番号としては公開されていません (Agar 200 MW だけで 272 台のロボット)",
+          "competitor": "非開示"
+        },
+        "12": {
+          "factor": "ライブサイト/プロジェクト",
+          "taypro": "150以上のライブサイト",
+          "competitor": "非開示"
+        },
+        "13": {
+          "factor": "ハードウェア認定",
+          "taypro": "TÜV NORD、NISE、UL、Karandikar Labs & Elca Labs — 30 年相当のモジュール安全性、IP65、静電気放電、振動、湿熱および乾熱 (安全限度内)",
+          "competitor": "ULインド認定"
+        },
+        "14": {
+          "factor": "モジュールのOEM承認",
+          "taypro": "LONGi、Solex、Premier Energies、RenewSys、Satvik、Trina Solar、Future Solar",
+          "competitor": "「主要モジュールメーカー」（名前なし）"
+        },
+        "15": {
+          "factor": "即日故障対応",
+          "taypro": "はい — インド全土、NECTYR リモート診断 + フィールド エンジニア",
+          "competitor": "指定されていない"
+        },
+        "16": {
+          "factor": "製造場所",
+          "taypro": "プネ、チャカン (600 台以上のロボット/月の生産能力)",
+          "competitor": "バンガロール"
+        },
+        "17": {
+          "factor": "プラントインテリジェンス / ロードマップ",
+          "taypro": "ORION プラント インテリジェンス プラットフォーム (早期アクセス)、CRADYL 自律列転送ドッキング",
+          "competitor": "非開示"
+        }
+      },
+      "tayproStrengths": {
+        "heading": "Taypro と Aegeus の比較",
+        "items": {
+          "0": {
+            "title": "専用トラッカーロボットとデュアルパス特許",
+            "body": "Taypro は、デュアルパス洗浄に関する 4 つのインド特許を取得した単軸トラッカー用の GLYDE-X および NYUMA-X を提供します。 Aegeus は、Web サイトでトラッカーのサポートを確認していません。"
+          },
+          "1": {
+            "title": "NECTYR マルチプロトコル接続",
+            "body": "NECTYR supports five connectivity options sized per site. Aegeus relies on LoRaWAN only — a single-protocol solution that may not suit all plant network topologies."
+          },
+          "2": {
+            "title": "5 GW+ をプラントレベルのプルーフで展開",
+            "body": "Taypro は、検証済みのケーススタディを含む 5 つの GW+ の展開容量を公開しています (Agar 200 MW: ロボット 272 台、+7.50 GWh/年)。 Aegeus は、GW の展開データまたはプラントレベルの結果データを公開しません。"
+          },
+          "3": {
+            "title": "名前付きモジュールの OEM 承認",
+            "body": "Taypro は、保証準拠に関して承認されたモジュール メーカー 6 社を指名します。 Aegeus では、名前を付けずに「主要なモジュール メーカー」を参照しています。"
+          }
+        }
+      },
+      "faq": {
+        "0": {
+          "q": "OPEX と Aegeus MCaaS を比較するとどうですか?",
+          "a": "どちらもマネージドクリーニングモデルです。 Opex はパネルごとに支払いが行われ、NECTYR ブロック単位のレポートでクリーニングされ、月あたり 3 ～ 10 サイクルが定義されています。 RFQ の Aegeus から MCaaS 商業条件とレポート範囲を直接リクエストします。"
+        },
+        "1": {
+          "q": "Taypro 認定と Aegeus 認定はどのように比較されますか?",
+          "a": "Taypro ハードウェアは、TÜV NORD、NISE、UL、Karandikar Labs、Elca Labs で検証されており、30 年相当のモジュール クリーニング サイクル、IP65、静電気放電、振動、および湿熱/乾熱を安全限度内でカバーしています。 Aegeus は、Unicorn に関する UL India 認定を取得しています。認証範囲を貸し手およびモジュール OEM 要件に合わせます。"
+        },
+        "2": {
+          "q": "Aegeus はトラッカー プラントをサポートしていますか?",
+          "a": "Aegeus の Web サイトでは、トラッカー ネイティブ ロボットは確認されていません。単軸ファームの Aegeus を評価する場合は、トラッカー行のジオメトリとブリッジ クリアランスを直接検証します。"
+        }
+      }
+    },
+    "tayproVsVayu": {
+      "meta": {
+        "title": "Taypro vs Vayu Solar — ソーラー清掃ロボットの比較 インド",
+        "description": "Taypro と Vayu Solar の検証済みの比較: デュアルパス特許、トラッカー ロボット、NECTYR フリート ソフトウェア、および 5 GW+ の展開容量。公式ウェブサイトからのデータ、2026 年 6 月。"
+      },
+      "hero": {
+        "eyebrow": "ベンダー比較",
+        "title": "公共施設の太陽熱洗浄における Taypro と Vayu Solar の比較",
+        "lead": "公開されているテクノロジーの深さ、フリート ソフトウェア、導入証明、およびサービス インフラストラクチャに関して、Vayu Solar と Taypro を比較します。"
+      },
+      "intro": "Vayu Solar は、他のインドの競合他社に比べてウェブ上での存在感が薄いです。このページでは、Vayu の公式 Web サイトのデータと、製品の詳細が限定されている相互参照を使用しています。すべての Taypro データは、2026 年 6 月時点の taypro.in からのものです。",
+      "sourceNote": "数値は、2026 年 6 月時点で公開されている情報を反映しています。調達を決定する前に、RFQ で現在の仕様を確認してください。",
+      "tableHeading": "並べて比較",
+      "rows": {
+        "0": {
+          "factor": "洗浄技術",
+          "taypro": "特許取得済みのデュアルパス: エアフローファーストパス + セルフクリーニングマイクロファイバードラム",
+          "competitor": "ドライブラシ、水なし"
+        },
+        "1": {
+          "factor": "特許",
+          "taypro": "4 Indian patents on dual-pass cleaning system and RF mesh communications",
+          "competitor": "非開示"
+        },
+        "2": {
+          "factor": "自律型（全自動）ロボット",
+          "taypro": "GLYDE、GLYDE-X、NYUMA、NYUMA-X",
+          "competitor": "全自動 (Web サイトでは名前なし)"
+        },
+        "3": {
+          "factor": "半自動ロボット",
+          "taypro": "HELYX (ピックアンドプレイス、PBT)",
+          "competitor": "セミオートマチック（リフト＆シフト）"
+        },
+        "4": {
+          "factor": "トラッカー対応ロボット",
+          "taypro": "はい - GLYDE-X (デュアルパス) および NYUMA-X (PBT)、単軸トラッカー専用",
+          "competitor": "ウェブサイトでは未確認"
+        },
+        "5": {
+          "factor": "屋上ロボット",
+          "taypro": "MINY (近日公開予定)",
+          "competitor": "記載なし"
+        },
+        "6": {
+          "factor": "充電ごとの補償範囲",
+          "taypro": "最大 3,600 モジュール / 2.2 km (GLYDE)",
+          "competitor": "1 MW / 2 km 以上"
+        },
+        "7": {
+          "factor": "フリート監視ソフトウェア",
+          "taypro": "NECTYR — スケジュール、ブロック単位のクリーニング ログ、SCADA、AMC チケット、エクスポート レポート",
+          "competitor": "無線遠隔監視（基本）"
+        },
+        "8": {
+          "factor": "接続オプション",
+          "taypro": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, LoRaWAN",
+          "competitor": "無線（プロトコル指定なし）"
+        },
+        "9": {
+          "factor": "OPEX / マネージド サービス",
+          "taypro": "はい — OPEX: パネルごとに料金を払って清掃され、Taypro がフリートを操作します",
+          "competitor": "ウェブサイトに明確に記載されていない"
+        },
+        "10": {
+          "factor": "導入された容量",
+          "taypro": "5 GW+",
+          "competitor": "GW には記載されていません"
+        },
+        "11": {
+          "factor": "ロボットの導入",
+          "taypro": "単一のフリート番号としては公開されていません (Agar 200 MW だけで 272 台のロボット)",
+          "competitor": "非開示"
+        },
+        "12": {
+          "factor": "ライブサイト/プロジェクト",
+          "taypro": "150以上のライブサイト",
+          "competitor": "非開示"
+        },
+        "13": {
+          "factor": "ハードウェア認定",
+          "taypro": "TÜV NORD、NISE、UL、Karandikar Labs & Elca Labs — 30 年相当のモジュール安全性、IP65、静電気放電、振動、湿熱および乾熱 (安全限度内)",
+          "competitor": "記載なし"
+        },
+        "14": {
+          "factor": "モジュールのOEM承認",
+          "taypro": "LONGi、Solex、Premier Energies、RenewSys、Satvik、Trina Solar、Future Solar",
+          "competitor": "「インド最大のパネルメーカー」（名前は不明）"
+        },
+        "15": {
+          "factor": "即日故障対応",
+          "taypro": "はい — インド全土、NECTYR リモート診断 + フィールド エンジニア",
+          "competitor": "指定されていない"
+        },
+        "16": {
+          "factor": "製造場所",
+          "taypro": "プネ、チャカン (600 台以上のロボット/月の生産能力)",
+          "competitor": "明確に記載されていない"
+        },
+        "17": {
+          "factor": "プラントインテリジェンス / ロードマップ",
+          "taypro": "ORION プラント インテリジェンス プラットフォーム (早期アクセス)、CRADYL 自律列転送ドッキング",
+          "competitor": "非開示"
+        }
+      },
+      "tayproStrengths": {
+        "heading": "Taypro と Vayu Solar の比較",
+        "items": {
+          "0": {
+            "title": "公開されている技術の深さと特許",
+            "body": "Taypro は、4 つのインド特許、デュアルパス洗浄機構、および 5 つの名前付きロボット プラットフォームを公開しています。 Vayu の Web サイトでは、特許や名前の付いたモデルを含まない限定的な製品詳細が提供されています。"
+          },
+          "1": {
+            "title": "トラッカー ロボットと 5 GW+ の導入証明",
+            "body": "Taypro は、200 個の MW 単一プラント展開が検証されたトラッカー向けに GLYDE-X および NYUMA-X を提供します。 Vayu はトラッカーのサポートを確認したり、展開された GW を公開したりしていません。"
+          },
+          "2": {
+            "title": "NECTYR フリート ソフトウェアとインド全域のサービス",
+            "body": "NECTYR は、インド全土でブロック単位のログ、5 つの接続プロトコル、AMC チケット発行、同日故障サポートを提供します。 Vayu は、監査機能が公開されていない基本的なワイヤレス監視を提供します。"
+          },
+          "3": {
+            "title": "複数の研究機関による認証と指定された OEM の承認",
+            "body": "Taypro は、TÜV NORD、NISE、UL、Karandikar Labs、および Elca Labs によって検証されており、30 年相当のモジュールの安全性、IP65、静電気放電、振動、および安全限度内の湿熱/乾熱をカバーしており、承認されたモジュール メーカー 6 社の名前が挙げられています。 Vayu は、ハードウェア認定や指定された OEM 承認を発行していません。"
+          }
+        }
+      },
+      "faq": {
+        "0": {
+          "q": "Vayu Solar の Web サイトはデューデリジェンスに十分ですか?",
+          "a": "Vayu は、Taypro、Solabot、または Aegeus よりも Web 上での存在感が薄いです。詳細な仕様、参照プラント、フリート ソフトウェアのスクリーンショット、内訳 SLA を RFQ で直接リクエストしてください。"
+        },
+        "1": {
+          "q": "Vayu の補償範囲の主張は Taypro とどのように比較されますか?",
+          "a": "Vayu は 1 回の充電につき 1 MW / 2 km を請求します。 Taypro の GLYDE は、2.2 km あたり最大 3,600 モジュールを公開します。サイトのトライアル中に行の長さとモジュール密度の両方を検証します。"
+        },
+        "2": {
+          "q": "Taypro がより多くのデータを公開しているのに、なぜ Taypro と Vayu を比較する必要があるのでしょうか?",
+          "a": "IPP で複数のベンダーを最終候補に挙げる場合は、各企業がどれだけオンラインで公開しているかに関係なく、テクノロジーの適合性、ソフトウェア監査機能、およびサービス インフラストラクチャをサイトのトライアルで検証する必要があります。"
+        }
+      }
+    },
+    "waterlessVsWater": {
+      "meta": {
+        "title": "ソーラーパネルの無水洗浄と水ベースの洗浄",
+        "description": "水のないロボットと水を使用した手動の太陽熱洗浄を比較します。粉塵の除去、モジュールのリスク、水コスト、環境コンプライアンス、インドの公共事業への適合性です。"
+      },
+      "hero": {
+        "eyebrow": "技術比較",
+        "title": "水なしソーラーパネル洗浄と水ベースのソーラーパネル洗浄",
+        "lead": "小規模な現場では依然として水洗いが一般的です。水が不足し、監査頻度が高いインドの新興電力会社 RFQ では、水を使わないロボットが主流となっています。"
+      },
+      "intro": "粉塵の化学的性質、モジュールのコーティング、および地域の水コストによって、適切な方法が決まります。 Taypro は、ユーティリティ アレイ用の水なしデュアルパスと PBT ドライ クリーニングを標準化します。水ベースの方法は、信頼性の高い供給と低い TDS を備えた特定のゾーンに依然として適している可能性があります。",
+      "tableHeading": "手法の比較",
+      "rows": {
+        "0": {
+          "factor": "水の消費量",
+          "waterless": "列上には何もありません。乾燥州における大幅な節約",
+          "water": "洗浄あたりのリットル × テーブル数 × サイクル"
+        },
+        "1": {
+          "factor": "労働",
+          "waterless": "自律型または半自動ロボット",
+          "water": "乗務員またはトラクター システム"
+        },
+        "2": {
+          "factor": "モジュールのリスク",
+          "waterless": "ドライブラシ/マイクロファイバー。ベンダー固有の",
+          "water": "圧力/ノズルが制御されていない場合のリスク"
+        },
+        "3": {
+          "factor": "環境",
+          "waterless": "流出はありません。水不足の場所の許可に準拠",
+          "water": "流出と調達のコンプライアンス"
+        },
+        "4": {
+          "factor": "Taypro 製品",
+          "waterless": "GLYDE、NYUMA、GLYDE-X、NYUMA-X、HELYX",
+          "water": "Taypro の主なユーティリティ製品ではありません"
+        },
+        "5": {
+          "factor": "水が勝つとき",
+          "waterless": "ユーティリティ MW 植物、ラジャスタン州/グジャラート州の塵",
+          "water": "汚れが少なく、安価に水が利用できるC&I"
+        }
+      },
+      "faq": {
+        "0": {
+          "q": "水なし洗浄はコーティングを損傷しますか?",
+          "a": "Taypro は、ドライ マイクロファイバーとユーティリティ ガラス用に設計された PBT メソッドを使用しており、モジュール OEM ガイダンスに従ってパイロット ブロックで検証します。"
+        },
+        "1": {
+          "q": "中年期にウェットからウォーターレスに切り替えることはできますか?",
+          "a": "Yes. Retrofit robots on live plants; Opex can bridge until CAPEX approval."
+        },
+        "2": {
+          "q": "ユーティリティプラントの手動洗浄ではどのくらいの水を使用しますか?",
+          "a": "業界の見積もりでは、タンカーの物流と荷揚げコンプライアンスを遵守する前に、インドの大規模施設での湿式洗浄プログラムに年間 MW あたり 140,000 リットル以上が必要であると見積もられています。水のないロボットにより、列上の消費が完全に排除されます。"
+        },
+        "3": {
+          "q": "インドの環境基準は何を支持しますか?",
+          "a": "水不足の地域とCPSU入札により、モジュール洗浄のための地下水の取水がますます制限されています。乾式ロボットのペースは許可の制約に合わせており、一時的な湿式洗浄と比較して月に 3 ～ 10 サイクルを可能にします。"
+        }
+      },
+      "deepDive": {
+        "heading": "TCO スナップショット: 水のないロボット vs 濡れた手動作業員 (実用規模)",
+        "p1": "ラジャスタン州またはグジャラート州にある 100 MW の固定傾斜工場では、通常、手動による湿式洗浄に労働者組織、タンカー調達、燃料、監督、不規則な作業が組み込まれています。水を使わないロボット OPEX は、毎晩どのブロックが清掃されたかを NECTYR 証明することで、清掃をパネルごとの変動費に変換します。これは、IPP 資産管理者や貸し手の監査にとって重要です。",
+        "p2": "市営水道へのアクセスがあり、粉塵負荷が低い小さな C&I 屋上では、依然として湿式洗浄が有効です。 Taypro が提供するユーティリティは、水なしの GLYDE、NYUMA、およびトラッカーのバリアントであり、高圧洗浄サービスではありません。 O&M 契約でメソッドをロックする前に、ROI 計算ツールを使用して料金、汚れ率、サイクルの仮定を使用してください。",
+        "p3": "ソーラーパーク (ブジ、ジャイサルメール、ファローディベルト) での地下水利用に対する規制圧力により、従来の契約では湿式作業員が想定されていた場合でも、新しい RFQ は乾式方式に移行するようになっています。初年度の労働率だけでなく、許可リスクと水道料金の高騰も考慮に入れてください。"
       }
     }
   }

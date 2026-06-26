@@ -14,13 +14,13 @@
     "hero": {
       "eyebrow": "Commercial guide · India utility solar",
       "title": "Solar Panel Cleaning Robot Price in India",
-      "subtitle": "What drives robot cost, indicative CAPEX bands for utility plants, and how to compare purchase with Taypro Opex — then model payback with our free ROI calculator.",
+      "subtitle": "What drives robot cost, indicative CAPEX bands for utility plants, and how to compare purchase with Opex — then model payback with our free ROI calculator.",
       "ctaCalculator": "Open ROI calculator",
       "ctaQuote": "Request a quote"
     },
     "disclaimer": {
       "label": "Important:",
-      "body": "Figures on this page are directional estimates based on typical Taypro deployment assumptions — not a binding price list or formal quote. Final robot price depends on row layout, tracker brand, soiling study, automation level, fleet software scope, and whether you choose CAPEX purchase or Taypro Opex."
+      "body": "Figures on this page are directional estimates based on typical Taypro deployment assumptions — not a binding price list or formal quote. Final robot price depends on row layout, tracker brand, soiling study, automation level, fleet software scope, and whether you choose CAPEX purchase or Opex."
     },
     "costDrivers": {
       "eyebrow": "What drives price",
@@ -43,8 +43,8 @@
         "body": "NECTYR fleet monitoring, AMC tier, spare-parts stocking, and same-day breakdown SLAs are part of the commercial envelope — especially for IPPs running multi-site portfolios across Rajasthan, Gujarat, and Karnataka."
       },
       "item4": {
-        "title": "CAPEX vs Taypro Opex",
-        "body": "Many developers capitalise robots on the balance sheet; others choose Taypro Opex — pay per panel cleaned with Taypro operating the fleet. The business case shifts from upfront CAPEX to a monthly O&M line item."
+        "title": "CAPEX vs Opex",
+        "body": "Many developers capitalise robots on the balance sheet; others choose Opex — pay per panel cleaned with Taypro operating the fleet. The business case shifts from upfront CAPEX to a monthly O&M line item."
       }
     },
     "capexBands": {
@@ -71,11 +71,11 @@
     },
     "capexVsOpex": {
       "eyebrow": "Procurement models",
-      "heading": "CAPEX robot purchase vs Taypro Opex service",
+      "heading": "CAPEX robot purchase vs Opex service",
       "capexBody": "CAPEX suits asset owners who want robots on the balance sheet, control fleet configuration, and amortise hardware over the plant life. Taypro supplies GLYDE, NYUMA, HELYX, and tracker variants with NECTYR fleet software and pan-India breakdown support.",
-      "opexBody": "Taypro Opex moves cleaning to a service contract — pay per panel cleaned, with Taypro operating robots, schedules, and reporting. No upfront robot CAPEX; ideal when waterless cadence must start quickly on a new commissioning.",
+      "opexBody": "Opex moves cleaning to a service contract — pay per panel cleaned, with Taypro operating robots, schedules, and reporting. No upfront robot CAPEX; ideal when waterless cadence must start quickly on a new commissioning.",
       "capexCta": "Compare robot models",
-      "opexCta": "Explore Taypro Opex service"
+      "opexCta": "Explore Opex service"
     },
     "manufacturer": {
       "eyebrow": "Manufacturer & supplier",
@@ -84,7 +84,7 @@
       "checklistHeading": "RFQ checklist for Indian utility buyers",
       "check0": "Waterless fit for your dust/soiling profile and water availability",
       "check1": "Fixed-tilt vs single-axis tracker compatibility and bridge validation",
-      "check2": "CAPEX purchase vs Taypro Opex pay-per-panel model",
+      "check2": "CAPEX purchase vs Opex pay-per-panel model",
       "check3": "Fleet software with block-level proof of completion (NECTYR)",
       "check4": "India-local manufacturing, spares network, and breakdown SLA"
     },
@@ -104,7 +104,7 @@
       "statesHeading": "Regional guides",
       "linkHub": "Solar panel cleaning robot hub",
       "linkGlyde": "GLYDE automatic robot",
-      "linkService": "Taypro Opex service",
+      "linkService": "Opex service",
       "linkUtilityOps": "Solar O&M & utility operations",
       "linkCalculator": "Full ROI calculator page",
       "linkRajasthan": "Solar cleaning robots in Rajasthan",
@@ -120,13 +120,13 @@
       "heading": "Frequently asked questions",
       "subheading": "Common questions about solar panel cleaning robot price in India.",
       "q0": "What is the solar panel cleaning robot price in India?",
-      "a0": "There is no single list price. Robot cost depends on MW capacity, fixed tilt vs tracker layout, automation level (automatic vs semi-automatic), fleet software scope, and CAPEX vs Taypro Opex. This page shows directional CAPEX bands; use our ROI calculator or contact Taypro with your plant layout for a formal quote.",
+      "a0": "There is no single list price. Robot cost depends on MW capacity, fixed tilt vs tracker layout, automation level (automatic vs semi-automatic), fleet software scope, and CAPEX vs Opex. This page shows directional CAPEX bands; use our ROI calculator or contact Taypro with your plant layout for a formal quote.",
       "q1": "What is the solar panel cleaning robot cost per panel?",
-      "a1": "Directional ₹/MW and ₹/module figures divide total fleet investment by plant capacity or modules under robotic coverage — useful for procurement teams who benchmark per MW and for comparing against manual crew economics. Actual cost varies with row density, cleaning cadence, and whether you choose CAPEX or Taypro Opex. The indicative bands table on this page illustrates the math for representative utility sizes.",
+      "a1": "Directional ₹/MW and ₹/module figures divide total fleet investment by plant capacity or modules under robotic coverage — useful for procurement teams who benchmark per MW and for comparing against manual crew economics. Actual cost varies with row density, cleaning cadence, and whether you choose CAPEX or Opex. The indicative bands table on this page illustrates the math for representative utility sizes.",
       "q2": "Who are solar panel cleaning robot manufacturers in India?",
       "a2": "Taypro is a Made-in-India manufacturer of utility-scale waterless cleaning robots (GLYDE, NYUMA, HELYX, tracker variants) with NECTYR fleet software and pan-India service. Utility RFQs in India also evaluate other domestic and global OEMs — compare on waterless fit, tracker compatibility, fleet data, and breakdown SLA, not unit price alone.",
-      "q3": "Should I buy robots (CAPEX) or use Taypro Opex?",
-      "a3": "CAPEX suits owners who want to capitalise robots and control fleet configuration. Taypro Opex is pay-per-panel-cleaned with Taypro operating the fleet — no upfront robot purchase. Many developers model both paths; mention your preference when requesting a quote.",
+      "q3": "Should I buy robots (CAPEX) or use Opex?",
+      "a3": "CAPEX suits owners who want to capitalise robots and control fleet configuration. Opex is pay-per-panel-cleaned with Taypro operating the fleet — no upfront robot purchase. Many developers model both paths; mention your preference when requesting a quote.",
       "q4": "How do I get a formal solar cleaning robot quote?",
       "a4": "Share plant MW, fixed-tilt or tracker layout, location/state, soiling context, and preferred procurement model (CAPEX or Opex). Taypro applications engineering returns robot counts, commercial options, and SLA scope after layout review.",
       "q5": "Is this page the same as the ROI calculator?",

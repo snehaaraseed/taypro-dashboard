@@ -372,7 +372,7 @@
       "linkBetweenBAndT": "، ",
       "linkGlydeX": "روبوت تتبع أحادي المحور (GLYDE-X)",
       "linkBetweenTAndOpex": "، ",
-      "linkOpex": "خدمة تنظيف Taypro OPEX",
+      "linkOpex": "خدمة تنظيف OPEX",
       "linkBetweenOpexAndNectyr": " أو ",
       "linkNectyr": "تطبيق مراقبة NECTYR",
       "crossSellSuffix": ".",
@@ -464,7 +464,9 @@
         }
       },
       "datasheetCta": "Request full datasheet",
-      "datasheetCtaTopic": "GLYDE datasheet request"
+      "datasheetCtaTopic": "GLYDE datasheet request",
+      "datasheetCtaTitle": "Get the GLYDE technical datasheet",
+      "datasheetCtaSubtitle": "Share your details and we'll send the full GLYDE datasheet, then follow up on sizing or configuration questions for your plant."
     },
     "advantagesSection": {
       "heading": "مزايا روبوتات التنظيف الأوتوماتيكية",

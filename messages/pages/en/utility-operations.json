@@ -49,7 +49,7 @@
       "heading": "Solar panel soiling loss, soiling ratio, and PR improvement in India",
       "p1": "Soiling ratio — the fraction of irradiance lost to dust on module glass — drives performance ratio (PR) drift on Indian utility plants. In Rajasthan, Gujarat, and MP, cumulative soiling can suppress 8–25% of annual generation when cleaning stays calendar-based rather than cadence-driven.",
       "p2": "PR improvement from cleaning depends on baseline soiling, cycle frequency, and weather. Robotic dry cleaning enables 3–10 cycles per month without wet-wash water — the economical path to neutralise soiling loss on multi-MW fleets.",
-      "p3": "EPC and O&M teams should tie cleaning evidence to PR recovery: NECTYR block-level logs plus directional ROI from our price guide and calculator before committing CAPEX or Taypro Opex.",
+      "p3": "EPC and O&M teams should tie cleaning evidence to PR recovery: NECTYR block-level logs plus directional ROI from our price guide and calculator before committing CAPEX or Opex.",
       "linkPriceGuide": "India robot price guide",
       "linkCalculator": "ROI calculator"
     },
@@ -83,7 +83,7 @@
     "robotsSeo": {
       "eyebrow": "Procurement & engineering",
       "heading": "Solar panel cleaning robots for utility-scale plants in India",
-      "bodyBefore": "Taypro manufactures autonomous and semi-automatic waterless solar panel cleaning robots for fixed tilt, seasonal tilt, and single-axis tracker sites, with pan-India service, NECTYR fleet monitoring, and optional Taypro Opex for pay-per-panel cleaning. Compare",
+      "bodyBefore": "Taypro manufactures autonomous and semi-automatic waterless solar panel cleaning robots for fixed tilt, seasonal tilt, and single-axis tracker sites, with pan-India service, NECTYR fleet monitoring, and optional Opex for pay-per-panel cleaning. Compare",
       "hubLink": "every Taypro robot model",
       "bodyAfter": ", run the ROI calculator, or request a site-specific quote.",
       "ctaHub": "Solar panel cleaning robot hub",
@@ -110,7 +110,7 @@
       "q2": "How does Taypro differ from SCADA alone?",
       "a2": "SCADA reports output after loss. Taypro adds field execution (robots), fleet operations (NECTYR), and roadmap plant intelligence (ORION) so teams can schedule cleaning, prove coverage, and connect cycles to performance, not just react to alarms.",
       "q3": "Can we buy robots or use a managed service?",
-      "a3": "Both. Purchase GLYDE, NYUMA, or HELYX with commissioning and AMC, or choose Taypro Opex for operator-led cleaning with pay-per-panel billing. NECTYR is included for fleet visibility on deployed robots.",
+      "a3": "Both. Purchase GLYDE, NYUMA, or HELYX with commissioning and AMC, or choose Opex for operator-led cleaning with pay-per-panel billing. NECTYR is included for fleet visibility on deployed robots.",
       "q4": "Where are Taypro robots made and supported?",
       "a4": "Taypro designs and manufactures in Chakan, Pune, with warehouses and field engineers across India for commissioning, spares, and same-day breakdown targets on supported fleets.",
       "q5": "What is solar panel soiling loss on Indian utility plants?",
@@ -118,12 +118,16 @@
       "q6": "How do cleaning robots improve solar plant performance ratio (PR)?",
       "a6": "More consistent module cleanliness reduces soiling-related PR drift. Robots enable daily or near-daily cycles that manual crews cannot match at scale — with auditable coverage through NECTYR. PR improvement is site-dependent; Taypro quotes outcomes after soiling study and layout review.",
       "q7": "What is solar O&M cleaning robot procurement in India?",
-      "a7": "Utility RFQs evaluate waterless robot fit, tracker compatibility, fleet software, breakdown SLA, and CAPEX vs managed Opex. Taypro supplies Made-in-India robots (GLYDE, NYUMA, HELYX, tracker variants) with NECTYR and optional Taypro Opex — see our India price guide and regional state pages for deployment context."
+      "a7": "Utility RFQs evaluate waterless robot fit, tracker compatibility, fleet software, breakdown SLA, and CAPEX vs managed Opex. Taypro supplies Made-in-India robots (GLYDE, NYUMA, HELYX, tracker variants) with NECTYR and optional Opex — see our India price guide and regional state pages for deployment context."
     },
     "cta": {
       "heading": "Plan your plant's operations layer",
       "body": "Share capacity, layout, and procurement preference, our team will recommend robots, Opex, or fleet software for your site.",
       "quote": "Get a quote",
+      "quoteTopic": "Utility operations quote",
+      "quoteTitle": "Get a quote for your plant",
+      "quoteSubtitle": "Tell us about your MW capacity, array type, region, and whether you are evaluating CAPEX robots, Taypro Opex, or NECTYR fleet software.",
+      "quoteFormPrompt": "Where should we send your proposal?",
       "company": "Partners & investors"
     },
     "related": {

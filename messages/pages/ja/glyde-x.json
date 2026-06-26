@@ -37,7 +37,13 @@
       "subtitleStrong": "テーブル間で最大±15°フレックス",
       "subtitleAfter": "、モジュール傾斜-52°〜+52°をサポートし、NEXTracker・Gamechangerおよび同等トラッカーに対応。",
       "imgAlt": "Taypro 単軸トラッカーソーラーパネル清掃ロボット GLYDE-X, トラッキング設備向け自律清掃システム",
-      "ctaText": "見積もりを依頼"
+      "ctaText": "見積もりを依頼",
+      "primaryCta": {
+        "topic": "GLYDE-X 見積もり",
+        "title": "GLYDE-X の見積もりをリクエストする",
+        "subtitle": "貴社のトラッカー プラントについてお知らせください。GLYDE-X のサイジング、ブリッジキットのニーズ、商用オプションについてフォローアップいたします。",
+        "label": "見積もりを依頼する"
+      }
     },
     "usps": {
       "0": {
@@ -504,7 +510,7 @@
       "crossSellLead": "小規模／分散プラント？半自動の",
       "linkHelyx": "HELYX",
       "crossSellMid": "。清掃の完全アウトソース？",
-      "linkOpex": "Taypro OPEX清掃サービス",
+      "linkOpex": "OPEX清掃サービス",
       "crossSellSuffix": "を検討。"
     },
     "indianConditions": {
@@ -524,7 +530,7 @@
       "linkBetweenAB": "、",
       "linkHelyx": "半自動HELYXロボット",
       "linkBetweenBOpex": "、",
-      "linkOpex": "Taypro OPEX清掃サービス",
+      "linkOpex": "OPEX清掃サービス",
       "linkBetweenOpexAndNectyr": "または",
       "linkNectyr": "NECTYRモニタリングアプリ",
       "crossSellSuffix": "。",
@@ -600,6 +606,19 @@
       "crossSellMid": ". Prefer semi-automatic deployment? See ",
       "linkHelyx": "HELYX",
       "crossSellSuffix": "."
+    },
+    "gallery": {
+      "eyebrow": "Product engineering",
+      "title": "GLYDE-X hardware at a glance",
+      "subtitle": "Patented dual-pass microfiber cleaning for single-axis tracker tables, with on-board solar charging and flexible inter-table bridge articulation.",
+      "topAlt": "Taypro GLYDE-X automatic tracker cleaning robot, top-down view showing integrated solar panel and dual-pass cleaning frame",
+      "topCaption": "Top-down view of GLYDE-X with on-board solar charging and dual-pass cleaning assembly.",
+      "sideAlt": "Taypro GLYDE-X side profile showing module-frame travel rails and end housings",
+      "sideCaption": "Side profile of the GLYDE-X chassis engineered for long-reach tracker tables.",
+      "zoomedLeftAlt": "Close-up of Taypro GLYDE-X tracker bridge mechanism and dual-pass cleaning head",
+      "zoomedLeftCaption": "Bridge and cleaning-head detail for inter-table traversal on single-axis trackers.",
+      "zoomedRightAlt": "Taypro GLYDE-X solar charging module and drive housing detail",
+      "zoomedRightCaption": "On-board solar-assisted charging for extended autonomous tracker cleaning cycles."
     }
   },
   "Common": {

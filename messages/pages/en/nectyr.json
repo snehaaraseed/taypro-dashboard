@@ -21,7 +21,13 @@
       "title": "NECTYR, Solar Panel Cleaning Robot Fleet Portal",
       "subtitle": "The secure web command centre for your Taypro robot fleet, live dashboards, weather-aware context, schedules, cleaning logs, exportable reports, analytics, and support workflows. Login details and the customer portal link are shared privately by Taypro after contract onboarding.",
       "imgAlt": "NECTYR, Solar Panel Cleaning Robot monitoring and fleet control dashboard",
-      "ctaText": "Request access"
+      "ctaText": "Request access",
+      "primaryCta": {
+        "topic": "NECTYR access",
+        "title": "Request NECTYR access",
+        "subtitle": "Tell us about your fleet and our team will get you set up with NECTYR portal access and onboarding.",
+        "label": "Request access"
+      }
     },
     "intro": {
       "eyebrow": "Fleet software for robotic solar cleaning",
@@ -150,7 +156,7 @@
       "title": "How NECTYR fits into your solar O&M workflow",
       "p1": "NECTYR is not a generic plant SCADA, and it is not a replacement for your work-management system. It is a focused fleet layer for robotic solar panel cleaning that sits alongside the tools your operations team already runs, plant SCADA for generation, CMMS for tickets and assets, and your field reporting stack for daily logs.",
       "p2Before": "Cleaning crews use NECTYR to confirm last night's block-wise coverage before the morning shift. Plant managers use it to compare planned vs. actual cycles against the monthly cleaning strategy. Central engineering uses it to spot soiling trends across multiple sites in a portfolio. Finance teams use the exports to reconcile cleaning evidence with O&M billing, especially useful for plants on",
-      "opexLink": "Taypro OPEX",
+      "opexLink": "OPEX",
       "p2After": "where billing is per panel cleaned.",
       "p3Before": "If you're still deciding between owning a robot fleet and consuming cleaning as a service, our",
       "categoryLink": "Solar Panel Cleaning Robot category page",
@@ -192,9 +198,17 @@
       "requestAccess": "Request NECTYR access",
       "emailService": "Email support",
       "emailServiceLink": "our support team",
+      "supportLeadTopic": "NECTYR support",
+      "supportLeadTitle": "NECTYR support request",
+      "supportLeadSubtitle": "Existing customer? Describe your fleet, site, or login issue and our support team will follow up.",
+      "supportLeadFormPrompt": "What do you need help with?",
+      "supportLeadMessageLabel": "Support details",
+      "supportLeadMessagePlaceholder": "Organisation, site name, fleet size, issue summary, and urgency…",
+      "supportLeadSubmitLabel": "Send support request",
       "leadTopic": "NECTYR access",
       "leadTitle": "Request NECTYR access",
-      "leadSubtitle": "Tell us about your fleet and our team will get you set up with NECTYR."
+      "leadSubtitle": "Tell us about your fleet and our team will get you set up with NECTYR.",
+      "leadFormPrompt": "Where should we send your NECTYR onboarding details?"
     },
     "faq": {
       "title": "Frequently asked questions",

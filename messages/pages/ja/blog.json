@@ -39,6 +39,8 @@
       "heroBodyAuthorsBefore": "執筆：",
       "heroLinkAuthors": "Taypro著者",
       "heroBodyAuthorsAfter": ", 現場の知見に応じて更新。",
+      "heroCountBadgeLabel": "公開済み",
+      "heroCountBadgeUnit": "記事",
       "statsArticles": "公開記事",
       "statsAuthorsTitle": "著者を見る",
       "statsAuthorsSubtitle": "エンジニアと現場専門家 →",
@@ -124,8 +126,16 @@
       "frequency": "週刊",
       "title": "ブログ更新を購読",
       "description": "ソーラー性能と保守に関する新しい洞察。",
-      "iframeTitle": "ニュースレター登録",
-      "cta": "お問い合わせで最新情報を受け取る"
+      "formLabel": "ニュースレター登録",
+      "emailLabel": "メールアドレス",
+      "emailPlaceholder": "メールアドレス",
+      "cta": "購読する",
+      "submitting": "登録中...",
+      "successTitle": "登録完了！",
+      "successMessage": "ご登録ありがとうございます。ブログの更新をお届けします。",
+      "alreadySubscribedMessage": "すでに登録済みです。引き続き更新をお届けします。",
+      "requiredError": "メールアドレスを入力してください。",
+      "genericError": "問題が発生しました。しばらくしてからもう一度お試しください。"
     }
   },
   "Common": {

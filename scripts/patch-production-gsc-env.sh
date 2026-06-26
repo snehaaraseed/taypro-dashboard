@@ -73,7 +73,7 @@ if [ -f "$ERPNEXT_ENV_FILE" ]; then
     val="${line#*=}"
     [ -z "$key" ] || [ -z "$val" ] && continue
     case "$key" in
-      ERPNEXT_API_URL|ERPNEXT_API_KEY|ERPNEXT_API_SECRET)
+      ERPNEXT_API_URL|ERPNEXT_API_KEY|ERPNEXT_API_SECRET|ERPNEXT_NEWSLETTER_EMAIL_GROUP)
         set_kv "$key" "$val"
         ;;
     esac

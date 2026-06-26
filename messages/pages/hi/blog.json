@@ -39,6 +39,8 @@
       "heroBodyAuthorsBefore": "लेखक:",
       "heroLinkAuthors": "Taypro लेखक",
       "heroBodyAuthorsAfter": "; फील्ड सीख के साथ अपडेट।",
+      "heroCountBadgeLabel": "प्रकाशित",
+      "heroCountBadgeUnit": "लेख",
       "statsArticles": "प्रकाशित लेख",
       "statsAuthorsTitle": "लेखकों से मिलें",
       "statsAuthorsSubtitle": "इंजीनियर और फील्ड विशेषज्ञ →",
@@ -124,8 +126,16 @@
       "frequency": "साप्ताहिक",
       "title": "ब्लॉग अपडेट के लिए सब्सक्राइब करें",
       "description": "सोलर प्रदर्शन और रखरखाव पर नई अंतर्दृष्टि।",
-      "iframeTitle": "न्यूज़लेटर सब्सक्रिप्शन",
-      "cta": "अपडेट के लिए संपर्क करें"
+      "formLabel": "न्यूज़लेटर सब्सक्रिप्शन",
+      "emailLabel": "ईमेल पता",
+      "emailPlaceholder": "आपका ईमेल पता",
+      "cta": "सब्सक्राइब करें",
+      "submitting": "सब्सक्राइब हो रहा है...",
+      "successTitle": "सब्सक्राइब हो गया!",
+      "successMessage": "साइन अप के लिए धन्यवाद। ब्लॉग अपडेट आपके इनबॉक्स में आएंगे।",
+      "alreadySubscribedMessage": "आप पहले से हमारी सूची में हैं। अपडेट आते रहेंगे।",
+      "requiredError": "कृपया अपना ईमेल पता दर्ज करें।",
+      "genericError": "कुछ गलत हो गया। कृपया कुछ मिनट बाद पुनः प्रयास करें।"
     }
   },
   "Common": {

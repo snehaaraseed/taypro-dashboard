@@ -6,7 +6,7 @@
     },
     "cta": {
       "heading": "Need a plant-specific recommendation?",
-      "body": "Share MW capacity, tilt or tracker layout, and soiling profile. Taypro engineers will map GLYDE, NYUMA, HELYX, or Taypro Opex to your asset.",
+      "body": "Share MW capacity, tilt or tracker layout, and soiling profile. Taypro engineers will map GLYDE, NYUMA, HELYX, or Opex to your asset.",
       "quote": "Get a quote",
       "calculator": "ROI calculator"
     },
@@ -106,7 +106,7 @@
         },
         "9": {
           "factor": "OPEX / managed service",
-          "taypro": "Yes — Taypro OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
+          "taypro": "Yes — OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
           "solabot": "Not mentioned on website",
           "aegeus": "Yes — MCaaS (Machine Cleaning as a Service)",
           "skilancer": "Not clearly mentioned",
@@ -206,7 +206,7 @@
           },
           "6": {
             "title": "OPEX managed service with named commercial structure",
-            "body": "Taypro Opex is a pay-per-panel-cleaned managed service where Taypro operates the fleet on the plant — with pricing transparency, defined cleaning cycles (3–10 per month based on soiling study), and full NECTYR reporting. Aegeus offers MCaaS as a service model. Solabot, Skilancer, and Vayu do not clearly publish an equivalent managed service on their websites."
+            "body": "Opex is a pay-per-panel-cleaned managed service where Taypro operates the fleet on the plant — with pricing transparency, defined cleaning cycles (3–10 per month based on soiling study), and full NECTYR reporting. Aegeus offers MCaaS as a service model. Solabot, Skilancer, and Vayu do not clearly publish an equivalent managed service on their websites."
           }
         }
       },
@@ -265,7 +265,7 @@
         },
         "4": {
           "factor": "Upfront cost",
-          "robot": "CAPEX robots or Taypro Opex per-panel service",
+          "robot": "CAPEX robots or Opex per-panel service",
           "manual": "Lower capex; recurring labour + water"
         },
         "5": {
@@ -294,7 +294,7 @@
       },
       "deepDive": {
         "heading": "MW-scale cost and audit comparison",
-        "p1": "Manual programmes hide cost in variable labour and water — easy to under-budget in year one, expensive when dust season demands weekly washes. Robots front-load CAPEX or convert to Taypro OPEX per panel cleaned, with block-level logs exportable for PR recovery analysis.",
+        "p1": "Manual programmes hide cost in variable labour and water — easy to under-budget in year one, expensive when dust season demands weekly washes. Robots front-load CAPEX or convert to OPEX per panel cleaned, with block-level logs exportable for PR recovery analysis.",
         "p2": "Asset managers under performance guarantees need evidence that cleaning happened on schedule. NECTYR timestamps routes, exceptions, and battery swaps; manual programmes often rely on photos and sign-off sheets that do not scale across 200+ blocks.",
         "p3": "Break-even depends on soiling loss, tariff, and cycle frequency — not robot brochure price alone. Model your plant on the solar panel cleaning ROI calculator, then validate with a Taypro layout review."
       }
@@ -360,7 +360,7 @@
         },
         "9": {
           "factor": "OPEX / managed service",
-          "taypro": "Yes — Taypro OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
+          "taypro": "Yes — OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
           "competitor": "Not mentioned on website"
         },
         "10": {
@@ -421,7 +421,7 @@
           },
           "3": {
             "title": "OPEX managed service and largest single-plant deployment",
-            "body": "Taypro Opex offers pay-per-panel-cleaned managed cleaning with NECTYR reporting. Taypro's Agar 200 MW deployment (272 robots, +7.50 GWh/year verified) is the largest documented single-plant fleet with measured outcomes."
+            "body": "Opex offers pay-per-panel-cleaned managed cleaning with NECTYR reporting. Taypro's Agar 200 MW deployment (272 robots, +7.50 GWh/year verified) is the largest documented single-plant fleet with measured outcomes."
           }
         }
       },
@@ -501,7 +501,7 @@
         },
         "9": {
           "factor": "OPEX / managed service",
-          "taypro": "Yes — Taypro OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
+          "taypro": "Yes — OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
           "competitor": "Not clearly mentioned on website"
         },
         "10": {
@@ -562,7 +562,7 @@
           },
           "3": {
             "title": "OPEX managed service with named commercial structure",
-            "body": "Taypro Opex is a pay-per-panel-cleaned managed service with defined cleaning cycles and full NECTYR reporting. Skilancer does not clearly publish an equivalent managed OPEX model."
+            "body": "Opex is a pay-per-panel-cleaned managed service with defined cleaning cycles and full NECTYR reporting. Skilancer does not clearly publish an equivalent managed OPEX model."
           }
         }
       },
@@ -642,7 +642,7 @@
         },
         "9": {
           "factor": "OPEX / managed service",
-          "taypro": "Yes — Taypro OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
+          "taypro": "Yes — OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
           "competitor": "Yes — MCaaS (Machine Cleaning as a Service)"
         },
         "10": {
@@ -709,8 +709,8 @@
       },
       "faq": {
         "0": {
-          "q": "How do Taypro OPEX and Aegeus MCaaS compare?",
-          "a": "Both are managed cleaning models. Taypro Opex is pay-per-panel-cleaned with NECTYR block-wise reporting and defined 3–10 cycles/month. Request MCaaS commercial terms and reporting scope directly from Aegeus on your RFQ."
+          "q": "How do OPEX and Aegeus MCaaS compare?",
+          "a": "Both are managed cleaning models. Opex is pay-per-panel-cleaned with NECTYR block-wise reporting and defined 3–10 cycles/month. Request MCaaS commercial terms and reporting scope directly from Aegeus on your RFQ."
         },
         "1": {
           "q": "How do Taypro and Aegeus certifications compare?",
@@ -783,7 +783,7 @@
         },
         "9": {
           "factor": "OPEX / managed service",
-          "taypro": "Yes — Taypro OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
+          "taypro": "Yes — OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
           "competitor": "Not clearly mentioned on website"
         },
         "10": {
@@ -914,7 +914,7 @@
         },
         "1": {
           "q": "Can we switch from wet to waterless mid-life?",
-          "a": "Yes. Retrofit robots on live plants; Taypro Opex can bridge until CAPEX approval."
+          "a": "Yes. Retrofit robots on live plants; Opex can bridge until CAPEX approval."
         },
         "2": {
           "q": "How much water does manual washing use on utility plants?",

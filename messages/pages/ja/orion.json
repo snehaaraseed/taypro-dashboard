@@ -84,7 +84,12 @@
       "formTitle": "ORIONへの関心登録",
       "messageLabel": "プラント・データ情報",
       "messagePlaceholder": "プラントMW、所在地、SCADA、ロボット、O&M課題…",
-      "submitLabel": "関心リクエスト送信"
+      "submitLabel": "関心リクエスト送信",
+      "firstNameLabel": "あなたの名前*",
+      "emailLabel": "仕事用メール*",
+      "phoneLabel": "電話番号*",
+      "thankYouTitle": "ORION にご関心をお寄せいただきありがとうございます",
+      "thankYouMessage": "私たちのチームは、相互NDAに基づいてパイロットの資格、統合範囲、スケジュールをフォローアップします。"
     },
     "related": {
       "eyebrow": "本日利用可能",

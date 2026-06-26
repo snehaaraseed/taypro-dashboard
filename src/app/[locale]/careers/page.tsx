@@ -20,6 +20,7 @@ import { tayproTrustedByStatsStrip } from "@/app/data";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { Container } from "@/app/components/Container";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
+import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import { FaqSection } from "@/app/components/FaqSection";
 import { FAQPageSchema } from "@/app/components/StructuredData";
 import {
@@ -347,12 +348,24 @@ export default async function CareersPage({
                 {t("emptyTitle")}
               </h3>
               <p className="mb-6 text-[#27415c]">{t("emptyBody")}</p>
-              <Link
-                href="/contact"
+              <OpenLeadModalButton
+                source="careers_empty"
+                topic={t("leadModal.topic")}
+                title={t("leadModal.title")}
+                subtitle={t("leadModal.subtitle")}
+                leadIntent={t("leadModal.topic")}
+                formPrompt={t("leadModal.formPrompt")}
+                showMessageField
+                messageLabel={t("leadModal.messageLabel")}
+                messagePlaceholder={t("leadModal.messagePlaceholder")}
+                submitLabel={t("leadModal.submitLabel")}
+                thankYouTitle={t("leadModal.thankYouTitle")}
+                thankYouMessage={t("leadModal.thankYouMessage")}
+                analyticsFormType="careers_application"
                 className="inline-flex justify-center rounded-lg bg-[#052638] px-6 py-3 font-medium text-white transition-colors hover:bg-[#0a3a4a]"
               >
                 {t("contactCta")}
-              </Link>
+              </OpenLeadModalButton>
             </div>
           ) : (
             <ul className="space-y-4">
@@ -417,13 +430,24 @@ export default async function CareersPage({
             <p className="mb-8 text-base leading-relaxed text-[#27415c]">
               {t("generalCta.body")}
             </p>
-            <Link
-              href="/contact"
-              title={t("generalCta.buttonTitle")}
+            <OpenLeadModalButton
+              source="careers_general"
+              topic={t("leadModal.topic")}
+              title={t("generalCta.heading")}
+              subtitle={t("leadModal.subtitle")}
+              leadIntent={t("leadModal.topic")}
+              formPrompt={t("leadModal.formPrompt")}
+              showMessageField
+              messageLabel={t("leadModal.messageLabel")}
+              messagePlaceholder={t("leadModal.messagePlaceholder")}
+              submitLabel={t("leadModal.submitLabel")}
+              thankYouTitle={t("leadModal.thankYouTitle")}
+              thankYouMessage={t("leadModal.thankYouMessage")}
+              analyticsFormType="careers_application"
               className="inline-flex justify-center rounded-lg bg-[#052638] px-8 py-3 font-medium text-white transition-colors hover:bg-[#0a3a4a]"
             >
               {t("generalCta.button")}
-            </Link>
+            </OpenLeadModalButton>
           </AnimateOnScroll>
         </Container>
       </section>

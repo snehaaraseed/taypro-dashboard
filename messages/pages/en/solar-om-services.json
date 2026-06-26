@@ -105,12 +105,12 @@
     "prose": {
       "eyebrow": "SLA & response",
       "heading": "How Taypro structures O&M SLAs for utility-scale plants",
-      "p1": "O&M procurement teams need defined cycle completion, coverage reconciliation, breakdown response times, and audit-ready reporting. Taypro programmes include written cleaning SOPs, NECTYR block logs, and monthly settlement aligned to panels cleaned. For the soiling and PR education layer, start with the utility-scale solar operations guide; for robotic cleaning scope and billing, use the Taypro OPEX service page.",
+      "p1": "O&M procurement teams need defined cycle completion, coverage reconciliation, breakdown response times, and audit-ready reporting. Taypro programmes include written cleaning SOPs, NECTYR block logs, and monthly settlement aligned to panels cleaned. For the soiling and PR education layer, start with the utility-scale solar operations guide; for robotic cleaning scope and billing, use the OPEX service page.",
       "p2": "For plants from 50 MW to 500 MW, Taypro deploys dedicated operators, regional spares, and remote diagnostics. Fleet uptime targets and escalation paths are agreed during commercial onboarding — not left to informal crew scheduling.",
       "p3": "Compare Taypro's field execution layer with your existing SCADA and electrical O&M contract. The gap is usually cleaning cadence and cause-to-action data — not another alarm dashboard.",
       "linkPrimary": "Utility operations guide",
       "linkPrimaryHref": "/utility-scale-solar-operations",
-      "linkSecondary": "Taypro OPEX cleaning service",
+      "linkSecondary": "OPEX cleaning service",
       "linkSecondaryHref": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
       "p4": "Indian utility solar O&M contracts increasingly separate electrical maintenance from module cleaning — because soiling is the largest controllable yield leak, yet the least instrumented. Taypro's solar plant O&M layer fills that gap with robotic execution and fleet software, not another inverter alarm dashboard.",
       "p5": "For SECI, state discom, and IPP tenders that specify cleaning frequency, coverage evidence, or water-use restrictions, Taypro programmes include written SOPs, NECTYR exports, and monthly panel-volume reconciliation suitable for auditor review."

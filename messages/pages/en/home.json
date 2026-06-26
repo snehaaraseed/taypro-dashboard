@@ -56,7 +56,7 @@
       "hubLink": "solar panel cleaning robots hub",
       "serviceCardTitle": "OPEX cleaning service",
       "serviceCardDescription": "Fully managed fleet — we deploy, operate, and maintain robots on your plant.",
-      "serviceLink": "Taypro OPEX robotic cleaning service",
+      "serviceLink": "OPEX robotic cleaning service",
       "calculatorCardTitle": "ROI calculator",
       "calculatorCardDescription": "Estimate payback from recovered generation and reduced manual O&M.",
       "calculatorLink": "solar cleaning ROI calculator",
@@ -277,9 +277,9 @@
       "q4": "Where are Taypro robots made and supported?",
       "a4": "Taypro designs and manufactures in Chakan, Pune, with pan-India commissioning, spares, and same-day breakdown targets backed by NECTYR remote diagnostics.",
       "q5": "How do solar panel cleaning robots compare to manual O&M?",
-      "a5": "Robots deliver predictable dry-cleaning cycles without water tankers, crew scheduling gaps, or safety risk on large arrays, while logging every pass in NECTYR. Manual teams can work for small blocks; utility-scale portfolios typically move to autonomous robots or Taypro Opex for TCO and uptime. Compare models on the solar panel cleaning robots hub.",
-      "q6": "Should we buy robots (CAPEX) or use Taypro Opex?",
-      "a6": "Both paths are available. CAPEX gives you owned hardware with Taypro commissioning and AMC. Taypro Opex is pay-per-panel cleaning with Taypro operating the fleet, useful when you want predictable O&M without upfront robot capital. The commercial model section on our solar panel cleaning system hub walks through all five engagement options."
+      "a5": "Robots deliver predictable dry-cleaning cycles without water tankers, crew scheduling gaps, or safety risk on large arrays, while logging every pass in NECTYR. Manual teams can work for small blocks; utility-scale portfolios typically move to autonomous robots or Opex for TCO and uptime. Compare models on the solar panel cleaning robots hub.",
+      "q6": "Should we buy robots (CAPEX) or use Opex?",
+      "a6": "Both paths are available. CAPEX gives you owned hardware with Taypro commissioning and AMC. Opex is pay-per-panel cleaning with Taypro operating the fleet, useful when you want predictable O&M without upfront robot capital. The commercial model section on our solar panel cleaning system hub walks through all five engagement options."
     },
     "quote": {
       "eyebrow": "Get started",

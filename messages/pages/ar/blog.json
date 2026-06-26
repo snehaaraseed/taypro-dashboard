@@ -39,6 +39,8 @@
       "heroBodyAuthorsBefore": "بقلم",
       "heroLinkAuthors": "مؤلفو Taypro",
       "heroBodyAuthorsAfter": "؛ يُحدَّث مع تعلّم الميدان.",
+      "heroCountBadgeLabel": "منشور",
+      "heroCountBadgeUnit": "مقالات",
       "statsArticles": "مقالات منشورة",
       "statsAuthorsTitle": "تعرّف على المؤلفين",
       "statsAuthorsSubtitle": "مهندسون وخبراء ميدان →",
@@ -124,8 +126,16 @@
       "frequency": "أسبوعي",
       "title": "اشترك في تحديثات المدونة",
       "description": "رؤى جديدة حول أداء الطاقة الشمسية والصيانة.",
-      "iframeTitle": "اشتراك النشرة",
-      "cta": "تواصل للحصول على التحديثات"
+      "formLabel": "اشتراك النشرة",
+      "emailLabel": "البريد الإلكتروني",
+      "emailPlaceholder": "بريدك الإلكتروني",
+      "cta": "اشترك",
+      "submitting": "جارٍ الاشتراك...",
+      "successTitle": "تم الاشتراك!",
+      "successMessage": "شكرًا لتسجيلك. ستصلك تحديثات المدونة في بريدك.",
+      "alreadySubscribedMessage": "أنت مشترك بالفعل. سنستمر في إرسال التحديثات.",
+      "requiredError": "يرجى إدخال بريدك الإلكتروني.",
+      "genericError": "حدث خطأ. يرجى المحاولة مرة أخرى بعد بضع دقائق."
     }
   },
   "Common": {

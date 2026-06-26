@@ -29,6 +29,8 @@ const pairs = [
   ['/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system/', '/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers'],
   ['/solar-panel-cleaning-system/solar-panel-cleaning-service/', '/solar-panel-cleaning-system/solar-panel-cleaning-service'],
   ['/utility-operations', '/utility-scale-solar-operations'],
+  ['/blog/how-to-calculate-a-performance-ratio-of-%20a-solar-plant', '/blog/how-to-calculate-a-performance-ratio-of-a-solar-plant'],
+  ['/blog/how-to-choose-best-solar-panels', '/blog/how-to-choose-best-solar-panels-in-india'],
 ];
 console.log(JSON.stringify(pairs));
 "`,

@@ -183,10 +183,10 @@ export const utilityOperationsPack = {
         "পরিষ্কারে PR উন্নতি baseline soiling, cycle frequency ও আবহাওয়ায় নির্ভর। রোবোটিক ড্রাই ক্লিনিং ভেজা ধোয়া ছাড়াই মাসে ৩–১০ cycles — multi-MW ফ্লিটে soiling loss neutralise-এর economical পথ।"
       ),
       p3: T(
-        "EPC और O&M टीमों को PR recovery सफाई साक्ष्य से जोड़ना चाहिए: NECTYR ब्लॉक-स्तरीय लॉग, CAPEX या Taypro Opex commit करने से पहले price guide और calculator से directional ROI।",
-        "يجب على فرق EPC وO&M ربط استرداد PR بأدلة التنظيف: سجلات NECTYR على مستوى الكتلة وROI اتجاهي من دليل الأسعار والحاسبة قبل CAPEX أو Taypro Opex.",
-        "EPC・O&MはPR回復を清掾証拠に結ぶべき — CAPEX/Taypro Opex前にNECTYRブロックログとprice guide・calculatorでdirectional ROI。",
-        "EPC ও O&M দল PR recovery পরিষ্কার প্রমাণে bind করবে: CAPEX বা Taypro Opex commit-এর আগে NECTYR block-level logs, price guide ও calculator থেকে directional ROI।"
+        "EPC और O&M टीमों को PR recovery सफाई साक्ष्य से जोड़ना चाहिए: NECTYR ब्लॉक-स्तरीय लॉग, CAPEX या Opex commit करने से पहले price guide और calculator से directional ROI।",
+        "يجب على فرق EPC وO&M ربط استرداد PR بأدلة التنظيف: سجلات NECTYR على مستوى الكتلة وROI اتجاهي من دليل الأسعار والحاسبة قبل CAPEX أو Opex.",
+        "EPC・O&MはPR回復を清掾証拠に結ぶべき — CAPEX/Opex前にNECTYRブロックログとprice guide・calculatorでdirectional ROI。",
+        "EPC ও O&M দল PR recovery পরিষ্কার প্রমাণে bind করবে: CAPEX বা Opex commit-এর আগে NECTYR block-level logs, price guide ও calculator থেকে directional ROI।"
       ),
       linkPriceGuide: T(
         "भारत रोबोट मूल्य गाइड",
@@ -297,10 +297,10 @@ export const utilityOperationsPack = {
         "ভারতে ইউটিলিটি-স্কেল প্ল্যান্টের জন্য সোলার প্যানেল পরিষ্কার রোবট"
       ),
       bodyBefore: T(
-        "Taypro भारत में fixed tilt, seasonal tilt और single-axis tracker sites के लिए autonomous और semi-automatic waterless robots manufacture करता है — pan-India service, NECTYR monitoring, optional Taypro Opex। तुलना करें",
-        "Taypro تصنع روبوتات تنظيف بدون ماء مستقلة وشبه أوتوماتيكية لمواقع fixed tilt وseasonal tilt وsingle-axis tracker في India — خدمة pan-India وNECTYR وTaypro Opex اختياري. قارن",
-        "Tayproはインドでfixed tilt、seasonal tilt、single-axis tracker向け自律・半自動水なしロボットを製造 — pan-Indiaサービス、NECTYR、optional Taypro Opex。比較：",
-        "Taypro ভারতে fixed tilt, seasonal tilt, single-axis tracker-এর জন্য autonomous ও semi-automatic জলবিহীন রোবট তৈরি — pan-India service, NECTYR, optional Taypro Opex। তুলনা করুন"
+        "Taypro भारत में fixed tilt, seasonal tilt और single-axis tracker sites के लिए autonomous और semi-automatic waterless robots manufacture करता है — pan-India service, NECTYR monitoring, optional Opex। तुलना करें",
+        "Taypro تصنع روبوتات تنظيف بدون ماء مستقلة وشبه أوتوماتيكية لمواقع fixed tilt وseasonal tilt وsingle-axis tracker في India — خدمة pan-India وNECTYR وOpex اختياري. قارن",
+        "Tayproはインドでfixed tilt、seasonal tilt、single-axis tracker向け自律・半自動水なしロボットを製造 — pan-Indiaサービス、NECTYR、optional Opex。比較：",
+        "Taypro ভারতে fixed tilt, seasonal tilt, single-axis tracker-এর জন্য autonomous ও semi-automatic জলবিহীন রোবট তৈরি — pan-India service, NECTYR, optional Opex। তুলনা করুন"
       ),
       hubLink: T(
         "हर Taypro रोबोट मॉडल",
@@ -429,10 +429,10 @@ export const utilityOperationsPack = {
         "রোবট কিনতে পারি নাকি managed service?"
       ),
       a3: T(
-        "दोनों। GLYDE, NYUMA, HELYX commissioning और AMC के साथ purchase करें, या Taypro Opex pay-per-panel cleaning चुनें। Deployed robots पर NECTYR visibility included।",
-        "كلاهما. اشتر GLYDE أو NYUMA أو HELYX مع commissioning وAMC، أو Taypro Opex pay-per-panel. NECTYR مُضمّن للأساطيل المنشورة.",
-        "両方。GLYDE、NYUMA、HELYXをcommissioning・AMC付き購入、またはTaypro Opex pay-per-panel。展開ロボットにNECTYR含む。",
-        "দুটোই। GLYDE, NYUMA, HELYX commissioning ও AMC-তে purchase, বা Taypro Opex pay-per-panel। Deployed robots-এ NECTYR visibility included।"
+        "दोनों। GLYDE, NYUMA, HELYX commissioning और AMC के साथ purchase करें, या Opex pay-per-panel cleaning चुनें। Deployed robots पर NECTYR visibility included।",
+        "كلاهما. اشتر GLYDE أو NYUMA أو HELYX مع commissioning وAMC، أو Opex pay-per-panel. NECTYR مُضمّن للأساطيل المنشورة.",
+        "両方。GLYDE、NYUMA、HELYXをcommissioning・AMC付き購入、またはOpex pay-per-panel。展開ロボットにNECTYR含む。",
+        "দুটোই। GLYDE, NYUMA, HELYX commissioning ও AMC-তে purchase, বা Opex pay-per-panel। Deployed robots-এ NECTYR visibility included।"
       ),
       q4: T(
         "Taypro robots कहाँ बने और support कहाँ?",
@@ -477,10 +477,10 @@ export const utilityOperationsPack = {
         "India-তে solar O&M cleaning robot procurement কী?"
       ),
       a7: T(
-        "Utility RFQs waterless fit, tracker compatibility, fleet software, breakdown SLA, CAPEX vs Opex evaluate करते हैं। Taypro Made-in-India robots (GLYDE, NYUMA, HELYX, tracker variants) NECTYR और optional Taypro Opex — India price guide और state pages देखें।",
-        "مناقصات المرافق تقيّم waterless fit وتوافق المتتبعات وبرمجيات الأسطول وSLA وCAPEX vs Opex. Taypro روبوتات India مع NECTYR وTaypro Opex — دليل الأسعار وصفحات الولايات.",
-        "大規模RFQはwaterless適合、トラッカー互換、フリートSW、SLA、CAPEX vs Opexを評価。Tayproインド製ロボット、NECTYR、optional Taypro Opex — 価格ガイド・州ページ参照。",
-        "Utility RFQs waterless fit, tracker compatibility, fleet software, breakdown SLA, CAPEX vs Opex evaluate। Taypro Made-in-India robots, NECTYR, optional Taypro Opex — India price guide, state pages।"
+        "Utility RFQs waterless fit, tracker compatibility, fleet software, breakdown SLA, CAPEX vs Opex evaluate करते हैं। Taypro Made-in-India robots (GLYDE, NYUMA, HELYX, tracker variants) NECTYR और optional Opex — India price guide और state pages देखें।",
+        "مناقصات المرافق تقيّم waterless fit وتوافق المتتبعات وبرمجيات الأسطول وSLA وCAPEX vs Opex. Taypro روبوتات India مع NECTYR وOpex — دليل الأسعار وصفحات الولايات.",
+        "大規模RFQはwaterless適合、トラッカー互換、フリートSW、SLA、CAPEX vs Opexを評価。Tayproインド製ロボット、NECTYR、optional Opex — 価格ガイド・州ページ参照。",
+        "Utility RFQs waterless fit, tracker compatibility, fleet software, breakdown SLA, CAPEX vs Opex evaluate। Taypro Made-in-India robots, NECTYR, optional Opex — India price guide, state pages।"
       ),
     },
     cta: {

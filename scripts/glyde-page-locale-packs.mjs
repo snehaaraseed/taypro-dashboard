@@ -147,7 +147,7 @@ export const GLYDE_LOCALE_PACKS = {
       linkBetweenBAndT: ", ",
       linkGlydeX: "सिंगल-एक्सिस ट्रैकर रोबोट (GLYDE-X)",
       linkBetweenTAndOpex: ", ",
-      linkOpex: "Taypro OPEX सफाई सेवा",
+      linkOpex: "OPEX सफाई सेवा",
       linkBetweenOpexAndNectyr: " या ",
       linkNectyr: "NECTYR मॉनिटरिंग ऐप",
       crossSellSuffix: "।",

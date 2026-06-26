@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, type CSSProperties } from "react";
+import { useEffect, useId, useState, type CSSProperties } from "react";
 import {
   MapContainer,
   TileLayer,
@@ -121,10 +121,21 @@ function FitBounds({ positions }: { positions: [number, number][] }) {
 }
 
 export default function Map() {
+  const mapKey = useId();
+  const [mounted, setMounted] = useState(false);
   const positions = TAYPRO_LOCATIONS.map((loc) => loc.position);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="h-full w-full bg-[#e8eef2]" aria-hidden />;
+  }
 
   return (
     <MapContainer
+      key={mapKey}
       center={positions[0]}
       zoom={11}
       scrollWheelZoom={false}

@@ -27,6 +27,12 @@
       "subtitleAfter": ", supports module tilts from -52° to +52°, and is compatible with NEXTracker, Gamechanger and equivalent trackers.",
       "imgAlt": "Taypro Single-Axis Tracker Solar Panel Cleaning Robot NYUMA-X - Autonomous robotic cleaning system for tracking solar panel installations",
       "ctaText": "Request a quote",
+      "primaryCta": {
+        "topic": "NYUMA-X quote",
+        "title": "Request a NYUMA-X quote",
+        "subtitle": "Tell us about your tracker plant and our team will follow up with NYUMA-X sizing, bridge-kit needs, and commercial options.",
+        "label": "Request a quote"
+      },
       "h1Line1": "NYUMA-X — Solar Panel Cleaning Robot for Single-Axis Trackers, "
     },
     "usps": {
@@ -465,7 +471,7 @@
       "crossSellLead": "Cleaning smaller or scattered plants? Look at the semi-automatic ",
       "linkHelyx": "HELYX",
       "crossSellMid": ". Prefer outsourcing cleaning entirely? Explore the ",
-      "linkOpex": "Taypro OPEX cleaning service",
+      "linkOpex": "OPEX cleaning service",
       "crossSellSuffix": "."
     },
     "indianConditions": {
@@ -485,7 +491,7 @@
       "linkBetweenAB": ", the ",
       "linkHelyx": "semi-automatic HELYX robot",
       "linkBetweenBOpex": ", the ",
-      "linkOpex": "Taypro OPEX cleaning service",
+      "linkOpex": "OPEX cleaning service",
       "linkBetweenOpexAndNectyr": " or the ",
       "linkNectyr": "NECTYR monitoring app",
       "crossSellSuffix": "."
@@ -553,6 +559,19 @@
       "crossSellMid": ". Prefer semi-automatic deployment? See ",
       "linkHelyx": "HELYX",
       "crossSellSuffix": "."
+    },
+    "gallery": {
+      "eyebrow": "Product engineering",
+      "title": "NYUMA-X hardware at a glance",
+      "subtitle": "Single-pass PBT cleaning built for single-axis tracker tables, with on-board solar charging and field-proven tracker bridge articulation.",
+      "topAlt": "Taypro NYUMA-X automatic tracker cleaning robot, top-down view showing integrated solar panel and PBT cleaning frame",
+      "topCaption": "Top-down view of NYUMA-X with on-board solar charging and single-pass PBT cleaning assembly.",
+      "sideAlt": "Taypro NYUMA-X side profile showing module-frame travel rails and end housings",
+      "sideCaption": "Side profile of the NYUMA-X chassis engineered for long-reach tracker tables.",
+      "zoomedLeftAlt": "Close-up of Taypro NYUMA-X tracker bridge mechanism and PBT brush assembly",
+      "zoomedLeftCaption": "Bridge and brush detail for inter-table traversal on single-axis trackers.",
+      "zoomedRightAlt": "Taypro NYUMA-X solar charging module and drive housing detail",
+      "zoomedRightCaption": "On-board solar-assisted charging for extended autonomous tracker cleaning cycles."
     }
   },
   "Common": {

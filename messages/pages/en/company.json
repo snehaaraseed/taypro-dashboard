@@ -68,7 +68,19 @@
       "bullet2": "ORION early access is open for select asset owners under NDA, contact us for investor or strategic conversations.",
       "ctaContact": "Contact for investor conversations",
       "ctaAi": "AI intelligence layer",
-      "ctaOrion": "ORION early access"
+      "ctaOrion": "ORION early access",
+      "leadModal": {
+        "topic": "Partners & investors",
+        "title": "Contact for investor conversations",
+        "subtitle": "Share your organisation, role, and whether you are exploring investment, strategic partnership, or enterprise collaboration. We route investor and partnership enquiries to the right leadership contacts, often under NDA.",
+        "formPrompt": "Where should we reach you?",
+        "messageLabel": "Your message",
+        "messagePlaceholder": "Organisation, role, investment or partnership interest, timeline, portfolio context, and any NDA or data-room needs…",
+        "submitLabel": "Send enquiry",
+        "thankYouTitle": "Thank you — we've received your message",
+        "thankYouMessage": "Our team will route investor and partnership conversations to the right contacts shortly.",
+        "ctaLabel": "Contact for investor conversations"
+      }
     },
     "credibility": {
       "eyebrow": "Certifications & recognition",
@@ -99,7 +111,7 @@
       "mission": {
         "label": "Mission",
         "heading": "Ship reliable robots, transparent service, and measurable outcomes, site by site.",
-        "body": "We invest in R&D, manufacturing capacity, and nationwide logistics so customers receive consistent quality, rapid spare availability, and responsive support. From GLYDE and HELYX for distributed layouts to GLYDE-X for trackers, plus Taypro Opex for operator-led cleaning, our roadmap stays tied to one question: does it improve plant uptime, safety, and total cost of ownership?"
+        "body": "We invest in R&D, manufacturing capacity, and nationwide logistics so customers receive consistent quality, rapid spare availability, and responsive support. From GLYDE and HELYX for distributed layouts to GLYDE-X for trackers, plus Opex for operator-led cleaning, our roadmap stays tied to one question: does it improve plant uptime, safety, and total cost of ownership?"
       }
     },
     "solutions": {
@@ -145,7 +157,7 @@
       "intro": "Developers, IPPs, and O&M teams typically follow a structured path with Taypro, whether you are evaluating a single block or a multi-hundred-megawatt portfolio.",
       "step0": {
         "title": "Understand your plant",
-        "description": "Share layout (fixed tilt, rooftop, or trackers), DC capacity, soiling profile, and whether you prefer CAPEX ownership or Taypro Opex as a managed service."
+        "description": "Share layout (fixed tilt, rooftop, or trackers), DC capacity, soiling profile, and whether you prefer CAPEX ownership or Opex as a managed service."
       },
       "step1": {
         "title": "Technical fit and ROI",
@@ -212,7 +224,7 @@
       "subheading": "Quick answers for partners evaluating Taypro as their solar cleaning robotics vendor.",
       "talkToTeam": "Talk to our team",
       "q0": "What does Taypro manufacture?",
-      "a0": "Taypro Private Limited builds autonomous and semi-automatic solar panel cleaning robots for utility-scale and commercial solar plants in India, including GLYDE (autonomous waterless cleaning), HELYX (portable dry cleaning), GLYDE-X for single-axis trackers, Taypro Opex as an operator-led cleaning service, and NECTYR for fleet monitoring and scheduling.",
+      "a0": "Taypro Private Limited builds autonomous and semi-automatic solar panel cleaning robots for utility-scale and commercial solar plants in India, including GLYDE (autonomous waterless cleaning), HELYX (portable dry cleaning), GLYDE-X for single-axis trackers, Opex as an operator-led cleaning service, and NECTYR for fleet monitoring and scheduling.",
       "q1": "Where is Taypro based and where do you operate?",
       "a1": "Taypro is headquartered and manufactures from Chakan, Pune, Maharashtra, with a warehouse network across India to support spare parts, commissioning, and same-day breakdown response for deployed robots.",
       "q2": "Why is waterless robotic cleaning important for solar plants?",
@@ -222,7 +234,7 @@
       "q4": "Which Taypro robot fits fixed-tilt vs single-axis tracker plants?",
       "a4": "GLYDE targets autonomous waterless cleaning on fixed and seasonal-tilt arrays. HELYX is portable for scattered blocks. GLYDE-X is engineered for single-axis trackers with a flexible bridge. Many sites combine models by block, our team maps robots to each array during site assessment.",
       "q5": "Can we buy robots (CAPEX) or use an operator-led service (Opex)?",
-      "a5": "Both. CAPEX customers purchase robots with Taypro commissioning and spare support. Taypro Opex delivers operator-led cleaning without upfront robot capital, useful when you want predictable O&M costs and Taypro accountability for uptime.",
+      "a5": "Both. CAPEX customers purchase robots with Taypro commissioning and spare support. Opex delivers operator-led cleaning without upfront robot capital, useful when you want predictable O&M costs and Taypro accountability for uptime.",
       "q6": "What role does NECTYR play after installation?",
       "a6": "NECTYR is the cloud dashboard for scheduling cleaning cycles, monitoring robot health, reviewing connectivity, and auditing fleet performance across blocks, helping O&M leads document cleaning history for performance ratio discussions with asset owners."
     }

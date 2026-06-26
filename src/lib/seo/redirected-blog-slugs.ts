@@ -22,6 +22,10 @@ export const REDIRECTED_BLOG_SLUGS = new Set([
   "what-is-solar-panel-cleaning-why-is-it-necessary-to-clean-solar-panels-why-is-it-necessary-to-clean-solar-panels",
   "why-utility-solar-farms-in-india-need-autonomous-panel-cleaning",
   "the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates-tailoring-solutions-for-diverse-climates",
+  "single-axis-tracker-cleaning-robot",
+  "performance-ratio-utility-solar-plant-india",
+  "solar-plant-commissioning-robot-integration-checklist",
+  "waterless-vs-manual-solar-cleaning-cost-10-mw-india",
 ]);
 
 /** Destination paths (blog slug or site path). */
@@ -69,6 +73,14 @@ export const REDIRECTED_BLOG_TARGETS: Record<string, string> = {
     "/blog/why-modern-solar-farms-need-autonomous-solar-panel-cleaning-systems",
   "the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates-tailoring-solutions-for-diverse-climates":
     "/blog/the-importance-of-solar-panel-cleaning-across-different-regions-of-india-tailoring-solutions-for-diverse-climates",
+  "single-axis-tracker-cleaning-robot":
+    "/blog/solar-tracker-maintenance-complete-guide",
+  "performance-ratio-utility-solar-plant-india":
+    "/blog/improving-performance-ratio-in-utility-scale-solar-plants-india-inverter-efficiency-optimization",
+  "solar-plant-commissioning-robot-integration-checklist":
+    "/blog/optimizing-best-pv-panels-commissioning-robot-integration-checklists",
+  "waterless-vs-manual-solar-cleaning-cost-10-mw-india":
+    "/blog/waterless-robotic-vs-manual-cleaning-cost-comparison-for-10-mw-plant-india",
 };
 
 export function isRedirectedBlogSlug(slug: string): boolean {

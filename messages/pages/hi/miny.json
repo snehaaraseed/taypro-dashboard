@@ -86,7 +86,12 @@
       "formTitle": "MINY में रुचि दर्ज करें",
       "messageLabel": "रूफटॉप प्लांट विवरण",
       "messagePlaceholder": "प्लांट क्षमता, शहर, छत प्रकार, वर्तमान सफाई विधि, समयरेखा…",
-      "submitLabel": "रुचि अनुरोध भेजें"
+      "submitLabel": "रुचि अनुरोध भेजें",
+      "firstNameLabel": "आपका नाम*",
+      "emailLabel": "कार्य ईमेल*",
+      "phoneLabel": "फ़ोन नंबर*",
+      "thankYouTitle": "आप MINY सूची में हैं",
+      "thankYouMessage": "जैसे-जैसे MINY सामान्य उपलब्धता के करीब आएगा, हम आपके क्षेत्र के लिए विवरण, पायलट स्लॉट और लॉन्च अपडेट साझा करेंगे।"
     },
     "related": {
       "eyebrow": "आज उपलब्ध",
@@ -99,7 +104,7 @@
         },
         "1": {
           "label": "सभी सोलर सफाई रोबोट",
-          "description": "GLYDE, HELYX, GLYDE-X, Taypro OPEX, और NECTYR की तुलना करें।"
+          "description": "GLYDE, HELYX, GLYDE-X, OPEX, और NECTYR की तुलना करें।"
         }
       }
     },

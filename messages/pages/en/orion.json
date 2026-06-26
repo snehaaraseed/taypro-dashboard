@@ -89,9 +89,14 @@
       "subtitle": "Share your plant capacity, SCADA setup, and whether Taypro robots are on site. We will respond with pilot eligibility, integration scope, and timeline under mutual NDA.",
       "formEyebrow": "Early access",
       "formTitle": "Register interest in ORION",
+      "firstNameLabel": "Your name*",
+      "emailLabel": "Work email*",
+      "phoneLabel": "Phone number*",
       "messageLabel": "Plant & data context",
       "messagePlaceholder": "Plant MW, location, SCADA vendor, robot fleet (if any), main O&M pain points…",
-      "submitLabel": "Send interest request"
+      "submitLabel": "Send interest request",
+      "thankYouTitle": "Thanks for your ORION interest",
+      "thankYouMessage": "Our team will follow up on pilot eligibility, integration scope, and timeline under mutual NDA."
     },
     "related": {
       "eyebrow": "Available today",

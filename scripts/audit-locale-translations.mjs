@@ -20,7 +20,7 @@ const SKIP_PAGES = new Set([]);
 const INTENTIONAL_EN = [
   /^https?:\/\//i,
   /^[+\d\s.,₹$€£%°–, \-:(){}[\]/\\]+$/,
-  /^(Taypro|GLYDE|HELYX|NYUMA|NECTYR|MINY|CRADYL|TÜV NORD|Taypro Opex|Taypro OPEX)$/i,
+  /^(Taypro|GLYDE|HELYX|NYUMA|NECTYR|MINY|CRADYL|TÜV NORD|Opex|OPEX)$/i,
   /^LTE|Wi-Fi|LoRa|LoRaWAN|RF mesh|CAPEX|Opex$/i,
   /^MW$|^kW$|^kWh$|^Wp$|^IP\d+$/i,
   /^PT\d+H$/,

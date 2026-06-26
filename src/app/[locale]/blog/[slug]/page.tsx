@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
@@ -6,6 +5,7 @@ import { formatLocaleDate } from "@/i18n/format-date";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { BlogImage } from "@/app/components/BlogImage";
 import { BlogContent } from "@/app/components/BlogContent";
+import { ProjectDetailHero } from "@/app/components/ProjectDetailHero";
 import { ArticleSchema, FAQPageSchema } from "@/app/components/StructuredData";
 import { FaqSection } from "@/app/components/FaqSection";
 import { SimilarBlogs } from "@/app/components/SimilarBlogs";
@@ -24,8 +24,6 @@ import {
   redirectedBlogTarget,
 } from "@/lib/seo/redirected-blog-slugs";
 import {
-  getAuthorAvatarUrl,
-  getAuthorBySlug,
   resolveAuthorSlug,
 } from "@/app/data/blogAuthors";
 import { getStoredAuthors } from "@/app/utils/blogAuthorsStore";
@@ -237,8 +235,6 @@ export default async function BlogPost({ params }: BlogPostProps) {
     (author) => author.slug === authorSlug
   );
   const displayAuthorName = knownAuthor?.name ?? authorName;
-  const authorBio = knownAuthor?.bio ?? getAuthorBySlug(authorSlug)?.bio;
-  const authorAvatarUrl = knownAuthor?.avatarUrl || getAuthorAvatarUrl(authorName);
   const moreFromAuthor = localeBlogMetadata
     .filter(
       (post) =>
@@ -273,55 +269,23 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
       {/* Main Layout with TOC + Main Content + Right Sidebar */}
       <div className="w-full bg-white">
-        <div className="max-w-[1440px] mx-auto px-4 md:px-6 pt-0 pb-20">
-          {/* Ahrefs-style Top Article Header */}
-          <section className="relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-[#052638] border-y border-[#0c3c57] mb-10">
-            <header className="max-w-4xl mx-auto px-6 md:px-8 py-8 md:py-10">
-              <p className="text-sm font-medium text-[#A8C117] mb-3">
-                {t("labelBlog")}
-              </p>
-              <h1 className="text-4xl md:text-5xl font-semibold text-white leading-tight mb-4">
-                {blog.title}
-              </h1>
-              <div className="flex flex-wrap items-center gap-3 text-sm text-slate-200 mb-5">
-                <Image
-                  src={authorAvatarUrl}
-                  alt={displayAuthorName}
-                  width={36}
-                  height={36}
-                  sizes="36px"
-                  className="w-9 h-9 rounded-full border border-slate-500 object-cover"
-                />
-                <span className="font-medium text-white">
-                  {t("byAuthor")}{" "}
-                  <Link
-                    href={`/blog/author/${authorSlug}`}
-                    className="underline decoration-slate-300/60 underline-offset-2 hover:text-[#A8C117] transition-colors"
-                  >
-                    {displayAuthorName}
-                  </Link>
-                  {knownAuthor?.role ? (
-                    <span className="ml-2 font-normal text-slate-300">
-                      ({knownAuthor.role})
-                    </span>
-                  ) : null}
-                </span>
-                <span aria-hidden="true">|</span>
-                <span>
-                  {t("lastUpdated", { date: lastUpdatedDisplay })}
-                </span>
-                <span aria-hidden="true">|</span>
-                <span>{t("minRead", { minutes: readingMinutes })}</span>
-              </div>
-              {authorBio ? (
-                <p className="text-slate-300 text-sm mb-5 max-w-2xl leading-relaxed">
-                  {authorBio}
-                </p>
-              ) : null}
-              <p className="text-lg text-slate-100 leading-relaxed">{blog.description}</p>
-            </header>
-          </section>
+        <ProjectDetailHero
+          eyebrow={t("labelBlog")}
+          title={blog.title}
+          description={blog.description}
+          lastUpdated={t("lastUpdated", { date: lastUpdatedDisplay })}
+          readingMinutes={readingMinutes}
+          minReadLabel={t("minRead", { minutes: readingMinutes })}
+          image={blog.featuredImage}
+          imageAlt={getBlogFeaturedImageAlt(blog)}
+          tags={blog.seoKeyword ? [blog.seoKeyword] : []}
+          stats={[]}
+          authorName={knownAuthor ? displayAuthorName : undefined}
+          authorSlug={knownAuthor ? authorSlug : undefined}
+          authorRole={knownAuthor?.role}
+        />
 
+        <div className="max-w-[1440px] mx-auto px-4 md:px-6 pt-10 pb-20">
           <div className="grid grid-cols-1 xl:grid-cols-[260px_minmax(0,1fr)_320px] gap-10">
             {/* Left TOC */}
             <aside className="hidden xl:block">
@@ -354,22 +318,6 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
             {/* Main Content Column */}
             <div className="min-w-0">
-              {/* Hero Section with Featured Image */}
-              <section className="pb-8">
-                {blog.featuredImage && (
-                  <div className="relative w-full h-96 mb-8 overflow-hidden rounded-lg bg-gray-100">
-                    <BlogImage
-                      src={blog.featuredImage}
-                      alt={getBlogFeaturedImageAlt(blog)}
-                      fill
-                      className="object-cover"
-                      priority
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 896px, 768px"
-                    />
-                  </div>
-                )}
-              </section>
-
               {/* Main Content */}
               <article suppressHydrationWarning>
                 <BlogContent

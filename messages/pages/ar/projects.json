@@ -47,7 +47,8 @@
       "plantInstallationsLabel": "مواقع نشطة",
       "co2ReducedLabel": "أطنان مترية من انبعاثات CO2 المُخفّضة سنوياً",
       "waterSavedLabel": "لترات من الماء المُوفَّر سنوياً",
-      "robotsManufacturedLabel": "قدرة تصنيع الروبوتات شهرياً"
+      "robotsManufacturedLabel": "قدرة تصنيع الروبوتات شهرياً",
+      "panelsCleanedAnnuallyLabel": "يتم تنظيف الألواح سنويًا"
     },
     "categories": {
       "heading": "تصفّح حسب نوع النشر",
@@ -101,7 +102,7 @@
       "q0": "ما أنواع محطات الطاقة الشمسية التي توثّقها Taypro في هذه المحفظة؟",
       "a0": "تغطي دراسات الحالة مواقع ground-mount على نطاق المرافق، ومصفوفات متتبع أحادي المحور، ومحطات متعددة الكتل في جميع أنحاء الهند، عادة 50 ميجاواط فأكثر حيث يبرّر التلوث أو ندرة الماء أو تكاليف التشغيل والصيانة اليدوية التنظيف الروبوتي.",
       "q1": "ما الفرق بين قوائم المشاريع الأوتوماتيكية وشبه الأوتوماتيكية وCAPEX؟",
-      "a1": "تسلّط القوائم الأوتوماتيكية الضوء على روبوتات مستقلة بالكامل (GLYDE, GLYDE-X). تعرض القوائم شبه الأوتوماتيكية أنظمة HELYX المحمولة. تصف قوائم CAPEX محطات اشترى فيها المطور الروبوتات مباشرة؛ قد تستخدم نفس الموقع أيضاً Taypro Opex كخدمة بقيادة المشغّل، تصفّح كل فئة أو دراسة الحالة الفردية لمعرفة نموذج النشر الدقيق.",
+      "a1": "تسلّط القوائم الأوتوماتيكية الضوء على روبوتات مستقلة بالكامل (GLYDE, GLYDE-X). تعرض القوائم شبه الأوتوماتيكية أنظمة HELYX المحمولة. تصف قوائم CAPEX محطات اشترى فيها المطور الروبوتات مباشرة؛ قد تستخدم نفس الموقع أيضاً Opex كخدمة بقيادة المشغّل، تصفّح كل فئة أو دراسة الحالة الفردية لمعرفة نموذج النشر الدقيق.",
       "q2": "كيف تؤثر روبوتات تنظيف Taypro على نسبة أداء المحطة؟",
       "a2": "يقلّل التنظيف المستمر الواعي بالطقس خسائر التلوث التي قد تخفض نسبة الأداء بعدة نقاط مئوية على المواقع المغبرة. تذكر دراسات الحالة أهداف كفاءة التنظيف وتكرار الدورات وكيف تتجنّب الطرق بدون ماء لوجستيات الغسل اليدوي.",
       "q3": "كيف أقيّم Taypro لمشروعي الشمسي؟",
@@ -114,8 +115,15 @@
       "heading": "Full portfolio",
       "title": "All published installation case studies",
       "body": "Every published Taypro plant profile in one grid, newest first. Projects highlighted above remain our curated references; the rest of the portfolio is listed here without duplication. Prefer a narrower view? Use the deployment-model category pages.",
-      "countNote": "{count} published"
-    }
+      "countNote": "{count} published",
+      "paginationLabel": "ترقيم الصفحات المشاريع",
+      "paginationPrevious": "سابق",
+      "paginationNext": "التالي",
+      "paginationPageOf": "الصفحة {page} من {totalPages}"
+    },
+    "leadTopic": "لنعمل معاً",
+    "leadTitle": "لنعمل معاً",
+    "leadSubtitle": "أخبرنا عن محطتك وسيتابع فريقنا مع روبوت تنظيف الألواح الشمسية المناسب لموقعك."
   },
   "ProjectDetailPage": {
     "notFoundTitle": "المشروع غير موجود",
@@ -145,7 +153,17 @@
     "relatedSubheading": "قارن حجم الأسطول ونموذج الشراء والسياق الإقليمي عبر تركيبات Taypro المماثلة.",
     "relatedImageTitle": "مشروع شمسي",
     "relatedImageAlt": "{title} - مشروع تركيب روبوت تنظيف ألواح شمسية ذي صلة من Taypro",
-    "relatedImageTitleAttr": "{title} مشروع شمسي مع روبوت تنظيف الألواح الشمسية"
+    "relatedImageTitleAttr": "{title} مشروع شمسي مع روبوت تنظيف الألواح الشمسية",
+    "heroStatsAriaLabel": "مقاييس المشروع الرئيسية",
+    "statCapacity": "سعة",
+    "statFleet": "أسطول",
+    "statLocation": "موقع",
+    "statDeployment": "النشر",
+    "statsEyebrow": "حقائق الموقع",
+    "statsHeading": "إحصائيات الموقع في لمحة",
+    "statsTableMetric": "متري",
+    "statsTableValue": "القيمة المبلغ عنها",
+    "statsTableDisclaimer": "تم الإبلاغ عن الأرقام في الموقع. قم بالتحقق من صحة SCADA ومنهجية التقليص والإفصاح قبل استخدام لجنة الاستثمار."
   },
   "Common": {
     "breadcrumbHome": "الرئيسية"

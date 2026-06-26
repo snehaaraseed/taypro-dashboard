@@ -6,6 +6,7 @@ import { Container } from "@/app/components/Container";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { FaqSection } from "@/app/components/FaqSection";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
+import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import { FAQPageSchema } from "@/app/components/StructuredData";
 import {
@@ -86,6 +87,7 @@ export default async function RobotPriceIndiaPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "RobotPriceIndiaPage" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
+  const tLead = await getTranslations({ locale, namespace: "Forms.leadModal" });
   const capexBands = getIndicativeCapexBands();
 
   const breadcrumbs = [
@@ -122,12 +124,19 @@ export default async function RobotPriceIndiaPage({
               {t("hero.ctaCalculator")}
               <ArrowRight className="w-4 h-4" aria-hidden />
             </Link>
-            <Link
-              href="/contact"
+            <OpenLeadModalButton
+              source="robot_price_india"
+              topic={tLead("topic")}
+              title={tLead("title")}
+              subtitle={tLead("subtitle")}
+              leadIntent={tLead("topic")}
+              formPrompt={tLead("formPrompt")}
+              showMessageField
+              analyticsFormType="price_india_quote"
               className="inline-flex justify-center px-6 py-3 rounded-lg border border-white/30 text-white font-medium hover:border-[#A8C117] hover:text-[#A8C117] transition-colors"
             >
               {t("hero.ctaQuote")}
-            </Link>
+            </OpenLeadModalButton>
           </div>
         </Container>
       </section>
@@ -353,9 +362,9 @@ export default async function RobotPriceIndiaPage({
 
           <AnimateOnScroll animation="fadeInUp" delay={100}>
             <div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm">
-              <h3 className="text-[#052638] font-semibold text-lg md:text-xl text-center mb-6">
+              <h2 className="text-[#052638] font-semibold text-lg md:text-xl text-center mb-6">
                 {t("explore.statesHeading")}
-              </h3>
+              </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
                 {EXPLORE_STATE_LINKS.map((link) => (
                   <Link
@@ -379,6 +388,8 @@ export default async function RobotPriceIndiaPage({
         eyebrow={t("quoteForm.topic")}
         title={t("quoteForm.title")}
         messagePlaceholder={t("quoteForm.subtitle")}
+        showMessageField
+        leadIntent="India robot price quote request"
       />
     </>
   );

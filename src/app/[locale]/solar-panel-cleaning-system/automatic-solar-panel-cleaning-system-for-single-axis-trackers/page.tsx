@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import {
@@ -45,6 +46,13 @@ import {
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 const glydeXImages = productPageImages("glydeX");
 const glydeXHeroLayout = getProductHeroLayout("glydeX");
+
+const GLYDE_X_GALLERY = {
+  topView: "/tayprorobots/glyde-x/top-view.png",
+  sideView: "/tayprorobots/glyde-x/side-view.png",
+  zoomedLeft: "/tayprorobots/glyde-x/zoomed-left.png",
+  zoomedRight: "/tayprorobots/glyde-x/zoomed-right.png",
+} as const;
 
 const USP_ICONS = [
   Compass,
@@ -221,7 +229,10 @@ export default async function GlydeXPage({
           imageAspectRatio={glydeXHeroLayout.aspectRatio}
           imagePresentation={glydeXHeroLayout.presentation}
           ctaHref="/contact"
-          ctaText={t("hero.ctaText")}
+          ctaText={t("hero.primaryCta.label")}
+          ctaTopic={t("hero.primaryCta.topic")}
+          ctaTitle={t("hero.primaryCta.title")}
+          ctaSubtitle={t("hero.primaryCta.subtitle")}
         />
 
         {/* PRODUCT OVERVIEW / SEO INTRO */}
@@ -405,6 +416,82 @@ export default async function GlydeXPage({
                   </div>
                 </AnimateOnScroll>
               </div>
+            </div>
+          </Container>
+        </section>
+
+        <section className="bg-gradient-to-b from-white to-gray-50 py-12 sm:py-16">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="text-center mb-8">
+              <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
+                {t("gallery.eyebrow")}
+              </div>
+              <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl mb-4">
+                {t("gallery.title")}
+              </h2>
+              <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto">
+                {t("gallery.subtitle")}
+              </p>
+            </AnimateOnScroll>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+              <AnimateOnScroll animation="fadeInUp" delay={60}>
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                  <Image
+                    src={GLYDE_X_GALLERY.topView}
+                    alt={t("gallery.topAlt")}
+                    fill
+                    className="object-contain p-4"
+                    sizes="(max-width: 768px) 100vw, 480px"
+                  />
+                </div>
+                <p className="text-center text-gray-500 text-sm mt-3">
+                  {t("gallery.topCaption")}
+                </p>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fadeInUp" delay={120}>
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                  <Image
+                    src={GLYDE_X_GALLERY.sideView}
+                    alt={t("gallery.sideAlt")}
+                    fill
+                    className="object-contain p-4"
+                    sizes="(max-width: 768px) 100vw, 480px"
+                  />
+                </div>
+                <p className="text-center text-gray-500 text-sm mt-3">
+                  {t("gallery.sideCaption")}
+                </p>
+              </AnimateOnScroll>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto mt-8 sm:mt-10">
+              <AnimateOnScroll animation="fadeInUp" delay={150}>
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                  <Image
+                    src={GLYDE_X_GALLERY.zoomedLeft}
+                    alt={t("gallery.zoomedLeftAlt")}
+                    fill
+                    className="object-contain p-4"
+                    sizes="(max-width: 768px) 100vw, 480px"
+                  />
+                </div>
+                <p className="text-center text-gray-500 text-sm mt-3">
+                  {t("gallery.zoomedLeftCaption")}
+                </p>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fadeInUp" delay={180}>
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                  <Image
+                    src={GLYDE_X_GALLERY.zoomedRight}
+                    alt={t("gallery.zoomedRightAlt")}
+                    fill
+                    className="object-contain p-4"
+                    sizes="(max-width: 768px) 100vw, 480px"
+                  />
+                </div>
+                <p className="text-center text-gray-500 text-sm mt-3">
+                  {t("gallery.zoomedRightCaption")}
+                </p>
+              </AnimateOnScroll>
             </div>
           </Container>
         </section>

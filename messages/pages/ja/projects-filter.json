@@ -42,7 +42,7 @@
         "q0": "どの発電所が自動Tayproロボットに適する？",
         "a0": "地上設置50MW以上、行間隔が一定、ブロックアクセス良好、汚れや水制約で手洗いが高コストのサイト。固定傾斜はGLYDE、単軸はGLYDE-X。",
         "q1": "自動プロジェクトと半自動・CAPEXの違いは？",
-        "a1": "自動は固定スケジュールの完全自律フリート。半自動は分散ブロック向けポータブルHELYX。CAPEXはロボット購入。同一オーナーがTaypro Opex併用も可。",
+        "a1": "自動は固定スケジュールの完全自律フリート。半自動は分散ブロック向けポータブルHELYX。CAPEXはロボット購入。同一オーナーがOpex併用も可。",
         "q2": "見積前に何を読むべき？",
         "a2": "近いMW・地域の事例を選び、自動製品ページで技術限界を確認、タリフと汚れ仮定でROI計算、レイアウト図をTayproに共有。"
       }
@@ -98,7 +98,7 @@
       "title": "CAPEXソーラーパネル洗浄ロबोット導入事例",
       "description": "CAPEX所有のソーラーパネル洗浄ロボット導入事例。社内O&M向けにTayproハードウェアを購入した顧客。",
       "introP1Before": "CAPEX一覧は、Tayproロボットを直接購入し社内/委託O&Mで運用する事業者・IPPを示します。対照的に",
-      "introP1Link": "Taypro Opex清掃サービス",
+      "introP1Link": "Opex清掃サービス",
       "introP1After": "ではTayproがロボット保有しSLA下でサイクル実行。両モデルがインドに存在。選択は貸借対照表、O&M成熟度、回収期間次第。",
       "introP2": "CAPEX購入者は資産管理、スペア在庫、SCADA/NECTYR連携を重視。Tayproは試運転、訓練、全国スペア物流を支援。下記事例はMW・汚れ・固定/トラッカー設計に基づくフリート規模を示します。",
       "introP3Before": "所有経済性は",
@@ -131,7 +131,7 @@
         "cta": "発電所について相談",
         "q0": "Taypro一覧のCAPEXの意味は？",
         "a0": "開発者/IPPが資本設備として購入し社内/第三者O&Mで運用。Tayproはハード・試運転・支援。オーナーが減価償却と稼働責任。",
-        "q1": "CAPEXとTaypro Opexの違いは？",
+        "q1": "CAPEXとOpexの違いは？",
         "a1": "OpexはTayproがフリート保有しSLA清掃。予測可能なopex行と外部実行向け。CAPEXは社内O&Mと資産所有志向向け。",
         "q2": "CAPEX発電所もTaypro運用支援は可能？",
         "a2": "ハードCAPEX購入＋監視/監査委託も可能。事例に記載。提案時に希望分担を共有。"
@@ -144,7 +144,7 @@
       "breadcrumb": "Opex",
       "eyebrow": "Operator-led cleaning service",
       "title": "Opexソーラーパネル洗浄ロボット導入事例",
-      "description": "Taypro Opexソーラーパネル洗浄ロボットの導入事例。Taypro所有フリート、パネル課金サイクル、SLA運用。",
+      "description": "Opexソーラーパネル洗浄ロボットの導入事例。Taypro所有フリート、パネル課金サイクル、SLA運用。",
       "introP1Before": "Opex listings document plants where Taypro delivers",
       "introP1Link": "robotic cleaning as a managed service",
       "introP1After": ", Taypro retains fleet ownership, schedules cycles, and reports completion through NECTYR. Owners pay for cleaned panels rather than capitalizing robots on the balance sheet.",
@@ -165,7 +165,7 @@
       "gridIntro": "Select a plant to see how Taypro structured service delivery, fleet mix, and reporting for operator-led cleaning.",
       "closingHeading": "Evaluating Opex vs CAPEX for your site?",
       "closingBodyBeforeLink": "Read",
-      "closingProductLink": "Taypro Opex service scope",
+      "closingProductLink": "Opex service scope",
       "closingBodyMiddle": "alongside",
       "closingContactLink": "contact Taypro",
       "closingBodyAfter": " with plant MW, target cycle frequency, and whether you prefer owned fleets or managed service delivery.",
@@ -183,7 +183,8 @@
         "a1": "CAPEX listings show owners who bought robots outright and operate them in-house or with contracted crews. Opex listings show Taypro retaining ownership and running cycles. The same GLYDE or HELYX technology can appear under either model depending on procurement choice.",
         "q2": "Can we switch from Opex to CAPEX later?",
         "a2": "Some owners start with Opex to prove cycle frequency and soiling recovery, then transition to owned fleets once layout and economics are validated. Share your roadmap with Taypro during proposal so fleet sizing and contract terms stay aligned."
-      }
+      },
+      "introP4": "公開された Opex ケーススタディを、プラントの能力、地理、サービス モデルとともに以下に示します。新しいデプロイメントが公開されるたびに更新をカウントします。完全なポートフォリオについてはプロジェクト ハブを使用します。"
     }
   },
   "Common": {

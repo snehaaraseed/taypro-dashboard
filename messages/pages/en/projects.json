@@ -120,7 +120,10 @@
     },
     "callback": {
       "header": "Discuss your solar plant with Taypro"
-    }
+    },
+    "leadTopic": "Let's work together",
+    "leadTitle": "Let's work together",
+    "leadSubtitle": "Tell us about your plant and our team will follow up with the right Solar Panel Cleaning Robot fit for your site."
   },
   "ProjectDetailPage": {
     "notFoundTitle": "Project Not Found",

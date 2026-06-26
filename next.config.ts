@@ -613,6 +613,10 @@ const nextConfig = {
           headers: [{ key: "Cache-Control", value: productionAssetCache }],
         },
         {
+          source: "/uploads/:path*",
+          headers: [{ key: "Cache-Control", value: productionAssetCache }],
+        },
+        {
           source: "/_next/image/:path*",
           headers: [{ key: "Cache-Control", value: productionAssetCache }],
         },

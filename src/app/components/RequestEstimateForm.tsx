@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
 import { CheckCircle2 } from "lucide-react";
 import { trackGenerateLead } from "@/lib/analytics/track-event";
+import { buildLeadComments, buildLeadContext } from "@/lib/lead-form-context";
 
 export type RequestEstimateFormProps = {
   variant?: "fullPage" | "embedded";
@@ -21,11 +22,24 @@ export type RequestEstimateFormProps = {
   embeddedFlush?: boolean;
   /** Override primary submit button label. */
   submitLabel?: string;
+  /** Show the free-text plant / message field. Default false — context is captured automatically. */
+  showMessageField?: boolean;
+  /** Show company name field. Default true. */
+  showCompanyField?: boolean;
   messageRows?: number;
   /** Label above the free-text field (site details, constraints, pain). */
   messageLabel?: string;
   /** Placeholder for the free-text field. */
   messagePlaceholder?: string;
+  /** Override default field labels (e.g. register-interest forms). */
+  firstNameLabel?: string;
+  emailLabel?: string;
+  phoneLabel?: string;
+  companyLabel?: string;
+  /** Short intent label included in the hidden lead context (e.g. "Contact page enquiry"). */
+  leadIntent?: string;
+  /** Full override for hidden lead context sent with the submission. */
+  leadContext?: string;
   /** Focus first name field on mount (e.g. after opening a slide-in form step). */
   autoFocus?: boolean;
   onSuccess?: () => void;
@@ -63,9 +77,17 @@ export default function RequestEstimateForm({
   compactEmbedded = false,
   embeddedFlush = false,
   submitLabel,
+  showMessageField = false,
+  showCompanyField = true,
   messageRows = 3,
   messageLabel,
   messagePlaceholder,
+  firstNameLabel,
+  emailLabel,
+  phoneLabel,
+  companyLabel,
+  leadIntent,
+  leadContext,
   autoFocus = false,
   onSuccess,
   thankYouTitle,
@@ -85,6 +107,8 @@ export default function RequestEstimateForm({
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+
+  const resolvedTitle = title ?? "Request a detailed estimate";
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -106,7 +130,26 @@ export default function RequestEstimateForm({
       const email = formData.email.trim();
       const phone = formData.phone.trim();
       const company_name = formData.companyName.trim();
-      const comments = formData.message.trim();
+      const userMessage = showMessageField ? formData.message.trim() : "";
+      const resolvedFormType =
+        analyticsFormType ??
+        (slideInMobile
+          ? "slide_in_estimate"
+          : variant === "embedded"
+            ? "embedded_estimate"
+            : "full_page_estimate");
+      const comments = buildLeadComments(
+        buildLeadContext({
+          pathname,
+          leadIntent,
+          leadContext,
+          analyticsFormType: resolvedFormType,
+          analyticsSource,
+          analyticsTopic,
+          title: resolvedTitle,
+        }),
+        userMessage
+      );
 
       if (!name || !email || !phone) {
         setErrorMsg(t("requiredError"));
@@ -139,13 +182,7 @@ export default function RequestEstimateForm({
 
       onSuccess?.();
       trackGenerateLead({
-        formType:
-          analyticsFormType ??
-          (slideInMobile
-            ? "slide_in_estimate"
-            : variant === "embedded"
-              ? "embedded_estimate"
-              : "full_page_estimate"),
+        formType: resolvedFormType,
         pagePath: pathname,
         source: analyticsSource,
         topic: analyticsTopic,
@@ -168,12 +205,14 @@ export default function RequestEstimateForm({
   const resolvedThankYouMessage =
     thankYouMessage ?? t("thankYouDefaultMessage");
   const resolvedEyebrow = eyebrow ?? "Let's Get Started";
-  const resolvedTitle = title ?? "Request a detailed estimate";
+  const resolvedFirstNameLabel = firstNameLabel ?? t("firstName");
+  const resolvedEmailLabel = emailLabel ?? t("email");
+  const resolvedPhoneLabel = phoneLabel ?? t("phone");
+  const resolvedCompanyLabel = companyLabel ?? t("companyName");
   const resolvedMessageLabel =
-    messageLabel ?? "Your plant, constraints, and what hurts output";
+    messageLabel ?? t("plantDetailsLabel");
   const resolvedMessagePlaceholder =
-    messagePlaceholder ??
-    "For example: MW capacity, fixed-tilt or trackers, soiling or dust, water limits, current cleaning approach, and the gap you want to close.";
+    messagePlaceholder ?? t("plantDetailsPlaceholder");
 
   const gridClass =
     variant === "embedded" && stackedEmbedded
@@ -256,7 +295,7 @@ export default function RequestEstimateForm({
           <div className={gridClass}>
             <div>
               <label htmlFor={fieldId("firstName")} className={labelClass}>
-                {t("firstName")}
+                {resolvedFirstNameLabel}
               </label>
               <input
                 id={fieldId("firstName")}
@@ -270,24 +309,26 @@ export default function RequestEstimateForm({
                 className={fieldClass}
               />
             </div>
-            <div className={mobileOnlyHidden}>
-              <label htmlFor={fieldId("companyName")} className={labelClass}>
-                {t("companyName")}
-              </label>
-              <input
-                id={fieldId("companyName")}
-                type="text"
-                name="companyName"
-                placeholder={t("companyPlaceholder")}
-                value={formData.companyName}
-                onChange={handleChange}
-                suppressHydrationWarning
-                className={fieldClass}
-              />
-            </div>
+            {showCompanyField ? (
+              <div className={mobileOnlyHidden}>
+                <label htmlFor={fieldId("companyName")} className={labelClass}>
+                  {resolvedCompanyLabel}
+                </label>
+                <input
+                  id={fieldId("companyName")}
+                  type="text"
+                  name="companyName"
+                  placeholder={t("companyPlaceholder")}
+                  value={formData.companyName}
+                  onChange={handleChange}
+                  suppressHydrationWarning
+                  className={fieldClass}
+                />
+              </div>
+            ) : null}
             <div>
               <label htmlFor={fieldId("email")} className={labelClass}>
-                {t("email")}
+                {resolvedEmailLabel}
               </label>
               <input
                 id={fieldId("email")}
@@ -302,7 +343,7 @@ export default function RequestEstimateForm({
             </div>
             <div>
               <label htmlFor={fieldId("phone")} className={labelClass}>
-                {t("phone")}
+                {resolvedPhoneLabel}
               </label>
               <input
                 id={fieldId("phone")}
@@ -317,31 +358,33 @@ export default function RequestEstimateForm({
             </div>
           </div>
 
-          <div
-            className={`${
-              compactEmbedded
-                ? "mb-2.5"
-                : stackedEmbedded
-                  ? "mb-4"
-                  : "mb-6 md:mb-8"
-            } ${mobileOnlyHidden}`}
-          >
-            <label htmlFor={fieldId("message")} className={labelClass}>
-              {resolvedMessageLabel}
-            </label>
-            <textarea
-              id={fieldId("message")}
-              rows={messageRows}
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              suppressHydrationWarning
-              placeholder={resolvedMessagePlaceholder}
-              className={
-                compactEmbedded ? `${fieldClass} min-h-[2.5rem]` : fieldClass
-              }
-            />
-          </div>
+          {showMessageField ? (
+            <div
+              className={`${
+                compactEmbedded
+                  ? "mb-2.5"
+                  : stackedEmbedded
+                    ? "mb-4"
+                    : "mb-6 md:mb-8"
+              } ${mobileOnlyHidden}`}
+            >
+              <label htmlFor={fieldId("message")} className={labelClass}>
+                {resolvedMessageLabel}
+              </label>
+              <textarea
+                id={fieldId("message")}
+                rows={messageRows}
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                suppressHydrationWarning
+                placeholder={resolvedMessagePlaceholder}
+                className={
+                  compactEmbedded ? `${fieldClass} min-h-[2.5rem]` : fieldClass
+                }
+              />
+            </div>
+          ) : null}
 
           {errorMsg && (
             <div

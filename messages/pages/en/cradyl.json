@@ -29,7 +29,13 @@
       "subtitleStrong2": "one robot can clean multiple rows",
       "subtitleAfter2": " across scattered, non-contiguous utility-scale plants in India.",
       "imgAlt": "Taypro CRADYL movable docking station on end-row rail tracks at a utility-scale solar plant",
-      "ctaText": "Request a quote"
+      "ctaText": "Request a quote",
+      "primaryCta": {
+        "topic": "CRADYL quote",
+        "title": "Request a CRADYL quote",
+        "subtitle": "Tell us about your scattered blocks and row layout — our team will follow up with CRADYL rail sizing, transfer scope, and commercial options.",
+        "label": "Request a quote"
+      }
     },
     "overview": {
       "eyebrow": "Row-transfer docking for scattered solar plants",

@@ -86,7 +86,12 @@
       "formTitle": "MINY-তে আগ্রহী হন",
       "messageLabel": "ছাদের প্ল্যান্ট বিবরণ",
       "messagePlaceholder": "প্ল্যান্ট ক্ষমতা, শহর, ছাদের ধরন, বর্তমান পরিষ্কার পদ্ধতি, সময়রেখা…",
-      "submitLabel": "আগ্রহের অনুরোধ পাঠান"
+      "submitLabel": "আগ্রহের অনুরোধ পাঠান",
+      "firstNameLabel": "তোমার নাম*",
+      "emailLabel": "কাজের ইমেল*",
+      "phoneLabel": "ফোন নম্বর*",
+      "thankYouTitle": "আপনি MINY তালিকায় আছেন",
+      "thankYouMessage": "আমরা স্পেস, পাইলট স্লট এবং আপনার অঞ্চলের জন্য আপডেটগুলি শেয়ার করব কারণ MINY সাধারণ প্রাপ্যতার কাছে আসবে৷"
     },
     "related": {
       "eyebrow": "আজ উপলব্ধ",
@@ -99,7 +104,7 @@
         },
         "1": {
           "label": "সব সোলার পরিষ্কার রোবট",
-          "description": "GLYDE, HELYX, GLYDE-X, Taypro OPEX ও NECTYR তুলনা করুন।"
+          "description": "GLYDE, HELYX, GLYDE-X, OPEX ও NECTYR তুলনা করুন।"
         }
       }
     },

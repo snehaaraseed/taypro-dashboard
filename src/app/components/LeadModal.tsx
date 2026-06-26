@@ -7,14 +7,31 @@ import { lockPageScroll } from "@/lib/scroll-lock";
 import { getOverlayPortalRoot } from "@/lib/overlay-portal";
 import RequestEstimateForm from "./RequestEstimateForm";
 import { useLeadModal } from "./LeadModalContext";
-
-const DEFAULT_TITLE = "Tell us about your plant";
-const DEFAULT_SUBTITLE =
-  "A few quick details and our applications team will reach out with the right Solar Panel Cleaning Robot fit for your site.";
+import {
+  DEFAULT_LEAD_MODAL_FORM_PROMPT,
+  DEFAULT_LEAD_MODAL_SUBTITLE,
+  DEFAULT_LEAD_MODAL_TITLE,
+} from "./lead-modal-options";
 
 export default function LeadModal() {
   const { state, closeLeadModal } = useLeadModal();
-  const { isOpen, topic, title, subtitle, source } = state;
+  const {
+    isOpen,
+    topic,
+    title,
+    subtitle,
+    source,
+    leadIntent,
+    formPrompt,
+    showMessageField,
+    showCompanyField,
+    messageLabel,
+    messagePlaceholder,
+    submitLabel,
+    thankYouTitle,
+    thankYouMessage,
+    analyticsFormType,
+  } = state;
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -36,8 +53,9 @@ export default function LeadModal() {
 
   if (!isOpen || !mounted) return null;
 
-  const resolvedTitle = title ?? DEFAULT_TITLE;
-  const resolvedSubtitle = subtitle ?? DEFAULT_SUBTITLE;
+  const resolvedTitle = title ?? DEFAULT_LEAD_MODAL_TITLE;
+  const resolvedSubtitle = subtitle ?? DEFAULT_LEAD_MODAL_SUBTITLE;
+  const resolvedFormPrompt = formPrompt ?? DEFAULT_LEAD_MODAL_FORM_PROMPT;
   const heroEyebrow = topic?.trim() || "Taypro plant check";
 
   const panel = (
@@ -95,28 +113,35 @@ export default function LeadModal() {
         </div>
 
         <div className="flex min-h-0 flex-1 flex-col overflow-y-auto bg-gradient-to-b from-white to-[#f4f7f8] px-5 pb-5 pt-5 sm:px-6 sm:pb-6 sm:pt-6">
-          <p className="text-base leading-relaxed text-[#22405a] sm:text-lg">{resolvedSubtitle}</p>
+          <p className="text-base leading-relaxed text-[#22405a] sm:text-lg">
+            {resolvedSubtitle}
+          </p>
 
           <div className="mt-5 rounded-xl border border-[#e2e8ec] bg-white/95 p-4 shadow-sm sm:mt-6 sm:p-5">
             <p className="mb-4 text-sm font-semibold text-[#052638] sm:text-base">
-              Where should we send your fit check?
+              {resolvedFormPrompt}
             </p>
             <RequestEstimateForm
               variant="embedded"
               showEmbeddedHeading={false}
               stackedEmbedded
               embeddedFlush
-              messageRows={3}
-              messageLabel="What should we know about your plant?"
-              messagePlaceholder="MW, fixed-tilt or trackers, soiling or water limits, how you clean today, and what you want to improve."
-              submitLabel="Send my fit check"
+              showMessageField={showMessageField}
+              showCompanyField={showCompanyField}
+              messageLabel={messageLabel}
+              messagePlaceholder={messagePlaceholder}
+              submitLabel={submitLabel ?? "Send my fit check"}
               autoFocus
               hideResetAfterSuccess
-              thankYouTitle="Got it, your fit check is on the way"
-              thankYouMessage="Our applications team will follow up shortly with the right Solar Panel Cleaning Robot direction for your plant."
-              analyticsFormType="lead_modal"
+              thankYouTitle={thankYouTitle ?? "Got it, your fit check is on the way"}
+              thankYouMessage={
+                thankYouMessage ??
+                "Our applications team will follow up shortly with the right Solar Panel Cleaning Robot direction for your plant."
+              }
+              analyticsFormType={analyticsFormType ?? "lead_modal"}
               analyticsSource={source}
               analyticsTopic={topic}
+              leadIntent={leadIntent ?? topic?.trim() ?? "Plant fit check (modal)"}
               onSuccess={() => {
                 window.setTimeout(closeLeadModal, 2800);
               }}

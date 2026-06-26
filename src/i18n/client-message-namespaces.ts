@@ -34,23 +34,29 @@ const BUYER_INTENT_NAMESPACE: Record<string, string> = {
 };
 
 /**
- * Namespaces used by full "use client" pages and shared client widgets.
- * Always included in the client bundle so client-side navigation does not
- * show raw message keys (layout does not re-run on route changes).
+ * Client namespaces for high-traffic routes with `"use client"` pages or widgets.
+ * Buyer-intent landings are server-rendered (getTranslations) and are merged per-path only.
+ * Server page modules: see route-message-modules.ts (keep both maps in sync).
  */
-export const CLIENT_PAGE_NAMESPACES = [
+export const CORE_CLIENT_PAGE_NAMESPACES = [
   "Home",
   "ContactPage",
   "CompanyPage",
   "ModuleManufacturerTrust",
   "PriceCalculatorPage",
   "RobotPriceIndiaPage",
-  "StateLandingsPage",
   "BlogPage",
   "ProjectsPage",
   "ProjectDetailPage",
   "ProjectsFilterPage",
   "CareersPage",
+] as const;
+
+/**
+ * Namespaces used by full "use client" pages and shared client widgets.
+ */
+export const CLIENT_PAGE_NAMESPACES = [
+  ...CORE_CLIENT_PAGE_NAMESPACES,
   "ServiceIndiaPage",
   "SolarOmServicesPage",
   "SolarCleaningOpexPricingPage",
@@ -63,17 +69,33 @@ export const CLIENT_PAGE_NAMESPACES = [
   "ManufacturerIndiaPage",
   "PlantDataIntelligencePage",
   "EnterprisePartnershipPage",
+  "StateLandingsPage",
+  "UtilityOperationsPage",
+  "AiIntelligencePage",
 ] as const;
 
 /**
- * Extra translation namespaces for client components on this route.
- * Server components still use the full catalog from getRequestConfig.
+ * Full client catalog reference (tests, layout SPA bundle).
+ * Root layout ships the full SPA catalog once; server copy stays pathname-scoped.
+ */
+export const SPA_CLIENT_NAMESPACES = [
+  ...LAYOUT_CLIENT_NAMESPACES,
+  ...CLIENT_PAGE_NAMESPACES,
+] as const;
+
+/**
+ * Legacy pathname hints (e.g. buildClientMessages). Root layout uses SPA_CLIENT_NAMESPACES.
  */
 export function clientNamespacesForPathname(pathname: string): string[] {
   const path = pathnameWithoutLocale(pathname);
 
   if (path === "/" || path === "") {
-    return ["Home", "PriceCalculatorPage"];
+    return [
+      "Home",
+      "PriceCalculatorPage",
+      "ModuleManufacturerTrust",
+      "ProjectsPage",
+    ];
   }
 
   if (path === "/contact") {
@@ -81,7 +103,7 @@ export function clientNamespacesForPathname(pathname: string): string[] {
   }
 
   if (path === "/company") {
-    return ["CompanyPage", "Common"];
+    return ["CompanyPage", "ModuleManufacturerTrust", "Common"];
   }
 
   if (path === "/solar-panel-cleaning-robot-price-calculator") {
@@ -103,7 +125,11 @@ export function clientNamespacesForPathname(pathname: string): string[] {
 
   // ROICalculatorEmbed is used on hub, product, service, and Opex pages under this prefix.
   if (path.startsWith("/solar-panel-cleaning-system")) {
-    return ["PriceCalculatorPage"];
+    return ["PriceCalculatorPage", "ModuleManufacturerTrust"];
+  }
+
+  if (path === "/cleaning-technology") {
+    return ["ModuleManufacturerTrust", "Common"];
   }
 
   if (path.startsWith("/blog") || path === "/authors") {
@@ -116,6 +142,14 @@ export function clientNamespacesForPathname(pathname: string): string[] {
 
   if (path === "/careers" || path.startsWith("/careers/")) {
     return ["CareersPage", "Common"];
+  }
+
+  if (path === "/utility-scale-solar-operations") {
+    return ["UtilityOperationsPage", "CompanyPage", "Common"];
+  }
+
+  if (path.startsWith("/technology/ai-intelligence")) {
+    return ["AiIntelligencePage", "Common"];
   }
 
   if (path.startsWith("/projects/")) {
@@ -131,8 +165,7 @@ export function clientNamespacesForPathname(pathname: string): string[] {
   return [];
 }
 
-/** Layout chrome + route-specific client namespaces (not the full CLIENT_PAGE_NAMESPACES list). */
-export function clientNamespacesForRequest(pathname: string): string[] {
-  const routeNamespaces = clientNamespacesForPathname(pathname);
-  return [...new Set([...LAYOUT_CLIENT_NAMESPACES, ...routeNamespaces])];
+/** Client namespaces for the locale layout (same on every route — SPA-safe). */
+export function clientNamespacesForRequest(_pathname?: string): string[] {
+  return [...SPA_CLIENT_NAMESPACES];
 }

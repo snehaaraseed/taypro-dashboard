@@ -79,7 +79,7 @@ function hardwareRobotFromCatalog(id: ProductId) {
 export const robots = [
   ...HARDWARE_PRODUCT_IDS.map(hardwareRobotFromCatalog),
   {
-    model: "Taypro Opex",
+    model: "Opex",
     marketingName: "Robotic solar panel cleaning service",
     description:
       "Pay-per-panel-cleaned Opex, Taypro operates the cleaning robot fleet on your plant with no upfront CAPEX.",
@@ -98,7 +98,7 @@ export const robots = [
 
 export const robotProducts = HARDWARE_PRODUCT_IDS.map(hardwareRobotFromCatalog);
 export const robotSolutions = robots.filter(
-  (r) => r.model === "Taypro Opex" || r.model === "NECTYR"
+  (r) => r.model === "Opex" || r.model === "NECTYR"
 );
 
 /** Launched fleet accessories (non-cleaning-robot hardware). */
@@ -433,7 +433,7 @@ export const items = [
     heading:
       "Ship reliable robots, transparent service, and measurable outcomes, site by site.",
     body:
-      "We invest in R&D, manufacturing capacity, and nationwide logistics so customers receive consistent quality, rapid spare availability, and responsive support. From GLYDE and HELYX for distributed layouts to GLYDE-X for trackers, plus Taypro Opex for operator-led cleaning, our roadmap stays tied to one question: does it improve plant uptime, safety, and total cost of ownership?",
+      "We invest in R&D, manufacturing capacity, and nationwide logistics so customers receive consistent quality, rapid spare availability, and responsive support. From GLYDE and HELYX for distributed layouts to GLYDE-X for trackers, plus Opex for operator-led cleaning, our roadmap stays tied to one question: does it improve plant uptime, safety, and total cost of ownership?",
   },
 ];
 

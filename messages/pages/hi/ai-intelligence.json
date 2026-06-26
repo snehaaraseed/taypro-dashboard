@@ -1,7 +1,7 @@
 {
   "AiIntelligencePage": {
     "meta": {
-      "title": "NECTYR फ्लीट AI और सोलर O&M इंटेलिजेंस",
+      "title": "NECTYR फ्लीट AI और सोलर O&M इंटेलिजेंस | Taypro",
       "description": "यूटिलिटी सोलर के लिए NECTYR फ्लीट AI: 5 GW+ दैनिक थ्रूपुट से लेबल्ड टेलीमेट्री, स्वायत्त शेड्यूलिंग, ML रूटिंग, और predictive maintenance अलर्ट।",
       "openGraphTitle": "AI Intelligence Layer | Taypro Solar Cleaning",
       "openGraphDescription": "Self-learning fleet AI trained on 11 billion+ annual panel passes across India's largest robotic cleaning fleet.",
@@ -14,18 +14,27 @@
       "title": "सोलर फ्लीट AI और NECTYR संचालन इंटेलिजेंस",
       "body": "TAYPRO's competitive advantage is not the robot alone — it is what the intelligence layer knows. Self-learning models trained on 11 billion+ annual panel passes across 150+ plants refine soiling prediction, battery routing, and weather scheduling with every cycle. Plants commissioned today inherit years of prior fleet intelligence.",
       "ctaNectyr": "NECTYR देखें",
-      "ctaTechnology": "क्लीनिंग तकनीक"
+      "ctaTechnology": "क्लीनिंग तकनीक",
+      "lead": "आज स्थापित किए गए संयंत्रों को वर्षों पहले की बेड़े की खुफिया जानकारी विरासत में मिली है। NECTYR मौसम के मॉडल, गंदगी के जोखिम, बैटरी की स्थिति और रोबोट स्वास्थ्य के आधार पर स्वायत्त रूप से सफाई शुरू करता है, स्थगित करता है या तेज करता है - प्रत्येक धूल भरी आंधी के बाद ऑपरेटर द्वारा शेड्यूल को फिर से लिखने की प्रतीक्षा किए बिना।"
     },
     "flywheel": {
       "eyebrow": "The data flywheel",
       "heading": "How daily fleet cycles feed AI that improves itself",
-      "body": "Every cleaning cycle across Taypro's 5 GW+ deployed fleet generates structured data — soiling rates by geography and season, weather correlation, battery performance, and fault patterns. Models ingest this telemetry continuously: a plant in Rajasthan benefits from monsoon-shoulder timing learned in Maharashtra; a new GLYDE-X tracker site inherits routing intelligence from hundreds of prior array maps. The dataset compounds with each site added. Competitors entering today would need years of equivalent utility-scale deployments to replicate it."
+      "body": "Every cleaning cycle across Taypro's 5 GW+ deployed fleet generates structured data — soiling rates by geography and season, weather correlation, battery performance, and fault patterns. Models ingest this telemetry continuously: a plant in Rajasthan benefits from monsoon-shoulder timing learned in Maharashtra; a new GLYDE-X tracker site inherits routing intelligence from hundreds of prior array maps. The dataset compounds with each site added. Competitors entering today would need years of equivalent utility-scale deployments to replicate it.",
+      "closing": "प्रत्येक साइट के साथ डेटासेट संयोजित होता है। सेंस → शेड्यूल → क्लीन → लॉग → सीखें - हर रात बेड़े में।",
+      "step0": "समझ",
+      "step1": "अनुसूची",
+      "step2": "साफ",
+      "step3": "लकड़ी का लट्ठा",
+      "step4": "सीखना"
     },
     "capabilities": {
       "eyebrow": "छह AI क्षमताएँ",
       "heading": "सेल्फ-लर्निंग फ्लीट इंटेलिजेंस — आज NECTYR में लाइव",
       "intro": "These are not roadmap features. They run across Taypro's active fleet every night.",
-      "hardwareCrossLink": "क्लीनिंग तकनीक"
+      "hardwareCrossLink": "क्लीनिंग तकनीक",
+      "hardwareCrossBefore": "रोबोट शारीरिक रूप से सफाई कैसे करते हैं - डुअल-पास ड्राई क्लीनिंग, प्लेटफ़ॉर्म वेट और फ़ील्ड हार्डवेयर - इस पर प्रलेखित है",
+      "hardwareCrossAfter": "."
     },
     "capability0": {
       "title": "Self-learning fleet intelligence",
@@ -57,7 +66,13 @@
       "item3": "Wet microfiber detection alerts and automatic cycle protection",
       "item4": "Predictive maintenance alerts from fleet-wide deviation signatures",
       "item5": "Cycle audit logs and exportable reports for PR and AMC evidence",
-      "nectyrLink": "Explore NECTYR"
+      "nectyrLink": "Explore NECTYR",
+      "trackingTitle": "सजीव सफ़ाई दृश्य",
+      "trackingBody": "NECTYR प्लांट लेआउट मानचित्र पर वास्तविक समय की रोबोट स्थिति को ओवरले करता है। ऑपरेटर किसी भी समय देखते हैं कि कौन सी पंक्ति साफ की जा रही है, प्रगति प्रतिशत और बेड़े की स्थिति - घंटों पहले आखिरी बार देखा गया टाइमस्टैम्प नहीं।",
+      "predictiveTitle": "प्रति-रोबोट स्वास्थ्य प्रोफ़ाइल",
+      "predictiveBody": "मोटर करंट ड्रॉ, बैटरी चार्ज और डिस्चार्ज कर्व्स, ब्रश रोटेशन टॉर्क और सेंसर सिग्नल पैटर्न प्रत्येक रोबोट के लिए एक स्वास्थ्य प्रोफ़ाइल बनाते हैं। विचलन हस्ताक्षर जो बीयरिंग के खराब होने या ब्रश के जीवन के अंत से पहले होते हैं, खराबी के टूटने से पहले चिह्नित किए जाते हैं।",
+      "autonomousTitle": "स्वायत्त बेड़ा ऑर्केस्ट्रेशन",
+      "autonomousBody": "मौसम मॉडल, गंदगी के पूर्वानुमान, बैटरी की स्थिति और रोबोट स्वास्थ्य के आधार पर फ्लीट एआई द्वारा सफाई चक्र शुरू, रोका और तेज किया जाता है। ब्लॉक-स्तरीय ऑडिट ट्रेल्स O&M समीक्षा और परिसंपत्ति-मालिक रिपोर्टिंग के लिए हर निर्णय का दस्तावेजीकरण करते हैं।"
     },
     "orion": {
       "eyebrow": "Roadmap",
@@ -68,14 +83,30 @@
     "dataMoat": {
       "eyebrow": "For investors & enterprise buyers",
       "heading": "फ्लीट स्केल पर चक्रित डेटा मोAT",
-      "body": "Every cleaning cycle across Taypro's 5 GW+ operational fleet generates structured data that trains AI models improving continuously. A competitor entering the market today would need years of equivalent deployments to replicate this dataset. Taypro's technology advantage compounds with scale — and every new site makes the model smarter for the entire fleet."
+      "body": "Every cleaning cycle across Taypro's 5 GW+ operational fleet generates structured data that trains AI models improving continuously. A competitor entering the market today would need years of equivalent deployments to replicate this dataset. Taypro's technology advantage compounds with scale — and every new site makes the model smarter for the entire fleet.",
+      "bullet0": "11 बिलियन से अधिक वार्षिक पैनल रेगिस्तान, कृषि और तटीय क्षेत्रों में 150 से अधिक पौधों से होकर गुजरता है",
+      "bullet1": "2022 से NECTYR पर सफाई टेलीमेट्री लेबल - भारत में सबसे बड़ा सफाई खुफिया डेटासेट",
+      "bullet2": "क्रॉस-साइट मॉडल स्थानांतरण: नए संयंत्रों को पहले दिन शेड्यूलिंग और रूटिंग इंटेलिजेंस विरासत में मिलती है",
+      "bullet3": "कंपाउंडिंग गैप: प्रत्येक सफाई के मौसम में क्षेत्रीय धूल पुस्तकालय, दोष अग्रदूत और मौसम सहसंबंध गहराई जुड़ जाती है"
     },
     "cta": {
       "heading": "See the full technology stack",
       "cleaningTech": "Cleaning technology",
       "contact": "Contact Taypro",
       "nectyr": "Explore NECTYR",
-      "projects": "लाइव प्रोजेक्ट"
+      "projects": "लाइव प्रोजेक्ट",
+      "leadModal": {
+        "topic": "एआई खुफिया जांच",
+        "title": "बेड़े की खुफिया जानकारी के बारे में Taypro से बात करें",
+        "subtitle": "प्लांट O&M टीमों, IPPs, या NECTYR, ORION, या Taypro के बेड़े AI के पीछे डेटा फ्लाईव्हील की खोज करने वाले उद्यम खरीदारों के लिए।",
+        "formPrompt": "हमें आप तक कहां पहुंचना चाहिए?",
+        "messageLabel": "आपका संदेश",
+        "messagePlaceholder": "संगठन, प्लांट पोर्टफोलियो MW, SCADA सेटअप, साइट पर रोबोट, और आप क्या जानना चाहते हैं...",
+        "submitLabel": "जांच भेजें",
+        "thankYouTitle": "धन्यवाद - हमें आपका संदेश प्राप्त हो गया है",
+        "thankYouMessage": "हमारी टीम शीघ्र ही आपकी इंटेलिजेंस-लेयर पूछताछ पर अनुवर्ती कार्रवाई करेगी।",
+        "ctaLabel": "संपर्क करेंTaypro"
+      }
     },
     "whyScale": {
       "eyebrow": "स्केल क्यों मायने रखता है",
@@ -99,27 +130,120 @@
       "panelsLabel": "वार्षिक साफ किए गए पैनल",
       "sitesLabel": "लाइव प्लांट इंस्टॉलेशन",
       "deployedLabel": "तैनात रोबोट क्षमता",
-      "methodologyLink": "प्रदर्शन और परीक्षण पद्धति"
+      "methodologyLink": "प्रदर्शन और परीक्षण पद्धति",
+      "footnoteBefore": "बेड़े पर प्रभाव के आंकड़े लाइव तैनाती से तैयार किए गए हैं। हमारा देखें",
+      "footnoteAfter": "धारणाओं के लिए."
     },
     "platformStack": {
       "eyebrow": "तीन-परत प्लेटफॉर्म",
-      "heading": "रोबोट निष्पादित करते हैं। NECTYR निर्णय लेता है। ORION विस्तारित करता है।"
+      "heading": "रोबोट निष्पादित करते हैं। NECTYR निर्णय लेता है। ORION विस्तारित करता है।",
+      "intro": "Taypro को एक बंद लूप के रूप में तैयार किया गया है - फ़ील्ड हार्डवेयर डेटा उत्पन्न करता है, फ़्लीट सॉफ़्टवेयर डेटा को रात के निर्णयों में बदल देता है, और रोडमैप परत सफाई इंटेलिजेंस को पूर्ण संयंत्र स्वास्थ्य से जोड़ती है।",
+      "layer0": {
+        "tag": "आज · मैदान",
+        "title": "स्वायत्त सफाई रोबोट",
+        "body": "GLYDE, GLYDE-X, NYUMA, और NYUMA-X रोबोट सेंसर, स्व-संचालित ड्राइव और ऑन-बोर्ड सुरक्षा इंटरलॉक ले जाते हैं। प्रत्येक पास लेबल टेलीमेट्री उत्पन्न करता है: पंक्ति कवरेज, बैटरी ड्रा, ब्रश टॉर्क, वेट-एलिमेंट स्थिति और गलती हस्ताक्षर।"
+      },
+      "layer1": {
+        "tag": "आज · बेड़ा",
+        "title": "NECTYR ऑपरेशन इंटेलिजेंस",
+        "body": "सुरक्षित वेब पोर्टल जहां फ्लीट एआई लाइव चलता है: स्वायत्त शेड्यूलिंग, प्लांट लेआउट पर लाइव रोबोट ट्रैकिंग, मूल कारण दोष वर्गीकरण, पूर्वानुमानित रखरखाव अलर्ट, और PR और AMC साक्ष्य के लिए निर्यात योग्य चक्र ऑडिट लॉग।"
+      },
+      "layer2": {
+        "tag": "रोडमैप · प्लांट",
+        "title": "ORION पादप स्वास्थ्य परत",
+        "body": "पीढ़ी-जागरूक निगरानी जो सफाई कार्यों से लेकर संपत्ति के पूर्ण स्वास्थ्य तक समान खुफिया रेल का विस्तार करती है - ताकि मालिक MWh समाप्त होने से पहले कार्रवाई कर सकें, न कि SCADA में गिरावट आने के बाद।"
+      }
     },
     "dataSignals": {
       "eyebrow": "प्रत्येक साइकिल क्या कैप्चर करती है",
-      "heading": "फ्लीट AI को प्रशिक्षित करने वाले डेटा लेबल"
+      "heading": "फ्लीट AI को प्रशिक्षित करने वाले डेटा लेबल",
+      "intro": "जेनेरिक अपटाइम मॉनिटरिंग आपको बताती है कि रोबोट ऑनलाइन है। Taypro की खुफिया परत लेबल करती है कि क्या हुआ, यह क्यों मायने रखता है, और अगले चक्र में कैसे बदलाव होना चाहिए।",
+      "signal0": {
+        "title": "ब्लॉक द्वारा मृदा दर",
+        "body": "भूगोल, मौसम और सरणी प्रकार के साथ सहसंबद्ध पोस्ट-क्लीन प्रदर्शन प्रतिक्रिया - भारत के सबसे कठिन वातावरण में क्षेत्रीय धूल पुस्तकालयों का निर्माण।"
+      },
+      "signal1": {
+        "title": "मौसम सहसंबंध",
+        "body": "हवा की गति, बारिश की संभावना, आर्द्रता, पराग और ओस का संदर्भ प्रत्येक चक्र निर्णय से जुड़ा हुआ है - अकेले बाइनरी रेन सेंसर नहीं।"
+      },
+      "signal2": {
+        "title": "बैटरी प्रति पंक्ति टोपोलॉजी",
+        "body": "चार्ज और डिस्चार्ज कर्व्स को पंक्ति की लंबाई, गैप ज्योमेट्री और अनड्यूलेशन के अनुसार मैप किया गया - एमएल रूट ऑप्टिमाइज़ेशन मॉडल को फीड करना।"
+      },
+      "signal3": {
+        "title": "दोष अग्रदूत",
+        "body": "मोटर करंट, ब्रश टॉर्क, और सेंसर विचलन हस्ताक्षर जो बीयरिंग पहनने, ब्रश संतृप्ति, या नियंत्रक गिरावट से पहले होते हैं।"
+      },
+      "signal4": {
+        "title": "गीला-तत्व अवस्था",
+        "body": "मॉड्यूल सुरक्षा के लिए माइक्रोफ़ाइबर नमी का पता लगाने वाले लेबल चक्र को स्थगित कर दिया गया - धूल भरे कांच पर धब्बा क्षति को रोका गया।"
+      },
+      "signal5": {
+        "title": "कवरेज ऑडिट ट्रेल",
+        "body": "O&M शासन, AMC समाधान, और परिसंपत्ति-स्वामी रिपोर्टिंग के लिए ब्लॉक-वार टाइमस्टैम्प, प्रगति प्रतिशत और निर्यात योग्य रिकॉर्ड।"
+      }
     },
     "deepDive": {
       "eyebrow": "फील्ड में कैसे काम करता है",
-      "heading": "तीन क्षमताएँ जो रात्रिक O&M बदलती हैं"
+      "heading": "तीन क्षमताएँ जो रात्रिक O&M बदलती हैं",
+      "dive0": {
+        "title": "NECTYR में साइट ग्राफ़ दृढ़ता",
+        "body": "प्रथम-परिनियोजन ट्रैवर्सल एक संग्रहीत साइट ग्राफ़ बनाता है - पैनल आयाम, अंतराल, पंक्ति की लंबाई, उतार-चढ़ाव, अंतिम स्थितियाँ - जिसे NECTYR हर रात पुन: उपयोग करता है। रूट सॉल्वर ज्यामिति को फिर से खोजने, मृत यात्रा को काटने और लालची अनमैप्ड पथों की तुलना में प्रति चार्ज साफ क्षेत्र को लगभग 2× बढ़ाने के बजाय इस ग्राफ को पढ़ते हैं।",
+        "detail": "ट्रैकर पोर्टफ़ोलियो को सैकड़ों पूर्व एकल-अक्ष ग्राफ़ से रूटिंग अनुमान प्राप्त होते हैं। ऑपरेटर एक ही मानचित्र के विरुद्ध कवरेज योजनाएं और निष्पादन लॉग देखते हैं - O&M और मॉडल प्रशिक्षण के लिए सत्य का एक स्रोत।"
+      },
+      "dive1": {
+        "title": "ऑपरेटर पुनर्लेखन के बिना स्वायत्त शेड्यूलिंग",
+        "body": "निश्चित-शेड्यूल रोबोट बारिश के लिए रुकते हैं और एक कैलेंडर पर फिर से शुरू करते हैं। Taypro का बेड़ा AI चक्रों को शुरू करने, स्थगित करने या तेज करने के लिए बहु-पैरामीटर मौसम मॉडल, खराब पूर्वानुमान, बैटरी स्थिति और बेड़े के स्वास्थ्य को शामिल करता है - प्रत्येक धूल भरी आंधी के बाद टाइमर को संपादित करने के लिए ऑपरेटर की प्रतीक्षा किए बिना।",
+        "detail": "95% फ़ील्ड-सत्यापित शेड्यूलिंग सटीकता का अर्थ है अप्रभावी परिस्थितियों के बाद कम बर्बाद रन और जेनरेशन विंडो के साथ बेहतर संरेखण। वेट-एलिमेंट डिटेक्शन अकेले पूर्वानुमान डेटा से परे एक दूसरी सुरक्षा परत जोड़ता है।"
+      },
+      "dive2": {
+        "title": "प्रेषण से पहले मूल कारण का निदान",
+        "body": "When a robot stops, NECTYR identifies where it stopped and the probable cause: misaligned panel edge, physical obstacle, motor fault, brush saturation, battery threshold, or communication drop. Field teams dispatch with the right spares instead of exploratory truck rolls.",
+        "detail": "ब्रेकडाउन प्रकट होने से पहले मोटर करंट, चार्ज कर्व्स और ब्रश टॉर्क फ्लैग विचलन हस्ताक्षरों से निर्मित प्रति-रोबोट स्वास्थ्य प्रोफाइल - फ्लीट-वाइड पैटर्न पहचान द्वारा सूचित हार्डवेयर पूर्वानुमानित रखरखाव।"
+      }
     },
     "forWhom": {
       "eyebrow": "यूटिलिटी O&M के लिए बना",
-      "heading": "फ्लीट इंटेलिजेंस से कौन लाभान्वित होता है"
+      "heading": "फ्लीट इंटेलिजेंस से कौन लाभान्वित होता है",
+      "intro": "खुफिया परत एक ही रात के डेटा में विभिन्न हितधारकों को सेवा प्रदान करती है - ब्लॉक-स्तरीय ऑपरेटरों से लेकर पोर्टफोलियो परिसंपत्ति मालिकों तक।",
+      "segment0": {
+        "title": "O&M टीमें लगाएं",
+        "body": "सुबह की पाली से पहले पिछली रात की ब्लॉक-वार कवरेज की पुष्टि करें। मासिक सफाई रणनीति के विरुद्ध नियोजित बनाम वास्तविक चक्रों की तुलना करें। अनुमान के बजाय मूल कारण संदर्भ के साथ फ़ील्ड क्रू को भेजें।",
+        "link": "अन्वेषण करें NECTYR",
+        "href": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
+      },
+      "segment1": {
+        "title": "सेंट्रल इंजीनियरिंग और IPPs",
+        "body": "मल्टी-साइट पोर्टफ़ोलियो में स्पॉट ख़राब रुझान। AMC समाधान और प्रदर्शन अनुपात चर्चाओं के लिए ऑडिट-तैयार सफाई साक्ष्य निर्यात करें। नए चालू किए गए संयंत्रों में पहले दिन फ्लीट-लर्निंग मॉडल प्राप्त करें।",
+        "link": "लाइव प्रोजेक्ट",
+        "href": "/projects"
+      },
+      "segment2": {
+        "title": "भागीदार एवं निवेशक",
+        "body": "समझें कि 5 GW+ दैनिक थ्रूपुट पर फ़ील्ड डेटा एक गहन प्रौद्योगिकी लाभ में क्यों संयोजित होता है। NECTYR आज लाइव है; ORION AMC नवीकरण पर उन्हीं रेलों पर पौधों के स्वास्थ्य का विस्तार करता है।",
+        "link": "कंपनी और पैमाना",
+        "href": "/company#investors"
+      }
     },
     "faq": {
       "title": "अक्सर पूछे जाने वाले प्रश्न",
-      "subtitle": "Taypro AI इंटेलिजेंस परत और NECTYR के बारे में उत्तर।"
+      "subtitle": "Taypro AI इंटेलिजेंस परत और NECTYR के बारे में उत्तर।",
+      "q0": "Taypro की AI इंटेलिजेंस परत क्या है?",
+      "a0": "यह Taypro के रोबोटिक सफाई बेड़े के पीछे स्व-शिक्षण सॉफ़्टवेयर स्टैक है - दैनिक परिचालन थ्रूपुट के 5 GW+ से लेबल फ़ील्ड टेलीमेट्री पर प्रशिक्षित मॉडल जो हर चक्र के साथ मिट्टी की भविष्यवाणी, बैटरी रूटिंग, मौसम शेड्यूलिंग और गलती का पता लगाने में सुधार करते हैं। NECTYR लाइव ऑपरेशन पोर्टल है जहां यह इंटेलिजेंस आज चलता है।",
+      "q1": "क्या फ़्लीट AI आज लाइव है या रोडमैप पर है?",
+      "a1": "NECTYR में सक्रिय बेड़े में मुख्य क्षमताएं लाइव हैं: सेल्फ-लर्निंग सोइलिंग मॉडल, एमएल एरे मैपिंग, बैटरी-अवेयर रूटिंग, 95% सटीकता मौसम शेड्यूलिंग, वेट माइक्रोफाइबर डिटेक्शन और स्वायत्त चक्र दीक्षा। ORION - पौधों के पूर्ण स्वास्थ्य तक बुद्धिमत्ता का विस्तार - चुनिंदा संपत्ति मालिकों के लिए शीघ्र पहुंच के साथ रोडमैप पर है।",
+      "q2": "पूर्व बेड़े डेटा से एक नए संयंत्र को कैसे लाभ होता है?",
+      "a2": "लाइव बेड़े पर प्रशिक्षित मॉडलों को कमीशनिंग में लागू किया जाता है। इस तिमाही में चालू होने वाले एक संयंत्र को सैकड़ों पूर्व तैनाती से शेड्यूलिंग इंटेलिजेंस विरासत में मिलती है - मानसून-कंधे का समय, क्षेत्रीय धूल हस्ताक्षर, ट्रैकर रूटिंग मानचित्र, और 2022 के बाद से संचित गलती अग्रदूत पुस्तकालय।",
+      "q3": "यह पौधे SCADA से किस प्रकार भिन्न है?",
+      "a3": "SCADA आपको बताता है कि पीढ़ी का पतन हो गया है। Taypro की खुफिया परत आपको बताती है कि सफाई क्यों छूट गई होगी, किन ब्लॉकों को प्राथमिकता की आवश्यकता है, क्या रोबोट स्वस्थ हैं, और क्या सफाई के लिए स्थितियाँ सही थीं। NECTYR SCADA और CMMS का पूरक है - यह रोबोटिक सौर सफाई कार्यों के लिए विशिष्ट है।",
+      "q4": "प्रत्येक सफाई चक्र क्या डेटा उत्पन्न करता है?",
+      "a4": "ब्लॉक द्वारा गंदगी दर, मौसम सहसंबंध, प्रति पंक्ति टोपोलॉजी में बैटरी की खपत, कवरेज ऑडिट ट्रेल्स, गीले-तत्व स्थिति और गलती अग्रदूत हस्ताक्षर सहित संरचित लेबल। यह डेटा उन मॉडलों को फ़ीड करता है जो पूरे बेड़े में रूटिंग और शेड्यूलिंग में सुधार करते हैं - न कि केवल मूल संयंत्र में।",
+      "q5": "मैं संपूर्ण हार्डवेयर और सफाई प्रौद्योगिकी स्टैक कहां देख सकता हूं?",
+      "a5": "सफाई प्रौद्योगिकी पृष्ठ में डुअल-पास ड्राई क्लीनिंग, प्लेटफ़ॉर्म वेट, लाइव ऑपरेशंस इंटेलिजेंस और पूर्ण एआई क्षमता ब्रेकडाउन शामिल है। NECTYR में फ़्लीट पोर्टल सुविधाओं, सुरक्षा और O&M वर्कफ़्लो के लिए एक समर्पित उत्पाद पृष्ठ है।"
+    },
+    "capability5": {
+      "title": "स्वायत्त बेड़ा ऑर्केस्ट्रेशन",
+      "body": "बेड़े के नियम और मॉडल आउटपुट गंदे जोखिम, मौसम की खिड़कियां और रोबोट स्वास्थ्य संरेखित होने पर ताल शुरू करते हैं, रोकते हैं या कड़ा करते हैं। धूल भरी घटनाएँ शेड्यूल को कड़ा करती हैं; बारिश या गीले-तत्व वाले राज्य बेड़ा नीचे खड़े होते हैं। प्रत्येक निर्णय शासन और AMC साक्ष्य के लिए ब्लॉक-स्तरीय ऑडिट ट्रेल्स को लिखता है।"
     }
   },
   "Common": {

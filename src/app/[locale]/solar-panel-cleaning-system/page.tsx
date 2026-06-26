@@ -91,7 +91,7 @@ function productToSchemaKey(model: string): SchemaItemKey {
     NYUMA: "nyuma",
     "GLYDE-X": "glydeX",
     "NYUMA-X": "nyumaX",
-    "Taypro Opex": "tayproOpex",
+    "Opex": "tayproOpex",
     "NECTYR": "nectyr",
     MINY: "miny",
     CRADYL: "cradyl",
@@ -948,6 +948,11 @@ export default async function SolarPanelCleaningRobot({
                 {t("comparison.ctaLine")}
                 <OpenLeadModalButton
                   topic={t("comparison.ctaLink.topic")}
+                  title={t("comparison.ctaLink.title")}
+                  subtitle={t("comparison.ctaLink.subtitle")}
+                  leadIntent={t("comparison.ctaLink.topic")}
+                  source="robots_hub_comparison"
+                  analyticsFormType="robots_hub_comparison"
                   className="brand-inline-link font-medium"
                 >
                   {t("comparison.ctaLink.label")}
@@ -1617,6 +1622,11 @@ export default async function SolarPanelCleaningRobot({
               {t("faq.subtitleLead")}
               <OpenLeadModalButton
                 topic={t("faq.subtitleCta.topic")}
+                title={t("faq.subtitleCta.title")}
+                subtitle={t("faq.subtitleCta.subtitle")}
+                leadIntent={t("faq.subtitleCta.topic")}
+                source="robots_hub_faq"
+                analyticsFormType="robots_hub_faq"
                 className="brand-inline-link font-medium"
               >
                 {t("faq.subtitleCta.label")}

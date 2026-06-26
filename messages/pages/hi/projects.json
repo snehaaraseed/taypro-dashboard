@@ -47,7 +47,8 @@
       "plantInstallationsLabel": "लाइव साइटें",
       "co2ReducedLabel": "वार्षिक CO2 उत्सर्जन में कमी (मीट्रिक टन)",
       "waterSavedLabel": "वार्षिक बचाया गया पानी (लीटर)",
-      "robotsManufacturedLabel": "प्रति माह रोबोट निर्माण क्षमता"
+      "robotsManufacturedLabel": "प्रति माह रोबोट निर्माण क्षमता",
+      "panelsCleanedAnnuallyLabel": "पैनलों की वार्षिक सफाई की जाती है"
     },
     "categories": {
       "heading": "तैनाती प्रकार के अनुसार ब्राउज़ करें",
@@ -101,7 +102,7 @@
       "q0": "Taypro इस पोर्टफोलियो में किस प्रकार के सोलर प्लांट दर्शाता है?",
       "a0": "हमारी केस स्टडी भारत भर में यूटिलिटी-स्केल ground-mount साइट, single-axis tracker arrays और multi-block प्लांट कवर करती हैं, आमतौर पर 50 MW और उससे ऊपर जहाँ सोइलिंग, जल की कमी या मैनुअल O&M लागत रोबोटिक क्लीनिंग को उचित बनाती है।",
       "q1": "स्वचालित, अर्ध-स्वचालित और CAPEX प्रोजेक्ट लिस्टिंग में क्या अंतर है?",
-      "a1": "स्वचालित लिस्टिंग पूर्ण स्वायत्त रोबोट (GLYDE, GLYDE-X) उजागर करती हैं। अर्ध-स्वचालित लिस्टिंग HELYX पोर्टेबल सिस्टम दिखाती हैं। CAPEX लिस्टिंग उन प्लांटों का वर्णन करती हैं जहाँ डेवलपर ने रोबोट outright खरीदे; वही साइट Taypro Opex को operator-led सेवा के रूप में भी उपयोग कर सकती है, सटीक तैनाती मॉडल के लिए प्रत्येक श्रेणी या व्यक्तिगत केस स्टडी देखें।",
+      "a1": "स्वचालित लिस्टिंग पूर्ण स्वायत्त रोबोट (GLYDE, GLYDE-X) उजागर करती हैं। अर्ध-स्वचालित लिस्टिंग HELYX पोर्टेबल सिस्टम दिखाती हैं। CAPEX लिस्टिंग उन प्लांटों का वर्णन करती हैं जहाँ डेवलपर ने रोबोट outright खरीदे; वही साइट Opex को operator-led सेवा के रूप में भी उपयोग कर सकती है, सटीक तैनाती मॉडल के लिए प्रत्येक श्रेणी या व्यक्तिगत केस स्टडी देखें।",
       "q2": "Taypro क्लीनिंग रोबोट प्लांट प्रदर्शन अनुपात को कैसे प्रभावित करते हैं?",
       "a2": "निरंतर, मौसम-जागरूक क्लीनिंग सोइलिंग हानि कम करती है जो अन्यथा धूल भरी साइटों पर प्रदर्शन अनुपात को कई प्रतिशत अंकों से दबा सकती है। केस स्टडी क्लीनिंग दक्षता लक्ष्य, चक्र आवृत्ति और जलरहित तरीके मैनुअल धुलाई से जुड़ी logistics कैसे टालते हैं, यह नोट करती हैं।",
       "q3": "मैं अपने सोलर प्रोजेक्ट के लिए Taypro का मूल्यांकन कैसे करूँ?",
@@ -114,8 +115,15 @@
       "heading": "Full portfolio",
       "title": "All published installation case studies",
       "body": "Every published Taypro plant profile in one grid, newest first. Projects highlighted above remain our curated references; the rest of the portfolio is listed here without duplication. Prefer a narrower view? Use the deployment-model category pages.",
-      "countNote": "{count} published"
-    }
+      "countNote": "{count} published",
+      "paginationLabel": "प्रोजेक्ट पेजिनेशन",
+      "paginationPrevious": "पहले का",
+      "paginationNext": "अगला",
+      "paginationPageOf": "{totalPages} का पृष्ठ {page}"
+    },
+    "leadTopic": "आइए मिलकर काम करें",
+    "leadTitle": "आइए मिलकर काम करें",
+    "leadSubtitle": "अपने प्लांट के बारे में बताएं और हमारी टीम आपकी साइट के लिए सही सोलर पैनल क्लीनिंग रोबोट के साथ follow-up करेगी।"
   },
   "ProjectDetailPage": {
     "notFoundTitle": "प्रोजेक्ट नहीं मिला",

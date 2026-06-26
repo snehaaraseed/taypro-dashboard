@@ -2,7 +2,7 @@
   "CleaningMachinePage": {
     "meta": {
       "title": "آلة تنظيف الألواح الشمسية الهند | الروبوتات",
-      "description": "آلات تنظيف الألواح الشمسية لمحطات المرافق والأسطح في الهند. قارن بين GLYDE وNYUMA وHELYX الروبوتات والتسعير وخدمة Taypro Opex. احصل على عرض أسعار.",
+      "description": "آلات تنظيف الألواح الشمسية لمحطات المرافق والأسطح في الهند. قارن بين GLYDE وNYUMA وHELYX الروبوتات والتسعير وخدمة Opex. احصل على عرض أسعار.",
       "openGraphTitle": "آلة تنظيف الألواح الشمسية الهند | Taypro الروبوتات",
       "openGraphDescription": "دليل لآلات تنظيف الألواح الشمسية والروبوتات للمرافق الهندية ومواقع الأسطح - النماذج والتسعير وخيارات الخدمة المُدارة.",
       "twitterTitle": "آلة تنظيف الألواح الشمسية الهند",
@@ -22,7 +22,7 @@
       "eyebrow": "What buyers mean",
       "heading": "Cleaning machine vs cleaning robot on solar plants",
       "p1": "In Indian RFQs, solar panel cleaning machine often describes the same category as a solar panel cleaning robot — an automated platform that runs on module rows without manual brush crews. At 10 MW and above, waterless robots with fleet software (NECTYR) replace episodic wet washing.",
-      "p2": "Taypro manufactures GLYDE and NYUMA for fixed-tilt utility arrays, GLYDE-X and NYUMA-X for single-axis trackers, and HELYX for semi-automatic scattered blocks. Taypro Opex delivers the same hardware as a pay-per-panel-cleaned service when you prefer not to capitalise robots."
+      "p2": "Taypro manufactures GLYDE and NYUMA for fixed-tilt utility arrays, GLYDE-X and NYUMA-X for single-axis trackers, and HELYX for semi-automatic scattered blocks. Opex delivers the same hardware as a pay-per-panel-cleaned service when you prefer not to capitalise robots."
     },
     "models": {
       "eyebrow": "Machine types",
@@ -45,10 +45,10 @@
     "pricing": {
       "eyebrow": "Commercial",
       "heading": "Solar panel cleaning machine price in India",
-      "body": "Machine price depends on MW capacity, row layout, tracker vs fixed tilt, automation level, and CAPEX vs Taypro Opex. Use our public price guide and ROI calculator for directional bands — then contact Taypro for a site-specific fleet quote.",
+      "body": "Machine price depends on MW capacity, row layout, tracker vs fixed tilt, automation level, and CAPEX vs Opex. Use our public price guide and ROI calculator for directional bands — then contact Taypro for a site-specific fleet quote.",
       "ctaPrice": "Robot price guide (India)",
       "ctaCalculator": "ROI calculator",
-      "ctaService": "Taypro Opex cleaning service"
+      "ctaService": "Opex cleaning service"
     },
     "faq": {
       "heading": "الأسئلة الشائعة حول آلة تنظيف الألواح الشمسية",
@@ -58,7 +58,7 @@
       "q1": "هل تستخدم آلات التنظيف Taypro الماء؟",
       "a1": "تستخدم منصات Taypro التنظيف الجاف الحاصل على براءة اختراع بدون ماء (GLYDE) أو PBT (NYUMA) بممر واحد - لتجنب لوجستيات الناقلات والصدمة الحرارية الناجمة عن الغسيل الرطب في المناطق القاحلة.",
       "q2": "هل يمكنني شراء الجهاز أو استخدام خدمة مُدارة؟",
-      "a2": "كلاهما. قم بشراء GLYDE أو NYUMA أو HELYX بموجب CAPEX مع AMC، أو اختر Taypro Opex حيث يقوم Taypro بتشغيل الأسطول وتدفع مقابل كل لوحة يتم تنظيفها.",
+      "a2": "كلاهما. قم بشراء GLYDE أو NYUMA أو HELYX بموجب CAPEX مع AMC، أو اختر Opex حيث يقوم Taypro بتشغيل الأسطول وتدفع مقابل كل لوحة يتم تنظيفها.",
       "q3": "هل هناك آلة تنظيف السطح؟",
       "a3": "MINY هو روبوت تنظيف الألواح الشمسية المدمج على سطح Taypro - حاليًا في مرحلة تسجيل الاهتمام لـ C&I ومحافظ الأسطح. يجب على مشتري المرافق تقييم GLYDE أو NYUMA على المواقع المثبتة على الأرض.",
       "q4": "كيف يمكنني مقارنة Taypro بالموردين الآخرين؟",

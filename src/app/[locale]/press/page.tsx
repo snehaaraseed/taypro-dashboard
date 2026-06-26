@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { Container } from "@/app/components/Container";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
+import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import {
   PRESS_COVERAGE,
   type PressCoverageItem,
@@ -151,12 +152,24 @@ export default async function PressPage({
             >
               {t("companyCta")}
             </Link>
-            <Link
-              href="/contact"
+            <OpenLeadModalButton
+              source="press_contact"
+              topic={t("leadModal.topic")}
+              title={t("leadModal.title")}
+              subtitle={t("leadModal.subtitle")}
+              leadIntent={t("leadModal.topic")}
+              formPrompt={t("leadModal.formPrompt")}
+              showMessageField
+              messageLabel={t("leadModal.messageLabel")}
+              messagePlaceholder={t("leadModal.messagePlaceholder")}
+              submitLabel={t("leadModal.submitLabel")}
+              thankYouTitle={t("leadModal.thankYouTitle")}
+              thankYouMessage={t("leadModal.thankYouMessage")}
+              analyticsFormType="press_inquiry"
               className="inline-flex justify-center px-6 py-3 rounded-lg border border-[#052638] text-[#052638] font-medium hover:bg-[#052638]/5 transition-colors"
             >
               {t("contactCta")}
-            </Link>
+            </OpenLeadModalButton>
           </AnimateOnScroll>
         </Container>
       </section>

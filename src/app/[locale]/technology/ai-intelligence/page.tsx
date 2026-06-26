@@ -23,6 +23,7 @@ import { Container } from "@/app/components/Container";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { FaqSection } from "@/app/components/FaqSection";
 import { FAQPageSchema } from "@/app/components/StructuredData";
+import { AiIntelligenceContactButton } from "@/app/components/AiIntelligenceContactButton";
 import { tayproMarketingImpactStats } from "@/app/data";
 import { ORION_PRODUCT_PATH } from "@/lib/product-coming-soon";
 
@@ -616,12 +617,7 @@ export default async function AiIntelligencePage({
                 >
                   {t("cta.projects")}
                 </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex justify-center items-center gap-2 px-6 py-3 rounded-xl border border-white/25 text-white font-medium hover:border-[#A8C117] hover:text-[#A8C117] transition-colors"
-                >
-                  {t("cta.contact")}
-                </Link>
+                <AiIntelligenceContactButton />
               </div>
             </AnimateOnScroll>
           </Container>

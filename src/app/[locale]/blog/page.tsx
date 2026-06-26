@@ -6,9 +6,11 @@ import { formatLocaleDateShort } from "@/i18n/format-date";
 import { DynamicBlog } from "@/app/api/blog/list/route";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
+import { ProjectsPageHero } from "@/app/components/ProjectsPageHero";
 import { Container } from "@/app/components/Container";
 import { FaqSection } from "@/app/components/FaqSection";
 import { NewsletterSubscribeCard } from "@/app/components/NewsletterSubscribeCard";
+import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import {
   CollectionPageSchema,
   FAQPageSchema,
@@ -133,6 +135,7 @@ export default async function Blog({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "BlogPage.index" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
+  const tLead = await getTranslations({ locale, namespace: "Forms.leadModal" });
 
   const sp = (await searchParams) ?? {};
   const pageRaw = Array.isArray(sp.page) ? sp.page[0] : sp.page;
@@ -221,57 +224,34 @@ export default async function Blog({
         />
       )}
 
-      <div className="min-h-screen overflow-x-hidden">
-        {/* Hero */}
-        <section className="relative flex flex-col items-center justify-start overflow-x-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('/tayprobglayout/taypro-bg.png')" }}
-            aria-hidden
-          />
-          <div
-            className="absolute inset-0 bg-white/92 sm:bg-white/88"
-            aria-hidden
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-b from-white/75 via-white/55 to-[#f4f7f9]"
-            aria-hidden
-          />
-
-          <AnimateOnScroll
-            animation="fadeInUp"
-            className="relative z-20 pt-10 px-4 sm:px-6 max-w-4xl mx-auto pb-12 md:pb-16 text-center"
-          >
-            <p className="text-[#A8C117] text-[16px] mb-4 uppercase tracking-wide font-medium">
-              {t("heroEyebrow")}
-            </p>
-            <h1 className="font-semibold text-[#052638] text-4xl md:text-5xl mb-6 leading-tight">
+      <div className="min-h-screen overflow-x-hidden bg-white">
+        <ProjectsPageHero
+          eyebrow={t("heroEyebrow")}
+          projectCount={total}
+          countBadgeLabel={t("heroCountBadgeLabel")}
+          countBadgeUnit={t("heroCountBadgeUnit")}
+          waveFill="#052638"
+          title={
+            <>
               {t("heroTitleLine1")}
-              <br />
-              {t("heroTitleLine2")}
-            </h1>
-            <p className="text-[#22405a] text-lg md:text-xl leading-relaxed max-w-3xl mx-auto text-pretty">
-              {t("heroBodyBeforeLink")}{" "}
-              <Link
-                href="/solar-panel-cleaning-system"
-                className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
-              >
-                {t("heroLinkRobots")}
-              </Link>
-              {t("heroBodyAfterLink")}
-            </p>
-            <p className="text-[#22405a] text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mt-4 text-pretty">
-              {t("heroBodyAuthorsBefore")}{" "}
-              <Link
-                href="/authors"
-                className="text-[#5a8f00] font-medium underline-offset-4 hover:underline"
-              >
-                {t("heroLinkAuthors")}
-              </Link>
-              {t("heroBodyAuthorsAfter")}
-            </p>
-          </AnimateOnScroll>
-        </section>
+              <span className="mt-2 block">{t("heroTitleLine2")}</span>
+            </>
+          }
+          lead={
+            <>
+              <p className="text-pretty">
+                {t("heroBodyBeforeLink")}{" "}
+                <Link href="/solar-panel-cleaning-system">{t("heroLinkRobots")}</Link>
+                {t("heroBodyAfterLink")}
+              </p>
+              <p className="mt-4 text-pretty">
+                {t("heroBodyAuthorsBefore")}{" "}
+                <Link href="/authors">{t("heroLinkAuthors")}</Link>
+                {t("heroBodyAuthorsAfter")}
+              </p>
+            </>
+          }
+        />
 
         {/* Quick links */}
         <section className="w-full py-10 md:py-12 bg-[#052638]">
@@ -416,12 +396,19 @@ export default async function Blog({
                 <p className="text-[#27415c] text-lg mb-4">
                   {t("emptyMessage")}
                 </p>
-                <Link
-                  href="/contact"
+                <OpenLeadModalButton
+                  source="blog_empty"
+                  topic={tLead("topic")}
+                  title={tLead("title")}
+                  subtitle={tLead("subtitle")}
+                  leadIntent={tLead("topic")}
+                  formPrompt={tLead("formPrompt")}
+                  showMessageField
+                  analyticsFormType="blog_inquiry"
                   className="inline-flex items-center justify-center min-h-[48px] bg-[#052638] text-white font-medium px-8 py-3 rounded-md hover:bg-[#0a3a4a] transition"
                 >
                   {t("contactCta")}
-                </Link>
+                </OpenLeadModalButton>
               </div>
             ) : (
               <>

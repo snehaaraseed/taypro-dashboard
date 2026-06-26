@@ -124,9 +124,9 @@ export default async function HomeSeoProse() {
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#052638]/5 text-[#052638] transition-colors group-hover:bg-[#A8C117]/15 group-hover:text-[#5a8f00]">
                       <Icon className="h-5 w-5" aria-hidden />
                     </div>
-                    <h3 className="pt-1.5 font-semibold leading-snug text-[#052638]">
+                    <p className="pt-1.5 font-semibold leading-snug text-[#052638]">
                       {t(card.titleKey)}
-                    </h3>
+                    </p>
                   </div>
                   <p className="mb-5 flex-1 text-sm leading-relaxed text-[#27415c]">
                     {t(card.descriptionKey)}

@@ -49,7 +49,7 @@
         "tag": "Commercial",
         "stat": "CAPEX + OPEX",
         "label": "Buy fleet or pay per panel cleaned",
-        "body": "IPPs choose robot CAPEX with AMC or Taypro OPEX for balance-sheet efficiency on 50–500 MW portfolios."
+        "body": "IPPs choose robot CAPEX with AMC or OPEX for balance-sheet efficiency on 50–500 MW portfolios."
       }
     },
     "cards": {

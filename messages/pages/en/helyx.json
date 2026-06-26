@@ -24,7 +24,13 @@
       "subtitleStrong": "99% of dust in a single pass",
       "subtitleAfter": ", cleaning a 1 MW block in under 2 hours and running up to 3 km on a single charge, operable by any two-person site team.",
       "imgAlt": "Taypro HELYX, Semi-Automatic Solar Panel Cleaning Robot, pick-and-place waterless cleaner for utility-scale solar plants",
-      "ctaText": "Request a quote"
+      "ctaText": "Request a quote",
+      "primaryCta": {
+        "topic": "HELYX quote",
+        "title": "Request a HELYX quote",
+        "subtitle": "Tell us about your plant layout and our team will follow up with HELYX deployment, block coverage, and commercial options.",
+        "label": "Request a quote"
+      }
     },
     "usps": {
       "0": {
@@ -345,7 +351,9 @@
       "specHeader": "Specification",
       "valueHeader": "Value",
       "datasheetCta": "Request full datasheet",
-      "datasheetCtaTopic": "HELYX datasheet request"
+      "datasheetCtaTopic": "HELYX datasheet request",
+      "datasheetCtaTitle": "Get the HELYX technical datasheet",
+      "datasheetCtaSubtitle": "Share your details and we'll send the full HELYX datasheet, then follow up on block layout and deployment questions."
     },
     "manualVsRobotic": {
       "eyebrow": "Robotic vs Manual Solar Cleaning",
@@ -445,7 +453,7 @@
       "crossSellLead": "Cleaning a single-axis tracker plant? Look at ",
       "linkGlydeX": "GLYDE-X",
       "crossSellMid": ". Prefer outsourcing cleaning entirely? Explore the ",
-      "linkOpex": "Taypro OPEX cleaning service",
+      "linkOpex": "OPEX cleaning service",
       "crossSellSuffix": "."
     },
     "indianConditions": {
@@ -465,7 +473,7 @@
       "linkBetweenAT": ", the ",
       "linkGlydeX": "GLYDE-X robot for single-axis trackers",
       "linkBetweenTOpex": ", the ",
-      "linkOpex": "Taypro OPEX cleaning service",
+      "linkOpex": "OPEX cleaning service",
       "linkBetweenOpexAndNectyr": " or the ",
       "linkNectyr": "NECTYR monitoring app",
       "crossSellSuffix": "."

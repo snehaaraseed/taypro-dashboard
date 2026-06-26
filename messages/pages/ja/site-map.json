@@ -28,7 +28,8 @@
       "pagesIntro": "ロボット仕様、清掃技術、ROIツール、法務ポリシー、お問い合わせなどのコアマーケティング・製品ページ。",
       "portfolio": "ポートフォリオ",
       "portfolioIntro": "Tayproロボット清掃システムが導入されたソーラー発電所の事例 — プロジェクト名から事例を閲覧。",
-      "compareIntro": "GLYDE vs NYUMA、GLYDE-X vs NYUMA-X、ロボットvs手作業、Taypro vs Solabot、Aegeus、Skilancer、Vayu Solar、無水vs水洗の比較ページ。"
+      "compareIntro": "GLYDE vs NYUMA、GLYDE-X vs NYUMA-X、ロボットvs手作業、Taypro vs Solabot、Aegeus、Skilancer、Vayu Solar、無水vs水洗の比較ページ。",
+      "compare": "購入者ガイドと比較"
     },
     "posts": {
       "energyResourcesTitle": "エネルギーリソース"
@@ -106,7 +107,7 @@
       "projectsCapexLabel": "CAPEXロボットプロジェクト",
       "projectsCapexTitle": "CAPEXソーラー洗浄ロボットプロジェクト",
       "projectsOpexLabel": "Opex清掃サービスプロジェクト",
-      "projectsOpexTitle": "Taypro Opexソーラー洗浄ロボットプロジェクト",
+      "projectsOpexTitle": "Opexソーラー洗浄ロボットプロジェクト",
       "cleaningMachineLabel": "Solar Panel Cleaning Machine (India)",
       "cleaningMachineTitle": "Solar panel cleaning machine buyer guide",
       "pressLabel": "Press & media coverage",
@@ -118,7 +119,9 @@
       "stateWestBengalLabel": "Solar Panel Cleaning Robot — West Bengal",
       "stateWestBengalTitle": "Solar panel cleaning robots in West Bengal",
       "stateChhattisgarhLabel": "Solar Panel Cleaning Robot — Chhattisgarh",
-      "stateChhattisgarhTitle": "Solar panel cleaning robots in Chhattisgarh"
+      "stateChhattisgarhTitle": "Solar panel cleaning robots in Chhattisgarh",
+      "aiIntelligenceLabel": "AI インテリジェンス層",
+      "aiIntelligenceTitle": "Taypro 太陽熱浄化フリートのための AI インテリジェンス"
     }
   },
   "Common": {

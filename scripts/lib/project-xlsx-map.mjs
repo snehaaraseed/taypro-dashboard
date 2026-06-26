@@ -17,7 +17,7 @@ const COL = {
   waterLabour: "Water / labour constraints",
   robotSystem: "Robot / system (e.g. GLYDE, GLYDE-X, HELYX, NYUMA)",
   cleaningMode: "Cleaning mode (automatic / semi-automatic / mixed)",
-  procurement: "Procurement model(CAPEX purchase / Taypro Opex service / both)",
+  procurement: "Procurement model(CAPEX purchase / Opex service / both)",
   monitoring: "Monitoring / operations: {OPERATIONS} (e.g. NECTYR fleet visibility, cycle scheduling)",
   outcomes: "Operational outcomes",
   highlight: "What to highlight in the case study",

@@ -98,12 +98,20 @@
       "eyebrow": "Product engineering",
       "title": "NYUMA hardware at a glance",
       "subtitle": "Patented single-pass PBT cleaning on module-frame rails, autonomous docking, and fleet connectivity built for utility-scale fixed-tilt plants.",
-      "primaryAlt": "Taypro NYUMA TR-150 automatic cleaning robot, plan view showing rails and single-pass PBT cleaning elements",
-      "primaryCaption": "NYUMA TR-150 travels along the module frame with patented single-pass PBT brush cleaning.",
-      "mechanismAlt": "Close-up of Taypro NYUMA single-pass PBT rotating PBT brush cleaning drum, wheels, and wireless antenna",
-      "mechanismCaption": "Rotating self-cleaning PBT brush drum, frame-mounted travel, and remote monitoring antenna.",
-      "dockingAlt": "Taypro NYUMA shadow-free docking station with integrated solar charging for autonomous daily cycles",
-      "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array."
+      "primaryAlt": "Taypro NYUMA automatic cleaning robot, top-down view showing integrated solar panel and single-pass PBT cleaning frame",
+      "primaryCaption": "Top-down view of NYUMA on its travel frame with on-board solar charging and single-pass PBT cleaning assembly.",
+      "sideAlt": "Taypro NYUMA side profile showing module-frame rails, travel mechanism, and end housings",
+      "sideCaption": "Side profile of the NYUMA rail system engineered for long-reach fixed-tilt rows.",
+      "modularAlt": "Taypro NYUMA modular exploded view showing rails, wheels, and NYUMA drive unit",
+      "modularCaption": "Modular rail, wheel, and drive-unit layout — each array ships as a field-assembled NYUMA system.",
+      "dockingAlt": "Taypro NYUMA shadow-free docking power unit with integrated solar charging for autonomous daily cycles",
+      "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array.",
+      "detailAlt": "لقطة مقربة لـ Taypro NYUMA PBT مجموعة الفرشاة، وقضبان التوجيه، والعلامة التجارية NYUMA على مبيت الطرف",
+      "detailCaption": "تم تصميم رأس الفرشاة، وقضبان التوجيه، والعلامة التجارية للغطاء النهائي للدورات المستقلة اليومية.",
+      "heroAlt": "Taypro NYUMA روبوت تنظيف الألواح الشمسية الأوتوماتيكي، تقديم ثلاثة أرباع المنتج",
+      "heroCaption": "NYUMA روبوت آلي مستقل مزود بلوحة شمسية مدمجة وإطار تنظيف بعيد المدى.",
+      "fieldAlt": "Taypro NYUMA روبوت آلي لتنظيف الألواح الشمسية يعمل على مصفوفة شمسية ذات إمالة ثابتة على نطاق المرافق تحت سماء صافية",
+      "fieldCaption": "NYUMA في الموقع - تنظيف الفرشاة بممر واحد PBT عبر محطة طاقة شمسية حية على نطاق المرافق."
     },
     "howToSection": {
       "dualPassStepImageAlt": "Taypro NYUMA single-pass PBT waterless cleaning mechanism with rotating PBT brush drum",
@@ -365,11 +373,13 @@
       "linkBetweenBAndT": "، ",
       "linkGlydeX": "روبوت تتبع أحادي المحور (NYUMA)",
       "linkBetweenTAndOpex": "، ",
-      "linkOpex": "خدمة تنظيف Taypro OPEX",
+      "linkOpex": "خدمة تنظيف OPEX",
       "linkBetweenOpexAndNectyr": " أو ",
       "linkNectyr": "تطبيق مراقبة NECTYR",
       "crossSellSuffix": ".",
-      "linkNyuma": "PBT automatic NYUMA robot"
+      "linkNyuma": "PBT automatic NYUMA robot",
+      "linkNyumaX": "روبوت التنظيف المتعقب أحادي المحور (NYUMA-X)",
+      "linkGlyde": "روبوت ثنائي التمرير GLYDE"
     },
     "specifications": {
       "titleLine1": "روبوت تنظيف ألواح شمسية أوتوماتيكي ",
@@ -457,7 +467,9 @@
         }
       },
       "datasheetCta": "Request full datasheet",
-      "datasheetCtaTopic": "NYUMA datasheet request"
+      "datasheetCtaTopic": "NYUMA datasheet request",
+      "datasheetCtaTitle": "Get the NYUMA technical datasheet",
+      "datasheetCtaSubtitle": "Share your details and we'll send the full NYUMA datasheet, then follow up on sizing or configuration questions for your plant."
     },
     "advantagesSection": {
       "heading": "مزايا روبوتات التنظيف الأوتوماتيكية",
@@ -578,20 +590,21 @@
       "title": "Looking for more solutions?",
       "cardLabels": {
         "helyx": "HELYX",
-        "glydeX": "NYUMA"
+        "glydeX": "NYUMA",
+        "nyumaX": "NYUMA-X"
       },
       "cardTitleTemplate": "{label} Solar Panel Cleaning Robot"
     },
     "glydeVsNyuma": {
       "eyebrow": "Choosing the Right Taypro Robot",
-      "title": "GLYDE vs NYUMA: Which Automatic Robot Fits Your Plant?",
-      "subtitle": "Both robots are fully autonomous, waterless, and managed from NECTYR. GLYDE is Taypro's patented dual-pass microfiber flagship; NYUMA is the PBT single-pass platform for capex-efficient fixed-tilt fleets.",
+      "title": "NYUMA vs NYUMA: Which Automatic Robot Fits Your Plant?",
+      "subtitle": "Both robots are fully autonomous, waterless, and managed from NECTYR. NYUMA is Taypro's patented single-pass PBT PBT brush flagship; NYUMA is the PBT single-pass platform for capex-efficient fixed-tilt fleets.",
       "criterion": "Criterion",
-      "glydeHeader": "GLYDE (Dual-Pass Microfiber)",
+      "glydeHeader": "NYUMA (single-pass PBT PBT brush)",
       "nyumaHeader": "NYUMA (Single-Pass PBT)",
       "row0": {
         "criterion": "Cleaning Technology",
-        "glyde": "Patented dual-pass: airflow loosens dust, microfiber completes the wipe",
+        "glyde": "Patented single-pass PBT: airflow loosens dust, PBT brush completes the wipe",
         "nyuma": "Single-pass counter-rotating PBT brush drum — fewer moving consumables"
       },
       "row1": {
@@ -601,12 +614,12 @@
       },
       "row2": {
         "criterion": "Sticky / Cementitious Soiling",
-        "glyde": "Dual-pass excels on mixed dry and adhesive dust layers",
+        "glyde": "single-pass PBT excels on mixed dry and adhesive dust layers",
         "nyuma": "Ideal for dry desert dust; schedule extra cycles if cementitious soiling is heavy"
       },
       "row3": {
         "criterion": "Consumable Profile",
-        "glyde": "Self-cleaning microfiber drum with extended service intervals",
+        "glyde": "Self-cleaning PBT brush drum with extended service intervals",
         "nyuma": "UV-stable PBT brush with field-replaceable bristle cartridges"
       },
       "row4": {
@@ -632,7 +645,7 @@
       "crossSellLead": "Need a pick-and-place option for scattered blocks? See ",
       "linkHelyx": "HELYX",
       "crossSellMid": ". Running single-axis trackers? Compare ",
-      "linkTracker": "GLYDE-X and NYUMA-X",
+      "linkTracker": "NYUMA and NYUMA-X",
       "crossSellSuffix": "."
     }
   },

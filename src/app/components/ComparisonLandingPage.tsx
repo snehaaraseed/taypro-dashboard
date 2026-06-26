@@ -5,6 +5,7 @@ import { Container } from "@/app/components/Container";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { FaqSection } from "@/app/components/FaqSection";
 import TrackedLink from "@/app/components/TrackedLink";
+import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import { FAQPageSchema } from "@/app/components/StructuredData";
 import {
   COMPARISON_PAGE_LIST,
@@ -119,6 +120,7 @@ export default async function ComparisonLandingPage({
 }: ComparisonLandingPageProps) {
   const t = await getTranslations({ locale, namespace: "ComparisonsPage" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
+  const tLead = await getTranslations({ locale, namespace: "Forms.leadModal" });
   const ns = pageId;
   const columns = COLUMN_KEYS[pageId];
   const rowKeys = ROW_KEYS_BY_PAGE[pageId];
@@ -375,15 +377,24 @@ export default async function ComparisonLandingPage({
           <h2 className="text-2xl font-semibold mb-3">{t("cta.heading")}</h2>
           <p className="text-gray-300 max-w-2xl mb-6">{t("cta.body")}</p>
           <div className="flex flex-wrap gap-4">
-            <TrackedLink
-              href="/contact"
-              trackType="internal"
-              trackTitle={t("cta.quote")}
-              trackLocation="compare_page"
+            <OpenLeadModalButton
+              source="comparison_page"
+              topic={tLead("topic")}
+              title={tLead("title")}
+              subtitle={tLead("subtitle")}
+              leadIntent={tLead("topic")}
+              formPrompt={tLead("formPrompt")}
+              messageLabel={tLead("messageLabel")}
+              messagePlaceholder={tLead("messagePlaceholder")}
+              submitLabel={tLead("submitLabel")}
+              thankYouTitle={tLead("thankYouTitle")}
+              thankYouMessage={tLead("thankYouMessage")}
+              showMessageField
+              analyticsFormType="comparison_quote"
               className="inline-flex items-center justify-center min-h-[48px] bg-[#A8C117] text-[#052638] font-semibold px-6 py-3 rounded-md hover:bg-[#b8d12a] transition"
             >
               {t("cta.quote")}
-            </TrackedLink>
+            </OpenLeadModalButton>
             <TrackedLink
               href="/solar-panel-cleaning-robot-price-calculator#calculator"
               trackType="calculator"

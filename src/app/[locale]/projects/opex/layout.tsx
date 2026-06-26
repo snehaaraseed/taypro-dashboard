@@ -9,11 +9,11 @@ const og = socialImagesFromPreset("opex");
 export const generateMetadata = defineLocalizedMetadata("/projects/opex", () => ({
   title: "Opex Solar Panel Cleaning Robot Projects",
   description:
-    "Explore Taypro Opex Solar Panel Cleaning Robot projects. Operator-led cleaning as a service with pay-per-panel delivery, fleet ownership, and SLA-backed cycles on utility-scale plants.",
+    "Explore Opex Solar Panel Cleaning Robot projects. Operator-led cleaning as a service with pay-per-panel delivery, fleet ownership, and SLA-backed cycles on utility-scale plants.",
   openGraph: {
     title: "Opex Solar Panel Cleaning Robot Projects",
     description:
-      "Taypro Opex model Solar Panel Cleaning Robot projects with operator-led cycles and service SLAs.",
+      "Opex model Solar Panel Cleaning Robot projects with operator-led cycles and service SLAs.",
     url: `${siteUrl}/projects/opex`,
     type: "website",
     ...og.openGraph,

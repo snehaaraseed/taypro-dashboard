@@ -8,17 +8,9 @@ import {
   useState,
 } from "react";
 import { trackLeadModalOpen } from "@/lib/analytics/track-event";
+import type { LeadModalOpenOptions } from "./lead-modal-options";
 
-export interface LeadModalOpenOptions {
-  /** Short label shown as an eyebrow chip on the modal (e.g. "Request a quote"). */
-  topic?: string;
-  /** Free-form analytics source string. Stored in state so analytics can read it. */
-  source?: string;
-  /** Override the modal heading. */
-  title?: string;
-  /** Override the modal sub-heading. */
-  subtitle?: string;
-}
+export type { LeadModalOpenOptions } from "./lead-modal-options";
 
 interface LeadModalState extends LeadModalOpenOptions {
   isOpen: boolean;
@@ -43,6 +35,16 @@ export function LeadModalProvider({ children }: { children: React.ReactNode }) {
       source: opts?.source,
       title: opts?.title,
       subtitle: opts?.subtitle,
+      leadIntent: opts?.leadIntent,
+      formPrompt: opts?.formPrompt,
+      showMessageField: opts?.showMessageField,
+      showCompanyField: opts?.showCompanyField,
+      messageLabel: opts?.messageLabel,
+      messagePlaceholder: opts?.messagePlaceholder,
+      submitLabel: opts?.submitLabel,
+      thankYouTitle: opts?.thankYouTitle,
+      thankYouMessage: opts?.thankYouMessage,
+      analyticsFormType: opts?.analyticsFormType,
     });
   }, []);
 
@@ -52,7 +54,7 @@ export function LeadModalProvider({ children }: { children: React.ReactNode }) {
 
   const value = useMemo(
     () => ({ state, openLeadModal, closeLeadModal }),
-    [state, openLeadModal, closeLeadModal],
+    [state, openLeadModal, closeLeadModal]
   );
 
   return (

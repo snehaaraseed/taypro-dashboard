@@ -6,6 +6,7 @@ import { Container } from "@/app/components/Container";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { FaqSection } from "@/app/components/FaqSection";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
+import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import {
   FAQPageSchema,
@@ -42,6 +43,7 @@ export default async function StateSolarLandingPage({
   const config = getStateLandingConfig(stateId);
   const t = await getTranslations({ locale, namespace: "StateLandingsPage" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
+  const tLead = await getTranslations({ locale, namespace: "Forms.leadModal" });
   const ns = stateId;
   const siblingStates = getSiblingStateIds(stateId);
   const stateProjects = await getStateLandingProjects(
@@ -132,12 +134,22 @@ export default async function StateSolarLandingPage({
             >
               {t("shared.cta.calculator")}
             </Link>
-            <Link
-              href="/contact"
+            <OpenLeadModalButton
+              source={`state_landing_${stateId}`}
+              topic={tLead("topic")}
+              title={tLead("title")}
+              subtitle={tLead("subtitle")}
+              leadIntent={tLead("topic")}
+              formPrompt={tLead("formPrompt")}
+              messageLabel={tLead("messageLabel")}
+              messagePlaceholder={tLead("messagePlaceholder")}
+              submitLabel={tLead("submitLabel")}
+              showMessageField
+              analyticsFormType="state_landing_quote"
               className="inline-flex justify-center px-6 py-3 rounded-lg border border-white/30 text-white font-medium hover:border-[#A8C117] hover:text-[#A8C117] transition-colors"
             >
               {t("shared.cta.contact")}
-            </Link>
+            </OpenLeadModalButton>
           </div>
         </Container>
       </section>
@@ -381,6 +393,8 @@ export default async function StateSolarLandingPage({
         eyebrow={t("shared.quoteForm.topic", { state: region })}
         title={t("shared.quoteForm.title", { state: region })}
         messagePlaceholder={t("shared.quoteForm.subtitle", { state: region })}
+        showMessageField
+        leadIntent={`State quote request — ${region}`}
       />
     </>
   );

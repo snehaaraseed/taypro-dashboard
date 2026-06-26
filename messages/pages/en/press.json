@@ -25,7 +25,18 @@
     "sectionIndex": "Publisher indexes",
     "readArticle": "Read on {outlet}",
     "companyCta": "About Taypro",
-    "contactCta": "Contact media team"
+    "contactCta": "Contact media team",
+    "leadModal": {
+      "topic": "Media & press",
+      "title": "Contact our media team",
+      "subtitle": "Journalists, analysts, and event organisers — tell us your outlet, deadline, and what you need from Taypro.",
+      "formPrompt": "How can we help with your story?",
+      "messageLabel": "Your request",
+      "messagePlaceholder": "Outlet name, story angle, interview format, deadline, and any background you already have…",
+      "submitLabel": "Send media enquiry",
+      "thankYouTitle": "Thanks — we've got your note",
+      "thankYouMessage": "Our communications team will respond as soon as possible."
+    }
   },
   "Common": {
     "breadcrumbHome": "Home"

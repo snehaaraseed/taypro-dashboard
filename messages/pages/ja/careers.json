@@ -183,6 +183,17 @@
       "thankYouTitle": "Application received",
       "thankYouMessage": "Thank you for applying. Our HR team will review your profile and contact you if there is a match.",
       "submitAnother": "Submit another application"
+    },
+    "leadModal": {
+      "topic": "Taypro でのキャリア",
+      "title": "一般申請書を送る",
+      "subtitle": "一致する役割がリストされていませんか?あなたの経歴、興味のある分野、履歴書へのリンクを共有してください。私たちはすべての思慮深い応募を審査します。",
+      "formPrompt": "どこに連絡すればいいですか?",
+      "messageLabel": "あなたについて",
+      "messagePlaceholder": "興味のある役割、経験年数、希望する場所、LinkedIn または履歴書のリンクなど…",
+      "submitLabel": "申請書を送信する",
+      "thankYouTitle": "ご連絡いただきありがとうございます",
+      "thankYouMessage": "当社の人事チームがあなたのメモを確認し、適合する場合は返信させていただきます。"
     }
   }
 }

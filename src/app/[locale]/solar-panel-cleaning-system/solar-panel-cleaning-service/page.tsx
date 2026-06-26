@@ -193,10 +193,13 @@ export default async function SolarPanelCleaningService({
           imgSrc="/tayprosolarpanel/taypro-cleaning-service.png"
           imgAlt={t("hero.imgAlt")}
           ctaHref="/contact"
-          ctaText={t("hero.ctaText")}
+          ctaText={t("hero.primaryCta.label")}
+          ctaTopic={t("hero.primaryCta.topic")}
+          ctaTitle={t("hero.primaryCta.title")}
+          ctaSubtitle={t("hero.primaryCta.subtitle")}
         />
 
-        {/* What is Taypro OPEX */}
+        {/* What is OPEX */}
         <section className="bg-white pt-12 sm:pt-20 pb-8">
           <Container size="narrow">
             <AnimateOnScroll animation="fadeInUp">

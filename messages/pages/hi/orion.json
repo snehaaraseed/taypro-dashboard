@@ -84,7 +84,12 @@
       "formTitle": "ORION में रुचि दर्ज करें",
       "messageLabel": "प्लांट और डेटा संदर्भ",
       "messagePlaceholder": "प्लांट MW, स्थान, SCADA विक्रेता, रोबोट फ्लीट, मुख्य O&M चुनौतियाँ…",
-      "submitLabel": "रुचि अनुरोध भेजें"
+      "submitLabel": "रुचि अनुरोध भेजें",
+      "firstNameLabel": "आपका नाम*",
+      "emailLabel": "कार्य ईमेल*",
+      "phoneLabel": "फ़ोन नंबर*",
+      "thankYouTitle": "आपकी ORION रुचि के लिए धन्यवाद",
+      "thankYouMessage": "हमारी टीम आपसी एनडीए के तहत पायलट पात्रता, एकीकरण दायरे और समयसीमा का पालन करेगी।"
     },
     "related": {
       "eyebrow": "आज उपलब्ध",

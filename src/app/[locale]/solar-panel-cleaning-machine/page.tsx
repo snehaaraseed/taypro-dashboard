@@ -2,6 +2,7 @@ import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { ArrowRight } from "lucide-react";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
+import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import { Container } from "@/app/components/Container";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { FaqSection } from "@/app/components/FaqSection";
@@ -56,6 +57,7 @@ export default async function CleaningMachinePage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "CleaningMachinePage" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
+  const tLead = await getTranslations({ locale, namespace: "Forms.leadModal" });
 
   const breadcrumbs = [
     { name: tCommon("breadcrumbHome"), href: "/" },
@@ -91,12 +93,19 @@ export default async function CleaningMachinePage({
               {t("hero.ctaHub")}
               <ArrowRight className="w-4 h-4" aria-hidden />
             </Link>
-            <Link
-              href="/contact"
+            <OpenLeadModalButton
+              source="cleaning_machine_hero"
+              topic={tLead("topic")}
+              title={tLead("title")}
+              subtitle={tLead("subtitle")}
+              leadIntent={tLead("topic")}
+              formPrompt={tLead("formPrompt")}
+              showMessageField
+              analyticsFormType="cleaning_machine_quote"
               className="inline-flex justify-center px-6 py-3 rounded-lg border border-white/30 text-white font-medium hover:border-[#A8C117] hover:text-[#A8C117] transition-colors"
             >
               {t("hero.ctaQuote")}
-            </Link>
+            </OpenLeadModalButton>
           </div>
         </Container>
       </section>

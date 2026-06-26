@@ -16,6 +16,7 @@ import {
   FAQPageSchema,
   ItemListSchema,
 } from "@/app/components/StructuredData";
+import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
@@ -217,12 +218,17 @@ export default async function ProjectsFilterPage({
                   {t(`${v}.closingProductLink`)}
                 </Link>{" "}
                 {t(`${v}.closingBodyMiddle`)}{" "}
-                <Link
-                  href="/contact"
+                <OpenLeadModalButton
+                  source={`projects_filter_${v}_inline`}
+                  topic={tHub("leadTopic")}
+                  title={tHub("leadTitle")}
+                  subtitle={tHub("leadSubtitle")}
+                  leadIntent={tHub("leadTopic")}
+                  analyticsFormType="projects_inquiry"
                   className="font-medium text-[#5a8f00] underline-offset-4 hover:underline"
                 >
                   {t(`${v}.closingContactLink`)}
-                </Link>
+                </OpenLeadModalButton>
                 {t(`${v}.closingBodyAfter`)}
               </p>
             </AnimateOnScroll>
@@ -236,12 +242,17 @@ export default async function ProjectsFilterPage({
           faqs={faqs}
           tone="muted"
           footer={
-            <Link
-              href="/contact"
+            <OpenLeadModalButton
+              source={`projects_filter_${v}_faq`}
+              topic={tHub("leadTopic")}
+              title={tHub("leadTitle")}
+              subtitle={tHub("leadSubtitle")}
+              leadIntent={tHub("leadTopic")}
+              analyticsFormType="projects_inquiry"
               className="inline-flex items-center justify-center min-h-[48px] bg-[#b2cb19] text-[#22405a] font-medium px-8 py-3 rounded-lg hover:bg-lime-500 transition"
             >
               {t(`${v}.faq.cta`)}
-            </Link>
+            </OpenLeadModalButton>
           }
         />
       </div>

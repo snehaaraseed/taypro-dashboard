@@ -374,7 +374,7 @@ export const localeTranslations = {
         crossSellLead: "सिंगल-एक्सिस ट्रैकर प्लांट? देखें ",
         linkGlydeX: "Model-T",
         crossSellMid: "। सफाई आउटसोर्स? ",
-        linkOpex: "Taypro OPEX क्लीनिंग सेवा",
+        linkOpex: "OPEX क्लीनिंग सेवा",
         crossSellSuffix: " देखें।",
         ...sharedHi.helyxVsGlyde,
       },
@@ -400,7 +400,7 @@ export const localeTranslations = {
         linkBetweenAT: ", ",
         linkGlydeX: "सिंगल-एक्सिस ट्रैकर Model-T",
         linkBetweenTOpex: ", ",
-        linkOpex: "Taypro OPEX क्लीनिंग सेवा",
+        linkOpex: "OPEX क्लीनिंग सेवा",
         linkBetweenOpexConsole: " या ",
         linkNectyr: "NECTYR मॉनिटरिंग ऐप",
         crossSellSuffix: "।",
@@ -462,11 +462,11 @@ export const localeTranslations = {
     "cleaning-service": {
       overview: {
         eyebrow: "تنظيف شمسي تشغيلي بالدفع حسب النتائج",
-        title: "ما هي خدمة Taypro OPEX؟",
+        title: "ما هي خدمة OPEX؟",
       },
       featuresSection: {
         headlineLine1: "لماذا تختار المحطات",
-        headlineLine2: "Taypro OPEX",
+        headlineLine2: "OPEX",
       },
       ...sharedAr,
     },
@@ -510,11 +510,11 @@ export const localeTranslations = {
     "cleaning-service": {
       overview: {
         eyebrow: "成果連動型ソーラーO&M清掃",
-        title: "Taypro OPEXとは？",
+        title: "OPEXとは？",
       },
       featuresSection: {
         headlineLine1: "選ばれる理由",
-        headlineLine2: "Taypro OPEX",
+        headlineLine2: "OPEX",
       },
       ...sharedJa,
     },
@@ -558,11 +558,11 @@ export const localeTranslations = {
     "cleaning-service": {
       overview: {
         eyebrow: "ফলাফলভিত্তিক সোলার O&M পরিষ্কার সেবা",
-        title: "Taypro OPEX কী?",
+        title: "OPEX কী?",
       },
       featuresSection: {
         headlineLine1: "কেন প্ল্যান্টগুলো বেছে নেয়",
-        headlineLine2: "Taypro OPEX",
+        headlineLine2: "OPEX",
       },
       ...sharedBn,
     },

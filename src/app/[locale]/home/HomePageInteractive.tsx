@@ -265,8 +265,8 @@ export default function HomePageInteractive({
                 stackedEmbedded
                 showEmbeddedHeading={false}
                 submitLabel={t("quote.submitLabel")}
-                messageLabel={t("quote.messageLabel")}
-                messagePlaceholder={t("quote.messagePlaceholder")}
+                analyticsFormType="home_quote"
+                leadIntent="Homepage quote request"
               />
             </div>
           </AnimateOnScroll>

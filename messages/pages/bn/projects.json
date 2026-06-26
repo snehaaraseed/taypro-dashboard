@@ -47,7 +47,8 @@
       "plantInstallationsLabel": "লাইভ সাইট",
       "co2ReducedLabel": "বার্ষিক CO2 নির্গমন হ্রাস (মেট্রিক টন)",
       "waterSavedLabel": "বার্ষিক সঞ্চিত পানি (লিটার)",
-      "robotsManufacturedLabel": "মাসিক রোবট উৎপাদন ক্ষমতা"
+      "robotsManufacturedLabel": "মাসিক রোবট উৎপাদন ক্ষমতা",
+      "panelsCleanedAnnuallyLabel": "প্যানেল বার্ষিক পরিষ্কার করা হয়"
     },
     "categories": {
       "heading": "মোতায়েন ধরন অনুযায়ী ব্রাউজ",
@@ -101,7 +102,7 @@
       "q0": "Taypro এই পোর্টফোলিওতে কোন ধরনের সোলার প্ল্যান্ট নথিভুক্ত করে?",
       "a0": "আমাদের কেস স্টাডি ভারত জুড়ে ইউটিলিটি-স্কেল ground-mount সাইট, single-axis tracker arrays ও multi-block প্ল্যান্ট কভার করে, সাধারণত 50 MW ও তার উপরে যেখানে সয়লিং, পানি সঙ্কট বা ম্যানুয়াল O&M খরচ রোবোটিক পরিষ্কারকে যুক্তিসঙ্গত করে।",
       "q1": "স্বয়ংক্রিয়, অর্ধ-স্বয়ংক্রিয় ও CAPEX প্রকল্প তালিকার পার্থক্য কী?",
-      "a1": "স্বয়ংক্রিয় তালিকা সম্পূর্ণ স্বায়ত্তশাসিত রোবট (GLYDE, GLYDE-X) তুলে ধরে। অর্ধ-স্বয়ংক্রিয় তালিকা HELYX পোর্টেবল সিস্টেম দেখায়। CAPEX তালিকা সেই প্ল্যান্ট বর্ণনা করে যেখানে ডেভেলপার সরাসরি রোবট কিনেছে; একই সাইট Taypro Opex operator-led সেবা হিসেবেও ব্যবহার করতে পারে, সঠিক মোতায়েন মডেলের জন্য প্রতিটি বিভাগ বা পৃথক কেস স্টাডি দেখুন।",
+      "a1": "স্বয়ংক্রিয় তালিকা সম্পূর্ণ স্বায়ত্তশাসিত রোবট (GLYDE, GLYDE-X) তুলে ধরে। অর্ধ-স্বয়ংক্রিয় তালিকা HELYX পোর্টেবল সিস্টেম দেখায়। CAPEX তালিকা সেই প্ল্যান্ট বর্ণনা করে যেখানে ডেভেলপার সরাসরি রোবট কিনেছে; একই সাইট Opex operator-led সেবা হিসেবেও ব্যবহার করতে পারে, সঠিক মোতায়েন মডেলের জন্য প্রতিটি বিভাগ বা পৃথক কেস স্টাডি দেখুন।",
       "q2": "Taypro পরিষ্কার রোবট প্ল্যান্ট পারফরম্যান্স রেশিওকে কীভাবে প্রভাবিত করে?",
       "a2": "ধারাবাহিক, আবহাওয়া-সচেতন পরিষ্কার সয়লিং ক্ষতি কমায় যা অন্যথায় ধুলোময় সাইটে পারফরম্যান্স রেশিও কয়েক শতাংশ পয়েন্ট দমিয়ে রাখতে পারে। কেস স্টাডি পরিষ্কার দক্ষতা লক্ষ্য, চক্র ফ্রিকোয়েন্সি ও জলরহিত পদ্ধতি ম্যানুয়াল ধোয়ার logistics কীভাবে এড়ায় তা উল্লেখ করে।",
       "q3": "আমি আমার সোলার প্রকল্পের জন্য Taypro কীভাবে মূল্যায়ন করব?",
@@ -114,8 +115,15 @@
       "heading": "Full portfolio",
       "title": "All published installation case studies",
       "body": "Every published Taypro plant profile in one grid, newest first. Projects highlighted above remain our curated references; the rest of the portfolio is listed here without duplication. Prefer a narrower view? Use the deployment-model category pages.",
-      "countNote": "{count} published"
-    }
+      "countNote": "{count} published",
+      "paginationLabel": "প্রকল্পের পৃষ্ঠা সংখ্যা",
+      "paginationPrevious": "আগের",
+      "paginationNext": "পরবর্তী",
+      "paginationPageOf": "পৃষ্ঠা {page} এর {totalPages}"
+    },
+    "leadTopic": "চলুন একসাথে কাজ করি",
+    "leadTitle": "চলুন একসাথে কাজ করি",
+    "leadSubtitle": "আপনার প্ল্যান্ট সম্পর্কে জানান এবং আমাদের দল আপনার সাইটের জন্য সঠিক সোলার প্যানেল পরিষ্কার রোবট নিয়ে follow-up করবে।"
   },
   "ProjectDetailPage": {
     "notFoundTitle": "প্রকল্প পাওয়া যায়নি",
@@ -145,7 +153,17 @@
     "relatedSubheading": "অনুরূপ Taypro ইনস্টলেশনে ফ্লিট সাইজ, procurement মডেল ও আঞ্চলিক প্রসঙ্গ তুলনা করুন।",
     "relatedImageTitle": "সোলার প্রকল্প",
     "relatedImageAlt": "{title} - Taypro-এর সম্পর্কিত সোলার প্যানেল পরিষ্কার রোবট ইনস্টলেশন প্রকল্প",
-    "relatedImageTitleAttr": "{title} সোলার প্যানেল পরিষ্কার রোবট সহ সোলার প্রকল্প"
+    "relatedImageTitleAttr": "{title} সোলার প্যানেল পরিষ্কার রোবট সহ সোলার প্রকল্প",
+    "heroStatsAriaLabel": "মূল প্রকল্প মেট্রিক্স",
+    "statCapacity": "ক্ষমতা",
+    "statFleet": "নৌবহর",
+    "statLocation": "অবস্থান",
+    "statDeployment": "স্থাপনা",
+    "statsEyebrow": "সাইটের তথ্য",
+    "statsHeading": "এক নজরে সাইটের পরিসংখ্যান",
+    "statsTableMetric": "মেট্রিক",
+    "statsTableValue": "রিপোর্ট করা মান",
+    "statsTableDisclaimer": "পরিসংখ্যান সাইট রিপোর্ট করা হয়. বিনিয়োগ কমিটির ব্যবহার করার আগে আপনার SCADA, কর্টেলমেন্ট, এবং প্রকাশ পদ্ধতির বিরুদ্ধে যাচাই করুন।"
   },
   "Common": {
     "breadcrumbHome": "হোম"

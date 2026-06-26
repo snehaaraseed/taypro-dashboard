@@ -14,6 +14,7 @@ import { PRICE_GUIDE_PATH } from "@/lib/seo/robot-price-guide";
 import { withHreflang } from "@/lib/seo/with-hreflang";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 import { ORION_PRODUCT_PATH } from "@/lib/product-coming-soon";
+import { UtilityOperationsLeadCTAs } from "@/app/components/UtilityOperationsLeadCTAs";
 import type { Metadata } from "next";
 
 const siteUrl = SITE_URL;
@@ -334,20 +335,7 @@ export default async function UtilitySolarOperationsPage({
             {t("cta.heading")}
           </h2>
           <p className="text-gray-300 mb-6">{t("cta.body")}</p>
-          <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <Link
-              href="/contact"
-              className="inline-flex justify-center px-6 py-3 rounded-lg bg-[#A8C117] text-[#052638] font-semibold hover:bg-[#b3cf3d] transition-colors"
-            >
-              {t("cta.quote")}
-            </Link>
-            <Link
-              href="/company#investors"
-              className="inline-flex justify-center px-6 py-3 rounded-lg border border-white/30 text-white font-medium hover:border-[#A8C117] hover:text-[#A8C117] transition-colors"
-            >
-              {t("cta.company")}
-            </Link>
-          </div>
+          <UtilityOperationsLeadCTAs />
         </Container>
       </section>
 

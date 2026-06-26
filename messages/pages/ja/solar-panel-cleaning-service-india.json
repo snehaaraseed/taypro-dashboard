@@ -49,7 +49,7 @@
         "tag": "モデル",
         "stat": "CAPEX + OPEX",
         "label": "ロボットを購入するか、清掃されたパネルごとに支払います",
-        "body": "AMC または Taypro OPEX でロボットを購入することを選択してください。当社がフリートを所有し、毎月清掃された検証済みパネルの料金を請求します。"
+        "body": "AMC または OPEX でロボットを購入することを選択してください。当社がフリートを所有し、毎月清掃された検証済みパネルの料金を請求します。"
       }
     },
     "cards": {
@@ -82,7 +82,7 @@
     },
     "models": {
       "eyebrow": "Commercial models",
-      "heading": "CAPEX robots or Taypro OPEX — same fleet, different balance sheet",
+      "heading": "CAPEX robots or OPEX — same fleet, different balance sheet",
       "capex": {
         "title": "Robot CAPEX + AMC",
         "body": "Purchase GLYDE, GLYDE-X, NYUMA, or HELYX. Taypro commissions, trains operators, and maintains the fleet under structured AMC.",
@@ -90,7 +90,7 @@
         "link": "India robot price guide"
       },
       "opex": {
-        "title": "Taypro OPEX service",
+        "title": "OPEX service",
         "body": "No upfront robot purchase. Pay monthly for panels actually cleaned — ideal for IPPs that want predictable O&M opex and fast mobilisation.",
         "href": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
         "link": "OPEX service details"
@@ -127,17 +127,17 @@
       "subheading": "ロボット清掃パートナーを評価する IPP、EPC、O&M チームからのよくある質問。",
       "q0": "Taypro はインド全土でソーラー パネルのクリーニング サービスを提供していますか?",
       "a0": "はい。 Taypro は、ラジャスタン州、グジャラート州、マハラシュトラ州、カルナータカ州、マディヤ プラデーシュ州、アーンドラ プラデーシュ州、タミル ナードゥ州、ウッタル プラデーシュ州、ハリヤナ州、デリー NCR、西ベンガル州、チャッティースガル州を含むインドの主要な太陽州全体にロボット清掃部隊と管理された OPEX プログラムを展開しています。特定のサイトでの動員スケジュールについては、お問い合わせください。",
-      "q1": "Taypro OPEX と掃除ロボットの購入の違いは何ですか?",
-      "a1": "CAPEX を使用すると、ロボットを購入し、独自の減価償却を行うことができます。 Taypro OPEX では、Taypro がフリートの所有権を保持し、NECTYR テレメトリに合わせて実際に清掃されたパネルの料金を毎月支払います。多くの IPP は、貸借対照表を維持し、単一の責任あるベンダーで運用結果を固定するために OPEX を選択します。",
+      "q1": "OPEX と掃除ロボットの購入の違いは何ですか?",
+      "a1": "CAPEX を使用すると、ロボットを購入し、独自の減価償却を行うことができます。 OPEX では、Taypro がフリートの所有権を保持し、NECTYR テレメトリに合わせて実際に清掃されたパネルの料金を毎月支払います。多くの IPP は、貸借対照表を維持し、単一の責任あるベンダーで運用結果を固定するために OPEX を選択します。",
       "q2": "Taypro の清掃サービスの対象となる植物のサイズはどれですか?",
-      "a2": "Taypro OPEX は、約 10 MW 以上の実用規模のプラント向けに設計されており、多くのプログラムは 50 ～ 300 MW です。小規模な C&I および屋上のサイトは、実現可能性の審査の後、ロボット CAPEX または HELYX プログラムの対象となる可能性があります。",
+      "a2": "OPEX は、約 10 MW 以上の実用規模のプラント向けに設計されており、多くのプログラムは 50 ～ 300 MW です。小規模な C&I および屋上のサイトは、実現可能性の審査の後、ロボット CAPEX または HELYX プログラムの対象となる可能性があります。",
       "q3": "Taypro では月に何回の清掃サイクルを推奨していますか?",
       "a3": "現場の汚れ調査後、Taypro は通常、粉塵の負荷、季節の風のパターン、トラッカーと固定傾斜のジオメトリ、および PR の回復目標に応じて、月に 3 ～ 10 回の水なしドライ クリーニング サイクルを推奨します。",
       "q4": "Taypro は太陽光発電 O&M 会社ですか、それとも単なるロボット メーカーですか?",
       "a4": "両方。 Taypro は、インドで水を使わない掃除ロボットを製造し、展開されている最大規模のロボット掃除機群の 1 つを運用しています。当社のサービスには、清掃の実行、車両の状態、オペレーターの配置、NECTYR レポートが含まれており、EPC または電気 O&M 請負業者を補完します。",
       "q5": "Taypro はインドの清掃サービスにどのようなロボットを導入していますか?",
       "a5": "固定傾斜ユーティリティ ブロックは GLYDE または NYUMA を使用します。単軸トラッカー サイトでは、GLYDE-X または NYUMA-X を使用します。分散ブロックとピック アンド プレイス ワークフローでは HELYX を使用する場合があります。同じ NECTYR スタックがモデル全体に​​適用されます。",
-      "q6": "Taypro OPEX では請求はどのように構成されていますか?",
+      "q6": "OPEX では請求はどのように構成されていますか?",
       "a6": "商業条件は、請求サイクルごとに検証されたパネル清掃量に関連付けられ、NECTYR ログおよび合意された SOP と照合されます。これにより、OPEX が提供された洗浄結果に直接一致します。",
       "q7": "インドでソーラーパネル洗浄サービスの見積もりを取得するにはどうすればよいですか?",
       "a7": "プラントの能力、場所、設置タイプ (固定傾斜またはトラッカー)、および現在の清掃方法を共有します。 Taypro エンジニアは、サイクル数、ロボット モデル、および CAPEX または OPEX の商業条件を提案します。",
@@ -215,7 +215,7 @@
     "highlight": {
       "heading": "The procurement question",
       "lead": "Can your cleaning vendor prove which panels were cleaned last night?",
-      "body": "Manual crew contracts rarely provide block-level coverage evidence. Taypro OPEX bills against NECTYR telemetry — panels cleaned, routes completed, exceptions logged. That is what IPPs and lenders ask for at 100 MW scale."
+      "body": "Manual crew contracts rarely provide block-level coverage evidence. OPEX bills against NECTYR telemetry — panels cleaned, routes completed, exceptions logged. That is what IPPs and lenders ask for at 100 MW scale."
     },
     "proseSecondary": {
       "eyebrow": "地域的な汚れの状況",

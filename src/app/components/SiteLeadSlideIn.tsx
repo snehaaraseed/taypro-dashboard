@@ -356,9 +356,7 @@ export default function SiteLeadSlideIn() {
                 compactEmbedded
                 slideInMobile
                 analyticsFormType="slide_in"
-                messageRows={2}
-                messageLabel="What should we know about your plant?"
-                messagePlaceholder="MW, fixed-tilt or trackers, soiling or water limits, how you clean today, and what you want to improve."
+                leadIntent="Plant fit check (slide-in)"
                 submitLabel="Send my fit check"
                 autoFocus
                 hideResetAfterSuccess

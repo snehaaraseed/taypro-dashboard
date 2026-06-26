@@ -93,10 +93,10 @@ export const solarSystemPack = {
         "ভারতে সোলার প্যানেল পরিষ্কার রোবট ও সিস্টেম, মেশিন ও মডেল | Taypro"
       ),
       description: T(
-        "हर Taypro सोलर पैनल सफाई रोबोट की तुलना करें: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, साथ ही Taypro Opex और NECTYR। वॉटरलेस सफाई, AI शेड्यूलिंग, TÜV NORD प्रमाणित, पैन-इंडिया सहायता।",
-        "قارن كل روبوتات Taypro لتنظيف الألواح الشمسية: GLYDE وGLYDE-X وNYUMA وNYUMA-X وHELYX، إضافةً إلى Taypro Opex وNECTYR. تنظيف بدون ماء، جدولة بالذكاء الاصطناعي، معتمد من TÜV NORD، دعم على مستوى الهند.",
-        "Tayproのソーラーパネル洗浄ロボットを比較：GLYDE、GLYDE-X、NYUMA、NYUMA-X、HELYX、Taypro Opex、NECTYR。水なし洗浄、AIスケジューリング、TÜV NORD認証、インド全国サポート。",
-        "সব Taypro সোলার প্যানেল পরিষ্কার রোবট তুলনা করুন: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, Taypro Opex ও NECTYR। জলবিহীন পরিষ্কার, AI শিডিউলিং, TÜV NORD সার্টিফাইড, সারা ভারতে সহায়তা।"
+        "हर Taypro सोलर पैनल सफाई रोबोट की तुलना करें: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, साथ ही Opex और NECTYR। वॉटरलेस सफाई, AI शेड्यूलिंग, TÜV NORD प्रमाणित, पैन-इंडिया सहायता।",
+        "قارن كل روبوتات Taypro لتنظيف الألواح الشمسية: GLYDE وGLYDE-X وNYUMA وNYUMA-X وHELYX، إضافةً إلى Opex وNECTYR. تنظيف بدون ماء، جدولة بالذكاء الاصطناعي، معتمد من TÜV NORD، دعم على مستوى الهند.",
+        "Tayproのソーラーパネル洗浄ロボットを比較：GLYDE、GLYDE-X、NYUMA、NYUMA-X、HELYX、Opex、NECTYR。水なし洗浄、AIスケジューリング、TÜV NORD認証、インド全国サポート。",
+        "সব Taypro সোলার প্যানেল পরিষ্কার রোবট তুলনা করুন: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, Opex ও NECTYR। জলবিহীন পরিষ্কার, AI শিডিউলিং, TÜV NORD সার্টিফাইড, সারা ভারতে সহায়তা।"
       ),
       keywords: KEYWORDS,
       openGraphSiteName: "Taypro",
@@ -629,7 +629,7 @@ export const solarSystemPack = {
       p2LinkModelB: T("HELYX", "HELYX", "HELYX", "HELYX"),
       p2LinkModelT: T("GLYDE-X", "GLYDE-X", "GLYDE-X", "GLYDE-X"),
       p2LinkConsole: T("NECTYR", "NECTYR", "NECTYR", "NECTYR"),
-      p2LinkOpex: T("Taypro Opex", "Taypro Opex", "Taypro Opex", "Taypro Opex"),
+      p2LinkOpex: T("Opex", "Opex", "Opex", "Opex"),
       p2BeforeLinks: T(
         "Taypro भारत में निर्मित रोबोटिक सफाई सिस्टम का निर्माता है। हमारी श्रृंखला में पूर्ण ",
         "Taypro مصنع أنظمة تنظيف روبوتية Made in India. يشمل خطنا ",
@@ -1103,12 +1103,12 @@ export const solarSystemPack = {
             "সম্পদ নয়, ফলাফল চান?"
           ),
           body: T(
-            "Taypro Opex मासिक सेवा के रूप में रोबोटिक सफाई देता है, रिपोर्ट NECTYR में।",
-            "Taypro Opex يقدم التنظيف الروبوتي كخدمة شهرية مع تقارير على NECTYR.",
-            "Taypro Opexは月額サービスで洗浄し、NECTYRで報告。",
-            "Taypro Opex মাসিক সেবায় রোবোটিক পরিষ্কার দেয়, রিপোর্ট NECTYR-এ।"
+            "Opex मासिक सेवा के रूप में रोबोटिक सफाई देता है, रिपोर्ट NECTYR में।",
+            "Opex يقدم التنظيف الروبوتي كخدمة شهرية مع تقارير على NECTYR.",
+            "Opexは月額サービスで洗浄し、NECTYRで報告。",
+            "Opex মাসিক সেবায় রোবোটিক পরিষ্কার দেয়, রিপোর্ট NECTYR-এ।"
           ),
-          cta: T("Taypro Opex देखें", "اطلع على Taypro Opex", "Taypro Opexを見る", "Taypro Opex দেখুন"),
+          cta: T("Opex देखें", "اطلع على Opex", "Opexを見る", "Opex দেখুন"),
         },
       },
     },
@@ -1375,10 +1375,10 @@ export const solarSystemPack = {
         "ইউটিলিটি সারি দৈর্ঘ্য ও ট্র্যাকার টেবিলের জন্য ডিজাইন"
       ),
       robot3: T(
-        "CAPEX खरीद या Taypro Opex प्रति-पैनल-साफ़",
-        "شراء CAPEX أو Taypro Opex لكل لوحة",
-        "CAPEX購入またはTaypro Opex従量",
-        "CAPEX ক্রয় বা Taypro Opex প্যানেল-প্রতি"
+        "CAPEX खरीद या Opex प्रति-पैनल-साफ़",
+        "شراء CAPEX أو Opex لكل لوحة",
+        "CAPEX購入またはOpex従量",
+        "CAPEX ক্রয় বা Opex প্যানেল-প্রতি"
       ),
       ctaService: T(
         "सफाई सेवा देखें",
@@ -1786,10 +1786,10 @@ export const solarSystemPack = {
             "CAPEX-এর বদলে সেবা হিসেবে রোবোটিক পরিষ্কার নিতে পারি?"
           ),
           answer: T(
-            "हाँ। Taypro Opex हमारी प्रति-पैनल-साफ़ मासिक सेवा है (आमतौर पर 50 MW+)। Taypro GLYDE, HELYX या GLYDE-X तैनात करता है, सोइलिंग अध्ययन पर 3–10 चक्र चलाता है, केवल साफ़ किए गए पैनलों पर बिल करता है। हार्डवेयर के बिना NECTYR पर हर चक्र दिखता है।",
-            "نعم. Taypro Opex خدمة شهرية لكل لوحة (عادة 50 ميجاواط+). ينشر GLYDE أو HELYX أو GLYDE-X ويشغّل 3–10 دورات ويفوتر بالألواح المنظفة. كل دورة على NECTYR دون امتلاك الأجهزة.",
-            "はい。Taypro Opexはパネル従量の月額サービス（通常50MW以上）。GLYDE/HELYX/GLYDE-Xを展開し月3–10サイクル、洗浄パネル課金。ハードウェア不要でNECTYRに全記録。",
-            "হ্যাঁ। Taypro Opex আমাদের প্যানেল-প্রতি মাসিক সেবা (সাধারণত ৫০ MW+)। GLYDE, HELYX বা GLYDE-X স্থাপন, ৩–১০ চক্র, শুধু পরিষ্কার প্যানেলে বিল। হার্ডওয়্যার ছাড়াই NECTYR-এ প্রতিটি চক্র।"
+            "हाँ। Opex हमारी प्रति-पैनल-साफ़ मासिक सेवा है (आमतौर पर 50 MW+)। Taypro GLYDE, HELYX या GLYDE-X तैनात करता है, सोइलिंग अध्ययन पर 3–10 चक्र चलाता है, केवल साफ़ किए गए पैनलों पर बिल करता है। हार्डवेयर के बिना NECTYR पर हर चक्र दिखता है।",
+            "نعم. Opex خدمة شهرية لكل لوحة (عادة 50 ميجاواط+). ينشر GLYDE أو HELYX أو GLYDE-X ويشغّل 3–10 دورات ويفوتر بالألواح المنظفة. كل دورة على NECTYR دون امتلاك الأجهزة.",
+            "はい。Opexはパネル従量の月額サービス（通常50MW以上）。GLYDE/HELYX/GLYDE-Xを展開し月3–10サイクル、洗浄パネル課金。ハードウェア不要でNECTYRに全記録。",
+            "হ্যাঁ। Opex আমাদের প্যানেল-প্রতি মাসিক সেবা (সাধারণত ৫০ MW+)। GLYDE, HELYX বা GLYDE-X স্থাপন, ৩–১০ চক্র, শুধু পরিষ্কার প্যানেলে বিল। হার্ডওয়্যার ছাড়াই NECTYR-এ প্রতিটি চক্র।"
           ),
         },
         item6: {
@@ -1892,7 +1892,7 @@ export const solarSystemPack = {
         ),
       },
       line3: {
-        title: T("Taypro Opex", "Taypro Opex", "Taypro Opex", "Taypro Opex"),
+        title: T("Opex", "Opex", "Opex", "Opex"),
         body: T(
           "पे-पर-पैनल-क्लीनड प्रबंधित सफाई, Taypro आपके प्लांट पर फ्लीट संचालित करता है, अग्रिम रोबोट CAPEX के बिना।",
           "تنظيف مُدار مدفوع لكل لوحة, Taypro يشغّل الأسطول في محطتك دون CAPEX مقدماً.",

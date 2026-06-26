@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { CompanyInvestorLeadButton } from "@/app/components/CompanyInvestorLeadButton";
+import { GenericContactLeadButton } from "@/app/components/GenericContactLeadButton";
 import {
   founders,
   metrics,
@@ -47,7 +49,7 @@ const ROBOT_DESC_KEY: Record<string, string> = {
   GLYDE: "glyde",
   HELYX: "helyx",
   "GLYDE-X": "glydeX",
-  "Taypro Opex": "tayproOpex",
+  "Opex": "tayproOpex",
   "NECTYR": "nectyr",
 };
 
@@ -324,13 +326,7 @@ export default function AboutUsPage() {
                     ))}
                   </ul>
                   <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
-                    <Link
-                      href="/contact"
-                      className="inline-flex justify-center items-center gap-2 px-6 py-3 rounded-xl bg-[#A8C117] text-[#052638] font-semibold hover:bg-[#b3cf3d] transition-colors"
-                    >
-                      {t("investors.ctaContact")}
-                      <ArrowRight className="h-4 w-4" aria-hidden />
-                    </Link>
+                    <CompanyInvestorLeadButton />
                     <Link
                       href="/technology/ai-intelligence"
                       className="inline-flex justify-center px-6 py-3 rounded-xl border border-gray-200 bg-white text-[#052638] font-medium hover:border-[#A8C117] hover:text-[#5a8f00] transition-colors"
@@ -1017,12 +1013,13 @@ export default function AboutUsPage() {
           faqs={companyFaqs}
           tone="muted"
           footer={
-            <Link
-              href="/contact"
+            <GenericContactLeadButton
+              source="company_faq"
+              analyticsFormType="company_inquiry"
               className="inline-flex items-center justify-center min-h-[48px] bg-[#b2cb19] text-[#22405a] font-medium px-8 py-3 rounded-lg hover:bg-lime-500 transition"
             >
               {t("faq.talkToTeam")}
-            </Link>
+            </GenericContactLeadButton>
           }
         />
 

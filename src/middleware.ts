@@ -45,6 +45,15 @@ function localeFromPathname(pathname: string): TayproLocale {
     : (routing.defaultLocale as TayproLocale);
 }
 
+function withLogicalPathname(request: NextRequest, pathname: string): NextRequest {
+  const headers = new Headers(request.headers);
+  headers.set("x-logical-pathname", pathnameWithoutLocale(pathname));
+  return new NextRequest(request.url, {
+    headers,
+    method: request.method,
+  });
+}
+
 function withHtmlLocaleHeaders(request: NextRequest): NextRequest {
   const locale = localeFromPathname(request.nextUrl.pathname);
   const headers = new Headers(request.headers);
@@ -317,14 +326,28 @@ export async function middleware(request: NextRequest) {
     );
   }
 
-  const intlRequest = withHtmlLocaleHeaders(withGeoLocaleDetection(request));
+  const intlRequest = withLogicalPathname(
+    withHtmlLocaleHeaders(withGeoLocaleDetection(request)),
+    pathname
+  );
   const intlResponse = handleI18nRouting(intlRequest);
   if (intlResponse.status >= 300 && intlResponse.status < 400) {
     applyHstsIfHttps(request, intlResponse);
     return intlResponse;
   }
 
-  return applySecurityAndCacheHeaders(request, intlResponse, pathname);
+  const response = NextResponse.next({
+    request: { headers: intlRequest.headers },
+  });
+  intlResponse.headers.forEach((value, key) => {
+    if (key.toLowerCase() === "set-cookie") {
+      response.headers.append(key, value);
+    } else {
+      response.headers.set(key, value);
+    }
+  });
+
+  return applySecurityAndCacheHeaders(request, response, pathname);
 }
 
 export const config = {

@@ -25,7 +25,18 @@
     "sectionIndex": "Publisher indexes",
     "readArticle": "Read on {outlet}",
     "companyCta": "About Taypro",
-    "contactCta": "Contact media team"
+    "contactCta": "Contact media team",
+    "leadModal": {
+      "topic": "मीडिया और प्रेस",
+      "title": "हमारी मीडिया टीम से संपर्क करें",
+      "subtitle": "पत्रकार, विश्लेषक और कार्यक्रम आयोजक - हमें Taypro से अपना आउटलेट, समय सीमा और आपको क्या चाहिए, बताएं।",
+      "formPrompt": "हम आपकी कहानी में कैसे मदद कर सकते हैं?",
+      "messageLabel": "आपका अनुरोध",
+      "messagePlaceholder": "आउटलेट का नाम, कहानी का दृष्टिकोण, साक्षात्कार प्रारूप, समय सीमा, और आपके पास पहले से मौजूद कोई भी पृष्ठभूमि...",
+      "submitLabel": "मीडिया पूछताछ भेजें",
+      "thankYouTitle": "धन्यवाद - हमें आपका नोट मिल गया है",
+      "thankYouMessage": "हमारी संचार टीम यथाशीघ्र जवाब देगी।"
+    }
   },
   "Common": {
     "breadcrumbHome": "Home"

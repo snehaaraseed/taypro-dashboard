@@ -42,7 +42,7 @@
         "q0": "कौन से प्लांट स्वचालित Taypro रोबोट के लिए उपयुक्त हैं?",
         "a0": "ग्राउंड-माउंट यूटिलिटी साइट, अक्सर 50 MW और उससे ऊपर, दोहराने योग्य row spacing, सुलभ ब्लॉक, और सोइलिंग या जल बाधाएँ जो मैनुअल धुलाई को महंगा बनाती हैं। फिक्स्ड-टिल्ट arrays आमतौर पर GLYDE; सिंगल-एक्सिस trackers GLYDE-X tracker-aware paths के साथ।",
         "q1": "स्वचालित प्रोजेक्ट अर्ध-स्वचालित या CAPEX से कैसे अलग है?",
-        "a1": "स्वचालित लिस्टिंग में fixed schedules पर पूर्ण स्वायत्त फ्लीट। अर्ध-स्वचालित लिस्टिंग scattered blocks के लिए पोर्टेबल HELYX कवरेज। CAPEX लिस्टिंग outright रोबोट खरीद; वही मालिक Taypro Opex managed service भी उपयोग कर सकता है, सटीक मॉडल के लिए केस स्टडी देखें।",
+        "a1": "स्वचालित लिस्टिंग में fixed schedules पर पूर्ण स्वायत्त फ्लीट। अर्ध-स्वचालित लिस्टिंग scattered blocks के लिए पोर्टेबल HELYX कवरेज। CAPEX लिस्टिंग outright रोबोट खरीद; वही मालिक Opex managed service भी उपयोग कर सकता है, सटीक मॉडल के लिए केस स्टडी देखें।",
         "q2": "कोटेशन माँगने से पहले क्या पढ़ूँ?",
         "a2": "अपने MW और क्षेत्र के निकटतम केस स्टडी चुनें, तकनीकी सीमाओं के लिए स्वचालित उत्पाद पेज पढ़ें, अपनी tariff और सोइलिंग के साथ ROI कैलकुलेटर चलाएँ, फिर चक्र-आवृत्ति सिफारिशों के लिए Taypro के साथ layout drawings साझा करें।"
       }
@@ -98,7 +98,7 @@
       "title": "CAPEX सोलर पैनल सफाई रोबोट परियोजनाएं",
       "description": "CAPEX-स्वामित्व सोलर पैनल सफाई रोबोट स्थापनाएं देखें। ग्राहकों ने इन-हाउस O&M के लिए Taypro हार्डवेयर खरीदा।",
       "introP1Before": "CAPEX प्रोजेक्ट लिस्टिंग utilities और IPPs दिखाती हैं जिन्होंने Taypro cleaning robots outright खरीदे, balance sheet पर capital, in-house या contracted O&M द्वारा संचालित। यह contrasts with",
-      "introP1Link": "Taypro Opex cleaning as a service",
+      "introP1Link": "Opex cleaning as a service",
       "introP1After": ", जहाँ Taypro robots का मालिक है और SLA के तहत cycles चलाता है। दोनों मॉडल भारत में; सही choice balance-sheet preference, internal O&M maturity और payback horizon पर निर्भर।",
       "introP2": "CAPEX buyers आमतौर पर asset control, spare-parts stocking, और plant SCADA और NECTYR के साथ direct integration चाहते हैं। Taypro purchase के बाद commissioning, operator training और pan-India spare logistics support करता है। नीचे documented CAPEX plants दिखाते हैं owners ने fleets MW, soiling class, tracker vs fixed-tilt design के लिए कैसे sized की।",
       "introP3Before": "ownership economics model करें",
@@ -131,7 +131,7 @@
         "cta": "अपने प्लांट पर चर्चा करें",
         "q0": "Taypro project listings में CAPEX का क्या अर्थ है?",
         "a0": "Developer या IPP ने robots capital equipment के रूप में खरीदे और internal या third-party O&M से operate करते हैं। Taypro hardware, commissioning और support deliver करता है; owner depreciation और uptime responsibility carry करता है।",
-        "q1": "CAPEX Taypro Opex से कैसे अलग है?",
+        "q1": "CAPEX Opex से कैसे अलग है?",
         "a1": "Opex के तहत Taypro fleet का मालिक है और SLA के तहत cleaning perform करता है, useful जब predictable opex line items और outsourced cycle execution चाहिए। CAPEX strong in-house O&M और asset ownership appetite वाली teams के लिए। Opex service page service scope explain करती है।",
         "q2": "क्या CAPEX plant अभी भी operations के लिए Taypro use कर सकता है?",
         "a2": "कुछ owners hardware CAPEX buy करते हैं और monitoring या periodic audits के लिए Taypro contract करते हैं। प्रकाशित होने पर case studies model call out करती हैं। Proposal के दौरान preferred split Taypro के साथ share करें।"
@@ -144,7 +144,7 @@
       "breadcrumb": "Opex",
       "eyebrow": "Operator-led cleaning service",
       "title": "Opex सोलर पैनल सफाई रोबोट परियोजनाएं",
-      "description": "Taypro Opex सोलर पैनल सफाई रोबोट तैनाती देखें। Taypro-स्वामित्व फ्लीट, पे-पर-पैनल चक्र और SLA-समर्थित संचालन।",
+      "description": "Opex सोलर पैनल सफाई रोबोट तैनाती देखें। Taypro-स्वामित्व फ्लीट, पे-पर-पैनल चक्र और SLA-समर्थित संचालन।",
       "introP1Before": "Opex listings document plants where Taypro delivers",
       "introP1Link": "robotic cleaning as a managed service",
       "introP1After": ", Taypro retains fleet ownership, schedules cycles, and reports completion through NECTYR. Owners pay for cleaned panels rather than capitalizing robots on the balance sheet.",
@@ -165,12 +165,12 @@
       "gridIntro": "Select a plant to see how Taypro structured service delivery, fleet mix, and reporting for operator-led cleaning.",
       "closingHeading": "Evaluating Opex vs CAPEX for your site?",
       "closingBodyBeforeLink": "Read",
-      "closingProductLink": "Taypro Opex service scope",
+      "closingProductLink": "Opex service scope",
       "closingBodyMiddle": "alongside",
       "closingContactLink": "contact Taypro",
       "closingBodyAfter": " with plant MW, target cycle frequency, and whether you prefer owned fleets or managed service delivery.",
       "schemaName": "Opex सोलर पैनल सफाई रोबोट स्थापना परियोजनाएं",
-      "schemaDescription": "यूटिलिटी-स्केल प्लांट जहां Taypro Opex सेवा मॉडल के तहत ऑपरेटर-नेतृत्व वाली रोबोटिक सफाई देता है।",
+      "schemaDescription": "यूटिलिटी-स्केल प्लांट जहां Opex सेवा मॉडल के तहत ऑपरेटर-नेतृत्व वाली रोबोटिक सफाई देता है।",
       "imageAltSuffix": "Taypro द्वारा Opex सोलर पैनल सफाई रोबोट स्थापना परियोजना",
       "imageTitleSuffix": "Opex सोलर पैनल सफाई रोबोट परियोजना",
       "faq": {
@@ -183,7 +183,8 @@
         "a1": "CAPEX listings show owners who bought robots outright and operate them in-house or with contracted crews. Opex listings show Taypro retaining ownership and running cycles. The same GLYDE or HELYX technology can appear under either model depending on procurement choice.",
         "q2": "Can we switch from Opex to CAPEX later?",
         "a2": "Some owners start with Opex to prove cycle frequency and soiling recovery, then transition to owned fleets once layout and economics are validated. Share your roadmap with Taypro during proposal so fleet sizing and contract terms stay aligned."
-      }
+      },
+      "introP4": "प्रकाशित Opex केस अध्ययन संयंत्र क्षमता, भूगोल और सेवा मॉडल के साथ नीचे दिखाई देते हैं। नई तैनाती प्रकाशित होने पर अपडेट की गणना करें - पूर्ण पोर्टफोलियो के लिए प्रोजेक्ट हब का उपयोग करें।"
     }
   },
   "Common": {

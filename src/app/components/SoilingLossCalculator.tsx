@@ -3,6 +3,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 import { Link } from "@/i18n/navigation";
+import { GenericContactLeadButton } from "@/app/components/GenericContactLeadButton";
 import {
   calculateSoilingLoss,
   SOILING_REGION_PRESETS,
@@ -174,12 +175,13 @@ export default function SoilingLossCalculator({
             >
               {t("ctaRoi")}
             </Link>
-            <Link
-              href="/contact"
+            <GenericContactLeadButton
+              source="soiling_calculator"
+              analyticsFormType="soiling_study_inquiry"
               className="inline-flex justify-center px-4 py-2 rounded-lg border border-[#052638]/20 text-[#052638] text-sm font-medium hover:border-[#A8C117]"
             >
               {t("ctaStudy")}
-            </Link>
+            </GenericContactLeadButton>
           </div>
         </div>
       </div>

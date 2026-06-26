@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
+import { Phone } from "lucide-react";
 import LocaleSwitcher from "@/app/components/LocaleSwitcher";
 import { TAYPRO_SALES_PHONE_TEL } from "@/lib/contact";
 import { trackNavigationClick, trackPhoneClick } from "@/lib/analytics/track-event";
@@ -165,7 +166,18 @@ export default function Header() {
         <div className="flex h-14 min-w-0 flex-nowrap items-center justify-between gap-2 sm:gap-3 lg:grid lg:h-16 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-center lg:gap-3 xl:gap-4">
           {/* Logo — left */}
           <div className="shrink-0 justify-self-start">
-            <Link href={"/"} onClick={closeMobileMenu} aria-label="Taypro home">
+            <Link
+              href={"/"}
+              onClick={() => {
+                closeMobileMenu();
+                trackNavigationClick({
+                  label: "Taypro home",
+                  href: "/",
+                  location: "header_logo",
+                });
+              }}
+              aria-label="Taypro home"
+            >
               <Image
                 src="/tayproasset/taypro-logo.webp"
                 alt="Taypro Logo - Solar Panel Cleaning Robot Manufacturer"
@@ -282,16 +294,20 @@ export default function Header() {
               ))}
           </nav>
 
-          {/* Language + Talk to Expert (+ mobile menu) — right */}
-          <div className="flex shrink-0 items-center justify-end gap-2 justify-self-end sm:gap-3">
+          {/* Language + call CTA (+ mobile menu) — right */}
+          <div className="flex min-w-0 shrink-0 items-center justify-end gap-1.5 justify-self-end sm:gap-2 lg:gap-3">
             <LocaleSwitcher />
             <Link
               href={TAYPRO_SALES_PHONE_TEL}
               title={t("callUs")}
+              aria-label={t("callUs")}
               onClick={() => trackPhoneClick("header")}
-              className="whitespace-nowrap rounded-md bg-[#A8C117] px-3 py-2 text-sm font-medium text-black transition-all duration-300 hover:bg-[#39D600] sm:px-4 lg:hover:scale-105 lg:hover:shadow-lg 2xl:px-6 2xl:py-2.5 2xl:text-base"
+              className="inline-flex min-h-9 min-w-9 shrink-0 items-center justify-center rounded-md bg-[#A8C117] text-black transition-all duration-300 hover:bg-[#39D600] lg:min-h-0 lg:min-w-0 lg:px-4 lg:py-2.5 lg:hover:scale-105 lg:hover:shadow-lg 2xl:px-6 2xl:text-base"
             >
-              {t("callUs")}
+              <Phone className="h-4 w-4 shrink-0 lg:hidden" aria-hidden />
+              <span className="hidden whitespace-nowrap text-sm font-medium lg:inline">
+                {t("callUs")}
+              </span>
             </Link>
             <button
               type="button"
@@ -299,10 +315,10 @@ export default function Header() {
               aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
               aria-expanded={isMenuOpen}
               aria-controls="mobile-nav"
-              className="flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-md p-2 text-white hover:text-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] lg:hidden"
+              className="flex min-h-9 min-w-9 shrink-0 items-center justify-center rounded-md p-1.5 text-white hover:text-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] lg:hidden"
             >
               <svg
-                className="h-6 w-6"
+                className="h-5 w-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

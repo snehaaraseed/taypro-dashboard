@@ -41,7 +41,13 @@
       "subtitleStrong": "チリの99％を1パスで",
       "subtitleAfter": "、1 MWブロックを2時間未満で清掃し、1充電で最大3 km走行, 2名の現場チームが運用可能。",
       "imgAlt": "Taypro HELYX, 半自動ソーラーパネル清掃ロボット、ユーティリティ規模向けピック＆プレース無水清掃機",
-      "ctaText": "見積もりを依頼"
+      "ctaText": "見積もりを依頼",
+      "primaryCta": {
+        "topic": "HELYX 見積もり",
+        "title": "HELYX の見積もりをリクエストする",
+        "subtitle": "プラントのレイアウトについてお知らせください。HELYX の展開、ブロック カバレッジ、商用オプションについてフォローアップします。",
+        "label": "見積もりを依頼する"
+      }
     },
     "usps": {
       "0": {
@@ -362,7 +368,9 @@
       "specHeader": "仕様",
       "valueHeader": "値",
       "datasheetCta": "Request full datasheet",
-      "datasheetCtaTopic": "HELYX datasheet request"
+      "datasheetCtaTopic": "HELYX datasheet request",
+      "datasheetCtaTitle": "HELYX 技術データシートを入手する",
+      "datasheetCtaSubtitle": "詳細を共有していただければ、完全な HELYX データシートをお送りし、ブロック レイアウトと展開に関する質問をフォローアップします。"
     },
     "manualVsRobotic": {
       "eyebrow": "ロボット清掃と手動清掃",
@@ -487,7 +495,7 @@
       "crossSellLead": "単軸トラッカー設備ですか？ ",
       "linkGlydeX": "GLYDE-X",
       "crossSellMid": "。清掃を丸ごと外注？ ",
-      "linkOpex": "Taypro OPEX清掃サービス",
+      "linkOpex": "OPEX清掃サービス",
       "crossSellSuffix": "。"
     },
     "indianConditions": {
@@ -507,7 +515,7 @@
       "linkBetweenAT": "、",
       "linkGlydeX": "単軸トラッカー向けGLYDE-Xロボット",
       "linkBetweenTOpex": "、",
-      "linkOpex": "Taypro OPEX清掃サービス",
+      "linkOpex": "OPEX清掃サービス",
       "linkBetweenOpexAndNectyr": "または",
       "linkNectyr": "NECTYRモニタリングアプリ",
       "crossSellSuffix": "。",

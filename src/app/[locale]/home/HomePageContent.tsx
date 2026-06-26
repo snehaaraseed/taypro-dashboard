@@ -114,7 +114,7 @@ export default async function HomePage() {
   const translatedSolutions: HomeLineupRobot[] = robotSolutions.map((robot, i) => {
     const msgIdx = robotProducts.length + i;
     const filterTags =
-      robot.model === "Taypro Opex"
+      robot.model === "Opex"
         ? (["service"] as const)
         : robot.model === "NECTYR"
           ? (["software"] as const)

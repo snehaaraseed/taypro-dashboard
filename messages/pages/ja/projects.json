@@ -47,7 +47,8 @@
       "plantInstallationsLabel": "稼働サイト数",
       "co2ReducedLabel": "年間CO2排出削減量（メートルトン）",
       "waterSavedLabel": "年間節水量（リットル）",
-      "robotsManufacturedLabel": "月間ロボット製造能力"
+      "robotsManufacturedLabel": "月間ロボット製造能力",
+      "panelsCleanedAnnuallyLabel": "パネルは毎年清掃されます"
     },
     "categories": {
       "heading": "導入タイプ別に閲覧",
@@ -101,7 +102,7 @@
       "q0": "Tayproはこのポートフォリオでどのタイプのソーラープラントを文書化していますか？",
       "a0": "ケーススタディはインド全土のユーティリティスケール地上設置サイト、単軸トラッカーアレイ、マルチブロックプラントをカバーします。通常50MW以上で、汚れ、水不足、手作業O&Mコストがロボット洗浄を正当化する規模です。",
       "q1": "自動・半自動・CAPEXプロジェクト一覧の違いは何ですか？",
-      "a1": "自動一覧は完全自律ロボット（GLYDE、GLYDE-X）を強調。半自動一覧はHELYXポータブルシステム。CAPEX一覧はデベロッパーがロボットを直接購入したプラント。同一サイトでTaypro Opexをオペレータ主導サービスとして利用する場合もあります。正確な導入モデルは各カテゴリまたは個別ケーススタディをご覧ください。",
+      "a1": "自動一覧は完全自律ロボット（GLYDE、GLYDE-X）を強調。半自動一覧はHELYXポータブルシステム。CAPEX一覧はデベロッパーがロボットを直接購入したプラント。同一サイトでOpexをオペレータ主導サービスとして利用する場合もあります。正確な導入モデルは各カテゴリまたは個別ケーススタディをご覧ください。",
       "q2": "Taypro洗浄ロボットはプラント性能比にどう影響しますか？",
       "a2": "一貫した天候対応洗浄は、粉塵地帯で性能比を数ポイント押し下げる汚れ損失を低減します。ケーススタディは洗浄効率目標、サイクル頻度、無水方式が手洗いの物流を回避する方法を記載しています。",
       "q3": "自社ソーラープロジェクト向けにTayproを評価するには？",
@@ -114,8 +115,15 @@
       "heading": "Full portfolio",
       "title": "All published installation case studies",
       "body": "Every published Taypro plant profile in one grid, newest first. Projects highlighted above remain our curated references; the rest of the portfolio is listed here without duplication. Prefer a narrower view? Use the deployment-model category pages.",
-      "countNote": "{count} published"
-    }
+      "countNote": "{count} published",
+      "paginationLabel": "プロジェクトのページネーション",
+      "paginationPrevious": "前の",
+      "paginationNext": "次",
+      "paginationPageOf": "ページ {page} / {totalPages}"
+    },
+    "leadTopic": "一緒に取り組みましょう",
+    "leadTitle": "一緒に取り組みましょう",
+    "leadSubtitle": "プラントについてお知らせください。最適なソーラーパネル洗浄ロボットについてチームがフォローします。"
   },
   "ProjectDetailPage": {
     "notFoundTitle": "プロジェクトが見つかりません",
@@ -145,7 +153,17 @@
     "relatedSubheading": "類似Taypro導入でフリート規模、調達モデル、地域文脈を比較。",
     "relatedImageTitle": "ソーラープロジェクト",
     "relatedImageAlt": "{title} - Tayproによる関連ソーラーパネル洗浄ロボット導入プロジェクト",
-    "relatedImageTitleAttr": "{title} ソーラーパネル洗浄ロボット付きソーラープロジェクト"
+    "relatedImageTitleAttr": "{title} ソーラーパネル洗浄ロボット付きソーラープロジェクト",
+    "heroStatsAriaLabel": "主要なプロジェクト指標",
+    "statCapacity": "容量",
+    "statFleet": "艦隊",
+    "statLocation": "位置",
+    "statDeployment": "導入",
+    "statsEyebrow": "サイトの事実",
+    "statsHeading": "サイト統計の概要",
+    "statsTableMetric": "メトリック",
+    "statsTableValue": "報告値",
+    "statsTableDisclaimer": "数値は現場で報告されたものです。投資委員会が使用する前に、SCADA、削減、および開示の方法論に照らして検証してください。"
   },
   "Common": {
     "breadcrumbHome": "ホーム"

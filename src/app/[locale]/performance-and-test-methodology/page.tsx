@@ -21,6 +21,8 @@ import {
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { CompanyPageHero } from "@/app/components/CompanyPageHero";
 import { Container } from "@/app/components/Container";
+import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
+import { ContactLeadInlineLink } from "@/app/components/ContactLeadInlineLink";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { FaqSection } from "@/app/components/FaqSection";
 import { FAQPageSchema } from "@/app/components/StructuredData";
@@ -98,6 +100,7 @@ export default async function PerformanceAndTestMethodologyPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "PerformanceMethodologyPage" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
+  const tLead = await getTranslations({ locale, namespace: "Forms.leadModal" });
 
   const breadcrumbs = [
     { name: tCommon("breadcrumbHome"), href: "/" },
@@ -532,22 +535,33 @@ export default async function PerformanceAndTestMethodologyPage({
               </h2>
               <p className="text-white/80 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
                 {t("documentation.bodyBefore")}{" "}
-                <Link
-                  href="/contact"
+                <ContactLeadInlineLink
+                  source="performance_methodology_inline"
+                  analyticsFormType="documentation_request"
                   className="text-[#A8C117] font-medium underline-offset-4 hover:underline"
                 >
                   {t("documentation.contactLink")}
-                </Link>{" "}
+                </ContactLeadInlineLink>{" "}
                 {t("documentation.bodyAfter")}
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-3">
-                <Link
-                  href="/contact"
+                <OpenLeadModalButton
+                  source="performance_methodology"
+                  topic={tLead("topic")}
+                  title={tLead("title")}
+                  subtitle={tLead("subtitle")}
+                  leadIntent={tLead("topic")}
+                  formPrompt={tLead("formPrompt")}
+                  showMessageField
+                  messageLabel={tLead("messageLabel")}
+                  messagePlaceholder={tLead("messagePlaceholder")}
+                  submitLabel={tLead("submitLabel")}
+                  analyticsFormType="documentation_request"
                   className="inline-flex justify-center items-center gap-2 px-6 py-3 rounded-xl bg-[#A8C117] text-[#052638] font-semibold hover:bg-[#b3cf3d] transition-colors"
                 >
                   {t("documentation.contactLink")}
                   <ArrowRight className="h-4 w-4" aria-hidden />
-                </Link>
+                </OpenLeadModalButton>
                 <Link
                   href="/solar-panel-cleaning-robot-price-calculator#calculator"
                   className="inline-flex justify-center items-center gap-2 px-6 py-3 rounded-xl border border-white/25 text-white font-medium hover:border-[#A8C117] hover:text-[#A8C117] transition-colors"

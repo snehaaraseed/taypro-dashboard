@@ -84,7 +84,12 @@
       "formTitle": "ORION-এ আগ্রহী হন",
       "messageLabel": "প্ল্যান্ট ও ডেটা প্রসঙ্গ",
       "messagePlaceholder": "প্ল্যান্ট MW, অবস্থান, SCADA, রোবট ফ্লিট, O&M চ্যালেঞ্জ…",
-      "submitLabel": "আগ্রহের অনুরোধ পাঠান"
+      "submitLabel": "আগ্রহের অনুরোধ পাঠান",
+      "firstNameLabel": "তোমার নাম*",
+      "emailLabel": "কাজের ইমেল*",
+      "phoneLabel": "ফোন নম্বর*",
+      "thankYouTitle": "আপনার ORION আগ্রহের জন্য ধন্যবাদ",
+      "thankYouMessage": "আমাদের দল পারস্পরিক এনডিএ-এর অধীনে পাইলটের যোগ্যতা, ইন্টিগ্রেশন স্কোপ এবং টাইমলাইন অনুসরণ করবে।"
     },
     "related": {
       "eyebrow": "আজ উপলব্ধ",

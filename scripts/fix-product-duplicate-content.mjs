@@ -182,7 +182,7 @@ const nyumaXVsNyumaEn = {
   crossSellLead: "Cleaning smaller or scattered plants? Look at the semi-automatic ",
   linkHelyx: "HELYX",
   crossSellMid: ". Prefer outsourcing cleaning entirely? Explore the ",
-  linkOpex: "Taypro OPEX cleaning service",
+  linkOpex: "OPEX cleaning service",
   crossSellSuffix: ".",
 };
 

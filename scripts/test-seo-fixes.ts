@@ -173,7 +173,7 @@ assert.equal(
 
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { buildLayoutClientMessages } from "../src/i18n/pick-messages";
+import { buildLayoutClientMessages, buildSpaClientMessages } from "../src/i18n/pick-messages";
 import { pickSimilarBlogs } from "../src/lib/seo/pick-similar-blogs";
 import { parseProjectsHubPage, projectsHubPagePath, projectsHubPaginationLinks } from "../src/lib/cms/projects-hub-pagination";
 
@@ -189,20 +189,47 @@ for (const file of readdirSync(hiPagesDir).filter((f) => f.endsWith(".json"))) {
   );
 }
 
-const layoutClientMessages = buildLayoutClientMessages(hiMessages);
+const layoutClientMessages = buildLayoutClientMessages(hiMessages, "/");
 for (const ns of [
-  "ContactPage",
   "Home",
-  "BlogPage",
-  "ProjectsPage",
   "Navigation",
   "Common",
+  "ModuleManufacturerTrust",
+  "PriceCalculatorPage",
+  "ProjectsPage",
 ]) {
   assert.ok(
     ns in layoutClientMessages,
-    `layout client bundle must include ${ns} for client-side navigation`
+    `layout client bundle must include ${ns} on home route`
   );
 }
+const blogPathMessages = buildLayoutClientMessages(hiMessages, "/blog");
+for (const ns of ["BlogPage", "Navigation", "Common", "Footer"]) {
+  assert.ok(
+    ns in blogPathMessages,
+    `layout client bundle must include ${ns} on /blog`
+  );
+}
+assert.ok(
+  !("Home" in blogPathMessages),
+  "pathname-scoped layout bundle must not ship Home on /blog"
+);
+assert.ok(
+  !("StateLandingsPage" in blogPathMessages),
+  "pathname-scoped layout bundle must not ship StateLandingsPage on /blog"
+);
+
+const spaClientMessages = buildSpaClientMessages(hiMessages);
+for (const ns of ["Home", "CompanyPage", "BlogPage", "ContactPage", "Navigation"]) {
+  assert.ok(
+    ns in spaClientMessages,
+    `SPA client catalog must include ${ns} for client navigations`
+  );
+}
+assert.ok(
+  !("SolarSystemPage" in spaClientMessages),
+  "SPA client catalog must not include server-only page namespaces"
+);
 
 const similar = pickSimilarBlogs(
   {
@@ -283,4 +310,64 @@ assert.ok(isDraftProjectSlug("yavatmal-undarni-7-mw"));
 const normalized = normalizeHeadingLevels("<h2>A</h2><h4>B</h4>");
 assert.match(normalized, /<h3>B<\/h3>/);
 
-console.log("test-seo-fixes: ok");
+import { clientNamespacesForPathname } from "../src/i18n/client-message-namespaces";
+import { loadMessagesForPath } from "../src/i18n/load-messages";
+import { pageModulesForPathname } from "../src/i18n/route-message-modules";
+
+const ROUTE_MESSAGE_SAMPLES = [
+  "/",
+  "/blog/test-post",
+  "/contact",
+  "/company",
+  "/projects",
+  "/projects/automatic",
+  "/projects/yavatmal-undarni-7-mw",
+  "/solar-panel-cleaning-system",
+  "/solar-panel-cleaning-system/nyuma-automatic-cleaning-robot",
+  "/solar-panel-cleaning-robot-maharashtra",
+  "/solar-panel-cleaning-robot-price-calculator",
+  "/utility-scale-solar-operations",
+  "/solar-om-services",
+];
+
+const SERVER_ONLY_NAMESPACES: Record<string, string[]> = {
+  "/": ["SolarSystemPage"],
+};
+
+async function assertRouteMessageCoverage() {
+  for (const route of ROUTE_MESSAGE_SAMPLES) {
+    const modules = pageModulesForPathname(route);
+    assert.ok(
+      modules.length > 0,
+      `${route} must resolve at least one page module`
+    );
+    const messages = await loadMessagesForPath("en", route);
+    for (const ns of clientNamespacesForPathname(route)) {
+      assert.ok(
+        ns in messages,
+        `${route}: loadMessagesForPath missing client namespace ${ns} (modules: ${modules.join(", ")})`
+      );
+    }
+    for (const ns of SERVER_ONLY_NAMESPACES[route] ?? []) {
+      assert.ok(
+        ns in messages,
+        `${route}: loadMessagesForPath missing server namespace ${ns}`
+      );
+    }
+  }
+
+  const contactModules = pageModulesForPathname("/contact");
+  assert.ok(
+    contactModules.includes("contact.json") && contactModules.length <= 2,
+    "contact route should load a minimal page module set"
+  );
+}
+
+assertRouteMessageCoverage()
+  .then(() => {
+    console.log("test-seo-fixes: ok");
+  })
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });

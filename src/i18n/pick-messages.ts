@@ -1,14 +1,13 @@
 import {
-  CLIENT_PAGE_NAMESPACES,
   LAYOUT_CLIENT_NAMESPACES,
-  clientNamespacesForRequest,
+  SPA_CLIENT_NAMESPACES,
+  clientNamespacesForPathname,
 } from "@/i18n/client-message-namespaces";
 import { pathnameWithoutLocale } from "@/i18n/pathname-without-locale";
 
-/** Always ship these to the client when present (layout chrome + lead forms). */
-const GLOBAL_CLIENT_NAMESPACES = ["Common", "Forms"] as const;
+/** @deprecated Nested intl providers were removed; kept for any legacy imports. */
+export const NESTED_INTL_BASE_NAMESPACES = SPA_CLIENT_NAMESPACES;
 
-/** Top-level namespaces passed to NextIntlClientProvider (reduces serialized HTML). */
 export function pickMessages(
   messages: Record<string, unknown>,
   namespaces: readonly string[]
@@ -23,31 +22,43 @@ export function pickMessages(
 }
 
 /**
- * Client bundle for locale layout — pathname-independent so layouts can be static/ISR.
- * Admin publish routes call revalidatePath when CMS content changes.
+ * Full client catalog for the root locale layout.
+ * Shared layouts do not re-render on SPA navigation, so client `"use client"`
+ * pages/widgets must receive every SPA namespace on the first paint.
+ * Server `getTranslations` stays pathname-scoped via `loadMessagesForPath`.
+ */
+export function buildSpaClientMessages(
+  messages: Record<string, unknown>
+): Record<string, unknown> {
+  return pickMessages(messages, SPA_CLIENT_NAMESPACES);
+}
+
+/**
+ * Pathname-scoped client bundle (tests, diagnostics).
+ * Do not use for the root layout — SPA navigations will miss namespaces.
  */
 export function buildLayoutClientMessages(
-  messages: Record<string, unknown>
+  messages: Record<string, unknown>,
+  logicalPathname = "/"
 ): Record<string, unknown> {
   const namespaceSet = new Set<string>([
     ...LAYOUT_CLIENT_NAMESPACES,
-    ...CLIENT_PAGE_NAMESPACES,
-    ...GLOBAL_CLIENT_NAMESPACES,
+    ...clientNamespacesForPathname(logicalPathname),
   ]);
   return pickMessages(messages, [...namespaceSet]);
 }
 
 /**
- * Pathname-scoped client bundle (e.g. nested section layouts).
- * Do not use for the root locale layout — it does not re-run on client navigation.
+ * Pathname-scoped client bundle (e.g. one-off nested providers).
+ * Prefer buildLayoutClientMessages for the root locale layout.
  */
 export function buildClientMessages(
   messages: Record<string, unknown>,
   pathname: string
 ): Record<string, unknown> {
   const namespaceSet = new Set<string>([
-    ...clientNamespacesForRequest(pathname),
-    ...GLOBAL_CLIENT_NAMESPACES,
+    ...SPA_CLIENT_NAMESPACES,
+    ...clientNamespacesForPathname(pathname),
   ]);
 
   const path = pathnameWithoutLocale(pathname);

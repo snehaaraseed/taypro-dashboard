@@ -250,37 +250,7 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
 
         <div className="max-w-[1440px] mx-auto px-4 md:px-6 pt-10 pb-20">
           <div className="grid grid-cols-1 xl:grid-cols-[260px_minmax(0,1fr)_300px] gap-10">
-            <aside className="hidden xl:block order-3 xl:order-none">
-              {toc.length > 0 ? (
-                <div className="sticky top-24 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
-                  <div className="border-b border-gray-100 bg-[#f8fafb] px-5 py-4">
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#052638]">
-                      {t("contents")}
-                    </p>
-                  </div>
-                  <nav aria-label={t("tocLabel")} className="p-4">
-                    <ul className="max-h-[70vh] space-y-1 overflow-y-auto pr-1">
-                      {toc.map((item) => (
-                        <li key={item.id}>
-                          <a
-                            href={`#${item.id}`}
-                            className={`block rounded-lg px-3 py-2 text-sm leading-snug transition-colors hover:bg-[#f4f7f9] hover:text-[#5a8f00] ${
-                              item.level === 3
-                                ? "text-[#27415c]/80 pl-6"
-                                : "font-medium text-[#052638]"
-                            }`}
-                          >
-                            {item.text}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </nav>
-                </div>
-              ) : null}
-            </aside>
-
-            <div className="order-1 min-w-0 xl:col-start-2">
+            <div className="min-w-0 xl:col-start-2 xl:row-start-1">
               {toc.length > 0 ? (
                 <details className="xl:hidden mb-8 rounded-xl border border-gray-200 bg-[#f8fafb] p-4">
                   <summary className="cursor-pointer text-sm font-semibold text-[#052638]">
@@ -369,7 +339,37 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
               </div>
             </div>
 
-            <aside className="order-2 xl:order-none xl:col-start-3">
+            <aside className="hidden xl:block xl:col-start-1 xl:row-start-1">
+              {toc.length > 0 ? (
+                <div className="sticky top-24 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                  <div className="border-b border-gray-100 bg-[#f8fafb] px-5 py-4">
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#052638]">
+                      {t("contents")}
+                    </p>
+                  </div>
+                  <nav aria-label={t("tocLabel")} className="p-4">
+                    <ul className="max-h-[70vh] space-y-1 overflow-y-auto pr-1">
+                      {toc.map((item) => (
+                        <li key={item.id}>
+                          <a
+                            href={`#${item.id}`}
+                            className={`block rounded-lg px-3 py-2 text-sm leading-snug transition-colors hover:bg-[#f4f7f9] hover:text-[#5a8f00] ${
+                              item.level === 3
+                                ? "text-[#27415c]/80 pl-6"
+                                : "font-medium text-[#052638]"
+                            }`}
+                          >
+                            {item.text}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                </div>
+              ) : null}
+            </aside>
+
+            <aside className="xl:col-start-3 xl:row-start-1">
               <ProjectDetailSidebar />
             </aside>
           </div>
@@ -379,7 +379,10 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
           <AllRelatedProjectsSection projects={relatedGridProjects} />
         ) : null}
 
-        <CallbackCard headerText={tHub("callback.header")} />
+        <CallbackCard
+          headerText={tHub("callback.header")}
+          leadIntent={tHub("callback.header")}
+        />
       </div>
     </>
   );

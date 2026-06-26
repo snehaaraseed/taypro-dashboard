@@ -25,7 +25,18 @@
     "sectionIndex": "Publisher indexes",
     "readArticle": "Read on {outlet}",
     "companyCta": "About Taypro",
-    "contactCta": "Contact media team"
+    "contactCta": "Contact media team",
+    "leadModal": {
+      "topic": "الإعلام والصحافة",
+      "title": "اتصل بفريقنا الإعلامي",
+      "subtitle": "الصحفيون والمحللون ومنظمو الأحداث - أخبرنا بمنفذك والموعد النهائي وما تحتاجه اعتبارًا من Taypro.",
+      "formPrompt": "كيف يمكننا مساعدتك في قصتك؟",
+      "messageLabel": "طلبك",
+      "messagePlaceholder": "اسم المنفذ، وزاوية القصة، وشكل المقابلة، والموعد النهائي، وأي خلفية لديك بالفعل...",
+      "submitLabel": "إرسال استفسار وسائل الإعلام",
+      "thankYouTitle": "شكرًا — لقد حصلنا على ملاحظتك",
+      "thankYouMessage": "سيقوم فريق الاتصالات لدينا بالرد في أقرب وقت ممكن."
+    }
   },
   "Common": {
     "breadcrumbHome": "Home"

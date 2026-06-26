@@ -1,32 +1,49 @@
 {
   "NyumaXPage": {
     "meta": {
-      "title": "Tracker Solar Panel Cleaning Robot | NYUMA-X",
-      "description": "PBT single-pass NYUMA-X for tracker plants. 99%+ dust removal, NECTYR fleet, TÜV NORD certified. Get a quote today.",
+      "title": "একক অক্ষ ট্র্যাকারের জন্য সোলার প্যানেল পরিষ্কার রোবট, Taypro GLYDE-X",
+      "description": "Taypro GLYDE-X হল AI/ML চালিত, জলবিহীন স্বায়त्त সোলার প্যানেল পরিষ্কার রোবট, একক অক্ষ ট্র্যাকার ফার্মের জন্য তৈরি। সিঙ্গল-পাস PBT রানে ৯৯%+ ধুলো অপসারণ, প্রতি চার্জে ৩,৬০০ মডিউল পর্যন্ত, টেবিলের মধ্যে ±১৫° ফ্লেক্স, NEXTracker ও Gamechanger স 호합 (‑৫২° থেকে +৫২° মডিউল টিল্ট), TÜV NORD সনদপ্রাপ্ত।",
       "openGraphDescription": "একক অক্ষ ট্র্যাকারের জন্য স্বায়त्त AI চালিত সোলার প্যানেল পরিষ্কার রোবট। প্রতি চক্রে ৯৯%+ ধুলো অপসারণ, প্রতি চার্জে ৩,৬০০ মডিউল পর্যন্ত, LTE/Wi‑Fi/RF মেশ/LoRa/LoRaWAN এর NECTYR, NEXTracker ও Gamechanger স 호합, TÜV NORD সনদপ্রাপ্ত।",
-      "openGraphImageAlt": "Taypro NYUMA-X PBT tracker solar panel cleaning robot",
+      "openGraphImageAlt": "Taypro একক অক্ষ ট্র্যাকার সোলার প্যানেল পরিষ্কার রোবট GLYDE-X, AI চালিত, জলবিহীন",
       "twitterDescription": "ট্র্যাকার প্ল্যান্টের জন্য স্বায়त्त সোলার প্যানেল পরিষ্কার রোবট। প্রতি চার্জে ৩,৬০০ মডিউল, LTE/Wi‑Fi/RF মেশ/LoRa/LoRaWAN, NEXTracker ও Gamechanger স 호합।",
       "openGraphTitle": "ট্র্যাকার সোলার প্যানেল পরিষ্কার রোবট | NYUMA-X",
-      "twitterTitle": "ট্র্যাকার সোলার প্যানেল পরিষ্কার রোবট | NYUMA-X"
+      "twitterTitle": "ট্র্যাকার সোলার প্যানেল পরিষ্কার রোবট | NYUMA-X",
+      "keywords": [
+        "সিঙ্গেল-অক্ষ ট্র্যাকার সোলার প্যানেল পরিষ্কার",
+        "সিঙ্গেল-অক্ষ ট্র্যাকার সোলার পরিষ্কার রোবট",
+        "ট্র্যাকার সোলার প্যানেল পরিষ্কার রোবট",
+        "NEXTracker সোলার পরিষ্কার রোবট",
+        "Gamechanger ট্র্যাকার পরিষ্কার রোবট",
+        "অনুভূমিক সিঙ্গেল-অক্ষ ট্র্যাকার পরিষ্কার",
+        "ইউটিলিটি স্কেল সোলার প্যানেল পরিষ্কার রোবট",
+        "ট্র্যাকার স্বয়ংক্রিয় সোলার প্যানেল পরিষ্কার সিস্টেম",
+        "Taypro GLYDE-X"
+      ]
     },
     "breadcrumbs": {
       "robots": "সোলার প্যানেল পরিষ্কার রোবট",
       "current": "একক অক্ষ ট্র্যাকারের জন্য সোলার প্যানেল পরিষ্কার রোবট"
     },
     "schema": {
-      "productName": "Solar Panel Cleaning Robot for Single-Axis Trackers - NYUMA-X",
-      "productDescription": "Taypro NYUMA-X is an AI- and ML-powered autonomous, waterless Solar Panel Cleaning Robot purpose-built for single-axis tracker installations. single-pass dry cleaning removes 99%+ dust per cycle, cleans up to 3,600 modules per charge, flexes ±15° between tables, connects via {connectivity}, is compatible with NEXTracker and Gamechanger, supports module tilts from -52° to +52°, TÜV NORD certified.",
+      "productName": "একক-অক্ষ ট্র্যাকারদের জন্য সোলার প্যানেল পরিষ্কারের রোবট - GLYDE-X",
+      "productDescription": "Taypro GLYDE-X হল একটি AI- এবং ML-চালিত স্বায়ত্তশাসিত, জলবিহীন সোলার প্যানেল ক্লিনিং রোবট যা একক-অক্ষ ট্র্যাকার ইনস্টলেশনের জন্য নির্মিত৷ সিঙ্গল-পাস PBT ড্রাই ক্লিনিং প্রতি চক্রে 99%+ ধুলো অপসারণ করে, প্রতি চার্জে 3,600 মডিউল পর্যন্ত পরিষ্কার করে, টেবিলের মধ্যে ±15° ফ্লেক্স করে, {connectivity} এর মাধ্যমে সংযোগ করে, NEXTracker এবং Gamechanger-এর সাথে সামঞ্জস্যপূর্ণ, মডিউল টিল্টকে -2°__t__° থেকে +52°, +52° থেকে cer করা সমর্থন করে",
       "offersPrice": "মূল্যের জন্য যোগাযোগ করুন",
-      "howToName": "How does the Taypro NYUMA-X Single-Axis Tracker Solar Panel Cleaning Robot clean tracker plants?",
-      "howToDescription": "Step-by-step autonomous cleaning cycle of the Taypro NYUMA-X solar panel cleaning robot for single-axis tracker installations, from AI-scheduled deployment through self-docking and cloud telemetry sync."
+      "howToName": "কিভাবে Taypro GLYDE-X একক-অক্ষ ট্র্যাকার সোলার প্যানেল ক্লিনিং রোবট ট্র্যাকার গাছপালা পরিষ্কার করে?",
+      "howToDescription": "একক-অক্ষ ট্র্যাকার ইনস্টলেশনের জন্য Taypro GLYDE-X সোলার প্যানেল ক্লিনিং রোবটের ধাপে ধাপে স্বায়ত্তশাসিত পরিচ্ছন্নতা চক্র, স্ব-ডকিং এবং ক্লাউড টেলিমেট্রি সিঙ্কের মাধ্যমে এআই-নির্ধারিত স্থাপনা থেকে।"
     },
     "hero": {
-      "title": "NYUMA-X — PBT Single-Pass Tracker Cleaning Robot",
+      "title": "একক অক্ষ ট্র্যাকারের জন্য সোলার প্যানেল পরিষ্কার রোবট, GLYDE-X",
       "subtitleBefore": "একক অক্ষ ট্র্যাকার সোলার ফার্মের জন্য বিশেষভাবে তৈরি AI/ML চালিত, জলবিহীন স্বায়त्त সোলার প্যানেল পরিষ্কার রোবট। প্রতি চার্জে ৩,৬০০ মডিউল পর্যন্ত পরিষ্কার করে,",
       "subtitleStrong": "টেবিলের মধ্যে ±১৫° পর্যন্ত ফ্লেক্স করে",
       "subtitleAfter": ", মডিউল টিল্ট ‑৫২° থেকে +৫২° পর্যন্ত সমর্থন করে এবং NEXTracker, Gamechanger ও সমতুল্য ট্র্যাকারের সাথে স 호합।",
-      "imgAlt": "Taypro Single-Axis Tracker Solar Panel Cleaning Robot NYUMA-X - Autonomous robotic cleaning system for tracking solar panel installations",
+      "imgAlt": "Taypro একক অক্ষ ট্র্যাকার সোলার প্যানেল পরিষ্কার রোবট GLYDE-X, ট্র্যাকিং ইনস্টলেশনের জন্য স্বায়त्त রোবোটিক পরিষ্কার ব্যবস্থা",
       "ctaText": "কোটেশন অনুরোধ করুন",
+      "primaryCta": {
+        "topic": "NYUMA-X quote",
+        "title": "Request a NYUMA-X quote",
+        "subtitle": "Tell us about your tracker plant and our team will follow up with NYUMA-X sizing, bridge-kit needs, and commercial options.",
+        "label": "Request a quote"
+      },
       "h1Line1": "NYUMA-X — Solar Panel Cleaning Robot for Single-Axis Trackers, "
     },
     "usps": {
@@ -48,7 +65,7 @@
       },
       "4": {
         "title": "AI- এবং ML-চালিত স্বায়ত্তশাসন",
-        "description": "AI edge and angle detection adapts to tracker stow positions and row undulation during autonomous night cycles."
+        "description": "উন্নত প্রান্ত, প্রতিবন্ধকতা এবং কোণ সনাক্তকরণ GLYDE-X পতনের ঝুঁকি ছাড়াই প্যানেল জুড়ে নিরাপদে যেতে দেয়, ক্রমাগত ট্র্যাকিং পথ এবং প্রতিটি সারি বরাবর পৃষ্ঠের অস্থিরতা।"
       },
       "5": {
         "title": "ক্লাউড-সংযুক্ত রিমোট মনিটরিং",
@@ -56,7 +73,7 @@
       },
       "6": {
         "title": "প্রতি চার্জ 2.2 km / 3,600 মডিউল পর্যন্ত",
-        "description": "Single charge covers up to 2.2 km of tracker run (~3,600 modules) before self-docking for solar-assisted recharge."
+        "description": "একটি একক GLYDE-X 2.2 km পর্যন্ত ট্র্যাকার পরিষ্কার করে একটি একক চার্জে - সাধারণত প্রায় 3,600 মডিউল - স্ব-ডকিং এবং এর ছায়া-মুক্ত ডকে রিচার্জ করার আগে।"
       },
       "7": {
         "title": "TÜV NORD প্রত্যয়িত বিল্ড",
@@ -66,11 +83,11 @@
     "features": {
       "0": {
         "title": "ট্র্যাকার টেবিলের জন্য নমনীয় বডি ব্রিজ",
-        "body": "Tracker plants rarely sit perfectly aligned across rows, slight angle differences between adjacent tables are the norm. NYUMA-X's body flexes up to 15° to safely traverse these inter-table angle deviations, working in tandem with purpose-designed bridge kits to maintain continuous cleaning across the row."
+        "body": "ট্র্যাকার গাছপালা খুব কমই সারি জুড়ে পুরোপুরি সারিবদ্ধভাবে বসে, সংলগ্ন টেবিলের মধ্যে সামান্য কোণ পার্থক্য আদর্শ। GLYDE-X এর শরীর 15° পর্যন্ত নমনীয় করে এই আন্তঃ-টেবিল কোণ বিচ্যুতিগুলিকে নিরাপদে অতিক্রম করতে, উদ্দেশ্য-পরিকল্পিত ব্রিজ কিটগুলির সাথে সারি জুড়ে ক্রমাগত পরিচ্ছন্নতা বজায় রাখার জন্য কাজ করে৷"
       },
       "1": {
         "title": "NEXTracker এবং Gamechanger সামঞ্জস্য",
-        "body": "NYUMA-X is engineered for the dominant single-axis tracker platforms in utility-scale solar, compatible with NEXTracker, Gamechanger and equivalent trackers. The robot integrates with existing tracker structures with no modifications to your modules or tracker mounting hardware."
+        "body": "GLYDE-X ইউটিলিটি-স্কেল সোলারে প্রভাবশালী একক-অক্ষ ট্র্যাকার প্ল্যাটফর্মের জন্য ইঞ্জিনিয়ার করা হয়েছে, NEXTracker, Gamechanger এবং সমতুল্য ট্র্যাকারগুলির সাথে সামঞ্জস্যপূর্ণ। রোবটটি আপনার মডিউল বা ট্র্যাকার মাউন্টিং হার্ডওয়্যারে কোনো পরিবর্তন ছাড়াই বিদ্যমান ট্র্যাকার কাঠামোর সাথে একীভূত হয়।"
       },
       "2": {
         "title": "প্রান্ত, বাধা এবং কোণ সনাক্তকরণ",
@@ -86,7 +103,7 @@
       },
       "5": {
         "title": "স্ব-ডকিং চার্জিং স্টেশন",
-        "body": "After each cleaning cycle, NYUMA-X returns to a secure docking station placed beside the modules, positioned to avoid casting shadows on the array. The integrated charging system needs no external power. Battery level, charging status and health are visible in real time on the remote portal."
+        "body": "প্রতিটি পরিস্কার চক্রের পরে, GLYDE-X মডিউলগুলির পাশে রাখা একটি নিরাপদ ডকিং স্টেশনে ফিরে আসে, অ্যারেতে ছায়া কাস্টিং এড়াতে অবস্থান করা হয়৷ ইন্টিগ্রেটেড চার্জিং সিস্টেমের কোনো বাহ্যিক শক্তির প্রয়োজন নেই। রিমোট পোর্টালে রিয়েল টাইমে ব্যাটারি লেভেল, চার্জিং স্ট্যাটাস এবং স্বাস্থ্য দৃশ্যমান।"
       },
       "6": {
         "title": "ব্যাটারি-সচেতন রিটার্ন নিরাপত্তা",
@@ -186,7 +203,7 @@
     "steps": {
       "0": {
         "name": "রোবট একটি নির্দিষ্ট ট্র্যাকার অ্যারেতে বরাদ্দ করা হয়",
-        "text": "Each NYUMA-X is permanently assigned to a single-axis tracker array and lives at a shadow-free docking station beside the row, no daily transport, no operator handling, no external power."
+        "text": "প্রতিটি GLYDE-X স্থায়ীভাবে একটি একক-অক্ষ ট্র্যাকার অ্যারেতে বরাদ্দ করা হয় এবং সারির পাশে ছায়া-মুক্ত ডকিং স্টেশনে থাকে, কোনো দৈনিক পরিবহন, কোনো অপারেটর হ্যান্ডলিং, কোনো বাহ্যিক শক্তি নেই।"
       },
       "1": {
         "name": "AI সময়সূচী সর্বোত্তম পরিষ্কার উইন্ডো নির্বাচন করে",
@@ -194,7 +211,7 @@
       },
       "2": {
         "name": "ট্র্যাকার সারিতে স্ব-নিয়োজিত",
-        "text": "At the scheduled time, NYUMA-X undocks autonomously and moves onto the tracker row. Edge, obstacle and angle-detection sensors continuously map the path and surface undulations ahead of the robot."
+        "text": "নির্ধারিত সময়ে, GLYDE-X স্বায়ত্তশাসিতভাবে আনডক করে এবং ট্র্যাকার সারিতে চলে যায়। প্রান্ত, প্রতিবন্ধকতা এবং কোণ-সনাক্তকরণ সেন্সর ক্রমাগতভাবে রোবটের সামনের পথ এবং পৃষ্ঠের অস্থিরতা ম্যাপ করে।"
       },
       "3": {
         "name": "সারি জুড়ে দ্বৈত-পাস জলহীন পরিচ্ছন্নতা",
@@ -211,44 +228,44 @@
     },
     "faqs": {
       "0": {
-        "question": "What is a Solar Panel Cleaning Robot for Single-Axis Trackers, and how does NYUMA-X work?",
-        "answer": "A solar cleaning robot for single-axis trackers is an autonomous robotic cleaner purpose-built to operate on tracker-based solar power plants, where modules tilt across the day and where rows often have small angle deviations between adjacent tables. Taypro NYUMA-X is permanently assigned to a tracker array; at scheduled cleaning windows it self-deploys, executes a waterless single-pass cleaning cycle across the row, articulates its body up to ±15° to safely cross inter-table angle deviations, and returns to a shadow-free docking station to recharge, all without human intervention."
+        "question": "একক-অক্ষ ট্র্যাকারদের জন্য সোলার প্যানেল ক্লিনিং রোবট কী এবং GLYDE-X কীভাবে কাজ করে?",
+        "answer": "একক-অক্ষ ট্র্যাকারগুলির জন্য একটি সোলার ক্লিনিং রোবট হল একটি স্বায়ত্তশাসিত রোবোটিক ক্লিনার যা ট্র্যাকার-ভিত্তিক সৌর বিদ্যুৎ কেন্দ্রগুলিতে কাজ করার উদ্দেশ্যে তৈরি করা হয়েছে, যেখানে মডিউলগুলি সারা দিন কাত হয়ে থাকে এবং যেখানে সারিগুলি প্রায়ই সংলগ্ন টেবিলের মধ্যে ছোট কোণ বিচ্যুতি থাকে। Taypro GLYDE-X স্থায়ীভাবে একটি ট্র্যাকার অ্যারেতে বরাদ্দ করা হয়েছে; নির্ধারিত ক্লিনিং উইন্ডোতে এটি স্ব-নিয়োজিত করে, সারি জুড়ে একটি জলহীন সিঙ্গল-পাস PBT ক্লিনিং চক্র চালায়, আন্তঃ-টেবিল কোণ বিচ্যুতিগুলিকে নিরাপদে অতিক্রম করতে এর শরীরকে ±15° পর্যন্ত স্পষ্ট করে, এবং রিচার্জ করার জন্য একটি ছায়া-মুক্ত ডকিং স্টেশনে ফিরে আসে, সব কিছুই মানুষের হস্তক্ষেপ ছাড়াই।"
       },
       "1": {
-        "question": "Which tracker manufacturers and platforms is Taypro NYUMA-X compatible with?",
-        "answer": "NYUMA-X is compatible with the leading single-axis tracker platforms used in utility-scale solar, including NEXTracker and Gamechanger. The robot integrates with existing tracker mounting structures without modifications to your modules, torque tubes or tracker hardware. For any non-standard tracker platform, our team will validate compatibility as part of the site assessment."
+        "question": "কোন ট্র্যাকার নির্মাতারা এবং প্ল্যাটফর্ম Taypro GLYDE-X এর সাথে সামঞ্জস্যপূর্ণ?",
+        "answer": "GLYDE-X NEXTracker এবং Gamechanger সহ ইউটিলিটি-স্কেল সোলারে ব্যবহৃত শীর্ষস্থানীয় একক-অক্ষ ট্র্যাকার প্ল্যাটফর্মের সাথে সামঞ্জস্যপূর্ণ। রোবট আপনার মডিউল, টর্ক টিউব বা ট্র্যাকার হার্ডওয়্যারে পরিবর্তন ছাড়াই বিদ্যমান ট্র্যাকার মাউন্টিং কাঠামোর সাথে একীভূত হয়। যেকোনো অ-মানক ট্র্যাকার প্ল্যাটফর্মের জন্য, আমাদের দল সাইট মূল্যায়নের অংশ হিসাবে সামঞ্জস্যতা যাচাই করবে।"
       },
       "2": {
-        "question": "How is NYUMA-X different from NYUMA and HELYX?",
-        "answer": "NYUMA is a fully autonomous robot for fixed-tilt utility-scale plants. HELYX is a semi-automatic pick-and-place robot for scattered, smaller or rooftop plants. NYUMA-X is the only Taypro robot purpose-built for single-axis tracker plants, it supports module tilts from -52° to +52°, flexes ±15° between tables, and is engineered for NEXTracker / Gamechanger style trackers. All three are waterless, AI-driven and managed from the same NECTYR portal."
+        "question": "কিভাবে GLYDE-X GLYDE এবং HELYX থেকে আলাদা?",
+        "answer": "GLYDE ফিক্সড-টিল্ট ইউটিলিটি-স্কেল প্ল্যান্টের জন্য একটি সম্পূর্ণ স্বায়ত্তশাসিত রোবট। HELYX হল একটি আধা-স্বয়ংক্রিয় বাছাই-এবং-স্থান রোবট যা ছড়িয়ে ছিটিয়ে থাকা, ছোট বা ছাদের গাছের জন্য। GLYDE-X হল একমাত্র Taypro রোবট যা একক-অক্ষ ট্র্যাকার প্ল্যান্টের জন্য তৈরি করা হয়েছে, এটি -52° থেকে +52° পর্যন্ত মডিউল টিল্ট সমর্থন করে, টেবিলের মধ্যে ±15° ফ্লেক্স করে, এবং NEXTracker / Gamechanger শৈলী ট্র্যাকারগুলির জন্য ইঞ্জিনিয়ার করা হয়েছে। তিনটিই জলহীন, এআই-চালিত এবং একই Taypro কনসোল পোর্টাল থেকে পরিচালিত।"
       },
       "3": {
-        "question": "How many solar modules can NYUMA-X clean on a single charge?",
-        "answer": "NYUMA-X can clean up to 2.2 km of tracker running length, approximately 3,600 solar modules, on a single lithium-ion charge. The recommended sustained operational range is 1.6 km per cycle, ensuring a safe return to the docking station with battery headroom in every cycle."
+        "question": "একক চার্জে কতটি সৌর মডিউল GLYDE-X পরিষ্কার করতে পারে?",
+        "answer": "একটি লিথিয়াম-আয়ন চার্জে GLYDE-X 2.2 km পর্যন্ত ট্র্যাকার চলমান দৈর্ঘ্য, প্রায় 3,600টি সৌর মডিউল, পরিষ্কার করতে পারে৷ সুপারিশকৃত টেকসই পরিচালন পরিসীমা হল 1.6 km প্রতি সাইকেল, প্রতিটি চক্রে ব্যাটারি হেডরুম সহ ডকিং স্টেশনে নিরাপদ প্রত্যাবর্তন নিশ্চিত করে৷"
       },
       "4": {
-        "question": "Does NYUMA-X require water or external power to clean tracker panels?",
-        "answer": "No. NYUMA-X is 100% waterless, a single-pass cleaning cycle lifts over 99% of dust using rotating PBT brush or UV-stable PBT cleaning heads without any water, detergent or run-off. The docking station is fitted with an integrated lithium-ion charging system and does not require any external power source."
+        "question": "ট্র্যাকার প্যানেল পরিষ্কার করার জন্য কি GLYDE-X এর জল বা বাহ্যিক শক্তি প্রয়োজন?",
+        "answer": "নং GLYDE-X হল 100% জলবিহীন, একটি সিঙ্গল-পাস PBT ক্লিনিং সাইকেল কোনো জল, ডিটারজেন্ট বা রান-অফ ছাড়াই ঘূর্ণায়মান PBT ব্রাশ বা UV-স্থিতিশীল PBT ক্লিনিং হেড ব্যবহার করে 99% এর বেশি ধুলো উত্তোলন করে। ডকিং স্টেশনটি একটি ইন্টিগ্রেটেড লিথিয়াম-আয়ন চার্জিং সিস্টেমের সাথে লাগানো আছে এবং এর জন্য কোনো বাহ্যিক শক্তির উৎসের প্রয়োজন নেই।"
       },
       "5": {
-        "question": "Is the NYUMA-X cleaning cycle safe for solar modules and ARC?",
-        "answer": "Yes. NYUMA-X moves along the frame of the solar modules, with binders that distribute load and preserve panel integrity. Every robot is independently tested for micro-crack formation, optical reflectance loss, full electrical parameter evaluation and Anti-Reflective Coating (ARC) preservation under simulated daily cleaning cycles by accredited solar-sector testing laboratories. NYUMA-X is also TÜV NORD certified for IP55 protection."
+        "question": "GLYDE-X ক্লিনিং সাইকেল কি সোলার মডিউল এবং ARC এর জন্য নিরাপদ?",
+        "answer": "হ্যাঁ। GLYDE-X সোলার মডিউলের ফ্রেম বরাবর চলে, বাইন্ডারের সাথে যা লোড বিতরণ করে এবং প্যানেলের অখণ্ডতা রক্ষা করে। স্বীকৃত সোলার-সেক্টর টেস্টিং ল্যাবরেটরিগুলির দ্বারা সিমুলেটেড দৈনিক পরিচ্ছন্নতার চক্রের অধীনে মাইক্রো-ক্র্যাক গঠন, অপটিক্যাল প্রতিফলন ক্ষতি, সম্পূর্ণ বৈদ্যুতিক প্যারামিটার মূল্যায়ন এবং অ্যান্টি-রিফ্লেক্টিভ লেপ (ARC) সংরক্ষণের জন্য প্রতিটি রোবট স্বাধীনভাবে পরীক্ষা করা হয়। GLYDE-X এছাড়াও TÜV NORD IP55 সুরক্ষার জন্য প্রত্যয়িত৷"
       },
       "6": {
-        "question": "How does NYUMA-X handle inter-table angle differences on tracker rows?",
-        "answer": "Tracker rows rarely sit perfectly co-planar across adjacent tables. NYUMA-X's flexible body articulates up to 15° to safely cross these inter-table angle deviations and works in conjunction with Taypro-supplied flexible bridges between tables, ensuring smooth, continuous cleaning across the entire row regardless of small terrain or tracker misalignment."
+        "question": "কিভাবে GLYDE-X ট্র্যাকার সারিগুলিতে আন্তঃ-টেবিল কোণ পার্থক্য পরিচালনা করে?",
+        "answer": "ট্র্যাকার সারিগুলি খুব কমই সংলগ্ন টেবিল জুড়ে পুরোপুরি সহ-প্লানারে বসে। GLYDE-X-এর নমনীয় শরীর 15° পর্যন্ত উচ্চারণ করে এই আন্তঃ-টেবিল কোণ বিচ্যুতিগুলিকে নিরাপদে অতিক্রম করতে এবং Taypro-সারণীর মধ্যে সরবরাহকৃত নমনীয় সেতুর সাথে একত্রে কাজ করে, ছোট ভূখণ্ড বা ট্র্যাকারের বিভ্রান্তি নির্বিশেষে সমগ্র সারি জুড়ে মসৃণ, ক্রমাগত পরিষ্কার করা নিশ্চিত করে৷"
       },
       "7": {
-        "question": "How much does the Taypro NYUMA-X Single-Axis Tracker Cleaning Robot cost?",
-        "answer": "Pricing for NYUMA-X depends on the tracker platform, plant size, terrain and the level of integration with your existing SCADA and monitoring stack. Most tracker plant deployments achieve full ROI within 12–18 months through higher generation, eliminated water consumption and removed manual cleaning overhead. Contact our team for a site-specific quote and detailed ROI calculation."
+        "question": "Taypro GLYDE-X একক-অক্ষ ট্র্যাকার ক্লিনিং রোবটের দাম কত?",
+        "answer": "GLYDE-X-এর মূল্য ট্র্যাকার প্ল্যাটফর্ম, উদ্ভিদের আকার, ভূখণ্ড এবং আপনার বিদ্যমান SCADA এবং পর্যবেক্ষণ স্ট্যাকের সাথে একীকরণের স্তরের উপর নির্ভর করে। বেশীরভাগ ট্র্যাকার প্ল্যান্ট স্থাপনা উচ্চতর প্রজন্মের মাধ্যমে 12-18 মাসের মধ্যে সম্পূর্ণ ROI অর্জন করে, জলের ব্যবহার বাদ দেয় এবং ম্যানুয়াল ক্লিনিং ওভারহেড সরিয়ে দেয়। একটি সাইট-নির্দিষ্ট উদ্ধৃতি এবং বিশদ ROI গণনার জন্য আমাদের দলের সাথে যোগাযোগ করুন৷"
       },
       "8": {
-        "question": "Does NYUMA-X work in extreme Indian climatic conditions like dust storms, heat and monsoon?",
-        "answer": "Yes. NYUMA-X is engineered for harsh Indian utility-scale tracker field conditions: maximum operating temperature of 90°C, IP65 sealed enclosure, TÜV NORD certified IP55 protection, and field-validated under 12 simulated sandstorm cycles per year at 10 g/m² sand loading. It can clean in winds up to 40 km/hr and locks securely at its docking station up to 180 km/hr."
+        "question": "GLYDE-X কি চরম ভারতীয় আবহাওয়ায় কাজ করে যেমন ধুলো ঝড়, তাপ এবং বর্ষা?",
+        "answer": "হ্যাঁ। GLYDE-X কঠোর ভারতীয় ইউটিলিটি-স্কেল ট্র্যাকার ক্ষেত্রের অবস্থার জন্য প্রকৌশলী করা হয়েছে: সর্বাধিক অপারেটিং তাপমাত্রা 90°C, IP65 সিল করা ঘের, TÜV NORD প্রত্যয়িত IP55 সুরক্ষা, এবং 12 টি সিমুলেটেড বালির ঝড় চক্রের অধীনে ক্ষেত্র-প্রমাণিত প্রতি বছর g²/0m বালি লোড হচ্ছে। এটি 40 km/ঘন্টা পর্যন্ত বাতাসে পরিষ্কার করতে পারে এবং এর ডকিং স্টেশনে 180 km/ঘন্টা পর্যন্ত নিরাপদে লক করতে পারে।"
       },
       "9": {
-        "question": "How is NYUMA-X monitored and controlled across a large tracker plant?",
-        "answer": "All NYUMA-X robots connect to the NECTYR using {connectivity}. The portal provides a unified interface to schedule cleaning, adjust settings, monitor battery levels, view cycle telemetry, receive weather alerts and roll up performance across hundreds of robots and plants, from any device, anywhere."
+        "question": "কিভাবে একটি বড় ট্র্যাকার প্ল্যান্ট জুড়ে GLYDE-X নিরীক্ষণ ও নিয়ন্ত্রণ করা হয়?",
+        "answer": "সমস্ত GLYDE-X রোবট {connectivity} ব্যবহার করে Taypro কনসোলের সাথে সংযোগ করে। পোর্টালটি পরিচ্ছন্নতার সময়সূচী, সেটিংস সামঞ্জস্য, ব্যাটারির মাত্রা নিরীক্ষণ, সাইকেল টেলিমেট্রি দেখতে, আবহাওয়ার সতর্কতা গ্রহণ করতে এবং শত শত রোবট এবং গাছপালা জুড়ে পারফরম্যান্স রোল আপ করার জন্য একটি ইউনিফাইড ইন্টারফেস প্রদান করে, যেকোনো ডিভাইস থেকে, যেকোনো জায়গা থেকে।"
       }
     },
     "misc": {
@@ -260,8 +277,8 @@
     },
     "overview": {
       "eyebrow": "সিঙ্গেল-অ্যাক্সিস ট্র্যাকার প্ল্যান্টের জন্য সোলার প্যানেল পরিষ্কার রোবট",
-      "title": "What is Taypro NYUMA-X?",
-      "p1Before": "Taypro NYUMA-X is an ",
+      "title": "Taypro GLYDE-X কী?",
+      "p1Before": "Taypro GLYDE-X একটি ",
       "p1Strong": "AI ও ML চালিত, স্বায়त्त সোলার প্যানেল পরিষ্কার রোবট",
       "p1After": " যা দৈনিক পরিষ্কারের জন্য তৈরি ",
       "p1TrackerStrong": "একক অক্ষ ট্র্যাকার সোলার পাওয়ার প্ল্যান্ট",
@@ -275,12 +292,12 @@
       "p2NexStrong": "NEXTracker",
       "p2And": " ও ",
       "p2GameStrong": "Gamechanger",
-      "p2Mid": " single-axis tracker platforms, NYUMA-X can ",
+      "p2Mid": " একক অক্ষ ট্র্যাকার প্ল্যাটফর্ম; GLYDE-X শরীর ",
       "p2FlexStrong": "১৫° পর্যন্ত নম করতে পারে",
       "p2AfterFlex": " যাতে টেবিলের মধ্যে কোণের পার্থক্য নিরাপদে পার হওয়া যায়। সম্পূর্ণ ট্র্যাকার অপারেশন রেঞ্জে মডিউল টিল্ট ",
       "p2TiltStrong": "‑৫২° থেকে +৫২° পর্যন্ত",
       "p2Suffix": "।",
-      "p3Before": "NYUMA-X operates autonomously using advanced ",
+      "p3Before": "GLYDE-X উন্নত ",
       "p3DetectStrong": "এজ, বাধা ও কোণ সনাক্তকরণ",
       "p3AfterDetect": " ব্যবহার করে প্যানেলে নিরাপদে চলে। প্রতিটি সারিতে পথ ও পৃষ্ঠের অসমতা ট্র্যাক করে। চক্রের পর ছায়ামুক্ত ডকে ফিরে লক করে, ডকিংয়ে ১৮০ km/h পর্যন্ত বাতাস সহনশীল।",
       "p4Lead": "ফিক্সড-টিল্ট ইউটিলিটি-স্কেল প্ল্যান্ট চালান? ",
@@ -298,25 +315,25 @@
       "badge": "TAYPRO MODEL-T",
       "title": "একক অক্ষ ট্র্যাকার ইনস্টলেশনের জন্য স্বায়त्त জলবিহীন সোলার প্যানেল পরিষ্কার রোবট",
       "tourEyebrow": "ইন্টারঅ্যাক্টিভ প্রোডাক্ট ট্যুর",
-      "tourTitle": "See the NYUMA-X Robot",
+      "tourTitle": "GLYDE-X এর ৩৬০° ভিউ",
       "tourSubtitleMobile": "বাম বা ডানে টেনে ঘোরান এবং আমাদের একক অক্ষ ট্র্যাকার সোলার প্যানেল পরিষ্কার রোবট প্রতিটি কোণ থেকে দেখুন।",
       "tourSubtitleDesktop": "বাম বা ডানে টেনে ঘোরান এবং আমাদের একক অক্ষ ট্র্যাকার সোলার প্যানেল পরিষ্কার রোবট অন্বেষণ করুন।",
-      "productLabel": "Taypro NYUMA-X, Solar Panel Cleaning Robot for Single-Axis Trackers",
+      "productLabel": "Taypro GLYDE-X, একক অক্ষ ট্র্যাকারের জন্য সোলার প্যানেল পরিষ্কার রোবট",
       "innovationTitle": "MODEL-T-এর নবায়ন",
-      "innovationBody": "The Taypro NYUMA-X represents a synergy of cutting-edge technologies meticulously engineered to address the challenges of solar panel maintenance for single-axis tracker installations. Powered by advanced sensors and machine learning capabilities, NYUMA-X delivers truly autonomous operation devoid of any human intervention. Its cloud-based management system enables remote monitoring and control, ensuring optimal performance from anywhere, anytime."
+      "innovationBody": "Taypro GLYDE-X উন্নত সেন্সর ও মেশিন লার্নিংয়ের সমন্বয় যা একক অক্ষ ট্র্যাকারে রক্ষণাবেক্ষণের চ্যালেঞ্জ মেটায়। এটি প্রকৃত স্বায়त्त চালনা দেয়। ক্লাউড ব্যবস্থাপনায় দূরবর্তী পর্যবেক্ষণ ও নিয়ন্ত্রণ সম্ভব।"
     },
     "howItWorks": {
       "eyebrow": "স্বয়ংক্রিয় পরিষ্কারের ধাপসমূহ",
-      "title": "How Does NYUMA-X Clean Single-Axis Tracker Plants?",
-      "subtitle": "NYUMA-X executes a fully autonomous cleaning cycle from AI-scheduled deployment through self-docking and cloud telemetry sync, without any operator on site."
+      "title": "GLYDE-X কীভাবে ট্র্যাকার প্ল্যান্ট পরিষ্কার করে?",
+      "subtitle": "GLYDE-X AI-নির্ধারিত মোতায়েন থেকে সেল্ফ-ডকিং ও ক্লাউড টেলিমেট্রি সিঙ্ক পর্যন্ত সম্পূর্ণ স্বায়ন্ত চক্র চালায়, অপারেটর ছাড়াই।"
     },
     "uspSection": {
-      "eyebrow": "Why Choose Taypro NYUMA-X",
+      "eyebrow": "কেন Taypro GLYDE-X",
       "title": "ট্র্যাকার-ভিত্তিক সোলার ফার্মের জন্য প্রকৌশলিত"
     },
     "featuresSection": {
       "eyebrow": "Taypro-এর মূল বৈশিষ্ট্য",
-      "title": "Inside the NYUMA-X Tracker Cleaning Robot",
+      "title": "GLYDE-X ট্র্যাকার ক্লিনিং রোবটের ভিতরে",
       "subtitle": "নম ব্রিজ আর্টিকুলেশন থেকে আবহাওয়া-সচেতন AI সময়সূচী পর্যন্ত, প্রতিটি উপ-সিস্টেম ইউটিলিটি স্কেল ট্র্যাকার O&M-এর বাস্তবতার জন্য।"
     },
     "certifications": {
@@ -349,7 +366,7 @@
     "servicePromise": {
       "eyebrow": "প্রতিদিন অপারেশনাল আস্থা",
       "title": "সেবা ও রক্ষণাবেক্ষণ প্রতিশ্রুতি",
-      "subtitle": "Every NYUMA-X deployment is backed by a structured service model designed to keep your tracker-plant cleaning fleet running at peak uptime across India.",
+      "subtitle": "প্রতিটি GLYDE-X মোতায়েন ট্র্যাকার প্ল্যান্টে ফ্লিটের শিখর আপটাইমের জন্য কাঠামোগত সেবায় সমর্থিত।",
       "card0Title": "পূর্ব-নির্ধারিত প্রতিরোধমূলক রক্ষণাবেক্ষণ",
       "card0Body": "সমস্ত প্রতিরোধমূলক ও সংশোধনমূলক রক্ষণাবেক্ষণ পূর্ব-নির্ধারিত ভিত্তিতে, অপ্রত্যাশিত ডাউনটাইম দূর করে 20 বছরের জীবনচক্রে শিখর কর্মক্ষমতা বজায়।",
       "card1Title": "তাৎক্ষণিক দূরবর্তী নির্ণয়",
@@ -363,7 +380,7 @@
     },
     "specifications": {
       "titleLine1": "একক অক্ষ ট্র্যাকারের জন্য সোলার প্যানেল পরিষ্কার রোবট",
-      "titleLine2": "NYUMA-X Specifications",
+      "titleLine2": "GLYDE-X বিশেষ বিবরণ",
       "specHeader": "বিশেষণ",
       "valueHeader": "মান"
     },
@@ -417,11 +434,11 @@
     },
     "nyumaXVsNyuma": {
       "eyebrow": "Choosing the Right Taypro Robot",
-      "title": "NYUMA-X vs NYUMA: Which Robot Suits Your Solar Plant?",
+      "title": "NYUMA-X vs NYUMA-X: Which Robot Suits Your Solar Plant?",
       "subtitle": "Both robots are fully autonomous and waterless, both run on the same NECTYR. The choice is dictated by your mounting structure, tracker vs fixed-tilt.",
       "criterion": "Criterion",
       "nyumaXHeader": "NYUMA-X (Tracker)",
-      "nyumaHeader": "NYUMA (Fixed-Tilt)",
+      "nyumaHeader": "NYUMA-X (Fixed-Tilt)",
       "row0": {
         "criterion": "Mounting Structure",
         "nyumaX": "Single-axis trackers (NEXTracker, Gamechanger and equivalent)",
@@ -465,34 +482,34 @@
       "crossSellLead": "Cleaning smaller or scattered plants? Look at the semi-automatic ",
       "linkHelyx": "HELYX",
       "crossSellMid": ". Prefer outsourcing cleaning entirely? Explore the ",
-      "linkOpex": "Taypro OPEX cleaning service",
+      "linkOpex": "OPEX cleaning service",
       "crossSellSuffix": "."
     },
     "indianConditions": {
       "eyebrow": "ভারতীয় পরিস্থিতির জন্য প্রকৌশলিত",
       "title": "ভারতীয় একক অক্ষ ট্র্যাকার প্ল্যান্টের জন্য তৈরি",
-      "subtitle": "Rajasthan dust storms, Gujarat heat, Karnataka humidity and Tamil Nadu monsoons, Taypro NYUMA-X is engineered, tested and deployed for the realities of large Indian tracker O&M, not generic Western field conditions.",
+      "subtitle": "রাজস্থানের ধুলো, গুজরাটের তাপ, কর্ণাটকের আর্দ্রতা, তামিলনাড়ুর মৌসুমি, GLYDE-X ভারতের বড় ট্র্যাকার O&M-এর বাস্তবতার জন্য, পাশ্চাত্য গড়ের জন্য নয়।",
       "card0Title": "উচ্চ-সয়েলিং ট্র্যাকার অঞ্চলের জন্য ডিজাইন",
       "card0Body": "রাজস্থান, গুজরাট, মধ্যপ্রদেশ ও মহারাষ্ট্রে দৈনিক স্বায়ন্ত পরিষ্কারই ৮–২৫% সয়েলিং সাশ্রয়ীভাবে নিরূপায় করে, যেখানে বেশিরভাগ NEXTracker ও Gamechanger ইনস্টলেশন।",
       "card1Title": "তাপমাত্রা ও আর্দ্রতা সহনশীলতা",
       "card1Body": "৯০°C পর্যন্ত পরিচালনা ও TÜV NORD আর্দ্র-তাপ/শুষ্ক-তাপ সনদ, ভারতীয় গ্রীষ্ম ও মৌসুম চক্রে প্রমাণিত।",
       "card2Title": "জলবিহীন, জল-চাপ জেলার জন্য গুরুত্বপূর্ণ",
-      "card2Body": "Many tracker plants are in water-stressed districts where water allocations for module washing are tightening. NYUMA-X removes water from your O&M plan entirely, freeing tanker logistics for higher-priority site needs.",
+      "card2Body": "অনেক ট্র্যাকার প্ল্যান্ট জল-চাপ জেলায়। GLYDE-X আপনার O&M পরিকল্পনা থেকে মডিউল ধোয়ার জল সম্পূর্ণ সরায়।",
       "card3Title": "প্যান-ইন্ডিয়া সেবা নেটওয়ার্ক",
       "card3Body": "ভারতজুড়ে একই দিনে অন-সাইট সমাধান; NECTYR থেকে তাৎক্ষণিক দূরবর্তী নির্ণয়, আঞ্চলিক স্পেয়ার ও AMC।",
       "crossSellLead": "পাশাপাশি সোলার O&M চাহিদা? দেখুন ",
-      "linkNyuma": "fully-automatic NYUMA robot",
+      "linkNyuma": "fully-automatic NYUMA-X robot",
       "linkBetweenAB": ", ",
       "linkHelyx": "আধা-স্বয়ংক্রিয় HELYX রোবট",
       "linkBetweenBOpex": ", ",
-      "linkOpex": "Taypro OPEX পরিষ্কার সেবা",
+      "linkOpex": "OPEX পরিষ্কার সেবা",
       "linkBetweenOpexAndNectyr": "অথবা",
       "linkNectyr": "NECTYR মনিটরিং অ্যাপ",
       "crossSellSuffix": "।"
     },
     "faqSection": {
       "title": "প্রায়শই জিজ্ঞাসিত প্রশ্ন",
-      "subtitle": "Common questions about the Taypro NYUMA-X Solar Panel Cleaning Robot for single-axis tracker installations."
+      "subtitle": "একক অক্ষ ট্র্যাকার ইনস্টলেশনের জন্য Taypro GLYDE-X সোলার প্যানেল পরিষ্কার রোবট সম্পর্কে সাধারণ প্রশ্ন।"
     },
     "productCardsTitle": "আরও সমাধান খুঁজছেন?",
     "roiBand": {
@@ -503,14 +520,14 @@
     },
     "glydeXVsNyumaX": {
       "eyebrow": "Tracker Robot Comparison",
-      "title": "GLYDE-X vs NYUMA-X: Which Tracker Robot Should You Specify?",
-      "subtitle": "Both robots traverse NEXTracker, Gamechanger, and equivalent single-axis tables with ±15° inter-table flex. GLYDE-X uses patented dual-pass microfiber; NYUMA-X uses single-pass PBT for capex-sensitive tracker programmes.",
+      "title": "NYUMA-X vs NYUMA-X: Which Tracker Robot Should You Specify?",
+      "subtitle": "Both robots traverse NEXTracker, Gamechanger, and equivalent single-axis tables with ±15° inter-table flex. NYUMA-X uses patented single-pass PBT PBT brush; NYUMA-X uses single-pass PBT for capex-sensitive tracker programmes.",
       "criterion": "Criterion",
-      "glydeXHeader": "GLYDE-X (Dual-Pass)",
+      "glydeXHeader": "NYUMA-X (single-pass PBT)",
       "nyumaXHeader": "NYUMA-X (Single-Pass PBT)",
       "row0": {
         "criterion": "Cleaning Mechanism",
-        "glydeX": "Dual-pass microfiber — airflow plus wipe for mixed soiling",
+        "glydeX": "single-pass PBT PBT brush — airflow plus wipe for mixed soiling",
         "nyumaX": "Single-pass PBT brush — optimised for dry tracker dust belts"
       },
       "row1": {
@@ -545,14 +562,30 @@
       },
       "row7": {
         "criterion": "Fixed-Tilt Alternative",
-        "glydeX": "See GLYDE for fixed-tilt dual-pass cleaning",
-        "nyumaX": "See NYUMA for fixed-tilt PBT cleaning"
+        "glydeX": "See NYUMA-X for fixed-tilt single-pass PBT cleaning",
+        "nyumaX": "See NYUMA-X for fixed-tilt PBT cleaning"
       },
       "crossSellLead": "Compare fixed-tilt robots: ",
-      "linkGlyde": "GLYDE vs NYUMA",
+      "linkGlyde": "NYUMA-X vs NYUMA-X",
       "crossSellMid": ". Prefer semi-automatic deployment? See ",
       "linkHelyx": "HELYX",
       "crossSellSuffix": "."
+    },
+    "gallery": {
+      "eyebrow": "Product engineering",
+      "title": "NYUMA-X hardware at a glance",
+      "subtitle": "Patented single-pass PBT PBT brush cleaning for single-axis tracker tables, with on-board solar charging and flexible inter-table bridge articulation.",
+      "topAlt": "Taypro NYUMA-X automatic tracker cleaning robot, top-down view showing integrated solar panel and single-pass PBT cleaning frame",
+      "topCaption": "Top-down view of NYUMA-X with on-board solar charging and single-pass PBT cleaning assembly.",
+      "sideAlt": "Taypro NYUMA-X side profile showing module-frame travel rails and end housings",
+      "sideCaption": "Side profile of the NYUMA-X chassis engineered for long-reach tracker tables.",
+      "zoomedLeftAlt": "Close-up of Taypro NYUMA-X tracker bridge mechanism and single-pass PBT cleaning head",
+      "zoomedLeftCaption": "Bridge and cleaning-head detail for inter-table traversal on single-axis trackers.",
+      "zoomedRightAlt": "Taypro NYUMA-X solar charging module and drive housing detail",
+      "zoomedRightCaption": "On-board solar-assisted charging for extended autonomous tracker cleaning cycles."
+    },
+    "shared": {
+      "connectivitySummary": "LTE, Wi-Fi, হাইব্রিড সেল্ফ-হিলিং RF মেশ, LoRa ও LoRaWAN"
     }
   },
   "Common": {

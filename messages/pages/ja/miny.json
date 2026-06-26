@@ -86,7 +86,12 @@
       "formTitle": "MINYへの関心登録",
       "messageLabel": "屋根プラント詳細",
       "messagePlaceholder": "発電所容量、都市、屋根種別、現在の洗浄方法、スケジュール…",
-      "submitLabel": "関心リクエストを送信"
+      "submitLabel": "関心リクエストを送信",
+      "firstNameLabel": "あなたの名前*",
+      "emailLabel": "仕事用メール*",
+      "phoneLabel": "電話番号*",
+      "thankYouTitle": "あなたは MINY リストに載っています",
+      "thankYouMessage": "MINY の一般提供が近づき次第、仕様、パイロット スロットを共有し、お住まいの地域向けのアップデートを開始します。"
     },
     "related": {
       "eyebrow": "現在ご利用可能",
@@ -99,7 +104,7 @@
         },
         "1": {
           "label": "すべてのソーラー洗浄ロボット",
-          "description": "GLYDE、HELYX、GLYDE-X、Taypro OPEX、NECTYRを比較。"
+          "description": "GLYDE、HELYX、GLYDE-X、OPEX、NECTYRを比較。"
         }
       }
     },

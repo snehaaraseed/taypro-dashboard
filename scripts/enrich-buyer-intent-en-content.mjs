@@ -113,7 +113,7 @@ const ENRICHMENTS = {
       highlight: {
         heading: "The procurement question",
         lead: "Can your cleaning vendor prove which panels were cleaned last night?",
-        body: "Manual crew contracts rarely provide block-level coverage evidence. Taypro OPEX bills against NECTYR telemetry — panels cleaned, routes completed, exceptions logged. That is what IPPs and lenders ask for at 100 MW scale.",
+        body: "Manual crew contracts rarely provide block-level coverage evidence. OPEX bills against NECTYR telemetry — panels cleaned, routes completed, exceptions logged. That is what IPPs and lenders ask for at 100 MW scale.",
       },
       proseSecondary: {
         eyebrow: "Regional soiling context",
@@ -297,7 +297,7 @@ const ENRICHMENTS = {
         step1Title: "Estimate module count and cycles",
         step1Body:
           "Divide kW by module Wp. Choose 3–10 cycles/month based on soiling study or regional benchmarks (higher in Rajasthan/Gujarat).",
-        step2Title: "Apply Taypro OPEX rate band",
+        step2Title: "Apply OPEX rate band",
         step2Body:
           "Multiply modules × cycles × rate (₹0.45–0.70). Apply tracker multiplier (1.8×) or seasonal tilt (1.5×) if applicable. Compare table above for sanity check.",
         step3Title: "Run ROI calculator for payback",
@@ -340,7 +340,7 @@ const ENRICHMENTS = {
         heading: "Related pricing & ROI tools",
         link0Title: "Interactive ROI calculator",
         link0Href: "/solar-panel-cleaning-robot-price-calculator",
-        link1Title: "Taypro OPEX service details",
+        link1Title: "OPEX service details",
         link1Href: "/solar-panel-cleaning-system/solar-panel-cleaning-service",
         link2Title: "Robotic vs manual cost comparison",
         link2Href: "/compare/solar-panel-cleaning-robot-vs-manual-cleaning",

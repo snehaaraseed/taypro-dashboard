@@ -24,7 +24,7 @@ export type AnalyticsLocation =
   | "not_found"
   | "calculator_page"
   | "navigation"
-  | "not_found"
+  | "breadcrumb"
   | "unknown";
 
 type TrackEventParams = Record<string, string | number | boolean | undefined>;

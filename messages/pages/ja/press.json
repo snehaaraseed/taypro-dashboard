@@ -25,7 +25,18 @@
     "sectionIndex": "Publisher indexes",
     "readArticle": "Read on {outlet}",
     "companyCta": "About Taypro",
-    "contactCta": "Contact media team"
+    "contactCta": "Contact media team",
+    "leadModal": {
+      "topic": "メディアとプレス",
+      "title": "メディアチームにお問い合わせください",
+      "subtitle": "ジャーナリスト、アナリスト、イベント主催者 — 販売店、締め切り、Taypro に必要なものをお知らせください。",
+      "formPrompt": "あなたの話をどうお手伝いできるでしょうか?",
+      "messageLabel": "あなたのリクエスト",
+      "messagePlaceholder": "アウトレット名、ストーリーの角度、インタビューの形式、締め切り、およびすでに持っている背景…",
+      "submitLabel": "メディアの問い合わせを送信する",
+      "thankYouTitle": "ありがとう — メモを受け取りました",
+      "thankYouMessage": "弊社のコミュニケーションチームができるだけ早く対応させていただきます。"
+    }
   },
   "Common": {
     "breadcrumbHome": "Home"

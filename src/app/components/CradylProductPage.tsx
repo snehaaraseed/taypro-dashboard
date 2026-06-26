@@ -208,8 +208,11 @@ export async function CradylProductPage({ locale }: CradylProductPageProps) {
           }
           imgSrc={product.heroImagePath}
           imgAlt={t("hero.imgAlt")}
-          ctaText={t("hero.ctaText")}
-          ctaTopic={product.model}
+          ctaHref="/contact"
+          ctaText={t("hero.primaryCta.label")}
+          ctaTopic={t("hero.primaryCta.topic")}
+          ctaTitle={t("hero.primaryCta.title")}
+          ctaSubtitle={t("hero.primaryCta.subtitle")}
         />
 
         <section className="bg-white pt-8 sm:pt-14 pb-4">
@@ -804,9 +807,8 @@ export async function CradylProductPage({ locale }: CradylProductPageProps) {
                 variant="embedded"
                 eyebrow={t("cta.formEyebrow")}
                 title={t("cta.formTitle")}
-                messageLabel={t("cta.messageLabel")}
-                messagePlaceholder={t("cta.messagePlaceholder")}
                 submitLabel={t("cta.submitLabel")}
+                leadIntent={t("cta.formTitle")}
                 className="max-w-xl mx-auto"
               />
             </AnimateOnScroll>

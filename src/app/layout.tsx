@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Blinker, Montserrat } from "next/font/google";
 import { headers } from "next/headers";
 import { LOCALE_LABELS, isActiveLocale, type TayproLocale } from "@/i18n/markets";
@@ -31,6 +31,11 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 function resolveHtmlLocale(

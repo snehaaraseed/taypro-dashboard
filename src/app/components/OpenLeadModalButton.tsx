@@ -25,6 +25,16 @@ export default function OpenLeadModalButton({
   source,
   title,
   subtitle,
+  leadIntent,
+  formPrompt,
+  showMessageField,
+  showCompanyField,
+  messageLabel,
+  messagePlaceholder,
+  submitLabel,
+  thankYouTitle,
+  thankYouMessage,
+  analyticsFormType,
   type = "button",
   onClick,
   children,
@@ -59,7 +69,22 @@ export default function OpenLeadModalButton({
       location: "modal",
       destination: "/contact",
     });
-    openLeadModal({ topic, source, title, subtitle });
+    openLeadModal({
+      topic,
+      source,
+      title,
+      subtitle,
+      leadIntent,
+      formPrompt,
+      showMessageField,
+      showCompanyField,
+      messageLabel,
+      messagePlaceholder,
+      submitLabel,
+      thankYouTitle,
+      thankYouMessage,
+      analyticsFormType,
+    });
     onClick?.(event);
   };
 

@@ -18,6 +18,11 @@ export function isUploadContext(value: string): value is UploadContext {
   return CONTEXT_SET.has(value);
 }
 
+/** Blog images from Imagen / Pollinations — strip embedded provenance before publish. */
+export function isAiGeneratedUploadContext(context: UploadContext): boolean {
+  return context === "blog-generated-hero" || context === "blog-generated-inline";
+}
+
 /** Slug-safe label for filenames (lowercase, hyphenated). */
 export function sanitizeUploadLabel(label: string): string {
   return (

@@ -240,7 +240,7 @@ EOF
         echo -e "${GREEN}  ✅ Uploaded GSC OAuth env${NC}"
 
         ERPNEXT_ENV_SNIP=$(mktemp)
-        grep -E '^ERPNEXT_API_URL=|^ERPNEXT_API_KEY=|^ERPNEXT_API_SECRET=' "$LOCAL_PATH/.env.local" >> "$ERPNEXT_ENV_SNIP" || true
+        grep -E '^ERPNEXT_API_URL=|^ERPNEXT_API_KEY=|^ERPNEXT_API_SECRET=|^ERPNEXT_NEWSLETTER_EMAIL_GROUP=' "$LOCAL_PATH/.env.local" >> "$ERPNEXT_ENV_SNIP" || true
         if [ -s "$ERPNEXT_ENV_SNIP" ]; then
             ssh -i "$SSH_KEY" "$REMOTE_HOST" "mkdir -p $REMOTE_PATH/secrets"
             scp -q -i "$SSH_KEY" \
@@ -328,8 +328,13 @@ if [ "$DEPLOY_SKIP_BUILD" != "1" ]; then
         export NODE_ENV=production
         if [ -f "$ROOT/.env.production" ]; then
             set -a
-            # shellcheck disable=SC1091
-            source <(grep -v '^#' "$ROOT/.env.production" | sed 's/\r$//')
+            while IFS= read -r line || [ -n "$line" ]; do
+                line="${line%%$'\r'}"
+                [[ -z "$line" || "$line" =~ ^[[:space:]]*# ]] && continue
+                key="${line%%=*}"
+                val="${line#*=}"
+                export "${key}=${val}"
+            done < "$ROOT/.env.production"
             set +a
         fi
         export NEXT_TELEMETRY_DISABLED=1

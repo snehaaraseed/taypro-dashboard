@@ -95,6 +95,7 @@ export async function ComingSoonProductPage({
             imgSrc={product.heroImagePath}
             imgAlt={t("hero.imgAlt")}
             ctaText={t("hero.ctaText")}
+            ctaHref="#register-interest"
             ctaTopic={product.model}
           />
         </div>
@@ -232,7 +233,10 @@ export async function ComingSoonProductPage({
           </Container>
         </section>
 
-        <section className="bg-[#052638] py-14 sm:py-20">
+        <section
+          id="register-interest"
+          className="bg-[#052638] py-14 sm:py-20 scroll-mt-24"
+        >
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
               <h2 className="text-white font-semibold text-3xl sm:text-4xl mb-4">
@@ -247,9 +251,18 @@ export async function ComingSoonProductPage({
                 variant="embedded"
                 eyebrow={t("notify.formEyebrow")}
                 title={t("notify.formTitle")}
+                submitLabel={t("notify.submitLabel")}
+                showCompanyField={false}
+                showMessageField
                 messageLabel={t("notify.messageLabel")}
                 messagePlaceholder={t("notify.messagePlaceholder")}
-                submitLabel={t("notify.submitLabel")}
+                firstNameLabel={t("notify.firstNameLabel")}
+                emailLabel={t("notify.emailLabel")}
+                phoneLabel={t("notify.phoneLabel")}
+                thankYouTitle={t("notify.thankYouTitle")}
+                thankYouMessage={t("notify.thankYouMessage")}
+                analyticsFormType="register_interest"
+                leadIntent={t("notify.formTitle")}
                 className="max-w-xl mx-auto"
               />
             </AnimateOnScroll>

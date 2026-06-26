@@ -51,11 +51,45 @@ function stripCloudflareEmailObfuscation(html) {
   return { html: out, count };
 }
 
+/** Wrap bare Taypro sales phone numbers in tel: links (best-practices audit). */
+function wrapBarePhoneNumbers(html) {
+  if (!html || (!html.includes("80438") && !html.includes("08043843569"))) {
+    return { html, count: 0 };
+  }
+  const variants = ["+91 80438 43569", "+918043843569", "08043843569"];
+  let out = html;
+  let count = 0;
+
+  for (const display of variants) {
+    if (!out.includes(display)) continue;
+    const chunks = out.split(display);
+    let rebuilt = chunks[0] ?? "";
+    for (let i = 1; i < chunks.length; i++) {
+      const tail = rebuilt.slice(-120);
+      if (
+        tail.includes('href="tel:') ||
+        tail.includes("href='tel:") ||
+        /<a\b[^>]*$/i.test(tail)
+      ) {
+        rebuilt += display;
+      } else {
+        count++;
+        rebuilt += `<a href="tel:+918043843569">${display}</a>`;
+      }
+      rebuilt += chunks[i];
+    }
+    out = rebuilt;
+  }
+
+  return { html: out, count };
+}
+
 function sanitizeCmsHtml(html) {
   if (!html) return { html, count: 0 };
   const link = rewriteText(html, HREF_REWRITES);
   const email = stripCloudflareEmailObfuscation(link.text);
-  return { html: email.html, count: link.count + email.count };
+  const phone = wrapBarePhoneNumbers(email.html);
+  return { html: phone.html, count: link.count + email.count + phone.count };
 }
 
 function main() {

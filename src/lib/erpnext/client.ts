@@ -5,6 +5,7 @@
  * - ERPNEXT_API_URL — instance base URL (e.g. https://app.taypro.in)
  * - ERPNEXT_API_KEY
  * - ERPNEXT_API_SECRET
+ * - ERPNEXT_NEWSLETTER_EMAIL_GROUP (optional; defaults to Website Newsletter Subscribers)
  */
 
 export class ErpNextError extends Error {

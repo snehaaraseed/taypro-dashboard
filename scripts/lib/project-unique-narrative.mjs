@@ -44,7 +44,7 @@ function humanizeMode(mode) {
 
 function humanizeProcurement(proc) {
   const p = String(proc || "").toLowerCase();
-  if (/opex|service/i.test(p)) return "a Taypro Opex service model";
+  if (/opex|service/i.test(p)) return "a Opex service model";
   if (/capex|purchase/i.test(p)) return "a CAPEX purchase";
   if (/both/i.test(p)) return "a combined CAPEX and Opex arrangement";
   return proc || "CAPEX";

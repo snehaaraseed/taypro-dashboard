@@ -136,7 +136,7 @@ export const glydeX = specFromCatalog("glydeX", {
 });
 
 export const tayproOPEX: ServiceSpec = {
-  name: "Taypro OPEX",
+  name: "OPEX",
   description:
     "Solar panel cleaning service, OPEX model with dedicated skilled manpower",
   features: [

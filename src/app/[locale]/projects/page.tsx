@@ -30,6 +30,7 @@ import { Container } from "@/app/components/Container";
 import ProjectsGrid from "@/app/components/ProjectsGrid";
 import CallbackCard from "@/app/components/CallbackCard";
 import { FaqSection } from "@/app/components/FaqSection";
+import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import { withHreflang } from "@/lib/seo/with-hreflang";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
@@ -215,12 +216,17 @@ export default async function ProjectPage({
                   {t("featured.viewAllLink", { count: allProjects.length })}
                 </a>
               ) : null}
-              <Link
-                href="/contact"
+              <OpenLeadModalButton
+                source="projects_hero"
+                topic={t("leadTopic")}
+                title={t("leadTitle")}
+                subtitle={t("leadSubtitle")}
+                leadIntent={t("leadTopic")}
+                analyticsFormType="projects_inquiry"
                 className="inline-flex min-h-[44px] items-center rounded-xl border border-gray-200 bg-white px-6 py-3 text-sm font-medium text-[#052638] transition hover:border-[#A8C117] hover:text-[#5a8f00]"
               >
                 {t("faq.cta")}
-              </Link>
+              </OpenLeadModalButton>
             </>
           }
         />
@@ -459,12 +465,17 @@ export default async function ProjectPage({
           subtitle={t("faq.subheading")}
           faqs={projectsFaqs}
           footer={
-            <Link
-              href="/contact"
+            <OpenLeadModalButton
+              source="projects_faq"
+              topic={t("leadTopic")}
+              title={t("leadTitle")}
+              subtitle={t("leadSubtitle")}
+              leadIntent={t("leadTopic")}
+              analyticsFormType="projects_inquiry"
               className="inline-flex items-center justify-center min-h-[48px] bg-[#b2cb19] text-[#22405a] font-medium px-8 py-3 rounded-lg hover:bg-lime-500 transition"
             >
               {t("faq.cta")}
-            </Link>
+            </OpenLeadModalButton>
           }
         />
 

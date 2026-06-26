@@ -84,7 +84,7 @@ async function main() {
     environmentalImpact: "Environmental impact",
     disclaimerHeading: "Disclaimer",
     disclaimerBody:
-      "All investment, payback, and savings figures in this report are directional estimates based on representative Taypro deployment assumptions for your region (tariffs, labour, water, yield, and soiling recovery). They are not a formal quotation or performance guarantee. Actual payback varies with layout, soiling, cleaning cycle cadence, tracker stow, fleet sizing, and whether you choose CAPEX purchase or Taypro Opex. Do not use this PDF as the sole basis for procurement or financial approval without a site-specific Taypro model.",
+      "All investment, payback, and savings figures in this report are directional estimates based on representative Taypro deployment assumptions for your region (tariffs, labour, water, yield, and soiling recovery). They are not a formal quotation or performance guarantee. Actual payback varies with layout, soiling, cleaning cycle cadence, tracker stow, fleet sizing, and whether you choose CAPEX purchase or Opex. Do not use this PDF as the sole basis for procurement or financial approval without a site-specific Taypro model.",
     nextSteps: "Next steps",
     nextStepsBody:
       "Share this estimate with your O&M or procurement team, then contact Taypro for a site-specific robot count, cycle plan, and formal quotation.",

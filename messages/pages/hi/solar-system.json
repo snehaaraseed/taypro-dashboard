@@ -1,8 +1,8 @@
 {
   "SolarSystemPage": {
     "meta": {
-      "title": "भारत में सोलर पैनल सफाई रोबोट और सिस्टम",
-      "description": "हर Taypro सोलर पैनल सफाई रोबोट की तुलना करें: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, साथ ही Taypro Opex और NECTYR। वॉटरलेस सफाई, AI शेड्यूलिंग, TÜV NORD प्रमाणित, पैन-इंडिया सहायता।",
+      "title": "भारत में सोलर पैनल सफाई रोबोट और सिस्टम, मशीनें और मॉडल | Taypro",
+      "description": "हर Taypro सोलर पैनल सफाई रोबोट की तुलना करें: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, साथ ही Opex और NECTYR। वॉटरलेस सफाई, AI शेड्यूलिंग, TÜV NORD प्रमाणित, पैन-इंडिया सहायता।",
       "keywords": [
         "सोलर पैनल सफाई रोबोट",
         "सोलर पैनल सफाई रोबोट भारत",
@@ -203,7 +203,7 @@
       "p2LinkHelyx": "HELYX",
       "p2LinkGlydeX": "GLYDE-X",
       "p2LinkNectyr": "NECTYR",
-      "p2LinkOpex": "Taypro Opex",
+      "p2LinkOpex": "Opex",
       "p2BeforeLinks": "Taypro भारत में निर्मित रोबोटिक सफाई सिस्टम का निर्माता है। हमारी श्रृंखला में पूर्ण ",
       "p2BetweenAB": ", अर्ध-स्वचालित पिक-एंड-प्लेस ",
       "p2BetweenBT": " बिखरे प्लांटों के लिए, और ट्रैकर-तैयार ",
@@ -350,8 +350,8 @@
         },
         "card5": {
           "title": "परिणाम पसंद हैं, संपत्ति नहीं?",
-          "body": "Taypro Opex मासिक सेवा के रूप में रोबोटिक सफाई देता है, रिपोर्ट NECTYR में।",
-          "cta": "Taypro Opex देखें"
+          "body": "Opex मासिक सेवा के रूप में रोबोटिक सफाई देता है, रिपोर्ट NECTYR में।",
+          "cta": "Opex देखें"
         }
       }
     },
@@ -431,7 +431,9 @@
       "ctaLine": "पक्का नहीं कौन सा प्लेटफ़ॉर्म फिट है? प्लांट विवरण साझा करें, त्वरित सोइलिंग अध्ययन के बाद सही रोबोट मिक्स सुझाएंगे। ",
       "ctaLink": {
         "topic": "Taypro से बात करें",
-        "label": "Taypro से बात करें"
+        "label": "Taypro से बात करें",
+        "title": "अपने संयंत्र के लिए सही रोबोट मिश्रण ढूंढें",
+        "subtitle": "अपने संयंत्र का विवरण साझा करें और हमारी टीम त्वरित गंदगी और लेआउट समीक्षा के बाद सही GLYDE, NYUMA, HELYX या ट्रैकर प्लेटफ़ॉर्म की अनुशंसा करेगी।"
       },
       "ctaLineSuffix": "."
     },
@@ -448,7 +450,7 @@
       "robot0": "वॉटरलेस डुअल-पास, प्रति माह पूर्वानुमेय चक्र",
       "robot1": "NECTYR के माध्यम से टेलीमेट्री और रिपोर्ट",
       "robot2": "यूटिलिटी पंक्ति लंबाई और ट्रैकर टेबल के लिए डिज़ाइन",
-      "robot3": "CAPEX खरीद या Taypro Opex प्रति-पैनल-साफ़",
+      "robot3": "CAPEX खरीद या Opex प्रति-पैनल-साफ़",
       "ctaService": "सफाई सेवा देखें",
       "ctaCalculator": "ROI और लागत कैलकुलेटर",
       "videoTitle": "यूटिलिटी प्लांट पर Taypro रोबोट सफाई देखें",
@@ -456,7 +458,7 @@
       "transcriptToggle": "Video transcript (for accessibility & search)",
       "transcriptP1": "This overview shows Taypro autonomous solar panel cleaning robots operating on utility-scale arrays in India. Robots traverse fixed-tilt rows using waterless dual-pass cleaning — airflow lifts dry dust, then microfiber completes the wipe without water or detergents.",
       "transcriptP2": "Fleet schedules and completion data feed into NECTYR, Taypro's monitoring portal, so O&M teams can audit block-wise cleaning history alongside inverter performance. Deployments combine GLYDE and NYUMA-class robots depending on row geometry and soiling class.",
-      "transcriptP3": "For procurement teams comparing cleaning machines and robots, Taypro offers CAPEX purchase with AMC or Taypro Opex pay-per-panel-cleaned service on the same hardware platforms shown in the field footage."
+      "transcriptP3": "For procurement teams comparing cleaning machines and robots, Taypro offers CAPEX purchase with AMC or Opex pay-per-panel-cleaned service on the same hardware platforms shown in the field footage."
     },
     "indianConditions": {
       "eyebrow": "भारतीय सोलर के लिए इंजीनियर",
@@ -558,7 +560,9 @@
       "subtitleLead": "प्लांट मालिकों और EPC टीमों के सबसे आम सवालों के त्वरित उत्तर। प्लांट-विशिष्ट सिफारिश के लिए, ",
       "subtitleCta": {
         "topic": "Taypro से संपर्क करें",
-        "label": "Taypro से संपर्क करें"
+        "label": "Taypro से संपर्क करें",
+        "title": "अपने पौधे के बारे में Taypro से पूछें",
+        "subtitle": "अपने लेआउट और सोइलिंग प्रोफ़ाइल के लिए रोबोट, Opex सेवा, या फ़्लीट सॉफ़्टवेयर पर साइट-विशिष्ट अनुशंसा प्राप्त करें।"
       },
       "subtitleSuffix": ".",
       "items": {
@@ -584,7 +588,7 @@
         },
         "item5": {
           "question": "क्या मैं CAPEX के बजाय सेवा के रूप में रोबोटिक सफाई खरीद सकता हूँ?",
-          "answer": "हाँ। Taypro Opex हमारी प्रति-पैनल-साफ़ मासिक सेवा है (आमतौर पर 50 MW+)। Taypro GLYDE, HELYX या GLYDE-X तैनात करता है, सोइलिंग अध्ययन पर 3–10 चक्र चलाता है, केवल साफ़ किए गए पैनलों पर बिल करता है। हार्डवेयर के बिना NECTYR पर हर चक्र दिखता है।"
+          "answer": "हाँ। Opex हमारी प्रति-पैनल-साफ़ मासिक सेवा है (आमतौर पर 50 MW+)। Taypro GLYDE, HELYX या GLYDE-X तैनात करता है, सोइलिंग अध्ययन पर 3–10 चक्र चलाता है, केवल साफ़ किए गए पैनलों पर बिल करता है। हार्डवेयर के बिना NECTYR पर हर चक्र दिखता है।"
         },
         "item6": {
           "question": "स्थापना के बाद रोबोट की निगरानी कैसे होती है?",
@@ -604,7 +608,7 @@
         },
         "item10": {
           "question": "भारत में मुख्य सोलर पैनल सफाई रोबोट आपूर्तिकर्ता कौन हैं?",
-          "answer": "पाँच मानदंडों पर विक्रेताओं की शॉर्टलिस्ट बनाएं: आपकी धूल और सोइलिंग के लिए जलरहित फिट, फिक्स्ड-टिल्ट बनाम सिंगल-एक्सिस ट्रैकर संगतता, CAPEX रोबोट खरीद बनाम मैनेज्ड Opex सफाई, ब्लॉक-स्तर पूर्णता प्रमाण के साथ फ्लीट सॉफ़्टवेयर, और स्पेयर व ब्रेकडाउन SLA के साथ भारत-स्थानीय निर्माण। Taypro Made-in-India निर्माता है जिसने 150+ लाइव साइटों पर 5 GW+ रोबोटिक क्षमता तैनात की, GLYDE और GLYDE-X पर पेटेंटेड डुअल-पास शुष्क सफाई, NYUMA, NYUMA-X और HELYX पर सिंगल-पास PBT, NECTYR फ्लीट पोर्टल, और वैकल्पिक Taypro Opex पे-पर-पैनल-क्लीनड सेवा, इस हब से लिंक्ड यूटिलिटी केस स्टडी के साथ। भारतीय यूटिलिटी RFQ पर अन्य आपूर्तिकर्ता जिनका मूल्यांकन होता है: Solabot Technologies, Aegeus Technologies, Skilancer Solar, Vayu Solar जैसे भारतीय OEM; Ecoppia, Airtouch Solar, LEAPTING (Huzhou LEAPTING Technology) जैसे भारत में तैनाती वाले वैश्विक OEM; Langfang Sol-Bright New Energy Technology जैसे भारत में सक्रिय उपकरण आपूर्तिकर्ता। Jetsons Robotics जैसे छत-केंद्रित विक्रेता 50 MW+ यूटिलिटी फील्ड से अधिक C&I साइटों पर common हैं। प्रकाशित मार्केट-शेयर रैंकिंग स्रोत और वर्ष के अनुसार भिन्न होती हैं, इसलिए अंतिम चयन से पहले row layout fit, सेवा SLA और तैनाती प्रमाण सत्यापित करें, सिर्फ ब्रोशर रोबोट गिनती नहीं।"
+          "answer": "पाँच मानदंडों पर विक्रेताओं की शॉर्टलिस्ट बनाएं: आपकी धूल और सोइलिंग के लिए जलरहित फिट, फिक्स्ड-टिल्ट बनाम सिंगल-एक्सिस ट्रैकर संगतता, CAPEX रोबोट खरीद बनाम मैनेज्ड Opex सफाई, ब्लॉक-स्तर पूर्णता प्रमाण के साथ फ्लीट सॉफ़्टवेयर, और स्पेयर व ब्रेकडाउन SLA के साथ भारत-स्थानीय निर्माण। Taypro Made-in-India निर्माता है जिसने 150+ लाइव साइटों पर 5 GW+ रोबोटिक क्षमता तैनात की, GLYDE और GLYDE-X पर पेटेंटेड डुअल-पास शुष्क सफाई, NYUMA, NYUMA-X और HELYX पर सिंगल-पास PBT, NECTYR फ्लीट पोर्टल, और वैकल्पिक Opex पे-पर-पैनल-क्लीनड सेवा, इस हब से लिंक्ड यूटिलिटी केस स्टडी के साथ। भारतीय यूटिलिटी RFQ पर अन्य आपूर्तिकर्ता जिनका मूल्यांकन होता है: Solabot Technologies, Aegeus Technologies, Skilancer Solar, Vayu Solar जैसे भारतीय OEM; Ecoppia, Airtouch Solar, LEAPTING (Huzhou LEAPTING Technology) जैसे भारत में तैनाती वाले वैश्विक OEM; Langfang Sol-Bright New Energy Technology जैसे भारत में सक्रिय उपकरण आपूर्तिकर्ता। Jetsons Robotics जैसे छत-केंद्रित विक्रेता 50 MW+ यूटिलिटी फील्ड से अधिक C&I साइटों पर common हैं। प्रकाशित मार्केट-शेयर रैंकिंग स्रोत और वर्ष के अनुसार भिन्न होती हैं, इसलिए अंतिम चयन से पहले row layout fit, सेवा SLA और तैनाती प्रमाण सत्यापित करें, सिर्फ ब्रोशर रोबोट गिनती नहीं।"
         }
       }
     },
@@ -637,7 +641,7 @@
         "body": "संरचित वार्षिक रखरखाव, क्षेत्रीय स्पेयर, समान-दिवस ब्रेकडाउन लक्ष्य, NECTYR के माध्यम से रिमोट डायग्नोस्टिक्स।"
       },
       "line3": {
-        "title": "Taypro Opex",
+        "title": "Opex",
         "body": "पे-पर-पैनल-क्लीनड प्रबंधित सफाई, Taypro आपके प्लांट पर फ्लीट संचालित करता है, अग्रिम रोबोट CAPEX के बिना।"
       },
       "line4": {
@@ -647,7 +651,7 @@
     },
     "serviceCallout": {
       "eyebrow": "प्राथमिक सेवा पेज",
-      "title": "Taypro OPEX रोबोटिक सफाई सेवा",
+      "title": "OPEX रोबोटिक सफाई सेवा",
       "body": "सोलर पैनल सफाई सेवा का मूल्यांकन करने वाली खरीद टीमों को हमारे OPEX उत्पाद पेज से शुरू करना चाहिए — दायरा, SOP, बिलिंग मॉडल और NECTYR रिपोर्टिंग।",
       "cta": "OPEX सेवा पेज देखें",
       "href": "/solar-panel-cleaning-system/solar-panel-cleaning-service"
@@ -663,7 +667,7 @@
       "eyebrow": "सफाई दृष्टिकोण चुनना",
       "title": "Taypro अन्य रोबोटिक सफाई दृष्टिकोणों से कैसे तुलना करता है",
       "subtitle": "यूटिलिटी खरीदार सफाई विधि, व्यावसायिक मॉडल, फ्लीट सॉफ़्टवेयर और भारत-स्थानीय सहायता तौलते हैं — सिर्फ रोबोट ब्रोशर नहीं। Taypro की तुलना गीली धुलाई, आयातित शुष्क रोबोट या केवल श्रम O&M से करते समय इस श्रेणी दृश्य का उपयोग करें।",
-      "intro": "Taypro Made-in-India OEM है जिसने 5 GW+ रोबोटिक क्षमता तैनात की है, GLYDE और GLYDE-X पर पेटेंटेड डुअल-पास शुष्क सफाई, NYUMA, NYUMA-X और HELYX पर सिंगल-पास PBT, NECTYR फ्लीट पोर्टल, और वैकल्पिक Taypro Opex पे-पर-पैनल-क्लीनड सेवा। तालिका भारतीय RFQ में सामान्य दृष्टिकोणों की तुलना करती है ताकि आप देख सकें Taypro आपके प्लांट में कहाँ फिट होता है — विक्रेता नाम के बिना।",
+      "intro": "Taypro Made-in-India OEM है जिसने 5 GW+ रोबोटिक क्षमता तैनात की है, GLYDE और GLYDE-X पर पेटेंटेड डुअल-पास शुष्क सफाई, NYUMA, NYUMA-X और HELYX पर सिंगल-पास PBT, NECTYR फ्लीट पोर्टल, और वैकल्पिक Opex पे-पर-पैनल-क्लीनड सेवा। तालिका भारतीय RFQ में सामान्य दृष्टिकोणों की तुलना करती है ताकि आप देख सकें Taypro आपके प्लांट में कहाँ फिट होता है — विक्रेता नाम के बिना।",
       "tableHeaders": {
         "criteria": "क्या मूल्यांकन करें",
         "manualWet": "मैनुअल गीली धुलाई क्रू",
@@ -687,7 +691,7 @@
           "criterion": "व्यावसायिक मॉडल",
           "manualWet": "आवर्ती श्रम Opex",
           "importDry": "CAPEX खरीद; मैनेज्ड सेवा वैकल्पिक",
-          "taypro": "CAPEX + AMC या Taypro Opex मैनेज्ड फ्लीट"
+          "taypro": "CAPEX + AMC या Opex मैनेज्ड फ्लीट"
         },
         "row3": {
           "criterion": "संचालन और ऑडिट प्रमाण",
@@ -761,7 +765,7 @@
           "description": "अर्ध-स्वचालित, बिखरे ब्लॉक"
         },
         "opex": {
-          "label": "Taypro Opex सेवा",
+          "label": "Opex सेवा",
           "description": "पे-पर-पैनल-क्लीनड मैनेज्ड फ्लीट"
         },
         "nectyr": {

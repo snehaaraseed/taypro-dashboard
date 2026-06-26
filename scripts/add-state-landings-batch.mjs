@@ -54,9 +54,9 @@ const NEW_STATES = {
       p3: "Shri Ganesh Industries (0.3 MW), Suresh Cotton, and Thakkar Chemical/Cotton (1 MW each) show rooftop semi-automatic patterns with NYUMA and GLYDE — useful benchmarks for textile and process-industry RFQs.",
     },
     procurement: {
-      heading: "CAPEX vs Taypro Opex in Haryana",
+      heading: "CAPEX vs Opex in Haryana",
       p1: "Most Haryana C&I owners purchase NYUMA or GLYDE under CAPEX with Taypro commissioning and AMC — capitalising robots while keeping cleaning off the night-crew payroll.",
-      p2: "Taypro Opex is available as pay-per-panel-cleaned service with reporting — an option when industrial sites need immediate cadence before capital committee approval on robot purchase.",
+      p2: "Opex is available as pay-per-panel-cleaned service with reporting — an option when industrial sites need immediate cadence before capital committee approval on robot purchase.",
     },
     roiBand: {
       heading: "Robot price and payback for Haryana solar",
@@ -74,7 +74,7 @@ const NEW_STATES = {
       q3: "What does robot price look like for a Haryana plant?",
       a3: "Price depends on MW, layout, and automation level. See the India price guide and ROI calculator; formal quotes follow Taypro layout review.",
       q4: "Does Taypro offer Opex in Haryana?",
-      a4: "Yes. Taypro Opex is pay-per-panel-cleaned with Taypro operating the fleet and reporting through NECTYR or agreed inspection logs.",
+      a4: "Yes. Opex is pay-per-panel-cleaned with Taypro operating the fleet and reporting through NECTYR or agreed inspection logs.",
       q5: "How often should Haryana sites run robotic cleaning?",
       a5: "Cadence follows dust season and block priority — semi-automatic programmes typically use published weekly block plans; automatic rows may run denser post-harvest and pre-monsoon windows.",
       q6: "Does Taypro provide breakdown support in Haryana?",
@@ -119,7 +119,7 @@ const NEW_STATES = {
     procurement: {
       heading: "Commercial models for Delhi rooftops",
       p1: "CAPEX purchase with Taypro commissioning and AMC is the typical path for Delhi institutional rooftops — robots capitalised with block-level reporting through NECTYR.",
-      p2: "Taypro Opex converts cleaning to pay-per-panel-cleaned service when owners need immediate cadence during commissioning or phased rooftop expansion.",
+      p2: "Opex converts cleaning to pay-per-panel-cleaned service when owners need immediate cadence during commissioning or phased rooftop expansion.",
     },
     roiBand: {
       heading: "Robot price guidance for Delhi solar",
@@ -139,7 +139,7 @@ const NEW_STATES = {
       q4: "What does robot price look like for a Delhi rooftop?",
       a4: "Price scales with layout, access, and automation mix. See the India price guide; formal quotes follow site review.",
       q5: "Does Taypro offer Opex in Delhi?",
-      a5: "Yes. Taypro Opex is available for pay-per-panel-cleaned service with Taypro operating the fleet.",
+      a5: "Yes. Opex is available for pay-per-panel-cleaned service with Taypro operating the fleet.",
       q6: "How is cleaning proof reported?",
       a6: "NECTYR provides schedules, cleaning logs, and fleet health monitoring — the same governance layer used on Parliament Delhi.",
       q7: "Can NCR owners outside Delhi use this reference?",
@@ -182,7 +182,7 @@ const NEW_STATES = {
     procurement: {
       heading: "Commercial models for West Bengal plants",
       p1: "CAPEX purchase with Taypro commissioning and AMC is typical for Sonar Bangla-class programmes — robots capitalised with inspection or NECTYR reporting.",
-      p2: "Taypro Opex offers pay-per-panel-cleaned service when eastern commissioning windows require immediate cadence before full CAPEX approval.",
+      p2: "Opex offers pay-per-panel-cleaned service when eastern commissioning windows require immediate cadence before full CAPEX approval.",
     },
     roiBand: {
       heading: "Robot price guidance for West Bengal solar",
@@ -202,7 +202,7 @@ const NEW_STATES = {
       q4: "What does robot price look like for a Bengal plant?",
       a4: "CAPEX scales with MW, layout, and automation level. See the India price guide; formal quotes require layout review.",
       q5: "Does Taypro offer Opex in West Bengal?",
-      a5: "Yes. Taypro Opex is available for pay-per-panel-cleaned service with Taypro operating the fleet.",
+      a5: "Yes. Opex is available for pay-per-panel-cleaned service with Taypro operating the fleet.",
       q6: "How should Bengal plants handle monsoon holds?",
       a6: "After effective rain, robots often stand down to avoid redundant passes; post-monsoon weeks re-walk paths after vegetation or civil works.",
       q7: "Can Bengal owners benchmark eastern peers?",
@@ -243,9 +243,9 @@ const NEW_STATES = {
       p3: "Browse the case study below and benchmark against Madhya Pradesh peers such as Agar for RFQ conversations in central India.",
     },
     procurement: {
-      heading: "CAPEX vs Taypro Opex in Chhattisgarh",
+      heading: "CAPEX vs Opex in Chhattisgarh",
       p1: "CAPEX purchase with Taypro commissioning and AMC is typical for Sungazing-class programmes — robots capitalised with block schedules and inspection or NECTYR reporting.",
-      p2: "Taypro Opex offers pay-per-panel-cleaned service when owners need immediate cadence before capital committee sign-off on robot purchase.",
+      p2: "Opex offers pay-per-panel-cleaned service when owners need immediate cadence before capital committee sign-off on robot purchase.",
     },
     roiBand: {
       heading: "Robot price guidance for Chhattisgarh solar",
@@ -263,7 +263,7 @@ const NEW_STATES = {
       q3: "What does robot price look like for a Chhattisgarh plant?",
       a3: "Price depends on MW, layout, and automation level. See the India price guide; formal quotes follow layout review.",
       q4: "Does Taypro offer Opex in Chhattisgarh?",
-      a4: "Yes. Taypro Opex is pay-per-panel-cleaned with Taypro operating the fleet and reporting through NECTYR or agreed inspection logs.",
+      a4: "Yes. Opex is pay-per-panel-cleaned with Taypro operating the fleet and reporting through NECTYR or agreed inspection logs.",
       q5: "How often should Chhattisgarh plants run robotic cleaning?",
       a5: "Cadence follows dust season — semi-automatic programmes use published weekly block plans; automatic rows may tighten cadence pre-monsoon.",
       q6: "Does Taypro provide breakdown support in Chhattisgarh?",

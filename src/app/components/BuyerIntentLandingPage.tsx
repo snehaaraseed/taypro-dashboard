@@ -929,8 +929,10 @@ export default async function BuyerIntentLandingPage({
           eyebrow={t("quoteForm.eyebrow")}
           title={t("quoteForm.title")}
           messagePlaceholder={t("quoteForm.placeholder")}
+          showMessageField
           analyticsFormType="buyer_intent_landing"
           analyticsSource={config.path}
+          leadIntent={`Quote request — ${config.path}`}
         />
       ) : null}
     </>

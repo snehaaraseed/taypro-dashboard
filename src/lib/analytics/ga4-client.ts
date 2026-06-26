@@ -4,71 +4,59 @@ import { readAnalyticsConsent } from "./consent";
 export const GA4_MEASUREMENT_ID =
   process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID ?? "G-7G1M6KFY3K";
 
-type GtagFn = (...args: unknown[]) => void;
+const CLIENT_ID_STORAGE_KEY = "taypro_ga_cid";
 
-type AnalyticsWindow = Window & {
-  dataLayer?: unknown[];
-  gtag?: GtagFn;
-};
+function getClientId(): string {
+  const gaCookie = document.cookie.match(/(?:^|;\s*)_ga=GA\d+\.\d+\.(\d+\.\d+)/);
+  if (gaCookie?.[1]) return gaCookie[1];
 
-let ga4InitStarted = false;
-let ga4Ready = false;
-const pendingEvents: Array<{ name: string; params: Record<string, unknown> }> =
-  [];
-
-function getAnalyticsWindow(): AnalyticsWindow | undefined {
-  if (typeof window === "undefined") return undefined;
-  return window as AnalyticsWindow;
+  try {
+    const stored = localStorage.getItem(CLIENT_ID_STORAGE_KEY);
+    if (stored) return stored;
+    const generated = `${Math.floor(Math.random() * 1e9)}.${Math.floor(Date.now() / 1000)}`;
+    localStorage.setItem(CLIENT_ID_STORAGE_KEY, generated);
+    return generated;
+  } catch {
+    return `${Math.floor(Math.random() * 1e9)}.${Math.floor(Date.now() / 1000)}`;
+  }
 }
 
-function flushPendingEvents(gtag: GtagFn): void {
-  while (pendingEvents.length > 0) {
-    const next = pendingEvents.shift();
-    if (next) gtag("event", next.name, next.params);
-  }
-  ga4Ready = true;
-}
+function sendGa4EventBeacon(
+  eventName: string,
+  params: Record<string, unknown>,
+): void {
+  const searchParams = new URLSearchParams();
+  searchParams.set("v", "2");
+  searchParams.set("tid", GA4_MEASUREMENT_ID);
+  searchParams.set("cid", getClientId());
+  searchParams.set("en", eventName);
+  searchParams.set("dl", window.location.href);
+  searchParams.set("dt", document.title);
+  searchParams.set("ul", navigator.language || "en");
+  searchParams.set("sr", `${window.screen.width}x${window.screen.height}`);
 
-/**
- * Loads gtag.js and configures GA4 for custom events only.
- * Page views stay with GTM; this avoids creating a GTM tag per event.
- */
-export function ensureGa4EventClient(): void {
-  if (ga4Ready) return;
-  if (!readAnalyticsConsent()) return;
-
-  const win = getAnalyticsWindow();
-  if (!win) return;
-
-  win.dataLayer = win.dataLayer || [];
-  if (!win.gtag) {
-    win.gtag = function gtag(...args: unknown[]) {
-      win.dataLayer!.push(args);
-    };
+  for (const [key, value] of Object.entries(params)) {
+    if (value !== undefined) searchParams.set(`ep.${key}`, String(value));
   }
 
-  const gtag = win.gtag;
-  if (ga4InitStarted) return;
-  ga4InitStarted = true;
-
-  const finishInit = () => {
-    gtag("js", new Date());
-    gtag("config", GA4_MEASUREMENT_ID, { send_page_view: false });
-    flushPendingEvents(gtag);
-  };
-
-  const existing = document.getElementById("taypro-ga4-script");
-  if (existing) {
-    finishInit();
+  const url = `https://www.google-analytics.com/g/collect?${searchParams.toString()}`;
+  if (typeof navigator.sendBeacon === "function") {
+    navigator.sendBeacon(url);
     return;
   }
 
-  const script = document.createElement("script");
-  script.id = "taypro-ga4-script";
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA4_MEASUREMENT_ID)}`;
-  script.onload = finishInit;
-  document.head.appendChild(script);
+  fetch(url, { method: "POST", mode: "no-cors", keepalive: true }).catch(
+    () => {},
+  );
+}
+
+/**
+ * Sends custom events directly to GA4.
+ * GTM owns page views and replaces `window.gtag` with a dataLayer stub, so we
+ * use the GA4 collect endpoint instead of gtag("event", …).
+ */
+export function ensureGa4EventClient(): void {
+  // No-op: kept for callers that pre-warm analytics after consent.
 }
 
 export function sendGa4Event(
@@ -85,14 +73,5 @@ export function sendGa4Event(
     }
   }
 
-  const win = getAnalyticsWindow();
-  if (!win) return;
-
-  if (ga4Ready && win.gtag) {
-    win.gtag("event", eventName, cleanParams);
-    return;
-  }
-
-  pendingEvents.push({ name: eventName, params: cleanParams });
-  ensureGa4EventClient();
+  sendGa4EventBeacon(eventName, cleanParams);
 }

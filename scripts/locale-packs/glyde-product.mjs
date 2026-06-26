@@ -755,7 +755,7 @@ export const glydeProductPack = {
         "সিঙ্গল-অ্যাক্সিস ট্র্যাকার রোবট (GLYDE-X)"
       ),
       linkBetweenTAndOpex: T(", ", "، ", "、", ", "),
-      linkOpex: T("Taypro OPEX सफाई सेवा", "خدمة تنظيف Taypro OPEX", "Taypro OPEX清掃サービス", "Taypro OPEX পরিষ্কার সেবা"),
+      linkOpex: T("OPEX सफाई सेवा", "خدمة تنظيف OPEX", "OPEX清掃サービス", "OPEX পরিষ্কার সেবা"),
       linkBetweenOpexAndNectyr: T(" या ", " أو ", " または ", " বা "),
       linkNectyr: T("NECTYR मॉनिटरिंग ऐप", "تطبيق مراقبة NECTYR", "NECTYR監視アプリ", "NECTYR মনিটরিং অ্যাপ"),
       crossSellSuffix: T("।", ".", "。", "।"),

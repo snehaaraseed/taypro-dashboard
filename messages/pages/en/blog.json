@@ -39,6 +39,8 @@
       "heroBodyAuthorsBefore": "Written by the",
       "heroLinkAuthors": "Taypro authors",
       "heroBodyAuthorsAfter": "; refreshed as field learnings evolve.",
+      "heroCountBadgeLabel": "Published",
+      "heroCountBadgeUnit": "articles",
       "statsArticles": "Published articles",
       "statsAuthorsTitle": "Meet authors",
       "statsAuthorsSubtitle": "Engineers & field experts →",
@@ -124,8 +126,16 @@
       "frequency": "Weekly",
       "title": "Subscribe for blog updates",
       "description": "New insights on solar performance and maintenance.",
-      "iframeTitle": "Newsletter Subscription",
-      "cta": "Get updates via contact"
+      "formLabel": "Newsletter subscription",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "Your email address",
+      "cta": "Subscribe",
+      "submitting": "Subscribing...",
+      "successTitle": "You're subscribed!",
+      "successMessage": "Thanks for signing up. Blog updates will land in your inbox.",
+      "alreadySubscribedMessage": "You're already on our list. We'll keep the updates coming.",
+      "requiredError": "Please enter your email address.",
+      "genericError": "Something went wrong. Please try again in a few minutes."
     }
   },
   "Common": {

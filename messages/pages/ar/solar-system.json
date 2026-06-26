@@ -2,7 +2,7 @@
   "SolarSystemPage": {
     "meta": {
       "title": "روبوت ونظام تنظيف الألواح الشمسية في الهند, الآلات والطرازات | Taypro",
-      "description": "قارن كل روبوتات Taypro لتنظيف الألواح الشمسية: GLYDE وGLYDE-X وNYUMA وNYUMA-X وHELYX، إضافةً إلى Taypro Opex وNECTYR. تنظيف بدون ماء، جدولة بالذكاء الاصطناعي، معتمد من TÜV NORD، دعم على مستوى الهند.",
+      "description": "قارن كل روبوتات Taypro لتنظيف الألواح الشمسية: GLYDE وGLYDE-X وNYUMA وNYUMA-X وHELYX، إضافةً إلى Opex وNECTYR. تنظيف بدون ماء، جدولة بالذكاء الاصطناعي، معتمد من TÜV NORD، دعم على مستوى الهند.",
       "keywords": [
         "روبوت تنظيف الألواح الشمسية",
         "روبوت تنظيف الألواح الشمسية الهند",
@@ -203,7 +203,7 @@
       "p2LinkHelyx": "HELYX",
       "p2LinkGlydeX": "GLYDE-X",
       "p2LinkNectyr": "NECTYR",
-      "p2LinkOpex": "Taypro Opex",
+      "p2LinkOpex": "Opex",
       "p2BeforeLinks": "Taypro مصنع أنظمة تنظيف روبوتية Made in India. يشمل خطنا ",
       "p2BetweenAB": "، وشبه أوتوماتيكي ",
       "p2BetweenBT": " للمحطات المبعثرة، وجاهز للمتتبع ",
@@ -350,8 +350,8 @@
         },
         "card5": {
           "title": "تفضل النتائج لا الأصول؟",
-          "body": "Taypro Opex يقدم التنظيف الروبوتي كخدمة شهرية مع تقارير على NECTYR.",
-          "cta": "اطلع على Taypro Opex"
+          "body": "Opex يقدم التنظيف الروبوتي كخدمة شهرية مع تقارير على NECTYR.",
+          "cta": "اطلع على Opex"
         }
       }
     },
@@ -431,7 +431,9 @@
       "ctaLine": "غير متأكد من المنصة؟ شارك تفاصيل المحطة, نوصي بالمزيج بعد دراسة تلوث سريعة. ",
       "ctaLink": {
         "topic": "تحدث إلى Taypro",
-        "label": "تحدث إلى Taypro"
+        "label": "تحدث إلى Taypro",
+        "title": "ابحث عن مزيج الروبوت المناسب لمصنعك",
+        "subtitle": "شارك تفاصيل مصنعك وسيوصي فريقنا بالمنصة المناسبة GLYDE، NYUMA، HELYX، أو منصة التتبع بعد مراجعة سريعة للتلوث والتخطيط."
       },
       "ctaLineSuffix": "."
     },
@@ -448,7 +450,7 @@
       "robot0": "ثنائي مرور بدون ماء, دورات شهرية متوقعة",
       "robot1": "قياس عن بُعد وتقارير عبر NECTYR",
       "robot2": "مصمم لصفوف المرافق وطاولات المتتبع",
-      "robot3": "شراء CAPEX أو Taypro Opex لكل لوحة",
+      "robot3": "شراء CAPEX أو Opex لكل لوحة",
       "ctaService": "استكشف خدمة التنظيف",
       "ctaCalculator": "حاسبة العائد والتكلفة",
       "videoTitle": "شاهد روبوتات Taypro تنظف محطة مرافق",
@@ -456,7 +458,7 @@
       "transcriptToggle": "Video transcript (for accessibility & search)",
       "transcriptP1": "This overview shows Taypro autonomous solar panel cleaning robots operating on utility-scale arrays in India. Robots traverse fixed-tilt rows using waterless dual-pass cleaning — airflow lifts dry dust, then microfiber completes the wipe without water or detergents.",
       "transcriptP2": "Fleet schedules and completion data feed into NECTYR, Taypro's monitoring portal, so O&M teams can audit block-wise cleaning history alongside inverter performance. Deployments combine GLYDE and NYUMA-class robots depending on row geometry and soiling class.",
-      "transcriptP3": "For procurement teams comparing cleaning machines and robots, Taypro offers CAPEX purchase with AMC or Taypro Opex pay-per-panel-cleaned service on the same hardware platforms shown in the field footage."
+      "transcriptP3": "For procurement teams comparing cleaning machines and robots, Taypro offers CAPEX purchase with AMC or Opex pay-per-panel-cleaned service on the same hardware platforms shown in the field footage."
     },
     "indianConditions": {
       "eyebrow": "مهندسة للطاقة الشمسية الهندية",
@@ -558,7 +560,9 @@
       "subtitleLead": "إجابات سريعة لأكثر أسئلة الملاك وفرق EPC شيوعاً. للتوصيات الخاصة بالمحطة، ",
       "subtitleCta": {
         "topic": "تواصل مع Taypro",
-        "label": "تواصل مع Taypro"
+        "label": "تواصل مع Taypro",
+        "title": "اسأل Taypro عن نباتك",
+        "subtitle": "احصل على توصية خاصة بالموقع بشأن الروبوتات، أو خدمة Opex، أو برامج الأسطول للتخطيط الخاص بك وملفك الشخصي المتسخ."
       },
       "subtitleSuffix": ".",
       "items": {
@@ -584,7 +588,7 @@
         },
         "item5": {
           "question": "هل يمكنني التنظيف كخدمة بدلاً من CAPEX؟",
-          "answer": "نعم. Taypro Opex خدمة شهرية لكل لوحة (عادة 50 ميجاواط+). ينشر GLYDE أو HELYX أو GLYDE-X ويشغّل 3–10 دورات ويفوتر بالألواح المنظفة. كل دورة على NECTYR دون امتلاك الأجهزة."
+          "answer": "نعم. Opex خدمة شهرية لكل لوحة (عادة 50 ميجاواط+). ينشر GLYDE أو HELYX أو GLYDE-X ويشغّل 3–10 دورات ويفوتر بالألواح المنظفة. كل دورة على NECTYR دون امتلاك الأجهزة."
         },
         "item6": {
           "question": "كيف تُراقب الروبوتات بعد التركيب؟",
@@ -604,7 +608,7 @@
         },
         "item10": {
           "question": "من هم الموردون الرئيسيون لروبوتات تنظيف الألواح الشمسية في الهند؟",
-          "answer": "اختصر الموردين على خمسة معايير: ملاءمة بدون ماء لغبارك وتلوثك، توافق ثابت الميل مقابل متتبع أحادي المحور، شراء CAPEX مقابل Opex مُدار، برمجيات أسطول بإثبات إكمال على مستوى الكتلة، وتصنيع محلي في الهند مع قطع وSLA أعطال. Taypro مصنع Made in India بنشر أكثر من 5 جيجاوات عبر 150+ موقعاً حياً، تنظيف جاف ثنائي المرور على GLYDE وGLYDE-X، PBT أحادي المرور على NYUMA وNYUMA-X وHELYX، بوابة NECTYR، وخدمة Taypro Opex اختيارية، مع دراسات حالة مرتبطة من هذا المركز. موردون آخرون يُقيَّمون في RFQ الهندية: Solabot Technologies وAegeus Technologies وSkilancer Solar وVayu Solar؛ Ecoppia وAirtouch Solar وLEAPTING؛ Langfang Sol-Bright New Energy Technology. Jetsons Robotics أكثر شيوعاً في C&I من حقول 50 ميجاوات+. تحقق من ملاءمة الصفوف وSLA والإثبات قبل الاختيار النهائي."
+          "answer": "اختصر الموردين على خمسة معايير: ملاءمة بدون ماء لغبارك وتلوثك، توافق ثابت الميل مقابل متتبع أحادي المحور، شراء CAPEX مقابل Opex مُدار، برمجيات أسطول بإثبات إكمال على مستوى الكتلة، وتصنيع محلي في الهند مع قطع وSLA أعطال. Taypro مصنع Made in India بنشر أكثر من 5 جيجاوات عبر 150+ موقعاً حياً، تنظيف جاف ثنائي المرور على GLYDE وGLYDE-X، PBT أحادي المرور على NYUMA وNYUMA-X وHELYX، بوابة NECTYR، وخدمة Opex اختيارية، مع دراسات حالة مرتبطة من هذا المركز. موردون آخرون يُقيَّمون في RFQ الهندية: Solabot Technologies وAegeus Technologies وSkilancer Solar وVayu Solar؛ Ecoppia وAirtouch Solar وLEAPTING؛ Langfang Sol-Bright New Energy Technology. Jetsons Robotics أكثر شيوعاً في C&I من حقول 50 ميجاوات+. تحقق من ملاءمة الصفوف وSLA والإثبات قبل الاختيار النهائي."
         }
       }
     },
@@ -637,7 +641,7 @@
         "body": "صيانة سنوية منظمة وقطع إقليمية وأهداف عطل في نفس اليوم وتشخيص NECTYR عن بُعد."
       },
       "line3": {
-        "title": "Taypro Opex",
+        "title": "Opex",
         "body": "تنظيف مُدار مدفوع لكل لوحة, Taypro يشغّل الأسطول في محطتك دون CAPEX مقدماً."
       },
       "line4": {
@@ -656,7 +660,7 @@
       "eyebrow": "اختيار نهج التنظيف",
       "title": "كيف تقارن Taypro بأساليب التنظيف الروبوتية الأخرى",
       "subtitle": "يشترط مشترو المرافق طريقة التنظيف والنموذج التجاري وبرمجيات الأسطول والدعم المحلي في الهند — لا كتيبات الروبوت وحدها. استخدم هذا العرض عند تقييم Taypro مقابل الغسل الرطب أو روبوتات جافة مستوردة أو تشغيل وصيانة بالعمالة فقط.",
-      "intro": "Taypro OEM Made in India بنشر أكثر من 5 جيجاوات من القدرة الروبوتية، تنظيف جاف ثنائي المرور على GLYDE وGLYDE-X، PBT أحادي المرور على NYUMA وNYUMA-X وHELYX، بوابة أسطول NECTYR، وخدمة Taypro Opex اختيارية بالدفع لكل لوحة. تقارن الجدول الأساليب النموذجية في RFQ الهندية دون ذكر أسماء الموردين.",
+      "intro": "Taypro OEM Made in India بنشر أكثر من 5 جيجاوات من القدرة الروبوتية، تنظيف جاف ثنائي المرور على GLYDE وGLYDE-X، PBT أحادي المرور على NYUMA وNYUMA-X وHELYX، بوابة أسطول NECTYR، وخدمة Opex اختيارية بالدفع لكل لوحة. تقارن الجدول الأساليب النموذجية في RFQ الهندية دون ذكر أسماء الموردين.",
       "tableHeaders": {
         "criteria": "ما يجب تقييمه",
         "manualWet": "فرق غسل رطب يدوي",
@@ -680,7 +684,7 @@
           "criterion": "النموذج التجاري",
           "manualWet": "Opex عمالة متكررة",
           "importDry": "شراء CAPEX؛ خدمة مُدارة اختيارية",
-          "taypro": "CAPEX + AMC أو أسطول مُدار Taypro Opex"
+          "taypro": "CAPEX + AMC أو أسطول مُدار Opex"
         },
         "row3": {
           "criterion": "التشغيل وإثبات التدقيق",
@@ -754,7 +758,7 @@
           "description": "شبه أوتوماتيكي، كتل مبعثرة"
         },
         "opex": {
-          "label": "خدمة Taypro Opex",
+          "label": "خدمة Opex",
           "description": "أسطول مُدار بالدفع لكل لوحة"
         },
         "nectyr": {
@@ -838,6 +842,13 @@
       "title": "بوابة واحدة لمراقبة كل روبوتات التنظيف في محطتك",
       "body": "لوحات وطقس وجداول وسجلات وتصدير وصحة الروبوت والبوابة وتذاكر, وصول حسب الأدوار لحوكمة O&M.",
       "cta": "استكشف NECTYR"
+    },
+    "serviceCallout": {
+      "eyebrow": "صفحة الخدمة الأساسية",
+      "title": "OPEX خدمة التنظيف الآلي",
+      "body": "يجب أن تبدأ فرق المشتريات التي تقوم بتقييم خدمة تنظيف الألواح الشمسية بصفحة OPEX لمنتجنا - النطاق، SOPs، نموذج الفوترة، وإعداد التقارير NECTYR - قبل التغطية الإقليمية أو أدلة النشر على نطاق MW.",
+      "cta": "عرض صفحة الخدمة OPEX",
+      "href": "/solar-panel-cleaning-system/solar-panel-cleaning-service"
     }
   }
 }

@@ -21,9 +21,9 @@
       }
     },
     "hero": {
-      "eyebrow": "インド製 · 5 GW+ 導入 · 150+ サイト稼働",
-      "titleLine1": "インドでは18時間ごとに新しいソーラープラントが増える。",
-      "titleLine2": "それでも各プラントは年間少なくとも15%の発電を失う。",
+      "eyebrow": "Made in India · 5 GW+ 導入 · 大規模ソーラー向け自律オペレーション",
+      "titleLine1": "失われた発電を回復, ",
+      "titleLine2": "大規模ソーラー向け, 水なしソーラーパネル洗浄ロボット上に構築。",
       "titleMobileLine1": "インドでは18時間ごとに",
       "titleMobileLine2": "新しいソーラープラントが増える。",
       "titleMobileLine3": "それでも各プラントは年間",
@@ -44,7 +44,16 @@
       "ctaQuoteSubtitle": "発電所情報を共有ください, GLYDE、HELYX、GLYDE-Xをご提案します。",
       "ctaExplore": "ロボットを見る",
       "ctaService": "清掃サービス",
-      "ctaRoi": "価格・ROI計算"
+      "ctaRoi": "価格・ROI計算",
+      "titleHighlight": "自律オペレーション層",
+      "lead": "SCADAはkWhが失われたと示す。Tayproは各行のロボット、本日のNECTYR、ORIONでループを閉じる。",
+      "bodyBeforeProjects": "デュアルパス水なし、AIスケジュール、全国稼働率, 固定・季節傾斜・トラッカー。",
+      "bodyProjectsLink": "稼働中プロジェクト",
+      "bodyAfterProjects": "について",
+      "bodyUtilityOpsLink": "大規模ソーラー運用",
+      "bodyBeforeBlog": "、または",
+      "bodyBlogLink": "ブログ",
+      "bodyAfterBlog": "で洞察を読む。"
     },
     "stats": {
       "methodologyBefore": "Fleet impact figures are modelled from live deployments. See our",
@@ -99,11 +108,26 @@
         }
       },
       "loopSteps": {
-        "0": "Sense",
-        "1": "Schedule",
-        "2": "Clean",
-        "3": "Log",
-        "4": "Learn"
+        "0": {
+          "title": "センス",
+          "description": "天候、湿度、花粉、バッテリーの状態、マイクロファイバーの湿気 — ロボットごとに 40 以上のライブデータ入力"
+        },
+        "1": {
+          "title": "スケジュール",
+          "description": "5 GW+ のアクティブなフリート全体で 95% の精度で天候を再スケジュール"
+        },
+        "2": {
+          "title": "クリーン",
+          "description": "デュアルパスエアフロー + マイクロファイバー。 ML アレイ マップからのバッテリー最適化ルート"
+        },
+        "3": {
+          "title": "ログ",
+          "description": "根本原因による障害データを含む各サイクルのタイムスタンプが NECTYR に記録されます"
+        },
+        "4": {
+          "title": "学ぶ",
+          "description": "AI モデルはフリート全体にわたってサイクルごとに改善されます。プラントは他のすべてのサイトのデータから恩恵を受けます"
+        }
       }
     },
     "robots": {
@@ -227,8 +251,8 @@
     "clients": {
       "heading": "主要クライアント",
       "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India.",
-      "logoAlt": "{name} — Tayproソーラー洗浄ロボットの導入クライアント",
-      "logoTitle": "{name}"
+      "logoAlt": "Tayproソーラー洗浄ロボットクライアント {index}",
+      "logoTitle": "Tayproソーラー洗浄ロボットクライアント {index}"
     },
     "faq": {
       "heading": "よくある質問",
@@ -246,9 +270,9 @@
       "q4": "Tayproロボットの製造・サポート拠点は？",
       "a4": "TayproはChakan, Puneで設計・製造。NECTYR遠隔診断付きでインド全国の試運転・スペア・同日故障目標をサポート。",
       "q5": "洗浄ロボットは手動O&Mと比べてどうか？",
-      "a5": "ロボットは水車両・クルー日程・大規模アレイの安全リスクなしで予測可能な乾式洗浄サイクルを提供し、各パスをNECTYRに記録。小ブロックは手動も可。大規模ポートフォリオはTCO・稼働率のため自律ロボットかTaypro Opexへ。ハブでモデル比較を。",
-      "q6": "ロボット購入（CAPEX）とTaypro Opexのどちら？",
-      "a6": "両方選択可。CAPEXは所有ハードウェア＋Taypro試運転・AMC。Taypro Opexはパネル単位課金でTayproがフリート運用, 前払いCAPEXなしの予測可能O&M向け。ハブの商業モデル節で5つの関与方法を説明。"
+      "a5": "ロボットは水車両・クルー日程・大規模アレイの安全リスクなしで予測可能な乾式洗浄サイクルを提供し、各パスをNECTYRに記録。小ブロックは手動も可。大規模ポートフォリオはTCO・稼働率のため自律ロボットかOpexへ。ハブでモデル比較を。",
+      "q6": "ロボット購入（CAPEX）とOpexのどちら？",
+      "a6": "両方選択可。CAPEXは所有ハードウェア＋Taypro試運転・AMC。Opexはパネル単位課金でTayproがフリート運用, 前払いCAPEXなしの予測可能O&M向け。ハブの商業モデル節で5つの関与方法を説明。"
     },
     "quote": {
       "eyebrow": "始める",
@@ -283,6 +307,24 @@
     "loading": {
       "form": "フォームを読み込み中…",
       "clients": "クライアントを読み込み中…"
+    },
+    "seoProse": {
+      "eyebrow": "実用規模のロボット掃除機",
+      "heading": "インドの実用規模向けに水を使わないソーラーパネル清掃ロボット",
+      "intro": "Taypro は、インド最大の実用規模の太陽光発電所向けに自律型ソーラー パネル洗浄ロボットを設計、製造、サービスしています。",
+      "productsEyebrow": "ロボットラインナップ",
+      "hubCardTitle": "ロボットモデルの比較",
+      "hubCardDescription": "GLYDE、NYUMA、HELYX、およびトラッカー対応バリアント - 製品ハブの仕様、適合性、展開ガイド。",
+      "hubLink": "ソーラーパネル清掃ロボットハブ",
+      "serviceCardTitle": "OPEX 清掃サービス",
+      "serviceCardDescription": "完全に管理されたフリート — 当社はお客様のプラントにロボットを導入、運用、保守します。",
+      "serviceLink": "OPEX ロボット清掃サービス",
+      "calculatorCardTitle": "ROI 計算機",
+      "calculatorCardDescription": "回復した世代と削減された手動 O&M からの回収額を見積もります。",
+      "calculatorLink": "ソーラークリーニング ROI 計算機",
+      "trustMadeIn": "プネ製",
+      "trustDeployment": "インド全域への展開",
+      "trustSupport": "即日故障対応"
     }
   },
   "Common": {

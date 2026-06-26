@@ -183,6 +183,17 @@
       "thankYouTitle": "Application received",
       "thankYouMessage": "Thank you for applying. Our HR team will review your profile and contact you if there is a match.",
       "submitAnother": "Submit another application"
+    },
+    "leadModal": {
+      "topic": "Taypro पर करियर",
+      "title": "एक सामान्य आवेदन भेजें",
+      "subtitle": "कोई मेल खाती भूमिका सूचीबद्ध नहीं? अपनी पृष्ठभूमि, रुचि का क्षेत्र और अपने बायोडाटा का लिंक साझा करें - हम प्रत्येक विचारशील आवेदन की समीक्षा करते हैं।",
+      "formPrompt": "हमें आप तक कहां पहुंचना चाहिए?",
+      "messageLabel": "आपके बारे में",
+      "messagePlaceholder": "भूमिका रुचि, वर्षों का अनुभव, स्थान प्राथमिकता, लिंक्डइन या बायोडाटा लिंक...",
+      "submitLabel": "आवेदन भेजें",
+      "thankYouTitle": "खोज लेने के लिए धन्यवाद",
+      "thankYouMessage": "हमारी लोगों की टीम आपके नोट की समीक्षा करेगी और यदि कोई गड़बड़ी होगी तो वापस ले आएगी।"
     }
   }
 }

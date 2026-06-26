@@ -39,6 +39,8 @@
       "heroBodyAuthorsBefore": "লেখক:",
       "heroLinkAuthors": "Taypro লেখক",
       "heroBodyAuthorsAfter": "; ফিল্ড শিক্ষার সাথে আপডেট।",
+      "heroCountBadgeLabel": "প্রকাশিত",
+      "heroCountBadgeUnit": "নিবন্ধ",
       "statsArticles": "প্রকাশিত নিবন্ধ",
       "statsAuthorsTitle": "লেখকদের দেখুন",
       "statsAuthorsSubtitle": "প্রকৌশলী ও ফিল্ড বিশেষজ্ঞ →",
@@ -124,8 +126,16 @@
       "frequency": "সাপ্তাহিক",
       "title": "ব্লগ আপডেটের জন্য সাবস্ক্রাইব",
       "description": "সোলার পারফরম্যান্স ও রক্ষণাবেক্ষণে নতুন অন্তর্দৃষ্টি।",
-      "iframeTitle": "নিউজলেটার সাবস্ক্রিপশন",
-      "cta": "আপডেটের জন্য যোগাযোগ করুন"
+      "formLabel": "নিউজলেটার সাবস্ক্রিপশন",
+      "emailLabel": "ইমেইল ঠিকানা",
+      "emailPlaceholder": "আপনার ইমেইল ঠিকানা",
+      "cta": "সাবস্ক্রাইব",
+      "submitting": "সাবস্ক্রাইব করা হচ্ছে...",
+      "successTitle": "সাবস্ক্রাইব হয়েছে!",
+      "successMessage": "সাইন আপের জন্য ধন্যবাদ। ব্লগ আপডেট আপনার ইনবক্সে পৌঁছাবে।",
+      "alreadySubscribedMessage": "আপনি ইতিমধ্যে আমাদের তালিকায় আছেন। আপডেট চালিয়ে যাবে।",
+      "requiredError": "অনুগ্রহ করে আপনার ইমেইল ঠিকানা লিখুন।",
+      "genericError": "কিছু ভুল হয়েছে। কয়েক মিনিট পর আবার চেষ্টা করুন।"
     }
   },
   "Common": {

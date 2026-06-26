@@ -6,6 +6,8 @@ import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { FaqSection } from "@/app/components/FaqSection";
 import { FAQPageSchema } from "@/app/components/StructuredData";
 import TrackedLink from "@/app/components/TrackedLink";
+import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
+import { ContactLeadInlineLink } from "@/app/components/ContactLeadInlineLink";
 import {
   COMPARISON_PAGE_LIST,
   type ComparisonPageId,
@@ -43,6 +45,7 @@ export default async function CompetitorMarketComparisonPage({
 }: CompetitorMarketComparisonPageProps) {
   const t = await getTranslations({ locale, namespace: "ComparisonsPage" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
+  const tLead = await getTranslations({ locale, namespace: "Forms.leadModal" });
   const ns = "indianCompetitors";
 
   const faqs = FAQ_KEYS.map((key) => ({
@@ -183,9 +186,12 @@ export default async function CompetitorMarketComparisonPage({
           <p className="text-[#27415c] leading-relaxed max-w-4xl">
             {t.rich(`${ns}.howToRead.ctaLine`, {
               contact: (chunks) => (
-                <Link href="/contact" className="text-[#5a8f00] font-medium hover:underline">
+                <ContactLeadInlineLink
+                  source="competitor_compare_inline"
+                  analyticsFormType="comparison_quote"
+                >
                   {chunks}
-                </Link>
+                </ContactLeadInlineLink>
               ),
               calculator: (chunks) => (
                 <Link
@@ -261,15 +267,24 @@ export default async function CompetitorMarketComparisonPage({
           <h2 className="text-2xl font-semibold mb-3">{t("cta.heading")}</h2>
           <p className="text-gray-300 max-w-2xl mb-6">{t("cta.body")}</p>
           <div className="flex flex-wrap gap-4">
-            <TrackedLink
-              href="/contact"
-              trackType="internal"
-              trackTitle={t("cta.quote")}
-              trackLocation="compare_page"
+            <OpenLeadModalButton
+              source="competitor_compare"
+              topic={tLead("topic")}
+              title={tLead("title")}
+              subtitle={tLead("subtitle")}
+              leadIntent={tLead("topic")}
+              formPrompt={tLead("formPrompt")}
+              messageLabel={tLead("messageLabel")}
+              messagePlaceholder={tLead("messagePlaceholder")}
+              submitLabel={tLead("submitLabel")}
+              thankYouTitle={tLead("thankYouTitle")}
+              thankYouMessage={tLead("thankYouMessage")}
+              showMessageField
+              analyticsFormType="comparison_quote"
               className="inline-flex items-center justify-center min-h-[48px] bg-[#A8C117] text-[#052638] font-semibold px-6 py-3 rounded-md hover:bg-[#b8d12a] transition"
             >
               {t("cta.quote")}
-            </TrackedLink>
+            </OpenLeadModalButton>
             <TrackedLink
               href="/solar-panel-cleaning-robot-price-calculator#calculator"
               trackType="calculator"

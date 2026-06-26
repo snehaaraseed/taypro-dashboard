@@ -372,7 +372,7 @@
       "linkBetweenBAndT": ", ",
       "linkGlydeX": "सिंगल-एक्सिस ट्रैकर रोबोट (GLYDE-X)",
       "linkBetweenTAndOpex": ", ",
-      "linkOpex": "Taypro OPEX सफाई सेवा",
+      "linkOpex": "OPEX सफाई सेवा",
       "linkBetweenOpexAndNectyr": " या ",
       "linkNectyr": "NECTYR मॉनिटरिंग ऐप",
       "crossSellSuffix": "।",
@@ -464,7 +464,9 @@
         }
       },
       "datasheetCta": "Request full datasheet",
-      "datasheetCtaTopic": "GLYDE datasheet request"
+      "datasheetCtaTopic": "GLYDE datasheet request",
+      "datasheetCtaTitle": "Get the GLYDE technical datasheet",
+      "datasheetCtaSubtitle": "Share your details and we'll send the full GLYDE datasheet, then follow up on sizing or configuration questions for your plant."
     },
     "advantagesSection": {
       "heading": "स्वचालित सोलर पैनल सफाई रोबोट के लाभ",

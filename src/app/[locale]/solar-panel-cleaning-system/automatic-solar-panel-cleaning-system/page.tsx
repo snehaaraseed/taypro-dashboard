@@ -283,6 +283,8 @@ export default async function AutomaticSolarPanelCleaningRobot({
           ctaHref="/contact"
           ctaText={t("hero.primaryCta.label")}
           ctaTopic={t("hero.primaryCta.topic")}
+          ctaTitle={t("hero.primaryCta.title")}
+          ctaSubtitle={t("hero.primaryCta.subtitle")}
         />
 
       <section className="bg-white pt-8 sm:pt-14 pb-4">
@@ -918,6 +920,12 @@ export default async function AutomaticSolarPanelCleaningRobot({
           <AnimateOnScroll animation="fadeInUp" className="text-center mt-8">
             <OpenLeadModalButton
               topic={t("specifications.datasheetCtaTopic")}
+              title={t("specifications.datasheetCtaTitle")}
+              subtitle={t("specifications.datasheetCtaSubtitle")}
+              leadIntent={t("specifications.datasheetCtaTopic")}
+              submitLabel={t("specifications.datasheetCta")}
+              source="product_datasheet"
+              analyticsFormType="datasheet_request"
               className="inline-flex items-center justify-center min-h-[48px] px-7 py-3 rounded-lg bg-[#A8C117] text-[#052638] font-semibold hover:bg-[#b3cf3d] transition-colors"
             >
               {t("specifications.datasheetCta")}

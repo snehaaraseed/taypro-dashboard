@@ -372,7 +372,7 @@
       "linkBetweenBAndT": "、",
       "linkGlydeX": "単軸トラッカーロボット（GLYDE-X）",
       "linkBetweenTAndOpex": "、",
-      "linkOpex": "Taypro OPEX清掃サービス",
+      "linkOpex": "OPEX清掃サービス",
       "linkBetweenOpexAndNectyr": " または ",
       "linkNectyr": "NECTYR監視アプリ",
       "crossSellSuffix": "。",
@@ -464,7 +464,9 @@
         }
       },
       "datasheetCta": "Request full datasheet",
-      "datasheetCtaTopic": "GLYDE datasheet request"
+      "datasheetCtaTopic": "GLYDE datasheet request",
+      "datasheetCtaTitle": "Get the GLYDE technical datasheet",
+      "datasheetCtaSubtitle": "Share your details and we'll send the full GLYDE datasheet, then follow up on sizing or configuration questions for your plant."
     },
     "advantagesSection": {
       "heading": "自動清掃ロボットの利点",

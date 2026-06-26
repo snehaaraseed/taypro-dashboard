@@ -344,7 +344,7 @@
       "linkBetweenBAndT": ", the ",
       "linkNyumaX": "Single-Axis Tracker Cleaning Robot (NYUMA-X)",
       "linkBetweenTAndOpex": ", the ",
-      "linkOpex": "Taypro OPEX cleaning service",
+      "linkOpex": "OPEX cleaning service",
       "linkBetweenOpexAndNectyr": " or the ",
       "linkNectyr": "NECTYR monitoring app",
       "crossSellSuffix": ".",
@@ -436,7 +436,9 @@
         }
       },
       "datasheetCta": "Request full datasheet",
-      "datasheetCtaTopic": "NYUMA datasheet request"
+      "datasheetCtaTopic": "NYUMA datasheet request",
+      "datasheetCtaTitle": "Get the NYUMA technical datasheet",
+      "datasheetCtaSubtitle": "Share your details and we'll send the full NYUMA datasheet, then follow up on sizing or configuration questions for your plant."
     },
     "advantagesSection": {
       "heading": "Advantages of Using Automatic Solar Panel Cleaning Robots",

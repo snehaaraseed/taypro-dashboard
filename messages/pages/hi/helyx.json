@@ -41,7 +41,13 @@
       "subtitleStrong": "99% धूल एक ही पास में",
       "subtitleAfter": ", 1 MW ब्लॉक को 2 घंटे से कम में साफ करता है और एक चार्ज में 3 km तक चलता है, किसी भी दो व्यक्ति की साइट टीम संचालित कर सकती है।",
       "imgAlt": "Taypro HELYX, अर्ध-स्वचालित सोलर पैनल क्लीनिंग रोबोट, यूटिलिटी-स्केल सोलर प्लांटों के लिए पिक-एंड-प्लेस वॉटरलेस क्लीनर",
-      "ctaText": "कोटेशन माँगें"
+      "ctaText": "कोटेशन माँगें",
+      "primaryCta": {
+        "topic": "HELYX उद्धरण",
+        "title": "HELYX उद्धरण का अनुरोध करें",
+        "subtitle": "हमें अपने प्लांट लेआउट के बारे में बताएं और हमारी टीम HELYX परिनियोजन, ब्लॉक कवरेज और वाणिज्यिक विकल्पों का पालन करेगी।",
+        "label": "एक उद्धरण का अनुरोध करें"
+      }
     },
     "usps": {
       "0": {
@@ -362,7 +368,9 @@
       "specHeader": "विनिर्देश",
       "valueHeader": "मान",
       "datasheetCta": "Request full datasheet",
-      "datasheetCtaTopic": "HELYX datasheet request"
+      "datasheetCtaTopic": "HELYX datasheet request",
+      "datasheetCtaTitle": "HELYX तकनीकी डेटाशीट प्राप्त करें",
+      "datasheetCtaSubtitle": "अपना विवरण साझा करें और हम पूर्ण HELYX डेटाशीट भेजेंगे, फिर ब्लॉक लेआउट और परिनियोजन प्रश्नों पर अनुवर्ती कार्रवाई करेंगे।"
     },
     "manualVsRobotic": {
       "eyebrow": "रोबोटिक बनाम मैनुअल सोलर सफाई",
@@ -487,7 +495,7 @@
       "crossSellLead": "सिंगल-एक्सिस ट्रैकर प्लांट? देखें ",
       "linkGlydeX": "GLYDE-X",
       "crossSellMid": "। सफाई आउटसोर्स? ",
-      "linkOpex": "Taypro OPEX क्लीनिंग सेवा",
+      "linkOpex": "OPEX क्लीनिंग सेवा",
       "crossSellSuffix": " देखें।"
     },
     "indianConditions": {
@@ -507,7 +515,7 @@
       "linkBetweenAT": ", ",
       "linkGlydeX": "सिंगल-एक्सिस ट्रैकर GLYDE-X",
       "linkBetweenTOpex": ", ",
-      "linkOpex": "Taypro OPEX क्लीनिंग सेवा",
+      "linkOpex": "OPEX क्लीनिंग सेवा",
       "linkBetweenOpexAndNectyr": "या",
       "linkNectyr": "NECTYR मॉनिटरिंग ऐप",
       "crossSellSuffix": "।",

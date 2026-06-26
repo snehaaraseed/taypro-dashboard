@@ -41,7 +41,13 @@
       "subtitleStrong": "একই পাসে ৯৯% ধুলো",
       "subtitleAfter": ", ১ MW ব্লক ২ ঘণ্টার মধ্যে পরিষ্কার করে এবং এক চার্জে ৩ km পর্যন্ত চলে, যেকোনো দুই সদস্যের সাইট টিম চালাতে পারে।",
       "imgAlt": "Taypro HELYX, আধা-স্বয়ংক্রিয় সোলার প্যানেল পরিষ্কার রোবট, ইউটিলিটি-স্কেল প্ল্যান্টের জন্য পিক-এন্ড-প্লেস জলবিহীন ক্লিনার",
-      "ctaText": "কোটেশন অনুরোধ করুন"
+      "ctaText": "কোটেশন অনুরোধ করুন",
+      "primaryCta": {
+        "topic": "HELYX উদ্ধৃতি",
+        "title": "একটি HELYX উদ্ধৃতি অনুরোধ করুন",
+        "subtitle": "আপনার প্ল্যান্ট লেআউট সম্পর্কে আমাদের বলুন এবং আমাদের দল HELYX স্থাপনা, ব্লক কভারেজ, এবং বাণিজ্যিক বিকল্পগুলি অনুসরণ করবে৷",
+        "label": "একটি উদ্ধৃতি অনুরোধ"
+      }
     },
     "usps": {
       "0": {
@@ -362,7 +368,9 @@
       "specHeader": "বিশেষণ",
       "valueHeader": "মান",
       "datasheetCta": "Request full datasheet",
-      "datasheetCtaTopic": "HELYX datasheet request"
+      "datasheetCtaTopic": "HELYX datasheet request",
+      "datasheetCtaTitle": "HELYX প্রযুক্তিগত ডেটাশীট পান",
+      "datasheetCtaSubtitle": "আপনার বিশদ ভাগ করুন এবং আমরা সম্পূর্ণ HELYX ডেটাশীট পাঠাব, তারপর ব্লক লেআউট এবং স্থাপনার প্রশ্নগুলি অনুসরণ করুন৷"
     },
     "manualVsRobotic": {
       "eyebrow": "রোবোটিক বনাম ম্যানুয়াল সোলার পরিষ্কার",
@@ -487,7 +495,7 @@
       "crossSellLead": "সিঙ্গেল-অ্যাক্সিস ট্র্যাকার প্ল্যান্ট? দেখুন ",
       "linkGlydeX": "GLYDE-X",
       "crossSellMid": "? পরিষ্কার সম্পূর্ণ আউটসোর্স করতে চান? দেখুন ",
-      "linkOpex": "Taypro OPEX পরিষ্কার সেবা",
+      "linkOpex": "OPEX পরিষ্কার সেবা",
       "crossSellSuffix": "।"
     },
     "indianConditions": {
@@ -507,7 +515,7 @@
       "linkBetweenAT": ", ",
       "linkGlydeX": "সিঙ্গেল-অ্যাক্সিস ট্র্যাকারের জন্য GLYDE-X রোবট",
       "linkBetweenTOpex": ", ",
-      "linkOpex": "Taypro OPEX পরিষ্কার সেবা",
+      "linkOpex": "OPEX পরিষ্কার সেবা",
       "linkBetweenOpexAndNectyr": "অথবা",
       "linkNectyr": "NECTYR মনিটরিং অ্যাপ",
       "crossSellSuffix": "।",

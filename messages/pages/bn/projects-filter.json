@@ -42,7 +42,7 @@
         "q0": "কোন প্ল্যান্ট স্বয়ংক্রিয় Taypro রোবটের জন্য উপযুক্ত?",
         "a0": "গ্রাউন্ড-মাউন্ট ইউটিলিটি, প্রায় 50 MW+, পুনরাবৃত্ত row spacing, সulभ ব্লক, সয়েলিং/জল সীমা যেখানে ম্যানুয়াল ধোয়া ব্যয়বহুল। ফিক্সড-টিল্টে GLYDE; সিঙ্গেল-অ্যাক্সিসে GLYDE-X।",
         "q1": "স্বয়ংক্রিয় প্রকল্প অর্ধ-স্বয়ংক্রিয় বা CAPEX থেকে কীভাবে আলাদা?",
-        "a1": "স্বয়ংক্রিয় তালিকায় fixed schedule-এ সম্পূর্ণ স্বায়ত্তশাসিত ফ্লিট। অর্ধ-স্বয়ংক্রিয়ে ছড়িয়ে ব্লকে HELYX। CAPEX outright ক্রয়; একই মালিক Taypro Opex-ও নিতে পারেন।",
+        "a1": "স্বয়ংক্রিয় তালিকায় fixed schedule-এ সম্পূর্ণ স্বায়ত্তশাসিত ফ্লিট। অর্ধ-স্বয়ংক্রিয়ে ছড়িয়ে ব্লকে HELYX। CAPEX outright ক্রয়; একই মালিক Opex-ও নিতে পারেন।",
         "q2": "কোটেশনের আগে কী পড়ব?",
         "a2": "নিকটতম MW/অঞ্চলের কেস স্টাডি, automatic product page, ROI calculator, layout Taypro-এর সাথে শেয়ার।"
       }
@@ -98,7 +98,7 @@
       "title": "CAPEX সোলার প্যানেল পরিষ্কার রোবট প্রকল্প",
       "description": "CAPEX-মালিকানাধীন সোলার প্যানেল পরিষ্কার রোবট ইনস্টলেশন দেখুন। গ্রাহকরা ইন-হাউস O&M-এর জন্য Taypro হার্ডওয়্যার কিনেছেন।",
       "introP1Before": "CAPEX তালিকা utility ও IPP দেখায় যারা Taypro cleaning robot outright কিনেছে, balance sheet-এ capital, in-house/contracted O&M। contrast:",
-      "introP1Link": "Taypro Opex cleaning as a service",
+      "introP1Link": "Opex cleaning as a service",
       "introP1After": ", যেখানে Taypro robot মালিক ও SLA-তে cycle চালায়। দুটোই ভারতে; choice balance-sheet, O&M maturity, payback horizon-এ।",
       "introP2": "CAPEX buyer asset control, spare stocking, SCADA/NECTYR integration চায়। Taypro commissioning, training, pan-India spare support। নিচের CAPEX plant fleet sizing MW/soiling/tracker vs fixed-tilt দেখায়।",
       "introP3Before": "ownership economics",
@@ -131,7 +131,7 @@
         "cta": "আপনার প্ল্যান্ট নিয়ে আলোচনা",
         "q0": "Taypro listing-এ CAPEX মানে?",
         "a0": "Developer/IPP capital equipment হিসেবে কিনেছে, internal/third-party O&M। Taypro hardware, commissioning, support; owner depreciation/uptime।",
-        "q1": "CAPEX Taypro Opex থেকে আলাদা কী?",
+        "q1": "CAPEX Opex থেকে আলাদা কী?",
         "a1": "Opex-এ Taypro fleet মালিক, SLA cleaning। predictable opex line, outsourced execution। CAPEX strong in-house O&M/asset ownership।",
         "q2": "CAPEX plant Taypro operations-এ?",
         "a2": "Hardware CAPEX + monitoring/audit contract সম্ভব। case study-তে model। proposal-এ preferred split share।"
@@ -144,7 +144,7 @@
       "breadcrumb": "Opex",
       "eyebrow": "Operator-led cleaning service",
       "title": "Opex সোলার প্যানেল পরিষ্কার রোবট প্রকল্প",
-      "description": "Taypro Opex সোলার প্যানেল পরিষ্কার রোবট মোতায়েন দেখুন। Taypro-মালিকানাধীন ফ্লিট, pay-per-panel চক্র ও SLA-সমর্থিত অপারেশন।",
+      "description": "Opex সোলার প্যানেল পরিষ্কার রোবট মোতায়েন দেখুন। Taypro-মালিকানাধীন ফ্লিট, pay-per-panel চক্র ও SLA-সমর্থিত অপারেশন।",
       "introP1Before": "Opex listings document plants where Taypro delivers",
       "introP1Link": "robotic cleaning as a managed service",
       "introP1After": ", Taypro retains fleet ownership, schedules cycles, and reports completion through NECTYR. Owners pay for cleaned panels rather than capitalizing robots on the balance sheet.",
@@ -165,12 +165,12 @@
       "gridIntro": "Select a plant to see how Taypro structured service delivery, fleet mix, and reporting for operator-led cleaning.",
       "closingHeading": "Evaluating Opex vs CAPEX for your site?",
       "closingBodyBeforeLink": "Read",
-      "closingProductLink": "Taypro Opex service scope",
+      "closingProductLink": "Opex service scope",
       "closingBodyMiddle": "alongside",
       "closingContactLink": "contact Taypro",
       "closingBodyAfter": " with plant MW, target cycle frequency, and whether you prefer owned fleets or managed service delivery.",
       "schemaName": "Opex সোলার প্যানেল পরিষ্কার রোবট ইনস্টলেশন প্রকল্প",
-      "schemaDescription": "ইউটিলিটি-স্কেল প্ল্যান্ট যেখানে Taypro Opex সেবা মডেলে অপারেটর-নেতৃত্বাধীন রোবোটিক পরিষ্কার দেয়।",
+      "schemaDescription": "ইউটিলিটি-স্কেল প্ল্যান্ট যেখানে Opex সেবা মডেলে অপারেটর-নেতৃত্বাধীন রোবোটিক পরিষ্কার দেয়।",
       "imageAltSuffix": "Taypro-এর Opex সোলার প্যানেল পরিষ্কার রোবট ইনস্টলেশন প্রকল্প",
       "imageTitleSuffix": "Opex সোলার প্যানেল পরিষ্কার রোবট প্রকল্প",
       "faq": {
@@ -183,7 +183,8 @@
         "a1": "CAPEX listings show owners who bought robots outright and operate them in-house or with contracted crews. Opex listings show Taypro retaining ownership and running cycles. The same GLYDE or HELYX technology can appear under either model depending on procurement choice.",
         "q2": "Can we switch from Opex to CAPEX later?",
         "a2": "Some owners start with Opex to prove cycle frequency and soiling recovery, then transition to owned fleets once layout and economics are validated. Share your roadmap with Taypro during proposal so fleet sizing and contract terms stay aligned."
-      }
+      },
+      "introP4": "প্রকাশিত Opex কেস স্টাডিগুলি উদ্ভিদের ক্ষমতা, ভূগোল এবং পরিষেবা মডেল সহ নীচে প্রদর্শিত হবে৷ নতুন স্থাপনা প্রকাশিত হওয়ার সাথে সাথে আপডেটগুলি গণনা করুন — সম্পূর্ণ পোর্টফোলিওর জন্য প্রকল্প হাব ব্যবহার করুন।"
     }
   },
   "Common": {

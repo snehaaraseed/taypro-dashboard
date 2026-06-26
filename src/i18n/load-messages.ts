@@ -1,6 +1,7 @@
 import { existsSync } from "fs";
 import { readdir, readFile } from "fs/promises";
 import { join } from "path";
+import { pageModulesForPathname } from "./route-message-modules";
 
 /** Resolve messages dir when PM2 cwd is `.next/standalone`. */
 function resolveMessagesRoot(): string {
@@ -67,6 +68,71 @@ async function mergePageModules(
     // Directory missing or unreadable
   }
   return merged;
+}
+
+async function mergeSelectedPageModules(
+  messages: Record<string, unknown>,
+  locale: string,
+  files: string[]
+): Promise<Record<string, unknown>> {
+  const root = resolveMessagesRoot();
+  let merged = messages;
+
+  for (const file of files) {
+    if (locale !== "en") {
+      const enPath = join(root, "pages", "en", file);
+      if (existsSync(enPath)) {
+        try {
+          const enRaw = await readFile(enPath, "utf8");
+          merged = deepMerge(
+            merged,
+            JSON.parse(enRaw) as Record<string, unknown>
+          );
+        } catch (err) {
+          console.error(
+            `[i18n] Skipping invalid page messages en/${file}:`,
+            err instanceof Error ? err.message : err
+          );
+        }
+      }
+    }
+
+    const localePath = join(root, "pages", locale, file);
+    if (existsSync(localePath)) {
+      try {
+        const localeRaw = await readFile(localePath, "utf8");
+        merged = deepMerge(
+          merged,
+          JSON.parse(localeRaw) as Record<string, unknown>
+        );
+      } catch (err) {
+        console.error(
+          `[i18n] Skipping invalid page messages ${locale}/${file}:`,
+          err instanceof Error ? err.message : err
+        );
+      }
+    }
+  }
+
+  return merged;
+}
+
+/** Load base locale JSON + only page modules required for the request path. */
+export async function loadMessagesForPath(
+  locale: string,
+  logicalPathname?: string
+): Promise<Record<string, unknown>> {
+  if (!logicalPathname?.trim()) {
+    return loadMessages(locale);
+  }
+
+  const root = resolveMessagesRoot();
+  const basePath = join(root, `${locale}.json`);
+  const baseRaw = await readFile(basePath, "utf8");
+  let messages = JSON.parse(baseRaw) as Record<string, unknown>;
+  const files = pageModulesForPathname(logicalPathname);
+  messages = await mergeSelectedPageModules(messages, locale, files);
+  return messages;
 }
 
 /** Load base locale JSON + page modules; non-English locales fall back to en page files. */

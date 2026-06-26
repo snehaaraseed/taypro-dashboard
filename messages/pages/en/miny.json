@@ -76,9 +76,14 @@
       "subtitle": "Tell us about your rooftop plant and we will share specs, pricing guidance, and pilot opportunities as we approach general availability.",
       "formEyebrow": "Early access",
       "formTitle": "Register interest in MINY",
+      "firstNameLabel": "Your name*",
+      "emailLabel": "Work email*",
+      "phoneLabel": "Phone number*",
       "messageLabel": "Rooftop plant details",
       "messagePlaceholder": "Plant capacity, city, roof type, current cleaning method, timeline…",
-      "submitLabel": "Send interest request"
+      "submitLabel": "Send interest request",
+      "thankYouTitle": "You're on the MINY list",
+      "thankYouMessage": "We'll share specs, pilot slots, and launch updates for your region as MINY approaches general availability."
     },
     "related": {
       "eyebrow": "Available today",
@@ -91,7 +96,7 @@
         },
         "1": {
           "label": "All solar cleaning robots",
-          "description": "Compare GLYDE, HELYX, GLYDE-X, Taypro OPEX, and NECTYR."
+          "description": "Compare GLYDE, HELYX, GLYDE-X, OPEX, and NECTYR."
         }
       }
     },

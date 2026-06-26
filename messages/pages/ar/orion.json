@@ -84,7 +84,12 @@
       "formTitle": "سجّل اهتمامك بـ ORION",
       "messageLabel": "سياق المحطة والبيانات",
       "messagePlaceholder": "سعة MW، الموقع، SCADA، أسطول الروبوت، تحديات O&M…",
-      "submitLabel": "إرسال طلب الاهتمام"
+      "submitLabel": "إرسال طلب الاهتمام",
+      "firstNameLabel": "اسمك*",
+      "emailLabel": "البريد الإلكتروني للعمل*",
+      "phoneLabel": "رقم التليفون*",
+      "thankYouTitle": "شكرًا لاهتمامك ORION",
+      "thankYouMessage": "سيقوم فريقنا بمتابعة أهلية البرنامج التجريبي ونطاق التكامل والجدول الزمني بموجب اتفاقية عدم الإفشاء المتبادلة."
     },
     "related": {
       "eyebrow": "متاح اليوم",

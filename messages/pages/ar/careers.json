@@ -183,6 +183,17 @@
       "thankYouTitle": "Application received",
       "thankYouMessage": "Thank you for applying. Our HR team will review your profile and contact you if there is a match.",
       "submitAnother": "Submit another application"
+    },
+    "leadModal": {
+      "topic": "الوظائف في Taypro",
+      "title": "إرسال الطلب العام",
+      "subtitle": "لا يوجد دور مطابق مدرج؟ شارك خلفيتك ومجال اهتمامك ورابطًا لسيرتك الذاتية - فنحن نراجع كل طلب مدروس.",
+      "formPrompt": "أين يجب أن نصل إليك؟",
+      "messageLabel": "عنك",
+      "messagePlaceholder": "الاهتمام بالدور، سنوات الخبرة، تفضيل الموقع، LinkedIn أو رابط السيرة الذاتية...",
+      "submitLabel": "إرسال التطبيق",
+      "thankYouTitle": "شكرا لتواصلك معنا",
+      "thankYouMessage": "سيقوم فريق الموظفين لدينا بمراجعة ملاحظتك والعودة إذا كانت مناسبة."
     }
   }
 }

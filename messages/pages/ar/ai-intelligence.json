@@ -14,18 +14,27 @@
       "title": "ذكاء أسطول شمسي وعمليات NECTYR",
       "body": "TAYPRO's competitive advantage is not the robot alone — it is what the intelligence layer knows. Self-learning models trained on 11 billion+ annual panel passes across 150+ plants refine soiling prediction, battery routing, and weather scheduling with every cycle. Plants commissioned today inherit years of prior fleet intelligence.",
       "ctaNectyr": "استكشف NECTYR",
-      "ctaTechnology": "تقنية التنظيف"
+      "ctaTechnology": "تقنية التنظيف",
+      "lead": "ترث المصانع التي يتم تشغيلها اليوم سنوات من المعلومات الاستخبارية السابقة للأسطول. NECTYR يبدأ التنظيف أو يؤجله أو يسرعه بشكل مستقل بناءً على نماذج الطقس ومخاطر التلوث وحالة البطارية وصحة الروبوت - دون انتظار قيام المشغل بإعادة كتابة الجدول بعد كل عاصفة ترابية."
     },
     "flywheel": {
       "eyebrow": "The data flywheel",
       "heading": "How daily fleet cycles feed AI that improves itself",
-      "body": "Every cleaning cycle across Taypro's 5 GW+ deployed fleet generates structured data — soiling rates by geography and season, weather correlation, battery performance, and fault patterns. Models ingest this telemetry continuously: a plant in Rajasthan benefits from monsoon-shoulder timing learned in Maharashtra; a new GLYDE-X tracker site inherits routing intelligence from hundreds of prior array maps. The dataset compounds with each site added. Competitors entering today would need years of equivalent utility-scale deployments to replicate it."
+      "body": "Every cleaning cycle across Taypro's 5 GW+ deployed fleet generates structured data — soiling rates by geography and season, weather correlation, battery performance, and fault patterns. Models ingest this telemetry continuously: a plant in Rajasthan benefits from monsoon-shoulder timing learned in Maharashtra; a new GLYDE-X tracker site inherits routing intelligence from hundreds of prior array maps. The dataset compounds with each site added. Competitors entering today would need years of equivalent utility-scale deployments to replicate it.",
+      "closing": "تتراكم مجموعة البيانات مع كل موقع مضاف. الاستشعار → الجدول → التنظيف → السجل → التعلم - كل ليلة عبر الأسطول.",
+      "step0": "حاسة",
+      "step1": "جدول",
+      "step2": "ينظف",
+      "step3": "سجل",
+      "step4": "يتعلم"
     },
     "capabilities": {
       "eyebrow": "ست قدرات ذكاء اصطناعي",
       "heading": "ذكاء أسطول ذاتي التعلم — مباشر في NECTYR",
       "intro": "These are not roadmap features. They run across Taypro's active fleet every night.",
-      "hardwareCrossLink": "تقنية التنظيف"
+      "hardwareCrossLink": "تقنية التنظيف",
+      "hardwareCrossBefore": "تم توثيق كيفية تنفيذ الروبوتات فعليًا لعمليات التنظيف - التنظيف الجاف المزدوج، وأوزان المنصات، والأجهزة الميدانية -",
+      "hardwareCrossAfter": "."
     },
     "capability0": {
       "title": "Self-learning fleet intelligence",
@@ -57,7 +66,13 @@
       "item3": "Wet microfiber detection alerts and automatic cycle protection",
       "item4": "Predictive maintenance alerts from fleet-wide deviation signatures",
       "item5": "Cycle audit logs and exportable reports for PR and AMC evidence",
-      "nectyrLink": "Explore NECTYR"
+      "nectyrLink": "Explore NECTYR",
+      "trackingTitle": "تصور التنظيف المباشر",
+      "trackingBody": "NECTYR يعرض موضع الروبوت في الوقت الفعلي على خريطة تخطيط المصنع. يرى المشغلون الصف الذي يتم تنظيفه، ونسبة التقدم، وحالة الأسطول في أي لحظة - وليس الطابع الزمني الذي تمت رؤيته مؤخرًا منذ ساعات مضت.",
+      "predictiveTitle": "ملفات تعريف الصحة لكل روبوت",
+      "predictiveBody": "يعمل سحب تيار المحرك، ومنحنيات شحن وتفريغ البطارية، وعزم دوران الفرشاة، وأنماط إشارة المستشعر على إنشاء ملف تعريف صحي لكل روبوت. يتم وضع علامة على توقيعات الانحراف التي تسبق تآكل المحمل أو نهاية عمر الفرشاة قبل أن يصبح العطل انهيارًا.",
+      "autonomousTitle": "تنسيق الأسطول المستقل",
+      "autonomousBody": "يتم بدء دورات التنظيف وإيقافها مؤقتًا وتسريعها بواسطة الذكاء الاصطناعي للأسطول استنادًا إلى نماذج الطقس وتوقعات الاتساخ وحالة البطارية وصحة الروبوت. توثق مسارات التدقيق على مستوى الكتلة كل قرار يتعلق بمراجعة O&M وإعداد تقارير مالك الأصول."
     },
     "orion": {
       "eyebrow": "Roadmap",
@@ -68,14 +83,30 @@
     "dataMoat": {
       "eyebrow": "For investors & enterprise buyers",
       "heading": "خندق بيانات مركّب على نطاق الأسطول",
-      "body": "Every cleaning cycle across Taypro's 5 GW+ operational fleet generates structured data that trains AI models improving continuously. A competitor entering the market today would need years of equivalent deployments to replicate this dataset. Taypro's technology advantage compounds with scale — and every new site makes the model smarter for the entire fleet."
+      "body": "Every cleaning cycle across Taypro's 5 GW+ operational fleet generates structured data that trains AI models improving continuously. A competitor entering the market today would need years of equivalent deployments to replicate this dataset. Taypro's technology advantage compounds with scale — and every new site makes the model smarter for the entire fleet.",
+      "bullet0": "يمر أكثر من 11 مليار لوحة سنوية عبر أكثر من 150 مصنعًا في المناطق الصحراوية والزراعية والساحلية",
+      "bullet1": "القياس عن بعد للتنظيف المسمى على NECTYR منذ عام 2022 - أكبر مجموعة بيانات لذكاء التنظيف في الهند",
+      "bullet2": "نقل النماذج عبر المواقع: ترث المصانع الجديدة معلومات الجدولة والتوجيه في اليوم الأول",
+      "bullet3": "تفاقم الفجوة: يضيف كل موسم تنظيف مكتبات الغبار الإقليمية، وسلائف الخطأ، وعمق الارتباط بالطقس"
     },
     "cta": {
       "heading": "See the full technology stack",
       "cleaningTech": "Cleaning technology",
       "contact": "Contact Taypro",
       "nectyr": "Explore NECTYR",
-      "projects": "مشاريع نشطة"
+      "projects": "مشاريع نشطة",
+      "leadModal": {
+        "topic": "تحقيق استخباراتي بالذكاء الاصطناعي",
+        "title": "تحدث إلى Taypro حول استخبارات الأسطول",
+        "subtitle": "بالنسبة لفرق O&M، أو IPPs، أو مشتري المؤسسات الذين يستكشفون NECTYR، أو ORION، أو دولاب الموازنة للبيانات وراء أسطول Taypro للذكاء الاصطناعي.",
+        "formPrompt": "أين يجب أن نصل إليك؟",
+        "messageLabel": "رسالتك",
+        "messagePlaceholder": "التنظيم، ومحفظة المصنع MW، وإعداد SCADA، والروبوتات في الموقع، وما تريد استكشافه...",
+        "submitLabel": "إرسال الاستفسار",
+        "thankYouTitle": "شكرا لك – لقد تلقينا رسالتك",
+        "thankYouMessage": "سيقوم فريقنا بمتابعة استفسارك المتعلق بالطبقة الاستخباراتية قريبًا.",
+        "ctaLabel": "اتصل بنا Taypro"
+      }
     },
     "whyScale": {
       "eyebrow": "لماذا يهم الحجم",
@@ -99,27 +130,120 @@
       "panelsLabel": "ألواح تُنظف سنوياً",
       "sitesLabel": "محطات نشطة",
       "deployedLabel": "سعة الروبوتات المنشورة",
-      "methodologyLink": "منهجية الأداء والاختبار"
+      "methodologyLink": "منهجية الأداء والاختبار",
+      "footnoteBefore": "تم تصميم أرقام تأثير الأسطول من عمليات النشر المباشر. انظر لدينا",
+      "footnoteAfter": "للافتراضات."
     },
     "platformStack": {
       "eyebrow": "منصة ثلاثية الطبقات",
-      "heading": "الروبوتات تنفّذ. NECTYR يقرر. ORION يوسّع."
+      "heading": "الروبوتات تنفّذ. NECTYR يقرر. ORION يوسّع.",
+      "intro": "تم تصميم Taypro كحلقة مغلقة - تقوم الأجهزة الميدانية بإنشاء البيانات، وتحول برمجيات الأسطول البيانات إلى قرارات ليلية، وتربط طبقة خريطة الطريق ذكاء التنظيف بصحة النبات الكاملة.",
+      "layer0": {
+        "tag": "اليوم · الميدان",
+        "title": "روبوتات التنظيف المستقلة",
+        "body": "تحمل الروبوتات GLYDE وGLYDE-X وNYUMA وNYUMA-X أجهزة استشعار ومحركات ذاتية التشغيل وأقفال أمان داخلية. تنتج كل تمريرة قياسًا عن بعد مُسمى: تغطية الصف، وسحب البطارية، وعزم دوران الفرشاة، وحالة العنصر الرطب، وتوقيعات الخطأ."
+      },
+      "layer1": {
+        "tag": "اليوم · الأسطول",
+        "title": "NECTYR معلومات العمليات",
+        "body": "بوابة الويب الآمنة حيث يتم تشغيل الذكاء الاصطناعي للأسطول بشكل مباشر: جدولة مستقلة، وتتبع مباشر للروبوت في تخطيط المصنع، وتصنيف خطأ السبب الجذري، وتنبيهات الصيانة التنبؤية، وسجلات تدقيق الدورة القابلة للتصدير لأدلة PR وAMC."
+      },
+      "layer2": {
+        "tag": "خريطة الطريق · النبات",
+        "title": "ORION طبقة صحة النبات",
+        "body": "مراقبة مدركة للجيل تعمل على توسيع نفس المسارات الذكية من عمليات التنظيف إلى سلامة الأصول الكاملة - حتى يتمكن المالكون من التصرف قبل انتهاء MWh، وليس بعد أن يظهر SCADA الانخفاض."
+      }
     },
     "dataSignals": {
       "eyebrow": "ما تلتقطه كل دورة",
-      "heading": "تسميات البيانات التي تدرب ذكاء الأسطول"
+      "heading": "تسميات البيانات التي تدرب ذكاء الأسطول",
+      "intro": "تخبرك المراقبة العامة لوقت التشغيل أن الروبوت متصل بالإنترنت. تحدد طبقة ذكاء Taypro ما حدث، وسبب أهميته، وكيف يجب أن تتغير الدورة التالية.",
+      "signal0": {
+        "title": "معدل الاتساخ بالكتلة",
+        "body": "ترتبط استجابة الأداء بعد التنظيف بالجغرافيا والموسم ونوع المصفوفة - مما يؤدي إلى إنشاء مكتبات غبار إقليمية عبر أصعب البيئات في الهند."
+      },
+      "signal1": {
+        "title": "ارتباط الطقس",
+        "body": "ترتبط سرعة الرياح واحتمال المطر والرطوبة وحبوب اللقاح وسياق الندى بقرار كل دورة - وليس أجهزة استشعار المطر الثنائية وحدها."
+      },
+      "signal2": {
+        "title": "البطارية لكل طوبولوجيا الصف",
+        "body": "تم تعيين منحنيات الشحن والتفريغ لطول الصف، وهندسة الفجوة، والتموج - لتغذية نماذج تحسين مسار التعلم الآلي."
+      },
+      "signal3": {
+        "title": "سلائف الخطأ",
+        "body": "تيار المحرك، وعزم دوران الفرشاة، وتوقيعات انحراف المستشعر التي تسبق تآكل المحمل، أو تشبع الفرشاة، أو تدهور وحدة التحكم."
+      },
+      "signal4": {
+        "title": "حالة العنصر الرطب",
+        "body": "تم تأجيل دورات ملصقات الكشف عن الرطوبة المصنوعة من الألياف الدقيقة لحماية الوحدة - لمنع تلف التلطخ على الزجاج المترب."
+      },
+      "signal5": {
+        "title": "مسار تدقيق التغطية",
+        "body": "الطوابع الزمنية الخاصة بالكتل، ونسبة التقدم، والسجلات القابلة للتصدير لحوكمة O&M، وتسوية AMC، وإعداد تقارير مالك الأصول."
+      }
     },
     "deepDive": {
       "eyebrow": "كيف يعمل ميدانياً",
-      "heading": "ثلاث قدرات تغيّر O&M الليلي"
+      "heading": "ثلاث قدرات تغيّر O&M الليلي",
+      "dive0": {
+        "title": "ثبات الرسم البياني للموقع في NECTYR",
+        "body": "ينشئ اجتياز النشر الأول رسمًا بيانيًا للموقع مُخزنًا — أبعاد اللوحة، والفجوات، وأطوال الصفوف، والتموجات، وشروط النهاية — التي يعيد NECTYR استخدامها كل ليلة. يقرأ محللو المسار هذا الرسم البياني بدلاً من إعادة اكتشاف الهندسة، مما يقلل السفر الميت ويزيد المساحة النظيفة لكل شحنة بمقدار 2 × تقريبًا مقابل المسارات الجشعة غير المعينة.",
+        "detail": "ترث محافظ التتبع استدلالات التوجيه من مئات الرسوم البيانية السابقة ذات المحور الواحد. يرى المشغلون خطط التغطية وسجلات التنفيذ مقابل نفس الخريطة — أحد مصادر الحقيقة لـ O&M والتدريب النموذجي."
+      },
+      "dive1": {
+        "title": "جدولة ذاتية دون إعادة كتابة المشغل",
+        "body": "تتوقف الروبوتات ذات الجدول الزمني الثابت عن المطر وتستأنف عملها وفقًا للتقويم. يستوعب الذكاء الاصطناعي للأسطول في Taypro نماذج الطقس متعددة المعلمات، والتنبؤات بالتلوث، وحالة البطارية، وصحة الأسطول لبدء الدورات أو تأجيلها أو تسريعها - دون انتظار قيام المشغل بتحرير المؤقتات بعد كل عاصفة ترابية.",
+        "detail": "دقة الجدولة التي تم التحقق منها ميدانيًا بنسبة 95% تعني عددًا أقل من عمليات التشغيل الضائعة بعد الظروف غير الفعالة ومواءمة أفضل مع نوافذ الإنشاء. يضيف اكتشاف العناصر الرطبة طبقة أمان ثانية تتجاوز بيانات التنبؤ وحدها."
+      },
+      "dive2": {
+        "title": "تشخيص السبب الجذري قبل الإرسال",
+        "body": "When a robot stops, NECTYR identifies where it stopped and the probable cause: misaligned panel edge, physical obstacle, motor fault, brush saturation, battery threshold, or communication drop. Field teams dispatch with the right spares instead of exploratory truck rolls.",
+        "detail": "تم إنشاء ملفات تعريف صحية لكل روبوت من تيار المحرك، ومنحنيات الشحن، وتوقيعات انحراف علامة عزم دوران الفرشاة قبل ظهور الأعطال - صيانة تنبؤية للأجهزة مستنيرة من خلال التعرف على الأنماط على مستوى الأسطول."
+      }
     },
     "forWhom": {
       "eyebrow": "مبني لـ O&M على نطاق المرافق",
-      "heading": "من يستفيد من ذكاء الأسطول"
+      "heading": "من يستفيد من ذكاء الأسطول",
+      "intro": "تخدم طبقة المعلومات أصحاب المصلحة المختلفين عبر نفس البيانات الليلية - بدءًا من المشغلين على مستوى الكتلة وحتى مالكي أصول المحفظة.",
+      "segment0": {
+        "title": "قم بتكوين فرق O&M",
+        "body": "قم بتأكيد التغطية الشاملة الليلة الماضية قبل نوبة الصباح. قارن بين الدورات المخططة والدورات الفعلية مقابل استراتيجية التنظيف الشهرية. إرسال أطقم العمل الميدانية مع سياق السبب الجذري بدلاً من التخمين.",
+        "link": "اكتشف NECTYR",
+        "href": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
+      },
+      "segment1": {
+        "title": "الهندسة المركزية و IPPs",
+        "body": "حدد الاتجاهات الملوثة عبر المحافظ متعددة المواقع. تصدير أدلة التنظيف الجاهزة للتدقيق لمناقشات التسوية ونسبة الأداء AMC. ورث نماذج تعلم الأسطول في اليوم الأول في المصانع التي تم تشغيلها حديثًا.",
+        "link": "المشاريع الحية",
+        "href": "/projects"
+      },
+      "segment2": {
+        "title": "الشركاء والمستثمرين",
+        "body": "افهم لماذا تؤدي البيانات الميدانية عند 5 GW+ من مركبات الإنتاجية اليومية إلى تعميق الميزة التكنولوجية. NECTYR مباشر اليوم؛ ORION يعمل على توسيع صحة النبات على نفس القضبان عند التجديد AMC.",
+        "link": "الشركة والحجم",
+        "href": "/company#investors"
+      }
     },
     "faq": {
       "title": "الأسئلة الشائعة",
-      "subtitle": "إجابات عن طبقة الذكاء الاصطناعي وNECTYR."
+      "subtitle": "إجابات عن طبقة الذكاء الاصطناعي وNECTYR.",
+      "q0": "ما هي طبقة ذكاء الذكاء الاصطناعي الخاصة بـ Taypro؟",
+      "a0": "إنها مجموعة برامج التعلم الذاتي التي تقف خلف أسطول التنظيف الآلي الخاص بـ Taypro — وهي نماذج تم تدريبها على القياس الميداني المسمى من 5 GW+ من الإنتاجية التشغيلية اليومية التي تعمل على تحسين التنبؤ بالتلوث، وتوجيه البطارية، وجدولة الطقس، واكتشاف الأخطاء مع كل دورة. NECTYR هي بوابة العمليات المباشرة حيث يتم تشغيل هذه المعلومات الاستخبارية اليوم.",
+      "q1": "هل أسطول الذكاء الاصطناعي موجود اليوم أم على خريطة الطريق؟",
+      "a1": "تتوفر الإمكانات الأساسية عبر الأسطول النشط في NECTYR: نماذج التلوث ذاتية التعلم، وتخطيط صفيف ML، والتوجيه المدرك للبطارية، وجدولة الطقس بدقة 95%، واكتشاف الألياف الدقيقة الرطبة، وبدء الدورة المستقلة. ORION — توسيع نطاق المعلومات لتشمل صحة النبات الكاملة — موجود في خريطة الطريق مع إمكانية الوصول المبكر لأصحاب الأصول المختارين.",
+      "q2": "كيف يستفيد المصنع الجديد من بيانات الأسطول السابقة؟",
+      "a2": "يتم تطبيق النماذج المدربة على الأسطول الحي عند التشغيل. يرث المصنع الذي يتم تشغيله خلال هذا الربع معلومات الجدولة من مئات عمليات النشر السابقة - توقيت الرياح الموسمية، وتوقيعات الغبار الإقليمية، وخرائط توجيه التتبع، ومكتبات سلائف الأخطاء المتراكمة منذ عام 2022.",
+      "q3": "كيف يختلف هذا عن النبات SCADA؟",
+      "a3": "SCADA يخبرك بأن الجيل قد انخفض. تخبرك الطبقة الذكية لـ Taypro عن سبب تفويت عملية التنظيف، وما هي الكتل التي تحتاج إلى الأولوية، وما إذا كانت الروبوتات سليمة، وما إذا كانت الظروف مناسبة للتنظيف. NECTYR مكمل SCADA وCMMS - وهو متخصص في عمليات التنظيف بالطاقة الشمسية الآلية.",
+      "q4": "ما هي البيانات التي تولدها كل دورة تنظيف؟",
+      "a4": "ملصقات منظمة بما في ذلك معدل الاتساخ حسب الكتلة، وارتباط الطقس، واستهلاك البطارية لكل هيكل صف، ومسارات تدقيق التغطية، وحالة العنصر الرطب، وتوقيعات نذير الخطأ. تعمل هذه البيانات على تغذية النماذج التي تعمل على تحسين التوجيه والجدولة على مستوى الأسطول - وليس فقط في المصنع الأصلي.",
+      "q5": "أين يمكنني رؤية المجموعة الكاملة للأجهزة وتقنيات التنظيف؟",
+      "a5": "تغطي صفحة تكنولوجيا التنظيف التنظيف الجاف المزدوج، وأوزان المنصة، وذكاء العمليات الحية، والتفاصيل الكاملة لقدرات الذكاء الاصطناعي. يحتوي NECTYR على صفحة منتج مخصصة لميزات مدخل الأسطول والأمان وسير عمل O&M."
+    },
+    "capability5": {
+      "title": "تنسيق الأسطول المستقل",
+      "body": "تعمل قواعد الأسطول ومخرجات النموذج على بدء الإيقاع أو إيقافه مؤقتًا أو تشديده عند محاذاة المخاطر الملوثة ونوافذ الطقس وصحة الروبوت. أحداث الغبار تشدد الجداول الزمنية. حالات المطر أو العناصر الرطبة توقف الأساطيل. تتم كتابة كل قرار في مسارات التدقيق على مستوى الكتلة للحوكمة والأدلة AMC."
     }
   },
   "Common": {

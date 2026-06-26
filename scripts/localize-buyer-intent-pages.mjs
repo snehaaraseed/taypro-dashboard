@@ -109,7 +109,7 @@ const OVERLAYS = {
         meta: {
           title: "सोलर पैनल सफाई लागत भारत | प्रति MW OPEX मूल्य",
           description:
-            "प्रति MW सोलर सफाई लागत: मैनुअल vs रोबोटिक, Taypro OPEX ₹0.45–0.70 प्रति पैनल प्रति साइकिल।",
+            "प्रति MW सोलर सफाई लागत: मैनुअल vs रोबोटिक, OPEX ₹0.45–0.70 प्रति पैनल प्रति साइकिल।",
           openGraphTitle: "सोलर सफाई OPEX मूल्य भारत | Taypro",
           openGraphDescription:
             "सोलर पैनल सफाई की लागत कितनी है? OPEX मॉडल और ROI कैलकुलेटर।",

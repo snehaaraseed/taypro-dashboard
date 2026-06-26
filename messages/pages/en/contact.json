@@ -17,7 +17,7 @@
       "titleLine2": "solar panel cleaning robots",
       "bodyBeforeLink": "Request a quote, book a technical discussion, or plan a visit to our Chakan manufacturing hub. We help developers, IPPs, and O&M teams match",
       "bodyLink": "GLYDE, HELYX, or GLYDE-X",
-      "bodyAfterLink": "robots, and Taypro Opex or NECTYR, to your plant layout and procurement model."
+      "bodyAfterLink": "robots, and Opex or NECTYR, to your plant layout and procurement model."
     },
     "main": {
       "heading": "Reach our applications team",
@@ -49,7 +49,7 @@
       "tip0": "DC capacity (MW) and state / region of the plant",
       "tip1": "Array type: fixed tilt, seasonal tilt, rooftop, or single-axis trackers",
       "tip2": "Soiling profile, water availability, and current cleaning approach",
-      "tip3": "Whether you are evaluating CAPEX purchase or Taypro Opex as a managed service",
+      "tip3": "Whether you are evaluating CAPEX purchase or Opex as a managed service",
       "tip4": "Partners & investors: mention \"Partners & investors\" in your message so we route you to the right team",
       "viewProjects": "View projects",
       "aboutTaypro": "About Taypro"
@@ -90,13 +90,40 @@
     "phonePlaceholder": "+91 98765 43210",
     "message": "Message",
     "messagePlaceholder": "Plant capacity, location, array type, and constraints… For partners & investors, mention \"Partners & investors\".",
+    "plantDetailsLabel": "Your plant, constraints, and what hurts output",
+    "plantDetailsPlaceholder": "For example: MW capacity, fixed-tilt or trackers, soiling or dust, water limits, current cleaning approach, and the gap you want to close.",
+    "callback": {
+      "panelTitle": "Let us help you",
+      "fullName": "Full Name*",
+      "fullNamePlaceholder": "Praveen",
+      "email": "Email Address*",
+      "emailPlaceholder": "you@company.com",
+      "phone": "Phone Number*",
+      "phonePlaceholder": "+91 98765 43210",
+      "submit": "Get a Callback",
+      "submitting": "Sending...",
+      "thankYouTitle": "Thanks, we'll be in touch",
+      "thankYouMessage": "Our team will reach out to you shortly. Feel free to keep exploring the site in the meantime.",
+      "sendAnother": "Request another callback"
+    },
     "submit": "Submit",
     "submitting": "Submitting…",
     "requiredError": "Please fill the required fields",
     "genericError": "Something went wrong. Please try again.",
     "thankYouDefaultTitle": "Thanks, we've got your request.",
     "thankYouDefaultMessage": "Our applications team will get back to you shortly with the right Solar Panel Cleaning Robot fit for your plant. Feel free to keep exploring the site.",
-    "sendAnother": "Send another request"
+    "sendAnother": "Send another request",
+    "leadModal": {
+      "topic": "Contact Taypro",
+      "title": "Get in touch",
+      "subtitle": "Share a few details and our applications team will respond within one business day.",
+      "formPrompt": "How can we help?",
+      "messageLabel": "Your message",
+      "messagePlaceholder": "Plant capacity, location, array type, timeline, or your question…",
+      "submitLabel": "Send enquiry",
+      "thankYouTitle": "Thanks, we've received your enquiry",
+      "thankYouMessage": "Our applications team will respond within one business day."
+    }
   },
   "Common": {
     "breadcrumbHome": "Home"

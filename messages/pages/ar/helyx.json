@@ -41,7 +41,13 @@
       "subtitleStrong": "٩٩٪ من الغبار في مررة واحدة",
       "subtitleAfter": "، وتنظّف كتلة ١ ميغاواط في أقل من ساعتين وتقطع حتى ٣ كم بشحنة واحدة, يمكن تشغيلها بواسطة أي فريق موقع من شخصين.",
       "imgAlt": "Taypro HELYX, روبوت تنظيف ألواح شمسية شبه آلي، منظف بدون ماء بالتقاط ووضع لمزارع الطاقة الشمسية على نيوية المرافق",
-      "ctaText": "اطلب عرض سعر"
+      "ctaText": "اطلب عرض سعر",
+      "primaryCta": {
+        "topic": "HELYX اقتباس",
+        "title": "اطلب عرض أسعار HELYX",
+        "subtitle": "أخبرنا عن تخطيط المصنع الخاص بك وسيقوم فريقنا بمتابعة النشر HELYX وتغطية الكتلة والخيارات التجارية.",
+        "label": "طلب عرض أسعار"
+      }
     },
     "usps": {
       "0": {
@@ -362,7 +368,9 @@
       "specHeader": "المواصفة",
       "valueHeader": "القيمة",
       "datasheetCta": "Request full datasheet",
-      "datasheetCtaTopic": "HELYX datasheet request"
+      "datasheetCtaTopic": "HELYX datasheet request",
+      "datasheetCtaTitle": "احصل على ورقة البيانات الفنية HELYX",
+      "datasheetCtaSubtitle": "شارك تفاصيلك وسنرسل ورقة بيانات HELYX الكاملة، ثم نتابع أسئلة تخطيط الكتلة والنشر."
     },
     "manualVsRobotic": {
       "eyebrow": "التنظيف الشمسي الآلي مقابل اليدوي",
@@ -487,7 +495,7 @@
       "crossSellLead": "تنظّف محطة متعقب أحادي المحور؟ أنظر إلى ",
       "linkGlydeX": "GLYDE-X",
       "crossSellMid": ". تفضّل استقطاب التنظيف بالكامل؟ استكشف ",
-      "linkOpex": "خدمة تنظيف Taypro OPEX",
+      "linkOpex": "خدمة تنظيف OPEX",
       "crossSellSuffix": "."
     },
     "indianConditions": {
@@ -507,7 +515,7 @@
       "linkBetweenAT": "، ",
       "linkGlydeX": "روبوت GLYDE-X للمتعقب أحادي المحور",
       "linkBetweenTOpex": "، ",
-      "linkOpex": "خدمة تنظيف Taypro OPEX",
+      "linkOpex": "خدمة تنظيف OPEX",
       "linkBetweenOpexAndNectyr": "أو",
       "linkNectyr": "تطبيق مراقبة NECTYR",
       "crossSellSuffix": ".",

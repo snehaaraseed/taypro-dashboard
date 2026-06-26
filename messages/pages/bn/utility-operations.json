@@ -49,7 +49,7 @@
       "heading": "ভারতে সোলার প্যানেল soiling loss, soiling ratio ও PR উন্নতি",
       "p1": "Soiling ratio — মডিউল গ্লাসে ধূলোতে হারানো irradiance — ভারতীয় ইউটিলিটি প্ল্যান্টে PR drift চালায়। Rajasthan, Gujarat, MP-তে ক্যালেন্ডার-ভিত্তিক পরিষ্কারে ৮–২৫% বার্ষিক suppression।",
       "p2": "পরিষ্কারে PR উন্নতি baseline soiling, cycle frequency ও আবহাওয়ায় নির্ভর। রোবোটিক ড্রাই ক্লিনিং ভেজা ধোয়া ছাড়াই মাসে ৩–১০ cycles — multi-MW ফ্লিটে soiling loss neutralise-এর economical পথ।",
-      "p3": "EPC ও O&M দল PR recovery পরিষ্কার প্রমাণে bind করবে: CAPEX বা Taypro Opex commit-এর আগে NECTYR block-level logs, price guide ও calculator থেকে directional ROI।",
+      "p3": "EPC ও O&M দল PR recovery পরিষ্কার প্রমাণে bind করবে: CAPEX বা Opex commit-এর আগে NECTYR block-level logs, price guide ও calculator থেকে directional ROI।",
       "linkPriceGuide": "ভারত রোবট মূল্য গাইড",
       "linkCalculator": "ROI ক্যালকুলেটর"
     },
@@ -83,7 +83,7 @@
     "robotsSeo": {
       "eyebrow": "ক্রয় ও ইঞ্জিনিয়ারিং",
       "heading": "ভারতে ইউটিলিটি-স্কেল প্ল্যান্টের জন্য সোলার প্যানেল পরিষ্কার রোবট",
-      "bodyBefore": "Taypro ভারতে fixed tilt, seasonal tilt, single-axis tracker-এর জন্য autonomous ও semi-automatic জলবিহীন রোবট তৈরি — pan-India service, NECTYR, optional Taypro Opex। তুলনা করুন",
+      "bodyBefore": "Taypro ভারতে fixed tilt, seasonal tilt, single-axis tracker-এর জন্য autonomous ও semi-automatic জলবিহীন রোবট তৈরি — pan-India service, NECTYR, optional Opex। তুলনা করুন",
       "hubLink": "প্রতিটি Taypro রোবট মডেল",
       "bodyAfter": ", ROI calculator চালান, বা site-specific quote চান।",
       "ctaHub": "সোলার প্যানেল পরিষ্কার রোবট হাব",
@@ -110,7 +110,7 @@
       "q2": "Taypro SCADA alone থেকে কীভাবে আলাদা?",
       "a2": "SCADA loss-এর পর output report। Taypro field execution (robots), NECTYR, ORION যোগ — schedule, coverage prove, cycles performance-এ connect।",
       "q3": "রোবট কিনতে পারি নাকি managed service?",
-      "a3": "দুটোই। GLYDE, NYUMA, HELYX commissioning ও AMC-তে purchase, বা Taypro Opex pay-per-panel। Deployed robots-এ NECTYR visibility included।",
+      "a3": "দুটোই। GLYDE, NYUMA, HELYX commissioning ও AMC-তে purchase, বা Opex pay-per-panel। Deployed robots-এ NECTYR visibility included।",
       "q4": "Taypro robots কোথায় তৈরি ও support?",
       "a4": "Taypro Chakan, Pune-তে design ও manufacture — warehouses, field engineers pan-India commissioning, spares, same-day breakdown targets।",
       "q5": "ভারতীয় ইউটিলিটি প্ল্যান্টে soiling loss কী?",
@@ -118,13 +118,17 @@
       "q6": "Cleaning robots PR কীভাবে improve?",
       "a6": "Consistent cleanliness soiling-related PR drift কমায়। Robots daily/near-daily cycles — NECTYR auditable coverage। PR improvement site-dependent।",
       "q7": "India-তে solar O&M cleaning robot procurement কী?",
-      "a7": "Utility RFQs waterless fit, tracker compatibility, fleet software, breakdown SLA, CAPEX vs Opex evaluate। Taypro Made-in-India robots, NECTYR, optional Taypro Opex — India price guide, state pages।"
+      "a7": "Utility RFQs waterless fit, tracker compatibility, fleet software, breakdown SLA, CAPEX vs Opex evaluate। Taypro Made-in-India robots, NECTYR, optional Opex — India price guide, state pages।"
     },
     "cta": {
       "heading": "প্ল্যান্টের operations layer পরিকল্পনা",
       "body": "capacity, layout, procurement preference শেয়ার — robots, Opex, fleet software recommend।",
       "quote": "কোট নিন",
-      "company": "অংশীদার ও বিনিয়োগকারী"
+      "company": "অংশীদার ও বিনিয়োগকারী",
+      "quoteTopic": "ইউটিলিটি অপারেশন উদ্ধৃতি",
+      "quoteTitle": "আপনার উদ্ভিদ জন্য একটি উদ্ধৃতি পান",
+      "quoteSubtitle": "Tell us about your MW capacity, array type, region, and whether you are evaluating CAPEX robots, Taypro Opex, or NECTYR fleet software.",
+      "quoteFormPrompt": "আমরা আপনার প্রস্তাব কোথায় পাঠাতে হবে?"
     },
     "related": {
       "label": "সম্পর্কিত:",

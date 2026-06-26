@@ -86,7 +86,12 @@
       "formTitle": "سجّل اهتمامك بـ MINY",
       "messageLabel": "تفاصيل أسطحك",
       "messagePlaceholder": "سعة المحطة، المدينة، نوع السطح، طريقة التنظيف الحالية، الجدول الزمني…",
-      "submitLabel": "إرسال طلب الاهتمام"
+      "submitLabel": "إرسال طلب الاهتمام",
+      "firstNameLabel": "اسمك*",
+      "emailLabel": "البريد الإلكتروني للعمل*",
+      "phoneLabel": "رقم التليفون*",
+      "thankYouTitle": "أنت مدرج في قائمة MINY",
+      "thankYouMessage": "سنشارك المواصفات والفترات التجريبية ونطلق التحديثات لمنطقتك مع اقتراب MINY من التوفر العام."
     },
     "related": {
       "eyebrow": "متوفر اليوم",
@@ -99,7 +104,7 @@
         },
         "1": {
           "label": "جميع روبوتات التنظيف الشمسية",
-          "description": "قارن GLYDE وHELYX وGLYDE-X وTaypro OPEX وNECTYR."
+          "description": "قارن GLYDE وHELYX وGLYDE-X وOPEX وNECTYR."
         }
       }
     },

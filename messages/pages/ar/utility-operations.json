@@ -49,7 +49,7 @@
       "heading": "فقدان التغبر ونسبة التغبر وتحسين PR في India",
       "p1": "نسبة التغبر — جزء الإشعاع المفقود بسبب الغبار — تدفع انحراف PR في محطات India. في Rajasthan وGujarat وMP قد يُقمع 8–25% من التوليد السنوي عند تنظيف تقويمي.",
       "p2": "تحسين PR يعتمد على التغبر الأساسي وتكرار الدورات والطقس. التنظيف الجاف الروبوتي يتيح 3–10 دورات شهرياً بدون ماء — مسار اقتصادي لneutralize فقدان التغبر على أساطيل multi-MW.",
-      "p3": "يجب على فرق EPC وO&M ربط استرداد PR بأدلة التنظيف: سجلات NECTYR على مستوى الكتلة وROI اتجاهي من دليل الأسعار والحاسبة قبل CAPEX أو Taypro Opex.",
+      "p3": "يجب على فرق EPC وO&M ربط استرداد PR بأدلة التنظيف: سجلات NECTYR على مستوى الكتلة وROI اتجاهي من دليل الأسعار والحاسبة قبل CAPEX أو Opex.",
       "linkPriceGuide": "دليل أسعار الروبوت India",
       "linkCalculator": "حاسبة ROI"
     },
@@ -83,7 +83,7 @@
     "robotsSeo": {
       "eyebrow": "المشتريات والهندسة",
       "heading": "روبوتات تنظيف الألواح الشمسية لمحطات India على نطاق المرافق",
-      "bodyBefore": "Taypro تصنع روبوتات تنظيف بدون ماء مستقلة وشبه أوتوماتيكية لمواقع fixed tilt وseasonal tilt وsingle-axis tracker في India — خدمة pan-India وNECTYR وTaypro Opex اختياري. قارن",
+      "bodyBefore": "Taypro تصنع روبوتات تنظيف بدون ماء مستقلة وشبه أوتوماتيكية لمواقع fixed tilt وseasonal tilt وsingle-axis tracker في India — خدمة pan-India وNECTYR وOpex اختياري. قارن",
       "hubLink": "كل طراز روبوت Taypro",
       "bodyAfter": "، شغّل حاسبة ROI أو اطلب عرضاً للموقع.",
       "ctaHub": "مركز روبوت تنظيف الألواح",
@@ -110,7 +110,7 @@
       "q2": "كيف يختلف Taypro عن SCADA وحده؟",
       "a2": "SCADA يُبلغ بعد الخسارة. Taypro يضيف التنفيذ الميداني (robots) وNECTYR وORION — جدولة وإثبات تغطية وربط الدورات بالأداء.",
       "q3": "هل يمكن شراء الروبوتات أو خدمة مُدارة؟",
-      "a3": "كلاهما. اشتر GLYDE أو NYUMA أو HELYX مع commissioning وAMC، أو Taypro Opex pay-per-panel. NECTYR مُضمّن للأساطيل المنشورة.",
+      "a3": "كلاهما. اشتر GLYDE أو NYUMA أو HELYX مع commissioning وAMC، أو Opex pay-per-panel. NECTYR مُضمّن للأساطيل المنشورة.",
       "q4": "أين تُصنع روبوتات Taypro وأين الدعم؟",
       "a4": "Taypro يصمم ويصنع في Chakan, Pune — مستودعات ومهندسو ميدان pan-India للتشغيل والقطع وأهداف breakdown في نفس اليوم.",
       "q5": "ما فقدان التغبر على محطات India؟",
@@ -118,13 +118,17 @@
       "q6": "كيف تحسّن روبوتات التنظيف PR؟",
       "a6": "نظافة متسقة للوحدات تقلل drift PR. الروبوتات تتيح دورات يومية/شبه يومية — NECTYR تغطية قابلة للتدقيق. تحسين PR يعتمد على الموقع.",
       "q7": "ما مشتريات روبوت تنظيف O&M في India؟",
-      "a7": "مناقصات المرافق تقيّم waterless fit وتوافق المتتبعات وبرمجيات الأسطول وSLA وCAPEX vs Opex. Taypro روبوتات India مع NECTYR وTaypro Opex — دليل الأسعار وصفحات الولايات."
+      "a7": "مناقصات المرافق تقيّم waterless fit وتوافق المتتبعات وبرمجيات الأسطول وSLA وCAPEX vs Opex. Taypro روبوتات India مع NECTYR وOpex — دليل الأسعار وصفحات الولايات."
     },
     "cta": {
       "heading": "خطّط طبقة عمليات محطتك",
       "body": "شارك السعة والتخطيط وتفضيل المشتريات — نوصي بالروبوتات أو Opex أو برمجيات الأسطول.",
       "quote": "احصل على عرض",
-      "company": "شركاء ومستثمرون"
+      "company": "شركاء ومستثمرون",
+      "quoteTopic": "اقتباس عمليات المرافق",
+      "quoteTitle": "احصل على عرض أسعار لمصنعك",
+      "quoteSubtitle": "Tell us about your MW capacity, array type, region, and whether you are evaluating CAPEX robots, Taypro Opex, or NECTYR fleet software.",
+      "quoteFormPrompt": "أين يجب أن نرسل اقتراحك؟"
     },
     "related": {
       "label": "ذات صلة:",

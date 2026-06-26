@@ -8,6 +8,7 @@ import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Container } from "@/app/components/Container";
 import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
+import { GenericContactLeadButton } from "@/app/components/GenericContactLeadButton";
 import { FaqSection } from "@/app/components/FaqSection";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import { robots, tayproTrustedByStatsStrip } from "@/app/data";
@@ -406,12 +407,13 @@ export default function CalculatorPageClient({
                 >
                   {t("methodology.ctaButton")}
                 </OpenLeadModalButton>
-                <Link
-                  href="/contact"
+                <GenericContactLeadButton
+                  source="price_calculator"
+                  analyticsFormType="calculator_followup"
                   className="inline-flex items-center justify-center min-h-[48px] border-2 border-white/70 text-white font-medium px-8 py-3.5 rounded-md hover:bg-white/10 transition text-center"
                 >
                   {t("methodology.contactButton")}
-                </Link>
+                </GenericContactLeadButton>
               </div>
             </AnimateOnScroll>
           </Container>

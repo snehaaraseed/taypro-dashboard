@@ -204,7 +204,10 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
           imageAspectRatio={helyxHeroLayout.aspectRatio}
           imagePresentation={helyxHeroLayout.presentation}
           ctaHref="/contact"
-          ctaText={t("hero.ctaText")}
+          ctaText={t("hero.primaryCta.label")}
+          ctaTopic={t("hero.primaryCta.topic")}
+          ctaTitle={t("hero.primaryCta.title")}
+          ctaSubtitle={t("hero.primaryCta.subtitle")}
         />
 
         {/* PRODUCT OVERVIEW / SEO INTRO */}
@@ -591,6 +594,12 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
             <AnimateOnScroll animation="fadeInUp" className="text-center mt-8">
               <OpenLeadModalButton
                 topic={t("specifications.datasheetCtaTopic")}
+                title={t("specifications.datasheetCtaTitle")}
+                subtitle={t("specifications.datasheetCtaSubtitle")}
+                leadIntent={t("specifications.datasheetCtaTopic")}
+                submitLabel={t("specifications.datasheetCta")}
+                source="product_datasheet"
+                analyticsFormType="datasheet_request"
                 className="inline-flex items-center justify-center min-h-[48px] px-7 py-3 rounded-lg bg-[#A8C117] text-[#052638] font-semibold hover:bg-[#b3cf3d] transition-colors"
               >
                 {t("specifications.datasheetCta")}

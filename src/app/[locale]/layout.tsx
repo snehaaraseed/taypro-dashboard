@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
-import { buildLayoutClientMessages } from "@/i18n/pick-messages";
+import AccumulatingIntlProvider from "@/app/components/AccumulatingIntlProvider";
+import { buildSpaClientMessages } from "@/i18n/pick-messages";
+import { loadMessages } from "@/i18n/load-messages";
 import { HtmlLocaleAttributes } from "@/app/components/HtmlLocaleAttributes";
 import { SiteGraphSchema } from "@/app/components/StructuredData";
 import { TAYPRO_SALES_PHONE_E164 } from "@/lib/contact";
@@ -90,15 +91,15 @@ export default async function LocaleLayout({
   }
 
   setRequestLocale(locale);
-  const messages = await getMessages();
-  const clientMessages = buildLayoutClientMessages(messages);
+  const allMessages = await loadMessages(locale);
+  const clientMessages = buildSpaClientMessages(allMessages);
   const headerList = await headers();
   const rawCountry = headerList.get("x-visitor-country")?.trim().toUpperCase();
   const visitorCountry =
     rawCountry && /^[A-Z]{2}$/.test(rawCountry) ? rawCountry : null;
 
   return (
-    <NextIntlClientProvider locale={locale} messages={clientMessages}>
+    <AccumulatingIntlProvider locale={locale} messages={clientMessages}>
       <VisitorGeoProvider country={visitorCountry}>
       <HtmlLocaleAttributes />
       <SiteGraphSchema
@@ -117,6 +118,6 @@ export default async function LocaleLayout({
         </div>
       </LeadModalRoot>
       </VisitorGeoProvider>
-    </NextIntlClientProvider>
+    </AccumulatingIntlProvider>
   );
 }

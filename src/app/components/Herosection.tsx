@@ -7,6 +7,7 @@ import { AnimateOnScroll } from "./AnimateOnScroll";
 import { Container } from "./Container";
 import OpenLeadModalButton from "./OpenLeadModalButton";
 import { trackCtaClick } from "@/lib/analytics/track-event";
+import type { LeadModalOpenOptions } from "./lead-modal-options";
 
 interface HeroSectionProps {
   title: React.ReactNode;
@@ -21,6 +22,12 @@ interface HeroSectionProps {
   ctaText?: string;
   /** Optional analytics topic surfaced on the lead modal chip. */
   ctaTopic?: string;
+  /** Modal title when ctaHref opens the lead modal. */
+  ctaTitle?: string;
+  /** Modal subtitle when ctaHref opens the lead modal. */
+  ctaSubtitle?: string;
+  /** Extra lead-modal form options when the hero CTA opens the modal. */
+  leadModal?: Omit<LeadModalOpenOptions, "topic" | "title" | "subtitle">;
   className?: string;
   /** Native width/height ratio, e.g. "1653 / 702" for tracker robots. */
   imageAspectRatio?: string;
@@ -35,6 +42,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   ctaHref = "/contact",
   ctaText = "Request a quote",
   ctaTopic,
+  ctaTitle,
+  ctaSubtitle,
+  leadModal,
   className = "",
   imageAspectRatio,
   imagePresentation = "robot-standard",
@@ -102,7 +112,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               <OpenLeadModalButton
                 className={ctaClass}
                 topic={ctaTopic ?? ctaText}
+                title={ctaTitle}
+                subtitle={ctaSubtitle}
                 source="hero"
+                leadIntent={leadModal?.leadIntent ?? ctaTopic ?? ctaText}
+                formPrompt={leadModal?.formPrompt}
+                showMessageField={leadModal?.showMessageField}
+                showCompanyField={leadModal?.showCompanyField}
+                messageLabel={leadModal?.messageLabel}
+                messagePlaceholder={leadModal?.messagePlaceholder}
+                submitLabel={leadModal?.submitLabel ?? ctaText}
+                thankYouTitle={leadModal?.thankYouTitle}
+                thankYouMessage={leadModal?.thankYouMessage}
+                analyticsFormType={leadModal?.analyticsFormType ?? "hero_quote"}
               >
                 {ctaText}
               </OpenLeadModalButton>

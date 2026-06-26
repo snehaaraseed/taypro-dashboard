@@ -293,10 +293,10 @@ export const minyPack = {
             "সব সোলার পরিষ্কার রোবট"
           ),
           description: T(
-            "GLYDE, HELYX, GLYDE-X, Taypro OPEX, और NECTYR की तुलना करें।",
-            "قارن GLYDE وHELYX وGLYDE-X وTaypro OPEX وNECTYR.",
-            "GLYDE、HELYX、GLYDE-X、Taypro OPEX、NECTYRを比較。",
-            "GLYDE, HELYX, GLYDE-X, Taypro OPEX ও NECTYR তুলনা করুন।"
+            "GLYDE, HELYX, GLYDE-X, OPEX, और NECTYR की तुलना करें।",
+            "قارن GLYDE وHELYX وGLYDE-X وOPEX وNECTYR.",
+            "GLYDE、HELYX、GLYDE-X、OPEX、NECTYRを比較。",
+            "GLYDE, HELYX, GLYDE-X, OPEX ও NECTYR তুলনা করুন।"
           ),
         },
       },
