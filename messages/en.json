@@ -1,6 +1,9 @@
 {
   "Common": {
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "Home",
+    "errorTitle": "This page couldn't load",
+    "errorBody": "The connection may have timed out or something went wrong while loading this page. Reload to try again, or return to a working page.",
+    "errorReload": "Reload"
   },
   "LocaleSwitcher": {
     "label": "Language",

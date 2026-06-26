@@ -1,0 +1,36 @@
+---
+description: Backfill hi/ar/ja/bn page keys after English message changes
+globs: messages/pages/en/**/*.json,messages/en.json
+alwaysApply: false
+---
+
+# i18n locale backfill
+
+When you add or change keys under `messages/pages/en/*.json` (or `messages/en.json`), **hi, ar, ja, and bn must stay in key parity** with English or runtime/CI will break.
+
+## Required workflow
+
+1. Edit the English source (`messages/pages/en/{page}.json` or `messages/en.json`).
+2. If hand-authored copy exists in `scripts/locale-packs/`, run:
+   ```bash
+   node scripts/apply-marketing-locale-packs.mjs
+   ```
+3. Backfill any remaining missing keys (Google Translate + protected terms):
+   ```bash
+   npm run i18n:backfill-missing
+   ```
+   Target one file/locale when iterating:
+   ```bash
+   npm run i18n:backfill-missing -- --locale hi --file home.json
+   ```
+4. Verify:
+   ```bash
+   npm run validate:i18n
+   ```
+
+Do **not** mark i18n work complete until `validate:i18n` exits 0.
+
+## Related checks
+
+- New `"use client"` namespaces → add to `SPA_CLIENT_NAMESPACES` in `src/i18n/client-message-namespaces.ts` and keep `src/i18n/route-message-modules.ts` in sync for server `getTranslations`.
+- `Forms` lives in `contact.json` and is loaded on all server paths; avoid duplicating it in base JSON unless intentional.

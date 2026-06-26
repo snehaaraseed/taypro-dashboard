@@ -1,6 +1,9 @@
 {
   "Common": {
-    "breadcrumbHome": "الرئيسية"
+    "breadcrumbHome": "الرئيسية",
+    "errorTitle": "تعذّر تحميل هذه الصفحة",
+    "errorBody": "ربما انتهت مهلة الاتصال أو حدث خطأ أثناء تحميل هذه الصفحة. أعد التحميل أو ارجع إلى صفحة تعمل.",
+    "errorReload": "إعادة التحميل"
   },
   "LocaleSwitcher": {
     "label": "اللغة",

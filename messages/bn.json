@@ -1,6 +1,9 @@
 {
   "Common": {
-    "breadcrumbHome": "হোম"
+    "breadcrumbHome": "হোম",
+    "errorTitle": "এই পৃষ্ঠাটি লোড হয়নি",
+    "errorBody": "সংযোগের সময়সীমা শেষ হয়েছে বা পৃষ্ঠা লোড করতে সমস্যা হয়েছে। আবার লোড করুন বা অন্য কোনো পৃষ্ঠায় ফিরে যান।",
+    "errorReload": "আবার লোড করুন"
   },
   "LocaleSwitcher": {
     "label": "ভাষা",

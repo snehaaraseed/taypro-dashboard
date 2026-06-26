@@ -442,6 +442,11 @@ fi
 
 echo -e "${YELLOW}  Turning off maintenance page...${NC}"
 disable_remote_maintenance
+ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF' 2>/dev/null || true
+    set -e
+    sudo rm -rf /var/cache/nginx/taypro/* 2>/dev/null || true
+    echo "  ✅ Nginx HTML cache purged"
+EOF
 step_done
 echo ""
 

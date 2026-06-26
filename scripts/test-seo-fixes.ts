@@ -328,10 +328,15 @@ const ROUTE_MESSAGE_SAMPLES = [
   "/solar-panel-cleaning-robot-price-calculator",
   "/utility-scale-solar-operations",
   "/solar-om-services",
+  "/site-map",
+  "/compare/solar-panel-cleaning-robot-vs-manual-cleaning",
 ];
 
 const SERVER_ONLY_NAMESPACES: Record<string, string[]> = {
   "/": ["SolarSystemPage"],
+  "/blog/test-post": ["Forms"],
+  "/site-map": ["ComparisonsPage"],
+  "/compare/solar-panel-cleaning-robot-vs-manual-cleaning": ["Forms"],
 };
 
 async function assertRouteMessageCoverage() {
@@ -358,8 +363,14 @@ async function assertRouteMessageCoverage() {
 
   const contactModules = pageModulesForPathname("/contact");
   assert.ok(
-    contactModules.includes("contact.json") && contactModules.length <= 2,
-    "contact route should load a minimal page module set"
+    contactModules.includes("contact.json") && contactModules.length === 1,
+    "contact route should load only contact.json"
+  );
+
+  const blogModules = pageModulesForPathname("/blog");
+  assert.ok(
+    blogModules.includes("blog.json") && blogModules.includes("contact.json"),
+    "blog route should load blog + contact (Forms.leadModal)"
   );
 }
 

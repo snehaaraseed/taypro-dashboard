@@ -24,19 +24,16 @@ export default function LocaleError({
           Taypro
         </p>
         <h1 className="text-3xl font-semibold text-[#052638] mb-3">
-          This page couldn&apos;t load
+          {t("errorTitle")}
         </h1>
-        <p className="text-gray-600 mb-8">
-          The connection may have timed out or something went wrong while loading
-          this page. Reload to try again, or return to a working page.
-        </p>
+        <p className="text-gray-600 mb-8">{t("errorBody")}</p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
             type="button"
             onClick={() => reset()}
             className="inline-flex items-center justify-center rounded-md bg-[#052638] px-5 py-3 text-sm font-medium text-white hover:bg-[#0c3d56]"
           >
-            Reload
+            {t("errorReload")}
           </button>
           <Link
             href="/"

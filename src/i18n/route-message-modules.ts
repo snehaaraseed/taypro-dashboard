@@ -141,6 +141,10 @@ function extraPageModulesForPath(path: string): string[] {
     extras.push("price-calculator.json", "module-trust.json");
   }
 
+  if (path === "/site-map") {
+    extras.push("comparisons.json");
+  }
+
   if (path === "/utility-scale-solar-operations") {
     extras.push("company.json");
   }
@@ -164,6 +168,9 @@ export function pageModulesForPathname(pathname: string): string[] {
   for (const file of extraPageModulesForPath(path)) {
     files.add(file);
   }
+
+  // Forms.leadModal is server-rendered on blog, compare, and buyer-intent pages.
+  files.add("contact.json");
 
   return [...files].sort();
 }
