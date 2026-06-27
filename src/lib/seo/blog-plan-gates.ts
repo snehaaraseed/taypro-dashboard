@@ -125,24 +125,13 @@ export function findSimilarPlan(
       };
     }
 
-    if (
-      plan.description.trim() &&
-      descriptionsTooSimilar(plan.description, existing.description)
-    ) {
-      return {
-        slug: existing.slug,
-        title: existing.title,
-        reason: "description",
-        score: 1,
-      };
-    }
-
     const existingH2 =
       ctx.storedH2BySlug.get(existing.slug) ??
       extractH2Headings(existing.content);
 
+    let h2Score = 0;
     if (normalizedH2.length > 0 && existingH2.length > 0) {
-      const h2Score = h2OverlapScore(normalizedH2, existingH2);
+      h2Score = h2OverlapScore(normalizedH2, existingH2);
       if (h2Score > h2Threshold) {
         return {
           slug: existing.slug,
@@ -151,6 +140,21 @@ export function findSimilarPlan(
           score: h2Score,
         };
       }
+    }
+
+    // Description overlap alone is too noisy for plan phase (shared SEO vocabulary);
+    // require title or H2 overlap so distinct angles can proceed to full draft checks.
+    if (
+      plan.description.trim() &&
+      descriptionsTooSimilar(plan.description, existing.description) &&
+      (titlesTooSimilar(plan.title, existing.title) || h2Score > h2Threshold * 0.5)
+    ) {
+      return {
+        slug: existing.slug,
+        title: existing.title,
+        reason: "description",
+        score: 1,
+      };
     }
   }
 

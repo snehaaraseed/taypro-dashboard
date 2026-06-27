@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 import {
   BadgeCheck,
   BatteryCharging,
@@ -18,6 +19,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { getTranslations } from "next-intl/server";
+import { withHreflang } from "@/lib/seo/with-hreflang";
 
 import CallbackCard from "@/app/components/CallbackCard";
 import ClientsCard from "@/app/components/ClientsCard";
@@ -57,6 +59,44 @@ import { buildProductLineupRobots } from "@/lib/products/build-product-lineup";
 import { productToSchemaKey } from "@/lib/products/product-lineup-schema";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const SOLAR_SYSTEM_PATH = "/solar-panel-cleaning-system";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "SolarSystemPage.meta" });
+
+  return withHreflang(SOLAR_SYSTEM_PATH, locale, {
+    title: t("title"),
+    description: t("description"),
+    openGraph: {
+      siteName: t("openGraphSiteName"),
+      title: t("openGraphTitle"),
+      description: t("openGraphDescription"),
+      url: `${siteUrl}${SOLAR_SYSTEM_PATH}`,
+      type: "website",
+      locale: t("openGraphLocale"),
+      images: [
+        {
+          url: `${siteUrl}/tayproasset/taypro-robotImage.webp`,
+          width: 1200,
+          height: 630,
+          alt: t("openGraphImageAlt"),
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("twitterTitle"),
+      description: t("twitterDescription"),
+      images: [`${siteUrl}/tayproasset/taypro-robotImage.webp`],
+    },
+  });
+}
+
 const HUB_PRODUCT_VIDEO_ID = "y9iRhH2bLwY";
 
 const BRUSH_COMPARE_BRUSH_KEYS = ["0", "1", "2", "3"] as const;

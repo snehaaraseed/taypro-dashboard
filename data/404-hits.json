@@ -1,6 +1,6 @@
 {
   "description": "Aggregated 404 paths for redirect-candidate review (see scripts/merge-404-redirect-candidates.mjs).",
-  "updatedAt": "2026-06-25T06:00:06.423Z",
+  "updatedAt": "2026-06-27T12:48:31.487Z",
   "hits": {
     "/static/webpack/fae1ef3a14c6a20a.webpack.hot-update.json": {
       "path": "/static/webpack/fae1ef3a14c6a20a.webpack.hot-update.json",
@@ -25,6 +25,12 @@
       "count": 1,
       "firstSeen": "2026-06-25T06:00:06.423Z",
       "lastSeen": "2026-06-25T06:00:06.423Z"
+    },
+    "/static/webpack/860629e907cbc188.webpack.hot-update.json": {
+      "path": "/static/webpack/860629e907cbc188.webpack.hot-update.json",
+      "count": 1,
+      "firstSeen": "2026-06-27T12:48:31.487Z",
+      "lastSeen": "2026-06-27T12:48:31.487Z"
     }
   }
 }
