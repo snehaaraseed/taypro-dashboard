@@ -3,10 +3,8 @@ import { pathnameWithoutLocale } from "@/i18n/pathname-without-locale";
 /** Always required by layout chrome and global client widgets. */
 export const LAYOUT_CLIENT_NAMESPACES = [
   "Navigation",
-  "Footer",
   "LocaleSwitcher",
   "Forms",
-  "NotFoundPage",
   "Common",
 ] as const;
 
@@ -17,74 +15,76 @@ const PROJECT_FILTER_SEGMENTS = new Set([
   "opex",
 ]);
 
-/** One namespace per buyer-intent route (avoid shipping all landing copy on every page). */
-const BUYER_INTENT_NAMESPACE: Record<string, string> = {
-  "/solar-panel-cleaning-service-india": "ServiceIndiaPage",
-  "/solar-om-services": "SolarOmServicesPage",
-  "/solar-cleaning-opex-pricing": "SolarCleaningOpexPricingPage",
-  "/solar-panel-cleaning-robot-for-rooftop": "RooftopCleaningPage",
-  "/solar-panel-cleaning-robot-for-trackers": "TrackerCleaningPage",
-  "/solar-fleet-monitoring-software": "FleetMonitoringPage",
-  "/large-scale-solar-panel-cleaning": "LargeScaleCleaningPage",
-  "/solar-cleaning-capex-vs-opex": "SolarCleaningCapexVsOpexPage",
-  "/solar-panel-soiling-loss-calculator": "SoilingLossCalculatorPage",
-  "/solar-cleaning-robot-manufacturer-india": "ManufacturerIndiaPage",
-  "/solar-plant-data-intelligence": "PlantDataIntelligencePage",
-  "/enterprise-solar-cleaning-partnership": "EnterprisePartnershipPage",
-};
+/** Buyer-intent routes (server-rendered copy; client widgets listed per path below). */
+const BUYER_INTENT_PATHS = new Set([
+  "/solar-panel-cleaning-service-india",
+  "/solar-om-services",
+  "/solar-cleaning-opex-pricing",
+  "/solar-panel-cleaning-robot-for-rooftop",
+  "/solar-panel-cleaning-robot-for-trackers",
+  "/solar-fleet-monitoring-software",
+  "/large-scale-solar-panel-cleaning",
+  "/solar-cleaning-capex-vs-opex",
+  "/solar-panel-soiling-loss-calculator",
+  "/solar-cleaning-robot-manufacturer-india",
+  "/solar-plant-data-intelligence",
+  "/enterprise-solar-cleaning-partnership",
+]);
 
 /**
- * Client namespaces for high-traffic routes with `"use client"` pages or widgets.
- * Buyer-intent landings are server-rendered (getTranslations) and are merged per-path only.
- * Server page modules: see route-message-modules.ts (keep both maps in sync).
+ * Namespaces that may be fetched via `/api/i18n/messages` or pathname-scoped layout.
+ * Excludes server-only page namespaces (StateLandingsPage, buyer-intent page copy, etc.).
  */
-export const CORE_CLIENT_PAGE_NAMESPACES = [
+export const CLIENT_PAGE_NAMESPACES = [
   "Home",
   "ContactPage",
   "CompanyPage",
   "ModuleManufacturerTrust",
   "PriceCalculatorPage",
-  "RobotPriceIndiaPage",
   "BlogPage",
   "ProjectsPage",
   "ProjectDetailPage",
-  "ProjectsFilterPage",
   "CareersPage",
-] as const;
-
-/**
- * Namespaces used by full "use client" pages and shared client widgets.
- */
-export const CLIENT_PAGE_NAMESPACES = [
-  ...CORE_CLIENT_PAGE_NAMESPACES,
-  "ServiceIndiaPage",
-  "SolarOmServicesPage",
   "SolarCleaningOpexPricingPage",
-  "RooftopCleaningPage",
-  "TrackerCleaningPage",
-  "FleetMonitoringPage",
-  "LargeScaleCleaningPage",
-  "SolarCleaningCapexVsOpexPage",
   "SoilingLossCalculatorPage",
-  "ManufacturerIndiaPage",
-  "PlantDataIntelligencePage",
-  "EnterprisePartnershipPage",
-  "StateLandingsPage",
   "UtilityOperationsPage",
   "AiIntelligencePage",
 ] as const;
 
-/**
- * Full client catalog reference (tests, layout SPA bundle).
- * Root layout ships the full SPA catalog once; server copy stays pathname-scoped.
- */
+/** Allowlist shipped to the browser on every page (layout chrome + shared client widgets). */
 export const SPA_CLIENT_NAMESPACES = [
   ...LAYOUT_CLIENT_NAMESPACES,
   ...CLIENT_PAGE_NAMESPACES,
 ] as const;
 
 /**
- * Legacy pathname hints (e.g. buildClientMessages). Root layout uses SPA_CLIENT_NAMESPACES.
+ * Page JSON files merged for the client bundle (`messages/pages/{locale}/`).
+ * Keeps StateLandingsPage and other server-only copy out of the HTML payload.
+ */
+export const CLIENT_MESSAGE_PAGE_FILES = [
+  "home.json",
+  "blog.json",
+  "projects.json",
+  "company.json",
+  "contact.json",
+  "price-calculator.json",
+  "module-trust.json",
+  "careers.json",
+  "utility-operations.json",
+  "ai-intelligence.json",
+  "solar-cleaning-opex-pricing.json",
+  "solar-panel-soiling-loss-calculator.json",
+] as const;
+
+const SPA_NAMESPACE_SET = new Set<string>(SPA_CLIENT_NAMESPACES);
+
+export function isAllowedClientNamespace(ns: string): boolean {
+  return SPA_NAMESPACE_SET.has(ns);
+}
+
+/**
+ * Path-scoped namespaces for server message loading and diagnostics.
+ * The root layout ships the full {@link SPA_CLIENT_NAMESPACES} catalog instead.
  */
 export function clientNamespacesForPathname(pathname: string): string[] {
   const path = pathnameWithoutLocale(pathname);
@@ -99,37 +99,46 @@ export function clientNamespacesForPathname(pathname: string): string[] {
   }
 
   if (path === "/contact") {
-    return ["ContactPage", "Common"];
+    return ["ContactPage"];
   }
 
   if (path === "/company") {
-    return ["CompanyPage", "ModuleManufacturerTrust", "Common"];
+    return ["CompanyPage", "ModuleManufacturerTrust"];
   }
 
   if (path === "/solar-panel-cleaning-robot-price-calculator") {
-    return ["PriceCalculatorPage", "Common"];
+    return ["PriceCalculatorPage"];
   }
 
   if (path === "/solar-panel-cleaning-robot-price-india") {
-    return ["RobotPriceIndiaPage", "PriceCalculatorPage", "Common"];
+    return ["PriceCalculatorPage"];
   }
 
-  const buyerNamespace = BUYER_INTENT_NAMESPACE[path];
-  if (buyerNamespace) {
-    return [buyerNamespace, "PriceCalculatorPage", "Common"];
+  if (path === "/solar-cleaning-opex-pricing") {
+    return ["SolarCleaningOpexPricingPage", "PriceCalculatorPage"];
   }
 
-  if (path.startsWith("/solar-panel-cleaning-robot-")) {
-    return ["StateLandingsPage", "PriceCalculatorPage", "Common"];
+  if (path === "/solar-panel-soiling-loss-calculator") {
+    return ["SoilingLossCalculatorPage", "PriceCalculatorPage"];
   }
 
-  // ROICalculatorEmbed is used on hub, product, service, and Opex pages under this prefix.
+  if (BUYER_INTENT_PATHS.has(path)) {
+    return ["PriceCalculatorPage"];
+  }
+
+  if (
+    path.startsWith("/solar-panel-cleaning-robot-") &&
+    !path.startsWith("/solar-panel-cleaning-robot-price")
+  ) {
+    return ["PriceCalculatorPage"];
+  }
+
   if (path.startsWith("/solar-panel-cleaning-system")) {
     return ["PriceCalculatorPage", "ModuleManufacturerTrust"];
   }
 
   if (path === "/cleaning-technology") {
-    return ["ModuleManufacturerTrust", "Common"];
+    return ["ModuleManufacturerTrust"];
   }
 
   if (path.startsWith("/blog") || path === "/authors") {
@@ -137,35 +146,40 @@ export function clientNamespacesForPathname(pathname: string): string[] {
   }
 
   if (path === "/projects") {
-    return ["ProjectsPage", "Common"];
+    return ["ProjectsPage"];
   }
 
   if (path === "/careers" || path.startsWith("/careers/")) {
-    return ["CareersPage", "Common"];
+    return ["CareersPage"];
   }
 
   if (path === "/utility-scale-solar-operations") {
-    return ["UtilityOperationsPage", "CompanyPage", "Common"];
+    return ["UtilityOperationsPage", "CompanyPage"];
   }
 
   if (path.startsWith("/technology/ai-intelligence")) {
-    return ["AiIntelligencePage", "Common"];
+    return ["AiIntelligencePage"];
   }
 
   if (path.startsWith("/projects/")) {
     const slug = path.slice("/projects/".length).split("/")[0];
     if (PROJECT_FILTER_SEGMENTS.has(slug)) {
-      return ["ProjectsFilterPage", "Common"];
+      return ["ProjectsPage"];
     }
     if (slug) {
-      return ["ProjectDetailPage", "Common"];
+      return ["ProjectDetailPage", "ProjectsPage"];
     }
   }
 
   return [];
 }
 
-/** Client namespaces for the locale layout (same on every route — SPA-safe). */
-export function clientNamespacesForRequest(_pathname?: string): string[] {
-  return [...SPA_CLIENT_NAMESPACES];
+/** Layout chrome + pathname-specific namespaces (deduped). */
+export function clientNamespacesForRequest(pathname = "/"): string[] {
+  return [
+    ...new Set([
+      ...LAYOUT_CLIENT_NAMESPACES,
+      ...clientNamespacesForPathname(pathname),
+    ]),
+  ];
 }

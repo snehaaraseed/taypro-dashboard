@@ -219,7 +219,7 @@ export default function SiteLeadSlideIn() {
           <>
             <div className="taypro-lead-slidein-hero relative flex min-h-0 shrink-0 flex-col overflow-hidden bg-gradient-to-br from-[#021a24] via-[#052638] to-[#0a4a66]">
               <Image
-                src="/tayproasset/taypro-robotImage.png"
+                src="/tayproasset/taypro-robotImage.webp"
                 alt=""
                 fill
                 className="pointer-events-none object-cover object-center opacity-35 mix-blend-luminosity scale-105"

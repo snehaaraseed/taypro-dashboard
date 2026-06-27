@@ -206,6 +206,18 @@
       "eyebrow": "Our robot line-up",
       "title": "Choose your Solar Panel Cleaning Robot",
       "subtitle": "Five robot platforms, one fleet portal, two commercial models, pick the plant fit and cleaning technology that match your site.",
+      "filterPrompt": "Not sure which robot fits your plant? Filter by layout or engagement model.",
+      "filterAriaLabel": "Filter robots by plant layout",
+      "filterEmpty": "No robots match this filter. Try another layout or view all robots.",
+      "exploreCta": "Explore {model}",
+      "filters": {
+        "all": "All robots",
+        "fixed_tilt": "Fixed / seasonal tilt",
+        "tracker": "Single-axis tracker",
+        "distributed": "Scattered blocks",
+        "service": "Managed service (OPEX)",
+        "software": "Fleet software"
+      },
       "robotHighlights": {
         "helyx": {
           "eyebrow": "Semi-Automatic · Pick & Place",

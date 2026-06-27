@@ -3,6 +3,7 @@ import {
   SPA_CLIENT_NAMESPACES,
   clientNamespacesForPathname,
 } from "@/i18n/client-message-namespaces";
+import { loadMessagesForClient } from "@/i18n/load-messages";
 import { pathnameWithoutLocale } from "@/i18n/pathname-without-locale";
 
 /** @deprecated Nested intl providers were removed; kept for any legacy imports. */
@@ -21,11 +22,16 @@ export function pickMessages(
   return picked;
 }
 
+/** Shallow-merge top-level message namespaces (SPA accumulation). */
+export function mergeMessageNamespaces(
+  base: Record<string, unknown>,
+  extra: Record<string, unknown>
+): Record<string, unknown> {
+  return { ...base, ...extra };
+}
+
 /**
- * Full client catalog for the root locale layout.
- * Shared layouts do not re-render on SPA navigation, so client `"use client"`
- * pages/widgets must receive every SPA namespace on the first paint.
- * Server `getTranslations` stays pathname-scoped via `loadMessagesForPath`.
+ * Full client catalog (API allowlist / tests). Do not use for root layout.
  */
 export function buildSpaClientMessages(
   messages: Record<string, unknown>
@@ -34,8 +40,7 @@ export function buildSpaClientMessages(
 }
 
 /**
- * Pathname-scoped client bundle (tests, diagnostics).
- * Do not use for the root layout — SPA navigations will miss namespaces.
+ * Pathname-scoped client bundle for the root locale layout (first paint).
  */
 export function buildLayoutClientMessages(
   messages: Record<string, unknown>,
@@ -48,16 +53,25 @@ export function buildLayoutClientMessages(
   return pickMessages(messages, [...namespaceSet]);
 }
 
+/** Load and pick namespaces from the full client catalog. */
+export async function loadPickedClientNamespaces(
+  locale: string,
+  _logicalPathname: string,
+  namespaces: string[]
+): Promise<Record<string, unknown>> {
+  const messages = await loadMessagesForClient(locale);
+  return pickMessages(messages, namespaces);
+}
+
 /**
  * Pathname-scoped client bundle (e.g. one-off nested providers).
- * Prefer buildLayoutClientMessages for the root locale layout.
  */
 export function buildClientMessages(
   messages: Record<string, unknown>,
   pathname: string
 ): Record<string, unknown> {
   const namespaceSet = new Set<string>([
-    ...SPA_CLIENT_NAMESPACES,
+    ...LAYOUT_CLIENT_NAMESPACES,
     ...clientNamespacesForPathname(pathname),
   ]);
 

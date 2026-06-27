@@ -1,6 +1,7 @@
 import { existsSync } from "fs";
 import { readdir, readFile } from "fs/promises";
 import { join } from "path";
+import { CLIENT_MESSAGE_PAGE_FILES } from "./client-message-namespaces";
 import { pageModulesForPathname } from "./route-message-modules";
 
 /** Resolve messages dir when PM2 cwd is `.next/standalone`. */
@@ -115,6 +116,30 @@ async function mergeSelectedPageModules(
   }
 
   return merged;
+}
+
+const clientMessagesCache = new Map<string, Record<string, unknown>>();
+
+/** Base locale JSON + page modules needed by client-side widgets (cached per locale). */
+export async function loadMessagesForClient(
+  locale: string
+): Promise<Record<string, unknown>> {
+  const cached = clientMessagesCache.get(locale);
+  if (cached) {
+    return cached;
+  }
+
+  const root = resolveMessagesRoot();
+  const basePath = join(root, `${locale}.json`);
+  const baseRaw = await readFile(basePath, "utf8");
+  let messages = JSON.parse(baseRaw) as Record<string, unknown>;
+  messages = await mergeSelectedPageModules(
+    messages,
+    locale,
+    [...CLIENT_MESSAGE_PAGE_FILES]
+  );
+  clientMessagesCache.set(locale, messages);
+  return messages;
 }
 
 /** Load base locale JSON + only page modules required for the request path. */

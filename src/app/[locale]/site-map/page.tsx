@@ -16,7 +16,7 @@ import type { Metadata } from "next";
 
 const SITE_MAP_PATH = "/site-map";
 const siteUrl = SITE_URL;
-const ogImage = `${siteUrl}/tayproasset/taypro-robotImage.png`;
+const ogImage = `${siteUrl}/tayproasset/taypro-robotImage.webp`;
 
 export async function generateMetadata({
   params,

@@ -1,6 +1,7 @@
 import type { StructuralArchetype } from "@/lib/seo/structural-archetypes";
 import type { BlogWordCountTier } from "@/lib/seo/structural-archetypes";
 import { ARCHETYPE_WORD_COUNT_TIER } from "@/lib/seo/blog-angle-archetypes";
+import { trimSerpDescription } from "@/lib/seo/serp-description";
 
 export type { StructuralArchetype } from "@/lib/seo/structural-archetypes";
 export type { BlogWordCountTier } from "@/lib/seo/structural-archetypes";
@@ -294,10 +295,9 @@ export function buildSyntheticMetaDescription(
 ): string {
   const kw = keyword.trim().toLowerCase();
   const base = `${contract.structuralPromise} for ${kw} on Indian MW plants: ${contract.requiredDifferentiator}.`;
-  const trimmed = base.slice(0, 160).trim();
-  if (trimmed.length >= 120) return trimmed;
-  return `${trimmed} Compare methods, costs, and robot options for utility O&M teams.`.slice(
-    0,
-    160
-  );
+  const padded =
+    base.length >= 120
+      ? base
+      : `${base} Compare methods, costs, and robot options for utility O&M teams.`;
+  return trimSerpDescription(padded);
 }

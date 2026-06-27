@@ -16,7 +16,7 @@ import type { Metadata } from "next";
 
 const AUTHORS_PATH = "/authors";
 const siteUrl = SITE_URL;
-const ogImage = `${siteUrl}/tayproasset/taypro-robotImage.png`;
+const ogImage = `${siteUrl}/tayproasset/taypro-robotImage.webp`;
 
 export async function generateMetadata({
   params,

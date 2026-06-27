@@ -38,11 +38,11 @@ export function buildTwitterImageUrls(
 /** Preset share images, use page-specific art where it exists. */
 export const OG_PRESETS = {
   default: {
-    path: "/tayproasset/taypro-robotImage.png",
+    path: "/tayproasset/taypro-robotImage.webp",
     alt: "Taypro Solar Panel Cleaning Robot",
   },
   blog: {
-    path: "/tayproasset/taypro-robotImage.png",
+    path: "/tayproasset/taypro-robotImage.webp",
     alt: "Taypro Blog, solar panel cleaning robot insights and O&M guides",
   },
   projects: {
@@ -50,15 +50,15 @@ export const OG_PRESETS = {
     alt: "Taypro utility-scale solar projects with cleaning robots",
   },
   company: {
-    path: "/tayproasset/taypro-robotImage.png",
+    path: "/tayproasset/taypro-robotImage.webp",
     alt: "About Taypro, solar panel cleaning robot manufacturer in India",
   },
   cleaningTech: {
-    path: "/tayproasset/robots.png",
+    path: "/tayproasset/robots.webp",
     alt: "Taypro dual-pass waterless solar panel cleaning technology",
   },
   calculator: {
-    path: "/tayproasset/robots.png",
+    path: "/tayproasset/robots.webp",
     alt: "Taypro solar panel cleaning robot ROI calculator",
   },
   glyde: {

@@ -538,6 +538,21 @@
     },
     "shared": {
       "connectivitySummary": "LTE、Wi-Fi、ハイブリッド自己修復RFメッシュ、LoRa、LoRaWAN"
+    },
+    "gallery": {
+      "eyebrow": "製品エンジニアリング",
+      "title": "HELYX ハードウェアの概要",
+      "subtitle": "逆回転PBTブラシを使用したピックアンドプレイス水なし洗浄、2人でリフト＆シフトできるコンパクトなシャーシ、実用規模の太陽光発電所での現場実証済みの導入。",
+      "topAlt": "Taypro HELYX 半自動ソーラー清掃ロボット、ブラシ アセンブリとフレームを示す上面図",
+      "topCaption": "逆回転する PBT ブラシ アセンブリを備えた HELYX の上面図。",
+      "sideAlt": "Taypro HELYX 側面プロファイル、PBT ブラシ ヘッドとエンド ハウジングを示す",
+      "sideCaption": "無水 PBT ブラシ クリーニング ヘッドを強調した側面図。",
+      "frontAlt": "Taypro HELYX アウトリガー ホイールとドライブ ローラーを備えたシャーシの正面図",
+      "frontCaption": "列間を手動でリフトアンドシフトできるように設計されたコンパクトなシャーシ。",
+      "zoomedLeftAlt": "Taypro HELYX ブラシ駆動機構とフレームの詳細の拡大図",
+      "zoomedLeftCaption": "シングルパスダスト除去のためのブラシドライブとフレームの詳細。",
+      "fieldAlt": "Taypro HELYX 実用規模の太陽光発電所で動作する半自動清掃ロボット",
+      "fieldCaption": "HELYX は、現場の実用規模のソーラー パネルに導入されています。"
     }
   },
   "Common": {

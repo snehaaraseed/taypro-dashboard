@@ -216,7 +216,12 @@ function extractSimilaritySlug(msg: string): string | null {
 }
 
 function shouldRejectKeyword(msg: string): boolean {
-  return msg.includes("already covered by existing post");
+  return (
+    msg.includes("already covered by existing post") ||
+    msg.includes("Outline too similar") ||
+    msg.includes("Blog too similar") ||
+    msg.includes("Topic already published")
+  );
 }
 
 function trackExcludedCorpusSlug(excludeSlugs: string[], slug: string): void {
@@ -653,7 +658,6 @@ export async function POST(request: NextRequest) {
       let editorialContract: EditorialContract | null = null;
       let serpBrief: SerpResearchBrief | undefined;
       let factBrief: FactResearchBrief | undefined;
-      let lockedDescription = "";
       let forbiddenAngles: Awaited<ReturnType<typeof findSimilarCorpusEntries>> =
         [];
       let campaignFocusKeyword: string | null = null;
@@ -698,7 +702,6 @@ export async function POST(request: NextRequest) {
         serpBrief = ledgerResult.serpBrief;
         factBrief = ledgerResult.factBrief;
         serpCallsThisRun = ledgerResult.serpCalls;
-        lockedDescription = ledgerResult.lockedDescription;
         forbiddenAngles = ledgerResult.forbiddenAngles;
         campaignFocusKeyword = ledgerResult.focusKeyword;
         for (const entry of forbiddenAngles) {
@@ -764,7 +767,6 @@ export async function POST(request: NextRequest) {
           requiredDifferentiator: editorialContract?.requiredDifferentiator,
           forbiddenH2Themes: editorialContract?.forbiddenH2Themes,
           forbiddenAngles,
-          lockedDescription: lockedDescription || undefined,
           keywordIntentClusterPrompt,
         };
 
@@ -784,10 +786,15 @@ export async function POST(request: NextRequest) {
           writerOptions
         );
 
+        const planDescription = contentPlan.description.trim();
+        if (!planDescription) {
+          throw new Error("Plan phase returned empty meta description");
+        }
+
         await assertPlanUnique(
           {
             title: topic.title,
-            description: lockedDescription || contentPlan.description,
+            description: planDescription,
             h2Outline: contentPlan.h2Outline,
             slug,
           },
@@ -797,7 +804,7 @@ export async function POST(request: NextRequest) {
         const checkpointC = await preFlightUniquenessProbe(
           {
             title: topic.title,
-            description: lockedDescription || contentPlan.description,
+            description: planDescription,
             h2Outline: contentPlan.h2Outline,
             slug,
             excludeSlugs: excludeKnowledgeSlugs,
@@ -819,6 +826,7 @@ export async function POST(request: NextRequest) {
             useOutlinePass: false,
             preApprovedOutline: contentPlan.outlineJson,
             lockedTitle: topic.title,
+            lockedDescription: planDescription,
             excludeKnowledgeSlugs,
             plannedFaqQuestions: contentPlan.faqQuestions,
           }

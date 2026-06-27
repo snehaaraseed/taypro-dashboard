@@ -73,7 +73,7 @@ export default function LeadModal() {
       >
         <div className="relative h-40 shrink-0 overflow-hidden bg-gradient-to-br from-[#021a24] via-[#052638] to-[#0a4a66] sm:h-44">
           <Image
-            src="/tayproasset/taypro-robotImage.png"
+            src="/tayproasset/taypro-robotImage.webp"
             alt="Taypro solar panel cleaning robot"
             fill
             className="pointer-events-none scale-105 object-cover object-center opacity-35 mix-blend-luminosity"

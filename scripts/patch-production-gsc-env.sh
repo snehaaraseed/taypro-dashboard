@@ -14,19 +14,23 @@ chmod 600 "$ENV_FILE" 2>/dev/null || true
 set_kv() {
   local key="$1"
   local val="$2"
+  # Quote values so `source .env.production` in bash cron scripts stays safe.
+  local escaped="${val//\\/\\\\}"
+  escaped="${escaped//\"/\\\"}"
+  local line="${key}=\"${escaped}\""
   if grep -q "^${key}=" "$ENV_FILE" 2>/dev/null; then
     if command -v sed >/dev/null 2>&1; then
       local tmp
       tmp=$(mktemp)
-      awk -v k="$key" -v v="$val" '
+      awk -v k="$key" -v v="$line" '
         BEGIN { done=0 }
-        $0 ~ "^" k "=" { print k "=" v; done=1; next }
+        $0 ~ "^" k "=" { print v; done=1; next }
         { print }
-        END { if (!done) print k "=" v }
+        END { if (!done) print v }
       ' "$ENV_FILE" > "$tmp" && mv "$tmp" "$ENV_FILE"
     fi
   else
-    echo "${key}=${val}" >> "$ENV_FILE"
+    echo "$line" >> "$ENV_FILE"
   fi
 }
 

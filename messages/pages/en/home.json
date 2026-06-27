@@ -142,7 +142,7 @@
     "robots": {
       "eyebrow": "Product lineup",
       "heading": "Automatic solar panel cleaning system & robot lineup",
-      "subheadingBefore": "GLYDE and GLYDE-X flagship cleaning robots, plus NYUMA, NYUMA-X, and HELYX, managed cleaning service and fleet software.",
+      "subheadingBefore": "GLYDE and GLYDE-X flagship cleaning robots, plus NYUMA, NYUMA-X, HELYX, CRADYL, MINY, ORION, managed cleaning service and fleet software.",
       "compareLink": "Compare solar panel cleaning robots",
       "subheadingAfter": ".",
       "waterlessEyebrow": "Waterless cleaning robots",
@@ -150,6 +150,7 @@
       "filterPrompt": "Not sure which robot fits your plant? Filter by layout or engagement model.",
       "filterAriaLabel": "Filter robots by plant layout",
       "filterEmpty": "No robots match this filter. Try another layout or view all robots.",
+      "exploreCta": "Explore {model}",
       "filters": {
         "all": "All robots",
         "fixed_tilt": "Fixed / seasonal tilt",
@@ -185,6 +186,18 @@
       "robot6": {
         "marketingName": "NECTYR fleet monitoring software",
         "description": "NECTYR fleet portal to schedule, monitor, and report on solar panel cleaning robots across your site."
+      },
+      "robot7": {
+        "marketingName": "Autonomous row-transfer docking station",
+        "description": "Battery-powered movable docking station on end-row rails that autonomously transfers one cleaning robot between rows on scattered plants."
+      },
+      "robot8": {
+        "marketingName": "Compact rooftop solar cleaning robot",
+        "description": "A compact cleaning robot for smaller rooftop plants, waterless, lightweight, and sized for distributed commercial rooftops."
+      },
+      "robot9": {
+        "marketingName": "Solar plant intelligence platform",
+        "description": "Generation-trained plant health monitoring SaaS, SCADA-aware insights enriched by Taypro robot field data on site."
       }
     },
     "features": {

@@ -22,7 +22,7 @@ export async function generateMetadata({
       type: "website",
       images: [
         {
-          url: `${siteUrl}/tayproasset/taypro-robotImage.png`,
+          url: `${siteUrl}/tayproasset/taypro-robotImage.webp`,
           width: 1200,
           height: 630,
           alt: t("openGraphImageAlt"),
@@ -33,7 +33,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: t("title"),
       description: t("twitterDescription"),
-      images: [`${siteUrl}/tayproasset/taypro-robotImage.png`],
+      images: [`${siteUrl}/tayproasset/taypro-robotImage.webp`],
     },
   });
 }

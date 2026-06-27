@@ -2,20 +2,24 @@
 
 import { NextIntlClientProvider } from "next-intl";
 
-type AccumulatingIntlProviderProps = {
+type ClientIntlProviderProps = {
   locale: string;
   messages: Record<string, unknown>;
   children: React.ReactNode;
 };
 
-/** Root intl provider — full SPA catalog is passed from the locale layout. */
+/** Thin client wrapper — full SPA namespaces are embedded in layout HTML. */
 export default function AccumulatingIntlProvider({
   locale,
   messages,
   children,
-}: AccumulatingIntlProviderProps) {
+}: ClientIntlProviderProps) {
   return (
-    <NextIntlClientProvider locale={locale} messages={messages} timeZone="Asia/Kolkata">
+    <NextIntlClientProvider
+      locale={locale}
+      messages={messages}
+      timeZone="Asia/Kolkata"
+    >
       {children}
     </NextIntlClientProvider>
   );

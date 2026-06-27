@@ -259,7 +259,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
       <ArticleSchema
         headline={blog.title}
         description={blog.description}
-        image={blog.featuredImage?.startsWith("http") ? blog.featuredImage : `${siteUrl}${blog.featuredImage || "/tayproasset/taypro-robotImage.png"}`}
+        image={blog.featuredImage?.startsWith("http") ? blog.featuredImage : `${siteUrl}${blog.featuredImage || "/tayproasset/taypro-robotImage.webp"}`}
         imageAlt={getBlogFeaturedImageAlt(blog)}
         url={`${siteUrl}/blog/${slug}`}
         datePublished={blog.publishDate}

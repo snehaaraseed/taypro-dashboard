@@ -333,6 +333,11 @@ if [ "$DEPLOY_SKIP_BUILD" != "1" ]; then
                 [[ -z "$line" || "$line" =~ ^[[:space:]]*# ]] && continue
                 key="${line%%=*}"
                 val="${line#*=}"
+                # Strip optional surrounding quotes (build workers need clean paths).
+                val="${val#\"}"
+                val="${val%\"}"
+                val="${val#\'}"
+                val="${val%\'}"
                 export "${key}=${val}"
             done < "$ROOT/.env.production"
             set +a
@@ -365,6 +370,7 @@ if [ "$DEPLOY_SKIP_BUILD" != "1" ]; then
 
         cd "$RELEASE"
         echo "  Building Next.js in staging (live traffic unaffected)..."
+        export TAYPRO_CMS_ROOT="${TAYPRO_CMS_ROOT:-$ROOT}"
         chmod -R u+w .next 2>/dev/null || true
         rm -rf .next
         npm run build 2>&1 | tee /tmp/taypro-next-build-staging.log

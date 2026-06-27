@@ -93,7 +93,7 @@ export default async function Footer() {
         importantLinksLeft={importantLinksLeft}
         importantLinksRight={importantLinksRight}
         exploreProducts={exploreProducts}
-        copyright={t("copyright").replace("{year}", String(currentYear))}
+        copyright={t("copyright", { year: currentYear })}
       />
     </footer>
   );

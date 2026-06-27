@@ -1,4 +1,5 @@
 import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import {
   Droplet,
@@ -47,6 +48,14 @@ import {
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 const helyxImages = productPageImages("helyx");
 const helyxHeroLayout = getProductHeroLayout("helyx");
+
+const HELYX_GALLERY = {
+  topView: "/tayprorobots/helyx/top-view.png",
+  sideView: "/tayprorobots/helyx/side-view.png",
+  front: "/tayprorobots/helyx/front.png",
+  zoomedLeft: "/tayprorobots/helyx/zoomed-left.png",
+  fieldOperation: "/tayprorobots/helyx/field-operation.jpg",
+} as const;
 
 const USP_ICONS = [
   Hand,
@@ -316,6 +325,90 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
                   productLabel={t("product360.productLabel")}
                 />
               </div>
+            </AnimateOnScroll>
+          </Container>
+        </section>
+
+        {/* Product gallery */}
+        <section className="bg-gradient-to-b from-gray-50 to-white py-12 sm:py-16">
+          <Container>
+            <AnimateOnScroll animation="fadeInUp" className="text-center mb-8">
+              <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
+                {t("gallery.eyebrow")}
+              </div>
+              <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl mb-4">
+                {t("gallery.title")}
+              </h2>
+              <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto">
+                {t("gallery.subtitle")}
+              </p>
+            </AnimateOnScroll>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+              {(
+                [
+                  {
+                    src: HELYX_GALLERY.topView,
+                    alt: t("gallery.topAlt"),
+                    caption: t("gallery.topCaption"),
+                    delay: 60,
+                  },
+                  {
+                    src: HELYX_GALLERY.sideView,
+                    alt: t("gallery.sideAlt"),
+                    caption: t("gallery.sideCaption"),
+                    delay: 120,
+                  },
+                  {
+                    src: HELYX_GALLERY.front,
+                    alt: t("gallery.frontAlt"),
+                    caption: t("gallery.frontCaption"),
+                    delay: 150,
+                  },
+                  {
+                    src: HELYX_GALLERY.zoomedLeft,
+                    alt: t("gallery.zoomedLeftAlt"),
+                    caption: t("gallery.zoomedLeftCaption"),
+                    delay: 180,
+                  },
+                ] as const
+              ).map((item) => (
+                <AnimateOnScroll
+                  key={item.alt}
+                  animation="fadeInUp"
+                  delay={item.delay}
+                >
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      fill
+                      className="object-contain p-4"
+                      sizes="(max-width: 768px) 100vw, 480px"
+                    />
+                  </div>
+                  <p className="text-center text-gray-500 text-sm mt-3">
+                    {item.caption}
+                  </p>
+                </AnimateOnScroll>
+              ))}
+            </div>
+            <AnimateOnScroll
+              animation="fadeInUp"
+              delay={210}
+              className="max-w-5xl mx-auto mt-8 sm:mt-10"
+            >
+              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                <Image
+                  src={HELYX_GALLERY.fieldOperation}
+                  alt={t("gallery.fieldAlt")}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 960px"
+                />
+              </div>
+              <p className="text-center text-gray-500 text-sm mt-3">
+                {t("gallery.fieldCaption")}
+              </p>
             </AnimateOnScroll>
           </Container>
         </section>

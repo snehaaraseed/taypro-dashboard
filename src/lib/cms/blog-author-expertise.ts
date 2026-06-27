@@ -141,7 +141,10 @@ export function inferExpertiseFromAuthor(
   if (found.size === 0) {
     return ["om-operations", "cleaning-methods"];
   }
-  return [...found];
+  const tags = [...found];
+  return tags.length > MAX_INFERRED_EXPERTISE_TAGS
+    ? tags.slice(0, MAX_INFERRED_EXPERTISE_TAGS)
+    : tags;
 }
 
 export function resolveAuthorExpertiseTags(
@@ -189,16 +192,22 @@ export function mergeTopicTags(
   return merged;
 }
 
+/** Cap inferred tags so backfill/CEO bios do not match every lane. */
+const MAX_INFERRED_EXPERTISE_TAGS = 3;
+
 function scoreAuthorAgainstTags(
   authorTags: BlogAuthorExpertiseTag[],
   topicTags: Set<BlogAuthorExpertiseTag>
 ): number {
-  if (topicTags.size === 0) return 0;
-  let score = 0;
+  if (topicTags.size === 0 || authorTags.length === 0) return 0;
+  let matchCount = 0;
   for (const tag of authorTags) {
-    if (topicTags.has(tag)) score += 2;
+    if (topicTags.has(tag)) matchCount += 1;
   }
-  return score;
+  if (matchCount === 0) return 0;
+  // Prefer specialists over authors tagged in every lane (e.g. CEO with 9 tags).
+  const density = matchCount / authorTags.length;
+  return Math.round(matchCount * 2 * density);
 }
 
 function normalizeAuthorName(name: string): string {
@@ -212,10 +221,9 @@ function filterAuthorsByExclusion(
   if (!excludeAuthorNames || excludeAuthorNames.size === 0) {
     return authors;
   }
-  const filtered = authors.filter(
+  return authors.filter(
     (author) => !excludeAuthorNames.has(normalizeAuthorName(author.name))
   );
-  return filtered.length > 0 ? filtered : authors;
 }
 
 export type PickBestAuthorOptions = {
@@ -280,10 +288,19 @@ export function pickBestAuthorForTopicTags(
       : scored;
 
   const tierAuthors = tier.map((s) => s.author);
-  const candidates = filterAuthorsByExclusion(
+  let candidates = filterAuthorsByExclusion(
     tierAuthors,
     options?.excludeAuthorNames
   );
+
+  if (candidates.length === 0 && options?.excludeAuthorNames?.size) {
+    // Tier is all recently used — widen to full pool but keep rotation window.
+    candidates = filterAuthorsByExclusion(pool, options.excludeAuthorNames);
+  }
+  if (candidates.length === 0) {
+    // Every eligible author posted recently — pick least-used globally.
+    candidates = pool;
+  }
 
   return pickLeastUsedBlogAuthor(candidates, options?.blogCountByAuthorName);
 }

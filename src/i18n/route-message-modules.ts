@@ -149,6 +149,13 @@ function extraPageModulesForPath(path: string): string[] {
     extras.push("company.json");
   }
 
+  if (path.startsWith("/projects/")) {
+    const slug = path.slice("/projects/".length).split("/")[0];
+    if (PROJECT_FILTER_SEGMENTS.has(slug)) {
+      extras.push("projects.json");
+    }
+  }
+
   return extras;
 }
 

@@ -38,6 +38,7 @@ import {
   findLegacySlug,
   normalizeXlsxRow,
 } from "./lib/project-xlsx-map.mjs";
+import { buildFactsJsonFromXlsxRow } from "./lib/project-facts-from-xlsx.mjs";
 import {
   buildBoilerplateSetFromRows,
   setWorkbookBoilerplate,
@@ -55,6 +56,7 @@ const dryRun = args.includes("--dry-run");
 const strict = args.includes("--strict");
 const forceUpdate = args.includes("--force-update");
 const preserveAuthor = args.includes("--preserve-author");
+const preservePublished = args.includes("--preserve-published");
 const limitIdx = args.indexOf("--limit");
 const limit =
   limitIdx >= 0 ? parseInt(args[limitIdx + 1], 10) : undefined;
@@ -148,10 +150,13 @@ function getProjectRow(db, slug) {
     .get(slug);
 }
 
-function upsertProject(db, record) {
+function upsertProject(db, record, options) {
   const existing = getProjectRow(db, record.slug);
   const now = new Date().toISOString();
   const date = new Date().toISOString().split("T")[0];
+  const publishedOnUpdate = options?.preservePublished && existing?.published
+    ? 1
+    : 0;
 
   if (existing) {
     db.prepare(
@@ -164,6 +169,10 @@ function upsertProject(db, record) {
         content = @content,
         author = @author,
         date = @date,
+        facts_json = @factsJson,
+        sections_json = NULL,
+        seo_keyword = @seoKeyword,
+        editorial_status = 'legacy',
         updated_at = @updatedAt,
         published = @published
       WHERE slug = @slug AND locale = 'en'`
@@ -171,7 +180,7 @@ function upsertProject(db, record) {
       ...record,
       date,
       updatedAt: now,
-      published: 0,
+      published: publishedOnUpdate,
     });
     return "updated";
   }
@@ -179,9 +188,11 @@ function upsertProject(db, record) {
   db.prepare(
     `INSERT INTO projects (
       slug, locale, title, description, image, image_alt, details, content,
+      facts_json, seo_keyword, editorial_status,
       author, date, created_at, updated_at, published
     ) VALUES (
       @slug, 'en', @title, @description, @image, @imageAlt, @details, @content,
+      @factsJson, @seoKeyword, 'legacy',
       @author, @date, @createdAt, @updatedAt, 0
     )`
   ).run({
@@ -318,6 +329,8 @@ function main() {
         slug,
       });
 
+      const factsJson = JSON.stringify(buildFactsJsonFromXlsxRow(normalized));
+
       let record = sanitizeProjectRecord(
         {
           slug,
@@ -328,6 +341,8 @@ function main() {
           details: JSON.stringify(details),
           content,
           author,
+          factsJson,
+          seoKeyword: primaryKeyword,
         },
         blocklist
       );
@@ -359,7 +374,7 @@ function main() {
           report.processed++;
           continue;
         }
-        const action = upsertProject(db, record);
+        const action = upsertProject(db, record, { preservePublished });
         if (action === "inserted") report.inserted++;
         else report.updated++;
         existingSlugs.add(slug);

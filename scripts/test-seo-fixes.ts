@@ -173,7 +173,12 @@ assert.equal(
 
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { buildLayoutClientMessages, buildSpaClientMessages } from "../src/i18n/pick-messages";
+import { buildSpaClientMessages } from "../src/i18n/pick-messages";
+import {
+  CLIENT_PAGE_NAMESPACES,
+  SPA_CLIENT_NAMESPACES,
+} from "../src/i18n/client-message-namespaces";
+import { loadMessagesForClient } from "../src/i18n/load-messages";
 import { pickSimilarBlogs } from "../src/lib/seo/pick-similar-blogs";
 import { parseProjectsHubPage, projectsHubPagePath, projectsHubPaginationLinks } from "../src/lib/cms/projects-hub-pagination";
 
@@ -189,46 +194,44 @@ for (const file of readdirSync(hiPagesDir).filter((f) => f.endsWith(".json"))) {
   );
 }
 
-const layoutClientMessages = buildLayoutClientMessages(hiMessages, "/");
-for (const ns of [
-  "Home",
-  "Navigation",
-  "Common",
-  "ModuleManufacturerTrust",
-  "PriceCalculatorPage",
-  "ProjectsPage",
-]) {
-  assert.ok(
-    ns in layoutClientMessages,
-    `layout client bundle must include ${ns} on home route`
-  );
-}
-const blogPathMessages = buildLayoutClientMessages(hiMessages, "/blog");
-for (const ns of ["BlogPage", "Navigation", "Common", "Footer"]) {
-  assert.ok(
-    ns in blogPathMessages,
-    `layout client bundle must include ${ns} on /blog`
-  );
-}
-assert.ok(
-  !("Home" in blogPathMessages),
-  "pathname-scoped layout bundle must not ship Home on /blog"
-);
-assert.ok(
-  !("StateLandingsPage" in blogPathMessages),
-  "pathname-scoped layout bundle must not ship StateLandingsPage on /blog"
-);
-
 const spaClientMessages = buildSpaClientMessages(hiMessages);
-for (const ns of ["Home", "CompanyPage", "BlogPage", "ContactPage", "Navigation"]) {
+for (const ns of SPA_CLIENT_NAMESPACES) {
   assert.ok(
     ns in spaClientMessages,
-    `SPA client catalog must include ${ns} for client navigations`
+    `layout client bundle must include ${ns} on every page`
   );
 }
 assert.ok(
-  !("SolarSystemPage" in spaClientMessages),
-  "SPA client catalog must not include server-only page namespaces"
+  !("StateLandingsPage" in spaClientMessages),
+  "client bundle must not ship server-only StateLandingsPage"
+);
+assert.ok(
+  !("ServiceIndiaPage" in spaClientMessages),
+  "client bundle must not ship server-only buyer-intent page copy"
+);
+assert.ok(
+  JSON.stringify(spaClientMessages).length < 200 * 1024,
+  "full client SPA bundle must stay under 200KB"
+);
+
+const spaClientMessagesLegacy = spaClientMessages;
+for (const ns of ["Home", "CompanyPage", "BlogPage", "ContactPage", "Navigation"]) {
+  assert.ok(
+    ns in spaClientMessagesLegacy,
+    `SPA allowlist must include ${ns}`
+  );
+}
+assert.ok(
+  !("StateLandingsPage" in spaClientMessagesLegacy),
+  "SPA allowlist must not include server-only StateLandingsPage"
+);
+assert.ok(
+  !("ServiceIndiaPage" in spaClientMessagesLegacy),
+  "SPA allowlist must not include server-only buyer-intent page copy"
+);
+assert.ok(
+  !("SolarSystemPage" in spaClientMessagesLegacy),
+  "SPA allowlist must not include server-only page namespaces"
 );
 
 const similar = pickSimilarBlogs(
@@ -340,6 +343,15 @@ const SERVER_ONLY_NAMESPACES: Record<string, string[]> = {
 };
 
 async function assertRouteMessageCoverage() {
+  const hiClientCatalog = await loadMessagesForClient("hi");
+  const fromLoader = buildSpaClientMessages(hiClientCatalog);
+  for (const ns of CLIENT_PAGE_NAMESPACES) {
+    assert.ok(
+      ns in fromLoader,
+      `loadMessagesForClient must include ${ns}`
+    );
+  }
+
   for (const route of ROUTE_MESSAGE_SAMPLES) {
     const modules = pageModulesForPathname(route);
     assert.ok(

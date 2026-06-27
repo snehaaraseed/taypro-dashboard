@@ -29,7 +29,7 @@ export default async function SolarPanelCleaningRobotPriceCalculatorPage({
       <SoftwareApplicationSchema
         name={t("schema.softwareName")}
         description={t("schema.softwareDescription")}
-        image="/tayproasset/taypro-robotImage.png"
+        image="/tayproasset/taypro-robotImage.webp"
         applicationCategory="BusinessApplication"
         operatingSystem="Web"
         url={`${siteUrl}${CALCULATOR_PATH}`}

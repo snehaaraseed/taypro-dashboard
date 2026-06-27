@@ -1,4 +1,5 @@
 import type { OgPresetKey } from "@/lib/seo/open-graph";
+import lineupTopViewDimensions from "./lineup-top-view-dimensions.json";
 
 export type ProductId = "helyx" | "glyde" | "glydeX" | "nyuma" | "nyumaX";
 
@@ -59,7 +60,16 @@ export const PRODUCT_CATALOG: Record<ProductId, ProductCatalogEntry> = {
     itemGroup: "Pick and Place Robots",
     href: HELYX_PATH,
     imagePath: "/tayprorobots/helyx/hero.webp",
-    heroDimensions: { width: 2440, height: 987 },
+    cardImagePath: "/tayprorobots/helyx/side-view.webp",
+    heroDimensions: { width: 1024, height: 639 },
+    cardDimensions: { width: 1024, height: 639 },
+    detailImages: [
+      "/tayprorobots/helyx/top-view.webp",
+      "/tayprorobots/helyx/side-view.webp",
+      "/tayprorobots/helyx/front.webp",
+      "/tayprorobots/helyx/zoomed-left.webp",
+      "/tayprorobots/helyx/field-operation.webp",
+    ],
     i18nNamespace: "HelyxPage",
     ogPreset: "helyx",
     plantType: "distributed",
@@ -124,7 +134,7 @@ export const PRODUCT_CATALOG: Record<ProductId, ProductCatalogEntry> = {
     itemGroup: "Automatic Robot",
     href: NYUMA_PATH,
     imagePath: "/tayprorobots/nyuma/brush-detail.webp",
-    cardImagePath: "/tayprorobots/nyuma/card.png",
+    cardImagePath: "/tayprorobots/nyuma/card.webp",
     heroDimensions: { width: 1024, height: 1001 },
     cardDimensions: { width: 1024, height: 579 },
     detailImages: [
@@ -184,6 +194,41 @@ export function getProduct(id: ProductId): ProductCatalogEntry {
 export function getProductCardImagePath(id: ProductId): string {
   const product = PRODUCT_CATALOG[id];
   return product.cardImagePath ?? product.imagePath;
+}
+
+export function getProductTopViewImagePath(id: ProductId): string {
+  const topView = PRODUCT_CATALOG[id].detailImages?.find((src) =>
+    src.includes("top-view")
+  );
+  return topView ?? getProductCardImagePath(id);
+}
+
+const PRODUCT_ASSET_FOLDER: Record<ProductId, string> = {
+  helyx: "helyx",
+  glyde: "glyde",
+  glydeX: "glyde-x",
+  nyuma: "nyuma",
+  nyumaX: "nyuma-x",
+};
+
+/** Bump when lineup-top-view.webp assets are regenerated (cache bust). */
+export const LINEUP_IMAGE_VERSION = "8";
+
+/** Trimmed top-view art for the home product lineup (see scripts/generate-lineup-top-views.mjs). */
+export function getProductLineupImagePath(id: ProductId): string {
+  return `/tayprorobots/${PRODUCT_ASSET_FOLDER[id]}/lineup-top-view.webp?v=${LINEUP_IMAGE_VERSION}`;
+}
+
+export function getProductLineupImageDimensions(
+  id: ProductId
+): { width: number; height: number } {
+  return lineupTopViewDimensions[id];
+}
+
+export type ProductLineupLayout = "full" | "split";
+
+export function getProductLineupLayout(id: ProductId): ProductLineupLayout {
+  return id === "glydeX" || id === "nyumaX" ? "split" : "full";
 }
 
 export function getProductHeroAspectRatio(id: ProductId): string {

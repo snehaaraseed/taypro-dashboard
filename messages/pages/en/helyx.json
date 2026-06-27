@@ -289,6 +289,21 @@
       "subtitle": "Drag left or right to rotate and explore the Semi-Automatic Solar Panel Cleaning Robot from every angle.",
       "productLabel": "Taypro HELYX, Semi-Automatic Solar Panel Cleaning Robot"
     },
+    "gallery": {
+      "eyebrow": "Product engineering",
+      "title": "HELYX hardware at a glance",
+      "subtitle": "Pick-and-place waterless cleaning with counter-rotating PBT brushes, a compact chassis for two-person lift-and-shift, and field-proven deployment on utility-scale solar plants.",
+      "topAlt": "Taypro HELYX semi-automatic solar cleaning robot, top-down view showing brush assembly and frame",
+      "topCaption": "Top-down view of HELYX with counter-rotating PBT brush assembly.",
+      "sideAlt": "Taypro HELYX side profile showing PBT brush head and end housings",
+      "sideCaption": "Side profile highlighting the waterless PBT brush cleaning head.",
+      "frontAlt": "Taypro HELYX chassis front view with outrigger wheels and drive rollers",
+      "frontCaption": "Compact chassis engineered for manual lift-and-shift between rows.",
+      "zoomedLeftAlt": "Close-up of Taypro HELYX brush drive mechanism and frame detail",
+      "zoomedLeftCaption": "Brush drive and frame detail for single-pass dust removal.",
+      "fieldAlt": "Taypro HELYX semi-automatic cleaning robot operating on a utility-scale solar farm",
+      "fieldCaption": "HELYX deployed on utility-scale solar panels in the field."
+    },
     "howItWorks": {
       "eyebrow": "Step-by-Step Deployment",
       "title": "How Does the HELYX Solar Panel Cleaning Robot Work?",

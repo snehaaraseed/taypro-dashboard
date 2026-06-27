@@ -133,6 +133,13 @@ export const comingSoonRobotProducts = [
   },
 ] as const;
 
+/** Text-only home lineup rows (service, software, accessories, upcoming). */
+export const robotLineupSolutions = [
+  ...robotSolutions,
+  ...fleetAccessoryProducts,
+  ...comingSoonRobotProducts,
+];
+
 export const ourSolutions = HARDWARE_PRODUCT_IDS.map((id) => {
   const p = PRODUCT_CATALOG[id];
   return {

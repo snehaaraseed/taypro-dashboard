@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import AccumulatingIntlProvider from "@/app/components/AccumulatingIntlProvider";
 import { buildSpaClientMessages } from "@/i18n/pick-messages";
-import { loadMessages } from "@/i18n/load-messages";
+import { loadMessagesForClient } from "@/i18n/load-messages";
 import { HtmlLocaleAttributes } from "@/app/components/HtmlLocaleAttributes";
 import { SiteGraphSchema } from "@/app/components/StructuredData";
 import { TAYPRO_SALES_PHONE_E164 } from "@/lib/contact";
@@ -91,9 +91,10 @@ export default async function LocaleLayout({
   }
 
   setRequestLocale(locale);
-  const allMessages = await loadMessages(locale);
-  const clientMessages = buildSpaClientMessages(allMessages);
   const headerList = await headers();
+  const clientMessages = buildSpaClientMessages(
+    await loadMessagesForClient(locale)
+  );
   const rawCountry = headerList.get("x-visitor-country")?.trim().toUpperCase();
   const visitorCountry =
     rawCountry && /^[A-Z]{2}$/.test(rawCountry) ? rawCountry : null;

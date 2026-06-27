@@ -74,6 +74,7 @@ import {
   stripPriorH2Sections,
 } from "@/lib/seo/blog-body-hygiene";
 import { extractH2Headings, stripHtmlToPlainText } from "@/lib/seo/blog-similarity";
+import { trimSerpDescription } from "@/lib/seo/serp-description";
 import { parseBlogContentPlanJson } from "@/lib/seo/blog-content-plan";
 import type { BlogContentPlan } from "@/lib/seo/blog-content-plan";
 import { resolveStoredIntentCluster } from "@/lib/seo/keyword-intent-registry";
@@ -980,7 +981,7 @@ ${wordCountRules}
 
 Return ONLY valid JSON:
 {
-  "description": "Meta description 150-160 chars, specific outcome for this exact title",
+  "description": "Meta description 150-155 chars, specific outcome for this exact title",
   "intentFamily": "one of: ${formatIntentFamilyIdsForPrompt()}",
   "intentReason": "one sentence: why this intent fits the title and is not cannibalizing covered intents",
   "subAngle": "short_slug for sub-angle within intent (e.g. vs_fixed_tilt, payback_period, fleet_alignment)",
@@ -1033,7 +1034,9 @@ Rules:
         .map((h) => (typeof h === "string" ? sanitizeEmDash(h.trim()) : ""))
         .filter(Boolean)
     : [];
-  const description = sanitizeEmDash(String(parsed.description ?? "").trim());
+  const description = trimSerpDescription(
+    sanitizeEmDash(String(parsed.description ?? "").trim())
+  );
   const quickAnswerBullets = Array.isArray(parsed.quickAnswerBullets)
     ? parsed.quickAnswerBullets
         .map((b) => (typeof b === "string" ? sanitizeEmDash(b.trim()) : ""))
@@ -1096,9 +1099,9 @@ Rules:
       `Outline has too many H2 sections for ${wordPolicy.tier} tier (max ${structurePolicy.maxH2Hint}, found ${h2Outline.length})`
     );
   }
-  if (description.length < 120 || description.length > 170) {
+  if (description.length < 120) {
     throw new Error(
-      `Outline meta description ${description.length} chars (target 150–160, allow 120–170)`
+      `Outline meta description ${description.length} chars (need ≥120 after SERP trim)`
     );
   }
 
@@ -1380,8 +1383,9 @@ FAQ rules for the "faqs" array:
     }
 
     const lockedTitle = options?.lockedTitle?.trim();
-    const lockedDescription =
-      options?.lockedDescription?.trim() || result.description;
+    const lockedDescription = trimSerpDescription(
+      options?.lockedDescription?.trim() || result.description
+    );
 
     const preserveLockedMetadata = () => {
       if (lockedTitle) {

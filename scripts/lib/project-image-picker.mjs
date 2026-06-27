@@ -13,8 +13,8 @@ const UPLOAD_THUMB_RE = /-\d{2,4}x\d{2,4}\.(jpe?g|png|webp)$/i;
 
 const OG_PRESETS = [
   { path: PROJECT_HERO_FALLBACK, alt: "Taypro utility-scale solar projects with cleaning robots", tags: ["project", "plant", "farm"] },
-  { path: "/tayproasset/taypro-robotImage.png", alt: "Taypro solar panel cleaning robot", tags: ["robot", "clean"] },
-  { path: "/tayproasset/robots.png", alt: "Taypro robotic solar cleaning fleet", tags: ["robot", "farm", "plant"] },
+  { path: "/tayproasset/taypro-robotImage.webp", alt: "Taypro solar panel cleaning robot", tags: ["robot", "clean"] },
+  { path: "/tayproasset/robots.webp", alt: "Taypro robotic solar cleaning fleet", tags: ["robot", "farm", "plant"] },
   { path: "/tayprorobots/nyuma/hero.webp", alt: "Taypro NYUMA automatic cleaning robot", tags: ["automatic", "nyuma", "glyde"] },
   { path: "/tayprorobots/helyx/hero.webp", alt: "Taypro HELYX semi-automatic cleaning robot", tags: ["semi", "helyx", "helyx"] },
   { path: "/tayprorobots/glyde-x/hero.webp", alt: "Taypro GLYDE-X tracker cleaning robot", tags: ["tracker", "glyde-x", "glyde-x"] },

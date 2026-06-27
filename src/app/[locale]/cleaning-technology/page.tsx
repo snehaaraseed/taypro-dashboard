@@ -61,7 +61,7 @@ const AUDIENCE_LINK_HREFS = [
 const DEEP_DIVE_CONFIG = [
   { id: "dual-pass", image: "/tayprosolarpanel/taypro-about1.jpg", reverse: false, key: "dualPass" as const },
   { id: "ai-scheduling", image: "/tayproasset/nectyr.webp", reverse: true, key: "aiScheduling" as const },
-  { id: "connectivity", image: "/tayproasset/robots.png", reverse: false, key: "connectivity" as const },
+  { id: "connectivity", image: "/tayproasset/robots.webp", reverse: false, key: "connectivity" as const },
   { id: "field-hardware", image: "/tayprosolarpanel/taypro-about2.webp", reverse: true, key: "fieldHardware" as const },
 ] as const;
 
@@ -1065,7 +1065,7 @@ export default async function CleaningTechnologyPage({
                     className={
                       section.image.includes("console")
                         ? "object-contain object-center p-6 bg-[#e8eef4]"
-                        : section.image.includes("robots.png")
+                        : section.image.includes("robots.webp")
                           ? "object-contain object-center p-4"
                           : "object-cover object-center"
                     }

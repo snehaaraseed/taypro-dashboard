@@ -3,10 +3,10 @@ import { Link } from "@/i18n/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import LazyWhenVisible from "@/app/components/LazyWhenVisible";
-import { robotProducts, robotSolutions } from "@/app/data";
+import { robotProducts } from "@/app/data";
 import HomePlatformSection from "./HomePlatformSection";
 import HomeStatsSection from "./HomeStatsSection";
-import HomeRobotLineup, { type HomeLineupRobot } from "./HomeRobotLineup";
+import HomeRobotLineup from "./HomeRobotLineup";
 import { Container } from "@/app/components/Container";
 import {
   VideoObjectSchema,
@@ -19,7 +19,7 @@ import HomeHero from "./HomeHero";
 import HomeSeoProse from "./HomeSeoProse";
 import HomeFaqServer from "./HomeFaqServer";
 import HomeLatestBlogs from "./HomeLatestBlogs";
-import { PRODUCT_CATALOG } from "@/lib/products/catalog";
+import { buildProductLineupRobots } from "@/lib/products/build-product-lineup";
 import {
   COMPARISON_PAGES,
   type ComparisonPageId,
@@ -90,43 +90,20 @@ export default async function HomePage() {
   const otherFeatures = buildTranslatedFeatures(t, "otherFeatures", OTHER_FEATURE_COUNT);
   const homeFaqs = buildHomeFaqs(t);
 
-  const plantTypeToFilter = {
-    fixed_tilt: ["fixed_tilt"],
-    tracker: ["tracker"],
-    distributed: ["distributed"],
-  } as const;
-
-  const translatedHardware: HomeLineupRobot[] = robotProducts.map((robot, i) => {
-    const productId = "productId" in robot ? robot.productId : undefined;
-    const plantType = productId ? PRODUCT_CATALOG[productId].plantType : undefined;
-    const filterTags = plantType
-      ? [...plantTypeToFilter[plantType as keyof typeof plantTypeToFilter]]
-      : [];
-
-    return {
-      ...robot,
-      marketingName: t(`robots.robot${i}.marketingName`),
-      description: t(`robots.robot${i}.description`),
-      filterTags,
-    };
-  });
-
-  const translatedSolutions: HomeLineupRobot[] = robotSolutions.map((robot, i) => {
-    const msgIdx = robotProducts.length + i;
-    const filterTags =
-      robot.model === "Opex"
-        ? (["service"] as const)
-        : robot.model === "NECTYR"
-          ? (["software"] as const)
-          : [];
-
-    return {
-      ...robot,
-      marketingName: t(`robots.robot${msgIdx}.marketingName`),
-      description: t(`robots.robot${msgIdx}.description`),
-      filterTags: [...filterTags],
-    };
-  });
+  const { hardwareRobots: translatedHardware, solutionRobots: translatedSolutions } =
+    buildProductLineupRobots({
+      describeHardware: (i) => ({
+        marketingName: t(`robots.robot${i}.marketingName`),
+        description: t(`robots.robot${i}.description`),
+      }),
+      describeSolution: (i) => {
+        const msgIdx = robotProducts.length + i;
+        return {
+          marketingName: t(`robots.robot${msgIdx}.marketingName`),
+          description: t(`robots.robot${msgIdx}.description`),
+        };
+      },
+    });
 
   return (
     <>
@@ -141,7 +118,7 @@ export default async function HomePage() {
       <ProductSchema
         name={t("schema.product.name")}
         description={t("schema.product.description")}
-        image={`${siteUrl}/tayproasset/taypro-robotImage.png`}
+        image={`${siteUrl}/tayproasset/taypro-robotImage.webp`}
         brand={t("schema.product.brand")}
         sku="SOLAR-PANEL-CLEANING-ROBOT"
         offerPriceKey="home"
@@ -159,6 +136,20 @@ export default async function HomePage() {
         <HomePlatformSection />
 
         <HomeRobotLineup
+          eyebrow={t("robots.eyebrow")}
+          heading={t("robots.heading")}
+          subheading={
+            <>
+              {t("robots.subheadingBefore")}{" "}
+              <Link
+                href="/solar-panel-cleaning-system"
+                className="text-[#5a8f00] font-medium hover:underline"
+              >
+                {t("robots.compareLink")}
+              </Link>
+              {t("robots.subheadingAfter")}
+            </>
+          }
           hardwareRobots={translatedHardware}
           solutionRobots={translatedSolutions}
         />

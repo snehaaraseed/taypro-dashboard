@@ -166,11 +166,11 @@ export default function HomePageInteractive({
             <AnimateOnScroll animation="fadeInRight" delay={100}>
               <div className="relative w-full max-w-md mx-auto lg:max-w-none">
                 <Image
-                  src="/tayproasset/robots.png"
+                  src="/tayproasset/robots.webp"
                   alt={t("technology.imageAlt")}
                   title={t("technology.imageTitle")}
-                  width={1536}
-                  height={1024}
+                  width={1280}
+                  height={853}
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="w-full h-auto"
                   loading="lazy"
