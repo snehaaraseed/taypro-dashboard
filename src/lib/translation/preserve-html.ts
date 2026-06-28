@@ -55,7 +55,7 @@ export function unmaskMediaInHtml(masked: string, fragments: Map<string, string>
     }
   }
 
-  // Model sometimes deletes placeholders entirely — append missing media from source mask.
+  // Model sometimes deletes placeholders entirely, append missing media from source mask.
   for (const fragment of fragments.values()) {
     if (!html.includes(fragment)) {
       html += `\n${fragment}`;

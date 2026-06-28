@@ -23,7 +23,7 @@
         "tag": "収益漏れ",
         "stat": "8–25%",
         "label": "ホコリとコンポーネントドリフトによる発電損失",
-        "body": "ホコリ膜、トラッカー停止、インバータクリップが同一MW年に重なる。乾燥地では年25%損失の研究も — SCADAはMWh喪失後に低下を示す。"
+        "body": "ホコリ膜、トラッカー停止、インバータクリップが同一MW年に重なる。乾燥地では年25%損失の研究も, SCADAはMWh喪失後に低下を示す。"
       },
       "card1": {
         "tag": "コストスパイラル",
@@ -47,16 +47,16 @@
     "soilingPr": {
       "eyebrow": "SoilingとPR",
       "heading": "インドのソーラーパネルsoiling損失・soiling比・PR改善",
-      "p1": "Soiling比 — モジュールガラスのホコリによる日射損失 — がインド大規模プラントのPRドリフトを招く。Rajasthan、Gujarat、MPでカレンダー清掃時8–25%年間発電抑制。",
-      "p2": "清掃によるPR改善はベースラインsoiling・頻度・天候依存。ロボット乾式清掃は湿式なしで月3–10サイクル — multi-MWフリートのsoiling損失を中和する経済的路。",
-      "p3": "EPC・O&MはPR回復を清掾証拠に結ぶべき — CAPEX/Opex前にNECTYRブロックログとprice guide・calculatorでdirectional ROI。",
+      "p1": "Soiling比, モジュールガラスのホコリによる日射損失, がインド大規模プラントのPRドリフトを招く。Rajasthan、Gujarat、MPでカレンダー清掃時8–25%年間発電抑制。",
+      "p2": "清掃によるPR改善はベースラインsoiling・頻度・天候依存。ロボット乾式清掃は湿式なしで月3–10サイクル, multi-MWフリートのsoiling損失を中和する経済的路。",
+      "p3": "EPC・O&MはPR回復を清掾証拠に結ぶべき, CAPEX/Opex前にNECTYRブロックログとprice guide・calculatorでdirectional ROI。",
       "linkPriceGuide": "インドロボット価格ガイド",
       "linkCalculator": "ROI計算機"
     },
     "scada": {
       "heading": "運用ギャップ",
       "lead": "SCADAはkWhが失われたと示す。失われる前に理由は示さない。",
-      "body": "モジュール健全性、トラッカー故障、インバータクリップ、soilingは別ログ。勝つプラントは原因・行動・証拠を一ループに — 別のアラームダッシュボードではない。"
+      "body": "モジュール健全性、トラッカー故障、インバータクリップ、soilingは別ログ。勝つプラントは原因・行動・証拠を一ループに, 別のアラームダッシュボードではない。"
     },
     "solution": {
       "eyebrow": "Tayproがループを閉じる方法",
@@ -70,20 +70,20 @@
       "pillar1": {
         "tag": "データ層",
         "title": "NECTYRフリート運用",
-        "body": "サイクルスケジュール、ブロック監視、AMCチケット、カバレッジ監査 — 2022年からのlive展開telemetry。",
+        "body": "サイクルスケジュール、ブロック監視、AMCチケット、カバレッジ監査, 2022年からのlive展開telemetry。",
         "link": "NECTYRを見る"
       },
       "pillar2": {
         "tag": "インテリジェンス層",
         "title": "ORIONプラント健全性",
-        "body": "SCADAを補完する発電連動監視 — Taypro既存フリートの更新レールに接続予定。",
+        "body": "SCADAを補完する発電連動監視, Taypro既存フリートの更新レールに接続予定。",
         "link": "ORION早期アクセス"
       }
     },
     "robotsSeo": {
       "eyebrow": "調達・エンジニアリング",
       "heading": "インド大規模プラント向けソーラーパネル洗浄ロボット",
-      "bodyBefore": "Tayproはインドでfixed tilt、seasonal tilt、single-axis tracker向け自律・半自動水なしロボットを製造 — pan-Indiaサービス、NECTYR、optional Opex。比較：",
+      "bodyBefore": "Tayproはインドでfixed tilt、seasonal tilt、single-axis tracker向け自律・半自動水なしロボットを製造, pan-Indiaサービス、NECTYR、optional Opex。比較：",
       "hubLink": "すべてのTayproロボット",
       "bodyAfter": "、ROI計算機を実行、またはサイト見積を依頼。",
       "ctaHub": "ソーラー洗浄ロボットハブ",
@@ -108,21 +108,21 @@
       "q1": "大規模プラントに手洗いではなくロボットが必要な理由は？",
       "a1": "手洗いはMW拡大に線形追従せず、缺水州で限界、監査可能ログが少ない。水なしロボットは反復cadence、telemetry、pan-India SLA。",
       "q2": "TayproはSCADA単体とどう違う？",
-      "a2": "SCADAは損失後に報告。Tayproは現場実行(robots)、NECTYR、ORIONを追加 — スケジュール、カバレッジ証明、性能連動。",
+      "a2": "SCADAは損失後に報告。Tayproは現場実行(robots)、NECTYR、ORIONを追加, スケジュール、カバレッジ証明、性能連動。",
       "q3": "購入とマネージドサービスの両方？",
       "a3": "両方。GLYDE、NYUMA、HELYXをcommissioning・AMC付き購入、またはOpex pay-per-panel。展開ロボットにNECTYR含む。",
       "q4": "Tayproロボットの製造とサポートは？",
-      "a4": "TayproはChakan, Puneで設計製造 — pan-India倉庫・フィールドエンジニア、commissioning、spares、same-day breakdown目標。",
+      "a4": "TayproはChakan, Puneで設計製造, pan-India倉庫・フィールドエンジニア、commissioning、spares、same-day breakdown目標。",
       "q5": "インド大規模プラントのsoiling lossとは？",
       "a5": "Soiling lossはモジュールホコリによる発電抑制。乾燥地帯でcadence不足時8–25%年間。ロボット乾式清掾がMWh回復。",
       "q6": "洗浄ロボットはPRをどう改善？",
-      "a6": "一貫したモジュール清潔性がPR drift低減。ロボットは日次/準日次サイクル — NECTYR監査可能カバレッジ。PR改善はサイト依存。",
+      "a6": "一貫したモジュール清潔性がPR drift低減。ロボットは日次/準日次サイクル, NECTYR監査可能カバレッジ。PR改善はサイト依存。",
       "q7": "インドのO&M清掾ロボット調達とは？",
-      "a7": "大規模RFQはwaterless適合、トラッカー互換、フリートSW、SLA、CAPEX vs Opexを評価。Tayproインド製ロボット、NECTYR、optional Opex — 価格ガイド・州ページ参照。"
+      "a7": "大規模RFQはwaterless適合、トラッカー互換、フリートSW、SLA、CAPEX vs Opexを評価。Tayproインド製ロボット、NECTYR、optional Opex: 価格ガイド・州ページ参照。"
     },
     "cta": {
       "heading": "発電所の運用層を計画",
-      "body": "容量・レイアウト・調達希望を共有 — ロボット、Opex、フリートSWを提案。",
+      "body": "容量・レイアウト・調達希望を共有, ロボット、Opex、フリートSWを提案。",
       "quote": "見積依頼",
       "company": "パートナー・投資家",
       "quoteTopic": "公共事業の見積もり",
@@ -140,7 +140,7 @@
     },
     "stateGuides": {
       "heading": "地域別ソーラー洗浄ロボットガイド",
-      "intro": "Rajasthan、Gujarat、Madhya Pradesh、Karnataka、Andhra Pradesh、Maharashtra、Uttar Pradesh、Tamil Nadu — 展開、soiling、RFQ。"
+      "intro": "Rajasthan、Gujarat、Madhya Pradesh、Karnataka、Andhra Pradesh、Maharashtra、Uttar Pradesh、Tamil Nadu: 展開、soiling、RFQ。"
     }
   },
   "Common": {

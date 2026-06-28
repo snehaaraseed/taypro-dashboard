@@ -1,7 +1,7 @@
 <h2>Executive summary</h2>
-<p>The Soyegaon, Maharashtra plant is a 100&nbsp;MW ground-mounted utility asset in Maharashtra. Fifty-four GLYDE automatic robots anchor scheduled dual-pass cycles on repeatable rows; thirty-six NYUMA semi-automatic units cover transitions, irregular tables, and blocks still onboarding to full scheduled GLYDE paths—a 90-machine mixed fleet at ~0.90 robots/MW. Taypro implemented Mixed automatic + semi-automatic waterless cleaning under <a href="/projects/capex">CAPEX</a>.</p>
+<p>The Soyegaon, Maharashtra plant is a 100&nbsp;MW ground-mounted utility asset in Maharashtra. Fifty-four GLYDE automatic robots anchor scheduled dual-pass cycles on repeatable rows; thirty-six NYUMA semi-automatic units cover transitions, irregular tables, and blocks still onboarding to full scheduled GLYDE paths, a 90-machine mixed fleet at ~0.90 robots/MW. Taypro implemented Mixed automatic + semi-automatic waterless cleaning under <a href="/projects/capex">CAPEX</a>.</p>
 <p>Operations report roughly <strong>14 million litres of water saved per year</strong>, about <strong>3.75&nbsp;GWh of additional clean generation</strong>, and <strong>1,860&nbsp;metric tons CO₂ equivalent</strong> (site-reported; validate with your SCADA). This case study links to Taypro products, <a href="/performance-and-test-methodology">performance methodology</a>, and peer deployments for owners sizing mid-scale programmes.</p>
-<p>Robotic cleaning here means <strong>scheduled cycles and weather-aware holds</strong>—not flooding modules on a daily wash calendar. Read the cadence section before modelling robots/MW from brochures alone.</p>
+<p>Robotic cleaning here means <strong>scheduled cycles and weather-aware holds</strong>, not flooding modules on a daily wash calendar. Read the cadence section before modelling robots/MW from brochures alone.</p>
 
 <h2>Site statistics at a glance</h2>
 <table>
@@ -26,87 +26,87 @@
 <p>Figures are site-reported. Pair with <a href="/cleaning-technology">cleaning technology</a> when writing acceptance criteria.</p>
 
 <h2>Fleet design at 100&nbsp;MW</h2>
-<p>Fifty-four GLYDE automatic robots anchor scheduled dual-pass cycles on repeatable rows; thirty-six NYUMA semi-automatic units cover transitions, irregular tables, and blocks still onboarding to full scheduled GLYDE paths—a 90-machine mixed fleet at ~0.90 robots/MW.</p>
+<p>Fifty-four GLYDE automatic robots anchor scheduled dual-pass cycles on repeatable rows; thirty-six NYUMA semi-automatic units cover transitions, irregular tables, and blocks still onboarding to full scheduled GLYDE paths, a 90-machine mixed fleet at ~0.90 robots/MW.</p>
 <p>Soyegaon sits between Agar’s 200&nbsp;MW mixed intensity and Chhayan’s smaller automatic-only reference: at 100&nbsp;MW it shows how Maharashtra agricultural vicinities need both NECTYR-scheduled GLYDE and portable NYUMA insurance.</p>
 <p>Procurement is <a href="/projects/capex">CAPEX</a>. Compare <a href="/solar-panel-cleaning-system">system overview</a>, <a href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system">GLYDE automatic</a>, and <a href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system">semi-automatic</a> pages with your row maps before copying robot density.</p>
 
 <h2>NECTYR operations and accountability</h2>
-<p>NECTYR provides fleet visibility, <strong>automated cycle scheduling</strong>, and alert management—not a “clean now” button for the whole plant. Day supervisors review completion maps, wind and rain holds, and idle trends; scheduled cycles run in approved windows; missed blocks are rescheduled before month-end PR surprises.</p>
+<p>NECTYR provides fleet visibility, <strong>automated cycle scheduling</strong>, and alert management, not a “clean now” button for the whole plant. Day supervisors review completion maps, wind and rain holds, and idle trends; scheduled cycles run in approved windows; missed blocks are rescheduled before month-end PR surprises.</p>
 <p>Weekly meetings tie cleaning KPIs to inverter availability. Wind holds use the same weather context shown in the dashboard; brush PM follows Taypro intervals.</p>
 
 <h2>Cleaning cadence: scheduled cycles and weather-aware holds</h2>
-<p>Taypro <strong>GLYDE</strong> automatic fleets do <strong>not</strong> run a naive “every module, every night” wash. Each unit is assigned to a ground-mount array with a docking station and executes <strong>scheduled waterless cycles</strong> in block-wise windows—typically <strong>post-sunset or pre-sunrise</strong>, outside peak generation—configured in <a href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app">NECTYR</a>. Plant studies set how many runs occur per month; utility programmes commonly align with roughly <strong>3–10 dry-cleaning cycles per month</strong>, often denser in peak dust season (for example 6–10) and lighter in quieter months, as described on <a href="/cleaning-technology">cleaning technology</a> and <a href="/solar-panel-cleaning-system/solar-panel-cleaning-service">cleaning service</a> pages.</p>
-<p><strong>AI- and ML-informed scheduling</strong> in NECTYR combines weather forecasts, rain probability, wind limits, and fleet telemetry. After effective rain, robots often <strong>stand down</strong> to avoid redundant passes; after dust fronts, schedules tighten so performance ratio recovers before the next revenue-critical period. Operators see the same weather context used for wind holds—overrides should be informed, not blind.</p>
-<p>Each completed GLYDE run is a <strong>dual-pass waterless cycle</strong> on fixed tables, with dust removal quoted <strong>per completed cycle</strong> under <a href="/performance-and-test-methodology">performance methodology</a>—not nameplate efficiency gain and not guaranteed daily coverage of the full DC footprint.</p>
+<p>Taypro <strong>GLYDE</strong> automatic fleets do <strong>not</strong> run a naive “every module, every night” wash. Each unit is assigned to a ground-mount array with a docking station and executes <strong>scheduled waterless cycles</strong> in block-wise windows, typically <strong>post-sunset or pre-sunrise</strong>, outside peak generation, configured in <a href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app">NECTYR</a>. Plant studies set how many runs occur per month; utility programmes commonly align with roughly <strong>3–10 dry-cleaning cycles per month</strong>, often denser in peak dust season (for example 6–10) and lighter in quieter months, as described on <a href="/cleaning-technology">cleaning technology</a> and <a href="/solar-panel-cleaning-system/solar-panel-cleaning-service">cleaning service</a> pages.</p>
+<p><strong>AI- and ML-informed scheduling</strong> in NECTYR combines weather forecasts, rain probability, wind limits, and fleet telemetry. After effective rain, robots often <strong>stand down</strong> to avoid redundant passes; after dust fronts, schedules tighten so performance ratio recovers before the next revenue-critical period. Operators see the same weather context used for wind holds, overrides should be informed, not blind.</p>
+<p>Each completed GLYDE run is a <strong>dual-pass waterless cycle</strong> on fixed tables, with dust removal quoted <strong>per completed cycle</strong> under <a href="/performance-and-test-methodology">performance methodology</a>, not nameplate efficiency gain and not guaranteed daily coverage of the full DC footprint.</p>
 
 <h2>Commissioning and handover</h2>
 <p>Commissioning sequenced high-soiling blocks first, validated end-of-row geometry, cable zones, and inverter-yard buffers, and placed docking or staging to limit deadhead time. Technicians trained on waterless brush compliance, fault codes, and hold rules; handover included path maps, escalation paths, and spare thresholds for local dust abrasiveness.</p>
 
 
 <h2>What Soyegaon teaches procurement teams</h2>
-<p>Soyegaon sits between Agar’s 200&nbsp;MW mixed intensity and Chhayan’s smaller automatic-only reference: at 100&nbsp;MW it shows how Maharashtra agricultural vicinities need both NECTYR-scheduled GLYDE and portable NYUMA insurance. Use the <a href="/solar-panel-cleaning-robot-price-calculator#calculator">ROI calculator</a> with conservative GWh attribution, then request plant-specific cycle assumptions from Taypro applications—see <a href="/utility-scale-solar-operations">utility operations</a> framing.</p>
+<p>Soyegaon sits between Agar’s 200&nbsp;MW mixed intensity and Chhayan’s smaller automatic-only reference: at 100&nbsp;MW it shows how Maharashtra agricultural vicinities need both NECTYR-scheduled GLYDE and portable NYUMA insurance. Use the <a href="/solar-panel-cleaning-robot-price-calculator#calculator">ROI calculator</a> with conservative GWh attribution, then request plant-specific cycle assumptions from Taypro applications, see <a href="/utility-scale-solar-operations">utility operations</a> framing.</p>
 <p>Lenders should ask for block-level proof: NECTYR completion and hold logs. Insurers should see night traffic plans and training records alongside water and carbon statistics.</p>
 
 <h2>Regional soiling mechanics at 100&nbsp;MW</h2>
-<p>Semi-arid Maharashtra with agricultural dust, seasonal haze, and bird-droppings pressure on select blocks. Fine dust bonds to glass between cycles; downwind rows and haul-road-facing strings often soften in inverter data before a drive-by inspection triggers action. At 100&nbsp;MW, owners need programmed cleaning with block-level proof—not episodic tanker washes.</p>
-<p>Before Taypro, manual programmes struggled with frequency, water logistics, and auditability—especially where labour turnover and remote access complicated night supervision. Soyegaon closed that gap with mixed automatic + semi-automatic waterless coverage under <a href="/projects/capex">CAPEX</a>.</p>
+<p>Semi-arid Maharashtra with agricultural dust, seasonal haze, and bird-droppings pressure on select blocks. Fine dust bonds to glass between cycles; downwind rows and haul-road-facing strings often soften in inverter data before a drive-by inspection triggers action. At 100&nbsp;MW, owners need programmed cleaning with block-level proof, not episodic tanker washes.</p>
+<p>Before Taypro, manual programmes struggled with frequency, water logistics, and auditability, especially where labour turnover and remote access complicated night supervision. Soyegaon closed that gap with mixed automatic + semi-automatic waterless coverage under <a href="/projects/capex">CAPEX</a>.</p>
 
 <h2>Monthly operating calendar</h2>
-<p><strong>January–February:</strong> review brush wear and cycle plans; validate wind and rain hold rules in NECTYR. <strong>March–June:</strong> peak dust—scheduled cycle density increases on priority blocks (weather permitting), often toward the <strong>6–10 cycles per month</strong> class for automatic fleets; not nightly coverage of every module. <strong>Monsoon transition:</strong> stand down or lighten cycles after effective rain. <strong>Post-monsoon:</strong> re-walk paths after vegetation or civil works; update block timers before the next approved cleaning window.</p>
-<p>Supervisors maintain a priority queue: downwind haul roads, quarry-adjacent strings, then interior blocks with stable soiling slopes. The queue should be visible in NECTYR dashboards—not tribal knowledge carried by one lead.</p>
+<p><strong>January–February:</strong> review brush wear and cycle plans; validate wind and rain hold rules in NECTYR. <strong>March–June:</strong> peak dust, scheduled cycle density increases on priority blocks (weather permitting), often toward the <strong>6–10 cycles per month</strong> class for automatic fleets; not nightly coverage of every module. <strong>Monsoon transition:</strong> stand down or lighten cycles after effective rain. <strong>Post-monsoon:</strong> re-walk paths after vegetation or civil works; update block timers before the next approved cleaning window.</p>
+<p>Supervisors maintain a priority queue: downwind haul roads, quarry-adjacent strings, then interior blocks with stable soiling slopes. The queue should be visible in NECTYR dashboards, not tribal knowledge carried by one lead.</p>
 
 <h2>SCADA correlation workshops</h2>
-<p>Pair inverter loading snapshots with NECTYR completion timestamps. If a block was logged clean and PR remains soft, escalate brush wear, partial coverage, or equipment fault—not automatic blame on weather. Monthly workshops keep robotics budgets defensible during annual reviews.</p>
+<p>Pair inverter loading snapshots with NECTYR completion timestamps. If a block was logged clean and PR remains soft, escalate brush wear, partial coverage, or equipment fault, not automatic blame on weather. Monthly workshops keep robotics budgets defensible during annual reviews.</p>
 <p>At 100&nbsp;MW, string-level trends often flag soiling before security cameras show dirty glass. Soyegaon O&amp;M teams should document five-why outcomes when cleaning logs and PR diverge.</p>
 
 <h2>Water economics and tanker baselines</h2>
-<p>Reported <strong>14 million litres per year</strong> avoided should be modelled against historical tanker spend and wet-wash crew costs—not a hypothetical daily wash programme. Finance should pair water slides with attributed <strong>3.75&nbsp;GWh</strong> at 50% and 75% stress tests.</p>
-<p>Dry brushing in approved windows avoids thermal shock from midday sprays. The point is not zero site water use—it is that module cleaning no longer depends on flooding rows on a repeating calendar.</p>
+<p>Reported <strong>14 million litres per year</strong> avoided should be modelled against historical tanker spend and wet-wash crew costs, not a hypothetical daily wash programme. Finance should pair water slides with attributed <strong>3.75&nbsp;GWh</strong> at 50% and 75% stress tests.</p>
+<p>Dry brushing in approved windows avoids thermal shock from midday sprays. The point is not zero site water use, it is that module cleaning no longer depends on flooding rows on a repeating calendar.</p>
 
 <h2>ESG, lender, and insurer evidence</h2>
 <p>Reported <strong>1,860&nbsp;tCO₂e</strong> supports climate slides when tied to the same <strong>3.75&nbsp;GWh</strong> assumptions auditors review. Provide NECTYR completion and hold logs, training attendance, and night traffic plans. None of this replaces PPA legal attribution; it strengthens O&amp;M credibility.</p>
 
 <h2>Fleet accountability: 54 GLYDE automatic plus 36 NYUMA semi-automatic (90 robots total)</h2>
-<p>Fifty-four GLYDE automatic robots anchor scheduled dual-pass cycles on repeatable rows; thirty-six NYUMA semi-automatic units cover transitions, irregular tables, and blocks still onboarding to full scheduled GLYDE paths—a 90-machine mixed fleet at ~0.90 robots/MW.</p>
-<p>Robots per MW here is ~0.90—a layout and coverage-intensity choice, not a universal benchmark. Compare peers linked in the benchmarking section before copying robot density from brochures.</p>
+<p>Fifty-four GLYDE automatic robots anchor scheduled dual-pass cycles on repeatable rows; thirty-six NYUMA semi-automatic units cover transitions, irregular tables, and blocks still onboarding to full scheduled GLYDE paths, a 90-machine mixed fleet at ~0.90 robots/MW.</p>
+<p>Robots per MW here is ~0.90, a layout and coverage-intensity choice, not a universal benchmark. Compare peers linked in the benchmarking section before copying robot density from brochures.</p>
 
 <h2>Spares, training, and mixed-fleet rotation</h2>
 <p>Size brush and drive spares for dust-season peaks. Rotate technicians across GLYDE supervision and NYUMA portable weeks so mixed fleets do not split into siloed crews.</p>
-<p>Commissioning should have sequenced high-soiling blocks first, validated geometry, and placed docking or staging to limit deadhead time—especially when 100&nbsp;MW compresses cleaning windows during curtailment.</p>
+<p>Commissioning should have sequenced high-soiling blocks first, validated geometry, and placed docking or staging to limit deadhead time, especially when 100&nbsp;MW compresses cleaning windows during curtailment.</p>
 
 <h2>Technology, safety, and warranty alignment</h2>
-<p>Respect OEM cleaning guidance on brush materials and speeds. Safety covers night traffic near inverter yards and lockout coordination—cleaning windows stay outside energized maintenance on the same block. Read <a href="/cleaning-technology">cleaning technology</a> and <a href="/performance-and-test-methodology">performance methodology</a> before acceptance tests.</p>
+<p>Respect OEM cleaning guidance on brush materials and speeds. Safety covers night traffic near inverter yards and lockout coordination, cleaning windows stay outside energized maintenance on the same block. Read <a href="/cleaning-technology">cleaning technology</a> and <a href="/performance-and-test-methodology">performance methodology</a> before acceptance tests.</p>
 
 <h2>Procurement checklist for 100&nbsp;MW Maharashtra bids</h2>
 <ul>
 <li>Map row repeatability and decide automatic vs semi-automatic mix before buying marketing slides.</li>
 <li>Price water, labour, and emergency wash frequency in the manual baseline year.</li>
-<li>Require block-level completion proof—NECTYR exports.</li>
+<li>Require block-level completion proof, NECTYR exports.</li>
 <li>Phase commissioning on highest-soiling blocks first.</li>
 <li>Run the <a href="/solar-panel-cleaning-robot-price-calculator#calculator">ROI calculator</a> with local tariff and realistic curtailment.</li>
 <li>Read peer case studies on the <a href="/projects">projects hub</a> and contact Taypro via <a href="/contact">contact</a> for a layout review.</li>
 </ul>
 
 <h3>Who should benchmark Soyegaon?</h3>
-<p>Owners with 100&nbsp;MW Maharashtra assets and mixed automatic + semi-automatic constraints—not plants copying robot counts without row maps.</p>
+<p>Owners with 100&nbsp;MW Maharashtra assets and mixed automatic + semi-automatic constraints, not plants copying robot counts without row maps.</p>
 
 <h3>How many cycles per month?</h3>
-<p>Site-specific; Taypro programmes often align with roughly <strong>3–10 dry cycles per month</strong>, weather permitting—see <a href="/cleaning-technology">cleaning technology</a>. NECTYR block timers implement that philosophy—not a plant-wide clean-now button.</p>
+<p>Site-specific; Taypro programmes often align with roughly <strong>3–10 dry cycles per month</strong>, weather permitting, see <a href="/cleaning-technology">cleaning technology</a>. NECTYR block timers implement that philosophy, not a plant-wide clean-now button.</p>
 
 <h3>CAPEX vs Opex service?</h3>
 <p>This deployment is CAPEX; evaluate <a href="/solar-panel-cleaning-system/solar-panel-cleaning-service">managed Opex service</a> separately if you want Taypro-operated cycles with a different commercial model.</p>
 
 <h2>Root-cause discipline when PR and cleaning logs diverge</h2>
-<p>When a block shows clean in NECTYR completion and hold logs but inverter trends remain soft, supervisors run structured root-cause: brush wear, partial path coverage, tracker or inverter fault, curtailment, or weather—not a default “soiling anyway” close. Document outcomes in O&amp;M minutes so annual robotics budget reviews see engineering rigor, not anecdotes.</p>
-<p>At 100&nbsp;MW, one mis-diagnosed block group can hide hundreds of MWh over a season. Pair <a href="/performance-and-test-methodology">performance methodology</a> dust-removal claims per completed cycle with SCADA—not nameplate efficiency marketing.</p>
+<p>When a block shows clean in NECTYR completion and hold logs but inverter trends remain soft, supervisors run structured root-cause: brush wear, partial path coverage, tracker or inverter fault, curtailment, or weather, not a default “soiling anyway” close. Document outcomes in O&amp;M minutes so annual robotics budget reviews see engineering rigor, not anecdotes.</p>
+<p>At 100&nbsp;MW, one mis-diagnosed block group can hide hundreds of MWh over a season. Pair <a href="/performance-and-test-methodology">performance methodology</a> dust-removal claims per completed cycle with SCADA, not nameplate efficiency marketing.</p>
 
 <h2>Long-horizon O&amp;M planning</h2>
-<p>Ten-year models should include brush and drive refresh, training churn, and map-update labour after civil works—not only year-one hardware. Soyegaon owners who treat robotics as capital without consumable and supervision lines underestimate lifecycle cost.</p>
+<p>Ten-year models should include brush and drive refresh, training churn, and map-update labour after civil works, not only year-one hardware. Soyegaon owners who treat robotics as capital without consumable and supervision lines underestimate lifecycle cost.</p>
 <p>Refresh planning belongs in the same handbook as inverter PM: named owners, reorder thresholds, and escalation paths when idle minutes rise without weather cause.</p>
 
 
 <h2>Seasonal operating calendar</h2>
-<p><strong>Jan–Feb:</strong> review brush wear and cycle plans; validate wind and rain hold rules in NECTYR or inspection logs. <strong>Mar–Jun:</strong> peak dust—scheduled cycle density increases on priority blocks (weather permitting), often toward the <strong>6–10 cycles per month</strong> class for automatic fleets; not nightly coverage of every module. <strong>Monsoon transition:</strong> stand down or lighten cycles after effective rain; inspection-heavy weeks where appropriate. <strong>Post-monsoon:</strong> re-walk paths after vegetation or civil works; update block timers before the next approved cleaning window.</p>
+<p><strong>Jan–Feb:</strong> review brush wear and cycle plans; validate wind and rain hold rules in NECTYR or inspection logs. <strong>Mar–Jun:</strong> peak dust, scheduled cycle density increases on priority blocks (weather permitting), often toward the <strong>6–10 cycles per month</strong> class for automatic fleets; not nightly coverage of every module. <strong>Monsoon transition:</strong> stand down or lighten cycles after effective rain; inspection-heavy weeks where appropriate. <strong>Post-monsoon:</strong> re-walk paths after vegetation or civil works; update block timers before the next approved cleaning window.</p>
 
 <h2>Peer benchmarking</h2>
 <p><strong> Versus <a href="/projects/agar-solar-project">Agar (200&nbsp;MW, 265+7 mixed)</a>:</strong> higher automatic share at larger nameplate.</p>
@@ -115,45 +115,45 @@
 <p>Browse <a href="/projects">all projects</a>, <a href="/projects/automatic">automatic</a>, <a href="/projects/semi-automatic">semi-automatic</a>, and <a href="/projects/capex">CAPEX</a> galleries.</p>
 
 <h2>Maharashtra agricultural vicinity and bird-droppings risk</h2>
-<p>Soyegaon’s soiling mix includes agricultural film and bird-droppings pockets that standard PR aggregates can hide. NECTYR block priorities should elevate those strings when telemetry or IV trends flag localized loss—scheduled GLYDE cycles on repeatable rows plus NYUMA passes on problem tables.</p>
+<p>Soyegaon’s soiling mix includes agricultural film and bird-droppings pockets that standard PR aggregates can hide. NECTYR block priorities should elevate those strings when telemetry or IV trends flag localized loss, scheduled GLYDE cycles on repeatable rows plus NYUMA passes on problem tables.</p>
 <p>Monsoon weeks may reduce automatic cycle counts while inspections confirm rain-rinsed blocks; supervisors document skipped cycles as weather outcomes, not fleet failures.</p>
 <h2>Mixed-fleet weekly governance</h2>
 <p>Publish which blocks are GLYDE-only versus NYUMA-required; rotate technicians between NECTYR supervision and portable coverage weeks. Finance reviews should pair 14&nbsp;million litres and 3.75&nbsp;GWh claims with hold logs and semi-automatic inspection samples.</p>
 
 <h2>Maharashtra agricultural dust and bird-droppings</h2>
-<p>Soyegaon’s soiling is not uniform desert dust alone—agricultural activity and seasonal haze create film layers and bird-droppings pockets that inverter aggregates can hide. NECTYR block priorities should elevate strings with localized IV softness even when plant-level PR looks stable. GLYDE scheduled dual-pass cycles handle repeatable tables; thirty-six NYUMA portables cover orchard-adjacent blocks, transitions, and zones where scheduled GLYDE paths are still maturing.</p>
+<p>Soyegaon’s soiling is not uniform desert dust alone, agricultural activity and seasonal haze create film layers and bird-droppings pockets that inverter aggregates can hide. NECTYR block priorities should elevate strings with localized IV softness even when plant-level PR looks stable. GLYDE scheduled dual-pass cycles handle repeatable tables; thirty-six NYUMA portables cover orchard-adjacent blocks, transitions, and zones where scheduled GLYDE paths are still maturing.</p>
 <p>After harvest exposure or road traffic dust fronts, supervisors tighten block timers in NECTYR. After effective rain, weather logic should pause redundant automatic cycles while technicians inspection-walk blocks that rain rinsed unevenly.</p>
 
 <h2>Mixed-fleet governance at 100&nbsp;MW</h2>
-<p>Publish a single O&amp;M calendar: GLYDE-only blocks versus NYUMA-required blocks. Rotate crews so portable technicians understand NECTYR hold reasons—not only automatic supervisors. Finance reviews should pair <strong>14&nbsp;million litres</strong> and <strong>3.75&nbsp;GWh</strong> with sample NECTYR exports and semi-automatic inspection sheets from the same week.</p>
+<p>Publish a single O&amp;M calendar: GLYDE-only blocks versus NYUMA-required blocks. Rotate crews so portable technicians understand NECTYR hold reasons, not only automatic supervisors. Finance reviews should pair <strong>14&nbsp;million litres</strong> and <strong>3.75&nbsp;GWh</strong> with sample NECTYR exports and semi-automatic inspection sheets from the same week.</p>
 
 <h2>Commissioning lessons from 2024</h2>
-<p>Phased commissioning prioritised dustiest blocks and validated docking before monsoon. Handover included spare brush curves for agricultural film—not only silica dust. Staging minimised portable drive time between irregular tables.</p>
+<p>Phased commissioning prioritised dustiest blocks and validated docking before monsoon. Handover included spare brush curves for agricultural film, not only silica dust. Staging minimised portable drive time between irregular tables.</p>
 
 <h2>Peer context for procurement</h2>
-<p>Compare <a href="/projects/agar-solar-project">Agar (200&nbsp;MW, higher robots/MW mixed)</a> and <a href="/projects/banda-solar-project">Banda (70&nbsp;MW, even higher intensity)</a> before copying Soyegaon’s 0.90 robots/MW—layout and dust return windows differ.</p>
+<p>Compare <a href="/projects/agar-solar-project">Agar (200&nbsp;MW, higher robots/MW mixed)</a> and <a href="/projects/banda-solar-project">Banda (70&nbsp;MW, even higher intensity)</a> before copying Soyegaon’s 0.90 robots/MW, layout and dust return windows differ.</p>
 
 
 <h2>Utility O&amp;M integration</h2>
-<p>Robotic cleaning belongs on the master O&amp;M calendar beside vegetation control, thermal scans, and inverter PM—not as a side contractor. NECTYR evidence should appear in the same weekly meeting as availability and curtailment reviews.</p>
-<p>Owners benchmarking Soyegaon should bring row maps, manual baseline wash costs, and conservative GWh attribution—not MW totals alone. Contact Taypro via <a href="/contact">contact</a> after reviewing <a href="/projects">peer projects</a> and the <a href="/solar-panel-cleaning-robot-price-calculator#calculator">calculator</a>.</p>
+<p>Robotic cleaning belongs on the master O&amp;M calendar beside vegetation control, thermal scans, and inverter PM, not as a side contractor. NECTYR evidence should appear in the same weekly meeting as availability and curtailment reviews.</p>
+<p>Owners benchmarking Soyegaon should bring row maps, manual baseline wash costs, and conservative GWh attribution, not MW totals alone. Contact Taypro via <a href="/contact">contact</a> after reviewing <a href="/projects">peer projects</a> and the <a href="/solar-panel-cleaning-robot-price-calculator#calculator">calculator</a>.</p>
 
 
 <h2>Agricultural dust fronts and NECTYR block timers</h2>
 <p>After harvest exposure or road traffic, supervisors tighten block timers in NECTYR on downwind strings. After effective rain, weather logic should pause redundant automatic cycles while technicians inspection-walk blocks rain rinsed unevenly. Bird-droppings pockets need localized IV review even when plant PR looks stable.</p>
 
 <h2>Mixed-fleet O&amp;M calendar at 100&nbsp;MW</h2>
-<p>Publish GLYDE-only versus NYUMA-required blocks weekly. Finance reviews pair <strong>14&nbsp;million litres</strong> and <strong>3.75&nbsp;GWh</strong> with NECTYR hold logs and semi-automatic inspection samples from the same week—not statistics from different months.</p>
+<p>Publish GLYDE-only versus NYUMA-required blocks weekly. Finance reviews pair <strong>14&nbsp;million litres</strong> and <strong>3.75&nbsp;GWh</strong> with NECTYR hold logs and semi-automatic inspection samples from the same week, not statistics from different months.</p>
 
 <h2>Commissioning lessons from 2024</h2>
-<p>Phased commissioning prioritised dustiest blocks, validated docking before monsoon, and staged portables to limit drive time on irregular tables. Spare brush curves account for agricultural film—not only silica dust.</p>
+<p>Phased commissioning prioritised dustiest blocks, validated docking before monsoon, and staged portables to limit drive time on irregular tables. Spare brush curves account for agricultural film, not only silica dust.</p>
 
 <h2>Peer context before copying 0.90 robots/MW</h2>
-<p>Compare <a href="/projects/agar-solar-project">Agar (200&nbsp;MW mixed)</a> and <a href="/projects/banda-solar-project">Banda (70&nbsp;MW, higher intensity)</a> with your row maps—layout and dust return windows differ from Soyegaon.</p>
+<p>Compare <a href="/projects/agar-solar-project">Agar (200&nbsp;MW mixed)</a> and <a href="/projects/banda-solar-project">Banda (70&nbsp;MW, higher intensity)</a> with your row maps, layout and dust return windows differ from Soyegaon.</p>
 
 
 <h2>Block prioritisation mathematics at 100&nbsp;MW</h2>
-<p>With ninety machines on one hundred megawatts, supervisors treat cleaning as operations research: downwind haul roads and orchard-adjacent strings lead the queue; interior tables cycle when weather and NECTYR timers allow—not when a calendar says “wash the plant.” March through June, completion and hold logs should be reviewed with inverter availability in the same meeting.</p>
+<p>With ninety machines on one hundred megawatts, supervisors treat cleaning as operations research: downwind haul roads and orchard-adjacent strings lead the queue; interior tables cycle when weather and NECTYR timers allow, not when a calendar says “wash the plant.” March through June, completion and hold logs should be reviewed with inverter availability in the same meeting.</p>
 <p>When curtailment compresses night hours, the queue shrinks with documented reschedules. Finance should see that discipline in sample weeks bundled with <strong>14&nbsp;million litres</strong> and <strong>3.75&nbsp;GWh</strong> claims.</p>
 
 <h2>Training rotation between GLYDE and NYUMA crews</h2>
@@ -163,21 +163,21 @@
 <p>Night traffic plans, wind-hold policies, brush PM records, and sample NECTYR exports belong in technical due diligence packs alongside water and carbon statistics. Insurers care that robotics reduces human exposure on modules during peak radiation.</p>
 
 <h2>Row-kilometre workshops for procurement</h2>
-<p>Technical committees should host row-kilometre workshops before approving ninety-machine mixed fleets. Workshop outputs—priority blocks, docking placement, portable staging—become appendix material in lender packs. MW totals alone mislead committees; maps and PR slopes do not.</p>
+<p>Technical committees should host row-kilometre workshops before approving ninety-machine mixed fleets. Workshop outputs, priority blocks, docking placement, portable staging, become appendix material in lender packs. MW totals alone mislead committees; maps and PR slopes do not.</p>
 <p>Workshop attendees include O&amp;M, civil, and finance so night-window decisions are not siloed in engineering. Compare <a href="/projects/chhayan-rajasthan-150-mw">Chhayan automatic mid-scale</a> only after normalizing for Maharashtra agricultural dust and mixed-fleet insurance.</p>
 
 
 <h2>Technical committee closing brief for Soyegaon</h2>
-<p>When your committee signs off on 100&nbsp;MW mixed automatic + semi-automatic waterless cleaning, attach three evidence types: row maps with block IDs, NECTYR completion and hold samples, and conservative stress tests on <strong>3.75&nbsp;GWh</strong> and <strong>1,860&nbsp;tCO₂e</strong>. Soyegaon statistics—<strong>14 million litres</strong> water avoided—should use the same assumption set as generation slides, not mixed months.</p>
+<p>When your committee signs off on 100&nbsp;MW mixed automatic + semi-automatic waterless cleaning, attach three evidence types: row maps with block IDs, NECTYR completion and hold samples, and conservative stress tests on <strong>3.75&nbsp;GWh</strong> and <strong>1,860&nbsp;tCO₂e</strong>. Soyegaon statistics, <strong>14 million litres</strong> water avoided, should use the same assumption set as generation slides, not mixed months.</p>
 <p>Robotics programmes fail audits when supervisors cannot explain prioritisation: downwind edges and haul-road strings first; interior tables when schedules and weather allow. That is operations research at 100&nbsp;MW, not a robots-per-MW slogan copied from brochures.</p>
 <p>Brush and drive consumables belong in ten-year CAPEX models alongside hardware. Commissioning in 2024 should have established hold policies before the first March dust peak. Spare batches arriving late idle machines silently across hundreds of hectares.</p>
 <p>Compare peer deployments linked in this case study before copying robot density. Maharashtra logistics, row repeatability, and dust return windows differ from Rajasthan mega plants and Madhya Pradesh mixed fleets alike. Model with <a href="/solar-panel-cleaning-robot-price-calculator#calculator">calculator</a> inputs only after local PR baselines and curtailment history are agreed.</p>
-<p>Insurers and lenders increasingly ask for night traffic plans, training attendance, and cleaning evidence—not crew sign-in sheets alone. NECTYR exports answers that question when block IDs match finance workshops.</p>
-<p>Finally, treat scheduled cycles and weather-aware holds as the operating definition of “clean”: roughly <strong>3–10 dry cycles per month</strong> on automatic peers, weather permitting—not daily flooding of every module. Read <a href="/cleaning-technology">cleaning technology</a> before writing acceptance criteria; read <a href="/performance-and-test-methodology">performance methodology</a> before claiming MWh uplift per pass.</p>
+<p>Insurers and lenders increasingly ask for night traffic plans, training attendance, and cleaning evidence, not crew sign-in sheets alone. NECTYR exports answers that question when block IDs match finance workshops.</p>
+<p>Finally, treat scheduled cycles and weather-aware holds as the operating definition of “clean”: roughly <strong>3–10 dry cycles per month</strong> on automatic peers, weather permitting, not daily flooding of every module. Read <a href="/cleaning-technology">cleaning technology</a> before writing acceptance criteria; read <a href="/performance-and-test-methodology">performance methodology</a> before claiming MWh uplift per pass.</p>
 
 <h2>Finance workshop agenda (suggested)</h2>
-<p>Agenda item one: validate manual baseline year—tanker litres, wet-wash crew headcount, emergency wash calls. Agenda item two: agree PR and curtailment normalization for <strong>3.75&nbsp;GWh</strong> attribution bands. Agenda item three: review NECTYR hold frequency and completion maps for the last dust-season month. Agenda item four: align ESG water and carbon slides on one assumption set.</p>
-<p>Agenda item five: confirm spare and training budgets through year five—not only robot purchase price. Soyegaon at 100&nbsp;MW is a multi-year O&amp;M programme; capital without consumables and supervision underestimates true cost.</p>
+<p>Agenda item one: validate manual baseline year, tanker litres, wet-wash crew headcount, emergency wash calls. Agenda item two: agree PR and curtailment normalization for <strong>3.75&nbsp;GWh</strong> attribution bands. Agenda item three: review NECTYR hold frequency and completion maps for the last dust-season month. Agenda item four: align ESG water and carbon slides on one assumption set.</p>
+<p>Agenda item five: confirm spare and training budgets through year five, not only robot purchase price. Soyegaon at 100&nbsp;MW is a multi-year O&amp;M programme; capital without consumables and supervision underestimates true cost.</p>
 <p>Close the workshop with peer benchmarks from this page and a layout review request via <a href="/contact">contact</a> if row maps are still preliminary.</p>
 
 
@@ -185,11 +185,11 @@
 <p>Attach Soyegaon evidence: NECTYR sample week, NYUMA inspection sample week, and conservative GWh stress tests. Mixed fleets fail when portable zones are under-staffed during agricultural dust peaks.</p>
 
 <h2>Monsoon transition operating note</h2>
-<p>After effective rain, NECTYR should pause redundant automatic cycles while technicians inspection-walk blocks rain rinsed unevenly. Document skipped cycles as weather outcomes in finance packs—not fleet failures.</p>
+<p>After effective rain, NECTYR should pause redundant automatic cycles while technicians inspection-walk blocks rain rinsed unevenly. Document skipped cycles as weather outcomes in finance packs, not fleet failures.</p>
 
 
 <h2>Audit week packaging for mixed 100&nbsp;MW plants</h2>
-<p>Package one audit week: NECTYR exports for GLYDE blocks, NYUMA inspection sheets for portable zones, inverter trends on downwind strings, and hold logs. Auditors should see the same weather narrative finance uses for <strong>14&nbsp;million litres</strong> and <strong>3.75&nbsp;GWh</strong>—not statistics from mismatched months.</p>
+<p>Package one audit week: NECTYR exports for GLYDE blocks, NYUMA inspection sheets for portable zones, inverter trends on downwind strings, and hold logs. Auditors should see the same weather narrative finance uses for <strong>14&nbsp;million litres</strong> and <strong>3.75&nbsp;GWh</strong>, not statistics from mismatched months.</p>
 
 
 
@@ -200,11 +200,11 @@
 
 <h2>Operations FAQ</h2>
 <h3>How are cycles scheduled?</h3>
-<p>Through NECTYR weather-aware block timers on automatic rows, or weekly portable plans on semi-automatic zones—not a daily wash of the full plant.</p>
+<p>Through NECTYR weather-aware block timers on automatic rows, or weekly portable plans on semi-automatic zones, not a daily wash of the full plant.</p>
 <h3>What should lenders review?</h3>
 <p>Water statistics, NECTYR hold logs and completion maps, training records, and conservative GWh stress tests at 50% and 75% attribution.</p>
 <h3>Who should not copy this robot count?</h3>
-<p>Owners without comparable row repeatability, dust return windows, or Maharashtra logistics—model with your maps, not MW alone.</p>
+<p>Owners without comparable row repeatability, dust return windows, or Maharashtra logistics, model with your maps, not MW alone.</p>
 
 <h2>Conclusion</h2>
-<p>Soyegaon, Maharashtra demonstrates mid-scale utility robotic cleaning with Mixed automatic + semi-automatic, CAPEX ownership, and reported 14 million litres water saved, 3.75&nbsp;GWh, and 1,860&nbsp;tCO₂e—validated locally. Use peer links above when building your procurement pack.</p>
+<p>Soyegaon, Maharashtra demonstrates mid-scale utility robotic cleaning with Mixed automatic + semi-automatic, CAPEX ownership, and reported 14 million litres water saved, 3.75&nbsp;GWh, and 1,860&nbsp;tCO₂e, validated locally. Use peer links above when building your procurement pack.</p>

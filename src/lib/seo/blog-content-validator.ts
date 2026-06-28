@@ -400,7 +400,7 @@ export type TranslationValidationInput = {
   translatedFaqs: BlogFaqItem[];
 };
 
-/** Light sanity checks only — English source is validated at publish time. */
+/** Light sanity checks only, English source is validated at publish time. */
 export function validateTranslatedBlog(
   input: TranslationValidationInput
 ): BlogContentValidationResult {

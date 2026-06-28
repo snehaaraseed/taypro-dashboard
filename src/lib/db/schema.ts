@@ -114,6 +114,31 @@ export const translationQueue = sqliteTable(
   })
 );
 
+export const insights = sqliteTable(
+  "insights",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    slug: text("slug").notNull(),
+    locale: text("locale").notNull().default("en"),
+    title: text("title").notNull(),
+    description: text("description").notNull(),
+    content: text("content").notNull().default(""),
+    /** category_pulse | playbook | index | mini_study */
+    reportType: text("report_type").notNull().default("category_pulse"),
+    /** YYYY-MM: one category pulse per calendar month */
+    period: text("period"),
+    /** Source-of-truth metrics bundle (JSON) */
+    metricsJson: text("metrics_json").notNull().default("{}"),
+    publishDate: text("publish_date").notNull(),
+    createdAt: text("created_at").notNull(),
+    updatedAt: text("updated_at"),
+    published: integer("published", { mode: "boolean" }).notNull().default(true),
+  },
+  (table) => ({
+    slugLocale: unique().on(table.slug, table.locale),
+  })
+);
+
 export type TranslationQueueRow = typeof translationQueue.$inferSelect;
 
 export type AuthorRow = typeof authors.$inferSelect;
@@ -121,3 +146,4 @@ export type BlogRow = typeof blogs.$inferSelect;
 export type ProjectRow = typeof projects.$inferSelect;
 export type PublishedTopicRow = typeof publishedTopics.$inferSelect;
 export type UploadRow = typeof uploads.$inferSelect;
+export type InsightRow = typeof insights.$inferSelect;

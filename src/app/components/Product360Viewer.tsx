@@ -14,7 +14,7 @@ interface Product360ViewerProps {
   className?: string;
   /**
    * Human-readable label used in the `alt` text for each rendered frame.
-   * Example: "Taypro GLYDE — Automatic Solar Panel Cleaning Robot".
+   * Example: "Taypro GLYDE: Automatic Solar Panel Cleaning Robot".
    * Falls back to a generic "Taypro Solar Panel Cleaning Robot" label.
    */
   productLabel?: string;

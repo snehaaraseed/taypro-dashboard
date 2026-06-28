@@ -1,4 +1,5 @@
 import { listAllBlogs } from "@/lib/cms/blogService";
+import { canonicalBlogHref } from "@/lib/seo/redirected-blog-slugs";
 import { DynamicBlog } from "../api/blog/list/route";
 
 export async function getAllBlogsForSimilar(): Promise<DynamicBlog[]> {
@@ -6,7 +7,7 @@ export async function getAllBlogsForSimilar(): Promise<DynamicBlog[]> {
     const rows = await listAllBlogs(false);
     return rows.map((metadata) => ({
       ...metadata,
-      href: `/blog/${metadata.slug}`,
+      href: canonicalBlogHref(metadata.slug),
       source: "db" as const,
     }));
   } catch (error) {

@@ -504,7 +504,7 @@ export default function NewProjectPage() {
                   }
                 }}
                 className="flex-1 px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder='e.g. 250 MW, Maharashtra, GLYDE, Automatic, Capex — press Enter'
+                placeholder='e.g. 250 MW, Maharashtra, GLYDE, Automatic, Capex: press Enter'
               />
               <button
                 type="button"

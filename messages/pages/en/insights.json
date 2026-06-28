@@ -1,0 +1,78 @@
+{
+  "InsightsHubPage": {
+    "meta": {
+      "title": "Taypro Insights: Solar Cleaning Research for Utility-Scale India",
+      "description": "Independent research on robotic solar panel cleaning for IPPs and O&M teams, vendor diligence, soiling economics, CAPEX vs Opex, and regional operations in India."
+    },
+    "breadcrumb": "Insights",
+    "hero": {
+      "eyebrow": "Taypro Insights",
+      "title": "Independent research for solar cleaning decisions at MW scale",
+      "subtitle": "Vendor brochures promise everything. Our reports dig into what actually matters when you specify, contract, and operate robotic cleaning on utility-scale plants in India."
+    },
+    "intro": {
+      "title": "Cleaning is an O&M decision, not a line item",
+      "p1": "At 50–500 MW, how you clean panels affects generation, water use, labour cost, module warranty risk, and whether your O&M contractor can prove they did the work. Most vendor content is sales collateral. Generic blog posts skip the numbers procurement committees need.",
+      "p2": "Taypro Insights publishes focused research on the questions asset owners and O&M leads actually face, grounded in live industry data, regional soiling context, and the economics of robotic vs manual cleaning in India’s dust belts."
+    },
+    "questions": {
+      "title": "Questions our reports help you answer",
+      "q1": "When does robotic dry cleaning beat manual crews on TCO, and what proof should an RFP require?",
+      "q2": "How do you evaluate waterless cleaning claims in Rajasthan and Gujarat without risking module coatings?",
+      "q3": "Should you buy robots (CAPEX), contract managed Opex, or run a hybrid fleet, and who owns uptime risk?",
+      "q4": "What fleet software and audit trails do you need before accepting a cleaning invoice at 100 MW+?",
+      "q5": "How often should you clean given local soiling, and when does passive yield loss exceed cleaning spend?",
+      "q6": "What red flags show up in vendor specs, AMC contracts, and field deployments during technical diligence?"
+    },
+    "topics": {
+      "title": "Decision areas we research",
+      "subtitle": "Each edition goes deep on one of these topics. Browse past reports below as they publish."
+    },
+    "reports": {
+      "title": "Published reports",
+      "featuredLabel": "Latest",
+      "archiveLabel": "Earlier editions"
+    },
+    "tools": {
+      "title": "Tools to use alongside this research",
+      "calculatorTitle": "ROI calculator",
+      "calculatorBody": "Model CAPEX vs Opex cleaning economics for your plant size and tariff.",
+      "compareTitle": "Robot vs manual cleaning",
+      "compareBody": "Side-by-side comparison of labour, water, coverage, and auditability.",
+      "methodologyTitle": "Test methodology",
+      "methodologyBody": "How Taypro defines cleaning performance, use this to evaluate any vendor’s claims.",
+      "capexTitle": "CAPEX vs Opex guide",
+      "capexBody": "Commercial models for owning robots vs contracting cleaning as a service."
+    },
+    "badges": {
+      "miniStudy": "Research report"
+    },
+    "card": {
+      "readReport": "Read report",
+      "period": "{period}"
+    },
+    "empty": {
+      "title": "First report publishing soon",
+      "body": "Our inaugural edition on vendor evaluation is in final review. The questions and decision areas above show what each report covers."
+    },
+    "cta": {
+      "heading": "Discuss cleaning strategy for your plant",
+      "body": "Share your MW capacity, tracker layout, and soiling profile, we’ll help you stress-test vendor options against real field constraints.",
+      "calculator": "ROI calculator",
+      "methodology": "Test methodology",
+      "contact": "Contact Taypro"
+    }
+  },
+  "InsightDetailPage": {
+    "breadcrumbInsights": "Insights",
+    "eyebrowResearch": "Research report",
+    "published": "Published {date}",
+    "cta": {
+      "heading": "Apply this research to your plant",
+      "body": "Use our ROI calculator and performance methodology to stress-test vendor claims, or contact Taypro for a site-specific discussion.",
+      "calculator": "Open ROI calculator",
+      "methodology": "Test methodology",
+      "contact": "Contact Taypro"
+    }
+  }
+}

@@ -16,13 +16,15 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
-import { nyumaCards, tayproTrustedByStatsStrip } from "@/app/data";
+import { tayproTrustedByStatsStrip } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import CallbackCard from "@/app/components/CallbackCard";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import { projectFilterForPage } from "@/lib/cms/project-page-filters";
-import ProductCards from "@/app/components/ProductCards";
-import HeroSection from "@/app/components/Herosection";
+import RelatedProductLineupSection from "@/app/components/RelatedProductLineupSection";
+import { buildRelatedProductLineupRobots } from "@/lib/products/build-product-lineup";
+import ProductHero from "@/app/components/ProductHero";
+import { ProductVisualSection } from "@/app/components/ProductVisualSection";
 import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
@@ -39,6 +41,12 @@ import ProductStaticShowcase from "@/app/components/ProductStaticShowcase";
 import { Container } from "@/app/components/Container";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import {
+  buildProductHeroHighlights,
+  productHeroBackgroundCredit,
+  productHeroSecondaryCta,
+} from "@/lib/products/product-hero-helpers";
+import { resolveProductPageHeroBackground } from "@/lib/cms/product-page-hero-background";
 import {
   getProductHeroLayout,
   getProductImageUrl,
@@ -146,6 +154,8 @@ export default async function NyumaAutomaticCleaningRobotPage({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "NyumaPage" });
+  const heroBackground = await resolveProductPageHeroBackground("nyuma", locale);
+  const heroHighlights = buildProductHeroHighlights(t);
 
   const connectivity = t("shared.connectivitySummary");
 
@@ -267,29 +277,23 @@ export default async function NyumaAutomaticCleaningRobotPage({
       />
 
       <div className="min-h-screen overflow-x-hidden">
-        <HeroSection
+        <ProductHero
+          eyebrow={t("overview.eyebrow")}
           title={t("hero.title")}
-          subtitle={
-            <>
-              {t("hero.leadBeforeStrong")}
-              <strong>{t("hero.leadStrong")}</strong>
-              {t("hero.leadAfterStrong")}
-              {connectivity}
-              {t("hero.leadAfterConnectivity")}
-            </>
-          }
-          imgSrc={nyumaImages.hero}
-          imgAlt={t("hero.heroImageAlt")}
-          imageAspectRatio={nyumaHeroLayout.aspectRatio}
-          imagePresentation={nyumaHeroLayout.presentation}
+          subtitle={t("hero.subtitleShort")}
+          backgroundImage={heroBackground.src}
+          backgroundAlt={heroBackground.alt}
+          backgroundCredit={productHeroBackgroundCredit(heroBackground)}
           ctaHref="/contact"
           ctaText={t("hero.primaryCta.label")}
           ctaTopic={t("hero.primaryCta.topic")}
           ctaTitle={t("hero.primaryCta.title")}
           ctaSubtitle={t("hero.primaryCta.subtitle")}
+          secondaryCta={productHeroSecondaryCta(t, "#deployments")}
+          highlights={heroHighlights}
         />
 
-      <section className="bg-white pt-8 sm:pt-14 pb-4">
+      <section className="bg-white pt-4 sm:pt-8 pb-4">
         <Container size="narrow">
           <AnimateOnScroll animation="fadeInUp">
             <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
@@ -337,6 +341,16 @@ export default async function NyumaAutomaticCleaningRobotPage({
           </AnimateOnScroll>
         </Container>
       </section>
+
+      <ProductVisualSection
+        imageSrc={nyumaImages.hero}
+        imageAlt={t("hero.heroImageAlt")}
+        eyebrow={t("productVisual.eyebrow")}
+        title={t("productVisual.title")}
+        caption={t("hero.heroImageAlt")}
+        imageAspectRatio={nyumaHeroLayout.aspectRatio}
+        imagePresentation={nyumaHeroLayout.presentation}
+      />
 
       <section className="w-full bg-white py-20">
         <Container size="narrow">
@@ -531,13 +545,15 @@ export default async function NyumaAutomaticCleaningRobotPage({
         </Container>
       </section>
 
-      <ProjectsCardServer
-        useFileProjects
-        showHeader
-        headerText={t("projects.recentProjectsHeader")}
-        filter={projectFilterForPage("nyuma")}
-        locale={locale}
-      />
+      <div id="deployments">
+        <ProjectsCardServer
+          useFileProjects
+          showHeader
+          headerText={t("projects.recentProjectsHeader")}
+          filter={projectFilterForPage("nyuma")}
+          locale={locale}
+        />
+      </div>
 
       <section className="w-full bg-[#052638] py-16 sm:py-20">
         <Container>
@@ -1035,7 +1051,11 @@ export default async function NyumaAutomaticCleaningRobotPage({
 
       <FaqSection id="nyuma-faq-heading" title={t("faq.title")} faqs={allFaqEntries} />
 
-        <ProductCards title={t("productCards.title")} cards={nyumaCards} />
+        <RelatedProductLineupSection
+          headingId="nyuma-related-heading"
+          title={t("productCards.title")}
+          robots={buildRelatedProductLineupRobots("nyuma")}
+        />
 
       <RequestEstimateForm />
       </div>

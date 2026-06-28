@@ -23,7 +23,29 @@
       "title": "ORION, Solar Plant Intelligence Platform",
       "subtitle": "A generation-aware health layer for utility solar, built to turn inverter and plant data into actionable O&M signals, enriched by Taypro's unique presence on every row through robotic cleaning fleets.",
       "imgAlt": "ORION, Taypro solar plant intelligence and health monitoring dashboard",
-      "ctaText": "Register interest"
+      "ctaText": "Register interest",
+      "subtitleShort": "Generation-aware plant health intelligence enriched by Taypro's robotic cleaning data loop.",
+      "secondaryCta": {
+        "label": "Register interest"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "PR-aware",
+          "label": "Performance ratio signals"
+        },
+        "stat1": {
+          "value": "Fleet-fused",
+          "label": "Robot telemetry integration"
+        },
+        "stat2": {
+          "value": "Pilot",
+          "label": "Opening for select IPP partners"
+        }
+      }
+    },
+    "productVisual": {
+      "eyebrow": "Platform preview",
+      "title": "ORION solar plant intelligence dashboard"
     },
     "intro": {
       "eyebrow": "Beyond fleet software",

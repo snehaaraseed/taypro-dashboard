@@ -1,6 +1,6 @@
 /**
  * English project slugs that exist in CMS but are unpublished (draft).
- * Sourced from production cms.sqlite — do not 301 these; fix inlink sources instead.
+ * Sourced from production cms.sqlite, do not 301 these; fix inlink sources instead.
  * Used to avoid auto-linking / sitemap surfacing draft peers.
  */
 export const DRAFT_PROJECT_PEER_SLUGS = new Set([
@@ -46,8 +46,7 @@ export const DRAFT_PROJECT_CASE_STUDY_SLUGS = new Set([
 ]);
 
 export const ALL_DRAFT_PROJECT_SLUGS = new Set([
-  ...DRAFT_PROJECT_PEER_SLUGS,
-  ...DRAFT_PROJECT_CASE_STUDY_SLUGS,
+  ...DRAFT_PROJECT_PEER_SLUGS, ...DRAFT_PROJECT_CASE_STUDY_SLUGS,
 ]);
 
 export function isDraftProjectSlug(slug: string): boolean {

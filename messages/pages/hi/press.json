@@ -9,23 +9,23 @@
       "twitterDescription": "भारत में Taypro रोबोटिक सौर पैनल सफाई का उद्योग प्रेस कवरेज।"
     },
     "breadcrumbs": {
-      "current": "Press"
+      "current": "प्रेस"
     },
     "hero": {
       "eyebrow": "समाचार में",
       "title": "प्रेस एवं मीडिया कवरेज",
       "subtitle": "समाचार, साक्षात्कार और उद्योग मीडिया Taypro के जलरहित सौर पैनल सफाई करने वाले रोबोट और पूरे भारत में उपयोगिता-पैमाने पर तैनाती को कवर करते हैं।"
     },
-    "listHeading": "News, interviews & industry media",
-    "listIntro": "Links open the original publisher site in a new tab.",
-    "sectionInterviews": "Interviews & opinion",
-    "sectionMarket": "Market leadership",
-    "sectionAwards": "Awards",
-    "sectionNews": "Product & company news",
-    "sectionIndex": "Publisher indexes",
-    "readArticle": "Read on {outlet}",
-    "companyCta": "About Taypro",
-    "contactCta": "Contact media team",
+    "listHeading": "समाचार, साक्षात्कार और उद्योग मीडिया",
+    "listIntro": "लिंक मूल प्रकाशक साइट को एक नए टैब में खोलते हैं।",
+    "sectionInterviews": "साक्षात्कार और राय",
+    "sectionMarket": "बाजार के नेतृत्व",
+    "sectionAwards": "पुरस्कार",
+    "sectionNews": "उत्पाद एवं कंपनी समाचार",
+    "sectionIndex": "प्रकाशक अनुक्रमणिका",
+    "readArticle": "{outlet} पर पढ़ें",
+    "companyCta": "Taypro के बारे में",
+    "contactCta": "मीडिया टीम से संपर्क करें",
     "leadModal": {
       "topic": "मीडिया और प्रेस",
       "title": "हमारी मीडिया टीम से संपर्क करें",
@@ -39,6 +39,6 @@
     }
   },
   "Common": {
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "घर"
   }
 }

@@ -175,7 +175,8 @@
       },
       "secondaryCta": "ROI की गणना करें",
       "heroImageAlt": "Taypro सोलर पैनल सफाई रोबोट, GLYDE स्वचालित, HELYX अर्ध-स्वचालित, GLYDE-X ट्रैकर, भारत में यूटिलिटी-स्केल प्लांट",
-      "heroImageTitle": "Taypro द्वारा सोलर पैनल सफाई रोबोट"
+      "heroImageTitle": "Taypro द्वारा सोलर पैनल सफाई रोबोट",
+      "subtitleShort": "Waterless robots for India's utility-scale plants — GLYDE, HELYX, GLYDE-X, NYUMA, and managed cleaning. CAPEX or pay-per-panel service."
     },
     "heroStats": {
       "stat0": {
@@ -308,7 +309,7 @@
       },
       "accessoryEyebrow": "फ्लीट एक्सेसरीज़",
       "accessoryTitle": "बिखरे प्लांटों पर रोबोट की पहुँच बढ़ाएं",
-      "accessorySubtitle": "CRADYL आज शिप हो रहा है — एंड-रो रेल पर स्वायत्त पंक्ति-ट्रांसफ़र डॉकिंग।",
+      "accessorySubtitle": "CRADYL आज शिप हो रहा है, एंड-रो रेल पर स्वायत्त पंक्ति-ट्रांसफ़र डॉकिंग।",
       "accessoryHighlights": {
         "cradyl": {
           "eyebrow": "डॉकिंग · पंक्ति ट्रांसफ़र",
@@ -468,7 +469,7 @@
       "videoTitle": "यूटिलिटी प्लांट पर Taypro रोबोट सफाई देखें",
       "videoCaption": "भारतीय यूटिलिटी-स्केल साइटों पर संचालन में वॉटरलेस स्वायत्त सोलर पैनल सफाई रोबोट।",
       "transcriptToggle": "Video transcript (for accessibility & search)",
-      "transcriptP1": "This overview shows Taypro autonomous solar panel cleaning robots operating on utility-scale arrays in India. Robots traverse fixed-tilt rows using waterless dual-pass cleaning — airflow lifts dry dust, then microfiber completes the wipe without water or detergents.",
+      "transcriptP1": "This overview shows Taypro autonomous solar panel cleaning robots operating on utility-scale arrays in India. Robots traverse fixed-tilt rows using waterless dual-pass cleaning, airflow lifts dry dust, then microfiber completes the wipe without water or detergents.",
       "transcriptP2": "Fleet schedules and completion data feed into NECTYR, Taypro's monitoring portal, so O&M teams can audit block-wise cleaning history alongside inverter performance. Deployments combine GLYDE and NYUMA-class robots depending on row geometry and soiling class.",
       "transcriptP3": "For procurement teams comparing cleaning machines and robots, Taypro offers CAPEX purchase with AMC or Opex pay-per-panel-cleaned service on the same hardware platforms shown in the field footage."
     },
@@ -496,7 +497,7 @@
       },
       "stateGuides": {
         "heading": "क्षेत्रीय तैनाती गाइड",
-        "intro": "राज्य के अनुसार सोलर पैनल सफाई रोबोट देखें — सोइलिंग संदर्भ, लाइव प्रोजेक्ट और RFQ मार्गदर्शन:",
+        "intro": "राज्य के अनुसार सोलर पैनल सफाई रोबोट देखें, सोइलिंग संदर्भ, लाइव प्रोजेक्ट और RFQ मार्गदर्शन:",
         "rajasthan": "Rajasthan",
         "gujarat": "Gujarat",
         "madhyaPradesh": "Madhya Pradesh",
@@ -664,7 +665,7 @@
     "serviceCallout": {
       "eyebrow": "प्राथमिक सेवा पेज",
       "title": "OPEX रोबोटिक सफाई सेवा",
-      "body": "सोलर पैनल सफाई सेवा का मूल्यांकन करने वाली खरीद टीमों को हमारे OPEX उत्पाद पेज से शुरू करना चाहिए — दायरा, SOP, बिलिंग मॉडल और NECTYR रिपोर्टिंग।",
+      "body": "सोलर पैनल सफाई सेवा का मूल्यांकन करने वाली खरीद टीमों को हमारे OPEX उत्पाद पेज से शुरू करना चाहिए, दायरा, SOP, बिलिंग मॉडल और NECTYR रिपोर्टिंग।",
       "cta": "OPEX सेवा पेज देखें",
       "href": "/solar-panel-cleaning-system/solar-panel-cleaning-service"
     },
@@ -678,8 +679,8 @@
     "marketComparison": {
       "eyebrow": "सफाई दृष्टिकोण चुनना",
       "title": "Taypro अन्य रोबोटिक सफाई दृष्टिकोणों से कैसे तुलना करता है",
-      "subtitle": "यूटिलिटी खरीदार सफाई विधि, व्यावसायिक मॉडल, फ्लीट सॉफ़्टवेयर और भारत-स्थानीय सहायता तौलते हैं — सिर्फ रोबोट ब्रोशर नहीं। Taypro की तुलना गीली धुलाई, आयातित शुष्क रोबोट या केवल श्रम O&M से करते समय इस श्रेणी दृश्य का उपयोग करें।",
-      "intro": "Taypro Made-in-India OEM है जिसने 5 GW+ रोबोटिक क्षमता तैनात की है, GLYDE और GLYDE-X पर पेटेंटेड डुअल-पास शुष्क सफाई, NYUMA, NYUMA-X और HELYX पर सिंगल-पास PBT, NECTYR फ्लीट पोर्टल, और वैकल्पिक Opex पे-पर-पैनल-क्लीनड सेवा। तालिका भारतीय RFQ में सामान्य दृष्टिकोणों की तुलना करती है ताकि आप देख सकें Taypro आपके प्लांट में कहाँ फिट होता है — विक्रेता नाम के बिना।",
+      "subtitle": "यूटिलिटी खरीदार सफाई विधि, व्यावसायिक मॉडल, फ्लीट सॉफ़्टवेयर और भारत-स्थानीय सहायता तौलते हैं, सिर्फ रोबोट ब्रोशर नहीं। Taypro की तुलना गीली धुलाई, आयातित शुष्क रोबोट या केवल श्रम O&M से करते समय इस श्रेणी दृश्य का उपयोग करें।",
+      "intro": "Taypro Made-in-India OEM है जिसने 5 GW+ रोबोटिक क्षमता तैनात की है, GLYDE और GLYDE-X पर पेटेंटेड डुअल-पास शुष्क सफाई, NYUMA, NYUMA-X और HELYX पर सिंगल-पास PBT, NECTYR फ्लीट पोर्टल, और वैकल्पिक Opex पे-पर-पैनल-क्लीनड सेवा। तालिका भारतीय RFQ में सामान्य दृष्टिकोणों की तुलना करती है ताकि आप देख सकें Taypro आपके प्लांट में कहाँ फिट होता है, विक्रेता नाम के बिना।",
       "tableHeaders": {
         "criteria": "क्या मूल्यांकन करें",
         "manualWet": "मैनुअल गीली धुलाई क्रू",
@@ -853,7 +854,7 @@
     "clients": {
       "heading": "Trusted by India's leading solar operators",
       "trustedBy": "Trusted by {names} and other IPPs, EPCs, and C&I operators deploying Taypro cleaning robots across India.",
-      "logoAlt": "{name} — Taypro solar cleaning robot customer",
+      "logoAlt": "{name}, Taypro solar cleaning robot customer",
       "logoTitle": "{name}"
     },
     "consoleBand": {

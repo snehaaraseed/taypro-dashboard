@@ -20,6 +20,7 @@ export type SitemapRouteConfig = {
 export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
   { path: "/", changeFrequency: "daily", priority: 1 },
   { path: "/blog", changeFrequency: "daily", priority: 0.9 },
+  { path: "/insights", changeFrequency: "weekly", priority: 0.6 },
   { path: "/projects", changeFrequency: "daily", priority: 0.9 },
   { path: "/company", changeFrequency: "daily", priority: 0.9 },
   { path: "/contact", changeFrequency: "daily", priority: 0.9 },
@@ -66,6 +67,16 @@ export const STATIC_SITEMAP_ROUTES: SitemapRouteConfig[] = [
   },
   {
     path: "/solar-panel-cleaning-system/cradyl-row-transfer-docking-station",
+    changeFrequency: "weekly",
+    priority: 0.85,
+  },
+  {
+    path: "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
+    changeFrequency: "weekly",
+    priority: 0.85,
+  },
+  {
+    path: "/solar-panel-cleaning-system/orion-plant-intelligence-platform",
     changeFrequency: "weekly",
     priority: 0.85,
   },

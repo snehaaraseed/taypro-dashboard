@@ -1,17 +1,35 @@
 import "server-only";
 
-/** Primary + optional fallback keys (GEMINI_API_KEY_2 when primary quota is hit). */
+const MAX_NUMBERED_KEYS = 10;
+
+/** Primary + GEMINI_API_KEY_2 … GEMINI_API_KEY_10 (deduped, non-empty). */
 export function listGeminiApiKeys(): string[] {
-  const keys = [
-    process.env.GEMINI_API_KEY?.trim(),
-    process.env.GEMINI_API_KEY_2?.trim(),
-  ].filter((key): key is string => Boolean(key));
+  const keys: string[] = [];
+  const seen = new Set<string>();
+
+  const add = (raw: string | undefined) => {
+    const key = raw?.trim();
+    if (!key || seen.has(key)) return;
+    seen.add(key);
+    keys.push(key);
+  };
+
+  add(process.env.GEMINI_API_KEY);
+  for (let i = 2; i <= MAX_NUMBERED_KEYS; i++) {
+    add(process.env[`GEMINI_API_KEY_${i}` as keyof NodeJS.ProcessEnv] as
+      | string
+      | undefined);
+  }
 
   if (keys.length === 0) {
     throw new Error("GEMINI_API_KEY is not set, add it to run AI features.");
   }
 
   return keys;
+}
+
+export function getGeminiKeyPoolSize(): number {
+  return listGeminiApiKeys().length;
 }
 
 export function getPrimaryGeminiApiKey(): string {

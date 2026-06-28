@@ -18,7 +18,7 @@ export const PRESS_COVERAGE: PressCoverageItem[] = [
   {
     kind: "interview",
     title:
-      "Robotic Cleaning Cuts O&M Costs by 40%, Boosts Solar Generation by Up to 15% — Interview",
+      "Robotic Cleaning Cuts O&M Costs by 40%, Boosts Solar Generation by Up to 15%, Interview",
     outlet: "Mercom India",
     url: "https://www.mercomindia.com/robotic-cleaning-cuts-om-costs-by-40-boosts-solar-generation-by-up-to-15-interview/",
     date: "2026-05",
@@ -75,7 +75,7 @@ export const PRESS_COVERAGE: PressCoverageItem[] = [
   {
     kind: "interview",
     title:
-      "Taypro Aims to Be a Performance-Driven Automation Provider — Yogesh Kudale",
+      "Taypro Aims to Be a Performance-Driven Automation Provider: Yogesh Kudale",
     outlet: "IPF Online",
     url: "https://ipfonline.com/news/detail/interviews/taypro-aims-to-be-a-performance-driven-automation-provider-yogesh-kudale/18611",
     date: "2026-02",
@@ -113,12 +113,12 @@ export const PRESS_COVERAGE: PressCoverageItem[] = [
   },
   {
     kind: "award",
-    title: "Mint Tech4Good Awards 2024 — Taypro Wins Gold",
+    title: "Mint Tech4Good Awards 2024: Taypro Wins Gold",
     outlet: "Live Mint",
     url: "https://www.livemint.com/ai/mint-tech4good-awards-2024-taypro-and-ugam-gramin-vikas-sansthas-green-ai-solutions-win-big-11734689821094.html",
     date: "2024-12",
     summary:
-      "Live Mint coverage of Mint Tech4Good Awards 2024 — Taypro recognised with a Gold award for green AI solutions in solar energy.",
+      "Live Mint coverage of Mint Tech4Good Awards 2024: Taypro recognised with a Gold award for green AI solutions in solar energy.",
   },
   {
     kind: "news",
@@ -128,7 +128,7 @@ export const PRESS_COVERAGE: PressCoverageItem[] = [
     url: "https://www.energetica-india.net/news/union-budget-2026-27-unveils-inr-20000-cr-ccus-plan-customs-relief-for-solar-and-storage",
     date: "2026-02",
     summary:
-      "Post-budget industry reactions — Yogesh Kudale (Co-Founder & CEO, Taypro) on PFC/REC restructuring, the Infrastructure Risk Guarantee Fund, and transmission and green corridor investments.",
+      "Post-budget industry reactions, Yogesh Kudale (Co-Founder & CEO, Taypro) on PFC/REC restructuring, the Infrastructure Risk Guarantee Fund, and transmission and green corridor investments.",
   },
   {
     kind: "news",
@@ -147,7 +147,7 @@ export const PRESS_COVERAGE: PressCoverageItem[] = [
     url: "https://www.energetica-india.net/news/taypro-launches-movable-docking-station-for-solar-cleaning-robots",
     date: "2026-03",
     summary:
-      "Product news on Taypro's movable docking station (MDS) for autonomous row transfer — quoted Yogesh Kudale.",
+      "Product news on Taypro's movable docking station (MDS) for autonomous row transfer, quoted Yogesh Kudale.",
   },
   {
     kind: "news",
@@ -205,12 +205,12 @@ export const PRESS_COVERAGE: PressCoverageItem[] = [
     url: "https://renewablewatch.in/2024/02/20/bot-benefits-innovative-cleaning-solutions-enhance-module-efficiency/",
     date: "2024-02",
     summary:
-      "Industry roundup of robotic solar cleaning providers — features Taypro's waterless autonomous and semi-automatic cleaning robots.",
+      "Industry roundup of robotic solar cleaning providers, features Taypro's waterless autonomous and semi-automatic cleaning robots.",
   },
   {
     kind: "news",
     title:
-      "Taypro Private Limited — Pioneering Waterless Solar Cleaning for a Sustainable Future",
+      "Taypro Private Limited: Pioneering Waterless Solar Cleaning for a Sustainable Future",
     outlet: "Killer Startups",
     url: "https://killerstartups.com/taypro-private-limited-pioneering-waterless-solar-cleaning-for-a-sustainable-future/",
     date: "2024-03",

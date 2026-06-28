@@ -92,3 +92,40 @@ export function hardwareProductIdAt(index: number): ProductId | undefined {
   const robot = robotProducts[index];
   return robot && "productId" in robot ? robot.productId : undefined;
 }
+
+export function buildCustomProductLineupRow(options: {
+  model: string;
+  description: string;
+  href: string;
+  marketingName?: string;
+}): ProductLineupRobot {
+  return {
+    model: options.model,
+    marketingName: options.marketingName,
+    description: options.description,
+    imgPath: "",
+    href: options.href,
+    filterTags: [],
+    lineupLayout: "text",
+  };
+}
+
+export function buildRelatedProductLineupRobots(
+  productId: ProductId
+): ProductLineupRobot[] {
+  return PRODUCT_CATALOG[productId].relatedProductIds.map((id) => {
+    const product = PRODUCT_CATALOG[id];
+    return {
+      model: product.itemName,
+      marketingName: product.marketingName,
+      description: product.description,
+      imgPath: product.imagePath,
+      href: product.href,
+      filterTags: [],
+      topViewPath: getProductLineupImagePath(id),
+      topViewWidth: getProductLineupImageDimensions(id).width,
+      topViewHeight: getProductLineupImageDimensions(id).height,
+      lineupLayout: getProductLineupLayout(id),
+    };
+  });
+}

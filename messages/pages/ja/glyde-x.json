@@ -43,6 +43,24 @@
         "title": "GLYDE-X の見積もりをリクエストする",
         "subtitle": "貴社のトラッカー プラントについてお知らせください。GLYDE-X のサイジング、ブリッジキットのニーズ、商用オプションについてフォローアップいたします。",
         "label": "見積もりを依頼する"
+      },
+      "subtitleShort": "単軸トラッカー ファーム専用に構築されたデュアルパス自律クリーニング。",
+      "secondaryCta": {
+        "label": "360° ツアーを探索する"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "±15°",
+          "label": "テーブル間のアーティキュレーション"
+        },
+        "stat1": {
+          "value": "3,600",
+          "label": "充電ごとにクリーニングされるモジュール"
+        },
+        "stat2": {
+          "value": "-52° ～ +52°",
+          "label": "トラッカーの傾斜範囲"
+        }
       }
     },
     "usps": {
@@ -315,14 +333,14 @@
       "p5Suffix": "。"
     },
     "innovation360": {
-      "badge": "TAYPRO MODEL-T",
+      "badge": "TAYPRO GLYDE-X",
       "title": "単軸トラッカー設備向け自律無水ソーラーパネル清掃ロボット",
       "tourEyebrow": "インタラクティブ製品ツアー",
       "tourTitle": "GLYDE-Xの360°ビュー",
       "tourSubtitleMobile": "左右にドラッグして回転させ、単軸トラッカー向けソーラーパネル清掃ロボットをあらゆる角度から確認。",
       "tourSubtitleDesktop": "左右にドラッグして回転させ、単軸トラッカー向けソーラーパネル清掃ロボットを探索。",
       "productLabel": "Taypro GLYDE-X, 単軸トラッカー向けソーラーパネル清掃ロボット",
-      "innovationTitle": "MODEL-Tを支えるイノベーション",
+      "innovationTitle": "GLYDE-Xを支えるイノベーション",
       "innovationBody": "Taypro GLYDE-Xは先進センサーと機械学習を統合し、単軸トラッカー上のメンテナンス課題に応えます。人的介入なしに真の自律運転を実現し、クラウド管理で遠隔監視・制御が可能です。"
     },
     "howItWorks": {
@@ -393,7 +411,7 @@
       "subtitle": "トラッカー設備は手動清掃の課題を増幅します。ピークPRを経済的に維持する実務的な答えはロボット清掃です。",
       "criterion": "基準",
       "manual": "手動清掃",
-      "robot": "BR1トークン BR0トークン",
+      "robot": "Taypro GLYDE-X",
       "row0": {
         "criterion": "清掃頻度",
         "manual": "週次／隔週, トラッカー発電と人員で制約",
@@ -563,8 +581,8 @@
       "nyumaXHeader": "NYUMA-X (Single-Pass PBT)",
       "row0": {
         "criterion": "Cleaning Mechanism",
-        "glydeX": "Dual-pass microfiber — airflow plus wipe for mixed soiling",
-        "nyumaX": "Single-pass PBT brush — optimised for dry tracker dust belts"
+        "glydeX": "Dual-pass microfiber, airflow plus wipe for mixed soiling",
+        "nyumaX": "Single-pass PBT brush, optimised for dry tracker dust belts"
       },
       "row1": {
         "criterion": "Tracker Compatibility",
@@ -619,6 +637,10 @@
       "zoomedLeftCaption": "Bridge and cleaning-head detail for inter-table traversal on single-axis trackers.",
       "zoomedRightAlt": "Taypro GLYDE-X solar charging module and drive housing detail",
       "zoomedRightCaption": "On-board solar-assisted charging for extended autonomous tracker cleaning cycles."
+    },
+    "productVisual": {
+      "eyebrow": "製品の概要",
+      "title": "Taypro GLYDE-X トラッカー ソーラー パネル クリーニング ロボット"
     }
   },
   "Common": {

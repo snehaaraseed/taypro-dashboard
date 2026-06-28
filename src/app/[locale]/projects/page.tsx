@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { getAllFileProjects } from "@/app/utils/projectFileUtils";
@@ -9,7 +10,9 @@ import {
   projectsHubPagePath,
   projectsHubPageUrl,
   projectsHubPaginationLinks,
+  projectsHubPortfolioPagePath,
 } from "@/lib/cms/projects-hub-pagination";
+import { ProjectsPortfolioScrollAnchor } from "@/app/components/ProjectsPortfolioScrollAnchor";
 import {
   enrichProjectsForGrid,
   getProjectsBySlugs,
@@ -17,7 +20,6 @@ import {
 import { tayproTrustedByStatsStrip } from "@/app/data";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import {
-  CollectionPageSchema,
   FAQPageSchema,
   ItemListSchema,
 } from "@/app/components/StructuredData";
@@ -111,7 +113,9 @@ export async function generateMetadata({
         type: "website",
       },
     },
-    { canonicalSuffix: querySuffix }
+    page <= 1
+      ? {}
+      : { canonicalSuffix: querySuffix, omitHreflangLanguages: true }
   );
 }
 
@@ -165,18 +169,14 @@ export default async function ProjectPage({
   const itemListEntries = schemaProjects.map((p) => ({
     name: p.title,
     url: p.href,
-    image: p.img.startsWith("http") ? p.img : p.img,
   }));
 
   return (
     <>
+      <Suspense fallback={null}>
+        <ProjectsPortfolioScrollAnchor />
+      </Suspense>
       <Breadcrumbs items={breadcrumbs} />
-      <CollectionPageSchema
-        name={t("schema.collectionName")}
-        description={t("schema.collectionDescription")}
-        siteUrl={siteUrl}
-        url={projectsHubPageUrl(siteUrl, portfolioPage)}
-      />
       <ItemListSchema
         scriptId="item-list-schema-projects-hub"
         name={t("schema.itemListName")}
@@ -316,7 +316,8 @@ export default async function ProjectPage({
           </Container>
         </section>
 
-        {/* Featured projects */}
+        {/* Featured projects (page 1 only — keeps paginated hub HTML smaller) */}
+        {portfolioPage <= 1 ? (
         <section
           className="overflow-x-hidden bg-[#f4f7f9] py-16 md:py-24"
           aria-labelledby="featured-projects-heading"
@@ -393,6 +394,7 @@ export default async function ProjectPage({
             </AnimateOnScroll>
           </Container>
         </section>
+        ) : null}
 
         {/* Full portfolio (paginated) */}
         {portfolioBase.length > 0 ? (
@@ -425,7 +427,8 @@ export default async function ProjectPage({
                 >
                   {portfolioPage > 1 ? (
                     <Link
-                      href={projectsHubPagePath(portfolioPage - 1)}
+                      href={projectsHubPortfolioPagePath(portfolioPage - 1)}
+                      scroll={false}
                       className="inline-flex min-h-[44px] items-center rounded-xl border border-gray-200 bg-white px-5 py-2 text-sm font-medium text-[#052638] transition hover:border-[#A8C117]"
                     >
                       {t("portfolio.paginationPrevious")}
@@ -443,7 +446,8 @@ export default async function ProjectPage({
                   </span>
                   {portfolioPage < totalPortfolioPages ? (
                     <Link
-                      href={projectsHubPagePath(portfolioPage + 1)}
+                      href={projectsHubPortfolioPagePath(portfolioPage + 1)}
+                      scroll={false}
                       className="inline-flex min-h-[44px] items-center rounded-xl border border-gray-200 bg-white px-5 py-2 text-sm font-medium text-[#052638] transition hover:border-[#A8C117]"
                     >
                       {t("portfolio.paginationNext")}

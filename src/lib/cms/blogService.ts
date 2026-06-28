@@ -9,7 +9,7 @@ import type { TayproLocale } from "@/i18n/markets";
 import { isActiveLocale } from "@/i18n/markets";
 import { SOURCE_LOCALE, TARGET_LOCALES } from "@/lib/translation/config";
 import { resolveBlogPublishFields } from "@/lib/cms/blog-schedule";
-import { isRedirectedBlogSlug } from "@/lib/seo/redirected-blog-slugs";
+import { isRedirectedBlogSlug, blogSlugVariants } from "@/lib/seo/redirected-blog-slugs";
 import {
   demoteBodyH1ToH2,
   findInlineImgAltIssue,
@@ -205,13 +205,16 @@ export async function getPublishedBlogLocales(
   slug: string
 ): Promise<TayproLocale[]> {
   const db = getDb();
+  const slugs = blogSlugVariants(slug);
   const rows = await db
     .select({ locale: blogs.locale })
     .from(blogs)
-    .where(and(eq(blogs.slug, slug), eq(blogs.published, true)));
-  return rows
-    .map((r) => r.locale)
-    .filter(isActiveLocale) as TayproLocale[];
+    .where(and(inArray(blogs.slug, slugs), eq(blogs.published, true)));
+  const locales = new Set<TayproLocale>();
+  for (const row of rows) {
+    if (isActiveLocale(row.locale)) locales.add(row.locale as TayproLocale);
+  }
+  return [...locales];
 }
 
 export type BlogSitemapEntry = {

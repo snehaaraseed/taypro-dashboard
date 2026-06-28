@@ -31,7 +31,7 @@ function titleCaseKeyword(keyword: string): string {
   return keyword.replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-/** Rotating angles per keyword pattern — scales to many posts without repeating the same title shape. */
+/** Rotating angles per keyword pattern, scales to many posts without repeating the same title shape. */
 export function anglesForKeyword(keyword: string): TopicAngle[] {
   const k = keyword.toLowerCase().trim();
   const titled = titleCaseKeyword(keyword);

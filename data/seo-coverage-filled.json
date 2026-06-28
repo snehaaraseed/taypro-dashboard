@@ -870,7 +870,7 @@
     },
     {
       "slotKey": "taypro glyde robot::robot-eval",
-      "reason": "Blog structure validation failed: Need ≥3 internal links (/blog/ posts and optional pillar pages; found 2); Content drifts into cleaning-robot pitch (9 product/robot mentions in opening third) but keyword intent is equipment/topic research — refocus on title",
+      "reason": "Blog structure validation failed: Need ≥3 internal links (/blog/ posts and optional pillar pages; found 2); Content drifts into cleaning-robot pitch (9 product/robot mentions in opening third) but keyword intent is equipment/topic research, refocus on title",
       "failedAt": "2026-06-20T19:13:18.024Z"
     },
     {
@@ -885,7 +885,7 @@
     },
     {
       "slotKey": "taypro helyx robot::robot-capex-opex",
-      "reason": "Blog structure validation failed: Content drifts into cleaning-robot pitch (6 product/robot mentions in opening third) but keyword intent is equipment/topic research — refocus on title",
+      "reason": "Blog structure validation failed: Content drifts into cleaning-robot pitch (6 product/robot mentions in opening third) but keyword intent is equipment/topic research, refocus on title",
       "failedAt": "2026-06-20T19:16:36.051Z"
     },
     {

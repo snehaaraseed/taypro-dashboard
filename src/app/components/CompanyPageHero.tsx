@@ -12,7 +12,7 @@ type CompanyPageHeroProps = {
   bodyAfterLink: string;
   /** Optional content below the body paragraph (e.g. metadata chips). */
   footer?: ReactNode;
-  /** SVG wave fill — should match the section directly below the hero. */
+  /** SVG wave fill, should match the section directly below the hero. */
   waveFill?: string;
 };
 

@@ -349,13 +349,13 @@
     "dustSoiling": {
       "eyebrow": "Dust & soiling in India",
       "heading": "Solar panel dust cleaning and soiling loss",
-      "p1": "Fine dust, agricultural residue, and seasonal haze bond to module glass within days on many Indian utility sites — suppressing output before visible soiling is obvious in SCADA. Industry discussions often cite roughly 8–25% seasonal soiling loss when washing cadence is infrequent.",
-      "p2": "Robotic dry cleaning targets daily or near-daily cycles through dust season without tanker logistics. Taypro's dual-pass method lifts dry dust first, then microfiber-wipes the glass — recovering generation that manual brush crews struggle to sustain at MW scale.",
+      "p1": "Fine dust, agricultural residue, and seasonal haze bond to module glass within days on many Indian utility sites, suppressing output before visible soiling is obvious in SCADA. Industry discussions often cite roughly 8–25% seasonal soiling loss when washing cadence is infrequent.",
+      "p2": "Robotic dry cleaning targets daily or near-daily cycles through dust season without tanker logistics. Taypro's dual-pass method lifts dry dust first, then microfiber-wipes the glass, recovering generation that manual brush crews struggle to sustain at MW scale.",
       "faqHeading": "Solar panel dust cleaning FAQs (India)",
       "q0": "How much generation does dust cost on Indian solar plants?",
-      "a0": "Soiling loss varies by region, tilt, and O&M cadence — often cited in the 8–25% range on utility plants when cleaning is infrequent. High-soiling blocks in Rajasthan and Gujarat typically show the fastest payback from tighter robotic schedules.",
+      "a0": "Soiling loss varies by region, tilt, and O&M cadence, often cited in the 8–25% range on utility plants when cleaning is infrequent. High-soiling blocks in Rajasthan and Gujarat typically show the fastest payback from tighter robotic schedules.",
       "q1": "Is dry robotic dust cleaning better than manual brushing?",
-      "a1": "On 10 MW+ sites, manual brush or wet-wash crews scale poorly — labour, water, and inconsistent pass quality limit cadence. Taypro robots run waterless dual-pass cycles on a predictable schedule with NECTYR audit trails.",
+      "a1": "On 10 MW+ sites, manual brush or wet-wash crews scale poorly, labour, water, and inconsistent pass quality limit cadence. Taypro robots run waterless dual-pass cycles on a predictable schedule with NECTYR audit trails.",
       "q2": "How often should panels be dust-cleaned in India?",
       "a2": "Most utility plants benefit from daily or near-daily dry cleaning during dry months and faster cycles after dust storms. Taypro starts with a soiling study to recommend block-wise cadence rather than a one-size-fits-all interval."
     },
@@ -376,7 +376,7 @@
     },
     "aiLearning": {
       "eyebrow": "बुद्धिमान स्वचालन",
-      "heading": "हर सफाई के साथ सीखने वाला AI — मैनुअल शेड्यूलिंग के बिना",
+      "heading": "हर सफाई के साथ सीखने वाला AI: मैनुअल शेड्यूलिंग के बिना",
       "cta": "NECTYR फ्लीट ऑपरेशंस देखें",
       "intelligenceBefore": "NECTYR पोर्टल, लेबल्ड टेलीमेट्री और डेटा फ्लाईव्हील के लिए देखें",
       "intelligenceLink": "AI इंटेलिजेंस परत",
@@ -437,7 +437,7 @@
       "aiLink": "AI लर्निंग सेक्शन",
       "intro": "NECTYR फ़ील्ड रोबोट और परिसंपत्ति मालिकों के बीच संचालन परत है - एक मंच में वास्तविक समय दृश्यता, स्वायत्त शेड्यूलिंग, मूल-कारण निदान और प्रति-रोबोट स्वास्थ्य प्रोफ़ाइल।",
       "trackingTitle": "मूल कारण दोष स्थान के साथ सजीव सफ़ाई विज़ुअलाइज़ेशन",
-      "trackingBody": "NECTYR overlays real-time robot position on the plant layout map. Operators see which row is being cleaned, progress percentage, and fleet state at any moment — not a last-seen timestamp from hours ago. When a robot stops, NECTYR identifies where it stopped and the probable cause: misaligned panel edge, physical obstacle, motor fault, brush saturation, battery threshold, or communication drop. Field teams dispatch with the right spares instead of exploratory truck rolls.",
+      "trackingBody": "NECTYR overlays real-time robot position on the plant layout map. Operators see which row is being cleaned, progress percentage, and fleet state at any moment, not a last-seen timestamp from hours ago. When a robot stops, NECTYR identifies where it stopped and the probable cause: misaligned panel edge, physical obstacle, motor fault, brush saturation, battery threshold, or communication drop. Field teams dispatch with the right spares instead of exploratory truck rolls.",
       "predictiveTitle": "प्रति-रोबोट स्वास्थ्य प्रोफाइल और अग्रिम दोष का पता लगाना",
       "predictiveBody": "NECTYR पूरे बेड़े में मोटर करंट ड्रॉ, बैटरी चार्ज और डिस्चार्ज कर्व्स, ब्रश रोटेशन टॉर्क और सेंसर सिग्नल पैटर्न से प्रत्येक रोबोट के लिए एक स्वास्थ्य प्रोफ़ाइल बनाता है। विचलन हस्ताक्षर जो बीयरिंग के घिसावट, नियंत्रक क्षरण, या ब्रश के जीवन के अंत से पहले होते हैं, खराबी के टूटने से पहले चिह्नित किए जाते हैं। यह फ़्लीट-वाइड पैटर्न पहचान द्वारा सूचित हार्डवेयर पूर्वानुमानित रखरखाव है - अकेले तेज़ प्रतिक्रियाशील रखरखाव नहीं।",
       "autonomousBody": "मौसम के मॉडल, गंदगी के पूर्वानुमान, बैटरी की स्थिति और रोबोट स्वास्थ्य के आधार पर फ्लीट एआई द्वारा सफाई चक्र शुरू, रोका और तेज किया जाता है - प्रत्येक धूल भरी आंधी या बारिश की घटना के बाद ऑपरेटरों को मैन्युअल रूप से शेड्यूल को फिर से लिखने की आवश्यकता के बिना। ब्लॉक-स्तरीय ऑडिट ट्रेल्स O&M समीक्षा और परिसंपत्ति-मालिक रिपोर्टिंग के लिए हर निर्णय का दस्तावेजीकरण करते हैं।"
@@ -492,7 +492,7 @@
     "deploymentScope": {
       "eyebrow": "डिप्लॉयमेंट स्कोप",
       "heading": "यूटिलिटी-स्केल कोर, रूफटॉप-सक्षम",
-      "utilityTitle": "यूटिलिटी-स्केल — जहाँ डेटा मोAT बनता है",
+      "utilityTitle": "यूटिलिटी-स्केल, जहाँ डेटा मोAT बनता है",
       "rooftopTitle": "C&I और रूफटॉप इंस्टॉलेशन",
       "utilityBody": "Taypro के प्रौद्योगिकी स्टैक और फ्लीट AI को उपयोगिता-पैमाने पर निश्चित-झुकाव और एकल-अक्ष ट्रैकर संयंत्रों के लिए अनुकूलित किया गया है - जहां मिट्टी के नुकसान, श्रम पैमाने और पानी की कमी स्वायत्त सफाई को आवश्यक बनाती है। बहु-सौ-MW बेड़े में दैनिक सफाई से लेबल टेलीमेट्री उत्पन्न होती है जो स्व-शिक्षण मॉडल को प्रशिक्षित करती है।",
       "rooftopBody": "समान प्लेटफ़ॉर्म वाणिज्यिक और औद्योगिक छत स्थापनाओं की सेवा प्रदान करते हैं: GLYDE और HELYX कॉन्फ़िगरेशन Taypro के 150+ साइट फ़ुटप्रिंट में वितरित ब्लॉक, मौसमी झुकाव और बिखरे हुए सरणियों को संबोधित करते हैं। उपयोगिता पैमाना खुफिया परत बनाता है; छत पर तैनाती समान NECTYR संचालन और ड्राई-क्लीनिंग पद्धति को वंचित C&I खंडों तक विस्तारित करती है।"
@@ -520,7 +520,7 @@
       "selfPoweredTitle": "पूरी तरह से स्व-संचालित - कोई ग्रिड नहीं, कोई पानी नहीं, प्रति पंक्ति कोई ऑपरेटर नहीं",
       "selfPoweredBody": "सभी Taypro स्वचालित सफाई रोबोट स्व-संचालित हैं। ऑन-बोर्ड सौर पैनल चक्रों के बीच लिथियम बैटरी को चार्ज करते हैं। रोबोट साइट ग्रिड बिजली नहीं खींचते हैं, उन्हें जल रसद की आवश्यकता नहीं होती है, और प्रत्येक पास शुरू करने के लिए पंक्तियों में चलने वाले मानव ऑपरेटरों की आवश्यकता नहीं होती है। सेमी-ऑटोमैटिक HELYX प्रति ब्लॉक क्रू-प्लेस किया गया है लेकिन फिर भी ग्रिड टेदर के बिना बैटरी पर काम करता है - दूरस्थ उपयोगिता ब्लॉकों में व्यवहार्य जहां सहायक शक्ति और श्रम बाधित हैं।",
       "warrantyTitle": "वार्षिक AMC के साथ 25 वर्ष की उत्पाद वारंटी",
-      "warrantyBody": "Taypro offers a 25-year product warranty on deployed robot platforms — aligned to the operational life of utility solar assets. Warranty remains valid when AMC is renewed annually, tying long-term hardware commitment to structured maintenance, spare planning, and NECTYR-monitored fleet health. For asset owners modelling 25-year IRR, this pairs robot CAPEX with predictable O&M accountability across the full degradation window."
+      "warrantyBody": "Taypro offers a 25-year product warranty on deployed robot platforms, aligned to the operational life of utility solar assets. Warranty remains valid when AMC is renewed annually, tying long-term hardware commitment to structured maintenance, spare planning, and NECTYR-monitored fleet health. For asset owners modelling 25-year IRR, this pairs robot CAPEX with predictable O&M accountability across the full degradation window."
     }
   },
   "Common": {

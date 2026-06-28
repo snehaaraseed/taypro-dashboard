@@ -61,10 +61,10 @@
       "intro": "Taypro भारत के सबसे बड़े यूटिलिटी-स्केल PV प्लांटों के लिए स्वायत्त सोलर पैनल सफाई रोबोट डिज़ाइन, निर्माण और सेवा करता है।",
       "productsEyebrow": "रोबोट लाइनअप",
       "hubCardTitle": "रोबोट मॉडल तुलना करें",
-      "hubCardDescription": "GLYDE, NYUMA, HELYX और ट्रैकर-तैयार वेरिएंट — स्पेक, फिट और तैनाती गाइड।",
+      "hubCardDescription": "GLYDE, NYUMA, HELYX और ट्रैकर-तैयार वेरिएंट, स्पेक, फिट और तैनाती गाइड।",
       "hubLink": "सोलर पैनल सफाई रोबोट हब",
       "serviceCardTitle": "OPEX सफाई सेवा",
-      "serviceCardDescription": "पूर्ण प्रबंधित फ्लीट — हम आपके प्लांट पर रोबोट तैनात, संचालित और रखरखाव करते हैं।",
+      "serviceCardDescription": "पूर्ण प्रबंधित फ्लीट, हम आपके प्लांट पर रोबोट तैनात, संचालित और रखरखाव करते हैं।",
       "serviceLink": "OPEX रोबोटिक सफाई सेवा",
       "calculatorCardTitle": "ROI कैलकुलेटर",
       "calculatorCardDescription": "पुनर्प्राप्त जनरेशन और कम मैनुअल O&M से पेबैक का अनुमान लगाएँ।",
@@ -246,11 +246,11 @@
       },
       "feature4": {
         "title": "Self-learning fleet AI",
-        "description": "AI that improves cleaning decisions with each cycle across the full fleet — soiling prediction, timing, and routing compound with every site added."
+        "description": "AI that improves cleaning decisions with each cycle across the full fleet, soiling prediction, timing, and routing compound with every site added."
       },
       "feature5": {
         "title": "Wet microfiber detection",
-        "description": "Sensors detect when cleaning elements are wet from dew or humidity and postpone cycles automatically — protecting module glass from smear damage."
+        "description": "Sensors detect when cleaning elements are wet from dew or humidity and postpone cycles automatically, protecting module glass from smear damage."
       }
     },
     "whyTaypro": {

@@ -228,11 +228,11 @@
       },
       "feature4": {
         "title": "Self-learning fleet AI",
-        "description": "AI that improves cleaning decisions with each cycle across the full fleet — soiling prediction, timing, and routing compound with every site added."
+        "description": "AI that improves cleaning decisions with each cycle across the full fleet, soiling prediction, timing, and routing compound with every site added."
       },
       "feature5": {
         "title": "Wet microfiber detection",
-        "description": "Sensors detect when cleaning elements are wet from dew or humidity and postpone cycles automatically — protecting module glass from smear damage."
+        "description": "Sensors detect when cleaning elements are wet from dew or humidity and postpone cycles automatically, protecting module glass from smear damage."
       }
     },
     "whyTaypro": {

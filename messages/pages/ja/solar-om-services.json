@@ -6,19 +6,19 @@
       "openGraphTitle": "ソーラーO&M インド | Taypro",
       "openGraphDescription": "発電所運営・保守のワンストップ。"
     },
-    "breadcrumbHub": "Utility solar operations",
+    "breadcrumbHub": "太陽光発電事業",
     "breadcrumbHubHref": "/utility-scale-solar-operations",
     "breadcrumb": "ソーラーO&Mサービス",
     "schema": {
-      "name": "Taypro Solar Plant O&M Services India",
-      "description": "Solar plant operation and maintenance services combining robotic module cleaning, NECTYR fleet monitoring, and ORION plant intelligence for Indian utility-scale assets.",
-      "serviceType": "Solar plant operation and maintenance",
-      "areaServed": "India"
+      "name": "Taypro 太陽光発電所 O&M サービス インド",
+      "description": "インドの事業規模の資産向けに、ロボットモジュールの洗浄、NECTYR のフリート監視、ORION のプラント インテリジェンスを組み合わせた太陽光発電所の運用およびメンテナンス サービス。",
+      "serviceType": "太陽光発電所の運営・保守",
+      "areaServed": "インド"
     },
     "hero": {
       "eyebrow": "O&M 調達 · インドの太陽光発電",
-      "title": "ユーティリティ向けソーラーO&M — 清掃・監視・インテリジェンス",
-      "subtitle": "Taypro は、手作業の作業員や基本的な SCADA では不可能な O&M ループを閉じます。大規模な水のないロボット清掃、NECTYR のフリート運用、および ORION のプラント インテリジェンス — SLA が支援するインド全土の現場対応です。",
+      "title": "ユーティリティ向けソーラーO&M: 清掃・監視・インテリジェンス",
+      "subtitle": "Taypro は、手作業の作業員や基本的な SCADA では不可能な O&M ループを閉じます。大規模な水のないロボット清掃、NECTYR のフリート運用、および ORION のプラント インテリジェンス, SLA が支援するインド全土の現場対応です。",
       "ctaPrimary": "O&M提案を依頼",
       "ctaPrimaryHref": "/contact",
       "ctaSecondary": "お掃除ロボットを詳しく見る",
@@ -49,7 +49,7 @@
         "tag": "ロードマップ",
         "stat": "ORION",
         "label": "植物インテリジェンス層",
-        "body": "SCADA を補完するように設計された世代を意識したモニタリング — Taypro フリートの予測洗浄スケジュールと収量予測。"
+        "body": "SCADA を補完するように設計された世代を意識したモニタリング, Taypro フリートの予測洗浄スケジュールと収量予測。"
       }
     },
     "cards": {
@@ -81,25 +81,25 @@
       }
     },
     "pillars": {
-      "eyebrow": "Three layers",
-      "heading": "Physical cleaning · Fleet data · Plant intelligence",
+      "eyebrow": "3層",
+      "heading": "物理的洗浄 · フリートデータ · プラントインテリジェンス",
       "pillar0": {
-        "tag": "Execution",
-        "title": "Robotic cleaning service",
-        "body": "GLYDE, GLYDE-X, NYUMA, NYUMA-X under managed OPEX or CAPEX+AMC — waterless cycles without tanker logistics.",
-        "link": "OPEX cleaning service"
+        "tag": "実行",
+        "title": "ロボット掃除サービス",
+        "body": "GLYDE, GLYDE-X, NYUMA, NYUMA-X under managed OPEX or CAPEX+AMC: waterless cycles without tanker logistics.",
+        "link": "OPEX クリーニング サービス"
       },
       "pillar1": {
-        "tag": "Operations",
-        "title": "NECTYR fleet portal",
-        "body": "Live fleet telemetry, cleaning SOPs, ticket management, and monthly settlement reports for O&M auditors.",
-        "link": "Explore NECTYR"
+        "tag": "運営",
+        "title": "NECTYR フリート ポータル",
+        "body": "フリートのライブ テレメトリ、SOP の清掃、チケット管理、O&M 監査人の月次決算レポート。",
+        "link": "NECTYR を探索する"
       },
       "pillar2": {
-        "tag": "Intelligence",
-        "title": "ORION plant health",
-        "body": "AI-driven scheduling, dust event prediction, and yield forecasting for fleets already on Taypro robots.",
-        "link": "ORION early access"
+        "tag": "知能",
+        "title": "ORION 植物の健康状態",
+        "body": "AI 主導のスケジューリング、粉塵イベント予測、すでに Taypro ロボットを使用しているフリートの収量予測。",
+        "link": "ORION 早期アクセス"
       }
     },
     "prose": {
@@ -116,12 +116,12 @@
       "p5": "清掃頻度、適用範囲の証拠、または水使用制限を指定する SECI、州ディスコム、および IPP 入札の場合、Taypro プログラムには、書面による SOP、NECTYR エクスポート、および監査人のレビューに適した月次パネル量調整が含まれます。"
     },
     "projects": {
-      "eyebrow": "Reference deployments",
-      "heading": "Solar O&M case studies by plant size",
-      "subheading": "Automatic robotic cleaning on 50–360 MW utility plants across Gujarat, Rajasthan, and India."
+      "eyebrow": "リファレンス展開",
+      "heading": "プラント規模別の太陽光発電 O&M ケーススタディ",
+      "subheading": "グジャラート州、ラジャスタン州、インドの 50 ～ 360 か所の MW 施設の自動ロボット洗浄。"
     },
     "faq": {
-      "heading": "太陽光発電 O&M サービス — FAQ",
+      "heading": "太陽光発電 O&M サービス, FAQ",
       "subheading": "インドの資産管理者とO&M調達チームからの質問。",
       "q0": "Taypro は太陽光発電 O&M 会社ですか?",
       "a0": "Taypro は、ロボット洗浄と太陽光発電のフリート インテリジェンス レイヤー O&M (モジュール洗浄の実行、フリート ソフトウェア、プラント分析) を専門としています。電気、インバーター、およびトラッカーの機械 O&M は通常、EPC または専用の O&M 請負業者に残ります。",
@@ -133,7 +133,7 @@
       "a3": "地域の故障対応目標は、プラントの規模と場所に基づいて契約ごとに合意されます。 NECTYR によるリモート診断により、サイト訪問が必要になる前に問題が解決されることがよくあります。特定の SLA 条件は、商用オンボーディング中に提案されます。",
       "q4": "Taypro O&M は 50 MW から 500 MW まで拡張できますか?",
       "a4": "はい。 Taypro には、50 個の MW から 360 個の MW の単一サイト展開とマルチサイト ポートフォリオのアクティブな参照があります。フリート展開モデルは、行ジオメトリとサイクル数に基づいて、MW ごとにロボット数をスケールします。",
-      "q5": "太陽光発電 O&M 契約の OPEX と CAPEX — Taypro はどちらを提供しますか?",
+      "q5": "太陽光発電 O&M 契約の OPEX と CAPEX: Taypro はどちらを提供しますか?",
       "a5": "両方。 CAPEX: AMC でロボットを購入します。 OPEX: Taypro はフリートを所有し、毎月清掃されるパネルごとに請求します。 IPP の多くは、迅速に行動し、成果に合わせて O&M の支出を調整するために OPEX を選択します。",
       "q6": "Taypro は、CPSU および SECI プロジェクトのソーラー パネルのクリーニングを提供しますか?",
       "a6": "はい。 Taypro は、中央 PSU、州のディスコム、および SECI が入札した公益施設にロボット清掃車と管理サービス プログラムを提供しています。",
@@ -149,59 +149,59 @@
       "a11": "Taypro は、SECI が入札した州のディスコム ユーティリティ プラントにサービスを提供します。 Taypro プログラム成果物に対するコンプライアンス マッピングについては、入札仕様書を添えてお問い合わせください。"
     },
     "cta": {
-      "heading": "Request a solar O&M proposal",
-      "body": "Tell us your portfolio size and current cleaning gaps. Taypro will respond with scope, SLA framework, and commercial terms.",
-      "primary": "Contact Taypro",
+      "heading": "太陽光発電 O&M の提案をリクエストする",
+      "body": "貴社のポートフォリオの規模と現在のクリーニングギャップを教えてください。 Taypro は範囲、SLA フレームワーク、および商業条件を返答します。",
+      "primary": "Taypro に連絡してください",
       "primaryHref": "/contact",
-      "secondary": "India cleaning service",
+      "secondary": "インドのクリーニングサービス",
       "secondaryHref": "/solar-panel-cleaning-service-india"
     },
     "related": {
-      "label": "Related:",
-      "link0": "Utility-scale O&M hub",
+      "label": "関連している：",
+      "link0": "実用規模の O&M ハブ",
       "link0Href": "/utility-scale-solar-operations",
-      "link1": "National cleaning service India",
+      "link1": "インドの全国清掃サービス",
       "link1Href": "/solar-panel-cleaning-service-india",
-      "link2": "Fleet monitoring software",
+      "link2": "フリート監視ソフトウェア",
       "link2Href": "/solar-fleet-monitoring-software"
     },
     "quoteForm": {
-      "eyebrow": "O&M inquiry",
-      "title": "Request solar plant O&M proposal",
+      "eyebrow": "O&M 問い合わせ",
+      "title": "太陽光発電所 O&M 提案をリクエストする",
       "placeholder": "Portfolio MW, plant locations, current O&M contractor, cleaning method, and whether you prefer CAPEX or OPEX."
     },
     "steps": {
-      "eyebrow": "O&M procurement path",
-      "heading": "How to procure Taypro solar O&M services",
-      "subheading": "A framework asset managers use in RFQs and vendor shortlists.",
-      "step0Title": "Define cleaning scope in your O&M tender",
+      "eyebrow": "O&M 調達パス",
+      "heading": "Taypro 太陽光発電 O&M サービスを調達する方法",
+      "subheading": "資産管理者が RFQ およびベンダー候補リストで使用するフレームワーク。",
+      "step0Title": "O&M 入札で清掃範囲を定義します",
       "step0Body": "Specify module cleaning frequency targets, water-use constraints, coverage evidence requirements, and whether you prefer CAPEX robot purchase or managed OPEX. Taypro responds to both models.",
-      "step1Title": "Technical site assessment",
-      "step1Body": "Engineering reviews row geometry, tracker vs fixed tilt, soiling drivers, and current PR trends. Output: robot model, fleet size, cycle count, and NECTYR integration plan.",
-      "step2Title": "SLA and commercial terms",
-      "step2Body": "Agree breakdown response targets, reporting cadence, reconciliation rules for panel-volume billing, and escalation matrix. Terms scale with plant MW and portfolio size.",
-      "step3Title": "Mobilisation and operator placement",
-      "step3Body": "Dedicated operators, regional spares, connectivity, and cleaning SOPs deployed. NECTYR activated for scheduling, tickets, and monthly settlement.",
-      "step4Title": "Quarterly O&M programme review",
-      "step4Body": "Review soiling trends, adjust cycles for season, correlate cleaning with PR recovery, and plan ORION intelligence upgrades where applicable."
+      "step1Title": "技術的なサイトの評価",
+      "step1Body": "エンジニアリングでは、列の形状、トラッカーと固定傾斜、ドライバーの汚れ、および現在の PR の傾向をレビューします。出力: ロボット モデル、フリート サイズ、サイクル数、NECTYR 統合計画。",
+      "step2Title": "SLA と商業条件",
+      "step2Body": "内訳対応目標、レポート頻度、パネル数量請求の調整ルール、およびエスカレーション マトリックスについて合意します。期間はプラント MW およびポートフォリオのサイズに応じて拡大します。",
+      "step3Title": "動員とオペレーターの配置",
+      "step3Body": "専任のオペレーター、地域の予備、接続、SOP の清掃を展開。 NECTYR は、スケジュール、チケット、月次決済のために有効化されています。",
+      "step4Title": "四半期ごとのO&Mプログラムのレビュー",
+      "step4Body": "汚れの傾向を確認し、季節に応じてサイクルを調整し、清掃とPRの回復を関連付け、該当する場合はORIONのインテリジェンスアップグレードを計画します。"
     },
     "eligibility": {
-      "eyebrow": "Vendor fit",
-      "title": "When Taypro is the right solar O&M partner",
-      "forTitle": "Strong fit",
-      "for0": "Utility plants 50 MW+ with recurring soiling and manual O&M cost pressure",
-      "for1": "IPPs and asset managers that need cleaning evidence for lenders or SECI compliance",
-      "for2": "Plants adopting or expanding single-axis trackers needing GLYDE-X or NYUMA-X fleets",
-      "for3": "O&M teams seeking to complement SCADA with fleet execution and cleaning-to-PR data",
-      "notForTitle": "Outside core scope",
-      "not0": "Standalone inverter or transformer maintenance contracts",
-      "not1": "Residential rooftop O&M without robotic cleaning feasibility",
-      "not2": "Plants seeking only occasional manual washing without structured programme"
+      "eyebrow": "ベンダーフィット",
+      "title": "Taypro が適切な太陽光発電 O&M パートナーである場合",
+      "forTitle": "強いフィット感",
+      "for0": "ユーティリティプラント 50 MW+ (繰り返し汚れが発生し、手作業による O&M コストのプレッシャーがある)",
+      "for1": "IPP および資産管理者は、貸し手または SECI コンプライアンスの証拠を消去する必要があります。",
+      "for2": "GLYDE-X または NYUMA-X フリートを必要とする単軸トラッカーを導入または拡張しているプラ​​ント",
+      "for3": "O&M チームは、フリートの実行と PR までのデータのクリーンアップで SCADA を補完しようとしています",
+      "notForTitle": "コア範囲外",
+      "not0": "スタンドアロン インバータまたは変圧器の保守契約",
+      "not1": "ロボットによる清掃の実現性のない住宅の屋上 O&M",
+      "not2": "体系化されたプログラムを使用せず、時折手作業で洗浄するだけの工場"
     },
     "highlight": {
-      "heading": "SCADA shows the dip. Taypro shows the cause.",
-      "lead": "Solar plant O&M procurement should close the soiling-to-action loop.",
-      "body": "Inverter alarms tell you generation dropped. NECTYR tells you which blocks were cleaned, which robots completed routes, and where coverage gaps remain. ORION roadmap adds predictive scheduling before dust storms hit PR."
+      "heading": "SCADA はディップを示します。 Taypro は原因を示します。",
+      "lead": "太陽光発電所 O&M の調達では、汚れから行動へのループを終了する必要があります。",
+      "body": "インバーターアラームは、発電が低下したことを知らせます。 NECTYR は、どのブロックが掃除されたか、どのロボットがルートを完了したか、カバレッジ ギャップがどこに残っているかを示します。 ORION ロードマップでは、PR に砂嵐が発生する前に予測スケジュールを追加します。"
     },
     "proseSecondary": {
       "eyebrow": "植物の大きさ別",
@@ -215,13 +215,13 @@
       "linkSecondaryHref": "/solar-fleet-monitoring-software"
     },
     "resources": {
-      "eyebrow": "Procurement resources",
-      "heading": "O&M buyer guides",
-      "link0Title": "India solar cleaning service",
+      "eyebrow": "調達資源",
+      "heading": "O&M 購入者ガイド",
+      "link0Title": "インドのソーラークリーニングサービス",
       "link0Href": "/solar-panel-cleaning-service-india",
-      "link1Title": "Cleaning cost & OPEX pricing",
+      "link1Title": "清掃料金とOPEXの価格",
       "link1Href": "/solar-cleaning-opex-pricing",
-      "link2Title": "Compare robotic vs manual cleaning",
+      "link2Title": "ロボット掃除と手動掃除を比較する",
       "link2Href": "/compare/solar-panel-cleaning-robot-vs-manual-cleaning"
     }
   }

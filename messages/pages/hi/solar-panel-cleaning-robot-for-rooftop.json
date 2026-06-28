@@ -2,21 +2,21 @@
   "RooftopCleaningPage": {
     "meta": {
       "title": "छत सोलर पैनल सफाई रोबोट भारत | वाणिज्यिक C&I",
-      "description": "वाणिज्यिक छतों के लिए Taypro MINY कॉम्पैक्ट रोबोट — वॉटरलेस, स्वायत्त।",
+      "description": "वाणिज्यिक छतों के लिए Taypro MINY कॉम्पैक्ट रोबोट, वॉटरलेस, स्वायत्त।",
       "openGraphTitle": "छत सोलर सफाई रोबोट | Taypro MINY",
       "openGraphDescription": "वेयरहाउस और औद्योगिक छतों के लिए कॉम्पैक्ट रोबोटिक सफाई।"
     },
-    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHub": "सौर पैनल सफाई करने वाले रोबोट",
     "breadcrumbHubHref": "/solar-panel-cleaning-system",
     "breadcrumb": "छत सोलर सफाई रोबोट",
     "schema": {
-      "name": "Taypro MINY Rooftop Solar Cleaning Robot",
-      "description": "Compact waterless solar panel cleaning robot for commercial and industrial rooftop arrays in India.",
+      "name": "Taypro MINY छत पर सौर सफाई करने वाला रोबोट",
+      "description": "भारत में वाणिज्यिक और औद्योगिक छत सरणियों के लिए कॉम्पैक्ट वॉटरलेस सौर पैनल सफाई रोबोट।",
       "sku": "MINY"
     },
     "hero": {
       "eyebrow": "छत और C&I खंड",
-      "title": "छत के लिए सोलर पैनल सफाई रोबोट — वाणिज्यिक और औद्योगिक",
+      "title": "छत के लिए सोलर पैनल सफाई रोबोट, वाणिज्यिक और औद्योगिक",
       "subtitle": "यूटिलिटी-स्केल रोबोट गोदाम की छतों और फैक्ट्री की छतों पर फिट नहीं होते हैं। Taypro MINY एक कॉम्पैक्ट वॉटरलेस क्लीनिंग रोबोट है जो वाणिज्यिक रूफटॉप सोलर - सीमित पहुंच, छोटे एरेज़ और C&I अर्थशास्त्र के लिए बनाया गया है।",
       "ctaPrimary": "MINY रोबोट देखें",
       "ctaPrimaryHref": "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
@@ -53,22 +53,22 @@
       }
     },
     "products": {
-      "eyebrow": "Recommended solutions",
-      "heading": "Taypro robots for rooftop and distributed solar",
+      "eyebrow": "अनुशंसित समाधान",
+      "heading": "Taypro छत और वितरित सौर ऊर्जा के लिए रोबोट",
       "product0": {
-        "title": "MINY — compact rooftop robot",
-        "body": "Purpose-built for commercial and industrial rooftops. Compact form factor, waterless dry cleaning, autonomous row traversal for C&I arrays.",
-        "link": "MINY product page"
+        "title": "MINY: कॉम्पैक्ट रूफटॉप रोबोट",
+        "body": "वाणिज्यिक और औद्योगिक छतों के उद्देश्य से निर्मित। कॉम्पैक्ट फॉर्म फैक्टर, पानी रहित ड्राई क्लीनिंग, C&I सरणियों के लिए स्वायत्त पंक्ति ट्रैवर्सल।",
+        "link": "MINY उत्पाद पृष्ठ"
       },
       "product1": {
-        "title": "HELYX — semi-automatic for scattered blocks",
-        "body": "Pick-and-place semi-automatic robot for distributed portfolios with multiple small blocks where full autonomy is not economical.",
-        "link": "HELYX product page"
+        "title": "HELYX: बिखरे हुए ब्लॉकों के लिए अर्ध-स्वचालित",
+        "body": "कई छोटे ब्लॉक वाले वितरित पोर्टफोलियो के लिए अर्ध-स्वचालित रोबोट चुनें जहां पूर्ण स्वायत्तता किफायती नहीं है।",
+        "link": "HELYX उत्पाद पृष्ठ"
       },
       "product2": {
-        "title": "NECTYR monitoring",
-        "body": "Fleet scheduling and cleaning reports for multi-site C&I portfolios — even when robots move between blocks.",
-        "link": "NECTYR app"
+        "title": "NECTYR निगरानी",
+        "body": "मल्टी-साइट C&I पोर्टफ़ोलियो के लिए फ़्लीट शेड्यूलिंग और सफ़ाई रिपोर्ट, तब भी जब रोबोट ब्लॉकों के बीच चलते हैं।",
+        "link": "NECTYR ऐप"
       }
     },
     "prose": {
@@ -83,7 +83,7 @@
       "linkSecondaryHref": "/solar-panel-cleaning-service-india"
     },
     "faq": {
-      "heading": "छत पर सौर सफाई करने वाला रोबोट — अक्सर पूछे जाने वाले प्रश्न",
+      "heading": "छत पर सौर सफाई करने वाला रोबोट, अक्सर पूछे जाने वाले प्रश्न",
       "subheading": "C&I सौर मालिकों और सुविधा प्रबंधकों से प्रश्न।",
       "q0": "छत पर स्थापना के लिए सबसे अच्छा सौर सफाई रोबोट कौन सा है?",
       "a0": "Taypro MINY विशेष रूप से वाणिज्यिक और औद्योगिक छतों के लिए डिज़ाइन किया गया है - कॉम्पैक्ट, जल रहित और स्वायत्त। बिखरे हुए मल्टी-ब्लॉक C&I पोर्टफ़ोलियो के लिए, HELYX अर्ध-स्वचालित अधिक किफायती हो सकता है।",
@@ -111,26 +111,26 @@
       "a11": "मैन्युअल छत की सफाई के लिए सुरक्षा हार्नेस क्रू, बीमा और बिल्डिंग एक्सेस समन्वय की आवश्यकता होती है - अक्सर ग्राउंड-माउंट मैनुअल की तुलना में प्रति किलोवाट अधिक महंगा होता है। अपने टैरिफ और प्रदूषण दर के साथ ROI कैलकुलेटर चलाएँ।"
     },
     "cta": {
-      "heading": "Assess your rooftop for robotic cleaning",
-      "body": "Tell us about your commercial rooftop array. Taypro will recommend the right compact robot or alternative approach.",
-      "primary": "MINY product page",
+      "heading": "रोबोटिक सफ़ाई के लिए अपनी छत का मूल्यांकन करें",
+      "body": "हमें अपने वाणिज्यिक रूफटॉप ऐरे के बारे में बताएं। Taypro सही कॉम्पैक्ट रोबोट या वैकल्पिक दृष्टिकोण की अनुशंसा करेगा।",
+      "primary": "MINY उत्पाद पृष्ठ",
       "primaryHref": "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
-      "secondary": "Contact Taypro",
+      "secondary": "संपर्क करेंTaypro",
       "secondaryHref": "/contact"
     },
     "related": {
-      "label": "Related:",
-      "link0": "HELYX semi-automatic robot",
+      "label": "संबंधित:",
+      "link0": "HELYX अर्ध-स्वचालित रोबोट",
       "link0Href": "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
-      "link1": "Utility cleaning service",
+      "link1": "उपयोगिता सफ़ाई सेवा",
       "link1Href": "/solar-panel-cleaning-service-india",
-      "link2": "Robot hub",
+      "link2": "रोबोट हब",
       "link2Href": "/solar-panel-cleaning-system"
     },
     "quoteForm": {
-      "eyebrow": "Rooftop inquiry",
-      "title": "Request rooftop cleaning robot assessment",
-      "placeholder": "Rooftop capacity (kW/MW), building type, city, access constraints (lift size, stairs), and array layout."
+      "eyebrow": "छत पर पूछताछ",
+      "title": "छत की सफाई करने वाले रोबोट मूल्यांकन का अनुरोध करें",
+      "placeholder": "छत की क्षमता (किलोवाट/MW), भवन का प्रकार, शहर, पहुंच संबंधी बाधाएं (लिफ्ट का आकार, सीढ़ियां), और सरणी लेआउट।"
     },
     "stats": {
       "eyebrow": "छत खंड",
@@ -161,36 +161,36 @@
       }
     },
     "steps": {
-      "eyebrow": "Rooftop assessment",
-      "heading": "How to evaluate a rooftop solar cleaning robot",
-      "step0Title": "Document array layout and access",
-      "step0Body": "Share kW/MW capacity, row length, tilt, lift dimensions, stair access, and photos. Taypro determines MINY vs HELYX feasibility.",
-      "step1Title": "Roof load and safety review",
-      "step1Body": "Structural and safety constraints verified before robot deployment. Not every rooftop qualifies — Taypro advises honestly.",
-      "step2Title": "Robot specification and quote",
-      "step2Body": "MINY compact robot for autonomous rows, or HELYX for pick-and-place scattered blocks. NECTYR optional for multi-site portfolios.",
-      "step3Title": "Commissioning and operator training",
-      "step3Body": "On-site training for building facilities team or Taypro operator placement depending on commercial model.",
-      "step4Title": "Scheduled cleaning cycles",
-      "step4Body": "Typically 2–6 dry cycles monthly for urban C&I soiling — adjusted after first month PR observation."
+      "eyebrow": "छत का मूल्यांकन",
+      "heading": "रूफटॉप सोलर क्लीनिंग रोबोट का मूल्यांकन कैसे करें",
+      "step0Title": "दस्तावेज़ सरणी लेआउट और पहुंच",
+      "step0Body": "किलोवाट/MW क्षमता, पंक्ति की लंबाई, झुकाव, लिफ्ट आयाम, सीढ़ी पहुंच और फ़ोटो साझा करें। Taypro MINY बनाम HELYX व्यवहार्यता निर्धारित करता है।",
+      "step1Title": "छत पर भार और सुरक्षा समीक्षा",
+      "step1Body": "रोबोट परिनियोजन से पहले संरचनात्मक और सुरक्षा बाधाओं का सत्यापन किया गया। हर छत योग्य नहीं होती, Taypro ईमानदारी से सलाह देती है।",
+      "step2Title": "रोबोट विशिष्टता और उद्धरण",
+      "step2Body": "स्वायत्त पंक्तियों के लिए MINY कॉम्पैक्ट रोबोट, या बिखरे हुए ब्लॉकों को चुनने और रखने के लिए HELYX। NECTYR मल्टी-साइट पोर्टफ़ोलियो के लिए वैकल्पिक।",
+      "step3Title": "कमीशनिंग और ऑपरेटर प्रशिक्षण",
+      "step3Body": "वाणिज्यिक मॉडल के आधार पर भवन निर्माण सुविधाओं की टीम या Taypro ऑपरेटर प्लेसमेंट के लिए ऑन-साइट प्रशिक्षण।",
+      "step4Title": "अनुसूचित सफाई चक्र",
+      "step4Body": "आमतौर पर शहरी C&I गंदगी के लिए मासिक रूप से 2-6 शुष्क चक्र, पहले महीने PR अवलोकन के बाद समायोजित किए जाते हैं।"
     },
     "eligibility": {
-      "eyebrow": "Fit guide",
-      "title": "Is a rooftop cleaning robot right for your building?",
-      "forTitle": "Good fit",
-      "for0": "Commercial/industrial rooftops 500 kW–5 MW with regular row geometry",
-      "for1": "Warehouses, manufacturing plants, logistics parks with night cleaning windows",
-      "for2": "Buildings prohibiting wet-wash runoff or water tanker access",
-      "for3": "C&I developers managing multi-site portfolios needing NECTYR reporting",
-      "notForTitle": "Not ideal",
-      "not0": "Ground-mount utility plants (use GLYDE, GLYDE-X, or NYUMA instead)",
-      "not1": "Roofs failing structural or access feasibility review",
-      "not2": "Single small arrays where manual cleaning cost is already negligible"
+      "eyebrow": "फ़िट गाइड",
+      "title": "क्या छत की सफाई करने वाला रोबोट आपके भवन के लिए सही है?",
+      "forTitle": "अच्छे तरह से फिट होना",
+      "for0": "नियमित पंक्ति ज्यामिति के साथ वाणिज्यिक/औद्योगिक छतें 500 किलोवाट-5 MW",
+      "for1": "गोदाम, विनिर्माण संयंत्र, रात की सफाई खिड़कियों के साथ लॉजिस्टिक्स पार्क",
+      "for2": "गीले-धोने वाले पानी या पानी के टैंकर के प्रवेश पर रोक लगाने वाली इमारतें",
+      "for3": "C&I मल्टी-साइट पोर्टफोलियो प्रबंधित करने वाले डेवलपर्स को NECTYR रिपोर्टिंग की आवश्यकता होती है",
+      "notForTitle": "आदर्श नहीं",
+      "not0": "ग्राउंड-माउंट उपयोगिता संयंत्र (इसके बजाय GLYDE, GLYDE-X, या NYUMA का उपयोग करें)",
+      "not1": "छतें संरचनात्मक या पहुंच व्यवहार्यता समीक्षा में विफल हो रही हैं",
+      "not2": "एकल छोटे एरेज़ जहां मैन्युअल सफाई की लागत पहले से ही नगण्य है"
     },
     "highlight": {
-      "heading": "Utility robots do not fit warehouse roofs.",
-      "lead": "Rooftop buyer intent needs a compact solar cleaning robot — not a repackaged ground-mount GLYDE.",
-      "body": "Taypro MINY is purpose-built for commercial rooftop solar in India. HELYX covers scattered multi-block C&I where pick-and-place beats full autonomy."
+      "heading": "उपयोगिता रोबोट गोदाम की छतों पर फिट नहीं बैठते।",
+      "lead": "छत खरीदने वाले को एक कॉम्पैक्ट सौर सफाई रोबोट की आवश्यकता है, न कि दोबारा पैक किए गए ग्राउंड-माउंट GLYDE की।",
+      "body": "Taypro MINY भारत में व्यावसायिक रूफटॉप सोलर के उद्देश्य से बनाया गया है। HELYX बिखरे हुए मल्टी-ब्लॉक C&I को कवर करता है जहां पिक-एंड-प्लेस पूर्ण स्वायत्तता को मात देता है।"
     },
     "proseSecondary": {
       "eyebrow": "व्यावसायिक उपयोग के मामले",
@@ -204,13 +204,13 @@
       "linkSecondaryHref": "/solar-panel-cleaning-service-india"
     },
     "resources": {
-      "eyebrow": "Rooftop guides",
-      "heading": "Related resources",
-      "link0Title": "HELYX semi-automatic robot",
+      "eyebrow": "छत मार्गदर्शक",
+      "heading": "संबंधित संसाधन",
+      "link0Title": "HELYX अर्ध-स्वचालित रोबोट",
       "link0Href": "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
-      "link1Title": "Robot price guide India",
+      "link1Title": "रोबोट मूल्य गाइड भारत",
       "link1Href": "/solar-panel-cleaning-robot-price-india",
-      "link2Title": "ROI calculator",
+      "link2Title": "ROI कैलकुलेटर",
       "link2Href": "/solar-panel-cleaning-robot-price-calculator"
     }
   }

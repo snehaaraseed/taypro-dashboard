@@ -226,13 +226,24 @@ body {
   text-decoration-color: #1e40af !important;
 }
 
-/* Image styling in blog content */
-.prose img,
-article img {
+/* Image styling in blog content (scoped to .prose — not listing card thumbnails) */
+.prose img {
   max-width: 100% !important;
   height: auto !important;
   display: block !important;
   margin: 1.5rem auto !important;
+}
+
+/* Blog/project card thumbnails: fill fixed aspect-ratio boxes with cover crop */
+.blog-card-thumb img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
 /* Internal link styling - ensure they're always visible with underline */
@@ -252,7 +263,7 @@ a.internal-link:hover {
   text-decoration-color: #1e40af !important;
 }
 
-/* CMS tables (blogs + projects) — not reliant on @tailwindcss/typography */
+/* CMS tables (blogs + projects) - not reliant on @tailwindcss/typography */
 .prose .cms-table-wrap {
   margin: 1.75rem 0;
   overflow-x: auto;
@@ -535,7 +546,7 @@ a.internal-link:hover {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Mobile: fit popup on one screen — no internal scroll */
+/* Mobile: fit popup on one screen - no internal scroll */
 @media (max-width: 639px) {
   .taypro-lead-slidein-scroll {
     flex: 0 0 auto;
@@ -653,7 +664,7 @@ a.internal-link:hover {
   }
 }
 
-/* Inline brand links — always underlined so color is not the only cue (a11y) */
+/* Inline brand links - always underlined so color is not the only cue (a11y) */
 a.brand-inline-link,
 .brand-inline-link {
   color: #a8c117;
@@ -667,7 +678,7 @@ a.brand-inline-link:hover,
   text-decoration: none;
 }
 
-/* Scroll-reveal transitions (AnimateOnScroll) — avoids per-element inline transition styles */
+/* Scroll-reveal transitions (AnimateOnScroll) - avoids per-element inline transition styles */
 .aos-transition {
   transition-property: opacity, transform;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
@@ -679,7 +690,7 @@ a.brand-inline-link:hover,
   will-change: transform, opacity;
 }
 
-/* Home hero cover — CSS background keeps LCP on server-rendered headline text. */
+/* Home hero cover - CSS background keeps LCP on server-rendered headline text. */
 .home-hero-cover {
   background-image: url("/tayproasset/cover-solar-hero-mobile.webp");
 }
@@ -709,7 +720,7 @@ a.brand-inline-link:hover,
   }
 }
 
-/* Clear glass — minimal blur, hero shows through */
+/* Clear glass - minimal blur, hero shows through */
 .hero-glass {
   position: relative;
   background: transparent;

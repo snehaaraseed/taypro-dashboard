@@ -136,6 +136,104 @@ export default async function CareersPage({
         </Container>
       </section>
 
+      <section
+        id="open-positions"
+        className="scroll-mt-24 bg-white px-4 py-14 sm:px-6 md:py-20"
+        aria-labelledby="open-positions-heading"
+      >
+        <Container className="max-w-4xl">
+          <AnimateOnScroll animation="fadeInUp" className="mb-10">
+            <h2
+              id="open-positions-heading"
+              className="mb-3 text-2xl font-semibold text-[#052638] md:text-3xl"
+            >
+              {t("listHeading")}
+            </h2>
+            <p className="text-base leading-relaxed text-[#27415c]">
+              {t("listIntro")}
+            </p>
+          </AnimateOnScroll>
+
+          {loadError ? (
+            <p className="rounded-xl border border-red-200 bg-red-50 p-6 text-red-800">
+              {t("emptyBody")}
+            </p>
+          ) : jobs.length === 0 ? (
+            <div className="rounded-xl border border-gray-200 bg-[#f4f7f9] p-8 text-center">
+              <h3 className="mb-2 text-xl font-semibold text-[#052638]">
+                {t("emptyTitle")}
+              </h3>
+              <p className="mb-6 text-[#27415c]">{t("emptyBody")}</p>
+              <OpenLeadModalButton
+                source="careers_empty"
+                topic={t("leadModal.topic")}
+                title={t("leadModal.title")}
+                subtitle={t("leadModal.subtitle")}
+                leadIntent={t("leadModal.topic")}
+                formPrompt={t("leadModal.formPrompt")}
+                showMessageField
+                messageLabel={t("leadModal.messageLabel")}
+                messagePlaceholder={t("leadModal.messagePlaceholder")}
+                submitLabel={t("leadModal.submitLabel")}
+                thankYouTitle={t("leadModal.thankYouTitle")}
+                thankYouMessage={t("leadModal.thankYouMessage")}
+                analyticsFormType="careers_application"
+                className="inline-flex justify-center rounded-lg bg-[#052638] px-6 py-3 font-medium text-white transition-colors hover:bg-[#0a3a4a]"
+              >
+                {t("contactCta")}
+              </OpenLeadModalButton>
+            </div>
+          ) : (
+            <ul className="space-y-4">
+              {jobs.map((job) => {
+                const slug = jobOpeningSlug(job);
+                const title = jobDisplayTitle(job);
+                const meta = [job.department, job.location, job.employment_type]
+                  .filter(Boolean)
+                  .join(" · ");
+
+                return (
+                  <li key={job.name}>
+                    <AnimateOnScroll animation="fadeInUp">
+                      <article className="rounded-xl border border-gray-200 p-6 shadow-sm transition-shadow hover:shadow-md">
+                        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                          <div>
+                            <h3 className="text-xl font-semibold text-[#052638]">
+                              <Link
+                                href={`/careers/${slug}`}
+                                className="transition-colors hover:text-[#5a8f00]"
+                              >
+                                {title}
+                              </Link>
+                            </h3>
+                            {meta ? (
+                              <p className="mt-1 text-sm text-[#5a8f00]">{meta}</p>
+                            ) : null}
+                            {job.posted_on ? (
+                              <p className="mt-2 text-xs text-gray-500">
+                                {t("postedOn", {
+                                  date: formatLocaleDate(locale, job.posted_on),
+                                })}
+                              </p>
+                            ) : null}
+                          </div>
+                          <Link
+                            href={`/careers/${slug}`}
+                            className="inline-flex shrink-0 justify-center rounded-lg border border-[#052638] px-5 py-2.5 text-sm font-medium text-[#052638] transition-colors hover:bg-[#052638]/5"
+                          >
+                            {t("viewRole")}
+                          </Link>
+                        </div>
+                      </article>
+                    </AnimateOnScroll>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </Container>
+      </section>
+
       <section className="bg-[#f4f7f9] px-4 py-14 sm:px-6 md:py-20" aria-labelledby="careers-stats-heading">
         <Container>
           <AnimateOnScroll animation="fadeInUp" className="mb-10 text-center">
@@ -317,104 +415,6 @@ export default async function CareersPage({
               </AnimateOnScroll>
             ))}
           </div>
-        </Container>
-      </section>
-
-      <section
-        id="open-positions"
-        className="scroll-mt-24 bg-white px-4 py-14 sm:px-6 md:py-20"
-        aria-labelledby="open-positions-heading"
-      >
-        <Container className="max-w-4xl">
-          <AnimateOnScroll animation="fadeInUp" className="mb-10">
-            <h2
-              id="open-positions-heading"
-              className="mb-3 text-2xl font-semibold text-[#052638] md:text-3xl"
-            >
-              {t("listHeading")}
-            </h2>
-            <p className="text-base leading-relaxed text-[#27415c]">
-              {t("listIntro")}
-            </p>
-          </AnimateOnScroll>
-
-          {loadError ? (
-            <p className="rounded-xl border border-red-200 bg-red-50 p-6 text-red-800">
-              {t("emptyBody")}
-            </p>
-          ) : jobs.length === 0 ? (
-            <div className="rounded-xl border border-gray-200 bg-[#f4f7f9] p-8 text-center">
-              <h3 className="mb-2 text-xl font-semibold text-[#052638]">
-                {t("emptyTitle")}
-              </h3>
-              <p className="mb-6 text-[#27415c]">{t("emptyBody")}</p>
-              <OpenLeadModalButton
-                source="careers_empty"
-                topic={t("leadModal.topic")}
-                title={t("leadModal.title")}
-                subtitle={t("leadModal.subtitle")}
-                leadIntent={t("leadModal.topic")}
-                formPrompt={t("leadModal.formPrompt")}
-                showMessageField
-                messageLabel={t("leadModal.messageLabel")}
-                messagePlaceholder={t("leadModal.messagePlaceholder")}
-                submitLabel={t("leadModal.submitLabel")}
-                thankYouTitle={t("leadModal.thankYouTitle")}
-                thankYouMessage={t("leadModal.thankYouMessage")}
-                analyticsFormType="careers_application"
-                className="inline-flex justify-center rounded-lg bg-[#052638] px-6 py-3 font-medium text-white transition-colors hover:bg-[#0a3a4a]"
-              >
-                {t("contactCta")}
-              </OpenLeadModalButton>
-            </div>
-          ) : (
-            <ul className="space-y-4">
-              {jobs.map((job) => {
-                const slug = jobOpeningSlug(job);
-                const title = jobDisplayTitle(job);
-                const meta = [job.department, job.location, job.employment_type]
-                  .filter(Boolean)
-                  .join(" · ");
-
-                return (
-                  <li key={job.name}>
-                    <AnimateOnScroll animation="fadeInUp">
-                      <article className="rounded-xl border border-gray-200 p-6 shadow-sm transition-shadow hover:shadow-md">
-                        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                          <div>
-                            <h3 className="text-xl font-semibold text-[#052638]">
-                              <Link
-                                href={`/careers/${slug}`}
-                                className="transition-colors hover:text-[#5a8f00]"
-                              >
-                                {title}
-                              </Link>
-                            </h3>
-                            {meta ? (
-                              <p className="mt-1 text-sm text-[#5a8f00]">{meta}</p>
-                            ) : null}
-                            {job.posted_on ? (
-                              <p className="mt-2 text-xs text-gray-500">
-                                {t("postedOn", {
-                                  date: formatLocaleDate(locale, job.posted_on),
-                                })}
-                              </p>
-                            ) : null}
-                          </div>
-                          <Link
-                            href={`/careers/${slug}`}
-                            className="inline-flex shrink-0 justify-center rounded-lg border border-[#052638] px-5 py-2.5 text-sm font-medium text-[#052638] transition-colors hover:bg-[#052638]/5"
-                          >
-                            {t("viewRole")}
-                          </Link>
-                        </div>
-                      </article>
-                    </AnimateOnScroll>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
         </Container>
       </section>
 

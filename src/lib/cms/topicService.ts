@@ -246,7 +246,7 @@ export type BlogAutomationSchedule = {
   nextEligibleAt: string | null;
 };
 
-/** When automation last generated a topic row — not publish/schedule dates. */
+/** When automation last generated a topic row, not publish/schedule dates. */
 async function getLastAutomationWriteAt(): Promise<string | null> {
   const db = getDb();
   const [row] = await db

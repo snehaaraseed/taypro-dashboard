@@ -226,6 +226,8 @@ EOF
         "$LOCAL_PATH/scripts/install-url-recovery-cron.sh" \
         "$LOCAL_PATH/scripts/install-blog-automation-cron.sh" \
         "$LOCAL_PATH/scripts/install-scheduled-publish-cron.sh" \
+        "$LOCAL_PATH/scripts/install-insights-cron.sh" \
+        "$LOCAL_PATH/scripts/cron-generate-insights.sh" \
         "$REMOTE_HOST:$REMOTE_PATH/scripts/"
 
     GSC_OAUTH_ENV_SNIP=""
@@ -286,9 +288,11 @@ EOF
         chmod +x scripts/cron-sync-gsc-boost.sh scripts/install-gsc-sync-cron.sh 2>/dev/null || true
         chmod +x scripts/cron-merge-404-candidates.sh scripts/install-url-recovery-cron.sh 2>/dev/null || true
         chmod +x scripts/install-blog-automation-cron.sh scripts/install-scheduled-publish-cron.sh 2>/dev/null || true
+        chmod +x scripts/install-insights-cron.sh scripts/cron-generate-insights.sh 2>/dev/null || true
         ./scripts/install-gsc-sync-cron.sh
         ./scripts/install-url-recovery-cron.sh
         ./scripts/install-blog-automation-cron.sh
+        ./scripts/install-insights-cron.sh
 EOF
     step_done
     echo ""
@@ -424,15 +428,27 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
 
     ./scripts/deploy-cms-safe.sh swap-standalone /var/www/taypro-dashboard/.release-build
 
-    sleep 2
-    CODE=$(curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/ || echo "000")
-    if [ "$CODE" = "200" ]; then
-        echo "  ✅ Application responding (HTTP $CODE)"
-    else
-        echo "  ❌ Application responded with HTTP $CODE after swap"
+    HEALTH_OK=0
+    for attempt in 1 2 3 4 5 6; do
+        sleep 3
+        CODE=$(curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/ || echo "000")
+        if [ "$CODE" = "200" ]; then
+            HEALTH_OK=1
+            echo "  ✅ Application responding (HTTP $CODE, attempt $attempt/6)"
+            break
+        fi
+        echo "  ⏳ Waiting for app after swap (attempt $attempt/6, HTTP $CODE)..."
+    done
+    if [ "$HEALTH_OK" != "1" ]; then
+        echo "  ❌ Application did not respond with HTTP 200 after swap"
         ./scripts/deploy-cms-safe.sh rollback-standalone
         exit 1
     fi
+
+    # Staging standalone was moved during swap; drop heavy build artifacts to free disk.
+    rm -rf /var/www/taypro-dashboard/.release-build/.next/server \
+           /var/www/taypro-dashboard/.release-build/.next/cache 2>/dev/null || true
+    echo "  ✅ Trimmed staging build artifacts (server/cache)"
 
     ./scripts/deploy-cms-safe.sh save-metrics /tmp/taypro-cms-metrics-after-swap.json
     ./scripts/deploy-cms-safe.sh assert-unchanged /tmp/taypro-cms-metrics-before.json /tmp/taypro-cms-metrics-after-swap.json

@@ -2,7 +2,7 @@
   "PlantDataIntelligencePage": {
     "meta": {
       "title": "Solar Plant Data Intelligence India | ORION & NECTYR",
-      "description": "Solar plant data intelligence beyond SCADA: Taypro NECTYR cleaning telemetry today, ORION plant health roadmap — PR drift, soiling correlation, and yield analytics for Indian utility fleets.",
+      "description": "Solar plant data intelligence beyond SCADA: Taypro NECTYR cleaning telemetry today, ORION plant health roadmap, PR drift, soiling correlation, and yield analytics for Indian utility fleets.",
       "openGraphTitle": "Solar Plant Data Intelligence | Taypro",
       "openGraphDescription": "Close the soiling-to-action loop with labelled cleaning data and ORION plant intelligence for Taypro fleet customers."
     },
@@ -11,13 +11,13 @@
     "breadcrumb": "Solar plant data intelligence",
     "schema": {
       "name": "Taypro ORION Plant Data Intelligence",
-      "description": "Plant intelligence layer correlating cleaning, weather, and yield for utility solar — ORION roadmap on NECTYR fleet data.",
+      "description": "Plant intelligence layer correlating cleaning, weather, and yield for utility solar, ORION roadmap on NECTYR fleet data.",
       "applicationCategory": "BusinessApplication"
     },
     "hero": {
       "eyebrow": "Data · Plant intelligence",
-      "title": "Solar plant data intelligence — from SCADA alarms to cleaning action",
-      "subtitle": "SCADA shows kWh after the loss. Taypro's stack adds labelled cleaning telemetry (NECTYR, live) and ORION plant intelligence (roadmap) — correlating soiling, weather, and yield for utility asset owners.",
+      "title": "Solar plant data intelligence, from SCADA alarms to cleaning action",
+      "subtitle": "SCADA shows kWh after the loss. Taypro's stack adds labelled cleaning telemetry (NECTYR, live) and ORION plant intelligence (roadmap), correlating soiling, weather, and yield for utility asset owners.",
       "ctaPrimary": "Explore ORION",
       "ctaPrimaryHref": "/solar-panel-cleaning-system/orion-plant-intelligence-platform",
       "ctaSecondary": "NECTYR fleet portal",
@@ -26,17 +26,17 @@
     "cards": {
       "eyebrow": "Three-layer stack",
       "heading": "Physical robots, operations data, plant intelligence",
-      "subheading": "Data intelligence starts with execution proof — then moves to predictive O&M.",
+      "subheading": "Data intelligence starts with execution proof, then moves to predictive O&M.",
       "card0": {
         "title": "Robots execute cleaning",
-        "body": "GLYDE, NYUMA, HELYX fleets generate block-level pass logs every cycle — the raw events SCADA does not capture."
+        "body": "GLYDE, NYUMA, HELYX fleets generate block-level pass logs every cycle, the raw events SCADA does not capture."
       },
       "card1": {
-        "title": "NECTYR — live operations data",
+        "title": "NECTYR: live operations data",
         "body": "Scheduling, coverage maps, AMC tickets, and monthly OPEX settlement. Live since 2022 on 150+ utility sites."
       },
       "card2": {
-        "title": "ORION — plant intelligence roadmap",
+        "title": "ORION: plant intelligence roadmap",
         "body": "Weather-normalised PR drift, dust-storm triggers, yield forecasting. Early access for select IPPs under NDA."
       },
       "card3": {
@@ -45,11 +45,11 @@
       },
       "card4": {
         "title": "Labelled telemetry moat",
-        "body": "11 billion+ annual panel passes feed models — cleaning events tied to array blocks, not generic weather feeds alone."
+        "body": "11 billion+ annual panel passes feed models, cleaning events tied to array blocks, not generic weather feeds alone."
       },
       "card5": {
         "title": "Attach at AMC renewal",
-        "body": "ORION designed to upgrade existing Taypro fleets on rails already operating — not a cold-start software sale."
+        "body": "ORION designed to upgrade existing Taypro fleets on rails already operating, not a cold-start software sale."
       }
     },
     "stats": {
@@ -71,13 +71,13 @@
         "tag": "Weather AI",
         "stat": "95%",
         "label": "Reschedule accuracy",
-        "body": "Field-verified weather-aware scheduling in NECTYR — skips rain-washed days."
+        "body": "Field-verified weather-aware scheduling in NECTYR: skips rain-washed days."
       },
       "card3": {
         "tag": "ORION",
         "stat": "Early access",
         "label": "Utility IPP pilots",
-        "body": "Plant intelligence roadmap — contact for NDA pilot discussions."
+        "body": "Plant intelligence roadmap, contact for NDA pilot discussions."
       }
     },
     "pillars": {
@@ -85,19 +85,19 @@
       "heading": "What plant data intelligence should deliver",
       "pillar0": {
         "title": "Block-level cleaning proof",
-        "body": "Which panels were cleaned last night — evidence lenders and O&M governance require at 100 MW scale.",
+        "body": "Which panels were cleaned last night, evidence lenders and O&M governance require at 100 MW scale.",
         "tag": "Execution proof",
         "link": "ORION platform page"
       },
       "pillar1": {
         "title": "PR correlation",
-        "body": "Tie cleaning cadence to performance ratio recovery trends — not just calendar washing.",
+        "body": "Tie cleaning cadence to performance ratio recovery trends, not just calendar washing.",
         "tag": "Live today",
         "link": "NECTYR product page"
       },
       "pillar2": {
         "title": "Predictive scheduling (ORION)",
-        "body": "Dust-storm triggers and yield shortfall alerts — moving from reactive to predictive O&M on Taypro fleets.",
+        "body": "Dust-storm triggers and yield shortfall alerts, moving from reactive to predictive O&M on Taypro fleets.",
         "tag": "Predictive O&M",
         "link": "AI intelligence hub"
       }
@@ -105,10 +105,10 @@
     "prose": {
       "eyebrow": "Beyond SCADA",
       "heading": "Why utility plants need cleaning-aware data intelligence",
-      "p1": "Most plant monitoring stacks were built for inverter availability — not for soiling loss quantification or cleaning coverage audit. When PR drifts, operators debate whether the issue is soiling, curtailment, or equipment — without block-level cleaning evidence.",
+      "p1": "Most plant monitoring stacks were built for inverter availability, not for soiling loss quantification or cleaning coverage audit. When PR drifts, operators debate whether the issue is soiling, curtailment, or equipment, without block-level cleaning evidence.",
       "p2": "NECTYR closes the execution gap: route completion, exceptions, robot health, and monthly panel-volume reconciliation for OPEX billing. Asset managers correlate cleaning events with PR recovery instead of dispatching blind crew visits.",
-      "p3": "ORION extends this into plant intelligence: weather feeds, soiling models, and yield analytics designed for Taypro fleet customers. ORION is on the roadmap with early access for select asset owners — not a separate product for non-Taypro fleets today.",
-      "p4": "11 billion+ annual panel passes create a labelled dataset competitors cannot replicate without equivalent field presence — but awards and throughput claims require your own pilot PR validation.",
+      "p3": "ORION extends this into plant intelligence: weather feeds, soiling models, and yield analytics designed for Taypro fleet customers. ORION is on the roadmap with early access for select asset owners, not a separate product for non-Taypro fleets today.",
+      "p4": "11 billion+ annual panel passes create a labelled dataset competitors cannot replicate without equivalent field presence, but awards and throughput claims require your own pilot PR validation.",
       "linkPrimary": "Fleet monitoring software guide",
       "linkPrimaryHref": "/solar-fleet-monitoring-software",
       "linkSecondary": "AI & intelligence technology",
@@ -119,26 +119,26 @@
       "heading": "How plant data intelligence rolls out on Taypro fleets",
       "subheading": "From robot deployment to ORION early access.",
       "step0Title": "Deploy robots + NECTYR",
-      "step0Body": "Cleaning execution generates block-level telemetry — foundation for all analytics.",
+      "step0Body": "Cleaning execution generates block-level telemetry, foundation for all analytics.",
       "step1Title": "Establish PR baselines",
       "step1Body": "Correlate cleaning cycles with SCADA PR trends per block or feeder.",
       "step2Title": "Optimise cadence with weather AI",
-      "step2Body": "NECTYR reschedules around rain and dust storms — reducing wasted passes.",
+      "step2Body": "NECTYR reschedules around rain and dust storms, reducing wasted passes.",
       "step3Title": "Portfolio governance reviews",
       "step3Body": "Monthly reconciliation and quarterly cycle adjustments for multi-site IPPs.",
       "step4Title": "ORION early access at renewal",
-      "step4Body": "Plant intelligence pilots for qualifying Taypro AMC customers — NDA required."
+      "step4Body": "Plant intelligence pilots for qualifying Taypro AMC customers, NDA required."
     },
     "highlight": {
       "heading": "The data question",
       "lead": "Can you prove which blocks were cleaned before PR recovered?",
-      "body": "Generic dashboards show energy after the fact. Taypro ties labelled cleaning events to array geography — the prerequisite for credible plant data intelligence."
+      "body": "Generic dashboards show energy after the fact. Taypro ties labelled cleaning events to array geography, the prerequisite for credible plant data intelligence."
     },
     "proseSecondary": {
       "eyebrow": "ORION status",
       "heading": "Live today vs roadmap",
-      "p1": "NECTYR is production software on deployed fleets — scheduling, tickets, coverage exports, OPEX settlement. Use it today on Taypro CAPEX and OPEX programmes.",
-      "p2": "ORION capabilities described on taypro.in — predictive scheduling, enhanced yield analytics, optional sensing — are under active development. Early access is offered to select utility IPPs under NDA.",
+      "p1": "NECTYR is production software on deployed fleets, scheduling, tickets, coverage exports, OPEX settlement. Use it today on Taypro CAPEX and OPEX programmes.",
+      "p2": "ORION capabilities described on taypro.in, predictive scheduling, enhanced yield analytics, optional sensing, are under active development. Early access is offered to select utility IPPs under NDA.",
       "p3": "Do not substitute this page for a product datasheet. Request an ORION briefing for current pilot scope and integration requirements.",
       "linkPrimary": "ORION product page",
       "linkPrimaryHref": "/solar-panel-cleaning-system/orion-plant-intelligence-platform",
@@ -156,30 +156,30 @@
       "link2Href": "/technology/ai-intelligence"
     },
     "faq": {
-      "heading": "Solar plant data intelligence — FAQ",
+      "heading": "Solar plant data intelligence, FAQ",
       "subheading": "NECTYR live capabilities and ORION roadmap.",
       "q0": "What is the difference between NECTYR and ORION?",
-      "a0": "NECTYR is live fleet operations software. ORION is the plant intelligence layer on the roadmap — PR analytics, predictive scheduling, yield forecasting.",
+      "a0": "NECTYR is live fleet operations software. ORION is the plant intelligence layer on the roadmap, PR analytics, predictive scheduling, yield forecasting.",
       "q1": "Does ORION replace SCADA?",
       "a1": "No. ORION complements SCADA and CMMS. Electrical monitoring stays in your existing stack.",
       "q2": "Is ORION available today?",
       "a2": "ORION is in active development with early access for select Taypro fleet customers. NECTYR is live on 150+ sites.",
       "q3": "Can I buy ORION without Taypro robots?",
-      "a3": "ORION is designed for Taypro cleaning telemetry. Enterprise discussions may apply for mixed fleets — contact us.",
+      "a3": "ORION is designed for Taypro cleaning telemetry. Enterprise discussions may apply for mixed fleets, contact us.",
       "q4": "What data does NECTYR capture?",
       "a4": "Cleaning routes, coverage, robot health, faults, weather reschedules, and monthly panel counts for OPEX billing.",
       "q5": "How does this relate to fleet monitoring software?",
       "a5": "Fleet monitoring page focuses on NECTYR ops keywords. This page focuses on plant intelligence and yield analytics positioning.",
       "q6": "What is the 11 billion passes figure?",
-      "a6": "Cumulative annual cleaning pass volume across deployed fleets — labelled events feeding analytics roadmap.",
+      "a6": "Cumulative annual cleaning pass volume across deployed fleets, labelled events feeding analytics roadmap.",
       "q7": "How do IPPs pilot ORION?",
-      "a7": "Early access under NDA for qualifying AMC customers — typically at renewal on existing Taypro fleets.",
+      "a7": "Early access under NDA for qualifying AMC customers, typically at renewal on existing Taypro fleets.",
       "q8": "Does data intelligence help SECI compliance?",
-      "a8": "Documented cleaning coverage supports technical due diligence — align with your tender's evidence requirements.",
+      "a8": "Documented cleaning coverage supports technical due diligence, align with your tender's evidence requirements.",
       "q9": "Is there an API for portfolio systems?",
-      "a9": "Enterprise integration discussions available — scope depends on deployment model.",
+      "a9": "Enterprise integration discussions available, scope depends on deployment model.",
       "q10": "How is weather AI validated?",
-      "a10": "NECTYR cites 95% field-verified reschedule accuracy — see performance methodology for claim definitions.",
+      "a10": "NECTYR cites 95% field-verified reschedule accuracy, see performance methodology for claim definitions.",
       "q11": "Where to start?",
       "a11": "Deploy robots with NECTYR, establish PR baselines, then discuss ORION at AMC renewal."
     },
@@ -189,7 +189,7 @@
       "placeholder": "Portfolio MW, Taypro fleet status, SCADA vendor, and interest in NECTYR vs ORION."
     },
     "cta": {
-      "heading": "Start with execution data — grow into intelligence",
+      "heading": "Start with execution data, grow into intelligence",
       "body": "NECTYR is live on Taypro fleets today. Ask about ORION early access for your portfolio.",
       "primary": "Contact platform team",
       "primaryHref": "/contact",

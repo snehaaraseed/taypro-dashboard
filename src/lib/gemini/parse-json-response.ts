@@ -23,15 +23,72 @@ function extractJsonSubstring(text: string): string {
   return text.trim();
 }
 
+function escapeControlCharsInsideJsonStrings(input: string): string {
+  let out = "";
+  let inString = false;
+  let escaped = false;
+
+  for (let i = 0; i < input.length; i++) {
+    const ch = input[i]!;
+    if (escaped) {
+      out += ch;
+      escaped = false;
+      continue;
+    }
+    if (ch === "\\") {
+      out += ch;
+      escaped = true;
+      continue;
+    }
+    if (ch === '"') {
+      inString = !inString;
+      out += ch;
+      continue;
+    }
+    if (inString) {
+      if (ch === "\n") {
+        out += "\\n";
+        continue;
+      }
+      if (ch === "\r") {
+        out += "\\r";
+        continue;
+      }
+      if (ch === "\t") {
+        out += "\\t";
+        continue;
+      }
+      if (ch.charCodeAt(0) < 32) {
+        out += " ";
+        continue;
+      }
+    }
+    out += ch;
+  }
+
+  return out;
+}
+
+function repairJsonCandidate(candidate: string): string {
+  return candidate
+    .replace(/,\s*([}\]])/g, "$1")
+    .replace(/([{,]\s*)(\w+)\s*:/g, '$1"$2":');
+}
+
 /**
  * Parse a JSON object from Gemini output with sanitization and light repairs.
  */
 export function parseGeminiJsonObject<T extends Record<string, unknown>>(
   text: string
 ): T {
-  const candidates = [
+  const base = [
     sanitizeGeminiJsonText(text.trim()),
     sanitizeGeminiJsonText(extractJsonSubstring(text)),
+  ];
+
+  const candidates = [
+    ...base,
+    ...base.map(escapeControlCharsInsideJsonStrings),
   ];
 
   let lastError: unknown;
@@ -42,12 +99,16 @@ export function parseGeminiJsonObject<T extends Record<string, unknown>>(
     } catch (error) {
       lastError = error;
       try {
-        const repaired = candidate
-          .replace(/,\s*([}\]])/g, "$1")
-          .replace(/([{,]\s*)(\w+)\s*:/g, '$1"$2":');
-        return JSON.parse(repaired) as T;
+        return JSON.parse(repairJsonCandidate(candidate)) as T;
       } catch (inner) {
         lastError = inner;
+        try {
+          return JSON.parse(
+            repairJsonCandidate(escapeControlCharsInsideJsonStrings(candidate))
+          ) as T;
+        } catch (deep) {
+          lastError = deep;
+        }
       }
     }
   }

@@ -22,7 +22,7 @@ export type RequestEstimateFormProps = {
   embeddedFlush?: boolean;
   /** Override primary submit button label. */
   submitLabel?: string;
-  /** Show the free-text plant / message field. Default false — context is captured automatically. */
+  /** Show the free-text plant / message field. Default false, context is captured automatically. */
   showMessageField?: boolean;
   /** Show company name field. Default true. */
   showCompanyField?: boolean;

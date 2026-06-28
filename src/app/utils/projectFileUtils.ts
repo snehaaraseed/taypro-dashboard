@@ -1,11 +1,11 @@
 import "server-only";
 
 export interface ProjectMetadata {
-  /** Site descriptor (location, MW) — editable in admin. */
+  /** Site descriptor (location, MW), editable in admin. */
   title: string;
   /** Star codename, e.g. Vega; auto-assigned on create. */
   codename?: string | null;
-  /** Composed public title: Project {codename} — {title} */
+  /** Composed public title: Project {codename}, {title} */
   displayTitle: string;
   description: string;
   image: string;

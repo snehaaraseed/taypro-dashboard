@@ -6,13 +6,13 @@
       "openGraphTitle": "ذكاء بيانات محطات الطاقة الشمسية | Taypro",
       "openGraphDescription": "قم بإغلاق حلقة الاتساخ إلى الإجراء باستخدام بيانات التنظيف المُصنفة ومعلومات المصنع ORION لعملاء الأسطول Taypro."
     },
-    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHub": "روبوتات تنظيف الألواح الشمسية",
     "breadcrumbHubHref": "/solar-panel-cleaning-system",
-    "breadcrumb": "Solar plant data intelligence",
+    "breadcrumb": "ذكاء بيانات محطة الطاقة الشمسية",
     "schema": {
-      "name": "Taypro ORION Plant Data Intelligence",
-      "description": "Plant intelligence layer correlating cleaning, weather, and yield for utility solar — ORION roadmap on NECTYR fleet data.",
-      "applicationCategory": "BusinessApplication"
+      "name": "Taypro ORION ذكاء بيانات النبات",
+      "description": "طبقة ذكاء النبات التي تربط بين التنظيف والطقس وإنتاجية الطاقة الشمسية الخدمية، ORION خريطة الطريق على NECTYR بيانات الأسطول.",
+      "applicationCategory": "تطبيق الأعمال"
     },
     "hero": {
       "eyebrow": "البيانات · ذكاء النبات",
@@ -26,17 +26,17 @@
     "cards": {
       "eyebrow": "كومة من ثلاث طبقات",
       "heading": "الروبوتات المادية، بيانات العمليات، ذكاء النبات",
-      "subheading": "يبدأ ذكاء البيانات بإثبات التنفيذ — ثم ينتقل إلى O&M التنبؤي.",
+      "subheading": "يبدأ ذكاء البيانات بإثبات التنفيذ, ثم ينتقل إلى O&M التنبؤي.",
       "card0": {
         "title": "تقوم الروبوتات بالتنظيف",
         "body": "GLYDE، NYUMA، HELYX تقوم الأساطيل بإنشاء سجلات مرور على مستوى الكتلة في كل دورة - لا يتم التقاط الأحداث الأولية SCADA."
       },
       "card1": {
-        "title": "NECTYR — بيانات العمليات المباشرة",
+        "title": "NECTYR: بيانات العمليات المباشرة",
         "body": "الجدولة وخرائط التغطية وتذاكر AMC والتسوية الشهرية OPEX. مباشر منذ عام 2022 على أكثر من 150 موقعًا للخدمات."
       },
       "card2": {
-        "title": "ORION — خريطة طريق ذكاء النبات",
+        "title": "ORION: خريطة طريق ذكاء النبات",
         "body": "الانجراف PR المتوافق مع الطقس، ومحفزات العواصف الترابية، والتنبؤ بالعائدات. الوصول المبكر لتحديد IPPs بموجب اتفاقية عدم الإفشاء."
       },
       "card3": {
@@ -71,7 +71,7 @@
         "tag": "الطقس منظمة العفو الدولية",
         "stat": "95%",
         "label": "دقة إعادة الجدولة",
-        "body": "جدولة الطقس التي تم التحقق منها ميدانيًا في NECTYR — تتخطى الأيام التي غمرتها الأمطار."
+        "body": "جدولة الطقس التي تم التحقق منها ميدانيًا في NECTYR: تتخطى الأيام التي غمرتها الأمطار."
       },
       "card3": {
         "tag": "ORION",
@@ -81,23 +81,23 @@
       }
     },
     "pillars": {
-      "eyebrow": "Capabilities",
-      "heading": "What plant data intelligence should deliver",
+      "eyebrow": "القدرات",
+      "heading": "ما ينبغي أن يقدمه ذكاء البيانات النباتية",
       "pillar0": {
-        "title": "Block-level cleaning proof",
-        "body": "Which panels were cleaned last night — evidence lenders and O&M governance require at 100 MW scale.",
+        "title": "دليل التنظيف على مستوى الكتلة",
+        "body": "ما هي اللوحات التي تم تنظيفها الليلة الماضية، ومقرضو الأدلة وحوكمة O&M تتطلب مقياس 100 MW.",
         "tag": "إثبات التنفيذ",
         "link": "صفحة منصة ORION"
       },
       "pillar1": {
-        "title": "PR correlation",
-        "body": "Tie cleaning cadence to performance ratio recovery trends — not just calendar washing.",
+        "title": "PR الارتباط",
+        "body": "ربط إيقاع التنظيف باتجاهات استرداد نسبة الأداء، وليس فقط غسل التقويم.",
         "tag": "متاح اليوم",
         "link": "صفحة منتج NECTYR"
       },
       "pillar2": {
-        "title": "Predictive scheduling (ORION)",
-        "body": "Dust-storm triggers and yield shortfall alerts — moving from reactive to predictive O&M on Taypro fleets.",
+        "title": "الجدولة التنبؤية (ORION)",
+        "body": "تؤدي العواصف الترابية إلى إطلاق تنبيهات النقص وإنتاجها، والانتقال من رد الفعل إلى O&M التنبؤي على أساطيل Taypro.",
         "tag": "التشغيل والصيانة التنبؤية",
         "link": "مركز الذكاء الاصطناعي"
       }
@@ -115,30 +115,30 @@
       "linkSecondaryHref": "/technology/ai-intelligence"
     },
     "steps": {
-      "eyebrow": "Adoption path",
-      "heading": "How plant data intelligence rolls out on Taypro fleets",
-      "subheading": "From robot deployment to ORION early access.",
-      "step0Title": "Deploy robots + NECTYR",
-      "step0Body": "Cleaning execution generates block-level telemetry — foundation for all analytics.",
-      "step1Title": "Establish PR baselines",
-      "step1Body": "Correlate cleaning cycles with SCADA PR trends per block or feeder.",
-      "step2Title": "Optimise cadence with weather AI",
-      "step2Body": "NECTYR reschedules around rain and dust storms — reducing wasted passes.",
-      "step3Title": "Portfolio governance reviews",
-      "step3Body": "Monthly reconciliation and quarterly cycle adjustments for multi-site IPPs.",
-      "step4Title": "ORION early access at renewal",
-      "step4Body": "Plant intelligence pilots for qualifying Taypro AMC customers — NDA required."
+      "eyebrow": "مسار التبني",
+      "heading": "كيف يتم نشر معلومات بيانات المصنع على أساطيل Taypro",
+      "subheading": "من نشر الروبوت إلى ORION الوصول المبكر.",
+      "step0Title": "نشر الروبوتات + NECTYR",
+      "step0Body": "يؤدي تنفيذ التنظيف إلى إنشاء قياس عن بعد على مستوى الكتلة، وهو الأساس لجميع التحليلات.",
+      "step1Title": "إنشاء PR خطوط الأساس",
+      "step1Body": "اربط دورات التنظيف مع SCADA PR الاتجاهات لكل كتلة أو وحدة تغذية.",
+      "step2Title": "تحسين الإيقاع باستخدام الذكاء الاصطناعي للطقس",
+      "step2Body": "NECTYR إعادة الجدولة حول الأمطار والعواصف الترابية، مما يقلل من التمريرات الضائعة.",
+      "step3Title": "مراجعات إدارة المحفظة",
+      "step3Body": "التسوية الشهرية وتسويات الدورة ربع السنوية للمواقع المتعددة IPPs.",
+      "step4Title": "ORION الوصول المبكر عند التجديد",
+      "step4Body": "برامج ذكاء النبات لتأهيل عملاء Taypro AMC، يلزم عدم الإفصاح."
     },
     "highlight": {
-      "heading": "The data question",
-      "lead": "Can you prove which blocks were cleaned before PR recovered?",
-      "body": "Generic dashboards show energy after the fact. Taypro ties labelled cleaning events to array geography — the prerequisite for credible plant data intelligence."
+      "heading": "سؤال البيانات",
+      "lead": "هل يمكنك إثبات الكتل التي تم تنظيفها قبل استرداد PR؟",
+      "body": "تظهر لوحات المعلومات العامة الطاقة بعد وقوعها. Taypro تربط أحداث التنظيف بالمصفوفة الجغرافية، وهو الشرط الأساسي للحصول على معلومات موثوقة عن بيانات النبات."
     },
     "proseSecondary": {
       "eyebrow": "ORION الحالة",
       "heading": "العيش اليوم مقابل خريطة الطريق",
       "p1": "NECTYR هو برنامج إنتاج على الأساطيل المنتشرة - الجدولة، والتذاكر، وصادرات التغطية، وOPEX التسوية. استخدمه اليوم في برنامجي Taypro CAPEX وOPEX.",
-      "p2": "إمكانيات ORION الموضحة على taypro.in — الجدولة التنبؤية، وتحليلات الإنتاجية المحسنة، والاستشعار الاختياري — قيد التطوير النشط. يتم توفير الوصول المبكر لتحديد الأداة المساعدة IPPs ضمن NDA.",
+      "p2": "إمكانيات ORION الموضحة على taypro.in, الجدولة التنبؤية، وتحليلات الإنتاجية المحسنة، والاستشعار الاختياري, قيد التطوير النشط. يتم توفير الوصول المبكر لتحديد الأداة المساعدة IPPs ضمن NDA.",
       "p3": "لا تستبدل هذه الصفحة بورقة بيانات المنتج. اطلب ORION ملخصًا للنطاق التجريبي الحالي ومتطلبات التكامل.",
       "linkPrimary": "ORION صفحة المنتج",
       "linkPrimaryHref": "/solar-panel-cleaning-system/orion-plant-intelligence-platform",
@@ -146,13 +146,13 @@
       "linkSecondaryHref": "/utility-scale-solar-operations"
     },
     "resources": {
-      "eyebrow": "Research",
-      "heading": "Plant data & O&M articles",
-      "link0Title": "Fleet monitoring vs plant intelligence",
+      "eyebrow": "بحث",
+      "heading": "بيانات النبات و O&M المقالات",
+      "link0Title": "مراقبة الأسطول مقابل ذكاء النبات",
       "link0Href": "/solar-fleet-monitoring-software",
-      "link1Title": "Utility-scale solar operations",
+      "link1Title": "عمليات الطاقة الشمسية على نطاق المرافق",
       "link1Href": "/utility-scale-solar-operations",
-      "link2Title": "AI intelligence at Taypro",
+      "link2Title": "ذكاء الذكاء الاصطناعي في Taypro",
       "link2Href": "/technology/ai-intelligence"
     },
     "faq": {
@@ -165,7 +165,7 @@
       "q2": "هل ORION متاح اليوم؟",
       "a2": "ORION قيد التطوير النشط مع إمكانية الوصول المبكر لعملاء أسطول محددين من Taypro. NECTYR متاح على أكثر من 150 موقعًا.",
       "q3": "هل يمكنني شراء ORION بدون برامج الروبوت Taypro؟",
-      "a3": "تم تصميم ORION لـ Taypro لتنظيف القياس عن بعد. قد تنطبق المناقشات المتعلقة بالمؤسسات على الأساطيل المختلطة — اتصل بنا.",
+      "a3": "تم تصميم ORION لـ Taypro لتنظيف القياس عن بعد. قد تنطبق المناقشات المتعلقة بالمؤسسات على الأساطيل المختلطة, اتصل بنا.",
       "q4": "ما هي البيانات التي يلتقطها NECTYR؟",
       "a4": "مسارات التنظيف، والتغطية، وصحة الروبوت، والأخطاء، وإعادة جدولة الطقس، وعدد اللوحات الشهرية لفواتير OPEX.",
       "q5": "كيف يرتبط هذا ببرنامج مراقبة الأسطول؟",
@@ -175,36 +175,36 @@
       "q7": "كيف يتم استخدام IPPs التجريبي ORION؟",
       "a7": "الوصول المبكر بموجب اتفاقية عدم الإفشاء لعملاء AMC المؤهلين - عادةً عند التجديد على أساطيل Taypro الحالية.",
       "q8": "هل يساعد ذكاء البيانات في الامتثال لـ SECI؟",
-      "a8": "تدعم تغطية التنظيف الموثقة العناية الفنية الواجبة — وتتوافق مع متطلبات أدلة العطاء الخاص بك.",
+      "a8": "تدعم تغطية التنظيف الموثقة العناية الفنية الواجبة, وتتوافق مع متطلبات أدلة العطاء الخاص بك.",
       "q9": "هل هناك API لأنظمة المحفظة؟",
-      "a9": "تتوفر مناقشات حول التكامل المؤسسي — يعتمد النطاق على نموذج النشر.",
+      "a9": "تتوفر مناقشات حول التكامل المؤسسي, يعتمد النطاق على نموذج النشر.",
       "q10": "كيف يتم التحقق من صحة الطقس باستخدام الذكاء الاصطناعي؟",
       "a10": "NECTYR يشير إلى دقة إعادة الجدولة التي تم التحقق منها ميدانيًا بنسبة 95% - راجع منهجية الأداء للتعرف على تعريفات المطالبات.",
       "q11": "من أين تبدأ؟",
       "a11": "انشر الروبوتات باستخدام NECTYR، وقم بإنشاء خطوط الأساس PR، ثم ناقش ORION عند التجديد AMC."
     },
     "quoteForm": {
-      "eyebrow": "Platform inquiry",
-      "title": "Request NECTYR demo or ORION briefing",
-      "placeholder": "Portfolio MW, Taypro fleet status, SCADA vendor, and interest in NECTYR vs ORION."
+      "eyebrow": "استعلام المنصة",
+      "title": "اطلب NECTYR عرضًا توضيحيًا أو ORION ملخصًا",
+      "placeholder": "المحفظة MW، Taypro حالة الأسطول، SCADA البائع، والاهتمام بـ NECTYR مقابل ORION."
     },
     "cta": {
-      "heading": "Start with execution data — grow into intelligence",
-      "body": "NECTYR is live on Taypro fleets today. Ask about ORION early access for your portfolio.",
-      "primary": "Contact platform team",
+      "heading": "ابدأ ببيانات التنفيذ، ثم تطور إلى ذكاء",
+      "body": "NECTYR مباشر على أساطيل Taypro اليوم. اسأل عن ORION الوصول المبكر لمحفظتك.",
+      "primary": "اتصل بفريق المنصة",
       "primaryHref": "/contact",
-      "secondary": "Explore NECTYR",
+      "secondary": "اكتشف NECTYR",
       "secondaryHref": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
     },
     "related": {
-      "label": "Related:",
-      "link0": "Fleet monitoring software",
+      "label": "متعلق ب:",
+      "link0": "برنامج مراقبة الأسطول",
       "link0Href": "/solar-fleet-monitoring-software",
-      "link1": "ORION platform",
+      "link1": "منصة ORION",
       "link1Href": "/solar-panel-cleaning-system/orion-plant-intelligence-platform",
-      "link2": "Solar O&M services",
+      "link2": "خدمات الطاقة الشمسية O&M",
       "link2Href": "/solar-om-services",
-      "link3": "AI intelligence",
+      "link3": "الذكاء الاصطناعي",
       "link3Href": "/technology/ai-intelligence"
     }
   }

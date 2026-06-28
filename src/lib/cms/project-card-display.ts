@@ -20,7 +20,7 @@ export type ProjectsGridLayout = {
   featuredFirst?: boolean;
   /** Column count from md breakpoint upward */
   columns?: 2 | 3;
-  /** Preload first two card images (projects listing hero only — keep false on homepage rollup). */
+  /** Preload first two card images (projects listing hero only, keep false on homepage rollup). */
   eagerImages?: boolean;
 };
 
@@ -122,7 +122,7 @@ function detailTagPriority(tag: string): number {
   return 3;
 }
 
-/** Surface procurement model, robot mix, and array type — not repeated MW/state. */
+/** Surface procurement model, robot mix, and array type, not repeated MW/state. */
 export function prioritizeProjectCardDetails(
   details: string[] | undefined,
   title: string,

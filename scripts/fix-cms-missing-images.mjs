@@ -16,6 +16,7 @@ import http from "http";
 import path from "path";
 import { fileURLToPath } from "url";
 import { pickProjectHeroImage } from "./lib/project-image-picker.mjs";
+import { rewriteCmsImageSrcs, LEGACY_IMAGE_REWRITES } from "../src/lib/seo/cms-image-rewrites.ts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
@@ -26,31 +27,7 @@ const publicRoot = process.env.PUBLIC_ROOT || path.join(root, "public");
 const standaloneDb = path.join(root, ".next/standalone/data/cms.sqlite");
 
 /** Deleted legacy files → canonical paths (matches next.config.ts redirects). */
-export const LEGACY_IMAGE_REWRITES = {
-  "/tayprorobots/taypro-glyde-x-tracker-solar-cleaning-robot.png":
-    "/tayprorobots/glyde-x/hero.png",
-  "/tayprorobots/taypro-helyx-semi-automatic-solar-cleaning-robot.png":
-    "/tayprorobots/helyx/hero.png",
-  "/tayprorobots/taypro-nyuma-automatic-solar-cleaning-robot.png":
-    "/tayprorobots/nyuma/hero-dark.webp",
-  "/tayprorobots/taypro-nyuma-x-tracker-solar-cleaning-robot.png":
-    "/tayprorobots/nyuma-x/hero.png",
-  "/tayprorobots/taypro-modelA.png": "/tayprorobots/glyde/hero.png",
-  "/tayprorobots/taypro-modelAcopy.png": "/tayprorobots/glyde/hero.png",
-  "/tayprorobots/taypro-modelBcopy.png": "/tayprorobots/helyx/hero.png",
-  "/tayprorobots/taypro-modelT-img.png": "/tayprorobots/glyde-x/hero.png",
-  "/tayprorobots/taypro-modelTcopy.png": "/tayprorobots/glyde-x/hero.png",
-  "/tayprorobots/glyde/glyde-tr150-top-view.png": "/tayprorobots/glyde/hero.png",
-  "/tayproasset/taypro-console.png": "/tayproasset/nectyr.webp",
-  "/tayprorobots/glyde/glyde-dual-pass-mechanism.png":
-    "/tayprorobots/glyde/side-view.png",
-  "/tayprorobots/glyde/dual-pass-mechanism.png": "/tayprorobots/glyde/side-view.png",
-  "/tayprorobots/glyde/glyde-docking-power-unit.png":
-    "/tayprorobots/glyde/docking-power-unit.png",
-  "/tayprorobots/taypro-opex.jpg": "/tayprorobots/taypro-opex.webp",
-  "/tayprorobots/nyuma/hero.png": "/tayprorobots/nyuma/hero-dark.webp",
-  "/tayprorobots/nyuma/hero.webp": "/tayprorobots/nyuma/hero-dark.webp",
-};
+export { LEGACY_IMAGE_REWRITES } from "../src/lib/seo/cms-image-rewrites.ts";
 
 function fileExists(url) {
   if (!url?.startsWith("/")) return false;
@@ -59,17 +36,11 @@ function fileExists(url) {
 
 function rewritePath(url) {
   if (!url?.startsWith("/")) return url;
-  if (LEGACY_IMAGE_REWRITES[url]) return LEGACY_IMAGE_REWRITES[url];
-  return url;
+  return LEGACY_IMAGE_REWRITES[url] ?? url;
 }
 
 function rewriteHtml(html) {
-  if (!html) return html;
-  let out = html;
-  for (const [from, to] of Object.entries(LEGACY_IMAGE_REWRITES)) {
-    out = out.split(from).join(to);
-  }
-  return out;
+  return rewriteCmsImageSrcs(html);
 }
 
 function extractImgPaths(html) {

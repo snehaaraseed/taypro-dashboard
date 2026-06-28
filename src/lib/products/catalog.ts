@@ -26,7 +26,7 @@ export type ProductCatalogEntry = {
   imagePath: string;
   /** Optional hub/cross-sell card art (defaults to imagePath). */
   cardImagePath?: string;
-  /** Native hero pixel dimensions — drives layout aspect ratio in UI. */
+  /** Native hero pixel dimensions, drives layout aspect ratio in UI. */
   heroDimensions: ProductHeroDimensions;
   /** Dimensions for cardImagePath when it differs from hero art. */
   cardDimensions?: ProductHeroDimensions;

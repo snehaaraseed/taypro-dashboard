@@ -8,7 +8,7 @@ import { readAnalyticsConsent } from "@/lib/analytics/consent";
 
 /**
  * Lead UI loads after idle; analytics chunks mount only when cookies are accepted
- * (avoids parsing GTM/Clarity JS on first paint — better mobile TBT).
+ * (avoids parsing GTM/Clarity JS on first paint, better mobile TBT).
  */
 export default function DeferredSecondaryWidgets() {
   const [analyticsAllowed, setAnalyticsAllowed] = useState(false);

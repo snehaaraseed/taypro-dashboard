@@ -4,20 +4,20 @@
       "title": "ソーラークリーニング CAPEX vs OPEX インド |ロボット購入 vs マネージドサービス",
       "description": "インドでのソーラー パネルの清掃に関する CAPEX と OPEX の比較: IPP がロボットを購入する場合と、OPEX を契約する場合、25 ～ 100 の MW ポートフォリオの枠組み、TCO の比較、および ROI 計算ツール。",
       "openGraphTitle": "ソーラークリーニング CAPEX vs OPEX | Taypro インド",
-      "openGraphDescription": "太陽光発電事業の意思決定ガイド: ロボット CAPEX + AMC 対パネルごとの支払い OPEX — 貸借対照表、動員、監査、および 20 年間の TCO。"
+      "openGraphDescription": "太陽光発電事業の意思決定ガイド: ロボット CAPEX + AMC 対パネルごとの支払い OPEX: 貸借対照表、動員、監査、および 20 年間の TCO。"
     },
-    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHub": "太陽光パネル清掃ロボット",
     "breadcrumbHubHref": "/solar-panel-cleaning-system",
     "breadcrumb": "Solar cleaning CAPEX vs OPEX",
     "schema": {
       "name": "Taypro Solar Cleaning CAPEX vs OPEX Guide",
       "description": "Procurement guide comparing robot CAPEX purchase with AMC versus Taypro managed OPEX cleaning for Indian utility solar plants.",
-      "serviceType": "Solar cleaning procurement advisory",
-      "areaServed": "India"
+      "serviceType": "ソーラークリーニング調達勧告",
+      "areaServed": "インド"
     },
     "hero": {
       "eyebrow": "調達 · CAPEX 対 OPEX",
-      "title": "ソーラークリーニング CAPEX と OPEX — どちらのモデルがあなたのプラントに適合しますか?",
+      "title": "ソーラークリーニング CAPEX と OPEX: どちらのモデルがあなたのプラントに適合しますか?",
       "subtitle": "IPP チームと CPSU チームは、ロボットの購入 (CAPEX + AMC) を OPEX (清掃されたパネルごとに支払い) と比較して評価します。このページでは、ステッカー ロボットの価格だけでなく、バ​​ランスシートへの影響、動員速度、監査証跡、および 5 年間の TCO を比較します。",
       "ctaPrimary": "ROI 計算機を実行する",
       "ctaPrimaryHref": "/solar-panel-cleaning-robot-price-calculator#calculator",
@@ -37,7 +37,7 @@
         "tag": "手動ベースライン",
         "stat": "₹45–80L",
         "label": "10 MW ウェットウォッシュ / 年",
-        "body": "乾燥した施設現場での肉体労働者と水の業界ベンチマーク — MW とともに直線的に上昇します。"
+        "body": "乾燥した施設現場での肉体労働者と水の業界ベンチマーク, MW とともに直線的に上昇します。"
       },
       "card2": {
         "tag": "ポートフォリオ",
@@ -66,91 +66,91 @@
       "linkSecondaryHref": "/solar-panel-cleaning-robot-price-india"
     },
     "models": {
-      "eyebrow": "Commercial models",
+      "eyebrow": "商用モデル",
       "heading": "Robot CAPEX + AMC vs OPEX",
       "capex": {
         "title": "Robot CAPEX + AMC",
-        "body": "Purchase the fleet. Own depreciation, residual value, and spare inventory policy. Taypro commissions, trains operators, and maintains robots under structured AMC with NECTYR included.",
+        "body": "フリートを購入します。独自の減価償却、残存価値、予備在庫ポリシー。 Taypro は、NECTYR を含む構造化された AMC に基づいてロボットの委託、オペレーターのトレーニング、保守を行います。",
         "href": "/solar-panel-cleaning-robot-price-india",
         "link": "India robot CAPEX bands"
       },
       "opex": {
-        "title": "OPEX service",
-        "body": "No upfront robot purchase. Pay monthly for verified panels cleaned — ideal when balance-sheet efficiency and fast mobilisation matter more than asset ownership.",
+        "title": "OPEX サービス",
+        "body": "事前にロボットを購入する必要はありません。洗浄済みの検証済みパネルの代金を月ごとに支払います。資産所有権よりもバランスシートの効率性と迅速な動員が重要な場合に最適です。",
         "href": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
-        "link": "OPEX service details"
+        "link": "OPEX サービスの詳細"
       }
     },
     "procurementComparison": {
-      "eyebrow": "Decision matrix",
+      "eyebrow": "意思決定マトリックス",
       "heading": "CAPEX vs OPEX procurement comparison",
-      "intro": "Use this matrix in RFQ and investment committee packs. Rates and CAPEX bands are directional — binding terms follow a site soiling study.",
-      "colFactor": "Factor",
+      "intro": "Use this matrix in RFQ and investment committee packs. Rates and CAPEX bands are directional, binding terms follow a site soiling study.",
+      "colFactor": "要素",
       "colCapex": "Robot CAPEX + AMC",
       "colOpex": "OPEX",
       "row0": {
-        "factor": "Balance sheet",
-        "capex": "Capitalise fleet; depreciate over plant life",
-        "opex": "Operating expense; no robot asset on books"
+        "factor": "貸借対照表",
+        "capex": "フリートを活用する。植物の寿命とともに減価する",
+        "opex": "運営費。本にロボット資産は載っていない"
       },
       "row1": {
-        "factor": "Mobilisation",
+        "factor": "動員",
         "capex": "Commissioning + operator hire; capex approval cycle",
-        "opex": "Faster — Taypro owns and deploys fleet"
+        "opex": "より高速: Taypro がフリートを所有し、展開します"
       },
       "row2": {
-        "factor": "Cost predictability",
-        "capex": "AMC escalation; spare parts ownership",
-        "opex": "Per-panel rate (₹0.45–0.70/cycle) × verified volume"
+        "factor": "コストの予測可能性",
+        "capex": "AMC エスカレーション;スペアパーツの所有権",
+        "opex": "パネルあたりのレート (₹0.45 ～ 0.70/サイクル) × 検証済みの容量"
       },
       "row3": {
-        "factor": "Cycle frequency",
-        "capex": "You schedule; uptime and spare risk",
-        "opex": "Contractual 3–10 dry cycles/month typical"
+        "factor": "サイクル周波数",
+        "capex": "あなたがスケジュールを立てます。稼働時間とリスクの回避",
+        "opex": "契約上の通常 3 ～ 10 乾燥サイクル/月"
       },
       "row4": {
-        "factor": "Lender / audit",
-        "capex": "NECTYR logs + owned asset register",
-        "opex": "Monthly panel-volume reconciliation in NECTYR"
+        "factor": "貸し手/監査",
+        "capex": "NECTYR ログ + 所有資産台帳",
+        "opex": "NECTYR の月次パネル ボリューム調整"
       },
       "row5": {
-        "factor": "Best hold period",
-        "capex": "15+ years on very large fleets",
-        "opex": "3–10 year IPP holds; balance-sheet sensitive sponsors"
+        "factor": "最適なホールド期間",
+        "capex": "非常に大規模なフリートで 15 年以上の経験",
+        "opex": "3 ～ 10 年間 IPP が保持されます。バランスシートに敏感なスポンサー"
       }
     },
     "steps": {
-      "eyebrow": "Procurement workflow",
+      "eyebrow": "調達ワークフロー",
       "heading": "How to model CAPEX vs OPEX for your plant",
-      "subheading": "Five steps finance and O&M teams use before signing a cleaning contract.",
-      "step0Title": "Gather plant and finance inputs",
-      "step0Body": "MW capacity, state, fixed tilt vs tracker, module Wp, PPA or merchant tariff, hold period, and current annual cleaning spend.",
-      "step1Title": "Estimate soiling and cycle count",
-      "step1Body": "Use regional benchmarks (8–25% seasonal loss without systematic cleaning) or a Taypro soiling study. Choose 3–10 cycles/month for dry robotic programmes.",
+      "subheading": "財務チームと O&M チームが清掃契約に署名する前に行う 5 つのステップ。",
+      "step0Title": "プラントと資金調達の情報を収集する",
+      "step0Body": "MW 容量、状態、固定傾斜とトラッカー、モジュール Wp、PPA または加盟店料金、保留期間、および現在の年間清掃費用。",
+      "step1Title": "汚れとサイクル数を推定する",
+      "step1Body": "地域のベンチマーク (体系的な清掃なしで 8 ～ 25% の季節損失) または Taypro の汚れ調査を使用します。ドライロボットプログラムの場合は、月あたり 3 ～ 10 サイクルを選択します。",
       "step2Title": "Run parallel CAPEX and OPEX scenarios",
-      "step2Body": "Use the ROI calculator with both procurement models. Compare 5-year TCO at your discount rate (10–14% illustrative).",
-      "step3Title": "Review audit and SLA requirements",
-      "step3Body": "Confirm NECTYR reporting meets lender or SECI technical due diligence. Define breakdown response and coverage evidence.",
-      "step4Title": "Request binding commercial terms",
-      "step4Body": "Taypro engineers issue fleet sizing, indicative pricing, and mobilisation timeline — CAPEX bands or OPEX rates reconciled to site geometry."
+      "step2Body": "両方の調達モデルで ROI 計算ツールを使用します。 5 年間の TCO を割引率 (10 ～ 14% の例) で比較します。",
+      "step3Title": "監査とSLAの要件を確認する",
+      "step3Body": "NECTYR レポートが貸し手または SECI 技術的デュー デリジェンスを満たしていることを確認します。故障対応と補償範囲の証拠を定義します。",
+      "step4Title": "拘束力のある商業条件を要求する",
+      "step4Body": "Taypro engineers issue fleet sizing, indicative pricing, and mobilisation timeline, CAPEX bands or OPEX rates reconciled to site geometry."
     },
     "highlight": {
-      "heading": "The finance question",
-      "lead": "Are you optimising for balance sheet or for speed to PR recovery?",
-      "body": "OPEX preserves gearing and mobilises in weeks. CAPEX suits long-hold owners who amortise robots over 15–20 years. Many portfolios use both — OPEX on new acquisitions, CAPEX on core assets."
+      "heading": "財務上の質問",
+      "lead": "バランスシートを最適化していますか? それとも PR の回復までのスピードを重視していますか?",
+      "body": "OPEX preserves gearing and mobilises in weeks. CAPEX suits long-hold owners who amortise robots over 15–20 years. Many portfolios use both, OPEX on new acquisitions, CAPEX on core assets."
     },
     "eligibility": {
-      "eyebrow": "Model fit",
-      "title": "CAPEX vs OPEX — quick fit guide",
-      "forTitle": "OPEX often wins when",
+      "eyebrow": "モデルの適合",
+      "title": "CAPEX vs OPEX: quick fit guide",
+      "forTitle": "OPEX が勝つことが多いのは、",
       "for0": "You need fast mobilisation without capex committee approval",
-      "for1": "Hold period is under 10 years or balance-sheet gearing is constrained",
-      "for2": "You want opex tied to verified panels cleaned, not lump-sum crew contracts",
-      "for3": "Portfolio has mixed MW sizes and you want one accountable vendor",
+      "for1": "保有期間が 10 年未満であるか、バランスシートの調整が制約されている",
+      "for2": "一時金の乗組員契約ではなく、検証済みのパネルに関連付けられた運用コストをクリーンアップしてほしい",
+      "for3": "ポートフォリオには MW サイズが混在しており、責任のあるベンダーが 1 つ必要である",
       "notForTitle": "CAPEX often wins when",
-      "not0": "Hold period exceeds 15 years on 50 MW+ core assets",
-      "not1": "You have in-house O&M capacity to own spares and fleet depreciation",
-      "not2": "You already own robots and only need AMC + NECTYR upgrade"
+      "not0": "50 MW+ の中核資産の保有期間が 15 年を超えています",
+      "not1": "社内にO&Mの予備品とフリートの減価償却を所有する能力がある",
+      "not2": "すでにロボットを所有しており、AMC + NECTYR のアップグレードのみが必要です"
     },
     "proseSecondary": {
       "eyebrow": "ハイブリッドパス",
@@ -164,22 +164,22 @@
       "linkSecondaryHref": "/solar-panel-cleaning-service-india"
     },
     "calculator": {
-      "eyebrow": "ROI modelling",
+      "eyebrow": "ROI モデリング",
       "heading": "Compare CAPEX and OPEX payback side by side",
-      "subheading": "Enter your MW, tariff, installation type, and procurement model for a directional 20-year economics view."
+      "subheading": "MW、料金表、設置タイプ、調達モデルを入力すると、20 年間の経済見通しが得られます。"
     },
     "resources": {
-      "eyebrow": "Further reading",
+      "eyebrow": "さらに読む",
       "heading": "CAPEX vs OPEX research and tools",
       "link0Title": "Module cleaning: CAPEX vs OPEX for 25–100 MW portfolios",
       "link0Href": "/blog/module-cleaning-system-capex-vs-opex-models-for-25100-mw-portfolios",
       "link1Title": "OPEX vs CAPEX for solar O&M contracts (IPP guide)",
       "link1Href": "/blog/opex-vs-capex-for-solar-om-contracts-india-combined-with-which-model-suits-ipps",
-      "link2Title": "Cost-benefit analysis of cleaning services in India",
+      "link2Title": "インドにおける清掃サービスの費用対効果分析",
       "link2Href": "/blog/cost-benefit-analysis-of-solar-panel-cleaning-services-in-india"
     },
     "faq": {
-      "heading": "ソーラークリーニング CAPEX と OPEX — よくある質問",
+      "heading": "ソーラークリーニング CAPEX と OPEX: よくある質問",
       "subheading": "IPP 財務チームと O&M 調達チームからのよくある質問。",
       "q0": "ソーラークリーニングにおける CAPEX と OPEX の違いは何ですか?",
       "a0": "CAPEX は、ロボットを購入し、減価償却費に加えて AMC を所有することを意味します。 OPEX は、Taypro がフリートを所有し、NECTYR で確認された清掃済みのパネルの料金を毎月支払うことを意味します。",
@@ -207,27 +207,27 @@
       "a11": "このページは決定ガイドです。汚れ調査後に現場の見積もりをリクエストします。プラントの形状ごとに OPEX レートまたは CAPEX バンドが発行されます。"
     },
     "quoteForm": {
-      "eyebrow": "Commercial inquiry",
+      "eyebrow": "商業上の問い合わせ",
       "title": "Request CAPEX and OPEX scenarios for your plant",
       "placeholder": "Plant MW, state, fixed tilt or tracker, hold period, and whether you model CAPEX, OPEX, or both."
     },
     "cta": {
-      "heading": "Model both scenarios before you sign",
+      "heading": "署名する前に両方のシナリオをモデル化する",
       "body": "Run the ROI calculator, then share your plant profile for parallel CAPEX and OPEX commercial terms.",
-      "primary": "Run ROI calculator",
+      "primary": "ROI 計算機を実行する",
       "primaryHref": "/solar-panel-cleaning-robot-price-calculator#calculator",
-      "secondary": "Request quote",
+      "secondary": "見積もりを依頼する",
       "secondaryHref": "/contact"
     },
     "related": {
-      "label": "Related:",
-      "link0": "OPEX pricing bands",
+      "label": "関連している：",
+      "link0": "OPEX 価格帯",
       "link0Href": "/solar-cleaning-opex-pricing",
-      "link1": "Robot price India",
+      "link1": "ロボットの価格 インド",
       "link1Href": "/solar-panel-cleaning-robot-price-india",
-      "link2": "Cleaning service India",
+      "link2": "インドの清掃サービス",
       "link2Href": "/solar-panel-cleaning-service-india",
-      "link3": "Soiling loss calculator",
+      "link3": "汚れ損失計算機",
       "link3Href": "/solar-panel-soiling-loss-calculator"
     }
   }

@@ -147,7 +147,7 @@ function AdminGscContent() {
             <div>
               <dt className="text-gray-500">OAuth client in env</dt>
               <dd className="text-gray-900">
-                {status.oauthClientConfigured ? "Yes" : "Missing — see docs"}
+                {status.oauthClientConfigured ? "Yes" : "Missing: see docs"}
               </dd>
             </div>
             <div>

@@ -14,7 +14,7 @@
     "breadcrumbs": {
       "home": "Home",
       "solarPanelCleaningRobots": "Solar Panel Cleaning Robots",
-      "automaticRobot": "GLYDE — Dual-Pass Automatic Robot"
+      "automaticRobot": "GLYDE: Dual-Pass Automatic Robot"
     },
     "shared": {
       "connectivitySummary": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN"
@@ -39,8 +39,8 @@
       }
     },
     "hero": {
-      "title": "GLYDE — Fully Automatic Solar Panel Cleaning Robot for Fixed-Tilt Plants",
-      "h1Line1": "GLYDE — Fully Automatic Solar Panel Cleaning Robot for ",
+      "title": "GLYDE: Fully Automatic Solar Panel Cleaning Robot for Fixed-Tilt Plants",
+      "h1Line1": "GLYDE: Fully Automatic Solar Panel Cleaning Robot for ",
       "h1Line2": "Fixed-Tilt Plants",
       "leadBeforeStrong": "The Taypro GLYDE is an ",
       "leadStrong": "Automatic Solar Panel Cleaning Robot",
@@ -53,7 +53,29 @@
         "label": "Request a quote"
       },
       "heroImageAlt": "Taypro Automatic Solar Panel Cleaning Robot GLYDE cleaning solar panels at utility-scale solar farm",
-      "heroImageTitle": "Taypro GLYDE TR-150 Automatic Solar Panel Cleaning Robot"
+      "heroImageTitle": "Taypro GLYDE TR-150 Automatic Solar Panel Cleaning Robot",
+      "subtitleShort": "Autonomous, waterless dual-pass cleaning for fixed-tilt utility plants, up to 3,600 modules per charge.",
+      "secondaryCta": {
+        "label": "Explore 360° tour"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "99%+",
+          "label": "Dust removed per automated pass"
+        },
+        "stat1": {
+          "value": "3,600",
+          "label": "Modules cleaned per charge"
+        },
+        "stat2": {
+          "value": "Waterless",
+          "label": "Dual-pass dry cleaning"
+        }
+      }
+    },
+    "productVisual": {
+      "eyebrow": "Product at a glance",
+      "title": "Taypro GLYDE automatic solar panel cleaning robot"
     },
     "overview": {
       "productImageAlt": "Top view of Taypro GLYDE automatic solar panel cleaning robot on parallel cleaning rails",
@@ -74,7 +96,7 @@
       "p2BeforeStrong": "On a single charge, GLYDE cleans up to ",
       "p2Strong": "2.2 km of running length, approximately 3,600 solar modules",
       "p2AfterStrong": ". Cleaning cycles are best scheduled outside energy production hours and can be programmed remotely, ensuring zero impact on plant generation.",
-      "p3": "GLYDE's patented dual-pass mechanism combines high-speed airflow with a self-cleaning microfiber drum — the first pass lifts dry dust, the second completes the wipe without water or detergent. Edge and obstacle detection maps every panel boundary while surface-undulation tracking keeps brush pressure consistent row-by-row. Battery-aware logic ensures each assigned array is cleaned completely before the robot self-docks — rated for 180 km/hr gusts while locked at the station.",
+      "p3": "GLYDE's patented dual-pass mechanism combines high-speed airflow with a self-cleaning microfiber drum, the first pass lifts dry dust, the second completes the wipe without water or detergent. Edge and obstacle detection maps every panel boundary while surface-undulation tracking keeps brush pressure consistent row-by-row. Battery-aware logic ensures each assigned array is cleaned completely before the robot self-docks, rated for 180 km/hr gusts while locked at the station.",
       "p4Blog1": "how an automatic cleaning robot works on modules",
       "p4Blog2": "benefits of robotic cleaning at utility scale",
       "p4Prefix": "Further reading: ",
@@ -90,7 +112,7 @@
       "sideAlt": "Taypro GLYDE side profile showing module-frame rails, travel mechanism, and end housings",
       "sideCaption": "Side profile of the GLYDE rail system engineered for long-reach fixed-tilt rows.",
       "modularAlt": "Taypro GLYDE modular exploded view showing rails, wheels, and GLYDE drive unit",
-      "modularCaption": "Modular rail, wheel, and drive-unit layout — each array ships as a field-assembled GLYDE system.",
+      "modularCaption": "Modular rail, wheel, and drive-unit layout, each array ships as a field-assembled GLYDE system.",
       "dockingAlt": "Taypro GLYDE shadow-free docking power unit with integrated solar charging for autonomous daily cycles",
       "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array."
     },
@@ -98,11 +120,11 @@
       "dualPassStepImageAlt": "Taypro GLYDE dual-pass waterless cleaning mechanism with rotating microfiber drum",
       "eyebrow": "Autonomous Cleaning Cycle",
       "title": "How Does an Automatic Solar Panel Cleaning Robot Work?",
-      "subtitle": "GLYDE runs end-to-end without operators on the row. Each assigned TR-150 unit executes a patented dual-pass cycle — the workflow below matches our HowTo structured data and field SOPs at deployed plants.",
+      "subtitle": "GLYDE runs end-to-end without operators on the row. Each assigned TR-150 unit executes a patented dual-pass cycle, the workflow below matches our HowTo structured data and field SOPs at deployed plants.",
       "steps": {
         "step0": {
           "name": "Assign each Automatic Solar Panel Cleaning Robot to a dedicated array",
-          "text": "Each GLYDE TR-150 is permanently assigned to one fixed-tilt or seasonal-tilt array with a shadow-free dock. Integrated lithium-ion charging needs no external power — the dual-pass head and frame rails are calibrated once at commissioning."
+          "text": "Each GLYDE TR-150 is permanently assigned to one fixed-tilt or seasonal-tilt array with a shadow-free dock. Integrated lithium-ion charging needs no external power, the dual-pass head and frame rails are calibrated once at commissioning."
         },
         "step1": {
           "name": "Schedule cleaning from the NECTYR with AI- and ML-driven logic",
@@ -110,7 +132,7 @@
         },
         "step2": {
           "name": "Robot self-deploys onto the module row",
-          "text": "At the scheduled time GLYDE undocks, traverses inter-table bridges if configured, and travels along the module frame — edge sensors ensure zero load on glass throughout the dual-pass run."
+          "text": "At the scheduled time GLYDE undocks, traverses inter-table bridges if configured, and travels along the module frame, edge sensors ensure zero load on glass throughout the dual-pass run."
         },
         "step3": {
           "name": "Dual-pass waterless cleaning with a self-cleaning microfiber drum",
@@ -118,11 +140,11 @@
         },
         "step4": {
           "name": "Battery-aware return to the docking station",
-          "text": "Battery-aware routing limits each run to a safe distance, then GLYDE locks at the dock — rated for 180 km/hr gusts while stowed between dual-pass cycles."
+          "text": "Battery-aware routing limits each run to a safe distance, then GLYDE locks at the dock, rated for 180 km/hr gusts while stowed between dual-pass cycles."
         },
         "step5": {
           "name": "Sync telemetry and fleet health to the cloud",
-          "textBeforeConnectivity": "Dual-pass telemetry — brush load, cycle time, dust-lift flags — syncs to NECTYR over ",
+          "textBeforeConnectivity": "Dual-pass telemetry, brush load, cycle time, dust-lift flags, syncs to NECTYR over ",
           "textAfterConnectivity": ", pick the link that best fits each site, for audit-ready reporting across every deployed Automatic Solar Panel Cleaning Robot."
         }
       }
@@ -134,14 +156,14 @@
       "productLabel": "Taypro GLYDE, Automatic Solar Panel Cleaning Robot"
     },
     "usps": {
-      "eyebrow": "GLYDE — Patented Dual-Pass Robot",
+      "eyebrow": "GLYDE: Patented Dual-Pass Robot",
       "title": "USPs",
       "items": {
         "item0": "Patented Dual-Pass Dust Lift",
         "item1": "Self-Cleaning Microfiber Drum",
         "item2": "Up to 3,600 Modules Per Charge",
         "item3": "10–15 m/min Utility-Scale Speed",
-        "item4": "Frame-Mounted — Zero Glass Load",
+        "item4": "Frame-Mounted: Zero Glass Load",
         "item5": "NECTYR Fleet Portal (LTE / Wi-Fi / RF / LoRa)",
         "item6": "AI Weather-Aware Scheduling",
         "item7": "TÜV NORD Field-Validated Build"
@@ -154,7 +176,7 @@
       "bodyAfterSpan": " can be and how much it can save your plant."
     },
     "projects": {
-      "headingLine1": "Projects with MODEL A – Automatic ",
+      "headingLine1": "Projects with GLYDE – Automatic ",
       "headingLine2": "Solar Panel Cleaning",
       "headingLine3": "Robot",
       "headingLine4": "Installations",
@@ -164,7 +186,7 @@
     "trustStats": {
       "eyebrow": "Why Solar Plants Choose Taypro",
       "title": "Trusted by India's Leading Solar Operators",
-      "subtitle": "GLYDE fleets operate at Bachau DVC, Neneva tracker companion sites, and 5,000+ MW of Taypro-managed capacity — dual-pass robots are Taypro's flagship fixed-tilt platform.",
+      "subtitle": "GLYDE fleets operate at Bachau DVC, Neneva tracker companion sites, and 5,000+ MW of Taypro-managed capacity, dual-pass robots are Taypro's flagship fixed-tilt platform.",
       "stats": {
         "stat0": {
           "value": "5 GW+",
@@ -195,7 +217,7 @@
         },
         "card1": {
           "title": "Immediate Remote Diagnostics",
-          "body": "NECTYR receives dock-level telemetry first — Taypro engineers resolve most GLYDE faults over-the-air before dispatching field staff."
+          "body": "NECTYR receives dock-level telemetry first, Taypro engineers resolve most GLYDE faults over-the-air before dispatching field staff."
         },
         "card2": {
           "title": "Same-Day On-Site Intervention",
@@ -227,7 +249,7 @@
       },
       "weather": {
         "title": "Smart Weather Optimization",
-        "body": "GLYDE's scheduler weighs wind speed, rain probability, humidity, and post-storm dust rebound before committing a dual-pass cycle — skipping wasted runs after rain and prioritising recovery nights after haboob or construction dust events."
+        "body": "GLYDE's scheduler weighs wind speed, rain probability, humidity, and post-storm dust rebound before committing a dual-pass cycle, skipping wasted runs after rain and prioritising recovery nights after haboob or construction dust events."
       },
       "connectivity": {
         "title": "Cloud-Connected Remote Monitoring",
@@ -236,11 +258,11 @@
         "bodyBoldMesh": "hybrid self-healing RF mesh",
         "bodyAfterMesh": " for resilient plant-wide backhaul, or ",
         "bodyBoldLoRa": "LoRa / LoRaWAN",
-        "bodyAfterLoRa": " where low-power, long-range links suit remote blocks. Schedule dual-pass cycles, push firmware updates, and audit every cleaning run from NECTYR — docking telemetry covers charge state, brush wear indicators, and fault codes in real time."
+        "bodyAfterLoRa": " where low-power, long-range links suit remote blocks. Schedule dual-pass cycles, push firmware updates, and audit every cleaning run from NECTYR: docking telemetry covers charge state, brush wear indicators, and fault codes in real time."
       },
       "edge": {
         "title": "Edge & Obstacle Detection Technology",
-        "body": "Millimetre-class edge sensors and continuous obstacle scanning keep GLYDE on the module frame at all times — critical when dual-pass cleaning runs at 10–15 m/min across imperfect utility tables."
+        "body": "Millimetre-class edge sensors and continuous obstacle scanning keep GLYDE on the module frame at all times, critical when dual-pass cleaning runs at 10–15 m/min across imperfect utility tables."
       },
       "build": {
         "title": "Sealed, Field-Hardened Build",
@@ -334,7 +356,7 @@
         },
         "card2": {
           "title": "Waterless, Even in Water-Scarce States",
-          "body": "Water allocations for module washing are tightening across Indian states — GLYDE removes tankers entirely while preserving dual-pass cleaning quality."
+          "body": "Water allocations for module washing are tightening across Indian states, GLYDE removes tankers entirely while preserving dual-pass cleaning quality."
         },
         "card3": {
           "title": "Pan-India Service Network",
@@ -446,15 +468,15 @@
       "heading": "Advantages of Using Automatic Solar Panel Cleaning Robots",
       "energy": {
         "title": "Increased Energy Efficiency",
-        "body": "Daily dual-pass cleaning keeps module transmissivity high on dusty sites — site teams commonly model 4–8% PR recovery versus fortnightly manual washing (site-dependent)."
+        "body": "Daily dual-pass cleaning keeps module transmissivity high on dusty sites, site teams commonly model 4–8% PR recovery versus fortnightly manual washing (site-dependent)."
       },
       "waterless": {
         "title": "Waterless Cleaning",
-        "body": "GLYDE's airflow-plus-microfiber cycle removes over 99% surface dust with zero water, tankers, or discharge compliance — ideal for water-stressed districts."
+        "body": "GLYDE's airflow-plus-microfiber cycle removes over 99% surface dust with zero water, tankers, or discharge compliance, ideal for water-stressed districts."
       },
       "autonomous": {
         "title": "Fully Autonomous & Smart Operation",
-        "body": "Once commissioned, GLYDE runs post-production hours without row crews — AI scheduling in NECTYR handles cadence, skip logic, and fleet health."
+        "body": "Once commissioned, GLYDE runs post-production hours without row crews, AI scheduling in NECTYR handles cadence, skip logic, and fleet health."
       },
       "cost": {
         "title": "Cost-Effective Solution",
@@ -462,14 +484,14 @@
       },
       "safe": {
         "title": "Safe and Reliable Operation",
-        "body": "GLYDE travels only on the module frame with non-abrasive microfiber contact — lab-tested for micro-crack, reflectance, and ARC preservation."
+        "body": "GLYDE travels only on the module frame with non-abrasive microfiber contact, lab-tested for micro-crack, reflectance, and ARC preservation."
       }
     },
     "installSection": {
       "dockingImageAlt": "Taypro GLYDE docking station with integrated solar panel for autonomous robot charging between cleaning cycles",
       "title": "How Long Does It Take to Install the Automated Solar Panel Cleaning Robots?",
       "p1": "The installation of the Solar Panel Cleaning Robot requires no modifications to the existing solar plant layout. The GLYDE Automated Solar Panel Cleaning Robot is designed to operate directly on the panel frame.",
-      "p2": "Commissioning a GLYDE array typically takes a few hours to two days per block: shadow-free docking placement, dual-pass calibration, and NECTYR fleet onboarding — no module or railing modifications.",
+      "p2": "Commissioning a GLYDE array typically takes a few hours to two days per block: shadow-free docking placement, dual-pass calibration, and NECTYR fleet onboarding, no module or railing modifications.",
       "p3": "Multi-block plants may take several days for full fleet rollout. After handover, robots run autonomously with Taypro's same-day breakdown SLA and remote diagnostics through NECTYR.",
       "p4": "TAYPRO GLYDE robots offer cost-effective and scalable solutions for solar power plants with easy installations and safe operations."
     },
@@ -486,11 +508,11 @@
         "s0": "⦿ The robot initialises its sensors on the activation and performs the system checks connectivity with the central monitoring system",
         "s1": "⦿ The cleaning schedule is pre-set via a remote monitoring portal which enables fully automated operation",
         "s2": "⦿ The locomotion motor powers the movement and guides the robot along the solar panel frames",
-        "s3": "⦿ The dual-pass head activates — airflow loosens dry dust, then the self-cleaning microfiber drum completes the wipe at 10–15 m/min with zero water",
+        "s3": "⦿ The dual-pass head activates, airflow loosens dry dust, then the self-cleaning microfiber drum completes the wipe at 10–15 m/min with zero water",
         "s4": "⦿ The edge detection sensors continually scan the surroundings which prevents the robot from overshooting the panel edges",
         "s5": "⦿ Users can adjust the cleaning speed and direction from the NECTYR",
         "s6": "⦿ Once the cleaning cycle is complete, the robot returns to its docking station, where it recharges using solar energy and remains idle until the next scheduled cycle.",
-        "s7": "⦿ Fault detection monitors brush load, battery state, and drivetrain telemetry — anomalies trigger safe stop and NECTYR alerts",
+        "s7": "⦿ Fault detection monitors brush load, battery state, and drivetrain telemetry, anomalies trigger safe stop and NECTYR alerts",
         "s8": "⦿ Obstacle handling, microfiber self-cleaning, and row-adaptive speed control keep dual-pass quality consistent across the assigned array"
       }
     },
@@ -575,7 +597,7 @@
       "row0": {
         "criterion": "Cleaning Technology",
         "glyde": "Patented dual-pass: airflow loosens dust, microfiber completes the wipe",
-        "nyuma": "Single-pass counter-rotating PBT brush drum — fewer moving consumables"
+        "nyuma": "Single-pass counter-rotating PBT brush drum, fewer moving consumables"
       },
       "row1": {
         "criterion": "Best For",
@@ -604,8 +626,8 @@
       },
       "row6": {
         "criterion": "Labour After Install",
-        "glyde": "Zero — fully autonomous daily cycles",
-        "nyuma": "Zero — fully autonomous daily cycles"
+        "glyde": "Zero: fully autonomous daily cycles",
+        "nyuma": "Zero: fully autonomous daily cycles"
       },
       "row7": {
         "criterion": "Fleet Monitoring",

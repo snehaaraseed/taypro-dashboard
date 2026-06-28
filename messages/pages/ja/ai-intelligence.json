@@ -3,25 +3,25 @@
     "meta": {
       "title": "NECTYRフリートAI・ソーラーO&Mインテリジェンス | Taypro",
       "description": "大規模ソーラー向けNECTYRフリートAI：ラベル付きテレメトリ、自律スケジュール、MLルーティング、予知保全アラート。",
-      "openGraphTitle": "AI Intelligence Layer | Taypro Solar Cleaning",
-      "openGraphDescription": "Self-learning fleet AI trained on 11 billion+ annual panel passes across India's largest robotic cleaning fleet.",
-      "twitterTitle": "AI Intelligence Layer | Taypro",
-      "twitterDescription": "Fleet-learning AI, NECTYR live intelligence, and the data flywheel behind 5 GW+ of deployed cleaning robots."
+      "openGraphTitle": "NECTYR フリート AI と太陽光発電 O&M インテリジェンス | Taypro",
+      "openGraphDescription": "NECTYR のフリート運用インテリジェンス: 自己学習モデル、自律サイクルの開始、および年間 110 億件以上のパネル パスからのラベル付き現場データ。",
+      "twitterTitle": "NECTYR フリート AI | Taypro",
+      "twitterDescription": "太陽光発電施設 AI および NECTYR 運用インテリジェンス: 5 GW+ スケールでのスケジュール、ルーティング、診断、フィールド データの複合。"
     },
     "breadcrumb": "AIインテリジェンス",
     "hero": {
       "eyebrow": "NECTYR · フリート運用インテリジェンス",
       "title": "ソーラーフリートAIとNECTYR運用インテリジェンス",
-      "body": "TAYPRO's competitive advantage is not the robot alone — it is what the intelligence layer knows. Self-learning models trained on 11 billion+ annual panel passes across 150+ plants refine soiling prediction, battery routing, and weather scheduling with every cycle. Plants commissioned today inherit years of prior fleet intelligence.",
+      "body": "このページでは、Taypro のソフトウェア インテリジェンス レイヤー、夜間のロボット テレメトリをスケジュール、ルーティング、O&M の決定に変えるモデルと NECTYR ワークフローについて説明します。 150 以上のプラントにわたる年間 110 億以上のパネルパスで訓練された自己学習システムは、ラベル付けされたサイクルごとに汚れ予測、バッテリーのルーティング、天候のタイミングを洗練します。",
       "ctaNectyr": "NECTYRを見る",
       "ctaTechnology": "洗浄技術",
       "lead": "今日就役したプラントは、長年にわたる以前の艦隊のインテリジェンスを継承しています。 NECTYR は、砂嵐のたびにオペレーターがスケジュールを書き直すのを待つことなく、気象モデル、汚れのリスク、バッテリーの状態、ロボットの状態に基づいて清掃を自律的に開始、延期、または加速します。"
     },
     "flywheel": {
-      "eyebrow": "The data flywheel",
-      "heading": "How daily fleet cycles feed AI that improves itself",
-      "body": "Every cleaning cycle across Taypro's 5 GW+ deployed fleet generates structured data — soiling rates by geography and season, weather correlation, battery performance, and fault patterns. Models ingest this telemetry continuously: a plant in Rajasthan benefits from monsoon-shoulder timing learned in Maharashtra; a new GLYDE-X tracker site inherits routing intelligence from hundreds of prior array maps. The dataset compounds with each site added. Competitors entering today would need years of equivalent utility-scale deployments to replicate it.",
-      "closing": "データセットは各サイトを追加して合成されます。センス → スケジュール → クリーン → ログ → 学習 — フリート全体で毎晩。",
+      "eyebrow": "データフライホイール",
+      "heading": "毎日のフリートサイクルが AI に栄養を与え、自らを改善する仕組み",
+      "body": "Taypro の 5 つの GW+ に展開されたフリート全体にわたるすべての洗浄サイクルにより、構造化データ、地理別および季節別の汚れ率、天候相関、バッテリー性能、障害パターンが生成されます。モデルはこのテレメトリを継続的に取り込みます。ラジャスタン州のプラントは、マハラシュトラ州で学んだモンスーン肩のタイミングの恩恵を受けています。新しい GLYDE-X トラッカー サイトは、数百の以前のアレイ マップからルーティング インテリジェンスを継承します。",
+      "closing": "データセットは各サイトを追加して合成されます。センス → スケジュール → クリーン → ログ → 学習, フリート全体で毎晩。",
       "step0": "センス",
       "step1": "スケジュール",
       "step2": "クリーン",
@@ -30,43 +30,43 @@
     },
     "capabilities": {
       "eyebrow": "6つのAI機能",
-      "heading": "自己学習フリートインテリジェンス — 本日NECTYRで稼働",
-      "intro": "These are not roadmap features. They run across Taypro's active fleet every night.",
+      "heading": "自己学習フリートインテリジェンス, 本日NECTYRで稼働",
+      "intro": "気象現象のたびにオペレーターがカレンダーを書き換えることなく、ラベル付きのテレメトリを取り込み、スケジュール、ルーティング、および保護の決定を出力するソフトウェア機能。",
       "hardwareCrossLink": "洗浄技術",
       "hardwareCrossBefore": "ロボットが物理的に清掃を実行する方法 (デュアルパス ドライ クリーニング、プラットフォームの重量、フィールド ハードウェア) については、次の文書に記載されています。",
       "hardwareCrossAfter": "."
     },
     "capability0": {
-      "title": "Self-learning fleet intelligence",
-      "body": "Taypro's AI model improves soiling prediction, timing optimisation, and routing decisions with every cleaning cycle executed across the 5 GW+ fleet. A plant commissioned today inherits intelligence built from years of prior operations — seasonality patterns, regional dust signatures, and post-storm recovery timing that no new entrant can replicate from scratch."
+      "title": "クロスサイトモデル転送",
+      "body": "フリート モデルは、1 日あたり 5 GW+ スループットのラベル付きサイクルで再トレーニングされ、初日に新しく稼働したプラントに展開されます。季節性ライブラリ、地域の塵の特徴、嵐後の回復タイミングは、その列にあるロボットだけでなく、モデルとともに移動します。"
     },
     "capability1": {
-      "title": "Battery-optimised cleaning via ML array mapping",
-      "body": "On first deployment, ML maps the full panel array — row lengths, gaps, tilt variations, undulation profiles — and builds a persistent site model. Route planning draws from this map to maximise panels cleaned per charge. The result: approximately 2× cleaning coverage per charge compared to unoptimised traversal, reducing robot weight requirements and structural load on panels and frames over the asset life."
+      "title": "永続的なサイトグラフとルートの最適化",
+      "body": "NECTYR には、最初の展開のテレメトリから構築された永続的な配列マップ、行ジオメトリ、ギャップ、起伏が保存されます。夜間のルート グラフはこのモデルから描画され、充電あたりの清掃面積を最大化します (通常、マッピングされていないトラバーサルと比較して約 2 倍)。また、以前の GLYDE-X サイトからトラッカー ルーティング パターンを継承します。"
     },
     "capability2": {
-      "title": "Battery-aware intelligence in low-generation conditions",
-      "body": "In cloudy or partial-generation periods, available battery capacity is lower. Rather than attempting full-array traversal and leaving incomplete cycles, the system analyses real-time battery state against the site map and prioritises highest-soiling blocks first — completing meaningful cleaning within available energy rather than aborting mid-fleet."
+      "title": "充電を意識したブロックの優先順位付け",
+      "body": "放射照度によって再充電が制限される場合、オーケストレーション レイヤーは実際の充電状態から清掃可能な容量を計算し、汚れのリスクによってブロックをランク付けし、ブロック レベルの監査コンテキストで NECTYR に記録される意味のある発電量を回復する部分サイクルを順序付けします。"
     },
     "capability3": {
-      "title": "95% accuracy weather scheduling",
-      "body": "NECTYR ingests windspeed, rain probability, humidity, airborne pollen levels, and local environmental data — not just binary rain detection — to schedule cleaning cycles at optimal windows. Verified 95% scheduling accuracy in field conditions means fewer wasted cycles, better generation alignment, and more predictable O&M budgeting."
+      "title": "マルチパラメータ気象オーケストレーション",
+      "body": "NECTYR は、バイナリの雨フラグだけではなく、風速、降水確率、湿度、花粉、および地域の環境フィードを取り込んで、サイクルを提案、延期、または加速します。現場で検証された 95% のスケジューリング精度により、無駄な実行が削減され、O&M の予算編成が安定します。"
     },
     "capability4": {
-      "title": "Wet microfiber detection",
-      "body": "Taypro robots carry sensors detecting whether the microfiber has absorbed moisture from dew, overnight humidity, or residual rain. If wet, the system postpones the cleaning cycle automatically. A wet microfiber on a dusty panel smears particulates and risks glass micro-abrasion — no human intervention required."
+      "title": "湿潤要素保護ロジック",
+      "body": "要素水分テレメトリは、結露、湿気、または残留雨が洗浄媒体に浸透した場合に、自動的にサイクルを延期します。 NECTYR はアラートと理由コードを表示するため、オペレーターはブロックが延期された理由を確認できるため、午前 4 時に電話をかけることなくモジュールをスミア リスクから保護できます。"
     },
     "nectyrLive": {
-      "eyebrow": "NECTYR live intelligence",
-      "heading": "What operators see in the field",
-      "intro": "Fleet software turns robot telemetry into decisions plant teams actually use.",
-      "item0": "Live robot position tracking on plant layout map",
-      "item1": "Root-cause fault identification — where and why a robot stopped",
-      "item2": "Battery state monitoring and charge curve analysis per robot",
-      "item3": "Wet microfiber detection alerts and automatic cycle protection",
-      "item4": "Predictive maintenance alerts from fleet-wide deviation signatures",
-      "item5": "Cycle audit logs and exportable reports for PR and AMC evidence",
-      "nectyrLink": "Explore NECTYR",
+      "eyebrow": "NECTYR ライブ インテリジェンス",
+      "heading": "オペレーターが現場で見ているもの",
+      "intro": "フリート ソフトウェアは、ロボット テレメトリをプラント チームが実際に使用する決定に変換します。これは、一般的な SCADA ビューアではなく、ロボット清掃用のアクティブ インテリジェンス レイヤーです。",
+      "item0": "プラントレイアウトマップ上のライブロボット位置追跡",
+      "item1": "根本原因による障害の特定、ロボットが停止した場所と理由",
+      "item2": "ロボットごとのバッテリー状態の監視と充電曲線分析",
+      "item3": "濡れたマイクロファイバーの検出アラートと自動サイクル保護",
+      "item4": "フリート全体の逸脱シグネチャからの予知メンテナンス アラート",
+      "item5": "PR および AMC 証拠の監査ログとエクスポート可能なレポートを循環させる",
+      "nectyrLink": "NECTYR を探索する",
       "trackingTitle": "ライブクリーニングの視覚化",
       "trackingBody": "NECTYR は、リアルタイムのロボットの位置をプラント レイアウト マップ上にオーバーレイします。オペレーターは、数時間前のタイムスタンプではなく、どの行がクリーニングされているか、進捗率、およびフリートの状態をいつでも確認できます。",
       "predictiveTitle": "ロボットごとのヘルスプロファイル",
@@ -75,25 +75,25 @@
       "autonomousBody": "清掃サイクルは、気象モデル、汚れ予測、バッテリー状態、ロボットの状態に基づいてフリート AI によって開始、一時停止、加速されます。ブロックレベルの監査証跡は、O&M レビューと資産所有者レポートに関するすべての決定を文書化します。"
     },
     "orion": {
-      "eyebrow": "Roadmap",
-      "heading": "ORION — plant intelligence on the same rails",
-      "body": "ORION extends the intelligence layer from cleaning operations to full plant health — generation-aware monitoring that ties cleaning, weather, and performance so asset owners can act before the MWh is gone. ORION attaches at AMC renewal on NECTYR rails already live across IPP portfolios. Early access is open for select asset owners.",
-      "cta": "ORION early access"
+      "eyebrow": "ロードマップ",
+      "heading": "ORION: 同じレール上のプラント インテリジェンス",
+      "body": "ORION は、インテリジェンス レイヤーを清掃作業からプラント全体の健全性、清掃、天候、パフォーマンスを結び付ける世代を意識した監視まで拡張するため、資産所有者は MWh が終了する前に行動できるようになります。 ORION は、すでに IPP ポートフォリオにわたって存在する NECTYR レールの AMC 更新時に接続されます。早期アクセスは一部のアセット所有者を対象としています。",
+      "cta": "ORION 早期アクセス"
     },
     "dataMoat": {
-      "eyebrow": "For investors & enterprise buyers",
+      "eyebrow": "投資家および企業バイヤー向け",
       "heading": "フリート規模の複利データの堀",
-      "body": "Every cleaning cycle across Taypro's 5 GW+ operational fleet generates structured data that trains AI models improving continuously. A competitor entering the market today would need years of equivalent deployments to replicate this dataset. Taypro's technology advantage compounds with scale — and every new site makes the model smarter for the entire fleet.",
+      "body": "インテリジェンス層の利点は、単一のアルゴリズムのリリースではなく、累積的なソフトウェア データです。 GW+ 日次スループットの 5 つのラベル付きサイクルごとに、NECTYR がフリート全体にデプロイするモデルが再トレーニングされます。長年にわたる実用規模のテレメトリにより、新しいサイトが稼働するたびに、スケジューリング、ルーティング、診断の精度が向上します。",
       "bullet0": "砂漠地帯、農業地帯、沿岸地帯の 150 以上の工場で年間 110 億以上のパネルが通過",
-      "bullet1": "2022 年以降、NECTYR のラベル付き清掃テレメトリ — インド最大の清掃インテリジェンス データセット",
+      "bullet1": "2022 年以降、NECTYR のラベル付き清掃テレメトリ, インド最大の清掃インテリジェンス データセット",
       "bullet2": "サイト間モデルの転送: 新しいプラントは初日からスケジューリングとルーティングのインテリジェンスを継承します。",
       "bullet3": "ギャップの拡大: 掃除の季節ごとに、地域の塵ライブラリ、断層の前兆、気象相関の深さが追加されます。"
     },
     "cta": {
-      "heading": "See the full technology stack",
-      "cleaningTech": "Cleaning technology",
-      "contact": "Contact Taypro",
-      "nectyr": "Explore NECTYR",
+      "heading": "完全なテクノロジースタックをご覧ください",
+      "cleaningTech": "洗浄技術",
+      "contact": "Taypro に連絡してください",
+      "nectyr": "NECTYR を探索する",
       "projects": "稼働中プロジェクト",
       "leadModal": {
         "topic": "AIインテリジェンスの調査",
@@ -103,7 +103,7 @@
         "messageLabel": "あなたのメッセージ",
         "messagePlaceholder": "組織、プラントのポートフォリオ MW、SCADA のセットアップ、現場のロボット、および調査したい内容…",
         "submitLabel": "お問い合わせを送信する",
-        "thankYouTitle": "ありがとうございます — メッセージを受け取りました",
+        "thankYouTitle": "ありがとうございます, メッセージを受け取りました",
         "thankYouMessage": "私たちのチームは、インテリジェンス層の問い合わせについてすぐにフォローアップします。",
         "ctaLabel": "Taypro に連絡してください"
       }
@@ -231,7 +231,7 @@
       "q0": "Taypro の AI インテリジェンス レイヤーとは何ですか?",
       "a0": "これは、Taypro のロボット清掃フリートの背後にある自己学習ソフトウェア スタックです。モデルは、1 日の運用スループットの 5 GW+ からラベル付きフィールド テレメトリでトレーニングされ、汚れの予測、バッテリーのルーティング、気象スケジュール、サイクルごとの障害検出を改善します。 NECTYR は、このインテリジェンスが現在実行されているライブ オペレーション ポータルです。",
       "q1": "フリート AI は現在稼働していますか、それともロードマップに記載されていますか?",
-      "a1": "コア機能は、NECTYR のアクティブなフリート全体で有効です。つまり、自己学習汚れモデル、ML アレイ マッピング、バッテリー認識ルーティング、95% 精度の気象スケジュール、濡れたマイクロファイバーの検出、自律サイクルの開始などです。 ORION — 植物の完全な健全性までインテリジェンスを拡張する — は、一部の資産所有者が早期にアクセスできるロードマップにあります。",
+      "a1": "コア機能は、NECTYR のアクティブなフリート全体で有効です。つまり、自己学習汚れモデル、ML アレイ マッピング、バッテリー認識ルーティング、95% 精度の気象スケジュール、濡れたマイクロファイバーの検出、自律サイクルの開始などです。 ORION: 植物の完全な健全性までインテリジェンスを拡張する, は、一部の資産所有者が早期にアクセスできるロードマップにあります。",
       "q2": "新しいプラントは以前のフリートデータからどのようなメリットを得られるのでしょうか?",
       "a2": "実際のフリートでトレーニングされたモデルは、試運転時に適用されます。今四半期に稼動するプラントは、モンスーン肩のタイミング、地域的な塵の痕跡、トラッカーのルーティング マップ、2022 年以降に蓄積された障害前兆ライブラリなど、過去の何百もの導入からスケジューリング インテリジェンスを継承しています。",
       "q3": "これは植物 SCADA とどう違うのですか?",
@@ -247,6 +247,6 @@
     }
   },
   "Common": {
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "家"
   }
 }

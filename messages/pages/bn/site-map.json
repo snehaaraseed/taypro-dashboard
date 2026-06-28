@@ -19,23 +19,29 @@
       "sitemap": "সাইটম্যাপ"
     },
     "heading": "সাইটম্যাপ",
-    "intro": "এই HTML সাইটম্যাপ দিয়ে প্রতিটি প্রধান Taypro পেজ, সোলার প্যানেল পরিষ্কার রোবট, ইউটিলিটি-স্কেল প্রকল্পের কেস স্টাডি, O&M গাইড ও কোম্পানির তথ্য খুঁজুন। লিঙ্ক কন্টেন্ট ধরন অনুযায়ী গোষ্ঠীবদ্ধ — developer, EPC দল ও asset manager দ্রুত সঠিক বিভাগে পৌঁছাতে পারবেন।",
+    "intro": "এই HTML সাইটম্যাপ দিয়ে প্রতিটি প্রধান Taypro পেজ, সোলার প্যানেল পরিষ্কার রোবট, ইউটিলিটি-স্কেল প্রকল্পের কেস স্টাডি, O&M গাইড ও কোম্পানির তথ্য খুঁজুন। লিঙ্ক কন্টেন্ট ধরন অনুযায়ী গোষ্ঠীবদ্ধ, developer, EPC দল ও asset manager দ্রুত সঠিক বিভাগে পৌঁছাতে পারবেন।",
     "introSecondary": "সার্চ ইঞ্জিনের জন্য XML sitemap /sitemap.xml-এ পাওয়া যায়। এই পেজ Taypro সাইটে মানব নেভিগেশন ও অভ্যন্তরীণ লিঙ্কিংয়ের জন্য তৈরি।",
     "sections": {
       "posts": "পোস্ট",
       "postsIntro": "Taypro ব্লগ ও রিসোর্স হাবে প্রকাশিত এনার্জি রিসোর্স নিবন্ধ ও রেফারেন্স পোস্ট।",
       "pages": "পেজ",
-      "pagesIntro": "মূল মার্কেটিং ও পণ্যের পেজ — রোবট স্পেসিফিকেশন, পরিষ্কার প্রযুক্তি, ROI টুল, আইনি নীতি ও যোগাযোগ সহ।",
+      "pagesIntro": "মূল মার্কেটিং ও পণ্যের পেজ, রোবট স্পেসিফিকেশন, পরিষ্কার প্রযুক্তি, ROI টুল, আইনি নীতি ও যোগাযোগ সহ।",
       "portfolio": "পোর্টফোলিও",
-      "portfolioIntro": "Taypro রোবotic পরিষ্কার সিস্টেম মোতায়েনকৃত সোলার প্ল্যান্টের নথিভুক্ত ইনস্টলেশন — প্রকল্পের নামে কেস স্টাডি ব্রাউজ করুন।",
+      "portfolioIntro": "Taypro রোবotic পরিষ্কার সিস্টেম মোতায়েনকৃত সোলার প্ল্যান্টের নথিভুক্ত ইনস্টলেশন, প্রকল্পের নামে কেস স্টাডি ব্রাউজ করুন।",
       "compareIntro": "GLYDE vs NYUMA, GLYDE-X vs NYUMA-X, robotic vs manual, Taypro vs Solabot, Aegeus, Skilancer, Vayu Solar, এবং waterless vs water-based comparison pages।",
       "compare": "ক্রেতা গাইড এবং তুলনা"
     },
     "posts": {
-      "energyResourcesTitle": "শক্তি সম্পদ"
+      "energyResourcesTitle": "শক্তি সম্পদ",
+      "authorsLabel": "ব্লগ লেখক",
+      "authorsTitle": "লেখক",
+      "xmlSitemapLabel": "XML সাইটম্যাপ (সার্চ ইঞ্জিনের জন্য)",
+      "xmlSitemapTitle": "XML সাইটম্যাপ"
     },
     "portfolio": {
-      "solarProjectTitle": "সোলার প্রোজেক্ট"
+      "solarProjectTitle": "সোলার প্রোজেক্ট",
+      "hubLabel": "সমস্ত প্রকল্প কেস স্টাডি ব্রাউজ করুন",
+      "hubTitle": "প্রজেক্ট হাব"
     },
     "links": {
       "aboutUsLabel": "আমাদের সম্পর্কে",
@@ -84,21 +90,21 @@
       "utilityOperationsTitle": "ইউটিলিটি-স্কেল সোলার অপারেশন ও সোলার প্যানেল পরিষ্কার রোবট",
       "robotPriceGuideLabel": "সোলার প্যানেল পরিষ্কার রোবটের দাম (ভারত)",
       "robotPriceGuideTitle": "ভারতের জন্য সোলার প্যানেল পরিষ্কার রোবট মূল্য গাইড",
-      "stateRajasthanLabel": "সোলার প্যানেল পরিষ্কার রোবট — Rajasthan",
+      "stateRajasthanLabel": "সোলার প্যানেল পরিষ্কার রোবট, Rajasthan",
       "stateRajasthanTitle": "Rajasthan-এ সোলার প্যানেল পরিষ্কার রোবট",
-      "stateGujaratLabel": "সোলার প্যানেল পরিষ্কার রোবট — Gujarat",
+      "stateGujaratLabel": "সোলার প্যানেল পরিষ্কার রোবট, Gujarat",
       "stateGujaratTitle": "Gujarat-এ সোলার প্যানেল পরিষ্কার রোবট",
-      "stateMadhyaPradeshLabel": "সোলার প্যানেল পরিষ্কার রোবট — Madhya Pradesh",
+      "stateMadhyaPradeshLabel": "সোলার প্যানেল পরিষ্কার রোবট, Madhya Pradesh",
       "stateMadhyaPradeshTitle": "Madhya Pradesh-এ সোলার প্যানেল পরিষ্কার রোবট",
-      "stateKarnatakaLabel": "সোলার প্যানেল পরিষ্কার রোবট — Karnataka",
+      "stateKarnatakaLabel": "সোলার প্যানেল পরিষ্কার রোবট, Karnataka",
       "stateKarnatakaTitle": "Karnataka-এ সোলার প্যানেল পরিষ্কার রোবট",
-      "stateAndhraPradeshLabel": "সোলার প্যানেল পরিষ্কার রোবট — Andhra Pradesh",
+      "stateAndhraPradeshLabel": "সোলার প্যানেল পরিষ্কার রোবট, Andhra Pradesh",
       "stateAndhraPradeshTitle": "Andhra Pradesh-এ সোলার প্যানেল পরিষ্কার রোবট",
-      "stateMaharashtraLabel": "সোলার প্যানেল পরিষ্কার রোবট — Maharashtra",
+      "stateMaharashtraLabel": "সোলার প্যানেল পরিষ্কার রোবট, Maharashtra",
       "stateMaharashtraTitle": "Maharashtra-এ সোলার প্যানেল পরিষ্কার রোবট",
-      "stateUttarPradeshLabel": "সোলার প্যানেল পরিষ্কার রোবট — Uttar Pradesh",
+      "stateUttarPradeshLabel": "সোলার প্যানেল পরিষ্কার রোবট, Uttar Pradesh",
       "stateUttarPradeshTitle": "Uttar Pradesh-এ সোলার প্যানেল পরিষ্কার রোবট",
-      "stateTamilNaduLabel": "সোলার প্যানেল পরিষ্কার রোবট — Tamil Nadu",
+      "stateTamilNaduLabel": "সোলার প্যানেল পরিষ্কার রোবট, Tamil Nadu",
       "stateTamilNaduTitle": "Tamil Nadu-এ সোলার প্যানেল পরিষ্কার রোবট",
       "projectsAutomaticLabel": "স্বয়ংক্রিয় পরিষ্কার প্রকল্প",
       "projectsAutomaticTitle": "স্বয়ংক্রিয় সোলার পরিষ্কার রোবট প্রকল্প",
@@ -112,16 +118,18 @@
       "cleaningMachineTitle": "Solar panel cleaning machine buyer guide",
       "pressLabel": "Press & media coverage",
       "pressTitle": "Taypro in the news",
-      "stateHaryanaLabel": "Solar Panel Cleaning Robot — Haryana",
+      "stateHaryanaLabel": "Solar Panel Cleaning Robot: Haryana",
       "stateHaryanaTitle": "Solar panel cleaning robots in Haryana",
-      "stateDelhiLabel": "Solar Panel Cleaning Robot — Delhi",
+      "stateDelhiLabel": "Solar Panel Cleaning Robot: Delhi",
       "stateDelhiTitle": "Solar panel cleaning robots in Delhi",
-      "stateWestBengalLabel": "Solar Panel Cleaning Robot — West Bengal",
+      "stateWestBengalLabel": "Solar Panel Cleaning Robot: West Bengal",
       "stateWestBengalTitle": "Solar panel cleaning robots in West Bengal",
-      "stateChhattisgarhLabel": "Solar Panel Cleaning Robot — Chhattisgarh",
+      "stateChhattisgarhLabel": "Solar Panel Cleaning Robot: Chhattisgarh",
       "stateChhattisgarhTitle": "Solar panel cleaning robots in Chhattisgarh",
       "aiIntelligenceLabel": "এআই ইন্টেলিজেন্স লেয়ার",
-      "aiIntelligenceTitle": "Taypro সোলার ক্লিনিং ফ্লিটের জন্য এআই ইন্টেলিজেন্স"
+      "aiIntelligenceTitle": "Taypro সোলার ক্লিনিং ফ্লিটের জন্য এআই ইন্টেলিজেন্স",
+      "insightsLabel": "অন্তর্দৃষ্টি",
+      "insightsTitle": "অন্তর্দৃষ্টি এবং প্রতিবেদন"
     }
   },
   "Common": {

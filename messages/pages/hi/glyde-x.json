@@ -43,6 +43,24 @@
         "title": "GLYDE-X उद्धरण का अनुरोध करें",
         "subtitle": "हमें अपने ट्रैकर प्लांट के बारे में बताएं और हमारी टीम GLYDE-X आकार, ब्रिज-किट आवश्यकताओं और वाणिज्यिक विकल्पों पर काम करेगी।",
         "label": "एक उद्धरण का अनुरोध करें"
+      },
+      "subtitleShort": "एकल-अक्ष ट्रैकर फ़ार्मों के लिए दोहरे-पास स्वायत्त सफाई उद्देश्य से निर्मित।",
+      "secondaryCta": {
+        "label": "360° भ्रमण का अन्वेषण करें"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "±15°",
+          "label": "इंटर-टेबल आर्टिक्यूलेशन"
+        },
+        "stat1": {
+          "value": "3,600",
+          "label": "मॉड्यूल प्रति चार्ज साफ किए गए"
+        },
+        "stat2": {
+          "value": "-52° से +52°",
+          "label": "ट्रैकर झुकाव रेंज"
+        }
       }
     },
     "usps": {
@@ -315,14 +333,14 @@
       "p5Suffix": "।"
     },
     "innovation360": {
-      "badge": "TAYPRO MODEL-T",
+      "badge": "TAYPRO GLYDE-X",
       "title": "सिंगल-एक्सिस ट्रैकर संस्थापनों के लिए स्वायत्त जलरहित सोलर पैनल क्लीनिंग रोबोट",
       "tourEyebrow": "इंटरैक्टिव प्रोडक्ट टूर",
       "tourTitle": "GLYDE-X का 360° दृश्य",
       "tourSubtitleMobile": "बाएँ या दाएँ खींचकर घुमाएँ और हमारे सिंगल-एक्सिस ट्रैकर सोलर पैनल क्लीनिंग रोबोट को हर कोण से देखें।",
       "tourSubtitleDesktop": "बाएँ या दाएँ खींचकर घुमाएँ और हमारे सिंगल-एक्सिस ट्रैकर सोलर पैनल क्लीनिंग रोबोट का अन्वेषण करें।",
       "productLabel": "Taypro GLYDE-X, सिंगल-एक्सिस ट्रैकर के लिए सोलर पैनल क्लीनिंग रोबोट",
-      "innovationTitle": "MODEL-T के पीछे का नवाचार",
+      "innovationTitle": "GLYDE-X के पीछे का नवाचार",
       "innovationBody": "Taypro GLYDE-X उन्नत सेंसर और मशीन लर्निंग का समन्वय है जो सिंगल-एक्सिस ट्रैकर पर सोलर रखरखाव की चुनौतियों को संबोधित करता है। यह वास्तव में स्वायत्त संचालन प्रदान करता है। क्लाउड प्रबंधन से दूरस्थ निगरानी और नियंत्रण संभव है।"
     },
     "howItWorks": {
@@ -559,8 +577,8 @@
       "nyumaXHeader": "NYUMA-X (Single-Pass PBT)",
       "row0": {
         "criterion": "Cleaning Mechanism",
-        "glydeX": "Dual-pass microfiber — airflow plus wipe for mixed soiling",
-        "nyumaX": "Single-pass PBT brush — optimised for dry tracker dust belts"
+        "glydeX": "Dual-pass microfiber, airflow plus wipe for mixed soiling",
+        "nyumaX": "Single-pass PBT brush, optimised for dry tracker dust belts"
       },
       "row1": {
         "criterion": "Tracker Compatibility",
@@ -615,6 +633,10 @@
       "zoomedLeftCaption": "Bridge and cleaning-head detail for inter-table traversal on single-axis trackers.",
       "zoomedRightAlt": "Taypro GLYDE-X solar charging module and drive housing detail",
       "zoomedRightCaption": "On-board solar-assisted charging for extended autonomous tracker cleaning cycles."
+    },
+    "productVisual": {
+      "eyebrow": "उत्पाद एक नज़र में",
+      "title": "Taypro GLYDE-X ट्रैकर सौर पैनल सफाई रोबोट"
     }
   },
   "Common": {

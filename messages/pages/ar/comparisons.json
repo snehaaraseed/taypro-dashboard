@@ -11,7 +11,7 @@
         "lead": "كلا الروبوتين مستقل بالكامل، بدون ماء، ويُداران من NECTYR. GLYDE هو flagship Taypro ببراءة dual-pass microfiber؛ NYUMA منصة PBT single-pass لأساطيل fixed-tilt فعّالة من حيث CAPEX."
       },
       "intro": "كلا الروبوتين مستقل بالكامل، بدون ماء، ويُداران من NECTYR. GLYDE هو flagship Taypro ببراءة dual-pass microfiber؛ NYUMA منصة PBT single-pass لأساطيل fixed-tilt فعّالة من حيث CAPEX.",
-      "tableHeading": "GLYDE vs NYUMA — نظرة عامة",
+      "tableHeading": "GLYDE vs NYUMA: نظرة عامة",
       "columns": {
         "leftLabel": "GLYDE (Dual-Pass Microfiber)",
         "rightLabel": "NYUMA (Single-Pass PBT)"
@@ -20,7 +20,7 @@
         "0": {
           "factor": "تقنية التنظيف",
           "glyde": "Dual-pass patented: تيار هواء يفك الغبار، microfiber يكمل المسح",
-          "nyuma": "أسطوانة فرش PBT دوّارة single-pass — consumables أقل"
+          "nyuma": "أسطوانة فرش PBT دوّارة single-pass, consumables أقل"
         },
         "1": {
           "factor": "الأفضل لـ",
@@ -49,8 +49,8 @@
         },
         "6": {
           "factor": "العمالة بعد التركيب",
-          "glyde": "صفر — دورات يومية مستقلة بالكامل",
-          "nyuma": "صفر — دورات يومية مستقلة بالكامل"
+          "glyde": "صفر, دورات يومية مستقلة بالكامل",
+          "nyuma": "صفر, دورات يومية مستقلة بالكامل"
         },
         "7": {
           "factor": "مراقبة الأسطول",
@@ -61,7 +61,7 @@
       "faq": {
         "0": {
           "q": "هل يمكن تشغيل GLYDE و NYUMA في نفس المحطة؟",
-          "a": "نعم. الأساطيل المختلطة شائعة — GLYDE على الكتل عالية التلوث، NYUMA على الصفوف المحددة PBT. NECTYR يجدول كليهما من بوابة واحدة."
+          "a": "نعم. الأساطيل المختلطة شائعة, GLYDE على الكتل عالية التلوث، NYUMA على الصفوف المحددة PBT. NECTYR يجدول كليهما من بوابة واحدة."
         },
         "1": {
           "q": "أيهما أفضل لغبار Rajasthan؟",
@@ -94,7 +94,7 @@
         "lead": "كلا الروبوتين يعبران NEXTracker وGamechanger وجداول single-axis المماثلة بمرونة ±15° بين الجداول. GLYDE-X يستخدم dual-pass microfiber patented؛ NYUMA-X PBT single-pass لبرامج tracker حساسة لـ CAPEX."
       },
       "intro": "كلا الروبوتين يعبران NEXTracker وGamechanger وجداول single-axis المماثلة بمرونة ±15° بين الجداول. GLYDE-X يستخدم dual-pass microfiber patented؛ NYUMA-X PBT single-pass لبرامج tracker حساسة لـ CAPEX.",
-      "tableHeading": "GLYDE-X vs NYUMA-X — نظرة عامة",
+      "tableHeading": "GLYDE-X vs NYUMA-X: نظرة عامة",
       "columns": {
         "leftLabel": "GLYDE-X (Dual-Pass)",
         "rightLabel": "NYUMA-X (Single-Pass PBT)"
@@ -102,8 +102,8 @@
       "rows": {
         "0": {
           "factor": "آلية التنظيف",
-          "glydeX": "Dual-pass microfiber — airflow + wipe للتلوث المختلط",
-          "nyumaX": "فرش PBT single-pass — محسّن لأحزمة غبار tracker الجافة"
+          "glydeX": "Dual-pass microfiber, airflow + wipe للتلوث المختلط",
+          "nyumaX": "فرش PBT single-pass, محسّن لأحزمة غبار tracker الجافة"
         },
         "1": {
           "factor": "توافق Tracker",
@@ -162,7 +162,7 @@
       "deepDive": {
         "heading": "دليل تعقب RFQ القرار",
         "p1": "Single-axis plants add tilt-angle routing, inter-table flex, and night-window scheduling constraints. GLYDE-X targets premium dust lift where adhesive layers follow dust storms; NYUMA-X fits capex-sensitive tracker portfolios that already standardised on PBT for fixed-tilt blocks.",
-        "p2": "ينشر كلا الروبوتين توافق NEXTracker وGamechanger مع مرونة بين الجداول تبلغ ±15°. تحقق من صحة زوايا التخزين ودرجة ميل الصف — تختلف هندسة جهاز التتبع أكثر من إمكانية تكرار الإمالة الثابتة. يقوم NECTYR بجدولة كلا النموذجين مع مشاركة منطق تعليق الطقس عبر أسطول Taypro.",
+        "p2": "ينشر كلا الروبوتين توافق NEXTracker وGamechanger مع مرونة بين الجداول تبلغ ±15°. تحقق من صحة زوايا التخزين ودرجة ميل الصف, تختلف هندسة جهاز التتبع أكثر من إمكانية تكرار الإمالة الثابتة. يقوم NECTYR بجدولة كلا النموذجين مع مشاركة منطق تعليق الطقس عبر أسطول Taypro.",
         "p3": "الأساطيل المختلطة شائعة: GLYDE-X في كتل التتبع عالية الاتساخ، NYUMA-X في الجداول المحددة PBT، والإمالة الثابتة GLYDE أو NYUMA في الأقسام غير المتعقبة. تغطي بوابة NECTYR واحدة الأسطول المدمج لإعداد تقارير مدير الأصول."
       }
     },
@@ -232,8 +232,8 @@
         },
         "4": {
           "factor": "روبوت متوافق مع جهاز التعقب",
-          "taypro": "نعم — GLYDE-X (تمرير مزدوج) وNYUMA-X (PBT)، مصمم خصيصًا لأجهزة التتبع أحادية المحور",
-          "solabot": "نعم — SB-04T",
+          "taypro": "نعم, GLYDE-X (تمرير مزدوج) وNYUMA-X (PBT)، مصمم خصيصًا لأجهزة التتبع أحادية المحور",
+          "solabot": "نعم, SB-04T",
           "aegeus": "لم يتم تأكيده على الموقع",
           "skilancer": "لم يتم تأكيده على الموقع",
           "vayu": "لم يتم تأكيده على الموقع"
@@ -241,7 +241,7 @@
         "5": {
           "factor": "روبوت على السطح",
           "taypro": "MINY (قريبًا)",
-          "solabot": "نعم — إس بي-آر تي",
+          "solabot": "نعم, إس بي-آر تي",
           "aegeus": "نعم – شريم",
           "skilancer": "لم يذكر",
           "vayu": "لم يذكر"
@@ -256,8 +256,8 @@
         },
         "7": {
           "factor": "برنامج مراقبة الأسطول",
-          "taypro": "NECTYR — الجداول، وسجلات التنظيف المجمعة، SCADA، AMC التذاكر، تقارير التصدير",
-          "solabot": "SB-SCADA — التحكم المركزي SCADA",
+          "taypro": "NECTYR: الجداول، وسجلات التنظيف المجمعة، SCADA، AMC التذاكر، تقارير التصدير",
+          "solabot": "SB-SCADA: التحكم المركزي SCADA",
           "aegeus": "LoRaWAN-based remote monitoring and diagnostics",
           "skilancer": "واجهة سحابية للكمبيوتر/الهاتف المحمول",
           "vayu": "المراقبة اللاسلكية عن بعد (الأساسية)"
@@ -272,9 +272,9 @@
         },
         "9": {
           "factor": "OPEX / الخدمة المُدارة",
-          "taypro": "نعم — OPEX: تنظيف الدفع لكل لوحة، Taypro يقوم بتشغيل الأسطول",
+          "taypro": "نعم, OPEX: تنظيف الدفع لكل لوحة، Taypro يقوم بتشغيل الأسطول",
           "solabot": "لم يذكر على الموقع",
-          "aegeus": "نعم — MCaaS (تنظيف الآلة كخدمة)",
+          "aegeus": "نعم, MCaaS (تنظيف الآلة كخدمة)",
           "skilancer": "لم يذكر بوضوح",
           "vayu": "لم يذكر بوضوح"
         },
@@ -304,7 +304,7 @@
         },
         "13": {
           "factor": "شهادات الأجهزة",
-          "taypro": "TÜV NORD، NISE، UL، Karandikar Labs & Elca Labs — سلامة الوحدة المكافئة لمدة 30 عامًا، IP65، التفريغ الساكن، والاهتزاز، والحرارة الرطبة، والحرارة الجافة (ضمن الحدود الآمنة)",
+          "taypro": "TÜV NORD، NISE، UL، Karandikar Labs & Elca Labs: سلامة الوحدة المكافئة لمدة 30 عامًا، IP65، التفريغ الساكن، والاهتزاز، والحرارة الرطبة، والحرارة الجافة (ضمن الحدود الآمنة)",
           "solabot": "لم يذكر",
           "aegeus": "UL الهند المعتمدة",
           "skilancer": "لم يذكر",
@@ -320,7 +320,7 @@
         },
         "15": {
           "factor": "دعم الأعطال في نفس اليوم",
-          "taypro": "نعم — عموم الهند، NECTYR التشخيص عن بعد + المهندسين الميدانيين",
+          "taypro": "نعم, عموم الهند، NECTYR التشخيص عن بعد + المهندسين الميدانيين",
           "solabot": "مهندسو الخدمة في 8 ولايات",
           "aegeus": "غير محدد",
           "skilancer": "غير محدد",
@@ -352,11 +352,11 @@
           },
           "1": {
             "title": "الشركة الوحيدة التي لديها روبوتات تعقب مخصصة عبر تقنيتين للتنظيف",
-            "body": "يقدم Taypro روبوتات متوافقة مع جهاز التتبع في كل من تقنيات التنظيف — <glydeX>GLYDE-X</glydeX> للألياف الدقيقة ذات المرور المزدوج و<nyumaX>NYUMA-X</nyumaX> لـ PBT — كلاهما مصمم خصيصًا لمحطات التتبع أحادية المحور ذات الأجسام المرنة ومفاصل الجسور بزاوية 360 درجة. Solabot يقدم SB-04T لأجهزة التتبع. Aegeus، Skilancer، وVayu لا يؤكدون دعم المتعقب على مواقعهم الإلكترونية."
+            "body": "يقدم Taypro روبوتات متوافقة مع جهاز التتبع في كل من تقنيات التنظيف, <glydeX>GLYDE-X</glydeX> للألياف الدقيقة ذات المرور المزدوج و<nyumaX>NYUMA-X</nyumaX> لـ PBT: كلاهما مصمم خصيصًا لمحطات التتبع أحادية المحور ذات الأجسام المرنة ومفاصل الجسور بزاوية 360 درجة. Solabot يقدم SB-04T لأجهزة التتبع. Aegeus، Skilancer، وVayu لا يؤكدون دعم المتعقب على مواقعهم الإلكترونية."
           },
           "2": {
             "title": "برنامج الأسطول الأكثر شمولاً",
-            "body": "NECTYR supports LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN — five connectivity options sized per site by Taypro engineers during commissioning. Competitors offer single-protocol solutions: Aegeus uses LoRaWAN, Solabot uses SCADA (protocol unspecified). NECTYR also includes block-wise scheduling, cleaning logs, AMC ticketing, and investor-grade report exports — features not published by any competitor."
+            "body": "NECTYR supports LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN: five connectivity options sized per site by Taypro engineers during commissioning. Competitors offer single-protocol solutions: Aegeus uses LoRaWAN, Solabot uses SCADA (protocol unspecified). NECTYR also includes block-wise scheduling, cleaning logs, AMC ticketing, and investor-grade report exports, features not published by any competitor."
           },
           "3": {
             "title": "أجهزة متعددة المختبرات وشهادات سلامة الوحدات",
@@ -460,14 +460,14 @@
       },
       "deepDive": {
         "heading": "MW-مقارنة مقياس التكلفة والتدقيق",
-        "p1": "Manual programmes hide cost in variable labour and water — easy to under-budget in year one, expensive when dust season demands weekly washes. Robots front-load CAPEX or convert to OPEX per panel cleaned, with block-level logs exportable for PR recovery analysis.",
+        "p1": "Manual programmes hide cost in variable labour and water, easy to under-budget in year one, expensive when dust season demands weekly washes. Robots front-load CAPEX or convert to OPEX per panel cleaned, with block-level logs exportable for PR recovery analysis.",
         "p2": "يحتاج مديرو الأصول بموجب ضمانات الأداء إلى دليل على أن التنظيف قد حدث في الموعد المحدد. NECTYR مسارات الطوابع الزمنية والاستثناءات ومقايضة البطارية؛ غالبًا ما تعتمد البرامج اليدوية على الصور وأوراق التوقيع التي لا يمكن قياسها عبر أكثر من 200 كتلة.",
         "p3": "ويعتمد التعادل على فقدان التلوث، والتعريفة، وتكرار الدورة - وليس على سعر كتيب الروبوت وحده. قم بتصميم مصنعك باستخدام حاسبة تنظيف الألواح الشمسية ROI، ثم تحقق من صحته من خلال مراجعة تخطيط Taypro."
       }
     },
     "tayproVsSolabot": {
       "meta": {
-        "title": "Taypro مقابل Solabot — مقارنة روبوت التنظيف بالطاقة الشمسية في الهند",
+        "title": "Taypro مقابل Solabot: مقارنة روبوت التنظيف بالطاقة الشمسية في الهند",
         "description": "مقارنة تم التحقق منها بين تقنيات Taypro وSolabot: التنظيف المزدوج مقابل PBT، وروبوتات التتبع، وNECTYR مقابل SCADA، والشهادات متعددة المختبرات، ونماذج OPEX. البيانات من المواقع الرسمية، يونيو 2026."
       },
       "hero": {
@@ -501,13 +501,13 @@
         },
         "4": {
           "factor": "روبوت متوافق مع جهاز التعقب",
-          "taypro": "نعم — GLYDE-X (تمرير مزدوج) وNYUMA-X (PBT)، مصمم خصيصًا لأجهزة التتبع أحادية المحور",
-          "competitor": "نعم — SB-04T"
+          "taypro": "نعم, GLYDE-X (تمرير مزدوج) وNYUMA-X (PBT)، مصمم خصيصًا لأجهزة التتبع أحادية المحور",
+          "competitor": "نعم, SB-04T"
         },
         "5": {
           "factor": "روبوت على السطح",
           "taypro": "MINY (قريبًا)",
-          "competitor": "نعم — إس بي-آر تي"
+          "competitor": "نعم, إس بي-آر تي"
         },
         "6": {
           "factor": "التغطية لكل تهمة",
@@ -516,8 +516,8 @@
         },
         "7": {
           "factor": "برنامج مراقبة الأسطول",
-          "taypro": "NECTYR — الجداول، وسجلات التنظيف المجمعة، SCADA، AMC التذاكر، تقارير التصدير",
-          "competitor": "SB-SCADA — التحكم المركزي SCADA"
+          "taypro": "NECTYR: الجداول، وسجلات التنظيف المجمعة، SCADA، AMC التذاكر، تقارير التصدير",
+          "competitor": "SB-SCADA: التحكم المركزي SCADA"
         },
         "8": {
           "factor": "خيارات الاتصال",
@@ -526,7 +526,7 @@
         },
         "9": {
           "factor": "OPEX / الخدمة المُدارة",
-          "taypro": "نعم — OPEX: تنظيف الدفع لكل لوحة، Taypro يقوم بتشغيل الأسطول",
+          "taypro": "نعم, OPEX: تنظيف الدفع لكل لوحة، Taypro يقوم بتشغيل الأسطول",
           "competitor": "لم يذكر على الموقع"
         },
         "10": {
@@ -546,7 +546,7 @@
         },
         "13": {
           "factor": "شهادات الأجهزة",
-          "taypro": "TÜV NORD، NISE، UL، Karandikar Labs & Elca Labs — سلامة الوحدة المكافئة لمدة 30 عامًا، IP65، التفريغ الساكن، والاهتزاز، والحرارة الرطبة، والحرارة الجافة (ضمن الحدود الآمنة)",
+          "taypro": "TÜV NORD، NISE، UL، Karandikar Labs & Elca Labs: سلامة الوحدة المكافئة لمدة 30 عامًا، IP65، التفريغ الساكن، والاهتزاز، والحرارة الرطبة، والحرارة الجافة (ضمن الحدود الآمنة)",
           "competitor": "لم يذكر"
         },
         "14": {
@@ -556,7 +556,7 @@
         },
         "15": {
           "factor": "دعم الأعطال في نفس اليوم",
-          "taypro": "نعم — عموم الهند، NECTYR التشخيص عن بعد + المهندسين الميدانيين",
+          "taypro": "نعم, عموم الهند، NECTYR التشخيص عن بعد + المهندسين الميدانيين",
           "competitor": "مهندسو الخدمة في 8 ولايات"
         },
         "16": {
@@ -598,7 +598,7 @@
         },
         "1": {
           "q": "هل يحل Taypro محل Solabot في المصانع الموجودة؟",
-          "a": "يتم نشر Taypro في مواقع المرافق الجديدة والتحديثية. يعتمد الترحيل على توافق الإرساء وشروط العقد O&M—النطاق في العناية الواجبة الفنية."
+          "a": "يتم نشر Taypro في مواقع المرافق الجديدة والتحديثية. يعتمد الترحيل على توافق الإرساء وشروط العقد O&M, النطاق في العناية الواجبة الفنية."
         },
         "2": {
           "q": "لماذا ينشر Solabot عددًا من الروبوتات أكثر من Taypro؟",
@@ -608,7 +608,7 @@
     },
     "tayproVsSkilancer": {
       "meta": {
-        "title": "Taypro مقابل Skilancer — مقارنة روبوت التنظيف بالطاقة الشمسية في الهند",
+        "title": "Taypro مقابل Skilancer: مقارنة روبوت التنظيف بالطاقة الشمسية في الهند",
         "description": "مقارنة تم التحقق منها بين Taypro وSkilancer الطاقة الشمسية: براءات الاختراع المزدوجة، وروبوتات التتبع، وبرنامج الأسطول NECTYR، وGW المقياس مقابل عدد المشاريع، ونماذج OPEX. البيانات من المواقع الرسمية، يونيو 2026."
       },
       "hero": {
@@ -642,7 +642,7 @@
         },
         "4": {
           "factor": "روبوت متوافق مع جهاز التعقب",
-          "taypro": "نعم — GLYDE-X (تمرير مزدوج) وNYUMA-X (PBT)، مصمم خصيصًا لأجهزة التتبع أحادية المحور",
+          "taypro": "نعم, GLYDE-X (تمرير مزدوج) وNYUMA-X (PBT)، مصمم خصيصًا لأجهزة التتبع أحادية المحور",
           "competitor": "لم يتم تأكيده على الموقع"
         },
         "5": {
@@ -657,7 +657,7 @@
         },
         "7": {
           "factor": "برنامج مراقبة الأسطول",
-          "taypro": "NECTYR — الجداول، وسجلات التنظيف المجمعة، SCADA، AMC التذاكر، تقارير التصدير",
+          "taypro": "NECTYR: الجداول، وسجلات التنظيف المجمعة، SCADA، AMC التذاكر، تقارير التصدير",
           "competitor": "المراقبة عن بعد المستندة إلى السحابة، واجهة الكمبيوتر/الهاتف المحمول"
         },
         "8": {
@@ -667,7 +667,7 @@
         },
         "9": {
           "factor": "OPEX / الخدمة المُدارة",
-          "taypro": "نعم — OPEX: تنظيف الدفع لكل لوحة، Taypro يقوم بتشغيل الأسطول",
+          "taypro": "نعم, OPEX: تنظيف الدفع لكل لوحة، Taypro يقوم بتشغيل الأسطول",
           "competitor": "لم يذكر بوضوح على الموقع"
         },
         "10": {
@@ -687,7 +687,7 @@
         },
         "13": {
           "factor": "شهادات الأجهزة",
-          "taypro": "TÜV NORD، NISE، UL، Karandikar Labs & Elca Labs — سلامة الوحدة المكافئة لمدة 30 عامًا، IP65، التفريغ الساكن، والاهتزاز، والحرارة الرطبة، والحرارة الجافة (ضمن الحدود الآمنة)",
+          "taypro": "TÜV NORD، NISE، UL، Karandikar Labs & Elca Labs: سلامة الوحدة المكافئة لمدة 30 عامًا، IP65، التفريغ الساكن، والاهتزاز، والحرارة الرطبة، والحرارة الجافة (ضمن الحدود الآمنة)",
           "competitor": "لم يذكر"
         },
         "14": {
@@ -697,7 +697,7 @@
         },
         "15": {
           "factor": "دعم الأعطال في نفس اليوم",
-          "taypro": "نعم — عموم الهند، NECTYR التشخيص عن بعد + المهندسين الميدانيين",
+          "taypro": "نعم, عموم الهند، NECTYR التشخيص عن بعد + المهندسين الميدانيين",
           "competitor": "غير محدد"
         },
         "16": {
@@ -749,7 +749,7 @@
     },
     "tayproVsAegeus": {
       "meta": {
-        "title": "Taypro مقابل Aegeus — مقارنة روبوت التنظيف بالطاقة الشمسية في الهند",
+        "title": "Taypro مقابل Aegeus: مقارنة روبوت التنظيف بالطاقة الشمسية في الهند",
         "description": "Verified comparison of Taypro and Aegeus Technologies: dual-pass vs Airwash cleaning, tracker robots, NECTYR vs LoRaWAN, multi-laboratory Taypro certifications, and OPEX vs MCaaS. Data from official websites, June 2026."
       },
       "hero": {
@@ -783,7 +783,7 @@
         },
         "4": {
           "factor": "روبوت متوافق مع جهاز التعقب",
-          "taypro": "نعم — GLYDE-X (تمرير مزدوج) وNYUMA-X (PBT)، مصمم خصيصًا لأجهزة التتبع أحادية المحور",
+          "taypro": "نعم, GLYDE-X (تمرير مزدوج) وNYUMA-X (PBT)، مصمم خصيصًا لأجهزة التتبع أحادية المحور",
           "competitor": "لم يتم تأكيده على الموقع"
         },
         "5": {
@@ -798,7 +798,7 @@
         },
         "7": {
           "factor": "برنامج مراقبة الأسطول",
-          "taypro": "NECTYR — الجداول، وسجلات التنظيف المجمعة، SCADA، AMC التذاكر، تقارير التصدير",
+          "taypro": "NECTYR: الجداول، وسجلات التنظيف المجمعة، SCADA، AMC التذاكر، تقارير التصدير",
           "competitor": "LoRaWAN-based remote monitoring and diagnostics"
         },
         "8": {
@@ -808,8 +808,8 @@
         },
         "9": {
           "factor": "OPEX / الخدمة المُدارة",
-          "taypro": "نعم — OPEX: تنظيف الدفع لكل لوحة، Taypro يقوم بتشغيل الأسطول",
-          "competitor": "نعم — MCaaS (تنظيف الآلة كخدمة)"
+          "taypro": "نعم, OPEX: تنظيف الدفع لكل لوحة، Taypro يقوم بتشغيل الأسطول",
+          "competitor": "نعم, MCaaS (تنظيف الآلة كخدمة)"
         },
         "10": {
           "factor": "القدرة المنتشرة",
@@ -828,7 +828,7 @@
         },
         "13": {
           "factor": "شهادات الأجهزة",
-          "taypro": "TÜV NORD، NISE، UL، Karandikar Labs & Elca Labs — سلامة الوحدة المكافئة لمدة 30 عامًا، IP65، التفريغ الساكن، والاهتزاز، والحرارة الرطبة، والحرارة الجافة (ضمن الحدود الآمنة)",
+          "taypro": "TÜV NORD، NISE، UL، Karandikar Labs & Elca Labs: سلامة الوحدة المكافئة لمدة 30 عامًا، IP65، التفريغ الساكن، والاهتزاز، والحرارة الرطبة، والحرارة الجافة (ضمن الحدود الآمنة)",
           "competitor": "UL الهند المعتمدة"
         },
         "14": {
@@ -838,7 +838,7 @@
         },
         "15": {
           "factor": "دعم الأعطال في نفس اليوم",
-          "taypro": "نعم — عموم الهند، NECTYR التشخيص عن بعد + المهندسين الميدانيين",
+          "taypro": "نعم, عموم الهند، NECTYR التشخيص عن بعد + المهندسين الميدانيين",
           "competitor": "غير محدد"
         },
         "16": {
@@ -861,7 +861,7 @@
           },
           "1": {
             "title": "NECTYR اتصال متعدد البروتوكولات",
-            "body": "NECTYR supports five connectivity options sized per site. Aegeus relies on LoRaWAN only — a single-protocol solution that may not suit all plant network topologies."
+            "body": "NECTYR supports five connectivity options sized per site. Aegeus relies on LoRaWAN only, a single-protocol solution that may not suit all plant network topologies."
           },
           "2": {
             "title": "5 GW+ تم نشرها مع إثبات على مستوى المصنع",
@@ -890,7 +890,7 @@
     },
     "tayproVsVayu": {
       "meta": {
-        "title": "Taypro مقابل Vayu Solar — مقارنة روبوت التنظيف بالطاقة الشمسية في الهند",
+        "title": "Taypro مقابل Vayu Solar: مقارنة روبوت التنظيف بالطاقة الشمسية في الهند",
         "description": "تم التحقق من المقارنة بين Taypro وVayu Solar: براءات الاختراع ذات المرور المزدوج، وروبوتات التتبع، وبرنامج الأسطول NECTYR، وقدرة النشر 5 GW+. البيانات من المواقع الرسمية، يونيو 2026."
       },
       "hero": {
@@ -924,7 +924,7 @@
         },
         "4": {
           "factor": "روبوت متوافق مع جهاز التعقب",
-          "taypro": "نعم — GLYDE-X (تمرير مزدوج) وNYUMA-X (PBT)، مصمم خصيصًا لأجهزة التتبع أحادية المحور",
+          "taypro": "نعم, GLYDE-X (تمرير مزدوج) وNYUMA-X (PBT)، مصمم خصيصًا لأجهزة التتبع أحادية المحور",
           "competitor": "لم يتم تأكيده على الموقع"
         },
         "5": {
@@ -939,7 +939,7 @@
         },
         "7": {
           "factor": "برنامج مراقبة الأسطول",
-          "taypro": "NECTYR — الجداول، وسجلات التنظيف المجمعة، SCADA، AMC التذاكر، تقارير التصدير",
+          "taypro": "NECTYR: الجداول، وسجلات التنظيف المجمعة، SCADA، AMC التذاكر، تقارير التصدير",
           "competitor": "المراقبة اللاسلكية عن بعد (الأساسية)"
         },
         "8": {
@@ -949,7 +949,7 @@
         },
         "9": {
           "factor": "OPEX / الخدمة المُدارة",
-          "taypro": "نعم — OPEX: تنظيف الدفع لكل لوحة، Taypro يقوم بتشغيل الأسطول",
+          "taypro": "نعم, OPEX: تنظيف الدفع لكل لوحة، Taypro يقوم بتشغيل الأسطول",
           "competitor": "لم يذكر بوضوح على الموقع"
         },
         "10": {
@@ -969,7 +969,7 @@
         },
         "13": {
           "factor": "شهادات الأجهزة",
-          "taypro": "TÜV NORD، NISE، UL، Karandikar Labs & Elca Labs — سلامة الوحدة المكافئة لمدة 30 عامًا، IP65، التفريغ الساكن، والاهتزاز، والحرارة الرطبة، والحرارة الجافة (ضمن الحدود الآمنة)",
+          "taypro": "TÜV NORD، NISE، UL، Karandikar Labs & Elca Labs: سلامة الوحدة المكافئة لمدة 30 عامًا، IP65، التفريغ الساكن، والاهتزاز، والحرارة الرطبة، والحرارة الجافة (ضمن الحدود الآمنة)",
           "competitor": "لم يذكر"
         },
         "14": {
@@ -979,7 +979,7 @@
         },
         "15": {
           "factor": "دعم الأعطال في نفس اليوم",
-          "taypro": "نعم — عموم الهند، NECTYR التشخيص عن بعد + المهندسين الميدانيين",
+          "taypro": "نعم, عموم الهند، NECTYR التشخيص عن بعد + المهندسين الميدانيين",
           "competitor": "غير محدد"
         },
         "16": {

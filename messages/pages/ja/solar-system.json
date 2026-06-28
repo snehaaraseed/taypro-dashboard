@@ -175,7 +175,8 @@
       },
       "secondaryCta": "ROIを計算",
       "heroImageAlt": "Taypro洗浄ロボット, GLYDE自動、HELYX半自動、GLYDE-Xトラッカー、インド大規模発電所",
-      "heroImageTitle": "Tayproのソーラーパネル洗浄ロボット"
+      "heroImageTitle": "Tayproのソーラーパネル洗浄ロボット",
+      "subtitleShort": "Waterless robots for India's utility-scale plants — GLYDE, HELYX, GLYDE-X, NYUMA, and managed cleaning. CAPEX or pay-per-panel service."
     },
     "heroStats": {
       "stat0": {
@@ -308,7 +309,7 @@
       },
       "accessoryEyebrow": "フリートアクセサリ",
       "accessoryTitle": "分散プラントでロボットの到達範囲を拡大",
-      "accessorySubtitle": "CRADYLは本日提供中 — エンドレール上の自律行間ドッキング。",
+      "accessorySubtitle": "CRADYLは本日提供中, エンドレール上の自律行間ドッキング。",
       "accessoryHighlights": {
         "cradyl": {
           "eyebrow": "ドッキング · 行間移動",
@@ -468,7 +469,7 @@
       "videoTitle": "大規模発電所でのTaypro洗浄を見る",
       "videoCaption": "インドの大規模サイトで稼働する水なし自律ソーラー洗浄ロボット。",
       "transcriptToggle": "Video transcript (for accessibility & search)",
-      "transcriptP1": "This overview shows Taypro autonomous solar panel cleaning robots operating on utility-scale arrays in India. Robots traverse fixed-tilt rows using waterless dual-pass cleaning — airflow lifts dry dust, then microfiber completes the wipe without water or detergents.",
+      "transcriptP1": "This overview shows Taypro autonomous solar panel cleaning robots operating on utility-scale arrays in India. Robots traverse fixed-tilt rows using waterless dual-pass cleaning, airflow lifts dry dust, then microfiber completes the wipe without water or detergents.",
       "transcriptP2": "Fleet schedules and completion data feed into NECTYR, Taypro's monitoring portal, so O&M teams can audit block-wise cleaning history alongside inverter performance. Deployments combine GLYDE and NYUMA-class robots depending on row geometry and soiling class.",
       "transcriptP3": "For procurement teams comparing cleaning machines and robots, Taypro offers CAPEX purchase with AMC or Opex pay-per-panel-cleaned service on the same hardware platforms shown in the field footage."
     },
@@ -496,7 +497,7 @@
       },
       "stateGuides": {
         "heading": "地域別導入ガイド",
-        "intro": "州別のソーラーパネル洗浄ロボット — 汚れ状況、稼働事例、RFQガイダンス:",
+        "intro": "州別のソーラーパネル洗浄ロボット, 汚れ状況、稼働事例、RFQガイダンス:",
         "rajasthan": "Rajasthan",
         "gujarat": "Gujarat",
         "madhyaPradesh": "Madhya Pradesh",
@@ -846,7 +847,7 @@
     "clients": {
       "heading": "Trusted by India's leading solar operators",
       "trustedBy": "Trusted by {names} and other IPPs, EPCs, and C&I operators deploying Taypro cleaning robots across India.",
-      "logoAlt": "{name} — Taypro solar cleaning robot customer",
+      "logoAlt": "{name}, Taypro solar cleaning robot customer",
       "logoTitle": "{name}"
     },
     "consoleBand": {

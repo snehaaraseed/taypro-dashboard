@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { listAllBlogs } from "@/lib/cms/blogService";
+import { canonicalBlogHref } from "@/lib/seo/redirected-blog-slugs";
 
 import type { TayproLocale } from "@/i18n/markets";
 
@@ -26,7 +27,7 @@ export async function GET(request: Request) {
     const metadataList = await listAllBlogs(false, locale);
     const allBlogs: DynamicBlog[] = metadataList.map((metadata) => ({
       ...metadata,
-      href: `/blog/${metadata.slug}`,
+      href: canonicalBlogHref(metadata.slug),
       source: "db",
     }));
 

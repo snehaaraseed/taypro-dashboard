@@ -134,6 +134,7 @@ export function classifyGenerationFailure(error: unknown): GenerationFailureKind
     msg.includes("Project too similar") ||
     msg.includes("Keyword \"") ||
     msg.includes("competitor-led") ||
+    msg.includes("Rank-readiness gate failed") ||
     msg.includes("Generated title or meta description was too generic")
   ) {
     return "new_contract";
@@ -157,10 +158,10 @@ export function classifyGenerationFailure(error: unknown): GenerationFailureKind
   return "fatal";
 }
 
-/** Optional dev/staging safety cap. Unset = retry with new topics until Gemini quota. */
+/** Default v2 cap: primary + backup per day. Unset env still applies 2. Set 0 to disable cap. */
 export function getBlogPipelineMaxOuterAttempts(): number | null {
   const raw = process.env.BLOG_PIPELINE_MAX_OUTER_ATTEMPTS?.trim();
-  if (!raw) return null;
+  if (!raw) return 2;
   const parsed = Number.parseInt(raw, 10);
   return Number.isFinite(parsed) && parsed > 0 ? parsed : null;
 }

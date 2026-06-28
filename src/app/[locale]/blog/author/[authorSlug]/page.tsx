@@ -16,6 +16,7 @@ import { getStoredAuthors } from "@/app/utils/blogAuthorsStore";
 import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
 import { shouldServeImageUnoptimized } from "@/lib/site-images";
 import { withHreflang } from "@/lib/seo/with-hreflang";
+import { canonicalBlogHref } from "@/lib/seo/redirected-blog-slugs";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
 
@@ -239,7 +240,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {authorBlogs.map((blog) => (
               <Link
-                href={`/blog/${blog.slug}`}
+                href={canonicalBlogHref(blog.slug)}
                 key={blog.slug}
                 className="group block border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
               >

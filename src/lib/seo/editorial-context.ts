@@ -26,13 +26,13 @@ function parseAutomationSeoKeyword(category?: string): string | null {
  * Kept in code so production prompts stay stable without parsing markdown at runtime.
  */
 const STRATEGY_CORE = `EDITORIAL STRATEGY (Taypro India):
-- Funnel: Rank for the full plant stack—panel prices, manufacturers, inverters, brushes, trackers, suppliers—because today's equipment buyer is tomorrow's O&M buyer. Taypro sells cleaning robots but NOT every post should pitch them.
+- Funnel: Rank for the full plant stack, panel prices, manufacturers, inverters, brushes, trackers, suppliers, because today's equipment buyer is tomorrow's O&M buyer. Taypro sells cleaning robots but NOT every post should pitch them.
 - Audience: Utility-scale asset owners, EPC, O&M (MW plants), plus high-intent researchers comparing panels/inverters/BOS who will operate or commission large sites in India.
 - Business: Taypro sells autonomous waterless solar panel cleaning robots and plant O&M solutions, NOT PV modules or panel resale.
-- Blog role (Tier B): Buyer guides, comparisons, how-to, equipment and price context—answer the search keyword first. Bridge to cleaning/O&M only when the keyword is cleaning-, soiling-, or robot-relevant.
+- Blog role (Tier B): Buyer guides, comparisons, how-to, equipment and price context, answer the search keyword first. Bridge to cleaning/O&M only when the keyword is cleaning-, soiling-, or robot-relevant.
 - Internal links: include ≥2 links to related published posts (href="/blog/slug") plus optional pillar pages only when discussing cleaning methods. Suggested pillar paths when relevant:
 ${formatPillarLinkPathsForPrompt()}
-- For panel price / manufacturer / inverter keywords: authoritative India utility & C&I buyer angle—specs, capex, warranty/O&M implications. Do NOT default the whole post to robotic cleaning.
+- For panel price / manufacturer / inverter keywords: authoritative India utility & C&I buyer angle, specs, capex, warranty/O&M implications. Do NOT default the whole post to robotic cleaning.
 - Content gaps: robot vs brush TCO (cleaning keywords only), cleaning frequency, dust/soiling and PR, equipment buyer checklists.
 - Do NOT target: "near me" local spam, foreign (non-India) city names, residential DIY, unrelated trades (gutters), jobs/license spam, student PDF intent.
 - Ranking goal: link-worthy for operators and equipment researchers; cross-link related blog topics; pillar links only when on-topic.`;
@@ -113,7 +113,7 @@ export async function formatEditorialContextPrompt(): Promise<string> {
     stalePosts.length > 0
       ? stalePosts.map(
           (p) =>
-            `  - ${p.title} (${p.daysSinceUpdate}d since update) — write NEW angles, do not duplicate`
+            `  - ${p.title} (${p.daysSinceUpdate}d since update), write NEW angles, do not duplicate`
         )
       : ["  - (none flagged)"];
 
@@ -132,7 +132,7 @@ ${usedLines.join("\n")}
 Suggested angles not obvious in recent titles (pick one if it fits today's keyword):
 ${gapHints.length > 0 ? gapHints.join("\n") : "  - (cover the primary SEO keyword with a fresh utility-scale angle)"}
 
-Editorial queue (automation picks next unused): ${nextQueued ? `"${nextQueued}"` : "(queue complete — pool selection)"}
+Editorial queue (automation picks next unused): ${nextQueued ? `"${nextQueued}"` : "(queue complete, pool selection)"}
 
 Stale posts (do not cannibalize; if covering same theme, add new data/angle):
 ${staleLines.join("\n")}

@@ -95,7 +95,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       message:
-        "Thank you — your application has been submitted. Our team will review it and get back to you.",
+        "Thank you, your application has been submitted. Our team will review it and get back to you.",
       applicantId,
     });
   } catch (error) {

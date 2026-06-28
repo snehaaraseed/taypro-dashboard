@@ -18,7 +18,7 @@
     "hero": {
       "eyebrow": "Enterprise · Multi-site",
       "title": "Enterprise solar cleaning partnership for IPP & CPSU portfolios",
-      "subtitle": "One vendor for robots, operators, spares, and NECTYR data across 50–500 MW sites — structured SLAs, pan-India mobilisation, and audit-ready reporting for SECI, DVC, and institutional asset owners.",
+      "subtitle": "One vendor for robots, operators, spares, and NECTYR data across 50–500 MW sites, structured SLAs, pan-India mobilisation, and audit-ready reporting for SECI, DVC, and institutional asset owners.",
       "ctaPrimary": "Request enterprise proposal",
       "ctaPrimaryHref": "/contact",
       "ctaSecondary": "Large-scale capability",
@@ -31,7 +31,7 @@
         "tag": "References",
         "stat": "360 MW",
         "label": "Largest single-site deployment",
-        "body": "Akhadana Rajasthan — multi-robot GLYDE fleet at production scale."
+        "body": "Akhadana Rajasthan: multi-robot GLYDE fleet at production scale."
       },
       "card1": {
         "tag": "Response",
@@ -55,7 +55,7 @@
     "cards": {
       "eyebrow": "Partnership scope",
       "heading": "What enterprise solar cleaning partnership includes",
-      "subheading": "Beyond single-site RFQ — portfolio economics and governance.",
+      "subheading": "Beyond single-site RFQ: portfolio economics and governance.",
       "card0": {
         "title": "Standardised commercial framework",
         "body": "CAPEX, OPEX, or blended models across plants with consistent NECTYR measurement rules."
@@ -70,7 +70,7 @@
       },
       "card3": {
         "title": "Single accountable vendor",
-        "body": "Robots, operators, spares, software — not disconnected crews and spreadsheets per state."
+        "body": "Robots, operators, spares, software, not disconnected crews and spreadsheets per state."
       },
       "card4": {
         "title": "Portfolio PR reviews",
@@ -83,11 +83,11 @@
     },
     "prose": {
       "eyebrow": "Partnership model",
-      "heading": "Multi-site IPP cleaning — why one partner beats state-wise crews",
-      "p1": "Portfolio asset managers face inconsistent cleaning quality when every state uses a different labour contractor. Enterprise partnership standardises robots, SOPs, NECTYR reporting, and SLA response across plants — one governance model for Rajasthan dust and Karnataka humidity alike.",
+      "heading": "Multi-site IPP cleaning, why one partner beats state-wise crews",
+      "p1": "Portfolio asset managers face inconsistent cleaning quality when every state uses a different labour contractor. Enterprise partnership standardises robots, SOPs, NECTYR reporting, and SLA response across plants, one governance model for Rajasthan dust and Karnataka humidity alike.",
       "p2": "Taypro deploys on SECI, DVC, state discom, and IPP references from 50 MW to 360 MW single sites. Bachau DVC 300 MW (172 GLYDE), Neneva 250 MW trackers, and Akhadana 360 MW demonstrate robots-per-MW planning at institutional scale.",
       "p3": "Commercial models flex per asset: OPEX on balance-sheet-sensitive holdings, CAPEX on core 20-year assets, hybrid transitions after proven PR recovery. Finance committees model both in the ROI calculator before portfolio master agreements.",
-      "p4": "Scope boundary remains clear: Taypro owns cleaning execution and fleet data. HV switching, inverter maintenance, and tracker mechanical work stay with your EPC or electrical O&M partner — we integrate via schedule coordination, not scope creep.",
+      "p4": "Scope boundary remains clear: Taypro owns cleaning execution and fleet data. HV switching, inverter maintenance, and tracker mechanical work stay with your EPC or electrical O&M partner, we integrate via schedule coordination, not scope creep.",
       "linkPrimary": "National service overview",
       "linkPrimaryHref": "/solar-panel-cleaning-service-india",
       "linkSecondary": "CAPEX vs OPEX guide",
@@ -95,12 +95,12 @@
     },
     "steps": {
       "eyebrow": "Onboarding",
-      "heading": "Enterprise partnership mobilisation — five phases",
+      "heading": "Enterprise partnership mobilisation, five phases",
       "subheading": "From portfolio discovery to governed operations.",
       "step0Title": "Portfolio discovery workshop",
       "step0Body": "MW per site, states, installation mix, current cleaning spend, SECI/IPP context, and target PR assumptions.",
       "step1Title": "Master commercial framework",
-      "step1Body": "CAPEX/OPEX per plant or blended enterprise rates — aligned to NECTYR measurement and SLA tiers.",
+      "step1Body": "CAPEX/OPEX per plant or blended enterprise rates, aligned to NECTYR measurement and SLA tiers.",
       "step2Title": "Phased deployment schedule",
       "step2Body": "Prioritise highest-soiling assets first; parallel mobilisation where service hubs exist.",
       "step3Title": "NECTYR portfolio dashboard",
@@ -126,7 +126,7 @@
       "heading": "What institutional sponsors evaluate",
       "pillar0": {
         "title": "Scale evidence",
-        "body": "Named 250–360 MW references — not pilot-scale marketing."
+        "body": "Named 250–360 MW references, not pilot-scale marketing."
       },
       "pillar1": {
         "title": "Operational SLAs",
@@ -150,9 +150,9 @@
     "proseSecondary": {
       "eyebrow": "Client types",
       "heading": "IPPs, CPSUs, and SECI programmes",
-      "p1": "Independent power producers optimise portfolio TCO and gearing — often mixing OPEX on new acquisitions and CAPEX on long-hold assets. CPSUs and SECI-tendered plants emphasise compliance evidence and pan-India vendor stability.",
+      "p1": "Independent power producers optimise portfolio TCO and gearing, often mixing OPEX on new acquisitions and CAPEX on long-hold assets. CPSUs and SECI-tendered plants emphasise compliance evidence and pan-India vendor stability.",
       "p2": "DVC and state discom references in Gujarat and Rajasthan demonstrate institutional procurement at 250–300 MW per site. Ask for robots-per-MW models and commissioning timelines in your enterprise RFQ.",
-      "p3": "Partnership discussions should include ORION roadmap for predictive O&M at AMC renewal — optional upgrade on Taypro-operated fleets.",
+      "p3": "Partnership discussions should include ORION roadmap for predictive O&M at AMC renewal, optional upgrade on Taypro-operated fleets.",
       "linkPrimary": "Solar O&M services",
       "linkPrimaryHref": "/solar-om-services",
       "linkSecondary": "View automatic projects",
@@ -169,10 +169,10 @@
       "link2Href": "/utility-scale-solar-operations"
     },
     "faq": {
-      "heading": "Enterprise solar cleaning partnership — FAQ",
+      "heading": "Enterprise solar cleaning partnership, FAQ",
       "subheading": "Multi-site procurement and governance.",
       "q0": "What is an enterprise cleaning partnership?",
-      "a0": "A master agreement covering robots, operators, spares, and NECTYR across multiple utility sites — one SLA and reporting standard.",
+      "a0": "A master agreement covering robots, operators, spares, and NECTYR across multiple utility sites, one SLA and reporting standard.",
       "q1": "Minimum portfolio size?",
       "a1": "Typically multiple sites or single sites 50 MW+. Smaller one-off sites use standard service RFQ.",
       "q2": "Can we mix CAPEX and OPEX across plants?",
@@ -180,15 +180,15 @@
       "q3": "How does reporting work for lenders?",
       "a3": "NECTYR block-level logs, coverage maps, and monthly panel-volume reconciliation per site and portfolio roll-up.",
       "q4": "What SLAs apply?",
-      "a4": "Breakdown response targets under 24 hours on enterprise fleets with regional spares — detailed in commercial proposal.",
+      "a4": "Breakdown response targets under 24 hours on enterprise fleets with regional spares, detailed in commercial proposal.",
       "q5": "Does Taypro handle electrical O&M?",
       "a5": "No. Cleaning and fleet data only. Partner with your EPC for HV, inverters, and trackers mechanical.",
       "q6": "SECI compliance support?",
-      "a6": "Cleaning SOPs and audit exports structured for technical due diligence — align to your tender checklist.",
+      "a6": "Cleaning SOPs and audit exports structured for technical due diligence, align to your tender checklist.",
       "q7": "Named references?",
-      "a7": "Akhadana 360 MW, Bachau DVC 300 MW, Neneva 250 MW — featured on this page and projects gallery.",
+      "a7": "Akhadana 360 MW, Bachau DVC 300 MW, Neneva 250 MW: featured on this page and projects gallery.",
       "q8": "Mobilisation timeline?",
-      "a8": "Weeks per site depending on row count — phased on 200 MW+ plants. Proposed in enterprise proposal.",
+      "a8": "Weeks per site depending on row count, phased on 200 MW+ plants. Proposed in enterprise proposal.",
       "q9": "ORION for portfolios?",
       "a9": "ORION early access discussed at AMC renewal for qualifying Taypro fleet customers.",
       "q10": "How to start?",

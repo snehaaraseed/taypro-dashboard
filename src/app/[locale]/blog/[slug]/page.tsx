@@ -22,6 +22,7 @@ import {
 import {
   isRedirectedBlogSlug,
   redirectedBlogTarget,
+  canonicalBlogHref,
 } from "@/lib/seo/redirected-blog-slugs";
 import {
   resolveAuthorSlug,
@@ -51,8 +52,13 @@ import {
 } from "@/lib/seo/html-toc";
 import { addInternalLinks } from "@/app/utils/internalLinking";
 import { rewriteCmsHrefs } from "@/lib/seo/cms-href-rewrites";
+import { rewriteCmsImageSrcs } from "@/lib/seo/cms-image-rewrites";
 
 const siteUrl = SITE_URL;
+
+function prepareCmsHtml(html: string): string {
+  return rewriteCmsImageSrcs(rewriteCmsHrefs(html));
+}
 
 interface BlogSlugParams {
   slug: string;
@@ -83,7 +89,7 @@ async function getLocaleBlogMetadata(locale: string): Promise<DynamicBlog[]> {
   const rows = await listAllBlogs(false, locale);
   return rows.map((metadata) => ({
     ...metadata,
-    href: `/blog/${metadata.slug}`,
+    href: canonicalBlogHref(metadata.slug),
     source: "db" as const,
   }));
 }
@@ -147,7 +153,7 @@ export async function generateMetadata({
   );
 
   return withHreflang(
-    `/blog/${slug}`,
+    canonicalBlogHref(slug),
     canonicalLocale,
     {
       title: blogPostMetadataTitle(blog.title, blog.description),
@@ -155,7 +161,7 @@ export async function generateMetadata({
       openGraph: {
         title: blogPostOpenGraphTitle(blog.title),
         description: blog.description,
-        url: `${siteUrl}/blog/${slug}`,
+        url: `${siteUrl}${canonicalBlogHref(slug)}`,
         type: "article",
         ...shareImages.openGraph,
         publishedTime: blog.publishDate,
@@ -228,11 +234,13 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
   const { contentWithIds, toc } = addHeadingIdsAndExtractToc(
     normalizeHeadingLevels(
-      addInternalLinks(
-        rewriteCmsHrefs(blog.content),
-        linkableBlogs,
-        slug,
-        8
+      prepareCmsHtml(
+        addInternalLinks(
+          prepareCmsHtml(blog.content),
+          linkableBlogs,
+          slug,
+          8
+        )
       )
     )
   );

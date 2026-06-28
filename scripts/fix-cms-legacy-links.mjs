@@ -11,7 +11,7 @@ import Database from "better-sqlite3";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { loadHrefRewrites, rewriteText } from "./cms-href-rewrites.mjs";
+import { loadHrefRewrites, rewriteText, stripInternalHrefTrailingSlashes } from "./cms-href-rewrites.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
@@ -87,9 +87,14 @@ function wrapBarePhoneNumbers(html) {
 function sanitizeCmsHtml(html) {
   if (!html) return { html, count: 0 };
   const link = rewriteText(html, HREF_REWRITES);
-  const email = stripCloudflareEmailObfuscation(link.text);
+  const stripped = stripInternalHrefTrailingSlashes(link.text);
+  const slashCount = stripped === link.text ? 0 : 1;
+  const email = stripCloudflareEmailObfuscation(stripped);
   const phone = wrapBarePhoneNumbers(email.html);
-  return { html: phone.html, count: link.count + email.count + phone.count };
+  return {
+    html: phone.html,
+    count: link.count + slashCount + email.count + phone.count,
+  };
 }
 
 function main() {

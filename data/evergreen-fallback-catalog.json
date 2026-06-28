@@ -1,0 +1,106 @@
+{
+  "description": "Pre-validated narrow posts for daily automation fallback when primary+backup fail similarity gates.",
+  "version": 1,
+  "entries": [
+    {
+      "id": "pr-calc-50mw",
+      "semanticDomain": "soiling_pr",
+      "intentFamily": "technical_howto",
+      "subAngle": "pr_baseline",
+      "primaryKeyword": "performance ratio calculation 50mw solar plant india",
+      "title": "How to Calculate Performance Ratio on a 50MW Solar Plant in India",
+      "description": "Step-by-step PR baseline for utility asset owners: meter data, soiling loss, and monthly O&M review on Indian MW plants.",
+      "h2Outline": [
+        "Quick answer",
+        "What performance ratio measures on utility plants",
+        "Data you need from SCADA and revenue meters",
+        "Baseline vs soiling-adjusted PR",
+        "Monthly review checklist for O&M leads",
+        "When cleaning ROI beats accepting PR drift"
+      ],
+      "angleId": "default-guide",
+      "archetype": "technical_howto",
+      "wordCountTier": "narrow"
+    },
+    {
+      "id": "cleaning-frequency-checklist",
+      "semanticDomain": "cleaning_economics",
+      "intentFamily": "technical_howto",
+      "subAngle": "frequency_schedule",
+      "primaryKeyword": "solar panel cleaning frequency utility scale india",
+      "title": "Solar Panel Cleaning Frequency: O&M Schedule for 10MW+ Plants in India",
+      "description": "Practical cleaning interval guidance for dust belts, pre-monsoon passes, and robot vs manual programs on utility solar.",
+      "h2Outline": [
+        "Quick answer",
+        "Why frequency differs by state and season",
+        "Fixed-tilt vs tracker scheduling",
+        "Robot nightly windows vs manual crew cadence",
+        "Linking frequency to PR recovery targets",
+        "Sample annual calendar for Rajasthan and Gujarat"
+      ],
+      "angleId": "freq-50mw",
+      "archetype": "om_schedule",
+      "wordCountTier": "narrow"
+    },
+    {
+      "id": "dust-soiling-pr-loss",
+      "semanticDomain": "soiling_pr",
+      "intentFamily": "financial_roi",
+      "subAngle": "yield_loss_inr",
+      "primaryKeyword": "soiling loss solar plant revenue impact india",
+      "title": "Soiling Loss on Solar Plants: MWh and INR Impact for Asset Owners",
+      "description": "Quantify dust-related yield loss at Indian PPA tariffs and when cleaning pays back on 25–100 MW assets.",
+      "h2Outline": [
+        "Quick answer",
+        "Typical soiling rates in Indian dust belts",
+        "Converting PR gap to lost MWh",
+        "INR impact at common PPA levels",
+        "Cleaning cost vs accepted loss",
+        "When to escalate from manual to robotic programs"
+      ],
+      "angleId": "default-om",
+      "archetype": "financial_roi",
+      "wordCountTier": "narrow"
+    },
+    {
+      "id": "robot-vs-manual-tco",
+      "semanticDomain": "cleaning_methods",
+      "intentFamily": "comparison_alternative",
+      "subAngle": "robot_vs_manual_tco",
+      "primaryKeyword": "robotic vs manual solar panel cleaning tco india",
+      "title": "Robotic vs Manual Solar Cleaning: Five-Year TCO for Utility Plants",
+      "description": "Compare loaded labour, water, downtime, and robot OPEX on long rows for Indian IPPs and O&M contractors.",
+      "h2Outline": [
+        "Quick answer",
+        "Cost components owners often miss",
+        "Manual crew economics at scale",
+        "Robot capex and OPEX models",
+        "Reference-block pilot design",
+        "Decision matrix for 50MW assets"
+      ],
+      "angleId": "robot-eval",
+      "archetype": "comparison_alternative",
+      "wordCountTier": "standard"
+    },
+    {
+      "id": "waterless-cleaning-guide",
+      "semanticDomain": "water_environment",
+      "intentFamily": "technical_howto",
+      "subAngle": "waterless_methods",
+      "primaryKeyword": "waterless solar panel cleaning utility scale india",
+      "title": "Waterless Solar Panel Cleaning: Methods for Water-Scarce Utility Sites",
+      "description": "Dry and robotic approaches for Rajasthan and Gujarat plants where tanker water is costly or restricted.",
+      "h2Outline": [
+        "Quick answer",
+        "When waterless cleaning is required",
+        "Module OEM considerations",
+        "Robot and air-wash options",
+        "Safety and warranty alignment",
+        "Implementation checklist for EPC handover"
+      ],
+      "angleId": "waterless-sprinkler",
+      "archetype": "technical_howto",
+      "wordCountTier": "narrow"
+    }
+  ]
+}

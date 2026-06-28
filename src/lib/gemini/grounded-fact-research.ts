@@ -36,8 +36,12 @@ export type GroundedFactResearchInput = {
   title: string;
   commonH2Themes?: string[];
   serpGaps?: string[];
+  /** Extra search angle for multi-pass insight research. */
+  factFocus?: string;
   /** Calls already made this pipeline run (for per-blog cap). */
   serpCallsSoFar?: number;
+  /** Use higher cap for monthly insight reports (default: blog cap). */
+  insightsMode?: boolean;
 };
 
 function resolveFactModels(): string[] {
@@ -57,6 +61,9 @@ function buildFactResearchPrompt(input: GroundedFactResearchInput): string {
     input.serpGaps && input.serpGaps.length > 0
       ? `\nSERP gaps to support with data: ${input.serpGaps.join("; ")}`
       : "";
+  const focus = input.factFocus?.trim()
+    ? `\nAdditional search focus for this pass: ${input.factFocus}`
+    : "";
 
   return `You are a research analyst for Taypro (utility-scale solar O&M in India).
 
@@ -65,7 +72,7 @@ Do NOT search for Taypro product specs or invent numbers.
 
 Blog keyword: "${input.keyword}"
 Blog title: "${input.title}"
-${themes}${gaps}
+${themes}${gaps}${focus}
 
 Search focus: India utility-scale / MW solar plants, soiling, cleaning economics, regulations (MNRE, CEA, state policies), market reports.
 
@@ -76,7 +83,7 @@ Return ONLY valid JSON (no markdown):
       "claim": "what the stat describes",
       "value": "exact figure or range with units",
       "context": "India utility-scale / region / year if known",
-      "sourceHint": "report name, agency, or domain — no fabricated study names"
+      "sourceHint": "report name, agency, or domain, no fabricated study names"
     }
   ],
   "regulatoryNotes": ["brief note with year if search supports it"],
@@ -85,7 +92,7 @@ Return ONLY valid JSON (no markdown):
 }
 
 Rules:
-- verifiedStats: 4–8 items max; ONLY include stats you found via search. Empty array if nothing reliable.
+- verifiedStats: 6–10 items max; ONLY include stats you found via search. Empty array if nothing reliable.
 - Do NOT invent percentages, study names, or Taypro fleet numbers.
 - Prefer India + utility-scale / commercial solar context; skip homeowner DIY stats.
 - regulatoryNotes and marketTrends: 0–4 items each; omit if search finds nothing.
@@ -180,7 +187,17 @@ function parseFactBrief(
     sources: { title?: string; uri?: string }[];
   }
 ): FactResearchBrief {
-  const parsed = parseJsonFromText(rawJson);
+  let parsed: Record<string, unknown> = {};
+  try {
+    parsed = parseJsonFromText(rawJson);
+  } catch (error) {
+    if (!input.insightsMode) {
+      throw error instanceof Error ? error : new Error(String(error));
+    }
+    console.warn(
+      "[facts] Insights: JSON parse failed, using grounding sources with empty stats"
+    );
+  }
   return {
     keyword: input.keyword.trim(),
     title: input.title.trim(),
@@ -199,10 +216,27 @@ function parseFactBrief(
 /**
  * Second grounded call: verifiable stats and regulatory context for outline/body.
  */
+function isRetryableGroundingError(error: unknown): boolean {
+  if (isGeminiQuotaError(error)) return true;
+  const message = error instanceof Error ? error.message : String(error);
+  return (
+    message.includes("did not contain JSON") ||
+    message.includes("Could not parse JSON") ||
+    message.includes("response was empty")
+  );
+}
+
 export async function runGroundedFactResearch(
   input: GroundedFactResearchInput
 ): Promise<FactResearchBrief> {
-  assertGroundingCallBudget(input.serpCallsSoFar ?? 0);
+  if (input.insightsMode) {
+    const { assertInsightsGroundingCallBudget } = await import(
+      "@/lib/gemini/grounding-config"
+    );
+    assertInsightsGroundingCallBudget(input.serpCallsSoFar ?? 0);
+  } else {
+    assertGroundingCallBudget(input.serpCallsSoFar ?? 0);
+  }
 
   const prompt = buildFactResearchPrompt(input);
   const model = resolveFactModels()[0]!;
@@ -232,15 +266,16 @@ export async function runGroundedFactResearch(
 
       return parseFactBrief(text, input, {
         model,
-        apiKeySuffix: apiKey.slice(-4),
-        ...grounding,
+        apiKeySuffix: apiKey.slice(-4), ...grounding,
       });
     } catch (error) {
       lastError = error;
-      if (isGeminiQuotaError(error)) {
-        quotaKeys += 1;
+      if (isRetryableGroundingError(error)) {
+        quotaKeys += isGeminiQuotaError(error) ? 1 : 0;
         console.warn(
-          `[facts] Grounding quota on key ...${apiKey.slice(-4)} model ${model}`
+          `[facts] Retrying on next key (...${apiKey.slice(-4)}): ${
+            error instanceof Error ? error.message.slice(0, 100) : error
+          }`
         );
         continue;
       }
@@ -250,7 +285,18 @@ export async function runGroundedFactResearch(
   }
 
   if (quotaKeys >= apiKeys.length) {
+    if (input.insightsMode) {
+      const { buildEmptyFactBrief } = await import("@/lib/gemini/grounding-config");
+      console.warn("[facts] Insights: all keys quota, empty fact brief");
+      return buildEmptyFactBrief(input.keyword, input.title);
+    }
     throw new GroundingQuotaExceededError(model, lastError);
+  }
+
+  if (input.insightsMode) {
+    const { buildEmptyFactBrief } = await import("@/lib/gemini/grounding-config");
+    console.warn("[facts] Insights: grounding exhausted, empty fact brief");
+    return buildEmptyFactBrief(input.keyword, input.title);
   }
 
   throw new Error(
@@ -262,7 +308,7 @@ export async function runGroundedFactResearch(
 
 export function formatFactBriefForPrompt(brief: FactResearchBrief): string {
   const lines = [
-    "FACT RESEARCH (Google Search grounding — use for stats/regulatory context, NOT Taypro product specs):",
+    "FACT RESEARCH (Google Search grounding, use for stats/regulatory context, NOT Taypro product specs):",
     `Keyword: ${brief.keyword} | Title: ${brief.title}`,
   ];
 
@@ -275,7 +321,7 @@ export function formatFactBriefForPrompt(brief: FactResearchBrief): string {
     }
   } else {
     lines.push(
-      "Verified stats: none found — use industry-typical ranges and label as typical, not cited studies."
+      "Verified stats: none found, use industry-typical ranges and label as typical, not cited studies."
     );
   }
 
@@ -287,8 +333,7 @@ export function formatFactBriefForPrompt(brief: FactResearchBrief): string {
   }
   if (brief.citationGuardrails.length) {
     lines.push(
-      "Citation guardrails:",
-      ...brief.citationGuardrails.map((g) => `- ${g}`)
+      "Citation guardrails:", ...brief.citationGuardrails.map((g) => `- ${g}`)
     );
   }
 

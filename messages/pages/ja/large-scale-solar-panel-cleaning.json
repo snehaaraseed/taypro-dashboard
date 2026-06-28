@@ -6,18 +6,18 @@
       "openGraphTitle": "大規模ソーラー清掃 | Taypro",
       "openGraphDescription": "100MW級清掃ソリューション。"
     },
-    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHub": "太陽光パネル清掃ロボット",
     "breadcrumbHubHref": "/solar-panel-cleaning-system",
     "breadcrumb": "大規模ソーラー清掃",
     "schema": {
-      "name": "Taypro Large-Scale Solar Panel Cleaning",
-      "description": "Robotic solar panel cleaning for 50–500 MW utility plants in India — fleet deployment, commissioning, and managed OPEX or CAPEX programmes.",
-      "serviceType": "Large-scale solar panel cleaning",
-      "areaServed": "India"
+      "name": "Taypro 大規模なソーラーパネルの洗浄",
+      "description": "Robotic solar panel cleaning for 50–500 MW utility plants in India: fleet deployment, commissioning, and managed OPEX or CAPEX programmes.",
+      "serviceType": "大規模な太陽光パネルの洗浄",
+      "areaServed": "インド"
     },
     "hero": {
       "eyebrow": "50–500 MW 太陽光発電",
-      "title": "大規模ソーラー清掃 — MW級ロボット展開",
+      "title": "大規模ソーラー清掃, MW級ロボット展開",
       "subtitle": "100 MW はパイロットではなく、本番環境の O&M チャレンジです。 Taypro は、MW ごとに定義されたロボット数、コミッショニング プレイブック、および NECTYR フリートの監視を使用して、50 の MW から 360 の MW の単一サイトの SECI、DVC、および IPP プロジェクトにマルチロボット フリートをデプロイします。",
       "ctaPrimary": "エンタープライズ見積",
       "ctaPrimaryHref": "/contact",
@@ -92,16 +92,16 @@
       "linkSecondaryHref": "/solar-panel-cleaning-robot-for-trackers"
     },
     "projects": {
-      "eyebrow": "MW-scale references",
-      "heading": "Large-scale solar cleaning project references",
-      "subheading": "50–360 MW robotic cleaning deployments across India."
+      "eyebrow": "MW スケールのリファレンス",
+      "heading": "大規模な太陽熱浄化プロジェクトの参考資料",
+      "subheading": "インド全土に 50 ～ 360 台の MW ロボット清掃を導入。"
     },
     "stateGrid": {
-      "heading": "Large-scale cleaning by state",
-      "intro": "India's largest utility solar parks sit in Rajasthan, Gujarat, Maharashtra, Karnataka, and Madhya Pradesh. Explore state-specific robotic cleaning guides."
+      "heading": "州別の大規模清掃",
+      "intro": "インド最大の太陽光発電施設は、ラジャスタン州、グジャラート州、マハラシュトラ州、カルナータカ州、マディヤ プラデーシュ州にあります。州ごとのロボット掃除ガイドをご覧ください。"
     },
     "faq": {
-      "heading": "大規模なソーラークリーニング — よくある質問",
+      "heading": "大規模なソーラークリーニング, よくある質問",
       "subheading": "50 ～ 500 の MW プラントに関する企業調達に関する質問。",
       "q0": "Taypro は 100 個の MW 太陽光発電所を掃除できますか?",
       "a0": "はい。 Taypro には、複数の 100 MW+ 参照と、自動 GLYDE フリートを備えた最大 360 の MW の単一サイト展開があります。フリートのサイズと動員スケジュールはサイトごとにモデル化されます。",
@@ -129,62 +129,62 @@
       "a11": "NECTYR サイクル ログ、カバレッジ マップ、毎月のパネル ボリューム調整、および SOP のクリーニング。 Taypro プログラムは、太陽光発電事業者のファイナンスに関する技術的デューデリジェンスのために構築されています。"
     },
     "cta": {
-      "heading": "Enterprise inquiry for MW-scale cleaning",
-      "body": "50 MW to 500 MW — share your plant details for a fleet deployment proposal.",
-      "primary": "Contact Taypro",
+      "heading": "MW規模の清掃に関する企業向けの問い合わせ",
+      "body": "50 MW ～ 500 MW: フリート展開提案のためのプラントの詳細を共有してください。",
+      "primary": "Taypro に連絡してください",
       "primaryHref": "/contact",
-      "secondary": "Solar O&M services",
+      "secondary": "太陽光発電 O&M サービス",
       "secondaryHref": "/solar-om-services"
     },
     "related": {
-      "label": "Related:",
-      "link0": "Utility-scale O&M hub",
+      "label": "関連している：",
+      "link0": "実用規模の O&M ハブ",
       "link0Href": "/utility-scale-solar-operations",
-      "link1": "National cleaning service India",
+      "link1": "インドの全国清掃サービス",
       "link1Href": "/solar-panel-cleaning-service-india",
-      "link2": "OPEX pricing bands",
+      "link2": "OPEX 価格帯",
       "link2Href": "/solar-cleaning-opex-pricing"
     },
     "quoteForm": {
-      "eyebrow": "Enterprise inquiry",
-      "title": "Request MW-scale cleaning proposal",
+      "eyebrow": "企業向けのお問い合わせ",
+      "title": "MW規模の清掃提案をリクエストする",
       "placeholder": "Plant MW, state, installation type, SECI/IPP context, target mobilisation date, and CAPEX vs OPEX preference."
     },
     "steps": {
-      "eyebrow": "Enterprise deployment",
-      "heading": "MW-scale solar cleaning robot mobilisation process",
-      "step0Title": "Enterprise RFQ & portfolio scoping",
+      "eyebrow": "エンタープライズ展開",
+      "heading": "MW規模の太陽清掃ロボットの出動プロセス",
+      "step0Title": "エンタープライズ RFQ とポートフォリオの範囲設定",
       "step0Body": "Share single-site MW or multi-site portfolio, installation mix, SECI/IPP context, and commercial model preference (CAPEX vs OPEX).",
-      "step1Title": "Engineering & fleet density model",
-      "step1Body": "Robots-per-MW calculated from row geometry, tracker vs fixed tilt, cycle targets, and CRADYL placement. Not generic industry ratios.",
-      "step2Title": "Commercial & SLA framework",
+      "step1Title": "エンジニアリングと車両密度モデル",
+      "step1Body": "MW あたりのロボット数は、行ジオメトリ、トラッカーと固定傾斜、サイクル ターゲット、および CRADYL 配置から計算されます。一般的な業界の比率ではありません。",
+      "step2Title": "商用およびSLAフレームワーク",
       "step2Body": "Pricing, breakdown response, reporting cadence, and escalation matrix scaled to plant size. OPEX or CAPEX terms issued.",
-      "step3Title": "Phased fleet deployment",
-      "step3Body": "Zone-by-zone mobilisation on large sites. Operators, spares, and NECTYR onboarding per phase.",
-      "step4Title": "Production cleaning & governance",
-      "step4Body": "3–10 cycles monthly with monthly panel-volume reconciliation and quarterly programme reviews."
+      "step3Title": "段階的なフリート展開",
+      "step3Body": "大規模なサイトでのゾーンごとの動員。フェーズごとのオペレーター、予備、NECTYR のオンボーディング。",
+      "step4Title": "生産の清掃とガバナンス",
+      "step4Body": "毎月のパネルボリューム調整と四半期ごとのプログラムレビューを含む、毎月 3 ～ 10 サイクル。"
     },
     "eligibility": {
-      "eyebrow": "Scale fit",
-      "title": "Large-scale solar panel cleaning — when Taypro fits",
-      "forTitle": "Built for",
-      "for0": "Utility solar plants 50 MW to 500 MW single site or portfolio",
-      "for1": "SECI, state discom, CPSU, and IPP assets with documented MW references",
-      "for2": "Fixed-tilt and single-axis tracker plants requiring multi-robot fleets",
-      "for3": "Procurement teams needing enterprise SLA, NECTYR audit trail, and pan-India service",
-      "notForTitle": "Below typical scale",
-      "not0": "Sub-10 MW ground-mount without feasibility exception",
-      "not1": "Residential or small C&I rooftop (see rooftop guide)",
-      "not2": "Plants seeking one annual manual wash only"
+      "eyebrow": "スケールフィット",
+      "title": "大規模なソーラー パネルの清掃 (Taypro が適合する場合)",
+      "forTitle": "のために作られた",
+      "for0": "事業用太陽光発電所 50 MW ～ 500 MW の単一サイトまたはポートフォリオ",
+      "for1": "SECI、state discom、CPSU、および IPP 資産 (文書化された MW 参照付き)",
+      "for2": "マルチロボットフリートを必要とする固定傾斜および単軸トラッカープラント",
+      "for3": "エンタープライズ SLA、NECTYR 監査証跡、および汎インド サービスを必要とする調達チーム",
+      "notForTitle": "一般的なスケール以下",
+      "not0": "実現可能性の例外なしの Sub-10 MW 地上設置",
+      "not1": "住宅または小規模な C&I 屋上 (屋上ガイドを参照)",
+      "not2": "年に 1 回の手動洗浄のみを希望する植物"
     },
     "highlight": {
-      "heading": "100 MW is not a pilot.",
-      "lead": "Large-scale solar panel cleaning requires production fleet operations — not a handful of demo robots.",
-      "body": "Taypro deploys tens of robots on 200–360 MW sites with NECTYR fleet oversight, regional spares, and dedicated operators. That is the bar for MW-scale cleaning procurement in India."
+      "heading": "100 MW はパイロットではありません。",
+      "lead": "大規模なソーラーパネルの清掃には、数台のデモロボットではなく、生産車両の運用が必要です。",
+      "body": "Taypro は、NECTYR のフリート監視、地域の予備、専任のオペレーターを備えた 200 ～ 360 の MW サイトに数十台のロボットを配備しています。これが、インドにおけるMW規模の清掃調達のハードルです。"
     },
     "proseSecondary": {
       "eyebrow": "参考文献",
-      "heading": "100MW 太陽光発電の浄化とその後 — Taypro 展開の証拠",
+      "heading": "100MW 太陽光発電の浄化とその後, Taypro 展開の証拠",
       "p1": "Akhadana Rajasthan 360 MW、Bachau DVC Gujarat 300 MW、Neneva Gujarat 250 MW は、インドの電力会社規模の上限にある自動優先の Taypro GLYDE 艦隊を表しています。これらは実稼働環境のデプロイメントであり、デモ用のアレイではありません。",
       "p2": "100 台の MW トラッカー プラントでのフリートのサイジングには、通常、列の端に CRADYL 転送ステーションを備えた GLYDE-X または NYUMA-X が含まれます。固定傾斜 200 MW ブロックは、ゾーン全体で NECTYR スケジュールを設定して、調整されたマルチゾーン GLYDE フリートを実行できます。",
       "p3": "プラント レイアウトを含む企業提案をリクエストするか、MW 容量でフィルターされた自動プロジェクト ケース スタディを参照します。",
@@ -194,13 +194,13 @@
       "linkSecondaryHref": "/solar-om-services"
     },
     "resources": {
-      "eyebrow": "Enterprise guides",
-      "heading": "MW-scale procurement resources",
-      "link0Title": "Tracker cleaning robots",
+      "eyebrow": "エンタープライズガイド",
+      "heading": "MW規模の調達リソース",
+      "link0Title": "トラッカー掃除ロボット",
       "link0Href": "/solar-panel-cleaning-robot-for-trackers",
-      "link1Title": "OPEX pricing per MW",
+      "link1Title": "MW ごとの OPEX 料金",
       "link1Href": "/solar-cleaning-opex-pricing",
-      "link2Title": "India cleaning service",
+      "link2Title": "インドのクリーニングサービス",
       "link2Href": "/solar-panel-cleaning-service-india"
     }
   }

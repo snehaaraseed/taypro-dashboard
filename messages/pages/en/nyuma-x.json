@@ -11,7 +11,7 @@
     },
     "breadcrumbs": {
       "robots": "Solar Panel Cleaning Robots",
-      "current": "NYUMA-X — PBT Tracker Robot"
+      "current": "NYUMA-X: PBT Tracker Robot"
     },
     "schema": {
       "productName": "Solar Panel Cleaning Robot for Single-Axis Trackers - NYUMA-X",
@@ -21,7 +21,7 @@
       "howToDescription": "Step-by-step autonomous cleaning cycle of the Taypro NYUMA-X solar panel cleaning robot for single-axis tracker installations, from AI-scheduled deployment through self-docking and cloud telemetry sync."
     },
     "hero": {
-      "title": "NYUMA-X — PBT Single-Pass Tracker Cleaning Robot",
+      "title": "NYUMA-X: PBT Single-Pass Tracker Cleaning Robot",
       "subtitleBefore": "An AI- and ML-powered, waterless autonomous Solar Panel Cleaning Robot purpose-built for single-axis tracker solar farms. Cleans up to 3,600 modules per charge,",
       "subtitleStrong": "flexes ±15° between tables",
       "subtitleAfter": ", supports module tilts from -52° to +52°, and is compatible with NEXTracker, Gamechanger and equivalent trackers.",
@@ -33,12 +33,34 @@
         "subtitle": "Tell us about your tracker plant and our team will follow up with NYUMA-X sizing, bridge-kit needs, and commercial options.",
         "label": "Request a quote"
       },
-      "h1Line1": "NYUMA-X — Solar Panel Cleaning Robot for Single-Axis Trackers, "
+      "h1Line1": "NYUMA-X: Solar Panel Cleaning Robot for Single-Axis Trackers, ",
+      "subtitleShort": "Single-pass PBT autonomous cleaning for single-axis tracker solar farms.",
+      "secondaryCta": {
+        "label": "Watch demo"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "±15°",
+          "label": "Inter-table articulation"
+        },
+        "stat1": {
+          "value": "3,600",
+          "label": "Modules cleaned per charge"
+        },
+        "stat2": {
+          "value": "Waterless",
+          "label": "Single-pass PBT for trackers"
+        }
+      }
+    },
+    "productVisual": {
+      "eyebrow": "Product at a glance",
+      "title": "Taypro NYUMA-X single-axis tracker cleaning robot"
     },
     "usps": {
       "0": {
         "title": "Single-Pass PBT for Trackers",
-        "description": "Purpose-built for single-axis tracker farms — compatible with NEXTracker, Gamechanger, and peer OEM table geometries."
+        "description": "Purpose-built for single-axis tracker farms, compatible with NEXTracker, Gamechanger, and peer OEM table geometries."
       },
       "1": {
         "title": "±15° Bridge & Table Flex",
@@ -46,11 +68,11 @@
       },
       "2": {
         "title": "Steep Tilt Tracker Coverage",
-        "description": "Operational across -52° to +52° tracker tilt — cleans steep morning and evening angles without daytime array shutdown."
+        "description": "Operational across -52° to +52° tracker tilt, cleans steep morning and evening angles without daytime array shutdown."
       },
       "3": {
         "title": "100% Waterless Single-Pass PBT Cleaning",
-        "description": "Counter-rotating PBT bristles lift over 98% of dry tracker dust in one pass — no water, detergent, or run-off."
+        "description": "Counter-rotating PBT bristles lift over 98% of dry tracker dust in one pass, no water, detergent, or run-off."
       },
       "4": {
         "title": "Stow-Aware Autonomous Routing",
@@ -58,7 +80,7 @@
       },
       "5": {
         "title": "NECTYR PBT Fleet Telemetry",
-        "description": "Remote fleet control via {connectivity} through NECTYR — tracker-aware schedules and post-storm recovery runs."
+        "description": "Remote fleet control via {connectivity} through NECTYR: tracker-aware schedules and post-storm recovery runs."
       },
       "6": {
         "title": "Long-Range Tracker Battery Cycle",
@@ -84,7 +106,7 @@
       },
       "3": {
         "title": "Single-Pass PBT Cleaning",
-        "body": "A single-pass cleaning cycle lifts over 98% of accumulated dust from the module surface using a counter-rotating UV-stable PBT brush drum — purpose-built for dry tracker dust belts without water or detergent."
+        "body": "A single-pass cleaning cycle lifts over 98% of accumulated dust from the module surface using a counter-rotating UV-stable PBT brush drum, purpose-built for dry tracker dust belts without water or detergent."
       },
       "4": {
         "title": "Real-Time Weather-Aware Scheduling",
@@ -516,8 +538,8 @@
       "nyumaXHeader": "NYUMA-X (Single-Pass PBT)",
       "row0": {
         "criterion": "Cleaning Mechanism",
-        "glydeX": "Dual-pass microfiber — airflow plus wipe for mixed soiling",
-        "nyumaX": "Single-pass PBT brush — optimised for dry tracker dust belts"
+        "glydeX": "Dual-pass microfiber, airflow plus wipe for mixed soiling",
+        "nyumaX": "Single-pass PBT brush, optimised for dry tracker dust belts"
       },
       "row1": {
         "criterion": "Tracker Compatibility",

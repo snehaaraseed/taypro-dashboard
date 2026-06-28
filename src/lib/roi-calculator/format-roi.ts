@@ -125,7 +125,7 @@ function formatWesternCompact(
   return null;
 }
 
-/** Executive-friendly amounts for PDF (Cr / Lakh for INR). ASCII-only — jsPDF cannot render ₹. */
+/** Executive-friendly amounts for PDF (Cr / Lakh for INR). ASCII-only: jsPDF cannot render ₹. */
 export function formatRoiPdfMoney(
   amount: number,
   market: RoiMarketProfile,
@@ -159,7 +159,7 @@ export function formatRoiPdfMoney(
 }
 
 /**
- * Compact currency for ROI UI cards — Cr/L for INR & BDT, M/K for USD-family, 万/億 for JPY.
+ * Compact currency for ROI UI cards, Cr/L for INR & BDT, M/K for USD-family, 万/億 for JPY.
  * Falls back to full `formatRoiCurrency` for smaller amounts.
  */
 export function formatRoiMoneyCompact(

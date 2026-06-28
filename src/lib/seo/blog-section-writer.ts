@@ -52,7 +52,7 @@ export function buildSectionWriterPrompt(
   const intentFromPlan =
     plan.readerQuestion || plan.mustCover?.length || plan.avoidTopics?.length
       ? `
-PLANNED INTENT (every section must serve this — do NOT drift to generic robot O&M):
+PLANNED INTENT (every section must serve this, do NOT drift to generic robot O&M):
 Reader question: ${plan.readerQuestion ?? "(answer the title directly)"}
 Must cover: ${(plan.mustCover ?? []).map((m) => `- ${m}`).join("\n") || "(see H2 outline)"}
 Avoid: ${(plan.avoidTopics ?? []).map((a) => `- ${a}`).join("\n") || "(off-topic sales pitch)"}
@@ -69,7 +69,7 @@ Avoid: ${(plan.avoidTopics ?? []).map((a) => `- ${a}`).join("\n") || "(off-topic
 
   const continuityBlock = options.previousSectionsHtml?.trim()
     ? `
-ARTICLE SO FAR (do not rewrite; maintain facts, tone, and terminology — continue after this):
+ARTICLE SO FAR (do not rewrite; maintain facts, tone, and terminology, continue after this):
 ${options.previousSectionsHtml.trim().slice(-3500)}
 
 REMAINING H2 OUTLINE (full article structure):
@@ -110,7 +110,7 @@ ${ctx.wordCountRules ?? LONG_FORM_CONTENT_RULES}
 
 Rules:
 - Output HTML for ONLY the H2 sections listed in "Write ONLY these H2 sections" above.
-- Do NOT repeat or rewrite any H2 from ARTICLE SO FAR — continue after the last paragraph only.
+- Do NOT repeat or rewrite any H2 from ARTICLE SO FAR: continue after the last paragraph only.
 - Every H2 in this chunk must advance the title intent; do not insert unrelated cleaning-robot sales sections.
 - Target ${sectionH2s.length * (ctx.structurePolicy?.wordsPerH2ChunkMin ?? 350)}–${sectionH2s.length * (ctx.structurePolicy?.wordsPerH2ChunkMax ?? 500)} words for this chunk.
 - Match voice, facts, and MW/%/INR ranges used in prior sections; do not contradict.
@@ -147,7 +147,7 @@ ${PUNCTUATION_RULES}
 Return ONLY valid JSON:
 {
   "faqs": [
-    { "question": "...", "answer": "plain text 40-80 words" }
+    { "question": ", ...", "answer": "plain text 40-80 words" }
   ]
 }
 

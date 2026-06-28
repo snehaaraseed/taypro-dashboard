@@ -20,7 +20,7 @@ export const BLOG_PILLAR_LINK_PATHS = [
   "/solar-panel-cleaning-machine",
 ] as const;
 
-/** @deprecated use MIN_INTERNAL_LINKS — kept for tests/docs */
+/** @deprecated use MIN_INTERNAL_LINKS: kept for tests/docs */
 export const MIN_PILLAR_INTERNAL_LINKS = 3;
 export const MAX_PILLAR_INTERNAL_LINKS = 2;
 
@@ -146,7 +146,7 @@ export function formatInternalLinkRulesForPrompt(input: {
     input.blogCandidates.length > 0
       ? input.blogCandidates
           .slice(0, 6)
-          .map((b) => `  /blog/${b.slug} — "${b.title}"`)
+          .map((b) => `  /blog/${b.slug}, "${b.title}"`)
           .join("\n")
       : "  (link to other published /blog/ posts on related equipment or O&M topics when you know the slug)";
 

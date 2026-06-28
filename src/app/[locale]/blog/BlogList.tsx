@@ -95,7 +95,7 @@ export default function BlogList({ blogs }: BlogListProps) {
               tabIndex={0}
               className="group cursor-pointer flex flex-col h-full rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm hover:border-[#A8C117] hover:shadow-md transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8C117] focus-visible:ring-offset-2"
             >
-              <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#eef3f8]">
+              <div className="blog-card-thumb relative w-full aspect-[4/3] overflow-hidden bg-[#eef3f8]">
                 {isPending && loadingSlug === blog.slug && (
                   <div className="absolute inset-0 z-10 bg-white/70 flex items-center justify-center">
                     <div className="animate-spin rounded-full h-8 w-8 border-4 border-[#052638] border-t-transparent" />
@@ -109,7 +109,7 @@ export default function BlogList({ blogs }: BlogListProps) {
                     title={blog.title}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     priority={idx === 0}
                     loading={idx === 0 ? "eager" : "lazy"}
                     unoptimized={shouldServeImageUnoptimized(blog.imgSrc)}

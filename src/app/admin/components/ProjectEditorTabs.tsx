@@ -131,7 +131,7 @@ export function ProjectEditorTabs({
             </label>
           </div>
           <p className="text-xs text-gray-500">
-            Hero image is preserved on AI improve — change it here only manually.
+            Hero image is preserved on AI improve, change it here only manually.
           </p>
         </div>
       )}

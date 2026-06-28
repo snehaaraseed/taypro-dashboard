@@ -1,4 +1,4 @@
-/** ERP letterheads — PDF uses downscaled JPEGs; PNG masters stay for print templates. */
+/** ERP letterheads, PDF uses downscaled JPEGs; PNG masters stay for print templates. */
 export const LETTERHEAD_UNIVERSAL_SRC =
   "/tayproasset/pdf-letterhead/letterhead_universal-pdf.jpg";
 export const LETTERHEAD_MINIMAL_SRC =

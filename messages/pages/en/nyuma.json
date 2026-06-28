@@ -14,7 +14,7 @@
     "breadcrumbs": {
       "home": "Home",
       "solarPanelCleaningRobots": "Solar Panel Cleaning Robots",
-      "automaticRobot": "NYUMA — PBT Automatic Robot"
+      "automaticRobot": "NYUMA: PBT Automatic Robot"
     },
     "shared": {
       "connectivitySummary": "LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN"
@@ -39,8 +39,8 @@
       }
     },
     "hero": {
-      "title": "NYUMA — Automatic Solar Panel Cleaning Robot for Fixed-Tilt Utility Plants",
-      "h1Line1": "NYUMA — Automatic Solar Panel Cleaning Robot for ",
+      "title": "NYUMA: Automatic Solar Panel Cleaning Robot for Fixed-Tilt Utility Plants",
+      "h1Line1": "NYUMA: Automatic Solar Panel Cleaning Robot for ",
       "h1Line2": "Fixed-Tilt Utility Plants",
       "leadBeforeStrong": "The Taypro NYUMA is an ",
       "leadStrong": "Automatic Solar Panel Cleaning Robot",
@@ -53,7 +53,29 @@
         "label": "Request a quote"
       },
       "heroImageAlt": "Taypro Automatic Solar Panel Cleaning Robot NYUMA cleaning solar panels at utility-scale solar farm",
-      "heroImageTitle": "Automatic Solar Panel Cleaning Robot NYUMA by Taypro"
+      "heroImageTitle": "Automatic Solar Panel Cleaning Robot NYUMA by Taypro",
+      "subtitleShort": "Autonomous, waterless single-pass cleaning for fixed-tilt utility plants, TÜV NORD validated.",
+      "secondaryCta": {
+        "label": "See deployments"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "98%+",
+          "label": "Dust removed per automated pass"
+        },
+        "stat1": {
+          "value": "3,600",
+          "label": "Modules cleaned per charge"
+        },
+        "stat2": {
+          "value": "Waterless",
+          "label": "Single-pass PBT cleaning"
+        }
+      }
+    },
+    "productVisual": {
+      "eyebrow": "Product at a glance",
+      "title": "Taypro NYUMA automatic solar panel cleaning robot"
     },
     "overview": {
       "eyebrow": "Automatic Solar Panel Cleaning Robot for Utility-Scale Plants",
@@ -73,7 +95,7 @@
       "p2BeforeStrong": "On a single charge, NYUMA cleans up to ",
       "p2Strong": "2.2 km of running length, approximately 3,600 solar modules",
       "p2AfterStrong": ". Cleaning cycles are best scheduled outside energy production hours and can be programmed remotely, ensuring zero impact on plant generation.",
-      "p3": "NYUMA's counter-rotating PBT brush drum lifts dry dust in a single waterless pass — no airflow stage, fewer consumables, and straightforward brush replacement in the field. Edge detection and surface-undulation tracking keep contact on the module frame, never the glass. Battery-aware routing ensures each robot finishes its assigned row before returning to its shadow-free dock, even on seasonal-tilt tables up to 45°.",
+      "p3": "NYUMA's counter-rotating PBT brush drum lifts dry dust in a single waterless pass, no airflow stage, fewer consumables, and straightforward brush replacement in the field. Edge detection and surface-undulation tracking keep contact on the module frame, never the glass. Battery-aware routing ensures each robot finishes its assigned row before returning to its shadow-free dock, even on seasonal-tilt tables up to 45°.",
       "p4Blog1": "how an automatic cleaning robot works on modules",
       "p4Blog2": "benefits of robotic cleaning at utility scale",
       "p4Prefix": "Further reading: ",
@@ -87,7 +109,7 @@
       "steps": {
         "step0": {
           "name": "Assign each Automatic Solar Panel Cleaning Robot to a dedicated array",
-          "text": "Each NYUMA unit is assigned to one array with a dedicated dock and self-contained lithium-ion charging — PBT brush calibration and frame pairing happen once at commissioning."
+          "text": "Each NYUMA unit is assigned to one array with a dedicated dock and self-contained lithium-ion charging, PBT brush calibration and frame pairing happen once at commissioning."
         },
         "step1": {
           "name": "Schedule cleaning from the NECTYR with AI- and ML-driven logic",
@@ -95,7 +117,7 @@
         },
         "step2": {
           "name": "Robot self-deploys onto the module row",
-          "text": "NYUMA self-deploys along the module frame at the scheduled time — edge and obstacle mapping keeps the PBT drum on the frame, never on the glass."
+          "text": "NYUMA self-deploys along the module frame at the scheduled time, edge and obstacle mapping keeps the PBT drum on the frame, never on the glass."
         },
         "step3": {
           "name": "single-pass waterless cleaning with a self-cleaning PBT brush drum",
@@ -107,7 +129,7 @@
         },
         "step5": {
           "name": "Sync telemetry and fleet health to the cloud",
-          "textBeforeConnectivity": "Single-pass cycle logs — brush hours, distance, charge state — upload to NECTYR over ",
+          "textBeforeConnectivity": "Single-pass cycle logs, brush hours, distance, charge state, upload to NECTYR over ",
           "textAfterConnectivity": ", pick the link that best fits each site, for audit-ready reporting across every deployed Automatic Solar Panel Cleaning Robot."
         }
       }
@@ -129,17 +151,17 @@
       "heroAlt": "Taypro NYUMA automatic solar panel cleaning robot, three-quarter product render",
       "heroCaption": "NYUMA self-contained automatic robot with on-board solar panel and long-reach cleaning frame.",
       "fieldAlt": "Taypro NYUMA automatic solar panel cleaning robot operating on a utility-scale fixed-tilt solar array under clear skies",
-      "fieldCaption": "NYUMA on site — single-pass PBT brush cleaning across a live utility-scale solar plant."
+      "fieldCaption": "NYUMA on site, single-pass PBT brush cleaning across a live utility-scale solar plant."
     },
     "usps": {
-      "eyebrow": "NYUMA — Single-Pass PBT Robot",
+      "eyebrow": "NYUMA: Single-Pass PBT Robot",
       "title": "USPs",
       "items": {
         "item0": "Single-Pass PBT Brush Cleaning",
         "item1": "UV-Stable Bristle Cartridges",
         "item2": "Up to 3,600 Modules Per Charge",
         "item3": "10–15 m/min Row Speed",
-        "item4": "Frame-Mounted — Zero Glass Load",
+        "item4": "Frame-Mounted: Zero Glass Load",
         "item5": "NECTYR Fleet Portal (LTE / Wi-Fi / RF / LoRa)",
         "item6": "Capex-Efficient Automatic Fleet",
         "item7": "TÜV NORD Field-Validated Build"
@@ -193,7 +215,7 @@
         },
         "card1": {
           "title": "Immediate Remote Diagnostics",
-          "body": "Most NYUMA incidents are triaged remotely via NECTYR — firmware, schedule, and telemetry fixes land over-the-air before a truck roll."
+          "body": "Most NYUMA incidents are triaged remotely via NECTYR: firmware, schedule, and telemetry fixes land over-the-air before a truck roll."
         },
         "card2": {
           "title": "Same-Day On-Site Intervention",
@@ -209,11 +231,11 @@
       "mainHeading": "Features of Taypro's Automatic Solar Panel Cleaning Robots: NYUMA",
       "aiCleaning": {
         "title": "AI-Enabled Waterless Single-Pass Cleaning",
-        "body": "NYUMA applies AI- and ML-driven pressure and speed logic to a single-pass PBT brush drum — one continuous contact sweep removes over 98% of dry dust per automated run without water, detergent, or abrasive glass contact."
+        "body": "NYUMA applies AI- and ML-driven pressure and speed logic to a single-pass PBT brush drum, one continuous contact sweep removes over 98% of dry dust per automated run without water, detergent, or abrasive glass contact."
       },
       "microfiber": {
         "title": "Self-Cleaning PBT Brush Drum",
-        "body": "UV-stable PBT bristles maintain stiffness in desert heat while a self-cleaning drum mechanism clears embedded dust between modules — consumable swaps are field-serviceable without removing the robot from the row."
+        "body": "UV-stable PBT bristles maintain stiffness in desert heat while a self-cleaning drum mechanism clears embedded dust between modules, consumable swaps are field-serviceable without removing the robot from the row."
       },
       "range": {
         "title": "Extended Cleaning Range",
@@ -225,7 +247,7 @@
       },
       "weather": {
         "title": "Smart Weather Optimization",
-        "body": "NYUMA's scheduler skips cycles when rain has already washed modules and adds post-storm runs when dust rebound is detected — optimising PBT brush life while keeping PR stable."
+        "body": "NYUMA's scheduler skips cycles when rain has already washed modules and adds post-storm runs when dust rebound is detected, optimising PBT brush life while keeping PR stable."
       },
       "connectivity": {
         "title": "Cloud-Connected Remote Monitoring",
@@ -234,15 +256,15 @@
         "bodyBoldMesh": "hybrid self-healing RF mesh",
         "bodyAfterMesh": " for resilient plant-wide backhaul, or ",
         "bodyBoldLoRa": "LoRa / LoRaWAN",
-        "bodyAfterLoRa": " where low-power, long-range links suit remote blocks. Operate mixed NYUMA fleets from NECTYR — schedule single-pass cycles, track brush-hour counters, and download audit logs for O&M governance."
+        "bodyAfterLoRa": " where low-power, long-range links suit remote blocks. Operate mixed NYUMA fleets from NECTYR: schedule single-pass cycles, track brush-hour counters, and download audit logs for O&M governance."
       },
       "edge": {
         "title": "Edge & Obstacle Detection Technology",
-        "body": "Edge-mapping sensors and obstacle detection keep NYUMA on the frame during single-pass runs at 10–15 m/min — essential on seasonal-tilt tables with uneven undulation."
+        "body": "Edge-mapping sensors and obstacle detection keep NYUMA on the frame during single-pass runs at 10–15 m/min, essential on seasonal-tilt tables with uneven undulation."
       },
       "build": {
         "title": "Sealed, Field-Hardened Build",
-        "body": "Sealed IP65 electronics and C3 corrosion protection shield the PBT drivetrain from abrasive dust ingress — validated for Indian damp-heat and dry-heat cycles."
+        "body": "Sealed IP65 electronics and C3 corrosion protection shield the PBT drivetrain from abrasive dust ingress, validated for Indian damp-heat and dry-heat cycles."
       }
     },
     "certifications": {
@@ -324,7 +346,7 @@
       "cards": {
         "card0": {
           "title": "High-Soiling Region Performance",
-          "body": "NYUMA automatic fleets serve high-soiling belts — Akhadana-scale deployments show how PBT robots sustain cadence when wet washing cannot keep pace."
+          "body": "NYUMA automatic fleets serve high-soiling belts, Akhadana-scale deployments show how PBT robots sustain cadence when wet washing cannot keep pace."
         },
         "card1": {
           "title": "Temperature & Humidity Tolerance",
@@ -332,7 +354,7 @@
         },
         "card2": {
           "title": "Waterless, Even in Water-Scarce States",
-          "body": "Single-pass dry cleaning eliminates tanker dependency — critical where state water boards restrict module washing allocations."
+          "body": "Single-pass dry cleaning eliminates tanker dependency, critical where state water boards restrict module washing allocations."
         },
         "card3": {
           "title": "Pan-India Service Network",
@@ -444,29 +466,29 @@
       "heading": "Advantages of Using Automatic Solar Panel Cleaning Robots",
       "energy": {
         "title": "Increased Energy Efficiency",
-        "body": "Consistent single-pass PBT cleaning prevents the 5–25% soiling drift common between manual washes — owners often model 4–8% PR uplift on high-soiling sites."
+        "body": "Consistent single-pass PBT cleaning prevents the 5–25% soiling drift common between manual washes, owners often model 4–8% PR uplift on high-soiling sites."
       },
       "waterless": {
         "title": "Waterless Cleaning",
-        "body": "NYUMA removes dust with a dry PBT brush only — zero litres per module, no tanker logistics, and no discharge risk in water-scarce districts."
+        "body": "NYUMA removes dust with a dry PBT brush only, zero litres per module, no tanker logistics, and no discharge risk in water-scarce districts."
       },
       "autonomous": {
         "title": "Fully Autonomous & Smart Operation",
-        "body": "NYUMA deploys autonomously after a one-time dock install — operators manage cadence remotely in NECTYR without night crews on the row."
+        "body": "NYUMA deploys autonomously after a one-time dock install, operators manage cadence remotely in NECTYR without night crews on the row."
       },
       "cost": {
         "title": "Cost-Effective Solution",
-        "body": "Single-pass PBT economics reduce upfront consumable complexity versus dual-pass systems — attractive for large fixed-tilt fleets with predictable dry dust."
+        "body": "Single-pass PBT economics reduce upfront consumable complexity versus dual-pass systems, attractive for large fixed-tilt fleets with predictable dry dust."
       },
       "safe": {
         "title": "Safe and Reliable Operation",
-        "body": "NYUMA rides the module frame with lab-validated PBT contact pressure — tested for micro-crack, reflectance, and ARC integrity under daily cycles."
+        "body": "NYUMA rides the module frame with lab-validated PBT contact pressure, tested for micro-crack, reflectance, and ARC integrity under daily cycles."
       }
     },
     "installSection": {
       "title": "How Long Does It Take to Install the Automated Solar Panel Cleaning Robots?",
       "p1": "The installation of the Solar Panel Cleaning Robot requires no modifications to the existing solar plant layout. The NYUMA Automated Solar Panel Cleaning Robot is designed to operate directly on the panel frame.",
-      "p2": "NYUMA commissioning covers dock placement, PBT brush calibration, and NECTYR onboarding — typically hours to two days per array with no structural plant changes.",
+      "p2": "NYUMA commissioning covers dock placement, PBT brush calibration, and NECTYR onboarding, typically hours to two days per array with no structural plant changes.",
       "p3": "Full-fleet rollouts across multi-block plants may take up to a week. Post-handover operation is autonomous with Taypro same-day support and remote diagnostics.",
       "p4": "TAYPRO NYUMA robots offer cost-effective and scalable solutions for solar power plants with easy installations and safe operations."
     },
@@ -483,11 +505,11 @@
         "s0": "⦿ The robot initialises its sensors on the activation and performs the system checks connectivity with the central monitoring system",
         "s1": "⦿ The cleaning schedule is pre-set via a remote monitoring portal which enables fully automated operation",
         "s2": "⦿ The locomotion motor powers the movement and guides the robot along the solar panel frames",
-        "s3": "⦿ The PBT brush drum spins up for a single waterless pass — counter-rotating bristles lift dry dust at 10–15 m/min without water or detergent",
+        "s3": "⦿ The PBT brush drum spins up for a single waterless pass, counter-rotating bristles lift dry dust at 10–15 m/min without water or detergent",
         "s4": "⦿ The edge detection sensors continually scan the surroundings which prevents the robot from overshooting the panel edges",
         "s5": "⦿ Users can adjust the cleaning speed and direction from the NECTYR",
         "s6": "⦿ Once the cleaning cycle is complete, the robot returns to its docking station, where it recharges using solar energy and remains idle until the next scheduled cycle.",
-        "s7": "⦿ Brush-load and battery telemetry feed fault detection — anomalies trigger a controlled stop and NECTYR notification",
+        "s7": "⦿ Brush-load and battery telemetry feed fault detection, anomalies trigger a controlled stop and NECTYR notification",
         "s8": "⦿ Self-cleaning brush action and adaptive row speed keep single-pass quality uniform across the assigned array"
       }
     },
@@ -534,7 +556,7 @@
         },
         "item2": {
           "question": "What is the difference between NYUMA, GLYDE, and NYUMA-X?",
-          "answer": "NYUMA is Taypro's single-pass PBT automatic robot for fixed-tilt utility plants. GLYDE is the dual-pass microfiber flagship for the same plant type. NYUMA-X extends the PBT platform to single-axis trackers. All share NECTYR monitoring — pick based on mounting structure and brush technology preference."
+          "answer": "NYUMA is Taypro's single-pass PBT automatic robot for fixed-tilt utility plants. GLYDE is the dual-pass microfiber flagship for the same plant type. NYUMA-X extends the PBT platform to single-axis trackers. All share NECTYR monitoring, pick based on mounting structure and brush technology preference."
         },
         "item3": {
           "question": "Is robotic solar panel cleaning safe for the modules?",
@@ -572,7 +594,7 @@
       "row0": {
         "criterion": "Cleaning Technology",
         "glyde": "Patented dual-pass: airflow loosens dust, microfiber completes the wipe",
-        "nyuma": "Single-pass counter-rotating PBT brush drum — fewer moving consumables"
+        "nyuma": "Single-pass counter-rotating PBT brush drum, fewer moving consumables"
       },
       "row1": {
         "criterion": "Best For",
@@ -601,8 +623,8 @@
       },
       "row6": {
         "criterion": "Labour After Install",
-        "glyde": "Zero — fully autonomous daily cycles",
-        "nyuma": "Zero — fully autonomous daily cycles"
+        "glyde": "Zero: fully autonomous daily cycles",
+        "nyuma": "Zero: fully autonomous daily cycles"
       },
       "row7": {
         "criterion": "Fleet Monitoring",

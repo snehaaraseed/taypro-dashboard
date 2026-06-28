@@ -6,17 +6,17 @@
       "openGraphTitle": "روبوت تنظيف أسطح شمسية | Taypro",
       "openGraphDescription": "تنظيف روبوتي للأسطح التجارية بدون ماء."
     },
-    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHub": "روبوتات تنظيف الألواح الشمسية",
     "breadcrumbHubHref": "/solar-panel-cleaning-system",
     "breadcrumb": "روبوت تنظيف أسطح شمسية",
     "schema": {
-      "name": "Taypro MINY Rooftop Solar Cleaning Robot",
-      "description": "Compact waterless solar panel cleaning robot for commercial and industrial rooftop arrays in India.",
+      "name": "Taypro MINY روبوت التنظيف بالطاقة الشمسية على السطح",
+      "description": "روبوت صغير الحجم لتنظيف الألواح الشمسية بدون ماء لصفائف الأسطح التجارية والصناعية في الهند.",
       "sku": "MINY"
     },
     "hero": {
       "eyebrow": "السطح وجزء C&I",
-      "title": "روبوت تنظيف للألواح على الأسطح — تجاري وصناعي",
+      "title": "روبوت تنظيف للألواح على الأسطح, تجاري وصناعي",
       "subtitle": "لا تتناسب الروبوتات ذات النطاق النفعي مع أسطح المستودعات وشرفات المصانع. Taypro MINY هو روبوت تنظيف صغير الحجم بدون ماء مصمم للاستخدام التجاري في مجال الطاقة الشمسية على الأسطح - وصول محدود ومصفوفات أصغر واقتصاديات C&I.",
       "ctaPrimary": "استكشف MINY",
       "ctaPrimaryHref": "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
@@ -53,22 +53,22 @@
       }
     },
     "products": {
-      "eyebrow": "Recommended solutions",
-      "heading": "Taypro robots for rooftop and distributed solar",
+      "eyebrow": "الحلول الموصى بها",
+      "heading": "Taypro روبوتات للأسطح والطاقة الشمسية الموزعة",
       "product0": {
-        "title": "MINY — compact rooftop robot",
-        "body": "Purpose-built for commercial and industrial rooftops. Compact form factor, waterless dry cleaning, autonomous row traversal for C&I arrays.",
-        "link": "MINY product page"
+        "title": "MINY: روبوت صغير الحجم على السطح",
+        "body": "مصممة خصيصًا للأسطح التجارية والصناعية. عامل شكل مضغوط، تنظيف جاف بدون ماء، اجتياز الصف بشكل مستقل لمصفوفات C&I.",
+        "link": "MINY صفحة المنتج"
       },
       "product1": {
-        "title": "HELYX — semi-automatic for scattered blocks",
-        "body": "Pick-and-place semi-automatic robot for distributed portfolios with multiple small blocks where full autonomy is not economical.",
-        "link": "HELYX product page"
+        "title": "HELYX: شبه تلقائي للكتل المتناثرة",
+        "body": "روبوت نصف آلي يتم اختياره ووضعه للمحافظ الموزعة ذات الكتل الصغيرة المتعددة حيث لا يكون الاستقلال الذاتي الكامل اقتصاديًا.",
+        "link": "HELYX صفحة المنتج"
       },
       "product2": {
-        "title": "NECTYR monitoring",
-        "body": "Fleet scheduling and cleaning reports for multi-site C&I portfolios — even when robots move between blocks.",
-        "link": "NECTYR app"
+        "title": "NECTYR المراقبة",
+        "body": "تقارير جدولة الأسطول وتنظيفه لحافظات C&I متعددة المواقع، حتى عندما تتحرك الروبوتات بين الكتل.",
+        "link": "تطبيق NECTYR"
       }
     },
     "prose": {
@@ -104,33 +104,33 @@
       "q8": "ما هي أنواع المباني التي تستخدم روبوتات تنظيف الأسطح في الهند؟",
       "a8": "تعد المستودعات والمجمعات اللوجستية ومرافق التصنيع ومراكز التسوق والحرم المؤسسي التي تحتوي على مصفوفات على الأسطح بقدرة 500 كيلووات + من الجهات المعتمدة بشكل أساسي.",
       "q9": "هل يستطيع MINY التنظيف حول عوائق الأسطح؟",
-      "a9": "تعتمد الجدوى على تخطيط الصف وعرض الفجوات ومناطق الأمان. Taypro يرسم مسارات أثناء تقييم الموقع — قد تحتاج المصفوفات غير المنتظمة إلى HELYX اختيار ومكان بدلاً من ذلك.",
+      "a9": "تعتمد الجدوى على تخطيط الصف وعرض الفجوات ومناطق الأمان. Taypro يرسم مسارات أثناء تقييم الموقع, قد تحتاج المصفوفات غير المنتظمة إلى HELYX اختيار ومكان بدلاً من ذلك.",
       "q10": "هل تم استخدام التنظيف الرطب على أسطح المنازل؟",
       "a10": "Taypro الروبوتات بدون ماء حسب التصميم - لتجنب الجريان السطحي، وإضافة الأحمال، ومشكلات كود البناء الشائعة مع الغسيل بالضغط.",
       "q11": "كيف يمكن مقارنة روبوت السطح ROI بالتنظيف اليدوي؟",
       "a11": "يتطلب التنظيف اليدوي للأسطح طواقم أدوات السلامة والتأمين وتنسيق الوصول إلى المبنى - وغالبًا ما يكون ذلك أكثر تكلفة لكل كيلووات من التنظيف اليدوي على الأرض. قم بتشغيل الآلة الحاسبة ROI مع التعرفة ومعدل الاتساخ."
     },
     "cta": {
-      "heading": "Assess your rooftop for robotic cleaning",
-      "body": "Tell us about your commercial rooftop array. Taypro will recommend the right compact robot or alternative approach.",
-      "primary": "MINY product page",
+      "heading": "قم بتقييم سطح منزلك للتنظيف الآلي",
+      "body": "أخبرنا عن مجموعة الأسطح التجارية الخاصة بك. Taypro سيوصي بالروبوت المدمج الصحيح أو النهج البديل.",
+      "primary": "MINY صفحة المنتج",
       "primaryHref": "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
-      "secondary": "Contact Taypro",
+      "secondary": "اتصل بنا Taypro",
       "secondaryHref": "/contact"
     },
     "related": {
-      "label": "Related:",
-      "link0": "HELYX semi-automatic robot",
+      "label": "متعلق ب:",
+      "link0": "HELYX روبوت نصف آلي",
       "link0Href": "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
-      "link1": "Utility cleaning service",
+      "link1": "خدمة تنظيف المرافق",
       "link1Href": "/solar-panel-cleaning-service-india",
-      "link2": "Robot hub",
+      "link2": "محور الروبوت",
       "link2Href": "/solar-panel-cleaning-system"
     },
     "quoteForm": {
-      "eyebrow": "Rooftop inquiry",
-      "title": "Request rooftop cleaning robot assessment",
-      "placeholder": "Rooftop capacity (kW/MW), building type, city, access constraints (lift size, stairs), and array layout."
+      "eyebrow": "استفسار على السطح",
+      "title": "طلب تقييم روبوت تنظيف الأسطح",
+      "placeholder": "سعة السطح (كيلوواط/MW)، ونوع المبنى، والمدينة، وقيود الوصول (حجم المصعد، والسلالم)، وتخطيط الصفيف."
     },
     "stats": {
       "eyebrow": "الجزء على السطح",
@@ -139,13 +139,13 @@
         "tag": "شريحة",
         "stat": "C&I",
         "label": "المستودعات، المصانع، المولات",
-        "body": "تتجاوز طاقة الطاقة الشمسية على الأسطح C&I في الهند 20 GW — تتراوح معظم المصفوفات من 500 كيلووات إلى 5 MW حيث تتفوق الروبوتات المدمجة على الآلات ذات الحجم الكبير."
+        "body": "تتجاوز طاقة الطاقة الشمسية على الأسطح C&I في الهند 20 GW: تتراوح معظم المصفوفات من 500 كيلووات إلى 5 MW حيث تتفوق الروبوتات المدمجة على الآلات ذات الحجم الكبير."
       },
       "card1": {
         "tag": "وصول",
         "stat": "مدمج",
         "label": "MINY عامل الشكل",
-        "body": "مصممة لمصاعد الشحن وفتحات السقف الضيقة — لا تستطيع الروبوتات من فئة GLYDE التحرك على أسطح المنازل التجارية النموذجية."
+        "body": "مصممة لمصاعد الشحن وفتحات السقف الضيقة, لا تستطيع الروبوتات من فئة GLYDE التحرك على أسطح المنازل التجارية النموذجية."
       },
       "card2": {
         "tag": "ماء",
@@ -161,36 +161,36 @@
       }
     },
     "steps": {
-      "eyebrow": "Rooftop assessment",
-      "heading": "How to evaluate a rooftop solar cleaning robot",
-      "step0Title": "Document array layout and access",
-      "step0Body": "Share kW/MW capacity, row length, tilt, lift dimensions, stair access, and photos. Taypro determines MINY vs HELYX feasibility.",
-      "step1Title": "Roof load and safety review",
-      "step1Body": "Structural and safety constraints verified before robot deployment. Not every rooftop qualifies — Taypro advises honestly.",
-      "step2Title": "Robot specification and quote",
-      "step2Body": "MINY compact robot for autonomous rows, or HELYX for pick-and-place scattered blocks. NECTYR optional for multi-site portfolios.",
-      "step3Title": "Commissioning and operator training",
-      "step3Body": "On-site training for building facilities team or Taypro operator placement depending on commercial model.",
-      "step4Title": "Scheduled cleaning cycles",
-      "step4Body": "Typically 2–6 dry cycles monthly for urban C&I soiling — adjusted after first month PR observation."
+      "eyebrow": "تقييم السطح",
+      "heading": "كيفية تقييم روبوت التنظيف بالطاقة الشمسية على السطح",
+      "step0Title": "تخطيط مجموعة المستندات والوصول إليها",
+      "step0Body": "مشاركة سعة kW/MW وطول الصف والإمالة وأبعاد الرفع والوصول إلى الدرج والصور. Taypro يحدد MINY مقابل HELYX الجدوى.",
+      "step1Title": "تحميل السقف ومراجعة السلامة",
+      "step1Body": "التحقق من القيود الهيكلية والسلامة قبل نشر الروبوت. ليس كل سطح مؤهلًا، ينصح Taypro بأمانة.",
+      "step2Title": "مواصفات الروبوت والاقتباس",
+      "step2Body": "MINY روبوت صغير الحجم للصفوف المستقلة، أو HELYX للكتل المتفرقة التي يتم اختيارها ووضعها. NECTYR اختياري للحافظات متعددة المواقع.",
+      "step3Title": "التكليف وتدريب المشغلين",
+      "step3Body": "التدريب في الموقع لفريق مرافق البناء أو تعيين مشغل Taypro وفقًا للنموذج التجاري.",
+      "step4Title": "دورات التنظيف المجدولة",
+      "step4Body": "عادة 2-6 دورات تجفيف شهريًا للتلوث الحضري C&I، يتم تعديلها بعد ملاحظة الشهر الأول PR."
     },
     "eligibility": {
-      "eyebrow": "Fit guide",
-      "title": "Is a rooftop cleaning robot right for your building?",
-      "forTitle": "Good fit",
-      "for0": "Commercial/industrial rooftops 500 kW–5 MW with regular row geometry",
-      "for1": "Warehouses, manufacturing plants, logistics parks with night cleaning windows",
-      "for2": "Buildings prohibiting wet-wash runoff or water tanker access",
-      "for3": "C&I developers managing multi-site portfolios needing NECTYR reporting",
-      "notForTitle": "Not ideal",
-      "not0": "Ground-mount utility plants (use GLYDE, GLYDE-X, or NYUMA instead)",
-      "not1": "Roofs failing structural or access feasibility review",
-      "not2": "Single small arrays where manual cleaning cost is already negligible"
+      "eyebrow": "دليل صالح",
+      "title": "هل روبوت تنظيف الأسطح مناسب للمبنى الخاص بك؟",
+      "forTitle": "مناسبا جيدا",
+      "for0": "أسطح المنازل التجارية/الصناعية 500 كيلووات–5 MW بهندسة صفية منتظمة",
+      "for1": "المستودعات ومصانع التصنيع والمجمعات اللوجستية مع نوافذ التنظيف الليلية",
+      "for2": "المباني التي تمنع جريان المياه الرطبة أو وصول صهاريج المياه",
+      "for3": "C&I مطورو البرامج الذين يديرون ملفات متعددة المواقع ويحتاجون إلى تقارير NECTYR",
+      "notForTitle": "ليست مثالية",
+      "not0": "محطات المرافق الأرضية (استخدم GLYDE أو GLYDE-X أو NYUMA بدلاً من ذلك)",
+      "not1": "أسقف فشلت في مراجعة جدوى الهيكلية أو الوصول إليها",
+      "not2": "مصفوفات صغيرة مفردة حيث تكون تكلفة التنظيف اليدوي ضئيلة بالفعل"
     },
     "highlight": {
-      "heading": "Utility robots do not fit warehouse roofs.",
-      "lead": "Rooftop buyer intent needs a compact solar cleaning robot — not a repackaged ground-mount GLYDE.",
-      "body": "Taypro MINY is purpose-built for commercial rooftop solar in India. HELYX covers scattered multi-block C&I where pick-and-place beats full autonomy."
+      "heading": "الروبوتات المساعدة لا تناسب أسطح المستودعات.",
+      "lead": "يحتاج مشتري السطح إلى روبوت صغير للتنظيف بالطاقة الشمسية، وليس إلى حامل أرضي معاد تعبئته GLYDE.",
+      "body": "Taypro MINY مصمم خصيصًا للطاقة الشمسية على الأسطح التجارية في الهند. يغطي HELYX كتلًا متعددة متفرقة C&I حيث يتفوق الاختيار والمكان على الاستقلالية الكاملة."
     },
     "proseSecondary": {
       "eyebrow": "حالات الاستخدام التجاري",
@@ -204,13 +204,13 @@
       "linkSecondaryHref": "/solar-panel-cleaning-service-india"
     },
     "resources": {
-      "eyebrow": "Rooftop guides",
-      "heading": "Related resources",
-      "link0Title": "HELYX semi-automatic robot",
+      "eyebrow": "أدلة على السطح",
+      "heading": "الموارد ذات الصلة",
+      "link0Title": "HELYX روبوت نصف آلي",
       "link0Href": "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
-      "link1Title": "Robot price guide India",
+      "link1Title": "دليل أسعار الروبوت في الهند",
       "link1Href": "/solar-panel-cleaning-robot-price-india",
-      "link2Title": "ROI calculator",
+      "link2Title": "ROI آلة حاسبة",
       "link2Href": "/solar-panel-cleaning-robot-price-calculator"
     }
   }

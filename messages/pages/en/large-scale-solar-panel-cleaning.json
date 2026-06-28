@@ -11,14 +11,14 @@
     "breadcrumb": "Large-scale solar panel cleaning",
     "schema": {
       "name": "Taypro Large-Scale Solar Panel Cleaning",
-      "description": "Robotic solar panel cleaning for 50–500 MW utility plants in India — fleet deployment, commissioning, and managed OPEX or CAPEX programmes.",
+      "description": "Robotic solar panel cleaning for 50–500 MW utility plants in India: fleet deployment, commissioning, and managed OPEX or CAPEX programmes.",
       "serviceType": "Large-scale solar panel cleaning",
       "areaServed": "India"
     },
     "hero": {
       "eyebrow": "50–500 MW utility solar",
-      "title": "Large-scale solar panel cleaning — MW-scale robotic fleet deployment",
-      "subtitle": "100 MW is not a pilot — it is a production O&M challenge. Taypro deploys multi-robot fleets on SECI, DVC, and IPP projects from 50 MW to 360 MW single sites. For pan-India service coverage proof, see the national fleet coverage page; for OPEX commercial terms, use the primary cleaning service page.",
+      "title": "Large-scale solar panel cleaning, MW-scale robotic fleet deployment",
+      "subtitle": "100 MW is not a pilot, it is a production O&M challenge. Taypro deploys multi-robot fleets on SECI, DVC, and IPP projects from 50 MW to 360 MW single sites. For pan-India service coverage proof, see the national fleet coverage page; for OPEX commercial terms, use the primary cleaning service page.",
       "ctaPrimary": "Request enterprise quote",
       "ctaPrimaryHref": "/contact",
       "ctaSecondary": "View automatic projects",
@@ -31,7 +31,7 @@
         "tag": "References",
         "stat": "360 MW",
         "label": "Largest single-site automatic deployment",
-        "body": "Multi-robot GLYDE fleets on Rajasthan and Gujarat utility plants — not demonstration units."
+        "body": "Multi-robot GLYDE fleets on Rajasthan and Gujarat utility plants, not demonstration units."
       },
       "card1": {
         "tag": "Fleet model",
@@ -57,7 +57,7 @@
       "heading": "What 100 MW+ procurement teams require from a cleaning vendor",
       "card0": {
         "title": "Proven multi-MW references",
-        "body": "SECI, state discom, and IPP case studies with named MW capacity — not marketing claims without deployment evidence."
+        "body": "SECI, state discom, and IPP case studies with named MW capacity, not marketing claims without deployment evidence."
       },
       "card1": {
         "title": "Fleet density & throughput modelling",
@@ -83,7 +83,7 @@
     "prose": {
       "eyebrow": "Deployment model",
       "heading": "How many cleaning robots per MW at large scale?",
-      "p1": "There is no universal robots-per-MW ratio — it depends on fixed tilt vs tracker, row length, transfer points, target cycles per month, and battery swap strategy. Taypro engineers model fleet size during site assessment using stored row geometry and throughput targets.",
+      "p1": "There is no universal robots-per-MW ratio, it depends on fixed tilt vs tracker, row length, transfer points, target cycles per month, and battery swap strategy. Taypro engineers model fleet size during site assessment using stored row geometry and throughput targets.",
       "p2": "On 100 MW+ tracker plants, GLYDE-X or NYUMA-X fleets with CRADYL row transfer are standard. Fixed-tilt blocks at 200–360 MW may deploy tens of GLYDE units with coordinated NECTYR scheduling across zones.",
       "p3": "Browse Taypro's automatic project references or request a fleet model for your specific plant layout.",
       "linkPrimary": "Automatic cleaning projects",
@@ -101,20 +101,20 @@
       "intro": "India's largest utility solar parks sit in Rajasthan, Gujarat, Maharashtra, Karnataka, and Madhya Pradesh. Explore state-specific robotic cleaning guides."
     },
     "faq": {
-      "heading": "Large-scale solar cleaning — FAQ",
+      "heading": "Large-scale solar cleaning, FAQ",
       "subheading": "Enterprise procurement questions for 50–500 MW plants.",
       "q0": "Can Taypro clean a 100 MW solar plant?",
       "a0": "Yes. Taypro has multiple 100 MW+ references and single-site deployments up to 360 MW with automatic GLYDE fleets. Fleet size and mobilisation timeline are modelled per site.",
       "q1": "How many robots are needed per MW?",
-      "a1": "Robots-per-MW varies by installation type, row geometry, and cycle count. Taypro provides a site-specific fleet model during engineering assessment — not a generic brochure number.",
+      "a1": "Robots-per-MW varies by installation type, row geometry, and cycle count. Taypro provides a site-specific fleet model during engineering assessment, not a generic brochure number.",
       "q2": "What is the commissioning timeline for a 200 MW fleet?",
-      "a2": "Phased mobilisation is typical: site mapping, zone-by-zone robot deployment, operator training, and NECTYR onboarding. Timeline depends on row count and access — proposed during commercial engagement.",
+      "a2": "Phased mobilisation is typical: site mapping, zone-by-zone robot deployment, operator training, and NECTYR onboarding. Timeline depends on row count and access, proposed during commercial engagement.",
       "q3": "Does Taypro serve SECI and CPSU projects?",
       "a3": "Yes. Taypro has experience on SECI-tendered and state discom utility plants with robotic cleaning fleets and managed OPEX programmes.",
       "q4": "CAPEX or OPEX for 100 MW+ plants?",
       "a4": "Both models are used at scale. CAPEX suits long hold periods and balance-sheet capacity. OPEX suits fast mobilisation and predictable per-panel opex. Many IPPs run portfolio-level analysis using our ROI calculator.",
       "q5": "How does large-scale cleaning differ from utility operations context?",
-      "a5": "This page focuses on MW-scale fleet deployment capability and references. Our utility operations page covers industry context — soiling, PR, and O&M gaps. Our O&M services page covers procurement scope and SLAs.",
+      "a5": "This page focuses on MW-scale fleet deployment capability and references. Our utility operations page covers industry context, soiling, PR, and O&M gaps. Our O&M services page covers procurement scope and SLAs.",
       "q6": "What robots are used at MW scale?",
       "a6": "GLYDE for fixed tilt, GLYDE-X and NYUMA-X for trackers, with CRADYL row transfer on long tracker tables. HELYX for scattered blocks within large sites.",
       "q7": "How do I start an enterprise inquiry?",
@@ -130,7 +130,7 @@
     },
     "cta": {
       "heading": "Enterprise inquiry for MW-scale cleaning",
-      "body": "50 MW to 500 MW — share your plant details for a fleet deployment proposal.",
+      "body": "50 MW to 500 MW: share your plant details for a fleet deployment proposal.",
       "primary": "Contact Taypro",
       "primaryHref": "/contact",
       "secondary": "Solar O&M services",
@@ -166,7 +166,7 @@
     },
     "eligibility": {
       "eyebrow": "Scale fit",
-      "title": "Large-scale solar panel cleaning — when Taypro fits",
+      "title": "Large-scale solar panel cleaning, when Taypro fits",
       "forTitle": "Built for",
       "for0": "Utility solar plants 50 MW to 500 MW single site or portfolio",
       "for1": "SECI, state discom, CPSU, and IPP assets with documented MW references",
@@ -179,13 +179,13 @@
     },
     "highlight": {
       "heading": "100 MW is not a pilot.",
-      "lead": "Large-scale solar panel cleaning requires production fleet operations — not a handful of demo robots.",
+      "lead": "Large-scale solar panel cleaning requires production fleet operations, not a handful of demo robots.",
       "body": "Taypro deploys tens of robots on 200–360 MW sites with NECTYR fleet oversight, regional spares, and dedicated operators. That is the bar for MW-scale cleaning procurement in India."
     },
     "proseSecondary": {
       "eyebrow": "References",
-      "heading": "100MW solar cleaning and beyond — Taypro deployment evidence",
-      "p1": "Akhadana Rajasthan 360 MW, Bachau DVC Gujarat 300 MW, and Neneva Gujarat 250 MW represent automatic-first Taypro GLYDE fleets at the upper end of Indian utility scale. These are production deployments — not demonstration arrays.",
+      "heading": "100MW solar cleaning and beyond, Taypro deployment evidence",
+      "p1": "Akhadana Rajasthan 360 MW, Bachau DVC Gujarat 300 MW, and Neneva Gujarat 250 MW represent automatic-first Taypro GLYDE fleets at the upper end of Indian utility scale. These are production deployments, not demonstration arrays.",
       "p2": "Fleet sizing on 100 MW tracker plants typically involves GLYDE-X or NYUMA-X with CRADYL transfer stations at row ends. Fixed-tilt 200 MW blocks may run coordinated multi-zone GLYDE fleets with NECTYR scheduling across zones.",
       "p3": "Request enterprise proposal with plant layout, or browse automatic project case studies filtered by MW capacity.",
       "linkPrimary": "Automatic project references",

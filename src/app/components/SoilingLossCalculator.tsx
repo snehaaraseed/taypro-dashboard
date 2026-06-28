@@ -98,7 +98,7 @@ export default function SoilingLossCalculator({
               className="w-full accent-[#A8C117]"
             />
             <p className="text-sm text-[#27415c] mt-1">
-              {soilingPercent}% — {t("soilingHint")}
+              {soilingPercent}%, {t("soilingHint")}
             </p>
             <div className="flex flex-wrap gap-2 mt-2">
               {SOILING_REGION_PRESETS.map((preset) => (

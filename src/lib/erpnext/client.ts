@@ -2,7 +2,7 @@
  * ERPNext / Frappe REST client.
  *
  * Requires server env:
- * - ERPNEXT_API_URL — instance base URL (e.g. https://app.taypro.in)
+ * - ERPNEXT_API_URL: instance base URL (e.g. https://app.taypro.in)
  * - ERPNEXT_API_KEY
  * - ERPNEXT_API_SECRET
  * - ERPNEXT_NEWSLETTER_EMAIL_GROUP (optional; defaults to Website Newsletter Subscribers)
@@ -84,11 +84,9 @@ export async function erpnextFetch<T>(
     ...init,
     headers: {
       Authorization: authHeader(),
-      Accept: "application/json",
-      ...(init?.body instanceof FormData
+      Accept: "application/json", ...(init?.body instanceof FormData
         ? {}
-        : { "Content-Type": "application/json" }),
-      ...init?.headers,
+        : { "Content-Type": "application/json" }), ...init?.headers,
     },
   });
 

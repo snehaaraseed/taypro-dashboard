@@ -24,7 +24,12 @@ import { withHreflang } from "@/lib/seo/with-hreflang";
 import CallbackCard from "@/app/components/CallbackCard";
 import ClientsCard from "@/app/components/ClientsCard";
 import ModuleManufacturerTrust from "@/app/components/ModuleManufacturerTrust";
+import ProductHero from "@/app/components/ProductHero";
 import ProductLineupSection from "@/app/components/ProductLineupSection";
+import {
+  productHeroBackgroundCredit,
+} from "@/lib/products/product-hero-helpers";
+import { resolveHubPageHeroBackground } from "@/lib/cms/product-page-hero-background";
 import {
   clientPartners,
   comingSoonRobotProducts,
@@ -315,10 +320,12 @@ export default async function SolarPanelCleaningRobot({
     answer: t(`faq.items.item${i}.answer`),
   }));
 
-  const heroStats = [0, 1, 2, 3].map((i) => ({
+  const heroHighlights = [0, 1, 2, 3].map((i) => ({
     value: t(`heroStats.stat${i}.value`),
     label: t(`heroStats.stat${i}.label`),
   }));
+
+  const heroBackground = await resolveHubPageHeroBackground(locale);
 
   const robotFeatureRows = [0, 1, 2, 3, 4, 5].map((i) => ({
     title: t(`robotFeatures.feature${i}.title`),
@@ -387,92 +394,39 @@ export default async function SolarPanelCleaningRobot({
       <FAQPageSchema faqs={hubFaqs} />
 
       <div className="min-h-screen overflow-x-hidden">
-        {/* HERO */}
-        <section className="bg-white">
-          <Container className="py-10 sm:py-14">
-            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-8 lg:gap-12 items-stretch">
-              <AnimateOnScroll
-                animation="fadeInLeft"
-                eager
-                className="bg-[#052638] text-white px-6 sm:px-10 py-10 sm:py-14 flex flex-col justify-center rounded-lg"
-              >
-                <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                  {t("hero.eyebrow")}
-                </div>
-                <h1 className="text-3xl sm:text-5xl md:text-6xl font-semibold leading-tight mb-5">
-                  {t("hero.title")}
-                </h1>
-                <p className="text-white/85 text-base sm:text-lg leading-relaxed mb-7 max-w-2xl">
-                  {t("hero.leadHtmlSegments.beforeBold1")}
-                  <strong>{t("hero.leadHtmlSegments.bold1")}</strong>
-                  {t("hero.leadHtmlSegments.afterBold1")}
-                  <strong>{t("hero.leadHtmlSegments.bold2")}</strong>
-                  {t("hero.leadHtmlSegments.afterBold2")}
-                  <strong>{t("hero.leadHtmlSegments.bold3")}</strong>
-                  {t("hero.leadHtmlSegments.afterBold3")}
-                  <strong>{t("hero.leadHtmlSegments.bold4")}</strong>
-                  {t("hero.leadHtmlSegments.afterBold4")}
-                  <Link
-                    href="/solar-panel-cleaning-system/solar-panel-cleaning-service"
-                    className="brand-inline-link font-medium"
-                  >
-                    {t("hero.payPerPanelServiceLinkText")}
-                  </Link>
-                  {t("hero.leadAfterLink")}
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                  <OpenLeadModalButton
-                    topic={t("hero.primaryCta.topic")}
-                    title={t("hero.primaryCta.title")}
-                    subtitle={t("hero.primaryCta.subtitle")}
-                    className="inline-flex items-center justify-center min-h-[48px] sm:min-w-[200px] bg-[#A8C117] text-[#052638] font-medium px-7 py-3.5 rounded-md hover:bg-[#b3cf3d] transition"
-                  >
-                    {t("hero.primaryCta.label")}
-                  </OpenLeadModalButton>
-                  <Link
-                    href="/solar-panel-cleaning-robot-price-calculator#calculator"
-                    className="inline-flex items-center justify-center min-h-[48px] sm:min-w-[200px] border-2 border-white/70 text-white font-medium px-7 py-3.5 rounded-md hover:bg-white/10 transition"
-                  >
-                    {t("hero.secondaryCta")}
-                  </Link>
-                </div>
-              </AnimateOnScroll>
+        <ProductHero
+          eyebrow={t("hero.eyebrow")}
+          title={t("hero.title")}
+          subtitle={t("hero.subtitleShort")}
+          backgroundImage={heroBackground.src}
+          backgroundAlt={heroBackground.alt}
+          backgroundCredit={productHeroBackgroundCredit(heroBackground)}
+          ctaHref="/contact"
+          ctaText={t("hero.primaryCta.label")}
+          ctaTopic={t("hero.primaryCta.topic")}
+          ctaTitle={t("hero.primaryCta.title")}
+          ctaSubtitle={t("hero.primaryCta.subtitle")}
+          secondaryCta={{
+            label: t("hero.secondaryCta"),
+            href: "/solar-panel-cleaning-robot-price-calculator#calculator",
+          }}
+          highlights={heroHighlights}
+        />
 
-              <AnimateOnScroll
-                animation="fadeInRight"
-                eager
-                className="relative min-h-[280px] sm:min-h-[360px] lg:min-h-[480px]"
-              >
-                <Image
-                  src={PRODUCT_CATALOG.glyde.imagePath}
-                  alt={t("hero.heroImageAlt")}
-                  title={t("hero.heroImageTitle")}
-                  fill
-                  priority
-                  fetchPriority="high"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-contain"
-                />
-              </AnimateOnScroll>
-            </div>
+        <ProductLineupSection
+          headingId="hub-product-lineup-heading"
+          messagesNamespace="Home.robots"
+          eyebrow={t("productGrid.eyebrow")}
+          heading={t("productGrid.title")}
+          subheading={t("productGrid.subtitle")}
+          hardwareRobots={hardwareRobots}
+          solutionRobots={solutionRobots}
+          sectionClassName="pt-0 pb-14 sm:pb-16 bg-white"
+        />
 
-            <div className="mt-8 sm:mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-              {heroStats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="bg-[#f4f1e9] rounded-lg px-4 py-4 text-center"
-                >
-                  <div className="text-[#052638] font-semibold text-xl sm:text-2xl">
-                    {stat.value}
-                  </div>
-                  <div className="text-gray-600 text-xs sm:text-sm mt-1 leading-snug">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 sm:mt-10 rounded-lg border border-[#A8C117]/40 bg-[#f4f7f0] px-5 sm:px-8 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <section className="bg-white pb-10 sm:pb-14">
+          <Container>
+            <div className="rounded-lg border border-[#A8C117]/40 bg-[#f4f7f0] px-5 sm:px-8 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div className="max-w-2xl">
                 <p className="text-[#5a8f00] text-sm font-medium uppercase tracking-wide mb-1">
                   {t("serviceCallout.eyebrow")}
@@ -618,17 +572,6 @@ export default async function SolarPanelCleaningRobot({
             </div>
           </Container>
         </section>
-
-        <ProductLineupSection
-          headingId="hub-product-lineup-heading"
-          messagesNamespace="Home.robots"
-          eyebrow={t("productGrid.eyebrow")}
-          heading={t("productGrid.title")}
-          subheading={t("productGrid.subtitle")}
-          hardwareRobots={hardwareRobots}
-          solutionRobots={solutionRobots}
-          sectionClassName="pt-4 pb-16 sm:pb-20 bg-white"
-        />
 
         <section className="bg-[#f4f1e9] py-16 sm:py-20">
           <Container>

@@ -2,22 +2,22 @@
   "PlantDataIntelligencePage": {
     "meta": {
       "title": "সোলার প্ল্যান্ট ডেটা ইন্টেলিজেন্স ইন্ডিয়া | ORION এবং NECTYR",
-      "description": "SCADA এর বাইরে সৌর উদ্ভিদ ডেটা বুদ্ধিমত্তা: Taypro NECTYR আজ টেলিমেট্রি পরিষ্কার করা, ORION উদ্ভিদ স্বাস্থ্য রোডম্যাপ — PR ড্রিফট, সয়েলিং পারস্পরিক সম্পর্ক, এবং ভারতীয় ইউটিলিটি ফ্লিটগুলির জন্য ফলন বিশ্লেষণ৷",
+      "description": "SCADA এর বাইরে সৌর উদ্ভিদ ডেটা বুদ্ধিমত্তা: Taypro NECTYR আজ টেলিমেট্রি পরিষ্কার করা, ORION উদ্ভিদ স্বাস্থ্য রোডম্যাপ, PR ড্রিফট, সয়েলিং পারস্পরিক সম্পর্ক, এবং ভারতীয় ইউটিলিটি ফ্লিটগুলির জন্য ফলন বিশ্লেষণ৷",
       "openGraphTitle": "সোলার প্ল্যান্ট ডেটা ইন্টেলিজেন্স | Taypro",
       "openGraphDescription": "Taypro ফ্লিট গ্রাহকদের জন্য লেবেলযুক্ত পরিচ্ছন্নতার ডেটা এবং ORION উদ্ভিদ বুদ্ধিমত্তা সহ সোয়লিং-টু-অ্যাকশন লুপ বন্ধ করুন।"
     },
-    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHub": "সোলার প্যানেল পরিষ্কারের রোবট",
     "breadcrumbHubHref": "/solar-panel-cleaning-system",
-    "breadcrumb": "Solar plant data intelligence",
+    "breadcrumb": "সৌর উদ্ভিদ তথ্য বুদ্ধিমত্তা",
     "schema": {
-      "name": "Taypro ORION Plant Data Intelligence",
-      "description": "Plant intelligence layer correlating cleaning, weather, and yield for utility solar — ORION roadmap on NECTYR fleet data.",
-      "applicationCategory": "BusinessApplication"
+      "name": "Taypro ORION উদ্ভিদ ডেটা বুদ্ধিমত্তা",
+      "description": "প্ল্যান্ট ইন্টেলিজেন্স লেয়ার ক্লিনিং, আবহাওয়া এবং ইউটিলিটি সোলারের জন্য ফলন, ORION রোডম্যাপ NECTYR ফ্লিট ডেটাতে।",
+      "applicationCategory": "ব্যবসায়িক আবেদন"
     },
     "hero": {
       "eyebrow": "ডেটা · উদ্ভিদ বুদ্ধি",
-      "title": "সোলার প্ল্যান্ট ডেটা ইন্টেলিজেন্স — SCADA অ্যালার্ম থেকে শুরু করে ক্লিনিং অ্যাকশন পর্যন্ত",
-      "subtitle": "হারানোর পরে SCADA দেখায় kWh। Taypro এর স্ট্যাক লেবেলযুক্ত ক্লিনিং টেলিমেট্রি (NECTYR, লাইভ) এবং ORION প্ল্যান্ট ইন্টেলিজেন্স (রোডম্যাপ) যুক্ত করে — ইউটিলিটি সম্পদের মালিকদের জন্য মাটি, আবহাওয়া এবং ফলন সম্পর্কিত।",
+      "title": "সোলার প্ল্যান্ট ডেটা ইন্টেলিজেন্স, SCADA অ্যালার্ম থেকে শুরু করে ক্লিনিং অ্যাকশন পর্যন্ত",
+      "subtitle": "হারানোর পরে SCADA দেখায় kWh। Taypro এর স্ট্যাক লেবেলযুক্ত ক্লিনিং টেলিমেট্রি (NECTYR, লাইভ) এবং ORION প্ল্যান্ট ইন্টেলিজেন্স (রোডম্যাপ) যুক্ত করে, ইউটিলিটি সম্পদের মালিকদের জন্য মাটি, আবহাওয়া এবং ফলন সম্পর্কিত।",
       "ctaPrimary": "এক্সপ্লোর করুন ORION",
       "ctaPrimaryHref": "/solar-panel-cleaning-system/orion-plant-intelligence-platform",
       "ctaSecondary": "NECTYR ফ্লিট পোর্টাল",
@@ -26,17 +26,17 @@
     "cards": {
       "eyebrow": "তিন-স্তর স্ট্যাক",
       "heading": "শারীরিক রোবট, অপারেশন ডেটা, উদ্ভিদ বুদ্ধি",
-      "subheading": "ডেটা ইন্টেলিজেন্স এক্সিকিউশন প্রুফ দিয়ে শুরু হয় — তারপর ভবিষ্যদ্বাণীমূলক O&M-এ চলে যায়।",
+      "subheading": "ডেটা ইন্টেলিজেন্স এক্সিকিউশন প্রুফ দিয়ে শুরু হয়, তারপর ভবিষ্যদ্বাণীমূলক O&M-এ চলে যায়।",
       "card0": {
         "title": "রোবট পরিষ্কারের কাজ করে",
-        "body": "GLYDE, NYUMA, HELYX ফ্লিটগুলি প্রতি চক্রে ব্লক-স্তরের পাস লগ তৈরি করে — কাঁচা ঘটনা SCADA ক্যাপচার করে না।"
+        "body": "GLYDE, NYUMA, HELYX ফ্লিটগুলি প্রতি চক্রে ব্লক-স্তরের পাস লগ তৈরি করে, কাঁচা ঘটনা SCADA ক্যাপচার করে না।"
       },
       "card1": {
-        "title": "NECTYR — লাইভ অপারেশন ডেটা",
+        "title": "NECTYR: লাইভ অপারেশন ডেটা",
         "body": "সময়সূচী, কভারেজ মানচিত্র, AMC টিকেট, এবং মাসিক OPEX নিষ্পত্তি। 150+ ইউটিলিটি সাইটে 2022 সাল থেকে লাইভ।"
       },
       "card2": {
-        "title": "ORION — উদ্ভিদ বুদ্ধিমত্তা রোডম্যাপ",
+        "title": "ORION: উদ্ভিদ বুদ্ধিমত্তা রোডম্যাপ",
         "body": "আবহাওয়া-স্বাভাবিক PR প্রবাহ, ধুলো-ঝড় ট্রিগার, ফলনের পূর্বাভাস। NDA-এর অধীনে নির্বাচিত IPPs-এর জন্য প্রাথমিক অ্যাক্সেস।"
       },
       "card3": {
@@ -45,11 +45,11 @@
       },
       "card4": {
         "title": "লেবেলযুক্ত টেলিমেট্রি পরিখা",
-        "body": "11 বিলিয়ন+ বার্ষিক প্যানেল ফিড মডেলগুলি পাস করে — অ্যারে ব্লকের সাথে আবদ্ধ পরিষ্কারের ইভেন্টগুলি, শুধুমাত্র সাধারণ আবহাওয়ার ফিড নয়।"
+        "body": "11 বিলিয়ন+ বার্ষিক প্যানেল ফিড মডেলগুলি পাস করে, অ্যারে ব্লকের সাথে আবদ্ধ পরিষ্কারের ইভেন্টগুলি, শুধুমাত্র সাধারণ আবহাওয়ার ফিড নয়।"
       },
       "card5": {
         "title": "AMC পুনর্নবীকরণ এ সংযুক্ত করুন",
-        "body": "ORION রেলে বিদ্যমান Taypro ফ্লিটগুলিকে আপগ্রেড করার জন্য ডিজাইন করা হয়েছে যা ইতিমধ্যেই কাজ করছে — কোল্ড-স্টার্ট সফ্টওয়্যার বিক্রয় নয়।"
+        "body": "ORION রেলে বিদ্যমান Taypro ফ্লিটগুলিকে আপগ্রেড করার জন্য ডিজাইন করা হয়েছে যা ইতিমধ্যেই কাজ করছে, কোল্ড-স্টার্ট সফ্টওয়্যার বিক্রয় নয়।"
       }
     },
     "stats": {
@@ -71,33 +71,33 @@
         "tag": "আবহাওয়া এআই",
         "stat": "95%",
         "label": "সঠিকতা পুনঃনির্ধারণ করুন",
-        "body": "NECTYR-এ ক্ষেত্র-যাচাই করা আবহাওয়া-সচেতন সময়সূচী — বৃষ্টি-ধোয়া দিনগুলি এড়িয়ে যায়।"
+        "body": "NECTYR-এ ক্ষেত্র-যাচাই করা আবহাওয়া-সচেতন সময়সূচী, বৃষ্টি-ধোয়া দিনগুলি এড়িয়ে যায়।"
       },
       "card3": {
         "tag": "ORION",
         "stat": "প্রারম্ভিক অ্যাক্সেস",
         "label": "ইউটিলিটি IPP পাইলট",
-        "body": "প্ল্যান্ট ইন্টেলিজেন্স রোডম্যাপ — NDA পাইলট আলোচনার জন্য যোগাযোগ করুন।"
+        "body": "প্ল্যান্ট ইন্টেলিজেন্স রোডম্যাপ, NDA পাইলট আলোচনার জন্য যোগাযোগ করুন।"
       }
     },
     "pillars": {
-      "eyebrow": "Capabilities",
-      "heading": "What plant data intelligence should deliver",
+      "eyebrow": "ক্ষমতা",
+      "heading": "উদ্ভিদ তথ্য বুদ্ধিমত্তা কি প্রদান করা উচিত",
       "pillar0": {
-        "title": "Block-level cleaning proof",
-        "body": "Which panels were cleaned last night — evidence lenders and O&M governance require at 100 MW scale.",
+        "title": "ব্লক-স্তরের পরিষ্কারের প্রমাণ",
+        "body": "গত রাতে কোন প্যানেলগুলি পরিষ্কার করা হয়েছে, প্রমাণ ঋণদাতা এবং O&M পরিচালনার জন্য 100 MW স্কেলে প্রয়োজন৷",
         "tag": "এক্সিকিউশন প্রমাণ",
         "link": "ORION প্ল্যাটফর্ম পেজ"
       },
       "pillar1": {
-        "title": "PR correlation",
-        "body": "Tie cleaning cadence to performance ratio recovery trends — not just calendar washing.",
+        "title": "PR পারস্পরিক সম্পর্ক",
+        "body": "কর্মক্ষমতা অনুপাত পুনরুদ্ধারের প্রবণতা, শুধু ক্যালেন্ডার ওয়াশিং নয় পরিষ্কার ক্যাডেন্স টাই.",
         "tag": "আজ লাইভ",
         "link": "NECTYR পণ্য পৃষ্ঠা"
       },
       "pillar2": {
-        "title": "Predictive scheduling (ORION)",
-        "body": "Dust-storm triggers and yield shortfall alerts — moving from reactive to predictive O&M on Taypro fleets.",
+        "title": "ভবিষ্যদ্বাণীমূলক সময়সূচী (ORION)",
+        "body": "ধুলো-ঝড় ট্রিগার করে এবং ঘাটতির সতর্কতা প্রদান করে, প্রতিক্রিয়াশীল থেকে ভবিষ্যদ্বাণীমূলক O&M এ Taypro ফ্লিটে চলে যায়।",
         "tag": "ভবিষ্যদ্বাণীমূলক O&M",
         "link": "AI ইন্টেলিজেন্স হাব"
       }
@@ -107,38 +107,38 @@
       "heading": "কেন ইউটিলিটি প্ল্যান্টের পরিষ্কার-সচেতন ডেটা বুদ্ধি প্রয়োজন",
       "p1": "বেশিরভাগ প্ল্যান্ট মনিটরিং স্ট্যাকগুলি বৈদ্যুতিন সংকেতের মেরু বদল প্রাপ্যতার জন্য তৈরি করা হয়েছিল - ময়লা ক্ষতির পরিমাণ নির্ধারণ বা কভারেজ অডিট পরিষ্কারের জন্য নয়। যখন PR প্রবাহিত হয়, অপারেটররা বিতর্ক করে যে সমস্যাটি নোংরা করা, ছেদ করা বা সরঞ্জাম - ব্লক-স্তরের পরিষ্কারের প্রমাণ ছাড়াই।",
       "p2": "NECTYR এক্সিকিউশন গ্যাপ বন্ধ করে: রুট সমাপ্তি, ব্যতিক্রম, রোবট স্বাস্থ্য, এবং OPEX বিলিং এর জন্য মাসিক প্যানেল-ভলিউম পুনর্মিলন। অ্যাসেট ম্যানেজাররা অন্ধ ক্রু ভিজিট পাঠানোর পরিবর্তে PR পুনরুদ্ধারের সাথে পরিচ্ছন্নতার ঘটনাগুলিকে সংযুক্ত করে।",
-      "p3": "ORION এটিকে উদ্ভিদের বুদ্ধিমত্তার মধ্যে প্রসারিত করে: আবহাওয়ার ফিড, সয়েলিং মডেল, এবং Taypro ফ্লিট গ্রাহকদের জন্য ডিজাইন করা ফলন বিশ্লেষণ। ORION নির্বাচিত সম্পদের মালিকদের জন্য প্রাথমিক অ্যাক্সেস সহ রোডম্যাপে রয়েছে — আজকে নন-Taypro ফ্লিটগুলির জন্য একটি পৃথক পণ্য নয়৷",
-      "p4": "11 বিলিয়ন+ বার্ষিক প্যানেল পাস একটি লেবেলযুক্ত ডেটাসেট তৈরি করে প্রতিযোগীরা সমতুল্য ক্ষেত্রের উপস্থিতি ছাড়া প্রতিলিপি করতে পারে না — তবে পুরস্কার এবং থ্রুপুট দাবির জন্য আপনার নিজস্ব পাইলট PR বৈধতা প্রয়োজন।",
+      "p3": "ORION এটিকে উদ্ভিদের বুদ্ধিমত্তার মধ্যে প্রসারিত করে: আবহাওয়ার ফিড, সয়েলিং মডেল, এবং Taypro ফ্লিট গ্রাহকদের জন্য ডিজাইন করা ফলন বিশ্লেষণ। ORION নির্বাচিত সম্পদের মালিকদের জন্য প্রাথমিক অ্যাক্সেস সহ রোডম্যাপে রয়েছে, আজকে নন-Taypro ফ্লিটগুলির জন্য একটি পৃথক পণ্য নয়৷",
+      "p4": "11 বিলিয়ন+ বার্ষিক প্যানেল পাস একটি লেবেলযুক্ত ডেটাসেট তৈরি করে প্রতিযোগীরা সমতুল্য ক্ষেত্রের উপস্থিতি ছাড়া প্রতিলিপি করতে পারে না, তবে পুরস্কার এবং থ্রুপুট দাবির জন্য আপনার নিজস্ব পাইলট PR বৈধতা প্রয়োজন।",
       "linkPrimary": "ফ্লিট পর্যবেক্ষণ সফ্টওয়্যার গাইড",
       "linkPrimaryHref": "/solar-fleet-monitoring-software",
       "linkSecondary": "এআই এবং বুদ্ধিমত্তা প্রযুক্তি",
       "linkSecondaryHref": "/technology/ai-intelligence"
     },
     "steps": {
-      "eyebrow": "Adoption path",
-      "heading": "How plant data intelligence rolls out on Taypro fleets",
-      "subheading": "From robot deployment to ORION early access.",
-      "step0Title": "Deploy robots + NECTYR",
-      "step0Body": "Cleaning execution generates block-level telemetry — foundation for all analytics.",
-      "step1Title": "Establish PR baselines",
-      "step1Body": "Correlate cleaning cycles with SCADA PR trends per block or feeder.",
-      "step2Title": "Optimise cadence with weather AI",
-      "step2Body": "NECTYR reschedules around rain and dust storms — reducing wasted passes.",
-      "step3Title": "Portfolio governance reviews",
-      "step3Body": "Monthly reconciliation and quarterly cycle adjustments for multi-site IPPs.",
-      "step4Title": "ORION early access at renewal",
-      "step4Body": "Plant intelligence pilots for qualifying Taypro AMC customers — NDA required."
+      "eyebrow": "দত্তক নেওয়ার পথ",
+      "heading": "কিভাবে উদ্ভিদ ডেটা বুদ্ধিমত্তা Taypro ফ্লিটগুলিতে রোল আউট হয়৷",
+      "subheading": "রোবট স্থাপন থেকে ORION প্রাথমিক অ্যাক্সেস।",
+      "step0Title": "রোবট স্থাপন করুন + NECTYR",
+      "step0Body": "ক্লিনিং এক্সিকিউশন ব্লক-লেভেল টেলিমেট্রি তৈরি করে, সমস্ত বিশ্লেষণের ভিত্তি।",
+      "step1Title": "PR বেসলাইন স্থাপন করুন",
+      "step1Body": "ব্লক বা ফিডার প্রতি SCADA PR প্রবণতার সাথে পরিচ্ছন্নতার চক্রের সম্পর্ক স্থাপন করুন।",
+      "step2Title": "আবহাওয়া এআই সহ ক্যাডেন্স অপ্টিমাইজ করুন",
+      "step2Body": "NECTYR বৃষ্টি এবং ধুলো ঝড়ের আশেপাশে পুনঃনির্ধারণ করে, নষ্ট পাস কমিয়ে দেয়।",
+      "step3Title": "পোর্টফোলিও শাসন পর্যালোচনা",
+      "step3Body": "মাল্টি-সাইট IPPs-এর জন্য মাসিক পুনর্মিলন এবং ত্রৈমাসিক চক্র সমন্বয়।",
+      "step4Title": "ORION নবায়নের সময় প্রাথমিক অ্যাক্সেস",
+      "step4Body": "যোগ্য Taypro AMC গ্রাহকদের জন্য উদ্ভিদ বুদ্ধিমত্তা পাইলট, NDA প্রয়োজন৷"
     },
     "highlight": {
-      "heading": "The data question",
-      "lead": "Can you prove which blocks were cleaned before PR recovered?",
-      "body": "Generic dashboards show energy after the fact. Taypro ties labelled cleaning events to array geography — the prerequisite for credible plant data intelligence."
+      "heading": "ডেটা প্রশ্ন",
+      "lead": "PR পুনরুদ্ধার করার আগে কোন ব্লকগুলি পরিষ্কার করা হয়েছিল তা আপনি প্রমাণ করতে পারেন?",
+      "body": "জেনেরিক ড্যাশবোর্ডগুলি সত্যের পরে শক্তি দেখায়। Taypro ভূগোল অ্যারে করার জন্য পরিষ্কারের ইভেন্টের লেবেলযুক্ত সম্পর্ক, বিশ্বাসযোগ্য উদ্ভিদ ডেটা বুদ্ধিমত্তার পূর্বশর্ত।"
     },
     "proseSecondary": {
       "eyebrow": "ORION অবস্থা",
       "heading": "আজ লাইভ বনাম রোডম্যাপ",
-      "p1": "NECTYR হল মোতায়েন করা ফ্লিটগুলির উৎপাদন সফ্টওয়্যার — সময়সূচী, টিকিট, কভারেজ রপ্তানি, OPEX নিষ্পত্তি৷ এটি আজই ব্যবহার করুন Taypro CAPEX এবং OPEX প্রোগ্রামে।",
-      "p2": "taypro.in-এ বর্ণিত ORION ক্ষমতাগুলি — ভবিষ্যদ্বাণীমূলক সময়সূচী, বর্ধিত ফলন বিশ্লেষণ, ঐচ্ছিক সেন্সিং — সক্রিয় বিকাশের অধীনে রয়েছে। NDA-এর অধীনে ইউটিলিটি IPPs নির্বাচন করার জন্য প্রাথমিক অ্যাক্সেস দেওয়া হয়।",
+      "p1": "NECTYR হল মোতায়েন করা ফ্লিটগুলির উৎপাদন সফ্টওয়্যার, সময়সূচী, টিকিট, কভারেজ রপ্তানি, OPEX নিষ্পত্তি৷ এটি আজই ব্যবহার করুন Taypro CAPEX এবং OPEX প্রোগ্রামে।",
+      "p2": "taypro.in-এ বর্ণিত ORION ক্ষমতাগুলি, ভবিষ্যদ্বাণীমূলক সময়সূচী, বর্ধিত ফলন বিশ্লেষণ, ঐচ্ছিক সেন্সিং, সক্রিয় বিকাশের অধীনে রয়েছে। NDA-এর অধীনে ইউটিলিটি IPPs নির্বাচন করার জন্য প্রাথমিক অ্যাক্সেস দেওয়া হয়।",
       "p3": "পণ্য ডেটাশিটের জন্য এই পৃষ্ঠাটি প্রতিস্থাপন করবেন না। বর্তমান পাইলট স্কোপ এবং ইন্টিগ্রেশন প্রয়োজনীয়তার জন্য একটি ORION ব্রিফিংয়ের অনুরোধ করুন।",
       "linkPrimary": "ORION পণ্য পৃষ্ঠা",
       "linkPrimaryHref": "/solar-panel-cleaning-system/orion-plant-intelligence-platform",
@@ -146,65 +146,65 @@
       "linkSecondaryHref": "/utility-scale-solar-operations"
     },
     "resources": {
-      "eyebrow": "Research",
-      "heading": "Plant data & O&M articles",
-      "link0Title": "Fleet monitoring vs plant intelligence",
+      "eyebrow": "গবেষণা",
+      "heading": "উদ্ভিদ তথ্য এবং O&M নিবন্ধ",
+      "link0Title": "ফ্লিট মনিটরিং বনাম উদ্ভিদ বুদ্ধিমত্তা",
       "link0Href": "/solar-fleet-monitoring-software",
-      "link1Title": "Utility-scale solar operations",
+      "link1Title": "ইউটিলিটি-স্কেল সোলার অপারেশন",
       "link1Href": "/utility-scale-solar-operations",
-      "link2Title": "AI intelligence at Taypro",
+      "link2Title": "Taypro এ এআই ইন্টেলিজেন্স",
       "link2Href": "/technology/ai-intelligence"
     },
     "faq": {
-      "heading": "সৌর উদ্ভিদ তথ্য বুদ্ধিমত্তা — FAQ",
+      "heading": "সৌর উদ্ভিদ তথ্য বুদ্ধিমত্তা, FAQ",
       "subheading": "NECTYR লাইভ ক্ষমতা এবং ORION রোডম্যাপ।",
       "q0": "NECTYR এবং ORION এর মধ্যে পার্থক্য কি?",
-      "a0": "NECTYR হল লাইভ ফ্লিট অপারেশন সফ্টওয়্যার৷ ORION হল রোডম্যাপে উদ্ভিদ বুদ্ধিমত্তা স্তর — PR বিশ্লেষণ, ভবিষ্যদ্বাণীমূলক সময়সূচী, ফলন পূর্বাভাস।",
+      "a0": "NECTYR হল লাইভ ফ্লিট অপারেশন সফ্টওয়্যার৷ ORION হল রোডম্যাপে উদ্ভিদ বুদ্ধিমত্তা স্তর, PR বিশ্লেষণ, ভবিষ্যদ্বাণীমূলক সময়সূচী, ফলন পূর্বাভাস।",
       "q1": "ORION কি SCADA প্রতিস্থাপন করে?",
       "a1": "নং ORION পরিপূরক SCADA এবং CMMS। বৈদ্যুতিক নিরীক্ষণ আপনার বিদ্যমান স্ট্যাকের মধ্যে থাকে।",
       "q2": "ORION কি আজ উপলব্ধ?",
       "a2": "ORION নির্বাচিত Taypro ফ্লিট গ্রাহকদের জন্য প্রাথমিক অ্যাক্সেস সহ সক্রিয় বিকাশে রয়েছে৷ NECTYR 150+ সাইটে লাইভ।",
       "q3": "আমি কি Taypro রোবট ছাড়া ORION কিনতে পারি?",
-      "a3": "ORION Taypro টেলিমেট্রি পরিষ্কার করার জন্য ডিজাইন করা হয়েছে। এন্টারপ্রাইজ আলোচনা মিশ্র বহরের জন্য আবেদন করতে পারে — আমাদের সাথে যোগাযোগ করুন।",
+      "a3": "ORION Taypro টেলিমেট্রি পরিষ্কার করার জন্য ডিজাইন করা হয়েছে। এন্টারপ্রাইজ আলোচনা মিশ্র বহরের জন্য আবেদন করতে পারে, আমাদের সাথে যোগাযোগ করুন।",
       "q4": "কোন ডেটা NECTYR ক্যাপচার করে?",
       "a4": "OPEX বিলিং এর জন্য রুট পরিষ্কার করা, কভারেজ, রোবট স্বাস্থ্য, ত্রুটি, আবহাওয়ার পুনঃনির্ধারণ, এবং মাসিক প্যানেল গণনা।",
       "q5": "এটি কীভাবে ফ্লিট মনিটরিং সফ্টওয়্যারের সাথে সম্পর্কিত?",
       "a5": "ফ্লিট মনিটরিং পৃষ্ঠা NECTYR ops কীওয়ার্ডের উপর ফোকাস করে। এই পৃষ্ঠাটি উদ্ভিদ বুদ্ধিমত্তা এবং ফলন বিশ্লেষণের অবস্থানের উপর দৃষ্টি নিবদ্ধ করে।",
       "q6": "১১ বিলিয়ন পাসের পরিসংখ্যান কী?",
-      "a6": "মোতায়েন করা বহর জুড়ে ক্রমবর্ধমান বার্ষিক পরিচ্ছন্নতার পাস ভলিউম — লেবেলযুক্ত ইভেন্ট ফিডিং অ্যানালিটিক্স রোডম্যাপ৷",
+      "a6": "মোতায়েন করা বহর জুড়ে ক্রমবর্ধমান বার্ষিক পরিচ্ছন্নতার পাস ভলিউম, লেবেলযুক্ত ইভেন্ট ফিডিং অ্যানালিটিক্স রোডম্যাপ৷",
       "q7": "কিভাবে IPP এর পাইলট ORION?",
-      "a7": "যোগ্য AMC গ্রাহকদের জন্য NDA-এর অধীনে প্রাথমিক অ্যাক্সেস — সাধারণত বিদ্যমান Taypro ফ্লিটগুলিতে পুনর্নবীকরণের সময়।",
+      "a7": "যোগ্য AMC গ্রাহকদের জন্য NDA-এর অধীনে প্রাথমিক অ্যাক্সেস, সাধারণত বিদ্যমান Taypro ফ্লিটগুলিতে পুনর্নবীকরণের সময়।",
       "q8": "ডেটা বুদ্ধিমত্তা কি SECI সম্মতিতে সাহায্য করে?",
-      "a8": "নথিভুক্ত পরিচ্ছন্নতার কভারেজ প্রযুক্তিগত যথাযথ পরিশ্রম সমর্থন করে — আপনার দরপত্রের প্রমাণের প্রয়োজনীয়তার সাথে সারিবদ্ধ করুন।",
+      "a8": "নথিভুক্ত পরিচ্ছন্নতার কভারেজ প্রযুক্তিগত যথাযথ পরিশ্রম সমর্থন করে, আপনার দরপত্রের প্রমাণের প্রয়োজনীয়তার সাথে সারিবদ্ধ করুন।",
       "q9": "পোর্টফোলিও সিস্টেমের জন্য একটি API আছে?",
-      "a9": "এন্টারপ্রাইজ ইন্টিগ্রেশন আলোচনা উপলব্ধ — সুযোগ স্থাপনার মডেলের উপর নির্ভর করে।",
+      "a9": "এন্টারপ্রাইজ ইন্টিগ্রেশন আলোচনা উপলব্ধ, সুযোগ স্থাপনার মডেলের উপর নির্ভর করে।",
       "q10": "আবহাওয়া AI কিভাবে বৈধ করা হয়?",
-      "a10": "NECTYR 95% ক্ষেত্র-যাচাইকৃত পুনঃনির্ধারণ নির্ভুলতা উদ্ধৃত করে — দাবি সংজ্ঞার জন্য কর্মক্ষমতা পদ্ধতি দেখুন।",
+      "a10": "NECTYR 95% ক্ষেত্র-যাচাইকৃত পুনঃনির্ধারণ নির্ভুলতা উদ্ধৃত করে, দাবি সংজ্ঞার জন্য কর্মক্ষমতা পদ্ধতি দেখুন।",
       "q11": "কোথায় শুরু করবেন?",
       "a11": "NECTYR এর সাথে রোবট স্থাপন করুন, PR বেসলাইন স্থাপন করুন, তারপর AMC পুনর্নবীকরণে ORION নিয়ে আলোচনা করুন।"
     },
     "quoteForm": {
-      "eyebrow": "Platform inquiry",
-      "title": "Request NECTYR demo or ORION briefing",
-      "placeholder": "Portfolio MW, Taypro fleet status, SCADA vendor, and interest in NECTYR vs ORION."
+      "eyebrow": "প্ল্যাটফর্ম তদন্ত",
+      "title": "NECTYR ডেমো বা ORION ব্রিফিংয়ের অনুরোধ করুন",
+      "placeholder": "পোর্টফোলিও MW, Taypro ফ্লিট স্ট্যাটাস, SCADA বিক্রেতা, এবং NECTYR বনাম ORION এ আগ্রহ।"
     },
     "cta": {
-      "heading": "Start with execution data — grow into intelligence",
-      "body": "NECTYR is live on Taypro fleets today. Ask about ORION early access for your portfolio.",
-      "primary": "Contact platform team",
+      "heading": "এক্সিকিউশন ডেটা দিয়ে শুরু করুন, বুদ্ধিমত্তায় বেড়ে উঠুন",
+      "body": "NECTYR আজ Taypro ফ্লিটে লাইভ। আপনার পোর্টফোলিওর জন্য ORION প্রাথমিক অ্যাক্সেস সম্পর্কে জিজ্ঞাসা করুন।",
+      "primary": "যোগাযোগ প্ল্যাটফর্ম দল",
       "primaryHref": "/contact",
-      "secondary": "Explore NECTYR",
+      "secondary": "এক্সপ্লোর করুন NECTYR",
       "secondaryHref": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
     },
     "related": {
-      "label": "Related:",
-      "link0": "Fleet monitoring software",
+      "label": "সম্পর্কিত:",
+      "link0": "ফ্লিট মনিটরিং সফটওয়্যার",
       "link0Href": "/solar-fleet-monitoring-software",
-      "link1": "ORION platform",
+      "link1": "ORION প্ল্যাটফর্ম",
       "link1Href": "/solar-panel-cleaning-system/orion-plant-intelligence-platform",
-      "link2": "Solar O&M services",
+      "link2": "সোলার O&M পরিষেবা",
       "link2Href": "/solar-om-services",
-      "link3": "AI intelligence",
+      "link3": "এআই বুদ্ধিমত্তা",
       "link3Href": "/technology/ai-intelligence"
     }
   }

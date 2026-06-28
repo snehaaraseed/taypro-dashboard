@@ -1,0 +1,78 @@
+{
+  "InsightsHubPage": {
+    "meta": {
+      "title": "Taypro Insights: ভারতে ইউটিলিটি-স্কেল সোলার ক্লিনিং গবেষণা",
+      "description": "IPP এবং O&M teams-এর জন্য robotic solar panel cleaning-এ স্বাধীন গবেষণা, vendor diligence, soiling economics, CAPEX vs Opex, এবং ভারতে regional operations।"
+    },
+    "breadcrumb": "Insights",
+    "hero": {
+      "eyebrow": "Taypro Insights",
+      "title": "MW স্কেলে সোলার ক্লিনিং সিদ্ধান্তের জন্য স্বাধীন গবেষণা",
+      "subtitle": "Vendor brochures সব কিছু প্রতিশ্রুতি দেয়। আমাদের প্রতিবেদনগুলো ভারতে ইউটিলিটি-স্কেল plants-এ robotic cleaning specify, contract এবং operate করার সময় যা সত্যিই গুরুত্বপূর্ণ তার ওপর focus করে।"
+    },
+    "intro": {
+      "title": "Cleaning একটি O&M সিদ্ধান্ত, line item নয়",
+      "p1": "50–500 MW-এ panels কীভাবে clean করবেন, generation, water use, labour cost, module warranty risk, এবং O&M contractor proof of work, সবকিছুতে প্রভাব ফেলে। বেশিরভাগ vendor content sales collateral। Generic blog posts procurement committees-এর দরকারি numbers বাদ দেয়।",
+      "p2": "Taypro Insights সেই প্রশ্নগুলোতে focused research publish করে যা asset owners এবং O&M leads সত্যিই জিজ্ঞাসা করে, live industry data, regional soiling context, এবং ভারতের dust belts-এ robotic vs manual cleaning economics-এর ওপর ভিত্তি করে।"
+    },
+    "questions": {
+      "title": "আমাদের প্রতিবেদনগুলো এই প্রশ্নগুলোর উত্তর দিতে সাহায্য করে",
+      "q1": "Robotic dry cleaning manual crews-এর TCO-তে কখন জেতে, এবং RFP-তে কী proof চাওয়া উচিত?",
+      "q2": "Rajasthan এবং Gujarat-এ waterless cleaning claims কীভাবে evaluate করবেন module coatings ঝুঁকিতে না ফেলে?",
+      "q3": "Robots কিনবেন (CAPEX), managed Opex contract করবেন, নাকি hybrid fleet, uptime risk কার?",
+      "q4": "100 MW+ এ cleaning invoice accept করার আগে কোন fleet software এবং audit trails দরকার?",
+      "q5": "Local soiling অনুযায়ী কতবার clean করবেন, এবং passive yield loss cleaning spend-এর চেয়ে কখন বড় হয়?",
+      "q6": "Technical diligence-এ vendor specs, AMC contracts এবং field deployments-এ কোন red flags দেখা যায়?"
+    },
+    "topics": {
+      "title": "আমরা যে decision areas-এ research করি",
+      "subtitle": "প্রতিটি edition এই topics-এর একটি নিয়ে গভীরে যায়। Publish হলে নিচে past reports browse করুন।"
+    },
+    "reports": {
+      "title": "Published reports",
+      "featuredLabel": "সর্বশেষ",
+      "archiveLabel": "পূর্ববর্তী editions"
+    },
+    "tools": {
+      "title": "এই research-এর সাথে ব্যবহারের tools",
+      "calculatorTitle": "ROI calculator",
+      "calculatorBody": "আপনার plant size এবং tariff-এর জন্য CAPEX vs Opex cleaning economics model করুন।",
+      "compareTitle": "Robot vs manual cleaning",
+      "compareBody": "Labour, water, coverage এবং auditability-এর side-by-side comparison।",
+      "methodologyTitle": "Test methodology",
+      "methodologyBody": "Taypro cleaning performance কীভাবে define করে, যেকোনো vendor-এর claims evaluate করতে ব্যবহার করুন।",
+      "capexTitle": "CAPEX vs Opex guide",
+      "capexBody": "Robots own করা vs cleaning as a service contract করার commercial models।"
+    },
+    "badges": {
+      "miniStudy": "Research report"
+    },
+    "card": {
+      "readReport": "প্রতিবেদন পড়ুন",
+      "period": "{period}"
+    },
+    "empty": {
+      "title": "প্রথম প্রতিবেদন শীঘ্রই publish হবে",
+      "body": "Vendor evaluation-এ আমাদের inaugural edition final review-এ আছে। উপরের questions এবং decision areas দেখায় প্রতিটি প্রতিবেদন কী cover করে।"
+    },
+    "cta": {
+      "heading": "আপনার plant-এর জন্য cleaning strategy discuss করুন",
+      "body": "আপনার MW capacity, tracker layout এবং soiling profile share করুন, real field constraints-এর বিরুদ্ধে vendor options stress-test করতে সাহায্য করব।",
+      "calculator": "ROI calculator",
+      "methodology": "Test methodology",
+      "contact": "Taypro-এর সাথে যোগাযোগ"
+    }
+  },
+  "InsightDetailPage": {
+    "breadcrumbInsights": "Insights",
+    "eyebrowResearch": "Research report",
+    "published": "প্রকাশিত {date}",
+    "cta": {
+      "heading": "এই গবেষণা আপনার plant-এ প্রয়োগ করুন",
+      "body": "Vendor claims stress-test করতে ROI calculator এবং performance methodology ব্যবহার করুন, অথবা site-specific discussion-এর জন্য Taypro-এর সাথে যোগাযোগ করুন।",
+      "calculator": "ROI calculator খুলুন",
+      "methodology": "Test methodology",
+      "contact": "Taypro-এর সাথে যোগাযোগ"
+    }
+  }
+}

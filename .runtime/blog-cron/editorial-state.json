@@ -1,0 +1,12 @@
+{
+  "date": "2026-06-27",
+  "attemptsToday": 1,
+  "rejections": [
+    {
+      "slotKey": "test::slot",
+      "reason": "Outline too similar",
+      "permanent": true,
+      "at": "2026-06-27T14:16:14.649Z"
+    }
+  ]
+}

@@ -47,7 +47,7 @@ export interface RoiCalculationResult {
   opex?: RoiOpexDetails;
 }
 
-/** Client-safe subset — year-by-year AMC schedule stays server-side. */
+/** Client-safe subset, year-by-year AMC schedule stays server-side. */
 export type RoiCalculatorPublicResult = Omit<
   RoiCalculationResult,
   "amcByYear" | "annualAmcYear2"

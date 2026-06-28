@@ -5,12 +5,17 @@ import {
   getTranslationContentChunkChars,
   localeDisplayName,
 } from "./config";
-import { generateTranslationJson } from "./gemini-call";
+import {
+  generateTranslationJson,
+  isJsonParseError,
+  type TranslationGeminiOptions,
+} from "./gemini-call";
 import {
   maskMediaInHtml,
   repairTranslatedBlogHtml,
   unmaskMediaInHtml,
 } from "./preserve-html";
+import { splitMaskedHtmlForTranslation } from "./split-html-for-translation";
 import type { BlogFaqItem } from "@/lib/cms/blog-faqs";
 import { PUNCTUATION_RULES, sanitizeEmDash } from "@/lib/seo/content-quality";
 
@@ -24,30 +29,24 @@ export type TranslatableFields = {
 
 export type TranslatedFields = TranslatableFields;
 
+export type TranslateFieldsOptions = TranslationGeminiOptions & {
+  /** Override chunk size for long HTML bodies (insights default smaller). */
+  contentChunkChars?: number;
+};
+
 const BRAND_RULES =
   "Keep brand names (Taypro, GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, NECTYR, TÜV NORD) and standard units (MW, kWh) unless a well-known localized form exists.";
 
-function splitMaskedHtmlForTranslation(html: string, maxChunkSize: number): string[] {
-  if (html.length <= maxChunkSize) return [html];
+const MAX_CHUNK_ATTEMPTS = 3;
+const MAX_CHUNK_BISECT_DEPTH = 3;
+const MIN_BISECT_CHARS = 2_500;
 
-  const chunks: string[] = [];
-  let start = 0;
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
-  while (start < html.length) {
-    let end = Math.min(start + maxChunkSize, html.length);
-    if (end < html.length) {
-      const slice = html.slice(start, end);
-      const breakTags = [...slice.matchAll(/<\/(?:p|section|h[1-6]|div|li|table|ul|ol)>/gi)];
-      const last = breakTags[breakTags.length - 1];
-      if (last?.index !== undefined && last.index > maxChunkSize * 0.4) {
-        end = start + last.index + last[0].length;
-      }
-    }
-    chunks.push(html.slice(start, end));
-    start = end;
-  }
-
-  return chunks;
+function chunkSizeFor(options?: TranslateFieldsOptions): number {
+  return options?.contentChunkChars ?? getTranslationContentChunkChars();
 }
 
 async function translateMetadataFields(
@@ -55,7 +54,8 @@ async function translateMetadataFields(
     TranslatableFields,
     "title" | "description" | "featuredImageAlt" | "imageAlt"
   >,
-  targetLocale: TayproLocale
+  targetLocale: TayproLocale,
+  options?: TranslateFieldsOptions
 ): Promise<{
   title: string;
   description: string;
@@ -93,7 +93,7 @@ ${JSON.stringify({
     description: string;
     featuredImageAlt?: string;
     imageAlt?: string;
-  }>(prompt);
+  }>(prompt, options);
 
   if (!parsed.title?.trim() || !parsed.description?.trim()) {
     throw new Error(`Incomplete metadata translation for locale ${targetLocale}`);
@@ -109,16 +109,17 @@ ${JSON.stringify({
   };
 }
 
-async function translateContentFragment(
+async function translateContentFragmentOnce(
   maskedFragment: string,
   targetLocale: TayproLocale,
   chunkIndex: number,
-  chunkCount: number
+  chunkCount: number,
+  options?: TranslateFieldsOptions
 ): Promise<string> {
   const language = localeDisplayName(targetLocale);
   const chunkNote =
     chunkCount > 1
-      ? `\n8. This is HTML fragment ${chunkIndex + 1} of ${chunkCount}. Translate the FULL fragment — do not summarize.`
+      ? `\n8. This is HTML fragment ${chunkIndex + 1} of ${chunkCount}. Translate the FULL fragment — do not summarize or omit sections.`
       : "\n8. Output length should be similar to the English source.";
 
   const prompt = `You are an expert B2B translator for the solar energy and solar panel cleaning robot industry (Taypro).
@@ -126,7 +127,7 @@ async function translateContentFragment(
 Translate ONLY the HTML body fragment from English to ${language} (locale code: ${targetLocale}).
 
 STRICT RULES:
-1. Return ONLY valid JSON with a single key: "content".
+1. Return ONLY valid JSON with a single key: "content" (string value). Escape quotes and newlines inside the HTML string.
 2. Preserve EVERY media placeholder exactly as written (e.g. ⟦M0⟧, ⟦M1⟧). Do NOT remove, translate, or renumber them.
 3. Preserve all HTML tags and attribute names. Only translate human-readable text nodes.
 4. Do NOT change URLs, file paths, image src values, email addresses, or HTML attributes inside placeholders.
@@ -138,7 +139,7 @@ ${PUNCTUATION_RULES}
 Source JSON:
 ${JSON.stringify({ content: maskedFragment })}`;
 
-  const parsed = await generateTranslationJson<{ content: string }>(prompt);
+  const parsed = await generateTranslationJson<{ content: string }>(prompt, options);
   if (!parsed.content?.trim()) {
     throw new Error(
       `Incomplete content translation for locale ${targetLocale} (chunk ${chunkIndex + 1}/${chunkCount})`
@@ -147,21 +148,94 @@ ${JSON.stringify({ content: maskedFragment })}`;
   return sanitizeEmDash(parsed.content.trim());
 }
 
+async function translateContentChunkWithRetry(
+  maskedFragment: string,
+  targetLocale: TayproLocale,
+  chunkIndex: number,
+  chunkCount: number,
+  options: TranslateFieldsOptions | undefined,
+  bisectDepth: number
+): Promise<string> {
+  let lastError: unknown;
+
+  for (let attempt = 1; attempt <= MAX_CHUNK_ATTEMPTS; attempt += 1) {
+    try {
+      return await translateContentFragmentOnce(
+        maskedFragment,
+        targetLocale,
+        chunkIndex,
+        chunkCount,
+        options
+      );
+    } catch (error) {
+      lastError = error;
+      if (isJsonParseError(error) && attempt < MAX_CHUNK_ATTEMPTS) {
+        console.warn(
+          `[translate] chunk ${chunkIndex + 1}/${chunkCount} JSON retry ${attempt}/${MAX_CHUNK_ATTEMPTS} (${targetLocale})`
+        );
+        await sleep(2_000 * attempt);
+        continue;
+      }
+      break;
+    }
+  }
+
+  if (
+    isJsonParseError(lastError) &&
+    bisectDepth < MAX_CHUNK_BISECT_DEPTH &&
+    maskedFragment.length >= MIN_BISECT_CHARS
+  ) {
+    const subChunks = splitMaskedHtmlForTranslation(
+      maskedFragment,
+      Math.ceil(maskedFragment.length / 2)
+    );
+    if (subChunks.length > 1) {
+      console.warn(
+        `[translate] bisecting chunk ${chunkIndex + 1} (${maskedFragment.length} chars, depth ${bisectDepth + 1})`
+      );
+      const parts: string[] = [];
+      for (let i = 0; i < subChunks.length; i += 1) {
+        parts.push(
+          await translateContentChunkWithRetry(
+            subChunks[i]!,
+            targetLocale,
+            chunkIndex,
+            chunkCount,
+            options,
+            bisectDepth + 1
+          )
+        );
+      }
+      return parts.join("");
+    }
+  }
+
+  throw lastError instanceof Error
+    ? lastError
+    : new Error("Content chunk translation failed");
+}
+
 async function translateContentField(
   masked: string,
   fragments: Map<string, string>,
   sourceContent: string,
-  targetLocale: TayproLocale
+  targetLocale: TayproLocale,
+  options?: TranslateFieldsOptions
 ): Promise<string> {
-  const chunks = splitMaskedHtmlForTranslation(
-    masked,
-    getTranslationContentChunkChars()
-  );
+  const maxChunk = chunkSizeFor(options);
+  const chunks = splitMaskedHtmlForTranslation(masked, maxChunk);
   const translatedParts: string[] = [];
 
   for (let i = 0; i < chunks.length; i += 1) {
     translatedParts.push(
-      await translateContentFragment(chunks[i], targetLocale, i, chunks.length)
+      await translateContentChunkWithRetry(
+        chunks[i]!,
+        targetLocale,
+        i,
+        chunks.length,
+        options,
+        0
+      )
     );
   }
 
@@ -173,19 +247,21 @@ async function translateContentField(
 
 /**
  * Translate CMS fields via Gemini while preserving masked media placeholders in HTML.
- * Metadata and body are separate API calls; large bodies are chunked.
+ * Metadata and body are separate API calls; large bodies are chunked at block boundaries.
  */
 export async function translateFieldsWithGemini(
   source: TranslatableFields,
-  targetLocale: TayproLocale
+  targetLocale: TayproLocale,
+  options?: TranslateFieldsOptions
 ): Promise<TranslatedFields> {
   const { masked, fragments } = maskMediaInHtml(source.content);
-  const metadata = await translateMetadataFields(source, targetLocale);
+  const metadata = await translateMetadataFields(source, targetLocale, options);
   const content = await translateContentField(
     masked,
     fragments,
     source.content,
-    targetLocale
+    targetLocale,
+    options
   );
 
   return {

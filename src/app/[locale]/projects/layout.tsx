@@ -7,7 +7,7 @@ type ProjectsLayoutProps = {
   params: Promise<{ locale: string }>;
 };
 
-/** Project copy is provided by the root locale NextIntlClientProvider (SPA-safe). */
+/** Project client copy is pathname-scoped in the root layout; extra namespaces load on navigation. */
 export default async function ProjectsSectionLayout({
   children,
   params,

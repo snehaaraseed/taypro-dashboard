@@ -349,13 +349,13 @@
     "dustSoiling": {
       "eyebrow": "Dust & soiling in India",
       "heading": "Solar panel dust cleaning and soiling loss",
-      "p1": "Fine dust, agricultural residue, and seasonal haze bond to module glass within days on many Indian utility sites — suppressing output before visible soiling is obvious in SCADA. Industry discussions often cite roughly 8–25% seasonal soiling loss when washing cadence is infrequent.",
-      "p2": "Robotic dry cleaning targets daily or near-daily cycles through dust season without tanker logistics. Taypro's dual-pass method lifts dry dust first, then microfiber-wipes the glass — recovering generation that manual brush crews struggle to sustain at MW scale.",
+      "p1": "Fine dust, agricultural residue, and seasonal haze bond to module glass within days on many Indian utility sites, suppressing output before visible soiling is obvious in SCADA. Industry discussions often cite roughly 8–25% seasonal soiling loss when washing cadence is infrequent.",
+      "p2": "Robotic dry cleaning targets daily or near-daily cycles through dust season without tanker logistics. Taypro's dual-pass method lifts dry dust first, then microfiber-wipes the glass, recovering generation that manual brush crews struggle to sustain at MW scale.",
       "faqHeading": "Solar panel dust cleaning FAQs (India)",
       "q0": "How much generation does dust cost on Indian solar plants?",
-      "a0": "Soiling loss varies by region, tilt, and O&M cadence — often cited in the 8–25% range on utility plants when cleaning is infrequent. High-soiling blocks in Rajasthan and Gujarat typically show the fastest payback from tighter robotic schedules.",
+      "a0": "Soiling loss varies by region, tilt, and O&M cadence, often cited in the 8–25% range on utility plants when cleaning is infrequent. High-soiling blocks in Rajasthan and Gujarat typically show the fastest payback from tighter robotic schedules.",
       "q1": "Is dry robotic dust cleaning better than manual brushing?",
-      "a1": "On 10 MW+ sites, manual brush or wet-wash crews scale poorly — labour, water, and inconsistent pass quality limit cadence. Taypro robots run waterless dual-pass cycles on a predictable schedule with NECTYR audit trails.",
+      "a1": "On 10 MW+ sites, manual brush or wet-wash crews scale poorly, labour, water, and inconsistent pass quality limit cadence. Taypro robots run waterless dual-pass cycles on a predictable schedule with NECTYR audit trails.",
       "q2": "How often should panels be dust-cleaned in India?",
       "a2": "Most utility plants benefit from daily or near-daily dry cleaning during dry months and faster cycles after dust storms. Taypro starts with a soiling study to recommend block-wise cadence rather than a one-size-fits-all interval."
     },
@@ -376,7 +376,7 @@
     },
     "aiLearning": {
       "eyebrow": "أتمتة ذكية",
-      "heading": "ذكاء اصطناعي يتعلم مع كل تنظيف — دون جدولة يدوية",
+      "heading": "ذكاء اصطناعي يتعلم مع كل تنظيف, دون جدولة يدوية",
       "cta": "استكشف عمليات أسطول NECTYR",
       "intelligenceBefore": "لعمق بوابة NECTYR والبيانات الموسومة، راجع",
       "intelligenceLink": "طبقة الذكاء الاصطناعي",
@@ -437,7 +437,7 @@
       "aiLink": "قسم تعلم AI",
       "intro": "NECTYR هي طبقة العمليات بين الروبوتات الميدانية ومالكي الأصول - الرؤية في الوقت الفعلي، والجدولة الذاتية، وتشخيصات السبب الجذري، وملفات تعريف الصحة لكل روبوت في نظام أساسي واحد.",
       "trackingTitle": "تصور التنظيف المباشر مع موقع الخطأ الجذري",
-      "trackingBody": "NECTYR overlays real-time robot position on the plant layout map. Operators see which row is being cleaned, progress percentage, and fleet state at any moment — not a last-seen timestamp from hours ago. When a robot stops, NECTYR identifies where it stopped and the probable cause: misaligned panel edge, physical obstacle, motor fault, brush saturation, battery threshold, or communication drop. Field teams dispatch with the right spares instead of exploratory truck rolls.",
+      "trackingBody": "NECTYR overlays real-time robot position on the plant layout map. Operators see which row is being cleaned, progress percentage, and fleet state at any moment, not a last-seen timestamp from hours ago. When a robot stops, NECTYR identifies where it stopped and the probable cause: misaligned panel edge, physical obstacle, motor fault, brush saturation, battery threshold, or communication drop. Field teams dispatch with the right spares instead of exploratory truck rolls.",
       "predictiveTitle": "ملفات تعريف الصحة لكل روبوت والكشف المسبق عن الأخطاء",
       "predictiveBody": "NECTYR يبني ملف تعريف صحي لكل روبوت من سحب تيار المحرك، ومنحنيات شحن وتفريغ البطارية، وعزم دوران الفرشاة، وأنماط إشارة المستشعر عبر الأسطول. يتم وضع علامة على توقيعات الانحراف التي تسبق تآكل المحمل، أو تدهور وحدة التحكم، أو نهاية عمر الفرشاة قبل أن يصبح العطل انهيارًا. هذه هي الصيانة التنبؤية للأجهزة التي يتم التعرف عليها من خلال التعرف على الأنماط على مستوى الأسطول - وليست صيانة تفاعلية أسرع وحدها.",
       "autonomousBody": "يتم بدء دورات التنظيف وإيقافها مؤقتًا وتسريعها بواسطة الذكاء الاصطناعي للأسطول استنادًا إلى نماذج الطقس وتوقعات الاتساخ وحالة البطارية وصحة الروبوت - دون مطالبة المشغلين بإعادة كتابة الجداول يدويًا بعد كل عاصفة ترابية أو أمطار. توثق مسارات التدقيق على مستوى الكتلة كل قرار يتعلق بمراجعة O&M وإعداد تقارير مالك الأصول."
@@ -451,7 +451,7 @@
       "colDustLift": "رفع الغبار",
       "colResidue": "البقايا الملتصقة",
       "colWear": "خطر تآكل الوحدة",
-      "intro": "تستخدم بعض روبوتات التنظيف الجاف تمريرة واحدة — هواء عالي الضغط أو مساعدة الرياح مع أسطوانة فرشاة عبر الزجاج بحركة واحدة، مما يؤدي إلى تحسين المسافة لكل شحنة بدلاً من جودة التنظيف لكل تمريرة. تعمل طريقة التمرير المزدوج الحاصلة على براءة اختراع لـ Taypro على فصل عملية الإزاحة عن الاتصال.",
+      "intro": "تستخدم بعض روبوتات التنظيف الجاف تمريرة واحدة, هواء عالي الضغط أو مساعدة الرياح مع أسطوانة فرشاة عبر الزجاج بحركة واحدة، مما يؤدي إلى تحسين المسافة لكل شحنة بدلاً من جودة التنظيف لكل تمريرة. تعمل طريقة التمرير المزدوج الحاصلة على براءة اختراع لـ Taypro على فصل عملية الإزاحة عن الاتصال.",
       "pass0Title": "الممر 1 - تدفق الهواء المتحكم فيه (عدم الاتصال)",
       "pass0Body": "يعمل تدفق الهواء عالي السرعة على رفع الغبار والرمال السائبة دون سحب الحصى عبر زجاج الوحدة. وهذا يقلل من خطر التآكل الدقيق مقارنةً بالفرشاة أولاً أو تمريرات الفرشاة الهوائية المدمجة حيث يمكن طحن الجسيمات إلى السطح أثناء حركة واحدة مستمرة.",
       "pass1Title": "الممر 2 - ألياف دقيقة فائقة النعومة (جهة الاتصال)",
@@ -482,7 +482,7 @@
       "bullet0": "مفصل 360 درجة يستوعب عدم المحاذاة على أي محور",
       "bullet1": "نقل مستقل من الجدول إلى الجدول في مخزن التعقب",
       "bullet2": "لا توجد أعمال مدنية للجسر الثابت في كل نقطة عبور",
-      "bullet3": "26 كجم GLYDE-X / NYUMA-X — تحميل إطار مخفض"
+      "bullet3": "26 كجم GLYDE-X / NYUMA-X: تحميل إطار مخفض"
     },
     "selfAlignment": {
       "eyebrow": "هندسة الميل الثابت",
@@ -492,7 +492,7 @@
     "deploymentScope": {
       "eyebrow": "نطاق النشر",
       "heading": "جوهر على نطاق المرافق، قادر على الأسطح",
-      "utilityTitle": "نطاق المرافق — حيث يُبنى خندق البيانات",
+      "utilityTitle": "نطاق المرافق, حيث يُبنى خندق البيانات",
       "rooftopTitle": "تركيبات C&I والأسطح",
       "utilityBody": "تم تحسين مجموعة تقنيات Taypro والذكاء الاصطناعي للأسطول من أجل محطات التتبع ذات الإمالة الثابتة وأحادية المحور على نطاق المرافق - حيث تجعل خسائر التلوث وحجم العمالة وندرة المياه التنظيف المستقل أمرًا ضروريًا. يؤدي التنظيف اليومي عبر أساطيل مكونة من عدة مئات من MW إلى إنشاء القياس عن بعد المسمى الذي يقوم بتدريب نماذج التعلم الذاتي.",
       "rooftopBody": "تخدم نفس الأنظمة الأساسية التركيبات التجارية والصناعية على الأسطح: تتناول تكوينات GLYDE وHELYX الكتل الموزعة والإمالة الموسمية والمصفوفات المتناثرة عبر مساحة موقع Taypro التي يزيد عددها عن 150 موقعًا. مقياس المنفعة يبني طبقة الذكاء؛ تعمل عمليات النشر على الأسطح على توسيع نفس عمليات NECTYR ومنهجية التنظيف الجاف لتشمل قطاعات C&I المحرومة."
@@ -520,7 +520,7 @@
       "selfPoweredTitle": "تعمل بالطاقة الذاتية بالكامل - لا توجد شبكة، ولا مياه، ولا مشغلين لكل صف",
       "selfPoweredBody": "جميع روبوتات التنظيف الأوتوماتيكية Taypro تعمل بالطاقة الذاتية. تقوم الألواح الشمسية الموجودة على متن الطائرة بشحن بطارية الليثيوم بين الدورات. لا تقوم الروبوتات بسحب الكهرباء من شبكة الموقع، ولا تحتاج إلى لوجستيات مائية، ولا تحتاج إلى مشغلين بشريين يسيرون في صفوف لبدء كل تمريرة. يتم وضع HELYX شبه التلقائي على طاقم العمل في كل كتلة ولكنه لا يزال يعمل بالبطارية دون ربط الشبكة - وهو قابل للتطبيق في كتل المرافق البعيدة حيث تكون الطاقة المساعدة والعمالة مقيدة.",
       "warrantyTitle": "ضمان المنتج لمدة 25 عامًا مع AMC السنوي",
-      "warrantyBody": "Taypro offers a 25-year product warranty on deployed robot platforms — aligned to the operational life of utility solar assets. Warranty remains valid when AMC is renewed annually, tying long-term hardware commitment to structured maintenance, spare planning, and NECTYR-monitored fleet health. For asset owners modelling 25-year IRR, this pairs robot CAPEX with predictable O&M accountability across the full degradation window."
+      "warrantyBody": "Taypro offers a 25-year product warranty on deployed robot platforms, aligned to the operational life of utility solar assets. Warranty remains valid when AMC is renewed annually, tying long-term hardware commitment to structured maintenance, spare planning, and NECTYR-monitored fleet health. For asset owners modelling 25-year IRR, this pairs robot CAPEX with predictable O&M accountability across the full degradation window."
     }
   },
   "Common": {

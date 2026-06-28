@@ -1,4 +1,4 @@
-/** Curated case studies on /projects — diverse MW, regions, and deployment models. */
+/** Curated case studies on /projects, diverse MW, regions, and deployment models. */
 export const FEATURED_HUB_PROJECT_SLUGS = [
   "agar-solar-project",
   "bachau-dvc-gujrat-300-mw",

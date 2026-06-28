@@ -9,7 +9,7 @@
       "twitterDescription": "जल रहित सफाई रोबोट, NECTYR फ़्लीट सॉफ़्टवेयर, और उपयोगिता-पैमाने वाले सौर O&M का निर्माण करें - पुणे और अखिल भारतीय क्षेत्र की भूमिकाओं में भर्ती।"
     },
     "breadcrumbs": {
-      "current": "Careers"
+      "current": "करियर"
     },
     "hero": {
       "eyebrow": "हमारे साथ कार्य करें",
@@ -20,129 +20,129 @@
       "ctaSecondaryTitle": "Taypro के बारे में"
     },
     "statsStrip": {
-      "eyebrow": "Scale you will work on",
-      "heading": "Real deployments, not slide decks",
-      "robotCapacityDeployed": "Robot capacity deployed",
-      "panelsCleanedAnnually": "Panels cleaned annually",
-      "waterSavedAnnually": "Litres of water saved annually",
-      "robotsManufacturedPerMonth": "Robots manufacturing capacity per month"
+      "eyebrow": "जिस पैमाने पर आप काम करेंगे",
+      "heading": "वास्तविक तैनाती, स्लाइड डेक नहीं",
+      "robotCapacityDeployed": "रोबोट क्षमता तैनात की गई",
+      "panelsCleanedAnnually": "पैनलों की सालाना सफाई की जाती है",
+      "waterSavedAnnually": "सालाना लीटर पानी की बचत",
+      "robotsManufacturedPerMonth": "प्रति माह रोबोट निर्माण क्षमता"
     },
     "whyJoin": {
-      "eyebrow": "Why Taypro",
-      "heading": "Work where hardware, software, and field ops meet",
-      "body": "We are a Made-in-India manufacturer in Chakan, Pune, with pan-India service and a growing software layer on top of every cleaning cycle. You will see your work on live utility plants — not buried in a backlog.",
+      "eyebrow": "क्यों Taypro",
+      "heading": "वहां काम करें जहां हार्डवेयर, सॉफ्टवेयर और फील्ड ऑप्स मिलते हैं",
+      "body": "हम चाकन, पुणे में एक मेड-इन-इंडिया निर्माता हैं, जिसकी पैन-इंडिया सेवा और हर सफाई चक्र के शीर्ष पर एक बढ़ती सॉफ्टवेयर परत है। आप लाइव उपयोगिता संयंत्रों पर अपना काम देखेंगे - बैकलॉग में दफन नहीं।",
       "impact": {
-        "title": "Measurable climate impact",
-        "body": "Every robot you help build avoids hundreds of millions of litres of wet-wash water and recovers gigawatt-hours of clean generation across India's solar fleet."
+        "title": "मापने योग्य जलवायु प्रभाव",
+        "body": "प्रत्येक रोबोट जिसे आप बनाने में मदद करते हैं, वह लाखों लीटर गीले-धोने वाले पानी से बचाता है और भारत के सौर बेड़े में गीगावाट-घंटे का स्वच्छ उत्पादन प्राप्त करता है।"
       },
       "technology": {
-        "title": "Full-stack solar robotics",
-        "body": "Mechanical design, embedded systems, connectivity, fleet AI, and plant intelligence — from GLYDE and tracker robots to NECTYR and ORION."
+        "title": "पूर्ण-स्टैक सौर रोबोटिक्स",
+        "body": "मैकेनिकल डिजाइन, एंबेडेड सिस्टम, कनेक्टिविटी, फ्लीट एआई और प्लांट इंटेलिजेंस - GLYDE और ट्रैकर रोबोट से NECTYR और ORION तक।"
       },
       "growth": {
-        "title": "Fast-moving, founder-led culture",
-        "body": "Small teams, direct access to leadership, and room to own outcomes from day one. We hire people who prefer building over meetings."
+        "title": "तेजी से आगे बढ़ने वाली, संस्थापक के नेतृत्व वाली संस्कृति",
+        "body": "छोटी टीमें, नेतृत्व तक सीधी पहुंच और पहले दिन से ही परिणामों की गुंजाइश। हम ऐसे लोगों को काम पर रखते हैं जो बैठकों के बजाय निर्माण करना पसंद करते हैं।"
       },
       "ownership": {
-        "title": "End-to-end accountability",
-        "body": "Engineers join site commissioning. Software ships to operators in the field. Manufacturing and QA sit beside R&D — one loop, one company."
+        "title": "शुरू से अंत तक जवाबदेही",
+        "body": "इंजीनियर साइट कमीशनिंग में शामिल होते हैं। सॉफ़्टवेयर क्षेत्र में ऑपरेटरों को भेजा जाता है। विनिर्माण और क्यूए आर एंड डी के बगल में बैठते हैं - एक लूप, एक कंपनी।"
       }
     },
     "teams": {
-      "eyebrow": "Teams we are building",
-      "heading": "Find your lane",
-      "body": "We hire across the stack. Open roles change with growth — if your profile fits one of these areas, we want to hear from you.",
+      "eyebrow": "हम टीमें बना रहे हैं",
+      "heading": "अपनी लेन खोजें",
+      "body": "हम पूरे ढेर में किराये पर लेते हैं। विकास के साथ खुली भूमिकाएँ बदलती हैं - यदि आपकी प्रोफ़ाइल इनमें से किसी एक क्षेत्र में फिट बैठती है, तो हम आपसे सुनना चाहते हैं।",
       "engineering": {
-        "title": "R&D & mechanical engineering",
-        "body": "Robotics kinematics, structures, pneumatics, brush systems, tracker interfaces, and reliability testing for harsh desert and monsoon conditions."
+        "title": "अनुसंधान एवं विकास एवं मैकेनिकल इंजीनियरिंग",
+        "body": "रोबोटिक्स किनेमेटिक्स, संरचनाएं, न्यूमेटिक्स, ब्रश सिस्टम, ट्रैकर इंटरफेस, और कठोर रेगिस्तान और मानसून स्थितियों के लिए विश्वसनीयता परीक्षण।"
       },
       "software": {
-        "title": "Software & data",
+        "title": "सॉफ्टवेयर और डेटा",
         "body": "NECTYR fleet portal, scheduling, telemetry pipelines, connectivity (LTE, mesh, LoRa), and plant-intelligence models trained on live cleaning data."
       },
       "manufacturing": {
-        "title": "Manufacturing & quality",
-        "body": "Production planning, assembly, supplier quality, and ISO-aligned processes at our Chakan hub — scaling output without compromising field reliability."
+        "title": "विनिर्माण एवं गुणवत्ता",
+        "body": "हमारे चाकन हब में उत्पादन योजना, असेंबली, आपूर्तिकर्ता गुणवत्ता और आईएसओ-संरेखित प्रक्रियाएं - क्षेत्र की विश्वसनीयता से समझौता किए बिना आउटपुट स्केलिंग।"
       },
       "field": {
-        "title": "Field engineering & service",
-        "body": "Commissioning, breakdown response, AMC programs, and customer training across utility sites — often with same-day on-site resolution targets."
+        "title": "फील्ड इंजीनियरिंग एवं सेवा",
+        "body": "कमीशनिंग, ब्रेकडाउन प्रतिक्रिया, AMC कार्यक्रम, और उपयोगिता साइटों पर ग्राहक प्रशिक्षण - अक्सर एक ही दिन में साइट पर समाधान लक्ष्य के साथ।"
       },
       "operations": {
-        "title": "Operations & supply chain",
-        "body": "Spare logistics, warehouse network, Opex fleet operations, and the systems that keep robots running when dust storms hit peak season."
+        "title": "संचालन एवं आपूर्ति श्रृंखला",
+        "body": "अतिरिक्त रसद, गोदाम नेटवर्क, Opex बेड़े संचालन, और सिस्टम जो चरम मौसम में धूल भरी आंधी आने पर रोबोट को चालू रखते हैं।"
       },
       "business": {
-        "title": "Sales, marketing & partnerships",
-        "body": "Utility and IPP relationships, technical presales, content, and channel partnerships for India's fastest-growing solar O&M category."
+        "title": "बिक्री, विपणन और भागीदारी",
+        "body": "भारत की सबसे तेजी से बढ़ती सौर O&M श्रेणी के लिए उपयोगिता और IPP संबंध, तकनीकी प्रीसेल, सामग्री और चैनल भागीदारी।"
       }
     },
     "life": {
-      "eyebrow": "Life at Taypro",
-      "heading": "What we offer",
-      "body": "We compete for talent who care about craft and impact. Packages are discussed individually based on role, experience, and location.",
-      "imageAlt": "Taypro solar cleaning robot deployed on a utility-scale solar plant in India",
+      "eyebrow": "Taypro पर जीवन",
+      "heading": "हमारी पेशकश",
+      "body": "हम उन प्रतिभाओं के लिए प्रतिस्पर्धा करते हैं जो शिल्प और प्रभाव की परवाह करते हैं। भूमिका, अनुभव और स्थान के आधार पर पैकेजों पर व्यक्तिगत रूप से चर्चा की जाती है।",
+      "imageAlt": "Taypro सौर सफाई रोबोट को भारत में उपयोगिता-पैमाने के सौर संयंत्र पर तैनात किया गया",
       "benefits": {
         "impact": {
-          "title": "Mission with proof points",
-          "body": "TÜV NORD certified hardware, NISE validation, Mint Tech4Good recognition — and customers who depend on your work every day."
+          "title": "प्रमाण बिंदुओं के साथ मिशन",
+          "body": "TÜV NORD प्रमाणित हार्डवेयर, NISE सत्यापन, Mint Tech4Good पहचान - और ग्राहक जो हर दिन आपके काम पर निर्भर हैं।"
         },
         "learning": {
-          "title": "Steep learning curve",
-          "body": "Exposure to full product lifecycle: design reviews, factory builds, site commissioning, and operator feedback loops."
+          "title": "प्रगति चार्ट में गहरा प्रशिक्षण मोड़",
+          "body": "संपूर्ण उत्पाद जीवनचक्र का एक्सपोज़र: डिज़ाइन समीक्षा, फ़ैक्टरी निर्माण, साइट कमीशनिंग, और ऑपरेटर फीडबैक लूप।"
         },
         "ownership": {
-          "title": "Ownership & trust",
-          "body": "Lean teams mean real responsibility early. We reward people who unblock problems and document what they learn."
+          "title": "स्वामित्व और विश्वास",
+          "body": "लीन टीमों का मतलब जल्दी ही वास्तविक जिम्मेदारी है। हम उन लोगों को पुरस्कृत करते हैं जो समस्याओं को सुलझाते हैं और जो सीखते हैं उसका दस्तावेजीकरण करते हैं।"
         },
         "travel": {
-          "title": "Pan-India field exposure",
-          "body": "Engineering and service roles regularly visit live plants — Rajasthan deserts to Karnataka trackers — with structured travel support."
+          "title": "अखिल भारतीय क्षेत्र प्रदर्शन",
+          "body": "इंजीनियरिंग और सेवा भूमिकाएँ संरचित यात्रा सहायता के साथ नियमित रूप से जीवित संयंत्रों - राजस्थान के रेगिस्तान से लेकर कर्नाटक ट्रैकर्स तक - का दौरा करती हैं।"
         },
         "manufacturing": {
-          "title": "Make-it-here culture",
-          "body": "Work beside manufacturing in Chakan. See how design choices survive welding bays, test rigs, and monsoon soak tests."
+          "title": "इसे यहीं बनाओ संस्कृति",
+          "body": "चाकन में विनिर्माण के अलावा काम करें। देखें कि डिज़ाइन विकल्प वेल्डिंग बे, टेस्ट रिग्स और मानसून सोख परीक्षणों से कैसे बचे रहते हैं।"
         },
         "team": {
-          "title": "Collaborative, direct culture",
-          "body": "Founders and functional leads stay close to product and customers. Feedback is candid; bureaucracy is not our default."
+          "title": "सहयोगात्मक, प्रत्यक्ष संस्कृति",
+          "body": "संस्थापक और कार्यात्मक नेतृत्व उत्पाद और ग्राहकों के करीब रहते हैं। प्रतिक्रिया स्पष्ट है; नौकरशाही हमारी डिफ़ॉल्ट नहीं है."
         }
       }
     },
     "process": {
-      "eyebrow": "How we hire",
-      "heading": "A straightforward process",
-      "body": "We respect your time. Typical timelines are two to four weeks from application to offer, depending on role seniority.",
+      "eyebrow": "हम कैसे किराये पर लेते हैं",
+      "heading": "एक सीधी प्रक्रिया",
+      "body": "हम आपके समय का सम्मान करते हैं. भूमिका की वरिष्ठता के आधार पर, आवेदन से प्रस्ताव तक की सामान्य समय-सीमा दो से चार सप्ताह होती है।",
       "apply": {
-        "title": "Apply online",
-        "body": "Submit your resume and a short note on why Taypro. PDF or DOC, max 5 MB."
+        "title": "ऑनलाइन आवेदन",
+        "body": "अपना बायोडाटा और Taypro क्यों है, इस पर एक संक्षिप्त नोट सबमिट करें। पीडीएफ या डीओसी, अधिकतम 5 एमबी।"
       },
       "review": {
-        "title": "Profile review",
-        "body": "Our HR and hiring manager review fit for the role, team, and stage of company growth."
+        "title": "प्रोफ़ाइल समीक्षा",
+        "body": "हमारी एचआर और हायरिंग मैनेजर समीक्षा भूमिका, टीम और कंपनी के विकास के चरण के लिए उपयुक्त है।"
       },
       "interviews": {
-        "title": "Interviews",
-        "body": "Usually two to three conversations — technical depth, problem-solving, and culture fit with the people you would work with daily."
+        "title": "साक्षात्कार",
+        "body": "आम तौर पर दो से तीन बातचीत - तकनीकी गहराई, समस्या-समाधान और संस्कृति उन लोगों के साथ फिट बैठती है जिनके साथ आप रोजाना काम करेंगे।"
       },
       "offer": {
-        "title": "Offer & onboarding",
-        "body": "Clear role scope, compensation, and start date. Onboarding pairs you with a buddy and site or product context from week one."
+        "title": "ऑफ़र और ऑनबोर्डिंग",
+        "body": "भूमिका का दायरा, मुआवज़ा और आरंभ तिथि स्पष्ट करें। ऑनबोर्डिंग आपको पहले सप्ताह से किसी मित्र और साइट या उत्पाद संदर्भ के साथ जोड़ती है।"
       }
     },
-    "listHeading": "Open positions",
-    "listIntro": "Browse current openings below. Each listing includes the full job description and an online application form.",
-    "emptyTitle": "No open positions right now",
-    "emptyBody": "We are not hiring for published roles at the moment. You can still reach out — we keep strong profiles on file for upcoming teams.",
-    "contactCta": "Send a general application",
-    "viewRole": "View role",
-    "postedOn": "Posted {date}",
+    "listHeading": "खुले स्थानों",
+    "listIntro": "नीचे वर्तमान रिक्तियाँ ब्राउज़ करें। प्रत्येक सूची में नौकरी का पूरा विवरण और एक ऑनलाइन आवेदन पत्र शामिल होता है।",
+    "emptyTitle": "अभी कोई रिक्त पद नहीं",
+    "emptyBody": "हम इस समय प्रकाशित भूमिकाओं के लिए नियुक्ति नहीं कर रहे हैं। आप अभी भी संपर्क कर सकते हैं - हम आगामी टीमों के लिए फ़ाइल में मजबूत प्रोफ़ाइल रखते हैं।",
+    "contactCta": "एक सामान्य आवेदन भेजें",
+    "viewRole": "भूमिका देखें",
+    "postedOn": "पोस्ट किया गया {date}",
     "generalCta": {
-      "eyebrow": "Don't see your role?",
-      "heading": "Tell us how you can help Taypro scale",
-      "body": "We often hire ahead of published listings for exceptional engineers, field leaders, and operators. Share your resume and area of interest — our team reviews every thoughtful application.",
-      "button": "Contact us",
-      "buttonTitle": "Contact Taypro careers"
+      "eyebrow": "क्या आपको अपनी भूमिका नज़र नहीं आती?",
+      "heading": "हमें बताएं कि आप Taypro स्केल में कैसे मदद कर सकते हैं",
+      "body": "हम अक्सर असाधारण इंजीनियरों, क्षेत्र के नेताओं और ऑपरेटरों को प्रकाशित लिस्टिंग से पहले नियुक्त करते हैं। अपना बायोडाटा और रुचि का क्षेत्र साझा करें - हमारी टीम प्रत्येक विचारशील एप्लिकेशन की समीक्षा करती है।",
+      "button": "हमसे संपर्क करें",
+      "buttonTitle": "Taypro करियर से संपर्क करें"
     },
     "faq": {
       "heading": "भर्ती संबंधी अक्सर पूछे जाने वाले प्रश्न",
@@ -161,28 +161,28 @@
       "a5": "व्यावहारिक और भूमिका-विशिष्ट - हम अमूर्त पहेलियों के बजाय रोबोटिक्स, विश्वसनीयता, या बेड़े संचालन में आने वाली वास्तविक समस्याओं पर चर्चा करते हैं। अपने भावी प्रबंधक और क्रॉस-फ़ंक्शनल साथियों के साथ बातचीत की अपेक्षा करें।"
     },
     "detail": {
-      "applySection": "Apply for this role",
-      "backToCareers": "All open positions",
-      "metaDescriptionFallback": "Apply for {title} at Taypro."
+      "applySection": "इस भूमिका के लिए आवेदन करें",
+      "backToCareers": "सभी रिक्त पद",
+      "metaDescriptionFallback": "{title} के लिए Taypro पर आवेदन करें।"
     },
     "apply": {
-      "title": "Submit your application",
-      "subtitle": "Applying for {job}",
-      "name": "Full name",
-      "email": "Email",
-      "phone": "Phone",
-      "resume": "Resume",
-      "resumeHint": "PDF, DOC, or DOCX — max 5 MB",
-      "coverLetter": "Cover letter (optional)",
-      "coverLetterPlaceholder": "Brief note on your experience and interest in this role…",
-      "submit": "Submit application",
-      "submitting": "Submitting…",
-      "requiredError": "Please fill in all required fields and attach your resume.",
-      "resumeRequired": "Please attach your resume.",
-      "genericError": "Something went wrong. Please try again.",
-      "thankYouTitle": "Application received",
-      "thankYouMessage": "Thank you for applying. Our HR team will review your profile and contact you if there is a match.",
-      "submitAnother": "Submit another application"
+      "title": "अपने आवेदन जमा करें",
+      "subtitle": "{job} के लिए आवेदन करना",
+      "name": "पूरा नाम",
+      "email": "ईमेल",
+      "phone": "फ़ोन",
+      "resume": "फिर शुरू करना",
+      "resumeHint": "पीडीएफ, डीओसी, या डीओसीएक्स - अधिकतम 5 एमबी",
+      "coverLetter": "कवर लेटर (वैकल्पिक)",
+      "coverLetterPlaceholder": "इस भूमिका में आपके अनुभव और रुचि पर संक्षिप्त टिप्पणी...",
+      "submit": "आवेदन जमा करो",
+      "submitting": "सबमिट किया जा रहा है...",
+      "requiredError": "कृपया सभी आवश्यक फ़ील्ड भरें और अपना बायोडाटा संलग्न करें।",
+      "resumeRequired": "कृपया अपना बायोडाटा संलग्न करें।",
+      "genericError": "कुछ गलत हो गया। कृपया पुन: प्रयास करें।",
+      "thankYouTitle": "आवेदन प्राप्त",
+      "thankYouMessage": "आवेदन करने के लिए धन्यवाद. हमारी एचआर टीम आपकी प्रोफ़ाइल की समीक्षा करेगी और मिलान होने पर आपसे संपर्क करेगी।",
+      "submitAnother": "दूसरा आवेदन सबमिट करें"
     },
     "leadModal": {
       "topic": "Taypro पर करियर",

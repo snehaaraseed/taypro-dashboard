@@ -6,18 +6,18 @@
       "openGraphTitle": "خدمة تنظيف الألواح الشمسية الهند | Taypro",
       "openGraphDescription": "شركة تنظيف شمسي روبوتية في الهند مع تغطية وطنية."
     },
-    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHub": "روبوتات تنظيف الألواح الشمسية",
     "breadcrumbHubHref": "/solar-panel-cleaning-system",
     "breadcrumb": "خدمة تنظيف الألواح الشمسية الهند",
     "schema": {
-      "name": "Taypro Solar Panel Cleaning Service India",
+      "name": "Taypro خدمة تنظيف الألواح الشمسية في الهند",
       "description": "Pan-India robotic solar panel cleaning service for utility-scale IPPs, CPSUs, and commercial plants. Managed OPEX and CAPEX robot supply with NECTYR fleet reporting.",
-      "serviceType": "Solar panel cleaning service",
-      "areaServed": "India"
+      "serviceType": "خدمة تنظيف الألواح الشمسية",
+      "areaServed": "الهند"
     },
     "hero": {
       "eyebrow": "الخدمة الوطنية · الهند",
-      "title": "خدمة تنظيف الألواح الشمسية في الهند — أسطول روبوتي وطني",
+      "title": "خدمة تنظيف الألواح الشمسية في الهند, أسطول روبوتي وطني",
       "subtitle": "Taypro هي أكبر شركة روبوتية للتنظيف بالطاقة الشمسية منتشرة في الهند: 9 GW+ من الألواح التي يتم تنظيفها شهريًا عبر محطات المرافق والمنشآت التجارية، والدورات الجافة بدون ماء، والدفع لكل لوحة OPEX أو الروبوت CAPEX لـ IPPs، CPSUs، SECI-المشاريع المقدمة للمناقصات، وC&I أصحاب الأصول. شركة واحدة مسؤولة لتنظيف الألواح الشمسية في الهند - الروبوتات والمشغلون وقطع الغيار وبرامج الأسطول NECTYR.",
       "ctaPrimary": "طلب عرض سعر",
       "ctaPrimaryHref": "/contact",
@@ -65,7 +65,7 @@
       },
       "card2": {
         "title": "NECTYR التقارير اليومية",
-        "body": "سجلات التنظيف على مستوى الكتلة، وتغطية المسار، والاستثناءات، وسلامة الأسطول — جاهزة للتدقيق لـ O&M ومراجعات المقرضين."
+        "body": "سجلات التنظيف على مستوى الكتلة، وتغطية المسار، والاستثناءات، وسلامة الأسطول, جاهزة للتدقيق لـ O&M ومراجعات المقرضين."
       },
       "card3": {
         "title": "SLA-استجابة ميدانية مدعومة",
@@ -81,46 +81,46 @@
       }
     },
     "models": {
-      "eyebrow": "Commercial models",
-      "heading": "CAPEX robots or OPEX — same fleet, different balance sheet",
+      "eyebrow": "النماذج التجارية",
+      "heading": "CAPEX robots or OPEX: same fleet, different balance sheet",
       "capex": {
         "title": "Robot CAPEX + AMC",
-        "body": "Purchase GLYDE, GLYDE-X, NYUMA, or HELYX. Taypro commissions, trains operators, and maintains the fleet under structured AMC.",
+        "body": "قم بشراء GLYDE، أو GLYDE-X، أو NYUMA، أو HELYX. Taypro يقوم بتكليف المشغلين وتدريبهم والحفاظ على الأسطول وفقًا للهيكل AMC.",
         "href": "/solar-panel-cleaning-robot-price-india",
-        "link": "India robot price guide"
+        "link": "دليل أسعار الروبوتات في الهند"
       },
       "opex": {
-        "title": "OPEX service",
-        "body": "No upfront robot purchase. Pay monthly for panels actually cleaned — ideal for IPPs that want predictable O&M opex and fast mobilisation.",
+        "title": "خدمة OPEX",
+        "body": "لا يوجد شراء روبوت مقدمًا. ادفع شهريًا مقابل اللوحات التي يتم تنظيفها فعليًا، وهو مثالي لـ IPP التي تحتاج إلى O&M نفقات تشغيلية يمكن التنبؤ بها وتعبئة سريعة.",
         "href": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
-        "link": "OPEX service details"
+        "link": "OPEX تفاصيل الخدمة"
       }
     },
     "pillars": {
-      "eyebrow": "Full stack",
-      "heading": "Robots, managed service, and fleet software — one partner",
+      "eyebrow": "كومة كاملة",
+      "heading": "الروبوتات والخدمات المُدارة وبرامج الأسطول، شريك واحد",
       "pillar0": {
-        "tag": "Hardware",
-        "title": "Waterless cleaning robots",
-        "body": "GLYDE dual-pass for fixed tilt, GLYDE-X and NYUMA-X for single-axis trackers, HELYX for scattered blocks.",
-        "link": "Compare robot models"
+        "tag": "الأجهزة",
+        "title": "روبوتات التنظيف بدون ماء",
+        "body": "GLYDE تمرير مزدوج للإمالة الثابتة، GLYDE-X وNYUMA-X لأجهزة التتبع أحادية المحور، HELYX للكتل المتناثرة.",
+        "link": "قارن بين نماذج الروبوتات"
       },
       "pillar1": {
-        "tag": "Service",
-        "title": "Managed cleaning programme",
-        "body": "SOPs, cycle scheduling, operator deployment, and billing tied to verified panel-cleaning volume.",
-        "link": "OPEX service page"
+        "tag": "خدمة",
+        "title": "برنامج التنظيف المدارة",
+        "body": "SOPs، وجدولة الدورة، ونشر المشغل، والفواتير المرتبطة بحجم تنظيف اللوحة الذي تم التحقق منه.",
+        "link": "OPEX صفحة الخدمة"
       },
       "pillar2": {
-        "tag": "Software",
-        "title": "NECTYR fleet portal",
-        "body": "Schedule cycles, monitor coverage, manage AMC tickets, and export cleaning evidence for PR recovery analysis.",
-        "link": "OPEX pricing guide"
+        "tag": "برمجة",
+        "title": "NECTYR بوابة الأسطول",
+        "body": "جدولة الدورات ومراقبة التغطية وإدارة تذاكر AMC وتصدير أدلة التنظيف لتحليل استرداد PR.",
+        "link": "OPEX دليل التسعير"
       }
     },
     "stateGrid": {
-      "heading": "Solar panel cleaning service by state",
-      "intro": "Taypro deploys robotic cleaning fleets across India's highest-soiling solar belts. Explore state-specific guides for Rajasthan, Gujarat, Maharashtra, and more."
+      "heading": "خدمة تنظيف الألواح الشمسية حسب الولاية",
+      "intro": "Taypro تنشر أساطيل التنظيف الآلية عبر أحزمة الطاقة الشمسية الأكثر تلويثًا في الهند. استكشف الأدلة الخاصة بكل ولاية في راجستان وغوجارات وماهاراشترا والمزيد."
     },
     "faq": {
       "heading": "خدمة التنظيف بالطاقة الشمسية الهند - الأسئلة الشائعة",
@@ -151,26 +151,26 @@
       "a11": "نعم. يوفر NECTYR جدولة وإعداد التقارير على مستوى المحفظة. Taypro تعمل عبر راجستان، وجوجارات، وماهاراشترا، وكارناتاكا، وMP، وأندرا براديش، وتاميل نادو، وأوتار براديش، وهاريانا، ودلهي إن سي آر، والبنغال الغربية، وتشاتيسجاره."
     },
     "cta": {
-      "heading": "Request a solar cleaning service quote for your plant",
-      "body": "Tell us your MW capacity, state, and installation type. Taypro will respond with a site-specific cleaning programme and commercial proposal.",
-      "primary": "Contact Taypro",
+      "heading": "اطلب عرض أسعار خدمة التنظيف بالطاقة الشمسية لمصنعك",
+      "body": "أخبرنا بقدرة MW وحالتها ونوع التثبيت. سوف يستجيب Taypro ببرنامج تنظيف خاص بالموقع ومقترح تجاري.",
+      "primary": "اتصل بنا Taypro",
       "primaryHref": "/contact",
-      "secondary": "Run ROI calculator",
+      "secondary": "قم بتشغيل الآلة الحاسبة ROI",
       "secondaryHref": "/solar-panel-cleaning-robot-price-calculator#calculator"
     },
     "related": {
-      "label": "Related:",
-      "link0": "OPEX pricing bands",
+      "label": "متعلق ب:",
+      "link0": "OPEX نطاقات التسعير",
       "link0Href": "/solar-cleaning-opex-pricing",
-      "link1": "OPEX contract & SOP details",
+      "link1": "OPEX العقد وSOP التفاصيل",
       "link1Href": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
-      "link2": "Utility-scale O&M hub",
+      "link2": "محور نطاق المنفعة O&M",
       "link2Href": "/utility-scale-solar-operations"
     },
     "quoteForm": {
-      "eyebrow": "Service inquiry",
-      "title": "Request a solar cleaning service quote",
-      "placeholder": "Plant capacity (MW), state, installation type (fixed tilt / tracker), current cleaning method, and target go-live date."
+      "eyebrow": "استعلام عن الخدمة",
+      "title": "اطلب عرض أسعار خدمة التنظيف بالطاقة الشمسية",
+      "placeholder": "سعة المصنع (MW)، والحالة، ونوع التثبيت (إمالة / تعقب ثابت)، وطريقة التنظيف الحالية، وتاريخ التشغيل المستهدف."
     },
     "prose": {
       "eyebrow": "لماذا تحتاج الهند إلى شريك تنظيف وطني",
@@ -185,37 +185,37 @@
       "linkSecondaryHref": "/solar-cleaning-opex-pricing"
     },
     "steps": {
-      "eyebrow": "How mobilisation works",
-      "heading": "From RFQ to first cleaning cycle on your plant",
-      "subheading": "A structured onboarding path used on 50–360 MW utility deployments across India.",
-      "step0Title": "Share plant profile & current cleaning method",
-      "step0Body": "Provide MW capacity, state, installation type (fixed tilt, seasonal tilt, or single-axis tracker), module wattage, current manual or robotic cleaning spend, and target PR or soiling assumptions. Taypro assigns an engineering lead within one business day.",
-      "step1Title": "Site soiling study & cycle recommendation",
-      "step1Body": "Engineers assess dust sources, wind patterns, row geometry, tracker behaviour, and seasonal rain probability. Output: recommended 3–10 waterless dry cycles per month and robot model selection (GLYDE, GLYDE-X, NYUMA, NYUMA-X, or HELYX).",
-      "step2Title": "Commercial proposal — CAPEX or OPEX",
+      "eyebrow": "كيف تعمل التعبئة",
+      "heading": "من RFQ إلى دورة التنظيف الأولى لنباتك",
+      "subheading": "مسار تأهيل منظم يُستخدم في 50-360 MW من عمليات نشر المرافق في جميع أنحاء الهند.",
+      "step0Title": "مشاركة ملف النبات وطريقة التنظيف الحالية",
+      "step0Body": "قم بتوفير سعة MW، والحالة، ونوع التثبيت (إمالة ثابتة، أو إمالة موسمية، أو متتبع أحادي المحور)، والقدرة الكهربائية للوحدة، وإنفاق التنظيف اليدوي أو الآلي الحالي، والهدف PR أو افتراضات الاتساخ. Taypro يعين قائدًا هندسيًا خلال يوم عمل واحد.",
+      "step1Title": "دراسة تلوث الموقع وتوصية الدورة",
+      "step1Body": "يقوم المهندسون بتقييم مصادر الغبار وأنماط الرياح وهندسة الصفوف وسلوك المتتبع واحتمالية هطول الأمطار الموسمية. الإخراج: يوصى بإجراء 3-10 دورات تجفيف بدون ماء شهريًا واختيار نموذج الروبوت (GLYDE، GLYDE-X، NYUMA، NYUMA-X، أو HELYX).",
+      "step2Title": "Commercial proposal, CAPEX or OPEX",
       "step2Body": "Receive robot fleet sizing, indicative pricing (per-panel OPEX rates or CAPEX bands), SLA framework, and mobilisation timeline. Finance teams can run parallel scenarios in the ROI calculator.",
-      "step3Title": "Fleet deployment & NECTYR onboarding",
+      "step3Title": "نشر الأسطول وNECTYR على متن الطائرة",
       "step3Body": "Operators mobilise with robots, connectivity (LTE, mesh, or LoRa as designed), cleaning SOPs, path maps, and rest zones. NECTYR portal activated for scheduling, coverage audits, and monthly settlement.",
-      "step4Title": "Monthly reconciliation & programme review",
-      "step4Body": "Billing aligns to verified panels cleaned per NECTYR logs. Quarterly reviews adjust cycle count for monsoon, harvest dust, or construction activity nearby."
+      "step4Title": "التسوية الشهرية ومراجعة البرنامج",
+      "step4Body": "تتم مطابقة الفوترة مع اللوحات التي تم التحقق منها والتي تم تنظيفها لكل سجلات NECTYR. تقوم المراجعات ربع السنوية بضبط عدد الدورات للرياح الموسمية أو غبار الحصاد أو نشاط البناء القريب."
     },
     "eligibility": {
-      "eyebrow": "Fit assessment",
-      "title": "Who Taypro's India cleaning service is built for",
-      "forTitle": "Ideal fit",
-      "for0": "Utility ground-mount and solar park plants from ~10 MW upward (many programmes at 50–300 MW)",
+      "eyebrow": "تقييم الملاءمة",
+      "title": "لمن تم تصميم خدمة التنظيف الهندية Taypro من أجلها",
+      "forTitle": "تناسب مثالي",
+      "for0": "محطات المرافق الأرضية ومحطات الطاقة الشمسية من ~10 MW فما فوق (العديد من البرامج في 50-300 MW)",
       "for1": "IPPs, CPSUs, SECI projects, and asset managers seeking pay-per-panel-cleaned OPEX or robot CAPEX with AMC",
-      "for2": "Sites in Rajasthan, Gujarat, MP, Maharashtra, Karnataka, or Andhra Pradesh with recurring soiling and PR drift",
-      "for3": "Procurement teams that need NECTYR audit trails for lenders, SECI, or internal O&M governance",
-      "notForTitle": "Typically not a fit",
-      "not0": "Single-home residential rooftop arrays (see our rooftop robot guide for C&I)",
-      "not1": "One-off manual pressure-washing without a recurring robotic programme",
-      "not2": "Full-plant EPC maintenance scope (inverters, HV, tracker mechanical) — we partner on cleaning only"
+      "for2": "مواقع في راجستان، أو غوجارات، أو MP، أو ماهاراشترا، أو كارناتاكا، أو أندرا براديش تعاني من الاتساخ المتكرر والانجراف PR",
+      "for3": "فرق المشتريات التي تحتاج إلى NECTYR مسارات تدقيق للمقرضين، SECI، أو حوكمة O&M الداخلية",
+      "notForTitle": "عادة لا يصلح",
+      "not0": "مصفوفات الأسطح السكنية لمنزل واحد (راجع دليل الروبوت الموجود على السطح الخاص بنا لـ C&I)",
+      "not1": "الغسيل اليدوي بالضغط لمرة واحدة دون الحاجة إلى برنامج آلي متكرر",
+      "not2": "نطاق صيانة EPC للمصنع بالكامل (العاكسات، الجهد العالي، جهاز التتبع الميكانيكي)، نحن نتشارك في التنظيف فقط"
     },
     "highlight": {
-      "heading": "The procurement question",
-      "lead": "Can your cleaning vendor prove which panels were cleaned last night?",
-      "body": "Manual crew contracts rarely provide block-level coverage evidence. OPEX bills against NECTYR telemetry — panels cleaned, routes completed, exceptions logged. That is what IPPs and lenders ask for at 100 MW scale."
+      "heading": "سؤال المشتريات",
+      "lead": "هل يستطيع بائع التنظيف الخاص بك إثبات الألواح التي تم تنظيفها الليلة الماضية؟",
+      "body": "نادراً ما توفر عقود الطاقم اليدوية أدلة تغطية على مستوى المجموعة. OPEX فواتير مقابل NECTYR القياس عن بعد، وتنظيف اللوحات، وإكمال المسارات، وتسجيل الاستثناءات. هذا هو ما يطلبه IPPs والمقرضون بمقياس 100 MW."
     },
     "proseSecondary": {
       "eyebrow": "سياق التلوث الإقليمي",
@@ -229,13 +229,13 @@
       "linkSecondaryHref": "/large-scale-solar-panel-cleaning"
     },
     "resources": {
-      "eyebrow": "Further reading",
-      "heading": "Guides for solar cleaning procurement in India",
-      "link0Title": "Solar panel cleaning cost per MW",
+      "eyebrow": "مزيد من القراءة",
+      "heading": "أدلة لشراء التنظيف بالطاقة الشمسية في الهند",
+      "link0Title": "تكلفة تنظيف الألواح الشمسية لكل MW",
       "link0Href": "/solar-cleaning-opex-pricing",
-      "link1Title": "Robotic vs manual cleaning comparison",
+      "link1Title": "مقارنة التنظيف الآلي مقابل التنظيف اليدوي",
       "link1Href": "/compare/solar-panel-cleaning-robot-vs-manual-cleaning",
-      "link2Title": "Utility-scale solar operations context",
+      "link2Title": "سياق عمليات الطاقة الشمسية على نطاق المنفعة",
       "link2Href": "/utility-scale-solar-operations"
     }
   }

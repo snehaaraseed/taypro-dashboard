@@ -86,6 +86,7 @@ export const ROUTE_MESSAGE_MODULE: Record<string, string> = {
   "/terms-of-service": "terms-of-service",
   "/cookie-policy": "cookie-policy",
   "/performance-and-test-methodology": "performance-methodology",
+  "/insights": "insights",
   "/site-map": "site-map",
 };
 
@@ -103,6 +104,7 @@ export function messageModuleStemForPath(internalPath: string): string | null {
   if (path.startsWith("/technology/ai-intelligence")) return "ai-intelligence";
   if (STATE_LANDING_PATH_RE.test(path)) return "state-landings";
   if (path.startsWith("/compare/")) return "comparisons";
+  if (path.startsWith("/insights/")) return "insights";
   return null;
 }
 
@@ -137,7 +139,9 @@ function extraPageModulesForPath(path: string): string[] {
     extras.push("price-calculator.json");
   }
 
-  if (path.startsWith("/solar-panel-cleaning-system")) {
+  if (path === "/solar-panel-cleaning-system") {
+    extras.push("price-calculator.json", "module-trust.json", "home.json");
+  } else if (path.startsWith("/solar-panel-cleaning-system")) {
     extras.push("price-calculator.json", "module-trust.json");
   }
 

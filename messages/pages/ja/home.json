@@ -110,7 +110,7 @@
       "loopSteps": {
         "0": {
           "title": "センス",
-          "description": "天候、湿度、花粉、バッテリーの状態、マイクロファイバーの湿気 — ロボットごとに 40 以上のライブデータ入力"
+          "description": "天候、湿度、花粉、バッテリーの状態、マイクロファイバーの湿気, ロボットごとに 40 以上のライブデータ入力"
         },
         "1": {
           "title": "スケジュール",
@@ -228,11 +228,11 @@
       },
       "feature4": {
         "title": "Self-learning fleet AI",
-        "description": "AI that improves cleaning decisions with each cycle across the full fleet — soiling prediction, timing, and routing compound with every site added."
+        "description": "AI that improves cleaning decisions with each cycle across the full fleet, soiling prediction, timing, and routing compound with every site added."
       },
       "feature5": {
         "title": "Wet microfiber detection",
-        "description": "Sensors detect when cleaning elements are wet from dew or humidity and postpone cycles automatically — protecting module glass from smear damage."
+        "description": "Sensors detect when cleaning elements are wet from dew or humidity and postpone cycles automatically, protecting module glass from smear damage."
       }
     },
     "whyTaypro": {
@@ -330,7 +330,7 @@
       "hubCardDescription": "GLYDE、NYUMA、HELYX、およびトラッカー対応バリアント - 製品ハブの仕様、適合性、展開ガイド。",
       "hubLink": "ソーラーパネル清掃ロボットハブ",
       "serviceCardTitle": "OPEX 清掃サービス",
-      "serviceCardDescription": "完全に管理されたフリート — 当社はお客様のプラントにロボットを導入、運用、保守します。",
+      "serviceCardDescription": "完全に管理されたフリート, 当社はお客様のプラントにロボットを導入、運用、保守します。",
       "serviceLink": "OPEX ロボット清掃サービス",
       "calculatorCardTitle": "ROI 計算機",
       "calculatorCardDescription": "回復した世代と削減された手動 O&M からの回収額を見積もります。",

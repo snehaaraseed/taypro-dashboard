@@ -2,43 +2,43 @@
   "PressPage": {
     "meta": {
       "title": "প্রেস ও মিডিয়া কভারেজ | Taypro",
-      "description": "Taypro খবরে — Mercom India, EPC World, Energetica India, Saur Energy, TimesTech, T&D India, IPF অনলাইন, Live Mint Tech4Good, Renewable Watch, এবং 20+ যাচাইকৃত তৃতীয় পক্ষের সৌর পরিষ্কার রোবট নিবন্ধ।",
+      "description": "Taypro খবরে, Mercom India, EPC World, Energetica India, Saur Energy, TimesTech, T&D India, IPF অনলাইন, Live Mint Tech4Good, Renewable Watch, এবং 20+ যাচাইকৃত তৃতীয় পক্ষের সৌর পরিষ্কার রোবট নিবন্ধ।",
       "openGraphTitle": "Taypro প্রেস এবং মিডিয়া কভারেজ",
       "openGraphDescription": "ভারত জুড়ে Taypro জলবিহীন সৌর প্যানেল পরিষ্কারকারী রোবটের সাক্ষাৎকার, পুরস্কার এবং শিল্প কভারেজ।",
       "twitterTitle": "Taypro প্রেস এবং মিডিয়া",
       "twitterDescription": "ভারতে Taypro রোবোটিক সোলার প্যানেল পরিষ্কারের ইন্ডাস্ট্রি প্রেস কভারেজ।"
     },
     "breadcrumbs": {
-      "current": "Press"
+      "current": "চাপুন"
     },
     "hero": {
       "eyebrow": "খবরে",
       "title": "প্রেস এবং মিডিয়া কভারেজ",
       "subtitle": "সংবাদ, সাক্ষাত্কার, এবং শিল্প মিডিয়া Taypro-এর জলবিহীন সোলার প্যানেল পরিষ্কারের রোবট, এবং ভারত জুড়ে ইউটিলিটি-স্কেল স্থাপনাগুলি কভার করে৷"
     },
-    "listHeading": "News, interviews & industry media",
-    "listIntro": "Links open the original publisher site in a new tab.",
-    "sectionInterviews": "Interviews & opinion",
-    "sectionMarket": "Market leadership",
-    "sectionAwards": "Awards",
-    "sectionNews": "Product & company news",
-    "sectionIndex": "Publisher indexes",
-    "readArticle": "Read on {outlet}",
-    "companyCta": "About Taypro",
-    "contactCta": "Contact media team",
+    "listHeading": "সংবাদ, সাক্ষাৎকার এবং শিল্প মিডিয়া",
+    "listIntro": "লিঙ্কগুলি একটি নতুন ট্যাবে আসল প্রকাশকের সাইট খুলবে৷",
+    "sectionInterviews": "সাক্ষাৎকার এবং মতামত",
+    "sectionMarket": "বাজার নেতৃত্ব",
+    "sectionAwards": "পুরস্কার",
+    "sectionNews": "পণ্য এবং কোম্পানির খবর",
+    "sectionIndex": "প্রকাশক সূচী",
+    "readArticle": "{outlet} এ পড়ুন",
+    "companyCta": "প্রায় Taypro",
+    "contactCta": "মিডিয়া টিমের সাথে যোগাযোগ করুন",
     "leadModal": {
       "topic": "মিডিয়া এবং প্রেস",
       "title": "আমাদের মিডিয়া টিমের সাথে যোগাযোগ করুন",
-      "subtitle": "সাংবাদিক, বিশ্লেষক, এবং ইভেন্ট সংগঠক — আপনার আউটলেট, সময়সীমা এবং Taypro থেকে আপনার যা প্রয়োজন তা আমাদের জানান।",
+      "subtitle": "সাংবাদিক, বিশ্লেষক, এবং ইভেন্ট সংগঠক, আপনার আউটলেট, সময়সীমা এবং Taypro থেকে আপনার যা প্রয়োজন তা আমাদের জানান।",
       "formPrompt": "আমরা কিভাবে আপনার গল্প সাহায্য করতে পারেন?",
       "messageLabel": "আপনার অনুরোধ",
       "messagePlaceholder": "আউটলেটের নাম, গল্পের কোণ, সাক্ষাত্কারের বিন্যাস, সময়সীমা, এবং আপনার কাছে ইতিমধ্যেই রয়েছে এমন যেকোনো পটভূমি...",
       "submitLabel": "মিডিয়া তদন্ত পাঠান",
-      "thankYouTitle": "ধন্যবাদ — আমরা আপনার নোট পেয়েছি",
+      "thankYouTitle": "ধন্যবাদ, আমরা আপনার নোট পেয়েছি",
       "thankYouMessage": "আমাদের যোগাযোগ দল যত তাড়াতাড়ি সম্ভব প্রতিক্রিয়া জানাবে।"
     }
   },
   "Common": {
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "বাড়ি"
   }
 }

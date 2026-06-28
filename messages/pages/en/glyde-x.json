@@ -11,7 +11,7 @@
     },
     "breadcrumbs": {
       "robots": "Solar Panel Cleaning Robots",
-      "current": "GLYDE-X — Dual-Pass Tracker Robot"
+      "current": "GLYDE-X: Dual-Pass Tracker Robot"
     },
     "schema": {
       "productName": "Solar Panel Cleaning Robot for Single-Axis Trackers - GLYDE-X",
@@ -21,7 +21,7 @@
       "howToDescription": "Step-by-step autonomous cleaning cycle of the Taypro GLYDE-X solar panel cleaning robot for single-axis tracker installations, from AI-scheduled deployment through self-docking and cloud telemetry sync."
     },
     "hero": {
-      "title": "GLYDE-X — Dual-Pass Tracker Solar Panel Cleaning Robot",
+      "title": "GLYDE-X: Dual-Pass Tracker Solar Panel Cleaning Robot",
       "subtitleBefore": "An AI- and ML-powered, waterless autonomous Solar Panel Cleaning Robot purpose-built for single-axis tracker solar farms. Cleans up to 3,600 modules per charge,",
       "subtitleStrong": "flexes ±15° between tables",
       "subtitleAfter": ", supports module tilts from -52° to +52°, and is compatible with NEXTracker, Gamechanger and equivalent trackers.",
@@ -32,12 +32,34 @@
         "title": "Request a GLYDE-X quote",
         "subtitle": "Tell us about your tracker plant and our team will follow up with GLYDE-X sizing, bridge-kit needs, and commercial options.",
         "label": "Request a quote"
+      },
+      "subtitleShort": "Dual-pass autonomous cleaning purpose-built for single-axis tracker farms.",
+      "secondaryCta": {
+        "label": "Explore 360° tour"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "±15°",
+          "label": "Inter-table articulation"
+        },
+        "stat1": {
+          "value": "3,600",
+          "label": "Modules cleaned per charge"
+        },
+        "stat2": {
+          "value": "-52° to +52°",
+          "label": "Tracker tilt range"
+        }
       }
+    },
+    "productVisual": {
+      "eyebrow": "Product at a glance",
+      "title": "Taypro GLYDE-X tracker solar panel cleaning robot"
     },
     "usps": {
       "0": {
         "title": "Dual-Pass Tracker Native Design",
-        "description": "Built for NEXTracker, Gamechanger, and equivalent horizontal single-axis tables — not a retrofitted fixed-tilt chassis."
+        "description": "Built for NEXTracker, Gamechanger, and equivalent horizontal single-axis tables, not a retrofitted fixed-tilt chassis."
       },
       "1": {
         "title": "±15° Inter-Table Articulation",
@@ -45,11 +67,11 @@
       },
       "2": {
         "title": "Full Tracker Tilt Range (-52° to +52°)",
-        "description": "Cleans from -52° to +52° module tilt — full morning-to-evening tracker travel without parking arrays flat for crews."
+        "description": "Cleans from -52° to +52° module tilt, full morning-to-evening tracker travel without parking arrays flat for crews."
       },
       "3": {
         "title": "100% Waterless Dual-Pass Cleaning",
-        "description": "Patented dual-pass microfiber lifts over 99% of dry and adhesive dust on tracker tables — no water, detergent, or run-off."
+        "description": "Patented dual-pass microfiber lifts over 99% of dry and adhesive dust on tracker tables, no water, detergent, or run-off."
       },
       "4": {
         "title": "Tracker-Aware Autonomous Navigation",
@@ -57,7 +79,7 @@
       },
       "5": {
         "title": "NECTYR Tracker Fleet Scheduling",
-        "description": "Fleet telemetry over {connectivity} — schedule tracker-synchronised cycles and stow-aware cleaning windows from NECTYR."
+        "description": "Fleet telemetry over {connectivity}, schedule tracker-synchronised cycles and stow-aware cleaning windows from NECTYR."
       },
       "6": {
         "title": "2.2 km Tracker Run Per Charge",
@@ -331,7 +353,7 @@
       "card0Title": "TÜV NORD Tracker Validation",
       "card0Body": "Independently certified for IP55 protection with tracker-specific damp-heat and dry-heat performance testing.",
       "card1Title": "Sandstorm & Dust-Belt Testing",
-      "card1Body": "Simulated 12 sandstorm events per year at 10 g/m² loading — mirroring Rajasthan and Gujarat tracker O&M conditions.",
+      "card1Body": "Simulated 12 sandstorm events per year at 10 g/m² loading, mirroring Rajasthan and Gujarat tracker O&M conditions.",
       "card2Title": "Panel-Safe Dual-Pass Contact",
       "card2Body": "Micro-crack, reflectance, and ARC preservation testing under daily dual-pass cycles on tracker-mounted modules."
     },
@@ -515,8 +537,8 @@
       "nyumaXHeader": "NYUMA-X (Single-Pass PBT)",
       "row0": {
         "criterion": "Cleaning Mechanism",
-        "glydeX": "Dual-pass microfiber — airflow plus wipe for mixed soiling",
-        "nyumaX": "Single-pass PBT brush — optimised for dry tracker dust belts"
+        "glydeX": "Dual-pass microfiber, airflow plus wipe for mixed soiling",
+        "nyumaX": "Single-pass PBT brush, optimised for dry tracker dust belts"
       },
       "row1": {
         "criterion": "Tracker Compatibility",

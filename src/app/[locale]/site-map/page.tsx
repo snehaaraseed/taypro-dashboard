@@ -1,7 +1,5 @@
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
-import { getAllFileProjects } from "@/app/utils/projectFileUtils";
-import { listPublishedBlogLinkSummaries } from "@/lib/cms/blogService";
 import { COMPARISON_PAGE_LIST } from "@/lib/seo/comparison-pages-config";
 import {
   ALL_STATE_LANDING_IDS,
@@ -65,8 +63,6 @@ export default async function SiteMapPage({
   const tCompare = await getTranslations({ locale, namespace: "ComparisonsPage" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
   const l = (key: string) => t(`links.${key}`);
-  const portfolioProjects = await getAllFileProjects(locale);
-  const blogLinks = await listPublishedBlogLinkSummaries(locale);
 
   const breadcrumbs = [
     { name: tCommon("breadcrumbHome"), href: "/" },
@@ -96,18 +92,34 @@ export default async function SiteMapPage({
               {t("sections.postsIntro")}
             </p>
 
-            <ul className="space-y-1 list-disc list-inside">
-              {blogLinks.map((blog) => (
-                <li key={blog.slug} className="text-lg">
-                  <Link
-                    href={`/blog/${blog.slug}`}
-                    title={blog.title}
-                    className="text-[#7CB342] hover:text-[#689F38] transition-colors duration-200 font-medium"
-                  >
-                    {blog.title}
-                  </Link>
-                </li>
-              ))}
+            <ul className="space-y-1 list-disc list-inside text-lg">
+              <li>
+                <Link
+                  href="/blog"
+                  title={l("blogTitle")}
+                  className="text-[#7CB342] hover:text-[#689F38] transition-colors duration-200 font-medium"
+                >
+                  {l("blogLabel")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/authors"
+                  title={t("posts.authorsTitle")}
+                  className="text-[#7CB342] hover:text-[#689F38] transition-colors duration-200 font-medium"
+                >
+                  {t("posts.authorsLabel")}
+                </Link>
+              </li>
+              <li>
+                <a
+                  href={`${siteUrl}/sitemap.xml`}
+                  title={t("posts.xmlSitemapTitle")}
+                  className="text-[#7CB342] hover:text-[#689F38] transition-colors duration-200 font-medium"
+                >
+                  {t("posts.xmlSitemapLabel")}
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -140,6 +152,15 @@ export default async function SiteMapPage({
                   className="text-[#7CB342] hover:text-[#689F38] transition-colors"
                 >
                   {l("blogLabel")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/insights"
+                  title={l("insightsTitle")}
+                  className="text-[#7CB342] hover:text-[#689F38] transition-colors"
+                >
+                  {l("insightsLabel")}
                 </Link>
               </li>
               <li>
@@ -451,18 +472,16 @@ export default async function SiteMapPage({
               {t("sections.portfolioIntro")}
             </p>
 
-            <ul className="space-y-1 list-disc list-inside">
-              {portfolioProjects.map((card) => (
-                <li key={card.id} className="text-lg">
-                  <Link
-                    href={card.href}
-                    title={t("portfolio.solarProjectTitle")}
-                    className="text-[#7CB342] hover:text-[#689F38] transition-colors duration-200 font-medium"
-                  >
-                    {card.title}
-                  </Link>
-                </li>
-              ))}
+            <ul className="space-y-1 list-disc list-inside text-lg">
+              <li>
+                <Link
+                  href="/projects"
+                  title={t("portfolio.hubTitle")}
+                  className="text-[#7CB342] hover:text-[#689F38] transition-colors duration-200 font-medium"
+                >
+                  {t("portfolio.hubLabel")}
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

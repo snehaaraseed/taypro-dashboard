@@ -145,7 +145,7 @@ async function propagateAuthorNameToCmsContent(
 export async function upsertAuthor(
   authorInput: Omit<BlogAuthor, "slug"> & {
     slug?: string;
-    /** When editing, the slug before save — used to rename the row if the name changes. */
+    /** When editing, the slug before save, used to rename the row if the name changes. */
     previousSlug?: string;
     expertiseTags?: BlogAuthorExpertiseTag[];
   }

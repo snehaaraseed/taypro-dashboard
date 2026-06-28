@@ -12,7 +12,7 @@
     },
     "indianCompetitors": {
       "meta": {
-        "title": "Taypro vs Indian Solar Cleaning Robot Companies — Full Comparison",
+        "title": "Taypro vs Indian Solar Cleaning Robot Companies: Full Comparison",
         "description": "Compare Taypro with Solabot, Aegeus, Skilancer, and Vayu Solar across cleaning technology, fleet scale, tracker support, software, OPEX models, and certifications. Data from official websites, June 2026."
       },
       "hero": {
@@ -66,8 +66,8 @@
         },
         "4": {
           "factor": "Tracker-compatible robot",
-          "taypro": "Yes — GLYDE-X (dual-pass) and NYUMA-X (PBT), purpose-built for single-axis trackers",
-          "solabot": "Yes — SB-04T",
+          "taypro": "Yes: GLYDE-X (dual-pass) and NYUMA-X (PBT), purpose-built for single-axis trackers",
+          "solabot": "Yes: SB-04T",
           "aegeus": "Not confirmed on website",
           "skilancer": "Not confirmed on website",
           "vayu": "Not confirmed on website"
@@ -75,8 +75,8 @@
         "5": {
           "factor": "Rooftop robot",
           "taypro": "MINY (coming soon)",
-          "solabot": "Yes — SB-RT",
-          "aegeus": "Yes — Shreem",
+          "solabot": "Yes: SB-RT",
+          "aegeus": "Yes: Shreem",
           "skilancer": "Not stated",
           "vayu": "Not stated"
         },
@@ -90,8 +90,8 @@
         },
         "7": {
           "factor": "Fleet monitoring software",
-          "taypro": "NECTYR — schedules, block-wise cleaning logs, SCADA, AMC tickets, export reports",
-          "solabot": "SB-SCADA — centralised SCADA control",
+          "taypro": "NECTYR: schedules, block-wise cleaning logs, SCADA, AMC tickets, export reports",
+          "solabot": "SB-SCADA: centralised SCADA control",
           "aegeus": "LoRaWAN-based remote monitoring and diagnostics",
           "skilancer": "Cloud-based, PC/mobile interface",
           "vayu": "Wireless remote monitoring (basic)"
@@ -106,9 +106,9 @@
         },
         "9": {
           "factor": "OPEX / managed service",
-          "taypro": "Yes — OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
+          "taypro": "Yes: OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
           "solabot": "Not mentioned on website",
-          "aegeus": "Yes — MCaaS (Machine Cleaning as a Service)",
+          "aegeus": "Yes: MCaaS (Machine Cleaning as a Service)",
           "skilancer": "Not clearly mentioned",
           "vayu": "Not clearly mentioned"
         },
@@ -138,7 +138,7 @@
         },
         "13": {
           "factor": "Hardware certifications",
-          "taypro": "TÜV NORD, NISE, UL, Karandikar Labs & Elca Labs — 30-year-equivalent module safety, IP65, static discharge, vibration, damp-heat & dry-heat (within safe limits)",
+          "taypro": "TÜV NORD, NISE, UL, Karandikar Labs & Elca Labs: 30-year-equivalent module safety, IP65, static discharge, vibration, damp-heat & dry-heat (within safe limits)",
           "solabot": "Not stated",
           "aegeus": "UL India accredited",
           "skilancer": "Not stated",
@@ -154,7 +154,7 @@
         },
         "15": {
           "factor": "Same-day breakdown support",
-          "taypro": "Yes — pan-India, NECTYR remote diagnostics + field engineers",
+          "taypro": "Yes: pan-India, NECTYR remote diagnostics + field engineers",
           "solabot": "Service engineers in 8 states",
           "aegeus": "Not specified",
           "skilancer": "Not specified",
@@ -182,19 +182,19 @@
         "items": {
           "0": {
             "title": "The only patented dual-pass cleaning system in India",
-            "body": "Taypro holds 4 Indian patents covering the dual-pass mechanism — airflow first pass to dislodge loose particulate without surface contact, followed by a rotating self-cleaning microfiber drum for a complete wipe. The self-cleaning drum is a practical requirement at utility scale: a robot cleaning 3,600 modules per charge cannot deposit accumulated dust back onto cleaned panels. No other Indian manufacturer publishes an equivalent patented dual-pass system."
+            "body": "Taypro holds 4 Indian patents covering the dual-pass mechanism, airflow first pass to dislodge loose particulate without surface contact, followed by a rotating self-cleaning microfiber drum for a complete wipe. The self-cleaning drum is a practical requirement at utility scale: a robot cleaning 3,600 modules per charge cannot deposit accumulated dust back onto cleaned panels. No other Indian manufacturer publishes an equivalent patented dual-pass system."
           },
           "1": {
             "title": "The only company with dedicated tracker robots across two cleaning technologies",
-            "body": "Taypro offers tracker-compatible robots in both cleaning technologies — <glydeX>GLYDE-X</glydeX> for dual-pass microfiber and <nyumaX>NYUMA-X</nyumaX> for PBT — both purpose-engineered for single-axis tracker plants with flexible bodies and 360° bridge articulation. Solabot offers the SB-04T for trackers. Aegeus, Skilancer, and Vayu do not confirm tracker support on their websites."
+            "body": "Taypro offers tracker-compatible robots in both cleaning technologies, <glydeX>GLYDE-X</glydeX> for dual-pass microfiber and <nyumaX>NYUMA-X</nyumaX> for PBT: both purpose-engineered for single-axis tracker plants with flexible bodies and 360° bridge articulation. Solabot offers the SB-04T for trackers. Aegeus, Skilancer, and Vayu do not confirm tracker support on their websites."
           },
           "2": {
             "title": "The most comprehensive fleet software",
-            "body": "NECTYR supports LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN — five connectivity options sized per site by Taypro engineers during commissioning. Competitors offer single-protocol solutions: Aegeus uses LoRaWAN, Solabot uses SCADA (protocol unspecified). NECTYR also includes block-wise scheduling, cleaning logs, AMC ticketing, and investor-grade report exports — features not published by any competitor."
+            "body": "NECTYR supports LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN: five connectivity options sized per site by Taypro engineers during commissioning. Competitors offer single-protocol solutions: Aegeus uses LoRaWAN, Solabot uses SCADA (protocol unspecified). NECTYR also includes block-wise scheduling, cleaning logs, AMC ticketing, and investor-grade report exports, features not published by any competitor."
           },
           "3": {
             "title": "Multi-laboratory hardware and module-safety certifications",
-            "body": "Taypro robots are independently validated by TÜV NORD, the National Institute of Solar Energy (NISE), UL, Karandikar Labs, and Elca Labs. Accelerated testing simulates 30 years of daily cleaning cycles to confirm module safety, alongside IP65 rain and dust protection, static discharge tests, vibration tests for module stress from robot motion, and damp-heat and dry-heat conditioning for desert and coastal plants — all within safe limits. Aegeus holds UL India accreditation for its Unicorn robot. No equivalent certification stack is published by Solabot, Skilancer, or Vayu."
+            "body": "Taypro robots are independently validated by TÜV NORD, the National Institute of Solar Energy (NISE), UL, Karandikar Labs, and Elca Labs. Accelerated testing simulates 30 years of daily cleaning cycles to confirm module safety, alongside IP65 rain and dust protection, static discharge tests, vibration tests for module stress from robot motion, and damp-heat and dry-heat conditioning for desert and coastal plants, all within safe limits. Aegeus holds UL India accreditation for its Unicorn robot. No equivalent certification stack is published by Solabot, Skilancer, or Vayu."
           },
           "4": {
             "title": "Named module OEM approvals",
@@ -206,23 +206,23 @@
           },
           "6": {
             "title": "OPEX managed service with named commercial structure",
-            "body": "Opex is a pay-per-panel-cleaned managed service where Taypro operates the fleet on the plant — with pricing transparency, defined cleaning cycles (3–10 per month based on soiling study), and full NECTYR reporting. Aegeus offers MCaaS as a service model. Solabot, Skilancer, and Vayu do not clearly publish an equivalent managed service on their websites."
+            "body": "Opex is a pay-per-panel-cleaned managed service where Taypro operates the fleet on the plant, with pricing transparency, defined cleaning cycles (3–10 per month based on soiling study), and full NECTYR reporting. Aegeus offers MCaaS as a service model. Solabot, Skilancer, and Vayu do not clearly publish an equivalent managed service on their websites."
           }
         }
       },
       "howToRead": {
         "heading": "How to read this comparison",
-        "body": "Robot count and project count measure market penetration. GW protected and cleaning technology depth measure operational capability at scale. For a 50–250 MW utility plant evaluating a robot partner, the questions that matter are: does the cleaning technology protect your module warranty, does the fleet software give you audit-ready O&M data, can the partner support same-day breakdown across India, and is there a commercial model that matches your balance sheet? On each of those criteria, Taypro publishes specific, verifiable answers — which is why this comparison draws only from official website sources.",
+        "body": "Robot count and project count measure market penetration. GW protected and cleaning technology depth measure operational capability at scale. For a 50–250 MW utility plant evaluating a robot partner, the questions that matter are: does the cleaning technology protect your module warranty, does the fleet software give you audit-ready O&M data, can the partner support same-day breakdown across India, and is there a commercial model that matches your balance sheet? On each of those criteria, Taypro publishes specific, verifiable answers, which is why this comparison draws only from official website sources.",
         "ctaLine": "To evaluate Taypro's robots for your plant, <contact>request a quote</contact> or run a directional payback estimate on the <calculator>ROI calculator</calculator>. To compare individual robot models, see the <hub>full product hub</hub>."
       },
       "faq": {
         "0": {
           "q": "Which Indian competitor has the most robots installed?",
-          "a": "Solabot publishes 12,422+ robots installed on its homepage — the largest disclosed fleet count among Indian competitors. Taypro documents 5 GW+ deployed capacity and 272 robots at a single 200 MW plant."
+          "a": "Solabot publishes 12,422+ robots installed on its homepage, the largest disclosed fleet count among Indian competitors. Taypro documents 5 GW+ deployed capacity and 272 robots at a single 200 MW plant."
         },
         "1": {
           "q": "How should IPPs evaluate vendors on this table?",
-          "a": "Weight cleaning technology, tracker fit, fleet software audit capability, same-day breakdown support, and commercial model against your plant's MW scale and soiling profile — not headline robot or project counts alone."
+          "a": "Weight cleaning technology, tracker fit, fleet software audit capability, same-day breakdown support, and commercial model against your plant's MW scale and soiling profile, not headline robot or project counts alone."
         },
         "2": {
           "q": "Should we run a head-to-head trial?",
@@ -240,7 +240,7 @@
         "title": "Solar panel cleaning robot vs manual cleaning",
         "lead": "Manual wet washing and robotic waterless cleaning both remove soiling, but they differ on water availability, labour risk, proof of completion, and long-run cost on MW-scale plants."
       },
-      "intro": "Utility IPPs in Rajasthan, Gujarat, and Madhya Pradesh often start with manual crews or tractor-mounted brushes, then evaluate robots when soiling losses, water cost, or safety incidents rise. This page compares decision criteria—not a single winner for every site.",
+      "intro": "Utility IPPs in Rajasthan, Gujarat, and Madhya Pradesh often start with manual crews or tractor-mounted brushes, then evaluate robots when soiling losses, water cost, or safety incidents rise. This page compares decision criteria, not a single winner for every site.",
       "tableHeading": "Side-by-side comparison",
       "rows": {
         "0": {
@@ -289,25 +289,25 @@
         },
         "3": {
           "q": "How do safety and insurance teams view manual vs robotic cleaning?",
-          "a": "Manual row walking in heat and dust exposes crews to height and heat-stress risk. Autonomous robots reduce person-hours on tables — a factor in EHS reviews on SECI and state discom tenders."
+          "a": "Manual row walking in heat and dust exposes crews to height and heat-stress risk. Autonomous robots reduce person-hours on tables, a factor in EHS reviews on SECI and state discom tenders."
         }
       },
       "deepDive": {
         "heading": "MW-scale cost and audit comparison",
-        "p1": "Manual programmes hide cost in variable labour and water — easy to under-budget in year one, expensive when dust season demands weekly washes. Robots front-load CAPEX or convert to OPEX per panel cleaned, with block-level logs exportable for PR recovery analysis.",
+        "p1": "Manual programmes hide cost in variable labour and water, easy to under-budget in year one, expensive when dust season demands weekly washes. Robots front-load CAPEX or convert to OPEX per panel cleaned, with block-level logs exportable for PR recovery analysis.",
         "p2": "Asset managers under performance guarantees need evidence that cleaning happened on schedule. NECTYR timestamps routes, exceptions, and battery swaps; manual programmes often rely on photos and sign-off sheets that do not scale across 200+ blocks.",
-        "p3": "Break-even depends on soiling loss, tariff, and cycle frequency — not robot brochure price alone. Model your plant on the solar panel cleaning ROI calculator, then validate with a Taypro layout review."
+        "p3": "Break-even depends on soiling loss, tariff, and cycle frequency, not robot brochure price alone. Model your plant on the solar panel cleaning ROI calculator, then validate with a Taypro layout review."
       }
     },
     "tayproVsSolabot": {
       "meta": {
-        "title": "Taypro vs Solabot — Solar Cleaning Robot Comparison India",
+        "title": "Taypro vs Solabot: Solar Cleaning Robot Comparison India",
         "description": "Verified comparison of Taypro and Solabot Technologies: dual-pass vs PBT cleaning, tracker robots, NECTYR vs SCADA, multi-laboratory certifications, and OPEX models. Data from official websites, June 2026."
       },
       "hero": {
         "eyebrow": "Vendor comparison",
         "title": "Taypro vs Solabot for utility solar cleaning",
-        "lead": "Both vendors supply waterless solar cleaning robots in India. Compare on cleaning technology depth, fleet software, tracker support, and commercial model — not headline robot count alone."
+        "lead": "Both vendors supply waterless solar cleaning robots in India. Compare on cleaning technology depth, fleet software, tracker support, and commercial model, not headline robot count alone."
       },
       "intro": "Solabot Technologies and Taypro are two of the most cited Indian solar cleaning robot vendors on utility RFQs. This page uses only data published on each company's official website as of June 2026.",
       "sourceNote": "Figures reflect publicly available information as of June 2026. Verify current specs on your RFQ before procurement decisions.",
@@ -335,13 +335,13 @@
         },
         "4": {
           "factor": "Tracker-compatible robot",
-          "taypro": "Yes — GLYDE-X (dual-pass) and NYUMA-X (PBT), purpose-built for single-axis trackers",
-          "competitor": "Yes — SB-04T"
+          "taypro": "Yes: GLYDE-X (dual-pass) and NYUMA-X (PBT), purpose-built for single-axis trackers",
+          "competitor": "Yes: SB-04T"
         },
         "5": {
           "factor": "Rooftop robot",
           "taypro": "MINY (coming soon)",
-          "competitor": "Yes — SB-RT"
+          "competitor": "Yes: SB-RT"
         },
         "6": {
           "factor": "Coverage per charge",
@@ -350,8 +350,8 @@
         },
         "7": {
           "factor": "Fleet monitoring software",
-          "taypro": "NECTYR — schedules, block-wise cleaning logs, SCADA, AMC tickets, export reports",
-          "competitor": "SB-SCADA — centralised SCADA control"
+          "taypro": "NECTYR: schedules, block-wise cleaning logs, SCADA, AMC tickets, export reports",
+          "competitor": "SB-SCADA: centralised SCADA control"
         },
         "8": {
           "factor": "Connectivity options",
@@ -360,7 +360,7 @@
         },
         "9": {
           "factor": "OPEX / managed service",
-          "taypro": "Yes — OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
+          "taypro": "Yes: OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
           "competitor": "Not mentioned on website"
         },
         "10": {
@@ -380,7 +380,7 @@
         },
         "13": {
           "factor": "Hardware certifications",
-          "taypro": "TÜV NORD, NISE, UL, Karandikar Labs & Elca Labs — 30-year-equivalent module safety, IP65, static discharge, vibration, damp-heat & dry-heat (within safe limits)",
+          "taypro": "TÜV NORD, NISE, UL, Karandikar Labs & Elca Labs: 30-year-equivalent module safety, IP65, static discharge, vibration, damp-heat & dry-heat (within safe limits)",
           "competitor": "Not stated"
         },
         "14": {
@@ -390,7 +390,7 @@
         },
         "15": {
           "factor": "Same-day breakdown support",
-          "taypro": "Yes — pan-India, NECTYR remote diagnostics + field engineers",
+          "taypro": "Yes: pan-India, NECTYR remote diagnostics + field engineers",
           "competitor": "Service engineers in 8 states"
         },
         "16": {
@@ -417,7 +417,7 @@
           },
           "2": {
             "title": "Multi-laboratory certifications and named OEM approvals",
-            "body": "Taypro is validated by TÜV NORD, NISE, UL, Karandikar Labs, and Elca Labs — including 30-year-equivalent module cleaning-cycle tests, IP65, static discharge, vibration, and damp-heat/dry-heat within safe limits — and names six approved module manufacturers. Solabot claims 16 Tier 1 approvals but does not publish manufacturer names."
+            "body": "Taypro is validated by TÜV NORD, NISE, UL, Karandikar Labs, and Elca Labs: including 30-year-equivalent module cleaning-cycle tests, IP65, static discharge, vibration, and damp-heat/dry-heat within safe limits, and names six approved module manufacturers. Solabot claims 16 Tier 1 approvals but does not publish manufacturer names."
           },
           "3": {
             "title": "OPEX managed service and largest single-plant deployment",
@@ -428,27 +428,27 @@
       "faq": {
         "0": {
           "q": "Should we run a head-to-head trial?",
-          "a": "Yes—shortlist two vendors, run a 30–60 day soiling trial on representative blocks, and compare PR uplift, cycle time, and logged coverage."
+          "a": "Yes, shortlist two vendors, run a 30–60 day soiling trial on representative blocks, and compare PR uplift, cycle time, and logged coverage."
         },
         "1": {
           "q": "Does Taypro replace Solabot on existing plants?",
-          "a": "Taypro deploys on greenfield and retrofit utility sites. Migration depends on dock compatibility and O&M contract terms—scope in technical due diligence."
+          "a": "Taypro deploys on greenfield and retrofit utility sites. Migration depends on dock compatibility and O&M contract terms, scope in technical due diligence."
         },
         "2": {
           "q": "Why does Solabot publish more robots than Taypro?",
-          "a": "Solabot counts total units shipped; Taypro publishes GW deployed and plant-level case studies. Compare on your plant's technology fit, software audit needs, and service SLA—not unit totals alone."
+          "a": "Solabot counts total units shipped; Taypro publishes GW deployed and plant-level case studies. Compare on your plant's technology fit, software audit needs, and service SLA, not unit totals alone."
         }
       }
     },
     "tayproVsSkilancer": {
       "meta": {
-        "title": "Taypro vs Skilancer — Solar Cleaning Robot Comparison India",
+        "title": "Taypro vs Skilancer: Solar Cleaning Robot Comparison India",
         "description": "Verified comparison of Taypro and Skilancer Solar: dual-pass patents, tracker robots, NECTYR fleet software, GW scale vs project count, and OPEX models. Data from official websites, June 2026."
       },
       "hero": {
         "eyebrow": "Vendor comparison",
         "title": "Taypro vs Skilancer for utility solar cleaning",
-        "lead": "Skilancer Solar and Taypro both position as Indian solar cleaning robot suppliers. Compare on tracker support, cleaning technology, fleet data, and deployment proof — not project count alone."
+        "lead": "Skilancer Solar and Taypro both position as Indian solar cleaning robot suppliers. Compare on tracker support, cleaning technology, fleet data, and deployment proof, not project count alone."
       },
       "intro": "Skilancer is commonly cited on Indian utility RFQs alongside Taypro. This page uses only data published on each company's official website as of June 2026.",
       "sourceNote": "Figures reflect publicly available information as of June 2026. Verify current specs on your RFQ before procurement decisions.",
@@ -476,7 +476,7 @@
         },
         "4": {
           "factor": "Tracker-compatible robot",
-          "taypro": "Yes — GLYDE-X (dual-pass) and NYUMA-X (PBT), purpose-built for single-axis trackers",
+          "taypro": "Yes: GLYDE-X (dual-pass) and NYUMA-X (PBT), purpose-built for single-axis trackers",
           "competitor": "Not confirmed on website"
         },
         "5": {
@@ -491,7 +491,7 @@
         },
         "7": {
           "factor": "Fleet monitoring software",
-          "taypro": "NECTYR — schedules, block-wise cleaning logs, SCADA, AMC tickets, export reports",
+          "taypro": "NECTYR: schedules, block-wise cleaning logs, SCADA, AMC tickets, export reports",
           "competitor": "Cloud-based remote monitoring, PC/mobile interface"
         },
         "8": {
@@ -501,7 +501,7 @@
         },
         "9": {
           "factor": "OPEX / managed service",
-          "taypro": "Yes — OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
+          "taypro": "Yes: OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
           "competitor": "Not clearly mentioned on website"
         },
         "10": {
@@ -521,7 +521,7 @@
         },
         "13": {
           "factor": "Hardware certifications",
-          "taypro": "TÜV NORD, NISE, UL, Karandikar Labs & Elca Labs — 30-year-equivalent module safety, IP65, static discharge, vibration, damp-heat & dry-heat (within safe limits)",
+          "taypro": "TÜV NORD, NISE, UL, Karandikar Labs & Elca Labs: 30-year-equivalent module safety, IP65, static discharge, vibration, damp-heat & dry-heat (within safe limits)",
           "competitor": "Not stated"
         },
         "14": {
@@ -531,7 +531,7 @@
         },
         "15": {
           "factor": "Same-day breakdown support",
-          "taypro": "Yes — pan-India, NECTYR remote diagnostics + field engineers",
+          "taypro": "Yes: pan-India, NECTYR remote diagnostics + field engineers",
           "competitor": "Not specified"
         },
         "16": {
@@ -550,7 +550,7 @@
         "items": {
           "0": {
             "title": "Confirmed tracker robots in two technologies",
-            "body": "Taypro publishes GLYDE-X and NYUMA-X as purpose-built single-axis tracker robots. Skilancer does not confirm tracker support on its website — a critical gap for tracker farm RFQs."
+            "body": "Taypro publishes GLYDE-X and NYUMA-X as purpose-built single-axis tracker robots. Skilancer does not confirm tracker support on its website, a critical gap for tracker farm RFQs."
           },
           "1": {
             "title": "Patented dual-pass system and multi-laboratory certifications",
@@ -569,7 +569,7 @@
       "faq": {
         "0": {
           "q": "What should IPPs weight most?",
-          "a": "Waterless fit for your dust chemistry, tracker compatibility, fleet audit logs, and India-local manufacturing with spare parts—not unit price or project count alone."
+          "a": "Waterless fit for your dust chemistry, tracker compatibility, fleet audit logs, and India-local manufacturing with spare parts, not unit price or project count alone."
         },
         "1": {
           "q": "Where can I see Taypro deployments?",
@@ -583,7 +583,7 @@
     },
     "tayproVsAegeus": {
       "meta": {
-        "title": "Taypro vs Aegeus — Solar Cleaning Robot Comparison India",
+        "title": "Taypro vs Aegeus: Solar Cleaning Robot Comparison India",
         "description": "Verified comparison of Taypro and Aegeus Technologies: dual-pass vs Airwash cleaning, tracker robots, NECTYR vs LoRaWAN, multi-laboratory Taypro certifications, and OPEX vs MCaaS. Data from official websites, June 2026."
       },
       "hero": {
@@ -617,13 +617,13 @@
         },
         "4": {
           "factor": "Tracker-compatible robot",
-          "taypro": "Yes — GLYDE-X (dual-pass) and NYUMA-X (PBT), purpose-built for single-axis trackers",
+          "taypro": "Yes: GLYDE-X (dual-pass) and NYUMA-X (PBT), purpose-built for single-axis trackers",
           "competitor": "Not confirmed on website"
         },
         "5": {
           "factor": "Rooftop robot",
           "taypro": "MINY (coming soon)",
-          "competitor": "Yes — Shreem"
+          "competitor": "Yes: Shreem"
         },
         "6": {
           "factor": "Coverage per charge",
@@ -632,7 +632,7 @@
         },
         "7": {
           "factor": "Fleet monitoring software",
-          "taypro": "NECTYR — schedules, block-wise cleaning logs, SCADA, AMC tickets, export reports",
+          "taypro": "NECTYR: schedules, block-wise cleaning logs, SCADA, AMC tickets, export reports",
           "competitor": "LoRaWAN-based remote monitoring and diagnostics"
         },
         "8": {
@@ -642,8 +642,8 @@
         },
         "9": {
           "factor": "OPEX / managed service",
-          "taypro": "Yes — OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
-          "competitor": "Yes — MCaaS (Machine Cleaning as a Service)"
+          "taypro": "Yes: OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
+          "competitor": "Yes: MCaaS (Machine Cleaning as a Service)"
         },
         "10": {
           "factor": "Deployed capacity",
@@ -662,7 +662,7 @@
         },
         "13": {
           "factor": "Hardware certifications",
-          "taypro": "TÜV NORD, NISE, UL, Karandikar Labs & Elca Labs — 30-year-equivalent module safety, IP65, static discharge, vibration, damp-heat & dry-heat (within safe limits)",
+          "taypro": "TÜV NORD, NISE, UL, Karandikar Labs & Elca Labs: 30-year-equivalent module safety, IP65, static discharge, vibration, damp-heat & dry-heat (within safe limits)",
           "competitor": "UL India accredited"
         },
         "14": {
@@ -672,7 +672,7 @@
         },
         "15": {
           "factor": "Same-day breakdown support",
-          "taypro": "Yes — pan-India, NECTYR remote diagnostics + field engineers",
+          "taypro": "Yes: pan-India, NECTYR remote diagnostics + field engineers",
           "competitor": "Not specified"
         },
         "16": {
@@ -695,7 +695,7 @@
           },
           "1": {
             "title": "NECTYR multi-protocol connectivity",
-            "body": "NECTYR supports five connectivity options sized per site. Aegeus relies on LoRaWAN only — a single-protocol solution that may not suit all plant network topologies."
+            "body": "NECTYR supports five connectivity options sized per site. Aegeus relies on LoRaWAN only, a single-protocol solution that may not suit all plant network topologies."
           },
           "2": {
             "title": "5 GW+ deployed with plant-level proof",
@@ -714,7 +714,7 @@
         },
         "1": {
           "q": "How do Taypro and Aegeus certifications compare?",
-          "a": "Taypro hardware is validated across TÜV NORD, NISE, UL, Karandikar Labs, and Elca Labs — covering 30-year-equivalent module cleaning cycles, IP65, static discharge, vibration, and damp-heat/dry-heat within safe limits. Aegeus holds UL India accreditation on Unicorn. Match certification scope to your lender and module OEM requirements."
+          "a": "Taypro hardware is validated across TÜV NORD, NISE, UL, Karandikar Labs, and Elca Labs: covering 30-year-equivalent module cleaning cycles, IP65, static discharge, vibration, and damp-heat/dry-heat within safe limits. Aegeus holds UL India accreditation on Unicorn. Match certification scope to your lender and module OEM requirements."
         },
         "2": {
           "q": "Does Aegeus support tracker plants?",
@@ -724,7 +724,7 @@
     },
     "tayproVsVayu": {
       "meta": {
-        "title": "Taypro vs Vayu Solar — Solar Cleaning Robot Comparison India",
+        "title": "Taypro vs Vayu Solar: Solar Cleaning Robot Comparison India",
         "description": "Verified comparison of Taypro and Vayu Solar: dual-pass patents, tracker robots, NECTYR fleet software, and 5 GW+ deployed capacity. Data from official websites, June 2026."
       },
       "hero": {
@@ -758,7 +758,7 @@
         },
         "4": {
           "factor": "Tracker-compatible robot",
-          "taypro": "Yes — GLYDE-X (dual-pass) and NYUMA-X (PBT), purpose-built for single-axis trackers",
+          "taypro": "Yes: GLYDE-X (dual-pass) and NYUMA-X (PBT), purpose-built for single-axis trackers",
           "competitor": "Not confirmed on website"
         },
         "5": {
@@ -773,7 +773,7 @@
         },
         "7": {
           "factor": "Fleet monitoring software",
-          "taypro": "NECTYR — schedules, block-wise cleaning logs, SCADA, AMC tickets, export reports",
+          "taypro": "NECTYR: schedules, block-wise cleaning logs, SCADA, AMC tickets, export reports",
           "competitor": "Wireless remote monitoring (basic)"
         },
         "8": {
@@ -783,7 +783,7 @@
         },
         "9": {
           "factor": "OPEX / managed service",
-          "taypro": "Yes — OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
+          "taypro": "Yes: OPEX: pay-per-panel-cleaned, Taypro operates the fleet",
           "competitor": "Not clearly mentioned on website"
         },
         "10": {
@@ -803,7 +803,7 @@
         },
         "13": {
           "factor": "Hardware certifications",
-          "taypro": "TÜV NORD, NISE, UL, Karandikar Labs & Elca Labs — 30-year-equivalent module safety, IP65, static discharge, vibration, damp-heat & dry-heat (within safe limits)",
+          "taypro": "TÜV NORD, NISE, UL, Karandikar Labs & Elca Labs: 30-year-equivalent module safety, IP65, static discharge, vibration, damp-heat & dry-heat (within safe limits)",
           "competitor": "Not stated"
         },
         "14": {
@@ -813,7 +813,7 @@
         },
         "15": {
           "factor": "Same-day breakdown support",
-          "taypro": "Yes — pan-India, NECTYR remote diagnostics + field engineers",
+          "taypro": "Yes: pan-India, NECTYR remote diagnostics + field engineers",
           "competitor": "Not specified"
         },
         "16": {
@@ -844,7 +844,7 @@
           },
           "3": {
             "title": "Multi-laboratory certifications and named OEM approvals",
-            "body": "Taypro is validated by TÜV NORD, NISE, UL, Karandikar Labs, and Elca Labs — covering 30-year-equivalent module safety, IP65, static discharge, vibration, and damp-heat/dry-heat within safe limits — and names six approved module manufacturers. Vayu does not publish hardware certifications or named OEM approvals."
+            "body": "Taypro is validated by TÜV NORD, NISE, UL, Karandikar Labs, and Elca Labs: covering 30-year-equivalent module safety, IP65, static discharge, vibration, and damp-heat/dry-heat within safe limits, and names six approved module manufacturers. Vayu does not publish hardware certifications or named OEM approvals."
           }
         }
       },
@@ -859,7 +859,7 @@
         },
         "2": {
           "q": "Why compare Taypro and Vayu if Taypro publishes more data?",
-          "a": "IPPs shortlisting multiple vendors should verify technology fit, software audit capability, and service infrastructure on site trials — regardless of how much each company publishes online."
+          "a": "IPPs shortlisting multiple vendors should verify technology fit, software audit capability, and service infrastructure on site trials, regardless of how much each company publishes online."
         }
       }
     },
@@ -910,7 +910,7 @@
       "faq": {
         "0": {
           "q": "Does waterless cleaning damage coatings?",
-          "a": "Taypro uses dry microfiber and PBT methods designed for utility glass—validate on a pilot block with your module OEM guidance."
+          "a": "Taypro uses dry microfiber and PBT methods designed for utility glass, validate on a pilot block with your module OEM guidance."
         },
         "1": {
           "q": "Can we switch from wet to waterless mid-life?",
@@ -918,7 +918,7 @@
         },
         "2": {
           "q": "How much water does manual washing use on utility plants?",
-          "a": "Industry estimates often cite 140,000+ litres per MW per year for wet-wash programmes on large Indian sites — before tanker logistics and discharge compliance. Waterless robots eliminate on-row consumption entirely."
+          "a": "Industry estimates often cite 140,000+ litres per MW per year for wet-wash programmes on large Indian sites, before tanker logistics and discharge compliance. Waterless robots eliminate on-row consumption entirely."
         },
         "3": {
           "q": "What do Indian environmental norms favour?",
@@ -927,14 +927,14 @@
       },
       "deepDive": {
         "heading": "TCO snapshot: waterless robots vs wet manual crews (utility scale)",
-        "p1": "On a 100 MW fixed-tilt plant in Rajasthan or Gujarat, manual wet washing typically bundles labour gangs, tanker sourcing, fuel, supervision, and irregular cadence. Robotic waterless OPEX converts cleaning to a per-panel variable cost with NECTYR proof of which blocks were cleaned each night — critical for IPP asset managers and lender audits.",
-        "p2": "Wet washing can still win on small C&I rooftops with municipal water access and low dust load. Taypro's utility offering is waterless GLYDE, NYUMA, and tracker variants — not pressure-wash services. Use the ROI calculator with your tariff, soiling rate, and cycle assumptions before locking a method in your O&M contract.",
-        "p3": "Regulatory pressure on groundwater use in solar parks (Bhuj, Jaisalmer, Phalodi belts) is pushing new RFQs toward dry methods even when legacy contracts assumed wet crews. Factor permit risk and water price escalation — not just year-one labour rates."
+        "p1": "On a 100 MW fixed-tilt plant in Rajasthan or Gujarat, manual wet washing typically bundles labour gangs, tanker sourcing, fuel, supervision, and irregular cadence. Robotic waterless OPEX converts cleaning to a per-panel variable cost with NECTYR proof of which blocks were cleaned each night, critical for IPP asset managers and lender audits.",
+        "p2": "Wet washing can still win on small C&I rooftops with municipal water access and low dust load. Taypro's utility offering is waterless GLYDE, NYUMA, and tracker variants, not pressure-wash services. Use the ROI calculator with your tariff, soiling rate, and cycle assumptions before locking a method in your O&M contract.",
+        "p3": "Regulatory pressure on groundwater use in solar parks (Bhuj, Jaisalmer, Phalodi belts) is pushing new RFQs toward dry methods even when legacy contracts assumed wet crews. Factor permit risk and water price escalation, not just year-one labour rates."
       }
     },
     "glydeVsNyuma": {
       "meta": {
-        "title": "GLYDE vs NYUMA — Fixed-Tilt Automatic Solar Cleaning Robots",
+        "title": "GLYDE vs NYUMA: Fixed-Tilt Automatic Solar Cleaning Robots",
         "description": "Compare Taypro GLYDE dual-pass microfiber and NYUMA single-pass PBT automatic robots: cleaning technology, soiling fit, consumables, range, deployments, and NECTYR fleet monitoring."
       },
       "hero": {
@@ -952,7 +952,7 @@
         "0": {
           "factor": "Cleaning technology",
           "glyde": "Patented dual-pass: airflow loosens dust, microfiber completes the wipe",
-          "nyuma": "Single-pass counter-rotating PBT brush drum — fewer moving consumables"
+          "nyuma": "Single-pass counter-rotating PBT brush drum, fewer moving consumables"
         },
         "1": {
           "factor": "Best for",
@@ -981,8 +981,8 @@
         },
         "6": {
           "factor": "Labour after install",
-          "glyde": "Zero — fully autonomous daily cycles",
-          "nyuma": "Zero — fully autonomous daily cycles"
+          "glyde": "Zero: fully autonomous daily cycles",
+          "nyuma": "Zero: fully autonomous daily cycles"
         },
         "7": {
           "factor": "Fleet monitoring",
@@ -993,7 +993,7 @@
       "faq": {
         "0": {
           "q": "Can GLYDE and NYUMA run in the same plant?",
-          "a": "Yes. Mixed fleets are common — GLYDE on high-soiling blocks, NYUMA on PBT-specified rows. NECTYR schedules both from one portal."
+          "a": "Yes. Mixed fleets are common, GLYDE on high-soiling blocks, NYUMA on PBT-specified rows. NECTYR schedules both from one portal."
         },
         "1": {
           "q": "Which robot is better for Rajasthan dust?",
@@ -1007,8 +1007,8 @@
       "deepDive": {
         "heading": "Decision tree: GLYDE vs NYUMA on fixed-tilt utility plants",
         "p1": "Start with soiling chemistry: dry desert dust favours either robot; cementitious or pollen-heavy layers tilt toward GLYDE dual-pass. Next, compare capex per MW and brush versus microfiber service intervals in your O&M budget.",
-        "p2": "If your EPC specified PBT in the tender, NYUMA is the natural fit. If the tender asks for maximum dust removal per cycle or dual-pass patents, GLYDE is the flagship. Both robots share NECTYR, pan-India service, and waterless operation — the split is technology economics, not software capability.",
-        "p3": "Validate robot count per MW with Taypro layout engineers before finalising — row length, gap width, and block count drive fleet size more than brand choice between these two platforms."
+        "p2": "If your EPC specified PBT in the tender, NYUMA is the natural fit. If the tender asks for maximum dust removal per cycle or dual-pass patents, GLYDE is the flagship. Both robots share NECTYR, pan-India service, and waterless operation, the split is technology economics, not software capability.",
+        "p3": "Validate robot count per MW with Taypro layout engineers before finalising, row length, gap width, and block count drive fleet size more than brand choice between these two platforms."
       },
       "productLinks": {
         "glyde": "GLYDE product page",
@@ -1017,7 +1017,7 @@
     },
     "glydeXVsNyumaX": {
       "meta": {
-        "title": "GLYDE-X vs NYUMA-X — Single-Axis Tracker Cleaning Robots",
+        "title": "GLYDE-X vs NYUMA-X: Single-Axis Tracker Cleaning Robots",
         "description": "Compare Taypro GLYDE-X dual-pass and NYUMA-X single-pass PBT tracker robots: cleaning mechanism, NEXTracker compatibility, inter-table flex, weight, range, and NECTYR scheduling."
       },
       "hero": {
@@ -1034,8 +1034,8 @@
       "rows": {
         "0": {
           "factor": "Cleaning mechanism",
-          "glydeX": "Dual-pass microfiber — airflow plus wipe for mixed soiling",
-          "nyumaX": "Single-pass PBT brush — optimised for dry tracker dust belts"
+          "glydeX": "Dual-pass microfiber, airflow plus wipe for mixed soiling",
+          "nyumaX": "Single-pass PBT brush, optimised for dry tracker dust belts"
         },
         "1": {
           "factor": "Tracker compatibility",
@@ -1084,13 +1084,13 @@
         },
         "2": {
           "q": "Does CRADYL row-transfer affect the choice?",
-          "a": "On wide row gaps, CRADYL docking pairs with either tracker robot — specify transfer points during layout review so fleet count includes docking stations, not just table robots."
+          "a": "On wide row gaps, CRADYL docking pairs with either tracker robot, specify transfer points during layout review so fleet count includes docking stations, not just table robots."
         }
       },
       "deepDive": {
         "heading": "Tracker RFQ decision guide",
         "p1": "Single-axis plants add tilt-angle routing, inter-table flex, and night-window scheduling constraints. GLYDE-X targets premium dust lift where adhesive layers follow dust storms; NYUMA-X fits capex-sensitive tracker portfolios that already standardised on PBT for fixed-tilt blocks.",
-        "p2": "Both robots publish NEXTracker and Gamechanger compatibility with ±15° inter-table flex. Validate on your stow angles and row pitch — tracker geometry varies more than fixed-tilt repeatability. NECTYR schedules both models with weather hold logic shared across the Taypro fleet.",
+        "p2": "Both robots publish NEXTracker and Gamechanger compatibility with ±15° inter-table flex. Validate on your stow angles and row pitch, tracker geometry varies more than fixed-tilt repeatability. NECTYR schedules both models with weather hold logic shared across the Taypro fleet.",
         "p3": "Mixed fleets are common: GLYDE-X on high-soiling tracker blocks, NYUMA-X on PBT-specified tables, fixed-tilt GLYDE or NYUMA on non-tracker sections. One NECTYR portal covers the combined fleet for asset-manager reporting."
       },
       "productLinks": {

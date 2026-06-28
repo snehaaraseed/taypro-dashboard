@@ -12,6 +12,13 @@ One target keyword can support **multiple blogs** only when each post serves a *
 | `comparison_alternative` | Comparison & alternatives | Why choose this over what we do today? |
 | `troubleshooting_problem` | Troubleshooting | Why is my setup failing and how does this fix it? |
 
+## Semantic coordinates (v2)
+
+- **Domain catalog:** `data/semantic-topic-catalog.json` — 30 semantic domains × sub-angles × context dimensions.
+- **Coordinate registry:** `data/semantic-intent-registry.json` — key `domainId::intentFamily::subAngleId::contextHash`.
+- **Editorial calendar:** `data/editorial-calendar.json` — 90-day primary/backup/evergreen rows (`editorial-calendar.ts`).
+- **Cron automation** uses `pickNextEditorialContractForCron` (no `minimal-guards` / `keyword-angle-reuse` tiers).
+
 ## How the system tracks intents
 
 - **Registry file:** `data/seo-keyword-intent-registry.json`

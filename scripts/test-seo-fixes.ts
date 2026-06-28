@@ -56,12 +56,17 @@ const projectsHubCanonical = withHreflang(
   "/projects",
   "en",
   { title: { absolute: "Taypro Solar Projects" }, description: "Desc" },
-  { canonicalSuffix: "?page=2" }
+  { canonicalSuffix: "?page=2", omitHreflangLanguages: true }
 );
 assert.equal(
   projectsHubCanonical.alternates?.canonical,
   "https://taypro.in/projects?page=2",
   "Projects hub paginated canonical"
+);
+assert.equal(
+  projectsHubCanonical.alternates?.languages,
+  undefined,
+  "Paginated list pages omit hreflang languages"
 );
 assert.equal(
   projectsHubPaginationLinks("https://taypro.in", 2, 4).previous,
@@ -173,14 +178,16 @@ assert.equal(
 
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { buildSpaClientMessages } from "../src/i18n/pick-messages";
+import { buildLayoutClientMessages, buildSpaClientMessages } from "../src/i18n/pick-messages";
 import {
   CLIENT_PAGE_NAMESPACES,
+  LAYOUT_CLIENT_NAMESPACES,
   SPA_CLIENT_NAMESPACES,
+  clientNamespacesForRequest,
 } from "../src/i18n/client-message-namespaces";
 import { loadMessagesForClient } from "../src/i18n/load-messages";
 import { pickSimilarBlogs } from "../src/lib/seo/pick-similar-blogs";
-import { parseProjectsHubPage, projectsHubPagePath, projectsHubPaginationLinks } from "../src/lib/cms/projects-hub-pagination";
+import { parseProjectsHubPage, projectsHubPagePath, projectsHubPortfolioPagePath, projectsHubPaginationLinks } from "../src/lib/cms/projects-hub-pagination";
 
 const messagesRoot = join(process.cwd(), "messages");
 const hiMessages = JSON.parse(
@@ -198,20 +205,100 @@ const spaClientMessages = buildSpaClientMessages(hiMessages);
 for (const ns of SPA_CLIENT_NAMESPACES) {
   assert.ok(
     ns in spaClientMessages,
-    `layout client bundle must include ${ns} on every page`
+    `SPA API catalog must include ${ns}`
   );
 }
 assert.ok(
   !("StateLandingsPage" in spaClientMessages),
-  "client bundle must not ship server-only StateLandingsPage"
+  "SPA API catalog must not ship server-only StateLandingsPage"
 );
 assert.ok(
   !("ServiceIndiaPage" in spaClientMessages),
-  "client bundle must not ship server-only buyer-intent page copy"
+  "SPA API catalog must not ship server-only buyer-intent page copy"
 );
 assert.ok(
   JSON.stringify(spaClientMessages).length < 200 * 1024,
-  "full client SPA bundle must stay under 200KB"
+  "full SPA API catalog must stay under 200KB"
+);
+
+const hiClientCatalogForLayout = buildSpaClientMessages(
+  JSON.parse(JSON.stringify(hiMessages)) as Record<string, unknown>
+);
+const blogLayoutMessages = buildLayoutClientMessages(hiClientCatalogForLayout, "/blog");
+const cookieLayoutMessages = buildLayoutClientMessages(
+  hiClientCatalogForLayout,
+  "/cookie-policy"
+);
+
+for (const ns of LAYOUT_CLIENT_NAMESPACES) {
+  assert.ok(
+    ns in blogLayoutMessages,
+    `layout bundle must always include ${ns}`
+  );
+}
+assert.ok(
+  "BlogPage" in blogLayoutMessages,
+  "/blog layout bundle must include BlogPage"
+);
+assert.ok(
+  !("Home" in blogLayoutMessages),
+  "/blog layout bundle must not include Home"
+);
+assert.ok(
+  JSON.stringify(blogLayoutMessages).length < 40 * 1024,
+  "/blog layout bundle must stay under 40KB"
+);
+assert.ok(
+  JSON.stringify(cookieLayoutMessages).length < 20 * 1024,
+  "/cookie-policy layout bundle must stay under 20KB"
+);
+
+const hubScoped = buildLayoutClientMessages(
+  hiClientCatalogForLayout,
+  "/solar-panel-cleaning-system"
+);
+assert.ok(
+  "Home" in hubScoped,
+  "/solar-panel-cleaning-system layout bundle must include Home (ProductLineupSection)"
+);
+
+for (const route of [
+  "/blog",
+  "/contact",
+  "/company",
+  "/cookie-policy",
+  "/projects",
+  "/projects/automatic",
+  "/projects/yavatmal-undarni-7-mw",
+]) {
+  const scoped = buildLayoutClientMessages(hiClientCatalogForLayout, route);
+  for (const ns of clientNamespacesForRequest(route)) {
+    assert.ok(
+      ns in scoped,
+      `${route} layout bundle must include ${ns}`
+    );
+  }
+}
+
+const projectsHubScoped = buildLayoutClientMessages(
+  hiClientCatalogForLayout,
+  "/projects"
+);
+const projectDetailScoped = buildLayoutClientMessages(
+  hiClientCatalogForLayout,
+  "/projects/yavatmal-undarni-7-mw"
+);
+assert.ok(
+  JSON.stringify(projectsHubScoped).length < 40 * 1024,
+  "/projects layout bundle must stay under 40KB"
+);
+assert.ok(
+  "ProjectDetailPage" in projectDetailScoped,
+  "project detail layout bundle must include ProjectDetailPage"
+);
+assert.ok(
+  !("BlogPage" in projectsHubScoped),
+  "/projects layout bundle must not include BlogPage"
 );
 
 const spaClientMessagesLegacy = spaClientMessages;
@@ -270,6 +357,11 @@ assert.equal(similar[0]?.slug, "b");
 assert.equal(parseProjectsHubPage(undefined), 1);
 assert.equal(parseProjectsHubPage("2"), 2);
 assert.equal(projectsHubPagePath(2), "/projects?page=2");
+assert.equal(
+  projectsHubPortfolioPagePath(2),
+  "/projects?page=2#all-projects"
+);
+assert.equal(projectsHubPortfolioPagePath(1), "/projects#all-projects");
 
 import { getLegacyPathRedirects, buildLegacyAliasMap } from "../src/lib/seo/legacy-path-redirects";
 import { DRAFT_PROJECT_PEER_SLUGS } from "../src/lib/seo/draft-project-slugs";

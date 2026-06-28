@@ -6,19 +6,19 @@
       "openGraphTitle": "企業向け太陽光発電パートナーシップ | Taypro",
       "openGraphDescription": "公益事業ポートフォリオ全体にわたるロボット、オペレーター、予備品、およびフリートのデータに対する責任ある 1 つのパートナー。"
     },
-    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHub": "太陽光パネル清掃ロボット",
     "breadcrumbHubHref": "/solar-panel-cleaning-system",
-    "breadcrumb": "Enterprise cleaning partnership",
+    "breadcrumb": "企業向け清掃パートナーシップ",
     "schema": {
-      "name": "Taypro Enterprise Solar Cleaning Partnership",
-      "description": "Multi-site robotic cleaning partnership for Indian IPP, CPSU, and SECI utility portfolios.",
-      "serviceType": "Enterprise solar cleaning partnership",
-      "areaServed": "India"
+      "name": "Taypro エンタープライズ ソーラー クリーニング パートナーシップ",
+      "description": "インドの IPP、CPSU、SECI のユーティリティ ポートフォリオ向けのマルチサイト ロボット清掃パートナーシップ。",
+      "serviceType": "企業向け太陽光発電パートナーシップ",
+      "areaServed": "インド"
     },
     "hero": {
       "eyebrow": "エンタープライズ・マルチサイト",
       "title": "IPP および CPSU ポートフォリオに対する企業向け太陽光発電パートナーシップ",
-      "subtitle": "50 ～ 500 の MW サイトにわたるロボット、オペレーター、予備品、および NECTYR データを 1 つのベンダーで提供 — 構造化された SLA、インド全土の動員、SECI、DVC、および機関資産所有者向けの監査対応レポート。",
+      "subtitle": "50 ～ 500 の MW サイトにわたるロボット、オペレーター、予備品、および NECTYR データを 1 つのベンダーで提供, 構造化された SLA、インド全土の動員、SECI、DVC、および機関資産所有者向けの監査対応レポート。",
       "ctaPrimary": "企業提案をリクエストする",
       "ctaPrimaryHref": "/contact",
       "ctaSecondary": "大規模な機能",
@@ -31,7 +31,7 @@
         "tag": "参考文献",
         "stat": "360 MW",
         "label": "最大規模の単一サイト展開",
-        "body": "Akhadana Rajasthan — 生産規模のマルチロボット GLYDE フリート。"
+        "body": "Akhadana Rajasthan: 生産規模のマルチロボット GLYDE フリート。"
       },
       "card1": {
         "tag": "応答",
@@ -55,7 +55,7 @@
     "cards": {
       "eyebrow": "パートナーシップの範囲",
       "heading": "企業向け太陽光発電パートナーシップにはどのような内容が含まれますか",
-      "subheading": "単一サイト RFQ を超えて — ポートフォリオの経済性とガバナンス。",
+      "subheading": "単一サイト RFQ を超えて, ポートフォリオの経済性とガバナンス。",
       "card0": {
         "title": "標準化された商用フレームワーク",
         "body": "CAPEX、OPEX、または一貫した NECTYR 測定ルールを持つ複数のプラントにわたる混合モデル。"
@@ -70,7 +70,7 @@
       },
       "card3": {
         "title": "単一の責任あるベンダー",
-        "body": "ロボット、オペレーター、予備品、ソフトウェア — 切断された作業員や州ごとのスプレッドシートではありません。"
+        "body": "ロボット、オペレーター、予備品、ソフトウェア, 切断された作業員や州ごとのスプレッドシートではありません。"
       },
       "card4": {
         "title": "ポートフォリオ PR のレビュー",
@@ -83,7 +83,7 @@
     },
     "prose": {
       "eyebrow": "パートナーシップモデル",
-      "heading": "複数の現場の IPP 清掃 — 1 つのパートナーが州ごとの作業員に勝てる理由",
+      "heading": "複数の現場の IPP 清掃, 1 つのパートナーが州ごとの作業員に勝てる理由",
       "p1": "ポートフォリオ資産管理者は、州ごとに異なる労働請負業者を使用しているため、清掃の品質が一貫していないことに直面しています。企業パートナーシップにより、工場全体でロボット、SOP、NECTYR レポート、SLA 対応が標準化されます。これは、ラジャスタン州の粉塵とカルナータカ州の湿度の両方に対する 1 つのガバナンス モデルです。",
       "p2": "Taypro は、SECI、DVC、state discom、および 50 の MW から 360 の MW の単一サイトの IPP 参照に展開されます。 Bachau DVC 300 MW (172 GLYDE)、Neneva 250 MW トラッカー、および Akhadana 360 MW は、組織規模での MW ごとのロボット計画を示しています。",
       "p3": "コマーシャルモデルは資産ごとに柔軟です: バランスシートに敏感な保有資産については OPEX、コア 20 年資産については CAPEX、実証済みの PR 回復後のハイブリッド移行。財務委員会は、ポートフォリオ基本契約の前に、ROI 計算ツールで両方をモデル化します。",
@@ -94,53 +94,53 @@
       "linkSecondaryHref": "/solar-cleaning-capex-vs-opex"
     },
     "steps": {
-      "eyebrow": "Onboarding",
-      "heading": "Enterprise partnership mobilisation — five phases",
-      "subheading": "From portfolio discovery to governed operations.",
-      "step0Title": "Portfolio discovery workshop",
-      "step0Body": "MW per site, states, installation mix, current cleaning spend, SECI/IPP context, and target PR assumptions.",
-      "step1Title": "Master commercial framework",
-      "step1Body": "CAPEX/OPEX per plant or blended enterprise rates — aligned to NECTYR measurement and SLA tiers.",
-      "step2Title": "Phased deployment schedule",
-      "step2Body": "Prioritise highest-soiling assets first; parallel mobilisation where service hubs exist.",
-      "step3Title": "NECTYR portfolio dashboard",
-      "step3Body": "Centralised scheduling, coverage audits, and monthly settlement across sites.",
-      "step4Title": "Quarterly governance cadence",
-      "step4Body": "PR/soiling review, cycle adjustments, and ORION intelligence upgrade discussions at renewal."
+      "eyebrow": "オンボーディング",
+      "heading": "企業パートナーシップの動員、5 つのフェーズ",
+      "subheading": "ポートフォリオの発見から管理された運用まで。",
+      "step0Title": "ポートフォリオ発見ワークショップ",
+      "step0Body": "サイトごとの MW、状態、設置構成、現在の清掃費用、SECI/IPP の状況、およびターゲット PR の前提。",
+      "step1Title": "マスター商用フレームワーク",
+      "step1Body": "CAPEX/OPEX per plant or blended enterprise rates, aligned to NECTYR measurement and SLA tiers.",
+      "step2Title": "段階的な導入スケジュール",
+      "step2Body": "最も汚れのひどい資産を最初に優先します。サービスハブが存在する場合の並行モビリティ。",
+      "step3Title": "NECTYR ポートフォリオ ダッシュボード",
+      "step3Body": "拠点全体にわたる一元的なスケジュール設定、対象範囲の監査、月次決済。",
+      "step4Title": "四半期ごとのガバナンスの頻度",
+      "step4Body": "PR/汚れのレビュー、サイクル調整、および更新時の ORION インテリジェンス アップグレードに関するディスカッション。"
     },
     "eligibility": {
-      "eyebrow": "Partnership fit",
-      "title": "Who enterprise partnership is built for",
-      "forTitle": "Ideal fit",
-      "for0": "IPP or CPSU portfolios with multiple utility sites 50 MW+",
-      "for1": "Asset managers needing one SLA and NECTYR audit trail across states",
-      "for2": "SECI or state tender programmes requiring documented cleaning coverage",
-      "for3": "Teams replacing fragmented state-wise manual contracts",
-      "notForTitle": "Typically not a fit",
-      "not0": "Single small C&I rooftop without utility-scale sister plants",
-      "not1": "One-off annual wash without recurring robotic programme",
-      "not2": "Buyers seeking full-plant EPC O&M including HV and inverters"
+      "eyebrow": "パートナーシップの適合",
+      "title": "企業パートナーシップは誰のために構築されるのか",
+      "forTitle": "理想的なフィット感",
+      "for0": "複数のユーティリティ サイトを含む IPP または CPSU ポートフォリオ 50 MW+",
+      "for1": "資産管理者は、州全体にわたる 1 つの SLA および NECTYR 監査証跡を必要としています",
+      "for2": "SECI または文書化された清掃範囲を必要とする州の入札プログラム",
+      "for3": "断片化した州ごとの手動契約をチームが置き換える",
+      "notForTitle": "通常は適合しません",
+      "not0": "単一の小さなC&I屋上（実用規模の姉妹プラントなし）",
+      "not1": "定期的なロボットプログラムを必要とせず、年に一度だけの洗浄",
+      "not2": "HV とインバーターを含むフルプラント EPC O&M を求めている購入者"
     },
     "pillars": {
-      "eyebrow": "Enterprise pillars",
-      "heading": "What institutional sponsors evaluate",
+      "eyebrow": "企業の柱",
+      "heading": "機関スポンサーが評価するもの",
       "pillar0": {
-        "title": "Scale evidence",
-        "body": "Named 250–360 MW references — not pilot-scale marketing."
+        "title": "規模の証拠",
+        "body": "パイロット規模のマーケティングではなく、250 ～ 360 件の MW 参照に名前を付けました。"
       },
       "pillar1": {
-        "title": "Operational SLAs",
-        "body": "Breakdown response, spare parts, and remote diagnostics at portfolio level."
+        "title": "操作可能なSLA",
+        "body": "ポートフォリオレベルでの故障対応、スペアパーツ、リモート診断。"
       },
       "pillar2": {
-        "title": "Data governance",
-        "body": "NECTYR exports for lenders, internal audit, and SECI technical reviewers."
+        "title": "データガバナンス",
+        "body": "NECTYR は、貸し手、内部監査、および SECI 技術レビュー担当者向けにエクスポートします。"
       }
     },
     "highlight": {
-      "heading": "The portfolio question",
-      "lead": "Can one vendor govern cleaning across every state you operate in?",
-      "body": "Enterprise partnership replaces fragmented crew contracts with one robotic fleet standard, one software layer, and one commercial counterparty."
+      "heading": "ポートフォリオの質問",
+      "lead": "1 つのベンダーが、事業を展開しているすべての州で清掃を管理できるでしょうか?",
+      "body": "企業パートナーシップは、断片化された乗組員契約を 1 つのロボット フリート標準、1 つのソフトウェア層、および 1 つの商業取引相手に置き換えます。"
     },
     "projects": {
       "eyebrow": "ポートフォリオ実績",
@@ -159,17 +159,17 @@
       "linkSecondaryHref": "/projects/automatic"
     },
     "resources": {
-      "eyebrow": "Enterprise research",
-      "heading": "Partnership due diligence",
-      "link0Title": "Large-scale MW deployments",
+      "eyebrow": "企業研究",
+      "heading": "パートナーシップのデューデリジェンス",
+      "link0Title": "大規模な MW 展開",
       "link0Href": "/large-scale-solar-panel-cleaning",
       "link1Title": "Module cleaning CAPEX vs OPEX portfolios",
       "link1Href": "/blog/module-cleaning-system-capex-vs-opex-models-for-25100-mw-portfolios",
-      "link2Title": "Utility operations guide",
+      "link2Title": "ユーティリティ操作ガイド",
       "link2Href": "/utility-scale-solar-operations"
     },
     "faq": {
-      "heading": "企業向け太陽光発電パートナーシップ — よくある質問",
+      "heading": "企業向け太陽光発電パートナーシップ, よくある質問",
       "subheading": "複数拠点の調達とガバナンス。",
       "q0": "企業清掃パートナーシップとは何ですか?",
       "a0": "複数のユーティリティ サイトにわたるロボット、オペレーター、予備品、および NECTYR を対象とする基本契約 (1 つの SLA とレポート標準)。",
@@ -184,11 +184,11 @@
       "q5": "Taypro は電気 O&M を処理しますか?",
       "a5": "いいえ。清掃と車両データのみ。 HV、インバーター、トラッカー機械の EPC と提携します。",
       "q6": "SECI コンプライアンス サポート?",
-      "a6": "SOP のクリーニングと技術的なデューデリジェンスのために構造化されたエクスポートの監査 — 入札チェックリストに合わせます。",
+      "a6": "SOP のクリーニングと技術的なデューデリジェンスのために構造化されたエクスポートの監査, 入札チェックリストに合わせます。",
       "q7": "名前付き参照?",
-      "a7": "Akhadana 360 MW、Bachau DVC 300 MW、Neneva 250 MW — このページとプロジェクト ギャラリーで紹介されています。",
+      "a7": "Akhadana 360 MW、Bachau DVC 300 MW、Neneva 250 MW: このページとプロジェクト ギャラリーで紹介されています。",
       "q8": "動員スケジュールは？",
-      "a8": "行数に応じてサイトごとに週 — 200 MW+ 植物で段階的に実施。企業提案で提案。",
+      "a8": "行数に応じてサイトごとに週, 200 MW+ 植物で段階的に実施。企業提案で提案。",
       "q9": "ORION をポートフォリオに使用しますか?",
       "a9": "ORION 早期アクセスについては、条件を満たす Taypro フリート顧客向けの AMC 更新時に説明されています。",
       "q10": "どうやって始めればいいですか？",
@@ -197,27 +197,27 @@
       "a11": "サービスインドは国家概要です。このページは、マルチサイト企業の契約とガバナンスです。"
     },
     "quoteForm": {
-      "eyebrow": "Enterprise RFQ",
-      "title": "Request portfolio partnership proposal",
+      "eyebrow": "エンタープライズ RFQ",
+      "title": "ポートフォリオパートナーシップ提案をリクエストする",
       "placeholder": "Total MW, number of sites, states, SECI/IPP context, CAPEX/OPEX preference, mobilisation timeline."
     },
     "cta": {
-      "heading": "One partner across your portfolio",
-      "body": "Share your multi-site profile for enterprise commercial terms and mobilisation plan.",
-      "primary": "Request proposal",
+      "heading": "ポートフォリオ全体で 1 つのパートナー",
+      "body": "企業の商業条件と動員計画について、マルチサイトのプロファイルを共有します。",
+      "primary": "提案を依頼する",
       "primaryHref": "/contact",
-      "secondary": "Large-scale references",
+      "secondary": "大規模な参考文献",
       "secondaryHref": "/large-scale-solar-panel-cleaning"
     },
     "related": {
-      "label": "Related:",
-      "link0": "Service India",
+      "label": "関連している：",
+      "link0": "サービスインド",
       "link0Href": "/solar-panel-cleaning-service-india",
-      "link1": "Large-scale cleaning",
+      "link1": "大規模清掃",
       "link1Href": "/large-scale-solar-panel-cleaning",
-      "link2": "Solar O&M services",
+      "link2": "太陽光発電 O&M サービス",
       "link2Href": "/solar-om-services",
-      "link3": "Plant data intelligence",
+      "link3": "プラントデータインテリジェンス",
       "link3Href": "/solar-plant-data-intelligence"
     }
   }

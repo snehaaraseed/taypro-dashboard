@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { shouldServeImageUnoptimized } from "@/lib/site-images";
+import { normalizeCmsImageSrc } from "@/lib/seo/cms-image-rewrites";
 
 interface BlogImageProps {
   src: string;
@@ -22,7 +23,7 @@ export function BlogImage({
   priority = false,
 }: BlogImageProps) {
   const [error, setError] = useState(false);
-  const [imgSrc, setImgSrc] = useState(src);
+  const [imgSrc, setImgSrc] = useState(() => normalizeCmsImageSrc(src));
 
   if (error) {
     return (

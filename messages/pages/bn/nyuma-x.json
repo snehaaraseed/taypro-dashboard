@@ -44,7 +44,25 @@
         "subtitle": "আপনার ট্র্যাকার প্ল্যান্ট সম্পর্কে আমাদের বলুন এবং আমাদের দল NYUMA-X সাইজিং, ব্রিজ-কিটের প্রয়োজনীয়তা এবং বাণিজ্যিক বিকল্পগুলির সাথে ফলোআপ করবে৷",
         "label": "একটি উদ্ধৃতি অনুরোধ"
       },
-      "h1Line1": "NYUMA-X — Solar Panel Cleaning Robot for Single-Axis Trackers, "
+      "h1Line1": "NYUMA-X: Solar Panel Cleaning Robot for Single-Axis Trackers, ",
+      "subtitleShort": "একক-পাস PBT একক-অক্ষ ট্র্যাকার সৌর খামারগুলির জন্য স্বায়ত্তশাসিত পরিষ্কার।",
+      "secondaryCta": {
+        "label": "ডেমো দেখুন"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "±15°",
+          "label": "ইন্টার-টেবিল আর্টিকুলেশন"
+        },
+        "stat1": {
+          "value": "3,600",
+          "label": "মডিউল প্রতি চার্জ পরিষ্কার"
+        },
+        "stat2": {
+          "value": "জলহীন",
+          "label": "ট্র্যাকারদের জন্য একক-পাস PBT"
+        }
+      }
     },
     "usps": {
       "0": {
@@ -312,14 +330,14 @@
       "p5Suffix": "।"
     },
     "innovation360": {
-      "badge": "TAYPRO MODEL-T",
+      "badge": "TAYPRO NYUMA-X",
       "title": "একক অক্ষ ট্র্যাকার ইনস্টলেশনের জন্য স্বায়त्त জলবিহীন সোলার প্যানেল পরিষ্কার রোবট",
       "tourEyebrow": "ইন্টারঅ্যাক্টিভ প্রোডাক্ট ট্যুর",
-      "tourTitle": "GLYDE-X এর ৩৬০° ভিউ",
+      "tourTitle": "NYUMA-X এর ৩৬০° ভিউ",
       "tourSubtitleMobile": "বাম বা ডানে টেনে ঘোরান এবং আমাদের একক অক্ষ ট্র্যাকার সোলার প্যানেল পরিষ্কার রোবট প্রতিটি কোণ থেকে দেখুন।",
       "tourSubtitleDesktop": "বাম বা ডানে টেনে ঘোরান এবং আমাদের একক অক্ষ ট্র্যাকার সোলার প্যানেল পরিষ্কার রোবট অন্বেষণ করুন।",
       "productLabel": "Taypro GLYDE-X, একক অক্ষ ট্র্যাকারের জন্য সোলার প্যানেল পরিষ্কার রোবট",
-      "innovationTitle": "MODEL-T-এর নবায়ন",
+      "innovationTitle": "NYUMA-X-এর নবায়ন",
       "innovationBody": "Taypro GLYDE-X উন্নত সেন্সর ও মেশিন লার্নিংয়ের সমন্বয় যা একক অক্ষ ট্র্যাকারে রক্ষণাবেক্ষণের চ্যালেঞ্জ মেটায়। এটি প্রকৃত স্বায়त्त চালনা দেয়। ক্লাউড ব্যবস্থাপনায় দূরবর্তী পর্যবেক্ষণ ও নিয়ন্ত্রণ সম্ভব।"
     },
     "howItWorks": {
@@ -527,8 +545,8 @@
       "nyumaXHeader": "NYUMA-X (Single-Pass PBT)",
       "row0": {
         "criterion": "Cleaning Mechanism",
-        "glydeX": "single-pass PBT PBT brush — airflow plus wipe for mixed soiling",
-        "nyumaX": "Single-pass PBT brush — optimised for dry tracker dust belts"
+        "glydeX": "single-pass PBT PBT brush, airflow plus wipe for mixed soiling",
+        "nyumaX": "Single-pass PBT brush, optimised for dry tracker dust belts"
       },
       "row1": {
         "criterion": "Tracker Compatibility",
@@ -586,6 +604,10 @@
     },
     "shared": {
       "connectivitySummary": "LTE, Wi-Fi, হাইব্রিড সেল্ফ-হিলিং RF মেশ, LoRa ও LoRaWAN"
+    },
+    "productVisual": {
+      "eyebrow": "এক নজরে পণ্য",
+      "title": "Taypro NYUMA-X একক-অক্ষ ট্র্যাকার পরিষ্কারের রোবট"
     }
   },
   "Common": {

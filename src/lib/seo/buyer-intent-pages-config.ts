@@ -399,7 +399,7 @@ export function getBuyerIntentConfigByPath(
   return BUYER_INTENT_PAGE_LIST.find((p) => p.path === path);
 }
 
-/** Deferred buyer-intent paths — not routed yet */
+/** Deferred buyer-intent paths, not routed yet */
 export const BUYER_INTENT_TIER2_PATHS = [
   "/why-robotic-solar-cleaning",
   "/solar-cleaning-robot-for-agrivoltaic",

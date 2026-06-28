@@ -57,3 +57,28 @@ export function rewriteText(text, pairs) {
 
   return { text: out, count };
 }
+
+/** Remove trailing slashes from internal taypro hrefs (Next.js 308 otherwise). */
+export function stripInternalHrefTrailingSlashes(text) {
+  if (!text || !text.includes("/")) return text;
+
+  let out = text.replace(
+    /href=(["'])(\/[^"'#?]+?)\/\1/g,
+    (_match, quote, path) => {
+      const trimmed =
+        path.length <= 1 || !path.endsWith("/") ? path : path.slice(0, -1);
+      return `href=${quote}${trimmed}${quote}`;
+    }
+  );
+
+  out = out.replace(
+    /href=(["'])https:\/\/taypro\.in(\/[^"'#?]+?)\/\1/gi,
+    (_match, quote, path) => {
+      const trimmed =
+        path.length <= 1 || !path.endsWith("/") ? path : path.slice(0, -1);
+      return `href=${quote}https://taypro.in${trimmed}${quote}`;
+    }
+  );
+
+  return out;
+}

@@ -57,7 +57,7 @@
       }
     },
     "hero": {
-      "title": "GLYDE — Fully Automatic Solar Panel Cleaning Robot for Fixed-Tilt Plants",
+      "title": "GLYDE: Fully Automatic Solar Panel Cleaning Robot for Fixed-Tilt Plants",
       "h1Line1": "स्वचालित सोलर पैनल सफाई रोबोट, ",
       "h1Line2": "Taypro GLYDE",
       "leadBeforeStrong": "Taypro GLYDE एक ",
@@ -71,7 +71,25 @@
         "label": "कोटेशन का अनुरोध करें"
       },
       "heroImageAlt": "यूटिलिटी-स्केल सोलर फार्म पर सोलर पैनल साफ करता Taypro GLYDE स्वचालित रोबोट",
-      "heroImageTitle": "स्वचालित सोलर पैनल सफाई रोबोट GLYDE, Taypro"
+      "heroImageTitle": "स्वचालित सोलर पैनल सफाई रोबोट GLYDE, Taypro",
+      "subtitleShort": "फिक्स्ड-टिल्ट उपयोगिता संयंत्रों के लिए स्वायत्त, जल रहित दोहरी-पास सफाई - प्रति चार्ज 3,600 मॉड्यूल तक।",
+      "secondaryCta": {
+        "label": "360° भ्रमण का अन्वेषण करें"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "99%+",
+          "label": "स्वचालित पास के अनुसार धूल हटाई गई"
+        },
+        "stat1": {
+          "value": "3,600",
+          "label": "मॉड्यूल प्रति चार्ज साफ किए गए"
+        },
+        "stat2": {
+          "value": "निर्जल",
+          "label": "दोहरी-पास ड्राई क्लीनिंग"
+        }
+      }
     },
     "overview": {
       "productImageAlt": "Top view of Taypro GLYDE automatic solar panel cleaning robot on parallel cleaning rails",
@@ -108,7 +126,7 @@
       "sideAlt": "Taypro GLYDE side profile showing module-frame rails, travel mechanism, and end housings",
       "sideCaption": "Side profile of the GLYDE rail system engineered for long-reach fixed-tilt rows.",
       "modularAlt": "Taypro GLYDE modular exploded view showing rails, wheels, and GLYDE drive unit",
-      "modularCaption": "Modular rail, wheel, and drive-unit layout — each array ships as a field-assembled GLYDE system.",
+      "modularCaption": "Modular rail, wheel, and drive-unit layout, each array ships as a field-assembled GLYDE system.",
       "dockingAlt": "Taypro GLYDE shadow-free docking power unit with integrated solar charging for autonomous daily cycles",
       "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array."
     },
@@ -601,7 +619,7 @@
       "row0": {
         "criterion": "Cleaning Technology",
         "glyde": "Patented dual-pass: airflow loosens dust, microfiber completes the wipe",
-        "nyuma": "Single-pass counter-rotating PBT brush drum — fewer moving consumables"
+        "nyuma": "Single-pass counter-rotating PBT brush drum, fewer moving consumables"
       },
       "row1": {
         "criterion": "Best For",
@@ -630,8 +648,8 @@
       },
       "row6": {
         "criterion": "Labour After Install",
-        "glyde": "Zero — fully autonomous daily cycles",
-        "nyuma": "Zero — fully autonomous daily cycles"
+        "glyde": "Zero: fully autonomous daily cycles",
+        "nyuma": "Zero: fully autonomous daily cycles"
       },
       "row7": {
         "criterion": "Fleet Monitoring",
@@ -651,6 +669,10 @@
         "modelT": "GLYDE-X"
       },
       "cardTitleTemplate": "{label} सोलर पैनल सफाई रोबोट"
+    },
+    "productVisual": {
+      "eyebrow": "उत्पाद एक नज़र में",
+      "title": "Taypro GLYDE स्वचालित सौर पैनल सफाई रोबोट"
     }
   },
   "Common": {

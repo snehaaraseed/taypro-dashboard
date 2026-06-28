@@ -15,7 +15,7 @@ import { SOURCE_LOCALE } from "@/lib/translation/config";
 const LLMS_MAX_CHARS = 3_500;
 const EXCERPT_MAX_CHARS = 600;
 const MAX_RELATED_POSTS = 2;
-/** Do not surface posts this similar — they steer the model toward duplicate angles. */
+/** Do not surface posts this similar, they steer the model toward duplicate angles. */
 const EXCERPT_SIMILARITY_CEILING = 0.35;
 
 let cachedLlmsSummary: string | null = null;

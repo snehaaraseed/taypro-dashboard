@@ -135,7 +135,7 @@ export async function assertProjectDraftUnique(
   }
 }
 
-/** Body-level dedupe for improve/generate — loads content only for keyword-similar peers. */
+/** Body-level dedupe for improve/generate, loads content only for keyword-similar peers. */
 export async function assertProjectContentNotTooSimilar(
   draft: Required<Pick<ProjectDraftInput, "title" | "description" | "content">> &
     Pick<ProjectDraftInput, "slug">

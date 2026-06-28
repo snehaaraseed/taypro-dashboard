@@ -4,7 +4,7 @@
       "title": "Solar O&M India | Soiling Loss, PR & Cleaning Robots",
       "description": "Solar O&M in India: soiling loss, performance ratio improvement, and waterless solar panel cleaning robots for utility plants. How Taypro closes the O&M loop with GLYDE, NECTYR, and pan-India service.",
       "openGraphTitle": "Solar O&M India | Utility Solar Operations | Taypro",
-      "openGraphDescription": "Soiling losses, O&M gaps, and robotic cleaning for Indian utility solar — waterless fleets, NECTYR data, and plant intelligence."
+      "openGraphDescription": "Soiling losses, O&M gaps, and robotic cleaning for Indian utility solar, waterless fleets, NECTYR data, and plant intelligence."
     },
     "breadcrumb": "Utility-scale solar operations",
     "hero": {
@@ -47,8 +47,8 @@
     "soilingPr": {
       "eyebrow": "Soiling & performance ratio",
       "heading": "Solar panel soiling loss, soiling ratio, and PR improvement in India",
-      "p1": "Soiling ratio — the fraction of irradiance lost to dust on module glass — drives performance ratio (PR) drift on Indian utility plants. In Rajasthan, Gujarat, and MP, cumulative soiling can suppress 8–25% of annual generation when cleaning stays calendar-based rather than cadence-driven.",
-      "p2": "PR improvement from cleaning depends on baseline soiling, cycle frequency, and weather. Robotic dry cleaning enables 3–10 cycles per month without wet-wash water — the economical path to neutralise soiling loss on multi-MW fleets.",
+      "p1": "Soiling ratio, the fraction of irradiance lost to dust on module glass, drives performance ratio (PR) drift on Indian utility plants. In Rajasthan, Gujarat, and MP, cumulative soiling can suppress 8–25% of annual generation when cleaning stays calendar-based rather than cadence-driven.",
+      "p2": "PR improvement from cleaning depends on baseline soiling, cycle frequency, and weather. Robotic dry cleaning enables 3–10 cycles per month without wet-wash water, the economical path to neutralise soiling loss on multi-MW fleets.",
       "p3": "EPC and O&M teams should tie cleaning evidence to PR recovery: NECTYR block-level logs plus directional ROI from our price guide and calculator before committing CAPEX or Opex.",
       "linkPriceGuide": "India robot price guide",
       "linkCalculator": "ROI calculator"
@@ -116,9 +116,9 @@
       "q5": "What is solar panel soiling loss on Indian utility plants?",
       "a5": "Soiling loss is generation suppressed by dust films on modules. Industry and site studies in arid Indian belts cite up to 8–25% annual loss when cleaning cadence is insufficient. Robotic dry cleaning recovers tariff-valued MWh by increasing cycle frequency without wet-wash water.",
       "q6": "How do cleaning robots improve solar plant performance ratio (PR)?",
-      "a6": "More consistent module cleanliness reduces soiling-related PR drift. Robots enable daily or near-daily cycles that manual crews cannot match at scale — with auditable coverage through NECTYR. PR improvement is site-dependent; Taypro quotes outcomes after soiling study and layout review.",
+      "a6": "More consistent module cleanliness reduces soiling-related PR drift. Robots enable daily or near-daily cycles that manual crews cannot match at scale, with auditable coverage through NECTYR. PR improvement is site-dependent; Taypro quotes outcomes after soiling study and layout review.",
       "q7": "What is solar O&M cleaning robot procurement in India?",
-      "a7": "Utility RFQs evaluate waterless robot fit, tracker compatibility, fleet software, breakdown SLA, and CAPEX vs managed Opex. Taypro supplies Made-in-India robots (GLYDE, NYUMA, HELYX, tracker variants) with NECTYR and optional Opex — see our India price guide and regional state pages for deployment context."
+      "a7": "Utility RFQs evaluate waterless robot fit, tracker compatibility, fleet software, breakdown SLA, and CAPEX vs managed Opex. Taypro supplies Made-in-India robots (GLYDE, NYUMA, HELYX, tracker variants) with NECTYR and optional Opex: see our India price guide and regional state pages for deployment context."
     },
     "cta": {
       "heading": "Plan your plant's operations layer",
@@ -140,7 +140,7 @@
     },
     "stateGuides": {
       "heading": "Regional solar cleaning robot guides",
-      "intro": "Explore Taypro deployments, soiling context, and RFQ guidance by state — regional guides cover Rajasthan, Gujarat, Madhya Pradesh, Karnataka, Maharashtra, Uttar Pradesh, Tamil Nadu, Haryana, Delhi, West Bengal, Chhattisgarh, and Andhra Pradesh."
+      "intro": "Explore Taypro deployments, soiling context, and RFQ guidance by state, regional guides cover Rajasthan, Gujarat, Madhya Pradesh, Karnataka, Maharashtra, Uttar Pradesh, Tamil Nadu, Haryana, Delhi, West Bengal, Chhattisgarh, and Andhra Pradesh."
     }
   },
   "Common": {

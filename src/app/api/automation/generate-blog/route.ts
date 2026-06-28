@@ -14,7 +14,13 @@ import {
 import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
 import { pickBlogFeaturedImage } from "@/lib/seo/blog-image-picker";
 import { enrichBlogContentWithInlineImages } from "@/lib/seo/blog-inline-images";
-import { formatTopicCategory } from "@/lib/seo/keyword-stats";
+import {
+  buildSeoKeywordBrief,
+  findSeoKeywordRow,
+  formatTopicCategory,
+  inferSearchIntent,
+  loadSeoKeywordRows,
+} from "@/lib/seo/keyword-stats";
 import {
   assertBlogDraftUnique,
   assertPlanUnique,
@@ -94,6 +100,7 @@ import {
   markSlotFilled,
   parseSlotKey,
   pickNextEditorialContract,
+  pickNextEditorialContractForCron,
   pickNextEditorialContractAlways,
   prunePreflightFailedSlots,
   persistBlogResearchBriefs,
@@ -102,6 +109,41 @@ import {
   SlotTitleExhaustedError,
   type EditorialContract,
 } from "@/lib/seo/coverage-ledger";
+import {
+  getPermanentRejectedSlotKeys,
+  incrementEditorialAttemptsToday,
+  recordEditorialRejection,
+  loadEditorialState,
+} from "@/lib/seo/editorial-state";
+import {
+  evergreenToPlanInput,
+  loadEvergreenFallbackCatalog,
+  pickNextEvergreenFallback,
+  type EvergreenFallbackEntry,
+} from "@/lib/seo/evergreen-fallback";
+import {
+  buildEditorialContractFromBrief,
+  buildSerpBriefFromBrief,
+  pickCalendarBrief,
+} from "@/lib/seo/discovered-editorial-contract";
+import {
+  countBriefStats,
+  markBriefFilled,
+  pickNextBrief,
+  type DiscoveredBrief,
+} from "@/lib/seo/discovered-brief-queue";
+import {
+  evaluateRankReadiness,
+  rankReadinessFailureMessage,
+} from "@/lib/seo/rank-readiness";
+import {
+  judgeBlocksPublish,
+  judgeRankReadiness,
+  rankJudgeFailureMessage,
+} from "@/lib/seo/rank-readiness-judge";
+import { enrichWithInlineCitations } from "@/lib/seo/inline-citations";
+import { getGeminiKeyPoolSize } from "@/lib/gemini/api-keys";
+import { getQuotaBudgetSummary } from "@/lib/gemini/quota-budget";
 import {
   getCampaignPreview,
   getKeywordCampaignEntry,
@@ -125,15 +167,23 @@ const PIPELINE_ATTEMPT_CAP = getAutomationOuterAttemptCap();
 
 function getHybridFallbackAttemptCount(): number {
   const raw = process.env.BLOG_HYBRID_FALLBACK_ATTEMPTS?.trim();
-  const parsed = raw ? Number.parseInt(raw, 10) : 5;
-  return Number.isFinite(parsed) && parsed > 0 ? parsed : 5;
+  const parsed = raw ? Number.parseInt(raw, 10) : 0;
+  return Number.isFinite(parsed) && parsed >= 0 ? parsed : 0;
 }
 
 const HYBRID_FALLBACK_ATTEMPTS = getHybridFallbackAttemptCount();
 
+function getEvergreenAttemptAllowance(): number {
+  return loadEvergreenFallbackCatalog().length > 0 ? 1 : 0;
+}
+
 function getPipelineAttemptLimit(): number | null {
   if (PIPELINE_ATTEMPT_CAP === null) return null;
-  return PIPELINE_ATTEMPT_CAP + HYBRID_FALLBACK_ATTEMPTS;
+  return (
+    PIPELINE_ATTEMPT_CAP +
+    HYBRID_FALLBACK_ATTEMPTS +
+    getEvergreenAttemptAllowance()
+  );
 }
 
 /** Imagen + long Gemini runs; allow up to ~30 min for multi-slot pipeline on self-hosted PM2. */
@@ -209,7 +259,7 @@ function maybeRejectKeywordWhenAnglesExhausted(
   }
 }
 
-/** Extract slug from similarity error tail: "... (slug-here)" */
+/** Extract slug from similarity error tail: ", ... (slug-here)" */
 function extractSimilaritySlug(msg: string): string | null {
   const match = msg.match(/\(([a-z0-9-]+)\)\s*$/i);
   return match?.[1]?.toLowerCase() ?? null;
@@ -220,7 +270,8 @@ function shouldRejectKeyword(msg: string): boolean {
     msg.includes("already covered by existing post") ||
     msg.includes("Outline too similar") ||
     msg.includes("Blog too similar") ||
-    msg.includes("Topic already published")
+    msg.includes("Topic already published") ||
+    msg.includes("Keyword corpus conflict")
   );
 }
 
@@ -234,6 +285,31 @@ function trackExcludedCorpusSlug(excludeSlugs: string[], slug: string): void {
 
 function isHybridFallbackSlot(slotKey: string): boolean {
   return slotKey.startsWith("hybrid-fallback::");
+}
+
+function isBriefSlot(slotKey: string): boolean {
+  return slotKey.startsWith("brief::");
+}
+
+function isEvergreenFallbackSlot(slotKey: string): boolean {
+  return slotKey.startsWith("evergreen-fallback::");
+}
+
+function buildEvergreenOutlineJson(entry: EvergreenFallbackEntry): string {
+  return JSON.stringify(
+    {
+      description: entry.description,
+      intentFamily: entry.intentFamily,
+      subAngle: entry.subAngle,
+      h2Outline: entry.h2Outline,
+      faqQuestions: [],
+      quickAnswerBullets: [],
+      mustCover: [],
+      avoidTopics: [],
+    },
+    null,
+    2
+  );
 }
 
 function buildHybridFallbackContract(input: {
@@ -251,8 +327,7 @@ function buildHybridFallbackContract(input: {
     seedTitle: input.title,
     audience: "om_lead",
     plantContext: "utility_india",
-    seoBrief: input.seoBrief,
-    ...angleMeta,
+    seoBrief: input.seoBrief, ...angleMeta,
     syntheticMetaDescription: buildSyntheticMetaDescription(keyword, angleMeta),
     forbiddenArchetypes: [],
     forbiddenH2Themes: [],
@@ -395,6 +470,119 @@ async function resolveTopicHybridFallback(input: {
   };
 }
 
+async function resolveTopicFromEvergreenFallback(input: {
+  rejectedTitles: string[];
+  rejectedSlotKeys: string[];
+  uniquenessCtx: Awaited<ReturnType<typeof loadBlogUniquenessContext>>;
+}): Promise<{
+  topic: GeneratedTopic;
+  contract: EditorialContract;
+  bylineAuthor: Awaited<ReturnType<typeof pickAuthorForBlogTopic>>;
+  categoryName: string;
+  serpBrief: SerpResearchBrief;
+  factBrief: FactResearchBrief;
+  serpCalls: number;
+  lockedDescription: string;
+  forbiddenAngles: Awaited<ReturnType<typeof findSimilarCorpusEntries>>;
+  focusKeyword: null;
+  evergreenEntry: EvergreenFallbackEntry;
+}> {
+  const entry = await pickNextEvergreenFallback();
+  if (!entry) {
+    throw new Error("Evergreen fallback catalog exhausted");
+  }
+
+  const plan = evergreenToPlanInput(entry);
+  if (input.rejectedSlotKeys.includes(plan.slotKey)) {
+    throw new Error(`Evergreen entry already rejected today: ${plan.slotKey}`);
+  }
+
+  const slug = createSlug(entry.title);
+  const conflict = await findTitleConflict(entry.title, slug);
+  if (conflict) {
+    throw new Error(
+      `Topic already published or too similar: "${entry.title}" (${conflict.slug})`
+    );
+  }
+
+  const rows = loadSeoKeywordRows();
+  const row = findSeoKeywordRow(entry.primaryKeyword);
+  const seoBrief = row
+    ? buildSeoKeywordBrief(row, rows)
+    : {
+        primary: entry.primaryKeyword,
+        volumeBucket: 30,
+        competition: "LOW",
+        competitionIndex: 25,
+        searchIntent: inferSearchIntent(entry.primaryKeyword),
+        related: [],
+      };
+
+  const angleMeta = getAngleContractMeta(entry.angleId);
+  const contract: EditorialContract = {
+    slotKey: plan.slotKey,
+    keyword: entry.primaryKeyword,
+    angleId: entry.angleId,
+    angleLabel: entry.subAngle.replace(/_/g, " "),
+    seedTitle: entry.title,
+    audience: "om_lead",
+    plantContext: "utility_india",
+    seoBrief, ...angleMeta,
+    syntheticMetaDescription: entry.description,
+    forbiddenArchetypes: [],
+    forbiddenH2Themes: [],
+  };
+
+  const category = pickCategoryForSeoBrief(seoBrief);
+  const bylineAuthor = await pickAuthorForBlogTopic({
+    seoKeyword: entry.primaryKeyword,
+    category,
+    searchIntent: seoBrief.searchIntent,
+  });
+
+  const serpBrief = buildFallbackSerpBrief({
+    keyword: entry.primaryKeyword,
+    angle: contract.angleLabel,
+    audience: contract.audience,
+    forbiddenTitles: input.rejectedTitles,
+  });
+  const factBrief = buildEmptyFactBrief(entry.primaryKeyword, entry.title);
+  const forbiddenAngles = findSimilarCorpusEntries(
+    {
+      title: entry.title,
+      description: entry.description,
+      keyword: entry.primaryKeyword,
+    },
+    5
+  );
+
+  console.warn(
+    `[generate-blog] Evergreen fallback: ${entry.id} → "${entry.title}"`
+  );
+
+  return {
+    topic: {
+      title: entry.title,
+      category: category.name,
+      seoKeyword: entry.primaryKeyword,
+      seoBrief,
+      angleId: entry.angleId,
+      intentFamily: entry.intentFamily,
+      subAngle: entry.subAngle,
+    },
+    contract,
+    bylineAuthor,
+    categoryName: category.name,
+    serpBrief,
+    factBrief,
+    serpCalls: 0,
+    lockedDescription: entry.description,
+    forbiddenAngles,
+    focusKeyword: null,
+    evergreenEntry: entry,
+  };
+}
+
 async function resolveTopicFromLedger(input: {
   editorialContext: string;
   rejectedTitles: string[];
@@ -402,6 +590,7 @@ async function resolveTopicFromLedger(input: {
   rejectedSlotKeys: string[];
   uniquenessCtx: Awaited<ReturnType<typeof loadBlogUniquenessContext>>;
   focusKeyword?: string | null;
+  useCalendarBackup?: boolean;
 }): Promise<{
   topic: GeneratedTopic;
   contract: EditorialContract;
@@ -413,6 +602,7 @@ async function resolveTopicFromLedger(input: {
   lockedDescription: string;
   forbiddenAngles: Awaited<ReturnType<typeof findSimilarCorpusEntries>>;
   focusKeyword: string | null;
+  brief?: DiscoveredBrief | null;
 }> {
   const focusKeyword =
     input.focusKeyword?.toLowerCase().trim() ||
@@ -422,13 +612,53 @@ async function resolveTopicFromLedger(input: {
         })
       : null);
 
-  const contract = await pickNextEditorialContractAlways({
-    excludeKeywords: input.rejectedKeywords,
-    rejectedSlotKeys: input.rejectedSlotKeys,
-    corpus: input.uniquenessCtx.corpus,
-    uniquenessCtx: input.uniquenessCtx,
-    focusKeyword: focusKeyword ?? undefined,
+  const permanentRejected = [...getPermanentRejectedSlotKeys()];
+  const allRejectedSlots = [
+    ...new Set([...input.rejectedSlotKeys, ...permanentRejected]),
+  ];
+
+  let brief: DiscoveredBrief | null = null;
+  let contract: EditorialContract | null = null;
+
+  brief = pickCalendarBrief({
+    useCalendarBackup: input.useCalendarBackup,
+    rejectedSlotKeys: allRejectedSlots,
   });
+  if (brief) {
+    contract = buildEditorialContractFromBrief(brief);
+    console.info(
+      `[generate-blog] Brief calendar ${input.useCalendarBackup ? "backup" : "primary"} → ${brief.id}`
+    );
+  }
+
+  if (!contract) {
+    brief = await pickNextBrief({
+      rejectedSlotKeys: allRejectedSlots,
+    });
+    if (brief) {
+      contract = buildEditorialContractFromBrief(brief);
+      console.info(`[generate-blog] Brief queue → ${brief.id}`);
+    }
+  }
+
+  if (!contract) {
+    contract = await pickNextEditorialContractForCron({
+      excludeKeywords: input.rejectedKeywords,
+      rejectedSlotKeys: allRejectedSlots,
+      corpus: input.uniquenessCtx.corpus,
+      uniquenessCtx: input.uniquenessCtx,
+      focusKeyword: focusKeyword ?? undefined,
+    });
+    if (contract) {
+      console.info(
+        `[generate-blog] Legacy ledger fallback → ${contract.slotKey}`
+      );
+    }
+  }
+
+  if (!contract) {
+    throw new Error("Topic queue exhausted: no open brief or ledger slot remains");
+  }
 
   const category = pickCategoryForSeoBrief(contract.seoBrief);
   const bylineAuthor = await pickAuthorForBlogTopic({
@@ -453,6 +683,13 @@ async function resolveTopicFromLedger(input: {
     serpCallsSoFar: serpCalls,
   };
   let serpBrief = loadCachedSerpBrief(contract.slotKey);
+  if (!serpBrief && brief) {
+    serpBrief = buildSerpBriefFromBrief(brief);
+    saveCachedSerpBrief(contract.slotKey, serpBrief);
+    console.info(
+      `[generate-blog] Reusing discovery grounding for brief ${brief.id} (0 extra SERP calls)`
+    );
+  }
   if (!serpBrief) {
     try {
       serpBrief = await runGroundedSerpResearch(serpResearchInput);
@@ -483,6 +720,7 @@ async function resolveTopicFromLedger(input: {
   };
 
   if (
+    !brief &&
     serpCalls < getGeminiGroundingMaxCallsPerBlog() &&
     serpBrief.model !== "fallback-no-grounding"
   ) {
@@ -581,6 +819,7 @@ async function resolveTopicFromLedger(input: {
     lockedDescription,
     forbiddenAngles,
     focusKeyword,
+    brief,
   };
 }
 
@@ -625,6 +864,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    console.info(`Gemini key pool: ${getGeminiKeyPoolSize()} keys configured`);
     const editorialContext = await formatEditorialContextPrompt();
     const uniquenessCtx = await loadBlogUniquenessContext();
     if (ledgerEnabled) {
@@ -647,6 +887,10 @@ export async function POST(request: NextRequest) {
         PIPELINE_ATTEMPT_CAP !== null &&
         pipelineAttempt >= ledgerCap &&
         pipelineAttempt < ledgerCap + HYBRID_FALLBACK_ATTEMPTS;
+      const isEvergreenAttempt =
+        PIPELINE_ATTEMPT_CAP !== null &&
+        pipelineAttempt >= ledgerCap + HYBRID_FALLBACK_ATTEMPTS &&
+        pipelineAttempt < ledgerCap + HYBRID_FALLBACK_ATTEMPTS + getEvergreenAttemptAllowance();
       const attemptLimit = getPipelineAttemptLimit();
       if (attemptLimit !== null && pipelineAttempt >= attemptLimit) {
         break;
@@ -661,6 +905,8 @@ export async function POST(request: NextRequest) {
       let forbiddenAngles: Awaited<ReturnType<typeof findSimilarCorpusEntries>> =
         [];
       let campaignFocusKeyword: string | null = null;
+      let evergreenEntry: EvergreenFallbackEntry | null = null;
+      let brief: DiscoveredBrief | null = null;
 
       try {
         let topic: GeneratedTopic;
@@ -669,11 +915,17 @@ export async function POST(request: NextRequest) {
 
         if (!ledgerEnabled) {
           console.warn(
-            "COVERAGE_LEDGER_ENABLED=false — blog automation still uses the coverage ledger pipeline"
+            "COVERAGE_LEDGER_ENABLED=false, blog automation still uses the coverage ledger pipeline"
           );
         }
 
-        const ledgerResult = isHybridFallback
+        const ledgerResult = isEvergreenAttempt
+          ? await resolveTopicFromEvergreenFallback({
+              rejectedTitles,
+              rejectedSlotKeys,
+              uniquenessCtx,
+            })
+          : isHybridFallback
           ? await resolveTopicHybridFallback({
               editorialContext,
               rejectedTitles,
@@ -686,11 +938,14 @@ export async function POST(request: NextRequest) {
               rejectedKeywords,
               rejectedSlotKeys,
               uniquenessCtx,
+              useCalendarBackup: pipelineAttempt >= 1,
             });
 
-        if (isHybridFallback) {
+        if (isEvergreenAttempt) {
+          console.warn("Primary+backup failed, attempting evergreen fallback");
+        } else if (isHybridFallback) {
           console.warn(
-            `Coverage ledger exhausted — hybrid fallback ${pipelineAttempt - ledgerCap + 1}/${HYBRID_FALLBACK_ATTEMPTS}`
+            `Coverage ledger exhausted, hybrid fallback ${pipelineAttempt - ledgerCap + 1}/${HYBRID_FALLBACK_ATTEMPTS}`
           );
         }
 
@@ -704,6 +959,18 @@ export async function POST(request: NextRequest) {
         serpCallsThisRun = ledgerResult.serpCalls;
         forbiddenAngles = ledgerResult.forbiddenAngles;
         campaignFocusKeyword = ledgerResult.focusKeyword;
+        evergreenEntry =
+          isEvergreenAttempt
+            ? (ledgerResult as Awaited<
+                ReturnType<typeof resolveTopicFromEvergreenFallback>
+              >).evergreenEntry
+            : null;
+        brief =
+          !isEvergreenAttempt &&
+          !isHybridFallback &&
+          "brief" in ledgerResult
+            ? (ledgerResult.brief ?? null)
+            : null;
         for (const entry of forbiddenAngles) {
           trackExcludedCorpusSlug(excludeKnowledgeSlugs, entry.slug);
         }
@@ -778,13 +1045,27 @@ export async function POST(request: NextRequest) {
           competitionIndex: topic.seoBrief?.competitionIndex,
         });
 
-        const contentPlan = await planBlogContent(
-          topic.title,
-          topic.category,
-          topic.seoBrief,
-          editorialContext,
-          writerOptions
-        );
+        const contentPlan = evergreenEntry
+          ? {
+              description: evergreenEntry.description,
+              h2Outline: evergreenEntry.h2Outline,
+              quickAnswerBullets: [] as string[],
+              faqQuestions: [] as string[],
+              outlineJson: buildEvergreenOutlineJson(evergreenEntry),
+              readerQuestion: undefined,
+              mustCover: [] as string[],
+              avoidTopics: [] as string[],
+              intentFamily: evergreenEntry.intentFamily,
+              intentReason: "evergreen-fallback",
+              subAngle: evergreenEntry.subAngle,
+            }
+          : await planBlogContent(
+              topic.title,
+              topic.category,
+              topic.seoBrief,
+              editorialContext,
+              writerOptions
+            );
 
         const planDescription = contentPlan.description.trim();
         if (!planDescription) {
@@ -846,6 +1127,63 @@ export async function POST(request: NextRequest) {
           },
           uniquenessCtx
         );
+
+        if (!evergreenEntry) {
+          const rankReadiness = evaluateRankReadiness({
+            title: blogData.title,
+            description: blogData.description,
+            content: blogData.content,
+            primaryKeyword:
+              topic.seoBrief?.primary || topic.seoKeyword || blogData.title,
+            peopleAlsoAsk: serpBrief?.peopleAlsoAsk,
+            serpGaps: serpBrief?.serpGaps,
+          });
+          if (!rankReadiness.pass) {
+            console.warn(
+              `[generate-blog] Rank-readiness ${rankReadiness.score}/100 for "${blogData.title}":`,
+              rankReadiness.reasons.join("; ")
+            );
+            throw new Error(rankReadinessFailureMessage(rankReadiness));
+          }
+          console.info(
+            `[generate-blog] Rank-readiness ${rankReadiness.score}/100 PASS for "${blogData.title}"`
+          );
+
+          const judged = await judgeRankReadiness({
+            title: blogData.title,
+            primaryKeyword:
+              topic.seoBrief?.primary || topic.seoKeyword || blogData.title,
+            content: blogData.content,
+            serpBrief,
+            factBrief,
+          });
+          if (judgeBlocksPublish(judged)) {
+            console.warn(
+              `[generate-blog] Rank-judge ${judged.score}/100 (${judged.verdict}) for "${blogData.title}":`,
+              [...judged.reasons, ...judged.differentiationGaps].join("; ")
+            );
+            throw new Error(rankJudgeFailureMessage(judged));
+          }
+          if (judged.ran) {
+            console.info(
+              `[generate-blog] Rank-judge ${judged.score}/100 ${judged.verdict} for "${blogData.title}"`
+            );
+          }
+        }
+
+        const citations = await enrichWithInlineCitations({
+          content: blogData.content,
+          primaryKeyword:
+            topic.seoBrief?.primary || topic.seoKeyword || blogData.title,
+          serpBrief,
+          factBrief,
+        });
+        blogData.content = citations.content;
+        if (citations.mode !== "skip") {
+          console.info(
+            `[generate-blog] Citations: ${citations.citationCount} inline + ${citations.sourceCount} sources (${citations.mode})`
+          );
+        }
 
         const featured = await pickBlogFeaturedImage({
           title: blogData.title,
@@ -957,8 +1295,14 @@ export async function POST(request: NextRequest) {
         }
 
         if (editorialContract && ledgerEnabled) {
-          if (!isHybridFallbackSlot(editorialContract.slotKey)) {
+          if (
+            !isHybridFallbackSlot(editorialContract.slotKey) &&
+            !isBriefSlot(editorialContract.slotKey)
+          ) {
             markSlotFilled(editorialContract.slotKey, result.slug);
+          }
+          if (brief) {
+            markBriefFilled(brief.id, result.slug);
           }
           if (serpBrief) {
             persistBlogResearchBriefs({
@@ -994,9 +1338,12 @@ export async function POST(request: NextRequest) {
             seoKeyword: topic.seoKeyword || undefined,
             searchIntent: topic.seoBrief?.searchIntent,
             coverageSlot: editorialContract?.slotKey,
+            briefId: brief?.id,
             editorialArchetype: editorialContract?.archetype,
             campaignFocusKeyword: campaignFocusKeyword ?? undefined,
             serpCalls: serpCallsThisRun,
+            inlineCitations: citations.citationCount,
+            citationSources: citations.sourceCount,
             featuredImage: featured.url,
             featuredImageAlt: featured.alt,
             imageSource: featured.source,
@@ -1009,6 +1356,9 @@ export async function POST(request: NextRequest) {
             authorExpertise: resolveAuthorExpertiseTags(bylineAuthor),
             plannedCategory: plannedCategoryName,
             pipelineAttempt: pipelineAttempt + 1,
+            evergreenFallback: isEvergreenFallbackSlot(
+              editorialContract?.slotKey ?? ""
+            ),
           },
           schedule: await getBlogAutomationSchedule(),
         });
@@ -1038,16 +1388,21 @@ export async function POST(request: NextRequest) {
         if (isHybridFallback && attemptedTitle) {
           trackRejectedTitle(rejectedTitles, attemptedTitle);
         }
+        trackRejectedFromError(rejectedTitles, msg);
+        const similarSlug = extractSimilaritySlug(msg);
         if (attemptedSlotKey) {
           trackRejectedSlot(rejectedSlotKeys, attemptedSlotKey);
+          recordEditorialRejection({
+            slotKey: attemptedSlotKey,
+            reason: msg,
+            similarToSlug: similarSlug,
+          });
           maybeRejectKeywordWhenAnglesExhausted(
             rejectedSlotKeys,
             rejectedKeywords,
             attemptedSlotKey
           );
         }
-        trackRejectedFromError(rejectedTitles, msg);
-        const similarSlug = extractSimilaritySlug(msg);
         if (similarSlug) {
           trackExcludedCorpusSlug(excludeKnowledgeSlugs, similarSlug);
         }
@@ -1074,7 +1429,8 @@ export async function POST(request: NextRequest) {
           attemptedSlotKey &&
           ledgerEnabled &&
           !(error instanceof EditorialPreflightError) &&
-          !isHybridFallbackSlot(attemptedSlotKey)
+          !isHybridFallbackSlot(attemptedSlotKey) &&
+          !isEvergreenFallbackSlot(attemptedSlotKey)
         ) {
           markSlotFailed(attemptedSlotKey, msg);
         }
@@ -1137,6 +1493,12 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({
       ...schedule,
+      keyPoolSize: getGeminiKeyPoolSize(),
+      quotaBudget: getQuotaBudgetSummary(),
+      editorialState: loadEditorialState(),
+      discoveredBriefs: countBriefStats(),
+      geminiBlogModel:
+        process.env.GEMINI_BLOG_MODEL?.trim() || "gemma-4-31b-it",
       intentRegistry: {
         keywordCount: intentBackfill.totalKeywords,
         lastSyncAdded: intentBackfill.added,

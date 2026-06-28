@@ -208,7 +208,7 @@ export default function AdminIntentClustersPage() {
                         </td>
                         <td className="px-4 py-2 text-gray-700">{r.intentFamily}</td>
                         <td className="px-4 py-2 text-gray-500">
-                          {r.subAngle ?? "—"}
+                          {r.subAngle ?? "-"}
                         </td>
                       </tr>
                     ))}

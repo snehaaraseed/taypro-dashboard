@@ -6,18 +6,18 @@
       "openGraphTitle": "OPEX清掃価格 インド | Taypro",
       "openGraphDescription": "ソーラー清掃の費用とROI計算。"
     },
-    "breadcrumbHub": "Robot price guide",
+    "breadcrumbHub": "ロボットの価格ガイド",
     "breadcrumbHubHref": "/solar-panel-cleaning-robot-price-india",
     "breadcrumb": "OPEX清掃価格",
     "schema": {
-      "name": "Taypro Solar Cleaning OPEX Pricing",
-      "description": "Indicative OPEX pricing for robotic solar panel cleaning in India: per-panel-per-cycle rates, monthly bands by plant size, and pay-per-panel-cleaned billing model.",
-      "serviceType": "Solar panel cleaning pricing",
-      "areaServed": "India"
+      "name": "Taypro ソーラークリーニング OPEX 料金",
+      "description": "インドにおけるロボットによるソーラー パネル洗浄の OPEX 価格の目安: パネルごと、サイクルごとの料金、プラント規模ごとの月次帯域、およびパネル洗浄ごとの支払いの請求モデル。",
+      "serviceType": "太陽光パネルのクリーニング料金",
+      "areaServed": "インド"
     },
     "hero": {
       "eyebrow": "価格設定 · インドの太陽光発電",
-      "title": "MW当たり清掃コスト — OPEX価格体系",
+      "title": "MW当たり清掃コスト, OPEX価格体系",
       "subtitle": "インドでのソーラーパネルの清掃にかかる費用はどれくらいですか?手動作業員の経済性を OPEX と比較します。清掃されたパネルごとの支払い、サイクルごとのモジュールあたり ₹0.45 ～ 0.70、および 25 ～ 300 の MW プラントの月次帯域の目安です。",
       "ctaPrimary": "ROI計算機",
       "ctaPrimaryHref": "/solar-panel-cleaning-robot-price-calculator#calculator",
@@ -36,75 +36,75 @@
       "linkSecondaryHref": "/solar-panel-cleaning-robot-price-india"
     },
     "costComparison": {
-      "eyebrow": "Manual vs robotic",
+      "eyebrow": "手動 vs ロボット",
       "heading": "Solar panel cleaning cost: manual crews vs robotic OPEX",
-      "intro": "Manual cleaning costs rise linearly with fleet scale — labour, water tankers, fuel, and inconsistent coverage. Robotic OPEX converts cleaning to a predictable per-panel variable cost with verified NECTYR logs.",
-      "colFactor": "Cost factor",
-      "colManual": "Manual cleaning",
+      "intro": "手作業による清掃コストは、艦隊の規模、人件費、給水車、燃料、一貫性のない範囲に応じて直線的に増加します。ロボット OPEX は、検証済みの NECTYR ログを使用して、清掃を予測可能なパネルごとの変動コストに変換します。",
+      "colFactor": "コスト要因",
+      "colManual": "手動洗浄",
       "colRobotic": "Taypro robotic OPEX",
       "row0": {
-        "factor": "Labour & supervision",
-        "manual": "Crew scaling per MW; high turnover in remote sites",
-        "robotic": "Fixed operator team per fleet; remote NECTYR oversight"
+        "factor": "労働と監督",
+        "manual": "MW ごとの乗組員のスケーリング。遠隔地では離職率が高い",
+        "robotic": "フリートごとにオペレーターチームを固定。リモート NECTYR の監視"
       },
       "row1": {
-        "factor": "Water & logistics",
-        "manual": "140k+ litres/MW/year wet-wash in stressed states",
-        "robotic": "Waterless dry cleaning — zero tanker dependency"
+        "factor": "水と物流",
+        "manual": "ストレスの多い州では年間 140,000 リットル/MW/年のウェット洗浄",
+        "robotic": "水のいらないドライクリーニング、タンカー依存度ゼロ"
       },
       "row2": {
-        "factor": "Billing transparency",
-        "manual": "Lump-sum contracts; hard to audit panel-level coverage",
-        "robotic": "Pay per panel cleaned; NECTYR block-level reconciliation"
+        "factor": "請求の透明性",
+        "manual": "一括契約。パネルレベルのカバレッジを監査するのは困難",
+        "robotic": "清掃されたパネルごとに支払います。 NECTYR ブロックレベルの調整"
       },
       "row3": {
-        "factor": "Cycle frequency",
-        "manual": "1–2 wet washes/month — labour and water limit throughput",
-        "robotic": "3–10 dry cycles/month without water constraint"
+        "factor": "サイクル周波数",
+        "manual": "月に 1 ～ 2 回のウェットウォッシュ、労力と水の処理量が制限される",
+        "robotic": "水の制約なしで月に 3 ～ 10 回の乾燥サイクル"
       },
       "row4": {
-        "factor": "PR recovery speed",
-        "manual": "Delayed response after dust events; coverage gaps on long rows",
-        "robotic": "Scheduled cadence; block-level NECTYR proof of coverage"
+        "factor": "PR 回復速度",
+        "manual": "粉塵イベント後の応答の遅れ。長い行のカバレッジギャップ",
+        "robotic": "スケジュールされたリズム。ブロックレベルのNECTYRカバレッジの証明"
       },
       "row5": {
-        "factor": "20-year TCO at 100 MW",
-        "manual": "Rising labour, fuel, water; contract renegotiation risk",
+        "factor": "20 年 TCO で 100 MW",
+        "manual": "労働力、燃料、水の増加。契約再交渉のリスク",
         "robotic": "Predictable per-panel opex or defined CAPEX+AMC alternative"
       }
     },
     "opexTable": {
-      "eyebrow": "Indicative bands",
-      "heading": "OPEX monthly cost by plant size (fixed tilt, 6 cycles/month)",
-      "intro": "Directional estimates for budgetary planning. Actual pricing depends on soiling study, installation type, cycle count, and site access. Request a site-specific quote for binding commercial terms.",
-      "colPlant": "Plant size",
-      "colModules": "Modules (540 Wp)",
-      "colRate": "Rate/panel/cycle",
+      "eyebrow": "指標となるバンド",
+      "heading": "OPEX プラント サイズ別の月額コスト (固定傾斜、6 サイクル/月)",
+      "intro": "予算計画の方向性の見積もり。実際の価格は、汚れの調査、設置タイプ、サイクル数、サイトへのアクセスによって異なります。拘束力のある商業条件については、サイト固有の見積もりをリクエストしてください。",
+      "colPlant": "植物の大きさ",
+      "colModules": "モジュール (540 Wp)",
+      "colRate": "レート/パネル/サイクル",
       "colMonthly": "Est. monthly OPEX",
-      "colPerMw": "Per MW/month",
+      "colPerMw": "MW/月あたり",
       "plant25": "25 MW",
       "plant50": "50 MW",
       "plant100": "100 MW",
       "plant300": "300 MW",
-      "minimumNote": "Minimum monthly fee applied",
-      "footnote": "Rates span ₹{minRate}–₹{maxRate} per panel per cycle depending on plant size and {cycles} cycles/month (range {minCycles}–{maxCycles}). Table assumes {moduleWp} Wp modules, fixed tilt. Tracker sites use higher multipliers."
+      "minimumNote": "適用される最低月額料金",
+      "footnote": "料金は、プラントのサイズと {cycles} サイクル/月 (範囲 {minCycles} ～ {maxCycles}) に応じて、パネルあたり 1 サイクルあたり ₹{minRate} ～ ₹{maxRate} になります。テーブルは {moduleWp} Wp モジュール、固定傾斜を想定しています。トラッカー サイトではより高い乗数が使用されます。"
     },
     "calculator": {
-      "eyebrow": "Interactive tool",
-      "heading": "Calculate cleaning ROI for your plant",
+      "eyebrow": "インタラクティブツール",
+      "heading": "プラントの洗浄 ROI を計算します",
       "subheading": "Enter your MW capacity, soiling rate, tariff, and procurement model (CAPEX or OPEX) for a directional payback estimate."
     },
     "howTo": {
-      "name": "How to estimate solar cleaning OPEX cost",
-      "description": "Steps to calculate indicative monthly robotic cleaning cost for an Indian utility solar plant.",
-      "step0Name": "Determine module count",
-      "step0Text": "Divide plant capacity (kW) by module wattage (e.g. 540 Wp) to get total panel count.",
-      "step1Name": "Select cycle frequency",
-      "step1Text": "After a soiling study, choose 3–10 dry cleaning cycles per month based on dust load and PR targets.",
-      "step2Name": "Apply per-panel rate",
-      "step2Text": "Multiply modules × cycles × rate (₹0.45–0.70 per panel per cycle depending on plant size).",
-      "step3Name": "Adjust for installation type",
-      "step3Text": "Apply tracker or seasonal-tilt multipliers. Compare against manual crew cost and energy gain in the ROI calculator."
+      "name": "太陽光発電の浄化OPEXのコストを見積もる方法",
+      "description": "インドの太陽光発電所の月額ロボット清掃コストの目安を計算する手順。",
+      "step0Name": "モジュール数の決定",
+      "step0Text": "プラント容量 (kW) をモジュールのワット数 (例: 540 Wp) で割って、合計パネル数を取得します。",
+      "step1Name": "サイクル周波数の選択",
+      "step1Text": "汚れの調査後、粉塵負荷と PR 目標に基づいて、月あたり 3 ～ 10 回のドライ クリーニング サイクルを選択します。",
+      "step2Name": "パネルごとのレートを適用する",
+      "step2Text": "モジュール × サイクル × レートを乗算します (プラントのサイズに応じて、パネルごと、サイクルごとに ₹0.45 ～ 0.70)。",
+      "step3Name": "設置タイプに合わせて調整",
+      "step3Text": "トラッカーまたは季節傾斜乗数を適用します。 ROI 計算ツールで手動の乗組員コストとエネルギー増加と比較します。"
     },
     "faq": {
       "heading": "ソーラークリーニング費用に関するよくある質問",
@@ -135,28 +135,28 @@
       "a11": "多くの IPP は、迅速な動員のために OPEX を開始し、契約更新時に所有フリートに移行します。 Taypro は、NECTYR 連続性を備えた同じプラント上の両方のモデルをサポートします。"
     },
     "cta": {
-      "heading": "Get site-specific OPEX pricing",
-      "body": "Indicative bands are a starting point. Request a binding quote with your plant details.",
-      "primary": "Request quote",
+      "heading": "サイト固有のOPEX価格を取得する",
+      "body": "指標バンドは開始点です。プラントの詳細を記載した拘束力のある見積もりをリクエストしてください。",
+      "primary": "見積もりを依頼する",
       "primaryHref": "/contact",
-      "secondary": "India cleaning service",
+      "secondary": "インドのクリーニングサービス",
       "secondaryHref": "/solar-panel-cleaning-service-india"
     },
     "related": {
-      "label": "Related:",
+      "label": "関連している：",
       "link0": "Robot CAPEX price guide",
       "link0Href": "/solar-panel-cleaning-robot-price-india",
-      "link1": "OPEX contract & SOP details",
+      "link1": "OPEX 契約と SOP の詳細",
       "link1Href": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
       "link2": "CAPEX vs OPEX decision guide",
       "link2Href": "/solar-cleaning-capex-vs-opex",
-      "link3": "ROI calculator",
+      "link3": "ROI 計算機",
       "link3Href": "/solar-panel-cleaning-robot-price-calculator"
     },
     "quoteForm": {
-      "eyebrow": "Pricing inquiry",
-      "title": "Request OPEX pricing for your plant",
-      "placeholder": "Plant MW, state, fixed tilt or tracker, desired cycles/month, and current cleaning spend if known."
+      "eyebrow": "価格のお問い合わせ",
+      "title": "プラントのOPEX価格をリクエストする",
+      "placeholder": "プラント MW、状態、固定傾斜またはトラッカー、希望のサイクル/月、および現在の清掃費用 (わかっている場合)。"
     },
     "stats": {
       "eyebrow": "価格設定のアンカー",
@@ -187,31 +187,31 @@
       }
     },
     "steps": {
-      "eyebrow": "Pricing workflow",
-      "heading": "How to get accurate solar cleaning cost for your plant",
-      "step0Title": "Gather plant inputs",
-      "step0Body": "MW capacity, module wattage (e.g. 540 Wp), fixed tilt vs tracker, state/soiling context, and current annual cleaning spend if known.",
-      "step1Title": "Estimate module count and cycles",
-      "step1Body": "Divide kW by module Wp. Choose 3–10 cycles/month based on soiling study or regional benchmarks (higher in Rajasthan/Gujarat).",
-      "step2Title": "Apply OPEX rate band",
-      "step2Body": "Multiply modules × cycles × rate (₹0.45–0.70). Apply tracker multiplier (1.8×) or seasonal tilt (1.5×) if applicable. Compare table above for sanity check.",
-      "step3Title": "Run ROI calculator for payback",
+      "eyebrow": "価格設定のワークフロー",
+      "heading": "プラントの太陽熱浄化コストを正確に取得する方法",
+      "step0Title": "プラント投入物を収集する",
+      "step0Body": "MW 容量、モジュールのワット数 (例: 540 Wp)、固定傾斜とトラッカー、状態/汚れの状況、および現在の年間清掃費用 (わかっている場合)。",
+      "step1Title": "モジュール数とサイクルを見積もる",
+      "step1Body": "kW をモジュール Wp で割ります。汚れの調査または地域のベンチマーク (ラジャスタン州/グジャラート州ではより高い) に基づいて、月に 3 ～ 10 サイクルを選択します。",
+      "step2Title": "OPEX レート帯を適用します",
+      "step2Body": "モジュール × サイクル × レートを乗算します (₹0.45 ～ 0.70)。該当する場合は、トラッカー乗数 (1.8 倍) または季節傾斜 (1.5 倍) を適用します。健全性をチェックするには、上の表を比較してください。",
+      "step3Title": "ROI 計算ツールを実行して返済を求める",
       "step3Body": "Enter soiling loss %, tariff, and procurement model. Calculator estimates energy gain vs cleaning cost for CAPEX and OPEX scenarios.",
-      "step4Title": "Request binding site quote",
-      "step4Body": "Taypro engineers validate assumptions with a soiling study and issue commercial terms reconciled to NECTYR measurement rules."
+      "step4Title": "拘束力のあるサイトの見積もりをリクエストする",
+      "step4Body": "Taypro エンジニアは汚れの調査で仮定を検証し、NECTYR 測定ルールに合わせて商業条件を発行します。"
     },
     "eligibility": {
-      "eyebrow": "OPEX fit",
-      "title": "When pay-per-panel OPEX pricing makes sense",
-      "forTitle": "OPEX is often best when",
+      "eyebrow": "OPEX に適合",
+      "title": "パネルごとに支払う OPEX 価格設定が合理的である場合",
+      "forTitle": "OPEX が最適な場合が多いのは、",
       "for0": "You want fast mobilisation without robot CAPEX on the balance sheet",
-      "for1": "You prefer opex aligned to verified panels cleaned, not lump-sum crew contracts",
-      "for2": "Your plant is 10 MW+ utility scale with 3+ cycles/month economics",
-      "for3": "Finance team needs predictable monthly cleaning line item for models",
+      "for1": "一括の乗組員契約ではなく、洗浄済みの検証済みパネルに合わせた運用コストを希望する",
+      "for2": "あなたのプラントは 10 MW+ ユーティリティ規模で、3 サイクル/月以上の経済性を備えています",
+      "for3": "財務チームは、モデルの予測可能な毎月の清掃項目を必要としています",
       "notForTitle": "Consider CAPEX instead when",
-      "not0": "Very long hold period (15+ years) with capacity to own fleet depreciation",
-      "not1": "Smaller C&I sites where minimum monthly fee dominates unit economics",
-      "not2": "You already own robots and only need AMC + NECTYR"
+      "not0": "保有期間が非常に長く (15 年以上)、フリートの減価償却が可能",
+      "not1": "最小月額料金がユニットエコノミクスの大半を占める小規模な C&I サイト",
+      "not2": "すでにロボットを所有しており、必要なのは AMC + NECTYR だけです"
     },
     "proseSecondary": {
       "eyebrow": "地域のコスト要因",
@@ -225,13 +225,13 @@
       "linkSecondaryHref": "/solar-panel-cleaning-robot-price-india"
     },
     "resources": {
-      "eyebrow": "Cost research",
-      "heading": "Related pricing & ROI tools",
-      "link0Title": "Interactive ROI calculator",
+      "eyebrow": "コスト調査",
+      "heading": "関連する価格設定と ROI ツール",
+      "link0Title": "インタラクティブな ROI 計算機",
       "link0Href": "/solar-panel-cleaning-robot-price-calculator",
-      "link1Title": "OPEX service details",
+      "link1Title": "OPEX サービスの詳細",
       "link1Href": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
-      "link2Title": "Robotic vs manual cost comparison",
+      "link2Title": "ロボットと手動のコスト比較",
       "link2Href": "/compare/solar-panel-cleaning-robot-vs-manual-cleaning"
     }
   }

@@ -52,10 +52,10 @@
       "intro": "Taypro designs, manufactures, and services autonomous solar panel cleaning robots for India's largest utility-scale PV plants.",
       "productsEyebrow": "Robot lineup",
       "hubCardTitle": "Compare robot models",
-      "hubCardDescription": "GLYDE, NYUMA, HELYX, and tracker-ready variants — specs, fit, and deployment guides on our product hub.",
+      "hubCardDescription": "GLYDE, NYUMA, HELYX, and tracker-ready variants, specs, fit, and deployment guides on our product hub.",
       "hubLink": "solar panel cleaning robots hub",
       "serviceCardTitle": "OPEX cleaning service",
-      "serviceCardDescription": "Fully managed fleet — we deploy, operate, and maintain robots on your plant.",
+      "serviceCardDescription": "Fully managed fleet, we deploy, operate, and maintain robots on your plant.",
       "serviceLink": "OPEX robotic cleaning service",
       "calculatorCardTitle": "ROI calculator",
       "calculatorCardDescription": "Estimate payback from recovered generation and reduced manual O&M.",
@@ -89,7 +89,7 @@
       "loopClosing": "Sense → Schedule → Clean → Log → Learn, every cycle across your fleet.",
       "investorEyebrow": "For partners & investors",
       "investorTitle": "Building India's autonomous operations layer for utility-scale solar",
-      "investorBody": "5 GW+ of live fleet capacity, 11 billion+ panel cleaning passes each year feeding fleet AI, recurring AMC relationships across deployed robots, and ORION designed to attach on renewal rails we already operate. TAYPRO's AI learns from every cleaning cycle across the active fleet — a data corpus no competitor can replicate without equivalent field presence at utility scale. See scale, leadership, and how we compound operations data site by site.",
+      "investorBody": "5 GW+ of live fleet capacity, 11 billion+ panel cleaning passes each year feeding fleet AI, recurring AMC relationships across deployed robots, and ORION designed to attach on renewal rails we already operate. TAYPRO's AI learns from every cleaning cycle across the active fleet, a data corpus no competitor can replicate without equivalent field presence at utility scale. See scale, leadership, and how we compound operations data site by site.",
       "investorCtaAi": "AI intelligence layer",
       "investorCtaCompany": "Company & scale story",
       "investorCtaOrion": "ORION early access",
@@ -119,7 +119,7 @@
       "loopSteps": {
         "0": {
           "title": "Sense",
-          "description": "Weather, humidity, pollen, battery state, and microfiber moisture — 40+ live data inputs per robot"
+          "description": "Weather, humidity, pollen, battery state, and microfiber moisture, 40+ live data inputs per robot"
         },
         "1": {
           "title": "Schedule",
@@ -135,7 +135,7 @@
         },
         "4": {
           "title": "Learn",
-          "description": "AI model improves with each cycle across the full fleet — your plant benefits from every other site's data"
+          "description": "AI model improves with each cycle across the full fleet, your plant benefits from every other site's data"
         }
       }
     },
@@ -237,11 +237,11 @@
       },
       "feature4": {
         "title": "Self-learning fleet AI",
-        "description": "AI that improves cleaning decisions with each cycle across the full fleet — soiling prediction, timing, and routing compound with every site added."
+        "description": "AI that improves cleaning decisions with each cycle across the full fleet, soiling prediction, timing, and routing compound with every site added."
       },
       "feature5": {
         "title": "Wet microfiber detection",
-        "description": "Sensors detect when cleaning elements are wet from dew or humidity and postpone cycles automatically — protecting module glass from smear damage."
+        "description": "Sensors detect when cleaning elements are wet from dew or humidity and postpone cycles automatically, protecting module glass from smear damage."
       }
     },
     "whyTaypro": {
@@ -271,7 +271,7 @@
     "clients": {
       "heading": "Our Esteemed Clients",
       "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India.",
-      "logoAlt": "{name} — Taypro solar cleaning robot customer",
+      "logoAlt": "{name}, Taypro solar cleaning robot customer",
       "logoTitle": "{name}"
     },
     "faq": {

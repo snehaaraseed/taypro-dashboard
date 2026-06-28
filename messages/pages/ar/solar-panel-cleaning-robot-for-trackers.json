@@ -6,17 +6,17 @@
       "openGraphTitle": "روبوت تنظيف متتبعات | Taypro",
       "openGraphDescription": "تنظيف تلقائي للمتتبعات أحادية المحور."
     },
-    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHub": "روبوتات تنظيف الألواح الشمسية",
     "breadcrumbHubHref": "/solar-panel-cleaning-system",
     "breadcrumb": "روبوت تنظيف متتبعات",
     "schema": {
-      "name": "Taypro Tracker Solar Cleaning Robots",
-      "description": "GLYDE-X and NYUMA-X automatic solar panel cleaning robots for single-axis tracker installations in India, with CRADYL row-transfer docking.",
+      "name": "Taypro روبوتات التنظيف الشمسية المتعقبة",
+      "description": "GLYDE-X وNYUMA-X روبوتات تنظيف الألواح الشمسية الأوتوماتيكية لتركيبات التتبع أحادية المحور في الهند، مع إرساء نقل الصف CRADYL.",
       "sku": "GLYDE-X-NYUMA-X"
     },
     "hero": {
       "eyebrow": "قطاع تعقب أحادي المحور",
-      "title": "روبوت تنظيف للمتتبعات أحادية المحور — نطاق هندي",
+      "title": "روبوت تنظيف للمتتبعات أحادية المحور, نطاق هندي",
       "subtitle": "يتسارع اعتماد أدوات التتبع في جميع أنحاء ولاية غوجارات وراجستان وكارناتاكا - لكن أطقم الفرشاة اليدوية لا تستطيع مواكبة طول الصف وزوايا التخزين. Taypro GLYDE-X و NYUMA-X جداول تعقب اجتياز مع CRADYL إرساء نقل الصف لأساطيل MW من 50 إلى 300.",
       "ctaPrimary": "مقارنة GLYDE-X وNYUMA-X",
       "ctaPrimaryHref": "/compare/glyde-x-vs-nyuma-x",
@@ -29,7 +29,7 @@
       "subheading": "وصلت الروبوتات ذات الإمالة الثابتة والأطقم اليدوية إلى حدودها القصوى مع نمو طول صف المتعقب ومقياس MW.",
       "card0": {
         "title": "طول الصف والنقل",
-        "body": "تتجاوز الصفوف ذات المحور الواحد 100 وحدة. تحتاج الروبوتات إلى نقل ذاتي في نهاية الصف — تقوم محطات الإرساء CRADYL بنقل الأساطيل بين الصفوف دون حمل يدوي."
+        "body": "تتجاوز الصفوف ذات المحور الواحد 100 وحدة. تحتاج الروبوتات إلى نقل ذاتي في نهاية الصف, تقوم محطات الإرساء CRADYL بنقل الأساطيل بين الصفوف دون حمل يدوي."
       },
       "card1": {
         "title": "توافق زاوية التخزين",
@@ -53,22 +53,22 @@
       }
     },
     "products": {
-      "eyebrow": "Tracker robot lineup",
-      "heading": "Taypro robots for single-axis tracker arrays",
+      "eyebrow": "تشكيلة الروبوت المتعقب",
+      "heading": "Taypro روبوتات لمصفوفات التتبع أحادية المحور",
       "product0": {
-        "title": "GLYDE-X — dual-pass tracker robot",
-        "body": "Flagship dual-pass microfiber cleaning for single-axis trackers. Highest cleaning quality per pass for premium PR recovery on utility fleets.",
-        "link": "GLYDE-X specifications"
+        "title": "GLYDE-X: روبوت تعقب مزدوج المرور",
+        "body": "تنظيف رائد من الألياف الدقيقة ثنائي التمرير لأجهزة التتبع ذات المحور الواحد. أعلى جودة تنظيف لكل تمريرة لاسترداد PR المتميز على أساطيل المرافق.",
+        "link": "GLYDE-X المواصفات"
       },
       "product1": {
-        "title": "NYUMA-X — PBT single-pass tracker robot",
+        "title": "NYUMA-X: PBT روبوت تعقب أحادي المرور",
         "body": "Polymer brush technology single-pass robot for tracker sites prioritising cycle speed and capex efficiency.",
-        "link": "NYUMA-X specifications"
+        "link": "NYUMA-X المواصفات"
       },
       "product2": {
-        "title": "CRADYL — row transfer docking",
-        "body": "Autonomous docking station for robot transfer between tracker rows — essential for multi-row blocks without operator carry.",
-        "link": "CRADYL docking station"
+        "title": "CRADYL: إرساء نقل الصف",
+        "body": "محطة إرساء مستقلة لنقل الروبوت بين صفوف التعقب، وهي ضرورية للكتل متعددة الصفوف دون حمل المشغل.",
+        "link": "CRADYL محطة الإرساء"
       }
     },
     "prose": {
@@ -76,16 +76,16 @@
       "heading": "تم نشر روبوتات التنظيف المتعقبة بمعدل 50-300 MW في الهند",
       "p1": "قامت Taypro بتكليف أساطيل تنظيف متوافقة مع أدوات التتبع في SECI ومشاريع الديسكو الحكومية عبر ولاية غوجارات وراجستان - بما في ذلك 100 MW+ مرجع لموقع واحد. يتضمن النشر تعيين الموقع، وتخطيط المواضع CRADYL، وتدريب المشغلين، وNECTYR الإعداد.",
       "p2": "يعتمد اختيار GLYDE-X مقابل NYUMA-X على أهداف الاسترداد PR، وكيمياء الغبار، والنفقات الرأسمالية مقابل مقايضات سرعة الدورة. استخدم المقارنة المباشرة أو اطلب هندسة Taypro لتصميم الروبوتات لكل MW لتخطيط الصف الخاص بك.",
-      "p3": "محطات التتبع مؤهلة أيضًا لـ OPEX — الدفع لكل لوحة يتم تنظيفها بدون روبوت مقدم CAPEX.",
+      "p3": "محطات التتبع مؤهلة أيضًا لـ OPEX: الدفع لكل لوحة يتم تنظيفها بدون روبوت مقدم CAPEX.",
       "linkPrimary": "مقارنة GLYDE-X مقابل NYUMA-X",
       "linkPrimaryHref": "/compare/glyde-x-vs-nyuma-x",
       "linkSecondary": "القدرة على التنظيف على نطاق واسع",
       "linkSecondaryHref": "/large-scale-solar-panel-cleaning"
     },
     "projects": {
-      "eyebrow": "Tracker references",
-      "heading": "Tracker cleaning robot project references",
-      "subheading": "Automatic robotic cleaning on tracker and utility-scale plants in Gujarat and India."
+      "eyebrow": "مراجع التتبع",
+      "heading": "مراجع مشروع روبوت التنظيف المتعقب",
+      "subheading": "التنظيف الآلي الآلي على محطات التتبع والمصانع على نطاق المرافق في ولاية غوجارات والهند."
     },
     "faq": {
       "heading": "روبوت التنظيف الشمسي Tracker - الأسئلة الشائعة",
@@ -103,7 +103,7 @@
       "q5": "هل يقدم OPEX على محطات التتبع؟",
       "a5": "نعم. OPEX ينشر GLYDE-X أو NYUMA-X مع تنظيف المشغلين والفواتير لكل لوحة. تحمل تركيبات التتبع معدل مضاعف OPEX مقابل الميل الثابت.",
       "q6": "ما هو الجدول الزمني لتشغيل روبوتات التتبع؟",
-      "a6": "تتضمن التعبئة النموذجية تعيين الموقع، ووضع CRADYL، وإعداد الاتصال، وتدريب المشغلين، وNECTYR الإعداد. يعتمد المخطط الزمني على حجم المصنع وهندسة الصفوف — يوفر Taypro جدولاً زمنيًا أثناء الاقتراح.",
+      "a6": "تتضمن التعبئة النموذجية تعيين الموقع، ووضع CRADYL، وإعداد الاتصال، وتدريب المشغلين، وNECTYR الإعداد. يعتمد المخطط الزمني على حجم المصنع وهندسة الصفوف, يوفر Taypro جدولاً زمنيًا أثناء الاقتراح.",
       "q7": "كيف أطلب تقييم موقع التتبع؟",
       "a7": "مشاركة المصنع MW وبائع التعقب وهندسة الصف والموقع وطريقة التنظيف الحالية. سيوصي Taypro بنموذج الروبوت وحجم الأسطول والمصطلحات التجارية CAPEX أو OPEX.",
       "q8": "ما هي العلامات التجارية لأجهزة التتبع التي تم نشر Taypro عليها؟",
@@ -116,26 +116,26 @@
       "a11": "تمت جدولة برامج التنظيف وفقًا لزوايا التخزين والنوافذ الليلية المتفق عليها - المحددة في التنظيف الخاص بالمصنع SOP أثناء التعبئة."
     },
     "cta": {
-      "heading": "Model tracker cleaning robots for your plant",
-      "body": "Share your tracker layout and MW capacity. Taypro will recommend GLYDE-X, NYUMA-X, and fleet deployment plan.",
-      "primary": "Contact engineering",
+      "heading": "نموذج روبوتات التنظيف المتعقبة لمصنعك",
+      "body": "شارك تخطيط جهاز التعقب الخاص بك وسعة MW. سيوصي Taypro بـ GLYDE-X وNYUMA-X وخطة نشر الأسطول.",
+      "primary": "هندسة الاتصال",
       "primaryHref": "/contact",
-      "secondary": "Compare tracker robots",
+      "secondary": "مقارنة الروبوتات تعقب",
       "secondaryHref": "/compare/glyde-x-vs-nyuma-x"
     },
     "related": {
-      "label": "Related:",
-      "link0": "GLYDE-X product page",
+      "label": "متعلق ب:",
+      "link0": "GLYDE-X صفحة المنتج",
       "link0Href": "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
-      "link1": "NYUMA-X product page",
+      "link1": "NYUMA-X صفحة المنتج",
       "link1Href": "/solar-panel-cleaning-system/nyuma-x-single-axis-tracker-cleaning-robot",
-      "link2": "OPEX pricing",
+      "link2": "OPEX التسعير",
       "link2Href": "/solar-cleaning-opex-pricing"
     },
     "quoteForm": {
-      "eyebrow": "Tracker inquiry",
-      "title": "Request tracker cleaning robot assessment",
-      "placeholder": "Plant MW, tracker type/vendor, row count, state, current cleaning method, and target cycles/month."
+      "eyebrow": "استفسار تعقب",
+      "title": "طلب تقييم روبوت التنظيف المتعقب",
+      "placeholder": "المصنع MW، نوع المتتبع/المورد، عدد الصفوف، الحالة، طريقة التنظيف الحالية، والدورات المستهدفة/الشهر."
     },
     "stats": {
       "eyebrow": "سوق التتبع",
@@ -150,7 +150,7 @@
         "tag": "منتجات",
         "stat": "2 روبوتات",
         "label": "GLYDE-X و NYUMA-X",
-        "body": "الألياف الدقيقة ذات التمرير المزدوج مقابل التمرير الفردي PBT — اختر بناءً على أهداف PR وكفاءة النفقات الرأسمالية."
+        "body": "الألياف الدقيقة ذات التمرير المزدوج مقابل التمرير الفردي PBT: اختر بناءً على أهداف PR وكفاءة النفقات الرأسمالية."
       },
       "card2": {
         "tag": "تحويل",
@@ -166,29 +166,29 @@
       }
     },
     "steps": {
-      "eyebrow": "Tracker deployment",
-      "heading": "Commissioning tracker cleaning robots on your plant",
-      "step0Title": "Tracker layout & vendor data",
-      "step0Body": "Share MW, tracker type, row count, module dimensions, stow range, and current cleaning method. Taypro models robots-per-MW.",
-      "step1Title": "GLYDE-X vs NYUMA-X selection",
+      "eyebrow": "نشر المتعقب",
+      "heading": "تشغيل روبوتات التنظيف المتعقبة في مصنعك",
+      "step0Title": "تخطيط تعقب وبيانات البائع",
+      "step0Body": "شارك MW ونوع المتعقب وعدد الصفوف وأبعاد الوحدة ونطاق التخزين وطريقة التنظيف الحالية. Taypro نماذج الروبوتات لكل MW.",
+      "step1Title": "تحديد GLYDE-X مقابل NYUMA-X",
       "step1Body": "Dual-pass quality (GLYDE-X) vs single-pass speed and capex (NYUMA-X). Head-to-head comparison available or engineering recommendation.",
-      "step2Title": "CRADYL placement plan",
-      "step2Body": "Row-end docking stations positioned for autonomous transfer — minimising operator carry on 100+ module rows.",
-      "step3Title": "Fleet mobilisation & NECTYR mapping",
-      "step3Body": "Robots mapped to blocks, operators trained on tracker-specific SOPs, connectivity commissioned.",
-      "step4Title": "Cycle execution & PR correlation",
-      "step4Body": "3–10 dry cycles monthly with NECTYR coverage logs correlated against block PR trends."
+      "step2Title": "CRADYL خطة التنسيب",
+      "step2Body": "تم وضع محطات الإرساء في نهاية الصف للنقل الذاتي، مما يقلل من قدرة المشغل على حمل أكثر من 100 صف من الوحدات النمطية.",
+      "step3Title": "تعبئة الأسطول ورسم الخرائط NECTYR",
+      "step3Body": "تم تعيين الروبوتات إلى كتل، وتم تدريب المشغلين على SOPs الخاصة بأجهزة التعقب، وتم تشغيل الاتصال.",
+      "step4Title": "تنفيذ الدورة وPR الارتباط",
+      "step4Body": "3-10 دورات جافة شهريًا مع سجلات تغطية NECTYR مرتبطة باتجاهات الكتلة PR."
     },
     "highlight": {
-      "heading": "Manual brush cleaning breaks at tracker scale.",
-      "lead": "100-module rows need autonomous transfer — not crews carrying brushes at row ends.",
-      "body": "Taypro GLYDE-X and NYUMA-X with CRADYL row-transfer docking are engineered for Indian single-axis tracker plants from 50 MW to 300 MW."
+      "heading": "تنظيف الفرشاة يدويًا يقطع على نطاق التتبع.",
+      "lead": "تحتاج الصفوف المكونة من 100 وحدة إلى نقل مستقل، وليس إلى أطقم تحمل الفرش في نهايات الصفوف.",
+      "body": "تم تصميم Taypro GLYDE-X وNYUMA-X مع إرساء نقل الصف CRADYL لمحطات التتبع الهندية أحادية المحور من 50 MW إلى 300 MW."
     },
     "proseSecondary": {
       "eyebrow": "GLYDE-X مقابل NYUMA-X",
       "heading": "اختيار روبوت تنظيف متوافق مع أداة التعقب لأهدافك PR",
       "p1": "يستخدم GLYDE-X نظام الألياف الدقيقة ثنائي المسار الحاصل على براءة اختراع من Taypro - أعلى إزالة للغبار في كل تمريرة، وهو مثالي عندما تكون الكيمياء المتسخة لزجة أو أسمنتية وتكون الأولوية لاسترداد PR في كل دورة.",
-      "p2": "NYUMA-X يستخدم تقنية فرشاة PBT أحادية التمرير — تغطية أسرع لكل نافذة ليلية ونفقات رأسمالية أقل، ومناسبة عندما يكون الغبار جافًا في الغالب وتكون إنتاجية الدورة هي عنق الزجاجة.",
+      "p2": "NYUMA-X يستخدم تقنية فرشاة PBT أحادية التمرير, تغطية أسرع لكل نافذة ليلية ونفقات رأسمالية أقل، ومناسبة عندما يكون الغبار جافًا في الغالب وتكون إنتاجية الدورة هي عنق الزجاجة.",
       "p3": "يتكامل كلاهما مع CRADYL لنقل الصف وNECTYR لجدولة الأسطول. اطلب النمذجة الهندسية لتخطيط جهاز التعقب الخاص بك.",
       "linkPrimary": "مقارنة GLYDE-X مقابل NYUMA-X",
       "linkPrimaryHref": "/compare/glyde-x-vs-nyuma-x",
@@ -196,13 +196,13 @@
       "linkSecondaryHref": "/solar-cleaning-opex-pricing"
     },
     "resources": {
-      "eyebrow": "Tracker resources",
-      "heading": "Technical guides",
-      "link0Title": "CRADYL row-transfer docking",
+      "eyebrow": "موارد التعقب",
+      "heading": "الأدلة الفنية",
+      "link0Title": "CRADYL إرساء نقل الصف",
       "link0Href": "/solar-panel-cleaning-system/cradyl-row-transfer-docking-station",
-      "link1Title": "Large-scale MW cleaning",
+      "link1Title": "تنظيف MW على نطاق واسع",
       "link1Href": "/large-scale-solar-panel-cleaning",
-      "link2Title": "Manual vs robotic on trackers (blog context)",
+      "link2Title": "أدوات التتبع اليدوية مقابل الروبوتية (سياق المدونة)",
       "link2Href": "/blog/manual-brush-cleaning-on-tracker-arrays-limits-at-50-mw-scale"
     }
   }

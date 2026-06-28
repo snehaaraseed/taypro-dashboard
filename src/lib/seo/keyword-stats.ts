@@ -152,7 +152,7 @@ function scoreKeywordRow(row: SeoKeywordRow): number {
 export function inferSearchIntent(keyword: string): string {
   const k = keyword.toLowerCase();
   if (/manufacturer|supplier|wholesal|companies/.test(k)) {
-    return "Commercial research, comparing vendors/specs for utility or C&I plants; bridge to post-commissioning O&M, soiling, and robotic cleaning—not a module sales page.";
+    return "Commercial research, comparing vendors/specs for utility or C&I plants; bridge to post-commissioning O&M, soiling, and robotic cleaning, not a module sales page.";
   }
   if (/inverter|string combiner|transformer/.test(k)) {
     return "Equipment buyer researching BOS for solar plants; connect reliability and layout to long-term O&M including panel cleaning and dust management.";
@@ -167,7 +167,7 @@ export function inferSearchIntent(keyword: string): string {
     return "Informational/decision, scheduling and O&M best practice for MW plants.";
   }
   if (/\bpv panel roof\b|rooftop pv|roof.?mount|panel roof/.test(k)) {
-    return "Informational/comparison for rooftop or canopy PV—access, safety, cleaning/maintenance methods, and costs for roof-mounted arrays; do NOT rewrite as a ground-mount utility robot brochure.";
+    return "Informational/comparison for rooftop or canopy PV, access, safety, cleaning/maintenance methods, and costs for roof-mounted arrays; do NOT rewrite as a ground-mount utility robot brochure.";
   }
   if (/service|company/.test(k)) {
     return "Commercial, evaluating vendors/Opex; explain what to look for in robot cleaning partners.";

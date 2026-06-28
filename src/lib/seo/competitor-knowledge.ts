@@ -117,7 +117,7 @@ function formatCompetitorBlock(c: CompetitorRecord): string {
 
 /**
  * Compact competitor landscape for blog/project AI prompts.
- * Factual only — specs and share figures must match data/competitor-landscape.json.
+ * Factual only, specs and share figures must match data/competitor-landscape.json.
  */
 export function formatCompetitorKnowledgeBlock(): string {
   const landscape = loadCompetitorLandscape();
@@ -131,7 +131,7 @@ export function formatCompetitorKnowledgeBlock(): string {
       const leaders = r.topFive
         .map((t) => `${t.rank}. ${t.name}${t.approxShare ? ` (${t.approxShare})` : ""}`)
         .join(", ");
-      return `  - ${r.source}: ${leaders}${r.note ? ` — ${r.note}` : ""}`;
+      return `  - ${r.source}: ${leaders}${r.note ? `, ${r.note}` : ""}`;
     })
     .join("\n");
 

@@ -2,12 +2,15 @@ import type { EditorialContract } from "@/lib/seo/coverage-ledger";
 import type { GroundedSerpResearchInput } from "@/lib/gemini/grounded-serp-research";
 import type { SerpResearchBrief } from "@/lib/gemini/grounded-serp-research";
 import type { FactResearchBrief } from "@/lib/gemini/grounded-fact-research";
+import { DEFAULT_GEMMA_TEXT_MODEL } from "@/lib/gemini/free-tier-models";
 
 /**
- * Google Search grounding on the free tier is tied to Gemini 2.5 Flash family (20 RPD/model).
- * All other blog steps use gemini-3.1-flash-lite (500 RPD). A 429 on 2.5 must not block 3.1.
+ * Google Search grounding now runs on Gemma 4 (gemma-4-31b-it), which supports the
+ * googleSearch tool via the Gemini API at the 1,500 RPD free tier, far above the
+ * ~20 RPD Gemini 2.5 Flash ceiling that previously throttled SERP/fact/discovery.
+ * Override with GEMINI_GROUNDING_MODEL if you ever need to pin a Gemini model.
  */
-export const DEFAULT_GROUNDING_MODEL = "gemini-2.5-flash";
+export const DEFAULT_GROUNDING_MODEL = DEFAULT_GEMMA_TEXT_MODEL;
 
 export class GroundingQuotaExceededError extends Error {
   readonly model: string;
@@ -16,8 +19,8 @@ export class GroundingQuotaExceededError extends Error {
     const detail =
       cause instanceof Error ? cause.message.slice(0, 160) : String(cause ?? "");
     super(
-      `Gemini Search grounding quota exceeded for ${model} (free tier ~20 RPD). ` +
-        `Blog will continue on 3.1 Flash Lite without live SERP/fact research. ${detail}`
+      `Search grounding quota exceeded for ${model}. ` +
+        `Blog will continue without live SERP/fact research. ${detail}`
     );
     this.name = "GroundingQuotaExceededError";
     this.model = model;
@@ -45,11 +48,24 @@ export function getGeminiGroundingMaxCallsPerBlog(): number {
   return Number.isFinite(parsed) && parsed > 0 ? parsed : 2;
 }
 
-export function assertGroundingCallBudget(serpCallsSoFar = 0): void {
-  const max = getGeminiGroundingMaxCallsPerBlog();
+export function getGeminiGroundingMaxCallsForInsights(): number {
+  const raw = process.env.RESEARCH_GROUNDING_MAX_CALLS?.trim();
+  const parsed = raw ? Number.parseInt(raw, 10) : 4;
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 4;
+}
+
+export function assertGroundingCallBudget(
+  serpCallsSoFar = 0,
+  maxCalls?: number
+): void {
+  const max = maxCalls ?? getGeminiGroundingMaxCallsPerBlog();
   if (serpCallsSoFar >= max) {
     throw new GroundingCallBudgetExceededError(serpCallsSoFar, max);
   }
+}
+
+export function assertInsightsGroundingCallBudget(serpCallsSoFar = 0): void {
+  assertGroundingCallBudget(serpCallsSoFar, getGeminiGroundingMaxCallsForInsights());
 }
 
 export function isGroundingQuotaError(error: unknown): boolean {
@@ -67,7 +83,7 @@ function buildSearchQuery(input: GroundedSerpResearchInput): string {
   return parts.join(" ");
 }
 
-/** Minimal SERP brief when Search grounding RPD is exhausted — title/body use 3.1 Flash Lite. */
+/** Minimal SERP brief when Search grounding RPD is exhausted, title/body use 3.1 Flash Lite. */
 export function buildFallbackSerpBrief(
   input: GroundedSerpResearchInput
 ): SerpResearchBrief {

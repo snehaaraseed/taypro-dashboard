@@ -26,6 +26,7 @@ export const REDIRECTED_BLOG_SLUGS = new Set([
   "performance-ratio-utility-solar-plant-india",
   "solar-plant-commissioning-robot-integration-checklist",
   "waterless-vs-manual-solar-cleaning-cost-10-mw-india",
+  "how-to-choose-best-solar-panels",
 ]);
 
 /** Destination paths (blog slug or site path). */
@@ -81,6 +82,8 @@ export const REDIRECTED_BLOG_TARGETS: Record<string, string> = {
     "/blog/optimizing-best-pv-panels-commissioning-robot-integration-checklists",
   "waterless-vs-manual-solar-cleaning-cost-10-mw-india":
     "/blog/waterless-robotic-vs-manual-cleaning-cost-comparison-for-10-mw-plant-india",
+  "how-to-choose-best-solar-panels":
+    "/blog/how-to-choose-best-solar-panels-in-india",
 };
 
 export function isRedirectedBlogSlug(slug: string): boolean {
@@ -89,4 +92,25 @@ export function isRedirectedBlogSlug(slug: string): boolean {
 
 export function redirectedBlogTarget(slug: string): string | null {
   return REDIRECTED_BLOG_TARGETS[slug] ?? null;
+}
+
+/** Canonical `/blog/...` path for links (avoids 308 from legacy slugs). */
+export function canonicalBlogHref(slug: string): string {
+  return REDIRECTED_BLOG_TARGETS[slug] ?? `/blog/${slug}`;
+}
+
+/** Winning slug after legacy redirects (for hreflang grouping). */
+export function canonicalBlogSlug(slug: string): string {
+  const href = canonicalBlogHref(slug);
+  return href.startsWith("/blog/") ? href.slice("/blog/".length) : slug;
+}
+
+/** All legacy slugs that resolve to the same canonical blog post. */
+export function blogSlugVariants(slug: string): string[] {
+  const canonical = canonicalBlogSlug(slug);
+  const variants = new Set<string>([slug, canonical]);
+  for (const [legacy, target] of Object.entries(REDIRECTED_BLOG_TARGETS)) {
+    if (target === `/blog/${canonical}`) variants.add(legacy);
+  }
+  return [...variants];
 }

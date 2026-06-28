@@ -75,7 +75,7 @@ for (const path of MONEY_PATHS) {
   );
 }
 
-// Coming-soon pages should be noindex
+// MINY and ORION product pages are indexable (linked from nav, home, sitemap).
 for (const path of [
   "/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot",
   "/solar-panel-cleaning-system/orion-plant-intelligence-platform",
@@ -83,10 +83,10 @@ for (const path of [
   const html = await fetch(`${BASE}${path}`, {
     headers: { "User-Agent": "Taypro-SEO-Audit/1.0" },
   }).then((r) => r.text());
-  if (!/name="robots" content="[^"]*noindex/i.test(html)) {
-    failures.push(`${path}: expected noindex`);
+  if (/name="robots" content="[^"]*noindex/i.test(html)) {
+    failures.push(`${path}: must not be noindex`);
   } else {
-    console.log(`OK ${path} | noindex present`);
+    console.log(`OK ${path} | indexable (no noindex)`);
   }
 }
 

@@ -1,5 +1,5 @@
 /**
- * Hero text sizing — SSR-computed clamp from line length (no client JS, no reload flash).
+ * Hero text sizing, SSR-computed clamp from line length (no client JS, no reload flash).
  */
 export const HERO_HEADLINE_FONT = { minPx: 11, maxPx: 60, absoluteMaxPx: 96 };
 export const HERO_SUBHEAD_FONT = { minPx: 8, maxPx: 16, absoluteMaxPx: 24 };

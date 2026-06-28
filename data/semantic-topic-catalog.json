@@ -1,0 +1,1680 @@
+{
+  "version": 1,
+  "description": "Semantic domain catalog for Taypro solar O&M blog automation, maps domains to intent families, sub-angles, and context dimensions.",
+  "domains": [
+    {
+      "id": "cleaning_methods",
+      "label": "Solar panel cleaning methods",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/solar-panel-cleaning-system",
+      "moneyPageOwner": "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
+      "subAngles": [
+        {
+          "id": "dry_brush_pass",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "How to Deploy {keyword} Dry Brush Cleaning on {geo} Utility Plants",
+          "angleId": "dry-brush-guide",
+          "archetype": "complete_guide"
+        },
+        {
+          "id": "waterless_vs_wet",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "{keyword}: Waterless vs Wet Cleaning for {geo} Dust Belts",
+          "angleId": "waterless-compare",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "method_opex_impact",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "The Economics of {keyword}: OPEX Impact on 50MW+ Plants in {geo}",
+          "angleId": "method-roi",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "oem_warranty_safe",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "Is {keyword} Safe for Tier-1 Modules? Warranty Checklist for {geo}",
+          "angleId": "warranty-safe",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "failed_manual_cycles",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Why Manual {keyword} Fails on Heavy Soiling Sites in {geo}",
+          "angleId": "manual-failure",
+          "archetype": "mistakes_listicle"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["rajasthan", "gujarat", "karnataka", "pan_india"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "ground_mount"],
+        "season": ["pre_monsoon", "winter_dust", "summer_peak"],
+        "buyerRole": ["asset_owner", "om_contractor", "plant_manager"]
+      }
+    },
+    {
+      "id": "cleaning_economics",
+      "label": "Cleaning economics & frequency",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/solar-cleaning-opex-pricing",
+      "moneyPageOwner": "/solar-cleaning-opex-pricing",
+      "subAngles": [
+        {
+          "id": "frequency_schedule",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "{keyword} Cleaning Frequency: O&M Schedule for {geo} Utility Plants",
+          "angleId": "freq-50mw",
+          "archetype": "frequency_guide"
+        },
+        {
+          "id": "cost_per_mw",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "{keyword} Cost per MW in {geo}: Budget Line Items for Asset Owners",
+          "angleId": "cost-mw-india",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "under_cleaning_loss",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Signs You Are Under-Cleaning {keyword} on {geo} Solar Assets",
+          "angleId": "under-clean",
+          "archetype": "mistakes_listicle"
+        },
+        {
+          "id": "robot_vs_manual_tco",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "Robotic vs Manual {keyword}: Five-Year TCO in {geo}",
+          "angleId": "robot-eval",
+          "archetype": "manual_vs_robot"
+        },
+        {
+          "id": "contract_pricing_risk",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "Pricing {keyword} Contracts Without Hidden OPEX Surprises in {geo}",
+          "angleId": "contract-risk",
+          "archetype": "checklist_playbook"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["rajasthan", "gujarat", "maharashtra", "pan_india"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker"],
+        "season": ["pre_monsoon", "monsoon", "post_monsoon"],
+        "buyerRole": ["asset_owner", "ipo_analyst", "om_contractor"]
+      }
+    },
+    {
+      "id": "soiling_pr",
+      "label": "Soiling loss & performance ratio",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/solar-plant-data-intelligence",
+      "moneyPageOwner": "/solar-plant-data-intelligence",
+      "subAngles": [
+        {
+          "id": "pr_baseline",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "How to Calculate {keyword} Performance Ratio on a 50MW Plant in {geo}",
+          "angleId": "default-guide",
+          "archetype": "complete_guide"
+        },
+        {
+          "id": "yield_loss_inr",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "{keyword} Soiling Loss: MWh and INR Impact for {geo} Asset Owners",
+          "angleId": "default-om",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "pr_drift_diagnosis",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Diagnosing PR Drift from {keyword} on {geo} Utility Sites",
+          "angleId": "pr-drift",
+          "archetype": "weather_soiling"
+        },
+        {
+          "id": "soiling_vs_degradation",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "{keyword}: Separating Soiling Loss from Module Degradation in {geo}",
+          "angleId": "soiling-vs-deg",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "metering_compliance",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "Documenting {keyword} PR Baselines for Lender and PPA Reviews in {geo}",
+          "angleId": "pr-compliance",
+          "archetype": "checklist_playbook"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["rajasthan", "gujarat", "karnataka", "pan_india"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "bifacial"],
+        "season": ["pre_monsoon", "winter_dust", "summer_peak"],
+        "buyerRole": ["asset_owner", "plant_manager", "ipo_analyst"]
+      }
+    },
+    {
+      "id": "module_procurement",
+      "label": "Module procurement & compatibility",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/cleaning-technology",
+      "subAngles": [
+        {
+          "id": "oem_cleaning_spec",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "How to Align {keyword} Cleaning Specs with Module OEM Requirements in {geo}",
+          "angleId": "oem-spec",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "tier1_vs_tier2",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "{keyword} Module Tiers: Cleaning Compatibility Matrix for {geo} EPCs",
+          "angleId": "tier-compare",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "procurement_tco",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "Procurement Economics of {keyword} Modules: Cleaning OPEX Over 25 Years in {geo}",
+          "angleId": "procurement-roi",
+          "archetype": "price_capex_bridge"
+        },
+        {
+          "id": "warranty_void_risk",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "Will {keyword} Cleaning Void Module Warranties on {geo} Plants?",
+          "angleId": "warranty-void",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "glass_coating_failures",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Fixing {keyword} Cleaning Failures on AR-Coated Modules in {geo}",
+          "angleId": "coating-fail",
+          "archetype": "mistakes_listicle"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["pan_india", "rajasthan", "gujarat"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "bifacial"],
+        "buyerRole": ["epc", "asset_owner", "om_contractor"]
+      }
+    },
+    {
+      "id": "inverter_bos",
+      "label": "Inverter & balance-of-system O&M",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/utility-scale-solar-operations",
+      "subAngles": [
+        {
+          "id": "bos_inspection",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "How to Integrate {keyword} BOS Inspections with Cleaning Cycles on {geo} Plants",
+          "angleId": "bos-inspect",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "inverter_downtime_cost",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "{keyword} Inverter Downtime Costs vs Cleaning Window Planning in {geo}",
+          "angleId": "downtime-roi",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "central_vs_string",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "{keyword}: Central vs String Inverter O&M Trade-offs for {geo} Fleets",
+          "angleId": "inverter-compare",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "arc_flash_compliance",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "Safety Compliance for {keyword} Work Near Live BOS on {geo} Sites",
+          "angleId": "safety-compliance",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "clipping_soiling",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Is {keyword} Loss Inverter Clipping or Soiling? Root Cause on {geo} Assets",
+          "angleId": "clipping-diagnose",
+          "archetype": "mistakes_listicle"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["pan_india", "rajasthan", "gujarat", "karnataka"],
+        "scale": ["50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "ground_mount"],
+        "buyerRole": ["plant_manager", "om_contractor", "asset_owner"]
+      }
+    },
+    {
+      "id": "tracker_geometry",
+      "label": "Tracker geometry & cleaning access",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/cleaning-technology",
+      "moneyPageOwner": "/cleaning-technology",
+      "subAngles": [
+        {
+          "id": "row_clearance",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "How to Design {keyword} Row Clearance for Tracker Cleaning in {geo}",
+          "angleId": "row-clearance",
+          "archetype": "complete_guide"
+        },
+        {
+          "id": "stow_position",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "Optimal Tracker Stow Angles for {keyword} Robot Passes on {geo} Sites",
+          "angleId": "stow-angle",
+          "archetype": "frequency_guide"
+        },
+        {
+          "id": "tracker_vs_fixed",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "{keyword} on Single-Axis Trackers vs Fixed Tilt in {geo}",
+          "angleId": "tracker-fixed",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "collision_risk",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "Preventing {keyword} Robot Collisions with Tracker Structures in {geo}",
+          "angleId": "collision-risk",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "misalignment_loss",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Fixing {keyword} Losses from Tracker Misalignment on {geo} Rows",
+          "angleId": "misalign-fix",
+          "archetype": "mistakes_listicle"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["rajasthan", "gujarat", "karnataka"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["single_axis_tracker"],
+        "season": ["pre_monsoon", "summer_peak"],
+        "buyerRole": ["epc", "plant_manager", "om_contractor"]
+      }
+    },
+    {
+      "id": "plant_operations",
+      "label": "Utility-scale plant operations",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/utility-scale-solar-operations",
+      "moneyPageOwner": "/utility-scale-solar-operations",
+      "subAngles": [
+        {
+          "id": "daily_om_routine",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "Daily {keyword} O&M Routines for 100MW+ Plants in {geo}",
+          "angleId": "daily-om",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "night_shift_cleaning",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "Scheduling {keyword} Night Cleaning Windows Without Grid Curtailment in {geo}",
+          "angleId": "night-window",
+          "archetype": "frequency_guide"
+        },
+        {
+          "id": "om_cost_benchmark",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "{keyword} O&M Cost Benchmarks for Utility Plants in {geo}",
+          "angleId": "om-benchmark",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "manual_vs_automated_ops",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "Manual vs Automated {keyword} Operations Models on {geo} Fleets",
+          "angleId": "ops-compare",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "crew_shortage",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Solving {keyword} Crew Shortages on Remote {geo} Solar Sites",
+          "angleId": "crew-shortage",
+          "archetype": "general_om"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["pan_india", "rajasthan", "gujarat", "maharashtra"],
+        "scale": ["50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "ground_mount"],
+        "season": ["pre_monsoon", "monsoon", "post_monsoon", "winter_dust"],
+        "buyerRole": ["plant_manager", "om_contractor", "asset_owner"]
+      }
+    },
+    {
+      "id": "monitoring_data",
+      "label": "Monitoring & plant data intelligence",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/solar-plant-data-intelligence",
+      "moneyPageOwner": "/solar-plant-data-intelligence",
+      "subAngles": [
+        {
+          "id": "soiling_detection",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "How to Detect {keyword} Soiling from SCADA Data on {geo} Plants",
+          "angleId": "soiling-detect",
+          "archetype": "complete_guide"
+        },
+        {
+          "id": "data_driven_frequency",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "Data-Driven {keyword} Cleaning Triggers for {geo} Asset Portfolios",
+          "angleId": "data-trigger",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "analytics_roi",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "ROI of {keyword} Analytics vs Fixed Cleaning Schedules in {geo}",
+          "angleId": "analytics-roi",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "scada_vs_iot",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "{keyword}: SCADA-Only vs IoT Soiling Sensors on {geo} Sites",
+          "angleId": "scada-iot",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "false_positive_alerts",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Fixing False {keyword} Soiling Alerts on {geo} Monitoring Dashboards",
+          "angleId": "false-alert",
+          "archetype": "mistakes_listicle"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["pan_india", "rajasthan", "gujarat"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker"],
+        "buyerRole": ["plant_manager", "asset_owner", "om_contractor"]
+      }
+    },
+    {
+      "id": "state_dust_belts",
+      "label": "Indian state dust belts & soiling zones",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/utility-scale-solar-operations",
+      "subAngles": [
+        {
+          "id": "regional_soiling_rates",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "Typical {keyword} Soiling Rates Across Indian Dust Belts in {geo}",
+          "angleId": "regional-rates",
+          "archetype": "complete_guide"
+        },
+        {
+          "id": "state_opex_variance",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "{keyword} Cleaning OPEX Variance by State: {geo} vs National Average",
+          "angleId": "state-opex",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "dust_storm_response",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Emergency {keyword} Protocols After Dust Storms in {geo}",
+          "angleId": "storm-response",
+          "archetype": "weather_soiling"
+        },
+        {
+          "id": "regional_method_choice",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "Best {keyword} Cleaning Methods for High-Dust {geo} Regions",
+          "angleId": "regional-method",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "environmental_permits",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "{keyword} Water and Dust Compliance Rules for Solar in {geo}",
+          "angleId": "env-permit",
+          "archetype": "checklist_playbook"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["rajasthan", "gujarat", "karnataka", "maharashtra", "tamil_nadu", "pan_india"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "ground_mount"],
+        "season": ["pre_monsoon", "winter_dust", "summer_peak"],
+        "buyerRole": ["asset_owner", "epc", "om_contractor"]
+      }
+    },
+    {
+      "id": "scale_mw",
+      "label": "Plant scale & MW-tier operations",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/utility-scale-solar-operations",
+      "subAngles": [
+        {
+          "id": "10mw_playbook",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "{keyword} O&M Playbook for 10–50MW Plants in {geo}",
+          "angleId": "10mw-playbook",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "100mw_fleet",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "Scaling {keyword} Programs Across 100MW+ Portfolios in {geo}",
+          "angleId": "100mw-fleet",
+          "archetype": "complete_guide"
+        },
+        {
+          "id": "scale_economics",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "{keyword} Unit Economics: How Scale Changes Cleaning Cost in {geo}",
+          "angleId": "scale-econ",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "semi_auto_vs_full",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "Semi-Auto vs Full {keyword} Automation by Plant Size in {geo}",
+          "angleId": "auto-scale",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "understaffed_large_site",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Fixing {keyword} Gaps on Understaffed Large Sites in {geo}",
+          "angleId": "understaffed",
+          "archetype": "general_om"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["pan_india", "rajasthan", "gujarat"],
+        "scale": ["under_10mw", "10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "ground_mount"],
+        "buyerRole": ["asset_owner", "om_contractor", "plant_manager"]
+      }
+    },
+    {
+      "id": "rooftop_ci",
+      "label": "Rooftop & C&I solar O&M",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/solar-panel-cleaning-system",
+      "subAngles": [
+        {
+          "id": "rooftop_access",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "How to Plan {keyword} Cleaning on Rooftop C&I Sites in {geo}",
+          "angleId": "rooftop-access",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "ci_payback",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "{keyword} Cleaning Payback for C&I Tariffs in {geo}",
+          "angleId": "ci-payback",
+          "archetype": "price_capex_bridge"
+        },
+        {
+          "id": "manual_vs_robot_rooftop",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "Manual vs Robotic {keyword} on Rooftop Arrays in {geo}",
+          "angleId": "rooftop-compare",
+          "archetype": "manual_vs_robot"
+        },
+        {
+          "id": "fall_protection",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "Safety and Warranty Compliance for {keyword} on {geo} Rooftops",
+          "angleId": "roof-safety",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "partial_shading_clean",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Fixing Uneven {keyword} Soiling on Partially Shaded Rooftops in {geo}",
+          "angleId": "shade-soiling",
+          "archetype": "mistakes_listicle"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["maharashtra", "karnataka", "tamil_nadu", "pan_india"],
+        "scale": ["under_10mw", "distributed"],
+        "plantType": ["rooftop"],
+        "season": ["pre_monsoon", "monsoon", "post_monsoon"],
+        "buyerRole": ["asset_owner", "plant_manager", "om_contractor"]
+      }
+    },
+    {
+      "id": "water_environment",
+      "label": "Water use & environmental constraints",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/compare/waterless-vs-water-based-solar-cleaning",
+      "moneyPageOwner": "/compare/waterless-vs-water-based-solar-cleaning",
+      "subAngles": [
+        {
+          "id": "waterless_methods",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "Waterless {keyword} Cleaning Methods for Water-Scarce {geo} Sites",
+          "angleId": "waterless-sprinkler",
+          "archetype": "complete_guide"
+        },
+        {
+          "id": "water_cost_savings",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "Annual Water Cost Savings from {keyword} Dry Cleaning in {geo}",
+          "angleId": "water-savings",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "waterless_vs_wet",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "{keyword}: Waterless vs Water-Based Cleaning in {geo}",
+          "angleId": "water-compare",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "groundwater_rules",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "{keyword} Groundwater and Discharge Rules for Solar Cleaning in {geo}",
+          "angleId": "water-compliance",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "hard_water_streaking",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Fixing {keyword} Mineral Streaking from Hard Water on {geo} Modules",
+          "angleId": "hard-water",
+          "archetype": "mistakes_listicle"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["rajasthan", "gujarat", "karnataka", "maharashtra"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "ground_mount"],
+        "season": ["pre_monsoon", "summer_peak"],
+        "buyerRole": ["asset_owner", "epc", "plant_manager"]
+      }
+    },
+    {
+      "id": "comparison_equipment",
+      "label": "Cleaning equipment comparisons",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/compare/solar-panel-cleaning-robot-vs-manual-cleaning",
+      "moneyPageOwner": "/compare/solar-panel-cleaning-robot-vs-manual-cleaning",
+      "subAngles": [
+        {
+          "id": "robot_vs_brush",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "{keyword}: Robotic vs Brush-Based Cleaning for {geo} Utility Plants",
+          "angleId": "robot-brush",
+          "archetype": "manual_vs_robot"
+        },
+        {
+          "id": "vendor_matrix",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "{keyword} Equipment Comparison Matrix for Indian O&M Teams in {geo}",
+          "angleId": "vendor-matrix",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "equipment_tco",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "Five-Year TCO of {keyword} Cleaning Equipment on 50MW {geo} Assets",
+          "angleId": "equip-tco",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "compatibility_checklist",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "How to Evaluate {keyword} Equipment Compatibility on {geo} Trackers",
+          "angleId": "equip-compat",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "wrong_equipment_choice",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Why the Wrong {keyword} Equipment Fails on {geo} Dust Belts",
+          "angleId": "wrong-equip",
+          "archetype": "mistakes_listicle"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["pan_india", "rajasthan", "gujarat"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker"],
+        "buyerRole": ["om_contractor", "asset_owner", "epc"]
+      }
+    },
+    {
+      "id": "regulatory_warranty",
+      "label": "Regulatory compliance & warranties",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "subAngles": [
+        {
+          "id": "warranty_documentation",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "Documenting {keyword} Cleaning for Module Warranty Claims in {geo}",
+          "angleId": "warranty-docs",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "insurance_implications",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "Insurance and Liability When {keyword} Cleaning Goes Wrong in {geo}",
+          "angleId": "insurance-risk",
+          "archetype": "general_om"
+        },
+        {
+          "id": "certification_requirements",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "Certifications Required for {keyword} Cleaning Contractors in {geo}",
+          "angleId": "cert-guide",
+          "archetype": "complete_guide"
+        },
+        {
+          "id": "compliance_cost",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "Cost of {keyword} Compliance vs Warranty Void Risk on {geo} Plants",
+          "angleId": "compliance-cost",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "voided_claims",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Recovering from Voided {keyword} Warranties Due to Improper Cleaning in {geo}",
+          "angleId": "void-recovery",
+          "archetype": "mistakes_listicle"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["pan_india", "rajasthan", "gujarat", "maharashtra"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "rooftop", "bifacial"],
+        "buyerRole": ["asset_owner", "epc", "om_contractor"]
+      }
+    },
+    {
+      "id": "seasonal_operations",
+      "label": "Seasonal O&M & cleaning calendars",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/utility-scale-solar-operations",
+      "subAngles": [
+        {
+          "id": "pre_monsoon_pass",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "Pre-Monsoon {keyword} Cleaning Calendar for {geo} Solar Fleets",
+          "angleId": "pre-monsoon",
+          "archetype": "frequency_guide"
+        },
+        {
+          "id": "monsoon_pause",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "When to Pause {keyword} Cleaning During Monsoon in {geo}",
+          "angleId": "monsoon-pause",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "seasonal_opex",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "Seasonal {keyword} OPEX Budgeting for {geo} Asset Owners",
+          "angleId": "season-opex",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "winter_dust_surge",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Managing {keyword} Winter Dust Surges on {geo} Utility Plants",
+          "angleId": "winter-dust",
+          "archetype": "weather_soiling"
+        },
+        {
+          "id": "seasonal_method_switch",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "Seasonal {keyword} Method Switching: Dry vs Wet on {geo} Sites",
+          "angleId": "season-compare",
+          "archetype": "comparison_matrix"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["rajasthan", "gujarat", "karnataka", "pan_india"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker"],
+        "season": ["pre_monsoon", "monsoon", "post_monsoon", "winter_dust", "summer_peak"],
+        "buyerRole": ["plant_manager", "om_contractor", "asset_owner"]
+      }
+    },
+    {
+      "id": "project_case_study",
+      "label": "Project case studies & field outcomes",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "subAngles": [
+        {
+          "id": "50mw_deployment",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "How a {geo} 50MW Plant Deployed {keyword} Robotic Cleaning",
+          "angleId": "50mw-case",
+          "archetype": "complete_guide"
+        },
+        {
+          "id": "pr_recovery_story",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "{keyword} PR Recovery: INR Impact from a {geo} Field Case",
+          "angleId": "pr-case",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "pilot_to_fleet",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "Pilot vs Fleet Rollout Lessons for {keyword} on {geo} Assets",
+          "angleId": "pilot-fleet",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "lessons_learned",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Five {keyword} Mistakes We Fixed on a {geo} Utility Project",
+          "angleId": "lessons",
+          "archetype": "mistakes_listicle"
+        },
+        {
+          "id": "handover_compliance",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "EPC Handover Checklist: {keyword} O&M from a {geo} Case Study",
+          "angleId": "handover-case",
+          "archetype": "checklist_playbook"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["rajasthan", "gujarat", "karnataka", "maharashtra", "pan_india"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "ground_mount"],
+        "buyerRole": ["asset_owner", "epc", "om_contractor"]
+      }
+    },
+    {
+      "id": "brush_equipment",
+      "label": "Brush systems & manual cleaning gear",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/compare/solar-panel-cleaning-robot-vs-manual-cleaning",
+      "subAngles": [
+        {
+          "id": "microfiber_standard",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "Why Microfiber {keyword} Brushes Are the Standard for {geo} Utility Cleaning",
+          "angleId": "microfiber",
+          "archetype": "complete_guide"
+        },
+        {
+          "id": "brush_vs_robot",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "{keyword} Brush Crews vs Robots on Long Rows in {geo}",
+          "angleId": "brush-robot",
+          "archetype": "manual_vs_robot"
+        },
+        {
+          "id": "brush_opex",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "Loaded OPEX of {keyword} Brush Cleaning on 100MW {geo} Plants",
+          "angleId": "brush-opex",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "microcrack_risk",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "Preventing Micro-Cracks When Using {keyword} Brushes in {geo}",
+          "angleId": "microcrack",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "brush_wear_failures",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Fixing {keyword} Streaking from Worn Brushes on {geo} Modules",
+          "angleId": "brush-wear",
+          "archetype": "mistakes_listicle"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["pan_india", "rajasthan", "gujarat"],
+        "scale": ["10_50mw", "50_100mw"],
+        "plantType": ["fixed_tilt", "single_axis_tracker"],
+        "buyerRole": ["om_contractor", "plant_manager", "asset_owner"]
+      }
+    },
+    {
+      "id": "robot_evaluation",
+      "label": "Robotic cleaning evaluation & pilots",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
+      "moneyPageOwner": "/solar-panel-cleaning-robot-price-india",
+      "subAngles": [
+        {
+          "id": "pilot_design",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "How to Run a {keyword} Robot Pilot on a {geo} Reference Block",
+          "angleId": "pilot-design",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "robot_payback",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "{keyword} Robot Payback Period on 50MW Plants in {geo}",
+          "angleId": "robot-payback",
+          "archetype": "price_capex_bridge"
+        },
+        {
+          "id": "vendor_shortlist",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "Shortlisting {keyword} Cleaning Robots for {geo} Tracker Fleets",
+          "angleId": "robot-shortlist",
+          "archetype": "robot_evaluation"
+        },
+        {
+          "id": "safety_certification",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "Safety and OEM Checks Before Buying {keyword} Robots in {geo}",
+          "angleId": "robot-safety",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "failed_pilot",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Why {keyword} Robot Pilots Fail on {geo} Utility Sites",
+          "angleId": "pilot-fail",
+          "archetype": "mistakes_listicle"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["rajasthan", "gujarat", "karnataka", "pan_india"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker"],
+        "buyerRole": ["asset_owner", "om_contractor", "epc"]
+      }
+    },
+    {
+      "id": "opex_contracts",
+      "label": "OPEX contracts & service models",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/solar-cleaning-opex-pricing",
+      "moneyPageOwner": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
+      "subAngles": [
+        {
+          "id": "sla_structure",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "How to Structure {keyword} OPEX SLAs for {geo} Utility Portfolios",
+          "angleId": "sla-structure",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "capex_vs_opex",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "{keyword}: CAPEX Robot Purchase vs OPEX Service in {geo}",
+          "angleId": "capex-opex",
+          "archetype": "price_capex_bridge"
+        },
+        {
+          "id": "contract_pricing",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "{keyword} OPEX Rate Benchmarks per MW in {geo}",
+          "angleId": "opex-rate",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "contract_red_flags",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "Red Flags in {keyword} O&M Contracts for {geo} Asset Owners",
+          "angleId": "contract-flags",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "vendor_underperformance",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Fixing Underperforming {keyword} OPEX Vendors on {geo} Sites",
+          "angleId": "vendor-under",
+          "archetype": "general_om"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["pan_india", "rajasthan", "gujarat", "maharashtra"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "ground_mount"],
+        "buyerRole": ["asset_owner", "ipo_analyst", "om_contractor"]
+      }
+    },
+    {
+      "id": "fleet_monitoring",
+      "label": "Fleet monitoring & multi-site oversight",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/solar-fleet-monitoring-software",
+      "moneyPageOwner": "/solar-fleet-monitoring-software",
+      "subAngles": [
+        {
+          "id": "fleet_dashboard",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "Building a {keyword} Fleet Cleaning Dashboard for {geo} Portfolios",
+          "angleId": "fleet-dash",
+          "archetype": "complete_guide"
+        },
+        {
+          "id": "multi_site_roi",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "ROI of Centralized {keyword} Monitoring Across {geo} Solar Fleets",
+          "angleId": "fleet-roi",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "platform_compare",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "{keyword} Fleet Tools: SCADA Add-On vs Dedicated Platforms in {geo}",
+          "angleId": "platform-compare",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "audit_trail",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "Audit Trails for {keyword} Cleaning Compliance on Multi-Site {geo} Assets",
+          "angleId": "audit-trail",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "blind_spots",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Finding {keyword} Blind Spots in Fleet Monitoring for {geo} O&M Teams",
+          "angleId": "blind-spots",
+          "archetype": "mistakes_listicle"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["pan_india", "rajasthan", "gujarat", "karnataka"],
+        "scale": ["50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "ground_mount"],
+        "buyerRole": ["asset_owner", "plant_manager", "om_contractor"]
+      }
+    },
+    {
+      "id": "module_degradation",
+      "label": "Module degradation vs soiling",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/solar-plant-data-intelligence",
+      "subAngles": [
+        {
+          "id": "deg_vs_soiling",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "{keyword}: Module Degradation vs Soiling Loss on {geo} Plants",
+          "angleId": "deg-soiling",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "iv_curve_baseline",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "Using IV Curve Data to Separate {keyword} Degradation from Dust in {geo}",
+          "angleId": "iv-baseline",
+          "archetype": "complete_guide"
+        },
+        {
+          "id": "deg_financial_impact",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "Financial Impact of Ignoring {keyword} Degradation on {geo} Assets",
+          "angleId": "deg-roi",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "warranty_claims",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "When {keyword} Degradation Triggers Module Warranty Reviews in {geo}",
+          "angleId": "deg-warranty",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "misattributed_loss",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Fixing Misattributed {keyword} Loss: Cleaning Won't Fix Degradation in {geo}",
+          "angleId": "misattribute",
+          "archetype": "mistakes_listicle"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["pan_india", "rajasthan", "gujarat"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "bifacial"],
+        "buyerRole": ["asset_owner", "plant_manager", "ipo_analyst"]
+      }
+    },
+    {
+      "id": "commissioning_om",
+      "label": "Commissioning & O&M handover",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/utility-scale-solar-operations",
+      "subAngles": [
+        {
+          "id": "handover_checklist",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "{keyword} O&M Handover Checklist from EPC to Asset Owner in {geo}",
+          "angleId": "handover-list",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "baseline_pr_setup",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "Setting {keyword} PR and Soiling Baselines at Commissioning in {geo}",
+          "angleId": "baseline-setup",
+          "archetype": "complete_guide"
+        },
+        {
+          "id": "om_budget_line",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "Budgeting {keyword} Cleaning O&M from Day One on {geo} Greenfield Sites",
+          "angleId": "om-budget",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "robot_vs_manual_handover",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "Specifying {keyword} Robot vs Manual Programs at EPC Handover in {geo}",
+          "angleId": "handover-compare",
+          "archetype": "manual_vs_robot"
+        },
+        {
+          "id": "missing_om_scope",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Fixing Missing {keyword} O&M Scope After {geo} Commissioning",
+          "angleId": "missing-scope",
+          "archetype": "mistakes_listicle"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["pan_india", "rajasthan", "gujarat", "karnataka"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "ground_mount"],
+        "buyerRole": ["epc", "asset_owner", "om_contractor"]
+      }
+    },
+    {
+      "id": "dust_belts_north",
+      "label": "North India dust belts (Rajasthan, Gujarat, MP)",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/utility-scale-solar-operations",
+      "subAngles": [
+        {
+          "id": "rajasthan_soiling",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "{keyword} Soiling Profile for Rajasthan Utility Plants",
+          "angleId": "raj-soiling",
+          "archetype": "weather_soiling"
+        },
+        {
+          "id": "north_opex",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "{keyword} Cleaning OPEX Benchmarks in North India Dust Belts",
+          "angleId": "north-opex",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "dry_vs_wet_north",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "{keyword}: Dry vs Wet Cleaning in Rajasthan and Gujarat",
+          "angleId": "north-compare",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "water_scarcity_north",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "Water Scarcity Compliance for {keyword} on North India Solar Sites",
+          "angleId": "north-water",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "dust_storm_north",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Recovering {keyword} PR After Dust Storms in North India",
+          "angleId": "north-storm",
+          "archetype": "weather_soiling"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["rajasthan", "gujarat", "north_india"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "ground_mount"],
+        "season": ["pre_monsoon", "winter_dust", "summer_peak"],
+        "buyerRole": ["asset_owner", "om_contractor", "plant_manager"]
+      }
+    },
+    {
+      "id": "dust_belts_west",
+      "label": "West India dust & coastal soiling",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/utility-scale-solar-operations",
+      "subAngles": [
+        {
+          "id": "gujarat_profile",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "{keyword} Soiling and Salt-Aerosol Profile for Gujarat Plants",
+          "angleId": "guj-profile",
+          "archetype": "weather_soiling"
+        },
+        {
+          "id": "west_opex",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "{keyword} Cleaning Economics in West India Dust Belts",
+          "angleId": "west-opex",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "coastal_vs_inland",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "{keyword} Cleaning: Coastal vs Inland West India Sites",
+          "angleId": "coastal-inland",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "salt_corrosion",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "Corrosion and Warranty Risks for {keyword} Near West India Coastlines",
+          "angleId": "salt-risk",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "humidity_soiling",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Fixing {keyword} Cemented Dust from Humidity on West India Modules",
+          "angleId": "humidity-dust",
+          "archetype": "mistakes_listicle"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["gujarat", "maharashtra", "west_india"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "ground_mount"],
+        "season": ["pre_monsoon", "monsoon", "summer_peak"],
+        "buyerRole": ["asset_owner", "om_contractor", "epc"]
+      }
+    },
+    {
+      "id": "inverter_maintenance",
+      "label": "Inverter maintenance & cleaning coordination",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/utility-scale-solar-operations",
+      "subAngles": [
+        {
+          "id": "coordinated_outages",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "Coordinating {keyword} Inverter Outages with Cleaning Windows in {geo}",
+          "angleId": "outage-coord",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "inverter_opex",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "True Cost of {keyword} Inverter Maintenance vs Soiling Loss in {geo}",
+          "angleId": "inverter-opex",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "preventive_vs_corrective",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "Preventive vs Corrective {keyword} Inverter Maintenance on {geo} Fleets",
+          "angleId": "prev-correct",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "lockout_tagout",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "LOTO and Safety for {keyword} Work During Inverter Maintenance in {geo}",
+          "angleId": "loto",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "recurring_trips",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Diagnosing Recurring {keyword} Inverter Trips vs Soiling on {geo} Plants",
+          "angleId": "inverter-trips",
+          "archetype": "mistakes_listicle"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["pan_india", "rajasthan", "gujarat", "karnataka"],
+        "scale": ["50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "ground_mount"],
+        "buyerRole": ["plant_manager", "om_contractor", "asset_owner"]
+      }
+    },
+    {
+      "id": "tracker_om",
+      "label": "Tracker O&M & cleaning integration",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/cleaning-technology",
+      "moneyPageOwner": "/cleaning-technology",
+      "subAngles": [
+        {
+          "id": "tracker_cleaning_schedule",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "Integrating {keyword} Cleaning with Tracker O&M Schedules in {geo}",
+          "angleId": "tracker-schedule",
+          "archetype": "frequency_guide"
+        },
+        {
+          "id": "tracker_downtime",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "Cost of {keyword} Tracker Downtime vs Deferred Cleaning in {geo}",
+          "angleId": "tracker-downtime",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "robot_tracker_fit",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "{keyword} Robot Options for Single-Axis Trackers in {geo}",
+          "angleId": "tracker-robot",
+          "archetype": "robot_evaluation"
+        },
+        {
+          "id": "motor_drive_safety",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "Safety Around {keyword} Tracker Drives During Cleaning in {geo}",
+          "angleId": "drive-safety",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "tracker_fault_cleaning",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Fixing {keyword} Cleaning Gaps When Trackers Are Faulted in {geo}",
+          "angleId": "fault-clean",
+          "archetype": "general_om"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["rajasthan", "gujarat", "karnataka", "pan_india"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["single_axis_tracker"],
+        "season": ["pre_monsoon", "summer_peak"],
+        "buyerRole": ["plant_manager", "om_contractor", "epc"]
+      }
+    },
+    {
+      "id": "bifacial_soiling",
+      "label": "Bifacial module soiling & albedo",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/cleaning-technology",
+      "subAngles": [
+        {
+          "id": "rear_soiling",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "How to Clean {keyword} Bifacial Rear Surfaces on {geo} Trackers",
+          "angleId": "rear-clean",
+          "archetype": "complete_guide"
+        },
+        {
+          "id": "bifacial_gain_loss",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "{keyword} Bifacial Gain Loss from Soiling on {geo} Plants",
+          "angleId": "bifacial-roi",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "mono_vs_bifacial",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "{keyword} Soiling: Monofacial vs Bifacial Modules in {geo}",
+          "angleId": "mono-bifacial",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "rear_warranty",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "Warranty Considerations for {keyword} Bifacial Rear Cleaning in {geo}",
+          "angleId": "rear-warranty",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "uneven_rear_dust",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Fixing Uneven {keyword} Rear Soiling on Bifacial Rows in {geo}",
+          "angleId": "rear-uneven",
+          "archetype": "mistakes_listicle"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["rajasthan", "gujarat", "karnataka"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["bifacial", "single_axis_tracker"],
+        "season": ["pre_monsoon", "winter_dust"],
+        "buyerRole": ["asset_owner", "epc", "plant_manager"]
+      }
+    },
+    {
+      "id": "scada_integration",
+      "label": "SCADA integration & data pipelines",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/solar-plant-data-intelligence",
+      "subAngles": [
+        {
+          "id": "scada_cleaning_tags",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "How to Add {keyword} Cleaning Tags to Existing SCADA in {geo}",
+          "angleId": "scada-tags",
+          "archetype": "complete_guide"
+        },
+        {
+          "id": "integration_cost",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "Cost of {keyword} SCADA Integration vs Manual Reporting in {geo}",
+          "angleId": "scada-cost",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "api_vs_manual",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "{keyword}: SCADA API vs Spreadsheet O&M Tracking in {geo}",
+          "angleId": "api-compare",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "data_governance",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "Data Governance for {keyword} Cleaning Logs on {geo} Utility SCADA",
+          "angleId": "data-gov",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "sync_failures",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Fixing {keyword} SCADA Sync Failures After Cleaning Events in {geo}",
+          "angleId": "sync-fail",
+          "archetype": "mistakes_listicle"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["pan_india", "rajasthan", "gujarat"],
+        "scale": ["50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "ground_mount"],
+        "buyerRole": ["plant_manager", "om_contractor", "asset_owner"]
+      }
+    },
+    {
+      "id": "amc_services",
+      "label": "AMC & managed cleaning services",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/solar-panel-cleaning-service-india",
+      "moneyPageOwner": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
+      "subAngles": [
+        {
+          "id": "amc_scope",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "What to Include in a {keyword} AMC Scope for {geo} Utility Plants",
+          "angleId": "amc-scope",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "amc_vs_inhouse",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "{keyword} AMC vs In-House O&M Teams on {geo} Fleets",
+          "angleId": "amc-inhouse",
+          "archetype": "comparison_matrix"
+        },
+        {
+          "id": "amc_pricing",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "{keyword} AMC Pricing Models per MW in {geo}",
+          "angleId": "amc-price",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "sla_penalties",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "SLA Penalties and Exit Clauses in {keyword} AMC Contracts in {geo}",
+          "angleId": "sla-penalty",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "amc_gaps",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "Fixing Gaps When Your {keyword} AMC Vendor Misses Cleaning Cycles in {geo}",
+          "angleId": "amc-gaps",
+          "archetype": "general_om"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["pan_india", "rajasthan", "gujarat", "maharashtra"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "rooftop"],
+        "buyerRole": ["asset_owner", "om_contractor", "plant_manager"]
+      }
+    },
+    {
+      "id": "vendor_selection",
+      "label": "Vendor selection & procurement",
+      "allowedIntents": [
+        "technical_howto",
+        "financial_roi",
+        "risk_compliance",
+        "comparison_alternative",
+        "troubleshooting_problem"
+      ],
+      "pillarPath": "/solar-panel-cleaning-service-india",
+      "subAngles": [
+        {
+          "id": "rfp_checklist",
+          "intentFamily": "technical_howto",
+          "titleTemplate": "RFP Checklist for {keyword} Cleaning Vendors on {geo} Utility Projects",
+          "angleId": "rfp-checklist",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "vendor_shortlist",
+          "intentFamily": "comparison_alternative",
+          "titleTemplate": "Shortlisting {keyword} Solar Cleaning Vendors for {geo} IPPs",
+          "angleId": "vendor-list",
+          "archetype": "vendor_shortlist"
+        },
+        {
+          "id": "procurement_tco",
+          "intentFamily": "financial_roi",
+          "titleTemplate": "TCO Framework for {keyword} Vendor Selection on 50MW {geo} Assets",
+          "angleId": "vendor-tco",
+          "archetype": "cost_breakdown"
+        },
+        {
+          "id": "due_diligence",
+          "intentFamily": "risk_compliance",
+          "titleTemplate": "Due Diligence Questions for {keyword} Cleaning Vendors in {geo}",
+          "angleId": "due-diligence",
+          "archetype": "checklist_playbook"
+        },
+        {
+          "id": "vendor_switch",
+          "intentFamily": "troubleshooting_problem",
+          "titleTemplate": "How to Switch {keyword} Cleaning Vendors Mid-Contract in {geo}",
+          "angleId": "vendor-switch",
+          "archetype": "general_om"
+        }
+      ],
+      "contextDimensions": {
+        "geo": ["pan_india", "rajasthan", "gujarat", "karnataka", "maharashtra"],
+        "scale": ["10_50mw", "50_100mw", "100mw_plus"],
+        "plantType": ["fixed_tilt", "single_axis_tracker", "ground_mount", "rooftop"],
+        "buyerRole": ["asset_owner", "epc", "om_contractor"]
+      }
+    }
+  ]
+}

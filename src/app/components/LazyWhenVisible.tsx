@@ -6,7 +6,7 @@ type LazyWhenVisibleProps = {
   children: ReactNode;
   /** Tailwind min-height class while waiting for intersection (e.g. min-h-[280px]) */
   placeholderClassName?: string;
-  /** @deprecated Prefer placeholderClassName — avoids inline minHeight styles */
+  /** @deprecated Prefer placeholderClassName: avoids inline minHeight styles */
   minHeight?: number | string;
   className?: string;
   rootMargin?: string;

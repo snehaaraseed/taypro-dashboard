@@ -175,7 +175,8 @@
       },
       "secondaryCta": "احسب العائد",
       "heroImageAlt": "روبوتات Taypro, GLYDE أوتوماتيكي وHELYX شبه أوتوماتيكي وGLYDE-X للمتتبع",
-      "heroImageTitle": "روبوتات تنظيف الألواح الشمسية من Taypro"
+      "heroImageTitle": "روبوتات تنظيف الألواح الشمسية من Taypro",
+      "subtitleShort": "Waterless robots for India's utility-scale plants — GLYDE, HELYX, GLYDE-X, NYUMA, and managed cleaning. CAPEX or pay-per-panel service."
     },
     "heroStats": {
       "stat0": {
@@ -308,7 +309,7 @@
       },
       "accessoryEyebrow": "ملحقات الأسطول",
       "accessoryTitle": "وسّع وصول الروبوت عبر المحطات المبعثرة",
-      "accessorySubtitle": "CRADYL متوفر اليوم — إرساء نقل ذاتي على قضبان نهاية الصف.",
+      "accessorySubtitle": "CRADYL متوفر اليوم, إرساء نقل ذاتي على قضبان نهاية الصف.",
       "accessoryHighlights": {
         "cradyl": {
           "eyebrow": "إرساء · نقل بين الصفوف",
@@ -375,8 +376,8 @@
       "tayproVsAegeus": "Taypro vs Aegeus",
       "tayproVsVayu": "Taypro vs Vayu Solar",
       "waterlessVsWater": "Waterless vs water-based cleaning",
-      "glydeVsNyuma": "GLYDE vs NYUMA — روبوتات fixed-tilt",
-      "glydeXVsNyumaX": "GLYDE-X vs NYUMA-X — روبوتات tracker"
+      "glydeVsNyuma": "GLYDE vs NYUMA: روبوتات fixed-tilt",
+      "glydeXVsNyumaX": "GLYDE-X vs NYUMA-X: روبوتات tracker"
     },
     "comparison": {
       "eyebrow": "مقارنة جنباً إلى جنب",
@@ -468,7 +469,7 @@
       "videoTitle": "شاهد روبوتات Taypro تنظف محطة مرافق",
       "videoCaption": "روبوتات تنظيف أوتوماتيكية بدون ماء في مواقع هندية على نطاق المرافق.",
       "transcriptToggle": "Video transcript (for accessibility & search)",
-      "transcriptP1": "This overview shows Taypro autonomous solar panel cleaning robots operating on utility-scale arrays in India. Robots traverse fixed-tilt rows using waterless dual-pass cleaning — airflow lifts dry dust, then microfiber completes the wipe without water or detergents.",
+      "transcriptP1": "This overview shows Taypro autonomous solar panel cleaning robots operating on utility-scale arrays in India. Robots traverse fixed-tilt rows using waterless dual-pass cleaning, airflow lifts dry dust, then microfiber completes the wipe without water or detergents.",
       "transcriptP2": "Fleet schedules and completion data feed into NECTYR, Taypro's monitoring portal, so O&M teams can audit block-wise cleaning history alongside inverter performance. Deployments combine GLYDE and NYUMA-class robots depending on row geometry and soiling class.",
       "transcriptP3": "For procurement teams comparing cleaning machines and robots, Taypro offers CAPEX purchase with AMC or Opex pay-per-panel-cleaned service on the same hardware platforms shown in the field footage."
     },
@@ -496,7 +497,7 @@
       },
       "stateGuides": {
         "heading": "أدلة النشر الإقليمية",
-        "intro": "استكشف روبوتات تنظيف الألواح الشمسية حسب الولاية — سياق التلوث، المشاريع الحية، وإرشادات RFQ:",
+        "intro": "استكشف روبوتات تنظيف الألواح الشمسية حسب الولاية, سياق التلوث، المشاريع الحية، وإرشادات RFQ:",
         "rajasthan": "Rajasthan",
         "gujarat": "Gujarat",
         "madhyaPradesh": "Madhya Pradesh",
@@ -671,7 +672,7 @@
     "marketComparison": {
       "eyebrow": "اختيار نهج التنظيف",
       "title": "كيف تقارن Taypro بأساليب التنظيف الروبوتية الأخرى",
-      "subtitle": "يشترط مشترو المرافق طريقة التنظيف والنموذج التجاري وبرمجيات الأسطول والدعم المحلي في الهند — لا كتيبات الروبوت وحدها. استخدم هذا العرض عند تقييم Taypro مقابل الغسل الرطب أو روبوتات جافة مستوردة أو تشغيل وصيانة بالعمالة فقط.",
+      "subtitle": "يشترط مشترو المرافق طريقة التنظيف والنموذج التجاري وبرمجيات الأسطول والدعم المحلي في الهند, لا كتيبات الروبوت وحدها. استخدم هذا العرض عند تقييم Taypro مقابل الغسل الرطب أو روبوتات جافة مستوردة أو تشغيل وصيانة بالعمالة فقط.",
       "intro": "Taypro OEM Made in India بنشر أكثر من 5 جيجاوات من القدرة الروبوتية، تنظيف جاف ثنائي المرور على GLYDE وGLYDE-X، PBT أحادي المرور على NYUMA وNYUMA-X وHELYX، بوابة أسطول NECTYR، وخدمة Opex اختيارية بالدفع لكل لوحة. تقارن الجدول الأساليب النموذجية في RFQ الهندية دون ذكر أسماء الموردين.",
       "tableHeaders": {
         "criteria": "ما يجب تقييمه",
@@ -846,7 +847,7 @@
     "clients": {
       "heading": "Trusted by India's leading solar operators",
       "trustedBy": "Trusted by {names} and other IPPs, EPCs, and C&I operators deploying Taypro cleaning robots across India.",
-      "logoAlt": "{name} — Taypro solar cleaning robot customer",
+      "logoAlt": "{name}, Taypro solar cleaning robot customer",
       "logoTitle": "{name}"
     },
     "consoleBand": {

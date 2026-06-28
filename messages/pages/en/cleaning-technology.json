@@ -2,7 +2,7 @@
   "CleaningTechnologyPage": {
     "meta": {
       "title": "Solar Panel Cleaning Robot Technology | Dual-Pass Dry & Hardware, Taypro",
-      "description": "Taypro cleaning technology: patented dual-pass waterless dry cleaning, self-powered GLYDE and GLYDE-X platforms (26 kg / 38 kg), 360° tracker bridges, 99%+ dust removal per cycle, and field-validated hardware across 5 GW+ daily fleet throughput in India. Fleet AI runs in NECTYR — see our AI intelligence page for the operations software layer.",
+      "description": "Taypro cleaning technology: patented dual-pass waterless dry cleaning, self-powered GLYDE and GLYDE-X platforms (26 kg / 38 kg), 360° tracker bridges, 99%+ dust removal per cycle, and field-validated hardware across 5 GW+ daily fleet throughput in India. Fleet AI runs in NECTYR: see our AI intelligence page for the operations software layer.",
       "keyword0": "solar panel cleaning robot technology",
       "keyword1": "waterless solar panel cleaning",
       "keyword2": "dual-pass solar cleaning",
@@ -22,13 +22,13 @@
     "schema": {
       "howToName": "How Taypro dual-pass waterless solar panel cleaning works",
       "howToDescription": "Two-stage dry cleaning for utility-scale solar: non-contact airflow dust removal, microfiber finish, and self-learning fleet AI via NECTYR across 5 GW+ daily operational throughput.",
-      "howToStep0Name": "Airflow pass — lift dry dust without contact",
+      "howToStep0Name": "Airflow pass, lift dry dust without contact",
       "howToStep0Text": "High-speed controlled airflow dislodges loose dust and sand without abrasive contact on module glass, reducing scratch risk compared with single-pass brush or combined air-brush systems.",
-      "howToStep1Name": "Microfiber pass — remove adhered residue",
+      "howToStep1Name": "Microfiber pass, remove adhered residue",
       "howToStep1Text": "Ultra-soft microfiber completes the wipe for pollen, agricultural film, or post-storm particulates airflow alone cannot clear. Wet-element sensors automatically postpone the cycle if dew or humidity has saturated the cloth.",
       "howToStep2Name": "AI-initiated cycle on the row",
       "howToStep2Text": "Self-powered automatic robots execute the dual-pass sequence at controlled speed while NECTYR logs position, progress, and telemetry for O&M audit trails and fleet-learning models.",
-      "howToStep3Name": "Fleet repeat — learning improves each cycle",
+      "howToStep3Name": "Fleet repeat, learning improves each cycle",
       "howToStep3Text": "Self-learning schedules adapt to weather, soiling, battery state, and fleet health. NECTYR can autonomously initiate, postpone, or accelerate cycles without operator calendar edits."
     },
     "hero": {
@@ -38,7 +38,7 @@
       "bodyStrong": "solar panel cleaning robots",
       "bodyMid": "that generate labelled telemetry on every row, operated through",
       "nectyrLink": "NECTYR",
-      "bodyAfter": "and refined by self-learning AI that improves with each of 11 billion+ annual panel passes. Over 5 GW of solar assets are cleaned daily across India's most demanding environments — throughput that compounds into a field data advantage no smaller fleet can replicate."
+      "bodyAfter": "and refined by self-learning AI that improves with each of 11 billion+ annual panel passes. Over 5 GW of solar assets are cleaned daily across India's most demanding environments, throughput that compounds into a field data advantage no smaller fleet can replicate."
     },
     "stats": {
       "ariaLabel": "Taypro technology scale",
@@ -50,14 +50,14 @@
     "techStack": {
       "eyebrow": "Architecture",
       "heading": "The Taypro cleaning technology stack",
-      "intro": "Four integrated layers — field hardware, fleet operations, self-learning intelligence, and compounding field data — designed so performance ratio gains are repeatable at utility scale.",
+      "intro": "Four integrated layers, field hardware, fleet operations, self-learning intelligence, and compounding field data, designed so performance ratio gains are repeatable at utility scale.",
       "layer0": {
         "title": "Patented dual-pass field hardware",
         "body": "Autonomous GLYDE, GLYDE-X, and semi-automatic HELYX execute waterless cleaning without grid power, water logistics, or crew placement per row. All automatic platforms are fully self-powered via on-board solar charging. Tracker platforms carry a patented 360° articulating flexible bridge; fixed-tilt platforms use continuous self-alignment on undulated terrain."
       },
       "layer1": {
         "title": "NECTYR fleet operations layer",
-        "body": "Scheduling, live robot visualisation on plant layout, block-level audit trails, AMC ticketing, and autonomous cycle initiation based on fleet rules and AI recommendations — not spreadsheet calendars. Operators see where each robot is, what progress it has made, and why it stopped before trucks roll."
+        "body": "Scheduling, live robot visualisation on plant layout, block-level audit trails, AMC ticketing, and autonomous cycle initiation based on fleet rules and AI recommendations, not spreadsheet calendars. Operators see where each robot is, what progress it has made, and why it stopped before trucks roll."
       },
       "layer2": {
         "title": "Self-learning fleet AI",
@@ -65,7 +65,7 @@
       },
       "layer3": {
         "title": "Predictive health intelligence",
-        "body": "Motor current, battery charge/discharge curves, brush torque, and sensor signal patterns build a health profile per robot. Deviation signatures that precede bearing wear, brush saturation, or controller degradation are flagged in NECTYR before downtime — hardware predictive maintenance, not just cleaning schedule optimisation."
+        "body": "Motor current, battery charge/discharge curves, brush torque, and sensor signal patterns build a health profile per robot. Deviation signatures that precede bearing wear, brush saturation, or controller degradation are flagged in NECTYR before downtime, hardware predictive maintenance, not just cleaning schedule optimisation."
       }
     },
     "fleetScale": {
@@ -75,17 +75,17 @@
       "panelsLabel": "Panels cleaned annually",
       "sitesLabel": "Live plant installations",
       "deployedLabel": "Robot capacity deployed",
-      "body": "Taypro cleans more than 5 GW of solar assets every day — among the largest active daily robotic cleaning throughput in the global utility O&M industry. This is live, recurring cleaning execution across 150+ plants in deserts, agricultural belts, and coastal zones, not installed nameplate capacity alone. Every daily cycle generates structured soiling, weather, battery, and fault data that trains fleet AI continuously. The technology advantage compounds with each cleaning season."
+      "body": "Taypro cleans more than 5 GW of solar assets every day, among the largest active daily robotic cleaning throughput in the global utility O&M industry. This is live, recurring cleaning execution across 150+ plants in deserts, agricultural belts, and coastal zones, not installed nameplate capacity alone. Every daily cycle generates structured soiling, weather, battery, and fault data that trains fleet AI continuously. The technology advantage compounds with each cleaning season."
     },
     "dataMoat": {
       "eyebrow": "Compounding advantage",
       "heading": "A field data advantage that compounds with every clean",
-      "body": "Every executed dual-pass cycle across 5 GW+ daily throughput produces field labels tied to cleaning quality — soiling response, row topology, weather windows, and hardware stress signatures. That execution data feeds the fleet models NECTYR runs, but this page focuses on the cleaning mechanism and robot platforms that generate it. The software intelligence story lives on the AI intelligence layer page."
+      "body": "Every executed dual-pass cycle across 5 GW+ daily throughput produces field labels tied to cleaning quality, soiling response, row topology, weather windows, and hardware stress signatures. That execution data feeds the fleet models NECTYR runs, but this page focuses on the cleaning mechanism and robot platforms that generate it. The software intelligence story lives on the AI intelligence layer page."
     },
     "pillars": {
       "eyebrow": "Platform overview",
       "heading": "What powers Taypro cleaning robots",
-      "intro": "Hardware, self-learning software, and resilient connectivity designed as one system — so O&M outcomes are repeatable, not dependent on crew availability, tanker schedules, or manual calendar edits.",
+      "intro": "Hardware, self-learning software, and resilient connectivity designed as one system, so O&M outcomes are repeatable, not dependent on crew availability, tanker schedules, or manual calendar edits.",
       "item0": {
         "title": "Patented dual-pass dry cleaning",
         "description": "Non-contact airflow lifts dry dust first; ultra-soft microfiber completes the wipe. Separating lift from contact delivers higher cleaning quality with lower abrasive wear than single-pass air-assist or brush-first systems."
@@ -96,7 +96,7 @@
       },
       "item2": {
         "title": "NECTYR fleet intelligence",
-        "description": "Live robot tracking on plant layout, root-cause fault classification, autonomous scheduling, and telemetry over {connectivity} — scheduling, health profiles, and audit-ready reporting in one dashboard."
+        "description": "Live robot tracking on plant layout, root-cause fault classification, autonomous scheduling, and telemetry over {connectivity}, scheduling, health profiles, and audit-ready reporting in one dashboard."
       },
       "item3": {
         "title": "Built for harsh field duty",
@@ -105,34 +105,34 @@
     },
     "aiLearning": {
       "eyebrow": "Intelligent automation",
-      "heading": "AI that learns with every clean — and initiates without manual scheduling",
-      "intro": "Field robots apply fleet models on every row — battery-aware routing, weather-gated execution, and wet-element protection during the physical dual-pass sequence. This section covers how cleaning hardware uses AI during nightly cycles across 5 GW+ daily throughput.",
+      "heading": "AI that learns with every clean, and initiates without manual scheduling",
+      "intro": "Field robots apply fleet models on every row, battery-aware routing, weather-gated execution, and wet-element protection during the physical dual-pass sequence. This section covers how cleaning hardware uses AI during nightly cycles across 5 GW+ daily throughput.",
       "intelligenceBefore": "For NECTYR portal workflows, labelled telemetry types, the data flywheel, and investor-level fleet intelligence, see the",
       "intelligenceLink": "AI intelligence layer",
       "intelligenceAfter": ".",
       "feature0": {
         "title": "Fleet-learning model",
-        "body": "Each cycle adds labelled data: soiling rate by block, season, and geography; post-clean performance response; weather correlation; battery consumption per row topology. Models trained on the live fleet are applied to newly commissioned plants on day one — new sites inherit intelligence accumulated across years of prior operations."
+        "body": "Each cycle adds labelled data: soiling rate by block, season, and geography; post-clean performance response; weather correlation; battery consumption per row topology. Models trained on the live fleet are applied to newly commissioned plants on day one, new sites inherit intelligence accumulated across years of prior operations."
       },
       "feature1": {
         "title": "Battery optimisation in cloudy conditions",
-        "body": "When irradiance is low and battery recharge is limited, the algorithm does not blindly attempt a full-array pass. It calculates cleanable capacity from available charge, prioritises highest-soiling blocks first, and sequences partial cycles that maximise generation recovery per watt-hour — rather than leaving half the array attempted and half untouched."
+        "body": "When irradiance is low and battery recharge is limited, the algorithm does not blindly attempt a full-array pass. It calculates cleanable capacity from available charge, prioritises highest-soiling blocks first, and sequences partial cycles that maximise generation recovery per watt-hour, rather than leaving half the array attempted and half untouched."
       },
       "feature2": {
         "title": "ML panel-array mapping → ~2× coverage per charge",
-        "body": "On first deployment, computer vision and traversal telemetry map row geometry: panel dimensions, gaps, row lengths, undulations, and end conditions. This persistent site model drives route optimisation so the same battery pack covers approximately twice the array length versus unmapped greedy traversal — enabling lighter robots without sacrificing daily coverage."
+        "body": "On first deployment, computer vision and traversal telemetry map row geometry: panel dimensions, gaps, row lengths, undulations, and end conditions. This persistent site model drives route optimisation so the same battery pack covers approximately twice the array length versus unmapped greedy traversal, enabling lighter robots without sacrificing daily coverage."
       },
       "feature3": {
         "title": "95% weather-scheduling accuracy",
-        "body": "NECTYR ingests windspeed, rain probability, humidity, airborne pollen levels, and local environmental data — not binary rain sensors alone. Cleaning cycles are rescheduled to optimal windows with 95% accuracy, reducing wasted runs after ineffective conditions and avoiding cleans that would smear wet dust on modules."
+        "body": "NECTYR ingests windspeed, rain probability, humidity, airborne pollen levels, and local environmental data, not binary rain sensors alone. Cleaning cycles are rescheduled to optimal windows with 95% accuracy, reducing wasted runs after ineffective conditions and avoiding cleans that would smear wet dust on modules."
       },
       "feature4": {
         "title": "Wet microfiber / wet-element detection",
-        "body": "Sensors detect whether the cleaning element has absorbed moisture from dew, overnight humidity, or residual rain. The cycle is automatically postponed — a wet element dragged across dry dust smears particulates and risks glass micro-abrasion, with no operator call required."
+        "body": "Sensors detect whether the cleaning element has absorbed moisture from dew, overnight humidity, or residual rain. The cycle is automatically postponed, a wet element dragged across dry dust smears particulates and risks glass micro-abrasion, with no operator call required."
       },
       "feature5": {
         "title": "Autonomous cycle initiation",
-        "body": "NECTYR and fleet AI together trigger cleaning when conditions, soiling risk, and robot health align — independent of manual schedule edits. After dust events, models tighten cadence; after effective rain or wet-element detection, cycles stand down to conserve charge and protect module surfaces."
+        "body": "NECTYR and fleet AI together trigger cleaning when conditions, soiling risk, and robot health align, independent of manual schedule edits. After dust events, models tighten cadence; after effective rain or wet-element detection, cycles stand down to conserve charge and protect module surfaces."
       },
       "cta": "Explore NECTYR fleet operations",
       "ctaHref": "/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
@@ -140,24 +140,24 @@
     "liveOps": {
       "eyebrow": "Live operations",
       "heading": "Live operations intelligence in NECTYR",
-      "intro": "NECTYR is the operations layer between field robots and asset owners — real-time visibility, autonomous scheduling, root-cause diagnostics, and per-robot health profiles in one platform.",
+      "intro": "NECTYR is the operations layer between field robots and asset owners, real-time visibility, autonomous scheduling, root-cause diagnostics, and per-robot health profiles in one platform.",
       "trackingTitle": "Live cleaning visualisation with root-cause fault location",
-      "trackingBody": "NECTYR overlays real-time robot position on the plant layout map. Operators see which row is being cleaned, progress percentage, and fleet state at any moment — not a last-seen timestamp from hours ago. When a robot stops, NECTYR identifies where it stopped and the probable cause: misaligned panel edge, physical obstacle, motor fault, brush saturation, battery threshold, or communication drop. Field teams dispatch with the right spares instead of exploratory truck rolls.",
+      "trackingBody": "NECTYR overlays real-time robot position on the plant layout map. Operators see which row is being cleaned, progress percentage, and fleet state at any moment, not a last-seen timestamp from hours ago. When a robot stops, NECTYR identifies where it stopped and the probable cause: misaligned panel edge, physical obstacle, motor fault, brush saturation, battery threshold, or communication drop. Field teams dispatch with the right spares instead of exploratory truck rolls.",
       "predictiveTitle": "Per-robot health profiles and advance fault detection",
-      "predictiveBody": "NECTYR builds a health profile for each robot from motor current draw, battery charge and discharge curves, brush rotation torque, and sensor signal patterns across the fleet. Deviation signatures that precede bearing wear, controller degradation, or brush end-of-life are flagged before the fault becomes a breakdown. This is hardware predictive maintenance informed by fleet-wide pattern recognition — not faster reactive maintenance alone.",
+      "predictiveBody": "NECTYR builds a health profile for each robot from motor current draw, battery charge and discharge curves, brush rotation torque, and sensor signal patterns across the fleet. Deviation signatures that precede bearing wear, controller degradation, or brush end-of-life are flagged before the fault becomes a breakdown. This is hardware predictive maintenance informed by fleet-wide pattern recognition, not faster reactive maintenance alone.",
       "autonomousTitle": "Autonomous cleaning initiation and fleet orchestration",
-      "autonomousBody": "Cleaning cycles are initiated, paused, and accelerated by fleet AI based on weather models, soiling forecasts, battery state, and robot health — without requiring operators to manually rewrite schedules after every dust storm or rain event. Block-level audit trails document every decision for O&M review and asset-owner reporting.",
+      "autonomousBody": "Cleaning cycles are initiated, paused, and accelerated by fleet AI based on weather models, soiling forecasts, battery state, and robot health, without requiring operators to manually rewrite schedules after every dust storm or rain event. Block-level audit trails document every decision for O&M review and asset-owner reporting.",
       "nectyrLink": "Explore NECTYR",
       "aiLink": "AI learning section"
     },
     "dualPassMechanism": {
       "eyebrow": "Cleaning science",
       "heading": "Why dual-pass outperforms single-stage dry cleaning",
-      "intro": "Some dry-cleaning robots use a single pass — high-pressure air or wind-assist combined with a brush drum across the glass in one motion, optimising for distance per charge rather than cleaning quality per pass. Taypro's patented dual-pass method separates dislodgement from contact.",
-      "pass0Title": "Pass 1 — Controlled airflow (non-contact)",
+      "intro": "Some dry-cleaning robots use a single pass, high-pressure air or wind-assist combined with a brush drum across the glass in one motion, optimising for distance per charge rather than cleaning quality per pass. Taypro's patented dual-pass method separates dislodgement from contact.",
+      "pass0Title": "Pass 1: Controlled airflow (non-contact)",
       "pass0Body": "High-speed airflow lifts loose dust and sand without dragging grit across module glass. This reduces micro-abrasion risk versus brush-first or combined air-brush passes where particulates can be ground into the surface during a single continuous motion.",
-      "pass1Title": "Pass 2 — Ultra-soft microfiber (contact)",
-      "pass1Body": "Microfiber completes the wipe for adhered residue — agricultural film, pollen, post-storm particulates — that airflow alone cannot clear. Wet-element sensors postpone the pass automatically if humidity has saturated the cloth.",
+      "pass1Title": "Pass 2: Ultra-soft microfiber (contact)",
+      "pass1Body": "Microfiber completes the wipe for adhered residue, agricultural film, pollen, post-storm particulates, that airflow alone cannot clear. Wet-element sensors postpone the pass automatically if humidity has saturated the cloth.",
       "resultBody": "Together: 99%+ dust removal per automated cycle (platform-dependent), without water, without grid electricity, and with lower abrasive wear over a 25-year module life than stiff-brush or single-pass air-assist systems.",
       "comparisonHeading": "Dry cleaning mechanism comparison",
       "colMethod": "Method",
@@ -184,30 +184,30 @@
     "trackerTech": {
       "eyebrow": "Tracker engineering",
       "heading": "Single-axis tracker cleaning without fixed cross-table infrastructure",
-      "p0": "Tracker tables are never perfectly aligned. Wind loading, foundation settling, and installation tolerances mean adjacent tables can be offset horizontally and vertically. Conventional cross-tracker approaches often require dedicated fixed bridges installed at planned intervals — civil work, added cost, and inflexible geometry.",
-      "p1": "GLYDE-X and NYUMA-X carry a patented 360° articulating flexible bridge integrated into a flexible robot body. The robot autonomously transfers between tracker tables even when adjacent tables are misaligned, while the tracker is in stow position — without manual repositioning and without pre-installed fixed bridge infrastructure at every crossing point.",
-      "p2": "At 26 kg, tracker platforms impose significantly lower structural load on tracker frames than heavier 40 kg-class robots — critical on aging Indian plants where structural margin and module warranty preservation matter across a 25-year asset life.",
+      "p0": "Tracker tables are never perfectly aligned. Wind loading, foundation settling, and installation tolerances mean adjacent tables can be offset horizontally and vertically. Conventional cross-tracker approaches often require dedicated fixed bridges installed at planned intervals, civil work, added cost, and inflexible geometry.",
+      "p1": "GLYDE-X and NYUMA-X carry a patented 360° articulating flexible bridge integrated into a flexible robot body. The robot autonomously transfers between tracker tables even when adjacent tables are misaligned, while the tracker is in stow position, without manual repositioning and without pre-installed fixed bridge infrastructure at every crossing point.",
+      "p2": "At 26 kg, tracker platforms impose significantly lower structural load on tracker frames than heavier 40 kg-class robots, critical on aging Indian plants where structural margin and module warranty preservation matter across a 25-year asset life.",
       "bullet0": "360° articulation accommodates misalignment on any axis",
       "bullet1": "Autonomous table-to-table transfer in tracker stow",
       "bullet2": "No fixed bridge civil work at every crossing point",
-      "bullet3": "26 kg GLYDE-X / NYUMA-X — reduced frame loading"
+      "bullet3": "26 kg GLYDE-X / NYUMA-X: reduced frame loading"
     },
     "selfAlignment": {
       "eyebrow": "Fixed-tilt engineering",
       "heading": "Self-alignment on undulated terrain",
-      "body": "Indian utility sites are rarely perfectly level. Rows built on undulating ground introduce tilt variations that cause less sophisticated robots to drift off-axis, miss row edges, or lose contact pressure. Taypro's self-alignment system continuously corrects robot orientation relative to the panel row — maintaining cleaning contact and trajectory across gradients without operator intervention. This is essential on older plants with settled foundations and in hilly terrain across Himachal Pradesh, Maharashtra, Karnataka, and similar geographies. GLYDE fixed-tilt platforms at 38 kg combine self-alignment with patented dual-pass cleaning for undulated utility blocks."
+      "body": "Indian utility sites are rarely perfectly level. Rows built on undulating ground introduce tilt variations that cause less sophisticated robots to drift off-axis, miss row edges, or lose contact pressure. Taypro's self-alignment system continuously corrects robot orientation relative to the panel row, maintaining cleaning contact and trajectory across gradients without operator intervention. This is essential on older plants with settled foundations and in hilly terrain across Himachal Pradesh, Maharashtra, Karnataka, and similar geographies. GLYDE fixed-tilt platforms at 38 kg combine self-alignment with patented dual-pass cleaning for undulated utility blocks."
     },
     "deploymentScope": {
       "eyebrow": "Deployment scope",
       "heading": "Utility-scale core, rooftop-capable",
-      "utilityTitle": "Utility-scale — where the data moat is built",
-      "utilityBody": "Taypro's technology stack and fleet AI are optimised for utility-scale fixed-tilt and single-axis tracker plants — where soiling losses, labour scale, and water scarcity make autonomous cleaning essential. Daily cleaning across multi-hundred-MW fleets generates the labelled telemetry that trains self-learning models.",
+      "utilityTitle": "Utility-scale: where the data moat is built",
+      "utilityBody": "Taypro's technology stack and fleet AI are optimised for utility-scale fixed-tilt and single-axis tracker plants, where soiling losses, labour scale, and water scarcity make autonomous cleaning essential. Daily cleaning across multi-hundred-MW fleets generates the labelled telemetry that trains self-learning models.",
       "rooftopTitle": "C&I and rooftop installations",
       "rooftopBody": "The same platforms serve commercial and industrial rooftop installations: GLYDE and HELYX configurations address distributed blocks, seasonal tilt, and scattered arrays across Taypro's 150+ site footprint. Utility scale builds the intelligence layer; rooftop deployments extend the same NECTYR operations and dry-cleaning methodology to underserved C&I segments."
     },
     "platformWeights": {
       "heading": "Platform weight and structural load",
-      "intro": "Lower robot mass reduces structural load on tracker frames and aging fixed-tilt structures — preserving module warranties and mounting integrity over 25-year asset life.",
+      "intro": "Lower robot mass reduces structural load on tracker frames and aging fixed-tilt structures, preserving module warranties and mounting integrity over 25-year asset life.",
       "colPlatform": "Platform",
       "colWeight": "Weight",
       "colNotes": "Notes",
@@ -225,10 +225,10 @@
       "row3Notes": "Portable pick-and-place for scattered blocks and rooftops"
     },
     "hardwareHighlights": {
-      "selfPoweredTitle": "Fully self-powered — no grid, no water, no operators per row",
-      "selfPoweredBody": "All Taypro automatic cleaning robots are self-powered. On-board solar panels charge the lithium battery between cycles. Robots do not draw site grid electricity, do not require water logistics, and do not need human operators walking rows to initiate each pass. Semi-automatic HELYX is crew-placed per block but still operates on battery without grid tether — viable in remote utility blocks where auxiliary power and labour are constrained.",
+      "selfPoweredTitle": "Fully self-powered, no grid, no water, no operators per row",
+      "selfPoweredBody": "All Taypro automatic cleaning robots are self-powered. On-board solar panels charge the lithium battery between cycles. Robots do not draw site grid electricity, do not require water logistics, and do not need human operators walking rows to initiate each pass. Semi-automatic HELYX is crew-placed per block but still operates on battery without grid tether, viable in remote utility blocks where auxiliary power and labour are constrained.",
       "warrantyTitle": "25-year product warranty with annual AMC",
-      "warrantyBody": "Taypro offers a 25-year product warranty on deployed robot platforms — aligned to the operational life of utility solar assets. Warranty remains valid when AMC is renewed annually, tying long-term hardware commitment to structured maintenance, spare planning, and NECTYR-monitored fleet health. For asset owners modelling 25-year IRR, this pairs robot CAPEX with predictable O&M accountability across the full degradation window."
+      "warrantyBody": "Taypro offers a 25-year product warranty on deployed robot platforms, aligned to the operational life of utility solar assets. Warranty remains valid when AMC is renewed annually, tying long-term hardware commitment to structured maintenance, spare planning, and NECTYR-monitored fleet health. For asset owners modelling 25-year IRR, this pairs robot CAPEX with predictable O&M accountability across the full degradation window."
     },
     "audience": {
       "eyebrow": "Who this is for",
@@ -242,13 +242,13 @@
       },
       "segment1": {
         "title": "O&M and plant operators",
-        "description": "Replace labour-heavy washing with autonomous fleet schedules you can audit. NECTYR shows live robot position, probable root cause, and per-robot health before trucks roll — plus same-day breakdown targets, pan-India spares, and structured AMC support.",
+        "description": "Replace labour-heavy washing with autonomous fleet schedules you can audit. NECTYR shows live robot position, probable root cause, and per-robot health before trucks roll, plus same-day breakdown targets, pan-India spares, and structured AMC support.",
         "link0": "NECTYR",
         "link1": "Contact support"
       },
       "segment2": {
         "title": "EPC & technical teams",
-        "description": "Specify robots by array type: fixed tilt with self-alignment, single-axis trackers with 360° flexible bridges, scattered blocks, or C&I rooftops — with connectivity and commissioning plans sized at design stage.",
+        "description": "Specify robots by array type: fixed tilt with self-alignment, single-axis trackers with 360° flexible bridges, scattered blocks, or C&I rooftops, with connectivity and commissioning plans sized at design stage.",
         "link0": "Robot specifications",
         "link1": "Cleaning technology FAQ"
       }
@@ -264,7 +264,7 @@
     "dualPass": {
       "eyebrow": "Step by step",
       "heading": "How dual-pass dry cleaning works",
-      "intro": "A four-stage waterless cycle executed on each row — designed to maximise dust removal while limiting abrasive contact with module glass over a 25-year asset life."
+      "intro": "A four-stage waterless cycle executed on each row, designed to maximise dust removal while limiting abrasive contact with module glass over a 25-year asset life."
     },
     "comparison": {
       "heading": "Cleaning method comparison",
@@ -314,14 +314,14 @@
       "dualPass": {
         "eyebrow": "Core methodology",
         "title": "Dual-pass waterless solar panel cleaning",
-        "p0": "Soiling is the silent tax on Indian utility-scale PV: dust films can suppress generation by double-digit percentages in arid and agricultural belts before O&M teams mobilise manual crews. Taypro's patented approach treats cleaning as a two-stage mechanical process tuned for dry climates — separating dust lift from contact wipe, not adapting a hose-down for robots.",
-        "p1": "Pass one uses controlled airflow to lift loose particulates without dragging grit across the glass. Pass two follows with microfiber contact to remove adhered residue — agricultural dust, pollen, post-storm events — that single-pass air-assist systems often leave behind when optimising for traverse distance over cleaning completeness.",
+        "p0": "Soiling is the silent tax on Indian utility-scale PV: dust films can suppress generation by double-digit percentages in arid and agricultural belts before O&M teams mobilise manual crews. Taypro's patented approach treats cleaning as a two-stage mechanical process tuned for dry climates, separating dust lift from contact wipe, not adapting a hose-down for robots.",
+        "p1": "Pass one uses controlled airflow to lift loose particulates without dragging grit across the glass. Pass two follows with microfiber contact to remove adhered residue, agricultural dust, pollen, post-storm events, that single-pass air-assist systems often leave behind when optimising for traverse distance over cleaning completeness.",
         "p2": "Because the first pass is non-contact, modules see less abrasive wear over years of daily cleaning than with stiff brushes or uncontrolled dry wiping. That matters when asset owners model 25-year degradation, glass warranty exposure, and structural load from robot mass on aging frames.",
         "p3Before": "The method is documented across",
         "projectsLink": "live utility projects",
         "p3Mid": "and explored in our",
         "blogLink": "dual-pass vs traditional brushes",
-        "p3After": "guide — waterless, self-powered, and autonomous at 5 GW+ daily throughput.",
+        "p3After": "guide, waterless, self-powered, and autonomous at 5 GW+ daily throughput.",
         "bullet0": "No water procurement or runoff compliance on site",
         "bullet1": "Fixed tilt, seasonal tilt, rooftop, and tracker rows (platform-dependent)",
         "bullet2": "99%+ dust removal per cycle on automatic platforms",
@@ -330,8 +330,8 @@
       "aiScheduling": {
         "eyebrow": "Fleet intelligence",
         "title": "From calendars to self-learning autonomous operations",
-        "p0": "Taypro's fleet AI goes beyond weather pauses. Models ingest billions of annual panel passes across 5 GW+ daily throughput to refine when to clean, how to route battery-limited cycles, and which blocks need priority after dust events — initiating cycles autonomously through NECTYR.",
-        "p1": "Battery-aware logic prioritises highest-soiling sections when charge is limited. ML panel-array mapping on first deployment builds a persistent site model delivering approximately double the cleaning coverage per charge versus unoptimised paths — enabling lighter 26 kg / 38 kg platforms without sacrificing array coverage.",
+        "p0": "Taypro's fleet AI goes beyond weather pauses. Models ingest billions of annual panel passes across 5 GW+ daily throughput to refine when to clean, how to route battery-limited cycles, and which blocks need priority after dust events, initiating cycles autonomously through NECTYR.",
+        "p1": "Battery-aware logic prioritises highest-soiling sections when charge is limited. ML panel-array mapping on first deployment builds a persistent site model delivering approximately double the cleaning coverage per charge versus unoptimised paths, enabling lighter 26 kg / 38 kg platforms without sacrificing array coverage.",
         "p2": "Per-robot health profiles monitor motor current, battery curves, brush torque, and sensor patterns. Deviation signatures that precede bearing wear, brush saturation, or controller degradation surface in NECTYR before multi-day outages.",
         "p3Before": "See the full AI stack in",
         "aiLearningLink": "AI That Learns With Every Clean",
@@ -348,8 +348,8 @@
       "connectivity": {
         "eyebrow": "Fleet operations",
         "title": "Live cleaning visualisation with root-cause fault location",
-        "p0": "NECTYR provides real-time robot position tracking overlaid on the plant layout — operators see exactly which row each robot is cleaning and at what progress, at any moment. Large sites use {connectivity} so robots stay reachable across hundreds of hectares.",
-        "p1": "If a robot stops, the system identifies where it stopped and the probable cause — misaligned panel edge, obstacle, motor fault, brush saturation, or communication drop — before a field technician is dispatched. This cuts mean time to resolution and eliminates the offline robot, unknown cause downtime pattern common on less instrumented fleets.",
+        "p0": "NECTYR provides real-time robot position tracking overlaid on the plant layout, operators see exactly which row each robot is cleaning and at what progress, at any moment. Large sites use {connectivity} so robots stay reachable across hundreds of hectares.",
+        "p1": "If a robot stops, the system identifies where it stopped and the probable cause, misaligned panel edge, obstacle, motor fault, brush saturation, or communication drop, before a field technician is dispatched. This cuts mean time to resolution and eliminates the offline robot, unknown cause downtime pattern common on less instrumented fleets.",
         "p2": "Mesh-style links help when a single gateway cannot cover the full plant: robots relay status row-to-row while backhaul carries aggregated fleet data to NECTYR for scheduling, health monitoring, and investor-grade exports.",
         "p3Before": "See how connectivity maps to each robot platform on the",
         "hubLink": "solar panel cleaning robots hub",
@@ -366,10 +366,10 @@
       "fieldHardware": {
         "eyebrow": "Engineering",
         "title": "Hardware built for Indian field conditions",
-        "p0": "Utility plants in India face dust storms, monsoon humidity, coastal salt, and wide temperature swings — consumer-grade robotics do not survive that calendar. Taypro platforms use waterproof drives, corrosion-resistant materials, and modular sub-assemblies sized for rapid field swap.",
-        "p1": "GLYDE-X and NYUMA-X carry a patented 360° articulating flexible bridge with a flexible robot body — autonomous transfer between misaligned tracker tables without fixed bridge civil work at every crossing. Self-alignment continuously corrects orientation on undulated fixed-tilt rows across Himachal Pradesh, Maharashtra, Karnataka, and similar terrain.",
-        "p2": "Wet-element detection postpones cycles when microfiber has absorbed dew, humidity, or rain — preventing smear and micro-abrasion. All automatic platforms are self-powered; no grid draw, no water, no operators per row.",
-        "p3": "GLYDE-X and NYUMA-X at 26 kg and GLYDE at 38 kg impose lower structural load than heavier conventional platforms — preserving tracker frames, aging fixed-tilt structures, and module warranties over 25-year asset life. Manufacturing and QA run from Chakan, Pune.",
+        "p0": "Utility plants in India face dust storms, monsoon humidity, coastal salt, and wide temperature swings, consumer-grade robotics do not survive that calendar. Taypro platforms use waterproof drives, corrosion-resistant materials, and modular sub-assemblies sized for rapid field swap.",
+        "p1": "GLYDE-X and NYUMA-X carry a patented 360° articulating flexible bridge with a flexible robot body, autonomous transfer between misaligned tracker tables without fixed bridge civil work at every crossing. Self-alignment continuously corrects orientation on undulated fixed-tilt rows across Himachal Pradesh, Maharashtra, Karnataka, and similar terrain.",
+        "p2": "Wet-element detection postpones cycles when microfiber has absorbed dew, humidity, or rain, preventing smear and micro-abrasion. All automatic platforms are self-powered; no grid draw, no water, no operators per row.",
+        "p3": "GLYDE-X and NYUMA-X at 26 kg and GLYDE at 38 kg impose lower structural load than heavier conventional platforms, preserving tracker frames, aging fixed-tilt structures, and module warranties over 25-year asset life. Manufacturing and QA run from Chakan, Pune.",
         "bullet0": "Wet-element detection protects cleaning quality and module glass",
         "bullet1": "Self-alignment for undulated fixed-tilt installations",
         "bullet2": "Self-powered · TÜV NORD certified · GLYDE-X 26 kg · GLYDE 38 kg",
@@ -378,7 +378,7 @@
     },
     "waterless": {
       "heading": "Waterless O&M at utility scale",
-      "p0": "Manual wet washing competes for scarce water, labour, and daylight windows. Taypro robots eliminate tanker dependency while executing predictable autonomous cycles through dust seasons — 5 GW+ cleaned daily without a litre of water.",
+      "p0": "Manual wet washing competes for scarce water, labour, and daylight windows. Taypro robots eliminate tanker dependency while executing predictable autonomous cycles through dust seasons, 5 GW+ cleaned daily without a litre of water.",
       "p1Before": "Across 11 billion+ annual panel cleaning passes, Taypro deployments have contributed to saving",
       "p1WaterLabel": "litres of water annually",
       "p1Mid": "while operating",
@@ -396,7 +396,7 @@
       "row0Label": "Cleaning method",
       "row0Value": "Patented dual-pass dry (airflow + microfiber)",
       "row1Label": "Water required",
-      "row1Value": "None — fully waterless O&M",
+      "row1Value": "None: fully waterless O&M",
       "row2Label": "Typical dust removal",
       "row2Value": "99%+ per automated cycle (platform-dependent)",
       "row3Label": "Daily cleaning throughput",
@@ -407,11 +407,11 @@
       "row6Label": "Annual panel passes",
       "row6Value": "11 billion+ panels cleaned annually (fleet aggregate)",
       "row7Label": "Power source",
-      "row7Value": "Self-powered (on-board solar charging) — no grid draw",
+      "row7Value": "Self-powered (on-board solar charging), no grid draw",
       "row8Label": "Predictive maintenance",
       "row8Value": "Per-robot health profiles · pre-failure fault detection in NECTYR",
       "row9Label": "Tracker bridge (GLYDE-X / NYUMA-X)",
-      "row9Value": "360° articulating flexible bridge — no fixed civil bridges per crossing",
+      "row9Value": "360° articulating flexible bridge, no fixed civil bridges per crossing",
       "row10Label": "Operating weight",
       "row10Value": "GLYDE-X / NYUMA-X: 26 kg · GLYDE: 38 kg",
       "row11Label": "Fixed-tilt alignment",
@@ -421,7 +421,7 @@
       "row13Label": "Certification",
       "row13Value": "TÜV NORD validated platforms (field deployments)",
       "row14Label": "Manufacturing",
-      "row14Value": "Chakan, Pune — Made in India",
+      "row14Value": "Chakan, Pune: Made in India",
       "row15Label": "Deployment scope",
       "row15Value": "Utility-scale core · C&I and rooftop capable",
       "row16Label": "Service",
@@ -430,7 +430,7 @@
     "fieldProof": {
       "eyebrow": "Field proof",
       "heading": "Technology deployed on utility-scale plants",
-      "intro": "Dual-pass dry cleaning, autonomous fleets at 5 GW+ daily throughput, and NECTYR monitoring across multi-MW installations in India — documented as project case studies.",
+      "intro": "Dual-pass dry cleaning, autonomous fleets at 5 GW+ daily throughput, and NECTYR monitoring across multi-MW installations in India: documented as project case studies.",
       "projectImageAltSuffix": ", Taypro solar panel cleaning robot deployment",
       "readCaseStudy": "Read case study",
       "viewAllProjects": "View all projects"
@@ -444,20 +444,20 @@
     "robots": {
       "eyebrow": "Product platforms",
       "heading": "Robots built on this technology",
-      "introBefore": "Automatic, semi-automatic, and tracker-ready platforms share the same dry-cleaning DNA, NECTYR intelligence, and self-learning fleet AI — configured per array type.",
+      "introBefore": "Automatic, semi-automatic, and tracker-ready platforms share the same dry-cleaning DNA, NECTYR intelligence, and self-learning fleet AI: configured per array type.",
       "compareLink": "Compare all robots",
       "introAfter": "."
     },
     "dustSoiling": {
       "eyebrow": "Dust & soiling in India",
       "heading": "Solar panel dust cleaning and soiling loss",
-      "p1": "Fine dust, agricultural residue, and seasonal haze bond to module glass within days on many Indian utility sites — suppressing output before visible soiling is obvious in SCADA. Industry discussions often cite roughly 8–25% seasonal soiling loss when washing cadence is infrequent.",
-      "p2": "Robotic dry cleaning targets daily or near-daily cycles through dust season without tanker logistics. Taypro's dual-pass method lifts dry dust first, then microfiber-wipes the glass — at a fleet scale of 5 GW+ cleaned daily, recovering generation manual crews cannot sustain at MW scale.",
+      "p1": "Fine dust, agricultural residue, and seasonal haze bond to module glass within days on many Indian utility sites, suppressing output before visible soiling is obvious in SCADA. Industry discussions often cite roughly 8–25% seasonal soiling loss when washing cadence is infrequent.",
+      "p2": "Robotic dry cleaning targets daily or near-daily cycles through dust season without tanker logistics. Taypro's dual-pass method lifts dry dust first, then microfiber-wipes the glass, at a fleet scale of 5 GW+ cleaned daily, recovering generation manual crews cannot sustain at MW scale.",
       "faqHeading": "Solar panel dust cleaning FAQs (India)",
       "q0": "How much generation does dust cost on Indian solar plants?",
-      "a0": "Soiling loss varies by region, tilt, and O&M cadence — often cited in the 8–25% range on utility plants when cleaning is infrequent. High-soiling blocks in Rajasthan and Gujarat typically show the fastest payback from tighter robotic schedules.",
+      "a0": "Soiling loss varies by region, tilt, and O&M cadence, often cited in the 8–25% range on utility plants when cleaning is infrequent. High-soiling blocks in Rajasthan and Gujarat typically show the fastest payback from tighter robotic schedules.",
       "q1": "Is dry robotic dust cleaning better than manual brushing?",
-      "a1": "On 10 MW+ sites, manual brush or wet-wash crews scale poorly. Taypro robots run waterless dual-pass cycles on autonomous schedules with NECTYR audit trails — 5 GW+ cleaned daily across the live fleet.",
+      "a1": "On 10 MW+ sites, manual brush or wet-wash crews scale poorly. Taypro robots run waterless dual-pass cycles on autonomous schedules with NECTYR audit trails, 5 GW+ cleaned daily across the live fleet.",
       "q2": "How often should panels be dust-cleaned in India?",
       "a2": "Most utility plants benefit from daily or near-daily dry cleaning during dry months and faster cycles after dust storms. Taypro starts with a soiling study to recommend block-wise cadence rather than a one-size-fits-all interval."
     },
@@ -465,29 +465,29 @@
       "heading": "Technology FAQs",
       "intro": "Common questions about Taypro dry cleaning, self-learning AI, NECTYR operations, and fleet scale.",
       "q0": "Do Taypro solar panel cleaning robots use water?",
-      "a0": "No. Taypro robots use a patented dual-pass dry method — airflow plus microfiber — so plants avoid water procurement, runoff management, and module thermal shock common with wet washing in arid regions.",
+      "a0": "No. Taypro robots use a patented dual-pass dry method, airflow plus microfiber, so plants avoid water procurement, runoff management, and module thermal shock common with wet washing in arid regions.",
       "q1": "What is dual-pass cleaning and why is it better than single-pass dry cleaning?",
       "a1": "Pass one dislodges dry dust with controlled airflow without contacting the glass. Pass two uses microfiber for adhered residue. Separating lift from contact reduces grit-drag abrasion versus single-pass air-assist or brush-first systems that combine both in one motion.",
       "q2": "How much solar capacity does Taypro clean daily?",
-      "a2": "Taypro cleans more than 5 GW of solar assets every day across the live fleet — distinct from 5 GW+ robot capacity deployed (installed base). Daily throughput is live recurring cleaning execution across 150+ plants.",
+      "a2": "Taypro cleans more than 5 GW of solar assets every day across the live fleet, distinct from 5 GW+ robot capacity deployed (installed base). Daily throughput is live recurring cleaning execution across 150+ plants.",
       "q3": "How does Taypro's AI improve with each cleaning cycle?",
-      "a3": "Fleet models ingest soiling, weather, battery, and fault data from 11 billion+ annual panel passes across 150+ sites. Each clean refines soiling prediction, timing windows, and battery routing. NECTYR autonomously initiates, postpones, or accelerates cycles with 95% weather-reschedule accuracy using windspeed, rain probability, humidity, and pollen — not simple rain/no-rain logic.",
+      "a3": "Fleet models ingest soiling, weather, battery, and fault data from 11 billion+ annual panel passes across 150+ sites. Each clean refines soiling prediction, timing windows, and battery routing. NECTYR autonomously initiates, postpones, or accelerates cycles with 95% weather-reschedule accuracy using windspeed, rain probability, humidity, and pollen, not simple rain/no-rain logic.",
       "q4": "What connectivity options do Taypro robots support?",
       "a4": "Deployments use {connectivity} depending on site layout and backhaul. Taypro sizes the architecture during commissioning so NECTYR receives telemetry and can push schedules reliably across the plant.",
       "q5": "How do GLYDE-X and NYUMA-X clean single-axis trackers?",
-      "a5": "GLYDE-X and NYUMA-X use a patented 360° articulating flexible bridge and flexible robot body to transfer between misaligned tracker tables autonomously — without fixed bridge civil work at every crossing and without manual repositioning. GLYDE handles fixed-tilt with self-alignment on undulated terrain; HELYX covers portable crew-assisted blocks and rooftops.",
+      "a5": "GLYDE-X and NYUMA-X use a patented 360° articulating flexible bridge and flexible robot body to transfer between misaligned tracker tables autonomously, without fixed bridge civil work at every crossing and without manual repositioning. GLYDE handles fixed-tilt with self-alignment on undulated terrain; HELYX covers portable crew-assisted blocks and rooftops.",
       "q6": "Are Taypro robots self-powered?",
       "a6": "Yes. All automatic platforms charge via on-board solar panels between cycles. They do not draw site grid electricity or require manual charging logistics. No water, no grid power, no operators per row on autonomous platforms.",
       "q7": "What is Taypro's 25-year warranty?",
       "a7": "Taypro offers a 25-year product warranty on deployed robots, valid when AMC is renewed annually. This aligns hardware commitment to structured maintenance, NECTYR-monitored fleet health, and the 25-year operational life of utility solar assets.",
       "q8": "Can Taypro operate robots for us instead of CAPEX purchase?",
-      "a8": "Yes. Opex is operator-led — pay per panel cleaned with Taypro running the fleet. Same dual-pass technology and NECTYR intelligence; economics differ. Discuss both models during site assessment.",
+      "a8": "Yes. Opex is operator-led, pay per panel cleaned with Taypro running the fleet. Same dual-pass technology and NECTYR intelligence; economics differ. Discuss both models during site assessment.",
       "q9": "How can I validate ROI before buying robots?",
       "a9": "Use the free solar panel cleaning robot ROI calculator, review case studies under Projects, then contact Taypro with your layout for a site-specific robot count, quote, and service SLA.",
       "q10": "What is wet microfiber detection?",
-      "a10": "Sensors detect whether the cleaning element has absorbed moisture from dew, humidity, or rain. If wet, the cycle is automatically postponed — a wet element on dusty glass smears soiling and risks micro-abrasion, without operator intervention.",
+      "a10": "Sensors detect whether the cleaning element has absorbed moisture from dew, humidity, or rain. If wet, the cycle is automatically postponed, a wet element on dusty glass smears soiling and risks micro-abrasion, without operator intervention.",
       "q11": "How does NECTYR show robot faults before dispatch?",
-      "a11": "NECTYR overlays live robot position and row progress on the plant layout. When a robot stops, the system flags location and probable cause — misaligned edge, obstacle, motor fault, or communication drop — so field teams arrive with the right spares.",
+      "a11": "NECTYR overlays live robot position and row progress on the plant layout. When a robot stops, the system flags location and probable cause, misaligned edge, obstacle, motor fault, or communication drop, so field teams arrive with the right spares.",
       "q12": "What is Taypro's data advantage at 11 billion+ annual panel passes?",
       "a12": "Every pass generates structured soiling, weather, battery, and fault data across 5 GW+ daily throughput and 150+ sites. This proprietary dataset trains fleet AI that improves each cycle. Field intelligence at this scale cannot be replicated without years of equivalent utility-scale deployments.",
       "q13": "How does advance fault detection work?",
@@ -499,9 +499,9 @@
       "q16": "How does battery optimisation work in cloudy weather?",
       "a16": "When charge is limited, the algorithm calculates how much of the array can be cleaned optimally, prioritises highest-soiling blocks first, and avoids incomplete passes that waste charge without meaningful soiling recovery.",
       "q17": "What does panel-array mapping do?",
-      "a17": "On first deployment, ML maps row geometry and builds a persistent site model. Route optimisation from this map delivers approximately 2× cleaning coverage per charge versus unmapped traversal — reducing required robot weight and structural load.",
+      "a17": "On first deployment, ML maps row geometry and builds a persistent site model. Route optimisation from this map delivers approximately 2× cleaning coverage per charge versus unmapped traversal, reducing required robot weight and structural load.",
       "q18": "What certifications apply to Taypro robots?",
-      "a18": "TÜV NORD, NISE, UL, Karandikar Labs, and Elca Labs — including accelerated module-safety testing equivalent to 30 years of daily cleaning cycles, IP65 protection, and desert/coastal environmental conditioning within safe limits.",
+      "a18": "TÜV NORD, NISE, UL, Karandikar Labs, and Elca Labs: including accelerated module-safety testing equivalent to 30 years of daily cleaning cycles, IP65 protection, and desert/coastal environmental conditioning within safe limits.",
       "q19": "How is Taypro different from manual wet washing?",
       "a19": "Manual wet washing needs water, large crews, and lower cadence at MW scale. Taypro runs waterless dual-pass cycles autonomously at 5 GW+ daily fleet throughput with NECTYR visibility, self-learning schedules, and predictive maintenance."
     },

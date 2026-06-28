@@ -52,7 +52,13 @@ cms_copy_bundle_to() {
     return 1
   fi
   cms_checkpoint "$SRC_DIR/cms.sqlite"
-  cp -a "$SRC_DIR/cms.sqlite" "$DEST_DIR/cms.sqlite"
+  local src_file="$SRC_DIR/cms.sqlite"
+  local dest_file="$DEST_DIR/cms.sqlite"
+  if [ -f "$dest_file" ] && [ "$src_file" -ef "$dest_file" ]; then
+    echo "  → cms.sqlite already at destination (symlink; skip copy)"
+    return 0
+  fi
+  cp -a "$src_file" "$dest_file"
   if [ -f "$SRC_DIR/cms.sqlite-wal" ] && [ -s "$SRC_DIR/cms.sqlite-wal" ]; then
     cp -a "$SRC_DIR/cms.sqlite-wal" "$DEST_DIR/cms.sqlite-wal"
     cp -a "$SRC_DIR/cms.sqlite-shm" "$DEST_DIR/cms.sqlite-shm" 2>/dev/null || true
@@ -184,7 +190,9 @@ cms_install_standalone_from() {
   fi
 
   mkdir -p "$ROOT/.next"
-  cp -a "$stand_src" "$ROOT/.next/standalone"
+  # Move (not copy) from staging to avoid doubling disk usage on small volumes.
+  # The staging tree is consumed by the swap and removed after deploy.
+  mv "$stand_src" "$ROOT/.next/standalone"
   if [ -d "$static_src" ]; then
     mkdir -p "$ROOT/.next/standalone/.next"
     rsync -a "$static_src/" "$ROOT/.next/standalone/.next/static/"

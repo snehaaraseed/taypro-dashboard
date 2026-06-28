@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Taypro — Solar Panel Cleaning Robots",
+    name: "Taypro: Solar Panel Cleaning Robots",
     short_name: "Taypro",
     description:
       "Autonomous waterless solar panel cleaning robots for utility-scale plants in India.",

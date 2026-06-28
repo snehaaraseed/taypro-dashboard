@@ -19,14 +19,21 @@ import {
   Timer,
   Users,
 } from "lucide-react";
-import { helyxCards } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import { projectFilterForPage } from "@/lib/cms/project-page-filters";
-import ProductCards from "@/app/components/ProductCards";
+import RelatedProductLineupSection from "@/app/components/RelatedProductLineupSection";
+import { buildRelatedProductLineupRobots } from "@/lib/products/build-product-lineup";
 import ClientsCard from "@/app/components/ClientsCard";
 import EnergyResourceCard from "@/app/components/EnergyResourceCard";
-import HeroSection from "@/app/components/Herosection";
+import ProductHero from "@/app/components/ProductHero";
+import { ProductVisualSection } from "@/app/components/ProductVisualSection";
+import {
+  buildProductHeroHighlights,
+  productHeroBackgroundCredit,
+  productHeroSecondaryCta,
+} from "@/lib/products/product-hero-helpers";
+import { resolveProductPageHeroBackground } from "@/lib/cms/product-page-hero-background";
 import { FaqSection } from "@/app/components/FaqSection";
 import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import { ContactLeadInlineLink } from "@/app/components/ContactLeadInlineLink";
@@ -78,6 +85,8 @@ export default async function NectyrPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "NectyrPage" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
+  const heroBackground = await resolveProductPageHeroBackground("console", locale);
+  const heroHighlights = buildProductHeroHighlights(t);
 
   const breadcrumbs = [
     { name: tCommon("breadcrumbHome"), href: "/" },
@@ -122,19 +131,23 @@ export default async function NectyrPage({
       <FAQPageSchema faqs={nectyrFaqs} />
 
       <div className="min-h-screen overflow-x-hidden">
-        <HeroSection
+        <ProductHero
+          eyebrow={t("intro.eyebrow")}
           title={t("hero.title")}
-          subtitle={t("hero.subtitle")}
-          imgSrc="/tayproasset/taypro-dashboard.png"
-          imgAlt={t("hero.imgAlt")}
+          subtitle={t("hero.subtitleShort")}
+          backgroundImage={heroBackground.src}
+          backgroundAlt={heroBackground.alt}
+          backgroundCredit={productHeroBackgroundCredit(heroBackground)}
           ctaHref="/contact"
           ctaText={t("hero.primaryCta.label")}
           ctaTopic={t("hero.primaryCta.topic")}
           ctaTitle={t("hero.primaryCta.title")}
           ctaSubtitle={t("hero.primaryCta.subtitle")}
+          secondaryCta={productHeroSecondaryCta(t, "#deployments")}
+          highlights={heroHighlights}
         />
 
-        <section className="bg-white pt-12 sm:pt-20 pb-8">
+        <section className="bg-white pt-4 sm:pt-8 pb-8">
           <Container size="narrow">
             <AnimateOnScroll animation="fadeInUp">
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
@@ -181,6 +194,14 @@ export default async function NectyrPage({
             </AnimateOnScroll>
           </Container>
         </section>
+
+        <ProductVisualSection
+          imageSrc="/tayproasset/taypro-dashboard.png"
+          imageAlt={t("hero.imgAlt")}
+          eyebrow={t("productVisual.eyebrow")}
+          title={t("productVisual.title")}
+          caption={t("hero.imgAlt")}
+        />
 
         <section
           className="w-full py-16 sm:py-20 bg-[#052638]"
@@ -558,17 +579,23 @@ export default async function NectyrPage({
           ctaLabel={t("energyResources.ctaLabel")}
         />
 
-        <ProjectsCardServer
-          useFileProjects
-          showHeader
-          headerText={t("misc.projectsHeader")}
-          filter={projectFilterForPage("console")}
-          locale={locale}
-        />
+        <div id="deployments">
+          <ProjectsCardServer
+            useFileProjects
+            showHeader
+            headerText={t("misc.projectsHeader")}
+            filter={projectFilterForPage("console")}
+            locale={locale}
+          />
+        </div>
 
         <ClientsCard />
 
-        <ProductCards title={t("misc.productCardsTitle")} cards={helyxCards} />
+        <RelatedProductLineupSection
+          headingId="nectyr-related-heading"
+          title={t("misc.productCardsTitle")}
+          robots={buildRelatedProductLineupRobots("helyx")}
+        />
 
         <RequestEstimateForm />
       </div>

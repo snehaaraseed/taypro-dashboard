@@ -4,6 +4,7 @@ import { Container } from "@/app/components/Container";
 import TrackedLink from "@/app/components/TrackedLink";
 import { HomeBlogCard } from "@/app/[locale]/home/HomeBlogCard";
 import { listAllBlogs } from "@/lib/cms/blogService";
+import { canonicalBlogHref } from "@/lib/seo/redirected-blog-slugs";
 import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
 
 const DATE_LOCALE: Record<string, string> = {
@@ -24,7 +25,7 @@ async function getLatestBlogs(limit = 3, locale: string) {
       title: b.title,
       featuredImageAlt: b.featuredImageAlt,
     }),
-    href: `/blog/${b.slug}`,
+    href: canonicalBlogHref(b.slug),
     date: new Date(b.updatedAt || b.publishDate).toLocaleDateString(dateLocale, {
       year: "numeric",
       month: "short",

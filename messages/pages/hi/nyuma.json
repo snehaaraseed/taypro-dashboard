@@ -52,7 +52,7 @@
       }
     },
     "hero": {
-      "title": "NYUMA — Fully Automatic Solar Panel Cleaning Robot for Fixed-Tilt Plants",
+      "title": "NYUMA: Fully Automatic Solar Panel Cleaning Robot for Fixed-Tilt Plants",
       "h1Line1": "स्वचालित सोलर पैनल सफाई रोबोट, ",
       "h1Line2": "Taypro NYUMA",
       "leadBeforeStrong": "Taypro NYUMA एक ",
@@ -66,7 +66,25 @@
         "label": "कोटेशन का अनुरोध करें"
       },
       "heroImageAlt": "यूटिलिटी-स्केल सोलर फार्म पर सोलर पैनल साफ करता Taypro NYUMA स्वचालित रोबोट",
-      "heroImageTitle": "स्वचालित सोलर पैनल सफाई रोबोट NYUMA, Taypro"
+      "heroImageTitle": "स्वचालित सोलर पैनल सफाई रोबोट NYUMA, Taypro",
+      "subtitleShort": "निश्चित-झुकाव उपयोगिता संयंत्रों के लिए स्वायत्त, जल रहित एकल-पास सफाई - TÜV NORD मान्य।",
+      "secondaryCta": {
+        "label": "तैनाती देखें"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "98%+",
+          "label": "स्वचालित पास के अनुसार धूल हटाई गई"
+        },
+        "stat1": {
+          "value": "3,600",
+          "label": "मॉड्यूल प्रति चार्ज साफ किए गए"
+        },
+        "stat2": {
+          "value": "निर्जल",
+          "label": "एकल-पास PBT सफ़ाई"
+        }
+      }
     },
     "overview": {
       "productImageAlt": "Top view of Taypro NYUMA automatic solar panel cleaning robot on parallel cleaning rails",
@@ -103,9 +121,15 @@
       "sideAlt": "Taypro NYUMA side profile showing module-frame rails, travel mechanism, and end housings",
       "sideCaption": "Side profile of the NYUMA rail system engineered for long-reach fixed-tilt rows.",
       "modularAlt": "Taypro NYUMA modular exploded view showing rails, wheels, and NYUMA drive unit",
-      "modularCaption": "Modular rail, wheel, and drive-unit layout — each array ships as a field-assembled NYUMA system.",
+      "modularCaption": "Modular rail, wheel, and drive-unit layout, each array ships as a field-assembled NYUMA system.",
       "dockingAlt": "Taypro NYUMA shadow-free docking power unit with integrated solar charging for autonomous daily cycles",
-      "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array."
+      "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array.",
+      "detailAlt": "Taypro NYUMA PBT ब्रश असेंबली, गाइड रेल, और अंतिम आवास पर NYUMA ब्रांडिंग का क्लोज़-अप",
+      "detailCaption": "दैनिक स्वायत्त चक्रों के लिए ब्रश हेड, गाइड रेल और एंड-कैप ब्रांडिंग इंजीनियर की गई।",
+      "heroAlt": "Taypro NYUMA स्वचालित सौर पैनल सफाई रोबोट, तीन-चौथाई उत्पाद प्रस्तुत करना",
+      "heroCaption": "NYUMA ऑन-बोर्ड सौर पैनल और लंबी पहुंच वाले सफाई फ्रेम के साथ स्व-निहित स्वचालित रोबोट।",
+      "fieldAlt": "Taypro NYUMA स्वचालित सौर पैनल सफाई रोबोट साफ आसमान के नीचे उपयोगिता-पैमाने पर निश्चित-झुकाव वाले सौर सरणी पर काम कर रहा है",
+      "fieldCaption": "साइट पर NYUMA - लाइव यूटिलिटी-स्केल सोलर प्लांट में सिंगल-पास PBT ब्रश से सफाई।"
     },
     "howToSection": {
       "dualPassStepImageAlt": "Taypro NYUMA single-pass PBT waterless cleaning mechanism with rotating PBT brush drum",
@@ -371,7 +395,9 @@
       "linkBetweenOpexAndNectyr": " या ",
       "linkNectyr": "NECTYR मॉनिटरिंग ऐप",
       "crossSellSuffix": "।",
-      "linkNyuma": "PBT automatic NYUMA robot"
+      "linkNyuma": "PBT automatic NYUMA robot",
+      "linkNyumaX": "सिंगल-एक्सिस ट्रैकर क्लीनिंग रोबोट (NYUMA-X)",
+      "linkGlyde": "डुअल-पास GLYDE रोबोट"
     },
     "specifications": {
       "titleLine1": "स्वचालित सोलर पैनल सफाई रोबोट ",
@@ -582,7 +608,8 @@
       "title": "Looking for more solutions?",
       "cardLabels": {
         "helyx": "HELYX",
-        "glydeX": "NYUMA"
+        "glydeX": "NYUMA",
+        "nyumaX": "NYUMA-X"
       },
       "cardTitleTemplate": "{label} Solar Panel Cleaning Robot"
     },
@@ -596,7 +623,7 @@
       "row0": {
         "criterion": "Cleaning Technology",
         "glyde": "Patented single-pass PBT: airflow loosens dust, PBT brush completes the wipe",
-        "nyuma": "Single-pass counter-rotating PBT brush drum — fewer moving consumables"
+        "nyuma": "Single-pass counter-rotating PBT brush drum, fewer moving consumables"
       },
       "row1": {
         "criterion": "Best For",
@@ -625,8 +652,8 @@
       },
       "row6": {
         "criterion": "Labour After Install",
-        "glyde": "Zero — fully autonomous daily cycles",
-        "nyuma": "Zero — fully autonomous daily cycles"
+        "glyde": "Zero: fully autonomous daily cycles",
+        "nyuma": "Zero: fully autonomous daily cycles"
       },
       "row7": {
         "criterion": "Fleet Monitoring",
@@ -646,6 +673,10 @@
         "modelT": "NYUMA"
       },
       "cardTitleTemplate": "{label} सोलर पैनल सफाई रोबोट"
+    },
+    "productVisual": {
+      "eyebrow": "उत्पाद एक नज़र में",
+      "title": "Taypro NYUMA स्वचालित सौर पैनल सफाई रोबोट"
     }
   },
   "Common": {

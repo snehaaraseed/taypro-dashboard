@@ -17,7 +17,14 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import Image from "next/image";
-import HeroSection from "@/app/components/Herosection";
+import ProductHero from "@/app/components/ProductHero";
+import { ProductVisualSection } from "@/app/components/ProductVisualSection";
+import {
+  buildProductHeroHighlights,
+  productHeroBackgroundCredit,
+  productHeroSecondaryCta,
+} from "@/lib/products/product-hero-helpers";
+import { resolveProductPageHeroBackground } from "@/lib/cms/product-page-hero-background";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { Container } from "@/app/components/Container";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
@@ -27,13 +34,14 @@ import {
   HowToSchema,
 } from "@/app/components/StructuredData";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
-import ProductCards from "@/app/components/ProductCards";
+import RelatedProductLineupSection from "@/app/components/RelatedProductLineupSection";
+import { buildRelatedProductLineupRobots } from "@/lib/products/build-product-lineup";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import { projectFilterForPage } from "@/lib/cms/project-page-filters";
 import { FaqSection } from "@/app/components/FaqSection";
 import ResourcesCard from "@/app/components/ResourcesCard";
 import CallbackCard from "@/app/components/CallbackCard";
-import { helyxCards, tayproTrustedByStatsStrip } from "@/app/data";
+import { tayproTrustedByStatsStrip } from "@/app/data";
 import { cradylProductConfig } from "@/lib/product-cradyl";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 
@@ -104,6 +112,8 @@ export async function CradylProductPage({ locale }: CradylProductPageProps) {
   const product = cradylProductConfig;
   const t = await getTranslations({ locale, namespace: product.namespace });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
+  const heroBackground = await resolveProductPageHeroBackground("cradyl", locale);
+  const heroHighlights = buildProductHeroHighlights(t);
 
   const breadcrumbs = [
     { name: tCommon("breadcrumbHome"), href: "/" },
@@ -195,27 +205,23 @@ export async function CradylProductPage({ locale }: CradylProductPageProps) {
 
       <div className="min-h-screen overflow-x-hidden">
         <span className="sr-only">{t("hero.launchedBadge")}</span>
-        <HeroSection
+        <ProductHero
+          eyebrow={t("overview.eyebrow")}
           title={t("hero.title")}
-          subtitle={
-            <>
-              {t("hero.subtitleBefore")}
-              <strong>{t("hero.subtitleStrong")}</strong>
-              {t("hero.subtitleAfter")}
-              <strong>{t("hero.subtitleStrong2")}</strong>
-              {t("hero.subtitleAfter2")}
-            </>
-          }
-          imgSrc={product.heroImagePath}
-          imgAlt={t("hero.imgAlt")}
+          subtitle={t("hero.subtitleShort")}
+          backgroundImage={heroBackground.src}
+          backgroundAlt={heroBackground.alt}
+          backgroundCredit={productHeroBackgroundCredit(heroBackground)}
           ctaHref="/contact"
           ctaText={t("hero.primaryCta.label")}
           ctaTopic={t("hero.primaryCta.topic")}
           ctaTitle={t("hero.primaryCta.title")}
           ctaSubtitle={t("hero.primaryCta.subtitle")}
+          secondaryCta={productHeroSecondaryCta(t, "#deployments")}
+          highlights={heroHighlights}
         />
 
-        <section className="bg-white pt-8 sm:pt-14 pb-4">
+        <section className="bg-white pt-4 sm:pt-8 pb-4">
           <Container size="narrow">
             <AnimateOnScroll animation="fadeInUp">
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
@@ -286,6 +292,14 @@ export async function CradylProductPage({ locale }: CradylProductPageProps) {
             </AnimateOnScroll>
           </Container>
         </section>
+
+        <ProductVisualSection
+          imageSrc={product.heroImagePath}
+          imageAlt={t("hero.imgAlt")}
+          eyebrow={t("productVisual.eyebrow")}
+          title={t("productVisual.title")}
+          caption={t("hero.imgAlt")}
+        />
 
         <section className="bg-gradient-to-b from-white to-gray-50 py-12 sm:py-16">
           <Container>
@@ -777,13 +791,15 @@ export async function CradylProductPage({ locale }: CradylProductPageProps) {
           </Container>
         </section>
 
-        <ProjectsCardServer
-          useFileProjects
-          showHeader
-          headerText=""
-          filter={projectFilterForPage("cradyl")}
-          locale={locale}
-        />
+        <div id="deployments">
+          <ProjectsCardServer
+            useFileProjects
+            showHeader
+            headerText=""
+            filter={projectFilterForPage("cradyl")}
+            locale={locale}
+          />
+        </div>
 
         <FaqSection
           id="cradyl-faq-heading"
@@ -817,7 +833,11 @@ export async function CradylProductPage({ locale }: CradylProductPageProps) {
 
         <ResourcesCard />
 
-        <ProductCards title={t("productCardsTitle")} cards={helyxCards} />
+        <RelatedProductLineupSection
+          headingId="cradyl-related-heading"
+          title={t("productCardsTitle")}
+          robots={buildRelatedProductLineupRobots("helyx")}
+        />
 
         <RequestEstimateForm />
 

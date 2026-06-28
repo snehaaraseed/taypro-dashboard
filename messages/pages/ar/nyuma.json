@@ -52,7 +52,7 @@
       }
     },
     "hero": {
-      "title": "NYUMA — Fully Automatic Solar Panel Cleaning Robot for Fixed-Tilt Plants",
+      "title": "NYUMA: Fully Automatic Solar Panel Cleaning Robot for Fixed-Tilt Plants",
       "h1Line1": "روبوت تنظيف ألواح شمسية أوتوماتيكي, ",
       "h1Line2": "NYUMA من Taypro",
       "leadBeforeStrong": "NYUMA من Taypro هو ",
@@ -66,7 +66,25 @@
         "label": "طلب عرض سعر"
       },
       "heroImageAlt": "روبوت NYUMA يُنظّف ألواحاً في مزرعة شمسية على نطاق المرافق",
-      "heroImageTitle": "روبوت تنظيف ألواح شمسية أوتوماتيكي NYUMA, Taypro"
+      "heroImageTitle": "روبوت تنظيف ألواح شمسية أوتوماتيكي NYUMA, Taypro",
+      "subtitleShort": "التنظيف المستقل بدون ماء بممر واحد لمحطات المرافق ذات الإمالة الثابتة - تم التحقق من صحة TÜV NORD.",
+      "secondaryCta": {
+        "label": "انظر عمليات النشر"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "98%+",
+          "label": "تتم إزالة الغبار لكل تمريرة آلية"
+        },
+        "stat1": {
+          "value": "3,600",
+          "label": "وحدات تنظيفها لكل تهمة"
+        },
+        "stat2": {
+          "value": "جدب",
+          "label": "تمريرة واحدة PBT التنظيف"
+        }
+      }
     },
     "overview": {
       "productImageAlt": "Top view of Taypro NYUMA automatic solar panel cleaning robot on parallel cleaning rails",
@@ -87,7 +105,7 @@
       "p2BeforeStrong": "On a single charge, NYUMA cleans up to ",
       "p2Strong": "2.2 km of running length, approximately 3,600 solar modules",
       "p2AfterStrong": ". Cleaning cycles are best scheduled outside energy production hours and can be programmed remotely, ensuring zero impact on plant generation.",
-      "p3": "NYUMA's patented single-pass PBT mechanism combines high-speed airflow with a self-cleaning PBT brush drum — the first pass lifts dry dust, the second completes the wipe without water or detergent. Edge and obstacle detection maps every panel boundary while surface-undulation tracking keeps brush pressure consistent row-by-row. Battery-aware logic ensures each assigned array is cleaned completely before the robot self-docks — rated for 180 km/hr gusts while locked at the station.",
+      "p3": "NYUMA's patented single-pass PBT mechanism combines high-speed airflow with a self-cleaning PBT brush drum, the first pass lifts dry dust, the second completes the wipe without water or detergent. Edge and obstacle detection maps every panel boundary while surface-undulation tracking keeps brush pressure consistent row-by-row. Battery-aware logic ensures each assigned array is cleaned completely before the robot self-docks, rated for 180 km/hr gusts while locked at the station.",
       "p4Blog1": "كيف يعمل روبوت التنظيف التلقائي على الوحدات",
       "p4Blog2": "فوائد التنظيف الروبوتي على نطاق المرافق",
       "p4Prefix": "قراءة إضافية: ",
@@ -103,9 +121,15 @@
       "sideAlt": "Taypro NYUMA side profile showing module-frame rails, travel mechanism, and end housings",
       "sideCaption": "Side profile of the NYUMA rail system engineered for long-reach fixed-tilt rows.",
       "modularAlt": "Taypro NYUMA modular exploded view showing rails, wheels, and NYUMA drive unit",
-      "modularCaption": "Modular rail, wheel, and drive-unit layout — each array ships as a field-assembled NYUMA system.",
+      "modularCaption": "Modular rail, wheel, and drive-unit layout, each array ships as a field-assembled NYUMA system.",
       "dockingAlt": "Taypro NYUMA shadow-free docking power unit with integrated solar charging for autonomous daily cycles",
-      "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array."
+      "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array.",
+      "detailAlt": "لقطة مقربة لـ Taypro NYUMA PBT مجموعة الفرشاة، وقضبان التوجيه، والعلامة التجارية NYUMA على مبيت الطرف",
+      "detailCaption": "تم تصميم رأس الفرشاة، وقضبان التوجيه، والعلامة التجارية للغطاء النهائي للدورات المستقلة اليومية.",
+      "heroAlt": "Taypro NYUMA روبوت تنظيف الألواح الشمسية الأوتوماتيكي، تقديم ثلاثة أرباع المنتج",
+      "heroCaption": "NYUMA روبوت آلي مستقل مزود بلوحة شمسية مدمجة وإطار تنظيف بعيد المدى.",
+      "fieldAlt": "Taypro NYUMA روبوت آلي لتنظيف الألواح الشمسية يعمل على مصفوفة شمسية ذات إمالة ثابتة على نطاق المرافق تحت سماء صافية",
+      "fieldCaption": "NYUMA في الموقع - تنظيف الفرشاة بممر واحد PBT عبر محطة طاقة شمسية حية على نطاق المرافق."
     },
     "howToSection": {
       "dualPassStepImageAlt": "Taypro NYUMA single-pass PBT waterless cleaning mechanism with rotating PBT brush drum",
@@ -371,7 +395,9 @@
       "linkBetweenOpexAndNectyr": " أو ",
       "linkNectyr": "تطبيق مراقبة NECTYR",
       "crossSellSuffix": ".",
-      "linkNyuma": "PBT automatic NYUMA robot"
+      "linkNyuma": "PBT automatic NYUMA robot",
+      "linkNyumaX": "روبوت التنظيف المتعقب أحادي المحور (NYUMA-X)",
+      "linkGlyde": "روبوت ثنائي التمرير GLYDE"
     },
     "specifications": {
       "titleLine1": "روبوت تنظيف ألواح شمسية أوتوماتيكي ",
@@ -582,7 +608,8 @@
       "title": "Looking for more solutions?",
       "cardLabels": {
         "helyx": "HELYX",
-        "glydeX": "NYUMA"
+        "glydeX": "NYUMA",
+        "nyumaX": "NYUMA-X"
       },
       "cardTitleTemplate": "{label} Solar Panel Cleaning Robot"
     },
@@ -596,7 +623,7 @@
       "row0": {
         "criterion": "Cleaning Technology",
         "glyde": "Patented single-pass PBT: airflow loosens dust, PBT brush completes the wipe",
-        "nyuma": "Single-pass counter-rotating PBT brush drum — fewer moving consumables"
+        "nyuma": "Single-pass counter-rotating PBT brush drum, fewer moving consumables"
       },
       "row1": {
         "criterion": "Best For",
@@ -625,8 +652,8 @@
       },
       "row6": {
         "criterion": "Labour After Install",
-        "glyde": "Zero — fully autonomous daily cycles",
-        "nyuma": "Zero — fully autonomous daily cycles"
+        "glyde": "Zero: fully autonomous daily cycles",
+        "nyuma": "Zero: fully autonomous daily cycles"
       },
       "row7": {
         "criterion": "Fleet Monitoring",
@@ -638,6 +665,10 @@
       "crossSellMid": ". Running single-axis trackers? Compare ",
       "linkTracker": "NYUMA and NYUMA-X",
       "crossSellSuffix": "."
+    },
+    "productVisual": {
+      "eyebrow": "المنتج في لمحة",
+      "title": "Taypro NYUMA روبوت تنظيف الألواح الشمسية الأوتوماتيكي"
     }
   },
   "Common": {

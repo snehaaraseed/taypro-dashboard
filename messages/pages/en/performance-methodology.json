@@ -38,16 +38,16 @@
       "heading": "Three principles behind every public claim",
       "intro": "Marketing numbers on taypro.in are never standalone slogans. Each ties back to a defined measurement, a platform context, and a scope boundary.",
       "item0": {
-        "title": "Per pass or per cycle — not nameplate efficiency",
+        "title": "Per pass or per cycle, not nameplate efficiency",
         "body": "Dust-removal figures describe loose particulate removed from module glass in one completed pass or automated cycle. They do not describe panel conversion efficiency or guaranteed plant-wide MWh uplift."
       },
       "item1": {
         "title": "Platform-specific mechanics",
-        "body": "Brush-based semi-automatic paths (HELYX) and dual-pass autonomous paths (GLYDE, GLYDE-X) use different cleaning mechanics. Metrics are quoted per pass or per cycle accordingly — never blended into one universal number."
+        "body": "Brush-based semi-automatic paths (HELYX) and dual-pass autonomous paths (GLYDE, GLYDE-X) use different cleaning mechanics. Metrics are quoted per pass or per cycle accordingly, never blended into one universal number."
       },
       "item2": {
         "title": "Site assessment for outcomes",
-        "body": "Generation recovery, water savings, and CO₂ figures depend on your soiling baseline, cleaning cadence, tariff, and weather. Plant-specific diligence requires site data — not homepage aggregates alone."
+        "body": "Generation recovery, water savings, and CO₂ figures depend on your soiling baseline, cleaning cadence, tariff, and weather. Plant-specific diligence requires site data, not homepage aggregates alone."
       }
     },
     "dustRemoval": {
@@ -63,7 +63,7 @@
     },
     "generation": {
       "heading": "Generation recovery vs. module efficiency",
-      "p0": "Soiling on Indian utility plants can suppress usable output when washing is infrequent. Industry discussions often cite roughly 8–25% seasonal soiling loss depending on region, tilt, and O&M practice. Robotic dry cleaning aims to recover energy that would otherwise be lost to dust — not to raise nameplate module efficiency.",
+      "p0": "Soiling on Indian utility plants can suppress usable output when washing is infrequent. Industry discussions often cite roughly 8–25% seasonal soiling loss depending on region, tilt, and O&M practice. Robotic dry cleaning aims to recover energy that would otherwise be lost to dust, not to raise nameplate module efficiency.",
       "calloutTitle": "No universal efficiency uplift %",
       "p1Before": "Actual MWh recovered depends on your baseline soiling, cleaning cadence, tariff, and weather. Taypro does not publish a single universal \"efficiency increase %\" for all sites. Use the",
       "roiLink": "ROI calculator",
@@ -71,7 +71,7 @@
     },
     "testing": {
       "heading": "How we test and validate",
-      "intro": "Taypro validates cleaning performance through a combination of controlled trials, deployed fleet evidence, and third-party certification — not a single lab snapshot.",
+      "intro": "Taypro validates cleaning performance through a combination of controlled trials, deployed fleet evidence, and third-party certification, not a single lab snapshot.",
       "step0": {
         "title": "Bench & field trials",
         "body": "Controlled trials on representative module types, using standardised artificial and natural dust loads where applicable."
@@ -92,7 +92,7 @@
     },
     "platform": {
       "heading": "Platform summary",
-      "intro": "Each Taypro platform is quoted on its own cleaning mechanic. Compare paths below — then review product datasheets for your layout.",
+      "intro": "Each Taypro platform is quoted on its own cleaning mechanic. Compare paths below, then review product datasheets for your layout.",
       "colPlatform": "Platform",
       "colMetric": "Typical quoted metric",
       "colMethod": "Method",
@@ -114,14 +114,14 @@
     },
     "uptime": {
       "heading": "Uptime and service commitments",
-      "body": "Marketing references to \"highest uptime\" or \"same-day breakdown\" response describe Taypro service targets backed by pan-India spares, NECTYR remote diagnostics, and AMC programs. Contractual SLAs are defined in customer agreements — not on this page."
+      "body": "Marketing references to \"highest uptime\" or \"same-day breakdown\" response describe Taypro service targets backed by pan-India spares, NECTYR remote diagnostics, and AMC programs. Contractual SLAs are defined in customer agreements, not on this page."
     },
     "publicProof": {
       "heading": "Fleet impact figures on taypro.in",
       "intro": "Hero, company, and product pages cite aggregate fleet figures. Each uses approved public marketing assumptions for India utility-scale deployments. Rounded tiles may differ slightly from plant-specific models.",
       "item0": {
         "label": "5 GW+ solar assets cleaned daily",
-        "body": "Daily operational throughput across the live robotic cleaning fleet — capacity under active cleaning programmes, not nameplate DC installed industry-wide."
+        "body": "Daily operational throughput across the live robotic cleaning fleet, capacity under active cleaning programmes, not nameplate DC installed industry-wide."
       },
       "item1": {
         "label": "11 billion+ panels cleaned annually",
@@ -133,7 +133,7 @@
       },
       "item3": {
         "label": "188 GWh+ additional clean generation",
-        "body": "Compares waterless robotic cleaning cadence to typical wet-wash baselines — recovered output from reduced soiling, not nameplate module efficiency gains."
+        "body": "Compares waterless robotic cleaning cadence to typical wet-wash baselines, recovered output from reduced soiling, not nameplate module efficiency gains."
       },
       "item4": {
         "label": "700M+ litres of water saved annually",
@@ -147,7 +147,7 @@
     },
     "documentation": {
       "heading": "Plant-specific documentation",
-      "bodyBefore": "For tenders, lender diligence, or internal technical review, Taypro can provide site-specific cleaning plans, cycle assumptions, and — where available — anonymised field outcomes from comparable deployments.",
+      "bodyBefore": "For tenders, lender diligence, or internal technical review, Taypro can provide site-specific cleaning plans, cycle assumptions, and, where available, anonymised field outcomes from comparable deployments.",
       "contactLink": "Contact our applications team",
       "bodyAfter": "with plant capacity, layout, and location.",
       "ctaRoi": "Run ROI calculator",
@@ -157,13 +157,13 @@
       "heading": "Frequently asked questions",
       "subtitle": "Quick answers for procurement and technical diligence teams.",
       "q0": "Does 99%+ dust removal mean my plant will generate 99% more energy?",
-      "a0": "No. It describes loose surface dust removed from module glass in one completed pass or dual-pass cycle under defined conditions — not a guaranteed MWh uplift percentage for your entire plant.",
+      "a0": "No. It describes loose surface dust removed from module glass in one completed pass or dual-pass cycle under defined conditions, not a guaranteed MWh uplift percentage for your entire plant.",
       "q1": "How often should robots clean a utility-scale plant?",
-      "a1": "Cadence depends on soiling rate, season, and O&M policy. Many Indian utility programmes run roughly 3–10 dry cycles per month on automatic fleets, weather permitting — not daily plant-wide washing of every module.",
+      "a1": "Cadence depends on soiling rate, season, and O&M policy. Many Indian utility programmes run roughly 3–10 dry cycles per month on automatic fleets, weather permitting, not daily plant-wide washing of every module.",
       "q2": "Are Rajasthan sand loads and agricultural film soiling treated the same?",
       "a2": "No. Dust type, module tilt, tracker motion, and whether one or two passes complete in a cycle all affect outcomes. Field trials and gravimetric checks account for these differences; universal guarantees do not.",
       "q3": "How are homepage fleet stats like 5 GW+ and 11B+ panels calculated?",
-      "a3": "They use approved public marketing assumptions aggregated across live deployments — daily throughput, completed panel passes, and fleet-scale models. They are not substitutes for plant-specific SCADA validation.",
+      "a3": "They use approved public marketing assumptions aggregated across live deployments, daily throughput, completed panel passes, and fleet-scale models. They are not substitutes for plant-specific SCADA validation.",
       "q4": "What is the difference between GLYDE and HELYX performance quotes?",
       "a4": "GLYDE and GLYDE-X quote 99%+ dust removal per automated dual-pass cycle (airflow + microfiber). NYUMA and NYUMA-X quote 98%+ per single-pass PBT cycle. HELYX quotes 95%+ per single forward brush pass with operator placement per row.",
       "q5": "Can Taypro share data for tender or lender diligence?",

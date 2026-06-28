@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
+import { prefetchClientNamespacesForPath } from "@/i18n/prefetch-client-namespaces";
 import { Phone } from "lucide-react";
 import LocaleSwitcher from "@/app/components/LocaleSwitcher";
 import { TAYPRO_SALES_PHONE_TEL } from "@/lib/contact";
@@ -17,6 +18,10 @@ const HOME_HERO_DARK_NAV_OFFSET = 64;
 
 export default function Header() {
   const t = useTranslations("Navigation");
+  const locale = useLocale();
+  const warmNavMessages = (href: string) => {
+    prefetchClientNamespacesForPath(locale, href);
+  };
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isSolarMenuOpen, setIsSolarMenuOpen] = useState(false);
@@ -164,7 +169,7 @@ export default function Header() {
     >
       <div className="shrink-0 px-3 py-3 sm:px-4 sm:py-4">
         <div className="flex h-14 min-w-0 flex-nowrap items-center justify-between gap-2 sm:gap-3 lg:grid lg:h-16 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-center lg:gap-3 xl:gap-4">
-          {/* Logo — left */}
+          {/* Logo: left */}
           <div className="shrink-0 justify-self-start">
             <Link
               href={"/"}
@@ -194,7 +199,7 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Desktop navigation — centered */}
+          {/* Desktop navigation, centered */}
           <nav
             className="relative z-50 hidden min-w-0 flex-nowrap items-center justify-center gap-0.5 justify-self-center lg:flex lg:gap-1 2xl:gap-2"
             aria-label="Main navigation"
@@ -206,6 +211,8 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   title="Nav Item"
+                  onMouseEnter={() => warmNavMessages(item.href)}
+                  onFocus={() => warmNavMessages(item.href)}
                   onClick={() => trackNav(item.name, item.href)}
                   className={`whitespace-nowrap px-2 py-2 text-sm font-medium text-white transition-all duration-300 hover:text-[#39D600] hover:underline underline-offset-8 2xl:px-3 2xl:text-base ${
                     isActive(item.href) ? "underline" : ""
@@ -249,6 +256,8 @@ export default function Header() {
                         href={item.href}
                         key={item.label}
                         title={item.label}
+                        onMouseEnter={() => warmNavMessages(item.href)}
+                        onFocus={() => warmNavMessages(item.href)}
                         onClick={() => trackNav(item.label, item.href, "header_solutions")}
                         className={
                           item.isButton
@@ -284,6 +293,8 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   title="Nav Item"
+                  onMouseEnter={() => warmNavMessages(item.href)}
+                  onFocus={() => warmNavMessages(item.href)}
                   onClick={() => trackNav(item.name, item.href)}
                   className={`whitespace-nowrap px-2 py-2 text-sm font-medium text-white transition-all duration-300 hover:text-[#39D600] hover:underline underline-offset-8 2xl:px-3 2xl:text-base ${
                     isActive(item.href) ? "underline" : ""
@@ -294,7 +305,7 @@ export default function Header() {
               ))}
           </nav>
 
-          {/* Language + call CTA (+ mobile menu) — right */}
+          {/* Language + call CTA (+ mobile menu), right */}
           <div className="flex min-w-0 shrink-0 items-center justify-end gap-1.5 justify-self-end sm:gap-2 lg:gap-3">
             <LocaleSwitcher />
             <Link
@@ -345,7 +356,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile navigation — always in DOM so aria-controls stays valid when closed */}
+      {/* Mobile navigation, always in DOM so aria-controls stays valid when closed */}
       <nav
         id="mobile-nav"
         hidden={!isMenuOpen}
@@ -360,6 +371,8 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 title="Nav Item"
+                onMouseEnter={() => warmNavMessages(item.href)}
+                onFocus={() => warmNavMessages(item.href)}
                 onClick={() => {
                   trackNav(item.name, item.href, "mobile_nav");
                   closeMobileMenu();
@@ -406,6 +419,8 @@ export default function Header() {
                   <Link
                     key={item.label}
                     href={item.href}
+                    onMouseEnter={() => warmNavMessages(item.href)}
+                    onFocus={() => warmNavMessages(item.href)}
                     className={
                       item.isButton
                         ? "block bg-[#A8C117] text-[#052638] px-4 py-3 rounded-md font-medium text-center hover:bg-[#39D600] transition-all duration-200 mx-3 my-2 text-sm w-fit min-h-11"

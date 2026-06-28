@@ -326,8 +326,7 @@ export default function EditProjectPage() {
 
   const patchEditor = (patch: Partial<ProjectEditorState>) => {
     setFormData((prev) => ({
-      ...prev,
-      ...patch,
+      ...prev, ...patch,
       facts: patch.facts ?? prev.facts,
       sections: patch.sections ?? prev.sections,
     }));
@@ -732,7 +731,7 @@ export default function EditProjectPage() {
                   }
                 }}
                 className="flex-1 px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder='e.g. 250 MW, Maharashtra, Automatic, Capex — press Enter'
+                placeholder='e.g. 250 MW, Maharashtra, Automatic, Capex: press Enter'
               />
               <button
                 type="button"

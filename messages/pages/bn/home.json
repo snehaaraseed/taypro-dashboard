@@ -110,7 +110,7 @@
       "loopSteps": {
         "0": {
           "title": "সেন্স",
-          "description": "আবহাওয়া, আর্দ্রতা, পরাগ, ব্যাটারির অবস্থা এবং মাইক্রোফাইবার আর্দ্রতা — রোবট প্রতি 40+ লাইভ ডেটা ইনপুট"
+          "description": "আবহাওয়া, আর্দ্রতা, পরাগ, ব্যাটারির অবস্থা এবং মাইক্রোফাইবার আর্দ্রতা, রোবট প্রতি 40+ লাইভ ডেটা ইনপুট"
         },
         "1": {
           "title": "সময়সূচী",
@@ -126,7 +126,7 @@
         },
         "4": {
           "title": "শিখুন",
-          "description": "AI মডেল পুরো ফ্লিট জুড়ে প্রতিটি চক্রের সাথে উন্নত হয় — আপনার প্ল্যান্ট অন্য প্রতিটি সাইটের ডেটা থেকে উপকৃত হয়"
+          "description": "AI মডেল পুরো ফ্লিট জুড়ে প্রতিটি চক্রের সাথে উন্নত হয়, আপনার প্ল্যান্ট অন্য প্রতিটি সাইটের ডেটা থেকে উপকৃত হয়"
         }
       }
     },
@@ -228,11 +228,11 @@
       },
       "feature4": {
         "title": "Self-learning fleet AI",
-        "description": "AI that improves cleaning decisions with each cycle across the full fleet — soiling prediction, timing, and routing compound with every site added."
+        "description": "AI that improves cleaning decisions with each cycle across the full fleet, soiling prediction, timing, and routing compound with every site added."
       },
       "feature5": {
         "title": "Wet microfiber detection",
-        "description": "Sensors detect when cleaning elements are wet from dew or humidity and postpone cycles automatically — protecting module glass from smear damage."
+        "description": "Sensors detect when cleaning elements are wet from dew or humidity and postpone cycles automatically, protecting module glass from smear damage."
       }
     },
     "whyTaypro": {
@@ -327,10 +327,10 @@
       "intro": "Taypro ভারতের বৃহত্তম ইউটিলিটি-স্কেল PV প্ল্যান্টের জন্য স্বায়ত্তশাসিত সৌর প্যানেল পরিষ্কারের রোবট ডিজাইন, তৈরি এবং পরিষেবা দেয়।",
       "productsEyebrow": "রোবট লাইনআপ",
       "hubCardTitle": "রোবট মডেলের তুলনা করুন",
-      "hubCardDescription": "GLYDE, NYUMA, HELYX, এবং ট্র্যাকার-প্রস্তুত ভেরিয়েন্টগুলি — আমাদের পণ্য হাবের স্পেক্স, ফিট, এবং স্থাপনার নির্দেশিকা।",
+      "hubCardDescription": "GLYDE, NYUMA, HELYX, এবং ট্র্যাকার-প্রস্তুত ভেরিয়েন্টগুলি, আমাদের পণ্য হাবের স্পেক্স, ফিট, এবং স্থাপনার নির্দেশিকা।",
       "hubLink": "সৌর প্যানেল পরিষ্কার রোবট হাব",
       "serviceCardTitle": "OPEX পরিস্কার পরিসেবা",
-      "serviceCardDescription": "সম্পূর্ণরূপে পরিচালিত নৌবহর — আমরা আপনার প্ল্যান্টে রোবট স্থাপন, পরিচালনা এবং রক্ষণাবেক্ষণ করি।",
+      "serviceCardDescription": "সম্পূর্ণরূপে পরিচালিত নৌবহর, আমরা আপনার প্ল্যান্টে রোবট স্থাপন, পরিচালনা এবং রক্ষণাবেক্ষণ করি।",
       "serviceLink": "OPEX রোবোটিক ক্লিনিং সার্ভিস",
       "calculatorCardTitle": "ROI ক্যালকুলেটর",
       "calculatorCardDescription": "পুনরুদ্ধার করা প্রজন্ম এবং হ্রাসকৃত ম্যানুয়াল O&M থেকে পেব্যাক অনুমান করুন।",

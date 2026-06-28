@@ -1,4 +1,3 @@
-import { helyxCards } from "@/app/data";
 import {
   ClipboardList,
   Cpu,
@@ -19,9 +18,17 @@ import {
   Warehouse,
 } from "lucide-react";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
-import ProductCards from "@/app/components/ProductCards";
+import RelatedProductLineupSection from "@/app/components/RelatedProductLineupSection";
+import { buildRelatedProductLineupRobots } from "@/lib/products/build-product-lineup";
 import ClientsCard from "@/app/components/ClientsCard";
-import HeroSection from "@/app/components/Herosection";
+import ProductHero from "@/app/components/ProductHero";
+import { ProductVisualSection } from "@/app/components/ProductVisualSection";
+import {
+  buildProductHeroHighlights,
+  productHeroBackgroundCredit,
+  productHeroSecondaryCta,
+} from "@/lib/products/product-hero-helpers";
+import { resolveProductPageHeroBackground } from "@/lib/cms/product-page-hero-background";
 import FeaturesSection from "@/app/components/FeaturesSection";
 import CallbackCard from "@/app/components/CallbackCard";
 import ResourcesCard from "@/app/components/ResourcesCard";
@@ -75,6 +82,8 @@ export default async function SolarPanelCleaningService({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "CleaningServicePage" });
+  const heroBackground = await resolveProductPageHeroBackground("opex", locale);
+  const heroHighlights = buildProductHeroHighlights(t);
   const tCommon = await getTranslations({ locale, namespace: "Common" });
 
   const breadcrumbs = [
@@ -152,55 +161,24 @@ export default async function SolarPanelCleaningService({
       />
 
       <div className="min-h-screen overflow-x-hidden">
-        <HeroSection
+        <ProductHero
+          eyebrow={t("overview.eyebrow")}
           title={t("hero.title")}
-          subtitle={
-            <>
-              {t("hero.subtitleBefore")}{" "}
-              <strong>{t("hero.subtitlePanels")}</strong>.{" "}
-              {t("hero.subtitleDeploy")}{" "}
-              <Link
-                href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system"
-                className="brand-inline-link"
-              >
-                {t("hero.glyde")}
-              </Link>
-              ,{" "}
-              <Link
-                href="/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system"
-                className="brand-inline-link"
-              >
-                {t("hero.helyx")}
-              </Link>
-              , {t("hero.subtitleOr")}{" "}
-              <Link
-                href="/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers"
-                className="brand-inline-link"
-              >
-                {t("hero.glydeX")}
-              </Link>{" "}, {t("hero.subtitleProgramme")}{" "}
-              <strong>{t("hero.subtitleCycles")}</strong>
-              {t("hero.subtitleAfter")}{" "}
-              <Link
-                href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app"
-                className="brand-inline-link"
-              >
-                {t("hero.nectyr")}
-              </Link>
-              .
-            </>
-          }
-          imgSrc="/tayprosolarpanel/taypro-cleaning-service.png"
-          imgAlt={t("hero.imgAlt")}
+          subtitle={t("hero.subtitleShort")}
+          backgroundImage={heroBackground.src}
+          backgroundAlt={heroBackground.alt}
+          backgroundCredit={productHeroBackgroundCredit(heroBackground)}
           ctaHref="/contact"
           ctaText={t("hero.primaryCta.label")}
           ctaTopic={t("hero.primaryCta.topic")}
           ctaTitle={t("hero.primaryCta.title")}
           ctaSubtitle={t("hero.primaryCta.subtitle")}
+          secondaryCta={productHeroSecondaryCta(t, "#deployments")}
+          highlights={heroHighlights}
         />
 
         {/* What is OPEX */}
-        <section className="bg-white pt-12 sm:pt-20 pb-8">
+        <section className="bg-white pt-4 sm:pt-8 pb-8">
           <Container size="narrow">
             <AnimateOnScroll animation="fadeInUp">
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
@@ -256,6 +234,14 @@ export default async function SolarPanelCleaningService({
             </AnimateOnScroll>
           </Container>
         </section>
+
+        <ProductVisualSection
+          imageSrc="/tayprosolarpanel/taypro-cleaning-service.png"
+          imageAlt={t("hero.imgAlt")}
+          eyebrow={t("productVisual.eyebrow")}
+          title={t("productVisual.title")}
+          caption={t("hero.imgAlt")}
+        />
 
         {/* Eligibility */}
         <section className="bg-[#f4f1e9] py-16 sm:py-20">
@@ -618,13 +604,15 @@ export default async function SolarPanelCleaningService({
 
         <ClientsCard />
 
-        <ProjectsCardServer
-          useFileProjects
-          showHeader
-          headerText={t("projectsHeader")}
-          filter={projectFilterForPage("opex")}
-          locale={locale}
-        />
+        <div id="deployments">
+          <ProjectsCardServer
+            useFileProjects
+            showHeader
+            headerText={t("projectsHeader")}
+            filter={projectFilterForPage("opex")}
+            locale={locale}
+          />
+        </div>
 
         {/* Advantages */}
         <section className="w-full py-16 sm:py-20 bg-white">
@@ -801,7 +789,11 @@ export default async function SolarPanelCleaningService({
           </Container>
         </section>
 
-        <ProductCards title={t("productCardsTitle")} cards={helyxCards} />
+        <RelatedProductLineupSection
+          headingId="opex-related-heading"
+          title={t("productCardsTitle")}
+          robots={buildRelatedProductLineupRobots("helyx")}
+        />
 
         <RequestEstimateForm />
       </div>

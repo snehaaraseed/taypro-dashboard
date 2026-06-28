@@ -17,7 +17,7 @@ const JOB_OPENING_FIELDS = [
   "status",
 ] as const;
 
-/** Open roles only — publish_on_website omitted (not queryable on all ERPNext setups). */
+/** Open roles only, publish_on_website omitted (not queryable on all ERPNext setups). */
 const OPEN_FILTERS: [string, string, string | number][] = [
   ["status", "=", "Open"],
 ];
@@ -76,7 +76,7 @@ export async function getJobOpeningByRoute(route: string): Promise<JobOpening | 
   return fetchJobOpeningByRouteKey(route, true);
 }
 
-/** Includes filled/closed roles — used for redirects off stale job URLs. */
+/** Includes filled/closed roles, used for redirects off stale job URLs. */
 export async function getJobOpeningByRouteAnyStatus(
   route: string
 ): Promise<JobOpening | null> {

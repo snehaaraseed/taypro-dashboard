@@ -29,13 +29,13 @@ export function HomeBlogCard({
       trackType="blog"
       className="group flex flex-col h-full rounded-xl border border-gray-200 overflow-hidden bg-[#f8fafb] hover:border-[#A8C117] hover:shadow-md transition"
     >
-      <div className="relative aspect-[16/10] bg-[#eef3f8]">
+      <div className="blog-card-thumb relative aspect-[16/10] bg-[#eef3f8] overflow-hidden">
         {image ? (
           <Image
             src={image}
             alt={imageAlt}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            className="absolute inset-0 h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
             sizes="(max-width: 768px) 100vw, 33vw"
             loading="lazy"
             unoptimized={shouldServeImageUnoptimized(image)}

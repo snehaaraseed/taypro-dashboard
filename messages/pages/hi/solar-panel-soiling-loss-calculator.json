@@ -6,13 +6,13 @@
       "openGraphTitle": "सौर मृदा हानि कैलकुलेटर | Taypro",
       "openGraphDescription": "सफाई कार्यक्रम चुनने से पहले पैनल की गंदगी से होने वाली ऊर्जा और राजस्व की मात्रा निर्धारित करें - IPP और O&M टीमों के लिए दिशात्मक उपकरण।"
     },
-    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHub": "सौर पैनल सफाई करने वाले रोबोट",
     "breadcrumbHubHref": "/solar-panel-cleaning-system",
-    "breadcrumb": "Soiling loss calculator",
+    "breadcrumb": "मृदा हानि कैलकुलेटर",
     "schema": {
-      "name": "Taypro Solar Panel Soiling Loss Calculator",
-      "description": "Web calculator estimating annual MWh and revenue loss from solar panel soiling on Indian utility-scale plants.",
-      "applicationCategory": "BusinessApplication"
+      "name": "Taypro सौर पैनल मृदा हानि कैलकुलेटर",
+      "description": "भारतीय उपयोगिता-पैमाने के संयंत्रों पर सौर पैनल की गंदगी से वार्षिक MWh और राजस्व हानि का अनुमान लगाने वाला वेब कैलकुलेटर।",
+      "applicationCategory": "व्यवसायिक उपयोग"
     },
     "hero": {
       "eyebrow": "उपकरण · गंदा अर्थशास्त्र",
@@ -64,48 +64,48 @@
       }
     },
     "soilingCalculator": {
-      "eyebrow": "Interactive tool",
-      "heading": "Estimate your annual soiling loss",
-      "subheading": "Directional only — not a guarantee of recoverable MWh. Defaults use India market yield (1,500 kWh/kW-year).",
-      "disclaimer": "Results are illustrative. Site-specific soiling studies, PR baselines, and weather normalization are required for investment-grade models. See performance methodology."
+      "eyebrow": "इंटरैक्टिव उपकरण",
+      "heading": "अपने वार्षिक मृदा हानि का अनुमान लगाएं",
+      "subheading": "केवल दिशात्मक, पुनर्प्राप्ति योग्य MWh की गारंटी नहीं। डिफ़ॉल्ट भारत बाजार उपज (1,500 kWh/kW-वर्ष) का उपयोग करते हैं।",
+      "disclaimer": "परिणाम उदाहरणात्मक हैं. निवेश-ग्रेड मॉडल के लिए साइट-विशिष्ट मृदा अध्ययन, PR बेसलाइन और मौसम सामान्यीकरण आवश्यक हैं। प्रदर्शन पद्धति देखें."
     },
     "soilingTool": {
-      "capacityLabel": "Plant capacity (MW)",
-      "soilingLabel": "Annual soiling loss (%)",
-      "soilingHint": "share of annual generation lost to dust",
-      "tariffLabel": "Electricity tariff (₹/kWh)",
-      "tariffHint": "PPA, merchant, or blended portfolio rate",
-      "presetLow": "Low dust",
-      "presetTypical": "Typical India",
-      "presetHigh": "Rajasthan/Gujarat",
-      "resultsHeading": "Estimated annual impact",
-      "annualGeneration": "Annual generation",
-      "annualLoss": "Energy lost to soiling",
-      "annualRevenueLoss": "Revenue foregone",
-      "monthlyRevenueLoss": "Monthly revenue foregone",
-      "disclaimer": "Directional estimate only. Does not include cleaning recovery, inverter clipping, or curtailment.",
-      "ctaRoi": "Model cleaning payback",
-      "ctaStudy": "Request soiling study"
+      "capacityLabel": "संयंत्र क्षमता (MW)",
+      "soilingLabel": "वार्षिक मृदा हानि (%)",
+      "soilingHint": "वार्षिक पीढ़ी का हिस्सा धूल में खो गया",
+      "tariffLabel": "बिजली शुल्क (₹/kWh)",
+      "tariffHint": "पीपीए, व्यापारी, या मिश्रित पोर्टफोलियो दर",
+      "presetLow": "कम धूल",
+      "presetTypical": "ठेठ भारत",
+      "presetHigh": "राजस्थान/गुजरात",
+      "resultsHeading": "अनुमानित वार्षिक प्रभाव",
+      "annualGeneration": "वार्षिक पीढ़ी",
+      "annualLoss": "गंदगी के कारण ऊर्जा नष्ट हो गई",
+      "annualRevenueLoss": "राजस्व छोड़ा गया",
+      "monthlyRevenueLoss": "मासिक राजस्व छोड़ दिया गया",
+      "disclaimer": "केवल दिशात्मक अनुमान. इसमें सफ़ाई सुधार, इन्वर्टर क्लिपिंग, या कटौती शामिल नहीं है।",
+      "ctaRoi": "मॉडल सफाई भुगतान",
+      "ctaStudy": "गंदे अध्ययन का अनुरोध करें"
     },
     "steps": {
-      "eyebrow": "How to use results",
-      "heading": "From soiling estimate to cleaning decision",
-      "subheading": "Four steps O&M teams take after quantifying dust loss.",
-      "step0Title": "Set realistic soiling %",
-      "step0Body": "Use regional presets or PR data. High-dust Rajasthan/Gujarat sites often model 15–25%; milder regions 5–12%.",
-      "step1Title": "Convert MWh to ₹ at your tariff",
-      "step1Body": "Apply PPA, merchant, or blended ₹/kWh. This is the annual value at risk from dust — not yet net of cleaning cost.",
-      "step2Title": "Compare cleaning programme cost",
+      "eyebrow": "परिणामों का उपयोग कैसे करें",
+      "heading": "गंदगी के अनुमान से लेकर सफ़ाई संबंधी निर्णय तक",
+      "subheading": "धूल के नुकसान की मात्रा निर्धारित करने के बाद O&M टीमें चार कदम उठाती हैं।",
+      "step0Title": "यथार्थवादी मृदा % सेट करें",
+      "step0Body": "क्षेत्रीय प्रीसेट या PR डेटा का उपयोग करें। उच्च धूल वाले राजस्थान/गुजरात स्थल अक्सर 15-25% मॉडल वाले होते हैं; हल्के क्षेत्र 5-12%।",
+      "step1Title": "अपने टैरिफ पर MWh को ₹ में बदलें",
+      "step1Body": "पीपीए, व्यापारी, या मिश्रित ₹/kWh लागू करें। यह धूल से जोखिम का वार्षिक मूल्य है, अभी तक सफाई लागत का शुद्ध नहीं है।",
+      "step2Title": "सफाई कार्यक्रम की लागत की तुलना करें",
       "step2Body": "Run the ROI calculator with CAPEX or OPEX. Compare recovered MWh value vs cleaning TCO over 5 years.",
-      "step3Title": "Validate with site study",
-      "step3Body": "Taypro engineers assess dust sources, cycle count, and robot model before binding commercial terms.",
-      "step4Title": "Track PR recovery in NECTYR",
-      "step4Body": "Correlate cleaning cycles with block-level PR trends — closing the SCADA blind spot on field action."
+      "step3Title": "साइट अध्ययन से पुष्टि करें",
+      "step3Body": "Taypro इंजीनियर व्यावसायिक शर्तों को बाध्य करने से पहले धूल स्रोतों, चक्र गणना और रोबोट मॉडल का आकलन करते हैं।",
+      "step4Title": "PR पुनर्प्राप्ति को NECTYR में ट्रैक करें",
+      "step4Body": "ब्लॉक-स्तरीय PR रुझानों के साथ सफाई चक्रों को सहसंबंधित करें, फ़ील्ड कार्रवाई पर SCADA ब्लाइंड स्पॉट को बंद करें।"
     },
     "highlight": {
-      "heading": "The O&M question",
-      "lead": "Do you know your annual ₹ at risk from dust?",
-      "body": "Many plants model inverter availability but not soiling loss in ₹. This calculator gives a directional starting point before RFQ and ROI modelling."
+      "heading": "O&M प्रश्न",
+      "lead": "क्या आप जानते हैं कि धूल से आपके वार्षिक ₹ को खतरा है?",
+      "body": "कई प्लांट इन्वर्टर की उपलब्धता का मॉडल पेश करते हैं लेकिन ₹ में मिट्टी का नुकसान नहीं होता है। यह कैलकुलेटर RFQ और ROI मॉडलिंग से पहले एक दिशात्मक प्रारंभिक बिंदु देता है।"
     },
     "proseSecondary": {
       "eyebrow": "क्षेत्रीय संदर्भ",
@@ -119,13 +119,13 @@
       "linkSecondaryHref": "/cleaning-technology"
     },
     "resources": {
-      "eyebrow": "Research",
-      "heading": "Soiling loss articles and tools",
-      "link0Title": "Soiling losses in Rajasthan & Gujarat",
+      "eyebrow": "अनुसंधान",
+      "heading": "नुकसान पहुंचाने वाली वस्तुएं और उपकरण खराब करना",
+      "link0Title": "राजस्थान और गुजरात में मृदा हानि",
       "link0Href": "/blog/average-soiling-losses-in-high-dust-regions-of-india-rajasthan-gujarat",
-      "link1Title": "Seasonal soiling variation in India",
+      "link1Title": "भारत में मिट्टी की मौसमी भिन्नता",
       "link1Href": "/blog/seasonal-variation-in-soiling-rates-and-energy-yield-loss-in-india",
-      "link2Title": "Carbon value of lost solar energy from soiling",
+      "link2Title": "गंदगी से नष्ट हुई सौर ऊर्जा का कार्बन मूल्य",
       "link2Href": "/blog/leveraging-carbon-pricing-for-environmental-and-economic-sustainability"
     },
     "faq": {
@@ -157,22 +157,22 @@
       "a11": "गंदगी से MWh कम होने से बचा हुआ उत्सर्जन कम हो जाता है। पोर्टफ़ोलियो फ़्रेमिंग के लिए हमारा कार्बन/सॉइलिंग ब्लॉग देखें।"
     },
     "cta": {
-      "heading": "Know your loss — then model the fix",
-      "body": "Use the ROI calculator to compare cleaning programme economics, or contact Taypro for a site soiling study.",
-      "primary": "ROI calculator",
+      "heading": "अपना नुकसान जानें, फिर समाधान का मॉडल तैयार करें",
+      "body": "सफाई कार्यक्रम के अर्थशास्त्र की तुलना करने के लिए ROI कैलकुलेटर का उपयोग करें, या साइट की गंदगी के अध्ययन के लिए Taypro से संपर्क करें।",
+      "primary": "ROI कैलकुलेटर",
       "primaryHref": "/solar-panel-cleaning-robot-price-calculator#calculator",
-      "secondary": "Request soiling study",
+      "secondary": "गंदे अध्ययन का अनुरोध करें",
       "secondaryHref": "/contact"
     },
     "related": {
-      "label": "Related:",
+      "label": "संबंधित:",
       "link0": "CAPEX vs OPEX guide",
       "link0Href": "/solar-cleaning-capex-vs-opex",
-      "link1": "OPEX pricing",
+      "link1": "OPEX मूल्य निर्धारण",
       "link1Href": "/solar-cleaning-opex-pricing",
-      "link2": "ROI calculator",
+      "link2": "ROI कैलकुलेटर",
       "link2Href": "/solar-panel-cleaning-robot-price-calculator",
-      "link3": "Utility operations guide",
+      "link3": "उपयोगिता संचालन मार्गदर्शिका",
       "link3Href": "/utility-scale-solar-operations"
     }
   }

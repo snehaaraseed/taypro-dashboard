@@ -6,12 +6,12 @@
       "openGraphTitle": "الشركة المصنعة لروبوت التنظيف بالطاقة الشمسية في الهند | Taypro",
       "openGraphDescription": "شركة تصنيع المعدات الأصلية الهندية لروبوتات تنظيف المرافق بدون ماء - التصنيع والنشر والخدمة من بائع واحد مسؤول."
     },
-    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHub": "روبوتات تنظيف الألواح الشمسية",
     "breadcrumbHubHref": "/solar-panel-cleaning-system",
-    "breadcrumb": "Robot manufacturer India",
+    "breadcrumb": "الشركة المصنعة للروبوت في الهند",
     "schema": {
-      "name": "Taypro Solar Cleaning Robot Manufacturer India",
-      "description": "Made-in-India manufacturer of autonomous and semi-automatic waterless solar cleaning robots for utility-scale PV."
+      "name": "Taypro الشركة المصنعة لروبوت التنظيف بالطاقة الشمسية في الهند",
+      "description": "شركة تصنيع هندية لروبوتات التنظيف بالطاقة الشمسية المستقلة وشبه الأوتوماتيكية بدون ماء للطاقة الكهروضوئية على نطاق المرافق."
     },
     "hero": {
       "eyebrow": "صنع في الهند · بيون",
@@ -65,58 +65,58 @@
       "linkSecondaryHref": "/cleaning-technology"
     },
     "pillars": {
-      "eyebrow": "Full stack OEM",
-      "heading": "Manufacturing plus field operations",
+      "eyebrow": "مكدس كامل OEM",
+      "heading": "التصنيع بالإضافة إلى العمليات الميدانية",
       "pillar0": {
-        "title": "In-house R&D & production",
-        "body": "Robots engineered for Indian dust, heat, and monsoon — assembled and tested in Pune before field deployment."
+        "title": "البحث والتطوير والإنتاج الداخلي",
+        "body": "تم تصميم الروبوتات للتعامل مع الغبار والحرارة والرياح الموسمية الهندية، وتم تجميعها واختبارها في مدينة بيون قبل نشرها ميدانيًا."
       },
       "pillar1": {
-        "title": "Pan-India service network",
-        "body": "Regional spares, same-day breakdown targets, and remote diagnostics through NECTYR on multi-MW fleets."
+        "title": "شبكة خدمة عموم الهند",
+        "body": "قطع الغيار الإقليمية، وأهداف الأعطال في نفس اليوم، والتشخيص عن بعد من خلال NECTYR على أساطيل MW المتعددة."
       },
       "pillar2": {
-        "title": "NECTYR fleet software included",
-        "body": "Scheduling, coverage audits, and AMC tickets — standard on CAPEX and OPEX programmes, not a separate licence."
+        "title": "NECTYR برنامج الأسطول متضمن",
+        "body": "Scheduling, coverage audits, and AMC tickets, standard on CAPEX and OPEX programmes, not a separate licence."
       }
     },
     "products": {
-      "eyebrow": "Product line",
-      "heading": "Taypro robot models by plant type",
-      "subheading": "Select fixed tilt, tracker, rooftop, or semi-automatic based on row geometry.",
+      "eyebrow": "خط المنتج",
+      "heading": "Taypro نماذج الروبوتات حسب نوع النبات",
+      "subheading": "حدد الإمالة الثابتة أو المتعقب أو السطح أو شبه التلقائي بناءً على هندسة الصف.",
       "product0": {
-        "title": "GLYDE — dual-pass fixed tilt",
-        "body": "Patented waterless microfiber flagship for utility fixed-tilt plants. Highest dust removal per cycle on sticky films.",
-        "link": "GLYDE product page"
+        "title": "GLYDE: إمالة ثابتة ذات تمرير مزدوج",
+        "body": "براءة اختراع رائدة من الألياف الدقيقة بدون ماء للنباتات ذات الإمالة الثابتة. أعلى إزالة للغبار في كل دورة على الأفلام اللاصقة.",
+        "link": "GLYDE صفحة المنتج"
       },
       "product1": {
-        "title": "GLYDE-X / NYUMA-X — trackers",
-        "body": "Single-axis tracker robots with CRADYL row transfer. Validated on 250–300 MW Gujarat references.",
-        "link": "Tracker cleaning robots"
+        "title": "GLYDE-X / NYUMA-X: أدوات التتبع",
+        "body": "روبوتات تعقب أحادية المحور مع نقل صف CRADYL. تم التحقق من صحته في 250-300 MW مراجع ولاية غوجارات.",
+        "link": "روبوتات التنظيف المتعقبة"
       },
       "product2": {
-        "title": "HELYX & MINY",
-        "body": "Semi-automatic for scattered blocks; MINY compact for commercial C&I rooftops.",
-        "link": "HELYX semi-automatic"
+        "title": "HELYX وMINY",
+        "body": "شبه تلقائي للكتل المتناثرة. MINY مدمج للأسطح التجارية C&I.",
+        "link": "HELYX شبه تلقائي"
       }
     },
     "eligibility": {
-      "eyebrow": "Fit assessment",
-      "title": "When Taypro as manufacturer is the right vendor",
-      "forTitle": "Strong fit",
-      "for0": "Utility ground-mount or tracker plants from ~10 MW with recurring soiling",
-      "for1": "Buyers who want Indian OEM with local spares and AMC — not import-only supply",
-      "for2": "Procurement requiring NECTYR audit trails and named MW references",
+      "eyebrow": "تقييم الملاءمة",
+      "title": "عندما يكون Taypro كشركة مصنعة هو البائع المناسب",
+      "forTitle": "تناسب قوي",
+      "for0": "استخدم النباتات المثبتة على الأرض أو النباتات المتتبعة من ~10 MW مع الاتساخ المتكرر",
+      "for1": "المشترون الذين يريدون تصنيع المعدات الأصلية الهندية مع قطع غيار محلية وAMC، وليس التوريد للاستيراد فقط",
+      "for2": "تتطلب عملية الشراء NECTYR مسارات تدقيق ومراجع مسماة MW",
       "for3": "CAPEX purchase or OPEX managed service from the same manufacturer",
-      "notForTitle": "Typically not a fit",
-      "not0": "Residential single-home rooftops without C&I scale",
-      "not1": "Buyers seeking only generic pressure-washing without robotic programme",
-      "not2": "Full-plant EPC scope (HV, inverters) — Taypro partners on cleaning layer only"
+      "notForTitle": "عادة لا يصلح",
+      "not0": "أسطح المنازل السكنية ذات المنزل الواحد بدون مقياس C&I",
+      "not1": "يبحث المشترون فقط عن الغسيل بالضغط العام بدون برنامج آلي",
+      "not2": "نطاق EPC للمصنع بالكامل (الجهد العالي، والعاكسات)، Taypro شركاء على طبقة التنظيف فقط"
     },
     "highlight": {
-      "heading": "The vendor question",
-      "lead": "Can your manufacturer prove field scale — not just factory photos?",
-      "body": "Taypro cites 150+ live sites, 300–360 MW single-plant references, and NECTYR telemetry on deployed fleets. Ask every vendor for named MW, robots-per-MW, and coverage audit samples."
+      "heading": "سؤال البائع",
+      "lead": "هل يمكن للشركة المصنعة الخاصة بك إثبات النطاق الميداني، وليس فقط صور المصنع؟",
+      "body": "يستشهد Taypro بأكثر من 150 موقعًا مباشرًا، و300-360 MW مرجعًا لمصنع واحد، وNECTYR القياس عن بعد على الأساطيل المنتشرة. اطلب من كل بائع تقديم نماذج تدقيق التغطية المسماة MW، وبرامج الروبوت لكل MW."
     },
     "proseSecondary": {
       "eyebrow": "الاستيراد مقابل OEM الهندي",
@@ -130,13 +130,13 @@
       "linkSecondaryHref": "/large-scale-solar-panel-cleaning"
     },
     "resources": {
-      "eyebrow": "Due diligence",
-      "heading": "Manufacturer research",
-      "link0Title": "Robot price guide India",
+      "eyebrow": "العناية الواجبة",
+      "heading": "أبحاث الشركة المصنعة",
+      "link0Title": "دليل أسعار الروبوت في الهند",
       "link0Href": "/solar-panel-cleaning-robot-price-india",
-      "link1Title": "Performance & test methodology",
+      "link1Title": "الأداء ومنهجية الاختبار",
       "link1Href": "/performance-and-test-methodology",
-      "link2Title": "Automatic project references",
+      "link2Title": "مراجع المشروع التلقائية",
       "link2Href": "/projects/automatic"
     },
     "faq": {
@@ -168,27 +168,27 @@
       "a11": "نطاقات الاتجاه CAPEX في دليل أسعار الروبوت وآلة حاسبة ROI. علامات الاقتباس الملزمة تتبع تقييم الموقع."
     },
     "quoteForm": {
-      "eyebrow": "Vendor RFQ",
-      "title": "Request manufacturer proposal",
+      "eyebrow": "البائع RFQ",
+      "title": "طلب اقتراح الشركة المصنعة",
       "placeholder": "Plant MW, state, installation type, CAPEX vs OPEX preference, and tender timeline."
     },
     "cta": {
-      "heading": "Evaluate Taypro as your Indian robot OEM",
-      "body": "Share your RFQ checklist — we'll respond with product fit, references, and commercial options.",
-      "primary": "Request RFQ",
+      "heading": "قم بتقييم Taypro باعتباره OEM الروبوت الهندي الخاص بك",
+      "body": "شارك قائمة التحقق RFQ الخاصة بك، وسنرد عليك بما يناسب المنتج والمراجع والخيارات التجارية.",
+      "primary": "طلب RFQ",
       "primaryHref": "/contact",
-      "secondary": "View products",
+      "secondary": "عرض المنتجات",
       "secondaryHref": "/solar-panel-cleaning-system"
     },
     "related": {
-      "label": "Related:",
-      "link0": "Company",
+      "label": "متعلق ب:",
+      "link0": "شركة",
       "link0Href": "/company",
-      "link1": "Robot price India",
+      "link1": "سعر الروبوت الهند",
       "link1Href": "/solar-panel-cleaning-robot-price-india",
       "link2": "CAPEX vs OPEX",
       "link2Href": "/solar-cleaning-capex-vs-opex",
-      "link3": "Large-scale cleaning",
+      "link3": "تنظيف على نطاق واسع",
       "link3Href": "/large-scale-solar-panel-cleaning"
     },
     "projects": {

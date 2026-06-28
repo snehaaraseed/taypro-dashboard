@@ -6,13 +6,13 @@
       "openGraphTitle": "太陽光による汚れ損失の計算 | Taypro",
       "openGraphDescription": "清掃プログラムを選択する前に、パネルの汚れによって失われるエネルギーと収益を定量化します。これは、IPP および O&M チーム向けの指示ツールです。"
     },
-    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHub": "太陽光パネル清掃ロボット",
     "breadcrumbHubHref": "/solar-panel-cleaning-system",
-    "breadcrumb": "Soiling loss calculator",
+    "breadcrumb": "汚れ損失計算機",
     "schema": {
-      "name": "Taypro Solar Panel Soiling Loss Calculator",
-      "description": "Web calculator estimating annual MWh and revenue loss from solar panel soiling on Indian utility-scale plants.",
-      "applicationCategory": "BusinessApplication"
+      "name": "Taypro ソーラーパネルの汚れ損失計算ツール",
+      "description": "インドの実用規模のプラントのソーラーパネルの汚れによる年間MW時間と収益損失を見積もるウェブ計算機。",
+      "applicationCategory": "ビジネスアプリケーション"
     },
     "hero": {
       "eyebrow": "ツール・汚れの経済学",
@@ -64,48 +64,48 @@
       }
     },
     "soilingCalculator": {
-      "eyebrow": "Interactive tool",
-      "heading": "Estimate your annual soiling loss",
-      "subheading": "Directional only — not a guarantee of recoverable MWh. Defaults use India market yield (1,500 kWh/kW-year).",
-      "disclaimer": "Results are illustrative. Site-specific soiling studies, PR baselines, and weather normalization are required for investment-grade models. See performance methodology."
+      "eyebrow": "インタラクティブツール",
+      "heading": "年間の汚れの損失を見積もる",
+      "subheading": "方向性のみであり、回復可能な MWh を保証するものではありません。デフォルトではインド市場の発電量 (1,500 kWh/kW-年) が使用されます。",
+      "disclaimer": "結果は例示です。投資グレードのモデルには、サイト固有の汚れ調査、PR ベースライン、および気象正規化が必要です。パフォーマンス方法論を参照してください。"
     },
     "soilingTool": {
-      "capacityLabel": "Plant capacity (MW)",
-      "soilingLabel": "Annual soiling loss (%)",
-      "soilingHint": "share of annual generation lost to dust",
-      "tariffLabel": "Electricity tariff (₹/kWh)",
-      "tariffHint": "PPA, merchant, or blended portfolio rate",
-      "presetLow": "Low dust",
-      "presetTypical": "Typical India",
-      "presetHigh": "Rajasthan/Gujarat",
-      "resultsHeading": "Estimated annual impact",
-      "annualGeneration": "Annual generation",
-      "annualLoss": "Energy lost to soiling",
-      "annualRevenueLoss": "Revenue foregone",
-      "monthlyRevenueLoss": "Monthly revenue foregone",
-      "disclaimer": "Directional estimate only. Does not include cleaning recovery, inverter clipping, or curtailment.",
-      "ctaRoi": "Model cleaning payback",
-      "ctaStudy": "Request soiling study"
+      "capacityLabel": "プラント能力 (MW)",
+      "soilingLabel": "年間汚れ損失 (%)",
+      "soilingHint": "粉塵によって失われる年間発電量の割合",
+      "tariffLabel": "電気料金 (₹/kWh)",
+      "tariffHint": "PPA、マーチャント、またはブレンドポートフォリオレート",
+      "presetLow": "低発塵",
+      "presetTypical": "典型的なインド",
+      "presetHigh": "ラジャスタン州/グジャラート州",
+      "resultsHeading": "推定年間影響額",
+      "annualGeneration": "年間生成",
+      "annualLoss": "汚れによってエネルギーが失われる",
+      "annualRevenueLoss": "収益の放棄",
+      "monthlyRevenueLoss": "月次収益の放棄",
+      "disclaimer": "方向推定のみ。クリーニング回復、インバータクリッピング、または抑制は含まれません。",
+      "ctaRoi": "モデルクリーニングの見返り",
+      "ctaStudy": "汚れ調査を依頼する"
     },
     "steps": {
-      "eyebrow": "How to use results",
-      "heading": "From soiling estimate to cleaning decision",
-      "subheading": "Four steps O&M teams take after quantifying dust loss.",
-      "step0Title": "Set realistic soiling %",
-      "step0Body": "Use regional presets or PR data. High-dust Rajasthan/Gujarat sites often model 15–25%; milder regions 5–12%.",
-      "step1Title": "Convert MWh to ₹ at your tariff",
-      "step1Body": "Apply PPA, merchant, or blended ₹/kWh. This is the annual value at risk from dust — not yet net of cleaning cost.",
-      "step2Title": "Compare cleaning programme cost",
+      "eyebrow": "結果の使用方法",
+      "heading": "汚れの見積りから洗浄の決定まで",
+      "subheading": "O&M チームが粉塵の損失を定量化した後に実行する 4 つのステップ。",
+      "step0Title": "現実的な汚れ%を設定する",
+      "step0Body": "地域のプリセットまたは PR データを使用します。粉塵の多いラジャスタン州/グジャラート州のサイトでは、多くの場合 15 ～ 25% がモデル化されています。穏やかな地域は 5 ～ 12%。",
+      "step1Title": "MWh を料金に応じて ₹ に変換します",
+      "step1Body": "PPA、マーチャント、またはブレンド ₹/kWh を適用します。これは、塵埃によるリスクにさらされる年間値であり、まだ清掃コストを差し引いたものではありません。",
+      "step2Title": "清掃プログラムのコストを比較する",
       "step2Body": "Run the ROI calculator with CAPEX or OPEX. Compare recovered MWh value vs cleaning TCO over 5 years.",
-      "step3Title": "Validate with site study",
-      "step3Body": "Taypro engineers assess dust sources, cycle count, and robot model before binding commercial terms.",
-      "step4Title": "Track PR recovery in NECTYR",
-      "step4Body": "Correlate cleaning cycles with block-level PR trends — closing the SCADA blind spot on field action."
+      "step3Title": "現場調査による検証",
+      "step3Body": "Taypro エンジニアは、商業条件を拘束する前に、粉塵の発生源、サイクル数、およびロボットのモデルを評価します。",
+      "step4Title": "NECTYR で PR の回復を追跡する",
+      "step4Body": "クリーニング サイクルをブロック レベルの PR 傾向と関連付け、フィールド アクションの SCADA の盲点を解消します。"
     },
     "highlight": {
-      "heading": "The O&M question",
-      "lead": "Do you know your annual ₹ at risk from dust?",
-      "body": "Many plants model inverter availability but not soiling loss in ₹. This calculator gives a directional starting point before RFQ and ROI modelling."
+      "heading": "O&M の質問",
+      "lead": "粉塵によって年間 ₹ が危険にさらされていることをご存知ですか?",
+      "body": "多くのプラントでは、インバーターの可用性はモデル化されていますが、汚れによる損失は ₹ でモデル化されていません。この計算機は、RFQ および ROI モデリングの前に方向の開始点を与えます。"
     },
     "proseSecondary": {
       "eyebrow": "地域的背景",
@@ -119,17 +119,17 @@
       "linkSecondaryHref": "/cleaning-technology"
     },
     "resources": {
-      "eyebrow": "Research",
-      "heading": "Soiling loss articles and tools",
-      "link0Title": "Soiling losses in Rajasthan & Gujarat",
+      "eyebrow": "研究",
+      "heading": "物品や道具の汚れを落とす",
+      "link0Title": "ラジャスタン州とグジャラート州における損失を汚す",
       "link0Href": "/blog/average-soiling-losses-in-high-dust-regions-of-india-rajasthan-gujarat",
-      "link1Title": "Seasonal soiling variation in India",
+      "link1Title": "インドにおける季節による汚れの変化",
       "link1Href": "/blog/seasonal-variation-in-soiling-rates-and-energy-yield-loss-in-india",
-      "link2Title": "Carbon value of lost solar energy from soiling",
+      "link2Title": "汚れによって失われた太陽エネルギーの炭素値",
       "link2Href": "/blog/leveraging-carbon-pricing-for-environmental-and-economic-sustainability"
     },
     "faq": {
-      "heading": "太陽光による汚れ損失計算ツール — FAQ",
+      "heading": "太陽光による汚れ損失計算ツール, FAQ",
       "subheading": "結果を解釈する方法と次のステップ。",
       "q0": "年間発電量はどのように計算されますか?",
       "a0": "プラント MW × 1,000 kW × 特定発電量 (インド P50 のデフォルトは 1,500 kWh/kW 年)。料金を調整する。サイト固有の調査を要求しない限り、収量は一定に保たれます。",
@@ -157,22 +157,22 @@
       "a11": "汚れによるMWhの損失により、回避可能な排出量が減少します。ポートフォリオの枠組みについては、炭素/汚れに関するブログをご覧ください。"
     },
     "cta": {
-      "heading": "Know your loss — then model the fix",
-      "body": "Use the ROI calculator to compare cleaning programme economics, or contact Taypro for a site soiling study.",
-      "primary": "ROI calculator",
+      "heading": "損失を知り、修正をモデル化する",
+      "body": "ROI 計算ツールを使用して清掃プログラムの経済性を比較するか、現場の汚れ調査については Taypro に問い合わせてください。",
+      "primary": "ROI 計算機",
       "primaryHref": "/solar-panel-cleaning-robot-price-calculator#calculator",
-      "secondary": "Request soiling study",
+      "secondary": "汚れ調査を依頼する",
       "secondaryHref": "/contact"
     },
     "related": {
-      "label": "Related:",
+      "label": "関連している：",
       "link0": "CAPEX vs OPEX guide",
       "link0Href": "/solar-cleaning-capex-vs-opex",
-      "link1": "OPEX pricing",
+      "link1": "OPEX の価格設定",
       "link1Href": "/solar-cleaning-opex-pricing",
-      "link2": "ROI calculator",
+      "link2": "ROI 計算機",
       "link2Href": "/solar-panel-cleaning-robot-price-calculator",
-      "link3": "Utility operations guide",
+      "link3": "ユーティリティ操作ガイド",
       "link3Href": "/utility-scale-solar-operations"
     }
   }

@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "description": "Search-grounded, validated blog briefs. Refilled weekly by topic discovery; cron writes one per day.",
+  "generatedAt": "2026-06-27T15:03:40.906Z",
+  "briefs": []
+}

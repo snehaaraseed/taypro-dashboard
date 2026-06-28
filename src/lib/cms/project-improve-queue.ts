@@ -64,7 +64,7 @@ export async function listProjectSlugsNeedingImprove(
 
 /**
  * Rewrite legacy English projects until quota, deadline, or backlog exhausted.
- * Does not retranslate — improved rows enter the translation backlog on the next run.
+ * Does not retranslate, improved rows enter the translation backlog on the next run.
  */
 export async function processProjectImproveBacklog(options?: {
   shouldStop?: () => boolean;

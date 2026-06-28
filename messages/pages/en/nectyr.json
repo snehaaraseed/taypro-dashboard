@@ -27,7 +27,29 @@
         "title": "Request NECTYR access",
         "subtitle": "Tell us about your fleet and our team will get you set up with NECTYR portal access and onboarding.",
         "label": "Request access"
+      },
+      "subtitleShort": "Live fleet dashboards, schedules, logs, and support workflows for Taypro robot deployments.",
+      "secondaryCta": {
+        "label": "See deployments"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "Live",
+          "label": "Fleet dashboards & telemetry"
+        },
+        "stat1": {
+          "value": "Multi-site",
+          "label": "Portfolio visibility"
+        },
+        "stat2": {
+          "value": "Secure",
+          "label": "Customer portal access"
+        }
       }
+    },
+    "productVisual": {
+      "eyebrow": "Fleet portal at a glance",
+      "title": "NECTYR robot monitoring and control dashboard"
     },
     "intro": {
       "eyebrow": "Fleet software for robotic solar cleaning",
@@ -48,7 +70,7 @@
     "intelligenceStat": {
       "value": "5 GW+",
       "label": "fleet operations on NECTYR since 2022",
-      "body": "Labelled cleaning telemetry across 5 GW+ of fleet operations since 2022 — the largest cleaning intelligence dataset in India."
+      "body": "Labelled cleaning telemetry across 5 GW+ of fleet operations since 2022: the largest cleaning intelligence dataset in India."
     },
     "intelligenceCapabilities": {
       "eyebrow": "Fleet intelligence",
@@ -58,11 +80,11 @@
     "intelligenceCards": {
       "0": {
         "title": "Live robot position on plant layout",
-        "body": "Real-time robot position overlaid on your plant map — see which row each robot is cleaning and at what progress, at any moment."
+        "body": "Real-time robot position overlaid on your plant map, see which row each robot is cleaning and at what progress, at any moment."
       },
       "1": {
         "title": "Root-cause fault identification",
-        "body": "When a robot stops, NECTYR flags where it stopped and the probable cause — misaligned panel edge, obstacle, motor fault, or communication drop — before a technician is dispatched."
+        "body": "When a robot stops, NECTYR flags where it stopped and the probable cause, misaligned panel edge, obstacle, motor fault, or communication drop, before a technician is dispatched."
       },
       "2": {
         "title": "Battery state monitoring per robot",
@@ -70,11 +92,11 @@
       },
       "3": {
         "title": "Wet microfiber detection alerts",
-        "body": "Automatic alerts when cleaning elements are wet from dew, humidity, or residual rain — cycles postpone until conditions are optimal, protecting module glass from smear damage."
+        "body": "Automatic alerts when cleaning elements are wet from dew, humidity, or residual rain, cycles postpone until conditions are optimal, protecting module glass from smear damage."
       },
       "4": {
         "title": "95% accuracy weather-driven scheduling",
-        "body": "Windspeed, rain probability, humidity, and pollen inputs — not just binary rain detection — drive reschedule decisions with 95% field-verified accuracy."
+        "body": "Windspeed, rain probability, humidity, and pollen inputs, not just binary rain detection, drive reschedule decisions with 95% field-verified accuracy."
       },
       "5": {
         "title": "Cycle audit logs for PR and AMC reporting",
@@ -82,15 +104,15 @@
       },
       "6": {
         "title": "Predictive maintenance alerts",
-        "body": "Motor current, brush torque, and sensor deviation signatures that precede bearing wear, brush saturation, or controller degradation — flagged before downtime manifests."
+        "body": "Motor current, brush torque, and sensor deviation signatures that precede bearing wear, brush saturation, or controller degradation, flagged before downtime manifests."
       },
       "7": {
         "title": "Multi-connectivity telemetry",
-        "body": "Fleet data over LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN — sized per site so large multi-block plants stay responsive."
+        "body": "Fleet data over LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN: sized per site so large multi-block plants stay responsive."
       },
       "8": {
         "title": "Fleet-wide health dashboard",
-        "body": "Portfolio-level view across multi-plant accounts — gateway health, robot availability, block coverage, and seasonal cadence in one command centre."
+        "body": "Portfolio-level view across multi-plant accounts, gateway health, robot availability, block coverage, and seasonal cadence in one command centre."
       }
     },
     "capabilities": {
@@ -232,7 +254,7 @@
     },
     "energyResources": {
       "title": "Energy Resources",
-      "subtitle": "NECTYR is Taypro's live fleet intelligence portal — the operational layer connecting every robot on your plant to a single dashboard. From scheduling and battery monitoring to fault detection and cycle audit logs, NECTYR gives O&M teams complete visibility across fixed-tilt, tracker, and distributed blocks without leaving the control room.",
+      "subtitle": "NECTYR is Taypro's live fleet intelligence portal, the operational layer connecting every robot on your plant to a single dashboard. From scheduling and battery monitoring to fault detection and cycle audit logs, NECTYR gives O&M teams complete visibility across fixed-tilt, tracker, and distributed blocks without leaving the control room.",
       "ctaLabel": "View all resources"
     },
     "misc": {

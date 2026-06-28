@@ -37,7 +37,11 @@ import {
   type BlogFaqItem,
 } from "@/lib/cms/blog-faqs";
 import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
-import { freeGeminiTextModelCandidates } from "@/lib/gemini/free-tier-models";
+import {
+  assertQuotaBudgetAllowed,
+  recordQuotaUsage,
+} from "@/lib/gemini/quota-budget";
+import { blogTextModelCandidates } from "@/lib/gemini/model-routing";
 import {
   geminiQuotaErrorMessage,
   isGeminiQuotaError,
@@ -108,12 +112,14 @@ function quotaErrorMessage(error: unknown): string {
 }
 
 type GenerateTextOptions = {
-  /** On retry, rotate to another free-tier model ID (e.g. flash-lite-preview). */
+  /** On retry, rotate to another free-tier model ID. */
   preferQualityModel?: boolean;
   /** Override output token cap (blog generation uses BLOG_MAX_OUTPUT_TOKENS). */
   maxOutputTokens?: number;
   /** Optional call label for logs (blog_section, blog_topic, etc.). */
   purpose?: string;
+  /** Quota ledger scope (blog reserve vs post-done burn). */
+  budgetScope?: "blog" | "burn";
 };
 
 /** Long-form blog JSON needs a high output cap; default Gemini limits truncate ~800-word drafts. */
@@ -132,7 +138,7 @@ function blogTextOptions(
   };
 }
 
-/** Per-section output cap — keeps each call well under TPM while hitting word targets. */
+/** Per-section output cap, keeps each call well under TPM while hitting word targets. */
 const BLOG_SECTION_MAX_OUTPUT_TOKENS = (() => {
   const raw = process.env.BLOG_SECTION_MAX_OUTPUT_TOKENS?.trim();
   const n = raw ? Number.parseInt(raw, 10) : 8192;
@@ -150,7 +156,7 @@ function blogSectionTextOptions(
 }
 
 function blogModelCandidates(options?: GenerateTextOptions): string[] {
-  return freeGeminiTextModelCandidates({
+  return blogTextModelCandidates({
     preferRetryVariant: options?.preferQualityModel,
   });
 }
@@ -159,6 +165,8 @@ async function generateText(
   prompt: string,
   options?: GenerateTextOptions
 ): Promise<string> {
+  const scope = options?.budgetScope ?? "blog";
+  assertQuotaBudgetAllowed(scope);
   const apiKeys = listGeminiApiKeys();
   let lastError: unknown;
   let quotaExhaustedKeys = 0;
@@ -174,12 +182,12 @@ async function generateText(
             ? { maxOutputTokens: options.maxOutputTokens }
             : undefined;
         const model = genAI.getGenerativeModel({
-          model: modelName,
-          ...(generationConfig ? { generationConfig } : {}),
+          model: modelName, ...(generationConfig ? { generationConfig } : {}),
         });
         const result = await model.generateContent(prompt);
         const text = result.response.text().trim();
         await pauseAfterGeminiCall();
+        recordQuotaUsage(scope);
         if (apiKey !== apiKeys[0]) {
           console.warn("Gemini call succeeded on fallback API key (GEMINI_API_KEY_2).");
         }
@@ -400,7 +408,7 @@ export type GenerateBlogContentOptions = {
   userBrief?: string;
   /** First entry = primary SEO keyword; rest = secondary terms */
   focusedKeywords?: string[];
-  /** Byline author — bio/role steer topic voice (automation picks randomly) */
+  /** Byline author, bio/role steer topic voice (automation picks randomly) */
   author?: BlogAuthor;
   /** Second-pass: Gemini outline first, then full draft (used on automation retry). */
   useOutlinePass?: boolean;
@@ -608,7 +616,7 @@ HTML (rewrite opening <p> tags only; keep all H2+ sections unchanged):
 ${draft.content}
 
 Return ONLY valid JSON with the full HTML in "content", same title/description/faqs otherwise:
-{ "title": "...", "description": "...", "content": "...", "faqs": [ ... ] }`;
+{ "title": ", ...", "description": ", ...", "content": ", ...", "faqs": [ ... ] }`;
 
   const text = await generateText(
     prompt,
@@ -647,7 +655,7 @@ HTML:
 ${draft.content}
 
 Return ONLY valid JSON:
-{ "title": "...", "description": "...", "content": "...", "faqs": [ ... ] }`;
+{ "title": ", ...", "description": ", ...", "content": ", ...", "faqs": [ ... ] }`;
 
   const text = await generateText(
     prompt,
@@ -675,7 +683,7 @@ async function repairBlogInternalLinks(
     linkCandidates.length > 0
       ? linkCandidates
           .slice(0, 6)
-          .map((b) => `  /blog/${b.slug} — "${b.title}"`)
+          .map((b) => `  /blog/${b.slug}, "${b.title}"`)
           .join("\n")
       : "  (pick relevant /blog/slug paths from the editorial context)";
 
@@ -704,7 +712,7 @@ HTML:
 ${draft.content}
 
 Return ONLY valid JSON:
-{ "title": "...", "description": "...", "content": "...", "faqs": [ ... ] }`;
+{ "title": ", ...", "description": ", ...", "content": ", ...", "faqs": [ ... ] }`;
 
   const text = await generateText(
     prompt,
@@ -986,11 +994,11 @@ Return ONLY valid JSON:
   "intentReason": "one sentence: why this intent fits the title and is not cannibalizing covered intents",
   "subAngle": "short_slug for sub-angle within intent (e.g. vs_fixed_tilt, payback_period, fleet_alignment)",
   "readerQuestion": "One sentence: what the searcher wants answered for THIS title/keyword",
-  "mustCover": ["3-6 H2 themes that serve the title — not generic robot O&M"],
+  "mustCover": ["3-6 H2 themes that serve the title, not generic robot O&M"],
   "avoidTopics": ["2-4 off-topic drifts to avoid for this keyword"],
-  "h2Outline": ["Quick answer", "Question-shaped H2 here", "..."],
-  "quickAnswerBullets": ["bullet 1 with specific range", "..."],
-  "faqQuestions": ["primary keyword as question", "...", "...", "..."]
+  "h2Outline": ["Quick answer", "Question-shaped H2 here", ", ..."],
+  "quickAnswerBullets": ["bullet 1 with specific range", ", ..."],
+  "faqQuestions": ["primary keyword as question", ", ...", ", ...", ", ..."]
 }
 Rules:
 - intentFamily MUST match RECOMMENDED INTENT above when provided; otherwise pick the best uncovered cluster intent for this keyword.
@@ -1085,7 +1093,7 @@ Rules:
     primaryKeyword
   ) {
     console.warn(
-      `[planBlogContent] AI intent "${String(parsed.intentFamily)}" rejected for "${primaryKeyword}" — using ${resolvedIntent.intentFamily}`
+      `[planBlogContent] AI intent "${String(parsed.intentFamily)}" rejected for "${primaryKeyword}", using ${resolvedIntent.intentFamily}`
     );
   }
 
@@ -1325,7 +1333,7 @@ Format the output as clean HTML with proper paragraph tags (<p>), headings (<h2>
 Return the response in the following JSON format:
 {
   "title": "Blog post title (SEO-optimized, 50-60 characters)",
-  "description": "Meta description (150-160 characters, sentence case, one primary keyword naturally—never Title-Case keyword phrases mid-sentence)",
+  "description": "Meta description (150-160 characters, sentence case, one primary keyword naturally, never Title-Case keyword phrases mid-sentence)",
   "content": "<p>Full HTML content here...</p>",
   "faqs": [
     {
@@ -1659,7 +1667,7 @@ export type GeneratedProjectContent = {
 export type GenerateProjectContentOptions = {
   userBrief?: string;
   focusedKeywords?: string[];
-  /** Byline author — bio/role steer case study voice (automation picks randomly) */
+  /** Byline author, bio/role steer case study voice (automation picks randomly) */
   author?: BlogAuthor;
   preferQualityModel?: boolean;
 };

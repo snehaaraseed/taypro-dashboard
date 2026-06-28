@@ -3,13 +3,13 @@
     "meta": {
       "title": "Taypro でのキャリア |ソーラーロボティクスとプラントインテリジェンスを構築する",
       "description": "プネおよびインド全土で Taypro に参加してください。エンジニアリング、製造、フィールド サービス、ソフトウェア、および水なし太陽熱洗浄ロボットと NECTYR フリート ソフトウェアの運用の役割を果たします。",
-      "openGraphTitle": "Taypro でのキャリア — ソーラー ロボティクスと O&M",
+      "openGraphTitle": "Taypro でのキャリア, ソーラー ロボティクスと O&M",
       "openGraphDescription": "インド全土での自律型太陽光発電事業の拡大を支援します。 Taypro でエンジニアリング、ソフトウェア、フィールド、ビジネスの役割を調べてください。",
       "twitterTitle": "Taypro でのキャリア",
       "twitterDescription": "水のない掃除ロボット、NECTYR フリート ソフトウェア、実用規模の太陽光発電 O&M を構築します。プネおよびインド全域の現場での役割を雇用します。"
     },
     "breadcrumbs": {
-      "current": "Careers"
+      "current": "キャリア"
     },
     "hero": {
       "eyebrow": "私たちと一緒に働きましょう",
@@ -20,129 +20,129 @@
       "ctaSecondaryTitle": "Taypro について"
     },
     "statsStrip": {
-      "eyebrow": "Scale you will work on",
-      "heading": "Real deployments, not slide decks",
-      "robotCapacityDeployed": "Robot capacity deployed",
-      "panelsCleanedAnnually": "Panels cleaned annually",
-      "waterSavedAnnually": "Litres of water saved annually",
-      "robotsManufacturedPerMonth": "Robots manufacturing capacity per month"
+      "eyebrow": "取り組む規模",
+      "heading": "スライドデッキではなく実際のデプロイメント",
+      "robotCapacityDeployed": "導入されたロボットの能力",
+      "panelsCleanedAnnually": "パネルは毎年清掃されます",
+      "waterSavedAnnually": "毎年節約される水のリットル",
+      "robotsManufacturedPerMonth": "月あたりのロボット製造能力"
     },
     "whyJoin": {
-      "eyebrow": "Why Taypro",
-      "heading": "Work where hardware, software, and field ops meet",
-      "body": "We are a Made-in-India manufacturer in Chakan, Pune, with pan-India service and a growing software layer on top of every cleaning cycle. You will see your work on live utility plants — not buried in a backlog.",
+      "eyebrow": "なぜTayproなのか",
+      "heading": "ハードウェア、ソフトウェア、現場運用が連携する場所で作業する",
+      "body": "当社はプネーのチャカンにあるインド製メーカーで、インド全土にサービスを提供し、あらゆる洗浄サイクルの上にソフトウェア層を成長させています。バックログに埋もれていない、稼働中のユーティリティ プラントに関する作業を確認できます。",
       "impact": {
-        "title": "Measurable climate impact",
-        "body": "Every robot you help build avoids hundreds of millions of litres of wet-wash water and recovers gigawatt-hours of clean generation across India's solar fleet."
+        "title": "測定可能な気候への影響",
+        "body": "あなたが構築に協力したすべてのロボットは、数億リットルの湿式洗浄水を回避し、インドの太陽光発電所全体でギガワット時のクリーンな発電量を回収します。"
       },
       "technology": {
-        "title": "Full-stack solar robotics",
-        "body": "Mechanical design, embedded systems, connectivity, fleet AI, and plant intelligence — from GLYDE and tracker robots to NECTYR and ORION."
+        "title": "フルスタックソーラーロボティクス",
+        "body": "機械設計、組み込みシステム、接続性、フリート AI、プラント インテリジェンス - GLYDE およびトラッカー ロボットから NECTYR および ORION まで。"
       },
       "growth": {
-        "title": "Fast-moving, founder-led culture",
-        "body": "Small teams, direct access to leadership, and room to own outcomes from day one. We hire people who prefer building over meetings."
+        "title": "創業者主導のスピード感あふれる文化",
+        "body": "小規模なチーム、リーダーシップへの直接アクセス、初日から結果を自分で決める余地。私たちは会議よりも構築を好む人材を採用しています。"
       },
       "ownership": {
-        "title": "End-to-end accountability",
-        "body": "Engineers join site commissioning. Software ships to operators in the field. Manufacturing and QA sit beside R&D — one loop, one company."
+        "title": "エンドツーエンドの説明責任",
+        "body": "エンジニアは現場の試運転に参加します。ソフトウェアは現場のオペレーターに出荷されます。製造と QA は研究開発の隣にあり、1 つのループ、1 つの会社です。"
       }
     },
     "teams": {
-      "eyebrow": "Teams we are building",
-      "heading": "Find your lane",
-      "body": "We hire across the stack. Open roles change with growth — if your profile fits one of these areas, we want to hear from you.",
+      "eyebrow": "私たちが構築しているチーム",
+      "heading": "自分のレーンを見つけてください",
+      "body": "私たちはスタック全体で採用を行っています。成長に応じて募集職種は変化します。あなたのプロフィールがこれらの分野のいずれかに該当する場合は、ご意見をお待ちしています。",
       "engineering": {
-        "title": "R&D & mechanical engineering",
-        "body": "Robotics kinematics, structures, pneumatics, brush systems, tracker interfaces, and reliability testing for harsh desert and monsoon conditions."
+        "title": "研究開発と機械工学",
+        "body": "ロボットの運動学、構造、空気圧、ブラシ システム、トラッカー インターフェイス、および過酷な砂漠やモンスーン条件での信頼性テスト。"
       },
       "software": {
-        "title": "Software & data",
+        "title": "ソフトウェアとデータ",
         "body": "NECTYR fleet portal, scheduling, telemetry pipelines, connectivity (LTE, mesh, LoRa), and plant-intelligence models trained on live cleaning data."
       },
       "manufacturing": {
-        "title": "Manufacturing & quality",
-        "body": "Production planning, assembly, supplier quality, and ISO-aligned processes at our Chakan hub — scaling output without compromising field reliability."
+        "title": "製造と品質",
+        "body": "Chakan ハブでの生産計画、組み立て、サプライヤーの品質、ISO に準拠したプロセス - 現場の信頼性を損なうことなく生産量を拡大します。"
       },
       "field": {
-        "title": "Field engineering & service",
-        "body": "Commissioning, breakdown response, AMC programs, and customer training across utility sites — often with same-day on-site resolution targets."
+        "title": "フィールドエンジニアリングとサービス",
+        "body": "試運転、故障対応、AMC プログラム、電力会社サイト全体の顧客トレーニング。多くの場合、同日のオンサイト解決を目標としています。"
       },
       "operations": {
-        "title": "Operations & supply chain",
-        "body": "Spare logistics, warehouse network, Opex fleet operations, and the systems that keep robots running when dust storms hit peak season."
+        "title": "運営とサプライチェーン",
+        "body": "予備の物流、倉庫ネットワーク、Opex 車両の運用、砂嵐がピークシーズンに達したときにロボットを稼働し続けるシステム。"
       },
       "business": {
-        "title": "Sales, marketing & partnerships",
-        "body": "Utility and IPP relationships, technical presales, content, and channel partnerships for India's fastest-growing solar O&M category."
+        "title": "販売、マーケティング、パートナーシップ",
+        "body": "インドで最も急速に成長している太陽光発電 O&M カテゴリ向けの電力会社と IPP の関係、技術的なプリセールス、コンテンツ、およびチャネル パートナーシップ。"
       }
     },
     "life": {
-      "eyebrow": "Life at Taypro",
-      "heading": "What we offer",
-      "body": "We compete for talent who care about craft and impact. Packages are discussed individually based on role, experience, and location.",
-      "imageAlt": "Taypro solar cleaning robot deployed on a utility-scale solar plant in India",
+      "eyebrow": "Taypro での生活",
+      "heading": "私たちが提供するもの",
+      "body": "私たちは技術とインパクトを重視する人材を求めて競い合います。パッケージについては、役割、経験、場所に基づいて個別に検討されます。",
+      "imageAlt": "Taypro インドの実用規模の太陽光発電所に導入された太陽光発電清掃ロボット",
       "benefits": {
         "impact": {
-          "title": "Mission with proof points",
-          "body": "TÜV NORD certified hardware, NISE validation, Mint Tech4Good recognition — and customers who depend on your work every day."
+          "title": "証明ポイントのあるミッション",
+          "body": "TÜV NORD 認定ハードウェア、NISE 検証、Mint Tech4Good 認定、そして毎日あなたの仕事に依存している顧客。"
         },
         "learning": {
-          "title": "Steep learning curve",
-          "body": "Exposure to full product lifecycle: design reviews, factory builds, site commissioning, and operator feedback loops."
+          "title": "急な学習曲線",
+          "body": "製品ライフサイクル全体に触れる: 設計レビュー、工場での製造、現場での試運転、オペレーターのフィードバック ループ。"
         },
         "ownership": {
-          "title": "Ownership & trust",
-          "body": "Lean teams mean real responsibility early. We reward people who unblock problems and document what they learn."
+          "title": "所有権と信頼",
+          "body": "無駄のないチームは、早期に真の責任を意味します。私たちは、問題のブロックを解除し、学んだことを文書化した人に報酬を与えます。"
         },
         "travel": {
-          "title": "Pan-India field exposure",
-          "body": "Engineering and service roles regularly visit live plants — Rajasthan deserts to Karnataka trackers — with structured travel support."
+          "title": "汎インドフィールド露出",
+          "body": "エンジニアリングおよびサービスの役割は、体系的な出張サポートを受けて、ラジャスタン州の砂漠からカルナータカ州の追跡者まで、生きている工場を定期的に訪問します。"
         },
         "manufacturing": {
-          "title": "Make-it-here culture",
-          "body": "Work beside manufacturing in Chakan. See how design choices survive welding bays, test rigs, and monsoon soak tests."
+          "title": "ここで作る文化",
+          "body": "茶館で製造業の傍らで働く。設計の選択が溶接ベイ、テスト装置、モンスーン浸漬テストにどのように耐えられるかをご覧ください。"
         },
         "team": {
-          "title": "Collaborative, direct culture",
-          "body": "Founders and functional leads stay close to product and customers. Feedback is candid; bureaucracy is not our default."
+          "title": "協力的で直接的な文化",
+          "body": "創設者と部門責任者は、製品と顧客の近くに留まります。フィードバックは率直です。官僚主義は私たちのデフォルトではありません。"
         }
       }
     },
     "process": {
-      "eyebrow": "How we hire",
-      "heading": "A straightforward process",
-      "body": "We respect your time. Typical timelines are two to four weeks from application to offer, depending on role seniority.",
+      "eyebrow": "採用方法",
+      "heading": "簡単なプロセス",
+      "body": "私たちはあなたの時間を尊重します。役割の年功に応じて、応募から内定までの一般的なタイムラインは 2 ～ 4 週間です。",
       "apply": {
-        "title": "Apply online",
-        "body": "Submit your resume and a short note on why Taypro. PDF or DOC, max 5 MB."
+        "title": "オンラインで申し込む",
+        "body": "履歴書とTayproの理由についての短いメモを提出してください。 PDF または DOC、最大 5 MB。"
       },
       "review": {
-        "title": "Profile review",
-        "body": "Our HR and hiring manager review fit for the role, team, and stage of company growth."
+        "title": "プロフィールレビュー",
+        "body": "当社の人事および採用マネージャーのレビューは、役割、チーム、会社の成長段階に適合しています。"
       },
       "interviews": {
-        "title": "Interviews",
-        "body": "Usually two to three conversations — technical depth, problem-solving, and culture fit with the people you would work with daily."
+        "title": "インタビュー",
+        "body": "通常は 2 ～ 3 回の会話で、技術的な深さ、問題解決、毎日一緒に仕事をする人々との文化が適合します。"
       },
       "offer": {
-        "title": "Offer & onboarding",
-        "body": "Clear role scope, compensation, and start date. Onboarding pairs you with a buddy and site or product context from week one."
+        "title": "オファーとオンボーディング",
+        "body": "役割の範囲、報酬、開始日を明確にします。オンボーディングでは、1 週目から仲間とサイトまたは製品のコンテキストを結び付けます。"
       }
     },
-    "listHeading": "Open positions",
-    "listIntro": "Browse current openings below. Each listing includes the full job description and an online application form.",
-    "emptyTitle": "No open positions right now",
-    "emptyBody": "We are not hiring for published roles at the moment. You can still reach out — we keep strong profiles on file for upcoming teams.",
-    "contactCta": "Send a general application",
-    "viewRole": "View role",
-    "postedOn": "Posted {date}",
+    "listHeading": "オープンポジション",
+    "listIntro": "以下で現在の求人をご覧ください。各リストには完全な職務内容とオンライン応募フォームが含まれています。",
+    "emptyTitle": "現在募集中のポジションはありません",
+    "emptyBody": "現在、公開されている職種の採用は行っておりません。まだご連絡いただけます。私たちは今後のチームのために強力なプロフィールをファイルに保存しています。",
+    "contactCta": "一般申請書を送る",
+    "viewRole": "役割を表示する",
+    "postedOn": "投稿済み{date}",
     "generalCta": {
-      "eyebrow": "Don't see your role?",
-      "heading": "Tell us how you can help Taypro scale",
-      "body": "We often hire ahead of published listings for exceptional engineers, field leaders, and operators. Share your resume and area of interest — our team reviews every thoughtful application.",
-      "button": "Contact us",
-      "buttonTitle": "Contact Taypro careers"
+      "eyebrow": "自分の役割がわかりませんか?",
+      "heading": "Taypro のスケールアップにどのように貢献できるか教えてください",
+      "body": "当社では、優秀なエンジニア、現場リーダー、オペレーターを、公開リストに先立って採用することがよくあります。あなたの履歴書と興味のある分野を共有してください。私たちのチームはすべての応募書類を慎重に審査します。",
+      "button": "お問い合わせ",
+      "buttonTitle": "Taypro のキャリアに問い合わせる"
     },
     "faq": {
       "heading": "採用に関するよくある質問",
@@ -158,31 +158,31 @@
       "q4": "申請書には何を含めるべきですか?",
       "a4": "明確な履歴書、関連する場合は GitHub またはポートフォリオへのリンク、および Taypro の理由とこの問題領域に関する短いカバー ノート。現場での役割については、旅行可能な地域と太陽光発電または産業機器の経験について言及してください。",
       "q5": "面接プロセスはどのようなものですか?",
-      "a5": "実践的で役割に特化したもの — 抽象的なパズルではなく、ロボット工学、信頼性、艦隊運用で直面する実際の問題について話し合います。将来のマネージャーや部門を超えた同僚との会話を期待してください。"
+      "a5": "実践的で役割に特化したもの, 抽象的なパズルではなく、ロボット工学、信頼性、艦隊運用で直面する実際の問題について話し合います。将来のマネージャーや部門を超えた同僚との会話を期待してください。"
     },
     "detail": {
-      "applySection": "Apply for this role",
-      "backToCareers": "All open positions",
-      "metaDescriptionFallback": "Apply for {title} at Taypro."
+      "applySection": "この役職に応募する",
+      "backToCareers": "すべてのオープンポジション",
+      "metaDescriptionFallback": "Taypro で {title} を申請してください。"
     },
     "apply": {
-      "title": "Submit your application",
-      "subtitle": "Applying for {job}",
-      "name": "Full name",
-      "email": "Email",
-      "phone": "Phone",
-      "resume": "Resume",
-      "resumeHint": "PDF, DOC, or DOCX — max 5 MB",
-      "coverLetter": "Cover letter (optional)",
-      "coverLetterPlaceholder": "Brief note on your experience and interest in this role…",
-      "submit": "Submit application",
-      "submitting": "Submitting…",
-      "requiredError": "Please fill in all required fields and attach your resume.",
-      "resumeRequired": "Please attach your resume.",
-      "genericError": "Something went wrong. Please try again.",
-      "thankYouTitle": "Application received",
-      "thankYouMessage": "Thank you for applying. Our HR team will review your profile and contact you if there is a match.",
-      "submitAnother": "Submit another application"
+      "title": "申請書を提出する",
+      "subtitle": "{job} を申請中",
+      "name": "フルネーム",
+      "email": "電子メール",
+      "phone": "電話",
+      "resume": "再開する",
+      "resumeHint": "PDF、DOC、または DOCX: 最大 5 MB",
+      "coverLetter": "カバーレター (オプション)",
+      "coverLetterPlaceholder": "この役割に対するあなたの経験と興味について簡単に説明してください…",
+      "submit": "申請書を提出する",
+      "submitting": "送信中…",
+      "requiredError": "必須項目をすべてご記入の上、履歴書を添付してください。",
+      "resumeRequired": "履歴書を添付してください。",
+      "genericError": "何か問題が発生しました。もう一度試してください。",
+      "thankYouTitle": "申請書を受け取りました",
+      "thankYouMessage": "ご応募いただきありがとうございます。当社の人事チームがあなたのプロフィールを確認し、一致する場合はご連絡させていただきます。",
+      "submitAnother": "別の申請書を提出する"
     },
     "leadModal": {
       "topic": "Taypro でのキャリア",

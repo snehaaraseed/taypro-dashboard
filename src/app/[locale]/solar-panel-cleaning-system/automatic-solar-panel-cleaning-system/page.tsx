@@ -16,13 +16,15 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
-import { glydeCards, tayproTrustedByStatsStrip } from "@/app/data";
+import { tayproTrustedByStatsStrip } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import CallbackCard from "@/app/components/CallbackCard";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import { projectFilterForPage } from "@/lib/cms/project-page-filters";
-import ProductCards from "@/app/components/ProductCards";
-import HeroSection from "@/app/components/Herosection";
+import RelatedProductLineupSection from "@/app/components/RelatedProductLineupSection";
+import { buildRelatedProductLineupRobots } from "@/lib/products/build-product-lineup";
+import ProductHero from "@/app/components/ProductHero";
+import { ProductVisualSection } from "@/app/components/ProductVisualSection";
 import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
@@ -39,6 +41,12 @@ import Product360Viewer from "@/app/components/Product360Viewer";
 import { Container } from "@/app/components/Container";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import {
+  buildProductHeroHighlights,
+  productHeroBackgroundCredit,
+  productHeroSecondaryCta,
+} from "@/lib/products/product-hero-helpers";
+import { resolveProductPageHeroBackground } from "@/lib/cms/product-page-hero-background";
 import {
   getProductHeroLayout,
   getProductImageUrl,
@@ -144,6 +152,8 @@ export default async function AutomaticSolarPanelCleaningRobot({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "GlydePage" });
+  const heroBackground = await resolveProductPageHeroBackground("glyde", locale);
+  const heroHighlights = buildProductHeroHighlights(t);
 
   const connectivity = t("shared.connectivitySummary");
 
@@ -265,29 +275,23 @@ export default async function AutomaticSolarPanelCleaningRobot({
       />
 
       <div className="min-h-screen overflow-x-hidden">
-        <HeroSection
+        <ProductHero
+          eyebrow={t("overview.eyebrow")}
           title={t("hero.title")}
-          subtitle={
-            <>
-              {t("hero.leadBeforeStrong")}
-              <strong>{t("hero.leadStrong")}</strong>
-              {t("hero.leadAfterStrong")}
-              {connectivity}
-              {t("hero.leadAfterConnectivity")}
-            </>
-          }
-          imgSrc={glydeImages.hero}
-          imgAlt={t("hero.heroImageAlt")}
-          imageAspectRatio={glydeHeroLayout.aspectRatio}
-          imagePresentation={glydeHeroLayout.presentation}
+          subtitle={t("hero.subtitleShort")}
+          backgroundImage={heroBackground.src}
+          backgroundAlt={heroBackground.alt}
+          backgroundCredit={productHeroBackgroundCredit(heroBackground)}
           ctaHref="/contact"
           ctaText={t("hero.primaryCta.label")}
           ctaTopic={t("hero.primaryCta.topic")}
           ctaTitle={t("hero.primaryCta.title")}
           ctaSubtitle={t("hero.primaryCta.subtitle")}
+          secondaryCta={productHeroSecondaryCta(t, "#product-tour")}
+          highlights={heroHighlights}
         />
 
-      <section className="bg-white pt-8 sm:pt-14 pb-4">
+      <section className="bg-white pt-4 sm:pt-8 pb-4">
         <Container size="narrow">
           <AnimateOnScroll animation="fadeInUp">
             <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
@@ -336,6 +340,16 @@ export default async function AutomaticSolarPanelCleaningRobot({
         </Container>
       </section>
 
+      <ProductVisualSection
+        imageSrc={glydeImages.hero}
+        imageAlt={t("hero.heroImageAlt")}
+        eyebrow={t("productVisual.eyebrow")}
+        title={t("productVisual.title")}
+        caption={t("hero.heroImageAlt")}
+        imageAspectRatio={glydeHeroLayout.aspectRatio}
+        imagePresentation={glydeHeroLayout.presentation}
+      />
+
       <section className="w-full bg-white py-20">
         <Container size="narrow">
           <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
@@ -375,6 +389,7 @@ export default async function AutomaticSolarPanelCleaningRobot({
       </section>
 
       <section
+        id="product-tour"
         className="w-full py-20 bg-white"
         style={{
           background: "url('/tayprobglayout/taypro-semi.png') repeat",
@@ -553,13 +568,15 @@ export default async function AutomaticSolarPanelCleaningRobot({
         </Container>
       </section>
 
-      <ProjectsCardServer
-        useFileProjects
-        showHeader
-        headerText={t("projects.recentProjectsHeader")}
-        filter={projectFilterForPage("glyde")}
-        locale={locale}
-      />
+      <div id="deployments">
+        <ProjectsCardServer
+          useFileProjects
+          showHeader
+          headerText={t("projects.recentProjectsHeader")}
+          filter={projectFilterForPage("glyde")}
+          locale={locale}
+        />
+      </div>
 
       <section className="w-full bg-[#052638] py-16 sm:py-20">
         <Container>
@@ -1034,7 +1051,11 @@ export default async function AutomaticSolarPanelCleaningRobot({
 
       <FaqSection id="glyde-faq-heading" title={t("faq.title")} faqs={allFaqEntries} />
 
-      <ProductCards title={t("productCards.title")} cards={glydeCards} />
+      <RelatedProductLineupSection
+        headingId="glyde-related-heading"
+        title={t("productCards.title")}
+        robots={buildRelatedProductLineupRobots("glyde")}
+      />
 
       <RequestEstimateForm />
       </div>

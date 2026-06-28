@@ -15,13 +15,15 @@ import {
   Move,
   Compass,
 } from "lucide-react";
-import { glydeXCards, tayproTrustedByStatsStrip } from "@/app/data";
+import { tayproTrustedByStatsStrip } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import { projectFilterForPage } from "@/lib/cms/project-page-filters";
-import ProductCards from "@/app/components/ProductCards";
+import RelatedProductLineupSection from "@/app/components/RelatedProductLineupSection";
+import { buildRelatedProductLineupRobots } from "@/lib/products/build-product-lineup";
 import ClientsCard from "@/app/components/ClientsCard";
-import HeroSection from "@/app/components/Herosection";
+import ProductHero from "@/app/components/ProductHero";
+import { ProductVisualSection } from "@/app/components/ProductVisualSection";
 import EnergyResourceCard from "@/app/components/EnergyResourceCard";
 import CallbackCard from "@/app/components/CallbackCard";
 import { FaqSection } from "@/app/components/FaqSection";
@@ -37,6 +39,12 @@ import { Container } from "@/app/components/Container";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import { PerformanceMethodologyFootnote } from "@/app/components/PerformanceMethodologyLink";
 import { PerformanceMethodologyNotice } from "@/app/components/PerformanceMethodologyNotice";
+import {
+  buildProductHeroHighlights,
+  productHeroBackgroundCredit,
+  productHeroSecondaryCta,
+} from "@/lib/products/product-hero-helpers";
+import { resolveProductPageHeroBackground } from "@/lib/cms/product-page-hero-background";
 import {
   getProductHeroLayout,
   getProductImageUrl,
@@ -113,6 +121,8 @@ export default async function GlydeXPage({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "GlydeXPage" });
+  const heroBackground = await resolveProductPageHeroBackground("glydeX", locale);
+  const heroHighlights = buildProductHeroHighlights(t);
   const tCommon = await getTranslations({ locale, namespace: "Common" });
   const connectivity = tCommon("connectivitySummary");
 
@@ -215,28 +225,24 @@ export default async function GlydeXPage({
       />
 
       <div className="min-h-screen overflow-x-hidden">
-        <HeroSection
+        <ProductHero
+          eyebrow={t("overview.eyebrow")}
           title={t("hero.title")}
-          subtitle={
-            <>
-              {t("hero.subtitleBefore")}{" "}
-              <strong>{t("hero.subtitleStrong")}</strong>
-              {t("hero.subtitleAfter")}
-            </>
-          }
-          imgSrc={glydeXImages.hero}
-          imgAlt={t("hero.imgAlt")}
-          imageAspectRatio={glydeXHeroLayout.aspectRatio}
-          imagePresentation={glydeXHeroLayout.presentation}
+          subtitle={t("hero.subtitleShort")}
+          backgroundImage={heroBackground.src}
+          backgroundAlt={heroBackground.alt}
+          backgroundCredit={productHeroBackgroundCredit(heroBackground)}
           ctaHref="/contact"
           ctaText={t("hero.primaryCta.label")}
           ctaTopic={t("hero.primaryCta.topic")}
           ctaTitle={t("hero.primaryCta.title")}
           ctaSubtitle={t("hero.primaryCta.subtitle")}
+          secondaryCta={productHeroSecondaryCta(t, "#product-tour")}
+          highlights={heroHighlights}
         />
 
         {/* PRODUCT OVERVIEW / SEO INTRO */}
-        <section className="bg-white pt-12 sm:pt-20 pb-4">
+        <section className="bg-white pt-4 sm:pt-8 pb-4">
           <Container size="narrow">
             <AnimateOnScroll animation="fadeInUp">
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
@@ -315,8 +321,19 @@ export default async function GlydeXPage({
           </Container>
         </section>
 
+        <ProductVisualSection
+          imageSrc={glydeXImages.hero}
+          imageAlt={t("hero.imgAlt")}
+          eyebrow={t("productVisual.eyebrow")}
+          title={t("productVisual.title")}
+          caption={t("hero.imgAlt")}
+          imageAspectRatio={glydeXHeroLayout.aspectRatio}
+          imagePresentation={glydeXHeroLayout.presentation}
+        />
+
         {/* 360° + Innovation panel, preserved from old design */}
         <section
+          id="product-tour"
           className="w-full py-20 bg-white"
           style={{
             background: "url('/tayprobglayout/taypro-semi.png') repeat",
@@ -1057,13 +1074,15 @@ export default async function GlydeXPage({
 
         <EnergyResourceCard />
 
-        <ProjectsCardServer
-          useFileProjects
-          showHeader
-          headerText=""
-          filter={projectFilterForPage("glydeX")}
-          locale={locale}
-        />
+        <div id="deployments">
+          <ProjectsCardServer
+            useFileProjects
+            showHeader
+            headerText=""
+            filter={projectFilterForPage("glydeX")}
+            locale={locale}
+          />
+        </div>
 
         <FaqSection
           id="glyde-x-faq-heading"
@@ -1074,7 +1093,11 @@ export default async function GlydeXPage({
 
         <ClientsCard />
 
-        <ProductCards title={t("misc.productCardsTitle")} cards={glydeXCards} />
+        <RelatedProductLineupSection
+          headingId="glyde-x-related-heading"
+          title={t("misc.productCardsTitle")}
+          robots={buildRelatedProductLineupRobots("glydeX")}
+        />
 
         <RequestEstimateForm />
       </div>

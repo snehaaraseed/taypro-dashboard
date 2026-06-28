@@ -6,13 +6,13 @@
       "openGraphTitle": "حاسبة خسارة التلويث بالطاقة الشمسية | Taypro",
       "openGraphDescription": "قم بقياس الطاقة والإيرادات المفقودة بسبب اتساخ الألواح قبل اختيار برنامج التنظيف - أداة توجيهية لفرق IPP وO&M."
     },
-    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHub": "روبوتات تنظيف الألواح الشمسية",
     "breadcrumbHubHref": "/solar-panel-cleaning-system",
-    "breadcrumb": "Soiling loss calculator",
+    "breadcrumb": "حاسبة فقدان التربة",
     "schema": {
-      "name": "Taypro Solar Panel Soiling Loss Calculator",
-      "description": "Web calculator estimating annual MWh and revenue loss from solar panel soiling on Indian utility-scale plants.",
-      "applicationCategory": "BusinessApplication"
+      "name": "Taypro حاسبة خسارة تلويث الألواح الشمسية",
+      "description": "حاسبة الويب تقدر MWh السنوية وخسارة الإيرادات الناتجة عن تلويث الألواح الشمسية في المحطات الهندية على نطاق المرافق.",
+      "applicationCategory": "تطبيق الأعمال"
     },
     "hero": {
       "eyebrow": "الأداة · الاقتصاد الملوث",
@@ -28,7 +28,7 @@
       "heading": "يعد فقدان التربة أكبر تسرب يمكن السيطرة عليه في محطات المرافق الهندية",
       "p1": "يؤدي الاتساخ إلى منع الخرج القابل للاستخدام عندما يظل الغسيل قائمًا على التقويم. تشير مناقشات الصناعة إلى ما يقرب من 8 إلى 25٪ من فقدان التربة الموسمية في محطات المرافق في راجاستان وجوجارات وغيرها من الأحزمة عالية الغبار عندما يكون التنظيف نادرًا.",
       "p2": "تم توثيق معدلات التلوث اليومية التي تتراوح بين 0.3-0.5% يوميًا في مواسم الجفاف في غرب الهند. سبعة أيام بدون تنظيف يمكن أن تعني فقدان الإنتاج بنسبة 3-5%؛ تسعين يومًا بدون تنظيف منهجي يمكن أن تصل إلى 15-25% في المواقع الصحراوية.",
-      "p3": "تقوم هذه الآلة الحاسبة بتقدير التوليد السنوي بقدرة MW الخاصة بك، وتطبيق افتراض فقدان الاتساخ، وتحويل MWh المفقودة إلى ₹ باستخدام التعريفة الخاصة بك. إنه لا يمثل نموذجًا لاسترداد التنظيف — استخدم الآلة الحاسبة ROI لاسترداد قيمة البرامج الآلية.",
+      "p3": "تقوم هذه الآلة الحاسبة بتقدير التوليد السنوي بقدرة MW الخاصة بك، وتطبيق افتراض فقدان الاتساخ، وتحويل MWh المفقودة إلى ₹ باستخدام التعريفة الخاصة بك. إنه لا يمثل نموذجًا لاسترداد التنظيف, استخدم الآلة الحاسبة ROI لاسترداد قيمة البرامج الآلية.",
       "p4": "تعتمد الخسارة الفعلية على الميل وسلوك المتتبع واحتمال المطر وكيمياء الغبار. Taypro يوصي بإجراء دراسة تلوث الموقع قبل اتخاذ القرارات التجارية الملزمة. راجع منهجية الأداء الخاصة بنا للتعرف على كيفية تحديد مطالبات استرداد الإنشاء.",
       "linkPrimary": "منهجية الأداء",
       "linkPrimaryHref": "/performance-and-test-methodology",
@@ -64,48 +64,48 @@
       }
     },
     "soilingCalculator": {
-      "eyebrow": "Interactive tool",
-      "heading": "Estimate your annual soiling loss",
-      "subheading": "Directional only — not a guarantee of recoverable MWh. Defaults use India market yield (1,500 kWh/kW-year).",
-      "disclaimer": "Results are illustrative. Site-specific soiling studies, PR baselines, and weather normalization are required for investment-grade models. See performance methodology."
+      "eyebrow": "أداة تفاعلية",
+      "heading": "قم بتقدير خسارة الاتساخ السنوية",
+      "subheading": "اتجاهي فقط، وليس ضمانًا للاسترداد MWh. تستخدم الإعدادات الافتراضية عائد السوق الهندي (1500 kWh/كيلوواط-سنة).",
+      "disclaimer": "النتائج توضيحية. يلزم إجراء دراسات تلوث خاصة بالموقع، وخطوط الأساس PR، وتطبيع الطقس لنماذج الدرجة الاستثمارية. انظر منهجية الأداء."
     },
     "soilingTool": {
-      "capacityLabel": "Plant capacity (MW)",
-      "soilingLabel": "Annual soiling loss (%)",
-      "soilingHint": "share of annual generation lost to dust",
-      "tariffLabel": "Electricity tariff (₹/kWh)",
-      "tariffHint": "PPA, merchant, or blended portfolio rate",
-      "presetLow": "Low dust",
-      "presetTypical": "Typical India",
-      "presetHigh": "Rajasthan/Gujarat",
-      "resultsHeading": "Estimated annual impact",
-      "annualGeneration": "Annual generation",
-      "annualLoss": "Energy lost to soiling",
-      "annualRevenueLoss": "Revenue foregone",
-      "monthlyRevenueLoss": "Monthly revenue foregone",
-      "disclaimer": "Directional estimate only. Does not include cleaning recovery, inverter clipping, or curtailment.",
-      "ctaRoi": "Model cleaning payback",
-      "ctaStudy": "Request soiling study"
+      "capacityLabel": "سعة المصنع (MW)",
+      "soilingLabel": "فقدان الاتساخ السنوي (٪)",
+      "soilingHint": "حصة من التوليد السنوي المفقود بسبب الغبار",
+      "tariffLabel": "تعرفة الكهرباء (₹/kWh)",
+      "tariffHint": "معدل PPA أو التاجر أو المحفظة المختلطة",
+      "presetLow": "غبار منخفض",
+      "presetTypical": "الهند النموذجية",
+      "presetHigh": "راجستان/غوجارات",
+      "resultsHeading": "التأثير السنوي المقدر",
+      "annualGeneration": "الجيل السنوي",
+      "annualLoss": "الطاقة المفقودة بسبب التلوث",
+      "annualRevenueLoss": "الإيرادات الضائعة",
+      "monthlyRevenueLoss": "الإيرادات الشهرية الضائعة",
+      "disclaimer": "تقدير الاتجاه فقط. لا يشمل استرداد التنظيف، أو القص العاكس، أو التقليص.",
+      "ctaRoi": "استرداد نموذج التنظيف",
+      "ctaStudy": "طلب دراسة التلوث"
     },
     "steps": {
-      "eyebrow": "How to use results",
-      "heading": "From soiling estimate to cleaning decision",
-      "subheading": "Four steps O&M teams take after quantifying dust loss.",
-      "step0Title": "Set realistic soiling %",
-      "step0Body": "Use regional presets or PR data. High-dust Rajasthan/Gujarat sites often model 15–25%; milder regions 5–12%.",
-      "step1Title": "Convert MWh to ₹ at your tariff",
-      "step1Body": "Apply PPA, merchant, or blended ₹/kWh. This is the annual value at risk from dust — not yet net of cleaning cost.",
-      "step2Title": "Compare cleaning programme cost",
+      "eyebrow": "كيفية استخدام النتائج",
+      "heading": "من تقدير الاتساخ إلى قرار التنظيف",
+      "subheading": "أربع خطوات تتخذها فرق O&M بعد قياس فقدان الغبار.",
+      "step0Title": "ضبط نسبة الاتساخ الواقعية",
+      "step0Body": "استخدم الإعدادات المسبقة الإقليمية أو بيانات PR. غالبًا ما تبلغ نسبة الغبار المرتفع في راجاستان/جوجارات 15-25%؛ المناطق الأكثر اعتدالا 5-12%.",
+      "step1Title": "قم بتحويل MWh إلى ₹ بالتعريفة الخاصة بك",
+      "step1Body": "قم بتطبيق PPA أو التاجر أو المخلوط ₹/kWh. هذه هي القيمة السنوية المعرضة للخطر من الغبار، ولم يتم صافيها بعد من تكلفة التنظيف.",
+      "step2Title": "قارن تكلفة برنامج التنظيف",
       "step2Body": "Run the ROI calculator with CAPEX or OPEX. Compare recovered MWh value vs cleaning TCO over 5 years.",
-      "step3Title": "Validate with site study",
-      "step3Body": "Taypro engineers assess dust sources, cycle count, and robot model before binding commercial terms.",
-      "step4Title": "Track PR recovery in NECTYR",
-      "step4Body": "Correlate cleaning cycles with block-level PR trends — closing the SCADA blind spot on field action."
+      "step3Title": "التحقق من صحة مع دراسة الموقع",
+      "step3Body": "Taypro يقوم مهندسو Taypro بتقييم مصادر الغبار وعدد الدورات ونموذج الروبوت قبل ربط الشروط التجارية.",
+      "step4Title": "تتبع استرداد PR في NECTYR",
+      "step4Body": "اربط دورات التنظيف مع اتجاهات مستوى الكتلة PR، وإغلاق النقطة العمياء SCADA في العمل الميداني."
     },
     "highlight": {
-      "heading": "The O&M question",
-      "lead": "Do you know your annual ₹ at risk from dust?",
-      "body": "Many plants model inverter availability but not soiling loss in ₹. This calculator gives a directional starting point before RFQ and ROI modelling."
+      "heading": "السؤال O&M",
+      "lead": "هل تعلم أن مبلغك السنوي معرض للخطر من الغبار؟",
+      "body": "تصمم العديد من النباتات توافر العاكس ولكن ليس فقدان الاتساخ بـ ₹. توفر هذه الآلة الحاسبة نقطة بداية اتجاهية قبل نمذجة RFQ وROI."
     },
     "proseSecondary": {
       "eyebrow": "السياق الإقليمي",
@@ -119,13 +119,13 @@
       "linkSecondaryHref": "/cleaning-technology"
     },
     "resources": {
-      "eyebrow": "Research",
-      "heading": "Soiling loss articles and tools",
-      "link0Title": "Soiling losses in Rajasthan & Gujarat",
+      "eyebrow": "بحث",
+      "heading": "مقالات وأدوات فقدان التربة",
+      "link0Title": "خسائر التربة في ولاية راجاستان وجوجارات",
       "link0Href": "/blog/average-soiling-losses-in-high-dust-regions-of-india-rajasthan-gujarat",
-      "link1Title": "Seasonal soiling variation in India",
+      "link1Title": "تباين التربة الموسمية في الهند",
       "link1Href": "/blog/seasonal-variation-in-soiling-rates-and-energy-yield-loss-in-india",
-      "link2Title": "Carbon value of lost solar energy from soiling",
+      "link2Title": "القيمة الكربونية للطاقة الشمسية المفقودة من التلوث",
       "link2Href": "/blog/leveraging-carbon-pricing-for-environmental-and-economic-sustainability"
     },
     "faq": {
@@ -157,22 +157,22 @@
       "a11": "يؤدي فقدان MWh من التلوث إلى تقليل الانبعاثات التي يتم تجنبها. راجع مدونتنا الخاصة بالكربون/التلويث للتعرف على إطار المحفظة."
     },
     "cta": {
-      "heading": "Know your loss — then model the fix",
-      "body": "Use the ROI calculator to compare cleaning programme economics, or contact Taypro for a site soiling study.",
-      "primary": "ROI calculator",
+      "heading": "اعرف خسارتك، ثم ضع نموذجًا للإصلاح",
+      "body": "استخدم الآلة الحاسبة ROI لمقارنة اقتصاديات برنامج التنظيف، أو اتصل بـ Taypro لإجراء دراسة اتساخ الموقع.",
+      "primary": "ROI آلة حاسبة",
       "primaryHref": "/solar-panel-cleaning-robot-price-calculator#calculator",
-      "secondary": "Request soiling study",
+      "secondary": "طلب دراسة التلوث",
       "secondaryHref": "/contact"
     },
     "related": {
-      "label": "Related:",
+      "label": "متعلق ب:",
       "link0": "CAPEX vs OPEX guide",
       "link0Href": "/solar-cleaning-capex-vs-opex",
-      "link1": "OPEX pricing",
+      "link1": "OPEX التسعير",
       "link1Href": "/solar-cleaning-opex-pricing",
-      "link2": "ROI calculator",
+      "link2": "ROI آلة حاسبة",
       "link2Href": "/solar-panel-cleaning-robot-price-calculator",
-      "link3": "Utility operations guide",
+      "link3": "دليل عمليات المرافق",
       "link3Href": "/utility-scale-solar-operations"
     }
   }

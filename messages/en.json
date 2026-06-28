@@ -1,6 +1,9 @@
 {
   "Common": {
     "breadcrumbHome": "Home",
+    "productLineup": {
+      "exploreCta": "Explore {model}"
+    },
     "errorTitle": "This page couldn't load",
     "errorBody": "The connection may have timed out or something went wrong while loading this page. Reload to try again, or return to a working page.",
     "errorReload": "Reload"
@@ -18,6 +21,7 @@
     "investors": "Partners & Investors",
     "contactUs": "Contact Us",
     "blogs": "Blogs",
+    "insights": "Insights",
     "solarRobots": "Solar Robots",
     "solutions": "Solutions",
     "solutionsTitle": "Solar panel cleaning robot solutions",
@@ -71,6 +75,7 @@
     "aboutUs": "About Us",
     "projects": "Projects",
     "blogs": "Blogs",
+    "insights": "Insights",
     "contact": "Contact",
     "sitemap": "Sitemap",
     "ourTechnology": "Our Technology",

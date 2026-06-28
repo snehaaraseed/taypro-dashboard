@@ -3,11 +3,12 @@ import "server-only";
 import { and, asc, eq, lte, sql } from "drizzle-orm";
 import type { TayproLocale } from "@/i18n/markets";
 import { getDb } from "@/lib/db";
-import { blogs, projects, translationQueue } from "@/lib/db/schema";
+import { blogs, projects, insights, translationQueue } from "@/lib/db/schema";
 import { isGemini503Error } from "./gemini-call";
 import {
   getDailyTranslationMaxPerDay,
   getDailyTranslationSplitPerType,
+  getDailyInsightTranslationMaxPerDay,
   getTranslationRetry503Ms,
   getTranslationRetryErrorMs,
   isCmsTranslationDisabled,
@@ -23,8 +24,10 @@ import {
 import {
   listEnglishBlogSlugs,
   listEnglishProjectSlugs,
+  listEnglishInsightSlugs,
   translatePublishedBlog,
   translatePublishedProject,
+  translatePublishedInsight,
 } from "./translate-cms";
 import {
   isCmsProjectImproveDisabled,
@@ -32,7 +35,7 @@ import {
   type ProcessProjectImproveBacklogResult,
 } from "@/lib/cms/project-improve-queue";
 
-export type TranslationContentType = "blog" | "project";
+export type TranslationContentType = "blog" | "project" | "insight";
 
 const MAX_JOBS_PER_RUN = 8;
 const MAX_ATTEMPTS = 96;
@@ -44,6 +47,8 @@ const PERMANENT_TRANSLATION_ERRORS = [
   "Source post is not published or scheduled for translation",
   "English source project not found",
   "Source project is not published",
+  "English source insight not found",
+  "Source insight is not published",
 ] as const;
 
 /** Backoff for legacy translation_queue rows (admin / manual tooling only). */
@@ -142,6 +147,19 @@ export async function clearTranslationRetry(
     );
 }
 
+/** Enqueue target locales for a published English insight (legacy retry table). */
+export async function enqueueInsightTranslations(slug: string): Promise<number> {
+  let enqueued = 0;
+  for (const locale of TARGET_LOCALES) {
+    if (!(await isInsightLocaleOutOfSync(slug, locale))) continue;
+    await enqueueTranslationRetry("insight", slug, locale, undefined, {
+      immediate: true,
+    });
+    enqueued += 1;
+  }
+  return enqueued;
+}
+
 async function rescheduleJob(
   jobId: number,
   attempts: number,
@@ -201,10 +219,31 @@ async function isLocaleOutOfSync(
   return !target?.updatedAt || target.updatedAt < source.updatedAt;
 }
 
+async function isInsightLocaleOutOfSync(
+  slug: string,
+  locale: TayproLocale
+): Promise<boolean> {
+  const db = getDb();
+  const [source] = await db
+    .select({ updatedAt: insights.updatedAt, published: insights.published })
+    .from(insights)
+    .where(and(eq(insights.slug, slug), eq(insights.locale, SOURCE_LOCALE)))
+    .limit(1);
+  if (!source?.updatedAt || !source.published) return false;
+
+  const [target] = await db
+    .select({ updatedAt: insights.updatedAt })
+    .from(insights)
+    .where(and(eq(insights.slug, slug), eq(insights.locale, locale)))
+    .limit(1);
+
+  return !target?.updatedAt || target.updatedAt < source.updatedAt;
+}
+
 type TranslationCandidate = {
   slug: string;
   missingLocales: number;
-  /** ISO timestamp — newest English publish first. */
+  /** ISO timestamp, newest English publish first. */
   sortKey: string;
 };
 
@@ -289,6 +328,49 @@ export async function listProjectSlugsNeedingTranslation(
   return limit ? slugs.slice(0, limit) : slugs;
 }
 
+/** Published EN insights missing or stale in at least one target locale (newest first). */
+export async function listInsightSlugsNeedingTranslation(
+  limit?: number
+): Promise<string[]> {
+  const db = getDb();
+  const englishSlugs = await listEnglishInsightSlugs();
+  const candidates: TranslationCandidate[] = [];
+
+  for (const slug of englishSlugs) {
+    let missingLocales = 0;
+    for (const locale of TARGET_LOCALES) {
+      if (await isInsightLocaleOutOfSync(slug, locale)) missingLocales += 1;
+    }
+    if (missingLocales === 0) continue;
+
+    const [row] = await db
+      .select({
+        publishDate: insights.publishDate,
+        updatedAt: insights.updatedAt,
+        createdAt: insights.createdAt,
+      })
+      .from(insights)
+      .where(and(eq(insights.slug, slug), eq(insights.locale, SOURCE_LOCALE)))
+      .limit(1);
+
+    candidates.push({
+      slug,
+      missingLocales,
+      sortKey: row?.publishDate ?? row?.updatedAt ?? row?.createdAt ?? slug,
+    });
+  }
+
+  candidates.sort((a, b) => {
+    if (b.missingLocales !== a.missingLocales) {
+      return b.missingLocales - a.missingLocales;
+    }
+    return b.sortKey.localeCompare(a.sortKey);
+  });
+
+  const slugs = candidates.map((c) => c.slug);
+  return limit ? slugs.slice(0, limit) : slugs;
+}
+
 export type DailyTranslationQueueItem = {
   contentType: TranslationContentType;
   slug: string;
@@ -335,24 +417,36 @@ export function allocateDailyTranslationSlots(options: {
   return { blogSlots, projectSlots };
 }
 
-/** Interleave blog and project slugs so both progress in the same daily run. */
+/** Interleave blog and project slugs (default 2 blogs : 1 project in burn mode). */
 export function buildInterleavedDailyQueue(
   blogSlugs: string[],
-  projectSlugs: string[]
+  projectSlugs: string[],
+  options?: { blogsPerProject?: number }
 ): DailyTranslationQueueItem[] {
+  const blogsPerProject = Math.max(
+    1,
+    options?.blogsPerProject ??
+      parsePositiveInt(process.env.GEMINI_BURN_INTERLEAVE_BLOGS?.trim(), 2)
+  );
   const queue: DailyTranslationQueueItem[] = [];
-  const maxLen = Math.max(blogSlugs.length, projectSlugs.length);
+  let bi = 0;
+  let pi = 0;
 
-  for (let i = 0; i < maxLen; i += 1) {
-    if (i < blogSlugs.length) {
-      queue.push({ contentType: "blog", slug: blogSlugs[i] });
+  while (bi < blogSlugs.length || pi < projectSlugs.length) {
+    for (let b = 0; b < blogsPerProject && bi < blogSlugs.length; b += 1) {
+      queue.push({ contentType: "blog", slug: blogSlugs[bi++] });
     }
-    if (i < projectSlugs.length) {
-      queue.push({ contentType: "project", slug: projectSlugs[i] });
+    if (pi < projectSlugs.length) {
+      queue.push({ contentType: "project", slug: projectSlugs[pi++] });
     }
   }
 
   return queue;
+}
+
+function parsePositiveInt(raw: string | undefined, fallback: number): number {
+  const parsed = raw ? Number.parseInt(raw, 10) : fallback;
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
 }
 
 export async function clearAllTranslationQueueRows(): Promise<number> {
@@ -379,14 +473,16 @@ export type ProcessDailyTranslationsResult = {
   splitPerType: number;
   blogBacklog: number;
   projectBacklog: number;
+  insightBacklog: number;
   blogSlots: number;
   projectSlots: number;
+  insightSlots: number;
   queue: DailyTranslationQueueItem[];
   processed: number;
   completed: number;
   partial: number;
   skippedQuota: number;
-  /** True when all Gemini API keys hit quota — resumes after tomorrow's blog writer. */
+  /** True when all Gemini API keys hit quota, resumes after tomorrow's blog writer. */
   quotaSkippedForDay: boolean;
   /** True when an external deadline (e.g. midnight) stopped the run. */
   deadlineStopped?: boolean;
@@ -409,9 +505,13 @@ async function translateQueueItem(
   locales?: TayproLocale[]
 ): Promise<BatchTranslationResult> {
   const options = locales?.length ? { locales } : undefined;
-  return item.contentType === "blog"
-    ? translatePublishedBlog(item.slug, options)
-    : translatePublishedProject(item.slug, options);
+  if (item.contentType === "blog") {
+    return translatePublishedBlog(item.slug, options);
+  }
+  if (item.contentType === "project") {
+    return translatePublishedProject(item.slug, options);
+  }
+  return translatePublishedInsight(item.slug, options);
 }
 
 function mergeTranslationResults(
@@ -511,8 +611,10 @@ function emptyCatchupTranslationResult(): ProcessDailyTranslationsResult {
     splitPerType: 0,
     blogBacklog: 0,
     projectBacklog: 0,
+    insightBacklog: 0,
     blogSlots: 0,
     projectSlots: 0,
+    insightSlots: 0,
     queue: [],
     processed: 0,
     completed: 0,
@@ -564,40 +666,58 @@ async function runDailyTranslationsBody(
   options: Parameters<typeof processDailyTranslations>[0],
   catchup: boolean
 ): Promise<ProcessDailyTranslationsResult> {
-  const [allBlogSlugs, allProjectSlugs] = await Promise.all([
+  const [allBlogSlugs, allProjectSlugs, allInsightSlugs] = await Promise.all([
     listBlogSlugsNeedingTranslation(),
     listProjectSlugsNeedingTranslation(),
+    listInsightSlugsNeedingTranslation(),
   ]);
 
   const blogBacklog = allBlogSlugs.length;
   const projectBacklog = allProjectSlugs.length;
+  const insightBacklog = allInsightSlugs.length;
 
   const maxPerDay = catchup
-    ? blogBacklog + projectBacklog
+    ? blogBacklog + projectBacklog + insightBacklog
     : (options?.maxPerDay ?? getDailyTranslationMaxPerDay());
   const splitPerType = catchup
     ? Math.max(blogBacklog, projectBacklog, 1)
     : (options?.splitPerType ?? getDailyTranslationSplitPerType());
 
+  const insightSlots = catchup
+    ? insightBacklog
+    : Math.min(getDailyInsightTranslationMaxPerDay(), insightBacklog);
+  const blogProjectCap = catchup
+    ? blogBacklog + projectBacklog
+    : Math.max(0, maxPerDay - insightSlots);
+
   const { blogSlots, projectSlots } = allocateDailyTranslationSlots({
     blogBacklog,
     projectBacklog,
-    maxTotal: maxPerDay,
+    maxTotal: blogProjectCap,
     splitPerType,
   });
 
-  const queue = buildInterleavedDailyQueue(
-    allBlogSlugs.slice(0, blogSlots),
-    allProjectSlugs.slice(0, projectSlots)
-  );
+  const insightQueue: DailyTranslationQueueItem[] = allInsightSlugs
+    .slice(0, insightSlots)
+    .map((slug) => ({ contentType: "insight", slug }));
+
+  const queue = [
+    ...insightQueue,
+    ...buildInterleavedDailyQueue(
+      allBlogSlugs.slice(0, blogSlots),
+      allProjectSlugs.slice(0, projectSlots)
+    ),
+  ];
 
   const result: ProcessDailyTranslationsResult = {
     maxPerDay,
     splitPerType,
     blogBacklog,
     projectBacklog,
+    insightBacklog,
     blogSlots,
     projectSlots,
+    insightSlots,
     queue,
     processed: 0,
     completed: 0,
@@ -621,11 +741,15 @@ async function runDailyTranslationsBody(
     splitPerType,
     blogBacklog,
     projectBacklog,
+    insightBacklog,
     blogSlots,
     projectSlots,
+    insightSlots,
     queueSize: queue.length,
     queue: queue.map((entry) => `${entry.contentType}:${entry.slug}`),
   });
+
+  let translationSinceImprove = 0;
 
   for (const item of queue) {
     if (stopForQuota) break;
@@ -784,6 +908,26 @@ async function runDailyTranslationsBody(
 
     result.processed += 1;
     if (itemResult) result.items.push(itemResult);
+
+    if (
+      catchup &&
+      !stopForQuota &&
+      !deadlineStopped &&
+      !isCmsProjectImproveDisabled()
+    ) {
+      translationSinceImprove += 1;
+      if (translationSinceImprove >= 3) {
+        translationSinceImprove = 0;
+        const slice = await processProjectImproveBacklog({
+          shouldStop,
+          log,
+          maxPerRun: 1,
+        });
+        result.projectImprove = slice;
+        if (slice.quotaStopped) stopForQuota = true;
+        if (slice.deadlineStopped) deadlineStopped = true;
+      }
+    }
   }
 
   result.deadlineStopped = deadlineStopped;
@@ -808,12 +952,17 @@ async function runDailyTranslationsBody(
     !deadlineStopped &&
     !isCmsProjectImproveDisabled()
   ) {
-    const [blogNeed, projectNeed] = await Promise.all([
+    const [blogNeed, projectNeed, insightNeed] = await Promise.all([
       listBlogSlugsNeedingTranslation(),
       listProjectSlugsNeedingTranslation(),
+      listInsightSlugsNeedingTranslation(),
     ]);
 
-    if (blogNeed.length === 0 && projectNeed.length === 0) {
+    if (
+      blogNeed.length === 0 &&
+      projectNeed.length === 0 &&
+      insightNeed.length === 0
+    ) {
       const improveResult = await processProjectImproveBacklog({
         shouldStop,
         log,
@@ -830,6 +979,7 @@ async function runDailyTranslationsBody(
         reason: "translation_backlog_remaining",
         blogs: blogNeed.length,
         projects: projectNeed.length,
+        insights: insightNeed.length,
       });
     }
   }
@@ -854,13 +1004,15 @@ export async function processDailyBlogTranslations(options?: {
   };
 }
 
-/** Enqueue published blogs/projects missing translations (legacy retry queue). */
+/** Enqueue published CMS content missing translations (legacy retry queue). */
 export async function reconcileTranslationQueue(): Promise<{
   blogsEnqueued: number;
   projectsEnqueued: number;
+  insightsEnqueued: number;
 }> {
   let blogsEnqueued = 0;
   let projectsEnqueued = 0;
+  let insightsEnqueued = 0;
 
   for (const slug of await listBlogSlugsNeedingTranslation()) {
     for (const locale of TARGET_LOCALES) {
@@ -908,7 +1060,30 @@ export async function reconcileTranslationQueue(): Promise<{
     }
   }
 
-  return { blogsEnqueued, projectsEnqueued };
+  for (const slug of await listInsightSlugsNeedingTranslation()) {
+    for (const locale of TARGET_LOCALES) {
+      if (!(await isInsightLocaleOutOfSync(slug, locale))) continue;
+      const db = getDb();
+      const existing = await db
+        .select({ id: translationQueue.id })
+        .from(translationQueue)
+        .where(
+          and(
+            eq(translationQueue.contentType, "insight"),
+            eq(translationQueue.slug, slug),
+            eq(translationQueue.locale, locale)
+          )
+        )
+        .limit(1);
+      if (existing.length > 0) continue;
+      await enqueueTranslationRetry("insight", slug, locale, undefined, {
+        immediate: true,
+      });
+      insightsEnqueued += 1;
+    }
+  }
+
+  return { blogsEnqueued, projectsEnqueued, insightsEnqueued };
 }
 
 export async function getTranslationQueueStats(): Promise<{
@@ -933,7 +1108,15 @@ export async function getTranslationQueueStats(): Promise<{
 
 export async function processTranslationQueue(options?: {
   reconcile?: boolean;
-}): Promise<ProcessTranslationQueueResult & { reconciled?: { blogsEnqueued: number; projectsEnqueued: number } }> {
+}): Promise<
+  ProcessTranslationQueueResult & {
+    reconciled?: {
+      blogsEnqueued: number;
+      projectsEnqueued: number;
+      insightsEnqueued: number;
+    };
+  }
+> {
   const reconciled = options?.reconcile
     ? await reconcileTranslationQueue()
     : undefined;
@@ -949,7 +1132,11 @@ export async function processTranslationQueue(options?: {
     .limit(MAX_JOBS_PER_RUN);
 
   const result: ProcessTranslationQueueResult & {
-    reconciled?: { blogsEnqueued: number; projectsEnqueued: number };
+    reconciled?: {
+      blogsEnqueued: number;
+      projectsEnqueued: number;
+      insightsEnqueued: number;
+    };
   } = {
     due: dueJobs.length,
     processed: 0,
@@ -989,10 +1176,15 @@ export async function processTranslationQueue(options?: {
               locales: [locale],
               force: false,
             })
-          : await translatePublishedProject(job.slug, {
-              locales: [locale],
-              force: false,
-            });
+          : contentType === "project"
+            ? await translatePublishedProject(job.slug, {
+                locales: [locale],
+                force: false,
+              })
+            : await translatePublishedInsight(job.slug, {
+                locales: [locale],
+                force: false,
+              });
 
       const localeResult = batch.results.find((r) => r.locale === locale);
 

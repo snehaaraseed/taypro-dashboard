@@ -4,7 +4,7 @@
       "title": "Pan-India Solar Cleaning Fleet Coverage",
       "description": "Proof of Taypro's pan-India robotic cleaning fleet: 9 GW+ monthly throughput, state deployments, and coverage map. Primary service details on the OPEX product page.",
       "openGraphTitle": "Pan-India Solar Cleaning Fleet Coverage | Taypro",
-      "openGraphDescription": "National deployment proof for Taypro waterless robotic cleaning — Rajasthan, Gujarat, Maharashtra, Karnataka, and expanding."
+      "openGraphDescription": "National deployment proof for Taypro waterless robotic cleaning, Rajasthan, Gujarat, Maharashtra, Karnataka, and expanding."
     },
     "breadcrumbHub": "Solar panel cleaning robots",
     "breadcrumbHubHref": "/solar-panel-cleaning-system",
@@ -17,7 +17,7 @@
     },
     "hero": {
       "eyebrow": "National coverage · India",
-      "title": "Pan-India solar cleaning fleet — where Taypro operates",
+      "title": "Pan-India solar cleaning fleet, where Taypro operates",
       "subtitle": "This page documents Taypro's national robotic cleaning footprint: 9 GW+ of panels cleaned monthly, active deployments across high-soiling states, and mobilisation proof for IPPs and asset managers. For commercial scope, SOPs, and OPEX billing, see the primary OPEX service page.",
       "ctaPrimary": "Primary OPEX service page",
       "ctaPrimaryHref": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
@@ -31,7 +31,7 @@
         "tag": "Scale",
         "stat": "9 GW+",
         "label": "Panels cleaned each month",
-        "body": "One of the largest robotic cleaning fleets deployed on Indian utility solar — not a pilot vendor, a production O&M partner."
+        "body": "One of the largest robotic cleaning fleets deployed on Indian utility solar, not a pilot vendor, a production O&M partner."
       },
       "card1": {
         "tag": "Coverage",
@@ -43,7 +43,7 @@
         "tag": "Clients",
         "stat": "IPP · CPSU · C&I",
         "label": "Built for institutional asset owners",
-        "body": "SECI, state discoms, IPPs, and industrial rooftops — one vendor for robots, operators, spares, and fleet software."
+        "body": "SECI, state discoms, IPPs, and industrial rooftops, one vendor for robots, operators, spares, and fleet software."
       },
       "card3": {
         "tag": "Model",
@@ -61,28 +61,28 @@
       },
       "card1": {
         "title": "Robot deployment & operators",
-        "body": "GLYDE, GLYDE-X, NYUMA, NYUMA-X, or HELYX matched to your plant — with trained on-site operators and spare parts."
+        "body": "GLYDE, GLYDE-X, NYUMA, NYUMA-X, or HELYX matched to your plant, with trained on-site operators and spare parts."
       },
       "card2": {
         "title": "NECTYR daily reporting",
-        "body": "Block-level cleaning logs, route coverage, exceptions, and fleet health — audit-ready for O&M and lender reviews."
+        "body": "Block-level cleaning logs, route coverage, exceptions, and fleet health, audit-ready for O&M and lender reviews."
       },
       "card3": {
         "title": "SLA-backed field response",
         "body": "Regional service teams, breakdown targets, and remote diagnostics through NECTYR for fleet uptime on multi-MW sites."
       },
       "card4": {
-        "title": "Waterless dry cleaning — no tanker logistics",
-        "body": "Wet-wash cleaning consumes 140,000+ litres per MW per year in water-stressed solar belts. Taypro's robotic dry cleaning eliminates tanker dependency while enabling 3–10 cycles per month — the cadence needed to neutralise soiling in Rajasthan and Gujarat dust belts."
+        "title": "Waterless dry cleaning, no tanker logistics",
+        "body": "Wet-wash cleaning consumes 140,000+ litres per MW per year in water-stressed solar belts. Taypro's robotic dry cleaning eliminates tanker dependency while enabling 3–10 cycles per month, the cadence needed to neutralise soiling in Rajasthan and Gujarat dust belts."
       },
       "card5": {
         "title": "Integration with plant performance data",
-        "body": "NECTYR block-level cleaning logs tie each cycle to array coverage and exceptions. Asset managers correlate cleaning events with PR recovery — closing the gap between SCADA alarms and field action."
+        "body": "NECTYR block-level cleaning logs tie each cycle to array coverage and exceptions. Asset managers correlate cleaning events with PR recovery, closing the gap between SCADA alarms and field action."
       }
     },
     "models": {
       "eyebrow": "Commercial models",
-      "heading": "CAPEX robots or OPEX — same fleet, different balance sheet",
+      "heading": "CAPEX robots or OPEX: same fleet, different balance sheet",
       "capex": {
         "title": "Robot CAPEX + AMC",
         "body": "Purchase GLYDE, GLYDE-X, NYUMA, or HELYX. Taypro commissions, trains operators, and maintains the fleet under structured AMC.",
@@ -91,14 +91,14 @@
       },
       "opex": {
         "title": "OPEX service",
-        "body": "No upfront robot purchase. Pay monthly for panels actually cleaned — ideal for IPPs that want predictable O&M opex and fast mobilisation.",
+        "body": "No upfront robot purchase. Pay monthly for panels actually cleaned, ideal for IPPs that want predictable O&M opex and fast mobilisation.",
         "href": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
         "link": "OPEX service details"
       }
     },
     "pillars": {
       "eyebrow": "Full stack",
-      "heading": "Robots, managed service, and fleet software — one partner",
+      "heading": "Robots, managed service, and fleet software, one partner",
       "pillar0": {
         "tag": "Hardware",
         "title": "Waterless cleaning robots",
@@ -123,7 +123,7 @@
       "intro": "Taypro deploys robotic cleaning fleets across India's highest-soiling solar belts. Explore state-specific guides for Rajasthan, Gujarat, Maharashtra, and more."
     },
     "faq": {
-      "heading": "Solar cleaning service India — FAQ",
+      "heading": "Solar cleaning service India: FAQ",
       "subheading": "Common questions from IPPs, EPCs, and O&M teams evaluating robotic cleaning partners.",
       "q0": "Does Taypro provide solar panel cleaning service across India?",
       "a0": "Yes. Taypro deploys robotic cleaning fleets and managed OPEX programmes across major Indian solar states including Rajasthan, Gujarat, Maharashtra, Karnataka, Madhya Pradesh, Andhra Pradesh, Tamil Nadu, Uttar Pradesh, Haryana, Delhi NCR, West Bengal, and Chhattisgarh. Contact us for mobilisation timelines on your specific site.",
@@ -134,7 +134,7 @@
       "q3": "How many cleaning cycles per month does Taypro recommend?",
       "a3": "After a site soiling study, Taypro typically recommends 3–10 waterless dry cleaning cycles per month depending on dust load, seasonal wind patterns, tracker vs fixed-tilt geometry, and your PR recovery targets.",
       "q4": "Is Taypro a solar O&M company or only a robot manufacturer?",
-      "a4": "Both. Taypro manufactures waterless cleaning robots in India and operates one of the largest deployed robotic cleaning fleets. Our service covers cleaning execution, fleet health, operator deployment, and NECTYR reporting — complementary to your EPC or electrical O&M contractor.",
+      "a4": "Both. Taypro manufactures waterless cleaning robots in India and operates one of the largest deployed robotic cleaning fleets. Our service covers cleaning execution, fleet health, operator deployment, and NECTYR reporting, complementary to your EPC or electrical O&M contractor.",
       "q5": "What robots does Taypro deploy under the India cleaning service?",
       "a5": "Fixed-tilt utility blocks use GLYDE or NYUMA. Single-axis tracker sites use GLYDE-X or NYUMA-X. Scattered blocks and pick-and-place workflows may use HELYX. The same NECTYR stack applies across models.",
       "q6": "How is billing structured on OPEX?",
@@ -146,7 +146,7 @@
       "q9": "Does Taypro clean single-axis tracker plants?",
       "a9": "Yes. GLYDE-X and NYUMA-X are engineered for single-axis trackers with CRADYL row-transfer docking. See our tracker cleaning robot guide for technical procurement.",
       "q10": "What is the typical mobilisation timeline for a 100 MW plant?",
-      "a10": "Phased deployment: site mapping, fleet mobilisation, operator training, and NECTYR onboarding. Timeline depends on row count and access — proposed during commercial engagement, typically weeks not months for established solar parks.",
+      "a10": "Phased deployment: site mapping, fleet mobilisation, operator training, and NECTYR onboarding. Timeline depends on row count and access, proposed during commercial engagement, typically weeks not months for established solar parks.",
       "q11": "Can Taypro support multi-site portfolios across states?",
       "a11": "Yes. NECTYR provides portfolio-level scheduling and reporting. Taypro operates across Rajasthan, Gujarat, Maharashtra, Karnataka, MP, Andhra Pradesh, Tamil Nadu, Uttar Pradesh, Haryana, Delhi NCR, West Bengal, and Chhattisgarh."
     },
@@ -174,11 +174,11 @@
     },
     "prose": {
       "eyebrow": "National footprint",
-      "heading": "Pan-India fleet coverage — not a local crew vendor",
-      "p1": "India's utility solar fleet exceeds 100 GW across Rajasthan, Gujarat, Maharashtra, Karnataka, and Madhya Pradesh. Taypro documents live robotic deployments, spares hubs, and mobilisation timelines on this page. For service scope, cycle SOPs, and OPEX billing, start with the OPEX robotic cleaning service product page — that is the primary commercial URL for procurement teams.",
-      "p2": "Taypro manufactures waterless cleaning robots in Pune and deploys them under two commercial models. CAPEX: purchase GLYDE, GLYDE-X, NYUMA, NYUMA-X, or HELYX with structured AMC. OPEX: Taypro owns the fleet, deploys operators, and bills monthly for panels actually cleaned — reconciled through NECTYR telemetry.",
-      "p3": "Whether you procure through an IPP asset manager, state discom, or EPC handover team, Taypro provides a single vendor for field execution and fleet data. Electrical O&M, inverter repair, and tracker mechanical work remain with your existing contractor — we own the cleaning layer that directly moves performance ratio.",
-      "p4": "Procurement teams evaluating solar cleaning service India vendors should compare fleet scale, state coverage, billing transparency, and integration with plant monitoring — not just robot brochures. Taypro publishes indicative OPEX pricing, an ROI calculator, and 132+ project references for due diligence.",
+      "heading": "Pan-India fleet coverage, not a local crew vendor",
+      "p1": "India's utility solar fleet exceeds 100 GW across Rajasthan, Gujarat, Maharashtra, Karnataka, and Madhya Pradesh. Taypro documents live robotic deployments, spares hubs, and mobilisation timelines on this page. For service scope, cycle SOPs, and OPEX billing, start with the OPEX robotic cleaning service product page, that is the primary commercial URL for procurement teams.",
+      "p2": "Taypro manufactures waterless cleaning robots in Pune and deploys them under two commercial models. CAPEX: purchase GLYDE, GLYDE-X, NYUMA, NYUMA-X, or HELYX with structured AMC. OPEX: Taypro owns the fleet, deploys operators, and bills monthly for panels actually cleaned, reconciled through NECTYR telemetry.",
+      "p3": "Whether you procure through an IPP asset manager, state discom, or EPC handover team, Taypro provides a single vendor for field execution and fleet data. Electrical O&M, inverter repair, and tracker mechanical work remain with your existing contractor, we own the cleaning layer that directly moves performance ratio.",
+      "p4": "Procurement teams evaluating solar cleaning service India vendors should compare fleet scale, state coverage, billing transparency, and integration with plant monitoring, not just robot brochures. Taypro publishes indicative OPEX pricing, an ROI calculator, and 132+ project references for due diligence.",
       "linkPrimary": "OPEX service (primary)",
       "linkPrimaryHref": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
       "linkSecondary": "Compare OPEX vs CAPEX pricing",
@@ -192,7 +192,7 @@
       "step0Body": "Provide MW capacity, state, installation type (fixed tilt, seasonal tilt, or single-axis tracker), module wattage, current manual or robotic cleaning spend, and target PR or soiling assumptions. Taypro assigns an engineering lead within one business day.",
       "step1Title": "Site soiling study & cycle recommendation",
       "step1Body": "Engineers assess dust sources, wind patterns, row geometry, tracker behaviour, and seasonal rain probability. Output: recommended 3–10 waterless dry cycles per month and robot model selection (GLYDE, GLYDE-X, NYUMA, NYUMA-X, or HELYX).",
-      "step2Title": "Commercial proposal — CAPEX or OPEX",
+      "step2Title": "Commercial proposal, CAPEX or OPEX",
       "step2Body": "Receive robot fleet sizing, indicative pricing (per-panel OPEX rates or CAPEX bands), SLA framework, and mobilisation timeline. Finance teams can run parallel scenarios in the ROI calculator.",
       "step3Title": "Fleet deployment & NECTYR onboarding",
       "step3Body": "Operators mobilise with robots, connectivity (LTE, mesh, or LoRa as designed), cleaning SOPs, path maps, and rest zones. NECTYR portal activated for scheduling, coverage audits, and monthly settlement.",
@@ -210,18 +210,18 @@
       "notForTitle": "Typically not a fit",
       "not0": "Single-home residential rooftop arrays (see our rooftop robot guide for C&I)",
       "not1": "One-off manual pressure-washing without a recurring robotic programme",
-      "not2": "Full-plant EPC maintenance scope (inverters, HV, tracker mechanical) — we partner on cleaning only"
+      "not2": "Full-plant EPC maintenance scope (inverters, HV, tracker mechanical), we partner on cleaning only"
     },
     "highlight": {
       "heading": "The procurement question",
       "lead": "Can your cleaning vendor prove which panels were cleaned last night?",
-      "body": "Manual crew contracts rarely provide block-level coverage evidence. OPEX bills against NECTYR telemetry — panels cleaned, routes completed, exceptions logged. That is what IPPs and lenders ask for at 100 MW scale."
+      "body": "Manual crew contracts rarely provide block-level coverage evidence. OPEX bills against NECTYR telemetry, panels cleaned, routes completed, exceptions logged. That is what IPPs and lenders ask for at 100 MW scale."
     },
     "proseSecondary": {
       "eyebrow": "Regional soiling context",
-      "heading": "Solar cleaning demand by state — why pan-India service matters",
-      "p1": "Rajasthan and Gujarat account for the largest share of India's utility solar capacity and the highest documented soiling ratios — cumulative dust films that suppress 8–25% of annual generation without cadence-driven cleaning. Maharashtra and Karnataka add coastal humidity and agricultural dust patterns that differ from arid belt physics.",
-      "p2": "A solar panel cleaning service India partner must mobilise regionally — not fly in crews from one state for every breakdown. Taypro maintains service hubs, spare parts inventory, and operator pools across twelve state deployment guides linked below.",
+      "heading": "Solar cleaning demand by state, why pan-India service matters",
+      "p1": "Rajasthan and Gujarat account for the largest share of India's utility solar capacity and the highest documented soiling ratios, cumulative dust films that suppress 8–25% of annual generation without cadence-driven cleaning. Maharashtra and Karnataka add coastal humidity and agricultural dust patterns that differ from arid belt physics.",
+      "p2": "A solar panel cleaning service India partner must mobilise regionally, not fly in crews from one state for every breakdown. Taypro maintains service hubs, spare parts inventory, and operator pools across twelve state deployment guides linked below.",
       "p3": "Explore state-specific robotic cleaning context for Rajasthan, Gujarat, Maharashtra, and your plant location before finalising cycle count and commercial model.",
       "linkPrimary": "Solar O&M services scope",
       "linkPrimaryHref": "/solar-om-services",

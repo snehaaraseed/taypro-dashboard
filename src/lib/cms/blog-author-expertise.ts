@@ -294,11 +294,11 @@ export function pickBestAuthorForTopicTags(
   );
 
   if (candidates.length === 0 && options?.excludeAuthorNames?.size) {
-    // Tier is all recently used — widen to full pool but keep rotation window.
+    // Tier is all recently used, widen to full pool but keep rotation window.
     candidates = filterAuthorsByExclusion(pool, options.excludeAuthorNames);
   }
   if (candidates.length === 0) {
-    // Every eligible author posted recently — pick least-used globally.
+    // Every eligible author posted recently, pick least-used globally.
     candidates = pool;
   }
 

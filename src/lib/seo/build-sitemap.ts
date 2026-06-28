@@ -7,6 +7,7 @@ import { routing } from "@/i18n/routing";
 import type { TayproLocale } from "@/i18n/markets";
 import { getStoredAuthors } from "@/lib/cms/authorService";
 import { listPublishedBlogsForSitemap } from "@/lib/cms/blogService";
+import { listPublishedInsightsForSitemap } from "@/lib/cms/insightService";
 import { listPublishedProjectsForSitemap } from "@/lib/cms/projectService";
 import {
   BLOG_LIST_PAGE_SIZE,
@@ -139,9 +140,10 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
   }
 
   try {
-    const [blogs, projects] = await Promise.all([
+    const [blogs, projects, insights] = await Promise.all([
       listPublishedBlogsForSitemap(),
       listPublishedProjectsForSitemap(),
+      listPublishedInsightsForSitemap(),
     ]);
 
     const indexableBlogs = blogs.filter(
@@ -152,6 +154,9 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
     );
     const indexableProjects = projects.filter(
       (p) => isIndexableSlug(p.slug) && p.locale
+    );
+    const indexableInsights = insights.filter(
+      (i) => isIndexableSlug(i.slug) && i.locale
     );
 
     const blogListByLocale = new Map<TayproLocale, typeof indexableBlogs>();
@@ -199,6 +204,14 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
       });
     }
 
+    for (const insight of indexableInsights) {
+      addForLocale(`/insights/${insight.slug}`, insight.locale as TayproLocale, {
+        lastModified: parseLastModified(insight.updatedAt, insight.publishDate),
+        changeFrequency: CMS_SITEMAP_DEFAULTS.blog.changeFrequency,
+        priority: 0.55,
+      });
+    }
+
     for (const locale of routing.locales) {
       const localeBlogs = blogListByLocale.get(locale) ?? [];
       if (localeBlogs.length === 0) continue;
@@ -216,7 +229,8 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
     const skipped =
       blogs.length -
       indexableBlogs.length +
-      (projects.length - indexableProjects.length);
+      (projects.length - indexableProjects.length) +
+      (insights.length - indexableInsights.length);
     if (skipped > 0) {
       console.warn(
         `[sitemap] Skipped ${skipped} CMS URL(s) with invalid slugs`

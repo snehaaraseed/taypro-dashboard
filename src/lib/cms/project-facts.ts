@@ -39,8 +39,7 @@ export function parseProjectFactsFromCms(input: {
 }): ProjectFactsJson {
   const joined = [
     input.title ?? "",
-    input.description ?? "",
-    ...(input.details ?? []),
+    input.description ?? "", ...(input.details ?? []),
     input.content ?? "",
   ].join(" ");
 
@@ -68,14 +67,14 @@ export function parseProjectFactsFromCms(input: {
   };
 
   const water = joined.match(
-    /([\d,.]+\s*(?:million|thousand)?\s*lit(?:re|er)s?)/i
+    /([\d.]+\s*(?:million|thousand)?\s*lit(?:re|er)s?)/i
   );
   if (water) facts.waterSavedPerYear = water[1];
 
-  const gwh = joined.match(/([\d,.]+)\s*gwh/i);
+  const gwh = joined.match(/([\d.]+)\s*gwh/i);
   if (gwh) facts.additionalGenerationPerYear = `${gwh[1]} GWh`;
 
-  const co2 = joined.match(/([\d,.]+)\s*(?:metric\s*)?tons?\s*co/i);
+  const co2 = joined.match(/([\d.]+)\s*(?:metric\s*)?tons?\s*co/i);
   if (co2) facts.co2SavedPerYear = `${co2[1]} metric tons`;
 
   for (const d of input.details ?? []) {
@@ -118,7 +117,7 @@ export function formatProjectFactsForPrompt(facts: ProjectFactsJson): string {
       if (typeof v === "boolean") return `- ${k}: ${v ? "yes" : "no"}`;
       return `- ${k}: ${v}`;
     });
-  return `STRUCTURED SITE FACTS (authoritative — do not contradict or invent alternate numbers):
+  return `STRUCTURED SITE FACTS (authoritative, do not contradict or invent alternate numbers):
 ${lines.join("\n")}`;
 }
 

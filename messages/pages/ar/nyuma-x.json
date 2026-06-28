@@ -44,7 +44,25 @@
         "subtitle": "أخبرنا عن مصنع التتبع الخاص بك وسيقوم فريقنا بالمتابعة بشأن الحجم NYUMA-X واحتياجات مجموعة الجسور والخيارات التجارية.",
         "label": "طلب عرض أسعار"
       },
-      "h1Line1": "NYUMA-X — Solar Panel Cleaning Robot for Single-Axis Trackers, "
+      "h1Line1": "NYUMA-X: Solar Panel Cleaning Robot for Single-Axis Trackers, ",
+      "subtitleShort": "ممر واحد PBT التنظيف المستقل لمزارع الطاقة الشمسية ذات التتبع أحادي المحور.",
+      "secondaryCta": {
+        "label": "شاهد العرض التوضيحي"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "± 15 درجة",
+          "label": "التعبير بين الجداول"
+        },
+        "stat1": {
+          "value": "3,600",
+          "label": "وحدات تنظيفها لكل تهمة"
+        },
+        "stat2": {
+          "value": "جدب",
+          "label": "تمريرة واحدة PBT للمتتبعين"
+        }
+      }
     },
     "usps": {
       "0": {
@@ -312,14 +330,14 @@
       "p5Suffix": "."
     },
     "innovation360": {
-      "badge": "TAYPRO MODEL-T",
+      "badge": "TAYPRO NYUMA-X",
       "title": "روبوت تنظيف ألواح شمسية مستقل بدون ماء لمزارع المتعقب أحادي المحور",
       "tourEyebrow": "جولة منتج تفاعلية",
-      "tourTitle": "عرض ٣٦٠° لـ GLYDE-X",
+      "tourTitle": "عرض ٣٦٠° لـ NYUMA-X",
       "tourSubtitleMobile": "اسحب لليسار أو اليمين لتدوير روبوت تنظيف الألواح الشمسية للمتعقب أحادي المحور واستكشافه.",
       "tourSubtitleDesktop": "اسحب لليسار أو اليمين لتدوير روبوت تنظيف الألواح الشمسية للمتعقب أحادي المحور.",
       "productLabel": "Taypro GLYDE-X, روبوت تنظيف ألواح شمسية لمتعقبات أحادية المحور",
-      "innovationTitle": "الابتكار وراء MODEL-T",
+      "innovationTitle": "الابتكار وراء NYUMA-X",
       "innovationBody": "يمثل Taypro GLYDE-X تآزر تقنيات متقدمة مع مستشعرات وتعلم آلي لمعالجة تحديات صيانة الألواح على المتعقب أحادي المحور. يعمل باستقلالية تامة دون تدخل بشري. يتيح النظام السحابي مراقبة وتحكماً عن بُعد."
     },
     "howItWorks": {
@@ -527,8 +545,8 @@
       "nyumaXHeader": "NYUMA-X (Single-Pass PBT)",
       "row0": {
         "criterion": "Cleaning Mechanism",
-        "glydeX": "single-pass PBT PBT brush — airflow plus wipe for mixed soiling",
-        "nyumaX": "Single-pass PBT brush — optimised for dry tracker dust belts"
+        "glydeX": "single-pass PBT PBT brush, airflow plus wipe for mixed soiling",
+        "nyumaX": "Single-pass PBT brush, optimised for dry tracker dust belts"
       },
       "row1": {
         "criterion": "Tracker Compatibility",
@@ -586,6 +604,10 @@
     },
     "shared": {
       "connectivitySummary": "LTE وWi-Fi وشبكة RF ذاتية الشفاء هجينة وLoRa وLoRaWAN"
+    },
+    "productVisual": {
+      "eyebrow": "المنتج في لمحة",
+      "title": "Taypro NYUMA-X روبوت التنظيف المتعقب أحادي المحور"
     }
   },
   "Common": {

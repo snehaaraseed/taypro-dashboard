@@ -154,6 +154,7 @@
         "label": "Request a quote"
       },
       "secondaryCta": "Calculate ROI",
+      "subtitleShort": "Waterless robots for India's utility-scale plants — GLYDE, HELYX, GLYDE-X, NYUMA, and managed cleaning. CAPEX or pay-per-panel service.",
       "heroImageAlt": "Taypro Solar Panel Cleaning Robots, GLYDE automatic, HELYX semi-automatic, GLYDE-X tracker for utility-scale solar plants in India",
       "heroImageTitle": "Solar Panel Cleaning Robots by Taypro"
     },
@@ -268,7 +269,7 @@
       },
       "accessoryEyebrow": "Fleet accessories",
       "accessoryTitle": "Extend robot reach across scattered plants",
-      "accessorySubtitle": "CRADYL is shipping today — autonomous row-transfer docking on end-row rail tracks.",
+      "accessorySubtitle": "CRADYL is shipping today, autonomous row-transfer docking on end-row rail tracks.",
       "accessoryHighlights": {
         "cradyl": {
           "eyebrow": "Docking · Row transfer",
@@ -439,15 +440,15 @@
       "videoTitle": "See Taypro robots cleaning a utility plant",
       "videoCaption": "Waterless autonomous solar panel cleaning robots in operation on Indian utility-scale sites.",
       "transcriptToggle": "Video transcript (for accessibility & search)",
-      "transcriptP1": "This overview shows Taypro autonomous solar panel cleaning robots operating on utility-scale arrays in India. Robots traverse fixed-tilt rows using waterless dual-pass cleaning — airflow lifts dry dust, then microfiber completes the wipe without water or detergents.",
+      "transcriptP1": "This overview shows Taypro autonomous solar panel cleaning robots operating on utility-scale arrays in India. Robots traverse fixed-tilt rows using waterless dual-pass cleaning, airflow lifts dry dust, then microfiber completes the wipe without water or detergents.",
       "transcriptP2": "Fleet schedules and completion data feed into NECTYR, Taypro's monitoring portal, so O&M teams can audit block-wise cleaning history alongside inverter performance. Deployments combine GLYDE and NYUMA-class robots depending on row geometry and soiling class.",
       "transcriptP3": "For procurement teams comparing cleaning machines and robots, Taypro offers CAPEX purchase with AMC or Opex pay-per-panel-cleaned service on the same hardware platforms shown in the field footage."
     },
     "marketComparison": {
       "eyebrow": "Choosing a cleaning approach",
       "title": "How Taypro compares to other robotic cleaning approaches",
-      "subtitle": "Utility buyers weigh cleaning method, commercial model, fleet software, and India-local support—not robot brochures alone. Use this category view when evaluating Taypro against wet washing, import dry robots, or labour-only O&M.",
-      "intro": "Taypro is a Made-in-India OEM with 5 GW+ robotic capacity deployed and 11 billion+ panels cleaned annually across its fleet, patented dual-pass dry cleaning on GLYDE and GLYDE-X, single-pass PBT on NYUMA, NYUMA-X, and HELYX, the NECTYR fleet portal, and optional Opex pay-per-panel-cleaned service. The table compares typical approaches in Indian RFQs so you can see where Taypro fits your plant—without vendor name-dropping.",
+      "subtitle": "Utility buyers weigh cleaning method, commercial model, fleet software, and India-local support, not robot brochures alone. Use this category view when evaluating Taypro against wet washing, import dry robots, or labour-only O&M.",
+      "intro": "Taypro is a Made-in-India OEM with 5 GW+ robotic capacity deployed and 11 billion+ panels cleaned annually across its fleet, patented dual-pass dry cleaning on GLYDE and GLYDE-X, single-pass PBT on NYUMA, NYUMA-X, and HELYX, the NECTYR fleet portal, and optional Opex pay-per-panel-cleaned service. The table compares typical approaches in Indian RFQs so you can see where Taypro fits your plant, without vendor name-dropping.",
       "tableHeaders": {
         "criteria": "What to evaluate",
         "manualWet": "Manual wet wash crews",
@@ -649,7 +650,7 @@
     "serviceCallout": {
       "eyebrow": "Primary service page",
       "title": "OPEX robotic cleaning service",
-      "body": "Procurement teams evaluating solar panel cleaning service should start with our product OPEX page — scope, SOPs, billing model, and NECTYR reporting — before regional coverage or MW-scale deployment guides.",
+      "body": "Procurement teams evaluating solar panel cleaning service should start with our product OPEX page, scope, SOPs, billing model, and NECTYR reporting, before regional coverage or MW-scale deployment guides.",
       "cta": "View OPEX service page",
       "href": "/solar-panel-cleaning-system/solar-panel-cleaning-service"
     },
@@ -677,7 +678,7 @@
       },
       "stateGuides": {
         "heading": "Regional deployment guides",
-        "intro": "Explore solar panel cleaning robots by state — soiling context, live projects, and RFQ guidance:",
+        "intro": "Explore solar panel cleaning robots by state, soiling context, live projects, and RFQ guidance:",
         "rajasthan": "Rajasthan",
         "gujarat": "Gujarat",
         "madhyaPradesh": "Madhya Pradesh",
@@ -808,7 +809,7 @@
     "clients": {
       "heading": "Trusted by India's leading solar operators",
       "trustedBy": "Trusted by {names} and other IPPs, EPCs, and C&I operators deploying Taypro cleaning robots across India.",
-      "logoAlt": "{name} — Taypro solar cleaning robot customer",
+      "logoAlt": "{name}, Taypro solar cleaning robot customer",
       "logoTitle": "{name}"
     },
     "finalCta": {

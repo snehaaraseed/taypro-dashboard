@@ -59,13 +59,31 @@ maybe_recover_translation() {
   fi
 }
 
+finish_blog_cron_day_and_translate() {
+  finish_blog_cron_day
+  start_post_writer_translations
+}
+
 finish_blog_cron_day() {
   touch "$DONE_FILE"
 }
 
-finish_blog_cron_day_and_translate() {
-  finish_blog_cron_day
-  start_post_writer_translations
+FAIL_FILE="$RUNTIME_DIR/fail-count-$DAY"
+MAX_FAIL="${BLOG_CRON_MAX_FAIL_POSTS:-3}"
+
+increment_fail_count() {
+  local n=0
+  if [ -f "$FAIL_FILE" ]; then
+    n=$(cat "$FAIL_FILE" 2>/dev/null || echo 0)
+  fi
+  n=$((n + 1))
+  echo "$n" > "$FAIL_FILE"
+  echo "$n"
+}
+
+finish_max_fail_day() {
+  echo "$(date -Is) max fail posts ($MAX_FAIL) reached; marking day done for translation burn" >> "$LOG"
+  finish_blog_cron_day_and_translate
 }
 
 # Blog-first: translation recovery only after today's English write is done.
@@ -140,7 +158,11 @@ fi
       finish_blog_cron_day_and_translate
       ;;
     *)
-      echo "$(date -Is) generate-blog failed; will retry on next cron tick (translation deferred)" >> "$LOG"
+      FAILS=$(increment_fail_count)
+      echo "$(date -Is) generate-blog failed (attempt $FAILS/$MAX_FAIL); translation deferred" >> "$LOG"
+      if [ "$FAILS" -ge "$MAX_FAIL" ]; then
+        finish_max_fail_day
+      fi
       ;;
   esac
 } >> "$LOG" 2>&1

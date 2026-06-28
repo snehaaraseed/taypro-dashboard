@@ -3,24 +3,24 @@
     "meta": {
       "title": "ذكاء أسطول NECTYR وعمليات O&M الشمسية | Taypro",
       "description": "ذكاء أسطول NECTYR للطاقة الشمسية على نطاق المرافق: بيانات موسومة، جدولة مستقلة، تحسين مسارات ML، وتنبيهات صيانة تنبؤية.",
-      "openGraphTitle": "AI Intelligence Layer | Taypro Solar Cleaning",
-      "openGraphDescription": "Self-learning fleet AI trained on 11 billion+ annual panel passes across India's largest robotic cleaning fleet.",
-      "twitterTitle": "AI Intelligence Layer | Taypro",
-      "twitterDescription": "Fleet-learning AI, NECTYR live intelligence, and the data flywheel behind 5 GW+ of deployed cleaning robots."
+      "openGraphTitle": "NECTYR الأسطول الذكاء الاصطناعي والطاقة الشمسية O&M الذكاء | Taypro",
+      "openGraphDescription": "معلومات عمليات الأسطول في NECTYR: نماذج التعلم الذاتي، وبدء الدورة الذاتية، والبيانات الميدانية المصنفة من أكثر من 11 مليار تمريرة سنوية للجنة.",
+      "twitterTitle": "NECTYR الأسطول AI | Taypro",
+      "twitterDescription": "الذكاء الاصطناعي لأسطول الطاقة الشمسية وذكاء العمليات NECTYR: الجدولة والتوجيه والتشخيص وتركيب البيانات الميدانية على مقياس 5 GW+."
     },
     "breadcrumb": "ذكاء اصطناعي",
     "hero": {
       "eyebrow": "NECTYR · ذكاء عمليات الأسطول",
       "title": "ذكاء أسطول شمسي وعمليات NECTYR",
-      "body": "TAYPRO's competitive advantage is not the robot alone — it is what the intelligence layer knows. Self-learning models trained on 11 billion+ annual panel passes across 150+ plants refine soiling prediction, battery routing, and weather scheduling with every cycle. Plants commissioned today inherit years of prior fleet intelligence.",
+      "body": "تغطي هذه الصفحة طبقة ذكاء برنامج Taypro والنماذج ومسارات عمل NECTYR التي تحول القياس عن بعد للروبوت ليلاً إلى جدولة وتوجيه وقرارات O&M. تعمل أنظمة التعلم الذاتي التي تم تدريبها على أكثر من 11 مليار لوحة سنوية تمر عبر أكثر من 150 مصنعًا على تحسين التنبؤ بالاتساخ، وتوجيه البطارية، وتوقيت الطقس مع كل دورة محددة.",
       "ctaNectyr": "استكشف NECTYR",
       "ctaTechnology": "تقنية التنظيف",
       "lead": "ترث المصانع التي يتم تشغيلها اليوم سنوات من المعلومات الاستخبارية السابقة للأسطول. NECTYR يبدأ التنظيف أو يؤجله أو يسرعه بشكل مستقل بناءً على نماذج الطقس ومخاطر التلوث وحالة البطارية وصحة الروبوت - دون انتظار قيام المشغل بإعادة كتابة الجدول بعد كل عاصفة ترابية."
     },
     "flywheel": {
-      "eyebrow": "The data flywheel",
-      "heading": "How daily fleet cycles feed AI that improves itself",
-      "body": "Every cleaning cycle across Taypro's 5 GW+ deployed fleet generates structured data — soiling rates by geography and season, weather correlation, battery performance, and fault patterns. Models ingest this telemetry continuously: a plant in Rajasthan benefits from monsoon-shoulder timing learned in Maharashtra; a new GLYDE-X tracker site inherits routing intelligence from hundreds of prior array maps. The dataset compounds with each site added. Competitors entering today would need years of equivalent utility-scale deployments to replicate it.",
+      "eyebrow": "دولاب الموازنة البيانات",
+      "heading": "كيف تغذي دورات الأسطول اليومية الذكاء الاصطناعي الذي يعمل على تحسين نفسه",
+      "body": "تولد كل دورة تنظيف عبر الأسطول 5 GW+ المنشور من Taypro بيانات منظمة، ومعدلات التلوث حسب الجغرافيا والموسم، وارتباط الطقس، وأداء البطارية، وأنماط الأعطال. تستوعب النماذج هذا القياس عن بعد بشكل مستمر: يستفيد مصنع في راجاستان من توقيت الرياح الموسمية الذي تم تعلمه في ولاية ماهاراشترا؛ يرث موقع تعقب GLYDE-X الجديد معلومات التوجيه من مئات خرائط المصفوفة السابقة.",
       "closing": "تتراكم مجموعة البيانات مع كل موقع مضاف. الاستشعار → الجدول → التنظيف → السجل → التعلم - كل ليلة عبر الأسطول.",
       "step0": "حاسة",
       "step1": "جدول",
@@ -30,43 +30,43 @@
     },
     "capabilities": {
       "eyebrow": "ست قدرات ذكاء اصطناعي",
-      "heading": "ذكاء أسطول ذاتي التعلم — مباشر في NECTYR",
-      "intro": "These are not roadmap features. They run across Taypro's active fleet every night.",
+      "heading": "ذكاء أسطول ذاتي التعلم, مباشر في NECTYR",
+      "intro": "إمكانات برمجية تستوعب القياس عن بعد المسمى وجدولة المخرجات والتوجيه وقرارات الحماية، دون قيام المشغلين بإعادة كتابة التقويمات بعد كل حدث مناخي.",
       "hardwareCrossLink": "تقنية التنظيف",
       "hardwareCrossBefore": "تم توثيق كيفية تنفيذ الروبوتات فعليًا لعمليات التنظيف - التنظيف الجاف المزدوج، وأوزان المنصات، والأجهزة الميدانية -",
       "hardwareCrossAfter": "."
     },
     "capability0": {
-      "title": "Self-learning fleet intelligence",
-      "body": "Taypro's AI model improves soiling prediction, timing optimisation, and routing decisions with every cleaning cycle executed across the 5 GW+ fleet. A plant commissioned today inherits intelligence built from years of prior operations — seasonality patterns, regional dust signatures, and post-storm recovery timing that no new entrant can replicate from scratch."
+      "title": "نقل النماذج عبر المواقع",
+      "body": "يتم إعادة تدريب نماذج الأسطول على دورات مصنفة تبدأ من 5 GW+ من الإنتاجية اليومية، ثم يتم نشرها في المصانع التي تم تشغيلها حديثًا في اليوم الأول. تسافر المكتبات الموسمية، وتوقيعات الغبار الإقليمية، وتوقيت التعافي بعد العاصفة مع النموذج، وليس فقط الروبوتات الموجودة في هذا الصف."
     },
     "capability1": {
-      "title": "Battery-optimised cleaning via ML array mapping",
-      "body": "On first deployment, ML maps the full panel array — row lengths, gaps, tilt variations, undulation profiles — and builds a persistent site model. Route planning draws from this map to maximise panels cleaned per charge. The result: approximately 2× cleaning coverage per charge compared to unoptimised traversal, reducing robot weight requirements and structural load on panels and frames over the asset life."
+      "title": "الرسم البياني للموقع المستمر وتحسين المسار",
+      "body": "NECTYR يخزن خريطة صفيف ثابتة، وهندسة الصف، والفجوات، والتموجات، والتي تم إنشاؤها من القياس عن بعد للنشر الأول. يتم رسم الرسوم البيانية للمسار ليلاً من هذا النموذج لتعظيم المساحة التي تم تنظيفها لكل شحنة، عادةً ~2× مقابل الاجتياز غير المعين، ورثة أنماط توجيه التعقب من مواقع GLYDE-X السابقة."
     },
     "capability2": {
-      "title": "Battery-aware intelligence in low-generation conditions",
-      "body": "In cloudy or partial-generation periods, available battery capacity is lower. Rather than attempting full-array traversal and leaving incomplete cycles, the system analyses real-time battery state against the site map and prioritises highest-soiling blocks first — completing meaningful cleaning within available energy rather than aborting mid-fleet."
+      "title": "تحديد أولويات الكتلة المدركة للشحن",
+      "body": "عندما يحد الإشعاع من إعادة الشحن، تحسب طبقة التنسيق السعة القابلة للتنظيف من حالة الشحن الحية، وترتب الكتل حسب مخاطر التلوث، وتسلسل الدورات الجزئية التي لا تزال تستعيد توليدًا ذا معنى، ويتم تسجيل الدخول NECTYR باستخدام سياق التدقيق على مستوى الكتلة."
     },
     "capability3": {
-      "title": "95% accuracy weather scheduling",
-      "body": "NECTYR ingests windspeed, rain probability, humidity, airborne pollen levels, and local environmental data — not just binary rain detection — to schedule cleaning cycles at optimal windows. Verified 95% scheduling accuracy in field conditions means fewer wasted cycles, better generation alignment, and more predictable O&M budgeting."
+      "title": "تنسيق الطقس متعدد المعلمات",
+      "body": "NECTYR يستوعب سرعة الرياح واحتمالية هطول الأمطار والرطوبة وحبوب اللقاح والتغذية البيئية المحلية، وليس إشارات المطر الثنائية وحدها، لاقتراح الدورات أو تأجيلها أو تسريعها. تعمل دقة الجدولة التي تم التحقق منها ميدانيًا بنسبة 95% على تقليل عمليات التشغيل المهدرة وتحقيق الاستقرار في ميزانية O&M."
     },
     "capability4": {
-      "title": "Wet microfiber detection",
-      "body": "Taypro robots carry sensors detecting whether the microfiber has absorbed moisture from dew, overnight humidity, or residual rain. If wet, the system postpones the cleaning cycle automatically. A wet microfiber on a dusty panel smears particulates and risks glass micro-abrasion — no human intervention required."
+      "title": "منطق حماية العناصر الرطبة",
+      "body": "يؤدي القياس عن بعد لرطوبة العنصر إلى تأجيل الدورة تلقائيًا عندما يشبع الندى أو الرطوبة أو المطر المتبقي وسائط التنظيف. يعرض NECTYR رمز التنبيه والسبب حتى يتمكن المشغلون من معرفة سبب تأجيل الكتلة، مما يحمي الوحدات من مخاطر التشهير بدون مكالمة هاتفية في الساعة 4 صباحًا."
     },
     "nectyrLive": {
-      "eyebrow": "NECTYR live intelligence",
-      "heading": "What operators see in the field",
-      "intro": "Fleet software turns robot telemetry into decisions plant teams actually use.",
-      "item0": "Live robot position tracking on plant layout map",
-      "item1": "Root-cause fault identification — where and why a robot stopped",
-      "item2": "Battery state monitoring and charge curve analysis per robot",
-      "item3": "Wet microfiber detection alerts and automatic cycle protection",
-      "item4": "Predictive maintenance alerts from fleet-wide deviation signatures",
-      "item5": "Cycle audit logs and exportable reports for PR and AMC evidence",
-      "nectyrLink": "Explore NECTYR",
+      "eyebrow": "NECTYR الاستخبارات الحية",
+      "heading": "ما يراه المشغلون في الميدان",
+      "intro": "يقوم برنامج الأسطول بتحويل القياس عن بعد للروبوت إلى قرارات تستخدمها فرق المصنع فعليًا، وليس عارض SCADA عام، ولكن طبقة ذكاء نشطة للتنظيف الآلي.",
+      "item0": "تتبع موقع الروبوت المباشر على خريطة تخطيط المصنع",
+      "item1": "تحديد السبب الجذري للخطأ، وأين ولماذا توقف الروبوت",
+      "item2": "مراقبة حالة البطارية وتحليل منحنى الشحن لكل روبوت",
+      "item3": "تنبيهات للكشف عن الألياف الدقيقة المبللة وحماية تلقائية للدورة",
+      "item4": "تنبيهات الصيانة التنبؤية من توقيعات الانحراف على مستوى الأسطول",
+      "item5": "سجلات تدقيق الدورة والتقارير القابلة للتصدير للأدلة PR وAMC",
+      "nectyrLink": "اكتشف NECTYR",
       "trackingTitle": "تصور التنظيف المباشر",
       "trackingBody": "NECTYR يعرض موضع الروبوت في الوقت الفعلي على خريطة تخطيط المصنع. يرى المشغلون الصف الذي يتم تنظيفه، ونسبة التقدم، وحالة الأسطول في أي لحظة - وليس الطابع الزمني الذي تمت رؤيته مؤخرًا منذ ساعات مضت.",
       "predictiveTitle": "ملفات تعريف الصحة لكل روبوت",
@@ -75,25 +75,25 @@
       "autonomousBody": "يتم بدء دورات التنظيف وإيقافها مؤقتًا وتسريعها بواسطة الذكاء الاصطناعي للأسطول استنادًا إلى نماذج الطقس وتوقعات الاتساخ وحالة البطارية وصحة الروبوت. توثق مسارات التدقيق على مستوى الكتلة كل قرار يتعلق بمراجعة O&M وإعداد تقارير مالك الأصول."
     },
     "orion": {
-      "eyebrow": "Roadmap",
-      "heading": "ORION — plant intelligence on the same rails",
-      "body": "ORION extends the intelligence layer from cleaning operations to full plant health — generation-aware monitoring that ties cleaning, weather, and performance so asset owners can act before the MWh is gone. ORION attaches at AMC renewal on NECTYR rails already live across IPP portfolios. Early access is open for select asset owners.",
-      "cta": "ORION early access"
+      "eyebrow": "خريطة الطريق",
+      "heading": "ORION: زرع الذكاء على نفس القضبان",
+      "body": "يعمل ORION على توسيع الطبقة الذكية من عمليات التنظيف إلى صحة النبات الكاملة، ومراقبة الأجيال التي تربط بين التنظيف والطقس والأداء حتى يتمكن مالكو الأصول من التصرف قبل انتهاء MWh. يتم إرفاق ORION في AMC التجديد في NECTYR القضبان الموجودة بالفعل عبر حافظات IPP. الوصول المبكر مفتوح لأصحاب الأصول المختارين.",
+      "cta": "ORION الوصول المبكر"
     },
     "dataMoat": {
-      "eyebrow": "For investors & enterprise buyers",
+      "eyebrow": "للمستثمرين والمشترين من الشركات",
       "heading": "خندق بيانات مركّب على نطاق الأسطول",
-      "body": "Every cleaning cycle across Taypro's 5 GW+ operational fleet generates structured data that trains AI models improving continuously. A competitor entering the market today would need years of equivalent deployments to replicate this dataset. Taypro's technology advantage compounds with scale — and every new site makes the model smarter for the entire fleet.",
+      "body": "ميزة طبقة الذكاء هي بيانات البرامج التراكمية، وليس إصدار خوارزمية واحد. تعمل كل دورة مصنفة عبر 5 GW+ من الإنتاجية اليومية على إعادة تدريب النماذج التي NECTYR تنشرها على مستوى الأسطول. تعمل سنوات من القياس عن بعد على نطاق المرافق على تعميق الجدولة والتوجيه ودقة التشخيص مع تشغيل كل موقع جديد.",
       "bullet0": "يمر أكثر من 11 مليار لوحة سنوية عبر أكثر من 150 مصنعًا في المناطق الصحراوية والزراعية والساحلية",
       "bullet1": "القياس عن بعد للتنظيف المسمى على NECTYR منذ عام 2022 - أكبر مجموعة بيانات لذكاء التنظيف في الهند",
       "bullet2": "نقل النماذج عبر المواقع: ترث المصانع الجديدة معلومات الجدولة والتوجيه في اليوم الأول",
       "bullet3": "تفاقم الفجوة: يضيف كل موسم تنظيف مكتبات الغبار الإقليمية، وسلائف الخطأ، وعمق الارتباط بالطقس"
     },
     "cta": {
-      "heading": "See the full technology stack",
-      "cleaningTech": "Cleaning technology",
-      "contact": "Contact Taypro",
-      "nectyr": "Explore NECTYR",
+      "heading": "شاهد حزمة التكنولوجيا الكاملة",
+      "cleaningTech": "تكنولوجيا التنظيف",
+      "contact": "اتصل بنا Taypro",
+      "nectyr": "اكتشف NECTYR",
       "projects": "مشاريع نشطة",
       "leadModal": {
         "topic": "تحقيق استخباراتي بالذكاء الاصطناعي",
@@ -188,8 +188,8 @@
       "heading": "ثلاث قدرات تغيّر O&M الليلي",
       "dive0": {
         "title": "ثبات الرسم البياني للموقع في NECTYR",
-        "body": "ينشئ اجتياز النشر الأول رسمًا بيانيًا للموقع مُخزنًا — أبعاد اللوحة، والفجوات، وأطوال الصفوف، والتموجات، وشروط النهاية — التي يعيد NECTYR استخدامها كل ليلة. يقرأ محللو المسار هذا الرسم البياني بدلاً من إعادة اكتشاف الهندسة، مما يقلل السفر الميت ويزيد المساحة النظيفة لكل شحنة بمقدار 2 × تقريبًا مقابل المسارات الجشعة غير المعينة.",
-        "detail": "ترث محافظ التتبع استدلالات التوجيه من مئات الرسوم البيانية السابقة ذات المحور الواحد. يرى المشغلون خطط التغطية وسجلات التنفيذ مقابل نفس الخريطة — أحد مصادر الحقيقة لـ O&M والتدريب النموذجي."
+        "body": "ينشئ اجتياز النشر الأول رسمًا بيانيًا للموقع مُخزنًا, أبعاد اللوحة، والفجوات، وأطوال الصفوف، والتموجات، وشروط النهاية, التي يعيد NECTYR استخدامها كل ليلة. يقرأ محللو المسار هذا الرسم البياني بدلاً من إعادة اكتشاف الهندسة، مما يقلل السفر الميت ويزيد المساحة النظيفة لكل شحنة بمقدار 2 × تقريبًا مقابل المسارات الجشعة غير المعينة.",
+        "detail": "ترث محافظ التتبع استدلالات التوجيه من مئات الرسوم البيانية السابقة ذات المحور الواحد. يرى المشغلون خطط التغطية وسجلات التنفيذ مقابل نفس الخريطة, أحد مصادر الحقيقة لـ O&M والتدريب النموذجي."
       },
       "dive1": {
         "title": "جدولة ذاتية دون إعادة كتابة المشغل",
@@ -229,9 +229,9 @@
       "title": "الأسئلة الشائعة",
       "subtitle": "إجابات عن طبقة الذكاء الاصطناعي وNECTYR.",
       "q0": "ما هي طبقة ذكاء الذكاء الاصطناعي الخاصة بـ Taypro؟",
-      "a0": "إنها مجموعة برامج التعلم الذاتي التي تقف خلف أسطول التنظيف الآلي الخاص بـ Taypro — وهي نماذج تم تدريبها على القياس الميداني المسمى من 5 GW+ من الإنتاجية التشغيلية اليومية التي تعمل على تحسين التنبؤ بالتلوث، وتوجيه البطارية، وجدولة الطقس، واكتشاف الأخطاء مع كل دورة. NECTYR هي بوابة العمليات المباشرة حيث يتم تشغيل هذه المعلومات الاستخبارية اليوم.",
+      "a0": "إنها مجموعة برامج التعلم الذاتي التي تقف خلف أسطول التنظيف الآلي الخاص بـ Taypro: وهي نماذج تم تدريبها على القياس الميداني المسمى من 5 GW+ من الإنتاجية التشغيلية اليومية التي تعمل على تحسين التنبؤ بالتلوث، وتوجيه البطارية، وجدولة الطقس، واكتشاف الأخطاء مع كل دورة. NECTYR هي بوابة العمليات المباشرة حيث يتم تشغيل هذه المعلومات الاستخبارية اليوم.",
       "q1": "هل أسطول الذكاء الاصطناعي موجود اليوم أم على خريطة الطريق؟",
-      "a1": "تتوفر الإمكانات الأساسية عبر الأسطول النشط في NECTYR: نماذج التلوث ذاتية التعلم، وتخطيط صفيف ML، والتوجيه المدرك للبطارية، وجدولة الطقس بدقة 95%، واكتشاف الألياف الدقيقة الرطبة، وبدء الدورة المستقلة. ORION — توسيع نطاق المعلومات لتشمل صحة النبات الكاملة — موجود في خريطة الطريق مع إمكانية الوصول المبكر لأصحاب الأصول المختارين.",
+      "a1": "تتوفر الإمكانات الأساسية عبر الأسطول النشط في NECTYR: نماذج التلوث ذاتية التعلم، وتخطيط صفيف ML، والتوجيه المدرك للبطارية، وجدولة الطقس بدقة 95%، واكتشاف الألياف الدقيقة الرطبة، وبدء الدورة المستقلة. ORION: توسيع نطاق المعلومات لتشمل صحة النبات الكاملة, موجود في خريطة الطريق مع إمكانية الوصول المبكر لأصحاب الأصول المختارين.",
       "q2": "كيف يستفيد المصنع الجديد من بيانات الأسطول السابقة؟",
       "a2": "يتم تطبيق النماذج المدربة على الأسطول الحي عند التشغيل. يرث المصنع الذي يتم تشغيله خلال هذا الربع معلومات الجدولة من مئات عمليات النشر السابقة - توقيت الرياح الموسمية، وتوقيعات الغبار الإقليمية، وخرائط توجيه التتبع، ومكتبات سلائف الأخطاء المتراكمة منذ عام 2022.",
       "q3": "كيف يختلف هذا عن النبات SCADA؟",
@@ -247,6 +247,6 @@
     }
   },
   "Common": {
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "بيت"
   }
 }

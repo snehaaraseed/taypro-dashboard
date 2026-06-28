@@ -9,17 +9,17 @@ export const PAGE_H = 841.89;
 export const MARGIN = 37;
 export const CONTENT_W = PAGE_W - MARGIN * 2;
 
-/** Content band — below gradient title + letterhead logo row (cover page). */
+/** Content band, below gradient title + letterhead logo row (cover page). */
 export const BODY_TOP = 142;
-/** Page 2+ — minimal letterhead allows starting higher. */
+/** Page 2+, minimal letterhead allows starting higher. */
 export const BODY_TOP_INNER = 124;
-/** Page 1 — stop above universal letterhead footer art. */
+/** Page 1: stop above universal letterhead footer art. */
 export const BODY_BOTTOM_P1 = 638;
-/** Page 2+ — stop above footer text. */
+/** Page 2+, stop above footer text. */
 export const BODY_BOTTOM = 752;
 export const FOOTER_Y = PAGE_H - 34;
 
-/** Gradient doctype title — 16.3 mm + 5 mm nudge. */
+/** Gradient doctype title, 16.3 mm + 5 mm nudge. */
 const DOCTYPE_Y = 46 + (5 * 72) / 25.4;
 
 const NAVY: [number, number, number] = [0, 51, 73];
@@ -651,7 +651,7 @@ export function drawProjectionChart(
     pdfSetFont(pdf, "normal");
     pdf.setFontSize(6.5);
     pdf.setTextColor(...MUTED);
-    const footnote = `${yearLabel} ${year20.year} — ${savingsLabel}: ${formatMoney(
+    const footnote = `${yearLabel} ${year20.year}, ${savingsLabel}: ${formatMoney(
       year20.cumulativeSavings
     )}  ·  ${investmentLabel}: ${formatMoney(year20.cumulativeCost)}`;
     const footLines = pdf.splitTextToSize(footnote, CONTENT_W - pad * 2);
@@ -768,7 +768,7 @@ export function tableBottom(pdf: jsPDF): number {
 const TABLE_HEAD: [number, number, number] = [0, 51, 73];
 const TABLE_ALT: [number, number, number] = [248, 250, 251];
 
-/** Simple two-column table — no autotable, explicit Y cursor. */
+/** Simple two-column table, no autotable, explicit Y cursor. */
 export function drawKeyValueTable(
   pdf: jsPDF,
   y: number,

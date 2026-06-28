@@ -31,10 +31,6 @@ const EXTRA_HREF_REWRITES: [string, string][] = [
     "/blog/how-to-calculate-a-performance-ratio-of-%20a-solar-plant",
     "/blog/how-to-calculate-a-performance-ratio-of-a-solar-plant",
   ],
-  [
-    "/blog/how-to-choose-best-solar-panels",
-    "/blog/how-to-choose-best-solar-panels-in-india",
-  ],
 ];
 
 export type HrefRewritePair = [from: string, to: string];
@@ -55,6 +51,30 @@ export function buildCmsHrefRewritePairs(): HrefRewritePair[] {
       [`${from}/`, to],
     ] as HrefRewritePair[])
     .sort((a, b) => b[0].length - a[0].length);
+}
+
+function stripTrailingSlashFromPath(path: string): string {
+  if (path.length <= 1 || !path.endsWith("/")) return path;
+  return path.slice(0, -1);
+}
+
+/** Remove trailing slashes from internal taypro hrefs (Next.js 308 otherwise). */
+export function stripInternalHrefTrailingSlashes(html: string): string {
+  if (!html || !html.includes("/")) return html;
+
+  let out = html.replace(
+    /href=(["'])(\/[^"'#?]+?)\/\1/g,
+    (_match, quote: string, path: string) =>
+      `href=${quote}${stripTrailingSlashFromPath(path)}${quote}`
+  );
+
+  out = out.replace(
+    /href=(["'])https:\/\/taypro\.in(\/[^"'#?]+?)\/\1/gi,
+    (_match, quote: string, path: string) =>
+      `href=${quote}https://taypro.in${stripTrailingSlashFromPath(path)}${quote}`
+  );
+
+  return out;
 }
 
 /** Rewrite legacy internal hrefs in CMS HTML (blogs, projects, messages). */
@@ -90,5 +110,5 @@ export function rewriteCmsHrefs(html: string): string {
     }
   }
 
-  return out;
+  return stripInternalHrefTrailingSlashes(out);
 }

@@ -3,22 +3,27 @@ import "server-only";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
 import {
+  assertQuotaBudgetAllowed,
+  recordQuotaUsage,
+} from "@/lib/gemini/quota-budget";
+import {
   isGeminiQuotaError,
   listGeminiApiKeys,
 } from "@/lib/gemini/api-keys";
-import { freeGeminiTextModelCandidates } from "@/lib/gemini/free-tier-models";
+import { automationTextModelCandidates } from "@/lib/gemini/model-routing";
 import type { ProjectContentPlan } from "@/lib/seo/project-section-writer";
 
 async function generateText(
   prompt: string,
   preferQualityModel = false
 ): Promise<string> {
+  assertQuotaBudgetAllowed("burn");
   const apiKeys = listGeminiApiKeys();
   let lastError: unknown;
 
   for (const apiKey of apiKeys) {
     const genAI = new GoogleGenerativeAI(apiKey);
-    for (const modelName of freeGeminiTextModelCandidates({
+    for (const modelName of automationTextModelCandidates({
       preferRetryVariant: preferQualityModel,
     })) {
       try {
@@ -26,6 +31,7 @@ async function generateText(
         const result = await model.generateContent(prompt);
         const text = result.response.text().trim();
         await pauseAfterGeminiCall();
+        recordQuotaUsage("burn");
         return text;
       } catch (error) {
         lastError = error;

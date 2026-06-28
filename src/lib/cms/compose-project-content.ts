@@ -15,11 +15,11 @@ function formatRobotRows(facts: ProjectFactsJson): string {
   const autoRow =
     auto > 0
       ? `<tr><td>Automatic robots</td><td>${auto}</td></tr>`
-      : `<tr><td>Automatic robots</td><td>—</td></tr>`;
+      : `<tr><td>Automatic robots</td><td>-</td></tr>`;
   const semiRow =
     semi > 0
       ? `<tr><td>Semi-automatic robots</td><td>${semi}</td></tr>`
-      : `<tr><td>Semi-automatic robots</td><td>—</td></tr>`;
+      : `<tr><td>Semi-automatic robots</td><td>-</td></tr>`;
   const rpm =
     total > 0 && facts.capacityMw
       ? (total / Number(facts.capacityMw)).toFixed(2)
@@ -27,8 +27,8 @@ function formatRobotRows(facts: ProjectFactsJson): string {
 
   return `${autoRow}
 ${semiRow}
-<tr><td>Total fleet</td><td>${total > 0 ? `${total} robots` : facts.robotSystem || "—"}</td></tr>
-<tr><td>Robots per MW</td><td>${rpm ? `~${rpm}` : "—"}</td></tr>`;
+<tr><td>Total fleet</td><td>${total > 0 ? `${total} robots` : facts.robotSystem || "-"}</td></tr>
+<tr><td>Robots per MW</td><td>${rpm ? `~${rpm}` : "-"}</td></tr>`;
 }
 
 export function buildStatsTableRows(facts: ProjectFactsJson): Array<{
@@ -46,16 +46,16 @@ export function buildStatsTableRows(facts: ProjectFactsJson): Array<{
   const semi = Number(facts.semiAutomaticRobots) || 0;
   rows.push({
     label: "Automatic robots",
-    value: auto > 0 ? String(auto) : "—",
+    value: auto > 0 ? String(auto) : "-",
   });
   rows.push({
     label: "Semi-automatic robots",
-    value: semi > 0 ? String(semi) : "—",
+    value: semi > 0 ? String(semi) : "-",
   });
   const total = auto + semi;
   rows.push({
     label: "Total fleet",
-    value: total > 0 ? `${total} robots` : facts.robotSystem || "—",
+    value: total > 0 ? `${total} robots` : facts.robotSystem || "-",
   });
   if (total > 0 && facts.capacityMw) {
     const mw = Number(facts.capacityMw);
@@ -106,8 +106,8 @@ export function buildStatsTableRows(facts: ProjectFactsJson): Array<{
 }
 
 export function buildStatsTableHtml(facts: ProjectFactsJson): string {
-  const mw = facts.capacityMw ?? "—";
-  const state = facts.state || "—";
+  const mw = facts.capacityMw ?? "-";
+  const state = facts.state || "-";
   return `<table>
 <thead><tr><th>Metric</th><th>Reported value</th></tr></thead>
 <tbody>
@@ -115,8 +115,8 @@ export function buildStatsTableHtml(facts: ProjectFactsJson): string {
 <tr><td>State / region</td><td>${escapeHtml(state)}</td></tr>
 ${formatRobotRows(facts)}
 <tr><td>Primary systems</td><td>${escapeHtml(facts.robotSystem || "Taypro")}</td></tr>
-<tr><td>Cleaning mode</td><td>${escapeHtml(facts.cleaningMode || "—")}</td></tr>
-<tr><td>Procurement</td><td>${escapeHtml(facts.procurement || "—")}</td></tr>
+<tr><td>Cleaning mode</td><td>${escapeHtml(facts.cleaningMode || "-")}</td></tr>
+<tr><td>Procurement</td><td>${escapeHtml(facts.procurement || "-")}</td></tr>
 <tr><td>Monitoring</td><td>${facts.nectyr ? "NECTYR fleet visibility and scheduled cycles" : "Inspection-led plans"}</td></tr>
 ${facts.commissioningYear ? `<tr><td>Commissioning</td><td>${escapeHtml(facts.commissioningYear)}</td></tr>` : ""}
 ${facts.waterSavedPerYear ? `<tr><td>Water saved</td><td>~${escapeHtml(facts.waterSavedPerYear)} / year</td></tr>` : ""}
@@ -183,8 +183,7 @@ export function countNarrativeWords(
   sections: ProjectSectionsJson
 ): number {
   const html = [
-    sections.executiveSummary,
-    ...sections.narrative.map((n) => n.bodyHtml),
+    sections.executiveSummary, ...sections.narrative.map((n) => n.bodyHtml),
   ].join(" ");
   const plain = html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
   return plain ? plain.split(" ").filter(Boolean).length : 0;

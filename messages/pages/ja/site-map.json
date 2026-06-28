@@ -27,15 +27,21 @@
       "pages": "ページ",
       "pagesIntro": "ロボット仕様、清掃技術、ROIツール、法務ポリシー、お問い合わせなどのコアマーケティング・製品ページ。",
       "portfolio": "ポートフォリオ",
-      "portfolioIntro": "Tayproロボット清掃システムが導入されたソーラー発電所の事例 — プロジェクト名から事例を閲覧。",
+      "portfolioIntro": "Tayproロボット清掃システムが導入されたソーラー発電所の事例, プロジェクト名から事例を閲覧。",
       "compareIntro": "GLYDE vs NYUMA、GLYDE-X vs NYUMA-X、ロボットvs手作業、Taypro vs Solabot、Aegeus、Skilancer、Vayu Solar、無水vs水洗の比較ページ。",
       "compare": "購入者ガイドと比較"
     },
     "posts": {
-      "energyResourcesTitle": "エネルギーリソース"
+      "energyResourcesTitle": "エネルギーリソース",
+      "authorsLabel": "ブログ著者",
+      "authorsTitle": "著者",
+      "xmlSitemapLabel": "XML サイトマップ (検索エンジン用)",
+      "xmlSitemapTitle": "XMLサイトマップ"
     },
     "portfolio": {
-      "solarProjectTitle": "ソーラープロジェクト"
+      "solarProjectTitle": "ソーラープロジェクト",
+      "hubLabel": "すべてのプロジェクトのケーススタディを参照する",
+      "hubTitle": "プロジェクトハブ"
     },
     "links": {
       "aboutUsLabel": "会社概要",
@@ -84,21 +90,21 @@
       "utilityOperationsTitle": "大規模ソーラー運用とソーラーパネル洗浄ロボット",
       "robotPriceGuideLabel": "ソーラーパネル洗浄ロボット価格（インド）",
       "robotPriceGuideTitle": "インド向けソーラーパネル洗浄ロボット価格ガイド",
-      "stateRajasthanLabel": "ソーラーパネル洗浄ロボット — Rajasthan",
+      "stateRajasthanLabel": "ソーラーパネル洗浄ロボット, Rajasthan",
       "stateRajasthanTitle": "Rajasthanのソーラーパネル洗浄ロボット",
-      "stateGujaratLabel": "ソーラーパネル洗浄ロボット — Gujarat",
+      "stateGujaratLabel": "ソーラーパネル洗浄ロボット, Gujarat",
       "stateGujaratTitle": "Gujaratのソーラーパネル洗浄ロボット",
-      "stateMadhyaPradeshLabel": "ソーラーパネル洗浄ロボット — Madhya Pradesh",
+      "stateMadhyaPradeshLabel": "ソーラーパネル洗浄ロボット, Madhya Pradesh",
       "stateMadhyaPradeshTitle": "Madhya Pradeshのソーラーパネル洗浄ロボット",
-      "stateKarnatakaLabel": "ソーラーパネル洗浄ロボット — Karnataka",
+      "stateKarnatakaLabel": "ソーラーパネル洗浄ロボット, Karnataka",
       "stateKarnatakaTitle": "Karnatakaのソーラーパネル洗浄ロボット",
-      "stateAndhraPradeshLabel": "ソーラーパネル洗浄ロボット — Andhra Pradesh",
+      "stateAndhraPradeshLabel": "ソーラーパネル洗浄ロボット, Andhra Pradesh",
       "stateAndhraPradeshTitle": "Andhra Pradeshのソーラーパネル洗浄ロボット",
-      "stateMaharashtraLabel": "ソーラーパネル洗浄ロボット — Maharashtra",
+      "stateMaharashtraLabel": "ソーラーパネル洗浄ロボット, Maharashtra",
       "stateMaharashtraTitle": "Maharashtraのソーラーパネル洗浄ロボット",
-      "stateUttarPradeshLabel": "ソーラーパネル洗浄ロボット — Uttar Pradesh",
+      "stateUttarPradeshLabel": "ソーラーパネル洗浄ロボット, Uttar Pradesh",
       "stateUttarPradeshTitle": "Uttar Pradeshのソーラーパネル洗浄ロボット",
-      "stateTamilNaduLabel": "ソーラーパネル洗浄ロボット — Tamil Nadu",
+      "stateTamilNaduLabel": "ソーラーパネル洗浄ロボット, Tamil Nadu",
       "stateTamilNaduTitle": "Tamil Naduのソーラーパネル洗浄ロボット",
       "projectsAutomaticLabel": "自動清掃プロジェクト",
       "projectsAutomaticTitle": "自動ソーラー洗浄ロボットプロジェクト",
@@ -112,16 +118,18 @@
       "cleaningMachineTitle": "Solar panel cleaning machine buyer guide",
       "pressLabel": "Press & media coverage",
       "pressTitle": "Taypro in the news",
-      "stateHaryanaLabel": "Solar Panel Cleaning Robot — Haryana",
+      "stateHaryanaLabel": "Solar Panel Cleaning Robot: Haryana",
       "stateHaryanaTitle": "Solar panel cleaning robots in Haryana",
-      "stateDelhiLabel": "Solar Panel Cleaning Robot — Delhi",
+      "stateDelhiLabel": "Solar Panel Cleaning Robot: Delhi",
       "stateDelhiTitle": "Solar panel cleaning robots in Delhi",
-      "stateWestBengalLabel": "Solar Panel Cleaning Robot — West Bengal",
+      "stateWestBengalLabel": "Solar Panel Cleaning Robot: West Bengal",
       "stateWestBengalTitle": "Solar panel cleaning robots in West Bengal",
-      "stateChhattisgarhLabel": "Solar Panel Cleaning Robot — Chhattisgarh",
+      "stateChhattisgarhLabel": "Solar Panel Cleaning Robot: Chhattisgarh",
       "stateChhattisgarhTitle": "Solar panel cleaning robots in Chhattisgarh",
       "aiIntelligenceLabel": "AI インテリジェンス層",
-      "aiIntelligenceTitle": "Taypro 太陽熱浄化フリートのための AI インテリジェンス"
+      "aiIntelligenceTitle": "Taypro 太陽熱浄化フリートのための AI インテリジェンス",
+      "insightsLabel": "洞察",
+      "insightsTitle": "洞察とレポート"
     }
   },
   "Common": {

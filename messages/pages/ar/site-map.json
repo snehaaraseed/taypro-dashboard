@@ -32,10 +32,16 @@
       "compare": "أدلة المشتري والمقارنات"
     },
     "posts": {
-      "energyResourcesTitle": "موارد الطاقة"
+      "energyResourcesTitle": "موارد الطاقة",
+      "authorsLabel": "مؤلفو المدونة",
+      "authorsTitle": "المؤلفون",
+      "xmlSitemapLabel": "خريطة موقع XML (لمحركات البحث)",
+      "xmlSitemapTitle": "خريطة موقع XML"
     },
     "portfolio": {
-      "solarProjectTitle": "مشروع شمسي"
+      "solarProjectTitle": "مشروع شمسي",
+      "hubLabel": "تصفح جميع دراسات حالة المشروع",
+      "hubTitle": "محور المشاريع"
     },
     "links": {
       "aboutUsLabel": "من نحن",
@@ -84,21 +90,21 @@
       "utilityOperationsTitle": "عمليات الطاقة الشمسية على نطاق المرافق وروبوتات تنظيف الألواح",
       "robotPriceGuideLabel": "سعر روبوت تنظيف الألواح الشمسية (India)",
       "robotPriceGuideTitle": "دليل أسعار روبوت تنظيف الألواح الشمسية في India",
-      "stateRajasthanLabel": "روبوت تنظيف الألواح الشمسية — Rajasthan",
+      "stateRajasthanLabel": "روبوت تنظيف الألواح الشمسية, Rajasthan",
       "stateRajasthanTitle": "روبوتات تنظيف الألواح الشمسية في Rajasthan",
-      "stateGujaratLabel": "روبوت تنظيف الألواح الشمسية — Gujarat",
+      "stateGujaratLabel": "روبوت تنظيف الألواح الشمسية, Gujarat",
       "stateGujaratTitle": "روبوتات تنظيف الألواح الشمسية في Gujarat",
-      "stateMadhyaPradeshLabel": "روبوت تنظيف الألواح الشمسية — Madhya Pradesh",
+      "stateMadhyaPradeshLabel": "روبوت تنظيف الألواح الشمسية, Madhya Pradesh",
       "stateMadhyaPradeshTitle": "روبوتات تنظيف الألواح الشمسية في Madhya Pradesh",
-      "stateKarnatakaLabel": "روبوت تنظيف الألواح الشمسية — Karnataka",
+      "stateKarnatakaLabel": "روبوت تنظيف الألواح الشمسية, Karnataka",
       "stateKarnatakaTitle": "روبوتات تنظيف الألواح الشمسية في Karnataka",
-      "stateAndhraPradeshLabel": "روبوت تنظيف الألواح الشمسية — Andhra Pradesh",
+      "stateAndhraPradeshLabel": "روبوت تنظيف الألواح الشمسية, Andhra Pradesh",
       "stateAndhraPradeshTitle": "روبوتات تنظيف الألواح الشمسية في Andhra Pradesh",
-      "stateMaharashtraLabel": "روبوت تنظيف الألواح الشمسية — Maharashtra",
+      "stateMaharashtraLabel": "روبوت تنظيف الألواح الشمسية, Maharashtra",
       "stateMaharashtraTitle": "روبوتات تنظيف الألواح الشمسية في Maharashtra",
-      "stateUttarPradeshLabel": "روبوت تنظيف الألواح الشمسية — Uttar Pradesh",
+      "stateUttarPradeshLabel": "روبوت تنظيف الألواح الشمسية, Uttar Pradesh",
       "stateUttarPradeshTitle": "روبوتات تنظيف الألواح الشمسية في Uttar Pradesh",
-      "stateTamilNaduLabel": "روبوت تنظيف الألواح الشمسية — Tamil Nadu",
+      "stateTamilNaduLabel": "روبوت تنظيف الألواح الشمسية, Tamil Nadu",
       "stateTamilNaduTitle": "روبوتات تنظيف الألواح الشمسية في Tamil Nadu",
       "projectsAutomaticLabel": "مشاريع تنظيف أوتوماتيكي",
       "projectsAutomaticTitle": "مشاريع روبوت تنظيف شمسي أوتوماتيكي",
@@ -112,16 +118,18 @@
       "cleaningMachineTitle": "Solar panel cleaning machine buyer guide",
       "pressLabel": "Press & media coverage",
       "pressTitle": "Taypro in the news",
-      "stateHaryanaLabel": "Solar Panel Cleaning Robot — Haryana",
+      "stateHaryanaLabel": "Solar Panel Cleaning Robot: Haryana",
       "stateHaryanaTitle": "Solar panel cleaning robots in Haryana",
-      "stateDelhiLabel": "Solar Panel Cleaning Robot — Delhi",
+      "stateDelhiLabel": "Solar Panel Cleaning Robot: Delhi",
       "stateDelhiTitle": "Solar panel cleaning robots in Delhi",
-      "stateWestBengalLabel": "Solar Panel Cleaning Robot — West Bengal",
+      "stateWestBengalLabel": "Solar Panel Cleaning Robot: West Bengal",
       "stateWestBengalTitle": "Solar panel cleaning robots in West Bengal",
-      "stateChhattisgarhLabel": "Solar Panel Cleaning Robot — Chhattisgarh",
+      "stateChhattisgarhLabel": "Solar Panel Cleaning Robot: Chhattisgarh",
       "stateChhattisgarhTitle": "Solar panel cleaning robots in Chhattisgarh",
       "aiIntelligenceLabel": "طبقة الذكاء الاصطناعي",
-      "aiIntelligenceTitle": "Taypro الذكاء الاصطناعي لأساطيل التنظيف بالطاقة الشمسية"
+      "aiIntelligenceTitle": "Taypro الذكاء الاصطناعي لأساطيل التنظيف بالطاقة الشمسية",
+      "insightsLabel": "رؤى",
+      "insightsTitle": "رؤى وتقارير"
     }
   },
   "Common": {

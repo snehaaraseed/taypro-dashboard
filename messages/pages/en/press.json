@@ -2,7 +2,7 @@
   "PressPage": {
     "meta": {
       "title": "Press & Media Coverage",
-      "description": "Taypro in the news — Mercom India, EPC World, Energetica India, Saur Energy, TimesTech, T&D India, IPF Online, Live Mint Tech4Good, Renewable Watch, and 20+ verified third-party articles on solar cleaning robots.",
+      "description": "Taypro in the news, Mercom India, EPC World, Energetica India, Saur Energy, TimesTech, T&D India, IPF Online, Live Mint Tech4Good, Renewable Watch, and 20+ verified third-party articles on solar cleaning robots.",
       "openGraphTitle": "Taypro Press & Media Coverage",
       "openGraphDescription": "Interviews, awards, and industry coverage of Taypro waterless solar panel cleaning robots across India.",
       "twitterTitle": "Taypro Press & Media",
@@ -29,12 +29,12 @@
     "leadModal": {
       "topic": "Media & press",
       "title": "Contact our media team",
-      "subtitle": "Journalists, analysts, and event organisers — tell us your outlet, deadline, and what you need from Taypro.",
+      "subtitle": "Journalists, analysts, and event organisers, tell us your outlet, deadline, and what you need from Taypro.",
       "formPrompt": "How can we help with your story?",
       "messageLabel": "Your request",
       "messagePlaceholder": "Outlet name, story angle, interview format, deadline, and any background you already have…",
       "submitLabel": "Send media enquiry",
-      "thankYouTitle": "Thanks — we've got your note",
+      "thankYouTitle": "Thanks: we've got your note",
       "thankYouMessage": "Our communications team will respond as soon as possible."
     }
   },

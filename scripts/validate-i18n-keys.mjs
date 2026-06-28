@@ -26,6 +26,26 @@ const enFiles = (await readdir(join(root, "en"))).filter((f) =>
 );
 
 let missing = 0;
+
+const enRootKeys = new Set(
+  flatten(JSON.parse(await readFile(join(process.cwd(), "messages/en.json"), "utf8")))
+);
+for (const loc of locales) {
+  const locKeys = new Set(
+    flatten(
+      JSON.parse(
+        await readFile(join(process.cwd(), `messages/${loc}.json`), "utf8")
+      )
+    )
+  );
+  for (const key of enRootKeys) {
+    if (!locKeys.has(key)) {
+      console.error(`MISSING ${loc}.json: ${key}`);
+      missing++;
+    }
+  }
+}
+
 for (const file of enFiles) {
   const enKeys = new Set(
     flatten(JSON.parse(await readFile(join(root, "en", file), "utf8")))
@@ -55,4 +75,6 @@ if (missing > 0) {
   console.error(`\n${missing} missing translation key(s).`);
   process.exit(1);
 }
-console.log(`OK: ${enFiles.length} page files × ${locales.length} locales aligned with en.`);
+console.log(
+  `OK: root locale JSON + ${enFiles.length} page files × ${locales.length} locales aligned with en.`
+);

@@ -23,7 +23,7 @@
         "tag": "রাজস্ব ক্ষতি",
         "stat": "8–25%",
         "label": "ধূলো ও কম্পোনেন্ট ড্রিফ্টে হারানো উৎপাদন",
-        "body": "ধূলো,film, ট্র্যাকার স্টল ও ইনভার্টার ক্লিপিং এক MW-বছরে জমে। শুষ্ক অঞ্চলে ২৫% পর্যন্ত বার্ষিক ক্ষতির 연구 — SCADA MWh হারানোর পর পতন দেখায়।"
+        "body": "ধূলো,film, ট্র্যাকার স্টল ও ইনভার্টার ক্লিপিং এক MW-বছরে জমে। শুষ্ক অঞ্চলে ২৫% পর্যন্ত বার্ষিক ক্ষতির 연구, SCADA MWh হারানোর পর পতন দেখায়।"
       },
       "card1": {
         "tag": "খরচ সর্পিল",
@@ -47,16 +47,16 @@
     "soilingPr": {
       "eyebrow": "Soiling ও PR",
       "heading": "ভারতে সোলার প্যানেল soiling loss, soiling ratio ও PR উন্নতি",
-      "p1": "Soiling ratio — মডিউল গ্লাসে ধূলোতে হারানো irradiance — ভারতীয় ইউটিলিটি প্ল্যান্টে PR drift চালায়। Rajasthan, Gujarat, MP-তে ক্যালেন্ডার-ভিত্তিক পরিষ্কারে ৮–২৫% বার্ষিক suppression।",
-      "p2": "পরিষ্কারে PR উন্নতি baseline soiling, cycle frequency ও আবহাওয়ায় নির্ভর। রোবোটিক ড্রাই ক্লিনিং ভেজা ধোয়া ছাড়াই মাসে ৩–১০ cycles — multi-MW ফ্লিটে soiling loss neutralise-এর economical পথ।",
+      "p1": "Soiling ratio, মডিউল গ্লাসে ধূলোতে হারানো irradiance, ভারতীয় ইউটিলিটি প্ল্যান্টে PR drift চালায়। Rajasthan, Gujarat, MP-তে ক্যালেন্ডার-ভিত্তিক পরিষ্কারে ৮–২৫% বার্ষিক suppression।",
+      "p2": "পরিষ্কারে PR উন্নতি baseline soiling, cycle frequency ও আবহাওয়ায় নির্ভর। রোবোটিক ড্রাই ক্লিনিং ভেজা ধোয়া ছাড়াই মাসে ৩–১০ cycles, multi-MW ফ্লিটে soiling loss neutralise-এর economical পথ।",
       "p3": "EPC ও O&M দল PR recovery পরিষ্কার প্রমাণে bind করবে: CAPEX বা Opex commit-এর আগে NECTYR block-level logs, price guide ও calculator থেকে directional ROI।",
       "linkPriceGuide": "ভারত রোবট মূল্য গাইড",
       "linkCalculator": "ROI ক্যালকুলেটর"
     },
     "scada": {
       "heading": "অপারেটিং গ্যাপ",
-      "lead": "SCADA বলে kWh চলে গেছে। যাওয়ার আগে কেন — বলে না।",
-      "body": "মডিউল স্বাস্থ্য, ট্র্যাকার fault, ইনভার্টার ক্লিপিং, soiling আলাদা লগে। জয়ী প্ল্যান্টের এক লুপে cause, action, proof দরকার — আরেকটি alarm dashboard নয়।"
+      "lead": "SCADA বলে kWh চলে গেছে। যাওয়ার আগে কেন, বলে না।",
+      "body": "মডিউল স্বাস্থ্য, ট্র্যাকার fault, ইনভার্টার ক্লিপিং, soiling আলাদা লগে। জয়ী প্ল্যান্টের এক লুপে cause, action, proof দরকার, আরেকটি alarm dashboard নয়।"
     },
     "solution": {
       "eyebrow": "Taypro কীভাবে লুপ বন্ধ করে",
@@ -70,20 +70,20 @@
       "pillar1": {
         "tag": "ডেটা স্তর",
         "title": "NECTYR ফ্লিট অপারেশন",
-        "body": "cycle schedule, block monitor, AMC tickets, coverage audit — ২০২২ থেকে live deployments-এর fleet telemetry।",
+        "body": "cycle schedule, block monitor, AMC tickets, coverage audit, ২০২২ থেকে live deployments-এর fleet telemetry।",
         "link": "NECTYR দেখুন"
       },
       "pillar2": {
         "tag": "ইন্টেলিজেন্স স্তর",
         "title": "ORION প্ল্যান্ট স্বাস্থ্য",
-        "body": "SCADA complement করে generation-aware monitoring — Taypro-তে existing fleets-এর renewal rails-এ attach করার design।",
+        "body": "SCADA complement করে generation-aware monitoring, Taypro-তে existing fleets-এর renewal rails-এ attach করার design।",
         "link": "ORION early access"
       }
     },
     "robotsSeo": {
       "eyebrow": "ক্রয় ও ইঞ্জিনিয়ারিং",
       "heading": "ভারতে ইউটিলিটি-স্কেল প্ল্যান্টের জন্য সোলার প্যানেল পরিষ্কার রোবট",
-      "bodyBefore": "Taypro ভারতে fixed tilt, seasonal tilt, single-axis tracker-এর জন্য autonomous ও semi-automatic জলবিহীন রোবট তৈরি — pan-India service, NECTYR, optional Opex। তুলনা করুন",
+      "bodyBefore": "Taypro ভারতে fixed tilt, seasonal tilt, single-axis tracker-এর জন্য autonomous ও semi-automatic জলবিহীন রোবট তৈরি, pan-India service, NECTYR, optional Opex। তুলনা করুন",
       "hubLink": "প্রতিটি Taypro রোবট মডেল",
       "bodyAfter": ", ROI calculator চালান, বা site-specific quote চান।",
       "ctaHub": "সোলার প্যানেল পরিষ্কার রোবট হাব",
@@ -108,21 +108,21 @@
       "q1": "ইউটিলিটি প্ল্যান্টে manual-এর বদলে robots কেন?",
       "a1": "Manual washing MW commission-এর সাথে linearly scale করে না, water-stressed states-এ struggle, auditable logs rarely। Waterless robots repeatable cadence, fleet telemetry, pan-India SLA।",
       "q2": "Taypro SCADA alone থেকে কীভাবে আলাদা?",
-      "a2": "SCADA loss-এর পর output report। Taypro field execution (robots), NECTYR, ORION যোগ — schedule, coverage prove, cycles performance-এ connect।",
+      "a2": "SCADA loss-এর পর output report। Taypro field execution (robots), NECTYR, ORION যোগ, schedule, coverage prove, cycles performance-এ connect।",
       "q3": "রোবট কিনতে পারি নাকি managed service?",
       "a3": "দুটোই। GLYDE, NYUMA, HELYX commissioning ও AMC-তে purchase, বা Opex pay-per-panel। Deployed robots-এ NECTYR visibility included।",
       "q4": "Taypro robots কোথায় তৈরি ও support?",
-      "a4": "Taypro Chakan, Pune-তে design ও manufacture — warehouses, field engineers pan-India commissioning, spares, same-day breakdown targets।",
+      "a4": "Taypro Chakan, Pune-তে design ও manufacture, warehouses, field engineers pan-India commissioning, spares, same-day breakdown targets।",
       "q5": "ভারতীয় ইউটিলিটি প্ল্যান্টে soiling loss কী?",
       "a5": "Soiling loss হল dust films-এ suppressed generation। Arid belts-এ 8–25% annual loss cadence insufficient হলে। Robotic dry cleaning tariff-valued MWh recover।",
       "q6": "Cleaning robots PR কীভাবে improve?",
-      "a6": "Consistent cleanliness soiling-related PR drift কমায়। Robots daily/near-daily cycles — NECTYR auditable coverage। PR improvement site-dependent।",
+      "a6": "Consistent cleanliness soiling-related PR drift কমায়। Robots daily/near-daily cycles, NECTYR auditable coverage। PR improvement site-dependent।",
       "q7": "India-তে solar O&M cleaning robot procurement কী?",
-      "a7": "Utility RFQs waterless fit, tracker compatibility, fleet software, breakdown SLA, CAPEX vs Opex evaluate। Taypro Made-in-India robots, NECTYR, optional Opex — India price guide, state pages।"
+      "a7": "Utility RFQs waterless fit, tracker compatibility, fleet software, breakdown SLA, CAPEX vs Opex evaluate। Taypro Made-in-India robots, NECTYR, optional Opex: India price guide, state pages।"
     },
     "cta": {
       "heading": "প্ল্যান্টের operations layer পরিকল্পনা",
-      "body": "capacity, layout, procurement preference শেয়ার — robots, Opex, fleet software recommend।",
+      "body": "capacity, layout, procurement preference শেয়ার, robots, Opex, fleet software recommend।",
       "quote": "কোট নিন",
       "company": "অংশীদার ও বিনিয়োগকারী",
       "quoteTopic": "ইউটিলিটি অপারেশন উদ্ধৃতি",
@@ -140,7 +140,7 @@
     },
     "stateGuides": {
       "heading": "আঞ্চলিক সোলার cleaning robot guides",
-      "intro": "Rajasthan, Gujarat, Madhya Pradesh, Karnataka, Andhra Pradesh, Maharashtra, Uttar Pradesh, Tamil Nadu — deployments, soiling, RFQ।"
+      "intro": "Rajasthan, Gujarat, Madhya Pradesh, Karnataka, Andhra Pradesh, Maharashtra, Uttar Pradesh, Tamil Nadu: deployments, soiling, RFQ।"
     }
   },
   "Common": {

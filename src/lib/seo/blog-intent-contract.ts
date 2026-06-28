@@ -95,7 +95,7 @@ function inferReaderQuestion(input: {
   const title = input.title.toLowerCase();
 
   if (/\bpv panel roof\b|rooftop pv|roof.?mount|panel roof/.test(`${kw} ${title}`)) {
-    return "What methods, access constraints, safety requirements, and costs apply to PV on rooftops or canopy structures—and how do cleaning/maintenance options compare for that layout?";
+    return "What methods, access constraints, safety requirements, and costs apply to PV on rooftops or canopy structures, and how do cleaning/maintenance options compare for that layout?";
   }
   if (/manufacturer|supplier|mfg|module maker/.test(kw)) {
     return "Which PV manufacturers or suppliers matter for utility/C&I buyers in India, and what specs, warranty, and post-install O&M should decision-makers weigh?";
@@ -185,7 +185,7 @@ export function buildBlogIntentContract(input: {
 }
 
 export function formatBlogIntentPromptBlock(contract: BlogIntentContract): string {
-  return `INTENT CONTRACT (read first — entire post must match this; do NOT write a generic Taypro robot article):
+  return `INTENT CONTRACT (read first, entire post must match this; do NOT write a generic Taypro robot article):
 Title: ${contract.title}
 Primary SEO keyword: ${contract.primaryKeyword ?? "(from title)"}
 Why we are writing: ${contract.whyWeAreWriting}
@@ -197,9 +197,9 @@ ${contract.avoidTopics.map((a) => `- ${a}`).join("\n")}
 ${
   contract.robotPromotionRelevant
     ? "Robot/cleaning products: mention only where the section compares cleaning methods."
-    : "Robot pitch: OFF for this post — answer the equipment/topic intent first; optional one-sentence O&M bridge at the end only."
+    : "Robot pitch: OFF for this post, answer the equipment/topic intent first; optional one-sentence O&M bridge at the end only."
 }
-Process: (1) Parse the title + keyword. (2) Plan sections that answer the reader question. (3) Write — every H2 serves the title, not a template.`;
+Process: (1) Parse the title + keyword. (2) Plan sections that answer the reader question. (3) Write: every H2 serves the title, not a template.`;
 }
 
 export type IntentAlignmentInput = {
@@ -275,7 +275,7 @@ export function findBlogIntentAlignmentIssues(
     const robotMentions = countRegexMatches(earlyBody, ROBOT_PITCH_RE);
     if (robotMentions >= 4) {
       issues.push(
-        `Content drifts into cleaning-robot pitch (${robotMentions} product/robot mentions in opening third) but keyword intent is equipment/topic research — refocus on title`
+        `Content drifts into cleaning-robot pitch (${robotMentions} product/robot mentions in opening third) but keyword intent is equipment/topic research, refocus on title`
       );
     }
   }
@@ -300,7 +300,7 @@ export function findKeywordSlugMismatch(input: IntentAlignmentInput): string | n
     /clean|soil|dust|robot|brush|wash|wet|waterless|microfiber|soiling/.test(slugHint);
 
   if (cleaningKw && !slugIsCleaning) {
-    return `Primary keyword "${input.primaryKeyword}" conflicts with slug topic — use an intent-aligned keyword`;
+    return `Primary keyword "${input.primaryKeyword}" conflicts with slug topic, use an intent-aligned keyword`;
   }
 
   if (/installation.?cost|installation-cost/.test(slugHint) && !/install|cost|capex|epc|per mw|utility scale/.test(kw)) {

@@ -43,6 +43,24 @@
         "title": "اطلب عرض أسعار GLYDE-X",
         "subtitle": "أخبرنا عن مصنع التتبع الخاص بك وسيقوم فريقنا بالمتابعة بشأن الحجم GLYDE-X واحتياجات مجموعة الجسور والخيارات التجارية.",
         "label": "طلب عرض أسعار"
+      },
+      "subtitleShort": "تنظيف مستقل ثنائي الممر مصمم خصيصًا لمزارع التتبع أحادية المحور.",
+      "secondaryCta": {
+        "label": "اكتشف جولة 360 درجة"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "± 15 درجة",
+          "label": "التعبير بين الجداول"
+        },
+        "stat1": {
+          "value": "3,600",
+          "label": "وحدات تنظيفها لكل تهمة"
+        },
+        "stat2": {
+          "value": "-52 درجة إلى +52 درجة",
+          "label": "نطاق إمالة المتعقب"
+        }
       }
     },
     "usps": {
@@ -315,14 +333,14 @@
       "p5Suffix": "."
     },
     "innovation360": {
-      "badge": "TAYPRO MODEL-T",
+      "badge": "TAYPRO GLYDE-X",
       "title": "روبوت تنظيف ألواح شمسية مستقل بدون ماء لمزارع المتعقب أحادي المحور",
       "tourEyebrow": "جولة منتج تفاعلية",
       "tourTitle": "عرض ٣٦٠° لـ GLYDE-X",
       "tourSubtitleMobile": "اسحب لليسار أو اليمين لتدوير روبوت تنظيف الألواح الشمسية للمتعقب أحادي المحور واستكشافه.",
       "tourSubtitleDesktop": "اسحب لليسار أو اليمين لتدوير روبوت تنظيف الألواح الشمسية للمتعقب أحادي المحور.",
       "productLabel": "Taypro GLYDE-X, روبوت تنظيف ألواح شمسية لمتعقبات أحادية المحور",
-      "innovationTitle": "الابتكار وراء MODEL-T",
+      "innovationTitle": "الابتكار وراء GLYDE-X",
       "innovationBody": "يمثل Taypro GLYDE-X تآزر تقنيات متقدمة مع مستشعرات وتعلم آلي لمعالجة تحديات صيانة الألواح على المتعقب أحادي المحور. يعمل باستقلالية تامة دون تدخل بشري. يتيح النظام السحابي مراقبة وتحكماً عن بُعد."
     },
     "howItWorks": {
@@ -562,8 +580,8 @@
       "nyumaXHeader": "NYUMA-X (Single-Pass PBT)",
       "row0": {
         "criterion": "Cleaning Mechanism",
-        "glydeX": "Dual-pass microfiber — airflow plus wipe for mixed soiling",
-        "nyumaX": "Single-pass PBT brush — optimised for dry tracker dust belts"
+        "glydeX": "Dual-pass microfiber, airflow plus wipe for mixed soiling",
+        "nyumaX": "Single-pass PBT brush, optimised for dry tracker dust belts"
       },
       "row1": {
         "criterion": "Tracker Compatibility",
@@ -618,6 +636,10 @@
       "zoomedLeftCaption": "Bridge and cleaning-head detail for inter-table traversal on single-axis trackers.",
       "zoomedRightAlt": "Taypro GLYDE-X solar charging module and drive housing detail",
       "zoomedRightCaption": "On-board solar-assisted charging for extended autonomous tracker cleaning cycles."
+    },
+    "productVisual": {
+      "eyebrow": "المنتج في لمحة",
+      "title": "Taypro GLYDE-X روبوت تنظيف الألواح الشمسية المتعقب"
     }
   },
   "Common": {

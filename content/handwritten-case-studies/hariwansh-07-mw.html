@@ -1,7 +1,7 @@
 <h2>Executive summary</h2>
 <p>The Hariwansh plant is a 0.7&nbsp;MW ground-mounted utility asset in Maharashtra. 3 GLYDE automatic robots (~4.3 robots/MW on 0.7 MW) with NECTYR and weather-aware holds since 2024. Taypro implemented Automatic waterless cleaning under <a href="/projects/capex">CAPEX</a>.</p>
 <p>Operations report roughly <strong>98 thousand litres of water saved per year</strong>, about <strong>26.3 MWh of additional clean generation</strong>, and <strong>13&nbsp;metric tons CO₂ equivalent</strong> (site-reported; validate with your SCADA).</p>
-<p>Robotic cleaning means <strong>scheduled cycles and weather-aware holds</strong>—not flooding modules on a daily wash calendar.</p>
+<p>Robotic cleaning means <strong>scheduled cycles and weather-aware holds</strong>, not flooding modules on a daily wash calendar.</p>
 
 <h2>Site statistics at a glance</h2>
 <table>
@@ -10,7 +10,7 @@
 <tr><td>Nameplate capacity</td><td>0.7&nbsp;MW</td></tr>
 <tr><td>State / region</td><td>Maharashtra</td></tr>
 <tr><td>Automatic robots</td><td>3</td></tr>
-<tr><td>Semi-automatic robots</td><td>—</td></tr>
+<tr><td>Semi-automatic robots</td><td>-</td></tr>
 <tr><td>Total fleet</td><td>3 robots</td></tr>
 <tr><td>Robots per MW</td><td>~4.29</td></tr>
 <tr><td>Primary systems</td><td>GLYDE</td></tr>
@@ -29,11 +29,11 @@
 <p>Alternate slug aligned with <a href="/projects/hariwansh-nagpur-07-mw">Hariwansh Nagpur</a>.</p>
 
 <h2>NECTYR operations and accountability</h2>
-<p>NECTYR provides fleet visibility, automated cycle scheduling, and alerts—not a plant-wide clean-now button. Supervisors review completion maps, wind and rain holds, and idle trends weekly in dust season.</p>
+<p>NECTYR provides fleet visibility, automated cycle scheduling, and alerts, not a plant-wide clean-now button. Supervisors review completion maps, wind and rain holds, and idle trends weekly in dust season.</p>
 <h2>Cleaning cadence: scheduled cycles and weather-aware holds</h2>
-<p>Taypro <strong>GLYDE</strong> automatic fleets do <strong>not</strong> run a naive “every module, every night” wash. Each unit is assigned to a ground-mount array with a docking station and executes <strong>scheduled waterless cycles</strong> in block-wise windows—typically <strong>post-sunset or pre-sunrise</strong>, outside peak generation—configured in <a href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app">NECTYR</a>. Plant studies set how many runs occur per month; utility programmes commonly align with roughly <strong>3–10 dry-cleaning cycles per month</strong>, often denser in peak dust season (for example 6–10) and lighter in quieter months, as described on <a href="/cleaning-technology">cleaning technology</a> and <a href="/solar-panel-cleaning-system/solar-panel-cleaning-service">cleaning service</a> pages.</p>
-<p><strong>AI- and ML-informed scheduling</strong> in NECTYR combines weather forecasts, rain probability, wind limits, and fleet telemetry. After effective rain, robots often <strong>stand down</strong> to avoid redundant passes; after dust fronts, schedules tighten so performance ratio recovers before the next revenue-critical period. Operators see the same weather context used for wind holds—overrides should be informed, not blind.</p>
-<p>Each completed GLYDE run is a <strong>dual-pass waterless cycle</strong> on fixed tables, with dust removal quoted <strong>per completed cycle</strong> under <a href="/performance-and-test-methodology">performance methodology</a>—not nameplate efficiency gain and not guaranteed daily coverage of the full DC footprint.</p>
+<p>Taypro <strong>GLYDE</strong> automatic fleets do <strong>not</strong> run a naive “every module, every night” wash. Each unit is assigned to a ground-mount array with a docking station and executes <strong>scheduled waterless cycles</strong> in block-wise windows, typically <strong>post-sunset or pre-sunrise</strong>, outside peak generation, configured in <a href="/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app">NECTYR</a>. Plant studies set how many runs occur per month; utility programmes commonly align with roughly <strong>3–10 dry-cleaning cycles per month</strong>, often denser in peak dust season (for example 6–10) and lighter in quieter months, as described on <a href="/cleaning-technology">cleaning technology</a> and <a href="/solar-panel-cleaning-system/solar-panel-cleaning-service">cleaning service</a> pages.</p>
+<p><strong>AI- and ML-informed scheduling</strong> in NECTYR combines weather forecasts, rain probability, wind limits, and fleet telemetry. After effective rain, robots often <strong>stand down</strong> to avoid redundant passes; after dust fronts, schedules tighten so performance ratio recovers before the next revenue-critical period. Operators see the same weather context used for wind holds, overrides should be informed, not blind.</p>
+<p>Each completed GLYDE run is a <strong>dual-pass waterless cycle</strong> on fixed tables, with dust removal quoted <strong>per completed cycle</strong> under <a href="/performance-and-test-methodology">performance methodology</a>, not nameplate efficiency gain and not guaranteed daily coverage of the full DC footprint.</p>
 
 <h2>Commissioning and handover</h2>
 <p>Commissioning sequenced high-soiling blocks first, validated geometry and docking or staging, and trained technicians on waterless compliance and hold rules.</p>
@@ -48,7 +48,7 @@
 <p>Before Taypro, manual programmes struggled with frequency, water logistics, and auditability on 0.7&nbsp;MW tables.</p>
 
 <h2>Monthly operating calendar</h2>
-<p><strong>Jan–Feb:</strong> review brush wear and cycle plans. <strong>Mar–Jun:</strong> peak dust—scheduled density toward <strong>6–10 cycles per month</strong> class on automatic peers where applicable; not nightly full-plant wash. <strong>Monsoon transition:</strong> stand down after effective rain. <strong>Post-monsoon:</strong> re-walk paths after civil or vegetation works.</p>
+<p><strong>Jan–Feb:</strong> review brush wear and cycle plans. <strong>Mar–Jun:</strong> peak dust, scheduled density toward <strong>6–10 cycles per month</strong> class on automatic peers where applicable; not nightly full-plant wash. <strong>Monsoon transition:</strong> stand down after effective rain. <strong>Post-monsoon:</strong> re-walk paths after civil or vegetation works.</p>
 
 <h2>SCADA correlation</h2>
 <p>Pair inverter trends with NECTYR timestamps. If PR stays soft after logged cleans, investigate brush wear, partial coverage, or equipment fault.</p>
@@ -72,13 +72,13 @@
 </ul>
 
 <h3>Who should benchmark Hariwansh?</h3>
-<p>Owners with 0.7&nbsp;MW Maharashtra assets and automatic constraints—not plants copying fleet counts without maps.</p>
+<p>Owners with 0.7&nbsp;MW Maharashtra assets and automatic constraints, not plants copying fleet counts without maps.</p>
 
 <h3>How many cycles per month?</h3>
-<p>Site-specific; commonly roughly <strong>3–10 dry cycles per month</strong>, weather permitting—not daily washing of every module.</p>
+<p>Site-specific; commonly roughly <strong>3–10 dry cycles per month</strong>, weather permitting, not daily washing of every module.</p>
 
 <h2>Seasonal operating calendar</h2>
-<p><strong>Jan–Feb:</strong> review brush wear and cycle plans; validate wind and rain hold rules in NECTYR or inspection logs. <strong>Mar–Jun:</strong> peak dust—scheduled cycle density increases on priority blocks (weather permitting), often toward the <strong>6–10 cycles per month</strong> class for automatic fleets; not nightly coverage of every module. <strong>Monsoon transition:</strong> stand down or lighten cycles after effective rain; inspection-heavy weeks where appropriate. <strong>Post-monsoon:</strong> re-walk paths after vegetation or civil works; update block timers before the next approved cleaning window.</p>
+<p><strong>Jan–Feb:</strong> review brush wear and cycle plans; validate wind and rain hold rules in NECTYR or inspection logs. <strong>Mar–Jun:</strong> peak dust, scheduled cycle density increases on priority blocks (weather permitting), often toward the <strong>6–10 cycles per month</strong> class for automatic fleets; not nightly coverage of every module. <strong>Monsoon transition:</strong> stand down or lighten cycles after effective rain; inspection-heavy weeks where appropriate. <strong>Post-monsoon:</strong> re-walk paths after vegetation or civil works; update block timers before the next approved cleaning window.</p>
 
 <h2>Peer benchmarking</h2>
 <p><strong> Versus <a href="/projects/hariwansh-nagpur-07-mw">Hariwansh Nagpur (canonical)</a>:</strong> canonical.</p>
@@ -90,7 +90,7 @@
 
 <h2>Technical committee closing brief for Hariwansh</h2>
 <p>Attach row maps, NECTYR samples, and conservative <strong>26.3 MWh</strong> / <strong>13&nbsp;tCO₂e</strong> stress tests. <strong>98 thousand litres</strong> water avoided should use the same assumptions as generation slides.</p>
-<p>Scheduled cycles and weather-aware holds—roughly <strong>3–10 dry cycles per month</strong> on automatic peers, weather permitting—not daily plant-wide washing. Read <a href="/cleaning-technology">cleaning technology</a> and <a href="/performance-and-test-methodology">performance methodology</a>.</p>
+<p>Scheduled cycles and weather-aware holds, roughly <strong>3–10 dry cycles per month</strong> on automatic peers, weather permitting, not daily plant-wide washing. Read <a href="/cleaning-technology">cleaning technology</a> and <a href="/performance-and-test-methodology">performance methodology</a>.</p>
 <p>Compare peers linked above; request layout review via <a href="/contact">contact</a> when row maps are preliminary.</p>
 
 <h2>Finance workshop agenda</h2>
@@ -99,13 +99,13 @@
 
 <h2>Operations FAQ</h2>
 <h3>How are cycles scheduled?</h3>
-<p>NECTYR weather-aware block timers on automatic rows plus NYUMA weekly plans on portable zones—not a daily wash of the full plant.</p>
+<p>NECTYR weather-aware block timers on automatic rows plus NYUMA weekly plans on portable zones, not a daily wash of the full plant.</p>
 <h3>What should lenders review?</h3>
 <p>Water statistics, NECTYR hold logs, training records, and GWh stress tests at 50% and 75% attribution.</p>
 
 <h2>Operations evidence summary</h2>
-<p>Owners should validate reported water, generation, and carbon statistics with local SCADA and tariffs; pair this 0.7&nbsp;MW case study with <a href="/performance-and-test-methodology">performance methodology</a>, the <a href="/projects">projects hub</a>, and the <a href="/solar-panel-cleaning-robot-price-calculator#calculator">ROI calculator</a>. Scheduled cycles and weather-aware holds—not plant-wide daily washing—define Taypro utility programmes.</p>
-<p>Compare <a href="/projects/soyegaon-solar-project">Soyegaon</a>, <a href="/projects/chhayan-rajasthan-150-mw">Chhayan</a>, and tier-1 peers before copying robot density. Block-level proof—NECTYR exports—belongs in lender packs alongside <strong>98 thousand litres</strong> and <strong>26.3 MWh</strong> stress tests at fifty and seventy-five percent attribution.</p>
+<p>Owners should validate reported water, generation, and carbon statistics with local SCADA and tariffs; pair this 0.7&nbsp;MW case study with <a href="/performance-and-test-methodology">performance methodology</a>, the <a href="/projects">projects hub</a>, and the <a href="/solar-panel-cleaning-robot-price-calculator#calculator">ROI calculator</a>. Scheduled cycles and weather-aware holds, not plant-wide daily washing, define Taypro utility programmes.</p>
+<p>Compare <a href="/projects/soyegaon-solar-project">Soyegaon</a>, <a href="/projects/chhayan-rajasthan-150-mw">Chhayan</a>, and tier-1 peers before copying robot density. Block-level proof, NECTYR exports, belongs in lender packs alongside <strong>98 thousand litres</strong> and <strong>26.3 MWh</strong> stress tests at fifty and seventy-five percent attribution.</p>
 
 <h2>Conclusion</h2>
-<p>Hariwansh demonstrates 0.7&nbsp;MW robotic cleaning with reported 98 thousand litres water saved, 0.0263&nbsp;GWh, and 13&nbsp;tCO₂e—validated locally. Use peer links when building procurement packs.</p>
+<p>Hariwansh demonstrates 0.7&nbsp;MW robotic cleaning with reported 98 thousand litres water saved, 0.0263&nbsp;GWh, and 13&nbsp;tCO₂e, validated locally. Use peer links when building procurement packs.</p>

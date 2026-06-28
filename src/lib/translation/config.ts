@@ -4,10 +4,10 @@ import {
   type TayproLocale,
 } from "@/i18n/markets";
 import {
-  DEFAULT_FREE_GEMINI_TEXT_MODEL,
-  FREE_GEMINI_TEXT_MODEL_RETRY,
-  resolveFreeGeminiTextModel,
+  DEFAULT_GEMMA_TEXT_MODEL,
+  resolveAutomationTextModel,
 } from "@/lib/gemini/free-tier-models";
+import { translationTextModelCandidates } from "@/lib/gemini/model-routing";
 
 /** Canonical CMS language, admin edits this version; translations are generated from it. */
 export const SOURCE_LOCALE: TayproLocale = "en";
@@ -21,32 +21,15 @@ export function localeDisplayName(locale: TayproLocale): string {
 }
 
 export function geminiTranslationModel(): string {
-  return resolveFreeGeminiTextModel(
+  return resolveAutomationTextModel(
     process.env.GEMINI_TRANSLATION_MODEL?.trim(),
-    DEFAULT_FREE_GEMINI_TEXT_MODEL
+    DEFAULT_GEMMA_TEXT_MODEL
   );
 }
 
-/** Ordered free-tier models for translation (primary → retry variant). */
+/** Ordered Gemma models for translation (primary → retry). */
 export function geminiTranslationModelCandidates(): string[] {
-  const primary = resolveFreeGeminiTextModel(
-    process.env.GEMINI_TRANSLATION_MODEL?.trim(),
-    DEFAULT_FREE_GEMINI_TEXT_MODEL
-  );
-  const retry = resolveFreeGeminiTextModel(
-    process.env.GEMINI_TRANSLATION_RETRY_MODEL?.trim(),
-    FREE_GEMINI_TEXT_MODEL_RETRY
-  );
-
-  const seen = new Set<string>();
-  const out: string[] = [];
-  for (const model of [primary, retry, DEFAULT_FREE_GEMINI_TEXT_MODEL, FREE_GEMINI_TEXT_MODEL_RETRY]) {
-    const id = model.trim().toLowerCase();
-    if (!id || seen.has(id)) continue;
-    seen.add(id);
-    out.push(id);
-  }
-  return out.length > 0 ? out : [DEFAULT_FREE_GEMINI_TEXT_MODEL];
+  return translationTextModelCandidates();
 }
 
 /** Split large HTML bodies into separate Gemini calls above this size (masked chars). */
@@ -54,6 +37,14 @@ export function getTranslationContentChunkChars(): number {
   return parsePositiveInt(
     process.env.CMS_TRANSLATION_CONTENT_CHUNK_CHARS?.trim(),
     10_000
+  );
+}
+
+/** Smaller chunks for long insight reports (fewer JSON failures). */
+export function getInsightTranslationContentChunkChars(): number {
+  return parsePositiveInt(
+    process.env.INSIGHT_TRANSLATION_CONTENT_CHUNK_CHARS?.trim(),
+    6_000
   );
 }
 
@@ -166,6 +157,14 @@ export function getDailyTranslationMaxPerDay(): number {
 /** @deprecated Use getDailyTranslationMaxPerDay */
 export function getBlogTranslationMaxPerDay(): number {
   return getDailyTranslationMaxPerDay();
+}
+
+/** Max insight reports to translate per daily cron run (each report = 4 locales in one job). */
+export function getDailyInsightTranslationMaxPerDay(): number {
+  return parsePositiveInt(
+    process.env.INSIGHT_TRANSLATION_MAX_PER_DAY?.trim(),
+    1
+  );
 }
 
 /**

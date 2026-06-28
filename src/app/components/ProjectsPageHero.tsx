@@ -12,7 +12,7 @@ type ProjectsPageHeroProps = {
   projectCount?: number;
   countBadgeLabel?: string;
   countBadgeUnit?: string;
-  /** SVG wave fill — should match the section directly below the hero. */
+  /** SVG wave fill, should match the section directly below the hero. */
   waveFill?: string;
 };
 

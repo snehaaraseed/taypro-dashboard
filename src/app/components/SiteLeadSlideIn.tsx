@@ -33,7 +33,7 @@ function shouldSuppressPath(pathname: string) {
   if (pathname.startsWith("/admin")) return true;
   if (pathname === "/contact" || pathname.startsWith("/contact/")) return true;
   if (pathname.startsWith("/auth")) return true;
-  // Interactive tool pages — CTAs open the lead modal; avoid stacking auto slide-in.
+  // Interactive tool pages, CTAs open the lead modal; avoid stacking auto slide-in.
   if (
     pathname === "/solar-panel-cleaning-robot-price-calculator" ||
     pathname.startsWith("/solar-panel-cleaning-robot-price-calculator/")
@@ -170,7 +170,7 @@ export default function SiteLeadSlideIn() {
     if (open) setStage("teaser");
   }, [open]);
 
-  // Lead modal takes priority — hide slide-in so closing the modal does not leave a second popup.
+  // Lead modal takes priority, hide slide-in so closing the modal does not leave a second popup.
   useEffect(() => {
     const wasOpen = prevLeadModalOpenRef.current;
     if (leadModalOpen) {
@@ -263,7 +263,7 @@ export default function SiteLeadSlideIn() {
 
             <div className="taypro-lead-slidein-scroll flex flex-col bg-gradient-to-b from-white to-[#f4f7f8] px-3 pb-3 pt-2.5 sm:px-5 sm:pb-5 sm:pt-4">
               <p className="taypro-lead-slidein-intro-mobile text-xs leading-snug text-[#22405a]">
-                Quick, no-pressure fit check — model, layout &amp; economics for your MW.
+                Quick, no-pressure fit check, model, layout &amp; economics for your MW.
               </p>
               <p className="taypro-lead-slidein-intro text-sm leading-relaxed text-[#22405a] sm:text-base">
                 You&apos;ve already shown you care about the details. Here&apos;s a{" "}

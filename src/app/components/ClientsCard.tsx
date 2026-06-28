@@ -25,7 +25,7 @@ export default function ClientsCard({
     logos ??
     clientPartners.map((partner) => ({
       logoSrc: partner.logoSrc,
-      alt: `${partner.name} — Taypro solar cleaning robot customer`,
+      alt: `${partner.name}, Taypro solar cleaning robot customer`,
       title: partner.name,
     }));
 

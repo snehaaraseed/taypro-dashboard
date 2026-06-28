@@ -160,10 +160,23 @@ export async function loadMessagesForPath(
   return messages;
 }
 
-/** Load base locale JSON + page modules; non-English locales fall back to en page files. */
+const fullMessagesCache = new Map<string, Record<string, unknown>>();
+
+/**
+ * Load base locale JSON + page modules; non-English locales fall back to en page files.
+ *
+ * Cached per locale: this is now the server message source for statically
+ * rendered pages (see `i18n/request.ts`), so it runs once per locale at build
+ * / revalidate time rather than per request.
+ */
 export async function loadMessages(
   locale: string
 ): Promise<Record<string, unknown>> {
+  const cached = fullMessagesCache.get(locale);
+  if (cached) {
+    return cached;
+  }
+
   const root = resolveMessagesRoot();
   const basePath = join(root, `${locale}.json`);
   const baseRaw = await readFile(basePath, "utf8");
@@ -183,5 +196,6 @@ export async function loadMessages(
     locale
   );
 
+  fullMessagesCache.set(locale, messages);
   return messages;
 }

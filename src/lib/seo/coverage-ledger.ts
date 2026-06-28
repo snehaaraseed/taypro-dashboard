@@ -105,7 +105,7 @@ export function isPermanentSlotFailure(reason: string): boolean {
   );
 }
 
-/** Thrown when every title candidate for a slot is blocked — slot must not be retried. */
+/** Thrown when every title candidate for a slot is blocked, slot must not be retried. */
 export class SlotTitleExhaustedError extends Error {
   readonly slotKey: string;
   readonly keyword: string;
@@ -129,7 +129,7 @@ export async function loadPermanentFailedSlotKeys(): Promise<Set<string>> {
   return permanent;
 }
 
-/** Seed-title probes are not final failures — drop stale preflight blocks from the ledger. */
+/** Seed-title probes are not final failures, drop stale preflight blocks from the ledger. */
 export function prunePreflightFailedSlots(): number {
   const ledger = readLedgerFile();
   const before = ledger.failed.length;
@@ -207,8 +207,7 @@ function writeLedgerFile(data: CoverageLedgerFile): void {
     JSON.stringify(
       {
         description:
-          "Filled and failed coverage ledger slots (keyword::angleId). Backfill via scripts/backfill-coverage-slots.mjs",
-        ...data,
+          "Filled and failed coverage ledger slots (keyword::angleId). Backfill via scripts/backfill-coverage-slots.mjs", ...data,
       },
       null,
       2
@@ -338,8 +337,7 @@ function buildForbiddenArchetypeSet(
   const exhausted = exhaustedArchetypesForKeywordCluster(keyword, index);
   return [
     ...new Set<StructuralArchetype>([
-      ...(angleMeta.forbiddenArchetypes ?? []),
-      ...exhausted,
+      ...(angleMeta.forbiddenArchetypes ?? []), ...exhausted,
     ]),
   ];
 }
@@ -350,7 +348,7 @@ async function scanForEditorialContract(
   const filled = await loadFilledSlotKeys();
   const permanentFailed = await loadPermanentFailedSlotKeys();
   const allFailed = await loadFailedSlotKeys();
-  /** retry-failed-slots may retry transient failures only — never permanent blocks. */
+  /** retry-failed-slots may retry transient failures only, never permanent blocks. */
   const failedToSkip =
     options.skipFailed === false ? permanentFailed : allFailed;
   const excludedKeywords = new Set(
@@ -459,8 +457,7 @@ async function scanForEditorialContract(
     ];
 
     return {
-      ...slot,
-      ...angleMeta,
+      ...slot, ...angleMeta,
       seoBrief: buildSeoKeywordBrief(row, available),
       syntheticMetaDescription,
       forbiddenArchetypes,
@@ -471,7 +468,7 @@ async function scanForEditorialContract(
   return null;
 }
 
-/** Strict pick for status previews — returns null when no slot passes default guards. */
+/** Strict pick for status previews, returns null when no slot passes default guards. */
 export async function pickNextEditorialContract(
   options?: PickEditorialContractOptions
 ): Promise<EditorialContract | null> {
@@ -481,9 +478,44 @@ export async function pickNextEditorialContract(
   });
 }
 
+/** Strict pick for automation cron, no keyword-angle-reuse or minimal-guards tiers. */
+export async function pickNextEditorialContractForCron(
+  options?: PickEditorialContractOptions
+): Promise<EditorialContract | null> {
+  const campaignFocus = options?.focusKeyword?.toLowerCase().trim() || null;
+  const tiers: Array<{
+    label: string;
+    relaxation: PickRelaxation;
+  }> = [
+    {
+      label: "campaign-focus",
+      relaxation: { focusKeyword: campaignFocus || undefined },
+    },
+    { label: "catalog-wide", relaxation: { clearFocusKeyword: true } },
+  ];
+
+  for (const tier of tiers) {
+    if (tier.label === "campaign-focus" && !campaignFocus) continue;
+    const contract = await scanForEditorialContract({
+      ...options, ...tier.relaxation,
+      skipFailed: true,
+    });
+    if (contract) {
+      if (tier.label !== "campaign-focus") {
+        console.info(
+          `Coverage ledger (cron): picked via ${tier.label} → ${contract.slotKey}`
+        );
+      }
+      return contract;
+    }
+  }
+  return null;
+}
+
 /**
  * Ledger-only pick: walks progressively relaxed tiers until a keyword×angle contract is found.
  * Same keyword with a different angle is allowed once strict keyword-level blocking is relaxed.
+ * @deprecated for cron, use pickNextEditorialContractForCron; admin/manual may still use this.
  */
 export async function pickNextEditorialContractAlways(
   options?: PickEditorialContractOptions
@@ -519,8 +551,7 @@ export async function pickNextEditorialContractAlways(
     if (tier.label === "campaign-focus" && !campaignFocus) continue;
 
     const contract = await scanForEditorialContract({
-      ...options,
-      ...tier.relaxation,
+      ...options, ...tier.relaxation,
     });
     if (contract) {
       if (tier.label !== "campaign-focus") {
@@ -641,7 +672,7 @@ export async function validateTitleCandidate(
   return true;
 }
 
-/** Slug/title collision check only — skips pre-flight corpus probe (last-resort path). */
+/** Slug/title collision check only, skips pre-flight corpus probe (last-resort path). */
 export async function validateTitleCandidateLoose(
   title: string,
   seoKeyword: string,

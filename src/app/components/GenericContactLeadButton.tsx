@@ -14,7 +14,7 @@ type GenericContactLeadButtonProps = {
 } & Partial<LeadModalOpenOptions>;
 
 /**
- * Default site-wide contact CTA — opens the lead modal with shared Forms copy.
+ * Default site-wide contact CTA: opens the lead modal with shared Forms copy.
  * Pass partial LeadModalOpenOptions to override title, subtitle, etc.
  */
 export function GenericContactLeadButton({

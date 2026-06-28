@@ -1,8 +1,16 @@
-export const PROJECTS_HUB_PORTFOLIO_PAGE_SIZE = 24;
+/** Portfolio grid page size on /projects (featured block is page 1 only). */
+export const PROJECTS_HUB_PORTFOLIO_PAGE_SIZE = 12;
+
+export const PROJECTS_HUB_PORTFOLIO_SECTION_ID = "all-projects";
 
 export function projectsHubPagePath(page: number): string {
   if (page <= 1) return "/projects";
   return `/projects?page=${page}`;
+}
+
+/** In-app pagination href that keeps the viewport on the portfolio grid. */
+export function projectsHubPortfolioPagePath(page: number): string {
+  return `${projectsHubPagePath(page)}#${PROJECTS_HUB_PORTFOLIO_SECTION_ID}`;
 }
 
 export function projectsHubPageUrl(siteUrl: string, page: number): string {

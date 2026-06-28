@@ -1,6 +1,6 @@
 import HomePageContent from "./home/HomePageContent";
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { withHreflang } from "@/lib/seo/with-hreflang";
 import { socialImagesFromPreset } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
@@ -34,6 +34,12 @@ export async function generateMetadata({
   });
 }
 
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return <HomePageContent />;
 }

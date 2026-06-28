@@ -152,7 +152,7 @@ export function formatGscIntentGapsForPrompt(limit = 8): string {
 
   const lines = gaps.map(
     (g) =>
-      `- "${g.matchedKeyword}" needs ${g.intentFamily} (GSC: "${g.query}" — ${g.impressions} imp, pos ${g.position.toFixed(1)})`
+      `- "${g.matchedKeyword}" needs ${g.intentFamily} (GSC: "${g.query}", ${g.impressions} imp, pos ${g.position.toFixed(1)})`
   );
   return `GSC INTENT GAPS (queries with impressions but no matching cluster post yet):
 ${lines.join("\n")}`;

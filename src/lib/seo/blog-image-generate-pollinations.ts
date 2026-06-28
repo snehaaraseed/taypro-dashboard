@@ -175,7 +175,7 @@ async function requestPollinationsImageWithModel(
 
     const waitMinutes = Math.round(retryWaitMs / 60_000);
     console.info(
-      `Pollinations pollen exhausted on "${model}" — waiting ${waitMinutes} min for hourly refill, then retrying once`
+      `Pollinations pollen exhausted on "${model}", waiting ${waitMinutes} min for hourly refill, then retrying once`
     );
     await sleep(retryWaitMs);
 

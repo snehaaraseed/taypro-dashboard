@@ -1,6 +1,9 @@
 {
   "Common": {
     "breadcrumbHome": "होम",
+    "productLineup": {
+      "exploreCta": "अन्वेषण करें {model}"
+    },
     "errorTitle": "यह पेज लोड नहीं हो सका",
     "errorBody": "कनेक्शन समय समाप्त हो गया हो या इस पेज को लोड करते समय कोई त्रुटि हुई हो। फिर से लोड करें या किसी कार्यशील पेज पर लौटें।",
     "errorReload": "फिर से लोड करें"
@@ -18,6 +21,7 @@
     "investors": "भागीदार और निवेशक",
     "contactUs": "संपर्क",
     "blogs": "ब्लॉग",
+    "insights": "Insights",
     "solarRobots": "सोलर रोबोट",
     "solutions": "समाधान",
     "solutionsTitle": "सोलर पैनल क्लीनिंग रोबोट समाधान",
@@ -54,6 +58,7 @@
     "viewAllCompare": "सभी तुलना गाइड",
     "viewAllStates": "सभी क्षेत्रीय गाइड",
     "priceGuideNav": "रोबोट कीमत गाइड (India)",
+    "cleaningMachineNav": "सोलर पैनल क्लीनिंग मशीन",
     "compareTayproVsSolabot": "Taypro vs Solabot",
     "compareIndianCompetitors": "Taypro vs भारतीय प्रतिस्पर्धी",
     "compareRobotVsManual": "रोबोट बनाम मैनुअल सफाई",
@@ -70,6 +75,7 @@
     "aboutUs": "हमारे बारे में",
     "projects": "प्रोजेक्ट",
     "blogs": "ब्लॉग",
+    "insights": "Insights",
     "contact": "संपर्क",
     "sitemap": "साइटमैप",
     "ourTechnology": "हमारी तकनीक",

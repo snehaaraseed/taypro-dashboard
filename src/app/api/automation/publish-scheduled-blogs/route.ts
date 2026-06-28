@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-/** GET — lightweight schedule status for ops / cron scripts. */
+/** GET: lightweight schedule status for ops / cron scripts. */
 export async function GET(request: NextRequest) {
   if (!isAutomationAuthorized(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

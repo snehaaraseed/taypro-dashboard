@@ -108,7 +108,7 @@ ${formatIntentSelectionGuideBlock()}
 
 ${formatGscIntentGapsForPrompt(6)}
 
-CANDIDATE KEYWORDS (code-ranked from editorial queue, GSC boost, and Keyword Planner — pick ONE):
+CANDIDATE KEYWORDS (code-ranked from editorial queue, GSC boost, and Keyword Planner: pick ONE):
 ${candidateLines}
 
 ${SEO_AND_READER_RULES}
@@ -172,7 +172,7 @@ export async function pickTopicTitleHybrid(input: {
   const seedBlock =
     seeds.length > 0
       ? seeds.map((s) => `- ${s}`).join("\n")
-      : `- (no code seeds — craft a fresh specific title for "${input.seoBrief.primary}")`;
+      : `- (no code seeds, craft a fresh specific title for "${input.seoBrief.primary}")`;
 
   const clusterBlock = formatKeywordIntentClusterPrompt({
     keyword: input.seoBrief.primary,
@@ -234,7 +234,7 @@ Return ONLY valid JSON:
       });
       if (rawIntent && resolved.source === "code") {
         console.warn(
-          `[pickTopicTitleHybrid] AI intent "${rawIntent}" rejected for "${input.seoBrief.primary}" — using ${resolved.intentFamily}/${resolved.subAngle}`
+          `[pickTopicTitleHybrid] AI intent "${rawIntent}" rejected for "${input.seoBrief.primary}", using ${resolved.intentFamily}/${resolved.subAngle}`
         );
       }
       return {

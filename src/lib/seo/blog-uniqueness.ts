@@ -111,7 +111,7 @@ export function findTooSimilarBlog(
 
     const keywordScore = calculateBlogSimilarity(draft, existing);
     const titleOverlap = titleWordSimilarity(draft.title, existing.title);
-    // Same niche shares keywords — reject only when titles also overlap, or score is very high.
+    // Same niche shares keywords, reject only when titles also overlap, or score is very high.
     const keywordCollision =
       keywordScore > keywordThreshold &&
       (titleOverlap > 0.35 || keywordScore > 0.72);

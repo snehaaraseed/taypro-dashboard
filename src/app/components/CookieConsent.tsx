@@ -57,7 +57,7 @@ export default function CookieConsent() {
       return;
     }
 
-    // Fixed delay — requestIdleCallback can fire during the LCP measurement window.
+    // Fixed delay, requestIdleCallback can fire during the LCP measurement window.
     const scheduleBanner = () =>
       scheduleAfterDelay(() => setShowBanner(true), BANNER_MIN_DELAY_MS);
 

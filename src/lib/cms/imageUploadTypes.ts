@@ -1,4 +1,4 @@
-/** Upload destination — drives filename prefix and compression profile. */
+/** Upload destination, drives filename prefix and compression profile. */
 export const UPLOAD_CONTEXTS = {
   "blog-featured": { prefix: "blog-featured", maxWidth: 1920, quality: 80 },
   "blog-inline": { prefix: "blog-inline", maxWidth: 1400, quality: 78 },
@@ -18,7 +18,7 @@ export function isUploadContext(value: string): value is UploadContext {
   return CONTEXT_SET.has(value);
 }
 
-/** Blog images from Imagen / Pollinations — strip embedded provenance before publish. */
+/** Blog images from Imagen / Pollinations: strip embedded provenance before publish. */
 export function isAiGeneratedUploadContext(context: UploadContext): boolean {
   return context === "blog-generated-hero" || context === "blog-generated-inline";
 }

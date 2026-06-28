@@ -24,6 +24,14 @@ assert.equal(resolveAlias("/contacts"), "/contact");
 assert.equal(resolveAlias("/contact-us"), "/contact");
 assert.equal(resolveAlias("/blogs"), "/blog");
 assert.equal(resolveAlias("/about"), "/company");
+assert.equal(
+  resolveAlias("/compare/robot-vs-manual-cleaning"),
+  "/compare/solar-panel-cleaning-robot-vs-manual-cleaning"
+);
+assert.equal(
+  resolveAlias("/compare/waterless-vs-water-based-solar-panel-cleaning"),
+  "/compare/waterless-vs-water-based-solar-cleaning"
+);
 
 // Static fuzzy
 expectRedirect(recoverStaticPath("/contcat"), "/contact");

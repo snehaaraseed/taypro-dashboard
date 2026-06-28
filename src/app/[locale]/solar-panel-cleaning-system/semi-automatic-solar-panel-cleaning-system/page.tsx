@@ -16,15 +16,17 @@ import {
   Sun,
   Settings,
 } from "lucide-react";
-import { helyxCards, tayproTrustedByStatsStrip } from "@/app/data";
+import { tayproTrustedByStatsStrip } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import { projectFilterForPage } from "@/lib/cms/project-page-filters";
 import { FaqSection } from "@/app/components/FaqSection";
-import ProductCards from "@/app/components/ProductCards";
+import RelatedProductLineupSection from "@/app/components/RelatedProductLineupSection";
+import { buildRelatedProductLineupRobots } from "@/lib/products/build-product-lineup";
 import ResourcesCard from "@/app/components/ResourcesCard";
 import CallbackCard from "@/app/components/CallbackCard";
-import HeroSection from "@/app/components/Herosection";
+import ProductHero from "@/app/components/ProductHero";
+import { ProductVisualSection } from "@/app/components/ProductVisualSection";
 import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
@@ -39,6 +41,12 @@ import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import { PerformanceMethodologyFootnote } from "@/app/components/PerformanceMethodologyLink";
 import { PerformanceMethodologyNotice } from "@/app/components/PerformanceMethodologyNotice";
 
+import {
+  buildProductHeroHighlights,
+  productHeroBackgroundCredit,
+  productHeroSecondaryCta,
+} from "@/lib/products/product-hero-helpers";
+import { resolveProductPageHeroBackground } from "@/lib/cms/product-page-hero-background";
 import {
   getProductHeroLayout,
   getProductImageUrl,
@@ -115,6 +123,8 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "HelyxPage" });
+  const heroBackground = await resolveProductPageHeroBackground("helyx", locale);
+  const heroHighlights = buildProductHeroHighlights(t);
   const tCommon = await getTranslations({ locale, namespace: "Common" });
 
   const breadcrumbs = [
@@ -199,28 +209,24 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
       />
 
       <div className="min-h-screen overflow-x-hidden">
-        <HeroSection
+        <ProductHero
+          eyebrow={t("overview.eyebrow")}
           title={t("hero.title")}
-          subtitle={
-            <>
-              {t("hero.subtitleBefore")}{" "}
-              <strong>{t("hero.subtitleStrong")}</strong>
-              {t("hero.subtitleAfter")}
-            </>
-          }
-          imgSrc={helyxImages.hero}
-          imgAlt={t("hero.imgAlt")}
-          imageAspectRatio={helyxHeroLayout.aspectRatio}
-          imagePresentation={helyxHeroLayout.presentation}
+          subtitle={t("hero.subtitleShort")}
+          backgroundImage={heroBackground.src}
+          backgroundAlt={heroBackground.alt}
+          backgroundCredit={productHeroBackgroundCredit(heroBackground)}
           ctaHref="/contact"
           ctaText={t("hero.primaryCta.label")}
           ctaTopic={t("hero.primaryCta.topic")}
           ctaTitle={t("hero.primaryCta.title")}
           ctaSubtitle={t("hero.primaryCta.subtitle")}
+          secondaryCta={productHeroSecondaryCta(t, "#product-tour")}
+          highlights={heroHighlights}
         />
 
         {/* PRODUCT OVERVIEW / SEO INTRO */}
-        <section className="bg-white pt-8 sm:pt-14 pb-4">
+        <section className="bg-white pt-4 sm:pt-8 pb-4">
           <Container size="narrow">
             <AnimateOnScroll animation="fadeInUp">
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
@@ -295,8 +301,18 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
           </Container>
         </section>
 
+        <ProductVisualSection
+          imageSrc={helyxImages.hero}
+          imageAlt={t("hero.imgAlt")}
+          eyebrow={t("productVisual.eyebrow")}
+          title={t("productVisual.title")}
+          caption={t("hero.imgAlt")}
+          imageAspectRatio={helyxHeroLayout.aspectRatio}
+          imagePresentation={helyxHeroLayout.presentation}
+        />
+
         {/* 360 Viewer */}
-        <section className="bg-gradient-to-b from-white to-gray-50 py-16">
+        <section id="product-tour" className="bg-gradient-to-b from-white to-gray-50 py-16">
           <Container>
             <AnimateOnScroll animation="fadeInUp" className="text-center mb-8">
               <div className="text-[#A8C117] text-xl sm:text-2xl font-medium mb-2">
@@ -914,13 +930,15 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
         </section>
 
         {/* PROJECTS, dynamic */}
-        <ProjectsCardServer
-          useFileProjects
-          showHeader
-          headerText=""
-          filter={projectFilterForPage("helyx")}
-          locale={locale}
-        />
+        <div id="deployments">
+          <ProjectsCardServer
+            useFileProjects
+            showHeader
+            headerText=""
+            filter={projectFilterForPage("helyx")}
+            locale={locale}
+          />
+        </div>
 
         <FaqSection
           id="helyx-faq-heading"
@@ -931,7 +949,11 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
 
         <ResourcesCard />
 
-        <ProductCards title={t("misc.productCardsTitle")} cards={helyxCards} />
+        <RelatedProductLineupSection
+          headingId="helyx-related-heading"
+          title={t("misc.productCardsTitle")}
+          robots={buildRelatedProductLineupRobots("helyx")}
+        />
 
         <RequestEstimateForm />
       </div>

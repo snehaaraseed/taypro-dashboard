@@ -3,7 +3,7 @@
     "meta": {
       "title": "OPEX Robotic Solar Panel Cleaning Service",
       "description": "Monthly robotic cleaning for 10 MW+ utility plants in India. Pay per panel cleaned, waterless cycles, NECTYR reports. Request a quote.",
-      "openGraphDescription": "Monthly waterless robotic cleaning: plant-specific 3–10 cycles, detailed cleaning plans, daily reports, billing per panels cleaned. GLYDE, B or T.",
+      "openGraphDescription": "Monthly waterless robotic cleaning: plant-specific 3–10 cycles, detailed cleaning plans, daily reports, billing per panels cleaned. GLYDE, HELYX, or GLYDE-X.",
       "openGraphImageAlt": "OPEX robotic solar panel cleaning service at utility-scale solar plant",
       "twitterDescription": "Pay per panel cleaned monthly. Plant study, 3–10 dry cycles, SOPs, paths, rest zones, NECTYR reports."
     },
@@ -29,14 +29,36 @@
       "primaryCta": {
         "topic": "Taypro Opex quote",
         "title": "Request a Taypro Opex quote",
-        "subtitle": "Tell us about your plant capacity and cleaning goals — our team will follow up with an Opex scope, cycle plan, and commercial proposal.",
+        "subtitle": "Tell us about your plant capacity and cleaning goals, our team will follow up with an Opex scope, cycle plan, and commercial proposal.",
         "label": "Request a quote"
       },
       "subtitleBefore": "Pay only for the",
       "subtitleDeploy": "We deploy",
       "subtitleOr": "or",
       "subtitleProgramme": "under a managed",
-      "subtitleAfter": "programme with"
+      "subtitleAfter": "programme with",
+      "subtitleShort": "Managed robotic cleaning with predictable monthly billing tied to panels cleaned, not unused machine hours.",
+      "secondaryCta": {
+        "label": "See deployments"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "3–10",
+          "label": "Dry cleaning cycles per month"
+        },
+        "stat1": {
+          "value": "Pay-per-panel",
+          "label": "OPEX billing model"
+        },
+        "stat2": {
+          "value": "Pan-India",
+          "label": "Managed service coverage"
+        }
+      }
+    },
+    "productVisual": {
+      "eyebrow": "Service at a glance",
+      "title": "Taypro managed robotic solar panel cleaning"
     },
     "faqs": {
       "0": {

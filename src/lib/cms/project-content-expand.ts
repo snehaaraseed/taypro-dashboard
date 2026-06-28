@@ -44,7 +44,7 @@ export function buildExpandProjectContentPrompt(
   return `You are expanding a SHORT Taypro utility-scale solar case study (${wordCount} words). Add at least ${wordsNeeded} words so the total reaches ${input.policy.publishMin}–${input.policy.publishMax} (tier ${input.policy.tier}).
 
 Site title: ${input.title}
-Primary SEO keyword: ${input.seoKeyword?.trim() || "(none — use location + MW in opening)"}
+Primary SEO keyword: ${input.seoKeyword?.trim() || "(none, use location + MW in opening)"}
 
 ${formatProjectFactsForPrompt(input.facts)}
 ${regionalBlock}

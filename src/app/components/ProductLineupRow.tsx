@@ -25,10 +25,10 @@ function ExploreCta({ href, label }: { href: string; label: string }) {
       href={href}
       className="group inline-flex items-center gap-2 shrink-0"
     >
-      <span className="inline-flex min-h-[30px] items-center rounded-full bg-[#e8e8e8] px-4 text-xs text-[#052638] transition-colors group-hover:bg-[#d9d9d9]">
+      <span className="inline-flex min-h-[30px] items-center rounded-full bg-[#e8e8e8] px-4 text-xs font-medium text-[#052638] transition-colors group-hover:bg-[#A8C117] group-hover:font-semibold">
         {label}
       </span>
-      <span className="inline-flex size-[38px] items-center justify-center rounded-sm border border-[#052638]/20 text-[#052638] transition-colors group-hover:border-[#052638]/40 group-hover:bg-[#052638]/5">
+      <span className="inline-flex size-[38px] items-center justify-center rounded-sm border border-[#052638]/20 bg-[#e8e8e8] text-[#052638] transition-colors group-hover:border-[#A8C117] group-hover:bg-[#A8C117]">
         <ArrowUpRight className="size-4" aria-hidden />
       </span>
     </Link>

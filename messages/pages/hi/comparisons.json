@@ -11,7 +11,7 @@
         "lead": "दोनों रोबोट पूर्ण स्वायत्त, वॉटरलेस हैं और NECTYR से प्रबंधित होते हैं। GLYDE Taypro का पेटेंटेड डुअल-पास माइक्रोफाइबर फ्लैगशिप है; NYUMA capex-कुशल फिक्स्ड-टिल्ट फ्लीट के लिए PBT सिंगल-पास प्लेटफ़ॉर्म है।"
       },
       "intro": "दोनों रोबोट पूर्ण स्वायत्त, वॉटरलेस हैं और NECTYR से प्रबंधित होते हैं। GLYDE Taypro का पेटेंटेड डुअल-पास माइक्रोफाइबर फ्लैगशिप है; NYUMA capex-कुशल फिक्स्ड-टिल्ट फ्लीट के लिए PBT सिंगल-पास प्लेटफ़ॉर्म है।",
-      "tableHeading": "GLYDE vs NYUMA — संक्षेप",
+      "tableHeading": "GLYDE vs NYUMA: संक्षेप",
       "columns": {
         "leftLabel": "GLYDE (डुअल-पास माइक्रोफाइबर)",
         "rightLabel": "NYUMA (सिंगल-पास PBT)"
@@ -20,7 +20,7 @@
         "0": {
           "factor": "सफाई तकनीक",
           "glyde": "पेटेंटेड डुअल-पास: एयरफ़्लो धूल ढीली करता है, माइक्रोफाइबर वाइप पूरा करता है",
-          "nyuma": "सिंगल-पास काउंटर-रोटेटिंग PBT ब्रश ड्रम — कम चलने वाले consumables"
+          "nyuma": "सिंगल-पास काउंटर-रोटेटिंग PBT ब्रश ड्रम, कम चलने वाले consumables"
         },
         "1": {
           "factor": "सबसे उपयुक्त",
@@ -49,19 +49,19 @@
         },
         "6": {
           "factor": "इंस्टॉल के बाद श्रम",
-          "glyde": "शून्य — पूर्ण स्वायत्त दैनिक चक्र",
-          "nyuma": "शून्य — पूर्ण स्वायत्त दैनिक चक्र"
+          "glyde": "शून्य, पूर्ण स्वायत्त दैनिक चक्र",
+          "nyuma": "शून्य, पूर्ण स्वायत्त दैनिक चक्र"
         },
         "7": {
           "factor": "फ्लीट मॉनिटरिंग",
-          "glyde": "NECTYR — LTE, Wi-Fi, RF mesh, LoRa, या LoRaWAN",
-          "nyuma": "NECTYR — LTE, Wi-Fi, RF mesh, LoRa, या LoRaWAN"
+          "glyde": "NECTYR: LTE, Wi-Fi, RF mesh, LoRa, या LoRaWAN",
+          "nyuma": "NECTYR: LTE, Wi-Fi, RF mesh, LoRa, या LoRaWAN"
         }
       },
       "faq": {
         "0": {
           "q": "क्या GLYDE और NYUMA एक ही प्लांट में चल सकते हैं?",
-          "a": "हाँ। mixed fleets common हैं — GLYDE high-soiling blocks पर, NYUMA PBT-specified rows पर। NECTYR दोनों को एक portal से schedule करता है।"
+          "a": "हाँ। mixed fleets common हैं, GLYDE high-soiling blocks पर, NYUMA PBT-specified rows पर। NECTYR दोनों को एक portal से schedule करता है।"
         },
         "1": {
           "q": "Rajasthan dust के लिए कौन बेहतर?",
@@ -94,7 +94,7 @@
         "lead": "दोनों रोबोट NEXTracker, Gamechanger और समकक्ष single-axis टेबल ±15° inter-table flex के साथ पार करते हैं। GLYDE-X पेटेंटेड dual-pass microfiber; NYUMA-X capex-sensitive tracker programmes के लिए single-pass PBT।"
       },
       "intro": "दोनों रोबोट NEXTracker, Gamechanger और समकक्ष single-axis टेबल ±15° inter-table flex के साथ पार करते हैं। GLYDE-X पेटेंटेड dual-pass microfiber; NYUMA-X capex-sensitive tracker programmes के लिए single-pass PBT।",
-      "tableHeading": "GLYDE-X vs NYUMA-X — संक्षेप",
+      "tableHeading": "GLYDE-X vs NYUMA-X: संक्षेप",
       "columns": {
         "leftLabel": "GLYDE-X (Dual-Pass)",
         "rightLabel": "NYUMA-X (Single-Pass PBT)"
@@ -102,8 +102,8 @@
       "rows": {
         "0": {
           "factor": "सफाई तंत्र",
-          "glydeX": "Dual-pass microfiber — mixed soiling के लिए airflow + wipe",
-          "nyumaX": "Single-pass PBT brush — शुष्क tracker dust belts के लिए"
+          "glydeX": "Dual-pass microfiber, mixed soiling के लिए airflow + wipe",
+          "nyumaX": "Single-pass PBT brush, शुष्क tracker dust belts के लिए"
         },
         "1": {
           "factor": "Tracker संगतता",
@@ -127,8 +127,8 @@
         },
         "5": {
           "factor": "मालिक कब चुनते हैं",
-          "glydeX": "Premium tracker rows — रात में maximum dust lift",
-          "nyumaX": "बड़ी tracker fleets — PBT capex और brush service economics"
+          "glydeX": "Premium tracker rows, रात में maximum dust lift",
+          "nyumaX": "बड़ी tracker fleets, PBT capex और brush service economics"
         },
         "6": {
           "factor": "Autonomy & scheduling",
@@ -257,7 +257,7 @@
         "7": {
           "factor": "बेड़ा निगरानी सॉफ्टवेयर",
           "taypro": "NECTYR - शेड्यूल, ब्लॉक-वार सफाई लॉग, SCADA, AMC टिकट, निर्यात रिपोर्ट",
-          "solabot": "SB-SCADA — केंद्रीकृत SCADA नियंत्रण",
+          "solabot": "SB-SCADA: केंद्रीकृत SCADA नियंत्रण",
           "aegeus": "LoRaWAN-based remote monitoring and diagnostics",
           "skilancer": "क्लाउड-आधारित, पीसी/मोबाइल इंटरफ़ेस",
           "vayu": "वायरलेस रिमोट मॉनिटरिंग (बुनियादी)"
@@ -356,7 +356,7 @@
           },
           "2": {
             "title": "सबसे व्यापक बेड़ा सॉफ्टवेयर",
-            "body": "NECTYR supports LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN — five connectivity options sized per site by Taypro engineers during commissioning. Competitors offer single-protocol solutions: Aegeus uses LoRaWAN, Solabot uses SCADA (protocol unspecified). NECTYR also includes block-wise scheduling, cleaning logs, AMC ticketing, and investor-grade report exports — features not published by any competitor."
+            "body": "NECTYR supports LTE, Wi-Fi, hybrid self-healing RF mesh, LoRa, and LoRaWAN: five connectivity options sized per site by Taypro engineers during commissioning. Competitors offer single-protocol solutions: Aegeus uses LoRaWAN, Solabot uses SCADA (protocol unspecified). NECTYR also includes block-wise scheduling, cleaning logs, AMC ticketing, and investor-grade report exports, features not published by any competitor."
           },
           "3": {
             "title": "बहु-प्रयोगशाला हार्डवेयर और मॉड्यूल-सुरक्षा प्रमाणपत्र",
@@ -379,7 +379,7 @@
       "howToRead": {
         "heading": "इस तुलना को कैसे पढ़ें",
         "body": "रोबोट गणना और परियोजना गणना बाजार में पैठ मापती है। GW संरक्षित और सफाई प्रौद्योगिकी की गहराई बड़े पैमाने पर परिचालन क्षमता को मापती है। एक रोबोट पार्टनर का मूल्यांकन करने वाले 50-250 MW उपयोगिता संयंत्र के लिए, जो प्रश्न मायने रखते हैं वे हैं: क्या सफाई तकनीक आपके मॉड्यूल वारंटी की रक्षा करती है, क्या फ्लीट सॉफ़्टवेयर आपको ऑडिट-तैयार O&M डेटा देता है, क्या पार्टनर पूरे भारत में एक ही दिन में ब्रेकडाउन का समर्थन कर सकता है, और क्या कोई वाणिज्यिक मॉडल है जो आपकी बैलेंस शीट से मेल खाता है? इनमें से प्रत्येक मानदंड पर, Taypro विशिष्ट, सत्यापन योग्य उत्तर प्रकाशित करता है - यही कारण है कि यह तुलना केवल आधिकारिक वेबसाइट स्रोतों से ली गई है।",
-        "ctaLine": "अपने संयंत्र के लिए Taypro के रोबोटों का मूल्यांकन करने के लिए, <संपर्क>कोटेशन का अनुरोध करें</संपर्क करें> या <कैलकुलेटर>ROI कैलकुलेटर</कैलकुलेटर> पर एक दिशात्मक भुगतान अनुमान चलाएं। अलग-अलग रोबोट मॉडल की तुलना करने के लिए, <hub>पूर्ण उत्पाद केंद्र</hub> देखें।"
+        "ctaLine": "अपने संयंत्र के लिए Taypro के रोबोटों का मूल्यांकन करने के लिए, <contact>कोटेशन का अनुरोध करें</contact> या <calculator>ROI कैलकुलेटर</calculator> पर एक दिशात्मक भुगतान अनुमान चलाएं। अलग-अलग रोबोट मॉडल की तुलना करने के लिए, <hub>पूर्ण उत्पाद केंद्र</hub> देखें।"
       },
       "faq": {
         "0": {
@@ -406,7 +406,7 @@
         "title": "सौर पैनल सफाई रोबोट बनाम मैन्युअल सफाई",
         "lead": "मैनुअल गीली धुलाई और रोबोटिक जलरहित सफाई दोनों ही गंदगी को दूर करते हैं, लेकिन वे पानी की उपलब्धता, श्रम जोखिम, पूरा होने का प्रमाण और MW-स्केल संयंत्रों पर दीर्घकालिक लागत पर भिन्न होते हैं।"
       },
-      "intro": "राजस्थान, गुजरात और मध्य प्रदेश में उपयोगिता IPPs अक्सर मैनुअल क्रू या ट्रैक्टर-माउंटेड ब्रश से शुरू होती है, फिर गंदगी के नुकसान, पानी की लागत, या सुरक्षा घटनाओं में वृद्धि होने पर रोबोट का मूल्यांकन करती है। यह पृष्ठ निर्णय मानदंडों की तुलना करता है—प्रत्येक साइट के लिए एक भी विजेता नहीं।",
+      "intro": "राजस्थान, गुजरात और मध्य प्रदेश में उपयोगिता IPPs अक्सर मैनुअल क्रू या ट्रैक्टर-माउंटेड ब्रश से शुरू होती है, फिर गंदगी के नुकसान, पानी की लागत, या सुरक्षा घटनाओं में वृद्धि होने पर रोबोट का मूल्यांकन करती है। यह पृष्ठ निर्णय मानदंडों की तुलना करता है, प्रत्येक साइट के लिए एक भी विजेता नहीं।",
       "tableHeading": "साथ-साथ तुलना",
       "rows": {
         "0": {
@@ -460,14 +460,14 @@
       },
       "deepDive": {
         "heading": "MW-स्केल लागत और ऑडिट तुलना",
-        "p1": "Manual programmes hide cost in variable labour and water — easy to under-budget in year one, expensive when dust season demands weekly washes. Robots front-load CAPEX or convert to OPEX per panel cleaned, with block-level logs exportable for PR recovery analysis.",
+        "p1": "Manual programmes hide cost in variable labour and water, easy to under-budget in year one, expensive when dust season demands weekly washes. Robots front-load CAPEX or convert to OPEX per panel cleaned, with block-level logs exportable for PR recovery analysis.",
         "p2": "प्रदर्शन गारंटी के तहत परिसंपत्ति प्रबंधकों को इस बात का सबूत चाहिए कि सफाई तय समय पर हुई। NECTYR टाइमस्टैम्प मार्ग, अपवाद, और बैटरी स्वैप; मैन्युअल प्रोग्राम अक्सर फ़ोटो और साइन-ऑफ़ शीट पर निर्भर करते हैं जो 200+ ब्लॉक में स्केल नहीं करते हैं।",
         "p3": "ब्रेक-ईवन मिट्टी के नुकसान, टैरिफ और चक्र आवृत्ति पर निर्भर करता है - अकेले रोबोट ब्रोशर की कीमत पर नहीं। अपने संयंत्र को सौर पैनल सफाई ROI कैलकुलेटर पर मॉडल करें, फिर Taypro लेआउट समीक्षा के साथ मान्य करें।"
       }
     },
     "tayproVsSolabot": {
       "meta": {
-        "title": "Taypro बनाम Solabot — सोलर क्लीनिंग रोबोट तुलना भारत",
+        "title": "Taypro बनाम Solabot: सोलर क्लीनिंग रोबोट तुलना भारत",
         "description": "Taypro और Solabot प्रौद्योगिकियों की सत्यापित तुलना: डुअल-पास बनाम PBT सफाई, ट्रैकर रोबोट, NECTYR बनाम SCADA, बहु-प्रयोगशाला प्रमाणन, और OPEX मॉडल। आधिकारिक वेबसाइटों से डेटा, जून 2026।"
       },
       "hero": {
@@ -517,7 +517,7 @@
         "7": {
           "factor": "बेड़ा निगरानी सॉफ्टवेयर",
           "taypro": "NECTYR - शेड्यूल, ब्लॉक-वार सफाई लॉग, SCADA, AMC टिकट, निर्यात रिपोर्ट",
-          "competitor": "SB-SCADA — केंद्रीकृत SCADA नियंत्रण"
+          "competitor": "SB-SCADA: केंद्रीकृत SCADA नियंत्रण"
         },
         "8": {
           "factor": "कनेक्टिविटी विकल्प",
@@ -594,7 +594,7 @@
       "faq": {
         "0": {
           "q": "क्या हमें आमने-सामने का परीक्षण चलाना चाहिए?",
-          "a": "हां—दो विक्रेताओं को शॉर्टलिस्ट करें, प्रतिनिधि ब्लॉकों पर 30-60 दिन का मृदा परीक्षण चलाएं, और PR उत्थान, चक्र समय और लॉग कवरेज की तुलना करें।"
+          "a": "हां, दो विक्रेताओं को शॉर्टलिस्ट करें, प्रतिनिधि ब्लॉकों पर 30-60 दिन का मृदा परीक्षण चलाएं, और PR उत्थान, चक्र समय और लॉग कवरेज की तुलना करें।"
         },
         "1": {
           "q": "क्या Taypro मौजूदा संयंत्रों पर Solabot को प्रतिस्थापित करता है?",
@@ -602,13 +602,13 @@
         },
         "2": {
           "q": "Solabot Taypro से अधिक रोबोट क्यों प्रकाशित करता है?",
-          "a": "Solabot भेजी गई कुल इकाइयों की गणना करता है; Taypro तैनात और संयंत्र-स्तरीय केस अध्ययन GW प्रकाशित करता है। अपने संयंत्र की प्रौद्योगिकी फिट, सॉफ़्टवेयर ऑडिट आवश्यकताओं और सेवा SLA की तुलना करें—केवल इकाई योग की नहीं।"
+          "a": "Solabot भेजी गई कुल इकाइयों की गणना करता है; Taypro तैनात और संयंत्र-स्तरीय केस अध्ययन GW प्रकाशित करता है। अपने संयंत्र की प्रौद्योगिकी फिट, सॉफ़्टवेयर ऑडिट आवश्यकताओं और सेवा SLA की तुलना करें, केवल इकाई योग की नहीं।"
         }
       }
     },
     "tayproVsSkilancer": {
       "meta": {
-        "title": "Taypro बनाम Skilancer — सोलर क्लीनिंग रोबोट तुलना भारत",
+        "title": "Taypro बनाम Skilancer: सोलर क्लीनिंग रोबोट तुलना भारत",
         "description": "Taypro और Skilancer सोलर की सत्यापित तुलना: डुअल-पास पेटेंट, ट्रैकर रोबोट, NECTYR फ़्लीट सॉफ़्टवेयर, GW स्केल बनाम प्रोजेक्ट गणना, और OPEX मॉडल। आधिकारिक वेबसाइटों से डेटा, जून 2026।"
       },
       "hero": {
@@ -749,7 +749,7 @@
     },
     "tayproVsAegeus": {
       "meta": {
-        "title": "Taypro बनाम Aegeus — सोलर क्लीनिंग रोबोट तुलना भारत",
+        "title": "Taypro बनाम Aegeus: सोलर क्लीनिंग रोबोट तुलना भारत",
         "description": "Verified comparison of Taypro and Aegeus Technologies: dual-pass vs Airwash cleaning, tracker robots, NECTYR vs LoRaWAN, multi-laboratory Taypro certifications, and OPEX vs MCaaS. Data from official websites, June 2026."
       },
       "hero": {
@@ -861,7 +861,7 @@
           },
           "1": {
             "title": "NECTYR मल्टी-प्रोटोकॉल कनेक्टिविटी",
-            "body": "NECTYR supports five connectivity options sized per site. Aegeus relies on LoRaWAN only — a single-protocol solution that may not suit all plant network topologies."
+            "body": "NECTYR supports five connectivity options sized per site. Aegeus relies on LoRaWAN only, a single-protocol solution that may not suit all plant network topologies."
           },
           "2": {
             "title": "5 GW+ को प्लांट-स्तरीय प्रमाण के साथ तैनात किया गया",
@@ -890,7 +890,7 @@
     },
     "tayproVsVayu": {
       "meta": {
-        "title": "Taypro बनाम Vayu Solar — सोलर क्लीनिंग रोबोट तुलना भारत",
+        "title": "Taypro बनाम Vayu Solar: सोलर क्लीनिंग रोबोट तुलना भारत",
         "description": "Taypro और Vayu Solar की सत्यापित तुलना: डुअल-पास पेटेंट, ट्रैकर रोबोट, NECTYR फ़्लीट सॉफ़्टवेयर, और 5 GW+ तैनात क्षमता। आधिकारिक वेबसाइटों से डेटा, जून 2026।"
       },
       "hero": {

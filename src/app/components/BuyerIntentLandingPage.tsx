@@ -81,8 +81,7 @@ export default async function BuyerIntentLandingPage({
 
   const pageUrl = `${SITE_URL}${config.path}`;
   const breadcrumbs = [
-    { name: tCommon("breadcrumbHome"), href: "/" },
-    ...(t.has("breadcrumbHub")
+    { name: tCommon("breadcrumbHome"), href: "/" }, ...(t.has("breadcrumbHub")
       ? [{ name: t("breadcrumbHub"), href: t("breadcrumbHubHref") }]
       : []),
     { name: t("breadcrumb"), href: "" },
@@ -645,7 +644,7 @@ export default async function BuyerIntentLandingPage({
                   ).map((key) => (
                     <li key={key} className="flex gap-2">
                       <span className="text-[#5c6f82] font-bold" aria-hidden>
-                        —
+        -
                       </span>
                       {t(`eligibility.not${key}`)}
                     </li>
@@ -932,7 +931,7 @@ export default async function BuyerIntentLandingPage({
           showMessageField
           analyticsFormType="buyer_intent_landing"
           analyticsSource={config.path}
-          leadIntent={`Quote request — ${config.path}`}
+          leadIntent={`Quote request, ${config.path}`}
         />
       ) : null}
     </>

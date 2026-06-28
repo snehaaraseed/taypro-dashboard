@@ -63,7 +63,27 @@ Tier is resolved from editorial `angleId`, GSC volume/competition, and keyword p
 
 **Author rotation (default):** `BLOG_AUTHOR_PICK=rotate` skips authors who bylined a post in the last `BLOG_AUTHOR_ROTATE_DAYS` (default 7) when an expertise match exists. Among equally qualified authors (same expertise tier), automation prefers whoever has the **fewest published English posts** so bylines stay balanced over time.
 
-**Models:** All text generation uses **Google AI Studio free tier** only (`gemini-3.1-flash-lite` / `gemini-3.1-flash-lite-preview`). Paid model IDs in env are ignored with a console warning.
+**Models (v2 — Gemma only):** Blog, translation, project improve, and **Search grounding (SERP/facts/discovery)** all use **`gemma-4-31b-it`** (retry: **`gemma-4-26b-a4b-it`**). Gemma 4 supports the `googleSearch` grounding tool via the Gemini API at the **1,500 RPD/key** free tier, so grounding is no longer throttled by the ~20 RPD Gemini 2.5 Flash ceiling. Gemini Flash is not used in automation.
+
+```
+GEMINI_API_KEY=...
+GEMINI_API_KEY_2=...
+GEMINI_API_KEY_3=...
+GEMINI_BLOG_MODEL=gemma-4-31b-it
+GEMINI_BLOG_RETRY_MODEL=gemma-4-26b-a4b-it
+GEMINI_TRANSLATION_MODEL=gemma-4-31b-it
+GEMINI_TRANSLATION_RETRY_MODEL=gemma-4-26b-a4b-it
+BLOG_PIPELINE_MAX_OUTER_ATTEMPTS=2
+BLOG_HYBRID_FALLBACK_ATTEMPTS=0
+BLOG_CRON_MAX_FAIL_POSTS=3
+GEMINI_RESERVED_GEMMA_CALLS_BLOG=40
+```
+
+**Editorial calendar:** `npm run seo:generate-editorial-calendar` writes `data/editorial-calendar.json` (90 days). Weekly cron: `taypro-editorial-calendar` (Sunday 02:00 IST).
+
+**Persistent state:** `.runtime/blog-cron/editorial-state.json` stores cross-cron rejections. **Evergreen fallback:** `data/evergreen-fallback-catalog.json` when primary+backup fail.
+
+**Models:** All text generation uses **Google AI Studio free tier** Gemma 4 (`gemma-4-31b-it` / `gemma-4-26b-a4b-it`). Paid model IDs in env are ignored with a console warning.
 
 **GSC closed loop (recommended):** Weekly `POST /api/automation/sync-gsc` pulls Search Console query data and refreshes `data/seo-gsc-boost.json` + `data/gsc-latest-report.json`. Setup: `docs/GSC_API_CLOSED_LOOP.md`. On production after deploy: `npm run ops:install-gsc-cron` (or `bash scripts/install-gsc-sync-cron.sh`). Logs: `logs/gsc-sync.log`. Manual fallback: paste queries into `seo-gsc-boost.json` `keywords` array.
 
@@ -94,11 +114,17 @@ Structure validation failures (too short, missing H2s/links) now trigger a **new
 | Setting | Default | Purpose |
 |---------|---------|---------|
 | `GEMINI_QUOTA_SOFT_START_MINUTES` | `30` | Writer starts at **00:30 Pacific** (~**1:00 PM IST**) after RPD reset at midnight PT (~12:30 IST) |
-| `GEMINI_GROUNDING_MODEL` | `gemini-2.5-flash` | Search grounding only (SERP + facts); ~20 RPD free tier |
-| `GEMINI_BLOG_MODEL` | `gemini-3.1-flash-lite` | Topic, title, plan, body — ~500 RPD |
+| `GEMINI_GROUNDING_MODEL` | `gemma-4-31b-it` | Search grounding (SERP + facts + discovery) via Gemma 4 googleSearch tool (~1,500 RPD/key) |
+| `GEMINI_BLOG_MODEL` | `gemma-4-31b-it` | Plan, sections, FAQ, expand, repair (~1500 RPD/key) |
+| `GEMINI_TRANSLATION_MODEL` | `gemma-4-31b-it` | CMS translation + project improve (shared Gemma pool after blog done) |
 | `GEMINI_SERP_MAX_CALLS_PER_BLOG` | `2` | Max grounding calls per blog (1 SERP + 1 fact) |
+| `BLOG_RANK_JUDGE` | `true` | Gemma LLM-as-judge rank-readiness gate after the heuristic scorecard. Set `false` to disable. Fail-safe: if the judge call errors, it never blocks publishing. |
+| `BLOG_JUDGE_MIN_SCORE` | `70` | Minimum judge score (0-100) to publish. Drafts below this are rejected and retried with the next brief. |
+| `BLOG_INLINE_CITATIONS` | `true` | Add grounded inline citations + a "Sources and further reading" section from Google Search grounding. Set `false` to disable. |
 
-When **2.5 Flash grounding** RPD is hit, the blog **continues on 3.1 Flash Lite** without live SERP/facts. Cron `quotaExhausted` hold applies only when **3.1 text-model** quota is exhausted.
+When grounding RPD is hit, the blog **continues without live SERP/facts** (fallback brief). The LLM-judge and inline citations both degrade gracefully (judge fails open; citations append only what grounding returned, or skip). Cron `quotaExhausted` hold applies only when the **Gemma text-model** quota is exhausted.
+
+**Quality pipeline (post-draft, before publish):** uniqueness gates → heuristic rank-readiness scorecard → **Gemma LLM-judge** (vs. live SERP context) → **inline grounded citations** → images → schedule. Judge/citation failures are retryable (`Rank-readiness gate failed` → new brief).
 
 **Server crontab:**
 

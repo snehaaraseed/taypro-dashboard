@@ -2,7 +2,7 @@
   "MinyPage": {
     "meta": {
       "title": "MINY Rooftop Solar Panel Cleaning Robot India",
-      "description": "Compact waterless rooftop cleaning robot for C&I plants in India. MINY coming soon — register interest for launch updates.",
+      "description": "Compact waterless rooftop cleaning robot for C&I plants in India. MINY coming soon, register interest for launch updates.",
       "openGraphTitle": "Rooftop Solar Panel Cleaning Robot | MINY",
       "openGraphDescription": "Coming soon: a compact Taypro cleaning robot built for smaller rooftop solar plants across India.",
       "openGraphImageAlt": "Taypro MINY compact rooftop solar panel cleaning robot, coming soon",
@@ -21,9 +21,31 @@
     "hero": {
       "comingSoonBadge": "Coming soon",
       "title": "Rooftop Solar Panel Cleaning Robot India",
-      "subtitle": "MINY is Taypro's compact waterless robot for C&I and commercial rooftops — lighter footprint, register interest for launch updates and pilot availability.",
+      "subtitle": "MINY is Taypro's compact waterless robot for C&I and commercial rooftops, lighter footprint, register interest for launch updates and pilot availability.",
       "imgAlt": "Taypro MINY compact rooftop solar panel cleaning robot, coming soon",
-      "ctaText": "Register interest"
+      "ctaText": "Register interest",
+      "subtitleShort": "Compact waterless cleaning for C&I rooftops, register for launch updates and pilot availability.",
+      "secondaryCta": {
+        "label": "Register interest"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "Compact",
+          "label": "Sized for rooftop layouts"
+        },
+        "stat1": {
+          "value": "Waterless",
+          "label": "Dry cleaning philosophy"
+        },
+        "stat2": {
+          "value": "C&I",
+          "label": "Commercial & industrial focus"
+        }
+      }
+    },
+    "productVisual": {
+      "eyebrow": "Product preview",
+      "title": "Taypro MINY compact rooftop cleaning robot"
     },
     "intro": {
       "eyebrow": "Built for rooftops",

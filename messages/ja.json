@@ -1,6 +1,9 @@
 {
   "Common": {
     "breadcrumbHome": "ホーム",
+    "productLineup": {
+      "exploreCta": "{model} を探索する"
+    },
     "errorTitle": "このページを読み込めませんでした",
     "errorBody": "接続がタイムアウトしたか、ページの読み込み中に問題が発生しました。再読み込みするか、別のページにお戻りください。",
     "errorReload": "再読み込み"
@@ -18,6 +21,7 @@
     "investors": "パートナー・投資家",
     "contactUs": "お問い合わせ",
     "blogs": "ブログ",
+    "insights": "Insights",
     "solarRobots": "ソーラーロボット",
     "solutions": "ソリューション",
     "solutionsTitle": "ソーラーパネル清掃ロボットソリューション",
@@ -54,6 +58,7 @@
     "viewAllCompare": "すべての比較ガイド",
     "viewAllStates": "すべての地域ガイド",
     "priceGuideNav": "ロボット価格ガイド (India)",
+    "cleaningMachineNav": "ソーラーパネル清掃マシン",
     "compareTayproVsSolabot": "Taypro vs Solabot",
     "compareIndianCompetitors": "Taypro vs インド競合",
     "compareRobotVsManual": "ロボット vs 手動清掃",
@@ -70,6 +75,7 @@
     "aboutUs": "会社概要",
     "projects": "プロジェクト",
     "blogs": "ブログ",
+    "insights": "Insights",
     "contact": "お問い合わせ",
     "sitemap": "サイトマップ",
     "ourTechnology": "技術",

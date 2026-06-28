@@ -9,7 +9,7 @@
       "twitterDescription": "インドの実用規模および屋上太陽光発電用の Taypro 清掃機械とロボットを比較します。"
     },
     "breadcrumbs": {
-      "current": "Solar panel cleaning machine"
+      "current": "ソーラーパネル洗浄機"
     },
     "hero": {
       "eyebrow": "バイヤーガイド · インド",
@@ -19,36 +19,36 @@
       "ctaQuote": "見積もりを依頼する"
     },
     "intro": {
-      "eyebrow": "What buyers mean",
-      "heading": "Cleaning machine vs cleaning robot on solar plants",
-      "p1": "In Indian RFQs, solar panel cleaning machine often describes the same category as a solar panel cleaning robot — an automated platform that runs on module rows without manual brush crews. At 10 MW and above, waterless robots with fleet software (NECTYR) replace episodic wet washing.",
-      "p2": "Taypro manufactures GLYDE and NYUMA for fixed-tilt utility arrays, GLYDE-X and NYUMA-X for single-axis trackers, and HELYX for semi-automatic scattered blocks. Opex delivers the same hardware as a pay-per-panel-cleaned service when you prefer not to capitalise robots."
+      "eyebrow": "購入者の意味",
+      "heading": "太陽光発電所の清掃機と清掃ロボット",
+      "p1": "インドの RFQs では、ソーラー パネル クリーニング マシンは、ソーラー パネル クリーニング ロボット、つまり手動のブラシ作業員なしでモジュール列上で動作する自動プラットフォームと同じカテゴリとして説明されることがよくあります。 10 MW 以降では、フリート ソフトウェア (NECTYR) を備えた水なしロボットが一時的な湿式洗浄を置き換えます。ソーラー パネル掃除ロボット ハブでモデルの選択を開始します。このページは同義語のブリッジであり、主要な製品カタログではありません。",
+      "p2": "Taypro は、固定傾斜ユーティリティ アレイ用の GLYDE および NYUMA、単軸トラッカー用の GLYDE-X および NYUMA-X、および半自動分散ブロック用の HELYX を製造しています。 Opex は、ロボットを活用したくない場合に、パネルごとに支払うクリーニング サービスと同じハードウェアを提供します。"
     },
     "models": {
-      "eyebrow": "Machine types",
-      "heading": "Which Taypro cleaning machine fits your site?",
-      "intro": "Match array geometry and procurement model — then validate robot count with our ROI calculator or a layout review.",
-      "glydeTitle": "GLYDE — automatic dual-pass (fixed tilt)",
-      "glydeBody": "Waterless airflow plus microfiber for daily utility cadence on fixed and seasonal-tilt rows.",
-      "nyumaTitle": "NYUMA — automatic single-pass PBT",
-      "nyumaBody": "Single-pass PBT brush drum for high-throughput fixed-tilt fleets with AI-driven pressure logic.",
-      "helyxTitle": "HELYX — semi-automatic portable",
-      "helyxBody": "Crew-assisted pick-and-place robot for scattered blocks or hybrid coverage on large sites.",
-      "rooftopTitle": "MINY — compact rooftop robot (coming soon)",
-      "rooftopBody": "Register interest for Taypro's compact rooftop solar panel cleaning robot for C&I and residential portfolios.",
-      "ctaGlyde": "GLYDE product page",
-      "ctaNyuma": "NYUMA product page",
-      "ctaHelyx": "HELYX product page",
-      "ctaRooftop": "MINY rooftop robot",
-      "ctaHub": "Full solutions hub"
+      "eyebrow": "マシンタイプ",
+      "heading": "あなたの現場に適した Taypro 洗浄機はどれですか?",
+      "intro": "アレイの形状と調達モデルを照合し、ROI 計算ツールまたはレイアウトのレビューでロボットの数を検証します。",
+      "glydeTitle": "GLYDE: 自動デュアルパス (固定傾斜)",
+      "glydeBody": "水のないエアフローとマイクロファイバーにより、固定列および季節傾斜列での毎日のユーティリティ リズムを実現します。",
+      "nyumaTitle": "NYUMA: 自動シングルパス PBT",
+      "nyumaBody": "AI 駆動の圧力ロジックを備えた高スループットの固定傾斜フリート用のシングルパス PBT ブラシ ドラム。",
+      "helyxTitle": "HELYX: 半自動ポータブル",
+      "helyxBody": "作業員支援のピック アンド プレース ロボットにより、散在するブロックや大規模な現場でのハイブリッド カバレッジを実現します。",
+      "rooftopTitle": "MINY: コンパクトな屋上ロボット (近日発売予定)",
+      "rooftopBody": "Taypro の C&I および住宅ポートフォリオ用のコンパクトな屋上ソーラー パネル清掃ロボットに興味を登録してください。",
+      "ctaGlyde": "GLYDE 製品ページ",
+      "ctaNyuma": "NYUMA 製品ページ",
+      "ctaHelyx": "HELYX 製品ページ",
+      "ctaRooftop": "MINY 屋上ロボット",
+      "ctaHub": "完全なソリューションハブ"
     },
     "pricing": {
-      "eyebrow": "Commercial",
-      "heading": "Solar panel cleaning machine price in India",
-      "body": "Machine price depends on MW capacity, row layout, tracker vs fixed tilt, automation level, and CAPEX vs Opex. Use our public price guide and ROI calculator for directional bands — then contact Taypro for a site-specific fleet quote.",
-      "ctaPrice": "Robot price guide (India)",
-      "ctaCalculator": "ROI calculator",
-      "ctaService": "Opex cleaning service"
+      "eyebrow": "コマーシャル",
+      "heading": "インドのソーラーパネル洗浄機の価格",
+      "body": "Machine price depends on MW capacity, row layout, tracker vs fixed tilt, automation level, and CAPEX vs Opex. Use our public price guide and ROI calculator for directional bands, then contact Taypro for a site-specific fleet quote.",
+      "ctaPrice": "ロボットの価格ガイド (インド)",
+      "ctaCalculator": "ROI 計算機",
+      "ctaService": "Opex クリーニング サービス"
     },
     "faq": {
       "heading": "ソーラーパネル洗浄機に関するよくある質問",
@@ -65,15 +65,15 @@
       "a4": "まずはロボット洗浄と手動洗浄、水なし洗浄方法と水ベース洗浄方法、Taypro と Solabot またはその他のインドのロボット OEM の比較ガイドから始めて、レイアウト ベースの見積もりをリクエストしてください。"
     },
     "explore": {
-      "heading": "Explore next",
-      "linkHub": "Solar cleaning robots hub",
-      "linkTechnology": "Cleaning technology",
-      "linkPrice": "Robot price guide",
-      "linkCompareManual": "Robot vs manual cleaning",
-      "linkCompareSolabot": "Taypro vs Solabot"
+      "heading": "次に探索する",
+      "linkHub": "太陽清掃ロボットハブ",
+      "linkTechnology": "洗浄技術",
+      "linkPrice": "ロボットの価格ガイド",
+      "linkCompareManual": "ロボットと手動の清掃",
+      "linkCompareSolabot": "Taypro 対 Solabot"
     }
   },
   "Common": {
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "家"
   }
 }

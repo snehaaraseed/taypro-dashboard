@@ -6,19 +6,19 @@
       "openGraphTitle": "সোলার O&M কোম্পানি ভারত | Taypro",
       "openGraphDescription": "৫০–৫০০ MW প্ল্যান্ট O&M।"
     },
-    "breadcrumbHub": "Utility solar operations",
+    "breadcrumbHub": "ইউটিলিটি সোলার অপারেশন",
     "breadcrumbHubHref": "/utility-scale-solar-operations",
     "breadcrumb": "সোলার O&M সেবা",
     "schema": {
-      "name": "Taypro Solar Plant O&M Services India",
-      "description": "Solar plant operation and maintenance services combining robotic module cleaning, NECTYR fleet monitoring, and ORION plant intelligence for Indian utility-scale assets.",
-      "serviceType": "Solar plant operation and maintenance",
-      "areaServed": "India"
+      "name": "Taypro সোলার প্ল্যান্ট O&M সার্ভিসেস ইন্ডিয়া",
+      "description": "রোবোটিক মডিউল পরিষ্কার, NECTYR ফ্লিট পর্যবেক্ষণ, এবং ORION প্ল্যান্ট ইন্টেলিজেন্সের সমন্বয়ে সোলার প্ল্যান্ট অপারেশন এবং রক্ষণাবেক্ষণ পরিষেবাগুলি ভারতীয় ইউটিলিটি-স্কেল সম্পদের জন্য।",
+      "serviceType": "সোলার প্ল্যান্ট অপারেশন এবং রক্ষণাবেক্ষণ",
+      "areaServed": "ভারত"
     },
     "hero": {
       "eyebrow": "O&M সংগ্রহ · ভারত ইউটিলিটি সোলার",
       "title": "ইউটিলিটি প্ল্যান্টের জন্য সোলার O&M",
-      "subtitle": "Taypro O&M লুপ বন্ধ করে যা ম্যানুয়াল ক্রু এবং মৌলিক SCADA পারে না: স্কেলে জলবিহীন রোবোটিক পরিষ্কার করা, NECTYR ফ্লিট অপারেশন, এবং ORION উদ্ভিদ বুদ্ধিমত্তা — ভারত জুড়ে SLA-সমর্থিত ফিল্ড প্রতিক্রিয়া সহ।",
+      "subtitle": "Taypro O&M লুপ বন্ধ করে যা ম্যানুয়াল ক্রু এবং মৌলিক SCADA পারে না: স্কেলে জলবিহীন রোবোটিক পরিষ্কার করা, NECTYR ফ্লিট অপারেশন, এবং ORION উদ্ভিদ বুদ্ধিমত্তা, ভারত জুড়ে SLA-সমর্থিত ফিল্ড প্রতিক্রিয়া সহ।",
       "ctaPrimary": "O&M প্রস্তাব অনুরোধ",
       "ctaPrimaryHref": "/contact",
       "ctaSecondary": "পরিস্কার রোবট অন্বেষণ",
@@ -31,7 +31,7 @@
         "tag": "ক্ষেত্র সম্পাদন",
         "stat": "9 GW+",
         "label": "মাসিক রোবোটিক পরিস্কার ক্ষমতা",
-        "body": "উৎপাদন-স্কেল বহর — প্রদর্শন ইউনিট নয়। Taypro প্রতিদিন SECI, স্টেট ডিসকম, এবং IPP পোর্টফোলিওতে রোবট পরিচালনা করে।"
+        "body": "উৎপাদন-স্কেল বহর, প্রদর্শন ইউনিট নয়। Taypro প্রতিদিন SECI, স্টেট ডিসকম, এবং IPP পোর্টফোলিওতে রোবট পরিচালনা করে।"
       },
       "card1": {
         "tag": "আপটাইম",
@@ -49,15 +49,15 @@
         "tag": "রোডম্যাপ",
         "stat": "ORION",
         "label": "উদ্ভিদ বুদ্ধি স্তর",
-        "body": "প্রজন্ম-সচেতন মনিটরিং SCADA পরিপূরক করার জন্য ডিজাইন করা হয়েছে — Taypro ফ্লিটগুলির জন্য ভবিষ্যদ্বাণীমূলক পরিচ্ছন্নতার সময়সূচী এবং ফলন পূর্বাভাস।"
+        "body": "প্রজন্ম-সচেতন মনিটরিং SCADA পরিপূরক করার জন্য ডিজাইন করা হয়েছে, Taypro ফ্লিটগুলির জন্য ভবিষ্যদ্বাণীমূলক পরিচ্ছন্নতার সময়সূচী এবং ফলন পূর্বাভাস।"
       }
     },
     "cards": {
       "eyebrow": "O&M সুযোগ",
-      "heading": "কি Taypro সৌর O&M কভার করে — এবং আপনার EPC এর সাথে কী থাকে",
+      "heading": "কি Taypro সৌর O&M কভার করে, এবং আপনার EPC এর সাথে কী থাকে",
       "card0": {
         "title": "মডিউল পরিষ্কার এবং ময়লা ব্যবস্থাপনা",
-        "body": "রোবোটিক ড্রাই ক্লিনিং, সাইকেল শিডিউলিং, সয়েলিং স্টাডিজ, এবং PR পুনরুদ্ধার যাচাইকৃত পরিচ্ছন্নতার প্রমাণের সাথে সংযুক্ত — ভারতীয় ইউটিলিটি প্ল্যান্টে সবচেয়ে বড় পুনরাবৃত্ত O&M খরচ।"
+        "body": "রোবোটিক ড্রাই ক্লিনিং, সাইকেল শিডিউলিং, সয়েলিং স্টাডিজ, এবং PR পুনরুদ্ধার যাচাইকৃত পরিচ্ছন্নতার প্রমাণের সাথে সংযুক্ত, ভারতীয় ইউটিলিটি প্ল্যান্টে সবচেয়ে বড় পুনরাবৃত্ত O&M খরচ।"
       },
       "card1": {
         "title": "ফ্লিট পর্যবেক্ষণ এবং AMC",
@@ -77,58 +77,58 @@
       },
       "card5": {
         "title": "পুনর্নবীকরণ এবং ORION আপগ্রেড পথ",
-        "body": "ইতিমধ্যেই Taypro রোবটগুলিতে থাকা ফ্লিটগুলি চুক্তি পুনর্নবীকরণের সময় ORION উদ্ভিদ বুদ্ধিমত্তা সংযুক্ত করতে পারে — হার্ডওয়্যার প্রতিস্থাপন ছাড়াই ভবিষ্যদ্বাণীমূলক পরিষ্কারের সময়সূচী এবং ধুলো-ইভেন্ট সতর্কতা৷"
+        "body": "ইতিমধ্যেই Taypro রোবটগুলিতে থাকা ফ্লিটগুলি চুক্তি পুনর্নবীকরণের সময় ORION উদ্ভিদ বুদ্ধিমত্তা সংযুক্ত করতে পারে, হার্ডওয়্যার প্রতিস্থাপন ছাড়াই ভবিষ্যদ্বাণীমূলক পরিষ্কারের সময়সূচী এবং ধুলো-ইভেন্ট সতর্কতা৷"
       }
     },
     "pillars": {
-      "eyebrow": "Three layers",
-      "heading": "Physical cleaning · Fleet data · Plant intelligence",
+      "eyebrow": "তিন স্তর",
+      "heading": "শারীরিক পরিচ্ছন্নতা · ফ্লিট ডেটা · উদ্ভিদ বুদ্ধিমত্তা",
       "pillar0": {
-        "tag": "Execution",
-        "title": "Robotic cleaning service",
-        "body": "GLYDE, GLYDE-X, NYUMA, NYUMA-X under managed OPEX or CAPEX+AMC — waterless cycles without tanker logistics.",
-        "link": "OPEX cleaning service"
+        "tag": "মৃত্যুদন্ড",
+        "title": "রোবোটিক ক্লিনিং সার্ভিস",
+        "body": "GLYDE, GLYDE-X, NYUMA, NYUMA-X under managed OPEX or CAPEX+AMC: waterless cycles without tanker logistics.",
+        "link": "OPEX পরিস্কার পরিসেবা"
       },
       "pillar1": {
-        "tag": "Operations",
-        "title": "NECTYR fleet portal",
-        "body": "Live fleet telemetry, cleaning SOPs, ticket management, and monthly settlement reports for O&M auditors.",
-        "link": "Explore NECTYR"
+        "tag": "অপারেশন",
+        "title": "NECTYR ফ্লিট পোর্টাল",
+        "body": "লাইভ ফ্লিট টেলিমেট্রি, SOP পরিষ্কার করা, টিকিট ব্যবস্থাপনা, এবং O&M নিরীক্ষকদের মাসিক নিষ্পত্তির প্রতিবেদন।",
+        "link": "এক্সপ্লোর করুন NECTYR"
       },
       "pillar2": {
-        "tag": "Intelligence",
-        "title": "ORION plant health",
-        "body": "AI-driven scheduling, dust event prediction, and yield forecasting for fleets already on Taypro robots.",
-        "link": "ORION early access"
+        "tag": "বুদ্ধিমত্তা",
+        "title": "ORION উদ্ভিদ স্বাস্থ্য",
+        "body": "AI-চালিত সময়সূচী, ধূলিকণা ইভেন্টের পূর্বাভাস, এবং ফ্লিটগুলির জন্য ফলন পূর্বাভাস ইতিমধ্যেই Taypro রোবটে রয়েছে৷",
+        "link": "ORION প্রাথমিক অ্যাক্সেস"
       }
     },
     "prose": {
       "eyebrow": "SLA এবং প্রতিক্রিয়া",
       "heading": "ইউটিলিটি-স্কেল প্ল্যান্টের জন্য কীভাবে Taypro কাঠামো O&M SLA",
-      "p1": "O&M সংগ্রহকারী দলগুলির একটি রোবট ব্রোশারের চেয়ে বেশি প্রয়োজন — তাদের প্রয়োজন সংজ্ঞায়িত চক্র সমাপ্তি, কভারেজ পুনর্মিলন, ব্রেকডাউন প্রতিক্রিয়া সময়, এবং অডিট-প্রস্তুত প্রতিবেদন। Taypro প্রোগ্রামগুলির মধ্যে রয়েছে লিখিত পরিচ্ছন্নতা SOPs, NECTYR ব্লক লগ, এবং মাসিক সেটেলমেন্ট পরিষ্কার করা প্যানেলের সাথে সারিবদ্ধ।",
-      "p2": "50 MW থেকে 500 MW পর্যন্ত উদ্ভিদের জন্য, Taypro ডেডিকেটেড অপারেটর, আঞ্চলিক খুচরা, এবং দূরবর্তী ডায়াগনস্টিক স্থাপন করে। বাণিজ্যিক অনবোর্ডিং-এর সময় ফ্লিট আপটাইম লক্ষ্য এবং বৃদ্ধির পথ সম্মত হয় — অনানুষ্ঠানিক ক্রু শিডিউলিংয়ের জন্য ছেড়ে দেওয়া হয় না।",
-      "p3": "আপনার বিদ্যমান SCADA এবং বৈদ্যুতিক O&M চুক্তির সাথে Taypro এর ফিল্ড এক্সিকিউশন লেয়ারের তুলনা করুন। ফাঁকটি সাধারণত ক্যাডেন্স এবং কারণ-টু-অ্যাকশন ডেটা পরিষ্কার করে — অন্য অ্যালার্ম ড্যাশবোর্ড নয়।",
+      "p1": "O&M সংগ্রহকারী দলগুলির একটি রোবট ব্রোশারের চেয়ে বেশি প্রয়োজন, তাদের প্রয়োজন সংজ্ঞায়িত চক্র সমাপ্তি, কভারেজ পুনর্মিলন, ব্রেকডাউন প্রতিক্রিয়া সময়, এবং অডিট-প্রস্তুত প্রতিবেদন। Taypro প্রোগ্রামগুলির মধ্যে রয়েছে লিখিত পরিচ্ছন্নতা SOPs, NECTYR ব্লক লগ, এবং মাসিক সেটেলমেন্ট পরিষ্কার করা প্যানেলের সাথে সারিবদ্ধ।",
+      "p2": "50 MW থেকে 500 MW পর্যন্ত উদ্ভিদের জন্য, Taypro ডেডিকেটেড অপারেটর, আঞ্চলিক খুচরা, এবং দূরবর্তী ডায়াগনস্টিক স্থাপন করে। বাণিজ্যিক অনবোর্ডিং-এর সময় ফ্লিট আপটাইম লক্ষ্য এবং বৃদ্ধির পথ সম্মত হয়, অনানুষ্ঠানিক ক্রু শিডিউলিংয়ের জন্য ছেড়ে দেওয়া হয় না।",
+      "p3": "আপনার বিদ্যমান SCADA এবং বৈদ্যুতিক O&M চুক্তির সাথে Taypro এর ফিল্ড এক্সিকিউশন লেয়ারের তুলনা করুন। ফাঁকটি সাধারণত ক্যাডেন্স এবং কারণ-টু-অ্যাকশন ডেটা পরিষ্কার করে, অন্য অ্যালার্ম ড্যাশবোর্ড নয়।",
       "linkPrimary": "বড় আকারের পরিষ্কার করার ক্ষমতা",
       "linkPrimaryHref": "/large-scale-solar-panel-cleaning",
       "linkSecondary": "ইউটিলিটি অপারেশন প্রসঙ্গ",
       "linkSecondaryHref": "/utility-scale-solar-operations",
-      "p4": "ভারতীয় ইউটিলিটি সোলার O&M মডিউল পরিষ্কার থেকে বৈদ্যুতিক রক্ষণাবেক্ষণকে ক্রমবর্ধমানভাবে পৃথক করে — কারণ ময়লা হল সবচেয়ে বড় নিয়ন্ত্রণযোগ্য ফলন ফুটো, তবুও সবচেয়ে কম উপকরণযুক্ত। Taypro-এর সোলার প্ল্যান্ট O&M স্তরটি রোবোটিক এক্সিকিউশন এবং ফ্লিট সফ্টওয়্যার দিয়ে সেই শূন্যতা পূরণ করে, অন্য ইনভার্টার অ্যালার্ম ড্যাশবোর্ড নয়।",
+      "p4": "ভারতীয় ইউটিলিটি সোলার O&M মডিউল পরিষ্কার থেকে বৈদ্যুতিক রক্ষণাবেক্ষণকে ক্রমবর্ধমানভাবে পৃথক করে, কারণ ময়লা হল সবচেয়ে বড় নিয়ন্ত্রণযোগ্য ফলন ফুটো, তবুও সবচেয়ে কম উপকরণযুক্ত। Taypro-এর সোলার প্ল্যান্ট O&M স্তরটি রোবোটিক এক্সিকিউশন এবং ফ্লিট সফ্টওয়্যার দিয়ে সেই শূন্যতা পূরণ করে, অন্য ইনভার্টার অ্যালার্ম ড্যাশবোর্ড নয়।",
       "p5": "SECI, স্টেট ডিসকম, এবং IPP দরপত্রের জন্য যা পরিষ্কারের ফ্রিকোয়েন্সি, কভারেজ প্রমাণ, বা জল-ব্যবহারের বিধিনিষেধ নির্দিষ্ট করে, Taypro প্রোগ্রামগুলির মধ্যে লিখিত SOPs, NECTYR রপ্তানি, এবং অডিটর পর্যালোচনার জন্য উপযুক্ত মাসিক প্যানেল-ভলিউম পুনর্মিলন অন্তর্ভুক্ত রয়েছে।"
     },
     "projects": {
-      "eyebrow": "Reference deployments",
-      "heading": "Solar O&M case studies by plant size",
-      "subheading": "Automatic robotic cleaning on 50–360 MW utility plants across Gujarat, Rajasthan, and India."
+      "eyebrow": "রেফারেন্স স্থাপনা",
+      "heading": "উদ্ভিদের আকার অনুসারে সৌর O&M কেস স্টাডি",
+      "subheading": "গুজরাট, রাজস্থান, এবং ভারত জুড়ে 50-360 MW ইউটিলিটি প্ল্যান্টে স্বয়ংক্রিয় রোবোটিক পরিষ্কার।"
     },
     "faq": {
-      "heading": "সোলার O&M পরিষেবাগুলি — প্রায়শই জিজ্ঞাসিত প্রশ্ন৷",
+      "heading": "সোলার O&M পরিষেবাগুলি, প্রায়শই জিজ্ঞাসিত প্রশ্ন৷",
       "subheading": "ভারতে সম্পদ ব্যবস্থাপক এবং O&M সংগ্রহকারী দল থেকে প্রশ্ন।",
       "q0": "Taypro একটি সৌর O&M কোম্পানি?",
       "a0": "Taypro সৌর O&M - মডিউল ক্লিনিং এক্সিকিউশন, ফ্লিট সফ্টওয়্যার এবং উদ্ভিদ বিশ্লেষণের রোবোটিক পরিষ্কার এবং ফ্লিট ইন্টেলিজেন্স লেয়ারে বিশেষজ্ঞ। বৈদ্যুতিক, বৈদ্যুতিন সংকেতের মেরু বদল, এবং ট্র্যাকার যান্ত্রিক O&M সাধারণত আপনার EPC বা ডেডিকেটেড O&M ঠিকাদারের কাছে থাকে।",
       "q1": "Taypro এর সোলার প্ল্যান্ট O&M অফারে কী অন্তর্ভুক্ত রয়েছে?",
       "a1": "রোবোটিক মডিউল ক্লিনিং (CAPEX বা OPEX), অপারেটর মোতায়েন, রোবট পরিষ্কারের জন্য খুচরা যন্ত্রাংশ, NECTYR ফ্লিট মনিটরিং, SOPs পরিষ্কার করা, চক্র নির্ধারণ, এবং মাসিক রিপোর্টিং। বিদ্যমান Taypro নৌবহরের জন্য রোডম্যাপে ORION উদ্ভিদ বুদ্ধিমত্তা উপলব্ধ।",
       "q2": "কিভাবে NECTYR আমাদের বিদ্যমান SCADA এর সাথে একীভূত হয়?",
-      "a2": "NECTYR হল রোবটগুলি পরিষ্কার করার জন্য একটি ফ্লিট অপারেশন পোর্টাল — সময়সূচী, কভারেজ, টিকিট এবং পরিষ্কারের প্রমাণ৷ এটি ময়লা, পরিষ্কার করার ক্রিয়া এবং ব্লক-স্তরের কর্মক্ষমতার মধ্যে লুপ বন্ধ করে SCADA এর পরিপূরক। এন্টারপ্রাইজ স্থাপনার জন্য API ইন্টিগ্রেশন উপলব্ধ।",
+      "a2": "NECTYR হল রোবটগুলি পরিষ্কার করার জন্য একটি ফ্লিট অপারেশন পোর্টাল, সময়সূচী, কভারেজ, টিকিট এবং পরিষ্কারের প্রমাণ৷ এটি ময়লা, পরিষ্কার করার ক্রিয়া এবং ব্লক-স্তরের কর্মক্ষমতার মধ্যে লুপ বন্ধ করে SCADA এর পরিপূরক। এন্টারপ্রাইজ স্থাপনার জন্য API ইন্টিগ্রেশন উপলব্ধ।",
       "q3": "কি SLA প্রতিক্রিয়া সময় Taypro অফার করে?",
       "a3": "আঞ্চলিক ভাঙ্গন প্রতিক্রিয়া লক্ষ্যগুলি উদ্ভিদ আকার এবং অবস্থানের উপর ভিত্তি করে চুক্তি প্রতি সম্মত হয়। NECTYR এর মাধ্যমে দূরবর্তী ডায়াগনস্টিকগুলি প্রায়ই একটি সাইট পরিদর্শন করার আগে সমস্যার সমাধান করে৷ বাণিজ্যিক অনবোর্ডিংয়ের সময় নির্দিষ্ট SLA শর্তাবলী প্রস্তাব করা হয়।",
       "q4": "Taypro O&M 50 MW থেকে 500 MW স্কেল করা যায়?",
@@ -149,65 +149,65 @@
       "a11": "Taypro পরিবেশন করে SECI-টেন্ডার করা এবং রাষ্ট্রীয় ডিসকম ইউটিলিটি প্ল্যান্ট। Taypro প্রোগ্রাম ডেলিভারেবলের বিরুদ্ধে কমপ্লায়েন্স ম্যাপিংয়ের জন্য টেন্ডার স্পেসিফিকেশন সহ আমাদের সাথে যোগাযোগ করুন।"
     },
     "cta": {
-      "heading": "Request a solar O&M proposal",
-      "body": "Tell us your portfolio size and current cleaning gaps. Taypro will respond with scope, SLA framework, and commercial terms.",
-      "primary": "Contact Taypro",
+      "heading": "একটি সৌর O&M প্রস্তাবের অনুরোধ করুন",
+      "body": "আমাদের আপনার পোর্টফোলিও আকার এবং বর্তমান পরিষ্কার ফাঁক বলুন. Taypro সুযোগ, SLA ফ্রেমওয়ার্ক, এবং বাণিজ্যিক শর্তাবলী সহ সাড়া দেবে।",
+      "primary": "যোগাযোগ Taypro",
       "primaryHref": "/contact",
-      "secondary": "India cleaning service",
+      "secondary": "ভারত পরিচ্ছন্নতার পরিষেবা",
       "secondaryHref": "/solar-panel-cleaning-service-india"
     },
     "related": {
-      "label": "Related:",
-      "link0": "Utility-scale O&M hub",
+      "label": "সম্পর্কিত:",
+      "link0": "ইউটিলিটি-স্কেল O&M হাব",
       "link0Href": "/utility-scale-solar-operations",
-      "link1": "National cleaning service India",
+      "link1": "জাতীয় পরিচ্ছন্নতা পরিষেবা ভারত",
       "link1Href": "/solar-panel-cleaning-service-india",
-      "link2": "Fleet monitoring software",
+      "link2": "ফ্লিট মনিটরিং সফটওয়্যার",
       "link2Href": "/solar-fleet-monitoring-software"
     },
     "quoteForm": {
-      "eyebrow": "O&M inquiry",
-      "title": "Request solar plant O&M proposal",
+      "eyebrow": "O&M অনুসন্ধান",
+      "title": "সোলার প্ল্যান্টের অনুরোধ করুন O&M প্রস্তাব",
       "placeholder": "Portfolio MW, plant locations, current O&M contractor, cleaning method, and whether you prefer CAPEX or OPEX."
     },
     "steps": {
-      "eyebrow": "O&M procurement path",
-      "heading": "How to procure Taypro solar O&M services",
-      "subheading": "A framework asset managers use in RFQs and vendor shortlists.",
-      "step0Title": "Define cleaning scope in your O&M tender",
+      "eyebrow": "O&M সংগ্রহের পথ",
+      "heading": "কীভাবে Taypro সৌর O&M পরিষেবাগুলি সংগ্রহ করবেন",
+      "subheading": "একটি কাঠামো সম্পদ পরিচালকরা RFQs এবং বিক্রেতা শর্টলিস্টে ব্যবহার করেন।",
+      "step0Title": "আপনার O&M টেন্ডারে পরিচ্ছন্নতার সুযোগ নির্ধারণ করুন",
       "step0Body": "Specify module cleaning frequency targets, water-use constraints, coverage evidence requirements, and whether you prefer CAPEX robot purchase or managed OPEX. Taypro responds to both models.",
-      "step1Title": "Technical site assessment",
-      "step1Body": "Engineering reviews row geometry, tracker vs fixed tilt, soiling drivers, and current PR trends. Output: robot model, fleet size, cycle count, and NECTYR integration plan.",
-      "step2Title": "SLA and commercial terms",
-      "step2Body": "Agree breakdown response targets, reporting cadence, reconciliation rules for panel-volume billing, and escalation matrix. Terms scale with plant MW and portfolio size.",
-      "step3Title": "Mobilisation and operator placement",
-      "step3Body": "Dedicated operators, regional spares, connectivity, and cleaning SOPs deployed. NECTYR activated for scheduling, tickets, and monthly settlement.",
-      "step4Title": "Quarterly O&M programme review",
-      "step4Body": "Review soiling trends, adjust cycles for season, correlate cleaning with PR recovery, and plan ORION intelligence upgrades where applicable."
+      "step1Title": "প্রযুক্তিগত সাইট মূল্যায়ন",
+      "step1Body": "ইঞ্জিনিয়ারিং সারি জ্যামিতি, ট্র্যাকার বনাম ফিক্সড টিল্ট, সয়েলিং ড্রাইভার এবং বর্তমান PR প্রবণতা পর্যালোচনা করে। আউটপুট: রোবট মডেল, বহরের আকার, চক্র গণনা, এবং NECTYR ইন্টিগ্রেশন প্ল্যান।",
+      "step2Title": "SLA এবং বাণিজ্যিক শর্তাবলী",
+      "step2Body": "ব্রেকডাউন রেসপন্স টার্গেট, রিপোর্টিং ক্যাডেন্স, প্যানেল-ভলিউম বিলিংয়ের জন্য পুনর্মিলন নিয়ম, এবং বৃদ্ধি ম্যাট্রিক্সের সাথে সম্মত হন। প্ল্যান্ট MW এবং পোর্টফোলিও আকার সহ শর্তাবলী স্কেল।",
+      "step3Title": "মবিলাইজেশন এবং অপারেটর বসানো",
+      "step3Body": "ডেডিকেটেড অপারেটর, আঞ্চলিক অতিরিক্ত জিনিসপত্র, সংযোগ, এবং পরিষ্কারের SOPগুলি স্থাপন করা হয়েছে৷ NECTYR সময়সূচী, টিকিট এবং মাসিক নিষ্পত্তির জন্য সক্রিয়।",
+      "step4Title": "ত্রৈমাসিক O&M প্রোগ্রাম পর্যালোচনা",
+      "step4Body": "নোংরা করার প্রবণতা পর্যালোচনা করুন, ঋতুর জন্য চক্র সামঞ্জস্য করুন, PR পুনরুদ্ধারের সাথে পরিচ্ছন্নতার সম্পর্ক স্থাপন করুন এবং যেখানে প্রযোজ্য সেখানে ORION বুদ্ধিমত্তা আপগ্রেডের পরিকল্পনা করুন।"
     },
     "eligibility": {
-      "eyebrow": "Vendor fit",
-      "title": "When Taypro is the right solar O&M partner",
-      "forTitle": "Strong fit",
-      "for0": "Utility plants 50 MW+ with recurring soiling and manual O&M cost pressure",
-      "for1": "IPPs and asset managers that need cleaning evidence for lenders or SECI compliance",
-      "for2": "Plants adopting or expanding single-axis trackers needing GLYDE-X or NYUMA-X fleets",
-      "for3": "O&M teams seeking to complement SCADA with fleet execution and cleaning-to-PR data",
-      "notForTitle": "Outside core scope",
-      "not0": "Standalone inverter or transformer maintenance contracts",
-      "not1": "Residential rooftop O&M without robotic cleaning feasibility",
-      "not2": "Plants seeking only occasional manual washing without structured programme"
+      "eyebrow": "বিক্রেতা ফিট",
+      "title": "যখন Taypro সঠিক সৌর O&M অংশীদার হয়",
+      "forTitle": "স্ট্রং ফিট",
+      "for0": "ইউটিলিটি প্ল্যান্ট 50 MW+ পুনরাবৃত্ত মৃত্তিকা এবং ম্যানুয়াল O&M খরচ চাপ সহ",
+      "for1": "IPP এবং সম্পদ পরিচালক যাদের ঋণদাতা বা SECI সম্মতির জন্য পরিষ্কার প্রমাণের প্রয়োজন",
+      "for2": "একক-অক্ষ ট্র্যাকার গ্রহণ বা সম্প্রসারণকারী উদ্ভিদের প্রয়োজন GLYDE-X বা NYUMA-X ফ্লিট",
+      "for3": "O&M দলগুলি SCADA কে ফ্লিট এক্সিকিউশন এবং ক্লিনিং-টু-PR ডেটা সহ পরিপূরক করতে চাইছে",
+      "notForTitle": "মূল সুযোগের বাইরে",
+      "not0": "স্বতন্ত্র বৈদ্যুতিন সংকেতের মেরু বদল বা ট্রান্সফরমার রক্ষণাবেক্ষণ চুক্তি",
+      "not1": "আবাসিক ছাদ O&M রোবোটিক পরিষ্কারের সম্ভাব্যতা ছাড়াই",
+      "not2": "স্ট্রাকচার্ড প্রোগ্রাম ছাড়া শুধুমাত্র মাঝে মাঝে ম্যানুয়াল ওয়াশিং চাচ্ছে গাছপালা"
     },
     "highlight": {
-      "heading": "SCADA shows the dip. Taypro shows the cause.",
-      "lead": "Solar plant O&M procurement should close the soiling-to-action loop.",
-      "body": "Inverter alarms tell you generation dropped. NECTYR tells you which blocks were cleaned, which robots completed routes, and where coverage gaps remain. ORION roadmap adds predictive scheduling before dust storms hit PR."
+      "heading": "SCADA ডিপ দেখায়। Taypro কারণ দেখায়।",
+      "lead": "সৌর প্ল্যান্ট O&M সংগ্রহের মাধ্যমে সয়েলিং-টু-অ্যাকশন লুপ বন্ধ করা উচিত।",
+      "body": "বৈদ্যুতিন সংকেতের মেরু বদল এলার্ম আপনি প্রজন্মের ড্রপ. NECTYR আপনাকে বলে যে কোন ব্লকগুলি পরিষ্কার করা হয়েছে, কোন রোবটগুলি রুটগুলি সম্পূর্ণ করেছে এবং কোথায় কভারেজ ফাঁক রয়েছে৷ ORION রোডম্যাপ ধুলো ঝড় PR আঘাত করার আগে পূর্বাভাসমূলক সময়সূচী যোগ করে।"
     },
     "proseSecondary": {
       "eyebrow": "উদ্ভিদ আকার দ্বারা",
       "heading": "সৌর O&M পরিষেবাগুলি 50 MW থেকে 500 MW পর্যন্ত স্কেল করা হয়েছে",
-      "p1": "50 MW এ, 2-4টি রোবট সহ একটি একক-অঞ্চল অপারেটর দল মাসিক 3-6 চক্রের জন্য যথেষ্ট হতে পারে। 200 MW+ এ, ফ্লিট ডেনসিটি মডেলিং, জোন-ভিত্তিক NECTYR সময়সূচী, এবং পর্যায়ক্রমে মোবিলাইজেশন গুরুত্বপূর্ণ হয়ে ওঠে — Taypro এর 360 MW একক-সাইট স্বয়ংক্রিয় স্থাপনা পর্যন্ত রেফারেন্স রয়েছে।",
-      "p2": "ট্র্যাকার-প্রধান পোর্টফোলিওগুলির জন্য CRADYL সারি-স্থানান্তর পরিকল্পনা এবং স্থির-টিল্ট ব্লকের তুলনায় উচ্চতর রোবট-প্রতি MW অনুপাত প্রয়োজন। Taypro প্রকৌশলীদের মূল্যায়নের সময় মডেল থ্রুপুট — জেনেরিক ব্রোশার নম্বর নয়।",
+      "p1": "50 MW এ, 2-4টি রোবট সহ একটি একক-অঞ্চল অপারেটর দল মাসিক 3-6 চক্রের জন্য যথেষ্ট হতে পারে। 200 MW+ এ, ফ্লিট ডেনসিটি মডেলিং, জোন-ভিত্তিক NECTYR সময়সূচী, এবং পর্যায়ক্রমে মোবিলাইজেশন গুরুত্বপূর্ণ হয়ে ওঠে, Taypro এর 360 MW একক-সাইট স্বয়ংক্রিয় স্থাপনা পর্যন্ত রেফারেন্স রয়েছে।",
+      "p2": "ট্র্যাকার-প্রধান পোর্টফোলিওগুলির জন্য CRADYL সারি-স্থানান্তর পরিকল্পনা এবং স্থির-টিল্ট ব্লকের তুলনায় উচ্চতর রোবট-প্রতি MW অনুপাত প্রয়োজন। Taypro প্রকৌশলীদের মূল্যায়নের সময় মডেল থ্রুপুট, জেনেরিক ব্রোশার নম্বর নয়।",
       "p3": "স্বয়ংক্রিয় প্রকল্প কেস স্টাডি ব্রাউজ করুন বা একটি পোর্টফোলিও-স্তরের O&M প্রস্তাবের অনুরোধ করুন।",
       "linkPrimary": "বড় আকারের পরিষ্কার করার ক্ষমতা",
       "linkPrimaryHref": "/large-scale-solar-panel-cleaning",
@@ -215,13 +215,13 @@
       "linkSecondaryHref": "/solar-fleet-monitoring-software"
     },
     "resources": {
-      "eyebrow": "Procurement resources",
-      "heading": "O&M buyer guides",
-      "link0Title": "India solar cleaning service",
+      "eyebrow": "সংগ্রহ সম্পদ",
+      "heading": "O&M ক্রেতা নির্দেশিকা",
+      "link0Title": "ভারত সৌর পরিষ্কার পরিষেবা",
       "link0Href": "/solar-panel-cleaning-service-india",
-      "link1Title": "Cleaning cost & OPEX pricing",
+      "link1Title": "পরিষ্কারের খরচ এবং OPEX মূল্য",
       "link1Href": "/solar-cleaning-opex-pricing",
-      "link2Title": "Compare robotic vs manual cleaning",
+      "link2Title": "রোবোটিক বনাম ম্যানুয়াল পরিষ্কারের তুলনা করুন",
       "link2Href": "/compare/solar-panel-cleaning-robot-vs-manual-cleaning"
     }
   }

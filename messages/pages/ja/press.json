@@ -2,43 +2,43 @@
   "PressPage": {
     "meta": {
       "title": "プレス&メディア掲載 | Taypro",
-      "description": "ニュースの Taypro — Mercom India、EPC World、Energetica India、Saur Energy、TimesTech、T&D India、IPF Online、Live Mint Tech4Good、Renewable Watch、および太陽熱掃除ロボットに関する 20 以上の検証済みサードパーティ記事。",
+      "description": "ニュースの Taypro: Mercom India、EPC World、Energetica India、Saur Energy、TimesTech、T&D India、IPF Online、Live Mint Tech4Good、Renewable Watch、および太陽熱掃除ロボットに関する 20 以上の検証済みサードパーティ記事。",
       "openGraphTitle": "Taypro 報道とメディアの報道",
       "openGraphDescription": "インド全土のTaypro無水ソーラーパネル清掃ロボットに関するインタビュー、受賞歴、業界報道。",
       "twitterTitle": "Taypro 報道とメディア",
       "twitterDescription": "インドにおけるTayproロボットによるソーラーパネル清掃に関する業界報道。"
     },
     "breadcrumbs": {
-      "current": "Press"
+      "current": "プレス"
     },
     "hero": {
       "eyebrow": "ニュースで",
       "title": "報道とメディアの報道",
       "subtitle": "Taypro の水のないソーラー パネル クリーニング ロボットと、インド全土での実用規模の展開を取り上げたニュース、インタビュー、業界メディア。"
     },
-    "listHeading": "News, interviews & industry media",
-    "listIntro": "Links open the original publisher site in a new tab.",
-    "sectionInterviews": "Interviews & opinion",
-    "sectionMarket": "Market leadership",
-    "sectionAwards": "Awards",
-    "sectionNews": "Product & company news",
-    "sectionIndex": "Publisher indexes",
-    "readArticle": "Read on {outlet}",
-    "companyCta": "About Taypro",
-    "contactCta": "Contact media team",
+    "listHeading": "ニュース、インタビュー、業界メディア",
+    "listIntro": "リンクをクリックすると、元の発行元サイトが新しいタブで開きます。",
+    "sectionInterviews": "インタビュー＆感想",
+    "sectionMarket": "市場のリーダーシップ",
+    "sectionAwards": "受賞歴",
+    "sectionNews": "製品・企業ニュース",
+    "sectionIndex": "出版社のインデックス",
+    "readArticle": "{outlet} を読む",
+    "companyCta": "Taypro について",
+    "contactCta": "メディアチームに連絡する",
     "leadModal": {
       "topic": "メディアとプレス",
       "title": "メディアチームにお問い合わせください",
-      "subtitle": "ジャーナリスト、アナリスト、イベント主催者 — 販売店、締め切り、Taypro に必要なものをお知らせください。",
+      "subtitle": "ジャーナリスト、アナリスト、イベント主催者, 販売店、締め切り、Taypro に必要なものをお知らせください。",
       "formPrompt": "あなたの話をどうお手伝いできるでしょうか?",
       "messageLabel": "あなたのリクエスト",
       "messagePlaceholder": "アウトレット名、ストーリーの角度、インタビューの形式、締め切り、およびすでに持っている背景…",
       "submitLabel": "メディアの問い合わせを送信する",
-      "thankYouTitle": "ありがとう — メモを受け取りました",
+      "thankYouTitle": "ありがとう, メモを受け取りました",
       "thankYouMessage": "弊社のコミュニケーションチームができるだけ早く対応させていただきます。"
     }
   },
   "Common": {
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "家"
   }
 }

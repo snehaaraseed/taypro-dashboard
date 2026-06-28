@@ -169,10 +169,8 @@ function applySecurityAndCacheHeaders(
     response.headers.set("x-logical-pathname", pathnameWithoutLocale(pathname));
   }
 
-  const visitorCountry = getCountryCodeFromRequest(request);
-  if (visitorCountry) {
-    response.headers.set("x-visitor-country", visitorCountry);
-  }
+  // Geo is resolved client-side (/api/geo); do not attach x-visitor-country to HTML
+  // responses — it signals per-visitor variance and can block edge caching.
 
   return response;
 }

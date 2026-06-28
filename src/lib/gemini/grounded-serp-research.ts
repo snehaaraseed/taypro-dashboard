@@ -43,12 +43,14 @@ export type GroundedSerpResearchInput = {
   audience?: string;
   /** Titles we must not duplicate (CMS + rejected). */
   forbiddenTitles?: string[];
-  /** Archetypes exhausted for this keyword cluster — gaps must NOT reuse these shapes. */
+  /** Archetypes exhausted for this keyword cluster, gaps must NOT reuse these shapes. */
   forbiddenArchetypes?: StructuralArchetype[];
-  /** H2 themes already saturated in corpus/SERP — avoid in candidate titles and gaps. */
+  /** H2 themes already saturated in corpus/SERP: avoid in candidate titles and gaps. */
   saturatedH2Themes?: string[];
   /** Grounded calls already made this pipeline run. */
   serpCallsSoFar?: number;
+  /** Use higher grounding cap for monthly insight reports. */
+  insightsMode?: boolean;
 };
 
 function resolveSerpModels(): string[] {
@@ -81,7 +83,7 @@ function buildSerpResearchPrompt(input: GroundedSerpResearchInput): string {
 
   return `You are an SEO strategist for Taypro (utility-scale solar panel cleaning robots in India).
 
-Use Google Search to inspect what currently ranks for utility-scale / MW-plant intent — NOT homeowner DIY content.
+Use Google Search to inspect what currently ranks for utility-scale / MW-plant intent, NOT homeowner DIY content.
 
 SEARCH FOCUS: "${searchQuery}"
 Primary keyword: "${input.keyword}"
@@ -193,7 +195,17 @@ function parseSerpBrief(
     sources: { title?: string; uri?: string }[];
   }
 ): SerpResearchBrief {
-  const parsed = parseJsonFromText(rawJson);
+  let parsed: Record<string, unknown> = {};
+  try {
+    parsed = parseJsonFromText(rawJson);
+  } catch (error) {
+    if (!input.insightsMode) {
+      throw error instanceof Error ? error : new Error(String(error));
+    }
+    console.warn(
+      "[serp] Insights: JSON parse failed, using grounding sources with empty SERP themes"
+    );
+  }
   return {
     keyword: input.keyword.trim(),
     angle: input.angle?.trim() || "practical O&M decision guide",
@@ -212,6 +224,16 @@ function parseSerpBrief(
   };
 }
 
+function isRetryableGroundingError(error: unknown): boolean {
+  if (isGeminiQuotaError(error)) return true;
+  const message = error instanceof Error ? error.message : String(error);
+  return (
+    message.includes("did not contain JSON") ||
+    message.includes("Could not parse JSON") ||
+    message.includes("response was empty")
+  );
+}
+
 /**
  * One efficient grounded call: live SERP themes + gaps + 3 candidate titles.
  * Uses GEMINI_API_KEY then GEMINI_API_KEY_2 on quota errors.
@@ -219,7 +241,14 @@ function parseSerpBrief(
 export async function runGroundedSerpResearch(
   input: GroundedSerpResearchInput
 ): Promise<SerpResearchBrief> {
-  assertGroundingCallBudget(input.serpCallsSoFar ?? 0);
+  if (input.insightsMode) {
+    const { assertInsightsGroundingCallBudget } = await import(
+      "@/lib/gemini/grounding-config"
+    );
+    assertInsightsGroundingCallBudget(input.serpCallsSoFar ?? 0);
+  } else {
+    assertGroundingCallBudget(input.serpCallsSoFar ?? 0);
+  }
 
   const prompt = buildSerpResearchPrompt(input);
   const model = resolveSerpModels()[0]!;
@@ -249,15 +278,16 @@ export async function runGroundedSerpResearch(
 
       return parseSerpBrief(text, input, {
         model,
-        apiKeySuffix: apiKey.slice(-4),
-        ...grounding,
+        apiKeySuffix: apiKey.slice(-4), ...grounding,
       });
     } catch (error) {
       lastError = error;
-      if (isGeminiQuotaError(error)) {
-        quotaKeys += 1;
+      if (isRetryableGroundingError(error)) {
+        quotaKeys += isGeminiQuotaError(error) ? 1 : 0;
         console.warn(
-          `[serp] Grounding quota on key ...${apiKey.slice(-4)} model ${model}`
+          `[serp] Retrying on next key (...${apiKey.slice(-4)}): ${
+            error instanceof Error ? error.message.slice(0, 100) : error
+          }`
         );
         continue;
       }
@@ -267,7 +297,22 @@ export async function runGroundedSerpResearch(
   }
 
   if (quotaKeys >= apiKeys.length) {
+    if (input.insightsMode) {
+      const { buildFallbackSerpBrief } = await import(
+        "@/lib/gemini/grounding-config"
+      );
+      console.warn("[serp] Insights: all keys quota, fallback SERP brief");
+      return buildFallbackSerpBrief(input);
+    }
     throw new GroundingQuotaExceededError(model, lastError);
+  }
+
+  if (input.insightsMode) {
+    const { buildFallbackSerpBrief } = await import(
+      "@/lib/gemini/grounding-config"
+    );
+    console.warn("[serp] Insights: grounding exhausted, fallback SERP brief");
+    return buildFallbackSerpBrief(input);
   }
 
   throw new Error(
@@ -279,15 +324,14 @@ export async function runGroundedSerpResearch(
 
 export function formatSerpBriefForPrompt(brief: SerpResearchBrief): string {
   const lines = [
-    "SERP RESEARCH (Google Search grounding — use for angle/gaps, not for copying text):",
+    "SERP RESEARCH (Google Search grounding, use for angle/gaps, not for copying text):",
     `Query: ${brief.searchQuery}`,
     `Keyword: ${brief.keyword} | Angle: ${brief.angle}`,
   ];
 
   if (brief.rankingTitles.length) {
     lines.push(
-      "Top ranking titles:",
-      ...brief.rankingTitles.map(
+      "Top ranking titles:", ...brief.rankingTitles.map(
         (r, i) =>
           `${i + 1}. ${r.title}${r.domain ? ` (${r.domain})` : ""}`
       )
@@ -298,8 +342,7 @@ export function formatSerpBriefForPrompt(brief: SerpResearchBrief): string {
   }
   if (brief.peopleAlsoAsk.length) {
     lines.push(
-      "People Also Ask:",
-      ...brief.peopleAlsoAsk.map((q) => `- ${q}`)
+      "People Also Ask:", ...brief.peopleAlsoAsk.map((q) => `- ${q}`)
     );
   }
   if (brief.serpGaps.length) {
@@ -310,8 +353,7 @@ export function formatSerpBriefForPrompt(brief: SerpResearchBrief): string {
   }
   if (brief.candidateTitles.length) {
     lines.push(
-      "Candidate titles (pick one or refine):",
-      ...brief.candidateTitles.map((t) => `- ${t}`)
+      "Candidate titles (pick one or refine):", ...brief.candidateTitles.map((t) => `- ${t}`)
     );
   }
 

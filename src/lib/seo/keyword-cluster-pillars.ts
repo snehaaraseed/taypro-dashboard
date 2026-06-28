@@ -105,11 +105,11 @@ export function formatClusterInternalLinksPrompt(input: {
   const siblings = input.siblings.filter((s) => s.slug);
   if (siblings.length > 0) {
     lines.push(
-      "- CLUSTER SIBLINGS (link to 1–2 when context fits — same keyword, different intent):"
+      "- CLUSTER SIBLINGS (link to 1–2 when context fits, same keyword, different intent):"
     );
     for (const s of siblings.slice(0, 6)) {
       lines.push(
-        `  /blog/${s.slug} — "${s.title}" [${s.intentFamily}${s.subAngle ? ` / ${s.subAngle}` : ""}]`
+        `  /blog/${s.slug}, "${s.title}" [${s.intentFamily}${s.subAngle ? ` / ${s.subAngle}` : ""}]`
       );
     }
   }

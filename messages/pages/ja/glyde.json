@@ -57,7 +57,7 @@
       }
     },
     "hero": {
-      "title": "GLYDE — Fully Automatic Solar Panel Cleaning Robot for Fixed-Tilt Plants",
+      "title": "GLYDE: Fully Automatic Solar Panel Cleaning Robot for Fixed-Tilt Plants",
       "h1Line1": "自動ソーラーパネル清掃ロボット, ",
       "h1Line2": "Taypro GLYDE",
       "leadBeforeStrong": "Taypro GLYDEは",
@@ -71,7 +71,25 @@
         "label": "見積もりを依頼"
       },
       "heroImageAlt": "ユーティリティ規模ソーラーファームでパネルを清掃するTaypro GLYDE自動ロボット",
-      "heroImageTitle": "自動ソーラーパネル清掃ロボット GLYDE, Taypro"
+      "heroImageTitle": "自動ソーラーパネル清掃ロボット GLYDE, Taypro",
+      "subtitleShort": "固定傾斜ユーティリティプラント向けの自律型水なしデュアルパス洗浄 - 1 回の充電で最大 3,600 モジュール。",
+      "secondaryCta": {
+        "label": "360° ツアーを探索する"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "99%+",
+          "label": "自動パスごとにダストを除去"
+        },
+        "stat1": {
+          "value": "3,600",
+          "label": "充電ごとにクリーニングされるモジュール"
+        },
+        "stat2": {
+          "value": "無水",
+          "label": "デュアルパスドライクリーニング"
+        }
+      }
     },
     "overview": {
       "productImageAlt": "Top view of Taypro GLYDE automatic solar panel cleaning robot on parallel cleaning rails",
@@ -92,7 +110,7 @@
       "p2BeforeStrong": "On a single charge, GLYDE cleans up to ",
       "p2Strong": "2.2 km of running length, approximately 3,600 solar modules",
       "p2AfterStrong": ". Cleaning cycles are best scheduled outside energy production hours and can be programmed remotely, ensuring zero impact on plant generation.",
-      "p3": "GLYDE's patented dual-pass mechanism combines high-speed airflow with a self-cleaning microfiber drum — the first pass lifts dry dust, the second completes the wipe without water or detergent. Edge and obstacle detection maps every panel boundary while surface-undulation tracking keeps brush pressure consistent row-by-row. Battery-aware logic ensures each assigned array is cleaned completely before the robot self-docks — rated for 180 km/hr gusts while locked at the station.",
+      "p3": "GLYDE's patented dual-pass mechanism combines high-speed airflow with a self-cleaning microfiber drum, the first pass lifts dry dust, the second completes the wipe without water or detergent. Edge and obstacle detection maps every panel boundary while surface-undulation tracking keeps brush pressure consistent row-by-row. Battery-aware logic ensures each assigned array is cleaned completely before the robot self-docks, rated for 180 km/hr gusts while locked at the station.",
       "p4Blog1": "モジュール上で自動清掃ロボットがどう動くか",
       "p4Blog2": "ユーティリティ規模でのロボット清掃のメリット",
       "p4Prefix": "関連記事: ",
@@ -108,7 +126,7 @@
       "sideAlt": "Taypro GLYDE side profile showing module-frame rails, travel mechanism, and end housings",
       "sideCaption": "Side profile of the GLYDE rail system engineered for long-reach fixed-tilt rows.",
       "modularAlt": "Taypro GLYDE modular exploded view showing rails, wheels, and GLYDE drive unit",
-      "modularCaption": "Modular rail, wheel, and drive-unit layout — each array ships as a field-assembled GLYDE system.",
+      "modularCaption": "Modular rail, wheel, and drive-unit layout, each array ships as a field-assembled GLYDE system.",
       "dockingAlt": "Taypro GLYDE shadow-free docking power unit with integrated solar charging for autonomous daily cycles",
       "dockingCaption": "Self-contained docking with solar-assisted charging; no external power connection required per array."
     },
@@ -601,7 +619,7 @@
       "row0": {
         "criterion": "Cleaning Technology",
         "glyde": "Patented dual-pass: airflow loosens dust, microfiber completes the wipe",
-        "nyuma": "Single-pass counter-rotating PBT brush drum — fewer moving consumables"
+        "nyuma": "Single-pass counter-rotating PBT brush drum, fewer moving consumables"
       },
       "row1": {
         "criterion": "Best For",
@@ -630,8 +648,8 @@
       },
       "row6": {
         "criterion": "Labour After Install",
-        "glyde": "Zero — fully autonomous daily cycles",
-        "nyuma": "Zero — fully autonomous daily cycles"
+        "glyde": "Zero: fully autonomous daily cycles",
+        "nyuma": "Zero: fully autonomous daily cycles"
       },
       "row7": {
         "criterion": "Fleet Monitoring",
@@ -643,6 +661,10 @@
       "crossSellMid": ". Running single-axis trackers? Compare ",
       "linkTracker": "GLYDE-X and NYUMA-X",
       "crossSellSuffix": "."
+    },
+    "productVisual": {
+      "eyebrow": "製品の概要",
+      "title": "Taypro GLYDE 自動ソーラーパネル清掃ロボット"
     }
   },
   "Common": {

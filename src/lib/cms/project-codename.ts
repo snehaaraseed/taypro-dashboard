@@ -44,7 +44,7 @@ export function formatProjectDisplayTitle(
   const code = codename?.trim();
   if (!code) return site;
   if (!site) return `Project ${code}`;
-  return `Project ${code} — ${site}`;
+  return `Project ${code}, ${site}`;
 }
 
 /** Next unused star codename from the ordered pool (English rows only). */

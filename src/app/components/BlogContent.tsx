@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useMemo } from "react";
 import { repairInlineImgAlts } from "@/lib/seo/blog-inline-img-alt";
+import { rewriteCmsImageSrcs } from "@/lib/seo/cms-image-rewrites";
 import { sanitizeBlogHtml } from "@/lib/security/sanitize-html";
 
 interface BlogContentProps {
@@ -29,9 +30,10 @@ export function BlogContent({
   const contentRef = useRef<HTMLDivElement>(null);
   const isMountedRef = useRef(false);
   const safeHtml = useMemo(() => {
+    const normalized = rewriteCmsImageSrcs(content);
     const withAlts = imageAltContext
-      ? repairInlineImgAlts(content, imageAltContext)
-      : content;
+      ? repairInlineImgAlts(normalized, imageAltContext)
+      : normalized;
     return wrapCmsTables(sanitizeBlogHtml(withAlts));
   }, [content, imageAltContext]);
 

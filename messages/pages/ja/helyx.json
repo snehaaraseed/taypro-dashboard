@@ -47,6 +47,24 @@
         "title": "HELYX の見積もりをリクエストする",
         "subtitle": "プラントのレイアウトについてお知らせください。HELYX の展開、ブロック カバレッジ、商用オプションについてフォローアップします。",
         "label": "見積もりを依頼する"
+      },
+      "subtitleShort": "39 kg のピックアンドプレイス水なし洗浄で、分散配置されたユーティリティ ブロックを洗浄します。",
+      "secondaryCta": {
+        "label": "360° ツアーを探索する"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "95%+",
+          "label": "ワンパスでゴミを除去"
+        },
+        "stat1": {
+          "value": "39kg",
+          "label": "ポータブルなピックアンドプレースシャーシ"
+        },
+        "stat2": {
+          "value": "3km",
+          "label": "一充電あたりの走行距離"
+        }
       }
     },
     "usps": {
@@ -378,7 +396,7 @@
       "subtitle": "手動クルー、給水車、場当たりの計画では大規模発電所の日次ソーリング損失に追いつけません。少数のHELYXでもO&Mの経済性は一変します。",
       "criterion": "基準",
       "manual": "手動清掃",
-      "robot": "BR1トークン BR0トークン",
+      "robot": "Taypro HELYX",
       "row0": {
         "criterion": "清掃頻度",
         "manual": "週次または隔週（天候依存）",
@@ -553,6 +571,10 @@
       "zoomedLeftCaption": "シングルパスダスト除去のためのブラシドライブとフレームの詳細。",
       "fieldAlt": "Taypro HELYX 実用規模の太陽光発電所で動作する半自動清掃ロボット",
       "fieldCaption": "HELYX は、現場の実用規模のソーラー パネルに導入されています。"
+    },
+    "productVisual": {
+      "eyebrow": "製品の概要",
+      "title": "Taypro HELYX 半自動ソーラーパネル清掃ロボット"
     }
   },
   "Common": {

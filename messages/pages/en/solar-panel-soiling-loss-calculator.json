@@ -4,7 +4,7 @@
       "title": "Solar Panel Soiling Loss Calculator India | MWh & Revenue Impact",
       "description": "Free solar soiling loss calculator for Indian utility plants: estimate annual MWh and ₹ lost to dust by MW, soiling %, and tariff. Regional presets for Rajasthan, Gujarat, and typical India.",
       "openGraphTitle": "Solar Soiling Loss Calculator | Taypro",
-      "openGraphDescription": "Quantify energy and revenue lost to panel soiling before choosing a cleaning programme — directional tool for IPP and O&M teams."
+      "openGraphDescription": "Quantify energy and revenue lost to panel soiling before choosing a cleaning programme, directional tool for IPP and O&M teams."
     },
     "breadcrumbHub": "Solar panel cleaning robots",
     "breadcrumbHubHref": "/solar-panel-cleaning-system",
@@ -16,8 +16,8 @@
     },
     "hero": {
       "eyebrow": "Tool · Soiling economics",
-      "title": "Solar panel soiling loss calculator — how much energy are you losing?",
-      "subtitle": "Before comparing robot CAPEX or OPEX, quantify the MWh and ₹ foregone to dust. Enter plant MW, soiling loss %, and tariff — uses India-specific yield assumptions (1,500 kWh/kW-year P50). Site-specific results require a soiling study.",
+      "title": "Solar panel soiling loss calculator, how much energy are you losing?",
+      "subtitle": "Before comparing robot CAPEX or OPEX, quantify the MWh and ₹ foregone to dust. Enter plant MW, soiling loss %, and tariff, uses India-specific yield assumptions (1,500 kWh/kW-year P50). Site-specific results require a soiling study.",
       "ctaPrimary": "Use calculator below",
       "ctaPrimaryHref": "#soiling-calculator",
       "ctaSecondary": "Full ROI calculator",
@@ -28,7 +28,7 @@
       "heading": "Soiling loss is the largest controllable yield leak on Indian utility plants",
       "p1": "Soiling suppresses usable output when washing stays calendar-based. Industry discussions cite roughly 8–25% seasonal soiling loss on utility plants in Rajasthan, Gujarat, and other high-dust belts when cleaning is infrequent.",
       "p2": "Daily soiling rates of 0.3–0.5% per day are documented in west India dry seasons. Seven days without cleaning can mean 3–5% output loss; ninety days without systematic cleaning can reach 15–25% on desert sites.",
-      "p3": "This calculator estimates annual generation at your MW capacity, applies your soiling loss assumption, and converts lost MWh to ₹ using your tariff. It does not model cleaning recovery — use the ROI calculator for payback on robotic programmes.",
+      "p3": "This calculator estimates annual generation at your MW capacity, applies your soiling loss assumption, and converts lost MWh to ₹ using your tariff. It does not model cleaning recovery, use the ROI calculator for payback on robotic programmes.",
       "p4": "Actual loss depends on tilt, tracker behaviour, rain probability, and dust chemistry. Taypro recommends a site soiling study before binding commercial decisions. See our performance methodology for how we define generation recovery claims.",
       "linkPrimary": "Performance methodology",
       "linkPrimaryHref": "/performance-and-test-methodology",
@@ -42,7 +42,7 @@
         "tag": "Daily rate",
         "stat": "0.3–0.5%",
         "label": "West India dry season",
-        "body": "Documented daily soiling on arid utility sites — higher after dust storms."
+        "body": "Documented daily soiling on arid utility sites, higher after dust storms."
       },
       "card1": {
         "tag": "Seasonal",
@@ -54,7 +54,7 @@
         "tag": "Example",
         "stat": "21.6 GWh",
         "label": "100 MW at 12% loss",
-        "body": "~180 GWh annual generation at 1,500 kWh/kW-year — 12% soiling = 21.6 GWh foregone."
+        "body": "~180 GWh annual generation at 1,500 kWh/kW-year: 12% soiling = 21.6 GWh foregone."
       },
       "card3": {
         "tag": "Revenue",
@@ -66,7 +66,7 @@
     "soilingCalculator": {
       "eyebrow": "Interactive tool",
       "heading": "Estimate your annual soiling loss",
-      "subheading": "Directional only — not a guarantee of recoverable MWh. Defaults use India market yield (1,500 kWh/kW-year).",
+      "subheading": "Directional only, not a guarantee of recoverable MWh. Defaults use India market yield (1,500 kWh/kW-year).",
       "disclaimer": "Results are illustrative. Site-specific soiling studies, PR baselines, and weather normalization are required for investment-grade models. See performance methodology."
     },
     "soilingTool": {
@@ -94,13 +94,13 @@
       "step0Title": "Set realistic soiling %",
       "step0Body": "Use regional presets or PR data. High-dust Rajasthan/Gujarat sites often model 15–25%; milder regions 5–12%.",
       "step1Title": "Convert MWh to ₹ at your tariff",
-      "step1Body": "Apply PPA, merchant, or blended ₹/kWh. This is the annual value at risk from dust — not yet net of cleaning cost.",
+      "step1Body": "Apply PPA, merchant, or blended ₹/kWh. This is the annual value at risk from dust, not yet net of cleaning cost.",
       "step2Title": "Compare cleaning programme cost",
       "step2Body": "Run the ROI calculator with CAPEX or OPEX. Compare recovered MWh value vs cleaning TCO over 5 years.",
       "step3Title": "Validate with site study",
       "step3Body": "Taypro engineers assess dust sources, cycle count, and robot model before binding commercial terms.",
       "step4Title": "Track PR recovery in NECTYR",
-      "step4Body": "Correlate cleaning cycles with block-level PR trends — closing the SCADA blind spot on field action."
+      "step4Body": "Correlate cleaning cycles with block-level PR trends, closing the SCADA blind spot on field action."
     },
     "highlight": {
       "heading": "The O&M question",
@@ -110,9 +110,9 @@
     "proseSecondary": {
       "eyebrow": "Regional context",
       "heading": "Soiling chemistry varies by Indian state",
-      "p1": "Rajasthan and Gujarat see loose silica and cementitious films — dry-brush robotic cleaning fits well. Coastal Tamil Nadu and Andhra Pradesh add salt aerosols. Metro-adjacent plants face soot and PM2.5 with different adhesion.",
-      "p2": "Agri-adjacent sites see harvest dust spikes in October–November. Monsoon rain can reset modules — but pre-monsoon dust seasons often drive the highest annual loss.",
-      "p3": "Weekly manual cleaning may leave 3–6% residual annual loss; optimised daily robotic programmes target under 2% in field discussions — always site-dependent.",
+      "p1": "Rajasthan and Gujarat see loose silica and cementitious films, dry-brush robotic cleaning fits well. Coastal Tamil Nadu and Andhra Pradesh add salt aerosols. Metro-adjacent plants face soot and PM2.5 with different adhesion.",
+      "p2": "Agri-adjacent sites see harvest dust spikes in October–November. Monsoon rain can reset modules, but pre-monsoon dust seasons often drive the highest annual loss.",
+      "p3": "Weekly manual cleaning may leave 3–6% residual annual loss; optimised daily robotic programmes target under 2% in field discussions, always site-dependent.",
       "linkPrimary": "Seasonal soiling variation in India",
       "linkPrimaryHref": "/blog/seasonal-variation-in-soiling-rates-and-energy-yield-loss-in-india",
       "linkSecondary": "Cleaning technology guide",
@@ -129,7 +129,7 @@
       "link2Href": "/blog/leveraging-carbon-pricing-for-environmental-and-economic-sustainability"
     },
     "faq": {
-      "heading": "Solar soiling loss calculator — FAQ",
+      "heading": "Solar soiling loss calculator, FAQ",
       "subheading": "How to interpret results and next steps.",
       "q0": "How is annual generation calculated?",
       "a0": "Plant MW × 1,000 kW × specific yield (default 1,500 kWh/kW-year for India P50). Adjust tariff; yield is held constant unless you request a site-specific study.",
@@ -142,7 +142,7 @@
       "q4": "How does soiling relate to PR?",
       "a4": "Soiling suppresses PR. SCADA shows kWh after loss; this calculator translates assumed soiling % into MWh and ₹ at risk.",
       "q5": "When is cleaning not economic?",
-      "a5": "When soiling loss is under ~1.5–2% and cleaning cost exceeds recovered PPA value — common on mild sites or during heavy rain seasons.",
+      "a5": "When soiling loss is under ~1.5–2% and cleaning cost exceeds recovered PPA value, common on mild sites or during heavy rain seasons.",
       "q6": "What tariff should I enter?",
       "a6": "Use your effective ₹/kWh: PPA rate, merchant capture, or blended portfolio average.",
       "q7": "Can rooftop plants use this?",
@@ -157,7 +157,7 @@
       "a11": "Lost MWh from soiling reduces avoided emissions. See our carbon/soiling blog for portfolio framing."
     },
     "cta": {
-      "heading": "Know your loss — then model the fix",
+      "heading": "Know your loss, then model the fix",
       "body": "Use the ROI calculator to compare cleaning programme economics, or contact Taypro for a site soiling study.",
       "primary": "ROI calculator",
       "primaryHref": "/solar-panel-cleaning-robot-price-calculator#calculator",

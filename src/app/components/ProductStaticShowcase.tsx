@@ -77,7 +77,7 @@ export default function ProductStaticShowcase({
           >
             <Image
               src={src}
-              alt={index === 0 ? imageAlt : `${imageAlt} — detail ${index}`}
+              alt={index === 0 ? imageAlt : `${imageAlt}, detail ${index}`}
               fill
               className="object-contain"
               sizes="(max-width: 1024px) 100vw, 640px"

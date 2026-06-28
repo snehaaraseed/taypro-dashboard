@@ -16,8 +16,8 @@
     },
     "hero": {
       "eyebrow": "Single-axis tracker segment",
-      "title": "Solar cleaning robot for single-axis trackers — built for Indian utility scale",
-      "subtitle": "Tracker adoption is accelerating across Gujarat, Rajasthan, and Karnataka — but manual brush crews cannot keep pace with row length and stow angles. Taypro GLYDE-X and NYUMA-X traverse tracker tables with CRADYL row-transfer docking for 50–300 MW fleets.",
+      "title": "Solar cleaning robot for single-axis trackers, built for Indian utility scale",
+      "subtitle": "Tracker adoption is accelerating across Gujarat, Rajasthan, and Karnataka: but manual brush crews cannot keep pace with row length and stow angles. Taypro GLYDE-X and NYUMA-X traverse tracker tables with CRADYL row-transfer docking for 50–300 MW fleets.",
       "ctaPrimary": "Compare GLYDE-X vs NYUMA-X",
       "ctaPrimaryHref": "/compare/glyde-x-vs-nyuma-x",
       "ctaSecondary": "Request tracker site assessment",
@@ -29,7 +29,7 @@
       "subheading": "Fixed-tilt robots and manual crews hit limits as tracker row length and MW scale grow.",
       "card0": {
         "title": "Row length & transfer",
-        "body": "Single-axis rows exceed 100 modules. Robots need autonomous row-end transfer — CRADYL docking stations move fleets between rows without manual carry."
+        "body": "Single-axis rows exceed 100 modules. Robots need autonomous row-end transfer, CRADYL docking stations move fleets between rows without manual carry."
       },
       "card1": {
         "title": "Stow angle compatibility",
@@ -41,7 +41,7 @@
       },
       "card3": {
         "title": "Fleet density economics",
-        "body": "Robots-per-MW planning must match row count, transfer points, and battery swap strategy — not generic fixed-tilt assumptions."
+        "body": "Robots-per-MW planning must match row count, transfer points, and battery swap strategy, not generic fixed-tilt assumptions."
       },
       "card4": {
         "title": "Tracker vendor compatibility",
@@ -49,34 +49,34 @@
       },
       "card5": {
         "title": "Night-window throughput modelling",
-        "body": "Engineering models available cleaning hours vs row count to hit 3–10 monthly cycles — the minimum for high-soiling tracker belts."
+        "body": "Engineering models available cleaning hours vs row count to hit 3–10 monthly cycles, the minimum for high-soiling tracker belts."
       }
     },
     "products": {
       "eyebrow": "Tracker robot lineup",
       "heading": "Taypro robots for single-axis tracker arrays",
       "product0": {
-        "title": "GLYDE-X — dual-pass tracker robot",
+        "title": "GLYDE-X: dual-pass tracker robot",
         "body": "Flagship dual-pass microfiber cleaning for single-axis trackers. Highest cleaning quality per pass for premium PR recovery on utility fleets.",
         "link": "GLYDE-X specifications"
       },
       "product1": {
-        "title": "NYUMA-X — PBT single-pass tracker robot",
+        "title": "NYUMA-X: PBT single-pass tracker robot",
         "body": "Polymer brush technology single-pass robot for tracker sites prioritising cycle speed and capex efficiency.",
         "link": "NYUMA-X specifications"
       },
       "product2": {
-        "title": "CRADYL — row transfer docking",
-        "body": "Autonomous docking station for robot transfer between tracker rows — essential for multi-row blocks without operator carry.",
+        "title": "CRADYL: row transfer docking",
+        "body": "Autonomous docking station for robot transfer between tracker rows, essential for multi-row blocks without operator carry.",
         "link": "CRADYL docking station"
       }
     },
     "prose": {
       "eyebrow": "Deployment experience",
       "heading": "Tracker cleaning robots deployed at 50–300 MW in India",
-      "p1": "Taypro has commissioned tracker-compatible cleaning fleets on SECI and state discom projects across Gujarat and Rajasthan — including 100 MW+ single-site references. Deployment includes site mapping, CRADYL placement planning, operator training, and NECTYR onboarding.",
+      "p1": "Taypro has commissioned tracker-compatible cleaning fleets on SECI and state discom projects across Gujarat and Rajasthan: including 100 MW+ single-site references. Deployment includes site mapping, CRADYL placement planning, operator training, and NECTYR onboarding.",
       "p2": "Choosing GLYDE-X vs NYUMA-X depends on your PR recovery targets, dust chemistry, and capex vs cycle-speed trade-offs. Use our head-to-head comparison or request Taypro engineering to model robots-per-MW for your row layout.",
-      "p3": "Tracker plants also qualify for OPEX — pay per panel cleaned without upfront robot CAPEX.",
+      "p3": "Tracker plants also qualify for OPEX: pay per panel cleaned without upfront robot CAPEX.",
       "linkPrimary": "GLYDE-X vs NYUMA-X comparison",
       "linkPrimaryHref": "/compare/glyde-x-vs-nyuma-x",
       "linkSecondary": "Large-scale cleaning capability",
@@ -88,22 +88,22 @@
       "subheading": "Automatic robotic cleaning on tracker and utility-scale plants in Gujarat and India."
     },
     "faq": {
-      "heading": "Tracker solar cleaning robot — FAQ",
+      "heading": "Tracker solar cleaning robot, FAQ",
       "subheading": "Technical and procurement questions for single-axis tracker plants.",
       "q0": "Which Taypro robot works on single-axis trackers?",
       "a0": "GLYDE-X (dual-pass microfiber) and NYUMA-X (PBT single-pass) are engineered for single-axis tracker arrays. Fixed-tilt GLYDE and NYUMA are not recommended for tracker installations.",
       "q1": "What is CRADYL and why do tracker sites need it?",
-      "a1": "CRADYL is Taypro's row-transfer docking station. It autonomously moves cleaning robots between tracker rows at row ends — eliminating manual carry on long single-axis tables.",
+      "a1": "CRADYL is Taypro's row-transfer docking station. It autonomously moves cleaning robots between tracker rows at row ends, eliminating manual carry on long single-axis tables.",
       "q2": "How many robots per MW on a tracker plant?",
-      "a2": "Robots-per-MW depends on row count, row length, transfer point layout, and target cycles per month. Taypro engineers model fleet size during site assessment — typically different from fixed-tilt ratios.",
-      "q3": "GLYDE-X vs NYUMA-X for trackers — which should I choose?",
+      "a2": "Robots-per-MW depends on row count, row length, transfer point layout, and target cycles per month. Taypro engineers model fleet size during site assessment, typically different from fixed-tilt ratios.",
+      "q3": "GLYDE-X vs NYUMA-X for trackers, which should I choose?",
       "a3": "GLYDE-X delivers higher cleaning quality per pass (dual-pass microfiber). NYUMA-X prioritises faster single-pass coverage and capex efficiency. Compare specifications on our head-to-head page or request Taypro engineering input.",
       "q4": "Can manual brush cleaning work on tracker arrays at 50 MW+?",
       "a4": "Manual crews struggle with tracker row length, night-window throughput, and consistent coverage at utility scale. Robotic dry cleaning is the economical path for 3–10 cycles per month on 50 MW+ tracker fleets.",
       "q5": "Does Taypro offer OPEX on tracker plants?",
       "a5": "Yes. OPEX deploys GLYDE-X or NYUMA-X with operators and bills per panel cleaned. Tracker installations carry an OPEX rate multiplier versus fixed tilt.",
       "q6": "What is the commissioning timeline for tracker robots?",
-      "a6": "Typical mobilisation includes site mapping, CRADYL placement, connectivity setup, operator training, and NECTYR onboarding. Timeline depends on plant size and row geometry — Taypro provides a schedule during proposal.",
+      "a6": "Typical mobilisation includes site mapping, CRADYL placement, connectivity setup, operator training, and NECTYR onboarding. Timeline depends on plant size and row geometry, Taypro provides a schedule during proposal.",
       "q7": "How do I request a tracker site assessment?",
       "a7": "Share plant MW, tracker vendor, row geometry, location, and current cleaning method. Taypro will recommend robot model, fleet size, and CAPEX or OPEX commercial terms.",
       "q8": "Which tracker brands has Taypro deployed on?",
@@ -113,7 +113,7 @@
       "q10": "What OPEX multiplier applies to tracker plants?",
       "a10": "Tracker installations use approximately 1.8× the fixed-tilt per-panel rate due to geometry and transfer complexity. See OPEX pricing guide.",
       "q11": "Can robots clean during tracker stow?",
-      "a11": "Cleaning programmes are scheduled for agreed stow angles and night windows — defined in the plant-specific cleaning SOP during mobilisation."
+      "a11": "Cleaning programmes are scheduled for agreed stow angles and night windows, defined in the plant-specific cleaning SOP during mobilisation."
     },
     "cta": {
       "heading": "Model tracker cleaning robots for your plant",
@@ -144,13 +144,13 @@
         "tag": "Growth",
         "stat": "Rising",
         "label": "Tracker share of new utility MW",
-        "body": "Gujarat, Rajasthan, and Karnataka lead tracker adoption — manual crews cannot match row length at 50 MW+ scale."
+        "body": "Gujarat, Rajasthan, and Karnataka lead tracker adoption, manual crews cannot match row length at 50 MW+ scale."
       },
       "card1": {
         "tag": "Products",
         "stat": "2 robots",
         "label": "GLYDE-X & NYUMA-X",
-        "body": "Dual-pass microfiber vs PBT single-pass — choose based on PR targets and capex efficiency."
+        "body": "Dual-pass microfiber vs PBT single-pass, choose based on PR targets and capex efficiency."
       },
       "card2": {
         "tag": "Transfer",
@@ -173,7 +173,7 @@
       "step1Title": "GLYDE-X vs NYUMA-X selection",
       "step1Body": "Dual-pass quality (GLYDE-X) vs single-pass speed and capex (NYUMA-X). Head-to-head comparison available or engineering recommendation.",
       "step2Title": "CRADYL placement plan",
-      "step2Body": "Row-end docking stations positioned for autonomous transfer — minimising operator carry on 100+ module rows.",
+      "step2Body": "Row-end docking stations positioned for autonomous transfer, minimising operator carry on 100+ module rows.",
       "step3Title": "Fleet mobilisation & NECTYR mapping",
       "step3Body": "Robots mapped to blocks, operators trained on tracker-specific SOPs, connectivity commissioned.",
       "step4Title": "Cycle execution & PR correlation",
@@ -181,14 +181,14 @@
     },
     "highlight": {
       "heading": "Manual brush cleaning breaks at tracker scale.",
-      "lead": "100-module rows need autonomous transfer — not crews carrying brushes at row ends.",
+      "lead": "100-module rows need autonomous transfer, not crews carrying brushes at row ends.",
       "body": "Taypro GLYDE-X and NYUMA-X with CRADYL row-transfer docking are engineered for Indian single-axis tracker plants from 50 MW to 300 MW."
     },
     "proseSecondary": {
       "eyebrow": "GLYDE-X vs NYUMA-X",
       "heading": "Choosing a tracker-compatible cleaning robot for your PR targets",
-      "p1": "GLYDE-X uses Taypro's patented dual-pass microfiber system — highest dust removal per pass, ideal when soiling chemistry is sticky or cementitious and PR recovery per cycle is the priority.",
-      "p2": "NYUMA-X uses PBT single-pass brush technology — faster coverage per night window and lower capex, suited when dust is predominantly dry and cycle throughput is the bottleneck.",
+      "p1": "GLYDE-X uses Taypro's patented dual-pass microfiber system, highest dust removal per pass, ideal when soiling chemistry is sticky or cementitious and PR recovery per cycle is the priority.",
+      "p2": "NYUMA-X uses PBT single-pass brush technology, faster coverage per night window and lower capex, suited when dust is predominantly dry and cycle throughput is the bottleneck.",
       "p3": "Both integrate with CRADYL for row transfer and NECTYR for fleet scheduling. Request engineering modelling for your tracker layout.",
       "linkPrimary": "GLYDE-X vs NYUMA-X comparison",
       "linkPrimaryHref": "/compare/glyde-x-vs-nyuma-x",

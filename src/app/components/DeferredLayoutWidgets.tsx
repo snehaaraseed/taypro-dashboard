@@ -9,7 +9,7 @@ const DeferredSecondaryWidgets = dynamic(
   { ssr: false }
 );
 
-/** Minimum delay before mounting — idle callbacks can fire during the LCP window. */
+/** Minimum delay before mounting, idle callbacks can fire during the LCP window. */
 function useMinDelayReady(delayMs: number) {
   const [ready, setReady] = useState(false);
 
@@ -21,7 +21,7 @@ function useMinDelayReady(delayMs: number) {
   return ready;
 }
 
-/** Analytics, lead UI, and consent — delayed so cookie copy cannot become LCP. */
+/** Analytics, lead UI, and consent, delayed so cookie copy cannot become LCP. */
 export default function DeferredLayoutWidgets() {
   const consentReady = useMinDelayReady(15000);
   const secondaryReady = useMinDelayReady(8000);

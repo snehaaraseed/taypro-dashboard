@@ -1,4 +1,4 @@
-/** Blog publish / schedule helpers (pure — safe on server and client). */
+/** Blog publish / schedule helpers (pure, safe on server and client). */
 
 export type BlogPublishInput = {
   published?: boolean;

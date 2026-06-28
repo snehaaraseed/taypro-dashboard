@@ -23,7 +23,7 @@
       "resources": {
         "eyebrow": "リソース",
         "heading": "{state}の太陽光発電O&Mチーム向けガイド",
-        "subheading": "汚れ、気象、清掃頻度、経済性を深掘りした記事 — ユーティリティO&M担当者向け。",
+        "subheading": "汚れ、気象、清掃頻度、経済性を深掘りした記事, ユーティリティO&M担当者向け。",
         "readGuide": "ガイドを読む",
         "viewAll": "すべてのリソースを見る"
       },
@@ -57,7 +57,7 @@
         "title": "Rajasthanの太陽光パネル清掃ロボット | 大規模発電所",
         "description": "Rajasthanの大規模太陽光発電所向け乾式太陽光パネル清掃ロボット。砂嵐による汚れ対策、360 MW以上の導入実績、インド全土の保守サービス。GLYDE、NYUMA、およびOpexを展開。",
         "openGraphTitle": "Rajasthanの太陽光パネル清掃ロボット | Taypro",
-        "openGraphDescription": "Rajasthanの太陽光発電所向けロボットによる乾式清掃 — 深刻な汚れや水不足地域、数百MW規模のフリートに対応。"
+        "openGraphDescription": "Rajasthanの太陽光発電所向けロボットによる乾式清掃, 深刻な汚れや水不足地域、数百MW規模のフリートに対応。"
       },
       "hero": {
         "eyebrow": "Rajasthan · 大規模太陽光発電",
@@ -453,9 +453,9 @@
     "uttarPradesh": {
       "meta": {
         "title": "Uttar Pradesh向け太陽光パネル清掃ロボット | メガソーラー発電所",
-        "description": "Uttar Pradeshのメガソーラー向け太陽光パネル清掃ロボット。Banda 70 MW、Prayagraj 50 MW、Deoriaでの導入実績 — Bundelkhandの砂塵、水不足、高密度混合フリート、インド全土のサービス。",
+        "description": "Uttar Pradeshのメガソーラー向け太陽光パネル清掃ロボット。Banda 70 MW、Prayagraj 50 MW、Deoriaでの導入実績, Bundelkhandの砂塵、水不足、高密度混合フリート、インド全土のサービス。",
         "openGraphTitle": "Uttar Pradesh向け太陽光パネル清掃ロボット | Taypro",
-        "openGraphDescription": "UPのメガソーラー向け非水洗浄ロボット清掃 — Banda規模の混合フリートとBundelkhandの汚れ対策。"
+        "openGraphDescription": "UPのメガソーラー向け非水洗浄ロボット清掃, Banda規模の混合フリートとBundelkhandの汚れ対策。"
       },
       "hero": {
         "eyebrow": "Uttar Pradesh · メガソーラー",
@@ -466,27 +466,27 @@
         "eyebrow": "地域的背景",
         "heading": "Uttar PradeshにおけるBundelkhandの砂塵と水不足",
         "p1": "Bundelkhandおよび隣接ベルトのUttar Pradesh発電所では砂塵の再付着が早く、水不足により大規模な給水車による水洗浄プログラムは持続不可能です。インドの乾燥地帯で示される8～25%の汚れ損失帯は、UPのポートフォリオ全体に強く当てはまります。",
-        "p2": "TayproのBanda導入は、定格容量が小さくても砂塵の再付着期間と列キロメートルが記録ベースの清掃頻度を要求する場合、MWあたりのロボット台数が高くなることを示しています — 70 MWがすべてのサイトで機械的に160台を必要とするわけではありません。",
+        "p2": "TayproのBanda導入は、定格容量が小さくても砂塵の再付着期間と列キロメートルが記録ベースの清掃頻度を要求する場合、MWあたりのロボット台数が高くなることを示しています, 70 MWがすべてのサイトで機械的に160台を必要とするわけではありません。",
         "p3": "インド全土での当日故障対応と地域予備部品により、UPの発電容量拡大に伴い平均修理時間を予測可能に保ちます。"
       },
       "models": {
-        "body": "Uttar PradeshのプログラムはGLYDE自動アンカーとNYUMA半自動ギャップフィルを組み合わせます — Bandaは106台のGLYDEと54台のNYUMA（70 MWで160台、約2.29台/MW）をNECTYR下で全非水洗浄サイクル運用。Prayagraj 50 MWは反復可能な列で約1.04台/MWの自動優先GLYDEを使用します。",
-        "recommended": "UPのRFQでは、給水車OPEX回避とロボットCAPEXを明示的にモデル化すべきです — Bundelkhandの水不足は、乾式清掃をPR回復だけでなくESGと物流の突破口にします。"
+        "body": "Uttar PradeshのプログラムはGLYDE自動アンカーとNYUMA半自動ギャップフィルを組み合わせます, Bandaは106台のGLYDEと54台のNYUMA（70 MWで160台、約2.29台/MW）をNECTYR下で全非水洗浄サイクル運用。Prayagraj 50 MWは反復可能な列で約1.04台/MWの自動優先GLYDEを使用します。",
+        "recommended": "UPのRFQでは、給水車OPEX回避とロボットCAPEXを明示的にモデル化すべきです, Bundelkhandの水不足は、乾式清掃をPR回復だけでなくESGと物流の突破口にします。"
       },
       "deployments": {
         "heading": "Banda、Prayagraj、UPのメガソーラー向けロボット",
         "p1": "Uttar Pradeshは水不足のテーブル上で高密度混合フリートを運用するTayproの中核実証地域です。水洗浄が財務チームが引き受けない給水車隊を意味し、O&Mガバナンスにブロック単位の清掃証明が必要な場合、オーナーはロボットを検討します。",
         "p2": "Banda 70 MWでは、TayproはCAPEX所有下で106台のGLYDE自動機と54台のNYUMA半自動機をNECTYRスケジューリングで導入。現場報告では年間約980万リットルの節水、約2.63 GWhのクリーン発電帰属、160台にわたるエンタープライズ級アラートトリアージが含まれます。",
-        "p3": "Prayagraj 50 MWとDeoria 60 MWは50～70 MW定格での自動優先と半自動プログラムの代替を示します — 下記ケーススタディでフリート密度と調達モデルを比較してください。"
+        "p3": "Prayagraj 50 MWとDeoria 60 MWは50～70 MW定格での自動優先と半自動プログラムの代替を示します, 下記ケーススタディでフリート密度と調達モデルを比較してください。"
       },
       "procurement": {
         "heading": "UP発電事業者向け調達",
         "p1": "CAPEX購入はTayproコミッショニング、UP砂塵の摩耗に合わせた予備部品基準、AMC支援の故障SLAとともにロボットを貸借対照表に計上します。",
-        "p2": "OpexはNECTYRレポート付きのパネル清掃課金サービスを提供 — 新しいUPブロックで完全CAPEX承認前に砂塵シーズンの清掃頻度を開始する場合に有用です。"
+        "p2": "OpexはNECTYRレポート付きのパネル清掃課金サービスを提供, 新しいUPブロックで完全CAPEX承認前に砂塵シーズンの清掃頻度を開始する場合に有用です。"
       },
       "roiBand": {
         "heading": "Uttar Pradesh発電所のロボット経済性",
-        "p1": "Bandaのような高ロボット/MWプログラムは薄い自動のみの同業よりCAPEXが高いが、より多くの記録サイクルを提供できます — ハードルレート審査で節水と帰属GWhをともにモデル化してください。",
+        "p1": "Bandaのような高ロボット/MWプログラムは薄い自動のみの同業よりCAPEXが高いが、より多くの記録サイクルを提供できます, ハードルレート審査で節水と帰属GWhをともにモデル化してください。",
         "p2": "方向性の価格帯と回収モデルはインド価格ガイドとROI計算機で利用可能。正式見積もりはTayproレイアウト確認後です。"
       },
       "resources": {
@@ -501,17 +501,17 @@
         "q0": "TayproはUttar Pradeshで事業を行っていますか？",
         "a0": "はい。TayproはBanda 70 MW、Prayagraj 50 MW、Deoria 60 MWを含むUPの稼働中メガソーラー導入があります。フリートサイジングのためサイト詳細を共有してください。",
         "q1": "なぜBandaは70 MWで160台のロボットを運用していますか？",
-        "a1": "Bandaは列マップ上のサイクル頻度と記録カバレッジを優先 — ロボット台数は砂塵再付着とブロックキロメートルを反映し、普遍的なロボット/MW基準ではありません。Tayproはレイアウト確認から各サイトをサイジングします。",
+        "a1": "Bandaは列マップ上のサイクル頻度と記録カバレッジを優先, ロボット台数は砂塵再付着とブロックキロメートルを反映し、普遍的なロボット/MW基準ではありません。Tayproはレイアウト確認から各サイトをサイジングします。",
         "q2": "TayproロボットはUPの水不足サイトで非水洗浄ですか？",
-        "a2": "はい。すべてのTayproユーティリティロボットは乾式清掃を使用 — Bundelkhandでは水洗浄給水車物流が高コストでESGに敏感なため重要です。",
+        "a2": "はい。すべてのTayproユーティリティロボットは乾式清掃を使用, Bundelkhandでは水洗浄給水車物流が高コストでESGに敏感なため重要です。",
         "q3": "UPメガソーラーのロボット価格はいくらですか？",
         "a3": "価格はMW、MWあたりロボット台数、自動化レベルで変動。インド価格ガイドとROI計算機を参照し、レイアウト確認後に正式見積もりを依頼してください。",
         "q4": "TayproはBanda規模のフリート監視を提供しますか？",
-        "a4": "はい。NECTYRはスケジュールサイクル状況、フリートヘルスアラート、ブロック完了マップを提供 — 1テーブルで100台超を管理する際に不可欠です。",
+        "a4": "はい。NECTYRはスケジュールサイクル状況、フリートヘルスアラート、ブロック完了マップを提供, 1テーブルで100台超を管理する際に不可欠です。",
         "q5": "TayproはUPでOpex下で運用できますか？",
-        "a5": "はい。OpexはTayproがスケジュールとレポートを運用するパネル清掃課金 — CAPEX購入の代替です。",
+        "a5": "はい。OpexはTayproがスケジュールとレポートを運用するパネル清掃課金, CAPEX購入の代替です。",
         "q6": "UPはRajasthanのメガプラントとどう比較されますか？",
-        "a6": "Rajasthanのメガプログラムは異なるロボット/MWと半自動優先戦略を採用することが多い — UPオーナーはBhadla規模の前提ではなく、同様の定格と水ストレスを持つBandaとPrayagrajの同業をベンチマークすべきです。",
+        "a6": "Rajasthanのメガプログラムは異なるロボット/MWと半自動優先戦略を採用することが多い, UPオーナーはBhadla規模の前提ではなく、同様の定格と水ストレスを持つBandaとPrayagrajの同業をベンチマークすべきです。",
         "q7": "TayproはMade in IndiaでUPのフィールドサポートがありますか？",
         "a7": "はい。Taypro Private LimitedはTÜV NORD認証ハードウェアをインドで設計・製造・サービスし、Uttar Pradeshを含むインド全土の故障SLAを提供します。"
       }
@@ -519,21 +519,21 @@
     "tamilNadu": {
       "meta": {
         "title": "Tamil Nadu向け太陽光パネル清掃ロボット | メガソーラー発電所",
-        "description": "Tamil Naduのメガソーラー向け太陽光パネル清掃ロボット。NayveliとChennaiでの導入 — 沿岸湿度、GLYDE自動とNYUMA半自動の非水洗浄フリート、NECTYR、インド全土のサービス。",
+        "description": "Tamil Naduのメガソーラー向け太陽光パネル清掃ロボット。NayveliとChennaiでの導入, 沿岸湿度、GLYDE自動とNYUMA半自動の非水洗浄フリート、NECTYR、インド全土のサービス。",
         "openGraphTitle": "Tamil Nadu向け太陽光パネル清掃ロボット | Taypro",
-        "openGraphDescription": "Tamil Naduのメガソーラー向け非水洗浄ロボット清掃 — 沿岸汚れと耐湿熱運用。"
+        "openGraphDescription": "Tamil Naduのメガソーラー向け非水洗浄ロボット清掃, 沿岸汚れと耐湿熱運用。"
       },
       "hero": {
         "eyebrow": "Tamil Nadu · メガソーラー",
         "title": "Tamil Nadu向け太陽光パネル清掃ロボット",
-        "subtitle": "Tamil Naduの発電所は沿岸湿度、塩分エアロゾル、モンスーン後の砂塵膜という汚れプロファイルに直面 — 頻繁な非研磨乾式清掃が有効です。NayveliとChennaiのTaypro非水洗浄ロボットは、TÜV NORD耐湿熱検証のもとGLYDE自動とNYUMA半自動プログラムを運用します。"
+        "subtitle": "Tamil Naduの発電所は沿岸湿度、塩分エアロゾル、モンスーン後の砂塵膜という汚れプロファイルに直面, 頻繁な非研磨乾式清掃が有効です。NayveliとChennaiのTaypro非水洗浄ロボットは、TÜV NORD耐湿熱検証のもとGLYDE自動とNYUMA半自動プログラムを運用します。"
       },
       "soiling": {
         "eyebrow": "地域的背景",
         "heading": "Tamil Naduにおける沿岸湿度と汚れ",
-        "p1": "Tamil Naduは湿度由来の膜と工業・農業微粒子を組み合わせ — 純粋な西部乾燥ベルトとは異なります。清掃は水洗浄水物流なしに、モンスーン移行期を通じて非研磨かつ高頻度を維持する必要があります。",
-        "p2": "TayproのTamil Nadu導入には、GLYDE自動NECTYRスケジューリングのNayveli 10 MWと、NYUMA半自動検査主導プログラムのChennai 10 MWが含まれ — 耐湿熱条件下でメガソーラー規模の非水洗浄ロボットが機能する証明です。",
-        "p3": "Tamil Naduの開発者は耐湿熱ハードウェア検証、NECTYRまたは検査ログでのモンスーンホールドルール、当日故障SLAを要求すべき — Tayproユーティリティの標準項目です。"
+        "p1": "Tamil Naduは湿度由来の膜と工業・農業微粒子を組み合わせ, 純粋な西部乾燥ベルトとは異なります。清掃は水洗浄水物流なしに、モンスーン移行期を通じて非研磨かつ高頻度を維持する必要があります。",
+        "p2": "TayproのTamil Nadu導入には、GLYDE自動NECTYRスケジューリングのNayveli 10 MWと、NYUMA半自動検査主導プログラムのChennai 10 MWが含まれ, 耐湿熱条件下でメガソーラー規模の非水洗浄ロボットが機能する証明です。",
+        "p3": "Tamil Naduの開発者は耐湿熱ハードウェア検証、NECTYRまたは検査ログでのモンスーンホールドルール、当日故障SLAを要求すべき, Tayproユーティリティの標準項目です。"
       },
       "models": {
         "body": "Tamil Naduの10 MWクラスプログラムは2つのフリートパスを示します：Nayveliは3台のGLYDE自動ロボット（約0.30台/MW）を反復可能な列でNECTYR運用；Chennaiは2台のNYUMA半自動ポータブル（約0.20台/MW）を週次ブロック計画で使用。大規模南部RFQではトラッカー比率の増加に応じGLYDE-Xを追加する場合があります。",
@@ -542,17 +542,17 @@
       "deployments": {
         "heading": "Nayveli、Chennai、Tamil Naduのメガソーラー向けロボット",
         "p1": "Tamil Naduの発電容量は沿岸影響の汚れレジームに位置し、不適切な水洗浄はモジュール損傷リスクを伴い、給水車物流がOPEXを増やします。Tayproの稼働中Tamil Naduプログラムは10 MW定格で自動優先と半自動ポータブル両モデルを示します。",
-        "p2": "Nayveli 10 MWでは、TayproはCAPEX所有下で3台のGLYDE自動ロボットをNECTYRスケジューリングでコミッション — 現場運用は年間約140万リットルの節水と、日没後の乾式パスによる約375 MWhのクリーン発電帰属を報告しています。",
-        "p3": "Chennai 10 MWは検査主導の週次ブロックカバレッジで2台のNYUMA半自動ポータブルを運用 — 不規則テーブルや南部ポートフォリオ全体での段階的自動展開を検討するオーナーの参考です。"
+        "p2": "Nayveli 10 MWでは、TayproはCAPEX所有下で3台のGLYDE自動ロボットをNECTYRスケジューリングでコミッション, 現場運用は年間約140万リットルの節水と、日没後の乾式パスによる約375 MWhのクリーン発電帰属を報告しています。",
+        "p3": "Chennai 10 MWは検査主導の週次ブロックカバレッジで2台のNYUMA半自動ポータブルを運用, 不規則テーブルや南部ポートフォリオ全体での段階的自動展開を検討するオーナーの参考です。"
       },
       "procurement": {
         "heading": "Tamil Nadu発電所向け商業モデル",
         "p1": "CAPEX購入はTayproコミッショニング、耐湿熱運用検証、AMC支援のインド全土故障対応とともにGLYDEまたはNYUMAフリートを資産計上します。",
-        "p2": "Opexはレポート付きパネル清掃課金サービスに変換 — 沿岸コミッショニング窓で完全CAPEX委員会承認前に即時清掃頻度が必要な場合に有用です。"
+        "p2": "Opexはレポート付きパネル清掃課金サービスに変換, 沿岸コミッショニング窓で完全CAPEX委員会承認前に即時清掃頻度が必要な場合に有用です。"
       },
       "roiBand": {
         "heading": "Tamil Naduメガソーラーのロボット価格ガイダンス",
-        "p1": "10 MW参考プログラムは50 MW南部同業とはCAPEX強度が異なります — MW単独ではなく列マップと自動化レベルからロボット台数をスケールしてください。",
+        "p1": "10 MW参考プログラムは50 MW南部同業とはCAPEX強度が異なります, MW単独ではなく列マップと自動化レベルからロボット台数をスケールしてください。",
         "p2": "方向性の価格帯はインド価格ガイド、タリフはROI計算機を使用。正式Tamil Nadu見積もりはTayproレイアウト確認が必要です。"
       },
       "resources": {
@@ -567,7 +567,7 @@
         "q0": "TayproはTamil Naduでロボットを展開していますか？",
         "a0": "はい。TayproはNayveliとChennaiで稼働中のTamil Naduメガソーラー導入があります。提案のため発電所MWとレイアウトをTayproにご連絡ください。",
         "q1": "TayproロボットはTamil Naduの湿度に対応できますか？",
-        "a1": "TayproハードウェアはTÜV NORDにより耐湿熱・耐乾熱条件で認証 — 沿岸影響気候でのモンスーンとモンスーン後サイクル向けに設計されています。",
+        "a1": "TayproハードウェアはTÜV NORDにより耐湿熱・耐乾熱条件で認証, 沿岸影響気候でのモンスーンとモンスーン後サイクル向けに設計されています。",
         "q2": "TNでのGLYDE自動対NYUMA半自動？",
         "a2": "反復可能な列はNECTYR付きGLYDEに適合（Nayveli参考）；不規則テーブルや段階的展開は検査プロトコル付きNYUMAポータブル（Chennai参考）を使用できます。",
         "q3": "Tamil Nadu発電所のロボット価格はどう決まりますか？",
@@ -579,46 +579,46 @@
         "q6": "なぜ沿岸TNサイトで非水洗浄ですか？",
         "a6": "乾式ロボット清掃は水洗浄水物流を回避し、不適切洗浄によるモジュールリスクを低減しながら、手作業クルー単独より頻繁なサイクルを可能にします。",
         "q7": "TNオーナーはKarnataka同業をベンチマークできますか？",
-        "a7": "はい。隣接KarnatakaのYadgirとKMFは混合・自動優先フリートの大定格南部実証を提供 — RFQベンチマークでNayveliとChennaiと併用して有用です。"
+        "a7": "はい。隣接KarnatakaのYadgirとKMFは混合・自動優先フリートの大定格南部実証を提供, RFQベンチマークでNayveliとChennaiと併用して有用です。"
       }
     },
     "haryana": {
       "meta": {
         "title": "Haryana向け太陽光パネル清掃ロボット | メガソーラー・産業用",
-        "description": "Haryanaのメガソーラー・産業用プラント向け非水洗浄ロボット。14.9 MW Haryana、Shri Ganesh Industries、Suresh Cotton、ThakkarサイトでTaypro — NYUMA半自動とGLYDEフリート。",
+        "description": "Haryanaのメガソーラー・産業用プラント向け非水洗浄ロボット。14.9 MW Haryana、Shri Ganesh Industries、Suresh Cotton、ThakkarサイトでTaypro: NYUMA半自動とGLYDEフリート。",
         "openGraphTitle": "Haryana向け太陽光パネル清掃ロボット | Taypro",
-        "openGraphDescription": "Haryana向け乾式ロボット清掃 — NCR周辺の粉塵、産業用屋根、半自動CAPEXプログラム。"
+        "openGraphDescription": "Haryana向け乾式ロボット清掃, NCR周辺の粉塵、産業用屋根、半自動CAPEXプログラム。"
       },
       "hero": {
         "eyebrow": "Haryana · メガソーラー・産業用",
         "title": "Haryana向け太陽光パネル清掃ロボット",
-        "subtitle": "HaryanaはNCR周辺の粉塵負荷と急成長するC&I・地上設置容量を併せ持ちます。Taypro非水洗浄ロボットは数MW級ユーティリティブロックと繊維工場屋根に対応 — NYUMA半自動ポータブルと反復可能列のGLYDE、インド全土故障SLA付き。"
+        "subtitle": "HaryanaはNCR周辺の粉塵負荷と急成長するC&I・地上設置容量を併せ持ちます。Taypro非水洗浄ロボットは数MW級ユーティリティブロックと繊維工場屋根に対応, NYUMA半自動ポータブルと反復可能列のGLYDE、インド全土故障SLA付き。"
       },
       "soiling": {
         "eyebrow": "地域的背景",
         "heading": "Haryanaにおける粉塵・産業粒子とO&M",
-        "p1": "Haryanaのソーラーベルトはデリー北の高交通量粉塵回廊に位置 — 道路・農業・工業の微粒子がモジュールに急速に付着し、特に分散したC&I屋根では暦ベースの水洗浄クルーでは追いつきません。",
-        "p2": "TayproのHaryanaポートフォリオは14.9 MW地上設置プログラムと、検査主導ブロック計画のNYUMA半自動ポータブルを使う複数の1 MW級産業屋根をカバー — 給水車物流なしの非水洗浄ブラッシング。",
-        "p3": "Haryanaのオーナーはブロック単位の清掃証明、研磨粉塵向けブラシPM間隔、当日故障対応を要求すべき — Tayproユーティリティ・C&Iの標準項目です。"
+        "p1": "Haryanaのソーラーベルトはデリー北の高交通量粉塵回廊に位置, 道路・農業・工業の微粒子がモジュールに急速に付着し、特に分散したC&I屋根では暦ベースの水洗浄クルーでは追いつきません。",
+        "p2": "TayproのHaryanaポートフォリオは14.9 MW地上設置プログラムと、検査主導ブロック計画のNYUMA半自動ポータブルを使う複数の1 MW級産業屋根をカバー, 給水車物流なしの非水洗浄ブラッシング。",
+        "p3": "Haryanaのオーナーはブロック単位の清掃証明、研磨粉塵向けブラシPM間隔、当日故障対応を要求すべき, Tayproユーティリティ・C&Iの標準項目です。"
       },
       "models": {
         "body": "Haryana展開は優先ブロックのユーティリティ規模半自動NYUMAと、反復可能な屋根テーブルのGLYDEを組み合わせます。14.9 MWプログラムは半自動密度；Shri Ganesh Industries、Suresh Cotton、Thakkar Chemical/CottonサイトはCAPEX所有下で屋根配列にNYUMAまたはGLYDEを運用。",
-        "recommended": "HaryanaのRFQは地上設置列の反復性と不規則な産業屋根を分離すべき — 経路が固定なら自動GLYDE、テーブルが可変または段階展開ならNYUMAポータブル。"
+        "recommended": "HaryanaのRFQは地上設置列の反復性と不規則な産業屋根を分離すべき, 経路が固定なら自動GLYDE、テーブルが可変または段階展開ならNYUMAポータブル。"
       },
       "deployments": {
         "heading": "Haryanaの稼働中Tayproロボット",
-        "p1": "Taypro公開のHaryana事例には14.9 MW半自動地上設置プログラムと複数のサブMW産業屋根があり — 西部砂漠メガサイト以外でも非水洗浄ロボットが機能する証明です。",
-        "p2": "Haryana 14.9 MWでは、Tayproは週次ブロックカバレッジとCAPEX調達でNYUMA半自動ロボットを展開 — NCR粉塵帯でロボット密度と手作業クルーコストを比較するオーナーの参考です。",
-        "p3": "Shri Ganesh Industries（0.3 MW）、Suresh Cotton、Thakkar Chemical/Cotton（各1 MW）はNYUMAとGLYDEの屋根半自動パターンを示し — 繊維・プロセス産業RFQのベンチマークとして有用です。"
+        "p1": "Taypro公開のHaryana事例には14.9 MW半自動地上設置プログラムと複数のサブMW産業屋根があり, 西部砂漠メガサイト以外でも非水洗浄ロボットが機能する証明です。",
+        "p2": "Haryana 14.9 MWでは、Tayproは週次ブロックカバレッジとCAPEX調達でNYUMA半自動ロボットを展開, NCR粉塵帯でロボット密度と手作業クルーコストを比較するオーナーの参考です。",
+        "p3": "Shri Ganesh Industries（0.3 MW）、Suresh Cotton、Thakkar Chemical/Cotton（各1 MW）はNYUMAとGLYDEの屋根半自動パターンを示し, 繊維・プロセス産業RFQのベンチマークとして有用です。"
       },
       "procurement": {
         "heading": "HaryanaにおけるCAPEX対Opex",
-        "p1": "多くのHaryana C&IオーナーはTayproコミッショニングとAMC付きCAPEXでNYUMAまたはGLYDEを購入 — ロボットを資産計上し清掃を夜間クルー人件費から切り離します。",
-        "p2": "Opexはレポート付きパネル清掃課金サービスとして利用可能 — ロボット購入の資本委員会承認前に即時清掃頻度が必要な産業サイト向けの選択肢です。"
+        "p1": "多くのHaryana C&IオーナーはTayproコミッショニングとAMC付きCAPEXでNYUMAまたはGLYDEを購入, ロボットを資産計上し清掃を夜間クルー人件費から切り離します。",
+        "p2": "Opexはレポート付きパネル清掃課金サービスとして利用可能, ロボット購入の資本委員会承認前に即時清掃頻度が必要な産業サイト向けの選択肢です。"
       },
       "roiBand": {
         "heading": "Haryanaソーラーのロボット価格と回収",
-        "p1": "HaryanaのロボットCAPEXはMW、屋根対地上レイアウト、半自動対自動の組み合わせで変動 — 産業屋根はユーティリティテーブルより低いMW当たり台数になることが多いです。",
+        "p1": "HaryanaのロボットCAPEXはMW、屋根対地上レイアウト、半自動対自動の組み合わせで変動, 産業屋根はユーティリティテーブルより低いMW当たり台数になることが多いです。",
         "p2": "方向性の価格帯はインド価格ガイド、タリフはROI計算機を使用。正式Haryana見積もりはTayproアプリケーションエンジニアリングによるレイアウト確認が必要です。"
       },
       "resources": {
@@ -633,58 +633,58 @@
         "q0": "TayproはHaryanaに清掃ロボットを展開していますか？",
         "a0": "はい。Tayproは14.9 MW地上設置プログラムとShri Ganesh Industries、Suresh Cotton、Thakkarサイトの産業屋根で稼働中です。MWとレイアウトを添えてTayproにお問い合わせください。",
         "q1": "Haryanaの産業屋根に適したロボットは？",
-        "a1": "NYUMA半自動ポータブルとGLYDE自動ユニットがほとんどの屋根テーブルをカバー — 経路反復性と、夜間自動パスか検査主導週次ブロックかにより選択します。",
+        "a1": "NYUMA半自動ポータブルとGLYDE自動ユニットがほとんどの屋根テーブルをカバー, 経路反復性と、夜間自動パスか検査主導週次ブロックかにより選択します。",
         "q2": "Haryanaで非水洗浄の理由は？",
-        "a2": "乾式ロボット清掃は給水車と水洗浄モジュールリスクを回避し、手作業クルーより頻繁なサイクルを可能に — NCR周辺粉塵回廊では重要です。",
+        "a2": "乾式ロボット清掃は給水車と水洗浄モジュールリスクを回避し、手作業クルーより頻繁なサイクルを可能に, NCR周辺粉塵回廊では重要です。",
         "q3": "Haryanaプラントのロボット価格は？",
         "a3": "MW、レイアウト、自動化レベルにより異なります。インド価格ガイドとROI計算機を参照；正式見積もりはレイアウト確認後です。",
         "q4": "TayproはHaryanaでOpexを提供しますか？",
         "a4": "はい。Opexはパネル清掃課金で、Tayproがフリートを運用しNECTYRまたは合意検査ログでレポートします。",
         "q5": "Haryanaサイトの清掃頻度は？",
-        "a5": "頻度は粉塵シーズンとブロック優先度に依存 — 半自動は週次ブロック計画、自動列は収穫後・モンスーン前に高密度化することがあります。",
+        "a5": "頻度は粉塵シーズンとブロック優先度に依存, 半自動は週次ブロック計画、自動列は収穫後・モンスーン前に高密度化することがあります。",
         "q6": "Haryanaで故障サポートはありますか？",
         "a6": "はい。TayproはNECTYR遠隔診断と地域スペア在庫でインド全土当日オンサイト故障解決を目標とします。",
         "q7": "RajasthanやUPとベンチマークできますか？",
-        "a7": "はい。Rajasthanの数百MWとUttar Pradeshユーティリティプログラムはフリートサイジングの大定格参考 — Haryana C&I屋根と同じRFQで有用です。"
+        "a7": "はい。Rajasthanの数百MWとUttar Pradeshユーティリティプログラムはフリートサイジングの大定格参考, Haryana C&I屋根と同じRFQで有用です。"
       }
     },
     "delhi": {
       "meta": {
         "title": "Delhi向け太陽光パネル清掃ロボット | 屋根・公共施設",
-        "description": "Delhiの太陽光パネル清掃ロボット — Parliament Delhi 0.7 MW屋根でGLYDE自動とNYUMA半自動の非水洗浄フリート。都市粉塵、厳しい物流、インド全土サービス。",
+        "description": "Delhiの太陽光パネル清掃ロボット, Parliament Delhi 0.7 MW屋根でGLYDE自動とNYUMA半自動の非水洗浄フリート。都市粉塵、厳しい物流、インド全土サービス。",
         "openGraphTitle": "Delhi向け太陽光パネル清掃ロボット | Taypro",
-        "openGraphDescription": "Delhi向け非水洗浄ロボット清掃 — 公共施設屋根と都市汚れ、水洗浄物流なし。"
+        "openGraphDescription": "Delhi向け非水洗浄ロボット清掃, 公共施設屋根と都市汚れ、水洗浄物流なし。"
       },
       "hero": {
         "eyebrow": "Delhi · 公共施設・屋根ソーラー",
         "title": "Delhi向け太陽光パネル清掃ロボット",
-        "subtitle": "Delhiの都市ソーラー資産は道路粉塵、建設粒子、厳しい屋根物流に直面。Parliament DelhiのTaypro非水洗浄ロボットは旗艦0.7 MW屋根でGLYDE自動とNYUMA半自動清掃を実証 — インド全土故障SLAとNECTYRフリートガバナンス付き。"
+        "subtitle": "Delhiの都市ソーラー資産は道路粉塵、建設粒子、厳しい屋根物流に直面。Parliament DelhiのTaypro非水洗浄ロボットは旗艦0.7 MW屋根でGLYDE自動とNYUMA半自動清掃を実証, インド全土故障SLAとNECTYRフリートガバナンス付き。"
       },
       "soiling": {
         "eyebrow": "地域的背景",
         "heading": "Delhiにおける都市汚れと屋根O&M",
-        "p1": "Delhiのモジュールは微細な都市粉塵と断続的な建設粒子を蓄積 — 警備キャンパスに洗浄水を運ばず頻繁な非研磨乾式清掃が有効な汚れプロファイルです。",
-        "p2": "TayproのParliament Delhi展開は0.7 MW屋根で2台のGLYDE自動ロボットとNYUMA半自動サポートを運用 — 首都で監査対応清掃証明が必要な公共オーナーの参考です。",
-        "p3": "DelhiのRFQは屋根アクセス時間帯、警備調整、当日故障対応を明記すべき — NCR隣接プログラムのTaypro標準項目です。"
+        "p1": "Delhiのモジュールは微細な都市粉塵と断続的な建設粒子を蓄積, 警備キャンパスに洗浄水を運ばず頻繁な非研磨乾式清掃が有効な汚れプロファイルです。",
+        "p2": "TayproのParliament Delhi展開は0.7 MW屋根で2台のGLYDE自動ロボットとNYUMA半自動サポートを運用, 首都で監査対応清掃証明が必要な公共オーナーの参考です。",
+        "p3": "DelhiのRFQは屋根アクセス時間帯、警備調整、当日故障対応を明記すべき, NCR隣接プログラムのTaypro標準項目です。"
       },
       "models": {
-        "body": "反復可能経路のDelhi屋根はGLYDE自動夜間パスに適合；不規則テーブルや警備制限時間帯は検査プロトコル付きNYUMA半自動ポータブル — Parliament Delhiは1キャンパスで両方を示します。",
+        "body": "反復可能経路のDelhi屋根はGLYDE自動夜間パスに適合；不規則テーブルや警備制限時間帯は検査プロトコル付きNYUMA半自動ポータブル, Parliament Delhiは1キャンパスで両方を示します。",
         "recommended": "首都圏RFQは自動対半自動台数を確定する前に列反復性とアクセス時間をマッピングすべきです。"
       },
       "deployments": {
         "heading": "Parliament Delhiと首都圏ロボット",
-        "p1": "TayproのDelhiポートフォリオはParliament Delhi 0.7 MW屋根を中心に — 高セキュリティ都市環境での非水洗浄ロボット清掃の公共参考です。",
-        "p2": "サイトはCAPEX所有下でNYUMA半自動ギャップフィル付きGLYDE自動ロボットを運用 — 乾式ブラッシングが水洗浄タンカーなしでガバナンスとモジュールケア要件を満たすことを示します。",
+        "p1": "TayproのDelhiポートフォリオはParliament Delhi 0.7 MW屋根を中心に, 高セキュリティ都市環境での非水洗浄ロボット清掃の公共参考です。",
+        "p2": "サイトはCAPEX所有下でNYUMA半自動ギャップフィル付きGLYDE自動ロボットを運用, 乾式ブラッシングが水洗浄タンカーなしでガバナンスとモジュールケア要件を満たすことを示します。",
         "p3": "NCRベルトのオーナーは自社の首都圏RFQ前に、屋根フリート設計・調達・O&MレポートのベンチマークとしてParliament Delhiを参照できます。"
       },
       "procurement": {
         "heading": "Delhi屋根向け商業モデル",
-        "p1": "TayproコミッショニングとAMC付きCAPEX購入がDelhi公共屋根の典型 — NECTYRによるブロック単位レポートでロボットを資産計上。",
+        "p1": "TayproコミッショニングとAMC付きCAPEX購入がDelhi公共屋根の典型, NECTYRによるブロック単位レポートでロボットを資産計上。",
         "p2": "Opexはコミッショニングや段階的屋根拡張中に即時頻度が必要な場合、清掃をパネル清掃課金サービスに変換します。"
       },
       "roiBand": {
         "heading": "Delhiソーラーのロボット価格ガイダンス",
-        "p1": "サブMW都市屋根はユーティリティ砂漠とはCAPEX強度が異なり — 台数はMWだけでなく経路キロとアクセス制約に従います。",
+        "p1": "サブMW都市屋根はユーティリティ砂漠とはCAPEX強度が異なり, 台数はMWだけでなく経路キロとアクセス制約に従います。",
         "p2": "インド価格ガイドとROI計算機を使用；正式Delhi見積もりはTayproレイアウト・アクセス確認が必要です。"
       },
       "resources": {
@@ -699,9 +699,9 @@
         "q0": "TayproはDelhiにロボットを展開していますか？",
         "a0": "はい。Parliament Delhi 0.7 MW屋根で稼働中です。首都圏提案のためサイト詳細をTayproにご連絡ください。",
         "q1": "警備された公共屋根をロボットで清掃できますか？",
-        "a1": "はい。Parliament Delhiは旗艦警備屋根でのTaypro非水洗浄ロボットを実証 — アクセス時間帯と検査プロトコルをキャンパス警備と調整します。",
+        "a1": "はい。Parliament Delhiは旗艦警備屋根でのTaypro非水洗浄ロボットを実証, アクセス時間帯と検査プロトコルをキャンパス警備と調整します。",
         "q2": "Delhi屋根でのGLYDE対NYUMA？",
-        "a2": "反復可能経路はGLYDE自動パス；不規則テーブルや限定アクセスはNYUMA半自動ポータブル — Parliament Delhiは両方を使用。",
+        "a2": "反復可能経路はGLYDE自動パス；不規則テーブルや限定アクセスはNYUMA半自動ポータブル, Parliament Delhiは両方を使用。",
         "q3": "Delhiで非水洗浄の理由は？",
         "a3": "乾式ロボット清掃は都市キャンパスでの水洗浄水物流を回避し、高粉塵シーズンに手作業クルーより頻繁なサイクルを可能にします。",
         "q4": "Delhi屋根のロボット価格は？",
@@ -709,7 +709,7 @@
         "q5": "DelhiでOpexはありますか？",
         "a5": "はい。OpexはTayproがフリートを運用するパネル清掃課金サービスとして利用可能です。",
         "q6": "清掃証明はどう報告されますか？",
-        "a6": "NECTYRがスケジュール、清掃ログ、フリートヘルス監視を提供 — Parliament Delhiと同じガバナンス層です。",
+        "a6": "NECTYRがスケジュール、清掃ログ、フリートヘルス監視を提供, Parliament Delhiと同じガバナンス層です。",
         "q7": "Delhi外のNCRオーナーも参考にできますか？",
         "a7": "はい。TayproポートフォリオのHaryanaとUttar PradeshプログラムがNCRベルトRFQベンチマークを補完します。"
       }
@@ -717,40 +717,40 @@
     "westBengal": {
       "meta": {
         "title": "West Bengal向け太陽光パネル清掃ロボット | メガソーラー",
-        "description": "West Bengal向け太陽光パネル清掃ロボット。Sonar Bangla 1.4 MW — 東部湿潤汚れ、NYUMA半自動非水洗浄、インド全土サービス。",
+        "description": "West Bengal向け太陽光パネル清掃ロボット。Sonar Bangla 1.4 MW: 東部湿潤汚れ、NYUMA半自動非水洗浄、インド全土サービス。",
         "openGraphTitle": "West Bengal向け太陽光パネル清掃ロボット | Taypro",
-        "openGraphDescription": "West Bengal向け非水洗浄ロボット清掃 — 東部湿度と農業粒子、水洗浄物流なし。"
+        "openGraphDescription": "West Bengal向け非水洗浄ロボット清掃, 東部湿度と農業粒子、水洗浄物流なし。"
       },
       "hero": {
         "eyebrow": "West Bengal · メガソーラー",
         "title": "West Bengal向け太陽光パネル清掃ロボット",
-        "subtitle": "West Bengalは湿潤シーズンの膜と農業・工業粒子を併せ持つ汚れプロファイル — 頻繁な非研磨乾式清掃が有効です。TayproのSonar Bangla 1.4 MWは検査主導ブロックカバレッジのNYUMA半自動非水洗浄ロボットを運用。"
+        "subtitle": "West Bengalは湿潤シーズンの膜と農業・工業粒子を併せ持つ汚れプロファイル, 頻繁な非研磨乾式清掃が有効です。TayproのSonar Bangla 1.4 MWは検査主導ブロックカバレッジのNYUMA半自動非水洗浄ロボットを運用。"
       },
       "soiling": {
         "eyebrow": "地域的背景",
         "heading": "West Bengalにおける湿度・粒子とO&M",
-        "p1": "東インドの湿度は粉塵と花粉をモジュール上の頑固な膜に結合 — 西部乾燥帯とは異なります。清掃は水洗浄水物流なしにモンスーン移行期を通じて非研磨を維持する必要があります。",
-        "p2": "Sonar Bangla 1.4 MWでは、Tayproは週次ブロック計画のCAPEX下でNYUMA半自動ロボットを展開 — West Bengalの湿潤運用環境で非水洗浄ロボットが機能する証明です。",
-        "p3": "West Bengalの開発者は耐湿熱ハードウェア検証、モンスーンホールドポリシー、当日故障SLAを要求すべき — Tayproユーティリティ標準項目です。"
+        "p1": "東インドの湿度は粉塵と花粉をモジュール上の頑固な膜に結合, 西部乾燥帯とは異なります。清掃は水洗浄水物流なしにモンスーン移行期を通じて非研磨を維持する必要があります。",
+        "p2": "Sonar Bangla 1.4 MWでは、Tayproは週次ブロック計画のCAPEX下でNYUMA半自動ロボットを展開, West Bengalの湿潤運用環境で非水洗浄ロボットが機能する証明です。",
+        "p3": "West Bengalの開発者は耐湿熱ハードウェア検証、モンスーンホールドポリシー、当日故障SLAを要求すべき, Tayproユーティリティ標準項目です。"
       },
       "models": {
-        "body": "Sonar Bangla規模のWest Bengalプログラムは通常、地上設置ブロックでNYUMA半自動ポータブルから開始 — 反復可能列への自動密度化前に資本効率と検査主導カバレッジのバランスを取ります。",
+        "body": "Sonar Bangla規模のWest Bengalプログラムは通常、地上設置ブロックでNYUMA半自動ポータブルから開始, 反復可能列への自動密度化前に資本効率と検査主導カバレッジのバランスを取ります。",
         "recommended": "東部RFQは湿潤シーズン運用のブラシPMと、週次半自動ブロックか夜間自動パスかをO&Mモデルで明確にすべきです。"
       },
       "deployments": {
         "heading": "Sonar BanglaとWest Bengalロボット",
-        "p1": "Taypro公開のWest Bengal事例はSonar Bangla 1.4 MW — 東部湿度と農業粉塵の半自動地上設置参考です。",
-        "p2": "サイトはCAPEX調達と構造化ブロックカバレッジでNYUMA半自動ロボットを運用 — Bengalの運用気候でロボット頻度と手作業クルーコストを比較するオーナーに有用です。",
+        "p1": "Taypro公開のWest Bengal事例はSonar Bangla 1.4 MW: 東部湿度と農業粉塵の半自動地上設置参考です。",
+        "p2": "サイトはCAPEX調達と構造化ブロックカバレッジでNYUMA半自動ロボットを運用, Bengalの運用気候でロボット頻度と手作業クルーコストを比較するオーナーに有用です。",
         "p3": "West Bengal RFQ前に下記事例でフリートサイジングと調達の教訓をご確認ください。"
       },
       "procurement": {
         "heading": "West Bengal向け商業モデル",
-        "p1": "TayproコミッショニングとAMC付きCAPEX購入がSonar Banglaクラスの典型 — 検査またはNECTYRレポートでロボットを資産計上。",
+        "p1": "TayproコミッショニングとAMC付きCAPEX購入がSonar Banglaクラスの典型, 検査またはNECTYRレポートでロボットを資産計上。",
         "p2": "Opexは完全CAPEX承認前に東部コミッショニング窓で即時頻度が必要な場合のパネル清掃課金サービスです。"
       },
       "roiBand": {
         "heading": "West Bengalソーラーのロボット価格ガイダンス",
-        "p1": "5 MW未満の東部プログラムは西部メガサイトとMW当たりロボット経済が異なり — MWだけでなく列マップからサイズしてください。",
+        "p1": "5 MW未満の東部プログラムは西部メガサイトとMW当たりロボット経済が異なり, MWだけでなく列マップからサイズしてください。",
         "p2": "インド価格ガイドとROI計算機を使用；正式West Bengal見積もりはTayproレイアウト確認が必要です。"
       },
       "resources": {
@@ -765,7 +765,7 @@
         "q0": "TayproはWest Bengalにロボットを展開していますか？",
         "a0": "はい。Sonar Bangla 1.4 MWで稼働中です。MWとレイアウトを添えてTayproにお問い合わせください。",
         "q1": "West Bengalの湿度に対応できますか？",
-        "a1": "TayproハードウェアはTÜV NORD耐湿熱・耐乾熱認証 — 湿潤東部気候のモンスーンとモンスーン後サイクル向けに設計。",
+        "a1": "TayproハードウェアはTÜV NORD耐湿熱・耐乾熱認証, 湿潤東部気候のモンスーンとモンスーン後サイクル向けに設計。",
         "q2": "West Bengal地上設置に適したロボットは？",
         "a2": "Sonar Banglaの主参考はNYUMA半自動ポータブル；プログラム拡大で反復可能列にGLYDE自動密度を追加可能。",
         "q3": "West Bengalで非水洗浄の理由は？",
@@ -783,40 +783,40 @@
     "chhattisgarh": {
       "meta": {
         "title": "Chhattisgarh向け太陽光パネル清掃ロボット | メガソーラー",
-        "description": "Chhattisgarh向け太陽光パネル清掃ロボット。Sungazing 2.5 MW — 中央インド粉塵、NYUMAとGLYDE半自動非水洗浄フリート、インド全土サービス。",
+        "description": "Chhattisgarh向け太陽光パネル清掃ロボット。Sungazing 2.5 MW: 中央インド粉塵、NYUMAとGLYDE半自動非水洗浄フリート、インド全土サービス。",
         "openGraphTitle": "Chhattisgarh向け太陽光パネル清掃ロボット | Taypro",
-        "openGraphDescription": "Chhattisgarh向け非水洗浄ロボット清掃 — 中央インドの汚れ、水洗浄物流なし。"
+        "openGraphDescription": "Chhattisgarh向け非水洗浄ロボット清掃, 中央インドの汚れ、水洗浄物流なし。"
       },
       "hero": {
         "eyebrow": "Chhattisgarh · メガソーラー",
         "title": "Chhattisgarh向け太陽光パネル清掃ロボット",
-        "subtitle": "Chhattisgarhの中央インドソーラーベルトは隣接MPと同様の粉塵回帰パターン — 収穫後の微粒子と乾季ピーク。Sungazing 2.5 MWのTaypro非水洗浄ロボットはブロック単位CAPEXプログラムでNYUMAとGLYDE半自動フリートを運用。"
+        "subtitle": "Chhattisgarhの中央インドソーラーベルトは隣接MPと同様の粉塵回帰パターン, 収穫後の微粒子と乾季ピーク。Sungazing 2.5 MWのTaypro非水洗浄ロボットはブロック単位CAPEXプログラムでNYUMAとGLYDE半自動フリートを運用。"
       },
       "soiling": {
         "eyebrow": "地域的背景",
         "heading": "Chhattisgarhにおける中央インド粉塵とO&M",
-        "p1": "Chhattisgarhのモジュールは農業粉塵、道路粒子、季節ピークに直面 — 特に小規模ユーティリティブロックでは給水車物流がOPEXを増やします。",
-        "p2": "Sungazing 2.5 MWでは、TayproはCAPEX下で5台のNYUMA半自動ロボットとGLYDEサポートを展開 — 地上設置列の中央インド半自動密度の参考です。",
-        "p3": "Chhattisgarhのオーナーはブロック単位清掃証明、研磨粉塵向けブラシPM、インド全土故障SLAを要求すべき — Tayproユーティリティ標準項目です。"
+        "p1": "Chhattisgarhのモジュールは農業粉塵、道路粒子、季節ピークに直面, 特に小規模ユーティリティブロックでは給水車物流がOPEXを増やします。",
+        "p2": "Sungazing 2.5 MWでは、TayproはCAPEX下で5台のNYUMA半自動ロボットとGLYDEサポートを展開, 地上設置列の中央インド半自動密度の参考です。",
+        "p3": "Chhattisgarhのオーナーはブロック単位清掃証明、研磨粉塵向けブラシPM、インド全土故障SLAを要求すべき, Tayproユーティリティ標準項目です。"
       },
       "models": {
-        "body": "Sungazing規模のChhattisgarhプログラムは柔軟なブロックカバレッジのNYUMA半自動ポータブルと、反復可能経路のGLYDEを組み合わせ — 粉塵シーズン頻度目標に資本効率を合わせます。",
+        "body": "Sungazing規模のChhattisgarhプログラムは柔軟なブロックカバレッジのNYUMA半自動ポータブルと、反復可能経路のGLYDEを組み合わせ, 粉塵シーズン頻度目標に資本効率を合わせます。",
         "recommended": "中央インドRFQは半自動対自動台数を確定する前に列反復性と粉塵シーズン優先ブロックをマッピングすべきです。"
       },
       "deployments": {
         "heading": "SungazingとChhattisgarhロボット",
-        "p1": "Taypro公開のChhattisgarh事例はSungazing 2.5 MW — 中央インド粉塵とCAPEX調達の半自動地上設置参考です。",
-        "p2": "サイトはフリートミックスに5台のNYUMA半自動ロボットとGLYDEを運用 — Chhattisgarh運用気候でロボット密度と手作業クルーコストを比較するオーナーに有用です。",
+        "p1": "Taypro公開のChhattisgarh事例はSungazing 2.5 MW: 中央インド粉塵とCAPEX調達の半自動地上設置参考です。",
+        "p2": "サイトはフリートミックスに5台のNYUMA半自動ロボットとGLYDEを運用, Chhattisgarh運用気候でロボット密度と手作業クルーコストを比較するオーナーに有用です。",
         "p3": "下記事例を参照し、中央インドRFQではMadhya PradeshのAgarなどとベンチマークしてください。"
       },
       "procurement": {
         "heading": "ChhattisgarhにおけるCAPEX対Opex",
-        "p1": "TayproコミッショニングとAMC付きCAPEX購入がSungazingクラスの典型 — ブロックスケジュールと検査またはNECTYRレポートで資産計上。",
+        "p1": "TayproコミッショニングとAMC付きCAPEX購入がSungazingクラスの典型, ブロックスケジュールと検査またはNECTYRレポートで資産計上。",
         "p2": "Opexはロボット購入の資本委員会承認前に即時頻度が必要な場合のパネル清掃課金サービスです。"
       },
       "roiBand": {
         "heading": "Chhattisgarhソーラーのロボット価格ガイダンス",
-        "p1": "2〜5 MW中央インドプログラムは西部メガサイトとMW当たりロボット経済が異なり — 列マップと自動化ミックスからサイズしてください。",
+        "p1": "2〜5 MW中央インドプログラムは西部メガサイトとMW当たりロボット経済が異なり, 列マップと自動化ミックスからサイズしてください。",
         "p2": "インド価格ガイドとROI計算機を使用；正式Chhattisgarh見積もりはTayproレイアウト確認が必要です。"
       },
       "resources": {
@@ -831,7 +831,7 @@
         "q0": "TayproはChhattisgarhにロボットを展開していますか？",
         "a0": "はい。Sungazing 2.5 MWで稼働中です。MWとレイアウトを添えてTayproにお問い合わせください。",
         "q1": "Chhattisgarh地上設置に適したロボットは？",
-        "a1": "Sungazingの主参考はNYUMA半自動ポータブル；GLYDEは反復可能列をサポート — MP Agarはより大きな自動同業ベンチマークです。",
+        "a1": "Sungazingの主参考はNYUMA半自動ポータブル；GLYDEは反復可能列をサポート, MP Agarはより大きな自動同業ベンチマークです。",
         "q2": "Chhattisgarhで非水洗浄の理由は？",
         "a2": "乾式ロボット清掃は給水車と水洗浄リスクを回避し、粉塵シーズンピークでより頻繁なサイクルを可能にします。",
         "q3": "Chhattisgarhプラントのロボット価格は？",
@@ -839,7 +839,7 @@
         "q4": "ChhattisgarhでOpexはありますか？",
         "a4": "はい。Opexはパネル清掃課金で、Tayproがフリートを運用しNECTYRまたは合意検査ログでレポートします。",
         "q5": "清掃頻度は？",
-        "a5": "頻度は粉塵シーズンに依存 — 半自動は週次ブロック計画；自動列はモンスーン前に高密度化することがあります。",
+        "a5": "頻度は粉塵シーズンに依存, 半自動は週次ブロック計画；自動列はモンスーン前に高密度化することがあります。",
         "q6": "故障サポートはありますか？",
         "a6": "はい。Tayproは地域スペア在庫とNECTYR遠隔診断でインド全土当日オンサイト故障解決を目標とします。",
         "q7": "MPプログラムとベンチマークできますか？",

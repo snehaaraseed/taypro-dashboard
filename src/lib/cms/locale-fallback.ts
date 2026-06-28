@@ -13,6 +13,7 @@ import {
   getProjectBySlug,
 } from "@/lib/cms/projectService";
 import { isDraftProjectSlug } from "@/lib/seo/draft-project-slugs";
+import { canonicalBlogHref } from "@/lib/seo/redirected-blog-slugs";
 
 export type CmsDetailKind = "blog" | "project";
 
@@ -28,7 +29,7 @@ function resolveRequestLocale(locale?: string): TayproLocale {
 }
 
 function detailPath(kind: CmsDetailKind, slug: string): string {
-  return kind === "blog" ? `/blog/${slug}` : `/projects/${slug}`;
+  return kind === "blog" ? canonicalBlogHref(slug) : `/projects/${slug}`;
 }
 
 /** Href for a CMS detail page; links to English when the viewer locale has no translation. */

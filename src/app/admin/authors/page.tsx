@@ -249,7 +249,7 @@ export default function AdminAuthorsPage() {
               <p className="mt-1 text-xs text-gray-500">
                 URL slug:{" "}
                 <code className="text-gray-700">
-                  {slugifyAuthorName(form.name) || "—"}
+                  {slugifyAuthorName(form.name) || "-"}
                 </code>
                 {editingSlug &&
                 editingSlug !== slugifyAuthorName(form.name) ? (

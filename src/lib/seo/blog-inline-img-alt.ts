@@ -27,7 +27,7 @@ export function buildDefaultInlineImgAlt(input: {
     );
   }
   if (title) {
-    return `${title} — utility-scale solar panel cleaning in India`.slice(
+    return `${title}, utility-scale solar panel cleaning in India`.slice(
       0,
       140
     );

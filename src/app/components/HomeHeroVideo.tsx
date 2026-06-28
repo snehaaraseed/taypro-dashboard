@@ -10,7 +10,7 @@ interface HomeHeroVideoProps {
 
 /**
  * Desktop: poster is LCP (eager, high priority).
- * Mobile: no poster fetch — solid bg + play control; H1 in copy column stays LCP.
+ * Mobile: no poster fetch, solid bg + play control; H1 in copy column stays LCP.
  */
 export default function HomeHeroVideo({ videoId, title }: HomeHeroVideoProps) {
   return (

@@ -254,6 +254,18 @@ const nextConfig = {
           "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
         permanent: true,
       },
+      {
+        source: "/taypro-ams",
+        destination:
+          "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
+        permanent: true,
+      },
+      {
+        source: "/taypro-ams/",
+        destination:
+          "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
+        permanent: true,
+      },
       // Legacy WordPress / static HTML pages (SEO-045)
       {
         source: "/taypro-basic",
@@ -480,7 +492,7 @@ const nextConfig = {
       },
       {
         source: "/tayprorobots/glyde/glyde-tr150-top-view.png",
-        destination: "/tayprorobots/glyde/hero.png",
+        destination: "/tayprorobots/glyde/hero.webp",
         permanent: true,
       },
       {
@@ -506,6 +518,11 @@ const nextConfig = {
       {
         source: "/tayproasset/taypro-console.png",
         destination: "/tayproasset/nectyr.webp",
+        permanent: true,
+      },
+      {
+        source: "/tayproasset/robots.png",
+        destination: "/tayproasset/robots.webp",
         permanent: true,
       },
       {
@@ -541,6 +558,13 @@ const nextConfig = {
       {
         source: "/tayprorobots/taypro-modelTcopy.png",
         destination: "/tayprorobots/glyde-x/hero.png",
+        permanent: true,
+      },
+      // Legacy WordPress media (Ahrefs / inbound links)
+      {
+        source:
+          "/wp-content/uploads/2020/08/23-automatic-operation-1024x576.jpeg",
+        destination: "/tayprorobots/glyde/hero.webp",
         permanent: true,
       },
       // 360° frame sequences (legacy Model-A/B/T folder names)

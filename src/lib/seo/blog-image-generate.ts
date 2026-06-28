@@ -21,7 +21,7 @@ export function getBlogImageProvider(): BlogImageProvider {
   if (process.env.POLLINATIONS_API_KEY?.trim()) {
     return "pollinations";
   }
-  // Imagen requires paid Google AI billing — never default to it.
+  // Imagen requires paid Google AI billing, never default to it.
   return "pollinations";
 }
 
@@ -59,6 +59,6 @@ export async function generateBlogInlineImage(input: {
   if (provider === "pollinations") {
     return generateBlogInlineImagePollinations(input);
   }
-  // Imagen inline not implemented — reuse hero generator path if needed later.
+  // Imagen inline not implemented, reuse hero generator path if needed later.
   throw new Error("Inline AI images require POLLINATIONS_API_KEY (BLOG_IMAGE_PROVIDER=pollinations)");
 }

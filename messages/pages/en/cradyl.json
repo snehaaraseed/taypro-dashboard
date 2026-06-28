@@ -33,9 +33,31 @@
       "primaryCta": {
         "topic": "CRADYL quote",
         "title": "Request a CRADYL quote",
-        "subtitle": "Tell us about your scattered blocks and row layout — our team will follow up with CRADYL rail sizing, transfer scope, and commercial options.",
+        "subtitle": "Tell us about your scattered blocks and row layout, our team will follow up with CRADYL rail sizing, transfer scope, and commercial options.",
         "label": "Request a quote"
+      },
+      "subtitleShort": "Battery-powered row-transfer docking so one robot can clean multiple scattered rows without manual lift-and-shift.",
+      "secondaryCta": {
+        "label": "See deployments"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "Multi-row",
+          "label": "One robot, many rows"
+        },
+        "stat1": {
+          "value": "Autonomous",
+          "label": "End-row rail transfer"
+        },
+        "stat2": {
+          "value": "Scattered blocks",
+          "label": "Built for non-contiguous plants"
+        }
       }
+    },
+    "productVisual": {
+      "eyebrow": "Product at a glance",
+      "title": "Taypro CRADYL row-transfer docking station"
     },
     "overview": {
       "eyebrow": "Row-transfer docking for scattered solar plants",
@@ -453,7 +475,7 @@
     "faqs": {
       "0": {
         "question": "What is Taypro CRADYL?",
-        "answer": "CRADYL is Taypro's autonomous row-transfer movable docking station — a battery-powered platform on end-row rails that moves a solar cleaning robot between rows. It is the fleet-integrated platform name used on taypro.in today."
+        "answer": "CRADYL is Taypro's autonomous row-transfer movable docking station, a battery-powered platform on end-row rails that moves a solar cleaning robot between rows. It is the fleet-integrated platform name used on taypro.in today."
       },
       "1": {
         "question": "How does a solar panel cleaning robot row-transfer docking station work?",

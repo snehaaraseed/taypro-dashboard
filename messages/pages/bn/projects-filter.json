@@ -64,7 +64,7 @@
       "highlightsHeading": "অর্ধ-স্বয়ংক্রিয় Taypro প্রকল্প যা তুলে ধরে",
       "highlights": {
         "h0": "সয়েলিং pattern বদলালে ব্লকের মধ্যে সরানো পোর্টেবল রোবট ও docking।",
-        "h1": "উচ্চ-চাপ জল ছাড়া শুষ্ক পরিষ্কার — জল logistics সীমিত সাইটে গুরুত্বপূর্ণ।",
+        "h1": "উচ্চ-চাপ জল ছাড়া শুষ্ক পরিষ্কার, জল logistics সীমিত সাইটে গুরুত্বপূর্ণ।",
         "h2": "মাল্টি-ব্লক, কঠিন access road, hybrid O&M strategy।",
         "h3": "layout/budget পরিপক্ক হলে full autonomy-র দিকে পদক্ষেপ।"
       },
@@ -110,7 +110,7 @@
       "highlights": {
         "h0": "GLYDE/GLYDE-X/HELYX fleet outright purchase + Taypro commissioning।",
         "h1": "NECTYR scheduling, rest zone, health check-এ trained in-house O&M।",
-        "h2": "Opex contrast — Taypro ownership, contract cleaning।",
+        "h2": "Opex contrast, Taypro ownership, contract cleaning।",
         "h3": "Payback driver: soiling recovery, water savings, labour redeployment।"
       },
       "gridHeading": "Featured CAPEX installation case studies",
@@ -184,7 +184,7 @@
         "q2": "Can we switch from Opex to CAPEX later?",
         "a2": "Some owners start with Opex to prove cycle frequency and soiling recovery, then transition to owned fleets once layout and economics are validated. Share your roadmap with Taypro during proposal so fleet sizing and contract terms stay aligned."
       },
-      "introP4": "প্রকাশিত Opex কেস স্টাডিগুলি উদ্ভিদের ক্ষমতা, ভূগোল এবং পরিষেবা মডেল সহ নীচে প্রদর্শিত হবে৷ নতুন স্থাপনা প্রকাশিত হওয়ার সাথে সাথে আপডেটগুলি গণনা করুন — সম্পূর্ণ পোর্টফোলিওর জন্য প্রকল্প হাব ব্যবহার করুন।"
+      "introP4": "প্রকাশিত Opex কেস স্টাডিগুলি উদ্ভিদের ক্ষমতা, ভূগোল এবং পরিষেবা মডেল সহ নীচে প্রদর্শিত হবে৷ নতুন স্থাপনা প্রকাশিত হওয়ার সাথে সাথে আপডেটগুলি গণনা করুন, সম্পূর্ণ পোর্টফোলিওর জন্য প্রকল্প হাব ব্যবহার করুন।"
     }
   },
   "Common": {

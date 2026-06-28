@@ -84,7 +84,7 @@ export default async function StateSolarLandingPage({
   return (
     <>
       <ServiceSchema
-        name={`Solar Panel Cleaning Robot Service — ${region}`}
+        name={`Solar Panel Cleaning Robot Service: ${region}`}
         description={t(`${ns}.meta.description`)}
         serviceType="Solar Panel Cleaning Robot Supply & Service"
         areaServed={`${region}, India`}
@@ -394,7 +394,7 @@ export default async function StateSolarLandingPage({
         title={t("shared.quoteForm.title", { state: region })}
         messagePlaceholder={t("shared.quoteForm.subtitle", { state: region })}
         showMessageField
-        leadIntent={`State quote request — ${region}`}
+        leadIntent={`State quote request, ${region}`}
       />
     </>
   );

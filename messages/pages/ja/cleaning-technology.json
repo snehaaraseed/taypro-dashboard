@@ -263,7 +263,7 @@
       "row13Label": "認証",
       "row13Value": "TÜV NORD 検証済みプラットフォーム (フィールド展開)",
       "row14Label": "製造業",
-      "row14Value": "プネー、チャカン — インド製",
+      "row14Value": "プネー、チャカン, インド製",
       "row15Label": "導入範囲",
       "row15Value": "実用規模のコア · C&I および屋上対応",
       "row16Label": "サービス",
@@ -330,7 +330,7 @@
       "q17": "パネル配列マッピングは何を行うのでしょうか?",
       "a17": "最初のデプロイ時に、ML は行ジオメトリをマップし、永続的なサイト モデルを構築します。このマップによるルートの最適化により、マッピングされていない移動と比較して、充電あたりの清掃範囲が約 2 倍になり、必要なロボットの重量と構造的負荷が軽減されます。",
       "q18": "Taypro ロボットにはどのような認定が適用されますか?",
-      "a18": "TÜV NORD、NISE、UL、Karandikar Labs、および Elca Labs — 30 年間の毎日の洗浄サイクルに相当する加速モジュール安全性テスト、IP65 保護、安全限度内での砂漠/海岸の環境調整が含まれます。",
+      "a18": "TÜV NORD、NISE、UL、Karandikar Labs、および Elca Labs: 30 年間の毎日の洗浄サイクルに相当する加速モジュール安全性テスト、IP65 保護、安全限度内での砂漠/海岸の環境調整が含まれます。",
       "q19": "Taypro は手動によるウェット洗浄とどのように異なりますか?",
       "a19": "手動によるウェット洗浄には、水、大規模な作業員、MW 規模の低い頻度が必要です。 Taypro は、NECTYR の可視性、自己学習スケジュール、予知保全機能を備え、1 日あたり 5 GW+ のフリート スループットで水なしデュアルパス サイクルを自律的に実行します。"
     },
@@ -349,13 +349,13 @@
     "dustSoiling": {
       "eyebrow": "Dust & soiling in India",
       "heading": "Solar panel dust cleaning and soiling loss",
-      "p1": "Fine dust, agricultural residue, and seasonal haze bond to module glass within days on many Indian utility sites — suppressing output before visible soiling is obvious in SCADA. Industry discussions often cite roughly 8–25% seasonal soiling loss when washing cadence is infrequent.",
-      "p2": "Robotic dry cleaning targets daily or near-daily cycles through dust season without tanker logistics. Taypro's dual-pass method lifts dry dust first, then microfiber-wipes the glass — recovering generation that manual brush crews struggle to sustain at MW scale.",
+      "p1": "Fine dust, agricultural residue, and seasonal haze bond to module glass within days on many Indian utility sites, suppressing output before visible soiling is obvious in SCADA. Industry discussions often cite roughly 8–25% seasonal soiling loss when washing cadence is infrequent.",
+      "p2": "Robotic dry cleaning targets daily or near-daily cycles through dust season without tanker logistics. Taypro's dual-pass method lifts dry dust first, then microfiber-wipes the glass, recovering generation that manual brush crews struggle to sustain at MW scale.",
       "faqHeading": "Solar panel dust cleaning FAQs (India)",
       "q0": "How much generation does dust cost on Indian solar plants?",
-      "a0": "Soiling loss varies by region, tilt, and O&M cadence — often cited in the 8–25% range on utility plants when cleaning is infrequent. High-soiling blocks in Rajasthan and Gujarat typically show the fastest payback from tighter robotic schedules.",
+      "a0": "Soiling loss varies by region, tilt, and O&M cadence, often cited in the 8–25% range on utility plants when cleaning is infrequent. High-soiling blocks in Rajasthan and Gujarat typically show the fastest payback from tighter robotic schedules.",
       "q1": "Is dry robotic dust cleaning better than manual brushing?",
-      "a1": "On 10 MW+ sites, manual brush or wet-wash crews scale poorly — labour, water, and inconsistent pass quality limit cadence. Taypro robots run waterless dual-pass cycles on a predictable schedule with NECTYR audit trails.",
+      "a1": "On 10 MW+ sites, manual brush or wet-wash crews scale poorly, labour, water, and inconsistent pass quality limit cadence. Taypro robots run waterless dual-pass cycles on a predictable schedule with NECTYR audit trails.",
       "q2": "How often should panels be dust-cleaned in India?",
       "a2": "Most utility plants benefit from daily or near-daily dry cleaning during dry months and faster cycles after dust storms. Taypro starts with a soiling study to recommend block-wise cadence rather than a one-size-fits-all interval."
     },
@@ -376,7 +376,7 @@
     },
     "aiLearning": {
       "eyebrow": "インテリジェント自動化",
-      "heading": "清掃のたびに学ぶAI — 手動スケジュール不要",
+      "heading": "清掃のたびに学ぶAI: 手動スケジュール不要",
       "cta": "NECTYR フリート運用を見る",
       "intelligenceBefore": "NECTYRポータルとデータフライホイールは",
       "intelligenceLink": "AIインテリジェンス層",
@@ -437,7 +437,7 @@
       "aiLink": "AI学習セクション",
       "intro": "NECTYR は、フィールド ロボットと資産所有者の間の運用層であり、リアルタイムの可視性、自律的なスケジューリング、根本原因の診断、およびロボットごとの健全性プロファイルを 1 つのプラットフォームで提供します。",
       "trackingTitle": "根本原因の障害位置を示すライブクリーニングの視覚化",
-      "trackingBody": "NECTYR overlays real-time robot position on the plant layout map. Operators see which row is being cleaned, progress percentage, and fleet state at any moment — not a last-seen timestamp from hours ago. When a robot stops, NECTYR identifies where it stopped and the probable cause: misaligned panel edge, physical obstacle, motor fault, brush saturation, battery threshold, or communication drop. Field teams dispatch with the right spares instead of exploratory truck rolls.",
+      "trackingBody": "NECTYR overlays real-time robot position on the plant layout map. Operators see which row is being cleaned, progress percentage, and fleet state at any moment, not a last-seen timestamp from hours ago. When a robot stops, NECTYR identifies where it stopped and the probable cause: misaligned panel edge, physical obstacle, motor fault, brush saturation, battery threshold, or communication drop. Field teams dispatch with the right spares instead of exploratory truck rolls.",
       "predictiveTitle": "ロボットごとの健全性プロファイルと高度な障害検出",
       "predictiveBody": "NECTYR は、モーターの電流引き込み、バッテリーの充電と放電の曲線、ブラシの回転トルク、フリート全体のセンサー信号パターンから各ロボットの健全性プロファイルを構築します。ベアリングの摩耗、コントローラの劣化、またはブラシの寿命に先立つ逸脱の兆候は、障害が故障に至る前にフラグが立てられます。これは、フリート全体のパターン認識によって通知されるハードウェアの予知保全であり、単独での迅速な事後保全ではありません。",
       "autonomousBody": "清掃サイクルは気象モデル、汚れ予測、バッテリー状態、ロボットの状態に基づいてフリート AI によって開始、一時停止、加速されます。砂嵐や雨が発生するたびにオペレーターが手動でスケジュールを書き直す必要はありません。ブロックレベルの監査証跡は、O&M レビューと資産所有者レポートに関するすべての決定を文書化します。"
@@ -452,9 +452,9 @@
       "colResidue": "付着残留物",
       "colWear": "モジュール摩耗リスク",
       "intro": "一部のドライ クリーニング ロボットはシングル パスを使用します。これは、高圧空気または風のアシストとブラシ ドラムを組み合わせて 1 回の動作でガラスを横切ることで、パスごとの洗浄品質ではなく充電ごとの距離を最適化します。 Taypro の特許取得済みのデュアルパス方式は、接触から外れを分離します。",
-      "pass0Title": "パス 1 — 制御されたエアフロー (非接触)",
+      "pass0Title": "パス 1: 制御されたエアフロー (非接触)",
       "pass0Body": "高速気流により、モジュールガラス全体に砂を引きずることなく、ゆるいほこりや砂を取り除きます。これにより、単一の連続動作中に微粒子が表面に粉砕される可能性があるブラシファーストまたはエアブラシの組み合わせパスと比較して、微小摩耗のリスクが軽減されます。",
-      "pass1Title": "パス 2 — 超柔らかいマイクロファイバー (接触)",
+      "pass1Title": "パス 2: 超柔らかいマイクロファイバー (接触)",
       "pass1Body": "マイクロファイバーは、空気の流れだけでは除去できない付着した残留物（農業用フィルム、花粉、嵐後の微粒子）を完全に拭き取ります。布地が湿気で飽和した場合、湿式センサーによりパスが自動的に延期されます。",
       "resultBody": "総合: 自動化サイクルごとに 99% 以上の粉塵除去 (プラットフォームに依存)、水や系統電力を使用せず、スティッフ ブラシやシングルパス エア アシスト システムよりも 25 年のモジュール寿命にわたって摩耗が少ない。",
       "mechRow0Method": "手動ウェットウォッシュ",
@@ -482,7 +482,7 @@
       "bullet0": "360° の関節動作により、あらゆる軸の位置ずれに対応します",
       "bullet1": "トラッカー積み込みでの自律的なテーブル間転送",
       "bullet2": "すべての交差点で固定橋の土木工事は行わない",
-      "bullet3": "26 kg GLYDE-X / NYUMA-X — フレーム負荷の軽減"
+      "bullet3": "26 kg GLYDE-X / NYUMA-X: フレーム負荷の軽減"
     },
     "selfAlignment": {
       "eyebrow": "固定傾斜工学",
@@ -492,7 +492,7 @@
     "deploymentScope": {
       "eyebrow": "展開範囲",
       "heading": "ユーティリティ規模コア、屋根対応",
-      "utilityTitle": "ユーティリティ規模 — データ堀が築かれる場所",
+      "utilityTitle": "ユーティリティ規模, データ堀が築かれる場所",
       "rooftopTitle": "C&Iおよび屋根設置",
       "utilityBody": "Taypro のテクノロジー スタックとフリート AI は、実用規模の固定傾斜および単軸トラッカー プラント向けに最適化されています。このプラントでは、汚れによる損失、労働規模、水不足により自律的な清掃が不可欠です。数百のMWフリートにわたる毎日の清掃により、自己学習モデルをトレーニングするラベル付きテレメトリが生成されます。",
       "rooftopBody": "同じプラットフォームは商業用および産業用の屋上設置にも対応します。GLYDE および HELYX 構成は、Taypro の 150 以上の敷地面積にわたる分散ブロック、季節的傾斜、散在アレイに対応します。ユーティリティスケールはインテリジェンスレイヤーを構築します。屋上展開では、同じ NECTYR 操作とドライクリーニング方法が、十分なサービスを受けていない C&I セグメントに拡張されます。"
@@ -517,10 +517,10 @@
       "row3Notes": "散乱したブロックや屋根を移動可能なピックアンドプレース"
     },
     "hardwareHighlights": {
-      "selfPoweredTitle": "完全にセルフパワー — グリッドも水も不要で、各列にオペレーターも必要ありません",
+      "selfPoweredTitle": "完全にセルフパワー, グリッドも水も不要で、各列にオペレーターも必要ありません",
       "selfPoweredBody": "すべての Taypro 自動掃除ロボットは自己電源式です。オンボードのソーラー パネルは、サイクルの間にリチウム バッテリーを充電します。ロボットはサイトのグリッドに電力を供給せず、水の供給も必要とせず、各パスを開始するために列を歩く人間のオペレーターも必要ありません。半自動の HELYX はブロックごとに作業員が配置されますが、系統テザーなしでバッテリーで動作します。これは、補助電力と労働力が制限されている遠隔のユーティリティ ブロックでも実行可能です。",
       "warrantyTitle": "年間 AMC による 25 年間の製品保証",
-      "warrantyBody": "Taypro offers a 25-year product warranty on deployed robot platforms — aligned to the operational life of utility solar assets. Warranty remains valid when AMC is renewed annually, tying long-term hardware commitment to structured maintenance, spare planning, and NECTYR-monitored fleet health. For asset owners modelling 25-year IRR, this pairs robot CAPEX with predictable O&M accountability across the full degradation window."
+      "warrantyBody": "Taypro offers a 25-year product warranty on deployed robot platforms, aligned to the operational life of utility solar assets. Warranty remains valid when AMC is renewed annually, tying long-term hardware commitment to structured maintenance, spare planning, and NECTYR-monitored fleet health. For asset owners modelling 25-year IRR, this pairs robot CAPEX with predictable O&M accountability across the full degradation window."
     }
   },
   "Common": {

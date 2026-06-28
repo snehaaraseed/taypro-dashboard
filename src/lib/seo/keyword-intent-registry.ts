@@ -220,7 +220,7 @@ export function recommendNextIntentFamily(
   for (const family of INTENT_FAMILY_ORDER) {
     if (!covered.has(family)) return family;
   }
-  // All five covered — rotate to least-recent family (allow deepening cluster)
+  // All five covered, rotate to least-recent family (allow deepening cluster)
   const rows = getCoveredIntentsForKeyword(keyword, registry);
   const counts = new Map<SearchIntentFamily, number>();
   for (const f of INTENT_FAMILY_ORDER) counts.set(f, 0);
@@ -431,8 +431,8 @@ export function formatKeywordIntentClusterPrompt(input: {
 
   const coveredBlock =
     covered.length === 0
-      ? "COVERED INTENTS FOR THIS KEYWORD: (none yet — you are seeding the cluster)"
-      : `COVERED INTENTS FOR THIS KEYWORD (do NOT cannibalize — write a different intent):
+      ? "COVERED INTENTS FOR THIS KEYWORD: (none yet, you are seeding the cluster)"
+      : `COVERED INTENTS FOR THIS KEYWORD (do NOT cannibalize, write a different intent):
 ${covered
   .map(
     (r) =>
@@ -455,7 +455,7 @@ ${meta.avoidCannibalizing}`
     : `RECOMMENDED INTENT: ${recommended}`;
 
   const titleLine = input.title
-    ? `Working title: "${input.title}" — must match the recommended intent.`
+    ? `Working title: "${input.title}", must match the recommended intent.`
     : "";
 
   return `${formatIntentSelectionGuideBlock()}

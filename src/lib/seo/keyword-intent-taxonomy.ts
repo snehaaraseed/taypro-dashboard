@@ -226,10 +226,10 @@ export function inferIntentFamily(input: {
 export function formatIntentSelectionGuideBlock(): string {
   const lines = SEARCH_INTENT_FAMILIES.map(
     (f) =>
-      `- ${f.id}: ${f.label} — ${f.readerQuestion} (titles like: ${f.titlePatterns[0]?.replace("{keyword}", "[keyword]") ?? "…"})`
+      `- ${f.id}: ${f.label}, ${f.readerQuestion} (titles like: ${f.titlePatterns[0]?.replace("{keyword}", "[keyword]") ?? "…"})`
   );
   return `KEYWORD INTENT CLUSTER RULES (avoid cannibalization):
-For one primary keyword, Taypro may publish MULTIPLE posts — each must serve a DIFFERENT search intent:
+For one primary keyword, Taypro may publish MULTIPLE posts, each must serve a DIFFERENT search intent:
 ${lines.join("\n")}
 When a keyword already has posts listed under COVERED INTENTS, pick an UNCOVERED intent family or a clearly different sub-angle (comparison axis, failure mode, or buyer role). Never rewrite the same intent with a synonym title.`;
 }

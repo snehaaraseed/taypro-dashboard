@@ -13,7 +13,7 @@
     "hero": {
       "eyebrow": "Tayproについて",
       "title": "インドのソーラーパネル洗浄ロボットメーカー",
-      "subtitle": "持続可能な未来のエンジニア — チャカン・プネから自律ソーラー運用を設計・製造。",
+      "subtitle": "持続可能な未来のエンジニア, チャカン・プネから自律ソーラー運用を設計・製造。",
       "bodyBeforeLink": "Taypro Private LimitedはMade-in-Indiaの自律型・半自動",
       "bodyLink": "ソーラーパネル洗浄ロボット",
       "bodyAfterLink": "をユーティリティ規模・商用・屋根置きPV向けに製造しています。Chakan, Puneの製造拠点から、水なしデュアルパスシステム、India全土のスペア物流、NECTYRフリートダッシュボードを出荷, 開発者とO&Mチームが稼働率を損なうことなく、発電量・安全・水資源を守れるように。",
@@ -227,7 +227,7 @@
         "messageLabel": "あなたのメッセージ",
         "messagePlaceholder": "組織、役割、投資またはパートナーシップへの関心、タイムライン、ポートフォリオの背景、NDA またはデータルームのニーズなど…",
         "submitLabel": "お問い合わせを送信する",
-        "thankYouTitle": "ありがとうございます — メッセージを受け取りました",
+        "thankYouTitle": "ありがとうございます, メッセージを受け取りました",
         "thankYouMessage": "私たちのチームは、投資家とパートナーシップに関する会話を間もなく適切な連絡先に転送します。",
         "ctaLabel": "投資家との会話のための連絡先"
       }
@@ -242,7 +242,7 @@
       "awardTitle": "Mint Tech4Good Awards 2024",
       "awardBody": "Mumbai, IndiaでGreen AIソリューションが表彰。",
       "awardLink": "記事を読む",
-      "item4": "UL、Karandikar Labs、および Elca Labs — 30 年相当のモジュール安全性テスト",
+      "item4": "UL、Karandikar Labs、および Elca Labs: 30 年相当のモジュール安全性テスト",
       "item5": "IP65、安全範囲内での静電気放電、振動、湿熱調整"
     }
   },

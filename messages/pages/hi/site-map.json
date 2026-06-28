@@ -27,15 +27,21 @@
       "pages": "पेज",
       "pagesIntro": "मुख्य मार्केटिंग और उत्पाद पेज, जिनमें रोबोट विनिर्देश, सफाई तकनीक, ROI टूल, कानूनी नीतियाँ और संपर्क शामिल हैं।",
       "portfolio": "पोर्टफोलियो",
-      "portfolioIntro": "दस्तावेज़ित सोलर प्लांट इंस्टॉलेशन जहाँ Taypro रोबोटिक सफाई सिस्टम तैनात हैं — प्रोजेक्ट नाम से केस स्टडी ब्राउज़ करें।",
+      "portfolioIntro": "दस्तावेज़ित सोलर प्लांट इंस्टॉलेशन जहाँ Taypro रोबोटिक सफाई सिस्टम तैनात हैं, प्रोजेक्ट नाम से केस स्टडी ब्राउज़ करें।",
       "compareIntro": "GLYDE vs NYUMA, GLYDE-X vs NYUMA-X, robotic vs manual, Taypro vs Solabot, Aegeus, Skilancer, Vayu Solar, और waterless vs water-based comparison pages।",
       "compare": "क्रेता मार्गदर्शिकाएँ और तुलनाएँ"
     },
     "posts": {
-      "energyResourcesTitle": "ऊर्जा संसाधन"
+      "energyResourcesTitle": "ऊर्जा संसाधन",
+      "authorsLabel": "ब्लॉग लेखक",
+      "authorsTitle": "लेखक",
+      "xmlSitemapLabel": "XML साइटमैप (खोज इंजन के लिए)",
+      "xmlSitemapTitle": "एक्सएमएल साइटमैप"
     },
     "portfolio": {
-      "solarProjectTitle": "सोलर प्रोजेक्ट"
+      "solarProjectTitle": "सोलर प्रोजेक्ट",
+      "hubLabel": "सभी प्रोजेक्ट केस अध्ययन ब्राउज़ करें",
+      "hubTitle": "प्रोजेक्ट हब"
     },
     "links": {
       "aboutUsLabel": "हमारे बारे में",
@@ -84,21 +90,21 @@
       "utilityOperationsTitle": "यूटिलिटी-स्केल सोलर संचालन और सोलर पैनल सफाई रोबोट",
       "robotPriceGuideLabel": "सोलर पैनल सफाई रोबोट की कीमत (भारत)",
       "robotPriceGuideTitle": "भारत के लिए सोलर पैनल सफाई रोबोट मूल्य गाइड",
-      "stateRajasthanLabel": "सोलर पैनल सफाई रोबोट — राजस्थान",
+      "stateRajasthanLabel": "सोलर पैनल सफाई रोबोट, राजस्थान",
       "stateRajasthanTitle": "राजस्थान में सोलर पैनल सफाई रोबोट",
-      "stateGujaratLabel": "सोलर पैनल सफाई रोबोट — गुजरात",
+      "stateGujaratLabel": "सोलर पैनल सफाई रोबोट, गुजरात",
       "stateGujaratTitle": "गुजरात में सोलर पैनल सफाई रोबोट",
-      "stateMadhyaPradeshLabel": "सोलर पैनल सफाई रोबोट — मध्य प्रदेश",
+      "stateMadhyaPradeshLabel": "सोलर पैनल सफाई रोबोट, मध्य प्रदेश",
       "stateMadhyaPradeshTitle": "मध्य प्रदेश में सोलर पैनल सफाई रोबोट",
-      "stateKarnatakaLabel": "सोलर पैनल सफाई रोबोट — कर्नाटक",
+      "stateKarnatakaLabel": "सोलर पैनल सफाई रोबोट, कर्नाटक",
       "stateKarnatakaTitle": "कर्नाटक में सोलर पैनल सफाई रोबोट",
-      "stateAndhraPradeshLabel": "सोलर पैनल सफाई रोबोट — आंध्र प्रदेश",
+      "stateAndhraPradeshLabel": "सोलर पैनल सफाई रोबोट, आंध्र प्रदेश",
       "stateAndhraPradeshTitle": "आंध्र प्रदेश में सोलर पैनल सफाई रोबोट",
-      "stateMaharashtraLabel": "सोलर पैनल सफाई रोबोट — महाराष्ट्र",
+      "stateMaharashtraLabel": "सोलर पैनल सफाई रोबोट, महाराष्ट्र",
       "stateMaharashtraTitle": "महाराष्ट्र में सोलर पैनल सफाई रोबोट",
-      "stateUttarPradeshLabel": "सोलर पैनल सफाई रोबोट — उत्तर प्रदेश",
+      "stateUttarPradeshLabel": "सोलर पैनल सफाई रोबोट, उत्तर प्रदेश",
       "stateUttarPradeshTitle": "उत्तर प्रदेश में सोलर पैनल सफाई रोबोट",
-      "stateTamilNaduLabel": "सोलर पैनल सफाई रोबोट — तमिल नाडु",
+      "stateTamilNaduLabel": "सोलर पैनल सफाई रोबोट, तमिल नाडु",
       "stateTamilNaduTitle": "तमिल नाडु में सोलर पैनल सफाई रोबोट",
       "projectsAutomaticLabel": "स्वचालित सफाई परियोजनाएं",
       "projectsAutomaticTitle": "स्वचालित सोलर सफाई रोबोट परियोजनाएं",
@@ -112,16 +118,18 @@
       "cleaningMachineTitle": "Solar panel cleaning machine buyer guide",
       "pressLabel": "Press & media coverage",
       "pressTitle": "Taypro in the news",
-      "stateHaryanaLabel": "Solar Panel Cleaning Robot — Haryana",
+      "stateHaryanaLabel": "Solar Panel Cleaning Robot: Haryana",
       "stateHaryanaTitle": "Solar panel cleaning robots in Haryana",
-      "stateDelhiLabel": "Solar Panel Cleaning Robot — Delhi",
+      "stateDelhiLabel": "Solar Panel Cleaning Robot: Delhi",
       "stateDelhiTitle": "Solar panel cleaning robots in Delhi",
-      "stateWestBengalLabel": "Solar Panel Cleaning Robot — West Bengal",
+      "stateWestBengalLabel": "Solar Panel Cleaning Robot: West Bengal",
       "stateWestBengalTitle": "Solar panel cleaning robots in West Bengal",
-      "stateChhattisgarhLabel": "Solar Panel Cleaning Robot — Chhattisgarh",
+      "stateChhattisgarhLabel": "Solar Panel Cleaning Robot: Chhattisgarh",
       "stateChhattisgarhTitle": "Solar panel cleaning robots in Chhattisgarh",
       "aiIntelligenceLabel": "एआई इंटेलिजेंस लेयर",
-      "aiIntelligenceTitle": "Taypro सौर सफाई बेड़े के लिए एआई इंटेलिजेंस"
+      "aiIntelligenceTitle": "Taypro सौर सफाई बेड़े के लिए एआई इंटेलिजेंस",
+      "insightsLabel": "इनसाइट्स",
+      "insightsTitle": "अंतर्दृष्टि एवं रिपोर्ट"
     }
   },
   "Common": {

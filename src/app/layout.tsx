@@ -1,7 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Blinker, Montserrat } from "next/font/google";
-import { headers } from "next/headers";
-import { LOCALE_LABELS, isActiveLocale, type TayproLocale } from "@/i18n/markets";
 import "@/app/globals.css";
 
 const montserrat = Montserrat({
@@ -38,35 +36,25 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-function resolveHtmlLocale(
-  localeHeader: string | null,
-  dirHeader: string | null
-): { locale: TayproLocale; dir: "ltr" | "rtl" } {
-  const locale = localeHeader && isActiveLocale(localeHeader)
-    ? localeHeader
-    : "en";
-  const fallbackDir = LOCALE_LABELS[locale]?.dir ?? "ltr";
-  const dir = dirHeader === "rtl" || dirHeader === "ltr" ? dirHeader : fallbackDir;
-  return { locale, dir };
-}
+// Pre-hydration: set <html lang/dir> from the URL locale prefix before paint so
+// RTL (ar) renders correctly without a flash. The root layout is statically
+// rendered (no headers()), so it cannot know the locale at render time; this
+// blocking inline script and the post-hydration <HtmlLocaleAttributes/> keep the
+// attributes correct. Allowed by the CSP (`script-src 'unsafe-inline'`).
+const SET_HTML_LOCALE_SCRIPT = `(function(){try{var s=location.pathname.split("/")[1];var loc={hi:1,ar:1,ja:1,bn:1,en:1};var l=loc[s]?s:"en";var d=l==="ar"?"rtl":"ltr";var e=document.documentElement;e.lang=l;e.dir=d;}catch(e){}})();`;
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const headersList = await headers();
-  const { locale, dir } = resolveHtmlLocale(
-    headersList.get("x-taypro-locale"),
-    headersList.get("x-taypro-dir")
-  );
-
   return (
-    <html lang={locale} dir={dir} suppressHydrationWarning>
+    <html lang="en" dir="ltr" suppressHydrationWarning>
       <body
         className={`${montserrat.className} ${montserrat.variable} ${blinker.variable}`}
         suppressHydrationWarning
       >
+        <script dangerouslySetInnerHTML={{ __html: SET_HTML_LOCALE_SCRIPT }} />
         {children}
       </body>
     </html>

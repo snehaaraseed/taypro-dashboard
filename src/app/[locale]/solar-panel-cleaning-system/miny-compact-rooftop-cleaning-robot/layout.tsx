@@ -19,7 +19,6 @@ export async function generateMetadata({
   return withHreflang(MINY_PRODUCT_PATH, locale, {
     title: t("title"),
     description: t("description"),
-    robots: { index: false, follow: true },
     openGraph: {
       title: t("openGraphTitle"),
       description: t("openGraphDescription"),

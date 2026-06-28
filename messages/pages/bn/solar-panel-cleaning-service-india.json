@@ -6,19 +6,19 @@
       "openGraphTitle": "সোলার পরিষ্কার সেবা ভারত | Taypro",
       "openGraphDescription": "রোবোটিক সোলার পরিষ্কার, প্যান-ইন্ডিয়া কভারেজ।"
     },
-    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHub": "সোলার প্যানেল পরিষ্কারের রোবট",
     "breadcrumbHubHref": "/solar-panel-cleaning-system",
     "breadcrumb": "সোলার প্যানেল পরিষ্কার সেবা ভারত",
     "schema": {
-      "name": "Taypro Solar Panel Cleaning Service India",
+      "name": "Taypro সোলার প্যানেল ক্লিনিং সার্ভিস ইন্ডিয়া",
       "description": "Pan-India robotic solar panel cleaning service for utility-scale IPPs, CPSUs, and commercial plants. Managed OPEX and CAPEX robot supply with NECTYR fleet reporting.",
-      "serviceType": "Solar panel cleaning service",
-      "areaServed": "India"
+      "serviceType": "সৌর প্যানেল পরিষ্কার পরিষেবা",
+      "areaServed": "ভারত"
     },
     "hero": {
       "eyebrow": "জাতীয় সেবা · ভারত",
-      "title": "ভারতে সোলার প্যানেল পরিষ্কার সেবা — রোবোটিক ফ্লিট",
-      "subtitle": "Taypro হল ভারতের সবচেয়ে বড় নিয়োজিত রোবোটিক সোলার ক্লিনিং কোম্পানি: 9 GW+ প্যানেল প্রতি মাসে ইউটিলিটি এবং বাণিজ্যিক প্ল্যান্ট, জলবিহীন শুষ্ক চক্র এবং পে-পার-প্যানেল জুড়ে পরিষ্কার করা হয় OPEX বা রোবট CAPEX এর জন্য IPPs, CAPEX প্রকল্প C&I সম্পদের মালিক। একটি দায়বদ্ধ সৌর প্যানেল পরিষ্কারকারী সংস্থা ভারত — রোবট, অপারেটর, অতিরিক্ত জিনিসপত্র এবং NECTYR ফ্লিট সফ্টওয়্যার৷",
+      "title": "ভারতে সোলার প্যানেল পরিষ্কার সেবা, রোবোটিক ফ্লিট",
+      "subtitle": "Taypro হল ভারতের সবচেয়ে বড় নিয়োজিত রোবোটিক সোলার ক্লিনিং কোম্পানি: 9 GW+ প্যানেল প্রতি মাসে ইউটিলিটি এবং বাণিজ্যিক প্ল্যান্ট, জলবিহীন শুষ্ক চক্র এবং পে-পার-প্যানেল জুড়ে পরিষ্কার করা হয় OPEX বা রোবট CAPEX এর জন্য IPPs, CAPEX প্রকল্প C&I সম্পদের মালিক। একটি দায়বদ্ধ সৌর প্যানেল পরিষ্কারকারী সংস্থা ভারত, রোবট, অপারেটর, অতিরিক্ত জিনিসপত্র এবং NECTYR ফ্লিট সফ্টওয়্যার৷",
       "ctaPrimary": "কোটেশন অনুরোধ",
       "ctaPrimaryHref": "/contact",
       "ctaSecondary": "কিভাবে OPEX মূল্য কাজ করে",
@@ -31,7 +31,7 @@
         "tag": "স্কেল",
         "stat": "9 GW+",
         "label": "প্রতি মাসে প্যানেল পরিষ্কার করা হয়",
-        "body": "ভারতীয় ইউটিলিটি সোলারে নিয়োজিত বৃহত্তম রোবোটিক ক্লিনিং ফ্লিটগুলির মধ্যে একটি — পাইলট বিক্রেতা নয়, একটি উত্পাদন O&M অংশীদার৷"
+        "body": "ভারতীয় ইউটিলিটি সোলারে নিয়োজিত বৃহত্তম রোবোটিক ক্লিনিং ফ্লিটগুলির মধ্যে একটি, পাইলট বিক্রেতা নয়, একটি উত্পাদন O&M অংশীদার৷"
       },
       "card1": {
         "tag": "কভারেজ",
@@ -43,7 +43,7 @@
         "tag": "ক্লায়েন্টদের",
         "stat": "IPP · CPSU · C&I",
         "label": "প্রাতিষ্ঠানিক সম্পদ মালিকদের জন্য নির্মিত",
-        "body": "SECI, রাষ্ট্রীয় ডিসকম, IPPs, এবং শিল্প ছাদ — রোবট, অপারেটর, খুচরা জিনিসপত্র এবং ফ্লিট সফ্টওয়্যারের জন্য এক বিক্রেতা।"
+        "body": "SECI, রাষ্ট্রীয় ডিসকম, IPPs, এবং শিল্প ছাদ, রোবট, অপারেটর, খুচরা জিনিসপত্র এবং ফ্লিট সফ্টওয়্যারের জন্য এক বিক্রেতা।"
       },
       "card3": {
         "tag": "মডেল",
@@ -61,11 +61,11 @@
       },
       "card1": {
         "title": "রোবট স্থাপনা এবং অপারেটর",
-        "body": "GLYDE, GLYDE-X, NYUMA, NYUMA-X, বা HELYX আপনার প্ল্যান্টের সাথে মিলেছে — প্রশিক্ষিত অন-সাইট অপারেটর এবং খুচরা যন্ত্রাংশ সহ।"
+        "body": "GLYDE, GLYDE-X, NYUMA, NYUMA-X, বা HELYX আপনার প্ল্যান্টের সাথে মিলেছে, প্রশিক্ষিত অন-সাইট অপারেটর এবং খুচরা যন্ত্রাংশ সহ।"
       },
       "card2": {
         "title": "NECTYR দৈনিক রিপোর্টিং",
-        "body": "ব্লক-লেভেল ক্লিনিং লগ, রুট কভারেজ, ব্যতিক্রম, এবং ফ্লিট হেলথ — O&M এবং ঋণদাতা পর্যালোচনার জন্য অডিট-প্রস্তুত।"
+        "body": "ব্লক-লেভেল ক্লিনিং লগ, রুট কভারেজ, ব্যতিক্রম, এবং ফ্লিট হেলথ, O&M এবং ঋণদাতা পর্যালোচনার জন্য অডিট-প্রস্তুত।"
       },
       "card3": {
         "title": "SLA-সমর্থিত ক্ষেত্র প্রতিক্রিয়া",
@@ -73,57 +73,57 @@
       },
       "card4": {
         "title": "জলবিহীন শুষ্ক পরিষ্কার - ট্যাঙ্কার সরবরাহ নেই",
-        "body": "ওয়েট-ওয়াশ ক্লিনিং ওয়াটার-স্ট্রেসড সোলার বেল্টে প্রতি বছর 140,000+ লিটার প্রতি MW খরচ করে। Taypro-এর রোবোটিক ড্রাই ক্লিনিং ট্যাঙ্কার নির্ভরতা দূর করে এবং প্রতি মাসে 3-10 চক্র সক্রিয় করে — রাজস্থান এবং গুজরাটের ধুলো বেল্টের মাটিকে নিরপেক্ষ করার জন্য প্রয়োজনীয় ক্যাডেন্স।"
+        "body": "ওয়েট-ওয়াশ ক্লিনিং ওয়াটার-স্ট্রেসড সোলার বেল্টে প্রতি বছর 140,000+ লিটার প্রতি MW খরচ করে। Taypro-এর রোবোটিক ড্রাই ক্লিনিং ট্যাঙ্কার নির্ভরতা দূর করে এবং প্রতি মাসে 3-10 চক্র সক্রিয় করে, রাজস্থান এবং গুজরাটের ধুলো বেল্টের মাটিকে নিরপেক্ষ করার জন্য প্রয়োজনীয় ক্যাডেন্স।"
       },
       "card5": {
         "title": "উদ্ভিদ কর্মক্ষমতা তথ্য সঙ্গে একীকরণ",
-        "body": "NECTYR ব্লক-লেভেল ক্লিনিং লগ প্রতিটি চক্রকে অ্যারে কভারেজ এবং ব্যতিক্রমের সাথে সংযুক্ত করে। অ্যাসেট ম্যানেজাররা PR পুনরুদ্ধারের সাথে পরিষ্কারের ইভেন্টগুলিকে সংযুক্ত করে — SCADA অ্যালার্ম এবং ফিল্ড অ্যাকশনের মধ্যে ব্যবধান বন্ধ করে।"
+        "body": "NECTYR ব্লক-লেভেল ক্লিনিং লগ প্রতিটি চক্রকে অ্যারে কভারেজ এবং ব্যতিক্রমের সাথে সংযুক্ত করে। অ্যাসেট ম্যানেজাররা PR পুনরুদ্ধারের সাথে পরিষ্কারের ইভেন্টগুলিকে সংযুক্ত করে, SCADA অ্যালার্ম এবং ফিল্ড অ্যাকশনের মধ্যে ব্যবধান বন্ধ করে।"
       }
     },
     "models": {
-      "eyebrow": "Commercial models",
-      "heading": "CAPEX robots or OPEX — same fleet, different balance sheet",
+      "eyebrow": "বাণিজ্যিক মডেল",
+      "heading": "CAPEX robots or OPEX: same fleet, different balance sheet",
       "capex": {
         "title": "Robot CAPEX + AMC",
-        "body": "Purchase GLYDE, GLYDE-X, NYUMA, or HELYX. Taypro commissions, trains operators, and maintains the fleet under structured AMC.",
+        "body": "GLYDE, GLYDE-X, NYUMA, বা HELYX কিনুন। Taypro কমিশন দেয়, অপারেটরদের ট্রেন করে, এবং কাঠামোগত AMC এর অধীনে বহরের রক্ষণাবেক্ষণ করে।",
         "href": "/solar-panel-cleaning-robot-price-india",
-        "link": "India robot price guide"
+        "link": "ভারত রোবট মূল্য নির্দেশিকা"
       },
       "opex": {
-        "title": "OPEX service",
-        "body": "No upfront robot purchase. Pay monthly for panels actually cleaned — ideal for IPPs that want predictable O&M opex and fast mobilisation.",
+        "title": "OPEX পরিষেবা",
+        "body": "কোন অগ্রিম রোবট ক্রয়. প্রকৃতপক্ষে পরিষ্কার করা প্যানেলগুলির জন্য মাসিক অর্থ প্রদান করুন, IPPগুলির জন্য আদর্শ যারা অনুমানযোগ্য O&M opex এবং দ্রুত গতিশীলতা চান৷",
         "href": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
-        "link": "OPEX service details"
+        "link": "OPEX পরিষেবার বিবরণ"
       }
     },
     "pillars": {
-      "eyebrow": "Full stack",
-      "heading": "Robots, managed service, and fleet software — one partner",
+      "eyebrow": "সম্পূর্ণ স্ট্যাক",
+      "heading": "রোবট, পরিচালিত পরিষেবা, এবং ফ্লিট সফ্টওয়্যার, এক অংশীদার",
       "pillar0": {
-        "tag": "Hardware",
-        "title": "Waterless cleaning robots",
-        "body": "GLYDE dual-pass for fixed tilt, GLYDE-X and NYUMA-X for single-axis trackers, HELYX for scattered blocks.",
-        "link": "Compare robot models"
+        "tag": "হার্ডওয়্যার",
+        "title": "জলহীন পরিষ্কার রোবট",
+        "body": "স্থির টিল্টের জন্য GLYDE ডুয়াল-পাস, একক-অক্ষ ট্র্যাকারের জন্য GLYDE-X এবং NYUMA-X, বিক্ষিপ্ত ব্লকের জন্য HELYX।",
+        "link": "রোবট মডেলের তুলনা করুন"
       },
       "pillar1": {
-        "tag": "Service",
-        "title": "Managed cleaning programme",
-        "body": "SOPs, cycle scheduling, operator deployment, and billing tied to verified panel-cleaning volume.",
-        "link": "OPEX service page"
+        "tag": "সেবা",
+        "title": "পরিচ্ছন্নতা কার্যক্রম পরিচালিত হয়",
+        "body": "SOPs, চক্র নির্ধারণ, অপারেটর স্থাপনা, এবং বিলিং যাচাইকৃত প্যানেল-ক্লিনিং ভলিউমের সাথে সংযুক্ত।",
+        "link": "OPEX পরিষেবা পৃষ্ঠা"
       },
       "pillar2": {
-        "tag": "Software",
-        "title": "NECTYR fleet portal",
-        "body": "Schedule cycles, monitor coverage, manage AMC tickets, and export cleaning evidence for PR recovery analysis.",
-        "link": "OPEX pricing guide"
+        "tag": "সফটওয়্যার",
+        "title": "NECTYR ফ্লিট পোর্টাল",
+        "body": "সময়সূচী চক্র, নিরীক্ষণ কভারেজ, AMC টিকিট পরিচালনা, এবং PR পুনরুদ্ধার বিশ্লেষণের জন্য পরিষ্কারের প্রমাণ রপ্তানি করুন।",
+        "link": "OPEX মূল্য নির্দেশিকা"
       }
     },
     "stateGrid": {
-      "heading": "Solar panel cleaning service by state",
-      "intro": "Taypro deploys robotic cleaning fleets across India's highest-soiling solar belts. Explore state-specific guides for Rajasthan, Gujarat, Maharashtra, and more."
+      "heading": "রাজ্য দ্বারা সৌর প্যানেল পরিষ্কার পরিষেবা",
+      "intro": "Taypro ভারতের সর্বোচ্চ মাটির সৌর বেল্ট জুড়ে রোবোটিক পরিচ্ছন্নতার বহর মোতায়েন করে। রাজস্থান, গুজরাট, মহারাষ্ট্র এবং আরও অনেক কিছুর জন্য রাজ্য-নির্দিষ্ট নির্দেশিকা অন্বেষণ করুন।"
     },
     "faq": {
-      "heading": "সোলার ক্লিনিং সার্ভিস ইন্ডিয়া — FAQ",
+      "heading": "সোলার ক্লিনিং সার্ভিস ইন্ডিয়া, FAQ",
       "subheading": "IPPs, EPCs, এবং O&M টিমের থেকে সাধারণ প্রশ্ন যা রোবোটিক ক্লিনিং পার্টনারদের মূল্যায়ন করছে।",
       "q0": "Taypro কি সারা ভারত জুড়ে সোলার প্যানেল পরিষ্কারের পরিষেবা প্রদান করে?",
       "a0": "হ্যাঁ। রাজস্থান, গুজরাট, মহারাষ্ট্র, কর্ণাটক, মধ্যপ্রদেশ, অন্ধ্রপ্রদেশ, তামিলনাড়ু, উত্তরপ্রদেশ, হরিয়ানা, দিল্লি এনসিআর, পশ্চিমবঙ্গ এবং ছত্তিশগড় সহ প্রধান ভারতীয় সৌর রাজ্যগুলিতে Taypro রোবোটিক পরিচ্ছন্নতার ফ্লিট স্থাপন করে এবং OPEX প্রোগ্রাম পরিচালনা করে। আপনার নির্দিষ্ট সাইটে মোবিলাইজেশন টাইমলাইন জন্য আমাদের সাথে যোগাযোগ করুন.",
@@ -134,7 +134,7 @@
       "q3": "Taypro প্রতি মাসে কতগুলি পরিচ্ছন্নতার চক্র সুপারিশ করে?",
       "a3": "একটি সাইট সোয়লিং অধ্যয়নের পরে, Taypro সাধারণত ধুলো লোড, মৌসুমী বায়ুর ধরণ, ট্র্যাকার বনাম ফিক্সড-টিল্ট জ্যামিতি এবং আপনার PR পুনরুদ্ধারের লক্ষ্যগুলির উপর নির্ভর করে প্রতি মাসে 3-10টি জলহীন শুষ্ক পরিস্কার চক্রের সুপারিশ করে৷",
       "q4": "Taypro একটি সৌর O&M কোম্পানি নাকি শুধুমাত্র একটি রোবট প্রস্তুতকারক?",
-      "a4": "উভয়. Taypro ভারতে জলবিহীন ক্লিনিং রোবট তৈরি করে এবং সবচেয়ে বড় স্থাপন করা রোবোটিক ক্লিনিং ফ্লিটগুলির মধ্যে একটি পরিচালনা করে৷ আমাদের পরিষেবা ক্লিনিং এক্সিকিউশন, ফ্লিট হেলথ, অপারেটর স্থাপন, এবং NECTYR রিপোর্টিং কভার করে — আপনার EPC বা বৈদ্যুতিক O&M ঠিকাদারের পরিপূরক৷",
+      "a4": "উভয়. Taypro ভারতে জলবিহীন ক্লিনিং রোবট তৈরি করে এবং সবচেয়ে বড় স্থাপন করা রোবোটিক ক্লিনিং ফ্লিটগুলির মধ্যে একটি পরিচালনা করে৷ আমাদের পরিষেবা ক্লিনিং এক্সিকিউশন, ফ্লিট হেলথ, অপারেটর স্থাপন, এবং NECTYR রিপোর্টিং কভার করে, আপনার EPC বা বৈদ্যুতিক O&M ঠিকাদারের পরিপূরক৷",
       "q5": "ইন্ডিয়া ক্লিনিং সার্ভিসের অধীনে Taypro কোন রোবট স্থাপন করে?",
       "a5": "ফিক্সড-টিল্ট ইউটিলিটি ব্লক GLYDE বা NYUMA ব্যবহার করে। একক-অক্ষ ট্র্যাকার সাইটগুলি GLYDE-X বা NYUMA-X ব্যবহার করে। বিক্ষিপ্ত ব্লক এবং পিক-এন্ড-প্লেস ওয়ার্কফ্লো HELYX ব্যবহার করতে পারে। একই NECTYR স্ট্যাক মডেল জুড়ে প্রযোজ্য।",
       "q6": "OPEX এ বিলিং কীভাবে গঠন করা হয়?",
@@ -146,80 +146,80 @@
       "q9": "Taypro কি একক-অক্ষ ট্র্যাকার উদ্ভিদ পরিষ্কার করে?",
       "a9": "হ্যাঁ। GLYDE-X এবং NYUMA-X CRADYL সারি-ট্রান্সফার ডকিং সহ একক-অক্ষ ট্র্যাকারের জন্য ইঞ্জিনিয়ার করা হয়েছে। প্রযুক্তিগত সংগ্রহের জন্য আমাদের ট্র্যাকার পরিষ্কার রোবট গাইড দেখুন।",
       "q10": "একটি 100 MW প্ল্যান্টের জন্য সাধারণ গতিশীলতার সময়রেখা কী?",
-      "a10": "পর্যায়ক্রমে স্থাপনা: সাইট ম্যাপিং, ফ্লিট মোবিলাইজেশন, অপারেটর প্রশিক্ষণ, এবং NECTYR অনবোর্ডিং। টাইমলাইন সারি গণনা এবং অ্যাক্সেসের উপর নির্ভর করে — বাণিজ্যিক ব্যস্ততার সময় প্রস্তাবিত, প্রতিষ্ঠিত সোলার পার্কগুলির জন্য সাধারণত সপ্তাহ নয় মাস।",
+      "a10": "পর্যায়ক্রমে স্থাপনা: সাইট ম্যাপিং, ফ্লিট মোবিলাইজেশন, অপারেটর প্রশিক্ষণ, এবং NECTYR অনবোর্ডিং। টাইমলাইন সারি গণনা এবং অ্যাক্সেসের উপর নির্ভর করে, বাণিজ্যিক ব্যস্ততার সময় প্রস্তাবিত, প্রতিষ্ঠিত সোলার পার্কগুলির জন্য সাধারণত সপ্তাহ নয় মাস।",
       "q11": "Taypro রাজ্য জুড়ে মাল্টি-সাইট পোর্টফোলিও সমর্থন করতে পারে?",
       "a11": "হ্যাঁ। NECTYR পোর্টফোলিও-স্তরের সময়সূচী এবং প্রতিবেদন প্রদান করে। Taypro রাজস্থান, গুজরাট, মহারাষ্ট্র, কর্ণাটক, এমপি, অন্ধ্র প্রদেশ, তামিলনাড়ু, উত্তর প্রদেশ, হরিয়ানা, দিল্লি এনসিআর, পশ্চিমবঙ্গ এবং ছত্তিশগড় জুড়ে কাজ করে৷"
     },
     "cta": {
-      "heading": "Request a solar cleaning service quote for your plant",
-      "body": "Tell us your MW capacity, state, and installation type. Taypro will respond with a site-specific cleaning programme and commercial proposal.",
-      "primary": "Contact Taypro",
+      "heading": "আপনার প্ল্যান্টের জন্য একটি সৌর পরিষ্কার পরিষেবার উদ্ধৃতি অনুরোধ করুন",
+      "body": "আপনার MW ক্ষমতা, অবস্থা এবং ইনস্টলেশনের ধরন আমাদের বলুন৷ Taypro একটি সাইট-নির্দিষ্ট পরিচ্ছন্নতার প্রোগ্রাম এবং বাণিজ্যিক প্রস্তাবের সাথে সাড়া দেবে।",
+      "primary": "যোগাযোগ Taypro",
       "primaryHref": "/contact",
-      "secondary": "Run ROI calculator",
+      "secondary": "ROI ক্যালকুলেটর চালান",
       "secondaryHref": "/solar-panel-cleaning-robot-price-calculator#calculator"
     },
     "related": {
-      "label": "Related:",
-      "link0": "OPEX pricing bands",
+      "label": "সম্পর্কিত:",
+      "link0": "OPEX প্রাইসিং ব্যান্ড",
       "link0Href": "/solar-cleaning-opex-pricing",
-      "link1": "OPEX contract & SOP details",
+      "link1": "OPEX চুক্তি এবং SOP বিশদ বিবরণ",
       "link1Href": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
-      "link2": "Utility-scale O&M hub",
+      "link2": "ইউটিলিটি-স্কেল O&M হাব",
       "link2Href": "/utility-scale-solar-operations"
     },
     "quoteForm": {
-      "eyebrow": "Service inquiry",
-      "title": "Request a solar cleaning service quote",
-      "placeholder": "Plant capacity (MW), state, installation type (fixed tilt / tracker), current cleaning method, and target go-live date."
+      "eyebrow": "পরিষেবা অনুসন্ধান",
+      "title": "একটি সৌর পরিষ্কার পরিষেবা উদ্ধৃতি অনুরোধ",
+      "placeholder": "প্ল্যান্টের ক্ষমতা (MW), অবস্থা, ইনস্টলেশনের ধরন (স্থির কাত / ট্র্যাকার), বর্তমান পরিষ্কারের পদ্ধতি, এবং লক্ষ্য গো-লাইভ তারিখ।"
     },
     "prose": {
       "eyebrow": "কেন ভারতের একটি জাতীয় পরিচ্ছন্নতার অংশীদার প্রয়োজন?",
-      "heading": "সোলার প্যানেল ক্লিনিং সার্ভিস ইন্ডিয়া — স্থানীয় ব্রাশ ক্রুদের বাইরে",
-      "p1": "ভারতের ইউটিলিটি সোলার ফ্লিট এখন 100 GW ছাড়িয়ে গেছে, যা রাজস্থান, গুজরাট, মহারাষ্ট্র, কর্ণাটক এবং মধ্যপ্রদেশে কেন্দ্রীভূত — একই রাজ্যে যেখানে পরিচ্ছন্নতা ক্যালেন্ডার-ভিত্তিক থাকে তখন বার্ষিক 8-25% পর্যন্ত মাটির ক্ষতি হয়। একটি সৌর প্যানেল ক্লিনিং কোম্পানি ভারতের ক্রেতাদের বিশ্বাসকে অবশ্যই উৎপাদনের স্কেলে কাজ করতে হবে: মাল্টি-রোবট ফ্লিট, প্যান-ইন্ডিয়া স্পেয়ার, এবং অডিট-রেডি রিপোর্টিং - অ্যাড-হক শ্রম চুক্তি নয়।",
+      "heading": "সোলার প্যানেল ক্লিনিং সার্ভিস ইন্ডিয়া, স্থানীয় ব্রাশ ক্রুদের বাইরে",
+      "p1": "ভারতের ইউটিলিটি সোলার ফ্লিট এখন 100 GW ছাড়িয়ে গেছে, যা রাজস্থান, গুজরাট, মহারাষ্ট্র, কর্ণাটক এবং মধ্যপ্রদেশে কেন্দ্রীভূত, একই রাজ্যে যেখানে পরিচ্ছন্নতা ক্যালেন্ডার-ভিত্তিক থাকে তখন বার্ষিক 8-25% পর্যন্ত মাটির ক্ষতি হয়। একটি সৌর প্যানেল ক্লিনিং কোম্পানি ভারতের ক্রেতাদের বিশ্বাসকে অবশ্যই উৎপাদনের স্কেলে কাজ করতে হবে: মাল্টি-রোবট ফ্লিট, প্যান-ইন্ডিয়া স্পেয়ার, এবং অডিট-রেডি রিপোর্টিং - অ্যাড-হক শ্রম চুক্তি নয়।",
       "p2": "Taypro পুনেতে জলবিহীন পরিষ্কারের রোবট তৈরি করে এবং দুটি বাণিজ্যিক মডেলের অধীনে মোতায়েন করে। CAPEX: ক্রয় GLYDE, GLYDE-X, NYUMA, NYUMA-X, অথবা HELYX কাঠামোবদ্ধ AMC সহ। OPEX: Taypro ফ্লিটের মালিক, অপারেটর মোতায়েন করে, এবং প্রকৃতপক্ষে পরিষ্কার করা প্যানেলের জন্য মাসিক বিল - NECTYR টেলিমেট্রির মাধ্যমে মিলিত হয়।",
-      "p3": "আপনি IPP অ্যাসেট ম্যানেজার, স্টেট ডিসকম, বা EPC হ্যান্ডওভার টিমের মাধ্যমে ক্রয় করুন না কেন, Taypro ফিল্ড এক্সিকিউশন এবং ফ্লিট ডেটার জন্য একক বিক্রেতা প্রদান করে৷ বৈদ্যুতিক O&M, বৈদ্যুতিন সংকেতের মেরু বদল মেরামত, এবং ট্র্যাকার যান্ত্রিক কাজ আপনার বিদ্যমান ঠিকাদারের সাথে থাকে — আমরা এমন পরিচ্ছন্নতার স্তরের মালিক যা কার্যক্ষমতা অনুপাতকে সরাসরি সরিয়ে দেয়।",
-      "p4": "সৌর পরিষ্কার পরিষেবা মূল্যায়নকারী প্রকিউরমেন্ট দলগুলি ভারতের বিক্রেতাদের ফ্লিট স্কেল, রাজ্য কভারেজ, বিলিং স্বচ্ছতা এবং উদ্ভিদ পর্যবেক্ষণের সাথে একীকরণের তুলনা করা উচিত — শুধু রোবট ব্রোশার নয়। Taypro ইঙ্গিতমূলক OPEX মূল্য, একটি ROI ক্যালকুলেটর, এবং যথাযথ পরিশ্রমের জন্য 132+ প্রকল্পের উল্লেখ প্রকাশ করে।",
+      "p3": "আপনি IPP অ্যাসেট ম্যানেজার, স্টেট ডিসকম, বা EPC হ্যান্ডওভার টিমের মাধ্যমে ক্রয় করুন না কেন, Taypro ফিল্ড এক্সিকিউশন এবং ফ্লিট ডেটার জন্য একক বিক্রেতা প্রদান করে৷ বৈদ্যুতিক O&M, বৈদ্যুতিন সংকেতের মেরু বদল মেরামত, এবং ট্র্যাকার যান্ত্রিক কাজ আপনার বিদ্যমান ঠিকাদারের সাথে থাকে, আমরা এমন পরিচ্ছন্নতার স্তরের মালিক যা কার্যক্ষমতা অনুপাতকে সরাসরি সরিয়ে দেয়।",
+      "p4": "সৌর পরিষ্কার পরিষেবা মূল্যায়নকারী প্রকিউরমেন্ট দলগুলি ভারতের বিক্রেতাদের ফ্লিট স্কেল, রাজ্য কভারেজ, বিলিং স্বচ্ছতা এবং উদ্ভিদ পর্যবেক্ষণের সাথে একীকরণের তুলনা করা উচিত, শুধু রোবট ব্রোশার নয়। Taypro ইঙ্গিতমূলক OPEX মূল্য, একটি ROI ক্যালকুলেটর, এবং যথাযথ পরিশ্রমের জন্য 132+ প্রকল্পের উল্লেখ প্রকাশ করে।",
       "linkPrimary": "পরিষেবা উদ্ধৃতি অনুরোধ",
       "linkPrimaryHref": "/contact",
       "linkSecondary": "OPEX বনাম CAPEX মূল্যের তুলনা করুন",
       "linkSecondaryHref": "/solar-cleaning-opex-pricing"
     },
     "steps": {
-      "eyebrow": "How mobilisation works",
-      "heading": "From RFQ to first cleaning cycle on your plant",
-      "subheading": "A structured onboarding path used on 50–360 MW utility deployments across India.",
-      "step0Title": "Share plant profile & current cleaning method",
-      "step0Body": "Provide MW capacity, state, installation type (fixed tilt, seasonal tilt, or single-axis tracker), module wattage, current manual or robotic cleaning spend, and target PR or soiling assumptions. Taypro assigns an engineering lead within one business day.",
-      "step1Title": "Site soiling study & cycle recommendation",
-      "step1Body": "Engineers assess dust sources, wind patterns, row geometry, tracker behaviour, and seasonal rain probability. Output: recommended 3–10 waterless dry cycles per month and robot model selection (GLYDE, GLYDE-X, NYUMA, NYUMA-X, or HELYX).",
-      "step2Title": "Commercial proposal — CAPEX or OPEX",
+      "eyebrow": "কিভাবে সংহতি কাজ করে",
+      "heading": "RFQ থেকে আপনার প্ল্যান্টের প্রথম পরিস্কার চক্র পর্যন্ত",
+      "subheading": "ভারত জুড়ে 50-360 MW ইউটিলিটি স্থাপনায় ব্যবহৃত একটি কাঠামোগত অনবোর্ডিং পথ।",
+      "step0Title": "উদ্ভিদ প্রোফাইল এবং বর্তমান পরিষ্কারের পদ্ধতি শেয়ার করুন",
+      "step0Body": "MW ক্ষমতা, অবস্থা, ইনস্টলেশনের ধরন (স্থির কাত, মৌসুমী কাত, বা একক-অক্ষ ট্র্যাকার), মডিউল ওয়াটেজ, বর্তমান ম্যানুয়াল বা রোবোটিক পরিষ্কারের ব্যয় এবং লক্ষ্য PR বা ময়লা অনুমান প্রদান করুন। Taypro এক ব্যবসায়িক দিনের মধ্যে একটি ইঞ্জিনিয়ারিং লিড বরাদ্দ করে৷",
+      "step1Title": "সাইট ময়লা অধ্যয়ন এবং চক্র সুপারিশ",
+      "step1Body": "প্রকৌশলীরা ধুলোর উৎস, বাতাসের ধরণ, সারি জ্যামিতি, ট্র্যাকার আচরণ এবং মৌসুমী বৃষ্টির সম্ভাবনা মূল্যায়ন করেন। আউটপুট: প্রতি মাসে 3-10টি জলবিহীন শুকনো চক্র এবং রোবট মডেল নির্বাচনের প্রস্তাবিত (GLYDE, GLYDE-X, NYUMA, NYUMA-X, বা HELYX)।",
+      "step2Title": "Commercial proposal, CAPEX or OPEX",
       "step2Body": "Receive robot fleet sizing, indicative pricing (per-panel OPEX rates or CAPEX bands), SLA framework, and mobilisation timeline. Finance teams can run parallel scenarios in the ROI calculator.",
-      "step3Title": "Fleet deployment & NECTYR onboarding",
+      "step3Title": "ফ্লিট স্থাপন এবং NECTYR অনবোর্ডিং",
       "step3Body": "Operators mobilise with robots, connectivity (LTE, mesh, or LoRa as designed), cleaning SOPs, path maps, and rest zones. NECTYR portal activated for scheduling, coverage audits, and monthly settlement.",
-      "step4Title": "Monthly reconciliation & programme review",
-      "step4Body": "Billing aligns to verified panels cleaned per NECTYR logs. Quarterly reviews adjust cycle count for monsoon, harvest dust, or construction activity nearby."
+      "step4Title": "মাসিক পুনর্মিলন এবং প্রোগ্রাম পর্যালোচনা",
+      "step4Body": "বিলিং NECTYR লগ প্রতি পরিষ্কার করা যাচাইকৃত প্যানেলের সাথে সারিবদ্ধ করে। ত্রৈমাসিক পর্যালোচনাগুলি বর্ষা, ফসলের ধুলো, বা কাছাকাছি নির্মাণ কার্যকলাপের জন্য চক্র গণনা সামঞ্জস্য করে।"
     },
     "eligibility": {
-      "eyebrow": "Fit assessment",
-      "title": "Who Taypro's India cleaning service is built for",
-      "forTitle": "Ideal fit",
-      "for0": "Utility ground-mount and solar park plants from ~10 MW upward (many programmes at 50–300 MW)",
+      "eyebrow": "ফিট মূল্যায়ন",
+      "title": "কার জন্য Taypro-এর ভারত পরিচ্ছন্নতা পরিষেবা তৈরি করা হয়েছে৷",
+      "forTitle": "আদর্শ ফিট",
+      "for0": "ইউটিলিটি গ্রাউন্ড-মাউন্ট এবং সোলার পার্ক প্ল্যান্টস ~10 MW ঊর্ধ্বমুখী (50-300 MW এ অনেক প্রোগ্রাম)",
       "for1": "IPPs, CPSUs, SECI projects, and asset managers seeking pay-per-panel-cleaned OPEX or robot CAPEX with AMC",
-      "for2": "Sites in Rajasthan, Gujarat, MP, Maharashtra, Karnataka, or Andhra Pradesh with recurring soiling and PR drift",
-      "for3": "Procurement teams that need NECTYR audit trails for lenders, SECI, or internal O&M governance",
-      "notForTitle": "Typically not a fit",
-      "not0": "Single-home residential rooftop arrays (see our rooftop robot guide for C&I)",
-      "not1": "One-off manual pressure-washing without a recurring robotic programme",
-      "not2": "Full-plant EPC maintenance scope (inverters, HV, tracker mechanical) — we partner on cleaning only"
+      "for2": "রাজস্থান, গুজরাট, এমপি, মহারাষ্ট্র, কর্ণাটক, বা অন্ধ্র প্রদেশের সাইটগুলি পুনরাবৃত্ত ময়লা এবং PR প্রবাহ সহ",
+      "for3": "প্রকিউরমেন্ট টিম যাদের ঋণদাতা, SECI বা অভ্যন্তরীণ O&M গভর্নেন্সের জন্য NECTYR অডিট ট্রেল প্রয়োজন",
+      "notForTitle": "সাধারণত ফিট নয়",
+      "not0": "একক-বাড়ির আবাসিক ছাদের অ্যারে (C&I এর জন্য আমাদের ছাদের রোবট গাইড দেখুন)",
+      "not1": "একটি পুনরাবৃত্ত রোবোটিক প্রোগ্রাম ছাড়া এক-বন্ধ ম্যানুয়াল চাপ-ওয়াশিং",
+      "not2": "ফুল-প্ল্যান্ট ইপিসি রক্ষণাবেক্ষণের সুযোগ (ইনভার্টার, এইচভি, ট্র্যাকার যান্ত্রিক), আমরা কেবল পরিষ্কার করার জন্য অংশীদার"
     },
     "highlight": {
-      "heading": "The procurement question",
-      "lead": "Can your cleaning vendor prove which panels were cleaned last night?",
-      "body": "Manual crew contracts rarely provide block-level coverage evidence. OPEX bills against NECTYR telemetry — panels cleaned, routes completed, exceptions logged. That is what IPPs and lenders ask for at 100 MW scale."
+      "heading": "সংগ্রহের প্রশ্ন",
+      "lead": "আপনার পরিষ্কারের বিক্রেতা কি প্রমাণ করতে পারেন যে গত রাতে কোন প্যানেলগুলি পরিষ্কার করা হয়েছিল?",
+      "body": "ম্যানুয়াল ক্রু চুক্তি খুব কমই ব্লক-স্তরের কভারেজ প্রমাণ প্রদান করে। NECTYR টেলিমেট্রির বিপরীতে OPEX বিল, প্যানেল পরিষ্কার করা হয়েছে, রুট সম্পূর্ণ হয়েছে, ব্যতিক্রমগুলি লগ করা হয়েছে৷ IPP এবং ঋণদাতারা 100 MW স্কেলে এটিই চায়৷"
     },
     "proseSecondary": {
       "eyebrow": "আঞ্চলিক মৃত্তিকা প্রসঙ্গে",
-      "heading": "রাজ্য দ্বারা সৌর পরিষ্কারের চাহিদা — কেন সমগ্র ভারত পরিষেবা গুরুত্বপূর্ণ",
+      "heading": "রাজ্য দ্বারা সৌর পরিষ্কারের চাহিদা, কেন সমগ্র ভারত পরিষেবা গুরুত্বপূর্ণ",
       "p1": "রাজস্থান এবং গুজরাট ভারতের ইউটিলিটি সৌর ক্ষমতার বৃহত্তম অংশ এবং সর্বোচ্চ নথিভুক্ত মৃত্তিকা অনুপাতের জন্য দায়ী - ক্রমবর্ধমান ধূলিকণা ফিল্ম যা ক্যাডেন্স-চালিত পরিষ্কার ছাড়াই বার্ষিক প্রজন্মের 8-25% দমন করে। মহারাষ্ট্র এবং কর্ণাটক উপকূলীয় আর্দ্রতা এবং কৃষি ধূলিকণার ধরণ যোগ করে যা শুষ্ক বেল্টের পদার্থবিদ্যা থেকে আলাদা।",
       "p2": "একটি সৌর প্যানেল পরিচ্ছন্নতার পরিষেবা ভারতের অংশীদারকে অবশ্যই আঞ্চলিকভাবে সংগঠিত করতে হবে - প্রতিটি ভাঙ্গনের জন্য এক রাজ্য থেকে ক্রুদের মধ্যে উড়ে যাবেন না। Taypro পরিষেবা হাব, খুচরা যন্ত্রাংশ ইনভেন্টরি, এবং অপারেটর পুল রক্ষণাবেক্ষণ করে নীচে লিঙ্ক করা বারোটি রাষ্ট্রীয় স্থাপনার নির্দেশিকা জুড়ে৷",
       "p3": "চক্র গণনা এবং বাণিজ্যিক মডেল চূড়ান্ত করার আগে রাজস্থান, গুজরাট, মহারাষ্ট্র এবং আপনার প্ল্যান্টের অবস্থানের জন্য রাজ্য-নির্দিষ্ট রোবোটিক পরিচ্ছন্নতার প্রসঙ্গ অন্বেষণ করুন।",
@@ -229,13 +229,13 @@
       "linkSecondaryHref": "/large-scale-solar-panel-cleaning"
     },
     "resources": {
-      "eyebrow": "Further reading",
-      "heading": "Guides for solar cleaning procurement in India",
-      "link0Title": "Solar panel cleaning cost per MW",
+      "eyebrow": "আরও পড়া",
+      "heading": "ভারতে সৌর ক্লিনিং সংগ্রহের জন্য গাইড",
+      "link0Title": "সোলার প্যানেল পরিষ্কারের খরচ প্রতি MW",
       "link0Href": "/solar-cleaning-opex-pricing",
-      "link1Title": "Robotic vs manual cleaning comparison",
+      "link1Title": "রোবোটিক বনাম ম্যানুয়াল পরিষ্কারের তুলনা",
       "link1Href": "/compare/solar-panel-cleaning-robot-vs-manual-cleaning",
-      "link2Title": "Utility-scale solar operations context",
+      "link2Title": "ইউটিলিটি-স্কেল সোলার অপারেশন প্রসঙ্গ",
       "link2Href": "/utility-scale-solar-operations"
     }
   }

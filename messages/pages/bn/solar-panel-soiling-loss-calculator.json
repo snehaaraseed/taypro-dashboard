@@ -4,20 +4,20 @@
       "title": "সোলার প্যানেল সয়েলিং লস ক্যালকুলেটর ভারত | MWh এবং রাজস্ব প্রভাব",
       "description": "ভারতীয় ইউটিলিটি প্ল্যান্টের জন্য বিনামূল্যে সোলার সয়েলিং লস ক্যালকুলেটর: অনুমান বার্ষিক MWh এবং ₹ ধূলিকণা থেকে MW, soiling %, এবং ট্যারিফ। রাজস্থান, গুজরাট এবং সাধারণ ভারতের জন্য আঞ্চলিক প্রিসেট।",
       "openGraphTitle": "সোলার সয়েলিং লস ক্যালকুলেটর | Taypro",
-      "openGraphDescription": "একটি পরিচ্ছন্নতা প্রোগ্রাম বেছে নেওয়ার আগে প্যানেল সয়েলিং-এ হারিয়ে যাওয়া শক্তি এবং রাজস্বের পরিমাপ করুন — IPP এবং O&M টিমের জন্য নির্দেশমূলক টুল।"
+      "openGraphDescription": "একটি পরিচ্ছন্নতা প্রোগ্রাম বেছে নেওয়ার আগে প্যানেল সয়েলিং-এ হারিয়ে যাওয়া শক্তি এবং রাজস্বের পরিমাপ করুন, IPP এবং O&M টিমের জন্য নির্দেশমূলক টুল।"
     },
-    "breadcrumbHub": "Solar panel cleaning robots",
+    "breadcrumbHub": "সোলার প্যানেল পরিষ্কারের রোবট",
     "breadcrumbHubHref": "/solar-panel-cleaning-system",
-    "breadcrumb": "Soiling loss calculator",
+    "breadcrumb": "সয়েলিং লস ক্যালকুলেটর",
     "schema": {
-      "name": "Taypro Solar Panel Soiling Loss Calculator",
-      "description": "Web calculator estimating annual MWh and revenue loss from solar panel soiling on Indian utility-scale plants.",
-      "applicationCategory": "BusinessApplication"
+      "name": "Taypro সোলার প্যানেল সয়েলিং লস ক্যালকুলেটর",
+      "description": "ওয়েব ক্যালকুলেটর বার্ষিক MWh অনুমান করে এবং ভারতীয় ইউটিলিটি-স্কেল প্ল্যান্টে সোলার প্যানেল ময়লা থেকে রাজস্ব ক্ষতি।",
+      "applicationCategory": "ব্যবসায়িক আবেদন"
     },
     "hero": {
       "eyebrow": "টুল · ময়লা অর্থনীতি",
       "title": "সৌর প্যানেল সয়েলিং লস ক্যালকুলেটর - আপনি কত শক্তি হারাচ্ছেন?",
-      "subtitle": "রোবট CAPEX বা OPEX তুলনা করার আগে, MWh এবং ₹ ধূলিকণার পরিমাপ করুন। প্ল্যান্ট MW লিখুন, মাটির ক্ষতি %, এবং ট্যারিফ — ভারত-নির্দিষ্ট ফলন অনুমান ব্যবহার করে (1,500 kWh/kW-year P50)। সাইট-নির্দিষ্ট ফলাফল একটি soiling অধ্যয়ন প্রয়োজন.",
+      "subtitle": "রোবট CAPEX বা OPEX তুলনা করার আগে, MWh এবং ₹ ধূলিকণার পরিমাপ করুন। প্ল্যান্ট MW লিখুন, মাটির ক্ষতি %, এবং ট্যারিফ, ভারত-নির্দিষ্ট ফলন অনুমান ব্যবহার করে (1,500 kWh/kW-year P50)। সাইট-নির্দিষ্ট ফলাফল একটি soiling অধ্যয়ন প্রয়োজন.",
       "ctaPrimary": "নীচের ক্যালকুলেটর ব্যবহার করুন",
       "ctaPrimaryHref": "#soiling-calculator",
       "ctaSecondary": "সম্পূর্ণ ROI ক্যালকুলেটর",
@@ -28,7 +28,7 @@
       "heading": "মাটির ক্ষতি হল ভারতীয় ইউটিলিটি প্ল্যান্টের সবচেয়ে বড় নিয়ন্ত্রণযোগ্য ফলন লিক",
       "p1": "ময়লা ব্যবহারযোগ্য আউটপুট দমন করে যখন ধোয়া ক্যালেন্ডার-ভিত্তিক থাকে। শিল্প আলোচনায় রাজস্থান, গুজরাট এবং অন্যান্য উচ্চ-ধুলো বেল্টের ইউটিলিটি প্ল্যান্টে প্রায় 8-25% মৌসুমী মাটির ক্ষতির উল্লেখ করা হয়েছে যখন পরিষ্কার করা খুব কম হয়।",
       "p2": "পশ্চিম ভারতে শুষ্ক মৌসুমে দৈনিক 0.3-0.5% প্রতিদিনের মৃত্তিকার হার নথিভুক্ত করা হয়। পরিষ্কার ছাড়া সাত দিন মানে 3-5% আউটপুট ক্ষতি হতে পারে; পদ্ধতিগত পরিষ্কার ছাড়া নব্বই দিন মরুভূমিতে 15-25% পর্যন্ত পৌঁছাতে পারে।",
-      "p3": "এই ক্যালকুলেটরটি আপনার MW ধারণক্ষমতাতে বার্ষিক উৎপাদন অনুমান করে, আপনার মাটির ক্ষতির অনুমান প্রয়োগ করে এবং আপনার ট্যারিফ ব্যবহার করে হারিয়ে যাওয়া MWh কে ₹ এ রূপান্তর করে। এটি ক্লিনিং রিকভারি মডেল করে না — রোবোটিক প্রোগ্রামে পেব্যাকের জন্য ROI ক্যালকুলেটর ব্যবহার করুন।",
+      "p3": "এই ক্যালকুলেটরটি আপনার MW ধারণক্ষমতাতে বার্ষিক উৎপাদন অনুমান করে, আপনার মাটির ক্ষতির অনুমান প্রয়োগ করে এবং আপনার ট্যারিফ ব্যবহার করে হারিয়ে যাওয়া MWh কে ₹ এ রূপান্তর করে। এটি ক্লিনিং রিকভারি মডেল করে না, রোবোটিক প্রোগ্রামে পেব্যাকের জন্য ROI ক্যালকুলেটর ব্যবহার করুন।",
       "p4": "প্রকৃত ক্ষতি নির্ভর করে কাত, ট্র্যাকার আচরণ, বৃষ্টির সম্ভাবনা এবং ধুলোর রসায়নের উপর। Taypro বাণিজ্যিক সিদ্ধান্ত আবদ্ধ করার আগে একটি সাইট সোয়লিং স্টাডির সুপারিশ করে৷ আমরা কিভাবে প্রজন্মের পুনরুদ্ধারের দাবি সংজ্ঞায়িত করি তার জন্য আমাদের কর্মক্ষমতা পদ্ধতি দেখুন।",
       "linkPrimary": "কর্মক্ষমতা পদ্ধতি",
       "linkPrimaryHref": "/performance-and-test-methodology",
@@ -42,7 +42,7 @@
         "tag": "দৈনিক হার",
         "stat": "0.3-0.5%",
         "label": "পশ্চিম ভারত শুষ্ক মৌসুম",
-        "body": "শুষ্ক ইউটিলিটি সাইটগুলিতে নথিভুক্ত দৈনিক ময়লা — ধুলো ঝড়ের পরে উচ্চতর।"
+        "body": "শুষ্ক ইউটিলিটি সাইটগুলিতে নথিভুক্ত দৈনিক ময়লা, ধুলো ঝড়ের পরে উচ্চতর।"
       },
       "card1": {
         "tag": "মৌসুমী",
@@ -54,7 +54,7 @@
         "tag": "উদাহরণ",
         "stat": "21.6 GWঘণ্টা",
         "label": "12% ক্ষতিতে 100 MW",
-        "body": "~180 GWh বার্ষিক জেনারেশন 1,500 kWh/kW-বছরে — 12% সয়লিং = 21.6 GWh পূর্বে।"
+        "body": "~180 GWh বার্ষিক জেনারেশন 1,500 kWh/kW-বছরে, 12% সয়লিং = 21.6 GWh পূর্বে।"
       },
       "card3": {
         "tag": "রাজস্ব",
@@ -64,72 +64,72 @@
       }
     },
     "soilingCalculator": {
-      "eyebrow": "Interactive tool",
-      "heading": "Estimate your annual soiling loss",
-      "subheading": "Directional only — not a guarantee of recoverable MWh. Defaults use India market yield (1,500 kWh/kW-year).",
-      "disclaimer": "Results are illustrative. Site-specific soiling studies, PR baselines, and weather normalization are required for investment-grade models. See performance methodology."
+      "eyebrow": "ইন্টারেক্টিভ টুল",
+      "heading": "আপনার বার্ষিক মাটির ক্ষতি অনুমান করুন",
+      "subheading": "শুধুমাত্র নির্দেশিক, পুনরুদ্ধারযোগ্য MWh এর গ্যারান্টি নয়। ডিফল্ট ভারতের বাজারের ফলন ব্যবহার করে (1,500 kWh/kW-বছর)।",
+      "disclaimer": "ফলাফল দৃষ্টান্তমূলক. বিনিয়োগ-গ্রেড মডেলের জন্য সাইট-নির্দিষ্ট মৃত্তিকা অধ্যয়ন, PR বেসলাইন এবং আবহাওয়া স্বাভাবিককরণ প্রয়োজন। কর্মক্ষমতা পদ্ধতি দেখুন।"
     },
     "soilingTool": {
-      "capacityLabel": "Plant capacity (MW)",
-      "soilingLabel": "Annual soiling loss (%)",
-      "soilingHint": "share of annual generation lost to dust",
-      "tariffLabel": "Electricity tariff (₹/kWh)",
-      "tariffHint": "PPA, merchant, or blended portfolio rate",
-      "presetLow": "Low dust",
-      "presetTypical": "Typical India",
-      "presetHigh": "Rajasthan/Gujarat",
-      "resultsHeading": "Estimated annual impact",
-      "annualGeneration": "Annual generation",
-      "annualLoss": "Energy lost to soiling",
-      "annualRevenueLoss": "Revenue foregone",
-      "monthlyRevenueLoss": "Monthly revenue foregone",
-      "disclaimer": "Directional estimate only. Does not include cleaning recovery, inverter clipping, or curtailment.",
-      "ctaRoi": "Model cleaning payback",
-      "ctaStudy": "Request soiling study"
+      "capacityLabel": "উদ্ভিদ ক্ষমতা (MW)",
+      "soilingLabel": "বার্ষিক মাটির ক্ষতি (%)",
+      "soilingHint": "বার্ষিক প্রজন্মের অংশ ধুলোয় হারিয়ে গেছে",
+      "tariffLabel": "বিদ্যুতের শুল্ক (₹/kWh)",
+      "tariffHint": "PPA, মার্চেন্ট বা মিশ্রিত পোর্টফোলিও রেট",
+      "presetLow": "কম ধুলো",
+      "presetTypical": "আদর্শ ভারত",
+      "presetHigh": "রাজস্থান/গুজরাট",
+      "resultsHeading": "আনুমানিক বার্ষিক প্রভাব",
+      "annualGeneration": "বার্ষিক প্রজন্ম",
+      "annualLoss": "নোংরা করার জন্য শক্তি হারিয়েছে",
+      "annualRevenueLoss": "রাজস্ব বাতিল",
+      "monthlyRevenueLoss": "মাসিক আয় বাতিল",
+      "disclaimer": "শুধুমাত্র দিকনির্দেশক অনুমান। পরিচ্ছন্নতা পুনরুদ্ধার, বৈদ্যুতিন সংকেতের মেরু বদল ক্লিপিং, বা কমানো অন্তর্ভুক্ত নয়।",
+      "ctaRoi": "মডেল পরিস্কার পরিশোধ",
+      "ctaStudy": "মৃত্তিকা অধ্যয়নের অনুরোধ করুন"
     },
     "steps": {
-      "eyebrow": "How to use results",
-      "heading": "From soiling estimate to cleaning decision",
-      "subheading": "Four steps O&M teams take after quantifying dust loss.",
-      "step0Title": "Set realistic soiling %",
-      "step0Body": "Use regional presets or PR data. High-dust Rajasthan/Gujarat sites often model 15–25%; milder regions 5–12%.",
-      "step1Title": "Convert MWh to ₹ at your tariff",
-      "step1Body": "Apply PPA, merchant, or blended ₹/kWh. This is the annual value at risk from dust — not yet net of cleaning cost.",
-      "step2Title": "Compare cleaning programme cost",
+      "eyebrow": "ফলাফল কিভাবে ব্যবহার করবেন",
+      "heading": "ময়লা আনুমানিক পরিচ্ছন্নতার সিদ্ধান্ত থেকে",
+      "subheading": "চারটি ধাপ O&M টিম ধূলিকণার পরিমাপ করার পরে নেয়।",
+      "step0Title": "বাস্তবসম্মত মৃত্তিকা % সেট করুন",
+      "step0Body": "আঞ্চলিক প্রিসেট বা PR ডেটা ব্যবহার করুন। হাই-ডাস্ট রাজস্থান/গুজরাট সাইট প্রায়ই 15-25% মডেল; মৃদু অঞ্চল 5-12%।",
+      "step1Title": "আপনার ট্যারিফে MWh কে ₹ এ রূপান্তর করুন",
+      "step1Body": "PPA, মার্চেন্ট বা মিশ্রিত ₹/kWh প্রয়োগ করুন। এটি ধুলো থেকে ঝুঁকিপূর্ণ বার্ষিক মূল্য, এখনও পরিচ্ছন্নতার খরচের নেট নয়।",
+      "step2Title": "ক্লিনিং প্রোগ্রামের খরচ তুলনা করুন",
       "step2Body": "Run the ROI calculator with CAPEX or OPEX. Compare recovered MWh value vs cleaning TCO over 5 years.",
-      "step3Title": "Validate with site study",
-      "step3Body": "Taypro engineers assess dust sources, cycle count, and robot model before binding commercial terms.",
-      "step4Title": "Track PR recovery in NECTYR",
-      "step4Body": "Correlate cleaning cycles with block-level PR trends — closing the SCADA blind spot on field action."
+      "step3Title": "সাইট অধ্যয়ন সঙ্গে যাচাই",
+      "step3Body": "Taypro প্রকৌশলীরা বাণিজ্যিক শর্তাদি আবদ্ধ করার আগে ধুলোর উৎস, চক্র গণনা এবং রোবট মডেলের মূল্যায়ন করেন।",
+      "step4Title": "NECTYR এ PR পুনরুদ্ধার ট্র্যাক করুন",
+      "step4Body": "ব্লক-স্তরের PR প্রবণতাগুলির সাথে পরিচ্ছন্নতার চক্রগুলিকে সংযুক্ত করুন, ফিল্ড অ্যাকশনে SCADA ব্লাইন্ড স্পট বন্ধ করুন৷"
     },
     "highlight": {
-      "heading": "The O&M question",
-      "lead": "Do you know your annual ₹ at risk from dust?",
-      "body": "Many plants model inverter availability but not soiling loss in ₹. This calculator gives a directional starting point before RFQ and ROI modelling."
+      "heading": "O&M প্রশ্ন",
+      "lead": "আপনি কি জানেন আপনার বার্ষিক ₹ ধুলাবালি থেকে ঝুঁকিপূর্ণ?",
+      "body": "অনেক গাছের মডেল বৈদ্যুতিন সংকেতের মেরু বদল প্রাপ্যতা কিন্তু ₹ ময়লা ক্ষতি না. এই ক্যালকুলেটরটি RFQ এবং ROI মডেলিংয়ের আগে একটি দিকনির্দেশক সূচনা পয়েন্ট দেয়।"
     },
     "proseSecondary": {
       "eyebrow": "আঞ্চলিক প্রেক্ষাপট",
       "heading": "মাটির রসায়ন ভারতীয় রাজ্য অনুসারে পরিবর্তিত হয়",
-      "p1": "রাজস্থান এবং গুজরাটে ঢিলেঢালা সিলিকা এবং সিমেন্টসিয়াস ফিল্ম দেখা যায় — ড্রাই-ব্রাশ রোবোটিক ক্লিনিং ভালোভাবে ফিট করে। উপকূলীয় তামিলনাড়ু এবং অন্ধ্রপ্রদেশ লবণের অ্যারোসল যোগ করে। মেট্রো-সংলগ্ন গাছপালা বিভিন্ন আনুগত্য সহ কাঁচ এবং PM2.5 এর মুখোমুখি হয়।",
-      "p2": "কৃষি-সংলগ্ন সাইটগুলি অক্টোবর-নভেম্বরে ফসল কাটার ধুলোবালি দেখতে পায়। বর্ষার বৃষ্টি মডিউল রিসেট করতে পারে — তবে প্রাক-বর্ষা ধুলো ঋতু প্রায়ই বার্ষিক সর্বোচ্চ ক্ষতির কারণ হয়।",
-      "p3": "সাপ্তাহিক ম্যানুয়াল ক্লিনিং 3-6% অবশিষ্ট বার্ষিক ক্ষতি হতে পারে; অপ্টিমাইজ করা দৈনিক রোবোটিক প্রোগ্রাম ক্ষেত্র আলোচনায় 2% এর নিচে লক্ষ্য করে — সর্বদা সাইট-নির্ভর।",
+      "p1": "রাজস্থান এবং গুজরাটে ঢিলেঢালা সিলিকা এবং সিমেন্টসিয়াস ফিল্ম দেখা যায়, ড্রাই-ব্রাশ রোবোটিক ক্লিনিং ভালোভাবে ফিট করে। উপকূলীয় তামিলনাড়ু এবং অন্ধ্রপ্রদেশ লবণের অ্যারোসল যোগ করে। মেট্রো-সংলগ্ন গাছপালা বিভিন্ন আনুগত্য সহ কাঁচ এবং PM2.5 এর মুখোমুখি হয়।",
+      "p2": "কৃষি-সংলগ্ন সাইটগুলি অক্টোবর-নভেম্বরে ফসল কাটার ধুলোবালি দেখতে পায়। বর্ষার বৃষ্টি মডিউল রিসেট করতে পারে, তবে প্রাক-বর্ষা ধুলো ঋতু প্রায়ই বার্ষিক সর্বোচ্চ ক্ষতির কারণ হয়।",
+      "p3": "সাপ্তাহিক ম্যানুয়াল ক্লিনিং 3-6% অবশিষ্ট বার্ষিক ক্ষতি হতে পারে; অপ্টিমাইজ করা দৈনিক রোবোটিক প্রোগ্রাম ক্ষেত্র আলোচনায় 2% এর নিচে লক্ষ্য করে, সর্বদা সাইট-নির্ভর।",
       "linkPrimary": "ভারতে ঋতুগত মৃত্তিকার তারতম্য",
       "linkPrimaryHref": "/blog/seasonal-variation-in-soiling-rates-and-energy-yield-loss-in-india",
       "linkSecondary": "পরিচ্ছন্নতার প্রযুক্তি নির্দেশিকা",
       "linkSecondaryHref": "/cleaning-technology"
     },
     "resources": {
-      "eyebrow": "Research",
-      "heading": "Soiling loss articles and tools",
-      "link0Title": "Soiling losses in Rajasthan & Gujarat",
+      "eyebrow": "গবেষণা",
+      "heading": "মৃত্তিকা ক্ষতি নিবন্ধ এবং সরঞ্জাম",
+      "link0Title": "রাজস্থান ও গুজরাটে মাটির ক্ষয়ক্ষতি",
       "link0Href": "/blog/average-soiling-losses-in-high-dust-regions-of-india-rajasthan-gujarat",
-      "link1Title": "Seasonal soiling variation in India",
+      "link1Title": "ভারতে ঋতুগত মৃত্তিকার তারতম্য",
       "link1Href": "/blog/seasonal-variation-in-soiling-rates-and-energy-yield-loss-in-india",
-      "link2Title": "Carbon value of lost solar energy from soiling",
+      "link2Title": "মৃত্তিকা থেকে হারিয়ে যাওয়া সৌরশক্তির কার্বন মান",
       "link2Href": "/blog/leveraging-carbon-pricing-for-environmental-and-economic-sustainability"
     },
     "faq": {
-      "heading": "সোলার সয়েলিং লস ক্যালকুলেটর — FAQ",
+      "heading": "সোলার সয়েলিং লস ক্যালকুলেটর, FAQ",
       "subheading": "ফলাফল এবং পরবর্তী পদক্ষেপগুলি কীভাবে ব্যাখ্যা করবেন।",
       "q0": "কিভাবে বার্ষিক প্রজন্ম গণনা করা হয়?",
       "a0": "প্ল্যান্ট MW × 1,000 kW × নির্দিষ্ট ফলন (ডিফল্ট 1,500 kWh/kW-বছর ভারতের জন্য P50)। ট্যারিফ সামঞ্জস্য করুন; আপনি একটি সাইট-নির্দিষ্ট অধ্যয়নের অনুরোধ না করলে ফলন স্থির থাকে।",
@@ -142,7 +142,7 @@
       "q4": "কিভাবে ময়লা PR এর সাথে সম্পর্কিত?",
       "a4": "মাটি চাপা দেয় PR। হারানোর পরে SCADA দেখায় kWh; এই ক্যালকুলেটর অনুমানকৃত মাটির %কে MWh এবং ₹ ঝুঁকিতে অনুবাদ করে।",
       "q5": "যখন পরিষ্কার করা অর্থনৈতিক নয়?",
-      "a5": "যখন মৃত্তিকার ক্ষতি ~1.5-2% এর কম হয় এবং পরিষ্কার করার খরচ পুনরুদ্ধার করা PPA মানকে ছাড়িয়ে যায় — হালকা সাইটগুলিতে বা ভারী বৃষ্টির মৌসুমে সাধারণ।",
+      "a5": "যখন মৃত্তিকার ক্ষতি ~1.5-2% এর কম হয় এবং পরিষ্কার করার খরচ পুনরুদ্ধার করা PPA মানকে ছাড়িয়ে যায়, হালকা সাইটগুলিতে বা ভারী বৃষ্টির মৌসুমে সাধারণ।",
       "q6": "আমি কি শুল্ক লিখতে হবে?",
       "a6": "আপনার কার্যকর ₹/kWh ব্যবহার করুন: PPA রেট, মার্চেন্ট ক্যাপচার, বা মিশ্রিত পোর্টফোলিও গড়।",
       "q7": "ছাদের গাছপালা কি এটি ব্যবহার করতে পারে?",
@@ -157,22 +157,22 @@
       "a11": "ময়লা থেকে MWh হারানো এড়ানো নির্গমন হ্রাস করে। পোর্টফোলিও ফ্রেমিং এর জন্য আমাদের কার্বন/সয়েলিং ব্লগ দেখুন।"
     },
     "cta": {
-      "heading": "Know your loss — then model the fix",
-      "body": "Use the ROI calculator to compare cleaning programme economics, or contact Taypro for a site soiling study.",
-      "primary": "ROI calculator",
+      "heading": "আপনার ক্ষতি জানুন, তারপর ফিক্স মডেল",
+      "body": "ক্লিনিং প্রোগ্রাম ইকোনমিক্স তুলনা করতে ROI ক্যালকুলেটর ব্যবহার করুন, অথবা সাইট সোয়লিং স্টাডির জন্য Taypro এ যোগাযোগ করুন।",
+      "primary": "ROI ক্যালকুলেটর",
       "primaryHref": "/solar-panel-cleaning-robot-price-calculator#calculator",
-      "secondary": "Request soiling study",
+      "secondary": "মৃত্তিকা অধ্যয়নের অনুরোধ করুন",
       "secondaryHref": "/contact"
     },
     "related": {
-      "label": "Related:",
+      "label": "সম্পর্কিত:",
       "link0": "CAPEX vs OPEX guide",
       "link0Href": "/solar-cleaning-capex-vs-opex",
-      "link1": "OPEX pricing",
+      "link1": "OPEX মূল্য",
       "link1Href": "/solar-cleaning-opex-pricing",
-      "link2": "ROI calculator",
+      "link2": "ROI ক্যালকুলেটর",
       "link2Href": "/solar-panel-cleaning-robot-price-calculator",
-      "link3": "Utility operations guide",
+      "link3": "ইউটিলিটি অপারেশন গাইড",
       "link3Href": "/utility-scale-solar-operations"
     }
   }

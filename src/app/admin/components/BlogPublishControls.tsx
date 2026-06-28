@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   datetimeLocalInputToIso,
   isFutureScheduledPublish,
@@ -36,8 +37,10 @@ export default function BlogPublishControls({
 }: BlogPublishControlsProps) {
   const mode = deriveMode(value);
   const scheduleLocal = toDatetimeLocalInputValue(value.scheduledPublishAt);
-  const minScheduleLocal = toDatetimeLocalInputValue(
-    new Date(Date.now() + 2 * 60_000).toISOString()
+  // Lazy init: compute the "2 minutes from now" floor once on mount so we don't
+  // call the impure Date.now() during render (react-hooks/purity).
+  const [minScheduleLocal] = useState(() =>
+    toDatetimeLocalInputValue(new Date(Date.now() + 2 * 60_000).toISOString())
   );
 
   const setMode = (next: PublishMode) => {

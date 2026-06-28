@@ -227,7 +227,7 @@ export type GscUrlInspectionResult = {
 };
 
 /**
- * URL Inspection API — confirms Not found / soft 404 in Google's index.
+ * URL Inspection API: confirms Not found / soft 404 in Google's index.
  * @see https://developers.google.com/webmaster-tools/v1/urlInspection.index/inspect
  */
 export async function inspectGscUrl(

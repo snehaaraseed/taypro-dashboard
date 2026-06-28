@@ -15,13 +15,15 @@ import {
   Move,
   Compass,
 } from "lucide-react";
-import { nyumaXCards, tayproTrustedByStatsStrip } from "@/app/data";
+import { tayproTrustedByStatsStrip } from "@/app/data";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
 import ProjectsCardServer from "@/app/components/ProjectsCardServer";
 import { projectFilterForPage } from "@/lib/cms/project-page-filters";
-import ProductCards from "@/app/components/ProductCards";
+import RelatedProductLineupSection from "@/app/components/RelatedProductLineupSection";
+import { buildRelatedProductLineupRobots } from "@/lib/products/build-product-lineup";
 import ClientsCard from "@/app/components/ClientsCard";
-import HeroSection from "@/app/components/Herosection";
+import ProductHero from "@/app/components/ProductHero";
+import { ProductVisualSection } from "@/app/components/ProductVisualSection";
 import EnergyResourceCard from "@/app/components/EnergyResourceCard";
 import CallbackCard from "@/app/components/CallbackCard";
 import { FaqSection } from "@/app/components/FaqSection";
@@ -38,6 +40,12 @@ import { Container } from "@/app/components/Container";
 import ROICalculatorEmbed from "@/app/components/ROICalculatorEmbed";
 import { PerformanceMethodologyFootnote } from "@/app/components/PerformanceMethodologyLink";
 import { PerformanceMethodologyNotice } from "@/app/components/PerformanceMethodologyNotice";
+import {
+  buildProductHeroHighlights,
+  productHeroBackgroundCredit,
+  productHeroSecondaryCta,
+} from "@/lib/products/product-hero-helpers";
+import { resolveProductPageHeroBackground } from "@/lib/cms/product-page-hero-background";
 import {
   getProductHeroLayout,
   getProductImageUrl,
@@ -115,6 +123,8 @@ export default async function NyumaXTrackerCleaningRobotPage({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "NyumaXPage" });
+  const heroBackground = await resolveProductPageHeroBackground("nyumaX", locale);
+  const heroHighlights = buildProductHeroHighlights(t);
   const tCommon = await getTranslations({ locale, namespace: "Common" });
   const connectivity = tCommon("connectivitySummary");
 
@@ -225,28 +235,24 @@ export default async function NyumaXTrackerCleaningRobotPage({
       />
 
       <div className="min-h-screen overflow-x-hidden">
-        <HeroSection
+        <ProductHero
+          eyebrow={t("overview.eyebrow")}
           title={t("hero.title")}
-          subtitle={
-            <>
-              {t("hero.subtitleBefore")}{" "}
-              <strong>{t("hero.subtitleStrong")}</strong>
-              {t("hero.subtitleAfter")}
-            </>
-          }
-          imgSrc={nyumaXImages.hero}
-          imgAlt={t("hero.imgAlt")}
-          imageAspectRatio={nyumaXHeroLayout.aspectRatio}
-          imagePresentation={nyumaXHeroLayout.presentation}
+          subtitle={t("hero.subtitleShort")}
+          backgroundImage={heroBackground.src}
+          backgroundAlt={heroBackground.alt}
+          backgroundCredit={productHeroBackgroundCredit(heroBackground)}
           ctaHref="/contact"
           ctaText={t("hero.primaryCta.label")}
           ctaTopic={t("hero.primaryCta.topic")}
           ctaTitle={t("hero.primaryCta.title")}
           ctaSubtitle={t("hero.primaryCta.subtitle")}
+          secondaryCta={productHeroSecondaryCta(t, "#product-video")}
+          highlights={heroHighlights}
         />
 
         {/* PRODUCT OVERVIEW / SEO INTRO */}
-        <section className="bg-white pt-12 sm:pt-20 pb-4">
+        <section className="bg-white pt-4 sm:pt-8 pb-4">
           <Container size="narrow">
             <AnimateOnScroll animation="fadeInUp">
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
@@ -325,7 +331,18 @@ export default async function NyumaXTrackerCleaningRobotPage({
           </Container>
         </section>
 
-        <ProductStaticShowcase
+        <ProductVisualSection
+          imageSrc={nyumaXImages.hero}
+          imageAlt={t("hero.imgAlt")}
+          eyebrow={t("productVisual.eyebrow")}
+          title={t("productVisual.title")}
+          caption={t("hero.imgAlt")}
+          imageAspectRatio={nyumaXHeroLayout.aspectRatio}
+          imagePresentation={nyumaXHeroLayout.presentation}
+        />
+
+        <div id="product-video">
+          <ProductStaticShowcase
           imageSrc={nyumaXImages.hero}
           imageAlt={t("innovation360.productLabel")}
           imageAspectRatio={nyumaXHeroLayout.aspectRatio}
@@ -342,6 +359,7 @@ export default async function NyumaXTrackerCleaningRobotPage({
           innovationTitle={t("innovation360.innovationTitle")}
           innovationBody={t("innovation360.innovationBody")}
         />
+        </div>
 
         <section className="bg-gradient-to-b from-white to-gray-50 py-12 sm:py-16">
           <Container>
@@ -980,13 +998,15 @@ export default async function NyumaXTrackerCleaningRobotPage({
 
         <EnergyResourceCard />
 
-        <ProjectsCardServer
-          useFileProjects
-          showHeader
-          headerText=""
-          filter={projectFilterForPage("nyumaX")}
-          locale={locale}
-        />
+        <div id="deployments">
+          <ProjectsCardServer
+            useFileProjects
+            showHeader
+            headerText=""
+            filter={projectFilterForPage("nyumaX")}
+            locale={locale}
+          />
+        </div>
 
         <FaqSection
           id="nyuma-x-faq-heading"
@@ -997,7 +1017,11 @@ export default async function NyumaXTrackerCleaningRobotPage({
 
         <ClientsCard />
 
-        <ProductCards title={t("misc.productCardsTitle")} cards={nyumaXCards} />
+        <RelatedProductLineupSection
+          headingId="nyuma-x-related-heading"
+          title={t("misc.productCardsTitle")}
+          robots={buildRelatedProductLineupRobots("nyumaX")}
+        />
 
         <RequestEstimateForm />
       </div>

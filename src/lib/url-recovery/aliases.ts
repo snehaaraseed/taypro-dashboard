@@ -2,7 +2,7 @@ import { STATIC_SITEMAP_ROUTES } from "@/lib/seo/sitemap-config";
 import { buildLegacyAliasMap } from "@/lib/seo/legacy-path-redirects";
 import { normalizePath } from "@/lib/url-recovery/normalize";
 
-/** Hand-curated aliases — safe, deterministic 301 targets. */
+/** Hand-curated aliases, safe, deterministic 301 targets. */
 export const MANUAL_ALIASES: Record<string, string> = {
   ...buildLegacyAliasMap(),
   "/contacts": "/contact",
@@ -26,6 +26,10 @@ export const MANUAL_ALIASES: Record<string, string> = {
   "/technology": "/technology/ai-intelligence",
   "/ai-intelligence": "/technology/ai-intelligence",
   "/compare": "/compare/taypro-vs-indian-solar-cleaning-robot-companies",
+  "/compare/robot-vs-manual-cleaning":
+    "/compare/solar-panel-cleaning-robot-vs-manual-cleaning",
+  "/compare/waterless-vs-water-based-solar-panel-cleaning":
+    "/compare/waterless-vs-water-based-solar-cleaning",
 };
 
 function pluralizeLastSegment(path: string): string | null {

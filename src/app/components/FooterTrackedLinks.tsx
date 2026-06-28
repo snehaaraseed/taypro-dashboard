@@ -17,8 +17,7 @@ type FooterTrackedLinksProps = {
   mailLabel: string;
   phoneLabel: string;
   emailLinkText: string;
-  importantLinksLeft: FooterLink[];
-  importantLinksRight: FooterLink[];
+  importantLinks: FooterLink[];
   exploreProducts: FooterLink[];
   copyright: string;
 };
@@ -60,8 +59,7 @@ export default function FooterTrackedLinks({
   mailLabel,
   phoneLabel,
   emailLinkText,
-  importantLinksLeft,
-  importantLinksRight,
+  importantLinks,
   exploreProducts,
   copyright,
 }: FooterTrackedLinksProps) {
@@ -120,10 +118,10 @@ export default function FooterTrackedLinks({
         </div>
       </div>
 
-      <div className=" max-w-7xl mx-auto px-12 sm:px-12 lg:px-20 py-10 mb-4">
-        <div className="  flex flex-col md:flex-row justify-between w-full mb-8 gap-20">
-          <div className="md:w-1/2 ">
-            <div className="text-lg text-white mb-4">Explore</div>
+      <div className="max-w-7xl mx-auto px-12 sm:px-12 lg:px-20 py-10 mb-4">
+        <div className="flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-14 mb-8">
+          <div className="lg:w-[320px] lg:shrink-0">
+            <div className="text-lg text-white mb-4 whitespace-nowrap">Explore</div>
             <div className="space-y-5">
               {exploreProducts.map((item) => {
                 const active = mounted && pathname === item.href;
@@ -155,68 +153,36 @@ export default function FooterTrackedLinks({
             </div>
           </div>
 
-          <div className="flex justify-between  md:w-1/3">
-            <div>
-              <div className="text-lg text-white mb-4">Important Links</div>
-              <ul className="space-y-2">
-                {importantLinksLeft.map((link) => {
-                  const active = mounted && pathname === link.href;
-                  return (
-                    <li key={link.name} className="relative">
-                      <TrackedLink
-                        href={link.href}
-                        trackTitle={link.name}
-                        trackLocation="footer"
-                        className={`transition duration-200 relative inline-block group ${
-                          active
-                            ? "text-[#A8C117]"
-                            : "text-gray-300 hover:text-[#A8C117]"
-                        }`}
-                      >
-                        {link.name}
-                        <span
-                          className={`absolute left-0 bottom-0 h-0.5 bg-[#A8C117] transition-all duration-300 ease-out origin-left ${
-                            active ? "w-full" : "w-0 group-hover:w-full"
-                          }`}
-                        ></span>
-                      </TrackedLink>
-                    </li>
-                  );
-                })}
-              </ul>
+          <div className="flex-1 min-w-0">
+            <div className="text-lg text-white mb-4 whitespace-nowrap">
+              Important Links
             </div>
-
-            <div>
-              <div className="text-lg text-white mb-4 invisible">
-                Important Links
-              </div>
-              <ul className="space-y-2">
-                {importantLinksRight.map((link) => {
-                  const active = mounted && pathname === link.href;
-                  return (
-                    <li key={link.name} className="relative">
-                      <TrackedLink
-                        href={link.href}
-                        trackTitle={link.name}
-                        trackLocation="footer"
-                        className={`transition duration-200 relative inline-block group ${
-                          active
-                            ? "text-[#A8C117]"
-                            : "text-gray-300 hover:text-[#A8C117]"
+            <ul className="grid grid-cols-2 lg:grid-cols-3 gap-x-6 lg:gap-x-8 gap-y-2">
+              {importantLinks.map((link) => {
+                const active = mounted && pathname === link.href;
+                return (
+                  <li key={link.name} className="relative min-w-0">
+                    <TrackedLink
+                      href={link.href}
+                      trackTitle={link.name}
+                      trackLocation="footer"
+                      className={`transition duration-200 relative inline-block group text-sm leading-snug lg:whitespace-nowrap ${
+                        active
+                          ? "text-[#A8C117]"
+                          : "text-gray-300 hover:text-[#A8C117]"
+                      }`}
+                    >
+                      {link.name}
+                      <span
+                        className={`absolute left-0 bottom-0 h-0.5 bg-[#A8C117] transition-all duration-300 ease-out origin-left ${
+                          active ? "w-full" : "w-0 group-hover:w-full"
                         }`}
-                      >
-                        {link.name}
-                        <span
-                          className={`absolute left-0 bottom-0 h-0.5 bg-[#A8C117] transition-all duration-300 ease-out origin-left ${
-                            active ? "w-full" : "w-0 group-hover:w-full"
-                          }`}
-                        ></span>
-                      </TrackedLink>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+                      ></span>
+                    </TrackedLink>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </div>
 

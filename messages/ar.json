@@ -1,6 +1,9 @@
 {
   "Common": {
     "breadcrumbHome": "الرئيسية",
+    "productLineup": {
+      "exploreCta": "اكتشف {model}"
+    },
     "errorTitle": "تعذّر تحميل هذه الصفحة",
     "errorBody": "ربما انتهت مهلة الاتصال أو حدث خطأ أثناء تحميل هذه الصفحة. أعد التحميل أو ارجع إلى صفحة تعمل.",
     "errorReload": "إعادة التحميل"
@@ -18,6 +21,7 @@
     "investors": "شركاء ومستثمرون",
     "contactUs": "اتصل بنا",
     "blogs": "المدونة",
+    "insights": "Insights",
     "solarRobots": "روبوتات الطاقة الشمسية",
     "solutions": "الحلول",
     "solutionsTitle": "حلول روبوتات تنظيف الألواح الشمسية",
@@ -54,6 +58,7 @@
     "viewAllCompare": "جميع أدلة المقارنة",
     "viewAllStates": "جميع الأدلة الإقليمية",
     "priceGuideNav": "دليل أسعار الروبوت (India)",
+    "cleaningMachineNav": "ماكينة تنظيف الألواح الشمسية",
     "compareTayproVsSolabot": "Taypro vs Solabot",
     "compareIndianCompetitors": "Taypro vs المنافسون الهنود",
     "compareRobotVsManual": "الروبوت مقابل التنظيف اليدوي",
@@ -70,6 +75,7 @@
     "aboutUs": "من نحن",
     "projects": "المشاريع",
     "blogs": "المدونة",
+    "insights": "Insights",
     "contact": "اتصل بنا",
     "sitemap": "خريطة الموقع",
     "ourTechnology": "تقنيتنا",

@@ -9,7 +9,7 @@
       "twitterDescription": "भारत में यूटिलिटी-स्केल और रूफटॉप सोलर के लिए Taypro सफाई मशीनों और रोबोटों की तुलना करें।"
     },
     "breadcrumbs": {
-      "current": "Solar panel cleaning machine"
+      "current": "सौर पैनल सफाई मशीन"
     },
     "hero": {
       "eyebrow": "क्रेता गाइड · भारत",
@@ -19,36 +19,36 @@
       "ctaQuote": "एक उद्धरण का अनुरोध करें"
     },
     "intro": {
-      "eyebrow": "What buyers mean",
-      "heading": "Cleaning machine vs cleaning robot on solar plants",
-      "p1": "In Indian RFQs, solar panel cleaning machine often describes the same category as a solar panel cleaning robot — an automated platform that runs on module rows without manual brush crews. At 10 MW and above, waterless robots with fleet software (NECTYR) replace episodic wet washing.",
-      "p2": "Taypro manufactures GLYDE and NYUMA for fixed-tilt utility arrays, GLYDE-X and NYUMA-X for single-axis trackers, and HELYX for semi-automatic scattered blocks. Opex delivers the same hardware as a pay-per-panel-cleaned service when you prefer not to capitalise robots."
+      "eyebrow": "खरीददारों का क्या मतलब है",
+      "heading": "सौर संयंत्रों पर सफाई मशीन बनाम सफाई रोबोट",
+      "p1": "भारतीय RFQs में, सौर पैनल सफाई मशीन अक्सर सौर पैनल सफाई रोबोट के समान श्रेणी का वर्णन करती है, एक स्वचालित प्लेटफ़ॉर्म जो मैन्युअल ब्रश क्रू के बिना मॉड्यूल पंक्तियों पर चलता है। 10 MW और उससे अधिक पर, फ़्लीट सॉफ़्टवेयर (NECTYR) वाले जलरहित रोबोट एपिसोडिक गीली धुलाई की जगह लेते हैं। सौर पैनल सफाई रोबोट हब पर मॉडल चयन प्रारंभ करें, यह पृष्ठ एक पर्यायवाची पुल है, प्राथमिक उत्पाद सूची नहीं।",
+      "p2": "Taypro फिक्स्ड-टिल्ट यूटिलिटी एरेज़ के लिए GLYDE और NYUMA, सिंगल-एक्सिस ट्रैकर्स के लिए GLYDE-X और NYUMA-X और अर्ध-स्वचालित बिखरे हुए ब्लॉकों के लिए HELYX का निर्माण करता है। जब आप रोबोट का उपयोग नहीं करना चाहते तो Opex भुगतान-प्रति-पैनल-क्लीन सेवा के समान हार्डवेयर प्रदान करता है।"
     },
     "models": {
-      "eyebrow": "Machine types",
-      "heading": "Which Taypro cleaning machine fits your site?",
-      "intro": "Match array geometry and procurement model — then validate robot count with our ROI calculator or a layout review.",
-      "glydeTitle": "GLYDE — automatic dual-pass (fixed tilt)",
-      "glydeBody": "Waterless airflow plus microfiber for daily utility cadence on fixed and seasonal-tilt rows.",
-      "nyumaTitle": "NYUMA — automatic single-pass PBT",
-      "nyumaBody": "Single-pass PBT brush drum for high-throughput fixed-tilt fleets with AI-driven pressure logic.",
-      "helyxTitle": "HELYX — semi-automatic portable",
-      "helyxBody": "Crew-assisted pick-and-place robot for scattered blocks or hybrid coverage on large sites.",
-      "rooftopTitle": "MINY — compact rooftop robot (coming soon)",
-      "rooftopBody": "Register interest for Taypro's compact rooftop solar panel cleaning robot for C&I and residential portfolios.",
-      "ctaGlyde": "GLYDE product page",
-      "ctaNyuma": "NYUMA product page",
-      "ctaHelyx": "HELYX product page",
-      "ctaRooftop": "MINY rooftop robot",
-      "ctaHub": "Full solutions hub"
+      "eyebrow": "मशीन के प्रकार",
+      "heading": "कौन सी Taypro सफाई मशीन आपकी साइट पर फिट बैठती है?",
+      "intro": "सरणी ज्यामिति और खरीद मॉडल का मिलान करें, फिर हमारे ROI कैलकुलेटर या लेआउट समीक्षा के साथ रोबोट गणना को मान्य करें।",
+      "glydeTitle": "GLYDE: स्वचालित डुअल-पास (निश्चित झुकाव)",
+      "glydeBody": "निश्चित और मौसमी-झुकाव वाली पंक्तियों पर दैनिक उपयोगिता ताल के लिए जल रहित वायुप्रवाह प्लस माइक्रोफाइबर।",
+      "nyumaTitle": "NYUMA: स्वचालित एकल-पास PBT",
+      "nyumaBody": "एआई-संचालित दबाव तर्क के साथ उच्च-थ्रूपुट फिक्स्ड-टिल्ट बेड़े के लिए सिंगल-पास PBT ब्रश ड्रम।",
+      "helyxTitle": "HELYX: अर्ध-स्वचालित पोर्टेबल",
+      "helyxBody": "बड़े स्थलों पर बिखरे हुए ब्लॉक या हाइब्रिड कवरेज के लिए क्रू-सहायता प्राप्त पिक-एंड-प्लेस रोबोट।",
+      "rooftopTitle": "MINY: कॉम्पैक्ट रूफटॉप रोबोट (जल्द ही आ रहा है)",
+      "rooftopBody": "C&I और आवासीय पोर्टफ़ोलियो के लिए Taypro के कॉम्पैक्ट रूफटॉप सौर पैनल सफाई रोबोट के लिए रुचि दर्ज करें।",
+      "ctaGlyde": "GLYDE उत्पाद पृष्ठ",
+      "ctaNyuma": "NYUMA उत्पाद पृष्ठ",
+      "ctaHelyx": "HELYX उत्पाद पृष्ठ",
+      "ctaRooftop": "MINY छत पर रोबोट",
+      "ctaHub": "पूर्ण समाधान हब"
     },
     "pricing": {
-      "eyebrow": "Commercial",
-      "heading": "Solar panel cleaning machine price in India",
-      "body": "Machine price depends on MW capacity, row layout, tracker vs fixed tilt, automation level, and CAPEX vs Opex. Use our public price guide and ROI calculator for directional bands — then contact Taypro for a site-specific fleet quote.",
-      "ctaPrice": "Robot price guide (India)",
-      "ctaCalculator": "ROI calculator",
-      "ctaService": "Opex cleaning service"
+      "eyebrow": "व्यावसायिक",
+      "heading": "भारत में सोलर पैनल सफाई मशीन की कीमत",
+      "body": "Machine price depends on MW capacity, row layout, tracker vs fixed tilt, automation level, and CAPEX vs Opex. Use our public price guide and ROI calculator for directional bands, then contact Taypro for a site-specific fleet quote.",
+      "ctaPrice": "रोबोट मूल्य गाइड (भारत)",
+      "ctaCalculator": "ROI कैलकुलेटर",
+      "ctaService": "Opex सफ़ाई सेवा"
     },
     "faq": {
       "heading": "सौर पैनल सफाई मशीन अक्सर पूछे जाने वाले प्रश्न",
@@ -65,15 +65,15 @@
       "a4": "रोबोटिक बनाम मैन्युअल सफाई, जलरहित बनाम जल-आधारित तरीकों और Taypro बनाम सोलाबोट या अन्य भारतीय रोबोट ओईएम के लिए हमारी तुलना गाइड से शुरुआत करें - फिर लेआउट-आधारित उद्धरण का अनुरोध करें।"
     },
     "explore": {
-      "heading": "Explore next",
-      "linkHub": "Solar cleaning robots hub",
-      "linkTechnology": "Cleaning technology",
-      "linkPrice": "Robot price guide",
-      "linkCompareManual": "Robot vs manual cleaning",
-      "linkCompareSolabot": "Taypro vs Solabot"
+      "heading": "आगे अन्वेषण करें",
+      "linkHub": "सौर सफाई रोबोट हब",
+      "linkTechnology": "सफाई तकनीक",
+      "linkPrice": "रोबोट मूल्य मार्गदर्शिका",
+      "linkCompareManual": "रोबोट बनाम मैन्युअल सफाई",
+      "linkCompareSolabot": "Taypro बनाम Solabot"
     }
   },
   "Common": {
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "घर"
   }
 }

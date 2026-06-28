@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { prefetchClientNamespacesForPath } from "@/i18n/prefetch-client-namespaces";
 import { AnimateOnScroll } from "./AnimateOnScroll";
 import { ProjectDetailChips } from "./ProjectDetailChips";
 import { getProjectHeroImageAlt } from "../utils/imageAlt";
@@ -43,6 +44,10 @@ export default function ProjectsGrid({
   className = "",
 }: ProjectsGridProps) {
   const t = useTranslations("ProjectsPage");
+  const locale = useLocale();
+  const warmProjectMessages = (href: string) => {
+    prefetchClientNamespacesForPath(locale, href);
+  };
 
   if (projects.length === 0) {
     return (
@@ -78,6 +83,8 @@ export default function ProjectsGrid({
             <Link
               href={project.href}
               title={project.title}
+              onMouseEnter={() => warmProjectMessages(project.href)}
+              onFocus={() => warmProjectMessages(project.href)}
               onClick={() =>
                 trackProjectClick({
                   projectSlug:

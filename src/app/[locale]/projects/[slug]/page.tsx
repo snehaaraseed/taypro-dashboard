@@ -39,6 +39,7 @@ import { resolveAuthorSlug } from "@/app/data/blogAuthors";
 import { getProjectHeroImageAlt } from "@/app/utils/imageAlt";
 import { addInternalLinksToProject } from "@/app/utils/internalLinking";
 import { rewriteCmsHrefs } from "@/lib/seo/cms-href-rewrites";
+import { rewriteCmsImageSrcs } from "@/lib/seo/cms-image-rewrites";
 import { addHeadingIdsAndExtractToc, normalizeHeadingLevels } from "@/lib/seo/html-toc";
 import { socialImagesFromMedia } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
@@ -51,6 +52,10 @@ import {
 } from "@/lib/url-recovery";
 
 const siteUrl = SITE_URL;
+
+function prepareCmsHtml(html: string): string {
+  return rewriteCmsImageSrcs(rewriteCmsHrefs(html));
+}
 
 const proseClassName =
   "prose prose-lg max-w-none space-y-5 prose-headings:text-[#052638] prose-headings:font-semibold prose-headings:scroll-mt-28 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-[#5a8f00] prose-a:no-underline hover:prose-a:underline prose-strong:text-[#052638] prose-ul:text-gray-700 prose-ol:text-gray-700 prose-li:text-gray-700 prose-table:w-full prose-table:border-collapse prose-th:bg-[#052638] prose-th:text-white prose-th:px-4 prose-th:py-3 prose-th:text-left prose-td:border prose-td:border-gray-200 prose-td:px-4 prose-td:py-3 prose-blockquote:border-l-4 prose-blockquote:border-[#A8C117] prose-blockquote:pl-4 prose-blockquote:italic prose-img:rounded-xl prose-img:w-full";
@@ -185,11 +190,8 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
   const projectLinkSources = await listProjectsForInternalLinking(locale);
 
   const contentWithInternalLinks = content
-    ? addInternalLinksToProject(
-        rewriteCmsHrefs(content),
-        projectLinkSources,
-        slug,
-        8
+    ? prepareCmsHtml(
+        addInternalLinksToProject(prepareCmsHtml(content), projectLinkSources, slug, 8)
       )
     : "";
 

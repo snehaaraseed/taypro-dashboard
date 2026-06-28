@@ -42,6 +42,8 @@ export type LocaleAlternatesOptions = {
   locales?: TayproLocale[];
   /** Appended to every locale URL (e.g. `?page=2` on blog index). */
   canonicalSuffix?: string;
+  /** Paginated list pages: canonical only, no hreflang cluster (avoids duplicate-language groups). */
+  omitHreflangLanguages?: boolean;
   /** When set, canonical URL uses this locale instead of the page locale (English fallback). */
   canonicalLocale?: string;
 };
@@ -55,6 +57,13 @@ export function buildLocaleAlternates(
   const includeAll = options.includeAllLocales !== false;
   const suffix = options.canonicalSuffix ?? "";
   const canonicalLocale = options.canonicalLocale ?? currentLocale;
+
+  if (options.omitHreflangLanguages) {
+    return {
+      canonical: localizedUrl(path, canonicalLocale) + suffix,
+    };
+  }
+
   const explicitLocales = options.locales?.filter((locale) =>
     (routing.locales as readonly string[]).includes(locale)
   );

@@ -19,7 +19,7 @@
       "howToDescription": "Step-by-step deployment of the Taypro HELYX pick-and-place semi-automatic solar panel cleaning robot, from lifting the robot onto the first row through recharging at the docking station."
     },
     "hero": {
-      "title": "HELYX — Semi-Automatic Solar Panel Cleaning Robot for Distributed Blocks",
+      "title": "HELYX: Semi-Automatic Solar Panel Cleaning Robot for Distributed Blocks",
       "subtitleBefore": "A 39 kg pick-and-place, waterless Solar Panel Cleaning Robot engineered for utility-scale solar power plants. Dual counter-rotating UV-stable PBT brushes lift over",
       "subtitleStrong": "95% of dust in a single pass",
       "subtitleAfter": ", cleaning a 1 MW block in under 2 hours and running up to 3 km on a single charge, operable by any two-person site team.",
@@ -30,7 +30,29 @@
         "title": "Request a HELYX quote",
         "subtitle": "Tell us about your plant layout and our team will follow up with HELYX deployment, block coverage, and commercial options.",
         "label": "Request a quote"
+      },
+      "subtitleShort": "39 kg pick-and-place waterless cleaning for scattered and distributed utility blocks.",
+      "secondaryCta": {
+        "label": "Explore 360° tour"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "95%+",
+          "label": "Dust removed in a single pass"
+        },
+        "stat1": {
+          "value": "39 kg",
+          "label": "Portable pick-and-place chassis"
+        },
+        "stat2": {
+          "value": "3 km",
+          "label": "Running length per charge"
+        }
       }
+    },
+    "productVisual": {
+      "eyebrow": "Product at a glance",
+      "title": "Taypro HELYX semi-automatic solar panel cleaning robot"
     },
     "usps": {
       "0": {

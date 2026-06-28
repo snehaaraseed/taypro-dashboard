@@ -6,6 +6,8 @@ export const LAYOUT_CLIENT_NAMESPACES = [
   "LocaleSwitcher",
   "Forms",
   "Common",
+  // Rendered by the client not-found boundary (src/app/components/NotFoundClient).
+  "NotFoundPage",
 ] as const;
 
 const PROJECT_FILTER_SEGMENTS = new Set([
@@ -83,8 +85,7 @@ export function isAllowedClientNamespace(ns: string): boolean {
 }
 
 /**
- * Path-scoped namespaces for server message loading and diagnostics.
- * The root layout ships the full {@link SPA_CLIENT_NAMESPACES} catalog instead.
+ * Path-scoped namespaces for layout HTML, server message loading, and client fetch.
  */
 export function clientNamespacesForPathname(pathname: string): string[] {
   const path = pathnameWithoutLocale(pathname);
@@ -131,6 +132,11 @@ export function clientNamespacesForPathname(pathname: string): string[] {
     !path.startsWith("/solar-panel-cleaning-robot-price")
   ) {
     return ["PriceCalculatorPage"];
+  }
+
+  if (path === "/solar-panel-cleaning-system") {
+    // Hub ProductLineupSection reuses Home.robots filter copy.
+    return ["Home", "PriceCalculatorPage", "ModuleManufacturerTrust"];
   }
 
   if (path.startsWith("/solar-panel-cleaning-system")) {

@@ -1,22 +1,28 @@
 import { getTranslations } from "next-intl/server";
 import {
-  ArrowRight,
-  Bell,
   Check,
   Sparkles,
   type LucideIcon,
 } from "lucide-react";
-import HeroSection from "@/app/components/Herosection";
+import ProductHero from "@/app/components/ProductHero";
+import { ProductVisualSection } from "@/app/components/ProductVisualSection";
+import {
+  buildProductHeroHighlights,
+  productHeroBackgroundCredit,
+} from "@/lib/products/product-hero-helpers";
+import { resolveProductPageHeroBackground } from "@/lib/cms/product-page-hero-background";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { Container } from "@/app/components/Container";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { ProductSchema } from "@/app/components/StructuredData";
 import RequestEstimateForm from "@/app/components/RequestEstimateForm";
-import ProductCards from "@/app/components/ProductCards";
-import { Link } from "@/i18n/navigation";
+import RelatedProductLineupSection from "@/app/components/RelatedProductLineupSection";
+import {
+  buildCustomProductLineupRow,
+  buildRelatedProductLineupRobots,
+} from "@/lib/products/build-product-lineup";
 import type { ComingSoonProductConfig } from "@/lib/product-coming-soon";
 import type { ProductSchemaPriceKey } from "@/lib/seo/product-schema-prices";
-import { helyxCards } from "@/app/data";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 
 const siteUrl = SITE_URL;
@@ -68,6 +74,23 @@ export async function ComingSoonProductPage({
   }));
 
   const pageUrl = `${siteUrl}${product.path}`;
+  const heroBackground = await resolveProductPageHeroBackground(null, locale, {
+    variant: product.id,
+  });
+  const heroHighlights = buildProductHeroHighlights(t);
+
+  const relatedLineupRobots = [
+    ...relatedLinks.map((link) =>
+      buildCustomProductLineupRow({
+        model: link.label,
+        description: link.description,
+        href: link.href,
+      })
+    ),
+    ...(product.showRobotProductCards !== false
+      ? buildRelatedProductLineupRobots("helyx")
+      : []),
+  ];
 
   return (
     <>
@@ -84,23 +107,21 @@ export async function ComingSoonProductPage({
       />
 
       <div className="min-h-screen overflow-x-hidden">
-        <div className="relative">
-          <span className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 inline-flex items-center gap-2 rounded-full bg-[#A8C117] px-4 py-2 text-sm font-semibold text-[#052638] shadow-md">
-            <Bell className="h-4 w-4" aria-hidden />
-            {t("hero.comingSoonBadge")}
-          </span>
-          <HeroSection
-            title={t("hero.title")}
-            subtitle={t("hero.subtitle")}
-            imgSrc={product.heroImagePath}
-            imgAlt={t("hero.imgAlt")}
-            ctaText={t("hero.ctaText")}
-            ctaHref="#register-interest"
-            ctaTopic={product.model}
-          />
-        </div>
+        <ProductHero
+          badge={t("hero.comingSoonBadge")}
+          eyebrow={t("intro.eyebrow")}
+          title={t("hero.title")}
+          subtitle={t("hero.subtitleShort")}
+          backgroundImage={heroBackground.src}
+          backgroundAlt={heroBackground.alt}
+          backgroundCredit={productHeroBackgroundCredit(heroBackground)}
+          ctaText={t("hero.ctaText")}
+          ctaHref="#register-interest"
+          ctaTopic={product.model}
+          highlights={heroHighlights}
+        />
 
-        <section className="bg-white pt-12 sm:pt-20 pb-8">
+        <section className="bg-white pt-4 sm:pt-8 pb-8">
           <Container size="narrow">
             <AnimateOnScroll animation="fadeInUp">
               <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
@@ -116,6 +137,14 @@ export async function ComingSoonProductPage({
             </AnimateOnScroll>
           </Container>
         </section>
+
+        <ProductVisualSection
+          imageSrc={product.heroImagePath}
+          imageAlt={t("hero.imgAlt")}
+          eyebrow={t("productVisual.eyebrow")}
+          title={t("productVisual.title")}
+          caption={t("hero.imgAlt")}
+        />
 
         {product.id === "orion" && (
           <>
@@ -269,41 +298,12 @@ export async function ComingSoonProductPage({
           </Container>
         </section>
 
-        <section className="bg-white py-14 sm:py-20">
-          <Container>
-            <AnimateOnScroll animation="fadeInUp" className="text-center mb-10">
-              <div className="text-[#A8C117] text-base sm:text-lg font-medium mb-3">
-                {t("related.eyebrow")}
-              </div>
-              <h2 className="text-[#052638] font-semibold text-3xl sm:text-4xl">
-                {t("related.title")}
-              </h2>
-            </AnimateOnScroll>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto mb-12">
-              {relatedLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="group flex flex-col rounded-xl border border-gray-200 p-5 hover:border-[#A8C117] hover:shadow-md transition-all"
-                >
-                  <span className="text-[#052638] font-semibold text-lg group-hover:text-[#A8C117] transition-colors">
-                    {link.label}
-                  </span>
-                  <span className="text-gray-600 text-sm mt-2 flex-1">
-                    {link.description}
-                  </span>
-                  <span className="inline-flex items-center gap-1 text-[#A8C117] text-sm font-medium mt-4">
-                    {t("related.linkCta")}
-                    <ArrowRight className="h-4 w-4" />
-                  </span>
-                </Link>
-              ))}
-            </div>
-            {product.showRobotProductCards !== false && (
-              <ProductCards cards={helyxCards} />
-            )}
-          </Container>
-        </section>
+        <RelatedProductLineupSection
+          headingId={`${product.id}-related-heading`}
+          eyebrow={t("related.eyebrow")}
+          title={t("related.title")}
+          robots={relatedLineupRobots}
+        />
 
         <section className="bg-[#f4f1e9] py-10 text-center">
           <Container size="narrow">

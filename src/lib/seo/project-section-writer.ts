@@ -31,7 +31,7 @@ const SECTION_INSTRUCTIONS: Record<ProjectNarrativeSectionId, string> = {
   operations:
     "Cleaning cadence, NECTYR or inspection-led accountability, wind holds. No daily wash myths.",
   results:
-    "Qualitative outcomes; reference metrics qualitatively — numbers live in the stats table only.",
+    "Qualitative outcomes; reference metrics qualitatively, numbers live in the stats table only.",
   peers:
     "Compare to 2 peer deployments by MW/mode; end with 4–6 bullet planning checklist.",
 };
@@ -121,9 +121,9 @@ ${imageBlock}
 ${continuity}
 
 RULES:
-- Output HTML with <p>, <ul>, <h3> only — NO <h2>, NO <h1>.
+- Output HTML with <p>, <ul>, <h3> only, NO <h2>, NO <h1>.
 - Do NOT invent client names, ROI %, or specs outside facts.
-- Do NOT repeat exact metrics from facts table in long form — reference qualitatively.
+- Do NOT repeat exact metrics from facts table in long form, reference qualitatively.
 ${ANTI_GENERIC_WRITING_RULES}
 ${PUNCTUATION_RULES}
 ${SEO_AND_READER_RULES}

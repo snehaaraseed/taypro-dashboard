@@ -12,6 +12,7 @@ export default async function Footer() {
     { name: t("investors"), href: "/company#investors" },
     { name: t("projects"), href: "/projects" },
     { name: t("blogs"), href: "/blog" },
+    { name: t("insights"), href: "/insights" },
     { name: t("contact"), href: "/contact" },
     { name: t("sitemap"), href: "/site-map" },
     { name: t("ourTechnology"), href: "/cleaning-technology" },
@@ -65,15 +66,7 @@ export default async function Footer() {
     },
   ];
 
-  const importantLinksMid = Math.ceil(importantLinks.length / 2);
-  const importantLinksLeft = importantLinks.slice(0, importantLinksMid);
-  const importantLinksRight = importantLinks.slice(importantLinksMid);
-
   const exploreProducts: FooterLink[] = [
-    {
-      name: "Semi-Automatic Solar Panel Cleaning Robot",
-      href: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
-    },
     {
       name: "Automatic Solar Panel Cleaning Robot",
       href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
@@ -81,6 +74,10 @@ export default async function Footer() {
     {
       name: "Single-Axis Tracker Solar Panel Cleaning Robot",
       href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
+    },
+    {
+      name: "Semi-Automatic Solar Panel Cleaning Robot",
+      href: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
     },
   ];
 
@@ -90,8 +87,7 @@ export default async function Footer() {
         mailLabel={t("mail")}
         phoneLabel={t("phone")}
         emailLinkText={t("emailLink")}
-        importantLinksLeft={importantLinksLeft}
-        importantLinksRight={importantLinksRight}
+        importantLinks={importantLinks}
         exploreProducts={exploreProducts}
         copyright={t("copyright", { year: currentYear })}
       />

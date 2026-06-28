@@ -12,12 +12,12 @@ import { FaqSection } from "@/app/components/FaqSection";
 import { NewsletterSubscribeCard } from "@/app/components/NewsletterSubscribeCard";
 import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
 import {
-  CollectionPageSchema,
   FAQPageSchema,
   ItemListSchema,
 } from "@/app/components/StructuredData";
 import BlogList from "./BlogList";
 import { listAllBlogs } from "@/lib/cms/blogService";
+import { canonicalBlogHref } from "@/lib/seo/redirected-blog-slugs";
 import {
   BLOG_LIST_PAGE_SIZE,
   blogListPagePath,
@@ -60,7 +60,7 @@ async function getPublishedBlogs(locale: string): Promise<DynamicBlog[]> {
   const rows = await listAllBlogs(false, locale);
   return rows.map((metadata) => ({
     ...metadata,
-    href: `/blog/${metadata.slug}`,
+    href: canonicalBlogHref(metadata.slug),
     source: "db" as const,
   }));
 }
@@ -124,7 +124,9 @@ export async function generateMetadata({
       type: "website",
     },
   },
-    { canonicalSuffix: querySuffix }
+    page <= 1
+      ? {}
+      : { canonicalSuffix: querySuffix, omitHreflangLanguages: true }
   );
 }
 
@@ -193,8 +195,6 @@ export default async function Blog({
   const itemListEntries = pageSlice.map((b) => ({
     name: b.title,
     url: b.href,
-    description: b.description,
-    image: b.featuredImage || undefined,
   }));
 
   const rangeStart = total === 0 ? 0 : start + 1;
@@ -203,12 +203,6 @@ export default async function Blog({
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
-      <CollectionPageSchema
-        name={t("schemaCollectionName")}
-        description={t("schemaCollectionDescription")}
-        url={`${siteUrl}/blog${page > 1 ? `?page=${page}` : ""}`}
-        siteUrl={siteUrl}
-      />
       <FAQPageSchema faqs={blogIndexFaqs} />
       {itemListEntries.length > 0 && (
         <ItemListSchema

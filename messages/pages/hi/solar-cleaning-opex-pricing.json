@@ -6,18 +6,18 @@
       "openGraphTitle": "सोलर सफाई OPEX मूल्य भारत | Taypro",
       "openGraphDescription": "सोलर पैनल सफाई की लागत कितनी है? OPEX मॉडल और ROI कैलकुलेटर।"
     },
-    "breadcrumbHub": "Robot price guide",
+    "breadcrumbHub": "रोबोट मूल्य मार्गदर्शिका",
     "breadcrumbHubHref": "/solar-panel-cleaning-robot-price-india",
     "breadcrumb": "सोलर सफाई OPEX मूल्य",
     "schema": {
-      "name": "Taypro Solar Cleaning OPEX Pricing",
-      "description": "Indicative OPEX pricing for robotic solar panel cleaning in India: per-panel-per-cycle rates, monthly bands by plant size, and pay-per-panel-cleaned billing model.",
-      "serviceType": "Solar panel cleaning pricing",
-      "areaServed": "India"
+      "name": "Taypro सौर सफाई OPEX मूल्य निर्धारण",
+      "description": "भारत में रोबोटिक सौर पैनल सफाई के लिए सांकेतिक OPEX मूल्य निर्धारण: प्रति-पैनल-प्रति-चक्र दरें, संयंत्र के आकार के अनुसार मासिक बैंड, और भुगतान-प्रति-पैनल-साफ बिलिंग मॉडल।",
+      "serviceType": "सौर पैनल सफाई मूल्य निर्धारण",
+      "areaServed": "भारत"
     },
     "hero": {
       "eyebrow": "मूल्य निर्धारण · भारत उपयोगिता सौर",
-      "title": "प्रति MW सोलर पैनल सफाई लागत — OPEX मूल्य संरचना",
+      "title": "प्रति MW सोलर पैनल सफाई लागत, OPEX मूल्य संरचना",
       "subtitle": "भारत में सोलर पैनल की सफाई की लागत कितनी है? मैनुअल क्रू अर्थशास्त्र की तुलना OPEX से करें: साफ किए गए प्रति पैनल का भुगतान, प्रति चक्र प्रति मॉड्यूल ₹0.45–0.70, और 25-300 MW संयंत्रों के लिए सांकेतिक मासिक बैंड।",
       "ctaPrimary": "पूर्ण ROI कैलकुलेटर चलाएँ",
       "ctaPrimaryHref": "/solar-panel-cleaning-robot-price-calculator#calculator",
@@ -36,75 +36,75 @@
       "linkSecondaryHref": "/solar-panel-cleaning-robot-price-india"
     },
     "costComparison": {
-      "eyebrow": "Manual vs robotic",
+      "eyebrow": "मैनुअल बनाम रोबोटिक",
       "heading": "Solar panel cleaning cost: manual crews vs robotic OPEX",
-      "intro": "Manual cleaning costs rise linearly with fleet scale — labour, water tankers, fuel, and inconsistent coverage. Robotic OPEX converts cleaning to a predictable per-panel variable cost with verified NECTYR logs.",
-      "colFactor": "Cost factor",
-      "colManual": "Manual cleaning",
+      "intro": "बेड़े के पैमाने, श्रम, पानी के टैंकरों, ईंधन और असंगत कवरेज के साथ मैन्युअल सफाई की लागत में वृद्धि होती है। रोबोटिक OPEX सत्यापित NECTYR लॉग के साथ सफाई को अनुमानित प्रति-पैनल परिवर्तनीय लागत में परिवर्तित करता है।",
+      "colFactor": "लागत कारक",
+      "colManual": "मैनुअल सफाई",
       "colRobotic": "Taypro robotic OPEX",
       "row0": {
-        "factor": "Labour & supervision",
-        "manual": "Crew scaling per MW; high turnover in remote sites",
-        "robotic": "Fixed operator team per fleet; remote NECTYR oversight"
+        "factor": "श्रम एवं पर्यवेक्षण",
+        "manual": "क्रू स्केलिंग प्रति MW; दूरस्थ साइटों में उच्च कारोबार",
+        "robotic": "प्रति बेड़े निश्चित ऑपरेटर टीम; दूरस्थ NECTYR निरीक्षण"
       },
       "row1": {
-        "factor": "Water & logistics",
-        "manual": "140k+ litres/MW/year wet-wash in stressed states",
-        "robotic": "Waterless dry cleaning — zero tanker dependency"
+        "factor": "जल एवं रसद",
+        "manual": "तनावग्रस्त राज्यों में 140k+ लीटर/MW/वर्ष गीला-धोना",
+        "robotic": "जल रहित ड्राई क्लीनिंग, शून्य टैंकर निर्भरता"
       },
       "row2": {
-        "factor": "Billing transparency",
-        "manual": "Lump-sum contracts; hard to audit panel-level coverage",
-        "robotic": "Pay per panel cleaned; NECTYR block-level reconciliation"
+        "factor": "बिलिंग पारदर्शिता",
+        "manual": "एकमुश्त अनुबंध; पैनल-स्तरीय कवरेज का ऑडिट करना कठिन है",
+        "robotic": "साफ किए गए प्रति पैनल का भुगतान करें; NECTYR ब्लॉक-स्तरीय समाधान"
       },
       "row3": {
-        "factor": "Cycle frequency",
-        "manual": "1–2 wet washes/month — labour and water limit throughput",
-        "robotic": "3–10 dry cycles/month without water constraint"
+        "factor": "चक्र आवृत्ति",
+        "manual": "1-2 गीली धुलाई/माह, श्रम और पानी सीमा थ्रूपुट",
+        "robotic": "पानी की कमी के बिना 3-10 शुष्क चक्र/माह"
       },
       "row4": {
-        "factor": "PR recovery speed",
-        "manual": "Delayed response after dust events; coverage gaps on long rows",
-        "robotic": "Scheduled cadence; block-level NECTYR proof of coverage"
+        "factor": "PR पुनर्प्राप्ति गति",
+        "manual": "धूल की घटनाओं के बाद विलंबित प्रतिक्रिया; लंबी पंक्तियों पर कवरेज अंतराल",
+        "robotic": "अनुसूचित ताल; ब्लॉक-स्तरीय NECTYR कवरेज का प्रमाण"
       },
       "row5": {
-        "factor": "20-year TCO at 100 MW",
-        "manual": "Rising labour, fuel, water; contract renegotiation risk",
+        "factor": "20-वर्ष TCO 100 MW पर",
+        "manual": "बढ़ता श्रम, ईंधन, पानी; अनुबंध पर पुनः बातचीत का जोखिम",
         "robotic": "Predictable per-panel opex or defined CAPEX+AMC alternative"
       }
     },
     "opexTable": {
-      "eyebrow": "Indicative bands",
+      "eyebrow": "सांकेतिक बैंड",
       "heading": "प्लांट आकार के अनुसार OPEX मासिक लागत (फिक्स्ड टिल्ट, 6 साइकिल/माह)",
-      "intro": "Directional estimates for budgetary planning. Actual pricing depends on soiling study, installation type, cycle count, and site access. Request a site-specific quote for binding commercial terms.",
-      "colPlant": "Plant size",
-      "colModules": "Modules (540 Wp)",
-      "colRate": "Rate/panel/cycle",
+      "intro": "बजटीय योजना के लिए दिशात्मक अनुमान. वास्तविक मूल्य निर्धारण मृदा अध्ययन, स्थापना प्रकार, चक्र गणना और साइट पहुंच पर निर्भर करता है। व्यावसायिक शर्तों को बाध्य करने के लिए साइट-विशिष्ट उद्धरण का अनुरोध करें।",
+      "colPlant": "पौधे का आकार",
+      "colModules": "मॉड्यूल (540 Wp)",
+      "colRate": "दर/पैनल/चक्र",
       "colMonthly": "Est. monthly OPEX",
-      "colPerMw": "Per MW/month",
+      "colPerMw": "प्रति MW/माह",
       "plant25": "25 MW",
       "plant50": "50 MW",
       "plant100": "100 MW",
       "plant300": "300 MW",
-      "minimumNote": "Minimum monthly fee applied",
-      "footnote": "Rates span ₹{minRate}–₹{maxRate} per panel per cycle depending on plant size and {cycles} cycles/month (range {minCycles}–{maxCycles}). Table assumes {moduleWp} Wp modules, fixed tilt. Tracker sites use higher multipliers."
+      "minimumNote": "न्यूनतम मासिक शुल्क लागू",
+      "footnote": "दरें पौधे के आकार और {cycles} चक्र/माह (सीमा {minCycles}–{maxCycles}) के आधार पर प्रति पैनल प्रति चक्र ₹{minRate}–₹{maxRate} तक फैली हुई हैं। तालिका {moduleWp} Wp मॉड्यूल, निश्चित झुकाव मानती है। ट्रैकर साइटें उच्च गुणकों का उपयोग करती हैं।"
     },
     "calculator": {
-      "eyebrow": "Interactive tool",
-      "heading": "Calculate cleaning ROI for your plant",
+      "eyebrow": "इंटरैक्टिव उपकरण",
+      "heading": "अपने संयंत्र के लिए सफाई ROI की गणना करें",
       "subheading": "Enter your MW capacity, soiling rate, tariff, and procurement model (CAPEX or OPEX) for a directional payback estimate."
     },
     "howTo": {
-      "name": "How to estimate solar cleaning OPEX cost",
-      "description": "Steps to calculate indicative monthly robotic cleaning cost for an Indian utility solar plant.",
-      "step0Name": "Determine module count",
-      "step0Text": "Divide plant capacity (kW) by module wattage (e.g. 540 Wp) to get total panel count.",
-      "step1Name": "Select cycle frequency",
-      "step1Text": "After a soiling study, choose 3–10 dry cleaning cycles per month based on dust load and PR targets.",
-      "step2Name": "Apply per-panel rate",
-      "step2Text": "Multiply modules × cycles × rate (₹0.45–0.70 per panel per cycle depending on plant size).",
-      "step3Name": "Adjust for installation type",
-      "step3Text": "Apply tracker or seasonal-tilt multipliers. Compare against manual crew cost and energy gain in the ROI calculator."
+      "name": "सौर सफाई OPEX लागत का अनुमान कैसे लगाएं",
+      "description": "भारतीय उपयोगिता सौर संयंत्र के लिए सांकेतिक मासिक रोबोटिक सफाई लागत की गणना करने के चरण।",
+      "step0Name": "मॉड्यूल संख्या निर्धारित करें",
+      "step0Text": "कुल पैनल गणना प्राप्त करने के लिए संयंत्र क्षमता (किलोवाट) को मॉड्यूल वाट क्षमता (जैसे 540 Wp) से विभाजित करें।",
+      "step1Name": "चक्र आवृत्ति का चयन करें",
+      "step1Text": "गंदगी के अध्ययन के बाद, धूल भार और PR लक्ष्यों के आधार पर प्रति माह 3-10 ड्राई क्लीनिंग चक्र चुनें।",
+      "step2Name": "प्रति-पैनल दर लागू करें",
+      "step2Text": "गुणा मॉड्यूल × चक्र × दर (पौधे के आकार के आधार पर प्रति चक्र ₹0.45–0.70 प्रति पैनल)।",
+      "step3Name": "स्थापना प्रकार के लिए समायोजित करें",
+      "step3Text": "ट्रैकर या मौसमी-झुकाव गुणक लागू करें। ROI कैलकुलेटर में मैन्युअल क्रू लागत और ऊर्जा लाभ से तुलना करें।"
     },
     "faq": {
       "heading": "सौर सफाई लागत अक्सर पूछे जाने वाले प्रश्न",
@@ -135,28 +135,28 @@
       "a11": "कई IPP तेजी से गतिशीलता के लिए OPEX शुरू करते हैं और फिर अनुबंध नवीनीकरण पर स्वामित्व वाले बेड़े में स्थानांतरित हो जाते हैं। Taypro NECTYR निरंतरता के साथ एक ही प्लांट पर दोनों मॉडलों का समर्थन करता है।"
     },
     "cta": {
-      "heading": "Get site-specific OPEX pricing",
-      "body": "Indicative bands are a starting point. Request a binding quote with your plant details.",
-      "primary": "Request quote",
+      "heading": "साइट-विशिष्ट OPEX मूल्य निर्धारण प्राप्त करें",
+      "body": "सांकेतिक बैंड एक प्रारंभिक बिंदु हैं। अपने पौधे के विवरण के साथ एक बाध्यकारी उद्धरण का अनुरोध करें।",
+      "primary": "कोट अनुरोध करें",
       "primaryHref": "/contact",
-      "secondary": "India cleaning service",
+      "secondary": "भारत सफाई सेवा",
       "secondaryHref": "/solar-panel-cleaning-service-india"
     },
     "related": {
-      "label": "Related:",
+      "label": "संबंधित:",
       "link0": "Robot CAPEX price guide",
       "link0Href": "/solar-panel-cleaning-robot-price-india",
-      "link1": "OPEX contract & SOP details",
+      "link1": "OPEX अनुबंध और SOP विवरण",
       "link1Href": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
       "link2": "CAPEX vs OPEX decision guide",
       "link2Href": "/solar-cleaning-capex-vs-opex",
-      "link3": "ROI calculator",
+      "link3": "ROI कैलकुलेटर",
       "link3Href": "/solar-panel-cleaning-robot-price-calculator"
     },
     "quoteForm": {
-      "eyebrow": "Pricing inquiry",
-      "title": "Request OPEX pricing for your plant",
-      "placeholder": "Plant MW, state, fixed tilt or tracker, desired cycles/month, and current cleaning spend if known."
+      "eyebrow": "मूल्य निर्धारण पूछताछ",
+      "title": "अपने संयंत्र के लिए OPEX मूल्य निर्धारण का अनुरोध करें",
+      "placeholder": "संयंत्र MW, स्थिति, निश्चित झुकाव या ट्रैकर, वांछित चक्र/माह, और यदि ज्ञात हो तो वर्तमान सफाई व्यय।"
     },
     "stats": {
       "eyebrow": "मूल्य निर्धारण एंकर",
@@ -187,31 +187,31 @@
       }
     },
     "steps": {
-      "eyebrow": "Pricing workflow",
-      "heading": "How to get accurate solar cleaning cost for your plant",
-      "step0Title": "Gather plant inputs",
-      "step0Body": "MW capacity, module wattage (e.g. 540 Wp), fixed tilt vs tracker, state/soiling context, and current annual cleaning spend if known.",
-      "step1Title": "Estimate module count and cycles",
-      "step1Body": "Divide kW by module Wp. Choose 3–10 cycles/month based on soiling study or regional benchmarks (higher in Rajasthan/Gujarat).",
-      "step2Title": "Apply OPEX rate band",
-      "step2Body": "Multiply modules × cycles × rate (₹0.45–0.70). Apply tracker multiplier (1.8×) or seasonal tilt (1.5×) if applicable. Compare table above for sanity check.",
-      "step3Title": "Run ROI calculator for payback",
+      "eyebrow": "मूल्य निर्धारण कार्यप्रवाह",
+      "heading": "अपने संयंत्र के लिए सटीक सौर सफाई लागत कैसे प्राप्त करें",
+      "step0Title": "प्लांट इनपुट इकट्ठा करें",
+      "step0Body": "MW क्षमता, मॉड्यूल वाट क्षमता (जैसे 540 Wp), निश्चित झुकाव बनाम ट्रैकर, स्थिति/मिट्टी का संदर्भ, और यदि ज्ञात हो तो वर्तमान वार्षिक सफाई व्यय।",
+      "step1Title": "मॉड्यूल संख्या और चक्र का अनुमान लगाएं",
+      "step1Body": "किलोवाट को मॉड्यूल Wp से विभाजित करें। मृदा अध्ययन या क्षेत्रीय बेंचमार्क (राजस्थान/गुजरात में अधिक) के आधार पर 3-10 चक्र/माह चुनें।",
+      "step2Title": "OPEX रेट बैंड लागू करें",
+      "step2Body": "गुणा मॉड्यूल × चक्र × दर (₹0.45–0.70)। यदि लागू हो तो ट्रैकर मल्टीप्लायर (1.8×) या मौसमी झुकाव (1.5×) लागू करें। विवेक जांच के लिए उपरोक्त तालिका की तुलना करें।",
+      "step3Title": "पेबैक के लिए ROI कैलकुलेटर चलाएँ",
       "step3Body": "Enter soiling loss %, tariff, and procurement model. Calculator estimates energy gain vs cleaning cost for CAPEX and OPEX scenarios.",
-      "step4Title": "Request binding site quote",
-      "step4Body": "Taypro engineers validate assumptions with a soiling study and issue commercial terms reconciled to NECTYR measurement rules."
+      "step4Title": "बाइंडिंग साइट कोटेशन का अनुरोध करें",
+      "step4Body": "Taypro इंजीनियर एक गंदे अध्ययन के साथ मान्यताओं को मान्य करते हैं और NECTYR माप नियमों के अनुरूप वाणिज्यिक शर्तें जारी करते हैं।"
     },
     "eligibility": {
-      "eyebrow": "OPEX fit",
-      "title": "When pay-per-panel OPEX pricing makes sense",
-      "forTitle": "OPEX is often best when",
+      "eyebrow": "OPEX फिट",
+      "title": "जब भुगतान-प्रति-पैनल OPEX मूल्य निर्धारण समझ में आता है",
+      "forTitle": "OPEX अक्सर सर्वोत्तम होता है जब",
       "for0": "You want fast mobilisation without robot CAPEX on the balance sheet",
-      "for1": "You prefer opex aligned to verified panels cleaned, not lump-sum crew contracts",
-      "for2": "Your plant is 10 MW+ utility scale with 3+ cycles/month economics",
-      "for3": "Finance team needs predictable monthly cleaning line item for models",
+      "for1": "आप साफ किए गए सत्यापित पैनलों से जुड़े ओपेक्स को प्राथमिकता देते हैं, न कि एकमुश्त क्रू अनुबंधों को",
+      "for2": "आपका संयंत्र 10 MW+ उपयोगिता पैमाने पर 3+ चक्र/माह अर्थशास्त्र के साथ है",
+      "for3": "वित्त टीम को मॉडलों के लिए पूर्वानुमानित मासिक सफाई लाइन आइटम की आवश्यकता है",
       "notForTitle": "Consider CAPEX instead when",
-      "not0": "Very long hold period (15+ years) with capacity to own fleet depreciation",
-      "not1": "Smaller C&I sites where minimum monthly fee dominates unit economics",
-      "not2": "You already own robots and only need AMC + NECTYR"
+      "not0": "बेड़े के मूल्यह्रास की क्षमता के साथ बहुत लंबी पकड़ अवधि (15+ वर्ष)।",
+      "not1": "छोटी C&I साइटें जहां न्यूनतम मासिक शुल्क इकाई अर्थशास्त्र पर हावी है",
+      "not2": "आपके पास पहले से ही रोबोट हैं और आपको केवल AMC + NECTYR की आवश्यकता है"
     },
     "proseSecondary": {
       "eyebrow": "क्षेत्रीय लागत चालक",
@@ -225,13 +225,13 @@
       "linkSecondaryHref": "/solar-panel-cleaning-robot-price-india"
     },
     "resources": {
-      "eyebrow": "Cost research",
-      "heading": "Related pricing & ROI tools",
-      "link0Title": "Interactive ROI calculator",
+      "eyebrow": "लागत अनुसंधान",
+      "heading": "संबंधित मूल्य निर्धारण और ROI उपकरण",
+      "link0Title": "इंटरएक्टिव ROI कैलकुलेटर",
       "link0Href": "/solar-panel-cleaning-robot-price-calculator",
-      "link1Title": "OPEX service details",
+      "link1Title": "OPEX सेवा विवरण",
       "link1Href": "/solar-panel-cleaning-system/solar-panel-cleaning-service",
-      "link2Title": "Robotic vs manual cost comparison",
+      "link2Title": "रोबोटिक बनाम मैन्युअल लागत तुलना",
       "link2Href": "/compare/solar-panel-cleaning-robot-vs-manual-cleaning"
     }
   }

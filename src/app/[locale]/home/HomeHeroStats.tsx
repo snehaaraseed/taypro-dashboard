@@ -7,7 +7,7 @@ import { tayproHomeStatsStrip } from "@/app/data";
 const STAT_ICONS: LucideIcon[] = [Gauge, LayoutGrid, Leaf, Droplets];
 const PROJECTS_HREF = "/projects";
 
-/** Fleet-impact cards — clear glass, links to projects. */
+/** Fleet-impact cards, clear glass, links to projects. */
 export default async function HomeHeroStats() {
   const tStats = await getTranslations("Home.stats");
   const tHero = await getTranslations("Home.hero");

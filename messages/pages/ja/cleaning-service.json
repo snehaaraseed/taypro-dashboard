@@ -40,6 +40,24 @@
         "title": "Taypro Opex の見積もりをリクエストする",
         "subtitle": "貴社のプラントの能力と洗浄目標についてお知らせください。当社のチームがOpexの範囲、サイクル計画、商用提案をフォローアップします。",
         "label": "見積もりを依頼する"
+      },
+      "subtitleShort": "ロボットによる清掃を管理し、未使用の機械時間ではなく、清掃されたパネルに関連付けられた予測可能な月々の請求を行います。",
+      "secondaryCta": {
+        "label": "導入を参照"
+      },
+      "highlights": {
+        "stat0": {
+          "value": "3–10",
+          "label": "1か月あたりのドライクリーニングサイクル"
+        },
+        "stat1": {
+          "value": "パネルごとの支払い",
+          "label": "OPEX 請求モデル"
+        },
+        "stat2": {
+          "value": "汎インド",
+          "label": "マネージドサービスの対象範囲"
+        }
       }
     },
     "faqs": {
@@ -220,7 +238,7 @@
       "eyebrow": "方法論",
       "title": "実用規模のパフォーマンスを実現するために構築",
       "p1Before": "で",
-      "p1CompanyStrong": "BR0トークン",
+      "p1CompanyStrong": "TAYPRO Private Limited",
       "p1After": "、特に太陽電池モジュールの透過率を第一級の生産投入物として扱います。",
       "p1MwStrong": "50MW以上",
       "p1Suffix": "パフォーマンス比率が 1 パーセントでもすぐに収益ラインに反映されるプラントです。",
@@ -288,10 +306,10 @@
       "linkNectyr": "NECTYR",
       "exploreSuffix": "。",
       "linkBetweenTConsole": "、 または",
-      "linkModelA": "BR0トークン",
-      "linkModelB": "BR0トークン",
-      "linkModelT": "BR0トークン",
-      "linkConsole": "BR0トークン"
+      "linkModelA": "GLYDE",
+      "linkModelB": "HELYX",
+      "linkModelT": "GLYDE-X",
+      "linkConsole": "NECTYR"
     },
     "roiSection": {
       "title": "Opex の ROI と節約額を計算する",
@@ -400,7 +418,11 @@
       "criterion": "基準",
       "manual": "手動清掃"
     },
-    "modelCardsTitle": "さらにソリューションをお探しですか?"
+    "modelCardsTitle": "さらにソリューションをお探しですか?",
+    "productVisual": {
+      "eyebrow": "サービスの概要",
+      "title": "Taypro によるロボットによるソーラー パネルの清掃の管理"
+    }
   },
   "Common": {
     "breadcrumbHome": "ホーム",

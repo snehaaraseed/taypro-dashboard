@@ -76,7 +76,7 @@ function ensurePrimaryKeywordInExecutiveSummary(
   if (!kw) return;
   const opening = stripHtmlToPlainText(sections.executiveSummary).slice(0, 600);
   if (opening.toLowerCase().includes(kw.toLowerCase())) return;
-  const lead = `<p>${kw} — `;
+  const lead = `<p>${kw}, `;
   const body = sections.executiveSummary.trim();
   if (body.startsWith("<p>")) {
     sections.executiveSummary = body.replace(/^<p>/i, lead);
@@ -99,8 +99,7 @@ export async function runProjectImprove(
   });
 
   let facts = enrichFactsWithRegionalContext({
-    ...backfill.facts,
-    ...input.facts,
+    ...backfill.facts, ...input.facts,
     primaryKeyword: input.seoKeyword ?? backfill.facts.primaryKeyword,
   });
 

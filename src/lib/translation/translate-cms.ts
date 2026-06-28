@@ -5,9 +5,11 @@ import { and, eq, gt, isNotNull, or } from "drizzle-orm";
 import { isScheduledAutomationSource } from "@/lib/cms/blog-schedule";
 import type { TayproLocale } from "@/i18n/markets";
 import { getDb } from "@/lib/db";
-import { blogs, projects } from "@/lib/db/schema";
+import { blogs, projects, insights } from "@/lib/db/schema";
 import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
-import { SOURCE_LOCALE, TARGET_LOCALES } from "./config";
+import { INSIGHTS_HUB_PATH } from "@/lib/seo/insights-hub";
+import { sanitizeResearchReportHtml } from "@/lib/insights/research-html-sanitize";
+import { SOURCE_LOCALE, TARGET_LOCALES, getInsightTranslationContentChunkChars } from "./config";
 import { parseBlogFaqs, serializeBlogFaqs } from "@/lib/cms/blog-faqs";
 import { assertTranslatedBlogValid } from "@/lib/seo/blog-content-validator";
 import { sanitizeGeneratedBlogBodyHtml } from "@/lib/seo/blog-body-hygiene";
@@ -46,6 +48,19 @@ async function onProjectLocaleTranslated(
   );
 }
 
+async function onInsightLocaleTranslated(
+  slug: string,
+  locale: TayproLocale,
+  success: boolean,
+  error?: unknown
+): Promise<void> {
+  if (success) return;
+  console.warn(
+    `[translate] insight ${slug} (${locale}) failed; will retry on next daily cron:`,
+    error instanceof Error ? error.message : error
+  );
+}
+
 export type TranslationResult = {
   locale: TayproLocale;
   success: boolean;
@@ -54,7 +69,7 @@ export type TranslationResult = {
 
 export type BatchTranslationResult = {
   slug: string;
-  type: "blog" | "project";
+  type: "blog" | "project" | "insight";
   results: TranslationResult[];
 };
 
@@ -185,6 +200,158 @@ function revalidateProjectPaths(slug: string): void {
   }
   revalidatePath("/projects");
   revalidateSitemap();
+}
+
+async function upsertInsightLocale(
+  slug: string,
+  locale: TayproLocale,
+  source: typeof insights.$inferSelect,
+  translated: {
+    title: string;
+    description: string;
+    content: string;
+  }
+): Promise<void> {
+  const db = getDb();
+  const now = new Date().toISOString();
+  const existing = await db
+    .select({ id: insights.id })
+    .from(insights)
+    .where(and(eq(insights.slug, slug), eq(insights.locale, locale)))
+    .limit(1);
+
+  const row = {
+    slug,
+    locale,
+    title: translated.title,
+    description: translated.description,
+    content: translated.content,
+    reportType: source.reportType,
+    period: source.period,
+    metricsJson: source.metricsJson,
+    publishDate: source.publishDate,
+    published: source.published,
+    updatedAt: now,
+  };
+
+  if (existing.length > 0) {
+    await db
+      .update(insights)
+      .set(row)
+      .where(and(eq(insights.slug, slug), eq(insights.locale, locale)));
+  } else {
+    await db.insert(insights).values({
+      ...row,
+      createdAt: source.createdAt || now,
+    });
+  }
+}
+
+function revalidateInsightPaths(slug: string): void {
+  for (const locale of [SOURCE_LOCALE, ...TARGET_LOCALES]) {
+    revalidatePath(`/${locale}${INSIGHTS_HUB_PATH}/${slug}`);
+    revalidatePath(`/${locale}${INSIGHTS_HUB_PATH}`);
+  }
+  revalidateSitemap();
+}
+
+/** Translate one published English insight report into target locales. */
+export async function translatePublishedInsight(
+  slug: string,
+  options?: { locales?: TayproLocale[]; force?: boolean }
+): Promise<BatchTranslationResult> {
+  const db = getDb();
+  const rows = await db
+    .select()
+    .from(insights)
+    .where(and(eq(insights.slug, slug), eq(insights.locale, SOURCE_LOCALE)))
+    .limit(1);
+
+  const source = rows[0];
+  const results: TranslationResult[] = [];
+
+  if (!source) {
+    return {
+      slug,
+      type: "insight",
+      results: TARGET_LOCALES.map((locale) => ({
+        locale,
+        success: false,
+        error: "English source insight not found",
+      })),
+    };
+  }
+
+  if (!source.published) {
+    return {
+      slug,
+      type: "insight",
+      results: TARGET_LOCALES.map((locale) => ({
+        locale,
+        success: false,
+        error: "Source insight is not published",
+      })),
+    };
+  }
+
+  const targets = options?.locales?.length
+    ? options.locales.filter((l) => l !== SOURCE_LOCALE)
+    : [...TARGET_LOCALES];
+
+  for (const locale of targets) {
+    try {
+      if (!options?.force) {
+        const existing = await db
+          .select({ updatedAt: insights.updatedAt })
+          .from(insights)
+          .where(and(eq(insights.slug, slug), eq(insights.locale, locale)))
+          .limit(1);
+        if (
+          existing[0]?.updatedAt &&
+          source.updatedAt &&
+          existing[0].updatedAt >= source.updatedAt
+        ) {
+          results.push({ locale, success: true });
+          await onInsightLocaleTranslated(slug, locale, true);
+          continue;
+        }
+      }
+
+      const fields = await translateFieldsWithGemini(
+        {
+          title: source.title,
+          description: source.description,
+          content: source.content,
+        },
+        locale,
+        {
+          quotaScope: "insight",
+          contentChunkChars: getInsightTranslationContentChunkChars(),
+        }
+      );
+
+      fields.content = sanitizeResearchReportHtml(fields.content);
+
+      await upsertInsightLocale(slug, locale, source, {
+        title: fields.title,
+        description: fields.description,
+        content: fields.content,
+      });
+
+      results.push({ locale, success: true });
+      await onInsightLocaleTranslated(slug, locale, true);
+    } catch (error) {
+      results.push({
+        locale,
+        success: false,
+        error: error instanceof Error ? error.message : "Translation failed",
+      });
+      await onInsightLocaleTranslated(slug, locale, false, error);
+    }
+  }
+
+  revalidateInsightPaths(slug);
+  return { slug, type: "insight", results };
 }
 
 /** Translate one published English blog into all target locales. */
@@ -450,6 +617,17 @@ export async function listEnglishProjectSlugs(): Promise<string[]> {
     .from(projects)
     .where(
       and(eq(projects.locale, SOURCE_LOCALE), eq(projects.published, true))
+    );
+  return rows.map((r) => r.slug);
+}
+
+export async function listEnglishInsightSlugs(): Promise<string[]> {
+  const db = getDb();
+  const rows = await db
+    .select({ slug: insights.slug })
+    .from(insights)
+    .where(
+      and(eq(insights.locale, SOURCE_LOCALE), eq(insights.published, true))
     );
   return rows.map((r) => r.slug);
 }

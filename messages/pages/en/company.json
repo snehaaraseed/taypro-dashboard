@@ -3,7 +3,7 @@
     "meta": {
       "title": "About Us | Solar Panel Cleaning Robot Manufacturer",
       "description": "Made-in-India solar panel cleaning robot manufacturer in Pune. GLYDE, NYUMA, NECTYR fleet software, pan-India service. Meet our leadership team.",
-      "openGraphDescription": "Taypro engineers autonomous solar cleaning robots from Chakan, Pune — dual-pass waterless technology and nationwide deployment support.",
+      "openGraphDescription": "Taypro engineers autonomous solar cleaning robots from Chakan, Pune: dual-pass waterless technology and nationwide deployment support.",
       "openGraphImageAlt": "About Taypro - Solar Panel Cleaning Robot Manufacturer",
       "twitterDescription": "Made-in-India solar panel cleaning robots, nationwide warehouses, and cloud fleet monitoring, built for utility-scale asset owners and O&M teams."
     },
@@ -13,7 +13,7 @@
     "hero": {
       "eyebrow": "About Taypro",
       "title": "Solar Panel Cleaning Robot Manufacturer in India",
-      "subtitle": "Engineers of a sustainable future — designing and building autonomous solar operations from Chakan, Pune.",
+      "subtitle": "Engineers of a sustainable future, designing and building autonomous solar operations from Chakan, Pune.",
       "bodyBeforeLink": "Taypro Private Limited is a Made-in-India manufacturer of autonomous and semi-automatic",
       "bodyLink": "solar panel cleaning robots",
       "bodyAfterLink": "for utility-scale, commercial, and rooftop PV. From our manufacturing hub in Chakan, Pune, we ship waterless dual-pass systems, pan-India spare logistics, and the NECTYR fleet dashboard, so developers and O&M teams can protect yield, safety, and water without compromising uptime."
@@ -60,11 +60,11 @@
       "eyebrow": "Partners & investors",
       "heading": "Autonomous operations layer for utility-scale solar",
       "bodyLead": "Taypro is building the health-monitoring and operations layer for India's utility solar fleet, using deployed cleaning robots as field data and execution infrastructure.",
-      "bodyMoat": "TAYPRO's AI model learns from every cleaning cycle across the active fleet — the operational dataset compounds with each site added and cannot be replicated by any competitor without equivalent field presence at utility scale.",
+      "bodyMoat": "TAYPRO's AI model learns from every cleaning cycle across the active fleet, the operational dataset compounds with each site added and cannot be replicated by any competitor without equivalent field presence at utility scale.",
       "bodyOrion": "ORION plant intelligence is designed to attach at AMC renewal on rails we already operate.",
       "statFootnote": "150+ live utility sites on NECTYR, recurring AMC relationships, and labelled cleaning telemetry since 2022.",
       "bullet0": "Hardware + NECTYR are live across IPP and utility portfolios that fleet operations teams use every day.",
-      "bullet1": "Self-learning fleet AI compounds a data moat competitors cannot replicate without utility-scale field presence — each clean refines soiling, timing, and routing models.",
+      "bullet1": "Self-learning fleet AI compounds a data moat competitors cannot replicate without utility-scale field presence, each clean refines soiling, timing, and routing models.",
       "bullet2": "ORION early access is open for select asset owners under NDA, contact us for investor or strategic conversations.",
       "ctaContact": "Contact for investor conversations",
       "ctaAi": "AI intelligence layer",
@@ -77,7 +77,7 @@
         "messageLabel": "Your message",
         "messagePlaceholder": "Organisation, role, investment or partnership interest, timeline, portfolio context, and any NDA or data-room needs…",
         "submitLabel": "Send enquiry",
-        "thankYouTitle": "Thank you — we've received your message",
+        "thankYouTitle": "Thank you, we've received your message",
         "thankYouMessage": "Our team will route investor and partnership conversations to the right contacts shortly.",
         "ctaLabel": "Contact for investor conversations"
       }
@@ -89,7 +89,7 @@
       "item1": "ISO-aligned manufacturing processes",
       "item2": "Made in India, designed and built in Chakan, Pune",
       "item3": "National Institute of Solar Energy (NISE) validation",
-      "item4": "UL, Karandikar Labs, and Elca Labs — 30-year-equivalent module safety testing",
+      "item4": "UL, Karandikar Labs, and Elca Labs: 30-year-equivalent module safety testing",
       "item5": "IP65, static discharge, vibration, and damp-heat conditioning within safe limits",
       "awardTitle": "Mint Tech4Good Awards 2024",
       "awardBody": "Recognised for green AI solutions in Mumbai, India.",

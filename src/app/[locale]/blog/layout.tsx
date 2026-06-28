@@ -7,7 +7,7 @@ type BlogLayoutProps = {
   params: Promise<{ locale: string }>;
 };
 
-/** Blog copy is provided by the root locale NextIntlClientProvider (SPA-safe). */
+/** Blog client copy is pathname-scoped in the root layout; extra namespaces load on navigation. */
 export default async function BlogSectionLayout({
   children,
   params,

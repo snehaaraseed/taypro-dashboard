@@ -1,6 +1,9 @@
 {
   "Common": {
     "breadcrumbHome": "হোম",
+    "productLineup": {
+      "exploreCta": "এক্সপ্লোর করুন {model}"
+    },
     "errorTitle": "এই পৃষ্ঠাটি লোড হয়নি",
     "errorBody": "সংযোগের সময়সীমা শেষ হয়েছে বা পৃষ্ঠা লোড করতে সমস্যা হয়েছে। আবার লোড করুন বা অন্য কোনো পৃষ্ঠায় ফিরে যান।",
     "errorReload": "আবার লোড করুন"
@@ -18,6 +21,7 @@
     "investors": "অংশীদার ও বিনিয়োগকারী",
     "contactUs": "যোগাযোগ",
     "blogs": "ব্লগ",
+    "insights": "Insights",
     "solarRobots": "সোলার রোবট",
     "solutions": "সমাধান",
     "solutionsTitle": "সোলার প্যানেল পরিষ্কার রোবট সমাধান",
@@ -54,6 +58,7 @@
     "viewAllCompare": "সব তুলনা গাইড",
     "viewAllStates": "সব আঞ্চলিক গাইড",
     "priceGuideNav": "রোবট মূল্য গাইড (India)",
+    "cleaningMachineNav": "সোলার প্যানেল পরিষ্কার মেশিন",
     "compareTayproVsSolabot": "Taypro vs Solabot",
     "compareIndianCompetitors": "Taypro vs ভারতীয় প্রতিযোগী",
     "compareRobotVsManual": "রোবট বনাম ম্যানুয়াল পরিষ্কার",
@@ -70,6 +75,7 @@
     "aboutUs": "আমাদের সম্পর্কে",
     "projects": "প্রকল্প",
     "blogs": "ব্লগ",
+    "insights": "Insights",
     "contact": "যোগাযোগ",
     "sitemap": "সাইটম্যাপ",
     "ourTechnology": "আমাদের প্রযুক্তি",
