@@ -105,6 +105,7 @@ export function messageModuleStemForPath(internalPath: string): string | null {
   if (STATE_LANDING_PATH_RE.test(path)) return "state-landings";
   if (path.startsWith("/compare/")) return "comparisons";
   if (path.startsWith("/insights/")) return "insights";
+  if (path.startsWith("/press/releases/")) return "press-release";
   return null;
 }
 

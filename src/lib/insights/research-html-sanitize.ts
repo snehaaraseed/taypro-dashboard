@@ -21,6 +21,7 @@ const PLANNING_PATTERNS: RegExp[] = [
   /dense,\s*readable prose/i,
   /\*\s*(?:goal|content|focus|links?|citations?|formatting|heading)\s*:/i,
   /check (?:word count|links|citations)/i,
+  /===html_(?:start|end)===/i,
 ];
 
 function plainText(html: string): string {
@@ -36,16 +37,32 @@ function plainText(html: string): string {
  * spacing from a model-generated fragment. Safe to run on assembled content
  * (does not touch tables/headings/real prose).
  */
+function blockLooksLikePlanning(text: string): boolean {
+  if (!text) return true;
+  return PLANNING_PATTERNS.some((re) => re.test(text));
+}
+
+/** Remove planning-only sentences from mixed prose (keeps the rest of the paragraph). */
+function stripPlanningSentences(text: string): string {
+  const sentences = text.split(/(?<=[.!?])\s+/);
+  const kept = sentences.filter((s) => !blockLooksLikePlanning(s.trim()));
+  return kept.join(" ").trim();
+}
+
 export function stripPlanningArtifacts(html: string): string {
   let out = html;
 
   // Drop <p>/<li> blocks whose visible text is empty or pure planning.
   out = out.replace(
-    /<(p|li)\b[^>]*>([\s\S]*?)<\/\1>/gi,
+    /<(p|li|h3|h4|blockquote)\b[^>]*>([\s\S]*?)<\/\1>/gi,
     (full: string, _tag: string, inner: string) => {
       const text = plainText(inner);
       if (!text) return "";
-      if (PLANNING_PATTERNS.some((re) => re.test(text))) return "";
+      if (blockLooksLikePlanning(text)) {
+        const cleaned = stripPlanningSentences(text);
+        if (!cleaned || blockLooksLikePlanning(cleaned)) return "";
+        return full.replace(inner, cleaned);
+      }
       return full;
     }
   );
@@ -53,6 +70,8 @@ export function stripPlanningArtifacts(html: string): string {
   // Stray planning sentences sitting as raw text between tags.
   out = out.replace(/(^|>)\s*Part\s+\d+\s*(?:of|\/)\s*\d+[^<]*/gi, "$1");
   out = out.replace(/(^|>)\s*\(\s*Proceeding to generate[^<]*/gi, "$1");
+  out = out.replace(/\bSelf[-\s]?Correction\b[^<]*/gi, "");
+  out = out.replace(/\bWord[-\s]?count\b[^<]*/gi, "");
 
   // Collapse runaway spacing the model emits as "formatting".
   out = out.replace(/(?:\s*<br\s*\/?>\s*){2,}/gi, "<br>");

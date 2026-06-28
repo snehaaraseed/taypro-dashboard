@@ -84,6 +84,8 @@ interface ArticleSchemaProps {
   };
   /** Unique id when multiple Article scripts could coexist in dev HMR. */
   scriptId?: string;
+  /** Schema.org type (default Article). Use NewsArticle for press releases. */
+  schemaType?: "Article" | "NewsArticle";
 }
 
 interface VideoObjectSchemaProps {
@@ -545,11 +547,12 @@ export function ArticleSchema({
   author,
   publisher,
   scriptId = "article-schema",
+  schemaType = "Article",
   siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
 }: ArticleSchemaProps & { siteUrl?: string }) {
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": schemaType,
     headline: headline,
     description: description,
     publisher: {

@@ -1,0 +1,81 @@
+{
+  "targets": [
+    {
+      "id": "prlog",
+      "name": "PRLog",
+      "submitUrl": "https://www.prlog.org/submit-press-release.html",
+      "method": "form",
+      "fields": ["title", "summary", "body", "contactName", "contactEmail", "imageUrl"],
+      "dofollow": false,
+      "notes": "Free tier; include canonical link to taypro.in release URL in body."
+    },
+    {
+      "id": "openpr",
+      "name": "OpenPR",
+      "submitUrl": "https://www.openpr.com/news/submit.html",
+      "method": "form",
+      "fields": ["title", "summary", "body", "contactName", "contactEmail"],
+      "dofollow": true,
+      "notes": "Free submission; paste full release body with dateline and boilerplate."
+    },
+    {
+      "id": "1888pressrelease",
+      "name": "1888PressRelease",
+      "submitUrl": "https://www.1888pressrelease.com/submit-press-release.php",
+      "method": "form",
+      "fields": ["title", "summary", "body", "contactName", "contactEmail", "imageUrl"],
+      "dofollow": false,
+      "notes": "Free basic distribution; link back to official release page."
+    },
+    {
+      "id": "energetica-india",
+      "name": "Energetica India",
+      "submitUrl": "https://www.energetica-india.net/contact",
+      "method": "email",
+      "emailTo": "editor@energetica-india.net",
+      "fields": ["title", "summary", "body", "contactName", "contactEmail"],
+      "dofollow": true,
+      "notes": "Solar trade press; email pitch with full release + link to taypro.in."
+    },
+    {
+      "id": "saur-energy",
+      "name": "Saur Energy",
+      "submitUrl": "https://www.saurenergy.com/contact-us",
+      "method": "email",
+      "emailTo": "editor@saurenergy.com",
+      "fields": ["title", "summary", "body", "contactName", "contactEmail"],
+      "dofollow": true,
+      "notes": "Indian solar industry news; strong backlink potential."
+    },
+    {
+      "id": "renewable-watch",
+      "name": "Renewable Watch",
+      "submitUrl": "https://renewablewatch.in/contact-us/",
+      "method": "email",
+      "emailTo": "editor@renewablewatch.in",
+      "fields": ["title", "summary", "body", "contactName", "contactEmail"],
+      "dofollow": true,
+      "notes": "Utility-scale solar O&M angle preferred."
+    },
+    {
+      "id": "ipf-online",
+      "name": "IPF Online",
+      "submitUrl": "https://ipfonline.com/contact",
+      "method": "email",
+      "emailTo": "editor@ipfonline.com",
+      "fields": ["title", "summary", "body", "contactName", "contactEmail", "imageUrl"],
+      "dofollow": true,
+      "notes": "Industrial/product news; include hero image if available."
+    },
+    {
+      "id": "times-tech",
+      "name": "TimesTech",
+      "submitUrl": "https://timestech.in/contact-us/",
+      "method": "email",
+      "emailTo": "editor@timestech.in",
+      "fields": ["title", "summary", "body", "contactName", "contactEmail"],
+      "dofollow": true,
+      "notes": "Tech/robotics angle; quote from CEO works well."
+    }
+  ]
+}

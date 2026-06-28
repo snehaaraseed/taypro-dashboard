@@ -35,5 +35,15 @@ export async function generateMetadata({
 }
 
 export default function PressLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      <link
+        rel="alternate"
+        type="application/rss+xml"
+        title="Taypro Press Releases"
+        href={`${siteUrl}/feed/press.xml`}
+      />
+      {children}
+    </>
+  );
 }

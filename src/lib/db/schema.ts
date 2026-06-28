@@ -147,3 +147,56 @@ export type ProjectRow = typeof projects.$inferSelect;
 export type PublishedTopicRow = typeof publishedTopics.$inferSelect;
 export type UploadRow = typeof uploads.$inferSelect;
 export type InsightRow = typeof insights.$inferSelect;
+
+export const pressReleases = sqliteTable(
+  "press_releases",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    slug: text("slug").notNull(),
+    locale: text("locale").notNull().default("en"),
+    title: text("title").notNull(),
+    subhead: text("subhead").notNull().default(""),
+    dateline: text("dateline").notNull().default(""),
+    content: text("content").notNull().default(""),
+    boilerplate: text("boilerplate").notNull().default(""),
+    contactJson: text("contact_json").notNull().default("{}"),
+    quotesJson: text("quotes_json").notNull().default("[]"),
+    featuredImage: text("featured_image").notNull().default(""),
+    /** draft | ready | published */
+    status: text("status").notNull().default("draft"),
+    /** queue | project | insight | manual */
+    source: text("source").notNull().default("queue"),
+    queueKey: text("queue_key"),
+    publishDate: text("publish_date").notNull(),
+    createdAt: text("created_at").notNull(),
+    updatedAt: text("updated_at"),
+    published: integer("published", { mode: "boolean" }).notNull().default(false),
+  },
+  (table) => ({
+    slugLocale: unique().on(table.slug, table.locale),
+  })
+);
+
+export const pressSubmissions = sqliteTable(
+  "press_submissions",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    releaseSlug: text("release_slug").notNull(),
+    targetId: text("target_id").notNull(),
+    /** pending | submitted | live | rejected */
+    status: text("status").notNull().default("pending"),
+    externalUrl: text("external_url"),
+    /** dofollow | nofollow | none | unknown */
+    backlinkType: text("backlink_type").notNull().default("unknown"),
+    submittedAt: text("submitted_at"),
+    notes: text("notes").notNull().default(""),
+    createdAt: text("created_at").notNull(),
+    updatedAt: text("updated_at"),
+  },
+  (table) => ({
+    releaseTarget: unique().on(table.releaseSlug, table.targetId),
+  })
+);
+
+export type PressReleaseRow = typeof pressReleases.$inferSelect;
+export type PressSubmissionRow = typeof pressSubmissions.$inferSelect;

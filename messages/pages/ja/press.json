@@ -36,7 +36,10 @@
       "submitLabel": "メディアの問い合わせを送信する",
       "thankYouTitle": "ありがとう, メモを受け取りました",
       "thankYouMessage": "弊社のコミュニケーションチームができるだけ早く対応させていただきます。"
-    }
+    },
+    "announcementsHeading": "公式発表",
+    "announcementsIntro": "Taypro によって発行されたプレス リリース。シンジケーションのために RSS フィードを PR ディレクトリに送信します。",
+    "readRelease": "リリース全文を読む"
   },
   "Common": {
     "breadcrumbHome": "家"

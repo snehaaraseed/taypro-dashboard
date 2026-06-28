@@ -5,6 +5,48 @@ import { loadCompetitorLandscape } from "@/lib/seo/competitor-knowledge";
 const OWN_BRAND =
   /\btaypro\b|taypro\.in|glyde|helyx|nyuma|nectyr|miny|cradyl/i;
 
+/**
+ * Generic industry words that appear inside competitor names (e.g. "Airtouch
+ * Solar", "...New Energy Technology") but must NEVER become standalone block
+ * tokens — otherwise the guard rejects almost every on-topic solar keyword.
+ * Only distinctive brand tokens (ecoppia, solarcleano, skilancer, ...) should
+ * block. Multi-word competitor names are still matched in full.
+ */
+const GENERIC_NAME_STOPWORDS = new Set([
+  "solar",
+  "energy",
+  "power",
+  "panel",
+  "panels",
+  "clean",
+  "cleaning",
+  "cleaner",
+  "module",
+  "modules",
+  "system",
+  "systems",
+  "robot",
+  "robots",
+  "robotic",
+  "robotics",
+  "technology",
+  "technologies",
+  "tech",
+  "new",
+  "bright",
+  "group",
+  "india",
+  "global",
+  "international",
+  "company",
+  "limited",
+  "private",
+  "services",
+  "solutions",
+  "renewable",
+  "renewables",
+]);
+
 let cachedTokens: string[] | null = null;
 
 function normalizeToken(value: string): string {
@@ -12,6 +54,11 @@ function normalizeToken(value: string): string {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
+}
+
+/** A single-word token is a usable brand token only if it is distinctive. */
+function isDistinctiveBrandToken(token: string): boolean {
+  return token.length >= 4 && !GENERIC_NAME_STOPWORDS.has(token);
 }
 
 function competitorTokens(): string[] {
@@ -23,9 +70,15 @@ function competitorTokens(): string[] {
   for (const competitor of landscape?.competitors ?? []) {
     for (const raw of [competitor.id, competitor.name]) {
       const normalized = normalizeToken(raw);
-      if (normalized.length >= 4) tokens.add(normalized);
+      // Keep full multi-word names (e.g. "airtouch solar") — these are specific
+      // and won't false-positive. Only single-word tokens are risky.
+      if (normalized.includes(" ")) {
+        if (normalized.length >= 4) tokens.add(normalized);
+      } else if (isDistinctiveBrandToken(normalized)) {
+        tokens.add(normalized);
+      }
       for (const part of normalized.split(/\s+/)) {
-        if (part.length >= 4) tokens.add(part);
+        if (isDistinctiveBrandToken(part)) tokens.add(part);
       }
     }
     if (competitor.website) {
@@ -34,7 +87,7 @@ function competitorTokens(): string[] {
           .replace(/^www\./, "")
           .split(".")[0];
         const hostNorm = normalizeToken(host);
-        if (hostNorm.length >= 4) tokens.add(hostNorm);
+        if (isDistinctiveBrandToken(hostNorm)) tokens.add(hostNorm);
       } catch {
         // ignore invalid URLs
       }

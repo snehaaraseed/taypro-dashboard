@@ -75,8 +75,10 @@ upload_deploy_helpers() {
         "$LOCAL_PATH/scripts/deploy-cms-safe.sh" \
         "$LOCAL_PATH/scripts/deploy-cms-metrics.mjs" \
         "$LOCAL_PATH/scripts/deploy-cms-assert-unchanged.mjs" \
+        "$LOCAL_PATH/scripts/deploy-disk-preflight.sh" \
+        "$LOCAL_PATH/scripts/grow-production-root-volume.sh" \
         "$REMOTE_HOST:$REMOTE_PATH/scripts/"
-    ssh -i "$SSH_KEY" "$REMOTE_HOST" "chmod +x $REMOTE_PATH/scripts/deploy-cms-safe.sh"
+    ssh -i "$SSH_KEY" "$REMOTE_HOST" "chmod +x $REMOTE_PATH/scripts/deploy-cms-safe.sh $REMOTE_PATH/scripts/deploy-disk-preflight.sh $REMOTE_PATH/scripts/grow-production-root-volume.sh"
 }
 
 enable_remote_maintenance() {
@@ -299,6 +301,16 @@ EOF
 fi
 
 if [ "$DEPLOY_SKIP_BUILD" != "1" ]; then
+    step_start "Step 2d: Disk preflight (cleanup + free-space gate)"
+    ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
+        set -e
+        cd /var/www/taypro-dashboard
+        chmod +x scripts/deploy-disk-preflight.sh
+        bash scripts/deploy-disk-preflight.sh
+EOF
+    step_done
+    echo ""
+
     step_start "Step 3: Staging build (site stays live — typically 6–15 min)"
     ssh -i "$SSH_KEY" -o ServerAliveInterval=30 "$REMOTE_HOST" bash -s "$DEPLOY_FAST" << 'EOF'
         DEPLOY_FAST="$1"
@@ -393,6 +405,16 @@ EOF
     step_done
     echo ""
 else
+    step_start "Step 2d: Disk preflight (cleanup)"
+    ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
+        set -e
+        cd /var/www/taypro-dashboard
+        chmod +x scripts/deploy-disk-preflight.sh
+        DEPLOY_MIN_FREE_KB=$((2 * 1024 * 1024)) bash scripts/deploy-disk-preflight.sh
+EOF
+    step_done
+    echo ""
+
     step_start "Step 3: Verify existing staging build"
     ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
         set -e
@@ -446,9 +468,14 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF'
     fi
 
     # Staging standalone was moved during swap; drop heavy build artifacts to free disk.
-    rm -rf /var/www/taypro-dashboard/.release-build/.next/server \
-           /var/www/taypro-dashboard/.release-build/.next/cache 2>/dev/null || true
-    echo "  ✅ Trimmed staging build artifacts (server/cache)"
+    chmod +x scripts/deploy-disk-preflight.sh 2>/dev/null || true
+    if [ -x scripts/deploy-disk-preflight.sh ]; then
+        DEPLOY_MIN_FREE_KB=0 DEPLOY_WARN_FREE_KB=0 bash scripts/deploy-disk-preflight.sh || true
+    else
+        rm -rf /var/www/taypro-dashboard/.release-build/.next/server \
+               /var/www/taypro-dashboard/.release-build/.next/cache 2>/dev/null || true
+    fi
+    echo "  ✅ Trimmed staging build artifacts"
 
     ./scripts/deploy-cms-safe.sh save-metrics /tmp/taypro-cms-metrics-after-swap.json
     ./scripts/deploy-cms-safe.sh assert-unchanged /tmp/taypro-cms-metrics-before.json /tmp/taypro-cms-metrics-after-swap.json

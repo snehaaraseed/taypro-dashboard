@@ -37,7 +37,7 @@ import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { INSIGHTS_HUB_PATH } from "@/lib/seo/insights-hub";
 import { enqueueInsightTranslations } from "@/lib/translation/translation-queue";
 
-const MAX_RESEARCH_ATTEMPTS = 2;
+const MAX_RESEARCH_ATTEMPTS = 4;
 
 function monthIndexFromPeriod(period: string): number {
   const [year, month] = period.split("-").map(Number);

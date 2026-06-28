@@ -8,6 +8,7 @@ import type { TayproLocale } from "@/i18n/markets";
 import { getStoredAuthors } from "@/lib/cms/authorService";
 import { listPublishedBlogsForSitemap } from "@/lib/cms/blogService";
 import { listPublishedInsightsForSitemap } from "@/lib/cms/insightService";
+import { listPublishedPressReleasesForSitemap } from "@/lib/cms/pressReleaseService";
 import { listPublishedProjectsForSitemap } from "@/lib/cms/projectService";
 import {
   BLOG_LIST_PAGE_SIZE,
@@ -140,10 +141,11 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
   }
 
   try {
-    const [blogs, projects, insights] = await Promise.all([
+    const [blogs, projects, insights, pressReleases] = await Promise.all([
       listPublishedBlogsForSitemap(),
       listPublishedProjectsForSitemap(),
       listPublishedInsightsForSitemap(),
+      listPublishedPressReleasesForSitemap(),
     ]);
 
     const indexableBlogs = blogs.filter(
@@ -157,6 +159,9 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
     );
     const indexableInsights = insights.filter(
       (i) => isIndexableSlug(i.slug) && i.locale
+    );
+    const indexablePressReleases = pressReleases.filter(
+      (p) => isIndexableSlug(p.slug) && p.locale
     );
 
     const blogListByLocale = new Map<TayproLocale, typeof indexableBlogs>();
@@ -212,6 +217,14 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
       });
     }
 
+    for (const pr of indexablePressReleases) {
+      addForLocale(`/press/releases/${pr.slug}`, pr.locale as TayproLocale, {
+        lastModified: parseLastModified(pr.updatedAt, pr.publishDate),
+        changeFrequency: "monthly",
+        priority: 0.55,
+      });
+    }
+
     for (const locale of routing.locales) {
       const localeBlogs = blogListByLocale.get(locale) ?? [];
       if (localeBlogs.length === 0) continue;
@@ -230,7 +243,8 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
       blogs.length -
       indexableBlogs.length +
       (projects.length - indexableProjects.length) +
-      (insights.length - indexableInsights.length);
+      (insights.length - indexableInsights.length) +
+      (pressReleases.length - indexablePressReleases.length);
     if (skipped > 0) {
       console.warn(
         `[sitemap] Skipped ${skipped} CMS URL(s) with invalid slugs`

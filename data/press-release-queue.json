@@ -1,0 +1,46 @@
+{
+  "items": [
+    {
+      "id": "mds-launch-2026",
+      "angle": "product_launch",
+      "titleHint": "Taypro Launches Movable Docking Station for Solar Cleaning Robots",
+      "summary": "Taypro introduces a movable docking station (MDS) that enables autonomous row transfer for utility-scale solar cleaning robot fleets across India.",
+      "facts": [
+        "Taypro is India's #1 robotic solar module cleaning equipment supplier (Mercom 2024 leaderboard, 27.5% market share).",
+        "MDS enables robots to move between rows without manual intervention.",
+        "Taypro operates 5 GW+ of robotic cleaning capacity across Indian utility and C&I solar plants.",
+        "Waterless dry cleaning recovers up to 12% lost generation vs soiled modules."
+      ],
+      "quoteAttribution": "Yogesh Kudale, Co-Founder & CEO, Taypro",
+      "status": "pending"
+    },
+    {
+      "id": "mercom-market-leader-2025",
+      "angle": "milestone",
+      "titleHint": "Taypro Retains Leadership in India's Robotic Solar Cleaning Market",
+      "summary": "Taypro reinforces its position as India's leading supplier of robotic solar module cleaning equipment with continued deployments across major IPPs.",
+      "facts": [
+        "Mercom India ranked Taypro #1 in robotic solar cleaning equipment for 2024.",
+        "Deployments include Tata Power, Avaada, Amplus, and other major Indian solar portfolios.",
+        "Taypro offers both CAPEX and OPEX service models for robotic cleaning.",
+        "Fleet uses hybrid LoRa mesh connectivity for remote monitoring."
+      ],
+      "quoteAttribution": "Yogesh Kudale, Co-Founder & CEO, Taypro",
+      "status": "pending"
+    },
+    {
+      "id": "tech4good-award",
+      "angle": "award",
+      "titleHint": "Taypro Wins Gold at Mint Tech4Good Awards 2024 for Green AI in Solar",
+      "summary": "Taypro recognised with a Gold award at Mint Tech4Good Awards 2024 for AI-driven waterless solar cleaning solutions.",
+      "facts": [
+        "Mint Tech4Good Awards celebrate technology for social and environmental impact.",
+        "Taypro's AI scheduling optimises cleaning cycles based on soiling, weather, and generation data.",
+        "Waterless cleaning eliminates water use on arid solar sites.",
+        "Company headquartered in Pune, India."
+      ],
+      "quoteAttribution": "Yogesh Kudale, Co-Founder & CEO, Taypro",
+      "status": "pending"
+    }
+  ]
+}

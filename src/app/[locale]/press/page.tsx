@@ -5,6 +5,9 @@ import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { Container } from "@/app/components/Container";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import OpenLeadModalButton from "@/app/components/OpenLeadModalButton";
+import { listPublishedPressReleases } from "@/lib/cms/pressReleaseService";
+import { PRESS_RELEASES_PATH } from "@/lib/press/press-export";
+import { formatLocaleDate } from "@/i18n/format-date";
 import {
   PRESS_COVERAGE,
   type PressCoverageItem,
@@ -92,6 +95,7 @@ export default async function PressPage({
   ];
 
   const sections = groupCoverage(PRESS_COVERAGE);
+  const announcements = await listPublishedPressReleases(locale);
 
   return (
     <>
@@ -113,6 +117,42 @@ export default async function PressPage({
 
       <section className="py-14 md:py-20 bg-white px-4 sm:px-6">
         <Container className="max-w-3xl">
+          {announcements.length > 0 ? (
+            <AnimateOnScroll animation="fadeInUp" className="mb-14">
+              <h2 className="text-[#052638] font-semibold text-2xl md:text-3xl mb-3">
+                {t("announcementsHeading")}
+              </h2>
+              <p className="text-[#27415c] text-base leading-relaxed mb-8">
+                {t("announcementsIntro")}
+              </p>
+              <ul className="space-y-4">
+                {announcements.map((item) => (
+                  <li key={item.slug}>
+                    <Link
+                      href={`${PRESS_RELEASES_PATH}/${item.slug}`}
+                      className="block border border-gray-200 rounded-xl p-5 shadow-sm hover:border-[#5a8f00]/40 transition-colors"
+                    >
+                      <p className="text-sm text-gray-400 mb-1">
+                        {formatLocaleDate(locale, item.publishDate)}
+                      </p>
+                      <h3 className="text-[#052638] font-semibold text-lg leading-snug">
+                        {item.title}
+                      </h3>
+                      {item.subhead ? (
+                        <p className="mt-2 text-[#27415c] text-sm leading-relaxed">
+                          {item.subhead}
+                        </p>
+                      ) : null}
+                      <span className="mt-3 inline-block text-[#5a8f00] text-sm font-medium">
+                        {t("readRelease")}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </AnimateOnScroll>
+          ) : null}
+
           <AnimateOnScroll animation="fadeInUp" className="mb-10">
             <h2 className="text-[#052638] font-semibold text-2xl md:text-3xl mb-3">
               {t("listHeading")}

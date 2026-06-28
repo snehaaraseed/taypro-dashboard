@@ -36,7 +36,10 @@
       "submitLabel": "मीडिया पूछताछ भेजें",
       "thankYouTitle": "धन्यवाद - हमें आपका नोट मिल गया है",
       "thankYouMessage": "हमारी संचार टीम यथाशीघ्र जवाब देगी।"
-    }
+    },
+    "announcementsHeading": "आधिकारिक घोषणाएँ",
+    "announcementsIntro": "Taypro द्वारा प्रकाशित प्रेस विज्ञप्तियाँ। सिंडिकेशन के लिए हमारी RSS फ़ीड को PR निर्देशिकाओं में सबमिट करें।",
+    "readRelease": "पूरी विज्ञप्ति पढ़ें"
   },
   "Common": {
     "breadcrumbHome": "घर"

@@ -36,7 +36,10 @@
       "submitLabel": "মিডিয়া তদন্ত পাঠান",
       "thankYouTitle": "ধন্যবাদ, আমরা আপনার নোট পেয়েছি",
       "thankYouMessage": "আমাদের যোগাযোগ দল যত তাড়াতাড়ি সম্ভব প্রতিক্রিয়া জানাবে।"
-    }
+    },
+    "announcementsHeading": "অফিসিয়াল ঘোষণা",
+    "announcementsIntro": "Taypro দ্বারা প্রকাশিত প্রেস রিলিজ। সিন্ডিকেশনের জন্য PR ডিরেক্টরিতে আমাদের RSS ফিড জমা দিন।",
+    "readRelease": "সম্পূর্ণ রিলিজ পড়ুন"
   },
   "Common": {
     "breadcrumbHome": "বাড়ি"

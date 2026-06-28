@@ -36,7 +36,10 @@
       "submitLabel": "إرسال استفسار وسائل الإعلام",
       "thankYouTitle": "شكرًا, لقد حصلنا على ملاحظتك",
       "thankYouMessage": "سيقوم فريق الاتصالات لدينا بالرد في أقرب وقت ممكن."
-    }
+    },
+    "announcementsHeading": "الإعلانات الرسمية",
+    "announcementsIntro": "البيانات الصحفية التي نشرها Taypro. أرسل موجز RSS الخاص بنا إلى أدلة PR للمشاركة.",
+    "readRelease": "قراءة الإصدار الكامل"
   },
   "Common": {
     "breadcrumbHome": "بيت"

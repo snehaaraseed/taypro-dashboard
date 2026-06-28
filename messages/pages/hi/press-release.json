@@ -1,0 +1,13 @@
+{
+  "PressReleasePage": {
+    "breadcrumbPress": "Press",
+    "eyebrow": "Press release",
+    "published": "Published {date}",
+    "mediaContact": "Media contact",
+    "backToPress": "Back to press hub",
+    "contactCta": "Contact media team"
+  },
+  "Common": {
+    "breadcrumbHome": "Home"
+  }
+}
