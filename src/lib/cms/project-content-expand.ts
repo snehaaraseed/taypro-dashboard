@@ -55,7 +55,6 @@ CURRENT HTML (keep every existing <h2> heading text unchanged; expand body copy 
 ${input.content}
 
 RULES:
-- Return ONLY the full expanded HTML document (all sections from current draft).
 - Expand EXISTING sections in place with site-specific O&M, SCADA, lender-pack, or regional detail.
 - Do NOT add new <h2> headings. Do not remove the stats table.
 - Do NOT duplicate paragraphs or repeat H2 blocks.
@@ -65,7 +64,16 @@ ${ANTI_GENERIC_WRITING_RULES}
 ${PUNCTUATION_RULES}
 ${SEO_AND_READER_RULES}
 
-The expanded HTML MUST be at least ${input.policy.publishMin} words (currently ${wordCount}; need ~${wordsNeeded} more).`;
+The expanded HTML MUST be at least ${input.policy.publishMin} words (currently ${wordCount}; need ~${wordsNeeded} more).
+
+OUTPUT FORMAT (strict):
+- Do NOT show any planning, outlines, drafts, revisions, word-count checks, self-corrections, or commentary.
+- Output the full expanded HTML document ONLY (all sections from current draft), wrapped exactly between the markers below.
+- Nothing before the first marker and nothing after the last marker.
+
+===HTML===
+<the final full HTML document only>
+===END===`;
 }
 
 /** Expand composed case-study HTML in one pass (mirrors blog expandShortBlogDraft). */

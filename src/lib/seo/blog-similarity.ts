@@ -4,8 +4,10 @@ import { extractKeywords, jaccardSimilarity } from "./blog-similarity-scoring";
 export type { BlogSimilarityInput } from "./blog-similarity-scoring";
 export {
   extractKeywords,
+  extractDistinctiveKeywords,
   jaccardSimilarity,
   calculateBlogSimilarity,
+  calculateProjectSimilarity,
 } from "./blog-similarity-scoring";
 
 const TITLE_SIMILARITY_THRESHOLD = 0.78;
@@ -21,6 +23,16 @@ export function getBlogH2OverlapThreshold(): number {
   const raw = process.env.BLOG_H2_OVERLAP_THRESHOLD?.trim();
   const parsed = raw ? Number.parseFloat(raw) : 0.6;
   return Number.isFinite(parsed) && parsed > 0 && parsed <= 1 ? parsed : 0.6;
+}
+
+/**
+ * Project body uniqueness threshold (pure Jaccard of distinctive keywords).
+ * Distinct real plants score well below this; near-duplicate text approaches 1.
+ */
+export function getProjectSimilarityThreshold(): number {
+  const raw = process.env.PROJECT_SIMILARITY_THRESHOLD?.trim();
+  const parsed = raw ? Number.parseFloat(raw) : 0.6;
+  return Number.isFinite(parsed) && parsed > 0 && parsed < 1 ? parsed : 0.6;
 }
 
 export function getTitleSimilarityThreshold(): number {

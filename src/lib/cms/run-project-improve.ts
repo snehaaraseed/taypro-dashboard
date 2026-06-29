@@ -32,6 +32,7 @@ import {
   type ProjectContentPlan,
 } from "@/lib/seo/project-section-writer";
 import { buildProjectKnowledgeContext } from "@/lib/seo/project-knowledge-context";
+import { trimSerpDescription } from "@/lib/seo/serp-description";
 import {
   assertGeneratedProjectValid,
   validateGeneratedProject,
@@ -212,7 +213,7 @@ export async function runProjectImprove(
   content = demoteH1ToH2(content);
 
   const details = buildDetailsFromFacts(facts);
-  const description = plan.description || input.description;
+  const description = trimSerpDescription(plan.description || input.description);
 
   const validationInput = {
     title: input.title,

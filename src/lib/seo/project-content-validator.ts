@@ -5,7 +5,6 @@ import { assertFactsReflectedInContent } from "@/lib/cms/project-facts";
 import { extractH2Headings, stripHtmlToPlainText } from "@/lib/seo/blog-similarity";
 import { findInlineImgAltIssue } from "@/lib/seo/blog-body-hygiene";
 import { resolveProjectWordCountPolicy } from "@/lib/seo/project-content-outline";
-import { SERP_DESCRIPTION_MAX } from "@/lib/seo/serp-description";
 
 export class ProjectContentValidationError extends Error {
   readonly issues: string[];
@@ -34,6 +33,35 @@ export type ProjectContentValidationInput = {
 
 function countWords(text: string): number {
   return text.split(/\s+/).filter(Boolean).length;
+}
+
+/**
+ * Detects leaked AI planning/reasoning scaffolding that must never be published
+ * (markdown bullets, "Drafting/Revised" notes, word-count checks, echoed prompt
+ * rules, or leftover output-format sentinels).
+ */
+const LEAKED_REASONING_PATTERNS: RegExp[] = [
+  /^\s*\*\s{2,}\S/m,
+  /\bDrafting\s+(?:P\d|Para|Paragraph)\b/i,
+  /\bRevised\s+(?:P\d|Para|Paragraph|Section|Text|Checklist)\b/i,
+  /\bWord\s*count\s*(?:check)?\b/i,
+  /\bSelf[-\s]?correction\b/i,
+  /\bReturn ONLY the HTML\b/i,
+  /={3}\s*HTML\s*={3}/i,
+  /={3}\s*END\s*={3}/i,
+  /^\s*\d+\s*[–-]\s*\d+\s*words\b/im,
+  /^\s*HTML fragment\.?\s*$/im,
+  /`<\/?[a-z][^`]*>`/i,
+];
+
+export function findLeakedReasoningArtifact(content: string): string | null {
+  for (const re of LEAKED_REASONING_PATTERNS) {
+    const match = content.match(re);
+    if (match) {
+      return match[0].trim().slice(0, 80);
+    }
+  }
+  return null;
 }
 
 function hasDuplicateH2(h2s: string[]): string | null {
@@ -81,10 +109,8 @@ export function validateGeneratedProject(
   }
 
   const descLen = input.description.trim().length;
-  if (descLen < 120 || descLen > SERP_DESCRIPTION_MAX) {
-    issues.push(
-      `Meta description ${descLen} chars (target 140–155, allow 120–${SERP_DESCRIPTION_MAX})`
-    );
+  if (descLen < 120) {
+    issues.push(`Meta description ${descLen} chars (minimum 120)`);
   }
 
   const h2s = extractH2Headings(input.content);
@@ -106,6 +132,11 @@ export function validateGeneratedProject(
 
   if (/<h1\b/i.test(input.content)) {
     issues.push("Body must not contain <h1>");
+  }
+
+  const leaked = findLeakedReasoningArtifact(input.content);
+  if (leaked) {
+    issues.push(`Content contains leaked AI reasoning/scaffolding: "${leaked}"`);
   }
 
   const imgAltIssue = findInlineImgAltIssue(input.content);

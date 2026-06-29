@@ -62,6 +62,60 @@ function stripCodeFences(html: string): string {
     .trim();
 }
 
+export const SECTION_HTML_START = "===HTML===";
+export const SECTION_HTML_END = "===END===";
+
+/** Take only the text inside the last ===HTML=== ... ===END=== block, if present. */
+function extractBetweenSentinels(text: string): string | null {
+  const startRe = /===HTML===/gi;
+  let lastStart = -1;
+  let m: RegExpExecArray | null;
+  while ((m = startRe.exec(text)) !== null) {
+    lastStart = m.index + m[0].length;
+  }
+  if (lastStart < 0) return null;
+  let rest = text.slice(lastStart);
+  const endMatch = rest.match(/===END===/i);
+  if (endMatch && endMatch.index !== undefined) {
+    rest = rest.slice(0, endMatch.index);
+  }
+  return rest.trim();
+}
+
+/**
+ * Strong markers that only ever appear in leaked model reasoning, never in the
+ * final HTML answer. The clean fragment is always emitted AFTER the last such
+ * marker, so we slice from there.
+ */
+const STRONG_REASONING_RE =
+  /(?:\*\s{2,})|(?:\bDrafting\s+(?:P\d|Para))|(?:\bRevised\s+(?:P\d|Para|Section|Text|Checklist))|(?:\bWord\s*count\b)|(?:\bSelf[-\s]?correction\b)|(?:\bDouble check\b)|(?:Return ONLY the HTML)|(?:={3}\s*HTML\s*={3})|(?:^\s*\d+\s*[–-]\s*\d+\s*words\b)|(?:^\s*HTML fragment\.?\s*$)/gim;
+
+/**
+ * Best-effort recovery when sentinels are absent: drop everything up to and
+ * including the last strong reasoning marker, then keep from the first HTML tag.
+ * Defense-in-depth only; the validator still rejects any residual artifacts.
+ */
+function stripLeakedReasoning(text: string): string {
+  let lastEnd = -1;
+  let m: RegExpExecArray | null;
+  STRONG_REASONING_RE.lastIndex = 0;
+  while ((m = STRONG_REASONING_RE.exec(text)) !== null) {
+    lastEnd = m.index + m[0].length;
+    if (m.index === STRONG_REASONING_RE.lastIndex) STRONG_REASONING_RE.lastIndex++;
+  }
+  const tail = lastEnd >= 0 ? text.slice(lastEnd) : text;
+  const firstTag = tail.search(/<\/?[a-z]/i);
+  return (firstTag >= 0 ? tail.slice(firstTag) : tail).trim();
+}
+
+/** Extract clean section HTML from a Gemma response that may contain reasoning. */
+export function extractSectionHtml(text: string): string {
+  const fenced = stripCodeFences(text);
+  const sentinel = extractBetweenSentinels(fenced);
+  if (sentinel) return stripCodeFences(sentinel);
+  return stripLeakedReasoning(fenced);
+}
+
 export async function generateProjectPlanWithGemini(
   prompt: string
 ): Promise<ProjectContentPlan> {
@@ -81,14 +135,14 @@ export async function writeProjectSectionWithGemini(
   prompt: string
 ): Promise<string> {
   const text = await generateText(prompt, false);
-  return stripCodeFences(text);
+  return extractSectionHtml(text);
 }
 
 export async function expandProjectHtmlWithGemini(
   prompt: string
 ): Promise<string> {
   const text = await generateText(prompt, true);
-  return stripCodeFences(text);
+  return extractSectionHtml(text);
 }
 
 export async function generateProjectMetaDescription(

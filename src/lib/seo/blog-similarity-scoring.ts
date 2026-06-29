@@ -80,3 +80,40 @@ export function calculateBlogSimilarity(
 
   return similarity + titleBoost;
 }
+
+/**
+ * Solar case-study vocabulary shared by every Taypro project page. Excluded from
+ * project uniqueness scoring so similarity reflects real differentiation
+ * (location, scale, named systems, outcomes) rather than industry boilerplate.
+ */
+const SOLAR_DOMAIN_STOP_WORDS = new Set([
+  "solar", "panel", "panels", "cleaning", "clean", "cleaner", "cleaners",
+  "robot", "robots", "robotic", "robotics", "plant", "plants", "mw", "gw",
+  "energy", "yield", "power", "water", "savings", "save", "saving", "taypro",
+  "case", "study", "studies", "project", "projects", "system", "systems",
+  "deployment", "deployments", "installation", "site", "sites", "module",
+  "modules", "pv", "generation", "performance", "operations", "operation",
+  "fleet", "dust", "soiling", "glyde", "nectyr", "automatic", "semi", "capex",
+  "opex", "cleaned", "waterless", "utility", "scale", "higher", "smarter",
+  "intelligent", "achieving", "deliver", "delivers",
+]);
+
+export function extractDistinctiveKeywords(text: string): Set<string> {
+  const base = extractKeywords(text);
+  for (const word of SOLAR_DOMAIN_STOP_WORDS) base.delete(word);
+  return base;
+}
+
+/**
+ * Project case-study similarity: pure Jaccard over distinctive keywords.
+ * No title boost (titles are not rewritten and share generic solar terms) and
+ * domain vocabulary is stripped, so the score measures substantive overlap.
+ */
+export function calculateProjectSimilarity(
+  a: BlogSimilarityInput,
+  b: BlogSimilarityInput
+): number {
+  const keywords1 = extractDistinctiveKeywords(`${a.title} ${a.description}`);
+  const keywords2 = extractDistinctiveKeywords(`${b.title} ${b.description}`);
+  return jaccardSimilarity(keywords1, keywords2);
+}

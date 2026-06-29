@@ -57,11 +57,16 @@ ${regionalBlock}
 ${formatWordCountPolicyForPrompt(policy)}
 ${knowledgeContext}
 
+DIFFERENTIATION (critical for SEO — every Taypro case study must read as a distinct page):
+- Lead with THIS plant's specifics: exact location/district, state, capacity (MW), fleet size and mix, and the named outcome.
+- Frame the narrative around this site's unique soiling, terrain, and O&M situation — not generic "robotic cleaning saves water" copy shared by other projects.
+- Avoid boilerplate sentences that could apply to any plant; anchor every claim to this project's facts and region.
+
 ${improvementBrief ? `IMPROVEMENT NOTES: ${improvementBrief}` : ""}
 
 Return ONLY valid JSON:
 {
-  "description": "Meta description 140-160 chars with location, MW, outcome",
+  "description": "Meta description 140-155 chars with location, MW, outcome",
   "executiveSummaryOutline": "3 bullet points for exec summary",
   "sectionNotes": {
     "environment": "angle for this site",
@@ -124,9 +129,17 @@ RULES:
 - Output HTML with <p>, <ul>, <h3> only, NO <h2>, NO <h1>.
 - Do NOT invent client names, ROI %, or specs outside facts.
 - Do NOT repeat exact metrics from facts table in long form, reference qualitatively.
+- Anchor wording to THIS plant (location, MW, fleet, region). Avoid generic phrasing reusable across other case studies.
 ${ANTI_GENERIC_WRITING_RULES}
 ${PUNCTUATION_RULES}
 ${SEO_AND_READER_RULES}
 
-Return ONLY the HTML fragment for this section.`;
+OUTPUT FORMAT (strict):
+- Do NOT show any planning, outlines, drafts, revisions, word-count checks, self-corrections, or commentary.
+- Output the finished HTML fragment ONLY, wrapped exactly between the markers below.
+- Nothing before the first marker and nothing after the last marker.
+
+===HTML===
+<the final HTML fragment only>
+===END===`;
 }

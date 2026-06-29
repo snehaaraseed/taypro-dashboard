@@ -4,12 +4,12 @@ import { getProjectBySlug, listAllProjects } from "@/lib/cms/projectService";
 import { SOURCE_LOCALE } from "@/lib/translation/config";
 import {
   buildContentFingerprint,
-  calculateBlogSimilarity,
+  calculateProjectSimilarity,
   descriptionsTooSimilar,
   extractH2Headings,
   fingerprintsMatch,
   getBlogH2OverlapThreshold,
-  getBlogSimilarityThreshold,
+  getProjectSimilarityThreshold,
   h2OverlapScore,
   stripHtmlToPlainText,
   titlesTooSimilar,
@@ -46,7 +46,7 @@ export function findTooSimilarProject(
   const draftFingerprint = draft.content
     ? buildContentFingerprint(draft.title, draft.description, draft.content)
     : null;
-  const keywordThreshold = getBlogSimilarityThreshold();
+  const keywordThreshold = getProjectSimilarityThreshold();
   const h2Threshold = getBlogH2OverlapThreshold();
 
   for (const existing of corpus) {
@@ -99,7 +99,7 @@ export function findTooSimilarProject(
         };
       }
 
-      const keywordScore = calculateBlogSimilarity(
+      const keywordScore = calculateProjectSimilarity(
         {
           title: draft.title,
           description: `${draft.description} ${stripHtmlToPlainText(draft.content).slice(0, 4000)}`,
@@ -109,7 +109,7 @@ export function findTooSimilarProject(
           description: `${existing.description} ${stripHtmlToPlainText(existingContent).slice(0, 4000)}`,
         }
       );
-      if (keywordScore > keywordThreshold && keywordScore > 0.72) {
+      if (keywordScore > keywordThreshold) {
         return {
           slug: existing.slug,
           title: existing.title,
@@ -141,12 +141,12 @@ export async function assertProjectContentNotTooSimilar(
     Pick<ProjectDraftInput, "slug">
 ): Promise<void> {
   const corpus = await loadExistingProjectCorpus();
-  const keywordThreshold = getBlogSimilarityThreshold();
+  const keywordThreshold = getProjectSimilarityThreshold();
   const candidates = corpus
     .filter((p) => p.slug !== draft.slug)
     .map((post) => ({
       post,
-      score: calculateBlogSimilarity(draft, {
+      score: calculateProjectSimilarity(draft, {
         title: post.title,
         description: post.description,
       }),
