@@ -33,7 +33,7 @@ function isRunInFlight(): boolean {
  * POST: CMS translation (AUTOMATION_CRON_SECRET).
  * postWriter=true or catchup=true: full backlog until both Gemini keys hit quota
  * or stopAtEpoch (post-writer defaults to next 00:30 Pacific soft start ≈ 1:00 PM IST).
- * When translation backlog is empty, rewrites legacy English projects until quota/deadline.
+ * Rewrites legacy English projects first; translations run only after that backlog is empty.
  */
 export async function POST(request: NextRequest) {
   if (!isAutomationAuthorized(request)) {

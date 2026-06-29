@@ -31,6 +31,7 @@ import {
 } from "./translate-cms";
 import {
   isCmsProjectImproveDisabled,
+  listProjectSlugsNeedingImprove,
   processProjectImproveBacklog,
   type ProcessProjectImproveBacklogResult,
 } from "@/lib/cms/project-improve-queue";
@@ -489,7 +490,7 @@ export type ProcessDailyTranslationsResult = {
   catchup?: boolean;
   clearedQueueRows: number;
   items: DailyTranslationItemResult[];
-  /** Post-writer legacy project rewrites after translation backlog is drained. */
+  /** Post-writer legacy project rewrites (runs before translations in catchup mode). */
   projectImprove?: ProcessProjectImproveBacklogResult | null;
 };
 
@@ -601,8 +602,9 @@ export type DailyTranslationLog = (
 ) => void;
 
 /**
- * Translate CMS blogs/projects (interleaved, one item at a time).
- * Post-writer mode: catchup=true + shouldStop at midnight IST (no daily cap).
+ * CMS automation worker: legacy project rewrites (catchup) then translations.
+ * Post-writer mode: catchup=true + shouldStop at quota soft start (no daily cap).
+ * Translations run only after the legacy rewrite backlog is empty.
  * Legacy mode: maxPerDay cap (manual/debug only).
  */
 function emptyCatchupTranslationResult(): ProcessDailyTranslationsResult {
@@ -749,9 +751,35 @@ async function runDailyTranslationsBody(
     queue: queue.map((entry) => `${entry.contentType}:${entry.slug}`),
   });
 
-  let translationSinceImprove = 0;
+  if (catchup && !isCmsProjectImproveDisabled()) {
+    const improveResult = await processProjectImproveBacklog({
+      shouldStop,
+      log,
+    });
+    result.projectImprove = improveResult;
+    if (improveResult.quotaStopped) stopForQuota = true;
+    if (improveResult.deadlineStopped) deadlineStopped = true;
+  }
 
-  for (const item of queue) {
+  const rewriteBacklogRemaining = catchup
+    ? (await listProjectSlugsNeedingImprove()).length
+    : 0;
+  const mayRunTranslations =
+    !catchup ||
+    isCmsProjectImproveDisabled() ||
+    rewriteBacklogRemaining === 0;
+
+  if (catchup && !mayRunTranslations) {
+    log?.("translation_phase_skip", {
+      reason: "rewrite_backlog_remaining",
+      rewriteBacklog: rewriteBacklogRemaining,
+      blogs: blogBacklog,
+      projects: projectBacklog,
+      insights: insightBacklog,
+    });
+  }
+
+  for (const item of mayRunTranslations ? queue : []) {
     if (stopForQuota) break;
     if (shouldStop?.()) {
       deadlineStopped = true;
@@ -908,26 +936,6 @@ async function runDailyTranslationsBody(
 
     result.processed += 1;
     if (itemResult) result.items.push(itemResult);
-
-    if (
-      catchup &&
-      !stopForQuota &&
-      !deadlineStopped &&
-      !isCmsProjectImproveDisabled()
-    ) {
-      translationSinceImprove += 1;
-      if (translationSinceImprove >= 3) {
-        translationSinceImprove = 0;
-        const slice = await processProjectImproveBacklog({
-          shouldStop,
-          log,
-          maxPerRun: 1,
-        });
-        result.projectImprove = slice;
-        if (slice.quotaStopped) stopForQuota = true;
-        if (slice.deadlineStopped) deadlineStopped = true;
-      }
-    }
   }
 
   result.deadlineStopped = deadlineStopped;
@@ -944,44 +952,6 @@ async function runDailyTranslationsBody(
   if (stopForQuota) {
     result.quotaSkippedForDay = true;
     result.clearedQueueRows = await clearAllTranslationQueueRows();
-  }
-
-  if (
-    catchup &&
-    !stopForQuota &&
-    !deadlineStopped &&
-    !isCmsProjectImproveDisabled()
-  ) {
-    const [blogNeed, projectNeed, insightNeed] = await Promise.all([
-      listBlogSlugsNeedingTranslation(),
-      listProjectSlugsNeedingTranslation(),
-      listInsightSlugsNeedingTranslation(),
-    ]);
-
-    if (
-      blogNeed.length === 0 &&
-      projectNeed.length === 0 &&
-      insightNeed.length === 0
-    ) {
-      const improveResult = await processProjectImproveBacklog({
-        shouldStop,
-        log,
-      });
-      result.projectImprove = improveResult;
-      if (improveResult.quotaStopped) {
-        result.quotaSkippedForDay = true;
-      }
-      if (improveResult.deadlineStopped) {
-        result.deadlineStopped = true;
-      }
-    } else {
-      log?.("project_improve_phase_skip", {
-        reason: "translation_backlog_remaining",
-        blogs: blogNeed.length,
-        projects: projectNeed.length,
-        insights: insightNeed.length,
-      });
-    }
   }
 
   return result;

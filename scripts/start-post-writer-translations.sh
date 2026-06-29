@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Start post-writer translation via PM2 HTTP API (avoids standalone tsx server-only issues).
 # Runs until quota exhaustion or the next Gemini soft start (~1:00 PM IST).
-# Phase 1: translate blog/project backlog. Phase 2 (when backlog empty): rewrite legacy projects.
+# Phase 1: rewrite legacy English projects. Phase 2 (when rewrite backlog empty): translate CMS content.
 set -euo pipefail
 
 ROOT="${TAYPRO_APP_ROOT:-/var/www/taypro-dashboard}"
