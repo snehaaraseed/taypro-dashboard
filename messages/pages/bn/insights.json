@@ -73,6 +73,39 @@
       "calculator": "ROI calculator খুলুন",
       "methodology": "Test methodology",
       "contact": "Taypro-এর সাথে যোগাযোগ"
+    },
+    "pdf": {
+      "download": "PDF ডাউনলোড করুন",
+      "downloadLoading": "পিডিএফ তৈরি করা হচ্ছে...",
+      "docTitle": "Taypro অন্তর্দৃষ্টি",
+      "publishedOn": "প্রকাশিত {date}",
+      "disclaimerShort": "শুধুমাত্র তথ্য সংগ্রহ গবেষণা, একটি বাধ্যতামূলক উদ্ধৃতি বা প্রকৌশল অধ্যয়ন নয়।",
+      "disclaimerBody": "এই Taypro অন্তর্দৃষ্টি প্রতিবেদনটি ভারতে ইউটিলিটি-স্কেল সৌর পরিষ্কারের সিদ্ধান্তের জন্য শিল্প গবেষণা এবং Taypro ROI মডেলগুলির সারসংক্ষেপ করে৷ শিল্প-সাধারণ হিসাবে লেবেল করা পরিসংখ্যান প্রতিবেদনে একটি নামযুক্ত উত্সের সাথে আবদ্ধ না হওয়া পর্যন্ত দিকনির্দেশক। সাইট-নির্দিষ্ট প্রকৌশল, মূল্য, বা কর্মক্ষমতা গ্যারান্টির জন্য, সরাসরি Taypro এ যোগাযোগ করুন।",
+      "disclaimerHeading": "দাবিত্যাগ",
+      "aboutHeading": "About Taypro",
+      "aboutBody": "Taypro Private Limited is a Made-in-India manufacturer of autonomous solar panel cleaning robots, headquartered in Chakan, Pune. Taypro's waterless dry-cleaning systems support 5 GW+ of utility and C&I solar capacity across India. Taypro Insights publishes procurement research grounded in live industry data and deterministic ROI models.",
+      "statCapacityLabel": "Cleaning capacity supported",
+      "statCapacityValue": "5 GW+",
+      "statSitesLabel": "Utility sites live",
+      "statSitesValue": "150+",
+      "statWaterLabel": "Water saved annually",
+      "statWaterValue": "875M L",
+      "nextStepsHeading": "Next steps",
+      "nextStepsBody": "Share this report with your O&M or procurement team. Use Taypro's ROI calculator and performance methodology to stress-test vendor claims, or contact us for a site-specific discussion.",
+      "contactHeading": "Taypro-এর সাথে কথা বলুন",
+      "contactWebsite": "ওয়েবসাইট",
+      "contactEmail": "ইমেইল",
+      "contactPhone": "ফোন / WhatsApp",
+      "error": "PDF তৈরি করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন বা Taypro এর সাথে যোগাযোগ করুন।"
+    },
+    "contents": "বিষয়বস্তু",
+    "tocLabel": "বিষয়বস্তুর সারণী",
+    "backToInsights": "সমস্ত রিপোর্টে ফিরে যান",
+    "sidebar": {
+      "product": "পণ্য",
+      "title": "আবিষ্কার করুন Taypro সোলার ক্লিনিং রোবট",
+      "body": "ম্যানুয়াল প্রচেষ্টা হ্রাস করুন, প্যানেলের কর্মক্ষমতা উন্নত করুন এবং Taypro এর সাথে স্বয়ংক্রিয় রক্ষণাবেক্ষণ করুন৷",
+      "cta": "পণ্য অন্বেষণ"
     }
   }
 }

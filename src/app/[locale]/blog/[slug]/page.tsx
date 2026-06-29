@@ -373,6 +373,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
                       title={t("faqHeading")}
                       faqs={postFaqs}
                       className="!py-10 md:!py-12"
+                      animate={false}
                     />
                   </div>
                 ) : null}

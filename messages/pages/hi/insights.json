@@ -73,6 +73,39 @@
       "calculator": "ROI calculator खोलें",
       "methodology": "Test methodology",
       "contact": "Taypro से संपर्क करें"
+    },
+    "pdf": {
+      "download": "पीडीएफ डाउनलोड करें",
+      "downloadLoading": "पीडीएफ उत्पन्न हो रहा है...",
+      "docTitle": "Taypro अंतर्दृष्टि",
+      "publishedOn": "प्रकाशित {date}",
+      "disclaimerShort": "केवल सूचनात्मक खरीद अनुसंधान, बाध्यकारी उद्धरण या इंजीनियरिंग अध्ययन नहीं।",
+      "disclaimerBody": "यह Taypro इनसाइट्स रिपोर्ट भारत में उपयोगिता-पैमाने पर सौर सफाई निर्णयों के लिए उद्योग अनुसंधान और Taypro ROI मॉडल का सारांश प्रस्तुत करती है। उद्योग-विशिष्ट के रूप में लेबल किए गए आंकड़े दिशात्मक होते हैं जब तक कि रिपोर्ट में नामित स्रोत से जुड़े न हों। साइट-विशिष्ट इंजीनियरिंग, मूल्य निर्धारण, या प्रदर्शन गारंटी के लिए, सीधे Taypro से संपर्क करें।",
+      "disclaimerHeading": "अस्वीकरण",
+      "aboutHeading": "Taypro के बारे में",
+      "aboutBody": "Taypro Private Limited भारत में autonomous solar panel cleaning robots का Made-in-India manufacturer है, Chakan, Pune में headquartered। Taypro के waterless dry-cleaning systems भारत भर में 5 GW+ utility और C&I solar capacity को support करते हैं। Taypro Insights procurement research publish करता है ताकि IPPs और O&M teams cleaning economics और vendor claims evidence के साथ evaluate कर सकें।",
+      "statCapacityLabel": "Cleaning capacity supported",
+      "statCapacityValue": "5 GW+",
+      "statSitesLabel": "Utility sites live",
+      "statSitesValue": "150+",
+      "statWaterLabel": "Water saved annually",
+      "statWaterValue": "875M L",
+      "nextStepsHeading": "अगले कदम",
+      "nextStepsBody": "इस रिपोर्ट को अपनी O&M या procurement team के साथ share करें। Vendor claims stress-test करने के लिए Taypro ROI calculator और performance methodology का उपयोग करें, या site-specific robot count, cycle plan और quotation के लिए हमसे संपर्क करें।",
+      "contactHeading": "Taypro से बात करें",
+      "contactWebsite": "वेबसाइट",
+      "contactEmail": "ईमेल",
+      "contactPhone": "फोन / WhatsApp",
+      "error": "पीडीएफ जनरेट नहीं किया जा सका. कृपया पुनः प्रयास करें या Taypro से संपर्क करें।"
+    },
+    "contents": "अंतर्वस्तु",
+    "tocLabel": "विषयसूची",
+    "backToInsights": "सभी रिपोर्टों पर वापस जाएँ",
+    "sidebar": {
+      "product": "उत्पाद",
+      "title": "डिस्कवर Taypro सोलर क्लीनिंग रोबोट",
+      "body": "Taypro के साथ मैन्युअल प्रयास कम करें, पैनल प्रदर्शन में सुधार करें और रखरखाव स्वचालित करें।",
+      "cta": "उत्पाद का अन्वेषण करें"
     }
   }
 }

@@ -67,12 +67,45 @@
     "breadcrumbInsights": "Insights",
     "eyebrowResearch": "Research report",
     "published": "Published {date}",
+    "contents": "Contents",
+    "tocLabel": "Table of contents",
+    "backToInsights": "Back to all reports",
+    "sidebar": {
+      "product": "Product",
+      "title": "Discover Taypro Solar Cleaning Robot",
+      "body": "Reduce manual effort, improve panel performance, and automate maintenance with Taypro.",
+      "cta": "Explore product"
+    },
     "cta": {
       "heading": "Apply this research to your plant",
       "body": "Use our ROI calculator and performance methodology to stress-test vendor claims, or contact Taypro for a site-specific discussion.",
       "calculator": "Open ROI calculator",
       "methodology": "Test methodology",
       "contact": "Contact Taypro"
+    },
+    "pdf": {
+      "download": "Download PDF",
+      "downloadLoading": "Generating PDF…",
+      "docTitle": "Taypro Insights",
+      "publishedOn": "Published {date}",
+      "disclaimerShort": "Informational procurement research only, not a binding quote or engineering study.",
+      "disclaimerHeading": "Disclaimer",
+      "disclaimerBody": "This Taypro Insights report summarizes industry research and Taypro ROI models for utility-scale solar cleaning decisions in India. Figures labelled as industry-typical are directional unless tied to a named source in the report. For site-specific engineering, pricing, or performance guarantees, contact Taypro directly.",
+      "aboutHeading": "About Taypro",
+      "aboutBody": "Taypro Private Limited is a Made-in-India manufacturer of autonomous solar panel cleaning robots, headquartered in Chakan, Pune. Taypro's waterless dry-cleaning systems support 5 GW+ of utility and C&I solar capacity across India, helping asset owners recover generation, cut O&M costs, and reduce wet-wash water use. Taypro Insights publishes procurement research grounded in live industry data and deterministic ROI models so IPPs and O&M teams can evaluate cleaning economics and vendor claims with evidence.",
+      "statCapacityLabel": "Cleaning capacity supported",
+      "statCapacityValue": "5 GW+",
+      "statSitesLabel": "Utility sites live",
+      "statSitesValue": "150+",
+      "statWaterLabel": "Water saved annually",
+      "statWaterValue": "875M L",
+      "nextStepsHeading": "Next steps",
+      "nextStepsBody": "Share this report with your O&M or procurement team. Use Taypro's ROI calculator and performance methodology to stress-test vendor claims, or contact us for a site-specific robot count, cycle plan, and quotation.",
+      "contactHeading": "Talk to Taypro",
+      "contactWebsite": "Website",
+      "contactEmail": "Email",
+      "contactPhone": "Phone / WhatsApp",
+      "error": "Could not generate the PDF. Please try again or contact Taypro."
     }
   }
 }

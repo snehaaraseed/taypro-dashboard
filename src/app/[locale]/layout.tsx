@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import AccumulatingIntlProvider from "@/app/components/AccumulatingIntlProvider";
-import { LAYOUT_CLIENT_NAMESPACES } from "@/i18n/client-message-namespaces";
-import { pickMessages } from "@/i18n/pick-messages";
+import { buildLayoutClientMessages } from "@/i18n/pick-messages";
 import { loadMessagesForClient } from "@/i18n/load-messages";
 import { HtmlLocaleAttributes } from "@/app/components/HtmlLocaleAttributes";
 import { SiteGraphSchema } from "@/app/components/StructuredData";
@@ -92,20 +92,16 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
 
-  // Ship only layout-chrome client namespaces at first paint. Page-specific
-  // client namespaces are accumulated on the client by AccumulatingIntlProvider
-  // (it reads usePathname() and fetches via /api/i18n/messages). Reading the
-  // request pathname here would force dynamic rendering and break edge caching.
   const clientCatalog = await loadMessagesForClient(locale);
-  const clientMessages = pickMessages(clientCatalog, [
-    ...LAYOUT_CLIENT_NAMESPACES,
-  ]);
+  const headerStore = await headers();
+  const logicalPath = headerStore.get("x-logical-pathname") ?? "/";
+  const clientMessages = buildLayoutClientMessages(clientCatalog, logicalPath);
 
   return (
     <AccumulatingIntlProvider
       locale={locale}
       messages={clientMessages}
-      initialLogicalPath="/"
+      initialLogicalPath={logicalPath}
     >
       <VisitorGeoProvider>
       <HtmlLocaleAttributes />

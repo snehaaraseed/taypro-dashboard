@@ -258,6 +258,16 @@ export function trackRoiCalculatorPdf(options: {
   });
 }
 
+export function trackInsightReportPdf(options: {
+  slug: string;
+  pagePath?: string;
+}): void {
+  trackEvent("insight_report_pdf", {
+    insight_slug: options.slug,
+    page_path: options.pagePath,
+  });
+}
+
 export function trackNotFoundRecovery(options: {
   recoveryType: "did_you_mean" | "quick_link";
   destination: string;

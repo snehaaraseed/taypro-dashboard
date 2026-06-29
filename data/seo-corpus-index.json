@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-06-26T18:22:51.660Z",
+  "builtAt": "2026-06-28T18:54:38.748Z",
   "locale": "en",
   "entries": [
     {
@@ -814,7 +814,7 @@
     },
     {
       "slug": "taypro-wins-historic-patent-for-revolutionary-solar-panel-cleaning-system",
-      "title": "Taypro Wins 4 Patents for Its Solar Panel Cleaning System: What the \"Dual Pass\" Technology Actually Does",
+      "title": "Taypro Wins 4 Patents for Its Solar Panel Cleaning System — What the \"Dual Pass\" Technology Actually Does",
       "description": "",
       "primaryKeyword": "dual pass solar panel cleaning system",
       "structuralArchetype": "general_om",
@@ -1050,13 +1050,13 @@
         "quick answer",
         "executive summary",
         "comparison of india's top 15 solar parks",
-        "1. bhadla solar park (rajasthan), 2,245 mw",
-        "2. pavagada solar park (karnataka), 2,050 mw",
-        "3. kurnool ultra mega solar park (andhra pradesh), 1,000 mw",
-        "4. kadapa ultra mega solar park (andhra pradesh), ~1,000 mw",
-        "5. np kunta ultra mega solar park (andhra pradesh), 978 mw",
-        "6. rewa ultra mega solar park (madhya pradesh), 750 mw",
-        "7. kamuthi solar power project (tamil nadu), 648 mw",
+        "1. bhadla solar park (rajasthan) — 2,245 mw",
+        "2. pavagada solar park (karnataka) — 2,050 mw",
+        "3. kurnool ultra mega solar park (andhra pradesh) — 1,000 mw",
+        "4. kadapa ultra mega solar park (andhra pradesh) — ~1,000 mw",
+        "5. np kunta ultra mega solar park (andhra pradesh) — 978 mw",
+        "6. rewa ultra mega solar park (madhya pradesh) — 750 mw",
+        "7. kamuthi solar power project (tamil nadu) — 648 mw",
         "8–12. other major parks (2022–2026)",
         "13–15. emerging and specialty projects",
         "commissioning timeline of major parks",
@@ -2108,6 +2108,24 @@
         "related reading"
       ],
       "fingerprint": "6c0d2051f1e354ee085e4a180a3a5126c346b409c337e90626c514987e1cfd16"
+    },
+    {
+      "slug": "managing-ppa-generation-guarantees-and-cleaning-schedules",
+      "title": "Managing PPA Generation Guarantees and Cleaning Schedules",
+      "description": "",
+      "primaryKeyword": "ppa generation guarantee soiling",
+      "structuralArchetype": "frequency_guide",
+      "h2Outline": [
+        "summary for plant managers",
+        "linking ppa generation guarantees to soiling losses",
+        "managing soiling thresholds: when to trigger a cleaning cycle",
+        "regional scheduling zoning for indian utility plants",
+        "how does soiling affect the performance ratio in ppa contracts?",
+        "technical integration: aligning cleaning logs with mnre compliance",
+        "mitigating permanent generation loss from high-tds water",
+        "key takeaways for ppa compliance"
+      ],
+      "fingerprint": "d947606f00475908b5dd2fcb61777fb19a123c8af900ac9ca2ba9a69e97d146d"
     }
   ]
 }

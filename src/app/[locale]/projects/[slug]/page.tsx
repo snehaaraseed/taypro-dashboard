@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { formatLocaleDate } from "@/i18n/format-date";
 import { Link } from "@/i18n/navigation";
-import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { ArticleSchema, PlaceSchema } from "@/app/components/StructuredData";
 import { AllRelatedProjectsSection } from "@/app/components/AllRelatedProjectsSection";
@@ -286,37 +285,33 @@ export default async function DynamicProjectPage({ params }: ProjectPageProps) {
               ) : null}
 
               {projectFacts ? (
-                <AnimateOnScroll animation="fadeInUp" className="mb-10">
-                  <section>
-                    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#A8C117]">
-                      {t("statsEyebrow")}
-                    </p>
-                    <h2 className="mb-5 text-2xl font-semibold text-[#052638] md:text-3xl">
-                      {t("statsHeading")}
-                    </h2>
-                    <ProjectStatsTable
-                      facts={projectFacts}
-                      metricLabel={t("statsTableMetric")}
-                      valueLabel={t("statsTableValue")}
-                      disclaimer={t("statsTableDisclaimer")}
-                    />
-                  </section>
-                </AnimateOnScroll>
+                <section className="mb-10">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#A8C117]">
+                    {t("statsEyebrow")}
+                  </p>
+                  <h2 className="mb-5 text-2xl font-semibold text-[#052638] md:text-3xl">
+                    {t("statsHeading")}
+                  </h2>
+                  <ProjectStatsTable
+                    facts={projectFacts}
+                    metricLabel={t("statsTableMetric")}
+                    valueLabel={t("statsTableValue")}
+                    disclaimer={t("statsTableDisclaimer")}
+                  />
+                </section>
               ) : null}
 
               {contentWithIds ? (
-                <AnimateOnScroll animation="fadeInUp" delay={80}>
-                  <article
-                    className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-8 lg:p-10"
-                    suppressHydrationWarning
-                  >
-                    <BlogContent
-                      content={contentWithIds}
-                      imageAltContext={{ title: metadata.title }}
-                      className={proseClassName}
-                    />
-                  </article>
-                </AnimateOnScroll>
+                <article
+                  className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-8 lg:p-10"
+                  suppressHydrationWarning
+                >
+                  <BlogContent
+                    content={contentWithIds}
+                    imageAltContext={{ title: metadata.title }}
+                    className={proseClassName}
+                  />
+                </article>
               ) : (
                 <p className="text-base leading-relaxed text-[#27415c]">
                   {metadata.description}

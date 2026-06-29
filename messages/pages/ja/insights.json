@@ -73,6 +73,39 @@
       "calculator": "ROI計算機を開く",
       "methodology": "テスト方法論",
       "contact": "Tayproに連絡"
+    },
+    "pdf": {
+      "download": "PDFをダウンロード",
+      "downloadLoading": "PDF を生成中…",
+      "docTitle": "Taypro 洞察",
+      "publishedOn": "{date} を公開しました",
+      "disclaimerShort": "情報調達調査のみであり、拘束力のある見積もりやエンジニアリング調査ではありません。",
+      "disclaimerBody": "この Taypro Insights レポートは、インドにおける事業規模の太陽熱浄化の決定に関する業界調査と Taypro ROI モデルを要約しています。業界標準としてラベル付けされた数値は、レポート内の指定された情報源に関連付けられていない限り、方向性を示します。サイト固有のエンジニアリング、価格、またはパフォーマンスの保証については、Taypro に直接お問い合わせください。",
+      "disclaimerHeading": "免責事項",
+      "aboutHeading": "About Taypro",
+      "aboutBody": "Taypro Private Limited is a Made-in-India manufacturer of autonomous solar panel cleaning robots, headquartered in Chakan, Pune. Taypro's waterless dry-cleaning systems support 5 GW+ of utility and C&I solar capacity across India. Taypro Insights publishes procurement research grounded in live industry data and deterministic ROI models.",
+      "statCapacityLabel": "Cleaning capacity supported",
+      "statCapacityValue": "5 GW+",
+      "statSitesLabel": "Utility sites live",
+      "statSitesValue": "150+",
+      "statWaterLabel": "Water saved annually",
+      "statWaterValue": "875M L",
+      "nextStepsHeading": "Next steps",
+      "nextStepsBody": "Share this report with your O&M or procurement team. Use Taypro's ROI calculator and performance methodology to stress-test vendor claims, or contact us for a site-specific discussion.",
+      "contactHeading": "Tayproにお問い合わせ",
+      "contactWebsite": "ウェブサイト",
+      "contactEmail": "メール",
+      "contactPhone": "電話 / WhatsApp",
+      "error": "PDFを生成できませんでした。もう一度試すか、Taypro にお問い合わせください。"
+    },
+    "contents": "コンテンツ",
+    "tocLabel": "目次",
+    "backToInsights": "すべてのレポートに戻る",
+    "sidebar": {
+      "product": "製品",
+      "title": "Taypro ソーラー清掃ロボットを発見する",
+      "body": "Taypro を使用して、手動作業を削減し、パネルのパフォーマンスを向上させ、メンテナンスを自動化します。",
+      "cta": "製品を調べる"
     }
   }
 }

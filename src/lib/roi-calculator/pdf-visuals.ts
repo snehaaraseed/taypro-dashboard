@@ -1,5 +1,6 @@
 import type { jsPDF } from "jspdf";
 import { pdfSetFont } from "@/lib/roi-calculator/pdf-fonts";
+import { sanitizePdfText } from "@/lib/roi-calculator/pdf-text-sanitize";
 import type { TayproPdfLetterheadSet } from "@/lib/roi-calculator/pdf-letterhead";
 import type { RoiProjectionSeries } from "@/lib/roi-calculator/roi-types";
 
@@ -154,10 +155,11 @@ export function drawWrapped(
     maxLines?: number;
   } = {}
 ): number {
+  const safeText = sanitizePdfText(text);
   pdfSetFont(pdf, options.bold ? "bold" : "normal");
   pdf.setFontSize(fontSize);
   pdf.setTextColor(...(options.color ?? TEXT));
-  let lines = pdf.splitTextToSize(text, width);
+  let lines = pdf.splitTextToSize(safeText, width);
   if (options.maxLines && lines.length > options.maxLines) {
     lines = lines.slice(0, options.maxLines);
     const last = lines[options.maxLines - 1];

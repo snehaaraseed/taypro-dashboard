@@ -73,6 +73,39 @@
       "calculator": "فتح حاسبة ROI",
       "methodology": "منهجية الاختبار",
       "contact": "اتصل بـ Taypro"
+    },
+    "pdf": {
+      "download": "تحميل قوات الدفاع الشعبي",
+      "downloadLoading": "جارٍ إنشاء ملف PDF...",
+      "docTitle": "Taypro رؤى",
+      "publishedOn": "تم النشر {date}",
+      "disclaimerShort": "أبحاث المشتريات المعلوماتية فقط، وليس عرض أسعار ملزم أو دراسة هندسية.",
+      "disclaimerBody": "يلخص تقرير الرؤى Taypro أبحاث الصناعة ونماذج Taypro ROI لقرارات التنظيف بالطاقة الشمسية على نطاق المرافق في الهند. الأرقام التي تم تصنيفها على أنها نموذجية في الصناعة هي أرقام اتجاهية ما لم تكن مرتبطة بمصدر محدد في التقرير. للحصول على ضمانات هندسية أو تسعير أو أداء خاصة بالموقع، اتصل بـ Taypro مباشرة.",
+      "disclaimerHeading": "تنصل",
+      "aboutHeading": "About Taypro",
+      "aboutBody": "Taypro Private Limited is a Made-in-India manufacturer of autonomous solar panel cleaning robots, headquartered in Chakan, Pune. Taypro's waterless dry-cleaning systems support 5 GW+ of utility and C&I solar capacity across India. Taypro Insights publishes procurement research grounded in live industry data and deterministic ROI models.",
+      "statCapacityLabel": "Cleaning capacity supported",
+      "statCapacityValue": "5 GW+",
+      "statSitesLabel": "Utility sites live",
+      "statSitesValue": "150+",
+      "statWaterLabel": "Water saved annually",
+      "statWaterValue": "875M L",
+      "nextStepsHeading": "Next steps",
+      "nextStepsBody": "Share this report with your O&M or procurement team. Use Taypro's ROI calculator and performance methodology to stress-test vendor claims, or contact us for a site-specific discussion.",
+      "contactHeading": "تواصل مع Taypro",
+      "contactWebsite": "الموقع",
+      "contactEmail": "البريد الإلكتروني",
+      "contactPhone": "الهاتف / واتساب",
+      "error": "لا يمكن إنشاء ملف PDF. يرجى المحاولة مرة أخرى أو الاتصال بـ Taypro."
+    },
+    "contents": "محتويات",
+    "tocLabel": "جدول المحتويات",
+    "backToInsights": "العودة إلى كافة التقارير",
+    "sidebar": {
+      "product": "منتج",
+      "title": "اكتشف Taypro روبوت التنظيف بالطاقة الشمسية",
+      "body": "يمكنك تقليل الجهد اليدوي وتحسين أداء اللوحة وإجراء الصيانة تلقائيًا باستخدام Taypro.",
+      "cta": "استكشاف المنتج"
     }
   }
 }

@@ -11,6 +11,7 @@ const steps = [
   "cms:migrate-image-alt",
   "cms:migrate-seo-keyword",
   "cms:migrate-scheduled-publish",
+  "cms:migrate-press",
   "cms:fix-slug-locale-unique",
   "seo:fix-cms-legacy-links",
 ];

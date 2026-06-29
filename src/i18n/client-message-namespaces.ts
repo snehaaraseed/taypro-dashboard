@@ -44,6 +44,8 @@ export const CLIENT_PAGE_NAMESPACES = [
   "ModuleManufacturerTrust",
   "PriceCalculatorPage",
   "BlogPage",
+  "InsightsHubPage",
+  "InsightDetailPage",
   "ProjectsPage",
   "ProjectDetailPage",
   "CareersPage",
@@ -66,6 +68,7 @@ export const SPA_CLIENT_NAMESPACES = [
 export const CLIENT_MESSAGE_PAGE_FILES = [
   "home.json",
   "blog.json",
+  "insights.json",
   "projects.json",
   "company.json",
   "contact.json",
@@ -149,6 +152,10 @@ export function clientNamespacesForPathname(pathname: string): string[] {
 
   if (path.startsWith("/blog") || path === "/authors") {
     return ["BlogPage"];
+  }
+
+  if (path === "/insights" || path.startsWith("/insights/")) {
+    return ["InsightsHubPage", "InsightDetailPage", "BlogPage"];
   }
 
   if (path === "/projects") {

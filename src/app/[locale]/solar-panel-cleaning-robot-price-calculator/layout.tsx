@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { AugmentIntlMessages } from "@/app/components/AugmentIntlMessages";
+import { pickMessages } from "@/i18n/pick-messages";
+import { loadMessagesForClient } from "@/i18n/load-messages";
 import { withHreflang } from "@/lib/seo/with-hreflang";
 import { socialImagesFromPreset } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
@@ -7,6 +10,8 @@ import { SITE_URL } from "@/lib/seo/sitemap-config";
 const siteUrl = SITE_URL;
 const CALCULATOR_PATH = "/solar-panel-cleaning-robot-price-calculator";
 const og = socialImagesFromPreset("calculator");
+
+const CALCULATOR_CLIENT_NAMESPACES = ["PriceCalculatorPage"] as const;
 
 export async function generateMetadata({
   params,
@@ -34,6 +39,22 @@ export async function generateMetadata({
   });
 }
 
-export default function ROILayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+type LayoutProps = {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+};
+
+export default async function CalculatorLayout({
+  children,
+  params,
+}: LayoutProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  const catalog = await loadMessagesForClient(locale);
+  const pageMessages = pickMessages(catalog, [...CALCULATOR_CLIENT_NAMESPACES]);
+
+  return (
+    <AugmentIntlMessages messages={pageMessages}>{children}</AugmentIntlMessages>
+  );
 }
