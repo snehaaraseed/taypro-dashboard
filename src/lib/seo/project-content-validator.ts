@@ -63,11 +63,6 @@ export function validateGeneratedProject(
       `Case study too short (${wordCount} words; tier ${policy.tier} needs ≥${policy.publishMin})`
     );
   }
-  if (wordCount > policy.publishMax) {
-    issues.push(
-      `Case study too long (${wordCount} words; tier ${policy.tier} max ${policy.publishMax})`
-    );
-  }
 
   if (
     input.previousWordCount &&
@@ -81,8 +76,8 @@ export function validateGeneratedProject(
   }
 
   const titleLen = input.title.trim().length;
-  if (titleLen < 20 || titleLen > 90) {
-    issues.push(`Title length ${titleLen} chars (target 40–80, allow 20–90)`);
+  if (titleLen < 20 || titleLen > 130) {
+    issues.push(`Title length ${titleLen} chars (target 40–80, allow 20–130)`);
   }
 
   const descLen = input.description.trim().length;

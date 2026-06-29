@@ -68,6 +68,12 @@ export type ImproveProjectResult = {
   editorialStatus: ProjectEditorialStatus;
 };
 
+function demoteH1ToH2(html: string): string {
+  return html
+    .replace(/<h1\b([^>]*)>/gi, "<h2$1>")
+    .replace(/<\/h1>/gi, "</h2>");
+}
+
 function ensurePrimaryKeywordInExecutiveSummary(
   sections: ProjectSectionsJson,
   keyword: string | null | undefined
@@ -203,6 +209,7 @@ export async function runProjectImprove(
   let content = composeProjectContent(facts, sections, {
     preservedInlineImages: preservedImages,
   });
+  content = demoteH1ToH2(content);
 
   const details = buildDetailsFromFacts(facts);
   const description = plan.description || input.description;
@@ -256,6 +263,7 @@ export async function runProjectImprove(
     content = composeProjectContent(facts, sections, {
       preservedInlineImages: preservedImages,
     });
+    content = demoteH1ToH2(content);
     validationInput.content = content;
   }
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Exit 10 when catchup translation worker should be (re)started:
- * worker not running, today's English blog is done, and backlog remains.
+ * Exit 10 when catchup worker should be (re)started:
+ * worker not running, today's English blog is done, and translation or rewrite backlog remains.
  * Prints one JSON line to stdout. No server-only / tsx imports.
  */
 import Database from "better-sqlite3";
@@ -113,8 +113,17 @@ function parseTranslationLogState() {
 function isCatchupTranslationWorkerRunning() {
   if (existsSync(lockPath)) {
     const pid = Number.parseInt(readFileSync(lockPath, "utf8").trim(), 10);
-    if (Number.isFinite(pid) && pid > 0 && isProcessRunning(pid)) {
-      return { workerRunning: true, reason: "lock_pid", lockPid: pid };
+    if (Number.isFinite(pid) && pid > 0) {
+      if (isProcessRunning(pid)) {
+        return { workerRunning: true, reason: "lock_pid", lockPid: pid };
+      }
+      // PM2 deploy/crash killed the worker without worker_done — do not trust log "active".
+      return {
+        workerRunning: false,
+        reason: "dead_lock_pid",
+        lockPid: pid,
+        lastActivityTs: parseTranslationLogState().lastActivityTs ?? null,
+      };
     }
   }
   return parseTranslationLogState();
@@ -149,6 +158,15 @@ function countSlugsNeedingTranslation(db, table) {
   return Number(row?.n ?? 0);
 }
 
+function countLegacyProjectsNeedingRewrite(db) {
+  const row = db
+    .prepare(
+      `SELECT COUNT(*) AS n FROM projects WHERE locale = 'en' AND editorial_status = 'legacy'`
+    )
+    .get();
+  return Number(row?.n ?? 0);
+}
+
 function main() {
   if (!existsSync(dbPath)) {
     console.log(
@@ -170,17 +188,22 @@ function main() {
 
   let blogBacklog = 0;
   let projectBacklog = 0;
+  let rewriteBacklog = 0;
   try {
     blogBacklog = countSlugsNeedingTranslation(db, "blogs");
     projectBacklog = countSlugsNeedingTranslation(db, "projects");
+    rewriteBacklog = countLegacyProjectsNeedingRewrite(db);
   } finally {
     db.close();
   }
 
-  const pendingTotal = blogBacklog + projectBacklog;
+  const translationBacklog = blogBacklog + projectBacklog;
+  const pendingTotal = translationBacklog + rewriteBacklog;
   const blogDoneToday = blogDoneTodayIst();
   const shouldRestart =
-    blogDoneToday && !workerRunning && pendingTotal > 0;
+    blogDoneToday &&
+    !workerRunning &&
+    (translationBacklog > 0 || rewriteBacklog > 0);
 
   console.log(
     JSON.stringify({
@@ -191,6 +214,8 @@ function main() {
       blogDoneToday,
       blogBacklog,
       projectBacklog,
+      rewriteBacklog,
+      translationBacklog,
       pendingTotal,
       shouldRestart,
     })

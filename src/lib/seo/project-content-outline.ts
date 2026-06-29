@@ -202,7 +202,7 @@ export function formatWordCountPolicyForPrompt(
     .map((b) => `${b.id}: ${b.min}–${b.max} words${b.optional ? " (optional)" : ""}`)
     .join("\n");
   return `WORD COUNT TIER: ${policy.tier}
-Total narrative target: ${policy.targetMin}–${policy.targetMax} words (publish min ${policy.publishMin}, max ${policy.publishMax}).
+Total narrative target: ${policy.targetMin}–${policy.targetMax} words (publish minimum ${policy.publishMin}; no maximum).
 H2 sections in composed page: ${policy.h2Min}–${policy.h2Max} (includes Executive summary + Site statistics + narrative sections).
 Per-section budgets:
 ${budgets}`;

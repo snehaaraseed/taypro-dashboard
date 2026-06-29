@@ -41,7 +41,7 @@ export function buildExpandProjectContentPrompt(
     ? `Regional soiling: ${input.regional.soilingSummary}\nO&M context: ${input.regional.omChallenges.join(" ")}`
     : "";
 
-  return `You are expanding a SHORT Taypro utility-scale solar case study (${wordCount} words). Add at least ${wordsNeeded} words so the total reaches ${input.policy.publishMin}–${input.policy.publishMax} (tier ${input.policy.tier}).
+  return `You are expanding a SHORT Taypro utility-scale solar case study (${wordCount} words). Add at least ${wordsNeeded} words so the total reaches at least ${input.policy.publishMin} (tier ${input.policy.tier}; no maximum).
 
 Site title: ${input.title}
 Primary SEO keyword: ${input.seoKeyword?.trim() || "(none, use location + MW in opening)"}
