@@ -65,9 +65,10 @@ import {
   isCompetitorPrimaryKeyword,
 } from "@/lib/seo/competitor-keyword-guard";
 import {
-  formatGeminiQuotaSoftStartInIst,
+  formatBlogWriterStartInIst,
+  formatNextBlogWriterStartInIst,
   formatNextGeminiQuotaResetInIst,
-  isPastGeminiQuotaSoftStart,
+  isPastBlogWriterStartIst,
 } from "@/lib/gemini/quota-schedule";
 import {
   buildEmptyFactBrief,
@@ -132,6 +133,7 @@ import {
   pickNextBrief,
   type DiscoveredBrief,
 } from "@/lib/seo/discovered-brief-queue";
+import { ensureBriefQueueForAutomation, runTopicDiscovery, getDiscoveryWeeklyTarget } from "@/lib/seo/run-topic-discovery";
 import {
   evaluateRankReadiness,
   rankReadinessFailureMessage,
@@ -143,6 +145,10 @@ import {
 } from "@/lib/seo/rank-readiness-judge";
 import { enrichWithInlineCitations } from "@/lib/seo/inline-citations";
 import { getGeminiKeyPoolSize } from "@/lib/gemini/api-keys";
+import {
+  DEFAULT_GEMMA_TEXT_MODEL,
+  resolveAutomationTextModel,
+} from "@/lib/gemini/free-tier-models";
 import { getQuotaBudgetSummary } from "@/lib/gemini/quota-budget";
 import {
   getCampaignPreview,
@@ -167,20 +173,31 @@ const PIPELINE_ATTEMPT_CAP = getAutomationOuterAttemptCap();
 
 function getHybridFallbackAttemptCount(): number {
   const raw = process.env.BLOG_HYBRID_FALLBACK_ATTEMPTS?.trim();
-  const parsed = raw ? Number.parseInt(raw, 10) : 0;
-  return Number.isFinite(parsed) && parsed >= 0 ? parsed : 0;
+  const parsed = raw ? Number.parseInt(raw, 10) : 8;
+  return Number.isFinite(parsed) && parsed >= 0 ? parsed : 8;
 }
 
 const HYBRID_FALLBACK_ATTEMPTS = getHybridFallbackAttemptCount();
 
 function getEvergreenAttemptAllowance(): number {
-  return loadEvergreenFallbackCatalog().length > 0 ? 1 : 0;
+  const raw = process.env.BLOG_EVERGREEN_FALLBACK_ATTEMPTS?.trim();
+  if (raw === "0") return 0;
+  const catalogLen = loadEvergreenFallbackCatalog().length;
+  if (catalogLen === 0) return 0;
+  const parsed = raw ? Number.parseInt(raw, 10) : 0;
+  const cap = Number.isFinite(parsed) && parsed > 0 ? parsed : 0;
+  return Math.min(catalogLen, cap);
+}
+
+/** Always try brief queue + coverage ledger before evergreen/hybrid fallbacks. */
+function resolveLedgerAttemptCap(): number {
+  return PIPELINE_ATTEMPT_CAP ?? 30;
 }
 
 function getPipelineAttemptLimit(): number | null {
   if (PIPELINE_ATTEMPT_CAP === null) return null;
   return (
-    PIPELINE_ATTEMPT_CAP +
+    resolveLedgerAttemptCap() +
     HYBRID_FALLBACK_ATTEMPTS +
     getEvergreenAttemptAllowance()
   );
@@ -263,6 +280,18 @@ function maybeRejectKeywordWhenAnglesExhausted(
 function extractSimilaritySlug(msg: string): string | null {
   const match = msg.match(/\(([a-z0-9-]+)\)\s*$/i);
   return match?.[1]?.toLowerCase() ?? null;
+}
+
+/**
+ * Hybrid title exhaustion errors name the keyword whose angles are all used up.
+ * Extract it so the next hybrid attempt rotates to a different keyword instead of
+ * retrying the same dead-end keyword until the fallback budget is burned.
+ */
+function extractExhaustedHybridKeyword(msg: string): string | null {
+  const match = msg.match(
+    /(?:No unique topic title available for keyword|Hybrid fallback: no unique title for keyword) "([^"]+)"/i
+  );
+  return match?.[1]?.trim() ?? null;
 }
 
 function shouldRejectKeyword(msg: string): boolean {
@@ -385,6 +414,25 @@ async function resolveTopicHybridFallback(input: {
       hybridRejected.push(picked.title);
       continue;
     }
+    const draftContract = buildHybridFallbackContract({
+      seoBrief,
+      angleId: picked.angleId ?? angleId,
+      title: picked.title,
+    });
+    const preflight = await preFlightUniquenessProbe(
+      {
+        title: picked.title,
+        description: draftContract.syntheticMetaDescription,
+        h2Outline: [],
+        slug,
+      },
+      input.uniquenessCtx,
+      input.uniquenessCtx.corpus
+    );
+    if (preflight) {
+      hybridRejected.push(picked.title);
+      continue;
+    }
     title = picked.title;
     angleId = picked.angleId ?? angleId;
     topicIntentFamily = picked.intentFamily;
@@ -487,15 +535,16 @@ async function resolveTopicFromEvergreenFallback(input: {
   focusKeyword: null;
   evergreenEntry: EvergreenFallbackEntry;
 }> {
-  const entry = await pickNextEvergreenFallback();
+  const entry = await pickNextEvergreenFallback({
+    rejectedSlotKeys: input.rejectedSlotKeys,
+    rejectedTitles: input.rejectedTitles,
+    uniquenessCtx: input.uniquenessCtx,
+  });
   if (!entry) {
     throw new Error("Evergreen fallback catalog exhausted");
   }
 
   const plan = evergreenToPlanInput(entry);
-  if (input.rejectedSlotKeys.includes(plan.slotKey)) {
-    throw new Error(`Evergreen entry already rejected today: ${plan.slotKey}`);
-  }
 
   const slug = createSlug(entry.title);
   const conflict = await findTitleConflict(entry.title, slug);
@@ -784,15 +833,11 @@ async function resolveTopicFromLedger(input: {
     });
     serpCalls += 1;
   } catch (error) {
-    if (isGroundingQuotaError(error) || isGroundingCallBudgetError(error)) {
-      console.warn(
-        "[generate-blog] Fact grounding skipped:",
-        error instanceof Error ? error.message : error
-      );
-      factBrief = buildEmptyFactBrief(contract.keyword, title);
-    } else {
-      throw error;
-    }
+    console.warn(
+      "[generate-blog] Fact grounding skipped:",
+      error instanceof Error ? error.message : error
+    );
+    factBrief = buildEmptyFactBrief(contract.keyword, title);
   }
 
   const forbiddenAngles = findSimilarCorpusEntries(
@@ -840,13 +885,13 @@ export async function POST(request: NextRequest) {
     }
 
     const schedule = await getBlogAutomationSchedule();
-    if (!force && !isPastGeminiQuotaSoftStart()) {
+    if (!force && !isPastBlogWriterStartIst()) {
       return NextResponse.json(
         {
           success: false,
-          quotaWaiting: true,
-          message: `Gemini daily quota soft start not reached yet (automation starts 00:30 Pacific; ≈ ${formatGeminiQuotaSoftStartInIst()} IST today).`,
-          nextGeminiQuotaSoftStartIst: formatGeminiQuotaSoftStartInIst(),
+          outsideWriterWindow: true,
+          message: `Blog writer window opens at ${formatBlogWriterStartInIst()} (configure with BLOG_WRITER_START_IST).`,
+          nextBlogWriterStartIst: formatNextBlogWriterStartInIst(),
           schedule,
         },
         { status: 200 }
@@ -865,6 +910,26 @@ export async function POST(request: NextRequest) {
     }
 
     console.info(`Gemini key pool: ${getGeminiKeyPoolSize()} keys configured`);
+
+    let discoveryRefill = await ensureBriefQueueForAutomation();
+    if (discoveryRefill) {
+      console.info(
+        `[generate-blog] Grounded discovery refill: +${discoveryRefill.added} briefs (${discoveryRefill.openBriefs} open), focus="${discoveryRefill.searchFocus.slice(0, 50)}…"`
+      );
+    }
+    if (countBriefStats().open === 0) {
+      console.warn(
+        "[generate-blog] Brief queue still empty after refill; running full grounded discovery pass"
+      );
+      discoveryRefill = await runTopicDiscovery({
+        target: getDiscoveryWeeklyTarget(),
+        reason: "automation-emergency",
+      });
+      console.info(
+        `[generate-blog] Emergency discovery: +${discoveryRefill.added} briefs (${discoveryRefill.openBriefs} open)`
+      );
+    }
+
     const editorialContext = await formatEditorialContextPrompt();
     const uniquenessCtx = await loadBlogUniquenessContext();
     if (ledgerEnabled) {
@@ -882,15 +947,18 @@ export async function POST(request: NextRequest) {
     const excludeKnowledgeSlugs: string[] = [];
 
     for (let pipelineAttempt = 0; ; pipelineAttempt++) {
-      const ledgerCap = PIPELINE_ATTEMPT_CAP ?? 30;
+      const ledgerCap = resolveLedgerAttemptCap();
+      const evergreenAllowance = getEvergreenAttemptAllowance();
       const isHybridFallback =
         PIPELINE_ATTEMPT_CAP !== null &&
         pipelineAttempt >= ledgerCap &&
         pipelineAttempt < ledgerCap + HYBRID_FALLBACK_ATTEMPTS;
       const isEvergreenAttempt =
         PIPELINE_ATTEMPT_CAP !== null &&
+        evergreenAllowance > 0 &&
         pipelineAttempt >= ledgerCap + HYBRID_FALLBACK_ATTEMPTS &&
-        pipelineAttempt < ledgerCap + HYBRID_FALLBACK_ATTEMPTS + getEvergreenAttemptAllowance();
+        pipelineAttempt <
+          ledgerCap + HYBRID_FALLBACK_ATTEMPTS + evergreenAllowance;
       const attemptLimit = getPipelineAttemptLimit();
       if (attemptLimit !== null && pipelineAttempt >= attemptLimit) {
         break;
@@ -945,7 +1013,7 @@ export async function POST(request: NextRequest) {
           console.warn("Primary+backup failed, attempting evergreen fallback");
         } else if (isHybridFallback) {
           console.warn(
-            `Coverage ledger exhausted, hybrid fallback ${pipelineAttempt - ledgerCap + 1}/${HYBRID_FALLBACK_ATTEMPTS}`
+            `Brief queue + ledger exhausted, hybrid fallback ${pipelineAttempt - ledgerCap + 1}/${HYBRID_FALLBACK_ATTEMPTS}`
           );
         }
 
@@ -1072,29 +1140,39 @@ export async function POST(request: NextRequest) {
           throw new Error("Plan phase returned empty meta description");
         }
 
-        await assertPlanUnique(
-          {
-            title: topic.title,
-            description: planDescription,
-            h2Outline: contentPlan.h2Outline,
-            slug,
-          },
-          uniquenessCtx
-        );
+        // Evergreen entries are the guaranteed daily safety net: they already
+        // clear exact-dedup at pick time, so skip the semantic uniqueness gates
+        // that would otherwise let a whole day pass with no blog published.
+        if (!evergreenEntry) {
+          await assertPlanUnique(
+            {
+              title: topic.title,
+              description: planDescription,
+              h2Outline: contentPlan.h2Outline,
+              slug,
+            },
+            uniquenessCtx
+          );
 
-        const checkpointC = await preFlightUniquenessProbe(
-          {
-            title: topic.title,
-            description: planDescription,
-            h2Outline: contentPlan.h2Outline,
-            slug,
-            excludeSlugs: excludeKnowledgeSlugs,
-          },
-          uniquenessCtx,
-          uniquenessCtx.corpus
-        );
-        if (checkpointC) {
-          throw new Error(formatPreFlightFailure(checkpointC));
+          const checkpointC = await preFlightUniquenessProbe(
+            {
+              title: topic.title,
+              description: planDescription,
+              h2Outline: contentPlan.h2Outline,
+              slug,
+              excludeSlugs: excludeKnowledgeSlugs,
+            },
+            uniquenessCtx,
+            uniquenessCtx.corpus
+          );
+          if (checkpointC) {
+            throw new EditorialPreflightError(
+              checkpointC,
+              editorialContract?.slotKey ?? attemptedSlotKey,
+              attemptedKeyword,
+              topic.title
+            );
+          }
         }
 
         const blogData = await generateBlogContent(
@@ -1118,15 +1196,17 @@ export async function POST(request: NextRequest) {
         }
         attemptedTitle = blogData.title;
 
-        await assertBlogDraftUnique(
-          {
-            title: blogData.title,
-            description: blogData.description,
-            content: blogData.content,
-            slug,
-          },
-          uniquenessCtx
-        );
+        if (!evergreenEntry) {
+          await assertBlogDraftUnique(
+            {
+              title: blogData.title,
+              description: blogData.description,
+              content: blogData.content,
+              slug,
+            },
+            uniquenessCtx
+          );
+        }
 
         if (!evergreenEntry) {
           const rankReadiness = evaluateRankReadiness({
@@ -1385,6 +1465,12 @@ export async function POST(request: NextRequest) {
         if (attemptedKeyword && (shouldRejectKeyword(msg) || isHybridFallback)) {
           trackRejectedKeyword(rejectedKeywords, attemptedKeyword);
         }
+        // Hybrid title exhaustion throws before attemptedKeyword is set, so parse
+        // the keyword from the message and reject it to force keyword rotation.
+        const exhaustedKeyword = extractExhaustedHybridKeyword(msg);
+        if (exhaustedKeyword) {
+          trackRejectedKeyword(rejectedKeywords, exhaustedKeyword);
+        }
         if (isHybridFallback && attemptedTitle) {
           trackRejectedTitle(rejectedTitles, attemptedTitle);
         }
@@ -1497,8 +1583,10 @@ export async function GET(request: NextRequest) {
       quotaBudget: getQuotaBudgetSummary(),
       editorialState: loadEditorialState(),
       discoveredBriefs: countBriefStats(),
-      geminiBlogModel:
-        process.env.GEMINI_BLOG_MODEL?.trim() || "gemma-4-31b-it",
+      geminiBlogModel: resolveAutomationTextModel(
+        process.env.GEMINI_BLOG_MODEL?.trim(),
+        DEFAULT_GEMMA_TEXT_MODEL
+      ),
       intentRegistry: {
         keywordCount: intentBackfill.totalKeywords,
         lastSyncAdded: intentBackfill.added,

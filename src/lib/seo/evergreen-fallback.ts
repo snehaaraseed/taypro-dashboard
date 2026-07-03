@@ -3,8 +3,11 @@ import "server-only";
 import fs from "fs";
 import path from "path";
 import { createSlug } from "@/app/utils/blogFileUtils";
-import { readPublishedTopics } from "@/lib/cms/topicService";
+import { isTopicPublished } from "@/lib/cms/topicService";
 import { getDeploymentRoot } from "@/app/utils/deploymentRoot";
+import type { BlogUniquenessContext } from "@/lib/seo/blog-plan-gates";
+import { preFlightUniquenessProbe } from "@/lib/seo/blog-preflight-gates";
+import { titlesTooSimilar } from "@/lib/seo/blog-similarity";
 import type { SearchIntentFamily } from "@/lib/seo/keyword-intent-taxonomy";
 import type { StructuralArchetype } from "@/lib/seo/structural-archetypes";
 
@@ -47,22 +50,58 @@ export function loadEvergreenFallbackCatalog(): EvergreenFallbackEntry[] {
   }
 }
 
-/** Next unused evergreen entry (by slug/title not in published_topics). */
-export async function pickNextEvergreenFallback(): Promise<EvergreenFallbackEntry | null> {
-  const topics = await readPublishedTopics();
-  const published = new Set<string>();
-  for (const t of topics) {
-    published.add(t.slug.toLowerCase());
-    published.add(t.title.toLowerCase().trim());
+/** Next unused evergreen entry that passes title + pre-flight corpus checks. */
+export type PickEvergreenOptions = {
+  rejectedSlotKeys?: string[];
+  rejectedTitles?: string[];
+  uniquenessCtx?: BlogUniquenessContext;
+};
+
+export async function pickNextEvergreenFallback(
+  options?: PickEvergreenOptions
+): Promise<EvergreenFallbackEntry | null> {
+  const rejectedSlots = new Set(options?.rejectedSlotKeys ?? []);
+  const rejectedTitles = options?.rejectedTitles ?? [];
+  const ctx = options?.uniquenessCtx;
+
+  // Entries that clear exact/near-duplicate guards (title, slug, description vs
+  // published corpus, plus this run's rejects). These are always safe to publish.
+  const eligible: EvergreenFallbackEntry[] = [];
+  for (const entry of loadEvergreenFallbackCatalog()) {
+    const plan = evergreenToPlanInput(entry);
+    if (rejectedSlots.has(plan.slotKey)) continue;
+    if (rejectedTitles.some((t) => titlesTooSimilar(t, entry.title))) continue;
+
+    const slug = createSlug(entry.title);
+    if (await isTopicPublished(entry.title, slug, entry.description)) continue;
+
+    eligible.push(entry);
   }
 
-  for (const entry of loadEvergreenFallbackCatalog()) {
-    const slugGuess = createSlug(entry.title);
-    if (published.has(slugGuess)) continue;
-    if (published.has(entry.title.toLowerCase().trim())) continue;
-    return entry;
+  if (eligible.length === 0) return null;
+
+  // Pass 1 (preferred): favour the entry that also clears the strict semantic
+  // probe so normal days publish the most distinct topic available.
+  if (ctx) {
+    for (const entry of eligible) {
+      const match = await preFlightUniquenessProbe(
+        {
+          title: entry.title,
+          description: entry.description,
+          h2Outline: entry.h2Outline,
+          slug: createSlug(entry.title),
+        },
+        ctx,
+        ctx.corpus
+      );
+      if (!match) return entry;
+    }
   }
-  return loadEvergreenFallbackCatalog()[0] ?? null;
+
+  // Pass 2 (guaranteed): the semantic probe rejected everything, but this is the
+  // daily safety net, so publish the first exact-unique curated entry rather than
+  // let the day pass with no blog. Curated titles are already distinct topics.
+  return eligible[0];
 }
 
 export function evergreenToPlanInput(entry: EvergreenFallbackEntry): {

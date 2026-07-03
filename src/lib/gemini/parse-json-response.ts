@@ -23,6 +23,43 @@ function extractJsonSubstring(text: string): string {
   return text.trim();
 }
 
+/**
+ * Extract the first complete brace-balanced object, ignoring braces inside
+ * strings. Handles trailing prose or a second JSON object after the first,
+ * which indexOf/lastIndexOf slicing gets wrong.
+ */
+function extractFirstBalancedObject(text: string): string | null {
+  const start = text.indexOf("{");
+  if (start < 0) return null;
+
+  let depth = 0;
+  let inString = false;
+  let escaped = false;
+
+  for (let i = start; i < text.length; i++) {
+    const ch = text[i]!;
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+    if (ch === "\\") {
+      escaped = true;
+      continue;
+    }
+    if (ch === '"') {
+      inString = !inString;
+      continue;
+    }
+    if (inString) continue;
+    if (ch === "{") depth++;
+    else if (ch === "}") {
+      depth--;
+      if (depth === 0) return text.slice(start, i + 1);
+    }
+  }
+  return null;
+}
+
 function escapeControlCharsInsideJsonStrings(input: string): string {
   let out = "";
   let inString = false;
@@ -81,9 +118,11 @@ function repairJsonCandidate(candidate: string): string {
 export function parseGeminiJsonObject<T extends Record<string, unknown>>(
   text: string
 ): T {
+  const balanced = extractFirstBalancedObject(text);
   const base = [
     sanitizeGeminiJsonText(text.trim()),
     sanitizeGeminiJsonText(extractJsonSubstring(text)),
+    ...(balanced ? [sanitizeGeminiJsonText(balanced)] : []),
   ];
 
   const candidates = [

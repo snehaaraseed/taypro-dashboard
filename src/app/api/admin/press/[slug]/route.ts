@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
+import { revalidatePublicContent } from "@/lib/seo/revalidate-public-content";
 import { requireAuth } from "@/app/utils/auth";
 import {
   deletePressRelease,
@@ -8,7 +8,6 @@ import {
 } from "@/lib/cms/pressReleaseService";
 import { deleteSubmissionsForRelease } from "@/lib/cms/pressSubmissionService";
 import { PRESS_RELEASES_PATH } from "@/lib/press/press-export";
-import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { PRESS_PAGE_PATH } from "@/lib/seo/press-coverage";
 
 interface RouteParams {
@@ -64,9 +63,10 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
       );
     }
 
-    revalidatePath(PRESS_PAGE_PATH);
-    revalidatePath(`${PRESS_RELEASES_PATH}/${slug}`);
-    await revalidateSitemap();
+    await revalidatePublicContent(
+      [PRESS_PAGE_PATH, `${PRESS_RELEASES_PATH}/${slug}`],
+      { sitemap: true }
+    );
 
     return NextResponse.json({ success: true });
   } catch (error) {
@@ -93,9 +93,10 @@ export async function DELETE(request: NextRequest, { params }: RouteParams) {
       );
     }
 
-    revalidatePath(PRESS_PAGE_PATH);
-    revalidatePath(`${PRESS_RELEASES_PATH}/${slug}`);
-    await revalidateSitemap();
+    await revalidatePublicContent(
+      [PRESS_PAGE_PATH, `${PRESS_RELEASES_PATH}/${slug}`],
+      { sitemap: true }
+    );
 
     return NextResponse.json({ success: true });
   } catch (error) {

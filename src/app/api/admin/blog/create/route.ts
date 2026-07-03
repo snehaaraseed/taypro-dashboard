@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
-import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
+import { revalidatePublicContent } from "@/lib/seo/revalidate-public-content";
 import { requireAuth } from "../../../../utils/auth";
 import { createBlogFiles } from "../../../../utils/blogFileUtils";
 import { normalizeBlogFaqsInput } from "@/lib/cms/blog-faqs";
@@ -70,9 +69,9 @@ export async function POST(request: NextRequest) {
     }
 
     if (result.success && resolved.value.published) {
-      revalidatePath(`/blog/${result.slug}`);
-      revalidatePath("/blog");
-      revalidateSitemap();
+      await revalidatePublicContent([`/blog/${result.slug}`, "/blog"], {
+        sitemap: true,
+      });
     }
 
     return NextResponse.json({

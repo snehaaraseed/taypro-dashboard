@@ -2,15 +2,17 @@ import type { EditorialContract } from "@/lib/seo/coverage-ledger";
 import type { GroundedSerpResearchInput } from "@/lib/gemini/grounded-serp-research";
 import type { SerpResearchBrief } from "@/lib/gemini/grounded-serp-research";
 import type { FactResearchBrief } from "@/lib/gemini/grounded-fact-research";
-import { DEFAULT_GEMMA_TEXT_MODEL } from "@/lib/gemini/free-tier-models";
+import {
+  DEFAULT_GEMMA_TEXT_MODEL_RETRY,
+} from "@/lib/gemini/free-tier-models";
 
 /**
- * Google Search grounding now runs on Gemma 4 (gemma-4-31b-it), which supports the
- * googleSearch tool via the Gemini API at the 1,500 RPD free tier, far above the
- * ~20 RPD Gemini 2.5 Flash ceiling that previously throttled SERP/fact/discovery.
- * Override with GEMINI_GROUNDING_MODEL if you ever need to pin a Gemini model.
+ * Google Search grounding runs on Gemma 4 (not Gemini Flash Lite).
+ * gemma-4-26b-a4b-it is the most reliable; gemma-4-31b-it works but hits intermittent 500s.
+ * gemini-3.1-flash-lite has 0 Search-grounding quota on free tier (instant 429 with googleSearch).
+ * Override with GEMINI_GROUNDING_MODEL if needed.
  */
-export const DEFAULT_GROUNDING_MODEL = DEFAULT_GEMMA_TEXT_MODEL;
+export const DEFAULT_GROUNDING_MODEL = DEFAULT_GEMMA_TEXT_MODEL_RETRY;
 
 export class GroundingQuotaExceededError extends Error {
   readonly model: string;

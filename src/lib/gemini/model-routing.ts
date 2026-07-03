@@ -6,7 +6,7 @@ import {
   resolveAutomationTextModel,
 } from "@/lib/gemini/free-tier-models";
 
-/** All automation text (blog, translation, project improve) uses Gemma only. */
+/** Blog, translation, and project improve share Flash Lite + Gemma retry chain. */
 export function automationTextModelCandidates(options?: {
   preferRetryVariant?: boolean;
 }): string[] {

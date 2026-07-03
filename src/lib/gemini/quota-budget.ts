@@ -10,7 +10,7 @@ const DEFAULT_GROUNDING_RPD_PER_KEY = 20;
 const DEFAULT_RESERVED_BLOG_GEMMA = 40;
 const DEFAULT_RESERVED_GROUNDING = 2;
 
-export type QuotaBudgetScope = "blog" | "burn" | "grounding" | "insight";
+export type QuotaBudgetScope = "blog" | "burn" | "grounding" | "insight" | "press";
 
 export type DailyQuotaUsage = {
   date: string;
@@ -90,16 +90,16 @@ export function assertQuotaBudgetAllowed(scope: QuotaBudgetScope): void {
     return;
   }
 
-  if (scope === "burn" && !isTodayBlogDone()) {
-    throw new Error("Burn scope blocked until today's English blog is done");
-  }
-
-  // Monthly insight reports translate on their own schedule (not gated on daily blog).
-  if (scope === "insight") {
+  // Monthly insight reports and admin press releases are not gated on daily blog.
+  if (scope === "insight" || scope === "press") {
     if (usage.gemma >= cap) {
       throw new Error("Gemma daily text quota exhausted on all configured keys");
     }
     return;
+  }
+
+  if (scope === "burn" && !isTodayBlogDone()) {
+    throw new Error("Burn scope blocked until today's English blog is done");
   }
 
   if (usage.gemma >= cap) {

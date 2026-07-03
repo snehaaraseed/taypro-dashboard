@@ -8,11 +8,10 @@ const ALGORITHM = "HS256";
 const TOKEN_EXPIRY = 60 * 60 * 24 * 7; // 7 days in seconds
 
 function resolveSecret(): string {
-  const secret =
-    process.env.JWT_SECRET?.trim() || process.env.ADMIN_PASSWORD?.trim();
+  const secret = process.env.JWT_SECRET?.trim();
   if (secret) return secret;
   if (process.env.NODE_ENV === "production") {
-    throw new Error("JWT_SECRET or ADMIN_PASSWORD must be set in production");
+    throw new Error("JWT_SECRET must be set in production");
   }
   return "dev-only-jwt-secret-change-me";
 }

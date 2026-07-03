@@ -59,15 +59,30 @@ function buildDiscoveryPrompt(input: {
   domainLabel: string;
   pillarPath?: string;
   forbiddenTitles: string[];
+  forbiddenQueries?: string[];
+  searchFocus?: string;
+  runStamp?: string;
   perDomain: number;
 }): string {
   const forbidden =
     input.forbiddenTitles.length > 0
       ? `\nALREADY PUBLISHED (do not propose these or close paraphrases):\n${input.forbiddenTitles
-          .slice(0, 40)
+          .slice(0, 60)
           .map((t) => `- ${t}`)
           .join("\n")}\n`
       : "";
+
+  const forbiddenQueries =
+    (input.forbiddenQueries?.length ?? 0) > 0
+      ? `\nQUERIES ALREADY MINED (find DIFFERENT search angles and questions):\n${input.forbiddenQueries!
+          .slice(0, 40)
+          .map((q) => `- ${q}`)
+          .join("\n")}\n`
+      : "";
+
+  const searchFocus = input.searchFocus
+    ? `\nSEARCH FOCUS FOR THIS RUN (${input.runStamp ?? "today"}): ${input.searchFocus}\nPrioritize fresh, current demand signals from live search — not generic evergreen angles.\n`
+    : "";
 
   return `You are an SEO demand researcher for Taypro (utility-scale solar panel cleaning robots and O&M in India).
 
@@ -76,8 +91,7 @@ Use Google Search to find what utility-scale solar asset owners, O&M leads, EPCs
 Focus on MW-scale plant operations in India (not homeowner DIY, not generic "solar energy" content).
 
 For each candidate, verify with search that real demand exists (People Also Ask, related searches, forum/LinkedIn questions, weak existing coverage = a gap Taypro can win).
-
-${forbidden}
+${searchFocus}${forbidden}${forbiddenQueries}
 Return ONLY valid JSON (no markdown):
 {
   "candidates": [
@@ -95,7 +109,9 @@ Return ONLY valid JSON (no markdown):
 }
 
 Rules:
-- Propose up to ${input.perDomain} DISTINCT high-quality candidates. Quality over quantity: skip anything you cannot back with a real search gap.
+- Propose up to ${input.perDomain} DISTINCT high-quality candidates. Each must come from a DIFFERENT real search query than the forbidden lists above.
+- Use live Google Search grounding — cite current SERP gaps, not invented topics.
+- Prefer ${input.runStamp ? `${input.runStamp} ` : ""}fresh angles: new regulations, emerging tech, state-specific ops, or under-served long-tail questions.
 - primaryKeyword must be how a buyer actually searches (no stuffed scale+geo strings).
 - Do NOT propose money-page terms ("solar panel cleaning robot", ", ...cleaning system", ", ...cleaning service") as primary keywords; those are product pages, not blogs.
 - suggestedTitle: specific (method, comparison, number, region, MW), no marketing fluff ("Boost", "Unlock", "Future of"), no em dashes.
@@ -129,18 +145,35 @@ function extractGroundingMeta(response: unknown): {
   return { webSearchQueries: [...new Set(webSearchQueries)], sources };
 }
 
+function isTransientDiscoveryError(error: unknown): boolean {
+  const msg = error instanceof Error ? error.message : String(error);
+  return (
+    msg.includes("500") ||
+    msg.includes("Internal error") ||
+    msg.includes("INTERNAL") ||
+    msg.includes("503") ||
+    msg.includes("UNAVAILABLE")
+  );
+}
+
 /** One grounded discovery call for a single domain. */
 export async function discoverCandidatesForDomain(input: {
   domainId: string;
   domainLabel: string;
   pillarPath?: string;
   forbiddenTitles?: string[];
+  forbiddenQueries?: string[];
+  searchFocus?: string;
+  runStamp?: string;
   perDomain?: number;
 }): Promise<DiscoveredCandidate[]> {
   const prompt = buildDiscoveryPrompt({
     domainLabel: input.domainLabel,
     pillarPath: input.pillarPath,
     forbiddenTitles: input.forbiddenTitles ?? [],
+    forbiddenQueries: input.forbiddenQueries,
+    searchFocus: input.searchFocus,
+    runStamp: input.runStamp,
     perDomain: input.perDomain ?? 5,
   });
   const model = resolveGroundingModel();
@@ -149,56 +182,65 @@ export async function discoverCandidatesForDomain(input: {
 
   for (const apiKey of apiKeys) {
     const ai = new GoogleGenAI({ apiKey });
-    try {
-      const response = await ai.models.generateContent({
-        model,
-        contents: prompt,
-        config: { tools: [{ googleSearch: {} }], maxOutputTokens: 8192 },
-      });
-      const text = (response.text ?? "").trim();
-      if (!text) throw new Error("Discovery response was empty");
-
-      const parsed = parseGeminiJsonObject<Record<string, unknown>>(text);
-      const grounding = extractGroundingMeta(response);
-      await pauseAfterGeminiCall();
-
-      const rawList = Array.isArray(parsed.candidates) ? parsed.candidates : [];
-      const out: DiscoveredCandidate[] = [];
-      for (const item of rawList) {
-        if (!item || typeof item !== "object") continue;
-        const row = item as Record<string, unknown>;
-        const query = String(row.query ?? "").trim();
-        const suggestedTitle = String(row.suggestedTitle ?? "").trim();
-        const primaryKeyword = String(row.primaryKeyword ?? "").trim();
-        if (!suggestedTitle || !primaryKeyword) continue;
-        out.push({
-          domainId: input.domainId,
-          query: query || suggestedTitle,
-          suggestedTitle,
-          primaryKeyword,
-          intentFamily: coerceIntent(row.intentFamily),
-          serpGap: String(row.serpGap ?? "").trim(),
-          peopleAlsoAsk: asStringArray(row.peopleAlsoAsk),
-          freshnessNote: String(row.freshnessNote ?? "").trim() || undefined,
-          rationale: String(row.rationale ?? "").trim() || undefined,
-          sources: grounding.sources.slice(0, 6),
-          webSearchQueries: grounding.webSearchQueries,
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        const response = await ai.models.generateContent({
+          model,
+          contents: prompt,
+          config: { tools: [{ googleSearch: {} }], maxOutputTokens: 8192 },
         });
-      }
-      return out;
-    } catch (error) {
-      lastError = error;
-      if (isGeminiQuotaError(error)) {
+        const text = (response.text ?? "").trim();
+        if (!text) throw new Error("Discovery response was empty");
+
+        const parsed = parseGeminiJsonObject<Record<string, unknown>>(text);
+        const grounding = extractGroundingMeta(response);
+        await pauseAfterGeminiCall();
+
+        const rawList = Array.isArray(parsed.candidates) ? parsed.candidates : [];
+        const out: DiscoveredCandidate[] = [];
+        for (const item of rawList) {
+          if (!item || typeof item !== "object") continue;
+          const row = item as Record<string, unknown>;
+          const query = String(row.query ?? "").trim();
+          const suggestedTitle = String(row.suggestedTitle ?? "").trim();
+          const primaryKeyword = String(row.primaryKeyword ?? "").trim();
+          if (!suggestedTitle || !primaryKeyword) continue;
+          out.push({
+            domainId: input.domainId,
+            query: query || suggestedTitle,
+            suggestedTitle,
+            primaryKeyword,
+            intentFamily: coerceIntent(row.intentFamily),
+            serpGap: String(row.serpGap ?? "").trim(),
+            peopleAlsoAsk: asStringArray(row.peopleAlsoAsk),
+            freshnessNote: String(row.freshnessNote ?? "").trim() || undefined,
+            rationale: String(row.rationale ?? "").trim() || undefined,
+            sources: grounding.sources.slice(0, 6),
+            webSearchQueries: grounding.webSearchQueries,
+          });
+        }
+        return out;
+      } catch (error) {
+        lastError = error;
+        if (isGeminiQuotaError(error)) {
+          console.warn(
+            `[discovery] Quota on ...${apiKey.slice(-4)} for "${input.domainLabel}"; trying next key`
+          );
+          break;
+        }
+        if (isTransientDiscoveryError(error) && attempt < 2) {
+          console.warn(
+            `[discovery] Transient error for "${input.domainLabel}" (attempt ${attempt + 1}/3), retrying…`
+          );
+          await pauseAfterGeminiCall();
+          continue;
+        }
         console.warn(
-          `[discovery] Quota on ...${apiKey.slice(-4)} for "${input.domainLabel}"; trying next key`
+          `[discovery] Failed for "${input.domainLabel}":`,
+          error instanceof Error ? error.message.slice(0, 140) : error
         );
-        continue;
+        break;
       }
-      console.warn(
-        `[discovery] Failed for "${input.domainLabel}":`,
-        error instanceof Error ? error.message.slice(0, 140) : error
-      );
-      return [];
     }
   }
   console.warn(

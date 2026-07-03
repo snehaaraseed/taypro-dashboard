@@ -1,12 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
+import { revalidatePublicContent } from "@/lib/seo/revalidate-public-content";
 import { requireAuth } from "@/app/utils/auth";
 import {
   deleteInsight,
   getInsightBySlug,
   updateInsight,
 } from "@/lib/cms/insightService";
-import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { INSIGHTS_HUB_PATH } from "@/lib/seo/insights-hub";
 
 interface RouteParams {
@@ -65,9 +64,10 @@ export async function PUT(
       );
     }
 
-    revalidatePath(INSIGHTS_HUB_PATH);
-    revalidatePath(`${INSIGHTS_HUB_PATH}/${slug}`);
-    revalidateSitemap();
+    await revalidatePublicContent(
+      [INSIGHTS_HUB_PATH, `${INSIGHTS_HUB_PATH}/${slug}`],
+      { sitemap: true }
+    );
 
     return NextResponse.json({ success: true });
   } catch (error) {
@@ -96,9 +96,10 @@ export async function DELETE(
       );
     }
 
-    revalidatePath(INSIGHTS_HUB_PATH);
-    revalidatePath(`${INSIGHTS_HUB_PATH}/${slug}`);
-    revalidateSitemap();
+    await revalidatePublicContent(
+      [INSIGHTS_HUB_PATH, `${INSIGHTS_HUB_PATH}/${slug}`],
+      { sitemap: true }
+    );
 
     return NextResponse.json({ success: true });
   } catch (error) {

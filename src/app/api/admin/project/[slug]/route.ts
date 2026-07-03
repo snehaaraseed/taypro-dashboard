@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
-import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
+import { revalidatePublicContent } from "@/lib/seo/revalidate-public-content";
 import { requireAuth } from "../../../../utils/auth";
 import {
   readProjectMetadata,
@@ -97,14 +96,11 @@ export async function PUT(
       renameTo
     );
 
-    // Revalidate the updated project page and projects list page immediately
-    // If slug changed, revalidate both old and new paths
+    const paths = ["/projects", `/projects/${updatedSlug}`];
     if (renameTo && renameTo !== slug) {
-      revalidatePath(`/projects/${slug}`);
+      paths.push(`/projects/${slug}`);
     }
-    revalidatePath(`/projects/${updatedSlug}`);
-    revalidatePath("/projects");
-    revalidateSitemap();
+    await revalidatePublicContent(paths, { sitemap: true });
 
     return NextResponse.json({
       success: true,
@@ -138,10 +134,9 @@ export async function DELETE(
     const { slug } = await params;
     await deleteProjectFiles(slug);
 
-    // Revalidate the deleted project page and projects list page immediately
-    revalidatePath(`/projects/${slug}`);
-    revalidatePath("/projects");
-    revalidateSitemap();
+    await revalidatePublicContent([`/projects/${slug}`, "/projects"], {
+      sitemap: true,
+    });
 
     return NextResponse.json({
       success: true,

@@ -63,3 +63,14 @@ export function sanitizeBlogHtml(html: string): string {
     FORBID_ATTR: ["onerror", "onload", "onclick", "onmouseover"],
   });
 }
+
+/** Press release body: DOMPurify + strip H1 (page template renders the headline). */
+export function sanitizePressReleaseHtml(html: string): string {
+  const cleaned = sanitizeBlogHtml(html)
+    .replace(/<h1[^>]*>[\s\S]*?<\/h1>/gi, "")
+    .replace(/\[TBD\]/gi, "")
+    .replace(/\[INSERT[^\]]*\]/gi, "")
+    .replace(/lorem ipsum/gi, "")
+    .trim();
+  return cleaned;
+}

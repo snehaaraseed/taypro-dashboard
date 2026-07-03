@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
-import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
+import { revalidatePublicContent } from "@/lib/seo/revalidate-public-content";
 import { generateProjectContent } from "@/lib/aiService";
 import { isRetryableGenerationError } from "@/lib/seo/content-quality";
 import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
@@ -132,10 +132,10 @@ export async function POST(request: NextRequest) {
         published: false,
       });
 
-      revalidatePath(`/projects/${savedSlug}`);
-      revalidatePath("/projects");
       revalidatePath("/admin/projects");
-      revalidateSitemap();
+      await revalidatePublicContent([`/projects/${savedSlug}`, "/projects"], {
+        sitemap: true,
+      });
 
       return NextResponse.json({
         success: true,
@@ -243,10 +243,10 @@ export async function POST(request: NextRequest) {
 
         const savedMetadata = await readProjectMetadata(savedSlug);
 
-        revalidatePath(`/projects/${savedSlug}`);
-        revalidatePath("/projects");
         revalidatePath("/admin/projects");
-        revalidateSitemap();
+        await revalidatePublicContent([`/projects/${savedSlug}`, "/projects"], {
+          sitemap: true,
+        });
 
         return NextResponse.json({
           success: true,

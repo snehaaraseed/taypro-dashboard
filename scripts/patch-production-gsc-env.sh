@@ -86,6 +86,40 @@ if [ -f "$ERPNEXT_ENV_FILE" ]; then
   echo "  ✅ ERPNext API vars applied from $(basename "$ERPNEXT_ENV_FILE")"
 fi
 
+# Optional: Cloudflare cache purge credentials (secrets/cloudflare-production.env)
+CF_ENV_FILE="$SECRETS_DIR/cloudflare-production.env"
+if [ -f "$CF_ENV_FILE" ]; then
+  cf_token=""
+  cf_zone=""
+  while IFS= read -r line || [ -n "$line" ]; do
+    line="${line%%#*}"
+    line="${line%"${line##*[![:space:]]}"}"
+    [ -z "$line" ] && continue
+    key="${line%%=*}"
+    val="${line#*=}"
+    [ -z "$key" ] || [ -z "$val" ] && continue
+    case "$key" in
+      Cloudflare_API_Token|CLOUDFLARE_API_TOKEN|CF_API_TOKEN)
+        cf_token="$val"
+        ;;
+      CF_ZONE_NAME)
+        cf_zone="$val"
+        ;;
+    esac
+  done < "$CF_ENV_FILE"
+  if [ -n "$cf_token" ]; then
+    set_kv "CLOUDFLARE_API_TOKEN" "$cf_token"
+    set_kv "Cloudflare_API_Token" "$cf_token"
+  fi
+  if [ -n "$cf_zone" ]; then
+    set_kv "CF_ZONE_NAME" "$cf_zone"
+  else
+    set_kv "CF_ZONE_NAME" "taypro.in"
+  fi
+  chmod 600 "$CF_ENV_FILE" 2>/dev/null || true
+  echo "  ✅ Cloudflare cache purge vars applied from $(basename "$CF_ENV_FILE")"
+fi
+
 if [ ! -f "$GSC_KEY" ]; then
   echo "  ⚠️  Missing $GSC_KEY — deploy must upload secrets/gsc-service-account.json"
 else

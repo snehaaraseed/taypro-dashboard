@@ -21,6 +21,23 @@ import {
 } from "@/lib/seo/discovered-brief-queue";
 import { loadTodayCalendarRow } from "@/lib/seo/editorial-calendar";
 
+/** Brief-grounded meta beats generic angle templates for validation and SERP. */
+export function buildLockedMetaDescriptionFromBrief(
+  brief: DiscoveredBrief,
+  angleMeta: ReturnType<typeof getAngleContractMeta>
+): string {
+  const gap = brief.serpGap?.trim();
+  if (gap && gap.length >= 80) {
+    return gap.length <= 160 ? gap : `${gap.slice(0, 157).trim()}…`;
+  }
+  const paa = brief.peopleAlsoAsk.find((q) => q.trim().length > 20);
+  if (paa) {
+    const line = `${paa.trim()} Practical guide for Indian utility-scale solar O&M teams.`;
+    return line.length <= 160 ? line : `${line.slice(0, 157).trim()}…`;
+  }
+  return buildSyntheticMetaDescription(brief.primaryKeyword, angleMeta);
+}
+
 function seoBriefForBrief(keyword: string) {
   const rows = loadSeoKeywordRows();
   const row = findSeoKeywordRow(keyword);
@@ -51,8 +68,8 @@ export function buildEditorialContractFromBrief(
     plantContext: "utility_india",
     seoBrief,
     ...angleMeta,
-    syntheticMetaDescription: buildSyntheticMetaDescription(
-      brief.primaryKeyword,
+    syntheticMetaDescription: buildLockedMetaDescriptionFromBrief(
+      brief,
       angleMeta
     ),
     forbiddenArchetypes: [],

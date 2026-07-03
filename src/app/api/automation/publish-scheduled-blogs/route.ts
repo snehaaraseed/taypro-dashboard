@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
+import { revalidatePublicContent } from "@/lib/seo/revalidate-public-content";
 import { publishDueScheduledBlogs } from "@/lib/cms/blogService";
-import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { isAutomationAuthorized } from "@/lib/security";
 
 /** Cron: publish English blogs whose scheduled_publish_at has passed. */
@@ -13,12 +12,11 @@ export async function POST(request: NextRequest) {
   try {
     const result = await publishDueScheduledBlogs();
 
-    for (const slug of result.published) {
-      revalidatePath(`/blog/${slug}`);
-    }
     if (result.published.length > 0) {
-      revalidatePath("/blog");
-      revalidateSitemap();
+      await revalidatePublicContent(
+        [...result.published.map((slug) => `/blog/${slug}`), "/blog"],
+        { sitemap: true }
+      );
     }
 
     return NextResponse.json({

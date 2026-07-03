@@ -116,6 +116,7 @@ Rules:
 - Match voice, facts, and MW/%/INR ranges used in prior sections; do not contradict.
 - Use verified stats from FACT RESEARCH when provided; otherwise label ranges as industry-typical.
 - Return ONLY valid JSON: { "html": "<h2>...</h2><p>...</p>..." }
+- Use SINGLE quotes for every HTML attribute (e.g. <a href='/blog/slug'>, <table class='cmp'>); never use double quotes inside the html value, so the JSON string stays valid.
 - No outer <html> or markdown; HTML fragment only.
 - Use ONLY verified facts from the knowledge pack.`;
 }

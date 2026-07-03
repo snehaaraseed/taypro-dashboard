@@ -123,6 +123,7 @@ export function classifyGenerationFailure(error: unknown): GenerationFailureKind
 
   if (
     msg.includes("No unique title for coverage slot") ||
+    msg.includes("Topic queue exhausted") ||
     msg.includes("Pre-flight uniqueness failed") ||
     msg.includes("Outline too similar") ||
     msg.includes("Blog too similar") ||

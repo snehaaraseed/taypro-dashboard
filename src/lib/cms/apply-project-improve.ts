@@ -1,10 +1,9 @@
 import "server-only";
 
-import { revalidatePath } from "next/cache";
 import { readProjectFull, updateProjectFiles } from "@/lib/cms/projectService";
 import type { ProjectEditorialStatus } from "@/lib/cms/project-facts-types";
 import { runProjectImprove } from "@/lib/cms/run-project-improve";
-import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
+import { revalidatePublicContent } from "@/lib/seo/revalidate-public-content";
 import { translatePublishedProject } from "@/lib/translation/translate-cms";
 
 export type ApplyProjectImproveOptions = {
@@ -67,9 +66,9 @@ export async function applyProjectImprove(
     await translatePublishedProject(slug, { force: true });
   }
 
-  revalidatePath(`/projects/${slug}`);
-  revalidatePath("/projects");
-  revalidateSitemap();
+  await revalidatePublicContent([`/projects/${slug}`, "/projects"], {
+    sitemap: true,
+  });
 
   return {
     slug,

@@ -65,6 +65,14 @@ export function validatePressReleaseContent(
     errors.push("Body must not contain H1 tags");
   }
 
+  if (
+    /<\s*script\b/i.test(release.content) ||
+    /\bon\w+\s*=/i.test(release.content) ||
+    /javascript\s*:/i.test(release.content)
+  ) {
+    errors.push("Body contains disallowed HTML (scripts or event handlers)");
+  }
+
   const combined = [
     release.title,
     release.subhead,

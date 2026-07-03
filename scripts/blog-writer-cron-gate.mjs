@@ -98,7 +98,27 @@ function formatNextStartIst(epoch) {
 }
 
 const IST = "Asia/Kolkata";
+const DEFAULT_BLOG_WRITER_START = "13:00";
 const DEFAULT_RUNTIME_DIR = ".runtime/blog-cron";
+
+function blogWriterStartMinutes() {
+  const raw = process.env.BLOG_WRITER_START_IST?.trim() || DEFAULT_BLOG_WRITER_START;
+  const m = raw.match(/^(\d{1,2}):(\d{2})$/);
+  if (!m) return 13 * 60;
+  return Number(m[1]) * 60 + Number(m[2]);
+}
+
+/** True when IST clock is at or past the daily blog-writer start (default 13:00 IST). */
+export function isPastBlogWriterStartIst(now = new Date()) {
+  return minutesSinceMidnightInTz(now, IST) >= blogWriterStartMinutes();
+}
+
+function formatBlogWriterStartIst() {
+  const total = blogWriterStartMinutes();
+  const h = String(Math.floor(total / 60)).padStart(2, "0");
+  const m = String(total % 60).padStart(2, "0");
+  return `${h}:${m} IST`;
+}
 
 function resolveRuntimeDir() {
   const root = process.env.TAYPRO_APP_ROOT ?? process.cwd();
@@ -119,6 +139,15 @@ const cmd = process.argv[2];
 
 if (cmd === "past-soft-start") {
   process.exit(isPastGeminiQuotaSoftStart() ? 0 : 1);
+}
+
+if (cmd === "past-blog-writer-start") {
+  process.exit(isPastBlogWriterStartIst() ? 0 : 1);
+}
+
+if (cmd === "format-blog-writer-start-ist") {
+  console.log(formatBlogWriterStartIst());
+  process.exit(0);
 }
 
 if (cmd === "next-soft-start-epoch") {
@@ -153,6 +182,6 @@ if (cmd === "write-hold") {
 }
 
 console.error(
-  "Usage: blog-writer-cron-gate.mjs past-soft-start | next-soft-start-epoch | format-next-soft-start-ist | blog-done-today | check-hold <file> | write-hold <file>"
+  "Usage: blog-writer-cron-gate.mjs past-soft-start | past-blog-writer-start | format-blog-writer-start-ist | next-soft-start-epoch | format-next-soft-start-ist | blog-done-today | check-hold <file> | write-hold <file>"
 );
 process.exit(2);

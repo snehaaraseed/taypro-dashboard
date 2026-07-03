@@ -98,12 +98,12 @@ async function main() {
     assert.equal(new Set(keys).size, keys.length);
   });
 
-  ok("automation uses Gemma models (not flash-lite default)", () => {
+  ok("automation uses Flash Lite primary + Gemma retry", () => {
     const models = automationTextModelCandidates();
     assert.ok(models.length >= 1);
-    for (const m of models) {
-      assert.match(m, /gemma/i, `unexpected model: ${m}`);
-      assert.doesNotMatch(m, /flash-lite/i);
+    assert.match(models[0]!, /flash-lite/i, `expected flash-lite primary, got ${models[0]}`);
+    if (models.length > 1) {
+      assert.match(models[1]!, /gemma/i, `expected gemma retry, got ${models[1]}`);
     }
   });
 
@@ -413,6 +413,22 @@ async function main() {
     if (hadDone) fs.writeFileSync(doneFile, "");
   });
 
+  ok("press scope not gated on daily blog", () => {
+    const doneDir = path.join(root, ".runtime", "blog-cron");
+    fs.mkdirSync(doneDir, { recursive: true });
+    const tz = process.env.BLOG_CRON_TZ?.trim() || "Asia/Kolkata";
+    const day = new Date()
+      .toLocaleDateString("en-CA", { timeZone: tz })
+      .replace(/-/g, "");
+    const doneFile = path.join(doneDir, `done-${day}`);
+    const hadDone = fs.existsSync(doneFile);
+    if (hadDone) fs.unlinkSync(doneFile);
+
+    assert.doesNotThrow(() => assertQuotaBudgetAllowed("press"));
+
+    if (hadDone) fs.writeFileSync(doneFile, "");
+  });
+
   ok("Gemma RPD cap scales with key pool", () => {
     const cap = getGemmaRpdCap();
     assert.ok(cap >= 1500 * getGeminiKeyPoolSize());
@@ -429,22 +445,23 @@ async function main() {
     );
   });
 
-  ok("cron-generate-blog.sh defines max-fail and evergreen env", () => {
+  ok("cron-generate-blog.sh gates on IST writer start and never marks done on failure", () => {
     const sh = fs.readFileSync(
       path.join(root, "scripts/cron-generate-blog.sh"),
       "utf8"
     );
-    assert.match(sh, /BLOG_CRON_MAX_FAIL_POSTS/);
-    assert.match(sh, /finish_max_fail_day/);
+    assert.match(sh, /past-blog-writer-start/);
+    assert.doesNotMatch(sh, /finish_max_fail_day/);
     assert.match(sh, /quotaExhausted/);
+    assert.match(sh, /will retry on next cron tick/);
   });
 
-  ok("blog-writer-cron-gate exposes past-soft-start", () => {
+  ok("blog-writer-cron-gate exposes past-blog-writer-start", () => {
     const gate = fs.readFileSync(
       path.join(root, "scripts/blog-writer-cron-gate.mjs"),
       "utf8"
     );
-    assert.match(gate, /past-soft-start/);
+    assert.match(gate, /past-blog-writer-start/);
     assert.match(gate, /check-hold/);
   });
 

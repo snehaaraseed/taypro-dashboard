@@ -3,7 +3,6 @@ import "server-only";
 import { GoogleGenAI } from "@google/genai";
 import {
   assertGroundingCallBudget,
-  GroundingQuotaExceededError,
   resolveGroundingModel,
 } from "@/lib/gemini/grounding-config";
 import { isGeminiQuotaError, listGeminiApiKeys } from "@/lib/gemini/api-keys";
@@ -222,7 +221,12 @@ function isRetryableGroundingError(error: unknown): boolean {
   return (
     message.includes("did not contain JSON") ||
     message.includes("Could not parse JSON") ||
-    message.includes("response was empty")
+    message.includes("response was empty") ||
+    // Google-side transient instability on Gemma grounding (rotate to next key).
+    message.includes("500") ||
+    message.includes("503") ||
+    message.includes("Internal error") ||
+    message.includes("high demand")
   );
 }
 
@@ -279,31 +283,26 @@ export async function runGroundedFactResearch(
         );
         continue;
       }
-      console.warn(`[facts] Model ${model} failed:`, error);
-      throw error instanceof Error ? error : new Error(String(error));
+      console.warn(`[facts] Model ${model} failed, trying next key:`, error);
+      continue;
     }
   }
 
   if (quotaKeys >= apiKeys.length) {
-    if (input.insightsMode) {
-      const { buildEmptyFactBrief } = await import("@/lib/gemini/grounding-config");
-      console.warn("[facts] Insights: all keys quota, empty fact brief");
-      return buildEmptyFactBrief(input.keyword, input.title);
-    }
-    throw new GroundingQuotaExceededError(model, lastError);
-  }
-
-  if (input.insightsMode) {
     const { buildEmptyFactBrief } = await import("@/lib/gemini/grounding-config");
-    console.warn("[facts] Insights: grounding exhausted, empty fact brief");
+    console.warn("[facts] All keys quota-exhausted; using offline fact brief");
     return buildEmptyFactBrief(input.keyword, input.title);
   }
 
-  throw new Error(
-    lastError instanceof Error
-      ? lastError.message
-      : "Grounded fact research failed"
+  // Blog + insights: transient grounding failure (e.g. Gemma 500 on all keys)
+  // must not kill the write. Proceed with the offline fact brief guardrails.
+  const { buildEmptyFactBrief } = await import("@/lib/gemini/grounding-config");
+  console.warn(
+    `[facts] Grounding unavailable (${
+      lastError instanceof Error ? lastError.message.slice(0, 100) : "unknown"
+    }); using offline fact brief`
   );
+  return buildEmptyFactBrief(input.keyword, input.title);
 }
 
 export function formatFactBriefForPrompt(brief: FactResearchBrief): string {

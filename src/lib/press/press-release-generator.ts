@@ -3,6 +3,7 @@ import "server-only";
 import type { PressQueueItem } from "@/lib/press/press-release-queue";
 import type { PressContact, PressQuote } from "@/lib/cms/pressReleaseService";
 import { createSlug } from "@/lib/cms/pressReleaseService";
+import { sanitizePressReleaseHtml } from "@/lib/security/sanitize-html";
 import { generateTranslationJson } from "@/lib/translation/gemini-call";
 
 export type GeneratedPressRelease = {
@@ -58,20 +59,11 @@ ${facts}
 - Media contact email: info@taypro.in`;
 }
 
-function sanitizeHtmlContent(html: string): string {
-  return html
-    .replace(/<h1[^>]*>[\s\S]*?<\/h1>/gi, "")
-    .replace(/\[TBD\]/gi, "")
-    .replace(/\[INSERT[^\]]*\]/gi, "")
-    .replace(/lorem ipsum/gi, "")
-    .trim();
-}
-
 export async function generatePressReleaseContent(
   item: PressQueueItem
 ): Promise<GeneratedPressRelease> {
   const raw = await generateTranslationJson<GeminiPressResponse>(buildPrompt(item), {
-    quotaScope: "burn",
+    quotaScope: "press",
   });
 
   const title = raw.title?.trim() || item.titleHint;
@@ -81,7 +73,7 @@ export async function generatePressReleaseContent(
     title,
     subhead: raw.subhead?.trim() || item.summary,
     dateline: raw.dateline?.trim() || `Pune, India — ${new Date().toLocaleDateString("en-IN", { year: "numeric", month: "long", day: "numeric" })}`,
-    content: sanitizeHtmlContent(raw.content ?? ""),
+    content: sanitizePressReleaseHtml(raw.content ?? ""),
     boilerplate: raw.boilerplate?.trim() || DEFAULT_BOILERPLATE,
     contact: {
       name: raw.contact?.name ?? "Taypro Media Team",

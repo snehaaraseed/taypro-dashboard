@@ -161,6 +161,21 @@ function blogModelCandidates(options?: GenerateTextOptions): string[] {
   });
 }
 
+function isTransientServerError(error: unknown): boolean {
+  const msg = error instanceof Error ? error.message : String(error);
+  return (
+    msg.includes("500") ||
+    msg.includes("503") ||
+    msg.includes("Internal error encountered") ||
+    msg.includes("high demand") ||
+    msg.includes("UNAVAILABLE")
+  );
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function generateText(
   prompt: string,
   options?: GenerateTextOptions
@@ -176,33 +191,45 @@ async function generateText(
     let keyHitQuota = false;
 
     for (const modelName of blogModelCandidates(options)) {
-      try {
-        const generationConfig =
-          options?.maxOutputTokens && options.maxOutputTokens > 0
-            ? { maxOutputTokens: options.maxOutputTokens }
-            : undefined;
-        const model = genAI.getGenerativeModel({
-          model: modelName, ...(generationConfig ? { generationConfig } : {}),
-        });
-        const result = await model.generateContent(prompt);
-        const text = result.response.text().trim();
-        await pauseAfterGeminiCall();
-        recordQuotaUsage(scope);
-        if (apiKey !== apiKeys[0]) {
-          console.warn("Gemini call succeeded on fallback API key (GEMINI_API_KEY_2).");
-        }
-        return text;
-      } catch (error) {
-        lastError = error;
-        if (isQuotaError(error)) {
-          keyHitQuota = true;
-          console.warn(
-            `Gemini quota exceeded on API key ending ...${apiKey.slice(-4)}, trying fallback key if configured.`
-          );
+      for (let attempt = 0; attempt < 3; attempt++) {
+        try {
+          const generationConfig =
+            options?.maxOutputTokens && options.maxOutputTokens > 0
+              ? { maxOutputTokens: options.maxOutputTokens }
+              : undefined;
+          const model = genAI.getGenerativeModel({
+            model: modelName, ...(generationConfig ? { generationConfig } : {}),
+          });
+          const result = await model.generateContent(prompt);
+          const text = result.response.text().trim();
+          await pauseAfterGeminiCall();
+          recordQuotaUsage(scope);
+          if (apiKey !== apiKeys[0]) {
+            console.warn("Gemini call succeeded on fallback API key (GEMINI_API_KEY_2).");
+          }
+          return text;
+        } catch (error) {
+          lastError = error;
+          if (isQuotaError(error)) {
+            keyHitQuota = true;
+            console.warn(
+              `Gemini quota exceeded on API key ending ...${apiKey.slice(-4)}, trying fallback key if configured.`
+            );
+            break;
+          }
+          if (isTransientServerError(error) && attempt < 2) {
+            const waitMs = 2000 * (attempt + 1);
+            console.warn(
+              `Gemini model ${modelName} transient error (attempt ${attempt + 1}/3), retrying in ${waitMs}ms…`
+            );
+            await sleep(waitMs);
+            continue;
+          }
+          console.warn(`Gemini model ${modelName} failed, trying next...`, error);
           break;
         }
-        console.warn(`Gemini model ${modelName} failed, trying next...`, error);
       }
+      if (keyHitQuota) break;
     }
 
     if (keyHitQuota) {
@@ -572,6 +599,7 @@ Rules:
 - Opening <p> must directly answer the title in 2-3 sentences.
 - Keep "Quick answer" H2 and one question-shaped H2.
 - No "Frequently asked questions" heading in HTML.
+- Use SINGLE quotes for every HTML attribute inside "content" (e.g. <a href='/blog/slug'>); never use double quotes inside the html value, so the JSON stays valid.
 - faqs: exactly 4 items; faqs[0] must phrase the primary keyword as a question.`;
 
   const text = await generateText(
@@ -615,7 +643,7 @@ Primary SEO keyword: ${primaryKeyword?.trim() || "(none)"}
 HTML (rewrite opening <p> tags only; keep all H2+ sections unchanged):
 ${draft.content}
 
-Return ONLY valid JSON with the full HTML in "content", same title/description/faqs otherwise:
+Return ONLY valid JSON with the full HTML in "content", same title/description/faqs otherwise. Use SINGLE quotes for every HTML attribute inside "content" (e.g. <a href='/blog/slug'>); never use double quotes inside the html value, so the JSON stays valid:
 { "title": ", ...", "description": ", ...", "content": ", ...", "faqs": [ ... ] }`;
 
   const text = await generateText(
@@ -748,7 +776,8 @@ Return ONLY valid JSON with the FULL merged HTML in "content" (original + new se
 
 Rules:
 - Do NOT duplicate any existing H2 heading from EXISTING HTML; add only NEW H2 sections not already present.
-- Insert new sections BEFORE any "Key takeaways" / "What plant managers" H2.`;
+- Insert new sections BEFORE any "Key takeaways" / "What plant managers" H2.
+- Use SINGLE quotes for every HTML attribute inside "content" (e.g. <a href='/blog/slug'>); never use double quotes inside the html value, so the JSON stays valid.`;
 
   const text = await generateText(
     prompt,
@@ -1424,7 +1453,16 @@ FAQ rules for the "faqs" array:
         "Generated title or meta description was too generic; retry automation"
       );
     }
-    if (lockedTitle && isTooGenericDescription(result.description)) {
+    if (
+      lockedTitle &&
+      !options?.lockedDescription?.trim() &&
+      isTooGenericDescription(result.description)
+    ) {
+      throw new Error(
+        "Generated title or meta description was too generic; retry automation"
+      );
+    }
+    if (lockedTitle && isTooGenericDescription(lockedDescription)) {
       throw new Error(
         "Generated title or meta description was too generic; retry automation"
       );

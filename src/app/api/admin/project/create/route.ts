@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
-import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
+import { revalidatePublicContent } from "@/lib/seo/revalidate-public-content";
 import { requireAuth } from "../../../../utils/auth";
 import {
   createProjectFiles,
@@ -31,10 +30,9 @@ export async function POST(request: NextRequest) {
       author: body.author?.trim() || "Taypro Team",
     });
 
-    // Revalidate the new project page and projects list page immediately
-    revalidatePath(`/projects/${slug}`);
-    revalidatePath("/projects");
-    revalidateSitemap();
+    await revalidatePublicContent([`/projects/${slug}`, "/projects"], {
+      sitemap: true,
+    });
 
     const metadata = await readProjectMetadata(slug);
 

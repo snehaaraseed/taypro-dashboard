@@ -1,12 +1,11 @@
 import "server-only";
 
-import { revalidatePath } from "next/cache";
 import { and, eq, gt, isNotNull, or } from "drizzle-orm";
 import { isScheduledAutomationSource } from "@/lib/cms/blog-schedule";
 import type { TayproLocale } from "@/i18n/markets";
 import { getDb } from "@/lib/db";
 import { blogs, projects, insights } from "@/lib/db/schema";
-import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
+import { revalidatePublicContent } from "@/lib/seo/revalidate-public-content";
 import { INSIGHTS_HUB_PATH } from "@/lib/seo/insights-hub";
 import { sanitizeResearchReportHtml } from "@/lib/insights/research-html-sanitize";
 import { SOURCE_LOCALE, TARGET_LOCALES, getInsightTranslationContentChunkChars } from "./config";
@@ -185,21 +184,28 @@ async function upsertProjectLocale(
   }
 }
 
-function revalidateBlogPaths(slug: string, published: boolean): void {
+async function revalidateBlogPaths(
+  slug: string,
+  published: boolean,
+  locales: TayproLocale[] = ["en"]
+): Promise<void> {
   if (!published) return;
-  for (const locale of [SOURCE_LOCALE, ...TARGET_LOCALES]) {
-    revalidatePath(`/${locale}/blog/${slug}`);
-  }
-  revalidatePath("/blog");
-  revalidateSitemap();
+  await revalidatePublicContent([`/blog/${slug}`, "/blog"], {
+    sitemap: true,
+    cloudflarePaths: [`/blog/${slug}`],
+    cloudflareLocales: locales,
+  });
 }
 
-function revalidateProjectPaths(slug: string): void {
-  for (const locale of [SOURCE_LOCALE, ...TARGET_LOCALES]) {
-    revalidatePath(`/${locale}/projects/${slug}`);
-  }
-  revalidatePath("/projects");
-  revalidateSitemap();
+async function revalidateProjectPaths(
+  slug: string,
+  locales: TayproLocale[] = ["en"]
+): Promise<void> {
+  await revalidatePublicContent([`/projects/${slug}`, "/projects"], {
+    sitemap: true,
+    cloudflarePaths: [`/projects/${slug}`],
+    cloudflareLocales: locales,
+  });
 }
 
 async function upsertInsightLocale(
@@ -247,12 +253,22 @@ async function upsertInsightLocale(
   }
 }
 
-function revalidateInsightPaths(slug: string): void {
-  for (const locale of [SOURCE_LOCALE, ...TARGET_LOCALES]) {
-    revalidatePath(`/${locale}${INSIGHTS_HUB_PATH}/${slug}`);
-    revalidatePath(`/${locale}${INSIGHTS_HUB_PATH}`);
-  }
-  revalidateSitemap();
+async function revalidateInsightPaths(
+  slug: string,
+  locales: TayproLocale[] = ["en"]
+): Promise<void> {
+  await revalidatePublicContent(
+    [INSIGHTS_HUB_PATH, `${INSIGHTS_HUB_PATH}/${slug}`],
+    {
+      sitemap: true,
+      cloudflarePaths: [`${INSIGHTS_HUB_PATH}/${slug}`],
+      cloudflareLocales: locales,
+    }
+  );
+}
+
+function successfulLocales(results: TranslationResult[]): TayproLocale[] {
+  return results.filter((r) => r.success).map((r) => r.locale);
 }
 
 /** Translate one published English insight report into target locales. */
@@ -350,7 +366,8 @@ export async function translatePublishedInsight(
     }
   }
 
-  revalidateInsightPaths(slug);
+  const locales = successfulLocales(results);
+  await revalidateInsightPaths(slug, locales.length ? locales : ["en"]);
   return { slug, type: "insight", results };
 }
 
@@ -468,7 +485,12 @@ export async function translatePublishedBlog(
     }
   }
 
-  revalidateBlogPaths(slug, source.published);
+  const locales = successfulLocales(results);
+  await revalidateBlogPaths(
+    slug,
+    source.published,
+    locales.length ? locales : ["en"]
+  );
   return { slug, type: "blog", results };
 }
 
@@ -584,7 +606,8 @@ export async function translatePublishedProject(
     }
   }
 
-  revalidateProjectPaths(slug);
+  const locales = successfulLocales(results);
+  await revalidateProjectPaths(slug, locales.length ? locales : ["en"]);
   return { slug, type: "project", results };
 }
 

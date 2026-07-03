@@ -38,6 +38,7 @@ import {
   validateGeneratedProject,
 } from "@/lib/seo/project-content-validator";
 import { assertProjectContentNotTooSimilar } from "@/lib/seo/project-uniqueness";
+import { repairInlineImgAlts } from "@/lib/seo/blog-inline-img-alt";
 import {
   generateProjectPlanWithGemini,
   writeProjectSectionWithGemini,
@@ -207,10 +208,16 @@ export async function runProjectImprove(
     facts.primaryKeyword ?? input.seoKeyword
   );
 
+  const imgAltContext = {
+    title: input.title,
+    primaryKeyword: facts.primaryKeyword ?? input.seoKeyword,
+  };
+
   let content = composeProjectContent(facts, sections, {
     preservedInlineImages: preservedImages,
   });
   content = demoteH1ToH2(content);
+  content = repairInlineImgAlts(content, imgAltContext);
 
   const details = buildDetailsFromFacts(facts);
   const description = trimSerpDescription(plan.description || input.description);
@@ -234,9 +241,13 @@ export async function runProjectImprove(
     const check = validateGeneratedProject(validationInput);
     if (check.ok) break;
 
-    const shortOnly =
-      check.issues.length === 1 &&
-      check.issues[0].includes("too short");
+    // Both "too short" and "dropped word count too far" fire together when a
+    // draft is undersized; treat any all-length failure as expandable.
+    const shortOnly = check.issues.every(
+      (issue) =>
+        issue.includes("too short") ||
+        issue.includes("dropped word count too far")
+    );
     if (!shortOnly) break;
 
     const wordCount = stripHtmlToPlainText(content)
@@ -265,6 +276,7 @@ export async function runProjectImprove(
       preservedInlineImages: preservedImages,
     });
     content = demoteH1ToH2(content);
+    content = repairInlineImgAlts(content, imgAltContext);
     validationInput.content = content;
   }
 

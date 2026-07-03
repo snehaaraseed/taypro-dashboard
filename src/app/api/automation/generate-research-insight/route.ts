@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
+import { revalidatePublicContent } from "@/lib/seo/revalidate-public-content";
 import { isAutomationAuthorized } from "@/lib/security";
 import {
   createInsight,
@@ -33,7 +33,6 @@ import {
   type ResearchTopicId,
 } from "@/lib/insights/research-topics-config";
 import { currentPeriod } from "@/lib/insights/gsc-snapshots";
-import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { INSIGHTS_HUB_PATH } from "@/lib/seo/insights-hub";
 import { enqueueInsightTranslations } from "@/lib/translation/translation-queue";
 
@@ -186,9 +185,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    revalidatePath(INSIGHTS_HUB_PATH);
-    revalidatePath(`${INSIGHTS_HUB_PATH}/${slug}`);
-    revalidateSitemap();
+    await revalidatePublicContent(
+      [INSIGHTS_HUB_PATH, `${INSIGHTS_HUB_PATH}/${slug}`],
+      { sitemap: true }
+    );
 
     const translationsEnqueued = await enqueueInsightTranslations(slug);
 

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
+import { revalidatePublicContent } from "@/lib/seo/revalidate-public-content";
 import { requireAuth } from "@/app/utils/auth";
 import {
   createPressRelease,
@@ -18,7 +18,6 @@ import {
 } from "@/lib/press/press-release-queue";
 import { loadPressTargets } from "@/lib/press/press-targets";
 import { PRESS_RELEASES_PATH } from "@/lib/press/press-export";
-import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
 import { PRESS_PAGE_PATH } from "@/lib/seo/press-coverage";
 
 const MAX_ATTEMPTS = 2;
@@ -124,9 +123,10 @@ export async function POST(request: NextRequest) {
     );
     markQueueItemDone(item.id);
 
-    revalidatePath(PRESS_PAGE_PATH);
-    revalidatePath(`${PRESS_RELEASES_PATH}/${slug}`);
-    await revalidateSitemap();
+    await revalidatePublicContent(
+      [PRESS_PAGE_PATH, `${PRESS_RELEASES_PATH}/${slug}`],
+      { sitemap: true }
+    );
 
     return NextResponse.json({
       success: true,

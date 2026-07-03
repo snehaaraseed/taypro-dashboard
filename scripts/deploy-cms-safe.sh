@@ -296,7 +296,7 @@ case "${1:-}" in
   sync-public) cms_sync_public_safe "${2:-$ROOT}" ;;
   save-metrics) cms_save_metrics "$2" "${3:-data/cms.sqlite}" ;;
   assert-unchanged) cms_assert_unchanged "$2" "$3" ;;
-  swap-standalone) cms_swap_standalone "$2" ;;
+  swap-standalone) cms_swap_standalone "${2:-$ROOT/.release-build}" ;;
   rollback-standalone) cms_rollback_standalone ;;
   *)
     echo "Usage: internal CMS helper — run ./deploy.sh from your machine instead."

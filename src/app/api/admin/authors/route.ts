@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
-import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
+import { revalidatePublicContent } from "@/lib/seo/revalidate-public-content";
 import { requireAuth } from "../../../utils/auth";
 import { normalizeLinkedInUrl } from "../../../data/blogAuthors";
 import { getStoredAuthors, upsertAuthor } from "../../../utils/blogAuthorsStore";
@@ -58,11 +57,17 @@ export async function POST(request: NextRequest) {
         typeof previousSlug === "string" ? previousSlug : undefined,
       expertiseTags: Array.isArray(expertiseTags) ? expertiseTags : undefined,
     });
-    revalidateSitemap();
     if (slugChange) {
-      revalidatePath(`/blog/author/${slugChange.from}`);
-      revalidatePath(`/blog/author/${slugChange.to}`);
-      revalidatePath("/authors");
+      await revalidatePublicContent(
+        [
+          `/blog/author/${slugChange.from}`,
+          `/blog/author/${slugChange.to}`,
+          "/authors",
+        ],
+        { sitemap: true }
+      );
+    } else {
+      await revalidatePublicContent([], { sitemap: true });
     }
     return NextResponse.json({ success: true, authors, propagated, slugChange });
   } catch (error) {

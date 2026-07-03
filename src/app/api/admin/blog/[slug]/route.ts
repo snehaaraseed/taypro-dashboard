@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
-import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
+import { revalidatePublicContent } from "@/lib/seo/revalidate-public-content";
 import { requireAuth } from "../../../../utils/auth";
 import {
   updateBlogFiles,
@@ -153,12 +152,12 @@ export async function PUT(
     }
 
     if (finalSlug !== slug) {
-      revalidatePath(`/blog/${slug}`);
+      await revalidatePublicContent([`/blog/${slug}`]);
     }
     if (resolved.value.published) {
-      revalidatePath(`/blog/${result.slug}`);
-      revalidatePath("/blog");
-      revalidateSitemap();
+      await revalidatePublicContent([`/blog/${result.slug}`, "/blog"], {
+        sitemap: true,
+      });
     }
 
     const translationSync = await getBlogTranslationSyncInfo(result.slug);
@@ -205,10 +204,7 @@ export async function DELETE(
       );
     }
 
-    // Revalidate the deleted blog page and blog list page immediately
-    revalidatePath(`/blog/${slug}`);
-    revalidatePath("/blog");
-    revalidateSitemap();
+    await revalidatePublicContent([`/blog/${slug}`, "/blog"], { sitemap: true });
 
     return NextResponse.json({
       success: true,

@@ -11,7 +11,23 @@ import {
   listGeminiApiKeys,
 } from "@/lib/gemini/api-keys";
 import { automationTextModelCandidates } from "@/lib/gemini/model-routing";
+import { parseGeminiJsonObject } from "@/lib/gemini/parse-json-response";
 import type { ProjectContentPlan } from "@/lib/seo/project-section-writer";
+
+function isTransientServerError(error: unknown): boolean {
+  const msg = error instanceof Error ? error.message : String(error);
+  return (
+    msg.includes("500") ||
+    msg.includes("503") ||
+    msg.includes("Internal error encountered") ||
+    msg.includes("high demand") ||
+    msg.includes("UNAVAILABLE")
+  );
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 async function generateText(
   prompt: string,
@@ -23,35 +39,44 @@ async function generateText(
 
   for (const apiKey of apiKeys) {
     const genAI = new GoogleGenerativeAI(apiKey);
+    let keyHitQuota = false;
+
     for (const modelName of automationTextModelCandidates({
       preferRetryVariant: preferQualityModel,
     })) {
-      try {
-        const model = genAI.getGenerativeModel({ model: modelName });
-        const result = await model.generateContent(prompt);
-        const text = result.response.text().trim();
-        await pauseAfterGeminiCall();
-        recordQuotaUsage("burn");
-        return text;
-      } catch (error) {
-        lastError = error;
-        if (isGeminiQuotaError(error)) break;
+      for (let attempt = 0; attempt < 3; attempt++) {
+        try {
+          const model = genAI.getGenerativeModel({ model: modelName });
+          const result = await model.generateContent(prompt);
+          const text = result.response.text().trim();
+          await pauseAfterGeminiCall();
+          recordQuotaUsage("burn");
+          return text;
+        } catch (error) {
+          lastError = error;
+          if (isGeminiQuotaError(error)) {
+            keyHitQuota = true;
+            break;
+          }
+          if (isTransientServerError(error) && attempt < 2) {
+            await sleep(2000 * (attempt + 1));
+            continue;
+          }
+          break;
+        }
       }
+      if (keyHitQuota) break;
     }
+    if (keyHitQuota) continue;
+    break;
   }
   throw lastError instanceof Error
     ? lastError
     : new Error("Gemini project generation failed");
 }
 
-function parseJsonObject<T>(text: string): T {
-  try {
-    return JSON.parse(text) as T;
-  } catch {
-    const m = text.match(/\{[\s\S]*\}/);
-    if (!m) throw new Error("Could not parse JSON from AI response");
-    return JSON.parse(m[0]) as T;
-  }
+function parseJsonObject<T extends Record<string, unknown>>(text: string): T {
+  return parseGeminiJsonObject<T>(text);
 }
 
 function stripCodeFences(html: string): string {

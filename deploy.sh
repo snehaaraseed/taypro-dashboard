@@ -53,6 +53,7 @@ for arg in "$@"; do
             echo "  - Metrics assert before/after swap"
             echo "  - DEPLOY_UPLOAD_GSC_FROM_LOCAL=1  optional GSC JSON upload from laptop"
             echo "  - ERPNEXT_API_URL/KEY/SECRET copied from .env.local when present"
+            echo "  - CLOUDFLARE_API_TOKEN copied from .env.local when present"
             exit 0
             ;;
     esac
@@ -172,6 +173,10 @@ EOF
         --exclude 'data/404-hits.json' \
         --exclude 'data/redirect-candidates.json' \
         --exclude 'data/import-projects-report.json' \
+        --exclude 'data/discovered-briefs.json' \
+        --exclude 'data/discovered-briefs-state.json' \
+        --exclude 'data/discovery-run-state.json' \
+        --exclude 'data/editorial-calendar.json' \
         --exclude 'public/uploads' \
         --exclude '.env.production' \
         --exclude '.env.local' \
@@ -257,6 +262,21 @@ EOF
             echo -e "${YELLOW}  ⚠️  No ERPNEXT_API_* vars in .env.local — skip ERPNext upload${NC}"
         fi
         rm -f "$ERPNEXT_ENV_SNIP"
+
+        CF_ENV_SNIP=$(mktemp)
+        grep -E '^Cloudflare_API_Token=|^CLOUDFLARE_API_TOKEN=|^CF_API_TOKEN=|^CF_ZONE_NAME=' "$LOCAL_PATH/.env.local" >> "$CF_ENV_SNIP" || true
+        if [ -s "$CF_ENV_SNIP" ]; then
+            ssh -i "$SSH_KEY" "$REMOTE_HOST" "mkdir -p $REMOTE_PATH/secrets"
+            scp -q -i "$SSH_KEY" \
+                "$CF_ENV_SNIP" \
+                "$REMOTE_HOST:$REMOTE_PATH/secrets/cloudflare-production.env"
+            ssh -i "$SSH_KEY" "$REMOTE_HOST" \
+                "chmod 600 $REMOTE_PATH/secrets/cloudflare-production.env 2>/dev/null || true"
+            echo -e "${GREEN}  ✅ Uploaded Cloudflare cache purge env${NC}"
+        else
+            echo -e "${YELLOW}  ⚠️  No Cloudflare API token in .env.local — skip Cloudflare upload${NC}"
+        fi
+        rm -f "$CF_ENV_SNIP"
     fi
 
     if [ "${DEPLOY_UPLOAD_GSC_FROM_LOCAL:-0}" = "1" ]; then
@@ -332,6 +352,10 @@ EOF
             --exclude '.deploy-snapshots' \
             --exclude '.runtime/' \
             --exclude 'logs/*.log' \
+            --exclude 'data/discovered-briefs.json' \
+            --exclude 'data/discovered-briefs-state.json' \
+            --exclude 'data/discovery-run-state.json' \
+            --exclude 'data/editorial-calendar.json' \
             "$ROOT/" "$RELEASE/"
 
         mkdir -p "$RELEASE/data" "$RELEASE/public"
@@ -496,6 +520,11 @@ ssh -i "$SSH_KEY" "$REMOTE_HOST" << 'EOF' 2>/dev/null || true
     sudo rm -rf /var/cache/nginx/taypro/* 2>/dev/null || true
     echo "  ✅ Nginx HTML cache purged"
 EOF
+if [ -f "$LOCAL_PATH/.env.local" ] && grep -qE '^(Cloudflare_API_Token|CLOUDFLARE_API_TOKEN|CF_API_TOKEN)=' "$LOCAL_PATH/.env.local" 2>/dev/null; then
+    node "$LOCAL_PATH/scripts/purge-cloudflare-on-deploy.mjs" && echo -e "${GREEN}  ✅ Cloudflare edge cache purged (static pages refreshed)${NC}" || echo -e "${YELLOW}  ⚠️  Cloudflare deploy purge skipped or failed${NC}"
+else
+    echo -e "${YELLOW}  ⚠️  No Cloudflare token in .env.local — skip edge purge after deploy${NC}"
+fi
 step_done
 echo ""
 

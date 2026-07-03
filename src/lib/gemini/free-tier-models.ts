@@ -1,9 +1,9 @@
 /**
  * Google AI Studio free-tier text models for automation.
- * v2: Gemma 4 for all text generation (blog, translation, project improve).
+ * Flash Lite for high-volume writing; Gemma 26B for grounding + retry.
  */
 
-export const DEFAULT_GEMMA_TEXT_MODEL = "gemma-4-31b-it";
+export const DEFAULT_GEMMA_TEXT_MODEL = "gemini-3.1-flash-lite";
 
 export const DEFAULT_GEMMA_TEXT_MODEL_RETRY = "gemma-4-26b-a4b-it";
 
@@ -16,6 +16,7 @@ export const FREE_GEMINI_TEXT_MODEL_RETRY = DEFAULT_GEMMA_TEXT_MODEL_RETRY;
 const AUTOMATION_TEXT_MODEL_SET = new Set<string>([
   DEFAULT_GEMMA_TEXT_MODEL,
   DEFAULT_GEMMA_TEXT_MODEL_RETRY,
+  "gemini-3.1-flash-lite",
 ]);
 
 /** Substrings that usually indicate paid / non–free-tier APIs. */
@@ -52,7 +53,7 @@ export function resolveAutomationTextModel(
   if (candidate) {
     console.warn(
       `[gemini] Ignoring non-automation model "${candidate}"; using "${fallback}". ` +
-        `Allowed Gemma 4 IDs: ${[...AUTOMATION_TEXT_MODEL_SET].join(", ")}`
+        `Allowed automation IDs: ${[...AUTOMATION_TEXT_MODEL_SET].join(", ")}`
     );
   }
   return fallback;
@@ -66,7 +67,7 @@ export function resolveFreeGeminiTextModel(
   return resolveAutomationTextModel(envValue, fallback);
 }
 
-/** Ordered candidates for generateContent (Gemma only). */
+/** Ordered candidates for generateContent (Flash Lite primary, Gemma retry). */
 export function freeGeminiTextModelCandidates(options?: {
   preferRetryVariant?: boolean;
 }): string[] {

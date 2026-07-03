@@ -3,7 +3,6 @@ import "server-only";
 import { GoogleGenAI } from "@google/genai";
 import {
   assertGroundingCallBudget,
-  GroundingQuotaExceededError,
   resolveGroundingModel,
 } from "@/lib/gemini/grounding-config";
 import { isGeminiQuotaError, listGeminiApiKeys } from "@/lib/gemini/api-keys";
@@ -230,7 +229,12 @@ function isRetryableGroundingError(error: unknown): boolean {
   return (
     message.includes("did not contain JSON") ||
     message.includes("Could not parse JSON") ||
-    message.includes("response was empty")
+    message.includes("response was empty") ||
+    // Google-side transient instability on Gemma grounding (rotate to next key).
+    message.includes("500") ||
+    message.includes("503") ||
+    message.includes("Internal error") ||
+    message.includes("high demand")
   );
 }
 
@@ -291,35 +295,30 @@ export async function runGroundedSerpResearch(
         );
         continue;
       }
-      console.warn(`[serp] Model ${model} failed:`, error);
-      throw error instanceof Error ? error : new Error(String(error));
+      console.warn(`[serp] Model ${model} failed, trying next key:`, error);
+      continue;
     }
   }
 
   if (quotaKeys >= apiKeys.length) {
-    if (input.insightsMode) {
-      const { buildFallbackSerpBrief } = await import(
-        "@/lib/gemini/grounding-config"
-      );
-      console.warn("[serp] Insights: all keys quota, fallback SERP brief");
-      return buildFallbackSerpBrief(input);
-    }
-    throw new GroundingQuotaExceededError(model, lastError);
-  }
-
-  if (input.insightsMode) {
     const { buildFallbackSerpBrief } = await import(
       "@/lib/gemini/grounding-config"
     );
-    console.warn("[serp] Insights: grounding exhausted, fallback SERP brief");
+    console.warn("[serp] All keys quota-exhausted; using offline SERP brief");
     return buildFallbackSerpBrief(input);
   }
 
-  throw new Error(
-    lastError instanceof Error
-      ? lastError.message
-      : "Grounded SERP research failed"
+  // Blog + insights: transient grounding failure (e.g. Gemma 500 on all keys)
+  // must not kill the write. Proceed with the offline SERP brief.
+  const { buildFallbackSerpBrief } = await import(
+    "@/lib/gemini/grounding-config"
   );
+  console.warn(
+    `[serp] Grounding unavailable (${
+      lastError instanceof Error ? lastError.message.slice(0, 100) : "unknown"
+    }); using offline SERP brief`
+  );
+  return buildFallbackSerpBrief(input);
 }
 
 export function formatSerpBriefForPrompt(brief: SerpResearchBrief): string {

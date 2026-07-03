@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Every 5 min: after 00:30 Pacific (~1:00 PM IST) write one English blog, then start
-# legacy project rewrites until quota or the next soft start, then translation catchup.
+# Every 5 min: after 13:00 IST (configurable via BLOG_WRITER_START_IST) write one English blog,
+# then start legacy project rewrites until quota or the next soft start, then translation catchup.
 # Translation never runs before today's blog is done, and not while legacy rewrites remain.
 # Writer uses flock so only one generate-blog runs at a time.
 set -euo pipefail
@@ -68,24 +68,6 @@ finish_blog_cron_day() {
   touch "$DONE_FILE"
 }
 
-FAIL_FILE="$RUNTIME_DIR/fail-count-$DAY"
-MAX_FAIL="${BLOG_CRON_MAX_FAIL_POSTS:-3}"
-
-increment_fail_count() {
-  local n=0
-  if [ -f "$FAIL_FILE" ]; then
-    n=$(cat "$FAIL_FILE" 2>/dev/null || echo 0)
-  fi
-  n=$((n + 1))
-  echo "$n" > "$FAIL_FILE"
-  echo "$n"
-}
-
-finish_max_fail_day() {
-  echo "$(date -Is) max fail posts ($MAX_FAIL) reached; marking day done for translation burn" >> "$LOG"
-  finish_blog_cron_day_and_translate
-}
-
 # Blog-first: translation recovery only after today's English write is done.
 if [ -f "$DONE_FILE" ]; then
   maybe_recover_translation
@@ -104,7 +86,7 @@ if [ -f "$QUOTA_HOLD_FILE" ]; then
   rm -f "$QUOTA_HOLD_FILE"
 fi
 
-if ! node "$GATE_SCRIPT" past-soft-start 2>/dev/null; then
+if ! node "$GATE_SCRIPT" past-blog-writer-start 2>/dev/null; then
   exit 0
 fi
 
@@ -135,7 +117,7 @@ fi
     if (b.outsideWriterWindow === true || b.quotaWaiting === true) {
       process.exit(40);
     }
-    if (b.jobComplete === true || (b.schedule && b.schedule.canGenerate === false)) {
+    if (b.jobComplete === true) {
       process.exit(30);
     }
     process.exit(1);
@@ -158,11 +140,7 @@ fi
       finish_blog_cron_day_and_translate
       ;;
     *)
-      FAILS=$(increment_fail_count)
-      echo "$(date -Is) generate-blog failed (attempt $FAILS/$MAX_FAIL); translation deferred" >> "$LOG"
-      if [ "$FAILS" -ge "$MAX_FAIL" ]; then
-        finish_max_fail_day
-      fi
+      echo "$(date -Is) generate-blog failed; will retry on next cron tick (day not marked done)" >> "$LOG"
       ;;
   esac
 } >> "$LOG" 2>&1

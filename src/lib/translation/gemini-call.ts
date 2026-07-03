@@ -24,6 +24,16 @@ export function isGemini503Error(error: unknown): boolean {
   );
 }
 
+export function isGeminiTransientError(error: unknown): boolean {
+  if (isGemini503Error(error)) return true;
+  const message = error instanceof Error ? error.message : String(error);
+  return (
+    message.includes("500") ||
+    message.includes("Internal error encountered") ||
+    message.includes("UNAVAILABLE")
+  );
+}
+
 export function isJsonParseError(error: unknown): boolean {
   const message = error instanceof Error ? error.message : String(error);
   return (
@@ -93,7 +103,7 @@ function extractJsonContentField(raw: string): string | null {
 }
 
 export type TranslationGeminiOptions = {
-  /** Default burn (post-blog CMS translation). Use insight for monthly reports. */
+  /** Default burn (post-blog CMS translation). Use insight/press for parallel admin work. */
   quotaScope?: QuotaBudgetScope;
 };
 
@@ -113,40 +123,48 @@ export async function generateTranslationText(
     let keyHitQuota = false;
 
     for (const modelName of geminiTranslationModelCandidates()) {
-      try {
-        const model = genAI.getGenerativeModel({
-          model: modelName,
-          generationConfig: {
-            responseMimeType: "application/json",
-          },
-        });
-        const result = await model.generateContent(prompt);
-        const text = result.response.text().trim();
-        await pauseAfterGeminiCall();
-        recordQuotaUsage(quotaScope === "insight" ? "burn" : quotaScope);
-        if (apiKey !== apiKeys[0]) {
-          console.warn(
-            "[translate] Gemini call succeeded on fallback API key (GEMINI_API_KEY_2)."
+      for (let attempt = 0; attempt < 3; attempt++) {
+        try {
+          const model = genAI.getGenerativeModel({
+            model: modelName,
+            generationConfig: {
+              responseMimeType: "application/json",
+            },
+          });
+          const result = await model.generateContent(prompt);
+          const text = result.response.text().trim();
+          await pauseAfterGeminiCall();
+          recordQuotaUsage(
+            quotaScope === "insight" || quotaScope === "press" ? "burn" : quotaScope
           );
-        }
-        return text;
-      } catch (error) {
-        lastError = error;
-        if (isGeminiQuotaError(error)) {
-          keyHitQuota = true;
-          console.warn(
-            `[translate] Gemini quota exceeded on key ...${apiKey.slice(-4)}, trying fallback if configured.`
-          );
+          if (apiKey !== apiKeys[0]) {
+            console.warn(
+              "[translate] Gemini call succeeded on fallback API key (GEMINI_API_KEY_2)."
+            );
+          }
+          return text;
+        } catch (error) {
+          lastError = error;
+          if (isGeminiQuotaError(error)) {
+            keyHitQuota = true;
+            console.warn(
+              `[translate] Gemini quota exceeded on key ...${apiKey.slice(-4)}, trying fallback if configured.`
+            );
+            break;
+          }
+          if (isGeminiTransientError(error) && attempt < 2) {
+            const waitMs = 2000 * (attempt + 1);
+            console.warn(
+              `[translate] Gemini transient error on ${modelName} (attempt ${attempt + 1}/3), retrying in ${waitMs}ms…`
+            );
+            await new Promise((r) => setTimeout(r, waitMs));
+            continue;
+          }
+          console.warn(`[translate] Gemini model ${modelName} failed:`, error);
           break;
         }
-        if (isGemini503Error(error)) {
-          console.warn(
-            `[translate] Gemini 503 on ${modelName}, trying next model/key...`
-          );
-          continue;
-        }
-        console.warn(`[translate] Gemini model ${modelName} failed:`, error);
       }
+      if (keyHitQuota) break;
     }
 
     if (keyHitQuota) {

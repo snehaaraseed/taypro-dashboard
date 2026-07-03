@@ -17,6 +17,7 @@ import { recoveryNotFoundMetadata } from "@/lib/seo/recovery-not-found-metadata"
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 import { formatLocaleDate } from "@/i18n/format-date";
 import { SOURCE_LOCALE } from "@/lib/translation/config";
+import { sanitizePressReleaseHtml } from "@/lib/security/sanitize-html";
 
 const siteUrl = SITE_URL;
 
@@ -100,7 +101,11 @@ export default async function PressReleaseDetailPage({ params }: PageProps) {
                 <p className="text-sm font-medium text-gray-500 not-prose mb-6">
                   {release.dateline}
                 </p>
-                <div dangerouslySetInnerHTML={{ __html: release.content }} />
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: sanitizePressReleaseHtml(release.content),
+                  }}
+                />
                 {release.quotes.map((q) => (
                   <blockquote key={q.attribution}>
                     <p>&ldquo;{q.text}&rdquo;</p>

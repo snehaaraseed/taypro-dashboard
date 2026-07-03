@@ -162,7 +162,7 @@ const MS_PER_DAY = 86_400_000;
 const BLOG_AUTOMATION_TZ =
   process.env.BLOG_CRON_TZ?.trim() || "Asia/Kolkata";
 /** Cron writer window start (local TZ); used for nextEligibleAt only. */
-const BLOG_CRON_WINDOW_START_HOUR = 9;
+const BLOG_CRON_WINDOW_START_HOUR = 13;
 
 export function getBlogAutomationTimezone(): string {
   return BLOG_AUTOMATION_TZ;

@@ -101,6 +101,166 @@
       "angleId": "waterless-sprinkler",
       "archetype": "technical_howto",
       "wordCountTier": "narrow"
+    },
+    {
+      "id": "scada-cleaning-kpi-dashboard",
+      "semanticDomain": "monitoring_om",
+      "intentFamily": "technical_howto",
+      "subAngle": "scada_kpi",
+      "primaryKeyword": "scada kpis solar cleaning robot fleet india",
+      "title": "SCADA KPIs for Solar Cleaning Robot Fleets on 50MW+ Plants",
+      "description": "Which SCADA tags and daily KPIs O&M leads should monitor when robotic cleaning is deployed across long utility rows in India.",
+      "h2Outline": [
+        "Quick answer",
+        "Fleet availability vs row completion rate",
+        "PR delta attribution after cleaning passes",
+        "Alarm thresholds for stuck robots and comms loss",
+        "Monthly reporting for asset owners",
+        "Integrating cleaning logs with existing SCADA"
+      ],
+      "angleId": "default-guide",
+      "archetype": "technical_howto",
+      "wordCountTier": "narrow"
+    },
+    {
+      "id": "epc-handover-cleaning-spec",
+      "semanticDomain": "procurement_epc",
+      "intentFamily": "technical_howto",
+      "subAngle": "epc_spec",
+      "primaryKeyword": "solar plant cleaning specification epc handover india",
+      "title": "Cleaning Robot Specifications for EPC Handover on Utility Solar",
+      "description": "What IPPs should require in EPC handover docs for automated cleaning: row access, power, comms, and warranty clauses on Indian MW sites.",
+      "h2Outline": [
+        "Quick answer",
+        "Row geometry and clearance requirements",
+        "Power and comms at combiner level",
+        "OEM module cleaning warranty alignment",
+        "Acceptance testing before COD",
+        "O&M transition checklist"
+      ],
+      "angleId": "default-guide",
+      "archetype": "technical_howto",
+      "wordCountTier": "narrow"
+    },
+    {
+      "id": "monsoon-pre-pass-schedule",
+      "semanticDomain": "cleaning_economics",
+      "intentFamily": "technical_howto",
+      "subAngle": "seasonal_schedule",
+      "primaryKeyword": "pre monsoon solar panel cleaning schedule maharashtra",
+      "title": "Pre-Monsoon Solar Cleaning Pass: Schedule for Maharashtra MW Plants",
+      "description": "Timing and crew-or-robot planning for pre-monsoon cleaning on fixed-tilt and tracker sites in Maharashtra dust belts.",
+      "h2Outline": [
+        "Quick answer",
+        "Why pre-monsoon timing matters for PR",
+        "Fixed-tilt vs tracker row priorities",
+        "Robot nightly windows before cloud cover",
+        "Coordination with vegetation control",
+        "Post-monsoon verification sampling"
+      ],
+      "angleId": "freq-50mw",
+      "archetype": "om_schedule",
+      "wordCountTier": "narrow"
+    },
+    {
+      "id": "tracker-row-access-robots",
+      "semanticDomain": "cleaning_methods",
+      "intentFamily": "technical_howto",
+      "subAngle": "tracker_access",
+      "primaryKeyword": "single axis tracker solar cleaning robot access india",
+      "title": "Single-Axis Tracker Row Access for Robotic Solar Cleaning in India",
+      "description": "Ground clearance, stow angles, and drive-gaps that determine whether robots can clean tracker rows on utility plants without manual touch-up.",
+      "h2Outline": [
+        "Quick answer",
+        "Tracker geometry constraints",
+        "Stow position and cleaning windows",
+        "Drive motor gaps and end-of-row turns",
+        "Manual touch-up zones",
+        "Pilot layout before fleet rollout"
+      ],
+      "angleId": "default-guide",
+      "archetype": "technical_howto",
+      "wordCountTier": "narrow"
+    },
+    {
+      "id": "salt-coastal-cleaning-interval",
+      "semanticDomain": "water_environment",
+      "intentFamily": "technical_howto",
+      "subAngle": "coastal_salt",
+      "primaryKeyword": "coastal solar soiling salt deposition cleaning frequency india",
+      "title": "Coastal Salt Deposition on Solar Plants: Cleaning Intervals for Gujarat and Tamil Nadu",
+      "description": "How salt and humidity change soiling rates on coastal C&I and utility arrays, and how to set robot or manual cadence without module damage.",
+      "h2Outline": [
+        "Quick answer",
+        "Salt vs dust soiling signatures",
+        "Module glass and frame corrosion risks",
+        "Cleaning method selection on coastal sites",
+        "Sample PR monitoring cadence",
+        "When to increase pass frequency before monsoon"
+      ],
+      "angleId": "waterless-sprinkler",
+      "archetype": "technical_howto",
+      "wordCountTier": "narrow"
+    },
+    {
+      "id": "agrivoltaics-cleaning-clearance",
+      "semanticDomain": "cleaning_methods",
+      "intentFamily": "technical_howto",
+      "subAngle": "agrivoltaics",
+      "primaryKeyword": "agrivoltaics solar panel cleaning robot crop clearance",
+      "title": "Agrivoltaics Cleaning: Robot Clearance and Crop-Safe Pass Planning",
+      "description": "Ground clearance, crop height, and pass timing when cleaning elevated modules on dual-use agrivoltaic sites in India.",
+      "h2Outline": [
+        "Quick answer",
+        "Module height vs crop growth cycles",
+        "Robot path planning between rows",
+        "Dust from tillage and harvest periods",
+        "Coordination with farm operations",
+        "Safety and land-use compliance"
+      ],
+      "angleId": "default-guide",
+      "archetype": "technical_howto",
+      "wordCountTier": "narrow"
+    },
+    {
+      "id": "inverter-clipping-vs-soiling",
+      "semanticDomain": "soiling_pr",
+      "intentFamily": "technical_howto",
+      "subAngle": "diagnostics",
+      "primaryKeyword": "inverter clipping vs soiling solar plant diagnostics",
+      "title": "Inverter Clipping vs Soiling: How to Diagnose PR Loss on Indian Utility Plants",
+      "description": "Separate grid-limit clipping from dust-related PR drift using SCADA trends before scheduling unnecessary cleaning on 25–100 MW assets.",
+      "h2Outline": [
+        "Quick answer",
+        "Clipping signatures in inverter data",
+        "Soiling drift patterns by season",
+        "IV curve sampling vs daily PR",
+        "When cleaning will not recover yield",
+        "O&M escalation criteria"
+      ],
+      "angleId": "default-om",
+      "archetype": "technical_howto",
+      "wordCountTier": "narrow"
+    },
+    {
+      "id": "amc-scope-cleaning-robots",
+      "semanticDomain": "cleaning_economics",
+      "intentFamily": "financial_roi",
+      "subAngle": "amc_scope",
+      "primaryKeyword": "solar cleaning robot amc scope india om contract",
+      "title": "AMC Scope for Solar Cleaning Robots: What to Include in Indian O&M Contracts",
+      "description": "Spares, firmware, pass completion SLAs, and response times IPPs should specify when outsourcing robotic cleaning on MW-scale plants.",
+      "h2Outline": [
+        "Quick answer",
+        "Fleet uptime vs pass completion SLAs",
+        "Spares and brush replacement",
+        "Firmware and remote diagnostics",
+        "Penalty and reporting clauses",
+        "Benchmarking manual vs robotic AMC"
+      ],
+      "angleId": "default-om",
+      "archetype": "financial_roi",
+      "wordCountTier": "standard"
     }
   ]
 }

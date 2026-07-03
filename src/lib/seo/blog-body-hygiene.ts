@@ -4,6 +4,7 @@
 
 import { extractH2Headings } from "@/lib/seo/blog-similarity";
 import { repairInlineImgAlts } from "@/lib/seo/blog-inline-img-alt";
+import { stripPlanningArtifacts } from "@/lib/seo/planning-artifacts";
 
 export {
   buildDefaultInlineImgAlt,
@@ -164,12 +165,15 @@ export function countDuplicateH2Headings(html: string): number {
   return h2s.length - new Set(h2s).size;
 }
 
-/** Strip H1 + dedupe H2 blocks + fix short inline img alts before validation. */
+/** Strip H1 + planning leaks + dedupe H2 blocks + fix short inline img alts before validation. */
 export function sanitizeGeneratedBlogBodyHtml(
   html: string,
   context: { title: string; primaryKeyword?: string | null }
 ): string {
-  let out = repairInlineImgAlts(demoteBodyH1ToH2(html), context);
+  let out = repairInlineImgAlts(
+    stripPlanningArtifacts(demoteBodyH1ToH2(html)),
+    context
+  );
   const { html: deduped, removedCount } = dedupeMirroredH2Block(out);
   if (removedCount > 0) {
     console.warn(

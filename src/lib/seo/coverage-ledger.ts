@@ -758,6 +758,36 @@ export async function resolveTitleForEditorialContract(input: {
   );
   if (title) return buildTitleIntentResult(contract, title, true);
 
+  // Brief-sourced contracts carry a grounded, editorially-vetted title whose
+  // wording often shares too few tokens with the raw primaryKeyword to clear
+  // titleReflectsKeyword. Trust the brief title (collision + uniqueness only)
+  // rather than drifting into the off-topic hybrid keyword generator.
+  if (contract.slotKey.startsWith("brief::")) {
+    const briefTitle = contract.seedTitle.trim();
+    const notForbiddenlySimilar = !forbiddenTitles.some((f) =>
+      titlesTooSimilar(briefTitle, f)
+    );
+    if (briefTitle.length <= 72 && notForbiddenlySimilar) {
+      const slug = createSlug(briefTitle);
+      const conflict = await findTitleConflict(briefTitle, slug);
+      const dup = conflict
+        ? conflict
+        : await preFlightUniquenessProbe(
+            {
+              title: briefTitle,
+              description: titleCheckpoint.description,
+              h2Outline: contract.h2Template,
+              slug,
+            },
+            titleCheckpoint.ctx,
+            titleCheckpoint.corpus
+          );
+      if (!dup) {
+        return buildTitleIntentResult(contract, briefTitle, false);
+      }
+    }
+  }
+
   const attemptsRaw = process.env.BLOG_TITLE_HYBRID_ATTEMPTS?.trim();
   const hybridAttempts = attemptsRaw
     ? Number.parseInt(attemptsRaw, 10)

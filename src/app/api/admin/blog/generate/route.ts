@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
-import { revalidateSitemap } from "@/lib/seo/revalidate-sitemap";
+import { revalidatePublicContent } from "@/lib/seo/revalidate-public-content";
 import { generateBlogContent, planBlogContent } from "@/lib/aiService";
 import { isRetryableGenerationError } from "@/lib/seo/content-quality";
 import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
@@ -294,10 +294,10 @@ export async function POST(request: NextRequest) {
           });
         }
 
-        revalidatePath(`/blog/${result.slug}`);
-        revalidatePath("/blog");
         revalidatePath("/admin/blogs");
-        revalidateSitemap();
+        await revalidatePublicContent([`/blog/${result.slug}`, "/blog"], {
+          sitemap: true,
+        });
 
         return NextResponse.json({
           success: true,

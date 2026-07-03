@@ -4,6 +4,7 @@ import {
   localizedUrl,
   openGraphLocaleForSite,
 } from "../src/lib/seo/locale-alternates";
+import { expandPathsToLocalizedUrls } from "../src/lib/seo/purge-cloudflare-cache";
 import { formatBrandTitle, normalizePageTitle, trimSerpTitle, SERP_TITLE_MAX } from "../src/lib/seo/page-title";
 import {
   SERP_DESCRIPTION_MAX,
@@ -18,6 +19,13 @@ import { isDraftProjectSlug } from "../src/lib/seo/draft-project-slugs";
 
 assert.equal(localizedUrl("/blog/test", "en"), "https://taypro.in/blog/test");
 assert.equal(localizedUrl("/blog/test", "hi"), "https://taypro.in/hi/blog/test");
+assert.deepEqual(expandPathsToLocalizedUrls(["/blog/test"]), [
+  "https://taypro.in/blog/test",
+  "https://taypro.in/hi/blog/test",
+  "https://taypro.in/ar/blog/test",
+  "https://taypro.in/ja/blog/test",
+  "https://taypro.in/bn/blog/test",
+]);
 assert.equal(openGraphLocaleForSite("hi"), "hi_IN");
 assert.equal(openGraphLocaleForSite("ar"), "ar_AE");
 assert.equal(openGraphLocaleForSite("ja"), "ja_JP");

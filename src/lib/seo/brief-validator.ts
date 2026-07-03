@@ -3,6 +3,7 @@ import "server-only";
 import { createSlug } from "@/app/utils/blogFileUtils";
 import { findKeywordCorpusConflict, findTitleConflict } from "@/lib/seo/blog-plan-gates";
 import type { BlogSimilarityCorpusRow } from "@/lib/cms/blogService";
+import { titlesTooSimilar } from "@/lib/seo/blog-similarity";
 import { isTooGenericTitle } from "@/lib/seo/content-quality";
 import { isCompetitorPrimaryKeyword } from "@/lib/seo/competitor-keyword-guard";
 import { isTierAMoneyPageKeyword } from "@/lib/seo/topic-coordinate-renderer";
@@ -47,16 +48,23 @@ export async function validateCandidate(
     corpus: BlogSimilarityCorpusRow[];
     existingBriefTitles: Set<string>;
     existingBriefKeywords: Set<string>;
+    existingBriefQueries?: Set<string>;
+    /** When true, accept distinct titles/queries even if keyword overlaps existing corpus. */
+    discoveryMode?: boolean;
   }
 ): Promise<BriefValidationResult> {
   const title = candidate.suggestedTitle.trim();
   const keyword = candidate.primaryKeyword.trim().toLowerCase();
+  const queryKey = candidate.query.trim().toLowerCase();
 
   if (title.length < 30 || title.length > 72) {
     return { ok: false, reason: `title length ${title.length} out of range` };
   }
   if (keyword.length < 8) {
     return { ok: false, reason: "keyword too short" };
+  }
+  if (queryKey.length < 10) {
+    return { ok: false, reason: "search query too short" };
   }
   if (/\u2014/.test(title)) {
     return { ok: false, reason: "title contains em dash" };
@@ -81,15 +89,32 @@ export async function validateCandidate(
   if (ctx.existingBriefKeywords.has(keyword)) {
     return { ok: false, reason: "keyword already has a pending brief" };
   }
+  if (ctx.existingBriefQueries?.has(queryKey)) {
+    return { ok: false, reason: "search query already mined in brief queue" };
+  }
+  for (const existingQuery of ctx.existingBriefQueries ?? []) {
+    if (titlesTooSimilar(existingQuery, queryKey)) {
+      return { ok: false, reason: "search query too similar to pending brief" };
+    }
+  }
 
   const slug = createSlug(title);
   const titleConflict = await findTitleConflict(title, slug);
   if (titleConflict) {
     return { ok: false, reason: `already published: ${titleConflict.slug}` };
   }
-  const corpusConflict = findKeywordCorpusConflict(keyword, ctx.corpus);
-  if (corpusConflict) {
-    return { ok: false, reason: `keyword corpus conflict: ${corpusConflict.slug}` };
+
+  if (!ctx.discoveryMode) {
+    const corpusConflict = findKeywordCorpusConflict(keyword, ctx.corpus);
+    if (corpusConflict) {
+      return { ok: false, reason: `keyword corpus conflict: ${corpusConflict.slug}` };
+    }
+  } else {
+    for (const row of ctx.corpus) {
+      if (titlesTooSimilar(row.title, title)) {
+        return { ok: false, reason: `title too similar to published: ${row.slug}` };
+      }
+    }
   }
 
   const score = scoreCandidate(candidate);
@@ -115,5 +140,6 @@ export async function validateCandidate(
 
   ctx.existingBriefTitles.add(titleKey);
   ctx.existingBriefKeywords.add(keyword);
+  ctx.existingBriefQueries?.add(queryKey);
   return { ok: true, brief };
 }

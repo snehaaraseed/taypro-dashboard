@@ -7,6 +7,7 @@ import type { TayproLocale } from "@/i18n/markets";
 import { isActiveLocale } from "@/i18n/markets";
 import { SOURCE_LOCALE } from "@/lib/translation/config";
 import { createSlug } from "@/lib/cms/blogService";
+import { sanitizePressReleaseHtml } from "@/lib/security/sanitize-html";
 
 export type PressReleaseStatus = "draft" | "ready" | "published";
 export type PressReleaseSource = "queue" | "project" | "insight" | "manual";
@@ -266,7 +267,7 @@ export async function createPressRelease(data: {
       title: data.title,
       subhead: data.subhead ?? "",
       dateline: data.dateline ?? "",
-      content: data.content,
+      content: sanitizePressReleaseHtml(data.content),
       boilerplate: data.boilerplate ?? "",
       contactJson: JSON.stringify(
         data.contact ?? {
@@ -322,7 +323,9 @@ export async function updatePressRelease(
         ...(data.title !== undefined ? { title: data.title } : {}),
         ...(data.subhead !== undefined ? { subhead: data.subhead } : {}),
         ...(data.dateline !== undefined ? { dateline: data.dateline } : {}),
-        ...(data.content !== undefined ? { content: data.content } : {}),
+        ...(data.content !== undefined
+          ? { content: sanitizePressReleaseHtml(data.content) }
+          : {}),
         ...(data.boilerplate !== undefined ? { boilerplate: data.boilerplate } : {}),
         ...(data.contact !== undefined
           ? { contactJson: JSON.stringify(data.contact) }
