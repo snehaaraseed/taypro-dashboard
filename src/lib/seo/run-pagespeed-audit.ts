@@ -109,6 +109,7 @@ export function getPagespeedAuditStatus(): PagespeedAuditStatus {
   return {
     configured: Boolean(
       process.env.PAGESPEED_API_KEY?.trim() ||
+        process.env.Page_speed_insights_api_key?.trim() ||
         process.env.GOOGLE_API_KEY?.trim()
     ),
     inProgress: status.inProgress,

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Every 5 min: after 13:00 IST (configurable via BLOG_WRITER_START_IST) write one English blog,
+# Every 5 min (weekdays): after BLOG_WRITER_START_IST (default 00:30 IST) write one English blog,
 # then start legacy project rewrites until quota or the next soft start, then translation catchup.
 # Translation never runs before today's blog is done, and not while legacy rewrites remain.
 # Writer uses flock so only one generate-blog runs at a time.
@@ -90,6 +90,10 @@ if ! node "$GATE_SCRIPT" past-blog-writer-start 2>/dev/null; then
   exit 0
 fi
 
+if ! node "$GATE_SCRIPT" is-automation-day 2>/dev/null; then
+  exit 0
+fi
+
 API_BASE="${CMS_CRON_API_BASE:-http://127.0.0.1:3000}"
 AUTH_HEADER="Authorization: Bearer ${AUTOMATION_CRON_SECRET}"
 ENDPOINT="${API_BASE%/}/api/automation/generate-blog"
@@ -101,7 +105,7 @@ fi
 
 {
   echo "$(date -Is) POST $ENDPOINT"
-  BODY=$(curl -sS -m 1800 -X POST "$ENDPOINT" \
+  BODY=$(curl -sS -m 3600 -X POST "$ENDPOINT" \
     -H "$AUTH_HEADER" \
     -H "Content-Type: application/json")
   echo "$BODY"

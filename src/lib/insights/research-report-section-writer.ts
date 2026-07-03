@@ -137,6 +137,7 @@ ${HTML_END}`;
 
       const raw = await generateAutomationText(prompt, {
         maxOutputTokens: 8192,
+        purpose: "editorial",
         preferQualityModel: true,
       });
 

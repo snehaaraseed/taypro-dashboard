@@ -68,6 +68,7 @@ Rules:
 
   const raw = await generateAutomationText(prompt, {
     maxOutputTokens: 4096,
+    purpose: "editorial",
     preferQualityModel: true,
   });
 

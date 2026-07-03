@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { headers } from "next/headers";
 import { Blinker, Montserrat } from "next/font/google";
 import "@/app/globals.css";
 
@@ -36,20 +37,21 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-// Pre-hydration: set <html lang/dir> from the URL locale prefix before paint so
-// RTL (ar) renders correctly without a flash. The root layout is statically
-// rendered (no headers()), so it cannot know the locale at render time; this
-// blocking inline script and the post-hydration <HtmlLocaleAttributes/> keep the
-// attributes correct. Allowed by the CSP (`script-src 'unsafe-inline'`).
+// Pre-hydration fallback: keep <html lang/dir> aligned if middleware headers are absent.
+// Primary locale/dir come from x-taypro-locale / x-taypro-dir in RootLayout (SSR).
 const SET_HTML_LOCALE_SCRIPT = `(function(){try{var s=location.pathname.split("/")[1];var loc={hi:1,ar:1,ja:1,bn:1,en:1};var l=loc[s]?s:"en";var d=l==="ar"?"rtl":"ltr";var e=document.documentElement;e.lang=l;e.dir=d;}catch(e){}})();`;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const headerStore = await headers();
+  const locale = headerStore.get("x-taypro-locale") ?? "en";
+  const dir = headerStore.get("x-taypro-dir") ?? "ltr";
+
   return (
-    <html lang="en" dir="ltr" suppressHydrationWarning>
+    <html lang={locale} dir={dir} suppressHydrationWarning>
       <body
         className={`${montserrat.className} ${montserrat.variable} ${blinker.variable}`}
         suppressHydrationWarning

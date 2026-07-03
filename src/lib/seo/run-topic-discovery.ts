@@ -191,8 +191,34 @@ export async function ensureBriefQueueForAutomation(): Promise<RunTopicDiscovery
   const minOpen = getDiscoveryMinOpenBriefs();
   if (stats.open >= minOpen) return null;
 
+  const target = getDiscoveryTargetWhenLow();
+
+  const { enqueueCuratedTopicsToBriefQueue } = await import(
+    "@/lib/seo/curated-blog-topics"
+  );
+  const curated = await enqueueCuratedTopicsToBriefQueue({ limit: target });
+  if (curated.added > 0) {
+    console.info(
+      `[discovery] Curated topics enqueued: +${curated.added} briefs (${curated.skipped} skipped)`
+    );
+  }
+
+  const afterCurated = countBriefStats();
+  if (afterCurated.open >= minOpen) {
+    return {
+      candidatesMined: 0,
+      accepted: curated.added,
+      added: curated.added,
+      rejected: curated.skipped,
+      rejectionReasons: curated.skipReasons,
+      openBriefs: afterCurated.open,
+      searchFocus: "curated-editorial-backlog",
+      domainsScanned: 0,
+    };
+  }
+
   return runTopicDiscovery({
-    target: getDiscoveryTargetWhenLow(),
-    reason: `automation-refill (${stats.open} open, min ${minOpen})`,
+    target: Math.max(1, target - curated.added),
+    reason: `automation-refill (${afterCurated.open} open, min ${minOpen})`,
   });
 }

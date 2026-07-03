@@ -26,7 +26,7 @@ set -a
 source "$ENV_FILE"
 set +a
 
-if [ -z "${PAGESPEED_API_KEY:-}" ] && [ -z "${GOOGLE_API_KEY:-}" ]; then
+if [ -z "${PAGESPEED_API_KEY:-}" ] && [ -z "${Page_speed_insights_api_key:-}" ] && [ -z "${GOOGLE_API_KEY:-}" ]; then
   echo "$(date -Is) ERROR: PAGESPEED_API_KEY not set" >> "$LOG"
   exit 1
 fi
@@ -34,6 +34,6 @@ fi
 {
   echo "$(date -Is) pagespeed audit start"
   cd "$ROOT"
-  npx tsx scripts/run-pagespeed-audit.ts
+  node scripts/run-pagespeed-audit.mjs
   echo "$(date -Is) pagespeed audit done"
 } >> "$LOG" 2>&1

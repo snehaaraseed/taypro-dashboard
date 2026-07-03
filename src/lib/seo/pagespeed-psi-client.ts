@@ -6,6 +6,7 @@ const PSI_ENDPOINT = "https://www.googleapis.com/pagespeedonline/v5/runPagespeed
 function resolveApiKey(): string {
   const key =
     process.env.PAGESPEED_API_KEY?.trim() ||
+    process.env.Page_speed_insights_api_key?.trim() ||
     process.env.GOOGLE_API_KEY?.trim();
   if (!key) {
     throw new Error(
@@ -76,6 +77,8 @@ export async function fetchPageSpeedInsightsRateLimited(
 
 export function isPagespeedConfigured(): boolean {
   return Boolean(
-    process.env.PAGESPEED_API_KEY?.trim() || process.env.GOOGLE_API_KEY?.trim()
+    process.env.PAGESPEED_API_KEY?.trim() ||
+      process.env.Page_speed_insights_api_key?.trim() ||
+      process.env.GOOGLE_API_KEY?.trim()
   );
 }

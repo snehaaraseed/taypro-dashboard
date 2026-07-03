@@ -8,10 +8,10 @@ import { GenericContactLeadButton } from "@/app/components/GenericContactLeadBut
 import {
   founders,
   metrics,
-  robots,
   tayproMarketingImpactStats,
   tayproTrustedByStatsStrip,
 } from "@/app/data";
+import { CompanySolutionsLineup } from "@/app/components/CompanySolutionsLineup";
 import { ArrowRight, Check, Linkedin } from "lucide-react";
 import CallbackCard from "@/app/components/CallbackCard";
 import { CompanyPageHero } from "@/app/components/CompanyPageHero";
@@ -44,14 +44,6 @@ const FOUNDER_ROLE_KEYS = [
   "leadership.roleCto",
   "leadership.roleCmo",
 ] as const;
-
-const ROBOT_DESC_KEY: Record<string, string> = {
-  GLYDE: "glyde",
-  HELYX: "helyx",
-  "GLYDE-X": "glydeX",
-  "Opex": "tayproOpex",
-  "NECTYR": "nectyr",
-};
 
 const PARTNER_STEP_KEYS = ["step0", "step1", "step2", "step3"] as const;
 
@@ -448,69 +440,7 @@ export default function AboutUsPage() {
           </Container>
         </section>
 
-        <section
-          className="w-full py-16 md:py-20 bg-[#f4f7f9]"
-          aria-labelledby="company-solutions-heading"
-        >
-          <Container>
-            <AnimateOnScroll animation="fadeInUp" className="max-w-3xl mb-10">
-              <h2
-                id="company-solutions-heading"
-                className="text-[#052638] font-semibold text-3xl md:text-4xl mb-4"
-              >
-                {t("solutions.heading")}
-              </h2>
-              <p className="text-[#27415c] text-lg leading-relaxed">
-                {t("solutions.bodyBeforeLink")}{" "}
-                <Link href="/cleaning-technology" className="brand-inline-link font-medium">
-                  {t("solutions.bodyLink")}
-                </Link>
-                {t("solutions.bodyAfterLink")}
-              </p>
-            </AnimateOnScroll>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {robots.map((robot, idx) => {
-                const descKey = ROBOT_DESC_KEY[robot.model];
-                return (
-                  <AnimateOnScroll
-                    key={robot.model}
-                    animation="fadeInUp"
-                    delay={idx * 80}
-                  >
-                    <Link
-                      href={robot.href}
-                      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200/90 bg-white shadow-sm transition-all duration-300 hover:border-[#A8C117]/80 hover:shadow-lg"
-                    >
-                      <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-[#0a2a38]">
-                        <Image
-                          src={robot.imgPath}
-                          alt={t("solutions.robotImageAlt", { model: robot.model })}
-                          fill
-                          className="object-contain p-4 transition-transform duration-300 group-hover:scale-[1.03]"
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        />
-                      </div>
-                      <div className="flex flex-1 flex-col bg-[#052638] p-5">
-                        <h3 className="mb-2 text-base font-semibold text-white leading-snug group-hover:text-[#c3e052] transition-colors">
-                          {robot.model}
-                        </h3>
-                        <p className="mb-4 flex-1 text-sm leading-relaxed text-white/85 line-clamp-3">
-                          {descKey
-                            ? t(`solutions.robots.${descKey}`)
-                            : robot.description}
-                        </p>
-                        <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#A8C117] group-hover:underline">
-                          {t("solutions.viewRobot", { model: robot.model })}
-                          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden />
-                        </span>
-                      </div>
-                    </Link>
-                  </AnimateOnScroll>
-                );
-              })}
-            </div>
-          </Container>
-        </section>
+        <CompanySolutionsLineup />
 
         <section className="w-full py-16 md:py-24 bg-white overflow-x-hidden">
           <Container>

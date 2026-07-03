@@ -7,7 +7,6 @@ import { getGeminiKeyPoolSize } from "@/lib/gemini/api-keys";
 
 const DEFAULT_GEMMA_RPD_PER_KEY = 1500;
 const DEFAULT_GROUNDING_RPD_PER_KEY = 20;
-const DEFAULT_RESERVED_BLOG_GEMMA = 40;
 const DEFAULT_RESERVED_GROUNDING = 2;
 
 export type QuotaBudgetScope = "blog" | "burn" | "grounding" | "insight" | "press";
@@ -35,12 +34,6 @@ function doneFilePath(): string {
 
 export function isTodayBlogDone(): boolean {
   return fs.existsSync(doneFilePath());
-}
-
-export function getReservedGemmaCallsBlog(): number {
-  const raw = process.env.GEMINI_RESERVED_GEMMA_CALLS_BLOG?.trim();
-  const parsed = raw ? Number.parseInt(raw, 10) : DEFAULT_RESERVED_BLOG_GEMMA;
-  return Number.isFinite(parsed) && parsed > 0 ? parsed : DEFAULT_RESERVED_BLOG_GEMMA;
 }
 
 export function getGemmaRpdCap(): number {
@@ -104,10 +97,6 @@ export function assertQuotaBudgetAllowed(scope: QuotaBudgetScope): void {
 
   if (usage.gemma >= cap) {
     throw new Error("Gemma daily text quota exhausted on all configured keys");
-  }
-
-  if (scope === "blog" && usage.blogReservedUsed >= getReservedGemmaCallsBlog()) {
-    throw new Error("Blog reserved Gemma call budget exhausted for today");
   }
 }
 

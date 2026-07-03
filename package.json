@@ -65,6 +65,7 @@
     "seo:generate-keyword-expansion": "node scripts/generate-seo-keyword-expansion.mjs",
     "seo:generate-editorial-calendar": "node scripts/generate-editorial-calendar.mjs",
     "seo:discover-topics": "node scripts/run-topic-discovery.mjs",
+    "seo:build-curated-topics": "node scripts/build-curated-blog-topics.mjs",
     "seo:test-gemma-blog-model": "node scripts/test-gemma-blog-model.mjs",
     "seo:test-editorial-state": "node scripts/test-editorial-state.mjs",
     "seo:test-blog-automation-v2": "node scripts/test-blog-automation-v2.mjs",

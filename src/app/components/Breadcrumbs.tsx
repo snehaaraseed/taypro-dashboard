@@ -1,4 +1,4 @@
-import { BreadcrumbListSchema } from "./StructuredData";
+import { BreadcrumbSchema } from "./BreadcrumbSchema";
 import TrackedLink from "./TrackedLink";
 
 export function Breadcrumbs({
@@ -8,7 +8,7 @@ export function Breadcrumbs({
 }) {
   return (
     <>
-      {items && items.length > 0 && <BreadcrumbListSchema items={items} />}
+      {items && items.length > 0 && <BreadcrumbSchema items={items} />}
       <nav
         className="py-3 w-full text-center bg-[#052638] border-b border-[#0c3c57]"
         aria-label="Breadcrumb navigation"

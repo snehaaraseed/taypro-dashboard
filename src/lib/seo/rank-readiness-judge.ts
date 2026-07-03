@@ -142,6 +142,7 @@ export async function judgeRankReadiness(input: {
     });
     const text = await generateAutomationText(prompt, {
       maxOutputTokens: 1024,
+      purpose: "editorial",
       preferQualityModel: true,
     });
     const parsed = parseGeminiJsonObject<Record<string, unknown>>(text);

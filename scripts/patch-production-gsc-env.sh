@@ -120,6 +120,32 @@ if [ -f "$CF_ENV_FILE" ]; then
   echo "  ✅ Cloudflare cache purge vars applied from $(basename "$CF_ENV_FILE")"
 fi
 
+# Optional: PageSpeed Insights API key (secrets/pagespeed-production.env)
+PAGESPEED_ENV_FILE="$SECRETS_DIR/pagespeed-production.env"
+if [ -f "$PAGESPEED_ENV_FILE" ]; then
+  psi_key=""
+  while IFS= read -r line || [ -n "$line" ]; do
+    line="${line%%#*}"
+    line="${line%"${line##*[![:space:]]}"}"
+    [ -z "$line" ] && continue
+    key="${line%%=*}"
+    val="${line#*=}"
+    [ -z "$key" ] || [ -z "$val" ] && continue
+    case "$key" in
+      PAGESPEED_API_KEY|Page_speed_insights_api_key|GOOGLE_API_KEY)
+        psi_key="$val"
+        ;;
+    esac
+  done < "$PAGESPEED_ENV_FILE"
+  if [ -n "$psi_key" ]; then
+    set_kv "PAGESPEED_API_KEY" "$psi_key"
+    set_kv "PAGESPEED_AUDIT_SCOPE" "english"
+    set_kv "PAGESPEED_RATE_LIMIT_MS" "1200"
+    echo "  ✅ PageSpeed Insights API key applied from $(basename "$PAGESPEED_ENV_FILE")"
+  fi
+  chmod 600 "$PAGESPEED_ENV_FILE" 2>/dev/null || true
+fi
+
 if [ ! -f "$GSC_KEY" ]; then
   echo "  ⚠️  Missing $GSC_KEY — deploy must upload secrets/gsc-service-account.json"
 else

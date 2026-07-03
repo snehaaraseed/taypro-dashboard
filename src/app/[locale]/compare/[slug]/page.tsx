@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 import ComparisonLandingPage from "@/app/components/ComparisonLandingPage";
 import CompetitorMarketComparisonPage from "@/app/components/CompetitorMarketComparisonPage";
 import { socialImagesFromPreset } from "@/lib/seo/open-graph";
-import { withHreflang } from "@/lib/seo/with-hreflang";
+import { withModulePageHreflang } from "@/lib/seo/localized-module-metadata";
 import { recoveryNotFoundMetadata } from "@/lib/seo/recovery-not-found-metadata";
 import {
   COMPARISON_PAGE_LIST,
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const pageId = config.id as ComparisonPageId;
 
-  return withHreflang(config.path, locale, {
+  return withModulePageHreflang(config.path, "comparisons", locale, {
     title: t(`${pageId}.meta.title`),
     description: t(`${pageId}.meta.description`),
     openGraph: {

@@ -17,6 +17,7 @@ export type RankReadinessInput = {
   primaryKeyword: string;
   peopleAlsoAsk?: string[];
   serpGaps?: string[];
+  contentFormat?: "standard" | "narrative";
 };
 
 export type RankReadinessResult = {
@@ -90,6 +91,12 @@ export function evaluateRankReadiness(
   const hasListOrTable =
     /<table[\s>]/i.test(html) ||
     (html.match(/<li[\s>]/gi) ?? []).length >= 4;
+  const narrative = input.contentFormat === "narrative";
+  const hasNarrativeOpening =
+    firstChunk.length >= 200 &&
+    /\b(plant|mw|site|asset|operator|o&m|performance ratio|pr)\b/i.test(
+      firstChunk
+    );
 
   const internalLinks = (htmlLower.match(/href=["'](\/|https?:\/\/(www\.)?taypro)/gi) ?? [])
     .length;
@@ -126,8 +133,15 @@ export function evaluateRankReadiness(
   if (hasQuestionHeading) score += 10;
   else reasons.push("no question-style heading (weak PAA capture)");
 
-  if (hasListOrTable) score += 10;
-  else reasons.push("no scannable list/table (poor skimmability)");
+  if (narrative ? hasNarrativeOpening || hasListOrTable : hasListOrTable) {
+    score += 10;
+  } else {
+    reasons.push(
+      narrative
+        ? "narrative opening lacks plant-scene specificity"
+        : "no scannable list/table (poor skimmability)"
+    );
+  }
 
   if (internalLinks >= MIN_INTERNAL_LINKS) score += 10;
   else reasons.push(`too few internal links (${internalLinks} < ${MIN_INTERNAL_LINKS})`);

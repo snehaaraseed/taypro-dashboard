@@ -4,7 +4,7 @@ import { GoogleGenAI } from "@google/genai";
 import { isGeminiQuotaError, listGeminiApiKeys } from "@/lib/gemini/api-keys";
 import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
 import { parseGeminiJsonObject } from "@/lib/gemini/parse-json-response";
-import { resolveGroundingModel } from "@/lib/gemini/grounding-config";
+import { groundingModelCandidates } from "@/lib/gemini/model-routing";
 import type { SearchIntentFamily } from "@/lib/seo/keyword-intent-taxonomy";
 import { listSemanticDomains } from "@/lib/seo/semantic-topic-coordinates";
 
@@ -176,75 +176,77 @@ export async function discoverCandidatesForDomain(input: {
     runStamp: input.runStamp,
     perDomain: input.perDomain ?? 5,
   });
-  const model = resolveGroundingModel();
+  const models = groundingModelCandidates();
   const apiKeys = listGeminiApiKeys();
   let lastError: unknown;
 
-  for (const apiKey of apiKeys) {
-    const ai = new GoogleGenAI({ apiKey });
-    for (let attempt = 0; attempt < 3; attempt++) {
-      try {
-        const response = await ai.models.generateContent({
-          model,
-          contents: prompt,
-          config: { tools: [{ googleSearch: {} }], maxOutputTokens: 8192 },
-        });
-        const text = (response.text ?? "").trim();
-        if (!text) throw new Error("Discovery response was empty");
-
-        const parsed = parseGeminiJsonObject<Record<string, unknown>>(text);
-        const grounding = extractGroundingMeta(response);
-        await pauseAfterGeminiCall();
-
-        const rawList = Array.isArray(parsed.candidates) ? parsed.candidates : [];
-        const out: DiscoveredCandidate[] = [];
-        for (const item of rawList) {
-          if (!item || typeof item !== "object") continue;
-          const row = item as Record<string, unknown>;
-          const query = String(row.query ?? "").trim();
-          const suggestedTitle = String(row.suggestedTitle ?? "").trim();
-          const primaryKeyword = String(row.primaryKeyword ?? "").trim();
-          if (!suggestedTitle || !primaryKeyword) continue;
-          out.push({
-            domainId: input.domainId,
-            query: query || suggestedTitle,
-            suggestedTitle,
-            primaryKeyword,
-            intentFamily: coerceIntent(row.intentFamily),
-            serpGap: String(row.serpGap ?? "").trim(),
-            peopleAlsoAsk: asStringArray(row.peopleAlsoAsk),
-            freshnessNote: String(row.freshnessNote ?? "").trim() || undefined,
-            rationale: String(row.rationale ?? "").trim() || undefined,
-            sources: grounding.sources.slice(0, 6),
-            webSearchQueries: grounding.webSearchQueries,
+  for (const model of models) {
+    for (const apiKey of apiKeys) {
+      const ai = new GoogleGenAI({ apiKey });
+      for (let attempt = 0; attempt < 3; attempt++) {
+        try {
+          const response = await ai.models.generateContent({
+            model,
+            contents: prompt,
+            config: { tools: [{ googleSearch: {} }], maxOutputTokens: 8192 },
           });
-        }
-        return out;
-      } catch (error) {
-        lastError = error;
-        if (isGeminiQuotaError(error)) {
+          const text = (response.text ?? "").trim();
+          if (!text) throw new Error("Discovery response was empty");
+
+          const parsed = parseGeminiJsonObject<Record<string, unknown>>(text);
+          const grounding = extractGroundingMeta(response);
+          await pauseAfterGeminiCall();
+
+          const rawList = Array.isArray(parsed.candidates) ? parsed.candidates : [];
+          const out: DiscoveredCandidate[] = [];
+          for (const item of rawList) {
+            if (!item || typeof item !== "object") continue;
+            const row = item as Record<string, unknown>;
+            const query = String(row.query ?? "").trim();
+            const suggestedTitle = String(row.suggestedTitle ?? "").trim();
+            const primaryKeyword = String(row.primaryKeyword ?? "").trim();
+            if (!suggestedTitle || !primaryKeyword) continue;
+            out.push({
+              domainId: input.domainId,
+              query: query || suggestedTitle,
+              suggestedTitle,
+              primaryKeyword,
+              intentFamily: coerceIntent(row.intentFamily),
+              serpGap: String(row.serpGap ?? "").trim(),
+              peopleAlsoAsk: asStringArray(row.peopleAlsoAsk),
+              freshnessNote: String(row.freshnessNote ?? "").trim() || undefined,
+              rationale: String(row.rationale ?? "").trim() || undefined,
+              sources: grounding.sources.slice(0, 6),
+              webSearchQueries: grounding.webSearchQueries,
+            });
+          }
+          return out;
+        } catch (error) {
+          lastError = error;
+          if (isGeminiQuotaError(error)) {
+            console.warn(
+              `[discovery] Quota on ...${apiKey.slice(-4)} for "${input.domainLabel}"; trying next key`
+            );
+            break;
+          }
+          if (isTransientDiscoveryError(error) && attempt < 2) {
+            console.warn(
+              `[discovery] Transient error for "${input.domainLabel}" (attempt ${attempt + 1}/3), retrying…`
+            );
+            await pauseAfterGeminiCall();
+            continue;
+          }
           console.warn(
-            `[discovery] Quota on ...${apiKey.slice(-4)} for "${input.domainLabel}"; trying next key`
+            `[discovery] ${model} failed for "${input.domainLabel}":`,
+            error instanceof Error ? error.message.slice(0, 140) : error
           );
           break;
         }
-        if (isTransientDiscoveryError(error) && attempt < 2) {
-          console.warn(
-            `[discovery] Transient error for "${input.domainLabel}" (attempt ${attempt + 1}/3), retrying…`
-          );
-          await pauseAfterGeminiCall();
-          continue;
-        }
-        console.warn(
-          `[discovery] Failed for "${input.domainLabel}":`,
-          error instanceof Error ? error.message.slice(0, 140) : error
-        );
-        break;
       }
     }
   }
   console.warn(
-    `[discovery] All keys exhausted for "${input.domainLabel}"`,
+    `[discovery] All models/keys exhausted for "${input.domainLabel}"`,
     lastError instanceof Error ? lastError.message.slice(0, 100) : ""
   );
   return [];

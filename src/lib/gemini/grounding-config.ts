@@ -3,16 +3,16 @@ import type { GroundedSerpResearchInput } from "@/lib/gemini/grounded-serp-resea
 import type { SerpResearchBrief } from "@/lib/gemini/grounded-serp-research";
 import type { FactResearchBrief } from "@/lib/gemini/grounded-fact-research";
 import {
-  DEFAULT_GEMMA_TEXT_MODEL_RETRY,
+  DEFAULT_GROUNDING_PRIMARY,
 } from "@/lib/gemini/free-tier-models";
+import { groundingModelCandidates } from "@/lib/gemini/model-routing";
 
 /**
- * Google Search grounding runs on Gemma 4 (not Gemini Flash Lite).
- * gemma-4-26b-a4b-it is the most reliable; gemma-4-31b-it works but hits intermittent 500s.
- * gemini-3.1-flash-lite has 0 Search-grounding quota on free tier (instant 429 with googleSearch).
- * Override with GEMINI_GROUNDING_MODEL if needed.
+ * Google Search grounding uses Gemma 4 only (not Flash Lite).
+ * Primary: gemma-4-26b-a4b-it (~1.5K RPD/key, most reliable).
+ * Retry: gemma-4-31b-it (higher quality, intermittent 500s).
  */
-export const DEFAULT_GROUNDING_MODEL = DEFAULT_GEMMA_TEXT_MODEL_RETRY;
+export const DEFAULT_GROUNDING_MODEL = DEFAULT_GROUNDING_PRIMARY;
 
 export class GroundingQuotaExceededError extends Error {
   readonly model: string;
@@ -39,7 +39,7 @@ export class GroundingCallBudgetExceededError extends Error {
 }
 
 export function resolveGroundingModel(): string {
-  return process.env.GEMINI_GROUNDING_MODEL?.trim() || DEFAULT_GROUNDING_MODEL;
+  return groundingModelCandidates()[0] ?? DEFAULT_GROUNDING_MODEL;
 }
 
 export function getGeminiGroundingMaxCallsPerBlog(): number {
@@ -85,7 +85,7 @@ function buildSearchQuery(input: GroundedSerpResearchInput): string {
   return parts.join(" ");
 }
 
-/** Minimal SERP brief when Search grounding RPD is exhausted, title/body use 3.1 Flash Lite. */
+/** Minimal SERP brief when Search grounding RPD is exhausted; title/body use Flash Lite. */
 export function buildFallbackSerpBrief(
   input: GroundedSerpResearchInput
 ): SerpResearchBrief {

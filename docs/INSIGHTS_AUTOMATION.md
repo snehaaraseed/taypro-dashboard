@@ -1,6 +1,8 @@
 # Insights — Monthly Deep Research Reports
 
-One **unique, research-backed report** publishes on the **1st of every month** at `/insights/solar-cleaning-research-{month}-{year}`.
+One **unique, research-backed report** publishes each calendar month at `/insights/solar-cleaning-research-{month}-{year}`.
+
+Cron runs **daily at 10:00 IST** from the 1st onward until that month's report is published, then skips until the next month (handles Gemini 503 / quality-gate failures on the 1st).
 
 This is **not** static playbook content or GSC dashboard exports. Each report is a **3,500–5,500 word** procurement intelligence brief for utility-scale solar cleaning buyers in India.
 
@@ -9,13 +11,13 @@ This is **not** static playbook content or GSC dashboard exports. Each report is
 | Field | Example |
 |-------|---------|
 | URL | `/insights/solar-cleaning-research-june-2026` |
-| Schedule | 1st of month, 10:00 IST |
+| Schedule | Daily 10:00 IST until published; skips when `period` exists |
 | Uniqueness | **One report per calendar month** (`period: 2026-06`) |
 | Topic | Rotates through 12 curated deep-dive subjects |
 
 ## Research pipeline (same rigour as blog automation)
 
-1. **4× Google Search grounding** (`gemma-4-31b-it` via the googleSearch tool)
+1. **4× Google Search grounding** (`gemma-4-26b-a4b-it` primary, `gemma-4-31b-it` retry via `googleSearch` tool)
    - Live SERP analysis (competitor angles, PAA, gaps)
    - Fact pass: general industry stats
    - Fact pass: MNRE/CEA/regulatory
@@ -75,8 +77,10 @@ The thin GSC-stats "Category Pulse" report is **disabled** — Insights is curat
 | `RESEARCH_EDITION_BODY_THRESHOLD` | 0.5 | Body keyword overlap above this = duplicate |
 | `RESEARCH_EDITION_H2_THRESHOLD` | 0.6 | H2 overlap above this = duplicate |
 | `AUTOMATION_CRON_SECRET` | Required | Cron auth |
+| `INSIGHTS_CRON_MAX_ATTEMPTS` | 3 | POST retries per daily run (503 / transient errors) |
+| `INSIGHTS_CRON_RETRY_SLEEP_SEC` | 120 | Pause between in-run retries |
 
-Generation takes **10–25 minutes** (cron timeout: 30 min).
+Generation takes **10–25 minutes** (cron timeout: 30 min per attempt).
 
 ## Admin
 

@@ -1,4 +1,5 @@
 import type { ProductSchemaPriceKey } from "@/lib/seo/product-schema-prices";
+import { localizedUrl } from "@/lib/seo/locale-alternates";
 
 export { STANDARD_PRODUCT_OFFER_PRICE_INR } from "@/lib/seo/product-schema-prices";
 
@@ -284,9 +285,11 @@ export function OrganizationSchema({
 
 export function BreadcrumbListSchema({
   items,
+  locale,
   siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
 }: {
   items: BreadcrumbItem[];
+  locale?: string;
   siteUrl?: string;
 }) {
   // Per Google's BreadcrumbList guidance, `item` is optional on the last list element.
@@ -302,7 +305,9 @@ export function BreadcrumbListSchema({
         name: item.name,
       };
       if (item.href) {
-        base.item = `${siteUrl}${item.href}`;
+        base.item = locale
+          ? localizedUrl(item.href, locale)
+          : `${siteUrl}${item.href}`;
       }
       return base;
     }),

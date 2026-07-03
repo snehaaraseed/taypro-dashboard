@@ -177,3 +177,70 @@ export function getDailyTranslationSplitPerType(): number {
     DEFAULT_DAILY_TRANSLATION_SPLIT_PER_TYPE
   );
 }
+
+export type BlogTranslationStaggerEntry = {
+  locale: Exclude<TayproLocale, "en">;
+  dayOffset: number;
+};
+
+const DEFAULT_BLOG_TRANSLATION_STAGGER = "hi:0,ar:1,ja:2,bn:3";
+
+/** Day offset per locale after English publish (0 = same calendar day). */
+export function getBlogTranslationStaggerSchedule(): BlogTranslationStaggerEntry[] {
+  const raw =
+    process.env.BLOG_TRANSLATION_STAGGER_DAYS?.trim() ||
+    DEFAULT_BLOG_TRANSLATION_STAGGER;
+  const entries: BlogTranslationStaggerEntry[] = [];
+  for (const part of raw.split(",")) {
+    const trimmed = part.trim();
+    if (!trimmed) continue;
+    const [locale, offsetRaw] = trimmed.split(":");
+    if (!locale || offsetRaw === undefined) continue;
+    const dayOffset = Number.parseInt(offsetRaw, 10);
+    if (!Number.isFinite(dayOffset) || dayOffset < 0) continue;
+    if (locale === SOURCE_LOCALE) continue;
+    entries.push({
+      locale: locale as Exclude<TayproLocale, "en">,
+      dayOffset,
+    });
+  }
+  if (entries.length === 0) {
+    return TARGET_LOCALES.map((locale, index) => ({
+      locale,
+      dayOffset: index,
+    }));
+  }
+  return entries;
+}
+
+export function isBlogTranslationStaggerEnabled(): boolean {
+  const raw = process.env.BLOG_TRANSLATION_STAGGER_DISABLED?.trim().toLowerCase();
+  return raw !== "1" && raw !== "true" && raw !== "yes";
+}
+
+/** Locales whose stagger day offset has been reached since English publish. */
+export function getBlogLocalesDueByStagger(
+  enPublishDate: string,
+  now = new Date()
+): Exclude<TayproLocale, "en">[] {
+  if (!isBlogTranslationStaggerEnabled()) {
+    return [...TARGET_LOCALES];
+  }
+  const tz = getTranslationTimezone();
+  const todayYmd = ymdInTranslationTz(now);
+  const publishYmd = new Date(enPublishDate).toLocaleDateString("en-CA", {
+    timeZone: tz,
+  });
+  const daysSincePublish = calendarDaysBetweenYmd(publishYmd, todayYmd);
+  return getBlogTranslationStaggerSchedule()
+    .filter((entry) => daysSincePublish >= entry.dayOffset)
+    .map((entry) => entry.locale);
+}
+
+function calendarDaysBetweenYmd(fromYmd: string, toYmd: string): number {
+  const [fy, fm, fd] = fromYmd.split("-").map(Number);
+  const [ty, tm, td] = toYmd.split("-").map(Number);
+  const fromMs = Date.UTC(fy, fm - 1, fd);
+  const toMs = Date.UTC(ty, tm - 1, td);
+  return Math.round((toMs - fromMs) / 86_400_000);
+}

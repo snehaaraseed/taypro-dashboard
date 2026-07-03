@@ -72,9 +72,19 @@ export default function AdminNav() {
                 Projects
               </Link>
               <Link
+                href="/admin/seo/pipeline"
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  pathname?.startsWith("/admin/seo/pipeline")
+                    ? "bg-blue-100 text-blue-700"
+                    : "text-gray-600 hover:text-[#052638] hover:bg-gray-100"
+                }`}
+              >
+                Blog pipeline
+              </Link>
+              <Link
                 href="/admin/seo/intents"
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  pathname?.startsWith("/admin/seo")
+                  pathname === "/admin/seo/intents"
                     ? "bg-blue-100 text-blue-700"
                     : "text-gray-600 hover:text-[#052638] hover:bg-gray-100"
                 }`}
@@ -90,6 +100,16 @@ export default function AdminNav() {
                 }`}
               >
                 Search Console
+              </Link>
+              <Link
+                href="/admin/performance"
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  pathname?.startsWith("/admin/performance")
+                    ? "bg-blue-100 text-blue-700"
+                    : "text-gray-600 hover:text-[#052638] hover:bg-gray-100"
+                }`}
+              >
+                Performance
               </Link>
             </div>
           </div>

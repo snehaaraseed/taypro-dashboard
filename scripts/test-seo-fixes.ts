@@ -10,7 +10,10 @@ import {
   SERP_DESCRIPTION_MAX,
   trimSerpDescription,
 } from "../src/lib/seo/serp-description";
+import { withModulePageHreflang } from "../src/lib/seo/localized-module-metadata";
 import { withHreflang } from "../src/lib/seo/with-hreflang";
+import { BreadcrumbListSchema } from "../src/app/components/StructuredData";
+import React from "react";
 import { recoveryNotFoundMetadata } from "../src/lib/seo/recovery-not-found-metadata";
 import { getSitemapLocalesForPath } from "../src/lib/seo/sitemap-locales";
 import { isLocalePageSubstantivelyTranslated } from "../src/lib/seo/locale-page-quality";
@@ -134,6 +137,36 @@ const alternates = buildLocaleAlternates("/compare/foo", "ja");
 assert.equal(alternates.canonical, "https://taypro.in/ja/compare/foo");
 assert.equal(alternates.languages?.["ja-JP"], "https://taypro.in/ja/compare/foo");
 assert.equal(alternates.languages?.["hi-IN"], "https://taypro.in/hi/compare/foo");
+
+const hiCompareMeta = withModulePageHreflang(
+  "/compare/taypro-vs-solabot",
+  "comparisons",
+  "hi",
+  { title: "Test", description: "Desc" }
+);
+assert.equal(
+  hiCompareMeta.alternates?.canonical,
+  "https://taypro.in/hi/compare/taypro-vs-solabot"
+);
+assert.equal(
+  hiCompareMeta.alternates?.languages?.["hi-IN"],
+  "https://taypro.in/hi/compare/taypro-vs-solabot"
+);
+
+import { renderToStaticMarkup } from "react-dom/server";
+assert.match(
+  renderToStaticMarkup(
+    React.createElement(BreadcrumbListSchema, {
+      items: [
+        { name: "Home", href: "/" },
+        { name: "Compare", href: "/compare/taypro-vs-solabot" },
+        { name: "Current", href: "" },
+      ],
+      locale: "hi",
+    })
+  ),
+  /https:\/\/taypro\.in\/hi\/compare\/taypro-vs-solabot/
+);
 const pressLocales = getSitemapLocalesForPath("/press");
 assert.ok(pressLocales.includes("en"));
 assert.equal(

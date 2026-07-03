@@ -10,7 +10,7 @@ import {
   isGeminiQuotaError,
   listGeminiApiKeys,
 } from "@/lib/gemini/api-keys";
-import { automationTextModelCandidates } from "@/lib/gemini/model-routing";
+import { translationTextModelCandidates } from "@/lib/gemini/model-routing";
 import { parseGeminiJsonObject } from "@/lib/gemini/parse-json-response";
 import type { ProjectContentPlan } from "@/lib/seo/project-section-writer";
 
@@ -41,7 +41,7 @@ async function generateText(
     const genAI = new GoogleGenerativeAI(apiKey);
     let keyHitQuota = false;
 
-    for (const modelName of automationTextModelCandidates({
+    for (const modelName of translationTextModelCandidates({
       preferRetryVariant: preferQualityModel,
     })) {
       for (let attempt = 0; attempt < 3; attempt++) {

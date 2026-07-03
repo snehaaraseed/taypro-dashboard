@@ -3,8 +3,8 @@ import "server-only";
 import { GoogleGenAI } from "@google/genai";
 import {
   assertGroundingCallBudget,
-  resolveGroundingModel,
 } from "@/lib/gemini/grounding-config";
+import { groundingModelCandidates } from "@/lib/gemini/model-routing";
 import { isGeminiQuotaError, listGeminiApiKeys } from "@/lib/gemini/api-keys";
 import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
 import { parseGeminiJsonObject } from "@/lib/gemini/parse-json-response";
@@ -44,11 +44,13 @@ export type GroundedFactResearchInput = {
 };
 
 function resolveFactModels(): string[] {
-  const env =
-    process.env.GEMINI_FACT_MODEL?.trim() ||
-    process.env.GEMINI_SERP_MODEL?.trim();
-  if (env) return [env];
-  return [resolveGroundingModel()];
+  const factOnly = process.env.GEMINI_FACT_MODEL?.trim();
+  if (factOnly) {
+    return groundingModelCandidates().includes(factOnly)
+      ? [factOnly, ...groundingModelCandidates().filter((m) => m !== factOnly)]
+      : [factOnly];
+  }
+  return groundingModelCandidates();
 }
 
 function buildFactResearchPrompt(input: GroundedFactResearchInput): string {
@@ -243,48 +245,50 @@ export async function runGroundedFactResearch(
   }
 
   const prompt = buildFactResearchPrompt(input);
-  const model = resolveFactModels()[0]!;
+  const models = resolveFactModels();
   const apiKeys = listGeminiApiKeys();
   let lastError: unknown;
   let quotaKeys = 0;
 
-  for (const apiKey of apiKeys) {
-    const ai = new GoogleGenAI({ apiKey });
-    try {
-      const response = await ai.models.generateContent({
-        model,
-        contents: prompt,
-        config: {
-          tools: [{ googleSearch: {} }],
-          maxOutputTokens: 4096,
-        },
-      });
+  for (const model of models) {
+    for (const apiKey of apiKeys) {
+      const ai = new GoogleGenAI({ apiKey });
+      try {
+        const response = await ai.models.generateContent({
+          model,
+          contents: prompt,
+          config: {
+            tools: [{ googleSearch: {} }],
+            maxOutputTokens: 4096,
+          },
+        });
 
-      const text = (response.text ?? "").trim();
-      if (!text) {
-        throw new Error("Grounded fact response was empty");
+        const text = (response.text ?? "").trim();
+        if (!text) {
+          throw new Error("Grounded fact response was empty");
+        }
+
+        const grounding = extractGroundingMeta(response);
+        await pauseAfterGeminiCall();
+
+        return parseFactBrief(text, input, {
+          model,
+          apiKeySuffix: apiKey.slice(-4),
+          ...grounding,
+        });
+      } catch (error) {
+        lastError = error;
+        if (isRetryableGroundingError(error)) {
+          quotaKeys += isGeminiQuotaError(error) ? 1 : 0;
+          console.warn(
+            `[facts] ${model} on ...${apiKey.slice(-4)} retrying: ${
+              error instanceof Error ? error.message.slice(0, 100) : error
+            }`
+          );
+          continue;
+        }
+        console.warn(`[facts] Model ${model} failed on ...${apiKey.slice(-4)}:`, error);
       }
-
-      const grounding = extractGroundingMeta(response);
-      await pauseAfterGeminiCall();
-
-      return parseFactBrief(text, input, {
-        model,
-        apiKeySuffix: apiKey.slice(-4), ...grounding,
-      });
-    } catch (error) {
-      lastError = error;
-      if (isRetryableGroundingError(error)) {
-        quotaKeys += isGeminiQuotaError(error) ? 1 : 0;
-        console.warn(
-          `[facts] Retrying on next key (...${apiKey.slice(-4)}): ${
-            error instanceof Error ? error.message.slice(0, 100) : error
-          }`
-        );
-        continue;
-      }
-      console.warn(`[facts] Model ${model} failed, trying next key:`, error);
-      continue;
     }
   }
 

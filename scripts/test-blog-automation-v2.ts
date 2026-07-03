@@ -26,7 +26,7 @@ async function main() {
   const { listGeminiApiKeys, getGeminiKeyPoolSize } = await import(
     "../src/lib/gemini/api-keys"
   );
-  const { automationTextModelCandidates } = await import(
+  const { automationTextModelCandidates, groundingModelCandidates } = await import(
     "../src/lib/gemini/model-routing"
   );
   const { getBlogPipelineMaxOuterAttempts, classifyGenerationFailure } =
@@ -70,7 +70,6 @@ async function main() {
   } = await import("../src/lib/seo/coverage-ledger");
   const {
     assertQuotaBudgetAllowed,
-    getReservedGemmaCallsBlog,
     getGemmaRpdCap,
   } = await import("../src/lib/gemini/quota-budget");
 
@@ -104,6 +103,18 @@ async function main() {
     assert.match(models[0]!, /flash-lite/i, `expected flash-lite primary, got ${models[0]}`);
     if (models.length > 1) {
       assert.match(models[1]!, /gemma/i, `expected gemma retry, got ${models[1]}`);
+    }
+  });
+
+  ok("grounding uses Gemma 26B primary + 31B retry (never Flash)", () => {
+    const models = groundingModelCandidates();
+    assert.ok(models.length >= 1);
+    assert.match(models[0]!, /gemma-4-26b/i, `expected gemma-26b grounding, got ${models[0]}`);
+    for (const m of models) {
+      assert.doesNotMatch(m, /flash-lite/i, `Flash cannot ground: ${m}`);
+    }
+    if (models.length > 1) {
+      assert.match(models[1]!, /gemma-4-31b/i, `expected gemma-31b retry, got ${models[1]}`);
     }
   });
 
@@ -387,8 +398,8 @@ async function main() {
     assert.equal(isCoverageLedgerEnabled(), true);
   });
 
-  ok("blog reserved Gemma budget is positive", () => {
-    assert.ok(getReservedGemmaCallsBlog() >= 10);
+  ok("blog scope is not blocked by a reserved Gemma budget", () => {
+    assert.doesNotThrow(() => assertQuotaBudgetAllowed("blog"));
   });
 
   ok("burn scope blocked until blog done", () => {
@@ -462,7 +473,113 @@ async function main() {
       "utf8"
     );
     assert.match(gate, /past-blog-writer-start/);
+    assert.match(gate, /is-automation-day/);
     assert.match(gate, /check-hold/);
+  });
+
+  ok("calendar: weekends are blackout days", async () => {
+    const { isStaticBlackoutYmd, mergeHolidayDates } = await import(
+      "../src/lib/cms/blog-automation-calendar-shared"
+    );
+    const holidays = mergeHolidayDates([]);
+    assert.ok(isStaticBlackoutYmd("2026-07-04", holidays, "Asia/Kolkata"));
+    assert.ok(!isStaticBlackoutYmd("2026-07-06", holidays, "Asia/Kolkata"));
+  });
+
+  ok("calendar: pickNextGapDays prefers min gap but stays within max", async () => {
+    const { pickNextGapDays } = await import(
+      "../src/lib/cms/blog-automation-calendar-shared"
+    );
+    process.env.BLOG_AUTOMATION_MIN_DAYS = "1";
+    process.env.BLOG_AUTOMATION_MAX_DAYS = "3";
+    process.env.BLOG_AUTOMATION_PREFERRED_GAP_WEIGHT = "0.7";
+    const counts = { 1: 0, 2: 0, 3: 0 };
+    for (let i = 0; i < 200; i++) {
+      const gap = pickNextGapDays();
+      assert.ok(gap >= 1 && gap <= 3, `gap ${gap} out of range`);
+      counts[gap as 1 | 2 | 3]++;
+    }
+    assert.ok(counts[1] > counts[2], "gap 1 should be most common");
+    assert.ok(counts[1] > counts[3], "gap 1 should be most common");
+  });
+
+  ok("publish picker skips weekend target day", async () => {
+    const { pickAutomationScheduledPublishAt } = await import(
+      "../src/lib/cms/blog-schedule"
+    );
+    const { mergeHolidayDates } = await import(
+      "../src/lib/cms/blog-automation-calendar-shared"
+    );
+    const saturdayMorning = new Date("2026-07-04T04:00:00.000Z");
+    const iso = pickAutomationScheduledPublishAt(
+      saturdayMorning,
+      mergeHolidayDates([])
+    );
+    const ymd = new Date(iso).toLocaleDateString("en-CA", {
+      timeZone: "Asia/Kolkata",
+    });
+    assert.notEqual(ymd, "2026-07-04");
+    assert.notEqual(ymd, "2026-07-05");
+  });
+
+  ok("narrative validator skips Quick answer requirement", async () => {
+    const { validateGeneratedBlog } = await import(
+      "../src/lib/seo/blog-content-validator"
+    );
+    const longBody =
+      `<p>A 50 MW Rajasthan plant faced PR drift through May dust while crews were on storm mobilization at a sister site. The asset manager needed a defensible cleaning decision before the lender quarterly review.</p>` +
+      `<p>Over three dry weeks, reference blocks lost four percent PR while the rest of the plant held within one percent of clean baseline.</p>` +
+      Array.from({ length: 8 })
+        .map(
+          (_, i) =>
+            `<h2>Section ${i + 1}: operational detail for plant managers</h2><p>${"Utility-scale solar O&M teams in India track soiling and water cost on every cycle. ".repeat(
+              35
+            )}</p>`
+        )
+        .join("") +
+      `<h2>How often should you clean panels on a 50 MW plant?</h2><p>Every 7 to 14 days in pre-monsoon dust belts when PR drops more than two percent on reference modules.</p>` +
+      `<a href="/blog/solar-soiling-loss">related</a><a href="/blog/waterless-cleaning">related2</a>`;
+    const faqs = [
+      {
+        question: "How often clean solar panels 50 mw plant India?",
+        answer: "Every 7 to 14 days in dusty months when PR drops.",
+      },
+      { question: "Q2?", answer: "A2 with enough detail for validation." },
+      { question: "Q3?", answer: "A3 with enough detail for validation." },
+      { question: "Q4?", answer: "A4 with enough detail for validation." },
+    ];
+    const result = validateGeneratedBlog({
+      title: "How a 50 MW Rajasthan plant recovered PR after May dust storms",
+      description:
+        "Field narrative on cleaning decisions, PR recovery, and O&M trade-offs for utility-scale solar in India during dry season dust events.",
+      content: longBody,
+      faqs,
+      primaryKeyword: "clean solar panels 50 mw plant",
+      contentFormat: "narrative",
+    });
+    if (!result.ok) {
+      assert.ok(
+        !result.issues.some((i) => i.includes("Quick answer")),
+        result.issues.join("; ")
+      );
+    }
+  });
+
+  ok("translation stagger: hi day0, ar day1", async () => {
+    const { getBlogLocalesDueByStagger } = await import(
+      "../src/lib/translation/config"
+    );
+    const publish = "2026-07-06T06:00:00.000Z";
+    const day0 = getBlogLocalesDueByStagger(
+      publish,
+      new Date("2026-07-06T12:00:00.000Z")
+    );
+    const day1 = getBlogLocalesDueByStagger(
+      publish,
+      new Date("2026-07-07T12:00:00.000Z")
+    );
+    assert.deepEqual(day0, ["hi"]);
+    assert.deepEqual(day1, ["hi", "ar"]);
   });
 
   ok("required automation data files exist", () => {

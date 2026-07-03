@@ -57,8 +57,13 @@ import {
   getBlogAutomationSchedule,
   addPublishedTopic,
   getBlogAutomationTimezone,
+  rotateCadenceAfterSuccessfulWrite,
 } from "@/lib/topicTracker";
-import { pickAutomationScheduledPublishAt } from "@/lib/cms/blog-schedule";
+import {
+  pickBlogContentFormat,
+  type BlogContentFormat,
+} from "@/lib/seo/blog-content-format";
+import { pickAutomationPublishAt } from "@/lib/cms/blog-automation-calendar";
 import {
   competitorPrimaryKeywordReason,
   isCompetitorLedTitle,
@@ -134,6 +139,7 @@ import {
   type DiscoveredBrief,
 } from "@/lib/seo/discovered-brief-queue";
 import { ensureBriefQueueForAutomation, runTopicDiscovery, getDiscoveryWeeklyTarget } from "@/lib/seo/run-topic-discovery";
+import { isCuratedBriefId } from "@/lib/seo/curated-blog-topics";
 import {
   evaluateRankReadiness,
   rankReadinessFailureMessage,
@@ -149,6 +155,7 @@ import {
   DEFAULT_GEMMA_TEXT_MODEL,
   resolveAutomationTextModel,
 } from "@/lib/gemini/free-tier-models";
+import { groundingModelCandidates } from "@/lib/gemini/model-routing";
 import { getQuotaBudgetSummary } from "@/lib/gemini/quota-budget";
 import {
   getCampaignPreview,
@@ -706,6 +713,27 @@ async function resolveTopicFromLedger(input: {
   }
 
   if (!contract) {
+    const { enqueueCuratedTopicsToBriefQueue } = await import(
+      "@/lib/seo/curated-blog-topics"
+    );
+    const curated = await enqueueCuratedTopicsToBriefQueue({
+      limit: getDiscoveryWeeklyTarget(),
+    });
+    if (curated.added > 0) {
+      console.info(
+        `[generate-blog] Curated backlog fallback enqueued +${curated.added} briefs (${curated.skipped} skipped)`
+      );
+      brief = await pickNextBrief({
+        rejectedSlotKeys: allRejectedSlots,
+      });
+      if (brief) {
+        contract = buildEditorialContractFromBrief(brief);
+        console.info(`[generate-blog] Curated backlog brief → ${brief.id}`);
+      }
+    }
+  }
+
+  if (!contract) {
     throw new Error("Topic queue exhausted: no open brief or ledger slot remains");
   }
 
@@ -885,6 +913,17 @@ export async function POST(request: NextRequest) {
     }
 
     const schedule = await getBlogAutomationSchedule();
+    if (!force && schedule.blackoutToday) {
+      return NextResponse.json(
+        {
+          success: false,
+          blackoutDay: true,
+          message: `Blog automation skipped today (${schedule.blackoutReason ?? "blackout"}). Next eligible run: ${schedule.nextEligibleAt}.`,
+          schedule,
+        },
+        { status: 200 }
+      );
+    }
     if (!force && !isPastBlogWriterStartIst()) {
       return NextResponse.json(
         {
@@ -902,7 +941,7 @@ export async function POST(request: NextRequest) {
         {
           success: false,
           jobComplete: true,
-          message: `Daily blog write already complete this ${getBlogAutomationTimezone()} calendar day (last write ${schedule.lastRunAt ?? "unknown"}). Next eligible run: ${schedule.nextEligibleAt}. Use ?force=true to override.`,
+          message: `Blog write not due yet (need ${schedule.requiredGapDays} day gap; ${schedule.daysSinceLastRun ?? 0} since last write). Next eligible run: ${schedule.nextEligibleAt}. Use ?force=true to override.`,
           schedule,
         },
         { status: 200 }
@@ -1091,6 +1130,22 @@ export async function POST(request: NextRequest) {
             })
           : undefined;
 
+        let explicitContentFormat: BlogContentFormat | undefined;
+        if (brief?.id) {
+          const briefId = brief.id;
+          const { loadCuratedBlogTopics } = await import(
+            "@/lib/seo/curated-blog-topics"
+          );
+          const curatedMatch = loadCuratedBlogTopics().find(
+            (row) =>
+              briefId === row.id ||
+              briefId === `brief-${row.id}` ||
+              briefId.endsWith(row.id)
+          );
+          explicitContentFormat = curatedMatch?.contentFormat;
+        }
+        const contentFormat = pickBlogContentFormat(explicitContentFormat);
+
         const writerOptions = {
           author: bylineAuthor,
           preferQualityModel: pipelineAttempt >= 1,
@@ -1103,6 +1158,7 @@ export async function POST(request: NextRequest) {
           forbiddenH2Themes: editorialContract?.forbiddenH2Themes,
           forbiddenAngles,
           keywordIntentClusterPrompt,
+          contentFormat,
         };
 
         const wordCountInput = buildWordCountInput({
@@ -1143,7 +1199,11 @@ export async function POST(request: NextRequest) {
         // Evergreen entries are the guaranteed daily safety net: they already
         // clear exact-dedup at pick time, so skip the semantic uniqueness gates
         // that would otherwise let a whole day pass with no blog published.
-        if (!evergreenEntry) {
+        const skipUniquenessGates =
+          Boolean(evergreenEntry) ||
+          Boolean(brief && isCuratedBriefId(brief.id));
+
+        if (!skipUniquenessGates) {
           await assertPlanUnique(
             {
               title: topic.title,
@@ -1196,7 +1256,7 @@ export async function POST(request: NextRequest) {
         }
         attemptedTitle = blogData.title;
 
-        if (!evergreenEntry) {
+        if (!skipUniquenessGates) {
           await assertBlogDraftUnique(
             {
               title: blogData.title,
@@ -1208,7 +1268,7 @@ export async function POST(request: NextRequest) {
           );
         }
 
-        if (!evergreenEntry) {
+        if (!skipUniquenessGates) {
           const rankReadiness = evaluateRankReadiness({
             title: blogData.title,
             description: blogData.description,
@@ -1217,6 +1277,7 @@ export async function POST(request: NextRequest) {
               topic.seoBrief?.primary || topic.seoKeyword || blogData.title,
             peopleAlsoAsk: serpBrief?.peopleAlsoAsk,
             serpGaps: serpBrief?.serpGaps,
+            contentFormat,
           });
           if (!rankReadiness.pass) {
             console.warn(
@@ -1282,7 +1343,7 @@ export async function POST(request: NextRequest) {
             featured,
           });
 
-        const scheduledPublishAt = pickAutomationScheduledPublishAt();
+        const scheduledPublishAt = pickAutomationPublishAt();
 
         const result = await createBlogFiles(
           {
@@ -1359,6 +1420,8 @@ export async function POST(request: NextRequest) {
           ),
           wordCountTier: wordCount.wordCountTier,
         });
+
+        rotateCadenceAfterSuccessfulWrite();
 
         if (clusterKeyword && resolvedCluster) {
           recordKeywordIntentWritten({
@@ -1587,6 +1650,7 @@ export async function GET(request: NextRequest) {
         process.env.GEMINI_BLOG_MODEL?.trim(),
         DEFAULT_GEMMA_TEXT_MODEL
       ),
+      geminiGroundingModels: groundingModelCandidates(),
       intentRegistry: {
         keywordCount: intentBackfill.totalKeywords,
         lastSyncAdded: intentBackfill.added,

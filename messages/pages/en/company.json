@@ -115,6 +115,7 @@
       }
     },
     "solutions": {
+      "eyebrow": "Product lineup",
       "heading": "Robots, services, and fleet software",
       "bodyBeforeLink": "Taypro is a single vendor for hardware, operator-led cleaning, and cloud monitoring. Explore each platform for specifications, or read",
       "bodyLink": "how our cleaning technology works",
@@ -123,8 +124,10 @@
       "robotImageAlt": "{model} - Taypro solar panel cleaning robot",
       "robots": {
         "glyde": "Fully autonomous, waterless dry cleaning with dual-pass airflow and microfiber, AI scheduling for fixed and seasonal-tilt utility plants.",
-        "helyx": "Portable pick-and-place dry cleaning robot for scattered blocks and plants that need flexible crew-assisted coverage.",
         "glydeX": "Autonomous waterless robot for single-axis trackers, flexible bridge and 360° rotation across tracker brands.",
+        "nyuma": "Fully autonomous waterless cleaning with single-pass PBT brush technology for fixed and seasonal-tilt utility-scale plants.",
+        "nyumaX": "Autonomous waterless robot for single-axis trackers with single-pass PBT cleaning and a flexible body for tracker tables.",
+        "helyx": "Portable pick-and-place dry cleaning robot for scattered blocks and plants that need flexible crew-assisted coverage.",
         "tayproOpex": "Pay-per-panel-cleaned Opex, Taypro operates the cleaning robot fleet on your plant with no upfront CAPEX.",
         "nectyr": "Fleet portal to schedule, monitor, and report on solar panel cleaning robots across your site."
       }

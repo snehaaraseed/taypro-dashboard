@@ -220,7 +220,7 @@ export function formatNextGeminiQuotaResetInIst(now = new Date()): string {
 /** IST clock used for blog-writer cron window (ops timezone). */
 export const BLOG_WRITER_TIMEZONE = "Asia/Kolkata";
 
-export const DEFAULT_BLOG_WRITER_START_IST = "13:00";
+export const DEFAULT_BLOG_WRITER_START_IST = "00:30";
 export const DEFAULT_BLOG_WRITER_STOP_IST = "12:30";
 
 function parseIstClockToMinutes(value: string | undefined, fallback: string): number {
@@ -248,7 +248,7 @@ export function getBlogWriterStopMinutes(): number {
   );
 }
 
-/** True when IST clock is at or past the daily blog-writer start (default 13:00 IST). */
+/** True when IST clock is at or past the daily blog-writer start (default 00:30 IST). */
 export function isPastBlogWriterStartIst(now = new Date()): boolean {
   return (
     minutesSinceMidnightInTz(now, BLOG_WRITER_TIMEZONE) >=
@@ -264,7 +264,7 @@ export function formatBlogWriterStartInIst(): string {
 }
 
 /**
- * Blog writer may call Gemini between start (default 13:00 IST) and stop (default 12:30 IST next day).
+ * Blog writer may call Gemini between start (default 00:30 IST) and stop (default 12:30 IST next day).
  * Dead zone [stop, start) avoids calls before fresh quota + post-reset buffer.
  */
 export function isWithinBlogWriterWindow(now = new Date()): boolean {

@@ -6,7 +6,10 @@ export {
   isBlogCreatedToday,
   getBlogAutomationSchedule,
   getBlogAutomationMinDays,
+  getBlogAutomationMaxDays,
   getBlogAutomationTimezone,
+  rotateCadenceAfterSuccessfulWrite,
+  isBlogAutomationBlackoutDay,
   getTopicHistory,
   getAllTopics,
 } from "@/lib/cms/topicService";

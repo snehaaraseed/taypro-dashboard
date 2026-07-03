@@ -65,7 +65,8 @@ export async function POST(request: NextRequest) {
     const existing = await getInsightForPeriod(period, "mini_study");
     if (existing && !force) {
       return NextResponse.json({
-        success: false,
+        success: true,
+        skipped: true,
         jobComplete: true,
         message: `Research report for ${period} already published (${existing.slug}).`,
         period,

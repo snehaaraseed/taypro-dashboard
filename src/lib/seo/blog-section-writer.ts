@@ -115,7 +115,9 @@ Rules:
 - Target ${sectionH2s.length * (ctx.structurePolicy?.wordsPerH2ChunkMin ?? 350)}–${sectionH2s.length * (ctx.structurePolicy?.wordsPerH2ChunkMax ?? 500)} words for this chunk.
 - Match voice, facts, and MW/%/INR ranges used in prior sections; do not contradict.
 - Use verified stats from FACT RESEARCH when provided; otherwise label ranges as industry-typical.
-- Return ONLY valid JSON: { "html": "<h2>...</h2><p>...</p>..." }
+- Return ONLY valid JSON with one key "html". Example shape (use real content, not placeholders):
+  { "html": "<h2>Section title</h2><p>Paragraph with facts and ranges.</p>" }
+- Never use ellipsis placeholders like "..." inside JSON string values.
 - Use SINGLE quotes for every HTML attribute (e.g. <a href='/blog/slug'>, <table class='cmp'>); never use double quotes inside the html value, so the JSON string stays valid.
 - No outer <html> or markdown; HTML fragment only.
 - Use ONLY verified facts from the knowledge pack.`;
@@ -145,10 +147,13 @@ ${contentPreview.slice(0, 2500)}
 
 ${PUNCTUATION_RULES}
 
-Return ONLY valid JSON:
+Return ONLY valid JSON (real questions and answers, no ellipsis placeholders):
 {
   "faqs": [
-    { "question": ", ...", "answer": "plain text 40-80 words" }
+    { "question": "How often should solar panels be cleaned in India?", "answer": "Plain text answer with specific ranges." },
+    { "question": "Second FAQ question here?", "answer": "Plain text answer." },
+    { "question": "Third FAQ question here?", "answer": "Plain text answer." },
+    { "question": "Fourth FAQ question here?", "answer": "Plain text answer." }
   ]
 }
 

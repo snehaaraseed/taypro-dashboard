@@ -1,290 +1,88 @@
-# LLMs.txt
-# This file helps AI understand and interact with the Taypro website
+# Taypro
 
-# Website Information
-# Site Name: Taypro
-# Primary Keyword: Solar Panel Cleaning Robot
-# Description: Taypro is an innovative company specializing in autonomous Solar Panel Cleaning Robots and systems for solar farms in India. We manufacture the best automatic and semi-automatic solar panel cleaning robots with highest uptime guarantee.
-# Technology Stack: Next.js 15.5.4, React 19, TypeScript, Tailwind CSS
-# Base URL: https://taypro.in (or your deployment domain)
+> Taypro manufactures autonomous solar panel cleaning robots for utility-scale solar farms in India. Waterless robots on every row (GLYDE, NYUMA, HELYX, and tracker variants), NECTYR fleet operations portal, and ORION plant intelligence (roadmap).
 
-# About Taypro - Solar Panel Cleaning Robot Manufacturer & Operations Layer
-Taypro develops and manufactures autonomous Solar Panel Cleaning Robots that help solar farms maintain optimal efficiency.
-Taypro is also building the autonomous operations layer for utility-scale solar in India: waterless robots on every row (field execution), NECTYR fleet operations portal (live today), and ORION plant intelligence (roadmap / early access).
-Our Solar Panel Cleaning Robot systems offer waterless cleaning solutions, dual-pass cleaning technology, and AI-powered scheduling systems.
-Taypro has won patents for our revolutionary Solar Panel Cleaning Robot system.
+Taypro is an Indian OEM building the autonomous operations layer for utility-scale solar: field execution via waterless cleaning robots, live fleet monitoring through NECTYR, and plant intelligence via ORION. Primary keyword focus: solar panel cleaning robot. Robot models include GLYDE (dual-pass microfiber, fixed-tilt), GLYDE-X (trackers), NYUMA and NYUMA-X (PBT single-pass), HELYX (semi-automatic), MINY (rooftop C&I), and CRADYL row-transfer docking.
 
-# Primary Product: Solar Panel Cleaning Robot
-The Solar Panel Cleaning Robot is Taypro's flagship product designed to autonomously clean solar panels at utility-scale solar farms.
-Key benefits of our Solar Panel Cleaning Robot:
-- Increases solar panel efficiency up to 30%
-- Waterless cleaning technology (saves millions of liters of water)
-- AI-powered scheduling for optimal cleaning cycles
-- Highest uptime guarantee in the industry
-- Autonomous operation with minimal human intervention
-- Dual-pass cleaning system (air blast + microfiber)
-- Suitable for fixed-tilt and single-axis tracker solar panel systems
+## Company
 
-# Main Pages and Routes
+- [Homepage](https://taypro.in/): Company overview, services, and call-to-action
+- [About Taypro](https://taypro.in/company): Mission, team, and company story
+- [Contact](https://taypro.in/contact): Product inquiries, partnerships, and deployment discussions
+- [Utility-scale solar operations](https://taypro.in/utility-scale-solar-operations): Soiling losses, SCADA vs operations, waterless robots, NECTYR, ORION
+- [Press](https://taypro.in/press): News and announcements
+- [Careers](https://taypro.in/careers): Open roles at Taypro
 
-## Homepage
-/ - Landing page with company overview, services, and call-to-action sections
+## Solar panel cleaning robots
 
-## Company Information
-/company - About Taypro, team members, mission, and vision
-/company#investors - Partners & investors narrative (non-financial; contact CTA under NDA)
+- [Cleaning systems overview](https://taypro.in/solar-panel-cleaning-system): All robot models and system options
+- [GLYDE — automatic fixed-tilt](https://taypro.in/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system): Fully autonomous dual-pass microfiber robot
+- [GLYDE-X — single-axis trackers](https://taypro.in/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers): Dual-pass microfiber robot for trackers
+- [NYUMA — automatic fixed-tilt](https://taypro.in/solar-panel-cleaning-system/nyuma-automatic-cleaning-robot): Fully autonomous PBT single-pass robot
+- [NYUMA-X — tracker robot](https://taypro.in/solar-panel-cleaning-system/nyuma-x-single-axis-tracker-cleaning-robot): PBT single-pass robot for single-axis trackers
+- [HELYX — semi-automatic](https://taypro.in/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system): Pick-and-place PBT robot for distributed plants
+- [MINY — rooftop C&I](https://taypro.in/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot): Compact robot for commercial rooftops
+- [CRADYL docking station](https://taypro.in/solar-panel-cleaning-system/cradyl-row-transfer-docking-station): Row-transfer and docking for fleet operations
+- [NECTYR fleet portal](https://taypro.in/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app): Schedules, logs, tickets, and fleet dashboards
+- [ORION plant intelligence](https://taypro.in/solar-panel-cleaning-system/orion-plant-intelligence-platform): Plant health and intelligence roadmap
+- [Cleaning service](https://taypro.in/solar-panel-cleaning-system/solar-panel-cleaning-service): Robot service and maintenance offerings
+- [Cleaning technology](https://taypro.in/cleaning-technology): Technical details on waterless dual-pass cleaning
 
-## Utility Solar Operations (SEO + buyer education)
-/utility-scale-solar-operations - Utility-scale solar operations gap, soiling losses, SCADA vs operations, waterless solar panel cleaning robots, NECTYR fleet layer, ORION roadmap; FAQ schema for long-tail robot/O&M queries
+## Buyer guides and calculators
 
-## Products & Services - Solar Panel Cleaning Robot Models
-/solar-panel-cleaning-system - Overview of Solar Panel Cleaning Robot systems and models
-/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system - GLYDE: Fully autonomous dual-pass microfiber robot for fixed-tilt plants
-/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system - HELYX: Semi-automatic pick-and-place PBT single-pass robot
-/solar-panel-cleaning-system/nyuma-automatic-cleaning-robot - NYUMA: Fully autonomous PBT single-pass robot for fixed-tilt plants
-/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers - GLYDE-X: Dual-pass microfiber robot for single-axis trackers
-/solar-panel-cleaning-system/nyuma-x-single-axis-tracker-cleaning-robot - NYUMA-X: PBT single-pass robot for single-axis trackers
-/solar-panel-cleaning-system/solar-panel-cleaning-service - Solar Panel Cleaning Robot service and maintenance offerings
-/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app - NECTYR: Monitoring app for Solar Panel Cleaning Robot fleet
+- [Solar cleaning service India](https://taypro.in/solar-panel-cleaning-service-india): National OPEX/CAPEX service, pan-India coverage
+- [Solar O&M services](https://taypro.in/solar-om-services): Robotic cleaning, NECTYR monitoring, SLA framework
+- [OPEX pricing per MW](https://taypro.in/solar-cleaning-opex-pricing): Cost structure and manual vs robotic comparison
+- [Rooftop cleaning robots](https://taypro.in/solar-panel-cleaning-robot-for-rooftop): MINY buyer guide for commercial C&I
+- [Tracker cleaning robots](https://taypro.in/solar-panel-cleaning-robot-for-trackers): GLYDE-X, NYUMA-X, CRADYL compatibility
+- [Fleet monitoring software](https://taypro.in/solar-fleet-monitoring-software): NECTYR operations portal and ORION intelligence
+- [Large-scale solar cleaning](https://taypro.in/large-scale-solar-panel-cleaning): 50–500 MW deployment capability
+- [CAPEX vs OPEX guide](https://taypro.in/solar-cleaning-capex-vs-opex): Decision guide for Indian utility IPPs
+- [Soiling loss calculator](https://taypro.in/solar-panel-soiling-loss-calculator): MWh and revenue impact estimator
+- [Robot manufacturer India](https://taypro.in/solar-cleaning-robot-manufacturer-india): Pune OEM evaluation guide
+- [Plant data intelligence](https://taypro.in/solar-plant-data-intelligence): NECTYR telemetry and ORION plant health
+- [Enterprise partnerships](https://taypro.in/enterprise-solar-cleaning-partnership): Multi-site IPP and CPSU portfolios
+- [Robot price guide India](https://taypro.in/solar-panel-cleaning-robot-price-india): CAPEX bands, cost drivers, manufacturer keywords
+- [ROI price calculator](https://taypro.in/solar-panel-cleaning-robot-price-calculator): Investment and cost-savings estimator
 
-## Technology
-/cleaning-technology - Technical details about cleaning technology
+## State deployment guides
 
-## Projects
-/projects - Showcase of solar farm projects
-/projects/automatic - Automatic installation projects
-/projects/semi-automatic - Semi-automatic installation projects
-/projects/capex - CAPEX model projects
+- [Rajasthan](https://taypro.in/solar-panel-cleaning-robot-rajasthan): Utility solar cleaning robots in Rajasthan
+- [Gujarat](https://taypro.in/solar-panel-cleaning-robot-gujarat): Utility solar cleaning robots in Gujarat
+- [Madhya Pradesh](https://taypro.in/solar-panel-cleaning-robot-madhya-pradesh): Utility solar robots in MP
+- [Karnataka](https://taypro.in/solar-panel-cleaning-robot-karnataka): Utility solar robots in Karnataka
+- [Andhra Pradesh & Telangana](https://taypro.in/solar-panel-cleaning-robot-andhra-pradesh): Utility solar robots in AP/Telangana
+- [Maharashtra](https://taypro.in/solar-panel-cleaning-robot-maharashtra): Utility solar robots in Maharashtra
+- [Uttar Pradesh](https://taypro.in/solar-panel-cleaning-robot-uttar-pradesh): Utility solar robots in Uttar Pradesh
+- [Tamil Nadu](https://taypro.in/solar-panel-cleaning-robot-tamil-nadu): Utility solar robots in Tamil Nadu
+- [Haryana](https://taypro.in/solar-panel-cleaning-robot-haryana): Utility and C&I solar robots in Haryana
+- [Delhi](https://taypro.in/solar-panel-cleaning-robot-delhi): Institutional and rooftop solar in Delhi
+- [West Bengal](https://taypro.in/solar-panel-cleaning-robot-west-bengal): Utility solar robots in West Bengal
+- [Chhattisgarh](https://taypro.in/solar-panel-cleaning-robot-chhattisgarh): Utility solar robots in Chhattisgarh
 
-## Tools & Calculators
-/solar-panel-cleaning-robot-price-india - India robot price guide: CAPEX bands, cost drivers, manufacturer/supplier keywords, CAPEX vs Taypro Opex
-/solar-panel-cleaning-robot-price-calculator - ROI calculator for Solar Panel Cleaning Robot investment and cost savings
+## Projects and content
 
-## Buyer-intent landing pages (service, O&M, segment, software)
-/solar-panel-cleaning-service-india - National solar panel cleaning service India: OPEX/CAPEX, 9 GW+ fleet, pan-India coverage
-/solar-om-services - Solar plant O&M services: robotic cleaning, NECTYR monitoring, ORION intelligence, SLA framework
-/solar-cleaning-opex-pricing - Solar panel cleaning cost per MW: OPEX pricing structure, manual vs robotic comparison
-/solar-panel-cleaning-robot-for-rooftop - Rooftop solar cleaning robot buyer guide: MINY for commercial C&I
-/solar-panel-cleaning-robot-for-trackers - Tracker-compatible cleaning robots: GLYDE-X, NYUMA-X, CRADYL
-/solar-fleet-monitoring-software - Solar fleet monitoring software: NECTYR operations portal and ORION plant intelligence
-/large-scale-solar-panel-cleaning - Large-scale and MW-scale solar cleaning: 50-500 MW deployment capability
-/solar-cleaning-capex-vs-opex - Solar cleaning CAPEX vs OPEX decision guide for Indian utility IPPs
-/solar-panel-soiling-loss-calculator - Solar panel soiling loss calculator: MWh and revenue impact estimator
-/solar-cleaning-robot-manufacturer-india - Solar cleaning robot manufacturer India: Pune OEM evaluation guide
-/solar-plant-data-intelligence - Solar plant data intelligence: NECTYR telemetry and ORION plant health roadmap
-/enterprise-solar-cleaning-partnership - Enterprise solar cleaning partnership for multi-site IPP and CPSU portfolios
+- [Projects showcase](https://taypro.in/projects): Deployed solar farm installations
+- [Automatic projects](https://taypro.in/projects/automatic): Fully automatic installation case studies
+- [Semi-automatic projects](https://taypro.in/projects/semi-automatic): Semi-automatic installation case studies
+- [CAPEX projects](https://taypro.in/projects/capex): CAPEX model deployments
+- [OPEX projects](https://taypro.in/projects/opex): OPEX model deployments
+- [Blog](https://taypro.in/blog): Articles on solar cleaning, robotics, and O&M
+- [Research insights](https://taypro.in/insights): Data-driven solar operations research
+- [Authors](https://taypro.in/authors): Expert contributors
 
-## State deployment guides (geo SEO)
-/solar-panel-cleaning-robot-rajasthan - Solar panel cleaning robots in Rajasthan utility solar
-/solar-panel-cleaning-robot-gujarat - Solar panel cleaning robots in Gujarat utility solar
-/solar-panel-cleaning-robot-madhya-pradesh - Solar panel cleaning robots in Madhya Pradesh
-/solar-panel-cleaning-robot-karnataka - Solar panel cleaning robots in Karnataka
-/solar-panel-cleaning-robot-andhra-pradesh - Solar panel cleaning robots in Andhra Pradesh and Telangana
-/solar-panel-cleaning-robot-maharashtra - Solar panel cleaning robots in Maharashtra utility solar
-/solar-panel-cleaning-robot-uttar-pradesh - Solar panel cleaning robots in Uttar Pradesh
-/solar-panel-cleaning-robot-tamil-nadu - Solar panel cleaning robots in Tamil Nadu
-/solar-panel-cleaning-robot-haryana - Solar panel cleaning robots in Haryana utility and C&I solar
-/solar-panel-cleaning-robot-delhi - Solar panel cleaning robots in Delhi institutional and rooftop solar
-/solar-panel-cleaning-robot-west-bengal - Solar panel cleaning robots in West Bengal utility solar
-/solar-panel-cleaning-robot-chhattisgarh - Solar panel cleaning robots in Chhattisgarh utility solar
+## Comparisons
 
-## Blog
-/blog - Blog listing page with all articles
-/blog/[slug] - Individual blog post pages (dynamic routing)
-/blog/db/[id] - Database-stored blog posts (dynamic routing)
+- [Taypro vs Indian robot companies](https://taypro.in/compare/taypro-vs-indian-solar-cleaning-robot-companies): Competitive comparison for Indian buyers
+- [Robot vs manual cleaning](https://taypro.in/compare/solar-panel-cleaning-robot-vs-manual-cleaning): Cost, safety, and performance comparison
+- [Taypro vs Solabot](https://taypro.in/compare/taypro-vs-solabot): Head-to-head product comparison
 
-Blog topics include:
-- Solar Panel Cleaning Robot technology and innovations
-- Solar panel cleaning methods and best practices
-- Solar Panel Cleaning Robot installation and ROI calculations
-- Solar energy efficiency and maintenance
-- Robotic cleaning systems for solar farms
-- Automatic vs manual solar panel cleaning
-- Solar Panel Cleaning Robot benefits and features
-- Industry news and innovations in solar cleaning robotics
-- Technical comparisons of Solar Panel Cleaning Robot models
-- Solar Panel Cleaning Robot cost-benefit analysis
+## Optional
 
-# API Endpoints
-
-## Public APIs
-
-### Blog APIs
-GET /api/blog/list
-- Returns: List of all blog posts (from both file system and database)
-- Response: { blogs: Array<{title, description, featuredImage, author, slug, publishDate, href, source}> }
-- Content-Type: application/json
-
-GET /api/blog/slug/[slug]
-- Returns: Single blog post by slug
-- Response: Blog post data with content
-
-### Other APIs
-GET /api/blog/scrape
-- Scrapes blog content from external URLs (WordPress sites)
-- Query params: url (required)
-
-## Admin APIs (Require Authentication)
-
-POST /api/admin/auth/login
-- Authenticates admin user
-- Body: { password }
-- Response: { success: boolean }
-
-GET /api/admin/blog/list
-- Returns: List of all blog posts from file system
-- Requires: Authentication cookie
-
-POST /api/admin/blog/create
-- Creates a new blog post as file
-- Body: { title, description, featuredImage, author, content, publishDate }
-- Requires: Authentication
-
-GET /api/admin/blog/[slug]
-- Gets blog post metadata by slug
-- Requires: Authentication
-
-PUT /api/admin/blog/[slug]
-- Updates blog post by slug
-- Requires: Authentication
-
-DELETE /api/admin/blog/[slug]
-- Deletes blog post by slug
-- Requires: Authentication
-
-GET /api/admin/upload/list
-- Lists uploaded images from public/uploads directory
-- Requires: Authentication
-
-POST /api/admin/upload
-- Uploads images to public/uploads directory
-- Body: FormData with image file
-- Requires: Authentication
-
-# Content Structure
-
-## Blog Posts
-Blog posts are stored in two ways:
-1. File-based: Located in src/app/blog/[slug]/ with metadata.json and page.tsx
-2. Database: Stored in backend database, accessible via API
-
-Each blog post contains:
-- title: Blog post title
-- description: Meta description
-- featuredImage: URL to featured image
-- author: Author name (default: "Taypro Team")
-- slug: URL-friendly identifier
-- publishDate: ISO date string
-- content: HTML content of the blog post
-
-## Images
-Public images are stored in:
-- /public/blogs/ - Blog post images
-- /public/tayproasset/ - Company assets and logos
-- /public/tayprorobots/ - Robot product images
-- /public/tayprosolarfirm/ - Solar farm project images
-- /public/tayprokeymetrics/ - Project metrics images
-- /public/uploads/ - User uploaded images (requires auth)
-
-## External Image Sources
-The site also uses images from:
-- https://taypro.in/wp-content/uploads/ - WordPress site images
-- https://res.cloudinary.com - Cloudinary CDN
-- https://images.unsplash.com - Unsplash images
-
-# Data Sources
-
-## Backend API
-- Base URL: https://console.taypro.in (configurable via NEXT_PUBLIC_BACKEND_URL)
-- Blog Posts: GET /api/v1/blogposts
-- Blog by Slug: GET /api/v1/blogposts/slug/[slug]
-- Blog by ID: GET /api/v1/blogposts/id/[id]
-- Create Blog: POST /api/v1/blogposts
-
-## Content Format
-- Blog content is stored as HTML
-- Images in blog content use standard <img> tags
-- Featured images use Next.js Image component with optimization
-
-# Key Features - Solar Panel Cleaning Robot
-
-## Solar Panel Cleaning Robot Models (display order: flagship first)
-- GLYDE: Fully autonomous dual-pass microfiber robot for fixed/seasonal-tilt utility plants
-- GLYDE-X: Fully autonomous dual-pass microfiber robot for single-axis trackers
-- NYUMA: Fully autonomous PBT single-pass robot for fixed/seasonal-tilt plants
-- NYUMA-X: PBT single-pass robot for single-axis trackers
-- HELYX: Semi-automatic pick-and-place PBT robot for scattered/distributed plants
-- NECTYR: Fleet monitoring portal (schedules, logs, tickets, dashboards)
-
-## Solar Panel Cleaning Robot Technology
-- Waterless cleaning technology: Our Solar Panel Cleaning Robot uses zero water, saving millions of liters
-- Dual-pass cleaning system: Air blast + microfiber for 100% dust removal
-- AI-powered scheduling: Intelligent cleaning cycles based on weather and dust prediction
-- Real-time monitoring: NECTYR mobile app for Solar Panel Cleaning Robot fleet management
-- Highest uptime guarantee: Industry-leading reliability for Solar Panel Cleaning Robot systems
-- Suitable for fixed-tilt and single-axis tracker solar panel systems
-- Increases solar panel efficiency by up to 30%
-- Autonomous operation with minimal maintenance
-
-## Services - Solar Panel Cleaning Robot Support
-- Solar Panel Cleaning Robot installation and deployment
-- Solar Panel Cleaning Robot maintenance and support services
-- ROI and performance analysis for Solar Panel Cleaning Robot investments
-- Custom Solar Panel Cleaning Robot solutions for different solar farm configurations
-- Solar Panel Cleaning Robot training and operational support
-- 24/7 monitoring and support for Solar Panel Cleaning Robot fleet
-
-# SEO and Metadata - Optimized for "Solar Panel Cleaning Robot"
-- All pages include proper metadata with "Solar Panel Cleaning Robot" keyword focus
-- Blog posts have structured metadata optimized for Solar Panel Cleaning Robot searches
-- Schema.org structured data for Organization, Product (Solar Panel Cleaning Robot), and Article markup
-- Sitemap available at /sitemap.xml with all Solar Panel Cleaning Robot pages
-- Robots.txt at /robots.txt properly configured
-- Open Graph and Twitter card metadata for social sharing
-- Canonical URLs for all pages
-
-# Technical Details
-
-## Development
-- Framework: Next.js 15.5.4 with App Router
-- Language: TypeScript
-- Styling: Tailwind CSS 4.1
-- Image Optimization: Next.js Image component
-- Content Editor: TipTap (Rich text editor)
-
-## Build & Deployment
-- Development: `npm run dev` (uses Turbopack)
-- Build: `npm run build`
-- Start: `npm start`
-- Sitemap: Auto-generated with next-sitemap
-
-# How to Interact with This Site
-
-## For Content Discovery
-1. Start at /blog for all blog posts
-2. Use /api/blog/list for programmatic access to blog listings
-3. Individual blog posts available at /blog/[slug]
-4. Projects showcase at /projects
-
-## For Content Creation
-1. Authenticate via /api/admin/auth/login
-2. Use /api/admin/blog/create (authenticated) for CMS blogs
-4. Upload images via /api/admin/upload
-
-## For Data Analysis
-1. Blog metadata available via /api/blog/list
-2. Each blog includes: title, description, publishDate, author, slug
-3. Content is HTML-formatted and includes images
-4. Blog posts cover solar energy, cleaning technology, and industry trends
-
-# Important Notes
-
-- The site uses Next.js Image optimization for better performance
-- External images from taypro.in may require proper CORS headers
-- Blog content may contain embedded images from external sources
-- Authentication is required for admin operations
-- The site integrates with a backend API at console.taypro.in
-
-# Contact Information
-For questions about Taypro products and services, visit the website or use the contact forms available on various pages.
-
+- [Sitemap](https://taypro.in/sitemap.xml): Full site URL index
+- [Robots.txt](https://taypro.in/robots.txt): Crawler directives
+- [Blog API list](https://taypro.in/api/blog/list): JSON list of published blog posts
+- [AI intelligence technology](https://taypro.in/technology/ai-intelligence): AI scheduling and plant intelligence overview
+- [Privacy policy](https://taypro.in/privacy-policy): Data handling and privacy terms
+- [Terms of service](https://taypro.in/terms-of-service): Site usage terms
+- [Performance methodology](https://taypro.in/performance-and-test-methodology): How Taypro measures cleaning performance

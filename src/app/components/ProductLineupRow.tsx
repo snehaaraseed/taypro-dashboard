@@ -73,8 +73,7 @@ function TopViewImage({
         height={height}
         priority={priority}
         loading={priority ? "eager" : "lazy"}
-        sizes={`${width}px`}
-        unoptimized
+        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 45vw, 580px"
         className="h-auto w-full"
         style={{ maxWidth: width }}
       />

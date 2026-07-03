@@ -9,6 +9,28 @@ import {
   titlesTooSimilar,
 } from "@/lib/seo/blog-similarity";
 import { SOURCE_LOCALE } from "@/lib/translation/config";
+import {
+  calendarDaysBetweenYmd,
+  computeNextEligibleAt,
+  getBlogAutomationTimezone,
+  getBlogBlackoutReason,
+  isBlogAutomationBlackoutDay,
+  loadCadenceState,
+  nextBlogAutomationDayYmd,
+  rotateCadenceAfterSuccessfulWrite,
+  writerWindowStartIso,
+  ymdInAutomationTz,
+} from "@/lib/cms/blog-automation-calendar";
+import {
+  getBlogAutomationMaxGapDays,
+  getBlogAutomationMinGapDays,
+} from "@/lib/cms/blog-automation-calendar-shared";
+
+export {
+  getBlogAutomationTimezone,
+  isBlogAutomationBlackoutDay,
+  rotateCadenceAfterSuccessfulWrite,
+};
 
 export interface PublishedTopic {
   title: string;
@@ -158,92 +180,27 @@ export async function addPublishedTopic(
   });
 }
 
-const MS_PER_DAY = 86_400_000;
-const BLOG_AUTOMATION_TZ =
-  process.env.BLOG_CRON_TZ?.trim() || "Asia/Kolkata";
-/** Cron writer window start (local TZ); used for nextEligibleAt only. */
-const BLOG_CRON_WINDOW_START_HOUR = 13;
-
-export function getBlogAutomationTimezone(): string {
-  return BLOG_AUTOMATION_TZ;
-}
-
-/** Minimum calendar days between automated drafts (default 1 = at most one per IST day). */
+/** Minimum calendar days between automated drafts (lower bound for random gap). */
 export function getBlogAutomationMinDays(): number {
-  const raw = process.env.BLOG_AUTOMATION_MIN_DAYS?.trim();
-  const parsed = raw ? Number.parseInt(raw, 10) : 1;
-  return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
+  return getBlogAutomationMinGapDays();
 }
 
-function ymdInAutomationTz(isoOrDate: string | Date): string {
-  const date = typeof isoOrDate === "string" ? new Date(isoOrDate) : isoOrDate;
-  return date.toLocaleDateString("en-CA", { timeZone: BLOG_AUTOMATION_TZ });
-}
-
-function addCalendarDaysYmd(ymd: string, days: number): string {
-  const [y, m, d] = ymd.split("-").map(Number);
-  return new Date(Date.UTC(y, m - 1, d + days)).toISOString().slice(0, 10);
-}
-
-function calendarDaysBetweenYmd(fromYmd: string, toYmd: string): number {
-  const [fy, fm, fd] = fromYmd.split("-").map(Number);
-  const [ty, tm, td] = toYmd.split("-").map(Number);
-  const fromMs = Date.UTC(fy, fm - 1, fd);
-  const toMs = Date.UTC(ty, tm - 1, td);
-  return Math.round((toMs - fromMs) / MS_PER_DAY);
-}
-
-/** Next cron-window start (09:00 automation TZ) on the given YYYY-MM-DD. */
-function cronWindowStartIso(ymd: string): string {
-  const [year, month, day] = ymd.split("-").map(Number);
-  let t = Date.UTC(year, month - 1, day, BLOG_CRON_WINDOW_START_HOUR, 0, 0);
-  const formatter = new Intl.DateTimeFormat("en-US", {
-    timeZone: BLOG_AUTOMATION_TZ,
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hourCycle: "h23",
-  });
-
-  for (let i = 0; i < 24; i++) {
-    const parts = Object.fromEntries(
-      formatter.formatToParts(new Date(t)).map((p) => [p.type, p.value])
-    ) as Record<string, string>;
-    const gotYmd = `${parts.year}-${parts.month}-${parts.day}`;
-    const gotH = Number(parts.hour);
-    const gotM = Number(parts.minute);
-    if (
-      gotYmd === ymd &&
-      gotH === BLOG_CRON_WINDOW_START_HOUR &&
-      gotM === 0
-    ) {
-      return new Date(t).toISOString();
-    }
-    t +=
-      Date.UTC(year, month - 1, day, BLOG_CRON_WINDOW_START_HOUR, 0, 0) -
-      Date.UTC(
-        Number(parts.year),
-        Number(parts.month) - 1,
-        Number(parts.day),
-        gotH,
-        gotM,
-        0
-      );
-  }
-
-  return new Date(t).toISOString();
+export function getBlogAutomationMaxDays(): number {
+  return getBlogAutomationMaxGapDays();
 }
 
 export type BlogAutomationSchedule = {
   canGenerate: boolean;
   minDaysBetween: number;
+  maxDaysBetween: number;
+  requiredGapDays: number;
   daysSinceLastRun: number | null;
+  daysUntilEligible: number | null;
   /** ISO timestamp of the last automation write (published_topics.created_at). */
   lastRunAt: string | null;
   nextEligibleAt: string | null;
+  blackoutToday: boolean;
+  blackoutReason: string | null;
 };
 
 /** When automation last generated a topic row, not publish/schedule dates. */
@@ -258,35 +215,68 @@ async function getLastAutomationWriteAt(): Promise<string | null> {
 }
 
 export async function getBlogAutomationSchedule(): Promise<BlogAutomationSchedule> {
-  const minDaysBetween = getBlogAutomationMinDays();
+  const minDaysBetween = getBlogAutomationMinGapDays();
+  const maxDaysBetween = getBlogAutomationMaxGapDays();
+  const requiredGapDays = loadCadenceState().requiredGapDays;
+  const blackoutReason = await getBlogBlackoutReason(new Date());
+  const blackoutToday = blackoutReason !== null;
   const lastRunAt = await getLastAutomationWriteAt();
+  const todayYmd = ymdInAutomationTz(new Date());
+
+  if (blackoutToday) {
+    const nextYmd = nextBlogAutomationDayYmd(todayYmd);
+    return {
+      canGenerate: false,
+      minDaysBetween,
+      maxDaysBetween,
+      requiredGapDays,
+      daysSinceLastRun: lastRunAt
+        ? calendarDaysBetweenYmd(ymdInAutomationTz(new Date(lastRunAt)), todayYmd)
+        : null,
+      daysUntilEligible: null,
+      lastRunAt,
+      nextEligibleAt: writerWindowStartIso(nextYmd),
+      blackoutToday: true,
+      blackoutReason,
+    };
+  }
 
   if (!lastRunAt) {
     return {
       canGenerate: true,
       minDaysBetween,
+      maxDaysBetween,
+      requiredGapDays,
       daysSinceLastRun: null,
+      daysUntilEligible: 0,
       lastRunAt: null,
       nextEligibleAt: null,
+      blackoutToday: false,
+      blackoutReason: null,
     };
   }
 
-  const todayYmd = ymdInAutomationTz(new Date());
-  const lastRunYmd = ymdInAutomationTz(lastRunAt);
+  const lastRunYmd = ymdInAutomationTz(new Date(lastRunAt));
   const calendarDaysSinceLastRun = calendarDaysBetweenYmd(lastRunYmd, todayYmd);
-  const canGenerate = calendarDaysSinceLastRun >= minDaysBetween;
+  const canGenerate = calendarDaysSinceLastRun >= requiredGapDays;
+  const daysUntilEligible = canGenerate
+    ? 0
+    : requiredGapDays - calendarDaysSinceLastRun;
   const nextEligibleAt = canGenerate
     ? null
-    : cronWindowStartIso(
-        addCalendarDaysYmd(lastRunYmd, minDaysBetween)
-      );
+    : computeNextEligibleAt(lastRunYmd, requiredGapDays);
 
   return {
     canGenerate,
     minDaysBetween,
+    maxDaysBetween,
+    requiredGapDays,
     daysSinceLastRun: calendarDaysSinceLastRun,
+    daysUntilEligible,
     lastRunAt,
     nextEligibleAt,
+    blackoutToday: false,
+    blackoutReason: null,
   };
 }
 

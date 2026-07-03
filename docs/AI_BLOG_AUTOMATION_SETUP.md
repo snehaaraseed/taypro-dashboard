@@ -49,7 +49,9 @@ curl http://localhost:3000/api/automation/generate-blog
 
 ### Automated daily schedule (production)
 
-**Blog writer** — max **1 published post per IST calendar day**, at a **random time between 9:00 AM and 3:00 PM IST**. Yesterday’s publish time does not block today’s run. Each run: picks an **SEO keyword** (`data/seo-blog-queue.json` first, then `data/seo-gsc-boost.json`, then scored CSV pool) → **category** matched to that keyword → **CMS author** best matched to keyword + category via **expertise tags** (set in `/admin/authors`, or inferred from role/bio) → Gemini proposes **5 titles** (code picks one unique) → writes the post in that author’s voice → **structure validation** (Quick answer H2, PAA H2, word count, FAQs, comparison tables) with up to **3 attempts** (retry uses outline pass + alternate **free** model ID) → (`published: true`).
+**Blog writer** — **weekdays only** (skips weekends + India holidays in `data/blog-automation-holidays.json`), with a **1-day preferred gap** that sometimes randomizes to **1–3 days** (`BLOG_AUTOMATION_MIN_DAYS` / `BLOG_AUTOMATION_MAX_DAYS`, `BLOG_AUTOMATION_PREFERRED_GAP_WEIGHT`). Skips days when a monthly **research insight** published that morning. Writer starts at **`BLOG_WRITER_START_IST`** (default **00:30 IST**); **publish** time is random **09:00–18:00 IST** on an eligible day. ~**25%** of posts use a **narrative field-story** format (no Quick answer template); the rest keep the standard SEO structure.
+
+Each run: picks an **SEO keyword** → **category** → **CMS author** → Gemini plan + write → structure validation → rank judge → schedule publish.
 
 **Word-count tiers** (automation; leave `BLOG_MIN_WORD_COUNT` unset on prod):
 
@@ -63,37 +65,56 @@ Tier is resolved from editorial `angleId`, GSC volume/competition, and keyword p
 
 **Author rotation (default):** `BLOG_AUTHOR_PICK=rotate` skips authors who bylined a post in the last `BLOG_AUTHOR_ROTATE_DAYS` (default 7) when an expertise match exists. Among equally qualified authors (same expertise tier), automation prefers whoever has the **fewest published English posts** so bylines stay balanced over time.
 
-**Models (v2 — Gemma only):** Blog, translation, project improve, and **Search grounding (SERP/facts/discovery)** all use **`gemma-4-31b-it`** (retry: **`gemma-4-26b-a4b-it`**). Gemma 4 supports the `googleSearch` grounding tool via the Gemini API at the **1,500 RPD/key** free tier, so grounding is no longer throttled by the ~20 RPD Gemini 2.5 Flash ceiling. Gemini Flash is not used in automation.
+**Models (purpose-split, free tier):** Use the right model per job — not one model for everything. Defaults live in `src/lib/gemini/free-tier-models.ts` and `src/lib/gemini/model-routing.ts`.
+
+| Purpose | Primary | Retry | Why |
+|---------|---------|-------|-----|
+| **Blog writing** (plan, sections, FAQ, expand) | `gemini-3.1-flash-lite` | `gemma-4-26b-a4b-it` | Fast (~1–2s/call), 500 RPD/key; Gemma when JSON/HTML fails |
+| **CMS translation + project improve** | `gemini-3.1-flash-lite` | `gemma-4-26b-a4b-it` | Same high-volume chain as blog |
+| **Search grounding** (discovery, SERP, facts) | `gemma-4-26b-a4b-it` | `gemma-4-31b-it` | Only Gemma supports `googleSearch` on free tier (~1,500 RPD/key); Flash Lite gets instant 429 |
+| **Editorial** (monthly insights, rank judge) | `gemma-4-26b-a4b-it` | `gemma-4-31b-it` | Longer reasoning; 1,500 RPD/key |
 
 ```
 GEMINI_API_KEY=...
 GEMINI_API_KEY_2=...
 GEMINI_API_KEY_3=...
-GEMINI_BLOG_MODEL=gemma-4-31b-it
+# Blog + translation (Flash → Gemma)
+GEMINI_BLOG_MODEL=gemini-3.1-flash-lite
 GEMINI_BLOG_RETRY_MODEL=gemma-4-26b-a4b-it
-GEMINI_TRANSLATION_MODEL=gemma-4-31b-it
+GEMINI_TRANSLATION_MODEL=gemini-3.1-flash-lite
 GEMINI_TRANSLATION_RETRY_MODEL=gemma-4-26b-a4b-it
+# Grounding only (Gemma → Gemma; never Flash)
+GEMINI_GROUNDING_MODEL=gemma-4-26b-a4b-it
+GEMINI_GROUNDING_RETRY_MODEL=gemma-4-31b-it
+# Optional: insights / rank judge (defaults to Gemma 26B → 31B)
+GEMINI_EDITORIAL_MODEL=gemma-4-26b-a4b-it
+GEMINI_EDITORIAL_RETRY_MODEL=gemma-4-31b-it
 BLOG_PIPELINE_MAX_OUTER_ATTEMPTS=2
 BLOG_HYBRID_FALLBACK_ATTEMPTS=0
 BLOG_CRON_MAX_FAIL_POSTS=3
-GEMINI_RESERVED_GEMMA_CALLS_BLOG=40
 ```
+
+**Do not use** Gemini 2.5/3 Flash for automation volume (20 RPD/key on free tier). **Do not use** Flash Lite for `googleSearch` grounding (Gemini 3 search quota = 0).
 
 **Editorial calendar:** `npm run seo:generate-editorial-calendar` writes `data/editorial-calendar.json` (90 days). Weekly cron: `taypro-editorial-calendar` (Sunday 02:00 IST).
 
 **Persistent state:** `.runtime/blog-cron/editorial-state.json` stores cross-cron rejections. **Evergreen fallback:** `data/evergreen-fallback-catalog.json` when primary+backup fail.
 
-**Models:** All text generation uses **Google AI Studio free tier** Gemma 4 (`gemma-4-31b-it` / `gemma-4-26b-a4b-it`). Paid model IDs in env are ignored with a console warning.
+**Models:** Purpose-split routing — Flash Lite for volume text, Gemma for grounding and editorial. Paid model IDs in env are ignored with a console warning.
 
 **GSC closed loop (recommended):** Weekly `POST /api/automation/sync-gsc` pulls Search Console query data and refreshes `data/seo-gsc-boost.json` + `data/gsc-latest-report.json`. Setup: `docs/GSC_API_CLOSED_LOOP.md`. On production after deploy: `npm run ops:install-gsc-cron` (or `bash scripts/install-gsc-sync-cron.sh`). Logs: `logs/gsc-sync.log`. Manual fallback: paste queries into `seo-gsc-boost.json` `keywords` array.
 
-**Translations** — run in the **evening** (after the writer window), up to 10 published blogs (hi/ar/ja/bn). Queue prioritizes **newest English posts first** (by `publishDate`). English posts are already structure-validated at publish; locale copies only get light sanity checks (non-empty fields, FAQ count).
+**Translations** — **staggered by locale** after English publish (default: `hi` day 0, `ar` day 1, `ja` day 2, `bn` day 3). Post-writer worker runs after each English write; weekday **09:30 IST** catch-up cron (`cron-translate-catchup-morning.sh`) clears backlog. Set `BLOG_TRANSLATION_STAGGER_DAYS=hi:0,ar:1,ja:2,bn:3` or disable with `BLOG_TRANSLATION_STAGGER_DISABLED=1`.
 
 Set in `.env.production`:
 
 ```
+BLOG_WRITER_START_IST=00:30
 BLOG_AUTOMATION_MIN_DAYS=1
-BLOG_TRANSLATION_MAX_PER_DAY=10
+BLOG_AUTOMATION_MAX_DAYS=3
+BLOG_AUTOMATION_PREFERRED_GAP_WEIGHT=0.7
+BLOG_NARRATIVE_FORMAT_SHARE=0.25
+BLOG_TRANSLATION_STAGGER_DAYS=hi:0,ar:1,ja:2,bn:3
 GEMINI_CALL_DELAY_MS=5000
 ```
 
@@ -114,11 +135,14 @@ Structure validation failures (too short, missing H2s/links) now trigger a **new
 | Setting | Default | Purpose |
 |---------|---------|---------|
 | `GEMINI_QUOTA_SOFT_START_MINUTES` | `30` | Writer starts at **00:30 Pacific** (~**1:00 PM IST**) after RPD reset at midnight PT (~12:30 IST) |
-| `GEMINI_GROUNDING_MODEL` | `gemma-4-31b-it` | Search grounding (SERP + facts + discovery) via Gemma 4 googleSearch tool (~1,500 RPD/key) |
-| `GEMINI_BLOG_MODEL` | `gemma-4-31b-it` | Plan, sections, FAQ, expand, repair (~1500 RPD/key) |
-| `GEMINI_TRANSLATION_MODEL` | `gemma-4-31b-it` | CMS translation + project improve (shared Gemma pool after blog done) |
+| `GEMINI_GROUNDING_MODEL` | `gemma-4-26b-a4b-it` | Search grounding primary (discovery, SERP, facts) |
+| `GEMINI_GROUNDING_RETRY_MODEL` | `gemma-4-31b-it` | Grounding retry when 26B returns 500 |
+| `GEMINI_BLOG_MODEL` | `gemini-3.1-flash-lite` | Blog plan, sections, FAQ, expand, repair |
+| `GEMINI_BLOG_RETRY_MODEL` | `gemma-4-26b-a4b-it` | Blog retry when Flash JSON/HTML fails |
+| `GEMINI_TRANSLATION_MODEL` | `gemini-3.1-flash-lite` | CMS translation + project improve |
+| `GEMINI_EDITORIAL_MODEL` | `gemma-4-26b-a4b-it` | Monthly insights + rank judge |
 | `GEMINI_SERP_MAX_CALLS_PER_BLOG` | `2` | Max grounding calls per blog (1 SERP + 1 fact) |
-| `BLOG_RANK_JUDGE` | `true` | Gemma LLM-as-judge rank-readiness gate after the heuristic scorecard. Set `false` to disable. Fail-safe: if the judge call errors, it never blocks publishing. |
+| `BLOG_RANK_JUDGE` | `true` | Gemma editorial-model rank-readiness judge after the heuristic scorecard. Set `false` to disable. Fail-safe: if the judge call errors, it never blocks publishing. |
 | `BLOG_JUDGE_MIN_SCORE` | `70` | Minimum judge score (0-100) to publish. Drafts below this are rejected and retried with the next brief. |
 | `BLOG_INLINE_CITATIONS` | `true` | Add grounded inline citations + a "Sources and further reading" section from Google Search grounding. Set `false` to disable. |
 

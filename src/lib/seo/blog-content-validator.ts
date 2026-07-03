@@ -18,6 +18,10 @@ import {
 } from "@/lib/seo/blog-pillar-links";
 import { findInlineImgAltIssue } from "@/lib/seo/blog-body-hygiene";
 import { findBlogIntentAlignmentIssues } from "@/lib/seo/blog-intent-contract";
+import {
+  isNarrativeBlogFormat,
+  type BlogContentFormat,
+} from "@/lib/seo/blog-content-format";
 
 export class BlogContentValidationError extends Error {
   readonly issues: string[];
@@ -42,6 +46,7 @@ export type BlogContentValidationInput = {
   angleId?: string;
   volumeBucket?: number;
   competitionIndex?: number;
+  contentFormat?: BlogContentFormat;
 };
 
 export type BlogContentValidationResult =
@@ -215,6 +220,7 @@ export function validateGeneratedBlog(
   const wordPolicy = resolveValidationWordCountPolicy(input);
   const minWords = wordPolicy.minWords;
   const structure = resolveBlogStructurePolicy(wordPolicy.tier);
+  const narrative = isNarrativeBlogFormat(input.contentFormat);
 
   if (wordCount < minWords) {
     issues.push(
@@ -256,18 +262,28 @@ export function validateGeneratedBlog(
     );
   }
 
-  if (!h2s.some((h) => QUICK_ANSWER_H2.test(h))) {
-    issues.push('Missing H2 "Quick answer" or "Summary for plant managers"');
-  }
+  if (!narrative) {
+    if (!h2s.some((h) => QUICK_ANSWER_H2.test(h))) {
+      issues.push('Missing H2 "Quick answer" or "Summary for plant managers"');
+    }
 
-  const bullets = quickAnswerBulletCount(input.content);
-  if (
-    bullets < structure.quickAnswerBulletsMin ||
-    bullets > structure.quickAnswerBulletsMax
-  ) {
-    issues.push(
-      `Quick answer needs ${structure.quickAnswerBulletsMin}–${structure.quickAnswerBulletsMax} bullets (found ${bullets} <li> items)`
-    );
+    const bullets = quickAnswerBulletCount(input.content);
+    if (
+      bullets < structure.quickAnswerBulletsMin ||
+      bullets > structure.quickAnswerBulletsMax
+    ) {
+      issues.push(
+        `Quick answer needs ${structure.quickAnswerBulletsMin}–${structure.quickAnswerBulletsMax} bullets (found ${bullets} <li> items)`
+      );
+    }
+  } else {
+    const opening = firstParagraphsPlain(input.content, 800);
+    if (opening.length < 120) {
+      issues.push("Narrative opening needs at least 2 substantive paragraphs");
+    }
+    if (h2s.some((h) => QUICK_ANSWER_H2.test(h))) {
+      issues.push('Narrative format must not include "Quick answer" H2');
+    }
   }
 
   if (!h2s.some((h) => QUESTION_H2.test(h) && !QUICK_ANSWER_H2.test(h))) {
@@ -332,7 +348,7 @@ export function validateGeneratedBlog(
 
   const quickSection = stripHtmlToPlainText(extractQuickAnswerSection(input.content));
   const faq0Answer = input.faqs[0]?.answer ?? "";
-  if (quickSection && faq0Answer) {
+  if (!narrative && quickSection && faq0Answer) {
     const overlap = tokenOverlap(quickSection, faq0Answer);
     if (overlap < 0.12) {
       issues.push("faqs[0] answer must align with Quick answer section facts");

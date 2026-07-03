@@ -6,12 +6,14 @@ import { getDb } from "@/lib/db";
 import { blogs, projects, insights, translationQueue } from "@/lib/db/schema";
 import { isGemini503Error } from "./gemini-call";
 import {
+  getBlogLocalesDueByStagger,
   getDailyTranslationMaxPerDay,
   getDailyTranslationSplitPerType,
   getDailyInsightTranslationMaxPerDay,
   getTranslationRetry503Ms,
   getTranslationRetryErrorMs,
   isCmsTranslationDisabled,
+  isBlogTranslationStaggerEnabled,
   SOURCE_LOCALE,
   TARGET_LOCALES,
 } from "./config";
@@ -248,6 +250,50 @@ type TranslationCandidate = {
   sortKey: string;
 };
 
+async function getEnglishBlogPublishDate(slug: string): Promise<string | null> {
+  const db = getDb();
+  const [row] = await db
+    .select({ publishDate: blogs.publishDate })
+    .from(blogs)
+    .where(and(eq(blogs.slug, slug), eq(blogs.locale, SOURCE_LOCALE)))
+    .limit(1);
+  return row?.publishDate ?? null;
+}
+
+/** Locales due today by stagger schedule and still out of sync with English. */
+export async function getBlogLocalesToTranslateNow(
+  slug: string,
+  now = new Date()
+): Promise<TayproLocale[]> {
+  const publishDate = await getEnglishBlogPublishDate(slug);
+  if (!publishDate) return [];
+
+  const dueLocales = getBlogLocalesDueByStagger(publishDate, now);
+  const outOfSync: TayproLocale[] = [];
+  for (const locale of dueLocales) {
+    if (await isLocaleOutOfSync(blogs, slug, locale)) {
+      outOfSync.push(locale);
+    }
+  }
+  return outOfSync;
+}
+
+async function countMissingLocalesForSlug(
+  table: typeof blogs | typeof projects,
+  slug: string,
+  now = new Date()
+): Promise<number> {
+  if (table === blogs && isBlogTranslationStaggerEnabled()) {
+    return (await getBlogLocalesToTranslateNow(slug, now)).length;
+  }
+
+  let missingLocales = 0;
+  for (const locale of TARGET_LOCALES) {
+    if (await isLocaleOutOfSync(table, slug, locale)) missingLocales += 1;
+  }
+  return missingLocales;
+}
+
 async function englishSortKeyForSlug(
   table: typeof blogs | typeof projects,
   slug: string
@@ -285,10 +331,7 @@ async function listSlugsNeedingTranslation(
   const candidates: TranslationCandidate[] = [];
 
   for (const slug of englishSlugs) {
-    let missingLocales = 0;
-    for (const locale of TARGET_LOCALES) {
-      if (await isLocaleOutOfSync(table, slug, locale)) missingLocales += 1;
-    }
+    const missingLocales = await countMissingLocalesForSlug(table, slug);
     if (missingLocales === 0) continue;
 
     const sortKey = await englishSortKeyForSlug(table, slug);
@@ -795,19 +838,33 @@ async function runDailyTranslationsBody(
     const accumulatedResults = new Map<TayproLocale, TranslationResult>();
     let retryLocales: TayproLocale[] | undefined;
 
+    if (item.contentType === "blog") {
+      const dueNow = await getBlogLocalesToTranslateNow(item.slug);
+      if (dueNow.length === 0) {
+        log?.("item_skip_stagger", { slug: item.slug });
+        continue;
+      }
+      retryLocales = dueNow;
+    }
+
     while (!stopForQuota) {
       attempt += 1;
+      const localesForAttempt =
+        item.contentType === "blog"
+          ? retryLocales ?? (await getBlogLocalesToTranslateNow(item.slug))
+          : retryLocales ?? TARGET_LOCALES;
+
       log?.("item_attempt", {
         attempt,
         contentType: item.contentType,
         slug: item.slug,
-        locales: retryLocales ?? TARGET_LOCALES,
+        locales: localesForAttempt,
       });
 
       try {
         const batch = mergeTranslationResults(
           accumulatedResults,
-          await translateQueueItem(item, retryLocales)
+          await translateQueueItem(item, localesForAttempt)
         );
         const { status, quotaFailure } = classifyTranslationBatch(batch);
 

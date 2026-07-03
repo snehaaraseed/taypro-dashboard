@@ -139,7 +139,7 @@ export default function ProductLineupSection({
                     topViewHeight={robot.topViewHeight}
                     layout={robot.lineupLayout}
                     exploreLabel={t("exploreCta", { model: robot.model })}
-                    priority={idx === 0 && filter === "all"}
+                    priority={false}
                   />
                 </AnimateOnScroll>
               ))}

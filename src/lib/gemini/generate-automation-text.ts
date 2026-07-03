@@ -6,7 +6,10 @@ import {
   isGeminiQuotaError,
   listGeminiApiKeys,
 } from "@/lib/gemini/api-keys";
-import { automationTextModelCandidates } from "@/lib/gemini/model-routing";
+import {
+  textModelCandidatesForPurpose,
+  type AutomationTextPurpose,
+} from "@/lib/gemini/model-routing";
 
 function isTransientServerError(error: unknown): boolean {
   const msg = error instanceof Error ? error.message : String(error);
@@ -24,14 +27,18 @@ function sleep(ms: number): Promise<void> {
 
 export type GenerateAutomationTextOptions = {
   maxOutputTokens?: number;
+  /** When true, try the retry model first (Gemma before Flash, or 31B before 26B). */
   preferQualityModel?: boolean;
+  /** blog = Flash→Gemma; editorial = Gemma 26B→31B; translation/project = Flash→Gemma */
+  purpose?: AutomationTextPurpose;
 };
 
-/** Long-form HTML/text via Gemma 4 (blog / insights writing). */
+/** Long-form HTML/text with purpose-specific model routing. */
 export async function generateAutomationText(
   prompt: string,
   options?: GenerateAutomationTextOptions
 ): Promise<string> {
+  const purpose = options?.purpose ?? "blog";
   const apiKeys = listGeminiApiKeys();
   let lastError: unknown;
 
@@ -39,7 +46,7 @@ export async function generateAutomationText(
     const genAI = new GoogleGenerativeAI(apiKey);
     let keyHitQuota = false;
 
-    for (const modelName of automationTextModelCandidates({
+    for (const modelName of textModelCandidatesForPurpose(purpose, {
       preferRetryVariant: options?.preferQualityModel,
     })) {
       for (let attempt = 0; attempt < 3; attempt++) {
@@ -65,12 +72,15 @@ export async function generateAutomationText(
           if (isTransientServerError(error) && attempt < 2) {
             const waitMs = 2000 * (attempt + 1);
             console.warn(
-              `[automation-text] Model ${modelName} transient error (attempt ${attempt + 1}/3), retrying in ${waitMs}ms…`
+              `[automation-text:${purpose}] ${modelName} transient (attempt ${attempt + 1}/3), retry in ${waitMs}ms`
             );
             await sleep(waitMs);
             continue;
           }
-          console.warn(`[automation-text] Model ${modelName} failed:`, error);
+          console.warn(
+            `[automation-text:${purpose}] Model ${modelName} failed:`,
+            error
+          );
           break;
         }
       }

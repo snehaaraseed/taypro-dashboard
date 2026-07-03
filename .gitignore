@@ -31,6 +31,7 @@
 /scripts/__pycache__/
 data/backups/
 data/*-report*.json
+data/pagespeed/runs/
 data/backfill-*.json
 
 # debug

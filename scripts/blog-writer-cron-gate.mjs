@@ -98,19 +98,81 @@ function formatNextStartIst(epoch) {
 }
 
 const IST = "Asia/Kolkata";
-const DEFAULT_BLOG_WRITER_START = "13:00";
+const DEFAULT_BLOG_WRITER_START = "00:30";
 const DEFAULT_RUNTIME_DIR = ".runtime/blog-cron";
 
 function blogWriterStartMinutes() {
   const raw = process.env.BLOG_WRITER_START_IST?.trim() || DEFAULT_BLOG_WRITER_START;
   const m = raw.match(/^(\d{1,2}):(\d{2})$/);
-  if (!m) return 13 * 60;
+  if (!m) return 30;
   return Number(m[1]) * 60 + Number(m[2]);
 }
 
-/** True when IST clock is at or past the daily blog-writer start (default 13:00 IST). */
+/** True when IST clock is at or past the daily blog-writer start (default 00:30 IST). */
 export function isPastBlogWriterStartIst(now = new Date()) {
   return minutesSinceMidnightInTz(now, IST) >= blogWriterStartMinutes();
+}
+
+function resolveAppRoot() {
+  return process.env.TAYPRO_APP_ROOT ?? process.cwd();
+}
+
+function loadHolidayYmds() {
+  const root = resolveAppRoot();
+  const envPath = process.env.BLOG_AUTOMATION_HOLIDAYS_PATH?.trim();
+  const filePath = envPath
+    ? path.resolve(envPath)
+    : path.join(root, "data", "blog-automation-holidays.json");
+  const defaults = [
+    "2026-01-26",
+    "2026-03-10",
+    "2026-03-11",
+    "2026-03-30",
+    "2026-04-02",
+    "2026-04-14",
+    "2026-05-01",
+    "2026-08-15",
+    "2026-08-28",
+    "2026-10-02",
+    "2026-10-20",
+    "2026-10-21",
+    "2026-11-08",
+    "2026-11-09",
+    "2026-12-25",
+  ];
+  let fileDates = [];
+  if (existsSync(filePath)) {
+    try {
+      const raw = JSON.parse(readFileSync(filePath, "utf8"));
+      if (Array.isArray(raw.dates)) fileDates = raw.dates;
+    } catch {
+      fileDates = [];
+    }
+  }
+  const envDates = (process.env.BLOG_AUTOMATION_HOLIDAY_DATES?.trim() ?? "")
+    .split(",")
+    .map((d) => d.trim())
+    .filter(Boolean);
+  return new Set([...defaults, ...fileDates, ...envDates]);
+}
+
+function weekdayIndexIst(ymd) {
+  const [y, m, d] = ymd.split("-").map(Number);
+  const noonUtc = new Date(Date.UTC(y, m - 1, d, 12, 0, 0));
+  const weekday = new Intl.DateTimeFormat("en-US", {
+    timeZone: IST,
+    weekday: "short",
+  }).format(noonUtc);
+  const map = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+  return map[weekday] ?? 0;
+}
+
+/** True on weekdays that are not configured holidays (insight blackout is API-only). */
+export function isBlogAutomationDayIst(now = new Date()) {
+  const ymd = ymdInTz(now, IST);
+  const day = weekdayIndexIst(ymd);
+  if (day === 0 || day === 6) return false;
+  return !loadHolidayYmds().has(ymd);
 }
 
 function formatBlogWriterStartIst() {
@@ -143,6 +205,10 @@ if (cmd === "past-soft-start") {
 
 if (cmd === "past-blog-writer-start") {
   process.exit(isPastBlogWriterStartIst() ? 0 : 1);
+}
+
+if (cmd === "is-automation-day") {
+  process.exit(isBlogAutomationDayIst() ? 0 : 1);
 }
 
 if (cmd === "format-blog-writer-start-ist") {
@@ -182,6 +248,6 @@ if (cmd === "write-hold") {
 }
 
 console.error(
-  "Usage: blog-writer-cron-gate.mjs past-soft-start | past-blog-writer-start | format-blog-writer-start-ist | next-soft-start-epoch | format-next-soft-start-ist | blog-done-today | check-hold <file> | write-hold <file>"
+  "Usage: blog-writer-cron-gate.mjs past-soft-start | past-blog-writer-start | is-automation-day | format-blog-writer-start-ist | next-soft-start-epoch | format-next-soft-start-ist | blog-done-today | check-hold <file> | write-hold <file>"
 );
 process.exit(2);

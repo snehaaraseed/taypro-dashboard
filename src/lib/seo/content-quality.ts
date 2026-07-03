@@ -47,6 +47,15 @@ export const LONG_FORM_CONTENT_RULES = `DEPTH & LENGTH (tier applied at generati
 - End the article with a short "Key takeaways" or "What plant managers should do next" H2 (4–6 bullets), no FAQ heading in content.
 - Do NOT inflate word count with generic AI intros, duplicate conclusions, or filler about "the solar industry growing".`;
 
+export const NARRATIVE_CONTENT_RULES = `NARRATIVE FIELD STORY (no Quick answer template):
+- Open with a concrete plant scene: MW scale, region, season, and operational stakes (PR drift, storm week, lender review, AMC renewal).
+- Do NOT use an H2 titled "Quick answer" or "Summary for plant managers".
+- Use 5–8 H2 sections such as: "What the plant looked like", "The constraint", "What the team tried", "Outcome and numbers", "What this means for your site".
+- Include one question-shaped H2 (People Also Ask style) with a direct-answer paragraph below.
+- End with "What plant managers should do next" or "Key takeaways" (4–6 bullets or short prose).
+- FAQ JSON: 4 questions; faqs[0] must phrase the primary keyword as a question; answers must match body facts.
+- Still include ≥2 /blog/ internal links and India utility-scale specificity (MW, O&M, dust, trackers).`;
+
 export const PUNCTUATION_RULES = `PUNCTUATION (strict):
 - Do NOT use em dashes (Unicode U+2014, the long dash character) anywhere in title, description, content, FAQs, or topic titles.
 - Use commas, periods, colons, semicolons, or parentheses to join clauses (never the long em dash character).

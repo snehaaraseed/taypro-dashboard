@@ -227,6 +227,7 @@ EOF
     fi
     scp -q -i "$SSH_KEY" \
         "$LOCAL_PATH/scripts/patch-production-gsc-env.sh" \
+        "$LOCAL_PATH/scripts/patch-production-gemini-models-env.sh" \
         "$LOCAL_PATH/scripts/cron-sync-gsc-boost.sh" \
         "$LOCAL_PATH/scripts/cron-merge-404-candidates.sh" \
         "$LOCAL_PATH/scripts/install-gsc-sync-cron.sh" \
@@ -235,6 +236,10 @@ EOF
         "$LOCAL_PATH/scripts/install-scheduled-publish-cron.sh" \
         "$LOCAL_PATH/scripts/install-insights-cron.sh" \
         "$LOCAL_PATH/scripts/cron-generate-insights.sh" \
+        "$LOCAL_PATH/scripts/cron-pagespeed-audit.sh" \
+        "$LOCAL_PATH/scripts/install-pagespeed-cron.sh" \
+        "$LOCAL_PATH/scripts/run-pagespeed-audit.mjs" \
+        "$LOCAL_PATH/scripts/run-pagespeed-audit.ts" \
         "$REMOTE_HOST:$REMOTE_PATH/scripts/"
 
     GSC_OAUTH_ENV_SNIP=""
@@ -277,6 +282,21 @@ EOF
             echo -e "${YELLOW}  ⚠️  No Cloudflare API token in .env.local — skip Cloudflare upload${NC}"
         fi
         rm -f "$CF_ENV_SNIP"
+
+        PAGESPEED_ENV_SNIP=$(mktemp)
+        grep -E '^PAGESPEED_API_KEY=|^Page_speed_insights_api_key=' "$LOCAL_PATH/.env.local" >> "$PAGESPEED_ENV_SNIP" || true
+        if [ -s "$PAGESPEED_ENV_SNIP" ]; then
+            ssh -i "$SSH_KEY" "$REMOTE_HOST" "mkdir -p $REMOTE_PATH/secrets"
+            scp -q -i "$SSH_KEY" \
+                "$PAGESPEED_ENV_SNIP" \
+                "$REMOTE_HOST:$REMOTE_PATH/secrets/pagespeed-production.env"
+            ssh -i "$SSH_KEY" "$REMOTE_HOST" \
+                "chmod 600 $REMOTE_PATH/secrets/pagespeed-production.env 2>/dev/null || true"
+            echo -e "${GREEN}  ✅ Uploaded PageSpeed Insights API env${NC}"
+        else
+            echo -e "${YELLOW}  ⚠️  No PAGESPEED_API_KEY in .env.local — skip PageSpeed upload${NC}"
+        fi
+        rm -f "$PAGESPEED_ENV_SNIP"
     fi
 
     if [ "${DEPLOY_UPLOAD_GSC_FROM_LOCAL:-0}" = "1" ]; then
@@ -297,7 +317,7 @@ EOF
     ssh -i "$SSH_KEY" "$REMOTE_HOST" << EOF
         set -e
         cd /var/www/taypro-dashboard
-        chmod +x scripts/patch-production-gsc-env.sh
+        chmod +x scripts/patch-production-gsc-env.sh scripts/patch-production-gemini-models-env.sh
         OAUTH_FILE=""
         if [ -f secrets/gsc-oauth-production.env ]; then
             OAUTH_FILE="$REMOTE_PATH/secrets/gsc-oauth-production.env"
@@ -307,14 +327,17 @@ EOF
         else
             ./scripts/patch-production-gsc-env.sh /var/www/taypro-dashboard
         fi
+        ./scripts/patch-production-gemini-models-env.sh /var/www/taypro-dashboard
         chmod +x scripts/cron-sync-gsc-boost.sh scripts/install-gsc-sync-cron.sh 2>/dev/null || true
         chmod +x scripts/cron-merge-404-candidates.sh scripts/install-url-recovery-cron.sh 2>/dev/null || true
         chmod +x scripts/install-blog-automation-cron.sh scripts/install-scheduled-publish-cron.sh 2>/dev/null || true
         chmod +x scripts/install-insights-cron.sh scripts/cron-generate-insights.sh 2>/dev/null || true
+        chmod +x scripts/cron-pagespeed-audit.sh scripts/install-pagespeed-cron.sh scripts/run-pagespeed-audit.mjs 2>/dev/null || true
         ./scripts/install-gsc-sync-cron.sh
         ./scripts/install-url-recovery-cron.sh
         ./scripts/install-blog-automation-cron.sh
         ./scripts/install-insights-cron.sh
+        ./scripts/install-pagespeed-cron.sh
 EOF
     step_done
     echo ""

@@ -1,5 +1,10 @@
 /** Blog publish / schedule helpers (pure, safe on server and client). */
 
+import {
+  mergeHolidayDates,
+  nextNonBlackoutYmd,
+} from "@/lib/cms/blog-automation-calendar-shared";
+
 export type BlogPublishInput = {
   published?: boolean;
   scheduledPublishAt?: string | null;
@@ -127,8 +132,8 @@ export function isoToDateInputValue(iso: string | null | undefined): string {
 }
 
 const AUTOMATION_PUBLISH_START_HOUR = 9;
-/** Inclusive end: 17:00 is the last publish minute (5 PM). */
-const AUTOMATION_PUBLISH_END_HOUR = 17;
+/** Inclusive end: 18:00 is the last publish minute (6 PM). */
+const AUTOMATION_PUBLISH_END_HOUR = 18;
 
 function automationPublishTz(): string {
   if (typeof process !== "undefined" && process.env.BLOG_CRON_TZ?.trim()) {
@@ -200,10 +205,13 @@ function isoAtYmdAndMinute(ymd: string, minuteOfDay: number): string {
 }
 
 /**
- * Random publish time between 09:00 and 17:00 in BLOG_CRON_TZ (default IST).
- * If called after 17:00, schedules the next calendar day in that window.
+ * Random publish time between 09:00 and 18:00 in BLOG_CRON_TZ (default IST).
+ * Skips weekends/holidays. If called after 18:00, schedules the next eligible day.
  */
-export function pickAutomationScheduledPublishAt(now = new Date()): string {
+export function pickAutomationScheduledPublishAt(
+  now = new Date(),
+  holidays = mergeHolidayDates([])
+): string {
   const tz = automationPublishTz();
   const startMinute = AUTOMATION_PUBLISH_START_HOUR * 60;
   const endMinute = AUTOMATION_PUBLISH_END_HOUR * 60;
@@ -215,9 +223,12 @@ export function pickAutomationScheduledPublishAt(now = new Date()): string {
 
   if (nowMinute >= endMinute) {
     targetYmd = addCalendarDaysYmd(targetYmd, 1);
+    windowStart = startMinute;
   } else if (nowMinute >= startMinute) {
     windowStart = Math.min(nowMinute + 1, endMinute);
   }
+
+  targetYmd = nextNonBlackoutYmd(targetYmd, holidays, tz);
 
   const span = Math.max(1, windowEnd - windowStart + 1);
   const pickedMinute = windowStart + Math.floor(Math.random() * span);

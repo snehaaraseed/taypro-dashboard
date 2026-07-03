@@ -9,6 +9,7 @@ import { createSlug } from "@/app/utils/blogFileUtils";
 import {
   AI_OVERVIEW_SNIPPET_RULES,
   ANTI_GENERIC_WRITING_RULES,
+  NARRATIVE_CONTENT_RULES,
   PUNCTUATION_RULES,
   SEO_AND_READER_RULES,
   isTooGenericDescription,
@@ -16,6 +17,8 @@ import {
   sanitizeEmDash,
   getBlogPipelineMaxInPlaceExpansions,
 } from "@/lib/seo/content-quality";
+import type { BlogContentFormat } from "@/lib/seo/blog-content-format";
+import { isNarrativeBlogFormat } from "@/lib/seo/blog-content-format";
 import type { CorpusIndexEntry } from "@/lib/seo/corpus-index";
 import { formatAuthorVoicePrompt } from "@/lib/seo/author-voice-context";
 import { formatEditorialContextPrompt } from "@/lib/seo/editorial-context";
@@ -97,7 +100,7 @@ import {
   missingH2OutlineSections,
   type SectionWriterContext,
 } from "@/lib/seo/blog-section-writer";
-import { parseGeminiJsonObject } from "@/lib/gemini/parse-json-response";
+import { parseGeminiJsonObject, parseGeminiJsonHtmlField, parseGeminiJsonFaqsField } from "@/lib/gemini/parse-json-response";
 
 function getGenAI(): GoogleGenerativeAI {
   return new GoogleGenerativeAI(listGeminiApiKeys()[0]);
@@ -116,6 +119,8 @@ type GenerateTextOptions = {
   preferQualityModel?: boolean;
   /** Override output token cap (blog generation uses BLOG_MAX_OUTPUT_TOKENS). */
   maxOutputTokens?: number;
+  /** Ask Gemini to return syntactically valid JSON for JSON-only prompts. */
+  jsonMode?: boolean;
   /** Optional call label for logs (blog_section, blog_topic, etc.). */
   purpose?: string;
   /** Quota ledger scope (blog reserve vs post-done burn). */
@@ -194,8 +199,15 @@ async function generateText(
       for (let attempt = 0; attempt < 3; attempt++) {
         try {
           const generationConfig =
-            options?.maxOutputTokens && options.maxOutputTokens > 0
-              ? { maxOutputTokens: options.maxOutputTokens }
+            options?.maxOutputTokens || options?.jsonMode
+              ? {
+                  ...(options?.maxOutputTokens && options.maxOutputTokens > 0
+                    ? { maxOutputTokens: options.maxOutputTokens }
+                    : {}),
+                  ...(options?.jsonMode
+                    ? { responseMimeType: "application/json" }
+                    : {}),
+                }
               : undefined;
           const model = genAI.getGenerativeModel({
             model: modelName, ...(generationConfig ? { generationConfig } : {}),
@@ -470,6 +482,8 @@ export type GenerateBlogContentOptions = {
   keywordIntentClusterPrompt?: string;
   /** Slug for keyword/slug intent alignment checks at validation. */
   slug?: string;
+  /** standard = Quick answer SEO template; narrative = field-story format. */
+  contentFormat?: BlogContentFormat;
 };
 
 function resolveGenerationWordCountPolicy(
@@ -523,6 +537,22 @@ function parseBlogJsonFromText(text: string): {
   faqs?: unknown;
 } {
   return parseGeminiJsonObject(text);
+}
+
+async function rewriteBlogHtmlFromModel(
+  prompt: string,
+  draft: GeneratedBlogContent,
+  options?: GenerateTextOptions
+): Promise<GeneratedBlogContent> {
+  const text = await generateText(
+    prompt,
+    blogTextOptions({ ...options, jsonMode: true, purpose: "blog_repair" })
+  );
+  const html = parseGeminiJsonHtmlField(text);
+  return {
+    ...draft,
+    content: sanitizeEmDash(html.trim()),
+  };
 }
 
 function normalizeParsedBlog(
@@ -585,28 +615,28 @@ ${wordCountRules}
 ${AI_OVERVIEW_SNIPPET_RULES}
 ${PUNCTUATION_RULES}
 
-Return ONLY valid JSON:
-{
-  "title": "50-60 chars, max 72",
-  "description": "meta description 150-160 chars",
-  "content": "<p>expanded full HTML...</p>",
-  "faqs": [ four FAQ objects matching expanded facts ]
-}
+Return ONLY valid JSON with one key "html" (full merged article HTML, no title/description/faqs):
+{ "html": "<p>Expanded full HTML with every existing H2 preserved and expanded.</p>" }
 
 Rules:
-- content MUST be at least ${minWords} words (target ${wordPolicy.targetMin}–${wordPolicy.targetMax}). You need ~${wordsNeeded} more words than the draft above.
+- html MUST be at least ${minWords} words (target ${wordPolicy.targetMin}–${wordPolicy.targetMax}). You need ~${wordsNeeded} more words than the draft above.
 - Expand EXISTING sections in place; do NOT repeat or duplicate H2 headings.
 - Opening <p> must directly answer the title in 2-3 sentences.
 - Keep "Quick answer" H2 and one question-shaped H2.
 - No "Frequently asked questions" heading in HTML.
-- Use SINGLE quotes for every HTML attribute inside "content" (e.g. <a href='/blog/slug'>); never use double quotes inside the html value, so the JSON stays valid.
-- faqs: exactly 4 items; faqs[0] must phrase the primary keyword as a question.`;
+- Never use ellipsis placeholders like "..." inside JSON string values.
+- Use SINGLE quotes for every HTML attribute inside html (e.g. <a href='/blog/slug'>); never use double quotes inside HTML attributes.`;
 
   const text = await generateText(
     prompt,
-    blogTextOptions({ ...options, purpose: "blog_expand" })
+    blogTextOptions({ ...options, jsonMode: true, purpose: "blog_expand" })
   );
-  const expanded = normalizeParsedBlog(parseBlogJsonFromText(text), draft.faqs);
+  const html = parseGeminiJsonHtmlField(text);
+  const expanded = {
+    ...draft,
+    content: sanitizeEmDash(html.trim()),
+  };
+  return applyMonotonicContentExpansion(draft, expanded);
   return applyMonotonicContentExpansion(draft, expanded);
 }
 
@@ -643,14 +673,12 @@ Primary SEO keyword: ${primaryKeyword?.trim() || "(none)"}
 HTML (rewrite opening <p> tags only; keep all H2+ sections unchanged):
 ${draft.content}
 
-Return ONLY valid JSON with the full HTML in "content", same title/description/faqs otherwise. Use SINGLE quotes for every HTML attribute inside "content" (e.g. <a href='/blog/slug'>); never use double quotes inside the html value, so the JSON stays valid:
-{ "title": ", ...", "description": ", ...", "content": ", ...", "faqs": [ ... ] }`;
+Return ONLY valid JSON with one key "html" (full article HTML after opening fix):
+{ "html": "<p>Rewritten opening paragraphs.</p><h2>Existing sections unchanged</h2>" }
+- Never use ellipsis placeholders like "..." inside JSON string values.
+- Use SINGLE quotes for every HTML attribute inside html.`;
 
-  const text = await generateText(
-    prompt,
-    blogTextOptions({ ...options, purpose: "blog_repair" })
-  );
-  return normalizeParsedBlog(parseBlogJsonFromText(text), draft.faqs);
+  return rewriteBlogHtmlFromModel(prompt, draft, options);
 }
 
 async function repairBlogIntentAlignment(
@@ -682,14 +710,11 @@ Keep ALL other H2 sections and content unchanged. Remove cleaning-robot sales pi
 HTML:
 ${draft.content}
 
-Return ONLY valid JSON:
-{ "title": ", ...", "description": ", ...", "content": ", ...", "faqs": [ ... ] }`;
+Return ONLY valid JSON with one key "html" (full article after opening/quick-answer fix):
+{ "html": "<p>Intent-aligned opening.</p><h2>Quick answer</h2><ul><li>Bullet</li></ul>" }
+- Never use ellipsis placeholders like "..." inside JSON string values.`;
 
-  const text = await generateText(
-    prompt,
-    blogTextOptions({ ...options, purpose: "blog_repair" })
-  );
-  return normalizeParsedBlog(parseBlogJsonFromText(text), draft.faqs);
+  return rewriteBlogHtmlFromModel(prompt, draft, options);
 }
 
 async function repairBlogInternalLinks(
@@ -739,14 +764,12 @@ Already linked: ${existing.length > 0 ? existing.join(", ") : "(none)"}
 HTML:
 ${draft.content}
 
-Return ONLY valid JSON:
-{ "title": ", ...", "description": ", ...", "content": ", ...", "faqs": [ ... ] }`;
+Return ONLY valid JSON with one key "html" (full article with new internal links):
+{ "html": "<p>Paragraph with <a href='/blog/example-slug'>descriptive anchor</a>.</p>" }
+- Never use ellipsis placeholders like "..." inside JSON string values.
+- Use SINGLE quotes for every HTML attribute inside html.`;
 
-  const text = await generateText(
-    prompt,
-    blogTextOptions({ ...options, purpose: "blog_repair" })
-  );
-  return normalizeParsedBlog(parseBlogJsonFromText(text), draft.faqs);
+  return rewriteBlogHtmlFromModel(prompt, draft, options);
 }
 
 async function appendBlogSections(
@@ -772,18 +795,24 @@ ${draft.content}
 ${wordCountRules}
 ${PUNCTUATION_RULES}
 
-Return ONLY valid JSON with the FULL merged HTML in "content" (original + new sections), same 4 faqs updated if needed, title 50-60 chars (max 72), description 150-160 chars.
+Return ONLY valid JSON with one key "html" (full merged article: existing HTML plus new H2 sections):
+{ "html": "<p>Existing intro preserved.</p><h2>New section title</h2><p>New detail.</p>" }
 
 Rules:
 - Do NOT duplicate any existing H2 heading from EXISTING HTML; add only NEW H2 sections not already present.
 - Insert new sections BEFORE any "Key takeaways" / "What plant managers" H2.
-- Use SINGLE quotes for every HTML attribute inside "content" (e.g. <a href='/blog/slug'>); never use double quotes inside the html value, so the JSON stays valid.`;
+- Never use ellipsis placeholders like "..." inside JSON string values.
+- Use SINGLE quotes for every HTML attribute inside html.`;
 
   const text = await generateText(
     prompt,
-    blogTextOptions({ ...options, purpose: "blog_expand" })
+    blogTextOptions({ ...options, jsonMode: true, purpose: "blog_expand" })
   );
-  const appended = normalizeParsedBlog(parseBlogJsonFromText(text), draft.faqs);
+  const html = parseGeminiJsonHtmlField(text);
+  const appended = {
+    ...draft,
+    content: sanitizeEmDash(html.trim()),
+  };
   return applyMonotonicContentExpansion(draft, appended);
 }
 
@@ -820,7 +849,12 @@ async function generateBlogBodyFromPlan(
     structurePolicy: ctx.structurePolicy,
   };
 
-  const chunks = chunkH2Outline(plan.h2Outline, 2);
+  const sectionChunkSize = (() => {
+    const raw = process.env.BLOG_SECTION_CHUNK_H2S?.trim();
+    const n = raw ? Number.parseInt(raw, 10) : 1;
+    return Number.isFinite(n) && n > 0 ? n : 1;
+  })();
+  const chunks = chunkH2Outline(plan.h2Outline, sectionChunkSize);
   const htmlParts: string[] = [];
   const priorH2Keys = new Set<string>();
 
@@ -849,7 +883,7 @@ async function generateBlogBodyFromPlan(
     sectionH2s: string[],
     chunkIndex: number,
     chunkTotal: number,
-    maxRetries = 2
+    maxRetries = 4
   ): Promise<void> {
     for (let retry = 0; retry < maxRetries; retry++) {
       const previousSectionsHtml = assembleSectionHtml(htmlParts);
@@ -860,17 +894,28 @@ async function generateBlogBodyFromPlan(
         previousSectionsHtml:
           previousSectionsHtml.trim().length > 0 ? previousSectionsHtml : undefined,
       });
-      const text = await generateText(
-        prompt,
-        blogSectionTextOptions({ ...options, purpose: "blog_section" })
-      );
-      const parsed = parseGeminiJsonObject<{ html?: string }>(text);
-      const html = parsed.html;
-      if (!html?.trim()) {
-        continue;
-      }
-      if (await ingestSectionHtml(html, chunkIndex, chunkTotal)) {
-        return;
+      try {
+        const text = await generateText(
+          prompt,
+          blogSectionTextOptions({
+            ...options,
+            jsonMode: true,
+            preferQualityModel: retry >= 1,
+            purpose: "blog_section",
+          })
+        );
+        const html = parseGeminiJsonHtmlField(text);
+        if (!html?.trim()) {
+          continue;
+        }
+        if (await ingestSectionHtml(html, chunkIndex, chunkTotal)) {
+          return;
+        }
+      } catch (error) {
+        console.warn(
+          `Section writer chunk ${chunkIndex + 1}/${chunkTotal} JSON parse failed (retry ${retry + 1}/${maxRetries}):`,
+          error instanceof Error ? error.message : error
+        );
       }
     }
   }
@@ -902,13 +947,25 @@ async function generateBlogBodyFromPlan(
   });
   const faqPrompt = buildFaqWriterPrompt(sectionCtx, plan, content);
   let faqs: BlogFaqItem[] = [];
-  for (let attempt = 0; attempt < 2 && faqs.length < 4; attempt++) {
+  for (let attempt = 0; attempt < 3 && faqs.length < 4; attempt++) {
     const faqText = await generateText(
       faqPrompt,
-      blogSectionTextOptions({ ...options, purpose: "blog_faq" })
+      blogSectionTextOptions({
+        ...options,
+        jsonMode: true,
+        preferQualityModel: attempt >= 1,
+        purpose: "blog_faq",
+      })
     );
-    const faqParsed = parseBlogJsonFromText(faqText);
-    faqs = normalizeBlogFaqsInput(faqParsed.faqs);
+    try {
+      const faqParsed = parseGeminiJsonFaqsField(faqText);
+      faqs = normalizeBlogFaqsInput(faqParsed);
+    } catch (error) {
+      console.warn(
+        `FAQ writer JSON parse failed (attempt ${attempt + 1}/3):`,
+        error instanceof Error ? error.message : error
+      );
+    }
   }
   if (faqs.length < 4) {
     throw new Error("FAQ writer must return at least 4 FAQs");
@@ -999,6 +1056,16 @@ export async function planBlogContent(
   const clusterBlock = options?.keywordIntentClusterPrompt?.trim()
     ? `\n${options.keywordIntentClusterPrompt.trim()}\n`
     : "";
+  const narrative = isNarrativeBlogFormat(options?.contentFormat);
+  const formatRules = narrative
+    ? NARRATIVE_CONTENT_RULES
+    : AI_OVERVIEW_SNIPPET_RULES;
+  const outlineFirstH2 = narrative
+    ? "What the plant looked like"
+    : "Quick answer";
+  const planJsonExtra = narrative
+    ? `"sceneSetting": "One sentence plant scene for the opening hook",`
+    : `"quickAnswerBullets": ["Typical soiling loss range for Indian sites", "Cleaning frequency guidance", "Budget impact in INR per MW"],`;
 
   const prompt = `You are a senior SEO editor for Taypro (utility-scale solar cleaning robots, India).
 
@@ -1013,7 +1080,7 @@ ${authorBlock}
 ${excludeBlock}
 ${ANTI_GENERIC_WRITING_RULES}
 ${SEO_AND_READER_RULES}
-${AI_OVERVIEW_SNIPPET_RULES}
+${formatRules}
 ${wordCountRules}
 
 Return ONLY valid JSON:
@@ -1023,27 +1090,29 @@ Return ONLY valid JSON:
   "intentReason": "one sentence: why this intent fits the title and is not cannibalizing covered intents",
   "subAngle": "short_slug for sub-angle within intent (e.g. vs_fixed_tilt, payback_period, fleet_alignment)",
   "readerQuestion": "One sentence: what the searcher wants answered for THIS title/keyword",
-  "mustCover": ["3-6 H2 themes that serve the title, not generic robot O&M"],
-  "avoidTopics": ["2-4 off-topic drifts to avoid for this keyword"],
-  "h2Outline": ["Quick answer", "Question-shaped H2 here", ", ..."],
-  "quickAnswerBullets": ["bullet 1 with specific range", ", ..."],
-  "faqQuestions": ["primary keyword as question", ", ...", ", ...", ", ..."]
+  "mustCover": ["Cost drivers for this topic", "India plant operations detail", "Decision checklist for O&M leads"],
+  "avoidTopics": ["Generic robot sales pitch", "Unrelated residential rooftop advice"],
+  "h2Outline": ["${outlineFirstH2}", "How does this affect utility-scale plants in India?", "Cost and ROI comparison for plant managers"],
+  ${planJsonExtra}
+  "faqQuestions": ["Primary keyword phrased as a question?", "Second buyer question for this title?", "Third operations question?", "Fourth compliance or ROI question?"]
 }
 Rules:
+- Never use ellipsis placeholders like ", ..." or "..." inside JSON string values.
 - intentFamily MUST match RECOMMENDED INTENT above when provided; otherwise pick the best uncovered cluster intent for this keyword.
 - intentFamily must be an exact ID from the list (not a label).
 - readerQuestion, mustCover, and avoidTopics MUST match the INTENT CONTRACT above (not a generic Taypro robot article).
 - description must match THIS title angle (not a generic solar blog).
-- h2Outline: ${structurePolicy.minH2}–${structurePolicy.maxH2Hint} items; first must be "Quick answer" or "Summary for plant managers"; include one People Also Ask style question H2.
+- h2Outline: ${structurePolicy.minH2}–${structurePolicy.maxH2Hint} items; ${narrative ? "first H2 sets the plant scene (not Quick answer); include one People Also Ask style question H2" : 'first must be "Quick answer" or "Summary for plant managers"; include one People Also Ask style question H2'}.
 - If SERP RESEARCH is provided: cover serpGaps with at least 2 dedicated H2s; align FAQ questions with People Also Ask where natural.
-- If FACT RESEARCH is provided: weave verified stats into Quick answer bullets and relevant H2s; do not invent conflicting numbers.
-- quickAnswerBullets: 3–5 specific bullets (MW, %, days, INR ranges as industry-typical or from verified stats).
+- If FACT RESEARCH is provided: weave verified stats into ${narrative ? "opening and outcome H2s" : "Quick answer bullets and relevant H2s"}; do not invent conflicting numbers.
+${narrative ? "- sceneSetting: concrete MW plant, region, and stakes for the narrative hook." : "- quickAnswerBullets: 3–5 specific bullets (MW, %, days, INR ranges as industry-typical or from verified stats)."}
 - faqQuestions: exactly 4 natural search queries; first must use the primary SEO keyword when provided.`;
 
   const text = await generateText(
     prompt,
     blogTextOptions({
       preferQualityModel: options?.preferQualityModel,
+      jsonMode: true,
       purpose: "blog_plan",
     })
   );
@@ -1315,6 +1384,11 @@ ${outlineJson}
     preferQualityModel: options?.preferQualityModel,
   });
 
+  const narrative = isNarrativeBlogFormat(options?.contentFormat);
+  const formatRules = narrative
+    ? NARRATIVE_CONTENT_RULES
+    : AI_OVERVIEW_SNIPPET_RULES;
+
   const prompt = `You are an expert content writer for utility-scale solar in India (equipment research, plant O&M, and panel cleaning when relevant). Write a comprehensive, SEO-optimized blog post about: ${topic}
 
 ${intentBlock}
@@ -1337,7 +1411,7 @@ Requirements:
 ${ANTI_GENERIC_WRITING_RULES}
 ${PUNCTUATION_RULES}
 ${SEO_AND_READER_RULES}
-${AI_OVERVIEW_SNIPPET_RULES}
+${formatRules}
 ${wordCountRules}
 - Use this exact working title: "${topic}"
 - The JSON "title" field MUST be "${topic}" or a tighter paraphrase under 72 chars (do not swap to a different article angle)
@@ -1414,6 +1488,7 @@ FAQ rules for the "faqs" array:
     } else {
     const text = await generateText(prompt, {
       ...textGenOptions,
+      jsonMode: true,
       purpose: "blog_section",
     });
     result = normalizeParsedBlog(parseBlogJsonFromText(text));
@@ -1431,16 +1506,16 @@ FAQ rules for the "faqs" array:
       if (lockedDescription.trim()) {
         result = { ...result, description: lockedDescription };
       }
+      const alignedFaqs = ensurePrimaryKeywordInFirstFaq(
+        result.faqs,
+        primaryKeyword,
+        options?.plannedFaqQuestions?.[0]
+      );
       result = {
         ...result,
-        faqs: alignFirstFaqWithQuickAnswer(
-          result.content,
-          ensurePrimaryKeywordInFirstFaq(
-            result.faqs,
-            primaryKeyword,
-            options?.plannedFaqQuestions?.[0]
-          )
-        ),
+        faqs: isNarrativeBlogFormat(options?.contentFormat)
+          ? alignedFaqs
+          : alignFirstFaqWithQuickAnswer(result.content, alignedFaqs),
       };
     };
 
@@ -1571,6 +1646,7 @@ FAQ rules for the "faqs" array:
       angleId: options?.angleId,
       volumeBucket: options?.volumeBucket ?? seoBrief?.volumeBucket,
       competitionIndex: options?.competitionIndex ?? seoBrief?.competitionIndex,
+      contentFormat: options?.contentFormat,
     };
 
     let validation = validateGeneratedBlog(validationInput);
