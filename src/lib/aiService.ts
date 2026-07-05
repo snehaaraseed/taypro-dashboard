@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import { getRandomCategory, type TopicCategory } from "./topicCategories";
 import {
   buildBlogKnowledgeContext,
@@ -102,9 +102,6 @@ import {
 } from "@/lib/seo/blog-section-writer";
 import { parseGeminiJsonObject, parseGeminiJsonHtmlField, parseGeminiJsonFaqsField } from "@/lib/gemini/parse-json-response";
 
-function getGenAI(): GoogleGenerativeAI {
-  return new GoogleGenerativeAI(listGeminiApiKeys()[0]);
-}
 
 function isQuotaError(error: unknown): boolean {
   return isGeminiQuotaError(error);
@@ -192,7 +189,7 @@ async function generateText(
   let quotaExhaustedKeys = 0;
 
   for (const apiKey of apiKeys) {
-    const genAI = new GoogleGenerativeAI(apiKey);
+    const ai = new GoogleGenAI({ apiKey });
     let keyHitQuota = false;
 
     for (const modelName of blogModelCandidates(options)) {
@@ -209,11 +206,12 @@ async function generateText(
                     : {}),
                 }
               : undefined;
-          const model = genAI.getGenerativeModel({
-            model: modelName, ...(generationConfig ? { generationConfig } : {}),
+          const result = await ai.models.generateContent({
+            model: modelName,
+            contents: prompt,
+            config: generationConfig,
           });
-          const result = await model.generateContent(prompt);
-          const text = result.response.text().trim();
+          const text = (result.text ?? "").trim();
           await pauseAfterGeminiCall();
           recordQuotaUsage(scope);
           if (apiKey !== apiKeys[0]) {

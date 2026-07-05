@@ -107,7 +107,7 @@ export function clientNamespacesForPathname(pathname: string): string[] {
   }
 
   if (path === "/company") {
-    return ["CompanyPage", "Home", "ModuleManufacturerTrust"];
+    return ["CompanyPage", "ModuleManufacturerTrust"];
   }
 
   if (path === "/solar-panel-cleaning-robot-price-calculator") {

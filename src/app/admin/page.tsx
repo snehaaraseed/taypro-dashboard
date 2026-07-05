@@ -337,6 +337,336 @@ export default function AdminDashboard() {
               </div>
             </div>
           </Link>
+
+          {/* Insights Card */}
+          <Link
+            href="/admin/insights"
+            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow cursor-pointer group"
+          >
+            <div className="flex items-start justify-between">
+              <div className="flex-1">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 bg-amber-100 rounded-lg mr-4 group-hover:bg-amber-200 transition-colors">
+                    <svg
+                      className="w-8 h-8 text-amber-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-gray-900 group-hover:text-amber-600 transition-colors">
+                      Insights
+                    </h3>
+                    <p className="text-sm text-gray-500 mt-1">
+                      Manage category insights
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gray-600 mb-4">
+                  Create, edit, and publish monthly category insights and utility-scale solar O&M reports.
+                </p>
+                <div className="flex items-center text-amber-600 font-medium group-hover:text-amber-700">
+                  Go to Insights
+                  <svg
+                    className="w-5 h-5 ml-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* Press Card */}
+          <Link
+            href="/admin/press"
+            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow cursor-pointer group"
+          >
+            <div className="flex items-start justify-between">
+              <div className="flex-1">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 bg-indigo-100 rounded-lg mr-4 group-hover:bg-indigo-200 transition-colors">
+                    <svg
+                      className="w-8 h-8 text-indigo-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6m-6 4h3"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors">
+                      Press
+                    </h3>
+                    <p className="text-sm text-gray-500 mt-1">
+                      Manage press releases
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gray-600 mb-4">
+                  Draft, outline, and track press releases and authority backlink submissions.
+                </p>
+                <div className="flex items-center text-indigo-600 font-medium group-hover:text-indigo-700">
+                  Go to Press
+                  <svg
+                    className="w-5 h-5 ml-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* Blog Pipeline Card */}
+          <Link
+            href="/admin/seo/pipeline"
+            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow cursor-pointer group"
+          >
+            <div className="flex items-start justify-between">
+              <div className="flex-1">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 bg-sky-100 rounded-lg mr-4 group-hover:bg-sky-200 transition-colors">
+                    <svg
+                      className="w-8 h-8 text-sky-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-gray-900 group-hover:text-sky-600 transition-colors">
+                      Blog Pipeline
+                    </h3>
+                    <p className="text-sm text-gray-500 mt-1">
+                      Track blog generation
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gray-600 mb-4">
+                  Plan topics, trigger Google Search grounding research, and write and review blog drafts.
+                </p>
+                <div className="flex items-center text-sky-600 font-medium group-hover:text-sky-700">
+                  Go to Blog Pipeline
+                  <svg
+                    className="w-5 h-5 ml-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* Intent Clusters Card */}
+          <Link
+            href="/admin/seo/intents"
+            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow cursor-pointer group"
+          >
+            <div className="flex items-start justify-between">
+              <div className="flex-1">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 bg-rose-100 rounded-lg mr-4 group-hover:bg-rose-200 transition-colors">
+                    <svg
+                      className="w-8 h-8 text-rose-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-gray-900 group-hover:text-rose-600 transition-colors">
+                      Intent Clusters
+                    </h3>
+                    <p className="text-sm text-gray-500 mt-1">
+                      Track search keywords
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gray-600 mb-4">
+                  Monitor keyword intent categories, search volumes, and coordinate editorial campaigns.
+                </p>
+                <div className="flex items-center text-rose-600 font-medium group-hover:text-rose-700">
+                  Go to Intent Clusters
+                  <svg
+                    className="w-5 h-5 ml-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* Search Console Card */}
+          <Link
+            href="/admin/gsc"
+            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow cursor-pointer group"
+          >
+            <div className="flex items-start justify-between">
+              <div className="flex-1">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 bg-orange-100 rounded-lg mr-4 group-hover:bg-orange-200 transition-colors">
+                    <svg
+                      className="w-8 h-8 text-orange-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-gray-900 group-hover:text-orange-600 transition-colors">
+                      Search Console
+                    </h3>
+                    <p className="text-sm text-gray-500 mt-1">
+                      Google Search Console
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gray-600 mb-4">
+                  Synchronize organic query metrics, audit CTR/impressions, and boost SEO rankings.
+                </p>
+                <div className="flex items-center text-orange-600 font-medium group-hover:text-orange-700">
+                  Go to Search Console
+                  <svg
+                    className="w-5 h-5 ml-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* Performance Card */}
+          <Link
+            href="/admin/performance"
+            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow cursor-pointer group"
+          >
+            <div className="flex items-start justify-between">
+              <div className="flex-1">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 bg-teal-100 rounded-lg mr-4 group-hover:bg-teal-200 transition-colors">
+                    <svg
+                      className="w-8 h-8 text-teal-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-gray-900 group-hover:text-teal-600 transition-colors">
+                      Performance
+                    </h3>
+                    <p className="text-sm text-gray-500 mt-1">
+                      Monitor site performance
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gray-600 mb-4">
+                  Review PageSpeed Insights audit reports and monitor Core Web Vitals performance.
+                </p>
+                <div className="flex items-center text-teal-600 font-medium group-hover:text-teal-700">
+                  Go to Performance
+                  <svg
+                    className="w-5 h-5 ml-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </Link>
         </div>
       </main>
     </div>

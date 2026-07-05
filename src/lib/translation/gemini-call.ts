@@ -1,6 +1,6 @@
 import "server-only";
 
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import {
   geminiQuotaErrorMessage,
   isGeminiQuotaError,
@@ -119,20 +119,20 @@ export async function generateTranslationText(
   let quotaExhaustedKeys = 0;
 
   for (const apiKey of apiKeys) {
-    const genAI = new GoogleGenerativeAI(apiKey);
+    const ai = new GoogleGenAI({ apiKey });
     let keyHitQuota = false;
 
     for (const modelName of geminiTranslationModelCandidates()) {
       for (let attempt = 0; attempt < 3; attempt++) {
         try {
-          const model = genAI.getGenerativeModel({
+          const result = await ai.models.generateContent({
             model: modelName,
-            generationConfig: {
+            contents: prompt,
+            config: {
               responseMimeType: "application/json",
             },
           });
-          const result = await model.generateContent(prompt);
-          const text = result.response.text().trim();
+          const text = (result.text ?? "").trim();
           await pauseAfterGeminiCall();
           recordQuotaUsage(
             quotaScope === "insight" || quotaScope === "press" ? "burn" : quotaScope

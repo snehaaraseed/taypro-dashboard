@@ -17,7 +17,7 @@ import {
   getBlogImageMode,
   shouldUseProductLibraryImage,
 } from "@/lib/seo/blog-image-strategy";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
 import {
   DEFAULT_FREE_GEMINI_TEXT_MODEL,
@@ -32,10 +32,10 @@ const PICKER_MODEL =
 
 export type { BlogInlineImage } from "@/lib/seo/blog-image-types";
 
-function getGenAI(): GoogleGenerativeAI {
+function getGenAI(): GoogleGenAI {
   const key = process.env.GEMINI_API_KEY?.trim();
   if (!key) throw new Error("GEMINI_API_KEY is not set");
-  return new GoogleGenerativeAI(key);
+  return new GoogleGenAI({ apiKey: key });
 }
 
 function buildFigureHtml(image: BlogInlineImage): string {
@@ -90,8 +90,7 @@ async function pickInlineWithGemini(
 ): Promise<BlogInlineImage | null> {
   if (pool.length === 0) return null;
 
-  const genAI = getGenAI();
-  const model = genAI.getGenerativeModel({ model: PICKER_MODEL });
+  const ai = getGenAI();
   const excludeNote =
     excludeUrls.length > 0
       ? `\nDo NOT use these URLs (already used as hero): ${excludeUrls.join(", ")}`
@@ -116,8 +115,11 @@ Return ONLY JSON: {"url":"/path/from/list","alt":"80-160 char alt, describes the
 
   let text: string;
   try {
-    const result = await model.generateContent(prompt);
-    text = result.response.text().trim();
+    const result = await ai.models.generateContent({
+      model: PICKER_MODEL,
+      contents: prompt,
+    });
+    text = (result.text ?? "").trim();
   } finally {
     await pauseAfterGeminiCall();
   }

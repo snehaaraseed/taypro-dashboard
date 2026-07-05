@@ -1,6 +1,6 @@
 import "server-only";
 
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import { pauseAfterGeminiCall } from "@/lib/gemini/call-delay";
 import {
   assertQuotaBudgetAllowed,
@@ -38,7 +38,7 @@ async function generateText(
   let lastError: unknown;
 
   for (const apiKey of apiKeys) {
-    const genAI = new GoogleGenerativeAI(apiKey);
+    const ai = new GoogleGenAI({ apiKey });
     let keyHitQuota = false;
 
     for (const modelName of translationTextModelCandidates({
@@ -46,9 +46,11 @@ async function generateText(
     })) {
       for (let attempt = 0; attempt < 3; attempt++) {
         try {
-          const model = genAI.getGenerativeModel({ model: modelName });
-          const result = await model.generateContent(prompt);
-          const text = result.response.text().trim();
+          const result = await ai.models.generateContent({
+            model: modelName,
+            contents: prompt,
+          });
+          const text = (result.text ?? "").trim();
           await pauseAfterGeminiCall();
           recordQuotaUsage("burn");
           return text;

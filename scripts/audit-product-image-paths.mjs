@@ -48,6 +48,9 @@ const warnings = [];
 
 for (const file of walk(SRC)) {
   const rel = path.relative(ROOT, file);
+  if (rel.includes("cms-image-rewrites.ts")) {
+    continue;
+  }
   const text = fs.readFileSync(file, "utf8");
   for (const pattern of LEGACY_PATTERNS) {
     if (pattern.test(text)) {

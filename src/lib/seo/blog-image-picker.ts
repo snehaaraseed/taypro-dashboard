@@ -1,6 +1,6 @@
 import "server-only";
 
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import { OG_PRESETS } from "@/lib/seo/open-graph";
 import {
   keywordFallbackImage,
@@ -30,10 +30,10 @@ const PICKER_MODEL = resolveFreeGeminiTextModel(
   DEFAULT_FREE_GEMINI_TEXT_MODEL
 );
 
-function getGenAI(): GoogleGenerativeAI {
+function getGenAI(): GoogleGenAI {
   const key = process.env.GEMINI_API_KEY?.trim();
   if (!key) throw new Error("GEMINI_API_KEY is not set");
-  return new GoogleGenerativeAI(key);
+  return new GoogleGenAI({ apiKey: key });
 }
 
 function formatCandidateList(candidates: BlogImageCandidate[]): string {
@@ -77,8 +77,7 @@ async function pickWithGemini(
 ): Promise<Omit<BlogFeaturedImagePick, "mode"> | null> {
   if (pool.length === 0) return null;
 
-  const genAI = getGenAI();
-  const model = genAI.getGenerativeModel({ model: PICKER_MODEL });
+  const ai = getGenAI();
 
   const prompt = `You are selecting a featured hero image for a Taypro blog post (utility-scale solar panel cleaning robots, India).
 
@@ -100,8 +99,11 @@ Return ONLY JSON:
 {"url":"/exact/path/from/list","alt":"Descriptive alt text"}`;
 
   try {
-    const result = await model.generateContent(prompt);
-    return parsePickerResponse(result.response.text().trim(), pool);
+    const result = await ai.models.generateContent({
+      model: PICKER_MODEL,
+      contents: prompt,
+    });
+    return parsePickerResponse((result.text ?? "").trim(), pool);
   } finally {
     await pauseAfterGeminiCall();
   }
