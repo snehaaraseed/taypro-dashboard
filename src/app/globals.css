@@ -690,16 +690,7 @@ a.brand-inline-link:hover,
   will-change: transform, opacity;
 }
 
-/* Home hero cover - CSS background keeps LCP on server-rendered headline text. */
-.home-hero-cover {
-  background-image: url("/tayproasset/cover-solar-hero-mobile.webp");
-}
 
-@media (min-width: 829px) {
-  .home-hero-cover {
-    background-image: url("/tayproasset/cover-solar-hero.webp");
-  }
-}
 
 /* Mobile: wrap lines at readable size; sm+: single-line fit-to-width. */
 .hero-headline-fit {

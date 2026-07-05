@@ -74,6 +74,8 @@
     "ops:install-pulse-cron": "bash scripts/install-insights-cron.sh",
     "ops:install-insights-cron": "bash scripts/install-insights-cron.sh",
     "ops:install-press-cron": "bash scripts/install-press-release-cron.sh",
+    "ops:install-defragment-cron": "bash scripts/install-defragment-cron.sh",
+    "db:defragment": "node --import tsx scripts/defragment-db.ts",
     "cms:migrate-insights": "node scripts/apply-insights-migration.mjs",
     "cms:migrate-press": "node scripts/apply-press-migration.mjs",
     "insights:unpublish-playbook": "node scripts/unpublish-procurement-playbook.mjs",

@@ -4,7 +4,7 @@ import HomeHeroCTAs from "./HomeHeroCTAs";
 import HomeHeroHeadline from "./HomeHeroHeadline";
 import HomeHeroSubheadline from "./HomeHeroSubheadline";
 import HomeHeroStats from "./HomeHeroStats";
-import HomeHeroPreload from "./HomeHeroPreload";
+import Image from "next/image";
 
 const COVER_GRADIENT =
   "linear-gradient(to right, rgba(5,38,56,1) 0%, rgba(5,38,56,1) 24%, rgba(5,38,56,0.82) 40%, rgba(5,38,56,0.52) 58%, rgba(5,38,56,0.26) 76%, rgba(5,38,56,0.1) 86%, rgba(5,38,56,0.03) 94%, rgba(5,38,56,0) 100%)";
@@ -14,15 +14,20 @@ export default async function HomeHero() {
 
   return (
     <>
-      <HomeHeroPreload />
       <section
         id="home-hero"
         className="relative flex min-h-[100dvh] flex-col overflow-hidden px-0 pt-20 sm:px-1 lg:pt-24"
       >
-        <div
-          className="absolute inset-0 bg-cover bg-[72%_100%] bg-no-repeat origin-bottom-right home-hero-cover"
-          aria-hidden
-        />
+        <div className="absolute inset-0 select-none pointer-events-none" aria-hidden>
+          <Image
+            src="/tayproasset/cover-solar-hero.webp"
+            alt="Solar Panel Cleaning Robots"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[72%_100%] origin-bottom-right"
+          />
+        </div>
         <div className="absolute inset-0" style={{ background: COVER_GRADIENT }} aria-hidden />
         <div className="absolute inset-0 bg-[#052638]/35" aria-hidden />
         <div

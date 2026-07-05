@@ -33,7 +33,7 @@ export async function verifyAdminAuth(): Promise<boolean> {
  * Set admin authentication cookie with JWT token
  */
 export async function setAdminAuth(password: string): Promise<boolean> {
-  if (password !== getAdminPassword()) {
+  if (!safeCompareSecret(password, getAdminPassword())) {
     return false;
   }
 
