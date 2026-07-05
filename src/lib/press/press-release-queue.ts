@@ -4,6 +4,8 @@ import fs from "fs";
 import path from "path";
 import { getDeploymentRoot } from "@/app/utils/deploymentRoot";
 
+import type { ProductKnowledgeFocus } from "@/lib/productKnowledge";
+
 export type PressQueueAngle =
   | "product_launch"
   | "milestone"
@@ -18,6 +20,8 @@ export type PressQueueItem = {
   summary: string;
   facts: string[];
   quoteAttribution: string;
+  /** Optional product IDs for focused knowledge (e.g. cradyl, glyde). */
+  productFocus?: ProductKnowledgeFocus[];
   status: "pending" | "done" | "skipped";
 };
 
@@ -100,6 +104,7 @@ export type CreatePressQueueInput = {
   summary: string;
   facts: string[];
   quoteAttribution?: string;
+  productFocus?: ProductKnowledgeFocus[];
 };
 
 export function addPressQueueItem(
@@ -135,6 +140,7 @@ export function addPressQueueItem(
     quoteAttribution:
       input.quoteAttribution?.trim() ||
       "Yogesh Kudale, Co-Founder & CEO, Taypro",
+    productFocus: input.productFocus?.length ? input.productFocus : undefined,
     status: "pending",
   };
 
@@ -148,7 +154,7 @@ export function updatePressQueueItem(
   updates: Partial<
     Pick<
       PressQueueItem,
-      "angle" | "titleHint" | "summary" | "facts" | "quoteAttribution" | "status"
+      "angle" | "titleHint" | "summary" | "facts" | "quoteAttribution" | "productFocus" | "status"
     >
   >
 ): { success: boolean; item?: PressQueueItem; error?: string } {
@@ -178,6 +184,9 @@ export function updatePressQueueItem(
   if (updates.angle !== undefined) item.angle = updates.angle;
   if (updates.quoteAttribution !== undefined) {
     item.quoteAttribution = updates.quoteAttribution.trim();
+  }
+  if (updates.productFocus !== undefined) {
+    item.productFocus = updates.productFocus.length ? updates.productFocus : undefined;
   }
   if (updates.status !== undefined) item.status = updates.status;
 

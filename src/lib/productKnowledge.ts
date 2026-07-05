@@ -152,6 +152,45 @@ export const tayproOPEX: ServiceSpec = {
   ],
 };
 
+/** Row-transfer movable docking station (not in cleaning-robot catalog). */
+export const cradyl: ProductSpec = {
+  itemName: "CRADYL",
+  plantType: "scattered / distributed utility-scale",
+  cleaningTechnology: "N/A (mobility platform, not a cleaning robot)",
+  autonomy: "fully_automatic row transfer",
+  specifications: {
+    footprint: "1000 mm × 4000 mm",
+    weight: "220 kg",
+    movement: "Rail-based linear travel on end-row tracks, up to 5 m/min",
+    power: "Solar-charged lithium-ion battery",
+    ipRating: "IP65",
+    communication: "LTE / Wi-Fi, NECTYR-integrated",
+    maxOperatingTemp: "90°C",
+    maxSlope: "18°",
+    windResistanceDocked: "Up to 180 km/h",
+  },
+  features: [
+    "Autonomous row-to-row robot transfer on end-mounted rail tracks",
+    "Single robot cleans multiple scattered rows without manual lift-and-shift",
+    "Sensor-guided docking, pick-up, and drop-off",
+    "Compatible with GLYDE, HELYX, and other Taypro cleaning robots",
+    "No modifications to solar modules required",
+  ],
+  suitableFor: [
+    "Scattered utility blocks separated by roads or buffer land",
+    "HELYX pick-and-place fleets needing faster inter-row moves",
+    "CAPEX optimisation where a second robot per block is uneconomical",
+  ],
+  description:
+    "CRADYL is Taypro's autonomous row-transfer movable docking station — a battery-powered platform on end-row rails that carries a cleaning robot between rows.",
+  forbiddenClaims: [
+    "MDS as product name",
+    "Movable Docking Station as primary product name (use CRADYL)",
+    "cleans panels directly",
+    "dual-pass cleaning",
+  ],
+};
+
 export const nectyr: ServiceSpec = {
   name: "NECTYR",
   description: "Fleet monitoring for solar panel cleaning robots",
@@ -183,10 +222,25 @@ export const generalFeatures = {
   patents: ["Dual Pass Cleaning System (GLYDE and GLYDE-X)", "RF Mesh Communication"],
 };
 
-export function getProductKnowledgeBase(): string {
-  const products = [glyde, glydeX, nyuma, nyumaX, helyx];
-  const blocks = products.map(
-    (p) => `
+export type ProductKnowledgeFocus =
+  | "glyde"
+  | "glydeX"
+  | "nyuma"
+  | "nyumaX"
+  | "helyx"
+  | "cradyl";
+
+const PRODUCT_BY_FOCUS: Record<ProductKnowledgeFocus, ProductSpec> = {
+  glyde,
+  glydeX,
+  nyuma,
+  nyumaX,
+  helyx,
+  cradyl,
+};
+
+function formatProductSpecBlock(p: ProductSpec): string {
+  return `
 ${p.itemName.toUpperCase()}:
 - Plant fit: ${p.suitableFor.join("; ")}
 - Cleaning: ${p.cleaningTechnology}
@@ -195,7 +249,18 @@ ${p.itemName.toUpperCase()}:
 - Key specs: ${JSON.stringify(p.specifications)}
 - Features: ${p.features.join("; ")}
 - DO NOT claim: ${p.forbiddenClaims.join(", ")}
-`
+`;
+}
+
+export function getProductKnowledgeBase(
+  focus?: ProductKnowledgeFocus[]
+): string {
+  const products =
+    focus?.length ?
+      focus.map((id) => PRODUCT_BY_FOCUS[id]).filter(Boolean)
+    : [glyde, glydeX, nyuma, nyumaX, helyx, cradyl];
+  const blocks = products.map(
+    (p) => formatProductSpecBlock(p)
   );
 
   return `
@@ -207,7 +272,8 @@ TAYPRO OPEX: ${tayproOPEX.description}
 NECTYR: ${nectyr.description}
 
 GENERAL:
-- Product names on the website: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, NECTYR only
+- Official product names: GLYDE, GLYDE-X, NYUMA, NYUMA-X, HELYX, CRADYL, MINY, NECTYR
+- CRADYL is the row-transfer movable docking station — never abbreviate as MDS or use "Movable Docking Station" as the product name
 - GLYDE and GLYDE-X use patented dual-pass microfiber; HELYX, NYUMA, NYUMA-X use single-pass PBT only
 - Do not invent specifications not listed above
 `;

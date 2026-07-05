@@ -6,9 +6,15 @@ type Audit = {
   displayValue?: string;
   score?: number | null;
   numericValue?: number;
+  metricSavings?: {
+    LCP?: number;
+    FCP?: number;
+    TBT?: number;
+  };
   details?: {
     type?: string;
     overallSavingsMs?: number;
+    items?: Array<{ wastedMs?: number }>;
   };
 };
 
@@ -34,13 +40,37 @@ function auditNumericMs(audits: Record<string, Audit> | undefined, id: string): 
   return typeof value === "number" && Number.isFinite(value) ? value : null;
 }
 
+function opportunitySavingsMs(audit: Audit): number {
+  // Passed audits (e.g. "server response time was short") are not fixes.
+  if (audit.score === 1) return 0;
+
+  const fromDetails = audit.details?.overallSavingsMs;
+  if (typeof fromDetails === "number" && fromDetails > 0) return fromDetails;
+
+  const metric = audit.metricSavings;
+  if (metric) {
+    const ms = Math.max(metric.LCP ?? 0, metric.FCP ?? 0, metric.TBT ?? 0);
+    if (ms > 0) return ms;
+  }
+
+  const items = audit.details?.items;
+  if (Array.isArray(items)) {
+    const tableMs = items.reduce(
+      (sum, item) => sum + (item.wastedMs ?? 0),
+      0
+    );
+    if (tableMs > 0) return tableMs;
+  }
+
+  return 0;
+}
+
 function extractOpportunities(audits: Record<string, Audit> | undefined): PagespeedOpportunity[] {
   if (!audits) return [];
 
   const opportunities: PagespeedOpportunity[] = [];
   for (const [id, audit] of Object.entries(audits)) {
-    if (audit.details?.type !== "opportunity") continue;
-    const savingsMs = audit.details.overallSavingsMs ?? 0;
+    const savingsMs = opportunitySavingsMs(audit);
     if (savingsMs <= 0) continue;
     opportunities.push({
       id,

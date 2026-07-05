@@ -74,6 +74,43 @@ function hasDuplicateH2(h2s: string[]): string | null {
   return null;
 }
 
+function numberValue(value: unknown): number {
+  if (typeof value === "number") return Number.isFinite(value) ? value : 0;
+  if (typeof value === "string") {
+    const parsed = Number(value.replace(/[^\d.]/g, ""));
+    return Number.isFinite(parsed) ? parsed : 0;
+  }
+  return 0;
+}
+
+function isAutomaticProject(input: ProjectContentValidationInput): boolean {
+  const detailTags = input.details.map((d) => d.trim().toLowerCase());
+  const detailText = detailTags.join(" ");
+  const robotSystem = input.facts?.robotSystem?.toLowerCase() ?? "";
+  const cleaningMode = input.facts?.cleaningMode?.toLowerCase() ?? "";
+  const automaticRobots = numberValue(input.facts?.automaticRobots);
+  const semiAutomaticRobots = numberValue(input.facts?.semiAutomaticRobots);
+  const hasAutomaticCategory = detailTags.includes("automatic");
+  const hasAutomaticRobotCount = /\b[1-9]\d*\s+auto robots?\b/i.test(detailText);
+
+  return (
+    automaticRobots > 0 ||
+    hasAutomaticCategory ||
+    hasAutomaticRobotCount ||
+    /\b(glyde|glyde-x|nyuma|nyuma-x)\b/i.test(robotSystem) ||
+    /\bfully\s+automatic\b/.test(cleaningMode) ||
+    (semiAutomaticRobots === 0 && /\b(glyde|glyde-x|nyuma|nyuma-x)\b/i.test(detailText))
+  );
+}
+
+function hasMonthlyPickAndPlaceCadenceLanguage(text: string): boolean {
+  return (
+    /\b3\s*[–-]\s*10\b[\s\S]{0,80}\b(?:cycles?|dry cycles?|cleaning cycles?)\b[\s\S]{0,80}\b(?:month|monthly)\b/i.test(text) ||
+    /\b(?:roughly|about|commonly)\s+3\s*[–-]\s*10\s+dry cycles?\s+per month\b/i.test(text) ||
+    /\bnot daily washing of every module\b/i.test(text)
+  );
+}
+
 export function validateGeneratedProject(
   input: ProjectContentValidationInput
 ): { ok: true } | { ok: false; issues: string[] } {
@@ -150,6 +187,12 @@ export function validateGeneratedProject(
 
   if (input.facts) {
     issues.push(...assertFactsReflectedInContent(input.facts, input.content));
+  }
+
+  if (isAutomaticProject(input) && hasMonthlyPickAndPlaceCadenceLanguage(plain)) {
+    issues.push(
+      "Automatic robot project uses pick-and-place cadence language (3–10 monthly cycles / not daily). Use daily waterless cleaning cycles for automatic rows."
+    );
   }
 
   if (input.seoKeyword?.trim()) {

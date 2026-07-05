@@ -1,17 +1,19 @@
 {
   "items": [
     {
-      "id": "mds-launch-2026",
+      "id": "cradyl-launch-2026",
       "angle": "product_launch",
-      "titleHint": "Taypro Launches Movable Docking Station for Solar Cleaning Robots",
-      "summary": "Taypro introduces a movable docking station (MDS) that enables autonomous row transfer for utility-scale solar cleaning robot fleets across India.",
+      "titleHint": "Taypro Launches CRADYL Row-Transfer Docking Station for Solar Cleaning Robots",
+      "summary": "Taypro introduces CRADYL, its autonomous row-transfer movable docking station that enables multi-row cleaning robot coverage on scattered utility-scale solar plants across India.",
       "facts": [
+        "CRADYL autonomously transfers cleaning robots between rows on end-mounted rail tracks without manual lift-and-shift.",
+        "CRADYL is compatible with Taypro GLYDE, HELYX, and other Taypro cleaning robots; movement is scheduled via NECTYR.",
         "Taypro is India's #1 robotic solar module cleaning equipment supplier (Mercom 2024 leaderboard, 27.5% market share).",
-        "MDS enables robots to move between rows without manual intervention.",
         "Taypro operates 5 GW+ of robotic cleaning capacity across Indian utility and C&I solar plants.",
         "Waterless dry cleaning recovers up to 12% lost generation vs soiled modules."
       ],
       "quoteAttribution": "Yogesh Kudale, Co-Founder & CEO, Taypro",
+      "productFocus": ["cradyl"],
       "status": "pending"
     },
     {

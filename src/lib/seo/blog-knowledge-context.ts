@@ -12,7 +12,8 @@ import { stripHtmlToPlainText } from "@/lib/seo/blog-similarity";
 import type { CorpusIndexEntry } from "@/lib/seo/corpus-index";
 import { SOURCE_LOCALE } from "@/lib/translation/config";
 
-const LLMS_MAX_CHARS = 3_500;
+/** Keep in sync with high-priority sections at top of public/llms.txt (through Comparisons). */
+const LLMS_MAX_CHARS = 7_500;
 const EXCERPT_MAX_CHARS = 600;
 const MAX_RELATED_POSTS = 2;
 /** Do not surface posts this similar, they steer the model toward duplicate angles. */

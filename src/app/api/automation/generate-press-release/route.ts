@@ -24,7 +24,7 @@ import { PRESS_PAGE_PATH } from "@/lib/seo/press-coverage";
 
 export const maxDuration = 300;
 
-const MAX_ATTEMPTS = 2;
+const MAX_ATTEMPTS = 3;
 
 export async function GET(request: NextRequest) {
   if (!isAutomationAuthorized(request)) {
@@ -98,8 +98,14 @@ export async function POST(request: NextRequest) {
       null;
 
     for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
-      const candidate = await generatePressReleaseContent(item);
-      const validation = validatePressReleaseContent(candidate);
+      const candidate = await generatePressReleaseContent(item, {
+        previousErrors: gateFailures.flatMap((line) =>
+          line.replace(/^attempt \d+:\s*/, "").split("; ")
+        ),
+      });
+      const validation = validatePressReleaseContent(candidate, {
+        productFocus: item.productFocus,
+      });
       if (!validation.ok) {
         gateFailures.push(
           `attempt ${attempt}: ${validation.errors.join("; ")}`

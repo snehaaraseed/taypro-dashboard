@@ -41,6 +41,7 @@ Topics can be added from **`/admin/press` → Add topic** (recommended) or by ed
       "summary": "One-line summary for AI context",
       "facts": ["Verified fact 1", "Verified fact 2"],
       "quoteAttribution": "Yogesh Kudale, Co-Founder & CEO, Taypro",
+      "productFocus": ["cradyl"],
       "status": "pending"
     }
   ]
@@ -50,6 +51,8 @@ Topics can be added from **`/admin/press` → Add topic** (recommended) or by ed
 Angles: `product_launch`, `milestone`, `award`, `partnership`, `deployment`.
 
 After generation, item `status` becomes `done`.
+
+Generation uses the **product knowledge base** (`productKnowledge.ts`) plus public proof stats — same verified specs as blog automation. For product launches, set `productFocus` (e.g. `["cradyl"]`) and use official product names in facts (CRADYL, not MDS).
 
 ## Manual trigger
 
@@ -67,7 +70,7 @@ curl http://localhost:3000/api/automation/generate-press-release \
 
 Options:
 
-- `?queueId=mds-launch-2026` — specific queue item
+- `?queueId=cradyl-launch-2026` — specific queue item
 - `?force=true` — regenerate (only if no existing release for that queue key, or delete first)
 
 ## Submission targets

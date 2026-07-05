@@ -38,14 +38,29 @@ echo "$(date -Is) [force] response:" >> "$LOG"
 head -c 8000 "$RESULT" >> "$LOG" 2>&1 || true
 echo >> "$LOG"
 
-if [ -f "$ROOT/.runtime/blog-cron/done-$DAY" ]; then
-  echo "$(date -Is) [force] SUCCESS done file exists" >> "$LOG"
+RUNTIME_DIR="$ROOT/.runtime/blog-cron"
+mkdir -p "$RUNTIME_DIR"
+FORCE_OK=0
+if node -e "
+  const fs = require('fs');
+  const raw = fs.readFileSync(process.argv[1], 'utf8');
+  const b = JSON.parse(raw);
+  process.exit(b.success === true ? 0 : 1);
+" "$RESULT" 2>/dev/null; then
+  FORCE_OK=1
+  touch "$RUNTIME_DIR/done-$DAY"
+  echo "$(date -Is) [force] SUCCESS — marked done-$DAY" >> "$LOG"
+  rm -f "$ROOT/.runtime/translation-cron/catchup.lock" "$RUNTIME_DIR/writer.lock"
+  if [ -x "$ROOT/scripts/start-post-writer-translations.sh" ]; then
+    "$ROOT/scripts/start-post-writer-translations.sh" || true
+    echo "$(date -Is) [force] post-writer translations triggered" >> "$LOG"
+  fi
 else
-  echo "$(date -Is) [force] no done file yet" >> "$LOG"
+  echo "$(date -Is) [force] FAILED (success !== true in response)" >> "$LOG"
 fi
 
 sqlite3 "$ROOT/data/cms.sqlite" \
-  "SELECT slug, created_at FROM blogs WHERE locale='en' ORDER BY id DESC LIMIT 1;" \
+  "SELECT slug, updated_at FROM blogs WHERE locale='en' ORDER BY updated_at DESC LIMIT 1;" \
   >> "$LOG" 2>&1 || true
 
-echo "$(date -Is) [force] finished" >> "$LOG"
+echo "$(date -Is) [force] finished (ok=$FORCE_OK)" >> "$LOG"

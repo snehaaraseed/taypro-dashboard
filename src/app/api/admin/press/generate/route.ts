@@ -20,7 +20,7 @@ import { loadPressTargets } from "@/lib/press/press-targets";
 import { PRESS_RELEASES_PATH } from "@/lib/press/press-export";
 import { PRESS_PAGE_PATH } from "@/lib/seo/press-coverage";
 
-const MAX_ATTEMPTS = 2;
+const MAX_ATTEMPTS = 3;
 
 /** Admin-authenticated press release generation (same logic as automation cron). */
 export async function POST(request: NextRequest) {
@@ -67,8 +67,14 @@ export async function POST(request: NextRequest) {
       null;
 
     for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
-      const candidate = await generatePressReleaseContent(item);
-      const validation = validatePressReleaseContent(candidate);
+      const candidate = await generatePressReleaseContent(item, {
+        previousErrors: gateFailures.flatMap((line) =>
+          line.replace(/^attempt \d+:\s*/, "").split("; ")
+        ),
+      });
+      const validation = validatePressReleaseContent(candidate, {
+        productFocus: item.productFocus,
+      });
       if (!validation.ok) {
         gateFailures.push(`attempt ${attempt}: ${validation.errors.join("; ")}`);
         continue;

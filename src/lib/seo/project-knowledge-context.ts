@@ -13,6 +13,15 @@ import { SOURCE_LOCALE } from "@/lib/translation/config";
 const EXCERPT_MAX_CHARS = 600;
 const MAX_RELATED_PROJECTS = 2;
 
+const PROJECT_CLEANING_CADENCE_RULES = `
+PROJECT CLEANING CADENCE RULES (mandatory):
+- Automatic robot projects (details/category include "Automatic", or facts.automaticRobots > 0, or products GLYDE / GLYDE-X / NYUMA / NYUMA-X): describe DAILY waterless cleaning cycles, daily scheduled autonomous cleaning, or daily NECTYR-logged operations.
+- Do NOT say automatic robot sites run only "3–10 dry cycles per month", "3-10 cycles per month", or "not daily washing of every module"; that cadence is wrong for fully automatic projects.
+- Pick-and-place / semi-automatic HELYX projects (details/category include "Semi-Automatic", facts.semiAutomaticRobots > 0, or HELYX-only deployments): describe site-specific scheduled dry cycles, commonly about 3–10 dry cycles per month, weather and access permitting.
+- Mixed fleets: if automatic robots cover rows, describe those automatic rows as daily cleaning; if HELYX/pick-and-place is also present, limit 3–10 monthly cycles only to the pick-and-place scope.
+- Never use "daily washing" for Taypro robotic cleaning; use "daily waterless cleaning" or "daily dry cleaning cycles" for automatic robots.
+`.trim();
+
 export type ProjectKnowledgeContextOptions = {
   /** Working title or site name for relevance ranking */
   topic?: string;
@@ -32,9 +41,31 @@ function buildQueryText(options: ProjectKnowledgeContextOptions): string {
 }
 
 function truncateExcerpt(text: string, maxChars: number): string {
-  const normalized = text.replace(/\s+/g, " ").trim();
+  const normalized = sanitizeCadenceLanguageForKnowledgeExcerpt(text)
+    .replace(/\s+/g, " ")
+    .trim();
   if (normalized.length <= maxChars) return normalized;
   return `${normalized.slice(0, maxChars).trim()}…`;
+}
+
+function sanitizeCadenceLanguageForKnowledgeExcerpt(text: string): string {
+  return text
+    .replace(
+      /utility programmes commonly align with roughly\s+3[–-]10\s+dry-cleaning cycles per month[^.]*\./gi,
+      "Automatic robot projects use daily waterless cleaning cycles; pick-and-place scopes use site-specific scheduled dry cycles."
+    )
+    .replace(
+      /programmes commonly align with roughly\s+3[–-]10\s+dry-cleaning cycles per month[^.]*\./gi,
+      "Automatic robot projects use daily waterless cleaning cycles; pick-and-place scopes use site-specific scheduled dry cycles."
+    )
+    .replace(
+      /frequency philosophy\s+to the\s+3[–-]10 cycles per month\s+band used on automatic peers[^.]*\./gi,
+      "frequency philosophy to the 3–10 cycles per month band used for pick-and-place scopes, without implying automatic-row daily autonomy."
+    )
+    .replace(
+      /Typically\s+3[–-]10 cleaning cycles per month depending on site conditions\./gi,
+      "Automatic robots are scheduled for daily waterless cleaning cycles; pick-and-place sites use site-specific monthly cycles."
+    );
 }
 
 /** Top published English case studies by keyword similarity (for consistency, not copying). */
@@ -133,6 +164,8 @@ ${proofBlock}
 ${llmsBlock}
 
 ${excerptBlock}
+
+${PROJECT_CLEANING_CADENCE_RULES}
 
 KNOWLEDGE RULES:
 - Product specs and names: use PRODUCT KNOWLEDGE BASE only.

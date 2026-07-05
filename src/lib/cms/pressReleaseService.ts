@@ -8,6 +8,7 @@ import { isActiveLocale } from "@/i18n/markets";
 import { SOURCE_LOCALE } from "@/lib/translation/config";
 import { createSlug } from "@/lib/cms/blogService";
 import { sanitizePressReleaseHtml } from "@/lib/security/sanitize-html";
+import { resolvePressPublishDate } from "@/lib/press/press-release-dates";
 
 export type PressReleaseStatus = "draft" | "ready" | "published";
 export type PressReleaseSource = "queue" | "project" | "insight" | "manual";
@@ -260,6 +261,11 @@ export async function createPressRelease(data: {
     const published = data.published === true;
     const status: PressReleaseStatus =
       data.status ?? (published ? "published" : "ready");
+    const publishDate = resolvePressPublishDate({
+      dateline: data.dateline,
+      publishDate: data.publishDate,
+      fallback: now,
+    });
 
     await db.insert(pressReleases).values({
       slug: finalSlug,
@@ -281,7 +287,7 @@ export async function createPressRelease(data: {
       status,
       source: data.source ?? "queue",
       queueKey: data.queueKey ?? null,
-      publishDate: data.publishDate ?? now,
+      publishDate,
       createdAt: now,
       updatedAt: now,
       published,
@@ -317,6 +323,16 @@ export async function updatePressRelease(
   try {
     const db = getDb();
     const now = new Date().toISOString();
+    const existing = await getPressReleaseBySlug(slug, { includeDraft: true });
+    const publishDate =
+      data.dateline !== undefined || data.publishDate !== undefined ?
+        resolvePressPublishDate({
+          dateline: data.dateline ?? existing?.dateline,
+          publishDate: data.publishDate,
+          fallback: existing?.publishDate ?? now,
+        })
+      : undefined;
+
     const result = await db
       .update(pressReleases)
       .set({
@@ -338,7 +354,7 @@ export async function updatePressRelease(
           : {}),
         ...(data.status !== undefined ? { status: data.status } : {}),
         ...(data.published !== undefined ? { published: data.published } : {}),
-        ...(data.publishDate !== undefined ? { publishDate: data.publishDate } : {}),
+        ...(publishDate !== undefined ? { publishDate } : {}),
         updatedAt: now,
       })
       .where(

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import AdminRichTextEditor from "@/app/admin/components/AdminRichTextEditor";
+import { parsePublishDateFromDateline } from "@/lib/press/press-release-dates";
 
 interface PressForm {
   title: string;
@@ -149,10 +150,21 @@ export default function EditPressReleasePage() {
           <input
             type="text"
             value={form.dateline}
-            onChange={(e) => setForm({ ...form, dateline: e.target.value })}
+            onChange={(e) => {
+              const dateline = e.target.value;
+              const parsed = parsePublishDateFromDateline(dateline);
+              setForm({
+                ...form,
+                dateline,
+                publishDate: parsed ?? form.publishDate,
+              });
+            }}
             className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
-            placeholder="Pune, India — June 28, 2026"
+            placeholder="Pune, India — May 22, 2024"
           />
+          <p className="mt-1 text-xs text-gray-500">
+            The date in the dateline is used on /press and in search schema (e.g. May 22, 2024).
+          </p>
         </div>
 
         <div>

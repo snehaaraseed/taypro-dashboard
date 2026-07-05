@@ -1,88 +1,105 @@
 # Taypro
 
-> Taypro manufactures autonomous solar panel cleaning robots for utility-scale solar farms in India. Waterless robots on every row (GLYDE, NYUMA, HELYX, and tracker variants), NECTYR fleet operations portal, and ORION plant intelligence (roadmap).
+> Taypro Private Limited — Pune, India OEM of autonomous solar panel cleaning robots for utility-scale solar farms. 5 GW+ robot capacity deployed across 150+ live sites; waterless field robots (GLYDE, NYUMA, HELYX, tracker variants), NECTYR fleet operations portal, and ORION plant intelligence (roadmap).
 
-Taypro is an Indian OEM building the autonomous operations layer for utility-scale solar: field execution via waterless cleaning robots, live fleet monitoring through NECTYR, and plant intelligence via ORION. Primary keyword focus: solar panel cleaning robot. Robot models include GLYDE (dual-pass microfiber, fixed-tilt), GLYDE-X (trackers), NYUMA and NYUMA-X (PBT single-pass), HELYX (semi-automatic), MINY (rooftop C&I), and CRADYL row-transfer docking.
+Taypro builds the autonomous operations layer for utility-scale solar in India: waterless robots on every row, live fleet monitoring through NECTYR, and plant intelligence via ORION. Canonical English URLs below; localized pages use the same paths under `/hi/`, `/ar/`, `/ja/`, and `/bn/`. Primary topic: solar panel cleaning robot. Approved public figures only: 5 GW+ deployed, 150+ sites, 188 GWh+ additional generation recovered, 700M+ litres water saved annually, 99% cleaning efficiency, 600+ robots manufactured per month.
+
+## Contact
+
+- [Contact form](https://taypro.in/contact): Quotes, technical discussions, and factory visits
+- [Sales email](mailto:sales@taypro.in): sales@taypro.in
+- [Sales phone](tel:+918043843569): +91 80438 43569 (Mon–Fri 9:00 AM–6:00 PM IST)
+- [Headquarters](https://taypro.in/contact): T3-906, Kohinoor World Towers, Pimpri Colony, Pune, Maharashtra 411019, India
+- [Manufacturing hub](https://taypro.in/contact): Chakan, Pune, Maharashtra 410501, India
 
 ## Company
 
-- [Homepage](https://taypro.in/): Company overview, services, and call-to-action
-- [About Taypro](https://taypro.in/company): Mission, team, and company story
-- [Contact](https://taypro.in/contact): Product inquiries, partnerships, and deployment discussions
+- [Homepage](https://taypro.in/): Company overview, proof stats, and primary calls-to-action
+- [About Taypro](https://taypro.in/company): Mission, leadership, and company story
+- [Partners and investors](https://taypro.in/company#investors): Partners narrative and NDA contact path
 - [Utility-scale solar operations](https://taypro.in/utility-scale-solar-operations): Soiling losses, SCADA vs operations, waterless robots, NECTYR, ORION
-- [Press](https://taypro.in/press): News and announcements
+- [Press](https://taypro.in/press): News, releases, and media resources
 - [Careers](https://taypro.in/careers): Open roles at Taypro
 
 ## Solar panel cleaning robots
 
-- [Cleaning systems overview](https://taypro.in/solar-panel-cleaning-system): All robot models and system options
-- [GLYDE — automatic fixed-tilt](https://taypro.in/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system): Fully autonomous dual-pass microfiber robot
+- [Cleaning systems overview](https://taypro.in/solar-panel-cleaning-system): All robot models, OPEX/CAPEX paths, and fleet software
+- [GLYDE — automatic fixed-tilt](https://taypro.in/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system): Flagship dual-pass microfiber robot for fixed-tilt utility plants
 - [GLYDE-X — single-axis trackers](https://taypro.in/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers): Dual-pass microfiber robot for trackers
-- [NYUMA — automatic fixed-tilt](https://taypro.in/solar-panel-cleaning-system/nyuma-automatic-cleaning-robot): Fully autonomous PBT single-pass robot
+- [NYUMA — automatic fixed-tilt](https://taypro.in/solar-panel-cleaning-system/nyuma-automatic-cleaning-robot): PBT single-pass robot for fixed-tilt plants
 - [NYUMA-X — tracker robot](https://taypro.in/solar-panel-cleaning-system/nyuma-x-single-axis-tracker-cleaning-robot): PBT single-pass robot for single-axis trackers
 - [HELYX — semi-automatic](https://taypro.in/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system): Pick-and-place PBT robot for distributed plants
 - [MINY — rooftop C&I](https://taypro.in/solar-panel-cleaning-system/miny-compact-rooftop-cleaning-robot): Compact robot for commercial rooftops
-- [CRADYL docking station](https://taypro.in/solar-panel-cleaning-system/cradyl-row-transfer-docking-station): Row-transfer and docking for fleet operations
+- [CRADYL docking station](https://taypro.in/solar-panel-cleaning-system/cradyl-row-transfer-docking-station): Row-transfer and docking for long tracker rows
 - [NECTYR fleet portal](https://taypro.in/solar-panel-cleaning-system/automatic-cleaning-robot-monitoring-app): Schedules, logs, tickets, and fleet dashboards
 - [ORION plant intelligence](https://taypro.in/solar-panel-cleaning-system/orion-plant-intelligence-platform): Plant health and intelligence roadmap
-- [Cleaning service](https://taypro.in/solar-panel-cleaning-system/solar-panel-cleaning-service): Robot service and maintenance offerings
-- [Cleaning technology](https://taypro.in/cleaning-technology): Technical details on waterless dual-pass cleaning
+- [Cleaning service](https://taypro.in/solar-panel-cleaning-system/solar-panel-cleaning-service): Robot service, AMC, and maintenance offerings
+- [Cleaning technology](https://taypro.in/cleaning-technology): Waterless dual-pass cleaning science and methods
+- [Solar panel cleaning machine](https://taypro.in/solar-panel-cleaning-machine): Machine category landing for buyer discovery
 
 ## Buyer guides and calculators
 
-- [Solar cleaning service India](https://taypro.in/solar-panel-cleaning-service-india): National OPEX/CAPEX service, pan-India coverage
-- [Solar O&M services](https://taypro.in/solar-om-services): Robotic cleaning, NECTYR monitoring, SLA framework
-- [OPEX pricing per MW](https://taypro.in/solar-cleaning-opex-pricing): Cost structure and manual vs robotic comparison
-- [Rooftop cleaning robots](https://taypro.in/solar-panel-cleaning-robot-for-rooftop): MINY buyer guide for commercial C&I
-- [Tracker cleaning robots](https://taypro.in/solar-panel-cleaning-robot-for-trackers): GLYDE-X, NYUMA-X, CRADYL compatibility
-- [Fleet monitoring software](https://taypro.in/solar-fleet-monitoring-software): NECTYR operations portal and ORION intelligence
+- [Robot price guide India](https://taypro.in/solar-panel-cleaning-robot-price-india): CAPEX bands, cost drivers, and manufacturer evaluation
+- [ROI price calculator](https://taypro.in/solar-panel-cleaning-robot-price-calculator): Investment payback and cost-savings estimator
+- [CAPEX vs OPEX guide](https://taypro.in/solar-cleaning-capex-vs-opex): Procurement decision guide for Indian utility IPPs
+- [Solar cleaning service India](https://taypro.in/solar-panel-cleaning-service-india): National OPEX/CAPEX service and pan-India coverage
+- [Solar O&M services](https://taypro.in/solar-om-services): Robotic cleaning, NECTYR monitoring, and SLA framework
+- [OPEX pricing per MW](https://taypro.in/solar-cleaning-opex-pricing): Cost per MW and manual vs robotic comparison
+- [Soiling loss calculator](https://taypro.in/solar-panel-soiling-loss-calculator): MWh and revenue impact from soiling
+- [Tracker cleaning robots](https://taypro.in/solar-panel-cleaning-robot-for-trackers): GLYDE-X, NYUMA-X, and CRADYL buyer guide
+- [Rooftop cleaning robots](https://taypro.in/solar-panel-cleaning-robot-for-rooftop): MINY guide for commercial C&I rooftops
 - [Large-scale solar cleaning](https://taypro.in/large-scale-solar-panel-cleaning): 50–500 MW deployment capability
-- [CAPEX vs OPEX guide](https://taypro.in/solar-cleaning-capex-vs-opex): Decision guide for Indian utility IPPs
-- [Soiling loss calculator](https://taypro.in/solar-panel-soiling-loss-calculator): MWh and revenue impact estimator
-- [Robot manufacturer India](https://taypro.in/solar-cleaning-robot-manufacturer-india): Pune OEM evaluation guide
-- [Plant data intelligence](https://taypro.in/solar-plant-data-intelligence): NECTYR telemetry and ORION plant health
-- [Enterprise partnerships](https://taypro.in/enterprise-solar-cleaning-partnership): Multi-site IPP and CPSU portfolios
-- [Robot price guide India](https://taypro.in/solar-panel-cleaning-robot-price-india): CAPEX bands, cost drivers, manufacturer keywords
-- [ROI price calculator](https://taypro.in/solar-panel-cleaning-robot-price-calculator): Investment and cost-savings estimator
+- [Robot manufacturer India](https://taypro.in/solar-cleaning-robot-manufacturer-india): Pune OEM evaluation for utility buyers
+- [Fleet monitoring software](https://taypro.in/solar-fleet-monitoring-software): NECTYR operations portal and ORION intelligence
+- [Plant data intelligence](https://taypro.in/solar-plant-data-intelligence): Telemetry, analytics, and plant health roadmap
+- [Enterprise partnerships](https://taypro.in/enterprise-solar-cleaning-partnership): Multi-site IPP and CPSU portfolio programs
+
+## Comparisons
+
+- [Taypro vs Indian robot companies](https://taypro.in/compare/taypro-vs-indian-solar-cleaning-robot-companies): Landscape comparison for Indian utility buyers
+- [Robot vs manual cleaning](https://taypro.in/compare/solar-panel-cleaning-robot-vs-manual-cleaning): Cost, safety, water use, and performance
+- [Taypro vs Solabot](https://taypro.in/compare/taypro-vs-solabot): Head-to-head competitor comparison
+- [Taypro vs Skilancer](https://taypro.in/compare/taypro-vs-skilancer): Head-to-head competitor comparison
+- [Taypro vs Aegeus](https://taypro.in/compare/taypro-vs-aegeus): Head-to-head competitor comparison
+- [Taypro vs Vayu Solar](https://taypro.in/compare/taypro-vs-vayu-solar): Head-to-head competitor comparison
+- [Waterless vs water-based cleaning](https://taypro.in/compare/waterless-vs-water-based-solar-cleaning): Technology and O&M trade-offs
+- [GLYDE vs NYUMA](https://taypro.in/compare/glyde-vs-nyuma): Dual-pass microfiber vs PBT single-pass for fixed-tilt
+- [GLYDE-X vs NYUMA-X](https://taypro.in/compare/glyde-x-vs-nyuma-x): Tracker robot model comparison
+
+## Projects and content
+
+- [Projects showcase](https://taypro.in/projects): Deployed utility and C&I solar farm installations
+- [Automatic projects](https://taypro.in/projects/automatic): Fully automatic installation case studies
+- [Semi-automatic projects](https://taypro.in/projects/semi-automatic): Semi-automatic installation case studies
+- [CAPEX projects](https://taypro.in/projects/capex): CAPEX model deployment references
+- [OPEX projects](https://taypro.in/projects/opex): OPEX model deployment references
+- [Blog](https://taypro.in/blog): Articles on solar cleaning robotics, O&M, and efficiency
+- [Research insights](https://taypro.in/insights): Data-driven solar operations research reports
+- [Authors](https://taypro.in/authors): Expert contributors and bylines
 
 ## State deployment guides
 
 - [Rajasthan](https://taypro.in/solar-panel-cleaning-robot-rajasthan): Utility solar cleaning robots in Rajasthan
 - [Gujarat](https://taypro.in/solar-panel-cleaning-robot-gujarat): Utility solar cleaning robots in Gujarat
-- [Madhya Pradesh](https://taypro.in/solar-panel-cleaning-robot-madhya-pradesh): Utility solar robots in MP
+- [Madhya Pradesh](https://taypro.in/solar-panel-cleaning-robot-madhya-pradesh): Utility solar robots in Madhya Pradesh
 - [Karnataka](https://taypro.in/solar-panel-cleaning-robot-karnataka): Utility solar robots in Karnataka
-- [Andhra Pradesh & Telangana](https://taypro.in/solar-panel-cleaning-robot-andhra-pradesh): Utility solar robots in AP/Telangana
+- [Andhra Pradesh and Telangana](https://taypro.in/solar-panel-cleaning-robot-andhra-pradesh): Utility solar robots in AP and Telangana
 - [Maharashtra](https://taypro.in/solar-panel-cleaning-robot-maharashtra): Utility solar robots in Maharashtra
 - [Uttar Pradesh](https://taypro.in/solar-panel-cleaning-robot-uttar-pradesh): Utility solar robots in Uttar Pradesh
 - [Tamil Nadu](https://taypro.in/solar-panel-cleaning-robot-tamil-nadu): Utility solar robots in Tamil Nadu
 - [Haryana](https://taypro.in/solar-panel-cleaning-robot-haryana): Utility and C&I solar robots in Haryana
-- [Delhi](https://taypro.in/solar-panel-cleaning-robot-delhi): Institutional and rooftop solar in Delhi
+- [Delhi](https://taypro.in/solar-panel-cleaning-robot-delhi): Institutional and rooftop solar in Delhi NCR
 - [West Bengal](https://taypro.in/solar-panel-cleaning-robot-west-bengal): Utility solar robots in West Bengal
 - [Chhattisgarh](https://taypro.in/solar-panel-cleaning-robot-chhattisgarh): Utility solar robots in Chhattisgarh
 
-## Projects and content
-
-- [Projects showcase](https://taypro.in/projects): Deployed solar farm installations
-- [Automatic projects](https://taypro.in/projects/automatic): Fully automatic installation case studies
-- [Semi-automatic projects](https://taypro.in/projects/semi-automatic): Semi-automatic installation case studies
-- [CAPEX projects](https://taypro.in/projects/capex): CAPEX model deployments
-- [OPEX projects](https://taypro.in/projects/opex): OPEX model deployments
-- [Blog](https://taypro.in/blog): Articles on solar cleaning, robotics, and O&M
-- [Research insights](https://taypro.in/insights): Data-driven solar operations research
-- [Authors](https://taypro.in/authors): Expert contributors
-
-## Comparisons
-
-- [Taypro vs Indian robot companies](https://taypro.in/compare/taypro-vs-indian-solar-cleaning-robot-companies): Competitive comparison for Indian buyers
-- [Robot vs manual cleaning](https://taypro.in/compare/solar-panel-cleaning-robot-vs-manual-cleaning): Cost, safety, and performance comparison
-- [Taypro vs Solabot](https://taypro.in/compare/taypro-vs-solabot): Head-to-head product comparison
-
 ## Optional
 
-- [Sitemap](https://taypro.in/sitemap.xml): Full site URL index
-- [Robots.txt](https://taypro.in/robots.txt): Crawler directives
-- [Blog API list](https://taypro.in/api/blog/list): JSON list of published blog posts
+- [Sitemap](https://taypro.in/sitemap.xml): Machine-readable full URL index
+- [HTML site map](https://taypro.in/site-map): Human-readable site map page
+- [Robots.txt](https://taypro.in/robots.txt): Crawler directives for search and AI bots
+- [Blog API list](https://taypro.in/api/blog/list): JSON feed of published blog posts
 - [AI intelligence technology](https://taypro.in/technology/ai-intelligence): AI scheduling and plant intelligence overview
+- [Performance methodology](https://taypro.in/performance-and-test-methodology): How Taypro measures cleaning performance
 - [Privacy policy](https://taypro.in/privacy-policy): Data handling and privacy terms
 - [Terms of service](https://taypro.in/terms-of-service): Site usage terms
-- [Performance methodology](https://taypro.in/performance-and-test-methodology): How Taypro measures cleaning performance
+- [Cookie policy](https://taypro.in/cookie-policy): Cookie and tracking disclosure
