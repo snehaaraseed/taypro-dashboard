@@ -178,17 +178,43 @@ function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+// Shared state for API key health (persists across requests in node process)
+const apiKeysCooldown = new Map<string, number>();
+let lastSuccessfulKeyIndex = 0;
+const KEY_COOLDOWN_MS = 2 * 60 * 1000; // 2 minutes cooldown for rate-limit smoothing
+
 async function generateText(
   prompt: string,
   options?: GenerateTextOptions
 ): Promise<string> {
   const scope = options?.budgetScope ?? "blog";
   assertQuotaBudgetAllowed(scope);
-  const apiKeys = listGeminiApiKeys();
+  
+  const allApiKeys = listGeminiApiKeys();
+  const now = Date.now();
+
+  // Filter keys currently on cooldown
+  let apiKeys = allApiKeys.filter((key) => {
+    const expires = apiKeysCooldown.get(key) ?? 0;
+    return now > expires;
+  });
+
+  // If all keys are on cooldown, fall back to trying all keys
+  if (apiKeys.length === 0) {
+    apiKeys = allApiKeys;
+  }
+
+  // Adjust starting index to rotate keys starting at lastSuccessfulKeyIndex
+  const safeStartIndex = lastSuccessfulKeyIndex % allApiKeys.length;
+  const shiftedKeys = [
+    ...apiKeys.slice(safeStartIndex),
+    ...apiKeys.slice(0, safeStartIndex),
+  ];
+
   let lastError: unknown;
   let quotaExhaustedKeys = 0;
 
-  for (const apiKey of apiKeys) {
+  for (const apiKey of shiftedKeys) {
     const ai = new GoogleGenAI({ apiKey });
     let keyHitQuota = false;
 
@@ -214,16 +240,26 @@ async function generateText(
           const text = (result.text ?? "").trim();
           await pauseAfterGeminiCall();
           recordQuotaUsage(scope);
-          if (apiKey !== apiKeys[0]) {
-            console.warn("Gemini call succeeded on fallback API key (GEMINI_API_KEY_2).");
+
+          // Clear cooldown since key succeeded, and save working key index
+          apiKeysCooldown.delete(apiKey);
+          const originalIdx = allApiKeys.indexOf(apiKey);
+          if (originalIdx >= 0) {
+            lastSuccessfulKeyIndex = originalIdx;
+          }
+
+          if (apiKey !== allApiKeys[0]) {
+            console.warn("Gemini call succeeded on fallback API key.");
           }
           return text;
         } catch (error) {
           lastError = error;
           if (isQuotaError(error)) {
             keyHitQuota = true;
+            // Place key on cooldown
+            apiKeysCooldown.set(apiKey, Date.now() + KEY_COOLDOWN_MS);
             console.warn(
-              `Gemini quota exceeded on API key ending ...${apiKey.slice(-4)}, trying fallback key if configured.`
+              `Gemini quota exceeded on API key ending ...${apiKey.slice(-4)}, placed on 2-min cooldown. Trying fallback key if configured.`
             );
             break;
           }
@@ -249,7 +285,7 @@ async function generateText(
     break;
   }
 
-  if (quotaExhaustedKeys >= apiKeys.length) {
+  if (quotaExhaustedKeys >= shiftedKeys.length) {
     throw new Error(quotaErrorMessage(lastError));
   }
 

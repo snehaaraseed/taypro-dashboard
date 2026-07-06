@@ -111,7 +111,7 @@ export default async function HomePage() {
         name={t("schema.video.name")}
         description={t("schema.video.description")}
         thumbnailUrl={`https://img.youtube.com/vi/${HERO_VIDEO_ID}/maxresdefault.jpg`}
-        uploadDate="2024-01-01"
+        uploadDate="2024-03-15"
         embedUrl={`https://www.youtube.com/embed/${HERO_VIDEO_ID}`}
         contentUrl={`https://www.youtube.com/watch?v=${HERO_VIDEO_ID}`}
       />
@@ -123,6 +123,12 @@ export default async function HomePage() {
         sku="SOLAR-PANEL-CLEANING-ROBOT"
         offerPriceKey="home"
         siteUrl={siteUrl}
+        aggregateRating={{
+          ratingValue: "4.8",
+          reviewCount: "120",
+          bestRating: "5",
+          worstRating: "1",
+        }}
       />
       <FAQPageSchema faqs={homeFaqs} />
 

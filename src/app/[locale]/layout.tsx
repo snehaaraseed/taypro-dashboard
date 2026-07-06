@@ -106,6 +106,10 @@ export default async function LocaleLayout({
           contactType: "customer service",
           telephone: TAYPRO_SALES_PHONE_E164,
         }}
+        searchAction={{
+          target: `${siteUrl}/blog?q={search_term_string}`,
+          queryInput: "required name=search_term_string",
+        }}
       />
       <LeadModalRoot>
         <div className="min-h-screen flex flex-col">

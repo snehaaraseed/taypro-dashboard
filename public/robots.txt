@@ -4,6 +4,7 @@ Disallow: /admin/
 Disallow: /api/
 Disallow: /blog/add
 Disallow: /blog/db/
+Disallow: /_next/data/
 
 Host: https://taypro.in
 Sitemap: https://taypro.in/sitemap.xml

@@ -149,7 +149,13 @@ export async function generateMetadata({
   const shareImages = socialImagesFromMedia(
     blog.featuredImage,
     getBlogFeaturedImageAlt(blog),
-    "blog"
+    "blog",
+    {
+      title: blog.title,
+      meta: blog.seoKeyword || "Taypro Blog",
+      author: displayAuthorName,
+      type: "blog",
+    }
   );
 
   return withHreflang(
@@ -227,10 +233,9 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
   const lastUpdatedIso = blog.updatedAt || blog.publishDate;
   const lastUpdatedDisplay = formatLocaleDate(locale, lastUpdatedIso);
-  const readingMinutes = Math.max(
-    1,
-    Math.ceil(blog.content.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length / 220)
-  );
+  const plainText = blog.content.replace(/<[^>]+>/g, " ");
+  const wordCount = plainText.split(/\s+/).filter(Boolean).length;
+  const readingMinutes = Math.max(1, Math.ceil(wordCount / 220));
 
   const { contentWithIds, toc } = addHeadingIdsAndExtractToc(
     normalizeHeadingLevels(
@@ -272,6 +277,8 @@ export default async function BlogPost({ params }: BlogPostProps) {
         url={`${siteUrl}/blog/${slug}`}
         datePublished={blog.publishDate}
         dateModified={lastUpdatedIso}
+        wordCount={wordCount}
+        inLanguage={locale}
         author={{
           name: displayAuthorName,
           url: blogAuthorProfileUrl(siteUrl, displayAuthorName, authorSlug),

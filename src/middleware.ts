@@ -222,6 +222,15 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const url = request.nextUrl.clone();
 
+  // Redirect trailing slash requests to slash-free equivalents (SEO canonicalization)
+  if (pathname.length > 1 && pathname.endsWith("/") && !isPublicAssetPath(pathname)) {
+    const cleanPath = pathname.slice(0, -1);
+    url.pathname = cleanPath;
+    const slashRedirect = NextResponse.redirect(url, 301);
+    applyHstsIfHttps(request, slashRedirect);
+    return slashRedirect;
+  }
+
   const hostname = request.headers.get("host") || "";
   if (hostname.startsWith("www.")) {
     const newHost = hostname.replace(/^www\./, "").split(":")[0];

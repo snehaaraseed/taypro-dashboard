@@ -19,6 +19,12 @@ export async function generateMetadata({
   return withModulePageHreflang(PRESS_PAGE_PATH, "press", locale, {
     title: t("title"),
     description: t("description"),
+    // Advertise the press RSS feed in <head> for browser/reader auto-discovery.
+    alternates: {
+      types: {
+        "application/rss+xml": `${siteUrl}/feed/press.xml`,
+      },
+    },
     openGraph: {
       title: t("openGraphTitle"),
       description: t("openGraphDescription"),
@@ -34,15 +40,5 @@ export async function generateMetadata({
 }
 
 export default function PressLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <link
-        rel="alternate"
-        type="application/rss+xml"
-        title="Taypro Press Releases"
-        href={`${siteUrl}/feed/press.xml`}
-      />
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }

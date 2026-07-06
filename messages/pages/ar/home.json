@@ -264,8 +264,8 @@
     "clients": {
       "heading": "عملاؤنا المميزون",
       "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India.",
-      "logoAlt": "عميل Taypro {index}, شريك يستخدم حلول التنظيف الروبوتية",
-      "logoTitle": "عميل Taypro {index}"
+      "logoAlt": "عميل Taypro {name}, شريك يستخدم حلول التنظيف الروبوتية",
+      "logoTitle": "عميل Taypro {name}"
     },
     "faq": {
       "heading": "الأسئلة الشائعة",

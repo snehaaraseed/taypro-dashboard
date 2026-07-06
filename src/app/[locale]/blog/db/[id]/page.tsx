@@ -175,7 +175,13 @@ export async function generateMetadata({
   const shareImages = socialImagesFromMedia(
     blog.featuredImage,
     getBlogFeaturedImageAlt(blog),
-    "blog"
+    "blog",
+    {
+      title: blog.title,
+      meta: blog.seoKeyword || "Taypro Blog",
+      author: blog.author || "Taypro Team",
+      type: "blog",
+    }
   );
 
   return withHreflang(

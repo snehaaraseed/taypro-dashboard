@@ -18,6 +18,7 @@ import {
 } from "./sitemap-config";
 import {
   sitemapPathForLocale,
+  hreflangTagForLocale,
 } from "./locale-alternates";
 import { getSitemapLocalesForPath } from "./sitemap-locales";
 import { isRedirectedBlogSlug } from "./redirected-blog-slugs";
@@ -49,6 +50,7 @@ function entry(
     lastModified?: Date;
     changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
     priority: number;
+    alternates?: MetadataRoute.Sitemap[number]["alternates"];
   }
 ): MetadataRoute.Sitemap[number] {
   const item: MetadataRoute.Sitemap[number] = {
@@ -59,6 +61,9 @@ function entry(
 
   if (options.lastModified) {
     item.lastModified = options.lastModified;
+  }
+  if (options.alternates) {
+    item.alternates = options.alternates;
   }
 
   return item;
@@ -110,8 +115,24 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
       priority: number;
     }
   ) => {
-    for (const locale of getSitemapLocalesForPath(internalPath)) {
-      addForLocale(internalPath, locale, options);
+    const locales = getSitemapLocalesForPath(internalPath);
+    const languages: Record<string, string> = {};
+    for (const loc of locales) {
+      languages[hreflangTagForLocale(loc)] = `${SITE_URL}${sitemapPathForLocale(internalPath, loc)}`;
+    }
+    languages["x-default"] = `${SITE_URL}${sitemapPathForLocale(internalPath, routing.defaultLocale as TayproLocale)}`;
+
+    for (const locale of locales) {
+      add(
+        entry(sitemapPathForLocale(internalPath, locale), {
+          lastModified: options.lastModified,
+          changeFrequency: options.changeFrequency,
+          priority: options.priority,
+          alternates: {
+            languages,
+          },
+        })
+      );
     }
   };
 
@@ -122,6 +143,7 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
       lastModified?: Date;
       changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
       priority: number;
+      alternates?: MetadataRoute.Sitemap[number]["alternates"];
     }
   ) => {
     add(
@@ -129,6 +151,7 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
         lastModified: options.lastModified,
         changeFrequency: options.changeFrequency,
         priority: options.priority,
+        alternates: options.alternates,
       })
     );
   };
@@ -174,11 +197,29 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
 
     const storedAuthors = await getStoredAuthors();
 
+    const blogLocalesBySlug = new Map<string, TayproLocale[]>();
     for (const blog of indexableBlogs) {
+      const list = blogLocalesBySlug.get(blog.slug) ?? [];
+      list.push(blog.locale as TayproLocale);
+      blogLocalesBySlug.set(blog.slug, list);
+    }
+
+    for (const blog of indexableBlogs) {
+      const slug = blog.slug;
+      const locales = blogLocalesBySlug.get(slug) || [blog.locale as TayproLocale];
+      const languages: Record<string, string> = {};
+      for (const loc of locales) {
+        languages[hreflangTagForLocale(loc)] = `${SITE_URL}${sitemapPathForLocale(`/blog/${slug}`, loc)}`;
+      }
+      languages["x-default"] = `${SITE_URL}${sitemapPathForLocale(`/blog/${slug}`, routing.defaultLocale as TayproLocale)}`;
+
       addForLocale(`/blog/${blog.slug}`, blog.locale as TayproLocale, {
         lastModified: parseLastModified(blog.updatedAt, blog.publishDate),
         changeFrequency: CMS_SITEMAP_DEFAULTS.blog.changeFrequency,
         priority: CMS_SITEMAP_DEFAULTS.blog.priority,
+        alternates: {
+          languages,
+        },
       });
     }
 
@@ -201,40 +242,115 @@ export async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
       }
     }
 
+    const projectLocalesBySlug = new Map<string, TayproLocale[]>();
     for (const project of indexableProjects) {
+      const list = projectLocalesBySlug.get(project.slug) ?? [];
+      list.push(project.locale as TayproLocale);
+      projectLocalesBySlug.set(project.slug, list);
+    }
+
+    for (const project of indexableProjects) {
+      const slug = project.slug;
+      const locales = projectLocalesBySlug.get(slug) || [project.locale as TayproLocale];
+      const languages: Record<string, string> = {};
+      for (const loc of locales) {
+        languages[hreflangTagForLocale(loc)] = `${SITE_URL}${sitemapPathForLocale(`/projects/${slug}`, loc)}`;
+      }
+      languages["x-default"] = `${SITE_URL}${sitemapPathForLocale(`/projects/${slug}`, routing.defaultLocale as TayproLocale)}`;
+
       addForLocale(`/projects/${project.slug}`, project.locale as TayproLocale, {
         lastModified: parseLastModified(project.updatedAt, project.date),
         changeFrequency: CMS_SITEMAP_DEFAULTS.project.changeFrequency,
         priority: CMS_SITEMAP_DEFAULTS.project.priority,
+        alternates: {
+          languages,
+        },
       });
     }
 
+    const insightLocalesBySlug = new Map<string, TayproLocale[]>();
     for (const insight of indexableInsights) {
+      const list = insightLocalesBySlug.get(insight.slug) ?? [];
+      list.push(insight.locale as TayproLocale);
+      insightLocalesBySlug.set(insight.slug, list);
+    }
+
+    for (const insight of indexableInsights) {
+      const slug = insight.slug;
+      const locales = insightLocalesBySlug.get(slug) || [insight.locale as TayproLocale];
+      const languages: Record<string, string> = {};
+      for (const loc of locales) {
+        languages[hreflangTagForLocale(loc)] = `${SITE_URL}${sitemapPathForLocale(`/insights/${slug}`, loc)}`;
+      }
+      languages["x-default"] = `${SITE_URL}${sitemapPathForLocale(`/insights/${slug}`, routing.defaultLocale as TayproLocale)}`;
+
       addForLocale(`/insights/${insight.slug}`, insight.locale as TayproLocale, {
         lastModified: parseLastModified(insight.updatedAt, insight.publishDate),
         changeFrequency: CMS_SITEMAP_DEFAULTS.blog.changeFrequency,
         priority: 0.55,
+        alternates: {
+          languages,
+        },
       });
     }
 
+    const pressLocalesBySlug = new Map<string, TayproLocale[]>();
     for (const pr of indexablePressReleases) {
+      const list = pressLocalesBySlug.get(pr.slug) ?? [];
+      list.push(pr.locale as TayproLocale);
+      pressLocalesBySlug.set(pr.slug, list);
+    }
+
+    for (const pr of indexablePressReleases) {
+      const slug = pr.slug;
+      const locales = pressLocalesBySlug.get(slug) || [pr.locale as TayproLocale];
+      const languages: Record<string, string> = {};
+      for (const loc of locales) {
+        languages[hreflangTagForLocale(loc)] = `${SITE_URL}${sitemapPathForLocale(`/press/releases/${slug}`, loc)}`;
+      }
+      languages["x-default"] = `${SITE_URL}${sitemapPathForLocale(`/press/releases/${slug}`, routing.defaultLocale as TayproLocale)}`;
+
       addForLocale(`/press/releases/${pr.slug}`, pr.locale as TayproLocale, {
         lastModified: parseLastModified(pr.updatedAt, pr.publishDate),
         changeFrequency: "monthly",
         priority: 0.55,
+        alternates: {
+          languages,
+        },
       });
     }
 
+    const authorLocales = new Map<string, { locales: TayproLocale[]; lastModified: Date }>();
     for (const locale of routing.locales) {
       const localeBlogs = blogListByLocale.get(locale) ?? [];
       if (localeBlogs.length === 0) continue;
 
       const authorPaths = collectAuthorPaths(localeBlogs, storedAuthors);
       for (const [authorSlug, meta] of authorPaths) {
+        const entryVal = authorLocales.get(authorSlug) ?? { locales: [], lastModified: new Date(0) };
+        entryVal.locales.push(locale);
+        if (meta.lastModified > entryVal.lastModified) {
+          entryVal.lastModified = meta.lastModified;
+        }
+        authorLocales.set(authorSlug, entryVal);
+      }
+    }
+
+    for (const [authorSlug, entryVal] of authorLocales) {
+      const languages: Record<string, string> = {};
+      for (const loc of entryVal.locales) {
+        languages[hreflangTagForLocale(loc)] = `${SITE_URL}${sitemapPathForLocale(`/blog/author/${authorSlug}`, loc)}`;
+      }
+      languages["x-default"] = `${SITE_URL}${sitemapPathForLocale(`/blog/author/${authorSlug}`, routing.defaultLocale as TayproLocale)}`;
+
+      for (const locale of entryVal.locales) {
         addForLocale(`/blog/author/${authorSlug}`, locale, {
-          lastModified: meta.lastModified,
+          lastModified: entryVal.lastModified,
           changeFrequency: CMS_SITEMAP_DEFAULTS.author.changeFrequency,
           priority: CMS_SITEMAP_DEFAULTS.author.priority,
+          alternates: {
+            languages,
+          },
         });
       }
     }

@@ -117,6 +117,16 @@ export async function generateMetadata({
           },
         }
       : {}),
+    // Advertise the blog RSS feed in <head> for browser/reader auto-discovery (page 1 only).
+    ...(page <= 1
+      ? {
+          alternates: {
+            types: {
+              "application/rss+xml": `${siteUrl}/feed/blog.xml`,
+            },
+          },
+        }
+      : {}),
     openGraph: {
       title,
       description,

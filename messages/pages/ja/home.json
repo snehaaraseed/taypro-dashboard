@@ -264,8 +264,8 @@
     "clients": {
       "heading": "主要クライアント",
       "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India.",
-      "logoAlt": "Tayproソーラー洗浄ロボットクライアント {index}",
-      "logoTitle": "Tayproソーラー洗浄ロボットクライアント {index}"
+      "logoAlt": "Tayproソーラー洗浄ロボットクライアント {name}",
+      "logoTitle": "Tayproソーラー洗浄ロボットクライアント {name}"
     },
     "faq": {
       "heading": "よくある質問",

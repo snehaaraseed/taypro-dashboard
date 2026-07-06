@@ -30,6 +30,13 @@ interface SchemaOfferProps {
   availability?: string;
 }
 
+interface AggregateRatingProps {
+  ratingValue: string;
+  reviewCount: string;
+  bestRating?: string;
+  worstRating?: string;
+}
+
 interface ProductSchemaProps {
   name: string;
   description: string;
@@ -39,6 +46,8 @@ interface ProductSchemaProps {
   /** Preferred: lookup from product-schema-prices.ts */
   offerPriceKey?: ProductSchemaPriceKey;
   offers?: SchemaOfferProps;
+  /** Aggregate rating from verified client deployments — enables star rich-results in SERP. */
+  aggregateRating?: AggregateRatingProps;
 }
 
 function buildSchemaOffer({
@@ -87,6 +96,10 @@ interface ArticleSchemaProps {
   scriptId?: string;
   /** Schema.org type (default Article). Use NewsArticle for press releases. */
   schemaType?: "Article" | "NewsArticle";
+  /** Number of words in the article body — signals content depth to Google. */
+  wordCount?: number;
+  /** BCP-47 language tag (e.g. "en", "hi") — critical for multilingual pages. */
+  inLanguage?: string;
 }
 
 interface VideoObjectSchemaProps {
@@ -111,6 +124,8 @@ function buildOrganizationNode({
 }) {
   return {
     "@type": "Organization",
+    /** @id allows cross-page KG entity linking (referenced by Article/Product as { "@id": siteUrl+/#organization }) */
+    "@id": `${siteUrl}/#organization`,
     name: "Taypro",
     url: siteUrl,
     logo: logo,
@@ -367,6 +382,7 @@ export function ProductSchema({
   sku,
   offerPriceKey,
   offers,
+  aggregateRating,
   siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
 }: ProductSchemaProps & { siteUrl?: string }) {
   const schema: any = {
@@ -379,9 +395,7 @@ export function ProductSchema({
       name: brand,
     },
     manufacturer: {
-      "@type": "Organization",
-      name: "Taypro",
-      url: siteUrl,
+      "@id": `${siteUrl}/#organization`,
     },
     category: "Solar Panel Cleaning Robot",
   };
@@ -396,6 +410,16 @@ export function ProductSchema({
 
   if (offerPriceKey || offers) {
     schema.offers = buildSchemaOffer({ offerPriceKey, offers, siteUrl });
+  }
+
+  if (aggregateRating) {
+    schema.aggregateRating = {
+      "@type": "AggregateRating",
+      ratingValue: aggregateRating.ratingValue,
+      reviewCount: aggregateRating.reviewCount,
+      bestRating: aggregateRating.bestRating ?? "5",
+      worstRating: aggregateRating.worstRating ?? "1",
+    };
   }
 
   return (
@@ -553,6 +577,8 @@ export function ArticleSchema({
   publisher,
   scriptId = "article-schema",
   schemaType = "Article",
+  wordCount,
+  inLanguage,
   siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
 }: ArticleSchemaProps & { siteUrl?: string }) {
   const schema: Record<string, unknown> = {
@@ -561,12 +587,8 @@ export function ArticleSchema({
     headline: headline,
     description: description,
     publisher: {
-      "@type": "Organization",
-      name: publisher?.name || "Taypro",
-      logo: {
-        "@type": "ImageObject",
-        url: publisher?.logo || `${siteUrl}/tayproasset/taypro-logo.png`,
-      },
+      /** Link to the site-level @id to enable KG entity cross-referencing. */
+      "@id": `${siteUrl}/#organization`,
     },
   };
 
@@ -594,6 +616,14 @@ export function ArticleSchema({
 
   if (dateModified) {
     schema.dateModified = dateModified;
+  }
+
+  if (typeof wordCount === "number" && wordCount > 0) {
+    schema.wordCount = wordCount;
+  }
+
+  if (inLanguage) {
+    schema.inLanguage = inLanguage;
   }
 
   if (author) {

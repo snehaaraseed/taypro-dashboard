@@ -100,7 +100,13 @@ export async function generateMetadata({
   const shareImages = socialImagesFromMedia(
     metadata.image,
     getProjectHeroImageAlt(metadata),
-    "projects"
+    "projects",
+    {
+      title: metadata.displayTitle,
+      meta: metadata.seoKeyword || "Taypro Solar Project",
+      author: "Taypro Team",
+      type: "project",
+    }
   );
 
   return withHreflang(internalPath, canonicalLocale, {

@@ -2,14 +2,12 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { withHreflang } from "@/lib/seo/with-hreflang";
-import { socialImagesFromPreset } from "@/lib/seo/open-graph";
+import { socialImagesFromMedia } from "@/lib/seo/open-graph";
 import { getTranslatedLocalesForModule } from "@/lib/seo/locale-page-quality";
 import {
   getBuyerIntentConfig,
   type BuyerIntentPageId,
 } from "@/lib/seo/buyer-intent-pages-config";
-
-const og = socialImagesFromPreset("projects");
 
 export async function generateBuyerIntentMetadata(
   pageId: BuyerIntentPageId,
@@ -27,6 +25,18 @@ export async function generateBuyerIntentMetadata(
     !translatedLocales.includes(locale as (typeof translatedLocales)[number]);
   const canonicalLocale = usesEnglishFallback ? routing.defaultLocale : locale;
 
+  const ogTitle = t("openGraphTitle");
+  const ogDescription = t("openGraphDescription");
+
+  // Dynamic OG card per buyer-intent page — tailored social card for
+  // each commercial intent page rather than the generic projects fallback.
+  const shareImages = socialImagesFromMedia(null, "", "projects", {
+    title: ogTitle,
+    meta: "Solar Panel Cleaning Robots — Taypro",
+    author: "Taypro",
+    type: "landing",
+  });
+
   return withHreflang(
     config.path,
     locale,
@@ -34,15 +44,15 @@ export async function generateBuyerIntentMetadata(
       title: t("title"),
       description: t("description"),
       openGraph: {
-        title: t("openGraphTitle"),
-        description: t("openGraphDescription"),
+        title: ogTitle,
+        description: ogDescription,
         type: "website",
-        ...og.openGraph,
+        ...shareImages.openGraph,
       },
       twitter: {
-        title: t("openGraphTitle"),
-        description: t("openGraphDescription"),
-        ...og.twitter,
+        title: ogTitle,
+        description: ogDescription,
+        ...shareImages.twitter,
       },
     },
     {

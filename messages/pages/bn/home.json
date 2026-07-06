@@ -264,8 +264,8 @@
     "clients": {
       "heading": "আমাদের সম্মানিত গ্রাহক",
       "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India.",
-      "logoAlt": "Taypro সোলার প্যানেল পরিষ্কার রোবট ক্লায়েন্ট {index}",
-      "logoTitle": "Taypro সোলার প্যানেল পরিষ্কার রোবট ক্লায়েন্ট {index}"
+      "logoAlt": "Taypro সোলার প্যানেল পরিষ্কার রোবট ক্লায়েন্ট {name}",
+      "logoTitle": "Taypro সোলার প্যানেল পরিষ্কার রোবট ক্লায়েন্ট {name}"
     },
     "faq": {
       "heading": "প্রায়শই জিজ্ঞাসিত প্রশ্ন",

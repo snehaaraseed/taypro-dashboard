@@ -282,8 +282,8 @@
     "clients": {
       "heading": "हमारे प्रतिष्ठित ग्राहक",
       "trustedBy": "Trusted by {names} and other leading solar IPPs, EPCs, and C&I operators across India.",
-      "logoAlt": "Taypro सोलर पैनल सफाई रोबोट ग्राहक {index}, Taypro रोबोटिक सफाई समाधान उपयोगकर्ता भागीदार",
-      "logoTitle": "Taypro सोलर पैनल सफाई रोबोट ग्राहक {index}"
+      "logoAlt": "Taypro सोलर पैनल सफाई रोबोट ग्राहक {name}, Taypro रोबोटिक सफाई समाधान उपयोगकर्ता भागीदार",
+      "logoTitle": "Taypro सोलर पैनल सफाई रोबोट ग्राहक {name}"
     },
     "faq": {
       "heading": "अक्सर पूछे जाने वाले प्रश्न",

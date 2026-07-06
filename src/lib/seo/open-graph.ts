@@ -115,16 +115,38 @@ export function socialImagesFromPreset(key: OgPresetKey): {
 export function socialImagesFromMedia(
   mediaPath: string | null | undefined,
   alt: string,
-  fallback: OgPresetKey = "default"
+  fallback: OgPresetKey = "default",
+  dynamicOgOptions?: {
+    title: string;
+    meta: string;
+    author: string;
+    type: string;
+  }
 ): {
   openGraph: { images: ReturnType<typeof buildOgImage>[] };
   twitter: { card: "summary_large_image"; images: string[] };
 } {
-  const path = mediaPath?.trim() || OG_PRESETS[fallback].path;
+  const hasMedia = Boolean(mediaPath?.trim());
+  let path: string = OG_PRESETS[fallback].path;
+  let imageAlt: string = OG_PRESETS[fallback].alt;
+
+  if (hasMedia) {
+    path = mediaPath!.trim();
+    imageAlt = alt;
+  } else if (dynamicOgOptions) {
+    const params = new URLSearchParams();
+    params.set("title", dynamicOgOptions.title);
+    params.set("meta", dynamicOgOptions.meta);
+    params.set("author", dynamicOgOptions.author);
+    params.set("type", dynamicOgOptions.type);
+    path = `/api/og?${params.toString()}`;
+    imageAlt = dynamicOgOptions.title;
+  }
+
   const images = [
     buildOgImage({
       path,
-      alt: mediaPath?.trim() ? alt : OG_PRESETS[fallback].alt,
+      alt: imageAlt,
     }),
   ];
   return {
