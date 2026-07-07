@@ -41,18 +41,7 @@ const nextConfig = {
     minimumCacheTTL: 86400,
     // Next.js 16: local src with query strings must match localPatterns (omit search = any ?v=).
     localPatterns: [
-      { pathname: "/tayprorobots/**" },
-      { pathname: "/uploads/**" },
-      { pathname: "/tayproasset/**" },
-      { pathname: "/blogs/**" },
-      { pathname: "/tayprosolarfirm/**" },
-      { pathname: "/tayprosolarpanel/**" },
-      { pathname: "/tayprobglayout/**" },
-      { pathname: "/tayprofounders/**" },
-      { pathname: "/tayproclients/**" },
-      { pathname: "/tayproenergyresource/**" },
-      { pathname: "/tayprokeymetrics/**" },
-      { pathname: "/360-degree-images/**" },
+      { pathname: "/**" },
     ],
     // Enable image optimization caching
     dangerouslyAllowSVG: true,
