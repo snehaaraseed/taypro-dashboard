@@ -16,6 +16,7 @@ export interface DynamicBlog {
   href: string;
   source: "db" | "console";
   id?: string;
+  seoKeyword?: string;
   /** Open in this locale when href is an English fallback (next-intl Link). */
   linkLocale?: TayproLocale;
 }

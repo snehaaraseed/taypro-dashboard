@@ -33,6 +33,15 @@ export async function loadExistingProjectCorpus() {
   return listAllProjects(true, SOURCE_LOCALE);
 }
 
+/** Finished rewrites only — legacy thin pages must not block new AI drafts. */
+export async function loadFinishedProjectCorpus() {
+  const all = await listAllProjects(true, SOURCE_LOCALE);
+  return all.filter(
+    (p) =>
+      p.editorialStatus === "editorial_v2" || p.editorialStatus === "flagship"
+  );
+}
+
 export function findTooSimilarProject(
   draft: ProjectDraftInput,
   corpus: Awaited<ReturnType<typeof loadExistingProjectCorpus>>,
@@ -138,9 +147,12 @@ export async function assertProjectDraftUnique(
 /** Body-level dedupe for improve/generate, loads content only for keyword-similar peers. */
 export async function assertProjectContentNotTooSimilar(
   draft: Required<Pick<ProjectDraftInput, "title" | "description" | "content">> &
-    Pick<ProjectDraftInput, "slug">
+    Pick<ProjectDraftInput, "slug">,
+  options?: { compareFinishedOnly?: boolean }
 ): Promise<void> {
-  const corpus = await loadExistingProjectCorpus();
+  const corpus = options?.compareFinishedOnly
+    ? await loadFinishedProjectCorpus()
+    : await loadExistingProjectCorpus();
   const keywordThreshold = getProjectSimilarityThreshold();
   const candidates = corpus
     .filter((p) => p.slug !== draft.slug)

@@ -79,7 +79,14 @@
       "exploreSolarRobots": "روبوتات تنظيف شمسية",
       "exploreRoi": "حاسبة العائد على الاستثمار",
       "exploreTechnology": "تقنية التنظيف",
-      "exploreProjects": "المشاريع"
+      "exploreProjects": "المشاريع",
+      "searchLabel": "بحث في مقالات المدونة",
+      "searchPlaceholder": "بحث التنظيف بالطاقة الشمسية، الروبوتات، O&M...",
+      "searchSubmit": "يبحث",
+      "searchNoResults": "لا توجد مقالات تطابق \"{query}\". جرب مصطلحات أوسع أو تصفح الأرشيف أدناه.",
+      "searchResultsCount": "{count} مقالة (مقالات) تطابق \"{query}\"",
+      "metaTitleSearch": "البحث: {query} | Taypro المدونة",
+      "metaDescriptionSearch": "نتائج البحث عن \"{query}\" في روبوت تنظيف الألواح الشمسية الخاص بـ Taypro ومقالات O&M."
     },
     "post": {
       "breadcrumbBlog": "المدونة",

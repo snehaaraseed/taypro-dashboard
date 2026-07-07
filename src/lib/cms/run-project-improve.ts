@@ -282,12 +282,15 @@ export async function runProjectImprove(
 
   assertGeneratedProjectValid(validationInput);
 
-  await assertProjectContentNotTooSimilar({
-    title: input.title,
-    description,
-    content,
-    slug: input.slug,
-  });
+  await assertProjectContentNotTooSimilar(
+    {
+      title: input.title,
+      description,
+      content,
+      slug: input.slug,
+    },
+    { compareFinishedOnly: true }
+  );
 
   void countNarrativeWords(sections);
 

@@ -25,8 +25,7 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/png",
       },
       {
-        // 512×512 required for PWA installability — replace with a proper 512px asset.
-        src: "/tayproasset/taypro-favicon.png",
+        src: "/icon-512x512.png",
         sizes: "512x512",
         type: "image/png",
         purpose: "maskable",

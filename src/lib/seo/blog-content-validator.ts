@@ -17,6 +17,8 @@ import {
   MIN_INTERNAL_LINKS,
 } from "@/lib/seo/blog-pillar-links";
 import { findInlineImgAltIssue } from "@/lib/seo/blog-body-hygiene";
+import { contentHasSourcesSection } from "@/lib/seo/citation-sources";
+import { inlineCitationsEnabled } from "@/lib/seo/inline-citations";
 import { findBlogIntentAlignmentIssues } from "@/lib/seo/blog-intent-contract";
 import {
   isNarrativeBlogFormat,
@@ -47,6 +49,8 @@ export type BlogContentValidationInput = {
   volumeBucket?: number;
   competitionIndex?: number;
   contentFormat?: BlogContentFormat;
+  /** Byline for E-E-A-T checks on automated drafts. */
+  author?: string;
 };
 
 export type BlogContentValidationResult =
@@ -369,6 +373,17 @@ export function validateGeneratedBlog(
       slug: input.slug,
     })
   );
+
+  const authorName = input.author?.trim() ?? "";
+  if (authorName && authorName.length < 3) {
+    issues.push("Author byline must be at least 3 characters for E-E-A-T");
+  }
+
+  if (inlineCitationsEnabled() && !contentHasSourcesSection(input.content)) {
+    issues.push(
+      'Missing grounded "Sources and further reading" section for E-E-A-T'
+    );
+  }
 
   if (issues.length > 0) {
     return { ok: false, issues };

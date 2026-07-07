@@ -12,11 +12,12 @@ import {
   resolveAuthorSlug,
 } from "@/app/data/blogAuthors";
 import { getStoredAuthors } from "@/app/utils/blogAuthorsStore";
+import { socialImagesFromPreset } from "@/lib/seo/open-graph";
 import type { Metadata } from "next";
 
 const AUTHORS_PATH = "/authors";
 const siteUrl = SITE_URL;
-const ogImage = `${siteUrl}/tayproasset/taypro-robotImage.webp`;
+const authorsOg = socialImagesFromPreset("authors");
 
 export async function generateMetadata({
   params,
@@ -37,20 +38,12 @@ export async function generateMetadata({
       description: t("openGraphDescription"),
       url: `${siteUrl}${AUTHORS_PATH}`,
       type: "website",
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: t("openGraphImageAlt"),
-        },
-      ],
+      ...authorsOg.openGraph,
     },
     twitter: {
-      card: "summary_large_image",
+      ...authorsOg.twitter,
       title: t("twitterTitle"),
       description: t("twitterDescription"),
-      images: [ogImage],
     },
   });
 }

@@ -355,7 +355,7 @@ EOF
     echo ""
 
     step_start "Step 3: Staging build (site stays live — typically 6–15 min)"
-    ssh -i "$SSH_KEY" -o ServerAliveInterval=30 "$REMOTE_HOST" bash -s "$DEPLOY_FAST" << 'EOF'
+    ssh -i "$SSH_KEY" -o ServerAliveInterval=15 -o ServerAliveCountMax=120 -o TCPKeepAlive=yes "$REMOTE_HOST" bash -s "$DEPLOY_FAST" << 'EOF'
         DEPLOY_FAST="$1"
         set -e
         ROOT="/var/www/taypro-dashboard"

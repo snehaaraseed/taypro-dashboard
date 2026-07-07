@@ -16,7 +16,7 @@ export function generateStaticParams() {
   return COMPARISON_PAGE_LIST.map((page) => ({ slug: page.slug }));
 }
 
-const compareOg = socialImagesFromPreset("default");
+const compareOg = socialImagesFromPreset("compare");
 
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>;

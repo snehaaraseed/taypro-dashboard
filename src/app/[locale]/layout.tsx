@@ -26,7 +26,7 @@ const defaultOg = buildOgImage(OG_PRESETS.default);
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Solar Panel Cleaning Robots | Waterless & Autonomous",
+    default: "Solar Panel Cleaning Robots for Utility-Scale Plants in India | Taypro",
     template: "%s | Taypro",
   },
   description: ROOT_DEFAULT_DESCRIPTION,
@@ -92,12 +92,36 @@ export default async function LocaleLayout({
 
   const clientCatalog = await loadMessagesForClient(locale);
 
+  const localizedPath = (path: string) => {
+    return locale === "en" ? path : `/${locale}${path === "/" ? "" : path}`;
+  };
+
+  const speculationRules = {
+    prerender: [
+      {
+        source: "list",
+        urls: [
+          localizedPath("/"),
+          localizedPath("/solar-panel-cleaning-system"),
+          localizedPath("/company"),
+          localizedPath("/contact"),
+        ],
+      },
+    ],
+  };
+
   return (
     <AccumulatingIntlProvider
       locale={locale}
       messages={clientCatalog}
       initialLogicalPath="/"
     >
+      <script
+        type="speculationrules"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(speculationRules) }}
+      />
+      <link rel="alternate" type="application/rss+xml" href={`${siteUrl}/feed/blog.xml`} title="Taypro Blog Feed" />
+      <link rel="alternate" type="application/rss+xml" href={`${siteUrl}/feed/press.xml`} title="Taypro Press Releases Feed" />
       <VisitorGeoProvider>
       <HtmlLocaleAttributes />
       <SiteGraphSchema

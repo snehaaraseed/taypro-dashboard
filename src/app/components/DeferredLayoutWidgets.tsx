@@ -23,8 +23,8 @@ function useMinDelayReady(delayMs: number) {
 
 /** Analytics, lead UI, and consent, delayed so cookie copy cannot become LCP. */
 export default function DeferredLayoutWidgets() {
-  const consentReady = useMinDelayReady(15000);
-  const secondaryReady = useMinDelayReady(8000);
+  const consentReady = useMinDelayReady(3000);
+  const secondaryReady = useMinDelayReady(4000);
 
   return (
     <>

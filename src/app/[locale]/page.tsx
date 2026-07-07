@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { withHreflang } from "@/lib/seo/with-hreflang";
 import { socialImagesFromPreset } from "@/lib/seo/open-graph";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
+import { preload } from "react-dom";
 
 const siteUrl = SITE_URL;
 const homeOg = socialImagesFromPreset("default");
@@ -41,5 +42,6 @@ export default async function Home({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  preload("/tayproasset/cover-solar-hero.webp", { as: "image" });
   return <HomePageContent />;
 }

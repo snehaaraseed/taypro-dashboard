@@ -97,6 +97,9 @@
     "press": "プレス・メディア",
     "careers": "採用情報",
     "investors": "パートナー・投資家",
+    "productAutomatic": "自動ソーラーパネル洗浄ロボット",
+    "productTracker": "単軸トラッカーソーラーパネル洗浄ロボット",
+    "productSemiAutomatic": "半自動ソーラーパネル洗浄ロボット",
     "copyright": "© 著作権 {year} – TAYPRO PRIVATE LIMITED. 無断転載を禁じます。"
   },
   "NotFoundPage": {

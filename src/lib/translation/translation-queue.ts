@@ -33,6 +33,7 @@ import {
 } from "./translate-cms";
 import {
   isCmsProjectImproveDisabled,
+  isProjectTranslationParallel,
   listProjectSlugsNeedingImprove,
   processProjectImproveBacklog,
   type ProcessProjectImproveBacklogResult,
@@ -810,6 +811,7 @@ async function runDailyTranslationsBody(
   const mayRunTranslations =
     !catchup ||
     isCmsProjectImproveDisabled() ||
+    isProjectTranslationParallel() ||
     rewriteBacklogRemaining === 0;
 
   if (catchup && !mayRunTranslations) {

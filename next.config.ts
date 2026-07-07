@@ -6,6 +6,7 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  staticPageGenerationTimeout: 180,
   outputFileTracingRoot: path.join(__dirname),
   // Performance optimizations
   compress: true,
@@ -27,6 +28,8 @@ const nextConfig = {
     optimizeCss: true,
     // TipTap must not be barrel-optimized — breaks dynamic editor chunks in admin.
     optimizePackageImports: ["lucide-react", "next-intl"],
+    workerThreads: false,
+    cpus: 1,
   },
   // Turbopack configuration (Next.js 16+)
   turbopack: {},

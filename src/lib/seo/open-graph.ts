@@ -45,13 +45,25 @@ export const OG_PRESETS = {
     path: "/tayproasset/taypro-robotImage.webp",
     alt: "Taypro Blog, solar panel cleaning robot insights and O&M guides",
   },
+  contact: {
+    path: "/tayproasset/nectyr.webp",
+    alt: "Contact Taypro for solar panel cleaning robot quotes and site visits",
+  },
+  authors: {
+    path: "/tayproasset/taypro-robotFeature.webp",
+    alt: "Taypro blog authors and solar O&M experts",
+  },
+  compare: {
+    path: "/tayproasset/robots.webp",
+    alt: "Compare Taypro solar panel cleaning robots and alternatives",
+  },
+  company: {
+    path: "/tayproasset/cover-solar-hero.webp",
+    alt: "About Taypro, solar panel cleaning robot manufacturer in India",
+  },
   projects: {
     path: PROJECT_HERO_IMAGE_PATH,
     alt: "Taypro utility-scale solar projects with cleaning robots",
-  },
-  company: {
-    path: "/tayproasset/taypro-robotImage.webp",
-    alt: "About Taypro, solar panel cleaning robot manufacturer in India",
   },
   cleaningTech: {
     path: "/tayproasset/robots.webp",

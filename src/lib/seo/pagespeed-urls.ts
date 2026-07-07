@@ -112,6 +112,81 @@ export function envAuditScope(): PagespeedAuditScope {
   return raw === "full" ? "full" : "english";
 }
 
+/** Representative templates to audit when mode is `representative` (one URL each). */
+const REPRESENTATIVE_TEMPLATE_ORDER = [
+  "home",
+  "blog-list",
+  "blog-post",
+  "projects-list",
+  "project",
+  "product-hub",
+  "product-page",
+  "compare-page",
+  "company",
+  "contact",
+  "authors",
+  "cleaning-technology",
+  "technology-page",
+  "insights-list",
+  "insight",
+  "press-list",
+  "press-release",
+  "careers-list",
+  "career-detail",
+  "utility-scale-solar-operations",
+  "solar-om-services",
+  "solar-cleaning-opex-pricing",
+  "solar-panel-cleaning-robot-price-calculator",
+  "solar-panel-cleaning-robot-rajasthan",
+] as const;
+
+export type PagespeedAuditMode = "representative" | "sitemap";
+
+export function envAuditMode(): PagespeedAuditMode {
+  const raw = process.env.PAGESPEED_AUDIT_MODE?.trim().toLowerCase();
+  return raw === "sitemap" ? "sitemap" : "representative";
+}
+
+/**
+ * Pick one English URL per page template for broad CWV coverage without
+ * auditing the full CMS sitemap on every run.
+ */
+export function pickRepresentativeAuditUrls(urls: string[]): string[] {
+  const byTemplate = new Map<string, string>();
+
+  for (const url of urls) {
+    const pathname = pathnameFromUrl(url);
+    if (hasLocalePrefix(pathname)) continue;
+    const template = classifyTemplate(pathname);
+    if (!byTemplate.has(template)) {
+      byTemplate.set(template, url);
+    }
+  }
+
+  const picked: string[] = [];
+  const seen = new Set<string>();
+
+  const add = (url: string | undefined) => {
+    if (!url) return;
+    const normalized = url.replace(/\/$/, "") || SITE_URL;
+    if (seen.has(normalized)) return;
+    seen.add(normalized);
+    picked.push(url);
+  };
+
+  for (const template of REPRESENTATIVE_TEMPLATE_ORDER) {
+    add(byTemplate.get(template));
+  }
+
+  for (const url of urls) {
+    const pathname = pathnameFromUrl(url);
+    if (hasLocalePrefix(pathname)) continue;
+    add(url);
+  }
+
+  return picked;
+}
+
 export function envMaxUrls(): number | null {
   const raw = process.env.PAGESPEED_MAX_URLS?.trim();
   if (!raw) return null;

@@ -86,20 +86,25 @@ function numberValue(value: unknown): number {
 function isAutomaticProject(input: ProjectContentValidationInput): boolean {
   const detailTags = input.details.map((d) => d.trim().toLowerCase());
   const detailText = detailTags.join(" ");
-  const robotSystem = input.facts?.robotSystem?.toLowerCase() ?? "";
   const cleaningMode = input.facts?.cleaningMode?.toLowerCase() ?? "";
   const automaticRobots = numberValue(input.facts?.automaticRobots);
   const semiAutomaticRobots = numberValue(input.facts?.semiAutomaticRobots);
+  const hasSemiCategory = detailTags.includes("semi-automatic");
   const hasAutomaticCategory = detailTags.includes("automatic");
-  const hasAutomaticRobotCount = /\b[1-9]\d*\s+auto robots?\b/i.test(detailText);
+  const hasAutomaticRobotCount = /\b[1-9]\d*\s+auto(?:matic)?\s+robots?\b/i.test(
+    detailText
+  );
+
+  if (hasSemiCategory && automaticRobots === 0) return false;
+  if (/semi/.test(cleaningMode) && automaticRobots === 0) return false;
+  if (semiAutomaticRobots > 0 && automaticRobots === 0) return false;
 
   return (
     automaticRobots > 0 ||
     hasAutomaticCategory ||
     hasAutomaticRobotCount ||
-    /\b(glyde|glyde-x|nyuma|nyuma-x)\b/i.test(robotSystem) ||
-    /\bfully\s+automatic\b/.test(cleaningMode) ||
-    (semiAutomaticRobots === 0 && /\b(glyde|glyde-x|nyuma|nyuma-x)\b/i.test(detailText))
+    /\b(glyde|glyde-x)\b/i.test(cleaningMode) ||
+    (/\bfully\s+automatic\b/.test(cleaningMode) && semiAutomaticRobots === 0)
   );
 }
 

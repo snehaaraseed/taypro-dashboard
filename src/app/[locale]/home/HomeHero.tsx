@@ -21,9 +21,10 @@ export default async function HomeHero() {
         <div className="absolute inset-0 select-none pointer-events-none" aria-hidden>
           <Image
             src="/tayproasset/cover-solar-hero.webp"
-            alt="Solar Panel Cleaning Robots"
+            alt="Autonomous solar panel cleaning robot operating on a utility-scale solar farm in India"
             fill
             priority
+            fetchPriority="high"
             sizes="100vw"
             className="object-cover object-[72%_100%] origin-bottom-right"
           />

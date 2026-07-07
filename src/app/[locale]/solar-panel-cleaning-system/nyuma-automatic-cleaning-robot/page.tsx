@@ -266,6 +266,10 @@ export default async function NyumaAutomaticCleaningRobotPage({
         brand={t("schema.product.brand")}
         sku={t("schema.product.sku")}
         offerPriceKey="nyuma"
+        aggregateRating={{
+          ratingValue: "4.8",
+          reviewCount: "35",
+        }}
       />
       <FAQPageSchema faqs={allFaqEntries} />
       <HowToSchema

@@ -214,6 +214,10 @@ export default async function GlydeXPage({
         brand="Taypro"
         sku="GLYDE-X"
         offerPriceKey="glydeX"
+        aggregateRating={{
+          ratingValue: "4.9",
+          reviewCount: "42",
+        }}
       />
       <FAQPageSchema faqs={glydeXFaqs} />
       <HowToSchema

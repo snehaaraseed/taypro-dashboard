@@ -79,7 +79,14 @@
       "exploreSolarRobots": "सोलर क्लीनिंग रोबोट",
       "exploreRoi": "ROI कैलकुलेटर",
       "exploreTechnology": "क्लीनिंग तकनीक",
-      "exploreProjects": "प्रोजेक्ट"
+      "exploreProjects": "प्रोजेक्ट",
+      "searchLabel": "ब्लॉग लेख खोजें",
+      "searchPlaceholder": "सौर सफाई, रोबोट, O&M… खोजें",
+      "searchSubmit": "खोज",
+      "searchNoResults": "कोई लेख \"{query}\" से मेल नहीं खाता। व्यापक शब्दों को आज़माएँ या नीचे दिए गए संग्रह को ब्राउज़ करें।",
+      "searchResultsCount": "{count} लेख \"{query}\" से मेल खाते हैं",
+      "metaTitleSearch": "खोजें: {query} | Taypro ब्लॉग",
+      "metaDescriptionSearch": "Taypro के सौर पैनल सफाई रोबोट और O&M लेखों में \"{query}\" के लिए खोज परिणाम।"
     },
     "post": {
       "breadcrumbBlog": "ब्लॉग",

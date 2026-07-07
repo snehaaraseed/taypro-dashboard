@@ -123,12 +123,6 @@ export default async function HomePage() {
         sku="SOLAR-PANEL-CLEANING-ROBOT"
         offerPriceKey="home"
         siteUrl={siteUrl}
-        aggregateRating={{
-          ratingValue: "4.8",
-          reviewCount: "120",
-          bestRating: "5",
-          worstRating: "1",
-        }}
       />
       <FAQPageSchema faqs={homeFaqs} />
 

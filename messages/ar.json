@@ -97,6 +97,9 @@
     "press": "الصحافة والإعلام",
     "careers": "الوظائف",
     "investors": "شركاء ومستثمرون",
+    "productAutomatic": "روبوت تنظيف الألواح الشمسية الأوتوماتيكي",
+    "productTracker": "روبوت تنظيف الألواح الشمسية للتتبع أحادي المحور",
+    "productSemiAutomatic": "روبوت تنظيف الألواح الشمسية شبه الأوتوماتيكي",
     "copyright": "© حقوق النشر {year} – TAYPRO PRIVATE LIMITED. جميع الحقوق محفوظة."
   },
   "NotFoundPage": {

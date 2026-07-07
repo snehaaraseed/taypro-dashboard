@@ -81,13 +81,21 @@ export function parseProjectFactsFromCms(input: {
     const low = d.toLowerCase();
     if (/glyde/i.test(low)) facts.robotSystem = "GLYDE";
     if (/nyuma|helyx/i.test(low)) facts.robotSystem = facts.robotSystem || "NYUMA";
-    if (/automatic/i.test(low)) facts.cleaningMode = "Automatic";
-    if (/semi/i.test(low)) facts.cleaningMode = facts.cleaningMode || "Semi-Automatic";
+    if (/^automatic$/i.test(d.trim())) facts.cleaningMode = "Automatic";
+    if (/^semi-automatic$/i.test(d.trim())) facts.cleaningMode = "Semi-Automatic";
     if (/capex/i.test(low)) facts.procurement = "Capex";
     if (/opex/i.test(low)) facts.procurement = facts.procurement || "Opex";
     if (/nectyr/i.test(low)) facts.nectyr = true;
     if (/tracker/i.test(low)) facts.arrayType = "Single-axis trackers";
     if (/ground/i.test(low)) facts.arrayType = facts.arrayType || "Ground mount";
+  }
+
+  const autoN = Number(facts.automaticRobots) || 0;
+  const semiN = Number(facts.semiAutomaticRobots) || 0;
+  if (!facts.cleaningMode) {
+    if (semiN > 0 && autoN === 0) facts.cleaningMode = "Semi-Automatic";
+    else if (autoN > 0 && semiN === 0) facts.cleaningMode = "Automatic";
+    else if (autoN > 0 && semiN > 0) facts.cleaningMode = "Mixed";
   }
 
   return enrichFactsWithRegionalContext(facts);

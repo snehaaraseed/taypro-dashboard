@@ -79,7 +79,14 @@
       "exploreSolarRobots": "ソーラー清掃ロボット",
       "exploreRoi": "ROI計算機",
       "exploreTechnology": "清掃技術",
-      "exploreProjects": "プロジェクト"
+      "exploreProjects": "プロジェクト",
+      "searchLabel": "ブログ記事を検索",
+      "searchPlaceholder": "太陽清掃、ロボット、O&M を検索…",
+      "searchSubmit": "検索",
+      "searchNoResults": "「{query}」に一致する記事はありませんでした。より広い用語を試すか、以下のアーカイブを参照してください。",
+      "searchResultsCount": "「{query}」に一致する{count}記事",
+      "metaTitleSearch": "検索: {query} | Taypro ブログ",
+      "metaDescriptionSearch": "Taypro のソーラーパネル清掃ロボットと O&M の記事の「{query}」の検索結果。"
     },
     "post": {
       "breadcrumbBlog": "ブログ",

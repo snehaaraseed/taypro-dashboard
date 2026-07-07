@@ -67,38 +67,6 @@ body {
   animation-delay: 0.4s;
 }
 
-/* Blog Editor Styles */
-.ProseMirror {
-  outline: none;
-  min-height: 300px;
-}
-
-.ProseMirror p {
-  margin: 1em 0;
-}
-
-.ProseMirror h1,
-.ProseMirror h2,
-.ProseMirror h3 {
-  line-height: 1.1;
-  margin-top: 2.5rem;
-  text-wrap: pretty;
-}
-
-.ProseMirror h1 {
-  /* Editor heading sizes: larger for better readability while editing */
-  font-size: 2rem; /* approx Tailwind text-3xl */
-}
-
-.ProseMirror h2 {
-  /* Editor h2 should be clearly larger than body text */
-  font-size: 1.5rem; /* approx Tailwind text-2xl */
-}
-
-.ProseMirror h3 {
-  font-size: 1.25rem; /* approx Tailwind text-xl */
-}
-
 /* Ensure published blog content (.prose) uses larger, readable heading sizes */
 .prose h1 {
   font-size: 2.25rem; /* larger page heading */
@@ -108,31 +76,6 @@ body {
 }
 .prose h3 {
   font-size: 1.25rem;
-}
-
-.ProseMirror code {
-  background-color: #f1f5f9;
-  border-radius: 0.375rem;
-  color: #374151;
-  font-size: 0.85em;
-  padding: 0.25em 0.3em;
-}
-
-.ProseMirror pre {
-  background: #0f172a;
-  border-radius: 0.5rem;
-  color: #f8fafc;
-  font-family: "JetBrainsMono", "SFMono-Regular", "SF Mono", "Consolas",
-    "Liberation Mono", "Menlo", monospace;
-  margin: 1.5rem 0;
-  padding: 0.75rem 1rem;
-}
-
-.ProseMirror img.blog-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 0.5rem;
-  margin: 1rem 0;
 }
 
 /* Blog content images styling */
@@ -157,9 +100,8 @@ body {
 
 /*
   Tailwind preflight unstyles lists globally (ol, ul { list-style: none }).
-  Restore markers for the TipTap editor and for rendered rich text (.prose).
+  Restore markers for TipTap editor (.ProseMirror) and rendered rich text (.prose).
 */
-.ProseMirror ul,
 .prose ul {
   list-style-type: disc;
   list-style-position: outside;
@@ -167,7 +109,6 @@ body {
   margin: 1.125rem 0;
 }
 
-.ProseMirror ol,
 .prose ol {
   list-style-type: decimal;
   list-style-position: outside;
@@ -175,40 +116,27 @@ body {
   margin: 1.125rem 0;
 }
 
-.ProseMirror ul ul,
 .prose ul ul {
   list-style-type: circle;
   margin: 0.5rem 0;
 }
 
-.ProseMirror ul ul ul,
 .prose ul ul ul {
   list-style-type: square;
 }
 
-.ProseMirror ol ol,
 .prose ol ol {
   list-style-type: lower-alpha;
 }
 
-.ProseMirror li,
 .prose li {
   display: list-item;
 }
 
-.ProseMirror li > p,
-.ProseMirror li > ol,
-.ProseMirror li > ul,
 .prose li > p,
 .prose li > ol,
 .prose li > ul {
   margin: 0;
-}
-
-.ProseMirror blockquote {
-  border-left: 3px solid #e5e7eb;
-  margin: 1.5rem 0;
-  padding-left: 1rem;
 }
 
 /* Rich-text links (.prose only), avoid styling CTA links inside <article> cards */
@@ -332,105 +260,7 @@ a.internal-link:hover {
   animation-delay: -0.16s;
 }
 
-/* Table resize cursor indicators */
-.ProseMirror table {
-  position: relative;
-}
 
-.ProseMirror table th,
-.ProseMirror table td {
-  position: relative;
-}
-
-/* TipTap resize handles - make them visible */
-.ProseMirror table .column-resize-handle {
-  position: absolute;
-  right: -2px;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background-color: transparent;
-  cursor: col-resize;
-  z-index: 20;
-  user-select: none;
-  pointer-events: auto;
-}
-
-.ProseMirror table .column-resize-handle:hover {
-  background-color: #3b82f6;
-  width: 4px;
-}
-
-.ProseMirror table .row-resize-handle {
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background-color: transparent;
-  cursor: row-resize;
-  z-index: 20;
-  user-select: none;
-  pointer-events: auto;
-}
-
-.ProseMirror table .row-resize-handle:hover {
-  background-color: #3b82f6;
-  height: 4px;
-}
-
-/* Column resize zones - right border of cells */
-.ProseMirror table th:not(:last-child)::after,
-.ProseMirror table td:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  right: -3px;
-  top: 0;
-  bottom: 0;
-  width: 6px;
-  cursor: col-resize;
-  z-index: 15;
-  pointer-events: auto;
-  background-color: transparent;
-  transition: background-color 0.2s;
-}
-
-.ProseMirror table th:not(:last-child):hover::after,
-.ProseMirror table td:not(:last-child):hover::after {
-  background-color: rgba(59, 130, 246, 0.2);
-}
-
-/* Row resize zones - bottom border of cells */
-.ProseMirror table tr:not(:last-child) th::before,
-.ProseMirror table tr:not(:last-child) td::before {
-  content: "";
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  right: 0;
-  height: 6px;
-  cursor: row-resize;
-  z-index: 15;
-  pointer-events: auto;
-  background-color: transparent;
-  transition: background-color 0.2s;
-}
-
-.ProseMirror table tr:not(:last-child) th:hover::before,
-.ProseMirror table tr:not(:last-child) td:hover::before {
-  background-color: rgba(59, 130, 246, 0.2);
-}
-
-/* Make borders slightly thicker and change color on hover for better visibility */
-.ProseMirror table th:not(:last-child),
-.ProseMirror table td:not(:last-child) {
-  border-right-width: 2px;
-}
-
-.ProseMirror table tr:not(:last-child) th,
-.ProseMirror table tr:not(:last-child) td {
-  border-bottom-width: 2px;
-}
 
 /* Team cards hover effect - scale down siblings when one is hovered */
 .team-cards-container:has(.team-card:hover) .team-card:not(:hover) {

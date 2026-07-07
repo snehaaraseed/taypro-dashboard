@@ -97,6 +97,9 @@
     "press": "Press & Media",
     "careers": "Careers",
     "investors": "Partners & Investors",
+    "productAutomatic": "Automatic Solar Panel Cleaning Robot",
+    "productTracker": "Single-Axis Tracker Solar Panel Cleaning Robot",
+    "productSemiAutomatic": "Semi-Automatic Solar Panel Cleaning Robot",
     "copyright": "© Copyright {year} – TAYPRO PRIVATE LIMITED. All Rights Reserved."
   },
   "NotFoundPage": {

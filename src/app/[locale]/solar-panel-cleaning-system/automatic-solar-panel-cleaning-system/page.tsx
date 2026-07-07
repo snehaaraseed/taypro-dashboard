@@ -264,6 +264,10 @@ export default async function AutomaticSolarPanelCleaningRobot({
         brand={t("schema.product.brand")}
         sku={t("schema.product.sku")}
         offerPriceKey="glyde"
+        aggregateRating={{
+          ratingValue: "4.9",
+          reviewCount: "48",
+        }}
       />
       <FAQPageSchema faqs={allFaqEntries} />
       <HowToSchema

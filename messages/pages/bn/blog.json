@@ -79,7 +79,14 @@
       "exploreSolarRobots": "সোলার পরিষ্কার রোবট",
       "exploreRoi": "ROI ক্যালকুলেটর",
       "exploreTechnology": "পরিষ্কার প্রযুক্তি",
-      "exploreProjects": "প্রকল্প"
+      "exploreProjects": "প্রকল্প",
+      "searchLabel": "ব্লগ নিবন্ধ অনুসন্ধান করুন",
+      "searchPlaceholder": "সৌর পরিষ্কার, রোবট, O&M… অনুসন্ধান করুন",
+      "searchSubmit": "অনুসন্ধান করুন",
+      "searchNoResults": "\"{query}\" এর সাথে কোনো নিবন্ধ মেলেনি৷ বিস্তৃত শর্তাবলী চেষ্টা করুন বা নীচের সংরক্ষণাগার ব্রাউজ করুন.",
+      "searchResultsCount": "{count} নিবন্ধ(গুলি) মিলছে “{query}”",
+      "metaTitleSearch": "অনুসন্ধান করুন: {query} | Taypro ব্লগ",
+      "metaDescriptionSearch": "Taypro এর সৌর প্যানেল পরিষ্কারকারী রোবট এবং O&M নিবন্ধগুলিতে “{query}”-এর অনুসন্ধানের ফলাফল।"
     },
     "post": {
       "breadcrumbBlog": "ব্লগ",

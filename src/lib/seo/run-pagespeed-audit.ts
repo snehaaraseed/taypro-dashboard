@@ -32,11 +32,13 @@ import type {
 } from "@/lib/seo/pagespeed-types";
 import {
   classifyTemplate,
+  envAuditMode,
   envAuditScope,
   envMaxUrls,
   fetchSitemapUrls,
   filterAuditUrls,
   pathnameFromUrl,
+  pickRepresentativeAuditUrls,
 } from "@/lib/seo/pagespeed-urls";
 
 function currentRunId(): string {
@@ -143,6 +145,9 @@ export async function runPagespeedAudit(
   try {
     const sitemapUrls = await fetchSitemapUrls();
     let urls = filterAuditUrls(sitemapUrls, auditScope);
+    if (envAuditMode() === "representative") {
+      urls = pickRepresentativeAuditUrls(urls);
+    }
     const maxUrls = envMaxUrls();
     if (maxUrls != null) urls = urls.slice(0, maxUrls);
 

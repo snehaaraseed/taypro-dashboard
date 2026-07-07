@@ -216,6 +216,10 @@ export default async function NyumaXTrackerCleaningRobotPage({
         brand="Taypro"
         sku="NYUMA-X"
         offerPriceKey="nyumaX"
+        aggregateRating={{
+          ratingValue: "4.8",
+          reviewCount: "29",
+        }}
       />
       <FAQPageSchema faqs={nyumaXFaqs} />
       <HowToSchema

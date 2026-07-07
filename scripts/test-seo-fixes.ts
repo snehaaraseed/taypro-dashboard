@@ -19,6 +19,14 @@ import { getSitemapLocalesForPath } from "../src/lib/seo/sitemap-locales";
 import { isLocalePageSubstantivelyTranslated } from "../src/lib/seo/locale-page-quality";
 import { normalizeHeadingLevels } from "../src/lib/seo/html-toc";
 import { isDraftProjectSlug } from "../src/lib/seo/draft-project-slugs";
+import { renderToStaticMarkup } from "react-dom/server";
+import { SiteGraphSchema } from "../src/app/components/StructuredData";
+import {
+  blogListQuerySuffix,
+  filterBlogsByQuery,
+} from "../src/lib/seo/blog-search";
+import { pickRepresentativeAuditUrls } from "../src/lib/seo/pagespeed-urls";
+import { contentHasSourcesSection } from "../src/lib/seo/citation-sources";
 
 assert.equal(localizedUrl("/blog/test", "en"), "https://taypro.in/blog/test");
 assert.equal(localizedUrl("/blog/test", "hi"), "https://taypro.in/hi/blog/test");
@@ -153,7 +161,6 @@ assert.equal(
   "https://taypro.in/hi/compare/taypro-vs-solabot"
 );
 
-import { renderToStaticMarkup } from "react-dom/server";
 assert.match(
   renderToStaticMarkup(
     React.createElement(BreadcrumbListSchema, {
@@ -445,6 +452,75 @@ assert.equal(DRAFT_PROJECT_PEER_SLUGS.size, 17);
 assert.ok(isDraftProjectSlug("yavatmal-undarni-7-mw"));
 const normalized = normalizeHeadingLevels("<h2>A</h2><h4>B</h4>");
 assert.match(normalized, /<h3>B<\/h3>/);
+
+const siteGraphHtml = renderToStaticMarkup(
+  React.createElement(SiteGraphSchema, { siteUrl: "https://taypro.in" })
+);
+const siteGraphJson = siteGraphHtml.match(/<script[^>]*>([\s\S]*?)<\/script>/)?.[1];
+assert.ok(siteGraphJson, "SiteGraphSchema renders JSON-LD");
+const siteGraph = JSON.parse(siteGraphJson) as {
+  "@graph": Array<Record<string, unknown>>;
+};
+assert.ok(
+  siteGraph["@graph"].some(
+    (node) => node["@id"] === "https://taypro.in/#organization"
+  ),
+  "SiteGraphSchema must include Organization #organization for Article/Product publisher linking"
+);
+assert.ok(
+  siteGraph["@graph"].some(
+    (node) => node["@id"] === "https://taypro.in/#localbusiness"
+  ),
+  "SiteGraphSchema must retain LocalBusiness node"
+);
+
+const filteredBlogs = filterBlogsByQuery(
+  [
+    {
+      title: "Solar panel cleaning robot guide",
+      description: "Dry O&M for utility plants",
+      slug: "robot-guide",
+      href: "/blog/robot-guide",
+      featuredImage: "",
+      author: "Taypro Team",
+      publishDate: "2026-01-01",
+      source: "db",
+    },
+    {
+      title: "Manual cleaning costs",
+      description: "Labor pricing in India",
+      slug: "manual-costs",
+      href: "/blog/manual-costs",
+      featuredImage: "",
+      author: "Taypro Team",
+      publishDate: "2026-01-01",
+      source: "db",
+    },
+  ],
+  "robot cleaning"
+);
+assert.equal(filteredBlogs.length, 1);
+assert.equal(filteredBlogs[0]?.slug, "robot-guide");
+
+assert.equal(blogListQuerySuffix(2, "solar"), "?page=2&q=solar");
+assert.equal(blogListQuerySuffix(1, "solar"), "?q=solar");
+
+const representative = pickRepresentativeAuditUrls([
+  "https://taypro.in/",
+  "https://taypro.in/blog",
+  "https://taypro.in/blog/sample-post",
+  "https://taypro.in/solar-panel-cleaning-system",
+  "https://taypro.in/hi/blog",
+]);
+assert.ok(representative.includes("https://taypro.in/"));
+assert.ok(representative.includes("https://taypro.in/blog/sample-post"));
+assert.ok(!representative.some((url) => url.includes("/hi/")));
+
+assert.ok(
+  contentHasSourcesSection(
+    '<h2>Sources and further reading</h2><ul><li><a href="https://example.com">Example</a></li></ul>'
+  )
+);
 
 import { clientNamespacesForPathname } from "../src/i18n/client-message-namespaces";
 import { loadMessagesForPath } from "../src/i18n/load-messages";

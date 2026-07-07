@@ -4,6 +4,10 @@ import { generateAutomationText } from "@/lib/gemini/generate-automation-text";
 import { parseGeminiJsonObject } from "@/lib/gemini/parse-json-response";
 import type { SerpResearchBrief } from "@/lib/gemini/grounded-serp-research";
 import type { FactResearchBrief } from "@/lib/gemini/grounded-fact-research";
+import {
+  contentHasSourcesSection,
+  SOURCES_SECTION_HEADING,
+} from "@/lib/seo/citation-sources";
 
 /**
  * Inline grounded citations.
@@ -31,7 +35,7 @@ export type CitationResult = {
 const OWN_DOMAINS = ["taypro.in", "taypro.com", "www.taypro.in", "www.taypro.com"];
 const MAX_SOURCES = 6;
 const MAX_INLINE = 3;
-const SOURCES_HEADING = "Sources and further reading";
+const SOURCES_HEADING = SOURCES_SECTION_HEADING;
 
 export function inlineCitationsEnabled(): boolean {
   return process.env.BLOG_INLINE_CITATIONS?.trim().toLowerCase() !== "false";
@@ -96,7 +100,7 @@ function buildSourcesSection(sources: CitationSource[]): string {
 }
 
 function hasSourcesSection(html: string): boolean {
-  return new RegExp(SOURCES_HEADING, "i").test(html);
+  return contentHasSourcesSection(html);
 }
 
 /** True when `index` in `html` lies inside an HTML tag or an existing anchor. */

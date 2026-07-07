@@ -68,15 +68,15 @@ export default async function Footer() {
 
   const exploreProducts: FooterLink[] = [
     {
-      name: "Automatic Solar Panel Cleaning Robot",
+      name: t("productAutomatic"),
       href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system",
     },
     {
-      name: "Single-Axis Tracker Solar Panel Cleaning Robot",
+      name: t("productTracker"),
       href: "/solar-panel-cleaning-system/automatic-solar-panel-cleaning-system-for-single-axis-trackers",
     },
     {
-      name: "Semi-Automatic Solar Panel Cleaning Robot",
+      name: t("productSemiAutomatic"),
       href: "/solar-panel-cleaning-system/semi-automatic-solar-panel-cleaning-system",
     },
   ];

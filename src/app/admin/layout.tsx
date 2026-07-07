@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AdminNavWrapper from "./components/AdminNavWrapper";
+import "./admin-editor.css";
 
 export const metadata: Metadata = {
   robots: {

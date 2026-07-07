@@ -1681,6 +1681,7 @@ FAQ rules for the "faqs" array:
       volumeBucket: options?.volumeBucket ?? seoBrief?.volumeBucket,
       competitionIndex: options?.competitionIndex ?? seoBrief?.competitionIndex,
       contentFormat: options?.contentFormat,
+      author: options?.author?.name,
     };
 
     let validation = validateGeneratedBlog(validationInput);

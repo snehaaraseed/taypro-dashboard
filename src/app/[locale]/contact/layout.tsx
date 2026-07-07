@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { withHreflang } from "@/lib/seo/with-hreflang";
+import { socialImagesFromPreset } from "@/lib/seo/open-graph";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const contactOg = socialImagesFromPreset("contact");
 
 export async function generateMetadata({
   params,
@@ -20,20 +22,12 @@ export async function generateMetadata({
       description: t("description"),
       url: `${siteUrl}/contact`,
       type: "website",
-      images: [
-        {
-          url: `${siteUrl}/tayproasset/taypro-robotImage.webp`,
-          width: 1200,
-          height: 630,
-          alt: "Contact Taypro for Solar Panel Cleaning Robot Solutions",
-        },
-      ],
+      ...contactOg.openGraph,
     },
     twitter: {
-      card: "summary_large_image",
+      ...contactOg.twitter,
       title: t("title"),
       description: t("description"),
-      images: [`${siteUrl}/tayproasset/taypro-robotImage.webp`],
     },
   });
 }

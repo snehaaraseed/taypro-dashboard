@@ -24,11 +24,19 @@ import {
   blogListPageUrl,
   blogListPaginationLinks,
 } from "@/lib/seo/blog-pagination";
+import { socialImagesFromPreset } from "@/lib/seo/open-graph";
 import { withHreflang } from "@/lib/seo/with-hreflang";
 import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
+import { BlogSearchForm } from "@/app/components/BlogSearchForm";
+import {
+  blogListQuerySuffix,
+  filterBlogsByQuery,
+  parseBlogSearchQuery,
+} from "@/lib/seo/blog-search";
 
 const PAGE_SIZE = BLOG_LIST_PAGE_SIZE;
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in";
+const blogOg = socialImagesFromPreset("blog");
 
 const FEATURED_TOPIC_HREFS = [
   "/blog/the-complete-guide-to-solar-panel-maintenance",
@@ -67,7 +75,7 @@ async function getPublishedBlogs(locale: string): Promise<DynamicBlog[]> {
 
 type BlogPageProps = {
   params: Promise<{ locale: string }>;
-  searchParams?: Promise<{ page?: string | string[] }>;
+  searchParams?: Promise<{ page?: string | string[]; q?: string | string[] }>;
 };
 
 export async function generateMetadata({
@@ -76,11 +84,15 @@ export async function generateMetadata({
 }: BlogPageProps): Promise<Metadata> {
   const { locale } = await params;
   const sp = (await searchParams) ?? {};
+  const searchQuery = parseBlogSearchQuery(sp.q);
   const pageRaw = Array.isArray(sp.page) ? sp.page[0] : sp.page;
   const parsed = parseInt(String(pageRaw || "1"), 10);
   const pageNum = Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
 
-  const dynamicBlogs = await getPublishedBlogs(locale);
+  const dynamicBlogs = filterBlogsByQuery(
+    await getPublishedBlogs(locale),
+    searchQuery
+  );
   const totalPages = Math.max(1, Math.ceil(dynamicBlogs.length / PAGE_SIZE));
   const page = Math.min(pageNum, totalPages);
   const t = await getTranslations({ locale, namespace: "BlogPage.index" });
@@ -89,19 +101,20 @@ export async function generateMetadata({
   const pagination = blogListPaginationLinks(siteUrl, page, totalPages);
 
   const title =
-    page <= 1
-      ? t("metaTitle")
-      : t("metaTitlePaged", { page });
+    searchQuery
+      ? t("metaTitleSearch", { query: searchQuery })
+      : page <= 1
+        ? t("metaTitle")
+        : t("metaTitlePaged", { page });
 
   const description =
-    page <= 1
-      ? t("metaDescription")
-      : t("metaDescriptionPaged", { page });
+    searchQuery
+      ? t("metaDescriptionSearch", { query: searchQuery })
+      : page <= 1
+        ? t("metaDescription")
+        : t("metaDescriptionPaged", { page });
 
-  const listPath = blogListPagePath(page);
-  const querySuffix = listPath.includes("?")
-    ? listPath.slice(listPath.indexOf("?"))
-    : "";
+  const canonicalSuffix = blogListQuerySuffix(page, searchQuery);
 
   return withHreflang(
     "/blog",
@@ -109,6 +122,9 @@ export async function generateMetadata({
     {
     title: { absolute: title },
     description,
+    ...(searchQuery
+      ? { robots: { index: false, follow: true } }
+      : {}),
     ...(pagination.previous || pagination.next
       ? {
           pagination: {
@@ -132,11 +148,17 @@ export async function generateMetadata({
       description,
       url: canonical,
       type: "website",
+      ...blogOg.openGraph,
+    },
+    twitter: {
+      title,
+      description,
+      ...blogOg.twitter,
     },
   },
-    page <= 1
+    page <= 1 && !searchQuery
       ? {}
-      : { canonicalSuffix: querySuffix, omitHreflangLanguages: true }
+      : { canonicalSuffix, omitHreflangLanguages: true }
   );
 }
 
@@ -150,6 +172,7 @@ export default async function Blog({
   const tLead = await getTranslations({ locale, namespace: "Forms.leadModal" });
 
   const sp = (await searchParams) ?? {};
+  const searchQuery = parseBlogSearchQuery(sp.q);
   const pageRaw = Array.isArray(sp.page) ? sp.page[0] : sp.page;
   const parsed = parseInt(String(pageRaw || "1"), 10);
   const pageNum = Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
@@ -175,7 +198,10 @@ export default async function Blog({
     href: link.href,
   }));
 
-  const dynamicBlogs = await getPublishedBlogs(locale);
+  const dynamicBlogs = filterBlogsByQuery(
+    await getPublishedBlogs(locale),
+    searchQuery
+  );
   const total = dynamicBlogs.length;
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
   const page = Math.min(pageNum, totalPages);
@@ -256,6 +282,24 @@ export default async function Blog({
             </>
           }
         />
+
+        <section className="w-full bg-[#052638] pb-8">
+          <Container>
+            <BlogSearchForm
+              initialQuery={searchQuery}
+              placeholder={t("searchPlaceholder")}
+              label={t("searchLabel")}
+              submitLabel={t("searchSubmit")}
+            />
+            {searchQuery ? (
+              <p className="mt-4 text-center text-sm text-white/75">
+                {total === 0
+                  ? t("searchNoResults", { query: searchQuery })
+                  : t("searchResultsCount", { count: total, query: searchQuery })}
+              </p>
+            ) : null}
+          </Container>
+        </section>
 
         {/* Quick links */}
         <section className="w-full py-10 md:py-12 bg-[#052638]">

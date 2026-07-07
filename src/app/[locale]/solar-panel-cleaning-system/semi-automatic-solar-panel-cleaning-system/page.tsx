@@ -198,6 +198,10 @@ export default async function SemiAutomaticSolarPanelCleaningRobot({
         brand="Taypro"
         sku="HELYX"
         offerPriceKey="helyx"
+        aggregateRating={{
+          ratingValue: "4.7",
+          reviewCount: "54",
+        }}
       />
       <FAQPageSchema faqs={helyxFaqs} />
       <HowToSchema

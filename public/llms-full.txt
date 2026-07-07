@@ -1,0 +1,65 @@
+# Taypro - Full AI Reference & Product Specifications
+
+> Complete technical data, product specifications, operations guidelines, and B2B procurement details for Taypro solar panel cleaning field robots.
+
+---
+
+## Technical Specifications
+
+### GLYDE – Flagship Automatic Robot (Fixed-Tilt)
+- **Cleaning Technology**: Dual-pass dry microfiber brushes.
+- **Drive System**: Crawler tracks, direct-drive brushless DC motors.
+- **Water Consumption**: 0 liters/MW (100% waterless).
+- **Speed**: 12–15 meters per minute.
+- **Capacity**: Cleans up to 1.5–2.0 MWp of solar arrays per day.
+- **Power**: High-capacity rechargeable lithium-iron-phosphate (LiFePO4) battery pack.
+- **Telemetry**: LoRaWAN / GSM connection to NECTYR fleet management portal.
+- **Safety**: Multi-sensor obstacle detection, slope tilt sensors, mechanical boundary limits.
+
+### GLYDE-X – Single-Axis Tracker Robot
+- **Track Compatibility**: Works with all major tracker OEMs (NexTracker, Arctech, Soltec, etc.).
+- **Docking System**: Automated CRADYL row-transfer station for parking and charging.
+- **Slope Capability**: Handles tracker tilt changes up to 60 degrees.
+- **Cleaning Technology**: Microfiber active roller brush with variable speed control.
+
+### NYUMA – Heavy-Duty PBT Automatic Robot
+- **Cleaning Technology**: Polybutylene terephthalate (PBT) single-pass cylindrical brush.
+- **Soiling Profile**: Optimized for high-dust, desert environments (Rajasthan, Gujarat).
+- **Drive System**: High-grip polyurethane wheels on panel margins.
+
+### HELYX – Semi-Automatic Robot
+- **Portability**: Lightweight aluminum frame, handles for manual row-to-row shifting.
+- **Target Market**: Distributed generation, rooftop C&I, and utility arrays with short rows.
+
+---
+
+## Deployed Capacity & Impact (Verified Stats)
+- **Deployed Capacity**: 5 GW+ robot capacity deployed globally.
+- **Live Deployed Sites**: 150+ utility-scale solar farms.
+- **Generation Gains**: 188 GWh+ additional clean energy recovered through soiling prevention.
+- **Water Saved**: 700M+ liters of water saved annually compared to wet manual washing.
+- **Cleaning Efficiency**: 99.2% average cleaning efficiency (dust/sand removal rate).
+- **Production Output**: 600+ robots manufactured per month at the Chakan, Pune hub.
+
+---
+
+## NECTYR Fleet Management & Monitoring
+NECTYR is Taypro's cloud-native fleet operations software for real-time robotic O&M:
+- **Telemetry Monitoring**: Track battery state of charge (SoC), operational status, brush wear, and motor torque anomalies.
+- **Scheduling**: Automated run triggers based on localized weather API forecasts (soiling indices).
+- **Ticketing & Alerts**: Direct alerts for array alignment faults, stuck robots, or communication drops.
+- **Analytics**: Historical cleaning coverage maps, site productivity logs, and energy recovery estimations.
+
+---
+
+## Enterprise Pricing & Procurement Models
+Taypro operates two financial models for B2B solar asset owners and IPPs in India:
+1. **CAPEX Model**:
+   - Upfront procurement of robots, row docking stations (CRADYL), and LoRa base stations.
+   - Comprehensive Annual Maintenance Contracts (AMC) covering spares and calibration.
+   - Software licensing for NECTYR operations console.
+2. **OPEX Model (Robotics-as-a-Service / RaaS)**:
+   - 0 upfront cost for hardware.
+   - Fixed monthly rate per MWp cleaned.
+   - Taypro handles all deployment, spares, battery replacements, and field operations.
+   - Guaranteed cleaning SLAs aligned with plant generation recovery targets.

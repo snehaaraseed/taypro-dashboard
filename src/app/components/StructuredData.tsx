@@ -1,4 +1,5 @@
 import type { ProductSchemaPriceKey } from "@/lib/seo/product-schema-prices";
+import { getProductSchemaOfferPrice } from "@/lib/seo/product-schema-prices";
 import { localizedUrl } from "@/lib/seo/locale-alternates";
 
 export { STANDARD_PRODUCT_OFFER_PRICE_INR } from "@/lib/seo/product-schema-prices";
@@ -52,14 +53,17 @@ interface ProductSchemaProps {
 
 function buildSchemaOffer({
   siteUrl,
+  offerPriceKey,
   offers,
 }: {
   offerPriceKey?: ProductSchemaPriceKey;
   offers?: SchemaOfferProps;
   siteUrl: string;
 }) {
+  const price = getProductSchemaOfferPrice(offerPriceKey, offers?.price);
   return {
     "@type": "Offer",
+    price: price,
     priceCurrency: offers?.priceCurrency || "INR",
     availability: offers?.availability || "https://schema.org/InStock",
     url: `${siteUrl}/contact`,
@@ -224,8 +228,7 @@ function buildWebSiteNode({
     description:
       "Taypro - Leading manufacturer of Solar Panel Cleaning Robots for solar farms in India",
     publisher: {
-      "@type": "Organization",
-      name: "Taypro",
+      "@id": `${siteUrl}/#organization`,
     },
   };
 
@@ -243,7 +246,7 @@ function buildWebSiteNode({
   return schema;
 }
 
-/** One JSON-LD script for site-wide LocalBusiness + WebSite (@graph). */
+/** One JSON-LD script for site-wide Organization + LocalBusiness + WebSite (@graph). */
 export function SiteGraphSchema({
   siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://taypro.in",
   logo = "https://taypro.in/tayproasset/taypro-logo.png",
@@ -259,6 +262,7 @@ export function SiteGraphSchema({
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
+      buildOrganizationNode({ siteUrl, logo, contactPoint, sameAs }),
       buildLocalBusinessNode({ siteUrl, logo, contactPoint, sameAs }),
       buildWebSiteNode({ siteUrl, searchAction }),
     ],
@@ -590,6 +594,10 @@ export function ArticleSchema({
       /** Link to the site-level @id to enable KG entity cross-referencing. */
       "@id": `${siteUrl}/#organization`,
     },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".prose h1", ".prose > p:first-of-type"],
+    },
   };
 
   if (image) {
@@ -632,9 +640,11 @@ export function ArticleSchema({
       name: author.name,
     };
     if (author.url) {
-      authorNode.url = author.url.startsWith("http")
+      const fullAuthorUrl = author.url.startsWith("http")
         ? author.url
         : `${siteUrl}${author.url.startsWith("/") ? "" : "/"}${author.url}`;
+      authorNode.url = fullAuthorUrl;
+      authorNode["@id"] = `${fullAuthorUrl}#person`;
     }
     schema.author = authorNode;
   }
@@ -766,7 +776,7 @@ export function LocalBusinessSchema({
   const schema: any = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": `${siteUrl}/#organization`,
+    "@id": `${siteUrl}/#localbusiness`,
     name: name,
     description: description,
     address: {
@@ -973,6 +983,7 @@ export function ProfilePageSchema({
 }: ProfilePageSchemaProps) {
   const person: Record<string, unknown> = {
     "@type": "Person",
+    "@id": `${url}#person`,
     name,
     description,
     url,
