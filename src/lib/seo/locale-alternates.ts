@@ -30,7 +30,7 @@ export function localizedUrl(
 ): string {
   const path = normalizeInternalPath(internalPath);
   if (locale === routing.defaultLocale) {
-    return `${SITE_URL}${path === "/" ? "" : path}` || SITE_URL;
+    return `${SITE_URL}${path === "/" ? "/" : path}` || SITE_URL;
   }
   return `${SITE_URL}/${locale}${path === "/" ? "" : path}`;
 }
