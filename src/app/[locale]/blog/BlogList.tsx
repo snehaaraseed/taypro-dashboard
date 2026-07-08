@@ -6,6 +6,7 @@ import Image from "next/image";
 import { AnimateOnScroll } from "@/app/components/AnimateOnScroll";
 import { trackBlogClick } from "@/lib/analytics/track-event";
 import { shouldServeImageUnoptimized } from "@/lib/site-images";
+import { normalizeCmsImageSrc } from "@/lib/seo/cms-image-rewrites";
 
 export interface BlogItem {
   title: string;
@@ -104,7 +105,7 @@ export default function BlogList({ blogs }: BlogListProps) {
 
                 {blog.imgSrc ? (
                   <Image
-                    src={blog.imgSrc}
+                    src={normalizeCmsImageSrc(blog.imgSrc)}
                     alt={blog.imgAlt}
                     title={blog.title}
                     fill

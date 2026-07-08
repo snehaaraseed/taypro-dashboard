@@ -27,6 +27,15 @@ import {
 } from "../src/lib/seo/blog-search";
 import { pickRepresentativeAuditUrls } from "../src/lib/seo/pagespeed-urls";
 import { contentHasSourcesSection } from "../src/lib/seo/citation-sources";
+import {
+  buildPagespeedAlerts,
+  evaluatePagespeedAlert,
+} from "../src/lib/seo/pagespeed-alerts";
+import { parseBlogContentSegments } from "../src/lib/seo/parse-blog-content-segments";
+import {
+  assessReadability,
+  computeReadabilityMetrics,
+} from "../src/lib/seo/readability";
 
 assert.equal(localizedUrl("/blog/test", "en"), "https://taypro.in/blog/test");
 assert.equal(localizedUrl("/blog/test", "hi"), "https://taypro.in/hi/blog/test");
@@ -520,6 +529,76 @@ assert.ok(
   contentHasSourcesSection(
     '<h2>Sources and further reading</h2><ul><li><a href="https://example.com">Example</a></li></ul>'
   )
+);
+
+const blogSegments = parseBlogContentSegments(
+  '<p>Intro</p><figure class="blog-inline-figure"><img src="/uploads/2026/01/blog-inline-test.webp" alt="Solar robot cleaning panels on tracker rows" width="1024" height="576" class="w-full rounded-lg" /><figcaption>Dust removal on a Gujarat utility site</figcaption></figure><p>Outro</p>'
+);
+assert.equal(blogSegments.length, 3);
+assert.equal(blogSegments[0]?.kind, "html");
+assert.equal(blogSegments[1]?.kind, "image");
+if (blogSegments[1]?.kind === "image") {
+  assert.equal(blogSegments[1].src, "/uploads/2026/01/blog-inline-test.webp");
+  assert.equal(
+    blogSegments[1].caption,
+    "Dust removal on a Gujarat utility site"
+  );
+}
+
+const slowLcpAlert = evaluatePagespeedAlert({
+  url: "https://taypro.in/",
+  pathname: "/",
+  template: "home",
+  mobileScore: 62,
+  lcp: "3.8 s",
+  lcpMs: 3800,
+  cls: "0",
+  tbt: "200 ms",
+  speedIndex: "3.1 s",
+  gscImpressions: 1200,
+  gscClicks: 40,
+  impactScore: 42,
+  topOpportunities: [{ id: "lcp", title: "Largest Contentful Paint", savingsMs: 900 }],
+});
+assert.ok(slowLcpAlert);
+assert.equal(slowLcpAlert?.reason, "slow_lcp");
+
+const alertsSnapshot = buildPagespeedAlerts(
+  [
+    {
+      url: "https://taypro.in/",
+      pathname: "/",
+      template: "home",
+      mobileScore: 62,
+      previousMobileScore: 74,
+      scoreDelta: -12,
+      lcp: "3.8 s",
+      lcpMs: 3800,
+      cls: "0",
+      tbt: "200 ms",
+      speedIndex: "3.1 s",
+      gscImpressions: 1200,
+      gscClicks: 40,
+      impactScore: 42,
+      topOpportunities: [],
+    },
+  ],
+  "2026-07"
+);
+assert.ok(alertsSnapshot.alerts.length >= 1);
+
+const readable = computeReadabilityMetrics(
+  "<p>Solar robots clean large plants at night. Teams use the logs to confirm coverage. Short sentences keep the operating advice easy to scan.</p>"
+);
+assert.ok(readable.fleschReadingEase > 45);
+assert.ok(readable.fleschKincaidGrade < 12);
+
+const denseAssessment = assessReadability(
+  `<p>${"Utility-scale photovoltaic operations require multifactorial contractual, meteorological, electromechanical, logistical, and financial coordination across geographically distributed assets without adequate segmentation, prioritization, dispatch clarity, or reader-friendly sentence boundaries. ".repeat(8)}</p>`
+);
+assert.ok(
+  denseAssessment.warnings.length > 0 || denseAssessment.blockers.length > 0,
+  "dense AI prose should produce readability warnings or blockers"
 );
 
 import { clientNamespacesForPathname } from "../src/i18n/client-message-namespaces";

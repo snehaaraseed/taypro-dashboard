@@ -4,10 +4,23 @@ import type { FactResearchBrief } from "@/lib/gemini/grounded-fact-research";
 import type { SerpResearchBrief } from "@/lib/gemini/grounded-serp-research";
 import { h2OutlineCovered } from "@/lib/seo/blog-section-writer";
 import type { ResearchReportPlan } from "@/lib/insights/research-report-planner";
+import {
+  assessReadability,
+  type ReadabilityMetrics,
+} from "@/lib/seo/readability";
 
 export type ResearchValidationResult =
-  | { ok: true }
-  | { ok: false; errors: string[] };
+  | {
+      ok: true;
+      warnings?: string[];
+      readability?: ReadabilityMetrics;
+    }
+  | {
+      ok: false;
+      errors: string[];
+      warnings?: string[];
+      readability?: ReadabilityMetrics;
+    };
 
 export const RESEARCH_MIN_WORD_COUNT = (() => {
   const raw = process.env.RESEARCH_INSIGHT_MIN_WORDS?.trim();
@@ -100,6 +113,9 @@ export function validateResearchInsightContent(
   const errors: string[] = [];
   const minWords = options?.minWords ?? RESEARCH_MIN_WORD_COUNT;
   const minSourceLinks = options?.minSourceLinks ?? RESEARCH_MIN_SOURCE_LINKS;
+  const readability = assessReadability(html);
+  const warnings = readability.warnings;
+  errors.push(...readability.blockers);
 
   if (/<h1[\s>]/i.test(html)) {
     errors.push("Content must not include <h1> (page title is rendered separately).");
@@ -168,7 +184,14 @@ export function validateResearchInsightContent(
     }
   }
 
-  return errors.length ? { ok: false, errors } : { ok: true };
+  return errors.length
+    ? {
+        ok: false,
+        errors,
+        warnings,
+        readability: readability.metrics,
+      }
+    : { ok: true, warnings, readability: readability.metrics };
 }
 
 export function mergeResearchSources(

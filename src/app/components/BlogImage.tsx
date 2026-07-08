@@ -10,6 +10,8 @@ interface BlogImageProps {
   alt: string;
   className?: string;
   fill?: boolean;
+  width?: number;
+  height?: number;
   sizes?: string;
   priority?: boolean;
 }
@@ -19,6 +21,8 @@ export function BlogImage({
   alt,
   className = "",
   fill = false,
+  width,
+  height,
   sizes,
   priority = false,
 }: BlogImageProps) {
@@ -33,17 +37,26 @@ export function BlogImage({
     );
   }
 
+  const shared = {
+    src: imgSrc,
+    alt,
+    className,
+    sizes,
+    priority,
+    loading: priority ? ("eager" as const) : ("lazy" as const),
+    onError: () => setError(true),
+    unoptimized: shouldServeImageUnoptimized(imgSrc),
+  };
+
+  if (fill) {
+    return <Image {...shared} fill />;
+  }
+
   return (
     <Image
-      src={imgSrc}
-      alt={alt}
-      fill={fill}
-      className={className}
-      sizes={sizes}
-      priority={priority}
-      loading={priority ? "eager" : "lazy"}
-      onError={() => setError(true)}
-      unoptimized={shouldServeImageUnoptimized(imgSrc)}
+      {...shared}
+      width={width ?? 1024}
+      height={height ?? 576}
     />
   );
 }

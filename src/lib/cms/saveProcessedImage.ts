@@ -3,12 +3,13 @@ import "server-only";
 import { access, mkdir, writeFile } from "fs/promises";
 import path from "path";
 import { getDeploymentRoot } from "@/app/utils/deploymentRoot";
-import { registerUpload } from "@/lib/cms/uploadService";
+import { registerUpload, updateUploadSize } from "@/lib/cms/uploadService";
 import {
   buildUploadFileName,
   type UploadContext,
 } from "@/lib/cms/imageUploadTypes";
 import { processImageBuffer } from "@/lib/cms/processImageBuffer";
+import { finalizeSavedUpload } from "@/lib/cms/uploadImageFinalize";
 import { resolvePathInsideRoot, validateImageMagicBytes } from "@/lib/security";
 
 export type SavedImage = {
@@ -60,15 +61,7 @@ export async function saveProcessedImage(input: {
 
   const publicUrl = `/uploads/${year}/${month}/${fileName}`;
 
-  await registerUpload({
-    url: publicUrl,
-    fileName,
-    filePath,
-    mimeType: processed.mimeType,
-    size: processed.buffer.length,
-  });
-
-  return {
+  const initial: SavedImage = {
     url: publicUrl,
     fileName,
     filePath,
@@ -77,4 +70,18 @@ export async function saveProcessedImage(input: {
     width: processed.width,
     height: processed.height,
   };
+
+  await registerUpload({
+    url: publicUrl,
+    fileName,
+    filePath,
+    mimeType: processed.mimeType,
+    size: processed.buffer.length,
+  });
+
+  const finalized = await finalizeSavedUpload(initial, input.context);
+  if (finalized.size !== initial.size) {
+    await updateUploadSize(publicUrl, finalized.size);
+  }
+  return finalized;
 }

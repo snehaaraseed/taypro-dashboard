@@ -14,6 +14,7 @@ import {
   urlToReportFilename,
 } from "@/lib/seo/pagespeed-paths";
 import { fetchPageSpeedInsightsRateLimited } from "@/lib/seo/pagespeed-psi-client";
+import { syncPagespeedAlerts } from "@/lib/seo/pagespeed-alerts";
 import {
   applyPreviousScores,
   buildFixClusters,
@@ -274,6 +275,12 @@ export async function runPagespeedAudit(
 
     const summaryPath = resolvePagespeedSummaryPath();
     writeJson(summaryPath, summary);
+    const alerts = syncPagespeedAlerts(pages, runId);
+    if (alerts.alerts.length > 0) {
+      console.warn(
+        `[pagespeed] ${alerts.alerts.length} performance alert(s) (${alerts.newAlertCount} new, ${alerts.resolvedCount} resolved)`
+      );
+    }
     pruneOldRuns(3);
 
     writeStatus({

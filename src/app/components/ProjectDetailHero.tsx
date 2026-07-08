@@ -5,6 +5,7 @@ import { ProjectDetailChips } from "@/app/components/ProjectDetailChips";
 import { ProjectHeroStats } from "@/app/components/ProjectHeroStats";
 import type { ProjectHeroStat } from "@/lib/cms/project-detail-display";
 import { shouldServeImageUnoptimized } from "@/lib/site-images";
+import { normalizeCmsImageSrc } from "@/lib/seo/cms-image-rewrites";
 
 const FALLBACK_HERO_IMAGE = "/tayprobglayout/taypro-project.png";
 
@@ -44,7 +45,7 @@ export function ProjectDetailHero({
   authorRole,
   waveFill = "#ffffff",
 }: ProjectDetailHeroProps) {
-  const heroImage = image?.trim() || FALLBACK_HERO_IMAGE;
+  const heroImage = normalizeCmsImageSrc(image?.trim() || FALLBACK_HERO_IMAGE);
 
   return (
     <section className="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden">

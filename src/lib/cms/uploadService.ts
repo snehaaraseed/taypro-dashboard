@@ -1,6 +1,6 @@
 import "server-only";
 
-import { desc } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 import { getDb } from "@/lib/db";
 import { uploads } from "@/lib/db/schema";
 
@@ -31,6 +31,11 @@ export async function registerUpload(input: {
       uploadedAt: now,
     })
     .onConflictDoNothing();
+}
+
+export async function updateUploadSize(url: string, size: number): Promise<void> {
+  const db = getDb();
+  await db.update(uploads).set({ size }).where(eq(uploads.url, url));
 }
 
 export async function listUploads(limit = 3000): Promise<UploadRecord[]> {

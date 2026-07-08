@@ -1,6 +1,10 @@
 import "server-only";
 
 import type { CategoryPulseMetrics } from "@/lib/insights/category-pulse-data";
+import {
+  assessReadability,
+  type ReadabilityMetrics,
+} from "@/lib/seo/readability";
 
 const REQUIRED_H2 = [
   "Overview",
@@ -29,14 +33,26 @@ function numberMatchesAllowed(value: number, allowed: number[]): boolean {
 }
 
 export type CategoryPulseValidationResult =
-  | { ok: true }
-  | { ok: false; errors: string[] };
+  | {
+      ok: true;
+      warnings?: string[];
+      readability?: ReadabilityMetrics;
+    }
+  | {
+      ok: false;
+      errors: string[];
+      warnings?: string[];
+      readability?: ReadabilityMetrics;
+    };
 
 export function validateCategoryPulseContent(
   content: string,
   metrics: CategoryPulseMetrics
 ): CategoryPulseValidationResult {
   const errors: string[] = [];
+  const readability = assessReadability(content);
+  const warnings = readability.warnings;
+  errors.push(...readability.blockers);
 
   for (const heading of REQUIRED_H2) {
     if (!content.includes(`<h2>${heading}</h2>`)) {
@@ -74,7 +90,12 @@ export function validateCategoryPulseContent(
   }
 
   if (errors.length > 0) {
-    return { ok: false, errors };
+    return {
+      ok: false,
+      errors,
+      warnings,
+      readability: readability.metrics,
+    };
   }
-  return { ok: true };
+  return { ok: true, warnings, readability: readability.metrics };
 }

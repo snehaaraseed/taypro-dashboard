@@ -30,6 +30,32 @@ type FixCluster = {
   sampleUrl: string;
 };
 
+type PagespeedAlert = {
+  id: string;
+  url: string;
+  pathname: string;
+  template: string;
+  reason: string;
+  severity: "critical" | "warning";
+  mobileScore: number | null;
+  previousMobileScore?: number;
+  scoreDelta?: number;
+  lcpMs: number | null;
+  gscImpressions: number;
+  gscClicks: number;
+  impactScore: number;
+  topOpportunity?: string;
+  createdAt: string;
+};
+
+type AlertsSnapshot = {
+  runId: string;
+  updatedAt: string;
+  alerts: PagespeedAlert[];
+  newAlertCount: number;
+  resolvedCount: number;
+};
+
 type TemplateGroup = {
   template: string;
   pageCount: number;
@@ -68,6 +94,7 @@ function formatDelta(delta?: number): string {
 
 export default function AdminPerformancePage() {
   const [data, setData] = useState<Summary | null>(null);
+  const [alerts, setAlerts] = useState<AlertsSnapshot | null>(null);
   const [loading, setLoading] = useState(true);
   const [running, setRunning] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -81,15 +108,23 @@ export default function AdminPerformancePage() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("/api/admin/pagespeed/summary", {
-        credentials: "include",
-      });
-      if (res.status === 404) {
+      const [summaryRes, alertsRes] = await Promise.all([
+        fetch("/api/admin/pagespeed/summary", { credentials: "include" }),
+        fetch("/api/admin/pagespeed/alerts", { credentials: "include" }),
+      ]);
+      if (summaryRes.status === 404) {
         setData(null);
-        return;
+      } else if (!summaryRes.ok) {
+        throw new Error("Failed to load PageSpeed report");
+      } else {
+        setData(await summaryRes.json());
       }
-      if (!res.ok) throw new Error("Failed to load PageSpeed report");
-      setData(await res.json());
+
+      if (alertsRes.ok) {
+        setAlerts(await alertsRes.json());
+      } else {
+        setAlerts(null);
+      }
     } catch (e) {
       setError(e instanceof Error ? e.message : "Load failed");
     } finally {
@@ -200,6 +235,85 @@ export default function AdminPerformancePage() {
             URLs ({data.scope.auditScope}, {data.scope.strategy})
             {data.previousRunId ? ` · prev ${data.previousRunId}` : ""}
           </p>
+
+          {alerts && alerts.alerts.length > 0 ? (
+            <div className="mb-6 border border-amber-200 bg-amber-50 rounded-lg p-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <h2 className="text-sm font-semibold text-amber-900">
+                  Performance alerts ({alerts.alerts.length})
+                </h2>
+                <p className="text-xs text-amber-800">
+                  {alerts.newAlertCount} new · {alerts.resolvedCount} resolved
+                  since last run
+                </p>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead className="text-left text-amber-900/80">
+                    <tr>
+                      <th className="px-2 py-1 font-medium">Page</th>
+                      <th className="px-2 py-1 font-medium">Severity</th>
+                      <th className="px-2 py-1 font-medium">Reason</th>
+                      <th className="px-2 py-1 font-medium">Score</th>
+                      <th className="px-2 py-1 font-medium">LCP</th>
+                      <th className="px-2 py-1 font-medium">GSC imp</th>
+                      <th className="px-2 py-1 font-medium">Impact</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {alerts.alerts.slice(0, 12).map((alert) => (
+                      <tr key={alert.id} className="border-t border-amber-100">
+                        <td className="px-2 py-2 max-w-xs truncate">
+                          <a
+                            href={alert.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-amber-900 hover:underline"
+                            title={alert.url}
+                          >
+                            {alert.pathname}
+                          </a>
+                        </td>
+                        <td className="px-2 py-2">
+                          <span
+                            className={
+                              alert.severity === "critical"
+                                ? "text-red-700 font-medium"
+                                : "text-amber-800"
+                            }
+                          >
+                            {alert.severity}
+                          </span>
+                        </td>
+                        <td className="px-2 py-2 text-amber-900">
+                          {alert.reason.replace(/_/g, " ")}
+                        </td>
+                        <td className="px-2 py-2">
+                          {alert.mobileScore ?? "—"}
+                          {alert.scoreDelta != null ? (
+                            <span className="text-xs text-amber-800 ml-1">
+                              ({formatDelta(alert.scoreDelta)})
+                            </span>
+                          ) : null}
+                        </td>
+                        <td className="px-2 py-2">
+                          {alert.lcpMs != null
+                            ? `${(alert.lcpMs / 1000).toFixed(1)}s`
+                            : "—"}
+                        </td>
+                        <td className="px-2 py-2">
+                          {alert.gscImpressions.toLocaleString()}
+                        </td>
+                        <td className="px-2 py-2 font-medium">
+                          {alert.impactScore.toLocaleString()}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ) : null}
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             <div className="border rounded-lg p-4 bg-white">

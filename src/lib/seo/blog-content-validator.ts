@@ -24,6 +24,10 @@ import {
   isNarrativeBlogFormat,
   type BlogContentFormat,
 } from "@/lib/seo/blog-content-format";
+import {
+  assessReadability,
+  type ReadabilityMetrics,
+} from "@/lib/seo/readability";
 
 export class BlogContentValidationError extends Error {
   readonly issues: string[];
@@ -54,8 +58,17 @@ export type BlogContentValidationInput = {
 };
 
 export type BlogContentValidationResult =
-  | { ok: true }
-  | { ok: false; issues: string[] };
+  | {
+      ok: true;
+      warnings?: string[];
+      readability?: ReadabilityMetrics;
+    }
+  | {
+      ok: false;
+      issues: string[];
+      warnings?: string[];
+      readability?: ReadabilityMetrics;
+    };
 
 const QUICK_ANSWER_H2 =
   /quick answer|summary for plant managers/i;
@@ -225,6 +238,9 @@ export function validateGeneratedBlog(
   const minWords = wordPolicy.minWords;
   const structure = resolveBlogStructurePolicy(wordPolicy.tier);
   const narrative = isNarrativeBlogFormat(input.contentFormat);
+  const readability = assessReadability(input.content);
+  const warnings = readability.warnings;
+  issues.push(...readability.blockers);
 
   if (wordCount < minWords) {
     issues.push(
@@ -386,9 +402,14 @@ export function validateGeneratedBlog(
   }
 
   if (issues.length > 0) {
-    return { ok: false, issues };
+    return {
+      ok: false,
+      issues,
+      warnings,
+      readability: readability.metrics,
+    };
   }
-  return { ok: true };
+  return { ok: true, warnings, readability: readability.metrics };
 }
 
 export function assertGeneratedBlogValid(

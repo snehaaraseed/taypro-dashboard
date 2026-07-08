@@ -1,8 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useMemo } from "react";
+import { useMemo } from "react";
+import { BlogImage } from "@/app/components/BlogImage";
 import { repairInlineImgAlts } from "@/lib/seo/blog-inline-img-alt";
 import { rewriteCmsImageSrcs } from "@/lib/seo/cms-image-rewrites";
+import { parseBlogContentSegments } from "@/lib/seo/parse-blog-content-segments";
 import { sanitizeBlogHtml } from "@/lib/security/sanitize-html";
 
 interface BlogContentProps {
@@ -27,43 +29,64 @@ export function BlogContent({
   className = "",
   imageAltContext,
 }: BlogContentProps) {
-  const contentRef = useRef<HTMLDivElement>(null);
-  const isMountedRef = useRef(false);
-  const safeHtml = useMemo(() => {
+  const segments = useMemo(() => {
     const normalized = rewriteCmsImageSrcs(content);
     const withAlts = imageAltContext
       ? repairInlineImgAlts(normalized, imageAltContext)
       : normalized;
-    return wrapCmsTables(sanitizeBlogHtml(withAlts));
+    const sanitized = wrapCmsTables(sanitizeBlogHtml(withAlts));
+    return parseBlogContentSegments(sanitized);
   }, [content, imageAltContext]);
 
-  useEffect(() => {
-    isMountedRef.current = true;
-
-    if (!contentRef.current) return;
-
-    const images = contentRef.current.querySelectorAll("img");
-    images.forEach((img) => {
-      if (!img.hasAttribute("data-error-handler")) {
-        img.setAttribute("data-error-handler", "true");
-        img.addEventListener("error", function () {
-          this.style.display = "none";
-          const fallback = document.createElement("div");
-          fallback.className =
-            "w-full h-48 flex items-center justify-center bg-gray-200 text-gray-500 rounded-lg";
-          fallback.textContent = "Image not available";
-          this.parentNode?.replaceChild(fallback, this);
-        });
-      }
-    });
-  }, [content]);
-
   return (
-    <div
-      ref={contentRef}
-      className={className}
-      dangerouslySetInnerHTML={{ __html: safeHtml }}
-      suppressHydrationWarning
-    />
+    <div className={className} suppressHydrationWarning>
+      {segments.map((segment, index) => {
+        if (segment.kind === "html") {
+          if (!segment.html.trim()) return null;
+          return (
+            <div
+              key={`html-${index}`}
+              dangerouslySetInnerHTML={{ __html: segment.html }}
+              suppressHydrationWarning
+            />
+          );
+        }
+
+        if (!segment.src) return null;
+
+        const aspectClass =
+          segment.width && segment.height
+            ? ""
+            : "relative w-full aspect-[16/9] overflow-hidden rounded-lg";
+
+        return (
+          <figure
+            key={`img-${index}-${segment.src}`}
+            className="blog-inline-figure my-8"
+          >
+            <div className={aspectClass || "relative w-full overflow-hidden rounded-lg"}>
+              <BlogImage
+                src={segment.src}
+                alt={segment.alt}
+                fill={!segment.width || !segment.height}
+                width={segment.width}
+                height={segment.height}
+                className={
+                  segment.width && segment.height
+                    ? `${segment.className} h-auto w-full`
+                    : `object-cover ${segment.className}`
+                }
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 896px"
+              />
+            </div>
+            {segment.caption ? (
+              <figcaption className="text-sm text-gray-600 mt-2 text-center">
+                {segment.caption}
+              </figcaption>
+            ) : null}
+          </figure>
+        );
+      })}
+    </div>
   );
 }

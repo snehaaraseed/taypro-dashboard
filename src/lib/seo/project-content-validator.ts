@@ -5,6 +5,10 @@ import { assertFactsReflectedInContent } from "@/lib/cms/project-facts";
 import { extractH2Headings, stripHtmlToPlainText } from "@/lib/seo/blog-similarity";
 import { findInlineImgAltIssue } from "@/lib/seo/blog-body-hygiene";
 import { resolveProjectWordCountPolicy } from "@/lib/seo/project-content-outline";
+import {
+  assessReadability,
+  type ReadabilityMetrics,
+} from "@/lib/seo/readability";
 
 export class ProjectContentValidationError extends Error {
   readonly issues: string[];
@@ -30,6 +34,19 @@ export type ProjectContentValidationInput = {
   previousWordCount?: number;
   allowShrink?: boolean;
 };
+
+export type ProjectContentValidationResult =
+  | {
+      ok: true;
+      warnings?: string[];
+      readability?: ReadabilityMetrics;
+    }
+  | {
+      ok: false;
+      issues: string[];
+      warnings?: string[];
+      readability?: ReadabilityMetrics;
+    };
 
 function countWords(text: string): number {
   return text.split(/\s+/).filter(Boolean).length;
@@ -118,7 +135,7 @@ function hasMonthlyPickAndPlaceCadenceLanguage(text: string): boolean {
 
 export function validateGeneratedProject(
   input: ProjectContentValidationInput
-): { ok: true } | { ok: false; issues: string[] } {
+): ProjectContentValidationResult {
   const issues: string[] = [];
   const policy = resolveProjectWordCountPolicy(
     input.facts,
@@ -127,6 +144,9 @@ export function validateGeneratedProject(
   );
   const plain = stripHtmlToPlainText(input.content);
   const wordCount = countWords(plain);
+  const readability = assessReadability(input.content);
+  const warnings = readability.warnings;
+  issues.push(...readability.blockers);
 
   if (wordCount < policy.publishMin) {
     issues.push(
@@ -209,9 +229,14 @@ export function validateGeneratedProject(
   }
 
   if (issues.length > 0) {
-    return { ok: false, issues };
+    return {
+      ok: false,
+      issues,
+      warnings,
+      readability: readability.metrics,
+    };
   }
-  return { ok: true };
+  return { ok: true, warnings, readability: readability.metrics };
 }
 
 export function assertGeneratedProjectValid(

@@ -6,6 +6,7 @@ import { getTranslations } from "next-intl/server";
 import { formatLocaleDate } from "@/i18n/format-date";
 import { listAllBlogs } from "@/lib/cms/blogService";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
+import { BlogImage } from "@/app/components/BlogImage";
 import { NewsletterSubscribeCard } from "@/app/components/NewsletterSubscribeCard";
 import { ProfilePageSchema } from "@/app/components/StructuredData";
 import {
@@ -14,7 +15,6 @@ import {
 } from "@/app/data/blogAuthors";
 import { getStoredAuthors } from "@/app/utils/blogAuthorsStore";
 import { getBlogFeaturedImageAlt } from "@/app/utils/imageAlt";
-import { shouldServeImageUnoptimized } from "@/lib/site-images";
 import { withHreflang } from "@/lib/seo/with-hreflang";
 import { canonicalBlogHref } from "@/lib/seo/redirected-blog-slugs";
 
@@ -246,13 +246,12 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
               >
                 <div className="relative h-52 bg-gray-100">
                   {blog.featuredImage ? (
-                    <Image
+                    <BlogImage
                       src={blog.featuredImage}
                       alt={getBlogFeaturedImageAlt(blog)}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 1024px) 100vw, 33vw"
-                      unoptimized={shouldServeImageUnoptimized(blog.featuredImage)}
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-gray-400">

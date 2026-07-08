@@ -145,6 +145,8 @@ export default function SiteLeadSlideIn() {
       tryOpen();
     }, DWELL_MS);
 
+    let initTimer: number | undefined;
+
     const onScroll = () => {
       const doc = document.documentElement;
       const scrollable = doc.scrollHeight - window.innerHeight;
@@ -157,11 +159,12 @@ export default function SiteLeadSlideIn() {
       tryOpen();
     };
 
-    onScroll();
+    initTimer = window.setTimeout(onScroll, 100);
     window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => {
       window.clearTimeout(t);
+      if (initTimer) window.clearTimeout(initTimer);
       window.removeEventListener("scroll", onScroll);
     };
   }, [eligible, tryOpen]);
