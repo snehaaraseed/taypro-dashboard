@@ -30,7 +30,7 @@ import {
 } from "@/lib/erpnext/job-openings";
 import { formatLocaleDate } from "@/i18n/format-date";
 
-export const revalidate = 300;
+export const dynamic = "force-dynamic";
 
 const STAT_LABEL_KEYS = [
   "statsStrip.robotCapacityDeployed",
@@ -96,7 +96,7 @@ export default async function CareersPage({
   let loadError = false;
 
   try {
-    jobs = await listOpenJobOpenings();
+    jobs = await listOpenJobOpenings({ fresh: true });
   } catch (error) {
     loadError = true;
     console.error("Careers listing ERPNext error:", error);

@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const openJob = await getJobOpeningByName(jobOpening, true);
+    const openJob = await getJobOpeningByName(jobOpening, true, { fresh: true });
     if (!openJob) {
       return NextResponse.json(
         {

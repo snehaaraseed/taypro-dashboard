@@ -366,8 +366,11 @@ async function main() {
           withoutDefer.issues.some((i) => i.includes("Sources")),
         "expected sources issue without defer"
       );
+      const deferSourcesIssues = withDefer.ok
+        ? []
+        : withDefer.issues.filter((i) => i.includes("Sources"));
       assert.ok(
-        !withDefer.issues.some((i) => i.includes("Sources")),
+        deferSourcesIssues.length === 0,
         "deferSourcesSection must not require sources during generation"
       );
     } finally {

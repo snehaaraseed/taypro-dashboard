@@ -194,6 +194,25 @@
       "thankYouTitle": "Application received",
       "thankYouMessage": "Thank you for applying. Our HR team will review your profile and contact you if there is a match.",
       "submitAnother": "Submit another application"
+    },
+    "assessment": {
+      "invalidLinkTitle": "Invalid assessment link",
+      "invalidLinkMessage": "Please use the link from your application email. If you already applied, check your inbox for the message from Taypro HR.",
+      "backToCareers": "View careers",
+      "title": "Role Fit Assessment",
+      "greeting": "Hello {name},",
+      "introFallback": "Please complete this short questionnaire so we can understand your skills and work style. This is a standard step for every candidate.",
+      "duration": "Estimated time: {minutes} minutes",
+      "loading": "Loading assessment…",
+      "loadError": "Could not load this assessment. Please try the link from your email again.",
+      "requiredQuestion": "Please answer question {number}.",
+      "submit": "Submit assessment",
+      "submitting": "Submitting…",
+      "submitError": "We could not submit your assessment. Please try again.",
+      "thankYouTitle": "Thank you",
+      "thankYouMessage": "Your assessment has been submitted. Our HR team will review your application and contact you if your profile matches the role.",
+      "alreadyDoneTitle": "Assessment already submitted",
+      "alreadyDoneMessage": "Thank you, {name}. Your assessment has already been submitted (status: {status})."
     }
   }
 }

@@ -20,7 +20,7 @@ import { sanitizeBlogHtml } from "@/lib/security/sanitize-html";
 import { withHreflang } from "@/lib/seo/with-hreflang";
 import { SITE_URL } from "@/lib/seo/sitemap-config";
 
-export const revalidate = 300;
+export const dynamic = "force-dynamic";
 
 type CareersDetailParams = {
   locale: string;
@@ -32,12 +32,13 @@ function stripHtml(html: string): string {
 }
 
 async function resolveJobForRoute(routeKey: string) {
-  const openJob = await getJobOpeningByRoute(routeKey);
+  const fresh = { fresh: true as const };
+  const openJob = await getJobOpeningByRoute(routeKey, fresh);
   if (openJob) {
     return { job: openJob, isOpen: true as const };
   }
 
-  const anyStatusJob = await getJobOpeningByRouteAnyStatus(routeKey);
+  const anyStatusJob = await getJobOpeningByRouteAnyStatus(routeKey, fresh);
   if (anyStatusJob && !isJobOpeningOpen(anyStatusJob)) {
     return { job: anyStatusJob, isOpen: false as const };
   }

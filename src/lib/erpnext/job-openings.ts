@@ -1,7 +1,23 @@
 import { erpnextFetch } from "./client";
 import type { FrappeListResponse, JobOpening } from "./types";
 
-export const JOB_OPENINGS_REVALIDATE_SECONDS = 300;
+/** Sitemap and other background jobs — careers pages fetch fresh on each request. */
+export const JOB_OPENINGS_REVALIDATE_SECONDS = 3600;
+export const JOB_OPENINGS_CACHE_TAG = "erpnext-job-openings";
+
+type JobOpeningsFetchMode = "cached" | "fresh";
+
+function jobOpeningsFetchOptions(mode: JobOpeningsFetchMode) {
+  if (mode === "fresh") {
+    return { cache: "no-store" as const };
+  }
+  return {
+    next: {
+      revalidate: JOB_OPENINGS_REVALIDATE_SECONDS,
+      tags: [JOB_OPENINGS_CACHE_TAG],
+    },
+  };
+}
 
 const JOB_OPENING_FIELDS = [
   "name",
@@ -38,26 +54,27 @@ export function isJobOpeningOpen(job: JobOpening): boolean {
   return job.status?.trim().toLowerCase() === "open";
 }
 
-const fetchOptions = {
-  next: { revalidate: JOB_OPENINGS_REVALIDATE_SECONDS, tags: ["erpnext-job-openings"] },
-};
-
-export async function listOpenJobOpenings(): Promise<JobOpening[]> {
+export async function listOpenJobOpenings(
+  options?: { fresh?: boolean }
+): Promise<JobOpening[]> {
+  const mode: JobOpeningsFetchMode = options?.fresh ? "fresh" : "cached";
   const result = await erpnextFetch<FrappeListResponse<JobOpening>>(
     buildListQuery(),
-    fetchOptions
+    jobOpeningsFetchOptions(mode)
   );
   return result.data ?? [];
 }
 
 async function fetchJobOpeningByRouteKey(
   route: string,
-  openOnly: boolean
+  openOnly: boolean,
+  mode: JobOpeningsFetchMode = "cached"
 ): Promise<JobOpening | null> {
   const normalized = route.trim();
   if (!normalized) return null;
 
   const queryOptions = { openOnly };
+  const fetchOptions = jobOpeningsFetchOptions(mode);
 
   const byRoute = await erpnextFetch<FrappeListResponse<JobOpening>>(
     buildListQuery([["route", "=", normalized]], queryOptions),
@@ -72,27 +89,35 @@ async function fetchJobOpeningByRouteKey(
   return byName.data?.[0] ?? null;
 }
 
-export async function getJobOpeningByRoute(route: string): Promise<JobOpening | null> {
-  return fetchJobOpeningByRouteKey(route, true);
+export async function getJobOpeningByRoute(
+  route: string,
+  options?: { fresh?: boolean }
+): Promise<JobOpening | null> {
+  const mode: JobOpeningsFetchMode = options?.fresh ? "fresh" : "cached";
+  return fetchJobOpeningByRouteKey(route, true, mode);
 }
 
 /** Includes filled/closed roles, used for redirects off stale job URLs. */
 export async function getJobOpeningByRouteAnyStatus(
-  route: string
+  route: string,
+  options?: { fresh?: boolean }
 ): Promise<JobOpening | null> {
-  return fetchJobOpeningByRouteKey(route, false);
+  const mode: JobOpeningsFetchMode = options?.fresh ? "fresh" : "cached";
+  return fetchJobOpeningByRouteKey(route, false, mode);
 }
 
 export async function getJobOpeningByName(
   name: string,
-  openOnly = true
+  openOnly = true,
+  options?: { fresh?: boolean }
 ): Promise<JobOpening | null> {
   const normalized = name.trim();
   if (!normalized) return null;
 
+  const mode: JobOpeningsFetchMode = options?.fresh ? "fresh" : "cached";
   const result = await erpnextFetch<FrappeListResponse<JobOpening>>(
     buildListQuery([["name", "=", normalized]], { openOnly }),
-    fetchOptions
+    jobOpeningsFetchOptions(mode)
   );
   return result.data?.[0] ?? null;
 }
