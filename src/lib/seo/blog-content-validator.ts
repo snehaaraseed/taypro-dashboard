@@ -55,6 +55,8 @@ export type BlogContentValidationInput = {
   contentFormat?: BlogContentFormat;
   /** Byline for E-E-A-T checks on automated drafts. */
   author?: string;
+  /** Sources block is appended later via enrichWithInlineCitations in automation. */
+  deferSourcesSection?: boolean;
 };
 
 export type BlogContentValidationResult =
@@ -395,7 +397,11 @@ export function validateGeneratedBlog(
     issues.push("Author byline must be at least 3 characters for E-E-A-T");
   }
 
-  if (inlineCitationsEnabled() && !contentHasSourcesSection(input.content)) {
+  if (
+    !input.deferSourcesSection &&
+    inlineCitationsEnabled() &&
+    !contentHasSourcesSection(input.content)
+  ) {
     issues.push(
       'Missing grounded "Sources and further reading" section for E-E-A-T'
     );

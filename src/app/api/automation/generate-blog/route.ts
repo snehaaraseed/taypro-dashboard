@@ -150,6 +150,7 @@ import {
   rankJudgeFailureMessage,
 } from "@/lib/seo/rank-readiness-judge";
 import { enrichWithInlineCitations } from "@/lib/seo/inline-citations";
+import { assertGeneratedBlogValid } from "@/lib/seo/blog-content-validator";
 import { getGeminiKeyPoolSize } from "@/lib/gemini/api-keys";
 import {
   DEFAULT_GEMMA_TEXT_MODEL,
@@ -1325,6 +1326,22 @@ export async function POST(request: NextRequest) {
             `[generate-blog] Citations: ${citations.citationCount} inline + ${citations.sourceCount} sources (${citations.mode})`
           );
         }
+
+        assertGeneratedBlogValid({
+          title: blogData.title,
+          description: blogData.description,
+          content: blogData.content,
+          faqs: blogData.faqs,
+          slug,
+          primaryKeyword:
+            topic.seoBrief?.primary || topic.seoKeyword || blogData.title,
+          searchIntent: topic.seoBrief?.searchIntent,
+          angleId: writerOptions.angleId,
+          volumeBucket: topic.seoBrief?.volumeBucket,
+          competitionIndex: topic.seoBrief?.competitionIndex,
+          contentFormat,
+          author: bylineAuthor.name,
+        });
 
         const featured = await pickBlogFeaturedImage({
           title: blogData.title,

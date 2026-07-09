@@ -9,6 +9,7 @@ import {
   PUNCTUATION_RULES,
   SEO_AND_READER_RULES,
 } from "@/lib/seo/content-quality";
+import { READABILITY_PUBLISH_RULES } from "@/lib/seo/readability";
 import type { BlogStructurePolicy } from "@/lib/seo/blog-word-count-tier";
 
 export type SectionWriterContext = {
@@ -105,6 +106,7 @@ ${bullets}
 ${introRule}
 ${PUNCTUATION_RULES}
 ${SEO_AND_READER_RULES}
+${READABILITY_PUBLISH_RULES}
 ${AI_OVERVIEW_SNIPPET_RULES}
 ${ctx.wordCountRules ?? LONG_FORM_CONTENT_RULES}
 

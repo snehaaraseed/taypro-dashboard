@@ -55,6 +55,13 @@ async function main() {
   const { buildCitationSources } = await import(
     "../src/lib/seo/inline-citations"
   );
+  const { validateGeneratedBlog } = await import(
+    "../src/lib/seo/blog-content-validator"
+  );
+  const {
+    isReadabilityOnlyFailure,
+    READABILITY_PUBLISH_RULES,
+  } = await import("../src/lib/seo/readability");
   const { judgeBlocksPublish, getRankJudgeMinScore } = await import(
     "../src/lib/seo/rank-readiness-judge"
   );
@@ -310,6 +317,78 @@ async function main() {
     assert.equal(sources.length, 2, "expect mnre (deduped) + cea, own dropped");
     assert.ok(sources.every((s) => !s.domain.includes("taypro")));
     assert.ok(sources.every((s) => s.uri && s.title));
+  });
+
+  ok("deferSourcesSection skips sources check during generation validation", () => {
+    const prev = process.env.BLOG_INLINE_CITATIONS;
+    process.env.BLOG_INLINE_CITATIONS = "true";
+    try {
+      const draft = {
+        title: "How often should you clean solar panels on a 50 MW plant?",
+        description:
+          "Cleaning frequency on utility-scale plants depends on soiling, season, and PR targets. Typical ranges for Indian dust belts and coastal sites explained.",
+        content:
+          "<p>Short answer: most 50 MW plants in dusty belts plan cleaning every two to four weeks during dry months.</p>" +
+          "<h2>Quick answer</h2><ul><li>2-4 week cycles</li><li>Track PR weekly</li><li>Adjust after storms</li></ul>" +
+          "<h2>How often should you clean solar panels on a 50 MW plant?</h2><p>Operators use soiling logs and PR trends.</p>" +
+          "<p>See <a href='/blog/monsoon-proofing-your-solar-cleaning-robot-fleet-for-indian-plants'>monsoon prep</a> and " +
+          "<a href='/blog/solar-panel-cleaning-frequency-india'>frequency guide</a>.</p>" +
+          "<h2>Key takeaways</h2><ul><li>Log soiling</li><li>Plan cycles</li><li>Review seasonally</li></ul>",
+        faqs: [
+          {
+            question: "How often should you clean solar panels on a 50 MW plant in India?",
+            answer: "Every two to four weeks in dusty dry seasons is typical.",
+          },
+          {
+            question: "Does monsoon rain replace manual cleaning on large plants?",
+            answer: "Rain helps but rarely restores full PR on flat arrays.",
+          },
+          {
+            question: "What PR drop triggers a cleaning cycle?",
+            answer: "Many teams act when PR falls 2-3% below baseline.",
+          },
+          {
+            question: "Are robots cheaper than manual crews at 50 MW?",
+            answer: "Robots cut water and night-shift labour on schedules.",
+          },
+        ],
+      };
+      const withoutDefer = validateGeneratedBlog({
+        ...draft,
+        deferSourcesSection: false,
+      });
+      const withDefer = validateGeneratedBlog({
+        ...draft,
+        deferSourcesSection: true,
+      });
+      assert.ok(
+        !withoutDefer.ok &&
+          withoutDefer.issues.some((i) => i.includes("Sources")),
+        "expected sources issue without defer"
+      );
+      assert.ok(
+        !withDefer.issues.some((i) => i.includes("Sources")),
+        "deferSourcesSection must not require sources during generation"
+      );
+    } finally {
+      if (prev === undefined) delete process.env.BLOG_INLINE_CITATIONS;
+      else process.env.BLOG_INLINE_CITATIONS = prev;
+    }
+  });
+
+  ok("isReadabilityOnlyFailure isolates dense-prose repair path", () => {
+    assert.ok(
+      isReadabilityOnlyFailure([
+        "Readability too dense for publish: Flesch-Kincaid grade 17 > 16",
+      ])
+    );
+    assert.ok(
+      !isReadabilityOnlyFailure([
+        "Readability too dense for publish: Flesch-Kincaid grade 17 > 16",
+        'Missing grounded "Sources and further reading" section for E-E-A-T',
+      ])
+    );
+    assert.ok(READABILITY_PUBLISH_RULES.includes("Flesch-Kincaid grade"));
   });
 
   ok("rank-judge blocks low scores, passes high (when it ran)", () => {

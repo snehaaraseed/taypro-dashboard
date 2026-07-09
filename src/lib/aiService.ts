@@ -80,6 +80,12 @@ import {
   sanitizeGeneratedBlogBodyHtml,
   stripPriorH2Sections,
 } from "@/lib/seo/blog-body-hygiene";
+import {
+  READABILITY_PUBLISH_RULES,
+  formatReadabilityRepairHint,
+  isReadabilityOnlyFailure,
+} from "@/lib/seo/readability";
+import { inlineCitationsEnabled } from "@/lib/seo/inline-citations";
 import { extractH2Headings, stripHtmlToPlainText } from "@/lib/seo/blog-similarity";
 import { trimSerpDescription } from "@/lib/seo/serp-description";
 import { parseBlogContentPlanJson } from "@/lib/seo/blog-content-plan";
@@ -747,6 +753,40 @@ ${draft.content}
 Return ONLY valid JSON with one key "html" (full article after opening/quick-answer fix):
 { "html": "<p>Intent-aligned opening.</p><h2>Quick answer</h2><ul><li>Bullet</li></ul>" }
 - Never use ellipsis placeholders like "..." inside JSON string values.`;
+
+  return rewriteBlogHtmlFromModel(prompt, draft, options);
+}
+
+async function repairBlogReadability(
+  draft: GeneratedBlogContent,
+  topic: string,
+  primaryKeyword: string | undefined,
+  validation: Extract<
+    ReturnType<typeof validateGeneratedBlog>,
+    { ok: false }
+  >,
+  options?: GenerateTextOptions
+): Promise<GeneratedBlogContent> {
+  const hint = validation.readability
+    ? formatReadabilityRepairHint(validation.readability, validation.issues)
+    : validation.issues.join("; ");
+  const prompt = `Rewrite this utility-scale solar blog for READABILITY only. Keep every fact, H2 heading, table, and internal link; do not shorten below the current depth.
+
+${READABILITY_PUBLISH_RULES}
+
+Title: ${draft.title}
+Working topic: ${topic}
+Primary SEO keyword: ${primaryKeyword?.trim() || "(none)"}
+
+${hint}
+
+HTML (shorten sentences and simplify wording; preserve structure):
+${draft.content}
+
+Return ONLY valid JSON with one key "html" (full article HTML after readability fix):
+{ "html": "<p>Same article with shorter sentences.</p>" }
+- Never use ellipsis placeholders like "..." inside JSON string values.
+- Use SINGLE quotes for every HTML attribute inside html.`;
 
   return rewriteBlogHtmlFromModel(prompt, draft, options);
 }
@@ -1445,6 +1485,7 @@ Requirements:
 ${ANTI_GENERIC_WRITING_RULES}
 ${PUNCTUATION_RULES}
 ${SEO_AND_READER_RULES}
+${READABILITY_PUBLISH_RULES}
 ${formatRules}
 ${wordCountRules}
 - Use this exact working title: "${topic}"
@@ -1457,7 +1498,6 @@ ${wordCountRules}
 - Use headings (H2, H3) for structure
 - Include bullet points and examples
 - Natural keyword integration (use the SEO target above when provided; also solar plant maintenance, solar O&M, etc.)
-- Good readability (aim for Flesch Reading Ease 60+)
 - Original content (do not copy from other sources)
 - Include practical tips and actionable insights
 - Cover overall solar power plant operations and maintenance when relevant
@@ -1682,6 +1722,7 @@ FAQ rules for the "faqs" array:
       competitionIndex: options?.competitionIndex ?? seoBrief?.competitionIndex,
       contentFormat: options?.contentFormat,
       author: options?.author?.name,
+      deferSourcesSection: inlineCitationsEnabled(),
     };
 
     let validation = validateGeneratedBlog(validationInput);
@@ -1780,6 +1821,35 @@ FAQ rules for the "faqs" array:
         }),
       };
       preserveLockedMetadata();
+      validation = validateGeneratedBlog({
+        ...validationInput,
+        title: result.title,
+        description: result.description,
+        content: result.content,
+        faqs: result.faqs,
+      });
+    }
+
+    if (
+      !validation.ok &&
+      isReadabilityOnlyFailure(validation.issues) &&
+      validation.readability
+    ) {
+      result = await repairBlogReadability(
+        result,
+        topic,
+        primaryKeyword,
+        validation,
+        textGenOptions
+      );
+      preserveLockedMetadata();
+      result = {
+        ...result,
+        content: sanitizeGeneratedBlogBodyHtml(result.content, {
+          title: result.title,
+          primaryKeyword,
+        }),
+      };
       validation = validateGeneratedBlog({
         ...validationInput,
         title: result.title,

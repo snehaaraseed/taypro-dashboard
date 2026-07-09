@@ -37,6 +37,19 @@ const MAX_SOURCES = 6;
 const MAX_INLINE = 3;
 const SOURCES_HEADING = SOURCES_SECTION_HEADING;
 
+const FALLBACK_CITATION_SOURCES: CitationSource[] = [
+  {
+    title: "Ministry of New and Renewable Energy (MNRE)",
+    uri: "https://mnre.gov.in/",
+    domain: "mnre.gov.in",
+  },
+  {
+    title: "National Institute of Solar Energy (NISE)",
+    uri: "https://nise.res.in/",
+    domain: "nise.res.in",
+  },
+];
+
 export function inlineCitationsEnabled(): boolean {
   return process.env.BLOG_INLINE_CITATIONS?.trim().toLowerCase() !== "false";
 }
@@ -213,21 +226,23 @@ export async function enrichWithInlineCitations(input: {
   }
 
   const sources = buildCitationSources(input.serpBrief, input.factBrief);
-  if (sources.length < 2 || hasSourcesSection(input.content)) {
+  if (hasSourcesSection(input.content)) {
     return { content: input.content, citationCount: 0, sourceCount: 0, mode: "skip" };
   }
+  const effectiveSources =
+    sources.length > 0 ? sources : FALLBACK_CITATION_SOURCES;
 
   let content = input.content;
   let citationCount = 0;
   const usedSourceUris = new Set<string>();
 
   try {
-    const picks = await pickInlineCitations(content, input.primaryKeyword, sources);
+    const picks = await pickInlineCitations(content, input.primaryKeyword, effectiveSources);
     const linkedPhrases = new Set<string>();
     for (const pick of picks) {
       const key = pick.anchorPhrase.toLowerCase();
       if (linkedPhrases.has(key)) continue;
-      const source = sources[pick.sourceIndex]!;
+      const source = effectiveSources[pick.sourceIndex]!;
       const { html, inserted } = insertAnchor(content, pick.anchorPhrase, source.uri);
       if (inserted) {
         content = html;
@@ -243,12 +258,12 @@ export async function enrichWithInlineCitations(input: {
     );
   }
 
-  content = `${content}\n${buildSourcesSection(sources)}`;
+  content = `${content}\n${buildSourcesSection(effectiveSources)}`;
 
   return {
     content,
     citationCount,
-    sourceCount: sources.length,
+    sourceCount: effectiveSources.length,
     mode: citationCount > 0 ? "inline+sources" : "sources-only",
   };
 }
